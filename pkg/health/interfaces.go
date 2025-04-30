@@ -7,114 +7,59 @@ import (
 	"time"
 )
 
-// Provider represents a health check provider.
-type Provider interface {
-	// Register registers a health check.
-	Register(name string, check Check, options ...CheckOption) error
+// CheckType identifies the purpose of a health check.
+type CheckType int
 
-	// Unregister removes a health check.
-	Unregister(name string) error
+const (
+	// TypeComponent indicates a check is for an internal component.
+	TypeComponent CheckType = iota
 
-	// Get retrieves a health check.
-	Get(name string) (Check, bool)
+	// TypeDependency indicates a check is for an external dependency.
+	TypeDependency
 
-	// CheckAll runs all health checks.
-	CheckAll(ctx context.Context) (Result, error)
+	// TypeLiveness indicates a check is used for liveness probing.
+	// Liveness checks determine if the application is running but may be temporarily unable to progress.
+	TypeLiveness
 
-	// CheckLiveness runs liveness checks.
-	CheckLiveness(ctx context.Context) (Result, error)
+	// TypeReadiness indicates a check is used for readiness probing.
+	// Readiness checks determine if the application is able to receive and process requests.
+	TypeReadiness
+)
 
-	// CheckReadiness runs readiness checks.
-	CheckReadiness(ctx context.Context) (Result, error)
-
-	// Handler returns an HTTP handler for health checks.
-	Handler() http.Handler
-
-	// Start starts background health checking.
-	Start(ctx context.Context) error
-
-	// Stop stops background health checking.
-	Stop(ctx context.Context) error
-
-	// AddListener adds a listener for health status changes.
-	AddListener(listener Listener) error
-
-	// RemoveListener removes a listener.
-	RemoveListener(listener Listener) error
+// String returns the string representation of a CheckType.
+func (t CheckType) String() string {
+	switch t {
+	case TypeComponent:
+		return "component"
+	case TypeDependency:
+		return "dependency"
+	case TypeLiveness:
+		return "liveness"
+	case TypeReadiness:
+		return "readiness"
+	default:
+		return "unknown"
+	}
 }
 
-// Check represents a health check.
-type Check interface {
-	// Execute runs the health check.
-	Execute(ctx context.Context) (Result, error)
-
-	// Name returns the check name.
-	Name() string
-
-	// Type returns the check type.
-	Type() CheckType
-
-	// Timeout returns the check timeout.
-	Timeout() time.Duration
-
-	// Interval returns the check interval.
-	Interval() time.Duration
-
-	// Enabled returns whether the check is enabled.
-	Enabled() bool
-
-	// SetEnabled sets whether the check is enabled.
-	SetEnabled(enabled bool)
-}
-
-// Result represents a health check result.
-type Result interface {
-	// Status returns the health status.
-	Status() Status
-
-	// Details returns the health details.
-	Details() map[string]interface{}
-
-	// Error returns the health check error.
-	Error() error
-
-	// Timestamp returns the check timestamp.
-	Timestamp() time.Time
-
-	// Duration returns the check duration.
-	Duration() time.Duration
-
-	// Check returns the check that produced this result.
-	Check() Check
-
-	// Children returns child results.
-	Children() []Result
-
-	// WithError sets an error for the result.
-	WithError(err error) Result
-
-	// WithDetails adds details to the result.
-	WithDetails(details map[string]interface{}) Result
-}
-
-// Status represents a health status.
+// Status represents the health status of a check or system.
 type Status int
 
 const (
-	// StatusUp indicates the component is healthy.
+	// StatusUp indicates the check passed and the component is healthy.
 	StatusUp Status = iota
 
-	// StatusDown indicates the component is unhealthy.
+	// StatusDown indicates the check failed and the component is unhealthy.
 	StatusDown
 
-	// StatusDegraded indicates the component is partially healthy.
+	// StatusDegraded indicates the check detected degraded performance or functionality.
 	StatusDegraded
 
-	// StatusUnknown indicates the component health is unknown.
+	// StatusUnknown indicates the check could not determine the health status.
 	StatusUnknown
 )
 
-// String returns the string representation of the health status.
+// String returns the string representation of a Status.
 func (s Status) String() string {
 	switch s {
 	case StatusUp:
@@ -130,112 +75,197 @@ func (s Status) String() string {
 	}
 }
 
-// CheckType represents a health check type.
-type CheckType int
+// Check defines the interface for health checks.
+// A Check represents a specific health verification that can be executed to determine
+// the health status of a component, dependency, or the overall system.
+type Check interface {
+	// Name returns the check's name, which should be unique within a Provider.
+	Name() string
 
-const (
-	// TypeLiveness indicates a liveness check.
-	TypeLiveness CheckType = iota
+	// Type returns the check's type, which categorizes its purpose.
+	Type() CheckType
 
-	// TypeReadiness indicates a readiness check.
-	TypeReadiness
+	// Timeout returns the maximum duration the check should run before timing out.
+	Timeout() time.Duration
 
-	// TypeComponent indicates a component check.
-	TypeComponent
+	// Interval returns the recommended interval between check executions.
+	Interval() time.Duration
 
-	// TypeDependency indicates a dependency check.
-	TypeDependency
-)
+	// Enabled returns whether the check is currently enabled.
+	Enabled() bool
 
-// String returns the string representation of the check type.
-func (t CheckType) String() string {
-	switch t {
-	case TypeLiveness:
-		return "LIVENESS"
-	case TypeReadiness:
-		return "READINESS"
-	case TypeComponent:
-		return "COMPONENT"
-	case TypeDependency:
-		return "DEPENDENCY"
-	default:
-		return "UNKNOWN"
-	}
+	// SetEnabled enables or disables the check.
+	SetEnabled(enabled bool)
+
+	// Execute runs the health check and returns the result.
+	// The provided context should be respected for cancellation and timeouts.
+	// Returns a Result containing the health status and an error if the check execution failed.
+	Execute(ctx context.Context) (Result, error)
 }
 
-// Listener represents a health status change listener.
+// Remediator defines the interface for checks that support automatic remediation.
+// A Remediator can attempt to fix issues detected during a health check execution.
+type Remediator interface {
+	// Remediate attempts to fix issues detected by the check.
+	// The provided Result contains information about the failure that may be useful for remediation.
+	// Returns an error if remediation fails or is not possible.
+	Remediate(ctx context.Context, result Result) error
+}
+
+// CheckFunc is a function that performs a health check.
+// The function should return a Result containing the health status and an error if the check execution failed.
+type CheckFunc func(ctx context.Context) (Result, error)
+
+// RemediationFunc is a function that performs remediation for a failed health check.
+// The function should attempt to fix the issues described in the Result and return an error if remediation fails.
+type RemediationFunc func(ctx context.Context, result Result) error
+
+// CheckOption is a function that configures a Check.
+// This is used with the functional options pattern to provide flexible configuration of checks.
+type CheckOption func(Check) error
+
+// Result defines the interface for health check results.
+// A Result represents the outcome of executing a health check and contains status information,
+// details, and metadata about the check execution.
+type Result interface {
+	// Status returns the health status determined by the check.
+	Status() Status
+
+	// Error returns any error encountered during the check execution.
+	// A nil error does not necessarily mean the check passed; check Status() for the actual health status.
+	Error() error
+
+	// Check returns a reference to the Check that produced this result, if available.
+	Check() Check
+
+	// Timestamp returns when the check was executed.
+	Timestamp() time.Time
+
+	// Duration returns how long the check took to execute.
+	Duration() time.Duration
+
+	// Children returns any child results if this Result is composite.
+	Children() []Result
+
+	// Details returns additional check-specific information.
+	// The contents are arbitrary and determined by each check implementation.
+	Details() map[string]interface{}
+
+	// WithError adds an error to this Result and returns the updated Result.
+	WithError(err error) Result
+
+	// WithCheck associates this Result with the Check that produced it and returns the updated Result.
+	WithCheck(check Check) Result
+
+	// WithDetails adds additional information to this Result and returns the updated Result.
+	WithDetails(details map[string]interface{}) Result
+
+	// WithDuration sets how long the check took to execute and returns the updated Result.
+	WithDuration(duration time.Duration) Result
+
+	// WithChildren adds child results to this Result and returns the updated Result.
+	WithChildren(children []Result) Result
+
+	// AddChild adds a single child Result and returns the updated Result.
+	AddChild(child Result) Result
+}
+
+// Provider defines the interface for a health check provider.
+// A Provider manages a collection of health checks and provides methods to execute them
+// and access their results. It serves as the central component of the health checking system.
+type Provider interface {
+	// Register adds a new check to the provider.
+	// The name must be unique within this provider.
+	// Returns an error if a check with the same name already exists.
+	Register(name string, check Check, options ...CheckOption) error
+
+	// Unregister removes a check from the provider.
+	// Returns an error if the check does not exist.
+	Unregister(name string) error
+
+	// Get returns a check by name.
+	// Returns the check and true if found, or nil and false if not found.
+	Get(name string) (Check, bool)
+
+	// CheckAll executes all registered checks and returns an aggregated result.
+	// The result's Status is the worst status among all executed checks.
+	CheckAll(ctx context.Context) (Result, error)
+
+	// CheckLiveness executes all checks of type TypeLiveness and returns an aggregated result.
+	// This is typically used by liveness probes in orchestration systems.
+	CheckLiveness(ctx context.Context) (Result, error)
+
+	// CheckReadiness executes all checks of type TypeReadiness and returns an aggregated result.
+	// This is typically used by readiness probes in orchestration systems.
+	CheckReadiness(ctx context.Context) (Result, error)
+
+	// Handler returns an HTTP handler that exposes health check endpoints.
+	// The handler provides endpoints for checking overall health, liveness, readiness, and detailed status.
+	Handler() http.Handler
+
+	// Start begins periodic background health checking.
+	// Each check is executed at its recommended interval.
+	// The provided context controls the overall lifecycle of background checking.
+	Start(ctx context.Context) error
+
+	// Stop terminates background health checking.
+	// Any in-progress checks will be allowed to complete.
+	Stop(ctx context.Context) error
+
+	// AddListener registers a listener to be notified of health status changes.
+	// Returns an error if the listener could not be added.
+	AddListener(listener Listener) error
+
+	// RemoveListener unregisters a previously added listener.
+	// Returns an error if the listener was not found.
+	RemoveListener(listener Listener) error
+}
+
+// Listener defines the interface for objects that receive health status change notifications.
+// Listeners are notified when a check's status changes, allowing for custom handling of health events.
 type Listener interface {
-	// OnStatusChange is called when a health status changes.
+	// OnStatusChange is called when a check's status changes.
+	// The name parameter identifies which check changed status.
+	// The previous and current parameters provide the old and new results.
 	OnStatusChange(name string, previous, current Result)
 }
 
-// CheckOption represents an option for a health check.
-type CheckOption func(Check) error
-
-// RemediationFunc represents a function that can remediate a failed health check.
-type RemediationFunc func(ctx context.Context, result Result) error
-
-// Config represents the health configuration.
+// Config defines the configuration options for a health check provider.
 type Config struct {
-	// Enabled specifies whether health checking is enabled.
-	Enabled bool
-
-	// Endpoint is the HTTP endpoint for health checks.
+	// Base path for health endpoints (default: "/")
 	Endpoint string
 
-	// CheckInterval is the interval for background health checking.
-	CheckInterval time.Duration
-
-	// DefaultTimeout is the default timeout for health checks.
-	DefaultTimeout time.Duration
-
-	// EnableLivenessEndpoint enables the liveness endpoint.
-	EnableLivenessEndpoint bool
-
-	// EnableReadinessEndpoint enables the readiness endpoint.
-	EnableReadinessEndpoint bool
-
-	// LivenessPath is the path for liveness checks.
+	// Path relative to Endpoint for liveness endpoint (default: "/live")
 	LivenessPath string
 
-	// ReadinessPath is the path for readiness checks.
+	// Path relative to Endpoint for readiness endpoint (default: "/ready")
 	ReadinessPath string
 
-	// MetricsEnabled enables health check metrics.
-	MetricsEnabled bool
+	// Path relative to Endpoint for detailed health info (default: "/details")
+	DetailsPath string
 
-	// LogStatusChanges indicates whether to log status changes.
+	// Enable the liveness endpoint (default: false)
+	EnableLivenessEndpoint bool
+
+	// Enable the readiness endpoint (default: false)
+	EnableReadinessEndpoint bool
+
+	// Require authentication for detailed health info (default: false)
+	RequireAuthentication bool
+
+	// Authentication header value to check if RequireAuthentication is true (default: "")
+	AuthHeader string
+
+	// AuthFunc is called to authenticate requests if RequireAuthentication is true
+	// If nil, simple header comparison with AuthHeader is used
+	AuthFunc func(r *http.Request) bool
+
+	// Interval for background health checks (default: 30s)
+	CheckInterval time.Duration
+
+	// Log status changes to health checks (default: false)
 	LogStatusChanges bool
 
-	// AutoRemediationEnabled enables automatic remediation.
-	AutoRemediationEnabled bool
-
-	// RequireAuthentication requires authentication for detailed health checks.
-	RequireAuthentication bool
-}
-
-// DefaultConfig returns the default health configuration.
-func DefaultConfig() Config {
-	return Config{
-		Enabled:               true,
-		Endpoint:              "/health",
-		CheckInterval:         30 * time.Second,
-		DefaultTimeout:        5 * time.Second,
-		EnableLivenessEndpoint: true,
-		EnableReadinessEndpoint: true,
-		LivenessPath:          "/live",
-		ReadinessPath:         "/ready",
-		MetricsEnabled:        true,
-		LogStatusChanges:      true,
-		AutoRemediationEnabled: false,
-		RequireAuthentication: false,
-	}
-}
-
-// CheckFunc is a function that implements the Check interface.
-type CheckFunc func(ctx context.Context) (Result, error)
-
-// Execute runs the health check function.
-func (f CheckFunc) Execute(ctx context.Context) (Result, error) {
-	return f(ctx)
+	// Enable Prometheus metrics for health checks (default: false)
+	MetricsEnabled bool
 }
