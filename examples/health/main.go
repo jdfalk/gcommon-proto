@@ -13,6 +13,9 @@ import (
 	"syscall"
 	"time"
 
+	"github.com/go-redis/redis/v8"
+	"github.com/prometheus/client_golang/prometheus"
+	"github.com/prometheus/client_golang/prometheus/promhttp"
 	"google.golang.org/grpc"
 	"google.golang.org/grpc/reflection"
 
@@ -42,6 +45,17 @@ func main() {
 		log.Fatalf("Failed to create health provider: %v", err)
 	}
 
+	// Create a Prometheus registry for metrics
+	registry := prometheus.NewRegistry()
+
+	// Create a Prometheus metrics provider
+	metricsProvider := health.NewPrometheusMetricsProvider(registry, "myapp")
+
+	// Enable metrics reporting
+	if err := health.EnableMetricsReporting(provider, metricsProvider); err != nil {
+		log.Fatalf("Failed to enable metrics reporting: %v", err)
+	}
+
 	// Register health checks
 
 	// System check - monitors memory and GC
@@ -51,10 +65,13 @@ func main() {
 	)
 	provider.Register("system", systemCheck, health.WithType(health.TypeLiveness))
 
-	// HTTP dependency check
-	httpCheck := checks.NewHTTPCheck("https://www.google.com",
+	// HTTP dependency check with automatic remediation
+	httpCheck := checks.NewRemediableHTTPCheck("https://www.google.com",
 		checks.WithTimeout(5*time.Second),
 		checks.WithExpectedStatus(http.StatusOK),
+		checks.WithAlternateURLs("https://www.cloudflare.com", "https://www.microsoft.com"),
+		checks.WithMaxRetries(3),
+		checks.WithRetryDelay(1*time.Second),
 	)
 	provider.Register("external-http", httpCheck, health.WithType(health.TypeReadiness))
 
@@ -64,6 +81,20 @@ func main() {
 		checks.WithRetries(2, 500*time.Millisecond),
 	)
 	provider.Register("external-tcp", tcpCheck, health.WithType(health.TypeReadiness))
+
+	// Redis check (using mock for example purposes)
+	redisOpts := &redis.UniversalOptions{
+		Addrs: []string{"localhost:6379"},
+		DB:    0,
+	}
+	redisCheck := checks.NewRedisCheck(nil,
+		checks.WithRedisOptions(redisOpts),
+		checks.WithRedisTimeout(3*time.Second),
+		checks.WithRedisKeyValidation("app:*", "session:*"),
+		checks.WithRedisMaxMemoryUsage(80),
+		checks.WithRedisCommand("dbsize", "DBSIZE"),
+	)
+	provider.Register("redis", redisCheck, health.WithType(health.TypeReadiness))
 
 	// Simple function check
 	provider.Register("custom", health.NewSimpleCheck("custom", func(ctx context.Context) (health.Result, error) {
@@ -84,6 +115,33 @@ func main() {
 	)
 	provider.Register("database", dbCheck, health.WithType(health.TypeReadiness))
 
+	// Set up remediation manager for automatic recovery
+	remediationConfig := health.DefaultRemediationConfig()
+	remediationConfig.Strategy = health.RemediationStrategyExponential
+	remediationConfig.MaxAttempts = 5
+	remediationConfig.InitialDelay = 1 * time.Second
+	remediationConfig.MaxDelay = 30 * time.Second
+	remediationConfig.BackoffFactor = 2.0
+
+	// Add remediation logging
+	remediationConfig.OnRemediationStart = func(name string, attempt int) {
+		log.Printf("Starting remediation for %s (attempt %d)", name, attempt)
+	}
+	remediationConfig.OnRemediationSuccess = func(name string, attempt int) {
+		log.Printf("Remediation successful for %s (attempt %d)", name, attempt)
+	}
+	remediationConfig.OnRemediationFailure = func(name string, attempt int, err error) {
+		log.Printf("Remediation failed for %s (attempt %d): %v", name, attempt, err)
+	}
+	remediationConfig.OnRemediationExhausted = func(name string, attempts int) {
+		log.Printf("Remediation exhausted for %s after %d attempts", name, attempts)
+	}
+
+	remediationMgr := health.NewRemediationManager(provider, remediationConfig)
+	if err := remediationMgr.Start(ctx); err != nil {
+		log.Fatalf("Failed to start remediation manager: %v", err)
+	}
+
 	// Start background health checking
 	if err := provider.Start(ctx); err != nil {
 		log.Fatalf("Failed to start health checker: %v", err)
@@ -95,7 +153,7 @@ func main() {
 	// Start HTTP server
 	httpServer := &http.Server{
 		Addr:    *httpAddr,
-		Handler: setupHTTPServer(provider),
+		Handler: setupHTTPServer(provider, registry),
 	}
 	go func() {
 		log.Printf("Starting HTTP server on %s", *httpAddr)
@@ -136,6 +194,11 @@ func main() {
 		log.Printf("Error stopping health checker: %v", err)
 	}
 
+	// Stop the remediation manager
+	if err := remediationMgr.Stop(ctx); err != nil {
+		log.Printf("Error stopping remediation manager: %v", err)
+	}
+
 	// Shutdown HTTP server
 	shutdownCtx, shutdownCancel := context.WithTimeout(context.Background(), 5*time.Second)
 	defer shutdownCancel()
@@ -149,16 +212,20 @@ func main() {
 }
 
 // setupHTTPServer configures the HTTP server with routes
-func setupHTTPServer(provider health.Provider) http.Handler {
+func setupHTTPServer(provider health.Provider, registry *prometheus.Registry) http.Handler {
 	mux := http.NewServeMux()
 
 	// Mount the health handler at the root health endpoint
 	mux.Handle("/health/", http.StripPrefix("/health", provider.Handler()))
 
+	// Add Prometheus metrics endpoint
+	mux.Handle("/metrics", promhttp.HandlerFor(registry, promhttp.HandlerOpts{}))
+
 	// Add other routes
 	mux.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {
 		w.Write([]byte("Health Check Example Service\n"))
 		w.Write([]byte("Visit /health for health status\n"))
+		w.Write([]byte("Visit /metrics for Prometheus metrics\n"))
 	})
 
 	return mux
