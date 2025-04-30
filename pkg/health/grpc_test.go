@@ -4,13 +4,19 @@ package health
 import (
 	"context"
 	"errors"
+	"fmt"
 	"net"
 	"net/http"
+	"sync"
 	"testing"
 	"time"
 
+	"github.com/stretchr/testify/assert"
+	"github.com/stretchr/testify/require"
 	"google.golang.org/grpc"
+	"google.golang.org/grpc/codes"
 	"google.golang.org/grpc/credentials/insecure"
+	"google.golang.org/grpc/status"
 	"google.golang.org/grpc/test/bufconn"
 
 	healthpb "github.com/jdfalk/gcommon/pkg/health/proto"
@@ -20,7 +26,10 @@ const bufSize = 1024 * 1024
 
 // setupGRPCServer creates a test gRPC server and client connection.
 func setupGRPCServer(provider Provider) (*grpc.Server, *grpc.ClientConn, error) {
+	// Create a buffer-based network connection
 	lis := bufconn.Listen(bufSize)
+
+	// Create a gRPC server
 	server := grpc.NewServer()
 
 	// Register health service
@@ -30,405 +39,478 @@ func setupGRPCServer(provider Provider) (*grpc.Server, *grpc.ClientConn, error) 
 	// Start server
 	go func() {
 		if err := server.Serve(lis); err != nil {
-			panic(err)
+			panic(fmt.Sprintf("Failed to serve: %v", err))
 		}
 	}()
 
-	// Create client connection
-	ctx := context.Background()
-	dialer := func(context.Context, string) (net.Conn, error) {
+	// Create a custom dialer using the buffer connection
+	bufDialer := func(context.Context, string) (net.Conn, error) {
 		return lis.Dial()
 	}
 
-	conn, err := grpc.DialContext(ctx, "bufnet",
-		grpc.WithContextDialer(dialer),
-		grpc.WithTransportCredentials(insecure.NewCredentials()))
-	if err != nil {
-		return nil, nil, err
-	}
+	// Create client connection
+	ctx := context.Background()
+	conn, err := grpc.DialContext(
+		ctx,
+		"bufnet",
+		grpc.WithContextDialer(bufDialer),
+		grpc.WithTransportCredentials(insecure.NewCredentials()),
+	)
 
-	return server, conn, nil
+	return server, conn, err
 }
 
 // TestGRPCServerCheck tests the Check RPC method.
 func TestGRPCServerCheck(t *testing.T) {
 	// Create a provider with some checks
-	provider, err := NewProvider(DefaultConfig())
-	if err != nil {
-		t.Fatalf("Failed to create provider: %v", err)
-	}
+	provider := NewProvider()
 
 	// Register some checks
-	provider.Register("up-check", NewSimpleCheck("up-check", func(ctx context.Context) (Result, error) {
-		return NewResult(StatusUp), nil
-	}), WithType(TypeLiveness))
+	upCheck := NewSimpleCheck("up-check", func(ctx context.Context) (Result, error) {
+		return NewResult(StatusUp).WithDetails(map[string]interface{}{
+			"info": "everything is fine",
+		}), nil
+	})
 
-	provider.Register("down-check", NewSimpleCheck("down-check", func(ctx context.Context) (Result, error) {
-		return NewResult(StatusDown).
-			WithError(errors.New("test error")), nil
-	}), WithType(TypeReadiness))
+	downCheck := NewSimpleCheck("down-check", func(ctx context.Context) (Result, error) {
+		return NewResult(StatusDown).WithError(errors.New("service unavailable")), nil
+	})
+
+	degradedCheck := NewSimpleCheck("degraded-check", func(ctx context.Context) (Result, error) {
+		return NewResult(StatusDegraded).WithError(errors.New("service degraded")), nil
+	})
+
+	provider.Register(upCheck)
+	provider.Register(downCheck)
+	provider.Register(degradedCheck)
 
 	// Setup gRPC server and client
 	server, conn, err := setupGRPCServer(provider)
-	if err != nil {
-		t.Fatalf("Failed to setup gRPC server: %v", err)
-	}
+	require.NoError(t, err)
 	defer server.Stop()
 	defer conn.Close()
 
 	// Create client
-	client := healthpb.NewHealthServiceClient(conn)
+	client := healthpb.NewHealthClient(conn)
 
 	// Test cases
 	testCases := []struct {
-		name           string
-		checkType      healthpb.CheckType
-		expectedStatus healthpb.Status
+		name         string
+		checkName    string
+		expectStatus healthpb.StatusCode
+		expectError  codes.Code
 	}{
 		{
-			name:           "All checks",
-			checkType:      healthpb.CheckType_ALL,
-			expectedStatus: healthpb.Status_DOWN, // DOWN is worst status among all checks
+			name:         "Up check",
+			checkName:    "up-check",
+			expectStatus: healthpb.StatusCode_STATUS_CODE_UP,
+			expectError:  codes.OK,
 		},
 		{
-			name:           "Liveness check",
-			checkType:      healthpb.CheckType_LIVENESS,
-			expectedStatus: healthpb.Status_UP,
+			name:         "Down check",
+			checkName:    "down-check",
+			expectStatus: healthpb.StatusCode_STATUS_CODE_DOWN,
+			expectError:  codes.OK,
 		},
 		{
-			name:           "Readiness check",
-			checkType:      healthpb.CheckType_READINESS,
-			expectedStatus: healthpb.Status_DOWN,
+			name:         "Degraded check",
+			checkName:    "degraded-check",
+			expectStatus: healthpb.StatusCode_STATUS_CODE_DEGRADED,
+			expectError:  codes.OK,
+		},
+		{
+			name:         "Non-existent check",
+			checkName:    "non-existent",
+			expectStatus: 0, // Doesn't matter
+			expectError:  codes.NotFound,
 		},
 	}
 
 	for _, tc := range testCases {
 		t.Run(tc.name, func(t *testing.T) {
-			// Make request
-			req := &healthpb.CheckRequest{
-				Type: tc.checkType,
+			// Call Check RPC
+			res, err := client.Check(context.Background(), &healthpb.CheckRequest{
+				Name: tc.checkName,
+			})
+
+			// Verify error handling
+			if tc.expectError != codes.OK {
+				require.Error(t, err)
+				st, ok := status.FromError(err)
+				require.True(t, ok)
+				assert.Equal(t, tc.expectError, st.Code())
+				return
 			}
 
-			resp, err := client.Check(context.Background(), req)
-			if err != nil {
-				t.Fatalf("Check RPC failed: %v", err)
+			// Verify success case
+			require.NoError(t, err)
+			require.NotNil(t, res)
+			assert.Equal(t, tc.expectStatus, res.Status)
+
+			// If check is up, verify details
+			if tc.checkName == "up-check" {
+				require.NotNil(t, res.Details)
+				info, ok := res.Details["info"]
+				require.True(t, ok)
+				assert.Equal(t, "everything is fine", info)
 			}
 
-			// Verify response
-			if resp.Status != tc.expectedStatus {
-				t.Errorf("Expected status %v, got %v", tc.expectedStatus, resp.Status)
-			}
-
-			if resp.Timestamp == nil {
-				t.Error("Expected timestamp to be set")
+			// If check is down, verify error
+			if tc.checkName == "down-check" {
+				require.NotNil(t, res.Error)
+				assert.Equal(t, "service unavailable", res.Error)
 			}
 		})
 	}
+
+	// Test CheckAll RPC
+	t.Run("CheckAll", func(t *testing.T) {
+		res, err := client.CheckAll(context.Background(), &healthpb.CheckAllRequest{})
+		require.NoError(t, err)
+		require.NotNil(t, res)
+
+		// Overall status should be DOWN because we have a down check
+		assert.Equal(t, healthpb.StatusCode_STATUS_CODE_DOWN, res.Status)
+
+		// Should have 3 results
+		require.Equal(t, 3, len(res.Results))
+
+		// Get map of results by name
+		resultMap := make(map[string]*healthpb.CheckResponse)
+		for _, r := range res.Results {
+			resultMap[r.Name] = r
+		}
+
+		// Verify individual results
+		assert.Equal(t, healthpb.StatusCode_STATUS_CODE_UP, resultMap["up-check"].Status)
+		assert.Equal(t, healthpb.StatusCode_STATUS_CODE_DOWN, resultMap["down-check"].Status)
+		assert.Equal(t, healthpb.StatusCode_STATUS_CODE_DEGRADED, resultMap["degraded-check"].Status)
+	})
 }
 
 // TestGRPCServerCheckDetailed tests the CheckDetailed RPC method.
 func TestGRPCServerCheckDetailed(t *testing.T) {
 	// Create a provider with some checks
-	provider, err := NewProvider(DefaultConfig())
-	if err != nil {
-		t.Fatalf("Failed to create provider: %v", err)
-	}
+	provider := NewProvider()
 
 	// Register some checks with details
-	provider.Register("up-check", NewSimpleCheck("up-check", func(ctx context.Context) (Result, error) {
-		return NewResult(StatusUp).
-			WithDetails(map[string]interface{}{
-				"version": "1.0.0",
-				"count":   42,
-			}), nil
-	}), WithType(TypeLiveness))
+	upCheck := NewSimpleCheck("up-check", func(ctx context.Context) (Result, error) {
+		return NewResult(StatusUp).WithDetails(map[string]interface{}{
+			"version": "1.2.3",
+			"uptime":  "24h",
+			"metrics": map[string]interface{}{
+				"requests": 1000,
+				"errors":   10,
+			},
+		}), nil
+	})
 
-	provider.Register("down-check", NewSimpleCheck("down-check", func(ctx context.Context) (Result, error) {
+	downCheck := NewSimpleCheck("down-check", func(ctx context.Context) (Result, error) {
 		return NewResult(StatusDown).
-			WithError(errors.New("test error")).
+			WithError(errors.New("service unavailable")).
 			WithDetails(map[string]interface{}{
-				"errorCode": 500,
+				"lastSuccess": "2023-04-29T12:00:00Z",
+				"attempts":    5,
 			}), nil
-	}), WithType(TypeReadiness))
+	})
+
+	provider.Register(upCheck)
+	provider.Register(downCheck)
 
 	// Setup gRPC server and client
 	server, conn, err := setupGRPCServer(provider)
-	if err != nil {
-		t.Fatalf("Failed to setup gRPC server: %v", err)
-	}
+	require.NoError(t, err)
 	defer server.Stop()
 	defer conn.Close()
 
 	// Create client
-	client := healthpb.NewHealthServiceClient(conn)
+	client := healthpb.NewHealthClient(conn)
 
 	// Test CheckDetailed for all checks
-	req := &healthpb.CheckDetailedRequest{
-		Type: healthpb.CheckType_ALL,
-	}
+	t.Run("CheckAllDetailed", func(t *testing.T) {
+		res, err := client.CheckAllDetailed(context.Background(), &healthpb.CheckAllDetailedRequest{})
+		require.NoError(t, err)
+		require.NotNil(t, res)
 
-	resp, err := client.CheckDetailed(context.Background(), req)
-	if err != nil {
-		t.Fatalf("CheckDetailed RPC failed: %v", err)
-	}
+		// Verify response
+		assert.Equal(t, healthpb.StatusCode_STATUS_CODE_DOWN, res.Status)
+		require.Equal(t, 2, len(res.Results))
 
-	// Verify response
-	if resp.Status != healthpb.Status_DOWN {
-		t.Errorf("Expected status DOWN, got %v", resp.Status)
-	}
+		// Get results by name
+		var upResult, downResult *healthpb.CheckDetailedResponse
+		for _, r := range res.Results {
+			if r.Name == "up-check" {
+				upResult = r
+			} else if r.Name == "down-check" {
+				downResult = r
+			}
+		}
 
-	if resp.StatusInfo == nil {
-		t.Fatal("Expected StatusInfo to be set")
-	}
+		// Verify check details
+		require.NotNil(t, upResult)
+		require.NotNil(t, downResult)
 
-	if resp.Checks == nil {
-		t.Fatal("Expected Checks map to be set")
-	}
+		// Verify up-check details
+		assert.Equal(t, healthpb.StatusCode_STATUS_CODE_UP, upResult.Status)
+		assert.Empty(t, upResult.Error)
+		require.NotNil(t, upResult.Details)
+		assert.Equal(t, "1.2.3", upResult.Details["version"])
+		assert.Equal(t, "24h", upResult.Details["uptime"])
 
-	// Verify check details
-	if len(resp.Checks) != 2 {
-		t.Errorf("Expected 2 checks, got %d", len(resp.Checks))
-	}
+		metrics, ok := upResult.Details["metrics"].(map[string]interface{})
+		require.True(t, ok)
+		assert.Equal(t, float64(1000), metrics["requests"])
+		assert.Equal(t, float64(10), metrics["errors"])
 
-	// Verify up-check details
-	upCheck, ok := resp.Checks["up-check"]
-	if !ok {
-		t.Fatal("up-check not found in response")
-	}
+		// Verify down-check details
+		assert.Equal(t, healthpb.StatusCode_STATUS_CODE_DOWN, downResult.Status)
+		assert.Equal(t, "service unavailable", downResult.Error)
+		require.NotNil(t, downResult.Details)
+		assert.Equal(t, "2023-04-29T12:00:00Z", downResult.Details["lastSuccess"])
+		assert.Equal(t, float64(5), downResult.Details["attempts"])
+	})
 
-	if upCheck.Status != healthpb.Status_UP {
-		t.Errorf("Expected up-check status UP, got %v", upCheck.Status)
-	}
+	// Test individual check detailed
+	t.Run("CheckDetailed", func(t *testing.T) {
+		res, err := client.CheckDetailed(context.Background(), &healthpb.CheckDetailedRequest{
+			Name: "up-check",
+		})
+		require.NoError(t, err)
+		require.NotNil(t, res)
 
-	if upCheck.Error != "" {
-		t.Errorf("Expected no error for up-check, got %q", upCheck.Error)
-	}
+		assert.Equal(t, "up-check", res.Name)
+		assert.Equal(t, healthpb.StatusCode_STATUS_CODE_UP, res.Status)
+		assert.Empty(t, res.Error)
+		require.NotNil(t, res.Details)
+		assert.Equal(t, "1.2.3", res.Details["version"])
+	})
 
-	if upCheck.Details == nil {
-		t.Fatal("Expected up-check details to be set")
-	}
-
-	if upCheck.Details["version"] != "1.0.0" {
-		t.Errorf("Expected version 1.0.0, got %q", upCheck.Details["version"])
-	}
-
-	if upCheck.Details["count"] != "42" {
-		t.Errorf("Expected count 42, got %q", upCheck.Details["count"])
-	}
-
-	// Verify down-check details
-	downCheck, ok := resp.Checks["down-check"]
-	if !ok {
-		t.Fatal("down-check not found in response")
-	}
-
-	if downCheck.Status != healthpb.Status_DOWN {
-		t.Errorf("Expected down-check status DOWN, got %v", downCheck.Status)
-	}
-
-	if downCheck.Error != "test error" {
-		t.Errorf("Expected error 'test error', got %q", downCheck.Error)
-	}
-
-	if downCheck.Details == nil {
-		t.Fatal("Expected down-check details to be set")
-	}
-
-	if downCheck.Details["errorCode"] != "500" {
-		t.Errorf("Expected errorCode 500, got %q", downCheck.Details["errorCode"])
-	}
+	// Test non-existent check
+	t.Run("CheckDetailed_NotFound", func(t *testing.T) {
+		_, err := client.CheckDetailed(context.Background(), &healthpb.CheckDetailedRequest{
+			Name: "non-existent",
+		})
+		require.Error(t, err)
+		st, ok := status.FromError(err)
+		require.True(t, ok)
+		assert.Equal(t, codes.NotFound, st.Code())
+	})
 }
 
 // TestGRPCServerWatch tests the Watch streaming RPC method.
 func TestGRPCServerWatch(t *testing.T) {
-	// Create a provider with a variable check
-	provider, err := NewProvider(DefaultConfig())
-	if err != nil {
-		t.Fatalf("Failed to create provider: %v", err)
-	}
+	// Create a provider
+	provider := NewProvider()
 
-	// Create a variable check that we can change
-	variableStatus := StatusUp
-	variableCheck := NewSimpleCheck("variable-check", func(ctx context.Context) (Result, error) {
-		return NewResult(variableStatus), nil
+	// Register a dynamic check that we'll change during the test
+	var checkStatus = StatusUp
+	var checkMutex = &sync.Mutex{}
+
+	dynamicCheck := NewSimpleCheck("dynamic-check", func(ctx context.Context) (Result, error) {
+		checkMutex.Lock()
+		defer checkMutex.Unlock()
+		return NewResult(checkStatus), nil
 	})
 
-	provider.Register("variable-check", variableCheck, WithType(TypeLiveness))
+	provider.Register(dynamicCheck)
 
 	// Setup gRPC server and client
 	server, conn, err := setupGRPCServer(provider)
-	if err != nil {
-		t.Fatalf("Failed to setup gRPC server: %v", err)
-	}
+	require.NoError(t, err)
 	defer server.Stop()
 	defer conn.Close()
 
 	// Create client
-	client := healthpb.NewHealthServiceClient(conn)
+	client := healthpb.NewHealthClient(conn)
 
-	// Start watching
+	// Start watching the health status
 	ctx, cancel := context.WithTimeout(context.Background(), 5*time.Second)
 	defer cancel()
 
-	req := &healthpb.WatchRequest{
-		Type: healthpb.CheckType_ALL,
+	watchClient, err := client.Watch(ctx, &healthpb.WatchRequest{
+		Name: "dynamic-check",
+	})
+	require.NoError(t, err)
+
+	// Create a channel to receive watch events
+	eventCh := make(chan *healthpb.WatchResponse)
+	errorCh := make(chan error)
+
+	// Start a goroutine to receive events
+	go func() {
+		for {
+			event, err := watchClient.Recv()
+			if err != nil {
+				errorCh <- err
+				return
+			}
+			eventCh <- event
+		}
+	}()
+
+	// Initial status should be UP
+	select {
+	case event := <-eventCh:
+		assert.Equal(t, "dynamic-check", event.Name)
+		assert.Equal(t, healthpb.StatusCode_STATUS_CODE_UP, event.Status)
+	case err := <-errorCh:
+		t.Fatalf("Error receiving watch event: %v", err)
+	case <-time.After(2 * time.Second):
+		t.Fatal("Timeout waiting for initial watch event")
 	}
 
-	watchClient, err := client.Watch(ctx, req)
-	if err != nil {
-		t.Fatalf("Watch RPC failed: %v", err)
+	// Change status to DOWN
+	checkMutex.Lock()
+	checkStatus = StatusDown
+	checkMutex.Unlock()
+
+	// Trigger check execution to publish status change
+	_, err = provider.Check(ctx, "dynamic-check")
+	require.NoError(t, err)
+
+	// Should receive DOWN status update
+	select {
+	case event := <-eventCh:
+		assert.Equal(t, "dynamic-check", event.Name)
+		assert.Equal(t, healthpb.StatusCode_STATUS_CODE_DOWN, event.Status)
+	case err := <-errorCh:
+		t.Fatalf("Error receiving watch event: %v", err)
+	case <-time.After(2 * time.Second):
+		t.Fatal("Timeout waiting for status change event")
 	}
 
-	// Receive initial status
-	resp, err := watchClient.Recv()
-	if err != nil {
-		t.Fatalf("Failed to receive initial status: %v", err)
-	}
+	// Change status to DEGRADED
+	checkMutex.Lock()
+	checkStatus = StatusDegraded
+	checkMutex.Unlock()
 
-	// Verify initial status
-	if resp.Status != healthpb.Status_UP {
-		t.Errorf("Expected initial status UP, got %v", resp.Status)
-	}
+	// Trigger check execution to publish status change
+	_, err = provider.Check(ctx, "dynamic-check")
+	require.NoError(t, err)
 
-	// Change status and trigger an update
-	variableStatus = StatusDown
-
-	// Execute a check to broadcast the status change
-	_, err = provider.CheckAll(context.Background())
-	if err != nil {
-		t.Fatalf("CheckAll failed: %v", err)
-	}
-
-	// Give some time for the update to propagate
-	time.Sleep(100 * time.Millisecond)
-
-	// Force another check to ensure the status change is detected
-	_, err = provider.CheckAll(context.Background())
-	if err != nil {
-		t.Fatalf("CheckAll failed: %v", err)
-	}
-
-	// Wait for the update
-	resp, err = watchClient.Recv()
-	if err != nil {
-		t.Fatalf("Failed to receive status update: %v", err)
-	}
-
-	// Verify updated status
-	if resp.Status != healthpb.Status_DOWN {
-		t.Errorf("Expected updated status DOWN, got %v", resp.Status)
+	// Should receive DEGRADED status update
+	select {
+	case event := <-eventCh:
+		assert.Equal(t, "dynamic-check", event.Name)
+		assert.Equal(t, healthpb.StatusCode_STATUS_CODE_DEGRADED, event.Status)
+	case err := <-errorCh:
+		t.Fatalf("Error receiving watch event: %v", err)
+	case <-time.After(2 * time.Second):
+		t.Fatal("Timeout waiting for status change event")
 	}
 }
 
 // TestGRPCServerErrorHandling tests error handling in the gRPC server.
 func TestGRPCServerErrorHandling(t *testing.T) {
-	// Create a mock provider that returns errors
-	mockProvider := &mockProvider{
-		checkAllErr:     errors.New("check all error"),
-		checkLivenessErr: errors.New("check liveness error"),
-		checkReadinessErr: errors.New("check readiness error"),
+	// Create mock provider that returns errors
+	mockProv := &mockProvider{
+		checkError: errors.New("check execution failed"),
+		checkAllError: errors.New("check all execution failed"),
 	}
 
 	// Setup gRPC server and client
-	server, conn, err := setupGRPCServer(mockProvider)
-	if err != nil {
-		t.Fatalf("Failed to setup gRPC server: %v", err)
-	}
+	server, conn, err := setupGRPCServer(mockProv)
+	require.NoError(t, err)
 	defer server.Stop()
 	defer conn.Close()
 
 	// Create client
-	client := healthpb.NewHealthServiceClient(conn)
+	client := healthpb.NewHealthClient(conn)
 
-	// Test error handling for Check
-	_, err = client.Check(context.Background(), &healthpb.CheckRequest{
-		Type: healthpb.CheckType_ALL,
+	// Test Check error handling
+	t.Run("Check_Error", func(t *testing.T) {
+		_, err := client.Check(context.Background(), &healthpb.CheckRequest{
+			Name: "error-check",
+		})
+		require.Error(t, err)
+		st, ok := status.FromError(err)
+		require.True(t, ok)
+		assert.Equal(t, codes.Internal, st.Code())
+		assert.Contains(t, st.Message(), "check execution failed")
 	})
-	if err == nil {
-		t.Fatal("Expected Check to return an error")
-	}
 
-	// Test error handling for CheckDetailed
-	_, err = client.CheckDetailed(context.Background(), &healthpb.CheckDetailedRequest{
-		Type: healthpb.CheckType_LIVENESS,
+	// Test CheckAll error handling
+	t.Run("CheckAll_Error", func(t *testing.T) {
+		_, err := client.CheckAll(context.Background(), &healthpb.CheckAllRequest{})
+		require.Error(t, err)
+		st, ok := status.FromError(err)
+		require.True(t, ok)
+		assert.Equal(t, codes.Internal, st.Code())
+		assert.Contains(t, st.Message(), "check all execution failed")
 	})
-	if err == nil {
-		t.Fatal("Expected CheckDetailed to return an error")
-	}
 
-	// Test error handling for Watch
-	watchClient, err := client.Watch(context.Background(), &healthpb.WatchRequest{
-		Type: healthpb.CheckType_READINESS,
+	// Test CheckDetailed error handling
+	t.Run("CheckDetailed_Error", func(t *testing.T) {
+		_, err := client.CheckDetailed(context.Background(), &healthpb.CheckDetailedRequest{
+			Name: "error-check",
+		})
+		require.Error(t, err)
+		st, ok := status.FromError(err)
+		require.True(t, ok)
+		assert.Equal(t, codes.Internal, st.Code())
+		assert.Contains(t, st.Message(), "check execution failed")
 	})
-	if err != nil {
-		t.Fatalf("Watch RPC failed: %v", err)
-	}
 
-	// We should get an error when receiving the first message
-	_, err = watchClient.Recv()
-	if err == nil {
-		t.Fatal("Expected Watch to return an error")
-	}
+	// Test CheckAllDetailed error handling
+	t.Run("CheckAllDetailed_Error", func(t *testing.T) {
+		_, err := client.CheckAllDetailed(context.Background(), &healthpb.CheckAllDetailedRequest{})
+		require.Error(t, err)
+		st, ok := status.FromError(err)
+		require.True(t, ok)
+		assert.Equal(t, codes.Internal, st.Code())
+		assert.Contains(t, st.Message(), "check all execution failed")
+	})
 }
 
-// mockProvider extends mockProvider from http_test.go with additional error fields.
+// mockProvider extends mockProvider with additional error fields.
 type mockProvider struct {
-	checks            map[string]Check
-	checkAllErr       error
-	checkLivenessErr  error
-	checkReadinessErr error
+	checks map[string]Result
+	checkError error
+	checkAllError error
 }
 
-func (p *mockProvider) Register(name string, check Check, options ...CheckOption) error {
-	return nil
+func (m *mockProvider) Register(check Check) {
+	// Not implemented
 }
 
-func (p *mockProvider) Unregister(name string) error {
-	return nil
-}
-
-func (p *mockProvider) Get(name string) (Check, bool) {
-	check, ok := p.checks[name]
-	return check, ok
-}
-
-func (p *mockProvider) CheckAll(ctx context.Context) (Result, error) {
-	if p.checkAllErr != nil {
-		return nil, p.checkAllErr
+func (m *mockProvider) Check(ctx context.Context, name string) (Result, error) {
+	if m.checkError != nil {
+		return nil, m.checkError
 	}
-	return NewResult(StatusUp), nil
+	return nil, fmt.Errorf("check not found: %s", name)
 }
 
-func (p *mockProvider) CheckLiveness(ctx context.Context) (Result, error) {
-	if p.checkLivenessErr != nil {
-		return nil, p.checkLivenessErr
+func (m *mockProvider) CheckAll(ctx context.Context) (Result, error) {
+	if m.checkAllError != nil {
+		return nil, m.checkAllError
 	}
-	return NewResult(StatusUp), nil
+	return NewResult(StatusDown), nil
 }
 
-func (p *mockProvider) CheckReadiness(ctx context.Context) (Result, error) {
-	if p.checkReadinessErr != nil {
-		return nil, p.checkReadinessErr
-	}
-	return NewResult(StatusUp), nil
+func (m *mockProvider) Get(name string) (Check, bool) {
+	return nil, false
 }
 
-func (p *mockProvider) Handler() http.Handler {
+func (m *mockProvider) List() []Check {
 	return nil
 }
 
-func (p *mockProvider) Start(ctx context.Context) error {
-	return nil
+func (m *mockProvider) CheckAsync(name string, callback ResultCallback) {
+	// Not implemented
 }
 
-func (p *mockProvider) Stop(ctx context.Context) error {
-	return nil
+func (m *mockProvider) CheckAllAsync(callback ResultCallback) {
+	// Not implemented
 }
 
-func (p *mockProvider) AddListener(listener Listener) error {
-	return nil
+func (m *mockProvider) RunChecks(ctx context.Context) {
+	// Not implemented
 }
 
-func (p *mockProvider) RemoveListener(listener Listener) error {
-	return nil
+func (m *mockProvider) AddListener(listener Listener) {
+	// Not implemented
+}
+
+func (m *mockProvider) RemoveListener(listener Listener) {
+	// Not implemented
 }
