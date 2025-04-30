@@ -10,118 +10,186 @@ import (
 	"github.com/jdfalk/gcommon/pkg/health"
 )
 
-// DBCheck is a health check that verifies database connectivity.
-// It executes a query (typically "SELECT 1") to check if the database is responsive.
+// DBCheck monitors the health of a database connection.
+// It performs a simple query (e.g., "SELECT 1") to verify that
+// the database is responsive and the connection is valid.
 type DBCheck struct {
-	*health.BaseCheck
-	db        *sql.DB       // Database connection
-	query     string        // Query to execute for health check
-	timeout   time.Duration // Timeout for the database query
-	threshold time.Duration // Threshold for slow query warning
+	// Embed the BaseCheck to inherit its functionality
+	health.BaseCheck
+
+	// The database connection to check
+	db *sql.DB
+
+	// The query to execute as the health check
+	query string
+
+	// Timeout for query execution
+	timeout time.Duration
+
+	// Optional name of the database for reporting
+	dbName string
 }
 
-// DBCheckOption represents an option for a database health check.
+// DBCheckOption is a functional option type for configuring DBCheck.
 type DBCheckOption func(*DBCheck)
 
-// NewDBCheck creates a new database health check.
-// It verifies connectivity to the database by executing a simple query.
-func NewDBCheck(db *sql.DB, options ...DBCheckOption) *DBCheck {
-	c := &DBCheck{
-		db:        db,
-		query:     "SELECT 1",
-		timeout:   5 * time.Second,
-		threshold: 1 * time.Second,
-	}
-
-	// Initialize the base check
-	c.BaseCheck = health.NewBaseCheck("database", health.TypeDependency, c.timeout, 60*time.Second)
-
-	// Apply options
-	for _, opt := range options {
-		opt(c)
-	}
-
-	return c
-}
-
-// Execute runs the database health check by executing a query.
-func (c *DBCheck) Execute(ctx context.Context) (health.Result, error) {
-	if !c.Enabled() {
-		return health.NewResult(health.StatusUnknown).
-			WithError(fmt.Errorf("check disabled")), nil
-	}
-
-	if c.db == nil {
-		return health.NewResult(health.StatusDown).
-			WithError(fmt.Errorf("database connection is nil")), nil
-	}
-
-	startTime := time.Now()
-	details := map[string]interface{}{
-		"query": c.query,
-	}
-
-	// Create a context with timeout
-	queryCtx, cancel := context.WithTimeout(ctx, c.timeout)
-	defer cancel()
-
-	// Execute the query
-	_, err := c.db.ExecContext(queryCtx, c.query)
-	duration := time.Since(startTime)
-	details["duration"] = duration.String()
-
-	// Check for errors
-	if err != nil {
-		details["error"] = err.Error()
-		return health.NewResult(health.StatusDown).
-			WithError(fmt.Errorf("database query failed: %w", err)).
-			WithDuration(duration).
-			WithDetails(details), nil
-	}
-
-	// Check if query was slow (but still successful)
-	result := health.NewResult(health.StatusUp).
-		WithDuration(duration).
-		WithDetails(details)
-
-	if duration > c.threshold {
-		details["warning"] = fmt.Sprintf("query took longer than threshold (%s)", c.threshold)
-		return health.NewResult(health.StatusDegraded).
-			WithDuration(duration).
-			WithDetails(details), nil
-	}
-
-	return result, nil
-}
-
-// WithQuery sets the query to execute for the health check.
-func WithQuery(query string) DBCheckOption {
+// WithDBName sets a descriptive name for the database.
+func WithDBName(name string) DBCheckOption {
 	return func(c *DBCheck) {
-		c.query = query
+		c.dbName = name
 	}
 }
 
-// WithDBTimeout sets the timeout for the database query.
-func WithDBTimeout(timeout time.Duration) DBCheckOption {
+// WithDBQueryTimeout sets the query timeout.
+func WithDBQueryTimeout(timeout time.Duration) DBCheckOption {
 	return func(c *DBCheck) {
 		c.timeout = timeout
 	}
 }
 
-// WithSlowThreshold sets the threshold for slow query warnings.
-// If a query takes longer than this threshold but still succeeds,
-// the check will return a degraded status.
-func WithSlowThreshold(threshold time.Duration) DBCheckOption {
+// WithDBCheckInterval sets the check interval.
+func WithDBCheckInterval(interval time.Duration) DBCheckOption {
 	return func(c *DBCheck) {
-		c.threshold = threshold
+		c.SetInterval(interval)
 	}
 }
 
-// WithDBName sets the name for the database check.
-// This helps identify which database is being checked when multiple
-// database checks are used.
-func WithDBName(name string) DBCheckOption {
+// WithDBCheckType sets the check type.
+func WithDBCheckType(checkType health.CheckType) DBCheckOption {
 	return func(c *DBCheck) {
-		c.BaseCheck = health.NewBaseCheck("database-"+name, health.TypeDependency, c.timeout, 60*time.Second)
+		c.SetType(checkType)
 	}
+}
+
+// WithDBCheckEnabled sets whether the check is initially enabled.
+func WithDBCheckEnabled(enabled bool) DBCheckOption {
+	return func(c *DBCheck) {
+		c.SetEnabled(enabled)
+	}
+}
+
+// NewDBCheck creates a new DBCheck to monitor the health of a database connection.
+//
+// Parameters:
+//   - name: Unique name for this check
+//   - db: The database connection to check
+//   - query: The query to execute (defaults to "SELECT 1" if empty)
+//   - options: Optional functional options for additional configuration
+//
+// Returns:
+//   - A configured DBCheck instance
+func NewDBCheck(name string, db *sql.DB, query string, options ...DBCheckOption) *DBCheck {
+	if query == "" {
+		query = "SELECT 1"
+	}
+
+	check := &DBCheck{
+		db:      db,
+		query:   query,
+		timeout: 5 * time.Second,
+	}
+
+	// Initialize the BaseCheck
+	check.BaseCheck = health.NewBaseCheck(name)
+
+	// Default configuration
+	check.SetType(health.TypeReadiness)  // Database checks are typically used for dependency readiness
+	check.SetInterval(30 * time.Second)  // Default 30 second interval
+	check.SetEnabled(true)               // Enabled by default
+
+	// Apply the options
+	for _, option := range options {
+		option(check)
+	}
+
+	return check
+}
+
+// Execute performs the database health check by executing the configured query.
+//
+// The check performs these steps:
+// 1. Create a context with the configured timeout
+// 2. Attempt to execute the query against the database
+// 3. Return appropriate health result based on query success/failure
+//
+// Parameters:
+//   - ctx: Context that can be used to cancel the check
+//
+// Returns:
+//   - A Result indicating the health status
+//   - An error if the check execution itself failed (not the same as an unhealthy database)
+func (c *DBCheck) Execute(ctx context.Context) (health.Result, error) {
+	startTime := time.Now()
+
+	// Prepare details map with available information
+	details := map[string]interface{}{
+		"query": c.query,
+	}
+
+	if c.dbName != "" {
+		details["database"] = c.dbName
+	}
+
+	// Create a timeout context if not already set
+	execCtx := ctx
+	if _, hasDeadline := ctx.Deadline(); !hasDeadline {
+		var cancel context.CancelFunc
+		execCtx, cancel = context.WithTimeout(ctx, c.timeout)
+		defer cancel()
+	}
+
+	// Execute the query
+	start := time.Now()
+	rows, err := c.db.QueryContext(execCtx, c.query)
+	queryTime := time.Since(start)
+
+	// Add query execution time to details
+	details["queryTime"] = queryTime.String()
+
+	if err != nil {
+		// Query failed
+		return health.NewResult(health.StatusDown).
+			WithError(err).
+			WithDetails(details).
+			WithDuration(time.Since(startTime)), nil
+	}
+
+	// Make sure to close the rows
+	defer rows.Close()
+
+	// Check for errors during row iteration
+	if rows.Next() {
+		// Successfully got a row, which means the database is responsive
+		if err := rows.Err(); err != nil {
+			return health.NewResult(health.StatusDown).
+				WithError(err).
+				WithDetails(details).
+				WithDuration(time.Since(startTime)), nil
+		}
+	} else {
+		// No rows returned - this might be OK for some queries, but for "SELECT 1" it's unusual
+		return health.NewResult(health.StatusDown).
+			WithError(fmt.Errorf("no rows returned from query")).
+			WithDetails(details).
+			WithDuration(time.Since(startTime)), nil
+	}
+
+	// Database is healthy
+	return health.NewResult(health.StatusUp).
+		WithDetails(details).
+		WithDuration(time.Since(startTime)), nil
+}
+
+// String returns a string representation of the DB check.
+//
+// Returns:
+//   - A string describing this check for logging and debugging
+func (c *DBCheck) String() string {
+	dbDesc := "unknown"
+	if c.dbName != "" {
+		dbDesc = c.dbName
+	}
+
+	return fmt.Sprintf("DBCheck{name=%s, database=%s, query=%q, timeout=%s, type=%s, enabled=%t}",
+		c.Name(), dbDesc, c.query, c.timeout, c.Type(), c.Enabled())
 }
