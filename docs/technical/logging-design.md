@@ -2,33 +2,41 @@
 
 ## Overview
 
-The logging module provides a unified interface for logging across various backends, with support for structured logging, different log levels, and contextual information. This design document outlines the architecture, interfaces, and implementation details for the logging module.
+The logging module provides a unified interface for application logging with support for multiple logging backends. This design document outlines the architecture, interfaces, and implementation details for the logging module.
 
 ## Goals
 
-- Provide a consistent API across different logging backends
-- Support structured logging with fields
-- Enable contextual logging with correlation IDs
-- Allow for runtime configuration of log levels
-- Support different output formats (JSON, text)
-- Enable integration with other modules (e.g., metrics)
-- Minimize performance impact of logging
-- Support log rotation and management
+- Provide a consistent API for logging across applications
+- Support multiple logging backends (standard library, zap, logrus, etc.)
+- Enable structured logging with key-value pairs
+- Support multiple log levels with fine-grained control
+- Allow context-aware logging
+- Enable log rotation and management
+- Support log output to multiple destinations
+- Provide performance optimized logging
+- Enable correlation of logs across services
+- Support custom log formatters and hooks
 
 ## Architecture
 
 ### Core Components
 
-```text
-              +-----------------+
-              |     Logger      |
-              +--------+--------+
+```
+              +------------------+
+              |     Logger       |
+              +--------+---------+
                        |
-    +------------------+-------------------+
-    |                  |                   |
-+---+----+      +------+------+      +-----+-----+
-| Levels |      | Formatters  |      |  Outputs  |
-+--------+      +-------------+      +-----------+
+   +------------------+-------------------+
+   |                  |                   |
++--+------+    +------+------+     +------+------+
+|Providers|    | Formatters  |     |  Writers    |
++---------+    +-------------+     +-------------+
+   |                  |                   |
+   |                  |                   |
++--+------+    +------+------+     +------+------+
+| Std/Zap/|    |JSON/Text/   |     |File/Console/|
+| Logrus  |    |Custom       |     |Remote/etc   |
++---------+    +-------------+     +-------------+
 ```
 
 ### Component Design
@@ -37,28 +45,31 @@ The logging module provides a unified interface for logging across various backe
 
 The core of the module is the `Logger` interface, which defines the common operations for logging.
 
-#### Log Levels
+#### Providers
 
-The module supports the following log levels:
-- **Debug**: Detailed information for debugging
-- **Info**: General operational information
-- **Warn**: Warning events that might need attention
-- **Error**: Error events that might still allow the application to continue
-- **Fatal**: Very severe error events that will lead the application to abort
+Providers implement the `Logger` interface for different logging backends:
+- **Standard**: Go standard library logger
+- **Zap**: High-performance structured logging
+- **Logrus**: Feature-rich structured logging
+- **Multi**: Sends logs to multiple providers
+- **Noop**: No-operation logger for testing
 
 #### Formatters
 
-Formatters define how log entries are formatted:
-- **Text**: Human-readable format
-- **JSON**: Machine-parseable format
-- **Custom**: User-defined formats
+Formatters handle the conversion of log entries to output formats:
+- **Text**: Human-readable text format
+- **JSON**: Machine-readable JSON format
+- **Console**: Colored console output
+- **Custom**: Custom formatters for specific needs
 
-#### Outputs
+#### Writers
 
-Outputs define where logs are sent:
-- **Console**: Standard output/error
+Writers handle the destination of log output:
+- **Console**: Standard output/error streams
 - **File**: Local file system
-- **Remote**: Remote logging systems (e.g., syslog)
+- **Rotating**: File rotation based on size or time
+- **Remote**: HTTP, syslog, or other remote endpoints
+- **Buffer**: In-memory buffered logging
 
 ## Interface Design
 
@@ -82,17 +93,26 @@ type Logger interface {
     // Fatal logs a fatal message and exits.
     Fatal(msg string, fields ...Field)
 
-    // With creates a new logger with the given fields.
-    With(fields ...Field) Logger
+    // WithFields returns a logger with the given fields.
+    WithFields(fields ...Field) Logger
 
-    // WithContext creates a new logger with the given context.
+    // WithContext returns a logger with the given context.
     WithContext(ctx context.Context) Logger
 
-    // SetLevel sets the logging level.
+    // WithLevel returns a logger with the given level.
+    WithLevel(level Level) Logger
+
+    // GetLevel returns the logger level.
+    GetLevel() Level
+
+    // SetLevel sets the logger level.
     SetLevel(level Level)
 
-    // GetLevel returns the current logging level.
-    GetLevel() Level
+    // Sync flushes buffered logs.
+    Sync() error
+
+    // Writer returns a writer for the given level.
+    Writer(level Level) io.Writer
 }
 ```
 
@@ -101,7 +121,10 @@ type Logger interface {
 ```go
 // Field represents a log field.
 type Field struct {
-    Key   string
+    // Key is the field key.
+    Key string
+
+    // Value is the field value.
     Value interface{}
 }
 ```
@@ -109,23 +132,23 @@ type Field struct {
 ### Level
 
 ```go
-// Level represents a logging level.
+// Level represents a log level.
 type Level int
 
 const (
-    // DebugLevel is the lowest level, used for debugging.
+    // DebugLevel is the debug log level.
     DebugLevel Level = iota
 
-    // InfoLevel is for general operational information.
+    // InfoLevel is the info log level.
     InfoLevel
 
-    // WarnLevel is for warning events.
+    // WarnLevel is the warn log level.
     WarnLevel
 
-    // ErrorLevel is for error events.
+    // ErrorLevel is the error log level.
     ErrorLevel
 
-    // FatalLevel is for very severe error events.
+    // FatalLevel is the fatal log level.
     FatalLevel
 )
 ```
@@ -135,14 +158,14 @@ const (
 ```go
 // Provider represents a logger provider.
 type Provider interface {
-    // NewLogger creates a new logger.
-    NewLogger(name string) Logger
+    // GetLogger returns a logger.
+    GetLogger(name string) Logger
 
-    // Configure configures the logger.
-    Configure(config Config) error
+    // SetLevel sets the level for all loggers.
+    SetLevel(level Level)
 
-    // Flush ensures all logs are written.
-    Flush() error
+    // Close closes the provider.
+    Close() error
 }
 ```
 
@@ -153,68 +176,100 @@ type Provider interface {
 ```go
 // Config represents the logging configuration.
 type Config struct {
-    // Level is the minimum level to log.
+    // Provider specifies the logging provider to use.
+    // Supported values: "std", "zap", "logrus", "multi", "noop"
+    Provider string
+
+    // Level is the minimum log level.
     Level string
 
-    // Format is the log format (text, json).
+    // Format is the log format.
+    // Supported values: "json", "text", "console"
     Format string
 
-    // OutputPaths are the paths to write logs to.
+    // TimeFormat is the time format.
+    TimeFormat string
+
+    // CallerReportingEnabled enables caller reporting.
+    CallerReportingEnabled bool
+
+    // CallerSkipFrames is the number of frames to skip when reporting callers.
+    CallerSkipFrames int
+
+    // StackTraceEnabled enables stack trace reporting.
+    StackTraceEnabled bool
+
+    // StackTraceLevel is the minimum level for stack traces.
+    StackTraceLevel string
+
+    // Fields are the default fields for all logs.
+    Fields map[string]interface{}
+
+    // OutputPaths are the output paths.
     OutputPaths []string
 
-    // ErrorOutputPaths are the paths to write errors to.
+    // ErrorOutputPaths are the error output paths.
     ErrorOutputPaths []string
 
+    // FileConfig contains file-specific configuration.
+    FileConfig *FileConfig
+
+    // ZapConfig contains Zap-specific configuration.
+    ZapConfig *ZapConfig
+
+    // LogrusConfig contains Logrus-specific configuration.
+    LogrusConfig *LogrusConfig
+}
+
+// FileConfig represents file-specific configuration.
+type FileConfig struct {
+    // Path is the file path.
+    Path string
+
+    // RotationMaxSize is the maximum file size in megabytes.
+    RotationMaxSize int
+
+    // RotationMaxAge is the maximum file age in days.
+    RotationMaxAge int
+
+    // RotationMaxBackups is the maximum number of backups.
+    RotationMaxBackups int
+
+    // RotationCompress enables compression of rotated files.
+    RotationCompress bool
+
+    // RotationLocalTime uses local time for rotation.
+    RotationLocalTime bool
+}
+
+// ZapConfig represents Zap-specific configuration.
+type ZapConfig struct {
     // Development enables development mode.
     Development bool
 
-    // Sampling configures log sampling.
-    Sampling *SamplingConfig
+    // Sampling enables sampling.
+    Sampling bool
 
-    // Encoding configures log encoding.
-    Encoding EncodingConfig
+    // SamplingInitial is the initial sampling rate.
+    SamplingInitial int
 
-    // DisableCaller disables caller information.
-    DisableCaller bool
+    // SamplingThereafter is the sampling rate thereafter.
+    SamplingThereafter int
 
-    // DisableStacktrace disables stacktrace capture.
-    DisableStacktrace bool
-
-    // AddSource adds source code information.
-    AddSource bool
+    // EncoderConfig is the encoder configuration.
+    EncoderConfig *zapcore.EncoderConfig
 }
 
-// SamplingConfig configures log sampling.
-type SamplingConfig struct {
-    // Initial is the initial sampling rate.
-    Initial int
+// LogrusConfig represents Logrus-specific configuration.
+type LogrusConfig struct {
+    // ReportCaller enables caller reporting.
+    ReportCaller bool
 
-    // Thereafter is the sampling rate thereafter.
-    Thereafter int
-}
+    // ExitFunc is the exit function for Fatal logs.
+    ExitFunc func(int)
 
-// EncodingConfig configures log encoding.
-type EncodingConfig struct {
-    // TimeKey is the key for timestamps.
-    TimeKey string
-
-    // LevelKey is the key for log levels.
-    LevelKey string
-
-    // NameKey is the key for logger names.
-    NameKey string
-
-    // CallerKey is the key for caller information.
-    CallerKey string
-
-    // MessageKey is the key for log messages.
-    MessageKey string
-
-    // StacktraceKey is the key for error stacktraces.
-    StacktraceKey string
-
-    // TimeFormat is the format for timestamps.
-    TimeFormat string
+    // Hooks are the logrus hooks.
+    Hooks []logrus.Hook
 }
 ```
 
@@ -222,43 +277,205 @@ type EncodingConfig struct {
 
 ### Standard Library Implementation
 
-The standard library implementation uses the built-in `log` package and provides a lightweight logging solution with basic functionality.
+The standard library implementation uses the `log` package with custom formatting to match the structured logging interface.
 
 ### Zap Implementation
 
-The Zap implementation uses uber-go/zap, which offers high-performance, structured logging with minimal allocations.
+The Zap implementation uses the `go.uber.org/zap` package, which provides high-performance, structured logging.
 
 ### Logrus Implementation
 
-The Logrus implementation uses sirupsen/logrus, which provides structured logging with hooks and a more traditional interface.
+The Logrus implementation uses the `github.com/sirupsen/logrus` package, which provides feature-rich structured logging.
 
 ### Context Integration
 
-The context integration allows for propagating logging information through the call stack, including:
+The logging module integrates with the Go context package to allow for context-aware logging, including trace identifiers and other contextual information.
 
-- Request IDs
-- User information
-- Session information
-- Correlation IDs
+### Performance Considerations
 
-### Error Handling
-
-The error handling includes:
-
-- Structured error logging
-- Stacktrace capture
-- Error wrapping with context
-- Error classification
+The module uses various techniques to ensure high-performance logging:
+- Zero-allocation logging when possible
+- Level checking before formatting
+- Buffered I/O
+- Asynchronous logging options
+- Sampling for high-volume logs
 
 ## Usage Examples
 
-### Basic Logging
+### Basic Usage
 
 ```go
 config := log.Config{
-    Level:       "info",
-    Format:      "json",
-    OutputPaths: []string{"stdout", "/var/log/app.log"},
+    Provider:   "zap",
+    Level:      "info",
+    Format:     "json",
+    TimeFormat: time.RFC3339,
+    Fields: map[string]interface{}{
+        "service": "api",
+        "version": "1.0.0",
+    },
+    OutputPaths: []string{"stdout", "file:/var/log/myapp.log"},
+}
+
+provider, err := log.NewProvider(config)
+if err != nil {
+    panic(err)
+}
+defer provider.Close()
+
+logger := provider.GetLogger("main")
+
+logger.Info("Server starting", log.String("addr", ":8080"))
+
+// Later...
+logger.Error("Failed to process request",
+    log.String("method", "GET"),
+    log.String("path", "/users"),
+    log.Int("status", 500),
+    log.Error(err),
+)
+```
+
+### Structured Logging
+
+```go
+// Create fields
+userID := log.String("user_id", "123")
+requestID := log.String("request_id", "abc-456")
+duration := log.Duration("duration", time.Millisecond * 42)
+
+// Log with fields
+logger.Info("Request processed", userID, requestID, duration)
+
+// Use fluent API
+logger.WithFields(userID, requestID).Info("User authenticated")
+```
+
+### Levels
+
+```go
+// Check if level is enabled before expensive operations
+if logger.GetLevel() <= log.DebugLevel {
+    details := expensiveOperation()
+    logger.Debug("Operation details", log.Any("details", details))
+}
+
+// Create a logger with a specific level
+debugLogger := logger.WithLevel(log.DebugLevel)
+infoLogger := logger.WithLevel(log.InfoLevel)
+
+// Only logs if the logger level is set accordingly
+debugLogger.Debug("This may or may not appear")
+infoLogger.Info("This will appear if level is info or lower")
+```
+
+### Context-Aware Logging
+
+```go
+// Create a context with values
+ctx := context.Background()
+ctx = log.ContextWithRequestID(ctx, "req-123")
+ctx = log.ContextWithUserID(ctx, "user-456")
+
+// Get a logger with context
+ctxLogger := logger.WithContext(ctx)
+
+// Logs automatically include context values
+ctxLogger.Info("Processing request")
+// Output includes request_id=req-123 user_id=user-456
+```
+
+### HTTP Request Logging
+
+```go
+// Create an HTTP middleware that logs requests
+func LogMiddleware(logger log.Logger) func(http.Handler) http.Handler {
+    return func(next http.Handler) http.Handler {
+        return http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
+            start := time.Now()
+
+            // Extract request ID from header or generate a new one
+            requestID := r.Header.Get("X-Request-ID")
+            if requestID == "" {
+                requestID = uuid.New().String()
+                r.Header.Set("X-Request-ID", requestID)
+            }
+
+            // Create a context with the request ID
+            ctx := log.ContextWithRequestID(r.Context(), requestID)
+            r = r.WithContext(ctx)
+
+            // Use a response wrapper to capture status code
+            ww := newWrappedResponseWriter(w)
+
+            // Pre-request logging
+            logger.WithContext(ctx).Info("Request started",
+                log.String("method", r.Method),
+                log.String("path", r.URL.Path),
+                log.String("remote_addr", r.RemoteAddr),
+            )
+
+            // Call the next handler
+            next.ServeHTTP(ww, r)
+
+            // Post-request logging
+            logger.WithContext(ctx).Info("Request completed",
+                log.String("method", r.Method),
+                log.String("path", r.URL.Path),
+                log.Int("status", ww.statusCode),
+                log.Duration("duration", time.Since(start)),
+                log.Int("bytes", ww.bytesWritten),
+            )
+        })
+    }
+}
+
+// Use the middleware
+http.Handle("/", LogMiddleware(logger)(myHandler))
+```
+
+### File Rotation
+
+```go
+config := log.Config{
+    Provider: "zap",
+    Level:    "info",
+    Format:   "json",
+    FileConfig: &log.FileConfig{
+        Path:              "/var/log/myapp.log",
+        RotationMaxSize:   10, // 10 MB
+        RotationMaxAge:    7,  // 7 days
+        RotationMaxBackups: 5,  // Keep 5 backups
+        RotationCompress:  true,
+        RotationLocalTime: true,
+    },
+}
+
+provider, err := log.NewProvider(config)
+if err != nil {
+    panic(err)
+}
+defer provider.Close()
+
+logger := provider.GetLogger("main")
+```
+
+### Multiple Outputs
+
+```go
+config := log.Config{
+    Provider: "zap",
+    Level:    "info",
+    Format:   "json",
+    OutputPaths: []string{
+        "stdout",
+        "file:/var/log/myapp.log",
+        "syslog://local0",
+    },
+    ErrorOutputPaths: []string{
+        "stderr",
+        "file:/var/log/myapp.error.log",
+    },
 }
 
 provider, err := log.NewProvider(config)
@@ -266,169 +483,94 @@ if err != nil {
     panic(err)
 }
 
-logger := provider.NewLogger("app")
-
-logger.Info("Application started", log.String("version", "1.0.0"))
-logger.Debug("Debug information", log.Int("connections", 10))
-logger.Error("Failed to connect", log.Error(err))
+logger := provider.GetLogger("main")
 ```
 
-### Contextual Logging
+### Custom Hooks (Logrus Example)
 
 ```go
-func handleRequest(ctx context.Context, logger log.Logger, req *http.Request) {
-    // Extract request ID from request or generate a new one
-    requestID := req.Header.Get("X-Request-ID")
-    if requestID == "" {
-        requestID = uuid.New().String()
-    }
-
-    // Create a context-aware logger
-    ctxLogger := logger.With(log.String("request_id", requestID))
-
-    // Add to context
-    ctx = log.ContextWithLogger(ctx, ctxLogger)
-
-    // Use throughout request handling
-    ctxLogger.Info("Request received", log.String("path", req.URL.Path))
-
-    // Process request...
-
-    ctxLogger.Info("Request completed", log.Int("status", 200))
+// Create a custom hook
+type MetricsHook struct {
+    metrics metrics.Provider
 }
-```
 
-### Integration with HTTP Handlers
-
-```go
-func loggingMiddleware(logger log.Logger) func(http.Handler) http.Handler {
-    return func(next http.Handler) http.Handler {
-        return http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
-            // Extract or generate request ID
-            requestID := r.Header.Get("X-Request-ID")
-            if requestID == "" {
-                requestID = uuid.New().String()
-            }
-
-            // Create request-specific logger
-            reqLogger := logger.With(
-                log.String("request_id", requestID),
-                log.String("method", r.Method),
-                log.String("path", r.URL.Path),
-                log.String("remote_addr", r.RemoteAddr),
-                log.String("user_agent", r.UserAgent()),
-            )
-
-            // Add logger to context
-            ctx := log.ContextWithLogger(r.Context(), reqLogger)
-
-            // Record start time
-            start := time.Now()
-
-            // Create response wrapper to capture status code
-            ww := middleware.NewWrapResponseWriter(w, r.ProtoMajor)
-
-            // Process request
-            next.ServeHTTP(ww, r.WithContext(ctx))
-
-            // Log request completion
-            duration := time.Since(start)
-            reqLogger.Info("Request completed",
-                log.Int("status", ww.Status()),
-                log.Int("bytes", ww.BytesWritten()),
-                log.Duration("duration", duration),
-            )
-        })
+func (h *MetricsHook) Levels() []logrus.Level {
+    return []logrus.Level{
+        logrus.WarnLevel,
+        logrus.ErrorLevel,
+        logrus.FatalLevel,
     }
 }
-```
 
-### Structured Logging with Contextual Data
-
-```go
-func processItem(ctx context.Context, item *Item) error {
-    // Get logger from context
-    logger := log.FromContext(ctx)
-    if logger == nil {
-        logger = defaultLogger
-    }
-
-    // Add item-specific fields
-    itemLogger := logger.With(log.String("item_id", item.ID))
-
-    itemLogger.Debug("Processing item", log.String("type", item.Type))
-
-    // Process item...
-
-    if err != nil {
-        itemLogger.Error("Failed to process item",
-            log.Error(err),
-            log.String("step", "validation"),
-        )
-        return err
-    }
-
-    itemLogger.Info("Item processed successfully",
-        log.Duration("process_time", time.Since(start)),
-    )
+func (h *MetricsHook) Fire(entry *logrus.Entry) error {
+    level := entry.Level.String()
+    h.metrics.Counter("log_entries_total").
+        WithTags(metrics.Tag{Key: "level", Value: level}).
+        Inc()
     return nil
 }
+
+// Configure logger with the hook
+config := log.Config{
+    Provider: "logrus",
+    LogrusConfig: &log.LogrusConfig{
+        Hooks: []logrus.Hook{
+            &MetricsHook{metrics: metricsProvider},
+        },
+    },
+}
+
+provider, err := log.NewProvider(config)
+if err != nil {
+    panic(err)
+}
+
+logger := provider.GetLogger("main")
 ```
 
-## Field Constructors
-
-The module provides helper functions for creating structured log fields:
+### Integration with Other Modules
 
 ```go
-// String creates a string field.
-func String(key, value string) Field
+// Database integration
+db, err := database.Open(dbConfig)
+if err != nil {
+    logger.Fatal("Failed to connect to database", log.Error(err))
+}
 
-// Int creates an int field.
-func Int(key string, value int) Field
+// Configure database to use the logger
+db.SetLogger(logger.WithFields(log.String("component", "database")))
 
-// Int64 creates an int64 field.
-func Int64(key string, value int64) Field
-
-// Float64 creates a float64 field.
-func Float64(key string, value float64) Field
-
-// Bool creates a bool field.
-func Bool(key string, value bool) Field
-
-// Time creates a time field.
-func Time(key string, value time.Time) Field
-
-// Duration creates a duration field.
-func Duration(key string, value time.Duration) Field
-
-// Any creates a field with any value.
-func Any(key string, value interface{}) Field
-
-// Error creates an error field.
-func Error(err error) Field
-
-// Stack creates a stacktrace field.
-func Stack() Field
+// HTTP server integration
+server := &http.Server{
+    Addr:     ":8080",
+    Handler:  handlers,
+    ErrorLog: log.NewStdLogAdapter(logger.WithFields(log.String("component", "http"))),
+}
 ```
 
 ## Testing Strategy
 
 - Unit tests for each logger implementation
-- Integration tests for context propagation
-- Benchmarks for performance measurement
-- Mock implementations for higher-level tests
+- Integration tests with actual backends
+- Performance benchmarks for logging operations
+- Concurrency tests for thread safety
+- Mock loggers for testing application code
 
 ## Security Considerations
 
-- Sensitive data handling (redaction, masking)
-- Log file permissions and access controls
-- Logging infrastructure security
-- PII and compliance considerations
+- Sensitive data masking in logs
+- Log access control
+- Tamper-evident logging
+- Secure transmission of logs
+- Proper handling of errors and exceptions
+- Protection against log injection
 
 ## Performance Considerations
 
-- Efficient structured logging with minimal allocations
-- Log level filtering at the source
-- Asynchronous logging where appropriate
-- Buffer management and flushing strategies
-- Sampling for high-volume logs
+- Level filtering before formatting
+- Field allocation optimization
+- Buffered writes
+- Asynchronous logging options
+- Log sampling for high-volume environments
+- Minimal allocations in hot paths
+- Efficient serialization of structured data
