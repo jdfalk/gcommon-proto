@@ -1,0 +1,113 @@
+syntax = "proto3";
+
+package health;
+
+option go_package = "github.com/jdfalk/gcommon/pkg/health/proto";
+
+// HealthService defines the gRPC health checking service.
+service HealthService {
+  // Check performs a single health check and returns the status.
+  rpc Check(HealthCheckRequest) returns (HealthCheckResponse) {}
+
+  // Watch performs a streaming health check and reports status changes.
+  rpc Watch(HealthCheckRequest) returns (stream HealthCheckResponse) {}
+
+  // CheckAll executes all health checks and returns detailed results.
+  rpc CheckAll(HealthCheckAllRequest) returns (HealthCheckAllResponse) {}
+}
+
+// HealthCheckRequest is the request message for health check operations.
+message HealthCheckRequest {
+  // Name of the service to check. If empty, the overall system health is checked.
+  string service = 1;
+}
+
+// HealthCheckResponse is the response message for a health check operation.
+message HealthCheckResponse {
+  // Status of the checked service.
+  ServingStatus status = 1;
+
+  // Timestamp of when the check was performed (in RFC 3339 format).
+  string timestamp = 2;
+
+  // Additional details about the health status (optional).
+  map<string, string> details = 3;
+}
+
+// HealthCheckAllRequest is the request message for checking all health checks.
+message HealthCheckAllRequest {
+  // Include detailed results for each check.
+  bool include_details = 1;
+
+  // Filter checks by type.
+  repeated CheckType types = 2;
+}
+
+// HealthCheckAllResponse contains results from all health checks.
+message HealthCheckAllResponse {
+  // Overall status of the system.
+  ServingStatus status = 1;
+
+  // Timestamp of when the checks were performed.
+  string timestamp = 2;
+
+  // Results from individual checks.
+  map<string, HealthCheckResult> results = 3;
+}
+
+// HealthCheckResult represents the result of a single health check.
+message HealthCheckResult {
+  // Status of this check.
+  ServingStatus status = 1;
+
+  // Type of check performed.
+  CheckType type = 2;
+
+  // Timestamp when the check was performed.
+  string timestamp = 3;
+
+  // Duration of the check in milliseconds.
+  int64 duration_ms = 4;
+
+  // Error message if the check failed.
+  string error = 5;
+
+  // Additional details about the check.
+  map<string, string> details = 6;
+
+  // Results of nested checks (if any).
+  map<string, HealthCheckResult> children = 7;
+}
+
+// ServingStatus represents the health status of a service.
+enum ServingStatus {
+  // UNKNOWN indicates the health status could not be determined.
+  UNKNOWN = 0;
+
+  // SERVING indicates the service is healthy and serving requests.
+  SERVING = 1;
+
+  // NOT_SERVING indicates the service is unhealthy and not serving requests.
+  NOT_SERVING = 2;
+
+  // SERVING_DEGRADED indicates the service is partially healthy.
+  SERVING_DEGRADED = 3;
+}
+
+// CheckType identifies the type of health check.
+enum CheckType {
+  // TYPE_UNSPECIFIED is the default, unspecified type.
+  TYPE_UNSPECIFIED = 0;
+
+  // LIVENESS indicates a liveness check.
+  LIVENESS = 1;
+
+  // READINESS indicates a readiness check.
+  READINESS = 2;
+
+  // COMPONENT indicates a component check.
+  COMPONENT = 3;
+
+  // DEPENDENCY indicates a dependency check.
+  DEPENDENCY = 4;
+}
