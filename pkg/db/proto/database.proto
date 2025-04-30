@@ -1,0 +1,212 @@
+// file: pkg/db/proto/database.proto
+syntax = "proto3";
+
+package db;
+
+option go_package = "github.com/jdfalk/gcommon/pkg/db/proto";
+
+// The Database service provides a gRPC interface for database operations
+service DatabaseService {
+  // Execute runs a query without returning any rows
+  rpc Execute(ExecuteRequest) returns (ExecuteResponse) {}
+
+  // Query executes a query that returns rows
+  rpc Query(QueryRequest) returns (stream QueryResponse) {}
+
+  // QueryRow executes a query that is expected to return at most one row
+  rpc QueryRow(QueryRequest) returns (QueryRowResponse) {}
+
+  // BeginTransaction starts a new transaction
+  rpc BeginTransaction(BeginTransactionRequest) returns (TransactionResponse) {}
+
+  // CommitTransaction commits a transaction
+  rpc CommitTransaction(TransactionRequest) returns (TransactionResponse) {}
+
+  // RollbackTransaction rolls back a transaction
+  rpc RollbackTransaction(TransactionRequest) returns (TransactionResponse) {}
+
+  // Ping checks database connectivity
+  rpc Ping(PingRequest) returns (PingResponse) {}
+
+  // GetStats returns database statistics
+  rpc GetStats(StatsRequest) returns (StatsResponse) {}
+}
+
+// ExecuteRequest represents a request to execute a non-query SQL statement
+message ExecuteRequest {
+  // The SQL query to execute
+  string query = 1;
+
+  // The parameters for the query
+  repeated Value parameters = 2;
+
+  // Transaction ID if executing within a transaction
+  string transaction_id = 3;
+}
+
+// ExecuteResponse represents the result of executing a non-query SQL statement
+message ExecuteResponse {
+  // The number of rows affected by the operation
+  int64 rows_affected = 1;
+
+  // The ID of the last inserted row (if applicable)
+  int64 last_insert_id = 2;
+}
+
+// QueryRequest represents a request to execute a query
+message QueryRequest {
+  // The SQL query to execute
+  string query = 1;
+
+  // The parameters for the query
+  repeated Value parameters = 2;
+
+  // Transaction ID if querying within a transaction
+  string transaction_id = 3;
+}
+
+// QueryResponse represents a row returned from a query
+message QueryResponse {
+  // The values in the row
+  repeated Value values = 1;
+
+  // The column names
+  repeated string columns = 2;
+}
+
+// QueryRowResponse represents a single row returned from a query
+message QueryRowResponse {
+  // The values in the row
+  repeated Value values = 1;
+
+  // The column names
+  repeated string columns = 2;
+
+  // Whether a row was found
+  bool found = 3;
+}
+
+// BeginTransactionRequest represents a request to begin a transaction
+message BeginTransactionRequest {
+  // Whether the transaction is read-only
+  bool read_only = 1;
+
+  // The isolation level for the transaction
+  IsolationLevel isolation_level = 2;
+
+  // Optional timeout for the transaction in milliseconds
+  int64 timeout_ms = 3;
+}
+
+// TransactionRequest represents a request to commit or rollback a transaction
+message TransactionRequest {
+  // The ID of the transaction
+  string transaction_id = 1;
+}
+
+// TransactionResponse represents the result of a transaction operation
+message TransactionResponse {
+  // The ID of the transaction
+  string transaction_id = 1;
+
+  // Whether the operation was successful
+  bool success = 2;
+
+  // Error message if the operation failed
+  string error_message = 3;
+}
+
+// PingRequest represents a request to check database connectivity
+message PingRequest {
+  // Optional timeout for the ping in milliseconds
+  int64 timeout_ms = 1;
+}
+
+// PingResponse represents the result of a ping operation
+message PingResponse {
+  // Whether the ping was successful
+  bool success = 1;
+
+  // The time taken for the ping in milliseconds
+  int64 latency_ms = 2;
+
+  // Error message if the ping failed
+  string error_message = 3;
+}
+
+// StatsRequest represents a request for database statistics
+message StatsRequest {}
+
+// StatsResponse represents database statistics
+message StatsResponse {
+  // The number of open connections
+  int32 open_connections = 1;
+
+  // The number of connections in use
+  int32 in_use = 2;
+
+  // The number of idle connections
+  int32 idle = 3;
+
+  // The number of times a request waited for a connection
+  int64 wait_count = 4;
+
+  // The total time waited for connections in milliseconds
+  int64 wait_duration_ms = 5;
+
+  // The maximum number of open connections
+  int32 max_open_connections = 6;
+
+  // The maximum number of idle connections
+  int32 max_idle_connections = 7;
+
+  // The maximum lifetime of a connection in milliseconds
+  int64 max_lifetime_ms = 8;
+
+  // Custom database-specific statistics
+  map<string, string> custom_stats = 9;
+}
+
+// Value represents a typed value
+message Value {
+  oneof value {
+    // Null value
+    bool null_value = 1;
+
+    // String value
+    string string_value = 2;
+
+    // Int64 value
+    int64 int64_value = 3;
+
+    // Double value
+    double double_value = 4;
+
+    // Boolean value
+    bool bool_value = 5;
+
+    // Bytes value
+    bytes bytes_value = 6;
+
+    // Timestamp in RFC3339 format
+    string timestamp_value = 7;
+  }
+}
+
+// IsolationLevel represents transaction isolation levels
+enum IsolationLevel {
+  // Default isolation level
+  ISOLATION_LEVEL_DEFAULT = 0;
+
+  // Read uncommitted isolation level
+  ISOLATION_LEVEL_READ_UNCOMMITTED = 1;
+
+  // Read committed isolation level
+  ISOLATION_LEVEL_READ_COMMITTED = 2;
+
+  // Repeatable read isolation level
+  ISOLATION_LEVEL_REPEATABLE_READ = 3;
+
+  // Serializable isolation level
+  ISOLATION_LEVEL_SERIALIZABLE = 4;
+}
