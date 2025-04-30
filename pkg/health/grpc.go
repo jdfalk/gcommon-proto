@@ -4,309 +4,316 @@ package health
 import (
 	"context"
 	"fmt"
-	"sync"
 	"time"
 
 	"google.golang.org/grpc"
 	"google.golang.org/grpc/codes"
 	"google.golang.org/grpc/status"
+	"google.golang.org/protobuf/types/known/timestamppb"
 
-	"github.com/jdfalk/gcommon/pkg/health/proto"
+	healthpb "github.com/jdfalk/gcommon/pkg/health/proto"
 )
 
-// GRPCServer implements the gRPC health service interface.
-// It provides both standard gRPC health checking protocol and our custom extended protocol.
+// GRPCServer implements the gRPC health service.
+// It serves as a bridge between the Provider interface and gRPC service definitions,
+// allowing health checks to be exposed via gRPC.
 type GRPCServer struct {
-	proto.UnimplementedHealthServiceServer
 	provider Provider
-	watches  map[string]map[proto.HealthService_WatchServer]chan proto.ServingStatus
-	mu       sync.RWMutex
 }
 
-// NewGRPCServer creates a new gRPC health server.
+// NewGRPCServer creates a new gRPC health server using the given provider.
+//
+// Parameters:
+//   - provider: The health check provider that contains all registered checks
+//
+// Returns:
+//   - A GRPCServer instance that can be registered with a gRPC server
 func NewGRPCServer(provider Provider) *GRPCServer {
-	return &GRPCServer{
-		provider: provider,
-		watches:  make(map[string]map[proto.HealthService_WatchServer]chan proto.ServingStatus),
-	}
+	return &GRPCServer{provider: provider}
 }
 
-// Register registers this health server with a gRPC server.
+// Register registers the gRPC health service with a gRPC server.
+//
+// Parameters:
+//   - server: The gRPC server to register with
 func (s *GRPCServer) Register(server *grpc.Server) {
-	proto.RegisterHealthServiceServer(server, s)
-
-	// Also register as standard grpc_health_v1.Health server
-	RegisterStandardGRPCHealthServer(server, s.provider)
+	healthpb.RegisterHealthServiceServer(server, s)
 }
 
-// Check performs a health check and returns the status.
-func (s *GRPCServer) Check(ctx context.Context, req *proto.HealthCheckRequest) (*proto.HealthCheckResponse, error) {
-	serviceName := req.GetService()
-
+// Check performs a health check and returns a simple health status.
+// This method implements the CheckRequest RPC defined in the health.proto file.
+//
+// Parameters:
+//   - ctx: The request context which can carry deadlines, cancellation signals, etc.
+//   - req: The CheckRequest message which may specify which type of check to perform
+//
+// Returns:
+//   - A CheckResponse containing the overall health status
+//   - An error if the check failed to execute
+func (s *GRPCServer) Check(ctx context.Context, req *healthpb.CheckRequest) (*healthpb.CheckResponse, error) {
 	var result Result
 	var err error
 
-	if serviceName == "" {
-		// If no service is specified, check overall health
+	switch req.Type {
+	case healthpb.CheckType_LIVENESS:
+		result, err = s.provider.CheckLiveness(ctx)
+	case healthpb.CheckType_READINESS:
+		result, err = s.provider.CheckReadiness(ctx)
+	default:
 		result, err = s.provider.CheckAll(ctx)
-	} else {
-		// Check specific service
-		check, exists := s.provider.Get(serviceName)
-		if !exists {
-			return nil, status.Errorf(codes.NotFound, "service not found: %s", serviceName)
-		}
-
-		checkCtx, cancel := context.WithTimeout(ctx, check.Timeout())
-		result, err = check.Execute(checkCtx)
-		cancel()
 	}
 
 	if err != nil {
-		return nil, status.Error(codes.Internal, err.Error())
+		return nil, status.Errorf(codes.Internal, "failed to perform health check: %v", err)
 	}
 
-	return &proto.HealthCheckResponse{
-		Status:    statusToProto(result.Status()),
-		Timestamp: result.Timestamp().Format(time.RFC3339),
-		Details:   convertDetailsToStringMap(result.Details()),
+	return &healthpb.CheckResponse{
+		Status:    toProtoStatus(result.Status()),
+		Timestamp: timestamppb.New(result.Timestamp()),
 	}, nil
 }
 
-// Watch performs a streaming health check and reports status changes.
-func (s *GRPCServer) Watch(req *proto.HealthCheckRequest, stream proto.HealthService_WatchServer) error {
-	serviceName := req.GetService()
-	if serviceName == "" {
-		serviceName = "all"
+// CheckDetailed performs a health check and returns detailed information.
+// This method implements the CheckDetailedRequest RPC defined in the health.proto file.
+//
+// Parameters:
+//   - ctx: The request context which can carry deadlines, cancellation signals, etc.
+//   - req: The CheckDetailedRequest message which may specify which type of check to perform
+//
+// Returns:
+//   - A CheckDetailedResponse containing comprehensive health information
+//   - An error if the check failed to execute
+func (s *GRPCServer) CheckDetailed(ctx context.Context, req *healthpb.CheckDetailedRequest) (*healthpb.CheckDetailedResponse, error) {
+	var result Result
+	var err error
+
+	switch req.Type {
+	case healthpb.CheckType_LIVENESS:
+		result, err = s.provider.CheckLiveness(ctx)
+	case healthpb.CheckType_READINESS:
+		result, err = s.provider.CheckReadiness(ctx)
+	default:
+		result, err = s.provider.CheckAll(ctx)
 	}
 
-	// Create a channel for this watch
-	statusCh := make(chan proto.ServingStatus, 1)
-
-	// Register the watch
-	s.mu.Lock()
-	if _, exists := s.watches[serviceName]; !exists {
-		s.watches[serviceName] = make(map[proto.HealthService_WatchServer]chan proto.ServingStatus)
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "failed to perform health check: %v", err)
 	}
-	s.watches[serviceName][stream] = statusCh
-	s.mu.Unlock()
 
-	// Add a listener to the provider to get status changes
-	listener := &watchListener{
-		serviceName: serviceName,
-		server:      s,
+	resp := &healthpb.CheckDetailedResponse{
+		Status:     toProtoStatus(result.Status()),
+		Timestamp:  timestamppb.New(result.Timestamp()),
+		StatusInfo: resultToStatusInfo(result),
+		Checks:     make(map[string]*healthpb.CheckInfo),
 	}
-	s.provider.AddListener(listener)
-	defer s.provider.RemoveListener(listener)
 
-	// Perform an initial check
-	var status proto.ServingStatus
-	if serviceName == "all" {
-		result, _ := s.provider.CheckAll(stream.Context())
-		status = statusToProto(result.Status())
-	} else {
-		check, exists := s.provider.Get(serviceName)
-		if !exists {
-			status = proto.ServingStatus_UNKNOWN
-		} else {
-			result, _ := check.Execute(stream.Context())
-			status = statusToProto(result.Status())
+	// Add check details for all children
+	for _, child := range result.Children() {
+		if child.Check() != nil {
+			checkInfo := resultToCheckInfo(child)
+			resp.Checks[child.Check().Name()] = checkInfo
 		}
+	}
+
+	return resp, nil
+}
+
+// Watch establishes a stream to monitor health status changes.
+// This method implements the WatchRequest streaming RPC defined in the health.proto file.
+//
+// Parameters:
+//   - req: The WatchRequest message which specifies what type of health changes to monitor
+//   - stream: The server stream for sending health updates
+//
+// Returns:
+//   - An error if the watch operation failed
+func (s *GRPCServer) Watch(req *healthpb.WatchRequest, stream healthpb.HealthService_WatchServer) error {
+	ctx := stream.Context()
+
+	// Create a channel to receive health status updates
+	updateCh := make(chan Result, 10)
+	doneCh := make(chan struct{})
+
+	// Create a listener that will forward health status changes to our channel
+	listener := &watchListener{
+		updateCh:  updateCh,
+		watchType: req.Type,
+	}
+
+	// Add the listener to the provider
+	if err := s.provider.AddListener(listener); err != nil {
+		return status.Errorf(codes.Internal, "failed to register health listener: %v", err)
+	}
+
+	// Make sure to remove the listener when done
+	defer func() {
+		s.provider.RemoveListener(listener)
+		close(doneCh)
+	}()
+
+	// Perform an initial check and send it
+	var result Result
+	var err error
+
+	switch req.Type {
+	case healthpb.CheckType_LIVENESS:
+		result, err = s.provider.CheckLiveness(ctx)
+	case healthpb.CheckType_READINESS:
+		result, err = s.provider.CheckReadiness(ctx)
+	default:
+		result, err = s.provider.CheckAll(ctx)
+	}
+
+	if err != nil {
+		return status.Errorf(codes.Internal, "failed to perform initial health check: %v", err)
 	}
 
 	// Send the initial status
-	if err := stream.Send(&proto.HealthCheckResponse{
-		Status:    status,
-		Timestamp: time.Now().Format(time.RFC3339),
+	if err := stream.Send(&healthpb.WatchResponse{
+		Status:    toProtoStatus(result.Status()),
+		Timestamp: timestamppb.New(result.Timestamp()),
 	}); err != nil {
-		s.removeWatch(serviceName, stream)
-		return err
+		return status.Errorf(codes.Internal, "failed to send initial health status: %v", err)
 	}
 
-	// Wait for updates or context cancellation
+	// Process status updates
 	for {
 		select {
-		case <-stream.Context().Done():
-			s.removeWatch(serviceName, stream)
-			return stream.Context().Err()
-
-		case status := <-statusCh:
-			if err := stream.Send(&proto.HealthCheckResponse{
-				Status:    status,
-				Timestamp: time.Now().Format(time.RFC3339),
+		case result := <-updateCh:
+			// Send the updated status
+			if err := stream.Send(&healthpb.WatchResponse{
+				Status:    toProtoStatus(result.Status()),
+				Timestamp: timestamppb.New(result.Timestamp()),
 			}); err != nil {
-				s.removeWatch(serviceName, stream)
-				return err
+				return status.Errorf(codes.Internal, "failed to send health status update: %v", err)
 			}
+		case <-ctx.Done():
+			// Client disconnected or context was cancelled
+			return status.FromContextError(ctx.Err()).Err()
 		}
 	}
 }
 
-// CheckAll executes all health checks and returns detailed results.
-func (s *GRPCServer) CheckAll(ctx context.Context, req *proto.HealthCheckAllRequest) (*proto.HealthCheckAllResponse, error) {
-	// Execute all checks
-	result, err := s.provider.CheckAll(ctx)
-	if err != nil {
-		return nil, status.Error(codes.Internal, err.Error())
-	}
-
-	// Convert the result to protobuf format
-	response := &proto.HealthCheckAllResponse{
-		Status:    statusToProto(result.Status()),
-		Timestamp: result.Timestamp().Format(time.RFC3339),
-		Results:   make(map[string]*proto.HealthCheckResult),
-	}
-
-	// Add child results if details are requested
-	if req.GetIncludeDetails() {
-		for _, child := range result.Children() {
-			check := child.Check()
-			if check != nil {
-				response.Results[check.Name()] = resultToProto(child)
-			}
-		}
-	}
-
-	return response, nil
-}
-
-// removeWatch removes a watch stream.
-func (s *GRPCServer) removeWatch(serviceName string, stream proto.HealthService_WatchServer) {
-	s.mu.Lock()
-	defer s.mu.Unlock()
-
-	if watches, exists := s.watches[serviceName]; exists {
-		delete(watches, stream)
-		if len(watches) == 0 {
-			delete(s.watches, serviceName)
-		}
-	}
-}
-
-// notifyWatchers notifies all watchers of a status change.
-func (s *GRPCServer) notifyWatchers(serviceName string, status proto.ServingStatus) {
-	s.mu.RLock()
-	defer s.mu.RUnlock()
-
-	// Notify watchers for this specific service
-	if watches, exists := s.watches[serviceName]; exists {
-		for _, ch := range watches {
-			select {
-			case ch <- status:
-			default:
-				// Channel is full, skip
-			}
-		}
-	}
-
-	// Notify watchers for all services
-	if watches, exists := s.watches["all"]; exists {
-		for _, ch := range watches {
-			select {
-			case ch <- status:
-			default:
-				// Channel is full, skip
-			}
-		}
-	}
-}
-
-// watchListener implements the Listener interface to notify gRPC watchers.
+// watchListener implements the Listener interface for streaming health updates.
 type watchListener struct {
-	serviceName string
-	server      *GRPCServer
+	updateCh  chan Result
+	watchType healthpb.CheckType
+	lastSent  time.Time
 }
 
-// OnStatusChange is called when a health status changes.
+// OnStatusChange processes health status changes and sends them to the update channel.
+// Implements the Listener interface.
+//
+// Parameters:
+//   - name: The name of the check that changed status
+//   - previous: The previous result of the check
+//   - current: The current result of the check
 func (l *watchListener) OnStatusChange(name string, previous, current Result) {
-	// If we're watching a specific service and it's not this one, skip
-	if l.serviceName != "all" && l.serviceName != name {
+	// Rate limit updates to at most one per second
+	if time.Since(l.lastSent) < time.Second {
 		return
 	}
 
-	// Notify watchers of the status change
-	l.server.notifyWatchers(name, statusToProto(current.Status()))
-}
+	// Only send updates for the types we're watching
+	// For ALL type, we send all updates
+	if l.watchType != healthpb.CheckType_ALL {
+		// Get the check to determine its type
+		check := current.Check()
+		if check == nil {
+			return
+		}
 
-// statusToProto converts a health status to a protobuf serving status.
-func statusToProto(status Status) proto.ServingStatus {
-	switch status {
-	case StatusUp:
-		return proto.ServingStatus_SERVING
-	case StatusDown:
-		return proto.ServingStatus_NOT_SERVING
-	case StatusDegraded:
-		return proto.ServingStatus_SERVING_DEGRADED
-	default:
-		return proto.ServingStatus_UNKNOWN
-	}
-}
-
-// protoToStatus converts a protobuf serving status to a health status.
-func protoToStatus(status proto.ServingStatus) Status {
-	switch status {
-	case proto.ServingStatus_SERVING:
-		return StatusUp
-	case proto.ServingStatus_NOT_SERVING:
-		return StatusDown
-	case proto.ServingStatus_SERVING_DEGRADED:
-		return StatusDegraded
-	default:
-		return StatusUnknown
-	}
-}
-
-// resultToProto converts a health check result to a protobuf health check result.
-func resultToProto(result Result) *proto.HealthCheckResult {
-	protoResult := &proto.HealthCheckResult{
-		Status:     statusToProto(result.Status()),
-		Timestamp:  result.Timestamp().Format(time.RFC3339),
-		DurationMs: result.Duration().Milliseconds(),
-		Details:    convertDetailsToStringMap(result.Details()),
-		Children:   make(map[string]*proto.HealthCheckResult),
-	}
-
-	// Add error if it exists
-	if err := result.Error(); err != nil {
-		protoResult.Error = err.Error()
-	}
-
-	// Set check type if available
-	if check := result.Check(); check != nil {
-		protoResult.Type = checkTypeToProto(check.Type())
-	}
-
-	// Add children if they exist
-	for _, child := range result.Children() {
-		check := child.Check()
-		if check != nil {
-			protoResult.Children[check.Name()] = resultToProto(child)
+		// Filter by check type
+		checkType := check.Type()
+		if (l.watchType == healthpb.CheckType_LIVENESS && checkType != TypeLiveness) ||
+			(l.watchType == healthpb.CheckType_READINESS && checkType != TypeReadiness) {
+			return
 		}
 	}
 
-	return protoResult
-}
-
-// checkTypeToProto converts a check type to a protobuf check type.
-func checkTypeToProto(checkType CheckType) proto.CheckType {
-	switch checkType {
-	case TypeLiveness:
-		return proto.CheckType_LIVENESS
-	case TypeReadiness:
-		return proto.CheckType_READINESS
-	case TypeComponent:
-		return proto.CheckType_COMPONENT
-	case TypeDependency:
-		return proto.CheckType_DEPENDENCY
+	// Send the update if the channel isn't full (non-blocking)
+	select {
+	case l.updateCh <- current:
+		l.lastSent = time.Now()
 	default:
-		return proto.CheckType_TYPE_UNSPECIFIED
+		// Channel is full, skip this update
 	}
 }
 
-// convertDetailsToStringMap converts a map[string]interface{} to map[string]string.
-func convertDetailsToStringMap(details map[string]interface{}) map[string]string {
-	result := make(map[string]string, len(details))
-	for k, v := range details {
-		result[k] = fmt.Sprintf("%v", v)
+// toProtoStatus converts a health.Status to a healthpb.Status.
+//
+// Parameters:
+//   - status: The internal health status to convert
+//
+// Returns:
+//   - The corresponding protobuf status enum value
+func toProtoStatus(status Status) healthpb.Status {
+	switch status {
+	case StatusUp:
+		return healthpb.Status_UP
+	case StatusDown:
+		return healthpb.Status_DOWN
+	case StatusDegraded:
+		return healthpb.Status_DEGRADED
+	default:
+		return healthpb.Status_UNKNOWN
 	}
-	return result
+}
+
+// resultToStatusInfo converts a health.Result to a healthpb.StatusInfo.
+//
+// Parameters:
+//   - result: The health check result to convert
+//
+// Returns:
+//   - A StatusInfo protobuf message containing details from the result
+func resultToStatusInfo(result Result) *healthpb.StatusInfo {
+	info := &healthpb.StatusInfo{
+		Message: result.Status().String(),
+	}
+
+	if err := result.Error(); err != nil {
+		info.Error = err.Error()
+	}
+
+	return info
+}
+
+// resultToCheckInfo converts a health.Result to a healthpb.CheckInfo.
+//
+// Parameters:
+//   - result: The health check result to convert
+//
+// Returns:
+//   - A CheckInfo protobuf message containing details from the result
+func resultToCheckInfo(result Result) *healthpb.CheckInfo {
+	info := &healthpb.CheckInfo{
+		Status:    toProtoStatus(result.Status()),
+		Timestamp: timestamppb.New(result.Timestamp()),
+	}
+
+	// Add error if present
+	if err := result.Error(); err != nil {
+		info.Error = err.Error()
+	}
+
+	// Add duration if available
+	duration := result.Duration()
+	if duration > 0 {
+		info.DurationMs = int64(duration / time.Millisecond)
+	}
+
+	// Add details if available
+	details := result.Details()
+	if len(details) > 0 {
+		info.Details = make(map[string]string)
+		for k, v := range details {
+			// Convert each detail value to a string
+			if v != nil {
+				info.Details[k] = fmt.Sprintf("%v", v)
+			}
+		}
+	}
+
+	return info
 }
