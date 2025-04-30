@@ -8,8 +8,8 @@ import (
 	"time"
 )
 
-// baseCheck provides a base implementation of Check.
-type baseCheck struct {
+// BaseCheck provides a base implementation of Check.
+type BaseCheck struct {
 	name      string
 	checkType CheckType
 	timeout   time.Duration
@@ -18,9 +18,9 @@ type baseCheck struct {
 	mu        sync.RWMutex
 }
 
-// newBaseCheck creates a new base check.
-func newBaseCheck(name string, checkType CheckType, timeout, interval time.Duration) *baseCheck {
-	return &baseCheck{
+// NewBaseCheck creates a new base check.
+func NewBaseCheck(name string, checkType CheckType, timeout, interval time.Duration) *BaseCheck {
+	return &BaseCheck{
 		name:      name,
 		checkType: checkType,
 		timeout:   timeout,
@@ -30,48 +30,49 @@ func newBaseCheck(name string, checkType CheckType, timeout, interval time.Durat
 }
 
 // Name returns the check name.
-func (c *baseCheck) Name() string {
+func (c *BaseCheck) Name() string {
 	return c.name
 }
 
 // Type returns the check type.
-func (c *baseCheck) Type() CheckType {
+func (c *BaseCheck) Type() CheckType {
 	return c.checkType
 }
 
 // Timeout returns the check timeout.
-func (c *baseCheck) Timeout() time.Duration {
+func (c *BaseCheck) Timeout() time.Duration {
 	return c.timeout
 }
 
 // Interval returns the check interval.
-func (c *baseCheck) Interval() time.Duration {
+func (c *BaseCheck) Interval() time.Duration {
 	return c.interval
 }
 
 // Enabled returns whether the check is enabled.
-func (c *baseCheck) Enabled() bool {
+func (c *BaseCheck) Enabled() bool {
 	c.mu.RLock()
 	defer c.mu.RUnlock()
 	return c.enabled
 }
 
 // SetEnabled sets whether the check is enabled.
-func (c *baseCheck) SetEnabled(enabled bool) {
+func (c *BaseCheck) SetEnabled(enabled bool) {
 	c.mu.Lock()
 	defer c.mu.Unlock()
 	c.enabled = enabled
 }
 
 // Execute runs the health check (to be implemented by specific checks).
-func (c *baseCheck) Execute(ctx context.Context) (Result, error) {
-	return NewResult(StatusUnknown), fmt.Errorf("execute not implemented")
+func (c *BaseCheck) Execute(ctx context.Context) (Result, error) {
+	return NewResult(StatusUnknown).
+		WithError(fmt.Errorf("execute not implemented")), nil
 }
 
 // WithType sets the check type.
 func WithType(checkType CheckType) CheckOption {
 	return func(c Check) error {
-		if bc, ok := c.(*baseCheck); ok {
+		if bc, ok := c.(*BaseCheck); ok {
 			bc.checkType = checkType
 		}
 		return nil
@@ -81,7 +82,7 @@ func WithType(checkType CheckType) CheckOption {
 // WithTimeout sets the check timeout.
 func WithTimeout(timeout time.Duration) CheckOption {
 	return func(c Check) error {
-		if bc, ok := c.(*baseCheck); ok {
+		if bc, ok := c.(*BaseCheck); ok {
 			bc.timeout = timeout
 		}
 		return nil
@@ -91,7 +92,7 @@ func WithTimeout(timeout time.Duration) CheckOption {
 // WithInterval sets the check interval.
 func WithInterval(interval time.Duration) CheckOption {
 	return func(c Check) error {
-		if bc, ok := c.(*baseCheck); ok {
+		if bc, ok := c.(*BaseCheck); ok {
 			bc.interval = interval
 		}
 		return nil
@@ -106,17 +107,17 @@ func WithEnabled(enabled bool) CheckOption {
 	}
 }
 
-// compositeCheck is a check that composes multiple child checks.
-type compositeCheck struct {
-	*baseCheck
+// CompositeCheck is a check that composes multiple child checks.
+type CompositeCheck struct {
+	*BaseCheck
 	checks []Check
 	mu     sync.RWMutex
 }
 
 // NewCompositeCheck creates a new composite check.
-func NewCompositeCheck(name string, options ...CheckOption) *compositeCheck {
-	c := &compositeCheck{
-		baseCheck: newBaseCheck(name, TypeComponent, 30*time.Second, 60*time.Second),
+func NewCompositeCheck(name string, options ...CheckOption) *CompositeCheck {
+	c := &CompositeCheck{
+		BaseCheck: NewBaseCheck(name, TypeComponent, 30*time.Second, 60*time.Second),
 		checks:    []Check{},
 	}
 
@@ -128,7 +129,7 @@ func NewCompositeCheck(name string, options ...CheckOption) *compositeCheck {
 }
 
 // Execute runs the composite health check.
-func (c *compositeCheck) Execute(ctx context.Context) (Result, error) {
+func (c *CompositeCheck) Execute(ctx context.Context) (Result, error) {
 	c.mu.RLock()
 	checks := make([]Check, len(c.checks))
 	copy(checks, c.checks)
@@ -175,14 +176,14 @@ func (c *compositeCheck) Execute(ctx context.Context) (Result, error) {
 }
 
 // AddChecks adds child checks to the composite check.
-func (c *compositeCheck) AddChecks(checks ...Check) {
+func (c *CompositeCheck) AddChecks(checks ...Check) {
 	c.mu.Lock()
 	defer c.mu.Unlock()
 	c.checks = append(c.checks, checks...)
 }
 
 // RemoveCheck removes a child check from the composite check.
-func (c *compositeCheck) RemoveCheck(name string) bool {
+func (c *CompositeCheck) RemoveCheck(name string) bool {
 	c.mu.Lock()
 	defer c.mu.Unlock()
 
@@ -197,7 +198,7 @@ func (c *compositeCheck) RemoveCheck(name string) bool {
 }
 
 // Checks returns the child checks.
-func (c *compositeCheck) Checks() []Check {
+func (c *CompositeCheck) Checks() []Check {
 	c.mu.RLock()
 	defer c.mu.RUnlock()
 
@@ -207,17 +208,17 @@ func (c *compositeCheck) Checks() []Check {
 	return checks
 }
 
-// simpleCheck implements a simple check with a check function.
-type simpleCheck struct {
-	*baseCheck
+// SimpleCheck implements a simple check with a check function.
+type SimpleCheck struct {
+	*BaseCheck
 	checkFunc CheckFunc
 	remediationFunc RemediationFunc
 }
 
 // NewSimpleCheck creates a new simple check.
-func NewSimpleCheck(name string, fn CheckFunc, options ...CheckOption) *simpleCheck {
-	c := &simpleCheck{
-		baseCheck: newBaseCheck(name, TypeComponent, 5*time.Second, 60*time.Second),
+func NewSimpleCheck(name string, fn CheckFunc, options ...CheckOption) *SimpleCheck {
+	c := &SimpleCheck{
+		BaseCheck: NewBaseCheck(name, TypeComponent, 5*time.Second, 60*time.Second),
 		checkFunc: fn,
 	}
 
@@ -229,7 +230,7 @@ func NewSimpleCheck(name string, fn CheckFunc, options ...CheckOption) *simpleCh
 }
 
 // Execute runs the simple health check.
-func (c *simpleCheck) Execute(ctx context.Context) (Result, error) {
+func (c *SimpleCheck) Execute(ctx context.Context) (Result, error) {
 	if !c.Enabled() {
 		return NewResult(StatusUnknown).
 			WithCheck(c).
@@ -261,7 +262,7 @@ func (c *simpleCheck) Execute(ctx context.Context) (Result, error) {
 // WithRemediation sets the remediation function for the check.
 func WithRemediation(fn RemediationFunc) CheckOption {
 	return func(c Check) error {
-		if sc, ok := c.(*simpleCheck); ok {
+		if sc, ok := c.(*SimpleCheck); ok {
 			sc.remediationFunc = fn
 		}
 		return nil
@@ -269,7 +270,7 @@ func WithRemediation(fn RemediationFunc) CheckOption {
 }
 
 // Remediate attempts to remediate a failed check.
-func (c *simpleCheck) Remediate(ctx context.Context, result Result) error {
+func (c *SimpleCheck) Remediate(ctx context.Context, result Result) error {
 	if c.remediationFunc != nil {
 		return c.remediationFunc(ctx, result)
 	}
