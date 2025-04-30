@@ -299,6 +299,25 @@ func CustomCheck(ctx context.Context) (health.Result, error) {
 }
 ```
 
+### Custom Health Check Examples
+
+```go
+// Register a custom health check
+provider.Register("cache", health.CheckFunc(func(ctx context.Context) (health.Result, error) {
+    if err := cacheClient.Ping(ctx); err != nil {
+        return health.NewResult(health.StatusDown).WithError(err), nil
+    }
+
+    stats := cacheClient.Stats()
+    return health.NewResult(health.StatusUp).WithDetails(map[string]interface{}{
+        "hits":     stats.Hits,
+        "misses":   stats.Misses,
+        "hitRate":  stats.HitRate,
+        "memoryUsage": stats.MemoryUsage,
+    }), nil
+}), health.WithType(health.TypeComponent))
+```
+
 ### HTTP Endpoints
 
 The health module provides HTTP endpoints for health status:
