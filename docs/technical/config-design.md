@@ -19,7 +19,7 @@ The configuration module provides a unified interface for application configurat
 
 ### Core Components
 
-```
+```plaintext
                  +---------------+
                  |    Provider   |
                  +-------+-------+
@@ -46,6 +46,7 @@ The core of the module is the `Provider` interface, which defines the common ope
 #### Configuration Sources
 
 Sources define where configuration values come from:
+
 - **Files**: Local configuration files
 - **Environment**: Environment variables
 - **Remote**: Remote configuration services
@@ -55,6 +56,7 @@ Sources define where configuration values come from:
 #### Configuration Parsers
 
 Parsers handle different configuration formats:
+
 - **JSON**: For JSON files
 - **YAML**: For YAML files
 - **TOML**: For TOML files
@@ -64,6 +66,7 @@ Parsers handle different configuration formats:
 #### Configuration Storage
 
 Storage manages how configuration is stored and accessed:
+
 - **In-memory**: For fast access
 - **Watch**: For monitoring changes
 - **Cache**: For efficient repeated access

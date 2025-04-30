@@ -2,7 +2,7 @@
 
 ## Overview
 
-The GCommon Configuration module provides a unified interface for managing application configuration with support for multiple sources and formats. It enables hierarchical configuration, environment variable integration, command-line flags, defaults, validation, and hot reloading capabilities.
+The GCommon Configuration module provides a unified interface for managing application configuration with support for multiple sources and formats. It enables hierarchical configuration, environment variable integration, command-line flags, defaults, validation, and hot reloading capabilities. The module is built on top of [Viper](https://github.com/spf13/viper) for configuration management and [Cobra](https://github.com/spf13/cobra) for command-line interface functionality, providing a simplified and enhanced API while leveraging these battle-tested libraries.
 
 ## Features
 
@@ -117,12 +117,15 @@ cfg, err := config.Load(
 ```
 
 With this configuration:
+
 - Environment variable `APP_SERVER_PORT=8080` would override `server.port` in the config file
 - Environment variable `APP_DATABASE_DSN=postgres://localhost/testdb` would override `database.dsn`
 
 ### Command-Line Flag Integration
 
-You can override configuration values using command-line flags:
+You can override configuration values using command-line flags. The configuration module integrates with both standard Go flag package and the more powerful Cobra library for command-line interfaces:
+
+#### Standard flag package
 
 ```go
 import (
@@ -147,6 +150,84 @@ func main() {
     )
 
     // Only non-zero/non-empty flag values will override the configuration
+}
+```
+
+#### Cobra CLI integration
+
+For more advanced command-line interfaces, the module seamlessly integrates with Cobra:
+
+```go
+import (
+    "github.com/jdfalk/gcommon/pkg/config"
+    "github.com/spf13/cobra"
+)
+
+func main() {
+    // Create a root command
+    rootCmd := &cobra.Command{
+        Use:   "myapp",
+        Short: "My application description",
+        Run: func(cmd *cobra.Command, args []string) {
+            // Load configuration with Cobra flag bindings
+            cfg, err := config.Load(
+                "config.yaml",
+                config.WithEnv(),
+                config.WithCobra(cmd),
+            )
+            if err != nil {
+                cmd.PrintErr(err)
+                return
+            }
+
+            // Run your application with config
+            if err := runApp(cfg); err != nil {
+                cmd.PrintErr(err)
+            }
+        },
+    }
+
+    // Define persistent flags for all commands
+    rootCmd.PersistentFlags().String("config", "config.yaml", "Config file path")
+    rootCmd.PersistentFlags().Int("port", 8080, "Server port")
+    rootCmd.PersistentFlags().String("log-level", "info", "Logging level")
+
+    // Add subcommands
+    rootCmd.AddCommand(newServerCmd())
+
+    // Execute the command
+    if err := rootCmd.Execute(); err != nil {
+        os.Exit(1)
+    }
+}
+
+func newServerCmd() *cobra.Command {
+    cmd := &cobra.Command{
+        Use:   "server",
+        Short: "Run the server",
+        Run: func(cmd *cobra.Command, args []string) {
+            // Load configuration with Cobra flag bindings
+            cfg, err := config.Load(
+                cmd.Flag("config").Value.String(),
+                config.WithEnv(),
+                config.WithCobra(cmd),
+            )
+            if err != nil {
+                cmd.PrintErr(err)
+                return
+            }
+
+            // Run server with config
+            if err := runServer(cfg); err != nil {
+                cmd.PrintErr(err)
+            }
+        },
+    }
+
+    // Add server-specific flags
+    cmd.Flags().Int("timeout", 30, "Server timeout in seconds")
+
+    return cmd
 }
 ```
 
@@ -274,6 +355,76 @@ cfg, err := config.Load(
 // Then in your config file, you can reference secrets:
 // database:
 //   dsn: "{{vault:database/credentials/myapp}}"
+```
+
+## Viper and Cobra Integration
+
+The GCommon Configuration module is built on top of two powerful Go libraries:
+
+### Viper Integration
+
+[Viper](https://github.com/spf13/viper) is used under the hood to provide:
+
+- Configuration from multiple sources (files, environment variables, flags)
+- Support for multiple configuration formats (YAML, JSON, TOML, HCL)
+- Hierarchical configuration structure
+- Real-time watching and re-reading of config files
+- Live watching for changes in etcd or Consul
+
+The GCommon Configuration module extends Viper's capabilities with:
+
+- A simpler, more intuitive API
+- Enhanced validation
+- Better integration with other GCommon components
+- Simplified secret management
+- Structured configuration with strong typing
+
+### Cobra Integration
+
+[Cobra](https://github.com/spf13/cobra) is used to provide robust command-line interface capabilities:
+
+- Easy subcommand-based CLIs: `app server start`, `app config validate`
+- Fully POSIX-compliant flags (including short & long versions)
+- Nested commands
+- Global and local flags
+- Intelligent suggestions (`app srver` → `Did you mean app server?`)
+- Automatic help generation
+- Custom help and usage text
+- Shell completions (Bash, Zsh, fish, PowerShell)
+
+The GCommon Configuration module integrates seamlessly with Cobra through:
+
+- The `WithCobra()` option for binding Cobra commands to configuration
+- Automatic mapping between command flags and configuration keys
+- Unified help documentation
+
+For more advanced CLI applications, you can directly access the underlying Cobra command structure:
+
+```go
+import (
+    "github.com/jdfalk/gcommon/pkg/config"
+)
+
+func main() {
+    app := config.NewApp("myapp", "1.0.0", "My amazing application")
+
+    // Get the root Cobra command to customize
+    rootCmd := app.GetRootCommand()
+
+    // Add more custom commands
+    migrateCmd := &cobra.Command{
+        Use:   "migrate",
+        Short: "Database migration commands",
+    }
+    migrateCmd.AddCommand(
+        newMigrateUpCommand(),
+        newMigrateDownCommand(),
+    )
+    rootCmd.AddCommand(migrateCmd)
+
+    // Run the app
+    app.Run()
+}
 ```
 
 ## Best Practices
@@ -476,6 +627,7 @@ func main() {
 | `WithEnvPrefix(prefix string)`                  | Set a prefix for environment variables |
 | `WithDefaults(defaults map[string]interface{})` | Set default values                     |
 | `WithFlags(flags map[string]interface{})`       | Override with command-line flags       |
+| `WithCobra(cmd *cobra.Command)`                 | Integrate with Cobra command           |
 | `WithValidation(rules map[string]string)`       | Validate configuration                 |
 | `WithHotReload(enable bool)`                    | Enable hot reloading                   |
 | `WithSecretProvider(provider SecretProvider)`   | Integrate with a secret provider       |

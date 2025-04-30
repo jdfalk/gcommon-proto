@@ -21,7 +21,7 @@ The authentication module provides a unified interface for authentication and au
 
 ### Core Components
 
-```
+```plaintext
               +----------------+
               |    Provider    |
               +-------+--------+
@@ -48,6 +48,7 @@ The core of the module is the `Provider` interface, which defines the common ope
 #### Authentication Methods
 
 Multiple authentication methods are supported:
+
 - **Local**: Username/password verification
 - **Token**: JWT/API key validation
 - **OAuth/OIDC**: OpenID Connect and OAuth 2.0
@@ -57,6 +58,7 @@ Multiple authentication methods are supported:
 #### Authorization Mechanisms
 
 Authorization mechanisms include:
+
 - **RBAC**: Role-based access control
 - **ABAC**: Attribute-based access control
 - **Claims**: Claims-based authorization
@@ -66,6 +68,7 @@ Authorization mechanisms include:
 #### Identity Management
 
 Identity management includes:
+
 - **Users**: User account management
 - **Roles**: Role management and assignment
 - **Permissions**: Permission definition and assignment

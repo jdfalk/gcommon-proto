@@ -20,7 +20,7 @@ The cache module provides a unified interface for caching with support for multi
 
 ### Core Components
 
-```
+```plaintext
               +----------------+
               |    Provider    |
               +-------+--------+
@@ -48,6 +48,7 @@ The core of the module is the `Provider` interface, which defines the common ope
 #### Storage Backends
 
 Multiple storage backends are supported:
+
 - **Memory**: In-process memory cache
 - **Redis**: Distributed cache using Redis
 - **File**: On-disk cache
@@ -57,6 +58,7 @@ Multiple storage backends are supported:
 #### Cache Management
 
 Cache management includes:
+
 - **Expiration**: Time-based expiration
 - **Eviction**: Policies for removing items when the cache is full
 - **Invalidation**: Strategies for invalidating cache entries
@@ -66,6 +68,7 @@ Cache management includes:
 #### Serializers
 
 Serializers handle conversion between Go types and cache storage:
+
 - **JSON**: For human-readable format
 - **Gob**: For Go-specific serialization
 - **Protobuf**: For efficient binary serialization

@@ -21,7 +21,7 @@ The logging module provides a unified interface for application logging with sup
 
 ### Core Components
 
-```
+```plaintext
               +------------------+
               |     Logger       |
               +--------+---------+
@@ -48,6 +48,7 @@ The core of the module is the `Logger` interface, which defines the common opera
 #### Providers
 
 Providers implement the `Logger` interface for different logging backends:
+
 - **Standard**: Go standard library logger
 - **Zap**: High-performance structured logging
 - **Logrus**: Feature-rich structured logging
@@ -57,6 +58,7 @@ Providers implement the `Logger` interface for different logging backends:
 #### Formatters
 
 Formatters handle the conversion of log entries to output formats:
+
 - **Text**: Human-readable text format
 - **JSON**: Machine-readable JSON format
 - **Console**: Colored console output
@@ -65,6 +67,7 @@ Formatters handle the conversion of log entries to output formats:
 #### Writers
 
 Writers handle the destination of log output:
+
 - **Console**: Standard output/error streams
 - **File**: Local file system
 - **Rotating**: File rotation based on size or time
@@ -294,6 +297,7 @@ The logging module integrates with the Go context package to allow for context-a
 ### Performance Considerations
 
 The module uses various techniques to ensure high-performance logging:
+
 - Zero-allocation logging when possible
 - Level checking before formatting
 - Buffered I/O

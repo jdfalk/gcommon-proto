@@ -21,7 +21,7 @@ The database module provides a unified interface for database operations with su
 
 ### Core Components
 
-```
+```plaintext
                      +------------------+
                      |    Interfaces    |
                      +--------+---------+

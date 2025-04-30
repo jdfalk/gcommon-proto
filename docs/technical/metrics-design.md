@@ -20,7 +20,7 @@ The metrics module provides a unified interface for application metrics collecti
 
 ### Core Components
 
-```
+```plaintext
               +-----------------+
               |     Provider    |
               +--------+--------+
@@ -48,6 +48,7 @@ The core of the module is the `Provider` interface, which defines the common ope
 #### Metric Types
 
 The module supports standard metric types:
+
 - **Counter**: Monotonically increasing value
 - **Gauge**: Value that can go up and down
 - **Histogram**: Distribution of values
@@ -57,6 +58,7 @@ The module supports standard metric types:
 #### Exporters
 
 Exporters handle sending metrics to various backends:
+
 - **Prometheus**: Push or pull model for Prometheus
 - **OpenTelemetry**: Compatible with OpenTelemetry collectors
 - **Statsd**: Export to StatsD protocol

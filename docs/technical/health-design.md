@@ -21,7 +21,7 @@ The health module provides a unified interface for application health checking a
 
 ### Core Components
 
-```
+```plaintext
               +-----------------+
               |     Provider    |
               +-------+---------+
@@ -48,6 +48,7 @@ The core of the module is the `Provider` interface, which defines the common ope
 #### Check Types
 
 The module supports different types of health checks:
+
 - **Liveness**: Indicates if the application is running (for auto-restart)
 - **Readiness**: Indicates if the application can serve requests (for load balancing)
 - **Component**: Check specific application components
@@ -269,6 +270,7 @@ type Config struct {
 The module includes built-in health checks for:
 
 #### System Checks
+
 - **Memory**: Memory usage check
 - **CPU**: CPU usage check
 - **Disk**: Disk usage check
@@ -276,6 +278,7 @@ The module includes built-in health checks for:
 - **Uptime**: Application uptime
 
 #### Dependency Checks
+
 - **HTTP**: HTTP dependency check
 - **TCP**: TCP connection check
 - **Database**: Database connection check

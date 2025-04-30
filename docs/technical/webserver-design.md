@@ -22,7 +22,7 @@ The web server module provides a unified interface for building HTTP services wi
 
 ### Core Components
 
-```
+```text
               +-----------------+
               |     Server      |
               +--------+--------+
@@ -438,7 +438,7 @@ func createUser(ctx web.Context) error {
 }
 ```
 
-### Template Rendering
+### Template Rendering Example
 
 ```go
 func renderTemplate(ctx web.Context) error {
