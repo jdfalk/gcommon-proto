@@ -76,7 +76,7 @@ func (c *SystemCheck) Execute(ctx context.Context) (health.Result, error) {
 	// Check memory usage
 	if memoryUsagePct > c.memoryThresholdPct {
 		return health.NewResult(health.StatusDegraded).
-			WithError(fmt.Errorf("memory usage %.1f%% exceeds threshold %.1f%%", 
+			WithError(fmt.Errorf("memory usage %.1f%% exceeds threshold %.1f%%",
 				memoryUsagePct, c.memoryThresholdPct)).
 			WithDuration(time.Since(startTime)).
 			WithDetails(details), nil
@@ -86,7 +86,7 @@ func (c *SystemCheck) Execute(ctx context.Context) (health.Result, error) {
 	lastGCPause := time.Duration(memStats.PauseNs[(memStats.NumGC+255)%256])
 	if lastGCPause > c.gcPauseThreshold {
 		return health.NewResult(health.StatusDegraded).
-			WithError(fmt.Errorf("GC pause %s exceeds threshold %s", 
+			WithError(fmt.Errorf("GC pause %s exceeds threshold %s",
 				lastGCPause, c.gcPauseThreshold)).
 			WithDuration(time.Since(startTime)).
 			WithDetails(details), nil
