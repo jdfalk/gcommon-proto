@@ -1,5 +1,4 @@
-// Package metrics provides a unified interface for application metrics collection,
-// aggregation, and export with support for multiple metrics backends.
+// Package metrics provides a unified interface for metrics collection.
 package metrics
 
 import (
@@ -8,66 +7,28 @@ import (
 	"time"
 )
 
-// MetricType represents a type of metric.
-type MetricType int
+// Context is an alias for context.Context to avoid imports in interfaces.
+type Context = context.Context
 
-const (
-	// TypeCounter is a counter metric type.
-	TypeCounter MetricType = iota
+// Duration is an alias for time.Duration to avoid imports in interfaces.
+type Duration = time.Duration
 
-	// TypeGauge is a gauge metric type.
-	TypeGauge
+// ResponseWriter is an alias for http.ResponseWriter to avoid imports in interfaces.
+type ResponseWriter = http.ResponseWriter
 
-	// TypeHistogram is a histogram metric type.
-	TypeHistogram
+// Request is an alias for http.Request to avoid imports in interfaces.
+type Request = http.Request
 
-	// TypeSummary is a summary metric type.
-	TypeSummary
+// Handler is an alias for http.Handler to avoid imports in interfaces.
+type Handler = http.Handler
 
-	// TypeTimer is a timer metric type.
-	TypeTimer
-)
+// HandlerFunc is an alias for http.HandlerFunc to avoid imports in interfaces.
+type HandlerFunc = http.HandlerFunc
 
-// Tag represents a metric tag/label.
-type Tag struct {
-	// Key is the tag key.
-	Key string
+// StatusOK is an alias for http.StatusOK to avoid imports in interfaces.
+const StatusOK = http.StatusOK
 
-	// Value is the tag value.
-	Value string
-}
-
-// Option represents a metric creation option.
-type Option func(options *Options)
-
-// Options contains metric creation options.
-type Options struct {
-	// Description is the metric description.
-	Description string
-
-	// Unit is the metric unit.
-	Unit string
-
-	// Tags are the metric tags.
-	Tags []Tag
-
-	// Buckets are the histogram buckets.
-	Buckets []float64
-
-	// Objectives are the summary objectives.
-	Objectives map[float64]float64
-
-	// MaxAge is the maximum age of observations.
-	MaxAge time.Duration
-
-	// AgeBuckets is the number of age buckets.
-	AgeBuckets uint32
-
-	// BufCap is the buffer capacity.
-	BufCap uint32
-}
-
-// Provider represents a metrics provider.
+// Provider is the interface for a metrics provider.
 type Provider interface {
 	// Counter creates or gets a counter.
 	Counter(name string, options ...Option) Counter
@@ -88,19 +49,19 @@ type Provider interface {
 	Registry() Registry
 
 	// Handler returns an HTTP handler for metrics exposition.
-	Handler() http.Handler
+	Handler() Handler
 
 	// Start initializes the metrics provider.
-	Start(ctx context.Context) error
+	Start(ctx Context) error
 
 	// Stop stops the metrics provider.
-	Stop(ctx context.Context) error
+	Stop(ctx Context) error
 
 	// WithTags returns a new provider with the given tags.
 	WithTags(tags ...Tag) Provider
 }
 
-// Counter represents a counter metric.
+// Counter is a metric that accumulates values.
 type Counter interface {
 	// Inc increments the counter by 1.
 	Inc()
@@ -115,7 +76,7 @@ type Counter interface {
 	Value() float64
 }
 
-// Gauge represents a gauge metric.
+// Gauge is a metric that represents a single numerical value.
 type Gauge interface {
 	// Set sets the gauge to the given value.
 	Set(value float64)
@@ -139,7 +100,7 @@ type Gauge interface {
 	Value() float64
 }
 
-// Histogram represents a histogram metric.
+// Histogram is a metric that samples observations and counts them in configurable buckets.
 type Histogram interface {
 	// Observe records a value.
 	Observe(value float64)
@@ -166,7 +127,7 @@ type HistogramSnapshot interface {
 	Buckets() map[float64]int64
 }
 
-// Summary represents a summary metric.
+// Summary is a metric that samples observations and provides quantile information.
 type Summary interface {
 	// Observe records a value.
 	Observe(value float64)
@@ -193,10 +154,10 @@ type SummarySnapshot interface {
 	Quantiles() map[float64]float64
 }
 
-// Timer represents a timer metric.
+// Timer is a specialized histogram that measures durations.
 type Timer interface {
 	// Record records a duration.
-	Record(duration time.Duration)
+	Record(duration Duration)
 
 	// Time executes the given function and records its duration.
 	Time(f func())
@@ -211,7 +172,7 @@ type Timer interface {
 	NewStopwatch() Stopwatch
 }
 
-// Stopwatch represents a running timer.
+// Stopwatch is a timer that can be stopped.
 type Stopwatch interface {
 	// Stop stops the timer and records the duration.
 	Stop()
@@ -220,7 +181,7 @@ type Stopwatch interface {
 	Reset()
 }
 
-// Registry represents a metrics registry.
+// Registry is a collection of metrics.
 type Registry interface {
 	// Get gets a metric by name and type.
 	Get(name string, typ MetricType) (interface{}, bool)
@@ -244,10 +205,7 @@ type Registry interface {
 	Snapshot() Snapshot
 }
 
-// MetricVisitor is a function that visits a metric.
-type MetricVisitor func(name string, typ MetricType, metric interface{})
-
-// Snapshot represents a snapshot of all metrics.
+// Snapshot is a snapshot of metrics.
 type Snapshot interface {
 	// Counters returns the counter snapshots.
 	Counters() map[string]float64
@@ -262,109 +220,124 @@ type Snapshot interface {
 	Summaries() map[string]SummarySnapshot
 }
 
-// Common option functions
+// MetricType represents a metric type.
+type MetricType int
+
+const (
+	// TypeCounter is a counter metric.
+	TypeCounter MetricType = iota
+
+	// TypeGauge is a gauge metric.
+	TypeGauge
+
+	// TypeHistogram is a histogram metric.
+	TypeHistogram
+
+	// TypeSummary is a summary metric.
+	TypeSummary
+
+	// TypeTimer is a timer metric.
+	TypeTimer
+)
+
+// MetricVisitor is a function that visits a metric.
+type MetricVisitor func(name string, typ MetricType, metric interface{})
+
+// Tag represents a metric tag.
+type Tag struct {
+	// Key is the tag key.
+	Key string
+
+	// Value is the tag value.
+	Value string
+}
+
+// Options represents metric options.
+type Options struct {
+	// Description is the metric description.
+	Description string
+
+	// Tags are the metric tags.
+	Tags []Tag
+
+	// Buckets are the histogram buckets.
+	Buckets []float64
+
+	// Quantiles are the summary quantiles.
+	Quantiles []float64
+
+	// MaxAge is the maximum age of a summary.
+	MaxAge Duration
+}
+
+// Option is a function that configures Options.
+type Option func(*Options)
 
 // WithDescription sets the metric description.
 func WithDescription(description string) Option {
-	return func(options *Options) {
-		options.Description = description
-	}
-}
-
-// WithUnit sets the metric unit.
-func WithUnit(unit string) Option {
-	return func(options *Options) {
-		options.Unit = unit
+	return func(o *Options) {
+		o.Description = description
 	}
 }
 
 // WithTags sets the metric tags.
 func WithTags(tags ...Tag) Option {
-	return func(options *Options) {
-		options.Tags = append(options.Tags, tags...)
+	return func(o *Options) {
+		o.Tags = append(o.Tags, tags...)
 	}
 }
 
 // WithBuckets sets the histogram buckets.
 func WithBuckets(buckets []float64) Option {
-	return func(options *Options) {
-		options.Buckets = buckets
+	return func(o *Options) {
+		o.Buckets = buckets
 	}
 }
 
-// WithObjectives sets the summary objectives.
-func WithObjectives(objectives map[float64]float64) Option {
-	return func(options *Options) {
-		options.Objectives = objectives
+// WithQuantiles sets the summary quantiles.
+func WithQuantiles(quantiles []float64) Option {
+	return func(o *Options) {
+		o.Quantiles = quantiles
 	}
 }
 
-// WithMaxAge sets the maximum age of observations.
-func WithMaxAge(maxAge time.Duration) Option {
-	return func(options *Options) {
-		options.MaxAge = maxAge
-	}
-}
-
-// WithAgeBuckets sets the number of age buckets.
-func WithAgeBuckets(ageBuckets uint32) Option {
-	return func(options *Options) {
-		options.AgeBuckets = ageBuckets
-	}
-}
-
-// WithBufCap sets the buffer capacity.
-func WithBufCap(bufCap uint32) Option {
-	return func(options *Options) {
-		options.BufCap = bufCap
+// WithMaxAge sets the maximum age of a summary.
+func WithMaxAge(maxAge Duration) Option {
+	return func(o *Options) {
+		o.MaxAge = maxAge
 	}
 }
 
 // Config represents the metrics configuration.
 type Config struct {
-	// Provider specifies the metrics provider to use.
-	// Supported values: "prometheus", "opentelemetry", "statsd", "noop"
-	Provider string
-
-	// Enabled specifies whether metrics collection is enabled.
+	// Enabled specifies whether metrics are enabled.
 	Enabled bool
 
-	// Namespace is the namespace for all metrics.
+	// Provider specifies the metrics provider to use.
+	// Supported values: "prometheus", "opentelemetry", "otel"
+	Provider string
+
+	// Namespace is the metrics namespace.
 	Namespace string
 
-	// Subsystem is the subsystem for all metrics.
+	// Subsystem is the metrics subsystem.
 	Subsystem string
 
-	// Tags are the global tags for all metrics.
+	// Tags are the global tags to add to all metrics.
 	Tags []Tag
 
-	// EnableRuntimeMetrics enables Go runtime metrics.
+	// EnableRuntimeMetrics enables runtime metrics.
 	EnableRuntimeMetrics bool
-
-	// EnableSystemMetrics enables system metrics.
-	EnableSystemMetrics bool
-
-	// Endpoint is the HTTP endpoint for metrics exposition.
-	Endpoint string
-
-	// FlushInterval is the interval for flushing metrics.
-	FlushInterval time.Duration
 
 	// PrometheusConfig contains Prometheus-specific configuration.
 	PrometheusConfig *PrometheusConfig
 
 	// OpenTelemetryConfig contains OpenTelemetry-specific configuration.
 	OpenTelemetryConfig *OpenTelemetryConfig
-
-	// StatsdConfig contains StatsD-specific configuration.
-	StatsdConfig *StatsdConfig
 }
 
 // PrometheusConfig represents Prometheus-specific configuration.
 type PrometheusConfig struct {
-	// Path is the HTTP path for metrics exposition.
-	Path string
-
 	// EnableGoCollector enables the Go collector.
 	EnableGoCollector bool
 
@@ -374,11 +347,15 @@ type PrometheusConfig struct {
 	// PushGateway is the Prometheus push gateway URL.
 	PushGateway string
 
-	// PushInterval is the interval for pushing metrics to the gateway.
-	PushInterval time.Duration
-
-	// PushJobName is the job name for pushed metrics.
+	// PushJobName is the job name for the push gateway.
 	PushJobName string
+
+	// PushInterval is the push interval.
+	PushInterval Duration
+
+	// Registry is the Prometheus registry to use.
+	// If nil, a new registry is created.
+	Registry interface{}
 }
 
 // OpenTelemetryConfig represents OpenTelemetry-specific configuration.
@@ -386,46 +363,19 @@ type OpenTelemetryConfig struct {
 	// CollectorURL is the OpenTelemetry collector URL.
 	CollectorURL string
 
-	// ExportInterval is the interval for exporting metrics.
-	ExportInterval time.Duration
-
-	// ResourceAttributes are the resource attributes for all metrics.
-	ResourceAttributes map[string]string
-
-	// Headers are HTTP headers for the exporter.
-	Headers map[string]string
-
 	// Insecure specifies whether to use insecure connections.
 	Insecure bool
-}
 
-// StatsdConfig represents StatsD-specific configuration.
-type StatsdConfig struct {
-	// Address is the StatsD server address.
-	Address string
+	// Headers are the headers to add to collector requests.
+	Headers map[string]string
 
-	// FlushPeriod is the flush period.
-	FlushPeriod time.Duration
+	// ResourceAttributes are the resource attributes to add.
+	ResourceAttributes map[string]string
 
-	// MaxPacketSize is the maximum packet size.
-	MaxPacketSize int
+	// ExportInterval is the export interval.
+	ExportInterval Duration
 
-	// SampleRate is the sample rate.
-	SampleRate float64
-}
-
-// CallbackRegistry extends Registry with callback functions.
-type CallbackRegistry interface {
-	Registry
-
-	// RegisterCallback registers a callback function for a gauge.
-	RegisterCallback(name string, callback func() float64, options ...Option) error
-}
-
-// NewProvider creates a new metrics provider.
-func NewProvider(config Config) (Provider, error) {
-	// This is a placeholder that will be implemented in provider-specific packages
-	// Each provider implementation should be in its own package (prometheus, otel, etc.)
-	// and register with a factory pattern
-	return nil, nil
+	// MeterProvider is the OpenTelemetry meter provider to use.
+	// If nil, a new meter provider is created.
+	MeterProvider interface{}
 }
