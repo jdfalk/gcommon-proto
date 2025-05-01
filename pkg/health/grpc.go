@@ -11,14 +11,14 @@ import (
 	"google.golang.org/grpc/status"
 	"google.golang.org/protobuf/types/known/timestamppb"
 
-	healthpb "github.com/jdfalk/gcommon/pkg/health/proto"
+	proto "github.com/jdfalk/gcommon/pkg/health/proto"
 )
 
 // GRPCServer implements the gRPC health service.
 // It serves as a bridge between the Provider interface and gRPC service definitions,
 // allowing health checks to be exposed via gRPC.
 type GRPCServer struct {
-	healthpb.UnimplementedHealthServiceServer // Required for forward compatibility
+	proto.UnimplementedHealthServiceServer // Required for forward compatibility
 	provider Provider
 }
 
@@ -38,7 +38,7 @@ func NewGRPCServer(provider Provider) *GRPCServer {
 // Parameters:
 //   - server: The gRPC server to register with
 func (s *GRPCServer) Register(server *grpc.Server) {
-	healthpb.RegisterHealthServiceServer(server, s)
+	proto.RegisterHealthServiceServer(server, s)
 }
 
 // Check performs a health check and returns a simple health status.
@@ -51,7 +51,7 @@ func (s *GRPCServer) Register(server *grpc.Server) {
 // Returns:
 //   - A CheckResponse containing the overall health status
 //   - An error if the check failed to execute
-func (s *GRPCServer) Check(ctx context.Context, req *healthpb.HealthCheckRequest) (*healthpb.HealthCheckResponse, error) {
+func (s *GRPCServer) Check(ctx context.Context, req *proto.HealthCheckRequest) (*proto.HealthCheckResponse, error) {
 	var result Result
 	var err error
 
@@ -75,7 +75,7 @@ func (s *GRPCServer) Check(ctx context.Context, req *healthpb.HealthCheckRequest
 		return nil, status.Errorf(codes.Internal, "failed to perform health check: %v", err)
 	}
 
-	return &healthpb.HealthCheckResponse{
+	return &proto.HealthCheckResponse{
 		Status:    toProtoServingStatus(result.Status()),
 		Timestamp: timestamppb.New(time.Now()),
 		Details:   convertDetailsToMap(result.Details()),
@@ -92,7 +92,7 @@ func (s *GRPCServer) Check(ctx context.Context, req *healthpb.HealthCheckRequest
 // Returns:
 //   - A CheckAllResponse containing comprehensive health information
 //   - An error if the checks failed to execute
-func (s *GRPCServer) CheckAll(ctx context.Context, req *healthpb.HealthCheckAllRequest) (*healthpb.HealthCheckAllResponse, error) {
+func (s *GRPCServer) CheckAll(ctx context.Context, req *proto.HealthCheckAllRequest) (*proto.HealthCheckAllResponse, error) {
 	var result Result
 	var err error
 
@@ -108,10 +108,10 @@ func (s *GRPCServer) CheckAll(ctx context.Context, req *healthpb.HealthCheckAllR
 		return nil, status.Errorf(codes.Internal, "failed to perform health checks: %v", err)
 	}
 
-	resp := &healthpb.HealthCheckAllResponse{
+	resp := &proto.HealthCheckAllResponse{
 		Status:    toProtoServingStatus(result.Status()),
 		Timestamp: timestamppb.New(time.Now()),
-		Results:   make(map[string]*healthpb.HealthCheckResult),
+		Results:   make(map[string]*proto.HealthCheckResult),
 	}
 
 	// Add check details for all children if requested
@@ -136,7 +136,7 @@ func (s *GRPCServer) CheckAll(ctx context.Context, req *healthpb.HealthCheckAllR
 //
 // Returns:
 //   - An error if the watch operation failed
-func (s *GRPCServer) Watch(req *healthpb.HealthCheckRequest, stream healthpb.HealthService_WatchServer) error {
+func (s *GRPCServer) Watch(req *proto.HealthCheckRequest, stream proto.HealthService_WatchServer) error {
 	ctx := stream.Context()
 
 	// Create a channel to receive health status updates
@@ -184,7 +184,7 @@ func (s *GRPCServer) Watch(req *healthpb.HealthCheckRequest, stream healthpb.Hea
 	}
 
 	// Send the initial status
-	if err := stream.Send(&healthpb.HealthCheckResponse{
+	if err := stream.Send(&proto.HealthCheckResponse{
 		Status:    toProtoServingStatus(result.Status()),
 		Timestamp: timestamppb.New(time.Now()),
 		Details:   convertDetailsToMap(result.Details()),
@@ -197,7 +197,7 @@ func (s *GRPCServer) Watch(req *healthpb.HealthCheckRequest, stream healthpb.Hea
 		select {
 		case result := <-updateCh:
 			// Send the updated status
-			if err := stream.Send(&healthpb.HealthCheckResponse{
+			if err := stream.Send(&proto.HealthCheckResponse{
 				Status:    toProtoServingStatus(result.Status()),
 				Timestamp: timestamppb.New(time.Now()),
 				Details:   convertDetailsToMap(result.Details()),
@@ -255,23 +255,23 @@ func (l *watchListener) OnStatusChange(name string, previous, current Result) {
 	}
 }
 
-// toProtoServingStatus converts a health.Status to a healthpb.ServingStatus.
+// toProtoServingStatus converts a health.Status to a proto.ServingStatus.
 //
 // Parameters:
 //   - status: The internal health status to convert
 //
 // Returns:
 //   - The corresponding protobuf status enum value
-func toProtoServingStatus(status Status) healthpb.ServingStatus {
+func toProtoServingStatus(status Status) proto.ServingStatus {
 	switch status {
 	case StatusUp:
-		return healthpb.ServingStatus_SERVING
+		return proto.ServingStatus_SERVING
 	case StatusDown:
-		return healthpb.ServingStatus_NOT_SERVING
+		return proto.ServingStatus_NOT_SERVING
 	case StatusDegraded:
-		return healthpb.ServingStatus_SERVING_DEGRADED
+		return proto.ServingStatus_SERVING_DEGRADED
 	default:
-		return healthpb.ServingStatus_UNKNOWN
+		return proto.ServingStatus_UNKNOWN
 	}
 }
 
@@ -296,34 +296,34 @@ func convertDetailsToMap(details map[string]interface{}) map[string]string {
 	return result
 }
 
-// resultToHealthCheckResult converts a health.Result to a healthpb.HealthCheckResult.
+// resultToHealthCheckResult converts a health.Result to a proto.HealthCheckResult.
 //
 // Parameters:
 //   - result: The health check result to convert
 //
 // Returns:
 //   - A HealthCheckResult protobuf message containing details from the result
-func resultToHealthCheckResult(result Result) *healthpb.HealthCheckResult {
-	checkType := healthpb.CheckType_TYPE_UNSPECIFIED
+func resultToHealthCheckResult(result Result) *proto.HealthCheckResult {
+	checkType := proto.CheckType_TYPE_UNSPECIFIED
 	if result.Check() != nil {
 		switch result.Check().Type() {
 		case TypeLiveness:
-			checkType = healthpb.CheckType_LIVENESS
+			checkType = proto.CheckType_LIVENESS
 		case TypeReadiness:
-			checkType = healthpb.CheckType_READINESS
+			checkType = proto.CheckType_READINESS
 		case TypeComponent:
-			checkType = healthpb.CheckType_COMPONENT
+			checkType = proto.CheckType_COMPONENT
 		case TypeDependency:
-			checkType = healthpb.CheckType_DEPENDENCY
+			checkType = proto.CheckType_DEPENDENCY
 		}
 	}
 
-	info := &healthpb.HealthCheckResult{
+	info := &proto.HealthCheckResult{
 		Status:    toProtoServingStatus(result.Status()),
 		Type:      checkType,
 		Timestamp: timestamppb.New(time.Now()),
 		Details:   convertDetailsToMap(result.Details()),
-		Children:  make(map[string]*healthpb.HealthCheckResult),
+		Children:  make(map[string]*proto.HealthCheckResult),
 	}
 
 	// Add error if present
