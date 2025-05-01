@@ -1,257 +1,297 @@
-# Integrating Health Checks with Kubernetes
+# Using the Health Module with Kubernetes
 
-This guide describes how to integrate the `gcommon/pkg/health` module with Kubernetes health probes for effective container health monitoring and orchestration.
+This guide explains how to integrate the GCommon health module with Kubernetes health probes and enable metrics collection for health checks.
 
 ## Overview
 
-Kubernetes uses three types of health probes to monitor container health:
+Kubernetes uses [probes](https://kubernetes.io/docs/tasks/configure-pod-container/configure-liveness-readiness-startup-probes/) to determine the health of containers in a pod:
 
-1. **Liveness Probe**: Determines if a container is alive. If it fails, Kubernetes restarts the container.
-2. **Readiness Probe**: Determines if a container is ready to accept traffic. If it fails, Kubernetes stops sending traffic to the pod.
-3. **Startup Probe**: Determines if a container has started successfully. Once it succeeds, the liveness and readiness probes take over.
+- **Liveness Probes**: Determine if an application is running. If a liveness probe fails, Kubernetes will restart the container.
+- **Readiness Probes**: Determine if an application is ready to receive traffic. If a readiness probe fails, Kubernetes will remove the pod from service endpoints.
+- **Startup Probes**: Determine if an application has started successfully. Startup probes are useful for applications with slow startup times.
 
-The `gcommon/pkg/health` module is designed to work seamlessly with these probes through its dedicated HTTP endpoints.
+The health module in GCommon supports all these probe types through a dedicated Kubernetes integration.
 
-## Configuration
+## Setting Up Kubernetes Probes
 
-### HTTP Endpoints
+### Step 1: Create a Health Provider
 
-The health module exposes the following HTTP endpoints:
+First, create a health provider with appropriate configuration:
 
-- `/health`: Overall health status
-- `/health/live`: Liveness check endpoint
-- `/health/ready`: Readiness check endpoint
-- `/health/details`: Detailed health information for all checks
+```go
+healthConfig := health.Config{
+    Enabled:                true,
+    CheckInterval:          10 * time.Second,
+    DefaultTimeout:         1 * time.Second,
+    EnableLivenessEndpoint: true,
+    EnableReadinessEndpoint: true,
+    LivenessPath:          "/health/live",
+    ReadinessPath:         "/health/ready",
+    LogStatusChanges:      true,
+}
 
-### Check Types
+healthProvider, err := health.NewProvider(healthConfig)
+if err != nil {
+    log.Fatalf("Failed to create health provider: %v", err)
+}
+```
 
-When registering health checks with the provider, use the appropriate check type:
+### Step 2: Register Health Checks
 
-- `health.TypeLiveness`: For checks related to the application being alive
-- `health.TypeReadiness`: For checks related to the application being ready to serve traffic
-- `health.TypeComponent`: For internal component checks
-- `health.TypeDependency`: For external dependency checks
+Register health checks for different probe types:
 
-## Kubernetes Configuration
+```go
+// Liveness checks (verify application is running)
+healthProvider.Register("cpu", checks.NewCPUCheck(70.0),
+    health.WithType(health.TypeLiveness),
+    health.WithInterval(30*time.Second),
+)
 
-### Pod Specification
+healthProvider.Register("memory", checks.NewMemoryCheck(80.0),
+    health.WithType(health.TypeLiveness),
+    health.WithInterval(30*time.Second),
+)
 
-Here's an example of configuring probes in a Kubernetes Pod specification:
+// Readiness checks (verify application can serve requests)
+healthProvider.Register("database", checks.NewDatabaseCheck(dbPool),
+    health.WithType(health.TypeReadiness),
+    health.WithTimeout(2*time.Second),
+    health.WithInterval(15*time.Second),
+)
+
+healthProvider.Register("api-dependency", checks.NewHTTPCheck("https://api.example.com/health"),
+    health.WithType(health.TypeReadiness),
+    health.WithTimeout(2*time.Second),
+    health.WithInterval(15*time.Second),
+)
+```
+
+### Step 3: Create a Kubernetes Probe Handler
+
+Create a Kubernetes probe handler with appropriate configuration:
+
+```go
+probeConfig := health.DefaultKubernetesProbeConfig()
+// Optional: customize probe paths and settings
+probeConfig.LivenessPath = "/healthz"
+probeConfig.ReadinessPath = "/readyz"
+probeConfig.StartupPath = "/startupz"
+probeConfig.ProbeTimeout = 1 * time.Second
+
+kubeProbeHandler := health.NewKubernetesProbeHandler(healthProvider, probeConfig)
+```
+
+### Step 4: Register the Probe Handler with HTTP Server
+
+Register the probe handler with your HTTP server:
+
+```go
+mux := http.NewServeMux()
+
+// Register Kubernetes probe handlers
+kubeProbeHandler.RegisterWithMux(mux)
+
+// Start the HTTP server
+server := &http.Server{
+    Addr:    ":8080",
+    Handler: mux,
+}
+
+go server.ListenAndServe()
+```
+
+### Step 5: Configure Kubernetes Pod Specification
+
+Configure your Kubernetes pod to use the health endpoints:
 
 ```yaml
 apiVersion: v1
 kind: Pod
 metadata:
-  name: my-service
+  name: my-app
 spec:
   containers:
-  - name: my-service
-    image: my-service:latest
+  - name: app
+    image: my-app:latest
     ports:
     - containerPort: 8080
     livenessProbe:
       httpGet:
-        path: /health/live
+        path: /healthz
         port: 8080
       initialDelaySeconds: 10
       periodSeconds: 30
-      timeoutSeconds: 5
+      timeoutSeconds: 1
       failureThreshold: 3
     readinessProbe:
       httpGet:
-        path: /health/ready
+        path: /readyz
         port: 8080
       initialDelaySeconds: 5
       periodSeconds: 10
-      timeoutSeconds: 3
+      timeoutSeconds: 1
       failureThreshold: 2
     startupProbe:
       httpGet:
-        path: /health/live
+        path: /startupz
         port: 8080
-      initialDelaySeconds: 5
       periodSeconds: 5
-      timeoutSeconds: 3
-      failureThreshold: 12  # Allow 1 minute (12 * 5s) to start
+      failureThreshold: 12  # Allow 1 minute (12 * 5s) for startup
 ```
 
-### Probe Parameters
+## Collecting Health Check Metrics
 
-- `initialDelaySeconds`: Number of seconds after container startup to begin probing
-- `periodSeconds`: How often to perform the probe
-- `timeoutSeconds`: Number of seconds after which the probe times out
-- `successThreshold`: Minimum consecutive successes to be considered successful
-- `failureThreshold`: Number of consecutive failures to be considered failed
+The health module can collect metrics about health check execution and status. These metrics can be used to monitor the health of your application over time.
+
+### Step 1: Create a Metrics Provider
+
+First, create a metrics provider:
+
+```go
+metricsConfig := metrics.Config{
+    Enabled:              true,
+    Provider:             "prometheus",
+    Namespace:            "myapp",
+    Subsystem:            "health",
+    EnableRuntimeMetrics: true,
+}
+
+metricsProvider, err := metrics.NewProvider(metricsConfig)
+if err != nil {
+    log.Fatalf("Failed to create metrics provider: %v", err)
+}
+```
+
+### Step 2: Create a Metrics Collector
+
+Create a metrics collector for health checks:
+
+```go
+metricsConfig := health.DefaultMetricsConfig()
+// Optional: customize metrics settings
+metricsConfig.Prefix = "myapp_health"
+metricsConfig.CollectInterval = 15 * time.Second
+
+metricsCollector := health.NewMetricsCollector(healthProvider, metricsProvider, metricsConfig)
+```
+
+### Step 3: Start the Metrics Collector
+
+Start the metrics collector:
+
+```go
+ctx := context.Background()
+if err := metricsCollector.Start(ctx); err != nil {
+    log.Fatalf("Failed to start metrics collector: %v", err)
+}
+```
+
+### Step 4: Expose Metrics Endpoint
+
+Expose the metrics endpoint for Prometheus to scrape:
+
+```go
+mux.Handle("/metrics", metricsProvider.Handler())
+```
+
+### Step 5: Configure Prometheus Scraping
+
+Configure Prometheus to scrape the metrics endpoint by adding a scrape configuration:
+
+```yaml
+scrape_configs:
+  - job_name: 'myapp'
+    scrape_interval: 15s
+    static_configs:
+      - targets: ['myapp:8080']
+```
+
+## Available Metrics
+
+The health module collects the following metrics:
+
+- `health.status`: Gauge showing the current status of each health check (0=down, 1=degraded, 2=up, 3=unknown)
+- `health.executions_total`: Counter of total health check executions
+- `health.success_total`: Counter of successful health check executions
+- `health.failure_total`: Counter of failed health check executions
+- `health.duration_seconds`: Histogram of health check execution duration in seconds
+
+These metrics include labels such as:
+- `check`: The name of the health check
+- `type`: The type of health check (liveness, readiness, component, dependency)
+- `status`: The status of the health check (UP, DOWN, DEGRADED, UNKNOWN)
+
+## Auto-Remediation for Failed Health Checks
+
+The health module supports automatic remediation for failed health checks. This can be useful for services that can self-heal when certain issues are detected.
+
+### Step 1: Create a Remediable Check
+
+Create a health check that implements remediation:
+
+```go
+// Custom check with remediation
+healthProvider.Register("database-connection",
+    checks.NewRemediableHTTPCheck(
+        "http://localhost:8080/db/ping",
+        func(ctx context.Context, result health.Result) error {
+            log.Println("Attempting to reconnect to database...")
+            // In a real implementation, this would reconnect to the database
+            return dbPool.Reset()
+        },
+    ),
+    health.WithType(health.TypeReadiness),
+    health.WithTimeout(1*time.Second),
+    health.WithInterval(15*time.Second),
+)
+```
+
+### Step 2: Create a Remediation Manager
+
+Create a remediation manager with appropriate configuration:
+
+```go
+remediationConfig := health.DefaultRemediationConfig()
+remediationConfig.Strategy = health.RemediationStrategyExponential
+remediationConfig.MaxAttempts = 3
+remediationConfig.InitialDelay = 1 * time.Second
+remediationConfig.BackoffFactor = 2.0
+
+// Optional: Add callbacks for remediation events
+remediationConfig.OnRemediationStart = func(name string, attempt int) {
+    log.Printf("Starting remediation for %s (attempt %d)", name, attempt)
+}
+remediationConfig.OnRemediationSuccess = func(name string, attempt int) {
+    log.Printf("Remediation successful for %s (attempt %d)", name, attempt)
+}
+
+remediationManager := health.NewRemediationManager(healthProvider, remediationConfig)
+```
+
+### Step 3: Start the Remediation Manager
+
+Start the remediation manager:
+
+```go
+if err := remediationManager.Start(ctx); err != nil {
+    log.Fatalf("Failed to start remediation manager: %v", err)
+}
+```
+
+## Complete Example
+
+A complete example demonstrating Kubernetes integration, metrics collection, and auto-remediation is available in the `examples/health/kubernetes_integration.go` file.
 
 ## Best Practices
 
-### Liveness Probes
+1. **Separate Liveness and Readiness Checks**: Use liveness checks for detecting issues that require container restarts, and readiness checks for detecting issues that require temporary removal from load balancing.
 
-Configure liveness checks for:
+2. **Choose Appropriate Timeouts**: Set timeouts that are short enough to detect failures quickly but long enough to avoid false positives.
 
-- Basic application functionality
-- System resource monitoring (memory, CPU)
-- Core internal services
+3. **Monitor Metrics**: Use the collected metrics to identify patterns in health check failures and set up alerts for recurring issues.
 
-```go
-// Example liveness check registration
-provider.Register("system", checks.NewSystemCheck(
-    checks.WithMemoryThreshold(90),
-),
-health.WithType(health.TypeLiveness))
-```
+4. **Use Auto-Remediation Carefully**: Auto-remediation is useful for known, recoverable issues, but shouldn't mask deeper problems. Always log remediation attempts for later analysis.
 
-### Readiness Probes
+5. **Graceful Shutdown**: Implement graceful shutdown to ensure health checks are properly stopped when the application is shutting down.
 
-Configure readiness checks for:
-
-- External dependencies (databases, APIs)
-- Integration points
-- Resource availability (connection pools, caches)
-
-```go
-// Example readiness check registration
-provider.Register("database", checks.NewDBCheck(db,
-    checks.WithDBName("main"),
-    checks.WithQuery("SELECT 1"),
-),
-health.WithType(health.TypeReadiness))
-
-provider.Register("external-api", checks.NewHTTPCheck("https://api.example.com/status",
-    checks.WithTimeout(3*time.Second),
-    checks.WithExpectedStatus(http.StatusOK),
-),
-health.WithType(health.TypeReadiness))
-```
-
-### Remediation and Self-Healing
-
-For non-critical components where automated recovery might be possible:
-
-1. Implement remediable checks:
-
-```go
-provider.Register("external-service", checks.NewRemediableHTTPCheck("https://service.example.com/health",
-    checks.WithTimeout(5*time.Second),
-    checks.WithAlternateURLs("https://service-backup.example.com/health"),
-    checks.WithMaxRetries(3),
-),
-health.WithType(health.TypeReadiness))
-```
-
-2. Configure the remediation manager:
-
-```go
-config := health.DefaultRemediationConfig()
-config.Strategy = health.RemediationStrategyExponential
-config.MaxAttempts = 5
-config.InitialDelay = 1 * time.Second
-
-remediationMgr := health.NewRemediationManager(provider, config)
-remediationMgr.Start(ctx)
-```
-
-## Metrics Integration
-
-To observe health check metrics in Kubernetes:
-
-1. Configure Prometheus metrics:
-
-```go
-// Set up Prometheus metrics provider
-registry := prometheus.NewRegistry()
-metricsProvider := health.NewPrometheusMetricsProvider(registry, "myapp")
-health.EnableMetricsReporting(healthProvider, metricsProvider)
-
-// Expose metrics endpoint
-http.Handle("/metrics", promhttp.HandlerFor(registry, promhttp.HandlerOpts{}))
-```
-
-2. Configure Prometheus ServiceMonitor (if using Prometheus Operator):
-
-```yaml
-apiVersion: monitoring.coreos.com/v1
-kind: ServiceMonitor
-metadata:
-  name: my-service-monitor
-  namespace: monitoring
-spec:
-  selector:
-    matchLabels:
-      app: my-service
-  endpoints:
-  - port: metrics
-    interval: 15s
-  namespaceSelector:
-    matchNames:
-    - default
-```
-
-## Health Dashboards
-
-Consider creating Grafana dashboards to visualize:
-
-1. Overall service health status
-2. Health check durations
-3. Remediation attempts and success rates
-4. Correlation between health events and service metrics
-
-## Advanced Configuration
-
-### gRPC Health Probes
-
-To use Kubernetes gRPC probes with our health service:
-
-1. Register both HTTP and gRPC health servers:
-
-```go
-// Configure HTTP server with health endpoints
-httpMux := http.NewServeMux()
-httpMux.Handle("/health/", http.StripPrefix("/health", healthProvider.Handler()))
-
-// Configure gRPC server with health service
-grpcServer := grpc.NewServer()
-healthServer := health.NewGRPCServer(healthProvider)
-healthServer.Register(grpcServer)
-```
-
-2. Configure Kubernetes gRPC probes:
-
-```yaml
-livenessProbe:
-  grpc:
-    port: 9090
-  initialDelaySeconds: 10
-  periodSeconds: 30
-```
-
-### Graceful Degradation
-
-Design your health checks to support graceful degradation:
-
-1. Critical dependencies should affect readiness
-2. Non-critical dependencies should cause degraded status but not affect readiness
-3. Use composite checks to model complex dependencies
-
-```go
-// Example of a composite check
-serviceCheck := health.NewCompositeCheck("service")
-serviceCheck.AddChecks(
-    criticalCheck,   // Affects overall status
-    nonCriticalCheck // Marked as degraded, doesn't fail the composite
-)
-provider.Register("service", serviceCheck, health.WithType(health.TypeReadiness))
-```
-
-## Troubleshooting
-
-If your pods are being restarted or marked as not ready:
-
-1. Check detailed health status: `kubectl exec -it <pod> -- curl http://localhost:8080/health/details`
-2. Check health check logs: `kubectl logs <pod> | grep "health status changed"`
-3. Verify probe configuration matches health check configuration
-4. Ensure timeouts are configured appropriately for both Kubernetes and health checks
-
-## Conclusion
-
-The `gcommon/pkg/health` module provides a comprehensive solution for implementing Kubernetes health probes that accurately reflect your application's health state. By properly categorizing checks and configuring probes, you can achieve reliable container orchestration with appropriate scaling and recovery behaviors.
+6. **Test Failure Scenarios**: Regularly test how your application behaves when health checks fail to ensure the desired Kubernetes behaviors occur.
