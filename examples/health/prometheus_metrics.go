@@ -50,29 +50,47 @@ func main() {
 	}
 
 	// Register system health checks
-	healthProvider.Register("cpu", checks.NewCPUCheck(70.0),
+	systemCheck := checks.NewSystemCheck(checks.WithMemoryThreshold(70.0))
+	healthProvider.Register("cpu", systemCheck,
 		health.WithType(health.TypeLiveness),
 		health.WithInterval(30*time.Second),
 	)
 
-	healthProvider.Register("memory", checks.NewMemoryCheck(80.0),
+	memoryCheck := checks.NewSystemCheck(checks.WithMemoryThreshold(80.0))
+	healthProvider.Register("memory", memoryCheck,
 		health.WithType(health.TypeLiveness),
 		health.WithInterval(30*time.Second),
 	)
+
+	// Create a wrapper for CheckFunc that implements the Check interface
+	type checkFuncWrapper struct {
+		*health.BaseCheck
+		fn health.CheckFunc
+	}
+
+	// Execute implements the Check interface Execute method
+	func (c *checkFuncWrapper) Execute(ctx context.Context) (health.Result, error) {
+		return c.fn(ctx)
+	}
 
 	// Register a custom health check
-	healthProvider.Register("example-check", health.CheckFunc(func(ctx context.Context) (health.Result, error) {
-		// Simulate random health status
-		time.Sleep(50 * time.Millisecond) // Simulate work
+	customCheck := &checkFuncWrapper{
+		BaseCheck: health.NewBaseCheck("example-check", health.TypeReadiness, 15*time.Second, 1*time.Second),
+		fn: func(ctx context.Context) (health.Result, error) {
+			// Simulate random health status
+			time.Sleep(50 * time.Millisecond) // Simulate work
 
-		// Return success status
-		return health.NewResult(health.StatusUp).
-			WithDetails(map[string]interface{}{
-				"checked_at": time.Now().Format(time.RFC3339),
-				"stat1": 123,
-				"stat2": 456,
-			}), nil
-	}),
+			// Return success status
+			return health.NewResult(health.StatusUp).
+				WithDetails(map[string]interface{}{
+					"checked_at": time.Now().Format(time.RFC3339),
+					"stat1": 123,
+					"stat2": 456,
+				}), nil
+		},
+	}
+
+	healthProvider.Register("example-check", customCheck,
 		health.WithType(health.TypeReadiness),
 		health.WithInterval(15*time.Second),
 	)
