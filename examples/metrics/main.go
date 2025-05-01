@@ -1,4 +1,4 @@
-// Package main provides an example usage of the metrics module.
+// Package main provides an example of using the metrics module.
 package main
 
 import (
@@ -7,122 +7,174 @@ import (
 	"log"
 	"math/rand"
 	"net/http"
+	"os"
+	"os/signal"
+	"syscall"
 	"time"
 
 	"github.com/jdfalk/gcommon/pkg/metrics"
-	_ "github.com/jdfalk/gcommon/pkg/metrics/prometheus" // Import for side-effects
+	"github.com/jdfalk/gcommon/pkg/metrics/middleware"
 )
 
 func main() {
-	// Create a metrics provider
+	// Create a metrics configuration
 	config := metrics.Config{
-		Provider:             "prometheus",
-		Enabled:              true,
-		Namespace:            "example",
-		Subsystem:            "app",
+		Enabled:          true,
+		Provider:         "prometheus", // Could also be "opentelemetry" or "otel"
+		Namespace:        "example",
+		Subsystem:        "app",
 		EnableRuntimeMetrics: true,
-		Endpoint:             "/metrics",
 		Tags: []metrics.Tag{
-			{Key: "service", Value: "metrics-example"},
-			{Key: "version", Value: "1.0.0"},
+			{Key: "environment", Value: "development"},
+			{Key: "service", Value: "example-service"},
 		},
 		PrometheusConfig: &metrics.PrometheusConfig{
-			Path:                   "/metrics",
+			// Optionally configure Prometheus-specific settings
 			EnableGoCollector:      true,
 			EnableProcessCollector: true,
 		},
 	}
 
+	// Create a metrics provider
 	provider, err := metrics.NewProvider(config)
 	if err != nil {
 		log.Fatalf("Failed to create metrics provider: %v", err)
 	}
 
 	// Start the provider
-	if err := provider.Start(context.Background()); err != nil {
+	ctx := context.Background()
+	if err := provider.Start(ctx); err != nil {
 		log.Fatalf("Failed to start metrics provider: %v", err)
 	}
-	defer provider.Stop(context.Background())
+	defer provider.Stop(ctx)
 
-	// Create metrics
-	requestCounter := provider.Counter("requests_total",
-		metrics.WithDescription("Total number of requests"),
-		metrics.WithTags(metrics.Tag{Key: "handler", Value: "main"}),
+	// Create some example metrics
+	counter := provider.Counter(
+		"example_counter",
+		metrics.WithDescription("Example counter metric"),
+		metrics.WithTags(metrics.Tag{Key: "type", Value: "example"}),
 	)
 
-	errorCounter := provider.Counter("errors_total",
-		metrics.WithDescription("Total number of errors"),
+	gauge := provider.Gauge(
+		"example_gauge",
+		metrics.WithDescription("Example gauge metric"),
+		metrics.WithTags(metrics.Tag{Key: "type", Value: "example"}),
 	)
 
-	activeConnections := provider.Gauge("active_connections",
-		metrics.WithDescription("Number of active connections"),
+	histogram := provider.Histogram(
+		"example_histogram",
+		metrics.WithDescription("Example histogram metric"),
+		metrics.WithBuckets([]float64{0.1, 0.5, 1, 5, 10}),
+		metrics.WithTags(metrics.Tag{Key: "type", Value: "example"}),
 	)
 
-	requestDuration := provider.Histogram("request_duration_seconds",
-		metrics.WithDescription("Request duration in seconds"),
-		metrics.WithBuckets([]float64{0.001, 0.005, 0.01, 0.05, 0.1, 0.5, 1, 5}),
+	timer := provider.Timer(
+		"example_timer",
+		metrics.WithDescription("Example timer metric"),
+		metrics.WithTags(metrics.Tag{Key: "type", Value: "example"}),
 	)
 
-	responseSize := provider.Summary("response_size_bytes",
-		metrics.WithDescription("Response size in bytes"),
-	)
+	// Create a context that cancels on SIGINT or SIGTERM
+	signalCtx, cancel := signal.NotifyContext(ctx, syscall.SIGINT, syscall.SIGTERM)
+	defer cancel()
 
-	requestTimer := provider.Timer("request_processing_seconds",
-		metrics.WithDescription("Time to process request"),
-	)
+	// Create an HTTP server for metrics and example endpoints
+	mux := http.NewServeMux()
 
-	// Create HTTP handlers to demonstrate metrics usage
-	http.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {
-		// Start timer using stopwatch pattern
-		stopwatch := requestTimer.NewStopwatch()
+	// Add metrics endpoint
+	mux.Handle("/metrics", provider.Handler())
+
+	// Add some example endpoints with metrics middleware
+	mux.Handle("/", middleware.StandardMetrics(provider)(http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
+		w.Write([]byte("Hello, world!\n"))
+	})))
+
+	mux.Handle("/counter", middleware.StandardMetrics(provider)(http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
+		counter.Inc()
+		w.Write([]byte(fmt.Sprintf("Counter value: %v\n", counter.Value())))
+	})))
+
+	mux.Handle("/gauge", middleware.StandardMetrics(provider)(http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
+		value := rand.Float64() * 100
+		gauge.Set(value)
+		w.Write([]byte(fmt.Sprintf("Gauge value: %v\n", value)))
+	})))
+
+	mux.Handle("/histogram", middleware.StandardMetrics(provider)(http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
+		value := rand.Float64() * 10
+		histogram.Observe(value)
+		w.Write([]byte(fmt.Sprintf("Observed value: %v\n", value)))
+	})))
+
+	mux.Handle("/timer", middleware.StandardMetrics(provider)(http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
+		// Create a stopwatch
+		stopwatch := timer.NewStopwatch()
 		defer stopwatch.Stop()
 
-		// Increment request counter
-		requestCounter.WithTags(
-			metrics.Tag{Key: "method", Value: r.Method},
-			metrics.Tag{Key: "path", Value: "/"},
-		).Inc()
+		// Simulate some work
+		time.Sleep(time.Duration(rand.Intn(500)) * time.Millisecond)
+		w.Write([]byte("Timer recorded\n"))
+	})))
 
-		// Update active connections gauge
-		activeConnections.Inc()
-		defer activeConnections.Dec()
+	mux.Handle("/error", middleware.StandardMetrics(provider)(http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
+		// Simulate an error response
+		w.WriteHeader(http.StatusInternalServerError)
+		w.Write([]byte("Internal Server Error\n"))
+	})))
 
-		// Simulate work
-		start := time.Now()
-		time.Sleep(time.Duration(rand.Intn(100)) * time.Millisecond)
-		duration := time.Since(start)
+	// Start a background task that updates metrics
+	go func() {
+		ticker := time.NewTicker(1 * time.Second)
+		defer ticker.Stop()
 
-		// Record request duration
-		requestDuration.WithTags(
-			metrics.Tag{Key: "method", Value: r.Method},
-		).Observe(duration.Seconds())
+		counterWithLabel := counter.WithTags(metrics.Tag{Key: "background", Value: "true"})
+		gaugeWithLabel := gauge.WithTags(metrics.Tag{Key: "background", Value: "true"})
 
-		// Simulate response size
-		size := rand.Intn(1000) + 100
-		responseSize.Observe(float64(size))
+		i := 0
+		for {
+			select {
+			case <-ticker.C:
+				i++
+				counterWithLabel.Inc()
+				gaugeWithLabel.Set(float64(i % 10))
 
-		// Randomly generate errors
-		if rand.Intn(10) == 0 {
-			errorCounter.WithTags(
-				metrics.Tag{Key: "method", Value: r.Method},
-				metrics.Tag{Key: "code", Value: "500"},
-			).Inc()
-			http.Error(w, "Internal Server Error", http.StatusInternalServerError)
-			return
+				// Also use the timer to measure a function's execution time
+				timer.WithTags(metrics.Tag{Key: "background", Value: "true"}).Time(func() {
+					// Simulate some work
+					time.Sleep(time.Duration(rand.Intn(100)) * time.Millisecond)
+				})
+			case <-signalCtx.Done():
+				return
+			}
 		}
-
-		// Respond with success
-		fmt.Fprintf(w, "Hello World! Took %v to process.\n", duration)
-	})
-
-	// Expose the metrics endpoint
-	http.Handle("/metrics", provider.Handler())
+	}()
 
 	// Start the HTTP server
-	log.Println("Starting server on :8080")
-	log.Println("Visit http://localhost:8080/ to generate metrics")
-	log.Println("Visit http://localhost:8080/metrics to view metrics")
-	if err := http.ListenAndServe(":8080", nil); err != nil {
-		log.Fatalf("HTTP server error: %v", err)
+	server := &http.Server{
+		Addr:    ":8080",
+		Handler: mux,
 	}
+
+	// Start server in a goroutine
+	go func() {
+		log.Printf("Starting server on :8080")
+		if err := server.ListenAndServe(); err != nil && err != http.ErrServerClosed {
+			log.Fatalf("Failed to start server: %v", err)
+		}
+	}()
+
+	// Wait for signal to shut down
+	<-signalCtx.Done()
+	log.Println("Shutting down...")
+
+	// Create a context with timeout for shutdown
+	shutdownCtx, shutdownCancel := context.WithTimeout(context.Background(), 5*time.Second)
+	defer shutdownCancel()
+
+	// Shutdown the server
+	if err := server.Shutdown(shutdownCtx); err != nil {
+		log.Fatalf("Server shutdown failed: %v", err)
+	}
+
+	log.Println("Server stopped")
 }
