@@ -9,7 +9,6 @@ import (
 	"google.golang.org/grpc"
 	"google.golang.org/grpc/codes"
 	"google.golang.org/grpc/status"
-	"google.golang.org/protobuf/types/known/timestamppb"
 
 	proto "github.com/jdfalk/gcommon/pkg/health/proto"
 )
@@ -77,7 +76,7 @@ func (s *GRPCServer) Check(ctx context.Context, req *proto.HealthCheckRequest) (
 
 	return &proto.HealthCheckResponse{
 		Status:    toProtoServingStatus(result.Status()),
-		Timestamp: timestamppb.New(time.Now()),
+		Timestamp: time.Now().Format(time.RFC3339),
 		Details:   convertDetailsToMap(result.Details()),
 	}, nil
 }
@@ -110,7 +109,7 @@ func (s *GRPCServer) CheckAll(ctx context.Context, req *proto.HealthCheckAllRequ
 
 	resp := &proto.HealthCheckAllResponse{
 		Status:    toProtoServingStatus(result.Status()),
-		Timestamp: timestamppb.New(time.Now()),
+		Timestamp: time.Now().Format(time.RFC3339),
 		Results:   make(map[string]*proto.HealthCheckResult),
 	}
 
@@ -136,7 +135,7 @@ func (s *GRPCServer) CheckAll(ctx context.Context, req *proto.HealthCheckAllRequ
 //
 // Returns:
 //   - An error if the watch operation failed
-func (s *GRPCServer) Watch(req *proto.HealthCheckRequest, stream proto.HealthService_WatchServer) error {
+func (s *GRPCServer) Watch(req *proto.HealthCheckRequest, stream grpc.ServerStreamingServer[proto.HealthCheckResponse]) error {
 	ctx := stream.Context()
 
 	// Create a channel to receive health status updates
@@ -186,7 +185,7 @@ func (s *GRPCServer) Watch(req *proto.HealthCheckRequest, stream proto.HealthSer
 	// Send the initial status
 	if err := stream.Send(&proto.HealthCheckResponse{
 		Status:    toProtoServingStatus(result.Status()),
-		Timestamp: timestamppb.New(time.Now()),
+		Timestamp: time.Now().Format(time.RFC3339),
 		Details:   convertDetailsToMap(result.Details()),
 	}); err != nil {
 		return status.Errorf(codes.Internal, "failed to send initial health status: %v", err)
@@ -199,7 +198,7 @@ func (s *GRPCServer) Watch(req *proto.HealthCheckRequest, stream proto.HealthSer
 			// Send the updated status
 			if err := stream.Send(&proto.HealthCheckResponse{
 				Status:    toProtoServingStatus(result.Status()),
-				Timestamp: timestamppb.New(time.Now()),
+				Timestamp: time.Now().Format(time.RFC3339),
 				Details:   convertDetailsToMap(result.Details()),
 			}); err != nil {
 				return status.Errorf(codes.Internal, "failed to send health status update: %v", err)
@@ -321,7 +320,7 @@ func resultToHealthCheckResult(result Result) *proto.HealthCheckResult {
 	info := &proto.HealthCheckResult{
 		Status:    toProtoServingStatus(result.Status()),
 		Type:      checkType,
-		Timestamp: timestamppb.New(time.Now()),
+		Timestamp: time.Now().Format(time.RFC3339),
 		Details:   convertDetailsToMap(result.Details()),
 		Children:  make(map[string]*proto.HealthCheckResult),
 	}
