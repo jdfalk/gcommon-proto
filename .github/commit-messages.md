@@ -103,9 +103,9 @@ feat(auth): add SSO login option
 Implement single sign-on login functionality using OAuth2
 
 Files changed:
-- Added SSO provider implementation: [src/auth/SSOProvider.js](src/auth/SSOProvider.js)
-- Updated auth context to support SSO flow: [src/auth/AuthContext.js](src/auth/AuthContext.js)
-- Added SSO login button to form: [src/components/LoginForm.js](src/components/LoginForm.js)
+- Added SSO provider implementation: [src/auth/SSOProvider.js](https://github.com/jdfalk/gcommon/blob/main/src/auth/SSOProvider.js)
+- Updated auth context to support SSO flow: [src/auth/AuthContext.js](https://github.com/jdfalk/gcommon/blob/main/src/auth/AuthContext.js)
+- Added SSO login button to form: [src/components/LoginForm.js](https://github.com/jdfalk/gcommon/blob/main/src/components/LoginForm.js)
 
 Closes #ISSUE_NUMBER  # Only include if there's an actual issue
 ```
@@ -117,8 +117,8 @@ The previous implementation allowed concurrent requests to create
 duplicate users with the same email address.
 
 Files changed:
-- Added database locking mechanism: [src/api/userController.js](src/api/userController.js)
-- Enhanced email validation logic: [src/services/validation.js](src/services/validation.js)
+- Added database locking mechanism: [src/api/userController.js](https://github.com/jdfalk/gcommon/blob/main/src/api/userController.js)
+- Enhanced email validation logic: [src/services/validation.js](https://github.com/jdfalk/gcommon/blob/main/src/services/validation.js)
 
 Fixes #ISSUE_NUMBER  # Only include if there's an actual issue
 ```
@@ -127,8 +127,8 @@ Fixes #ISSUE_NUMBER  # Only include if there's an actual issue
 docs: update README with new API endpoints
 
 Files changed:
-- Added new endpoints documentation: [README.md](README.md)
-- Created detailed API reference: [docs/API.md](docs/API.md)
+- Added new endpoints documentation: [README.md](https://github.com/jdfalk/gcommon/blob/main/README.md)
+- Created detailed API reference: [docs/API.md](https://github.com/jdfalk/gcommon/blob/main/docs/API.md)
 ```
 
 ```text
@@ -138,15 +138,15 @@ BREAKING CHANGE: API responses now follow JSON API specification.
 Clients will need to update their parsers.
 
 Files changed:
-- Implemented JSON API formatter: [src/api/responseFormatter.js](src/api/responseFormatter.js)
-- Updated middleware to use new format: [src/middleware/apiResponse.js](src/middleware/apiResponse.js)
-- Adjusted tests for new response structure: [tests/api/responses.test.js](tests/api/responses.test.js)
+- Implemented JSON API formatter: [src/api/responseFormatter.js](https://github.com/jdfalk/gcommon/blob/main/src/api/responseFormatter.js)
+- Updated middleware to use new format: [src/middleware/apiResponse.js](https://github.com/jdfalk/gcommon/blob/main/src/middleware/apiResponse.js)
+- Adjusted tests for new response structure: [tests/api/responses.test.js](https://github.com/jdfalk/gcommon/blob/main/tests/api/responses.test.js)
 ```
 
 ```text
 refactor(core): simplify error handling logic
 
 Files changed:
-- Consolidated error handlers: [src/core/errorHandler.js](src/core/errorHandler.js)
-- Created reusable error utilities: [src/utils/errors.js](src/utils/errors.js)
+- Consolidated error handlers: [src/core/errorHandler.js](https://github.com/jdfalk/gcommon/blob/main/src/core/errorHandler.js)
+- Created reusable error utilities: [src/utils/errors.js](https://github.com/jdfalk/gcommon/blob/main/src/utils/errors.js)
 ```
