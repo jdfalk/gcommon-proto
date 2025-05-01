@@ -2,8 +2,11 @@
 package metrics
 
 import (
+	"context"
 	"fmt"
+	"net/http"
 	"sync"
+	"time"
 )
 
 // providerRegistry is a registry of provider constructors.
@@ -148,17 +151,17 @@ func (p *noopProvider) Registry() Registry {
 	return &noopRegistry{}
 }
 
-func (p *noopProvider) Handler() Handler {
-	return http.HandlerFunc(func(w ResponseWriter, r *Request) {
-		w.WriteHeader(StatusOK)
+func (p *noopProvider) Handler() http.Handler {
+	return http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
+		w.WriteHeader(http.StatusOK)
 	})
 }
 
-func (p *noopProvider) Start(ctx Context) error {
+func (p *noopProvider) Start(ctx context.Context) error {
 	return nil
 }
 
-func (p *noopProvider) Stop(ctx Context) error {
+func (p *noopProvider) Stop(ctx context.Context) error {
 	return nil
 }
 
@@ -269,7 +272,7 @@ func (s *noopSummarySnapshot) Quantiles() map[float64]float64 {
 // noopTimer is a timer that does nothing.
 type noopTimer struct{}
 
-func (t *noopTimer) Record(duration Duration) {}
+func (t *noopTimer) Record(duration time.Duration) {}
 
 func (t *noopTimer) Time(f func()) {
 	f()
