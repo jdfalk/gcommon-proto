@@ -232,6 +232,9 @@ type Listener interface {
 
 // Config defines the configuration options for a health check provider.
 type Config struct {
+	// Enabled indicates whether the health check system is active (default: true)
+	Enabled bool
+
 	// Base path for health endpoints (default: "/")
 	Endpoint string
 
@@ -259,6 +262,9 @@ type Config struct {
 	// AuthFunc is called to authenticate requests if RequireAuthentication is true
 	// If nil, simple header comparison with AuthHeader is used
 	AuthFunc func(r *http.Request) bool
+
+	// DefaultTimeout is the default timeout for health checks that don't specify one (default: 5s)
+	DefaultTimeout time.Duration
 
 	// Interval for background health checks (default: 30s)
 	CheckInterval time.Duration
