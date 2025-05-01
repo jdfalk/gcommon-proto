@@ -5,6 +5,8 @@ import (
 	"context"
 	"sync"
 	"time"
+
+	"github.com/jdfalk/gcommon/pkg/metrics"
 )
 
 // MetricsProvider defines the interface for reporting health check metrics.
@@ -20,6 +22,247 @@ type MetricsProvider interface {
 
 	// ReportRemediationAttempt reports a remediation attempt.
 	ReportRemediationAttempt(name string, attempt int, success bool)
+}
+
+// MetricsConfig defines the configuration for health check metrics.
+type MetricsConfig struct {
+	// Prefix is the prefix for all health check metrics
+	Prefix string
+
+	// EnableStatusMetrics enables metrics for health check statuses
+	EnableStatusMetrics bool
+
+	// EnableDurationMetrics enables metrics for health check durations
+	EnableDurationMetrics bool
+
+	// EnableCountMetrics enables metrics for health check execution counts
+	EnableCountMetrics bool
+
+	// DurationBuckets defines the histogram buckets for duration metrics
+	DurationBuckets []float64
+
+	// CollectInterval is the interval at which metrics are collected
+	CollectInterval time.Duration
+
+	// LabelFilter is a function that can filter or modify metric labels
+	LabelFilter func(name string, checkType CheckType, status Status) []metrics.Tag
+}
+
+// DefaultMetricsConfig returns the default metrics configuration.
+func DefaultMetricsConfig() MetricsConfig {
+	return MetricsConfig{
+		Prefix:              "health",
+		EnableStatusMetrics: true,
+		EnableDurationMetrics: true,
+		EnableCountMetrics: true,
+		DurationBuckets:    []float64{0.001, 0.005, 0.01, 0.025, 0.05, 0.1, 0.25, 0.5, 1.0, 2.5, 5.0, 10.0},
+		CollectInterval:    30 * time.Second,
+		LabelFilter: func(name string, checkType CheckType, status Status) []metrics.Tag {
+			return []metrics.Tag{
+				{Key: "check", Value: name},
+				{Key: "type", Value: checkType.String()},
+				{Key: "status", Value: status.String()},
+			}
+		},
+	}
+}
+
+// MetricsCollector collects metrics for health checks.
+type MetricsCollector struct {
+	provider       Provider
+	metricsProvider metrics.Provider
+	config         MetricsConfig
+
+	// Metrics
+	statusGauge    metrics.Gauge
+	executionCounter metrics.Counter
+	durationHistogram metrics.Histogram
+	failureCounter metrics.Counter
+	successCounter metrics.Counter
+
+	stopCh         chan struct{}
+	stoppedCh      chan struct{}
+}
+
+// NewMetricsCollector creates a new metrics collector for health checks.
+func NewMetricsCollector(provider Provider, metricsProvider metrics.Provider, config MetricsConfig) *MetricsCollector {
+	prefix := config.Prefix
+
+	collector := &MetricsCollector{
+		provider:       provider,
+		metricsProvider: metricsProvider,
+		config:         config,
+		stopCh:         make(chan struct{}),
+		stoppedCh:      make(chan struct{}),
+	}
+
+	// Create metrics
+	if config.EnableStatusMetrics {
+		collector.statusGauge = metricsProvider.Gauge(
+			prefix+".status",
+			metrics.WithDescription("Health check status (0=down, 1=degraded, 2=up, 3=unknown)"),
+		)
+	}
+
+	if config.EnableCountMetrics {
+		collector.executionCounter = metricsProvider.Counter(
+			prefix+".executions_total",
+			metrics.WithDescription("Total number of health check executions"),
+		)
+
+		collector.successCounter = metricsProvider.Counter(
+			prefix+".success_total",
+			metrics.WithDescription("Total number of successful health check executions"),
+		)
+
+		collector.failureCounter = metricsProvider.Counter(
+			prefix+".failure_total",
+			metrics.WithDescription("Total number of failed health check executions"),
+		)
+	}
+
+	if config.EnableDurationMetrics {
+		collector.durationHistogram = metricsProvider.Histogram(
+			prefix+".duration_seconds",
+			metrics.WithDescription("Duration of health check executions in seconds"),
+			metrics.WithBuckets(config.DurationBuckets),
+		)
+	}
+
+	return collector
+}
+
+// Start starts the metrics collector.
+func (c *MetricsCollector) Start(ctx context.Context) error {
+	// Register as a health check listener to collect metrics on status changes
+	if err := c.provider.AddListener(c); err != nil {
+		return err
+	}
+
+	// Start periodic metrics collection if an interval is set
+	if c.config.CollectInterval > 0 {
+		go c.run(ctx)
+	}
+
+	return nil
+}
+
+// Stop stops the metrics collector.
+func (c *MetricsCollector) Stop(ctx context.Context) error {
+	close(c.stopCh)
+
+	// Unregister as a health check listener
+	if err := c.provider.RemoveListener(c); err != nil {
+		return err
+	}
+
+	// Wait for collection to stop or context to be done
+	select {
+	case <-c.stoppedCh:
+		return nil
+	case <-ctx.Done():
+		return ctx.Err()
+	}
+}
+
+// OnStatusChange implements the Listener interface for health status changes.
+func (c *MetricsCollector) OnStatusChange(name string, previous, current Result) {
+	if c.config.EnableStatusMetrics {
+		// Update status metric
+		check := current.Check()
+		if check != nil {
+			labels := c.config.LabelFilter(name, check.Type(), current.Status())
+			gauge := c.statusGauge.WithTags(labels...)
+			gauge.Set(float64(current.Status()))
+		}
+	}
+
+	if c.config.EnableCountMetrics {
+		// Update execution counters
+		check := current.Check()
+		if check != nil {
+			labels := c.config.LabelFilter(name, check.Type(), current.Status())
+
+			// Update execution counter
+			c.executionCounter.WithTags(labels...).Inc()
+
+			// Update success/failure counters
+			if current.Status() == StatusUp {
+				c.successCounter.WithTags(labels...).Inc()
+			} else {
+				c.failureCounter.WithTags(labels...).Inc()
+			}
+		}
+	}
+
+	if c.config.EnableDurationMetrics && current.Duration() > 0 {
+		// Update duration histogram
+		check := current.Check()
+		if check != nil {
+			labels := c.config.LabelFilter(name, check.Type(), current.Status())
+			hist := c.durationHistogram.WithTags(labels...)
+			hist.Observe(current.Duration().Seconds())
+		}
+	}
+}
+
+// run is the main loop for periodic metrics collection.
+func (c *MetricsCollector) run(ctx context.Context) {
+	ticker := time.NewTicker(c.config.CollectInterval)
+	defer func() {
+		ticker.Stop()
+		close(c.stoppedCh)
+	}()
+
+	for {
+		select {
+		case <-c.stopCh:
+			return
+		case <-ctx.Done():
+			return
+		case <-ticker.C:
+			c.collectMetrics(ctx)
+		}
+	}
+}
+
+// collectMetrics collects metrics for all health checks.
+func (c *MetricsCollector) collectMetrics(ctx context.Context) {
+	// Run all checks
+	result, err := c.provider.CheckAll(ctx)
+	if err != nil {
+		// Could log an error here
+		return
+	}
+
+	// Overall status
+	if c.config.EnableStatusMetrics {
+		c.statusGauge.WithTags(metrics.Tag{Key: "check", Value: "overall"}).Set(float64(result.Status()))
+	}
+
+	// Additional metrics could be collected here, such as:
+	// - Count of checks by status
+	// - Aggregate counts and averages
+
+	// Process results for each child check
+	// Note: the listener will also get these individually, this is for cases where
+	// the collector was started after some checks have already been executed
+	for _, child := range result.Children() {
+		check := child.Check()
+		if check != nil {
+			// Update metrics for this specific check (similar to OnStatusChange)
+			name := check.Name()
+			labels := c.config.LabelFilter(name, check.Type(), child.Status())
+
+			if c.config.EnableStatusMetrics {
+				c.statusGauge.WithTags(labels...).Set(float64(child.Status()))
+			}
+
+			if c.config.EnableDurationMetrics && child.Duration() > 0 {
+				c.durationHistogram.WithTags(labels...).Observe(child.Duration().Seconds())
+			}
+		}
+	}
 }
 
 // metricsListener implements the Listener interface for metrics reporting.
