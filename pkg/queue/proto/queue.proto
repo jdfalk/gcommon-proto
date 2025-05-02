@@ -1,0 +1,361 @@
+syntax = "proto3";
+
+package queue;
+
+option go_package = "github.com/jdfalk/gcommon/pkg/queue/proto";
+
+import "google/protobuf/timestamp.proto";
+
+// QueueService defines queue operations
+service QueueService {
+  // Publish publishes a message to a queue
+  rpc Publish(PublishRequest) returns (PublishResponse);
+
+  // PublishBatch publishes multiple messages to a queue
+  rpc PublishBatch(PublishBatchRequest) returns (PublishBatchResponse);
+
+  // Subscribe subscribes to messages from a queue
+  rpc Subscribe(SubscribeRequest) returns (stream Message);
+
+  // Acknowledge acknowledges a message
+  rpc Acknowledge(AcknowledgeRequest) returns (AcknowledgeResponse);
+
+  // RejectMessage rejects a message
+  rpc RejectMessage(RejectMessageRequest) returns (RejectMessageResponse);
+
+  // GetQueueInfo gets information about a queue
+  rpc GetQueueInfo(GetQueueInfoRequest) returns (GetQueueInfoResponse);
+
+  // CreateQueue creates a new queue
+  rpc CreateQueue(CreateQueueRequest) returns (CreateQueueResponse);
+
+  // DeleteQueue deletes a queue
+  rpc DeleteQueue(DeleteQueueRequest) returns (DeleteQueueResponse);
+
+  // ListQueues lists available queues
+  rpc ListQueues(ListQueuesRequest) returns (ListQueuesResponse);
+
+  // PurgeQueue purges all messages from a queue
+  rpc PurgeQueue(PurgeQueueRequest) returns (PurgeQueueResponse);
+}
+
+// Message represents a queue message
+message Message {
+  // ID is the message ID
+  string id = 1;
+
+  // Body is the message body
+  bytes body = 2;
+
+  // Headers are message headers
+  map<string, string> headers = 3;
+
+  // PublishedAt is when the message was published
+  google.protobuf.Timestamp published_at = 4;
+
+  // DeliveryCount is the number of delivery attempts
+  int32 delivery_count = 5;
+
+  // Queue is the queue name
+  string queue = 6;
+
+  // ContentType is the message content type
+  string content_type = 7;
+
+  // ContentEncoding is the message content encoding
+  string content_encoding = 8;
+
+  // Priority is the message priority
+  int32 priority = 9;
+
+  // CorrelationID is the correlation ID
+  string correlation_id = 10;
+
+  // ReplyTo is the reply-to address
+  string reply_to = 11;
+
+  // Expiration is the message expiration time
+  google.protobuf.Timestamp expiration = 12;
+
+  // MessageID is the application-specified message ID
+  string message_id = 13;
+
+  // Timestamp is the message timestamp
+  google.protobuf.Timestamp timestamp = 14;
+
+  // Type is the message type
+  string type = 15;
+
+  // UserId is the user ID
+  string user_id = 16;
+
+  // AppId is the application ID
+  string app_id = 17;
+}
+
+// PublishRequest contains a request to publish a message
+message PublishRequest {
+  // Queue is the queue name
+  string queue = 1;
+
+  // Body is the message body
+  bytes body = 2;
+
+  // Headers are message headers
+  map<string, string> headers = 3;
+
+  // ContentType is the message content type
+  string content_type = 4;
+
+  // ContentEncoding is the message content encoding
+  string content_encoding = 5;
+
+  // Priority is the message priority
+  int32 priority = 6;
+
+  // CorrelationID is the correlation ID
+  string correlation_id = 7;
+
+  // ReplyTo is the reply-to address
+  string reply_to = 8;
+
+  // Expiration is the message expiration time
+  google.protobuf.Timestamp expiration = 9;
+
+  // MessageID is the application-specified message ID
+  string message_id = 10;
+
+  // Type is the message type
+  string type = 11;
+}
+
+// PublishResponse contains the result of publishing a message
+message PublishResponse {
+  // MessageID is the published message ID
+  string message_id = 1;
+}
+
+// PublishBatchRequest contains a request to publish multiple messages
+message PublishBatchRequest {
+  // Queue is the queue name
+  string queue = 1;
+
+  // Messages are the messages to publish
+  repeated BatchMessage messages = 2;
+}
+
+// BatchMessage represents a message in a batch
+message BatchMessage {
+  // Body is the message body
+  bytes body = 1;
+
+  // Headers are message headers
+  map<string, string> headers = 2;
+
+  // ContentType is the message content type
+  string content_type = 3;
+
+  // ContentEncoding is the message content encoding
+  string content_encoding = 4;
+
+  // Priority is the message priority
+  int32 priority = 5;
+
+  // CorrelationID is the correlation ID
+  string correlation_id = 6;
+
+  // ReplyTo is the reply-to address
+  string reply_to = 7;
+
+  // Expiration is the message expiration time
+  google.protobuf.Timestamp expiration = 8;
+
+  // MessageID is the application-specified message ID
+  string message_id = 9;
+
+  // Type is the message type
+  string type = 10;
+}
+
+// PublishBatchResponse contains the result of publishing multiple messages
+message PublishBatchResponse {
+  // MessageIDs are the published message IDs
+  repeated string message_ids = 1;
+
+  // FailedMessages contains indices of messages that failed to publish
+  repeated int32 failed_messages = 2;
+}
+
+// SubscribeRequest contains a request to subscribe to a queue
+message SubscribeRequest {
+  // Queue is the queue name
+  string queue = 1;
+
+  // Consumer is the consumer name
+  string consumer = 2;
+
+  // AutoAck indicates whether to automatically acknowledge messages
+  bool auto_ack = 3;
+
+  // PrefetchCount is the number of messages to prefetch
+  int32 prefetch_count = 4;
+
+  // Exclusive indicates whether this is an exclusive consumer
+  bool exclusive = 5;
+
+  // NoLocal indicates whether to receive messages published by this connection
+  bool no_local = 6;
+
+  // NoWait indicates whether to wait for server confirmation
+  bool no_wait = 7;
+
+  // Arguments are additional arguments
+  map<string, string> arguments = 8;
+}
+
+// AcknowledgeRequest contains a request to acknowledge a message
+message AcknowledgeRequest {
+  // MessageID is the message ID to acknowledge
+  string message_id = 1;
+
+  // Multiple indicates whether to acknowledge all messages up to this one
+  bool multiple = 2;
+}
+
+// AcknowledgeResponse contains the result of acknowledging a message
+message AcknowledgeResponse {
+  // Success indicates if the operation succeeded
+  bool success = 1;
+}
+
+// RejectMessageRequest contains a request to reject a message
+message RejectMessageRequest {
+  // MessageID is the message ID to reject
+  string message_id = 1;
+
+  // Requeue indicates whether to requeue the message
+  bool requeue = 2;
+}
+
+// RejectMessageResponse contains the result of rejecting a message
+message RejectMessageResponse {
+  // Success indicates if the operation succeeded
+  bool success = 1;
+}
+
+// GetQueueInfoRequest contains a request to get queue information
+message GetQueueInfoRequest {
+  // Name is the queue name
+  string name = 1;
+}
+
+// GetQueueInfoResponse contains queue information
+message GetQueueInfoResponse {
+  // Name is the queue name
+  string name = 1;
+
+  // MessageCount is the number of messages in the queue
+  int64 message_count = 2;
+
+  // ConsumerCount is the number of consumers
+  int32 consumer_count = 3;
+
+  // Properties are queue properties
+  map<string, string> properties = 4;
+}
+
+// CreateQueueRequest contains a request to create a queue
+message CreateQueueRequest {
+  // Name is the queue name
+  string name = 1;
+
+  // Durable indicates whether the queue is durable
+  bool durable = 2;
+
+  // AutoDelete indicates whether the queue is automatically deleted
+  bool auto_delete = 3;
+
+  // Exclusive indicates whether the queue is exclusive
+  bool exclusive = 4;
+
+  // NoWait indicates whether to wait for server confirmation
+  bool no_wait = 5;
+
+  // Arguments are additional arguments
+  map<string, string> arguments = 6;
+}
+
+// CreateQueueResponse contains the result of creating a queue
+message CreateQueueResponse {
+  // Name is the queue name
+  string name = 1;
+
+  // MessageCount is the number of messages in the queue
+  int64 message_count = 2;
+
+  // ConsumerCount is the number of consumers
+  int32 consumer_count = 3;
+}
+
+// DeleteQueueRequest contains a request to delete a queue
+message DeleteQueueRequest {
+  // Name is the queue name
+  string name = 1;
+
+  // IfUnused indicates whether to delete only if unused
+  bool if_unused = 2;
+
+  // IfEmpty indicates whether to delete only if empty
+  bool if_empty = 3;
+
+  // NoWait indicates whether to wait for server confirmation
+  bool no_wait = 4;
+}
+
+// DeleteQueueResponse contains the result of deleting a queue
+message DeleteQueueResponse {
+  // MessageCount is the number of messages purged
+  int64 message_count = 1;
+}
+
+// ListQueuesRequest contains a request to list queues
+message ListQueuesRequest {
+  // NamePattern is an optional name pattern filter
+  string name_pattern = 1;
+}
+
+// ListQueuesResponse contains a list of queues
+message ListQueuesResponse {
+  // Queues are the available queues
+  repeated QueueInfo queues = 1;
+}
+
+// QueueInfo contains queue information
+message QueueInfo {
+  // Name is the queue name
+  string name = 1;
+
+  // MessageCount is the number of messages in the queue
+  int64 message_count = 2;
+
+  // ConsumerCount is the number of consumers
+  int32 consumer_count = 3;
+
+  // Properties are queue properties
+  map<string, string> properties = 4;
+}
+
+// PurgeQueueRequest contains a request to purge a queue
+message PurgeQueueRequest {
+  // Name is the queue name
+  string name = 1;
+
+  // NoWait indicates whether to wait for server confirmation
+  bool no_wait = 2;
+}
+
+// PurgeQueueResponse contains the result of purging a queue
+message PurgeQueueResponse {
+  // MessageCount is the number of messages purged
+  int64 message_count = 1;
+}

@@ -1,0 +1,198 @@
+syntax = "proto3";
+
+package log;
+
+option go_package = "github.com/jdfalk/gcommon/pkg/log/proto";
+
+import "google/protobuf/timestamp.proto";
+
+// LogService defines logging operations
+service LogService {
+  // Log sends a log entry to the service
+  rpc Log(LogRequest) returns (LogResponse);
+
+  // LogBatch sends multiple log entries to the service
+  rpc LogBatch(LogBatchRequest) returns (LogBatchResponse);
+
+  // GetLogs retrieves log entries with filtering
+  rpc GetLogs(GetLogsRequest) returns (stream LogEntry);
+
+  // GetLevel gets the current log level
+  rpc GetLevel(GetLevelRequest) returns (GetLevelResponse);
+
+  // SetLevel sets the log level
+  rpc SetLevel(SetLevelRequest) returns (SetLevelResponse);
+}
+
+// LogLevel represents a log level
+enum LogLevel {
+  LOG_LEVEL_UNSPECIFIED = 0;
+  LOG_LEVEL_TRACE = 1;
+  LOG_LEVEL_DEBUG = 2;
+  LOG_LEVEL_INFO = 3;
+  LOG_LEVEL_WARN = 4;
+  LOG_LEVEL_ERROR = 5;
+  LOG_LEVEL_FATAL = 6;
+}
+
+// LogEntry represents a log entry
+message LogEntry {
+  // Level is the log level
+  LogLevel level = 1;
+
+  // Message is the log message
+  string message = 2;
+
+  // Timestamp is the log timestamp
+  google.protobuf.Timestamp timestamp = 3;
+
+  // Fields are the structured log fields
+  map<string, Field> fields = 4;
+
+  // LoggerName is the name of the logger
+  string logger_name = 5;
+
+  // Source is the source of the log
+  Source source = 6;
+
+  // TraceID is the trace ID
+  string trace_id = 7;
+
+  // SpanID is the span ID
+  string span_id = 8;
+}
+
+// Field represents a log field
+message Field {
+  // One of the possible field types
+  oneof value {
+    bool bool_value = 1;
+    int64 int_value = 2;
+    double float_value = 3;
+    string string_value = 4;
+    bytes bytes_value = 5;
+    int64 time_value = 6; // Unix timestamp in nanoseconds
+    int64 duration_value = 7; // Duration in nanoseconds
+    Error error_value = 8;
+  }
+  repeated string string_array = 9;
+  repeated int64 int_array = 10;
+  repeated double float_array = 11;
+}
+
+// Source represents a log source
+message Source {
+  // Function is the source function
+  string function = 1;
+
+  // File is the source file
+  string file = 2;
+
+  // Line is the source line
+  int32 line = 3;
+}
+
+// Error represents an error
+message Error {
+  // Message is the error message
+  string message = 1;
+
+  // Stack is the error stack trace
+  string stack = 2;
+
+  // Type is the error type
+  string type = 3;
+}
+
+// LogRequest contains log request data
+message LogRequest {
+  // Entry is the log entry
+  LogEntry entry = 1;
+}
+
+// LogResponse contains log response data
+message LogResponse {
+  // Success indicates if the operation succeeded
+  bool success = 1;
+}
+
+// LogBatchRequest contains log batch request data
+message LogBatchRequest {
+  // Entries are the log entries
+  repeated LogEntry entries = 1;
+}
+
+// LogBatchResponse contains log batch response data
+message LogBatchResponse {
+  // Success indicates if the operation succeeded
+  bool success = 1;
+
+  // FailedEntries are the indices of entries that failed
+  repeated int32 failed_entries = 2;
+}
+
+// GetLogsRequest contains get logs request data
+message GetLogsRequest {
+  // Filter is the log filter
+  LogFilter filter = 1;
+
+  // Limit is the maximum number of logs to retrieve
+  int32 limit = 2;
+
+  // Follow indicates whether to follow logs
+  bool follow = 3;
+}
+
+// LogFilter represents a log filter
+message LogFilter {
+  // Level is the minimum log level
+  LogLevel level = 1;
+
+  // StartTime is the start time
+  google.protobuf.Timestamp start_time = 2;
+
+  // EndTime is the end time
+  google.protobuf.Timestamp end_time = 3;
+
+  // LoggerNames are the logger names to include
+  repeated string logger_names = 4;
+
+  // MessagePattern is a regex pattern to match messages
+  string message_pattern = 5;
+
+  // FieldFilters are field-specific filters
+  map<string, string> field_filters = 6;
+
+  // TraceID is the trace ID to filter by
+  string trace_id = 7;
+}
+
+// GetLevelRequest contains get level request data
+message GetLevelRequest {
+  // LoggerName is the name of the logger
+  string logger_name = 1;
+}
+
+// GetLevelResponse contains get level response data
+message GetLevelResponse {
+  // Level is the current log level
+  LogLevel level = 1;
+}
+
+// SetLevelRequest contains set level request data
+message SetLevelRequest {
+  // LoggerName is the name of the logger
+  string logger_name = 1;
+
+  // Level is the log level to set
+  LogLevel level = 2;
+}
+
+// SetLevelResponse contains set level response data
+message SetLevelResponse {
+  // Success indicates if the operation succeeded
+  bool success = 1;
+
+  // PreviousLevel is the previous log level
+  LogLevel previous_level = 2;
+}

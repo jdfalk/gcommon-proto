@@ -1,0 +1,155 @@
+syntax = "proto3";
+
+package config;
+
+option go_package = "github.com/jdfalk/gcommon/pkg/config/proto";
+
+// ConfigService defines configuration operations
+service ConfigService {
+  // Get retrieves a configuration value
+  rpc Get(GetRequest) returns (GetResponse);
+
+  // Set sets a configuration value
+  rpc Set(SetRequest) returns (SetResponse);
+
+  // Has checks if a configuration key exists
+  rpc Has(HasRequest) returns (HasResponse);
+
+  // Watch watches for changes to a configuration value
+  rpc Watch(WatchRequest) returns (stream WatchResponse);
+
+  // AllSettings returns all settings
+  rpc AllSettings(AllSettingsRequest) returns (AllSettingsResponse);
+
+  // AllKeys returns all configuration keys
+  rpc AllKeys(AllKeysRequest) returns (AllKeysResponse);
+}
+
+// GetRequest contains get request data
+message GetRequest {
+  string key = 1;
+  string default_value = 2; // Optional default value if key doesn't exist
+  string type_hint = 3;     // Optional hint about the value type
+}
+
+// GetResponse contains get response data
+message GetResponse {
+  // Can be one of the value types below
+  oneof value {
+    bool bool_value = 1;
+    int64 int_value = 2;
+    uint64 uint_value = 3;
+    double float_value = 4;
+    string string_value = 5;
+    bytes bytes_value = 6;
+    int64 duration_value = 7; // Duration in nanoseconds
+    int64 time_value = 8;     // Time as Unix timestamp
+  }
+  repeated string string_slice = 9;
+  repeated int64 int_slice = 10;
+  bool found = 11;            // Whether the key was found
+}
+
+// SetRequest contains set request data
+message SetRequest {
+  string key = 1;
+  // Can be one of the value types below
+  oneof value {
+    bool bool_value = 2;
+    int64 int_value = 3;
+    uint64 uint_value = 4;
+    double float_value = 5;
+    string string_value = 6;
+    bytes bytes_value = 7;
+    int64 duration_value = 8; // Duration in nanoseconds
+    int64 time_value = 9;     // Time as Unix timestamp
+  }
+  repeated string string_slice = 10;
+  repeated int64 int_slice = 11;
+}
+
+// SetResponse contains set response data
+message SetResponse {
+  bool success = 1;
+}
+
+// HasRequest contains has request data
+message HasRequest {
+  string key = 1;
+}
+
+// HasResponse contains has response data
+message HasResponse {
+  bool exists = 1;
+}
+
+// WatchRequest contains watch request data
+message WatchRequest {
+  string key = 1;
+}
+
+// WatchResponse contains watch response data
+message WatchResponse {
+  string key = 1;
+  // Can be one of the value types below
+  oneof value {
+    bool bool_value = 2;
+    int64 int_value = 3;
+    uint64 uint_value = 4;
+    double float_value = 5;
+    string string_value = 6;
+    bytes bytes_value = 7;
+    int64 duration_value = 8; // Duration in nanoseconds
+    int64 time_value = 9;     // Time as Unix timestamp
+  }
+  repeated string string_slice = 10;
+  repeated int64 int_slice = 11;
+  ChangeType change_type = 12;
+}
+
+// ChangeType represents the type of configuration change
+enum ChangeType {
+  CHANGE_TYPE_UNSPECIFIED = 0;
+  CHANGE_TYPE_ADD = 1;
+  CHANGE_TYPE_UPDATE = 2;
+  CHANGE_TYPE_DELETE = 3;
+}
+
+// AllSettingsRequest contains all settings request data
+message AllSettingsRequest {
+  string prefix = 1; // Optional prefix to filter settings
+}
+
+// AllSettingsResponse contains all settings response data
+message AllSettingsResponse {
+  map<string, bytes> settings = 1; // Raw JSON for settings
+}
+
+// AllKeysRequest contains all keys request data
+message AllKeysRequest {
+  string prefix = 1; // Optional prefix to filter keys
+}
+
+// AllKeysResponse contains all keys response data
+message AllKeysResponse {
+  repeated string keys = 1;
+}
+
+// ConfigSource represents a configuration source
+message ConfigSource {
+  string name = 1;
+  SourceType type = 2;
+  string location = 3;
+  bool watch = 4;
+  int32 priority = 5;
+}
+
+// SourceType represents a configuration source type
+enum SourceType {
+  SOURCE_TYPE_UNSPECIFIED = 0;
+  SOURCE_TYPE_FILE = 1;
+  SOURCE_TYPE_ENV = 2;
+  SOURCE_TYPE_REMOTE = 3;
+  SOURCE_TYPE_DEFAULTS = 4;
+  SOURCE_TYPE_FLAGS = 5;
+}

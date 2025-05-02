@@ -1,0 +1,163 @@
+syntax = "proto3";
+
+package auth;
+
+option go_package = "github.com/jdfalk/gcommon/pkg/auth/proto";
+
+// Auth service defines authentication operations
+service AuthService {
+  // Authenticate verifies credentials and returns an identity
+  rpc Authenticate(AuthenticateRequest) returns (AuthenticateResponse);
+
+  // ValidateToken validates a token and returns identity information
+  rpc ValidateToken(ValidateTokenRequest) returns (ValidateTokenResponse);
+
+  // GenerateToken generates a new token for an identity
+  rpc GenerateToken(GenerateTokenRequest) returns (GenerateTokenResponse);
+
+  // RefreshToken refreshes an existing token
+  rpc RefreshToken(RefreshTokenRequest) returns (RefreshTokenResponse);
+
+  // Authorize checks if an identity has a permission for a resource
+  rpc Authorize(AuthorizeRequest) returns (AuthorizeResponse);
+
+  // HasRole checks if an identity has a specific role
+  rpc HasRole(HasRoleRequest) returns (HasRoleResponse);
+}
+
+// AuthenticateRequest contains authentication credentials
+message AuthenticateRequest {
+  // Basic authentication
+  message BasicAuth {
+    string username = 1;
+    string password = 2;
+    string mfa_code = 3;
+  }
+
+  // Token authentication
+  message TokenAuth {
+    string token = 1;
+  }
+
+  // Different types of authentication
+  oneof auth_type {
+    BasicAuth basic = 1;
+    TokenAuth token = 2;
+  }
+}
+
+// AuthenticateResponse contains identity information after authentication
+message AuthenticateResponse {
+  // Identity represents authenticated user
+  Identity identity = 1;
+  // Token is the authentication token
+  string token = 2;
+  // RefreshToken is the token used to refresh the authentication token
+  string refresh_token = 3;
+  // ExpiresAt is the token expiration timestamp
+  int64 expires_at = 4;
+  // MfaRequired indicates if MFA is required for this user
+  bool mfa_required = 5;
+}
+
+// Identity represents an authenticated identity
+message Identity {
+  string id = 1;
+  string username = 2;
+  map<string, string> claims = 3;
+  repeated string roles = 4;
+  repeated string permissions = 5;
+  int64 expires_at = 6;
+  int64 issued_at = 7;
+  string issuer = 8;
+  map<string, string> metadata = 9;
+}
+
+// ValidateTokenRequest contains token to validate
+message ValidateTokenRequest {
+  string token = 1;
+}
+
+// ValidateTokenResponse contains identity information if token is valid
+message ValidateTokenResponse {
+  Identity identity = 1;
+}
+
+// GenerateTokenRequest contains information to generate a token
+message GenerateTokenRequest {
+  Identity identity = 1;
+  int64 duration = 2; // Duration in seconds
+  map<string, string> custom_claims = 3;
+  bool include_refresh_token = 4;
+}
+
+// GenerateTokenResponse contains the generated token
+message GenerateTokenResponse {
+  string token = 1;
+  string refresh_token = 2;
+  int64 expires_at = 3;
+}
+
+// RefreshTokenRequest contains a refresh token
+message RefreshTokenRequest {
+  string refresh_token = 1;
+}
+
+// RefreshTokenResponse contains the new tokens
+message RefreshTokenResponse {
+  string token = 1;
+  string refresh_token = 2;
+  int64 expires_at = 3;
+}
+
+// AuthorizeRequest contains authorization request data
+message AuthorizeRequest {
+  Identity identity = 1;
+  string permission = 2;
+  string resource = 3;
+}
+
+// AuthorizeResponse contains authorization result
+message AuthorizeResponse {
+  bool authorized = 1;
+  string reason = 2;
+}
+
+// HasRoleRequest contains role check request data
+message HasRoleRequest {
+  Identity identity = 1;
+  string role = 2;
+}
+
+// HasRoleResponse contains role check result
+message HasRoleResponse {
+  bool has_role = 1;
+}
+
+// User represents a user account
+message User {
+  string id = 1;
+  string username = 2;
+  string email = 3;
+  bool enabled = 4;
+  bool mfa_enabled = 5;
+  map<string, string> metadata = 6;
+}
+
+// Role represents a role definition
+message Role {
+  string id = 1;
+  string name = 2;
+  repeated string permissions = 3;
+  string description = 4;
+  map<string, string> metadata = 5;
+}
+
+// Permission represents a permission definition
+message Permission {
+  string id = 1;
+  string name = 2;
+  string description = 3;
+  string resource = 4;
+  string action = 5;
+}

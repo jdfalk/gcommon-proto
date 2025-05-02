@@ -1,0 +1,179 @@
+syntax = "proto3";
+
+package cache;
+
+option go_package = "github.com/jdfalk/gcommon/pkg/cache/proto";
+
+// CacheService defines cache operations
+service CacheService {
+  // Get retrieves a value from the cache
+  rpc Get(GetRequest) returns (GetResponse);
+
+  // Set adds a value to the cache
+  rpc Set(SetRequest) returns (SetResponse);
+
+  // Delete removes a value from the cache
+  rpc Delete(DeleteRequest) returns (DeleteResponse);
+
+  // Exists checks if a key exists in the cache
+  rpc Exists(ExistsRequest) returns (ExistsResponse);
+
+  // Clear removes all items from the cache
+  rpc Clear(ClearRequest) returns (ClearResponse);
+
+  // GetMulti retrieves multiple values from the cache
+  rpc GetMulti(GetMultiRequest) returns (GetMultiResponse);
+
+  // SetMulti adds multiple values to the cache
+  rpc SetMulti(SetMultiRequest) returns (SetMultiResponse);
+
+  // DeleteMulti removes multiple values from the cache
+  rpc DeleteMulti(DeleteMultiRequest) returns (DeleteMultiResponse);
+
+  // Increment atomically increments a counter
+  rpc Increment(IncrementRequest) returns (IncrementResponse);
+
+  // Decrement atomically decrements a counter
+  rpc Decrement(DecrementRequest) returns (DecrementResponse);
+
+  // Stats returns cache statistics
+  rpc Stats(StatsRequest) returns (StatsResponse);
+}
+
+// GetRequest contains get request data
+message GetRequest {
+  string key = 1;
+  string type_hint = 2; // Optional hint about the value type
+}
+
+// GetResponse contains get response data
+message GetResponse {
+  bytes value = 1;
+  string type = 2;  // Type information about the value
+  bool found = 3;   // Whether the key was found
+}
+
+// SetRequest contains set request data
+message SetRequest {
+  string key = 1;
+  bytes value = 2;
+  int64 ttl = 3;    // Time-to-live in seconds
+  repeated string tags = 4;
+}
+
+// SetResponse contains set response data
+message SetResponse {
+  bool success = 1;
+}
+
+// DeleteRequest contains delete request data
+message DeleteRequest {
+  string key = 1;
+}
+
+// DeleteResponse contains delete response data
+message DeleteResponse {
+  bool success = 1;
+  bool found = 2;   // Whether the key was found
+}
+
+// ExistsRequest contains exists request data
+message ExistsRequest {
+  string key = 1;
+}
+
+// ExistsResponse contains exists response data
+message ExistsResponse {
+  bool exists = 1;
+}
+
+// ClearRequest contains clear request data
+message ClearRequest {
+  string prefix = 1; // Optional prefix to clear only matching keys
+}
+
+// ClearResponse contains clear response data
+message ClearResponse {
+  int64 deleted_count = 1;
+}
+
+// GetMultiRequest contains get multi request data
+message GetMultiRequest {
+  repeated string keys = 1;
+  string type_hint = 2; // Optional hint about the value type
+}
+
+// GetMultiResponse contains get multi response data
+message GetMultiResponse {
+  map<string, bytes> values = 1;
+  map<string, string> types = 2;
+}
+
+// SetMultiRequest contains set multi request data
+message SetMultiRequest {
+  map<string, bytes> items = 1;
+  int64 ttl = 2;    // Time-to-live in seconds
+  repeated string tags = 3;
+}
+
+// SetMultiResponse contains set multi response data
+message SetMultiResponse {
+  map<string, bool> results = 1;
+}
+
+// DeleteMultiRequest contains delete multi request data
+message DeleteMultiRequest {
+  repeated string keys = 1;
+}
+
+// DeleteMultiResponse contains delete multi response data
+message DeleteMultiResponse {
+  map<string, bool> results = 1;
+  int64 deleted_count = 2;
+}
+
+// IncrementRequest contains increment request data
+message IncrementRequest {
+  string key = 1;
+  int64 delta = 2;
+  int64 initial = 3; // Initial value if key doesn't exist
+  int64 ttl = 4;     // Time-to-live in seconds
+}
+
+// IncrementResponse contains increment response data
+message IncrementResponse {
+  int64 value = 1;
+  bool success = 2;
+}
+
+// DecrementRequest contains decrement request data
+message DecrementRequest {
+  string key = 1;
+  int64 delta = 2;
+  int64 initial = 3; // Initial value if key doesn't exist
+  int64 ttl = 4;     // Time-to-live in seconds
+}
+
+// DecrementResponse contains decrement response data
+message DecrementResponse {
+  int64 value = 1;
+  bool success = 2;
+}
+
+// StatsRequest contains stats request data
+message StatsRequest {
+}
+
+// StatsResponse contains stats response data
+message StatsResponse {
+  int64 hits = 1;
+  int64 misses = 2;
+  int64 size = 3;
+  int64 items_count = 4;
+  int64 evictions = 5;
+  int64 expirations = 6;
+  int64 errors = 7;
+  double hit_rate = 8;
+  int64 average_load_time_ns = 9;  // In nanoseconds
+  int64 average_get_time_ns = 10;  // In nanoseconds
+}

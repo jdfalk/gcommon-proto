@@ -1,0 +1,245 @@
+syntax = "proto3";
+
+package web;
+
+option go_package = "github.com/jdfalk/gcommon/pkg/web/proto";
+
+// WebService defines web-related operations
+service WebService {
+  // ServeStatic serves static assets
+  rpc ServeStatic(ServeStaticRequest) returns (stream StaticResponse);
+
+  // RenderTemplate renders a template
+  rpc RenderTemplate(RenderTemplateRequest) returns (RenderTemplateResponse);
+
+  // GetRouteInfo gets information about registered routes
+  rpc GetRouteInfo(GetRouteInfoRequest) returns (GetRouteInfoResponse);
+
+  // ForwardRequest forwards a web request
+  rpc ForwardRequest(ForwardRequestRequest) returns (ForwardRequestResponse);
+
+  // CheckSecurity performs a security check
+  rpc CheckSecurity(CheckSecurityRequest) returns (CheckSecurityResponse);
+}
+
+// ServeStaticRequest contains a request to serve static assets
+message ServeStaticRequest {
+  // Path is the path to serve
+  string path = 1;
+
+  // IncludeIndex indicates whether to include index files
+  bool include_index = 2;
+
+  // CacheControl is the cache control header
+  string cache_control = 3;
+
+  // Etag is the ETag header
+  string etag = 4;
+
+  // LastModified is the last modified timestamp
+  int64 last_modified = 5;
+}
+
+// StaticResponse contains a response with static asset data
+message StaticResponse {
+  // Chunk is a chunk of the file data
+  bytes chunk = 1;
+
+  // ContentType is the content type
+  string content_type = 2;
+
+  // StatusCode is the HTTP status code
+  int32 status_code = 3;
+
+  // Headers are the HTTP headers
+  map<string, string> headers = 4;
+
+  // Size is the total file size
+  int64 size = 5;
+
+  // ChunkIndex is the current chunk index
+  int32 chunk_index = 6;
+
+  // TotalChunks is the total number of chunks
+  int32 total_chunks = 7;
+}
+
+// RenderTemplateRequest contains a request to render a template
+message RenderTemplateRequest {
+  // Name is the template name
+  string name = 1;
+
+  // Data is the template data (JSON encoded)
+  string data = 2;
+
+  // Layout is the layout template name
+  string layout = 3;
+
+  // ContentType is the content type
+  string content_type = 4;
+
+  // Locale is the locale for i18n
+  string locale = 5;
+}
+
+// RenderTemplateResponse contains a rendered template
+message RenderTemplateResponse {
+  // Content is the rendered content
+  string content = 1;
+
+  // StatusCode is the HTTP status code
+  int32 status_code = 2;
+
+  // ContentType is the content type
+  string content_type = 3;
+
+  // Headers are the HTTP headers
+  map<string, string> headers = 4;
+}
+
+// GetRouteInfoRequest contains a request to get route information
+message GetRouteInfoRequest {
+  // Pattern is an optional route pattern filter
+  string pattern = 1;
+
+  // Method is an optional HTTP method filter
+  string method = 2;
+}
+
+// GetRouteInfoResponse contains route information
+message GetRouteInfoResponse {
+  // Routes are the registered routes
+  repeated Route routes = 1;
+}
+
+// Route represents a web route
+message Route {
+  // Pattern is the route pattern
+  string pattern = 1;
+
+  // Method is the HTTP method
+  string method = 2;
+
+  // Handler is the handler name
+  string handler = 3;
+
+  // Middleware are the middleware applied to this route
+  repeated string middleware = 4;
+
+  // Parameters are the route parameters
+  map<string, string> parameters = 5;
+}
+
+// ForwardRequestRequest contains a request to forward a web request
+message ForwardRequestRequest {
+  // URL is the destination URL
+  string url = 1;
+
+  // Method is the HTTP method
+  string method = 2;
+
+  // Headers are the HTTP headers
+  map<string, string> headers = 3;
+
+  // Body is the request body
+  bytes body = 4;
+
+  // Timeout is the request timeout in milliseconds
+  int32 timeout = 5;
+
+  // FollowRedirects indicates whether to follow redirects
+  bool follow_redirects = 6;
+}
+
+// ForwardRequestResponse contains the result of forwarding a request
+message ForwardRequestResponse {
+  // StatusCode is the HTTP status code
+  int32 status_code = 1;
+
+  // Headers are the HTTP headers
+  map<string, string> headers = 2;
+
+  // Body is the response body
+  bytes body = 3;
+
+  // Latency is the request latency in milliseconds
+  int32 latency = 4;
+}
+
+// CheckSecurityRequest contains a security check request
+message CheckSecurityRequest {
+  // Headers are the HTTP headers to check
+  map<string, string> headers = 1;
+
+  // URL is the URL to check
+  string url = 2;
+
+  // Method is the HTTP method
+  string method = 3;
+
+  // Body is the request body to check
+  bytes body = 4;
+
+  // Cookie is the cookie to check
+  map<string, string> cookies = 5;
+
+  // IP is the client IP address
+  string ip = 6;
+
+  // CheckTypes are the types of security checks to perform
+  repeated SecurityCheckType check_types = 7;
+}
+
+// SecurityCheckType represents a type of security check
+enum SecurityCheckType {
+  SECURITY_CHECK_TYPE_UNSPECIFIED = 0;
+  SECURITY_CHECK_TYPE_CSRF = 1;
+  SECURITY_CHECK_TYPE_XSS = 2;
+  SECURITY_CHECK_TYPE_SQL_INJECTION = 3;
+  SECURITY_CHECK_TYPE_CONTENT_TYPE = 4;
+  SECURITY_CHECK_TYPE_CONTENT_LENGTH = 5;
+  SECURITY_CHECK_TYPE_RATE_LIMIT = 6;
+  SECURITY_CHECK_TYPE_BOT_DETECTION = 7;
+  SECURITY_CHECK_TYPE_IP_BLOCKLIST = 8;
+  SECURITY_CHECK_TYPE_AUTH_TOKEN = 9;
+  SECURITY_CHECK_TYPE_CORS = 10;
+}
+
+// CheckSecurityResponse contains security check results
+message CheckSecurityResponse {
+  // Passed indicates if the security check passed
+  bool passed = 1;
+
+  // FailedChecks are the checks that failed
+  repeated FailedCheck failed_checks = 2;
+
+  // RecommendedActions are recommended actions to take
+  repeated string recommended_actions = 3;
+
+  // ResponseHeaders are response headers to set
+  map<string, string> response_headers = 4;
+
+  // StatusCode is the recommended HTTP status code
+  int32 status_code = 5;
+}
+
+// FailedCheck represents a failed security check
+message FailedCheck {
+  // Type is the type of check that failed
+  SecurityCheckType type = 1;
+
+  // Reason is the reason for the failure
+  string reason = 2;
+
+  // Severity is the severity of the failure
+  Severity severity = 3;
+}
+
+// Severity represents a severity level
+enum Severity {
+  SEVERITY_UNSPECIFIED = 0;
+  SEVERITY_INFO = 1;
+  SEVERITY_WARNING = 2;
+  SEVERITY_ERROR = 3;
+  SEVERITY_CRITICAL = 4;
+}

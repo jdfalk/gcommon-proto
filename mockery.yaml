@@ -1,0 +1,93 @@
+with-expecter: true
+issue-845-fix: true
+keeptree: true
+packages:
+  github.com/jdfalk/gcommon/pkg/db:
+    interfaces:
+      - Database
+      - Transaction
+      - Row
+      - Rows
+      - Result
+    config:
+      output: ./pkg/db/mock/
+      outpkg: mock
+      filename: "{{.InterfaceName}}_mock.go"
+  github.com/jdfalk/gcommon/pkg/db/proto:
+    interfaces:
+      - DatabaseServiceServer
+      - DatabaseServiceClient
+    config:
+      output: ./pkg/db/mock/
+      outpkg: mock
+      filename: "{{.InterfaceName}}_mock.go"
+  github.com/jdfalk/gcommon/pkg/health:
+    interfaces:
+      - Check
+      - Provider
+      - HTTPHandler
+      - ProbeHandler
+      - MetricsProvider
+    config:
+      output: ./pkg/health/mock/
+      outpkg: mock
+      filename: "{{.InterfaceName}}_mock.go"
+  github.com/jdfalk/gcommon/pkg/health/proto:
+    interfaces:
+      - HealthServiceServer
+      - HealthServiceClient
+    config:
+      output: ./pkg/health/mock/
+      outpkg: mock
+      filename: "{{.InterfaceName}}_mock.go"
+  github.com/jdfalk/gcommon/pkg/log:
+    interfaces:
+      - Logger
+    config:
+      output: ./pkg/log/mock/
+      outpkg: mock
+      filename: "{{.InterfaceName}}_mock.go"
+  github.com/jdfalk/gcommon/pkg/metrics:
+    interfaces:
+      - Provider
+      - Counter
+      - Gauge
+      - Histogram
+      - Timer
+    config:
+      output: ./pkg/metrics/mock/
+      outpkg: mock
+      filename: "{{.InterfaceName}}_mock.go"
+  github.com/jdfalk/gcommon/pkg/web:
+    interfaces:
+      - Server
+      - Router
+      - Middleware
+    config:
+      output: ./pkg/web/mock/
+      outpkg: mock
+      filename: "{{.InterfaceName}}_mock.go"
+  github.com/jdfalk/gcommon/pkg/auth/proto:
+    interfaces:
+      - AuthServiceServer
+      - AuthServiceClient
+    config:
+      output: ./pkg/auth/mock/
+      outpkg: mock
+      filename: "{{.InterfaceName}}_mock.go"
+  github.com/jdfalk/gcommon/pkg/cache/proto:
+    interfaces:
+      - CacheServiceServer
+      - CacheServiceClient
+    config:
+      output: ./pkg/cache/mock/
+      outpkg: mock
+      filename: "{{.InterfaceName}}_mock.go"
+  github.com/jdfalk/gcommon/pkg/config/proto:
+    interfaces:
+      - ConfigServiceServer
+      - ConfigServiceClient
+    config:
+      output: ./pkg/config/mock/
+      outpkg: mock
+      filename: "{{.InterfaceName}}_mock.go"

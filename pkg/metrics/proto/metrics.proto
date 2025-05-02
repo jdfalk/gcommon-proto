@@ -1,0 +1,228 @@
+syntax = "proto3";
+
+package metrics;
+
+option go_package = "github.com/jdfalk/gcommon/pkg/metrics/proto";
+
+import "google/protobuf/timestamp.proto";
+
+// MetricsService defines metrics operations
+service MetricsService {
+  // CollectMetrics collects metrics from the client
+  rpc CollectMetrics(CollectMetricsRequest) returns (CollectMetricsResponse);
+
+  // GetMetrics retrieves metrics matching a query
+  rpc GetMetrics(GetMetricsRequest) returns (stream MetricData);
+
+  // WatchMetrics subscribes to metric updates
+  rpc WatchMetrics(WatchMetricsRequest) returns (stream MetricUpdate);
+
+  // ListMetrics lists available metrics
+  rpc ListMetrics(ListMetricsRequest) returns (ListMetricsResponse);
+
+  // RecordEvent records a metric event
+  rpc RecordEvent(RecordEventRequest) returns (RecordEventResponse);
+}
+
+// MetricType represents a metric type
+enum MetricType {
+  METRIC_TYPE_UNSPECIFIED = 0;
+  METRIC_TYPE_COUNTER = 1;
+  METRIC_TYPE_GAUGE = 2;
+  METRIC_TYPE_HISTOGRAM = 3;
+  METRIC_TYPE_SUMMARY = 4;
+}
+
+// MetricValue represents a metric value
+message MetricValue {
+  oneof value {
+    double double_value = 1;
+    int64 int_value = 2;
+    bool bool_value = 3;
+  }
+}
+
+// MetricData represents metric data
+message MetricData {
+  // Name is the metric name
+  string name = 1;
+
+  // Type is the metric type
+  MetricType type = 2;
+
+  // Description is the metric description
+  string description = 3;
+
+  // Value is the metric value
+  MetricValue value = 4;
+
+  // Labels are the metric labels
+  map<string, string> labels = 5;
+
+  // Timestamp is when the metric was recorded
+  google.protobuf.Timestamp timestamp = 6;
+
+  // HistogramBuckets are the histogram buckets (for histogram metrics)
+  HistogramBuckets histogram_buckets = 7;
+
+  // SummaryValues are the summary values (for summary metrics)
+  SummaryValues summary_values = 8;
+}
+
+// HistogramBuckets represents histogram buckets
+message HistogramBuckets {
+  // Bounds are the bucket upper bounds
+  repeated double bounds = 1;
+
+  // Counts are the bucket counts
+  repeated uint64 counts = 2;
+
+  // Sum is the sum of all values
+  double sum = 3;
+
+  // Count is the count of all values
+  uint64 count = 4;
+}
+
+// SummaryValues represents summary values
+message SummaryValues {
+  // Quantiles are the summary quantiles
+  repeated Quantile quantiles = 1;
+
+  // Sum is the sum of all values
+  double sum = 2;
+
+  // Count is the count of all values
+  uint64 count = 3;
+}
+
+// Quantile represents a summary quantile
+message Quantile {
+  // Quantile is the quantile (0.0-1.0)
+  double quantile = 1;
+
+  // Value is the quantile value
+  double value = 2;
+}
+
+// CollectMetricsRequest contains metrics to collect
+message CollectMetricsRequest {
+  // Metrics are the metrics to collect
+  repeated MetricData metrics = 1;
+}
+
+// CollectMetricsResponse contains the result of collecting metrics
+message CollectMetricsResponse {
+  // Success indicates if the operation succeeded
+  bool success = 1;
+
+  // FailedMetrics contains the names of metrics that failed to collect
+  repeated string failed_metrics = 2;
+}
+
+// GetMetricsRequest contains a metrics query
+message GetMetricsRequest {
+  // Names are metric names to retrieve
+  repeated string names = 1;
+
+  // LabelSelectors are label selectors for filtering
+  map<string, string> label_selectors = 2;
+
+  // StartTime is the start time for the query
+  google.protobuf.Timestamp start_time = 3;
+
+  // EndTime is the end time for the query
+  google.protobuf.Timestamp end_time = 4;
+
+  // Step is the query step duration in seconds
+  int64 step = 5;
+}
+
+// WatchMetricsRequest contains a metrics watch request
+message WatchMetricsRequest {
+  // Names are metric names to watch
+  repeated string names = 1;
+
+  // LabelSelectors are label selectors for filtering
+  map<string, string> label_selectors = 2;
+
+  // UpdateInterval is the minimum interval between updates in seconds
+  int64 update_interval = 3;
+}
+
+// MetricUpdate contains a metric update
+message MetricUpdate {
+  // Metric is the updated metric
+  MetricData metric = 1;
+
+  // UpdateType is the type of update
+  UpdateType update_type = 2;
+}
+
+// UpdateType represents a metric update type
+enum UpdateType {
+  UPDATE_TYPE_UNSPECIFIED = 0;
+  UPDATE_TYPE_ADDED = 1;
+  UPDATE_TYPE_MODIFIED = 2;
+  UPDATE_TYPE_REMOVED = 3;
+}
+
+// ListMetricsRequest contains a request to list metrics
+message ListMetricsRequest {
+  // NamePrefix is an optional name prefix filter
+  string name_prefix = 1;
+
+  // LabelSelectors are label selectors for filtering
+  map<string, string> label_selectors = 2;
+
+  // Types are the metric types to include
+  repeated MetricType types = 3;
+}
+
+// ListMetricsResponse contains metric metadata
+message ListMetricsResponse {
+  // Metrics are the available metrics
+  repeated MetricMetadata metrics = 1;
+}
+
+// MetricMetadata contains metric metadata
+message MetricMetadata {
+  // Name is the metric name
+  string name = 1;
+
+  // Type is the metric type
+  MetricType type = 2;
+
+  // Description is the metric description
+  string description = 3;
+
+  // LabelNames are the label names for this metric
+  repeated string label_names = 4;
+
+  // CreatedAt is when the metric was created
+  google.protobuf.Timestamp created_at = 5;
+
+  // LastUpdatedAt is when the metric was last updated
+  google.protobuf.Timestamp last_updated_at = 6;
+}
+
+// RecordEventRequest contains an event to record
+message RecordEventRequest {
+  // Name is the event name
+  string name = 1;
+
+  // Value is the event value
+  MetricValue value = 2;
+
+  // Labels are the event labels
+  map<string, string> labels = 3;
+
+  // Timestamp is when the event occurred
+  google.protobuf.Timestamp timestamp = 4;
+}
+
+// RecordEventResponse contains the result of recording an event
+message RecordEventResponse {
+  // Success indicates if the operation succeeded
+  bool success = 1;
+}
