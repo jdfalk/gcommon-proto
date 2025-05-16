@@ -1,0 +1,39 @@
+pkgname: mock
+template: testify
+packages:
+  github.com/jdfalk/gcommon/pkg/auth/proto:
+    interfaces:
+      AuthServiceClient: {}
+      AuthServiceServer: {}
+  github.com/jdfalk/gcommon/pkg/cache/proto:
+    interfaces:
+      CacheServiceClient: {}
+      CacheServiceServer: {}
+  github.com/jdfalk/gcommon/pkg/config/proto:
+    interfaces:
+      ConfigServiceClient: {}
+      ConfigServiceServer: {}
+  github.com/jdfalk/gcommon/pkg/db/proto:
+    interfaces:
+      DatabaseServiceClient: {}
+      DatabaseServiceServer: {}
+  github.com/jdfalk/gcommon/pkg/health/proto:
+    interfaces:
+      HealthServiceClient: {}
+      HealthServiceServer: {}
+  github.com/jdfalk/gcommon/pkg/log/proto:
+    interfaces:
+      LogServiceClient: {}
+      LogServiceServer: {}
+  github.com/jdfalk/gcommon/pkg/metrics/proto:
+    interfaces:
+      MetricsServiceClient: {}
+      MetricsServiceServer: {}
+  github.com/jdfalk/gcommon/pkg/queue/proto:
+    interfaces:
+      QueueServiceClient: {}
+      QueueServiceServer: {}
+  github.com/jdfalk/gcommon/pkg/web/proto:
+    interfaces:
+      WebServiceClient: {}
+      WebServiceServer: {}
