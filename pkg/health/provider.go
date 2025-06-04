@@ -9,6 +9,26 @@ import (
 	"time"
 )
 
+// DefaultConfig returns the default configuration for a health provider.
+func DefaultConfig() Config {
+	return Config{
+		Enabled:                 true,
+		Endpoint:                "/health",
+		LivenessPath:            "/live",
+		ReadinessPath:           "/ready",
+		DetailsPath:             "/details",
+		EnableLivenessEndpoint:  true,
+		EnableReadinessEndpoint: true,
+		RequireAuthentication:   false,
+		AuthHeader:              "",
+		AuthFunc:                nil,
+		DefaultTimeout:          5 * time.Second,
+		CheckInterval:           30 * time.Second,
+		LogStatusChanges:        false,
+		MetricsEnabled:          false,
+	}
+}
+
 // provider implements the Provider interface.
 type provider struct {
 	config    Config
