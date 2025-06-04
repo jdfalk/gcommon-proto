@@ -1,5 +1,4 @@
 #!/bin/bash
-# file: pkg/cache/mock/generate.sh
 # Script to generate mocks for cache interfaces
 
 set -e
@@ -13,7 +12,7 @@ if [[ "${SILENT}" != "true" ]]; then
 fi
 
 # Run mockery using only the configuration file
-mockery --config="${ROOT_DIR}/mockery.yaml"
+mockery --config="${ROOT_DIR}/.mockery.yml"
 
 if [[ "${SILENT}" != "true" ]]; then
     echo "=== Cache mock generation complete ==="

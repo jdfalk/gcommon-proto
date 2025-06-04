@@ -3,9 +3,7 @@ package grpc
 
 import (
 	"context"
-	"database/sql"
 	"fmt"
-	"io"
 	"time"
 
 	"google.golang.org/grpc"

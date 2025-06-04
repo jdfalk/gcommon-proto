@@ -5,6 +5,7 @@ import (
 	"context"
 	"database/sql"
 	"fmt"
+	"reflect"
 	"sync"
 	"time"
 
@@ -32,8 +33,8 @@ type Config struct {
 	// Memory indicates if the database should be in-memory
 	Memory bool
 
-	// ConnectionTimeout is the timeout for establishing a connection
-	ConnectionTimeout time.Duration
+	// connTimeout is the timeout for establishing a connection
+	connTimeout time.Duration
 
 	// MaxOpenConns is the maximum number of open connections
 	MaxOpenConns int
@@ -41,36 +42,36 @@ type Config struct {
 	// MaxIdleConns is the maximum number of idle connections
 	MaxIdleConns int
 
-	// ConnMaxLifetime is the maximum lifetime of a connection
-	ConnMaxLifetime time.Duration
+	// connMaxLifetime is the maximum lifetime of a connection
+	connMaxLifetime time.Duration
 
-	// Options contains additional driver-specific options
-	Options map[string]interface{}
+	// DriverOptions contains additional driver-specific options
+	DriverOptions map[string]interface{}
 }
 
 // NewConfig creates a new SQLite configuration with default values
 func NewConfig(path string) *Config {
 	return &Config{
-		Path:              path,
-		Memory:            false,
-		ConnectionTimeout: 5 * time.Second,
-		MaxOpenConns:      DefaultMaxOpenConns,
-		MaxIdleConns:      DefaultMaxIdleConns,
-		ConnMaxLifetime:   DefaultConnMaxLifetime,
-		Options:           make(map[string]interface{}),
+		Path:         path,
+		Memory:       false,
+		connTimeout:  5 * time.Second,
+		MaxOpenConns: DefaultMaxOpenConns,
+		MaxIdleConns: DefaultMaxIdleConns,
+		connMaxLifetime:   DefaultConnMaxLifetime,
+		DriverOptions:     make(map[string]interface{}),
 	}
 }
 
 // NewMemoryConfig creates a new in-memory SQLite configuration
 func NewMemoryConfig() *Config {
 	return &Config{
-		Path:              ":memory:",
-		Memory:            true,
-		ConnectionTimeout: 5 * time.Second,
-		MaxOpenConns:      DefaultMaxOpenConns,
-		MaxIdleConns:      DefaultMaxIdleConns,
-		ConnMaxLifetime:   DefaultConnMaxLifetime,
-		Options:           make(map[string]interface{}),
+		Path:         ":memory:",
+		Memory:       true,
+		connTimeout:  5 * time.Second,
+		MaxOpenConns: DefaultMaxOpenConns,
+		MaxIdleConns: DefaultMaxIdleConns,
+		connMaxLifetime:   DefaultConnMaxLifetime,
+		DriverOptions:     make(map[string]interface{}),
 	}
 }
 
@@ -89,7 +90,7 @@ func (c *Config) ConnectionString() string {
 
 // ConnectionTimeout returns the connection timeout
 func (c *Config) ConnectionTimeout() time.Duration {
-	return c.ConnectionTimeout
+	return c.connTimeout
 }
 
 // MaxOpenConnections returns the maximum number of open connections
@@ -104,12 +105,12 @@ func (c *Config) MaxIdleConnections() int {
 
 // ConnMaxLifetime returns the maximum lifetime of a connection
 func (c *Config) ConnMaxLifetime() time.Duration {
-	return c.ConnMaxLifetime
+	return c.connMaxLifetime
 }
 
 // Options returns additional driver-specific options
 func (c *Config) Options() map[string]interface{} {
-	return c.Options
+	return c.DriverOptions
 }
 
 // Database represents an SQLite database
@@ -134,7 +135,7 @@ func New(cfg *Config) (*Database, error) {
 	// Set connection pool parameters
 	db.SetMaxOpenConns(cfg.MaxOpenConns)
 	db.SetMaxIdleConns(cfg.MaxIdleConns)
-	db.SetConnMaxLifetime(cfg.ConnMaxLifetime)
+	db.SetConnMaxLifetime(cfg.ConnMaxLifetime())
 
 	// Set pragmas for better performance
 	if _, err := db.Exec("PRAGMA journal_mode=WAL"); err != nil {
@@ -153,7 +154,7 @@ func New(cfg *Config) (*Database, error) {
 	}
 
 	// Apply custom pragmas from options
-	for key, value := range cfg.Options {
+	for key, value := range cfg.DriverOptions {
 		if key == "pragma" {
 			// If the option is specified as a pragma map
 			if pragmas, ok := value.(map[string]interface{}); ok {
@@ -168,7 +169,7 @@ func New(cfg *Config) (*Database, error) {
 	}
 
 	// Verify the connection
-	ctx, cancel := context.WithTimeout(context.Background(), cfg.ConnectionTimeout)
+	ctx, cancel := context.WithTimeout(context.Background(), cfg.connTimeout)
 	defer cancel()
 
 	if err := db.PingContext(ctx); err != nil {
@@ -274,9 +275,9 @@ func (d *Database) Stats() db.Stats {
 		Idle:               sqlStats.Idle,
 		WaitCount:          sqlStats.WaitCount,
 		WaitDuration:       sqlStats.WaitDuration,
-		MaxOpenConnections: sqlStats.MaxOpenConnections,
-		MaxIdleConnections: sqlStats.MaxIdleConnections,
-		MaxLifetime:        sqlStats.MaxLifetime,
+		MaxOpenConnections: d.config.MaxOpenConns,
+		MaxIdleConnections: d.config.MaxIdleConns,
+		MaxLifetime:        d.config.connMaxLifetime,
 		CustomStats:        make(map[string]string),
 	}
 }
@@ -370,8 +371,17 @@ func (r *sqliteRows) Columns() ([]string, error) {
 }
 
 // ColumnTypes returns column type information
-func (r *sqliteRows) ColumnTypes() ([]*sql.ColumnType, error) {
-	return r.rows.ColumnTypes()
+func (r *sqliteRows) ColumnTypes() ([]db.ColumnType, error) {
+	sqlTypes, err := r.rows.ColumnTypes()
+	if err != nil {
+		return nil, err
+	}
+
+	result := make([]db.ColumnType, len(sqlTypes))
+	for i, sqlType := range sqlTypes {
+		result[i] = &sqliteColumnType{sqlType: sqlType}
+	}
+	return result, nil
 }
 
 // SQLite-specific transaction type
@@ -419,4 +429,72 @@ func (t *sqliteTransaction) Rollback() error {
 // ID returns a unique identifier for the transaction
 func (t *sqliteTransaction) ID() string {
 	return t.id
+}
+
+// Prepare creates a prepared statement within the transaction
+func (t *sqliteTransaction) Prepare(ctx context.Context, query string) (db.Stmt, error) {
+	stmt, err := t.tx.PrepareContext(ctx, query)
+	if err != nil {
+		return nil, fmt.Errorf("failed to prepare statement in transaction: %w", err)
+	}
+	return &sqlitePreparedStatement{stmt: stmt}, nil
+}
+
+// sqliteColumnType wraps sql.ColumnType to implement db.ColumnType
+type sqliteColumnType struct {
+	sqlType *sql.ColumnType
+}
+
+func (c *sqliteColumnType) Name() string {
+	return c.sqlType.Name()
+}
+
+func (c *sqliteColumnType) DatabaseTypeName() string {
+	return c.sqlType.DatabaseTypeName()
+}
+
+func (c *sqliteColumnType) Length() (length int64, ok bool) {
+	return c.sqlType.Length()
+}
+
+func (c *sqliteColumnType) DecimalSize() (precision, scale int64, ok bool) {
+	return c.sqlType.DecimalSize()
+}
+
+func (c *sqliteColumnType) Nullable() (nullable, ok bool) {
+	return c.sqlType.Nullable()
+}
+
+func (c *sqliteColumnType) ScanType() reflect.Type {
+	return c.sqlType.ScanType()
+}
+
+// sqlitePreparedStatement implements db.Stmt for SQLite
+type sqlitePreparedStatement struct {
+	stmt *sql.Stmt
+}
+
+func (s *sqlitePreparedStatement) Execute(ctx context.Context, args ...interface{}) (db.Result, error) {
+	result, err := s.stmt.ExecContext(ctx, args...)
+	if err != nil {
+		return nil, err
+	}
+	return &sqliteResult{result: result}, nil
+}
+
+func (s *sqlitePreparedStatement) Query(ctx context.Context, args ...interface{}) (db.Rows, error) {
+	rows, err := s.stmt.QueryContext(ctx, args...)
+	if err != nil {
+		return nil, err
+	}
+	return &sqliteRows{rows: rows}, nil
+}
+
+func (s *sqlitePreparedStatement) QueryRow(ctx context.Context, args ...interface{}) db.Row {
+	row := s.stmt.QueryRowContext(ctx, args...)
+	return &sqliteRow{row: row}
+}
+
+func (s *sqlitePreparedStatement) Close() error {
+	return s.stmt.Close()
 }

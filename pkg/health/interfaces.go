@@ -8,71 +8,53 @@ import (
 )
 
 // CheckType identifies the purpose of a health check.
-type CheckType int
+type CheckType string
 
 const (
 	// TypeComponent indicates a check is for an internal component.
-	TypeComponent CheckType = iota
+	TypeComponent CheckType = "component"
 
 	// TypeDependency indicates a check is for an external dependency.
-	TypeDependency
+	TypeDependency CheckType = "dependency"
 
 	// TypeLiveness indicates a check is used for liveness probing.
 	// Liveness checks determine if the application is running but may be temporarily unable to progress.
-	TypeLiveness
+	TypeLiveness CheckType = "liveness"
 
 	// TypeReadiness indicates a check is used for readiness probing.
 	// Readiness checks determine if the application is able to receive and process requests.
-	TypeReadiness
+	TypeReadiness CheckType = "readiness"
+
+	// TypeStartup indicates a check is used for startup probing.
+	// Startup checks determine if the application has started successfully.
+	TypeStartup CheckType = "startup"
 )
 
 // String returns the string representation of a CheckType.
 func (t CheckType) String() string {
-	switch t {
-	case TypeComponent:
-		return "component"
-	case TypeDependency:
-		return "dependency"
-	case TypeLiveness:
-		return "liveness"
-	case TypeReadiness:
-		return "readiness"
-	default:
-		return "unknown"
-	}
+	return string(t)
 }
 
 // Status represents the health status of a check or system.
-type Status int
+type Status string
 
 const (
 	// StatusUp indicates the check passed and the component is healthy.
-	StatusUp Status = iota
+	StatusUp Status = "up"
 
 	// StatusDown indicates the check failed and the component is unhealthy.
-	StatusDown
+	StatusDown Status = "down"
 
 	// StatusDegraded indicates the check detected degraded performance or functionality.
-	StatusDegraded
+	StatusDegraded Status = "degraded"
 
 	// StatusUnknown indicates the check could not determine the health status.
-	StatusUnknown
+	StatusUnknown Status = "unknown"
 )
 
 // String returns the string representation of a Status.
 func (s Status) String() string {
-	switch s {
-	case StatusUp:
-		return "UP"
-	case StatusDown:
-		return "DOWN"
-	case StatusDegraded:
-		return "DEGRADED"
-	case StatusUnknown:
-		return "UNKNOWN"
-	default:
-		return "UNKNOWN"
-	}
+	return string(s)
 }
 
 // Check defines the interface for health checks.
@@ -168,6 +150,9 @@ type Result interface {
 
 	// AddChild adds a single child Result and returns the updated Result.
 	AddChild(child Result) Result
+
+	// WithStatus sets the status for this Result and returns the updated Result.
+	WithStatus(status Status) Result
 }
 
 // Provider defines the interface for a health check provider.

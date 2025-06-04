@@ -3,7 +3,7 @@ package db
 
 import (
 	"context"
-	"database/sql"
+	"reflect"
 	"time"
 )
 
@@ -67,6 +67,9 @@ type Database interface {
 	// Begin starts a transaction with default options
 	Begin(ctx context.Context) (Transaction, error)
 
+	// Prepare creates a prepared statement for repeated use
+	Prepare(ctx context.Context, query string) (Stmt, error)
+
 	// Stats returns database statistics
 	Stats() Stats
 
@@ -107,6 +110,27 @@ type Row interface {
 	Columns() ([]string, error)
 }
 
+// ColumnType represents information about a database column
+type ColumnType interface {
+	// Name returns the name of the column
+	Name() string
+
+	// DatabaseTypeName returns the database-specific type name
+	DatabaseTypeName() string
+
+	// Length returns the column type length for variable length column types
+	Length() (length int64, ok bool)
+
+	// DecimalSize returns the scale and precision of a decimal type
+	DecimalSize() (precision, scale int64, ok bool)
+
+	// Nullable returns whether the column may be null
+	Nullable() (nullable, ok bool)
+
+	// ScanType returns a Go type suitable for scanning into using Rows.Scan
+	ScanType() reflect.Type
+}
+
 // Rows represents multiple rows returned from a query
 type Rows interface {
 	// Next prepares the next row for reading with Scan
@@ -126,7 +150,22 @@ type Rows interface {
 	Columns() ([]string, error)
 
 	// ColumnTypes returns column type information
-	ColumnTypes() ([]*sql.ColumnType, error)
+	ColumnTypes() ([]ColumnType, error)
+}
+
+// Stmt represents a prepared statement
+type Stmt interface {
+	// Execute executes a prepared statement with the given arguments
+	Execute(ctx context.Context, args ...interface{}) (Result, error)
+
+	// Query executes a prepared query statement with the given arguments
+	Query(ctx context.Context, args ...interface{}) (Rows, error)
+
+	// QueryRow executes a prepared query statement that is expected to return at most one row
+	QueryRow(ctx context.Context, args ...interface{}) Row
+
+	// Close closes the statement
+	Close() error
 }
 
 // Transaction represents a database transaction
@@ -139,6 +178,9 @@ type Transaction interface {
 
 	// QueryRow executes a query that is expected to return at most one row within the transaction
 	QueryRow(ctx context.Context, query string, args ...interface{}) Row
+
+	// Prepare creates a prepared statement within the transaction
+	Prepare(ctx context.Context, query string) (Stmt, error)
 
 	// Commit commits the transaction
 	Commit() error

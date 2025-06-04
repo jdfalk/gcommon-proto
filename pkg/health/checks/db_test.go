@@ -3,7 +3,7 @@ package checks
 
 import (
 	"context"
-	"database/sql"
+	_ "database/sql"
 	"errors"
 	"testing"
 	"time"

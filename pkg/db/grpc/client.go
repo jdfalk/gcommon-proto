@@ -3,10 +3,12 @@ package grpc
 
 import (
 	"context"
+	"database/sql"
 	"fmt"
 	"time"
 
 	"google.golang.org/grpc"
+	"google.golang.org/grpc/codes"
 	"google.golang.org/grpc/status"
 
 	"github.com/jdfalk/gcommon/pkg/db"
@@ -421,8 +423,15 @@ func (r *Rows) Next() bool {
 
 	// Store the current row and column names
 	r.current = resp
-	if r.columns == nil {
+
+	// If we received column names, store them
+	if len(resp.Columns) > 0 {
 		r.columns = resp.Columns
+	}
+
+	// If this is just a column info message with no values, fetch the next row
+	if resp.Values == nil || len(resp.Values) == 0 {
+		return r.Next()
 	}
 
 	return true
@@ -490,7 +499,13 @@ func (r *Rows) Err() error {
 //   - Error if retrieving column names fails
 func (r *Rows) Columns() ([]string, error) {
 	if r.columns == nil {
-		return nil, fmt.Errorf("no columns available")
+		// Attempt to fetch the first row to populate columns
+		if !r.Next() {
+			if r.err != nil {
+				return nil, r.err
+			}
+			return nil, fmt.Errorf("no columns available")
+		}
 	}
 	return r.columns, nil
 }

@@ -4,42 +4,125 @@ package checks
 import (
 	"context"
 	"fmt"
+	"math"
 	"runtime"
 	"time"
 
 	"github.com/jdfalk/gcommon/pkg/health"
+	"github.com/shirou/gopsutil/v3/cpu"
+	"github.com/shirou/gopsutil/v3/mem"
 )
 
-// SystemCheck monitors system resources like memory and CPU.
-type SystemCheck struct {
-	*health.BaseCheck
-	memoryThresholdPct float64 // Memory threshold in percentage (0-100)
-	gcPauseThreshold   time.Duration // Threshold for GC pause time warnings
+// CPUCheck monitors the CPU usage of the system and reports health status
+// based on a configurable threshold.
+type CPUCheck struct {
+	baseCheck *health.BaseCheck
+	threshold float64       // CPU usage threshold percentage (0-100)
+	duration  time.Duration // Duration over which to measure CPU usage
 }
 
-// SystemCheckOption represents an option for a system health check.
-type SystemCheckOption func(*SystemCheck)
+// CPUCheckOption is a functional option type for configuring CPUCheck.
+type CPUCheckOption func(*CPUCheck)
 
-// NewSystemCheck creates a new system health check.
-func NewSystemCheck(options ...SystemCheckOption) *SystemCheck {
-	c := &SystemCheck{
-		memoryThresholdPct: 90.0, // Default to 90% memory threshold
-		gcPauseThreshold:   100 * time.Millisecond, // Default to 100ms GC pause threshold
+// WithCPUCheckInterval sets the check interval.
+func WithCPUCheckInterval(interval time.Duration) CPUCheckOption {
+	return func(c *CPUCheck) {
+		if interval > 0 {
+			c.baseCheck.SetInterval(interval)
+		}
+	}
+}
+
+// WithCPUCheckType sets the check type.
+func WithCPUCheckType(checkType health.CheckType) CPUCheckOption {
+	return func(c *CPUCheck) {
+		c.baseCheck.SetType(checkType)
+	}
+}
+
+// WithCPUCheckEnabled sets whether the check is initially enabled.
+func WithCPUCheckEnabled(enabled bool) CPUCheckOption {
+	return func(c *CPUCheck) {
+		c.baseCheck.SetEnabled(enabled)
+	}
+}
+
+// WithCPUMeasurementDuration sets the duration over which to measure CPU usage.
+func WithCPUMeasurementDuration(duration time.Duration) CPUCheckOption {
+	return func(c *CPUCheck) {
+		if duration > 0 {
+			c.duration = duration
+		}
+	}
+}
+
+// NewCPUCheck creates a new CPU usage health check.
+//
+// Parameters:
+//   - threshold: Maximum allowed CPU usage percentage (0-100)
+//   - options: Optional functional options for additional configuration
+//
+// Returns:
+//   - A configured CPUCheck instance
+func NewCPUCheck(threshold float64, options ...CPUCheckOption) *CPUCheck {
+	// Ensure threshold is within valid range
+	threshold = math.Max(0, math.Min(100, threshold))
+
+	check := &CPUCheck{
+		threshold: threshold,
+		duration:  3 * time.Second, // Default measurement duration
 	}
 
 	// Initialize the base check
-	c.BaseCheck = health.NewBaseCheck("system", health.TypeComponent, 5*time.Second, 30*time.Second)
+	check.baseCheck = health.NewBaseCheck("cpu", health.TypeLiveness, 5*time.Second, 30*time.Second)
 
-	// Apply options
-	for _, opt := range options {
-		opt(c)
+	// Apply the options
+	for _, option := range options {
+		option(check)
 	}
 
-	return c
+	return check
 }
 
-// Execute runs the system health check.
-func (c *SystemCheck) Execute(ctx context.Context) (health.Result, error) {
+// Name returns the check name.
+func (c *CPUCheck) Name() string {
+	return c.baseCheck.Name()
+}
+
+// Type returns the check type.
+func (c *CPUCheck) Type() health.CheckType {
+	return c.baseCheck.Type()
+}
+
+// Timeout returns the check timeout.
+func (c *CPUCheck) Timeout() time.Duration {
+	return c.baseCheck.Timeout()
+}
+
+// Interval returns the check interval.
+func (c *CPUCheck) Interval() time.Duration {
+	return c.baseCheck.Interval()
+}
+
+// Enabled returns whether the check is enabled.
+func (c *CPUCheck) Enabled() bool {
+	return c.baseCheck.Enabled()
+}
+
+// SetEnabled enables or disables the check.
+func (c *CPUCheck) SetEnabled(enabled bool) {
+	c.baseCheck.SetEnabled(enabled)
+}
+
+// Execute performs the CPU health check by measuring CPU usage.
+//
+// Parameters:
+//   - ctx: Context that can be used to cancel the check
+//
+// Returns:
+//   - A Result indicating the health status
+//   - An error if the check execution itself failed (not the same as an unhealthy target)
+func (c *CPUCheck) Execute(ctx context.Context) (health.Result, error) {
 	if !c.Enabled() {
 		return health.NewResult(health.StatusUnknown).
 			WithError(fmt.Errorf("check disabled")), nil
@@ -47,94 +130,195 @@ func (c *SystemCheck) Execute(ctx context.Context) (health.Result, error) {
 
 	startTime := time.Now()
 
-	// Collect memory statistics
-	var memStats runtime.MemStats
-	runtime.ReadMemStats(&memStats)
-
-	// Calculate memory usage percentage
-	memoryUsagePct := float64(memStats.HeapAlloc) / float64(memStats.HeapSys) * 100.0
-
-	// Basic details that will be included in every result
-	details := map[string]interface{}{
-		"memory": map[string]interface{}{
-			"heapAlloc":      formatBytes(memStats.HeapAlloc),
-			"heapSys":        formatBytes(memStats.HeapSys),
-			"heapInuse":      formatBytes(memStats.HeapInuse),
-			"heapIdle":       formatBytes(memStats.HeapIdle),
-			"usagePercent":   fmt.Sprintf("%.1f%%", memoryUsagePct),
-			"threshold":      fmt.Sprintf("%.1f%%", c.memoryThresholdPct),
-		},
-		"gc": map[string]interface{}{
-			"numGC":         memStats.NumGC,
-			"lastPauseTime": time.Duration(memStats.PauseNs[(memStats.NumGC+255)%256]).String(),
-			"totalPauseMs":  memStats.PauseTotalNs / 1000000,
-			"threshold":     c.gcPauseThreshold.String(),
-		},
-		"goroutines": runtime.NumGoroutine(),
+	// Get CPU percentage over the configured duration
+	percentages, err := cpu.Percent(c.duration, false)
+	if err != nil {
+		return health.NewResult(health.StatusUnknown).
+			WithError(fmt.Errorf("failed to get CPU usage: %w", err)).
+			WithDuration(time.Since(startTime)), nil
 	}
 
-	// Check memory usage
-	if memoryUsagePct > c.memoryThresholdPct {
-		return health.NewResult(health.StatusDegraded).
-			WithError(fmt.Errorf("memory usage %.1f%% exceeds threshold %.1f%%",
-				memoryUsagePct, c.memoryThresholdPct)).
-			WithDuration(time.Since(startTime)).
-			WithDetails(details), nil
+	// Check if we got valid data
+	if len(percentages) == 0 {
+		return health.NewResult(health.StatusUnknown).
+			WithError(fmt.Errorf("no CPU usage data available")).
+			WithDuration(time.Since(startTime)), nil
 	}
 
-	// Check GC pause time
-	lastGCPause := time.Duration(memStats.PauseNs[(memStats.NumGC+255)%256])
-	if lastGCPause > c.gcPauseThreshold {
-		return health.NewResult(health.StatusDegraded).
-			WithError(fmt.Errorf("GC pause %s exceeds threshold %s",
-				lastGCPause, c.gcPauseThreshold)).
-			WithDuration(time.Since(startTime)).
-			WithDetails(details), nil
+	// CPU percentage is the average across all cores
+	cpuPercentage := percentages[0]
+
+	// Create result with details
+	result := health.NewResult(health.StatusUp).
+		WithDetails(map[string]interface{}{
+			"cpu_usage": cpuPercentage,
+			"threshold": c.threshold,
+			"cores":     runtime.NumCPU(),
+			"duration":  c.duration.String(),
+		}).
+		WithDuration(time.Since(startTime))
+
+	// Check if CPU usage exceeds threshold
+	if cpuPercentage > c.threshold {
+		return result.
+			WithStatus(health.StatusDegraded).
+			WithError(fmt.Errorf("CPU usage (%.2f%%) exceeds threshold (%.2f%%)",
+				cpuPercentage, c.threshold)), nil
 	}
 
-	// All checks passed
-	return health.NewResult(health.StatusUp).
-		WithDuration(time.Since(startTime)).
-		WithDetails(details), nil
+	return result, nil
 }
 
-// WithMemoryThreshold sets the memory usage threshold.
-// When memory usage exceeds this percentage, the check will return a degraded status.
-// Value should be between 0 and 100.
-func WithMemoryThreshold(thresholdPercent float64) SystemCheckOption {
-	return func(c *SystemCheck) {
-		if thresholdPercent > 0 && thresholdPercent <= 100 {
-			c.memoryThresholdPct = thresholdPercent
+// String returns a string representation of the CPU check.
+//
+// Returns:
+//   - A string describing this check for logging and debugging
+func (c *CPUCheck) String() string {
+	return fmt.Sprintf("CPUCheck{name=%s, threshold=%.2f%%, duration=%s}",
+		c.Name(), c.threshold, c.duration)
+}
+
+// MemoryCheck monitors the memory usage of the system and reports health status
+// based on a configurable threshold.
+type MemoryCheck struct {
+	baseCheck *health.BaseCheck
+	threshold float64 // Memory usage threshold percentage (0-100)
+}
+
+// MemoryCheckOption is a functional option type for configuring MemoryCheck.
+type MemoryCheckOption func(*MemoryCheck)
+
+// WithMemoryCheckInterval sets the check interval.
+func WithMemoryCheckInterval(interval time.Duration) MemoryCheckOption {
+	return func(c *MemoryCheck) {
+		if interval > 0 {
+			c.baseCheck.SetInterval(interval)
 		}
 	}
 }
 
-// WithGCPauseThreshold sets the garbage collection pause time threshold.
-// When GC pause time exceeds this duration, the check will return a degraded status.
-func WithGCPauseThreshold(threshold time.Duration) SystemCheckOption {
-	return func(c *SystemCheck) {
-		if threshold > 0 {
-			c.gcPauseThreshold = threshold
-		}
+// WithMemoryCheckType sets the check type.
+func WithMemoryCheckType(checkType health.CheckType) MemoryCheckOption {
+	return func(c *MemoryCheck) {
+		c.baseCheck.SetType(checkType)
 	}
 }
 
-// formatBytes formats bytes into a human-readable string (KB, MB, GB).
-func formatBytes(bytes uint64) string {
-	const (
-		KB = 1024
-		MB = KB * 1024
-		GB = MB * 1024
-	)
-
-	switch {
-	case bytes >= GB:
-		return fmt.Sprintf("%.2f GB", float64(bytes)/float64(GB))
-	case bytes >= MB:
-		return fmt.Sprintf("%.2f MB", float64(bytes)/float64(MB))
-	case bytes >= KB:
-		return fmt.Sprintf("%.2f KB", float64(bytes)/float64(KB))
-	default:
-		return fmt.Sprintf("%d B", bytes)
+// WithMemoryCheckEnabled sets whether the check is initially enabled.
+func WithMemoryCheckEnabled(enabled bool) MemoryCheckOption {
+	return func(c *MemoryCheck) {
+		c.baseCheck.SetEnabled(enabled)
 	}
+}
+
+// NewMemoryCheck creates a new memory usage health check.
+//
+// Parameters:
+//   - threshold: Maximum allowed memory usage percentage (0-100)
+//   - options: Optional functional options for additional configuration
+//
+// Returns:
+//   - A configured MemoryCheck instance
+func NewMemoryCheck(threshold float64, options ...MemoryCheckOption) *MemoryCheck {
+	// Ensure threshold is within valid range
+	threshold = math.Max(0, math.Min(100, threshold))
+
+	check := &MemoryCheck{
+		threshold: threshold,
+	}
+
+	// Initialize the base check
+	check.baseCheck = health.NewBaseCheck("memory", health.TypeLiveness, 5*time.Second, 30*time.Second)
+
+	// Apply the options
+	for _, option := range options {
+		option(check)
+	}
+
+	return check
+}
+
+// Name returns the check name.
+func (c *MemoryCheck) Name() string {
+	return c.baseCheck.Name()
+}
+
+// Type returns the check type.
+func (c *MemoryCheck) Type() health.CheckType {
+	return c.baseCheck.Type()
+}
+
+// Timeout returns the check timeout.
+func (c *MemoryCheck) Timeout() time.Duration {
+	return c.baseCheck.Timeout()
+}
+
+// Interval returns the check interval.
+func (c *MemoryCheck) Interval() time.Duration {
+	return c.baseCheck.Interval()
+}
+
+// Enabled returns whether the check is enabled.
+func (c *MemoryCheck) Enabled() bool {
+	return c.baseCheck.Enabled()
+}
+
+// SetEnabled enables or disables the check.
+func (c *MemoryCheck) SetEnabled(enabled bool) {
+	c.baseCheck.SetEnabled(enabled)
+}
+
+// Execute performs the memory health check by measuring memory usage.
+//
+// Parameters:
+//   - ctx: Context that can be used to cancel the check
+//
+// Returns:
+//   - A Result indicating the health status
+//   - An error if the check execution itself failed (not the same as an unhealthy target)
+func (c *MemoryCheck) Execute(ctx context.Context) (health.Result, error) {
+	if !c.Enabled() {
+		return health.NewResult(health.StatusUnknown).
+			WithError(fmt.Errorf("check disabled")), nil
+	}
+
+	startTime := time.Now()
+
+	// Get memory statistics
+	vmStat, err := mem.VirtualMemory()
+	if err != nil {
+		return health.NewResult(health.StatusUnknown).
+			WithError(fmt.Errorf("failed to get memory info: %w", err)).
+			WithDuration(time.Since(startTime)), nil
+	}
+
+	// Create result with details
+	result := health.NewResult(health.StatusUp).
+		WithDetails(map[string]interface{}{
+			"memory_usage":       vmStat.UsedPercent,
+			"threshold":          c.threshold,
+			"total_memory_bytes": vmStat.Total,
+			"used_memory_bytes":  vmStat.Used,
+			"free_memory_bytes":  vmStat.Free,
+		}).
+		WithDuration(time.Since(startTime))
+
+	// Check if memory usage exceeds threshold
+	if vmStat.UsedPercent > c.threshold {
+		return result.
+			WithStatus(health.StatusDegraded).
+			WithError(fmt.Errorf("memory usage (%.2f%%) exceeds threshold (%.2f%%)",
+				vmStat.UsedPercent, c.threshold)), nil
+	}
+
+	return result, nil
+}
+
+// String returns a string representation of the memory check.
+//
+// Returns:
+//   - A string describing this check for logging and debugging
+func (c *MemoryCheck) String() string {
+	return fmt.Sprintf("MemoryCheck{name=%s, threshold=%.2f%%}",
+		c.Name(), c.threshold)
 }

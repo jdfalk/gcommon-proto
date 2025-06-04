@@ -1,99 +1,95 @@
 #!/bin/bash
-# file: generate.sh
-# Script to generate all mocks and protobuf/gRPC code
+# Script to generate all protobuf/gRPC code and mocks
 
 set -e
 
 SCRIPT_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )"
 cd "${SCRIPT_DIR}"
 
-echo "=== Generating all mocks and protobuf/gRPC code ==="
+echo "=== Generating all protobuf/gRPC code and mocks ==="
 
-# Generate all protobuf/gRPC code first
+# ----------------------------------------
+# Check Dependencies
+# ----------------------------------------
+echo ""
+echo "=== Checking dependencies ==="
+
+# Check if protoc is installed
+if ! command -v protoc &> /dev/null; then
+    echo "Error: protoc is not installed or not in PATH."
+    echo "Please install Protocol Buffers compiler: https://grpc.io/docs/protoc-installation/"
+    exit 1
+fi
+
+# Check if required Go plugins are installed
+if ! command -v protoc-gen-go &> /dev/null || ! command -v protoc-gen-go-grpc &> /dev/null; then
+    echo "Installing required protoc plugins for Go..."
+    go install google.golang.org/protobuf/cmd/protoc-gen-go@latest
+    go install google.golang.org/grpc/cmd/protoc-gen-go-grpc@latest
+fi
+
+# Check if mockery is installed
+if ! command -v mockery &> /dev/null; then
+    echo "Error: mockery is not installed or not in PATH."
+    echo "Please install mockery: go install github.com/vektra/mockery/v2@latest"
+    exit 1
+fi
+
+# ----------------------------------------
+# Protobuf/gRPC Code Generation
+# ----------------------------------------
 echo ""
 echo "=== Generating protobuf/gRPC code ==="
 
-# Function to run a generate script in its own directory
-run_generate_script() {
-    local script_path="$1"
-    local script_dir=$(dirname "$script_path")
-    local script_name=$(basename "$script_path")
-    local pkg_name=$(basename "$script_dir")
+# Find all .proto files and generate Go code
+find pkg -name "*.proto" -type f | while read -r proto_file; do
+    # Get the directory containing the proto file
+    proto_dir=$(dirname "$proto_file")
+    proto_name=$(basename "$proto_file")
+    pkg_name=$(basename "$(dirname "$proto_dir")")
 
-    # Save current directory
-    local original_dir=$(pwd)
+    echo "=== Generating $pkg_name protobuf and gRPC code ==="
 
-    # Change to the script's directory
-    cd "$script_dir"
+    # Change to the proto directory
+    cd "${SCRIPT_DIR}/${proto_dir}"
 
-    # Run the script but suppress its output
-    if [[ -x "./$script_name" ]]; then
-        # Only show main script output
-        echo "=== Generating $pkg_name protobuf and gRPC code ==="
-        # Run the script but don't print its echo statements
-        SILENT=true ./"$script_name" > /dev/null
-        echo "=== $pkg_name protobuf and gRPC code generation complete ==="
-    else
-        echo "Warning: $script_name is not executable"
-        chmod +x "./$script_name"
-        echo "=== Generating $pkg_name protobuf and gRPC code ==="
-        SILENT=true ./"$script_name" > /dev/null
-        echo "=== $pkg_name protobuf and gRPC code generation complete ==="
-    fi
+    # Generate Go code from proto file
+    protoc --go_out=. --go_opt=paths=source_relative \
+           --go-grpc_out=. --go-grpc_opt=paths=source_relative \
+           "$proto_name"
 
-    # Return to original directory
-    cd "$original_dir"
-}
+    echo "=== $pkg_name protobuf and gRPC code generation complete ==="
 
-# Run all protobuf generation scripts from their respective directories
-run_generate_script "${SCRIPT_DIR}/pkg/auth/proto/generate.sh"
-run_generate_script "${SCRIPT_DIR}/pkg/cache/proto/generate.sh"
-run_generate_script "${SCRIPT_DIR}/pkg/config/proto/generate.sh"
-run_generate_script "${SCRIPT_DIR}/pkg/db/proto/generate.sh"
-run_generate_script "${SCRIPT_DIR}/pkg/health/proto/generate.sh"
-run_generate_script "${SCRIPT_DIR}/pkg/log/proto/generate.sh"
-run_generate_script "${SCRIPT_DIR}/pkg/metrics/proto/generate.sh"
-run_generate_script "${SCRIPT_DIR}/pkg/queue/proto/generate.sh"
-run_generate_script "${SCRIPT_DIR}/pkg/web/proto/generate.sh"
+    # Return to script directory
+    cd "${SCRIPT_DIR}"
+done
 
+# ----------------------------------------
+# Mock Generation
+# ----------------------------------------
 echo ""
 echo "=== Generating mocks ==="
 
-# Generate mocks using the mockery.yaml config
-mockery --config="${SCRIPT_DIR}/mockery.yaml"
+# Create all required mock directories if they don't exist
+mkdir -p \
+  "${SCRIPT_DIR}/pkg/auth/mock" \
+  "${SCRIPT_DIR}/pkg/cache/mock" \
+  "${SCRIPT_DIR}/pkg/config/mock" \
+  "${SCRIPT_DIR}/pkg/db/mock" \
+  "${SCRIPT_DIR}/pkg/health/mock" \
+  "${SCRIPT_DIR}/pkg/log/mock" \
+  "${SCRIPT_DIR}/pkg/metrics/mock" \
+  "${SCRIPT_DIR}/pkg/queue/mock" \
+  "${SCRIPT_DIR}/pkg/web/mock"
 
-# Function to run a mock generate script in its own directory
-run_mock_script() {
-    local script_path="$1"
-    local script_dir=$(dirname "$script_path")
-    local pkg_name=$(basename "$(dirname "$script_dir")")
+# Use mockery with the config file to generate mocks directly to their target locations
+mockery --config="${SCRIPT_DIR}/.mockery.yml"
 
-    # Only run if the script exists and is executable
-    if [[ -f "$script_path" && -x "$script_path" ]]; then
-        # Save current directory
-        local original_dir=$(pwd)
-
-        # Change to the script's directory
-        cd "$script_dir"
-
-        echo "=== Generating $pkg_name mocks ==="
-        SILENT=true ./$(basename "$script_path") > /dev/null
-        echo "=== $pkg_name mocks generation complete ==="
-
-        # Return to original directory
-        cd "$original_dir"
-    fi
-}
-
-# Run all mock generation scripts
-run_mock_script "${SCRIPT_DIR}/pkg/auth/mock/generate.sh"
-run_mock_script "${SCRIPT_DIR}/pkg/cache/mock/generate.sh"
-run_mock_script "${SCRIPT_DIR}/pkg/config/mock/generate.sh"
-run_mock_script "${SCRIPT_DIR}/pkg/db/mock/generate.sh"
-run_mock_script "${SCRIPT_DIR}/pkg/health/mock/generate.sh"
-run_mock_script "${SCRIPT_DIR}/pkg/log/mock/generate.sh"
-run_mock_script "${SCRIPT_DIR}/pkg/metrics/mock/generate.sh"
-run_mock_script "${SCRIPT_DIR}/pkg/web/mock/generate.sh"
+# Clean up any temporary directories that mockery might have created
+if [[ -d "${SCRIPT_DIR}/mocks" ]]; then
+    echo "Cleaning up temporary mock directories..."
+    rm -rf "${SCRIPT_DIR}/mocks"
+fi
 
 echo ""
 echo "=== Code generation complete ==="
