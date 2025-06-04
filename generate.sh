@@ -1,4 +1,5 @@
 #!/bin/bash
+# file: generate.sh
 # Script to generate all protobuf/gRPC code and mocks
 
 set -e
