@@ -5,7 +5,6 @@ import (
 	"time"
 
 	"github.com/jdfalk/gcommon/pkg/metrics"
-	"go.opentelemetry.io/otel/attribute"
 )
 
 // timer implements the metrics.Timer interface for OpenTelemetry.

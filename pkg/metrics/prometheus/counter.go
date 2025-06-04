@@ -2,12 +2,15 @@ package prometheus
 
 import (
 	"sync"
+	"sync/atomic"
 
 	"github.com/jdfalk/gcommon/pkg/metrics"
 	"github.com/prometheus/client_golang/prometheus"
 )
 
 // counter implements the metrics.Counter interface for Prometheus.
+// It provides a way to track monotonically increasing values, such as
+// request counts, completed tasks, or error occurrences.
 type counter struct {
 	counter     prometheus.Counter
 	vecCounter  *prometheus.CounterVec
@@ -15,29 +18,37 @@ type counter struct {
 	labelValues []string
 	registry    *registry
 	mutex       sync.RWMutex
-	value       float64 // For tracking current value when using vector
+
+	// Track value internally for efficient retrieval
+	value atomic.Float64
 }
 
 // newCounter creates a new Prometheus counter.
+//
+// Parameters:
+//   - registry: The Prometheus registry to register the counter with
+//   - name: The name of the counter metric
+//   - globalTags: Global tags to apply to all metrics in the registry
+//   - options: Optional configurations for the counter
+//
+// Returns:
+//   - metrics.Counter: A new counter instance with the specified configuration
 func newCounter(registry *registry, name string, globalTags []metrics.Tag, options ...metrics.Option) metrics.Counter {
 	opts := parseOptions(options...)
 
 	// Combine global tags with metric-specific tags
-	allTags := append(globalTags, opts.Tags...)
+	allTags := combineTags(globalTags, opts.Tags)
 	labelNames := getTagKeys(allTags)
-	labelValues := make([]string, len(labelNames))
-
-	for i, tag := range allTags {
-		labelValues[i] = tag.Value
-	}
+	labelValues := getTagValues(allTags, labelNames)
 
 	// Create metric options
 	namespace, subsystem := registry.getNames(name)
 	promOpts := prometheus.CounterOpts{
-		Namespace: namespace,
-		Subsystem: subsystem,
-		Name:      name,
-		Help:      opts.Description,
+		Namespace:   namespace,
+		Subsystem:   subsystem,
+		Name:        name,
+		Help:        opts.Description,
+		ConstLabels: opts.ConstLabels,
 	}
 
 	c := &counter{
@@ -72,28 +83,43 @@ func newCounter(registry *registry, name string, globalTags []metrics.Tag, optio
 		c.counter = counter
 	}
 
+	// Register the metric with our registry for tracking
+	registry.Register(name, c, options...)
+
 	return c
 }
 
 // Inc increments the counter by 1.
+// This is a convenient method for incrementing the counter by a single unit.
 func (c *counter) Inc() {
-	c.mutex.Lock()
-	defer c.mutex.Unlock()
-
+	// Atomic update for thread safety without locking
 	c.counter.Inc()
-	c.value++
+	c.value.Add(1)
 }
 
 // Add adds the given value to the counter.
+//
+// Parameters:
+//   - value: The value to add to the counter (must be non-negative)
 func (c *counter) Add(value float64) {
-	c.mutex.Lock()
-	defer c.mutex.Unlock()
+	// Counter values must be non-negative in Prometheus
+	if value < 0 {
+		return
+	}
 
 	c.counter.Add(value)
-	c.value += value
+	c.value.Add(value)
 }
 
 // WithTags returns a new counter with the given tags.
+// This allows for dimensional metrics where the same counter can be tracked
+// across different dimensions (e.g., status code, endpoint, method).
+//
+// Parameters:
+//   - tags: The tags to apply to the counter
+//
+// Returns:
+//   - metrics.Counter: A new counter instance with the combined tags
 func (c *counter) WithTags(tags ...metrics.Tag) metrics.Counter {
 	if c.vecCounter == nil || len(tags) == 0 {
 		return c
@@ -101,12 +127,13 @@ func (c *counter) WithTags(tags ...metrics.Tag) metrics.Counter {
 
 	c.mutex.RLock()
 	labelNames := c.labelNames
+	labelValues := c.labelValues
 	c.mutex.RUnlock()
 
 	// Create a map of current label values
-	currentValues := make(map[string]string)
+	currentValues := make(map[string]string, len(labelNames))
 	for i, name := range labelNames {
-		currentValues[name] = c.labelValues[i]
+		currentValues[name] = labelValues[i]
 	}
 
 	// Override with new tag values
@@ -131,11 +158,10 @@ func (c *counter) WithTags(tags ...metrics.Tag) metrics.Counter {
 }
 
 // Value returns the current counter value.
+//
+// Returns:
+//   - float64: The current value of the counter
 func (c *counter) Value() float64 {
-	c.mutex.RLock()
-	defer c.mutex.RUnlock()
-
-	// For a standard Counter, we only have access to the observed value
-	// that we've been tracking ourselves.
-	return c.value
+	// Use atomic read for thread safety without locking
+	return c.value.Load()
 }

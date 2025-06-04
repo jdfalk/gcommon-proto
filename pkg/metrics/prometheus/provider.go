@@ -3,6 +3,7 @@ package prometheus
 
 import (
 	"context"
+	"errors"
 	"net/http"
 	"sync"
 	"time"
@@ -13,6 +14,9 @@ import (
 	"github.com/prometheus/client_golang/prometheus/promhttp"
 	"github.com/prometheus/client_golang/prometheus/push"
 )
+
+// ErrInvalidMetricType is returned when an invalid metric type is provided
+var ErrInvalidMetricType = errors.New("invalid metric type")
 
 // provider implements the metrics.Provider interface for Prometheus.
 type provider struct {
@@ -25,15 +29,6 @@ type provider struct {
 	pushMutex      sync.Mutex
 }
 
-// registry implements the metrics.Registry interface for Prometheus.
-type registry struct {
-	registry      *prometheus.Registry
-	namespace     string
-	subsystem     string
-	defaultLabels prometheus.Labels
-	mutex         sync.RWMutex
-}
-
 // NewProvider creates a new Prometheus metrics provider.
 func NewProvider(config metrics.Config) (metrics.Provider, error) {
 	if config.PrometheusConfig == nil {
@@ -41,36 +36,22 @@ func NewProvider(config metrics.Config) (metrics.Provider, error) {
 	}
 
 	// Create a new registry
-	reg := prometheus.NewRegistry()
+	reg := newRegistry(config.Namespace, config.Subsystem, config.Tags)
 
 	// Add default collectors if enabled
 	if config.EnableRuntimeMetrics ||
 		(config.PrometheusConfig != nil && config.PrometheusConfig.EnableGoCollector) {
-		reg.MustRegister(collectors.NewGoCollector())
+		reg.registry.MustRegister(collectors.NewGoCollector())
 	}
 
 	if config.PrometheusConfig != nil && config.PrometheusConfig.EnableProcessCollector {
-		reg.MustRegister(collectors.NewProcessCollector(collectors.ProcessCollectorOpts{}))
-	}
-
-	// Create default labels from global tags
-	defaultLabels := make(prometheus.Labels)
-	for _, tag := range config.Tags {
-		defaultLabels[tag.Key] = tag.Value
-	}
-
-	// Create the registry wrapper
-	r := &registry{
-		registry:      reg,
-		namespace:     config.Namespace,
-		subsystem:     config.Subsystem,
-		defaultLabels: defaultLabels,
+		reg.registry.MustRegister(collectors.NewProcessCollector(collectors.ProcessCollectorOpts{}))
 	}
 
 	// Create the provider
 	p := &provider{
 		config:     config,
-		registry:   r,
+		registry:   reg,
 		globalTags: config.Tags,
 	}
 
@@ -79,7 +60,7 @@ func NewProvider(config metrics.Config) (metrics.Provider, error) {
 		pusher := push.New(
 			config.PrometheusConfig.PushGateway,
 			config.PrometheusConfig.PushJobName,
-		).Gatherer(reg)
+		).Gatherer(reg.registry)
 
 		p.pusher = pusher
 	}
@@ -185,20 +166,6 @@ func (p *provider) WithTags(tags ...metrics.Tag) metrics.Provider {
 	return newProvider
 }
 
-// getNames formats a metric name according to Prometheus naming conventions.
-func (r *registry) getNames(name string) (string, string) {
-	return r.namespace, r.subsystem
-}
-
-// getTags converts metrics.Tag to Prometheus labels.
-func getTags(tags []metrics.Tag) prometheus.Labels {
-	labels := make(prometheus.Labels)
-	for _, tag := range tags {
-		labels[tag.Key] = tag.Value
-	}
-	return labels
-}
-
 // combineLabels combines default labels with custom labels.
 func combineLabels(defaultLabels, customLabels prometheus.Labels) prometheus.Labels {
 	result := make(prometheus.Labels)
@@ -222,6 +189,15 @@ func parseOptions(options ...metrics.Option) metrics.Options {
 	for _, option := range options {
 		option(&opts)
 	}
+
+	// Convert tags to ConstLabels if needed for Prometheus
+	if len(opts.Tags) > 0 && opts.ConstLabels == nil {
+		opts.ConstLabels = make(prometheus.Labels)
+		for _, tag := range opts.Tags {
+			opts.ConstLabels[tag.Key] = tag.Value
+		}
+	}
+
 	return opts
 }
 
@@ -232,6 +208,47 @@ func getTagKeys(tags []metrics.Tag) []string {
 		keys[i] = tag.Key
 	}
 	return keys
+}
+
+// getTagValues extracts tag values for the given keys from tags.
+func getTagValues(tags []metrics.Tag, keys []string) []string {
+	// Create a map for quick lookup
+	tagMap := make(map[string]string, len(tags))
+	for _, tag := range tags {
+		tagMap[tag.Key] = tag.Value
+	}
+
+	// Extract values in the same order as keys
+	values := make([]string, len(keys))
+	for i, key := range keys {
+		values[i] = tagMap[key]
+	}
+
+	return values
+}
+
+// combineTags combines two sets of tags, with later tags overriding earlier ones.
+func combineTags(baseTags, overrideTags []metrics.Tag) []metrics.Tag {
+	// Create a map for efficient lookups
+	tagMap := make(map[string]string, len(baseTags)+len(overrideTags))
+
+	// Add base tags
+	for _, tag := range baseTags {
+		tagMap[tag.Key] = tag.Value
+	}
+
+	// Add/override with new tags
+	for _, tag := range overrideTags {
+		tagMap[tag.Key] = tag.Value
+	}
+
+	// Convert back to slice
+	result := make([]metrics.Tag, 0, len(tagMap))
+	for k, v := range tagMap {
+		result = append(result, metrics.Tag{Key: k, Value: v})
+	}
+
+	return result
 }
 
 // init registers the prometheus provider with the metrics package.
