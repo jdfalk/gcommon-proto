@@ -16,6 +16,14 @@
 - Always escape triple backticks with a backslash in documentation
 - Use consistent documentation style (JSDoc, docstrings, etc.) based on the codebase
 
+## Documentation Organization Policy
+
+### File Responsibilities
+
+- **README.md**: Repository introduction, setup instructions, basic usage, and immediate critical information new users need. Include major breaking changes at the top temporarily for visibility.
+- **TODO.md**: Project roadmap, planning, implementation status, architectural decisions, reasoning behind choices, diagrams, and detailed technical plans.
+- **CHANGELOG.md**: All version information, release notes, major breaking changes, feature additions, bug fixes, and consolidated technical documentation that would otherwise be scattered across multiple files.
+
 ## Code Style
 
 - Follow the established code style in the repository
