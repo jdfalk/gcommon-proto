@@ -15,7 +15,7 @@ import (
 
 // Default configuration constants for Pebble
 const (
-	DefaultCacheSize     = 64 << 20 // 64MB
+	DefaultCacheSize       = 64 << 20 // 64MB
 	DefaultWriteBufferSize = 32 << 20 // 32MB
 )
 
@@ -120,10 +120,10 @@ func NewDriver(cfg *Config) (*Driver, error) {
 	}
 
 	opts := &pebble.Options{
-		Cache:                 pebble.NewCache(cfg.CacheSize),
-		MemTableSize:          uint64(cfg.WriteBufferSize),
-		DisableWAL:           !cfg.Sync,
-		ReadOnly:             cfg.ReadOnly,
+		Cache:        pebble.NewCache(cfg.CacheSize),
+		MemTableSize: uint64(cfg.WriteBufferSize),
+		DisableWAL:   !cfg.Sync,
+		ReadOnly:     cfg.ReadOnly,
 	}
 
 	db, err := pebble.Open(cfg.Path, opts)
@@ -161,7 +161,7 @@ func (d *Driver) Execute(ctx context.Context, query string, args ...interface{})
 		if !ok {
 			return nil, fmt.Errorf("key must be a string")
 		}
-		
+
 		// Convert value to JSON for storage
 		valueBytes, err := json.Marshal(args[1])
 		if err != nil {
@@ -298,19 +298,19 @@ func (d *Driver) Stats() db.Stats {
 
 	metrics := d.db.Metrics()
 	customStats := map[string]string{
-		"level_count":           fmt.Sprintf("%d", len(metrics.Levels)),
-		"mem_table_count":       fmt.Sprintf("%d", metrics.MemTable.Count),
-		"mem_table_size":        fmt.Sprintf("%d", metrics.MemTable.Size),
-		"disk_space_usage":      fmt.Sprintf("%d", metrics.DiskSpaceUsage()),
+		"level_count":      fmt.Sprintf("%d", len(metrics.Levels)),
+		"mem_table_count":  fmt.Sprintf("%d", metrics.MemTable.Count),
+		"mem_table_size":   fmt.Sprintf("%d", metrics.MemTable.Size),
+		"disk_space_usage": fmt.Sprintf("%d", metrics.DiskSpaceUsage()),
 	}
 
 	return db.Stats{
 		OpenConnections:    1, // Pebble uses a single connection
-		InUse:             1,
-		Idle:              0,
+		InUse:              1,
+		Idle:               0,
 		MaxOpenConnections: 1,
 		MaxIdleConnections: 1,
-		CustomStats:       customStats,
+		CustomStats:        customStats,
 	}
 }
 
@@ -527,18 +527,18 @@ func prefixUpperBound(prefix []byte) []byte {
 	if len(prefix) == 0 {
 		return nil
 	}
-	
+
 	// Create a copy and increment the last byte
 	upper := make([]byte, len(prefix))
 	copy(upper, prefix)
-	
+
 	for i := len(upper) - 1; i >= 0; i-- {
 		if upper[i] < 0xff {
 			upper[i]++
 			return upper[:i+1]
 		}
 	}
-	
+
 	// All bytes are 0xff, no upper bound
 	return nil
 }
