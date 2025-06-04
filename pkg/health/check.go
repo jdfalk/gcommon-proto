@@ -211,7 +211,7 @@ func (c *CompositeCheck) Checks() []Check {
 // SimpleCheck implements a simple check with a check function.
 type SimpleCheck struct {
 	*BaseCheck
-	checkFunc CheckFunc
+	checkFunc       CheckFunc
 	remediationFunc RemediationFunc
 }
 
@@ -275,4 +275,42 @@ func (c *SimpleCheck) Remediate(ctx context.Context, result Result) error {
 		return c.remediationFunc(ctx, result)
 	}
 	return fmt.Errorf("no remediation function defined")
+}
+
+// CheckFunc implementation of Check interface
+// This allows CheckFunc to be used directly where Check is expected
+
+// Name returns a default name for CheckFunc
+func (cf CheckFunc) Name() string {
+	return "check-func"
+}
+
+// Type returns the default type for CheckFunc
+func (cf CheckFunc) Type() CheckType {
+	return TypeComponent
+}
+
+// Timeout returns the default timeout for CheckFunc
+func (cf CheckFunc) Timeout() time.Duration {
+	return 5 * time.Second
+}
+
+// Interval returns the default interval for CheckFunc
+func (cf CheckFunc) Interval() time.Duration {
+	return 60 * time.Second
+}
+
+// Enabled returns true for CheckFunc
+func (cf CheckFunc) Enabled() bool {
+	return true
+}
+
+// SetEnabled is a no-op for CheckFunc
+func (cf CheckFunc) SetEnabled(enabled bool) {
+	// No-op for function-based checks
+}
+
+// Execute runs the CheckFunc
+func (cf CheckFunc) Execute(ctx context.Context) (Result, error) {
+	return cf(ctx)
 }
