@@ -1,39 +1,97 @@
-pkgname: mock
+# Mockery v3 configuration for generating mocks from gRPC proto interfaces
+
+# Global configuration
 template: testify
+formatter: goimports
+log-level: info
+
 packages:
   github.com/jdfalk/gcommon/pkg/auth/proto:
+    config:
+      dir: pkg/auth/mock
+      filename: "{{.InterfaceName}}_mock.go"
+      pkgname: mock
+      structname: "Mock{{.InterfaceName}}"
     interfaces:
-      AuthServiceClient: {}
-      AuthServiceServer: {}
+      AuthServiceClient:
+      AuthServiceServer:
+
   github.com/jdfalk/gcommon/pkg/cache/proto:
+    config:
+      dir: pkg/cache/mock
+      filename: "{{.InterfaceName}}_mock.go"
+      pkgname: mock
+      structname: "Mock{{.InterfaceName}}"
     interfaces:
-      CacheServiceClient: {}
-      CacheServiceServer: {}
+      CacheServiceClient:
+      CacheServiceServer:
+
   github.com/jdfalk/gcommon/pkg/config/proto:
+    config:
+      dir: pkg/config/mock
+      filename: "{{.InterfaceName}}_mock.go"
+      pkgname: mock
+      structname: "Mock{{.InterfaceName}}"
     interfaces:
-      ConfigServiceClient: {}
-      ConfigServiceServer: {}
+      ConfigServiceClient:
+      ConfigServiceServer:
+
   github.com/jdfalk/gcommon/pkg/db/proto:
+    config:
+      dir: pkg/db/mock
+      filename: "{{.InterfaceName}}_mock.go"
+      pkgname: mock
+      structname: "Mock{{.InterfaceName}}"
     interfaces:
-      DatabaseServiceClient: {}
-      DatabaseServiceServer: {}
+      DatabaseServiceClient:
+      DatabaseServiceServer:
+
   github.com/jdfalk/gcommon/pkg/health/proto:
+    config:
+      dir: pkg/health/mock
+      filename: "{{.InterfaceName}}_mock.go"
+      pkgname: mock
+      structname: "Mock{{.InterfaceName}}"
     interfaces:
-      HealthServiceClient: {}
-      HealthServiceServer: {}
+      HealthServiceClient:
+      HealthServiceServer:
+
   github.com/jdfalk/gcommon/pkg/log/proto:
+    config:
+      dir: pkg/log/mock
+      filename: "{{.InterfaceName}}_mock.go"
+      pkgname: mock
+      structname: "Mock{{.InterfaceName}}"
     interfaces:
-      LogServiceClient: {}
-      LogServiceServer: {}
+      LogServiceClient:
+      LogServiceServer:
+
   github.com/jdfalk/gcommon/pkg/metrics/proto:
+    config:
+      dir: pkg/metrics/mock
+      filename: "{{.InterfaceName}}_mock.go"
+      pkgname: mock
+      structname: "Mock{{.InterfaceName}}"
     interfaces:
-      MetricsServiceClient: {}
-      MetricsServiceServer: {}
+      MetricsServiceClient:
+      MetricsServiceServer:
+
   github.com/jdfalk/gcommon/pkg/queue/proto:
+    config:
+      dir: pkg/queue/mock
+      filename: "{{.InterfaceName}}_mock.go"
+      pkgname: mock
+      structname: "Mock{{.InterfaceName}}"
     interfaces:
-      QueueServiceClient: {}
-      QueueServiceServer: {}
+      QueueServiceClient:
+      QueueServiceServer:
+
   github.com/jdfalk/gcommon/pkg/web/proto:
+    config:
+      dir: pkg/web/mock
+      filename: "{{.InterfaceName}}_mock.go"
+      pkgname: mock
+      structname: "Mock{{.InterfaceName}}"
     interfaces:
-      WebServiceClient: {}
-      WebServiceServer: {}
+      WebServiceClient:
+      WebServiceServer:
