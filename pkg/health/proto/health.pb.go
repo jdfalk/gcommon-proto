@@ -88,10 +88,12 @@ const (
 	CheckType_LIVENESS CheckType = 1
 	// READINESS indicates a readiness check.
 	CheckType_READINESS CheckType = 2
+	// STARTUP indicates a startup check.
+	CheckType_STARTUP CheckType = 3
 	// COMPONENT indicates a component check.
-	CheckType_COMPONENT CheckType = 3
+	CheckType_COMPONENT CheckType = 4
 	// DEPENDENCY indicates a dependency check.
-	CheckType_DEPENDENCY CheckType = 4
+	CheckType_DEPENDENCY CheckType = 5
 )
 
 // Enum value maps for CheckType.
@@ -100,15 +102,17 @@ var (
 		0: "TYPE_UNSPECIFIED",
 		1: "LIVENESS",
 		2: "READINESS",
-		3: "COMPONENT",
-		4: "DEPENDENCY",
+		3: "STARTUP",
+		4: "COMPONENT",
+		5: "DEPENDENCY",
 	}
 	CheckType_value = map[string]int32{
 		"TYPE_UNSPECIFIED": 0,
 		"LIVENESS":         1,
 		"READINESS":        2,
-		"COMPONENT":        3,
-		"DEPENDENCY":       4,
+		"STARTUP":          3,
+		"COMPONENT":        4,
+		"DEPENDENCY":       5,
 	}
 )
 
@@ -468,6 +472,260 @@ func (x *HealthCheckResult) GetChildren() map[string]*HealthCheckResult {
 	return nil
 }
 
+// HealthConfig represents the configuration for the health system.
+type HealthConfig struct {
+	state protoimpl.MessageState `protogen:"open.v1"`
+	// Whether the health check system is enabled.
+	Enabled bool `protobuf:"varint,1,opt,name=enabled,proto3" json:"enabled,omitempty"`
+	// Base path for health endpoints.
+	Endpoint string `protobuf:"bytes,2,opt,name=endpoint,proto3" json:"endpoint,omitempty"`
+	// Path for liveness endpoint.
+	LivenessPath string `protobuf:"bytes,3,opt,name=liveness_path,json=livenessPath,proto3" json:"liveness_path,omitempty"`
+	// Path for readiness endpoint.
+	ReadinessPath string `protobuf:"bytes,4,opt,name=readiness_path,json=readinessPath,proto3" json:"readiness_path,omitempty"`
+	// Path for detailed health info.
+	DetailsPath string `protobuf:"bytes,5,opt,name=details_path,json=detailsPath,proto3" json:"details_path,omitempty"`
+	// Enable the liveness endpoint.
+	EnableLivenessEndpoint bool `protobuf:"varint,6,opt,name=enable_liveness_endpoint,json=enableLivenessEndpoint,proto3" json:"enable_liveness_endpoint,omitempty"`
+	// Enable the readiness endpoint.
+	EnableReadinessEndpoint bool `protobuf:"varint,7,opt,name=enable_readiness_endpoint,json=enableReadinessEndpoint,proto3" json:"enable_readiness_endpoint,omitempty"`
+	// Require authentication for detailed health info.
+	RequireAuthentication bool `protobuf:"varint,8,opt,name=require_authentication,json=requireAuthentication,proto3" json:"require_authentication,omitempty"`
+	// Authentication header value.
+	AuthHeader string `protobuf:"bytes,9,opt,name=auth_header,json=authHeader,proto3" json:"auth_header,omitempty"`
+	// Default timeout for health checks in milliseconds.
+	DefaultTimeoutMs int64 `protobuf:"varint,10,opt,name=default_timeout_ms,json=defaultTimeoutMs,proto3" json:"default_timeout_ms,omitempty"`
+	// Interval for background health checks in milliseconds.
+	CheckIntervalMs int64 `protobuf:"varint,11,opt,name=check_interval_ms,json=checkIntervalMs,proto3" json:"check_interval_ms,omitempty"`
+	// Log status changes to health checks.
+	LogStatusChanges bool `protobuf:"varint,12,opt,name=log_status_changes,json=logStatusChanges,proto3" json:"log_status_changes,omitempty"`
+	// Enable metrics for health checks.
+	MetricsEnabled bool `protobuf:"varint,13,opt,name=metrics_enabled,json=metricsEnabled,proto3" json:"metrics_enabled,omitempty"`
+	unknownFields  protoimpl.UnknownFields
+	sizeCache      protoimpl.SizeCache
+}
+
+func (x *HealthConfig) Reset() {
+	*x = HealthConfig{}
+	mi := &file_health_proto_msgTypes[5]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *HealthConfig) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*HealthConfig) ProtoMessage() {}
+
+func (x *HealthConfig) ProtoReflect() protoreflect.Message {
+	mi := &file_health_proto_msgTypes[5]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use HealthConfig.ProtoReflect.Descriptor instead.
+func (*HealthConfig) Descriptor() ([]byte, []int) {
+	return file_health_proto_rawDescGZIP(), []int{5}
+}
+
+func (x *HealthConfig) GetEnabled() bool {
+	if x != nil {
+		return x.Enabled
+	}
+	return false
+}
+
+func (x *HealthConfig) GetEndpoint() string {
+	if x != nil {
+		return x.Endpoint
+	}
+	return ""
+}
+
+func (x *HealthConfig) GetLivenessPath() string {
+	if x != nil {
+		return x.LivenessPath
+	}
+	return ""
+}
+
+func (x *HealthConfig) GetReadinessPath() string {
+	if x != nil {
+		return x.ReadinessPath
+	}
+	return ""
+}
+
+func (x *HealthConfig) GetDetailsPath() string {
+	if x != nil {
+		return x.DetailsPath
+	}
+	return ""
+}
+
+func (x *HealthConfig) GetEnableLivenessEndpoint() bool {
+	if x != nil {
+		return x.EnableLivenessEndpoint
+	}
+	return false
+}
+
+func (x *HealthConfig) GetEnableReadinessEndpoint() bool {
+	if x != nil {
+		return x.EnableReadinessEndpoint
+	}
+	return false
+}
+
+func (x *HealthConfig) GetRequireAuthentication() bool {
+	if x != nil {
+		return x.RequireAuthentication
+	}
+	return false
+}
+
+func (x *HealthConfig) GetAuthHeader() string {
+	if x != nil {
+		return x.AuthHeader
+	}
+	return ""
+}
+
+func (x *HealthConfig) GetDefaultTimeoutMs() int64 {
+	if x != nil {
+		return x.DefaultTimeoutMs
+	}
+	return 0
+}
+
+func (x *HealthConfig) GetCheckIntervalMs() int64 {
+	if x != nil {
+		return x.CheckIntervalMs
+	}
+	return 0
+}
+
+func (x *HealthConfig) GetLogStatusChanges() bool {
+	if x != nil {
+		return x.LogStatusChanges
+	}
+	return false
+}
+
+func (x *HealthConfig) GetMetricsEnabled() bool {
+	if x != nil {
+		return x.MetricsEnabled
+	}
+	return false
+}
+
+// RemediationDetails contains information about a remediation attempt.
+type RemediationDetails struct {
+	state protoimpl.MessageState `protogen:"open.v1"`
+	// Name of the check being remediated.
+	CheckName string `protobuf:"bytes,1,opt,name=check_name,json=checkName,proto3" json:"check_name,omitempty"`
+	// Number of remediation attempts made.
+	AttemptCount int32 `protobuf:"varint,2,opt,name=attempt_count,json=attemptCount,proto3" json:"attempt_count,omitempty"`
+	// Maximum allowed attempts.
+	MaxAttempts int32 `protobuf:"varint,3,opt,name=max_attempts,json=maxAttempts,proto3" json:"max_attempts,omitempty"`
+	// Whether the remediation was successful.
+	Success bool `protobuf:"varint,4,opt,name=success,proto3" json:"success,omitempty"`
+	// Error message if remediation failed.
+	Error string `protobuf:"bytes,5,opt,name=error,proto3" json:"error,omitempty"`
+	// Duration of the remediation attempt in milliseconds.
+	DurationMs int64 `protobuf:"varint,6,opt,name=duration_ms,json=durationMs,proto3" json:"duration_ms,omitempty"`
+	// Timestamp when remediation was attempted.
+	Timestamp     string `protobuf:"bytes,7,opt,name=timestamp,proto3" json:"timestamp,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *RemediationDetails) Reset() {
+	*x = RemediationDetails{}
+	mi := &file_health_proto_msgTypes[6]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *RemediationDetails) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*RemediationDetails) ProtoMessage() {}
+
+func (x *RemediationDetails) ProtoReflect() protoreflect.Message {
+	mi := &file_health_proto_msgTypes[6]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use RemediationDetails.ProtoReflect.Descriptor instead.
+func (*RemediationDetails) Descriptor() ([]byte, []int) {
+	return file_health_proto_rawDescGZIP(), []int{6}
+}
+
+func (x *RemediationDetails) GetCheckName() string {
+	if x != nil {
+		return x.CheckName
+	}
+	return ""
+}
+
+func (x *RemediationDetails) GetAttemptCount() int32 {
+	if x != nil {
+		return x.AttemptCount
+	}
+	return 0
+}
+
+func (x *RemediationDetails) GetMaxAttempts() int32 {
+	if x != nil {
+		return x.MaxAttempts
+	}
+	return 0
+}
+
+func (x *RemediationDetails) GetSuccess() bool {
+	if x != nil {
+		return x.Success
+	}
+	return false
+}
+
+func (x *RemediationDetails) GetError() string {
+	if x != nil {
+		return x.Error
+	}
+	return ""
+}
+
+func (x *RemediationDetails) GetDurationMs() int64 {
+	if x != nil {
+		return x.DurationMs
+	}
+	return 0
+}
+
+func (x *RemediationDetails) GetTimestamp() string {
+	if x != nil {
+		return x.Timestamp
+	}
+	return ""
+}
+
 var File_health_proto protoreflect.FileDescriptor
 
 const file_health_proto_rawDesc = "" +
@@ -506,19 +764,46 @@ const file_health_proto_rawDesc = "" +
 	"\x05value\x18\x02 \x01(\tR\x05value:\x028\x01\x1aV\n" +
 	"\rChildrenEntry\x12\x10\n" +
 	"\x03key\x18\x01 \x01(\tR\x03key\x12/\n" +
-	"\x05value\x18\x02 \x01(\v2\x19.health.HealthCheckResultR\x05value:\x028\x01*P\n" +
+	"\x05value\x18\x02 \x01(\v2\x19.health.HealthCheckResultR\x05value:\x028\x01\"\xb2\x04\n" +
+	"\fHealthConfig\x12\x18\n" +
+	"\aenabled\x18\x01 \x01(\bR\aenabled\x12\x1a\n" +
+	"\bendpoint\x18\x02 \x01(\tR\bendpoint\x12#\n" +
+	"\rliveness_path\x18\x03 \x01(\tR\flivenessPath\x12%\n" +
+	"\x0ereadiness_path\x18\x04 \x01(\tR\rreadinessPath\x12!\n" +
+	"\fdetails_path\x18\x05 \x01(\tR\vdetailsPath\x128\n" +
+	"\x18enable_liveness_endpoint\x18\x06 \x01(\bR\x16enableLivenessEndpoint\x12:\n" +
+	"\x19enable_readiness_endpoint\x18\a \x01(\bR\x17enableReadinessEndpoint\x125\n" +
+	"\x16require_authentication\x18\b \x01(\bR\x15requireAuthentication\x12\x1f\n" +
+	"\vauth_header\x18\t \x01(\tR\n" +
+	"authHeader\x12,\n" +
+	"\x12default_timeout_ms\x18\n" +
+	" \x01(\x03R\x10defaultTimeoutMs\x12*\n" +
+	"\x11check_interval_ms\x18\v \x01(\x03R\x0fcheckIntervalMs\x12,\n" +
+	"\x12log_status_changes\x18\f \x01(\bR\x10logStatusChanges\x12'\n" +
+	"\x0fmetrics_enabled\x18\r \x01(\bR\x0emetricsEnabled\"\xea\x01\n" +
+	"\x12RemediationDetails\x12\x1d\n" +
+	"\n" +
+	"check_name\x18\x01 \x01(\tR\tcheckName\x12#\n" +
+	"\rattempt_count\x18\x02 \x01(\x05R\fattemptCount\x12!\n" +
+	"\fmax_attempts\x18\x03 \x01(\x05R\vmaxAttempts\x12\x18\n" +
+	"\asuccess\x18\x04 \x01(\bR\asuccess\x12\x14\n" +
+	"\x05error\x18\x05 \x01(\tR\x05error\x12\x1f\n" +
+	"\vduration_ms\x18\x06 \x01(\x03R\n" +
+	"durationMs\x12\x1c\n" +
+	"\ttimestamp\x18\a \x01(\tR\ttimestamp*P\n" +
 	"\rServingStatus\x12\v\n" +
 	"\aUNKNOWN\x10\x00\x12\v\n" +
 	"\aSERVING\x10\x01\x12\x0f\n" +
 	"\vNOT_SERVING\x10\x02\x12\x14\n" +
-	"\x10SERVING_DEGRADED\x10\x03*]\n" +
+	"\x10SERVING_DEGRADED\x10\x03*j\n" +
 	"\tCheckType\x12\x14\n" +
 	"\x10TYPE_UNSPECIFIED\x10\x00\x12\f\n" +
 	"\bLIVENESS\x10\x01\x12\r\n" +
-	"\tREADINESS\x10\x02\x12\r\n" +
-	"\tCOMPONENT\x10\x03\x12\x0e\n" +
+	"\tREADINESS\x10\x02\x12\v\n" +
+	"\aSTARTUP\x10\x03\x12\r\n" +
+	"\tCOMPONENT\x10\x04\x12\x0e\n" +
 	"\n" +
-	"DEPENDENCY\x10\x042\xe6\x01\n" +
+	"DEPENDENCY\x10\x052\xe6\x01\n" +
 	"\rHealthService\x12B\n" +
 	"\x05Check\x12\x1a.health.HealthCheckRequest\x1a\x1b.health.HealthCheckResponse\"\x00\x12D\n" +
 	"\x05Watch\x12\x1a.health.HealthCheckRequest\x1a\x1b.health.HealthCheckResponse\"\x000\x01\x12K\n" +
@@ -537,7 +822,7 @@ func file_health_proto_rawDescGZIP() []byte {
 }
 
 var file_health_proto_enumTypes = make([]protoimpl.EnumInfo, 2)
-var file_health_proto_msgTypes = make([]protoimpl.MessageInfo, 9)
+var file_health_proto_msgTypes = make([]protoimpl.MessageInfo, 11)
 var file_health_proto_goTypes = []any{
 	(ServingStatus)(0),             // 0: health.ServingStatus
 	(CheckType)(0),                 // 1: health.CheckType
@@ -546,21 +831,23 @@ var file_health_proto_goTypes = []any{
 	(*HealthCheckAllRequest)(nil),  // 4: health.HealthCheckAllRequest
 	(*HealthCheckAllResponse)(nil), // 5: health.HealthCheckAllResponse
 	(*HealthCheckResult)(nil),      // 6: health.HealthCheckResult
-	nil,                            // 7: health.HealthCheckResponse.DetailsEntry
-	nil,                            // 8: health.HealthCheckAllResponse.ResultsEntry
-	nil,                            // 9: health.HealthCheckResult.DetailsEntry
-	nil,                            // 10: health.HealthCheckResult.ChildrenEntry
+	(*HealthConfig)(nil),           // 7: health.HealthConfig
+	(*RemediationDetails)(nil),     // 8: health.RemediationDetails
+	nil,                            // 9: health.HealthCheckResponse.DetailsEntry
+	nil,                            // 10: health.HealthCheckAllResponse.ResultsEntry
+	nil,                            // 11: health.HealthCheckResult.DetailsEntry
+	nil,                            // 12: health.HealthCheckResult.ChildrenEntry
 }
 var file_health_proto_depIdxs = []int32{
 	0,  // 0: health.HealthCheckResponse.status:type_name -> health.ServingStatus
-	7,  // 1: health.HealthCheckResponse.details:type_name -> health.HealthCheckResponse.DetailsEntry
+	9,  // 1: health.HealthCheckResponse.details:type_name -> health.HealthCheckResponse.DetailsEntry
 	1,  // 2: health.HealthCheckAllRequest.types:type_name -> health.CheckType
 	0,  // 3: health.HealthCheckAllResponse.status:type_name -> health.ServingStatus
-	8,  // 4: health.HealthCheckAllResponse.results:type_name -> health.HealthCheckAllResponse.ResultsEntry
+	10, // 4: health.HealthCheckAllResponse.results:type_name -> health.HealthCheckAllResponse.ResultsEntry
 	0,  // 5: health.HealthCheckResult.status:type_name -> health.ServingStatus
 	1,  // 6: health.HealthCheckResult.type:type_name -> health.CheckType
-	9,  // 7: health.HealthCheckResult.details:type_name -> health.HealthCheckResult.DetailsEntry
-	10, // 8: health.HealthCheckResult.children:type_name -> health.HealthCheckResult.ChildrenEntry
+	11, // 7: health.HealthCheckResult.details:type_name -> health.HealthCheckResult.DetailsEntry
+	12, // 8: health.HealthCheckResult.children:type_name -> health.HealthCheckResult.ChildrenEntry
 	6,  // 9: health.HealthCheckAllResponse.ResultsEntry.value:type_name -> health.HealthCheckResult
 	6,  // 10: health.HealthCheckResult.ChildrenEntry.value:type_name -> health.HealthCheckResult
 	2,  // 11: health.HealthService.Check:input_type -> health.HealthCheckRequest
@@ -587,7 +874,7 @@ func file_health_proto_init() {
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: unsafe.Slice(unsafe.StringData(file_health_proto_rawDesc), len(file_health_proto_rawDesc)),
 			NumEnums:      2,
-			NumMessages:   9,
+			NumMessages:   11,
 			NumExtensions: 0,
 			NumServices:   1,
 		},

@@ -105,9 +105,78 @@ enum CheckType {
   // READINESS indicates a readiness check.
   READINESS = 2;
 
+  // STARTUP indicates a startup check.
+  STARTUP = 3;
+
   // COMPONENT indicates a component check.
-  COMPONENT = 3;
+  COMPONENT = 4;
 
   // DEPENDENCY indicates a dependency check.
-  DEPENDENCY = 4;
+  DEPENDENCY = 5;
+}
+
+// HealthConfig represents the configuration for the health system.
+message HealthConfig {
+  // Whether the health check system is enabled.
+  bool enabled = 1;
+
+  // Base path for health endpoints.
+  string endpoint = 2;
+
+  // Path for liveness endpoint.
+  string liveness_path = 3;
+
+  // Path for readiness endpoint.
+  string readiness_path = 4;
+
+  // Path for detailed health info.
+  string details_path = 5;
+
+  // Enable the liveness endpoint.
+  bool enable_liveness_endpoint = 6;
+
+  // Enable the readiness endpoint.
+  bool enable_readiness_endpoint = 7;
+
+  // Require authentication for detailed health info.
+  bool require_authentication = 8;
+
+  // Authentication header value.
+  string auth_header = 9;
+
+  // Default timeout for health checks in milliseconds.
+  int64 default_timeout_ms = 10;
+
+  // Interval for background health checks in milliseconds.
+  int64 check_interval_ms = 11;
+
+  // Log status changes to health checks.
+  bool log_status_changes = 12;
+
+  // Enable metrics for health checks.
+  bool metrics_enabled = 13;
+}
+
+// RemediationDetails contains information about a remediation attempt.
+message RemediationDetails {
+  // Name of the check being remediated.
+  string check_name = 1;
+
+  // Number of remediation attempts made.
+  int32 attempt_count = 2;
+
+  // Maximum allowed attempts.
+  int32 max_attempts = 3;
+
+  // Whether the remediation was successful.
+  bool success = 4;
+
+  // Error message if remediation failed.
+  string error = 5;
+
+  // Duration of the remediation attempt in milliseconds.
+  int64 duration_ms = 6;
+
+  // Timestamp when remediation was attempted.
+  string timestamp = 7;
 }
