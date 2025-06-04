@@ -98,6 +98,12 @@ func (r *healthResult) AddChild(child Result) Result {
 	return r
 }
 
+// WithStatus sets the status for this Result and returns the updated Result.
+func (r *healthResult) WithStatus(status Status) Result {
+	r.status = status
+	return r
+}
+
 // ComputeAggregateStatus computes the aggregate status from child results.
 // The aggregation logic is:
 // - If any child is DOWN, the aggregate is DOWN
