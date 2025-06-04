@@ -10,8 +10,8 @@ import (
 	"time"
 
 	// Import SQLite driver
-	_ "github.com/mattn/go-sqlite3"
 	"github.com/google/uuid"
+	_ "github.com/mattn/go-sqlite3"
 
 	"github.com/jdfalk/gcommon/pkg/db"
 )
@@ -52,26 +52,26 @@ type Config struct {
 // NewConfig creates a new SQLite configuration with default values
 func NewConfig(path string) *Config {
 	return &Config{
-		Path:         path,
-		Memory:       false,
-		connTimeout:  5 * time.Second,
-		MaxOpenConns: DefaultMaxOpenConns,
-		MaxIdleConns: DefaultMaxIdleConns,
-		connMaxLifetime:   DefaultConnMaxLifetime,
-		DriverOptions:     make(map[string]interface{}),
+		Path:            path,
+		Memory:          false,
+		connTimeout:     5 * time.Second,
+		MaxOpenConns:    DefaultMaxOpenConns,
+		MaxIdleConns:    DefaultMaxIdleConns,
+		connMaxLifetime: DefaultConnMaxLifetime,
+		DriverOptions:   make(map[string]interface{}),
 	}
 }
 
 // NewMemoryConfig creates a new in-memory SQLite configuration
 func NewMemoryConfig() *Config {
 	return &Config{
-		Path:         ":memory:",
-		Memory:       true,
-		connTimeout:  5 * time.Second,
-		MaxOpenConns: DefaultMaxOpenConns,
-		MaxIdleConns: DefaultMaxIdleConns,
-		connMaxLifetime:   DefaultConnMaxLifetime,
-		DriverOptions:     make(map[string]interface{}),
+		Path:            ":memory:",
+		Memory:          true,
+		connTimeout:     5 * time.Second,
+		MaxOpenConns:    DefaultMaxOpenConns,
+		MaxIdleConns:    DefaultMaxIdleConns,
+		connMaxLifetime: DefaultConnMaxLifetime,
+		DriverOptions:   make(map[string]interface{}),
 	}
 }
 
