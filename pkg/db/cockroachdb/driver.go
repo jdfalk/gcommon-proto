@@ -417,7 +417,7 @@ func (r *Rows) ColumnTypes() ([]db.ColumnType, error) {
 	if err != nil {
 		return nil, err
 	}
-	
+
 	dbTypes := make([]db.ColumnType, len(sqlTypes))
 	for i, sqlType := range sqlTypes {
 		dbTypes[i] = &cockroachdbColumnType{sqlType: sqlType}
