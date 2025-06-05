@@ -1,8 +1,10 @@
-syntax = "proto3";
+edition = "2023";
 
 package auth;
+import "google/protobuf/go_features.proto";
 
 option go_package = "github.com/jdfalk/gcommon/pkg/auth/proto";
+option features.(pb.go).api_level = API_HYBRID;
 
 // Auth service defines authentication operations
 service AuthService {

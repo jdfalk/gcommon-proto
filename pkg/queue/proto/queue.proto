@@ -1,10 +1,12 @@
-syntax = "proto3";
+edition = "2023";
 
 package queue;
 
 option go_package = "github.com/jdfalk/gcommon/pkg/queue/proto";
+option features.(pb.go).api_level = API_HYBRID;
 
 import "google/protobuf/timestamp.proto";
+import "google/protobuf/go_features.proto";
 
 // QueueService defines queue operations
 service QueueService {

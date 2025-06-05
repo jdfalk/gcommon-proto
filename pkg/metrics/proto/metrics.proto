@@ -1,10 +1,12 @@
-syntax = "proto3";
+edition = "2023";
 
 package metrics;
 
 option go_package = "github.com/jdfalk/gcommon/pkg/metrics/proto";
+option features.(pb.go).api_level = API_HYBRID;
 
 import "google/protobuf/timestamp.proto";
+import "google/protobuf/go_features.proto";
 
 // MetricsService defines metrics operations
 service MetricsService {

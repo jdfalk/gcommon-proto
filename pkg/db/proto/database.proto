@@ -1,9 +1,11 @@
 // file: pkg/db/proto/database.proto
-syntax = "proto3";
+edition = "2023";
 
 package db;
+import "google/protobuf/go_features.proto";
 
 option go_package = "github.com/jdfalk/gcommon/pkg/db/proto";
+option features.(pb.go).api_level = API_HYBRID;
 
 // The Database service provides a gRPC interface for database operations
 service DatabaseService {

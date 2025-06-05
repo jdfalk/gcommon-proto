@@ -1,10 +1,12 @@
-syntax = "proto3";
+edition = "2023";
 
 package log;
 
 option go_package = "github.com/jdfalk/gcommon/pkg/log/proto";
+option features.(pb.go).api_level = API_HYBRID;
 
 import "google/protobuf/timestamp.proto";
+import "google/protobuf/go_features.proto";
 
 // LogService defines logging operations
 service LogService {
