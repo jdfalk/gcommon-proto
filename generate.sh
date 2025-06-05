@@ -42,8 +42,23 @@ fi
 echo ""
 echo "=== Generating protobuf/gRPC code ==="
 
+# Generate common proto first (since other protos may import it)
+if [[ -f "pkg/common/proto/common.proto" ]]; then
+    echo "=== Generating common protobuf code ==="
+    cd "${SCRIPT_DIR}/pkg/common/proto"
+    protoc --go_out=. --go_opt=paths=source_relative \
+           --go-grpc_out=. --go-grpc_opt=paths=source_relative \
+           common.proto
+    echo "=== Common protobuf code generation complete ==="
+    cd "${SCRIPT_DIR}"
+fi
+
 # Find all .proto files and generate Go code
 find pkg -name "*.proto" -type f | while read -r proto_file; do
+    # Skip common.proto since we already processed it
+    if [[ "$proto_file" == "pkg/common/proto/common.proto" ]]; then
+        continue
+    fi
     # Get the directory containing the proto file
     proto_dir=$(dirname "$proto_file")
     proto_name=$(basename "$proto_file")
@@ -75,6 +90,7 @@ echo "=== Generating mocks ==="
 mkdir -p \
   "${SCRIPT_DIR}/pkg/auth/mock" \
   "${SCRIPT_DIR}/pkg/cache/mock" \
+  "${SCRIPT_DIR}/pkg/common/mock" \
   "${SCRIPT_DIR}/pkg/config/mock" \
   "${SCRIPT_DIR}/pkg/db/mock" \
   "${SCRIPT_DIR}/pkg/health/mock" \
