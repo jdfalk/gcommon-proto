@@ -35,7 +35,7 @@ pkg/<module>/
 Each proto file should follow this template:
 
 ```protobuf
-syntax = "proto3";
+edition = "2023";
 
 package <module>.v1;
 
@@ -74,7 +74,7 @@ Define common types in a shared proto package:
 
 ```protobuf
 // common/types.proto
-syntax = "proto3";
+edition = "2023";
 
 package common.v1;
 
