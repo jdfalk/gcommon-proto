@@ -1,0 +1,555 @@
+// file: pkg/common/proto/common.proto
+edition = "2023";
+
+package gcommon.common.v1;
+
+import "google/protobuf/timestamp.proto";
+import "google/protobuf/duration.proto";
+import "google/protobuf/any.proto";
+import "google/protobuf/go_features.proto";
+
+option go_package = "github.com/jdfalk/gcommon/pkg/common/proto;commonpb";
+option features.(pb.go).api_level = API_HYBRID;
+
+// Common error handling across all GCommon modules
+message Error {
+  // Standardized error code for programmatic handling
+  ErrorCode code = 1;
+
+  // Human-readable error message
+  string message = 2;
+
+  // Additional error details for debugging
+  map<string, string> details = 3;
+
+  // Trace ID for request correlation
+  string trace_id = 4;
+
+  // Timestamp when error occurred
+  google.protobuf.Timestamp timestamp = 5;
+
+  // Source module that generated the error
+  string source = 6;
+}
+
+// Standardized error codes following gRPC conventions
+enum ErrorCode {
+  ERROR_CODE_UNSPECIFIED = 0;
+  ERROR_CODE_INVALID_ARGUMENT = 1;
+  ERROR_CODE_NOT_FOUND = 2;
+  ERROR_CODE_ALREADY_EXISTS = 3;
+  ERROR_CODE_PERMISSION_DENIED = 4;
+  ERROR_CODE_UNAUTHENTICATED = 5;
+  ERROR_CODE_INTERNAL = 6;
+  ERROR_CODE_UNAVAILABLE = 7;
+  ERROR_CODE_TIMEOUT = 8;
+  ERROR_CODE_RESOURCE_EXHAUSTED = 9;
+  ERROR_CODE_FAILED_PRECONDITION = 10;
+  ERROR_CODE_ABORTED = 11;
+  ERROR_CODE_OUT_OF_RANGE = 12;
+  ERROR_CODE_UNIMPLEMENTED = 13;
+  ERROR_CODE_DATA_LOSS = 14;
+}
+
+// Common pagination parameters for list operations
+message Pagination {
+  // Maximum number of items to return (0 means use default)
+  int32 page_size = 1;
+
+  // Token for the next page (empty for first page)
+  string page_token = 2;
+
+  // Optional: specific page number (alternative to page_token)
+  int32 page_number = 3;
+}
+
+// Standard pagination response metadata
+message PaginatedResponse {
+  // Token for the next page (empty if no more pages)
+  string next_page_token = 1;
+
+  // Token for the previous page (empty if first page)
+  string prev_page_token = 2;
+
+  // Total number of items across all pages
+  int32 total_count = 3;
+
+  // Current page number
+  int32 current_page = 4;
+
+  // Total number of pages
+  int32 total_pages = 5;
+
+  // Number of items in current page
+  int32 page_size = 6;
+}
+
+// Common request metadata for observability and security
+message RequestMetadata {
+  // Distributed tracing ID
+  string trace_id = 1;
+
+  // User ID making the request
+  string user_id = 2;
+
+  // Correlation ID for request grouping
+  string correlation_id = 3;
+
+  // Request headers
+  map<string, string> headers = 4;
+
+  // Client information
+  ClientInfo client = 5;
+
+  // Request timestamp
+  google.protobuf.Timestamp timestamp = 6;
+
+  // Session ID if applicable
+  string session_id = 7;
+}
+
+// Client information for requests
+message ClientInfo {
+  // Client application name
+  string name = 1;
+
+  // Client version
+  string version = 2;
+
+  // Client IP address
+  string ip_address = 3;
+
+  // User agent string
+  string user_agent = 4;
+
+  // Platform information
+  string platform = 5;
+}
+
+// Common time range for filtering operations
+message TimeRange {
+  // Start time (inclusive)
+  google.protobuf.Timestamp start_time = 1;
+
+  // End time (exclusive)
+  google.protobuf.Timestamp end_time = 2;
+}
+
+// Common sorting parameters
+message SortOptions {
+  // Field to sort by
+  string field = 1;
+
+  // Sort direction
+  SortDirection direction = 2;
+}
+
+// Sort direction enumeration
+enum SortDirection {
+  SORT_DIRECTION_UNSPECIFIED = 0;
+  SORT_DIRECTION_ASC = 1;
+  SORT_DIRECTION_DESC = 2;
+}
+
+// Common filtering options
+message FilterOptions {
+  // Field-based filters
+  map<string, FilterValue> filters = 1;
+
+  // Text search query
+  string search_query = 2;
+
+  // Time range filter
+  TimeRange time_range = 3;
+}
+
+// Filter value with multiple type support
+message FilterValue {
+  oneof value {
+    string string_value = 1;
+    int64 int_value = 2;
+    double double_value = 3;
+    bool bool_value = 4;
+    StringArray string_array = 5;
+    Int64Array int_array = 6;
+  }
+
+  // Filter operation type
+  FilterOperation operation = 7;
+}
+
+// String array wrapper for oneof usage
+message StringArray {
+  repeated string values = 1;
+}
+
+// Int64 array wrapper for oneof usage
+message Int64Array {
+  repeated int64 values = 1;
+}
+
+// Filter operation types
+enum FilterOperation {
+  FILTER_OPERATION_UNSPECIFIED = 0;
+  FILTER_OPERATION_EQUALS = 1;
+  FILTER_OPERATION_NOT_EQUALS = 2;
+  FILTER_OPERATION_GREATER_THAN = 3;
+  FILTER_OPERATION_LESS_THAN = 4;
+  FILTER_OPERATION_GREATER_THAN_OR_EQUAL = 5;
+  FILTER_OPERATION_LESS_THAN_OR_EQUAL = 6;
+  FILTER_OPERATION_CONTAINS = 7;
+  FILTER_OPERATION_STARTS_WITH = 8;
+  FILTER_OPERATION_ENDS_WITH = 9;
+  FILTER_OPERATION_IN = 10;
+  FILTER_OPERATION_NOT_IN = 11;
+}
+
+// Common health status used across modules
+enum HealthStatus {
+  HEALTH_STATUS_UNSPECIFIED = 0;
+  HEALTH_STATUS_HEALTHY = 1;
+  HEALTH_STATUS_UNHEALTHY = 2;
+  HEALTH_STATUS_DEGRADED = 3;
+  HEALTH_STATUS_STARTING = 4;
+  HEALTH_STATUS_STOPPING = 5;
+}
+
+// Common resource status
+enum ResourceStatus {
+  RESOURCE_STATUS_UNSPECIFIED = 0;
+  RESOURCE_STATUS_ACTIVE = 1;
+  RESOURCE_STATUS_INACTIVE = 2;
+  RESOURCE_STATUS_PENDING = 3;
+  RESOURCE_STATUS_DELETED = 4;
+  RESOURCE_STATUS_ERROR = 5;
+}
+
+// Generic key-value pair for metadata
+message KeyValue {
+  string key = 1;
+  string value = 2;
+}
+
+// Resource reference for cross-module operations
+message ResourceReference {
+  // Resource type (e.g., "user", "config", "queue")
+  string type = 1;
+
+  // Resource ID
+  string id = 2;
+
+  // Resource name (human-readable)
+  string name = 3;
+
+  // Module that owns this resource
+  string module = 4;
+}
+
+// Common metrics data point
+message MetricPoint {
+  // Metric name
+  string name = 1;
+
+  // Metric value
+  double value = 2;
+
+  // Timestamp when metric was recorded
+  google.protobuf.Timestamp timestamp = 3;
+
+  // Metric labels
+  map<string, string> labels = 4;
+
+  // Metric unit
+  string unit = 5;
+}
+
+// Configuration value with type information
+message ConfigValue {
+  oneof value {
+    string string_value = 1;
+    int64 int_value = 2;
+    double double_value = 3;
+    bool bool_value = 4;
+    bytes bytes_value = 5;
+    google.protobuf.Any any_value = 6;
+  }
+
+  // Value type for validation
+  ValueType type = 7;
+
+  // Whether value is encrypted
+  bool encrypted = 8;
+
+  // Value metadata
+  map<string, string> metadata = 9;
+}
+
+// Value type enumeration
+enum ValueType {
+  VALUE_TYPE_UNSPECIFIED = 0;
+  VALUE_TYPE_STRING = 1;
+  VALUE_TYPE_INT = 2;
+  VALUE_TYPE_DOUBLE = 3;
+  VALUE_TYPE_BOOL = 4;
+  VALUE_TYPE_BYTES = 5;
+  VALUE_TYPE_JSON = 6;
+  VALUE_TYPE_YAML = 7;
+}
+
+// Rate limiting information
+message RateLimit {
+  // Maximum requests per window
+  int32 limit = 1;
+
+  // Time window duration
+  google.protobuf.Duration window = 2;
+
+  // Remaining requests in current window
+  int32 remaining = 3;
+
+  // Time until window resets
+  google.protobuf.Duration reset_time = 4;
+}
+
+// Service version information
+message ServiceVersion {
+  // Service name
+  string name = 1;
+
+  // Semantic version
+  string version = 2;
+
+  // Build commit hash
+  string commit = 3;
+
+  // Build timestamp
+  google.protobuf.Timestamp build_time = 4;
+
+  // Go version used for build
+  string go_version = 5;
+}
+
+// Audit log entry for tracking operations across modules
+message AuditLog {
+  // Unique audit log ID
+  string id = 1;
+
+  // User who performed the action
+  string user_id = 2;
+
+  // Action performed
+  string action = 3;
+
+  // Resource that was acted upon
+  ResourceReference resource = 4;
+
+  // Timestamp of the action
+  google.protobuf.Timestamp timestamp = 5;
+
+  // Source IP address
+  string source_ip = 6;
+
+  // User agent
+  string user_agent = 7;
+
+  // Additional metadata about the action
+  map<string, string> metadata = 8;
+
+  // Result of the action (success/failure)
+  AuditResult result = 9;
+
+  // Session ID if applicable
+  string session_id = 10;
+}
+
+// Audit result enumeration
+enum AuditResult {
+  AUDIT_RESULT_UNSPECIFIED = 0;
+  AUDIT_RESULT_SUCCESS = 1;
+  AUDIT_RESULT_FAILURE = 2;
+  AUDIT_RESULT_PARTIAL = 3;
+}
+
+// Batch operation wrapper for bulk requests
+message BatchOperation {
+  // Unique batch ID
+  string batch_id = 1;
+
+  // Operation type
+  string operation_type = 2;
+
+  // Individual operations in the batch
+  repeated google.protobuf.Any operations = 3;
+
+  // Batch processing options
+  BatchOptions options = 4;
+
+  // Request metadata
+  RequestMetadata metadata = 5;
+}
+
+// Batch processing options
+message BatchOptions {
+  // Maximum number of operations to process in parallel
+  int32 max_parallel = 1;
+
+  // Whether to stop on first error
+  bool fail_fast = 2;
+
+  // Timeout for the entire batch
+  google.protobuf.Duration timeout = 3;
+
+  // Whether to return partial results on timeout
+  bool return_partial = 4;
+}
+
+// Subscription information for streaming operations
+message SubscriptionInfo {
+  // Unique subscription ID
+  string subscription_id = 1;
+
+  // Filter criteria for the subscription
+  FilterOptions filter = 2;
+
+  // Subscription start time
+  google.protobuf.Timestamp start_time = 3;
+
+  // Optional end time for the subscription
+  google.protobuf.Timestamp end_time = 4;
+
+  // Subscriber information
+  ClientInfo subscriber = 5;
+
+  // Subscription options
+  SubscriptionOptions options = 6;
+
+  // Current status of the subscription
+  SubscriptionStatus status = 7;
+}
+
+// Subscription options
+message SubscriptionOptions {
+  // Whether to include historical data
+  bool include_history = 1;
+
+  // Maximum events per batch
+  int32 max_batch_size = 2;
+
+  // Acknowledgment mode
+  AckMode ack_mode = 3;
+
+  // Keep alive interval
+  google.protobuf.Duration keep_alive = 4;
+}
+
+// Subscription status enumeration
+enum SubscriptionStatus {
+  SUBSCRIPTION_STATUS_UNSPECIFIED = 0;
+  SUBSCRIPTION_STATUS_ACTIVE = 1;
+  SUBSCRIPTION_STATUS_PAUSED = 2;
+  SUBSCRIPTION_STATUS_CANCELLED = 3;
+  SUBSCRIPTION_STATUS_ERROR = 4;
+}
+
+// Acknowledgment mode enumeration
+enum AckMode {
+  ACK_MODE_UNSPECIFIED = 0;
+  ACK_MODE_MANUAL = 1;
+  ACK_MODE_AUTO = 2;
+  ACK_MODE_CLIENT = 3;
+}
+
+// Cache policy configuration
+message CachePolicy {
+  // Cache expiration policy
+  ExpirationPolicy expiration = 1;
+
+  // Eviction policy when cache is full
+  EvictionPolicy eviction = 2;
+
+  // Maximum cache size (in bytes)
+  int64 max_size_bytes = 3;
+
+  // Maximum number of entries
+  int64 max_entries = 4;
+
+  // Default TTL for cache entries
+  google.protobuf.Duration default_ttl = 5;
+
+  // Whether to refresh entries before expiration
+  bool refresh_ahead = 6;
+
+  // Cache statistics collection enabled
+  bool enable_stats = 7;
+}
+
+// Cache expiration policy
+enum ExpirationPolicy {
+  EXPIRATION_POLICY_UNSPECIFIED = 0;
+  EXPIRATION_POLICY_TTL = 1;
+  EXPIRATION_POLICY_IDLE = 2;
+  EXPIRATION_POLICY_WRITE = 3;
+  EXPIRATION_POLICY_NEVER = 4;
+}
+
+// Cache eviction policy
+enum EvictionPolicy {
+  EVICTION_POLICY_UNSPECIFIED = 0;
+  EVICTION_POLICY_LRU = 1;
+  EVICTION_POLICY_LFU = 2;
+  EVICTION_POLICY_FIFO = 3;
+  EVICTION_POLICY_RANDOM = 4;
+}
+
+// Retry policy configuration
+message RetryPolicy {
+  // Maximum number of retry attempts
+  int32 max_attempts = 1;
+
+  // Initial retry delay
+  google.protobuf.Duration initial_delay = 2;
+
+  // Maximum retry delay
+  google.protobuf.Duration max_delay = 3;
+
+  // Backoff multiplier (exponential backoff)
+  double backoff_multiplier = 4;
+
+  // Jitter for retry timing
+  bool enable_jitter = 5;
+
+  // Retryable error codes
+  repeated ErrorCode retryable_errors = 6;
+
+  // Total timeout for all retry attempts
+  google.protobuf.Duration total_timeout = 7;
+}
+
+// Circuit breaker configuration
+message CircuitBreakerConfig {
+  // Failure threshold to open circuit
+  int32 failure_threshold = 1;
+
+  // Success threshold to close circuit
+  int32 success_threshold = 2;
+
+  // Timeout for circuit to remain open
+  google.protobuf.Duration timeout = 3;
+
+  // Maximum number of concurrent requests in half-open state
+  int32 max_requests = 4;
+
+  // Window size for failure counting
+  google.protobuf.Duration window_size = 5;
+
+  // Current circuit breaker state
+  CircuitBreakerState state = 6;
+}
+
+// Circuit breaker state enumeration
+enum CircuitBreakerState {
+  CIRCUIT_BREAKER_STATE_UNSPECIFIED = 0;
+  CIRCUIT_BREAKER_STATE_CLOSED = 1;
+  CIRCUIT_BREAKER_STATE_OPEN = 2;
+  CIRCUIT_BREAKER_STATE_HALF_OPEN = 3;
+}
