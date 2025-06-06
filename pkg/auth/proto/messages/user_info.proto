@@ -29,10 +29,10 @@ message UserInfo {
   string display_name = 4;
 
   // User roles for role-based access control
-  repeated string roles = 5 [lazy = true];
+  repeated string roles = 5;
 
   // Direct permissions assigned to the user
-  repeated string permissions = 6 [lazy = true];
+  repeated string permissions = 6;
 
   // User attributes and metadata for extensibility
   map<string, string> attributes = 7 [lazy = true];
