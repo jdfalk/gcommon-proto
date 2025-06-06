@@ -2328,7 +2328,7 @@ import "google/protobuf/timestamp.proto";
 import "google/protobuf/duration.proto";
 import "google/protobuf/empty.proto";
 import "google/protobuf/any.proto";
-import "google/protobuf/struct.proto";
+import "google/protobuf/field_mask.proto";
 
 option go_package = "github.com/jdfalk/gcommon/pkg/log/proto;logpb";
 option features.(pb.go).api_level = API_HYBRID;
@@ -2526,8 +2526,14 @@ message ErrorInfo {
   // Stack trace
   string stack_trace = 3;
 
-  // Cause chain
-  repeated ErrorInfo causes = 4;
+  // Error code
+  string code = 4;
+
+  // Additional error context
+  map<string, string> context = 5;
+
+  // Cause chain for error propagation
+  repeated ErrorInfo causes = 6;
 }
 
 // Query log request
@@ -2756,8 +2762,11 @@ message LoggerConfig {
   // Whether to inherit from parent
   bool inherit_appenders = 3;
 
+  // Whether to propagate to parent logger
+  bool propagate = 4;
+
   // Additional properties
-  map<string, string> properties = 4;
+  map<string, string> properties = 5;
 }
 
 // Appender configuration
@@ -2768,11 +2777,14 @@ message AppenderConfig {
   // Appender type
   AppenderType type = 2;
 
-  // Configuration properties
-  map<string, string> properties = 3;
+  // Output configuration
+  OutputConfig output = 3;
 
-  // Layout pattern
-  string layout = 4;
+  // Formatter configuration
+  FormatterConfig formatter = 4;
+
+  // Filter configuration
+  FilterConfig filter = 5;
 }
 
 // Appender types
@@ -2784,6 +2796,57 @@ enum AppenderType {
   APPENDER_TYPE_SYSLOG = 4;
   APPENDER_TYPE_NETWORK = 5;
   APPENDER_TYPE_DATABASE = 6;
+}
+
+// Output configuration
+message OutputConfig {
+  // Output target (file path, network address, etc.)
+  string target = 1;
+
+  // Additional output options
+  map<string, string> options = 2;
+}
+
+// Formatter configuration
+message FormatterConfig {
+  // Formatter type
+  FormatterType type = 1;
+
+  // Format pattern
+  string pattern = 2;
+
+  // Timestamp format
+  string timestamp_format = 3;
+
+  // Additional formatter options
+  map<string, string> options = 4;
+}
+
+// Formatter type enumeration
+enum FormatterType {
+  FORMATTER_TYPE_UNSPECIFIED = 0;
+  FORMATTER_TYPE_TEXT = 1;
+  FORMATTER_TYPE_JSON = 2;
+  FORMATTER_TYPE_XML = 3;
+  FORMATTER_TYPE_CUSTOM = 4;
+}
+
+// Filter configuration
+message FilterConfig {
+  // Filter type
+  FilterType type = 1;
+
+  // Filter criteria
+  map<string, string> criteria = 2;
+}
+
+// Filter type enumeration
+enum FilterType {
+  FILTER_TYPE_UNSPECIFIED = 0;
+  FILTER_TYPE_LEVEL = 1;
+  FILTER_TYPE_LOGGER = 2;
+  FILTER_TYPE_MESSAGE = 3;
+  FILTER_TYPE_FIELD = 4;
 }
 
 // Create logger response
@@ -2886,6 +2949,17 @@ message LoggerInfo {
 
   // Last modified time
   google.protobuf.Timestamp modified_at = 7;
+
+  // Status
+  LoggerStatus status = 8;
+}
+
+// Logger status enumeration
+enum LoggerStatus {
+  LOGGER_STATUS_UNSPECIFIED = 0;
+  LOGGER_STATUS_ACTIVE = 1;
+  LOGGER_STATUS_INACTIVE = 2;
+  LOGGER_STATUS_ERROR = 3;
 }
 
 // Configure appender request
@@ -2935,562 +3009,6 @@ message RotateLogsResponse {
 
 // Archive logs request
 message ArchiveLogsRequest {
-  // Archive older than
-  google.protobuf.Duration older_than = 1;
-
-  // Archive location
-  string archive_path = 2;
-
-  // Compression type
-  ArchiveCompressionType compression = 3;
-
-  // Request metadata
-  gcommon.common.v1.RequestMetadata metadata = 4;
-}
-
-// Archive compression types
-enum ArchiveCompressionType {
-  ARCHIVE_COMPRESSION_TYPE_UNSPECIFIED = 0;
-  ARCHIVE_COMPRESSION_TYPE_NONE = 1;
-  ARCHIVE_COMPRESSION_TYPE_GZIP = 2;
-  ARCHIVE_COMPRESSION_TYPE_ZIP = 3;
-  ARCHIVE_COMPRESSION_TYPE_TAR_GZ = 4;
-}
-
-// Archive logs response
-message ArchiveLogsResponse {
-  // Number of archived files
-  int32 archived_count = 1;
-
-  // Archive file path
-  string archive_path = 2;
-
-  // Archive size
-  int64 archive_size = 3;
-
-  // Error information
-  gcommon.common.v1.Error error = 4;
-}
-LOG_PROTO
-
-echo "Created log.proto"
-
-// Error information for error/fatal logs
-message ErrorInfo {
-  // Error message
-  string message = 1;
-
-  // Error type/class
-  string type = 2;
-
-  // Stack trace
-  string stack_trace = 3;
-
-  // Error code
-  string code = 4;
-
-  // Additional error context
-  map<string, string> context = 5;
-}
-
-// Query log request
-message QueryLogRequest {
-  // Query parameters
-  LogQuery query = 1;
-
-  // Pagination options
-  gcommon.common.v1.Pagination pagination = 2;
-
-  // Request metadata
-  gcommon.common.v1.RequestMetadata metadata = 3;
-}
-
-// Log query parameters
-message LogQuery {
-  // Start time for query range
-  google.protobuf.Timestamp start_time = 1;
-
-  // End time for query range
-  google.protobuf.Timestamp end_time = 2;
-
-  // Log levels to include
-  repeated LogLevel levels = 3;
-
-  // Logger names to filter by
-  repeated string loggers = 4;
-
-  // Message text search
-  string message_pattern = 5;
-
-  // Field filters
-  map<string, string> field_filters = 6;
-
-  // Tags to filter by
-  repeated string tags = 7;
-
-  // Trace ID filter
-  string trace_id = 8;
-
-  // User ID filter
-  string user_id = 9;
-
-  // Request ID filter
-  string request_id = 10;
-
-  // Sort order
-  LogSortOrder sort_order = 11;
-
-  // Maximum results
-  int32 limit = 12;
-}
-
-// Log sort order
-enum LogSortOrder {
-  LOG_SORT_ORDER_UNSPECIFIED = 0;
-  LOG_SORT_ORDER_TIMESTAMP_ASC = 1;
-  LOG_SORT_ORDER_TIMESTAMP_DESC = 2;
-  LOG_SORT_ORDER_LEVEL_ASC = 3;
-  LOG_SORT_ORDER_LEVEL_DESC = 4;
-}
-
-// Query log response
-message QueryLogResponse {
-  // Log entries
-  repeated LogEntry entries = 1;
-
-  // Total count (if available)
-  int64 total_count = 2;
-
-  // Pagination information
-  gcommon.common.v1.Pagination pagination = 3;
-
-  // Error information
-  gcommon.common.v1.Error error = 4;
-}
-
-// Stream log request
-message StreamLogRequest {
-  // Query parameters for filtering
-  LogQuery query = 1;
-
-  // Buffer size for streaming
-  int32 buffer_size = 2;
-
-  // Request metadata
-  gcommon.common.v1.RequestMetadata metadata = 3;
-}
-
-// Get log level request
-message GetLogLevelRequest {
-  // Logger name (optional, defaults to root logger)
-  string logger = 1;
-
-  // Request metadata
-  gcommon.common.v1.RequestMetadata metadata = 2;
-}
-
-// Get log level response
-message GetLogLevelResponse {
-  // Current log level
-  LogLevel level = 1;
-
-  // Logger name
-  string logger = 2;
-
-  // Error information
-  gcommon.common.v1.Error error = 3;
-}
-
-// Set log level request
-message SetLogLevelRequest {
-  // Logger name (optional, defaults to root logger)
-  string logger = 1;
-
-  // New log level
-  LogLevel level = 2;
-
-  // Request metadata
-  gcommon.common.v1.RequestMetadata metadata = 3;
-}
-
-// Set log level response
-message SetLogLevelResponse {
-  // Success status
-  bool success = 1;
-
-  // Previous log level
-  LogLevel previous_level = 2;
-
-  // Error information
-  gcommon.common.v1.Error error = 3;
-}
-
-// Get log stats request
-message GetLogStatsRequest {
-  // Time range for statistics
-  google.protobuf.Timestamp start_time = 1;
-  google.protobuf.Timestamp end_time = 2;
-
-  // Logger name filter (optional)
-  string logger = 3;
-
-  // Request metadata
-  gcommon.common.v1.RequestMetadata metadata = 4;
-}
-
-// Get log stats response
-message GetLogStatsResponse {
-  // Log statistics
-  LogStats stats = 1;
-
-  // Error information
-  gcommon.common.v1.Error error = 2;
-}
-
-// Log statistics
-message LogStats {
-  // Total log entries
-  int64 total_entries = 1;
-
-  // Entries by log level
-  map<string, int64> entries_by_level = 2;
-
-  // Entries by logger
-  map<string, int64> entries_by_logger = 3;
-
-  // Error rate
-  double error_rate = 4;
-
-  // Average entries per minute
-  double avg_entries_per_minute = 5;
-
-  // Peak entries per minute
-  int64 peak_entries_per_minute = 6;
-
-  // Storage usage in bytes
-  int64 storage_bytes = 7;
-}
-
-// Admin service messages
-message CreateLoggerRequest {
-  // Logger configuration
-  LoggerConfig config = 1;
-
-  // Request metadata
-  gcommon.common.v1.RequestMetadata metadata = 2;
-}
-
-// Logger configuration
-message LoggerConfig {
-  // Logger name
-  string name = 1;
-
-  // Log level
-  LogLevel level = 2;
-
-  // Output appenders
-  repeated AppenderConfig appenders = 3;
-
-  // Whether to inherit from parent logger
-  bool inherit_appenders = 4;
-
-  // Whether to propagate to parent logger
-  bool propagate = 5;
-
-  // Additional properties
-  map<string, string> properties = 6;
-}
-
-// Appender configuration
-message AppenderConfig {
-  // Appender type
-  AppenderType type = 1;
-
-  // Appender name
-  string name = 2;
-
-  // Output configuration
-  OutputConfig output = 3;
-
-  // Formatter configuration
-  FormatterConfig formatter = 4;
-
-  // Filter configuration
-  FilterConfig filter = 5;
-}
-
-// Appender type enumeration
-enum AppenderType {
-  APPENDER_TYPE_UNSPECIFIED = 0;
-  APPENDER_TYPE_CONSOLE = 1;
-  APPENDER_TYPE_FILE = 2;
-  APPENDER_TYPE_ROLLING_FILE = 3;
-  APPENDER_TYPE_SYSLOG = 4;
-  APPENDER_TYPE_NETWORK = 5;
-  APPENDER_TYPE_DATABASE = 6;
-}
-
-// Output configuration
-message OutputConfig {
-  // Output target (file path, network address, etc.)
-  string target = 1;
-
-  // Additional output options
-  map<string, string> options = 2;
-}
-
-// Formatter configuration
-message FormatterConfig {
-  // Formatter type
-  FormatterType type = 1;
-
-  // Format pattern
-  string pattern = 2;
-
-  // Timestamp format
-  string timestamp_format = 3;
-
-  // Additional formatter options
-  map<string, string> options = 4;
-}
-
-// Formatter type enumeration
-enum FormatterType {
-  FORMATTER_TYPE_UNSPECIFIED = 0;
-  FORMATTER_TYPE_TEXT = 1;
-  FORMATTER_TYPE_JSON = 2;
-  FORMATTER_TYPE_XML = 3;
-  FORMATTER_TYPE_CUSTOM = 4;
-}
-
-// Filter configuration
-message FilterConfig {
-  // Filter type
-  FilterType type = 1;
-
-  // Filter criteria
-  map<string, string> criteria = 2;
-}
-
-// Filter type enumeration
-enum FilterType {
-  FILTER_TYPE_UNSPECIFIED = 0;
-  FILTER_TYPE_LEVEL = 1;
-  FILTER_TYPE_LOGGER = 2;
-  FILTER_TYPE_MESSAGE = 3;
-  FILTER_TYPE_FIELD = 4;
-}
-
-// Create logger response
-message CreateLoggerResponse {
-  // Success status
-  bool success = 1;
-
-  // Logger information
-  LoggerInfo logger = 2;
-
-  // Error information
-  gcommon.common.v1.Error error = 3;
-}
-
-// Logger information
-message LoggerInfo {
-  // Logger name
-  string name = 1;
-
-  // Current log level
-  LogLevel level = 2;
-
-  // Configured appenders
-  repeated string appenders = 3;
-
-  // Creation time
-  google.protobuf.Timestamp created_at = 4;
-
-  // Last updated time
-  google.protobuf.Timestamp updated_at = 5;
-
-  // Status
-  LoggerStatus status = 6;
-}
-
-// Logger status enumeration
-enum LoggerStatus {
-  LOGGER_STATUS_UNSPECIFIED = 0;
-  LOGGER_STATUS_ACTIVE = 1;
-  LOGGER_STATUS_INACTIVE = 2;
-  LOGGER_STATUS_ERROR = 3;
-}
-
-// Update logger request
-message UpdateLoggerRequest {
-  // Logger name
-  string name = 1;
-
-  // Updated configuration
-  LoggerConfig config = 2;
-
-  // Field mask for partial updates
-  google.protobuf.FieldMask update_mask = 3;
-
-  // Request metadata
-  gcommon.common.v1.RequestMetadata metadata = 4;
-}
-
-// Update logger response
-message UpdateLoggerResponse {
-  // Success status
-  bool success = 1;
-
-  // Updated logger information
-  LoggerInfo logger = 2;
-
-  // Error information
-  gcommon.common.v1.Error error = 3;
-}
-
-// Delete logger request
-message DeleteLoggerRequest {
-  // Logger name
-  string name = 1;
-
-  // Request metadata
-  gcommon.common.v1.RequestMetadata metadata = 2;
-}
-
-// List loggers request
-message ListLoggersRequest {
-  // Filter by name pattern
-  string name_pattern = 1;
-
-  // Filter by status
-  LoggerStatus status = 2;
-
-  // Pagination options
-  gcommon.common.v1.Pagination pagination = 3;
-
-  // Request metadata
-  gcommon.common.v1.RequestMetadata metadata = 4;
-}
-
-// List loggers response
-message ListLoggersResponse {
-  // Logger information
-  repeated LoggerInfo loggers = 1;
-
-  // Pagination information
-  gcommon.common.v1.Pagination pagination = 2;
-
-  // Error information
-  gcommon.common.v1.Error error = 3;
-}
-
-// Configure appender request
-message ConfigureAppenderRequest {
-  // Appender configuration
-  AppenderConfig config = 1;
-
-  // Request metadata
-  gcommon.common.v1.RequestMetadata metadata = 2;
-}
-
-// Configure appender response
-message ConfigureAppenderResponse {
-  // Success status
-  bool success = 1;
-
-  // Appender information
-  AppenderInfo appender = 2;
-
-  // Error information
-  gcommon.common.v1.Error error = 3;
-}
-
-// Appender information
-message AppenderInfo {
-  // Appender name
-  string name = 1;
-
-  // Appender type
-  AppenderType type = 2;
-
-  // Status
-  AppenderStatus status = 3;
-
-  // Configuration
-  AppenderConfig config = 4;
-
-  // Statistics
-  AppenderStats stats = 5;
-}
-
-// Appender status enumeration
-enum AppenderStatus {
-  APPENDER_STATUS_UNSPECIFIED = 0;
-  APPENDER_STATUS_ACTIVE = 1;
-  APPENDER_STATUS_INACTIVE = 2;
-  APPENDER_STATUS_ERROR = 3;
-}
-
-// Appender statistics
-message AppenderStats {
-  // Total messages written
-  int64 messages_written = 1;
-
-  // Total bytes written
-  int64 bytes_written = 2;
-
-  // Error count
-  int64 error_count = 3;
-
-  // Last write time
-  google.protobuf.Timestamp last_write_time = 4;
-}
-
-// Rotate logs request
-message RotateLogsRequest {
-  // Logger name pattern (optional)
-  string logger_pattern = 1;
-
-  // Appender name pattern (optional)
-  string appender_pattern = 2;
-
-  // Request metadata
-  gcommon.common.v1.RequestMetadata metadata = 3;
-}
-
-// Rotate logs response
-message RotateLogsResponse {
-  // Number of logs rotated
-  int32 rotated_count = 1;
-
-  // Rotation details
-  repeated RotationInfo rotations = 2;
-
-  // Error information
-  gcommon.common.v1.Error error = 3;
-}
-
-// Rotation information
-message RotationInfo {
-  // Logger name
-  string logger = 1;
-
-  // Appender name
-  string appender = 2;
-
-  // Old file path
-  string old_file = 3;
-
-  // New file path
-  string new_file = 4;
-
-  // Rotation time
-  google.protobuf.Timestamp rotated_at = 5;
-}
-
-// Archive logs request
-message ArchiveLogsRequest {
   // Archive criteria
   ArchiveCriteria criteria = 1;
 
@@ -3527,39 +3045,22 @@ enum CompressionType {
   COMPRESSION_TYPE_GZIP = 2;
   COMPRESSION_TYPE_ZIP = 3;
   COMPRESSION_TYPE_BZIP2 = 4;
+  COMPRESSION_TYPE_TAR_GZ = 5;
 }
 
 // Archive logs response
 message ArchiveLogsResponse {
-  // Number of files archived
+  // Number of archived files
   int32 archived_count = 1;
 
-  // Total archived size
-  int64 archived_size_bytes = 2;
+  // Archive file path
+  string archive_path = 2;
 
-  // Archive details
-  repeated ArchiveInfo archives = 3;
+  // Archive size
+  int64 archive_size = 3;
 
   // Error information
   gcommon.common.v1.Error error = 4;
-}
-
-// Archive information
-message ArchiveInfo {
-  // Source file path
-  string source_file = 1;
-
-  // Archive file path
-  string archive_file = 2;
-
-  // Original size
-  int64 original_size_bytes = 3;
-
-  // Compressed size
-  int64 compressed_size_bytes = 4;
-
-  // Archive time
-  google.protobuf.Timestamp archived_at = 5;
 }
 LOG_PROTO
 
@@ -3570,7 +3071,7 @@ cat > pkg/metrics/proto/metrics.proto << 'METRICS_PROTO'
 // file: pkg/metrics/proto/metrics.proto
 edition = "2023";
 
-package gcommon.metrics.v1;
+package gcommon.v1.metrics;
 
 option go_package = "github.com/jdfalk/gcommon/pkg/metrics/proto;metricspb";
 option features.(pb.go).api_level = API_HYBRID;
@@ -4930,7 +4431,7 @@ cat > pkg/queue/proto/queue.proto << 'QUEUE_PROTO'
 // file: pkg/queue/proto/queue.proto
 edition = "2023";
 
-package gcommon.queue.v1;
+package gcommon.v1.queue;
 
 option go_package = "github.com/jdfalk/gcommon/pkg/queue/proto;queuepb";
 option features.(pb.go).api_level = API_HYBRID;
@@ -7056,7 +6557,7 @@ cat > pkg/web/proto/web.proto << 'WEB_PROTO'
 // file: pkg/web/proto/web.proto
 edition = "2023";
 
-package gcommon.web.v1;
+package gcommon.v1.web;
 
 option go_package = "github.com/jdfalk/gcommon/pkg/web/proto;webpb";
 option features.(pb.go).api_level = API_HYBRID;
@@ -9080,244 +8581,4 @@ echo "  1. Run this script: bash create_all_protos.sh"
 echo "  2. Update generate.sh to include new proto files"
 echo "  3. Run generate.sh to compile protobuf files"
 echo "  4. Implement service interfaces in Go"
-
-// Error information for log entries
-message ErrorInfo {
-  // Error type/class
-  string type = 1;
-
-  // Error message
-  string message = 2;
-
-  // Stack trace
-  string stack_trace = 3;
-
-  // Error code
-  string code = 4;
-
-  // Cause chain
-  repeated ErrorInfo causes = 5;
-}
-
-// Query log request
-message QueryLogRequest {
-  // Query filters
-  LogQuery query = 1;
-
-  // Pagination options
-  gcommon.common.v1.Pagination pagination = 2;
-
-  // Sort options
-  repeated LogSortField sort = 3;
-
-  // Request metadata
-  gcommon.common.v1.RequestMetadata metadata = 4;
-}
-
-// Log query filters
-message LogQuery {
-  // Log level filter
-  repeated LogLevel levels = 1;
-
-  // Logger name filter (supports wildcards)
-  string logger = 2;
-
-  // Message text search
-  string message_contains = 3;
-
-  // Time range filter
-  TimeRange time_range = 4;
-
-  // Tag filters
-  repeated string tags = 5;
-
-  // User ID filter
-  string user_id = 6;
-
-  // Trace ID filter
-  string trace_id = 7;
-
-  // Request ID filter
-  string request_id = 8;
-
-  // Custom field filters
-  map<string, google.protobuf.Any> field_filters = 9;
-}
-
-// Time range for queries
-message TimeRange {
-  // Start time (inclusive)
-  google.protobuf.Timestamp start = 1;
-
-  // End time (exclusive)
-  google.protobuf.Timestamp end = 2;
-}
-
-// Log sort field specification
-message LogSortField {
-  // Field to sort by
-  string field = 1;
-
-  // Sort direction
-  gcommon.common.v1.SortDirection direction = 2;
-}
-
-// Query log response
-message QueryLogResponse {
-  // Matching log entries
-  repeated LogEntry entries = 1;
-
-  // Pagination information
-  gcommon.common.v1.PaginationResult pagination = 2;
-
-  // Total count (if requested)
-  int64 total_count = 3;
-
-  // Error information
-  gcommon.common.v1.Error error = 4;
-}
-
-// Stream log request
-message StreamLogRequest {
-  // Stream filters
-  LogQuery query = 1;
-
-  // Stream options
-  StreamOptions options = 2;
-
-  // Request metadata
-  gcommon.common.v1.RequestMetadata metadata = 3;
-}
-
-// Stream options
-message StreamOptions {
-  // Buffer size for streaming
-  int32 buffer_size = 1;
-
-  // Stream timeout
-  google.protobuf.Duration timeout = 2;
-
-  // Include historical entries
-  bool include_historical = 3;
-
-  // Historical entry limit
-  int32 historical_limit = 4;
-}
-
-// Get log level request
-message GetLogLevelRequest {
-  // Logger name (optional, for specific logger)
-  string logger = 1;
-
-  // Request metadata
-  gcommon.common.v1.RequestMetadata metadata = 2;
-}
-
-// Get log level response
-message GetLogLevelResponse {
-  // Current log level
-  LogLevel level = 1;
-
-  // Logger name
-  string logger = 2;
-
-  // Error information
-  gcommon.common.v1.Error error = 3;
-}
-
-// Set log level request
-message SetLogLevelRequest {
-  // New log level
-  LogLevel level = 1;
-
-  // Logger name (optional, for specific logger)
-  string logger = 2;
-
-  // Request metadata
-  gcommon.common.v1.RequestMetadata metadata = 3;
-}
-
-// Set log level response
-message SetLogLevelResponse {
-  // Previous log level
-  LogLevel previous_level = 1;
-
-  // Current log level
-  LogLevel current_level = 2;
-
-  // Logger name
-  string logger = 3;
-
-  // Error information
-  gcommon.common.v1.Error error = 4;
-}
-
-// Get log stats request
-message GetLogStatsRequest {
-  // Time range for statistics
-  TimeRange time_range = 1;
-
-  // Logger filter
-  string logger = 2;
-
-  // Request metadata
-  gcommon.common.v1.RequestMetadata metadata = 3;
-}
-
-// Get log stats response
-message GetLogStatsResponse {
-  // Overall statistics
-  LogStats stats = 1;
-
-  // Per-level statistics
-  map<string, LogLevelStats> level_stats = 2;
-
-  // Per-logger statistics
-  map<string, LoggerStats> logger_stats = 3;
-
-  // Error information
-  gcommon.common.v1.Error error = 4;
-}
-
-// Log statistics
-message LogStats {
-  // Total entries
-  int64 total_entries = 1;
-
-  // Entries per second (average)
-  double entries_per_second = 2;
-
-  // Storage size (bytes)
-  int64 storage_size = 3;
-
-  // Time range covered
-  TimeRange time_range = 4;
-}
-
-// Per-level statistics
-message LogLevelStats {
-  // Log level
-  LogLevel level = 1;
-
-  // Entry count
-  int64 count = 2;
-
-  // Percentage of total
-  double percentage = 3;
-}
-
-// Per-logger statistics
-message LoggerStats {
-  // Logger name
-  string logger = 1;
-
-  // Entry count
-  int64 count = 2;
-
-  // Percentage of total
-  double percentage = 3;
-
-  // Average entries per second
-  double entries_per_second = 4;
-}
 
