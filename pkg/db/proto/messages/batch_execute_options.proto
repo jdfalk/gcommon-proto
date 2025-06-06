@@ -1,0 +1,25 @@
+// file: pkg/db/proto/messages/batch_execute_options.proto
+edition = "2023";
+
+package gcommon.v1.database;
+
+import "google/protobuf/duration.proto";
+import "google/protobuf/go_features.proto";
+
+option go_package = "github.com/jdfalk/gcommon/pkg/db/proto;dbpb";
+option features.(pb.go).api_level = API_HYBRID;
+
+/**
+ * BatchExecuteOptions configures behavior for batch database operations.
+ * Controls error handling, timeouts, and parallelism for batch execution.
+ */
+message BatchExecuteOptions {
+  // Whether to stop execution on the first error
+  bool fail_fast = 1;
+
+  // Timeout for the entire batch operation
+  google.protobuf.Duration timeout = 2 [lazy = true];
+
+  // Maximum number of operations to execute in parallel
+  int32 max_parallel = 3;
+}

@@ -1,0 +1,29 @@
+// file: pkg/db/proto/messages/batch_operation_result.proto
+edition = "2023";
+
+package gcommon.v1.database;
+
+import "pkg/common/proto/messages/error.proto";
+import "google/protobuf/any.proto";
+import "google/protobuf/go_features.proto";
+
+option go_package = "github.com/jdfalk/gcommon/pkg/db/proto;dbpb";
+option features.(pb.go).api_level = API_HYBRID;
+
+/**
+ * BatchOperationResult contains the result of a single operation in a batch.
+ * Provides success status, affected rows, and error information.
+ */
+message BatchOperationResult {
+  // Whether the operation completed successfully
+  bool success = 1;
+
+  // Number of rows affected by this operation
+  int64 affected_rows = 2;
+
+  // Generated keys for INSERT operations
+  repeated google.protobuf.Any generated_keys = 3 [lazy = true];
+
+  // Error information if the operation failed
+  gcommon.v1.common.Error error = 4 [lazy = true];
+}
