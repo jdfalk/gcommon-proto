@@ -5,30 +5,30 @@ package proto
 
 // Re-export types from various common protobuf packages for backwards compatibility
 import (
+	commonpb_enums "github.com/jdfalk/gcommon/pkg/common/proto/enums"
 	commonpb_messages "github.com/jdfalk/gcommon/pkg/common/proto/messages"
 	commonpb_types "github.com/jdfalk/gcommon/pkg/common/proto/types"
-	commonpb_enums "github.com/jdfalk/gcommon/pkg/common/proto/enums"
 )
 
 // Message types
 type (
-	RateLimit          = commonpb_messages.RateLimit
-	RequestMetadata    = commonpb_messages.RequestMetadata
-	ResponseMetadata   = commonpb_messages.ResponseMetadata
-	ErrorInfo          = commonpb_messages.ErrorInfo
-	AuditLog           = commonpb_messages.AuditLog
-	ServiceInfo        = commonpb_messages.ServiceInfo
+	RateLimit        = commonpb_messages.RateLimit
+	RequestMetadata  = commonpb_messages.RequestMetadata
+	ResponseMetadata = commonpb_messages.ResponseMetadata
+	ErrorInfo        = commonpb_messages.ErrorInfo
+	AuditLog         = commonpb_messages.AuditLog
+	ServiceInfo      = commonpb_messages.ServiceInfo
 )
 
 // Type definitions
 type (
-	KeyValue            = commonpb_types.KeyValue
-	StringArray         = commonpb_types.StringArray
-	Int64Array          = commonpb_types.Int64Array
-	TimeRange           = commonpb_types.TimeRange
-	MetricPoint         = commonpb_types.MetricPoint
-	ResourceReference   = commonpb_types.ResourceReference
-	ClientInfo          = commonpb_types.ClientInfo
+	KeyValue          = commonpb_types.KeyValue
+	StringArray       = commonpb_types.StringArray
+	Int64Array        = commonpb_types.Int64Array
+	TimeRange         = commonpb_types.TimeRange
+	MetricPoint       = commonpb_types.MetricPoint
+	ResourceReference = commonpb_types.ResourceReference
+	ClientInfo        = commonpb_types.ClientInfo
 )
 
 // Enum types

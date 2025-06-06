@@ -12,24 +12,24 @@ import (
 
 // Request types
 type (
-	AuthenticateRequest    = authpb_requests.AuthenticateRequest
-	CreateSessionRequest   = authpb_requests.CreateSessionRequest
-	ValidateTokenRequest   = authpb_requests.ValidateTokenRequest
+	AuthenticateRequest  = authpb_requests.AuthenticateRequest
+	CreateSessionRequest = authpb_requests.CreateSessionRequest
+	ValidateTokenRequest = authpb_requests.ValidateTokenRequest
 )
 
 // Response types
 type (
-	AuthenticateResponse    = authpb_responses.AuthenticateResponse
-	CreateSessionResponse   = authpb_responses.CreateSessionResponse
-	ValidateTokenResponse   = authpb_responses.ValidateTokenResponse
+	AuthenticateResponse  = authpb_responses.AuthenticateResponse
+	CreateSessionResponse = authpb_responses.CreateSessionResponse
+	ValidateTokenResponse = authpb_responses.ValidateTokenResponse
 )
 
 // Service interfaces
 type (
-	AuthServiceClient       = authpb_services.AuthServiceClient
-	AuthServiceServer       = authpb_services.AuthServiceServer
-	SessionServiceClient    = authpb_services.SessionServiceClient
-	SessionServiceServer    = authpb_services.SessionServiceServer
+	AuthServiceClient          = authpb_services.AuthServiceClient
+	AuthServiceServer          = authpb_services.AuthServiceServer
+	SessionServiceClient       = authpb_services.SessionServiceClient
+	SessionServiceServer       = authpb_services.SessionServiceServer
 	AuthorizationServiceClient = authpb_services.AuthorizationServiceClient
 	AuthorizationServiceServer = authpb_services.AuthorizationServiceServer
 )

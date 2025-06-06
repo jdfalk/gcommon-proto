@@ -5,9 +5,9 @@ package proto
 
 // Re-export types from various cache protobuf packages for backwards compatibility
 import (
+	cachepb_messages "github.com/jdfalk/gcommon/pkg/cache/proto/messages"
 	cachepb_requests "github.com/jdfalk/gcommon/pkg/cache/proto/requests"
 	cachepb_responses "github.com/jdfalk/gcommon/pkg/cache/proto/responses"
-	cachepb_messages "github.com/jdfalk/gcommon/pkg/cache/proto/messages"
 )
 
 // Request types

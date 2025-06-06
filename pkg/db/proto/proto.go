@@ -5,11 +5,11 @@ package proto
 
 // Re-export types from various database protobuf packages for backwards compatibility
 import (
+	dbpb_messages "github.com/jdfalk/gcommon/pkg/db/proto/messages"
 	dbpb_requests "github.com/jdfalk/gcommon/pkg/db/proto/requests"
 	dbpb_responses "github.com/jdfalk/gcommon/pkg/db/proto/responses"
 	dbpb_services "github.com/jdfalk/gcommon/pkg/db/proto/services"
 	dbpb_types "github.com/jdfalk/gcommon/pkg/db/proto/types"
-	dbpb_messages "github.com/jdfalk/gcommon/pkg/db/proto/messages"
 )
 
 // Service interfaces
@@ -69,9 +69,9 @@ type (
 
 // Message types
 type (
-	ResultSet     = dbpb_messages.ResultSet
-	Row           = dbpb_messages.Row
-	Field         = dbpb_messages.Field
-	Transaction   = dbpb_messages.Transaction
+	ResultSet      = dbpb_messages.ResultSet
+	Row            = dbpb_messages.Row
+	Field          = dbpb_messages.Field
+	Transaction    = dbpb_messages.Transaction
 	BatchOperation = dbpb_messages.BatchOperation
 )
