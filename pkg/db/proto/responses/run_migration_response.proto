@@ -18,7 +18,7 @@ message RunMigrationResponse {
   bool success = 1;
 
   // List of migration versions that were successfully applied
-  repeated string applied_versions = 2 [lazy = true];
+  repeated string applied_versions = 2;
 
   // Error information if any migration failed
   gcommon.v1.common.Error error = 3 [lazy = true];

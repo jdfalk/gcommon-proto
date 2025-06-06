@@ -26,5 +26,5 @@ message DatabaseInfo {
   string connection_string = 4;
 
   // List of supported database features
-  repeated string features = 5 [lazy = true];
+  repeated string features = 5;
 }

@@ -17,8 +17,8 @@ message GetMigrationStatusResponse {
   string current_version = 1;
 
   // List of migration versions that have been applied
-  repeated string applied_versions = 2 [lazy = true];
+  repeated string applied_versions = 2;
 
   // List of migration versions that are pending application
-  repeated string pending_versions = 3 [lazy = true];
+  repeated string pending_versions = 3;
 }

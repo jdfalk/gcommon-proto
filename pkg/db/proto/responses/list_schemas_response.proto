@@ -14,5 +14,5 @@ option features.(pb.go).api_level = API_HYBRID;
  */
 message ListSchemasResponse {
   // List of schema names in the database
-  repeated string schemas = 1 [lazy = true];
+  repeated string schemas = 1;
 }
