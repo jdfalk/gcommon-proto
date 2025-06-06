@@ -1,0 +1,42 @@
+// file: pkg/common/proto/messages/subscription_info.proto
+edition = "2023";
+
+package gcommon.v1.common;
+
+import "google/protobuf/go_features.proto";
+import "google/protobuf/timestamp.proto";
+import "gcommon/v1/common/messages/filter_options.proto";
+import "gcommon/v1/common/types/client_info.proto";
+import "gcommon/v1/common/messages/subscription_options.proto";
+import "gcommon/v1/common/enums/subscription_status.proto";
+
+option go_package = "github.com/jdfalk/gcommon/pkg/common/proto;commonpb";
+option features.(pb.go).api_level = API_HYBRID;
+
+/**
+ * Subscription information for streaming and event-driven operations.
+ * Manages long-lived subscriptions with filtering, time ranges,
+ * and client-specific configuration for real-time data streaming.
+ */
+message SubscriptionInfo {
+  // Unique identifier for this subscription
+  string subscription_id = 1;
+
+  // Filter criteria for subscription events
+  FilterOptions filter = 2;
+
+  // When the subscription started
+  google.protobuf.Timestamp start_time = 3;
+
+  // Optional end time for the subscription (null for indefinite)
+  google.protobuf.Timestamp end_time = 4;
+
+  // Information about the subscribing client
+  ClientInfo subscriber = 5;
+
+  // Subscription configuration options
+  SubscriptionOptions options = 6;
+
+  // Current status of the subscription
+  SubscriptionStatus status = 7;
+}

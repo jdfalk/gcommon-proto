@@ -1,0 +1,48 @@
+// file: pkg/common/proto/messages/config_value.proto
+edition = "2023";
+
+package gcommon.v1.common;
+
+import "google/protobuf/go_features.proto";
+import "google/protobuf/any.proto";
+import "gcommon/v1/common/enums/value_type.proto";
+
+option go_package = "github.com/jdfalk/gcommon/pkg/common/proto;commonpb";
+option features.(pb.go).api_level = API_HYBRID;
+
+/**
+ * Configuration value with type information and metadata.
+ * Supports multiple value types with encryption and validation capabilities
+ * for secure and type-safe configuration management.
+ */
+message ConfigValue {
+  // The configuration value (one of the supported types)
+  oneof value {
+    // String value for text configuration
+    string string_value = 1;
+
+    // Integer value for numeric configuration
+    int64 int_value = 2;
+
+    // Double value for floating-point configuration
+    double double_value = 3;
+
+    // Boolean value for true/false configuration
+    bool bool_value = 4;
+
+    // Binary data for complex configuration
+    bytes bytes_value = 5;
+
+    // Any protobuf message for structured configuration
+    google.protobuf.Any any_value = 6 [lazy = true];
+  }
+
+  // Value type for validation and serialization
+  ValueType type = 7;
+
+  // Whether the value is encrypted at rest
+  bool encrypted = 8;
+
+  // Additional metadata about the configuration value
+  map<string, string> metadata = 9 [lazy = true];
+}

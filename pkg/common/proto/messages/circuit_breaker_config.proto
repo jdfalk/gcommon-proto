@@ -1,0 +1,36 @@
+// file: pkg/common/proto/messages/circuit_breaker_config.proto
+edition = "2023";
+
+package gcommon.v1.common;
+
+import "google/protobuf/go_features.proto";
+import "google/protobuf/duration.proto";
+import "gcommon/v1/common/enums/circuit_breaker_state.proto";
+
+option go_package = "github.com/jdfalk/gcommon/pkg/common/proto;commonpb";
+option features.(pb.go).api_level = API_HYBRID;
+
+/**
+ * Circuit breaker configuration for fault tolerance and system protection.
+ * Implements the circuit breaker pattern with configurable thresholds,
+ * timeouts, and state management for preventing cascade failures.
+ */
+message CircuitBreakerConfig {
+  // Number of consecutive failures to trigger circuit opening
+  int32 failure_threshold = 1;
+
+  // Number of consecutive successes to close the circuit
+  int32 success_threshold = 2;
+
+  // Duration to keep circuit open before attempting half-open
+  google.protobuf.Duration timeout = 3;
+
+  // Maximum concurrent requests allowed in half-open state
+  int32 max_requests = 4;
+
+  // Time window for counting failures and successes
+  google.protobuf.Duration window_size = 5;
+
+  // Current state of the circuit breaker
+  CircuitBreakerState state = 6;
+}
