@@ -3,17 +3,15 @@ edition = "2023";
 
 package gcommon.v1.web;
 
-
-import "google/protobuf/go_features.proto";
-
-option go_package = "github.com/jdfalk/gcommon/pkg/web/proto;webpb";
-option features.(pb.go).api_level = API_HYBRID;
-
+import "pkg/common/proto/common.proto";
 import "google/protobuf/timestamp.proto";
 import "google/protobuf/duration.proto";
 import "google/protobuf/any.proto";
 import "google/protobuf/field_mask.proto";
-import "pkg/common/proto/common.proto";
+import "google/protobuf/go_features.proto";
+
+option go_package = "github.com/jdfalk/gcommon/pkg/web/proto;webpb";
+option features.(pb.go).api_level = API_HYBRID;
 
 // WebService provides HTTP server and web framework functionality
 service WebService {
