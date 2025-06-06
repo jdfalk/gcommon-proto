@@ -3,8 +3,21 @@ package metrics
 
 import (
 	"context"
+	"errors"
 	"net/http"
 	"time"
+)
+
+// Common errors
+var (
+	// ErrInvalidMetricType is returned when an invalid metric type is used.
+	ErrInvalidMetricType = errors.New("invalid metric type")
+
+	// ErrMetricNotFound is returned when a metric is not found.
+	ErrMetricNotFound = errors.New("metric not found")
+
+	// ErrInvalidConfiguration is returned when configuration is invalid.
+	ErrInvalidConfiguration = errors.New("invalid configuration")
 )
 
 // Provider is a metrics provider.
@@ -231,14 +244,26 @@ type Options struct {
 	// Help is the metric help text.
 	Help string
 
+	// Description is the metric description.
+	Description string
+
+	// Unit is the metric unit.
+	Unit string
+
 	// Tags are additional tags to attach to the metric.
 	Tags []Tag
+
+	// ConstLabels are constant labels that are always applied to this metric.
+	ConstLabels map[string]string
 
 	// Buckets are the histogram buckets.
 	Buckets []float64
 
 	// Quantiles are the summary quantiles.
 	Quantiles []float64
+
+	// Objectives is a map of quantiles to their allowed error margins.
+	Objectives map[float64]float64
 
 	// MaxAge is the maximum age of observations in a summary.
 	MaxAge time.Duration
@@ -255,6 +280,54 @@ type Options struct {
 
 // Option is a function that configures options.
 type Option func(*Options)
+
+// PrometheusConfig contains Prometheus-specific configuration options.
+type PrometheusConfig struct {
+	// Address is the address to bind the Prometheus HTTP server to.
+	Address string
+
+	// Path is the HTTP path to expose metrics on.
+	Path string
+
+	// EnableRuntimeMetrics enables Go runtime metrics collection.
+	EnableRuntimeMetrics bool
+
+	// EnableProcessMetrics enables process metrics collection.
+	EnableProcessMetrics bool
+
+	// EnableGoCollector enables Go runtime metrics collector.
+	EnableGoCollector bool
+
+	// EnableProcessCollector enables process metrics collector.
+	EnableProcessCollector bool
+
+	// PushGateway is the Prometheus push gateway configuration.
+	PushGateway *PushGatewayConfig
+
+	// PushJobName is the job name for push gateway.
+	PushJobName string
+
+	// PushInterval is the interval for pushing metrics to push gateway.
+	PushInterval time.Duration
+
+	// Registry is an optional existing Prometheus registry to use.
+	Registry interface{}
+}
+
+// PushGatewayConfig contains push gateway configuration.
+type PushGatewayConfig struct {
+	// URL is the push gateway URL.
+	URL string
+
+	// Job is the job name.
+	Job string
+
+	// Instance is the instance name.
+	Instance string
+
+	// Grouping contains additional grouping labels.
+	Grouping map[string]string
+}
 
 // Config is the configuration for a metrics provider.
 type Config struct {
@@ -275,6 +348,12 @@ type Config struct {
 
 	// HTTPPath is the HTTP path for exposing metrics.
 	HTTPPath string
+
+	// EnableRuntimeMetrics enables runtime metrics collection.
+	EnableRuntimeMetrics bool
+
+	// PrometheusConfig contains Prometheus-specific configuration.
+	PrometheusConfig *PrometheusConfig
 
 	// ProviderConfig is provider-specific configuration.
 	ProviderConfig map[string]interface{}

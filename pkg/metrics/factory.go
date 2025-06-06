@@ -68,6 +68,68 @@ func WithSubsystem(subsystem string) Option {
 	}
 }
 
+// WithDescription sets the metrics description/help text.
+func WithDescription(description string) Option {
+	return func(o *Options) {
+		o.Help = description
+	}
+}
+
+// WithHelp sets the metrics help text (alias for WithDescription).
+func WithHelp(help string) Option {
+	return func(o *Options) {
+		o.Help = help
+	}
+}
+
+// WithBuckets sets the histogram buckets.
+func WithBuckets(buckets []float64) Option {
+	return func(o *Options) {
+		o.Buckets = buckets
+	}
+}
+
+// WithQuantiles sets the summary quantiles with their objectives.
+func WithQuantiles(quantiles map[float64]float64) Option {
+	return func(o *Options) {
+		o.ObjectiveMap = quantiles
+		// Also set the Quantiles slice for compatibility
+		keys := make([]float64, 0, len(quantiles))
+		for q := range quantiles {
+			keys = append(keys, q)
+		}
+		o.Quantiles = keys
+	}
+}
+
+// WithMaxAge sets the maximum age for summary observations.
+func WithMaxAge(maxAge time.Duration) Option {
+	return func(o *Options) {
+		o.MaxAge = maxAge
+	}
+}
+
+// WithAgeBuckets sets the number of age buckets for summaries.
+func WithAgeBuckets(ageBuckets int) Option {
+	return func(o *Options) {
+		o.AgeBuckets = ageBuckets
+	}
+}
+
+// WithBufCap sets the buffer capacity for summary observations.
+func WithBufCap(bufCap int) Option {
+	return func(o *Options) {
+		o.BufCap = bufCap
+	}
+}
+
+// WithTags sets additional tags for the metric.
+func WithTags(tags ...Tag) Option {
+	return func(o *Options) {
+		o.Tags = append(o.Tags, tags...)
+	}
+}
+
 // TagsToMap converts a slice of tags to a map.
 func TagsToMap(tags []Tag) map[string]string {
 	m := make(map[string]string, len(tags))
