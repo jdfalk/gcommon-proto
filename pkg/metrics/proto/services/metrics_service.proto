@@ -1,0 +1,32 @@
+// file: metrics/proto/services/metrics_service.proto
+edition = "2023";
+
+package gcommon.v1.metrics;
+
+import "google/protobuf/go_features.proto";
+
+option go_package = "github.com/jdfalk/gcommon/pkg/metrics/proto;metricspb";
+option features.(pb.go).api_level = API_HYBRID;
+
+import "pkg/metrics/proto/requests/record_metric_request.proto";
+import "pkg/metrics/proto/responses/record_metric_response.proto";
+import "pkg/metrics/proto/requests/query_metrics_request.proto";
+import "pkg/metrics/proto/responses/query_metrics_response.proto";
+
+/**
+ * MetricsService provides metrics collection and querying capabilities.
+ * Supports counters, gauges, histograms, and custom metrics aggregation.
+ */
+service MetricsService {
+  // Record a metric data point
+  rpc RecordMetric(RecordMetricRequest) returns (RecordMetricResponse);
+
+  // Record multiple metrics in batch
+  rpc RecordMetrics(RecordMetricsRequest) returns (RecordMetricsResponse);
+
+  // Query metrics data
+  rpc QueryMetrics(QueryMetricsRequest) returns (QueryMetricsResponse);
+
+  // Get metrics summary
+  rpc GetMetricsSummary(GetMetricsSummaryRequest) returns (GetMetricsSummaryResponse);
+}

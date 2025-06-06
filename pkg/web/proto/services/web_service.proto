@@ -1,0 +1,24 @@
+// file: web/proto/services/web_service.proto
+edition = "2023";
+
+package gcommon.v1.web;
+
+import "google/protobuf/go_features.proto";
+
+option go_package = "github.com/jdfalk/gcommon/pkg/web/proto;webpb";
+option features.(pb.go).api_level = API_HYBRID;
+
+import "pkg/web/proto/requests/http_request.proto";
+import "pkg/web/proto/responses/http_response.proto";
+
+/**
+ * WebService provides HTTP/REST API gateway capabilities.
+ * Handles request routing, middleware, and protocol translation.
+ */
+service WebService {
+  // Handle HTTP request
+  rpc HandleRequest(HTTPRequest) returns (HTTPResponse);
+
+  // Get server status
+  rpc GetServerStatus(GetServerStatusRequest) returns (GetServerStatusResponse);
+}

@@ -1,0 +1,41 @@
+// file: config/proto/services/config_service.proto
+edition = "2023";
+
+package gcommon.v1.config;
+
+import "google/protobuf/go_features.proto";
+
+option go_package = "github.com/jdfalk/gcommon/pkg/config/proto;configpb";
+option features.(pb.go).api_level = API_HYBRID;
+
+import "pkg/config/proto/requests/get_config_request.proto";
+import "pkg/config/proto/responses/get_config_response.proto";
+import "pkg/config/proto/requests/set_config_request.proto";
+import "pkg/config/proto/responses/set_config_response.proto";
+import "pkg/config/proto/requests/list_configs_request.proto";
+import "pkg/config/proto/responses/list_configs_response.proto";
+import "google/protobuf/empty.proto";
+
+/**
+ * ConfigService provides configuration management capabilities.
+ * Supports hierarchical configuration, validation, and real-time updates.
+ */
+service ConfigService {
+  // Get a configuration value
+  rpc GetConfig(GetConfigRequest) returns (GetConfigResponse);
+
+  // Set a configuration value
+  rpc SetConfig(SetConfigRequest) returns (SetConfigResponse);
+
+  // Delete a configuration value
+  rpc DeleteConfig(DeleteConfigRequest) returns (google.protobuf.Empty);
+
+  // List configuration values with filtering
+  rpc ListConfigs(ListConfigsRequest) returns (ListConfigsResponse);
+
+  // Watch for configuration changes (streaming)
+  rpc WatchConfig(WatchConfigRequest) returns (stream ConfigChangeEvent);
+
+  // Validate configuration values
+  rpc ValidateConfig(ValidateConfigRequest) returns (ValidateConfigResponse);
+}

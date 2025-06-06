@@ -1,0 +1,32 @@
+// file: health/proto/services/health_service.proto
+edition = "2023";
+
+package gcommon.v1.health;
+
+import "google/protobuf/go_features.proto";
+
+option go_package = "github.com/jdfalk/gcommon/pkg/health/proto;healthpb";
+option features.(pb.go).api_level = API_HYBRID;
+
+import "pkg/health/proto/requests/health_check_request.proto";
+import "pkg/health/proto/responses/health_check_response.proto";
+import "pkg/health/proto/requests/list_checks_request.proto";
+import "pkg/health/proto/responses/list_checks_response.proto";
+
+/**
+ * HealthService provides comprehensive health checking capabilities.
+ * Supports individual check status, system-wide health, and health monitoring.
+ */
+service HealthService {
+  // Check health of a specific service or component
+  rpc Check(HealthCheckRequest) returns (HealthCheckResponse);
+
+  // Get overall system health status
+  rpc GetSystemHealth(GetSystemHealthRequest) returns (GetSystemHealthResponse);
+
+  // List all available health checks
+  rpc ListChecks(ListChecksRequest) returns (ListChecksResponse);
+
+  // Stream health status changes
+  rpc WatchHealth(WatchHealthRequest) returns (stream HealthStatusEvent);
+}

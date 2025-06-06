@@ -1,0 +1,37 @@
+// file: queue/proto/services/queue_service.proto
+edition = "2023";
+
+package gcommon.v1.queue;
+
+import "google/protobuf/go_features.proto";
+
+option go_package = "github.com/jdfalk/gcommon/pkg/queue/proto;queuepb";
+option features.(pb.go).api_level = API_HYBRID;
+
+import "pkg/queue/proto/requests/enqueue_request.proto";
+import "pkg/queue/proto/responses/enqueue_response.proto";
+import "pkg/queue/proto/requests/dequeue_request.proto";
+import "pkg/queue/proto/responses/dequeue_response.proto";
+import "pkg/queue/proto/requests/peek_request.proto";
+import "pkg/queue/proto/responses/peek_response.proto";
+
+/**
+ * QueueService provides message queue capabilities.
+ * Supports reliable message delivery, prioritization, and dead letter queues.
+ */
+service QueueService {
+  // Add a message to the queue
+  rpc Enqueue(EnqueueRequest) returns (EnqueueResponse);
+
+  // Remove and return a message from the queue
+  rpc Dequeue(DequeueRequest) returns (DequeueResponse);
+
+  // Peek at the next message without removing it
+  rpc Peek(PeekRequest) returns (PeekResponse);
+
+  // Acknowledge message processing
+  rpc Acknowledge(AcknowledgeRequest) returns (AcknowledgeResponse);
+
+  // Get queue statistics
+  rpc GetQueueStats(GetQueueStatsRequest) returns (GetQueueStatsResponse);
+}
