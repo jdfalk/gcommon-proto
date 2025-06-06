@@ -1,0 +1,25 @@
+// file: pkg/db/proto/messages/execute_stats.proto
+edition = "2023";
+
+package gcommon.v1.database;
+
+import "google/protobuf/duration.proto";
+import "google/protobuf/go_features.proto";
+
+option go_package = "github.com/jdfalk/gcommon/pkg/db/proto;dbpb";
+option features.(pb.go).api_level = API_HYBRID;
+
+/**
+ * ExecuteStats provides execution statistics for database operations.
+ * Used for performance monitoring and operation optimization.
+ */
+message ExecuteStats {
+  // Total execution time for the operation
+  google.protobuf.Duration execution_time = 1 [lazy = true];
+
+  // Number of rows affected by the operation
+  int64 affected_rows = 2;
+
+  // Estimated cost of operation execution
+  double cost_estimate = 3;
+}
