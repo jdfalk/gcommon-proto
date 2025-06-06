@@ -9,6 +9,8 @@ import "google/protobuf/duration.proto";
 import "google/protobuf/empty.proto";
 import "google/protobuf/any.proto";
 
+import "google/protobuf/go_features.proto";
+
 option go_package = "github.com/jdfalk/gcommon/pkg/cache/proto;cachepb";
 option features.(pb.go).api_level = API_HYBRID;
 
@@ -84,7 +86,7 @@ message GetRequest {
   string namespace = 2;
 
   // Request metadata
-  gcommon.common.v1.RequestMetadata metadata = 3;
+  gcommon.v1.common.RequestMetadata metadata = 3;
 
   // Whether to update access time (for LRU policies)
   bool update_access_time = 4;
@@ -99,7 +101,7 @@ message GetResponse {
   bool found = 2;
 
   // Error information if retrieval failed
-  gcommon.common.v1.Error error = 3;
+  gcommon.v1.common.Error error = 3;
 }
 
 // Set request for storing a value in cache
@@ -126,7 +128,7 @@ message SetRequest {
   SetOptions options = 7;
 
   // Request metadata
-  gcommon.common.v1.RequestMetadata request_metadata = 8;
+  gcommon.v1.common.RequestMetadata request_metadata = 8;
 }
 
 // Set response indicating success/failure
@@ -138,7 +140,7 @@ message SetResponse {
   CacheEntry previous_entry = 2;
 
   // Error information if set failed
-  gcommon.common.v1.Error error = 3;
+  gcommon.v1.common.Error error = 3;
 }
 
 // Delete request for removing a cached value
@@ -150,7 +152,7 @@ message DeleteRequest {
   string namespace = 2;
 
   // Request metadata
-  gcommon.common.v1.RequestMetadata metadata = 3;
+  gcommon.v1.common.RequestMetadata metadata = 3;
 }
 
 // Delete response indicating result
@@ -162,7 +164,7 @@ message DeleteResponse {
   CacheEntry deleted_entry = 2;
 
   // Error information if deletion failed
-  gcommon.common.v1.Error error = 3;
+  gcommon.v1.common.Error error = 3;
 }
 
 // Cache entry representation
@@ -228,7 +230,7 @@ message ExistsRequest {
   string namespace = 2;
 
   // Request metadata
-  gcommon.common.v1.RequestMetadata metadata = 3;
+  gcommon.v1.common.RequestMetadata metadata = 3;
 }
 
 // Exists response indicating presence
@@ -249,7 +251,7 @@ message GetMultipleRequest {
   string namespace = 2;
 
   // Request metadata
-  gcommon.common.v1.RequestMetadata metadata = 3;
+  gcommon.v1.common.RequestMetadata metadata = 3;
 }
 
 // GetMultiple response with batch results
@@ -261,7 +263,7 @@ message GetMultipleResponse {
   repeated string not_found = 2;
 
   // Error information
-  gcommon.common.v1.Error error = 3;
+  gcommon.v1.common.Error error = 3;
 }
 
 // SetMultiple request for batch storage
@@ -282,7 +284,7 @@ message SetMultipleRequest {
   repeated string tags = 5;
 
   // Request metadata
-  gcommon.common.v1.RequestMetadata request_metadata = 6;
+  gcommon.v1.common.RequestMetadata request_metadata = 6;
 }
 
 // SetMultiple response with batch results
@@ -291,7 +293,7 @@ message SetMultipleResponse {
   map<string, bool> results = 1;
 
   // Error information
-  gcommon.common.v1.Error error = 2;
+  gcommon.v1.common.Error error = 2;
 }
 
 // DeleteMultiple request for batch removal
@@ -303,7 +305,7 @@ message DeleteMultipleRequest {
   string namespace = 2;
 
   // Request metadata
-  gcommon.common.v1.RequestMetadata metadata = 3;
+  gcommon.v1.common.RequestMetadata metadata = 3;
 }
 
 // DeleteMultiple response with batch results
@@ -315,7 +317,7 @@ message DeleteMultipleResponse {
   int64 deleted_count = 2;
 
   // Error information
-  gcommon.common.v1.Error error = 3;
+  gcommon.v1.common.Error error = 3;
 }
 
 // Increment request for atomic counter operations
@@ -336,7 +338,7 @@ message IncrementRequest {
   string namespace = 5;
 
   // Request metadata
-  gcommon.common.v1.RequestMetadata metadata = 6;
+  gcommon.v1.common.RequestMetadata metadata = 6;
 }
 
 // Increment response with new value
@@ -348,7 +350,7 @@ message IncrementResponse {
   bool success = 2;
 
   // Error information
-  gcommon.common.v1.Error error = 3;
+  gcommon.v1.common.Error error = 3;
 }
 
 // Decrement request for atomic counter operations
@@ -369,7 +371,7 @@ message DecrementRequest {
   string namespace = 5;
 
   // Request metadata
-  gcommon.common.v1.RequestMetadata metadata = 6;
+  gcommon.v1.common.RequestMetadata metadata = 6;
 }
 
 // Decrement response with new value
@@ -381,7 +383,7 @@ message DecrementResponse {
   bool success = 2;
 
   // Error information
-  gcommon.common.v1.Error error = 3;
+  gcommon.v1.common.Error error = 3;
 }
 
 // Clear request for bulk deletion
@@ -396,7 +398,7 @@ message ClearRequest {
   repeated string tags = 3;
 
   // Request metadata
-  gcommon.common.v1.RequestMetadata metadata = 4;
+  gcommon.v1.common.RequestMetadata metadata = 4;
 }
 
 // Clear response with deletion count
@@ -405,7 +407,7 @@ message ClearResponse {
   int64 deleted_count = 1;
 
   // Error information
-  gcommon.common.v1.Error error = 2;
+  gcommon.v1.common.Error error = 2;
 }
 
 // Keys request for key listing
@@ -417,10 +419,10 @@ message KeysRequest {
   string namespace = 2;
 
   // Pagination options
-  gcommon.common.v1.Pagination pagination = 3;
+  gcommon.v1.common.Pagination pagination = 3;
 
   // Request metadata
-  gcommon.common.v1.RequestMetadata metadata = 4;
+  gcommon.v1.common.RequestMetadata metadata = 4;
 }
 
 // Keys response with matching keys
@@ -429,10 +431,10 @@ message KeysResponse {
   repeated string keys = 1;
 
   // Pagination information
-  gcommon.common.v1.PaginatedResponse pagination = 2;
+  gcommon.v1.common.PaginatedResponse pagination = 2;
 
   // Error information
-  gcommon.common.v1.Error error = 3;
+  gcommon.v1.common.Error error = 3;
 }
 
 // Cache statistics request
@@ -441,7 +443,7 @@ message GetStatsRequest {
   string namespace = 1;
 
   // Request metadata
-  gcommon.common.v1.RequestMetadata metadata = 2;
+  gcommon.v1.common.RequestMetadata metadata = 2;
 }
 
 // Cache statistics response
@@ -450,7 +452,7 @@ message GetStatsResponse {
   CacheStats stats = 1;
 
   // Error information
-  gcommon.common.v1.Error error = 2;
+  gcommon.v1.common.Error error = 2;
 }
 
 // Cache statistics
@@ -528,7 +530,7 @@ message FlushRequest {
   string namespace = 1;
 
   // Request metadata
-  gcommon.common.v1.RequestMetadata metadata = 2;
+  gcommon.v1.common.RequestMetadata metadata = 2;
 }
 
 // Flush response
@@ -540,7 +542,7 @@ message FlushResponse {
   int64 flushed_count = 2;
 
   // Error information
-  gcommon.common.v1.Error error = 3;
+  gcommon.v1.common.Error error = 3;
 }
 
 // Touch expiration request
@@ -555,7 +557,7 @@ message TouchExpirationRequest {
   string namespace = 3;
 
   // Request metadata
-  gcommon.common.v1.RequestMetadata metadata = 4;
+  gcommon.v1.common.RequestMetadata metadata = 4;
 }
 
 // Touch expiration response
@@ -567,7 +569,7 @@ message TouchExpirationResponse {
   google.protobuf.Timestamp expires_at = 2;
 
   // Error information
-  gcommon.common.v1.Error error = 3;
+  gcommon.v1.common.Error error = 3;
 }
 
 // Admin service messages
@@ -579,7 +581,7 @@ message CreateNamespaceRequest {
   NamespaceConfig config = 2;
 
   // Request metadata
-  gcommon.common.v1.RequestMetadata metadata = 3;
+  gcommon.v1.common.RequestMetadata metadata = 3;
 }
 
 message CreateNamespaceResponse {
@@ -587,13 +589,13 @@ message CreateNamespaceResponse {
   Namespace namespace = 1;
 
   // Error information
-  gcommon.common.v1.Error error = 2;
+  gcommon.v1.common.Error error = 2;
 }
 
 // Namespace configuration
 message NamespaceConfig {
   // Cache policy for the namespace
-  gcommon.common.v1.CachePolicy policy = 1;
+  gcommon.v1.common.CachePolicy policy = 1;
 
   // Maximum size in bytes
   int64 max_size_bytes = 2;
@@ -620,41 +622,41 @@ message Namespace {
   NamespaceStats stats = 4;
 
   // Namespace status
-  gcommon.common.v1.ResourceStatus status = 5;
+  gcommon.v1.common.ResourceStatus status = 5;
 }
 
 message DeleteNamespaceRequest {
   string namespace = 1;
-  gcommon.common.v1.RequestMetadata metadata = 2;
+  gcommon.v1.common.RequestMetadata metadata = 2;
 }
 
 message ListNamespacesRequest {
-  gcommon.common.v1.Pagination pagination = 1;
-  gcommon.common.v1.RequestMetadata metadata = 2;
+  gcommon.v1.common.Pagination pagination = 1;
+  gcommon.v1.common.RequestMetadata metadata = 2;
 }
 
 message ListNamespacesResponse {
   repeated Namespace namespaces = 1;
-  gcommon.common.v1.PaginatedResponse pagination = 2;
+  gcommon.v1.common.PaginatedResponse pagination = 2;
 }
 
 message GetNamespaceStatsRequest {
   string namespace = 1;
-  gcommon.common.v1.RequestMetadata metadata = 2;
+  gcommon.v1.common.RequestMetadata metadata = 2;
 }
 
 message GetNamespaceStatsResponse {
   NamespaceStats stats = 1;
-  gcommon.common.v1.Error error = 2;
+  gcommon.v1.common.Error error = 2;
 }
 
 message ConfigurePolicyRequest {
   string namespace = 1;
-  gcommon.common.v1.CachePolicy policy = 2;
-  gcommon.common.v1.RequestMetadata metadata = 3;
+  gcommon.v1.common.CachePolicy policy = 2;
+  gcommon.v1.common.RequestMetadata metadata = 3;
 }
 
 message ConfigurePolicyResponse {
   bool success = 1;
-  gcommon.common.v1.Error error = 2;
+  gcommon.v1.common.Error error = 2;
 }
