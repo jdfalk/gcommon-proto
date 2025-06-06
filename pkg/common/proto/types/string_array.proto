@@ -1,0 +1,19 @@
+// file: pkg/common/proto/types/string_array.proto
+edition = "2023";
+
+package gcommon.v1.common;
+
+import "google/protobuf/go_features.proto";
+
+option go_package = "github.com/jdfalk/gcommon/pkg/common/proto;commonpb";
+option features.(pb.go).api_level = API_HYBRID;
+
+/**
+ * String array wrapper for oneof usage in filter values and other contexts.
+ * Required because oneof fields cannot directly contain repeated types,
+ * so arrays must be wrapped in a message.
+ */
+message StringArray {
+  // Array of string values
+  repeated string values = 1;
+}
