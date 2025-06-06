@@ -5,6 +5,7 @@
 GCommon aims to be the most comprehensive, well-designed Go library for common application services. Our mission is to provide consistent, high-performance, production-ready modules that work seamlessly together while remaining modular and flexible for diverse use cases.
 
 ### Success Criteria
+
 - **Developer Experience**: Intuitive APIs with sensible defaults
 - **Production Ready**: Enterprise-grade performance, reliability, and observability
 - **Ecosystem Integration**: Works with existing Go ecosystem tools and frameworks
@@ -76,6 +77,7 @@ GCommon aims to be the most comprehensive, well-designed Go library for common a
 **Major Achievement**: Resolved all protobuf compilation issues across auth and common packages, establishing a solid foundation for future development.
 
 **Completed Tasks:**
+
 - **Import Path Standardization**: Fixed 8+ protobuf files with incorrect import paths
   - Changed from `gcommon/v1/auth/` format to correct `pkg/auth/proto/` relative paths
   - Updated all `gcommon/v1/common/` paths to `pkg/common/proto/` format
@@ -108,6 +110,7 @@ GCommon aims to be the most comprehensive, well-designed Go library for common a
 **Goal**: Strengthen foundation and standardize protobuf layer
 
 **Critical Path Items:**
+
 1. **Week 1-2: Common Types Enhancement**
    - Add missing common types to `pkg/common/proto/common.proto` (6 additional types needed)
    - Update all existing proto files to use standardized common types
@@ -120,6 +123,7 @@ GCommon aims to be the most comprehensive, well-designed Go library for common a
    - **Target**: Metrics module → 100% complete
 
 **Success Metrics:**
+
 - All protobuf files use common types consistently
 - Metrics module reaches production readiness
 - Zero breaking changes in existing Health module
@@ -129,6 +133,7 @@ GCommon aims to be the most comprehensive, well-designed Go library for common a
 **Goal**: Complete database, cache, and configuration modules
 
 **Priority Order (based on dependency analysis):**
+
 1. **Weeks 5-8: Database Module**
    - Complete all 4 gRPC services (Database, Transaction, Schema, Migration)
    - Implement PostgreSQL and CockroachDB drivers
@@ -188,32 +193,40 @@ GCommon aims to be the most comprehensive, well-designed Go library for common a
 ## Key Technical Challenges & Solutions
 
 ### Challenge 1: Cross-Module Integration Complexity
+
 **Problem**: 9 modules with interdependencies could create circular dependencies
 **Solution**:
+
 - Common types package provides shared foundations
 - Interface-based design enables loose coupling
 - Dependency injection pattern for module composition
 - Clear module hierarchy: Common → Health → Auth/Metrics → Database/Cache → Queue/Web
 
 ### Challenge 2: Performance with gRPC Overhead
+
 **Problem**: gRPC adds overhead compared to direct Go interface calls
 **Solution**:
+
 - Dual API strategy: Go interfaces for in-process, gRPC for networked
 - Connection pooling and keep-alive optimization
 - Batch operations for high-throughput scenarios
 - Performance benchmarks to validate efficiency
 
 ### Challenge 3: Backward Compatibility
+
 **Problem**: Evolving APIs while maintaining compatibility
 **Solution**:
+
 - Protobuf versioning strategy (v1, v2, etc.)
 - Careful field addition patterns (optional fields, defaults)
 - Migration guides for breaking changes
 - Comprehensive testing of compatibility scenarios
 
 ### Challenge 4: Provider Implementation Complexity
+
 **Problem**: Supporting multiple backends for each module increases complexity
 **Solution**:
+
 - Provider pattern with shared interfaces
 - Common implementation patterns and utilities
 - Extensive testing with provider-specific test suites
@@ -222,12 +235,14 @@ GCommon aims to be the most comprehensive, well-designed Go library for common a
 ## Resource Allocation & Priorities
 
 ### Development Focus Areas (Priority Order)
+
 1. **Immediate (Weeks 1-4)**: Foundation stability, Metrics completion
 2. **High (Weeks 5-12)**: Database, Cache, Configuration modules
 3. **Medium (Weeks 13-20)**: Authentication, Logging, Queue modules
 4. **Lower (Weeks 21-24)**: Web module, polish, optimization
 
 ### Success Gates
+
 - **Phase 1 Gate**: All protobuf standardized, Metrics module production-ready
 - **Phase 2 Gate**: Core data services (DB, Cache, Config) complete and integrated
 - **Phase 3 Gate**: All modules implemented with gRPC services
@@ -236,6 +251,7 @@ GCommon aims to be the most comprehensive, well-designed Go library for common a
 ## Long-Term Vision (2025-2026)
 
 ### Ecosystem Integration Goals
+
 - **Cloud Provider Integration**: AWS, GCP, Azure service integrations
 - **Kubernetes Operators**: Custom operators for GCommon services
 - **Helm Charts**: Production-ready deployment templates
@@ -244,6 +260,7 @@ GCommon aims to be the most comprehensive, well-designed Go library for common a
 - **IDE Extensions**: VS Code extensions for development productivity
 
 ### Community & Adoption
+
 - **Open Source Governance**: Clear contribution guidelines and review process
 - **Documentation**: Comprehensive guides, tutorials, and API references
 - **Examples**: Real-world application examples and templates
@@ -253,10 +270,11 @@ GCommon aims to be the most comprehensive, well-designed Go library for common a
 ---
 
 *This roadmap is a living document, updated quarterly based on development progress and community feedback.*
-  - [ ] QueueService: 9 methods
-  - [ ] QueueManagementService: 6 methods
-  - [ ] Message publishing and subscription
-  - [ ] Queue management and monitoring
+
+- [ ] QueueService: 9 methods
+- [ ] QueueManagementService: 6 methods
+- [ ] Message publishing and subscription
+- [ ] Queue management and monitoring
 - [ ] **Implement queue providers**
   - [ ] In-memory queue provider
   - [ ] Redis-based queue provider
@@ -275,6 +293,7 @@ GCommon aims to be the most comprehensive, well-designed Go library for common a
 ### Phase 5: Web Services and Integration (Weeks 17-20)
 
 #### Week 17-18: Web Module
+
 - [ ] **Complete Web protobuf definitions** (40+ messages)
   - [ ] WebService: 7 methods
   - [ ] MiddlewareService: 4 methods
@@ -297,6 +316,7 @@ GCommon aims to be the most comprehensive, well-designed Go library for common a
   - [ ] Health check endpoints
 
 #### Week 19-20: Cross-Module Integration and Polish
+
 - [ ] **Cross-module operations**
   - [ ] Implement cross-module transaction support
   - [ ] Create unified observability dashboard
@@ -316,6 +336,7 @@ GCommon aims to be the most comprehensive, well-designed Go library for common a
 ## Quality Assurance Strategy
 
 ### Testing Requirements
+
 - **Unit Tests**: >90% coverage for all modules
 - **Integration Tests**: Cross-module functionality testing
 - **Performance Tests**: Benchmarks for all critical paths
@@ -323,6 +344,7 @@ GCommon aims to be the most comprehensive, well-designed Go library for common a
 - **End-to-End Tests**: Complete application workflows
 
 ### Documentation Standards
+
 - **API Documentation**: Complete godoc for all public APIs
 - **User Guides**: Step-by-step guides for each module
 - **Examples**: Working code examples for common patterns
@@ -330,6 +352,7 @@ GCommon aims to be the most comprehensive, well-designed Go library for common a
 - **Deployment Guides**: Production deployment instructions
 
 ### Performance Targets
+
 - **Latency**: <1ms for in-memory operations, <10ms for network operations
 - **Throughput**: >10,000 requests/second per module
 - **Memory**: <100MB base memory usage
@@ -339,12 +362,14 @@ GCommon aims to be the most comprehensive, well-designed Go library for common a
 ## Risk Management
 
 ### Technical Risks
+
 - **Protobuf Compatibility**: Maintain backward compatibility across versions
 - **Performance Regression**: Continuous benchmarking and monitoring
 - **Memory Leaks**: Comprehensive testing and profiling
 - **Concurrency Issues**: Extensive race condition testing
 
 ### Project Risks
+
 - **Scope Creep**: Strict adherence to defined interfaces
 - **Timeline Pressure**: Prioritize core functionality over advanced features
 - **Resource Constraints**: Focus on highest-impact modules first
@@ -352,12 +377,14 @@ GCommon aims to be the most comprehensive, well-designed Go library for common a
 ## Success Metrics
 
 ### Technical Metrics
+
 - All modules >95% feature complete
 - >90% test coverage across all modules
 - <1% performance regression from baseline
 - Zero known security vulnerabilities
 
 ### Adoption Metrics
+
 - Complete documentation for all modules
 - Working examples for all major use cases
 - Positive feedback from early adopters
@@ -366,6 +393,7 @@ GCommon aims to be the most comprehensive, well-designed Go library for common a
 ## Future Roadmap (Beyond Phase 5)
 
 ### Advanced Features
+
 - **Multi-tenancy**: Support for multi-tenant applications
 - **Distributed Coordination**: Consensus and leader election
 - **Stream Processing**: Real-time data processing pipelines
@@ -373,12 +401,14 @@ GCommon aims to be the most comprehensive, well-designed Go library for common a
 - **Blockchain Integration**: Distributed ledger support
 
 ### Ecosystem Integration
+
 - **Cloud Native**: Enhanced Kubernetes operators
 - **Service Mesh**: Istio and Envoy integration
 - **API Gateway**: Built-in API management
 - **Monitoring**: Integration with Grafana, Jaeger, etc.
 
 This roadmap represents our commitment to building the most comprehensive and well-designed Go library for common application services, with a focus on production readiness, performance, and developer experience.
+
 - [x] Write comprehensive tests
 - [x] Complete documentation with examples
 - [x] Add integration with Kubernetes probes
