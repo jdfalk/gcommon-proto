@@ -1,0 +1,25 @@
+// file: pkg/db/proto/responses/run_migration_response.proto
+edition = "2023";
+
+package gcommon.v1.database;
+
+import "pkg/common/proto/messages/error.proto";
+import "google/protobuf/go_features.proto";
+
+option go_package = "github.com/jdfalk/gcommon/pkg/db/proto;dbpb";
+option features.(pb.go).api_level = API_HYBRID;
+
+/**
+ * RunMigrationResponse contains the result of executing database migrations.
+ * Indicates success status and lists applied migration versions.
+ */
+message RunMigrationResponse {
+  // Whether all migrations were applied successfully
+  bool success = 1;
+
+  // List of migration versions that were successfully applied
+  repeated string applied_versions = 2 [lazy = true];
+
+  // Error information if any migration failed
+  gcommon.v1.common.Error error = 3 [lazy = true];
+}

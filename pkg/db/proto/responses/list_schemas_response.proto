@@ -1,0 +1,18 @@
+// file: pkg/db/proto/responses/list_schemas_response.proto
+edition = "2023";
+
+package gcommon.v1.database;
+
+import "google/protobuf/go_features.proto";
+
+option go_package = "github.com/jdfalk/gcommon/pkg/db/proto;dbpb";
+option features.(pb.go).api_level = API_HYBRID;
+
+/**
+ * ListSchemasResponse contains the list of schemas within a database.
+ * Provides schema names available in the specified database.
+ */
+message ListSchemasResponse {
+  // List of schema names in the database
+  repeated string schemas = 1 [lazy = true];
+}
