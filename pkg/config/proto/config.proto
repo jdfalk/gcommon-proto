@@ -1,157 +1,379 @@
+// file: pkg/config/proto/config.proto
 edition = "2023";
 
-package config;
-import "google/protobuf/go_features.proto";
+package gcommon.v1.config;
 
-option go_package = "github.com/jdfalk/gcommon/pkg/config/proto";
+import "pkg/common/proto/common.proto";
+import "google/protobuf/timestamp.proto";
+import "google/protobuf/duration.proto";
+import "google/protobuf/empty.proto";
+import "google/protobuf/any.proto";
+import "google/protobuf/field_mask.proto";
+
+option go_package = "github.com/jdfalk/gcommon/pkg/config/proto;configpb";
 option features.(pb.go).api_level = API_HYBRID;
 
-// ConfigService defines configuration operations
+// ConfigService provides comprehensive configuration management
 service ConfigService {
   // Get retrieves a configuration value
-  rpc Get(GetRequest) returns (GetResponse);
+  rpc Get(GetConfigRequest) returns (GetConfigResponse);
 
-  // Set sets a configuration value
-  rpc Set(SetRequest) returns (SetResponse);
+  // Set stores a configuration value
+  rpc Set(SetConfigRequest) returns (SetConfigResponse);
 
-  // Has checks if a configuration key exists
-  rpc Has(HasRequest) returns (HasResponse);
+  // Delete removes a configuration value
+  rpc Delete(DeleteConfigRequest) returns (google.protobuf.Empty);
 
-  // Watch watches for changes to a configuration value
-  rpc Watch(WatchRequest) returns (stream WatchResponse);
+  // List configuration keys with optional filtering
+  rpc List(ListConfigRequest) returns (ListConfigResponse);
 
-  // AllSettings returns all settings
-  rpc AllSettings(AllSettingsRequest) returns (AllSettingsResponse);
+  // Watch for configuration changes
+  rpc Watch(WatchConfigRequest) returns (stream WatchConfigResponse);
 
-  // AllKeys returns all configuration keys
-  rpc AllKeys(AllKeysRequest) returns (AllKeysResponse);
+  // GetMultiple retrieves multiple configuration values
+  rpc GetMultiple(GetMultipleConfigRequest) returns (GetMultipleConfigResponse);
+
+  // SetMultiple stores multiple configuration values
+  rpc SetMultiple(SetMultipleConfigRequest) returns (SetMultipleConfigResponse);
+
+  // Validate configuration values
+  rpc Validate(ValidateConfigRequest) returns (ValidateConfigResponse);
+
+  // GetSchema retrieves configuration schema
+  rpc GetSchema(GetSchemaRequest) returns (GetSchemaResponse);
 }
 
-// GetRequest contains get request data
-message GetRequest {
+// Request metadata for configuration operations
+message RequestMetadata {
+  // Unique request ID for tracing
+  string request_id = 1;
+
+  // Client IP address
+  string client_ip = 2;
+
+  // User agent string
+  string user_agent = 3;
+
+  // Timestamp of the request
+  google.protobuf.Timestamp timestamp = 4;
+
+  // Authenticated user ID (if available)
+  string user_id = 5;
+
+  // Session ID (if available)
+  string session_id = 6;
+
+  // Additional custom attributes
+  map<string, string> attributes = 7;
+}
+
+// Configuration value request
+message GetConfigRequest {
+  // Configuration key
   string key = 1;
-  string default_value = 2; // Optional default value if key doesn't exist
-  string type_hint = 3;     // Optional hint about the value type
+
+  // Optional namespace/environment
+  string namespace = 2;
+
+  // Request metadata
+  gcommon.common.v1.RequestMetadata metadata = 3;
+
+  // Whether to decrypt encrypted values
+  bool decrypt = 4;
 }
 
-// GetResponse contains get response data
-message GetResponse {
-  // Can be one of the value types below
-  oneof value {
-    bool bool_value = 1;
-    int64 int_value = 2;
-    uint64 uint_value = 3;
-    double float_value = 4;
-    string string_value = 5;
-    bytes bytes_value = 6;
-    int64 duration_value = 7; // Duration in nanoseconds
-    int64 time_value = 8;     // Time as Unix timestamp
-  }
-  repeated string string_slice = 9;
-  repeated int64 int_slice = 10;
-  bool found = 11;            // Whether the key was found
+// Configuration value response
+message GetConfigResponse {
+  // Configuration entry
+  ConfigEntry entry = 1;
+
+  // Whether the key was found
+  bool found = 2;
+
+  // Error information
+  gcommon.common.v1.Error error = 3;
 }
 
-// SetRequest contains set request data
-message SetRequest {
+// Set configuration request
+message SetConfigRequest {
+  // Configuration key
   string key = 1;
-  // Can be one of the value types below
-  oneof value {
-    bool bool_value = 2;
-    int64 int_value = 3;
-    uint64 uint_value = 4;
-    double float_value = 5;
-    string string_value = 6;
-    bytes bytes_value = 7;
-    int64 duration_value = 8; // Duration in nanoseconds
-    int64 time_value = 9;     // Time as Unix timestamp
-  }
-  repeated string string_slice = 10;
-  repeated int64 int_slice = 11;
+
+  // Configuration value
+  gcommon.common.v1.ConfigValue value = 2;
+
+  // Optional namespace/environment
+  string namespace = 3;
+
+  // Configuration metadata
+  map<string, string> metadata = 4;
+
+  // Whether to encrypt the value
+  bool encrypt = 5;
+
+  // Tags for categorization
+  repeated string tags = 6;
+
+  // Request metadata
+  gcommon.common.v1.RequestMetadata request_metadata = 7;
 }
 
-// SetResponse contains set response data
-message SetResponse {
+// Set configuration response
+message SetConfigResponse {
+  // Whether the operation succeeded
   bool success = 1;
+
+  // Previous value if it existed
+  ConfigEntry previous_entry = 2;
+
+  // Error information
+  gcommon.common.v1.Error error = 3;
 }
 
-// HasRequest contains has request data
-message HasRequest {
+// Delete configuration request
+message DeleteConfigRequest {
+  // Configuration key to delete
   string key = 1;
+
+  // Optional namespace/environment
+  string namespace = 2;
+
+  // Request metadata
+  gcommon.common.v1.RequestMetadata metadata = 3;
 }
 
-// HasResponse contains has response data
-message HasResponse {
-  bool exists = 1;
+// List configuration request
+message ListConfigRequest {
+  // Key prefix filter
+  string prefix = 1;
+
+  // Optional namespace/environment
+  string namespace = 2;
+
+  // Pagination options
+  gcommon.common.v1.Pagination pagination = 3;
+
+  // Filter options
+  gcommon.common.v1.FilterOptions filter = 4;
+
+  // Sort options
+  gcommon.common.v1.SortOptions sort = 5;
+
+  // Request metadata
+  gcommon.common.v1.RequestMetadata metadata = 6;
 }
 
-// WatchRequest contains watch request data
-message WatchRequest {
+// List configuration response
+message ListConfigResponse {
+  // Configuration entries
+  repeated ConfigEntry entries = 1;
+
+  // Pagination information
+  gcommon.common.v1.PaginatedResponse pagination = 2;
+
+  // Error information
+  gcommon.common.v1.Error error = 3;
+}
+
+// Watch configuration request
+message WatchConfigRequest {
+  // Key or key pattern to watch
+  string key_pattern = 1;
+
+  // Optional namespace/environment
+  string namespace = 2;
+
+  // Request metadata
+  gcommon.common.v1.RequestMetadata metadata = 3;
+}
+
+// Watch configuration response
+message WatchConfigResponse {
+  // Type of change
+  ConfigChangeType change_type = 1;
+
+  // Configuration entry
+  ConfigEntry entry = 2;
+
+  // Previous value for updates/deletes
+  ConfigEntry previous_entry = 3;
+
+  // Change timestamp
+  google.protobuf.Timestamp timestamp = 4;
+}
+
+// Configuration change type
+enum ConfigChangeType {
+  CONFIG_CHANGE_TYPE_UNSPECIFIED = 0;
+  CONFIG_CHANGE_TYPE_CREATED = 1;
+  CONFIG_CHANGE_TYPE_UPDATED = 2;
+  CONFIG_CHANGE_TYPE_DELETED = 3;
+}
+
+// Configuration entry
+message ConfigEntry {
+  // Configuration key
   string key = 1;
+
+  // Configuration value
+  gcommon.common.v1.ConfigValue value = 2;
+
+  // Namespace/environment
+  string namespace = 3;
+
+  // Entry metadata
+  map<string, string> metadata = 4;
+
+  // Tags for categorization
+  repeated string tags = 5;
+
+  // Creation timestamp
+  google.protobuf.Timestamp created_at = 6;
+
+  // Last update timestamp
+  google.protobuf.Timestamp updated_at = 7;
+
+  // Entry version for optimistic concurrency
+  int64 version = 8;
+
+  // Entry status
+  gcommon.common.v1.ResourceStatus status = 9;
 }
 
-// WatchResponse contains watch response data
-message WatchResponse {
-  string key = 1;
-  // Can be one of the value types below
-  oneof value {
-    bool bool_value = 2;
-    int64 int_value = 3;
-    uint64 uint_value = 4;
-    double float_value = 5;
-    string string_value = 6;
-    bytes bytes_value = 7;
-    int64 duration_value = 8; // Duration in nanoseconds
-    int64 time_value = 9;     // Time as Unix timestamp
-  }
-  repeated string string_slice = 10;
-  repeated int64 int_slice = 11;
-  ChangeType change_type = 12;
-}
-
-// ChangeType represents the type of configuration change
-enum ChangeType {
-  CHANGE_TYPE_UNSPECIFIED = 0;
-  CHANGE_TYPE_ADD = 1;
-  CHANGE_TYPE_UPDATE = 2;
-  CHANGE_TYPE_DELETE = 3;
-}
-
-// AllSettingsRequest contains all settings request data
-message AllSettingsRequest {
-  string prefix = 1; // Optional prefix to filter settings
-}
-
-// AllSettingsResponse contains all settings response data
-message AllSettingsResponse {
-  map<string, bytes> settings = 1; // Raw JSON for settings
-}
-
-// AllKeysRequest contains all keys request data
-message AllKeysRequest {
-  string prefix = 1; // Optional prefix to filter keys
-}
-
-// AllKeysResponse contains all keys response data
-message AllKeysResponse {
+// GetMultiple configuration request
+message GetMultipleConfigRequest {
+  // Configuration keys to retrieve
   repeated string keys = 1;
+
+  // Optional namespace/environment
+  string namespace = 2;
+
+  // Whether to decrypt encrypted values
+  bool decrypt = 3;
+
+  // Request metadata
+  gcommon.common.v1.RequestMetadata metadata = 4;
 }
 
-// ConfigSource represents a configuration source
-message ConfigSource {
+// GetMultiple configuration response
+message GetMultipleConfigResponse {
+  // Retrieved entries mapped by key
+  map<string, ConfigEntry> entries = 1;
+
+  // Keys that were not found
+  repeated string not_found = 2;
+
+  // Error information
+  gcommon.common.v1.Error error = 3;
+}
+
+// SetMultiple configuration request
+message SetMultipleConfigRequest {
+  // Configuration entries to set
+  map<string, gcommon.common.v1.ConfigValue> entries = 1;
+
+  // Optional namespace/environment
+  string namespace = 2;
+
+  // Common metadata for all entries
+  map<string, string> metadata = 3;
+
+  // Whether to encrypt values
+  bool encrypt = 4;
+
+  // Request metadata
+  gcommon.common.v1.RequestMetadata request_metadata = 5;
+}
+
+// SetMultiple configuration response
+message SetMultipleConfigResponse {
+  // Success status for each key
+  map<string, bool> results = 1;
+
+  // Error information
+  gcommon.common.v1.Error error = 2;
+}
+
+// Validate configuration request
+message ValidateConfigRequest {
+  // Configuration entries to validate
+  repeated ConfigEntry entries = 1;
+
+  // Schema to validate against
+  string schema_name = 2;
+
+  // Request metadata
+  gcommon.common.v1.RequestMetadata metadata = 3;
+}
+
+// Validate configuration response
+message ValidateConfigResponse {
+  // Validation result
+  bool valid = 1;
+
+  // Validation errors
+  repeated ConfigValidationError errors = 2;
+
+  // Validation warnings
+  repeated ConfigValidationWarning warnings = 3;
+}
+
+// Configuration validation error
+message ConfigValidationError {
+  // Configuration key with error
+  string key = 1;
+
+  // Error message
+  string message = 2;
+
+  // Error code
+  string code = 3;
+}
+
+// Configuration validation warning
+message ConfigValidationWarning {
+  // Configuration key with warning
+  string key = 1;
+
+  // Warning message
+  string message = 2;
+
+  // Warning code
+  string code = 3;
+}
+
+// Schema request
+message GetSchemaRequest {
+  // Schema name
   string name = 1;
-  SourceType type = 2;
-  string location = 3;
-  bool watch = 4;
-  int32 priority = 5;
+
+  // Request metadata
+  gcommon.common.v1.RequestMetadata metadata = 2;
 }
 
-// SourceType represents a configuration source type
-enum SourceType {
-  SOURCE_TYPE_UNSPECIFIED = 0;
-  SOURCE_TYPE_FILE = 1;
-  SOURCE_TYPE_ENV = 2;
-  SOURCE_TYPE_REMOTE = 3;
-  SOURCE_TYPE_DEFAULTS = 4;
-  SOURCE_TYPE_FLAGS = 5;
+// Schema response
+message GetSchemaResponse {
+  // Configuration schema
+  ConfigSchema schema = 1;
+
+  // Error information
+  gcommon.common.v1.Error error = 2;
+}
+
+// Configuration schema
+message ConfigSchema {
+  // Schema name
+  string name = 1;
+
+  // Schema version
+  string version = 2;
+
+  // Schema definition (JSON Schema)
+  string definition = 3;
+
+  // Schema metadata
+  map<string, string> metadata = 4;
+
+  // Creation timestamp
+  google.protobuf.Timestamp created_at = 5;
 }
