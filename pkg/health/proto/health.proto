@@ -1,184 +1,193 @@
+// file: pkg/health/proto/health.proto
 edition = "2023";
 
-package health;
-import "google/protobuf/go_features.proto";
+package gcommon.v1.health;
 
-option go_package = "github.com/jdfalk/gcommon/pkg/health/proto";
+import "pkg/common/proto/common.proto";
+import "google/protobuf/timestamp.proto";
+import "google/protobuf/duration.proto";
+import "google/protobuf/empty.proto";
+import "google/protobuf/any.proto";
+
+option go_package = "github.com/jdfalk/gcommon/pkg/health/proto;healthpb";
 option features.(pb.go).api_level = API_HYBRID;
 
-// HealthService defines the gRPC health checking service.
+// HealthService provides comprehensive health checking capabilities
 service HealthService {
-  // Check performs a single health check and returns the status.
-  rpc Check(HealthCheckRequest) returns (HealthCheckResponse) {}
+  // Check performs a health check for a specific service
+  rpc Check(HealthCheckRequest) returns (HealthCheckResponse);
 
-  // Watch performs a streaming health check and reports status changes.
-  rpc Watch(HealthCheckRequest) returns (stream HealthCheckResponse) {}
+  // Watch returns a stream of health check results
+  rpc Watch(WatchRequest) returns (stream HealthCheckResponse);
 
-  // CheckAll executes all health checks and returns detailed results.
-  rpc CheckAll(HealthCheckAllRequest) returns (HealthCheckAllResponse) {}
+  // GetServiceHealth returns health status for a service
+  rpc GetServiceHealth(GetServiceHealthRequest) returns (GetServiceHealthResponse);
+
+  // ListServices returns all monitored services
+  rpc ListServices(ListServicesRequest) returns (ListServicesResponse);
+
+  // RegisterCheck registers a new health check
+  rpc RegisterCheck(RegisterCheckRequest) returns (RegisterCheckResponse);
+
+  // UnregisterCheck removes a health check
+  rpc UnregisterCheck(UnregisterCheckRequest) returns (google.protobuf.Empty);
+
+  // GetHealthMetrics returns health metrics and statistics
+  rpc GetHealthMetrics(GetHealthMetricsRequest) returns (GetHealthMetricsResponse);
 }
 
-// HealthCheckRequest is the request message for health check operations.
+// Standard gRPC health checking service (for compatibility)
+service HealthCheckService {
+  rpc Check(HealthCheckRequest) returns (HealthCheckResponse);
+  rpc Watch(WatchRequest) returns (stream HealthCheckResponse);
+}
+
+// Health check request
 message HealthCheckRequest {
-  // Name of the service to check. If empty, the overall system health is checked.
+  // Service name to check (empty for overall health)
   string service = 1;
+
+  // Request metadata
+  gcommon.common.v1.RequestMetadata metadata = 2;
+
+  // Check timeout
+  google.protobuf.Duration timeout = 3;
+
+  // Include detailed check results
+  bool include_details = 4;
 }
 
-// HealthCheckResponse is the response message for a health check operation.
+// Health check response
 message HealthCheckResponse {
-  // Status of the checked service.
-  ServingStatus status = 1;
+  // Overall health status
+  gcommon.common.v1.HealthStatus status = 1;
 
-  // Timestamp of when the check was performed (in RFC 3339 format).
-  string timestamp = 2;
+  // Service name
+  string service = 2;
 
-  // Additional details about the health status (optional).
-  map<string, string> details = 3;
+  // Check timestamp
+  google.protobuf.Timestamp timestamp = 3;
+
+  // Response time
+  google.protobuf.Duration response_time = 4;
+
+  // Detailed check results
+  repeated CheckResult check_results = 5;
+
+  // Health message
+  string message = 6;
+
+  // Error information if unhealthy
+  gcommon.common.v1.Error error = 7;
+
+  // Health metrics
+  HealthMetrics metrics = 8;
 }
 
-// HealthCheckAllRequest is the request message for checking all health checks.
-message HealthCheckAllRequest {
-  // Include detailed results for each check.
-  bool include_details = 1;
+// Watch request for streaming health checks
+message WatchRequest {
+  // Service name to watch (empty for all services)
+  string service = 1;
 
-  // Filter checks by type.
-  repeated CheckType types = 2;
+  // Request metadata
+  gcommon.common.v1.RequestMetadata metadata = 2;
 }
 
-// HealthCheckAllResponse contains results from all health checks.
-message HealthCheckAllResponse {
-  // Overall status of the system.
-  ServingStatus status = 1;
+// Service health response
+message GetServiceHealthRequest {
+  // Service name
+  string service = 1;
 
-  // Timestamp of when the checks were performed.
-  string timestamp = 2;
-
-  // Results from individual checks.
-  map<string, HealthCheckResult> results = 3;
+  // Request metadata
+  gcommon.common.v1.RequestMetadata metadata = 2;
 }
 
-// HealthCheckResult represents the result of a single health check.
-message HealthCheckResult {
-  // Status of this check.
-  ServingStatus status = 1;
+message GetServiceHealthResponse {
+  // Health status
+  gcommon.common.v1.HealthStatus status = 1;
 
-  // Type of check performed.
-  CheckType type = 2;
+  // Last check timestamp
+  google.protobuf.Timestamp last_check = 2;
 
-  // Timestamp when the check was performed.
-  string timestamp = 3;
-
-  // Duration of the check in milliseconds.
-  int64 duration_ms = 4;
-
-  // Error message if the check failed.
-  string error = 5;
-
-  // Additional details about the check.
-  map<string, string> details = 6;
-
-  // Results of nested checks (if any).
-  map<string, HealthCheckResult> children = 7;
+  // Error information if unhealthy
+  gcommon.common.v1.Error error = 3;
 }
 
-// ServingStatus represents the health status of a service.
-enum ServingStatus {
-  // UNKNOWN indicates the health status could not be determined.
-  UNKNOWN = 0;
-
-  // SERVING indicates the service is healthy and serving requests.
-  SERVING = 1;
-
-  // NOT_SERVING indicates the service is unhealthy and not serving requests.
-  NOT_SERVING = 2;
-
-  // SERVING_DEGRADED indicates the service is partially healthy.
-  SERVING_DEGRADED = 3;
+// List services response
+message ListServicesRequest {
+  // Request metadata
+  gcommon.common.v1.RequestMetadata metadata = 1;
 }
 
-// CheckType identifies the type of health check.
-enum CheckType {
-  // TYPE_UNSPECIFIED is the default, unspecified type.
-  TYPE_UNSPECIFIED = 0;
+message ListServicesResponse {
+  // List of service names
+  repeated string services = 1;
 
-  // LIVENESS indicates a liveness check.
-  LIVENESS = 1;
-
-  // READINESS indicates a readiness check.
-  READINESS = 2;
-
-  // STARTUP indicates a startup check.
-  STARTUP = 3;
-
-  // COMPONENT indicates a component check.
-  COMPONENT = 4;
-
-  // DEPENDENCY indicates a dependency check.
-  DEPENDENCY = 5;
+  // Request metadata
+  gcommon.common.v1.RequestMetadata metadata = 2;
 }
 
-// HealthConfig represents the configuration for the health system.
-message HealthConfig {
-  // Whether the health check system is enabled.
-  bool enabled = 1;
+// Register health check request
+message RegisterCheckRequest {
+  // Service name
+  string service = 1;
 
-  // Base path for health endpoints.
-  string endpoint = 2;
+  // Check parameters
+  HealthCheckRequest check = 2;
 
-  // Path for liveness endpoint.
-  string liveness_path = 3;
-
-  // Path for readiness endpoint.
-  string readiness_path = 4;
-
-  // Path for detailed health info.
-  string details_path = 5;
-
-  // Enable the liveness endpoint.
-  bool enable_liveness_endpoint = 6;
-
-  // Enable the readiness endpoint.
-  bool enable_readiness_endpoint = 7;
-
-  // Require authentication for detailed health info.
-  bool require_authentication = 8;
-
-  // Authentication header value.
-  string auth_header = 9;
-
-  // Default timeout for health checks in milliseconds.
-  int64 default_timeout_ms = 10;
-
-  // Interval for background health checks in milliseconds.
-  int64 check_interval_ms = 11;
-
-  // Log status changes to health checks.
-  bool log_status_changes = 12;
-
-  // Enable metrics for health checks.
-  bool metrics_enabled = 13;
+  // Request metadata
+  gcommon.common.v1.RequestMetadata metadata = 3;
 }
 
-// RemediationDetails contains information about a remediation attempt.
-message RemediationDetails {
-  // Name of the check being remediated.
-  string check_name = 1;
+message RegisterCheckResponse {
+  // Success status
+  bool success = 1;
 
-  // Number of remediation attempts made.
-  int32 attempt_count = 2;
+  // Registered check ID
+  string check_id = 2;
 
-  // Maximum allowed attempts.
-  int32 max_attempts = 3;
+  // Error information
+  gcommon.common.v1.Error error = 3;
+}
 
-  // Whether the remediation was successful.
-  bool success = 4;
+// Unregister health check request
+message UnregisterCheckRequest {
+  // Check ID to unregister
+  string check_id = 1;
 
-  // Error message if remediation failed.
-  string error = 5;
+  // Request metadata
+  gcommon.common.v1.RequestMetadata metadata = 2;
+}
 
-  // Duration of the remediation attempt in milliseconds.
-  int64 duration_ms = 6;
+// Health metrics request
+message GetHealthMetricsRequest {
+  // Service name (optional)
+  string service = 1;
 
-  // Timestamp when remediation was attempted.
-  string timestamp = 7;
+  // Request metadata
+  gcommon.common.v1.RequestMetadata metadata = 2;
+}
+
+// Health metrics response
+message GetHealthMetricsResponse {
+  // Health metrics data
+  repeated HealthMetricData metrics = 1;
+
+  // Request metadata
+  gcommon.common.v1.RequestMetadata metadata = 2;
+}
+
+// Health metric data
+message HealthMetricData {
+  // Metric name
+  string name = 1;
+
+  // Metric value
+  double value = 2;
+
+  // Timestamp of the metric
+  google.protobuf.Timestamp timestamp = 3;
+
+  // Labels for the metric
+  map<string, string> labels = 4;
 }
