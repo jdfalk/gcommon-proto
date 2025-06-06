@@ -19,6 +19,7 @@ import "google/protobuf/timestamp.proto";
 import "google/protobuf/duration.proto";
 import "google/protobuf/empty.proto";
 import "google/protobuf/field_mask.proto";
+import "google/protobuf/go_features.proto";
 
 option go_package = "github.com/jdfalk/gcommon/pkg/auth/proto;authpb";
 option features.(pb.go).api_level = API_HYBRID;
@@ -107,7 +108,7 @@ service SessionService {
 // Authentication request with multiple credential types
 message AuthenticateRequest {
   // Request metadata for tracing and correlation
-  gcommon.common.v1.RequestMetadata metadata = 1;
+  gcommon.v1.common.RequestMetadata metadata = 1;
 
   // Authentication credentials (oneof ensures only one type is used)
   oneof credentials {
@@ -125,7 +126,7 @@ message AuthenticateRequest {
   repeated string scopes = 6;
 
   // Client information
-  gcommon.common.v1.ClientInfo client_info = 7;
+  gcommon.v1.common.ClientInfo client_info = 7;
 }
 
 // Username/password credentials
@@ -183,7 +184,7 @@ message AuthenticateResponse {
   // Session information
   Session session = 7;
   // Rate limit information
-  gcommon.common.v1.RateLimit rate_limit = 8;
+  gcommon.v1.common.RateLimit rate_limit = 8;
 }
 
 // User information
@@ -236,7 +237,7 @@ message Session {
   // Session expiration timestamp
   google.protobuf.Timestamp expires_at = 5;
   // Client information
-  gcommon.common.v1.ClientInfo client_info = 6;
+  gcommon.v1.common.ClientInfo client_info = 6;
   // Session status
   SessionStatus status = 7;
   // Session metadata
@@ -271,12 +272,12 @@ message Role {
   // Role creation timestamp
   google.protobuf.Timestamp created_at = 6;
   // Role status
-  gcommon.common.v1.ResourceStatus status = 7;
+  gcommon.v1.common.ResourceStatus status = 7;
 }
 
 // Additional request/response messages (abbreviated for space)
 message VerifyCredentialsRequest {
-  gcommon.common.v1.RequestMetadata metadata = 1;
+  gcommon.v1.common.RequestMetadata metadata = 1;
   oneof credentials {
     PasswordCredentials password = 2;
     APIKeyCredentials api_key = 3;
@@ -286,13 +287,13 @@ message VerifyCredentialsRequest {
 message VerifyCredentialsResponse {
   bool verified = 1;
   UserInfo user_info = 2;
-  gcommon.common.v1.Error error = 3;
+  gcommon.v1.common.Error error = 3;
 }
 
 message ValidateTokenRequest {
   string token = 1;
   repeated string required_scopes = 2;
-  gcommon.common.v1.RequestMetadata metadata = 3;
+  gcommon.v1.common.RequestMetadata metadata = 3;
 }
 
 message ValidateTokenResponse {
@@ -301,13 +302,13 @@ message ValidateTokenResponse {
   repeated string scopes = 3;
   google.protobuf.Timestamp expires_at = 4;
   UserInfo user_info = 5;
-  gcommon.common.v1.Error error = 6;
+  gcommon.v1.common.Error error = 6;
 }
 
 message RefreshTokenRequest {
   string refresh_token = 1;
   repeated string scopes = 2;
-  gcommon.common.v1.RequestMetadata metadata = 3;
+  gcommon.v1.common.RequestMetadata metadata = 3;
 }
 
 message RefreshTokenResponse {
@@ -321,12 +322,12 @@ message RefreshTokenResponse {
 message RevokeTokenRequest {
   string token = 1;
   string token_type_hint = 2;
-  gcommon.common.v1.RequestMetadata metadata = 3;
+  gcommon.v1.common.RequestMetadata metadata = 3;
 }
 
 message GetUserInfoRequest {
   string token = 1;
-  gcommon.common.v1.RequestMetadata metadata = 2;
+  gcommon.v1.common.RequestMetadata metadata = 2;
 }
 
 message GetUserInfoResponse {
@@ -339,19 +340,19 @@ message AuthorizeRequest {
   string resource = 2;
   string action = 3;
   map<string, string> context = 4;
-  gcommon.common.v1.RequestMetadata metadata = 5;
+  gcommon.v1.common.RequestMetadata metadata = 5;
 }
 
 message AuthorizeResponse {
   bool authorized = 1;
   repeated string permissions = 2;
   string denial_reason = 3;
-  gcommon.common.v1.Error error = 4;
+  gcommon.v1.common.Error error = 4;
 }
 
 message InitiatePasswordResetRequest {
   string identifier = 1;
-  gcommon.common.v1.RequestMetadata metadata = 2;
+  gcommon.v1.common.RequestMetadata metadata = 2;
 }
 
 message InitiatePasswordResetResponse {
@@ -363,18 +364,18 @@ message InitiatePasswordResetResponse {
 message CompletePasswordResetRequest {
   string reset_token = 1;
   string new_password = 2;
-  gcommon.common.v1.RequestMetadata metadata = 3;
+  gcommon.v1.common.RequestMetadata metadata = 3;
 }
 
 message ChangePasswordRequest {
   string current_password = 1;
   string new_password = 2;
-  gcommon.common.v1.RequestMetadata metadata = 3;
+  gcommon.v1.common.RequestMetadata metadata = 3;
 }
 
 message GetUserPermissionsRequest {
   string user_id = 1;
-  gcommon.common.v1.RequestMetadata metadata = 2;
+  gcommon.v1.common.RequestMetadata metadata = 2;
 }
 
 message GetUserPermissionsResponse {
@@ -386,7 +387,7 @@ message GetUserPermissionsResponse {
 
 message GetUserRolesRequest {
   string user_id = 1;
-  gcommon.common.v1.RequestMetadata metadata = 2;
+  gcommon.v1.common.RequestMetadata metadata = 2;
 }
 
 message GetUserRolesResponse {
@@ -396,90 +397,90 @@ message GetUserRolesResponse {
 message AssignRoleRequest {
   string user_id = 1;
   string role_id = 2;
-  gcommon.common.v1.RequestMetadata metadata = 3;
+  gcommon.v1.common.RequestMetadata metadata = 3;
 }
 
 message RemoveRoleRequest {
   string user_id = 1;
   string role_id = 2;
-  gcommon.common.v1.RequestMetadata metadata = 3;
+  gcommon.v1.common.RequestMetadata metadata = 3;
 }
 
 message CreateRoleRequest {
   Role role = 1;
-  gcommon.common.v1.RequestMetadata metadata = 2;
+  gcommon.v1.common.RequestMetadata metadata = 2;
 }
 
 message UpdateRoleRequest {
   Role role = 1;
   google.protobuf.FieldMask update_mask = 2;
-  gcommon.common.v1.RequestMetadata metadata = 3;
+  gcommon.v1.common.RequestMetadata metadata = 3;
 }
 
 message DeleteRoleRequest {
   string role_id = 1;
-  gcommon.common.v1.RequestMetadata metadata = 2;
+  gcommon.v1.common.RequestMetadata metadata = 2;
 }
 
 message ListRolesRequest {
-  gcommon.common.v1.Pagination pagination = 1;
-  gcommon.common.v1.FilterOptions filter = 2;
-  gcommon.common.v1.SortOptions sort = 3;
-  gcommon.common.v1.RequestMetadata metadata = 4;
+  gcommon.v1.common.Pagination pagination = 1;
+  gcommon.v1.common.FilterOptions filter = 2;
+  gcommon.v1.common.SortOptions sort = 3;
+  gcommon.v1.common.RequestMetadata metadata = 4;
 }
 
 message ListRolesResponse {
   repeated Role roles = 1;
-  gcommon.common.v1.PaginatedResponse pagination = 2;
+  gcommon.v1.common.PaginatedResponse pagination = 2;
 }
 
 message CreateSessionRequest {
   string user_id = 1;
-  gcommon.common.v1.ClientInfo client_info = 2;
+  gcommon.v1.common.ClientInfo client_info = 2;
   repeated string scopes = 3;
   map<string, string> metadata = 4;
   bool remember_me = 5;
-  gcommon.common.v1.RequestMetadata request_metadata = 6;
+  gcommon.v1.common.RequestMetadata request_metadata = 6;
 }
 
 message GetSessionRequest {
   string session_id = 1;
-  gcommon.common.v1.RequestMetadata metadata = 2;
+  gcommon.v1.common.RequestMetadata metadata = 2;
 }
 
 message UpdateSessionRequest {
   Session session = 1;
   google.protobuf.FieldMask update_mask = 2;
-  gcommon.common.v1.RequestMetadata metadata = 3;
+  gcommon.v1.common.RequestMetadata metadata = 3;
 }
 
 message TerminateSessionRequest {
   string session_id = 1;
-  gcommon.common.v1.RequestMetadata metadata = 2;
+  gcommon.v1.common.RequestMetadata metadata = 2;
 }
 
 message ListUserSessionsRequest {
   string user_id = 1;
-  gcommon.common.v1.Pagination pagination = 2;
-  gcommon.common.v1.FilterOptions filter = 3;
-  gcommon.common.v1.RequestMetadata metadata = 4;
+  gcommon.v1.common.Pagination pagination = 2;
+  gcommon.v1.common.FilterOptions filter = 3;
+  gcommon.v1.common.RequestMetadata metadata = 4;
 }
 
 message ListUserSessionsResponse {
   repeated Session sessions = 1;
-  gcommon.common.v1.PaginatedResponse pagination = 2;
+  gcommon.v1.common.PaginatedResponse pagination = 2;
 }
 
 message ValidateSessionRequest {
   string session_token = 1;
-  gcommon.common.v1.RequestMetadata metadata = 2;
+  gcommon.v1.common.RequestMetadata metadata = 2;
 }
 
 message ValidateSessionResponse {
   bool valid = 1;
   Session session = 2;
   UserInfo user_info = 3;
-  gcommon.common.v1.Error error = 4;
+  gcommon.v1.common.Error error = 4;
 }
 AUTH_PROTO
 
@@ -497,6 +498,7 @@ import "google/protobuf/timestamp.proto";
 import "google/protobuf/duration.proto";
 import "google/protobuf/empty.proto";
 import "google/protobuf/any.proto";
+import "google/protobuf/go_features.proto";
 
 option go_package = "github.com/jdfalk/gcommon/pkg/cache/proto;cachepb";
 option features.(pb.go).api_level = API_HYBRID;
@@ -573,7 +575,7 @@ message GetRequest {
   string namespace = 2;
 
   // Request metadata
-  gcommon.common.v1.RequestMetadata metadata = 3;
+  gcommon.v1.common.RequestMetadata metadata = 3;
 
   // Whether to update access time (for LRU policies)
   bool update_access_time = 4;
@@ -588,7 +590,7 @@ message GetResponse {
   bool found = 2;
 
   // Error information if retrieval failed
-  gcommon.common.v1.Error error = 3;
+  gcommon.v1.common.Error error = 3;
 }
 
 // Set request for storing a value in cache
@@ -615,7 +617,7 @@ message SetRequest {
   SetOptions options = 7;
 
   // Request metadata
-  gcommon.common.v1.RequestMetadata request_metadata = 8;
+  gcommon.v1.common.RequestMetadata request_metadata = 8;
 }
 
 // Set response indicating success/failure
@@ -627,7 +629,7 @@ message SetResponse {
   CacheEntry previous_entry = 2;
 
   // Error information if set failed
-  gcommon.common.v1.Error error = 3;
+  gcommon.v1.common.Error error = 3;
 }
 
 // Delete request for removing a cached value
@@ -639,7 +641,7 @@ message DeleteRequest {
   string namespace = 2;
 
   // Request metadata
-  gcommon.common.v1.RequestMetadata metadata = 3;
+  gcommon.v1.common.RequestMetadata metadata = 3;
 }
 
 // Delete response indicating result
@@ -651,7 +653,7 @@ message DeleteResponse {
   CacheEntry deleted_entry = 2;
 
   // Error information if deletion failed
-  gcommon.common.v1.Error error = 3;
+  gcommon.v1.common.Error error = 3;
 }
 
 // Cache entry representation
@@ -717,7 +719,7 @@ message ExistsRequest {
   string namespace = 2;
 
   // Request metadata
-  gcommon.common.v1.RequestMetadata metadata = 3;
+  gcommon.v1.common.RequestMetadata metadata = 3;
 }
 
 // Exists response indicating presence
@@ -738,7 +740,7 @@ message GetMultipleRequest {
   string namespace = 2;
 
   // Request metadata
-  gcommon.common.v1.RequestMetadata metadata = 3;
+  gcommon.v1.common.RequestMetadata metadata = 3;
 }
 
 // GetMultiple response with batch results
@@ -750,7 +752,7 @@ message GetMultipleResponse {
   repeated string not_found = 2;
 
   // Error information
-  gcommon.common.v1.Error error = 3;
+  gcommon.v1.common.Error error = 3;
 }
 
 // SetMultiple request for batch storage
@@ -771,7 +773,7 @@ message SetMultipleRequest {
   repeated string tags = 5;
 
   // Request metadata
-  gcommon.common.v1.RequestMetadata request_metadata = 6;
+  gcommon.v1.common.RequestMetadata request_metadata = 6;
 }
 
 // SetMultiple response with batch results
@@ -780,7 +782,7 @@ message SetMultipleResponse {
   map<string, bool> results = 1;
 
   // Error information
-  gcommon.common.v1.Error error = 2;
+  gcommon.v1.common.Error error = 2;
 }
 
 // DeleteMultiple request for batch removal
@@ -792,7 +794,7 @@ message DeleteMultipleRequest {
   string namespace = 2;
 
   // Request metadata
-  gcommon.common.v1.RequestMetadata metadata = 3;
+  gcommon.v1.common.RequestMetadata metadata = 3;
 }
 
 // DeleteMultiple response with batch results
@@ -804,7 +806,7 @@ message DeleteMultipleResponse {
   int64 deleted_count = 2;
 
   // Error information
-  gcommon.common.v1.Error error = 3;
+  gcommon.v1.common.Error error = 3;
 }
 
 // Increment request for atomic counter operations
@@ -825,7 +827,7 @@ message IncrementRequest {
   string namespace = 5;
 
   // Request metadata
-  gcommon.common.v1.RequestMetadata metadata = 6;
+  gcommon.v1.common.RequestMetadata metadata = 6;
 }
 
 // Increment response with new value
@@ -837,7 +839,7 @@ message IncrementResponse {
   bool success = 2;
 
   // Error information
-  gcommon.common.v1.Error error = 3;
+  gcommon.v1.common.Error error = 3;
 }
 
 // Decrement request for atomic counter operations
@@ -858,7 +860,7 @@ message DecrementRequest {
   string namespace = 5;
 
   // Request metadata
-  gcommon.common.v1.RequestMetadata metadata = 6;
+  gcommon.v1.common.RequestMetadata metadata = 6;
 }
 
 // Decrement response with new value
@@ -870,7 +872,7 @@ message DecrementResponse {
   bool success = 2;
 
   // Error information
-  gcommon.common.v1.Error error = 3;
+  gcommon.v1.common.Error error = 3;
 }
 
 // Clear request for bulk deletion
@@ -885,7 +887,7 @@ message ClearRequest {
   repeated string tags = 3;
 
   // Request metadata
-  gcommon.common.v1.RequestMetadata metadata = 4;
+  gcommon.v1.common.RequestMetadata metadata = 4;
 }
 
 // Clear response with deletion count
@@ -894,7 +896,7 @@ message ClearResponse {
   int64 deleted_count = 1;
 
   // Error information
-  gcommon.common.v1.Error error = 2;
+  gcommon.v1.common.Error error = 2;
 }
 
 // Keys request for key listing
@@ -906,10 +908,10 @@ message KeysRequest {
   string namespace = 2;
 
   // Pagination options
-  gcommon.common.v1.Pagination pagination = 3;
+  gcommon.v1.common.Pagination pagination = 3;
 
   // Request metadata
-  gcommon.common.v1.RequestMetadata metadata = 4;
+  gcommon.v1.common.RequestMetadata metadata = 4;
 }
 
 // Keys response with matching keys
@@ -918,10 +920,10 @@ message KeysResponse {
   repeated string keys = 1;
 
   // Pagination information
-  gcommon.common.v1.PaginatedResponse pagination = 2;
+  gcommon.v1.common.PaginatedResponse pagination = 2;
 
   // Error information
-  gcommon.common.v1.Error error = 3;
+  gcommon.v1.common.Error error = 3;
 }
 
 // Cache statistics request
@@ -930,7 +932,7 @@ message GetStatsRequest {
   string namespace = 1;
 
   // Request metadata
-  gcommon.common.v1.RequestMetadata metadata = 2;
+  gcommon.v1.common.RequestMetadata metadata = 2;
 }
 
 // Cache statistics response
@@ -939,7 +941,7 @@ message GetStatsResponse {
   CacheStats stats = 1;
 
   // Error information
-  gcommon.common.v1.Error error = 2;
+  gcommon.v1.common.Error error = 2;
 }
 
 // Cache statistics
@@ -1017,7 +1019,7 @@ message FlushRequest {
   string namespace = 1;
 
   // Request metadata
-  gcommon.common.v1.RequestMetadata metadata = 2;
+  gcommon.v1.common.RequestMetadata metadata = 2;
 }
 
 // Flush response
@@ -1029,7 +1031,7 @@ message FlushResponse {
   int64 flushed_count = 2;
 
   // Error information
-  gcommon.common.v1.Error error = 3;
+  gcommon.v1.common.Error error = 3;
 }
 
 // Touch expiration request
@@ -1044,7 +1046,7 @@ message TouchExpirationRequest {
   string namespace = 3;
 
   // Request metadata
-  gcommon.common.v1.RequestMetadata metadata = 4;
+  gcommon.v1.common.RequestMetadata metadata = 4;
 }
 
 // Touch expiration response
@@ -1056,7 +1058,7 @@ message TouchExpirationResponse {
   google.protobuf.Timestamp expires_at = 2;
 
   // Error information
-  gcommon.common.v1.Error error = 3;
+  gcommon.v1.common.Error error = 3;
 }
 
 // Admin service messages
@@ -1068,7 +1070,7 @@ message CreateNamespaceRequest {
   NamespaceConfig config = 2;
 
   // Request metadata
-  gcommon.common.v1.RequestMetadata metadata = 3;
+  gcommon.v1.common.RequestMetadata metadata = 3;
 }
 
 message CreateNamespaceResponse {
@@ -1076,13 +1078,13 @@ message CreateNamespaceResponse {
   Namespace namespace = 1;
 
   // Error information
-  gcommon.common.v1.Error error = 2;
+  gcommon.v1.common.Error error = 2;
 }
 
 // Namespace configuration
 message NamespaceConfig {
   // Cache policy for the namespace
-  gcommon.common.v1.CachePolicy policy = 1;
+  gcommon.v1.common.CachePolicy policy = 1;
 
   // Maximum size in bytes
   int64 max_size_bytes = 2;
@@ -1109,43 +1111,43 @@ message Namespace {
   NamespaceStats stats = 4;
 
   // Namespace status
-  gcommon.common.v1.ResourceStatus status = 5;
+  gcommon.v1.common.ResourceStatus status = 5;
 }
 
 message DeleteNamespaceRequest {
   string namespace = 1;
-  gcommon.common.v1.RequestMetadata metadata = 2;
+  gcommon.v1.common.RequestMetadata metadata = 2;
 }
 
 message ListNamespacesRequest {
-  gcommon.common.v1.Pagination pagination = 1;
-  gcommon.common.v1.RequestMetadata metadata = 2;
+  gcommon.v1.common.Pagination pagination = 1;
+  gcommon.v1.common.RequestMetadata metadata = 2;
 }
 
 message ListNamespacesResponse {
   repeated Namespace namespaces = 1;
-  gcommon.common.v1.PaginatedResponse pagination = 2;
+  gcommon.v1.common.PaginatedResponse pagination = 2;
 }
 
 message GetNamespaceStatsRequest {
   string namespace = 1;
-  gcommon.common.v1.RequestMetadata metadata = 2;
+  gcommon.v1.common.RequestMetadata metadata = 2;
 }
 
 message GetNamespaceStatsResponse {
   NamespaceStats stats = 1;
-  gcommon.common.v1.Error error = 2;
+  gcommon.v1.common.Error error = 2;
 }
 
 message ConfigurePolicyRequest {
   string namespace = 1;
-  gcommon.common.v1.CachePolicy policy = 2;
-  gcommon.common.v1.RequestMetadata metadata = 3;
+  gcommon.v1.common.CachePolicy policy = 2;
+  gcommon.v1.common.RequestMetadata metadata = 3;
 }
 
 message ConfigurePolicyResponse {
   bool success = 1;
-  gcommon.common.v1.Error error = 2;
+  gcommon.v1.common.Error error = 2;
 }
 CACHE_PROTO
 
@@ -1164,6 +1166,7 @@ import "google/protobuf/duration.proto";
 import "google/protobuf/empty.proto";
 import "google/protobuf/any.proto";
 import "google/protobuf/field_mask.proto";
+import "google/protobuf/go_features.proto";
 
 option go_package = "github.com/jdfalk/gcommon/pkg/config/proto;configpb";
 option features.(pb.go).api_level = API_HYBRID;
@@ -1198,30 +1201,6 @@ service ConfigService {
   rpc GetSchema(GetSchemaRequest) returns (GetSchemaResponse);
 }
 
-// Request metadata for configuration operations
-message RequestMetadata {
-  // Unique request ID for tracing
-  string request_id = 1;
-
-  // Client IP address
-  string client_ip = 2;
-
-  // User agent string
-  string user_agent = 3;
-
-  // Timestamp of the request
-  google.protobuf.Timestamp timestamp = 4;
-
-  // Authenticated user ID (if available)
-  string user_id = 5;
-
-  // Session ID (if available)
-  string session_id = 6;
-
-  // Additional custom attributes
-  map<string, string> attributes = 7;
-}
-
 // Configuration value request
 message GetConfigRequest {
   // Configuration key
@@ -1231,7 +1210,7 @@ message GetConfigRequest {
   string namespace = 2;
 
   // Request metadata
-  gcommon.common.v1.RequestMetadata metadata = 3;
+  gcommon.v1.common.RequestMetadata metadata = 3;
 
   // Whether to decrypt encrypted values
   bool decrypt = 4;
@@ -1246,7 +1225,7 @@ message GetConfigResponse {
   bool found = 2;
 
   // Error information
-  gcommon.common.v1.Error error = 3;
+  gcommon.v1.common.Error error = 3;
 }
 
 // Set configuration request
@@ -1255,7 +1234,7 @@ message SetConfigRequest {
   string key = 1;
 
   // Configuration value
-  gcommon.common.v1.ConfigValue value = 2;
+  gcommon.v1.common.ConfigValue value = 2;
 
   // Optional namespace/environment
   string namespace = 3;
@@ -1270,7 +1249,7 @@ message SetConfigRequest {
   repeated string tags = 6;
 
   // Request metadata
-  gcommon.common.v1.RequestMetadata request_metadata = 7;
+  gcommon.v1.common.RequestMetadata request_metadata = 7;
 }
 
 // Set configuration response
@@ -1282,7 +1261,7 @@ message SetConfigResponse {
   ConfigEntry previous_entry = 2;
 
   // Error information
-  gcommon.common.v1.Error error = 3;
+  gcommon.v1.common.Error error = 3;
 }
 
 // Delete configuration request
@@ -1294,7 +1273,7 @@ message DeleteConfigRequest {
   string namespace = 2;
 
   // Request metadata
-  gcommon.common.v1.RequestMetadata metadata = 3;
+  gcommon.v1.common.RequestMetadata metadata = 3;
 }
 
 // List configuration request
@@ -1306,16 +1285,16 @@ message ListConfigRequest {
   string namespace = 2;
 
   // Pagination options
-  gcommon.common.v1.Pagination pagination = 3;
+  gcommon.v1.common.Pagination pagination = 3;
 
   // Filter options
-  gcommon.common.v1.FilterOptions filter = 4;
+  gcommon.v1.common.FilterOptions filter = 4;
 
   // Sort options
-  gcommon.common.v1.SortOptions sort = 5;
+  gcommon.v1.common.SortOptions sort = 5;
 
   // Request metadata
-  gcommon.common.v1.RequestMetadata metadata = 6;
+  gcommon.v1.common.RequestMetadata metadata = 6;
 }
 
 // List configuration response
@@ -1324,10 +1303,10 @@ message ListConfigResponse {
   repeated ConfigEntry entries = 1;
 
   // Pagination information
-  gcommon.common.v1.PaginatedResponse pagination = 2;
+  gcommon.v1.common.PaginatedResponse pagination = 2;
 
   // Error information
-  gcommon.common.v1.Error error = 3;
+  gcommon.v1.common.Error error = 3;
 }
 
 // Watch configuration request
@@ -1339,7 +1318,7 @@ message WatchConfigRequest {
   string namespace = 2;
 
   // Request metadata
-  gcommon.common.v1.RequestMetadata metadata = 3;
+  gcommon.v1.common.RequestMetadata metadata = 3;
 }
 
 // Watch configuration response
@@ -1371,7 +1350,7 @@ message ConfigEntry {
   string key = 1;
 
   // Configuration value
-  gcommon.common.v1.ConfigValue value = 2;
+  gcommon.v1.common.ConfigValue value = 2;
 
   // Namespace/environment
   string namespace = 3;
@@ -1392,7 +1371,7 @@ message ConfigEntry {
   int64 version = 8;
 
   // Entry status
-  gcommon.common.v1.ResourceStatus status = 9;
+  gcommon.v1.common.ResourceStatus status = 9;
 }
 
 // GetMultiple configuration request
@@ -1407,7 +1386,7 @@ message GetMultipleConfigRequest {
   bool decrypt = 3;
 
   // Request metadata
-  gcommon.common.v1.RequestMetadata metadata = 4;
+  gcommon.v1.common.RequestMetadata metadata = 4;
 }
 
 // GetMultiple configuration response
@@ -1419,13 +1398,13 @@ message GetMultipleConfigResponse {
   repeated string not_found = 2;
 
   // Error information
-  gcommon.common.v1.Error error = 3;
+  gcommon.v1.common.Error error = 3;
 }
 
 // SetMultiple configuration request
 message SetMultipleConfigRequest {
   // Configuration entries to set
-  map<string, gcommon.common.v1.ConfigValue> entries = 1;
+  map<string, gcommon.v1.common.ConfigValue> entries = 1;
 
   // Optional namespace/environment
   string namespace = 2;
@@ -1437,7 +1416,7 @@ message SetMultipleConfigRequest {
   bool encrypt = 4;
 
   // Request metadata
-  gcommon.common.v1.RequestMetadata request_metadata = 5;
+  gcommon.v1.common.RequestMetadata request_metadata = 5;
 }
 
 // SetMultiple configuration response
@@ -1446,7 +1425,7 @@ message SetMultipleConfigResponse {
   map<string, bool> results = 1;
 
   // Error information
-  gcommon.common.v1.Error error = 2;
+  gcommon.v1.common.Error error = 2;
 }
 
 // Validate configuration request
@@ -1458,7 +1437,7 @@ message ValidateConfigRequest {
   string schema_name = 2;
 
   // Request metadata
-  gcommon.common.v1.RequestMetadata metadata = 3;
+  gcommon.v1.common.RequestMetadata metadata = 3;
 }
 
 // Validate configuration response
@@ -1503,7 +1482,7 @@ message GetSchemaRequest {
   string name = 1;
 
   // Request metadata
-  gcommon.common.v1.RequestMetadata metadata = 2;
+  gcommon.v1.common.RequestMetadata metadata = 2;
 }
 
 // Schema response
@@ -1512,7 +1491,7 @@ message GetSchemaResponse {
   ConfigSchema schema = 1;
 
   // Error information
-  gcommon.common.v1.Error error = 2;
+  gcommon.v1.common.Error error = 2;
 }
 
 // Configuration schema
@@ -1550,6 +1529,7 @@ import "google/protobuf/empty.proto";
 import "google/protobuf/any.proto";
 import "google/protobuf/field_mask.proto";
 import "google/protobuf/struct.proto";
+import "google/protobuf/go_features.proto";
 
 option go_package = "github.com/jdfalk/gcommon/pkg/db/proto;dbpb";
 option features.(pb.go).api_level = API_HYBRID;
@@ -1626,7 +1606,7 @@ message QueryRequest {
   QueryOptions options = 4;
 
   // Request metadata
-  gcommon.common.v1.RequestMetadata metadata = 5;
+  gcommon.v1.common.RequestMetadata metadata = 5;
 
   // Transaction ID if part of transaction
   string transaction_id = 6;
@@ -1641,7 +1621,7 @@ message QueryResponse {
   QueryStats stats = 2;
 
   // Error information
-  gcommon.common.v1.Error error = 3;
+  gcommon.v1.common.Error error = 3;
 }
 
 // Execute request for write operations
@@ -1659,7 +1639,7 @@ message ExecuteRequest {
   ExecuteOptions options = 4;
 
   // Request metadata
-  gcommon.common.v1.RequestMetadata metadata = 5;
+  gcommon.v1.common.RequestMetadata metadata = 5;
 
   // Transaction ID if part of transaction
   string transaction_id = 6;
@@ -1677,7 +1657,7 @@ message ExecuteResponse {
   ExecuteStats stats = 3;
 
   // Error information
-  gcommon.common.v1.Error error = 4;
+  gcommon.v1.common.Error error = 4;
 }
 
 // Query parameter for parameterized queries
@@ -1823,7 +1803,7 @@ message ExecuteBatchRequest {
   BatchExecuteOptions options = 3;
 
   // Request metadata
-  gcommon.common.v1.RequestMetadata metadata = 4;
+  gcommon.v1.common.RequestMetadata metadata = 4;
 
   // Transaction ID if part of transaction
   string transaction_id = 5;
@@ -1859,7 +1839,7 @@ message ExecuteBatchResponse {
   BatchStats stats = 2;
 
   // Error information
-  gcommon.common.v1.Error error = 3;
+  gcommon.v1.common.Error error = 3;
 }
 
 // Result for individual batch operation
@@ -1874,7 +1854,7 @@ message BatchOperationResult {
   repeated google.protobuf.Any generated_keys = 3;
 
   // Error if operation failed
-  gcommon.common.v1.Error error = 4;
+  gcommon.v1.common.Error error = 4;
 }
 
 // Batch execution statistics
@@ -1901,7 +1881,7 @@ message BeginTransactionRequest {
   TransactionOptions options = 2;
 
   // Request metadata
-  gcommon.common.v1.RequestMetadata metadata = 3;
+  gcommon.v1.common.RequestMetadata metadata = 3;
 }
 
 message BeginTransactionResponse {
@@ -1929,7 +1909,7 @@ message CommitTransactionRequest {
   string transaction_id = 1;
 
   // Request metadata
-  gcommon.common.v1.RequestMetadata metadata = 2;
+  gcommon.v1.common.RequestMetadata metadata = 2;
 }
 
 message RollbackTransactionRequest {
@@ -1937,13 +1917,13 @@ message RollbackTransactionRequest {
   string transaction_id = 1;
 
   // Request metadata
-  gcommon.common.v1.RequestMetadata metadata = 2;
+  gcommon.v1.common.RequestMetadata metadata = 2;
 }
 
 // Connection info messages
 message GetConnectionInfoRequest {
   // Request metadata
-  gcommon.common.v1.RequestMetadata metadata = 1;
+  gcommon.v1.common.RequestMetadata metadata = 1;
 }
 
 message GetConnectionInfoResponse {
@@ -2008,12 +1988,12 @@ message DatabaseInfo {
 // Health check messages
 message HealthCheckRequest {
   // Request metadata
-  gcommon.common.v1.RequestMetadata metadata = 1;
+  gcommon.v1.common.RequestMetadata metadata = 1;
 }
 
 message HealthCheckResponse {
   // Health status
-  gcommon.common.v1.HealthStatus status = 1;
+  gcommon.v1.common.HealthStatus status = 1;
 
   // Connection check result
   bool connection_ok = 2;
@@ -2022,28 +2002,28 @@ message HealthCheckResponse {
   google.protobuf.Duration response_time = 3;
 
   // Error information if unhealthy
-  gcommon.common.v1.Error error = 4;
+  gcommon.v1.common.Error error = 4;
 }
 
 // Admin service messages (abbreviated for space)
 message CreateDatabaseRequest {
   string name = 1;
   map<string, string> options = 2;
-  gcommon.common.v1.RequestMetadata metadata = 3;
+  gcommon.v1.common.RequestMetadata metadata = 3;
 }
 
 message CreateDatabaseResponse {
   bool success = 1;
-  gcommon.common.v1.Error error = 2;
+  gcommon.v1.common.Error error = 2;
 }
 
 message DropDatabaseRequest {
   string name = 1;
-  gcommon.common.v1.RequestMetadata metadata = 2;
+  gcommon.v1.common.RequestMetadata metadata = 2;
 }
 
 message ListDatabasesRequest {
-  gcommon.common.v1.RequestMetadata metadata = 1;
+  gcommon.v1.common.RequestMetadata metadata = 1;
 }
 
 message ListDatabasesResponse {
@@ -2052,7 +2032,7 @@ message ListDatabasesResponse {
 
 message GetDatabaseInfoRequest {
   string name = 1;
-  gcommon.common.v1.RequestMetadata metadata = 2;
+  gcommon.v1.common.RequestMetadata metadata = 2;
 }
 
 message GetDatabaseInfoResponse {
@@ -2062,23 +2042,23 @@ message GetDatabaseInfoResponse {
 message CreateSchemaRequest {
   string database = 1;
   string schema = 2;
-  gcommon.common.v1.RequestMetadata metadata = 3;
+  gcommon.v1.common.RequestMetadata metadata = 3;
 }
 
 message CreateSchemaResponse {
   bool success = 1;
-  gcommon.common.v1.Error error = 2;
+  gcommon.v1.common.Error error = 2;
 }
 
 message DropSchemaRequest {
   string database = 1;
   string schema = 2;
-  gcommon.common.v1.RequestMetadata metadata = 3;
+  gcommon.v1.common.RequestMetadata metadata = 3;
 }
 
 message ListSchemasRequest {
   string database = 1;
-  gcommon.common.v1.RequestMetadata metadata = 2;
+  gcommon.v1.common.RequestMetadata metadata = 2;
 }
 
 message ListSchemasResponse {
@@ -2088,7 +2068,7 @@ message ListSchemasResponse {
 message RunMigrationRequest {
   string database = 1;
   repeated MigrationScript scripts = 2;
-  gcommon.common.v1.RequestMetadata metadata = 3;
+  gcommon.v1.common.RequestMetadata metadata = 3;
 }
 
 message MigrationScript {
@@ -2100,12 +2080,12 @@ message MigrationScript {
 message RunMigrationResponse {
   bool success = 1;
   repeated string applied_versions = 2;
-  gcommon.common.v1.Error error = 3;
+  gcommon.v1.common.Error error = 3;
 }
 
 message GetMigrationStatusRequest {
   string database = 1;
-  gcommon.common.v1.RequestMetadata metadata = 2;
+  gcommon.v1.common.RequestMetadata metadata = 2;
 }
 
 message GetMigrationStatusResponse {
@@ -2129,6 +2109,7 @@ import "google/protobuf/timestamp.proto";
 import "google/protobuf/duration.proto";
 import "google/protobuf/empty.proto";
 import "google/protobuf/any.proto";
+import "google/protobuf/go_features.proto";
 
 option go_package = "github.com/jdfalk/gcommon/pkg/health/proto;healthpb";
 option features.(pb.go).api_level = API_HYBRID;
@@ -2169,7 +2150,7 @@ message HealthCheckRequest {
   string service = 1;
 
   // Request metadata
-  gcommon.common.v1.RequestMetadata metadata = 2;
+  gcommon.v1.common.RequestMetadata metadata = 2;
 
   // Check timeout
   google.protobuf.Duration timeout = 3;
@@ -2181,7 +2162,7 @@ message HealthCheckRequest {
 // Health check response
 message HealthCheckResponse {
   // Overall health status
-  gcommon.common.v1.HealthStatus status = 1;
+  gcommon.v1.common.HealthStatus status = 1;
 
   // Service name
   string service = 2;
@@ -2199,7 +2180,7 @@ message HealthCheckResponse {
   string message = 6;
 
   // Error information if unhealthy
-  gcommon.common.v1.Error error = 7;
+  gcommon.v1.common.Error error = 7;
 
   // Health metrics
   HealthMetrics metrics = 8;
@@ -2211,7 +2192,7 @@ message WatchRequest {
   string service = 1;
 
   // Request metadata
-  gcommon.common.v1.RequestMetadata metadata = 2;
+  gcommon.v1.common.RequestMetadata metadata = 2;
 }
 
 // Service health response
@@ -2220,24 +2201,24 @@ message GetServiceHealthRequest {
   string service = 1;
 
   // Request metadata
-  gcommon.common.v1.RequestMetadata metadata = 2;
+  gcommon.v1.common.RequestMetadata metadata = 2;
 }
 
 message GetServiceHealthResponse {
   // Health status
-  gcommon.common.v1.HealthStatus status = 1;
+  gcommon.v1.common.HealthStatus status = 1;
 
   // Last check timestamp
   google.protobuf.Timestamp last_check = 2;
 
   // Error information if unhealthy
-  gcommon.common.v1.Error error = 3;
+  gcommon.v1.common.Error error = 3;
 }
 
 // List services response
 message ListServicesRequest {
   // Request metadata
-  gcommon.common.v1.RequestMetadata metadata = 1;
+  gcommon.v1.common.RequestMetadata metadata = 1;
 }
 
 message ListServicesResponse {
@@ -2245,7 +2226,7 @@ message ListServicesResponse {
   repeated string services = 1;
 
   // Request metadata
-  gcommon.common.v1.RequestMetadata metadata = 2;
+  gcommon.v1.common.RequestMetadata metadata = 2;
 }
 
 // Register health check request
@@ -2257,7 +2238,7 @@ message RegisterCheckRequest {
   HealthCheckRequest check = 2;
 
   // Request metadata
-  gcommon.common.v1.RequestMetadata metadata = 3;
+  gcommon.v1.common.RequestMetadata metadata = 3;
 }
 
 message RegisterCheckResponse {
@@ -2268,7 +2249,7 @@ message RegisterCheckResponse {
   string check_id = 2;
 
   // Error information
-  gcommon.common.v1.Error error = 3;
+  gcommon.v1.common.Error error = 3;
 }
 
 // Unregister health check request
@@ -2277,7 +2258,7 @@ message UnregisterCheckRequest {
   string check_id = 1;
 
   // Request metadata
-  gcommon.common.v1.RequestMetadata metadata = 2;
+  gcommon.v1.common.RequestMetadata metadata = 2;
 }
 
 // Health metrics request
@@ -2286,7 +2267,7 @@ message GetHealthMetricsRequest {
   string service = 1;
 
   // Request metadata
-  gcommon.common.v1.RequestMetadata metadata = 2;
+  gcommon.v1.common.RequestMetadata metadata = 2;
 }
 
 // Health metrics response
@@ -2295,7 +2276,7 @@ message GetHealthMetricsResponse {
   repeated HealthMetricData metrics = 1;
 
   // Request metadata
-  gcommon.common.v1.RequestMetadata metadata = 2;
+  gcommon.v1.common.RequestMetadata metadata = 2;
 }
 
 // Health metric data
@@ -2329,6 +2310,7 @@ import "google/protobuf/duration.proto";
 import "google/protobuf/empty.proto";
 import "google/protobuf/any.proto";
 import "google/protobuf/field_mask.proto";
+import "google/protobuf/go_features.proto";
 
 option go_package = "github.com/jdfalk/gcommon/pkg/log/proto;logpb";
 option features.(pb.go).api_level = API_HYBRID;
@@ -2401,7 +2383,7 @@ message LogRequest {
   string logger = 2;
 
   // Request metadata
-  gcommon.common.v1.RequestMetadata metadata = 3;
+  gcommon.v1.common.RequestMetadata metadata = 3;
 }
 
 // Log response
@@ -2413,7 +2395,7 @@ message LogResponse {
   string entry_id = 2;
 
   // Error information
-  gcommon.common.v1.Error error = 3;
+  gcommon.v1.common.Error error = 3;
 }
 
 // Batch log request
@@ -2425,7 +2407,7 @@ message LogBatchRequest {
   string logger = 2;
 
   // Request metadata
-  gcommon.common.v1.RequestMetadata metadata = 3;
+  gcommon.v1.common.RequestMetadata metadata = 3;
 
   // Batch options
   BatchLogOptions options = 4;
@@ -2455,7 +2437,7 @@ message LogBatchResponse {
   repeated string entry_ids = 3;
 
   // Error information
-  gcommon.common.v1.Error error = 4;
+  gcommon.v1.common.Error error = 4;
 }
 
 // Log entry representation
@@ -2542,13 +2524,13 @@ message QueryLogRequest {
   LogFilter filter = 1;
 
   // Pagination
-  gcommon.common.v1.Pagination pagination = 2;
+  gcommon.v1.common.Pagination pagination = 2;
 
   // Sorting options
   LogSort sort = 3;
 
   // Request metadata
-  gcommon.common.v1.RequestMetadata metadata = 4;
+  gcommon.v1.common.RequestMetadata metadata = 4;
 }
 
 // Log filter options
@@ -2596,7 +2578,7 @@ message LogSort {
   LogSortField field = 1;
 
   // Sort direction
-  gcommon.common.v1.SortDirection direction = 2;
+  gcommon.v1.common.SortDirection direction = 2;
 }
 
 // Log sort fields
@@ -2614,13 +2596,13 @@ message QueryLogResponse {
   repeated LogEntry entries = 1;
 
   // Pagination info
-  gcommon.common.v1.Pagination pagination = 2;
+  gcommon.v1.common.Pagination pagination = 2;
 
   // Total count (if requested)
   int64 total_count = 3;
 
   // Error information
-  gcommon.common.v1.Error error = 4;
+  gcommon.v1.common.Error error = 4;
 }
 
 // Stream log request
@@ -2635,7 +2617,7 @@ message StreamLogRequest {
   int32 buffer_size = 3;
 
   // Request metadata
-  gcommon.common.v1.RequestMetadata metadata = 4;
+  gcommon.v1.common.RequestMetadata metadata = 4;
 }
 
 // Get log level request
@@ -2644,7 +2626,7 @@ message GetLogLevelRequest {
   string logger = 1;
 
   // Request metadata
-  gcommon.common.v1.RequestMetadata metadata = 2;
+  gcommon.v1.common.RequestMetadata metadata = 2;
 }
 
 // Get log level response
@@ -2656,7 +2638,7 @@ message GetLogLevelResponse {
   string logger = 2;
 
   // Error information
-  gcommon.common.v1.Error error = 3;
+  gcommon.v1.common.Error error = 3;
 }
 
 // Set log level request
@@ -2671,7 +2653,7 @@ message SetLogLevelRequest {
   bool persist = 3;
 
   // Request metadata
-  gcommon.common.v1.RequestMetadata metadata = 4;
+  gcommon.v1.common.RequestMetadata metadata = 4;
 }
 
 // Set log level response
@@ -2686,7 +2668,7 @@ message SetLogLevelResponse {
   string logger = 3;
 
   // Error information
-  gcommon.common.v1.Error error = 4;
+  gcommon.v1.common.Error error = 4;
 }
 
 // Get log stats request
@@ -2698,7 +2680,7 @@ message GetLogStatsRequest {
   repeated string loggers = 2;
 
   // Request metadata
-  gcommon.common.v1.RequestMetadata metadata = 3;
+  gcommon.v1.common.RequestMetadata metadata = 3;
 }
 
 // Get log stats response
@@ -2713,7 +2695,7 @@ message GetLogStatsResponse {
   map<string, LogStatistics> logger_stats = 3;
 
   // Error information
-  gcommon.common.v1.Error error = 4;
+  gcommon.v1.common.Error error = 4;
 }
 
 // Log statistics
@@ -2748,7 +2730,7 @@ message CreateLoggerRequest {
   LoggerConfig config = 2;
 
   // Request metadata
-  gcommon.common.v1.RequestMetadata metadata = 3;
+  gcommon.v1.common.RequestMetadata metadata = 3;
 }
 
 // Logger configuration
@@ -2858,7 +2840,7 @@ message CreateLoggerResponse {
   bool success = 2;
 
   // Error information
-  gcommon.common.v1.Error error = 3;
+  gcommon.v1.common.Error error = 3;
 }
 
 // Update logger request
@@ -2873,7 +2855,7 @@ message UpdateLoggerRequest {
   google.protobuf.FieldMask update_mask = 3;
 
   // Request metadata
-  gcommon.common.v1.RequestMetadata metadata = 4;
+  gcommon.v1.common.RequestMetadata metadata = 4;
 }
 
 // Update logger response
@@ -2885,7 +2867,7 @@ message UpdateLoggerResponse {
   bool success = 2;
 
   // Error information
-  gcommon.common.v1.Error error = 3;
+  gcommon.v1.common.Error error = 3;
 }
 
 // Delete logger request
@@ -2897,7 +2879,7 @@ message DeleteLoggerRequest {
   bool force = 2;
 
   // Request metadata
-  gcommon.common.v1.RequestMetadata metadata = 3;
+  gcommon.v1.common.RequestMetadata metadata = 3;
 }
 
 // List loggers request
@@ -2909,10 +2891,10 @@ message ListLoggersRequest {
   repeated LogLevel levels = 2;
 
   // Pagination
-  gcommon.common.v1.Pagination pagination = 3;
+  gcommon.v1.common.Pagination pagination = 3;
 
   // Request metadata
-  gcommon.common.v1.RequestMetadata metadata = 4;
+  gcommon.v1.common.RequestMetadata metadata = 4;
 }
 
 // List loggers response
@@ -2921,10 +2903,10 @@ message ListLoggersResponse {
   repeated LoggerInfo loggers = 1;
 
   // Pagination info
-  gcommon.common.v1.Pagination pagination = 2;
+  gcommon.v1.common.Pagination pagination = 2;
 
   // Error information
-  gcommon.common.v1.Error error = 3;
+  gcommon.v1.common.Error error = 3;
 }
 
 // Logger information
@@ -2968,7 +2950,7 @@ message ConfigureAppenderRequest {
   AppenderConfig config = 1;
 
   // Request metadata
-  gcommon.common.v1.RequestMetadata metadata = 2;
+  gcommon.v1.common.RequestMetadata metadata = 2;
 }
 
 // Configure appender response
@@ -2980,7 +2962,7 @@ message ConfigureAppenderResponse {
   bool success = 2;
 
   // Error information
-  gcommon.common.v1.Error error = 3;
+  gcommon.v1.common.Error error = 3;
 }
 
 // Rotate logs request
@@ -2992,7 +2974,7 @@ message RotateLogsRequest {
   bool force = 2;
 
   // Request metadata
-  gcommon.common.v1.RequestMetadata metadata = 3;
+  gcommon.v1.common.RequestMetadata metadata = 3;
 }
 
 // Rotate logs response
@@ -3004,7 +2986,7 @@ message RotateLogsResponse {
   repeated string rotated_files = 2;
 
   // Error information
-  gcommon.common.v1.Error error = 3;
+  gcommon.v1.common.Error error = 3;
 }
 
 // Archive logs request
@@ -3019,7 +3001,7 @@ message ArchiveLogsRequest {
   CompressionType compression = 3;
 
   // Request metadata
-  gcommon.common.v1.RequestMetadata metadata = 4;
+  gcommon.v1.common.RequestMetadata metadata = 4;
 }
 
 // Archive criteria
@@ -3060,7 +3042,7 @@ message ArchiveLogsResponse {
   int64 archive_size = 3;
 
   // Error information
-  gcommon.common.v1.Error error = 4;
+  gcommon.v1.common.Error error = 4;
 }
 LOG_PROTO
 
@@ -3079,6 +3061,7 @@ option features.(pb.go).api_level = API_HYBRID;
 import "google/protobuf/timestamp.proto";
 import "google/protobuf/duration.proto";
 import "google/protobuf/field_mask.proto";
+import "google/protobuf/go_features.proto";
 import "pkg/common/proto/common.proto";
 
 // MetricsService provides comprehensive metrics collection, aggregation, and querying
@@ -3165,7 +3148,7 @@ message RecordMetricRequest {
   MetricData metric = 1;
 
   // Request metadata
-  gcommon.common.v1.RequestMetadata metadata = 2;
+  gcommon.v1.common.RequestMetadata metadata = 2;
 }
 
 // Record metric response
@@ -3177,7 +3160,7 @@ message RecordMetricResponse {
   string metric_id = 2;
 
   // Error information
-  gcommon.common.v1.Error error = 3;
+  gcommon.v1.common.Error error = 3;
 }
 
 // Record metrics request (batch)
@@ -3186,7 +3169,7 @@ message RecordMetricsRequest {
   repeated MetricData metrics = 1;
 
   // Request metadata
-  gcommon.common.v1.RequestMetadata metadata = 2;
+  gcommon.v1.common.RequestMetadata metadata = 2;
 }
 
 // Record metrics response (batch)
@@ -3198,7 +3181,7 @@ message RecordMetricsResponse {
   repeated MetricError failed_metrics = 2;
 
   // Error information
-  gcommon.common.v1.Error error = 3;
+  gcommon.v1.common.Error error = 3;
 }
 
 // Metric error information
@@ -3228,7 +3211,7 @@ message IncrementCounterRequest {
   google.protobuf.Timestamp timestamp = 4;
 
   // Request metadata
-  gcommon.common.v1.RequestMetadata metadata = 5;
+  gcommon.v1.common.RequestMetadata metadata = 5;
 }
 
 // Increment counter response
@@ -3240,7 +3223,7 @@ message IncrementCounterResponse {
   double new_value = 2;
 
   // Error information
-  gcommon.common.v1.Error error = 3;
+  gcommon.v1.common.Error error = 3;
 }
 
 // Record gauge request
@@ -3258,7 +3241,7 @@ message RecordGaugeRequest {
   google.protobuf.Timestamp timestamp = 4;
 
   // Request metadata
-  gcommon.common.v1.RequestMetadata metadata = 5;
+  gcommon.v1.common.RequestMetadata metadata = 5;
 }
 
 // Record gauge response
@@ -3267,7 +3250,7 @@ message RecordGaugeResponse {
   bool success = 1;
 
   // Error information
-  gcommon.common.v1.Error error = 2;
+  gcommon.v1.common.Error error = 2;
 }
 
 // Record histogram request
@@ -3285,7 +3268,7 @@ message RecordHistogramRequest {
   google.protobuf.Timestamp timestamp = 4;
 
   // Request metadata
-  gcommon.common.v1.RequestMetadata metadata = 5;
+  gcommon.v1.common.RequestMetadata metadata = 5;
 }
 
 // Record histogram response
@@ -3294,7 +3277,7 @@ message RecordHistogramResponse {
   bool success = 1;
 
   // Error information
-  gcommon.common.v1.Error error = 2;
+  gcommon.v1.common.Error error = 2;
 }
 
 // Record timer request
@@ -3312,7 +3295,7 @@ message RecordTimerRequest {
   google.protobuf.Timestamp timestamp = 4;
 
   // Request metadata
-  gcommon.common.v1.RequestMetadata metadata = 5;
+  gcommon.v1.common.RequestMetadata metadata = 5;
 }
 
 // Record timer response
@@ -3321,7 +3304,7 @@ message RecordTimerResponse {
   bool success = 1;
 
   // Error information
-  gcommon.common.v1.Error error = 2;
+  gcommon.v1.common.Error error = 2;
 }
 
 // Query metrics request
@@ -3333,10 +3316,10 @@ message QueryMetricsRequest {
   AggregationOptions aggregation = 2;
 
   // Pagination options
-  gcommon.common.v1.Pagination pagination = 3;
+  gcommon.v1.common.Pagination pagination = 3;
 
   // Request metadata
-  gcommon.common.v1.RequestMetadata metadata = 4;
+  gcommon.v1.common.RequestMetadata metadata = 4;
 }
 
 // Metric query parameters
@@ -3423,10 +3406,10 @@ message QueryMetricsResponse {
   int64 total_count = 3;
 
   // Pagination information
-  gcommon.common.v1.Pagination pagination = 4;
+  gcommon.v1.common.Pagination pagination = 4;
 
   // Error information
-  gcommon.common.v1.Error error = 5;
+  gcommon.v1.common.Error error = 5;
 }
 
 // Aggregated metric data
@@ -3463,7 +3446,7 @@ message StreamMetricsRequest {
   google.protobuf.Duration update_interval = 3;
 
   // Request metadata
-  gcommon.common.v1.RequestMetadata metadata = 4;
+  gcommon.v1.common.RequestMetadata metadata = 4;
 }
 
 // Get metric stats request
@@ -3476,7 +3459,7 @@ message GetMetricStatsRequest {
   google.protobuf.Timestamp end_time = 3;
 
   // Request metadata
-  gcommon.common.v1.RequestMetadata metadata = 4;
+  gcommon.v1.common.RequestMetadata metadata = 4;
 }
 
 // Get metric stats response
@@ -3485,7 +3468,7 @@ message GetMetricStatsResponse {
   MetricStats stats = 1;
 
   // Error information
-  gcommon.common.v1.Error error = 2;
+  gcommon.v1.common.Error error = 2;
 }
 
 // Metric statistics
@@ -3559,10 +3542,10 @@ message ListMetricsRequest {
   map<string, string> tag_filters = 3;
 
   // Pagination options
-  gcommon.common.v1.Pagination pagination = 4;
+  gcommon.v1.common.Pagination pagination = 4;
 
   // Request metadata
-  gcommon.common.v1.RequestMetadata metadata = 5;
+  gcommon.v1.common.RequestMetadata metadata = 5;
 }
 
 // List metrics response
@@ -3571,10 +3554,10 @@ message ListMetricsResponse {
   repeated MetricDefinition metrics = 1;
 
   // Pagination information
-  gcommon.common.v1.Pagination pagination = 2;
+  gcommon.v1.common.Pagination pagination = 2;
 
   // Error information
-  gcommon.common.v1.Error error = 3;
+  gcommon.v1.common.Error error = 3;
 }
 
 // Get metric metadata request
@@ -3583,7 +3566,7 @@ message GetMetricMetadataRequest {
   string name = 1;
 
   // Request metadata
-  gcommon.common.v1.RequestMetadata metadata = 2;
+  gcommon.v1.common.RequestMetadata metadata = 2;
 }
 
 // Get metric metadata response
@@ -3592,7 +3575,7 @@ message GetMetricMetadataResponse {
   MetricMetadata metadata = 1;
 
   // Error information
-  gcommon.common.v1.Error error = 2;
+  gcommon.v1.common.Error error = 2;
 }
 
 // Core metric data structure
@@ -3798,7 +3781,7 @@ message CreateMetricRequest {
   CollectionConfig collection_config = 2;
 
   // Request metadata
-  gcommon.common.v1.RequestMetadata metadata = 3;
+  gcommon.v1.common.RequestMetadata metadata = 3;
 }
 
 // Create metric response
@@ -3810,7 +3793,7 @@ message CreateMetricResponse {
   MetricDefinition metric = 2;
 
   // Error information
-  gcommon.common.v1.Error error = 3;
+  gcommon.v1.common.Error error = 3;
 }
 
 // Update metric request
@@ -3828,7 +3811,7 @@ message UpdateMetricRequest {
   google.protobuf.FieldMask update_mask = 4;
 
   // Request metadata
-  gcommon.common.v1.RequestMetadata metadata = 5;
+  gcommon.v1.common.RequestMetadata metadata = 5;
 }
 
 // Update metric response
@@ -3840,7 +3823,7 @@ message UpdateMetricResponse {
   MetricDefinition metric = 2;
 
   // Error information
-  gcommon.common.v1.Error error = 3;
+  gcommon.v1.common.Error error = 3;
 }
 
 // Delete metric request
@@ -3852,7 +3835,7 @@ message DeleteMetricRequest {
   bool delete_data = 2;
 
   // Request metadata
-  gcommon.common.v1.RequestMetadata metadata = 3;
+  gcommon.v1.common.RequestMetadata metadata = 3;
 }
 
 // Configure collection request
@@ -3861,7 +3844,7 @@ message ConfigureCollectionRequest {
   GlobalCollectionConfig config = 1;
 
   // Request metadata
-  gcommon.common.v1.RequestMetadata metadata = 2;
+  gcommon.v1.common.RequestMetadata metadata = 2;
 }
 
 // Global collection configuration
@@ -3906,7 +3889,7 @@ message ConfigureCollectionResponse {
   GlobalCollectionConfig config = 2;
 
   // Error information
-  gcommon.common.v1.Error error = 3;
+  gcommon.v1.common.Error error = 3;
 }
 
 // Create alert request
@@ -3915,7 +3898,7 @@ message CreateAlertRequest {
   AlertRule rule = 1;
 
   // Request metadata
-  gcommon.common.v1.RequestMetadata metadata = 2;
+  gcommon.v1.common.RequestMetadata metadata = 2;
 }
 
 // Alert rule definition
@@ -4056,7 +4039,7 @@ message CreateAlertResponse {
   AlertRule rule = 2;
 
   // Error information
-  gcommon.common.v1.Error error = 3;
+  gcommon.v1.common.Error error = 3;
 }
 
 // Update alert request
@@ -4071,7 +4054,7 @@ message UpdateAlertRequest {
   google.protobuf.FieldMask update_mask = 3;
 
   // Request metadata
-  gcommon.common.v1.RequestMetadata metadata = 4;
+  gcommon.v1.common.RequestMetadata metadata = 4;
 }
 
 // Update alert response
@@ -4083,7 +4066,7 @@ message UpdateAlertResponse {
   AlertRule rule = 2;
 
   // Error information
-  gcommon.common.v1.Error error = 3;
+  gcommon.v1.common.Error error = 3;
 }
 
 // Delete alert request
@@ -4092,7 +4075,7 @@ message DeleteAlertRequest {
   string name = 1;
 
   // Request metadata
-  gcommon.common.v1.RequestMetadata metadata = 2;
+  gcommon.v1.common.RequestMetadata metadata = 2;
 }
 
 // List alerts request
@@ -4110,10 +4093,10 @@ message ListAlertsRequest {
   map<string, string> tag_filters = 4;
 
   // Pagination options
-  gcommon.common.v1.Pagination pagination = 5;
+  gcommon.v1.common.Pagination pagination = 5;
 
   // Request metadata
-  gcommon.common.v1.RequestMetadata metadata = 6;
+  gcommon.v1.common.RequestMetadata metadata = 6;
 }
 
 // List alerts response
@@ -4122,10 +4105,10 @@ message ListAlertsResponse {
   repeated AlertRule rules = 1;
 
   // Pagination information
-  gcommon.common.v1.Pagination pagination = 2;
+  gcommon.v1.common.Pagination pagination = 2;
 
   // Error information
-  gcommon.common.v1.Error error = 3;
+  gcommon.v1.common.Error error = 3;
 }
 
 // Get alert status request
@@ -4134,7 +4117,7 @@ message GetAlertStatusRequest {
   string name = 1;
 
   // Request metadata
-  gcommon.common.v1.RequestMetadata metadata = 2;
+  gcommon.v1.common.RequestMetadata metadata = 2;
 }
 
 // Get alert status response
@@ -4143,7 +4126,7 @@ message GetAlertStatusResponse {
   AlertStatus status = 1;
 
   // Error information
-  gcommon.common.v1.Error error = 2;
+  gcommon.v1.common.Error error = 2;
 }
 
 // Alert status
@@ -4218,7 +4201,7 @@ message ExportMetricsRequest {
   CompressionOptions compression = 4;
 
   // Request metadata
-  gcommon.common.v1.RequestMetadata metadata = 5;
+  gcommon.v1.common.RequestMetadata metadata = 5;
 }
 
 // Export format enumeration
@@ -4266,7 +4249,7 @@ message ExportMetricsResponse {
   int64 export_size_bytes = 5;
 
   // Error information
-  gcommon.common.v1.Error error = 6;
+  gcommon.v1.common.Error error = 6;
 }
 
 // Export status enumeration
@@ -4290,7 +4273,7 @@ message ImportMetricsRequest {
   ImportOptions options = 3;
 
   // Request metadata
-  gcommon.common.v1.RequestMetadata metadata = 4;
+  gcommon.v1.common.RequestMetadata metadata = 4;
 }
 
 // Import options
@@ -4326,7 +4309,7 @@ message ImportMetricsResponse {
   int64 metrics_failed = 5;
 
   // Error information
-  gcommon.common.v1.Error error = 6;
+  gcommon.v1.common.Error error = 6;
 }
 
 // Import status enumeration
@@ -4347,7 +4330,7 @@ message PurgeMetricsRequest {
   bool dry_run = 2;
 
   // Request metadata
-  gcommon.common.v1.RequestMetadata metadata = 3;
+  gcommon.v1.common.RequestMetadata metadata = 3;
 }
 
 // Purge criteria
@@ -4380,7 +4363,7 @@ message PurgeMetricsResponse {
   int64 space_freed_bytes = 3;
 
   // Error information
-  gcommon.common.v1.Error error = 4;
+  gcommon.v1.common.Error error = 4;
 }
 
 // Get system metrics request
@@ -4389,7 +4372,7 @@ message GetSystemMetricsRequest {
   repeated SystemMetricType types = 1;
 
   // Request metadata
-  gcommon.common.v1.RequestMetadata metadata = 2;
+  gcommon.v1.common.RequestMetadata metadata = 2;
 }
 
 // System metric type enumeration
@@ -4408,7 +4391,7 @@ message GetSystemMetricsResponse {
   repeated SystemMetric metrics = 1;
 
   // Error information
-  gcommon.common.v1.Error error = 2;
+  gcommon.v1.common.Error error = 2;
 }
 
 // System metric data
@@ -4440,6 +4423,7 @@ import "google/protobuf/timestamp.proto";
 import "google/protobuf/duration.proto";
 import "google/protobuf/any.proto";
 import "google/protobuf/field_mask.proto";
+import "google/protobuf/go_features.proto";
 import "pkg/common/proto/common.proto";
 
 // QueueService provides message queuing and pub/sub functionality
@@ -4580,7 +4564,7 @@ message SendMessageRequest {
   DeliveryOptions delivery_options = 3;
 
   // Request metadata
-  gcommon.common.v1.RequestMetadata metadata = 4;
+  gcommon.v1.common.RequestMetadata metadata = 4;
 }
 
 // Queue message
@@ -4658,7 +4642,7 @@ message SendMessageResponse {
   int64 queue_position = 3;
 
   // Error information
-  gcommon.common.v1.Error error = 4;
+  gcommon.v1.common.Error error = 4;
 }
 
 // Send messages request (batch)
@@ -4673,7 +4657,7 @@ message SendMessagesRequest {
   DeliveryOptions delivery_options = 3;
 
   // Request metadata
-  gcommon.common.v1.RequestMetadata metadata = 4;
+  gcommon.v1.common.RequestMetadata metadata = 4;
 }
 
 // Send messages response (batch)
@@ -4688,7 +4672,7 @@ message SendMessagesResponse {
   int32 sent_count = 3;
 
   // Error information
-  gcommon.common.v1.Error error = 4;
+  gcommon.v1.common.Error error = 4;
 }
 
 // Message error information
@@ -4712,7 +4696,7 @@ message ReceiveMessageRequest {
   ReceiveOptions receive_options = 2;
 
   // Request metadata
-  gcommon.common.v1.RequestMetadata metadata = 3;
+  gcommon.v1.common.RequestMetadata metadata = 3;
 }
 
 // Receive options
@@ -4739,7 +4723,7 @@ message ReceiveMessageResponse {
   ReceivedMessage message = 1;
 
   // Error information
-  gcommon.common.v1.Error error = 2;
+  gcommon.v1.common.Error error = 2;
 }
 
 // Received message
@@ -4772,7 +4756,7 @@ message ReceiveMessagesRequest {
   ReceiveOptions receive_options = 2;
 
   // Request metadata
-  gcommon.common.v1.RequestMetadata metadata = 3;
+  gcommon.v1.common.RequestMetadata metadata = 3;
 }
 
 // Receive messages response (batch)
@@ -4781,7 +4765,7 @@ message ReceiveMessagesResponse {
   repeated ReceivedMessage messages = 1;
 
   // Error information
-  gcommon.common.v1.Error error = 2;
+  gcommon.v1.common.Error error = 2;
 }
 
 // Acknowledge message request
@@ -4793,7 +4777,7 @@ message AckMessageRequest {
   string receipt_handle = 2;
 
   // Request metadata
-  gcommon.common.v1.RequestMetadata metadata = 3;
+  gcommon.v1.common.RequestMetadata metadata = 3;
 }
 
 // Acknowledge message response
@@ -4802,7 +4786,7 @@ message AckMessageResponse {
   bool success = 1;
 
   // Error information
-  gcommon.common.v1.Error error = 2;
+  gcommon.v1.common.Error error = 2;
 }
 
 // Negative acknowledge message request
@@ -4817,7 +4801,7 @@ message NackMessageRequest {
   google.protobuf.Duration requeue_delay = 3;
 
   // Request metadata
-  gcommon.common.v1.RequestMetadata metadata = 4;
+  gcommon.v1.common.RequestMetadata metadata = 4;
 }
 
 // Negative acknowledge message response
@@ -4826,7 +4810,7 @@ message NackMessageResponse {
   bool success = 1;
 
   // Error information
-  gcommon.common.v1.Error error = 2;
+  gcommon.v1.common.Error error = 2;
 }
 
 // Publish request
@@ -4841,7 +4825,7 @@ message PublishRequest {
   PublishOptions publish_options = 3;
 
   // Request metadata
-  gcommon.common.v1.RequestMetadata metadata = 4;
+  gcommon.v1.common.RequestMetadata metadata = 4;
 }
 
 // Pub/Sub message
@@ -4889,7 +4873,7 @@ message PublishResponse {
   google.protobuf.Timestamp published_at = 3;
 
   // Error information
-  gcommon.common.v1.Error error = 4;
+  gcommon.v1.common.Error error = 4;
 }
 
 // Subscribe request
@@ -4901,7 +4885,7 @@ message SubscribeRequest {
   SubscribeOptions subscribe_options = 2;
 
   // Request metadata
-  gcommon.common.v1.RequestMetadata metadata = 3;
+  gcommon.v1.common.RequestMetadata metadata = 3;
 }
 
 // Subscribe options
@@ -4951,7 +4935,7 @@ message MessageEvent {
   ReceivedPubSubMessage message = 2;
 
   // Error information (for ERROR event)
-  gcommon.common.v1.Error error = 3;
+  gcommon.v1.common.Error error = 3;
 
   // Status information (for STATUS event)
   SubscriptionStatus status = 4;
@@ -5017,7 +5001,7 @@ message UnsubscribeRequest {
   string subscription_name = 1;
 
   // Request metadata
-  gcommon.common.v1.RequestMetadata metadata = 2;
+  gcommon.v1.common.RequestMetadata metadata = 2;
 }
 
 // Unsubscribe response
@@ -5026,7 +5010,7 @@ message UnsubscribeResponse {
   bool success = 1;
 
   // Error information
-  gcommon.common.v1.Error error = 2;
+  gcommon.v1.common.Error error = 2;
 }
 
 // Get message request
@@ -5038,7 +5022,7 @@ message GetMessageRequest {
   string message_id = 2;
 
   // Request metadata
-  gcommon.common.v1.RequestMetadata metadata = 3;
+  gcommon.v1.common.RequestMetadata metadata = 3;
 }
 
 // Get message response
@@ -5050,7 +5034,7 @@ message GetMessageResponse {
   MessageStatus status = 2;
 
   // Error information
-  gcommon.common.v1.Error error = 3;
+  gcommon.v1.common.Error error = 3;
 }
 
 // Message status
@@ -5116,10 +5100,10 @@ message ListMessagesRequest {
   google.protobuf.Timestamp end_time = 4;
 
   // Pagination options
-  gcommon.common.v1.Pagination pagination = 5;
+  gcommon.v1.common.Pagination pagination = 5;
 
   // Request metadata
-  gcommon.common.v1.RequestMetadata metadata = 6;
+  gcommon.v1.common.RequestMetadata metadata = 6;
 }
 
 // List messages response
@@ -5131,10 +5115,10 @@ message ListMessagesResponse {
   repeated MessageStatus statuses = 2;
 
   // Pagination information
-  gcommon.common.v1.Pagination pagination = 3;
+  gcommon.v1.common.Pagination pagination = 3;
 
   // Error information
-  gcommon.common.v1.Error error = 4;
+  gcommon.v1.common.Error error = 4;
 }
 
 // Get queue stats request
@@ -5143,7 +5127,7 @@ message GetQueueStatsRequest {
   string queue_name = 1;
 
   // Request metadata
-  gcommon.common.v1.RequestMetadata metadata = 2;
+  gcommon.v1.common.RequestMetadata metadata = 2;
 }
 
 // Get queue stats response
@@ -5152,7 +5136,7 @@ message GetQueueStatsResponse {
   QueueStats stats = 1;
 
   // Error information
-  gcommon.common.v1.Error error = 2;
+  gcommon.v1.common.Error error = 2;
 }
 
 // Queue statistics
@@ -5239,7 +5223,7 @@ message GetSubscriptionStatsRequest {
   string subscription_name = 1;
 
   // Request metadata
-  gcommon.common.v1.RequestMetadata metadata = 2;
+  gcommon.v1.common.RequestMetadata metadata = 2;
 }
 
 // Get subscription stats response
@@ -5248,7 +5232,7 @@ message GetSubscriptionStatsResponse {
   SubscriptionStats stats = 1;
 
   // Error information
-  gcommon.common.v1.Error error = 2;
+  gcommon.v1.common.Error error = 2;
 }
 
 // Subscription statistics
@@ -5317,7 +5301,7 @@ message CreateQueueRequest {
   QueueConfig config = 1;
 
   // Request metadata
-  gcommon.common.v1.RequestMetadata metadata = 2;
+  gcommon.v1.common.RequestMetadata metadata = 2;
 }
 
 // Queue configuration
@@ -5399,7 +5383,7 @@ message CreateQueueResponse {
   QueueInfo queue = 2;
 
   // Error information
-  gcommon.common.v1.Error error = 3;
+  gcommon.v1.common.Error error = 3;
 }
 
 // Queue information
@@ -5441,7 +5425,7 @@ message UpdateQueueRequest {
   google.protobuf.FieldMask update_mask = 3;
 
   // Request metadata
-  gcommon.common.v1.RequestMetadata metadata = 4;
+  gcommon.v1.common.RequestMetadata metadata = 4;
 }
 
 // Update queue response
@@ -5453,7 +5437,7 @@ message UpdateQueueResponse {
   QueueInfo queue = 2;
 
   // Error information
-  gcommon.common.v1.Error error = 3;
+  gcommon.v1.common.Error error = 3;
 }
 
 // Delete queue request
@@ -5465,7 +5449,7 @@ message DeleteQueueRequest {
   bool force = 2;
 
   // Request metadata
-  gcommon.common.v1.RequestMetadata metadata = 3;
+  gcommon.v1.common.RequestMetadata metadata = 3;
 }
 
 // List queues request
@@ -5480,10 +5464,10 @@ message ListQueuesRequest {
   QueueStatus status = 3;
 
   // Pagination options
-  gcommon.common.v1.Pagination pagination = 4;
+  gcommon.v1.common.Pagination pagination = 4;
 
   // Request metadata
-  gcommon.common.v1.RequestMetadata metadata = 5;
+  gcommon.v1.common.RequestMetadata metadata = 5;
 }
 
 // List queues response
@@ -5492,10 +5476,10 @@ message ListQueuesResponse {
   repeated QueueInfo queues = 1;
 
   // Pagination information
-  gcommon.common.v1.Pagination pagination = 2;
+  gcommon.v1.common.Pagination pagination = 2;
 
   // Error information
-  gcommon.common.v1.Error error = 3;
+  gcommon.v1.common.Error error = 3;
 }
 
 // Create topic request
@@ -5504,7 +5488,7 @@ message CreateTopicRequest {
   TopicConfig config = 1;
 
   // Request metadata
-  gcommon.common.v1.RequestMetadata metadata = 2;
+  gcommon.v1.common.RequestMetadata metadata = 2;
 }
 
 // Topic configuration
@@ -5563,7 +5547,7 @@ message CreateTopicResponse {
   TopicInfo topic = 2;
 
   // Error information
-  gcommon.common.v1.Error error = 3;
+  gcommon.v1.common.Error error = 3;
 }
 
 // Topic information
@@ -5641,7 +5625,7 @@ message UpdateTopicRequest {
   google.protobuf.FieldMask update_mask = 3;
 
   // Request metadata
-  gcommon.common.v1.RequestMetadata metadata = 4;
+  gcommon.v1.common.RequestMetadata metadata = 4;
 }
 
 // Update topic response
@@ -5653,7 +5637,7 @@ message UpdateTopicResponse {
   TopicInfo topic = 2;
 
   // Error information
-  gcommon.common.v1.Error error = 3;
+  gcommon.v1.common.Error error = 3;
 }
 
 // Delete topic request
@@ -5665,7 +5649,7 @@ message DeleteTopicRequest {
   bool force = 2;
 
   // Request metadata
-  gcommon.common.v1.RequestMetadata metadata = 3;
+  gcommon.v1.common.RequestMetadata metadata = 3;
 }
 
 // List topics request
@@ -5677,10 +5661,10 @@ message ListTopicsRequest {
   TopicStatus status = 2;
 
   // Pagination options
-  gcommon.common.v1.Pagination pagination = 3;
+  gcommon.v1.common.Pagination pagination = 3;
 
   // Request metadata
-  gcommon.common.v1.RequestMetadata metadata = 4;
+  gcommon.v1.common.RequestMetadata metadata = 4;
 }
 
 // List topics response
@@ -5689,10 +5673,10 @@ message ListTopicsResponse {
   repeated TopicInfo topics = 1;
 
   // Pagination information
-  gcommon.common.v1.Pagination pagination = 2;
+  gcommon.v1.common.Pagination pagination = 2;
 
   // Error information
-  gcommon.common.v1.Error error = 3;
+  gcommon.v1.common.Error error = 3;
 }
 
 // Create subscription request
@@ -5701,7 +5685,7 @@ message CreateSubscriptionRequest {
   SubscriptionConfig config = 1;
 
   // Request metadata
-  gcommon.common.v1.RequestMetadata metadata = 2;
+  gcommon.v1.common.RequestMetadata metadata = 2;
 }
 
 // Subscription configuration
@@ -5800,7 +5784,7 @@ message CreateSubscriptionResponse {
   SubscriptionInfo subscription = 2;
 
   // Error information
-  gcommon.common.v1.Error error = 3;
+  gcommon.v1.common.Error error = 3;
 }
 
 // Subscription information
@@ -5833,7 +5817,7 @@ message UpdateSubscriptionRequest {
   google.protobuf.FieldMask update_mask = 3;
 
   // Request metadata
-  gcommon.common.v1.RequestMetadata metadata = 4;
+  gcommon.v1.common.RequestMetadata metadata = 4;
 }
 
 // Update subscription response
@@ -5845,7 +5829,7 @@ message UpdateSubscriptionResponse {
   SubscriptionInfo subscription = 2;
 
   // Error information
-  gcommon.common.v1.Error error = 3;
+  gcommon.v1.common.Error error = 3;
 }
 
 // Delete subscription request
@@ -5854,7 +5838,7 @@ message DeleteSubscriptionRequest {
   string name = 1;
 
   // Request metadata
-  gcommon.common.v1.RequestMetadata metadata = 2;
+  gcommon.v1.common.RequestMetadata metadata = 2;
 }
 
 // List subscriptions request
@@ -5869,10 +5853,10 @@ message ListSubscriptionsRequest {
   SubscriptionStatus status = 3;
 
   // Pagination options
-  gcommon.common.v1.Pagination pagination = 4;
+  gcommon.v1.common.Pagination pagination = 4;
 
   // Request metadata
-  gcommon.common.v1.RequestMetadata metadata = 5;
+  gcommon.v1.common.RequestMetadata metadata = 5;
 }
 
 // List subscriptions response
@@ -5881,10 +5865,10 @@ message ListSubscriptionsResponse {
   repeated SubscriptionInfo subscriptions = 1;
 
   // Pagination information
-  gcommon.common.v1.Pagination pagination = 2;
+  gcommon.v1.common.Pagination pagination = 2;
 
   // Error information
-  gcommon.common.v1.Error error = 3;
+  gcommon.v1.common.Error error = 3;
 }
 
 // Purge queue request
@@ -5896,7 +5880,7 @@ message PurgeQueueRequest {
   PurgeQueueCriteria criteria = 2;
 
   // Request metadata
-  gcommon.common.v1.RequestMetadata metadata = 3;
+  gcommon.v1.common.RequestMetadata metadata = 3;
 }
 
 // Purge queue criteria
@@ -5923,7 +5907,7 @@ message PurgeQueueResponse {
   bool success = 2;
 
   // Error information
-  gcommon.common.v1.Error error = 3;
+  gcommon.v1.common.Error error = 3;
 }
 
 // Get dead letter messages request
@@ -5932,10 +5916,10 @@ message GetDeadLetterMessagesRequest {
   string queue_name = 1;
 
   // Pagination options
-  gcommon.common.v1.Pagination pagination = 2;
+  gcommon.v1.common.Pagination pagination = 2;
 
   // Request metadata
-  gcommon.common.v1.RequestMetadata metadata = 3;
+  gcommon.v1.common.RequestMetadata metadata = 3;
 }
 
 // Get dead letter messages response
@@ -5944,10 +5928,10 @@ message GetDeadLetterMessagesResponse {
   repeated DeadLetterMessage messages = 1;
 
   // Pagination information
-  gcommon.common.v1.Pagination pagination = 2;
+  gcommon.v1.common.Pagination pagination = 2;
 
   // Error information
-  gcommon.common.v1.Error error = 3;
+  gcommon.v1.common.Error error = 3;
 }
 
 // Dead letter message
@@ -5983,7 +5967,7 @@ message RequeueDeadLetterMessagesRequest {
   repeated string message_ids = 3;
 
   // Request metadata
-  gcommon.common.v1.RequestMetadata metadata = 4;
+  gcommon.v1.common.RequestMetadata metadata = 4;
 }
 
 // Requeue dead letter messages response
@@ -5998,7 +5982,7 @@ message RequeueDeadLetterMessagesResponse {
   bool success = 3;
 
   // Error information
-  gcommon.common.v1.Error error = 4;
+  gcommon.v1.common.Error error = 4;
 }
 
 // Get system health request
@@ -6007,7 +5991,7 @@ message GetSystemHealthRequest {
   repeated HealthCheckType check_types = 1;
 
   // Request metadata
-  gcommon.common.v1.RequestMetadata metadata = 2;
+  gcommon.v1.common.RequestMetadata metadata = 2;
 }
 
 // Health check type enumeration
@@ -6032,7 +6016,7 @@ message GetSystemHealthResponse {
   SystemMetrics metrics = 3;
 
   // Error information
-  gcommon.common.v1.Error error = 4;
+  gcommon.v1.common.Error error = 4;
 }
 
 // Health status enumeration
@@ -6127,7 +6111,7 @@ message StartWorkflowRequest {
   WorkflowOptions options = 3;
 
   // Request metadata
-  gcommon.common.v1.RequestMetadata metadata = 4;
+  gcommon.v1.common.RequestMetadata metadata = 4;
 }
 
 // Workflow definition
@@ -6256,7 +6240,7 @@ message StartWorkflowResponse {
   bool success = 3;
 
   // Error information
-  gcommon.common.v1.Error error = 4;
+  gcommon.v1.common.Error error = 4;
 }
 
 // Get workflow request
@@ -6265,7 +6249,7 @@ message GetWorkflowRequest {
   string workflow_id = 1;
 
   // Request metadata
-  gcommon.common.v1.RequestMetadata metadata = 2;
+  gcommon.v1.common.RequestMetadata metadata = 2;
 }
 
 // Get workflow response
@@ -6274,7 +6258,7 @@ message GetWorkflowResponse {
   WorkflowInfo workflow = 1;
 
   // Error information
-  gcommon.common.v1.Error error = 2;
+  gcommon.v1.common.Error error = 2;
 }
 
 // Workflow information
@@ -6375,10 +6359,10 @@ message ListWorkflowsRequest {
   google.protobuf.Timestamp end_time = 5;
 
   // Pagination options
-  gcommon.common.v1.Pagination pagination = 6;
+  gcommon.v1.common.Pagination pagination = 6;
 
   // Request metadata
-  gcommon.common.v1.RequestMetadata metadata = 7;
+  gcommon.v1.common.RequestMetadata metadata = 7;
 }
 
 // List workflows response
@@ -6387,10 +6371,10 @@ message ListWorkflowsResponse {
   repeated WorkflowInfo workflows = 1;
 
   // Pagination information
-  gcommon.common.v1.Pagination pagination = 2;
+  gcommon.v1.common.Pagination pagination = 2;
 
   // Error information
-  gcommon.common.v1.Error error = 3;
+  gcommon.v1.common.Error error = 3;
 }
 
 // Cancel workflow request
@@ -6402,7 +6386,7 @@ message CancelWorkflowRequest {
   string reason = 2;
 
   // Request metadata
-  gcommon.common.v1.RequestMetadata metadata = 3;
+  gcommon.v1.common.RequestMetadata metadata = 3;
 }
 
 // Cancel workflow response
@@ -6411,7 +6395,7 @@ message CancelWorkflowResponse {
   bool success = 1;
 
   // Error information
-  gcommon.common.v1.Error error = 2;
+  gcommon.v1.common.Error error = 2;
 }
 
 // Pause workflow request
@@ -6420,7 +6404,7 @@ message PauseWorkflowRequest {
   string workflow_id = 1;
 
   // Request metadata
-  gcommon.common.v1.RequestMetadata metadata = 2;
+  gcommon.v1.common.RequestMetadata metadata = 2;
 }
 
 // Pause workflow response
@@ -6429,7 +6413,7 @@ message PauseWorkflowResponse {
   bool success = 1;
 
   // Error information
-  gcommon.common.v1.Error error = 2;
+  gcommon.v1.common.Error error = 2;
 }
 
 // Resume workflow request
@@ -6438,7 +6422,7 @@ message ResumeWorkflowRequest {
   string workflow_id = 1;
 
   // Request metadata
-  gcommon.common.v1.RequestMetadata metadata = 2;
+  gcommon.v1.common.RequestMetadata metadata = 2;
 }
 
 // Resume workflow response
@@ -6447,7 +6431,7 @@ message ResumeWorkflowResponse {
   bool success = 1;
 
   // Error information
-  gcommon.common.v1.Error error = 2;
+  gcommon.v1.common.Error error = 2;
 }
 
 // Complete task request
@@ -6462,7 +6446,7 @@ message CompleteTaskRequest {
   google.protobuf.Any output_data = 3;
 
   // Request metadata
-  gcommon.common.v1.RequestMetadata metadata = 4;
+  gcommon.v1.common.RequestMetadata metadata = 4;
 }
 
 // Complete task response
@@ -6471,7 +6455,7 @@ message CompleteTaskResponse {
   bool success = 1;
 
   // Error information
-  gcommon.common.v1.Error error = 2;
+  gcommon.v1.common.Error error = 2;
 }
 
 // Fail task request
@@ -6489,7 +6473,7 @@ message FailTaskRequest {
   bool retry = 4;
 
   // Request metadata
-  gcommon.common.v1.RequestMetadata metadata = 5;
+  gcommon.v1.common.RequestMetadata metadata = 5;
 }
 
 // Fail task response
@@ -6498,7 +6482,7 @@ message FailTaskResponse {
   bool success = 1;
 
   // Error information
-  gcommon.common.v1.Error error = 2;
+  gcommon.v1.common.Error error = 2;
 }
 
 // Get task request
@@ -6510,7 +6494,7 @@ message GetTaskRequest {
   string task_name = 2;
 
   // Request metadata
-  gcommon.common.v1.RequestMetadata metadata = 3;
+  gcommon.v1.common.RequestMetadata metadata = 3;
 }
 
 // Get task response
@@ -6519,7 +6503,7 @@ message GetTaskResponse {
   TaskExecution task_execution = 1;
 
   // Error information
-  gcommon.common.v1.Error error = 2;
+  gcommon.v1.common.Error error = 2;
 }
 
 // List tasks request
@@ -6531,10 +6515,10 @@ message ListTasksRequest {
   TaskStatus status = 2;
 
   // Pagination options
-  gcommon.common.v1.Pagination pagination = 3;
+  gcommon.v1.common.Pagination pagination = 3;
 
   // Request metadata
-  gcommon.common.v1.RequestMetadata metadata = 4;
+  gcommon.v1.common.RequestMetadata metadata = 4;
 }
 
 // List tasks response
@@ -6543,10 +6527,10 @@ message ListTasksResponse {
   repeated TaskExecution task_executions = 1;
 
   // Pagination information
-  gcommon.common.v1.Pagination pagination = 2;
+  gcommon.v1.common.Pagination pagination = 2;
 
   // Error information
-  gcommon.common.v1.Error error = 3;
+  gcommon.v1.common.Error error = 3;
 }
 QUEUE_PROTO
 
@@ -6655,7 +6639,7 @@ message CreateServerRequest {
   ServerConfig config = 1;
 
   // Request metadata
-  gcommon.common.v1.RequestMetadata metadata = 2;
+  gcommon.v1.common.RequestMetadata metadata = 2;
 }
 
 // Server configuration
@@ -7079,7 +7063,7 @@ message CreateServerResponse {
   ServerInfo server = 2;
 
   // Error information
-  gcommon.common.v1.Error error = 3;
+  gcommon.v1.common.Error error = 3;
 }
 
 // Server information
@@ -7147,7 +7131,7 @@ message StartServerRequest {
   string server_id = 1;
 
   // Request metadata
-  gcommon.common.v1.RequestMetadata metadata = 2;
+  gcommon.v1.common.RequestMetadata metadata = 2;
 }
 
 // Start server response
@@ -7162,7 +7146,7 @@ message StartServerResponse {
   string listen_address = 3;
 
   // Error information
-  gcommon.common.v1.Error error = 4;
+  gcommon.v1.common.Error error = 4;
 }
 
 // Stop server request
@@ -7174,7 +7158,7 @@ message StopServerRequest {
   google.protobuf.Duration graceful_timeout = 2;
 
   // Request metadata
-  gcommon.common.v1.RequestMetadata metadata = 3;
+  gcommon.v1.common.RequestMetadata metadata = 3;
 }
 
 // Stop server response
@@ -7186,7 +7170,7 @@ message StopServerResponse {
   ServerStatus status = 2;
 
   // Error information
-  gcommon.common.v1.Error error = 3;
+  gcommon.v1.common.Error error = 3;
 }
 
 // Get server status request
@@ -7195,7 +7179,7 @@ message GetServerStatusRequest {
   string server_id = 1;
 
   // Request metadata
-  gcommon.common.v1.RequestMetadata metadata = 2;
+  gcommon.v1.common.RequestMetadata metadata = 2;
 }
 
 // Get server status response
@@ -7204,7 +7188,7 @@ message GetServerStatusResponse {
   ServerInfo server = 1;
 
   // Error information
-  gcommon.common.v1.Error error = 2;
+  gcommon.v1.common.Error error = 2;
 }
 
 // List servers request
@@ -7216,10 +7200,10 @@ message ListServersRequest {
   string name_pattern = 2;
 
   // Pagination options
-  gcommon.common.v1.Pagination pagination = 3;
+  gcommon.v1.common.Pagination pagination = 3;
 
   // Request metadata
-  gcommon.common.v1.RequestMetadata metadata = 4;
+  gcommon.v1.common.RequestMetadata metadata = 4;
 }
 
 // List servers response
@@ -7228,10 +7212,10 @@ message ListServersResponse {
   repeated ServerInfo servers = 1;
 
   // Pagination information
-  gcommon.common.v1.Pagination pagination = 2;
+  gcommon.v1.common.Pagination pagination = 2;
 
   // Error information
-  gcommon.common.v1.Error error = 3;
+  gcommon.v1.common.Error error = 3;
 }
 
 // Register route request
@@ -7243,7 +7227,7 @@ message RegisterRouteRequest {
   RouteConfig route = 2;
 
   // Request metadata
-  gcommon.common.v1.RequestMetadata metadata = 3;
+  gcommon.v1.common.RequestMetadata metadata = 3;
 }
 
 // Route configuration
@@ -7312,7 +7296,7 @@ message RegisterRouteResponse {
   RouteInfo route = 2;
 
   // Error information
-  gcommon.common.v1.Error error = 3;
+  gcommon.v1.common.Error error = 3;
 }
 
 // Route information
@@ -7381,7 +7365,7 @@ message UnregisterRouteRequest {
   string route_id = 2;
 
   // Request metadata
-  gcommon.common.v1.RequestMetadata metadata = 3;
+  gcommon.v1.common.RequestMetadata metadata = 3;
 }
 
 // Unregister route response
@@ -7390,7 +7374,7 @@ message UnregisterRouteResponse {
   bool success = 1;
 
   // Error information
-  gcommon.common.v1.Error error = 2;
+  gcommon.v1.common.Error error = 2;
 }
 
 // List routes request
@@ -7405,10 +7389,10 @@ message ListRoutesRequest {
   string path_pattern = 3;
 
   // Pagination options
-  gcommon.common.v1.Pagination pagination = 4;
+  gcommon.v1.common.Pagination pagination = 4;
 
   // Request metadata
-  gcommon.common.v1.RequestMetadata metadata = 5;
+  gcommon.v1.common.RequestMetadata metadata = 5;
 }
 
 // List routes response
@@ -7417,10 +7401,10 @@ message ListRoutesResponse {
   repeated RouteInfo routes = 1;
 
   // Pagination information
-  gcommon.common.v1.Pagination pagination = 2;
+  gcommon.v1.common.Pagination pagination = 2;
 
   // Error information
-  gcommon.common.v1.Error error = 3;
+  gcommon.v1.common.Error error = 3;
 }
 
 // Add middleware request
@@ -7432,7 +7416,7 @@ message AddMiddlewareRequest {
   MiddlewareConfig middleware = 2;
 
   // Request metadata
-  gcommon.common.v1.RequestMetadata metadata = 3;
+  gcommon.v1.common.RequestMetadata metadata = 3;
 }
 
 // Add middleware response
@@ -7444,7 +7428,7 @@ message AddMiddlewareResponse {
   MiddlewareInfo middleware = 2;
 
   // Error information
-  gcommon.common.v1.Error error = 3;
+  gcommon.v1.common.Error error = 3;
 }
 
 // Middleware information
@@ -7492,7 +7476,7 @@ message RemoveMiddlewareRequest {
   string middleware_id = 2;
 
   // Request metadata
-  gcommon.common.v1.RequestMetadata metadata = 3;
+  gcommon.v1.common.RequestMetadata metadata = 3;
 }
 
 // Remove middleware response
@@ -7501,7 +7485,7 @@ message RemoveMiddlewareResponse {
   bool success = 1;
 
   // Error information
-  gcommon.common.v1.Error error = 2;
+  gcommon.v1.common.Error error = 2;
 }
 
 // List middleware request
@@ -7516,10 +7500,10 @@ message ListMiddlewareRequest {
   bool enabled = 3;
 
   // Pagination options
-  gcommon.common.v1.Pagination pagination = 4;
+  gcommon.v1.common.Pagination pagination = 4;
 
   // Request metadata
-  gcommon.common.v1.RequestMetadata metadata = 5;
+  gcommon.v1.common.RequestMetadata metadata = 5;
 }
 
 // List middleware response
@@ -7528,10 +7512,10 @@ message ListMiddlewareResponse {
   repeated MiddlewareInfo middleware = 1;
 
   // Pagination information
-  gcommon.common.v1.Pagination pagination = 2;
+  gcommon.v1.common.Pagination pagination = 2;
 
   // Error information
-  gcommon.common.v1.Error error = 3;
+  gcommon.v1.common.Error error = 3;
 }
 
 // Get server metrics request
@@ -7547,7 +7531,7 @@ message GetServerMetricsRequest {
   google.protobuf.Timestamp end_time = 4;
 
   // Request metadata
-  gcommon.common.v1.RequestMetadata metadata = 5;
+  gcommon.v1.common.RequestMetadata metadata = 5;
 }
 
 // Server metric type enumeration
@@ -7566,7 +7550,7 @@ message GetServerMetricsResponse {
   ServerMetrics metrics = 1;
 
   // Error information
-  gcommon.common.v1.Error error = 2;
+  gcommon.v1.common.Error error = 2;
 }
 
 // Server metrics
@@ -7789,7 +7773,7 @@ message GetRouteMetricsRequest {
   google.protobuf.Timestamp end_time = 4;
 
   // Request metadata
-  gcommon.common.v1.RequestMetadata metadata = 5;
+  gcommon.v1.common.RequestMetadata metadata = 5;
 }
 
 // Get route metrics response
@@ -7798,7 +7782,7 @@ message GetRouteMetricsResponse {
   RouteMetrics metrics = 1;
 
   // Error information
-  gcommon.common.v1.Error error = 2;
+  gcommon.v1.common.Error error = 2;
 }
 
 // Route metrics
@@ -7852,7 +7836,7 @@ message HandleRequestRequest {
   RequestContext context = 3;
 
   // Request metadata
-  gcommon.common.v1.RequestMetadata metadata = 4;
+  gcommon.v1.common.RequestMetadata metadata = 4;
 }
 
 // HTTP request
@@ -7969,7 +7953,7 @@ message HandleRequestResponse {
   google.protobuf.Duration processing_time = 2;
 
   // Error information
-  gcommon.common.v1.Error error = 3;
+  gcommon.v1.common.Error error = 3;
 }
 
 // HTTP response
@@ -8002,7 +7986,7 @@ message StreamServerEventsRequest {
   repeated ServerEventType event_types = 2;
 
   // Request metadata
-  gcommon.common.v1.RequestMetadata metadata = 3;
+  gcommon.v1.common.RequestMetadata metadata = 3;
 }
 
 // Server event type enumeration
@@ -8042,7 +8026,7 @@ message ConfigureGlobalRequest {
   GlobalConfig config = 1;
 
   // Request metadata
-  gcommon.common.v1.RequestMetadata metadata = 2;
+  gcommon.v1.common.RequestMetadata metadata = 2;
 }
 
 // Global configuration
@@ -8177,7 +8161,7 @@ message ConfigureGlobalResponse {
   GlobalConfig config = 2;
 
   // Error information
-  gcommon.common.v1.Error error = 3;
+  gcommon.v1.common.Error error = 3;
 }
 
 // Update server config request
@@ -8192,7 +8176,7 @@ message UpdateServerConfigRequest {
   google.protobuf.FieldMask update_mask = 3;
 
   // Request metadata
-  gcommon.common.v1.RequestMetadata metadata = 4;
+  gcommon.v1.common.RequestMetadata metadata = 4;
 }
 
 // Update server config response
@@ -8204,7 +8188,7 @@ message UpdateServerConfigResponse {
   ServerInfo server = 2;
 
   // Error information
-  gcommon.common.v1.Error error = 3;
+  gcommon.v1.common.Error error = 3;
 }
 
 // Get server logs request
@@ -8223,10 +8207,10 @@ message GetServerLogsRequest {
   string message_filter = 5;
 
   // Pagination options
-  gcommon.common.v1.Pagination pagination = 6;
+  gcommon.v1.common.Pagination pagination = 6;
 
   // Request metadata
-  gcommon.common.v1.RequestMetadata metadata = 7;
+  gcommon.v1.common.RequestMetadata metadata = 7;
 }
 
 // Get server logs response
@@ -8235,10 +8219,10 @@ message GetServerLogsResponse {
   repeated LogEntry log_entries = 1;
 
   // Pagination information
-  gcommon.common.v1.Pagination pagination = 2;
+  gcommon.v1.common.Pagination pagination = 2;
 
   // Error information
-  gcommon.common.v1.Error error = 3;
+  gcommon.v1.common.Error error = 3;
 }
 
 // Log entry
@@ -8278,10 +8262,10 @@ message GetAccessLogsRequest {
   string method_filter = 6;
 
   // Pagination options
-  gcommon.common.v1.Pagination pagination = 7;
+  gcommon.v1.common.Pagination pagination = 7;
 
   // Request metadata
-  gcommon.common.v1.RequestMetadata metadata = 8;
+  gcommon.v1.common.RequestMetadata metadata = 8;
 }
 
 // Get access logs response
@@ -8290,10 +8274,10 @@ message GetAccessLogsResponse {
   repeated AccessLogEntry access_logs = 1;
 
   // Pagination information
-  gcommon.common.v1.Pagination pagination = 2;
+  gcommon.v1.common.Pagination pagination = 2;
 
   // Error information
-  gcommon.common.v1.Error error = 3;
+  gcommon.v1.common.Error error = 3;
 }
 
 // Access log entry
@@ -8335,7 +8319,7 @@ message ReloadServerConfigRequest {
   string server_id = 1;
 
   // Request metadata
-  gcommon.common.v1.RequestMetadata metadata = 2;
+  gcommon.v1.common.RequestMetadata metadata = 2;
 }
 
 // Reload server config response
@@ -8347,7 +8331,7 @@ message ReloadServerConfigResponse {
   ServerConfig config = 2;
 
   // Error information
-  gcommon.common.v1.Error error = 3;
+  gcommon.v1.common.Error error = 3;
 }
 
 // Get SSL certificate info request
@@ -8356,7 +8340,7 @@ message GetSSLCertificateInfoRequest {
   string server_id = 1;
 
   // Request metadata
-  gcommon.common.v1.RequestMetadata metadata = 2;
+  gcommon.v1.common.RequestMetadata metadata = 2;
 }
 
 // Get SSL certificate info response
@@ -8365,7 +8349,7 @@ message GetSSLCertificateInfoResponse {
   CertificateInfo certificate = 1;
 
   // Error information
-  gcommon.common.v1.Error error = 2;
+  gcommon.v1.common.Error error = 2;
 }
 
 // Certificate information
@@ -8410,7 +8394,7 @@ message UpdateSSLCertificateRequest {
   string ca_certificate_data = 4;
 
   // Request metadata
-  gcommon.common.v1.RequestMetadata metadata = 5;
+  gcommon.v1.common.RequestMetadata metadata = 5;
 }
 
 // Update SSL certificate response
@@ -8422,7 +8406,7 @@ message UpdateSSLCertificateResponse {
   CertificateInfo certificate = 2;
 
   // Error information
-  gcommon.common.v1.Error error = 3;
+  gcommon.v1.common.Error error = 3;
 }
 
 // Get server health request
@@ -8431,7 +8415,7 @@ message GetServerHealthRequest {
   string server_id = 1;
 
   // Request metadata
-  gcommon.common.v1.RequestMetadata metadata = 2;
+  gcommon.v1.common.RequestMetadata metadata = 2;
 }
 
 // Get server health response
@@ -8440,7 +8424,7 @@ message GetServerHealthResponse {
   ServerHealthStatus health = 1;
 
   // Error information
-  gcommon.common.v1.Error error = 2;
+  gcommon.v1.common.Error error = 2;
 }
 
 // Server health status
@@ -8490,7 +8474,7 @@ message ExportServerConfigRequest {
   ConfigExportFormat format = 2;
 
   // Request metadata
-  gcommon.common.v1.RequestMetadata metadata = 3;
+  gcommon.v1.common.RequestMetadata metadata = 3;
 }
 
 // Config export format enumeration
@@ -8510,7 +8494,7 @@ message ExportServerConfigResponse {
   ConfigExportFormat format = 2;
 
   // Error information
-  gcommon.common.v1.Error error = 3;
+  gcommon.v1.common.Error error = 3;
 }
 
 // Import server config request
@@ -8528,7 +8512,7 @@ message ImportServerConfigRequest {
   ConfigMergeStrategy merge_strategy = 4;
 
   // Request metadata
-  gcommon.common.v1.RequestMetadata metadata = 5;
+  gcommon.v1.common.RequestMetadata metadata = 5;
 }
 
 // Config merge strategy enumeration
@@ -8548,7 +8532,7 @@ message ImportServerConfigResponse {
   ServerInfo server = 2;
 
   // Error information
-  gcommon.common.v1.Error error = 3;
+  gcommon.v1.common.Error error = 3;
 }
 WEB_PROTO
 
@@ -8574,7 +8558,7 @@ echo "  - Edition 2023 syntax"
 echo "  - gcommon.v1.{service_name} package naming"
 echo "  - Hybrid API support (REST + gRPC)"
 echo "  - Comprehensive service definitions"
-echo "  - Common types from gcommon.common.v1"
+echo "  - Common types from gcommon.v1.common"
 echo ""
 echo "Next steps:"
 echo "  1. Run this script: bash create_all_protos.sh"
