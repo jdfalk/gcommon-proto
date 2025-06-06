@@ -11,7 +11,6 @@ import "google/protobuf/any.proto";
 import "google/protobuf/field_mask.proto";
 import "google/protobuf/go_features.proto";
 
-
 option go_package = "github.com/jdfalk/gcommon/pkg/config/proto;configpb";
 option features.(pb.go).api_level = API_HYBRID;
 
@@ -43,30 +42,6 @@ service ConfigService {
 
   // GetSchema retrieves configuration schema
   rpc GetSchema(GetSchemaRequest) returns (GetSchemaResponse);
-}
-
-// Request metadata for configuration operations
-message RequestMetadata {
-  // Unique request ID for tracing
-  string request_id = 1;
-
-  // Client IP address
-  string client_ip = 2;
-
-  // User agent string
-  string user_agent = 3;
-
-  // Timestamp of the request
-  google.protobuf.Timestamp timestamp = 4;
-
-  // Authenticated user ID (if available)
-  string user_id = 5;
-
-  // Session ID (if available)
-  string session_id = 6;
-
-  // Additional custom attributes
-  map<string, string> attributes = 7;
 }
 
 // Configuration value request
