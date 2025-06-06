@@ -1,165 +1,472 @@
+// file: pkg/auth/proto/auth.proto
 edition = "2023";
 
-package auth;
-import "google/protobuf/go_features.proto";
+package gcommon.v1.auth;
 
-option go_package = "github.com/jdfalk/gcommon/pkg/auth/proto";
+import "pkg/common/proto/common.proto";
+import "google/protobuf/timestamp.proto";
+import "google/protobuf/duration.proto";
+import "google/protobuf/empty.proto";
+import "google/protobuf/field_mask.proto";
+
+option go_package = "github.com/jdfalk/gcommon/pkg/auth/proto;authpb";
 option features.(pb.go).api_level = API_HYBRID;
 
-// Auth service defines authentication operations
+// AuthService provides comprehensive authentication capabilities
 service AuthService {
-  // Authenticate verifies credentials and returns an identity
+  // Authenticate a user with various credential types
   rpc Authenticate(AuthenticateRequest) returns (AuthenticateResponse);
 
-  // ValidateToken validates a token and returns identity information
+  // Verify user credentials without issuing tokens
+  rpc VerifyCredentials(VerifyCredentialsRequest) returns (VerifyCredentialsResponse);
+
+  // Validate an access token
   rpc ValidateToken(ValidateTokenRequest) returns (ValidateTokenResponse);
 
-  // GenerateToken generates a new token for an identity
-  rpc GenerateToken(GenerateTokenRequest) returns (GenerateTokenResponse);
-
-  // RefreshToken refreshes an existing token
+  // Refresh an access token using a refresh token
   rpc RefreshToken(RefreshTokenRequest) returns (RefreshTokenResponse);
 
-  // Authorize checks if an identity has a permission for a resource
+  // Revoke a token (access or refresh)
+  rpc RevokeToken(RevokeTokenRequest) returns (google.protobuf.Empty);
+
+  // Get user information from a valid token
+  rpc GetUserInfo(GetUserInfoRequest) returns (GetUserInfoResponse);
+
+  // Initiate password reset flow
+  rpc InitiatePasswordReset(InitiatePasswordResetRequest) returns (InitiatePasswordResetResponse);
+
+  // Complete password reset with token
+  rpc CompletePasswordReset(CompletePasswordResetRequest) returns (google.protobuf.Empty);
+
+  // Change user password (authenticated)
+  rpc ChangePassword(ChangePasswordRequest) returns (google.protobuf.Empty);
+}
+
+// AuthorizationService provides authorization and permission management
+service AuthorizationService {
+  // Check if a user is authorized for a specific action
   rpc Authorize(AuthorizeRequest) returns (AuthorizeResponse);
 
-  // HasRole checks if an identity has a specific role
-  rpc HasRole(HasRoleRequest) returns (HasRoleResponse);
+  // Get all permissions for a user
+  rpc GetUserPermissions(GetUserPermissionsRequest) returns (GetUserPermissionsResponse);
+
+  // Get user roles
+  rpc GetUserRoles(GetUserRolesRequest) returns (GetUserRolesResponse);
+
+  // Assign role to user
+  rpc AssignRole(AssignRoleRequest) returns (google.protobuf.Empty);
+
+  // Remove role from user
+  rpc RemoveRole(RemoveRoleRequest) returns (google.protobuf.Empty);
+
+  // Create a new role
+  rpc CreateRole(CreateRoleRequest) returns (Role);
+
+  // Update an existing role
+  rpc UpdateRole(UpdateRoleRequest) returns (Role);
+
+  // Delete a role
+  rpc DeleteRole(DeleteRoleRequest) returns (google.protobuf.Empty);
+
+  // List roles with filtering and pagination
+  rpc ListRoles(ListRolesRequest) returns (ListRolesResponse);
 }
 
-// AuthenticateRequest contains authentication credentials
+// SessionService manages user sessions
+service SessionService {
+  // Create a new session
+  rpc CreateSession(CreateSessionRequest) returns (Session);
+
+  // Get session information
+  rpc GetSession(GetSessionRequest) returns (Session);
+
+  // Update session (e.g., refresh activity)
+  rpc UpdateSession(UpdateSessionRequest) returns (Session);
+
+  // Terminate a session
+  rpc TerminateSession(TerminateSessionRequest) returns (google.protobuf.Empty);
+
+  // List user sessions
+  rpc ListUserSessions(ListUserSessionsRequest) returns (ListUserSessionsResponse);
+
+  // Validate session token
+  rpc ValidateSession(ValidateSessionRequest) returns (ValidateSessionResponse);
+}
+
+// Authentication request with multiple credential types
 message AuthenticateRequest {
-  // Basic authentication
-  message BasicAuth {
-    string username = 1;
-    string password = 2;
-    string mfa_code = 3;
+  // Request metadata for tracing and correlation
+  gcommon.common.v1.RequestMetadata metadata = 1;
+
+  // Authentication credentials (oneof ensures only one type is used)
+  oneof credentials {
+    // Username/password authentication
+    PasswordCredentials password = 2;
+    // API key authentication
+    APIKeyCredentials api_key = 3;
+    // OAuth2 authorization code
+    OAuth2Credentials oauth2 = 4;
+    // JWT bearer token
+    JWTCredentials jwt = 5;
   }
 
-  // Token authentication
-  message TokenAuth {
-    string token = 1;
-  }
+  // Requested scopes
+  repeated string scopes = 6;
 
-  // Different types of authentication
-  oneof auth_type {
-    BasicAuth basic = 1;
-    TokenAuth token = 2;
-  }
+  // Client information
+  gcommon.common.v1.ClientInfo client_info = 7;
 }
 
-// AuthenticateResponse contains identity information after authentication
+// Username/password credentials
+message PasswordCredentials {
+  // Username or email
+  string username = 1;
+  // Password
+  string password = 2;
+  // Remember me option for extended session
+  bool remember_me = 3;
+}
+
+// API key credentials
+message APIKeyCredentials {
+  // API key value
+  string key = 1;
+  // API key ID (optional)
+  string key_id = 2;
+}
+
+// OAuth2 credentials
+message OAuth2Credentials {
+  // Authorization code
+  string code = 1;
+  // Redirect URI used in authorization request
+  string redirect_uri = 2;
+  // Client ID
+  string client_id = 3;
+  // Client secret (for confidential clients)
+  string client_secret = 4;
+}
+
+// JWT credentials
+message JWTCredentials {
+  // JWT token
+  string token = 1;
+  // Issuer (optional validation)
+  string issuer = 2;
+}
+
+// Authentication response
 message AuthenticateResponse {
-  // Identity represents authenticated user
-  Identity identity = 1;
-  // Token is the authentication token
-  string token = 2;
-  // RefreshToken is the token used to refresh the authentication token
-  string refresh_token = 3;
-  // ExpiresAt is the token expiration timestamp
-  int64 expires_at = 4;
-  // MfaRequired indicates if MFA is required for this user
-  bool mfa_required = 5;
+  // Access token for API access
+  string access_token = 1;
+  // Refresh token for token renewal
+  string refresh_token = 2;
+  // Token type (always "Bearer")
+  string token_type = 3;
+  // Token expiration time in seconds
+  int32 expires_in = 4;
+  // Granted scopes
+  repeated string scopes = 5;
+  // User information
+  UserInfo user_info = 6;
+  // Session information
+  Session session = 7;
+  // Rate limit information
+  gcommon.common.v1.RateLimit rate_limit = 8;
 }
 
-// Identity represents an authenticated identity
-message Identity {
+// User information
+message UserInfo {
+  // Unique user identifier
   string id = 1;
+  // Username
   string username = 2;
-  map<string, string> claims = 3;
-  repeated string roles = 4;
-  repeated string permissions = 5;
-  int64 expires_at = 6;
-  int64 issued_at = 7;
-  string issuer = 8;
-  map<string, string> metadata = 9;
+  // Email address
+  string email = 3;
+  // Display name
+  string display_name = 4;
+  // User roles
+  repeated string roles = 5;
+  // Direct permissions
+  repeated string permissions = 6;
+  // User attributes/metadata
+  map<string, string> attributes = 7;
+  // Account creation timestamp
+  google.protobuf.Timestamp created_at = 8;
+  // Last login timestamp
+  google.protobuf.Timestamp last_login_at = 9;
+  // Account status
+  UserStatus status = 10;
+  // Email verification status
+  bool email_verified = 11;
 }
 
-// ValidateTokenRequest contains token to validate
+// User account status enumeration
+enum UserStatus {
+  USER_STATUS_UNSPECIFIED = 0;
+  USER_STATUS_ACTIVE = 1;
+  USER_STATUS_INACTIVE = 2;
+  USER_STATUS_SUSPENDED = 3;
+  USER_STATUS_PENDING_VERIFICATION = 4;
+  USER_STATUS_LOCKED = 5;
+  USER_STATUS_DELETED = 6;
+}
+
+// Session information
+message Session {
+  // Unique session identifier
+  string id = 1;
+  // User ID associated with the session
+  string user_id = 2;
+  // Session creation timestamp
+  google.protobuf.Timestamp created_at = 3;
+  // Last activity timestamp
+  google.protobuf.Timestamp last_activity_at = 4;
+  // Session expiration timestamp
+  google.protobuf.Timestamp expires_at = 5;
+  // Client information
+  gcommon.common.v1.ClientInfo client_info = 6;
+  // Session status
+  SessionStatus status = 7;
+  // Session metadata
+  map<string, string> metadata = 8;
+  // IP address when session was created
+  string ip_address = 9;
+  // User agent when session was created
+  string user_agent = 10;
+}
+
+// Session status enumeration
+enum SessionStatus {
+  SESSION_STATUS_UNSPECIFIED = 0;
+  SESSION_STATUS_ACTIVE = 1;
+  SESSION_STATUS_EXPIRED = 2;
+  SESSION_STATUS_TERMINATED = 3;
+  SESSION_STATUS_INVALID = 4;
+}
+
+// Role definition
+message Role {
+  // Unique role identifier
+  string id = 1;
+  // Role name
+  string name = 2;
+  // Role description
+  string description = 3;
+  // Permissions granted by this role
+  repeated string permissions = 4;
+  // Role metadata
+  map<string, string> metadata = 5;
+  // Role creation timestamp
+  google.protobuf.Timestamp created_at = 6;
+  // Role status
+  gcommon.common.v1.ResourceStatus status = 7;
+}
+
+// Additional request/response messages (abbreviated for space)
+message VerifyCredentialsRequest {
+  gcommon.common.v1.RequestMetadata metadata = 1;
+  oneof credentials {
+    PasswordCredentials password = 2;
+    APIKeyCredentials api_key = 3;
+  }
+}
+
+message VerifyCredentialsResponse {
+  bool verified = 1;
+  UserInfo user_info = 2;
+  gcommon.common.v1.Error error = 3;
+}
+
 message ValidateTokenRequest {
   string token = 1;
+  repeated string required_scopes = 2;
+  gcommon.common.v1.RequestMetadata metadata = 3;
 }
 
-// ValidateTokenResponse contains identity information if token is valid
 message ValidateTokenResponse {
-  Identity identity = 1;
+  bool valid = 1;
+  string subject = 2;
+  repeated string scopes = 3;
+  google.protobuf.Timestamp expires_at = 4;
+  UserInfo user_info = 5;
+  gcommon.common.v1.Error error = 6;
 }
 
-// GenerateTokenRequest contains information to generate a token
-message GenerateTokenRequest {
-  Identity identity = 1;
-  int64 duration = 2; // Duration in seconds
-  map<string, string> custom_claims = 3;
-  bool include_refresh_token = 4;
-}
-
-// GenerateTokenResponse contains the generated token
-message GenerateTokenResponse {
-  string token = 1;
-  string refresh_token = 2;
-  int64 expires_at = 3;
-}
-
-// RefreshTokenRequest contains a refresh token
 message RefreshTokenRequest {
   string refresh_token = 1;
+  repeated string scopes = 2;
+  gcommon.common.v1.RequestMetadata metadata = 3;
 }
 
-// RefreshTokenResponse contains the new tokens
 message RefreshTokenResponse {
-  string token = 1;
+  string access_token = 1;
   string refresh_token = 2;
-  int64 expires_at = 3;
+  string token_type = 3;
+  int32 expires_in = 4;
+  repeated string scopes = 5;
 }
 
-// AuthorizeRequest contains authorization request data
+message RevokeTokenRequest {
+  string token = 1;
+  string token_type_hint = 2;
+  gcommon.common.v1.RequestMetadata metadata = 3;
+}
+
+message GetUserInfoRequest {
+  string token = 1;
+  gcommon.common.v1.RequestMetadata metadata = 2;
+}
+
+message GetUserInfoResponse {
+  UserInfo user_info = 1;
+  map<string, string> attributes = 2;
+}
+
 message AuthorizeRequest {
-  Identity identity = 1;
-  string permission = 2;
-  string resource = 3;
+  string token = 1;
+  string resource = 2;
+  string action = 3;
+  map<string, string> context = 4;
+  gcommon.common.v1.RequestMetadata metadata = 5;
 }
 
-// AuthorizeResponse contains authorization result
 message AuthorizeResponse {
   bool authorized = 1;
-  string reason = 2;
+  repeated string permissions = 2;
+  string denial_reason = 3;
+  gcommon.common.v1.Error error = 4;
 }
 
-// HasRoleRequest contains role check request data
-message HasRoleRequest {
-  Identity identity = 1;
-  string role = 2;
+message InitiatePasswordResetRequest {
+  string identifier = 1;
+  gcommon.common.v1.RequestMetadata metadata = 2;
 }
 
-// HasRoleResponse contains role check result
-message HasRoleResponse {
-  bool has_role = 1;
+message InitiatePasswordResetResponse {
+  string reset_token = 1;
+  google.protobuf.Timestamp expires_at = 2;
+  string message = 3;
 }
 
-// User represents a user account
-message User {
-  string id = 1;
-  string username = 2;
-  string email = 3;
-  bool enabled = 4;
-  bool mfa_enabled = 5;
-  map<string, string> metadata = 6;
+message CompletePasswordResetRequest {
+  string reset_token = 1;
+  string new_password = 2;
+  gcommon.common.v1.RequestMetadata metadata = 3;
 }
 
-// Role represents a role definition
-message Role {
-  string id = 1;
-  string name = 2;
-  repeated string permissions = 3;
-  string description = 4;
-  map<string, string> metadata = 5;
+message ChangePasswordRequest {
+  string current_password = 1;
+  string new_password = 2;
+  gcommon.common.v1.RequestMetadata metadata = 3;
 }
 
-// Permission represents a permission definition
-message Permission {
-  string id = 1;
-  string name = 2;
-  string description = 3;
-  string resource = 4;
-  string action = 5;
+message GetUserPermissionsRequest {
+  string user_id = 1;
+  gcommon.common.v1.RequestMetadata metadata = 2;
+}
+
+message GetUserPermissionsResponse {
+  repeated string permissions = 1;
+  repeated string role_permissions = 2;
+  repeated string effective_permissions = 3;
+  repeated Role roles = 4;
+}
+
+message GetUserRolesRequest {
+  string user_id = 1;
+  gcommon.common.v1.RequestMetadata metadata = 2;
+}
+
+message GetUserRolesResponse {
+  repeated Role roles = 1;
+}
+
+message AssignRoleRequest {
+  string user_id = 1;
+  string role_id = 2;
+  gcommon.common.v1.RequestMetadata metadata = 3;
+}
+
+message RemoveRoleRequest {
+  string user_id = 1;
+  string role_id = 2;
+  gcommon.common.v1.RequestMetadata metadata = 3;
+}
+
+message CreateRoleRequest {
+  Role role = 1;
+  gcommon.common.v1.RequestMetadata metadata = 2;
+}
+
+message UpdateRoleRequest {
+  Role role = 1;
+  google.protobuf.FieldMask update_mask = 2;
+  gcommon.common.v1.RequestMetadata metadata = 3;
+}
+
+message DeleteRoleRequest {
+  string role_id = 1;
+  gcommon.common.v1.RequestMetadata metadata = 2;
+}
+
+message ListRolesRequest {
+  gcommon.common.v1.Pagination pagination = 1;
+  gcommon.common.v1.FilterOptions filter = 2;
+  gcommon.common.v1.SortOptions sort = 3;
+  gcommon.common.v1.RequestMetadata metadata = 4;
+}
+
+message ListRolesResponse {
+  repeated Role roles = 1;
+  gcommon.common.v1.PaginatedResponse pagination = 2;
+}
+
+message CreateSessionRequest {
+  string user_id = 1;
+  gcommon.common.v1.ClientInfo client_info = 2;
+  repeated string scopes = 3;
+  map<string, string> metadata = 4;
+  bool remember_me = 5;
+  gcommon.common.v1.RequestMetadata request_metadata = 6;
+}
+
+message GetSessionRequest {
+  string session_id = 1;
+  gcommon.common.v1.RequestMetadata metadata = 2;
+}
+
+message UpdateSessionRequest {
+  Session session = 1;
+  google.protobuf.FieldMask update_mask = 2;
+  gcommon.common.v1.RequestMetadata metadata = 3;
+}
+
+message TerminateSessionRequest {
+  string session_id = 1;
+  gcommon.common.v1.RequestMetadata metadata = 2;
+}
+
+message ListUserSessionsRequest {
+  string user_id = 1;
+  gcommon.common.v1.Pagination pagination = 2;
+  gcommon.common.v1.FilterOptions filter = 3;
+  gcommon.common.v1.RequestMetadata metadata = 4;
+}
+
+message ListUserSessionsResponse {
+  repeated Session sessions = 1;
+  gcommon.common.v1.PaginatedResponse pagination = 2;
+}
+
+message ValidateSessionRequest {
+  string session_token = 1;
+  gcommon.common.v1.RequestMetadata metadata = 2;
+}
+
+message ValidateSessionResponse {
+  bool valid = 1;
+  Session session = 2;
+  UserInfo user_info = 3;
+  gcommon.common.v1.Error error = 4;
 }
