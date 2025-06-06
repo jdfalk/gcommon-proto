@@ -3055,14 +3055,14 @@ edition = "2023";
 
 package gcommon.v1.metrics;
 
-option go_package = "github.com/jdfalk/gcommon/pkg/metrics/proto;metricspb";
-option features.(pb.go).api_level = API_HYBRID;
-
+import "pkg/common/proto/common.proto";
 import "google/protobuf/timestamp.proto";
 import "google/protobuf/duration.proto";
 import "google/protobuf/field_mask.proto";
 import "google/protobuf/go_features.proto";
-import "pkg/common/proto/common.proto";
+
+option go_package = "github.com/jdfalk/gcommon/pkg/metrics/proto;metricspb";
+option features.(pb.go).api_level = API_HYBRID;
 
 // MetricsService provides comprehensive metrics collection, aggregation, and querying
 service MetricsService {
@@ -4416,15 +4416,15 @@ edition = "2023";
 
 package gcommon.v1.queue;
 
-option go_package = "github.com/jdfalk/gcommon/pkg/queue/proto;queuepb";
-option features.(pb.go).api_level = API_HYBRID;
-
+import "pkg/common/proto/common.proto";
 import "google/protobuf/timestamp.proto";
 import "google/protobuf/duration.proto";
 import "google/protobuf/any.proto";
 import "google/protobuf/field_mask.proto";
 import "google/protobuf/go_features.proto";
-import "pkg/common/proto/common.proto";
+
+option go_package = "github.com/jdfalk/gcommon/pkg/queue/proto;queuepb";
+option features.(pb.go).api_level = API_HYBRID;
 
 // QueueService provides message queuing and pub/sub functionality
 service QueueService {
@@ -6543,14 +6543,15 @@ edition = "2023";
 
 package gcommon.v1.web;
 
-option go_package = "github.com/jdfalk/gcommon/pkg/web/proto;webpb";
-option features.(pb.go).api_level = API_HYBRID;
-
+import "pkg/common/proto/common.proto";
 import "google/protobuf/timestamp.proto";
 import "google/protobuf/duration.proto";
 import "google/protobuf/any.proto";
 import "google/protobuf/field_mask.proto";
-import "pkg/common/proto/common.proto";
+import "google/protobuf/go_features.proto";
+
+option go_package = "github.com/jdfalk/gcommon/pkg/web/proto;webpb";
+option features.(pb.go).api_level = API_HYBRID;
 
 // WebService provides HTTP server and web framework functionality
 service WebService {
