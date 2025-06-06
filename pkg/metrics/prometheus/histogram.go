@@ -1,6 +1,7 @@
 package prometheus
 
 import (
+	"math"
 	"sync"
 	"sync/atomic"
 
@@ -22,7 +23,7 @@ type histogram struct {
 
 	// Track metrics for snapshot capability
 	count      atomic.Int64
-	sum        atomic.Float64
+	sum        uint64 // Use uint64 for atomic operations with float64 conversion
 	bucketVals map[float64]*atomic.Int64
 }
 
@@ -128,7 +129,16 @@ func (h *histogram) Observe(value float64) {
 
 	// Track value for our snapshot capability
 	h.count.Add(1)
-	h.sum.Add(value)
+	// Atomic add for float64 sum
+	for {
+		current := atomic.LoadUint64(&h.sum)
+		currentFloat := math.Float64frombits(current)
+		newFloat := currentFloat + value
+		newBits := math.Float64bits(newFloat)
+		if atomic.CompareAndSwapUint64(&h.sum, current, newBits) {
+			break
+		}
+	}
 
 	// Update appropriate buckets
 	for bucket := range h.bucketVals {
@@ -210,7 +220,7 @@ func (h *histogram) Snapshot() metrics.HistogramSnapshot {
 
 	return &histogramSnapshot{
 		count:   h.count.Load(),
-		sum:     h.sum.Load(),
+		sum:     math.Float64frombits(atomic.LoadUint64(&h.sum)),
 		buckets: buckets,
 	}
 }

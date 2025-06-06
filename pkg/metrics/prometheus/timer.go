@@ -137,24 +137,33 @@ func (t *timer) Snapshot() metrics.HistogramSnapshot {
 	return t.histogram.Snapshot()
 }
 
-// Stop stops the stopwatch and records the elapsed duration in the timer.
-// After stopping, the stopwatch cannot be used again.
+// NewStopwatch returns a new stopwatch that can be used to measure elapsed time.
+// Call Stop() on the returned stopwatch to record the duration.
 //
 // Returns:
-//   - time.Duration: The elapsed duration
-func (s *stopwatch) Stop() time.Duration {
+//   - metrics.Stopwatch: A new stopwatch instance
+func (t *timer) NewStopwatch() metrics.Stopwatch {
+	return &stopwatch{
+		timer:     t,
+		startTime: time.Now(),
+		stopped:   false,
+	}
+}
+
+// Stop stops the stopwatch and records the elapsed duration in the timer.
+// After stopping, the stopwatch cannot be used again.
+func (s *stopwatch) Stop() {
 	s.mutex.Lock()
 	defer s.mutex.Unlock()
 
 	if s.stopped {
-		// Return zero duration if already stopped
-		return 0
+		// Already stopped, do nothing
+		return
 	}
 
 	s.stopped = true
 	elapsed := time.Since(s.startTime)
 	s.timer.Record(elapsed)
-	return elapsed
 }
 
 // Reset resets the stopwatch to the current time.

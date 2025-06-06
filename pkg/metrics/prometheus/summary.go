@@ -1,6 +1,7 @@
 package prometheus
 
 import (
+	"math"
 	"sync"
 	"sync/atomic"
 
@@ -22,7 +23,7 @@ type summary struct {
 
 	// Track metrics for snapshot capability
 	count        atomic.Int64
-	sum          atomic.Float64
+	sum          uint64   // Use uint64 for atomic operations with float64 conversion
 	quantileVals sync.Map // map[float64]*quantileEstimator
 }
 
@@ -41,7 +42,7 @@ type quantileEstimator struct {
 	values      []float64
 	maxSize     int
 	quantile    float64
-	cachedValue atomic.Float64
+	cachedValue uint64 // Use uint64 for atomic operations with float64 conversion
 }
 
 // newSummary creates a new Prometheus summary.
@@ -82,8 +83,8 @@ func newSummary(registry *registry, name string, globalTags []metrics.Tag, optio
 		Help:        opts.Description,
 		Objectives:  objectives,
 		MaxAge:      opts.MaxAge,
-		AgeBuckets:  opts.AgeBuckets,
-		BufCap:      opts.BufCap,
+		AgeBuckets:  uint32(opts.AgeBuckets),
+		BufCap:      uint32(opts.BufCap),
 		ConstLabels: opts.ConstLabels,
 	}
 
@@ -148,7 +149,16 @@ func (s *summary) Observe(value float64) {
 
 	// Update our tracking for snapshot capability
 	s.count.Add(1)
-	s.sum.Add(value)
+	// Atomic add for float64 sum
+	for {
+		current := atomic.LoadUint64(&s.sum)
+		currentFloat := math.Float64frombits(current)
+		newFloat := currentFloat + value
+		newBits := math.Float64bits(newFloat)
+		if atomic.CompareAndSwapUint64(&s.sum, current, newBits) {
+			break
+		}
+	}
 
 	// Update all quantile estimators
 	s.quantileVals.Range(func(key, val interface{}) bool {
@@ -226,7 +236,7 @@ func (s *summary) WithTags(tags ...metrics.Tag) metrics.Summary {
 func (s *summary) Snapshot() metrics.SummarySnapshot {
 	// Get current count and sum
 	count := s.count.Load()
-	sum := s.sum.Load()
+	sum := math.Float64frombits(atomic.LoadUint64(&s.sum))
 
 	// Get current quantile estimates
 	quantiles := make(map[float64]float64, len(s.objectives))
@@ -299,7 +309,7 @@ func (q *quantileEstimator) observe(value float64) {
 
 	// If we've exceeded maxSize, recalculate the estimate and reset
 	if len(q.values) >= q.maxSize {
-		q.cachedValue.Store(q.calculateQuantile())
+		atomic.StoreUint64(&q.cachedValue, math.Float64bits(q.calculateQuantile()))
 		// Keep most recent values to maintain some history
 		if len(q.values) > 100 {
 			q.values = q.values[len(q.values)-100:]
@@ -317,7 +327,7 @@ func (q *quantileEstimator) estimate() float64 {
 
 	// If we have a cached value and it's meaningful, return it
 	if len(q.values) >= q.maxSize/2 {
-		return q.cachedValue.Load()
+		return math.Float64frombits(atomic.LoadUint64(&q.cachedValue))
 	}
 
 	// Otherwise calculate it now

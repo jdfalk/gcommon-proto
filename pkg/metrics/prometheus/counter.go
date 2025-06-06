@@ -1,6 +1,7 @@
 package prometheus
 
 import (
+	"math"
 	"sync"
 	"sync/atomic"
 
@@ -19,8 +20,8 @@ type counter struct {
 	registry    *registry
 	mutex       sync.RWMutex
 
-	// Track value internally for efficient retrieval
-	value atomic.Float64
+	// Track value internally for efficient retrieval using uint64 for atomic operations
+	value uint64
 }
 
 // newCounter creates a new Prometheus counter.
@@ -94,7 +95,7 @@ func newCounter(registry *registry, name string, globalTags []metrics.Tag, optio
 func (c *counter) Inc() {
 	// Atomic update for thread safety without locking
 	c.counter.Inc()
-	c.value.Add(1)
+	atomic.AddUint64(&c.value, math.Float64bits(1))
 }
 
 // Add adds the given value to the counter.
@@ -108,7 +109,16 @@ func (c *counter) Add(value float64) {
 	}
 
 	c.counter.Add(value)
-	c.value.Add(value)
+	// Convert float64 to uint64 bits for atomic operation
+	for {
+		current := atomic.LoadUint64(&c.value)
+		currentFloat := math.Float64frombits(current)
+		newFloat := currentFloat + value
+		newBits := math.Float64bits(newFloat)
+		if atomic.CompareAndSwapUint64(&c.value, current, newBits) {
+			break
+		}
+	}
 }
 
 // WithTags returns a new counter with the given tags.
@@ -163,5 +173,6 @@ func (c *counter) WithTags(tags ...metrics.Tag) metrics.Counter {
 //   - float64: The current value of the counter
 func (c *counter) Value() float64 {
 	// Use atomic read for thread safety without locking
-	return c.value.Load()
+	bits := atomic.LoadUint64(&c.value)
+	return math.Float64frombits(bits)
 }

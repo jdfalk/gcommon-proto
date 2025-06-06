@@ -56,9 +56,9 @@ func NewProvider(config metrics.Config) (metrics.Provider, error) {
 	}
 
 	// Configure push gateway if enabled
-	if config.PrometheusConfig != nil && config.PrometheusConfig.PushGateway != "" {
+	if config.PrometheusConfig != nil && config.PrometheusConfig.PushGateway != nil {
 		pusher := push.New(
-			config.PrometheusConfig.PushGateway,
+			config.PrometheusConfig.PushGateway.URL,
 			config.PrometheusConfig.PushJobName,
 		).Gatherer(reg.registry)
 
@@ -178,74 +178,6 @@ func combineLabels(defaultLabels, customLabels prometheus.Labels) prometheus.Lab
 	// Add/override with custom labels
 	for k, v := range customLabels {
 		result[k] = v
-	}
-
-	return result
-}
-
-// parseOptions parses metric options.
-func parseOptions(options ...metrics.Option) metrics.Options {
-	opts := metrics.Options{}
-	for _, option := range options {
-		option(&opts)
-	}
-
-	// Convert tags to ConstLabels if needed for Prometheus
-	if len(opts.Tags) > 0 && opts.ConstLabels == nil {
-		opts.ConstLabels = make(prometheus.Labels)
-		for _, tag := range opts.Tags {
-			opts.ConstLabels[tag.Key] = tag.Value
-		}
-	}
-
-	return opts
-}
-
-// getTagKeys extracts tag keys from tags.
-func getTagKeys(tags []metrics.Tag) []string {
-	keys := make([]string, len(tags))
-	for i, tag := range tags {
-		keys[i] = tag.Key
-	}
-	return keys
-}
-
-// getTagValues extracts tag values for the given keys from tags.
-func getTagValues(tags []metrics.Tag, keys []string) []string {
-	// Create a map for quick lookup
-	tagMap := make(map[string]string, len(tags))
-	for _, tag := range tags {
-		tagMap[tag.Key] = tag.Value
-	}
-
-	// Extract values in the same order as keys
-	values := make([]string, len(keys))
-	for i, key := range keys {
-		values[i] = tagMap[key]
-	}
-
-	return values
-}
-
-// combineTags combines two sets of tags, with later tags overriding earlier ones.
-func combineTags(baseTags, overrideTags []metrics.Tag) []metrics.Tag {
-	// Create a map for efficient lookups
-	tagMap := make(map[string]string, len(baseTags)+len(overrideTags))
-
-	// Add base tags
-	for _, tag := range baseTags {
-		tagMap[tag.Key] = tag.Value
-	}
-
-	// Add/override with new tags
-	for _, tag := range overrideTags {
-		tagMap[tag.Key] = tag.Value
-	}
-
-	// Convert back to slice
-	result := make([]metrics.Tag, 0, len(tagMap))
-	for k, v := range tagMap {
-		result = append(result, metrics.Tag{Key: k, Value: v})
 	}
 
 	return result

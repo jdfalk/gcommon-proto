@@ -134,25 +134,25 @@ func parseOptions(options ...metrics.Option) metrics.Options {
 // CreateRequestCounter creates a standard HTTP request counter with common tags.
 //
 // Parameters:
-//   - registry: The metrics registry to register with
+//   - provider: The metrics provider to register with
 //   - subsystem: Optional subsystem name (e.g., "http", "grpc")
 //   - tags: Additional tags to include
 //
 // Returns:
 //   - metrics.Counter: A counter for tracking request counts
-func CreateRequestCounter(registry metrics.Registry, subsystem string, tags ...metrics.Tag) metrics.Counter {
+func CreateRequestCounter(provider metrics.Provider, subsystem string, tags ...metrics.Tag) metrics.Counter {
 	name := "requests_total"
 	if subsystem != "" {
 		name = subsystem + "_" + name
 	}
 
-	return registry.Counter(
+	return provider.Counter(
 		name,
-		append(tags, []metrics.Tag{
+		metrics.WithTags(append(tags, []metrics.Tag{
 			{Key: "status", Value: ""},
 			{Key: "method", Value: ""},
 			{Key: "path", Value: ""},
-		}...),
+		}...)...),
 		metrics.WithDescription("Total number of requests processed"),
 	)
 }

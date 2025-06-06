@@ -1,6 +1,7 @@
 package prometheus
 
 import (
+	"math"
 	"sync"
 	"sync/atomic"
 
@@ -18,8 +19,8 @@ type gauge struct {
 	labelValues []string
 	registry    *registry
 	mutex       sync.RWMutex
-	// cachedValue stores the last set value for Value() calls
-	cachedValue atomic.Float64
+	// cachedValue stores the last set value for Value() calls using uint64 for atomic operations
+	cachedValue uint64
 }
 
 // newGauge creates a new Prometheus gauge.
@@ -94,7 +95,7 @@ func (g *gauge) Set(value float64) {
 	defer g.mutex.Unlock()
 
 	g.gauge.Set(value)
-	g.cachedValue.Store(value)
+	atomic.StoreUint64(&g.cachedValue, math.Float64bits(value))
 }
 
 // Inc increments the gauge by 1.
@@ -103,7 +104,15 @@ func (g *gauge) Inc() {
 	defer g.mutex.Unlock()
 
 	g.gauge.Inc()
-	g.cachedValue.Store(g.cachedValue.Load() + 1)
+	for {
+		current := atomic.LoadUint64(&g.cachedValue)
+		currentFloat := math.Float64frombits(current)
+		newFloat := currentFloat + 1
+		newBits := math.Float64bits(newFloat)
+		if atomic.CompareAndSwapUint64(&g.cachedValue, current, newBits) {
+			break
+		}
+	}
 }
 
 // Dec decrements the gauge by 1.
@@ -112,7 +121,15 @@ func (g *gauge) Dec() {
 	defer g.mutex.Unlock()
 
 	g.gauge.Dec()
-	g.cachedValue.Store(g.cachedValue.Load() - 1)
+	for {
+		current := atomic.LoadUint64(&g.cachedValue)
+		currentFloat := math.Float64frombits(current)
+		newFloat := currentFloat - 1
+		newBits := math.Float64bits(newFloat)
+		if atomic.CompareAndSwapUint64(&g.cachedValue, current, newBits) {
+			break
+		}
+	}
 }
 
 // Add adds the given value to the gauge.
@@ -124,7 +141,15 @@ func (g *gauge) Add(value float64) {
 	defer g.mutex.Unlock()
 
 	g.gauge.Add(value)
-	g.cachedValue.Store(g.cachedValue.Load() + value)
+	for {
+		current := atomic.LoadUint64(&g.cachedValue)
+		currentFloat := math.Float64frombits(current)
+		newFloat := currentFloat + value
+		newBits := math.Float64bits(newFloat)
+		if atomic.CompareAndSwapUint64(&g.cachedValue, current, newBits) {
+			break
+		}
+	}
 }
 
 // Sub subtracts the given value from the gauge.
@@ -136,7 +161,15 @@ func (g *gauge) Sub(value float64) {
 	defer g.mutex.Unlock()
 
 	g.gauge.Sub(value)
-	g.cachedValue.Store(g.cachedValue.Load() - value)
+	for {
+		current := atomic.LoadUint64(&g.cachedValue)
+		currentFloat := math.Float64frombits(current)
+		newFloat := currentFloat - value
+		newBits := math.Float64bits(newFloat)
+		if atomic.CompareAndSwapUint64(&g.cachedValue, current, newBits) {
+			break
+		}
+	}
 }
 
 // WithTags returns a new gauge with the given tags.
@@ -156,7 +189,7 @@ func (g *gauge) WithTags(tags ...metrics.Tag) metrics.Gauge {
 	g.mutex.RLock()
 	labelNames := g.labelNames
 	labelValues := g.labelValues
-	currentValue := g.cachedValue.Load()
+	currentValue := math.Float64frombits(atomic.LoadUint64(&g.cachedValue))
 	g.mutex.RUnlock()
 
 	// Create a map of current label values
@@ -186,7 +219,7 @@ func (g *gauge) WithTags(tags ...metrics.Tag) metrics.Gauge {
 	}
 
 	// Set the cached value to maintain the value across gauge instances
-	newGauge.cachedValue.Store(currentValue)
+	atomic.StoreUint64(&newGauge.cachedValue, math.Float64bits(currentValue))
 
 	return newGauge
 }
@@ -196,7 +229,8 @@ func (g *gauge) WithTags(tags ...metrics.Tag) metrics.Gauge {
 // Returns:
 //   - float64: The current value of the gauge
 func (g *gauge) Value() float64 {
-	return g.cachedValue.Load()
+	bits := atomic.LoadUint64(&g.cachedValue)
+	return math.Float64frombits(bits)
 }
 
 // Snapshot returns a snapshot of the gauge's current value.
@@ -205,69 +239,4 @@ func (g *gauge) Value() float64 {
 //   - float64: The current value of the gauge
 func (g *gauge) Snapshot() float64 {
 	return g.Value()
-}
-
-// getTagValues extracts tag values in the order of the provided label names.
-// This ensures consistent ordering of label values for Prometheus metrics.
-//
-// Parameters:
-//   - tags: The tags to extract values from
-//   - labelNames: The ordered list of label names
-//
-// Returns:
-//   - []string: An ordered list of label values
-func getTagValues(tags []metrics.Tag, labelNames []string) []string {
-	// Create a map for quick lookup
-	tagMap := make(map[string]string, len(tags))
-	for _, tag := range tags {
-		tagMap[tag.Key] = tag.Value
-	}
-
-	// Extract values in the right order
-	values := make([]string, len(labelNames))
-	for i, name := range labelNames {
-		values[i] = tagMap[name]
-	}
-
-	return values
-}
-
-// combineTags combines global and metric-specific tags, with metric-specific
-// tags taking precedence in case of duplicate keys.
-//
-// Parameters:
-//   - globalTags: Global tags to apply
-//   - metricTags: Metric-specific tags
-//
-// Returns:
-//   - []metrics.Tag: Combined tags with duplicates resolved
-func combineTags(globalTags, metricTags []metrics.Tag) []metrics.Tag {
-	if len(globalTags) == 0 {
-		return metricTags
-	}
-
-	if len(metricTags) == 0 {
-		return globalTags
-	}
-
-	// Create a map to merge tags, with metric tags taking precedence
-	tagMap := make(map[string]string, len(globalTags)+len(metricTags))
-
-	// Add global tags first
-	for _, tag := range globalTags {
-		tagMap[tag.Key] = tag.Value
-	}
-
-	// Override with metric-specific tags
-	for _, tag := range metricTags {
-		tagMap[tag.Key] = tag.Value
-	}
-
-	// Convert back to slice
-	result := make([]metrics.Tag, 0, len(tagMap))
-	for k, v := range tagMap {
-		result = append(result, metrics.Tag{Key: k, Value: v})
-	}
-
-	return result
 }
