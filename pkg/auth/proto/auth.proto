@@ -115,7 +115,7 @@ message AuthenticateRequest {
   repeated string scopes = 6;
 
   // Client information
-  gcommon.v1.common.ClientInfo client_info = 7;
+  gcommon.v1.common.ClientInfo client_info = 7 [lazy = true];
 }
 
 // Username/password credentials
@@ -169,11 +169,11 @@ message AuthenticateResponse {
   // Granted scopes
   repeated string scopes = 5;
   // User information
-  UserInfo user_info = 6;
+  UserInfo user_info = 6 [lazy = true];
   // Session information
-  Session session = 7;
+  Session session = 7 [lazy = true];
   // Rate limit information
-  gcommon.v1.common.RateLimit rate_limit = 8;
+  gcommon.v1.common.RateLimit rate_limit = 8 [lazy = true];
 }
 
 // User information

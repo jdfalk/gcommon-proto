@@ -20,13 +20,13 @@ message Error {
   string message = 2;
 
   // Additional error details for debugging
-  map<string, string> details = 3;
+  map<string, string> details = 3 [lazy = true];
 
   // Trace ID for request correlation
   string trace_id = 4;
 
   // Timestamp when error occurred
-  google.protobuf.Timestamp timestamp = 5;
+  google.protobuf.Timestamp timestamp = 5 [lazy = true];
 
   // Source module that generated the error
   string source = 6;
@@ -96,13 +96,13 @@ message RequestMetadata {
   string correlation_id = 3;
 
   // Request headers
-  map<string, string> headers = 4;
+  map<string, string> headers = 4 [lazy = true];
 
   // Client information
-  ClientInfo client = 5;
+  ClientInfo client = 5 [lazy = true];
 
   // Request timestamp
-  google.protobuf.Timestamp timestamp = 6;
+  google.protobuf.Timestamp timestamp = 6 [lazy = true];
 
   // Session ID if applicable
   string session_id = 7;
@@ -154,13 +154,13 @@ enum SortDirection {
 // Common filtering options
 message FilterOptions {
   // Field-based filters
-  map<string, FilterValue> filters = 1;
+  map<string, FilterValue> filters = 1 [lazy = true];
 
   // Text search query
   string search_query = 2;
 
   // Time range filter
-  TimeRange time_range = 3;
+  TimeRange time_range = 3 [lazy = true];
 }
 
 // Filter value with multiple type support
@@ -254,10 +254,10 @@ message MetricPoint {
   double value = 2;
 
   // Timestamp when metric was recorded
-  google.protobuf.Timestamp timestamp = 3;
+  google.protobuf.Timestamp timestamp = 3 [lazy = true];
 
   // Metric labels
-  map<string, string> labels = 4;
+  map<string, string> labels = 4 [lazy = true];
 
   // Metric unit
   string unit = 5;
@@ -281,7 +281,7 @@ message ConfigValue {
   bool encrypted = 8;
 
   // Value metadata
-  map<string, string> metadata = 9;
+  map<string, string> metadata = 9 [lazy = true];
 }
 
 // Value type enumeration
@@ -341,10 +341,10 @@ message AuditLog {
   string action = 3;
 
   // Resource that was acted upon
-  ResourceReference resource = 4;
+  ResourceReference resource = 4 [lazy = true];
 
   // Timestamp of the action
-  google.protobuf.Timestamp timestamp = 5;
+  google.protobuf.Timestamp timestamp = 5 [lazy = true];
 
   // Source IP address
   string source_ip = 6;
@@ -353,7 +353,7 @@ message AuditLog {
   string user_agent = 7;
 
   // Additional metadata about the action
-  map<string, string> metadata = 8;
+  map<string, string> metadata = 8 [lazy = true];
 
   // Result of the action (success/failure)
   AuditResult result = 9;
@@ -379,13 +379,13 @@ message BatchOperation {
   string operation_type = 2;
 
   // Individual operations in the batch
-  repeated google.protobuf.Any operations = 3;
+  repeated google.protobuf.Any operations = 3 [lazy = true];
 
   // Batch processing options
-  BatchOptions options = 4;
+  BatchOptions options = 4 [lazy = true];
 
   // Request metadata
-  RequestMetadata metadata = 5;
+  RequestMetadata metadata = 5 [lazy = true];
 }
 
 // Batch processing options
@@ -409,19 +409,19 @@ message SubscriptionInfo {
   string subscription_id = 1;
 
   // Filter criteria for the subscription
-  FilterOptions filter = 2;
+  FilterOptions filter = 2 [lazy = true];
 
   // Subscription start time
-  google.protobuf.Timestamp start_time = 3;
+  google.protobuf.Timestamp start_time = 3 [lazy = true];
 
   // Optional end time for the subscription
-  google.protobuf.Timestamp end_time = 4;
+  google.protobuf.Timestamp end_time = 4 [lazy = true];
 
   // Subscriber information
-  ClientInfo subscriber = 5;
+  ClientInfo subscriber = 5 [lazy = true];
 
   // Subscription options
-  SubscriptionOptions options = 6;
+  SubscriptionOptions options = 6 [lazy = true];
 
   // Current status of the subscription
   SubscriptionStatus status = 7;
