@@ -25,7 +25,7 @@ message ValidateTokenResponse {
   UserInfo user_info = 3 [lazy = true];
 
   // Token scopes/permissions
-  repeated string scopes = 4 [lazy = true];
+  repeated string scopes = 4;
 
   // Token subject (user ID)
   string subject = 5;

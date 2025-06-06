@@ -4,7 +4,7 @@ edition = "2023";
 package gcommon.v1.auth;
 
 import "google/protobuf/go_features.proto";
-import "pkg/common/proto/types/rate_limit.proto";
+import "pkg/common/proto/messages/rate_limit.proto";
 import "pkg/auth/proto/messages/user_info.proto";
 import "pkg/auth/proto/messages/session.proto";
 
@@ -30,7 +30,7 @@ message AuthenticateResponse {
   int32 expires_in = 4;
 
   // Granted authorization scopes
-  repeated string scopes = 5 [lazy = true];
+  repeated string scopes = 5;
 
   // Complete user information
   UserInfo user_info = 6 [lazy = true];
