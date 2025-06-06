@@ -44,41 +44,34 @@ echo "=== Generating protobuf/gRPC code ==="
 
 # Generate common proto first (since other protos may import it)
 if [[ -f "pkg/common/proto/common.proto" ]]; then
-    echo "=== Generating common protobuf code ==="
-    cd "${SCRIPT_DIR}/pkg/common/proto"
-    protoc --go_out=. --go_opt=paths=source_relative \
+    echo "=== Generating monolithic common protobuf code ==="
+    protoc --proto_path=. --go_out=. --go_opt=paths=source_relative \
            --go-grpc_out=. --go-grpc_opt=paths=source_relative \
-           common.proto
-    echo "=== Common protobuf code generation complete ==="
-    cd "${SCRIPT_DIR}"
+           pkg/common/proto/common.proto
+    echo "=== Monolithic common protobuf code generation complete ==="
 fi
 
-# Find all .proto files and generate Go code
-find pkg -name "*.proto" -type f | while read -r proto_file; do
-    # Skip common.proto since we already processed it
-    if [[ "$proto_file" == "pkg/common/proto/common.proto" ]]; then
-        continue
-    fi
-    # Get the directory containing the proto file
+# Generate 1-1-1 proto files with proper include paths
+echo "=== Generating 1-1-1 protobuf code ==="
+
+# Find all .proto files except the monolithic ones and generate Go code
+find pkg -name "*.proto" -type f | grep -v -E "(common\.proto|auth\.proto|cache\.proto|database\.proto|config\.proto|health\.proto|log\.proto|metrics\.proto|queue\.proto|web\.proto)" | while read -r proto_file; do
+    # Get relative info
     proto_dir=$(dirname "$proto_file")
     proto_name=$(basename "$proto_file")
-    pkg_name=$(basename "$(dirname "$proto_dir")")
+    module_name=$(echo "$proto_dir" | cut -d'/' -f2)
 
-    echo "=== Generating $pkg_name protobuf and gRPC code ==="
+    echo "=== Generating $module_name/$proto_name ==="
 
-    # Change to the proto directory
-    cd "${SCRIPT_DIR}/${proto_dir}"
-
-    # Generate Go code from proto file
-    protoc --go_out=. --go_opt=paths=source_relative \
+    # Generate Go code from proto file using project root as base
+    protoc --proto_path=. --go_out=. --go_opt=paths=source_relative \
            --go-grpc_out=. --go-grpc_opt=paths=source_relative \
-           "$proto_name"
+           "$proto_file"
 
-    echo "=== $pkg_name protobuf and gRPC code generation complete ==="
-
-    # Return to script directory
-    cd "${SCRIPT_DIR}"
+    echo "=== $module_name/$proto_name generation complete ==="
 done
+
+echo "=== All 1-1-1 protobuf code generation complete ==="
 
 # ----------------------------------------
 # Mock Generation
