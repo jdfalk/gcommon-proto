@@ -1,7 +1,7 @@
 // file: pkg/common/proto/common.proto
 edition = "2023";
 
-package gcommon.common.v1;
+package gcommon.v1.common;
 
 import "google/protobuf/timestamp.proto";
 import "google/protobuf/duration.proto";
