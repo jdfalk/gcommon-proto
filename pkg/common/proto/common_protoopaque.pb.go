@@ -6,7 +6,7 @@
 // 	protoc        v5.29.3
 // source: pkg/common/proto/common.proto
 
-//go:build !protoopaque
+//go:build protoopaque
 
 package commonpb
 
@@ -693,21 +693,19 @@ func (x CircuitBreakerState) Number() protoreflect.EnumNumber {
 
 // Common error handling across all GCommon modules
 type Error struct {
-	state protoimpl.MessageState `protogen:"hybrid.v1"`
-	// Standardized error code for programmatic handling
-	Code *ErrorCode `protobuf:"varint,1,opt,name=code,enum=gcommon.v1.common.ErrorCode" json:"code,omitempty"`
-	// Human-readable error message
-	Message *string `protobuf:"bytes,2,opt,name=message" json:"message,omitempty"`
-	// Additional error details for debugging
-	Details map[string]string `protobuf:"bytes,3,rep,name=details" json:"details,omitempty" protobuf_key:"bytes,1,opt,name=key" protobuf_val:"bytes,2,opt,name=value"`
-	// Trace ID for request correlation
-	TraceId *string `protobuf:"bytes,4,opt,name=trace_id,json=traceId" json:"trace_id,omitempty"`
-	// Timestamp when error occurred
-	Timestamp *timestamppb.Timestamp `protobuf:"bytes,5,opt,name=timestamp" json:"timestamp,omitempty"`
-	// Source module that generated the error
-	Source        *string `protobuf:"bytes,6,opt,name=source" json:"source,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
+	state                protoimpl.MessageState `protogen:"opaque.v1"`
+	xxx_hidden_Code      ErrorCode              `protobuf:"varint,1,opt,name=code,enum=gcommon.v1.common.ErrorCode"`
+	xxx_hidden_Message   *string                `protobuf:"bytes,2,opt,name=message"`
+	xxx_hidden_Details   map[string]string      `protobuf:"bytes,3,rep,name=details" protobuf_key:"bytes,1,opt,name=key" protobuf_val:"bytes,2,opt,name=value"`
+	xxx_hidden_TraceId   *string                `protobuf:"bytes,4,opt,name=trace_id,json=traceId"`
+	xxx_hidden_Timestamp *timestamppb.Timestamp `protobuf:"bytes,5,opt,name=timestamp"`
+	xxx_hidden_Source    *string                `protobuf:"bytes,6,opt,name=source"`
+	// Deprecated: Do not use. This will be deleted in the near future.
+	XXX_lazyUnmarshalInfo  protoimpl.LazyUnmarshalInfo
+	XXX_raceDetectHookData protoimpl.RaceDetectHookData
+	XXX_presence           [1]uint32
+	unknownFields          protoimpl.UnknownFields
+	sizeCache              protoimpl.SizeCache
 }
 
 func (x *Error) Reset() {
@@ -736,124 +734,166 @@ func (x *Error) ProtoReflect() protoreflect.Message {
 }
 
 func (x *Error) GetCode() ErrorCode {
-	if x != nil && x.Code != nil {
-		return *x.Code
+	if x != nil {
+		if protoimpl.X.Present(&(x.XXX_presence[0]), 0) {
+			return x.xxx_hidden_Code
+		}
 	}
 	return ErrorCode_ERROR_CODE_UNSPECIFIED
 }
 
 func (x *Error) GetMessage() string {
-	if x != nil && x.Message != nil {
-		return *x.Message
+	if x != nil {
+		if x.xxx_hidden_Message != nil {
+			return *x.xxx_hidden_Message
+		}
+		return ""
 	}
 	return ""
 }
 
 func (x *Error) GetDetails() map[string]string {
 	if x != nil {
-		return x.Details
+		if protoimpl.X.Present(&(x.XXX_presence[0]), 2) {
+			if protoimpl.X.AtomicCheckPointerIsNil(&x.xxx_hidden_Details) {
+				protoimpl.X.UnmarshalField(x, 3)
+			}
+			return x.xxx_hidden_Details
+		}
 	}
 	return nil
 }
 
 func (x *Error) GetTraceId() string {
-	if x != nil && x.TraceId != nil {
-		return *x.TraceId
+	if x != nil {
+		if x.xxx_hidden_TraceId != nil {
+			return *x.xxx_hidden_TraceId
+		}
+		return ""
 	}
 	return ""
 }
 
 func (x *Error) GetTimestamp() *timestamppb.Timestamp {
 	if x != nil {
-		return x.Timestamp
+		if protoimpl.X.Present(&(x.XXX_presence[0]), 4) {
+			if protoimpl.X.AtomicCheckPointerIsNil(&x.xxx_hidden_Timestamp) {
+				protoimpl.X.UnmarshalField(x, 5)
+			}
+			var rv *timestamppb.Timestamp
+			protoimpl.X.AtomicLoadPointer(protoimpl.Pointer(&x.xxx_hidden_Timestamp), protoimpl.Pointer(&rv))
+			return rv
+		}
 	}
 	return nil
 }
 
 func (x *Error) GetSource() string {
-	if x != nil && x.Source != nil {
-		return *x.Source
+	if x != nil {
+		if x.xxx_hidden_Source != nil {
+			return *x.xxx_hidden_Source
+		}
+		return ""
 	}
 	return ""
 }
 
 func (x *Error) SetCode(v ErrorCode) {
-	x.Code = &v
+	x.xxx_hidden_Code = v
+	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 0, 6)
 }
 
 func (x *Error) SetMessage(v string) {
-	x.Message = &v
+	x.xxx_hidden_Message = &v
+	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 1, 6)
 }
 
 func (x *Error) SetDetails(v map[string]string) {
-	x.Details = v
+	x.xxx_hidden_Details = v
+	if v == nil {
+		protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 2)
+	} else {
+		protoimpl.X.SetPresent(&(x.XXX_presence[0]), 2, 6)
+	}
 }
 
 func (x *Error) SetTraceId(v string) {
-	x.TraceId = &v
+	x.xxx_hidden_TraceId = &v
+	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 3, 6)
 }
 
 func (x *Error) SetTimestamp(v *timestamppb.Timestamp) {
-	x.Timestamp = v
+	protoimpl.X.AtomicSetPointer(&x.xxx_hidden_Timestamp, v)
+	if v == nil {
+		protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 4)
+	} else {
+		protoimpl.X.SetPresent(&(x.XXX_presence[0]), 4, 6)
+	}
 }
 
 func (x *Error) SetSource(v string) {
-	x.Source = &v
+	x.xxx_hidden_Source = &v
+	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 5, 6)
 }
 
 func (x *Error) HasCode() bool {
 	if x == nil {
 		return false
 	}
-	return x.Code != nil
+	return protoimpl.X.Present(&(x.XXX_presence[0]), 0)
 }
 
 func (x *Error) HasMessage() bool {
 	if x == nil {
 		return false
 	}
-	return x.Message != nil
+	return protoimpl.X.Present(&(x.XXX_presence[0]), 1)
 }
 
 func (x *Error) HasTraceId() bool {
 	if x == nil {
 		return false
 	}
-	return x.TraceId != nil
+	return protoimpl.X.Present(&(x.XXX_presence[0]), 3)
 }
 
 func (x *Error) HasTimestamp() bool {
 	if x == nil {
 		return false
 	}
-	return x.Timestamp != nil
+	return protoimpl.X.Present(&(x.XXX_presence[0]), 4)
 }
 
 func (x *Error) HasSource() bool {
 	if x == nil {
 		return false
 	}
-	return x.Source != nil
+	return protoimpl.X.Present(&(x.XXX_presence[0]), 5)
 }
 
 func (x *Error) ClearCode() {
-	x.Code = nil
+	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 0)
+	x.xxx_hidden_Code = ErrorCode_ERROR_CODE_UNSPECIFIED
 }
 
 func (x *Error) ClearMessage() {
-	x.Message = nil
+	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 1)
+	x.xxx_hidden_Message = nil
 }
 
 func (x *Error) ClearTraceId() {
-	x.TraceId = nil
+	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 3)
+	x.xxx_hidden_TraceId = nil
 }
 
 func (x *Error) ClearTimestamp() {
-	x.Timestamp = nil
+	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 4)
+	protoimpl.X.AtomicSetPointer(&x.xxx_hidden_Timestamp, (*timestamppb.Timestamp)(nil))
 }
 
 func (x *Error) ClearSource() {
-	x.Source = nil
+	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 5)
+	x.xxx_hidden_Source = nil
 }
 
 type Error_builder struct {
@@ -877,26 +917,43 @@ func (b0 Error_builder) Build() *Error {
 	m0 := &Error{}
 	b, x := &b0, m0
 	_, _ = b, x
-	x.Code = b.Code
-	x.Message = b.Message
-	x.Details = b.Details
-	x.TraceId = b.TraceId
-	x.Timestamp = b.Timestamp
-	x.Source = b.Source
+	if b.Code != nil {
+		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 0, 6)
+		x.xxx_hidden_Code = *b.Code
+	}
+	if b.Message != nil {
+		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 1, 6)
+		x.xxx_hidden_Message = b.Message
+	}
+	if b.Details != nil {
+		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 2, 6)
+		x.xxx_hidden_Details = b.Details
+	}
+	if b.TraceId != nil {
+		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 3, 6)
+		x.xxx_hidden_TraceId = b.TraceId
+	}
+	if b.Timestamp != nil {
+		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 4, 6)
+		x.xxx_hidden_Timestamp = b.Timestamp
+	}
+	if b.Source != nil {
+		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 5, 6)
+		x.xxx_hidden_Source = b.Source
+	}
 	return m0
 }
 
 // Common pagination parameters for list operations
 type Pagination struct {
-	state protoimpl.MessageState `protogen:"hybrid.v1"`
-	// Maximum number of items to return (0 means use default)
-	PageSize *int32 `protobuf:"varint,1,opt,name=page_size,json=pageSize" json:"page_size,omitempty"`
-	// Token for the next page (empty for first page)
-	PageToken *string `protobuf:"bytes,2,opt,name=page_token,json=pageToken" json:"page_token,omitempty"`
-	// Optional: specific page number (alternative to page_token)
-	PageNumber    *int32 `protobuf:"varint,3,opt,name=page_number,json=pageNumber" json:"page_number,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
+	state                  protoimpl.MessageState `protogen:"opaque.v1"`
+	xxx_hidden_PageSize    int32                  `protobuf:"varint,1,opt,name=page_size,json=pageSize"`
+	xxx_hidden_PageToken   *string                `protobuf:"bytes,2,opt,name=page_token,json=pageToken"`
+	xxx_hidden_PageNumber  int32                  `protobuf:"varint,3,opt,name=page_number,json=pageNumber"`
+	XXX_raceDetectHookData protoimpl.RaceDetectHookData
+	XXX_presence           [1]uint32
+	unknownFields          protoimpl.UnknownFields
+	sizeCache              protoimpl.SizeCache
 }
 
 func (x *Pagination) Reset() {
@@ -925,69 +982,78 @@ func (x *Pagination) ProtoReflect() protoreflect.Message {
 }
 
 func (x *Pagination) GetPageSize() int32 {
-	if x != nil && x.PageSize != nil {
-		return *x.PageSize
+	if x != nil {
+		return x.xxx_hidden_PageSize
 	}
 	return 0
 }
 
 func (x *Pagination) GetPageToken() string {
-	if x != nil && x.PageToken != nil {
-		return *x.PageToken
+	if x != nil {
+		if x.xxx_hidden_PageToken != nil {
+			return *x.xxx_hidden_PageToken
+		}
+		return ""
 	}
 	return ""
 }
 
 func (x *Pagination) GetPageNumber() int32 {
-	if x != nil && x.PageNumber != nil {
-		return *x.PageNumber
+	if x != nil {
+		return x.xxx_hidden_PageNumber
 	}
 	return 0
 }
 
 func (x *Pagination) SetPageSize(v int32) {
-	x.PageSize = &v
+	x.xxx_hidden_PageSize = v
+	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 0, 3)
 }
 
 func (x *Pagination) SetPageToken(v string) {
-	x.PageToken = &v
+	x.xxx_hidden_PageToken = &v
+	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 1, 3)
 }
 
 func (x *Pagination) SetPageNumber(v int32) {
-	x.PageNumber = &v
+	x.xxx_hidden_PageNumber = v
+	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 2, 3)
 }
 
 func (x *Pagination) HasPageSize() bool {
 	if x == nil {
 		return false
 	}
-	return x.PageSize != nil
+	return protoimpl.X.Present(&(x.XXX_presence[0]), 0)
 }
 
 func (x *Pagination) HasPageToken() bool {
 	if x == nil {
 		return false
 	}
-	return x.PageToken != nil
+	return protoimpl.X.Present(&(x.XXX_presence[0]), 1)
 }
 
 func (x *Pagination) HasPageNumber() bool {
 	if x == nil {
 		return false
 	}
-	return x.PageNumber != nil
+	return protoimpl.X.Present(&(x.XXX_presence[0]), 2)
 }
 
 func (x *Pagination) ClearPageSize() {
-	x.PageSize = nil
+	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 0)
+	x.xxx_hidden_PageSize = 0
 }
 
 func (x *Pagination) ClearPageToken() {
-	x.PageToken = nil
+	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 1)
+	x.xxx_hidden_PageToken = nil
 }
 
 func (x *Pagination) ClearPageNumber() {
-	x.PageNumber = nil
+	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 2)
+	x.xxx_hidden_PageNumber = 0
 }
 
 type Pagination_builder struct {
@@ -1005,29 +1071,34 @@ func (b0 Pagination_builder) Build() *Pagination {
 	m0 := &Pagination{}
 	b, x := &b0, m0
 	_, _ = b, x
-	x.PageSize = b.PageSize
-	x.PageToken = b.PageToken
-	x.PageNumber = b.PageNumber
+	if b.PageSize != nil {
+		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 0, 3)
+		x.xxx_hidden_PageSize = *b.PageSize
+	}
+	if b.PageToken != nil {
+		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 1, 3)
+		x.xxx_hidden_PageToken = b.PageToken
+	}
+	if b.PageNumber != nil {
+		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 2, 3)
+		x.xxx_hidden_PageNumber = *b.PageNumber
+	}
 	return m0
 }
 
 // Standard pagination response metadata
 type PaginatedResponse struct {
-	state protoimpl.MessageState `protogen:"hybrid.v1"`
-	// Token for the next page (empty if no more pages)
-	NextPageToken *string `protobuf:"bytes,1,opt,name=next_page_token,json=nextPageToken" json:"next_page_token,omitempty"`
-	// Token for the previous page (empty if first page)
-	PrevPageToken *string `protobuf:"bytes,2,opt,name=prev_page_token,json=prevPageToken" json:"prev_page_token,omitempty"`
-	// Total number of items across all pages
-	TotalCount *int32 `protobuf:"varint,3,opt,name=total_count,json=totalCount" json:"total_count,omitempty"`
-	// Current page number
-	CurrentPage *int32 `protobuf:"varint,4,opt,name=current_page,json=currentPage" json:"current_page,omitempty"`
-	// Total number of pages
-	TotalPages *int32 `protobuf:"varint,5,opt,name=total_pages,json=totalPages" json:"total_pages,omitempty"`
-	// Number of items in current page
-	PageSize      *int32 `protobuf:"varint,6,opt,name=page_size,json=pageSize" json:"page_size,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
+	state                    protoimpl.MessageState `protogen:"opaque.v1"`
+	xxx_hidden_NextPageToken *string                `protobuf:"bytes,1,opt,name=next_page_token,json=nextPageToken"`
+	xxx_hidden_PrevPageToken *string                `protobuf:"bytes,2,opt,name=prev_page_token,json=prevPageToken"`
+	xxx_hidden_TotalCount    int32                  `protobuf:"varint,3,opt,name=total_count,json=totalCount"`
+	xxx_hidden_CurrentPage   int32                  `protobuf:"varint,4,opt,name=current_page,json=currentPage"`
+	xxx_hidden_TotalPages    int32                  `protobuf:"varint,5,opt,name=total_pages,json=totalPages"`
+	xxx_hidden_PageSize      int32                  `protobuf:"varint,6,opt,name=page_size,json=pageSize"`
+	XXX_raceDetectHookData   protoimpl.RaceDetectHookData
+	XXX_presence             [1]uint32
+	unknownFields            protoimpl.UnknownFields
+	sizeCache                protoimpl.SizeCache
 }
 
 func (x *PaginatedResponse) Reset() {
@@ -1056,135 +1127,153 @@ func (x *PaginatedResponse) ProtoReflect() protoreflect.Message {
 }
 
 func (x *PaginatedResponse) GetNextPageToken() string {
-	if x != nil && x.NextPageToken != nil {
-		return *x.NextPageToken
+	if x != nil {
+		if x.xxx_hidden_NextPageToken != nil {
+			return *x.xxx_hidden_NextPageToken
+		}
+		return ""
 	}
 	return ""
 }
 
 func (x *PaginatedResponse) GetPrevPageToken() string {
-	if x != nil && x.PrevPageToken != nil {
-		return *x.PrevPageToken
+	if x != nil {
+		if x.xxx_hidden_PrevPageToken != nil {
+			return *x.xxx_hidden_PrevPageToken
+		}
+		return ""
 	}
 	return ""
 }
 
 func (x *PaginatedResponse) GetTotalCount() int32 {
-	if x != nil && x.TotalCount != nil {
-		return *x.TotalCount
+	if x != nil {
+		return x.xxx_hidden_TotalCount
 	}
 	return 0
 }
 
 func (x *PaginatedResponse) GetCurrentPage() int32 {
-	if x != nil && x.CurrentPage != nil {
-		return *x.CurrentPage
+	if x != nil {
+		return x.xxx_hidden_CurrentPage
 	}
 	return 0
 }
 
 func (x *PaginatedResponse) GetTotalPages() int32 {
-	if x != nil && x.TotalPages != nil {
-		return *x.TotalPages
+	if x != nil {
+		return x.xxx_hidden_TotalPages
 	}
 	return 0
 }
 
 func (x *PaginatedResponse) GetPageSize() int32 {
-	if x != nil && x.PageSize != nil {
-		return *x.PageSize
+	if x != nil {
+		return x.xxx_hidden_PageSize
 	}
 	return 0
 }
 
 func (x *PaginatedResponse) SetNextPageToken(v string) {
-	x.NextPageToken = &v
+	x.xxx_hidden_NextPageToken = &v
+	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 0, 6)
 }
 
 func (x *PaginatedResponse) SetPrevPageToken(v string) {
-	x.PrevPageToken = &v
+	x.xxx_hidden_PrevPageToken = &v
+	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 1, 6)
 }
 
 func (x *PaginatedResponse) SetTotalCount(v int32) {
-	x.TotalCount = &v
+	x.xxx_hidden_TotalCount = v
+	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 2, 6)
 }
 
 func (x *PaginatedResponse) SetCurrentPage(v int32) {
-	x.CurrentPage = &v
+	x.xxx_hidden_CurrentPage = v
+	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 3, 6)
 }
 
 func (x *PaginatedResponse) SetTotalPages(v int32) {
-	x.TotalPages = &v
+	x.xxx_hidden_TotalPages = v
+	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 4, 6)
 }
 
 func (x *PaginatedResponse) SetPageSize(v int32) {
-	x.PageSize = &v
+	x.xxx_hidden_PageSize = v
+	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 5, 6)
 }
 
 func (x *PaginatedResponse) HasNextPageToken() bool {
 	if x == nil {
 		return false
 	}
-	return x.NextPageToken != nil
+	return protoimpl.X.Present(&(x.XXX_presence[0]), 0)
 }
 
 func (x *PaginatedResponse) HasPrevPageToken() bool {
 	if x == nil {
 		return false
 	}
-	return x.PrevPageToken != nil
+	return protoimpl.X.Present(&(x.XXX_presence[0]), 1)
 }
 
 func (x *PaginatedResponse) HasTotalCount() bool {
 	if x == nil {
 		return false
 	}
-	return x.TotalCount != nil
+	return protoimpl.X.Present(&(x.XXX_presence[0]), 2)
 }
 
 func (x *PaginatedResponse) HasCurrentPage() bool {
 	if x == nil {
 		return false
 	}
-	return x.CurrentPage != nil
+	return protoimpl.X.Present(&(x.XXX_presence[0]), 3)
 }
 
 func (x *PaginatedResponse) HasTotalPages() bool {
 	if x == nil {
 		return false
 	}
-	return x.TotalPages != nil
+	return protoimpl.X.Present(&(x.XXX_presence[0]), 4)
 }
 
 func (x *PaginatedResponse) HasPageSize() bool {
 	if x == nil {
 		return false
 	}
-	return x.PageSize != nil
+	return protoimpl.X.Present(&(x.XXX_presence[0]), 5)
 }
 
 func (x *PaginatedResponse) ClearNextPageToken() {
-	x.NextPageToken = nil
+	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 0)
+	x.xxx_hidden_NextPageToken = nil
 }
 
 func (x *PaginatedResponse) ClearPrevPageToken() {
-	x.PrevPageToken = nil
+	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 1)
+	x.xxx_hidden_PrevPageToken = nil
 }
 
 func (x *PaginatedResponse) ClearTotalCount() {
-	x.TotalCount = nil
+	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 2)
+	x.xxx_hidden_TotalCount = 0
 }
 
 func (x *PaginatedResponse) ClearCurrentPage() {
-	x.CurrentPage = nil
+	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 3)
+	x.xxx_hidden_CurrentPage = 0
 }
 
 func (x *PaginatedResponse) ClearTotalPages() {
-	x.TotalPages = nil
+	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 4)
+	x.xxx_hidden_TotalPages = 0
 }
 
 func (x *PaginatedResponse) ClearPageSize() {
-	x.PageSize = nil
+	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 5)
+	x.xxx_hidden_PageSize = 0
 }
 
 type PaginatedResponse_builder struct {
@@ -1208,34 +1297,49 @@ func (b0 PaginatedResponse_builder) Build() *PaginatedResponse {
 	m0 := &PaginatedResponse{}
 	b, x := &b0, m0
 	_, _ = b, x
-	x.NextPageToken = b.NextPageToken
-	x.PrevPageToken = b.PrevPageToken
-	x.TotalCount = b.TotalCount
-	x.CurrentPage = b.CurrentPage
-	x.TotalPages = b.TotalPages
-	x.PageSize = b.PageSize
+	if b.NextPageToken != nil {
+		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 0, 6)
+		x.xxx_hidden_NextPageToken = b.NextPageToken
+	}
+	if b.PrevPageToken != nil {
+		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 1, 6)
+		x.xxx_hidden_PrevPageToken = b.PrevPageToken
+	}
+	if b.TotalCount != nil {
+		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 2, 6)
+		x.xxx_hidden_TotalCount = *b.TotalCount
+	}
+	if b.CurrentPage != nil {
+		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 3, 6)
+		x.xxx_hidden_CurrentPage = *b.CurrentPage
+	}
+	if b.TotalPages != nil {
+		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 4, 6)
+		x.xxx_hidden_TotalPages = *b.TotalPages
+	}
+	if b.PageSize != nil {
+		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 5, 6)
+		x.xxx_hidden_PageSize = *b.PageSize
+	}
 	return m0
 }
 
 // Common request metadata for observability and security
 type RequestMetadata struct {
-	state protoimpl.MessageState `protogen:"hybrid.v1"`
-	// Distributed tracing ID
-	TraceId *string `protobuf:"bytes,1,opt,name=trace_id,json=traceId" json:"trace_id,omitempty"`
-	// User ID making the request
-	UserId *string `protobuf:"bytes,2,opt,name=user_id,json=userId" json:"user_id,omitempty"`
-	// Correlation ID for request grouping
-	CorrelationId *string `protobuf:"bytes,3,opt,name=correlation_id,json=correlationId" json:"correlation_id,omitempty"`
-	// Request headers
-	Headers map[string]string `protobuf:"bytes,4,rep,name=headers" json:"headers,omitempty" protobuf_key:"bytes,1,opt,name=key" protobuf_val:"bytes,2,opt,name=value"`
-	// Client information
-	Client *ClientInfo `protobuf:"bytes,5,opt,name=client" json:"client,omitempty"`
-	// Request timestamp
-	Timestamp *timestamppb.Timestamp `protobuf:"bytes,6,opt,name=timestamp" json:"timestamp,omitempty"`
-	// Session ID if applicable
-	SessionId     *string `protobuf:"bytes,7,opt,name=session_id,json=sessionId" json:"session_id,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
+	state                    protoimpl.MessageState `protogen:"opaque.v1"`
+	xxx_hidden_TraceId       *string                `protobuf:"bytes,1,opt,name=trace_id,json=traceId"`
+	xxx_hidden_UserId        *string                `protobuf:"bytes,2,opt,name=user_id,json=userId"`
+	xxx_hidden_CorrelationId *string                `protobuf:"bytes,3,opt,name=correlation_id,json=correlationId"`
+	xxx_hidden_Headers       map[string]string      `protobuf:"bytes,4,rep,name=headers" protobuf_key:"bytes,1,opt,name=key" protobuf_val:"bytes,2,opt,name=value"`
+	xxx_hidden_Client        *ClientInfo            `protobuf:"bytes,5,opt,name=client"`
+	xxx_hidden_Timestamp     *timestamppb.Timestamp `protobuf:"bytes,6,opt,name=timestamp"`
+	xxx_hidden_SessionId     *string                `protobuf:"bytes,7,opt,name=session_id,json=sessionId"`
+	// Deprecated: Do not use. This will be deleted in the near future.
+	XXX_lazyUnmarshalInfo  protoimpl.LazyUnmarshalInfo
+	XXX_raceDetectHookData protoimpl.RaceDetectHookData
+	XXX_presence           [1]uint32
+	unknownFields          protoimpl.UnknownFields
+	sizeCache              protoimpl.SizeCache
 }
 
 func (x *RequestMetadata) Reset() {
@@ -1264,146 +1368,202 @@ func (x *RequestMetadata) ProtoReflect() protoreflect.Message {
 }
 
 func (x *RequestMetadata) GetTraceId() string {
-	if x != nil && x.TraceId != nil {
-		return *x.TraceId
+	if x != nil {
+		if x.xxx_hidden_TraceId != nil {
+			return *x.xxx_hidden_TraceId
+		}
+		return ""
 	}
 	return ""
 }
 
 func (x *RequestMetadata) GetUserId() string {
-	if x != nil && x.UserId != nil {
-		return *x.UserId
+	if x != nil {
+		if x.xxx_hidden_UserId != nil {
+			return *x.xxx_hidden_UserId
+		}
+		return ""
 	}
 	return ""
 }
 
 func (x *RequestMetadata) GetCorrelationId() string {
-	if x != nil && x.CorrelationId != nil {
-		return *x.CorrelationId
+	if x != nil {
+		if x.xxx_hidden_CorrelationId != nil {
+			return *x.xxx_hidden_CorrelationId
+		}
+		return ""
 	}
 	return ""
 }
 
 func (x *RequestMetadata) GetHeaders() map[string]string {
 	if x != nil {
-		return x.Headers
+		if protoimpl.X.Present(&(x.XXX_presence[0]), 3) {
+			if protoimpl.X.AtomicCheckPointerIsNil(&x.xxx_hidden_Headers) {
+				protoimpl.X.UnmarshalField(x, 4)
+			}
+			return x.xxx_hidden_Headers
+		}
 	}
 	return nil
 }
 
 func (x *RequestMetadata) GetClient() *ClientInfo {
 	if x != nil {
-		return x.Client
+		if protoimpl.X.Present(&(x.XXX_presence[0]), 4) {
+			if protoimpl.X.AtomicCheckPointerIsNil(&x.xxx_hidden_Client) {
+				protoimpl.X.UnmarshalField(x, 5)
+			}
+			var rv *ClientInfo
+			protoimpl.X.AtomicLoadPointer(protoimpl.Pointer(&x.xxx_hidden_Client), protoimpl.Pointer(&rv))
+			return rv
+		}
 	}
 	return nil
 }
 
 func (x *RequestMetadata) GetTimestamp() *timestamppb.Timestamp {
 	if x != nil {
-		return x.Timestamp
+		if protoimpl.X.Present(&(x.XXX_presence[0]), 5) {
+			if protoimpl.X.AtomicCheckPointerIsNil(&x.xxx_hidden_Timestamp) {
+				protoimpl.X.UnmarshalField(x, 6)
+			}
+			var rv *timestamppb.Timestamp
+			protoimpl.X.AtomicLoadPointer(protoimpl.Pointer(&x.xxx_hidden_Timestamp), protoimpl.Pointer(&rv))
+			return rv
+		}
 	}
 	return nil
 }
 
 func (x *RequestMetadata) GetSessionId() string {
-	if x != nil && x.SessionId != nil {
-		return *x.SessionId
+	if x != nil {
+		if x.xxx_hidden_SessionId != nil {
+			return *x.xxx_hidden_SessionId
+		}
+		return ""
 	}
 	return ""
 }
 
 func (x *RequestMetadata) SetTraceId(v string) {
-	x.TraceId = &v
+	x.xxx_hidden_TraceId = &v
+	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 0, 7)
 }
 
 func (x *RequestMetadata) SetUserId(v string) {
-	x.UserId = &v
+	x.xxx_hidden_UserId = &v
+	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 1, 7)
 }
 
 func (x *RequestMetadata) SetCorrelationId(v string) {
-	x.CorrelationId = &v
+	x.xxx_hidden_CorrelationId = &v
+	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 2, 7)
 }
 
 func (x *RequestMetadata) SetHeaders(v map[string]string) {
-	x.Headers = v
+	x.xxx_hidden_Headers = v
+	if v == nil {
+		protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 3)
+	} else {
+		protoimpl.X.SetPresent(&(x.XXX_presence[0]), 3, 7)
+	}
 }
 
 func (x *RequestMetadata) SetClient(v *ClientInfo) {
-	x.Client = v
+	protoimpl.X.AtomicSetPointer(&x.xxx_hidden_Client, v)
+	if v == nil {
+		protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 4)
+	} else {
+		protoimpl.X.SetPresent(&(x.XXX_presence[0]), 4, 7)
+	}
 }
 
 func (x *RequestMetadata) SetTimestamp(v *timestamppb.Timestamp) {
-	x.Timestamp = v
+	protoimpl.X.AtomicSetPointer(&x.xxx_hidden_Timestamp, v)
+	if v == nil {
+		protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 5)
+	} else {
+		protoimpl.X.SetPresent(&(x.XXX_presence[0]), 5, 7)
+	}
 }
 
 func (x *RequestMetadata) SetSessionId(v string) {
-	x.SessionId = &v
+	x.xxx_hidden_SessionId = &v
+	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 6, 7)
 }
 
 func (x *RequestMetadata) HasTraceId() bool {
 	if x == nil {
 		return false
 	}
-	return x.TraceId != nil
+	return protoimpl.X.Present(&(x.XXX_presence[0]), 0)
 }
 
 func (x *RequestMetadata) HasUserId() bool {
 	if x == nil {
 		return false
 	}
-	return x.UserId != nil
+	return protoimpl.X.Present(&(x.XXX_presence[0]), 1)
 }
 
 func (x *RequestMetadata) HasCorrelationId() bool {
 	if x == nil {
 		return false
 	}
-	return x.CorrelationId != nil
+	return protoimpl.X.Present(&(x.XXX_presence[0]), 2)
 }
 
 func (x *RequestMetadata) HasClient() bool {
 	if x == nil {
 		return false
 	}
-	return x.Client != nil
+	return protoimpl.X.Present(&(x.XXX_presence[0]), 4)
 }
 
 func (x *RequestMetadata) HasTimestamp() bool {
 	if x == nil {
 		return false
 	}
-	return x.Timestamp != nil
+	return protoimpl.X.Present(&(x.XXX_presence[0]), 5)
 }
 
 func (x *RequestMetadata) HasSessionId() bool {
 	if x == nil {
 		return false
 	}
-	return x.SessionId != nil
+	return protoimpl.X.Present(&(x.XXX_presence[0]), 6)
 }
 
 func (x *RequestMetadata) ClearTraceId() {
-	x.TraceId = nil
+	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 0)
+	x.xxx_hidden_TraceId = nil
 }
 
 func (x *RequestMetadata) ClearUserId() {
-	x.UserId = nil
+	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 1)
+	x.xxx_hidden_UserId = nil
 }
 
 func (x *RequestMetadata) ClearCorrelationId() {
-	x.CorrelationId = nil
+	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 2)
+	x.xxx_hidden_CorrelationId = nil
 }
 
 func (x *RequestMetadata) ClearClient() {
-	x.Client = nil
+	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 4)
+	protoimpl.X.AtomicSetPointer(&x.xxx_hidden_Client, (*ClientInfo)(nil))
 }
 
 func (x *RequestMetadata) ClearTimestamp() {
-	x.Timestamp = nil
+	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 5)
+	protoimpl.X.AtomicSetPointer(&x.xxx_hidden_Timestamp, (*timestamppb.Timestamp)(nil))
 }
 
 func (x *RequestMetadata) ClearSessionId() {
-	x.SessionId = nil
+	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 6)
+	x.xxx_hidden_SessionId = nil
 }
 
 type RequestMetadata_builder struct {
@@ -1429,31 +1589,49 @@ func (b0 RequestMetadata_builder) Build() *RequestMetadata {
 	m0 := &RequestMetadata{}
 	b, x := &b0, m0
 	_, _ = b, x
-	x.TraceId = b.TraceId
-	x.UserId = b.UserId
-	x.CorrelationId = b.CorrelationId
-	x.Headers = b.Headers
-	x.Client = b.Client
-	x.Timestamp = b.Timestamp
-	x.SessionId = b.SessionId
+	if b.TraceId != nil {
+		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 0, 7)
+		x.xxx_hidden_TraceId = b.TraceId
+	}
+	if b.UserId != nil {
+		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 1, 7)
+		x.xxx_hidden_UserId = b.UserId
+	}
+	if b.CorrelationId != nil {
+		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 2, 7)
+		x.xxx_hidden_CorrelationId = b.CorrelationId
+	}
+	if b.Headers != nil {
+		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 3, 7)
+		x.xxx_hidden_Headers = b.Headers
+	}
+	if b.Client != nil {
+		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 4, 7)
+		x.xxx_hidden_Client = b.Client
+	}
+	if b.Timestamp != nil {
+		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 5, 7)
+		x.xxx_hidden_Timestamp = b.Timestamp
+	}
+	if b.SessionId != nil {
+		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 6, 7)
+		x.xxx_hidden_SessionId = b.SessionId
+	}
 	return m0
 }
 
 // Client information for requests
 type ClientInfo struct {
-	state protoimpl.MessageState `protogen:"hybrid.v1"`
-	// Client application name
-	Name *string `protobuf:"bytes,1,opt,name=name" json:"name,omitempty"`
-	// Client version
-	Version *string `protobuf:"bytes,2,opt,name=version" json:"version,omitempty"`
-	// Client IP address
-	IpAddress *string `protobuf:"bytes,3,opt,name=ip_address,json=ipAddress" json:"ip_address,omitempty"`
-	// User agent string
-	UserAgent *string `protobuf:"bytes,4,opt,name=user_agent,json=userAgent" json:"user_agent,omitempty"`
-	// Platform information
-	Platform      *string `protobuf:"bytes,5,opt,name=platform" json:"platform,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
+	state                  protoimpl.MessageState `protogen:"opaque.v1"`
+	xxx_hidden_Name        *string                `protobuf:"bytes,1,opt,name=name"`
+	xxx_hidden_Version     *string                `protobuf:"bytes,2,opt,name=version"`
+	xxx_hidden_IpAddress   *string                `protobuf:"bytes,3,opt,name=ip_address,json=ipAddress"`
+	xxx_hidden_UserAgent   *string                `protobuf:"bytes,4,opt,name=user_agent,json=userAgent"`
+	xxx_hidden_Platform    *string                `protobuf:"bytes,5,opt,name=platform"`
+	XXX_raceDetectHookData protoimpl.RaceDetectHookData
+	XXX_presence           [1]uint32
+	unknownFields          protoimpl.UnknownFields
+	sizeCache              protoimpl.SizeCache
 }
 
 func (x *ClientInfo) Reset() {
@@ -1482,113 +1660,138 @@ func (x *ClientInfo) ProtoReflect() protoreflect.Message {
 }
 
 func (x *ClientInfo) GetName() string {
-	if x != nil && x.Name != nil {
-		return *x.Name
+	if x != nil {
+		if x.xxx_hidden_Name != nil {
+			return *x.xxx_hidden_Name
+		}
+		return ""
 	}
 	return ""
 }
 
 func (x *ClientInfo) GetVersion() string {
-	if x != nil && x.Version != nil {
-		return *x.Version
+	if x != nil {
+		if x.xxx_hidden_Version != nil {
+			return *x.xxx_hidden_Version
+		}
+		return ""
 	}
 	return ""
 }
 
 func (x *ClientInfo) GetIpAddress() string {
-	if x != nil && x.IpAddress != nil {
-		return *x.IpAddress
+	if x != nil {
+		if x.xxx_hidden_IpAddress != nil {
+			return *x.xxx_hidden_IpAddress
+		}
+		return ""
 	}
 	return ""
 }
 
 func (x *ClientInfo) GetUserAgent() string {
-	if x != nil && x.UserAgent != nil {
-		return *x.UserAgent
+	if x != nil {
+		if x.xxx_hidden_UserAgent != nil {
+			return *x.xxx_hidden_UserAgent
+		}
+		return ""
 	}
 	return ""
 }
 
 func (x *ClientInfo) GetPlatform() string {
-	if x != nil && x.Platform != nil {
-		return *x.Platform
+	if x != nil {
+		if x.xxx_hidden_Platform != nil {
+			return *x.xxx_hidden_Platform
+		}
+		return ""
 	}
 	return ""
 }
 
 func (x *ClientInfo) SetName(v string) {
-	x.Name = &v
+	x.xxx_hidden_Name = &v
+	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 0, 5)
 }
 
 func (x *ClientInfo) SetVersion(v string) {
-	x.Version = &v
+	x.xxx_hidden_Version = &v
+	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 1, 5)
 }
 
 func (x *ClientInfo) SetIpAddress(v string) {
-	x.IpAddress = &v
+	x.xxx_hidden_IpAddress = &v
+	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 2, 5)
 }
 
 func (x *ClientInfo) SetUserAgent(v string) {
-	x.UserAgent = &v
+	x.xxx_hidden_UserAgent = &v
+	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 3, 5)
 }
 
 func (x *ClientInfo) SetPlatform(v string) {
-	x.Platform = &v
+	x.xxx_hidden_Platform = &v
+	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 4, 5)
 }
 
 func (x *ClientInfo) HasName() bool {
 	if x == nil {
 		return false
 	}
-	return x.Name != nil
+	return protoimpl.X.Present(&(x.XXX_presence[0]), 0)
 }
 
 func (x *ClientInfo) HasVersion() bool {
 	if x == nil {
 		return false
 	}
-	return x.Version != nil
+	return protoimpl.X.Present(&(x.XXX_presence[0]), 1)
 }
 
 func (x *ClientInfo) HasIpAddress() bool {
 	if x == nil {
 		return false
 	}
-	return x.IpAddress != nil
+	return protoimpl.X.Present(&(x.XXX_presence[0]), 2)
 }
 
 func (x *ClientInfo) HasUserAgent() bool {
 	if x == nil {
 		return false
 	}
-	return x.UserAgent != nil
+	return protoimpl.X.Present(&(x.XXX_presence[0]), 3)
 }
 
 func (x *ClientInfo) HasPlatform() bool {
 	if x == nil {
 		return false
 	}
-	return x.Platform != nil
+	return protoimpl.X.Present(&(x.XXX_presence[0]), 4)
 }
 
 func (x *ClientInfo) ClearName() {
-	x.Name = nil
+	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 0)
+	x.xxx_hidden_Name = nil
 }
 
 func (x *ClientInfo) ClearVersion() {
-	x.Version = nil
+	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 1)
+	x.xxx_hidden_Version = nil
 }
 
 func (x *ClientInfo) ClearIpAddress() {
-	x.IpAddress = nil
+	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 2)
+	x.xxx_hidden_IpAddress = nil
 }
 
 func (x *ClientInfo) ClearUserAgent() {
-	x.UserAgent = nil
+	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 3)
+	x.xxx_hidden_UserAgent = nil
 }
 
 func (x *ClientInfo) ClearPlatform() {
-	x.Platform = nil
+	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 4)
+	x.xxx_hidden_Platform = nil
 }
 
 type ClientInfo_builder struct {
@@ -1610,23 +1813,36 @@ func (b0 ClientInfo_builder) Build() *ClientInfo {
 	m0 := &ClientInfo{}
 	b, x := &b0, m0
 	_, _ = b, x
-	x.Name = b.Name
-	x.Version = b.Version
-	x.IpAddress = b.IpAddress
-	x.UserAgent = b.UserAgent
-	x.Platform = b.Platform
+	if b.Name != nil {
+		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 0, 5)
+		x.xxx_hidden_Name = b.Name
+	}
+	if b.Version != nil {
+		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 1, 5)
+		x.xxx_hidden_Version = b.Version
+	}
+	if b.IpAddress != nil {
+		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 2, 5)
+		x.xxx_hidden_IpAddress = b.IpAddress
+	}
+	if b.UserAgent != nil {
+		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 3, 5)
+		x.xxx_hidden_UserAgent = b.UserAgent
+	}
+	if b.Platform != nil {
+		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 4, 5)
+		x.xxx_hidden_Platform = b.Platform
+	}
 	return m0
 }
 
 // Common time range for filtering operations
 type TimeRange struct {
-	state protoimpl.MessageState `protogen:"hybrid.v1"`
-	// Start time (inclusive)
-	StartTime *timestamppb.Timestamp `protobuf:"bytes,1,opt,name=start_time,json=startTime" json:"start_time,omitempty"`
-	// End time (exclusive)
-	EndTime       *timestamppb.Timestamp `protobuf:"bytes,2,opt,name=end_time,json=endTime" json:"end_time,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
+	state                protoimpl.MessageState `protogen:"opaque.v1"`
+	xxx_hidden_StartTime *timestamppb.Timestamp `protobuf:"bytes,1,opt,name=start_time,json=startTime"`
+	xxx_hidden_EndTime   *timestamppb.Timestamp `protobuf:"bytes,2,opt,name=end_time,json=endTime"`
+	unknownFields        protoimpl.UnknownFields
+	sizeCache            protoimpl.SizeCache
 }
 
 func (x *TimeRange) Reset() {
@@ -1656,46 +1872,46 @@ func (x *TimeRange) ProtoReflect() protoreflect.Message {
 
 func (x *TimeRange) GetStartTime() *timestamppb.Timestamp {
 	if x != nil {
-		return x.StartTime
+		return x.xxx_hidden_StartTime
 	}
 	return nil
 }
 
 func (x *TimeRange) GetEndTime() *timestamppb.Timestamp {
 	if x != nil {
-		return x.EndTime
+		return x.xxx_hidden_EndTime
 	}
 	return nil
 }
 
 func (x *TimeRange) SetStartTime(v *timestamppb.Timestamp) {
-	x.StartTime = v
+	x.xxx_hidden_StartTime = v
 }
 
 func (x *TimeRange) SetEndTime(v *timestamppb.Timestamp) {
-	x.EndTime = v
+	x.xxx_hidden_EndTime = v
 }
 
 func (x *TimeRange) HasStartTime() bool {
 	if x == nil {
 		return false
 	}
-	return x.StartTime != nil
+	return x.xxx_hidden_StartTime != nil
 }
 
 func (x *TimeRange) HasEndTime() bool {
 	if x == nil {
 		return false
 	}
-	return x.EndTime != nil
+	return x.xxx_hidden_EndTime != nil
 }
 
 func (x *TimeRange) ClearStartTime() {
-	x.StartTime = nil
+	x.xxx_hidden_StartTime = nil
 }
 
 func (x *TimeRange) ClearEndTime() {
-	x.EndTime = nil
+	x.xxx_hidden_EndTime = nil
 }
 
 type TimeRange_builder struct {
@@ -1711,20 +1927,20 @@ func (b0 TimeRange_builder) Build() *TimeRange {
 	m0 := &TimeRange{}
 	b, x := &b0, m0
 	_, _ = b, x
-	x.StartTime = b.StartTime
-	x.EndTime = b.EndTime
+	x.xxx_hidden_StartTime = b.StartTime
+	x.xxx_hidden_EndTime = b.EndTime
 	return m0
 }
 
 // Common sorting parameters
 type SortOptions struct {
-	state protoimpl.MessageState `protogen:"hybrid.v1"`
-	// Field to sort by
-	Field *string `protobuf:"bytes,1,opt,name=field" json:"field,omitempty"`
-	// Sort direction
-	Direction     *SortDirection `protobuf:"varint,2,opt,name=direction,enum=gcommon.v1.common.SortDirection" json:"direction,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
+	state                  protoimpl.MessageState `protogen:"opaque.v1"`
+	xxx_hidden_Field       *string                `protobuf:"bytes,1,opt,name=field"`
+	xxx_hidden_Direction   SortDirection          `protobuf:"varint,2,opt,name=direction,enum=gcommon.v1.common.SortDirection"`
+	XXX_raceDetectHookData protoimpl.RaceDetectHookData
+	XXX_presence           [1]uint32
+	unknownFields          protoimpl.UnknownFields
+	sizeCache              protoimpl.SizeCache
 }
 
 func (x *SortOptions) Reset() {
@@ -1753,47 +1969,56 @@ func (x *SortOptions) ProtoReflect() protoreflect.Message {
 }
 
 func (x *SortOptions) GetField() string {
-	if x != nil && x.Field != nil {
-		return *x.Field
+	if x != nil {
+		if x.xxx_hidden_Field != nil {
+			return *x.xxx_hidden_Field
+		}
+		return ""
 	}
 	return ""
 }
 
 func (x *SortOptions) GetDirection() SortDirection {
-	if x != nil && x.Direction != nil {
-		return *x.Direction
+	if x != nil {
+		if protoimpl.X.Present(&(x.XXX_presence[0]), 1) {
+			return x.xxx_hidden_Direction
+		}
 	}
 	return SortDirection_SORT_DIRECTION_UNSPECIFIED
 }
 
 func (x *SortOptions) SetField(v string) {
-	x.Field = &v
+	x.xxx_hidden_Field = &v
+	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 0, 2)
 }
 
 func (x *SortOptions) SetDirection(v SortDirection) {
-	x.Direction = &v
+	x.xxx_hidden_Direction = v
+	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 1, 2)
 }
 
 func (x *SortOptions) HasField() bool {
 	if x == nil {
 		return false
 	}
-	return x.Field != nil
+	return protoimpl.X.Present(&(x.XXX_presence[0]), 0)
 }
 
 func (x *SortOptions) HasDirection() bool {
 	if x == nil {
 		return false
 	}
-	return x.Direction != nil
+	return protoimpl.X.Present(&(x.XXX_presence[0]), 1)
 }
 
 func (x *SortOptions) ClearField() {
-	x.Field = nil
+	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 0)
+	x.xxx_hidden_Field = nil
 }
 
 func (x *SortOptions) ClearDirection() {
-	x.Direction = nil
+	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 1)
+	x.xxx_hidden_Direction = SortDirection_SORT_DIRECTION_UNSPECIFIED
 }
 
 type SortOptions_builder struct {
@@ -1809,22 +2034,29 @@ func (b0 SortOptions_builder) Build() *SortOptions {
 	m0 := &SortOptions{}
 	b, x := &b0, m0
 	_, _ = b, x
-	x.Field = b.Field
-	x.Direction = b.Direction
+	if b.Field != nil {
+		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 0, 2)
+		x.xxx_hidden_Field = b.Field
+	}
+	if b.Direction != nil {
+		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 1, 2)
+		x.xxx_hidden_Direction = *b.Direction
+	}
 	return m0
 }
 
 // Common filtering options
 type FilterOptions struct {
-	state protoimpl.MessageState `protogen:"hybrid.v1"`
-	// Field-based filters
-	Filters map[string]*FilterValue `protobuf:"bytes,1,rep,name=filters" json:"filters,omitempty" protobuf_key:"bytes,1,opt,name=key" protobuf_val:"bytes,2,opt,name=value"`
-	// Text search query
-	SearchQuery *string `protobuf:"bytes,2,opt,name=search_query,json=searchQuery" json:"search_query,omitempty"`
-	// Time range filter
-	TimeRange     *TimeRange `protobuf:"bytes,3,opt,name=time_range,json=timeRange" json:"time_range,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
+	state                  protoimpl.MessageState  `protogen:"opaque.v1"`
+	xxx_hidden_Filters     map[string]*FilterValue `protobuf:"bytes,1,rep,name=filters" protobuf_key:"bytes,1,opt,name=key" protobuf_val:"bytes,2,opt,name=value"`
+	xxx_hidden_SearchQuery *string                 `protobuf:"bytes,2,opt,name=search_query,json=searchQuery"`
+	xxx_hidden_TimeRange   *TimeRange              `protobuf:"bytes,3,opt,name=time_range,json=timeRange"`
+	// Deprecated: Do not use. This will be deleted in the near future.
+	XXX_lazyUnmarshalInfo  protoimpl.LazyUnmarshalInfo
+	XXX_raceDetectHookData protoimpl.RaceDetectHookData
+	XXX_presence           [1]uint32
+	unknownFields          protoimpl.UnknownFields
+	sizeCache              protoimpl.SizeCache
 }
 
 func (x *FilterOptions) Reset() {
@@ -1854,57 +2086,85 @@ func (x *FilterOptions) ProtoReflect() protoreflect.Message {
 
 func (x *FilterOptions) GetFilters() map[string]*FilterValue {
 	if x != nil {
-		return x.Filters
+		if protoimpl.X.Present(&(x.XXX_presence[0]), 0) {
+			if protoimpl.X.AtomicCheckPointerIsNil(&x.xxx_hidden_Filters) {
+				protoimpl.X.UnmarshalField(x, 1)
+			}
+			return x.xxx_hidden_Filters
+		}
 	}
 	return nil
 }
 
 func (x *FilterOptions) GetSearchQuery() string {
-	if x != nil && x.SearchQuery != nil {
-		return *x.SearchQuery
+	if x != nil {
+		if x.xxx_hidden_SearchQuery != nil {
+			return *x.xxx_hidden_SearchQuery
+		}
+		return ""
 	}
 	return ""
 }
 
 func (x *FilterOptions) GetTimeRange() *TimeRange {
 	if x != nil {
-		return x.TimeRange
+		if protoimpl.X.Present(&(x.XXX_presence[0]), 2) {
+			if protoimpl.X.AtomicCheckPointerIsNil(&x.xxx_hidden_TimeRange) {
+				protoimpl.X.UnmarshalField(x, 3)
+			}
+			var rv *TimeRange
+			protoimpl.X.AtomicLoadPointer(protoimpl.Pointer(&x.xxx_hidden_TimeRange), protoimpl.Pointer(&rv))
+			return rv
+		}
 	}
 	return nil
 }
 
 func (x *FilterOptions) SetFilters(v map[string]*FilterValue) {
-	x.Filters = v
+	x.xxx_hidden_Filters = v
+	if v == nil {
+		protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 0)
+	} else {
+		protoimpl.X.SetPresent(&(x.XXX_presence[0]), 0, 3)
+	}
 }
 
 func (x *FilterOptions) SetSearchQuery(v string) {
-	x.SearchQuery = &v
+	x.xxx_hidden_SearchQuery = &v
+	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 1, 3)
 }
 
 func (x *FilterOptions) SetTimeRange(v *TimeRange) {
-	x.TimeRange = v
+	protoimpl.X.AtomicSetPointer(&x.xxx_hidden_TimeRange, v)
+	if v == nil {
+		protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 2)
+	} else {
+		protoimpl.X.SetPresent(&(x.XXX_presence[0]), 2, 3)
+	}
 }
 
 func (x *FilterOptions) HasSearchQuery() bool {
 	if x == nil {
 		return false
 	}
-	return x.SearchQuery != nil
+	return protoimpl.X.Present(&(x.XXX_presence[0]), 1)
 }
 
 func (x *FilterOptions) HasTimeRange() bool {
 	if x == nil {
 		return false
 	}
-	return x.TimeRange != nil
+	return protoimpl.X.Present(&(x.XXX_presence[0]), 2)
 }
 
 func (x *FilterOptions) ClearSearchQuery() {
-	x.SearchQuery = nil
+	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 1)
+	x.xxx_hidden_SearchQuery = nil
 }
 
 func (x *FilterOptions) ClearTimeRange() {
-	x.TimeRange = nil
+	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 2)
+	protoimpl.X.AtomicSetPointer(&x.xxx_hidden_TimeRange, (*TimeRange)(nil))
 }
 
 type FilterOptions_builder struct {
@@ -1922,28 +2182,30 @@ func (b0 FilterOptions_builder) Build() *FilterOptions {
 	m0 := &FilterOptions{}
 	b, x := &b0, m0
 	_, _ = b, x
-	x.Filters = b.Filters
-	x.SearchQuery = b.SearchQuery
-	x.TimeRange = b.TimeRange
+	if b.Filters != nil {
+		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 0, 3)
+		x.xxx_hidden_Filters = b.Filters
+	}
+	if b.SearchQuery != nil {
+		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 1, 3)
+		x.xxx_hidden_SearchQuery = b.SearchQuery
+	}
+	if b.TimeRange != nil {
+		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 2, 3)
+		x.xxx_hidden_TimeRange = b.TimeRange
+	}
 	return m0
 }
 
 // Filter value with multiple type support
 type FilterValue struct {
-	state protoimpl.MessageState `protogen:"hybrid.v1"`
-	// Types that are valid to be assigned to Value:
-	//
-	//	*FilterValue_StringValue
-	//	*FilterValue_IntValue
-	//	*FilterValue_DoubleValue
-	//	*FilterValue_BoolValue
-	//	*FilterValue_StringArray
-	//	*FilterValue_IntArray
-	Value isFilterValue_Value `protobuf_oneof:"value"`
-	// Filter operation type
-	Operation     *FilterOperation `protobuf:"varint,7,opt,name=operation,enum=gcommon.v1.common.FilterOperation" json:"operation,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
+	state                  protoimpl.MessageState `protogen:"opaque.v1"`
+	xxx_hidden_Value       isFilterValue_Value    `protobuf_oneof:"value"`
+	xxx_hidden_Operation   FilterOperation        `protobuf:"varint,7,opt,name=operation,enum=gcommon.v1.common.FilterOperation"`
+	XXX_raceDetectHookData protoimpl.RaceDetectHookData
+	XXX_presence           [1]uint32
+	unknownFields          protoimpl.UnknownFields
+	sizeCache              protoimpl.SizeCache
 }
 
 func (x *FilterValue) Reset() {
@@ -1971,16 +2233,9 @@ func (x *FilterValue) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-func (x *FilterValue) GetValue() isFilterValue_Value {
-	if x != nil {
-		return x.Value
-	}
-	return nil
-}
-
 func (x *FilterValue) GetStringValue() string {
 	if x != nil {
-		if x, ok := x.Value.(*FilterValue_StringValue); ok {
+		if x, ok := x.xxx_hidden_Value.(*filterValue_StringValue); ok {
 			return x.StringValue
 		}
 	}
@@ -1989,7 +2244,7 @@ func (x *FilterValue) GetStringValue() string {
 
 func (x *FilterValue) GetIntValue() int64 {
 	if x != nil {
-		if x, ok := x.Value.(*FilterValue_IntValue); ok {
+		if x, ok := x.xxx_hidden_Value.(*filterValue_IntValue); ok {
 			return x.IntValue
 		}
 	}
@@ -1998,7 +2253,7 @@ func (x *FilterValue) GetIntValue() int64 {
 
 func (x *FilterValue) GetDoubleValue() float64 {
 	if x != nil {
-		if x, ok := x.Value.(*FilterValue_DoubleValue); ok {
+		if x, ok := x.xxx_hidden_Value.(*filterValue_DoubleValue); ok {
 			return x.DoubleValue
 		}
 	}
@@ -2007,7 +2262,7 @@ func (x *FilterValue) GetDoubleValue() float64 {
 
 func (x *FilterValue) GetBoolValue() bool {
 	if x != nil {
-		if x, ok := x.Value.(*FilterValue_BoolValue); ok {
+		if x, ok := x.xxx_hidden_Value.(*filterValue_BoolValue); ok {
 			return x.BoolValue
 		}
 	}
@@ -2016,7 +2271,7 @@ func (x *FilterValue) GetBoolValue() bool {
 
 func (x *FilterValue) GetStringArray() *StringArray {
 	if x != nil {
-		if x, ok := x.Value.(*FilterValue_StringArray); ok {
+		if x, ok := x.xxx_hidden_Value.(*filterValue_StringArray); ok {
 			return x.StringArray
 		}
 	}
@@ -2025,7 +2280,7 @@ func (x *FilterValue) GetStringArray() *StringArray {
 
 func (x *FilterValue) GetIntArray() *Int64Array {
 	if x != nil {
-		if x, ok := x.Value.(*FilterValue_IntArray); ok {
+		if x, ok := x.xxx_hidden_Value.(*filterValue_IntArray); ok {
 			return x.IntArray
 		}
 	}
@@ -2033,60 +2288,63 @@ func (x *FilterValue) GetIntArray() *Int64Array {
 }
 
 func (x *FilterValue) GetOperation() FilterOperation {
-	if x != nil && x.Operation != nil {
-		return *x.Operation
+	if x != nil {
+		if protoimpl.X.Present(&(x.XXX_presence[0]), 1) {
+			return x.xxx_hidden_Operation
+		}
 	}
 	return FilterOperation_FILTER_OPERATION_UNSPECIFIED
 }
 
 func (x *FilterValue) SetStringValue(v string) {
-	x.Value = &FilterValue_StringValue{v}
+	x.xxx_hidden_Value = &filterValue_StringValue{v}
 }
 
 func (x *FilterValue) SetIntValue(v int64) {
-	x.Value = &FilterValue_IntValue{v}
+	x.xxx_hidden_Value = &filterValue_IntValue{v}
 }
 
 func (x *FilterValue) SetDoubleValue(v float64) {
-	x.Value = &FilterValue_DoubleValue{v}
+	x.xxx_hidden_Value = &filterValue_DoubleValue{v}
 }
 
 func (x *FilterValue) SetBoolValue(v bool) {
-	x.Value = &FilterValue_BoolValue{v}
+	x.xxx_hidden_Value = &filterValue_BoolValue{v}
 }
 
 func (x *FilterValue) SetStringArray(v *StringArray) {
 	if v == nil {
-		x.Value = nil
+		x.xxx_hidden_Value = nil
 		return
 	}
-	x.Value = &FilterValue_StringArray{v}
+	x.xxx_hidden_Value = &filterValue_StringArray{v}
 }
 
 func (x *FilterValue) SetIntArray(v *Int64Array) {
 	if v == nil {
-		x.Value = nil
+		x.xxx_hidden_Value = nil
 		return
 	}
-	x.Value = &FilterValue_IntArray{v}
+	x.xxx_hidden_Value = &filterValue_IntArray{v}
 }
 
 func (x *FilterValue) SetOperation(v FilterOperation) {
-	x.Operation = &v
+	x.xxx_hidden_Operation = v
+	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 1, 2)
 }
 
 func (x *FilterValue) HasValue() bool {
 	if x == nil {
 		return false
 	}
-	return x.Value != nil
+	return x.xxx_hidden_Value != nil
 }
 
 func (x *FilterValue) HasStringValue() bool {
 	if x == nil {
 		return false
 	}
-	_, ok := x.Value.(*FilterValue_StringValue)
+	_, ok := x.xxx_hidden_Value.(*filterValue_StringValue)
 	return ok
 }
 
@@ -2094,7 +2352,7 @@ func (x *FilterValue) HasIntValue() bool {
 	if x == nil {
 		return false
 	}
-	_, ok := x.Value.(*FilterValue_IntValue)
+	_, ok := x.xxx_hidden_Value.(*filterValue_IntValue)
 	return ok
 }
 
@@ -2102,7 +2360,7 @@ func (x *FilterValue) HasDoubleValue() bool {
 	if x == nil {
 		return false
 	}
-	_, ok := x.Value.(*FilterValue_DoubleValue)
+	_, ok := x.xxx_hidden_Value.(*filterValue_DoubleValue)
 	return ok
 }
 
@@ -2110,7 +2368,7 @@ func (x *FilterValue) HasBoolValue() bool {
 	if x == nil {
 		return false
 	}
-	_, ok := x.Value.(*FilterValue_BoolValue)
+	_, ok := x.xxx_hidden_Value.(*filterValue_BoolValue)
 	return ok
 }
 
@@ -2118,7 +2376,7 @@ func (x *FilterValue) HasStringArray() bool {
 	if x == nil {
 		return false
 	}
-	_, ok := x.Value.(*FilterValue_StringArray)
+	_, ok := x.xxx_hidden_Value.(*filterValue_StringArray)
 	return ok
 }
 
@@ -2126,7 +2384,7 @@ func (x *FilterValue) HasIntArray() bool {
 	if x == nil {
 		return false
 	}
-	_, ok := x.Value.(*FilterValue_IntArray)
+	_, ok := x.xxx_hidden_Value.(*filterValue_IntArray)
 	return ok
 }
 
@@ -2134,51 +2392,52 @@ func (x *FilterValue) HasOperation() bool {
 	if x == nil {
 		return false
 	}
-	return x.Operation != nil
+	return protoimpl.X.Present(&(x.XXX_presence[0]), 1)
 }
 
 func (x *FilterValue) ClearValue() {
-	x.Value = nil
+	x.xxx_hidden_Value = nil
 }
 
 func (x *FilterValue) ClearStringValue() {
-	if _, ok := x.Value.(*FilterValue_StringValue); ok {
-		x.Value = nil
+	if _, ok := x.xxx_hidden_Value.(*filterValue_StringValue); ok {
+		x.xxx_hidden_Value = nil
 	}
 }
 
 func (x *FilterValue) ClearIntValue() {
-	if _, ok := x.Value.(*FilterValue_IntValue); ok {
-		x.Value = nil
+	if _, ok := x.xxx_hidden_Value.(*filterValue_IntValue); ok {
+		x.xxx_hidden_Value = nil
 	}
 }
 
 func (x *FilterValue) ClearDoubleValue() {
-	if _, ok := x.Value.(*FilterValue_DoubleValue); ok {
-		x.Value = nil
+	if _, ok := x.xxx_hidden_Value.(*filterValue_DoubleValue); ok {
+		x.xxx_hidden_Value = nil
 	}
 }
 
 func (x *FilterValue) ClearBoolValue() {
-	if _, ok := x.Value.(*FilterValue_BoolValue); ok {
-		x.Value = nil
+	if _, ok := x.xxx_hidden_Value.(*filterValue_BoolValue); ok {
+		x.xxx_hidden_Value = nil
 	}
 }
 
 func (x *FilterValue) ClearStringArray() {
-	if _, ok := x.Value.(*FilterValue_StringArray); ok {
-		x.Value = nil
+	if _, ok := x.xxx_hidden_Value.(*filterValue_StringArray); ok {
+		x.xxx_hidden_Value = nil
 	}
 }
 
 func (x *FilterValue) ClearIntArray() {
-	if _, ok := x.Value.(*FilterValue_IntArray); ok {
-		x.Value = nil
+	if _, ok := x.xxx_hidden_Value.(*filterValue_IntArray); ok {
+		x.xxx_hidden_Value = nil
 	}
 }
 
 func (x *FilterValue) ClearOperation() {
-	x.Operation = nil
+	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 1)
+	x.xxx_hidden_Operation = FilterOperation_FILTER_OPERATION_UNSPECIFIED
 }
 
 const FilterValue_Value_not_set_case case_FilterValue_Value = 0
@@ -2193,18 +2452,18 @@ func (x *FilterValue) WhichValue() case_FilterValue_Value {
 	if x == nil {
 		return FilterValue_Value_not_set_case
 	}
-	switch x.Value.(type) {
-	case *FilterValue_StringValue:
+	switch x.xxx_hidden_Value.(type) {
+	case *filterValue_StringValue:
 		return FilterValue_StringValue_case
-	case *FilterValue_IntValue:
+	case *filterValue_IntValue:
 		return FilterValue_IntValue_case
-	case *FilterValue_DoubleValue:
+	case *filterValue_DoubleValue:
 		return FilterValue_DoubleValue_case
-	case *FilterValue_BoolValue:
+	case *filterValue_BoolValue:
 		return FilterValue_BoolValue_case
-	case *FilterValue_StringArray:
+	case *filterValue_StringArray:
 		return FilterValue_StringArray_case
-	case *FilterValue_IntArray:
+	case *filterValue_IntArray:
 		return FilterValue_IntArray_case
 	default:
 		return FilterValue_Value_not_set_case
@@ -2214,14 +2473,14 @@ func (x *FilterValue) WhichValue() case_FilterValue_Value {
 type FilterValue_builder struct {
 	_ [0]func() // Prevents comparability and use of unkeyed literals for the builder.
 
-	// Fields of oneof Value:
+	// Fields of oneof xxx_hidden_Value:
 	StringValue *string
 	IntValue    *int64
 	DoubleValue *float64
 	BoolValue   *bool
 	StringArray *StringArray
 	IntArray    *Int64Array
-	// -- end of Value
+	// -- end of xxx_hidden_Value
 	// Filter operation type
 	Operation *FilterOperation
 }
@@ -2231,24 +2490,27 @@ func (b0 FilterValue_builder) Build() *FilterValue {
 	b, x := &b0, m0
 	_, _ = b, x
 	if b.StringValue != nil {
-		x.Value = &FilterValue_StringValue{*b.StringValue}
+		x.xxx_hidden_Value = &filterValue_StringValue{*b.StringValue}
 	}
 	if b.IntValue != nil {
-		x.Value = &FilterValue_IntValue{*b.IntValue}
+		x.xxx_hidden_Value = &filterValue_IntValue{*b.IntValue}
 	}
 	if b.DoubleValue != nil {
-		x.Value = &FilterValue_DoubleValue{*b.DoubleValue}
+		x.xxx_hidden_Value = &filterValue_DoubleValue{*b.DoubleValue}
 	}
 	if b.BoolValue != nil {
-		x.Value = &FilterValue_BoolValue{*b.BoolValue}
+		x.xxx_hidden_Value = &filterValue_BoolValue{*b.BoolValue}
 	}
 	if b.StringArray != nil {
-		x.Value = &FilterValue_StringArray{b.StringArray}
+		x.xxx_hidden_Value = &filterValue_StringArray{b.StringArray}
 	}
 	if b.IntArray != nil {
-		x.Value = &FilterValue_IntArray{b.IntArray}
+		x.xxx_hidden_Value = &filterValue_IntArray{b.IntArray}
 	}
-	x.Operation = b.Operation
+	if b.Operation != nil {
+		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 1, 2)
+		x.xxx_hidden_Operation = *b.Operation
+	}
 	return m0
 }
 
@@ -2266,48 +2528,48 @@ type isFilterValue_Value interface {
 	isFilterValue_Value()
 }
 
-type FilterValue_StringValue struct {
+type filterValue_StringValue struct {
 	StringValue string `protobuf:"bytes,1,opt,name=string_value,json=stringValue,oneof"`
 }
 
-type FilterValue_IntValue struct {
+type filterValue_IntValue struct {
 	IntValue int64 `protobuf:"varint,2,opt,name=int_value,json=intValue,oneof"`
 }
 
-type FilterValue_DoubleValue struct {
+type filterValue_DoubleValue struct {
 	DoubleValue float64 `protobuf:"fixed64,3,opt,name=double_value,json=doubleValue,oneof"`
 }
 
-type FilterValue_BoolValue struct {
+type filterValue_BoolValue struct {
 	BoolValue bool `protobuf:"varint,4,opt,name=bool_value,json=boolValue,oneof"`
 }
 
-type FilterValue_StringArray struct {
+type filterValue_StringArray struct {
 	StringArray *StringArray `protobuf:"bytes,5,opt,name=string_array,json=stringArray,oneof"`
 }
 
-type FilterValue_IntArray struct {
+type filterValue_IntArray struct {
 	IntArray *Int64Array `protobuf:"bytes,6,opt,name=int_array,json=intArray,oneof"`
 }
 
-func (*FilterValue_StringValue) isFilterValue_Value() {}
+func (*filterValue_StringValue) isFilterValue_Value() {}
 
-func (*FilterValue_IntValue) isFilterValue_Value() {}
+func (*filterValue_IntValue) isFilterValue_Value() {}
 
-func (*FilterValue_DoubleValue) isFilterValue_Value() {}
+func (*filterValue_DoubleValue) isFilterValue_Value() {}
 
-func (*FilterValue_BoolValue) isFilterValue_Value() {}
+func (*filterValue_BoolValue) isFilterValue_Value() {}
 
-func (*FilterValue_StringArray) isFilterValue_Value() {}
+func (*filterValue_StringArray) isFilterValue_Value() {}
 
-func (*FilterValue_IntArray) isFilterValue_Value() {}
+func (*filterValue_IntArray) isFilterValue_Value() {}
 
 // String array wrapper for oneof usage
 type StringArray struct {
-	state         protoimpl.MessageState `protogen:"hybrid.v1"`
-	Values        []string               `protobuf:"bytes,1,rep,name=values" json:"values,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
+	state             protoimpl.MessageState `protogen:"opaque.v1"`
+	xxx_hidden_Values []string               `protobuf:"bytes,1,rep,name=values"`
+	unknownFields     protoimpl.UnknownFields
+	sizeCache         protoimpl.SizeCache
 }
 
 func (x *StringArray) Reset() {
@@ -2337,13 +2599,13 @@ func (x *StringArray) ProtoReflect() protoreflect.Message {
 
 func (x *StringArray) GetValues() []string {
 	if x != nil {
-		return x.Values
+		return x.xxx_hidden_Values
 	}
 	return nil
 }
 
 func (x *StringArray) SetValues(v []string) {
-	x.Values = v
+	x.xxx_hidden_Values = v
 }
 
 type StringArray_builder struct {
@@ -2356,16 +2618,16 @@ func (b0 StringArray_builder) Build() *StringArray {
 	m0 := &StringArray{}
 	b, x := &b0, m0
 	_, _ = b, x
-	x.Values = b.Values
+	x.xxx_hidden_Values = b.Values
 	return m0
 }
 
 // Int64 array wrapper for oneof usage
 type Int64Array struct {
-	state         protoimpl.MessageState `protogen:"hybrid.v1"`
-	Values        []int64                `protobuf:"varint,1,rep,packed,name=values" json:"values,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
+	state             protoimpl.MessageState `protogen:"opaque.v1"`
+	xxx_hidden_Values []int64                `protobuf:"varint,1,rep,packed,name=values"`
+	unknownFields     protoimpl.UnknownFields
+	sizeCache         protoimpl.SizeCache
 }
 
 func (x *Int64Array) Reset() {
@@ -2395,13 +2657,13 @@ func (x *Int64Array) ProtoReflect() protoreflect.Message {
 
 func (x *Int64Array) GetValues() []int64 {
 	if x != nil {
-		return x.Values
+		return x.xxx_hidden_Values
 	}
 	return nil
 }
 
 func (x *Int64Array) SetValues(v []int64) {
-	x.Values = v
+	x.xxx_hidden_Values = v
 }
 
 type Int64Array_builder struct {
@@ -2414,17 +2676,19 @@ func (b0 Int64Array_builder) Build() *Int64Array {
 	m0 := &Int64Array{}
 	b, x := &b0, m0
 	_, _ = b, x
-	x.Values = b.Values
+	x.xxx_hidden_Values = b.Values
 	return m0
 }
 
 // Generic key-value pair for metadata
 type KeyValue struct {
-	state         protoimpl.MessageState `protogen:"hybrid.v1"`
-	Key           *string                `protobuf:"bytes,1,opt,name=key" json:"key,omitempty"`
-	Value         *string                `protobuf:"bytes,2,opt,name=value" json:"value,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
+	state                  protoimpl.MessageState `protogen:"opaque.v1"`
+	xxx_hidden_Key         *string                `protobuf:"bytes,1,opt,name=key"`
+	xxx_hidden_Value       *string                `protobuf:"bytes,2,opt,name=value"`
+	XXX_raceDetectHookData protoimpl.RaceDetectHookData
+	XXX_presence           [1]uint32
+	unknownFields          protoimpl.UnknownFields
+	sizeCache              protoimpl.SizeCache
 }
 
 func (x *KeyValue) Reset() {
@@ -2453,47 +2717,57 @@ func (x *KeyValue) ProtoReflect() protoreflect.Message {
 }
 
 func (x *KeyValue) GetKey() string {
-	if x != nil && x.Key != nil {
-		return *x.Key
+	if x != nil {
+		if x.xxx_hidden_Key != nil {
+			return *x.xxx_hidden_Key
+		}
+		return ""
 	}
 	return ""
 }
 
 func (x *KeyValue) GetValue() string {
-	if x != nil && x.Value != nil {
-		return *x.Value
+	if x != nil {
+		if x.xxx_hidden_Value != nil {
+			return *x.xxx_hidden_Value
+		}
+		return ""
 	}
 	return ""
 }
 
 func (x *KeyValue) SetKey(v string) {
-	x.Key = &v
+	x.xxx_hidden_Key = &v
+	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 0, 2)
 }
 
 func (x *KeyValue) SetValue(v string) {
-	x.Value = &v
+	x.xxx_hidden_Value = &v
+	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 1, 2)
 }
 
 func (x *KeyValue) HasKey() bool {
 	if x == nil {
 		return false
 	}
-	return x.Key != nil
+	return protoimpl.X.Present(&(x.XXX_presence[0]), 0)
 }
 
 func (x *KeyValue) HasValue() bool {
 	if x == nil {
 		return false
 	}
-	return x.Value != nil
+	return protoimpl.X.Present(&(x.XXX_presence[0]), 1)
 }
 
 func (x *KeyValue) ClearKey() {
-	x.Key = nil
+	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 0)
+	x.xxx_hidden_Key = nil
 }
 
 func (x *KeyValue) ClearValue() {
-	x.Value = nil
+	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 1)
+	x.xxx_hidden_Value = nil
 }
 
 type KeyValue_builder struct {
@@ -2507,24 +2781,28 @@ func (b0 KeyValue_builder) Build() *KeyValue {
 	m0 := &KeyValue{}
 	b, x := &b0, m0
 	_, _ = b, x
-	x.Key = b.Key
-	x.Value = b.Value
+	if b.Key != nil {
+		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 0, 2)
+		x.xxx_hidden_Key = b.Key
+	}
+	if b.Value != nil {
+		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 1, 2)
+		x.xxx_hidden_Value = b.Value
+	}
 	return m0
 }
 
 // Resource reference for cross-module operations
 type ResourceReference struct {
-	state protoimpl.MessageState `protogen:"hybrid.v1"`
-	// Resource type (e.g., "user", "config", "queue")
-	Type *string `protobuf:"bytes,1,opt,name=type" json:"type,omitempty"`
-	// Resource ID
-	Id *string `protobuf:"bytes,2,opt,name=id" json:"id,omitempty"`
-	// Resource name (human-readable)
-	Name *string `protobuf:"bytes,3,opt,name=name" json:"name,omitempty"`
-	// Module that owns this resource
-	Module        *string `protobuf:"bytes,4,opt,name=module" json:"module,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
+	state                  protoimpl.MessageState `protogen:"opaque.v1"`
+	xxx_hidden_Type        *string                `protobuf:"bytes,1,opt,name=type"`
+	xxx_hidden_Id          *string                `protobuf:"bytes,2,opt,name=id"`
+	xxx_hidden_Name        *string                `protobuf:"bytes,3,opt,name=name"`
+	xxx_hidden_Module      *string                `protobuf:"bytes,4,opt,name=module"`
+	XXX_raceDetectHookData protoimpl.RaceDetectHookData
+	XXX_presence           [1]uint32
+	unknownFields          protoimpl.UnknownFields
+	sizeCache              protoimpl.SizeCache
 }
 
 func (x *ResourceReference) Reset() {
@@ -2553,91 +2831,111 @@ func (x *ResourceReference) ProtoReflect() protoreflect.Message {
 }
 
 func (x *ResourceReference) GetType() string {
-	if x != nil && x.Type != nil {
-		return *x.Type
+	if x != nil {
+		if x.xxx_hidden_Type != nil {
+			return *x.xxx_hidden_Type
+		}
+		return ""
 	}
 	return ""
 }
 
 func (x *ResourceReference) GetId() string {
-	if x != nil && x.Id != nil {
-		return *x.Id
+	if x != nil {
+		if x.xxx_hidden_Id != nil {
+			return *x.xxx_hidden_Id
+		}
+		return ""
 	}
 	return ""
 }
 
 func (x *ResourceReference) GetName() string {
-	if x != nil && x.Name != nil {
-		return *x.Name
+	if x != nil {
+		if x.xxx_hidden_Name != nil {
+			return *x.xxx_hidden_Name
+		}
+		return ""
 	}
 	return ""
 }
 
 func (x *ResourceReference) GetModule() string {
-	if x != nil && x.Module != nil {
-		return *x.Module
+	if x != nil {
+		if x.xxx_hidden_Module != nil {
+			return *x.xxx_hidden_Module
+		}
+		return ""
 	}
 	return ""
 }
 
 func (x *ResourceReference) SetType(v string) {
-	x.Type = &v
+	x.xxx_hidden_Type = &v
+	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 0, 4)
 }
 
 func (x *ResourceReference) SetId(v string) {
-	x.Id = &v
+	x.xxx_hidden_Id = &v
+	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 1, 4)
 }
 
 func (x *ResourceReference) SetName(v string) {
-	x.Name = &v
+	x.xxx_hidden_Name = &v
+	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 2, 4)
 }
 
 func (x *ResourceReference) SetModule(v string) {
-	x.Module = &v
+	x.xxx_hidden_Module = &v
+	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 3, 4)
 }
 
 func (x *ResourceReference) HasType() bool {
 	if x == nil {
 		return false
 	}
-	return x.Type != nil
+	return protoimpl.X.Present(&(x.XXX_presence[0]), 0)
 }
 
 func (x *ResourceReference) HasId() bool {
 	if x == nil {
 		return false
 	}
-	return x.Id != nil
+	return protoimpl.X.Present(&(x.XXX_presence[0]), 1)
 }
 
 func (x *ResourceReference) HasName() bool {
 	if x == nil {
 		return false
 	}
-	return x.Name != nil
+	return protoimpl.X.Present(&(x.XXX_presence[0]), 2)
 }
 
 func (x *ResourceReference) HasModule() bool {
 	if x == nil {
 		return false
 	}
-	return x.Module != nil
+	return protoimpl.X.Present(&(x.XXX_presence[0]), 3)
 }
 
 func (x *ResourceReference) ClearType() {
-	x.Type = nil
+	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 0)
+	x.xxx_hidden_Type = nil
 }
 
 func (x *ResourceReference) ClearId() {
-	x.Id = nil
+	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 1)
+	x.xxx_hidden_Id = nil
 }
 
 func (x *ResourceReference) ClearName() {
-	x.Name = nil
+	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 2)
+	x.xxx_hidden_Name = nil
 }
 
 func (x *ResourceReference) ClearModule() {
-	x.Module = nil
+	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 3)
+	x.xxx_hidden_Module = nil
 }
 
 type ResourceReference_builder struct {
@@ -2657,28 +2955,39 @@ func (b0 ResourceReference_builder) Build() *ResourceReference {
 	m0 := &ResourceReference{}
 	b, x := &b0, m0
 	_, _ = b, x
-	x.Type = b.Type
-	x.Id = b.Id
-	x.Name = b.Name
-	x.Module = b.Module
+	if b.Type != nil {
+		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 0, 4)
+		x.xxx_hidden_Type = b.Type
+	}
+	if b.Id != nil {
+		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 1, 4)
+		x.xxx_hidden_Id = b.Id
+	}
+	if b.Name != nil {
+		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 2, 4)
+		x.xxx_hidden_Name = b.Name
+	}
+	if b.Module != nil {
+		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 3, 4)
+		x.xxx_hidden_Module = b.Module
+	}
 	return m0
 }
 
 // Common metrics data point
 type MetricPoint struct {
-	state protoimpl.MessageState `protogen:"hybrid.v1"`
-	// Metric name
-	Name *string `protobuf:"bytes,1,opt,name=name" json:"name,omitempty"`
-	// Metric value
-	Value *float64 `protobuf:"fixed64,2,opt,name=value" json:"value,omitempty"`
-	// Timestamp when metric was recorded
-	Timestamp *timestamppb.Timestamp `protobuf:"bytes,3,opt,name=timestamp" json:"timestamp,omitempty"`
-	// Metric labels
-	Labels map[string]string `protobuf:"bytes,4,rep,name=labels" json:"labels,omitempty" protobuf_key:"bytes,1,opt,name=key" protobuf_val:"bytes,2,opt,name=value"`
-	// Metric unit
-	Unit          *string `protobuf:"bytes,5,opt,name=unit" json:"unit,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
+	state                protoimpl.MessageState `protogen:"opaque.v1"`
+	xxx_hidden_Name      *string                `protobuf:"bytes,1,opt,name=name"`
+	xxx_hidden_Value     float64                `protobuf:"fixed64,2,opt,name=value"`
+	xxx_hidden_Timestamp *timestamppb.Timestamp `protobuf:"bytes,3,opt,name=timestamp"`
+	xxx_hidden_Labels    map[string]string      `protobuf:"bytes,4,rep,name=labels" protobuf_key:"bytes,1,opt,name=key" protobuf_val:"bytes,2,opt,name=value"`
+	xxx_hidden_Unit      *string                `protobuf:"bytes,5,opt,name=unit"`
+	// Deprecated: Do not use. This will be deleted in the near future.
+	XXX_lazyUnmarshalInfo  protoimpl.LazyUnmarshalInfo
+	XXX_raceDetectHookData protoimpl.RaceDetectHookData
+	XXX_presence           [1]uint32
+	unknownFields          protoimpl.UnknownFields
+	sizeCache              protoimpl.SizeCache
 }
 
 func (x *MetricPoint) Reset() {
@@ -2707,102 +3016,137 @@ func (x *MetricPoint) ProtoReflect() protoreflect.Message {
 }
 
 func (x *MetricPoint) GetName() string {
-	if x != nil && x.Name != nil {
-		return *x.Name
+	if x != nil {
+		if x.xxx_hidden_Name != nil {
+			return *x.xxx_hidden_Name
+		}
+		return ""
 	}
 	return ""
 }
 
 func (x *MetricPoint) GetValue() float64 {
-	if x != nil && x.Value != nil {
-		return *x.Value
+	if x != nil {
+		return x.xxx_hidden_Value
 	}
 	return 0
 }
 
 func (x *MetricPoint) GetTimestamp() *timestamppb.Timestamp {
 	if x != nil {
-		return x.Timestamp
+		if protoimpl.X.Present(&(x.XXX_presence[0]), 2) {
+			if protoimpl.X.AtomicCheckPointerIsNil(&x.xxx_hidden_Timestamp) {
+				protoimpl.X.UnmarshalField(x, 3)
+			}
+			var rv *timestamppb.Timestamp
+			protoimpl.X.AtomicLoadPointer(protoimpl.Pointer(&x.xxx_hidden_Timestamp), protoimpl.Pointer(&rv))
+			return rv
+		}
 	}
 	return nil
 }
 
 func (x *MetricPoint) GetLabels() map[string]string {
 	if x != nil {
-		return x.Labels
+		if protoimpl.X.Present(&(x.XXX_presence[0]), 3) {
+			if protoimpl.X.AtomicCheckPointerIsNil(&x.xxx_hidden_Labels) {
+				protoimpl.X.UnmarshalField(x, 4)
+			}
+			return x.xxx_hidden_Labels
+		}
 	}
 	return nil
 }
 
 func (x *MetricPoint) GetUnit() string {
-	if x != nil && x.Unit != nil {
-		return *x.Unit
+	if x != nil {
+		if x.xxx_hidden_Unit != nil {
+			return *x.xxx_hidden_Unit
+		}
+		return ""
 	}
 	return ""
 }
 
 func (x *MetricPoint) SetName(v string) {
-	x.Name = &v
+	x.xxx_hidden_Name = &v
+	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 0, 5)
 }
 
 func (x *MetricPoint) SetValue(v float64) {
-	x.Value = &v
+	x.xxx_hidden_Value = v
+	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 1, 5)
 }
 
 func (x *MetricPoint) SetTimestamp(v *timestamppb.Timestamp) {
-	x.Timestamp = v
+	protoimpl.X.AtomicSetPointer(&x.xxx_hidden_Timestamp, v)
+	if v == nil {
+		protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 2)
+	} else {
+		protoimpl.X.SetPresent(&(x.XXX_presence[0]), 2, 5)
+	}
 }
 
 func (x *MetricPoint) SetLabels(v map[string]string) {
-	x.Labels = v
+	x.xxx_hidden_Labels = v
+	if v == nil {
+		protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 3)
+	} else {
+		protoimpl.X.SetPresent(&(x.XXX_presence[0]), 3, 5)
+	}
 }
 
 func (x *MetricPoint) SetUnit(v string) {
-	x.Unit = &v
+	x.xxx_hidden_Unit = &v
+	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 4, 5)
 }
 
 func (x *MetricPoint) HasName() bool {
 	if x == nil {
 		return false
 	}
-	return x.Name != nil
+	return protoimpl.X.Present(&(x.XXX_presence[0]), 0)
 }
 
 func (x *MetricPoint) HasValue() bool {
 	if x == nil {
 		return false
 	}
-	return x.Value != nil
+	return protoimpl.X.Present(&(x.XXX_presence[0]), 1)
 }
 
 func (x *MetricPoint) HasTimestamp() bool {
 	if x == nil {
 		return false
 	}
-	return x.Timestamp != nil
+	return protoimpl.X.Present(&(x.XXX_presence[0]), 2)
 }
 
 func (x *MetricPoint) HasUnit() bool {
 	if x == nil {
 		return false
 	}
-	return x.Unit != nil
+	return protoimpl.X.Present(&(x.XXX_presence[0]), 4)
 }
 
 func (x *MetricPoint) ClearName() {
-	x.Name = nil
+	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 0)
+	x.xxx_hidden_Name = nil
 }
 
 func (x *MetricPoint) ClearValue() {
-	x.Value = nil
+	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 1)
+	x.xxx_hidden_Value = 0
 }
 
 func (x *MetricPoint) ClearTimestamp() {
-	x.Timestamp = nil
+	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 2)
+	protoimpl.X.AtomicSetPointer(&x.xxx_hidden_Timestamp, (*timestamppb.Timestamp)(nil))
 }
 
 func (x *MetricPoint) ClearUnit() {
-	x.Unit = nil
+	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 4)
+	x.xxx_hidden_Unit = nil
 }
 
 type MetricPoint_builder struct {
@@ -2824,34 +3168,42 @@ func (b0 MetricPoint_builder) Build() *MetricPoint {
 	m0 := &MetricPoint{}
 	b, x := &b0, m0
 	_, _ = b, x
-	x.Name = b.Name
-	x.Value = b.Value
-	x.Timestamp = b.Timestamp
-	x.Labels = b.Labels
-	x.Unit = b.Unit
+	if b.Name != nil {
+		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 0, 5)
+		x.xxx_hidden_Name = b.Name
+	}
+	if b.Value != nil {
+		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 1, 5)
+		x.xxx_hidden_Value = *b.Value
+	}
+	if b.Timestamp != nil {
+		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 2, 5)
+		x.xxx_hidden_Timestamp = b.Timestamp
+	}
+	if b.Labels != nil {
+		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 3, 5)
+		x.xxx_hidden_Labels = b.Labels
+	}
+	if b.Unit != nil {
+		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 4, 5)
+		x.xxx_hidden_Unit = b.Unit
+	}
 	return m0
 }
 
 // Configuration value with type information
 type ConfigValue struct {
-	state protoimpl.MessageState `protogen:"hybrid.v1"`
-	// Types that are valid to be assigned to Value:
-	//
-	//	*ConfigValue_StringValue
-	//	*ConfigValue_IntValue
-	//	*ConfigValue_DoubleValue
-	//	*ConfigValue_BoolValue
-	//	*ConfigValue_BytesValue
-	//	*ConfigValue_AnyValue
-	Value isConfigValue_Value `protobuf_oneof:"value"`
-	// Value type for validation
-	Type *ValueType `protobuf:"varint,7,opt,name=type,enum=gcommon.v1.common.ValueType" json:"type,omitempty"`
-	// Whether value is encrypted
-	Encrypted *bool `protobuf:"varint,8,opt,name=encrypted" json:"encrypted,omitempty"`
-	// Value metadata
-	Metadata      map[string]string `protobuf:"bytes,9,rep,name=metadata" json:"metadata,omitempty" protobuf_key:"bytes,1,opt,name=key" protobuf_val:"bytes,2,opt,name=value"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
+	state                protoimpl.MessageState `protogen:"opaque.v1"`
+	xxx_hidden_Value     isConfigValue_Value    `protobuf_oneof:"value"`
+	xxx_hidden_Type      ValueType              `protobuf:"varint,7,opt,name=type,enum=gcommon.v1.common.ValueType"`
+	xxx_hidden_Encrypted bool                   `protobuf:"varint,8,opt,name=encrypted"`
+	xxx_hidden_Metadata  map[string]string      `protobuf:"bytes,9,rep,name=metadata" protobuf_key:"bytes,1,opt,name=key" protobuf_val:"bytes,2,opt,name=value"`
+	// Deprecated: Do not use. This will be deleted in the near future.
+	XXX_lazyUnmarshalInfo  protoimpl.LazyUnmarshalInfo
+	XXX_raceDetectHookData protoimpl.RaceDetectHookData
+	XXX_presence           [1]uint32
+	unknownFields          protoimpl.UnknownFields
+	sizeCache              protoimpl.SizeCache
 }
 
 func (x *ConfigValue) Reset() {
@@ -2879,16 +3231,9 @@ func (x *ConfigValue) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-func (x *ConfigValue) GetValue() isConfigValue_Value {
-	if x != nil {
-		return x.Value
-	}
-	return nil
-}
-
 func (x *ConfigValue) GetStringValue() string {
 	if x != nil {
-		if x, ok := x.Value.(*ConfigValue_StringValue); ok {
+		if x, ok := x.xxx_hidden_Value.(*configValue_StringValue); ok {
 			return x.StringValue
 		}
 	}
@@ -2897,7 +3242,7 @@ func (x *ConfigValue) GetStringValue() string {
 
 func (x *ConfigValue) GetIntValue() int64 {
 	if x != nil {
-		if x, ok := x.Value.(*ConfigValue_IntValue); ok {
+		if x, ok := x.xxx_hidden_Value.(*configValue_IntValue); ok {
 			return x.IntValue
 		}
 	}
@@ -2906,7 +3251,7 @@ func (x *ConfigValue) GetIntValue() int64 {
 
 func (x *ConfigValue) GetDoubleValue() float64 {
 	if x != nil {
-		if x, ok := x.Value.(*ConfigValue_DoubleValue); ok {
+		if x, ok := x.xxx_hidden_Value.(*configValue_DoubleValue); ok {
 			return x.DoubleValue
 		}
 	}
@@ -2915,7 +3260,7 @@ func (x *ConfigValue) GetDoubleValue() float64 {
 
 func (x *ConfigValue) GetBoolValue() bool {
 	if x != nil {
-		if x, ok := x.Value.(*ConfigValue_BoolValue); ok {
+		if x, ok := x.xxx_hidden_Value.(*configValue_BoolValue); ok {
 			return x.BoolValue
 		}
 	}
@@ -2924,7 +3269,7 @@ func (x *ConfigValue) GetBoolValue() bool {
 
 func (x *ConfigValue) GetBytesValue() []byte {
 	if x != nil {
-		if x, ok := x.Value.(*ConfigValue_BytesValue); ok {
+		if x, ok := x.xxx_hidden_Value.(*configValue_BytesValue); ok {
 			return x.BytesValue
 		}
 	}
@@ -2933,7 +3278,7 @@ func (x *ConfigValue) GetBytesValue() []byte {
 
 func (x *ConfigValue) GetAnyValue() *anypb.Any {
 	if x != nil {
-		if x, ok := x.Value.(*ConfigValue_AnyValue); ok {
+		if x, ok := x.xxx_hidden_Value.(*configValue_AnyValue); ok {
 			return x.AnyValue
 		}
 	}
@@ -2941,81 +3286,95 @@ func (x *ConfigValue) GetAnyValue() *anypb.Any {
 }
 
 func (x *ConfigValue) GetType() ValueType {
-	if x != nil && x.Type != nil {
-		return *x.Type
+	if x != nil {
+		if protoimpl.X.Present(&(x.XXX_presence[0]), 1) {
+			return x.xxx_hidden_Type
+		}
 	}
 	return ValueType_VALUE_TYPE_UNSPECIFIED
 }
 
 func (x *ConfigValue) GetEncrypted() bool {
-	if x != nil && x.Encrypted != nil {
-		return *x.Encrypted
+	if x != nil {
+		return x.xxx_hidden_Encrypted
 	}
 	return false
 }
 
 func (x *ConfigValue) GetMetadata() map[string]string {
 	if x != nil {
-		return x.Metadata
+		if protoimpl.X.Present(&(x.XXX_presence[0]), 3) {
+			if protoimpl.X.AtomicCheckPointerIsNil(&x.xxx_hidden_Metadata) {
+				protoimpl.X.UnmarshalField(x, 9)
+			}
+			return x.xxx_hidden_Metadata
+		}
 	}
 	return nil
 }
 
 func (x *ConfigValue) SetStringValue(v string) {
-	x.Value = &ConfigValue_StringValue{v}
+	x.xxx_hidden_Value = &configValue_StringValue{v}
 }
 
 func (x *ConfigValue) SetIntValue(v int64) {
-	x.Value = &ConfigValue_IntValue{v}
+	x.xxx_hidden_Value = &configValue_IntValue{v}
 }
 
 func (x *ConfigValue) SetDoubleValue(v float64) {
-	x.Value = &ConfigValue_DoubleValue{v}
+	x.xxx_hidden_Value = &configValue_DoubleValue{v}
 }
 
 func (x *ConfigValue) SetBoolValue(v bool) {
-	x.Value = &ConfigValue_BoolValue{v}
+	x.xxx_hidden_Value = &configValue_BoolValue{v}
 }
 
 func (x *ConfigValue) SetBytesValue(v []byte) {
 	if v == nil {
 		v = []byte{}
 	}
-	x.Value = &ConfigValue_BytesValue{v}
+	x.xxx_hidden_Value = &configValue_BytesValue{v}
 }
 
 func (x *ConfigValue) SetAnyValue(v *anypb.Any) {
 	if v == nil {
-		x.Value = nil
+		x.xxx_hidden_Value = nil
 		return
 	}
-	x.Value = &ConfigValue_AnyValue{v}
+	x.xxx_hidden_Value = &configValue_AnyValue{v}
 }
 
 func (x *ConfigValue) SetType(v ValueType) {
-	x.Type = &v
+	x.xxx_hidden_Type = v
+	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 1, 4)
 }
 
 func (x *ConfigValue) SetEncrypted(v bool) {
-	x.Encrypted = &v
+	x.xxx_hidden_Encrypted = v
+	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 2, 4)
 }
 
 func (x *ConfigValue) SetMetadata(v map[string]string) {
-	x.Metadata = v
+	x.xxx_hidden_Metadata = v
+	if v == nil {
+		protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 3)
+	} else {
+		protoimpl.X.SetPresent(&(x.XXX_presence[0]), 3, 4)
+	}
 }
 
 func (x *ConfigValue) HasValue() bool {
 	if x == nil {
 		return false
 	}
-	return x.Value != nil
+	return x.xxx_hidden_Value != nil
 }
 
 func (x *ConfigValue) HasStringValue() bool {
 	if x == nil {
 		return false
 	}
-	_, ok := x.Value.(*ConfigValue_StringValue)
+	_, ok := x.xxx_hidden_Value.(*configValue_StringValue)
 	return ok
 }
 
@@ -3023,7 +3382,7 @@ func (x *ConfigValue) HasIntValue() bool {
 	if x == nil {
 		return false
 	}
-	_, ok := x.Value.(*ConfigValue_IntValue)
+	_, ok := x.xxx_hidden_Value.(*configValue_IntValue)
 	return ok
 }
 
@@ -3031,7 +3390,7 @@ func (x *ConfigValue) HasDoubleValue() bool {
 	if x == nil {
 		return false
 	}
-	_, ok := x.Value.(*ConfigValue_DoubleValue)
+	_, ok := x.xxx_hidden_Value.(*configValue_DoubleValue)
 	return ok
 }
 
@@ -3039,7 +3398,7 @@ func (x *ConfigValue) HasBoolValue() bool {
 	if x == nil {
 		return false
 	}
-	_, ok := x.Value.(*ConfigValue_BoolValue)
+	_, ok := x.xxx_hidden_Value.(*configValue_BoolValue)
 	return ok
 }
 
@@ -3047,7 +3406,7 @@ func (x *ConfigValue) HasBytesValue() bool {
 	if x == nil {
 		return false
 	}
-	_, ok := x.Value.(*ConfigValue_BytesValue)
+	_, ok := x.xxx_hidden_Value.(*configValue_BytesValue)
 	return ok
 }
 
@@ -3055,7 +3414,7 @@ func (x *ConfigValue) HasAnyValue() bool {
 	if x == nil {
 		return false
 	}
-	_, ok := x.Value.(*ConfigValue_AnyValue)
+	_, ok := x.xxx_hidden_Value.(*configValue_AnyValue)
 	return ok
 }
 
@@ -3063,62 +3422,64 @@ func (x *ConfigValue) HasType() bool {
 	if x == nil {
 		return false
 	}
-	return x.Type != nil
+	return protoimpl.X.Present(&(x.XXX_presence[0]), 1)
 }
 
 func (x *ConfigValue) HasEncrypted() bool {
 	if x == nil {
 		return false
 	}
-	return x.Encrypted != nil
+	return protoimpl.X.Present(&(x.XXX_presence[0]), 2)
 }
 
 func (x *ConfigValue) ClearValue() {
-	x.Value = nil
+	x.xxx_hidden_Value = nil
 }
 
 func (x *ConfigValue) ClearStringValue() {
-	if _, ok := x.Value.(*ConfigValue_StringValue); ok {
-		x.Value = nil
+	if _, ok := x.xxx_hidden_Value.(*configValue_StringValue); ok {
+		x.xxx_hidden_Value = nil
 	}
 }
 
 func (x *ConfigValue) ClearIntValue() {
-	if _, ok := x.Value.(*ConfigValue_IntValue); ok {
-		x.Value = nil
+	if _, ok := x.xxx_hidden_Value.(*configValue_IntValue); ok {
+		x.xxx_hidden_Value = nil
 	}
 }
 
 func (x *ConfigValue) ClearDoubleValue() {
-	if _, ok := x.Value.(*ConfigValue_DoubleValue); ok {
-		x.Value = nil
+	if _, ok := x.xxx_hidden_Value.(*configValue_DoubleValue); ok {
+		x.xxx_hidden_Value = nil
 	}
 }
 
 func (x *ConfigValue) ClearBoolValue() {
-	if _, ok := x.Value.(*ConfigValue_BoolValue); ok {
-		x.Value = nil
+	if _, ok := x.xxx_hidden_Value.(*configValue_BoolValue); ok {
+		x.xxx_hidden_Value = nil
 	}
 }
 
 func (x *ConfigValue) ClearBytesValue() {
-	if _, ok := x.Value.(*ConfigValue_BytesValue); ok {
-		x.Value = nil
+	if _, ok := x.xxx_hidden_Value.(*configValue_BytesValue); ok {
+		x.xxx_hidden_Value = nil
 	}
 }
 
 func (x *ConfigValue) ClearAnyValue() {
-	if _, ok := x.Value.(*ConfigValue_AnyValue); ok {
-		x.Value = nil
+	if _, ok := x.xxx_hidden_Value.(*configValue_AnyValue); ok {
+		x.xxx_hidden_Value = nil
 	}
 }
 
 func (x *ConfigValue) ClearType() {
-	x.Type = nil
+	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 1)
+	x.xxx_hidden_Type = ValueType_VALUE_TYPE_UNSPECIFIED
 }
 
 func (x *ConfigValue) ClearEncrypted() {
-	x.Encrypted = nil
+	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 2)
+	x.xxx_hidden_Encrypted = false
 }
 
 const ConfigValue_Value_not_set_case case_ConfigValue_Value = 0
@@ -3133,18 +3494,18 @@ func (x *ConfigValue) WhichValue() case_ConfigValue_Value {
 	if x == nil {
 		return ConfigValue_Value_not_set_case
 	}
-	switch x.Value.(type) {
-	case *ConfigValue_StringValue:
+	switch x.xxx_hidden_Value.(type) {
+	case *configValue_StringValue:
 		return ConfigValue_StringValue_case
-	case *ConfigValue_IntValue:
+	case *configValue_IntValue:
 		return ConfigValue_IntValue_case
-	case *ConfigValue_DoubleValue:
+	case *configValue_DoubleValue:
 		return ConfigValue_DoubleValue_case
-	case *ConfigValue_BoolValue:
+	case *configValue_BoolValue:
 		return ConfigValue_BoolValue_case
-	case *ConfigValue_BytesValue:
+	case *configValue_BytesValue:
 		return ConfigValue_BytesValue_case
-	case *ConfigValue_AnyValue:
+	case *configValue_AnyValue:
 		return ConfigValue_AnyValue_case
 	default:
 		return ConfigValue_Value_not_set_case
@@ -3154,14 +3515,14 @@ func (x *ConfigValue) WhichValue() case_ConfigValue_Value {
 type ConfigValue_builder struct {
 	_ [0]func() // Prevents comparability and use of unkeyed literals for the builder.
 
-	// Fields of oneof Value:
+	// Fields of oneof xxx_hidden_Value:
 	StringValue *string
 	IntValue    *int64
 	DoubleValue *float64
 	BoolValue   *bool
 	BytesValue  []byte
 	AnyValue    *anypb.Any
-	// -- end of Value
+	// -- end of xxx_hidden_Value
 	// Value type for validation
 	Type *ValueType
 	// Whether value is encrypted
@@ -3175,26 +3536,35 @@ func (b0 ConfigValue_builder) Build() *ConfigValue {
 	b, x := &b0, m0
 	_, _ = b, x
 	if b.StringValue != nil {
-		x.Value = &ConfigValue_StringValue{*b.StringValue}
+		x.xxx_hidden_Value = &configValue_StringValue{*b.StringValue}
 	}
 	if b.IntValue != nil {
-		x.Value = &ConfigValue_IntValue{*b.IntValue}
+		x.xxx_hidden_Value = &configValue_IntValue{*b.IntValue}
 	}
 	if b.DoubleValue != nil {
-		x.Value = &ConfigValue_DoubleValue{*b.DoubleValue}
+		x.xxx_hidden_Value = &configValue_DoubleValue{*b.DoubleValue}
 	}
 	if b.BoolValue != nil {
-		x.Value = &ConfigValue_BoolValue{*b.BoolValue}
+		x.xxx_hidden_Value = &configValue_BoolValue{*b.BoolValue}
 	}
 	if b.BytesValue != nil {
-		x.Value = &ConfigValue_BytesValue{b.BytesValue}
+		x.xxx_hidden_Value = &configValue_BytesValue{b.BytesValue}
 	}
 	if b.AnyValue != nil {
-		x.Value = &ConfigValue_AnyValue{b.AnyValue}
+		x.xxx_hidden_Value = &configValue_AnyValue{b.AnyValue}
 	}
-	x.Type = b.Type
-	x.Encrypted = b.Encrypted
-	x.Metadata = b.Metadata
+	if b.Type != nil {
+		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 1, 4)
+		x.xxx_hidden_Type = *b.Type
+	}
+	if b.Encrypted != nil {
+		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 2, 4)
+		x.xxx_hidden_Encrypted = *b.Encrypted
+	}
+	if b.Metadata != nil {
+		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 3, 4)
+		x.xxx_hidden_Metadata = b.Metadata
+	}
 	return m0
 }
 
@@ -3212,55 +3582,53 @@ type isConfigValue_Value interface {
 	isConfigValue_Value()
 }
 
-type ConfigValue_StringValue struct {
+type configValue_StringValue struct {
 	StringValue string `protobuf:"bytes,1,opt,name=string_value,json=stringValue,oneof"`
 }
 
-type ConfigValue_IntValue struct {
+type configValue_IntValue struct {
 	IntValue int64 `protobuf:"varint,2,opt,name=int_value,json=intValue,oneof"`
 }
 
-type ConfigValue_DoubleValue struct {
+type configValue_DoubleValue struct {
 	DoubleValue float64 `protobuf:"fixed64,3,opt,name=double_value,json=doubleValue,oneof"`
 }
 
-type ConfigValue_BoolValue struct {
+type configValue_BoolValue struct {
 	BoolValue bool `protobuf:"varint,4,opt,name=bool_value,json=boolValue,oneof"`
 }
 
-type ConfigValue_BytesValue struct {
+type configValue_BytesValue struct {
 	BytesValue []byte `protobuf:"bytes,5,opt,name=bytes_value,json=bytesValue,oneof"`
 }
 
-type ConfigValue_AnyValue struct {
+type configValue_AnyValue struct {
 	AnyValue *anypb.Any `protobuf:"bytes,6,opt,name=any_value,json=anyValue,oneof"`
 }
 
-func (*ConfigValue_StringValue) isConfigValue_Value() {}
+func (*configValue_StringValue) isConfigValue_Value() {}
 
-func (*ConfigValue_IntValue) isConfigValue_Value() {}
+func (*configValue_IntValue) isConfigValue_Value() {}
 
-func (*ConfigValue_DoubleValue) isConfigValue_Value() {}
+func (*configValue_DoubleValue) isConfigValue_Value() {}
 
-func (*ConfigValue_BoolValue) isConfigValue_Value() {}
+func (*configValue_BoolValue) isConfigValue_Value() {}
 
-func (*ConfigValue_BytesValue) isConfigValue_Value() {}
+func (*configValue_BytesValue) isConfigValue_Value() {}
 
-func (*ConfigValue_AnyValue) isConfigValue_Value() {}
+func (*configValue_AnyValue) isConfigValue_Value() {}
 
 // Rate limiting information
 type RateLimit struct {
-	state protoimpl.MessageState `protogen:"hybrid.v1"`
-	// Maximum requests per window
-	Limit *int32 `protobuf:"varint,1,opt,name=limit" json:"limit,omitempty"`
-	// Time window duration
-	Window *durationpb.Duration `protobuf:"bytes,2,opt,name=window" json:"window,omitempty"`
-	// Remaining requests in current window
-	Remaining *int32 `protobuf:"varint,3,opt,name=remaining" json:"remaining,omitempty"`
-	// Time until window resets
-	ResetTime     *durationpb.Duration `protobuf:"bytes,4,opt,name=reset_time,json=resetTime" json:"reset_time,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
+	state                  protoimpl.MessageState `protogen:"opaque.v1"`
+	xxx_hidden_Limit       int32                  `protobuf:"varint,1,opt,name=limit"`
+	xxx_hidden_Window      *durationpb.Duration   `protobuf:"bytes,2,opt,name=window"`
+	xxx_hidden_Remaining   int32                  `protobuf:"varint,3,opt,name=remaining"`
+	xxx_hidden_ResetTime   *durationpb.Duration   `protobuf:"bytes,4,opt,name=reset_time,json=resetTime"`
+	XXX_raceDetectHookData protoimpl.RaceDetectHookData
+	XXX_presence           [1]uint32
+	unknownFields          protoimpl.UnknownFields
+	sizeCache              protoimpl.SizeCache
 }
 
 func (x *RateLimit) Reset() {
@@ -3289,91 +3657,95 @@ func (x *RateLimit) ProtoReflect() protoreflect.Message {
 }
 
 func (x *RateLimit) GetLimit() int32 {
-	if x != nil && x.Limit != nil {
-		return *x.Limit
+	if x != nil {
+		return x.xxx_hidden_Limit
 	}
 	return 0
 }
 
 func (x *RateLimit) GetWindow() *durationpb.Duration {
 	if x != nil {
-		return x.Window
+		return x.xxx_hidden_Window
 	}
 	return nil
 }
 
 func (x *RateLimit) GetRemaining() int32 {
-	if x != nil && x.Remaining != nil {
-		return *x.Remaining
+	if x != nil {
+		return x.xxx_hidden_Remaining
 	}
 	return 0
 }
 
 func (x *RateLimit) GetResetTime() *durationpb.Duration {
 	if x != nil {
-		return x.ResetTime
+		return x.xxx_hidden_ResetTime
 	}
 	return nil
 }
 
 func (x *RateLimit) SetLimit(v int32) {
-	x.Limit = &v
+	x.xxx_hidden_Limit = v
+	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 0, 4)
 }
 
 func (x *RateLimit) SetWindow(v *durationpb.Duration) {
-	x.Window = v
+	x.xxx_hidden_Window = v
 }
 
 func (x *RateLimit) SetRemaining(v int32) {
-	x.Remaining = &v
+	x.xxx_hidden_Remaining = v
+	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 2, 4)
 }
 
 func (x *RateLimit) SetResetTime(v *durationpb.Duration) {
-	x.ResetTime = v
+	x.xxx_hidden_ResetTime = v
 }
 
 func (x *RateLimit) HasLimit() bool {
 	if x == nil {
 		return false
 	}
-	return x.Limit != nil
+	return protoimpl.X.Present(&(x.XXX_presence[0]), 0)
 }
 
 func (x *RateLimit) HasWindow() bool {
 	if x == nil {
 		return false
 	}
-	return x.Window != nil
+	return x.xxx_hidden_Window != nil
 }
 
 func (x *RateLimit) HasRemaining() bool {
 	if x == nil {
 		return false
 	}
-	return x.Remaining != nil
+	return protoimpl.X.Present(&(x.XXX_presence[0]), 2)
 }
 
 func (x *RateLimit) HasResetTime() bool {
 	if x == nil {
 		return false
 	}
-	return x.ResetTime != nil
+	return x.xxx_hidden_ResetTime != nil
 }
 
 func (x *RateLimit) ClearLimit() {
-	x.Limit = nil
+	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 0)
+	x.xxx_hidden_Limit = 0
 }
 
 func (x *RateLimit) ClearWindow() {
-	x.Window = nil
+	x.xxx_hidden_Window = nil
 }
 
 func (x *RateLimit) ClearRemaining() {
-	x.Remaining = nil
+	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 2)
+	x.xxx_hidden_Remaining = 0
 }
 
 func (x *RateLimit) ClearResetTime() {
-	x.ResetTime = nil
+	x.xxx_hidden_ResetTime = nil
 }
 
 type RateLimit_builder struct {
@@ -3393,28 +3765,31 @@ func (b0 RateLimit_builder) Build() *RateLimit {
 	m0 := &RateLimit{}
 	b, x := &b0, m0
 	_, _ = b, x
-	x.Limit = b.Limit
-	x.Window = b.Window
-	x.Remaining = b.Remaining
-	x.ResetTime = b.ResetTime
+	if b.Limit != nil {
+		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 0, 4)
+		x.xxx_hidden_Limit = *b.Limit
+	}
+	x.xxx_hidden_Window = b.Window
+	if b.Remaining != nil {
+		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 2, 4)
+		x.xxx_hidden_Remaining = *b.Remaining
+	}
+	x.xxx_hidden_ResetTime = b.ResetTime
 	return m0
 }
 
 // Service version information
 type ServiceVersion struct {
-	state protoimpl.MessageState `protogen:"hybrid.v1"`
-	// Service name
-	Name *string `protobuf:"bytes,1,opt,name=name" json:"name,omitempty"`
-	// Semantic version
-	Version *string `protobuf:"bytes,2,opt,name=version" json:"version,omitempty"`
-	// Build commit hash
-	Commit *string `protobuf:"bytes,3,opt,name=commit" json:"commit,omitempty"`
-	// Build timestamp
-	BuildTime *timestamppb.Timestamp `protobuf:"bytes,4,opt,name=build_time,json=buildTime" json:"build_time,omitempty"`
-	// Go version used for build
-	GoVersion     *string `protobuf:"bytes,5,opt,name=go_version,json=goVersion" json:"go_version,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
+	state                  protoimpl.MessageState `protogen:"opaque.v1"`
+	xxx_hidden_Name        *string                `protobuf:"bytes,1,opt,name=name"`
+	xxx_hidden_Version     *string                `protobuf:"bytes,2,opt,name=version"`
+	xxx_hidden_Commit      *string                `protobuf:"bytes,3,opt,name=commit"`
+	xxx_hidden_BuildTime   *timestamppb.Timestamp `protobuf:"bytes,4,opt,name=build_time,json=buildTime"`
+	xxx_hidden_GoVersion   *string                `protobuf:"bytes,5,opt,name=go_version,json=goVersion"`
+	XXX_raceDetectHookData protoimpl.RaceDetectHookData
+	XXX_presence           [1]uint32
+	unknownFields          protoimpl.UnknownFields
+	sizeCache              protoimpl.SizeCache
 }
 
 func (x *ServiceVersion) Reset() {
@@ -3443,113 +3818,133 @@ func (x *ServiceVersion) ProtoReflect() protoreflect.Message {
 }
 
 func (x *ServiceVersion) GetName() string {
-	if x != nil && x.Name != nil {
-		return *x.Name
+	if x != nil {
+		if x.xxx_hidden_Name != nil {
+			return *x.xxx_hidden_Name
+		}
+		return ""
 	}
 	return ""
 }
 
 func (x *ServiceVersion) GetVersion() string {
-	if x != nil && x.Version != nil {
-		return *x.Version
+	if x != nil {
+		if x.xxx_hidden_Version != nil {
+			return *x.xxx_hidden_Version
+		}
+		return ""
 	}
 	return ""
 }
 
 func (x *ServiceVersion) GetCommit() string {
-	if x != nil && x.Commit != nil {
-		return *x.Commit
+	if x != nil {
+		if x.xxx_hidden_Commit != nil {
+			return *x.xxx_hidden_Commit
+		}
+		return ""
 	}
 	return ""
 }
 
 func (x *ServiceVersion) GetBuildTime() *timestamppb.Timestamp {
 	if x != nil {
-		return x.BuildTime
+		return x.xxx_hidden_BuildTime
 	}
 	return nil
 }
 
 func (x *ServiceVersion) GetGoVersion() string {
-	if x != nil && x.GoVersion != nil {
-		return *x.GoVersion
+	if x != nil {
+		if x.xxx_hidden_GoVersion != nil {
+			return *x.xxx_hidden_GoVersion
+		}
+		return ""
 	}
 	return ""
 }
 
 func (x *ServiceVersion) SetName(v string) {
-	x.Name = &v
+	x.xxx_hidden_Name = &v
+	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 0, 5)
 }
 
 func (x *ServiceVersion) SetVersion(v string) {
-	x.Version = &v
+	x.xxx_hidden_Version = &v
+	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 1, 5)
 }
 
 func (x *ServiceVersion) SetCommit(v string) {
-	x.Commit = &v
+	x.xxx_hidden_Commit = &v
+	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 2, 5)
 }
 
 func (x *ServiceVersion) SetBuildTime(v *timestamppb.Timestamp) {
-	x.BuildTime = v
+	x.xxx_hidden_BuildTime = v
 }
 
 func (x *ServiceVersion) SetGoVersion(v string) {
-	x.GoVersion = &v
+	x.xxx_hidden_GoVersion = &v
+	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 4, 5)
 }
 
 func (x *ServiceVersion) HasName() bool {
 	if x == nil {
 		return false
 	}
-	return x.Name != nil
+	return protoimpl.X.Present(&(x.XXX_presence[0]), 0)
 }
 
 func (x *ServiceVersion) HasVersion() bool {
 	if x == nil {
 		return false
 	}
-	return x.Version != nil
+	return protoimpl.X.Present(&(x.XXX_presence[0]), 1)
 }
 
 func (x *ServiceVersion) HasCommit() bool {
 	if x == nil {
 		return false
 	}
-	return x.Commit != nil
+	return protoimpl.X.Present(&(x.XXX_presence[0]), 2)
 }
 
 func (x *ServiceVersion) HasBuildTime() bool {
 	if x == nil {
 		return false
 	}
-	return x.BuildTime != nil
+	return x.xxx_hidden_BuildTime != nil
 }
 
 func (x *ServiceVersion) HasGoVersion() bool {
 	if x == nil {
 		return false
 	}
-	return x.GoVersion != nil
+	return protoimpl.X.Present(&(x.XXX_presence[0]), 4)
 }
 
 func (x *ServiceVersion) ClearName() {
-	x.Name = nil
+	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 0)
+	x.xxx_hidden_Name = nil
 }
 
 func (x *ServiceVersion) ClearVersion() {
-	x.Version = nil
+	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 1)
+	x.xxx_hidden_Version = nil
 }
 
 func (x *ServiceVersion) ClearCommit() {
-	x.Commit = nil
+	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 2)
+	x.xxx_hidden_Commit = nil
 }
 
 func (x *ServiceVersion) ClearBuildTime() {
-	x.BuildTime = nil
+	x.xxx_hidden_BuildTime = nil
 }
 
 func (x *ServiceVersion) ClearGoVersion() {
-	x.GoVersion = nil
+	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 4)
+	x.xxx_hidden_GoVersion = nil
 }
 
 type ServiceVersion_builder struct {
@@ -3571,39 +3966,45 @@ func (b0 ServiceVersion_builder) Build() *ServiceVersion {
 	m0 := &ServiceVersion{}
 	b, x := &b0, m0
 	_, _ = b, x
-	x.Name = b.Name
-	x.Version = b.Version
-	x.Commit = b.Commit
-	x.BuildTime = b.BuildTime
-	x.GoVersion = b.GoVersion
+	if b.Name != nil {
+		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 0, 5)
+		x.xxx_hidden_Name = b.Name
+	}
+	if b.Version != nil {
+		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 1, 5)
+		x.xxx_hidden_Version = b.Version
+	}
+	if b.Commit != nil {
+		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 2, 5)
+		x.xxx_hidden_Commit = b.Commit
+	}
+	x.xxx_hidden_BuildTime = b.BuildTime
+	if b.GoVersion != nil {
+		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 4, 5)
+		x.xxx_hidden_GoVersion = b.GoVersion
+	}
 	return m0
 }
 
 // Audit log entry for tracking operations across modules
 type AuditLog struct {
-	state protoimpl.MessageState `protogen:"hybrid.v1"`
-	// Unique audit log ID
-	Id *string `protobuf:"bytes,1,opt,name=id" json:"id,omitempty"`
-	// User who performed the action
-	UserId *string `protobuf:"bytes,2,opt,name=user_id,json=userId" json:"user_id,omitempty"`
-	// Action performed
-	Action *string `protobuf:"bytes,3,opt,name=action" json:"action,omitempty"`
-	// Resource that was acted upon
-	Resource *ResourceReference `protobuf:"bytes,4,opt,name=resource" json:"resource,omitempty"`
-	// Timestamp of the action
-	Timestamp *timestamppb.Timestamp `protobuf:"bytes,5,opt,name=timestamp" json:"timestamp,omitempty"`
-	// Source IP address
-	SourceIp *string `protobuf:"bytes,6,opt,name=source_ip,json=sourceIp" json:"source_ip,omitempty"`
-	// User agent
-	UserAgent *string `protobuf:"bytes,7,opt,name=user_agent,json=userAgent" json:"user_agent,omitempty"`
-	// Additional metadata about the action
-	Metadata map[string]string `protobuf:"bytes,8,rep,name=metadata" json:"metadata,omitempty" protobuf_key:"bytes,1,opt,name=key" protobuf_val:"bytes,2,opt,name=value"`
-	// Result of the action (success/failure)
-	Result *AuditResult `protobuf:"varint,9,opt,name=result,enum=gcommon.v1.common.AuditResult" json:"result,omitempty"`
-	// Session ID if applicable
-	SessionId     *string `protobuf:"bytes,10,opt,name=session_id,json=sessionId" json:"session_id,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
+	state                protoimpl.MessageState `protogen:"opaque.v1"`
+	xxx_hidden_Id        *string                `protobuf:"bytes,1,opt,name=id"`
+	xxx_hidden_UserId    *string                `protobuf:"bytes,2,opt,name=user_id,json=userId"`
+	xxx_hidden_Action    *string                `protobuf:"bytes,3,opt,name=action"`
+	xxx_hidden_Resource  *ResourceReference     `protobuf:"bytes,4,opt,name=resource"`
+	xxx_hidden_Timestamp *timestamppb.Timestamp `protobuf:"bytes,5,opt,name=timestamp"`
+	xxx_hidden_SourceIp  *string                `protobuf:"bytes,6,opt,name=source_ip,json=sourceIp"`
+	xxx_hidden_UserAgent *string                `protobuf:"bytes,7,opt,name=user_agent,json=userAgent"`
+	xxx_hidden_Metadata  map[string]string      `protobuf:"bytes,8,rep,name=metadata" protobuf_key:"bytes,1,opt,name=key" protobuf_val:"bytes,2,opt,name=value"`
+	xxx_hidden_Result    AuditResult            `protobuf:"varint,9,opt,name=result,enum=gcommon.v1.common.AuditResult"`
+	xxx_hidden_SessionId *string                `protobuf:"bytes,10,opt,name=session_id,json=sessionId"`
+	// Deprecated: Do not use. This will be deleted in the near future.
+	XXX_lazyUnmarshalInfo  protoimpl.LazyUnmarshalInfo
+	XXX_raceDetectHookData protoimpl.RaceDetectHookData
+	XXX_presence           [1]uint32
+	unknownFields          protoimpl.UnknownFields
+	sizeCache              protoimpl.SizeCache
 }
 
 func (x *AuditLog) Reset() {
@@ -3632,212 +4033,282 @@ func (x *AuditLog) ProtoReflect() protoreflect.Message {
 }
 
 func (x *AuditLog) GetId() string {
-	if x != nil && x.Id != nil {
-		return *x.Id
+	if x != nil {
+		if x.xxx_hidden_Id != nil {
+			return *x.xxx_hidden_Id
+		}
+		return ""
 	}
 	return ""
 }
 
 func (x *AuditLog) GetUserId() string {
-	if x != nil && x.UserId != nil {
-		return *x.UserId
+	if x != nil {
+		if x.xxx_hidden_UserId != nil {
+			return *x.xxx_hidden_UserId
+		}
+		return ""
 	}
 	return ""
 }
 
 func (x *AuditLog) GetAction() string {
-	if x != nil && x.Action != nil {
-		return *x.Action
+	if x != nil {
+		if x.xxx_hidden_Action != nil {
+			return *x.xxx_hidden_Action
+		}
+		return ""
 	}
 	return ""
 }
 
 func (x *AuditLog) GetResource() *ResourceReference {
 	if x != nil {
-		return x.Resource
+		if protoimpl.X.Present(&(x.XXX_presence[0]), 3) {
+			if protoimpl.X.AtomicCheckPointerIsNil(&x.xxx_hidden_Resource) {
+				protoimpl.X.UnmarshalField(x, 4)
+			}
+			var rv *ResourceReference
+			protoimpl.X.AtomicLoadPointer(protoimpl.Pointer(&x.xxx_hidden_Resource), protoimpl.Pointer(&rv))
+			return rv
+		}
 	}
 	return nil
 }
 
 func (x *AuditLog) GetTimestamp() *timestamppb.Timestamp {
 	if x != nil {
-		return x.Timestamp
+		if protoimpl.X.Present(&(x.XXX_presence[0]), 4) {
+			if protoimpl.X.AtomicCheckPointerIsNil(&x.xxx_hidden_Timestamp) {
+				protoimpl.X.UnmarshalField(x, 5)
+			}
+			var rv *timestamppb.Timestamp
+			protoimpl.X.AtomicLoadPointer(protoimpl.Pointer(&x.xxx_hidden_Timestamp), protoimpl.Pointer(&rv))
+			return rv
+		}
 	}
 	return nil
 }
 
 func (x *AuditLog) GetSourceIp() string {
-	if x != nil && x.SourceIp != nil {
-		return *x.SourceIp
+	if x != nil {
+		if x.xxx_hidden_SourceIp != nil {
+			return *x.xxx_hidden_SourceIp
+		}
+		return ""
 	}
 	return ""
 }
 
 func (x *AuditLog) GetUserAgent() string {
-	if x != nil && x.UserAgent != nil {
-		return *x.UserAgent
+	if x != nil {
+		if x.xxx_hidden_UserAgent != nil {
+			return *x.xxx_hidden_UserAgent
+		}
+		return ""
 	}
 	return ""
 }
 
 func (x *AuditLog) GetMetadata() map[string]string {
 	if x != nil {
-		return x.Metadata
+		if protoimpl.X.Present(&(x.XXX_presence[0]), 7) {
+			if protoimpl.X.AtomicCheckPointerIsNil(&x.xxx_hidden_Metadata) {
+				protoimpl.X.UnmarshalField(x, 8)
+			}
+			return x.xxx_hidden_Metadata
+		}
 	}
 	return nil
 }
 
 func (x *AuditLog) GetResult() AuditResult {
-	if x != nil && x.Result != nil {
-		return *x.Result
+	if x != nil {
+		if protoimpl.X.Present(&(x.XXX_presence[0]), 8) {
+			return x.xxx_hidden_Result
+		}
 	}
 	return AuditResult_AUDIT_RESULT_UNSPECIFIED
 }
 
 func (x *AuditLog) GetSessionId() string {
-	if x != nil && x.SessionId != nil {
-		return *x.SessionId
+	if x != nil {
+		if x.xxx_hidden_SessionId != nil {
+			return *x.xxx_hidden_SessionId
+		}
+		return ""
 	}
 	return ""
 }
 
 func (x *AuditLog) SetId(v string) {
-	x.Id = &v
+	x.xxx_hidden_Id = &v
+	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 0, 10)
 }
 
 func (x *AuditLog) SetUserId(v string) {
-	x.UserId = &v
+	x.xxx_hidden_UserId = &v
+	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 1, 10)
 }
 
 func (x *AuditLog) SetAction(v string) {
-	x.Action = &v
+	x.xxx_hidden_Action = &v
+	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 2, 10)
 }
 
 func (x *AuditLog) SetResource(v *ResourceReference) {
-	x.Resource = v
+	protoimpl.X.AtomicSetPointer(&x.xxx_hidden_Resource, v)
+	if v == nil {
+		protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 3)
+	} else {
+		protoimpl.X.SetPresent(&(x.XXX_presence[0]), 3, 10)
+	}
 }
 
 func (x *AuditLog) SetTimestamp(v *timestamppb.Timestamp) {
-	x.Timestamp = v
+	protoimpl.X.AtomicSetPointer(&x.xxx_hidden_Timestamp, v)
+	if v == nil {
+		protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 4)
+	} else {
+		protoimpl.X.SetPresent(&(x.XXX_presence[0]), 4, 10)
+	}
 }
 
 func (x *AuditLog) SetSourceIp(v string) {
-	x.SourceIp = &v
+	x.xxx_hidden_SourceIp = &v
+	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 5, 10)
 }
 
 func (x *AuditLog) SetUserAgent(v string) {
-	x.UserAgent = &v
+	x.xxx_hidden_UserAgent = &v
+	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 6, 10)
 }
 
 func (x *AuditLog) SetMetadata(v map[string]string) {
-	x.Metadata = v
+	x.xxx_hidden_Metadata = v
+	if v == nil {
+		protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 7)
+	} else {
+		protoimpl.X.SetPresent(&(x.XXX_presence[0]), 7, 10)
+	}
 }
 
 func (x *AuditLog) SetResult(v AuditResult) {
-	x.Result = &v
+	x.xxx_hidden_Result = v
+	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 8, 10)
 }
 
 func (x *AuditLog) SetSessionId(v string) {
-	x.SessionId = &v
+	x.xxx_hidden_SessionId = &v
+	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 9, 10)
 }
 
 func (x *AuditLog) HasId() bool {
 	if x == nil {
 		return false
 	}
-	return x.Id != nil
+	return protoimpl.X.Present(&(x.XXX_presence[0]), 0)
 }
 
 func (x *AuditLog) HasUserId() bool {
 	if x == nil {
 		return false
 	}
-	return x.UserId != nil
+	return protoimpl.X.Present(&(x.XXX_presence[0]), 1)
 }
 
 func (x *AuditLog) HasAction() bool {
 	if x == nil {
 		return false
 	}
-	return x.Action != nil
+	return protoimpl.X.Present(&(x.XXX_presence[0]), 2)
 }
 
 func (x *AuditLog) HasResource() bool {
 	if x == nil {
 		return false
 	}
-	return x.Resource != nil
+	return protoimpl.X.Present(&(x.XXX_presence[0]), 3)
 }
 
 func (x *AuditLog) HasTimestamp() bool {
 	if x == nil {
 		return false
 	}
-	return x.Timestamp != nil
+	return protoimpl.X.Present(&(x.XXX_presence[0]), 4)
 }
 
 func (x *AuditLog) HasSourceIp() bool {
 	if x == nil {
 		return false
 	}
-	return x.SourceIp != nil
+	return protoimpl.X.Present(&(x.XXX_presence[0]), 5)
 }
 
 func (x *AuditLog) HasUserAgent() bool {
 	if x == nil {
 		return false
 	}
-	return x.UserAgent != nil
+	return protoimpl.X.Present(&(x.XXX_presence[0]), 6)
 }
 
 func (x *AuditLog) HasResult() bool {
 	if x == nil {
 		return false
 	}
-	return x.Result != nil
+	return protoimpl.X.Present(&(x.XXX_presence[0]), 8)
 }
 
 func (x *AuditLog) HasSessionId() bool {
 	if x == nil {
 		return false
 	}
-	return x.SessionId != nil
+	return protoimpl.X.Present(&(x.XXX_presence[0]), 9)
 }
 
 func (x *AuditLog) ClearId() {
-	x.Id = nil
+	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 0)
+	x.xxx_hidden_Id = nil
 }
 
 func (x *AuditLog) ClearUserId() {
-	x.UserId = nil
+	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 1)
+	x.xxx_hidden_UserId = nil
 }
 
 func (x *AuditLog) ClearAction() {
-	x.Action = nil
+	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 2)
+	x.xxx_hidden_Action = nil
 }
 
 func (x *AuditLog) ClearResource() {
-	x.Resource = nil
+	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 3)
+	protoimpl.X.AtomicSetPointer(&x.xxx_hidden_Resource, (*ResourceReference)(nil))
 }
 
 func (x *AuditLog) ClearTimestamp() {
-	x.Timestamp = nil
+	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 4)
+	protoimpl.X.AtomicSetPointer(&x.xxx_hidden_Timestamp, (*timestamppb.Timestamp)(nil))
 }
 
 func (x *AuditLog) ClearSourceIp() {
-	x.SourceIp = nil
+	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 5)
+	x.xxx_hidden_SourceIp = nil
 }
 
 func (x *AuditLog) ClearUserAgent() {
-	x.UserAgent = nil
+	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 6)
+	x.xxx_hidden_UserAgent = nil
 }
 
 func (x *AuditLog) ClearResult() {
-	x.Result = nil
+	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 8)
+	x.xxx_hidden_Result = AuditResult_AUDIT_RESULT_UNSPECIFIED
 }
 
 func (x *AuditLog) ClearSessionId() {
-	x.SessionId = nil
+	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 9)
+	x.xxx_hidden_SessionId = nil
 }
 
 type AuditLog_builder struct {
@@ -3869,34 +4340,63 @@ func (b0 AuditLog_builder) Build() *AuditLog {
 	m0 := &AuditLog{}
 	b, x := &b0, m0
 	_, _ = b, x
-	x.Id = b.Id
-	x.UserId = b.UserId
-	x.Action = b.Action
-	x.Resource = b.Resource
-	x.Timestamp = b.Timestamp
-	x.SourceIp = b.SourceIp
-	x.UserAgent = b.UserAgent
-	x.Metadata = b.Metadata
-	x.Result = b.Result
-	x.SessionId = b.SessionId
+	if b.Id != nil {
+		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 0, 10)
+		x.xxx_hidden_Id = b.Id
+	}
+	if b.UserId != nil {
+		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 1, 10)
+		x.xxx_hidden_UserId = b.UserId
+	}
+	if b.Action != nil {
+		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 2, 10)
+		x.xxx_hidden_Action = b.Action
+	}
+	if b.Resource != nil {
+		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 3, 10)
+		x.xxx_hidden_Resource = b.Resource
+	}
+	if b.Timestamp != nil {
+		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 4, 10)
+		x.xxx_hidden_Timestamp = b.Timestamp
+	}
+	if b.SourceIp != nil {
+		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 5, 10)
+		x.xxx_hidden_SourceIp = b.SourceIp
+	}
+	if b.UserAgent != nil {
+		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 6, 10)
+		x.xxx_hidden_UserAgent = b.UserAgent
+	}
+	if b.Metadata != nil {
+		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 7, 10)
+		x.xxx_hidden_Metadata = b.Metadata
+	}
+	if b.Result != nil {
+		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 8, 10)
+		x.xxx_hidden_Result = *b.Result
+	}
+	if b.SessionId != nil {
+		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 9, 10)
+		x.xxx_hidden_SessionId = b.SessionId
+	}
 	return m0
 }
 
 // Batch operation wrapper for bulk requests
 type BatchOperation struct {
-	state protoimpl.MessageState `protogen:"hybrid.v1"`
-	// Unique batch ID
-	BatchId *string `protobuf:"bytes,1,opt,name=batch_id,json=batchId" json:"batch_id,omitempty"`
-	// Operation type
-	OperationType *string `protobuf:"bytes,2,opt,name=operation_type,json=operationType" json:"operation_type,omitempty"`
-	// Individual operations in the batch
-	Operations []*anypb.Any `protobuf:"bytes,3,rep,name=operations" json:"operations,omitempty"`
-	// Batch processing options
-	Options *BatchOptions `protobuf:"bytes,4,opt,name=options" json:"options,omitempty"`
-	// Request metadata
-	Metadata      *RequestMetadata `protobuf:"bytes,5,opt,name=metadata" json:"metadata,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
+	state                    protoimpl.MessageState `protogen:"opaque.v1"`
+	xxx_hidden_BatchId       *string                `protobuf:"bytes,1,opt,name=batch_id,json=batchId"`
+	xxx_hidden_OperationType *string                `protobuf:"bytes,2,opt,name=operation_type,json=operationType"`
+	xxx_hidden_Operations    *[]*anypb.Any          `protobuf:"bytes,3,rep,name=operations"`
+	xxx_hidden_Options       *BatchOptions          `protobuf:"bytes,4,opt,name=options"`
+	xxx_hidden_Metadata      *RequestMetadata       `protobuf:"bytes,5,opt,name=metadata"`
+	// Deprecated: Do not use. This will be deleted in the near future.
+	XXX_lazyUnmarshalInfo  protoimpl.LazyUnmarshalInfo
+	XXX_raceDetectHookData protoimpl.RaceDetectHookData
+	XXX_presence           [1]uint32
+	unknownFields          protoimpl.UnknownFields
+	sizeCache              protoimpl.SizeCache
 }
 
 func (x *BatchOperation) Reset() {
@@ -3925,102 +4425,152 @@ func (x *BatchOperation) ProtoReflect() protoreflect.Message {
 }
 
 func (x *BatchOperation) GetBatchId() string {
-	if x != nil && x.BatchId != nil {
-		return *x.BatchId
+	if x != nil {
+		if x.xxx_hidden_BatchId != nil {
+			return *x.xxx_hidden_BatchId
+		}
+		return ""
 	}
 	return ""
 }
 
 func (x *BatchOperation) GetOperationType() string {
-	if x != nil && x.OperationType != nil {
-		return *x.OperationType
+	if x != nil {
+		if x.xxx_hidden_OperationType != nil {
+			return *x.xxx_hidden_OperationType
+		}
+		return ""
 	}
 	return ""
 }
 
 func (x *BatchOperation) GetOperations() []*anypb.Any {
 	if x != nil {
-		return x.Operations
+		if protoimpl.X.Present(&(x.XXX_presence[0]), 2) {
+			if protoimpl.X.AtomicCheckPointerIsNil(&x.xxx_hidden_Operations) {
+				protoimpl.X.UnmarshalField(x, 3)
+			}
+			var rv *[]*anypb.Any
+			protoimpl.X.AtomicLoadPointer(protoimpl.Pointer(&x.xxx_hidden_Operations), protoimpl.Pointer(&rv))
+			return *rv
+		}
 	}
 	return nil
 }
 
 func (x *BatchOperation) GetOptions() *BatchOptions {
 	if x != nil {
-		return x.Options
+		if protoimpl.X.Present(&(x.XXX_presence[0]), 3) {
+			if protoimpl.X.AtomicCheckPointerIsNil(&x.xxx_hidden_Options) {
+				protoimpl.X.UnmarshalField(x, 4)
+			}
+			var rv *BatchOptions
+			protoimpl.X.AtomicLoadPointer(protoimpl.Pointer(&x.xxx_hidden_Options), protoimpl.Pointer(&rv))
+			return rv
+		}
 	}
 	return nil
 }
 
 func (x *BatchOperation) GetMetadata() *RequestMetadata {
 	if x != nil {
-		return x.Metadata
+		if protoimpl.X.Present(&(x.XXX_presence[0]), 4) {
+			if protoimpl.X.AtomicCheckPointerIsNil(&x.xxx_hidden_Metadata) {
+				protoimpl.X.UnmarshalField(x, 5)
+			}
+			var rv *RequestMetadata
+			protoimpl.X.AtomicLoadPointer(protoimpl.Pointer(&x.xxx_hidden_Metadata), protoimpl.Pointer(&rv))
+			return rv
+		}
 	}
 	return nil
 }
 
 func (x *BatchOperation) SetBatchId(v string) {
-	x.BatchId = &v
+	x.xxx_hidden_BatchId = &v
+	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 0, 5)
 }
 
 func (x *BatchOperation) SetOperationType(v string) {
-	x.OperationType = &v
+	x.xxx_hidden_OperationType = &v
+	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 1, 5)
 }
 
 func (x *BatchOperation) SetOperations(v []*anypb.Any) {
-	x.Operations = v
+	var sv *[]*anypb.Any
+	protoimpl.X.AtomicLoadPointer(protoimpl.Pointer(&x.xxx_hidden_Operations), protoimpl.Pointer(&sv))
+	if sv == nil {
+		sv = &[]*anypb.Any{}
+		protoimpl.X.AtomicInitializePointer(protoimpl.Pointer(&x.xxx_hidden_Operations), protoimpl.Pointer(&sv))
+	}
+	*sv = v
+	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 2, 5)
 }
 
 func (x *BatchOperation) SetOptions(v *BatchOptions) {
-	x.Options = v
+	protoimpl.X.AtomicSetPointer(&x.xxx_hidden_Options, v)
+	if v == nil {
+		protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 3)
+	} else {
+		protoimpl.X.SetPresent(&(x.XXX_presence[0]), 3, 5)
+	}
 }
 
 func (x *BatchOperation) SetMetadata(v *RequestMetadata) {
-	x.Metadata = v
+	protoimpl.X.AtomicSetPointer(&x.xxx_hidden_Metadata, v)
+	if v == nil {
+		protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 4)
+	} else {
+		protoimpl.X.SetPresent(&(x.XXX_presence[0]), 4, 5)
+	}
 }
 
 func (x *BatchOperation) HasBatchId() bool {
 	if x == nil {
 		return false
 	}
-	return x.BatchId != nil
+	return protoimpl.X.Present(&(x.XXX_presence[0]), 0)
 }
 
 func (x *BatchOperation) HasOperationType() bool {
 	if x == nil {
 		return false
 	}
-	return x.OperationType != nil
+	return protoimpl.X.Present(&(x.XXX_presence[0]), 1)
 }
 
 func (x *BatchOperation) HasOptions() bool {
 	if x == nil {
 		return false
 	}
-	return x.Options != nil
+	return protoimpl.X.Present(&(x.XXX_presence[0]), 3)
 }
 
 func (x *BatchOperation) HasMetadata() bool {
 	if x == nil {
 		return false
 	}
-	return x.Metadata != nil
+	return protoimpl.X.Present(&(x.XXX_presence[0]), 4)
 }
 
 func (x *BatchOperation) ClearBatchId() {
-	x.BatchId = nil
+	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 0)
+	x.xxx_hidden_BatchId = nil
 }
 
 func (x *BatchOperation) ClearOperationType() {
-	x.OperationType = nil
+	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 1)
+	x.xxx_hidden_OperationType = nil
 }
 
 func (x *BatchOperation) ClearOptions() {
-	x.Options = nil
+	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 3)
+	protoimpl.X.AtomicSetPointer(&x.xxx_hidden_Options, (*BatchOptions)(nil))
 }
 
 func (x *BatchOperation) ClearMetadata() {
-	x.Metadata = nil
+	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 4)
+	protoimpl.X.AtomicSetPointer(&x.xxx_hidden_Metadata, (*RequestMetadata)(nil))
 }
 
 type BatchOperation_builder struct {
@@ -4042,27 +4592,40 @@ func (b0 BatchOperation_builder) Build() *BatchOperation {
 	m0 := &BatchOperation{}
 	b, x := &b0, m0
 	_, _ = b, x
-	x.BatchId = b.BatchId
-	x.OperationType = b.OperationType
-	x.Operations = b.Operations
-	x.Options = b.Options
-	x.Metadata = b.Metadata
+	if b.BatchId != nil {
+		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 0, 5)
+		x.xxx_hidden_BatchId = b.BatchId
+	}
+	if b.OperationType != nil {
+		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 1, 5)
+		x.xxx_hidden_OperationType = b.OperationType
+	}
+	if b.Operations != nil {
+		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 2, 5)
+		x.xxx_hidden_Operations = &b.Operations
+	}
+	if b.Options != nil {
+		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 3, 5)
+		x.xxx_hidden_Options = b.Options
+	}
+	if b.Metadata != nil {
+		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 4, 5)
+		x.xxx_hidden_Metadata = b.Metadata
+	}
 	return m0
 }
 
 // Batch processing options
 type BatchOptions struct {
-	state protoimpl.MessageState `protogen:"hybrid.v1"`
-	// Maximum number of operations to process in parallel
-	MaxParallel *int32 `protobuf:"varint,1,opt,name=max_parallel,json=maxParallel" json:"max_parallel,omitempty"`
-	// Whether to stop on first error
-	FailFast *bool `protobuf:"varint,2,opt,name=fail_fast,json=failFast" json:"fail_fast,omitempty"`
-	// Timeout for the entire batch
-	Timeout *durationpb.Duration `protobuf:"bytes,3,opt,name=timeout" json:"timeout,omitempty"`
-	// Whether to return partial results on timeout
-	ReturnPartial *bool `protobuf:"varint,4,opt,name=return_partial,json=returnPartial" json:"return_partial,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
+	state                    protoimpl.MessageState `protogen:"opaque.v1"`
+	xxx_hidden_MaxParallel   int32                  `protobuf:"varint,1,opt,name=max_parallel,json=maxParallel"`
+	xxx_hidden_FailFast      bool                   `protobuf:"varint,2,opt,name=fail_fast,json=failFast"`
+	xxx_hidden_Timeout       *durationpb.Duration   `protobuf:"bytes,3,opt,name=timeout"`
+	xxx_hidden_ReturnPartial bool                   `protobuf:"varint,4,opt,name=return_partial,json=returnPartial"`
+	XXX_raceDetectHookData   protoimpl.RaceDetectHookData
+	XXX_presence             [1]uint32
+	unknownFields            protoimpl.UnknownFields
+	sizeCache                protoimpl.SizeCache
 }
 
 func (x *BatchOptions) Reset() {
@@ -4091,91 +4654,97 @@ func (x *BatchOptions) ProtoReflect() protoreflect.Message {
 }
 
 func (x *BatchOptions) GetMaxParallel() int32 {
-	if x != nil && x.MaxParallel != nil {
-		return *x.MaxParallel
+	if x != nil {
+		return x.xxx_hidden_MaxParallel
 	}
 	return 0
 }
 
 func (x *BatchOptions) GetFailFast() bool {
-	if x != nil && x.FailFast != nil {
-		return *x.FailFast
+	if x != nil {
+		return x.xxx_hidden_FailFast
 	}
 	return false
 }
 
 func (x *BatchOptions) GetTimeout() *durationpb.Duration {
 	if x != nil {
-		return x.Timeout
+		return x.xxx_hidden_Timeout
 	}
 	return nil
 }
 
 func (x *BatchOptions) GetReturnPartial() bool {
-	if x != nil && x.ReturnPartial != nil {
-		return *x.ReturnPartial
+	if x != nil {
+		return x.xxx_hidden_ReturnPartial
 	}
 	return false
 }
 
 func (x *BatchOptions) SetMaxParallel(v int32) {
-	x.MaxParallel = &v
+	x.xxx_hidden_MaxParallel = v
+	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 0, 4)
 }
 
 func (x *BatchOptions) SetFailFast(v bool) {
-	x.FailFast = &v
+	x.xxx_hidden_FailFast = v
+	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 1, 4)
 }
 
 func (x *BatchOptions) SetTimeout(v *durationpb.Duration) {
-	x.Timeout = v
+	x.xxx_hidden_Timeout = v
 }
 
 func (x *BatchOptions) SetReturnPartial(v bool) {
-	x.ReturnPartial = &v
+	x.xxx_hidden_ReturnPartial = v
+	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 3, 4)
 }
 
 func (x *BatchOptions) HasMaxParallel() bool {
 	if x == nil {
 		return false
 	}
-	return x.MaxParallel != nil
+	return protoimpl.X.Present(&(x.XXX_presence[0]), 0)
 }
 
 func (x *BatchOptions) HasFailFast() bool {
 	if x == nil {
 		return false
 	}
-	return x.FailFast != nil
+	return protoimpl.X.Present(&(x.XXX_presence[0]), 1)
 }
 
 func (x *BatchOptions) HasTimeout() bool {
 	if x == nil {
 		return false
 	}
-	return x.Timeout != nil
+	return x.xxx_hidden_Timeout != nil
 }
 
 func (x *BatchOptions) HasReturnPartial() bool {
 	if x == nil {
 		return false
 	}
-	return x.ReturnPartial != nil
+	return protoimpl.X.Present(&(x.XXX_presence[0]), 3)
 }
 
 func (x *BatchOptions) ClearMaxParallel() {
-	x.MaxParallel = nil
+	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 0)
+	x.xxx_hidden_MaxParallel = 0
 }
 
 func (x *BatchOptions) ClearFailFast() {
-	x.FailFast = nil
+	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 1)
+	x.xxx_hidden_FailFast = false
 }
 
 func (x *BatchOptions) ClearTimeout() {
-	x.Timeout = nil
+	x.xxx_hidden_Timeout = nil
 }
 
 func (x *BatchOptions) ClearReturnPartial() {
-	x.ReturnPartial = nil
+	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 3)
+	x.xxx_hidden_ReturnPartial = false
 }
 
 type BatchOptions_builder struct {
@@ -4195,32 +4764,38 @@ func (b0 BatchOptions_builder) Build() *BatchOptions {
 	m0 := &BatchOptions{}
 	b, x := &b0, m0
 	_, _ = b, x
-	x.MaxParallel = b.MaxParallel
-	x.FailFast = b.FailFast
-	x.Timeout = b.Timeout
-	x.ReturnPartial = b.ReturnPartial
+	if b.MaxParallel != nil {
+		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 0, 4)
+		x.xxx_hidden_MaxParallel = *b.MaxParallel
+	}
+	if b.FailFast != nil {
+		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 1, 4)
+		x.xxx_hidden_FailFast = *b.FailFast
+	}
+	x.xxx_hidden_Timeout = b.Timeout
+	if b.ReturnPartial != nil {
+		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 3, 4)
+		x.xxx_hidden_ReturnPartial = *b.ReturnPartial
+	}
 	return m0
 }
 
 // Subscription information for streaming operations
 type SubscriptionInfo struct {
-	state protoimpl.MessageState `protogen:"hybrid.v1"`
-	// Unique subscription ID
-	SubscriptionId *string `protobuf:"bytes,1,opt,name=subscription_id,json=subscriptionId" json:"subscription_id,omitempty"`
-	// Filter criteria for the subscription
-	Filter *FilterOptions `protobuf:"bytes,2,opt,name=filter" json:"filter,omitempty"`
-	// Subscription start time
-	StartTime *timestamppb.Timestamp `protobuf:"bytes,3,opt,name=start_time,json=startTime" json:"start_time,omitempty"`
-	// Optional end time for the subscription
-	EndTime *timestamppb.Timestamp `protobuf:"bytes,4,opt,name=end_time,json=endTime" json:"end_time,omitempty"`
-	// Subscriber information
-	Subscriber *ClientInfo `protobuf:"bytes,5,opt,name=subscriber" json:"subscriber,omitempty"`
-	// Subscription options
-	Options *SubscriptionOptions `protobuf:"bytes,6,opt,name=options" json:"options,omitempty"`
-	// Current status of the subscription
-	Status        *SubscriptionStatus `protobuf:"varint,7,opt,name=status,enum=gcommon.v1.common.SubscriptionStatus" json:"status,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
+	state                     protoimpl.MessageState `protogen:"opaque.v1"`
+	xxx_hidden_SubscriptionId *string                `protobuf:"bytes,1,opt,name=subscription_id,json=subscriptionId"`
+	xxx_hidden_Filter         *FilterOptions         `protobuf:"bytes,2,opt,name=filter"`
+	xxx_hidden_StartTime      *timestamppb.Timestamp `protobuf:"bytes,3,opt,name=start_time,json=startTime"`
+	xxx_hidden_EndTime        *timestamppb.Timestamp `protobuf:"bytes,4,opt,name=end_time,json=endTime"`
+	xxx_hidden_Subscriber     *ClientInfo            `protobuf:"bytes,5,opt,name=subscriber"`
+	xxx_hidden_Options        *SubscriptionOptions   `protobuf:"bytes,6,opt,name=options"`
+	xxx_hidden_Status         SubscriptionStatus     `protobuf:"varint,7,opt,name=status,enum=gcommon.v1.common.SubscriptionStatus"`
+	// Deprecated: Do not use. This will be deleted in the near future.
+	XXX_lazyUnmarshalInfo  protoimpl.LazyUnmarshalInfo
+	XXX_raceDetectHookData protoimpl.RaceDetectHookData
+	XXX_presence           [1]uint32
+	unknownFields          protoimpl.UnknownFields
+	sizeCache              protoimpl.SizeCache
 }
 
 func (x *SubscriptionInfo) Reset() {
@@ -4249,157 +4824,231 @@ func (x *SubscriptionInfo) ProtoReflect() protoreflect.Message {
 }
 
 func (x *SubscriptionInfo) GetSubscriptionId() string {
-	if x != nil && x.SubscriptionId != nil {
-		return *x.SubscriptionId
+	if x != nil {
+		if x.xxx_hidden_SubscriptionId != nil {
+			return *x.xxx_hidden_SubscriptionId
+		}
+		return ""
 	}
 	return ""
 }
 
 func (x *SubscriptionInfo) GetFilter() *FilterOptions {
 	if x != nil {
-		return x.Filter
+		if protoimpl.X.Present(&(x.XXX_presence[0]), 1) {
+			if protoimpl.X.AtomicCheckPointerIsNil(&x.xxx_hidden_Filter) {
+				protoimpl.X.UnmarshalField(x, 2)
+			}
+			var rv *FilterOptions
+			protoimpl.X.AtomicLoadPointer(protoimpl.Pointer(&x.xxx_hidden_Filter), protoimpl.Pointer(&rv))
+			return rv
+		}
 	}
 	return nil
 }
 
 func (x *SubscriptionInfo) GetStartTime() *timestamppb.Timestamp {
 	if x != nil {
-		return x.StartTime
+		if protoimpl.X.Present(&(x.XXX_presence[0]), 2) {
+			if protoimpl.X.AtomicCheckPointerIsNil(&x.xxx_hidden_StartTime) {
+				protoimpl.X.UnmarshalField(x, 3)
+			}
+			var rv *timestamppb.Timestamp
+			protoimpl.X.AtomicLoadPointer(protoimpl.Pointer(&x.xxx_hidden_StartTime), protoimpl.Pointer(&rv))
+			return rv
+		}
 	}
 	return nil
 }
 
 func (x *SubscriptionInfo) GetEndTime() *timestamppb.Timestamp {
 	if x != nil {
-		return x.EndTime
+		if protoimpl.X.Present(&(x.XXX_presence[0]), 3) {
+			if protoimpl.X.AtomicCheckPointerIsNil(&x.xxx_hidden_EndTime) {
+				protoimpl.X.UnmarshalField(x, 4)
+			}
+			var rv *timestamppb.Timestamp
+			protoimpl.X.AtomicLoadPointer(protoimpl.Pointer(&x.xxx_hidden_EndTime), protoimpl.Pointer(&rv))
+			return rv
+		}
 	}
 	return nil
 }
 
 func (x *SubscriptionInfo) GetSubscriber() *ClientInfo {
 	if x != nil {
-		return x.Subscriber
+		if protoimpl.X.Present(&(x.XXX_presence[0]), 4) {
+			if protoimpl.X.AtomicCheckPointerIsNil(&x.xxx_hidden_Subscriber) {
+				protoimpl.X.UnmarshalField(x, 5)
+			}
+			var rv *ClientInfo
+			protoimpl.X.AtomicLoadPointer(protoimpl.Pointer(&x.xxx_hidden_Subscriber), protoimpl.Pointer(&rv))
+			return rv
+		}
 	}
 	return nil
 }
 
 func (x *SubscriptionInfo) GetOptions() *SubscriptionOptions {
 	if x != nil {
-		return x.Options
+		if protoimpl.X.Present(&(x.XXX_presence[0]), 5) {
+			if protoimpl.X.AtomicCheckPointerIsNil(&x.xxx_hidden_Options) {
+				protoimpl.X.UnmarshalField(x, 6)
+			}
+			var rv *SubscriptionOptions
+			protoimpl.X.AtomicLoadPointer(protoimpl.Pointer(&x.xxx_hidden_Options), protoimpl.Pointer(&rv))
+			return rv
+		}
 	}
 	return nil
 }
 
 func (x *SubscriptionInfo) GetStatus() SubscriptionStatus {
-	if x != nil && x.Status != nil {
-		return *x.Status
+	if x != nil {
+		if protoimpl.X.Present(&(x.XXX_presence[0]), 6) {
+			return x.xxx_hidden_Status
+		}
 	}
 	return SubscriptionStatus_SUBSCRIPTION_STATUS_UNSPECIFIED
 }
 
 func (x *SubscriptionInfo) SetSubscriptionId(v string) {
-	x.SubscriptionId = &v
+	x.xxx_hidden_SubscriptionId = &v
+	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 0, 7)
 }
 
 func (x *SubscriptionInfo) SetFilter(v *FilterOptions) {
-	x.Filter = v
+	protoimpl.X.AtomicSetPointer(&x.xxx_hidden_Filter, v)
+	if v == nil {
+		protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 1)
+	} else {
+		protoimpl.X.SetPresent(&(x.XXX_presence[0]), 1, 7)
+	}
 }
 
 func (x *SubscriptionInfo) SetStartTime(v *timestamppb.Timestamp) {
-	x.StartTime = v
+	protoimpl.X.AtomicSetPointer(&x.xxx_hidden_StartTime, v)
+	if v == nil {
+		protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 2)
+	} else {
+		protoimpl.X.SetPresent(&(x.XXX_presence[0]), 2, 7)
+	}
 }
 
 func (x *SubscriptionInfo) SetEndTime(v *timestamppb.Timestamp) {
-	x.EndTime = v
+	protoimpl.X.AtomicSetPointer(&x.xxx_hidden_EndTime, v)
+	if v == nil {
+		protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 3)
+	} else {
+		protoimpl.X.SetPresent(&(x.XXX_presence[0]), 3, 7)
+	}
 }
 
 func (x *SubscriptionInfo) SetSubscriber(v *ClientInfo) {
-	x.Subscriber = v
+	protoimpl.X.AtomicSetPointer(&x.xxx_hidden_Subscriber, v)
+	if v == nil {
+		protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 4)
+	} else {
+		protoimpl.X.SetPresent(&(x.XXX_presence[0]), 4, 7)
+	}
 }
 
 func (x *SubscriptionInfo) SetOptions(v *SubscriptionOptions) {
-	x.Options = v
+	protoimpl.X.AtomicSetPointer(&x.xxx_hidden_Options, v)
+	if v == nil {
+		protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 5)
+	} else {
+		protoimpl.X.SetPresent(&(x.XXX_presence[0]), 5, 7)
+	}
 }
 
 func (x *SubscriptionInfo) SetStatus(v SubscriptionStatus) {
-	x.Status = &v
+	x.xxx_hidden_Status = v
+	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 6, 7)
 }
 
 func (x *SubscriptionInfo) HasSubscriptionId() bool {
 	if x == nil {
 		return false
 	}
-	return x.SubscriptionId != nil
+	return protoimpl.X.Present(&(x.XXX_presence[0]), 0)
 }
 
 func (x *SubscriptionInfo) HasFilter() bool {
 	if x == nil {
 		return false
 	}
-	return x.Filter != nil
+	return protoimpl.X.Present(&(x.XXX_presence[0]), 1)
 }
 
 func (x *SubscriptionInfo) HasStartTime() bool {
 	if x == nil {
 		return false
 	}
-	return x.StartTime != nil
+	return protoimpl.X.Present(&(x.XXX_presence[0]), 2)
 }
 
 func (x *SubscriptionInfo) HasEndTime() bool {
 	if x == nil {
 		return false
 	}
-	return x.EndTime != nil
+	return protoimpl.X.Present(&(x.XXX_presence[0]), 3)
 }
 
 func (x *SubscriptionInfo) HasSubscriber() bool {
 	if x == nil {
 		return false
 	}
-	return x.Subscriber != nil
+	return protoimpl.X.Present(&(x.XXX_presence[0]), 4)
 }
 
 func (x *SubscriptionInfo) HasOptions() bool {
 	if x == nil {
 		return false
 	}
-	return x.Options != nil
+	return protoimpl.X.Present(&(x.XXX_presence[0]), 5)
 }
 
 func (x *SubscriptionInfo) HasStatus() bool {
 	if x == nil {
 		return false
 	}
-	return x.Status != nil
+	return protoimpl.X.Present(&(x.XXX_presence[0]), 6)
 }
 
 func (x *SubscriptionInfo) ClearSubscriptionId() {
-	x.SubscriptionId = nil
+	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 0)
+	x.xxx_hidden_SubscriptionId = nil
 }
 
 func (x *SubscriptionInfo) ClearFilter() {
-	x.Filter = nil
+	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 1)
+	protoimpl.X.AtomicSetPointer(&x.xxx_hidden_Filter, (*FilterOptions)(nil))
 }
 
 func (x *SubscriptionInfo) ClearStartTime() {
-	x.StartTime = nil
+	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 2)
+	protoimpl.X.AtomicSetPointer(&x.xxx_hidden_StartTime, (*timestamppb.Timestamp)(nil))
 }
 
 func (x *SubscriptionInfo) ClearEndTime() {
-	x.EndTime = nil
+	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 3)
+	protoimpl.X.AtomicSetPointer(&x.xxx_hidden_EndTime, (*timestamppb.Timestamp)(nil))
 }
 
 func (x *SubscriptionInfo) ClearSubscriber() {
-	x.Subscriber = nil
+	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 4)
+	protoimpl.X.AtomicSetPointer(&x.xxx_hidden_Subscriber, (*ClientInfo)(nil))
 }
 
 func (x *SubscriptionInfo) ClearOptions() {
-	x.Options = nil
+	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 5)
+	protoimpl.X.AtomicSetPointer(&x.xxx_hidden_Options, (*SubscriptionOptions)(nil))
 }
 
 func (x *SubscriptionInfo) ClearStatus() {
-	x.Status = nil
+	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 6)
+	x.xxx_hidden_Status = SubscriptionStatus_SUBSCRIPTION_STATUS_UNSPECIFIED
 }
 
 type SubscriptionInfo_builder struct {
@@ -4425,29 +5074,48 @@ func (b0 SubscriptionInfo_builder) Build() *SubscriptionInfo {
 	m0 := &SubscriptionInfo{}
 	b, x := &b0, m0
 	_, _ = b, x
-	x.SubscriptionId = b.SubscriptionId
-	x.Filter = b.Filter
-	x.StartTime = b.StartTime
-	x.EndTime = b.EndTime
-	x.Subscriber = b.Subscriber
-	x.Options = b.Options
-	x.Status = b.Status
+	if b.SubscriptionId != nil {
+		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 0, 7)
+		x.xxx_hidden_SubscriptionId = b.SubscriptionId
+	}
+	if b.Filter != nil {
+		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 1, 7)
+		x.xxx_hidden_Filter = b.Filter
+	}
+	if b.StartTime != nil {
+		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 2, 7)
+		x.xxx_hidden_StartTime = b.StartTime
+	}
+	if b.EndTime != nil {
+		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 3, 7)
+		x.xxx_hidden_EndTime = b.EndTime
+	}
+	if b.Subscriber != nil {
+		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 4, 7)
+		x.xxx_hidden_Subscriber = b.Subscriber
+	}
+	if b.Options != nil {
+		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 5, 7)
+		x.xxx_hidden_Options = b.Options
+	}
+	if b.Status != nil {
+		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 6, 7)
+		x.xxx_hidden_Status = *b.Status
+	}
 	return m0
 }
 
 // Subscription options
 type SubscriptionOptions struct {
-	state protoimpl.MessageState `protogen:"hybrid.v1"`
-	// Whether to include historical data
-	IncludeHistory *bool `protobuf:"varint,1,opt,name=include_history,json=includeHistory" json:"include_history,omitempty"`
-	// Maximum events per batch
-	MaxBatchSize *int32 `protobuf:"varint,2,opt,name=max_batch_size,json=maxBatchSize" json:"max_batch_size,omitempty"`
-	// Acknowledgment mode
-	AckMode *AckMode `protobuf:"varint,3,opt,name=ack_mode,json=ackMode,enum=gcommon.v1.common.AckMode" json:"ack_mode,omitempty"`
-	// Keep alive interval
-	KeepAlive     *durationpb.Duration `protobuf:"bytes,4,opt,name=keep_alive,json=keepAlive" json:"keep_alive,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
+	state                     protoimpl.MessageState `protogen:"opaque.v1"`
+	xxx_hidden_IncludeHistory bool                   `protobuf:"varint,1,opt,name=include_history,json=includeHistory"`
+	xxx_hidden_MaxBatchSize   int32                  `protobuf:"varint,2,opt,name=max_batch_size,json=maxBatchSize"`
+	xxx_hidden_AckMode        AckMode                `protobuf:"varint,3,opt,name=ack_mode,json=ackMode,enum=gcommon.v1.common.AckMode"`
+	xxx_hidden_KeepAlive      *durationpb.Duration   `protobuf:"bytes,4,opt,name=keep_alive,json=keepAlive"`
+	XXX_raceDetectHookData    protoimpl.RaceDetectHookData
+	XXX_presence              [1]uint32
+	unknownFields             protoimpl.UnknownFields
+	sizeCache                 protoimpl.SizeCache
 }
 
 func (x *SubscriptionOptions) Reset() {
@@ -4476,91 +5144,99 @@ func (x *SubscriptionOptions) ProtoReflect() protoreflect.Message {
 }
 
 func (x *SubscriptionOptions) GetIncludeHistory() bool {
-	if x != nil && x.IncludeHistory != nil {
-		return *x.IncludeHistory
+	if x != nil {
+		return x.xxx_hidden_IncludeHistory
 	}
 	return false
 }
 
 func (x *SubscriptionOptions) GetMaxBatchSize() int32 {
-	if x != nil && x.MaxBatchSize != nil {
-		return *x.MaxBatchSize
+	if x != nil {
+		return x.xxx_hidden_MaxBatchSize
 	}
 	return 0
 }
 
 func (x *SubscriptionOptions) GetAckMode() AckMode {
-	if x != nil && x.AckMode != nil {
-		return *x.AckMode
+	if x != nil {
+		if protoimpl.X.Present(&(x.XXX_presence[0]), 2) {
+			return x.xxx_hidden_AckMode
+		}
 	}
 	return AckMode_ACK_MODE_UNSPECIFIED
 }
 
 func (x *SubscriptionOptions) GetKeepAlive() *durationpb.Duration {
 	if x != nil {
-		return x.KeepAlive
+		return x.xxx_hidden_KeepAlive
 	}
 	return nil
 }
 
 func (x *SubscriptionOptions) SetIncludeHistory(v bool) {
-	x.IncludeHistory = &v
+	x.xxx_hidden_IncludeHistory = v
+	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 0, 4)
 }
 
 func (x *SubscriptionOptions) SetMaxBatchSize(v int32) {
-	x.MaxBatchSize = &v
+	x.xxx_hidden_MaxBatchSize = v
+	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 1, 4)
 }
 
 func (x *SubscriptionOptions) SetAckMode(v AckMode) {
-	x.AckMode = &v
+	x.xxx_hidden_AckMode = v
+	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 2, 4)
 }
 
 func (x *SubscriptionOptions) SetKeepAlive(v *durationpb.Duration) {
-	x.KeepAlive = v
+	x.xxx_hidden_KeepAlive = v
 }
 
 func (x *SubscriptionOptions) HasIncludeHistory() bool {
 	if x == nil {
 		return false
 	}
-	return x.IncludeHistory != nil
+	return protoimpl.X.Present(&(x.XXX_presence[0]), 0)
 }
 
 func (x *SubscriptionOptions) HasMaxBatchSize() bool {
 	if x == nil {
 		return false
 	}
-	return x.MaxBatchSize != nil
+	return protoimpl.X.Present(&(x.XXX_presence[0]), 1)
 }
 
 func (x *SubscriptionOptions) HasAckMode() bool {
 	if x == nil {
 		return false
 	}
-	return x.AckMode != nil
+	return protoimpl.X.Present(&(x.XXX_presence[0]), 2)
 }
 
 func (x *SubscriptionOptions) HasKeepAlive() bool {
 	if x == nil {
 		return false
 	}
-	return x.KeepAlive != nil
+	return x.xxx_hidden_KeepAlive != nil
 }
 
 func (x *SubscriptionOptions) ClearIncludeHistory() {
-	x.IncludeHistory = nil
+	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 0)
+	x.xxx_hidden_IncludeHistory = false
 }
 
 func (x *SubscriptionOptions) ClearMaxBatchSize() {
-	x.MaxBatchSize = nil
+	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 1)
+	x.xxx_hidden_MaxBatchSize = 0
 }
 
 func (x *SubscriptionOptions) ClearAckMode() {
-	x.AckMode = nil
+	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 2)
+	x.xxx_hidden_AckMode = AckMode_ACK_MODE_UNSPECIFIED
 }
 
 func (x *SubscriptionOptions) ClearKeepAlive() {
-	x.KeepAlive = nil
+	x.xxx_hidden_KeepAlive = nil
 }
 
 type SubscriptionOptions_builder struct {
@@ -4580,32 +5256,36 @@ func (b0 SubscriptionOptions_builder) Build() *SubscriptionOptions {
 	m0 := &SubscriptionOptions{}
 	b, x := &b0, m0
 	_, _ = b, x
-	x.IncludeHistory = b.IncludeHistory
-	x.MaxBatchSize = b.MaxBatchSize
-	x.AckMode = b.AckMode
-	x.KeepAlive = b.KeepAlive
+	if b.IncludeHistory != nil {
+		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 0, 4)
+		x.xxx_hidden_IncludeHistory = *b.IncludeHistory
+	}
+	if b.MaxBatchSize != nil {
+		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 1, 4)
+		x.xxx_hidden_MaxBatchSize = *b.MaxBatchSize
+	}
+	if b.AckMode != nil {
+		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 2, 4)
+		x.xxx_hidden_AckMode = *b.AckMode
+	}
+	x.xxx_hidden_KeepAlive = b.KeepAlive
 	return m0
 }
 
 // Cache policy configuration
 type CachePolicy struct {
-	state protoimpl.MessageState `protogen:"hybrid.v1"`
-	// Cache expiration policy
-	Expiration *ExpirationPolicy `protobuf:"varint,1,opt,name=expiration,enum=gcommon.v1.common.ExpirationPolicy" json:"expiration,omitempty"`
-	// Eviction policy when cache is full
-	Eviction *EvictionPolicy `protobuf:"varint,2,opt,name=eviction,enum=gcommon.v1.common.EvictionPolicy" json:"eviction,omitempty"`
-	// Maximum cache size (in bytes)
-	MaxSizeBytes *int64 `protobuf:"varint,3,opt,name=max_size_bytes,json=maxSizeBytes" json:"max_size_bytes,omitempty"`
-	// Maximum number of entries
-	MaxEntries *int64 `protobuf:"varint,4,opt,name=max_entries,json=maxEntries" json:"max_entries,omitempty"`
-	// Default TTL for cache entries
-	DefaultTtl *durationpb.Duration `protobuf:"bytes,5,opt,name=default_ttl,json=defaultTtl" json:"default_ttl,omitempty"`
-	// Whether to refresh entries before expiration
-	RefreshAhead *bool `protobuf:"varint,6,opt,name=refresh_ahead,json=refreshAhead" json:"refresh_ahead,omitempty"`
-	// Cache statistics collection enabled
-	EnableStats   *bool `protobuf:"varint,7,opt,name=enable_stats,json=enableStats" json:"enable_stats,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
+	state                   protoimpl.MessageState `protogen:"opaque.v1"`
+	xxx_hidden_Expiration   ExpirationPolicy       `protobuf:"varint,1,opt,name=expiration,enum=gcommon.v1.common.ExpirationPolicy"`
+	xxx_hidden_Eviction     EvictionPolicy         `protobuf:"varint,2,opt,name=eviction,enum=gcommon.v1.common.EvictionPolicy"`
+	xxx_hidden_MaxSizeBytes int64                  `protobuf:"varint,3,opt,name=max_size_bytes,json=maxSizeBytes"`
+	xxx_hidden_MaxEntries   int64                  `protobuf:"varint,4,opt,name=max_entries,json=maxEntries"`
+	xxx_hidden_DefaultTtl   *durationpb.Duration   `protobuf:"bytes,5,opt,name=default_ttl,json=defaultTtl"`
+	xxx_hidden_RefreshAhead bool                   `protobuf:"varint,6,opt,name=refresh_ahead,json=refreshAhead"`
+	xxx_hidden_EnableStats  bool                   `protobuf:"varint,7,opt,name=enable_stats,json=enableStats"`
+	XXX_raceDetectHookData  protoimpl.RaceDetectHookData
+	XXX_presence            [1]uint32
+	unknownFields           protoimpl.UnknownFields
+	sizeCache               protoimpl.SizeCache
 }
 
 func (x *CachePolicy) Reset() {
@@ -4634,157 +5314,173 @@ func (x *CachePolicy) ProtoReflect() protoreflect.Message {
 }
 
 func (x *CachePolicy) GetExpiration() ExpirationPolicy {
-	if x != nil && x.Expiration != nil {
-		return *x.Expiration
+	if x != nil {
+		if protoimpl.X.Present(&(x.XXX_presence[0]), 0) {
+			return x.xxx_hidden_Expiration
+		}
 	}
 	return ExpirationPolicy_EXPIRATION_POLICY_UNSPECIFIED
 }
 
 func (x *CachePolicy) GetEviction() EvictionPolicy {
-	if x != nil && x.Eviction != nil {
-		return *x.Eviction
+	if x != nil {
+		if protoimpl.X.Present(&(x.XXX_presence[0]), 1) {
+			return x.xxx_hidden_Eviction
+		}
 	}
 	return EvictionPolicy_EVICTION_POLICY_UNSPECIFIED
 }
 
 func (x *CachePolicy) GetMaxSizeBytes() int64 {
-	if x != nil && x.MaxSizeBytes != nil {
-		return *x.MaxSizeBytes
+	if x != nil {
+		return x.xxx_hidden_MaxSizeBytes
 	}
 	return 0
 }
 
 func (x *CachePolicy) GetMaxEntries() int64 {
-	if x != nil && x.MaxEntries != nil {
-		return *x.MaxEntries
+	if x != nil {
+		return x.xxx_hidden_MaxEntries
 	}
 	return 0
 }
 
 func (x *CachePolicy) GetDefaultTtl() *durationpb.Duration {
 	if x != nil {
-		return x.DefaultTtl
+		return x.xxx_hidden_DefaultTtl
 	}
 	return nil
 }
 
 func (x *CachePolicy) GetRefreshAhead() bool {
-	if x != nil && x.RefreshAhead != nil {
-		return *x.RefreshAhead
+	if x != nil {
+		return x.xxx_hidden_RefreshAhead
 	}
 	return false
 }
 
 func (x *CachePolicy) GetEnableStats() bool {
-	if x != nil && x.EnableStats != nil {
-		return *x.EnableStats
+	if x != nil {
+		return x.xxx_hidden_EnableStats
 	}
 	return false
 }
 
 func (x *CachePolicy) SetExpiration(v ExpirationPolicy) {
-	x.Expiration = &v
+	x.xxx_hidden_Expiration = v
+	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 0, 7)
 }
 
 func (x *CachePolicy) SetEviction(v EvictionPolicy) {
-	x.Eviction = &v
+	x.xxx_hidden_Eviction = v
+	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 1, 7)
 }
 
 func (x *CachePolicy) SetMaxSizeBytes(v int64) {
-	x.MaxSizeBytes = &v
+	x.xxx_hidden_MaxSizeBytes = v
+	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 2, 7)
 }
 
 func (x *CachePolicy) SetMaxEntries(v int64) {
-	x.MaxEntries = &v
+	x.xxx_hidden_MaxEntries = v
+	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 3, 7)
 }
 
 func (x *CachePolicy) SetDefaultTtl(v *durationpb.Duration) {
-	x.DefaultTtl = v
+	x.xxx_hidden_DefaultTtl = v
 }
 
 func (x *CachePolicy) SetRefreshAhead(v bool) {
-	x.RefreshAhead = &v
+	x.xxx_hidden_RefreshAhead = v
+	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 5, 7)
 }
 
 func (x *CachePolicy) SetEnableStats(v bool) {
-	x.EnableStats = &v
+	x.xxx_hidden_EnableStats = v
+	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 6, 7)
 }
 
 func (x *CachePolicy) HasExpiration() bool {
 	if x == nil {
 		return false
 	}
-	return x.Expiration != nil
+	return protoimpl.X.Present(&(x.XXX_presence[0]), 0)
 }
 
 func (x *CachePolicy) HasEviction() bool {
 	if x == nil {
 		return false
 	}
-	return x.Eviction != nil
+	return protoimpl.X.Present(&(x.XXX_presence[0]), 1)
 }
 
 func (x *CachePolicy) HasMaxSizeBytes() bool {
 	if x == nil {
 		return false
 	}
-	return x.MaxSizeBytes != nil
+	return protoimpl.X.Present(&(x.XXX_presence[0]), 2)
 }
 
 func (x *CachePolicy) HasMaxEntries() bool {
 	if x == nil {
 		return false
 	}
-	return x.MaxEntries != nil
+	return protoimpl.X.Present(&(x.XXX_presence[0]), 3)
 }
 
 func (x *CachePolicy) HasDefaultTtl() bool {
 	if x == nil {
 		return false
 	}
-	return x.DefaultTtl != nil
+	return x.xxx_hidden_DefaultTtl != nil
 }
 
 func (x *CachePolicy) HasRefreshAhead() bool {
 	if x == nil {
 		return false
 	}
-	return x.RefreshAhead != nil
+	return protoimpl.X.Present(&(x.XXX_presence[0]), 5)
 }
 
 func (x *CachePolicy) HasEnableStats() bool {
 	if x == nil {
 		return false
 	}
-	return x.EnableStats != nil
+	return protoimpl.X.Present(&(x.XXX_presence[0]), 6)
 }
 
 func (x *CachePolicy) ClearExpiration() {
-	x.Expiration = nil
+	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 0)
+	x.xxx_hidden_Expiration = ExpirationPolicy_EXPIRATION_POLICY_UNSPECIFIED
 }
 
 func (x *CachePolicy) ClearEviction() {
-	x.Eviction = nil
+	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 1)
+	x.xxx_hidden_Eviction = EvictionPolicy_EVICTION_POLICY_UNSPECIFIED
 }
 
 func (x *CachePolicy) ClearMaxSizeBytes() {
-	x.MaxSizeBytes = nil
+	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 2)
+	x.xxx_hidden_MaxSizeBytes = 0
 }
 
 func (x *CachePolicy) ClearMaxEntries() {
-	x.MaxEntries = nil
+	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 3)
+	x.xxx_hidden_MaxEntries = 0
 }
 
 func (x *CachePolicy) ClearDefaultTtl() {
-	x.DefaultTtl = nil
+	x.xxx_hidden_DefaultTtl = nil
 }
 
 func (x *CachePolicy) ClearRefreshAhead() {
-	x.RefreshAhead = nil
+	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 5)
+	x.xxx_hidden_RefreshAhead = false
 }
 
 func (x *CachePolicy) ClearEnableStats() {
-	x.EnableStats = nil
+	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 6)
+	x.xxx_hidden_EnableStats = false
 }
 
 type CachePolicy_builder struct {
@@ -4810,35 +5506,48 @@ func (b0 CachePolicy_builder) Build() *CachePolicy {
 	m0 := &CachePolicy{}
 	b, x := &b0, m0
 	_, _ = b, x
-	x.Expiration = b.Expiration
-	x.Eviction = b.Eviction
-	x.MaxSizeBytes = b.MaxSizeBytes
-	x.MaxEntries = b.MaxEntries
-	x.DefaultTtl = b.DefaultTtl
-	x.RefreshAhead = b.RefreshAhead
-	x.EnableStats = b.EnableStats
+	if b.Expiration != nil {
+		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 0, 7)
+		x.xxx_hidden_Expiration = *b.Expiration
+	}
+	if b.Eviction != nil {
+		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 1, 7)
+		x.xxx_hidden_Eviction = *b.Eviction
+	}
+	if b.MaxSizeBytes != nil {
+		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 2, 7)
+		x.xxx_hidden_MaxSizeBytes = *b.MaxSizeBytes
+	}
+	if b.MaxEntries != nil {
+		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 3, 7)
+		x.xxx_hidden_MaxEntries = *b.MaxEntries
+	}
+	x.xxx_hidden_DefaultTtl = b.DefaultTtl
+	if b.RefreshAhead != nil {
+		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 5, 7)
+		x.xxx_hidden_RefreshAhead = *b.RefreshAhead
+	}
+	if b.EnableStats != nil {
+		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 6, 7)
+		x.xxx_hidden_EnableStats = *b.EnableStats
+	}
 	return m0
 }
 
 // Retry policy configuration
 type RetryPolicy struct {
-	state protoimpl.MessageState `protogen:"hybrid.v1"`
-	// Maximum number of retry attempts
-	MaxAttempts *int32 `protobuf:"varint,1,opt,name=max_attempts,json=maxAttempts" json:"max_attempts,omitempty"`
-	// Initial retry delay
-	InitialDelay *durationpb.Duration `protobuf:"bytes,2,opt,name=initial_delay,json=initialDelay" json:"initial_delay,omitempty"`
-	// Maximum retry delay
-	MaxDelay *durationpb.Duration `protobuf:"bytes,3,opt,name=max_delay,json=maxDelay" json:"max_delay,omitempty"`
-	// Backoff multiplier (exponential backoff)
-	BackoffMultiplier *float64 `protobuf:"fixed64,4,opt,name=backoff_multiplier,json=backoffMultiplier" json:"backoff_multiplier,omitempty"`
-	// Jitter for retry timing
-	EnableJitter *bool `protobuf:"varint,5,opt,name=enable_jitter,json=enableJitter" json:"enable_jitter,omitempty"`
-	// Retryable error codes
-	RetryableErrors []ErrorCode `protobuf:"varint,6,rep,packed,name=retryable_errors,json=retryableErrors,enum=gcommon.v1.common.ErrorCode" json:"retryable_errors,omitempty"`
-	// Total timeout for all retry attempts
-	TotalTimeout  *durationpb.Duration `protobuf:"bytes,7,opt,name=total_timeout,json=totalTimeout" json:"total_timeout,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
+	state                        protoimpl.MessageState `protogen:"opaque.v1"`
+	xxx_hidden_MaxAttempts       int32                  `protobuf:"varint,1,opt,name=max_attempts,json=maxAttempts"`
+	xxx_hidden_InitialDelay      *durationpb.Duration   `protobuf:"bytes,2,opt,name=initial_delay,json=initialDelay"`
+	xxx_hidden_MaxDelay          *durationpb.Duration   `protobuf:"bytes,3,opt,name=max_delay,json=maxDelay"`
+	xxx_hidden_BackoffMultiplier float64                `protobuf:"fixed64,4,opt,name=backoff_multiplier,json=backoffMultiplier"`
+	xxx_hidden_EnableJitter      bool                   `protobuf:"varint,5,opt,name=enable_jitter,json=enableJitter"`
+	xxx_hidden_RetryableErrors   []ErrorCode            `protobuf:"varint,6,rep,packed,name=retryable_errors,json=retryableErrors,enum=gcommon.v1.common.ErrorCode"`
+	xxx_hidden_TotalTimeout      *durationpb.Duration   `protobuf:"bytes,7,opt,name=total_timeout,json=totalTimeout"`
+	XXX_raceDetectHookData       protoimpl.RaceDetectHookData
+	XXX_presence                 [1]uint32
+	unknownFields                protoimpl.UnknownFields
+	sizeCache                    protoimpl.SizeCache
 }
 
 func (x *RetryPolicy) Reset() {
@@ -4867,146 +5576,152 @@ func (x *RetryPolicy) ProtoReflect() protoreflect.Message {
 }
 
 func (x *RetryPolicy) GetMaxAttempts() int32 {
-	if x != nil && x.MaxAttempts != nil {
-		return *x.MaxAttempts
+	if x != nil {
+		return x.xxx_hidden_MaxAttempts
 	}
 	return 0
 }
 
 func (x *RetryPolicy) GetInitialDelay() *durationpb.Duration {
 	if x != nil {
-		return x.InitialDelay
+		return x.xxx_hidden_InitialDelay
 	}
 	return nil
 }
 
 func (x *RetryPolicy) GetMaxDelay() *durationpb.Duration {
 	if x != nil {
-		return x.MaxDelay
+		return x.xxx_hidden_MaxDelay
 	}
 	return nil
 }
 
 func (x *RetryPolicy) GetBackoffMultiplier() float64 {
-	if x != nil && x.BackoffMultiplier != nil {
-		return *x.BackoffMultiplier
+	if x != nil {
+		return x.xxx_hidden_BackoffMultiplier
 	}
 	return 0
 }
 
 func (x *RetryPolicy) GetEnableJitter() bool {
-	if x != nil && x.EnableJitter != nil {
-		return *x.EnableJitter
+	if x != nil {
+		return x.xxx_hidden_EnableJitter
 	}
 	return false
 }
 
 func (x *RetryPolicy) GetRetryableErrors() []ErrorCode {
 	if x != nil {
-		return x.RetryableErrors
+		return x.xxx_hidden_RetryableErrors
 	}
 	return nil
 }
 
 func (x *RetryPolicy) GetTotalTimeout() *durationpb.Duration {
 	if x != nil {
-		return x.TotalTimeout
+		return x.xxx_hidden_TotalTimeout
 	}
 	return nil
 }
 
 func (x *RetryPolicy) SetMaxAttempts(v int32) {
-	x.MaxAttempts = &v
+	x.xxx_hidden_MaxAttempts = v
+	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 0, 7)
 }
 
 func (x *RetryPolicy) SetInitialDelay(v *durationpb.Duration) {
-	x.InitialDelay = v
+	x.xxx_hidden_InitialDelay = v
 }
 
 func (x *RetryPolicy) SetMaxDelay(v *durationpb.Duration) {
-	x.MaxDelay = v
+	x.xxx_hidden_MaxDelay = v
 }
 
 func (x *RetryPolicy) SetBackoffMultiplier(v float64) {
-	x.BackoffMultiplier = &v
+	x.xxx_hidden_BackoffMultiplier = v
+	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 3, 7)
 }
 
 func (x *RetryPolicy) SetEnableJitter(v bool) {
-	x.EnableJitter = &v
+	x.xxx_hidden_EnableJitter = v
+	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 4, 7)
 }
 
 func (x *RetryPolicy) SetRetryableErrors(v []ErrorCode) {
-	x.RetryableErrors = v
+	x.xxx_hidden_RetryableErrors = v
 }
 
 func (x *RetryPolicy) SetTotalTimeout(v *durationpb.Duration) {
-	x.TotalTimeout = v
+	x.xxx_hidden_TotalTimeout = v
 }
 
 func (x *RetryPolicy) HasMaxAttempts() bool {
 	if x == nil {
 		return false
 	}
-	return x.MaxAttempts != nil
+	return protoimpl.X.Present(&(x.XXX_presence[0]), 0)
 }
 
 func (x *RetryPolicy) HasInitialDelay() bool {
 	if x == nil {
 		return false
 	}
-	return x.InitialDelay != nil
+	return x.xxx_hidden_InitialDelay != nil
 }
 
 func (x *RetryPolicy) HasMaxDelay() bool {
 	if x == nil {
 		return false
 	}
-	return x.MaxDelay != nil
+	return x.xxx_hidden_MaxDelay != nil
 }
 
 func (x *RetryPolicy) HasBackoffMultiplier() bool {
 	if x == nil {
 		return false
 	}
-	return x.BackoffMultiplier != nil
+	return protoimpl.X.Present(&(x.XXX_presence[0]), 3)
 }
 
 func (x *RetryPolicy) HasEnableJitter() bool {
 	if x == nil {
 		return false
 	}
-	return x.EnableJitter != nil
+	return protoimpl.X.Present(&(x.XXX_presence[0]), 4)
 }
 
 func (x *RetryPolicy) HasTotalTimeout() bool {
 	if x == nil {
 		return false
 	}
-	return x.TotalTimeout != nil
+	return x.xxx_hidden_TotalTimeout != nil
 }
 
 func (x *RetryPolicy) ClearMaxAttempts() {
-	x.MaxAttempts = nil
+	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 0)
+	x.xxx_hidden_MaxAttempts = 0
 }
 
 func (x *RetryPolicy) ClearInitialDelay() {
-	x.InitialDelay = nil
+	x.xxx_hidden_InitialDelay = nil
 }
 
 func (x *RetryPolicy) ClearMaxDelay() {
-	x.MaxDelay = nil
+	x.xxx_hidden_MaxDelay = nil
 }
 
 func (x *RetryPolicy) ClearBackoffMultiplier() {
-	x.BackoffMultiplier = nil
+	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 3)
+	x.xxx_hidden_BackoffMultiplier = 0
 }
 
 func (x *RetryPolicy) ClearEnableJitter() {
-	x.EnableJitter = nil
+	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 4)
+	x.xxx_hidden_EnableJitter = false
 }
 
 func (x *RetryPolicy) ClearTotalTimeout() {
-	x.TotalTimeout = nil
+	x.xxx_hidden_TotalTimeout = nil
 }
 
 type RetryPolicy_builder struct {
@@ -5032,33 +5747,38 @@ func (b0 RetryPolicy_builder) Build() *RetryPolicy {
 	m0 := &RetryPolicy{}
 	b, x := &b0, m0
 	_, _ = b, x
-	x.MaxAttempts = b.MaxAttempts
-	x.InitialDelay = b.InitialDelay
-	x.MaxDelay = b.MaxDelay
-	x.BackoffMultiplier = b.BackoffMultiplier
-	x.EnableJitter = b.EnableJitter
-	x.RetryableErrors = b.RetryableErrors
-	x.TotalTimeout = b.TotalTimeout
+	if b.MaxAttempts != nil {
+		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 0, 7)
+		x.xxx_hidden_MaxAttempts = *b.MaxAttempts
+	}
+	x.xxx_hidden_InitialDelay = b.InitialDelay
+	x.xxx_hidden_MaxDelay = b.MaxDelay
+	if b.BackoffMultiplier != nil {
+		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 3, 7)
+		x.xxx_hidden_BackoffMultiplier = *b.BackoffMultiplier
+	}
+	if b.EnableJitter != nil {
+		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 4, 7)
+		x.xxx_hidden_EnableJitter = *b.EnableJitter
+	}
+	x.xxx_hidden_RetryableErrors = b.RetryableErrors
+	x.xxx_hidden_TotalTimeout = b.TotalTimeout
 	return m0
 }
 
 // Circuit breaker configuration
 type CircuitBreakerConfig struct {
-	state protoimpl.MessageState `protogen:"hybrid.v1"`
-	// Failure threshold to open circuit
-	FailureThreshold *int32 `protobuf:"varint,1,opt,name=failure_threshold,json=failureThreshold" json:"failure_threshold,omitempty"`
-	// Success threshold to close circuit
-	SuccessThreshold *int32 `protobuf:"varint,2,opt,name=success_threshold,json=successThreshold" json:"success_threshold,omitempty"`
-	// Timeout for circuit to remain open
-	Timeout *durationpb.Duration `protobuf:"bytes,3,opt,name=timeout" json:"timeout,omitempty"`
-	// Maximum number of concurrent requests in half-open state
-	MaxRequests *int32 `protobuf:"varint,4,opt,name=max_requests,json=maxRequests" json:"max_requests,omitempty"`
-	// Window size for failure counting
-	WindowSize *durationpb.Duration `protobuf:"bytes,5,opt,name=window_size,json=windowSize" json:"window_size,omitempty"`
-	// Current circuit breaker state
-	State         *CircuitBreakerState `protobuf:"varint,6,opt,name=state,enum=gcommon.v1.common.CircuitBreakerState" json:"state,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
+	state                       protoimpl.MessageState `protogen:"opaque.v1"`
+	xxx_hidden_FailureThreshold int32                  `protobuf:"varint,1,opt,name=failure_threshold,json=failureThreshold"`
+	xxx_hidden_SuccessThreshold int32                  `protobuf:"varint,2,opt,name=success_threshold,json=successThreshold"`
+	xxx_hidden_Timeout          *durationpb.Duration   `protobuf:"bytes,3,opt,name=timeout"`
+	xxx_hidden_MaxRequests      int32                  `protobuf:"varint,4,opt,name=max_requests,json=maxRequests"`
+	xxx_hidden_WindowSize       *durationpb.Duration   `protobuf:"bytes,5,opt,name=window_size,json=windowSize"`
+	xxx_hidden_State            CircuitBreakerState    `protobuf:"varint,6,opt,name=state,enum=gcommon.v1.common.CircuitBreakerState"`
+	XXX_raceDetectHookData      protoimpl.RaceDetectHookData
+	XXX_presence                [1]uint32
+	unknownFields               protoimpl.UnknownFields
+	sizeCache                   protoimpl.SizeCache
 }
 
 func (x *CircuitBreakerConfig) Reset() {
@@ -5087,135 +5807,145 @@ func (x *CircuitBreakerConfig) ProtoReflect() protoreflect.Message {
 }
 
 func (x *CircuitBreakerConfig) GetFailureThreshold() int32 {
-	if x != nil && x.FailureThreshold != nil {
-		return *x.FailureThreshold
+	if x != nil {
+		return x.xxx_hidden_FailureThreshold
 	}
 	return 0
 }
 
 func (x *CircuitBreakerConfig) GetSuccessThreshold() int32 {
-	if x != nil && x.SuccessThreshold != nil {
-		return *x.SuccessThreshold
+	if x != nil {
+		return x.xxx_hidden_SuccessThreshold
 	}
 	return 0
 }
 
 func (x *CircuitBreakerConfig) GetTimeout() *durationpb.Duration {
 	if x != nil {
-		return x.Timeout
+		return x.xxx_hidden_Timeout
 	}
 	return nil
 }
 
 func (x *CircuitBreakerConfig) GetMaxRequests() int32 {
-	if x != nil && x.MaxRequests != nil {
-		return *x.MaxRequests
+	if x != nil {
+		return x.xxx_hidden_MaxRequests
 	}
 	return 0
 }
 
 func (x *CircuitBreakerConfig) GetWindowSize() *durationpb.Duration {
 	if x != nil {
-		return x.WindowSize
+		return x.xxx_hidden_WindowSize
 	}
 	return nil
 }
 
 func (x *CircuitBreakerConfig) GetState() CircuitBreakerState {
-	if x != nil && x.State != nil {
-		return *x.State
+	if x != nil {
+		if protoimpl.X.Present(&(x.XXX_presence[0]), 5) {
+			return x.xxx_hidden_State
+		}
 	}
 	return CircuitBreakerState_CIRCUIT_BREAKER_STATE_UNSPECIFIED
 }
 
 func (x *CircuitBreakerConfig) SetFailureThreshold(v int32) {
-	x.FailureThreshold = &v
+	x.xxx_hidden_FailureThreshold = v
+	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 0, 6)
 }
 
 func (x *CircuitBreakerConfig) SetSuccessThreshold(v int32) {
-	x.SuccessThreshold = &v
+	x.xxx_hidden_SuccessThreshold = v
+	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 1, 6)
 }
 
 func (x *CircuitBreakerConfig) SetTimeout(v *durationpb.Duration) {
-	x.Timeout = v
+	x.xxx_hidden_Timeout = v
 }
 
 func (x *CircuitBreakerConfig) SetMaxRequests(v int32) {
-	x.MaxRequests = &v
+	x.xxx_hidden_MaxRequests = v
+	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 3, 6)
 }
 
 func (x *CircuitBreakerConfig) SetWindowSize(v *durationpb.Duration) {
-	x.WindowSize = v
+	x.xxx_hidden_WindowSize = v
 }
 
 func (x *CircuitBreakerConfig) SetState(v CircuitBreakerState) {
-	x.State = &v
+	x.xxx_hidden_State = v
+	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 5, 6)
 }
 
 func (x *CircuitBreakerConfig) HasFailureThreshold() bool {
 	if x == nil {
 		return false
 	}
-	return x.FailureThreshold != nil
+	return protoimpl.X.Present(&(x.XXX_presence[0]), 0)
 }
 
 func (x *CircuitBreakerConfig) HasSuccessThreshold() bool {
 	if x == nil {
 		return false
 	}
-	return x.SuccessThreshold != nil
+	return protoimpl.X.Present(&(x.XXX_presence[0]), 1)
 }
 
 func (x *CircuitBreakerConfig) HasTimeout() bool {
 	if x == nil {
 		return false
 	}
-	return x.Timeout != nil
+	return x.xxx_hidden_Timeout != nil
 }
 
 func (x *CircuitBreakerConfig) HasMaxRequests() bool {
 	if x == nil {
 		return false
 	}
-	return x.MaxRequests != nil
+	return protoimpl.X.Present(&(x.XXX_presence[0]), 3)
 }
 
 func (x *CircuitBreakerConfig) HasWindowSize() bool {
 	if x == nil {
 		return false
 	}
-	return x.WindowSize != nil
+	return x.xxx_hidden_WindowSize != nil
 }
 
 func (x *CircuitBreakerConfig) HasState() bool {
 	if x == nil {
 		return false
 	}
-	return x.State != nil
+	return protoimpl.X.Present(&(x.XXX_presence[0]), 5)
 }
 
 func (x *CircuitBreakerConfig) ClearFailureThreshold() {
-	x.FailureThreshold = nil
+	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 0)
+	x.xxx_hidden_FailureThreshold = 0
 }
 
 func (x *CircuitBreakerConfig) ClearSuccessThreshold() {
-	x.SuccessThreshold = nil
+	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 1)
+	x.xxx_hidden_SuccessThreshold = 0
 }
 
 func (x *CircuitBreakerConfig) ClearTimeout() {
-	x.Timeout = nil
+	x.xxx_hidden_Timeout = nil
 }
 
 func (x *CircuitBreakerConfig) ClearMaxRequests() {
-	x.MaxRequests = nil
+	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 3)
+	x.xxx_hidden_MaxRequests = 0
 }
 
 func (x *CircuitBreakerConfig) ClearWindowSize() {
-	x.WindowSize = nil
+	x.xxx_hidden_WindowSize = nil
 }
 
 func (x *CircuitBreakerConfig) ClearState() {
-	x.State = nil
+	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 5)
+	x.xxx_hidden_State = CircuitBreakerState_CIRCUIT_BREAKER_STATE_UNSPECIFIED
 }
 
 type CircuitBreakerConfig_builder struct {
@@ -5239,12 +5969,24 @@ func (b0 CircuitBreakerConfig_builder) Build() *CircuitBreakerConfig {
 	m0 := &CircuitBreakerConfig{}
 	b, x := &b0, m0
 	_, _ = b, x
-	x.FailureThreshold = b.FailureThreshold
-	x.SuccessThreshold = b.SuccessThreshold
-	x.Timeout = b.Timeout
-	x.MaxRequests = b.MaxRequests
-	x.WindowSize = b.WindowSize
-	x.State = b.State
+	if b.FailureThreshold != nil {
+		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 0, 6)
+		x.xxx_hidden_FailureThreshold = *b.FailureThreshold
+	}
+	if b.SuccessThreshold != nil {
+		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 1, 6)
+		x.xxx_hidden_SuccessThreshold = *b.SuccessThreshold
+	}
+	x.xxx_hidden_Timeout = b.Timeout
+	if b.MaxRequests != nil {
+		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 3, 6)
+		x.xxx_hidden_MaxRequests = *b.MaxRequests
+	}
+	x.xxx_hidden_WindowSize = b.WindowSize
+	if b.State != nil {
+		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 5, 6)
+		x.xxx_hidden_State = *b.State
+	}
 	return m0
 }
 
@@ -5657,20 +6399,20 @@ func file_pkg_common_proto_common_proto_init() {
 		return
 	}
 	file_pkg_common_proto_common_proto_msgTypes[8].OneofWrappers = []any{
-		(*FilterValue_StringValue)(nil),
-		(*FilterValue_IntValue)(nil),
-		(*FilterValue_DoubleValue)(nil),
-		(*FilterValue_BoolValue)(nil),
-		(*FilterValue_StringArray)(nil),
-		(*FilterValue_IntArray)(nil),
+		(*filterValue_StringValue)(nil),
+		(*filterValue_IntValue)(nil),
+		(*filterValue_DoubleValue)(nil),
+		(*filterValue_BoolValue)(nil),
+		(*filterValue_StringArray)(nil),
+		(*filterValue_IntArray)(nil),
 	}
 	file_pkg_common_proto_common_proto_msgTypes[14].OneofWrappers = []any{
-		(*ConfigValue_StringValue)(nil),
-		(*ConfigValue_IntValue)(nil),
-		(*ConfigValue_DoubleValue)(nil),
-		(*ConfigValue_BoolValue)(nil),
-		(*ConfigValue_BytesValue)(nil),
-		(*ConfigValue_AnyValue)(nil),
+		(*configValue_StringValue)(nil),
+		(*configValue_IntValue)(nil),
+		(*configValue_DoubleValue)(nil),
+		(*configValue_BoolValue)(nil),
+		(*configValue_BytesValue)(nil),
+		(*configValue_AnyValue)(nil),
 	}
 	type x struct{}
 	out := protoimpl.TypeBuilder{
