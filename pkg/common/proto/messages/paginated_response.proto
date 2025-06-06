@@ -1,0 +1,34 @@
+// file: pkg/common/proto/messages/paginated_response.proto
+edition = "2023";
+
+package gcommon.v1.common;
+
+import "google/protobuf/go_features.proto";
+
+option go_package = "github.com/jdfalk/gcommon/pkg/common/proto;commonpb";
+option features.(pb.go).api_level = API_HYBRID;
+
+/**
+ * Standard pagination response metadata for list operations.
+ * Provides comprehensive pagination information to clients for
+ * implementing pagination controls and navigation.
+ */
+message PaginatedResponse {
+  // Opaque token for retrieving the next page (empty if no more pages)
+  string next_page_token = 1;
+
+  // Opaque token for retrieving the previous page (empty if first page)
+  string prev_page_token = 2;
+
+  // Total number of items across all pages (may be expensive to compute)
+  int32 total_count = 3;
+
+  // Current page number (starts from 1)
+  int32 current_page = 4;
+
+  // Total number of pages available
+  int32 total_pages = 5;
+
+  // Number of items in the current page
+  int32 page_size = 6;
+}
