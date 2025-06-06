@@ -11,6 +11,8 @@ import "google/protobuf/any.proto";
 import "google/protobuf/field_mask.proto";
 import "google/protobuf/struct.proto";
 
+import "google/protobuf/go_features.proto";
+
 option go_package = "github.com/jdfalk/gcommon/pkg/db/proto;dbpb";
 option features.(pb.go).api_level = API_HYBRID;
 
@@ -86,7 +88,7 @@ message QueryRequest {
   QueryOptions options = 4;
 
   // Request metadata
-  gcommon.common.v1.RequestMetadata metadata = 5;
+  gcommon.v1.common.RequestMetadata metadata = 5;
 
   // Transaction ID if part of transaction
   string transaction_id = 6;
@@ -101,7 +103,7 @@ message QueryResponse {
   QueryStats stats = 2;
 
   // Error information
-  gcommon.common.v1.Error error = 3;
+  gcommon.v1.common.Error error = 3;
 }
 
 // Execute request for write operations
@@ -119,7 +121,7 @@ message ExecuteRequest {
   ExecuteOptions options = 4;
 
   // Request metadata
-  gcommon.common.v1.RequestMetadata metadata = 5;
+  gcommon.v1.common.RequestMetadata metadata = 5;
 
   // Transaction ID if part of transaction
   string transaction_id = 6;
@@ -137,7 +139,7 @@ message ExecuteResponse {
   ExecuteStats stats = 3;
 
   // Error information
-  gcommon.common.v1.Error error = 4;
+  gcommon.v1.common.Error error = 4;
 }
 
 // Query parameter for parameterized queries
@@ -283,7 +285,7 @@ message ExecuteBatchRequest {
   BatchExecuteOptions options = 3;
 
   // Request metadata
-  gcommon.common.v1.RequestMetadata metadata = 4;
+  gcommon.v1.common.RequestMetadata metadata = 4;
 
   // Transaction ID if part of transaction
   string transaction_id = 5;
@@ -319,7 +321,7 @@ message ExecuteBatchResponse {
   BatchStats stats = 2;
 
   // Error information
-  gcommon.common.v1.Error error = 3;
+  gcommon.v1.common.Error error = 3;
 }
 
 // Result for individual batch operation
@@ -334,7 +336,7 @@ message BatchOperationResult {
   repeated google.protobuf.Any generated_keys = 3;
 
   // Error if operation failed
-  gcommon.common.v1.Error error = 4;
+  gcommon.v1.common.Error error = 4;
 }
 
 // Batch execution statistics
@@ -361,7 +363,7 @@ message BeginTransactionRequest {
   TransactionOptions options = 2;
 
   // Request metadata
-  gcommon.common.v1.RequestMetadata metadata = 3;
+  gcommon.v1.common.RequestMetadata metadata = 3;
 }
 
 message BeginTransactionResponse {
@@ -389,7 +391,7 @@ message CommitTransactionRequest {
   string transaction_id = 1;
 
   // Request metadata
-  gcommon.common.v1.RequestMetadata metadata = 2;
+  gcommon.v1.common.RequestMetadata metadata = 2;
 }
 
 message RollbackTransactionRequest {
@@ -397,13 +399,13 @@ message RollbackTransactionRequest {
   string transaction_id = 1;
 
   // Request metadata
-  gcommon.common.v1.RequestMetadata metadata = 2;
+  gcommon.v1.common.RequestMetadata metadata = 2;
 }
 
 // Connection info messages
 message GetConnectionInfoRequest {
   // Request metadata
-  gcommon.common.v1.RequestMetadata metadata = 1;
+  gcommon.v1.common.RequestMetadata metadata = 1;
 }
 
 message GetConnectionInfoResponse {
@@ -468,12 +470,12 @@ message DatabaseInfo {
 // Health check messages
 message HealthCheckRequest {
   // Request metadata
-  gcommon.common.v1.RequestMetadata metadata = 1;
+  gcommon.v1.common.RequestMetadata metadata = 1;
 }
 
 message HealthCheckResponse {
   // Health status
-  gcommon.common.v1.HealthStatus status = 1;
+  gcommon.v1.common.HealthStatus status = 1;
 
   // Connection check result
   bool connection_ok = 2;
@@ -482,28 +484,28 @@ message HealthCheckResponse {
   google.protobuf.Duration response_time = 3;
 
   // Error information if unhealthy
-  gcommon.common.v1.Error error = 4;
+  gcommon.v1.common.Error error = 4;
 }
 
 // Admin service messages (abbreviated for space)
 message CreateDatabaseRequest {
   string name = 1;
   map<string, string> options = 2;
-  gcommon.common.v1.RequestMetadata metadata = 3;
+  gcommon.v1.common.RequestMetadata metadata = 3;
 }
 
 message CreateDatabaseResponse {
   bool success = 1;
-  gcommon.common.v1.Error error = 2;
+  gcommon.v1.common.Error error = 2;
 }
 
 message DropDatabaseRequest {
   string name = 1;
-  gcommon.common.v1.RequestMetadata metadata = 2;
+  gcommon.v1.common.RequestMetadata metadata = 2;
 }
 
 message ListDatabasesRequest {
-  gcommon.common.v1.RequestMetadata metadata = 1;
+  gcommon.v1.common.RequestMetadata metadata = 1;
 }
 
 message ListDatabasesResponse {
@@ -512,7 +514,7 @@ message ListDatabasesResponse {
 
 message GetDatabaseInfoRequest {
   string name = 1;
-  gcommon.common.v1.RequestMetadata metadata = 2;
+  gcommon.v1.common.RequestMetadata metadata = 2;
 }
 
 message GetDatabaseInfoResponse {
@@ -522,23 +524,23 @@ message GetDatabaseInfoResponse {
 message CreateSchemaRequest {
   string database = 1;
   string schema = 2;
-  gcommon.common.v1.RequestMetadata metadata = 3;
+  gcommon.v1.common.RequestMetadata metadata = 3;
 }
 
 message CreateSchemaResponse {
   bool success = 1;
-  gcommon.common.v1.Error error = 2;
+  gcommon.v1.common.Error error = 2;
 }
 
 message DropSchemaRequest {
   string database = 1;
   string schema = 2;
-  gcommon.common.v1.RequestMetadata metadata = 3;
+  gcommon.v1.common.RequestMetadata metadata = 3;
 }
 
 message ListSchemasRequest {
   string database = 1;
-  gcommon.common.v1.RequestMetadata metadata = 2;
+  gcommon.v1.common.RequestMetadata metadata = 2;
 }
 
 message ListSchemasResponse {
@@ -548,7 +550,7 @@ message ListSchemasResponse {
 message RunMigrationRequest {
   string database = 1;
   repeated MigrationScript scripts = 2;
-  gcommon.common.v1.RequestMetadata metadata = 3;
+  gcommon.v1.common.RequestMetadata metadata = 3;
 }
 
 message MigrationScript {
@@ -560,12 +562,12 @@ message MigrationScript {
 message RunMigrationResponse {
   bool success = 1;
   repeated string applied_versions = 2;
-  gcommon.common.v1.Error error = 3;
+  gcommon.v1.common.Error error = 3;
 }
 
 message GetMigrationStatusRequest {
   string database = 1;
-  gcommon.common.v1.RequestMetadata metadata = 2;
+  gcommon.v1.common.RequestMetadata metadata = 2;
 }
 
 message GetMigrationStatusResponse {
