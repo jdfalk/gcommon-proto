@@ -1,17 +1,23 @@
+// file: pkg/cache/proto/cache.proto
 edition = "2023";
 
-package cache;
-import "google/protobuf/go_features.proto";
+package gcommon.v1.cache;
 
-option go_package = "github.com/jdfalk/gcommon/pkg/cache/proto";
+import "pkg/common/proto/common.proto";
+import "google/protobuf/timestamp.proto";
+import "google/protobuf/duration.proto";
+import "google/protobuf/empty.proto";
+import "google/protobuf/any.proto";
+
+option go_package = "github.com/jdfalk/gcommon/pkg/cache/proto;cachepb";
 option features.(pb.go).api_level = API_HYBRID;
 
-// CacheService defines cache operations
+// CacheService provides comprehensive caching capabilities
 service CacheService {
   // Get retrieves a value from the cache
   rpc Get(GetRequest) returns (GetResponse);
 
-  // Set adds a value to the cache
+  // Set stores a value in the cache
   rpc Set(SetRequest) returns (SetResponse);
 
   // Delete removes a value from the cache
@@ -20,162 +26,635 @@ service CacheService {
   // Exists checks if a key exists in the cache
   rpc Exists(ExistsRequest) returns (ExistsResponse);
 
-  // Clear removes all items from the cache
-  rpc Clear(ClearRequest) returns (ClearResponse);
+  // GetMultiple retrieves multiple values from the cache
+  rpc GetMultiple(GetMultipleRequest) returns (GetMultipleResponse);
 
-  // GetMulti retrieves multiple values from the cache
-  rpc GetMulti(GetMultiRequest) returns (GetMultiResponse);
+  // SetMultiple stores multiple values in the cache
+  rpc SetMultiple(SetMultipleRequest) returns (SetMultipleResponse);
 
-  // SetMulti adds multiple values to the cache
-  rpc SetMulti(SetMultiRequest) returns (SetMultiResponse);
+  // DeleteMultiple removes multiple values from the cache
+  rpc DeleteMultiple(DeleteMultipleRequest) returns (DeleteMultipleResponse);
 
-  // DeleteMulti removes multiple values from the cache
-  rpc DeleteMulti(DeleteMultiRequest) returns (DeleteMultiResponse);
-
-  // Increment atomically increments a counter
+  // Increment atomically increments a numeric value
   rpc Increment(IncrementRequest) returns (IncrementResponse);
 
-  // Decrement atomically decrements a counter
+  // Decrement atomically decrements a numeric value
   rpc Decrement(DecrementRequest) returns (DecrementResponse);
 
-  // Stats returns cache statistics
-  rpc Stats(StatsRequest) returns (StatsResponse);
+  // Clear removes all entries from the cache or by pattern
+  rpc Clear(ClearRequest) returns (ClearResponse);
+
+  // Keys returns all keys matching a pattern
+  rpc Keys(KeysRequest) returns (KeysResponse);
+
+  // GetStats returns cache statistics and metrics
+  rpc GetStats(GetStatsRequest) returns (GetStatsResponse);
+
+  // Flush forces cache persistence if supported
+  rpc Flush(FlushRequest) returns (FlushResponse);
+
+  // TouchExpiration updates the expiration time of a key
+  rpc TouchExpiration(TouchExpirationRequest) returns (TouchExpirationResponse);
 }
 
-// GetRequest contains get request data
+// Cache management service for administrative operations
+service CacheAdminService {
+  // CreateNamespace creates a new cache namespace
+  rpc CreateNamespace(CreateNamespaceRequest) returns (CreateNamespaceResponse);
+
+  // DeleteNamespace removes a cache namespace
+  rpc DeleteNamespace(DeleteNamespaceRequest) returns (google.protobuf.Empty);
+
+  // ListNamespaces returns all available namespaces
+  rpc ListNamespaces(ListNamespacesRequest) returns (ListNamespacesResponse);
+
+  // GetNamespaceStats returns statistics for a namespace
+  rpc GetNamespaceStats(GetNamespaceStatsRequest) returns (GetNamespaceStatsResponse);
+
+  // ConfigurePolicy sets cache policies for a namespace
+  rpc ConfigurePolicy(ConfigurePolicyRequest) returns (ConfigurePolicyResponse);
+}
+
+// Get request for retrieving a cached value
 message GetRequest {
+  // Cache key
   string key = 1;
-  string type_hint = 2; // Optional hint about the value type
+
+  // Optional namespace
+  string namespace = 2;
+
+  // Request metadata
+  gcommon.common.v1.RequestMetadata metadata = 3;
+
+  // Whether to update access time (for LRU policies)
+  bool update_access_time = 4;
 }
 
-// GetResponse contains get response data
+// Get response containing cached value
 message GetResponse {
-  bytes value = 1;
-  string type = 2;  // Type information about the value
-  bool found = 3;   // Whether the key was found
+  // The cached value
+  CacheEntry entry = 1;
+
+  // Whether the key was found
+  bool found = 2;
+
+  // Error information if retrieval failed
+  gcommon.common.v1.Error error = 3;
 }
 
-// SetRequest contains set request data
+// Set request for storing a value in cache
 message SetRequest {
+  // Cache key
   string key = 1;
-  bytes value = 2;
-  int64 ttl = 3;    // Time-to-live in seconds
-  repeated string tags = 4;
+
+  // Value to store
+  google.protobuf.Any value = 2;
+
+  // Time-to-live duration
+  google.protobuf.Duration ttl = 3;
+
+  // Optional namespace
+  string namespace = 4;
+
+  // Cache entry metadata
+  map<string, string> metadata = 5;
+
+  // Tags for categorization and bulk operations
+  repeated string tags = 6;
+
+  // Conditional set options
+  SetOptions options = 7;
+
+  // Request metadata
+  gcommon.common.v1.RequestMetadata request_metadata = 8;
 }
 
-// SetResponse contains set response data
+// Set response indicating success/failure
 message SetResponse {
+  // Whether the operation succeeded
   bool success = 1;
+
+  // Previous value if it existed
+  CacheEntry previous_entry = 2;
+
+  // Error information if set failed
+  gcommon.common.v1.Error error = 3;
 }
 
-// DeleteRequest contains delete request data
+// Delete request for removing a cached value
 message DeleteRequest {
+  // Cache key to delete
   string key = 1;
+
+  // Optional namespace
+  string namespace = 2;
+
+  // Request metadata
+  gcommon.common.v1.RequestMetadata metadata = 3;
 }
 
-// DeleteResponse contains delete response data
+// Delete response indicating result
 message DeleteResponse {
-  bool success = 1;
-  bool found = 2;   // Whether the key was found
+  // Whether a value was actually deleted
+  bool deleted = 1;
+
+  // The deleted entry if it existed
+  CacheEntry deleted_entry = 2;
+
+  // Error information if deletion failed
+  gcommon.common.v1.Error error = 3;
 }
 
-// ExistsRequest contains exists request data
+// Cache entry representation
+message CacheEntry {
+  // The cache key
+  string key = 1;
+
+  // The cached value
+  google.protobuf.Any value = 2;
+
+  // Entry creation timestamp
+  google.protobuf.Timestamp created_at = 3;
+
+  // Entry last access timestamp
+  google.protobuf.Timestamp accessed_at = 4;
+
+  // Entry expiration timestamp
+  google.protobuf.Timestamp expires_at = 5;
+
+  // Time-to-live duration
+  google.protobuf.Duration ttl = 6;
+
+  // Entry metadata
+  map<string, string> metadata = 7;
+
+  // Entry tags
+  repeated string tags = 8;
+
+  // Access count for LFU policies
+  int64 access_count = 9;
+
+  // Entry size in bytes
+  int64 size_bytes = 10;
+
+  // Entry namespace
+  string namespace = 11;
+
+  // Entry version for optimistic concurrency
+  int64 version = 12;
+}
+
+// Set operation options
+message SetOptions {
+  // Only set if key doesn't exist
+  bool if_not_exists = 1;
+
+  // Only set if key exists
+  bool if_exists = 2;
+
+  // Expected version for optimistic concurrency
+  int64 expected_version = 3;
+
+  // Whether to return previous value
+  bool return_previous = 4;
+}
+
+// Exists request to check key presence
 message ExistsRequest {
+  // Cache key to check
   string key = 1;
+
+  // Optional namespace
+  string namespace = 2;
+
+  // Request metadata
+  gcommon.common.v1.RequestMetadata metadata = 3;
 }
 
-// ExistsResponse contains exists response data
+// Exists response indicating presence
 message ExistsResponse {
+  // Whether the key exists
   bool exists = 1;
+
+  // Key expiration information if it exists
+  google.protobuf.Timestamp expires_at = 2;
 }
 
-// ClearRequest contains clear request data
-message ClearRequest {
-  string prefix = 1; // Optional prefix to clear only matching keys
-}
-
-// ClearResponse contains clear response data
-message ClearResponse {
-  int64 deleted_count = 1;
-}
-
-// GetMultiRequest contains get multi request data
-message GetMultiRequest {
+// GetMultiple request for batch retrieval
+message GetMultipleRequest {
+  // Keys to retrieve
   repeated string keys = 1;
-  string type_hint = 2; // Optional hint about the value type
+
+  // Optional namespace
+  string namespace = 2;
+
+  // Request metadata
+  gcommon.common.v1.RequestMetadata metadata = 3;
 }
 
-// GetMultiResponse contains get multi response data
-message GetMultiResponse {
-  map<string, bytes> values = 1;
-  map<string, string> types = 2;
+// GetMultiple response with batch results
+message GetMultipleResponse {
+  // Retrieved entries mapped by key
+  map<string, CacheEntry> entries = 1;
+
+  // Keys that were not found
+  repeated string not_found = 2;
+
+  // Error information
+  gcommon.common.v1.Error error = 3;
 }
 
-// SetMultiRequest contains set multi request data
-message SetMultiRequest {
-  map<string, bytes> items = 1;
-  int64 ttl = 2;    // Time-to-live in seconds
-  repeated string tags = 3;
+// SetMultiple request for batch storage
+message SetMultipleRequest {
+  // Key-value pairs to store
+  map<string, google.protobuf.Any> items = 1;
+
+  // Common TTL for all items
+  google.protobuf.Duration ttl = 2;
+
+  // Optional namespace
+  string namespace = 3;
+
+  // Common metadata for all items
+  map<string, string> metadata = 4;
+
+  // Common tags for all items
+  repeated string tags = 5;
+
+  // Request metadata
+  gcommon.common.v1.RequestMetadata request_metadata = 6;
 }
 
-// SetMultiResponse contains set multi response data
-message SetMultiResponse {
+// SetMultiple response with batch results
+message SetMultipleResponse {
+  // Success status for each key
   map<string, bool> results = 1;
+
+  // Error information
+  gcommon.common.v1.Error error = 2;
 }
 
-// DeleteMultiRequest contains delete multi request data
-message DeleteMultiRequest {
+// DeleteMultiple request for batch removal
+message DeleteMultipleRequest {
+  // Keys to delete
   repeated string keys = 1;
+
+  // Optional namespace
+  string namespace = 2;
+
+  // Request metadata
+  gcommon.common.v1.RequestMetadata metadata = 3;
 }
 
-// DeleteMultiResponse contains delete multi response data
-message DeleteMultiResponse {
+// DeleteMultiple response with batch results
+message DeleteMultipleResponse {
+  // Deletion status for each key
   map<string, bool> results = 1;
+
+  // Count of actually deleted items
   int64 deleted_count = 2;
+
+  // Error information
+  gcommon.common.v1.Error error = 3;
 }
 
-// IncrementRequest contains increment request data
+// Increment request for atomic counter operations
 message IncrementRequest {
+  // Counter key
   string key = 1;
+
+  // Increment delta (can be negative)
   int64 delta = 2;
-  int64 initial = 3; // Initial value if key doesn't exist
-  int64 ttl = 4;     // Time-to-live in seconds
+
+  // Initial value if key doesn't exist
+  int64 initial_value = 3;
+
+  // TTL for the counter
+  google.protobuf.Duration ttl = 4;
+
+  // Optional namespace
+  string namespace = 5;
+
+  // Request metadata
+  gcommon.common.v1.RequestMetadata metadata = 6;
 }
 
-// IncrementResponse contains increment response data
+// Increment response with new value
 message IncrementResponse {
+  // New counter value
   int64 value = 1;
+
+  // Whether the operation succeeded
   bool success = 2;
+
+  // Error information
+  gcommon.common.v1.Error error = 3;
 }
 
-// DecrementRequest contains decrement request data
+// Decrement request for atomic counter operations
 message DecrementRequest {
+  // Counter key
   string key = 1;
+
+  // Decrement delta (can be negative)
   int64 delta = 2;
-  int64 initial = 3; // Initial value if key doesn't exist
-  int64 ttl = 4;     // Time-to-live in seconds
+
+  // Initial value if key doesn't exist
+  int64 initial_value = 3;
+
+  // TTL for the counter
+  google.protobuf.Duration ttl = 4;
+
+  // Optional namespace
+  string namespace = 5;
+
+  // Request metadata
+  gcommon.common.v1.RequestMetadata metadata = 6;
 }
 
-// DecrementResponse contains decrement response data
+// Decrement response with new value
 message DecrementResponse {
+  // New counter value
   int64 value = 1;
+
+  // Whether the operation succeeded
   bool success = 2;
+
+  // Error information
+  gcommon.common.v1.Error error = 3;
 }
 
-// StatsRequest contains stats request data
-message StatsRequest {
+// Clear request for bulk deletion
+message ClearRequest {
+  // Key pattern to match (supports wildcards)
+  string pattern = 1;
+
+  // Optional namespace
+  string namespace = 2;
+
+  // Optional tags to match
+  repeated string tags = 3;
+
+  // Request metadata
+  gcommon.common.v1.RequestMetadata metadata = 4;
 }
 
-// StatsResponse contains stats response data
-message StatsResponse {
+// Clear response with deletion count
+message ClearResponse {
+  // Number of entries deleted
+  int64 deleted_count = 1;
+
+  // Error information
+  gcommon.common.v1.Error error = 2;
+}
+
+// Keys request for key listing
+message KeysRequest {
+  // Key pattern to match (supports wildcards)
+  string pattern = 1;
+
+  // Optional namespace
+  string namespace = 2;
+
+  // Pagination options
+  gcommon.common.v1.Pagination pagination = 3;
+
+  // Request metadata
+  gcommon.common.v1.RequestMetadata metadata = 4;
+}
+
+// Keys response with matching keys
+message KeysResponse {
+  // Matching keys
+  repeated string keys = 1;
+
+  // Pagination information
+  gcommon.common.v1.PaginatedResponse pagination = 2;
+
+  // Error information
+  gcommon.common.v1.Error error = 3;
+}
+
+// Cache statistics request
+message GetStatsRequest {
+  // Optional namespace filter
+  string namespace = 1;
+
+  // Request metadata
+  gcommon.common.v1.RequestMetadata metadata = 2;
+}
+
+// Cache statistics response
+message GetStatsResponse {
+  // Cache statistics
+  CacheStats stats = 1;
+
+  // Error information
+  gcommon.common.v1.Error error = 2;
+}
+
+// Cache statistics
+message CacheStats {
+  // Total number of cache hits
   int64 hits = 1;
+
+  // Total number of cache misses
   int64 misses = 2;
-  int64 size = 3;
-  int64 items_count = 4;
+
+  // Current number of entries
+  int64 entry_count = 3;
+
+  // Total cache size in bytes
+  int64 size_bytes = 4;
+
+  // Number of evictions
   int64 evictions = 5;
+
+  // Number of expirations
   int64 expirations = 6;
-  int64 errors = 7;
-  double hit_rate = 8;
-  int64 average_load_time_ns = 9;  // In nanoseconds
-  int64 average_get_time_ns = 10;  // In nanoseconds
+
+  // Hit rate percentage
+  double hit_rate = 7;
+
+  // Average get latency in microseconds
+  double avg_get_latency_us = 8;
+
+  // Average set latency in microseconds
+  double avg_set_latency_us = 9;
+
+  // Memory usage statistics
+  MemoryStats memory = 10;
+
+  // Per-namespace statistics
+  map<string, NamespaceStats> namespace_stats = 11;
+}
+
+// Memory usage statistics
+message MemoryStats {
+  // Total allocated memory in bytes
+  int64 allocated_bytes = 1;
+
+  // Memory in use in bytes
+  int64 in_use_bytes = 2;
+
+  // System memory in bytes
+  int64 system_bytes = 3;
+
+  // Number of garbage collections
+  int64 gc_count = 4;
+}
+
+// Per-namespace statistics
+message NamespaceStats {
+  // Namespace name
+  string namespace = 1;
+
+  // Number of entries in namespace
+  int64 entry_count = 2;
+
+  // Size in bytes for namespace
+  int64 size_bytes = 3;
+
+  // Hits for namespace
+  int64 hits = 4;
+
+  // Misses for namespace
+  int64 misses = 5;
+}
+
+// Flush request for persistence
+message FlushRequest {
+  // Optional namespace to flush
+  string namespace = 1;
+
+  // Request metadata
+  gcommon.common.v1.RequestMetadata metadata = 2;
+}
+
+// Flush response
+message FlushResponse {
+  // Whether flush succeeded
+  bool success = 1;
+
+  // Number of entries flushed
+  int64 flushed_count = 2;
+
+  // Error information
+  gcommon.common.v1.Error error = 3;
+}
+
+// Touch expiration request
+message TouchExpirationRequest {
+  // Key to update
+  string key = 1;
+
+  // New TTL duration
+  google.protobuf.Duration ttl = 2;
+
+  // Optional namespace
+  string namespace = 3;
+
+  // Request metadata
+  gcommon.common.v1.RequestMetadata metadata = 4;
+}
+
+// Touch expiration response
+message TouchExpirationResponse {
+  // Whether the operation succeeded
+  bool success = 1;
+
+  // New expiration timestamp
+  google.protobuf.Timestamp expires_at = 2;
+
+  // Error information
+  gcommon.common.v1.Error error = 3;
+}
+
+// Admin service messages
+message CreateNamespaceRequest {
+  // Namespace name
+  string namespace = 1;
+
+  // Namespace configuration
+  NamespaceConfig config = 2;
+
+  // Request metadata
+  gcommon.common.v1.RequestMetadata metadata = 3;
+}
+
+message CreateNamespaceResponse {
+  // Created namespace information
+  Namespace namespace = 1;
+
+  // Error information
+  gcommon.common.v1.Error error = 2;
+}
+
+// Namespace configuration
+message NamespaceConfig {
+  // Cache policy for the namespace
+  gcommon.common.v1.CachePolicy policy = 1;
+
+  // Maximum size in bytes
+  int64 max_size_bytes = 2;
+
+  // Maximum number of entries
+  int64 max_entries = 3;
+
+  // Default TTL for entries
+  google.protobuf.Duration default_ttl = 4;
+}
+
+// Namespace information
+message Namespace {
+  // Namespace name
+  string name = 1;
+
+  // Namespace configuration
+  NamespaceConfig config = 2;
+
+  // Creation timestamp
+  google.protobuf.Timestamp created_at = 3;
+
+  // Current statistics
+  NamespaceStats stats = 4;
+
+  // Namespace status
+  gcommon.common.v1.ResourceStatus status = 5;
+}
+
+message DeleteNamespaceRequest {
+  string namespace = 1;
+  gcommon.common.v1.RequestMetadata metadata = 2;
+}
+
+message ListNamespacesRequest {
+  gcommon.common.v1.Pagination pagination = 1;
+  gcommon.common.v1.RequestMetadata metadata = 2;
+}
+
+message ListNamespacesResponse {
+  repeated Namespace namespaces = 1;
+  gcommon.common.v1.PaginatedResponse pagination = 2;
+}
+
+message GetNamespaceStatsRequest {
+  string namespace = 1;
+  gcommon.common.v1.RequestMetadata metadata = 2;
+}
+
+message GetNamespaceStatsResponse {
+  NamespaceStats stats = 1;
+  gcommon.common.v1.Error error = 2;
+}
+
+message ConfigurePolicyRequest {
+  string namespace = 1;
+  gcommon.common.v1.CachePolicy policy = 2;
+  gcommon.common.v1.RequestMetadata metadata = 3;
+}
+
+message ConfigurePolicyResponse {
+  bool success = 1;
+  gcommon.common.v1.Error error = 2;
 }
