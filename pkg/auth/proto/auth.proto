@@ -9,6 +9,8 @@ import "google/protobuf/duration.proto";
 import "google/protobuf/empty.proto";
 import "google/protobuf/field_mask.proto";
 
+import "google/protobuf/go_features.proto";
+
 option go_package = "github.com/jdfalk/gcommon/pkg/auth/proto;authpb";
 option features.(pb.go).api_level = API_HYBRID;
 
@@ -96,7 +98,7 @@ service SessionService {
 // Authentication request with multiple credential types
 message AuthenticateRequest {
   // Request metadata for tracing and correlation
-  gcommon.common.v1.RequestMetadata metadata = 1;
+  gcommon.v1.common.RequestMetadata metadata = 1;
 
   // Authentication credentials (oneof ensures only one type is used)
   oneof credentials {
@@ -114,7 +116,7 @@ message AuthenticateRequest {
   repeated string scopes = 6;
 
   // Client information
-  gcommon.common.v1.ClientInfo client_info = 7;
+  gcommon.v1.common.ClientInfo client_info = 7;
 }
 
 // Username/password credentials
@@ -172,7 +174,7 @@ message AuthenticateResponse {
   // Session information
   Session session = 7;
   // Rate limit information
-  gcommon.common.v1.RateLimit rate_limit = 8;
+  gcommon.v1.common.RateLimit rate_limit = 8;
 }
 
 // User information
@@ -225,7 +227,7 @@ message Session {
   // Session expiration timestamp
   google.protobuf.Timestamp expires_at = 5;
   // Client information
-  gcommon.common.v1.ClientInfo client_info = 6;
+  gcommon.v1.common.ClientInfo client_info = 6;
   // Session status
   SessionStatus status = 7;
   // Session metadata
@@ -260,12 +262,12 @@ message Role {
   // Role creation timestamp
   google.protobuf.Timestamp created_at = 6;
   // Role status
-  gcommon.common.v1.ResourceStatus status = 7;
+  gcommon.v1.common.ResourceStatus status = 7;
 }
 
 // Additional request/response messages (abbreviated for space)
 message VerifyCredentialsRequest {
-  gcommon.common.v1.RequestMetadata metadata = 1;
+  gcommon.v1.common.RequestMetadata metadata = 1;
   oneof credentials {
     PasswordCredentials password = 2;
     APIKeyCredentials api_key = 3;
@@ -275,13 +277,13 @@ message VerifyCredentialsRequest {
 message VerifyCredentialsResponse {
   bool verified = 1;
   UserInfo user_info = 2;
-  gcommon.common.v1.Error error = 3;
+  gcommon.v1.common.Error error = 3;
 }
 
 message ValidateTokenRequest {
   string token = 1;
   repeated string required_scopes = 2;
-  gcommon.common.v1.RequestMetadata metadata = 3;
+  gcommon.v1.common.RequestMetadata metadata = 3;
 }
 
 message ValidateTokenResponse {
@@ -290,13 +292,13 @@ message ValidateTokenResponse {
   repeated string scopes = 3;
   google.protobuf.Timestamp expires_at = 4;
   UserInfo user_info = 5;
-  gcommon.common.v1.Error error = 6;
+  gcommon.v1.common.Error error = 6;
 }
 
 message RefreshTokenRequest {
   string refresh_token = 1;
   repeated string scopes = 2;
-  gcommon.common.v1.RequestMetadata metadata = 3;
+  gcommon.v1.common.RequestMetadata metadata = 3;
 }
 
 message RefreshTokenResponse {
@@ -310,12 +312,12 @@ message RefreshTokenResponse {
 message RevokeTokenRequest {
   string token = 1;
   string token_type_hint = 2;
-  gcommon.common.v1.RequestMetadata metadata = 3;
+  gcommon.v1.common.RequestMetadata metadata = 3;
 }
 
 message GetUserInfoRequest {
   string token = 1;
-  gcommon.common.v1.RequestMetadata metadata = 2;
+  gcommon.v1.common.RequestMetadata metadata = 2;
 }
 
 message GetUserInfoResponse {
@@ -328,19 +330,19 @@ message AuthorizeRequest {
   string resource = 2;
   string action = 3;
   map<string, string> context = 4;
-  gcommon.common.v1.RequestMetadata metadata = 5;
+  gcommon.v1.common.RequestMetadata metadata = 5;
 }
 
 message AuthorizeResponse {
   bool authorized = 1;
   repeated string permissions = 2;
   string denial_reason = 3;
-  gcommon.common.v1.Error error = 4;
+  gcommon.v1.common.Error error = 4;
 }
 
 message InitiatePasswordResetRequest {
   string identifier = 1;
-  gcommon.common.v1.RequestMetadata metadata = 2;
+  gcommon.v1.common.RequestMetadata metadata = 2;
 }
 
 message InitiatePasswordResetResponse {
@@ -352,18 +354,18 @@ message InitiatePasswordResetResponse {
 message CompletePasswordResetRequest {
   string reset_token = 1;
   string new_password = 2;
-  gcommon.common.v1.RequestMetadata metadata = 3;
+  gcommon.v1.common.RequestMetadata metadata = 3;
 }
 
 message ChangePasswordRequest {
   string current_password = 1;
   string new_password = 2;
-  gcommon.common.v1.RequestMetadata metadata = 3;
+  gcommon.v1.common.RequestMetadata metadata = 3;
 }
 
 message GetUserPermissionsRequest {
   string user_id = 1;
-  gcommon.common.v1.RequestMetadata metadata = 2;
+  gcommon.v1.common.RequestMetadata metadata = 2;
 }
 
 message GetUserPermissionsResponse {
@@ -375,7 +377,7 @@ message GetUserPermissionsResponse {
 
 message GetUserRolesRequest {
   string user_id = 1;
-  gcommon.common.v1.RequestMetadata metadata = 2;
+  gcommon.v1.common.RequestMetadata metadata = 2;
 }
 
 message GetUserRolesResponse {
@@ -385,88 +387,88 @@ message GetUserRolesResponse {
 message AssignRoleRequest {
   string user_id = 1;
   string role_id = 2;
-  gcommon.common.v1.RequestMetadata metadata = 3;
+  gcommon.v1.common.RequestMetadata metadata = 3;
 }
 
 message RemoveRoleRequest {
   string user_id = 1;
   string role_id = 2;
-  gcommon.common.v1.RequestMetadata metadata = 3;
+  gcommon.v1.common.RequestMetadata metadata = 3;
 }
 
 message CreateRoleRequest {
   Role role = 1;
-  gcommon.common.v1.RequestMetadata metadata = 2;
+  gcommon.v1.common.RequestMetadata metadata = 2;
 }
 
 message UpdateRoleRequest {
   Role role = 1;
   google.protobuf.FieldMask update_mask = 2;
-  gcommon.common.v1.RequestMetadata metadata = 3;
+  gcommon.v1.common.RequestMetadata metadata = 3;
 }
 
 message DeleteRoleRequest {
   string role_id = 1;
-  gcommon.common.v1.RequestMetadata metadata = 2;
+  gcommon.v1.common.RequestMetadata metadata = 2;
 }
 
 message ListRolesRequest {
-  gcommon.common.v1.Pagination pagination = 1;
-  gcommon.common.v1.FilterOptions filter = 2;
-  gcommon.common.v1.SortOptions sort = 3;
-  gcommon.common.v1.RequestMetadata metadata = 4;
+  gcommon.v1.common.Pagination pagination = 1;
+  gcommon.v1.common.FilterOptions filter = 2;
+  gcommon.v1.common.SortOptions sort = 3;
+  gcommon.v1.common.RequestMetadata metadata = 4;
 }
 
 message ListRolesResponse {
   repeated Role roles = 1;
-  gcommon.common.v1.PaginatedResponse pagination = 2;
+  gcommon.v1.common.PaginatedResponse pagination = 2;
 }
 
 message CreateSessionRequest {
   string user_id = 1;
-  gcommon.common.v1.ClientInfo client_info = 2;
+  gcommon.v1.common.ClientInfo client_info = 2;
   repeated string scopes = 3;
   map<string, string> metadata = 4;
   bool remember_me = 5;
-  gcommon.common.v1.RequestMetadata request_metadata = 6;
+  gcommon.v1.common.RequestMetadata request_metadata = 6;
 }
 
 message GetSessionRequest {
   string session_id = 1;
-  gcommon.common.v1.RequestMetadata metadata = 2;
+  gcommon.v1.common.RequestMetadata metadata = 2;
 }
 
 message UpdateSessionRequest {
   Session session = 1;
   google.protobuf.FieldMask update_mask = 2;
-  gcommon.common.v1.RequestMetadata metadata = 3;
+  gcommon.v1.common.RequestMetadata metadata = 3;
 }
 
 message TerminateSessionRequest {
   string session_id = 1;
-  gcommon.common.v1.RequestMetadata metadata = 2;
+  gcommon.v1.common.RequestMetadata metadata = 2;
 }
 
 message ListUserSessionsRequest {
   string user_id = 1;
-  gcommon.common.v1.Pagination pagination = 2;
-  gcommon.common.v1.FilterOptions filter = 3;
-  gcommon.common.v1.RequestMetadata metadata = 4;
+  gcommon.v1.common.Pagination pagination = 2;
+  gcommon.v1.common.FilterOptions filter = 3;
+  gcommon.v1.common.RequestMetadata metadata = 4;
 }
 
 message ListUserSessionsResponse {
   repeated Session sessions = 1;
-  gcommon.common.v1.PaginatedResponse pagination = 2;
+  gcommon.v1.common.PaginatedResponse pagination = 2;
 }
 
 message ValidateSessionRequest {
   string session_token = 1;
-  gcommon.common.v1.RequestMetadata metadata = 2;
+  gcommon.v1.common.RequestMetadata metadata = 2;
 }
 
 message ValidateSessionResponse {
   bool valid = 1;
   Session session = 2;
   UserInfo user_info = 3;
-  gcommon.common.v1.Error error = 4;
+  gcommon.v1.common.Error error = 4;
 }
