@@ -4,21 +4,21 @@ edition = "2023";
 package gcommon.v1.auth;
 
 import "google/protobuf/go_features.proto";
-import "google/protobuf/empty.proto";
-import "gcommon/v1/auth/requests/authorize_request.proto";
-import "gcommon/v1/auth/responses/authorize_response.proto";
-import "gcommon/v1/auth/requests/get_user_permissions_request.proto";
-import "gcommon/v1/auth/responses/get_user_permissions_response.proto";
-import "gcommon/v1/auth/requests/get_user_roles_request.proto";
-import "gcommon/v1/auth/responses/get_user_roles_response.proto";
-import "gcommon/v1/auth/requests/assign_role_request.proto";
-import "gcommon/v1/auth/requests/remove_role_request.proto";
-import "gcommon/v1/auth/requests/create_role_request.proto";
-import "gcommon/v1/auth/messages/role.proto";
-import "gcommon/v1/auth/requests/update_role_request.proto";
-import "gcommon/v1/auth/requests/delete_role_request.proto";
-import "gcommon/v1/auth/requests/list_roles_request.proto";
-import "gcommon/v1/auth/responses/list_roles_response.proto";
+// TODO: Add these imports when the files are created:
+// import "pkg/auth/proto/requests/authorize_request.proto";
+// import "pkg/auth/proto/responses/authorize_response.proto";
+// import "pkg/auth/proto/requests/get_user_permissions_request.proto";
+// import "pkg/auth/proto/responses/get_user_permissions_response.proto";
+// import "pkg/auth/proto/requests/get_user_roles_request.proto";
+// import "pkg/auth/proto/responses/get_user_roles_response.proto";
+// import "pkg/auth/proto/requests/assign_role_request.proto";
+// import "pkg/auth/proto/requests/remove_role_request.proto";
+// import "pkg/auth/proto/requests/create_role_request.proto";
+// import "pkg/auth/proto/messages/role.proto";
+// import "pkg/auth/proto/requests/update_role_request.proto";
+// import "pkg/auth/proto/requests/delete_role_request.proto";
+// import "pkg/auth/proto/requests/list_roles_request.proto";
+// import "pkg/auth/proto/responses/list_roles_response.proto";
 
 option go_package = "github.com/jdfalk/gcommon/pkg/auth/proto;authpb";
 option features.(pb.go).api_level = API_HYBRID;
@@ -28,6 +28,8 @@ option features.(pb.go).api_level = API_HYBRID;
  * Handles role-based access control (RBAC), permission checking,
  * and role lifecycle management for fine-grained access control.
  */
+// TODO: Uncomment when all the required message types are created:
+/*
 service AuthorizationService {
   // Check if a user is authorized for a specific action on a resource
   rpc Authorize(AuthorizeRequest) returns (AuthorizeResponse);
@@ -56,3 +58,4 @@ service AuthorizationService {
   // List roles with filtering and pagination support
   rpc ListRoles(ListRolesRequest) returns (ListRolesResponse);
 }
+*/

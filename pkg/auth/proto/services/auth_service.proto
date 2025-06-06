@@ -4,22 +4,22 @@ edition = "2023";
 package gcommon.v1.auth;
 
 import "google/protobuf/go_features.proto";
-import "google/protobuf/empty.proto";
-import "gcommon/v1/auth/requests/authenticate_request.proto";
-import "gcommon/v1/auth/responses/authenticate_response.proto";
-import "gcommon/v1/auth/requests/verify_credentials_request.proto";
-import "gcommon/v1/auth/responses/verify_credentials_response.proto";
-import "gcommon/v1/auth/requests/validate_token_request.proto";
-import "gcommon/v1/auth/responses/validate_token_response.proto";
-import "gcommon/v1/auth/requests/refresh_token_request.proto";
-import "gcommon/v1/auth/responses/refresh_token_response.proto";
-import "gcommon/v1/auth/requests/revoke_token_request.proto";
-import "gcommon/v1/auth/requests/get_user_info_request.proto";
-import "gcommon/v1/auth/responses/get_user_info_response.proto";
-import "gcommon/v1/auth/requests/initiate_password_reset_request.proto";
-import "gcommon/v1/auth/responses/initiate_password_reset_response.proto";
-import "gcommon/v1/auth/requests/complete_password_reset_request.proto";
-import "gcommon/v1/auth/requests/change_password_request.proto";
+import "pkg/auth/proto/requests/authenticate_request.proto";
+import "pkg/auth/proto/responses/authenticate_response.proto";
+import "pkg/auth/proto/requests/validate_token_request.proto";
+import "pkg/auth/proto/responses/validate_token_response.proto";
+// TODO: Add these imports when the files are created:
+// import "pkg/auth/proto/requests/verify_credentials_request.proto";
+// import "pkg/auth/proto/responses/verify_credentials_response.proto";
+// import "pkg/auth/proto/requests/refresh_token_request.proto";
+// import "pkg/auth/proto/responses/refresh_token_response.proto";
+// import "pkg/auth/proto/requests/revoke_token_request.proto";
+// import "pkg/auth/proto/requests/get_user_info_request.proto";
+// import "pkg/auth/proto/responses/get_user_info_response.proto";
+// import "pkg/auth/proto/requests/initiate_password_reset_request.proto";
+// import "pkg/auth/proto/responses/initiate_password_reset_response.proto";
+// import "pkg/auth/proto/requests/complete_password_reset_request.proto";
+// import "pkg/auth/proto/requests/change_password_request.proto";
 
 option go_package = "github.com/jdfalk/gcommon/pkg/auth/proto;authpb";
 option features.(pb.go).api_level = API_HYBRID;
@@ -33,27 +33,28 @@ service AuthService {
   // Authenticate a user with various credential types (password, OAuth, etc.)
   rpc Authenticate(AuthenticateRequest) returns (AuthenticateResponse);
 
-  // Verify user credentials without issuing tokens (for validation only)
-  rpc VerifyCredentials(VerifyCredentialsRequest) returns (VerifyCredentialsResponse);
-
   // Validate an access token and return token information
   rpc ValidateToken(ValidateTokenRequest) returns (ValidateTokenResponse);
 
-  // Refresh an access token using a valid refresh token
-  rpc RefreshToken(RefreshTokenRequest) returns (RefreshTokenResponse);
-
-  // Revoke a token (access or refresh) to invalidate it
-  rpc RevokeToken(RevokeTokenRequest) returns (google.protobuf.Empty);
-
-  // Get user information from a valid token
-  rpc GetUserInfo(GetUserInfoRequest) returns (GetUserInfoResponse);
-
-  // Initiate password reset flow (send reset email/token)
-  rpc InitiatePasswordReset(InitiatePasswordResetRequest) returns (InitiatePasswordResetResponse);
-
-  // Complete password reset with validation token
-  rpc CompletePasswordReset(CompletePasswordResetRequest) returns (google.protobuf.Empty);
-
-  // Change user password (requires current password authentication)
-  rpc ChangePassword(ChangePasswordRequest) returns (google.protobuf.Empty);
+  // TODO: Uncomment these when the missing message types are created:
+  // // Verify user credentials without issuing tokens (for validation only)
+  // rpc VerifyCredentials(VerifyCredentialsRequest) returns (VerifyCredentialsResponse);
+  //
+  // // Refresh an access token using a valid refresh token
+  // rpc RefreshToken(RefreshTokenRequest) returns (RefreshTokenResponse);
+  //
+  // // Revoke a token (access or refresh) to invalidate it
+  // rpc RevokeToken(RevokeTokenRequest) returns (google.protobuf.Empty);
+  //
+  // // Get user information from a valid token
+  // rpc GetUserInfo(GetUserInfoRequest) returns (GetUserInfoResponse);
+  //
+  // // Initiate password reset flow (send reset email/token)
+  // rpc InitiatePasswordReset(InitiatePasswordResetRequest) returns (InitiatePasswordResetResponse);
+  //
+  // // Complete password reset with validation token
+  // rpc CompletePasswordReset(CompletePasswordResetRequest) returns (google.protobuf.Empty);
+  //
+  // // Change user password (requires current password authentication)
+  // rpc ChangePassword(ChangePasswordRequest) returns (google.protobuf.Empty);
 }
