@@ -9,6 +9,8 @@ import "google/protobuf/duration.proto";
 import "google/protobuf/empty.proto";
 import "google/protobuf/any.proto";
 import "google/protobuf/field_mask.proto";
+import "google/protobuf/go_features.proto";
+
 
 option go_package = "github.com/jdfalk/gcommon/pkg/config/proto;configpb";
 option features.(pb.go).api_level = API_HYBRID;
@@ -76,7 +78,7 @@ message GetConfigRequest {
   string namespace = 2;
 
   // Request metadata
-  gcommon.common.v1.RequestMetadata metadata = 3;
+  gcommon.v1.common.RequestMetadata metadata = 3;
 
   // Whether to decrypt encrypted values
   bool decrypt = 4;
@@ -91,7 +93,7 @@ message GetConfigResponse {
   bool found = 2;
 
   // Error information
-  gcommon.common.v1.Error error = 3;
+  gcommon.v1.common.Error error = 3;
 }
 
 // Set configuration request
@@ -100,7 +102,7 @@ message SetConfigRequest {
   string key = 1;
 
   // Configuration value
-  gcommon.common.v1.ConfigValue value = 2;
+  gcommon.v1.common.ConfigValue value = 2;
 
   // Optional namespace/environment
   string namespace = 3;
@@ -115,7 +117,7 @@ message SetConfigRequest {
   repeated string tags = 6;
 
   // Request metadata
-  gcommon.common.v1.RequestMetadata request_metadata = 7;
+  gcommon.v1.common.RequestMetadata request_metadata = 7;
 }
 
 // Set configuration response
@@ -127,7 +129,7 @@ message SetConfigResponse {
   ConfigEntry previous_entry = 2;
 
   // Error information
-  gcommon.common.v1.Error error = 3;
+  gcommon.v1.common.Error error = 3;
 }
 
 // Delete configuration request
@@ -139,7 +141,7 @@ message DeleteConfigRequest {
   string namespace = 2;
 
   // Request metadata
-  gcommon.common.v1.RequestMetadata metadata = 3;
+  gcommon.v1.common.RequestMetadata metadata = 3;
 }
 
 // List configuration request
@@ -151,16 +153,16 @@ message ListConfigRequest {
   string namespace = 2;
 
   // Pagination options
-  gcommon.common.v1.Pagination pagination = 3;
+  gcommon.v1.common.Pagination pagination = 3;
 
   // Filter options
-  gcommon.common.v1.FilterOptions filter = 4;
+  gcommon.v1.common.FilterOptions filter = 4;
 
   // Sort options
-  gcommon.common.v1.SortOptions sort = 5;
+  gcommon.v1.common.SortOptions sort = 5;
 
   // Request metadata
-  gcommon.common.v1.RequestMetadata metadata = 6;
+  gcommon.v1.common.RequestMetadata metadata = 6;
 }
 
 // List configuration response
@@ -169,10 +171,10 @@ message ListConfigResponse {
   repeated ConfigEntry entries = 1;
 
   // Pagination information
-  gcommon.common.v1.PaginatedResponse pagination = 2;
+  gcommon.v1.common.PaginatedResponse pagination = 2;
 
   // Error information
-  gcommon.common.v1.Error error = 3;
+  gcommon.v1.common.Error error = 3;
 }
 
 // Watch configuration request
@@ -184,7 +186,7 @@ message WatchConfigRequest {
   string namespace = 2;
 
   // Request metadata
-  gcommon.common.v1.RequestMetadata metadata = 3;
+  gcommon.v1.common.RequestMetadata metadata = 3;
 }
 
 // Watch configuration response
@@ -216,7 +218,7 @@ message ConfigEntry {
   string key = 1;
 
   // Configuration value
-  gcommon.common.v1.ConfigValue value = 2;
+  gcommon.v1.common.ConfigValue value = 2;
 
   // Namespace/environment
   string namespace = 3;
@@ -237,7 +239,7 @@ message ConfigEntry {
   int64 version = 8;
 
   // Entry status
-  gcommon.common.v1.ResourceStatus status = 9;
+  gcommon.v1.common.ResourceStatus status = 9;
 }
 
 // GetMultiple configuration request
@@ -252,7 +254,7 @@ message GetMultipleConfigRequest {
   bool decrypt = 3;
 
   // Request metadata
-  gcommon.common.v1.RequestMetadata metadata = 4;
+  gcommon.v1.common.RequestMetadata metadata = 4;
 }
 
 // GetMultiple configuration response
@@ -264,13 +266,13 @@ message GetMultipleConfigResponse {
   repeated string not_found = 2;
 
   // Error information
-  gcommon.common.v1.Error error = 3;
+  gcommon.v1.common.Error error = 3;
 }
 
 // SetMultiple configuration request
 message SetMultipleConfigRequest {
   // Configuration entries to set
-  map<string, gcommon.common.v1.ConfigValue> entries = 1;
+  map<string, gcommon.v1.common.ConfigValue> entries = 1;
 
   // Optional namespace/environment
   string namespace = 2;
@@ -282,7 +284,7 @@ message SetMultipleConfigRequest {
   bool encrypt = 4;
 
   // Request metadata
-  gcommon.common.v1.RequestMetadata request_metadata = 5;
+  gcommon.v1.common.RequestMetadata request_metadata = 5;
 }
 
 // SetMultiple configuration response
@@ -291,7 +293,7 @@ message SetMultipleConfigResponse {
   map<string, bool> results = 1;
 
   // Error information
-  gcommon.common.v1.Error error = 2;
+  gcommon.v1.common.Error error = 2;
 }
 
 // Validate configuration request
@@ -303,7 +305,7 @@ message ValidateConfigRequest {
   string schema_name = 2;
 
   // Request metadata
-  gcommon.common.v1.RequestMetadata metadata = 3;
+  gcommon.v1.common.RequestMetadata metadata = 3;
 }
 
 // Validate configuration response
@@ -348,7 +350,7 @@ message GetSchemaRequest {
   string name = 1;
 
   // Request metadata
-  gcommon.common.v1.RequestMetadata metadata = 2;
+  gcommon.v1.common.RequestMetadata metadata = 2;
 }
 
 // Schema response
@@ -357,7 +359,7 @@ message GetSchemaResponse {
   ConfigSchema schema = 1;
 
   // Error information
-  gcommon.common.v1.Error error = 2;
+  gcommon.v1.common.Error error = 2;
 }
 
 // Configuration schema
