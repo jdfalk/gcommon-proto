@@ -1,0 +1,27 @@
+// file: pkg/common/proto/messages/resource_reference.proto
+edition = "2023";
+
+package gcommon.v1.common;
+
+import "google/protobuf/go_features.proto";
+
+option go_package = "github.com/jdfalk/gcommon/pkg/common/proto;commonpb";
+option features.(pb.go).api_level = API_HYBRID;
+
+/**
+ * Resource reference for cross-module operations.
+ * Provides standardized way to reference resources across different modules.
+ */
+message ResourceReference {
+  // Resource type identifier (e.g., "user", "config", "queue")
+  string type = 1;
+
+  // Unique resource identifier within its type
+  string id = 2;
+
+  // Human-readable resource name
+  string name = 3;
+
+  // Module or service that owns this resource
+  string module = 4;
+}
