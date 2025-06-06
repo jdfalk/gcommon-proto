@@ -1,0 +1,25 @@
+// file: pkg/cache/proto/responses/get_response.proto
+edition = "2023";
+
+package gcommon.v1.cache;
+
+import "google/protobuf/go_features.proto";
+import "pkg/cache/proto/messages/cache_entry.proto";
+
+option go_package = "github.com/jdfalk/gcommon/pkg/cache/proto;cachepb";
+option features.(pb.go).api_level = API_HYBRID;
+
+/**
+ * Response containing a cached value and metadata.
+ * Includes cache hit/miss information and entry details.
+ */
+message GetResponse {
+  // The cached entry (only present if found)
+  CacheEntry entry = 1 [lazy = true];
+
+  // Whether the key was found in the cache
+  bool found = 2;
+
+  // Cache hit/miss information for metrics
+  bool cache_hit = 3;
+}
