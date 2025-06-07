@@ -1,0 +1,18 @@
+// filepath: pkg/web/proto/messages/compression_config.proto
+// file: web/proto/messages/compression_config.proto
+//
+// Message definitions for web module
+// TODO: Implement actual protobuf definitions
+//
+edition = "2023";
+
+package gcommon.v1.web;
+
+import "google/protobuf/go_features.proto";
+
+option go_package = "github.com/jdfalk/gcommon/pkg/web/proto;webpb";
+option features.(pb.go).api_level = API_HYBRID;
+
+// TODO: Add message definitions here
+// This is a placeholder file created during 1-1-1 migration
+// Implement the actual protobuf definitions according to the web module requirements
