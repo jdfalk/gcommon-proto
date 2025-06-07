@@ -262,6 +262,9 @@ class GitHubProjectManager:
 
         self.logger.info(f"Processing {len(labels_config)} labels...")
 
+        # Get existing labels to check if they need updating
+        existing_labels = self._check_existing_labels()
+
         success_count = 0
         total_count = len(labels_config)
 
@@ -270,8 +273,19 @@ class GitHubProjectManager:
             color = label_config["color"].lstrip("#")
             description = label_config.get("description", "")
 
-            # For labels, we'll always try to create/update with --force
-            # This is the most reliable approach since it handles both new and existing labels
+            # Check if label already exists and matches desired configuration
+            if name in existing_labels:
+                existing_label = existing_labels[name]
+                existing_color = existing_label.get("color", "").lstrip("#").lower()
+                existing_description = existing_label.get("description", "")
+                desired_color = color.lower()  # color already has # stripped above
+                
+                # Compare color and description (normalize both)
+                if existing_color == desired_color and existing_description == description:
+                    self.logger.info(f"Label '{name}' already matches desired configuration, skipping")
+                    success_count += 1
+                    continue
+
             self.logger.info(f"Creating/updating label: {name}")
             
             # First try without --force for new labels
@@ -634,7 +648,7 @@ class GitHubProjectManager:
         success_count = sum(results)
         total_count = len(results)
 
-        self.logger.info(f"\n=== Summary ===")
+        self.logger.info("\n=== Summary ===")
         self.logger.info(f"Operations completed: {success_count}/{total_count}")
 
         if success_count == total_count:
