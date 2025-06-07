@@ -51,27 +51,73 @@ if [[ -f "pkg/common/proto/common.proto" ]]; then
     echo "=== Monolithic common protobuf code generation complete ==="
 fi
 
-# Generate 1-1-1 proto files with proper include paths
-echo "=== Generating 1-1-1 protobuf code ==="
+# Check migration status and generate protobuf code accordingly
+echo "=== Analyzing protobuf migration status ==="
 
-# Find all .proto files except the monolithic ones and generate Go code
-find pkg -name "*.proto" -type f | grep -v -E "(common\.proto|auth\.proto|cache\.proto|database\.proto|config\.proto|health\.proto|log\.proto|metrics\.proto|queue\.proto|web\.proto)" | while read -r proto_file; do
-    # Get relative info
-    proto_dir=$(dirname "$proto_file")
-    proto_name=$(basename "$proto_file")
-    module_name=$(echo "$proto_dir" | cut -d'/' -f2)
+# Function to check if a module has sufficient 1-1-1 migration
+check_migration_status() {
+    local module=$1
+    local monolithic_file="pkg/${module}/proto/${module}.proto"
+    local onetoone_count=0
+    
+    # Special case for database module (monolithic file is database.proto not db.proto)
+    if [[ "$module" == "db" ]]; then
+        monolithic_file="pkg/db/proto/database.proto"
+    fi
+    
+    # Count 1-1-1 structure files (excluding monolithic file)
+    if [[ -d "pkg/${module}/proto" ]]; then
+        onetoone_count=$(find "pkg/${module}/proto" -name "*.proto" ! -name "$(basename "$monolithic_file")" 2>/dev/null | wc -l | tr -d ' ')
+    fi
+    
+    # Migration thresholds: use 1-1-1 if we have >5 files OR >50% migration
+    if [[ $onetoone_count -gt 5 ]]; then
+        echo "1-1-1"
+    elif [[ -f "$monolithic_file" ]]; then
+        echo "monolithic"
+    else
+        echo "none"
+    fi
+}
 
-    echo "=== Generating $module_name/$proto_name ==="
+# Generate protobuf code based on migration status
+modules=("auth" "cache" "config" "db" "health" "log" "metrics" "queue" "web")
 
-    # Generate Go code from proto file using project root as base
-    protoc --proto_path=. --go_out=. --go_opt=paths=source_relative \
-           --go-grpc_out=. --go-grpc_opt=paths=source_relative \
-           "$proto_file"
-
-    echo "=== $module_name/$proto_name generation complete ==="
+for module in "${modules[@]}"; do
+    status=$(check_migration_status "$module")
+    
+    case $status in
+        "1-1-1")
+            echo "=== Generating $module module (1-1-1 structure) ==="
+            find "pkg/${module}/proto" -name "*.proto" -type f | while read -r proto_file; do
+                proto_name=$(basename "$proto_file")
+                echo "=== Generating $module/$proto_name ==="
+                protoc --proto_path=. --go_out=. --go_opt=paths=source_relative \
+                       --go-grpc_out=. --go-grpc_opt=paths=source_relative \
+                       "$proto_file"
+            done
+            echo "=== $module module (1-1-1) generation complete ==="
+            ;;
+        "monolithic")
+            echo "=== Generating $module module (monolithic structure) ==="
+            if [[ "$module" == "db" ]]; then
+                monolithic_file="pkg/db/proto/database.proto"
+            else
+                monolithic_file="pkg/${module}/proto/${module}.proto"
+            fi
+            
+            if [[ -f "$monolithic_file" ]]; then
+                protoc --proto_path=. --go_out=. --go_opt=paths=source_relative \
+                       --go-grpc_out=. --go-grpc_opt=paths=source_relative \
+                       "$monolithic_file"
+                echo "=== $module module (monolithic) generation complete ==="
+            fi
+            ;;
+        "none")
+            echo "=== Skipping $module module (no proto files found) ==="
+            ;;
+    esac
 done
-
-echo "=== All 1-1-1 protobuf code generation complete ==="
 
 # ----------------------------------------
 # Mock Generation
