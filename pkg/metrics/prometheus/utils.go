@@ -167,7 +167,7 @@ func CreateRequestCounter(provider metrics.Provider, subsystem string, tags ...m
 //
 // Returns:
 //   - metrics.Histogram: A histogram for tracking response times
-func CreateResponseTimeHistogram(registry metrics.Registry, subsystem string, buckets []float64, tags ...metrics.Tag) metrics.Histogram {
+func CreateResponseTimeHistogram(provider metrics.Provider, subsystem string, buckets []float64, tags ...metrics.Tag) metrics.Histogram {
 	name := "response_time_seconds"
 	if subsystem != "" {
 		name = subsystem + "_" + name
@@ -177,13 +177,13 @@ func CreateResponseTimeHistogram(registry metrics.Registry, subsystem string, bu
 		buckets = DefaultLatencyBuckets
 	}
 
-	return registry.Histogram(
+	return provider.Histogram(
 		name,
-		append(tags, []metrics.Tag{
+		metrics.WithTags(append(tags, []metrics.Tag{
 			{Key: "status", Value: ""},
 			{Key: "method", Value: ""},
 			{Key: "path", Value: ""},
-		}...),
+		}...)...),
 		metrics.WithDescription("Response time in seconds"),
 		metrics.WithBuckets(buckets),
 	)
@@ -199,7 +199,7 @@ func CreateResponseTimeHistogram(registry metrics.Registry, subsystem string, bu
 //
 // Returns:
 //   - metrics.Histogram: A histogram for tracking response sizes
-func CreateResponseSizeHistogram(registry metrics.Registry, subsystem string, buckets []float64, tags ...metrics.Tag) metrics.Histogram {
+func CreateResponseSizeHistogram(provider metrics.Provider, subsystem string, buckets []float64, tags ...metrics.Tag) metrics.Histogram {
 	name := "response_size_bytes"
 	if subsystem != "" {
 		name = subsystem + "_" + name
@@ -209,13 +209,13 @@ func CreateResponseSizeHistogram(registry metrics.Registry, subsystem string, bu
 		buckets = DefaultSizeBuckets
 	}
 
-	return registry.Histogram(
+	return provider.Histogram(
 		name,
-		append(tags, []metrics.Tag{
+		metrics.WithTags(append(tags, []metrics.Tag{
 			{Key: "status", Value: ""},
 			{Key: "method", Value: ""},
 			{Key: "path", Value: ""},
-		}...),
+		}...)...),
 		metrics.WithDescription("Response size in bytes"),
 		metrics.WithBuckets(buckets),
 	)
@@ -230,15 +230,15 @@ func CreateResponseSizeHistogram(registry metrics.Registry, subsystem string, bu
 //
 // Returns:
 //   - metrics.Gauge: A gauge for tracking in-flight requests
-func CreateInFlightGauge(registry metrics.Registry, subsystem string, tags ...metrics.Tag) metrics.Gauge {
+func CreateInFlightGauge(provider metrics.Provider, subsystem string, tags ...metrics.Tag) metrics.Gauge {
 	name := "in_flight_requests"
 	if subsystem != "" {
 		name = subsystem + "_" + name
 	}
 
-	return registry.Gauge(
+	return provider.Gauge(
 		name,
-		tags,
+		metrics.WithTags(tags...),
 		metrics.WithDescription("Current number of in-flight requests"),
 	)
 }
@@ -444,7 +444,7 @@ func DurationToSeconds(d time.Duration) float64 {
 //
 // Returns:
 // - A struct containing all the created metrics
-func CreateHTTPServerMetrics(registry metrics.Registry, serviceName string, defaultLabels []metrics.Tag) *HTTPServerMetrics {
+func CreateHTTPServerMetrics(provider metrics.Provider, serviceName string, defaultLabels []metrics.Tag) *HTTPServerMetrics {
 	prefix := serviceName
 	if prefix != "" {
 		prefix = prefix + "_"
@@ -463,34 +463,34 @@ func CreateHTTPServerMetrics(registry metrics.Registry, serviceName string, defa
 	}
 
 	return &HTTPServerMetrics{
-		RequestsTotal: registry.Counter(
+		RequestsTotal: provider.Counter(
 			prefix+"http_requests_total",
 			labelNames,
 			metrics.WithDescription("Total number of HTTP requests"),
 		),
 
-		RequestDurationSeconds: registry.Histogram(
+		RequestDurationSeconds: provider.Histogram(
 			prefix+"http_request_duration_seconds",
 			labelNames,
 			metrics.WithDescription("HTTP request duration in seconds"),
 			metrics.WithBuckets(LatencyBuckets()),
 		),
 
-		ResponseSizeBytes: registry.Histogram(
+		ResponseSizeBytes: provider.Histogram(
 			prefix+"http_response_size_bytes",
 			labelNames,
 			metrics.WithDescription("HTTP response size in bytes"),
 			metrics.WithBuckets(SizeBuckets()),
 		),
 
-		RequestSizeBytes: registry.Histogram(
+		RequestSizeBytes: provider.Histogram(
 			prefix+"http_request_size_bytes",
 			labelNames,
 			metrics.WithDescription("HTTP request size in bytes"),
 			metrics.WithBuckets(SizeBuckets()),
 		),
 
-		InFlightRequests: registry.Gauge(
+		InFlightRequests: provider.Gauge(
 			prefix+"http_in_flight_requests",
 			[]metrics.Tag{},
 			metrics.WithDescription("Current number of in-flight HTTP requests"),
@@ -526,7 +526,7 @@ type HTTPServerMetrics struct {
 //
 // Returns:
 // - A struct containing all the created metrics
-func CreateDatabaseMetrics(registry metrics.Registry, serviceName string, defaultLabels []metrics.Tag) *DatabaseMetrics {
+func CreateDatabaseMetrics(provider metrics.Provider, serviceName string, defaultLabels []metrics.Tag) *DatabaseMetrics {
 	prefix := serviceName
 	if prefix != "" {
 		prefix = prefix + "_"
@@ -545,32 +545,32 @@ func CreateDatabaseMetrics(registry metrics.Registry, serviceName string, defaul
 	}
 
 	return &DatabaseMetrics{
-		OperationsTotal: registry.Counter(
+		OperationsTotal: provider.Counter(
 			prefix+"db_operations_total",
 			labelNames,
 			metrics.WithDescription("Total number of database operations"),
 		),
 
-		OperationErrors: registry.Counter(
+		OperationErrors: provider.Counter(
 			prefix+"db_operation_errors_total",
 			labelNames,
 			metrics.WithDescription("Total number of database operation errors"),
 		),
 
-		OperationDurationSeconds: registry.Histogram(
+		OperationDurationSeconds: provider.Histogram(
 			prefix+"db_operation_duration_seconds",
 			labelNames,
 			metrics.WithDescription("Database operation duration in seconds"),
 			metrics.WithBuckets(LatencyBuckets()),
 		),
 
-		ConnectionsOpen: registry.Gauge(
+		ConnectionsOpen: provider.Gauge(
 			prefix+"db_connections_open",
 			[]metrics.Tag{{Key: "database", Value: ""}},
 			metrics.WithDescription("Number of open database connections"),
 		),
 
-		ConnectionsMax: registry.Gauge(
+		ConnectionsMax: provider.Gauge(
 			prefix+"db_connections_max",
 			[]metrics.Tag{{Key: "database", Value: ""}},
 			metrics.WithDescription("Maximum number of open database connections"),
@@ -606,7 +606,7 @@ type DatabaseMetrics struct {
 //
 // Returns:
 // - A struct containing all the created metrics
-func CreateCacheMetrics(registry metrics.Registry, serviceName string, defaultLabels []metrics.Tag) *CacheMetrics {
+func CreateCacheMetrics(provider metrics.Provider, serviceName string, defaultLabels []metrics.Tag) *CacheMetrics {
 	prefix := serviceName
 	if prefix != "" {
 		prefix = prefix + "_"
@@ -624,38 +624,38 @@ func CreateCacheMetrics(registry metrics.Registry, serviceName string, defaultLa
 	}
 
 	return &CacheMetrics{
-		OperationsTotal: registry.Counter(
+		OperationsTotal: provider.Counter(
 			prefix+"cache_operations_total",
 			labelNames,
 			metrics.WithDescription("Total number of cache operations"),
 		),
 
-		Hits: registry.Counter(
+		Hits: provider.Counter(
 			prefix+"cache_hits_total",
 			labelNames,
 			metrics.WithDescription("Total number of cache hits"),
 		),
 
-		Misses: registry.Counter(
+		Misses: provider.Counter(
 			prefix+"cache_misses_total",
 			labelNames,
 			metrics.WithDescription("Total number of cache misses"),
 		),
 
-		OperationDurationSeconds: registry.Histogram(
+		OperationDurationSeconds: provider.Histogram(
 			prefix+"cache_operation_duration_seconds",
 			labelNames,
 			metrics.WithDescription("Cache operation duration in seconds"),
 			metrics.WithBuckets([]float64{0.0001, 0.0005, 0.001, 0.005, 0.01, 0.05, 0.1, 0.5}),
 		),
 
-		Size: registry.Gauge(
+		Size: provider.Gauge(
 			prefix+"cache_size",
 			[]metrics.Tag{{Key: "cache", Value: ""}},
 			metrics.WithDescription("Current number of items in cache"),
 		),
 
-		MemoryUsageBytes: registry.Gauge(
+		MemoryUsageBytes: provider.Gauge(
 			prefix+"cache_memory_usage_bytes",
 			[]metrics.Tag{{Key: "cache", Value: ""}},
 			metrics.WithDescription("Current memory usage of cache in bytes"),
