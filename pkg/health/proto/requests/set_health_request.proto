@@ -1,0 +1,18 @@
+// filepath: pkg/health/proto/requests/set_health_request.proto
+// file: health/proto/requests/set_health_request.proto
+//
+// Request definitions for health module
+// TODO: Implement actual protobuf definitions
+//
+edition = "2023";
+
+package gcommon.v1.health;
+
+import "google/protobuf/go_features.proto";
+
+option go_package = "github.com/jdfalk/gcommon/pkg/health/proto;healthpb";
+option features.(pb.go).api_level = API_HYBRID;
+
+// TODO: Add request definitions here
+// This is a placeholder file created during 1-1-1 migration
+// Implement the actual protobuf definitions according to the health module requirements
