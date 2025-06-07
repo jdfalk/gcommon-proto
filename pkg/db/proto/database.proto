@@ -1,0 +1,96 @@
+// file: pkg/db/proto/database.proto
+//
+// Database Module - Import Aggregator for Backward Compatibility
+//
+// MIGRATION STATUS: ✅ COMPLETE - All 51 types migrated to 1-1-1 structure
+//
+// This file serves as a backward compatibility layer that publicly re-exports
+// all database module types from their individual 1-1-1 proto files.
+//
+// USAGE:
+//   For existing code: import "pkg/db/proto/database.proto"
+//   For new code: import specific 1-1-1 files directly, e.g.:
+//     import "pkg/db/proto/services/database_service.proto"
+//     import "pkg/db/proto/requests/query_request.proto"
+//
+// STRUCTURE:
+//   Services: DatabaseService, DatabaseAdminService
+//   Messages: 47 request/response/message types
+//   Enums: ConsistencyLevel, IsolationLevel
+//   Types: 4 domain types (MigrationScript, QueryParameter, etc.)
+//
+// All imports use 'public' keyword to ensure backward compatibility.
+//
+edition = "2023";
+
+package gcommon.v1.database;
+
+// Import all 1-1-1 protobuf files with public visibility for backward compatibility
+
+// Services (2 total)
+import public "pkg/db/proto/services/database_service.proto";
+import public "pkg/db/proto/services/database_admin_service.proto";
+
+// Enums (2 total)
+import public "pkg/db/proto/enums/consistency_level.proto";
+import public "pkg/db/proto/enums/isolation_level.proto";
+
+// Messages (13 total)
+import public "pkg/db/proto/messages/batch_execute_options.proto";
+import public "pkg/db/proto/messages/batch_operation.proto";
+import public "pkg/db/proto/messages/batch_operation_result.proto";
+import public "pkg/db/proto/messages/batch_stats.proto";
+import public "pkg/db/proto/messages/connection_pool_info.proto";
+import public "pkg/db/proto/messages/database_info.proto";
+import public "pkg/db/proto/messages/execute_options.proto";
+import public "pkg/db/proto/messages/execute_stats.proto";
+import public "pkg/db/proto/messages/pool_stats.proto";
+import public "pkg/db/proto/messages/query_options.proto";
+import public "pkg/db/proto/messages/query_stats.proto";
+import public "pkg/db/proto/messages/result_set.proto";
+import public "pkg/db/proto/messages/transaction_options.proto";
+
+// Request types (18 total)
+import public "pkg/db/proto/requests/begin_transaction_request.proto";
+import public "pkg/db/proto/requests/commit_transaction_request.proto";
+import public "pkg/db/proto/requests/create_database_request.proto";
+import public "pkg/db/proto/requests/create_schema_request.proto";
+import public "pkg/db/proto/requests/drop_database_request.proto";
+import public "pkg/db/proto/requests/drop_schema_request.proto";
+import public "pkg/db/proto/requests/execute_batch_request.proto";
+import public "pkg/db/proto/requests/execute_request.proto";
+import public "pkg/db/proto/requests/get_connection_info_request.proto";
+import public "pkg/db/proto/requests/get_database_info_request.proto";
+import public "pkg/db/proto/requests/get_migration_status_request.proto";
+import public "pkg/db/proto/requests/health_check_request.proto";
+import public "pkg/db/proto/requests/list_databases_request.proto";
+import public "pkg/db/proto/requests/list_schemas_request.proto";
+import public "pkg/db/proto/requests/query_request.proto";
+import public "pkg/db/proto/requests/rollback_transaction_request.proto";
+import public "pkg/db/proto/requests/run_migration_request.proto";
+
+// Response types (13 total)
+import public "pkg/db/proto/responses/begin_transaction_response.proto";
+import public "pkg/db/proto/responses/create_database_response.proto";
+import public "pkg/db/proto/responses/create_schema_response.proto";
+import public "pkg/db/proto/responses/execute_batch_response.proto";
+import public "pkg/db/proto/responses/execute_response.proto";
+import public "pkg/db/proto/responses/get_connection_info_response.proto";
+import public "pkg/db/proto/responses/get_database_info_response.proto";
+import public "pkg/db/proto/responses/get_migration_status_response.proto";
+import public "pkg/db/proto/responses/health_check_response.proto";
+import public "pkg/db/proto/responses/list_databases_response.proto";
+import public "pkg/db/proto/responses/list_schemas_response.proto";
+import public "pkg/db/proto/responses/query_response.proto";
+import public "pkg/db/proto/responses/run_migration_response.proto";
+
+// Domain types (4 total)
+import public "pkg/db/proto/types/column_metadata.proto";
+import public "pkg/db/proto/types/migration_script.proto";
+import public "pkg/db/proto/types/query_parameter.proto";
+import public "pkg/db/proto/types/row.proto";
+
+import "google/protobuf/go_features.proto";
+
+option go_package = "github.com/jdfalk/gcommon/pkg/db/proto;dbpb";
+option features.(pb.go).api_level = API_HYBRID;
