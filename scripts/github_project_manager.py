@@ -27,11 +27,11 @@ License: MIT
 
 import argparse
 import json
+import logging
 import subprocess
 import sys
 from pathlib import Path
 from typing import Dict, List, Any, Tuple
-import logging
 
 
 class GitHubProjectManager:
@@ -79,6 +79,9 @@ class GitHubProjectManager:
         if not self.owner or not self.name:
             raise ValueError("Repository owner and name must be specified in config")
 
+        # Validate GitHub CLI availability and authentication
+        self._validate_github_cli()
+
     def _load_config(self) -> Dict[str, Any]:
         """
         Load and validate the JSON configuration file.
@@ -124,6 +127,9 @@ class GitHubProjectManager:
         try:
             if self.dry_run:
                 self.logger.info(f"DRY-RUN: Would execute: gh {' '.join(command)}")
+                # Return mock JSON for commands that expect JSON output
+                if "--json" in command or any("--format" in cmd and "json" in cmd for cmd in command):
+                    return True, "[]"  # Return empty JSON array
                 return True, "DRY-RUN: Command not executed"
 
             self.logger.debug(f"Executing: gh {' '.join(command)}")
@@ -248,6 +254,38 @@ class GitHubProjectManager:
             self.logger.warning("Could not parse existing issues JSON")
             return {}
 
+    def _normalize_color(self, color: str) -> str:
+        """
+        Normalize a color code to a consistent format for comparison.
+
+        Handles various GitHub color formats:
+        - #FFFFFF, FFFFFF, #ffffff, ffffff, #F3a324, F3a324
+        - #FFF, FFF (3-digit hex expanded to 6-digit)
+
+        Args:
+            color: Color code in any supported format
+
+        Returns:
+            Normalized color code (lowercase, no #)
+        """
+        if not color:
+            return ""
+
+        # Remove # prefix if present and convert to lowercase
+        normalized = color.lstrip("#").lower()
+
+        # Handle 3-digit hex by expanding to 6-digit (e.g., "f00" -> "ff0000")
+        if len(normalized) == 3 and all(c in "0123456789abcdef" for c in normalized):
+            normalized = ''.join(c * 2 for c in normalized)
+
+        # Ensure it's a valid 6-character hex color
+        if len(normalized) == 6 and all(c in "0123456789abcdef" for c in normalized):
+            return normalized
+
+        # If it's not a valid hex format, log warning and return as-is
+        self.logger.warning(f"Invalid color format detected: '{color}' -> '{normalized}'")
+        return normalized
+
     def create_labels(self) -> bool:
         """
         Create or update labels based on configuration.
@@ -270,24 +308,37 @@ class GitHubProjectManager:
 
         for label_config in labels_config:
             name = label_config["name"]
-            color = label_config["color"].lstrip("#")
+            color = label_config["color"]
             description = label_config.get("description", "")
 
             # Check if label already exists and matches desired configuration
             if name in existing_labels:
                 existing_label = existing_labels[name]
-                existing_color = existing_label.get("color", "").lstrip("#").lower()
+                existing_color = existing_label.get("color", "")
                 existing_description = existing_label.get("description", "")
-                desired_color = color.lower()  # color already has # stripped above
-                
-                # Compare color and description (normalize both)
-                if existing_color == desired_color and existing_description == description:
+
+                # Normalize colors for accurate comparison
+                normalized_existing_color = self._normalize_color(existing_color)
+                normalized_desired_color = self._normalize_color(color)
+
+                # Normalize descriptions (handle None/empty cases)
+                normalized_existing_desc = existing_description or ""
+                normalized_desired_desc = description or ""
+
+                # Compare normalized color and description
+                if (normalized_existing_color == normalized_desired_color and
+                    normalized_existing_desc == normalized_desired_desc):
                     self.logger.info(f"Label '{name}' already matches desired configuration, skipping")
                     success_count += 1
                     continue
+                else:
+                    self.logger.info(f"Label '{name}' exists but differs - updating (color: {existing_color} -> {color}, desc: '{existing_description}' -> '{description}')")
 
             self.logger.info(f"Creating/updating label: {name}")
-            
+
+            # Ensure color is properly formatted (strip # for gh command)
+            color_for_command = color.lstrip("#")
+
             # First try without --force for new labels
             success, output = self._run_gh_command(
                 [
@@ -297,12 +348,12 @@ class GitHubProjectManager:
                     "--repo",
                     f"{self.owner}/{self.name}",
                     "--color",
-                    color,
+                    color_for_command,
                     "--description",
                     description,
                 ]
             )
-            
+
             if success:
                 success_count += 1
                 self.logger.info(f"Created label: {name}")
@@ -317,7 +368,7 @@ class GitHubProjectManager:
                         "--repo",
                         f"{self.owner}/{self.name}",
                         "--color",
-                        color,
+                        color_for_command,
                         "--description",
                         description,
                         "--force",
@@ -426,7 +477,6 @@ class GitHubProjectManager:
 
         for project_config in projects_config:
             title = project_config["title"]
-            body = project_config.get("body", "")
 
             if title in existing_projects:
                 self.logger.info(f"Project already exists (skipping): {title}")
@@ -441,8 +491,6 @@ class GitHubProjectManager:
                         self.owner,
                         "--title",
                         title,
-                        "--body",
-                        body,
                     ]
                 )
                 if success:
@@ -658,6 +706,72 @@ class GitHubProjectManager:
             self.logger.error("⚠️  Some operations failed. Check the log for details.")
             return False
 
+    def _validate_github_cli(self) -> bool:
+        """
+        Validate that GitHub CLI is installed and authenticated.
+
+        Returns:
+            True if GitHub CLI is available and authenticated
+
+        Raises:
+            RuntimeError: If GitHub CLI is not available or not authenticated
+        """
+        if self.dry_run:
+            self.logger.info("DRY-RUN: Skipping GitHub CLI validation")
+            return True
+
+        # Check if gh command exists
+        try:
+            result = subprocess.run(
+                ["gh", "--version"],
+                capture_output=True,
+                text=True,
+                check=True
+            )
+            version_info = result.stdout.strip()
+            self.logger.debug(f"GitHub CLI version: {version_info}")
+        except FileNotFoundError:
+            raise RuntimeError(
+                "GitHub CLI (gh) not found. Please install it from https://cli.github.com/"
+            )
+        except subprocess.CalledProcessError as e:
+            raise RuntimeError(f"GitHub CLI version check failed: {e}")
+
+        # Check authentication status
+        try:
+            result = subprocess.run(
+                ["gh", "auth", "status"],
+                capture_output=True,
+                text=True,
+                check=True
+            )
+            auth_info = result.stderr.strip()  # gh auth status outputs to stderr
+            self.logger.debug(f"GitHub CLI auth status: {auth_info}")
+        except subprocess.CalledProcessError:
+            raise RuntimeError(
+                "GitHub CLI not authenticated. Please run 'gh auth login' first."
+            )
+
+        # Verify repository access
+        try:
+            result = subprocess.run(
+                ["gh", "repo", "view", f"{self.owner}/{self.name}", "--json", "name"],
+                capture_output=True,
+                text=True,
+                check=True
+            )
+            repo_info = json.loads(result.stdout)
+            if repo_info.get("name") != self.name:
+                raise RuntimeError(f"Repository access verification failed for {self.owner}/{self.name}")
+
+            self.logger.info(f"✅ GitHub CLI validated for repository {self.owner}/{self.name}")
+            return True
+
+        except subprocess.CalledProcessError:
+            raise RuntimeError(
+                f"Cannot access repository {self.owner}/{self.name}. "
+                f"Please check repository name and permissions."
+            )
 
 def main():
     """Main entry point for the GitHub Project Manager."""
@@ -705,6 +819,9 @@ Examples:
             force_update=args.force_update,
             dry_run=args.dry_run,
         )
+
+        # Validate GitHub CLI installation and authentication
+        manager._validate_github_cli()
 
         success = manager.run_all()
         sys.exit(0 if success else 1)

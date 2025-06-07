@@ -11,7 +11,31 @@ A comprehensive Python script for automating GitHub project setup and management
 - **Comprehensive logging**: Detailed logs of all operations
 - **Cross-repository reusable**: Use the same script across different repositories
 - **Validation**: JSON schema validation for configuration files
+- **Enhanced color normalization**: Robust color handling for GitHub labels
+- **GitHub CLI validation**: Automatic validation of GitHub CLI installation and authentication
 - **Error handling**: Robust error handling with clear messages
+
+## Recent Improvements
+
+### Color Normalization Enhancement
+
+- **3-digit hex expansion**: Automatically expands 3-digit hex colors (e.g., "#F00" → "#FF0000")
+- **Format consistency**: Handles various GitHub color formats (#FFFFFF, FFFFFF, #fff, fff)
+- **Case insensitive**: Properly compares colors regardless of case
+- **Invalid format handling**: Gracefully handles invalid color formats with warnings
+
+### GitHub CLI Validation
+
+- **Automatic validation**: Checks GitHub CLI installation and authentication at startup
+- **Repository access verification**: Validates access to the target repository
+- **Dry-run mode bypass**: Skips validation in dry-run mode for testing configurations
+- **Clear error messages**: Provides actionable error messages for common issues
+
+### Enhanced Error Handling
+
+- **JSON parsing improvements**: Better handling of empty responses in dry-run mode
+- **Graceful degradation**: Continues operation when non-critical errors occur
+- **Detailed logging**: Comprehensive logging for troubleshooting
 
 ## Prerequisites
 
