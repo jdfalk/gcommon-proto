@@ -1,0 +1,18 @@
+// filepath: pkg/cache/proto/requests/unwatch_request.proto
+// file: cache/proto/requests/unwatch_request.proto
+//
+// Request definitions for cache module
+// TODO: Implement actual protobuf definitions
+//
+edition = "2023";
+
+package gcommon.v1.cache;
+
+import "google/protobuf/go_features.proto";
+
+option go_package = "github.com/jdfalk/gcommon/pkg/cache/proto;cachepb";
+option features.(pb.go).api_level = API_HYBRID;
+
+// TODO: Add request definitions here
+// This is a placeholder file created during 1-1-1 migration
+// Implement the actual protobuf definitions according to the cache module requirements
