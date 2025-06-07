@@ -1,0 +1,18 @@
+// filepath: pkg/metrics/proto/responses/record_histogram_response.proto
+// file: metrics/proto/responses/record_histogram_response.proto
+//
+// Response definitions for metrics module
+// TODO: Implement actual protobuf definitions
+//
+edition = "2023";
+
+package gcommon.v1.metrics;
+
+import "google/protobuf/go_features.proto";
+
+option go_package = "github.com/jdfalk/gcommon/pkg/metrics/proto;metricspb";
+option features.(pb.go).api_level = API_HYBRID;
+
+// TODO: Add response definitions here
+// This is a placeholder file created during 1-1-1 migration
+// Implement the actual protobuf definitions according to the metrics module requirements
