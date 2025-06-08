@@ -1,0 +1,30 @@
+// filepath: pkg/notification/proto/messages/subscription_preferences.proto
+// file: notification/proto/messages/subscription_preferences.proto
+//
+// Subscription preferences for receiving notifications.
+edition = "2023";
+
+package gcommon.v1.notification;
+
+import "google/protobuf/go_features.proto";
+import "pkg/notification/proto/messages/delivery_channel.proto";
+
+option go_package = "github.com/jdfalk/gcommon/pkg/notification/proto;notificationpb";
+option features.(pb.go).api_level = API_HYBRID;
+
+/**
+ * User subscription preferences for event notifications.
+ */
+message SubscriptionPreferences {
+  // User or entity identifier
+  string user_id = 1;
+
+  // Enabled delivery channels
+  repeated DeliveryChannelType channels = 2;
+
+  // Subscribed event types
+  repeated string events = 3;
+
+  // Additional arbitrary preferences
+  map<string, string> metadata = 4 [lazy = true];
+}
