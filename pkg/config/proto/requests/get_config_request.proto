@@ -10,22 +10,18 @@ option go_package = "github.com/jdfalk/gcommon/pkg/config/proto;configpb";
 option features.(pb.go).api_level = API_HYBRID;
 
 /**
- * Request to retrieve a configuration value.
- * Supports hierarchical key lookup and environment-specific overrides.
+ * GetConfigRequest retrieves a single configuration value.
  */
 message GetConfigRequest {
-  // Configuration key (supports dot notation for hierarchy)
+  // Configuration key
   string key = 1;
 
-  // Environment context (e.g., "dev", "staging", "prod")
-  string environment = 2;
+  // Optional namespace/environment
+  string namespace = 2;
 
-  // Service/module context for scoped configuration
-  string service = 3;
+  // Request metadata
+  gcommon.v1.common.RequestMetadata metadata = 3;
 
-  // Request metadata for tracing and correlation
-  gcommon.v1.common.RequestMetadata metadata = 4 [lazy = true];
-
-  // Whether to include metadata in response
-  bool include_metadata = 5;
+  // Whether to decrypt encrypted values
+  bool decrypt = 4;
 }
