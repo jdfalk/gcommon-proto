@@ -16,6 +16,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - **Auth Module**: Partial implementation (16/48 types) with core authentication services functional
 - **Health Module**: Full Kubernetes integration and Prometheus metrics support
 - **Documentation**: Comprehensive technical design documents and implementation guides
+- **Automated Issue Management**: GitHub Actions workflow for programmatic issue updates via JSON files
+
+### Changed
+
+- **Issue Management Process**: Now supports automated issue creation, updates, and closure via `issue_updates.json`
+- **Development Workflow**: Enhanced with automated issue tracking requiring status updates for all work
 
 ### Current Implementation Status (June 2025)
 
@@ -44,6 +50,29 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 2. Enable gRPC service functionality across the stack
 3. Standardize error handling with common types
 4. Add request metadata to all service methods
+
+### Developer Workflow (June 2025)
+
+**🤖 Automated Issue Management**: All work now requires proper issue status tracking using the automated GitHub Actions workflow.
+
+**Required Process for All Development Work**:
+
+1. **Start Task**: Assign issue to yourself, mark "in-progress"
+2. **During Work**: Reference issue numbers in commits, update progress
+3. **Complete Task**: Close issue with completion summary, mark "completed"
+
+**Issue Updates via JSON**: Create `issue_updates.json` with actions (create, update, delete) and push to main branch for automatic processing.
+
+**Example Workflow**:
+```bash
+# Starting work on issue #68
+echo '[{"action": "update", "number": 68, "assignees": ["username"], "labels": ["in-progress"]}]' > issue_updates.json
+git add . && git commit -m "Start work on issue #68: Metrics Messages" && git push
+
+# Completing work
+echo '[{"action": "update", "number": 68, "state": "closed", "labels": ["completed"]}]' > issue_updates.json
+git add . && git commit -m "Complete issue #68: Implemented all metrics message types" && git push
+```
 
 ### Fixed
 
