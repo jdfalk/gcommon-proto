@@ -8,13 +8,18 @@ edition = "2023";
 package gcommon.v1.health;
 
 import "google/protobuf/go_features.proto";
-import "google/protobuf/empty.proto";
 import "pkg/health/proto/requests/configure_alerting_request.proto";
 import "pkg/health/proto/requests/enable_check_request.proto";
 import "pkg/health/proto/requests/disable_check_request.proto";
 import "pkg/health/proto/requests/reset_health_stats_request.proto";
 import "pkg/health/proto/requests/set_health_request.proto";
 import "pkg/health/proto/requests/run_check_request.proto";
+import "pkg/health/proto/responses/configure_alerting_response.proto";
+import "pkg/health/proto/responses/enable_check_response.proto";
+import "pkg/health/proto/responses/disable_check_response.proto";
+import "pkg/health/proto/responses/reset_health_stats_response.proto";
+import "pkg/health/proto/responses/set_health_response.proto";
+import "pkg/health/proto/responses/run_check_response.proto";
 
 option go_package = "github.com/jdfalk/gcommon/pkg/health/proto;healthpb";
 option features.(pb.go).api_level = API_HYBRID;
@@ -25,20 +30,20 @@ option features.(pb.go).api_level = API_HYBRID;
  */
 service HealthAdminService {
   // Configure alerting for a check or service
-  rpc ConfigureAlerting(ConfigureAlertingRequest) returns (google.protobuf.Empty);
+  rpc ConfigureAlerting(ConfigureAlertingRequest) returns (ConfigureAlertingResponse);
 
   // Enable a previously disabled check
-  rpc EnableCheck(EnableCheckRequest) returns (google.protobuf.Empty);
+  rpc EnableCheck(EnableCheckRequest) returns (EnableCheckResponse);
 
   // Disable an existing check
-  rpc DisableCheck(DisableCheckRequest) returns (google.protobuf.Empty);
+  rpc DisableCheck(DisableCheckRequest) returns (DisableCheckResponse);
 
   // Manually run a health check
-  rpc RunCheck(RunCheckRequest) returns (google.protobuf.Empty);
+  rpc RunCheck(RunCheckRequest) returns (RunCheckResponse);
 
   // Reset stored health statistics
-  rpc ResetHealthStats(ResetHealthStatsRequest) returns (google.protobuf.Empty);
+  rpc ResetHealthStats(ResetHealthStatsRequest) returns (ResetHealthStatsResponse);
 
   // Manually set the overall health status
-  rpc SetHealth(SetHealthRequest) returns (google.protobuf.Empty);
+  rpc SetHealth(SetHealthRequest) returns (SetHealthResponse);
 }
