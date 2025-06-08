@@ -1,18 +1,24 @@
-version: v1
-breaking:
-  use:
-    - FILE
+version: v2
+modules:
+  - path: .
+    excludes:
+      - pkg/test
 lint:
   use:
     - DEFAULT
   except:
+    - FIELD_NOT_REQUIRED
     - PACKAGE_DIRECTORY_MATCH
+    - PACKAGE_NO_IMPORT_CYCLE
     - PACKAGE_VERSION_SUFFIX
   enum_zero_value_suffix: _UNSPECIFIED
-  rpc_allow_same_request_response: false
   rpc_allow_google_protobuf_empty_requests: true
   rpc_allow_google_protobuf_empty_responses: true
   service_suffix: Service
-build:
-  excludes:
-    - "pkg/test"
+  disallow_comment_ignores: true
+breaking:
+  use:
+    - FILE
+  except:
+    - EXTENSION_NO_DELETE
+    - FIELD_SAME_DEFAULT
