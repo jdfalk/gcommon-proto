@@ -4,7 +4,7 @@
 // 	protoc        (unknown)
 // source: pkg/health/proto/responses/run_check_response.proto
 
-//go:build !protoopaque
+//go:build protoopaque
 
 package responses
 
@@ -30,23 +30,18 @@ const (
 // Response message for manually running a health check.
 // Contains the result of executing a health check on demand.
 type RunCheckResponse struct {
-	state protoimpl.MessageState `protogen:"hybrid.v1"`
-	// Success status
-	Success *bool `protobuf:"varint,1,opt,name=success" json:"success,omitempty"`
-	// Check ID that was executed
-	CheckId *string `protobuf:"bytes,2,opt,name=check_id,json=checkId" json:"check_id,omitempty"`
-	// Health status result
-	Status *proto.HealthStatus `protobuf:"varint,3,opt,name=status,enum=gcommon.v1.common.HealthStatus" json:"status,omitempty"`
-	// Execution timestamp
-	ExecutedAt *timestamppb.Timestamp `protobuf:"bytes,4,opt,name=executed_at,json=executedAt" json:"executed_at,omitempty"`
-	// Execution duration
-	ExecutionTime *durationpb.Duration `protobuf:"bytes,5,opt,name=execution_time,json=executionTime" json:"execution_time,omitempty"`
-	// Check result message
-	Message *string `protobuf:"bytes,6,opt,name=message" json:"message,omitempty"`
-	// Error information if check failed
-	Error         *proto.Error `protobuf:"bytes,7,opt,name=error" json:"error,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
+	state                    protoimpl.MessageState `protogen:"opaque.v1"`
+	xxx_hidden_Success       bool                   `protobuf:"varint,1,opt,name=success"`
+	xxx_hidden_CheckId       *string                `protobuf:"bytes,2,opt,name=check_id,json=checkId"`
+	xxx_hidden_Status        proto.HealthStatus     `protobuf:"varint,3,opt,name=status,enum=gcommon.v1.common.HealthStatus"`
+	xxx_hidden_ExecutedAt    *timestamppb.Timestamp `protobuf:"bytes,4,opt,name=executed_at,json=executedAt"`
+	xxx_hidden_ExecutionTime *durationpb.Duration   `protobuf:"bytes,5,opt,name=execution_time,json=executionTime"`
+	xxx_hidden_Message       *string                `protobuf:"bytes,6,opt,name=message"`
+	xxx_hidden_Error         *proto.Error           `protobuf:"bytes,7,opt,name=error"`
+	XXX_raceDetectHookData   protoimpl.RaceDetectHookData
+	XXX_presence             [1]uint32
+	unknownFields            protoimpl.UnknownFields
+	sizeCache                protoimpl.SizeCache
 }
 
 func (x *RunCheckResponse) Reset() {
@@ -75,157 +70,173 @@ func (x *RunCheckResponse) ProtoReflect() protoreflect.Message {
 }
 
 func (x *RunCheckResponse) GetSuccess() bool {
-	if x != nil && x.Success != nil {
-		return *x.Success
+	if x != nil {
+		return x.xxx_hidden_Success
 	}
 	return false
 }
 
 func (x *RunCheckResponse) GetCheckId() string {
-	if x != nil && x.CheckId != nil {
-		return *x.CheckId
+	if x != nil {
+		if x.xxx_hidden_CheckId != nil {
+			return *x.xxx_hidden_CheckId
+		}
+		return ""
 	}
 	return ""
 }
 
 func (x *RunCheckResponse) GetStatus() proto.HealthStatus {
-	if x != nil && x.Status != nil {
-		return *x.Status
+	if x != nil {
+		if protoimpl.X.Present(&(x.XXX_presence[0]), 2) {
+			return x.xxx_hidden_Status
+		}
 	}
 	return proto.HealthStatus(0)
 }
 
 func (x *RunCheckResponse) GetExecutedAt() *timestamppb.Timestamp {
 	if x != nil {
-		return x.ExecutedAt
+		return x.xxx_hidden_ExecutedAt
 	}
 	return nil
 }
 
 func (x *RunCheckResponse) GetExecutionTime() *durationpb.Duration {
 	if x != nil {
-		return x.ExecutionTime
+		return x.xxx_hidden_ExecutionTime
 	}
 	return nil
 }
 
 func (x *RunCheckResponse) GetMessage() string {
-	if x != nil && x.Message != nil {
-		return *x.Message
+	if x != nil {
+		if x.xxx_hidden_Message != nil {
+			return *x.xxx_hidden_Message
+		}
+		return ""
 	}
 	return ""
 }
 
 func (x *RunCheckResponse) GetError() *proto.Error {
 	if x != nil {
-		return x.Error
+		return x.xxx_hidden_Error
 	}
 	return nil
 }
 
 func (x *RunCheckResponse) SetSuccess(v bool) {
-	x.Success = &v
+	x.xxx_hidden_Success = v
+	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 0, 7)
 }
 
 func (x *RunCheckResponse) SetCheckId(v string) {
-	x.CheckId = &v
+	x.xxx_hidden_CheckId = &v
+	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 1, 7)
 }
 
 func (x *RunCheckResponse) SetStatus(v proto.HealthStatus) {
-	x.Status = &v
+	x.xxx_hidden_Status = v
+	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 2, 7)
 }
 
 func (x *RunCheckResponse) SetExecutedAt(v *timestamppb.Timestamp) {
-	x.ExecutedAt = v
+	x.xxx_hidden_ExecutedAt = v
 }
 
 func (x *RunCheckResponse) SetExecutionTime(v *durationpb.Duration) {
-	x.ExecutionTime = v
+	x.xxx_hidden_ExecutionTime = v
 }
 
 func (x *RunCheckResponse) SetMessage(v string) {
-	x.Message = &v
+	x.xxx_hidden_Message = &v
+	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 5, 7)
 }
 
 func (x *RunCheckResponse) SetError(v *proto.Error) {
-	x.Error = v
+	x.xxx_hidden_Error = v
 }
 
 func (x *RunCheckResponse) HasSuccess() bool {
 	if x == nil {
 		return false
 	}
-	return x.Success != nil
+	return protoimpl.X.Present(&(x.XXX_presence[0]), 0)
 }
 
 func (x *RunCheckResponse) HasCheckId() bool {
 	if x == nil {
 		return false
 	}
-	return x.CheckId != nil
+	return protoimpl.X.Present(&(x.XXX_presence[0]), 1)
 }
 
 func (x *RunCheckResponse) HasStatus() bool {
 	if x == nil {
 		return false
 	}
-	return x.Status != nil
+	return protoimpl.X.Present(&(x.XXX_presence[0]), 2)
 }
 
 func (x *RunCheckResponse) HasExecutedAt() bool {
 	if x == nil {
 		return false
 	}
-	return x.ExecutedAt != nil
+	return x.xxx_hidden_ExecutedAt != nil
 }
 
 func (x *RunCheckResponse) HasExecutionTime() bool {
 	if x == nil {
 		return false
 	}
-	return x.ExecutionTime != nil
+	return x.xxx_hidden_ExecutionTime != nil
 }
 
 func (x *RunCheckResponse) HasMessage() bool {
 	if x == nil {
 		return false
 	}
-	return x.Message != nil
+	return protoimpl.X.Present(&(x.XXX_presence[0]), 5)
 }
 
 func (x *RunCheckResponse) HasError() bool {
 	if x == nil {
 		return false
 	}
-	return x.Error != nil
+	return x.xxx_hidden_Error != nil
 }
 
 func (x *RunCheckResponse) ClearSuccess() {
-	x.Success = nil
+	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 0)
+	x.xxx_hidden_Success = false
 }
 
 func (x *RunCheckResponse) ClearCheckId() {
-	x.CheckId = nil
+	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 1)
+	x.xxx_hidden_CheckId = nil
 }
 
 func (x *RunCheckResponse) ClearStatus() {
-	x.Status = nil
+	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 2)
+	x.xxx_hidden_Status = proto.HealthStatus_HEALTH_STATUS_UNSPECIFIED
 }
 
 func (x *RunCheckResponse) ClearExecutedAt() {
-	x.ExecutedAt = nil
+	x.xxx_hidden_ExecutedAt = nil
 }
 
 func (x *RunCheckResponse) ClearExecutionTime() {
-	x.ExecutionTime = nil
+	x.xxx_hidden_ExecutionTime = nil
 }
 
 func (x *RunCheckResponse) ClearMessage() {
-	x.Message = nil
+	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 5)
+	x.xxx_hidden_Message = nil
 }
 
 func (x *RunCheckResponse) ClearError() {
-	x.Error = nil
+	x.xxx_hidden_Error = nil
 }
 
 type RunCheckResponse_builder struct {
@@ -251,13 +262,25 @@ func (b0 RunCheckResponse_builder) Build() *RunCheckResponse {
 	m0 := &RunCheckResponse{}
 	b, x := &b0, m0
 	_, _ = b, x
-	x.Success = b.Success
-	x.CheckId = b.CheckId
-	x.Status = b.Status
-	x.ExecutedAt = b.ExecutedAt
-	x.ExecutionTime = b.ExecutionTime
-	x.Message = b.Message
-	x.Error = b.Error
+	if b.Success != nil {
+		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 0, 7)
+		x.xxx_hidden_Success = *b.Success
+	}
+	if b.CheckId != nil {
+		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 1, 7)
+		x.xxx_hidden_CheckId = b.CheckId
+	}
+	if b.Status != nil {
+		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 2, 7)
+		x.xxx_hidden_Status = *b.Status
+	}
+	x.xxx_hidden_ExecutedAt = b.ExecutedAt
+	x.xxx_hidden_ExecutionTime = b.ExecutionTime
+	if b.Message != nil {
+		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 5, 7)
+		x.xxx_hidden_Message = b.Message
+	}
+	x.xxx_hidden_Error = b.Error
 	return m0
 }
 

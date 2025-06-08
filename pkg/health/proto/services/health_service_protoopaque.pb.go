@@ -4,7 +4,7 @@
 // 	protoc        (unknown)
 // source: pkg/health/proto/services/health_service.proto
 
-//go:build !protoopaque
+//go:build protoopaque
 
 package services
 

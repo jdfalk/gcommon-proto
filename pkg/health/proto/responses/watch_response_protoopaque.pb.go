@@ -4,7 +4,7 @@
 // 	protoc        (unknown)
 // source: pkg/health/proto/responses/watch_response.proto
 
-//go:build !protoopaque
+//go:build protoopaque
 
 package responses
 
@@ -37,25 +37,19 @@ const (
 // - Detailed check results and metrics
 // - Error information for unhealthy services
 type WatchResponse struct {
-	state protoimpl.MessageState `protogen:"hybrid.v1"`
-	// Overall health status
-	Status *proto.HealthStatus `protobuf:"varint,1,opt,name=status,enum=gcommon.v1.common.HealthStatus" json:"status,omitempty"`
-	// Service name
-	Service *string `protobuf:"bytes,2,opt,name=service" json:"service,omitempty"`
-	// Check timestamp
-	Timestamp *timestamppb.Timestamp `protobuf:"bytes,3,opt,name=timestamp" json:"timestamp,omitempty"`
-	// Response time
-	ResponseTime *durationpb.Duration `protobuf:"bytes,4,opt,name=response_time,json=responseTime" json:"response_time,omitempty"`
-	// Detailed check results
-	CheckResults []*messages.CheckResult `protobuf:"bytes,5,rep,name=check_results,json=checkResults" json:"check_results,omitempty"`
-	// Health message
-	Message *string `protobuf:"bytes,6,opt,name=message" json:"message,omitempty"`
-	// Error information if unhealthy
-	Error *proto.Error `protobuf:"bytes,7,opt,name=error" json:"error,omitempty"`
-	// Health metrics
-	Metrics       *messages.HealthMetrics `protobuf:"bytes,8,opt,name=metrics" json:"metrics,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
+	state                   protoimpl.MessageState   `protogen:"opaque.v1"`
+	xxx_hidden_Status       proto.HealthStatus       `protobuf:"varint,1,opt,name=status,enum=gcommon.v1.common.HealthStatus"`
+	xxx_hidden_Service      *string                  `protobuf:"bytes,2,opt,name=service"`
+	xxx_hidden_Timestamp    *timestamppb.Timestamp   `protobuf:"bytes,3,opt,name=timestamp"`
+	xxx_hidden_ResponseTime *durationpb.Duration     `protobuf:"bytes,4,opt,name=response_time,json=responseTime"`
+	xxx_hidden_CheckResults *[]*messages.CheckResult `protobuf:"bytes,5,rep,name=check_results,json=checkResults"`
+	xxx_hidden_Message      *string                  `protobuf:"bytes,6,opt,name=message"`
+	xxx_hidden_Error        *proto.Error             `protobuf:"bytes,7,opt,name=error"`
+	xxx_hidden_Metrics      *messages.HealthMetrics  `protobuf:"bytes,8,opt,name=metrics"`
+	XXX_raceDetectHookData  protoimpl.RaceDetectHookData
+	XXX_presence            [1]uint32
+	unknownFields           protoimpl.UnknownFields
+	sizeCache               protoimpl.SizeCache
 }
 
 func (x *WatchResponse) Reset() {
@@ -84,168 +78,184 @@ func (x *WatchResponse) ProtoReflect() protoreflect.Message {
 }
 
 func (x *WatchResponse) GetStatus() proto.HealthStatus {
-	if x != nil && x.Status != nil {
-		return *x.Status
+	if x != nil {
+		if protoimpl.X.Present(&(x.XXX_presence[0]), 0) {
+			return x.xxx_hidden_Status
+		}
 	}
 	return proto.HealthStatus(0)
 }
 
 func (x *WatchResponse) GetService() string {
-	if x != nil && x.Service != nil {
-		return *x.Service
+	if x != nil {
+		if x.xxx_hidden_Service != nil {
+			return *x.xxx_hidden_Service
+		}
+		return ""
 	}
 	return ""
 }
 
 func (x *WatchResponse) GetTimestamp() *timestamppb.Timestamp {
 	if x != nil {
-		return x.Timestamp
+		return x.xxx_hidden_Timestamp
 	}
 	return nil
 }
 
 func (x *WatchResponse) GetResponseTime() *durationpb.Duration {
 	if x != nil {
-		return x.ResponseTime
+		return x.xxx_hidden_ResponseTime
 	}
 	return nil
 }
 
 func (x *WatchResponse) GetCheckResults() []*messages.CheckResult {
 	if x != nil {
-		return x.CheckResults
+		if x.xxx_hidden_CheckResults != nil {
+			return *x.xxx_hidden_CheckResults
+		}
 	}
 	return nil
 }
 
 func (x *WatchResponse) GetMessage() string {
-	if x != nil && x.Message != nil {
-		return *x.Message
+	if x != nil {
+		if x.xxx_hidden_Message != nil {
+			return *x.xxx_hidden_Message
+		}
+		return ""
 	}
 	return ""
 }
 
 func (x *WatchResponse) GetError() *proto.Error {
 	if x != nil {
-		return x.Error
+		return x.xxx_hidden_Error
 	}
 	return nil
 }
 
 func (x *WatchResponse) GetMetrics() *messages.HealthMetrics {
 	if x != nil {
-		return x.Metrics
+		return x.xxx_hidden_Metrics
 	}
 	return nil
 }
 
 func (x *WatchResponse) SetStatus(v proto.HealthStatus) {
-	x.Status = &v
+	x.xxx_hidden_Status = v
+	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 0, 8)
 }
 
 func (x *WatchResponse) SetService(v string) {
-	x.Service = &v
+	x.xxx_hidden_Service = &v
+	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 1, 8)
 }
 
 func (x *WatchResponse) SetTimestamp(v *timestamppb.Timestamp) {
-	x.Timestamp = v
+	x.xxx_hidden_Timestamp = v
 }
 
 func (x *WatchResponse) SetResponseTime(v *durationpb.Duration) {
-	x.ResponseTime = v
+	x.xxx_hidden_ResponseTime = v
 }
 
 func (x *WatchResponse) SetCheckResults(v []*messages.CheckResult) {
-	x.CheckResults = v
+	x.xxx_hidden_CheckResults = &v
 }
 
 func (x *WatchResponse) SetMessage(v string) {
-	x.Message = &v
+	x.xxx_hidden_Message = &v
+	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 5, 8)
 }
 
 func (x *WatchResponse) SetError(v *proto.Error) {
-	x.Error = v
+	x.xxx_hidden_Error = v
 }
 
 func (x *WatchResponse) SetMetrics(v *messages.HealthMetrics) {
-	x.Metrics = v
+	x.xxx_hidden_Metrics = v
 }
 
 func (x *WatchResponse) HasStatus() bool {
 	if x == nil {
 		return false
 	}
-	return x.Status != nil
+	return protoimpl.X.Present(&(x.XXX_presence[0]), 0)
 }
 
 func (x *WatchResponse) HasService() bool {
 	if x == nil {
 		return false
 	}
-	return x.Service != nil
+	return protoimpl.X.Present(&(x.XXX_presence[0]), 1)
 }
 
 func (x *WatchResponse) HasTimestamp() bool {
 	if x == nil {
 		return false
 	}
-	return x.Timestamp != nil
+	return x.xxx_hidden_Timestamp != nil
 }
 
 func (x *WatchResponse) HasResponseTime() bool {
 	if x == nil {
 		return false
 	}
-	return x.ResponseTime != nil
+	return x.xxx_hidden_ResponseTime != nil
 }
 
 func (x *WatchResponse) HasMessage() bool {
 	if x == nil {
 		return false
 	}
-	return x.Message != nil
+	return protoimpl.X.Present(&(x.XXX_presence[0]), 5)
 }
 
 func (x *WatchResponse) HasError() bool {
 	if x == nil {
 		return false
 	}
-	return x.Error != nil
+	return x.xxx_hidden_Error != nil
 }
 
 func (x *WatchResponse) HasMetrics() bool {
 	if x == nil {
 		return false
 	}
-	return x.Metrics != nil
+	return x.xxx_hidden_Metrics != nil
 }
 
 func (x *WatchResponse) ClearStatus() {
-	x.Status = nil
+	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 0)
+	x.xxx_hidden_Status = proto.HealthStatus_HEALTH_STATUS_UNSPECIFIED
 }
 
 func (x *WatchResponse) ClearService() {
-	x.Service = nil
+	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 1)
+	x.xxx_hidden_Service = nil
 }
 
 func (x *WatchResponse) ClearTimestamp() {
-	x.Timestamp = nil
+	x.xxx_hidden_Timestamp = nil
 }
 
 func (x *WatchResponse) ClearResponseTime() {
-	x.ResponseTime = nil
+	x.xxx_hidden_ResponseTime = nil
 }
 
 func (x *WatchResponse) ClearMessage() {
-	x.Message = nil
+	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 5)
+	x.xxx_hidden_Message = nil
 }
 
 func (x *WatchResponse) ClearError() {
-	x.Error = nil
+	x.xxx_hidden_Error = nil
 }
 
 func (x *WatchResponse) ClearMetrics() {
-	x.Metrics = nil
+	x.xxx_hidden_Metrics = nil
 }
 
 type WatchResponse_builder struct {
@@ -273,14 +283,23 @@ func (b0 WatchResponse_builder) Build() *WatchResponse {
 	m0 := &WatchResponse{}
 	b, x := &b0, m0
 	_, _ = b, x
-	x.Status = b.Status
-	x.Service = b.Service
-	x.Timestamp = b.Timestamp
-	x.ResponseTime = b.ResponseTime
-	x.CheckResults = b.CheckResults
-	x.Message = b.Message
-	x.Error = b.Error
-	x.Metrics = b.Metrics
+	if b.Status != nil {
+		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 0, 8)
+		x.xxx_hidden_Status = *b.Status
+	}
+	if b.Service != nil {
+		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 1, 8)
+		x.xxx_hidden_Service = b.Service
+	}
+	x.xxx_hidden_Timestamp = b.Timestamp
+	x.xxx_hidden_ResponseTime = b.ResponseTime
+	x.xxx_hidden_CheckResults = &b.CheckResults
+	if b.Message != nil {
+		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 5, 8)
+		x.xxx_hidden_Message = b.Message
+	}
+	x.xxx_hidden_Error = b.Error
+	x.xxx_hidden_Metrics = b.Metrics
 	return m0
 }
 

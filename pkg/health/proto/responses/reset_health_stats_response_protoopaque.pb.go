@@ -4,7 +4,7 @@
 // 	protoc        (unknown)
 // source: pkg/health/proto/responses/reset_health_stats_response.proto
 
-//go:build !protoopaque
+//go:build protoopaque
 
 package responses
 
@@ -29,19 +29,16 @@ const (
 // Response message for resetting health statistics.
 // Contains the result of clearing stored health metrics and statistics.
 type ResetHealthStatsResponse struct {
-	state protoimpl.MessageState `protogen:"hybrid.v1"`
-	// Success status
-	Success *bool `protobuf:"varint,1,opt,name=success" json:"success,omitempty"`
-	// Number of statistics entries cleared
-	ClearedEntries *int32 `protobuf:"varint,2,opt,name=cleared_entries,json=clearedEntries" json:"cleared_entries,omitempty"`
-	// Reset timestamp
-	ResetAt *timestamppb.Timestamp `protobuf:"bytes,3,opt,name=reset_at,json=resetAt" json:"reset_at,omitempty"`
-	// Error information if reset failed
-	Error *proto.Error `protobuf:"bytes,4,opt,name=error" json:"error,omitempty"`
-	// Statistics categories that were reset
-	ResetCategories []string `protobuf:"bytes,5,rep,name=reset_categories,json=resetCategories" json:"reset_categories,omitempty"`
-	unknownFields   protoimpl.UnknownFields
-	sizeCache       protoimpl.SizeCache
+	state                      protoimpl.MessageState `protogen:"opaque.v1"`
+	xxx_hidden_Success         bool                   `protobuf:"varint,1,opt,name=success"`
+	xxx_hidden_ClearedEntries  int32                  `protobuf:"varint,2,opt,name=cleared_entries,json=clearedEntries"`
+	xxx_hidden_ResetAt         *timestamppb.Timestamp `protobuf:"bytes,3,opt,name=reset_at,json=resetAt"`
+	xxx_hidden_Error           *proto.Error           `protobuf:"bytes,4,opt,name=error"`
+	xxx_hidden_ResetCategories []string               `protobuf:"bytes,5,rep,name=reset_categories,json=resetCategories"`
+	XXX_raceDetectHookData     protoimpl.RaceDetectHookData
+	XXX_presence               [1]uint32
+	unknownFields              protoimpl.UnknownFields
+	sizeCache                  protoimpl.SizeCache
 }
 
 func (x *ResetHealthStatsResponse) Reset() {
@@ -70,102 +67,106 @@ func (x *ResetHealthStatsResponse) ProtoReflect() protoreflect.Message {
 }
 
 func (x *ResetHealthStatsResponse) GetSuccess() bool {
-	if x != nil && x.Success != nil {
-		return *x.Success
+	if x != nil {
+		return x.xxx_hidden_Success
 	}
 	return false
 }
 
 func (x *ResetHealthStatsResponse) GetClearedEntries() int32 {
-	if x != nil && x.ClearedEntries != nil {
-		return *x.ClearedEntries
+	if x != nil {
+		return x.xxx_hidden_ClearedEntries
 	}
 	return 0
 }
 
 func (x *ResetHealthStatsResponse) GetResetAt() *timestamppb.Timestamp {
 	if x != nil {
-		return x.ResetAt
+		return x.xxx_hidden_ResetAt
 	}
 	return nil
 }
 
 func (x *ResetHealthStatsResponse) GetError() *proto.Error {
 	if x != nil {
-		return x.Error
+		return x.xxx_hidden_Error
 	}
 	return nil
 }
 
 func (x *ResetHealthStatsResponse) GetResetCategories() []string {
 	if x != nil {
-		return x.ResetCategories
+		return x.xxx_hidden_ResetCategories
 	}
 	return nil
 }
 
 func (x *ResetHealthStatsResponse) SetSuccess(v bool) {
-	x.Success = &v
+	x.xxx_hidden_Success = v
+	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 0, 5)
 }
 
 func (x *ResetHealthStatsResponse) SetClearedEntries(v int32) {
-	x.ClearedEntries = &v
+	x.xxx_hidden_ClearedEntries = v
+	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 1, 5)
 }
 
 func (x *ResetHealthStatsResponse) SetResetAt(v *timestamppb.Timestamp) {
-	x.ResetAt = v
+	x.xxx_hidden_ResetAt = v
 }
 
 func (x *ResetHealthStatsResponse) SetError(v *proto.Error) {
-	x.Error = v
+	x.xxx_hidden_Error = v
 }
 
 func (x *ResetHealthStatsResponse) SetResetCategories(v []string) {
-	x.ResetCategories = v
+	x.xxx_hidden_ResetCategories = v
 }
 
 func (x *ResetHealthStatsResponse) HasSuccess() bool {
 	if x == nil {
 		return false
 	}
-	return x.Success != nil
+	return protoimpl.X.Present(&(x.XXX_presence[0]), 0)
 }
 
 func (x *ResetHealthStatsResponse) HasClearedEntries() bool {
 	if x == nil {
 		return false
 	}
-	return x.ClearedEntries != nil
+	return protoimpl.X.Present(&(x.XXX_presence[0]), 1)
 }
 
 func (x *ResetHealthStatsResponse) HasResetAt() bool {
 	if x == nil {
 		return false
 	}
-	return x.ResetAt != nil
+	return x.xxx_hidden_ResetAt != nil
 }
 
 func (x *ResetHealthStatsResponse) HasError() bool {
 	if x == nil {
 		return false
 	}
-	return x.Error != nil
+	return x.xxx_hidden_Error != nil
 }
 
 func (x *ResetHealthStatsResponse) ClearSuccess() {
-	x.Success = nil
+	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 0)
+	x.xxx_hidden_Success = false
 }
 
 func (x *ResetHealthStatsResponse) ClearClearedEntries() {
-	x.ClearedEntries = nil
+	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 1)
+	x.xxx_hidden_ClearedEntries = 0
 }
 
 func (x *ResetHealthStatsResponse) ClearResetAt() {
-	x.ResetAt = nil
+	x.xxx_hidden_ResetAt = nil
 }
 
 func (x *ResetHealthStatsResponse) ClearError() {
-	x.Error = nil
+	x.xxx_hidden_Error = nil
 }
 
 type ResetHealthStatsResponse_builder struct {
@@ -187,11 +188,17 @@ func (b0 ResetHealthStatsResponse_builder) Build() *ResetHealthStatsResponse {
 	m0 := &ResetHealthStatsResponse{}
 	b, x := &b0, m0
 	_, _ = b, x
-	x.Success = b.Success
-	x.ClearedEntries = b.ClearedEntries
-	x.ResetAt = b.ResetAt
-	x.Error = b.Error
-	x.ResetCategories = b.ResetCategories
+	if b.Success != nil {
+		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 0, 5)
+		x.xxx_hidden_Success = *b.Success
+	}
+	if b.ClearedEntries != nil {
+		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 1, 5)
+		x.xxx_hidden_ClearedEntries = *b.ClearedEntries
+	}
+	x.xxx_hidden_ResetAt = b.ResetAt
+	x.xxx_hidden_Error = b.Error
+	x.xxx_hidden_ResetCategories = b.ResetCategories
 	return m0
 }
 

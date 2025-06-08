@@ -4,7 +4,7 @@
 // 	protoc        (unknown)
 // source: pkg/health/proto/responses/set_health_response.proto
 
-//go:build !protoopaque
+//go:build protoopaque
 
 package responses
 
@@ -29,21 +29,17 @@ const (
 // Response message for manually setting health status.
 // Contains the result of administratively setting the health status.
 type SetHealthResponse struct {
-	state protoimpl.MessageState `protogen:"hybrid.v1"`
-	// Success status
-	Success *bool `protobuf:"varint,1,opt,name=success" json:"success,omitempty"`
-	// Previous health status
-	PreviousStatus *proto.HealthStatus `protobuf:"varint,2,opt,name=previous_status,json=previousStatus,enum=gcommon.v1.common.HealthStatus" json:"previous_status,omitempty"`
-	// New health status
-	NewStatus *proto.HealthStatus `protobuf:"varint,3,opt,name=new_status,json=newStatus,enum=gcommon.v1.common.HealthStatus" json:"new_status,omitempty"`
-	// Timestamp when status was changed
-	ChangedAt *timestamppb.Timestamp `protobuf:"bytes,4,opt,name=changed_at,json=changedAt" json:"changed_at,omitempty"`
-	// Error information if setting failed
-	Error *proto.Error `protobuf:"bytes,5,opt,name=error" json:"error,omitempty"`
-	// Reason for the manual status change
-	Reason        *string `protobuf:"bytes,6,opt,name=reason" json:"reason,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
+	state                     protoimpl.MessageState `protogen:"opaque.v1"`
+	xxx_hidden_Success        bool                   `protobuf:"varint,1,opt,name=success"`
+	xxx_hidden_PreviousStatus proto.HealthStatus     `protobuf:"varint,2,opt,name=previous_status,json=previousStatus,enum=gcommon.v1.common.HealthStatus"`
+	xxx_hidden_NewStatus      proto.HealthStatus     `protobuf:"varint,3,opt,name=new_status,json=newStatus,enum=gcommon.v1.common.HealthStatus"`
+	xxx_hidden_ChangedAt      *timestamppb.Timestamp `protobuf:"bytes,4,opt,name=changed_at,json=changedAt"`
+	xxx_hidden_Error          *proto.Error           `protobuf:"bytes,5,opt,name=error"`
+	xxx_hidden_Reason         *string                `protobuf:"bytes,6,opt,name=reason"`
+	XXX_raceDetectHookData    protoimpl.RaceDetectHookData
+	XXX_presence              [1]uint32
+	unknownFields             protoimpl.UnknownFields
+	sizeCache                 protoimpl.SizeCache
 }
 
 func (x *SetHealthResponse) Reset() {
@@ -72,135 +68,150 @@ func (x *SetHealthResponse) ProtoReflect() protoreflect.Message {
 }
 
 func (x *SetHealthResponse) GetSuccess() bool {
-	if x != nil && x.Success != nil {
-		return *x.Success
+	if x != nil {
+		return x.xxx_hidden_Success
 	}
 	return false
 }
 
 func (x *SetHealthResponse) GetPreviousStatus() proto.HealthStatus {
-	if x != nil && x.PreviousStatus != nil {
-		return *x.PreviousStatus
+	if x != nil {
+		if protoimpl.X.Present(&(x.XXX_presence[0]), 1) {
+			return x.xxx_hidden_PreviousStatus
+		}
 	}
 	return proto.HealthStatus(0)
 }
 
 func (x *SetHealthResponse) GetNewStatus() proto.HealthStatus {
-	if x != nil && x.NewStatus != nil {
-		return *x.NewStatus
+	if x != nil {
+		if protoimpl.X.Present(&(x.XXX_presence[0]), 2) {
+			return x.xxx_hidden_NewStatus
+		}
 	}
 	return proto.HealthStatus(0)
 }
 
 func (x *SetHealthResponse) GetChangedAt() *timestamppb.Timestamp {
 	if x != nil {
-		return x.ChangedAt
+		return x.xxx_hidden_ChangedAt
 	}
 	return nil
 }
 
 func (x *SetHealthResponse) GetError() *proto.Error {
 	if x != nil {
-		return x.Error
+		return x.xxx_hidden_Error
 	}
 	return nil
 }
 
 func (x *SetHealthResponse) GetReason() string {
-	if x != nil && x.Reason != nil {
-		return *x.Reason
+	if x != nil {
+		if x.xxx_hidden_Reason != nil {
+			return *x.xxx_hidden_Reason
+		}
+		return ""
 	}
 	return ""
 }
 
 func (x *SetHealthResponse) SetSuccess(v bool) {
-	x.Success = &v
+	x.xxx_hidden_Success = v
+	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 0, 6)
 }
 
 func (x *SetHealthResponse) SetPreviousStatus(v proto.HealthStatus) {
-	x.PreviousStatus = &v
+	x.xxx_hidden_PreviousStatus = v
+	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 1, 6)
 }
 
 func (x *SetHealthResponse) SetNewStatus(v proto.HealthStatus) {
-	x.NewStatus = &v
+	x.xxx_hidden_NewStatus = v
+	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 2, 6)
 }
 
 func (x *SetHealthResponse) SetChangedAt(v *timestamppb.Timestamp) {
-	x.ChangedAt = v
+	x.xxx_hidden_ChangedAt = v
 }
 
 func (x *SetHealthResponse) SetError(v *proto.Error) {
-	x.Error = v
+	x.xxx_hidden_Error = v
 }
 
 func (x *SetHealthResponse) SetReason(v string) {
-	x.Reason = &v
+	x.xxx_hidden_Reason = &v
+	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 5, 6)
 }
 
 func (x *SetHealthResponse) HasSuccess() bool {
 	if x == nil {
 		return false
 	}
-	return x.Success != nil
+	return protoimpl.X.Present(&(x.XXX_presence[0]), 0)
 }
 
 func (x *SetHealthResponse) HasPreviousStatus() bool {
 	if x == nil {
 		return false
 	}
-	return x.PreviousStatus != nil
+	return protoimpl.X.Present(&(x.XXX_presence[0]), 1)
 }
 
 func (x *SetHealthResponse) HasNewStatus() bool {
 	if x == nil {
 		return false
 	}
-	return x.NewStatus != nil
+	return protoimpl.X.Present(&(x.XXX_presence[0]), 2)
 }
 
 func (x *SetHealthResponse) HasChangedAt() bool {
 	if x == nil {
 		return false
 	}
-	return x.ChangedAt != nil
+	return x.xxx_hidden_ChangedAt != nil
 }
 
 func (x *SetHealthResponse) HasError() bool {
 	if x == nil {
 		return false
 	}
-	return x.Error != nil
+	return x.xxx_hidden_Error != nil
 }
 
 func (x *SetHealthResponse) HasReason() bool {
 	if x == nil {
 		return false
 	}
-	return x.Reason != nil
+	return protoimpl.X.Present(&(x.XXX_presence[0]), 5)
 }
 
 func (x *SetHealthResponse) ClearSuccess() {
-	x.Success = nil
+	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 0)
+	x.xxx_hidden_Success = false
 }
 
 func (x *SetHealthResponse) ClearPreviousStatus() {
-	x.PreviousStatus = nil
+	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 1)
+	x.xxx_hidden_PreviousStatus = proto.HealthStatus_HEALTH_STATUS_UNSPECIFIED
 }
 
 func (x *SetHealthResponse) ClearNewStatus() {
-	x.NewStatus = nil
+	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 2)
+	x.xxx_hidden_NewStatus = proto.HealthStatus_HEALTH_STATUS_UNSPECIFIED
 }
 
 func (x *SetHealthResponse) ClearChangedAt() {
-	x.ChangedAt = nil
+	x.xxx_hidden_ChangedAt = nil
 }
 
 func (x *SetHealthResponse) ClearError() {
-	x.Error = nil
+	x.xxx_hidden_Error = nil
 }
 
 func (x *SetHealthResponse) ClearReason() {
-	x.Reason = nil
+	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 5)
+	x.xxx_hidden_Reason = nil
 }
 
 type SetHealthResponse_builder struct {
@@ -224,12 +235,24 @@ func (b0 SetHealthResponse_builder) Build() *SetHealthResponse {
 	m0 := &SetHealthResponse{}
 	b, x := &b0, m0
 	_, _ = b, x
-	x.Success = b.Success
-	x.PreviousStatus = b.PreviousStatus
-	x.NewStatus = b.NewStatus
-	x.ChangedAt = b.ChangedAt
-	x.Error = b.Error
-	x.Reason = b.Reason
+	if b.Success != nil {
+		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 0, 6)
+		x.xxx_hidden_Success = *b.Success
+	}
+	if b.PreviousStatus != nil {
+		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 1, 6)
+		x.xxx_hidden_PreviousStatus = *b.PreviousStatus
+	}
+	if b.NewStatus != nil {
+		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 2, 6)
+		x.xxx_hidden_NewStatus = *b.NewStatus
+	}
+	x.xxx_hidden_ChangedAt = b.ChangedAt
+	x.xxx_hidden_Error = b.Error
+	if b.Reason != nil {
+		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 5, 6)
+		x.xxx_hidden_Reason = b.Reason
+	}
 	return m0
 }
 

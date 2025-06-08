@@ -4,7 +4,7 @@
 // 	protoc        (unknown)
 // source: pkg/health/proto/responses/list_services_response.proto
 
-//go:build !protoopaque
+//go:build protoopaque
 
 package responses
 
@@ -28,13 +28,11 @@ const (
 // Response message for listing monitored services.
 // Returns all services currently being monitored by the health system.
 type ListServicesResponse struct {
-	state protoimpl.MessageState `protogen:"hybrid.v1"`
-	// List of service names
-	Services []string `protobuf:"bytes,1,rep,name=services" json:"services,omitempty"`
-	// Request metadata
-	Metadata      *proto.RequestMetadata `protobuf:"bytes,2,opt,name=metadata" json:"metadata,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
+	state               protoimpl.MessageState `protogen:"opaque.v1"`
+	xxx_hidden_Services []string               `protobuf:"bytes,1,rep,name=services"`
+	xxx_hidden_Metadata *proto.RequestMetadata `protobuf:"bytes,2,opt,name=metadata"`
+	unknownFields       protoimpl.UnknownFields
+	sizeCache           protoimpl.SizeCache
 }
 
 func (x *ListServicesResponse) Reset() {
@@ -64,35 +62,35 @@ func (x *ListServicesResponse) ProtoReflect() protoreflect.Message {
 
 func (x *ListServicesResponse) GetServices() []string {
 	if x != nil {
-		return x.Services
+		return x.xxx_hidden_Services
 	}
 	return nil
 }
 
 func (x *ListServicesResponse) GetMetadata() *proto.RequestMetadata {
 	if x != nil {
-		return x.Metadata
+		return x.xxx_hidden_Metadata
 	}
 	return nil
 }
 
 func (x *ListServicesResponse) SetServices(v []string) {
-	x.Services = v
+	x.xxx_hidden_Services = v
 }
 
 func (x *ListServicesResponse) SetMetadata(v *proto.RequestMetadata) {
-	x.Metadata = v
+	x.xxx_hidden_Metadata = v
 }
 
 func (x *ListServicesResponse) HasMetadata() bool {
 	if x == nil {
 		return false
 	}
-	return x.Metadata != nil
+	return x.xxx_hidden_Metadata != nil
 }
 
 func (x *ListServicesResponse) ClearMetadata() {
-	x.Metadata = nil
+	x.xxx_hidden_Metadata = nil
 }
 
 type ListServicesResponse_builder struct {
@@ -108,8 +106,8 @@ func (b0 ListServicesResponse_builder) Build() *ListServicesResponse {
 	m0 := &ListServicesResponse{}
 	b, x := &b0, m0
 	_, _ = b, x
-	x.Services = b.Services
-	x.Metadata = b.Metadata
+	x.xxx_hidden_Services = b.Services
+	x.xxx_hidden_Metadata = b.Metadata
 	return m0
 }
 

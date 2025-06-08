@@ -4,7 +4,7 @@
 // 	protoc        (unknown)
 // source: pkg/health/proto/responses/register_check_response.proto
 
-//go:build !protoopaque
+//go:build protoopaque
 
 package responses
 
@@ -28,15 +28,14 @@ const (
 // Response message for health check registration.
 // Contains the result of registering a new health check.
 type RegisterCheckResponse struct {
-	state protoimpl.MessageState `protogen:"hybrid.v1"`
-	// Success status
-	Success *bool `protobuf:"varint,1,opt,name=success" json:"success,omitempty"`
-	// Registered check ID
-	CheckId *string `protobuf:"bytes,2,opt,name=check_id,json=checkId" json:"check_id,omitempty"`
-	// Error information
-	Error         *proto.Error `protobuf:"bytes,3,opt,name=error" json:"error,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
+	state                  protoimpl.MessageState `protogen:"opaque.v1"`
+	xxx_hidden_Success     bool                   `protobuf:"varint,1,opt,name=success"`
+	xxx_hidden_CheckId     *string                `protobuf:"bytes,2,opt,name=check_id,json=checkId"`
+	xxx_hidden_Error       *proto.Error           `protobuf:"bytes,3,opt,name=error"`
+	XXX_raceDetectHookData protoimpl.RaceDetectHookData
+	XXX_presence           [1]uint32
+	unknownFields          protoimpl.UnknownFields
+	sizeCache              protoimpl.SizeCache
 }
 
 func (x *RegisterCheckResponse) Reset() {
@@ -65,69 +64,76 @@ func (x *RegisterCheckResponse) ProtoReflect() protoreflect.Message {
 }
 
 func (x *RegisterCheckResponse) GetSuccess() bool {
-	if x != nil && x.Success != nil {
-		return *x.Success
+	if x != nil {
+		return x.xxx_hidden_Success
 	}
 	return false
 }
 
 func (x *RegisterCheckResponse) GetCheckId() string {
-	if x != nil && x.CheckId != nil {
-		return *x.CheckId
+	if x != nil {
+		if x.xxx_hidden_CheckId != nil {
+			return *x.xxx_hidden_CheckId
+		}
+		return ""
 	}
 	return ""
 }
 
 func (x *RegisterCheckResponse) GetError() *proto.Error {
 	if x != nil {
-		return x.Error
+		return x.xxx_hidden_Error
 	}
 	return nil
 }
 
 func (x *RegisterCheckResponse) SetSuccess(v bool) {
-	x.Success = &v
+	x.xxx_hidden_Success = v
+	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 0, 3)
 }
 
 func (x *RegisterCheckResponse) SetCheckId(v string) {
-	x.CheckId = &v
+	x.xxx_hidden_CheckId = &v
+	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 1, 3)
 }
 
 func (x *RegisterCheckResponse) SetError(v *proto.Error) {
-	x.Error = v
+	x.xxx_hidden_Error = v
 }
 
 func (x *RegisterCheckResponse) HasSuccess() bool {
 	if x == nil {
 		return false
 	}
-	return x.Success != nil
+	return protoimpl.X.Present(&(x.XXX_presence[0]), 0)
 }
 
 func (x *RegisterCheckResponse) HasCheckId() bool {
 	if x == nil {
 		return false
 	}
-	return x.CheckId != nil
+	return protoimpl.X.Present(&(x.XXX_presence[0]), 1)
 }
 
 func (x *RegisterCheckResponse) HasError() bool {
 	if x == nil {
 		return false
 	}
-	return x.Error != nil
+	return x.xxx_hidden_Error != nil
 }
 
 func (x *RegisterCheckResponse) ClearSuccess() {
-	x.Success = nil
+	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 0)
+	x.xxx_hidden_Success = false
 }
 
 func (x *RegisterCheckResponse) ClearCheckId() {
-	x.CheckId = nil
+	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 1)
+	x.xxx_hidden_CheckId = nil
 }
 
 func (x *RegisterCheckResponse) ClearError() {
-	x.Error = nil
+	x.xxx_hidden_Error = nil
 }
 
 type RegisterCheckResponse_builder struct {
@@ -145,9 +151,15 @@ func (b0 RegisterCheckResponse_builder) Build() *RegisterCheckResponse {
 	m0 := &RegisterCheckResponse{}
 	b, x := &b0, m0
 	_, _ = b, x
-	x.Success = b.Success
-	x.CheckId = b.CheckId
-	x.Error = b.Error
+	if b.Success != nil {
+		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 0, 3)
+		x.xxx_hidden_Success = *b.Success
+	}
+	if b.CheckId != nil {
+		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 1, 3)
+		x.xxx_hidden_CheckId = b.CheckId
+	}
+	x.xxx_hidden_Error = b.Error
 	return m0
 }
 
