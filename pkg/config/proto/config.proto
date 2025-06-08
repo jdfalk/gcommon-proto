@@ -1,356 +1,59 @@
+// filepath: /Users/jdfalk/repos/github.com/jdfalk/gcommon/pkg/config/proto/config.proto
 // file: pkg/config/proto/config.proto
+//
+// Config Module - Import Aggregator for Backward Compatibility
+//
+// MIGRATION STATUS: 🔄 IN PROGRESS - Converting from monolithic to 1-1-1 structure
+//
+// This file serves as a backward compatibility layer that publicly re-exports
+// all config module types from their individual 1-1-1 proto files.
+//
+// USAGE:
+//   For existing code: import "pkg/config/proto/config.proto"
+//   For new code: import specific 1-1-1 files directly, e.g.:
+//     import "pkg/config/proto/services/config_service.proto"
+//     import "pkg/config/proto/enums/config_change_type.proto"
+//
+// STRUCTURE:
+//   Services: ConfigService, ConfigAdminService
+//   Enums: ConfigChangeType, etc.
+//   Messages: ConfigSchema, ConfigValidationError, etc.
+//
+// All imports use 'public' keyword to ensure backward compatibility.
+//
 edition = "2023";
 
 package gcommon.v1.config;
 
-import "pkg/common/proto/common.proto";
-import "google/protobuf/timestamp.proto";
-import "google/protobuf/duration.proto";
-import "google/protobuf/empty.proto";
-import "google/protobuf/any.proto";
-import "google/protobuf/field_mask.proto";
 import "google/protobuf/go_features.proto";
 
 option go_package = "github.com/jdfalk/gcommon/pkg/config/proto;configpb";
 option features.(pb.go).api_level = API_HYBRID;
 
-// ConfigService provides comprehensive configuration management
-service ConfigService {
-  // Get retrieves a configuration value
-  rpc Get(GetConfigRequest) returns (GetConfigResponse);
-
-  // Set stores a configuration value
-  rpc Set(SetConfigRequest) returns (SetConfigResponse);
-
-  // Delete removes a configuration value
-  rpc Delete(DeleteConfigRequest) returns (google.protobuf.Empty);
-
-  // List configuration keys with optional filtering
-  rpc List(ListConfigRequest) returns (ListConfigResponse);
-
-  // Watch for configuration changes
-  rpc Watch(WatchConfigRequest) returns (stream WatchConfigResponse);
-
-  // GetMultiple retrieves multiple configuration values
-  rpc GetMultiple(GetMultipleConfigRequest) returns (GetMultipleConfigResponse);
-
-  // SetMultiple stores multiple configuration values
-  rpc SetMultiple(SetMultipleConfigRequest) returns (SetMultipleConfigResponse);
-
-  // Validate configuration values
-  rpc Validate(ValidateConfigRequest) returns (ValidateConfigResponse);
-
-  // GetSchema retrieves configuration schema
-  rpc GetSchema(GetSchemaRequest) returns (GetSchemaResponse);
-}
-
-// Configuration value request
-message GetConfigRequest {
-  // Configuration key
-  string key = 1;
-
-  // Optional namespace/environment
-  string namespace = 2;
-
-  // Request metadata
-  gcommon.v1.common.RequestMetadata metadata = 3;
-
-  // Whether to decrypt encrypted values
-  bool decrypt = 4;
-}
-
-// Configuration value response
-message GetConfigResponse {
-  // Configuration entry
-  ConfigEntry entry = 1;
-
-  // Whether the key was found
-  bool found = 2;
-
-  // Error information
-  gcommon.v1.common.Error error = 3;
-}
-
-// Set configuration request
-message SetConfigRequest {
-  // Configuration key
-  string key = 1;
-
-  // Configuration value
-  gcommon.v1.common.ConfigValue value = 2;
-
-  // Optional namespace/environment
-  string namespace = 3;
-
-  // Configuration metadata
-  map<string, string> metadata = 4;
-
-  // Whether to encrypt the value
-  bool encrypt = 5;
-
-  // Tags for categorization
-  repeated string tags = 6;
-
-  // Request metadata
-  gcommon.v1.common.RequestMetadata request_metadata = 7;
-}
-
-// Set configuration response
-message SetConfigResponse {
-  // Whether the operation succeeded
-  bool success = 1;
-
-  // Previous value if it existed
-  ConfigEntry previous_entry = 2;
-
-  // Error information
-  gcommon.v1.common.Error error = 3;
-}
-
-// Delete configuration request
-message DeleteConfigRequest {
-  // Configuration key to delete
-  string key = 1;
-
-  // Optional namespace/environment
-  string namespace = 2;
-
-  // Request metadata
-  gcommon.v1.common.RequestMetadata metadata = 3;
-}
-
-// List configuration request
-message ListConfigRequest {
-  // Key prefix filter
-  string prefix = 1;
-
-  // Optional namespace/environment
-  string namespace = 2;
-
-  // Pagination options
-  gcommon.v1.common.Pagination pagination = 3;
-
-  // Filter options
-  gcommon.v1.common.FilterOptions filter = 4;
-
-  // Sort options
-  gcommon.v1.common.SortOptions sort = 5;
-
-  // Request metadata
-  gcommon.v1.common.RequestMetadata metadata = 6;
-}
-
-// List configuration response
-message ListConfigResponse {
-  // Configuration entries
-  repeated ConfigEntry entries = 1;
-
-  // Pagination information
-  gcommon.v1.common.PaginatedResponse pagination = 2;
-
-  // Error information
-  gcommon.v1.common.Error error = 3;
-}
-
-// Watch configuration request
-message WatchConfigRequest {
-  // Key or key pattern to watch
-  string key_pattern = 1;
-
-  // Optional namespace/environment
-  string namespace = 2;
-
-  // Request metadata
-  gcommon.v1.common.RequestMetadata metadata = 3;
-}
-
-// Watch configuration response
-message WatchConfigResponse {
-  // Type of change
-  ConfigChangeType change_type = 1;
-
-  // Configuration entry
-  ConfigEntry entry = 2;
-
-  // Previous value for updates/deletes
-  ConfigEntry previous_entry = 3;
-
-  // Change timestamp
-  google.protobuf.Timestamp timestamp = 4;
-}
-
-// Configuration change type
-enum ConfigChangeType {
-  CONFIG_CHANGE_TYPE_UNSPECIFIED = 0;
-  CONFIG_CHANGE_TYPE_CREATED = 1;
-  CONFIG_CHANGE_TYPE_UPDATED = 2;
-  CONFIG_CHANGE_TYPE_DELETED = 3;
-}
-
-// Configuration entry
-message ConfigEntry {
-  // Configuration key
-  string key = 1;
-
-  // Configuration value
-  gcommon.v1.common.ConfigValue value = 2;
-
-  // Namespace/environment
-  string namespace = 3;
-
-  // Entry metadata
-  map<string, string> metadata = 4;
-
-  // Tags for categorization
-  repeated string tags = 5;
-
-  // Creation timestamp
-  google.protobuf.Timestamp created_at = 6;
-
-  // Last update timestamp
-  google.protobuf.Timestamp updated_at = 7;
-
-  // Entry version for optimistic concurrency
-  int64 version = 8;
-
-  // Entry status
-  gcommon.v1.common.ResourceStatus status = 9;
-}
-
-// GetMultiple configuration request
-message GetMultipleConfigRequest {
-  // Configuration keys to retrieve
-  repeated string keys = 1;
-
-  // Optional namespace/environment
-  string namespace = 2;
-
-  // Whether to decrypt encrypted values
-  bool decrypt = 3;
-
-  // Request metadata
-  gcommon.v1.common.RequestMetadata metadata = 4;
-}
-
-// GetMultiple configuration response
-message GetMultipleConfigResponse {
-  // Retrieved entries mapped by key
-  map<string, ConfigEntry> entries = 1;
-
-  // Keys that were not found
-  repeated string not_found = 2;
-
-  // Error information
-  gcommon.v1.common.Error error = 3;
-}
-
-// SetMultiple configuration request
-message SetMultipleConfigRequest {
-  // Configuration entries to set
-  map<string, gcommon.v1.common.ConfigValue> entries = 1;
-
-  // Optional namespace/environment
-  string namespace = 2;
-
-  // Common metadata for all entries
-  map<string, string> metadata = 3;
-
-  // Whether to encrypt values
-  bool encrypt = 4;
-
-  // Request metadata
-  gcommon.v1.common.RequestMetadata request_metadata = 5;
-}
-
-// SetMultiple configuration response
-message SetMultipleConfigResponse {
-  // Success status for each key
-  map<string, bool> results = 1;
-
-  // Error information
-  gcommon.v1.common.Error error = 2;
-}
-
-// Validate configuration request
-message ValidateConfigRequest {
-  // Configuration entries to validate
-  repeated ConfigEntry entries = 1;
-
-  // Schema to validate against
-  string schema_name = 2;
-
-  // Request metadata
-  gcommon.v1.common.RequestMetadata metadata = 3;
-}
-
-// Validate configuration response
-message ValidateConfigResponse {
-  // Validation result
-  bool valid = 1;
-
-  // Validation errors
-  repeated ConfigValidationError errors = 2;
-
-  // Validation warnings
-  repeated ConfigValidationWarning warnings = 3;
-}
-
-// Configuration validation error
-message ConfigValidationError {
-  // Configuration key with error
-  string key = 1;
-
-  // Error message
-  string message = 2;
-
-  // Error code
-  string code = 3;
-}
-
-// Configuration validation warning
-message ConfigValidationWarning {
-  // Configuration key with warning
-  string key = 1;
-
-  // Warning message
-  string message = 2;
-
-  // Warning code
-  string code = 3;
-}
-
-// Schema request
-message GetSchemaRequest {
-  // Schema name
-  string name = 1;
-
-  // Request metadata
-  gcommon.v1.common.RequestMetadata metadata = 2;
-}
-
-// Schema response
-message GetSchemaResponse {
-  // Configuration schema
-  ConfigSchema schema = 1;
-
-  // Error information
-  gcommon.v1.common.Error error = 2;
-}
-
-// Configuration schema
-message ConfigSchema {
-  // Schema name
-  string name = 1;
-
-  // Schema version
-  string version = 2;
-
-  // Schema definition (JSON Schema)
-  string definition = 3;
-
-  // Schema metadata
-  map<string, string> metadata = 4;
-
-  // Creation timestamp
-  google.protobuf.Timestamp created_at = 5;
-}
+// Import all 1-1-1 protobuf files with public visibility for backward compatibility
+
+// Services (2 total)
+import public "pkg/config/proto/services/config_service.proto";
+import public "pkg/config/proto/services/config_admin_service.proto";
+
+// Enums (1 total)
+import public "pkg/config/proto/enums/config_change_type.proto";
+
+// Messages (17 total)
+import public "pkg/config/proto/messages/config_schema.proto";
+import public "pkg/config/proto/messages/config_validation_error.proto";
+import public "pkg/config/proto/messages/config_validation_warning.proto";
+import public "pkg/config/proto/messages/config_entry.proto";
+import public "pkg/config/proto/messages/config_change.proto";
+import public "pkg/config/proto/messages/config_snapshot.proto";
+import public "pkg/config/proto/messages/config_diff.proto";
+import public "pkg/config/proto/messages/config_watch.proto";
+import public "pkg/config/proto/messages/config_backup.proto";
+import public "pkg/config/proto/messages/config_restore_point.proto";
+import public "pkg/config/proto/messages/config_audit_log.proto";
+import public "pkg/config/proto/messages/config_template.proto";
+import public "pkg/config/proto/messages/config_environment.proto";
+import public "pkg/config/proto/messages/config_version.proto";
+import public "pkg/config/proto/messages/config_metadata.proto";
+import public "pkg/config/proto/messages/config_secret.proto";
+import public "pkg/config/proto/messages/config_value.proto";
