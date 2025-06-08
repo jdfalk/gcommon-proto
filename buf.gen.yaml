@@ -8,7 +8,7 @@ managed:
     - file_option: go_package_prefix
       value: github.com/jdfalk/gcommon
 plugins:
-  - remote: buf.build/protocolbuffers/go:v1.35.2
+  - remote: buf.build/protocolbuffers/go:v1.36.6
     out: .
     opt:
       - paths=source_relative
