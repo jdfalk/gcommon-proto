@@ -5,21 +5,6 @@ package gcommon.v1.health;
 
 import "google/protobuf/go_features.proto";
 
-// Import all health service definitions
-import "pkg/health/proto/services/health_service.proto";
-import "pkg/health/proto/services/health_admin_service.proto";
-
-// Import core request/response types for backwards compatibility
-import "pkg/health/proto/requests/health_check_request.proto";
-import "pkg/health/proto/requests/watch_request.proto";
-import "pkg/health/proto/responses/health_check_response.proto";
-import "pkg/health/proto/responses/watch_response.proto";
-
-// Import supporting message types
-import "pkg/health/proto/messages/check_result.proto";
-import "pkg/health/proto/messages/health_metrics.proto";
-import "pkg/health/proto/messages/health_metric_data.proto";
-
 option go_package = "github.com/jdfalk/gcommon/pkg/health/proto;healthpb";
 option features.(pb.go).api_level = API_HYBRID;
 

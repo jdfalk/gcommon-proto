@@ -9,10 +9,6 @@
 package proto
 
 import (
-	_ "github.com/jdfalk/gcommon/pkg/health/proto/messages"
-	_ "github.com/jdfalk/gcommon/pkg/health/proto/requests"
-	_ "github.com/jdfalk/gcommon/pkg/health/proto/responses"
-	_ "github.com/jdfalk/gcommon/pkg/health/proto/services"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
@@ -31,7 +27,7 @@ var File_pkg_health_proto_health_proto protoreflect.FileDescriptor
 
 const file_pkg_health_proto_health_proto_rawDesc = "" +
 	"\n" +
-	"\x1dpkg/health/proto/health.proto\x12\x11gcommon.v1.health\x1a!google/protobuf/go_features.proto\x1a.pkg/health/proto/services/health_service.proto\x1a4pkg/health/proto/services/health_admin_service.proto\x1a4pkg/health/proto/requests/health_check_request.proto\x1a-pkg/health/proto/requests/watch_request.proto\x1a6pkg/health/proto/responses/health_check_response.proto\x1a/pkg/health/proto/responses/watch_response.proto\x1a,pkg/health/proto/messages/check_result.proto\x1a.pkg/health/proto/messages/health_metrics.proto\x1a2pkg/health/proto/messages/health_metric_data.protoB\xbe\x01\n" +
+	"\x1dpkg/health/proto/health.proto\x12\x11gcommon.v1.health\x1a!google/protobuf/go_features.protoB\xbe\x01\n" +
 	"\x15com.gcommon.v1.healthB\vHealthProtoP\x01Z*github.com/jdfalk/gcommon/pkg/health/proto\xa2\x02\x03GVH\xaa\x02\x11Gcommon.V1.Health\xca\x02\x11Gcommon\\V1\\Health\xe2\x02\x1dGcommon\\V1\\Health\\GPBMetadata\xea\x02\x13Gcommon::V1::Health\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
 
 var file_pkg_health_proto_health_proto_goTypes = []any{}
