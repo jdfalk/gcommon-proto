@@ -5,12 +5,16 @@ modules:
       - pkg/test
 lint:
   use:
-    - DEFAULT
+    - STANDARD
   except:
     - FIELD_NOT_REQUIRED
     - PACKAGE_DIRECTORY_MATCH
+    - PACKAGE_SAME_DIRECTORY
     - PACKAGE_NO_IMPORT_CYCLE
     - PACKAGE_VERSION_SUFFIX
+    - IMPORT_USED
+    - RPC_REQUEST_STANDARD_NAME
+    - RPC_RESPONSE_STANDARD_NAME
   enum_zero_value_suffix: _UNSPECIFIED
   rpc_allow_google_protobuf_empty_requests: true
   rpc_allow_google_protobuf_empty_responses: true
