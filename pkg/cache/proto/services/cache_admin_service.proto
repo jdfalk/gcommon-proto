@@ -1,18 +1,31 @@
-// filepath: pkg/cache/proto/services/cache_admin_service.proto
-// file: cache/proto/services/cache_admin_service.proto
-//
-// Service definitions for cache module
-// TODO: Implement actual protobuf definitions
-//
+// file: pkg/cache/proto/services/cache_admin_service.proto
 edition = "2023";
 
 package gcommon.v1.cache;
 
+import "google/protobuf/empty.proto";
 import "google/protobuf/go_features.proto";
+import "pkg/cache/proto/cache.proto";
 
 option go_package = "github.com/jdfalk/gcommon/pkg/cache/proto;cachepb";
 option features.(pb.go).api_level = API_HYBRID;
 
-// TODO: Add service definitions here
-// This is a placeholder file created during 1-1-1 migration
-// Implement the actual protobuf definitions according to the cache module requirements
+/**
+ * Administrative cache management operations.
+ */
+service CacheAdminService {
+  // CreateNamespace creates a new cache namespace
+  rpc CreateNamespace(CreateNamespaceRequest) returns (CreateNamespaceResponse);
+
+  // DeleteNamespace removes a cache namespace
+  rpc DeleteNamespace(DeleteNamespaceRequest) returns (google.protobuf.Empty);
+
+  // ListNamespaces returns all available namespaces
+  rpc ListNamespaces(ListNamespacesRequest) returns (ListNamespacesResponse);
+
+  // GetNamespaceStats returns statistics for a namespace
+  rpc GetNamespaceStats(GetNamespaceStatsRequest) returns (GetNamespaceStatsResponse);
+
+  // ConfigurePolicy sets cache policies for a namespace
+  rpc ConfigurePolicy(ConfigurePolicyRequest) returns (ConfigurePolicyResponse);
+}

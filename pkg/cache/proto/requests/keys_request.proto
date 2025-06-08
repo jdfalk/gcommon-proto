@@ -1,18 +1,28 @@
-// filepath: pkg/cache/proto/requests/keys_request.proto
-// file: cache/proto/requests/keys_request.proto
-//
-// Request definitions for cache module
-// TODO: Implement actual protobuf definitions
-//
+// file: pkg/cache/proto/requests/keys_request.proto
 edition = "2023";
 
 package gcommon.v1.cache;
 
 import "google/protobuf/go_features.proto";
+import "pkg/common/proto/messages/request_metadata.proto";
+import "pkg/common/proto/messages/pagination.proto";
 
 option go_package = "github.com/jdfalk/gcommon/pkg/cache/proto;cachepb";
 option features.(pb.go).api_level = API_HYBRID;
 
-// TODO: Add request definitions here
-// This is a placeholder file created during 1-1-1 migration
-// Implement the actual protobuf definitions according to the cache module requirements
+/**
+ * Request to list cache keys matching a pattern.
+ */
+message KeysRequest {
+  // Key pattern to match (supports wildcards)
+  string pattern = 1;
+
+  // Optional namespace
+  string namespace = 2;
+
+  // Pagination options
+  gcommon.v1.common.Pagination pagination = 3 [lazy = true];
+
+  // Request metadata
+  gcommon.v1.common.RequestMetadata metadata = 4 [lazy = true];
+}
