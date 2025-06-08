@@ -15,7 +15,9 @@
 - **[Project Roadmap](TODO.md)** - Implementation status and plans
 - **[Issue Management Workflow](ISSUE_MANAGEMENT.md)** - Required process for all development work
 - **[Technical Architecture](CHANGELOG.md)** - Detailed technical documentation
-- **[Protobuf API Design](docs/technical/protobuf-grpc-design.md)** - gRPC service definitionsields.io/badge/build-passing-brightgreen.svg)](https://github.com/jdfalk/gcommon)
+- **[Protobuf API Design](docs/technical/protobuf-grpc-design.md)** - gRPC service definitions
+
+[![Build Status](https://img.shields.io/badge/build-passing-brightgreen.svg)](https://github.com/jdfalk/gcommon)
 
 > **🚨 MAJOR BREAKING CHANGES COMING**: Version 0.2.0 will introduce significant protobuf message structure changes. See [CHANGELOG.md](CHANGELOG.md) for migration details.
 
