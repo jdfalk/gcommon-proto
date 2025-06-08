@@ -1,50 +1,52 @@
 #!/bin/bash
 # file: test_protoc.sh
-# Test script to compile all 1-1-1 proto files and identify issues
+# Test script to compile protobuf files and identify compilation issues
 
-cd /Users/jdfalk/repos/github.com/jdfalk/gcommon
+set -e
 
-echo "Testing protobuf compilation for 1-1-1 files..."
-echo "================================================"
+cd "$(dirname "$0")"
+
+echo "🧪 GCommon Protobuf Compilation Test"
+echo "====================================="
+echo ""
 
 failed_files=()
 successful_files=()
+total_files=0
 
-# Find all 1-1-1 proto files
-find pkg -name "*.proto" -type f | grep -v -E "(common\.proto|auth\.proto|cache\.proto|database\.proto|config\.proto|health\.proto|log\.proto|metrics\.proto|queue\.proto|web\.proto)" | while read -r proto_file; do
+echo "🔍 Finding all .proto files..."
+
+# Find all proto files in pkg/ directory
+while IFS= read -r -d '' proto_file; do
+    total_files=$((total_files + 1))
     echo -n "Testing $proto_file ... "
 
     if protoc --proto_path=. --go_out=. --go_opt=paths=source_relative "$proto_file" 2>/dev/null; then
         echo "✅ SUCCESS"
-        echo "$proto_file" >> /tmp/successful_files.txt
+        successful_files+=("$proto_file")
     else
         echo "❌ FAILED"
-        echo "$proto_file" >> /tmp/failed_files.txt
-        # Show the error
-        echo "   Error: $(protoc --proto_path=. --go_out=. --go_opt=paths=source_relative "$proto_file" 2>&1)"
+        failed_files+=("$proto_file")
     fi
-done
+done < <(find pkg -name "*.proto" -type f -print0)
 
-echo
-echo "==============================================="
-echo "Summary:"
-if [[ -f /tmp/successful_files.txt ]]; then
-    success_count=$(wc -l < /tmp/successful_files.txt)
-    echo "✅ Successful compilations: $success_count"
+echo ""
+echo "📊 COMPILATION SUMMARY"
+echo "======================"
+echo "Total files tested: $total_files"
+echo "✅ Successful: ${#successful_files[@]}"
+echo "❌ Failed: ${#failed_files[@]}"
+
+if [ ${#failed_files[@]} -gt 0 ]; then
+    echo ""
+    echo "🚨 FAILED FILES:"
+    for file in "${failed_files[@]}"; do
+        echo "   ❌ $file"
+    done
+    echo ""
+    echo "💡 TIP: Run 'protoc --proto_path=. [file]' for detailed error messages"
+    exit 1
 else
-    echo "✅ Successful compilations: 0"
+    echo ""
+    echo "🎉 All protobuf files compiled successfully!"
 fi
-
-if [[ -f /tmp/failed_files.txt ]]; then
-    fail_count=$(wc -l < /tmp/failed_files.txt)
-    echo "❌ Failed compilations: $fail_count"
-    echo
-    echo "Failed files:"
-    cat /tmp/failed_files.txt
-else
-    echo "❌ Failed compilations: 0"
-    echo "🎉 All files compiled successfully!"
-fi
-
-# Cleanup
-rm -f /tmp/successful_files.txt /tmp/failed_files.txt
