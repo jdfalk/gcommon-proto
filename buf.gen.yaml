@@ -1,0 +1,24 @@
+# Buf code generation configuration
+version: v1
+managed:
+  enabled: true
+  go_package_prefix:
+    default: github.com/jdfalk/gcommon
+    except:
+      - buf.build/googleapis/googleapis
+plugins:
+  # Go protobuf plugin - latest version with editions support
+  - plugin: buf.build/protocolbuffers/go:v1.35.2
+    out: .
+    opt:
+      - paths=source_relative
+      - Mgoogle/protobuf/timestamp.proto=google.golang.org/protobuf/types/known/timestamppb
+      - Mgoogle/protobuf/duration.proto=google.golang.org/protobuf/types/known/durationpb
+      - Mgoogle/protobuf/empty.proto=google.golang.org/protobuf/types/known/emptypb
+      - Mgoogle/protobuf/any.proto=google.golang.org/protobuf/types/known/anypb
+  # Go gRPC plugin - latest version with editions support
+  - plugin: buf.build/grpc/go:v1.5.1
+    out: .
+    opt:
+      - paths=source_relative
+      - require_unimplemented_servers=false

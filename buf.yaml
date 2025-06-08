@@ -15,4 +15,4 @@ lint:
   service_suffix: Service
 build:
   excludes:
-    - "**/*_test.proto"
+    - "pkg/test"
