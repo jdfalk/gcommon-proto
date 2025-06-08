@@ -5,7 +5,6 @@ Validates that all protobuf files are tracked and provides implementation status
 """
 
 import json
-import os
 import glob
 from typing import Dict, List, Set
 from collections import defaultdict
@@ -130,14 +129,6 @@ def main():
 
 if __name__ == "__main__":
     exit(main())
-
-def load_non_empty_protos() -> Set[str]:
-    """Load list of non-empty protobuf files."""
-    try:
-        with open('non_empty_protos.txt', 'r') as f:
-            return {line.strip() for line in f if line.strip()}
-    except FileNotFoundError:
-        return set()
 
 def load_github_issues() -> List[Dict]:
     """Load GitHub issues from issues.json."""
@@ -371,7 +362,7 @@ def main():
     print(f"Issue coverage: {implementation_coverage['coverage_percentage']:.1f}% of empty files covered")
 
     # Module breakdown
-    print(f"\n📦 MODULE BREAKDOWN")
+    print("\n📦 MODULE BREAKDOWN")
     print("-" * 20)
     for module, stats in sorted(coverage_analysis['module_breakdown'].items()):
         completion = ((stats['implemented'] / stats['total']) * 100) if stats['total'] > 0 else 0
@@ -381,7 +372,7 @@ def main():
     recommendations = generate_recommendations(coverage_analysis, issue_analysis, implementation_coverage)
 
     if recommendations:
-        print(f"\n⚠️  RECOMMENDATIONS")
+        print("\n⚠️  RECOMMENDATIONS")
         print("-" * 20)
         for rec in recommendations:
             print(f"{rec}")
@@ -403,7 +394,7 @@ def main():
     with open('protobuf_validation_report.json', 'w') as f:
         json.dump(detailed_report, f, indent=2, default=str)
 
-    print(f"\n💾 Detailed report saved to: protobuf_validation_report.json")
+    print("\n💾 Detailed report saved to: protobuf_validation_report.json")
 
     # Check for critical issues
     critical_issues = []
@@ -413,12 +404,12 @@ def main():
         critical_issues.append("Low GitHub issue coverage")
 
     if critical_issues:
-        print(f"\n🚨 CRITICAL ISSUES DETECTED:")
+        print("\n🚨 CRITICAL ISSUES DETECTED:")
         for issue in critical_issues:
             print(f"   - {issue}")
         return 1
     else:
-        print(f"\n✅ Validation complete! Ready to proceed with implementation.")
+        print("\n✅ Validation complete! Ready to proceed with implementation.")
         return 0
 
 if __name__ == "__main__":
