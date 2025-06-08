@@ -1,8 +1,4 @@
-// filepath: pkg/metrics/proto/enums/metric_type.proto
-// file: metrics/proto/enums/metric_type.proto
-//
-// Metric type enum definitions for metrics module
-//
+// file: pkg/metrics/proto/enums/metric_type.proto
 edition = "2023";
 
 package gcommon.v1.metrics;
@@ -13,30 +9,28 @@ option go_package = "github.com/jdfalk/gcommon/pkg/metrics/proto;metricspb";
 option features.(pb.go).api_level = API_HYBRID;
 
 /**
- * MetricType defines the different types of metrics supported.
+ * MetricType defines the different types of metrics that can be collected.
+ * Each type has specific semantics for how values are interpreted and aggregated.
  */
 enum MetricType {
   // Unspecified metric type
   METRIC_TYPE_UNSPECIFIED = 0;
 
-  // Counter: monotonically increasing value (e.g., total requests)
+  // Counter: A monotonically increasing value (can only go up)
   METRIC_TYPE_COUNTER = 1;
 
-  // Gauge: value that can go up and down (e.g., memory usage)
+  // Gauge: A value that can go up and down
   METRIC_TYPE_GAUGE = 2;
 
-  // Histogram: distribution of values with buckets (e.g., request durations)
+  // Histogram: Distribution of observed values in buckets
   METRIC_TYPE_HISTOGRAM = 3;
 
-  // Summary: distribution with quantiles (e.g., response times)
+  // Summary: Similar to histogram but with configurable quantiles
   METRIC_TYPE_SUMMARY = 4;
 
-  // Set: unique set of values (e.g., unique users)
-  METRIC_TYPE_SET = 5;
+  // Timer: Specialized counter for measuring durations
+  METRIC_TYPE_TIMER = 5;
 
-  // Info: metadata as labels (e.g., build info)
-  METRIC_TYPE_INFO = 6;
-
-  // State set: boolean values (e.g., feature flags)
-  METRIC_TYPE_STATE_SET = 7;
+  // Set: Track unique values (cardinality metric)
+  METRIC_TYPE_SET = 6;
 }

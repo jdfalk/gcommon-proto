@@ -1,45 +1,38 @@
-// filepath: pkg/metrics/proto/messages/counter_metric.proto
-// file: metrics/proto/messages/counter_metric.proto
-//
-// Counter metric message definition for metrics module
-//
+// file: pkg/metrics/proto/messages/counter_metric.proto
 edition = "2023";
 
 package gcommon.v1.metrics;
 
 import "google/protobuf/go_features.proto";
 import "google/protobuf/timestamp.proto";
-import "pkg/common/proto/common.proto";
 
 option go_package = "github.com/jdfalk/gcommon/pkg/metrics/proto;metricspb";
 option features.(pb.go).api_level = API_HYBRID;
 
 /**
- * CounterMetric represents a monotonically increasing counter value.
- * Counters are used for tracking events like requests served, errors, etc.
+ * CounterMetric represents a monotonically increasing counter.
+ * Counters only increase in value and are typically used for tracking
+ * cumulative values like total requests, errors, or bytes processed.
  */
 message CounterMetric {
-  // Metric name (e.g., "http_requests_total")
-  string name = 1;
+  // Unique identifier for this counter
+  string id = 1;
 
-  // Current counter value
-  double value = 2;
+  // Counter name/label
+  string name = 2;
 
-  // Labels for metric dimensions
-  map<string, string> labels = 3;
+  // Current counter value (must be monotonically increasing)
+  double value = 3;
 
-  // Timestamp when metric was recorded
+  // Timestamp when this value was recorded
   google.protobuf.Timestamp timestamp = 4;
 
-  // Help text describing the metric
-  string help = 5;
+  // Counter description/help text
+  string description = 5;
 
-  // Metric unit (e.g., "requests", "bytes", "seconds")
-  string unit = 6;
+  // Key-value labels for this counter
+  map<string, string> labels = 6;
 
-  // Sample rate for this metric (0.0-1.0)
-  double sample_rate = 7;
-
-  // Metadata for request tracing
-  gcommon.v1.common.RequestMetadata metadata = 8;
+  // Sample count (for internal tracking)
+  uint64 sample_count = 7;
 }
