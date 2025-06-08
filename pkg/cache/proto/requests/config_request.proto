@@ -1,18 +1,20 @@
-// filepath: pkg/cache/proto/requests/config_request.proto
-// file: cache/proto/requests/config_request.proto
-//
-// Request definitions for cache module
-// TODO: Implement actual protobuf definitions
-//
+// file: pkg/cache/proto/requests/config_request.proto
 edition = "2023";
 
 package gcommon.v1.cache;
 
 import "google/protobuf/go_features.proto";
+import "pkg/common/proto/messages/request_metadata.proto";
+import "pkg/cache/proto/cache.proto";
 
 option go_package = "github.com/jdfalk/gcommon/pkg/cache/proto;cachepb";
 option features.(pb.go).api_level = API_HYBRID;
 
-// TODO: Add request definitions here
-// This is a placeholder file created during 1-1-1 migration
-// Implement the actual protobuf definitions according to the cache module requirements
+/**
+ * Request to configure cache policies for a namespace.
+ */
+message ConfigurePolicyRequest {
+  string namespace = 1;
+  gcommon.v1.common.CachePolicy policy = 2;
+  gcommon.v1.common.RequestMetadata metadata = 3 [lazy = true];
+}
