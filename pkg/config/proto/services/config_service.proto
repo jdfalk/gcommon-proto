@@ -12,8 +12,19 @@ import "pkg/config/proto/requests/get_config_request.proto";
 import "pkg/config/proto/responses/get_config_response.proto";
 import "pkg/config/proto/requests/set_config_request.proto";
 import "pkg/config/proto/responses/set_config_response.proto";
-import "pkg/config/proto/requests/list_configs_request.proto";
-import "pkg/config/proto/responses/list_configs_response.proto";
+import "pkg/config/proto/requests/delete_config_request.proto";
+import "pkg/config/proto/requests/list_config_request.proto";
+import "pkg/config/proto/responses/list_config_response.proto";
+import "pkg/config/proto/requests/watch_config_request.proto";
+import "pkg/config/proto/responses/watch_config_response.proto";
+import "pkg/config/proto/requests/get_multiple_config_request.proto";
+import "pkg/config/proto/responses/get_multiple_config_response.proto";
+import "pkg/config/proto/requests/set_multiple_config_request.proto";
+import "pkg/config/proto/responses/set_multiple_config_response.proto";
+import "pkg/config/proto/requests/validate_config_request.proto";
+import "pkg/config/proto/responses/validate_config_response.proto";
+import "pkg/config/proto/requests/get_schema_request.proto";
+import "pkg/config/proto/responses/get_schema_response.proto";
 import "google/protobuf/empty.proto";
 
 /**
@@ -21,21 +32,30 @@ import "google/protobuf/empty.proto";
  * Supports hierarchical configuration, validation, and real-time updates.
  */
 service ConfigService {
-  // Get a configuration value
-  rpc GetConfig(GetConfigRequest) returns (GetConfigResponse);
+  // Get retrieves a configuration value
+  rpc Get(GetConfigRequest) returns (GetConfigResponse);
 
-  // Set a configuration value
-  rpc SetConfig(SetConfigRequest) returns (SetConfigResponse);
+  // Set stores a configuration value
+  rpc Set(SetConfigRequest) returns (SetConfigResponse);
 
-  // Delete a configuration value
-  rpc DeleteConfig(DeleteConfigRequest) returns (google.protobuf.Empty);
+  // Delete removes a configuration value
+  rpc Delete(DeleteConfigRequest) returns (google.protobuf.Empty);
 
-  // List configuration values with filtering
-  rpc ListConfigs(ListConfigsRequest) returns (ListConfigsResponse);
+  // List configuration keys with optional filtering
+  rpc List(ListConfigRequest) returns (ListConfigResponse);
 
-  // Watch for configuration changes (streaming)
-  rpc WatchConfig(WatchConfigRequest) returns (stream ConfigChangeEvent);
+  // Watch for configuration changes
+  rpc Watch(WatchConfigRequest) returns (stream WatchConfigResponse);
+
+  // GetMultiple retrieves multiple configuration values
+  rpc GetMultiple(GetMultipleConfigRequest) returns (GetMultipleConfigResponse);
+
+  // SetMultiple stores multiple configuration values
+  rpc SetMultiple(SetMultipleConfigRequest) returns (SetMultipleConfigResponse);
 
   // Validate configuration values
-  rpc ValidateConfig(ValidateConfigRequest) returns (ValidateConfigResponse);
+  rpc Validate(ValidateConfigRequest) returns (ValidateConfigResponse);
+
+  // GetSchema retrieves configuration schema
+  rpc GetSchema(GetSchemaRequest) returns (GetSchemaResponse);
 }

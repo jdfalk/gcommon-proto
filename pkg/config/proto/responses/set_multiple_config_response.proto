@@ -1,0 +1,21 @@
+// file: pkg/config/proto/responses/set_multiple_config_response.proto
+edition = "2023";
+
+package gcommon.v1.config;
+
+import "google/protobuf/go_features.proto";
+import "pkg/common/proto/messages/error.proto";
+
+option go_package = "github.com/jdfalk/gcommon/pkg/config/proto;configpb";
+option features.(pb.go).api_level = API_HYBRID;
+
+/**
+ * SetMultipleConfigResponse reports the result of a bulk set operation.
+ */
+message SetMultipleConfigResponse {
+  // Success status for each key
+  map<string, bool> results = 1;
+
+  // Error information
+  gcommon.v1.common.Error error = 2;
+}
