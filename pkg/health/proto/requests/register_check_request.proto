@@ -2,7 +2,6 @@
 // file: health/proto/requests/register_check_request.proto
 //
 // Request definitions for health module
-// TODO: Implement actual protobuf definitions
 //
 edition = "2023";
 
@@ -13,6 +12,16 @@ import "google/protobuf/go_features.proto";
 option go_package = "github.com/jdfalk/gcommon/pkg/health/proto;healthpb";
 option features.(pb.go).api_level = API_HYBRID;
 
-// TODO: Add request definitions here
-// This is a placeholder file created during 1-1-1 migration
-// Implement the actual protobuf definitions according to the health module requirements
+/**
+ * RegisterCheckRequest registers a new health check with the provider.
+ */
+message RegisterCheckRequest {
+  // Service name this check belongs to
+  string service = 1;
+
+  // Parameters describing the check to execute
+  HealthCheckRequest check = 2;
+
+  // Standard request metadata
+  gcommon.v1.common.RequestMetadata metadata = 3 [lazy = true];
+}
