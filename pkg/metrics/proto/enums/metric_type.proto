@@ -1,8 +1,7 @@
 // filepath: pkg/metrics/proto/enums/metric_type.proto
 // file: metrics/proto/enums/metric_type.proto
 //
-// Enum definitions for metrics module
-// TODO: Implement actual protobuf definitions
+// Metric type enum definitions for metrics module
 //
 edition = "2023";
 
@@ -13,6 +12,31 @@ import "google/protobuf/go_features.proto";
 option go_package = "github.com/jdfalk/gcommon/pkg/metrics/proto;metricspb";
 option features.(pb.go).api_level = API_HYBRID;
 
-// TODO: Add enum definitions here
-// This is a placeholder file created during 1-1-1 migration
-// Implement the actual protobuf definitions according to the metrics module requirements
+/**
+ * MetricType defines the different types of metrics supported.
+ */
+enum MetricType {
+  // Unspecified metric type
+  METRIC_TYPE_UNSPECIFIED = 0;
+
+  // Counter: monotonically increasing value (e.g., total requests)
+  METRIC_TYPE_COUNTER = 1;
+
+  // Gauge: value that can go up and down (e.g., memory usage)
+  METRIC_TYPE_GAUGE = 2;
+
+  // Histogram: distribution of values with buckets (e.g., request durations)
+  METRIC_TYPE_HISTOGRAM = 3;
+
+  // Summary: distribution with quantiles (e.g., response times)
+  METRIC_TYPE_SUMMARY = 4;
+
+  // Set: unique set of values (e.g., unique users)
+  METRIC_TYPE_SET = 5;
+
+  // Info: metadata as labels (e.g., build info)
+  METRIC_TYPE_INFO = 6;
+
+  // State set: boolean values (e.g., feature flags)
+  METRIC_TYPE_STATE_SET = 7;
+}

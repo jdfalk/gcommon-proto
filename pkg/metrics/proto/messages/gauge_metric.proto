@@ -1,18 +1,48 @@
 // filepath: pkg/metrics/proto/messages/gauge_metric.proto
 // file: metrics/proto/messages/gauge_metric.proto
 //
-// Message definitions for metrics module
-// TODO: Implement actual protobuf definitions
+// Gauge metric message definition for metrics module
 //
 edition = "2023";
 
 package gcommon.v1.metrics;
 
 import "google/protobuf/go_features.proto";
+import "google/protobuf/timestamp.proto";
+import "pkg/common/proto/common.proto";
 
 option go_package = "github.com/jdfalk/gcommon/pkg/metrics/proto;metricspb";
 option features.(pb.go).api_level = API_HYBRID;
 
-// TODO: Add message definitions here
-// This is a placeholder file created during 1-1-1 migration
-// Implement the actual protobuf definitions according to the metrics module requirements
+/**
+ * GaugeMetric represents a value that can go up and down.
+ * Gauges are used for tracking values like memory usage, temperature, etc.
+ */
+message GaugeMetric {
+  // Metric name (e.g., "memory_usage_bytes")
+  string name = 1;
+
+  // Current gauge value
+  double value = 2;
+
+  // Labels for metric dimensions
+  map<string, string> labels = 3;
+
+  // Timestamp when metric was recorded
+  google.protobuf.Timestamp timestamp = 4;
+
+  // Help text describing the metric
+  string help = 5;
+
+  // Metric unit (e.g., "bytes", "percent", "connections")
+  string unit = 6;
+
+  // Minimum allowed value (optional)
+  double min_value = 7;
+
+  // Maximum allowed value (optional)
+  double max_value = 8;
+
+  // Metadata for request tracing
+  gcommon.v1.common.RequestMetadata metadata = 9;
+}

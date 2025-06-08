@@ -1,18 +1,60 @@
 // filepath: pkg/metrics/proto/messages/histogram_metric.proto
 // file: metrics/proto/messages/histogram_metric.proto
 //
-// Message definitions for metrics module
-// TODO: Implement actual protobuf definitions
+// Histogram metric message definition for metrics module
 //
 edition = "2023";
 
 package gcommon.v1.metrics;
 
 import "google/protobuf/go_features.proto";
+import "google/protobuf/timestamp.proto";
+import "pkg/common/proto/common.proto";
 
 option go_package = "github.com/jdfalk/gcommon/pkg/metrics/proto;metricspb";
 option features.(pb.go).api_level = API_HYBRID;
 
-// TODO: Add message definitions here
-// This is a placeholder file created during 1-1-1 migration
-// Implement the actual protobuf definitions according to the metrics module requirements
+/**
+ * HistogramBucket represents a single bucket in a histogram.
+ */
+message HistogramBucket {
+  // Upper bound for this bucket (inclusive)
+  double upper_bound = 1;
+
+  // Count of observations in this bucket
+  uint64 count = 2;
+}
+
+/**
+ * HistogramMetric represents a histogram distribution of values.
+ * Used for tracking distributions like request duration, response size, etc.
+ */
+message HistogramMetric {
+  // Metric name (e.g., "http_request_duration_seconds")
+  string name = 1;
+
+  // Total count of observations
+  uint64 sample_count = 2;
+
+  // Sum of all observed values
+  double sample_sum = 3;
+
+  // Histogram buckets
+  repeated HistogramBucket buckets = 4;
+
+  // Labels for metric dimensions
+  map<string, string> labels = 5;
+
+  // Timestamp when metric was recorded
+  google.protobuf.Timestamp timestamp = 6;
+
+  // Help text describing the metric
+  string help = 7;
+
+  // Metric unit (e.g., "seconds", "bytes")
+  string unit = 8;
+
+  // Metadata for request tracing
+  gcommon.v1.common.RequestMetadata metadata = 9;
+}
+
