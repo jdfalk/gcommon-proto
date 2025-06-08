@@ -3,192 +3,40 @@ edition = "2023";
 
 package gcommon.v1.health;
 
-import "pkg/common/proto/common.proto";
-import "google/protobuf/timestamp.proto";
-import "google/protobuf/duration.proto";
-import "google/protobuf/empty.proto";
-import "google/protobuf/any.proto";
 import "google/protobuf/go_features.proto";
+
+// Import all health service definitions
+import "pkg/health/proto/services/health_service.proto";
+import "pkg/health/proto/services/health_admin_service.proto";
+
+// Import core request/response types for backwards compatibility
+import "pkg/health/proto/requests/health_check_request.proto";
+import "pkg/health/proto/requests/watch_request.proto";
+import "pkg/health/proto/responses/health_check_response.proto";
+import "pkg/health/proto/responses/watch_response.proto";
+
+// Import supporting message types
+import "pkg/health/proto/messages/check_result.proto";
+import "pkg/health/proto/messages/health_metrics.proto";
+import "pkg/health/proto/messages/health_metric_data.proto";
 
 option go_package = "github.com/jdfalk/gcommon/pkg/health/proto;healthpb";
 option features.(pb.go).api_level = API_HYBRID;
 
-// HealthService provides comprehensive health checking capabilities
-service HealthService {
-  // Check performs a health check for a specific service
-  rpc Check(HealthCheckRequest) returns (HealthCheckResponse);
-
-  // Watch returns a stream of health check results
-  rpc Watch(WatchRequest) returns (stream HealthCheckResponse);
-
-  // GetServiceHealth returns health status for a service
-  rpc GetServiceHealth(GetServiceHealthRequest) returns (GetServiceHealthResponse);
-
-  // ListServices returns all monitored services
-  rpc ListServices(ListServicesRequest) returns (ListServicesResponse);
-
-  // RegisterCheck registers a new health check
-  rpc RegisterCheck(RegisterCheckRequest) returns (RegisterCheckResponse);
-
-  // UnregisterCheck removes a health check
-  rpc UnregisterCheck(UnregisterCheckRequest) returns (google.protobuf.Empty);
-
-  // GetHealthMetrics returns health metrics and statistics
-  rpc GetHealthMetrics(GetHealthMetricsRequest) returns (GetHealthMetricsResponse);
-}
-
-// Standard gRPC health checking service (for compatibility)
-service HealthCheckService {
-  rpc Check(HealthCheckRequest) returns (HealthCheckResponse);
-  rpc Watch(WatchRequest) returns (stream HealthCheckResponse);
-}
-
-// Health check request
-message HealthCheckRequest {
-  // Service name to check (empty for overall health)
-  string service = 1;
-
-  // Request metadata
-  gcommon.v1.common.RequestMetadata metadata = 2;
-
-  // Check timeout
-  google.protobuf.Duration timeout = 3;
-
-  // Include detailed check results
-  bool include_details = 4;
-}
-
-// Health check response
-message HealthCheckResponse {
-  // Overall health status
-  gcommon.v1.common.HealthStatus status = 1;
-
-  // Service name
-  string service = 2;
-
-  // Check timestamp
-  google.protobuf.Timestamp timestamp = 3;
-
-  // Response time
-  google.protobuf.Duration response_time = 4;
-
-  // Detailed check results
-  repeated CheckResult check_results = 5;
-
-  // Health message
-  string message = 6;
-
-  // Error information if unhealthy
-  gcommon.v1.common.Error error = 7;
-
-  // Health metrics
-  HealthMetrics metrics = 8;
-}
-
-// Watch request for streaming health checks
-message WatchRequest {
-  // Service name to watch (empty for all services)
-  string service = 1;
-
-  // Request metadata
-  gcommon.v1.common.RequestMetadata metadata = 2;
-}
-
-// Service health response
-message GetServiceHealthRequest {
-  // Service name
-  string service = 1;
-
-  // Request metadata
-  gcommon.v1.common.RequestMetadata metadata = 2;
-}
-
-message GetServiceHealthResponse {
-  // Health status
-  gcommon.v1.common.HealthStatus status = 1;
-
-  // Last check timestamp
-  google.protobuf.Timestamp last_check = 2;
-
-  // Error information if unhealthy
-  gcommon.v1.common.Error error = 3;
-}
-
-// List services response
-message ListServicesRequest {
-  // Request metadata
-  gcommon.v1.common.RequestMetadata metadata = 1;
-}
-
-message ListServicesResponse {
-  // List of service names
-  repeated string services = 1;
-
-  // Request metadata
-  gcommon.v1.common.RequestMetadata metadata = 2;
-}
-
-// Register health check request
-message RegisterCheckRequest {
-  // Service name
-  string service = 1;
-
-  // Check parameters
-  HealthCheckRequest check = 2;
-
-  // Request metadata
-  gcommon.v1.common.RequestMetadata metadata = 3;
-}
-
-message RegisterCheckResponse {
-  // Success status
-  bool success = 1;
-
-  // Registered check ID
-  string check_id = 2;
-
-  // Error information
-  gcommon.v1.common.Error error = 3;
-}
-
-// Unregister health check request
-message UnregisterCheckRequest {
-  // Check ID to unregister
-  string check_id = 1;
-
-  // Request metadata
-  gcommon.v1.common.RequestMetadata metadata = 2;
-}
-
-// Health metrics request
-message GetHealthMetricsRequest {
-  // Service name (optional)
-  string service = 1;
-
-  // Request metadata
-  gcommon.v1.common.RequestMetadata metadata = 2;
-}
-
-// Health metrics response
-message GetHealthMetricsResponse {
-  // Health metrics data
-  repeated HealthMetricData metrics = 1;
-
-  // Request metadata
-  gcommon.v1.common.RequestMetadata metadata = 2;
-}
-
-// Health metric data
-message HealthMetricData {
-  // Metric name
-  string name = 1;
-
-  // Metric value
-  double value = 2;
-
-  // Timestamp of the metric
-  google.protobuf.Timestamp timestamp = 3;
-
-  // Labels for the metric
-  map<string, string> labels = 4;
-}
+/**
+ * Main health module protobuf aggregation file.
+ *
+ * This file serves as the central import point for all health-related
+ * protobuf definitions. Individual message types are defined in their
+ * respective files following the 1-1-1 pattern:
+ * - One message per file
+ * - One file per message
+ * - One responsibility per file
+ *
+ * Services are defined in:
+ * - health_service.proto - Core health checking service
+ * - health_admin_service.proto - Administrative health operations
+ *
+ * For backwards compatibility, this file can be imported to access
+ * all health-related types and services.
+ */
