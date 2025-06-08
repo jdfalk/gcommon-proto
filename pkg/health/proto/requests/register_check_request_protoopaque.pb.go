@@ -4,7 +4,7 @@
 // 	protoc        (unknown)
 // source: pkg/health/proto/requests/register_check_request.proto
 
-//go:build !protoopaque
+//go:build protoopaque
 
 package requests
 
@@ -27,15 +27,16 @@ const (
 // *
 // RegisterCheckRequest registers a new health check with the provider.
 type RegisterCheckRequest struct {
-	state protoimpl.MessageState `protogen:"hybrid.v1"`
-	// Service name this check belongs to
-	Service *string `protobuf:"bytes,1,opt,name=service" json:"service,omitempty"`
-	// Parameters describing the check to execute
-	Check *HealthCheckRequest `protobuf:"bytes,2,opt,name=check" json:"check,omitempty"`
-	// Standard request metadata
-	Metadata      *proto.RequestMetadata `protobuf:"bytes,3,opt,name=metadata" json:"metadata,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
+	state               protoimpl.MessageState `protogen:"opaque.v1"`
+	xxx_hidden_Service  *string                `protobuf:"bytes,1,opt,name=service"`
+	xxx_hidden_Check    *HealthCheckRequest    `protobuf:"bytes,2,opt,name=check"`
+	xxx_hidden_Metadata *proto.RequestMetadata `protobuf:"bytes,3,opt,name=metadata"`
+	// Deprecated: Do not use. This will be deleted in the near future.
+	XXX_lazyUnmarshalInfo  protoimpl.LazyUnmarshalInfo
+	XXX_raceDetectHookData protoimpl.RaceDetectHookData
+	XXX_presence           [1]uint32
+	unknownFields          protoimpl.UnknownFields
+	sizeCache              protoimpl.SizeCache
 }
 
 func (x *RegisterCheckRequest) Reset() {
@@ -64,69 +65,87 @@ func (x *RegisterCheckRequest) ProtoReflect() protoreflect.Message {
 }
 
 func (x *RegisterCheckRequest) GetService() string {
-	if x != nil && x.Service != nil {
-		return *x.Service
+	if x != nil {
+		if x.xxx_hidden_Service != nil {
+			return *x.xxx_hidden_Service
+		}
+		return ""
 	}
 	return ""
 }
 
 func (x *RegisterCheckRequest) GetCheck() *HealthCheckRequest {
 	if x != nil {
-		return x.Check
+		return x.xxx_hidden_Check
 	}
 	return nil
 }
 
 func (x *RegisterCheckRequest) GetMetadata() *proto.RequestMetadata {
 	if x != nil {
-		return x.Metadata
+		if protoimpl.X.Present(&(x.XXX_presence[0]), 2) {
+			if protoimpl.X.AtomicCheckPointerIsNil(&x.xxx_hidden_Metadata) {
+				protoimpl.X.UnmarshalField(x, 3)
+			}
+			var rv *proto.RequestMetadata
+			protoimpl.X.AtomicLoadPointer(protoimpl.Pointer(&x.xxx_hidden_Metadata), protoimpl.Pointer(&rv))
+			return rv
+		}
 	}
 	return nil
 }
 
 func (x *RegisterCheckRequest) SetService(v string) {
-	x.Service = &v
+	x.xxx_hidden_Service = &v
+	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 0, 3)
 }
 
 func (x *RegisterCheckRequest) SetCheck(v *HealthCheckRequest) {
-	x.Check = v
+	x.xxx_hidden_Check = v
 }
 
 func (x *RegisterCheckRequest) SetMetadata(v *proto.RequestMetadata) {
-	x.Metadata = v
+	protoimpl.X.AtomicSetPointer(&x.xxx_hidden_Metadata, v)
+	if v == nil {
+		protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 2)
+	} else {
+		protoimpl.X.SetPresent(&(x.XXX_presence[0]), 2, 3)
+	}
 }
 
 func (x *RegisterCheckRequest) HasService() bool {
 	if x == nil {
 		return false
 	}
-	return x.Service != nil
+	return protoimpl.X.Present(&(x.XXX_presence[0]), 0)
 }
 
 func (x *RegisterCheckRequest) HasCheck() bool {
 	if x == nil {
 		return false
 	}
-	return x.Check != nil
+	return x.xxx_hidden_Check != nil
 }
 
 func (x *RegisterCheckRequest) HasMetadata() bool {
 	if x == nil {
 		return false
 	}
-	return x.Metadata != nil
+	return protoimpl.X.Present(&(x.XXX_presence[0]), 2)
 }
 
 func (x *RegisterCheckRequest) ClearService() {
-	x.Service = nil
+	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 0)
+	x.xxx_hidden_Service = nil
 }
 
 func (x *RegisterCheckRequest) ClearCheck() {
-	x.Check = nil
+	x.xxx_hidden_Check = nil
 }
 
 func (x *RegisterCheckRequest) ClearMetadata() {
-	x.Metadata = nil
+	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 2)
+	protoimpl.X.AtomicSetPointer(&x.xxx_hidden_Metadata, (*proto.RequestMetadata)(nil))
 }
 
 type RegisterCheckRequest_builder struct {
@@ -144,9 +163,15 @@ func (b0 RegisterCheckRequest_builder) Build() *RegisterCheckRequest {
 	m0 := &RegisterCheckRequest{}
 	b, x := &b0, m0
 	_, _ = b, x
-	x.Service = b.Service
-	x.Check = b.Check
-	x.Metadata = b.Metadata
+	if b.Service != nil {
+		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 0, 3)
+		x.xxx_hidden_Service = b.Service
+	}
+	x.xxx_hidden_Check = b.Check
+	if b.Metadata != nil {
+		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 2, 3)
+		x.xxx_hidden_Metadata = b.Metadata
+	}
 	return m0
 }
 

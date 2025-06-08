@@ -4,7 +4,7 @@
 // 	protoc        (unknown)
 // source: pkg/health/proto/requests/health_check_request.proto
 
-//go:build !protoopaque
+//go:build protoopaque
 
 package requests
 
@@ -34,17 +34,15 @@ const (
 // - Overall system health (when service is empty)
 // - Detailed check results with configurable timeout
 type HealthCheckRequest struct {
-	state protoimpl.MessageState `protogen:"hybrid.v1"`
-	// Service name to check (empty for overall health)
-	Service *string `protobuf:"bytes,1,opt,name=service" json:"service,omitempty"`
-	// Request metadata
-	Metadata *proto.RequestMetadata `protobuf:"bytes,2,opt,name=metadata" json:"metadata,omitempty"`
-	// Check timeout
-	Timeout *durationpb.Duration `protobuf:"bytes,3,opt,name=timeout" json:"timeout,omitempty"`
-	// Include detailed check results
-	IncludeDetails *bool `protobuf:"varint,4,opt,name=include_details,json=includeDetails" json:"include_details,omitempty"`
-	unknownFields  protoimpl.UnknownFields
-	sizeCache      protoimpl.SizeCache
+	state                     protoimpl.MessageState `protogen:"opaque.v1"`
+	xxx_hidden_Service        *string                `protobuf:"bytes,1,opt,name=service"`
+	xxx_hidden_Metadata       *proto.RequestMetadata `protobuf:"bytes,2,opt,name=metadata"`
+	xxx_hidden_Timeout        *durationpb.Duration   `protobuf:"bytes,3,opt,name=timeout"`
+	xxx_hidden_IncludeDetails bool                   `protobuf:"varint,4,opt,name=include_details,json=includeDetails"`
+	XXX_raceDetectHookData    protoimpl.RaceDetectHookData
+	XXX_presence              [1]uint32
+	unknownFields             protoimpl.UnknownFields
+	sizeCache                 protoimpl.SizeCache
 }
 
 func (x *HealthCheckRequest) Reset() {
@@ -73,91 +71,98 @@ func (x *HealthCheckRequest) ProtoReflect() protoreflect.Message {
 }
 
 func (x *HealthCheckRequest) GetService() string {
-	if x != nil && x.Service != nil {
-		return *x.Service
+	if x != nil {
+		if x.xxx_hidden_Service != nil {
+			return *x.xxx_hidden_Service
+		}
+		return ""
 	}
 	return ""
 }
 
 func (x *HealthCheckRequest) GetMetadata() *proto.RequestMetadata {
 	if x != nil {
-		return x.Metadata
+		return x.xxx_hidden_Metadata
 	}
 	return nil
 }
 
 func (x *HealthCheckRequest) GetTimeout() *durationpb.Duration {
 	if x != nil {
-		return x.Timeout
+		return x.xxx_hidden_Timeout
 	}
 	return nil
 }
 
 func (x *HealthCheckRequest) GetIncludeDetails() bool {
-	if x != nil && x.IncludeDetails != nil {
-		return *x.IncludeDetails
+	if x != nil {
+		return x.xxx_hidden_IncludeDetails
 	}
 	return false
 }
 
 func (x *HealthCheckRequest) SetService(v string) {
-	x.Service = &v
+	x.xxx_hidden_Service = &v
+	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 0, 4)
 }
 
 func (x *HealthCheckRequest) SetMetadata(v *proto.RequestMetadata) {
-	x.Metadata = v
+	x.xxx_hidden_Metadata = v
 }
 
 func (x *HealthCheckRequest) SetTimeout(v *durationpb.Duration) {
-	x.Timeout = v
+	x.xxx_hidden_Timeout = v
 }
 
 func (x *HealthCheckRequest) SetIncludeDetails(v bool) {
-	x.IncludeDetails = &v
+	x.xxx_hidden_IncludeDetails = v
+	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 3, 4)
 }
 
 func (x *HealthCheckRequest) HasService() bool {
 	if x == nil {
 		return false
 	}
-	return x.Service != nil
+	return protoimpl.X.Present(&(x.XXX_presence[0]), 0)
 }
 
 func (x *HealthCheckRequest) HasMetadata() bool {
 	if x == nil {
 		return false
 	}
-	return x.Metadata != nil
+	return x.xxx_hidden_Metadata != nil
 }
 
 func (x *HealthCheckRequest) HasTimeout() bool {
 	if x == nil {
 		return false
 	}
-	return x.Timeout != nil
+	return x.xxx_hidden_Timeout != nil
 }
 
 func (x *HealthCheckRequest) HasIncludeDetails() bool {
 	if x == nil {
 		return false
 	}
-	return x.IncludeDetails != nil
+	return protoimpl.X.Present(&(x.XXX_presence[0]), 3)
 }
 
 func (x *HealthCheckRequest) ClearService() {
-	x.Service = nil
+	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 0)
+	x.xxx_hidden_Service = nil
 }
 
 func (x *HealthCheckRequest) ClearMetadata() {
-	x.Metadata = nil
+	x.xxx_hidden_Metadata = nil
 }
 
 func (x *HealthCheckRequest) ClearTimeout() {
-	x.Timeout = nil
+	x.xxx_hidden_Timeout = nil
 }
 
 func (x *HealthCheckRequest) ClearIncludeDetails() {
-	x.IncludeDetails = nil
+	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 3)
+	x.xxx_hidden_IncludeDetails = false
 }
 
 type HealthCheckRequest_builder struct {
@@ -177,10 +182,16 @@ func (b0 HealthCheckRequest_builder) Build() *HealthCheckRequest {
 	m0 := &HealthCheckRequest{}
 	b, x := &b0, m0
 	_, _ = b, x
-	x.Service = b.Service
-	x.Metadata = b.Metadata
-	x.Timeout = b.Timeout
-	x.IncludeDetails = b.IncludeDetails
+	if b.Service != nil {
+		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 0, 4)
+		x.xxx_hidden_Service = b.Service
+	}
+	x.xxx_hidden_Metadata = b.Metadata
+	x.xxx_hidden_Timeout = b.Timeout
+	if b.IncludeDetails != nil {
+		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 3, 4)
+		x.xxx_hidden_IncludeDetails = *b.IncludeDetails
+	}
 	return m0
 }
 

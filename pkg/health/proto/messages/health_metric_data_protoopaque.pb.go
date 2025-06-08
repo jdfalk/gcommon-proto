@@ -4,7 +4,7 @@
 // 	protoc        (unknown)
 // source: pkg/health/proto/messages/health_metric_data.proto
 
-//go:build !protoopaque
+//go:build protoopaque
 
 package messages
 
@@ -28,21 +28,17 @@ const (
 // Individual health metric data point.
 // Represents a single metric measurement with associated metadata.
 type HealthMetricData struct {
-	state protoimpl.MessageState `protogen:"hybrid.v1"`
-	// Metric name
-	Name *string `protobuf:"bytes,1,opt,name=name" json:"name,omitempty"`
-	// Metric value
-	Value *float64 `protobuf:"fixed64,2,opt,name=value" json:"value,omitempty"`
-	// Timestamp of the metric
-	Timestamp *timestamppb.Timestamp `protobuf:"bytes,3,opt,name=timestamp" json:"timestamp,omitempty"`
-	// Labels for the metric
-	Labels map[string]string `protobuf:"bytes,4,rep,name=labels" json:"labels,omitempty" protobuf_key:"bytes,1,opt,name=key" protobuf_val:"bytes,2,opt,name=value"`
-	// Unit of measurement (e.g., "ms", "count", "percentage")
-	Unit *string `protobuf:"bytes,5,opt,name=unit" json:"unit,omitempty"`
-	// Description of what this metric measures
-	Description   *string `protobuf:"bytes,6,opt,name=description" json:"description,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
+	state                  protoimpl.MessageState `protogen:"opaque.v1"`
+	xxx_hidden_Name        *string                `protobuf:"bytes,1,opt,name=name"`
+	xxx_hidden_Value       float64                `protobuf:"fixed64,2,opt,name=value"`
+	xxx_hidden_Timestamp   *timestamppb.Timestamp `protobuf:"bytes,3,opt,name=timestamp"`
+	xxx_hidden_Labels      map[string]string      `protobuf:"bytes,4,rep,name=labels" protobuf_key:"bytes,1,opt,name=key" protobuf_val:"bytes,2,opt,name=value"`
+	xxx_hidden_Unit        *string                `protobuf:"bytes,5,opt,name=unit"`
+	xxx_hidden_Description *string                `protobuf:"bytes,6,opt,name=description"`
+	XXX_raceDetectHookData protoimpl.RaceDetectHookData
+	XXX_presence           [1]uint32
+	unknownFields          protoimpl.UnknownFields
+	sizeCache              protoimpl.SizeCache
 }
 
 func (x *HealthMetricData) Reset() {
@@ -71,124 +67,141 @@ func (x *HealthMetricData) ProtoReflect() protoreflect.Message {
 }
 
 func (x *HealthMetricData) GetName() string {
-	if x != nil && x.Name != nil {
-		return *x.Name
+	if x != nil {
+		if x.xxx_hidden_Name != nil {
+			return *x.xxx_hidden_Name
+		}
+		return ""
 	}
 	return ""
 }
 
 func (x *HealthMetricData) GetValue() float64 {
-	if x != nil && x.Value != nil {
-		return *x.Value
+	if x != nil {
+		return x.xxx_hidden_Value
 	}
 	return 0
 }
 
 func (x *HealthMetricData) GetTimestamp() *timestamppb.Timestamp {
 	if x != nil {
-		return x.Timestamp
+		return x.xxx_hidden_Timestamp
 	}
 	return nil
 }
 
 func (x *HealthMetricData) GetLabels() map[string]string {
 	if x != nil {
-		return x.Labels
+		return x.xxx_hidden_Labels
 	}
 	return nil
 }
 
 func (x *HealthMetricData) GetUnit() string {
-	if x != nil && x.Unit != nil {
-		return *x.Unit
+	if x != nil {
+		if x.xxx_hidden_Unit != nil {
+			return *x.xxx_hidden_Unit
+		}
+		return ""
 	}
 	return ""
 }
 
 func (x *HealthMetricData) GetDescription() string {
-	if x != nil && x.Description != nil {
-		return *x.Description
+	if x != nil {
+		if x.xxx_hidden_Description != nil {
+			return *x.xxx_hidden_Description
+		}
+		return ""
 	}
 	return ""
 }
 
 func (x *HealthMetricData) SetName(v string) {
-	x.Name = &v
+	x.xxx_hidden_Name = &v
+	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 0, 6)
 }
 
 func (x *HealthMetricData) SetValue(v float64) {
-	x.Value = &v
+	x.xxx_hidden_Value = v
+	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 1, 6)
 }
 
 func (x *HealthMetricData) SetTimestamp(v *timestamppb.Timestamp) {
-	x.Timestamp = v
+	x.xxx_hidden_Timestamp = v
 }
 
 func (x *HealthMetricData) SetLabels(v map[string]string) {
-	x.Labels = v
+	x.xxx_hidden_Labels = v
 }
 
 func (x *HealthMetricData) SetUnit(v string) {
-	x.Unit = &v
+	x.xxx_hidden_Unit = &v
+	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 4, 6)
 }
 
 func (x *HealthMetricData) SetDescription(v string) {
-	x.Description = &v
+	x.xxx_hidden_Description = &v
+	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 5, 6)
 }
 
 func (x *HealthMetricData) HasName() bool {
 	if x == nil {
 		return false
 	}
-	return x.Name != nil
+	return protoimpl.X.Present(&(x.XXX_presence[0]), 0)
 }
 
 func (x *HealthMetricData) HasValue() bool {
 	if x == nil {
 		return false
 	}
-	return x.Value != nil
+	return protoimpl.X.Present(&(x.XXX_presence[0]), 1)
 }
 
 func (x *HealthMetricData) HasTimestamp() bool {
 	if x == nil {
 		return false
 	}
-	return x.Timestamp != nil
+	return x.xxx_hidden_Timestamp != nil
 }
 
 func (x *HealthMetricData) HasUnit() bool {
 	if x == nil {
 		return false
 	}
-	return x.Unit != nil
+	return protoimpl.X.Present(&(x.XXX_presence[0]), 4)
 }
 
 func (x *HealthMetricData) HasDescription() bool {
 	if x == nil {
 		return false
 	}
-	return x.Description != nil
+	return protoimpl.X.Present(&(x.XXX_presence[0]), 5)
 }
 
 func (x *HealthMetricData) ClearName() {
-	x.Name = nil
+	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 0)
+	x.xxx_hidden_Name = nil
 }
 
 func (x *HealthMetricData) ClearValue() {
-	x.Value = nil
+	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 1)
+	x.xxx_hidden_Value = 0
 }
 
 func (x *HealthMetricData) ClearTimestamp() {
-	x.Timestamp = nil
+	x.xxx_hidden_Timestamp = nil
 }
 
 func (x *HealthMetricData) ClearUnit() {
-	x.Unit = nil
+	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 4)
+	x.xxx_hidden_Unit = nil
 }
 
 func (x *HealthMetricData) ClearDescription() {
-	x.Description = nil
+	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 5)
+	x.xxx_hidden_Description = nil
 }
 
 type HealthMetricData_builder struct {
@@ -212,12 +225,24 @@ func (b0 HealthMetricData_builder) Build() *HealthMetricData {
 	m0 := &HealthMetricData{}
 	b, x := &b0, m0
 	_, _ = b, x
-	x.Name = b.Name
-	x.Value = b.Value
-	x.Timestamp = b.Timestamp
-	x.Labels = b.Labels
-	x.Unit = b.Unit
-	x.Description = b.Description
+	if b.Name != nil {
+		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 0, 6)
+		x.xxx_hidden_Name = b.Name
+	}
+	if b.Value != nil {
+		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 1, 6)
+		x.xxx_hidden_Value = *b.Value
+	}
+	x.xxx_hidden_Timestamp = b.Timestamp
+	x.xxx_hidden_Labels = b.Labels
+	if b.Unit != nil {
+		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 4, 6)
+		x.xxx_hidden_Unit = b.Unit
+	}
+	if b.Description != nil {
+		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 5, 6)
+		x.xxx_hidden_Description = b.Description
+	}
 	return m0
 }
 

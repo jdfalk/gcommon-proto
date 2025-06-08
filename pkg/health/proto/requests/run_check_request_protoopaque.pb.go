@@ -4,7 +4,7 @@
 // 	protoc        (unknown)
 // source: pkg/health/proto/requests/run_check_request.proto
 
-//go:build !protoopaque
+//go:build protoopaque
 
 package requests
 
@@ -27,13 +27,15 @@ const (
 // *
 // RunCheckRequest triggers execution of a specific health check.
 type RunCheckRequest struct {
-	state protoimpl.MessageState `protogen:"hybrid.v1"`
-	// Name or ID of the check to run
-	Name *string `protobuf:"bytes,1,opt,name=name" json:"name,omitempty"`
-	// Request metadata used for tracing
-	Metadata      *proto.RequestMetadata `protobuf:"bytes,2,opt,name=metadata" json:"metadata,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
+	state               protoimpl.MessageState `protogen:"opaque.v1"`
+	xxx_hidden_Name     *string                `protobuf:"bytes,1,opt,name=name"`
+	xxx_hidden_Metadata *proto.RequestMetadata `protobuf:"bytes,2,opt,name=metadata"`
+	// Deprecated: Do not use. This will be deleted in the near future.
+	XXX_lazyUnmarshalInfo  protoimpl.LazyUnmarshalInfo
+	XXX_raceDetectHookData protoimpl.RaceDetectHookData
+	XXX_presence           [1]uint32
+	unknownFields          protoimpl.UnknownFields
+	sizeCache              protoimpl.SizeCache
 }
 
 func (x *RunCheckRequest) Reset() {
@@ -62,47 +64,65 @@ func (x *RunCheckRequest) ProtoReflect() protoreflect.Message {
 }
 
 func (x *RunCheckRequest) GetName() string {
-	if x != nil && x.Name != nil {
-		return *x.Name
+	if x != nil {
+		if x.xxx_hidden_Name != nil {
+			return *x.xxx_hidden_Name
+		}
+		return ""
 	}
 	return ""
 }
 
 func (x *RunCheckRequest) GetMetadata() *proto.RequestMetadata {
 	if x != nil {
-		return x.Metadata
+		if protoimpl.X.Present(&(x.XXX_presence[0]), 1) {
+			if protoimpl.X.AtomicCheckPointerIsNil(&x.xxx_hidden_Metadata) {
+				protoimpl.X.UnmarshalField(x, 2)
+			}
+			var rv *proto.RequestMetadata
+			protoimpl.X.AtomicLoadPointer(protoimpl.Pointer(&x.xxx_hidden_Metadata), protoimpl.Pointer(&rv))
+			return rv
+		}
 	}
 	return nil
 }
 
 func (x *RunCheckRequest) SetName(v string) {
-	x.Name = &v
+	x.xxx_hidden_Name = &v
+	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 0, 2)
 }
 
 func (x *RunCheckRequest) SetMetadata(v *proto.RequestMetadata) {
-	x.Metadata = v
+	protoimpl.X.AtomicSetPointer(&x.xxx_hidden_Metadata, v)
+	if v == nil {
+		protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 1)
+	} else {
+		protoimpl.X.SetPresent(&(x.XXX_presence[0]), 1, 2)
+	}
 }
 
 func (x *RunCheckRequest) HasName() bool {
 	if x == nil {
 		return false
 	}
-	return x.Name != nil
+	return protoimpl.X.Present(&(x.XXX_presence[0]), 0)
 }
 
 func (x *RunCheckRequest) HasMetadata() bool {
 	if x == nil {
 		return false
 	}
-	return x.Metadata != nil
+	return protoimpl.X.Present(&(x.XXX_presence[0]), 1)
 }
 
 func (x *RunCheckRequest) ClearName() {
-	x.Name = nil
+	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 0)
+	x.xxx_hidden_Name = nil
 }
 
 func (x *RunCheckRequest) ClearMetadata() {
-	x.Metadata = nil
+	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 1)
+	protoimpl.X.AtomicSetPointer(&x.xxx_hidden_Metadata, (*proto.RequestMetadata)(nil))
 }
 
 type RunCheckRequest_builder struct {
@@ -118,8 +138,14 @@ func (b0 RunCheckRequest_builder) Build() *RunCheckRequest {
 	m0 := &RunCheckRequest{}
 	b, x := &b0, m0
 	_, _ = b, x
-	x.Name = b.Name
-	x.Metadata = b.Metadata
+	if b.Name != nil {
+		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 0, 2)
+		x.xxx_hidden_Name = b.Name
+	}
+	if b.Metadata != nil {
+		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 1, 2)
+		x.xxx_hidden_Metadata = b.Metadata
+	}
 	return m0
 }
 

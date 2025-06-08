@@ -4,7 +4,7 @@
 // 	protoc        (unknown)
 // source: pkg/health/proto/responses/get_health_metrics_response.proto
 
-//go:build !protoopaque
+//go:build protoopaque
 
 package responses
 
@@ -29,13 +29,11 @@ const (
 // Response message for health metrics requests.
 // Contains health metrics and statistics data.
 type GetHealthMetricsResponse struct {
-	state protoimpl.MessageState `protogen:"hybrid.v1"`
-	// Health metrics data
-	Metrics []*messages.HealthMetricData `protobuf:"bytes,1,rep,name=metrics" json:"metrics,omitempty"`
-	// Request metadata
-	Metadata      *proto.RequestMetadata `protobuf:"bytes,2,opt,name=metadata" json:"metadata,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
+	state               protoimpl.MessageState        `protogen:"opaque.v1"`
+	xxx_hidden_Metrics  *[]*messages.HealthMetricData `protobuf:"bytes,1,rep,name=metrics"`
+	xxx_hidden_Metadata *proto.RequestMetadata        `protobuf:"bytes,2,opt,name=metadata"`
+	unknownFields       protoimpl.UnknownFields
+	sizeCache           protoimpl.SizeCache
 }
 
 func (x *GetHealthMetricsResponse) Reset() {
@@ -65,35 +63,37 @@ func (x *GetHealthMetricsResponse) ProtoReflect() protoreflect.Message {
 
 func (x *GetHealthMetricsResponse) GetMetrics() []*messages.HealthMetricData {
 	if x != nil {
-		return x.Metrics
+		if x.xxx_hidden_Metrics != nil {
+			return *x.xxx_hidden_Metrics
+		}
 	}
 	return nil
 }
 
 func (x *GetHealthMetricsResponse) GetMetadata() *proto.RequestMetadata {
 	if x != nil {
-		return x.Metadata
+		return x.xxx_hidden_Metadata
 	}
 	return nil
 }
 
 func (x *GetHealthMetricsResponse) SetMetrics(v []*messages.HealthMetricData) {
-	x.Metrics = v
+	x.xxx_hidden_Metrics = &v
 }
 
 func (x *GetHealthMetricsResponse) SetMetadata(v *proto.RequestMetadata) {
-	x.Metadata = v
+	x.xxx_hidden_Metadata = v
 }
 
 func (x *GetHealthMetricsResponse) HasMetadata() bool {
 	if x == nil {
 		return false
 	}
-	return x.Metadata != nil
+	return x.xxx_hidden_Metadata != nil
 }
 
 func (x *GetHealthMetricsResponse) ClearMetadata() {
-	x.Metadata = nil
+	x.xxx_hidden_Metadata = nil
 }
 
 type GetHealthMetricsResponse_builder struct {
@@ -109,8 +109,8 @@ func (b0 GetHealthMetricsResponse_builder) Build() *GetHealthMetricsResponse {
 	m0 := &GetHealthMetricsResponse{}
 	b, x := &b0, m0
 	_, _ = b, x
-	x.Metrics = b.Metrics
-	x.Metadata = b.Metadata
+	x.xxx_hidden_Metrics = &b.Metrics
+	x.xxx_hidden_Metadata = b.Metadata
 	return m0
 }
 

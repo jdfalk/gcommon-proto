@@ -4,7 +4,7 @@
 // 	protoc        (unknown)
 // source: pkg/health/proto/responses/get_service_health_response.proto
 
-//go:build !protoopaque
+//go:build protoopaque
 
 package responses
 
@@ -29,15 +29,14 @@ const (
 // Response message for service health status requests.
 // Provides health status for a specific service.
 type GetServiceHealthResponse struct {
-	state protoimpl.MessageState `protogen:"hybrid.v1"`
-	// Health status
-	Status *proto.HealthStatus `protobuf:"varint,1,opt,name=status,enum=gcommon.v1.common.HealthStatus" json:"status,omitempty"`
-	// Last check timestamp
-	LastCheck *timestamppb.Timestamp `protobuf:"bytes,2,opt,name=last_check,json=lastCheck" json:"last_check,omitempty"`
-	// Error information if unhealthy
-	Error         *proto.Error `protobuf:"bytes,3,opt,name=error" json:"error,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
+	state                  protoimpl.MessageState `protogen:"opaque.v1"`
+	xxx_hidden_Status      proto.HealthStatus     `protobuf:"varint,1,opt,name=status,enum=gcommon.v1.common.HealthStatus"`
+	xxx_hidden_LastCheck   *timestamppb.Timestamp `protobuf:"bytes,2,opt,name=last_check,json=lastCheck"`
+	xxx_hidden_Error       *proto.Error           `protobuf:"bytes,3,opt,name=error"`
+	XXX_raceDetectHookData protoimpl.RaceDetectHookData
+	XXX_presence           [1]uint32
+	unknownFields          protoimpl.UnknownFields
+	sizeCache              protoimpl.SizeCache
 }
 
 func (x *GetServiceHealthResponse) Reset() {
@@ -66,69 +65,73 @@ func (x *GetServiceHealthResponse) ProtoReflect() protoreflect.Message {
 }
 
 func (x *GetServiceHealthResponse) GetStatus() proto.HealthStatus {
-	if x != nil && x.Status != nil {
-		return *x.Status
+	if x != nil {
+		if protoimpl.X.Present(&(x.XXX_presence[0]), 0) {
+			return x.xxx_hidden_Status
+		}
 	}
 	return proto.HealthStatus(0)
 }
 
 func (x *GetServiceHealthResponse) GetLastCheck() *timestamppb.Timestamp {
 	if x != nil {
-		return x.LastCheck
+		return x.xxx_hidden_LastCheck
 	}
 	return nil
 }
 
 func (x *GetServiceHealthResponse) GetError() *proto.Error {
 	if x != nil {
-		return x.Error
+		return x.xxx_hidden_Error
 	}
 	return nil
 }
 
 func (x *GetServiceHealthResponse) SetStatus(v proto.HealthStatus) {
-	x.Status = &v
+	x.xxx_hidden_Status = v
+	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 0, 3)
 }
 
 func (x *GetServiceHealthResponse) SetLastCheck(v *timestamppb.Timestamp) {
-	x.LastCheck = v
+	x.xxx_hidden_LastCheck = v
 }
 
 func (x *GetServiceHealthResponse) SetError(v *proto.Error) {
-	x.Error = v
+	x.xxx_hidden_Error = v
 }
 
 func (x *GetServiceHealthResponse) HasStatus() bool {
 	if x == nil {
 		return false
 	}
-	return x.Status != nil
+	return protoimpl.X.Present(&(x.XXX_presence[0]), 0)
 }
 
 func (x *GetServiceHealthResponse) HasLastCheck() bool {
 	if x == nil {
 		return false
 	}
-	return x.LastCheck != nil
+	return x.xxx_hidden_LastCheck != nil
 }
 
 func (x *GetServiceHealthResponse) HasError() bool {
 	if x == nil {
 		return false
 	}
-	return x.Error != nil
+	return x.xxx_hidden_Error != nil
 }
 
 func (x *GetServiceHealthResponse) ClearStatus() {
-	x.Status = nil
+	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 0)
+	x.xxx_hidden_Status = proto.HealthStatus_HEALTH_STATUS_UNSPECIFIED
 }
 
 func (x *GetServiceHealthResponse) ClearLastCheck() {
-	x.LastCheck = nil
+	x.xxx_hidden_LastCheck = nil
 }
 
 func (x *GetServiceHealthResponse) ClearError() {
-	x.Error = nil
+	x.xxx_hidden_Error = nil
 }
 
 type GetServiceHealthResponse_builder struct {
@@ -146,9 +149,12 @@ func (b0 GetServiceHealthResponse_builder) Build() *GetServiceHealthResponse {
 	m0 := &GetServiceHealthResponse{}
 	b, x := &b0, m0
 	_, _ = b, x
-	x.Status = b.Status
-	x.LastCheck = b.LastCheck
-	x.Error = b.Error
+	if b.Status != nil {
+		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 0, 3)
+		x.xxx_hidden_Status = *b.Status
+	}
+	x.xxx_hidden_LastCheck = b.LastCheck
+	x.xxx_hidden_Error = b.Error
 	return m0
 }
 

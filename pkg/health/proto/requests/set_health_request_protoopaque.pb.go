@@ -4,7 +4,7 @@
 // 	protoc        (unknown)
 // source: pkg/health/proto/requests/set_health_request.proto
 
-//go:build !protoopaque
+//go:build protoopaque
 
 package requests
 
@@ -27,15 +27,16 @@ const (
 // *
 // SetHealthRequest allows manually overriding the health status of a service.
 type SetHealthRequest struct {
-	state protoimpl.MessageState `protogen:"hybrid.v1"`
-	// Service name to update
-	Service *string `protobuf:"bytes,1,opt,name=service" json:"service,omitempty"`
-	// Desired health status
-	Status *proto.HealthStatus `protobuf:"varint,2,opt,name=status,enum=gcommon.v1.common.HealthStatus" json:"status,omitempty"`
-	// Request metadata for auditing
-	Metadata      *proto.RequestMetadata `protobuf:"bytes,3,opt,name=metadata" json:"metadata,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
+	state               protoimpl.MessageState `protogen:"opaque.v1"`
+	xxx_hidden_Service  *string                `protobuf:"bytes,1,opt,name=service"`
+	xxx_hidden_Status   proto.HealthStatus     `protobuf:"varint,2,opt,name=status,enum=gcommon.v1.common.HealthStatus"`
+	xxx_hidden_Metadata *proto.RequestMetadata `protobuf:"bytes,3,opt,name=metadata"`
+	// Deprecated: Do not use. This will be deleted in the near future.
+	XXX_lazyUnmarshalInfo  protoimpl.LazyUnmarshalInfo
+	XXX_raceDetectHookData protoimpl.RaceDetectHookData
+	XXX_presence           [1]uint32
+	unknownFields          protoimpl.UnknownFields
+	sizeCache              protoimpl.SizeCache
 }
 
 func (x *SetHealthRequest) Reset() {
@@ -64,69 +65,91 @@ func (x *SetHealthRequest) ProtoReflect() protoreflect.Message {
 }
 
 func (x *SetHealthRequest) GetService() string {
-	if x != nil && x.Service != nil {
-		return *x.Service
+	if x != nil {
+		if x.xxx_hidden_Service != nil {
+			return *x.xxx_hidden_Service
+		}
+		return ""
 	}
 	return ""
 }
 
 func (x *SetHealthRequest) GetStatus() proto.HealthStatus {
-	if x != nil && x.Status != nil {
-		return *x.Status
+	if x != nil {
+		if protoimpl.X.Present(&(x.XXX_presence[0]), 1) {
+			return x.xxx_hidden_Status
+		}
 	}
 	return proto.HealthStatus(0)
 }
 
 func (x *SetHealthRequest) GetMetadata() *proto.RequestMetadata {
 	if x != nil {
-		return x.Metadata
+		if protoimpl.X.Present(&(x.XXX_presence[0]), 2) {
+			if protoimpl.X.AtomicCheckPointerIsNil(&x.xxx_hidden_Metadata) {
+				protoimpl.X.UnmarshalField(x, 3)
+			}
+			var rv *proto.RequestMetadata
+			protoimpl.X.AtomicLoadPointer(protoimpl.Pointer(&x.xxx_hidden_Metadata), protoimpl.Pointer(&rv))
+			return rv
+		}
 	}
 	return nil
 }
 
 func (x *SetHealthRequest) SetService(v string) {
-	x.Service = &v
+	x.xxx_hidden_Service = &v
+	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 0, 3)
 }
 
 func (x *SetHealthRequest) SetStatus(v proto.HealthStatus) {
-	x.Status = &v
+	x.xxx_hidden_Status = v
+	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 1, 3)
 }
 
 func (x *SetHealthRequest) SetMetadata(v *proto.RequestMetadata) {
-	x.Metadata = v
+	protoimpl.X.AtomicSetPointer(&x.xxx_hidden_Metadata, v)
+	if v == nil {
+		protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 2)
+	} else {
+		protoimpl.X.SetPresent(&(x.XXX_presence[0]), 2, 3)
+	}
 }
 
 func (x *SetHealthRequest) HasService() bool {
 	if x == nil {
 		return false
 	}
-	return x.Service != nil
+	return protoimpl.X.Present(&(x.XXX_presence[0]), 0)
 }
 
 func (x *SetHealthRequest) HasStatus() bool {
 	if x == nil {
 		return false
 	}
-	return x.Status != nil
+	return protoimpl.X.Present(&(x.XXX_presence[0]), 1)
 }
 
 func (x *SetHealthRequest) HasMetadata() bool {
 	if x == nil {
 		return false
 	}
-	return x.Metadata != nil
+	return protoimpl.X.Present(&(x.XXX_presence[0]), 2)
 }
 
 func (x *SetHealthRequest) ClearService() {
-	x.Service = nil
+	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 0)
+	x.xxx_hidden_Service = nil
 }
 
 func (x *SetHealthRequest) ClearStatus() {
-	x.Status = nil
+	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 1)
+	x.xxx_hidden_Status = proto.HealthStatus_HEALTH_STATUS_UNSPECIFIED
 }
 
 func (x *SetHealthRequest) ClearMetadata() {
-	x.Metadata = nil
+	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 2)
+	protoimpl.X.AtomicSetPointer(&x.xxx_hidden_Metadata, (*proto.RequestMetadata)(nil))
 }
 
 type SetHealthRequest_builder struct {
@@ -144,9 +167,18 @@ func (b0 SetHealthRequest_builder) Build() *SetHealthRequest {
 	m0 := &SetHealthRequest{}
 	b, x := &b0, m0
 	_, _ = b, x
-	x.Service = b.Service
-	x.Status = b.Status
-	x.Metadata = b.Metadata
+	if b.Service != nil {
+		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 0, 3)
+		x.xxx_hidden_Service = b.Service
+	}
+	if b.Status != nil {
+		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 1, 3)
+		x.xxx_hidden_Status = *b.Status
+	}
+	if b.Metadata != nil {
+		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 2, 3)
+		x.xxx_hidden_Metadata = b.Metadata
+	}
 	return m0
 }
 

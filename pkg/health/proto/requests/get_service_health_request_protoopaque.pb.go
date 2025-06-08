@@ -4,7 +4,7 @@
 // 	protoc        (unknown)
 // source: pkg/health/proto/requests/get_service_health_request.proto
 
-//go:build !protoopaque
+//go:build protoopaque
 
 package requests
 
@@ -33,13 +33,13 @@ const (
 // - Health history and metrics access
 // - Service availability monitoring
 type GetServiceHealthRequest struct {
-	state protoimpl.MessageState `protogen:"hybrid.v1"`
-	// Service name
-	Service *string `protobuf:"bytes,1,opt,name=service" json:"service,omitempty"`
-	// Request metadata
-	Metadata      *proto.RequestMetadata `protobuf:"bytes,2,opt,name=metadata" json:"metadata,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
+	state                  protoimpl.MessageState `protogen:"opaque.v1"`
+	xxx_hidden_Service     *string                `protobuf:"bytes,1,opt,name=service"`
+	xxx_hidden_Metadata    *proto.RequestMetadata `protobuf:"bytes,2,opt,name=metadata"`
+	XXX_raceDetectHookData protoimpl.RaceDetectHookData
+	XXX_presence           [1]uint32
+	unknownFields          protoimpl.UnknownFields
+	sizeCache              protoimpl.SizeCache
 }
 
 func (x *GetServiceHealthRequest) Reset() {
@@ -68,47 +68,52 @@ func (x *GetServiceHealthRequest) ProtoReflect() protoreflect.Message {
 }
 
 func (x *GetServiceHealthRequest) GetService() string {
-	if x != nil && x.Service != nil {
-		return *x.Service
+	if x != nil {
+		if x.xxx_hidden_Service != nil {
+			return *x.xxx_hidden_Service
+		}
+		return ""
 	}
 	return ""
 }
 
 func (x *GetServiceHealthRequest) GetMetadata() *proto.RequestMetadata {
 	if x != nil {
-		return x.Metadata
+		return x.xxx_hidden_Metadata
 	}
 	return nil
 }
 
 func (x *GetServiceHealthRequest) SetService(v string) {
-	x.Service = &v
+	x.xxx_hidden_Service = &v
+	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 0, 2)
 }
 
 func (x *GetServiceHealthRequest) SetMetadata(v *proto.RequestMetadata) {
-	x.Metadata = v
+	x.xxx_hidden_Metadata = v
 }
 
 func (x *GetServiceHealthRequest) HasService() bool {
 	if x == nil {
 		return false
 	}
-	return x.Service != nil
+	return protoimpl.X.Present(&(x.XXX_presence[0]), 0)
 }
 
 func (x *GetServiceHealthRequest) HasMetadata() bool {
 	if x == nil {
 		return false
 	}
-	return x.Metadata != nil
+	return x.xxx_hidden_Metadata != nil
 }
 
 func (x *GetServiceHealthRequest) ClearService() {
-	x.Service = nil
+	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 0)
+	x.xxx_hidden_Service = nil
 }
 
 func (x *GetServiceHealthRequest) ClearMetadata() {
-	x.Metadata = nil
+	x.xxx_hidden_Metadata = nil
 }
 
 type GetServiceHealthRequest_builder struct {
@@ -124,8 +129,11 @@ func (b0 GetServiceHealthRequest_builder) Build() *GetServiceHealthRequest {
 	m0 := &GetServiceHealthRequest{}
 	b, x := &b0, m0
 	_, _ = b, x
-	x.Service = b.Service
-	x.Metadata = b.Metadata
+	if b.Service != nil {
+		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 0, 2)
+		x.xxx_hidden_Service = b.Service
+	}
+	x.xxx_hidden_Metadata = b.Metadata
 	return m0
 }
 

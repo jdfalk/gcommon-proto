@@ -4,7 +4,7 @@
 // 	protoc        (unknown)
 // source: pkg/health/proto/requests/list_services_request.proto
 
-//go:build !protoopaque
+//go:build protoopaque
 
 package requests
 
@@ -33,11 +33,10 @@ const (
 // - Service inventory management
 // - Health monitoring scope awareness
 type ListServicesRequest struct {
-	state protoimpl.MessageState `protogen:"hybrid.v1"`
-	// Request metadata
-	Metadata      *proto.RequestMetadata `protobuf:"bytes,1,opt,name=metadata" json:"metadata,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
+	state               protoimpl.MessageState `protogen:"opaque.v1"`
+	xxx_hidden_Metadata *proto.RequestMetadata `protobuf:"bytes,1,opt,name=metadata"`
+	unknownFields       protoimpl.UnknownFields
+	sizeCache           protoimpl.SizeCache
 }
 
 func (x *ListServicesRequest) Reset() {
@@ -67,24 +66,24 @@ func (x *ListServicesRequest) ProtoReflect() protoreflect.Message {
 
 func (x *ListServicesRequest) GetMetadata() *proto.RequestMetadata {
 	if x != nil {
-		return x.Metadata
+		return x.xxx_hidden_Metadata
 	}
 	return nil
 }
 
 func (x *ListServicesRequest) SetMetadata(v *proto.RequestMetadata) {
-	x.Metadata = v
+	x.xxx_hidden_Metadata = v
 }
 
 func (x *ListServicesRequest) HasMetadata() bool {
 	if x == nil {
 		return false
 	}
-	return x.Metadata != nil
+	return x.xxx_hidden_Metadata != nil
 }
 
 func (x *ListServicesRequest) ClearMetadata() {
-	x.Metadata = nil
+	x.xxx_hidden_Metadata = nil
 }
 
 type ListServicesRequest_builder struct {
@@ -98,7 +97,7 @@ func (b0 ListServicesRequest_builder) Build() *ListServicesRequest {
 	m0 := &ListServicesRequest{}
 	b, x := &b0, m0
 	_, _ = b, x
-	x.Metadata = b.Metadata
+	x.xxx_hidden_Metadata = b.Metadata
 	return m0
 }
 

@@ -4,7 +4,7 @@
 // 	protoc        (unknown)
 // source: pkg/health/proto/messages/check_result.proto
 
-//go:build !protoopaque
+//go:build protoopaque
 
 package messages
 
@@ -30,23 +30,18 @@ const (
 // Individual health check result for a specific component or subsystem.
 // Provides detailed information about the health status of a single check.
 type CheckResult struct {
-	state protoimpl.MessageState `protogen:"hybrid.v1"`
-	// Check name or identifier
-	Name *string `protobuf:"bytes,1,opt,name=name" json:"name,omitempty"`
-	// Health status of this specific check
-	Status *proto.HealthStatus `protobuf:"varint,2,opt,name=status,enum=gcommon.v1.common.HealthStatus" json:"status,omitempty"`
-	// Check execution timestamp
-	Timestamp *timestamppb.Timestamp `protobuf:"bytes,3,opt,name=timestamp" json:"timestamp,omitempty"`
-	// Time taken to execute this check
-	ExecutionTime *durationpb.Duration `protobuf:"bytes,4,opt,name=execution_time,json=executionTime" json:"execution_time,omitempty"`
-	// Human-readable message about the check result
-	Message *string `protobuf:"bytes,5,opt,name=message" json:"message,omitempty"`
-	// Error details if the check failed
-	Error *proto.Error `protobuf:"bytes,6,opt,name=error" json:"error,omitempty"`
-	// Additional metadata for this check
-	Metadata      map[string]string `protobuf:"bytes,7,rep,name=metadata" json:"metadata,omitempty" protobuf_key:"bytes,1,opt,name=key" protobuf_val:"bytes,2,opt,name=value"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
+	state                    protoimpl.MessageState `protogen:"opaque.v1"`
+	xxx_hidden_Name          *string                `protobuf:"bytes,1,opt,name=name"`
+	xxx_hidden_Status        proto.HealthStatus     `protobuf:"varint,2,opt,name=status,enum=gcommon.v1.common.HealthStatus"`
+	xxx_hidden_Timestamp     *timestamppb.Timestamp `protobuf:"bytes,3,opt,name=timestamp"`
+	xxx_hidden_ExecutionTime *durationpb.Duration   `protobuf:"bytes,4,opt,name=execution_time,json=executionTime"`
+	xxx_hidden_Message       *string                `protobuf:"bytes,5,opt,name=message"`
+	xxx_hidden_Error         *proto.Error           `protobuf:"bytes,6,opt,name=error"`
+	xxx_hidden_Metadata      map[string]string      `protobuf:"bytes,7,rep,name=metadata" protobuf_key:"bytes,1,opt,name=key" protobuf_val:"bytes,2,opt,name=value"`
+	XXX_raceDetectHookData   protoimpl.RaceDetectHookData
+	XXX_presence             [1]uint32
+	unknownFields            protoimpl.UnknownFields
+	sizeCache                protoimpl.SizeCache
 }
 
 func (x *CheckResult) Reset() {
@@ -75,146 +70,160 @@ func (x *CheckResult) ProtoReflect() protoreflect.Message {
 }
 
 func (x *CheckResult) GetName() string {
-	if x != nil && x.Name != nil {
-		return *x.Name
+	if x != nil {
+		if x.xxx_hidden_Name != nil {
+			return *x.xxx_hidden_Name
+		}
+		return ""
 	}
 	return ""
 }
 
 func (x *CheckResult) GetStatus() proto.HealthStatus {
-	if x != nil && x.Status != nil {
-		return *x.Status
+	if x != nil {
+		if protoimpl.X.Present(&(x.XXX_presence[0]), 1) {
+			return x.xxx_hidden_Status
+		}
 	}
 	return proto.HealthStatus(0)
 }
 
 func (x *CheckResult) GetTimestamp() *timestamppb.Timestamp {
 	if x != nil {
-		return x.Timestamp
+		return x.xxx_hidden_Timestamp
 	}
 	return nil
 }
 
 func (x *CheckResult) GetExecutionTime() *durationpb.Duration {
 	if x != nil {
-		return x.ExecutionTime
+		return x.xxx_hidden_ExecutionTime
 	}
 	return nil
 }
 
 func (x *CheckResult) GetMessage() string {
-	if x != nil && x.Message != nil {
-		return *x.Message
+	if x != nil {
+		if x.xxx_hidden_Message != nil {
+			return *x.xxx_hidden_Message
+		}
+		return ""
 	}
 	return ""
 }
 
 func (x *CheckResult) GetError() *proto.Error {
 	if x != nil {
-		return x.Error
+		return x.xxx_hidden_Error
 	}
 	return nil
 }
 
 func (x *CheckResult) GetMetadata() map[string]string {
 	if x != nil {
-		return x.Metadata
+		return x.xxx_hidden_Metadata
 	}
 	return nil
 }
 
 func (x *CheckResult) SetName(v string) {
-	x.Name = &v
+	x.xxx_hidden_Name = &v
+	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 0, 7)
 }
 
 func (x *CheckResult) SetStatus(v proto.HealthStatus) {
-	x.Status = &v
+	x.xxx_hidden_Status = v
+	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 1, 7)
 }
 
 func (x *CheckResult) SetTimestamp(v *timestamppb.Timestamp) {
-	x.Timestamp = v
+	x.xxx_hidden_Timestamp = v
 }
 
 func (x *CheckResult) SetExecutionTime(v *durationpb.Duration) {
-	x.ExecutionTime = v
+	x.xxx_hidden_ExecutionTime = v
 }
 
 func (x *CheckResult) SetMessage(v string) {
-	x.Message = &v
+	x.xxx_hidden_Message = &v
+	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 4, 7)
 }
 
 func (x *CheckResult) SetError(v *proto.Error) {
-	x.Error = v
+	x.xxx_hidden_Error = v
 }
 
 func (x *CheckResult) SetMetadata(v map[string]string) {
-	x.Metadata = v
+	x.xxx_hidden_Metadata = v
 }
 
 func (x *CheckResult) HasName() bool {
 	if x == nil {
 		return false
 	}
-	return x.Name != nil
+	return protoimpl.X.Present(&(x.XXX_presence[0]), 0)
 }
 
 func (x *CheckResult) HasStatus() bool {
 	if x == nil {
 		return false
 	}
-	return x.Status != nil
+	return protoimpl.X.Present(&(x.XXX_presence[0]), 1)
 }
 
 func (x *CheckResult) HasTimestamp() bool {
 	if x == nil {
 		return false
 	}
-	return x.Timestamp != nil
+	return x.xxx_hidden_Timestamp != nil
 }
 
 func (x *CheckResult) HasExecutionTime() bool {
 	if x == nil {
 		return false
 	}
-	return x.ExecutionTime != nil
+	return x.xxx_hidden_ExecutionTime != nil
 }
 
 func (x *CheckResult) HasMessage() bool {
 	if x == nil {
 		return false
 	}
-	return x.Message != nil
+	return protoimpl.X.Present(&(x.XXX_presence[0]), 4)
 }
 
 func (x *CheckResult) HasError() bool {
 	if x == nil {
 		return false
 	}
-	return x.Error != nil
+	return x.xxx_hidden_Error != nil
 }
 
 func (x *CheckResult) ClearName() {
-	x.Name = nil
+	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 0)
+	x.xxx_hidden_Name = nil
 }
 
 func (x *CheckResult) ClearStatus() {
-	x.Status = nil
+	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 1)
+	x.xxx_hidden_Status = proto.HealthStatus_HEALTH_STATUS_UNSPECIFIED
 }
 
 func (x *CheckResult) ClearTimestamp() {
-	x.Timestamp = nil
+	x.xxx_hidden_Timestamp = nil
 }
 
 func (x *CheckResult) ClearExecutionTime() {
-	x.ExecutionTime = nil
+	x.xxx_hidden_ExecutionTime = nil
 }
 
 func (x *CheckResult) ClearMessage() {
-	x.Message = nil
+	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 4)
+	x.xxx_hidden_Message = nil
 }
 
 func (x *CheckResult) ClearError() {
-	x.Error = nil
+	x.xxx_hidden_Error = nil
 }
 
 type CheckResult_builder struct {
@@ -240,13 +249,22 @@ func (b0 CheckResult_builder) Build() *CheckResult {
 	m0 := &CheckResult{}
 	b, x := &b0, m0
 	_, _ = b, x
-	x.Name = b.Name
-	x.Status = b.Status
-	x.Timestamp = b.Timestamp
-	x.ExecutionTime = b.ExecutionTime
-	x.Message = b.Message
-	x.Error = b.Error
-	x.Metadata = b.Metadata
+	if b.Name != nil {
+		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 0, 7)
+		x.xxx_hidden_Name = b.Name
+	}
+	if b.Status != nil {
+		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 1, 7)
+		x.xxx_hidden_Status = *b.Status
+	}
+	x.xxx_hidden_Timestamp = b.Timestamp
+	x.xxx_hidden_ExecutionTime = b.ExecutionTime
+	if b.Message != nil {
+		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 4, 7)
+		x.xxx_hidden_Message = b.Message
+	}
+	x.xxx_hidden_Error = b.Error
+	x.xxx_hidden_Metadata = b.Metadata
 	return m0
 }
 

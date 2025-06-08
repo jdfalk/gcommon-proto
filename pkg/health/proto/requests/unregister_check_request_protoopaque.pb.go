@@ -4,7 +4,7 @@
 // 	protoc        (unknown)
 // source: pkg/health/proto/requests/unregister_check_request.proto
 
-//go:build !protoopaque
+//go:build protoopaque
 
 package requests
 
@@ -27,13 +27,15 @@ const (
 // *
 // UnregisterCheckRequest removes a health check from the provider.
 type UnregisterCheckRequest struct {
-	state protoimpl.MessageState `protogen:"hybrid.v1"`
-	// ID of the check to unregister
-	CheckId *string `protobuf:"bytes,1,opt,name=check_id,json=checkId" json:"check_id,omitempty"`
-	// Request metadata for auditing
-	Metadata      *proto.RequestMetadata `protobuf:"bytes,2,opt,name=metadata" json:"metadata,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
+	state               protoimpl.MessageState `protogen:"opaque.v1"`
+	xxx_hidden_CheckId  *string                `protobuf:"bytes,1,opt,name=check_id,json=checkId"`
+	xxx_hidden_Metadata *proto.RequestMetadata `protobuf:"bytes,2,opt,name=metadata"`
+	// Deprecated: Do not use. This will be deleted in the near future.
+	XXX_lazyUnmarshalInfo  protoimpl.LazyUnmarshalInfo
+	XXX_raceDetectHookData protoimpl.RaceDetectHookData
+	XXX_presence           [1]uint32
+	unknownFields          protoimpl.UnknownFields
+	sizeCache              protoimpl.SizeCache
 }
 
 func (x *UnregisterCheckRequest) Reset() {
@@ -62,47 +64,65 @@ func (x *UnregisterCheckRequest) ProtoReflect() protoreflect.Message {
 }
 
 func (x *UnregisterCheckRequest) GetCheckId() string {
-	if x != nil && x.CheckId != nil {
-		return *x.CheckId
+	if x != nil {
+		if x.xxx_hidden_CheckId != nil {
+			return *x.xxx_hidden_CheckId
+		}
+		return ""
 	}
 	return ""
 }
 
 func (x *UnregisterCheckRequest) GetMetadata() *proto.RequestMetadata {
 	if x != nil {
-		return x.Metadata
+		if protoimpl.X.Present(&(x.XXX_presence[0]), 1) {
+			if protoimpl.X.AtomicCheckPointerIsNil(&x.xxx_hidden_Metadata) {
+				protoimpl.X.UnmarshalField(x, 2)
+			}
+			var rv *proto.RequestMetadata
+			protoimpl.X.AtomicLoadPointer(protoimpl.Pointer(&x.xxx_hidden_Metadata), protoimpl.Pointer(&rv))
+			return rv
+		}
 	}
 	return nil
 }
 
 func (x *UnregisterCheckRequest) SetCheckId(v string) {
-	x.CheckId = &v
+	x.xxx_hidden_CheckId = &v
+	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 0, 2)
 }
 
 func (x *UnregisterCheckRequest) SetMetadata(v *proto.RequestMetadata) {
-	x.Metadata = v
+	protoimpl.X.AtomicSetPointer(&x.xxx_hidden_Metadata, v)
+	if v == nil {
+		protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 1)
+	} else {
+		protoimpl.X.SetPresent(&(x.XXX_presence[0]), 1, 2)
+	}
 }
 
 func (x *UnregisterCheckRequest) HasCheckId() bool {
 	if x == nil {
 		return false
 	}
-	return x.CheckId != nil
+	return protoimpl.X.Present(&(x.XXX_presence[0]), 0)
 }
 
 func (x *UnregisterCheckRequest) HasMetadata() bool {
 	if x == nil {
 		return false
 	}
-	return x.Metadata != nil
+	return protoimpl.X.Present(&(x.XXX_presence[0]), 1)
 }
 
 func (x *UnregisterCheckRequest) ClearCheckId() {
-	x.CheckId = nil
+	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 0)
+	x.xxx_hidden_CheckId = nil
 }
 
 func (x *UnregisterCheckRequest) ClearMetadata() {
-	x.Metadata = nil
+	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 1)
+	protoimpl.X.AtomicSetPointer(&x.xxx_hidden_Metadata, (*proto.RequestMetadata)(nil))
 }
 
 type UnregisterCheckRequest_builder struct {
@@ -118,8 +138,14 @@ func (b0 UnregisterCheckRequest_builder) Build() *UnregisterCheckRequest {
 	m0 := &UnregisterCheckRequest{}
 	b, x := &b0, m0
 	_, _ = b, x
-	x.CheckId = b.CheckId
-	x.Metadata = b.Metadata
+	if b.CheckId != nil {
+		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 0, 2)
+		x.xxx_hidden_CheckId = b.CheckId
+	}
+	if b.Metadata != nil {
+		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 1, 2)
+		x.xxx_hidden_Metadata = b.Metadata
+	}
 	return m0
 }
 

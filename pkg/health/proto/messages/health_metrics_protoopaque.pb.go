@@ -4,7 +4,7 @@
 // 	protoc        (unknown)
 // source: pkg/health/proto/messages/health_metrics.proto
 
-//go:build !protoopaque
+//go:build protoopaque
 
 package messages
 
@@ -28,25 +28,19 @@ const (
 // Health metrics aggregation containing overall system health statistics.
 // Provides quantitative data about health check performance and system status.
 type HealthMetrics struct {
-	state protoimpl.MessageState `protogen:"hybrid.v1"`
-	// Total number of health checks
-	TotalChecks *int32 `protobuf:"varint,1,opt,name=total_checks,json=totalChecks" json:"total_checks,omitempty"`
-	// Number of healthy checks
-	HealthyChecks *int32 `protobuf:"varint,2,opt,name=healthy_checks,json=healthyChecks" json:"healthy_checks,omitempty"`
-	// Number of unhealthy checks
-	UnhealthyChecks *int32 `protobuf:"varint,3,opt,name=unhealthy_checks,json=unhealthyChecks" json:"unhealthy_checks,omitempty"`
-	// Number of unknown status checks
-	UnknownChecks *int32 `protobuf:"varint,4,opt,name=unknown_checks,json=unknownChecks" json:"unknown_checks,omitempty"`
-	// Average response time across all checks
-	AverageResponseTimeMs *float64 `protobuf:"fixed64,5,opt,name=average_response_time_ms,json=averageResponseTimeMs" json:"average_response_time_ms,omitempty"`
-	// Last update timestamp
-	LastUpdated *timestamppb.Timestamp `protobuf:"bytes,6,opt,name=last_updated,json=lastUpdated" json:"last_updated,omitempty"`
-	// System uptime
-	UptimeSeconds *float64 `protobuf:"fixed64,7,opt,name=uptime_seconds,json=uptimeSeconds" json:"uptime_seconds,omitempty"`
-	// Additional custom metrics
-	CustomMetrics map[string]float64 `protobuf:"bytes,8,rep,name=custom_metrics,json=customMetrics" json:"custom_metrics,omitempty" protobuf_key:"bytes,1,opt,name=key" protobuf_val:"fixed64,2,opt,name=value"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
+	state                            protoimpl.MessageState `protogen:"opaque.v1"`
+	xxx_hidden_TotalChecks           int32                  `protobuf:"varint,1,opt,name=total_checks,json=totalChecks"`
+	xxx_hidden_HealthyChecks         int32                  `protobuf:"varint,2,opt,name=healthy_checks,json=healthyChecks"`
+	xxx_hidden_UnhealthyChecks       int32                  `protobuf:"varint,3,opt,name=unhealthy_checks,json=unhealthyChecks"`
+	xxx_hidden_UnknownChecks         int32                  `protobuf:"varint,4,opt,name=unknown_checks,json=unknownChecks"`
+	xxx_hidden_AverageResponseTimeMs float64                `protobuf:"fixed64,5,opt,name=average_response_time_ms,json=averageResponseTimeMs"`
+	xxx_hidden_LastUpdated           *timestamppb.Timestamp `protobuf:"bytes,6,opt,name=last_updated,json=lastUpdated"`
+	xxx_hidden_UptimeSeconds         float64                `protobuf:"fixed64,7,opt,name=uptime_seconds,json=uptimeSeconds"`
+	xxx_hidden_CustomMetrics         map[string]float64     `protobuf:"bytes,8,rep,name=custom_metrics,json=customMetrics" protobuf_key:"bytes,1,opt,name=key" protobuf_val:"fixed64,2,opt,name=value"`
+	XXX_raceDetectHookData           protoimpl.RaceDetectHookData
+	XXX_presence                     [1]uint32
+	unknownFields                    protoimpl.UnknownFields
+	sizeCache                        protoimpl.SizeCache
 }
 
 func (x *HealthMetrics) Reset() {
@@ -75,168 +69,180 @@ func (x *HealthMetrics) ProtoReflect() protoreflect.Message {
 }
 
 func (x *HealthMetrics) GetTotalChecks() int32 {
-	if x != nil && x.TotalChecks != nil {
-		return *x.TotalChecks
+	if x != nil {
+		return x.xxx_hidden_TotalChecks
 	}
 	return 0
 }
 
 func (x *HealthMetrics) GetHealthyChecks() int32 {
-	if x != nil && x.HealthyChecks != nil {
-		return *x.HealthyChecks
+	if x != nil {
+		return x.xxx_hidden_HealthyChecks
 	}
 	return 0
 }
 
 func (x *HealthMetrics) GetUnhealthyChecks() int32 {
-	if x != nil && x.UnhealthyChecks != nil {
-		return *x.UnhealthyChecks
+	if x != nil {
+		return x.xxx_hidden_UnhealthyChecks
 	}
 	return 0
 }
 
 func (x *HealthMetrics) GetUnknownChecks() int32 {
-	if x != nil && x.UnknownChecks != nil {
-		return *x.UnknownChecks
+	if x != nil {
+		return x.xxx_hidden_UnknownChecks
 	}
 	return 0
 }
 
 func (x *HealthMetrics) GetAverageResponseTimeMs() float64 {
-	if x != nil && x.AverageResponseTimeMs != nil {
-		return *x.AverageResponseTimeMs
+	if x != nil {
+		return x.xxx_hidden_AverageResponseTimeMs
 	}
 	return 0
 }
 
 func (x *HealthMetrics) GetLastUpdated() *timestamppb.Timestamp {
 	if x != nil {
-		return x.LastUpdated
+		return x.xxx_hidden_LastUpdated
 	}
 	return nil
 }
 
 func (x *HealthMetrics) GetUptimeSeconds() float64 {
-	if x != nil && x.UptimeSeconds != nil {
-		return *x.UptimeSeconds
+	if x != nil {
+		return x.xxx_hidden_UptimeSeconds
 	}
 	return 0
 }
 
 func (x *HealthMetrics) GetCustomMetrics() map[string]float64 {
 	if x != nil {
-		return x.CustomMetrics
+		return x.xxx_hidden_CustomMetrics
 	}
 	return nil
 }
 
 func (x *HealthMetrics) SetTotalChecks(v int32) {
-	x.TotalChecks = &v
+	x.xxx_hidden_TotalChecks = v
+	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 0, 8)
 }
 
 func (x *HealthMetrics) SetHealthyChecks(v int32) {
-	x.HealthyChecks = &v
+	x.xxx_hidden_HealthyChecks = v
+	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 1, 8)
 }
 
 func (x *HealthMetrics) SetUnhealthyChecks(v int32) {
-	x.UnhealthyChecks = &v
+	x.xxx_hidden_UnhealthyChecks = v
+	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 2, 8)
 }
 
 func (x *HealthMetrics) SetUnknownChecks(v int32) {
-	x.UnknownChecks = &v
+	x.xxx_hidden_UnknownChecks = v
+	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 3, 8)
 }
 
 func (x *HealthMetrics) SetAverageResponseTimeMs(v float64) {
-	x.AverageResponseTimeMs = &v
+	x.xxx_hidden_AverageResponseTimeMs = v
+	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 4, 8)
 }
 
 func (x *HealthMetrics) SetLastUpdated(v *timestamppb.Timestamp) {
-	x.LastUpdated = v
+	x.xxx_hidden_LastUpdated = v
 }
 
 func (x *HealthMetrics) SetUptimeSeconds(v float64) {
-	x.UptimeSeconds = &v
+	x.xxx_hidden_UptimeSeconds = v
+	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 6, 8)
 }
 
 func (x *HealthMetrics) SetCustomMetrics(v map[string]float64) {
-	x.CustomMetrics = v
+	x.xxx_hidden_CustomMetrics = v
 }
 
 func (x *HealthMetrics) HasTotalChecks() bool {
 	if x == nil {
 		return false
 	}
-	return x.TotalChecks != nil
+	return protoimpl.X.Present(&(x.XXX_presence[0]), 0)
 }
 
 func (x *HealthMetrics) HasHealthyChecks() bool {
 	if x == nil {
 		return false
 	}
-	return x.HealthyChecks != nil
+	return protoimpl.X.Present(&(x.XXX_presence[0]), 1)
 }
 
 func (x *HealthMetrics) HasUnhealthyChecks() bool {
 	if x == nil {
 		return false
 	}
-	return x.UnhealthyChecks != nil
+	return protoimpl.X.Present(&(x.XXX_presence[0]), 2)
 }
 
 func (x *HealthMetrics) HasUnknownChecks() bool {
 	if x == nil {
 		return false
 	}
-	return x.UnknownChecks != nil
+	return protoimpl.X.Present(&(x.XXX_presence[0]), 3)
 }
 
 func (x *HealthMetrics) HasAverageResponseTimeMs() bool {
 	if x == nil {
 		return false
 	}
-	return x.AverageResponseTimeMs != nil
+	return protoimpl.X.Present(&(x.XXX_presence[0]), 4)
 }
 
 func (x *HealthMetrics) HasLastUpdated() bool {
 	if x == nil {
 		return false
 	}
-	return x.LastUpdated != nil
+	return x.xxx_hidden_LastUpdated != nil
 }
 
 func (x *HealthMetrics) HasUptimeSeconds() bool {
 	if x == nil {
 		return false
 	}
-	return x.UptimeSeconds != nil
+	return protoimpl.X.Present(&(x.XXX_presence[0]), 6)
 }
 
 func (x *HealthMetrics) ClearTotalChecks() {
-	x.TotalChecks = nil
+	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 0)
+	x.xxx_hidden_TotalChecks = 0
 }
 
 func (x *HealthMetrics) ClearHealthyChecks() {
-	x.HealthyChecks = nil
+	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 1)
+	x.xxx_hidden_HealthyChecks = 0
 }
 
 func (x *HealthMetrics) ClearUnhealthyChecks() {
-	x.UnhealthyChecks = nil
+	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 2)
+	x.xxx_hidden_UnhealthyChecks = 0
 }
 
 func (x *HealthMetrics) ClearUnknownChecks() {
-	x.UnknownChecks = nil
+	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 3)
+	x.xxx_hidden_UnknownChecks = 0
 }
 
 func (x *HealthMetrics) ClearAverageResponseTimeMs() {
-	x.AverageResponseTimeMs = nil
+	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 4)
+	x.xxx_hidden_AverageResponseTimeMs = 0
 }
 
 func (x *HealthMetrics) ClearLastUpdated() {
-	x.LastUpdated = nil
+	x.xxx_hidden_LastUpdated = nil
 }
 
 func (x *HealthMetrics) ClearUptimeSeconds() {
-	x.UptimeSeconds = nil
+	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 6)
+	x.xxx_hidden_UptimeSeconds = 0
 }
 
 type HealthMetrics_builder struct {
@@ -264,14 +270,32 @@ func (b0 HealthMetrics_builder) Build() *HealthMetrics {
 	m0 := &HealthMetrics{}
 	b, x := &b0, m0
 	_, _ = b, x
-	x.TotalChecks = b.TotalChecks
-	x.HealthyChecks = b.HealthyChecks
-	x.UnhealthyChecks = b.UnhealthyChecks
-	x.UnknownChecks = b.UnknownChecks
-	x.AverageResponseTimeMs = b.AverageResponseTimeMs
-	x.LastUpdated = b.LastUpdated
-	x.UptimeSeconds = b.UptimeSeconds
-	x.CustomMetrics = b.CustomMetrics
+	if b.TotalChecks != nil {
+		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 0, 8)
+		x.xxx_hidden_TotalChecks = *b.TotalChecks
+	}
+	if b.HealthyChecks != nil {
+		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 1, 8)
+		x.xxx_hidden_HealthyChecks = *b.HealthyChecks
+	}
+	if b.UnhealthyChecks != nil {
+		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 2, 8)
+		x.xxx_hidden_UnhealthyChecks = *b.UnhealthyChecks
+	}
+	if b.UnknownChecks != nil {
+		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 3, 8)
+		x.xxx_hidden_UnknownChecks = *b.UnknownChecks
+	}
+	if b.AverageResponseTimeMs != nil {
+		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 4, 8)
+		x.xxx_hidden_AverageResponseTimeMs = *b.AverageResponseTimeMs
+	}
+	x.xxx_hidden_LastUpdated = b.LastUpdated
+	if b.UptimeSeconds != nil {
+		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 6, 8)
+		x.xxx_hidden_UptimeSeconds = *b.UptimeSeconds
+	}
+	x.xxx_hidden_CustomMetrics = b.CustomMetrics
 	return m0
 }
 

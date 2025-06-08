@@ -4,7 +4,7 @@
 // 	protoc        (unknown)
 // source: pkg/health/proto/responses/enable_check_response.proto
 
-//go:build !protoopaque
+//go:build protoopaque
 
 package responses
 
@@ -28,17 +28,15 @@ const (
 // Response message for enabling a health check.
 // Contains the result of enabling a previously disabled check.
 type EnableCheckResponse struct {
-	state protoimpl.MessageState `protogen:"hybrid.v1"`
-	// Success status
-	Success *bool `protobuf:"varint,1,opt,name=success" json:"success,omitempty"`
-	// Check ID that was enabled
-	CheckId *string `protobuf:"bytes,2,opt,name=check_id,json=checkId" json:"check_id,omitempty"`
-	// Error information if enabling failed
-	Error *proto.Error `protobuf:"bytes,3,opt,name=error" json:"error,omitempty"`
-	// Check status after enabling
-	Status        *string `protobuf:"bytes,4,opt,name=status" json:"status,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
+	state                  protoimpl.MessageState `protogen:"opaque.v1"`
+	xxx_hidden_Success     bool                   `protobuf:"varint,1,opt,name=success"`
+	xxx_hidden_CheckId     *string                `protobuf:"bytes,2,opt,name=check_id,json=checkId"`
+	xxx_hidden_Error       *proto.Error           `protobuf:"bytes,3,opt,name=error"`
+	xxx_hidden_Status      *string                `protobuf:"bytes,4,opt,name=status"`
+	XXX_raceDetectHookData protoimpl.RaceDetectHookData
+	XXX_presence           [1]uint32
+	unknownFields          protoimpl.UnknownFields
+	sizeCache              protoimpl.SizeCache
 }
 
 func (x *EnableCheckResponse) Reset() {
@@ -67,91 +65,103 @@ func (x *EnableCheckResponse) ProtoReflect() protoreflect.Message {
 }
 
 func (x *EnableCheckResponse) GetSuccess() bool {
-	if x != nil && x.Success != nil {
-		return *x.Success
+	if x != nil {
+		return x.xxx_hidden_Success
 	}
 	return false
 }
 
 func (x *EnableCheckResponse) GetCheckId() string {
-	if x != nil && x.CheckId != nil {
-		return *x.CheckId
+	if x != nil {
+		if x.xxx_hidden_CheckId != nil {
+			return *x.xxx_hidden_CheckId
+		}
+		return ""
 	}
 	return ""
 }
 
 func (x *EnableCheckResponse) GetError() *proto.Error {
 	if x != nil {
-		return x.Error
+		return x.xxx_hidden_Error
 	}
 	return nil
 }
 
 func (x *EnableCheckResponse) GetStatus() string {
-	if x != nil && x.Status != nil {
-		return *x.Status
+	if x != nil {
+		if x.xxx_hidden_Status != nil {
+			return *x.xxx_hidden_Status
+		}
+		return ""
 	}
 	return ""
 }
 
 func (x *EnableCheckResponse) SetSuccess(v bool) {
-	x.Success = &v
+	x.xxx_hidden_Success = v
+	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 0, 4)
 }
 
 func (x *EnableCheckResponse) SetCheckId(v string) {
-	x.CheckId = &v
+	x.xxx_hidden_CheckId = &v
+	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 1, 4)
 }
 
 func (x *EnableCheckResponse) SetError(v *proto.Error) {
-	x.Error = v
+	x.xxx_hidden_Error = v
 }
 
 func (x *EnableCheckResponse) SetStatus(v string) {
-	x.Status = &v
+	x.xxx_hidden_Status = &v
+	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 3, 4)
 }
 
 func (x *EnableCheckResponse) HasSuccess() bool {
 	if x == nil {
 		return false
 	}
-	return x.Success != nil
+	return protoimpl.X.Present(&(x.XXX_presence[0]), 0)
 }
 
 func (x *EnableCheckResponse) HasCheckId() bool {
 	if x == nil {
 		return false
 	}
-	return x.CheckId != nil
+	return protoimpl.X.Present(&(x.XXX_presence[0]), 1)
 }
 
 func (x *EnableCheckResponse) HasError() bool {
 	if x == nil {
 		return false
 	}
-	return x.Error != nil
+	return x.xxx_hidden_Error != nil
 }
 
 func (x *EnableCheckResponse) HasStatus() bool {
 	if x == nil {
 		return false
 	}
-	return x.Status != nil
+	return protoimpl.X.Present(&(x.XXX_presence[0]), 3)
 }
 
 func (x *EnableCheckResponse) ClearSuccess() {
-	x.Success = nil
+	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 0)
+	x.xxx_hidden_Success = false
 }
 
 func (x *EnableCheckResponse) ClearCheckId() {
-	x.CheckId = nil
+	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 1)
+	x.xxx_hidden_CheckId = nil
 }
 
 func (x *EnableCheckResponse) ClearError() {
-	x.Error = nil
+	x.xxx_hidden_Error = nil
 }
 
 func (x *EnableCheckResponse) ClearStatus() {
-	x.Status = nil
+	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 3)
+	x.xxx_hidden_Status = nil
 }
 
 type EnableCheckResponse_builder struct {
@@ -171,10 +181,19 @@ func (b0 EnableCheckResponse_builder) Build() *EnableCheckResponse {
 	m0 := &EnableCheckResponse{}
 	b, x := &b0, m0
 	_, _ = b, x
-	x.Success = b.Success
-	x.CheckId = b.CheckId
-	x.Error = b.Error
-	x.Status = b.Status
+	if b.Success != nil {
+		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 0, 4)
+		x.xxx_hidden_Success = *b.Success
+	}
+	if b.CheckId != nil {
+		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 1, 4)
+		x.xxx_hidden_CheckId = b.CheckId
+	}
+	x.xxx_hidden_Error = b.Error
+	if b.Status != nil {
+		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 3, 4)
+		x.xxx_hidden_Status = b.Status
+	}
 	return m0
 }
 

@@ -4,7 +4,7 @@
 // 	protoc        (unknown)
 // source: pkg/health/proto/responses/configure_alerting_response.proto
 
-//go:build !protoopaque
+//go:build protoopaque
 
 package responses
 
@@ -28,17 +28,15 @@ const (
 // Response message for configuring alerting settings.
 // Contains the result of alerting configuration changes.
 type ConfigureAlertingResponse struct {
-	state protoimpl.MessageState `protogen:"hybrid.v1"`
-	// Success status
-	Success *bool `protobuf:"varint,1,opt,name=success" json:"success,omitempty"`
-	// Configuration ID
-	ConfigId *string `protobuf:"bytes,2,opt,name=config_id,json=configId" json:"config_id,omitempty"`
-	// Error information if configuration failed
-	Error *proto.Error `protobuf:"bytes,3,opt,name=error" json:"error,omitempty"`
-	// Applied alerting rules
-	AppliedRules  []string `protobuf:"bytes,4,rep,name=applied_rules,json=appliedRules" json:"applied_rules,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
+	state                   protoimpl.MessageState `protogen:"opaque.v1"`
+	xxx_hidden_Success      bool                   `protobuf:"varint,1,opt,name=success"`
+	xxx_hidden_ConfigId     *string                `protobuf:"bytes,2,opt,name=config_id,json=configId"`
+	xxx_hidden_Error        *proto.Error           `protobuf:"bytes,3,opt,name=error"`
+	xxx_hidden_AppliedRules []string               `protobuf:"bytes,4,rep,name=applied_rules,json=appliedRules"`
+	XXX_raceDetectHookData  protoimpl.RaceDetectHookData
+	XXX_presence            [1]uint32
+	unknownFields           protoimpl.UnknownFields
+	sizeCache               protoimpl.SizeCache
 }
 
 func (x *ConfigureAlertingResponse) Reset() {
@@ -67,80 +65,87 @@ func (x *ConfigureAlertingResponse) ProtoReflect() protoreflect.Message {
 }
 
 func (x *ConfigureAlertingResponse) GetSuccess() bool {
-	if x != nil && x.Success != nil {
-		return *x.Success
+	if x != nil {
+		return x.xxx_hidden_Success
 	}
 	return false
 }
 
 func (x *ConfigureAlertingResponse) GetConfigId() string {
-	if x != nil && x.ConfigId != nil {
-		return *x.ConfigId
+	if x != nil {
+		if x.xxx_hidden_ConfigId != nil {
+			return *x.xxx_hidden_ConfigId
+		}
+		return ""
 	}
 	return ""
 }
 
 func (x *ConfigureAlertingResponse) GetError() *proto.Error {
 	if x != nil {
-		return x.Error
+		return x.xxx_hidden_Error
 	}
 	return nil
 }
 
 func (x *ConfigureAlertingResponse) GetAppliedRules() []string {
 	if x != nil {
-		return x.AppliedRules
+		return x.xxx_hidden_AppliedRules
 	}
 	return nil
 }
 
 func (x *ConfigureAlertingResponse) SetSuccess(v bool) {
-	x.Success = &v
+	x.xxx_hidden_Success = v
+	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 0, 4)
 }
 
 func (x *ConfigureAlertingResponse) SetConfigId(v string) {
-	x.ConfigId = &v
+	x.xxx_hidden_ConfigId = &v
+	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 1, 4)
 }
 
 func (x *ConfigureAlertingResponse) SetError(v *proto.Error) {
-	x.Error = v
+	x.xxx_hidden_Error = v
 }
 
 func (x *ConfigureAlertingResponse) SetAppliedRules(v []string) {
-	x.AppliedRules = v
+	x.xxx_hidden_AppliedRules = v
 }
 
 func (x *ConfigureAlertingResponse) HasSuccess() bool {
 	if x == nil {
 		return false
 	}
-	return x.Success != nil
+	return protoimpl.X.Present(&(x.XXX_presence[0]), 0)
 }
 
 func (x *ConfigureAlertingResponse) HasConfigId() bool {
 	if x == nil {
 		return false
 	}
-	return x.ConfigId != nil
+	return protoimpl.X.Present(&(x.XXX_presence[0]), 1)
 }
 
 func (x *ConfigureAlertingResponse) HasError() bool {
 	if x == nil {
 		return false
 	}
-	return x.Error != nil
+	return x.xxx_hidden_Error != nil
 }
 
 func (x *ConfigureAlertingResponse) ClearSuccess() {
-	x.Success = nil
+	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 0)
+	x.xxx_hidden_Success = false
 }
 
 func (x *ConfigureAlertingResponse) ClearConfigId() {
-	x.ConfigId = nil
+	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 1)
+	x.xxx_hidden_ConfigId = nil
 }
 
 func (x *ConfigureAlertingResponse) ClearError() {
-	x.Error = nil
+	x.xxx_hidden_Error = nil
 }
 
 type ConfigureAlertingResponse_builder struct {
@@ -160,10 +165,16 @@ func (b0 ConfigureAlertingResponse_builder) Build() *ConfigureAlertingResponse {
 	m0 := &ConfigureAlertingResponse{}
 	b, x := &b0, m0
 	_, _ = b, x
-	x.Success = b.Success
-	x.ConfigId = b.ConfigId
-	x.Error = b.Error
-	x.AppliedRules = b.AppliedRules
+	if b.Success != nil {
+		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 0, 4)
+		x.xxx_hidden_Success = *b.Success
+	}
+	if b.ConfigId != nil {
+		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 1, 4)
+		x.xxx_hidden_ConfigId = b.ConfigId
+	}
+	x.xxx_hidden_Error = b.Error
+	x.xxx_hidden_AppliedRules = b.AppliedRules
 	return m0
 }
 

@@ -4,7 +4,7 @@
 // 	protoc        (unknown)
 // source: pkg/health/proto/requests/get_health_history_request.proto
 
-//go:build !protoopaque
+//go:build protoopaque
 
 package requests
 
@@ -29,17 +29,17 @@ const (
 // GetHealthHistoryRequest retrieves historical health results
 // for a particular service within an optional time range.
 type GetHealthHistoryRequest struct {
-	state protoimpl.MessageState `protogen:"hybrid.v1"`
-	// Service name to query
-	Service *string `protobuf:"bytes,1,opt,name=service" json:"service,omitempty"`
-	// Optional start time for history records
-	StartTime *timestamppb.Timestamp `protobuf:"bytes,2,opt,name=start_time,json=startTime" json:"start_time,omitempty"`
-	// Optional end time for history records
-	EndTime *timestamppb.Timestamp `protobuf:"bytes,3,opt,name=end_time,json=endTime" json:"end_time,omitempty"`
-	// Request metadata for authentication and tracing
-	Metadata      *proto.RequestMetadata `protobuf:"bytes,4,opt,name=metadata" json:"metadata,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
+	state                protoimpl.MessageState `protogen:"opaque.v1"`
+	xxx_hidden_Service   *string                `protobuf:"bytes,1,opt,name=service"`
+	xxx_hidden_StartTime *timestamppb.Timestamp `protobuf:"bytes,2,opt,name=start_time,json=startTime"`
+	xxx_hidden_EndTime   *timestamppb.Timestamp `protobuf:"bytes,3,opt,name=end_time,json=endTime"`
+	xxx_hidden_Metadata  *proto.RequestMetadata `protobuf:"bytes,4,opt,name=metadata"`
+	// Deprecated: Do not use. This will be deleted in the near future.
+	XXX_lazyUnmarshalInfo  protoimpl.LazyUnmarshalInfo
+	XXX_raceDetectHookData protoimpl.RaceDetectHookData
+	XXX_presence           [1]uint32
+	unknownFields          protoimpl.UnknownFields
+	sizeCache              protoimpl.SizeCache
 }
 
 func (x *GetHealthHistoryRequest) Reset() {
@@ -68,91 +68,109 @@ func (x *GetHealthHistoryRequest) ProtoReflect() protoreflect.Message {
 }
 
 func (x *GetHealthHistoryRequest) GetService() string {
-	if x != nil && x.Service != nil {
-		return *x.Service
+	if x != nil {
+		if x.xxx_hidden_Service != nil {
+			return *x.xxx_hidden_Service
+		}
+		return ""
 	}
 	return ""
 }
 
 func (x *GetHealthHistoryRequest) GetStartTime() *timestamppb.Timestamp {
 	if x != nil {
-		return x.StartTime
+		return x.xxx_hidden_StartTime
 	}
 	return nil
 }
 
 func (x *GetHealthHistoryRequest) GetEndTime() *timestamppb.Timestamp {
 	if x != nil {
-		return x.EndTime
+		return x.xxx_hidden_EndTime
 	}
 	return nil
 }
 
 func (x *GetHealthHistoryRequest) GetMetadata() *proto.RequestMetadata {
 	if x != nil {
-		return x.Metadata
+		if protoimpl.X.Present(&(x.XXX_presence[0]), 3) {
+			if protoimpl.X.AtomicCheckPointerIsNil(&x.xxx_hidden_Metadata) {
+				protoimpl.X.UnmarshalField(x, 4)
+			}
+			var rv *proto.RequestMetadata
+			protoimpl.X.AtomicLoadPointer(protoimpl.Pointer(&x.xxx_hidden_Metadata), protoimpl.Pointer(&rv))
+			return rv
+		}
 	}
 	return nil
 }
 
 func (x *GetHealthHistoryRequest) SetService(v string) {
-	x.Service = &v
+	x.xxx_hidden_Service = &v
+	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 0, 4)
 }
 
 func (x *GetHealthHistoryRequest) SetStartTime(v *timestamppb.Timestamp) {
-	x.StartTime = v
+	x.xxx_hidden_StartTime = v
 }
 
 func (x *GetHealthHistoryRequest) SetEndTime(v *timestamppb.Timestamp) {
-	x.EndTime = v
+	x.xxx_hidden_EndTime = v
 }
 
 func (x *GetHealthHistoryRequest) SetMetadata(v *proto.RequestMetadata) {
-	x.Metadata = v
+	protoimpl.X.AtomicSetPointer(&x.xxx_hidden_Metadata, v)
+	if v == nil {
+		protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 3)
+	} else {
+		protoimpl.X.SetPresent(&(x.XXX_presence[0]), 3, 4)
+	}
 }
 
 func (x *GetHealthHistoryRequest) HasService() bool {
 	if x == nil {
 		return false
 	}
-	return x.Service != nil
+	return protoimpl.X.Present(&(x.XXX_presence[0]), 0)
 }
 
 func (x *GetHealthHistoryRequest) HasStartTime() bool {
 	if x == nil {
 		return false
 	}
-	return x.StartTime != nil
+	return x.xxx_hidden_StartTime != nil
 }
 
 func (x *GetHealthHistoryRequest) HasEndTime() bool {
 	if x == nil {
 		return false
 	}
-	return x.EndTime != nil
+	return x.xxx_hidden_EndTime != nil
 }
 
 func (x *GetHealthHistoryRequest) HasMetadata() bool {
 	if x == nil {
 		return false
 	}
-	return x.Metadata != nil
+	return protoimpl.X.Present(&(x.XXX_presence[0]), 3)
 }
 
 func (x *GetHealthHistoryRequest) ClearService() {
-	x.Service = nil
+	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 0)
+	x.xxx_hidden_Service = nil
 }
 
 func (x *GetHealthHistoryRequest) ClearStartTime() {
-	x.StartTime = nil
+	x.xxx_hidden_StartTime = nil
 }
 
 func (x *GetHealthHistoryRequest) ClearEndTime() {
-	x.EndTime = nil
+	x.xxx_hidden_EndTime = nil
 }
 
 func (x *GetHealthHistoryRequest) ClearMetadata() {
-	x.Metadata = nil
+	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 3)
+	protoimpl.X.AtomicSetPointer(&x.xxx_hidden_Metadata, (*proto.RequestMetadata)(nil))
 }
 
 type GetHealthHistoryRequest_builder struct {
@@ -172,10 +190,16 @@ func (b0 GetHealthHistoryRequest_builder) Build() *GetHealthHistoryRequest {
 	m0 := &GetHealthHistoryRequest{}
 	b, x := &b0, m0
 	_, _ = b, x
-	x.Service = b.Service
-	x.StartTime = b.StartTime
-	x.EndTime = b.EndTime
-	x.Metadata = b.Metadata
+	if b.Service != nil {
+		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 0, 4)
+		x.xxx_hidden_Service = b.Service
+	}
+	x.xxx_hidden_StartTime = b.StartTime
+	x.xxx_hidden_EndTime = b.EndTime
+	if b.Metadata != nil {
+		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 3, 4)
+		x.xxx_hidden_Metadata = b.Metadata
+	}
 	return m0
 }
 

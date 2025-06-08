@@ -4,7 +4,7 @@
 // 	protoc        (unknown)
 // source: pkg/health/proto/requests/configure_alerting_request.proto
 
-//go:build !protoopaque
+//go:build protoopaque
 
 package requests
 
@@ -29,19 +29,16 @@ const (
 // It allows enabling or disabling alert notifications and defining
 // basic thresholds for when an alert should be triggered.
 type ConfigureAlertingRequest struct {
-	state protoimpl.MessageState `protogen:"hybrid.v1"`
-	// Name of the service or check to configure
-	Target *string `protobuf:"bytes,1,opt,name=target" json:"target,omitempty"`
-	// Whether alerting is enabled for this check
-	Enabled *bool `protobuf:"varint,2,opt,name=enabled" json:"enabled,omitempty"`
-	// Number of consecutive failures required before alerting
-	FailureThreshold *int32 `protobuf:"varint,3,opt,name=failure_threshold,json=failureThreshold" json:"failure_threshold,omitempty"`
-	// Optional notification channels (email, slack, etc.)
-	Channels []string `protobuf:"bytes,4,rep,name=channels" json:"channels,omitempty"`
-	// Standard request metadata for tracing and auth
-	Metadata      *proto.RequestMetadata `protobuf:"bytes,5,opt,name=metadata" json:"metadata,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
+	state                       protoimpl.MessageState `protogen:"opaque.v1"`
+	xxx_hidden_Target           *string                `protobuf:"bytes,1,opt,name=target"`
+	xxx_hidden_Enabled          bool                   `protobuf:"varint,2,opt,name=enabled"`
+	xxx_hidden_FailureThreshold int32                  `protobuf:"varint,3,opt,name=failure_threshold,json=failureThreshold"`
+	xxx_hidden_Channels         []string               `protobuf:"bytes,4,rep,name=channels"`
+	xxx_hidden_Metadata         *proto.RequestMetadata `protobuf:"bytes,5,opt,name=metadata"`
+	XXX_raceDetectHookData      protoimpl.RaceDetectHookData
+	XXX_presence                [1]uint32
+	unknownFields               protoimpl.UnknownFields
+	sizeCache                   protoimpl.SizeCache
 }
 
 func (x *ConfigureAlertingRequest) Reset() {
@@ -70,102 +67,111 @@ func (x *ConfigureAlertingRequest) ProtoReflect() protoreflect.Message {
 }
 
 func (x *ConfigureAlertingRequest) GetTarget() string {
-	if x != nil && x.Target != nil {
-		return *x.Target
+	if x != nil {
+		if x.xxx_hidden_Target != nil {
+			return *x.xxx_hidden_Target
+		}
+		return ""
 	}
 	return ""
 }
 
 func (x *ConfigureAlertingRequest) GetEnabled() bool {
-	if x != nil && x.Enabled != nil {
-		return *x.Enabled
+	if x != nil {
+		return x.xxx_hidden_Enabled
 	}
 	return false
 }
 
 func (x *ConfigureAlertingRequest) GetFailureThreshold() int32 {
-	if x != nil && x.FailureThreshold != nil {
-		return *x.FailureThreshold
+	if x != nil {
+		return x.xxx_hidden_FailureThreshold
 	}
 	return 0
 }
 
 func (x *ConfigureAlertingRequest) GetChannels() []string {
 	if x != nil {
-		return x.Channels
+		return x.xxx_hidden_Channels
 	}
 	return nil
 }
 
 func (x *ConfigureAlertingRequest) GetMetadata() *proto.RequestMetadata {
 	if x != nil {
-		return x.Metadata
+		return x.xxx_hidden_Metadata
 	}
 	return nil
 }
 
 func (x *ConfigureAlertingRequest) SetTarget(v string) {
-	x.Target = &v
+	x.xxx_hidden_Target = &v
+	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 0, 5)
 }
 
 func (x *ConfigureAlertingRequest) SetEnabled(v bool) {
-	x.Enabled = &v
+	x.xxx_hidden_Enabled = v
+	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 1, 5)
 }
 
 func (x *ConfigureAlertingRequest) SetFailureThreshold(v int32) {
-	x.FailureThreshold = &v
+	x.xxx_hidden_FailureThreshold = v
+	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 2, 5)
 }
 
 func (x *ConfigureAlertingRequest) SetChannels(v []string) {
-	x.Channels = v
+	x.xxx_hidden_Channels = v
 }
 
 func (x *ConfigureAlertingRequest) SetMetadata(v *proto.RequestMetadata) {
-	x.Metadata = v
+	x.xxx_hidden_Metadata = v
 }
 
 func (x *ConfigureAlertingRequest) HasTarget() bool {
 	if x == nil {
 		return false
 	}
-	return x.Target != nil
+	return protoimpl.X.Present(&(x.XXX_presence[0]), 0)
 }
 
 func (x *ConfigureAlertingRequest) HasEnabled() bool {
 	if x == nil {
 		return false
 	}
-	return x.Enabled != nil
+	return protoimpl.X.Present(&(x.XXX_presence[0]), 1)
 }
 
 func (x *ConfigureAlertingRequest) HasFailureThreshold() bool {
 	if x == nil {
 		return false
 	}
-	return x.FailureThreshold != nil
+	return protoimpl.X.Present(&(x.XXX_presence[0]), 2)
 }
 
 func (x *ConfigureAlertingRequest) HasMetadata() bool {
 	if x == nil {
 		return false
 	}
-	return x.Metadata != nil
+	return x.xxx_hidden_Metadata != nil
 }
 
 func (x *ConfigureAlertingRequest) ClearTarget() {
-	x.Target = nil
+	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 0)
+	x.xxx_hidden_Target = nil
 }
 
 func (x *ConfigureAlertingRequest) ClearEnabled() {
-	x.Enabled = nil
+	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 1)
+	x.xxx_hidden_Enabled = false
 }
 
 func (x *ConfigureAlertingRequest) ClearFailureThreshold() {
-	x.FailureThreshold = nil
+	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 2)
+	x.xxx_hidden_FailureThreshold = 0
 }
 
 func (x *ConfigureAlertingRequest) ClearMetadata() {
-	x.Metadata = nil
+	x.xxx_hidden_Metadata = nil
 }
 
 type ConfigureAlertingRequest_builder struct {
@@ -187,11 +193,20 @@ func (b0 ConfigureAlertingRequest_builder) Build() *ConfigureAlertingRequest {
 	m0 := &ConfigureAlertingRequest{}
 	b, x := &b0, m0
 	_, _ = b, x
-	x.Target = b.Target
-	x.Enabled = b.Enabled
-	x.FailureThreshold = b.FailureThreshold
-	x.Channels = b.Channels
-	x.Metadata = b.Metadata
+	if b.Target != nil {
+		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 0, 5)
+		x.xxx_hidden_Target = b.Target
+	}
+	if b.Enabled != nil {
+		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 1, 5)
+		x.xxx_hidden_Enabled = *b.Enabled
+	}
+	if b.FailureThreshold != nil {
+		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 2, 5)
+		x.xxx_hidden_FailureThreshold = *b.FailureThreshold
+	}
+	x.xxx_hidden_Channels = b.Channels
+	x.xxx_hidden_Metadata = b.Metadata
 	return m0
 }
 
