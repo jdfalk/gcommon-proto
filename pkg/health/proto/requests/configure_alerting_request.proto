@@ -2,7 +2,6 @@
 // file: health/proto/requests/configure_alerting_request.proto
 //
 // Request definitions for health module
-// TODO: Implement actual protobuf definitions
 //
 edition = "2023";
 
@@ -13,6 +12,24 @@ import "google/protobuf/go_features.proto";
 option go_package = "github.com/jdfalk/gcommon/pkg/health/proto;healthpb";
 option features.(pb.go).api_level = API_HYBRID;
 
-// TODO: Add request definitions here
-// This is a placeholder file created during 1-1-1 migration
-// Implement the actual protobuf definitions according to the health module requirements
+/**
+ * ConfigureAlertingRequest configures alerting for a health check.
+ * It allows enabling or disabling alert notifications and defining
+ * basic thresholds for when an alert should be triggered.
+ */
+message ConfigureAlertingRequest {
+  // Name of the service or check to configure
+  string target = 1;
+
+  // Whether alerting is enabled for this check
+  bool enabled = 2;
+
+  // Number of consecutive failures required before alerting
+  int32 failure_threshold = 3;
+
+  // Optional notification channels (email, slack, etc.)
+  repeated string channels = 4 [lazy = true];
+
+  // Standard request metadata for tracing and auth
+  gcommon.v1.common.RequestMetadata metadata = 5 [lazy = true];
+}
