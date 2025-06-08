@@ -1,0 +1,7 @@
+[
+  {
+    "action": "update",
+    "number": 56,
+    "labels": ["type:grpc", "priority:medium", "size:small", "module:notification", "in-progress"]
+  }
+]
