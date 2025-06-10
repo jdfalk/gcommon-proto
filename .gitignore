@@ -159,7 +159,11 @@ cython_debug/
 .idea/
 
 # VS Code
-.vscode/
+.vscode/*
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/settings.json
+!.vscode/extensions.json
 *.code-workspace
 
 # Sublime Text
