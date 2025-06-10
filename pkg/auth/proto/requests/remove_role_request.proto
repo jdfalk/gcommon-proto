@@ -1,4 +1,4 @@
-// file: pkg/auth/proto/requests/assign_role_request.proto
+// file: pkg/auth/proto/requests/remove_role_request.proto
 edition = "2023";
 
 package gcommon.v1.auth;
@@ -10,19 +10,17 @@ option go_package = "github.com/jdfalk/gcommon/pkg/auth/proto;authpb";
 option features.(pb.go).api_level = API_HYBRID;
 
 /**
- * Request to assign a role to a user.
+ * Request to remove a role from a user.
  * Used for role-based access control management.
- * Grants the specified role permissions to the user.
+ * Removes the specified role assignment from the user.
  */
-message AssignRoleRequest {
-  // User ID to assign role to
+message RemoveRoleRequest {
+  // User ID to remove role from
   string user_id = 1;
 
-  // Role ID to assign
+  // Role ID to remove
   string role_id = 2;
 
   // Request metadata for tracing and correlation
   gcommon.v1.common.RequestMetadata metadata = 3;
 }
-// This is a placeholder file created during 1-1-1 migration
-// Implement the actual protobuf definitions according to the auth module requirements
