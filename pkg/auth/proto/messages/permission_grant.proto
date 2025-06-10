@@ -1,0 +1,48 @@
+// file: pkg/auth/proto/messages/permission_grant.proto
+edition = "2023";
+
+package gcommon.v1.auth;
+
+import "google/protobuf/go_features.proto";
+import "google/protobuf/timestamp.proto";
+import "pkg/auth/proto/enums/permission_scope.proto";
+
+option go_package = "github.com/jdfalk/gcommon/pkg/auth/proto;authpb";
+option features.(pb.go).api_level = API_HYBRID;
+
+/**
+ * Permission grant entity representing granted permissions.
+ * Used for tracking direct permission assignments to users.
+ * Supports scoped permissions and expiration.
+ */
+message PermissionGrant {
+  // Unique grant identifier
+  string id = 1;
+
+  // User ID receiving the permission
+  string user_id = 2;
+
+  // Permission being granted
+  string permission = 3;
+
+  // Resource the permission applies to (optional)
+  string resource = 4;
+
+  // Permission scope
+  PermissionScope scope = 5;
+
+  // Grant creation timestamp
+  google.protobuf.Timestamp created_at = 6 [lazy = true];
+
+  // Grant expiration timestamp (optional)
+  google.protobuf.Timestamp expires_at = 7 [lazy = true];
+
+  // User who granted the permission
+  string granted_by_user_id = 8;
+
+  // Grant metadata
+  map<string, string> metadata = 9 [lazy = true];
+
+  // Grant active flag
+  bool active = 10;
+}
