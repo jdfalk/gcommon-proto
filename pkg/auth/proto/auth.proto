@@ -35,11 +35,11 @@ option features.(pb.go).api_level = API_HYBRID;
 
 // Services (4 total)
 import public "pkg/auth/proto/services/auth_service.proto";
-import public "pkg/auth/proto/services/auth_admin_service.proto";
+import public "pkg/auth/proto/services/authorization_service.proto";
 import public "pkg/auth/proto/services/session_service.proto";
-import public "pkg/auth/proto/services/permission_service.proto";
+// import public "pkg/auth/proto/services/auth_admin_service.proto"; // TODO: Restore when request/response types are implemented
 
-// Enums (8 total)
+// Enums (working subset - removing problematic imports temporarily)
 import public "pkg/auth/proto/enums/user_status.proto";
 import public "pkg/auth/proto/enums/session_status.proto";
 import public "pkg/auth/proto/enums/token_type.proto";
