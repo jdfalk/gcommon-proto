@@ -1,18 +1,39 @@
-// filepath: pkg/auth/proto/messages/role.proto
-// file: auth/proto/messages/role.proto
-//
-// Message definitions for auth module
-// TODO: Implement actual protobuf definitions
-//
+// file: pkg/auth/proto/messages/role.proto
 edition = "2023";
 
 package gcommon.v1.auth;
 
 import "google/protobuf/go_features.proto";
+import "google/protobuf/timestamp.proto";
+import "pkg/common/proto/enums/resource_status.proto";
 
 option go_package = "github.com/jdfalk/gcommon/pkg/auth/proto;authpb";
 option features.(pb.go).api_level = API_HYBRID;
 
-// TODO: Add message definitions here
-// This is a placeholder file created during 1-1-1 migration
-// Implement the actual protobuf definitions according to the auth module requirements
+/**
+ * Role definition for role-based access control (RBAC).
+ * Represents a collection of permissions that can be assigned to users.
+ * Supports hierarchical roles and metadata for extensibility.
+ */
+message Role {
+  // Unique role identifier (immutable)
+  string id = 1;
+
+  // Human-readable role name
+  string name = 2;
+
+  // Role description explaining its purpose
+  string description = 3;
+
+  // Permissions granted by this role
+  repeated string permissions = 4;
+
+  // Role metadata for extensibility
+  map<string, string> metadata = 5 [lazy = true];
+
+  // Role creation timestamp (immutable)
+  google.protobuf.Timestamp created_at = 6 [lazy = true];
+
+  // Role status (active, inactive, etc.)
+  gcommon.v1.common.ResourceStatus status = 7;
+}
