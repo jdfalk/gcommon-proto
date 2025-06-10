@@ -1,0 +1,23 @@
+// file: pkg/auth/proto/requests/get_user_info_request.proto
+edition = "2023";
+
+package gcommon.v1.auth;
+
+import "google/protobuf/go_features.proto";
+import "pkg/common/proto/messages/request_metadata.proto";
+
+option go_package = "github.com/jdfalk/gcommon/pkg/auth/proto;authpb";
+option features.(pb.go).api_level = API_HYBRID;
+
+/**
+ * Request to get user information from a valid token.
+ * Extracts user profile data from an authenticated session.
+ * Used for user profile display and authorization decisions.
+ */
+message GetUserInfoRequest {
+  // Access token to extract user info from
+  string token = 1;
+
+  // Request metadata for tracing and correlation
+  gcommon.v1.common.RequestMetadata metadata = 2;
+}
