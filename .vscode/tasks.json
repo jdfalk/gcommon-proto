@@ -1,0 +1,445 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "buf lint",
+            "type": "shell",
+            "command": "buf",
+            "args": [
+                "lint"
+            ],
+            "group": "build",
+            "presentation": {
+                "echo": true,
+                "reveal": "always",
+                "focus": false,
+                "panel": "shared"
+            },
+            "problemMatcher": [],
+            "detail": "Lint protobuf files using buf"
+        },
+        {
+            "label": "buf build",
+            "type": "shell",
+            "command": "buf",
+            "args": [
+                "build"
+            ],
+            "group": "build",
+            "presentation": {
+                "echo": true,
+                "reveal": "always",
+                "focus": false,
+                "panel": "shared"
+            },
+            "problemMatcher": [],
+            "detail": "Build protobuf files using buf"
+        },
+        {
+            "label": "buf generate",
+            "type": "shell",
+            "command": "buf",
+            "args": [
+                "generate"
+            ],
+            "group": "build",
+            "presentation": {
+                "echo": true,
+                "reveal": "always",
+                "focus": false,
+                "panel": "shared"
+            },
+            "problemMatcher": [],
+            "detail": "Generate code from protobuf files using buf"
+        },
+        {
+            "label": "git status",
+            "type": "shell",
+            "command": "git",
+            "args": [
+                "status",
+                "--porcelain"
+            ],
+            "group": "test",
+            "presentation": {
+                "echo": true,
+                "reveal": "always",
+                "focus": false,
+                "panel": "shared"
+            },
+            "problemMatcher": [],
+            "detail": "Show git status in porcelain format"
+        },
+        {
+            "label": "git status (detailed)",
+            "type": "shell",
+            "command": "git",
+            "args": [
+                "status"
+            ],
+            "group": "test",
+            "presentation": {
+                "echo": true,
+                "reveal": "always",
+                "focus": false,
+                "panel": "shared"
+            },
+            "problemMatcher": [],
+            "detail": "Show detailed git status"
+        },
+        {
+            "label": "git add all",
+            "type": "shell",
+            "command": "git",
+            "args": [
+                "add",
+                "."
+            ],
+            "group": "test",
+            "presentation": {
+                "echo": true,
+                "reveal": "always",
+                "focus": false,
+                "panel": "shared"
+            },
+            "problemMatcher": [],
+            "detail": "Add all changes to git staging"
+        },
+        {
+            "label": "git log (oneline)",
+            "type": "shell",
+            "command": "git",
+            "args": [
+                "log",
+                "--oneline",
+                "-10"
+            ],
+            "group": "test",
+            "presentation": {
+                "echo": true,
+                "reveal": "always",
+                "focus": false,
+                "panel": "shared"
+            },
+            "problemMatcher": [],
+            "detail": "Show last 10 git commits in oneline format"
+        },
+        {
+            "label": "git log (graph)",
+            "type": "shell",
+            "command": "git",
+            "args": [
+                "log",
+                "--graph",
+                "--oneline",
+                "--decorate",
+                "-10"
+            ],
+            "group": "test",
+            "presentation": {
+                "echo": true,
+                "reveal": "always",
+                "focus": false,
+                "panel": "shared"
+            },
+            "problemMatcher": [],
+            "detail": "Show last 10 git commits with graph"
+        },
+        {
+            "label": "git rebase interactive",
+            "type": "shell",
+            "command": "git",
+            "args": [
+                "rebase",
+                "-i",
+                "HEAD~5"
+            ],
+            "group": "test",
+            "presentation": {
+                "echo": true,
+                "reveal": "always",
+                "focus": true,
+                "panel": "shared"
+            },
+            "problemMatcher": [],
+            "detail": "Interactive rebase of last 5 commits"
+        },
+        {
+            "label": "ls (current directory)",
+            "type": "shell",
+            "command": "ls",
+            "args": [
+                "-la"
+            ],
+            "group": "test",
+            "presentation": {
+                "echo": true,
+                "reveal": "always",
+                "focus": false,
+                "panel": "shared"
+            },
+            "problemMatcher": [],
+            "detail": "List files in current directory with details"
+        },
+        {
+            "label": "ls (protobuf files)",
+            "type": "shell",
+            "command": "find",
+            "args": [
+                ".",
+                "-name",
+                "*.proto",
+                "-type",
+                "f"
+            ],
+            "group": "test",
+            "presentation": {
+                "echo": true,
+                "reveal": "always",
+                "focus": false,
+                "panel": "shared"
+            },
+            "problemMatcher": [],
+            "detail": "List all protobuf files in the workspace"
+        },
+        {
+            "label": "ls (empty protobuf files)",
+            "type": "shell",
+            "command": "sh",
+            "args": [
+                "-c",
+                "find . -name '*.proto' -type f -exec sh -c 'if [ $(wc -l < \"$1\") -lt 20 ]; then echo \"$1\"; fi' _ {} \\;"
+            ],
+            "group": "test",
+            "presentation": {
+                "echo": true,
+                "reveal": "always",
+                "focus": false,
+                "panel": "shared"
+            },
+            "problemMatcher": [],
+            "detail": "List protobuf files with less than 20 lines (likely empty)"
+        },
+        {
+            "label": "go test (all)",
+            "type": "shell",
+            "command": "go",
+            "args": [
+                "test",
+                "./..."
+            ],
+            "group": "test",
+            "presentation": {
+                "echo": true,
+                "reveal": "always",
+                "focus": false,
+                "panel": "shared"
+            },
+            "problemMatcher": "$go",
+            "detail": "Run all Go tests in the workspace"
+        },
+        {
+            "label": "go test (verbose)",
+            "type": "shell",
+            "command": "go",
+            "args": [
+                "test",
+                "-v",
+                "./..."
+            ],
+            "group": "test",
+            "presentation": {
+                "echo": true,
+                "reveal": "always",
+                "focus": false,
+                "panel": "shared"
+            },
+            "problemMatcher": "$go",
+            "detail": "Run all Go tests with verbose output"
+        },
+        {
+            "label": "go test (current package)",
+            "type": "shell",
+            "command": "go",
+            "args": [
+                "test",
+                "."
+            ],
+            "group": "test",
+            "presentation": {
+                "echo": true,
+                "reveal": "always",
+                "focus": false,
+                "panel": "shared"
+            },
+            "problemMatcher": "$go",
+            "detail": "Run Go tests for current package only"
+        },
+        {
+            "label": "go build (all)",
+            "type": "shell",
+            "command": "go",
+            "args": [
+                "build",
+                "./..."
+            ],
+            "group": "build",
+            "presentation": {
+                "echo": true,
+                "reveal": "always",
+                "focus": false,
+                "panel": "shared"
+            },
+            "problemMatcher": "$go",
+            "detail": "Build all Go packages in the workspace"
+        },
+        {
+            "label": "go mod tidy",
+            "type": "shell",
+            "command": "go",
+            "args": [
+                "mod",
+                "tidy"
+            ],
+            "group": "build",
+            "presentation": {
+                "echo": true,
+                "reveal": "always",
+                "focus": false,
+                "panel": "shared"
+            },
+            "problemMatcher": "$go",
+            "detail": "Clean up go.mod and go.sum files"
+        },
+        {
+            "label": "go mod download",
+            "type": "shell",
+            "command": "go",
+            "args": [
+                "mod",
+                "download"
+            ],
+            "group": "build",
+            "presentation": {
+                "echo": true,
+                "reveal": "always",
+                "focus": false,
+                "panel": "shared"
+            },
+            "problemMatcher": "$go",
+            "detail": "Download Go module dependencies"
+        },
+        {
+            "label": "make all",
+            "type": "shell",
+            "command": "make",
+            "args": [
+                "all"
+            ],
+            "group": "build",
+            "presentation": {
+                "echo": true,
+                "reveal": "always",
+                "focus": false,
+                "panel": "shared"
+            },
+            "problemMatcher": [],
+            "detail": "Run make all target"
+        },
+        {
+            "label": "make clean",
+            "type": "shell",
+            "command": "make",
+            "args": [
+                "clean"
+            ],
+            "group": "build",
+            "presentation": {
+                "echo": true,
+                "reveal": "always",
+                "focus": false,
+                "panel": "shared"
+            },
+            "problemMatcher": [],
+            "detail": "Clean build artifacts"
+        },
+        {
+            "label": "protobuf status check",
+            "type": "shell",
+            "command": "python3",
+            "args": [
+                "validate_protobuf_coverage.py"
+            ],
+            "group": "test",
+            "presentation": {
+                "echo": true,
+                "reveal": "always",
+                "focus": false,
+                "panel": "shared"
+            },
+            "problemMatcher": [],
+            "detail": "Check protobuf implementation status"
+        },
+        {
+            "label": "count empty protobuf files",
+            "type": "shell",
+            "command": "sh",
+            "args": [
+                "-c",
+                "find . -name '*.proto' -type f -exec sh -c 'if [ $(wc -l < \"$1\") -lt 20 ]; then echo \"$1\"; fi' _ {} \\; | wc -l"
+            ],
+            "group": "test",
+            "presentation": {
+                "echo": true,
+                "reveal": "always",
+                "focus": false,
+                "panel": "shared"
+            },
+            "problemMatcher": [],
+            "detail": "Count how many protobuf files need implementation"
+        },
+        {
+            "label": "find TODO comments",
+            "type": "shell",
+            "command": "grep",
+            "args": [
+                "-r",
+                "--include=*.proto",
+                "--include=*.go",
+                "TODO",
+                "."
+            ],
+            "group": "test",
+            "presentation": {
+                "echo": true,
+                "reveal": "always",
+                "focus": false,
+                "panel": "shared"
+            },
+            "problemMatcher": [],
+            "detail": "Find all TODO comments in code"
+        },
+        {
+            "label": "check grpc generation",
+            "type": "shell",
+            "command": "find",
+            "args": [
+                ".",
+                "-name",
+                "*.pb.go",
+                "-o",
+                "-name",
+                "*_grpc.pb.go"
+            ],
+            "group": "test",
+            "presentation": {
+                "echo": true,
+                "reveal": "always",
+                "focus": false,
+                "panel": "shared"
+            },
+            "problemMatcher": [],
+            "detail": "List all generated gRPC/protobuf Go files"
+        }
+    ]
+}

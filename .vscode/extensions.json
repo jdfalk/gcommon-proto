@@ -1,0 +1,19 @@
+{
+    "recommendations": [
+        "golang.go",
+        "ms-vscode.vscode-json",
+        "bufbuild.vscode-buf",
+        "zxh404.vscode-proto3",
+        "ms-python.python",
+        "ms-vscode.makefile-tools",
+        "eamodio.gitlens",
+        "github.vscode-pull-request-github",
+        "ms-vscode.test-adapter-converter",
+        "hbenl.vscode-test-explorer",
+        "formulahendry.code-runner",
+        "ms-vscode.vscode-typescript-next",
+        "bradlc.vscode-tailwindcss",
+        "esbenp.prettier-vscode",
+        "ms-vscode-remote.remote-containers"
+    ]
+}

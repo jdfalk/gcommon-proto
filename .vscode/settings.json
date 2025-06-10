@@ -1,0 +1,59 @@
+{
+    "go.toolsManagement.checkForUpdates": "local",
+    "go.useLanguageServer": true,
+    "go.lintTool": "golangci-lint",
+    "go.formatTool": "goimports",
+    "go.testFlags": [
+        "-v"
+    ],
+    "go.buildFlags": [],
+    "go.vetFlags": [],
+    "go.coverOnSave": false,
+    "go.coverOnSingleTest": true,
+    "go.coverageDecorator": {
+        "type": "gutter",
+        "coveredHighlightColor": "rgba(64,128,64,0.5)",
+        "uncoveredHighlightColor": "rgba(128,64,64,0.25)",
+        "coveredGutterStyle": "blockblue",
+        "uncoveredGutterStyle": "blockred"
+    },
+    "protoc": {
+        "options": [
+            "--proto_path=${workspaceRoot}/proto",
+            "--proto_path=${workspaceRoot}",
+            "--proto_path=${env:GOPATH}/src",
+            "--go_out=${workspaceRoot}",
+            "--go-grpc_out=${workspaceRoot}"
+        ]
+    },
+    "files.associations": {
+        "*.proto": "proto3"
+    },
+    "editor.formatOnSave": true,
+    "editor.codeActionsOnSave": {
+        "source.organizeImports": "explicit"
+    },
+    "files.exclude": {
+        "**/.git": true,
+        "**/.DS_Store": true,
+        "**/node_modules": true,
+        "**/__pycache__": true,
+        "**/*.pyc": true
+    },
+    "search.exclude": {
+        "**/node_modules": true,
+        "**/bower_components": true,
+        "**/*.code-search": true,
+        "**/vendor": true,
+        "**/.git": true,
+        "**/bin": true,
+        "**/obj": true,
+        "**/build": true,
+        "**/dist": true
+    },
+    "terminal.integrated.defaultProfile.osx": "zsh",
+    "git.autofetch": true,
+    "git.enableSmartCommit": true,
+    "git.confirmSync": false,
+    "extensions.ignoreRecommendations": false
+}
