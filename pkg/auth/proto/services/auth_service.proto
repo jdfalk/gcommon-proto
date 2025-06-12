@@ -4,7 +4,6 @@ edition = "2023";
 package gcommon.v1.auth;
 
 import "google/protobuf/go_features.proto";
-import "google/protobuf/empty.proto";
 import "pkg/auth/proto/requests/authenticate_request.proto";
 import "pkg/auth/proto/responses/authenticate_response.proto";
 import "pkg/auth/proto/requests/validate_token_request.proto";
@@ -14,11 +13,13 @@ import "pkg/auth/proto/responses/verify_credentials_response.proto";
 import "pkg/auth/proto/requests/refresh_token_request.proto";
 import "pkg/auth/proto/responses/refresh_token_response.proto";
 import "pkg/auth/proto/requests/revoke_token_request.proto";
+import "pkg/auth/proto/responses/revoke_token_response.proto";
 import "pkg/auth/proto/requests/get_user_info_request.proto";
 import "pkg/auth/proto/responses/get_user_info_response.proto";
 import "pkg/auth/proto/requests/initiate_password_reset_request.proto";
 import "pkg/auth/proto/responses/initiate_password_reset_response.proto";
 import "pkg/auth/proto/requests/complete_password_reset_request.proto";
+import "pkg/auth/proto/responses/complete_password_reset_response.proto";
 import "pkg/auth/proto/requests/change_password_request.proto";
 import "pkg/auth/proto/responses/change_password_response.proto";
 
@@ -44,7 +45,7 @@ service AuthService {
   rpc RefreshToken(RefreshTokenRequest) returns (RefreshTokenResponse);
 
   // Revoke a token (access or refresh) to invalidate it
-  rpc RevokeToken(RevokeTokenRequest) returns (google.protobuf.Empty);
+  rpc RevokeToken(RevokeTokenRequest) returns (RevokeTokenResponse);
 
   // Get user information from a valid token
   rpc GetUserInfo(GetUserInfoRequest) returns (GetUserInfoResponse);
@@ -53,7 +54,7 @@ service AuthService {
   rpc InitiatePasswordReset(InitiatePasswordResetRequest) returns (InitiatePasswordResetResponse);
 
   // Complete password reset with validation token
-  rpc CompletePasswordReset(CompletePasswordResetRequest) returns (google.protobuf.Empty);
+  rpc CompletePasswordReset(CompletePasswordResetRequest) returns (CompletePasswordResetResponse);
 
   // Change user password (requires current password authentication)
   rpc ChangePassword(ChangePasswordRequest) returns (ChangePasswordResponse);
