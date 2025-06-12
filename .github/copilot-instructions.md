@@ -61,3 +61,4 @@
 
 - Import from project modules rather than duplicating functionality
 - Respect the established architecture patterns
+- Before suggesting one-off commands, first check if there's a defined task in tasks.json that can accomplish the same goal
