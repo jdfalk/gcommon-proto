@@ -9,10 +9,93 @@ edition = "2023";
 package gcommon.v1.metrics;
 
 import "google/protobuf/go_features.proto";
+import "google/protobuf/timestamp.proto";
 
 option go_package = "github.com/jdfalk/gcommon/pkg/metrics/proto;metricspb";
 option features.(pb.go).api_level = API_HYBRID;
 
-// TODO: Add type definitions here
-// This is a placeholder file created during 1-1-1 migration
-// Implement the actual protobuf definitions according to the metrics module requirements
+/**
+ * MetricValue represents a single metric data point with timestamp and value.
+ * This is the fundamental unit of metric data in the system.
+ */
+message MetricValue {
+  // Timestamp when this metric value was recorded
+  google.protobuf.Timestamp timestamp = 1;
+
+  // The metric value - using oneof to support different value types
+  oneof value {
+    // Double precision floating point value
+    double double_value = 2;
+
+    // Integer value (64-bit signed)
+    int64 int_value = 3;
+
+    // String value (for label/text metrics)
+    string string_value = 4;
+
+    // Boolean value
+    bool bool_value = 5;
+
+    // Histogram bucket values (for histogram metrics)
+    HistogramValue histogram_value = 6;
+
+    // Summary quantile values (for summary metrics)
+    SummaryValue summary_value = 7;
+  }
+
+  // Optional labels/tags associated with this specific value
+  map<string, string> labels = 8;
+
+  // Optional sample count (for aggregated values)
+  uint64 sample_count = 9;
+}
+
+/**
+ * HistogramValue represents histogram bucket data.
+ */
+message HistogramValue {
+  // Histogram buckets with their counts
+  repeated HistogramBucket buckets = 1;
+
+  // Total count of all samples
+  uint64 count = 2;
+
+  // Sum of all sample values
+  double sum = 3;
+}
+
+/**
+ * HistogramBucket represents a single bucket in a histogram.
+ */
+message HistogramBucket {
+  // Upper bound of this bucket (inclusive)
+  double upper_bound = 1;
+
+  // Count of samples in this bucket
+  uint64 count = 2;
+}
+
+/**
+ * SummaryValue represents summary quantile data.
+ */
+message SummaryValue {
+  // Quantile values
+  repeated Quantile quantiles = 1;
+
+  // Total count of all samples
+  uint64 count = 2;
+
+  // Sum of all sample values
+  double sum = 3;
+}
+
+/**
+ * Quantile represents a single quantile value.
+ */
+message Quantile {
+  // Quantile value (0.0 to 1.0, e.g., 0.95 for 95th percentile)
+  double quantile = 1;
+
+  // Value at this quantile
+  double value = 2;
+}

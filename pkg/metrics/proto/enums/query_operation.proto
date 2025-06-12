@@ -13,6 +13,47 @@ import "google/protobuf/go_features.proto";
 option go_package = "github.com/jdfalk/gcommon/pkg/metrics/proto;metricspb";
 option features.(pb.go).api_level = API_HYBRID;
 
-// TODO: Add enum definitions here
-// This is a placeholder file created during 1-1-1 migration
-// Implement the actual protobuf definitions according to the metrics module requirements
+/**
+ * QueryOperation defines the types of operations that can be performed on metrics queries.
+ * Used for aggregating, filtering, and transforming metric data.
+ */
+enum QueryOperation {
+  // Unspecified operation (default)
+  QUERY_OPERATION_UNSPECIFIED = 0;
+
+  // Select/filter metrics by criteria
+  QUERY_OPERATION_SELECT = 1;
+
+  // Group metrics by labels
+  QUERY_OPERATION_GROUP_BY = 2;
+
+  // Sum values across time or series
+  QUERY_OPERATION_SUM = 3;
+
+  // Average values across time or series
+  QUERY_OPERATION_AVG = 4;
+
+  // Find minimum value
+  QUERY_OPERATION_MIN = 5;
+
+  // Find maximum value
+  QUERY_OPERATION_MAX = 6;
+
+  // Count number of samples
+  QUERY_OPERATION_COUNT = 7;
+
+  // Calculate rate of change
+  QUERY_OPERATION_RATE = 8;
+
+  // Calculate increase over time
+  QUERY_OPERATION_INCREASE = 9;
+
+  // Sort results
+  QUERY_OPERATION_SORT = 10;
+
+  // Limit number of results
+  QUERY_OPERATION_LIMIT = 11;
+
+  // Join multiple metric series
+  QUERY_OPERATION_JOIN = 12;
+}

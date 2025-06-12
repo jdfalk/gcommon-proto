@@ -13,6 +13,41 @@ import "google/protobuf/go_features.proto";
 option go_package = "github.com/jdfalk/gcommon/pkg/metrics/proto;metricspb";
 option features.(pb.go).api_level = API_HYBRID;
 
-// TODO: Add enum definitions here
-// This is a placeholder file created during 1-1-1 migration
-// Implement the actual protobuf definitions according to the metrics module requirements
+/**
+ * TimeUnit defines the units of time for metric intervals, retention, and aggregation.
+ * Used throughout the metrics system for temporal operations.
+ */
+enum TimeUnit {
+  // Unspecified time unit (default)
+  TIME_UNIT_UNSPECIFIED = 0;
+
+  // Nanoseconds
+  TIME_UNIT_NANOSECONDS = 1;
+
+  // Microseconds
+  TIME_UNIT_MICROSECONDS = 2;
+
+  // Milliseconds
+  TIME_UNIT_MILLISECONDS = 3;
+
+  // Seconds
+  TIME_UNIT_SECONDS = 4;
+
+  // Minutes
+  TIME_UNIT_MINUTES = 5;
+
+  // Hours
+  TIME_UNIT_HOURS = 6;
+
+  // Days
+  TIME_UNIT_DAYS = 7;
+
+  // Weeks
+  TIME_UNIT_WEEKS = 8;
+
+  // Months
+  TIME_UNIT_MONTHS = 9;
+
+  // Years
+  TIME_UNIT_YEARS = 10;
+}

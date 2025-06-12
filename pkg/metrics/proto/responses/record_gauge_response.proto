@@ -9,10 +9,51 @@ edition = "2023";
 package gcommon.v1.metrics;
 
 import "google/protobuf/go_features.proto";
+import "google/protobuf/timestamp.proto";
+import "pkg/metrics/proto/messages/gauge_metric.proto";
 
 option go_package = "github.com/jdfalk/gcommon/pkg/metrics/proto;metricspb";
 option features.(pb.go).api_level = API_HYBRID;
 
-// TODO: Add response definitions here
-// This is a placeholder file created during 1-1-1 migration
-// Implement the actual protobuf definitions according to the metrics module requirements
+/**
+ * RecordGaugeResponse is returned after recording a gauge metric.
+ */
+message RecordGaugeResponse {
+  // Whether the operation was successful
+  bool success = 1;
+
+  // Error message if operation failed
+  string error_message = 2;
+
+  // The recorded gauge metric with updated value
+  GaugeMetric metric = 3;
+
+  // Previous value of the gauge (if applicable)
+  double previous_value = 4;
+
+  // Timestamp when the gauge was recorded
+  google.protobuf.Timestamp recorded_at = 5;
+
+  // Whether this was a new gauge or an update to existing
+  bool is_new_metric = 6;
+
+  // Processing statistics
+  RecordingStats stats = 7;
+}
+
+/**
+ * RecordingStats provides information about the recording operation.
+ */
+message RecordingStats {
+  // Time taken to process the recording
+  int64 processing_time_ms = 1;
+
+  // Storage backend used
+  string storage_backend = 2;
+
+  // Whether the value was persisted
+  bool persisted = 3;
+
+  // Cache hit status
+  bool cache_hit = 4;
+}

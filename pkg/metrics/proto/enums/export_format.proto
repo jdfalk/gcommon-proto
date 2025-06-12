@@ -13,6 +13,44 @@ import "google/protobuf/go_features.proto";
 option go_package = "github.com/jdfalk/gcommon/pkg/metrics/proto;metricspb";
 option features.(pb.go).api_level = API_HYBRID;
 
-// TODO: Add enum definitions here
-// This is a placeholder file created during 1-1-1 migration
-// Implement the actual protobuf definitions according to the metrics module requirements
+/**
+ * ExportFormat defines the formats available for exporting metrics data.
+ * Used when exporting metrics to external systems or for backup purposes.
+ */
+enum ExportFormat {
+  // Unspecified export format (default)
+  EXPORT_FORMAT_UNSPECIFIED = 0;
+
+  // Prometheus exposition format (text-based)
+  EXPORT_FORMAT_PROMETHEUS = 1;
+
+  // JSON format for general consumption
+  EXPORT_FORMAT_JSON = 2;
+
+  // CSV format for spreadsheet analysis
+  EXPORT_FORMAT_CSV = 3;
+
+  // OpenMetrics standard format
+  EXPORT_FORMAT_OPENMETRICS = 4;
+
+  // Protocol Buffers binary format
+  EXPORT_FORMAT_PROTOBUF = 5;
+
+  // InfluxDB line protocol
+  EXPORT_FORMAT_INFLUXDB_LINE = 6;
+
+  // StatsD format for statsd-compatible systems
+  EXPORT_FORMAT_STATSD = 7;
+
+  // Graphite plaintext protocol
+  EXPORT_FORMAT_GRAPHITE = 8;
+
+  // OpenTelemetry metrics format
+  EXPORT_FORMAT_OPENTELEMETRY = 9;
+
+  // YAML format for configuration and readability
+  EXPORT_FORMAT_YAML = 10;
+
+  // XML format for legacy systems
+  EXPORT_FORMAT_XML = 11;
+}

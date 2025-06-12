@@ -13,6 +13,29 @@ import "google/protobuf/go_features.proto";
 option go_package = "github.com/jdfalk/gcommon/pkg/metrics/proto;metricspb";
 option features.(pb.go).api_level = API_HYBRID;
 
-// TODO: Add enum definitions here
-// This is a placeholder file created during 1-1-1 migration
-// Implement the actual protobuf definitions according to the metrics module requirements
+/**
+ * AlertState defines the current state of a metric alert.
+ * Represents the lifecycle states of alerts from creation to resolution.
+ */
+enum AlertState {
+  // Unspecified state (default)
+  ALERT_STATE_UNSPECIFIED = 0;
+
+  // Alert condition is being evaluated but hasn't triggered
+  ALERT_STATE_PENDING = 1;
+
+  // Alert condition has been met and is actively firing
+  ALERT_STATE_FIRING = 2;
+
+  // Alert was firing but condition is no longer met
+  ALERT_STATE_RESOLVED = 3;
+
+  // Alert has been acknowledged by an operator
+  ALERT_STATE_ACKNOWLEDGED = 4;
+
+  // Alert has been manually silenced/suppressed
+  ALERT_STATE_SILENCED = 5;
+
+  // Alert is in an error state (evaluation failed)
+  ALERT_STATE_ERROR = 6;
+}
