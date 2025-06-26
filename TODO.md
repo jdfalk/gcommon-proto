@@ -913,7 +913,7 @@ This roadmap represents our commitment to building the most comprehensive and we
   - [x] Histogram implementation
   - [x] Timer implementation
   - [x] Provider implementation
-- [ ] Add gRPC middleware for request metrics
+ - [x] Add gRPC middleware for request metrics
 - [x] Add integration with Health module
 - [ ] Add runtime metrics collection
 - [ ] Implement metrics export functionality
@@ -1057,7 +1057,7 @@ Based on the current state, here are the implementation priorities for rapid com
 1. **Complete Metrics Module Implementation** (3 days)
    - Finish Prometheus provider (Gauge implementation (this week), Histogram implementation (this week), Summary and Timer implementations (next week))
    - Implement OpenTelemetry provider
-   - Add gRPC middleware
+   - Add gRPC middleware ✅
    - Complete comprehensive tests
 
 2. **Enhance Logging Module** (2 days)
