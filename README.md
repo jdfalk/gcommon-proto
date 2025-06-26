@@ -62,6 +62,16 @@ func main() {
 }
 ```
 
+### gRPC Metrics Interceptor Example
+
+```go
+server := grpc.NewServer(
+    grpc.UnaryInterceptor(
+        middleware.UnaryServerMetrics(middleware.GRPCMetricsOptions{Provider: metricsProvider}),
+    ),
+)
+```
+
 ### Multi-Module Example
 
 ```go
@@ -77,7 +87,7 @@ func main() {
     // Initialize health checking
     healthProvider := health.NewProvider()
 
-    // Initialize metrics (70% complete)
+    // Initialize metrics (75% complete)
     metricsProvider := metrics.NewPrometheusProvider()
 
     // Initialize logging (50% complete)
@@ -238,7 +248,7 @@ The GitHub Actions workflow automatically processes these updates on every push 
 
 ### Module-Specific Guides
 
-- [Metrics Collection](docs/user/metrics.md) (70% complete)
+- [Metrics Collection](docs/user/metrics.md) (75% complete)
 - [Logging](docs/user/logging.md) (50% complete)
 - [Database Operations](docs/user/database.md) (30% complete)
 - [Caching](docs/user/cache.md) (20% complete)
@@ -267,7 +277,7 @@ The GitHub Actions workflow automatically processes these updates on every push 
 
 We welcome contributions! Current priority areas:
 
-1. **Completing Metrics Module** (70% → 100%)
+1. **Completing Metrics Module** (75% → 100%)
 2. **Finishing Logging Module** (50% → 100%)
 3. **Documentation improvements**
 4. **Example applications**

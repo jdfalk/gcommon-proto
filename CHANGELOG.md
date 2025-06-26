@@ -17,6 +17,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - **Auth Module**: Partial implementation (16/48 types) with core authentication services functional
 - **Documentation**: Comprehensive technical design documents and implementation guides
 - **Automated Issue Management**: GitHub Actions workflow for programmatic issue updates via JSON files
+- **gRPC Metrics Middleware**: Unary and streaming interceptors for metrics collection
 
 ### Changed
 
