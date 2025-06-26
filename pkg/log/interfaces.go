@@ -123,3 +123,100 @@ func (l Level) String() string {
 		return "unknown"
 	}
 }
+
+// Config represents the logging configuration.
+type Config struct {
+	// Provider specifies the logging provider to use.
+	// Supported values: "std", "zap", "logrus", "multi", "noop"
+	Provider string
+
+	// Level is the minimum log level.
+	Level string
+
+	// Format is the log format. Supported values: "json", "text", "console"
+	Format string
+
+	// TimeFormat is the time format for log timestamps.
+	TimeFormat string
+
+	// CallerReportingEnabled enables caller reporting.
+	CallerReportingEnabled bool
+
+	// CallerSkipFrames is the number of frames to skip when reporting callers.
+	CallerSkipFrames int
+
+	// StackTraceEnabled enables stack trace reporting.
+	StackTraceEnabled bool
+
+	// StackTraceLevel is the minimum level for stack traces.
+	StackTraceLevel string
+
+	// Fields are the default fields for all logs.
+	Fields map[string]interface{}
+
+	// OutputPaths are the output paths.
+	OutputPaths []string
+
+	// ErrorOutputPaths are the error output paths.
+	ErrorOutputPaths []string
+
+	// FileConfig contains file-specific configuration.
+	FileConfig *FileConfig
+
+	// ZapConfig contains Zap-specific configuration.
+	ZapConfig *ZapConfig
+
+	// LogrusConfig contains Logrus-specific configuration.
+	LogrusConfig *LogrusConfig
+}
+
+// FileConfig represents file-specific configuration.
+type FileConfig struct {
+	// Path is the file path.
+	Path string
+
+	// RotationMaxSize is the maximum file size in megabytes.
+	RotationMaxSize int
+
+	// RotationMaxAge is the maximum file age in days.
+	RotationMaxAge int
+
+	// RotationMaxBackups is the maximum number of backups.
+	RotationMaxBackups int
+
+	// RotationCompress enables compression of rotated files.
+	RotationCompress bool
+
+	// RotationLocalTime uses local time for rotation.
+	RotationLocalTime bool
+}
+
+// ZapConfig represents Zap-specific configuration.
+type ZapConfig struct {
+	// Development enables development mode.
+	Development bool
+
+	// Sampling enables sampling.
+	Sampling bool
+
+	// SamplingInitial is the initial sampling rate.
+	SamplingInitial int
+
+	// SamplingThereafter is the sampling rate thereafter.
+	SamplingThereafter int
+
+	// EncoderConfig is the encoder configuration.
+	EncoderConfig interface{}
+}
+
+// LogrusConfig represents Logrus-specific configuration.
+type LogrusConfig struct {
+	// ReportCaller enables caller reporting.
+	ReportCaller bool
+
+	// ExitFunc is the exit function for Fatal logs.
+	ExitFunc func(int)
+
+	// Hooks are the logrus hooks.
+	Hooks []interface{}
+}
