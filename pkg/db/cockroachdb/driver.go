@@ -14,6 +14,7 @@ import (
 	_ "github.com/jackc/pgx/v4/stdlib"
 
 	"github.com/jdfalk/gcommon/pkg/db"
+	dbgrpc "github.com/jdfalk/gcommon/pkg/db/grpc"
 )
 
 // Driver is the CockroachDB implementation of the db.Database interface.
@@ -325,14 +326,12 @@ func (d *Driver) Raw() interface{} {
 	return d.db
 }
 
-// TODO: Implement GRPCService when grpc package is available
 // GRPCService returns the database as a gRPC service.
 //
 // Returns:
 //   - A gRPC service exposing the database
 func (d *Driver) GRPCService() db.DatabaseGRPCService {
-	// TODO: return grpc.NewDatabaseServer(d)
-	return nil
+	return dbgrpc.NewDatabaseServer(d)
 }
 
 // Result wraps sql.Result to implement the db.Result interface.

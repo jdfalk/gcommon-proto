@@ -72,6 +72,14 @@ server := grpc.NewServer(
 )
 ```
 
+### Database gRPC Service Example
+
+```go
+db, _ := sqlite.Open(sqlite.Config{Path: "app.db"})
+grpcServer := grpc.NewServer()
+db.GRPCService().Register(grpcServer)
+```
+
 ### Multi-Module Example
 
 ```go

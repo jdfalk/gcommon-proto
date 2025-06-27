@@ -234,6 +234,7 @@ GCommon aims to be the most comprehensive, well-designed Go library for common a
   - Eliminated unused `google/protobuf/duration.proto` imports
   - Cleaned up unnecessary `google/protobuf/empty.proto` imports
   - Added TODO comments for imports to be added when files are created
+- **Database gRPC Services**: Exposed `GRPCService()` on SQLite and CockroachDB drivers
 
 **Impact**: All protobuf files now compile successfully, establishing a stable foundation for implementing gRPC services across all modules.
 
@@ -946,7 +947,7 @@ This roadmap represents our commitment to building the most comprehensive and we
   - [ ] Iterator support
 - [ ] Implement mock driver for testing
 - [ ] Add query builder functionality
-- [ ] Implement gRPC service for database operations
+  - [x] Implement gRPC service for database operations (SQLite & CockroachDB drivers)
 - [ ] Add connection monitoring and health checks
 - [ ] Add metrics collection for database operations
 - [ ] Write comprehensive tests and benchmarks
