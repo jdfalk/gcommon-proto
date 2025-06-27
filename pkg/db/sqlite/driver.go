@@ -14,6 +14,7 @@ import (
 	_ "github.com/mattn/go-sqlite3"
 
 	"github.com/jdfalk/gcommon/pkg/db"
+	dbgrpc "github.com/jdfalk/gcommon/pkg/db/grpc"
 )
 
 // DefaultMaxOpenConns is the default maximum number of open connections for SQLite
@@ -305,8 +306,7 @@ func (d *Database) Raw() interface{} {
 
 // GRPCService returns the database as a gRPC service
 func (d *Database) GRPCService() db.DatabaseGRPCService {
-	// TODO: Implement gRPC service when proto code is generated
-	return nil
+	return dbgrpc.NewDatabaseServer(d)
 }
 
 // SQLite-specific result type

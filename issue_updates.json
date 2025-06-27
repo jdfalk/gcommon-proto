@@ -1,7 +1,8 @@
 [
   {
-    "action": "update",
-    "number": 56,
-    "labels": ["type:grpc", "priority:medium", "size:small", "module:notification", "in-progress"]
+    "action": "create",
+    "title": "Add GRPCService implementations to SQLite and CockroachDB drivers",
+    "body": "Expose DatabaseServer via GRPCService for SQLite and CockroachDB database drivers.",
+    "labels": ["codex","enhancement","module:database"]
   }
 ]
