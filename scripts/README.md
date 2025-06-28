@@ -46,12 +46,14 @@ A comprehensive Python script for automating GitHub project setup and management
 ## Installation
 
 1. Copy the script to your repository:
+
    ```bash
    mkdir -p scripts config
    cp github_project_manager.py scripts/
    ```
 
 2. Install GitHub CLI if not already installed:
+
    ```bash
    # macOS
    brew install gh
@@ -116,26 +118,31 @@ Create a JSON configuration file (e.g., `config/github_setup.json`) with the fol
 The configuration file follows a specific JSON schema. See `config/github_setup_schema.json` for the complete schema definition.
 
 #### Repository Section
+
 - `owner`: GitHub username or organization name
 - `name`: Repository name
 - `description`: Optional repository description
 
 #### Labels Section
+
 - `name`: Label name (required)
 - `color`: 6-digit hex color code without # (required)
 - `description`: Label description (optional)
 
 #### Milestones Section
+
 - `title`: Milestone title (required)
 - `description`: Milestone description (optional)
 - `due_date`: ISO 8601 formatted due date (optional)
 
 #### Projects Section
+
 - `title`: Project title (required)
 - `body`: Project description (optional)
 - `issue_patterns`: Array of strings to match in issue titles for auto-adding (optional)
 
 #### Issues Section
+
 - `title`: Issue title (required)
 - `body`: Issue description in Markdown (optional)
 - `labels`: Array of label names to apply (optional)
@@ -190,8 +197,8 @@ This order ensures dependencies are created before dependent objects.
     "name": "myproject"
   },
   "labels": [
-    {"name": "bug", "color": "D73A49", "description": "Bug reports"},
-    {"name": "enhancement", "color": "A2EEEF", "description": "New features"}
+    { "name": "bug", "color": "D73A49", "description": "Bug reports" },
+    { "name": "enhancement", "color": "A2EEEF", "description": "New features" }
   ],
   "issues": [
     {
@@ -212,10 +219,22 @@ This order ensures dependencies are created before dependent objects.
     "name": "microservices"
   },
   "labels": [
-    {"name": "module:auth", "color": "FF6B6B", "description": "Auth module"},
-    {"name": "module:billing", "color": "4ECDC4", "description": "Billing module"},
-    {"name": "type:protobuf", "color": "0052CC", "description": "Protocol buffers"},
-    {"name": "priority:high", "color": "D73A49", "description": "High priority"}
+    { "name": "module:auth", "color": "FF6B6B", "description": "Auth module" },
+    {
+      "name": "module:billing",
+      "color": "4ECDC4",
+      "description": "Billing module"
+    },
+    {
+      "name": "type:protobuf",
+      "color": "0052CC",
+      "description": "Protocol buffers"
+    },
+    {
+      "name": "priority:high",
+      "color": "D73A49",
+      "description": "High priority"
+    }
   ],
   "milestones": [
     {
@@ -300,21 +319,27 @@ Comprehensive logging system:
 ### Common Issues
 
 1. **GitHub CLI not found**
+
    ```
    Error: GitHub CLI (gh) not found. Please install it first.
    ```
+
    Solution: Install GitHub CLI and ensure it's in your PATH
 
 2. **Authentication required**
+
    ```
    Error: authentication required
    ```
+
    Solution: Run `gh auth login` to authenticate
 
 3. **Permission denied**
+
    ```
    Error: Resource not accessible by integration
    ```
+
    Solution: Ensure you have appropriate permissions for the repository
 
 4. **Invalid configuration**
@@ -366,6 +391,7 @@ This project is licensed under the MIT License. See the LICENSE file for details
 ## Changelog
 
 ### v1.0.0
+
 - Initial release
 - Support for labels, milestones, projects, and issues
 - Idempotent operations

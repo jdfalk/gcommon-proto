@@ -111,32 +111,32 @@ metadata:
   name: my-app
 spec:
   containers:
-  - name: app
-    image: my-app:latest
-    ports:
-    - containerPort: 8080
-    livenessProbe:
-      httpGet:
-        path: /healthz
-        port: 8080
-      initialDelaySeconds: 10
-      periodSeconds: 30
-      timeoutSeconds: 1
-      failureThreshold: 3
-    readinessProbe:
-      httpGet:
-        path: /readyz
-        port: 8080
-      initialDelaySeconds: 5
-      periodSeconds: 10
-      timeoutSeconds: 1
-      failureThreshold: 2
-    startupProbe:
-      httpGet:
-        path: /startupz
-        port: 8080
-      periodSeconds: 5
-      failureThreshold: 12  # Allow 1 minute (12 * 5s) for startup
+    - name: app
+      image: my-app:latest
+      ports:
+        - containerPort: 8080
+      livenessProbe:
+        httpGet:
+          path: /healthz
+          port: 8080
+        initialDelaySeconds: 10
+        periodSeconds: 30
+        timeoutSeconds: 1
+        failureThreshold: 3
+      readinessProbe:
+        httpGet:
+          path: /readyz
+          port: 8080
+        initialDelaySeconds: 5
+        periodSeconds: 10
+        timeoutSeconds: 1
+        failureThreshold: 2
+      startupProbe:
+        httpGet:
+          path: /startupz
+          port: 8080
+        periodSeconds: 5
+        failureThreshold: 12 # Allow 1 minute (12 * 5s) for startup
 ```
 
 ## Collecting Health Check Metrics
@@ -200,10 +200,10 @@ Configure Prometheus to scrape the metrics endpoint by adding a scrape configura
 
 ```yaml
 scrape_configs:
-  - job_name: 'myapp'
+  - job_name: "myapp"
     scrape_interval: 15s
     static_configs:
-      - targets: ['myapp:8080']
+      - targets: ["myapp:8080"]
 ```
 
 ## Available Metrics
@@ -217,6 +217,7 @@ The health module collects the following metrics:
 - `health.duration_seconds`: Histogram of health check execution duration in seconds
 
 These metrics include labels such as:
+
 - `check`: The name of the health check
 - `type`: The type of health check (liveness, readiness, component, dependency)
 - `status`: The status of the health check (UP, DOWN, DEGRADED, UNKNOWN)

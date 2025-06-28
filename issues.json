@@ -16,12 +16,7 @@
     "action": "create",
     "title": "Protobuf: Complete Web Module Implementation",
     "body": "## Overview\nComplete the protobuf implementation for the web module following the 1-1-1 structure pattern.\n\n## Current Status\n- **Module**: Web\n- **Files Implemented**: 2/178 (1.1% complete)\n- **Files Remaining**: 176\n- **Priority**: 🔴 Critical (highest file count)\n\n## Implementation Requirements\n\n### 1-1-1 Structure Pattern\nEach protobuf file should contain exactly ONE message/enum/service definition following our established pattern:\n- ✅ **Reference Examples**: `pkg/common/proto/`, `pkg/db/proto/` (100% complete)\n- ✅ **Template**: Use `pkg/db/proto/` as the gold standard implementation\n\n### High-Priority File Categories\n1. **Services** (gRPC definitions)\n2. **Messages** (core data structures) \n3. **Requests/Responses** (API contracts)\n4. **Enums** (status codes, types)\n\n## Implementation Guidelines\n\n### File Structure Template\n```protobuf\nedition = \"2023\";\n\npackage gcommon.v1.web;\n\nimport \"google/protobuf/go_features.proto\";\n\noption go_package = \"github.com/jdfalk/gcommon/pkg/web/proto;webpb\";\noption features.(pb.go).api_level = API_HYBRID;\n\n/**\n * [Comprehensive documentation]\n */\nmessage/enum/service [Name] {\n  // Implementation details\n}\n```\n\n## Testing\n```bash\n# Test compilation\nprotoc --go_out=. --go-grpc_out=. pkg/web/proto/**/*.proto\n```\n\n## Reference\n- **Design Doc**: `docs/technical/webserver-design.md`\n- **Examples**: `pkg/db/proto/` (gold standard)\n- **Common Types**: `pkg/common/proto/`",
-    "labels": [
-      "module:web",
-      "type:protobuf",
-      "priority:critical",
-      "size:large"
-    ]
+    "labels": ["module:web", "type:protobuf", "priority:critical", "size:large"]
   },
   {
     "action": "create",
@@ -38,23 +33,13 @@
     "action": "create",
     "title": "Protobuf: Complete Auth Module Implementation",
     "body": "## Overview\nComplete the protobuf implementation for the auth module following the 1-1-1 structure pattern.\n\n## Current Status\n- **Module**: Auth\n- **Files Implemented**: 17/126 (13.5% complete)\n- **Files Remaining**: 109\n- **Priority**: 🟡 High (large module, some progress)\n\n## Implementation Requirements\n\n### 1-1-1 Structure Pattern\nEach protobuf file should contain exactly ONE message/enum/service definition following our established pattern:\n- ✅ **Reference Examples**: `pkg/common/proto/`, `pkg/db/proto/` (100% complete)\n- ✅ **Template**: Use `pkg/db/proto/` as the gold standard implementation\n\n### High-Priority File Categories\n1. **Services** (authentication, authorization)\n2. **Messages** (user, session, token structures)\n3. **Requests/Responses** (auth API contracts)\n4. **Enums** (auth states, permissions)\n\n## Implementation Guidelines\n\n### File Structure Template\n```protobuf\nedition = \"2023\";\n\npackage gcommon.v1.auth;\n\nimport \"google/protobuf/go_features.proto\";\n\noption go_package = \"github.com/jdfalk/gcommon/pkg/auth/proto;authpb\";\noption features.(pb.go).api_level = API_HYBRID;\n\n/**\n * [Comprehensive documentation]\n */\nmessage/enum/service [Name] {\n  // Implementation details\n}\n```\n\n## Testing\n```bash\n# Test compilation\nprotoc --go_out=. --go-grpc_out=. pkg/auth/proto/**/*.proto\n```\n\n## Reference\n- **Design Doc**: `docs/technical/auth-design.md`\n- **Examples**: `pkg/db/proto/` (gold standard)\n- **Common Types**: `pkg/common/proto/`",
-    "labels": [
-      "module:auth",
-      "type:protobuf",
-      "priority:high",
-      "size:large"
-    ]
+    "labels": ["module:auth", "type:protobuf", "priority:high", "size:large"]
   },
   {
     "action": "create",
     "title": "Protobuf: Complete Metrics Module Implementation",
     "body": "## Overview\nComplete the protobuf implementation for the metrics module following the 1-1-1 structure pattern.\n\n## Current Status\n- **Module**: Metrics\n- **Files Implemented**: 2/97 (2.1% complete)\n- **Files Remaining**: 95\n- **Priority**: 🟡 High (large module, minimal progress)\n\n## Implementation Requirements\n\n### 1-1-1 Structure Pattern\nEach protobuf file should contain exactly ONE message/enum/service definition following our established pattern:\n- ✅ **Reference Examples**: `pkg/common/proto/`, `pkg/db/proto/` (100% complete)\n- ✅ **Template**: Use `pkg/db/proto/` as the gold standard implementation\n\n### High-Priority File Categories\n1. **Services** (metrics collection, reporting)\n2. **Messages** (metric data structures)\n3. **Requests/Responses** (metrics API contracts)\n4. **Enums** (metric types, aggregations)\n\n## Implementation Guidelines\n\n### File Structure Template\n```protobuf\nedition = \"2023\";\n\npackage gcommon.v1.metrics;\n\nimport \"google/protobuf/go_features.proto\";\n\noption go_package = \"github.com/jdfalk/gcommon/pkg/metrics/proto;metricspb\";\noption features.(pb.go).api_level = API_HYBRID;\n\n/**\n * [Comprehensive documentation]\n */\nmessage/enum/service [Name] {\n  // Implementation details\n}\n```\n\n## Testing\n```bash\n# Test compilation\nprotoc --go_out=. --go-grpc_out=. pkg/metrics/proto/**/*.proto\n```\n\n## Reference\n- **Design Doc**: `docs/technical/metrics-design.md`\n- **Examples**: `pkg/db/proto/` (gold standard)\n- **Common Types**: `pkg/common/proto/`",
-    "labels": [
-      "module:metrics",
-      "type:protobuf",
-      "priority:high",
-      "size:large"
-    ]
+    "labels": ["module:metrics", "type:protobuf", "priority:high", "size:large"]
   },
   {
     "action": "create",
@@ -84,11 +69,7 @@
     "state": "closed",
     "title": "✅ Archive: Queue Services Implementation - Superseded",
     "body": "## Status: SUPERSEDED ✅\n\n## Overview\nThis specific issue has been superseded by a more comprehensive queue module implementation issue that addresses the full module scope.\n\n## Superseded By\n- **New Issue**: \"Protobuf: Complete Queue Module Implementation\"\n- **Scope**: Full queue module (175 files remaining)\n- **Priority**: Critical (second highest file count)\n\n## Original Scope\n- Queue services definitions (2 files)\n- Limited to service layer only\n\n## Updated Approach\nThe new comprehensive approach addresses:\n- All queue protobuf files (services, messages, requests, responses, enums)\n- Better prioritization based on actual implementation status\n- Alignment with current project structure\n\n## Files Location\n- **Path**: `pkg/queue/proto/`\n- **Package**: `gcommon.v1.queue`\n- **Current Status**: 2/177 files implemented (1.1% complete)",
-    "labels": [
-      "module:queue",
-      "type:protobuf",
-      "status:superseded"
-    ]
+    "labels": ["module:queue", "type:protobuf", "status:superseded"]
   },
   {
     "action": "create",
@@ -118,21 +99,13 @@
     "action": "create",
     "title": "✅ Archive: Logging Module Protobuf Implementation Complete",
     "body": "## Status: COMPLETED ✅\n\n## Overview\nThe Logging module protobuf implementation has been successfully completed.\n\n## Implementation Summary\n- **Module**: Logging (Log)\n- **Files Implemented**: 1/1 (100% complete)\n- **Status**: ✅ **COMPLETE**\n\n## Completed Components\n✅ All message definitions\n✅ All enum definitions\n✅ All service definitions\n✅ All request/response contracts\n✅ Protobuf compilation validated\n✅ Documentation complete\n\n## Files Location\n- **Path**: `pkg/log/proto/` (if applicable)\n- **Package**: `gcommon.v1.log`\n- **Go Package**: `github.com/jdfalk/gcommon/pkg/log/proto;logpb`\n\n## Usage\nThis module provides structured logging capabilities and integrations.",
-    "labels": [
-      "module:log",
-      "type:protobuf",
-      "status:complete"
-    ],
+    "labels": ["module:log", "type:protobuf", "status:complete"],
     "state": "closed"
   },
   {
     "action": "create",
     "title": "📋 Project Status: Protobuf Implementation Progress Tracking",
     "body": "## GCommon Protobuf Implementation Status\n\n### Overall Progress: 129/754 files (17.1% complete)\n\n## ✅ Completed Modules (3/10)\n| Module | Files | Status |\n|--------|-------|--------|\n| **Common** | 40/40 | ✅ 100% Complete |\n| **Database** | 52/52 | ✅ 100% Complete |\n| **Logging** | 1/1 | ✅ 100% Complete |\n\n## 🔄 In Progress Modules (7/10)\n| Module | Files | Progress | Priority |\n|--------|-------|----------|----------|\n| **Web** | 2/178 | 1.1% | 🔴 Critical |\n| **Queue** | 2/177 | 1.1% | 🔴 Critical |\n| **Auth** | 17/126 | 13.5% | 🟡 High |\n| **Metrics** | 2/97 | 2.1% | 🟡 High |\n| **Cache** | 8/44 | 18.2% | 🟢 Medium |\n| **Config** | 3/23 | 13.0% | 🟢 Medium |\n| **Health** | 2/16 | 12.5% | 🟢 Medium |\n\n## 🎯 Next Priority Actions\n1. **Web Module** - 176 files remaining (highest impact)\n2. **Queue Module** - 175 files remaining (second highest impact)\n3. **Auth Module** - 109 files remaining (build on existing progress)\n\n## 📚 Reference Materials\n- **Gold Standard**: `pkg/common/proto/` and `pkg/db/proto/`\n- **Documentation**: `docs/technical/` (design docs for each module)\n- **Testing**: Use `test_protoc.sh` and `validate_protobuf_coverage.py`\n\n## 🔄 Status Updates\nThis issue will be updated automatically as modules are completed.",
-    "labels": [
-      "type:tracking",
-      "project:protobuf",
-      "priority:high"
-    ]
+    "labels": ["type:tracking", "project:protobuf", "priority:high"]
   }
 ]

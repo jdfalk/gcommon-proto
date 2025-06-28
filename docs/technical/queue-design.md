@@ -161,6 +161,7 @@ consumers:
 ### Dead Letter Queues
 
 Failed messages are sent to dead letter queues after exhausting retries, allowing for:
+
 - Manual inspection and reprocessing
 - Alerting on failed messages
 - Analysis of failure patterns

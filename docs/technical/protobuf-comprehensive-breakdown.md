@@ -16,6 +16,7 @@ The GCommon project currently has 9 protobuf definitions across its core modules
 **Package**: `gcommon.health.v1`
 
 **Services**:
+
 - `HealthService`: Core health checking operations
   - `CheckHealth(HealthCheckRequest) → HealthCheckResponse`
   - `WatchHealth(HealthWatchRequest) → stream HealthCheckResponse`
@@ -23,18 +24,21 @@ The GCommon project currently has 9 protobuf definitions across its core modules
   - `TriggerRemediation(RemediationRequest) → RemediationResponse`
 
 **Key Messages**:
+
 - `HealthCheckRequest`: Component identification and check parameters
 - `HealthCheckResponse`: Status, details, and remediation suggestions
 - `HealthConfig`: Check intervals, thresholds, and remediation settings
 - `HealthStatus`: Enum (UNKNOWN, HEALTHY, UNHEALTHY, DEGRADED)
 
 **Strengths**:
+
 - Comprehensive health check lifecycle
 - Built-in remediation capabilities
 - Historical data tracking
 - Streaming health monitoring
 
 **Areas for Improvement**:
+
 - Could benefit from standardized error codes
 - Metrics integration could be more explicit
 
@@ -44,6 +48,7 @@ The GCommon project currently has 9 protobuf definitions across its core modules
 **Package**: `gcommon.database.v1`
 
 **Services**:
+
 - `DatabaseService`: Core database operations
   - `Get(GetRequest) → GetResponse`
   - `Set(SetRequest) → SetResponse`
@@ -55,18 +60,21 @@ The GCommon project currently has 9 protobuf definitions across its core modules
   - `RollbackTransaction(RollbackRequest) → RollbackResponse`
 
 **Key Messages**:
+
 - `DatabaseValue`: Flexible value container with type information
 - `TransactionContext`: Transaction management
 - `QueryOptions`: Pagination, filtering, and sorting
 - `DatabaseError`: Standardized error responses
 
 **Strengths**:
+
 - Comprehensive CRUD operations
 - Transaction support
 - Batch operations for efficiency
 - Flexible value types (string, bytes, int64, double, bool)
 
 **Areas for Improvement**:
+
 - Could use more sophisticated query capabilities
 - Schema management not addressed
 - Connection pooling configuration missing
@@ -77,6 +85,7 @@ The GCommon project currently has 9 protobuf definitions across its core modules
 **Package**: `gcommon.cache.v1`
 
 **Services**:
+
 - `CacheService`: Cache management operations
   - `Get(CacheGetRequest) → CacheGetResponse`
   - `Set(CacheSetRequest) → CacheSetResponse`
@@ -86,17 +95,20 @@ The GCommon project currently has 9 protobuf definitions across its core modules
   - `ListKeys(CacheListRequest) → CacheListResponse`
 
 **Key Messages**:
+
 - `CacheValue`: Value with TTL and metadata
 - `CacheStats`: Hit/miss ratios, memory usage, key counts
 - `CachePolicy`: Eviction and TTL policies
 
 **Strengths**:
+
 - TTL support built-in
 - Comprehensive statistics
 - Bulk operations
 - Policy configuration
 
 **Areas for Improvement**:
+
 - Could add cache warming capabilities
 - Advanced eviction policies not fully specified
 - Distributed cache coordination missing
@@ -107,6 +119,7 @@ The GCommon project currently has 9 protobuf definitions across its core modules
 **Package**: `gcommon.config.v1`
 
 **Services**:
+
 - `ConfigService`: Configuration operations
   - `GetConfig(ConfigRequest) → ConfigResponse`
   - `SetConfig(SetConfigRequest) → SetConfigResponse`
@@ -116,18 +129,21 @@ The GCommon project currently has 9 protobuf definitions across its core modules
   - `ValidateConfig(ValidateConfigRequest) → ValidateConfigResponse`
 
 **Key Messages**:
+
 - `ConfigValue`: Configuration with validation and metadata
 - `ConfigChangeEvent`: Change notifications for watchers
 - `ConfigValidation`: Schema and constraint validation
 - `ConfigSource`: Source tracking (file, environment, remote)
 
 **Strengths**:
+
 - Real-time configuration watching
 - Validation support
 - Source tracking
 - Change event streaming
 
 **Areas for Improvement**:
+
 - Could add configuration templating
 - Environment-specific overrides not clearly defined
 - Secret management integration missing
@@ -138,6 +154,7 @@ The GCommon project currently has 9 protobuf definitions across its core modules
 **Package**: `gcommon.log.v1`
 
 **Services**:
+
 - `LogService`: Log management operations
   - `WriteLog(LogRequest) → LogResponse`
   - `GetLogs(GetLogsRequest) → GetLogsResponse`
@@ -146,18 +163,21 @@ The GCommon project currently has 9 protobuf definitions across its core modules
   - `GetLogLevel(GetLogLevelRequest) → GetLogLevelResponse`
 
 **Key Messages**:
+
 - `LogEntry`: Structured log with level, timestamp, and fields
 - `LogFilter`: Filtering by level, component, time range
 - `LogLevel`: Enum (TRACE, DEBUG, INFO, WARN, ERROR, FATAL)
 - `LogMetadata`: Context information (trace IDs, user IDs)
 
 **Strengths**:
+
 - Structured logging support
 - Real-time log streaming
 - Flexible filtering
 - Context tracking
 
 **Areas for Improvement**:
+
 - Could add log aggregation capabilities
 - Sampling strategies not defined
 - Log retention policies missing
@@ -168,6 +188,7 @@ The GCommon project currently has 9 protobuf definitions across its core modules
 **Package**: `gcommon.metrics.v1`
 
 **Services**:
+
 - `MetricsService`: Metrics operations
   - `RecordMetric(MetricRequest) → MetricResponse`
   - `GetMetrics(GetMetricsRequest) → GetMetricsResponse`
@@ -176,18 +197,21 @@ The GCommon project currently has 9 protobuf definitions across its core modules
   - `GetMetricMetadata(MetricMetadataRequest) → MetricMetadataResponse`
 
 **Key Messages**:
+
 - `MetricData`: Metric with value, labels, and timestamp
 - `MetricType`: Enum (COUNTER, GAUGE, HISTOGRAM, SUMMARY)
 - `MetricFilter`: Filtering by name, labels, time range
 - `MetricAggregation`: Aggregation functions and windows
 
 **Strengths**:
+
 - Multiple metric types supported
 - Real-time streaming
 - Metadata management
 - Flexible aggregation
 
 **Areas for Improvement**:
+
 - Could add alerting integration
 - Metric correlation not addressed
 - Storage optimization missing
@@ -198,6 +222,7 @@ The GCommon project currently has 9 protobuf definitions across its core modules
 **Package**: `gcommon.auth.v1`
 
 **Services**:
+
 - `AuthService`: Authentication operations
   - `Authenticate(AuthRequest) → AuthResponse`
   - `ValidateToken(ValidateTokenRequest) → ValidateTokenResponse`
@@ -207,18 +232,21 @@ The GCommon project currently has 9 protobuf definitions across its core modules
   - `CheckPermission(PermissionRequest) → PermissionResponse`
 
 **Key Messages**:
+
 - `AuthToken`: JWT or opaque token with metadata
 - `UserInfo`: User identity and profile information
 - `Permission`: Role-based access control
 - `AuthMethod`: Authentication method (password, OAuth, certificate)
 
 **Strengths**:
+
 - Comprehensive auth lifecycle
 - Token management
 - Permission checking
 - Multiple auth methods
 
 **Areas for Improvement**:
+
 - Could add SSO integration details
 - Session management not fully specified
 - Audit logging integration missing
@@ -229,6 +257,7 @@ The GCommon project currently has 9 protobuf definitions across its core modules
 **Package**: `gcommon.queue.v1`
 
 **Services**:
+
 - `QueueService`: Queue management operations
   - `Publish(PublishRequest) → PublishResponse`
   - `Subscribe(SubscribeRequest) → stream QueueMessage`
@@ -239,18 +268,21 @@ The GCommon project currently has 9 protobuf definitions across its core modules
   - `BatchPublish(BatchPublishRequest) → BatchPublishResponse`
 
 **Key Messages**:
+
 - `QueueMessage`: Message with headers, body, and delivery info
 - `QueueConfig`: Queue settings (durability, ordering, retention)
 - `DeliveryOptions`: Retry policies, dead letter queues
 - `QueueStats`: Message counts, throughput metrics
 
 **Strengths**:
+
 - Batch operations for efficiency
 - Dead letter queue support
 - Comprehensive queue management
 - Delivery guarantees
 
 **Areas for Improvement**:
+
 - Could add message filtering
 - Priority queues not fully specified
 - Cross-queue operations missing
@@ -261,6 +293,7 @@ The GCommon project currently has 9 protobuf definitions across its core modules
 **Package**: `gcommon.web.v1`
 
 **Services**:
+
 - `WebService`: Web server operations
   - `HandleRequest(WebRequest) → WebResponse`
   - `RegisterHandler(RegisterHandlerRequest) → RegisterHandlerResponse`
@@ -269,18 +302,21 @@ The GCommon project currently has 9 protobuf definitions across its core modules
   - `GetMetrics(WebMetricsRequest) → WebMetricsResponse`
 
 **Key Messages**:
+
 - `WebRequest`: HTTP request abstraction
 - `WebResponse`: HTTP response with headers and body
 - `SecurityCheck`: Security validation (CSRF, XSS, rate limiting)
 - `HandlerConfig`: Route configuration and middleware
 
 **Strengths**:
+
 - HTTP abstraction for gRPC
 - Security checking built-in
 - Handler registration
 - Metrics integration
 
 **Areas for Improvement**:
+
 - Could add more middleware options
 - WebSocket support not defined
 - Static file serving missing details
@@ -288,18 +324,21 @@ The GCommon project currently has 9 protobuf definitions across its core modules
 ## Common Patterns Analysis
 
 ### Naming Conventions
+
 **Current Pattern**: Consistent service naming (`<Module>Service`)
 **Message Naming**: Clear request/response pairs
 **Field Naming**: snake_case consistently used
 **Package Naming**: `gcommon.<module>.v1` pattern
 
 ### Service Design Patterns
+
 1. **CRUD Operations**: Get, Set, Delete patterns across modules
 2. **Streaming**: Watch/Stream operations for real-time updates
 3. **Batch Operations**: Efficient bulk operations where applicable
 4. **Metadata**: Consistent metadata patterns across services
 
 ### Error Handling Patterns
+
 - Most modules use custom error messages
 - Status codes not consistently standardized
 - Error context varies across modules
@@ -307,6 +346,7 @@ The GCommon project currently has 9 protobuf definitions across its core modules
 ## Identified Gaps and Inconsistencies
 
 ### 1. Common Types Missing
+
 - **Standardized Error Codes**: Each module defines its own error handling
 - **Common Enums**: Status types could be standardized
 - **Pagination**: Inconsistent pagination patterns
@@ -314,11 +354,13 @@ The GCommon project currently has 9 protobuf definitions across its core modules
 - **Metadata**: Common metadata patterns not shared
 
 ### 2. Cross-Module Integration
+
 - **Observability**: Metrics, logging, and tracing integration gaps
 - **Security**: Auth integration not explicit in all modules
 - **Configuration**: Module-specific config not unified
 
 ### 3. API Evolution
+
 - **Versioning**: v1 naming but no evolution strategy defined
 - **Deprecation**: No deprecation patterns established
 - **Backward Compatibility**: Guidelines not documented
@@ -405,16 +447,19 @@ Update all modules to use common error types and include standardized error resp
 ## Implementation Priority
 
 ### Phase 1: Foundation (High Priority)
+
 1. Create common types package
 2. Standardize error handling across all modules
 3. Add comprehensive documentation to existing protos
 
 ### Phase 2: Integration (Medium Priority)
+
 1. Add auth context to all services
 2. Standardize observability integration
 3. Implement consistent pagination
 
 ### Phase 3: Enhancement (Low Priority)
+
 1. Add advanced features to individual modules
 2. Implement cross-module operations
 3. Add performance optimizations

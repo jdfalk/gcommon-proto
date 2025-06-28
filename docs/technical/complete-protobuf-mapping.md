@@ -10,6 +10,7 @@ This document provides a 100% complete mapping of all protobuf messages and serv
 **Package**: `gcommon.common.v1`
 
 ### Core Messages
+
 ✅ **Implemented** - These are already defined in the common.proto file:
 
 1. `Error` - Standardized error handling
@@ -34,6 +35,7 @@ This document provides a 100% complete mapping of all protobuf messages and serv
 20. `ServiceVersion` - Service version metadata
 
 ### Additional Common Messages Needed
+
 🔄 **To Be Added**:
 
 21. `AuditLog` - For tracking operations across modules
@@ -53,6 +55,7 @@ This document provides a 100% complete mapping of all protobuf messages and serv
 ### Services Required
 
 #### HealthService
+
 1. `Check(HealthCheckRequest) → HealthCheckResponse`
 2. `Watch(HealthCheckRequest) → stream HealthCheckResponse`
 3. `CheckAll(HealthCheckAllRequest) → HealthCheckAllResponse`
@@ -67,6 +70,7 @@ This document provides a 100% complete mapping of all protobuf messages and serv
 ### Messages Required
 
 #### Request Messages
+
 1. `HealthCheckRequest` ✅ (service name, options)
 2. `HealthCheckAllRequest` ✅ (include details, filter types)
 3. `HealthHistoryRequest` (time range, service filter)
@@ -78,6 +82,7 @@ This document provides a 100% complete mapping of all protobuf messages and serv
 9. `HealthMetricsRequest` (time range, metric types)
 
 #### Response Messages
+
 1. `HealthCheckResponse` ✅ (status, timestamp, details)
 2. `HealthCheckAllResponse` ✅ (overall status, individual results)
 3. `HealthHistoryResponse` (history entries, pagination)
@@ -89,6 +94,7 @@ This document provides a 100% complete mapping of all protobuf messages and serv
 9. `HealthMetricsResponse` (metrics data)
 
 #### Core Messages
+
 1. `HealthCheck` - Check definition with config
 2. `HealthResult` - Individual check result
 3. `HealthConfig` - Check configuration
@@ -109,6 +115,7 @@ This document provides a 100% complete mapping of all protobuf messages and serv
 ### Services Required
 
 #### AuthService
+
 1. `Authenticate(AuthenticateRequest) → AuthenticateResponse`
 2. `ValidateToken(ValidateTokenRequest) → ValidateTokenResponse`
 3. `RefreshToken(RefreshTokenRequest) → RefreshTokenResponse`
@@ -119,6 +126,7 @@ This document provides a 100% complete mapping of all protobuf messages and serv
 8. `ChangePassword(ChangePasswordRequest) → ChangePasswordResponse`
 
 #### AuthorizationService
+
 1. `Authorize(AuthorizeRequest) → AuthorizeResponse`
 2. `HasRole(HasRoleRequest) → HasRoleResponse`
 3. `HasPermission(HasPermissionRequest) → HasPermissionResponse`
@@ -131,6 +139,7 @@ This document provides a 100% complete mapping of all protobuf messages and serv
 10. `RevokeRole(RevokeRoleRequest) → RevokeRoleResponse`
 
 #### SessionService
+
 1. `CreateSession(CreateSessionRequest) → CreateSessionResponse`
 2. `GetSession(GetSessionRequest) → GetSessionResponse`
 3. `UpdateSession(UpdateSessionRequest) → UpdateSessionResponse`
@@ -140,6 +149,7 @@ This document provides a 100% complete mapping of all protobuf messages and serv
 ### Messages Required
 
 #### Authentication Messages
+
 1. `AuthenticateRequest` ✅ (credentials, auth type)
 2. `AuthenticateResponse` ✅ (identity, token, success)
 3. `ValidateTokenRequest` ✅ (token)
@@ -152,6 +162,7 @@ This document provides a 100% complete mapping of all protobuf messages and serv
 10. `GenerateTokenResponse` (token, expiry)
 
 #### User Management Messages
+
 1. `UserInfoRequest` (user ID or token)
 2. `UserInfoResponse` (user profile, roles, permissions)
 3. `UpdateUserInfoRequest` (user ID, field updates)
@@ -160,6 +171,7 @@ This document provides a 100% complete mapping of all protobuf messages and serv
 6. `ChangePasswordResponse` (success status)
 
 #### Authorization Messages
+
 1. `AuthorizeRequest` ✅ (identity, resource, action)
 2. `AuthorizeResponse` ✅ (allowed, reason)
 3. `HasRoleRequest` ✅ (identity, role)
@@ -172,6 +184,7 @@ This document provides a 100% complete mapping of all protobuf messages and serv
 10. `ListPermissionsResponse` (permissions, pagination)
 
 #### Role Management Messages
+
 1. `CreateRoleRequest` (role definition)
 2. `CreateRoleResponse` (created role)
 3. `UpdateRoleRequest` (role ID, updates)
@@ -184,6 +197,7 @@ This document provides a 100% complete mapping of all protobuf messages and serv
 10. `RevokeRoleResponse` (success status)
 
 #### Session Messages
+
 1. `CreateSessionRequest` (user ID, session data)
 2. `CreateSessionResponse` (session ID, expiry)
 3. `GetSessionRequest` (session ID)
@@ -196,6 +210,7 @@ This document provides a 100% complete mapping of all protobuf messages and serv
 10. `ListSessionsResponse` (sessions, pagination)
 
 #### Core Types
+
 1. `Identity` ✅ - User identity information
 2. `AuthToken` ✅ - Token with metadata
 3. `Credentials` - Authentication credentials
@@ -216,6 +231,7 @@ This document provides a 100% complete mapping of all protobuf messages and serv
 ### Services Required
 
 #### DatabaseService
+
 1. `Get(GetRequest) → GetResponse`
 2. `Set(SetRequest) → SetResponse`
 3. `Delete(DeleteRequest) → DeleteResponse`
@@ -225,12 +241,14 @@ This document provides a 100% complete mapping of all protobuf messages and serv
 7. `BatchExecute(BatchRequest) → BatchResponse`
 
 #### TransactionService
+
 1. `BeginTransaction(BeginTransactionRequest) → BeginTransactionResponse`
 2. `CommitTransaction(CommitTransactionRequest) → CommitTransactionResponse`
 3. `RollbackTransaction(RollbackTransactionRequest) → RollbackTransactionResponse`
 4. `GetTransactionStatus(TransactionStatusRequest) → TransactionStatusResponse`
 
 #### SchemaService
+
 1. `CreateTable(CreateTableRequest) → CreateTableResponse`
 2. `AlterTable(AlterTableRequest) → AlterTableResponse`
 3. `DropTable(DropTableRequest) → DropTableResponse`
@@ -240,6 +258,7 @@ This document provides a 100% complete mapping of all protobuf messages and serv
 7. `DropIndex(DropIndexRequest) → DropIndexResponse`
 
 #### MigrationService
+
 1. `ApplyMigration(ApplyMigrationRequest) → ApplyMigrationResponse`
 2. `RevertMigration(RevertMigrationRequest) → RevertMigrationResponse`
 3. `GetMigrationStatus(MigrationStatusRequest) → MigrationStatusResponse`
@@ -248,6 +267,7 @@ This document provides a 100% complete mapping of all protobuf messages and serv
 ### Messages Required
 
 #### Core Operation Messages
+
 1. `GetRequest` ✅ (key, table, options)
 2. `GetResponse` ✅ (value, found, metadata)
 3. `SetRequest` ✅ (key, value, table, options)
@@ -264,6 +284,7 @@ This document provides a 100% complete mapping of all protobuf messages and serv
 14. `BatchResponse` ✅ (results list)
 
 #### Transaction Messages
+
 1. `BeginTransactionRequest` ✅ (isolation level, timeout)
 2. `BeginTransactionResponse` ✅ (transaction ID)
 3. `CommitTransactionRequest` ✅ (transaction ID)
@@ -274,6 +295,7 @@ This document provides a 100% complete mapping of all protobuf messages and serv
 8. `TransactionStatusResponse` (status, metadata)
 
 #### Schema Messages
+
 1. `CreateTableRequest` (table definition)
 2. `CreateTableResponse` (success status)
 3. `AlterTableRequest` (table name, alterations)
@@ -290,6 +312,7 @@ This document provides a 100% complete mapping of all protobuf messages and serv
 14. `DropIndexResponse` (success status)
 
 #### Migration Messages
+
 1. `ApplyMigrationRequest` (migration definition)
 2. `ApplyMigrationResponse` (success, applied version)
 3. `RevertMigrationRequest` (target version)
@@ -300,6 +323,7 @@ This document provides a 100% complete mapping of all protobuf messages and serv
 8. `ListMigrationsResponse` (migration list)
 
 #### Core Types
+
 1. `DatabaseValue` ✅ - Flexible value container
 2. `TransactionContext` ✅ - Transaction metadata
 3. `QueryOptions` ✅ - Query configuration
@@ -321,6 +345,7 @@ This document provides a 100% complete mapping of all protobuf messages and serv
 ### Services Required
 
 #### CacheService
+
 1. `Get(CacheGetRequest) → CacheGetResponse`
 2. `Set(CacheSetRequest) → CacheSetResponse`
 3. `Delete(CacheDeleteRequest) → CacheDeleteResponse`
@@ -336,6 +361,7 @@ This document provides a 100% complete mapping of all protobuf messages and serv
 13. `FlushAll(CacheFlushRequest) → CacheFlushResponse`
 
 #### CacheManagementService
+
 1. `CreateCache(CreateCacheRequest) → CreateCacheResponse`
 2. `DeleteCache(DeleteCacheRequest) → DeleteCacheResponse`
 3. `ListCaches(ListCachesRequest) → ListCachesResponse`
@@ -345,6 +371,7 @@ This document provides a 100% complete mapping of all protobuf messages and serv
 ### Messages Required
 
 #### Core Operation Messages
+
 1. `CacheGetRequest` ✅ (key, cache name)
 2. `CacheGetResponse` ✅ (value, found, TTL)
 3. `CacheSetRequest` ✅ (key, value, TTL, cache name)
@@ -361,6 +388,7 @@ This document provides a 100% complete mapping of all protobuf messages and serv
 14. `CacheExpireResponse` (success)
 
 #### Batch Operation Messages
+
 1. `CacheBatchGetRequest` (keys list, cache name)
 2. `CacheBatchGetResponse` (values map, found keys)
 3. `CacheBatchSetRequest` (key-value pairs, TTL, cache name)
@@ -369,6 +397,7 @@ This document provides a 100% complete mapping of all protobuf messages and serv
 6. `CacheBatchDeleteResponse` (deleted count, failed keys)
 
 #### Management Messages
+
 1. `CacheListRequest` ✅ (cache name, pattern, pagination)
 2. `CacheListResponse` ✅ (keys, pagination)
 3. `CacheStatsRequest` ✅ (cache name)
@@ -387,6 +416,7 @@ This document provides a 100% complete mapping of all protobuf messages and serv
 16. `UpdateCacheConfigResponse` (success)
 
 #### Core Types
+
 1. `CacheValue` ✅ - Value with TTL and metadata
 2. `CacheStats` ✅ - Cache statistics
 3. `CachePolicy` ✅ - Cache policies and settings
@@ -405,6 +435,7 @@ This document provides a 100% complete mapping of all protobuf messages and serv
 ### Services Required
 
 #### ConfigService
+
 1. `GetConfig(ConfigRequest) → ConfigResponse`
 2. `SetConfig(SetConfigRequest) → SetConfigResponse`
 3. `DeleteConfig(DeleteConfigRequest) → DeleteConfigResponse`
@@ -415,6 +446,7 @@ This document provides a 100% complete mapping of all protobuf messages and serv
 8. `ReloadConfig(ReloadConfigRequest) → ReloadConfigResponse`
 
 #### ConfigSchemaService
+
 1. `RegisterSchema(RegisterSchemaRequest) → RegisterSchemaResponse`
 2. `GetSchema(GetSchemaRequest) → GetSchemaResponse`
 3. `UpdateSchema(UpdateSchemaRequest) → UpdateSchemaResponse`
@@ -424,6 +456,7 @@ This document provides a 100% complete mapping of all protobuf messages and serv
 ### Messages Required
 
 #### Core Operation Messages
+
 1. `ConfigRequest` ✅ (key, environment, version)
 2. `ConfigResponse` ✅ (value, metadata, found)
 3. `SetConfigRequest` ✅ (key, value, metadata)
@@ -442,6 +475,7 @@ This document provides a 100% complete mapping of all protobuf messages and serv
 16. `ReloadConfigResponse` (reloaded count, errors)
 
 #### Schema Messages
+
 1. `RegisterSchemaRequest` (schema definition)
 2. `RegisterSchemaResponse` (success, schema ID)
 3. `GetSchemaRequest` (schema ID or key pattern)
@@ -454,6 +488,7 @@ This document provides a 100% complete mapping of all protobuf messages and serv
 10. `ListSchemasResponse` (schemas, pagination)
 
 #### Core Types
+
 1. `ConfigValue` ✅ - Configuration with validation
 2. `ConfigChangeEvent` ✅ - Change notifications
 3. `ConfigValidation` ✅ - Schema validation
@@ -475,6 +510,7 @@ This document provides a 100% complete mapping of all protobuf messages and serv
 ### Services Required
 
 #### LogService
+
 1. `WriteLog(LogRequest) → LogResponse`
 2. `WriteBatchLogs(BatchLogRequest) → BatchLogResponse`
 3. `GetLogs(GetLogsRequest) → GetLogsResponse`
@@ -485,6 +521,7 @@ This document provides a 100% complete mapping of all protobuf messages and serv
 8. `GetLogStats(LogStatsRequest) → LogStatsResponse`
 
 #### LogManagementService
+
 1. `CreateLogger(CreateLoggerRequest) → CreateLoggerResponse`
 2. `UpdateLogger(UpdateLoggerRequest) → UpdateLoggerResponse`
 3. `DeleteLogger(DeleteLoggerRequest) → DeleteLoggerResponse`
@@ -494,6 +531,7 @@ This document provides a 100% complete mapping of all protobuf messages and serv
 ### Messages Required
 
 #### Core Operation Messages
+
 1. `LogRequest` ✅ (entry, logger name)
 2. `LogResponse` ✅ (success, entry ID)
 3. `BatchLogRequest` (entries list, logger name)
@@ -512,6 +550,7 @@ This document provides a 100% complete mapping of all protobuf messages and serv
 16. `LogStatsResponse` (statistics)
 
 #### Management Messages
+
 1. `CreateLoggerRequest` (logger config)
 2. `CreateLoggerResponse` (success, logger info)
 3. `UpdateLoggerRequest` (logger name, new config)
@@ -524,6 +563,7 @@ This document provides a 100% complete mapping of all protobuf messages and serv
 10. `LoggerConfigResponse` (configuration)
 
 #### Core Types
+
 1. `LogEntry` ✅ - Structured log with fields
 2. `LogFilter` ✅ - Filtering criteria
 3. `LogLevel` (enum) ✅ - Log levels
@@ -543,6 +583,7 @@ This document provides a 100% complete mapping of all protobuf messages and serv
 ### Services Required
 
 #### MetricsService
+
 1. `RecordMetric(MetricRequest) → MetricResponse`
 2. `RecordBatchMetrics(BatchMetricRequest) → BatchMetricResponse`
 3. `GetMetrics(GetMetricsRequest) → GetMetricsResponse`
@@ -553,6 +594,7 @@ This document provides a 100% complete mapping of all protobuf messages and serv
 8. `QueryMetrics(QueryMetricsRequest) → QueryMetricsResponse`
 
 #### MetricsManagementService
+
 1. `CreateMetricsProvider(CreateProviderRequest) → CreateProviderResponse`
 2. `UpdateMetricsProvider(UpdateProviderRequest) → UpdateProviderResponse`
 3. `DeleteMetricsProvider(DeleteProviderRequest) → DeleteProviderResponse`
@@ -562,6 +604,7 @@ This document provides a 100% complete mapping of all protobuf messages and serv
 ### Messages Required
 
 #### Core Operation Messages
+
 1. `MetricRequest` ✅ (metric data, provider)
 2. `MetricResponse` ✅ (success status)
 3. `BatchMetricRequest` (metrics list, provider)
@@ -580,6 +623,7 @@ This document provides a 100% complete mapping of all protobuf messages and serv
 16. `QueryMetricsResponse` (query results)
 
 #### Management Messages
+
 1. `CreateProviderRequest` (provider config)
 2. `CreateProviderResponse` (success, provider info)
 3. `UpdateProviderRequest` (provider ID, new config)
@@ -592,6 +636,7 @@ This document provides a 100% complete mapping of all protobuf messages and serv
 10. `ProviderStatsResponse` (statistics)
 
 #### Core Types
+
 1. `MetricData` ✅ - Metric with labels and timestamp
 2. `MetricType` (enum) ✅ - Counter, gauge, histogram, etc.
 3. `MetricFilter` ✅ - Filtering by name/labels/time
@@ -612,6 +657,7 @@ This document provides a 100% complete mapping of all protobuf messages and serv
 ### Services Required
 
 #### QueueService
+
 1. `Publish(PublishRequest) → PublishResponse`
 2. `BatchPublish(BatchPublishRequest) → BatchPublishResponse`
 3. `Subscribe(SubscribeRequest) → stream QueueMessage`
@@ -623,6 +669,7 @@ This document provides a 100% complete mapping of all protobuf messages and serv
 9. `PurgeQueue(PurgeQueueRequest) → PurgeQueueResponse`
 
 #### QueueManagementService
+
 1. `CreateQueue(CreateQueueRequest) → CreateQueueResponse`
 2. `UpdateQueue(UpdateQueueRequest) → UpdateQueueResponse`
 3. `DeleteQueue(DeleteQueueRequest) → DeleteQueueResponse`
@@ -633,6 +680,7 @@ This document provides a 100% complete mapping of all protobuf messages and serv
 ### Messages Required
 
 #### Core Operation Messages
+
 1. `PublishRequest` ✅ (message, queue, options)
 2. `PublishResponse` ✅ (success, message ID)
 3. `BatchPublishRequest` ✅ (messages list, queue)
@@ -653,6 +701,7 @@ This document provides a 100% complete mapping of all protobuf messages and serv
 18. `PurgeQueueResponse` (purged count)
 
 #### Management Messages
+
 1. `CreateQueueRequest` ✅ (queue config)
 2. `CreateQueueResponse` ✅ (success, queue info)
 3. `UpdateQueueRequest` (queue name, new config)
@@ -667,6 +716,7 @@ This document provides a 100% complete mapping of all protobuf messages and serv
 12. `ResumeQueueResponse` (success)
 
 #### Core Types
+
 1. `QueueMessage` ✅ - Message with metadata
 2. `QueueConfig` ✅ - Queue configuration
 3. `DeliveryOptions` ✅ - Delivery settings
@@ -687,6 +737,7 @@ This document provides a 100% complete mapping of all protobuf messages and serv
 ### Services Required
 
 #### WebService
+
 1. `HandleRequest(WebRequest) → WebResponse`
 2. `RegisterHandler(RegisterHandlerRequest) → RegisterHandlerResponse`
 3. `UnregisterHandler(UnregisterHandlerRequest) → UnregisterHandlerResponse`
@@ -696,12 +747,14 @@ This document provides a 100% complete mapping of all protobuf messages and serv
 7. `GetMetrics(WebMetricsRequest) → WebMetricsResponse`
 
 #### MiddlewareService
+
 1. `RegisterMiddleware(RegisterMiddlewareRequest) → RegisterMiddlewareResponse`
 2. `UnregisterMiddleware(UnregisterMiddlewareRequest) → UnregisterMiddlewareResponse`
 3. `ListMiddleware(ListMiddlewareRequest) → ListMiddlewareResponse`
 4. `UpdateMiddleware(UpdateMiddlewareRequest) → UpdateMiddlewareResponse`
 
 #### WebSocketService
+
 1. `Connect(WebSocketConnectRequest) → stream WebSocketMessage`
 2. `Send(WebSocketSendRequest) → WebSocketSendResponse`
 3. `Broadcast(WebSocketBroadcastRequest) → WebSocketBroadcastResponse`
@@ -710,6 +763,7 @@ This document provides a 100% complete mapping of all protobuf messages and serv
 ### Messages Required
 
 #### Core Operation Messages
+
 1. `WebRequest` ✅ - HTTP request abstraction
 2. `WebResponse` ✅ - HTTP response with headers
 3. `RegisterHandlerRequest` ✅ (route, handler config)
@@ -726,6 +780,7 @@ This document provides a 100% complete mapping of all protobuf messages and serv
 14. `WebMetricsResponse` ✅ (metrics data)
 
 #### Middleware Messages
+
 1. `RegisterMiddlewareRequest` (middleware config, priority)
 2. `RegisterMiddlewareResponse` (success, middleware ID)
 3. `UnregisterMiddlewareRequest` (middleware ID)
@@ -736,6 +791,7 @@ This document provides a 100% complete mapping of all protobuf messages and serv
 8. `UpdateMiddlewareResponse` (success)
 
 #### WebSocket Messages
+
 1. `WebSocketConnectRequest` (connection config, auth)
 2. `WebSocketMessage` (message data, connection ID)
 3. `WebSocketSendRequest` (connection ID, message)
@@ -746,6 +802,7 @@ This document provides a 100% complete mapping of all protobuf messages and serv
 8. `WebSocketConnectionsResponse` (connections, pagination)
 
 #### Core Types
+
 1. `WebRequest` ✅ - HTTP request representation
 2. `WebResponse` ✅ - HTTP response with metadata
 3. `SecurityCheck` ✅ - Security validation
@@ -762,6 +819,7 @@ This document provides a 100% complete mapping of all protobuf messages and serv
 ## Summary Statistics
 
 ### Total Services Required: **18 Services**
+
 1. HealthService
 2. AuthService
 3. AuthorizationService
@@ -785,6 +843,7 @@ This document provides a 100% complete mapping of all protobuf messages and serv
 21. WebSocketService
 
 ### Total Messages Required: **400+ Messages**
+
 - **Common Types**: ~25 messages (base foundation)
 - **Health Module**: ~25 messages
 - **Auth Module**: ~60 messages (most complex due to 3 services)
@@ -797,6 +856,7 @@ This document provides a 100% complete mapping of all protobuf messages and serv
 - **Web Module**: ~40 messages
 
 ### Implementation Priority
+
 1. **Phase 1** (Foundation): Common types, Health, Auth basics
 2. **Phase 2** (Core Services): Database, Cache, Config, Logging
 3. **Phase 3** (Advanced): Metrics, Queue, Web services

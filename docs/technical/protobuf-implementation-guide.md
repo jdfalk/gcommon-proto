@@ -9,6 +9,7 @@ This guide provides step-by-step instructions for implementing the recommendatio
 ### Step 1: Integrate Common Types
 
 1. **Update generate.sh script** to include the new common proto:
+
    ```bash
    # Add to generate.sh after the existing protoc commands
    protoc --go_out=. --go_opt=paths=source_relative \
@@ -26,6 +27,7 @@ This guide provides step-by-step instructions for implementing the recommendatio
 #### Health Module Example Implementation
 
 **Before**:
+
 ```protobuf
 message HealthCheckResponse {
   HealthStatus status = 1;
@@ -36,6 +38,7 @@ message HealthCheckResponse {
 ```
 
 **After**:
+
 ```protobuf
 import "pkg/common/proto/common.proto";
 
@@ -54,6 +57,7 @@ message HealthCheckResponse {
 #### Database Module Example Implementation
 
 **Before**:
+
 ```protobuf
 message GetResponse {
   DatabaseValue value = 1;
@@ -63,6 +67,7 @@ message GetResponse {
 ```
 
 **After**:
+
 ```protobuf
 import "pkg/common/proto/common.proto";
 
@@ -81,6 +86,7 @@ message GetResponse {
 #### Example: Config Module List Operation
 
 **Before**:
+
 ```protobuf
 message ListConfigRequest {
   string prefix = 1;
@@ -96,6 +102,7 @@ message ListConfigResponse {
 ```
 
 **After**:
+
 ```protobuf
 import "pkg/common/proto/common.proto";
 
@@ -288,6 +295,7 @@ enum CrossModuleOperationType {
 ## Implementation Checklist
 
 ### Phase 1: Foundation (Week 1-2)
+
 - [ ] Create `pkg/common/proto/common.proto`
 - [ ] Update `generate.sh` to include common proto
 - [ ] Update all 9 existing proto files to import common types
@@ -298,6 +306,7 @@ enum CrossModuleOperationType {
 - [ ] Update documentation with new patterns
 
 ### Phase 2: Integration (Week 3-4)
+
 - [ ] Add AuthContext to RequestMetadata
 - [ ] Implement authentication interceptors
 - [ ] Add ObservabilityInfo to all responses
@@ -308,6 +317,7 @@ enum CrossModuleOperationType {
 - [ ] Update gRPC client examples
 
 ### Phase 3: Enhancement (Week 5-6)
+
 - [ ] Add validation rules to all message types
 - [ ] Implement API versioning headers
 - [ ] Create cross-module operation framework
@@ -320,16 +330,19 @@ enum CrossModuleOperationType {
 ## Testing Strategy
 
 ### Unit Tests
+
 - Test protobuf serialization/deserialization
 - Validate message construction with common types
 - Test error handling standardization
 
 ### Integration Tests
+
 - Test cross-module operations
 - Validate authentication flow
 - Test observability data collection
 
 ### Performance Tests
+
 - Measure impact of additional metadata
 - Test pagination performance
 - Validate streaming operations
@@ -337,16 +350,19 @@ enum CrossModuleOperationType {
 ## Migration Guide for Existing Clients
 
 ### Breaking Changes
+
 1. Error responses now use structured `Error` type instead of string
 2. Pagination parameters standardized across all services
 3. Request metadata required for all operations
 
 ### Non-Breaking Changes
+
 1. Additional observability fields in responses
 2. Enhanced filtering and sorting options
 3. Cross-module operation support
 
 ### Migration Steps
+
 1. Update client code to handle new error format
 2. Migrate pagination logic to use new types
 3. Add request metadata population
@@ -356,6 +372,7 @@ enum CrossModuleOperationType {
 ## Monitoring and Metrics
 
 ### Key Metrics to Track
+
 - Proto compilation time
 - Message size impact
 - Service latency changes
@@ -363,6 +380,7 @@ enum CrossModuleOperationType {
 - Client adoption of new features
 
 ### Alerts
+
 - Proto compilation failures
 - Significant latency increases
 - High error rates during migration

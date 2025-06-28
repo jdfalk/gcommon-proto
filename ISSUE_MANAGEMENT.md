@@ -94,9 +94,24 @@ git add issue_updates.json && git commit -m "Complete #68: Implemented all 27 me
 
 ```json
 [
-  {"action": "update", "number": 68, "assignees": ["dev1"], "labels": ["in-progress"]},
-  {"action": "update", "number": 69, "assignees": ["dev2"], "labels": ["in-progress"]},
-  {"action": "update", "number": 70, "assignees": ["dev3"], "labels": ["in-progress"]}
+  {
+    "action": "update",
+    "number": 68,
+    "assignees": ["dev1"],
+    "labels": ["in-progress"]
+  },
+  {
+    "action": "update",
+    "number": 69,
+    "assignees": ["dev2"],
+    "labels": ["in-progress"]
+  },
+  {
+    "action": "update",
+    "number": 70,
+    "assignees": ["dev3"],
+    "labels": ["in-progress"]
+  }
 ]
 ```
 
