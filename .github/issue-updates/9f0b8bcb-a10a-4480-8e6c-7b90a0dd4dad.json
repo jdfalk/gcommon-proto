@@ -1,0 +1,8 @@
+{
+  "action": "create",
+  "title": "Add CI workflow for Go tests",
+  "body": "Create GitHub Actions workflow to run go vet, go test, and protobuf coverage. Add node_modules to .gitignore.",
+  "labels": ["ci", "cleanup"],
+  "guid": "ddcc545f-ee9a-46bf-91b0-ad524a0c0f47",
+  "legacy_guid": "create-add-ci-workflow-for-go-tests-2025-06-28"
+}

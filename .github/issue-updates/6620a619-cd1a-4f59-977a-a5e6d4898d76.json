@@ -1,0 +1,8 @@
+{
+  "action": "create",
+  "title": "Add Zap logging provider",
+  "body": "Implement NewZapProvider in pkg/log/zap.go using zap library. Register provider and add tests.",
+  "labels": ["enhancement", "module:log"],
+  "guid": "384aad66-0ac8-4e78-80e9-4142f6687468",
+  "legacy_guid": "create-add-zap-logging-provider-2025-06-28"
+}
