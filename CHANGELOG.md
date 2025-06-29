@@ -222,7 +222,7 @@ git add . && git commit -m "Complete issue #68: Implemented all metrics message 
 
 ### Technical Foundation
 
-- Go 1.21+ requirement
+- go 1.23+ requirement
 - Protocol Buffers for service definitions
 - gRPC for network services
 - OpenTelemetry for observability

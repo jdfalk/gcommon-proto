@@ -1,6 +1,6 @@
 module github.com/jdfalk/gcommon/cmd/examples/auth
 
-go 1.21
+go 1.23
 
 require (
 	github.com/jdfalk/gcommon v0.0.0

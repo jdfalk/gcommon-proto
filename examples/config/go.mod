@@ -1,9 +1,5 @@
 module github.com/jdfalk/gcommon/examples/config
 
-go 1.21
-
-require (
-	github.com/jdfalk/gcommon v0.0.0
-)
+go 1.23
 
 replace github.com/jdfalk/gcommon => ../..
