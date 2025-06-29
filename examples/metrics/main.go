@@ -19,10 +19,10 @@ import (
 func main() {
 	// Create a metrics configuration
 	config := metrics.Config{
-		Enabled:          true,
-		Provider:         "prometheus", // Could also be "opentelemetry" or "otel"
-		Namespace:        "example",
-		Subsystem:        "app",
+		Enabled:              true,
+		Provider:             "prometheus", // Could also be "opentelemetry" or "otel"
+		Namespace:            "example",
+		Subsystem:            "app",
 		EnableRuntimeMetrics: true,
 		Tags: []metrics.Tag{
 			{Key: "environment", Value: "development"},

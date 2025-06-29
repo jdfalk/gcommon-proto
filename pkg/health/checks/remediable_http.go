@@ -14,13 +14,13 @@ import (
 // RemediableHTTPCheck is an HTTP health check that can automatically remediate common failures.
 type RemediableHTTPCheck struct {
 	*HTTPCheck
-	maxRetries       int           // Maximum number of retries during remediation
-	retryDelay       time.Duration // Delay between retries
-	allowedStatusCodes []int       // Status codes that are considered successful (in addition to expectedStatus)
-	alternateURLs    []string      // Alternate URLs to try if primary fails
-	customHeaders    map[string]string // Custom headers to send during remediation
-	onBeforeRemediate func(ctx context.Context, result health.Result) // Called before remediation
-	onAfterRemediate  func(ctx context.Context, result health.Result, err error) // Called after remediation
+	maxRetries         int                                                        // Maximum number of retries during remediation
+	retryDelay         time.Duration                                              // Delay between retries
+	allowedStatusCodes []int                                                      // Status codes that are considered successful (in addition to expectedStatus)
+	alternateURLs      []string                                                   // Alternate URLs to try if primary fails
+	customHeaders      map[string]string                                          // Custom headers to send during remediation
+	onBeforeRemediate  func(ctx context.Context, result health.Result)            // Called before remediation
+	onAfterRemediate   func(ctx context.Context, result health.Result, err error) // Called after remediation
 }
 
 // RemediableHTTPCheckOption represents an option for a remediable HTTP check.
@@ -42,9 +42,9 @@ func NewRemediableHTTPCheck(url string, options ...interface{}) *RemediableHTTPC
 	}
 
 	c := &RemediableHTTPCheck{
-		HTTPCheck:    NewHTTPCheck(url, httpOptions...),
-		maxRetries:   3,
-		retryDelay:   500 * time.Millisecond,
+		HTTPCheck:     NewHTTPCheck(url, httpOptions...),
+		maxRetries:    3,
+		retryDelay:    500 * time.Millisecond,
 		customHeaders: make(map[string]string),
 	}
 

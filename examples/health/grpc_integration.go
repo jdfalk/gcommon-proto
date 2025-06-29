@@ -35,15 +35,15 @@ func main() {
 func runServer() {
 	// Create a health provider
 	healthConfig := health.Config{
-		Enabled:                true,
-		CheckInterval:          10 * time.Second,
-		DefaultTimeout:         1 * time.Second,
-		EnableLivenessEndpoint: true,
+		Enabled:                 true,
+		CheckInterval:           10 * time.Second,
+		DefaultTimeout:          1 * time.Second,
+		EnableLivenessEndpoint:  true,
 		EnableReadinessEndpoint: true,
-		LivenessPath:          "/health/live",
-		ReadinessPath:         "/health/ready",
-		DetailsPath:           "/health/details",
-		LogStatusChanges:      true,
+		LivenessPath:            "/health/live",
+		ReadinessPath:           "/health/ready",
+		DetailsPath:             "/health/details",
+		LogStatusChanges:        true,
 	}
 
 	healthProvider, err := health.NewProvider(healthConfig)

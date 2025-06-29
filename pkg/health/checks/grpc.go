@@ -19,12 +19,12 @@ import (
 // https://github.com/grpc/grpc/blob/master/doc/health-checking.md
 type GRPCCheck struct {
 	*health.BaseCheck
-	target          string           // Address of the gRPC server (host:port)
-	serviceName     string           // Optional name of the service to check
-	conn            *grpc.ClientConn // Connection to the gRPC server
-	timeout         time.Duration    // Timeout for the health check
-	dialOptions     []grpc.DialOption // Options for establishing the connection
-	healthClient    grpc_health_v1.HealthClient
+	target           string            // Address of the gRPC server (host:port)
+	serviceName      string            // Optional name of the service to check
+	conn             *grpc.ClientConn  // Connection to the gRPC server
+	timeout          time.Duration     // Timeout for the health check
+	dialOptions      []grpc.DialOption // Options for establishing the connection
+	healthClient     grpc_health_v1.HealthClient
 	useStandardProto bool // Whether to use the standard gRPC health protocol
 }
 
@@ -36,10 +36,10 @@ type GRPCCheckOption func(*GRPCCheck)
 // The target parameter should be in the format "host:port".
 func NewGRPCCheck(target string, options ...GRPCCheckOption) *GRPCCheck {
 	c := &GRPCCheck{
-		target:          target,
-		timeout:         5 * time.Second,
+		target:           target,
+		timeout:          5 * time.Second,
 		useStandardProto: true,
-		dialOptions:     []grpc.DialOption{grpc.WithTransportCredentials(insecure.NewCredentials())},
+		dialOptions:      []grpc.DialOption{grpc.WithTransportCredentials(insecure.NewCredentials())},
 	}
 
 	// Initialize the base check

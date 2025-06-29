@@ -11,27 +11,27 @@ import (
 
 // MockRemediableCheck implements both Check and RemediableCheck interfaces for testing
 type MockRemediableCheck struct {
-	name              string
-	checkType         CheckType
-	timeout           time.Duration
-	interval          time.Duration
-	enabled           bool
-	status            Status
-	remediationCalled int32
-	remediationFunc   func(ctx context.Context) error
-	maxAttempts       int
+	name                   string
+	checkType              CheckType
+	timeout                time.Duration
+	interval               time.Duration
+	enabled                bool
+	status                 Status
+	remediationCalled      int32
+	remediationFunc        func(ctx context.Context) error
+	maxAttempts            int
 	failuresUntilRemediate int
 }
 
 func NewMockRemediableCheck(name string, status Status, maxAttempts int, failuresUntilRemediate int) *MockRemediableCheck {
 	return &MockRemediableCheck{
-		name:                 name,
-		checkType:            TypeLiveness,
-		timeout:              time.Second,
-		interval:             time.Second * 5,
-		enabled:              true,
-		status:               status,
-		maxAttempts:          maxAttempts,
+		name:                   name,
+		checkType:              TypeLiveness,
+		timeout:                time.Second,
+		interval:               time.Second * 5,
+		enabled:                true,
+		status:                 status,
+		maxAttempts:            maxAttempts,
 		failuresUntilRemediate: failuresUntilRemediate,
 	}
 }
@@ -98,8 +98,8 @@ func (m *MockRemediableCheck) FailuresUntilRemediate() int {
 func TestRemediationManager(t *testing.T) {
 	// Create a test health provider
 	config := Config{
-		Enabled:          true,
-		DefaultTimeout:   100 * time.Millisecond,
+		Enabled:            true,
+		DefaultTimeout:     100 * time.Millisecond,
 		RemediationEnabled: true,
 	}
 	provider, err := NewProvider(config)

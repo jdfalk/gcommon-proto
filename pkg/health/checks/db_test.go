@@ -26,35 +26,35 @@ func TestNewDBCheck(t *testing.T) {
 		query    string
 		options  []DBCheckOption
 		expected struct {
-			name     string
-			query    string
-			timeout  time.Duration
-			dbName   string
+			name      string
+			query     string
+			timeout   time.Duration
+			dbName    string
 			checkType health.CheckType
-			interval time.Duration
-			enabled  bool
+			interval  time.Duration
+			enabled   bool
 		}
 	}{
 		{
-			name:  "default configuration",
-			query: "",
+			name:    "default configuration",
+			query:   "",
 			options: []DBCheckOption{},
 			expected: struct {
-				name     string
-				query    string
-				timeout  time.Duration
-				dbName   string
+				name      string
+				query     string
+				timeout   time.Duration
+				dbName    string
 				checkType health.CheckType
-				interval time.Duration
-				enabled  bool
+				interval  time.Duration
+				enabled   bool
 			}{
-				name:     "db-check",
-				query:    "SELECT 1",
-				timeout:  5 * time.Second,
-				dbName:   "",
+				name:      "db-check",
+				query:     "SELECT 1",
+				timeout:   5 * time.Second,
+				dbName:    "",
 				checkType: health.TypeReadiness,
-				interval: 30 * time.Second,
-				enabled:  true,
+				interval:  30 * time.Second,
+				enabled:   true,
 			},
 		},
 		{
@@ -68,21 +68,21 @@ func TestNewDBCheck(t *testing.T) {
 				WithDBCheckEnabled(false),
 			},
 			expected: struct {
-				name     string
-				query    string
-				timeout  time.Duration
-				dbName   string
+				name      string
+				query     string
+				timeout   time.Duration
+				dbName    string
 				checkType health.CheckType
-				interval time.Duration
-				enabled  bool
+				interval  time.Duration
+				enabled   bool
 			}{
-				name:     "db-check",
-				query:    "SELECT now()",
-				timeout:  10 * time.Second,
-				dbName:   "test-db",
+				name:      "db-check",
+				query:     "SELECT now()",
+				timeout:   10 * time.Second,
+				dbName:    "test-db",
 				checkType: health.TypeLiveness,
-				interval: 1 * time.Minute,
-				enabled:  false,
+				interval:  1 * time.Minute,
+				enabled:   false,
 			},
 		},
 	}
@@ -105,11 +105,11 @@ func TestNewDBCheck(t *testing.T) {
 func TestDBCheck_Execute(t *testing.T) {
 	// Test cases for execute method
 	tests := []struct {
-		name       string
-		setupMock  func(sqlmock.Sqlmock)
-		expected   health.Status
-		expectErr  bool
-		customCtx  context.Context
+		name      string
+		setupMock func(sqlmock.Sqlmock)
+		expected  health.Status
+		expectErr bool
+		customCtx context.Context
 	}{
 		{
 			name: "successful query",
@@ -150,7 +150,7 @@ func TestDBCheck_Execute(t *testing.T) {
 			name: "context timeout",
 			setupMock: func(mock sqlmock.Sqlmock) {
 				// This creates a query that will hang and trigger the context timeout
-				mock.ExpectQuery("SELECT 1").WillDelayFor(100*time.Millisecond).WillReturnRows(sqlmock.NewRows([]string{"value"}).AddRow(1))
+				mock.ExpectQuery("SELECT 1").WillDelayFor(100 * time.Millisecond).WillReturnRows(sqlmock.NewRows([]string{"value"}).AddRow(1))
 			},
 			expected:  health.StatusDown,
 			expectErr: false,

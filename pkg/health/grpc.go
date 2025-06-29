@@ -18,7 +18,7 @@ import (
 // allowing health checks to be exposed via gRPC.
 type GRPCServer struct {
 	proto.UnimplementedHealthServiceServer // Required for forward compatibility
-	provider Provider
+	provider                               Provider
 }
 
 // NewGRPCServer creates a new gRPC health server using the given provider.
@@ -144,8 +144,8 @@ func (s *GRPCServer) Watch(req *proto.HealthCheckRequest, stream grpc.ServerStre
 
 	// Create a listener that will forward health status changes to our channel
 	listener := &watchListener{
-		updateCh:  updateCh,
-		service:   req.Service,
+		updateCh: updateCh,
+		service:  req.Service,
 	}
 
 	// Add the listener to the provider
@@ -212,9 +212,9 @@ func (s *GRPCServer) Watch(req *proto.HealthCheckRequest, stream grpc.ServerStre
 
 // watchListener implements the Listener interface for streaming health updates.
 type watchListener struct {
-	updateCh  chan Result
-	service   string
-	lastSent  time.Time
+	updateCh chan Result
+	service  string
+	lastSent time.Time
 }
 
 // OnStatusChange processes health status changes and sends them to the update channel.

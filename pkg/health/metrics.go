@@ -51,12 +51,12 @@ type MetricsConfig struct {
 // DefaultMetricsConfig returns the default metrics configuration.
 func DefaultMetricsConfig() MetricsConfig {
 	return MetricsConfig{
-		Prefix:              "health",
-		EnableStatusMetrics: true,
+		Prefix:                "health",
+		EnableStatusMetrics:   true,
 		EnableDurationMetrics: true,
-		EnableCountMetrics: true,
-		DurationBuckets:    []float64{0.001, 0.005, 0.01, 0.025, 0.05, 0.1, 0.25, 0.5, 1.0, 2.5, 5.0, 10.0},
-		CollectInterval:    30 * time.Second,
+		EnableCountMetrics:    true,
+		DurationBuckets:       []float64{0.001, 0.005, 0.01, 0.025, 0.05, 0.1, 0.25, 0.5, 1.0, 2.5, 5.0, 10.0},
+		CollectInterval:       30 * time.Second,
 		LabelFilter: func(name string, checkType CheckType, status Status) []metrics.Tag {
 			return []metrics.Tag{
 				{Key: "check", Value: name},
@@ -69,19 +69,19 @@ func DefaultMetricsConfig() MetricsConfig {
 
 // MetricsCollector collects metrics for health checks.
 type MetricsCollector struct {
-	provider       Provider
+	provider        Provider
 	metricsProvider metrics.Provider
-	config         MetricsConfig
+	config          MetricsConfig
 
 	// Metrics
-	statusGauge    metrics.Gauge
-	executionCounter metrics.Counter
+	statusGauge       metrics.Gauge
+	executionCounter  metrics.Counter
 	durationHistogram metrics.Histogram
-	failureCounter metrics.Counter
-	successCounter metrics.Counter
+	failureCounter    metrics.Counter
+	successCounter    metrics.Counter
 
-	stopCh         chan struct{}
-	stoppedCh      chan struct{}
+	stopCh    chan struct{}
+	stoppedCh chan struct{}
 }
 
 // NewMetricsCollector creates a new metrics collector for health checks.
@@ -89,11 +89,11 @@ func NewMetricsCollector(provider Provider, metricsProvider metrics.Provider, co
 	prefix := config.Prefix
 
 	collector := &MetricsCollector{
-		provider:       provider,
+		provider:        provider,
 		metricsProvider: metricsProvider,
-		config:         config,
-		stopCh:         make(chan struct{}),
-		stoppedCh:      make(chan struct{}),
+		config:          config,
+		stopCh:          make(chan struct{}),
+		stoppedCh:       make(chan struct{}),
 	}
 
 	// Create metrics

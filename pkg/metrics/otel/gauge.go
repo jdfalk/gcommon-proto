@@ -171,7 +171,7 @@ func (g *gauge) WithTags(tags ...metrics.Tag) metrics.Gauge {
 
 	// Create a new observable gauge with the specific attributes
 	otelGauge, err := registry.meter.Int64ObservableGauge(
-		name + ".with_tags", // Unique name to avoid conflicts
+		name+".with_tags", // Unique name to avoid conflicts
 		metric.WithDescription(description),
 	)
 

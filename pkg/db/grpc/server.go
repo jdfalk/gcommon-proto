@@ -89,8 +89,8 @@ func (s *DatabaseServer) Execute(ctx context.Context, req *dbpb.ExecuteRequest) 
 	}
 
 	return &dbpb.ExecuteResponse{
-		RowsAffected:  rowsAffected,
-		LastInsertId:  lastInsertId,
+		RowsAffected: rowsAffected,
+		LastInsertId: lastInsertId,
 	}, nil
 }
 

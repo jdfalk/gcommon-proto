@@ -403,7 +403,7 @@ func TestGRPCServerWatch(t *testing.T) {
 func TestGRPCServerErrorHandling(t *testing.T) {
 	// Create mock provider that returns errors
 	mockProv := &mockProvider{
-		checkError: errors.New("check execution failed"),
+		checkError:    errors.New("check execution failed"),
 		checkAllError: errors.New("check all execution failed"),
 	}
 
@@ -463,8 +463,8 @@ func TestGRPCServerErrorHandling(t *testing.T) {
 
 // mockProvider extends mockProvider with additional error fields.
 type mockProvider struct {
-	checks map[string]Result
-	checkError error
+	checks        map[string]Result
+	checkError    error
 	checkAllError error
 }
 

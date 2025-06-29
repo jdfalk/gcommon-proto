@@ -61,11 +61,11 @@ type RemediationConfig struct {
 // DefaultRemediationConfig returns the default remediation configuration.
 func DefaultRemediationConfig() RemediationConfig {
 	return RemediationConfig{
-		Strategy:       RemediationStrategyExponential,
-		MaxAttempts:    3,
-		InitialDelay:   1 * time.Second,
-		MaxDelay:       1 * time.Minute,
-		BackoffFactor:  2.0,
+		Strategy:      RemediationStrategyExponential,
+		MaxAttempts:   3,
+		InitialDelay:  1 * time.Second,
+		MaxDelay:      1 * time.Minute,
+		BackoffFactor: 2.0,
 		OnRemediationStart: func(name string, attempt int) {
 			// Default behavior is to do nothing
 		},
@@ -95,13 +95,13 @@ func CheckIsRemediable(check Check) bool {
 
 // remediationManager manages remediation for health checks.
 type remediationManager struct {
-	config        RemediationConfig
-	provider      Provider
-	remediations  map[string]*remediationState
-	mu            sync.RWMutex
-	stopCh        chan struct{}
-	stoppedCh     chan struct{}
-	hasStarted    bool
+	config       RemediationConfig
+	provider     Provider
+	remediations map[string]*remediationState
+	mu           sync.RWMutex
+	stopCh       chan struct{}
+	stoppedCh    chan struct{}
+	hasStarted   bool
 }
 
 // remediationState tracks the state of remediation for a check.

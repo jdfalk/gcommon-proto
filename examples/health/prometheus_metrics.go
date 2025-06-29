@@ -23,16 +23,16 @@ func main() {
 
 	// Create a health provider
 	healthConfig := health.Config{
-		Enabled:                true,
-		CheckInterval:          10 * time.Second,
-		DefaultTimeout:         1 * time.Second,
-		EnableLivenessEndpoint: true,
+		Enabled:                 true,
+		CheckInterval:           10 * time.Second,
+		DefaultTimeout:          1 * time.Second,
+		EnableLivenessEndpoint:  true,
 		EnableReadinessEndpoint: true,
-		LivenessPath:          "/health/live",
-		ReadinessPath:         "/health/ready",
-		DetailsPath:           "/health/details",
-		LogStatusChanges:      true,
-		MetricsEnabled:        true,
+		LivenessPath:            "/health/live",
+		ReadinessPath:           "/health/ready",
+		DetailsPath:             "/health/details",
+		LogStatusChanges:        true,
+		MetricsEnabled:          true,
 	}
 
 	healthProvider, err := health.NewProvider(healthConfig)
@@ -69,8 +69,8 @@ func main() {
 		return health.NewResult(health.StatusUp).
 			WithDetails(map[string]interface{}{
 				"checked_at": time.Now().Format(time.RFC3339),
-				"stat1": 123,
-				"stat2": 456,
+				"stat1":      123,
+				"stat2":      456,
 			}), nil
 	}),
 		health.WithType(health.TypeReadiness),

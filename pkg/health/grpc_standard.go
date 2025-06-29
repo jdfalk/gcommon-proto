@@ -6,9 +6,9 @@ import (
 	"sync"
 
 	"google.golang.org/grpc"
+	"google.golang.org/grpc/codes"
 	"google.golang.org/grpc/health/grpc_health_v1"
 	"google.golang.org/grpc/status"
-	"google.golang.org/grpc/codes"
 )
 
 // StandardGRPCHealthServer implements the standard gRPC health checking protocol.

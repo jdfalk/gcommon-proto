@@ -134,8 +134,8 @@ func TestRequestMetrics(t *testing.T) {
 
 	// Create the middleware
 	middleware := RequestMetrics(RequestMetricsOptions{
-		Provider:           provider,
-		IncludeRequestSize: true,
+		Provider:            provider,
+		IncludeRequestSize:  true,
 		IncludeResponseSize: true,
 	})
 
