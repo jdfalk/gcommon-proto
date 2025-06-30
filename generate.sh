@@ -61,6 +61,7 @@ mkdir -p \
   "${SCRIPT_DIR}/pkg/health/mock" \
   "${SCRIPT_DIR}/pkg/log/mock" \
   "${SCRIPT_DIR}/pkg/metrics/mock" \
+  "${SCRIPT_DIR}/pkg/organization/mock" \
   "${SCRIPT_DIR}/pkg/queue/mock" \
   "${SCRIPT_DIR}/pkg/web/mock"
 

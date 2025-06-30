@@ -1,0 +1,30 @@
+// file: pkg/organization/proto/requests/get_organization_request.proto
+edition = "2023";
+
+package gcommon.v1.organization;
+
+import "google/protobuf/go_features.proto";
+import "pkg/common/proto/messages/request_metadata.proto";
+
+option go_package = "github.com/jdfalk/gcommon/pkg/organization/proto;organizationpb";
+option features.(pb.go).api_level = API_HYBRID;
+
+/**
+ * GetOrganizationRequest message for retrieving an organization by ID.
+ */
+message GetOrganizationRequest {
+  // Request metadata for tracing and context
+  gcommon.v1.common.RequestMetadata metadata = 1;
+
+  // Organization ID to retrieve
+  string organization_id = 2;
+
+  // Whether to include organization settings in response
+  bool include_settings = 3;
+
+  // Whether to include member count in response
+  bool include_member_count = 4;
+
+  // Whether to include tenant information
+  bool include_tenants = 5;
+}
