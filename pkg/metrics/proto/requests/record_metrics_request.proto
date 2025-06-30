@@ -1,0 +1,83 @@
+// filepath: pkg/metrics/proto/requests/record_metrics_request.proto
+// file: metrics/proto/requests/record_metrics_request.proto
+//
+// Batch record metrics request definitions for metrics module
+//
+edition = "2023";
+
+package gcommon.v1.metrics;
+
+import "google/protobuf/go_features.proto";
+import "google/protobuf/timestamp.proto";
+import "pkg/common/proto/messages/request_metadata.proto";
+import "pkg/metrics/proto/messages/metric_data.proto";
+
+option go_package = "github.com/jdfalk/gcommon/pkg/metrics/proto;metricspb";
+option features.(pb.go).api_level = API_HYBRID;
+
+/**
+ * RecordMetricsRequest represents a request to record multiple metric data points in batch.
+ * This provides efficient bulk insertion of metrics data.
+ */
+message RecordMetricsRequest {
+  // Standard request metadata (tracing, auth, etc.)
+  gcommon.v1.common.RequestMetadata metadata = 1;
+
+  // The metrics data to record
+  repeated MetricData metrics = 2;
+
+  // Optional provider ID to use for recording
+  string provider_id = 3;
+
+  // Batch processing options
+  BatchOptions options = 4;
+
+  // Common timestamp for all metrics (if not individually specified)
+  google.protobuf.Timestamp timestamp = 5;
+
+  // Maximum number of metrics to process per batch
+  int32 batch_size = 6;
+
+  // Whether to fail the entire batch if any metric fails
+  bool fail_on_error = 7;
+
+  // Whether to validate all metrics before recording
+  bool validate_all = 8;
+}
+
+/**
+ * BatchOptions configures how batch operations should be processed.
+ */
+message BatchOptions {
+  // Whether to process metrics in parallel
+  bool parallel_processing = 1;
+
+  // Maximum concurrent operations (if parallel processing is enabled)
+  int32 max_concurrency = 2;
+
+  // Whether to deduplicate metrics within the batch
+  bool deduplicate = 3;
+
+  // Whether to return detailed results for each metric
+  bool return_detailed_results = 4;
+
+  // Timeout for the entire batch operation (seconds)
+  int32 timeout_seconds = 5;
+
+  // Whether to enable transactional semantics (all or nothing)
+  bool transactional = 6;
+
+  // Priority level for the batch operation
+  BatchPriority priority = 7;
+}
+
+/**
+ * BatchPriority defines the processing priority for batch operations.
+ */
+enum BatchPriority {
+  BATCH_PRIORITY_UNSPECIFIED = 0;
+  BATCH_PRIORITY_LOW = 1;
+  BATCH_PRIORITY_NORMAL = 2;
+  BATCH_PRIORITY_HIGH = 3;
+  BATCH_PRIORITY_URGENT = 4;
+}

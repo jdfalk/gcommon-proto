@@ -1,0 +1,86 @@
+// filepath: pkg/metrics/proto/requests/get_metrics_summary_request.proto
+// file: metrics/proto/requests/get_metrics_summary_request.proto
+//
+// Get metrics summary request definitions for metrics module
+//
+edition = "2023";
+
+package gcommon.v1.metrics;
+
+import "google/protobuf/go_features.proto";
+import "google/protobuf/timestamp.proto";
+import "pkg/common/proto/messages/request_metadata.proto";
+import "pkg/metrics/proto/messages/metric_filter.proto";
+
+option go_package = "github.com/jdfalk/gcommon/pkg/metrics/proto;metricspb";
+option features.(pb.go).api_level = API_HYBRID;
+
+/**
+ * GetMetricsSummaryRequest represents a request to get a summary of metrics data.
+ * This provides aggregate information about metrics without returning the full data.
+ */
+message GetMetricsSummaryRequest {
+  // Standard request metadata (tracing, auth, etc.)
+  gcommon.v1.common.RequestMetadata metadata = 1;
+
+  // Optional filter to limit which metrics to include in summary
+  MetricFilter filter = 2;
+
+  // Time range for the summary
+  TimeRange time_range = 3;
+
+  // What summary information to include
+  SummaryOptions options = 4;
+
+  // Optional provider ID to query
+  string provider_id = 5;
+
+  // Whether to include provider-level statistics
+  bool include_provider_stats = 6;
+
+  // Whether to include health status information
+  bool include_health_status = 7;
+}
+
+/**
+ * TimeRange specifies a time range for the summary.
+ */
+message TimeRange {
+  // Start time (inclusive)
+  google.protobuf.Timestamp start_time = 1;
+
+  // End time (exclusive)
+  google.protobuf.Timestamp end_time = 2;
+
+  // Duration from now (alternative to start/end times)
+  string duration = 3; // e.g., "1h", "24h", "7d"
+}
+
+/**
+ * SummaryOptions configures what information to include in the summary.
+ */
+message SummaryOptions {
+  // Include metric count information
+  bool include_counts = 1;
+
+  // Include data volume information
+  bool include_data_volume = 2;
+
+  // Include performance statistics
+  bool include_performance = 3;
+
+  // Include error rates and statistics
+  bool include_errors = 4;
+
+  // Include top metrics by various criteria
+  bool include_top_metrics = 5;
+
+  // Include retention policy information
+  bool include_retention = 6;
+
+  // Include export status information
+  bool include_export_status = 7;
+
+  // Maximum number of top metrics to include
+  int32 top_metrics_limit = 8;
+}

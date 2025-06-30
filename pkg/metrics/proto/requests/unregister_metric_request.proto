@@ -1,0 +1,67 @@
+// filepath: pkg/metrics/proto/requests/unregister_metric_request.proto
+// file: metrics/proto/requests/unregister_metric_request.proto
+//
+// Unregister metric request definitions for metrics module
+//
+edition = "2023";
+
+package gcommon.v1.metrics;
+
+import "google/protobuf/go_features.proto";
+import "pkg/common/proto/messages/request_metadata.proto";
+
+option go_package = "github.com/jdfalk/gcommon/pkg/metrics/proto;metricspb";
+option features.(pb.go).api_level = API_HYBRID;
+
+/**
+ * UnregisterMetricRequest represents a request to unregister an existing metric.
+ * This removes the metric definition and optionally cleans up associated data.
+ */
+message UnregisterMetricRequest {
+  // Standard request metadata (tracing, auth, etc.)
+  gcommon.v1.common.RequestMetadata metadata = 1;
+
+  // Metric identifier (either name or ID)
+  oneof metric_identifier {
+    // Metric name to unregister
+    string metric_name = 2;
+
+    // Metric ID to unregister
+    string metric_id = 3;
+  }
+
+  // Optional provider ID to unregister from
+  string provider_id = 4;
+
+  // Options for the unregistration process
+  UnregistrationOptions options = 5;
+}
+
+/**
+ * UnregistrationOptions configure the unregistration process.
+ */
+message UnregistrationOptions {
+  // Whether to delete all associated data
+  bool delete_data = 1;
+
+  // Whether to delete associated indices
+  bool delete_indices = 2;
+
+  // Whether to remove alert rules
+  bool remove_alerts = 3;
+
+  // Whether to stop export configurations
+  bool stop_exports = 4;
+
+  // Grace period before actual deletion (duration string like "24h")
+  string grace_period = 5;
+
+  // Whether to perform a dry run (show what would be deleted)
+  bool dry_run = 6;
+
+  // Whether to force deletion even if metric is in use
+  bool force = 7;
+
+  // Whether to create a backup before deletion
+  bool create_backup = 8;
+}
