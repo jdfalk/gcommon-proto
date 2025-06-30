@@ -1,0 +1,498 @@
+// filepath: pkg/metrics/proto/responses/get_provider_stats_response.proto
+// file: metrics/proto/responses/get_provider_stats_response.proto
+//
+// Get provider stats response definitions for metrics module
+//
+edition = "2023";
+
+package gcommon.v1.metrics;
+
+import "google/protobuf/go_features.proto";
+import "google/protobuf/timestamp.proto";
+import "pkg/common/proto/messages/error.proto";
+
+option go_package = "github.com/jdfalk/gcommon/pkg/metrics/proto;metricspb";
+option features.(pb.go).api_level = API_HYBRID;
+
+/**
+ * GetProviderStatsResponse contains statistics for a metrics provider.
+ */
+message GetProviderStatsResponse {
+  // Success status of the operation
+  bool success = 1;
+
+  // Error information if the operation failed
+  gcommon.v1.common.Error error = 2;
+
+  // Provider ID these stats are for
+  string provider_id = 3;
+
+  // Comprehensive provider statistics
+  ProviderStatistics statistics = 4;
+
+  // When the statistics were generated
+  google.protobuf.Timestamp generated_at = 5;
+
+  // Time range covered by the statistics
+  TimeRange time_range = 6;
+
+  // Warnings or informational messages
+  repeated string warnings = 7;
+}
+
+/**
+ * ProviderStatistics contains comprehensive statistics for a provider.
+ */
+message ProviderStatistics {
+  // Basic provider information
+  ProviderInfo provider_info = 1;
+
+  // Performance statistics
+  PerformanceStats performance = 2;
+
+  // Resource usage statistics
+  ResourceUsageStats resource_usage = 3;
+
+  // Error statistics
+  ErrorStats errors = 4;
+
+  // Data volume statistics
+  DataVolumeStats data_volume = 5;
+
+  // Export statistics
+  ExportStats exports = 6;
+
+  // Health status history
+  repeated HealthStatusEntry health_history = 7;
+
+  // Configuration summary
+  ConfigurationSummary config = 8;
+
+  // Top metrics
+  TopMetrics top_metrics = 9;
+
+  // Trend analysis
+  TrendAnalysis trends = 10;
+}
+
+/**
+ * ProviderInfo contains basic information about the provider.
+ */
+message ProviderInfo {
+  // Provider ID
+  string provider_id = 1;
+
+  // Provider name
+  string name = 2;
+
+  // Provider type
+  string type = 3;
+
+  // Current status
+  string status = 4;
+
+  // Current health
+  string health = 5;
+
+  // Provider version
+  string version = 6;
+
+  // Uptime
+  string uptime = 7;
+
+  // When the provider was created
+  google.protobuf.Timestamp created_at = 8;
+
+  // When the provider was last updated
+  google.protobuf.Timestamp last_updated = 9;
+}
+
+/**
+ * PerformanceStats contains performance-related statistics.
+ */
+message PerformanceStats {
+  // Operations per second (current)
+  double current_ops_per_second = 1;
+
+  // Average operations per second
+  double avg_ops_per_second = 2;
+
+  // Peak operations per second
+  double peak_ops_per_second = 3;
+
+  // Average latency (milliseconds)
+  double avg_latency_ms = 4;
+
+  // 95th percentile latency (milliseconds)
+  double p95_latency_ms = 5;
+
+  // 99th percentile latency (milliseconds)
+  double p99_latency_ms = 6;
+
+  // Throughput (bytes per second)
+  double throughput_bytes_per_second = 7;
+
+  // Time-series performance data
+  repeated PerformanceDataPoint performance_timeseries = 8;
+}
+
+/**
+ * PerformanceDataPoint represents a single performance measurement.
+ */
+message PerformanceDataPoint {
+  google.protobuf.Timestamp timestamp = 1;
+  double ops_per_second = 2;
+  double latency_ms = 3;
+  double throughput_bytes_per_second = 4;
+}
+
+/**
+ * ResourceUsageStats contains resource usage statistics.
+ */
+message ResourceUsageStats {
+  // Current memory usage
+  MemoryUsage memory = 1;
+
+  // Current CPU usage
+  CPUUsage cpu = 2;
+
+  // Current disk usage
+  DiskUsage disk = 3;
+
+  // Network usage
+  NetworkUsage network = 4;
+
+  // Time-series resource usage data
+  repeated ResourceDataPoint resource_timeseries = 5;
+}
+
+/**
+ * MemoryUsage contains memory usage information.
+ */
+message MemoryUsage {
+  // Currently used memory (bytes)
+  int64 used_bytes = 1;
+
+  // Memory limit (bytes)
+  int64 limit_bytes = 2;
+
+  // Usage percentage
+  double usage_percent = 3;
+
+  // Peak memory usage (bytes)
+  int64 peak_bytes = 4;
+}
+
+/**
+ * CPUUsage contains CPU usage information.
+ */
+message CPUUsage {
+  // Current CPU usage (percentage)
+  double current_percent = 1;
+
+  // Average CPU usage (percentage)
+  double avg_percent = 2;
+
+  // Peak CPU usage (percentage)
+  double peak_percent = 3;
+}
+
+/**
+ * DiskUsage contains disk usage information.
+ */
+message DiskUsage {
+  // Currently used disk space (bytes)
+  int64 used_bytes = 1;
+
+  // Disk space limit (bytes)
+  int64 limit_bytes = 2;
+
+  // Usage percentage
+  double usage_percent = 3;
+
+  // I/O operations per second
+  double iops = 4;
+}
+
+/**
+ * NetworkUsage contains network usage information.
+ */
+message NetworkUsage {
+  // Bytes received per second
+  int64 bytes_in_per_second = 1;
+
+  // Bytes sent per second
+  int64 bytes_out_per_second = 2;
+
+  // Packets received per second
+  int64 packets_in_per_second = 3;
+
+  // Packets sent per second
+  int64 packets_out_per_second = 4;
+}
+
+/**
+ * ResourceDataPoint represents a single resource usage measurement.
+ */
+message ResourceDataPoint {
+  google.protobuf.Timestamp timestamp = 1;
+  double memory_usage_percent = 2;
+  double cpu_usage_percent = 3;
+  double disk_usage_percent = 4;
+  int64 network_bytes_per_second = 5;
+}
+
+/**
+ * ErrorStats contains error-related statistics.
+ */
+message ErrorStats {
+  // Total number of errors
+  int64 total_errors = 1;
+
+  // Current error rate (errors per second)
+  double current_error_rate = 2;
+
+  // Average error rate
+  double avg_error_rate = 3;
+
+  // Error rate percentage (errors per total operations)
+  double error_rate_percent = 4;
+
+  // Errors by type
+  repeated ErrorTypeStats error_types = 5;
+
+  // Recent errors
+  repeated ErrorEntry recent_errors = 6;
+
+  // Time-series error data
+  repeated ErrorDataPoint error_timeseries = 7;
+}
+
+/**
+ * ErrorTypeStats contains statistics for a specific error type.
+ */
+message ErrorTypeStats {
+  string error_type = 1;
+  int64 count = 2;
+  double rate = 3;
+  double percentage = 4;
+}
+
+/**
+ * ErrorEntry represents a single error occurrence.
+ */
+message ErrorEntry {
+  google.protobuf.Timestamp timestamp = 1;
+  string error_type = 2;
+  string error_message = 3;
+  int32 count = 4;
+}
+
+/**
+ * ErrorDataPoint represents error statistics at a point in time.
+ */
+message ErrorDataPoint {
+  google.protobuf.Timestamp timestamp = 1;
+  int64 error_count = 2;
+  double error_rate = 3;
+}
+
+/**
+ * DataVolumeStats contains data volume statistics.
+ */
+message DataVolumeStats {
+  // Total data stored (bytes)
+  int64 total_bytes = 1;
+
+  // Total number of metrics
+  int64 total_metrics = 2;
+
+  // Total number of data points
+  int64 total_data_points = 3;
+
+  // Data ingestion rate (bytes per second)
+  double ingestion_rate_bytes_per_second = 4;
+
+  // Data points ingestion rate (points per second)
+  double ingestion_rate_points_per_second = 5;
+
+  // Compression ratio
+  double compression_ratio = 6;
+
+  // Time-series data volume
+  repeated DataVolumeDataPoint volume_timeseries = 7;
+}
+
+/**
+ * DataVolumeDataPoint represents data volume at a point in time.
+ */
+message DataVolumeDataPoint {
+  google.protobuf.Timestamp timestamp = 1;
+  int64 total_bytes = 2;
+  int64 total_metrics = 3;
+  int64 total_data_points = 4;
+  double ingestion_rate = 5;
+}
+
+/**
+ * ExportStats contains export-related statistics.
+ */
+message ExportStats {
+  // Total exported metrics
+  int64 total_exported_metrics = 1;
+
+  // Total exported data points
+  int64 total_exported_data_points = 2;
+
+  // Export rate (metrics per second)
+  double export_rate_metrics_per_second = 3;
+
+  // Failed exports
+  int64 failed_exports = 4;
+
+  // Export success rate
+  double export_success_rate = 5;
+
+  // Exports by destination
+  repeated ExportDestinationStats export_destinations = 6;
+
+  // Last successful export
+  google.protobuf.Timestamp last_successful_export = 7;
+}
+
+/**
+ * ExportDestinationStats contains statistics for a specific export destination.
+ */
+message ExportDestinationStats {
+  string destination_id = 1;
+  string destination_type = 2;
+  int64 exported_metrics = 3;
+  int64 failed_exports = 4;
+  double success_rate = 5;
+  google.protobuf.Timestamp last_export = 6;
+}
+
+/**
+ * HealthStatusEntry represents a health status at a point in time.
+ */
+message HealthStatusEntry {
+  google.protobuf.Timestamp timestamp = 1;
+  string health_status = 2;
+  string status_message = 3;
+}
+
+/**
+ * ConfigurationSummary contains a summary of the provider configuration.
+ */
+message ConfigurationSummary {
+  // Number of configured exporters
+  int32 exporter_count = 1;
+
+  // Security settings summary
+  SecuritySummary security = 2;
+
+  // Resource limits summary
+  ResourceLimitsSummary resource_limits = 3;
+
+  // Configuration version
+  string config_version = 4;
+}
+
+/**
+ * SecuritySummary contains security configuration summary.
+ */
+message SecuritySummary {
+  bool auth_enabled = 1;
+  bool tls_enabled = 2;
+  repeated string auth_methods = 3;
+}
+
+/**
+ * ResourceLimitsSummary contains resource limits summary.
+ */
+message ResourceLimitsSummary {
+  int64 memory_limit_bytes = 1;
+  double cpu_limit_percent = 2;
+  int64 disk_limit_bytes = 3;
+  int64 metrics_limit = 4;
+}
+
+/**
+ * TopMetrics contains top metrics by various criteria.
+ */
+message TopMetrics {
+  // Most active metrics (by data points)
+  repeated MetricSummary most_active = 1;
+
+  // Largest metrics (by data volume)
+  repeated MetricSummary largest_by_volume = 2;
+
+  // Metrics with highest error rates
+  repeated MetricSummary highest_errors = 3;
+}
+
+/**
+ * MetricSummary contains summary information about a metric.
+ */
+message MetricSummary {
+  string name = 1;
+  string type = 2;
+  int64 data_points = 3;
+  int64 data_volume_bytes = 4;
+  double error_rate = 5;
+  google.protobuf.Timestamp last_updated = 6;
+}
+
+/**
+ * TrendAnalysis contains trend analysis for the provider.
+ */
+message TrendAnalysis {
+  // Performance trends
+  PerformanceTrend performance = 1;
+
+  // Resource usage trends
+  ResourceUsageTrend resource_usage = 2;
+
+  // Error trends
+  ErrorTrend errors = 3;
+
+  // Data volume trends
+  DataVolumeTrend data_volume = 4;
+}
+
+/**
+ * PerformanceTrend contains performance trend information.
+ */
+message PerformanceTrend {
+  string latency_trend = 1;     // "improving", "degrading", "stable"
+  string throughput_trend = 2;  // "increasing", "decreasing", "stable"
+  double trend_confidence = 3;  // 0.0 to 1.0
+}
+
+/**
+ * ResourceUsageTrend contains resource usage trend information.
+ */
+message ResourceUsageTrend {
+  string memory_trend = 1;  // "increasing", "decreasing", "stable"
+  string cpu_trend = 2;     // "increasing", "decreasing", "stable"
+  string disk_trend = 3;    // "increasing", "decreasing", "stable"
+  double trend_confidence = 4;
+}
+
+/**
+ * ErrorTrend contains error trend information.
+ */
+message ErrorTrend {
+  string error_rate_trend = 1;  // "improving", "worsening", "stable"
+  double trend_confidence = 2;
+  repeated string emerging_error_types = 3;
+}
+
+/**
+ * DataVolumeTrend contains data volume trend information.
+ */
+message DataVolumeTrend {
+  string volume_trend = 1;     // "increasing", "decreasing", "stable"
+  string ingestion_trend = 2;  // "increasing", "decreasing", "stable"
+  double trend_confidence = 3;
+}
