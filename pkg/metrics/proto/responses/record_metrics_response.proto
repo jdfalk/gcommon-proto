@@ -1,0 +1,122 @@
+// filepath: pkg/metrics/proto/responses/record_metrics_response.proto
+// file: metrics/proto/responses/record_metrics_response.proto
+//
+// Batch record metrics response definitions for metrics module
+//
+edition = "2023";
+
+package gcommon.v1.metrics;
+
+import "google/protobuf/go_features.proto";
+import "google/protobuf/timestamp.proto";
+import "pkg/common/proto/messages/error.proto";
+
+option go_package = "github.com/jdfalk/gcommon/pkg/metrics/proto;metricspb";
+option features.(pb.go).api_level = API_HYBRID;
+
+/**
+ * RecordMetricsResponse contains the results of recording multiple metrics in batch.
+ */
+message RecordMetricsResponse {
+  // Overall success status of the batch operation
+  bool success = 1;
+
+  // Number of metrics successfully recorded
+  int32 success_count = 2;
+
+  // Number of metrics that failed to record
+  int32 failure_count = 3;
+
+  // Total number of metrics processed
+  int32 total_count = 4;
+
+  // Overall error information if the batch operation failed
+  gcommon.v1.common.Error error = 5;
+
+  // Detailed results for each metric (if requested)
+  repeated MetricResult results = 6;
+
+  // Timestamp when the batch operation was completed
+  google.protobuf.Timestamp completed_at = 7;
+
+  // Provider that handled the batch
+  string provider_id = 8;
+
+  // Performance metrics about the batch operation
+  BatchStats stats = 9;
+
+  // Warnings or informational messages about the batch
+  repeated string warnings = 10;
+
+  // Summary of validation results (if validation was enabled)
+  ValidationSummary validation_summary = 11;
+}
+
+/**
+ * MetricResult contains the result of processing a single metric within the batch.
+ */
+message MetricResult {
+  // Index of the metric in the original batch (0-based)
+  int32 index = 1;
+
+  // Success status for this specific metric
+  bool success = 2;
+
+  // Error information if this metric failed
+  gcommon.v1.common.Error error = 3;
+
+  // Unique ID assigned to the metric (if successful)
+  string metric_id = 4;
+
+  // Timestamp when this metric was recorded
+  google.protobuf.Timestamp recorded_at = 5;
+
+  // Warnings specific to this metric
+  repeated string warnings = 6;
+
+  // Whether this metric was deduplicated
+  bool deduplicated = 7;
+}
+
+/**
+ * BatchStats contains performance information about the batch operation.
+ */
+message BatchStats {
+  // Total time taken to process the batch (milliseconds)
+  int64 total_processing_time_ms = 1;
+
+  // Average time per metric (milliseconds)
+  int64 avg_processing_time_ms = 2;
+
+  // Total size of all metrics data (bytes)
+  int64 total_data_size_bytes = 3;
+
+  // Number of metrics that were deduplicated
+  int32 deduplication_count = 4;
+
+  // Number of parallel workers used
+  int32 parallel_workers = 5;
+
+  // Backend storage latency (milliseconds)
+  int64 storage_latency_ms = 6;
+
+  // Memory usage during batch processing (bytes)
+  int64 memory_usage_bytes = 7;
+}
+
+/**
+ * ValidationSummary provides an overview of validation results for the batch.
+ */
+message ValidationSummary {
+  // Number of metrics that passed validation
+  int32 valid_count = 1;
+
+  // Number of metrics that failed validation
+  int32 invalid_count = 2;
+
+  // Most common validation errors
+  repeated string common_errors = 3;
+
+  // Schema version used for validation
+  string schema_version = 4;
+}

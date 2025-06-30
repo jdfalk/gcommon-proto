@@ -1,0 +1,224 @@
+// filepath: pkg/metrics/proto/responses/get_metrics_summary_response.proto
+// file: metrics/proto/responses/get_metrics_summary_response.proto
+//
+// Get metrics summary response definitions for metrics module
+//
+edition = "2023";
+
+package gcommon.v1.metrics;
+
+import "google/protobuf/go_features.proto";
+import "google/protobuf/timestamp.proto";
+import "pkg/common/proto/messages/error.proto";
+
+option go_package = "github.com/jdfalk/gcommon/pkg/metrics/proto;metricspb";
+option features.(pb.go).api_level = API_HYBRID;
+
+/**
+ * GetMetricsSummaryResponse contains summary information about metrics data.
+ */
+message GetMetricsSummaryResponse {
+  // Success status of the operation
+  bool success = 1;
+
+  // Error information if the operation failed
+  gcommon.v1.common.Error error = 2;
+
+  // Summary information organized by category
+  MetricsSummary summary = 3;
+
+  // Provider-level statistics (if requested)
+  repeated ProviderSummary provider_summaries = 4;
+
+  // Health status information (if requested)
+  HealthStatus health_status = 5;
+
+  // When the summary was generated
+  google.protobuf.Timestamp generated_at = 6;
+
+  // Time range covered by the summary
+  TimeRange time_range = 7;
+
+  // Warnings or informational messages
+  repeated string warnings = 8;
+}
+
+/**
+ * MetricsSummary contains aggregate information about metrics.
+ */
+message MetricsSummary {
+  // Total number of unique metrics
+  int64 total_metrics = 1;
+
+  // Total number of data points
+  int64 total_data_points = 2;
+
+  // Total data volume (bytes)
+  int64 total_data_volume_bytes = 3;
+
+  // Metrics by type
+  MetricTypeCounts type_counts = 4;
+
+  // Performance statistics
+  PerformanceStats performance = 5;
+
+  // Error statistics
+  ErrorStats errors = 6;
+
+  // Top metrics by various criteria
+  TopMetrics top_metrics = 7;
+
+  // Retention information
+  RetentionInfo retention = 8;
+
+  // Export status information
+  ExportStatus export_status = 9;
+}
+
+/**
+ * MetricTypeCounts breaks down metrics by type.
+ */
+message MetricTypeCounts {
+  int64 counter_count = 1;
+  int64 gauge_count = 2;
+  int64 histogram_count = 3;
+  int64 summary_count = 4;
+  int64 timer_count = 5;
+  int64 custom_count = 6;
+}
+
+/**
+ * PerformanceStats contains performance-related metrics.
+ */
+message PerformanceStats {
+  // Average write latency (milliseconds)
+  double avg_write_latency_ms = 1;
+
+  // Average read latency (milliseconds)
+  double avg_read_latency_ms = 2;
+
+  // Throughput (metrics per second)
+  double throughput_per_second = 3;
+
+  // Storage efficiency (compression ratio)
+  double compression_ratio = 4;
+
+  // Cache hit rate (0.0 to 1.0)
+  double cache_hit_rate = 5;
+}
+
+/**
+ * ErrorStats contains error-related metrics.
+ */
+message ErrorStats {
+  // Total number of errors
+  int64 total_errors = 1;
+
+  // Error rate (errors per total operations)
+  double error_rate = 2;
+
+  // Most common error types
+  repeated ErrorTypeCount error_types = 3;
+
+  // Recent error trend (increasing/decreasing/stable)
+  string error_trend = 4;
+}
+
+/**
+ * ErrorTypeCount represents the count for a specific error type.
+ */
+message ErrorTypeCount {
+  string error_type = 1;
+  int64 count = 2;
+  double percentage = 3;
+}
+
+/**
+ * TopMetrics contains lists of top metrics by various criteria.
+ */
+message TopMetrics {
+  // Most frequently written metrics
+  repeated MetricInfo most_active = 1;
+
+  // Largest metrics by data volume
+  repeated MetricInfo largest_by_volume = 2;
+
+  // Metrics with highest error rates
+  repeated MetricInfo highest_errors = 3;
+
+  // Most recently created metrics
+  repeated MetricInfo most_recent = 4;
+}
+
+/**
+ * MetricInfo contains basic information about a metric.
+ */
+message MetricInfo {
+  string name = 1;
+  string metric_type = 2;
+  int64 data_points = 3;
+  int64 data_volume_bytes = 4;
+  double error_rate = 5;
+  google.protobuf.Timestamp last_updated = 6;
+}
+
+/**
+ * ProviderSummary contains summary information for a specific provider.
+ */
+message ProviderSummary {
+  string provider_id = 1;
+  string provider_type = 2;
+  int64 metrics_count = 3;
+  PerformanceStats performance = 4;
+  string status = 5;
+}
+
+/**
+ * HealthStatus contains health information about the metrics system.
+ */
+message HealthStatus {
+  string overall_status = 1; // "healthy", "degraded", "unhealthy"
+  repeated string health_checks = 2;
+  repeated string warnings = 3;
+  google.protobuf.Timestamp last_check = 4;
+}
+
+/**
+ * RetentionInfo contains information about data retention.
+ */
+message RetentionInfo {
+  int64 total_retained_bytes = 1;
+  int64 total_purged_bytes = 2;
+  string oldest_data_age = 3;
+  repeated RetentionPolicy policies = 4;
+}
+
+/**
+ * RetentionPolicy describes a data retention policy.
+ */
+message RetentionPolicy {
+  string name = 1;
+  string duration = 2;
+  int64 affected_metrics = 3;
+}
+
+/**
+ * ExportStatus contains information about data export operations.
+ */
+message ExportStatus {
+  int64 total_exported_metrics = 1;
+  int64 failed_exports = 2;
+  google.protobuf.Timestamp last_export = 3;
+  repeated ExporterStatus exporters = 4;
+}
+
+/**
+ * ExporterStatus contains status information for a specific exporter.
+ */
+message ExporterStatus {
+  string exporter_id = 1;
+  string exporter_type = 2;
+  string status = 3;
+  int64 exported_count = 4;
+  google.protobuf.Timestamp last_export = 5;
+}

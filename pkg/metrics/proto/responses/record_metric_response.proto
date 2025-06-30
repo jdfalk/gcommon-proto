@@ -1,0 +1,81 @@
+// filepath: pkg/metrics/proto/responses/record_metric_response.proto
+// file: metrics/proto/responses/record_metric_response.proto
+//
+// Record metric response definitions for metrics module
+//
+edition = "2023";
+
+package gcommon.v1.metrics;
+
+import "google/protobuf/go_features.proto";
+import "google/protobuf/timestamp.proto";
+import "pkg/common/proto/messages/error.proto";
+
+option go_package = "github.com/jdfalk/gcommon/pkg/metrics/proto;metricspb";
+option features.(pb.go).api_level = API_HYBRID;
+
+/**
+ * RecordMetricResponse contains the result of recording a metric data point.
+ */
+message RecordMetricResponse {
+  // Success status of the operation
+  bool success = 1;
+
+  // Error information if the operation failed
+  gcommon.v1.common.Error error = 2;
+
+  // Unique ID assigned to the recorded metric (if applicable)
+  string metric_id = 3;
+
+  // Timestamp when the metric was actually recorded
+  google.protobuf.Timestamp recorded_at = 4;
+
+  // Provider that handled the metric
+  string provider_id = 5;
+
+  // Validation results if validation was requested
+  ValidationResult validation = 6;
+
+  // Performance metrics about the recording operation
+  RecordingStats stats = 7;
+
+  // Warnings or informational messages
+  repeated string warnings = 8;
+}
+
+/**
+ * ValidationResult contains metric validation information.
+ */
+message ValidationResult {
+  // Whether the metric passed validation
+  bool valid = 1;
+
+  // Validation errors (if any)
+  repeated string errors = 2;
+
+  // Validation warnings (if any)
+  repeated string warnings = 3;
+
+  // Schema version used for validation
+  string schema_version = 4;
+}
+
+/**
+ * RecordingStats contains performance information about the recording operation.
+ */
+message RecordingStats {
+  // Time taken to process the request (milliseconds)
+  int64 processing_time_ms = 1;
+
+  // Size of the metric data (bytes)
+  int64 data_size_bytes = 2;
+
+  // Whether the metric was deduplicated
+  bool deduplicated = 3;
+
+  // Whether the metric was written to storage
+  bool persisted = 4;
+
+  // Backend storage latency (milliseconds)
+  int64 storage_latency_ms = 5;
+}

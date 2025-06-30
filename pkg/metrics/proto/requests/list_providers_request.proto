@@ -1,0 +1,109 @@
+// filepath: pkg/metrics/proto/requests/list_providers_request.proto
+// file: metrics/proto/requests/list_providers_request.proto
+//
+// List providers request definitions for metrics module
+//
+edition = "2023";
+
+package gcommon.v1.metrics;
+
+import "google/protobuf/go_features.proto";
+import "pkg/common/proto/messages/request_metadata.proto";
+
+option go_package = "github.com/jdfalk/gcommon/pkg/metrics/proto;metricspb";
+option features.(pb.go).api_level = API_HYBRID;
+
+/**
+ * ListProvidersRequest represents a request to list metrics providers.
+ */
+message ListProvidersRequest {
+  // Standard request metadata (tracing, auth, etc.)
+  gcommon.v1.common.RequestMetadata metadata = 1;
+
+  // Filter options for the list
+  ProviderFilter filter = 2;
+
+  // Pagination options
+  PaginationOptions pagination = 3;
+
+  // Whether to include detailed status information
+  bool include_status = 4;
+
+  // Whether to include configuration details
+  bool include_config = 5;
+
+  // Whether to include statistics
+  bool include_stats = 6;
+}
+
+/**
+ * ProviderFilter contains filtering options for listing providers.
+ */
+message ProviderFilter {
+  // Filter by provider type
+  repeated string provider_types = 1;
+
+  // Filter by provider state
+  repeated string states = 2;
+
+  // Filter by tags
+  map<string, string> tags = 3;
+
+  // Filter by name pattern (regex)
+  string name_pattern = 4;
+
+  // Filter by health status
+  repeated string health_statuses = 5;
+
+  // Filter providers created after this time
+  string created_after = 6;
+
+  // Filter providers created before this time
+  string created_before = 7;
+}
+
+/**
+ * PaginationOptions configures pagination for the list.
+ */
+message PaginationOptions {
+  // Page size
+  int32 page_size = 1;
+
+  // Page token for continuation
+  string page_token = 2;
+
+  // Sorting options
+  SortOptions sort = 3;
+}
+
+/**
+ * SortOptions configures sorting of the provider list.
+ */
+message SortOptions {
+  // Field to sort by
+  SortField sort_field = 1;
+
+  // Sort direction
+  SortDirection direction = 2;
+}
+
+/**
+ * SortField defines fields that can be used for sorting.
+ */
+enum SortField {
+  SORT_FIELD_UNSPECIFIED = 0;
+  SORT_FIELD_NAME = 1;
+  SORT_FIELD_TYPE = 2;
+  SORT_FIELD_CREATED_AT = 3;
+  SORT_FIELD_STATE = 4;
+  SORT_FIELD_HEALTH = 5;
+}
+
+/**
+ * SortDirection defines sort direction.
+ */
+enum SortDirection {
+  SORT_DIRECTION_UNSPECIFIED = 0;
+  SORT_DIRECTION_ASC = 1;
+  SORT_DIRECTION_DESC = 2;
+}
