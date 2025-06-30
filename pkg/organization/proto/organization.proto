@@ -1,0 +1,125 @@
+// file: pkg/organization/proto/organization.proto
+//
+// Organization Module - Import Aggregator for Backward Compatibility
+//
+// MIGRATION STATUS: ✅ COMPLETE - All types implemented in 1-1-1 structure
+//
+// This file serves as a backward compatibility layer that publicly re-exports
+// all organization module types from their individual 1-1-1 proto files.
+//
+// USAGE:
+//   For existing code: import "pkg/organization/proto/organization.proto"
+//   For new code: import specific 1-1-1 files directly, e.g.:
+//     import "pkg/organization/proto/services/organization_service.proto"
+//     import "pkg/organization/proto/messages/organization.proto"
+//
+// STRUCTURE:
+//   Services: OrganizationService, TenantService, HierarchyService
+//   Enums: OrganizationStatus, TenantStatus, MemberRole, IsolationLevel, HierarchyType
+//   Messages: Organization, Tenant, OrganizationMember, Department, Team, etc.
+//   Types: TenantIsolation and supporting isolation configuration types
+//
+// All imports use 'public' keyword to ensure backward compatibility.
+//
+edition = "2023";
+
+package gcommon.v1.organization;
+
+import "google/protobuf/go_features.proto";
+
+option go_package = "github.com/jdfalk/gcommon/pkg/organization/proto;organizationpb";
+option features.(pb.go).api_level = API_HYBRID;
+
+// Import all 1-1-1 protobuf files with public visibility for backward compatibility
+
+// Services (3 total)
+import public "pkg/organization/proto/services/organization_service.proto";
+import public "pkg/organization/proto/services/tenant_service.proto";
+import public "pkg/organization/proto/services/hierarchy_service.proto";
+
+// Enums (5 total)
+import public "pkg/organization/proto/enums/organization_status.proto";
+import public "pkg/organization/proto/enums/tenant_status.proto";
+import public "pkg/organization/proto/enums/member_role.proto";
+import public "pkg/organization/proto/enums/isolation_level.proto";
+import public "pkg/organization/proto/enums/hierarchy_type.proto";
+
+// Messages (6 total)
+import public "pkg/organization/proto/messages/organization.proto";
+import public "pkg/organization/proto/messages/tenant.proto";
+import public "pkg/organization/proto/messages/organization_member.proto";
+import public "pkg/organization/proto/messages/department.proto";
+import public "pkg/organization/proto/messages/team.proto";
+import public "pkg/organization/proto/messages/organization_hierarchy.proto";
+import public "pkg/organization/proto/messages/organization_settings.proto";
+
+// Types (1 total)
+import public "pkg/organization/proto/types/tenant_isolation.proto";
+
+// Requests (27 total)
+import public "pkg/organization/proto/requests/create_organization_request.proto";
+import public "pkg/organization/proto/requests/get_organization_request.proto";
+import public "pkg/organization/proto/requests/update_organization_request.proto";
+import public "pkg/organization/proto/requests/delete_organization_request.proto";
+import public "pkg/organization/proto/requests/list_organizations_request.proto";
+import public "pkg/organization/proto/requests/add_member_request.proto";
+import public "pkg/organization/proto/requests/remove_member_request.proto";
+import public "pkg/organization/proto/requests/update_member_request.proto";
+import public "pkg/organization/proto/requests/list_members_request.proto";
+import public "pkg/organization/proto/requests/get_organization_settings_request.proto";
+import public "pkg/organization/proto/requests/update_organization_settings_request.proto";
+import public "pkg/organization/proto/requests/create_tenant_request.proto";
+import public "pkg/organization/proto/requests/get_tenant_request.proto";
+import public "pkg/organization/proto/requests/update_tenant_request.proto";
+import public "pkg/organization/proto/requests/delete_tenant_request.proto";
+import public "pkg/organization/proto/requests/list_tenants_request.proto";
+import public "pkg/organization/proto/requests/configure_tenant_isolation_request.proto";
+import public "pkg/organization/proto/requests/get_tenant_isolation_request.proto";
+import public "pkg/organization/proto/requests/update_tenant_quota_request.proto";
+import public "pkg/organization/proto/requests/get_tenant_usage_request.proto";
+import public "pkg/organization/proto/requests/create_department_request.proto";
+import public "pkg/organization/proto/requests/get_department_request.proto";
+import public "pkg/organization/proto/requests/update_department_request.proto";
+import public "pkg/organization/proto/requests/delete_department_request.proto";
+import public "pkg/organization/proto/requests/list_departments_request.proto";
+import public "pkg/organization/proto/requests/create_team_request.proto";
+import public "pkg/organization/proto/requests/get_team_request.proto";
+import public "pkg/organization/proto/requests/update_team_request.proto";
+import public "pkg/organization/proto/requests/delete_team_request.proto";
+import public "pkg/organization/proto/requests/list_teams_request.proto";
+import public "pkg/organization/proto/requests/get_hierarchy_request.proto";
+import public "pkg/organization/proto/requests/update_hierarchy_request.proto";
+
+// Responses (27 total)
+import public "pkg/organization/proto/responses/create_organization_response.proto";
+import public "pkg/organization/proto/responses/get_organization_response.proto";
+import public "pkg/organization/proto/responses/update_organization_response.proto";
+import public "pkg/organization/proto/responses/delete_organization_response.proto";
+import public "pkg/organization/proto/responses/list_organizations_response.proto";
+import public "pkg/organization/proto/responses/add_member_response.proto";
+import public "pkg/organization/proto/responses/remove_member_response.proto";
+import public "pkg/organization/proto/responses/update_member_response.proto";
+import public "pkg/organization/proto/responses/list_members_response.proto";
+import public "pkg/organization/proto/responses/get_organization_settings_response.proto";
+import public "pkg/organization/proto/responses/update_organization_settings_response.proto";
+import public "pkg/organization/proto/responses/create_tenant_response.proto";
+import public "pkg/organization/proto/responses/get_tenant_response.proto";
+import public "pkg/organization/proto/responses/update_tenant_response.proto";
+import public "pkg/organization/proto/responses/delete_tenant_response.proto";
+import public "pkg/organization/proto/responses/list_tenants_response.proto";
+import public "pkg/organization/proto/responses/configure_tenant_isolation_response.proto";
+import public "pkg/organization/proto/responses/get_tenant_isolation_response.proto";
+import public "pkg/organization/proto/responses/update_tenant_quota_response.proto";
+import public "pkg/organization/proto/responses/get_tenant_usage_response.proto";
+import public "pkg/organization/proto/responses/create_department_response.proto";
+import public "pkg/organization/proto/responses/get_department_response.proto";
+import public "pkg/organization/proto/responses/update_department_response.proto";
+import public "pkg/organization/proto/responses/delete_department_response.proto";
+import public "pkg/organization/proto/responses/list_departments_response.proto";
+import public "pkg/organization/proto/responses/create_team_response.proto";
+import public "pkg/organization/proto/responses/get_team_response.proto";
+import public "pkg/organization/proto/responses/update_team_response.proto";
+import public "pkg/organization/proto/responses/delete_team_response.proto";
+import public "pkg/organization/proto/responses/list_teams_response.proto";
+import public "pkg/organization/proto/responses/get_hierarchy_response.proto";
+import public "pkg/organization/proto/responses/update_hierarchy_response.proto";

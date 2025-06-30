@@ -1,0 +1,107 @@
+// file: pkg/organization/proto/messages/tenant.proto
+edition = "2023";
+
+package gcommon.v1.organization;
+
+import "google/protobuf/go_features.proto";
+import "google/protobuf/timestamp.proto";
+import "pkg/organization/proto/enums/tenant_status.proto";
+import "pkg/organization/proto/enums/isolation_level.proto";
+import "pkg/common/proto/types/key_value.proto";
+
+option go_package = "github.com/jdfalk/gcommon/pkg/organization/proto;organizationpb";
+option features.(pb.go).api_level = API_HYBRID;
+
+/**
+ * Tenant message representing a tenant within an organization.
+ * Supports multi-tenant architecture with configurable isolation levels,
+ * resource quotas, and tenant-specific settings.
+ */
+message Tenant {
+  // Unique tenant identifier (immutable)
+  string id = 1;
+
+  // Parent organization identifier
+  string organization_id = 2;
+
+  // Tenant name (human-readable identifier)
+  string name = 3;
+
+  // URL-friendly slug for the tenant (e.g., for subdomains)
+  string slug = 4;
+
+  // Tenant description
+  string description = 5;
+
+  // Current status of the tenant
+  TenantStatus status = 6;
+
+  // Isolation level for this tenant
+  IsolationLevel isolation_level = 7;
+
+  // Tenant metadata and custom attributes
+  repeated gcommon.v1.common.KeyValue metadata = 8 [lazy = true];
+
+  // Tenant creation timestamp (immutable)
+  google.protobuf.Timestamp created_at = 9 [lazy = true];
+
+  // Last update timestamp
+  google.protobuf.Timestamp updated_at = 10 [lazy = true];
+
+  // User ID who created this tenant
+  string created_by = 11;
+
+  // User ID who last updated this tenant
+  string updated_by = 12;
+
+  // Database connection string or identifier (for DATABASE isolation)
+  string database_config = 13;
+
+  // Network configuration (for NETWORK isolation)
+  string network_config = 14;
+
+  // Resource quotas for this tenant
+  TenantQuota quota = 15;
+
+  // Custom domain for this tenant (if applicable)
+  string custom_domain = 16;
+
+  // Tenant's timezone override (inherits from organization if not set)
+  string timezone = 17;
+
+  // Tenant's locale override (inherits from organization if not set)
+  string locale = 18;
+
+  // Whether this tenant is in trial mode
+  bool trial_mode = 19;
+
+  // Trial expiration timestamp (if trial_mode is true)
+  google.protobuf.Timestamp trial_expires_at = 20 [lazy = true];
+}
+
+/**
+ * TenantQuota message defining resource limits and quotas for a tenant.
+ * Used to enforce resource constraints in multi-tenant environments.
+ */
+message TenantQuota {
+  // Maximum number of users in this tenant
+  int32 max_users = 1;
+
+  // Maximum storage size in bytes
+  int64 max_storage_bytes = 2;
+
+  // Maximum number of API requests per hour
+  int32 max_api_requests_per_hour = 3;
+
+  // Maximum number of concurrent connections
+  int32 max_concurrent_connections = 4;
+
+  // Maximum number of databases/schemas
+  int32 max_databases = 5;
+
+  // Maximum number of custom domains
+  int32 max_custom_domains = 6;
+
+  // Custom quota limits (key-value pairs for extensibility)
+  repeated gcommon.v1.common.KeyValue custom_limits = 7 [lazy = true];
+}

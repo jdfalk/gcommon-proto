@@ -1,0 +1,33 @@
+// file: pkg/organization/proto/enums/isolation_level.proto
+edition = "2023";
+
+package gcommon.v1.organization;
+
+import "google/protobuf/go_features.proto";
+
+option go_package = "github.com/jdfalk/gcommon/pkg/organization/proto;organizationpb";
+option features.(pb.go).api_level = API_HYBRID;
+
+/**
+ * Isolation level enumeration defining the degree of tenant isolation.
+ * Used in multi-tenant architectures to control data and resource separation.
+ */
+enum IsolationLevel {
+  // Default value indicating no isolation level was specified
+  ISOLATION_LEVEL_UNSPECIFIED = 0;
+
+  // Shared infrastructure with logical separation (lowest cost, shared resources)
+  ISOLATION_LEVEL_SHARED = 1;
+
+  // Dedicated database/schema per tenant (medium isolation)
+  ISOLATION_LEVEL_DATABASE = 2;
+
+  // Dedicated infrastructure per tenant (highest isolation)
+  ISOLATION_LEVEL_INFRASTRUCTURE = 3;
+
+  // Virtual private cloud isolation (network-level separation)
+  ISOLATION_LEVEL_NETWORK = 4;
+
+  // Physical server isolation (hardware-level separation)
+  ISOLATION_LEVEL_PHYSICAL = 5;
+}

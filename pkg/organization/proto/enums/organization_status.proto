@@ -1,0 +1,36 @@
+// file: pkg/organization/proto/enums/organization_status.proto
+edition = "2023";
+
+package gcommon.v1.organization;
+
+import "google/protobuf/go_features.proto";
+
+option go_package = "github.com/jdfalk/gcommon/pkg/organization/proto;organizationpb";
+option features.(pb.go).api_level = API_HYBRID;
+
+/**
+ * Organization status enumeration defining the state of an organization.
+ * Used to track organization lifecycle, operational status, and access permissions.
+ */
+enum OrganizationStatus {
+  // Default value indicating no status was specified
+  ORGANIZATION_STATUS_UNSPECIFIED = 0;
+
+  // Organization is active and operational
+  ORGANIZATION_STATUS_ACTIVE = 1;
+
+  // Organization is inactive (temporarily suspended operations)
+  ORGANIZATION_STATUS_INACTIVE = 2;
+
+  // Organization is suspended due to policy violations or billing issues
+  ORGANIZATION_STATUS_SUSPENDED = 3;
+
+  // Organization is pending verification or onboarding completion
+  ORGANIZATION_STATUS_PENDING = 4;
+
+  // Organization is archived (read-only access, no new operations)
+  ORGANIZATION_STATUS_ARCHIVED = 5;
+
+  // Organization is marked for deletion and undergoing cleanup
+  ORGANIZATION_STATUS_DELETED = 6;
+}
