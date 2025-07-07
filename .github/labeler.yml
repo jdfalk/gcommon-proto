@@ -1,0 +1,87 @@
+# file: .github/labeler.yml
+# version: 1.0.0
+# guid: f6a7b8c9-d0e1-42f3-a4b5-c6d7e8f9a0b1
+#
+# Pull Request Labeler Configuration for gcommon repository
+# Automatically label pull requests based on changed files or branch names
+
+# Documentation changes
+documentation:
+  - changed-files:
+      - any-glob-to-any-file:
+          - "README.md"
+          - "CHANGELOG.md"
+          - "TODO.md"
+          - "docs/**"
+          - "**/*.md"
+
+# Go backend changes
+go:
+  - changed-files:
+      - any-glob-to-any-file:
+          - "**/*.go"
+          - "go.mod"
+          - "go.sum"
+          - "cmd/**"
+          - "pkg/**"
+          - "internal/**"
+
+# Protobuf changes (gcommon specific)
+protobuf:
+  - changed-files:
+      - any-glob-to-any-file:
+          - "**/*.proto"
+          - "buf.yaml"
+          - "buf.gen.yaml"
+          - "proto/**"
+
+# Configuration files
+config:
+  - changed-files:
+      - any-glob-to-any-file:
+          - "*.yaml"
+          - "*.yml"
+          - "*.json"
+          - "*.toml"
+          - ".gitignore"
+          - ".env*"
+          - "Makefile"
+
+# Scripts and automation
+scripts:
+  - changed-files:
+      - any-glob-to-any-file:
+          - "scripts/**"
+          - "**/*.sh"
+          - "**/*.py"
+          - "validate_protobuf_coverage.py"
+
+# Testing files
+tests:
+  - changed-files:
+      - any-glob-to-any-file:
+          - "**/*_test.go"
+          - "test/**"
+          - "tests/**"
+
+# Dependencies and package management
+dependencies:
+  - changed-files:
+      - any-glob-to-any-file:
+          - "go.mod"
+          - "go.sum"
+
+# Feature branches
+feature:
+  - head-branch:
+      - any-glob-to-any-file: ["feature/*", "feat/*"]
+
+# Bug fix branches
+bugfix:
+  - head-branch:
+      - any-glob-to-any-file: ["fix/*", "bugfix/*", "hotfix/*"]
+
+# Breaking changes
+breaking-change:
+  - head-branch:
+      - any-glob-to-any-file: ["breaking/*"]
