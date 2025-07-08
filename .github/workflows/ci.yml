@@ -15,6 +15,8 @@ permissions:
   pull-requests: write
   actions: read
   checks: write
+  security-events: write
+  id-token: write
 
 jobs:
   universal-ci:
@@ -26,5 +28,6 @@ jobs:
       run-lint: true
       run-test: true
       run-build: false
+      enable-dependency-submission: true
       enable-backend-frontend: false
     secrets: inherit
