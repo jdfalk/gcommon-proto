@@ -1,0 +1,100 @@
+// file: .devcontainer/devcontainer.json
+// version: 1.0.0
+// guid: e5f6g7h8-i9j0-1234-5678-901234efghij
+
+{
+  "name": "GCommon Go/Protobuf Development",
+  "image": "golang:1.23-bookworm",
+
+  "customizations": {
+    "vscode": {
+      "settings": {
+        "go.useLanguageServer": true,
+        "go.gopath": "/go",
+        "go.goroot": "/usr/local/go",
+        "go.lintTool": "golangci-lint",
+        "go.lintOnSave": "package",
+        "go.formatTool": "goimports",
+        "go.enableCodeLens": {
+          "references": false,
+          "runtest": true
+        },
+        "go.buildTags": "",
+        "terminal.integrated.defaultProfile.linux": "bash",
+        "editor.formatOnSave": true,
+        "editor.codeActionsOnSave": {
+          "source.organizeImports": "explicit"
+        },
+        "[go]": {
+          "editor.insertSpaces": false,
+          "editor.formatOnSave": true,
+          "editor.codeActionsOnSave": {
+            "source.organizeImports": "explicit"
+          }
+        },
+        "[proto]": {
+          "editor.insertSpaces": true,
+          "editor.tabSize": 2
+        },
+        "[yaml]": {
+          "editor.insertSpaces": true,
+          "editor.tabSize": 2,
+          "editor.defaultFormatter": "redhat.vscode-yaml"
+        },
+        "[json]": {
+          "editor.defaultFormatter": "esbenp.prettier-vscode"
+        },
+        "[markdown]": {
+          "editor.defaultFormatter": "esbenp.prettier-vscode"
+        }
+      },
+      "extensions": [
+        "golang.go",
+        "ms-vscode.vscode-go",
+        "bufbuild.vscode-buf",
+        "zxh404.vscode-proto3",
+        "redhat.vscode-yaml",
+        "esbenp.prettier-vscode",
+        "ms-vscode.vscode-json",
+        "ms-vscode.makefile-tools",
+        "ms-vscode.test-adapter-converter",
+        "github.copilot",
+        "github.copilot-chat"
+      ]
+    }
+  },
+
+  "features": {
+    "ghcr.io/devcontainers/features/git:1": {},
+    "ghcr.io/devcontainers/features/github-cli:1": {}
+  },
+
+  "forwardPorts": [8080, 9090],
+  "portsAttributes": {
+    "8080": {
+      "label": "gRPC Server",
+      "onAutoForward": "notify"
+    },
+    "9090": {
+      "label": "Metrics Server",
+      "onAutoForward": "notify"
+    }
+  },
+
+  "postCreateCommand": ".devcontainer/post-create.sh",
+
+  "remoteUser": "root",
+
+  "mounts": [
+    "source=${localWorkspaceFolder},target=/workspace,type=bind,consistency=cached",
+    "source=gcommon-go-mod-cache,target=/go/pkg/mod,type=volume"
+  ],
+
+  "containerEnv": {
+    "CGO_ENABLED": "1",
+    "GOOS": "linux",
+    "GOARCH": "amd64"
+  },
+
+  "workspaceFolder": "/workspace"
+}
