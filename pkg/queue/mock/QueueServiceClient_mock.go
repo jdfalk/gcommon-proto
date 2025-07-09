@@ -7,7 +7,7 @@ package mock
 import (
 	"context"
 
-	"github.com/jdfalk/gcommon/pkg/queue/proto"
+	proto "github.com/jdfalk/gcommon/pkg/queue/proto"
 	mock "github.com/stretchr/testify/mock"
 	"google.golang.org/grpc"
 )

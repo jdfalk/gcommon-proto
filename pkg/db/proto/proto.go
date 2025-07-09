@@ -1,7 +1,7 @@
 // file: pkg/db/proto/proto.go
 
-// Package proto provides consolidated exports for database protobuf types
-package proto
+// Package dbpb provides consolidated exports for database protobuf types
+package dbpb
 
 // Re-export types from various database protobuf packages for backwards compatibility
 import (

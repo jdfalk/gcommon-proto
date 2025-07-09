@@ -1,7 +1,7 @@
 // file: pkg/notification/proto/proto.go
 
-// Package proto provides consolidated exports for notification protobuf types
-package proto
+// Package notificationpb provides consolidated exports for notification protobuf types
+package notificationpb
 
 // Re-export types from notification protobuf packages for backwards compatibility
 import (

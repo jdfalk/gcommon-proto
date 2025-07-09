@@ -1,7 +1,7 @@
 // file: pkg/config/proto/proto.go
 
-// Package proto provides consolidated exports for config protobuf types
-package proto
+// Package configpb provides consolidated exports for config protobuf types
+package configpb
 
 // Re-export types from various config protobuf packages for backwards compatibility
 import (

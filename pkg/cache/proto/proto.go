@@ -1,7 +1,7 @@
 // file: pkg/cache/proto/proto.go
 
-// Package proto provides consolidated exports for cache protobuf types
-package proto
+// Package cachepb provides consolidated exports for cache protobuf types
+package cachepb
 
 // Re-export types from various cache protobuf packages for backwards compatibility
 import (
