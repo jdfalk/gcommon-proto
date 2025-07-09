@@ -1,5 +1,5 @@
 # file: .github/workflows/docs-update.yml
-# version: 1.0.0  
+# version: 1.0.0
 # guid: 2b3c4d5e-6f78-9012-bcde-f23456789012
 
 name: Documentation Updates
@@ -19,7 +19,7 @@ on:
       - ".github/doc-updates/**"
       - "scripts/create-doc-update.sh"
       - ".github/workflows/docs-update.yml"
-  
+
   # Manual trigger with options
   workflow_dispatch:
     inputs:
