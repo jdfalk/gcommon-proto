@@ -1,33 +1,44 @@
-# Copilot Instructions
+<!-- file: .github/copilot-instructions.md -->
+<!-- version: 1.0.0 -->
+<!-- guid: 2b3c4d5e-6f7a-8b9c-0d1e-2f3a4b5c6d7e -->
 
-## File Identification
+# GCommon - Copilot/AI Agent Coding Instructions System
 
-- Always check the first line of a file for a comment in the format `# file: $(relative_path_to_file)`
-- Use this path to determine which file you're working on and where to apply generated changes
-- If this comment is present, prioritize it over any other indications of file path
-- When generating code modifications, reference this path in your response
+This repository uses a centralized, modular system for Copilot/AI agent coding, documentation, and workflow instructions, following the latest VS Code Copilot customization best practices.
 
-## Code Documentation
+## System Overview
 
-- Always extensively document functions with parameters, return values, and purpose
-- Always extensively document methods with parameters, return values, and purpose
-- Always extensively document classes with their responsibilities and usage patterns
-- Always document tests with clear descriptions of what's being tested and expected outcomes
-- Always escape triple backticks with a backslash in documentation
-- Use consistent documentation style (JSDoc, docstrings, etc.) based on the codebase
+- **General rules**: `.github/instructions/general-coding.instructions.md` (applies to all files)
+- **Language/task-specific rules**: `.github/instructions/*.instructions.md` (with `applyTo` frontmatter)
+- **Prompt files**: `.github/prompts/` (for Copilot/AI prompt customization)
+- **Agent-specific docs**: `.github/AGENTS.md`, `.github/CLAUDE.md`, etc. (pointers to this system)
+- **VS Code integration**: `.vscode/copilot/` contains symlinks to canonical `.github/instructions/` files for VS Code Copilot features
 
-## Documentation Organization Policy
+## How It Works
 
-### File Responsibilities
+- **General instructions** are always included for all files and languages.
+- **Language/task-specific instructions** extend the general rules and use the `applyTo` field to target file globs (e.g., `**/*.go`, `**/*.proto`).
+- **All code style, documentation, and workflow rules are now found exclusively in `.github/instructions/*.instructions.md` files.**
+- **Prompt files** are stored in `.github/prompts/` and can reference instructions as needed.
+- **Agent docs** (e.g., AGENTS.md) point to `.github/` as the canonical source for all rules.
+- **VS Code** uses symlinks in `.vscode/copilot/` to include these instructions for Copilot customization.
 
-- **README.md**: Repository introduction, setup instructions, basic usage, and immediate critical information new users need. Include major breaking changes at the top temporarily for visibility.
-- **TODO.md**: Project roadmap, planning, implementation status, architectural decisions, reasoning behind choices, diagrams, and detailed technical plans.
-- **CHANGELOG.md**: All version information, release notes, major breaking changes, feature additions, bug fixes, and consolidated technical documentation that would otherwise be scattered across multiple files.
+## Project-Specific Context
 
-## Code Style
+This is the **GCommon** repository, focused on common Go libraries and Protocol Buffer definitions for distributed systems.
 
-- Follow the established code style in the repository
-- Use consistent naming conventions for variables, functions, and classes
+**Primary Languages**: Go, Protocol Buffers
+**Key Features**: gRPC services, common data structures, shared utilities
+
+## For Contributors
+
+- **Edit or add rules** in `.github/instructions/` only. Do not use or reference any `code-style-*.md` files; these are obsolete.
+- **Add new prompts** in `.github/prompts/`.
+- **Update agent docs** to reference this system.
+- **Do not duplicate rules**; always reference the general instructions from specific ones.
+- **See `.github/README.md`** for a human-friendly summary and contributor guide.
+
+For full details, see the [general coding instructions](instructions/general-coding.instructions.md) and language-specific files in `.github/instructions/`.
 - Prefer explicit type annotations where applicable
 - Keep functions small and focused on a single responsibility
 - Use meaningful variable names that indicate purpose
