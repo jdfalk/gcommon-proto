@@ -1,7 +1,7 @@
 // file: pkg/auth/proto/proto.go
 
-// Package proto provides consolidated exports for auth protobuf types
-package proto
+// Package authpb provides consolidated exports for auth protobuf types
+package authpb
 
 // Re-export types from various auth protobuf packages for backwards compatibility
 import (

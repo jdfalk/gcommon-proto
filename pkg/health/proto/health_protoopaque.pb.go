@@ -6,7 +6,7 @@
 
 //go:build protoopaque
 
-package proto
+package healthpb
 
 import (
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"

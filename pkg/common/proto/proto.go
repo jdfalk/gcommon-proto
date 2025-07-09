@@ -1,7 +1,7 @@
 // file: pkg/common/proto/proto.go
 
-// Package proto provides consolidated exports for common protobuf types
-package proto
+// Package commonpb provides consolidated exports for common protobuf types
+package commonpb
 
 // Re-export types from various common protobuf packages for backwards compatibility
 import (

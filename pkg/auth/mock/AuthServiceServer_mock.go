@@ -7,7 +7,7 @@ package mock
 import (
 	"context"
 
-	"github.com/jdfalk/gcommon/pkg/auth/proto"
+	proto "github.com/jdfalk/gcommon/pkg/auth/proto"
 	mock "github.com/stretchr/testify/mock"
 )
 
