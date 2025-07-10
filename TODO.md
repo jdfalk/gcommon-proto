@@ -1383,3 +1383,5 @@ Health checking system:
 5. **Validate Compilation**: Ensure all proto files compile successfully
 
 ---
+
+Automate issue linking for project boards

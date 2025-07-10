@@ -314,3 +314,6 @@ MIT License - see [LICENSE](LICENSE) file for details.
 - **💡 Examples**: [examples/](examples/) directory
 - **🐛 Issues**: [GitHub Issues](https://github.com/jdfalk/gcommon/issues)
 - **💬 Discussions**: [GitHub Discussions](https://github.com/jdfalk/gcommon/discussions)
+
+The updated setup script automatically authenticates using `gh auth token` and links open issues by module labels.
+### GitHub Projects\nThis repository now uses a dedicated GitHub Project board for each major module (Metrics, Queue, Web, Auth, Cache, Config). Run `scripts/setup-github-projects.sh` to create these boards and automatically add issues by label.
