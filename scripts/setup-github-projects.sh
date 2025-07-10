@@ -1,9 +1,23 @@
 #!/bin/bash
 # file: scripts/setup-github-projects.sh
-# version: 2.0.0
+# version: 2.0.1
 # guid: 9255d459-ae8e-428e-943b-7529ac0e8196
 
 set -euo pipefail
+
+# Check for required bash version and tools
+if [ -z "${BASH_VERSION:-}" ]; then
+    echo "❌ This script requires bash, but is running in a different shell" >&2
+    exit 1
+fi
+
+# Check for required tools
+for tool in gh jq; do
+    if ! command -v "$tool" >/dev/null 2>&1; then
+        echo "❌ Required tool '$tool' is not installed" >&2
+        exit 1
+    fi
+done
 
 ORG="${ORG:-jdfalk}"
 REPO="${REPO:-gcommon}"
@@ -68,6 +82,11 @@ link_issues() {
         done
 }
 
+# Helper function to convert string to lowercase (portable)
+to_lowercase() {
+    echo "$1" | tr '[:upper:]' '[:lower:]'
+}
+
 #------------------------------
 # Main
 #------------------------------
@@ -84,7 +103,7 @@ main() {
         fi
         if [[ -n "$number" && "$number" != "null" ]]; then
             link_repository "$number"
-            link_issues "$number" "module:${module,,}"
+            link_issues "$number" "module:$(to_lowercase "$module")"
             echo "✅ Project $title ready (#$number)"
         else
             echo "❌ Failed to create or locate project for $module" >&2
