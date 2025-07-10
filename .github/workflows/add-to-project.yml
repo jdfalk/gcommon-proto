@@ -1,0 +1,33 @@
+# file: .github/workflows/add-to-project.yml
+# version: 1.0.0
+# guid: d4e5f6a7-b8c9-0123-def0-456789012345
+
+name: Add Issues and PRs to Projects
+
+on:
+  issues:
+    types:
+      - opened
+      - reopened
+      - labeled
+  pull_request:
+    types:
+      - opened
+      - reopened
+      - labeled
+
+permissions:
+  contents: read
+  issues: read
+  pull-requests: read
+
+jobs:
+  # Add to gCommon Development project
+  add-to-gcommon:
+    name: Add to gCommon Project
+    uses: jdfalk/ghcommon/.github/workflows/reusable-add-to-project.yml@main
+    secrets:
+      gh-token: ${{ secrets.JF_CI_GH_PAT }}
+    with:
+      project-url: "https://github.com/users/jdfalk/projects/2"
+      # Add all issues and PRs to the gcommon project
