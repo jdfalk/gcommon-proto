@@ -316,7 +316,15 @@ MIT License - see [LICENSE](LICENSE) file for details.
 - **💬 Discussions**: [GitHub Discussions](https://github.com/jdfalk/gcommon/discussions)
 
 The updated setup script automatically authenticates using `gh auth token` and links open issues by module labels.
-### GitHub Projects\nThis repository now uses a dedicated GitHub Project board for each major module (Metrics, Queue, Web, Auth, Cache, Config). Run `scripts/setup-github-projects.sh` to create these boards and automatically add issues by label.
+
+### GitHub Projects
+
+This repository now uses a dedicated GitHub Project board for each major module (Metrics, Queue, Web, Auth, Cache, Config). Run the unified project manager to create these boards and automatically add issues by label:
+
+```bash
+python3 /path/to/ghcommon/scripts/unified_github_project_manager_v2.py
+```
+
+See `scripts/MIGRATION-NOTICE.md` for migration details.
+
 GitHub's built-in project automation now automatically adds issues and PRs to the board, so the custom workflow has been removed.
-The updated setup script automatically authenticates using `gh auth token` and links open issues by module labels.
-### GitHub Projects\nThis repository now uses a dedicated GitHub Project board for each major module (Metrics, Queue, Web, Auth, Cache, Config). Run `scripts/setup-github-projects.sh` to create these boards and automatically add issues by label.
