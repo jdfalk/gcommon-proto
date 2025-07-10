@@ -1385,3 +1385,7 @@ Health checking system:
 ---
 
 Automate issue linking for project boards
+
+- [ ] 🟡 **General**: Remove references to custom add-to-project workflow
+
+Automate issue linking for project boards

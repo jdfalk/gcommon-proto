@@ -15,6 +15,14 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 
+- Removed custom add-to-project workflow in favor of built-in GitHub automation
+
+### Added
+
+- Added improved GitHub project setup script with automatic authentication and issue linking
+
+### Added
+
 - **Protobuf Foundation**: Complete mapping for all 9 modules with 29 services and 754 protobuf files
 - **Common Types Module**: 39 shared message types implemented for consistency across modules
 - **Database Module**: Complete 1-1-1 migration (51/51 types) serving as gold standard
