@@ -1,0 +1,16 @@
+{
+  "file": "README.md",
+  "mode": "append",
+  "content": "The updated setup script automatically authenticates using `gh auth token` and links open issues by module labels.",
+  "guid": "8208a5bd-e794-4be0-bd3f-9ebbc3704ece",
+  "created_at": "2025-07-09T23:21:19Z",
+  "options": {
+    "section": null,
+    "after": null,
+    "before": null,
+    "task_id": null,
+    "badge_name": null,
+    "priority": null,
+    "category": null
+  }
+}

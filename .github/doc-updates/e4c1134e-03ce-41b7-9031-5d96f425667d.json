@@ -1,0 +1,16 @@
+{
+  "file": "CHANGELOG.md",
+  "mode": "changelog-entry",
+  "content": "### Added\n\n- Added improved GitHub project setup script with automatic authentication and issue linking",
+  "guid": "e4c1134e-03ce-41b7-9031-5d96f425667d",
+  "created_at": "2025-07-09T23:21:23Z",
+  "options": {
+    "section": null,
+    "after": null,
+    "before": null,
+    "task_id": null,
+    "badge_name": null,
+    "priority": null,
+    "category": null
+  }
+}
