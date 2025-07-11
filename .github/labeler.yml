@@ -8,170 +8,183 @@
 
 # TYPE LABELS
 type:documentation:
-    - changed-files:
-          - any-glob-to-any-file:
-                - "**/*.md"
-                - "docs/**/*"
-                - "README*"
-                - "CHANGELOG*"
-                - "TODO*"
-                - "PROTOBUF_IMPLEMENTATION_PLAN.md"
+      - changed-files:
+              - any-glob-to-any-file:
+                      - "**/*.md"
+                      - "docs/**/*"
+                      - "README*"
+                      - "CHANGELOG*"
+                      - "TODO*"
+                      - "PROTOBUF_IMPLEMENTATION_PLAN.md"
 
 type:testing:
-    - changed-files:
-          - any-glob-to-any-file:
-                - "**/*test*"
-                - "test/**"
-                - "**/test_*"
-                - "**/*_test.go"
-                - "validate_protobuf_coverage.py"
+      - changed-files:
+              - any-glob-to-any-file:
+                      - "**/*test*"
+                      - "test/**"
+                      - "**/test_*"
+                      - "**/*_test.go"
+                      - "validate_protobuf_coverage.py"
 
 type:maintenance:
-    - changed-files:
-          - any-glob-to-any-file:
-                - ".gitignore"
-                - "go.mod"
-                - "go.sum"
-                - "Makefile"
-                - "*.sh"
-                - "*.py"
+      - changed-files:
+              - any-glob-to-any-file:
+                      - ".gitignore"
+                      - "go.mod"
+                      - "go.sum"
+                      - "Makefile"
+                      - "*.sh"
+                      - "*.py"
 
 # TECHNOLOGY LABELS
 tech:go:
-    - changed-files:
-          - any-glob-to-any-file:
-                - "**/*.go"
-                - "go.mod"
-                - "go.sum"
-                - "cmd/**"
-                - "pkg/**"
-                - "internal/**"
+      - changed-files:
+              - any-glob-to-any-file:
+                      - "**/*.go"
+                      - "go.mod"
+                      - "go.sum"
+                      - "cmd/**"
+                      - "pkg/**"
+                      - "internal/**"
 
 tech:protobuf:
-    - changed-files:
-          - any-glob-to-any-file:
-                - "**/*.proto"
-                - "buf.yaml"
-                - "buf.gen.yaml"
-                - "proto/**"
-                - "generate.sh"
+      - changed-files:
+              - any-glob-to-any-file:
+                      - "**/*.proto"
+                      - "buf.yaml"
+                      - "buf.gen.yaml"
+                      - "proto/**"
+                      - "generate.sh"
 
 tech:grpc:
-    - changed-files:
-          - any-glob-to-any-file:
-                - "**/*grpc*"
-                - "**/*_grpc.pb.go"
-                - "**/grpc/**"
+      - changed-files:
+              - any-glob-to-any-file:
+                      - "**/*grpc*"
+                      - "**/*_grpc.pb.go"
+                      - "**/grpc/**"
 
 tech:python:
-    - changed-files:
-          - any-glob-to-any-file:
-                - "**/*.py"
-                - "validate_protobuf_coverage.py"
-                - "doc_update_manager.py"
+      - changed-files:
+              - any-glob-to-any-file:
+                      - "**/*.py"
+                      - "validate_protobuf_coverage.py"
+                      - "doc_update_manager.py"
+
+tech:shell:
+      - changed-files:
+              - any-glob-to-any-file:
+                      - "**/*.sh"
+                      - "**/*.bash"
+                      - "scripts/**"
+                      - "generate.sh"
+                      - "quick_status_check.sh"
 
 # MODULE LABELS (gcommon-specific modules)
 module:auth:
-    - changed-files:
-          - any-glob-to-any-file:
-                - "pkg/auth/**"
-                - "proto/auth/**"
-                - "**/auth*"
+      - changed-files:
+              - any-glob-to-any-file:
+                      - "pkg/auth/**"
+                      - "proto/auth/**"
+                      - "**/auth*"
 
 module:cache:
-    - changed-files:
-          - any-glob-to-any-file:
-                - "pkg/cache/**"
-                - "proto/cache/**"
-                - "**/cache*"
+      - changed-files:
+              - any-glob-to-any-file:
+                      - "pkg/cache/**"
+                      - "proto/cache/**"
+                      - "**/cache*"
 
 module:config:
-    - changed-files:
-          - any-glob-to-any-file:
-                - "pkg/config/**"
-                - "proto/config/**"
-                - "config/**"
-                - "**/config*"
+      - changed-files:
+              - any-glob-to-any-file:
+                      - "pkg/config/**"
+                      - "proto/config/**"
+                      - "config/**"
+                      - "**/config*"
 
 module:database:
-    - changed-files:
-          - any-glob-to-any-file:
-                - "pkg/database/**"
-                - "proto/database/**"
-                - "**/database*"
+      - changed-files:
+              - any-glob-to-any-file:
+                      - "pkg/database/**"
+                      - "proto/database/**"
+                      - "**/database*"
 
 module:metrics:
-    - changed-files:
-          - any-glob-to-any-file:
-                - "pkg/metrics/**"
-                - "proto/metrics/**"
-                - "**/metrics*"
+      - changed-files:
+              - any-glob-to-any-file:
+                      - "pkg/metrics/**"
+                      - "proto/metrics/**"
+                      - "**/metrics*"
 
 module:queue:
-    - changed-files:
-          - any-glob-to-any-file:
-                - "pkg/queue/**"
-                - "proto/queue/**"
-                - "**/queue*"
+      - changed-files:
+              - any-glob-to-any-file:
+                      - "pkg/queue/**"
+                      - "proto/queue/**"
+                      - "**/queue*"
 
 module:web:
-    - changed-files:
-          - any-glob-to-any-file:
-                - "pkg/web/**"
-                - "proto/web/**"
-                - "**/web*"
+      - changed-files:
+              - any-glob-to-any-file:
+                      - "pkg/web/**"
+                      - "proto/web/**"
+                      - "**/web*"
 
 # PROJECT-SPECIFIC LABELS
 project:gcommon-refactor:
-    - changed-files:
-          - any-glob-to-any-file:
-                - "**/*refactor*"
-                - "PROTOBUF_IMPLEMENTATION_PLAN.md"
-                - "empty_protos.txt"
-                - "non_empty_protos.txt"
+      - changed-files:
+              - any-glob-to-any-file:
+                      - "**/*refactor*"
+                      - "PROTOBUF_IMPLEMENTATION_PLAN.md"
+                      - "empty_protos.txt"
+                      - "non_empty_protos.txt"
 
 project:protobuf-implementation:
-    - changed-files:
-          - any-glob-to-any-file:
-                - "**/*.proto"
-                - "validate_protobuf_coverage.py"
-                - "quick_status_check.sh"
-                - "generate.sh"
+      - changed-files:
+              - any-glob-to-any-file:
+                      - "**/*.proto"
+                      - "validate_protobuf_coverage.py"
+                      - "quick_status_check.sh"
+                      - "generate.sh"
 
 # WORKFLOW LABELS
 workflow:github-actions:
-    - changed-files:
-          - any-glob-to-any-file:
-                - ".github/workflows/**"
+      - changed-files:
+              - any-glob-to-any-file:
+                      - ".github/workflows/**"
 
 workflow:automation:
-    - changed-files:
-          - any-glob-to-any-file:
-                - "scripts/**"
-                - "**/*.sh"
-                - "**/*.py"
+      - changed-files:
+              - any-glob-to-any-file:
+                      - "scripts/**"
+                      - "**/*.sh"
+                      - "**/*.py"
 
 # SIZE LABELS (based on file count/complexity)
 size:small:
-    - changed-files:
-          - all-globs-to-all-files:
-                - "**/*"
-          - count: 1-3
+      - changed-files:
+              - all-globs-to-all-files:
+                      - "**/*"
+              - count: 1-3
+
+# AI/AUTOMATION LABELS
+codex:
+      - head-branch: ["^feature/codex-.*", "^codex/.*", "^ai/.*", "^automated/.*"]
 
 size:medium:
-    - changed-files:
-          - all-globs-to-all-files:
-                - "**/*"
-          - count: 4-10
+      - changed-files:
+              - all-globs-to-all-files:
+                      - "**/*"
+              - count: 4-10
 
 size:large:
-    - changed-files:
-          - all-globs-to-all-files:
-                - "**/*"
-          - count: 11-25
+      - changed-files:
+              - all-globs-to-all-files:
+                      - "**/*"
+              - count: 11-25
 
 size:epic:
-    - changed-files:
-          - all-globs-to-all-files:
-                - "**/*"
-          - count: 26+
+      - changed-files:
+              - all-globs-to-all-files:
+                      - "**/*"
+              - count: 26+
