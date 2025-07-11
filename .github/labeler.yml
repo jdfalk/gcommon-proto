@@ -139,6 +139,14 @@ project:gcommon-refactor:
                       - "empty_protos.txt"
                       - "non_empty_protos.txt"
 
+gcommon-refactor:
+      - changed-files:
+              - any-glob-to-any-file:
+                      - "**/*refactor*"
+                      - "PROTOBUF_IMPLEMENTATION_PLAN.md"
+                      - "empty_protos.txt"
+                      - "non_empty_protos.txt"
+
 project:protobuf-implementation:
       - changed-files:
               - any-glob-to-any-file:
@@ -153,7 +161,19 @@ workflow:github-actions:
               - any-glob-to-any-file:
                       - ".github/workflows/**"
 
+github-actions:
+      - changed-files:
+              - any-glob-to-any-file:
+                      - ".github/workflows/**"
+
 workflow:automation:
+      - changed-files:
+              - any-glob-to-any-file:
+                      - "scripts/**"
+                      - "**/*.sh"
+                      - "**/*.py"
+
+automation:
       - changed-files:
               - any-glob-to-any-file:
                       - "scripts/**"
