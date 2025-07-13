@@ -248,3 +248,6 @@ $RECYCLE.BIN/
 .nfs*
 
 config/*.json
+
+# Documentation update stats (disabled to prevent merge conflicts)
+.doc-update-stats*.json
