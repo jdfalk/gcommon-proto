@@ -22,6 +22,7 @@ import logging
 import re
 import shutil
 import sys
+from scripts.ci_status import print_status, print_error, print_success, print_summary
 from pathlib import Path
 from typing import Any, Dict, Optional
 
@@ -325,6 +326,7 @@ class DocumentationUpdateManager:
 
 
 def main():
+    print_status("Starting documentation update...")
     """Main entry point."""
     parser = argparse.ArgumentParser(
         description="Process documentation update files",
