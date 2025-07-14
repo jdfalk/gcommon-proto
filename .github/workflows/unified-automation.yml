@@ -1,0 +1,16 @@
+# file: .github/workflows/unified-automation.yml
+# version: 2.0.0
+# guid: 8b7c6d5e-4f3a-2b1c-0d1e-2f3a4b5c6d7e
+
+name: Unified Issue & Docs Automation
+
+on:
+  workflow_dispatch:
+
+jobs:
+  orchestrate:
+    uses: jdfalk/ghcommon/.github/workflows/reusable-unified-automation.yml@main
+    with:
+      operation: all
+    secrets:
+      github-token: ${{ secrets.GITHUB_TOKEN }}
