@@ -6,11 +6,55 @@ name: Unified Issue & Docs Automation
 
 on:
   workflow_dispatch:
+    inputs:
+      operation:
+        description: "Which operation(s) to run (all, issues, docs, label, lint, rebase, pr, merge, sync, ci, test, build, release, security, codeql, stale, cleanup, custom)"
+        required: false
+        default: "all"
+        type: choice
+        options:
+          - all
+          - issues
+          - docs
+          - label
+          - lint
+          - rebase
+          - pr
+          - merge
+          - sync
+          - ci
+          - test
+          - build
+          - release
+          - security
+          - codeql
+          - stale
+          - cleanup
+          - custom
+      dry_run:
+        description: "Run in dry-run mode (no changes)"
+        required: false
+        type: boolean
+        default: false
+      continue_on_error:
+        description: "Continue on error (run all jobs even if one fails)"
+        required: false
+        type: boolean
+        default: true
+      python_version:
+        description: "Python version to use for scripts"
+        required: false
+        default: "3.11"
+      extra_args:
+        description: "Extra arguments for advanced workflows (comma-separated)"
+        required: false
+        type: string
+        default: ""
 
 jobs:
   orchestrate:
     uses: jdfalk/ghcommon/.github/workflows/reusable-unified-automation.yml@main
     with:
-      operation: all
+      operation: ${{ github.event.inputs.operation || 'all' }}
     secrets:
-      github-token: ${{ secrets.GITHUB_TOKEN }}
+      github-token: ${{ secrets.JF_CI_GH_PAT || secrets.GITHUB_TOKEN }}
