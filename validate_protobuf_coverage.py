@@ -4,6 +4,8 @@ Protobuf coverage validation for GCommon project.
 Validates that all protobuf files are tracked and provides implementation status.
 """
 
+from scripts.ci_status import print_status, print_error, print_success, print_summary
+
 import json
 import glob
 from typing import Dict, List, Set
@@ -333,55 +335,44 @@ def create_next_steps_plan(coverage_analysis: Dict, issue_analysis: Dict) -> Lis
 def main():
     """Run comprehensive validation and generate report."""
 
-    print("🔍 GCommon Protobuf Coverage Validation")
-    print("=" * 50)
-
-    # Gather data
-    print("📊 Analyzing protobuf files...")
+    print_status("GCommon Protobuf Coverage Validation")
+    print_status("Analyzing protobuf files...")
     proto_files = get_all_proto_files()
     empty_protos = load_empty_protos()
     non_empty_protos = load_non_empty_protos()
 
-    print("📋 Analyzing GitHub issues...")
+    print_status("Analyzing GitHub issues...")
     github_issues = load_github_issues()
 
-    # Run analysis
     coverage_analysis = analyze_protobuf_coverage(proto_files, empty_protos, non_empty_protos)
     issue_analysis = analyze_github_issues(github_issues)
     implementation_coverage = check_issue_implementation_coverage(github_issues, empty_protos)
 
-    # Generate report
-    print("\n📈 COVERAGE ANALYSIS RESULTS")
-    print("-" * 30)
-    print(f"Total protobuf files found: {coverage_analysis['total_files_found']}")
-    print(f"Files tracked as empty: {coverage_analysis['tracked_empty']}")
-    print(f"Files tracked as implemented: {coverage_analysis['tracked_implemented']}")
-    print(f"Untracked files: {len(coverage_analysis['untracked_files'])}")
+    print_summary("COVERAGE ANALYSIS RESULTS")
+    print_summary(f"Total protobuf files found: {coverage_analysis['total_files_found']}")
+    print_summary(f"Files tracked as empty: {coverage_analysis['tracked_empty']}")
+    print_summary(f"Files tracked as implemented: {coverage_analysis['tracked_implemented']}")
+    print_summary(f"Untracked files: {len(coverage_analysis['untracked_files'])}")
 
-    print(f"\nGitHub Issues: {len(github_issues)} total, {issue_analysis['total_protobuf_issues']} protobuf-related")
-    print(f"Issue coverage: {implementation_coverage['coverage_percentage']:.1f}% of empty files covered")
+    print_summary(f"GitHub Issues: {len(github_issues)} total, {issue_analysis['total_protobuf_issues']} protobuf-related")
+    print_summary(f"Issue coverage: {implementation_coverage['coverage_percentage']:.1f}% of empty files covered")
 
-    # Module breakdown
-    print("\n📦 MODULE BREAKDOWN")
-    print("-" * 20)
+    print_summary("MODULE BREAKDOWN")
     for module, stats in sorted(coverage_analysis['module_breakdown'].items()):
         completion = ((stats['implemented'] / stats['total']) * 100) if stats['total'] > 0 else 0
-        print(f"{module:10} | Total: {stats['total']:3} | Empty: {stats['empty']:3} | Done: {stats['implemented']:3} | Complete: {completion:5.1f}%")
+        print_summary(f"{module:10} | Total: {stats['total']:3} | Empty: {stats['empty']:3} | Done: {stats['implemented']:3} | Complete: {completion:5.1f}%")
 
-    # Generate recommendations
     recommendations = generate_recommendations(coverage_analysis, issue_analysis, implementation_coverage)
-
     if recommendations:
-        print("\n⚠️  RECOMMENDATIONS")
-        print("-" * 20)
+        print_error("RECOMMENDATIONS:")
         for rec in recommendations:
-            print(f"{rec}")
+            print_error(rec)
 
-    # Generate next steps
     next_steps = create_next_steps_plan(coverage_analysis, issue_analysis)
-    print(f"\n{chr(10).join(next_steps)}")
+    print_summary("Next Steps:")
+    for step in next_steps:
+        print_summary(step)
 
-    # Save detailed report
     detailed_report = {
         'timestamp': '2025-06-08',
         'coverage_analysis': coverage_analysis,
@@ -390,13 +381,10 @@ def main():
         'recommendations': recommendations,
         'next_steps': next_steps
     }
-
     with open('protobuf_validation_report.json', 'w') as f:
         json.dump(detailed_report, f, indent=2, default=str)
+    print_success("Detailed report saved to: protobuf_validation_report.json")
 
-    print("\n💾 Detailed report saved to: protobuf_validation_report.json")
-
-    # Check for critical issues
     critical_issues = []
     if coverage_analysis['untracked_files']:
         critical_issues.append("Untracked protobuf files detected")
@@ -404,12 +392,12 @@ def main():
         critical_issues.append("Low GitHub issue coverage")
 
     if critical_issues:
-        print("\n🚨 CRITICAL ISSUES DETECTED:")
+        print_error("CRITICAL ISSUES DETECTED:")
         for issue in critical_issues:
-            print(f"   - {issue}")
+            print_error(f"   - {issue}")
         return 1
     else:
-        print("\n✅ Validation complete! Ready to proceed with implementation.")
+        print_success("Validation complete! Ready to proceed with implementation.")
         return 0
 
 if __name__ == "__main__":
