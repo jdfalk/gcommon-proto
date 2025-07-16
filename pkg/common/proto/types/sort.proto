@@ -1,0 +1,25 @@
+// file: pkg/common/proto/types/sort.proto
+// version: 1.0.0
+// guid: 34507f56-8bd2-4dd8-af7e-c9045ddbf029
+
+edition = "2023";
+
+package gcommon.v1.common;
+
+option go_package = "github.com/jdfalk/gcommon/pkg/common/proto;commonpb";
+
+// SortDirection defines ascending or descending order.
+enum SortDirection {
+  SORT_DIRECTION_UNSPECIFIED = 0;
+  SORT_DIRECTION_ASC = 1;
+  SORT_DIRECTION_DESC = 2;
+}
+
+// SortOptions configures sorting of lists.
+message SortOptions {
+  // Field to sort by
+  string sort_field = 1;
+
+  // Sort direction
+  SortDirection direction = 2;
+}

@@ -1,0 +1,7 @@
+{
+  "action": "comment",
+  "number": 104,
+  "body": "Added shared PaginationOptions and SortOptions protos; updated metric requests",
+  "guid": "250ba1bf-8e9d-4269-a303-13954ee205ae",
+  "legacy_guid": "comment-issue-104-2025-07-16"
+}
