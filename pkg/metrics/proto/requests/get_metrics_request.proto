@@ -1,5 +1,7 @@
 // filepath: pkg/metrics/proto/requests/get_metrics_request.proto
 // file: metrics/proto/requests/get_metrics_request.proto
+// version: 1.0.1
+// guid: f58f7623-0d53-495a-b959-3ed3770d0b39
 //
 // Get metrics request definitions for metrics module
 //
@@ -10,6 +12,8 @@ package gcommon.v1.metrics;
 import "google/protobuf/go_features.proto";
 import "google/protobuf/timestamp.proto";
 import "pkg/common/proto/messages/request_metadata.proto";
+import "pkg/common/proto/types/pagination.proto";
+import "pkg/common/proto/types/sort.proto";
 import "pkg/metrics/proto/messages/metric_filter.proto";
 import "pkg/metrics/proto/messages/metric_aggregation.proto";
 
@@ -34,7 +38,7 @@ message GetMetricsRequest {
   MetricAggregation aggregation = 4;
 
   // Pagination options
-  PaginationOptions pagination = 5;
+  gcommon.v1.common.PaginationOptions pagination = 5;
 
   // Optional provider ID to query
   string provider_id = 6;
@@ -67,51 +71,11 @@ message TimeRange {
 }
 
 /**
- * PaginationOptions configures pagination for large result sets.
- */
-message PaginationOptions {
-  // Page size (number of metrics per page)
-  int32 page_size = 1;
-
-  // Page token for continuing from a previous request
-  string page_token = 2;
-
-  // Whether to return the total count of available metrics
-  bool include_total_count = 3;
-
-  // Sorting options
-  SortOptions sort = 4;
-}
-
-/**
- * SortOptions configures sorting of results.
- */
-message SortOptions {
-  // Field to sort by
-  string sort_field = 1;
-
-  // Sort direction
-  SortDirection direction = 2;
-
-  // Secondary sort fields
-  repeated SecondarySortField secondary_sorts = 3;
-}
-
-/**
- * SortDirection defines sort direction.
- */
-enum SortDirection {
-  SORT_DIRECTION_UNSPECIFIED = 0;
-  SORT_DIRECTION_ASC = 1;
-  SORT_DIRECTION_DESC = 2;
-}
-
-/**
  * SecondarySortField defines additional sort criteria.
  */
 message SecondarySortField {
   string field = 1;
-  SortDirection direction = 2;
+  gcommon.v1.common.SortDirection direction = 2;
 }
 
 /**

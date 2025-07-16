@@ -1,5 +1,7 @@
 // filepath: pkg/metrics/proto/requests/list_providers_request.proto
 // file: metrics/proto/requests/list_providers_request.proto
+// version: 1.0.1
+// guid: 8f89d21d-fa76-4c1a-b6c7-d10ee9c708a7
 //
 // List providers request definitions for metrics module
 //
@@ -9,6 +11,8 @@ package gcommon.v1.metrics;
 
 import "google/protobuf/go_features.proto";
 import "pkg/common/proto/messages/request_metadata.proto";
+import "pkg/common/proto/types/pagination.proto";
+import "pkg/common/proto/types/sort.proto";
 
 option go_package = "github.com/jdfalk/gcommon/pkg/metrics/proto;metricspb";
 option features.(pb.go).api_level = API_HYBRID;
@@ -24,7 +28,7 @@ message ListProvidersRequest {
   ProviderFilter filter = 2;
 
   // Pagination options
-  PaginationOptions pagination = 3;
+  gcommon.v1.common.PaginationOptions pagination = 3;
 
   // Whether to include detailed status information
   bool include_status = 4;
@@ -63,31 +67,6 @@ message ProviderFilter {
 }
 
 /**
- * PaginationOptions configures pagination for the list.
- */
-message PaginationOptions {
-  // Page size
-  int32 page_size = 1;
-
-  // Page token for continuation
-  string page_token = 2;
-
-  // Sorting options
-  SortOptions sort = 3;
-}
-
-/**
- * SortOptions configures sorting of the provider list.
- */
-message SortOptions {
-  // Field to sort by
-  SortField sort_field = 1;
-
-  // Sort direction
-  SortDirection direction = 2;
-}
-
-/**
  * SortField defines fields that can be used for sorting.
  */
 enum SortField {
@@ -97,13 +76,4 @@ enum SortField {
   SORT_FIELD_CREATED_AT = 3;
   SORT_FIELD_STATE = 4;
   SORT_FIELD_HEALTH = 5;
-}
-
-/**
- * SortDirection defines sort direction.
- */
-enum SortDirection {
-  SORT_DIRECTION_UNSPECIFIED = 0;
-  SORT_DIRECTION_ASC = 1;
-  SORT_DIRECTION_DESC = 2;
 }
