@@ -10,6 +10,8 @@ package gcommon.v1.metrics;
 import "google/protobuf/go_features.proto";
 import "pkg/common/proto/messages/request_metadata.proto";
 import "pkg/metrics/proto/enums/metric_type.proto";
+import "pkg/metrics/proto/types/export_config.proto";
+import "pkg/metrics/proto/types/retention_policy.proto";
 
 option go_package = "github.com/jdfalk/gcommon/pkg/metrics/proto;metricspb";
 option features.(pb.go).api_level = API_HYBRID;
@@ -166,47 +168,7 @@ message CounterConfig {
   double max_value = 3;
 }
 
-/**
- * RetentionPolicy defines how long metric data should be kept.
- */
-message RetentionPolicy {
-  // Duration to keep data (e.g., "30d", "1y")
-  string duration = 1;
 
-  // Aggregation strategy when downsampling old data
-  string aggregation_strategy = 2;
-
-  // Resolution to keep for different time periods
-  repeated ResolutionTier resolution_tiers = 3;
-}
-
-/**
- * ResolutionTier defines data resolution for different time periods.
- */
-message ResolutionTier {
-  // Age threshold for this tier
-  string age_threshold = 1;
-
-  // Resolution for this tier (e.g., "1m", "5m", "1h")
-  string resolution = 2;
-}
-
-/**
- * ExportConfig defines how this metric should be exported.
- */
-message ExportConfig {
-  // Whether this metric should be exported
-  bool enabled = 1;
-
-  // Export formats to use
-  repeated string formats = 2;
-
-  // Export destinations
-  repeated string destinations = 3;
-
-  // Export frequency
-  string frequency = 4;
-}
 
 /**
  * ValidationRules define validation rules for metric values.
