@@ -11,6 +11,7 @@ package gcommon.v1.metrics;
 import "google/protobuf/go_features.proto";
 import "google/protobuf/timestamp.proto";
 import "google/protobuf/duration.proto";
+import "pkg/common/proto/messages/error.proto";
 import "pkg/metrics/proto/messages/metric_data.proto";
 import "pkg/metrics/proto/messages/metric_query.proto";
 
@@ -24,8 +25,8 @@ message QueryMetricsResponse {
   // Success status of the query
   bool success = 1;
 
-  // Error message if query failed
-  string error_message = 2;
+  // Error information if query failed
+  gcommon.v1.common.Error error = 2;
 
   // Query results organized as metric series
   repeated MetricSeries series = 3;

@@ -10,6 +10,8 @@ package gcommon.v1.metrics;
 
 import "google/protobuf/go_features.proto";
 import "google/protobuf/timestamp.proto";
+import "pkg/common/proto/messages/error.proto";
+import "pkg/metrics/proto/types/recording_stats.proto";
 import "pkg/metrics/proto/messages/gauge_metric.proto";
 
 option go_package = "github.com/jdfalk/gcommon/pkg/metrics/proto;metricspb";
@@ -22,8 +24,8 @@ message RecordGaugeResponse {
   // Whether the operation was successful
   bool success = 1;
 
-  // Error message if operation failed
-  string error_message = 2;
+  // Error information if the operation failed
+  gcommon.v1.common.Error error = 2;
 
   // The recorded gauge metric with updated value
   GaugeMetric metric = 3;
@@ -41,19 +43,4 @@ message RecordGaugeResponse {
   RecordingStats stats = 7;
 }
 
-/**
- * RecordingStats provides information about the recording operation.
- */
-message RecordingStats {
-  // Time taken to process the recording
-  int64 processing_time_ms = 1;
 
-  // Storage backend used
-  string storage_backend = 2;
-
-  // Whether the value was persisted
-  bool persisted = 3;
-
-  // Cache hit status
-  bool cache_hit = 4;
-}
