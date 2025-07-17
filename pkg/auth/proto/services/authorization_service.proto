@@ -14,7 +14,7 @@ import "pkg/auth/proto/responses/get_user_roles_response.proto";
 import "pkg/auth/proto/requests/assign_role_request.proto";
 import "pkg/auth/proto/requests/remove_role_request.proto";
 import "pkg/auth/proto/requests/create_role_request.proto";
-import "pkg/auth/proto/messages/role.proto";
+import "pkg/auth/proto/types/role.proto";
 import "pkg/auth/proto/requests/update_role_request.proto";
 import "pkg/auth/proto/requests/delete_role_request.proto";
 import "pkg/auth/proto/requests/list_roles_request.proto";
