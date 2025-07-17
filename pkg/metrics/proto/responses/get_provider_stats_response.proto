@@ -14,6 +14,8 @@ import "pkg/metrics/proto/types/error_stats.proto";
 import "pkg/metrics/proto/types/time_range.proto";
 import "pkg/metrics/proto/types/performance_stats.proto";
 import "pkg/metrics/proto/types/top_metrics.proto";
+import "pkg/metrics/proto/types/provider_info.proto";
+import "pkg/metrics/proto/types/resource_limits_summary.proto";
 
 option go_package = "github.com/jdfalk/gcommon/pkg/metrics/proto;metricspb";
 option features.(pb.go).api_level = API_HYBRID;
@@ -77,38 +79,6 @@ message ProviderStatistics {
 
   // Trend analysis
   TrendAnalysis trends = 10;
-}
-
-/**
- * ProviderInfo contains basic information about the provider.
- */
-message ProviderInfo {
-  // Provider ID
-  string provider_id = 1;
-
-  // Provider name
-  string name = 2;
-
-  // Provider type
-  string type = 3;
-
-  // Current status
-  string status = 4;
-
-  // Current health
-  string health = 5;
-
-  // Provider version
-  string version = 6;
-
-  // Uptime
-  string uptime = 7;
-
-  // When the provider was created
-  google.protobuf.Timestamp created_at = 8;
-
-  // When the provider was last updated
-  google.protobuf.Timestamp last_updated = 9;
 }
 
 /**
@@ -354,16 +324,6 @@ message SecuritySummary {
   bool auth_enabled = 1;
   bool tls_enabled = 2;
   repeated string auth_methods = 3;
-}
-
-/**
- * ResourceLimitsSummary contains resource limits summary.
- */
-message ResourceLimitsSummary {
-  int64 memory_limit_bytes = 1;
-  double cpu_limit_percent = 2;
-  int64 disk_limit_bytes = 3;
-  int64 metrics_limit = 4;
 }
 
 /**
