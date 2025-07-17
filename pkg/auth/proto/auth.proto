@@ -54,7 +54,7 @@ import public "pkg/auth/proto/messages/user.proto";
 import public "pkg/auth/proto/messages/session.proto";
 import public "pkg/auth/proto/messages/token.proto";
 import public "pkg/auth/proto/messages/permission.proto";
-import public "pkg/auth/proto/messages/role.proto";
+import public "pkg/auth/proto/types/role.proto";
 import public "pkg/auth/proto/messages/group.proto";
 import public "pkg/auth/proto/messages/audit_log.proto";
 import public "pkg/auth/proto/messages/mfa_config.proto";
