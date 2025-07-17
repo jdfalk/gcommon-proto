@@ -1,4 +1,4 @@
-// file: pkg/cache/proto/requests/mdelete_request.proto
+// file: pkg/cache/proto/requests/delete_multiple_request.proto
 edition = "2023";
 
 package gcommon.v1.cache;
