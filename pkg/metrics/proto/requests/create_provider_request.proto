@@ -9,6 +9,7 @@ package gcommon.v1.metrics;
 
 import "google/protobuf/go_features.proto";
 import "pkg/common/proto/messages/request_metadata.proto";
+import "pkg/metrics/proto/types/export_config.proto";
 
 option go_package = "github.com/jdfalk/gcommon/pkg/metrics/proto;metricspb";
 option features.(pb.go).api_level = API_HYBRID;
@@ -156,26 +157,6 @@ message StatsDSettings {
 
   // Buffer size
   int32 buffer_size = 5;
-}
-
-/**
- * ExportConfig defines export configuration for the provider.
- */
-message ExportConfig {
-  // Whether exporting is enabled
-  bool enabled = 1;
-
-  // Export formats
-  repeated string formats = 2;
-
-  // Export destinations
-  repeated ExportDestination destinations = 3;
-
-  // Export frequency
-  string frequency = 4;
-
-  // Batch size for exports
-  int32 batch_size = 5;
 }
 
 /**
