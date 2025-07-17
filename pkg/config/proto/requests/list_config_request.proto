@@ -8,7 +8,7 @@ package gcommon.v1.config;
 import "google/protobuf/go_features.proto";
 import "pkg/common/proto/messages/pagination.proto";
 import "pkg/common/proto/messages/filter_options.proto";
-import "pkg/common/proto/messages/sort_options.proto";
+import "pkg/common/proto/types/sort.proto";
 import "pkg/common/proto/messages/request_metadata.proto";
 
 option go_package = "github.com/jdfalk/gcommon/pkg/config/proto;configpb";
