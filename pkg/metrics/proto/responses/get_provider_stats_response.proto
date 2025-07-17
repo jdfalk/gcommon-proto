@@ -10,6 +10,10 @@ package gcommon.v1.metrics;
 import "google/protobuf/go_features.proto";
 import "google/protobuf/timestamp.proto";
 import "pkg/common/proto/messages/error.proto";
+import "pkg/metrics/proto/types/error_stats.proto";
+import "pkg/metrics/proto/types/time_range.proto";
+import "pkg/metrics/proto/types/performance_stats.proto";
+import "pkg/metrics/proto/types/top_metrics.proto";
 
 option go_package = "github.com/jdfalk/gcommon/pkg/metrics/proto;metricspb";
 option features.(pb.go).api_level = API_HYBRID;
@@ -105,35 +109,6 @@ message ProviderInfo {
 
   // When the provider was last updated
   google.protobuf.Timestamp last_updated = 9;
-}
-
-/**
- * PerformanceStats contains performance-related statistics.
- */
-message PerformanceStats {
-  // Operations per second (current)
-  double current_ops_per_second = 1;
-
-  // Average operations per second
-  double avg_ops_per_second = 2;
-
-  // Peak operations per second
-  double peak_ops_per_second = 3;
-
-  // Average latency (milliseconds)
-  double avg_latency_ms = 4;
-
-  // 95th percentile latency (milliseconds)
-  double p95_latency_ms = 5;
-
-  // 99th percentile latency (milliseconds)
-  double p99_latency_ms = 6;
-
-  // Throughput (bytes per second)
-  double throughput_bytes_per_second = 7;
-
-  // Time-series performance data
-  repeated PerformanceDataPoint performance_timeseries = 8;
 }
 
 /**
@@ -240,32 +215,6 @@ message ResourceDataPoint {
   double cpu_usage_percent = 3;
   double disk_usage_percent = 4;
   int64 network_bytes_per_second = 5;
-}
-
-/**
- * ErrorStats contains error-related statistics.
- */
-message ErrorStats {
-  // Total number of errors
-  int64 total_errors = 1;
-
-  // Current error rate (errors per second)
-  double current_error_rate = 2;
-
-  // Average error rate
-  double avg_error_rate = 3;
-
-  // Error rate percentage (errors per total operations)
-  double error_rate_percent = 4;
-
-  // Errors by type
-  repeated ErrorTypeStats error_types = 5;
-
-  // Recent errors
-  repeated ErrorEntry recent_errors = 6;
-
-  // Time-series error data
-  repeated ErrorDataPoint error_timeseries = 7;
 }
 
 /**
@@ -415,20 +364,6 @@ message ResourceLimitsSummary {
   double cpu_limit_percent = 2;
   int64 disk_limit_bytes = 3;
   int64 metrics_limit = 4;
-}
-
-/**
- * TopMetrics contains top metrics by various criteria.
- */
-message TopMetrics {
-  // Most active metrics (by data points)
-  repeated MetricSummary most_active = 1;
-
-  // Largest metrics (by data volume)
-  repeated MetricSummary largest_by_volume = 2;
-
-  // Metrics with highest error rates
-  repeated MetricSummary highest_errors = 3;
 }
 
 /**

@@ -13,6 +13,9 @@ import "pkg/common/proto/messages/error.proto";
 import "pkg/metrics/proto/types/retention_policy.proto";
 import "pkg/metrics/proto/types/time_range.proto";
 import "pkg/metrics/proto/types/error_stats.proto";
+import "pkg/metrics/proto/types/performance_stats.proto";
+import "pkg/metrics/proto/types/top_metrics.proto";
+import "pkg/metrics/proto/types/provider_summary.proto";
 
 option go_package = "github.com/jdfalk/gcommon/pkg/metrics/proto;metricspb";
 option features.(pb.go).api_level = API_HYBRID;
@@ -91,43 +94,6 @@ message MetricTypeCounts {
 }
 
 /**
- * PerformanceStats contains performance-related metrics.
- */
-message PerformanceStats {
-  // Average write latency (milliseconds)
-  double avg_write_latency_ms = 1;
-
-  // Average read latency (milliseconds)
-  double avg_read_latency_ms = 2;
-
-  // Throughput (metrics per second)
-  double throughput_per_second = 3;
-
-  // Storage efficiency (compression ratio)
-  double compression_ratio = 4;
-
-  // Cache hit rate (0.0 to 1.0)
-  double cache_hit_rate = 5;
-}
-
-/**
- * TopMetrics contains lists of top metrics by various criteria.
- */
-message TopMetrics {
-  // Most frequently written metrics
-  repeated MetricInfo most_active = 1;
-
-  // Largest metrics by data volume
-  repeated MetricInfo largest_by_volume = 2;
-
-  // Metrics with highest error rates
-  repeated MetricInfo highest_errors = 3;
-
-  // Most recently created metrics
-  repeated MetricInfo most_recent = 4;
-}
-
-/**
  * MetricInfo contains basic information about a metric.
  */
 message MetricInfo {
@@ -137,17 +103,6 @@ message MetricInfo {
   int64 data_volume_bytes = 4;
   double error_rate = 5;
   google.protobuf.Timestamp last_updated = 6;
-}
-
-/**
- * ProviderSummary contains summary information for a specific provider.
- */
-message ProviderSummary {
-  string provider_id = 1;
-  string provider_type = 2;
-  int64 metrics_count = 3;
-  PerformanceStats performance = 4;
-  string status = 5;
 }
 
 /**

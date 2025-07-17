@@ -11,6 +11,8 @@ import "google/protobuf/go_features.proto";
 import "google/protobuf/timestamp.proto";
 import "pkg/common/proto/messages/error.proto";
 import "pkg/metrics/proto/types/provider_status.proto";
+import "pkg/metrics/proto/types/provider_summary.proto";
+import "pkg/metrics/proto/types/pagination_info.proto";
 
 option go_package = "github.com/jdfalk/gcommon/pkg/metrics/proto;metricspb";
 option features.(pb.go).api_level = API_HYBRID;
@@ -145,47 +147,4 @@ message ResourceUsage {
 
   // Network bandwidth usage (bytes/sec)
   int64 network_bandwidth_bytes_per_sec = 4;
-}
-
-/**
- * PaginationInfo contains pagination details.
- */
-message PaginationInfo {
-  // Current page size
-  int32 page_size = 1;
-
-  // Token for next page
-  string next_page_token = 2;
-
-  // Token for previous page
-  string prev_page_token = 3;
-
-  // Total number of providers
-  int64 total_count = 4;
-
-  // Whether there are more results
-  bool has_more = 5;
-}
-
-/**
- * ProviderSummary contains aggregate statistics about all providers.
- */
-message ProviderSummary {
-  // Total number of providers
-  int32 total_providers = 1;
-
-  // Providers by state
-  map<string, int32> providers_by_state = 2;
-
-  // Providers by type
-  map<string, int32> providers_by_type = 3;
-
-  // Providers by health status
-  map<string, int32> providers_by_health = 4;
-
-  // Total metrics across all providers
-  int64 total_metrics = 5;
-
-  // Total data volume across all providers
-  int64 total_data_volume_bytes = 6;
 }
