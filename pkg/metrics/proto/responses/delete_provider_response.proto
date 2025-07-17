@@ -10,6 +10,8 @@ package gcommon.v1.metrics;
 import "google/protobuf/go_features.proto";
 import "google/protobuf/timestamp.proto";
 import "pkg/common/proto/messages/error.proto";
+import "pkg/metrics/proto/types/backup_info.proto";
+import "pkg/metrics/proto/types/dry_run_result.proto";
 
 option go_package = "github.com/jdfalk/gcommon/pkg/metrics/proto;metricspb";
 option features.(pb.go).api_level = API_HYBRID;
@@ -81,45 +83,4 @@ message DeletionResult {
 /**
  * DryRunResult shows what would be deleted in a dry run operation.
  */
-message DryRunResult {
-  // Data that would be deleted
-  int64 would_delete_bytes = 1;
 
-  // Metrics that would be deleted
-  int64 would_delete_metrics = 2;
-
-  // Data points that would be deleted
-  int64 would_delete_points = 3;
-
-  // Indices that would be deleted
-  repeated string would_delete_indices = 4;
-
-  // Exports that would be stopped
-  repeated string would_stop_exports = 5;
-
-  // Backups that would be deleted
-  repeated string would_delete_backups = 6;
-
-  // Estimated time for deletion operation
-  string estimated_deletion_time = 7;
-}
-
-/**
- * BackupInfo contains information about created backup.
- */
-message BackupInfo {
-  // Backup ID
-  string backup_id = 1;
-
-  // Backup location
-  string backup_location = 2;
-
-  // Backup size
-  int64 backup_size_bytes = 3;
-
-  // When the backup was created
-  google.protobuf.Timestamp backup_created_at = 4;
-
-  // How long the backup will be kept
-  string backup_retention = 5;
-}
