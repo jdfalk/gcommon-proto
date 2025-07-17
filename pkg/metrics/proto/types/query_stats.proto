@@ -1,0 +1,44 @@
+// file: pkg/metrics/proto/types/query_stats.proto
+// version: 1.0.0
+// guid: a2b3c4d5-e6f7-8a9b-0c1d-2e3f4a5b6c7d
+
+edition = "2023";
+
+package gcommon.v1.metrics;
+
+import "google/protobuf/go_features.proto";
+
+option go_package = "github.com/jdfalk/gcommon/pkg/metrics/proto;metricspb";
+option features.(pb.go).api_level = API_HYBRID;
+
+/**
+ * QueryStats contains performance information about the query.
+ */
+message QueryStats {
+  // Time taken to execute the query (milliseconds)
+  int64 execution_time_ms = 1;
+
+  // Number of data points examined
+  int64 data_points_examined = 2;
+
+  // Number of metrics returned
+  int64 metrics_returned = 3;
+
+  // Number of data points returned
+  int64 data_points_returned = 4;
+
+  // Cache hit rate for the query (0.0 to 1.0)
+  double cache_hit_rate = 5;
+
+  // Memory used during query execution (bytes)
+  int64 memory_used_bytes = 6;
+
+  // Storage backends queried
+  repeated string storage_backends = 7;
+
+  // Whether the query was optimized
+  bool query_optimized = 8;
+
+  // Query optimization details
+  string optimization_details = 9;
+}
