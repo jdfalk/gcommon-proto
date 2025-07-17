@@ -10,6 +10,7 @@ package gcommon.v1.metrics;
 
 import "google/protobuf/go_features.proto";
 import "google/protobuf/timestamp.proto";
+import "pkg/common/proto/messages/error.proto";
 import "pkg/metrics/proto/messages/histogram_metric.proto";
 
 option go_package = "github.com/jdfalk/gcommon/pkg/metrics/proto;metricspb";
@@ -22,8 +23,8 @@ message RecordHistogramResponse {
   // Whether the operation was successful
   bool success = 1;
 
-  // Error message if operation failed
-  string error_message = 2;
+  // Error information if the operation failed
+  gcommon.v1.common.Error error = 2;
 
   // The histogram metric with updated bucket counts
   HistogramMetric metric = 3;

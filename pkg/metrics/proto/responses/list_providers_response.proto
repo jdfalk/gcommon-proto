@@ -13,6 +13,8 @@ import "pkg/common/proto/messages/error.proto";
 import "pkg/metrics/proto/types/provider_status.proto";
 import "pkg/metrics/proto/types/provider_summary.proto";
 import "pkg/metrics/proto/types/pagination_info.proto";
+import "pkg/metrics/proto/types/provider_info.proto";
+import "pkg/metrics/proto/types/resource_limits_summary.proto";
 
 option go_package = "github.com/jdfalk/gcommon/pkg/metrics/proto;metricspb";
 option features.(pb.go).api_level = API_HYBRID;
@@ -41,41 +43,6 @@ message ListProvidersResponse {
 }
 
 /**
- * ProviderInfo contains information about a single provider.
- */
-message ProviderInfo {
-  // Provider ID
-  string provider_id = 1;
-
-  // Provider name
-  string name = 2;
-
-  // Provider type
-  string type = 3;
-
-  // Current status
-  ProviderStatus status = 4;
-
-  // Configuration summary (if requested)
-  ProviderConfigSummary config = 5;
-
-  // Statistics (if requested)
-  ProviderStats stats = 6;
-
-  // When the provider was created
-  google.protobuf.Timestamp created_at = 7;
-
-  // When the provider was last updated
-  google.protobuf.Timestamp updated_at = 8;
-
-  // Tags associated with the provider
-  map<string, string> tags = 9;
-
-  // Description of the provider
-  string description = 10;
-}
-
-/**
  * ProviderConfigSummary contains a summary of provider configuration.
  */
 message ProviderConfigSummary {
@@ -90,23 +57,6 @@ message ProviderConfigSummary {
 
   // Export destinations
   repeated string export_destinations = 4;
-}
-
-/**
- * ResourceLimitsSummary contains summary of resource limits.
- */
-message ResourceLimitsSummary {
-  // Memory limit (bytes)
-  int64 memory_limit_bytes = 1;
-
-  // CPU limit (percentage)
-  double cpu_limit_percent = 2;
-
-  // Disk limit (bytes)
-  int64 disk_limit_bytes = 3;
-
-  // Metrics limit
-  int64 metrics_limit = 4;
 }
 
 /**

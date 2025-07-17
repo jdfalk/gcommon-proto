@@ -11,6 +11,7 @@ import "google/protobuf/go_features.proto";
 import "google/protobuf/timestamp.proto";
 import "pkg/common/proto/messages/request_metadata.proto";
 import "pkg/metrics/proto/messages/metric_filter.proto";
+import "pkg/metrics/proto/types/time_range.proto";
 
 option go_package = "github.com/jdfalk/gcommon/pkg/metrics/proto;metricspb";
 option features.(pb.go).api_level = API_HYBRID;
@@ -40,20 +41,6 @@ message GetMetricsSummaryRequest {
 
   // Whether to include health status information
   bool include_health_status = 7;
-}
-
-/**
- * TimeRange specifies a time range for the summary.
- */
-message TimeRange {
-  // Start time (inclusive)
-  google.protobuf.Timestamp start_time = 1;
-
-  // End time (exclusive)
-  google.protobuf.Timestamp end_time = 2;
-
-  // Duration from now (alternative to start/end times)
-  string duration = 3; // e.g., "1h", "24h", "7d"
 }
 
 /**
