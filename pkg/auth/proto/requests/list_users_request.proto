@@ -1,18 +1,41 @@
-// filepath: pkg/auth/proto/requests/list_users_request.proto
-// file: auth/proto/requests/list_users_request.proto
-//
-// Request definitions for auth module
-// TODO: Implement actual protobuf definitions
-//
+// file: pkg/auth/proto/requests/list_users_request.proto
+// version: 1.0.0
+// guid: 123e4567-e89b-12d3-a456-426614174004
+
 edition = "2023";
 
 package gcommon.v1.auth;
 
-import "google/protobuf/go_features.proto";
-
 option go_package = "github.com/jdfalk/gcommon/pkg/auth/proto;authpb";
-option features.(pb.go).api_level = API_HYBRID;
 
-// TODO: Add request definitions here
-// This is a placeholder file created during 1-1-1 migration
-// Implement the actual protobuf definitions according to the auth module requirements
+/**
+ * Request to list users with pagination and filtering.
+ */
+message ListUsersRequest {
+  // Page number (starting from 1)
+  int32 page = 1;
+
+  // Number of items per page
+  int32 page_size = 2;
+
+  // Filter by username (partial match)
+  string username_filter = 3;
+
+  // Filter by email (partial match)
+  string email_filter = 4;
+
+  // Filter by enabled status
+  bool enabled_filter = 5;
+
+  // Filter by role
+  string role_filter = 6;
+
+  // Sort field (username, email, created_at, etc.)
+  string sort_by = 7;
+
+  // Sort direction (asc or desc)
+  string sort_direction = 8;
+
+  // Include deleted users in results
+  bool include_deleted = 9;
+}
