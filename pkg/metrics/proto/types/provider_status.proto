@@ -7,6 +7,7 @@ edition = "2023";
 package gcommon.v1.metrics;
 
 import "google/protobuf/timestamp.proto";
+import "pkg/metrics/proto/enums/provider_state.proto";
 
 option go_package = "github.com/jdfalk/gcommon/pkg/metrics/proto;metricspb";
 
@@ -15,7 +16,7 @@ option go_package = "github.com/jdfalk/gcommon/pkg/metrics/proto;metricspb";
  */
 message ProviderStatus {
   // Current state
-  string state = 1;
+  ProviderState state = 1;
 
   // Status message
   string message = 2;
