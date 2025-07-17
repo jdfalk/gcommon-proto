@@ -1,0 +1,26 @@
+// file: pkg/common/proto/enums/sort_direction.proto
+// version: 1.0.0
+// guid: a7b8c9d0-e1f2-3a4b-5c6d-7e8f9a0b1c2d
+
+edition = "2023";
+
+package gcommon.v1.common;
+
+import "google/protobuf/go_features.proto";
+
+option go_package = "github.com/jdfalk/gcommon/pkg/common/proto;commonpb";
+option features.(pb.go).api_level = API_HYBRID;
+
+/**
+ * SortDirection specifies the direction for sorting operations.
+ */
+enum SortDirection {
+  // Unspecified sort direction (default to ascending)
+  SORT_DIRECTION_UNSPECIFIED = 0;
+
+  // Ascending order (A-Z, 1-9, oldest-newest)
+  SORT_DIRECTION_ASC = 1;
+
+  // Descending order (Z-A, 9-1, newest-oldest)
+  SORT_DIRECTION_DESC = 2;
+}
