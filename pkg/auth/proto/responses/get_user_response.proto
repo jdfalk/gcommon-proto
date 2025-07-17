@@ -1,18 +1,75 @@
-// filepath: pkg/auth/proto/responses/get_user_response.proto
-// file: auth/proto/responses/get_user_response.proto
-//
-// Response definitions for auth module
-// TODO: Implement actual protobuf definitions
-//
+// file: pkg/auth/proto/responses/get_user_response.proto
+// version: 1.0.0
+// guid: 123e4567-e89b-12d3-a456-426614174009
+
 edition = "2023";
 
 package gcommon.v1.auth;
 
-import "google/protobuf/go_features.proto";
+import "google/protobuf/timestamp.proto";
 
 option go_package = "github.com/jdfalk/gcommon/pkg/auth/proto;authpb";
-option features.(pb.go).api_level = API_HYBRID;
 
-// TODO: Add response definitions here
-// This is a placeholder file created during 1-1-1 migration
-// Implement the actual protobuf definitions according to the auth module requirements
+/**
+ * Detailed user information.
+ */
+message UserDetails {
+  // Unique identifier for the user
+  string user_id = 1;
+
+  // Username
+  string username = 2;
+
+  // Email address
+  string email = 3;
+
+  // Full name
+  string full_name = 4;
+
+  // Whether the account is enabled
+  bool enabled = 5;
+
+  // Assigned roles
+  repeated string roles = 6;
+
+  // User permissions
+  repeated string permissions = 7;
+
+  // Additional metadata
+  map<string, string> metadata = 8;
+
+  // When the account was created
+  google.protobuf.Timestamp created_at = 9;
+
+  // When the account was last updated
+  google.protobuf.Timestamp updated_at = 10;
+
+  // Last login time
+  google.protobuf.Timestamp last_login_at = 11;
+
+  // Account expiration time (if set)
+  google.protobuf.Timestamp expires_at = 12;
+
+  // Whether the account is deleted
+  bool deleted = 13;
+
+  // Email verification status
+  bool email_verified = 14;
+
+  // Multi-factor authentication enabled
+  bool mfa_enabled = 15;
+
+  // Number of active sessions
+  int32 active_sessions = 16;
+}
+
+/**
+ * Response for getting user details.
+ */
+message GetUserResponse {
+  // User details
+  UserDetails user = 1;
+
+  // Whether the user was found
+  bool found = 2;
+}

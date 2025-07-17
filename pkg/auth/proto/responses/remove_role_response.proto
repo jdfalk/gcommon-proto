@@ -17,9 +17,7 @@ option features.(pb.go).api_level = API_HYBRID;
  */
 message RemoveRoleResponse {
     // User ID from whom the role was removed
-    string user_id = 1 [
-        (pb.go).field = {name: "UserID"}
-    ];
+    string user_id = 1;
 
     // Username of the user
     string username = 2;
@@ -31,9 +29,7 @@ message RemoveRoleResponse {
     google.protobuf.Timestamp removed_at = 4;
 
     // ID of the admin user who performed the removal
-    string removed_by_user_id = 5 [
-        (pb.go).field = {name: "RemovedByUserID"}
-    ];
+    string removed_by_user_id = 5;
 
     // Username of the admin who performed the removal
     string removed_by_username = 6;

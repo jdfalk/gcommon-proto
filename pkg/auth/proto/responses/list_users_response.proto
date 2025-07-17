@@ -1,18 +1,72 @@
-// filepath: pkg/auth/proto/responses/list_users_response.proto
-// file: auth/proto/responses/list_users_response.proto
-//
-// Response definitions for auth module
-// TODO: Implement actual protobuf definitions
-//
+// file: pkg/auth/proto/responses/list_users_response.proto
+// version: 1.0.0
+// guid: 123e4567-e89b-12d3-a456-426614174005
+
 edition = "2023";
 
 package gcommon.v1.auth;
 
-import "google/protobuf/go_features.proto";
+import "google/protobuf/timestamp.proto";
 
 option go_package = "github.com/jdfalk/gcommon/pkg/auth/proto;authpb";
-option features.(pb.go).api_level = API_HYBRID;
 
-// TODO: Add response definitions here
-// This is a placeholder file created during 1-1-1 migration
-// Implement the actual protobuf definitions according to the auth module requirements
+/**
+ * User information for listing.
+ */
+message UserInfo {
+  // Unique identifier for the user
+  string user_id = 1;
+
+  // Username
+  string username = 2;
+
+  // Email address
+  string email = 3;
+
+  // Full name
+  string full_name = 4;
+
+  // Whether the account is enabled
+  bool enabled = 5;
+
+  // Assigned roles
+  repeated string roles = 6;
+
+  // When the account was created
+  google.protobuf.Timestamp created_at = 7;
+
+  // When the account was last updated
+  google.protobuf.Timestamp updated_at = 8;
+
+  // Last login time
+  google.protobuf.Timestamp last_login_at = 9;
+
+  // Whether the account is deleted (for soft deletes)
+  bool deleted = 10;
+}
+
+/**
+ * Response for listing users.
+ */
+message ListUsersResponse {
+  // List of users
+  repeated UserInfo users = 1;
+
+  // Total number of users (before pagination)
+  int32 total_count = 2;
+
+  // Current page number
+  int32 page = 3;
+
+  // Number of items per page
+  int32 page_size = 4;
+
+  // Total number of pages
+  int32 total_pages = 5;
+
+  // Whether there are more pages
+  bool has_next_page = 6;
+
+  // Whether this is not the first page
+  bool has_previous_page = 7;
+}

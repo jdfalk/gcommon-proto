@@ -16,14 +16,10 @@ option features.(pb.go).api_level = API_HYBRID;
  */
 message TerminateSessionResponse {
     // Session ID that was terminated
-    string session_id = 1 [
-        (pb.go).field = {name: "SessionID"}
-    ];
+    string session_id = 1;
 
     // User ID whose session was terminated
-    string user_id = 2 [
-        (pb.go).field = {name: "UserID"}
-    ];
+    string user_id = 2;
 
     // Username of the user
     string username = 3;
