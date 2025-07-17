@@ -10,6 +10,8 @@ package gcommon.v1.metrics;
 import "google/protobuf/go_features.proto";
 import "google/protobuf/timestamp.proto";
 import "pkg/common/proto/messages/error.proto";
+import "pkg/metrics/proto/types/retention_policy.proto";
+import "pkg/metrics/proto/types/time_range.proto";
 
 option go_package = "github.com/jdfalk/gcommon/pkg/metrics/proto;metricspb";
 option features.(pb.go).api_level = API_HYBRID;
@@ -191,15 +193,6 @@ message RetentionInfo {
   int64 total_purged_bytes = 2;
   string oldest_data_age = 3;
   repeated RetentionPolicy policies = 4;
-}
-
-/**
- * RetentionPolicy describes a data retention policy.
- */
-message RetentionPolicy {
-  string name = 1;
-  string duration = 2;
-  int64 affected_metrics = 3;
 }
 
 /**

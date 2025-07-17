@@ -10,6 +10,7 @@ package gcommon.v1.metrics;
 import "google/protobuf/go_features.proto";
 import "google/protobuf/timestamp.proto";
 import "pkg/common/proto/messages/error.proto";
+import "pkg/metrics/proto/types/provider_status.proto";
 
 option go_package = "github.com/jdfalk/gcommon/pkg/metrics/proto;metricspb";
 option features.(pb.go).api_level = API_HYBRID;
@@ -70,29 +71,6 @@ message ProviderInfo {
 
   // Description of the provider
   string description = 10;
-}
-
-/**
- * ProviderStatus contains current status information.
- */
-message ProviderStatus {
-  // Current state
-  string state = 1;
-
-  // Health status
-  string health = 2;
-
-  // Status message
-  string message = 3;
-
-  // Last status update time
-  google.protobuf.Timestamp last_updated = 4;
-
-  // Uptime duration
-  string uptime = 5;
-
-  // Provider version
-  string version = 6;
 }
 
 /**
