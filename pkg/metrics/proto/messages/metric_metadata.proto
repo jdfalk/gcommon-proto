@@ -9,10 +9,48 @@ edition = "2023";
 package gcommon.v1.metrics;
 
 import "google/protobuf/go_features.proto";
+import "google/protobuf/timestamp.proto";
 
 option go_package = "github.com/jdfalk/gcommon/pkg/metrics/proto;metricspb";
 option features.(pb.go).api_level = API_HYBRID;
 
-// TODO: Add message definitions here
-// This is a placeholder file created during 1-1-1 migration
-// Implement the actual protobuf definitions according to the metrics module requirements
+/**
+ * MetricMetadata contains metadata information about a metric.
+ */
+message MetricMetadata {
+  // Unique identifier for the metric
+  string metric_id = 1;
+
+  // Human-readable name of the metric
+  string name = 2;
+
+  // Description of what this metric measures
+  string description = 3;
+
+  // Metric type (counter, gauge, histogram, etc.)
+  string type = 4;
+
+  // Units of measurement (e.g., "bytes", "seconds", "requests")
+  string unit = 5;
+
+  // Labels associated with this metric
+  map<string, string> labels = 6;
+
+  // When this metric was first created
+  google.protobuf.Timestamp created_at = 7;
+
+  // When this metric was last updated
+  google.protobuf.Timestamp updated_at = 8;
+
+  // Whether this metric is currently active
+  bool active = 9;
+
+  // Data retention policy for this metric
+  string retention_policy = 10;
+
+  // Provider that owns this metric
+  string provider_id = 11;
+
+  // Namespace this metric belongs to
+  string namespace = 12;
+}
