@@ -1,0 +1,44 @@
+// file: pkg/metrics/proto/enums/metric_aggregation.proto
+// version: 1.0.0
+// guid: 123e4567-e89b-12d3-a456-426614174011
+
+edition = "2023";
+
+package gcommon.v1.metrics;
+
+option go_package = "github.com/jdfalk/gcommon/pkg/metrics/proto;metricspb";
+
+/**
+ * Aggregation methods for metric values.
+ */
+enum MetricAggregation {
+  // Default aggregation method
+  METRIC_AGGREGATION_UNSPECIFIED = 0;
+
+  // Sum of all values
+  METRIC_AGGREGATION_SUM = 1;
+
+  // Average of all values
+  METRIC_AGGREGATION_AVERAGE = 2;
+
+  // Minimum value
+  METRIC_AGGREGATION_MIN = 3;
+
+  // Maximum value
+  METRIC_AGGREGATION_MAX = 4;
+
+  // Count of values
+  METRIC_AGGREGATION_COUNT = 5;
+
+  // Median value
+  METRIC_AGGREGATION_MEDIAN = 6;
+
+  // 95th percentile
+  METRIC_AGGREGATION_P95 = 7;
+
+  // 99th percentile
+  METRIC_AGGREGATION_P99 = 8;
+
+  // Standard deviation
+  METRIC_AGGREGATION_STDDEV = 9;
+}
