@@ -1,0 +1,26 @@
+// file: pkg/cache/proto/requests/list_namespaces_request.proto
+// version: 1.0.0
+// guid: 123e4567-e89b-12d3-a456-426614174015
+
+edition = "2023";
+
+package gcommon.v1.cache;
+
+option go_package = "github.com/jdfalk/gcommon/pkg/cache/proto;cachepb";
+
+/**
+ * Request to list cache namespaces.
+ */
+message ListNamespacesRequest {
+  // Page number (starting from 1)
+  int32 page = 1;
+
+  // Number of items per page
+  int32 page_size = 2;
+
+  // Filter by name pattern
+  string name_filter = 3;
+
+  // Include detailed statistics
+  bool include_stats = 4;
+}
