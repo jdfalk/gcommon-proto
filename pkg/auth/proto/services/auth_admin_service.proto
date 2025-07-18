@@ -17,13 +17,15 @@ import "pkg/auth/proto/requests/create_role_request.proto";
 import "pkg/auth/proto/requests/update_role_request.proto";
 import "pkg/auth/proto/requests/delete_role_request.proto";
 import "pkg/auth/proto/requests/list_roles_request.proto";
-import "pkg/auth/proto/responses/register_user_response.proto";
 import "pkg/auth/proto/responses/update_user_response.proto";
 import "pkg/auth/proto/responses/list_users_response.proto";
 import "pkg/auth/proto/responses/get_user_response.proto";
 import "pkg/auth/proto/responses/create_role_response.proto";
 import "pkg/auth/proto/responses/update_role_response.proto";
 import "pkg/auth/proto/responses/list_roles_response.proto";
+import "pkg/auth/proto/requests/invalidate_user_sessions_request.proto";
+import "pkg/auth/proto/requests/get_system_stats_request.proto";
+import "pkg/auth/proto/responses/get_system_stats_response.proto";
 
 option go_package = "github.com/jdfalk/gcommon/pkg/auth/proto;authpb";
 option features.(pb.go).api_level = API_HYBRID;

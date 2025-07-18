@@ -6,44 +6,9 @@ edition = "2023";
 
 package gcommon.v1.auth;
 
-import "google/protobuf/timestamp.proto";
+import "pkg/auth/proto/messages/user_info.proto";
 
 option go_package = "github.com/jdfalk/gcommon/pkg/auth/proto;authpb";
-
-/**
- * User information for listing.
- */
-message UserInfo {
-  // Unique identifier for the user
-  string user_id = 1;
-
-  // Username
-  string username = 2;
-
-  // Email address
-  string email = 3;
-
-  // Full name
-  string full_name = 4;
-
-  // Whether the account is enabled
-  bool enabled = 5;
-
-  // Assigned roles
-  repeated string roles = 6;
-
-  // When the account was created
-  google.protobuf.Timestamp created_at = 7;
-
-  // When the account was last updated
-  google.protobuf.Timestamp updated_at = 8;
-
-  // Last login time
-  google.protobuf.Timestamp last_login_at = 9;
-
-  // Whether the account is deleted (for soft deletes)
-  bool deleted = 10;
-}
 
 /**
  * Response for listing users.
