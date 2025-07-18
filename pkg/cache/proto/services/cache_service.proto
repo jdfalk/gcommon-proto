@@ -26,11 +26,11 @@ import "pkg/cache/proto/requests/clear_request.proto";
 import "pkg/cache/proto/responses/clear_response.proto";
 import "pkg/cache/proto/requests/keys_request.proto";
 import "pkg/cache/proto/responses/keys_response.proto";
-import "pkg/cache/proto/requests/get_stats_request.proto";
+import "pkg/cache/proto/requests/stats_request.proto";
 import "pkg/cache/proto/responses/get_stats_response.proto";
 import "pkg/cache/proto/requests/flush_request.proto";
 import "pkg/cache/proto/responses/flush_response.proto";
-import "pkg/cache/proto/requests/touch_expiration_request.proto";
+import "pkg/cache/proto/requests/ttl_request.proto";
 import "pkg/cache/proto/responses/touch_expiration_response.proto";
 
 option go_package = "github.com/jdfalk/gcommon/pkg/cache/proto;cachepb";
