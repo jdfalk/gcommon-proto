@@ -1,0 +1,67 @@
+// file: pkg/config/proto/messages/config_diff.proto
+// version: 1.0.0
+// guid: tu0vwxyz-12a3-4b5c-6d7e-8f9g0h1i2j3k
+
+edition = "2023";
+
+package gcommon.v1.config;
+
+import "google/protobuf/go_features.proto";
+import "google/protobuf/timestamp.proto";
+import "google/protobuf/any.proto";
+
+option go_package = "github.com/jdfalk/gcommon/pkg/config/proto;configpb";
+option features.(pb.go).api_level = API_HYBRID;
+
+/**
+ * Represents differences between two configuration states.
+ * Provides detailed comparison information for configuration changes.
+ */
+message ConfigDiff {
+  // Unique identifier for this diff
+  string diff_id = 1;
+
+  // Source configuration version/snapshot
+  string source_version = 2;
+
+  // Target configuration version/snapshot
+  string target_version = 3;
+
+  // List of added configuration keys
+  repeated ConfigDiffEntry added = 4;
+
+  // List of modified configuration keys
+  repeated ConfigDiffEntry modified = 5;
+
+  // List of removed configuration keys
+  repeated ConfigDiffEntry removed = 6;
+
+  // Timestamp when diff was computed
+  google.protobuf.Timestamp computed_at = 7;
+
+  // User or service that requested the diff
+  string requested_by = 8;
+
+  // Additional metadata
+  map<string, string> metadata = 9;
+}
+
+/**
+ * Represents a single configuration difference entry.
+ */
+message ConfigDiffEntry {
+  // Configuration key
+  string key = 1;
+
+  // Old value (for modified/removed entries)
+  google.protobuf.Any old_value = 2;
+
+  // New value (for added/modified entries)
+  google.protobuf.Any new_value = 3;
+
+  // Type of change (ADDED, MODIFIED, REMOVED)
+  string change_type = 4;
+
+  // Configuration namespace or section
+  string namespace = 5;
+}
