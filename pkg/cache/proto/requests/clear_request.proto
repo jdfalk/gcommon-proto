@@ -1,0 +1,25 @@
+// file: pkg/cache/proto/requests/clear_request.proto
+// version: 1.0.0
+// guid: de4fghij-56k7-8l9m-0n1o-2p3q4r5s6t7u
+
+edition = "2023";
+
+package gcommon.v1.cache;
+
+import "google/protobuf/go_features.proto";
+import "pkg/common/proto/messages/request_metadata.proto";
+
+option go_package = "github.com/jdfalk/gcommon/pkg/cache/proto;cachepb";
+option features.(pb.go).api_level = API_HYBRID;
+
+/**
+ * Request to clear all cache entries.
+ * Optionally clear only a specific namespace.
+ */
+message ClearRequest {
+  // Optional namespace to clear (if empty, clears all)
+  string namespace = 1;
+
+  // Request metadata for tracing
+  gcommon.v1.common.RequestMetadata metadata = 2;
+}
