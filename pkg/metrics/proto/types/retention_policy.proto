@@ -11,9 +11,9 @@ import "google/protobuf/duration.proto";
 option go_package = "github.com/jdfalk/gcommon/pkg/metrics/proto;metricspb";
 
 /**
- * Retention policy for metric data.
+ * Retention policy configuration for metric data.
  */
-message RetentionPolicy {
+message RetentionPolicyConfig {
   // How long to retain data
   google.protobuf.Duration duration = 1;
 

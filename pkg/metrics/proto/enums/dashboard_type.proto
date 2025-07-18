@@ -1,0 +1,51 @@
+// file: pkg/metrics/proto/enums/dashboard_type.proto
+// version: 1.0.0
+// guid: 7d8e9f0a-1b2c-3d4e-5f6a-7b8c9d0e1f2a
+
+edition = "2023";
+
+package gcommon.v1.metrics;
+
+option go_package = "github.com/jdfalk/gcommon/pkg/metrics/proto;metricspb";
+
+// DashboardType represents different types of dashboards
+enum DashboardType {
+  // Unspecified dashboard type
+  DASHBOARD_TYPE_UNSPECIFIED = 0;
+
+  // System overview dashboard
+  DASHBOARD_TYPE_SYSTEM_OVERVIEW = 1;
+
+  // Application performance dashboard
+  DASHBOARD_TYPE_APPLICATION_PERFORMANCE = 2;
+
+  // Infrastructure monitoring dashboard
+  DASHBOARD_TYPE_INFRASTRUCTURE = 3;
+
+  // Business metrics dashboard
+  DASHBOARD_TYPE_BUSINESS_METRICS = 4;
+
+  // Security monitoring dashboard
+  DASHBOARD_TYPE_SECURITY = 5;
+
+  // Custom dashboard
+  DASHBOARD_TYPE_CUSTOM = 6;
+
+  // Real-time monitoring dashboard
+  DASHBOARD_TYPE_REAL_TIME = 7;
+
+  // Historical analysis dashboard
+  DASHBOARD_TYPE_HISTORICAL = 8;
+
+  // Alert summary dashboard
+  DASHBOARD_TYPE_ALERT_SUMMARY = 9;
+
+  // Service health dashboard
+  DASHBOARD_TYPE_SERVICE_HEALTH = 10;
+
+  // Capacity planning dashboard
+  DASHBOARD_TYPE_CAPACITY_PLANNING = 11;
+
+  // SLA/SLO tracking dashboard
+  DASHBOARD_TYPE_SLA_SLO = 12;
+}

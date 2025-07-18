@@ -60,7 +60,7 @@ message MetricDefinition {
   MetricConfig config = 6;
 
   // Retention policy for this metric
-  RetentionPolicy retention = 7;
+  RetentionPolicyConfig retention = 7;
 
   // Export configuration for this metric
   ExportConfig export_config = 8;

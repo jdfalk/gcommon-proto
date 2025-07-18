@@ -7,7 +7,8 @@ edition = "2023";
 package gcommon.v1.config;
 
 import "google/protobuf/timestamp.proto";
-import "pkg/common/proto/common.proto";
+import "pkg/config/proto/messages/config_metadata.proto";
+import "pkg/config/proto/messages/config_secret.proto";
 
 option go_package = "github.com/jdfalk/gcommon/pkg/config/proto;configpb";
 
@@ -163,45 +164,7 @@ message PromotionRule {
   repeated string transformations = 10;
 }
 
-// AccessControl represents access control for an environment
-message AccessControl {
-  // User or group identifier
-  string principal = 1;
 
-  // Principal type
-  PrincipalType principal_type = 2;
-
-  // Permissions
-  repeated string permissions = 3;
-
-  // Access level
-  AccessLevel access_level = 4;
-
-  // Conditions for access
-  repeated string conditions = 5;
-
-  // Expiration time
-  google.protobuf.Timestamp expires_at = 6;
-}
-
-// PrincipalType represents the type of principal
-enum PrincipalType {
-  PRINCIPAL_TYPE_UNSPECIFIED = 0;
-  PRINCIPAL_TYPE_USER = 1;
-  PRINCIPAL_TYPE_GROUP = 2;
-  PRINCIPAL_TYPE_SERVICE_ACCOUNT = 3;
-  PRINCIPAL_TYPE_ROLE = 4;
-  PRINCIPAL_TYPE_TEAM = 5;
-}
-
-// AccessLevel represents the level of access
-enum AccessLevel {
-  ACCESS_LEVEL_UNSPECIFIED = 0;
-  ACCESS_LEVEL_READ = 1;
-  ACCESS_LEVEL_WRITE = 2;
-  ACCESS_LEVEL_ADMIN = 3;
-  ACCESS_LEVEL_OWNER = 4;
-}
 
 // DeploymentInfo represents deployment information for an environment
 message DeploymentInfo {
@@ -481,29 +444,7 @@ message RetentionPolicy {
   map<string, int32> custom_retention = 6;
 }
 
-// ComplianceSettings represents compliance settings for an environment
-message ComplianceSettings {
-  // Compliance enabled
-  bool enabled = 1;
 
-  // Compliance frameworks
-  repeated string frameworks = 2;
-
-  // Compliance controls
-  repeated string controls = 3;
-
-  // Compliance policies
-  repeated string policies = 4;
-
-  // Compliance auditing
-  bool auditing = 5;
-
-  // Compliance reporting
-  bool reporting = 6;
-
-  // Compliance configuration
-  map<string, string> config = 7;
-}
 
 // EncryptionSettings represents encryption settings for an environment
 message EncryptionSettings {
@@ -526,44 +467,9 @@ message EncryptionSettings {
   map<string, string> config = 6;
 }
 
-// AuditSettings represents audit settings for an environment
-message AuditSettings {
-  // Audit enabled
-  bool enabled = 1;
 
-  // Audit level
-  string level = 2;
 
-  // Audit events
-  repeated string events = 3;
 
-  // Audit storage
-  string storage = 4;
-
-  // Audit retention
-  int32 retention_days = 5;
-
-  // Audit configuration
-  map<string, string> config = 6;
-}
-
-// NotificationSettings represents notification settings for an environment
-message NotificationSettings {
-  // Notifications enabled
-  bool enabled = 1;
-
-  // Notification channels
-  repeated string channels = 2;
-
-  // Notification events
-  repeated string events = 3;
-
-  // Notification templates
-  map<string, string> templates = 4;
-
-  // Notification configuration
-  map<string, string> config = 5;
-}
 
 // SyncSettings represents sync settings for an environment
 message SyncSettings {

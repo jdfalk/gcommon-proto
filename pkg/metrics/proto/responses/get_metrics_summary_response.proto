@@ -122,7 +122,7 @@ message RetentionInfo {
   int64 total_retained_bytes = 1;
   int64 total_purged_bytes = 2;
   string oldest_data_age = 3;
-  repeated RetentionPolicy policies = 4;
+  repeated RetentionPolicyConfig policies = 4;
 }
 
 /**
