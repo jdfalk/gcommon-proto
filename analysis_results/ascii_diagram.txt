@@ -1,0 +1,2662 @@
+====================================================================================================
+🎯 PROTOBUF ECOSYSTEM ANALYSIS - ASCII DIAGRAM
+====================================================================================================
+
+📦 AUTH
+│
+├─ 📁 auth.proto/
+│  └─ ✅ auth.proto [1-1-1]
+│     └─ 📥 go_features.proto
+├─ 📁 messages/
+│  ├─ ✅ api_key.proto [1-1-1]
+│     └─ 📥 go_features.proto
+│  ├─ ✅ audit_log.proto [1-1-1]
+│     └─ 📥 go_features.proto
+│  ├─ ✅ auth_config.proto [1-1-1]
+│     └─ 📥 go_features.proto
+│  ├─ ✅ auth_provider.proto [1-1-1]
+│     └─ 📥 go_features.proto
+│  ├─ ✅ auth_token.proto [1-1-1]
+│     └─ 📥 go_features.proto
+│  ├─ ✅ group.proto [1-1-1]
+│     ├─ 📥 go_features.proto
+│     └─ 📥 timestamp.proto
+│     └─ 📥 ... +1 more
+│  ├─ ✅ jwt_config.proto [1-1-1]
+│     └─ 📥 go_features.proto
+│  ├─ ✅ ldap_config.proto [1-1-1]
+│     └─ 📥 go_features.proto
+│  ├─ ✅ mfa_config.proto [1-1-1]
+│     └─ 📥 go_features.proto
+│  ├─ ✅ oauth2_config.proto [1-1-1]
+│     └─ 📥 go_features.proto
+│  ├─ ✅ oauth_client.proto [1-1-1]
+│     ├─ 📥 go_features.proto
+│     └─ 📥 timestamp.proto
+│     └─ 📥 ... +1 more
+│  ├─ ✅ password_policy.proto [1-1-1]
+│     └─ 📥 go_features.proto
+│  ├─ ✅ permission.proto [1-1-1]
+│     └─ 📥 go_features.proto
+│  ├─ ✅ permission_grant.proto [1-1-1]
+│     ├─ 📥 go_features.proto
+│     └─ 📥 timestamp.proto
+│     └─ 📥 ... +1 more
+│  ├─ ✅ rate_limit_config.proto [1-1-1]
+│     ├─ 📥 go_features.proto
+│     └─ 📥 duration.proto
+│  ├─ ✅ role_assignment.proto [1-1-1]
+│     ├─ 📥 go_features.proto
+│     └─ 📥 timestamp.proto
+│     └─ 📥 ... +1 more
+│  ├─ ✅ saml_config.proto [1-1-1]
+│     └─ 📥 go_features.proto
+│  ├─ ✅ session.proto [1-1-1]
+│     ├─ 📥 go_features.proto
+│     └─ 📥 timestamp.proto
+│     └─ 📥 ... +2 more
+│  ├─ ✅ session_config.proto [1-1-1]
+│     └─ 📥 go_features.proto
+│  ├─ ✅ session_info.proto [1-1-1]
+│     ├─ 📥 go_features.proto
+│     └─ 📥 timestamp.proto
+│  ├─ ✅ token.proto [1-1-1]
+│     ├─ 📥 go_features.proto
+│     └─ 📥 timestamp.proto
+│     └─ 📥 ... +2 more
+│  ├─ ✅ token_info.proto [1-1-1]
+│     ├─ 📥 go_features.proto
+│     └─ 📥 timestamp.proto
+│     └─ 📥 ... +1 more
+│  ├─ ✅ user.proto [1-1-1]
+│     ├─ 📥 go_features.proto
+│     └─ 📥 timestamp.proto
+│     └─ 📥 ... +1 more
+│  ├─ ✅ user_info.proto [1-1-1]
+│     ├─ 📥 go_features.proto
+│     └─ 📥 timestamp.proto
+│  └─ ✅ user_profile.proto [1-1-1]
+│     └─ 📥 go_features.proto
+├─ 📁 types/
+│  ├─ ✅ api_key_credentials.proto [1-1-1]
+│     └─ 📥 go_features.proto
+│  ├─ ✅ auth_context.proto [1-1-1]
+│     └─ 📥 go_features.proto
+│  ├─ ✅ claims.proto [1-1-1]
+│     └─ 📥 go_features.proto
+│  ├─ ✅ jwt_credentials.proto [1-1-1]
+│     └─ 📥 go_features.proto
+│  ├─ ✅ oauth2_credentials.proto [1-1-1]
+│     └─ 📥 go_features.proto
+│  ├─ ✅ password_credentials.proto [1-1-1]
+│     └─ 📥 go_features.proto
+│  ├─ ✅ permission_metadata.proto [1-1-1]
+│     └─ 📥 go_features.proto
+│  ├─ ✅ role.proto [1-1-1]
+│     ├─ 📥 go_features.proto
+│     └─ 📥 timestamp.proto
+│     └─ 📥 ... +1 more
+│  ├─ ✅ role_metadata.proto [1-1-1]
+│     └─ 📥 go_features.proto
+│  ├─ ✅ security_context.proto [1-1-1]
+│     └─ 📥 go_features.proto
+│  ├─ ✅ session_metadata.proto [1-1-1]
+│     └─ 📥 go_features.proto
+│  ├─ ✅ token_metadata.proto [1-1-1]
+│     └─ 📥 go_features.proto
+│  └─ ✅ user_metadata.proto [1-1-1]
+│     └─ 📥 go_features.proto
+├─ 📁 enums/
+│  ├─ ✅ audit_action.proto [1-1-1]
+│     └─ 📥 go_features.proto
+│  ├─ ✅ auth_method.proto [1-1-1]
+│     └─ 📥 go_features.proto
+│  ├─ ✅ grant_type.proto [1-1-1]
+│     └─ 📥 go_features.proto
+│  ├─ ✅ mfa_type.proto [1-1-1]
+│     └─ 📥 go_features.proto
+│  ├─ ✅ permission_scope.proto [1-1-1]
+│     └─ 📥 go_features.proto
+│  ├─ ✅ permission_type.proto [1-1-1]
+│     └─ 📥 go_features.proto
+│  ├─ ✅ provider_type.proto [1-1-1]
+│     └─ 📥 go_features.proto
+│  ├─ ✅ role_scope.proto [1-1-1]
+│     └─ 📥 go_features.proto
+│  ├─ ✅ scope_type.proto [1-1-1]
+│     └─ 📥 go_features.proto
+│  ├─ ✅ session_status.proto [1-1-1]
+│     └─ 📥 go_features.proto
+│  ├─ ✅ token_status.proto [1-1-1]
+│     └─ 📥 go_features.proto
+│  ├─ ✅ token_type.proto [1-1-1]
+│     └─ 📥 go_features.proto
+│  └─ ✅ user_status.proto [1-1-1]
+│     └─ 📥 go_features.proto
+├─ 📁 responses/
+│  ├─ ✅ assign_role_response.proto [1-1-1]
+│     └─ 📥 go_features.proto
+│  ├─ ✅ authenticate_response.proto [1-1-1]
+│     ├─ 📥 go_features.proto
+│     └─ 📥 rate_limit.proto
+│     └─ 📥 ... +2 more
+│  ├─ ✅ authorize_response.proto [1-1-1]
+│     ├─ 📥 go_features.proto
+│     └─ 📥 error.proto
+│  ├─ ✅ change_password_response.proto [1-1-1]
+│     ├─ 📥 go_features.proto
+│     └─ 📥 error.proto
+│  ├─ ✅ check_permission_response.proto [1-1-1]
+│     └─ 📥 go_features.proto
+│  ├─ ✅ complete_password_reset_response.proto [1-1-1]
+│     ├─ 📥 go_features.proto
+│     └─ 📥 timestamp.proto
+│  ├─ ✅ create_role_response.proto [1-1-1]
+│     ├─ 📥 go_features.proto
+│     └─ 📥 error.proto
+│     └─ 📥 ... +1 more
+│  ├─ ✅ create_session_response.proto [1-1-1]
+│     └─ 📥 go_features.proto
+│  ├─ ✅ create_user_response.proto [1-1-1]
+│     └─ 📥 timestamp.proto
+│  ├─ ✅ delete_role_response.proto [1-1-1]
+│     └─ 📥 go_features.proto
+│  ├─ ✅ delete_session_response.proto [1-1-1]
+│     └─ 📥 go_features.proto
+│  ├─ ✅ delete_user_response.proto [1-1-1]
+│     └─ 📥 go_features.proto
+│  ├─ ✅ disable_mfa_response.proto [1-1-1]
+│     └─ 📥 go_features.proto
+│  ├─ ✅ enable_mfa_response.proto [1-1-1]
+│     └─ 📥 go_features.proto
+│  ├─ ✅ generate_api_key_response.proto [1-1-1]
+│     └─ 📥 go_features.proto
+│  ├─ ✅ get_api_key_response.proto [1-1-1]
+│     └─ 📥 go_features.proto
+│  ├─ ✅ get_permission_response.proto [1-1-1]
+│     └─ 📥 go_features.proto
+│  ├─ ✅ get_role_response.proto [1-1-1]
+│     └─ 📥 go_features.proto
+│  ├─ ✅ get_session_response.proto [1-1-1]
+│     └─ 📥 go_features.proto
+│  ├─ ✅ get_system_stats_response.proto [1-1-1]
+│     ├─ 📥 go_features.proto
+│     └─ 📥 error.proto
+│  ├─ ✅ get_user_info_response.proto [1-1-1]
+│     ├─ 📥 go_features.proto
+│     └─ 📥 user_info.proto
+│  ├─ ✅ get_user_permissions_response.proto [1-1-1]
+│     ├─ 📥 go_features.proto
+│     └─ 📥 role.proto
+│  ├─ ✅ get_user_response.proto [MULTI]
+│     └─ 📥 timestamp.proto
+│  ├─ ✅ get_user_roles_response.proto [1-1-1]
+│     ├─ 📥 go_features.proto
+│     └─ 📥 role.proto
+│  ├─ ✅ grant_permission_response.proto [1-1-1]
+│     └─ 📥 go_features.proto
+│  ├─ ✅ health_check_response.proto [1-1-1]
+│     └─ 📥 go_features.proto
+│  ├─ ✅ initiate_password_reset_response.proto [1-1-1]
+│     ├─ 📥 go_features.proto
+│     └─ 📥 timestamp.proto
+│  ├─ ✅ list_api_keys_response.proto [1-1-1]
+│     └─ 📥 go_features.proto
+│  ├─ ✅ list_permissions_response.proto [1-1-1]
+│     └─ 📥 go_features.proto
+│  ├─ ✅ list_roles_response.proto [1-1-1]
+│     ├─ 📥 go_features.proto
+│     └─ 📥 paginated_response.proto
+│     └─ 📥 ... +1 more
+│  ├─ ✅ list_sessions_response.proto [1-1-1]
+│     └─ 📥 go_features.proto
+│  ├─ ✅ list_users_response.proto [1-1-1]
+│     └─ 📥 user_info.proto
+│  ├─ ✅ logout_response.proto [1-1-1]
+│     └─ 📥 go_features.proto
+│  ├─ ✅ refresh_token_response.proto [1-1-1]
+│     └─ 📥 go_features.proto
+│  ├─ ✅ register_user_response.proto [1-1-1]
+│     └─ 📥 go_features.proto
+│  ├─ ✅ remove_role_response.proto [1-1-1]
+│     ├─ 📥 go_features.proto
+│     └─ 📥 timestamp.proto
+│     └─ 📥 ... +1 more
+│  ├─ ✅ reset_password_response.proto [1-1-1]
+│     └─ 📥 go_features.proto
+│  ├─ ✅ revoke_api_key_response.proto [1-1-1]
+│     └─ 📥 go_features.proto
+│  ├─ ✅ revoke_permission_response.proto [1-1-1]
+│     └─ 📥 go_features.proto
+│  ├─ ✅ revoke_role_response.proto [1-1-1]
+│     └─ 📥 go_features.proto
+│  ├─ ✅ revoke_token_response.proto [1-1-1]
+│     ├─ 📥 go_features.proto
+│     └─ 📥 timestamp.proto
+│  ├─ ✅ send_verification_email_response.proto [1-1-1]
+│     └─ 📥 go_features.proto
+│  ├─ ✅ terminate_session_response.proto [1-1-1]
+│     ├─ 📥 go_features.proto
+│     └─ 📥 timestamp.proto
+│  ├─ ✅ update_role_response.proto [1-1-1]
+│     ├─ 📥 go_features.proto
+│     └─ 📥 error.proto
+│     └─ 📥 ... +1 more
+│  ├─ ✅ update_session_response.proto [1-1-1]
+│     └─ 📥 go_features.proto
+│  ├─ ✅ update_user_response.proto [1-1-1]
+│     └─ 📥 timestamp.proto
+│  ├─ ✅ validate_session_response.proto [1-1-1]
+│     ├─ 📥 go_features.proto
+│     └─ 📥 error.proto
+│     └─ 📥 ... +2 more
+│  ├─ ✅ validate_token_response.proto [1-1-1]
+│     ├─ 📥 go_features.proto
+│     └─ 📥 timestamp.proto
+│     └─ 📥 ... +1 more
+│  ├─ ✅ verify_credentials_response.proto [1-1-1]
+│     ├─ 📥 go_features.proto
+│     └─ 📥 error.proto
+│     └─ 📥 ... +1 more
+│  ├─ ✅ verify_email_response.proto [1-1-1]
+│     └─ 📥 go_features.proto
+│  └─ ✅ verify_mfa_response.proto [1-1-1]
+│     └─ 📥 go_features.proto
+├─ 📁 requests/
+│  ├─ ✅ assign_role_request.proto [1-1-1]
+│     ├─ 📥 go_features.proto
+│     └─ 📥 request_metadata.proto
+│  ├─ ✅ authenticate_request.proto [1-1-1]
+│     ├─ 📥 go_features.proto
+│     └─ 📥 request_metadata.proto
+│     └─ 📥 ... +5 more
+│  ├─ ✅ authorize_request.proto [1-1-1]
+│     ├─ 📥 go_features.proto
+│     └─ 📥 request_metadata.proto
+│  ├─ ✅ change_password_request.proto [1-1-1]
+│     ├─ 📥 go_features.proto
+│     └─ 📥 request_metadata.proto
+│  ├─ ✅ check_permission_request.proto [1-1-1]
+│     └─ 📥 go_features.proto
+│  ├─ ✅ complete_password_reset_request.proto [1-1-1]
+│     ├─ 📥 go_features.proto
+│     └─ 📥 request_metadata.proto
+│  ├─ ✅ create_permission_request.proto [1-1-1]
+│     └─ 📥 go_features.proto
+│  ├─ ✅ create_role_request.proto [1-1-1]
+│     ├─ 📥 go_features.proto
+│     └─ 📥 request_metadata.proto
+│     └─ 📥 ... +1 more
+│  ├─ ✅ create_session_request.proto [1-1-1]
+│     ├─ 📥 go_features.proto
+│     └─ 📥 request_metadata.proto
+│     └─ 📥 ... +1 more
+│  ├─ ✅ create_user_request.proto [1-1-1]
+│     └─ 📥 timestamp.proto
+│  ├─ ✅ delete_permission_request.proto [1-1-1]
+│     └─ 📥 go_features.proto
+│  ├─ ✅ delete_role_request.proto [1-1-1]
+│     ├─ 📥 go_features.proto
+│     └─ 📥 request_metadata.proto
+│  ├─ ✅ delete_session_request.proto [1-1-1]
+│     └─ 📥 go_features.proto
+│  ├─ ✅ delete_user_request.proto [1-1-1]
+│  ├─ ✅ disable_2fa_request.proto [1-1-1]
+│     └─ 📥 go_features.proto
+│  ├─ ✅ disable_mfa_request.proto [1-1-1]
+│     └─ 📥 go_features.proto
+│  ├─ ✅ enable_2fa_request.proto [1-1-1]
+│     └─ 📥 go_features.proto
+│  ├─ ✅ enable_mfa_request.proto [1-1-1]
+│     └─ 📥 go_features.proto
+│  ├─ ✅ generate_api_key_request.proto [1-1-1]
+│     └─ 📥 go_features.proto
+│  ├─ ✅ get_api_key_request.proto [1-1-1]
+│     └─ 📥 go_features.proto
+│  ├─ ✅ get_auth_config_request.proto [1-1-1]
+│     └─ 📥 go_features.proto
+│  ├─ ✅ get_permission_request.proto [1-1-1]
+│     └─ 📥 go_features.proto
+│  ├─ ✅ get_role_request.proto [1-1-1]
+│     └─ 📥 go_features.proto
+│  ├─ ✅ get_session_request.proto [1-1-1]
+│     ├─ 📥 go_features.proto
+│     └─ 📥 request_metadata.proto
+│  ├─ ✅ get_system_stats_request.proto [1-1-1]
+│     ├─ 📥 go_features.proto
+│     └─ 📥 request_metadata.proto
+│  ├─ ✅ get_user_info_request.proto [1-1-1]
+│     ├─ 📥 go_features.proto
+│     └─ 📥 request_metadata.proto
+│  ├─ ✅ get_user_permissions_request.proto [1-1-1]
+│     ├─ 📥 go_features.proto
+│     └─ 📥 request_metadata.proto
+│  ├─ ✅ get_user_request.proto [1-1-1]
+│  ├─ ✅ get_user_roles_request.proto [1-1-1]
+│     ├─ 📥 go_features.proto
+│     └─ 📥 request_metadata.proto
+│  ├─ ✅ grant_permission_request.proto [1-1-1]
+│     └─ 📥 go_features.proto
+│  ├─ ✅ health_check_request.proto [1-1-1]
+│     └─ 📥 go_features.proto
+│  ├─ ✅ initiate_password_reset_request.proto [1-1-1]
+│     ├─ 📥 go_features.proto
+│     └─ 📥 request_metadata.proto
+│  ├─ ✅ invalidate_user_sessions_request.proto [1-1-1]
+│     ├─ 📥 go_features.proto
+│     └─ 📥 request_metadata.proto
+│  ├─ ✅ list_api_keys_request.proto [1-1-1]
+│     └─ 📥 go_features.proto
+│  ├─ ✅ list_permissions_request.proto [1-1-1]
+│     └─ 📥 go_features.proto
+│  ├─ ✅ list_roles_request.proto [1-1-1]
+│     ├─ 📥 go_features.proto
+│     └─ 📥 request_metadata.proto
+│     └─ 📥 ... +3 more
+│  ├─ ✅ list_sessions_request.proto [1-1-1]
+│     └─ 📥 go_features.proto
+│  ├─ ✅ list_users_request.proto [1-1-1]
+│  ├─ ✅ logout_request.proto [1-1-1]
+│     └─ 📥 go_features.proto
+│  ├─ ✅ refresh_token_request.proto [1-1-1]
+│     ├─ 📥 go_features.proto
+│     └─ 📥 request_metadata.proto
+│  ├─ ✅ register_user_request.proto [1-1-1]
+│     └─ 📥 go_features.proto
+│  ├─ ✅ remove_role_request.proto [1-1-1]
+│     ├─ 📥 go_features.proto
+│     └─ 📥 request_metadata.proto
+│  ├─ ✅ resend_verification_request.proto [1-1-1]
+│     └─ 📥 go_features.proto
+│  ├─ ✅ reset_password_request.proto [1-1-1]
+│     └─ 📥 go_features.proto
+│  ├─ ✅ revoke_api_key_request.proto [1-1-1]
+│     └─ 📥 go_features.proto
+│  ├─ ✅ revoke_permission_request.proto [1-1-1]
+│     └─ 📥 go_features.proto
+│  ├─ ✅ revoke_role_request.proto [1-1-1]
+│     └─ 📥 go_features.proto
+│  ├─ ✅ revoke_token_request.proto [1-1-1]
+│     ├─ 📥 go_features.proto
+│     └─ 📥 request_metadata.proto
+│  ├─ ✅ send_verification_email_request.proto [1-1-1]
+│     └─ 📥 go_features.proto
+│  ├─ ✅ update_permission_request.proto [1-1-1]
+│     └─ 📥 go_features.proto
+│  ├─ ✅ update_role_request.proto [1-1-1]
+│     ├─ 📥 go_features.proto
+│     └─ 📥 field_mask.proto
+│     └─ 📥 ... +2 more
+│  ├─ ✅ update_session_request.proto [1-1-1]
+│     └─ 📥 go_features.proto
+│  ├─ ✅ update_user_request.proto [1-1-1]
+│     └─ 📥 timestamp.proto
+│  ├─ ✅ validate_session_request.proto [1-1-1]
+│     ├─ 📥 go_features.proto
+│     └─ 📥 request_metadata.proto
+│  ├─ ✅ validate_token_request.proto [1-1-1]
+│     ├─ 📥 go_features.proto
+│     └─ 📥 request_metadata.proto
+│  ├─ ✅ verify_2fa_request.proto [1-1-1]
+│     └─ 📥 go_features.proto
+│  ├─ ✅ verify_credentials_request.proto [1-1-1]
+│     ├─ 📥 go_features.proto
+│     └─ 📥 request_metadata.proto
+│     └─ 📥 ... +2 more
+│  ├─ ✅ verify_email_request.proto [1-1-1]
+│     └─ 📥 go_features.proto
+│  └─ ✅ verify_mfa_request.proto [1-1-1]
+│     └─ 📥 go_features.proto
+└─ 📁 services/
+   └─ ✅ auth_admin_service.proto [1-1-1]
+      ├─ 📥 empty.proto
+      └─ 📥 go_features.proto
+      └─ 📥 ... +21 more
+   └─ ✅ auth_service.proto [1-1-1]
+      ├─ 📥 go_features.proto
+      └─ 📥 authenticate_request.proto
+      └─ 📥 ... +17 more
+   └─ ✅ authorization_service.proto [1-1-1]
+      ├─ 📥 go_features.proto
+      └─ 📥 empty.proto
+      └─ 📥 ... +14 more
+   └─ ✅ session_service.proto [1-1-1]
+      ├─ 📥 go_features.proto
+      └─ 📥 create_session_request.proto
+      └─ 📥 ... +8 more
+│
+📦 CACHE
+│
+├─ 📁 cache.proto/
+│  └─ ✅ cache.proto [1-1-1]
+│     └─ 📥 go_features.proto
+├─ 📁 messages/
+│  ├─ ✅ cache_config.proto [1-1-1]
+│     ├─ 📥 go_features.proto
+│     └─ 📥 duration.proto
+│     └─ 📥 ... +1 more
+│  ├─ ✅ cache_entry.proto [1-1-1]
+│     ├─ 📥 go_features.proto
+│     └─ 📥 timestamp.proto
+│     └─ 📥 ... +1 more
+│  ├─ ✅ cache_info.proto [1-1-1]
+│     ├─ 📥 go_features.proto
+│     └─ 📥 timestamp.proto
+│     └─ 📥 ... +1 more
+│  ├─ ✅ cache_metrics.proto [1-1-1]
+│     ├─ 📥 go_features.proto
+│     └─ 📥 timestamp.proto
+│     └─ 📥 ... +1 more
+│  ├─ ✅ cache_operation_result.proto [1-1-1]
+│     ├─ 📥 go_features.proto
+│     └─ 📥 timestamp.proto
+│     └─ 📥 ... +1 more
+│  ├─ ✅ cache_stats.proto [1-1-1]
+│     ├─ 📥 go_features.proto
+│     └─ 📥 timestamp.proto
+│  └─ ✅ eviction_result.proto [1-1-1]
+│     ├─ 📥 go_features.proto
+│     └─ 📥 timestamp.proto
+│     └─ 📥 ... +1 more
+├─ 📁 responses/
+│  ├─ ✅ clear_response.proto [1-1-1]
+│     ├─ 📥 go_features.proto
+│     └─ 📥 error.proto
+│  ├─ ✅ configure_policy_response.proto [1-1-1]
+│     └─ 📥 timestamp.proto
+│  ├─ ✅ create_namespace_response.proto [1-1-1]
+│     └─ 📥 timestamp.proto
+│  ├─ ✅ decrement_response.proto [1-1-1]
+│     ├─ 📥 go_features.proto
+│     └─ 📥 error.proto
+│  ├─ ✅ delete_multiple_response.proto [1-1-1]
+│     ├─ 📥 go_features.proto
+│     └─ 📥 error.proto
+│  ├─ ✅ delete_response.proto [1-1-1]
+│     ├─ 📥 go_features.proto
+│     └─ 📥 error.proto
+│  ├─ ✅ exists_response.proto [1-1-1]
+│     ├─ 📥 go_features.proto
+│     └─ 📥 error.proto
+│  ├─ ✅ flush_response.proto [1-1-1]
+│     ├─ 📥 go_features.proto
+│     └─ 📥 error.proto
+│  ├─ ✅ get_multiple_response.proto [1-1-1]
+│     ├─ 📥 go_features.proto
+│     └─ 📥 error.proto
+│  ├─ ✅ get_namespace_stats_response.proto [MULTI]
+│     └─ 📥 timestamp.proto
+│  ├─ ✅ get_response.proto [1-1-1]
+│     ├─ 📥 go_features.proto
+│     └─ 📥 cache_entry.proto
+│  ├─ ✅ get_stats_response.proto [1-1-1]
+│     ├─ 📥 go_features.proto
+│     └─ 📥 error.proto
+│  ├─ ✅ increment_response.proto [1-1-1]
+│     ├─ 📥 go_features.proto
+│     └─ 📥 error.proto
+│  ├─ ✅ keys_response.proto [1-1-1]
+│     ├─ 📥 go_features.proto
+│     └─ 📥 error.proto
+│  ├─ ✅ list_namespaces_response.proto [MULTI]
+│     └─ 📥 timestamp.proto
+│  ├─ ✅ set_multiple_response.proto [1-1-1]
+│     ├─ 📥 go_features.proto
+│     └─ 📥 error.proto
+│  ├─ ✅ set_response.proto [1-1-1]
+│     └─ 📥 go_features.proto
+│  └─ ✅ touch_expiration_response.proto [1-1-1]
+│     ├─ 📥 go_features.proto
+│     └─ 📥 error.proto
+├─ 📁 requests/
+│  ├─ ✅ append_request.proto [1-1-1]
+│     ├─ 📥 go_features.proto
+│     └─ 📥 any.proto
+│     └─ 📥 ... +1 more
+│  ├─ ✅ backup_request.proto [1-1-1]
+│     ├─ 📥 go_features.proto
+│     └─ 📥 request_metadata.proto
+│  ├─ ✅ clear_request.proto [1-1-1]
+│     ├─ 📥 go_features.proto
+│     └─ 📥 request_metadata.proto
+│  ├─ ✅ configure_policy_request.proto [1-1-1]
+│  ├─ ✅ create_namespace_request.proto [1-1-1]
+│  ├─ ✅ decrement_request.proto [1-1-1]
+│     ├─ 📥 go_features.proto
+│     └─ 📥 duration.proto
+│     └─ 📥 ... +1 more
+│  ├─ ✅ defrag_request.proto [1-1-1]
+│     ├─ 📥 go_features.proto
+│     └─ 📥 request_metadata.proto
+│  ├─ ✅ delete_multiple_request.proto [1-1-1]
+│     ├─ 📥 go_features.proto
+│     └─ 📥 request_metadata.proto
+│  ├─ ✅ delete_namespace_request.proto [1-1-1]
+│  ├─ ✅ delete_request.proto [1-1-1]
+│     ├─ 📥 go_features.proto
+│     └─ 📥 request_metadata.proto
+│  ├─ ✅ exists_request.proto [1-1-1]
+│     ├─ 📥 go_features.proto
+│     └─ 📥 request_metadata.proto
+│  ├─ ✅ expire_request.proto [1-1-1]
+│     ├─ 📥 go_features.proto
+│     └─ 📥 duration.proto
+│     └─ 📥 ... +1 more
+│  ├─ ✅ export_request.proto [1-1-1]
+│     ├─ 📥 go_features.proto
+│     └─ 📥 request_metadata.proto
+│  ├─ ✅ flush_request.proto [1-1-1]
+│     ├─ 📥 go_features.proto
+│     └─ 📥 request_metadata.proto
+│  ├─ ✅ gc_request.proto [1-1-1]
+│     ├─ 📥 go_features.proto
+│     └─ 📥 request_metadata.proto
+│  ├─ ✅ get_memory_usage_request.proto [1-1-1]
+│     ├─ 📥 go_features.proto
+│     └─ 📥 request_metadata.proto
+│  ├─ ✅ get_multiple_request.proto [1-1-1]
+│     ├─ 📥 go_features.proto
+│     └─ 📥 request_metadata.proto
+│  ├─ ✅ get_namespace_stats_request.proto [1-1-1]
+│  ├─ ✅ get_request.proto [1-1-1]
+│     ├─ 📥 go_features.proto
+│     └─ 📥 request_metadata.proto
+│  ├─ ✅ health_check_request.proto [1-1-1]
+│     ├─ 📥 go_features.proto
+│     └─ 📥 request_metadata.proto
+│  ├─ ✅ import_request.proto [1-1-1]
+│     ├─ 📥 go_features.proto
+│     └─ 📥 request_metadata.proto
+│  ├─ ✅ increment_request.proto [1-1-1]
+│     ├─ 📥 go_features.proto
+│     └─ 📥 duration.proto
+│     └─ 📥 ... +1 more
+│  ├─ ✅ info_request.proto [1-1-1]
+│     ├─ 📥 go_features.proto
+│     └─ 📥 request_metadata.proto
+│  ├─ ✅ keys_request.proto [1-1-1]
+│     ├─ 📥 go_features.proto
+│     └─ 📥 request_metadata.proto
+│     └─ 📥 ... +1 more
+│  ├─ ✅ list_namespaces_request.proto [1-1-1]
+│  ├─ ✅ list_subscriptions_request.proto [1-1-1]
+│     ├─ 📥 go_features.proto
+│     └─ 📥 request_metadata.proto
+│  ├─ ✅ lock_request.proto [1-1-1]
+│     ├─ 📥 go_features.proto
+│     └─ 📥 duration.proto
+│     └─ 📥 ... +1 more
+│  ├─ ✅ mget_request.proto [1-1-1]
+│     ├─ 📥 go_features.proto
+│     └─ 📥 common.proto
+│  ├─ ✅ optimize_request.proto [1-1-1]
+│     ├─ 📥 go_features.proto
+│     └─ 📥 request_metadata.proto
+│  ├─ ✅ pipeline_request.proto [1-1-1]
+│     ├─ 📥 go_features.proto
+│     └─ 📥 request_metadata.proto
+│  ├─ ✅ prepend_request.proto [1-1-1]
+│     ├─ 📥 go_features.proto
+│     └─ 📥 any.proto
+│     └─ 📥 ... +1 more
+│  ├─ ✅ publish_request.proto [1-1-1]
+│     ├─ 📥 go_features.proto
+│     └─ 📥 any.proto
+│     └─ 📥 ... +1 more
+│  ├─ ✅ restore_request.proto [1-1-1]
+│     ├─ 📥 go_features.proto
+│     └─ 📥 request_metadata.proto
+│  ├─ ✅ scan_request.proto [1-1-1]
+│     ├─ 📥 go_features.proto
+│     └─ 📥 request_metadata.proto
+│  ├─ ✅ set_multiple_request.proto [1-1-1]
+│     ├─ 📥 go_features.proto
+│     └─ 📥 duration.proto
+│     └─ 📥 ... +1 more
+│  ├─ ✅ set_request.proto [1-1-1]
+│     ├─ 📥 go_features.proto
+│     └─ 📥 any.proto
+│     └─ 📥 ... +2 more
+│  ├─ ✅ stats_request.proto [1-1-1]
+│     ├─ 📥 go_features.proto
+│     └─ 📥 request_metadata.proto
+│  ├─ ✅ subscribe_request.proto [1-1-1]
+│     ├─ 📥 go_features.proto
+│     └─ 📥 request_metadata.proto
+│  ├─ ✅ transaction_request.proto [1-1-1]
+│     ├─ 📥 go_features.proto
+│     └─ 📥 request_metadata.proto
+│  ├─ ✅ ttl_request.proto [1-1-1]
+│     ├─ 📥 go_features.proto
+│     └─ 📥 duration.proto
+│     └─ 📥 ... +1 more
+│  ├─ ✅ unlock_request.proto [1-1-1]
+│     ├─ 📥 go_features.proto
+│     └─ 📥 request_metadata.proto
+│  ├─ ✅ unsubscribe_request.proto [1-1-1]
+│     ├─ 📥 go_features.proto
+│     └─ 📥 request_metadata.proto
+│  ├─ ✅ unwatch_request.proto [1-1-1]
+│     ├─ 📥 go_features.proto
+│     └─ 📥 request_metadata.proto
+│  └─ ✅ watch_request.proto [1-1-1]
+│     ├─ 📥 go_features.proto
+│     └─ 📥 request_metadata.proto
+└─ 📁 services/
+   └─ ✅ cache_admin_service.proto [1-1-1]
+      ├─ 📥 empty.proto
+      └─ 📥 go_features.proto
+      └─ 📥 ... +9 more
+   └─ ✅ cache_service.proto [1-1-1]
+      ├─ 📥 go_features.proto
+      └─ 📥 get_request.proto
+      └─ 📥 ... +27 more
+│
+📦 COMMON
+│
+├─ 📁 common.proto/
+│  └─ ✅ common.proto [1-1-1]
+│     └─ 📥 go_features.proto
+├─ 📁 messages/
+│  ├─ ✅ audit_log.proto [1-1-1]
+│     ├─ 📥 go_features.proto
+│     └─ 📥 timestamp.proto
+│     └─ 📥 ... +2 more
+│  ├─ ✅ batch_operation.proto [1-1-1]
+│     ├─ 📥 go_features.proto
+│     └─ 📥 any.proto
+│     └─ 📥 ... +2 more
+│  ├─ ✅ batch_options.proto [1-1-1]
+│     ├─ 📥 go_features.proto
+│     └─ 📥 duration.proto
+│  ├─ ✅ cache_policy.proto [1-1-1]
+│     ├─ 📥 go_features.proto
+│     └─ 📥 duration.proto
+│     └─ 📥 ... +2 more
+│  ├─ ✅ circuit_breaker_config.proto [1-1-1]
+│     ├─ 📥 go_features.proto
+│     └─ 📥 duration.proto
+│     └─ 📥 ... +1 more
+│  ├─ ✅ config_value.proto [1-1-1]
+│     ├─ 📥 go_features.proto
+│     └─ 📥 any.proto
+│     └─ 📥 ... +1 more
+│  ├─ ✅ error.proto [1-1-1]
+│     ├─ 📥 error_code.proto
+│     └─ 📥 timestamp.proto
+│     └─ 📥 ... +1 more
+│  ├─ ✅ filter_options.proto [1-1-1]
+│     ├─ 📥 go_features.proto
+│     └─ 📥 filter_value.proto
+│     └─ 📥 ... +1 more
+│  ├─ ✅ filter_value.proto [1-1-1]
+│     ├─ 📥 go_features.proto
+│     └─ 📥 string_array.proto
+│     └─ 📥 ... +2 more
+│  ├─ ✅ paginated_response.proto [1-1-1]
+│     └─ 📥 go_features.proto
+│  ├─ ✅ pagination.proto [1-1-1]
+│     └─ 📥 go_features.proto
+│  ├─ ✅ rate_limit.proto [1-1-1]
+│     ├─ 📥 go_features.proto
+│     └─ 📥 duration.proto
+│  ├─ ✅ request_metadata.proto [1-1-1]
+│     ├─ 📥 client_info.proto
+│     └─ 📥 timestamp.proto
+│     └─ 📥 ... +1 more
+│  ├─ ✅ retry_policy.proto [1-1-1]
+│     ├─ 📥 go_features.proto
+│     └─ 📥 duration.proto
+│     └─ 📥 ... +1 more
+│  ├─ ✅ service_version.proto [1-1-1]
+│     ├─ 📥 go_features.proto
+│     └─ 📥 timestamp.proto
+│  ├─ ✅ subscription_info.proto [1-1-1]
+│     ├─ 📥 go_features.proto
+│     └─ 📥 timestamp.proto
+│     └─ 📥 ... +4 more
+│  └─ ✅ subscription_options.proto [1-1-1]
+│     ├─ 📥 go_features.proto
+│     └─ 📥 duration.proto
+│     └─ 📥 ... +1 more
+├─ 📁 types/
+│  ├─ ✅ client_info.proto [1-1-1]
+│     └─ 📥 go_features.proto
+│  ├─ ✅ int64_array.proto [1-1-1]
+│     └─ 📥 go_features.proto
+│  ├─ ✅ key_value.proto [1-1-1]
+│     └─ 📥 go_features.proto
+│  ├─ ✅ metric_point.proto [1-1-1]
+│     ├─ 📥 go_features.proto
+│     └─ 📥 timestamp.proto
+│  ├─ ✅ pagination.proto [1-1-1]
+│  ├─ ✅ resource_reference.proto [1-1-1]
+│     └─ 📥 go_features.proto
+│  ├─ ✅ sort.proto [MULTI]
+│  ├─ ✅ string_array.proto [1-1-1]
+│     └─ 📥 go_features.proto
+│  └─ ✅ time_range.proto [1-1-1]
+│     ├─ 📥 timestamp.proto
+│     └─ 📥 go_features.proto
+└─ 📁 enums/
+   └─ ✅ ack_mode.proto [1-1-1]
+      └─ 📥 go_features.proto
+   └─ ✅ audit_result.proto [1-1-1]
+      └─ 📥 go_features.proto
+   └─ ✅ circuit_breaker_state.proto [1-1-1]
+      └─ 📥 go_features.proto
+   └─ ✅ error_code.proto [1-1-1]
+      └─ 📥 go_features.proto
+   └─ ✅ eviction_policy.proto [1-1-1]
+      └─ 📥 go_features.proto
+   └─ ✅ expiration_policy.proto [1-1-1]
+      └─ 📥 go_features.proto
+   └─ ✅ filter_operation.proto [1-1-1]
+      └─ 📥 go_features.proto
+   └─ ✅ health_status.proto [1-1-1]
+      └─ 📥 go_features.proto
+   └─ ✅ resource_status.proto [1-1-1]
+      └─ 📥 go_features.proto
+   └─ ✅ subscription_status.proto [1-1-1]
+      └─ 📥 go_features.proto
+   └─ ✅ value_type.proto [1-1-1]
+      └─ 📥 go_features.proto
+│
+📦 CONFIG
+│
+├─ 📁 config.proto/
+│  └─ ✅ config.proto [1-1-1]
+│     └─ 📥 go_features.proto
+├─ 📁 messages/
+│  ├─ ✅ config_audit_log.proto [MULTI]
+│     ├─ 📥 timestamp.proto
+│     └─ 📥 common.proto
+│  ├─ ✅ config_backup.proto [1-1-1]
+│     ├─ 📥 go_features.proto
+│     └─ 📥 timestamp.proto
+│     └─ 📥 ... +1 more
+│  ├─ ✅ config_change.proto [1-1-1]
+│     ├─ 📥 go_features.proto
+│     └─ 📥 timestamp.proto
+│     └─ 📥 ... +1 more
+│  ├─ ✅ config_diff.proto [MULTI]
+│     ├─ 📥 go_features.proto
+│     └─ 📥 timestamp.proto
+│     └─ 📥 ... +1 more
+│  ├─ ✅ config_entry.proto [1-1-1]
+│     ├─ 📥 timestamp.proto
+│     └─ 📥 go_features.proto
+│     └─ 📥 ... +2 more
+│  ├─ ✅ config_environment.proto [MULTI]
+│     ├─ 📥 timestamp.proto
+│     └─ 📥 config_metadata.proto
+│     └─ 📥 ... +1 more
+│  ├─ ✅ config_metadata.proto [MULTI]
+│     ├─ 📥 timestamp.proto
+│     └─ 📥 common.proto
+│  ├─ ✅ config_restore_point.proto [MULTI]
+│     ├─ 📥 timestamp.proto
+│     └─ 📥 common.proto
+│  ├─ ✅ config_schema.proto [1-1-1]
+│     ├─ 📥 timestamp.proto
+│     └─ 📥 go_features.proto
+│  ├─ ✅ config_secret.proto [MULTI]
+│     ├─ 📥 timestamp.proto
+│     └─ 📥 common.proto
+│  ├─ ✅ config_snapshot.proto [1-1-1]
+│     ├─ 📥 go_features.proto
+│     └─ 📥 timestamp.proto
+│     └─ 📥 ... +1 more
+│  ├─ ✅ config_template.proto [MULTI]
+│     ├─ 📥 timestamp.proto
+│     └─ 📥 config_audit_log.proto
+│  ├─ ✅ config_validation_error.proto [1-1-1]
+│     └─ 📥 go_features.proto
+│  ├─ ✅ config_validation_warning.proto [1-1-1]
+│     └─ 📥 go_features.proto
+│  ├─ ✅ config_value.proto [MULTI]
+│     ├─ 📥 timestamp.proto
+│     └─ 📥 any.proto
+│     └─ 📥 ... +3 more
+│  ├─ ✅ config_version.proto [MULTI]
+│     ├─ 📥 timestamp.proto
+│     └─ 📥 config_change.proto
+│     └─ 📥 ... +1 more
+│  └─ ✅ config_watch.proto [MULTI]
+│     ├─ 📥 go_features.proto
+│     └─ 📥 timestamp.proto
+│     └─ 📥 ... +1 more
+├─ 📁 enums/
+│  └─ ✅ config_change_type.proto [1-1-1]
+│     └─ 📥 go_features.proto
+├─ 📁 responses/
+│  ├─ ✅ get_config_response.proto [1-1-1]
+│     ├─ 📥 go_features.proto
+│     └─ 📥 error.proto
+│     └─ 📥 ... +1 more
+│  ├─ ✅ get_multiple_config_response.proto [1-1-1]
+│     ├─ 📥 go_features.proto
+│     └─ 📥 error.proto
+│     └─ 📥 ... +1 more
+│  ├─ ✅ get_schema_response.proto [1-1-1]
+│     ├─ 📥 go_features.proto
+│     └─ 📥 error.proto
+│     └─ 📥 ... +1 more
+│  ├─ ✅ list_config_response.proto [1-1-1]
+│     ├─ 📥 go_features.proto
+│     └─ 📥 error.proto
+│     └─ 📥 ... +2 more
+│  ├─ ✅ set_config_response.proto [1-1-1]
+│     ├─ 📥 go_features.proto
+│     └─ 📥 error.proto
+│     └─ 📥 ... +1 more
+│  ├─ ✅ set_multiple_config_response.proto [1-1-1]
+│     ├─ 📥 go_features.proto
+│     └─ 📥 error.proto
+│  ├─ ✅ validate_config_response.proto [1-1-1]
+│     ├─ 📥 go_features.proto
+│     └─ 📥 config_validation_error.proto
+│     └─ 📥 ... +1 more
+│  └─ ✅ watch_config_response.proto [1-1-1]
+│     ├─ 📥 go_features.proto
+│     └─ 📥 timestamp.proto
+│     └─ 📥 ... +2 more
+├─ 📁 requests/
+│  ├─ ✅ backup_config_request.proto [1-1-1]
+│     └─ 📥 go_features.proto
+│  ├─ ✅ decrypt_config_request.proto [1-1-1]
+│     └─ 📥 go_features.proto
+│  ├─ ✅ delete_config_request.proto [1-1-1]
+│     ├─ 📥 go_features.proto
+│     └─ 📥 request_metadata.proto
+│  ├─ ✅ encrypt_config_request.proto [1-1-1]
+│     └─ 📥 go_features.proto
+│  ├─ ✅ export_config_request.proto [1-1-1]
+│     └─ 📥 go_features.proto
+│  ├─ ✅ get_config_history_request.proto [1-1-1]
+│     └─ 📥 go_features.proto
+│  ├─ ✅ get_config_request.proto [1-1-1]
+│     ├─ 📥 go_features.proto
+│     └─ 📥 request_metadata.proto
+│  ├─ ✅ get_config_stats_request.proto [1-1-1]
+│     └─ 📥 go_features.proto
+│  ├─ ✅ get_multiple_config_request.proto [1-1-1]
+│     ├─ 📥 go_features.proto
+│     └─ 📥 request_metadata.proto
+│  ├─ ✅ get_schema_request.proto [1-1-1]
+│     ├─ 📥 go_features.proto
+│     └─ 📥 request_metadata.proto
+│  ├─ ✅ health_check_request.proto [1-1-1]
+│     └─ 📥 go_features.proto
+│  ├─ ✅ import_config_request.proto [1-1-1]
+│     └─ 📥 go_features.proto
+│  ├─ ✅ list_config_request.proto [1-1-1]
+│     ├─ 📥 go_features.proto
+│     └─ 📥 pagination.proto
+│     └─ 📥 ... +3 more
+│  ├─ ✅ reload_config_request.proto [1-1-1]
+│     └─ 📥 go_features.proto
+│  ├─ ✅ restore_config_request.proto [1-1-1]
+│     └─ 📥 go_features.proto
+│  ├─ ✅ rollback_config_request.proto [1-1-1]
+│     └─ 📥 go_features.proto
+│  ├─ ✅ set_config_request.proto [1-1-1]
+│     ├─ 📥 go_features.proto
+│     └─ 📥 config_value.proto
+│     └─ 📥 ... +1 more
+│  ├─ ✅ set_config_schema_request.proto [1-1-1]
+│     └─ 📥 go_features.proto
+│  ├─ ✅ set_multiple_config_request.proto [1-1-1]
+│     ├─ 📥 go_features.proto
+│     └─ 📥 config_value.proto
+│     └─ 📥 ... +1 more
+│  ├─ ✅ unwatch_config_request.proto [1-1-1]
+│     └─ 📥 go_features.proto
+│  ├─ ✅ validate_config_request.proto [1-1-1]
+│     ├─ 📥 go_features.proto
+│     └─ 📥 request_metadata.proto
+│     └─ 📥 ... +1 more
+│  └─ ✅ watch_config_request.proto [1-1-1]
+│     ├─ 📥 go_features.proto
+│     └─ 📥 request_metadata.proto
+└─ 📁 services/
+   └─ ✅ config_admin_service.proto [1-1-1]
+      └─ 📥 go_features.proto
+   └─ ✅ config_service.proto [1-1-1]
+      ├─ 📥 go_features.proto
+      └─ 📥 get_config_request.proto
+      └─ 📥 ... +17 more
+│
+📦 DB
+│
+├─ 📁 database.proto/
+│  └─ ✅ database.proto [1-1-1]
+│     └─ 📥 go_features.proto
+├─ 📁 messages/
+│  ├─ ✅ batch_execute_options.proto [1-1-1]
+│     ├─ 📥 duration.proto
+│     └─ 📥 go_features.proto
+│  ├─ ✅ batch_operation.proto [1-1-1]
+│     ├─ 📥 query_parameter.proto
+│     └─ 📥 go_features.proto
+│  ├─ ✅ batch_operation_result.proto [1-1-1]
+│     ├─ 📥 error.proto
+│     └─ 📥 any.proto
+│     └─ 📥 ... +1 more
+│  ├─ ✅ batch_stats.proto [1-1-1]
+│     ├─ 📥 duration.proto
+│     └─ 📥 go_features.proto
+│  ├─ ✅ connection_pool_info.proto [1-1-1]
+│     ├─ 📥 pool_stats.proto
+│     └─ 📥 duration.proto
+│     └─ 📥 ... +1 more
+│  ├─ ✅ database_info.proto [1-1-1]
+│     └─ 📥 go_features.proto
+│  ├─ ✅ execute_options.proto [1-1-1]
+│     ├─ 📥 isolation_level.proto
+│     └─ 📥 duration.proto
+│     └─ 📥 ... +1 more
+│  ├─ ✅ execute_stats.proto [1-1-1]
+│     ├─ 📥 duration.proto
+│     └─ 📥 go_features.proto
+│  ├─ ✅ pool_stats.proto [1-1-1]
+│     ├─ 📥 duration.proto
+│     └─ 📥 go_features.proto
+│  ├─ ✅ query_options.proto [1-1-1]
+│     ├─ 📥 consistency_level.proto
+│     └─ 📥 duration.proto
+│     └─ 📥 ... +1 more
+│  ├─ ✅ query_stats.proto [1-1-1]
+│     ├─ 📥 duration.proto
+│     └─ 📥 go_features.proto
+│  ├─ ✅ result_set.proto [1-1-1]
+│     ├─ 📥 column_metadata.proto
+│     └─ 📥 row.proto
+│     └─ 📥 ... +1 more
+│  └─ ✅ transaction_options.proto [1-1-1]
+│     ├─ 📥 isolation_level.proto
+│     └─ 📥 duration.proto
+│     └─ 📥 ... +1 more
+├─ 📁 types/
+│  ├─ ✅ column_metadata.proto [1-1-1]
+│     └─ 📥 go_features.proto
+│  ├─ ✅ migration_script.proto [1-1-1]
+│     └─ 📥 go_features.proto
+│  ├─ ✅ query_parameter.proto [1-1-1]
+│     ├─ 📥 any.proto
+│     └─ 📥 go_features.proto
+│  └─ ✅ row.proto [1-1-1]
+│     ├─ 📥 any.proto
+│     └─ 📥 go_features.proto
+├─ 📁 enums/
+│  ├─ ✅ consistency_level.proto [1-1-1]
+│     └─ 📥 go_features.proto
+│  └─ ✅ isolation_level.proto [1-1-1]
+│     └─ 📥 go_features.proto
+├─ 📁 responses/
+│  ├─ ✅ begin_transaction_response.proto [1-1-1]
+│     ├─ 📥 timestamp.proto
+│     └─ 📥 go_features.proto
+│  ├─ ✅ create_database_response.proto [1-1-1]
+│     ├─ 📥 error.proto
+│     └─ 📥 go_features.proto
+│  ├─ ✅ create_schema_response.proto [1-1-1]
+│     ├─ 📥 error.proto
+│     └─ 📥 go_features.proto
+│  ├─ ✅ execute_batch_response.proto [1-1-1]
+│     ├─ 📥 batch_operation_result.proto
+│     └─ 📥 batch_stats.proto
+│     └─ 📥 ... +2 more
+│  ├─ ✅ execute_response.proto [1-1-1]
+│     ├─ 📥 execute_stats.proto
+│     └─ 📥 error.proto
+│     └─ 📥 ... +2 more
+│  ├─ ✅ get_connection_info_response.proto [1-1-1]
+│     ├─ 📥 connection_pool_info.proto
+│     └─ 📥 database_info.proto
+│     └─ 📥 ... +1 more
+│  ├─ ✅ get_database_info_response.proto [1-1-1]
+│     ├─ 📥 database_info.proto
+│     └─ 📥 go_features.proto
+│  ├─ ✅ get_migration_status_response.proto [1-1-1]
+│     └─ 📥 go_features.proto
+│  ├─ ✅ health_check_response.proto [1-1-1]
+│     ├─ 📥 health_status.proto
+│     └─ 📥 error.proto
+│     └─ 📥 ... +2 more
+│  ├─ ✅ list_databases_response.proto [1-1-1]
+│     └─ 📥 go_features.proto
+│  ├─ ✅ list_schemas_response.proto [1-1-1]
+│     └─ 📥 go_features.proto
+│  ├─ ✅ query_response.proto [1-1-1]
+│     ├─ 📥 result_set.proto
+│     └─ 📥 query_stats.proto
+│     └─ 📥 ... +2 more
+│  └─ ✅ run_migration_response.proto [1-1-1]
+│     ├─ 📥 error.proto
+│     └─ 📥 go_features.proto
+├─ 📁 requests/
+│  ├─ ✅ begin_transaction_request.proto [1-1-1]
+│     ├─ 📥 transaction_options.proto
+│     └─ 📥 request_metadata.proto
+│     └─ 📥 ... +1 more
+│  ├─ ✅ commit_transaction_request.proto [1-1-1]
+│     ├─ 📥 request_metadata.proto
+│     └─ 📥 go_features.proto
+│  ├─ ✅ create_database_request.proto [1-1-1]
+│     ├─ 📥 request_metadata.proto
+│     └─ 📥 go_features.proto
+│  ├─ ✅ create_schema_request.proto [1-1-1]
+│     ├─ 📥 request_metadata.proto
+│     └─ 📥 go_features.proto
+│  ├─ ✅ drop_database_request.proto [1-1-1]
+│     ├─ 📥 request_metadata.proto
+│     └─ 📥 go_features.proto
+│  ├─ ✅ drop_schema_request.proto [1-1-1]
+│     ├─ 📥 request_metadata.proto
+│     └─ 📥 go_features.proto
+│  ├─ ✅ execute_batch_request.proto [1-1-1]
+│     ├─ 📥 batch_operation.proto
+│     └─ 📥 batch_execute_options.proto
+│     └─ 📥 ... +2 more
+│  ├─ ✅ execute_request.proto [1-1-1]
+│     ├─ 📥 query_parameter.proto
+│     └─ 📥 execute_options.proto
+│     └─ 📥 ... +2 more
+│  ├─ ✅ get_connection_info_request.proto [1-1-1]
+│     ├─ 📥 request_metadata.proto
+│     └─ 📥 go_features.proto
+│  ├─ ✅ get_database_info_request.proto [1-1-1]
+│     ├─ 📥 request_metadata.proto
+│     └─ 📥 go_features.proto
+│  ├─ ✅ get_migration_status_request.proto [1-1-1]
+│     ├─ 📥 request_metadata.proto
+│     └─ 📥 go_features.proto
+│  ├─ ✅ health_check_request.proto [1-1-1]
+│     ├─ 📥 request_metadata.proto
+│     └─ 📥 go_features.proto
+│  ├─ ✅ list_databases_request.proto [1-1-1]
+│     ├─ 📥 request_metadata.proto
+│     └─ 📥 go_features.proto
+│  ├─ ✅ list_schemas_request.proto [1-1-1]
+│     ├─ 📥 request_metadata.proto
+│     └─ 📥 go_features.proto
+│  ├─ ✅ query_request.proto [1-1-1]
+│     ├─ 📥 query_parameter.proto
+│     └─ 📥 query_options.proto
+│     └─ 📥 ... +2 more
+│  ├─ ✅ rollback_transaction_request.proto [1-1-1]
+│     ├─ 📥 request_metadata.proto
+│     └─ 📥 go_features.proto
+│  └─ ✅ run_migration_request.proto [1-1-1]
+│     ├─ 📥 migration_script.proto
+│     └─ 📥 request_metadata.proto
+│     └─ 📥 ... +1 more
+└─ 📁 services/
+   └─ ✅ database_admin_service.proto [1-1-1]
+      ├─ 📥 create_database_request.proto
+      └─ 📥 create_database_response.proto
+      └─ 📥 ... +16 more
+   └─ ✅ database_service.proto [1-1-1]
+      ├─ 📥 query_request.proto
+      └─ 📥 query_response.proto
+      └─ 📥 ... +14 more
+│
+📦 HEALTH
+│
+├─ 📁 health.proto/
+│  └─ ✅ health.proto [1-1-1]
+│     └─ 📥 go_features.proto
+├─ 📁 messages/
+│  ├─ ✅ check_result.proto [1-1-1]
+│     ├─ 📥 go_features.proto
+│     └─ 📥 timestamp.proto
+│     └─ 📥 ... +2 more
+│  ├─ ✅ health_metric_data.proto [1-1-1]
+│     ├─ 📥 go_features.proto
+│     └─ 📥 timestamp.proto
+│  └─ ✅ health_metrics.proto [1-1-1]
+│     ├─ 📥 go_features.proto
+│     └─ 📥 timestamp.proto
+├─ 📁 responses/
+│  ├─ ✅ configure_alerting_response.proto [1-1-1]
+│     ├─ 📥 go_features.proto
+│     └─ 📥 common.proto
+│  ├─ ✅ disable_check_response.proto [1-1-1]
+│     ├─ 📥 go_features.proto
+│     └─ 📥 common.proto
+│  ├─ ✅ enable_check_response.proto [1-1-1]
+│     ├─ 📥 go_features.proto
+│     └─ 📥 common.proto
+│  ├─ ✅ get_health_metrics_response.proto [1-1-1]
+│     ├─ 📥 go_features.proto
+│     └─ 📥 common.proto
+│     └─ 📥 ... +1 more
+│  ├─ ✅ get_service_health_response.proto [1-1-1]
+│     ├─ 📥 go_features.proto
+│     └─ 📥 timestamp.proto
+│     └─ 📥 ... +1 more
+│  ├─ ✅ health_check_response.proto [1-1-1]
+│     ├─ 📥 go_features.proto
+│     └─ 📥 timestamp.proto
+│     └─ 📥 ... +4 more
+│  ├─ ✅ list_services_response.proto [1-1-1]
+│     ├─ 📥 go_features.proto
+│     └─ 📥 common.proto
+│  ├─ ✅ register_check_response.proto [1-1-1]
+│     ├─ 📥 go_features.proto
+│     └─ 📥 common.proto
+│  ├─ ✅ reset_health_stats_response.proto [1-1-1]
+│     ├─ 📥 go_features.proto
+│     └─ 📥 timestamp.proto
+│     └─ 📥 ... +1 more
+│  ├─ ✅ run_check_response.proto [1-1-1]
+│     ├─ 📥 go_features.proto
+│     └─ 📥 timestamp.proto
+│     └─ 📥 ... +2 more
+│  ├─ ✅ set_health_response.proto [1-1-1]
+│     ├─ 📥 go_features.proto
+│     └─ 📥 timestamp.proto
+│     └─ 📥 ... +1 more
+│  ├─ ✅ unregister_check_response.proto [1-1-1]
+│     ├─ 📥 go_features.proto
+│     └─ 📥 common.proto
+│  └─ ✅ watch_response.proto [1-1-1]
+│     ├─ 📥 common.proto
+│     └─ 📥 check_result.proto
+│     └─ 📥 ... +4 more
+├─ 📁 requests/
+│  ├─ ✅ configure_alerting_request.proto [1-1-1]
+│     ├─ 📥 go_features.proto
+│     └─ 📥 common.proto
+│  ├─ ✅ disable_check_request.proto [1-1-1]
+│     ├─ 📥 go_features.proto
+│     └─ 📥 common.proto
+│  ├─ ✅ enable_check_request.proto [1-1-1]
+│     ├─ 📥 go_features.proto
+│     └─ 📥 common.proto
+│  ├─ ✅ get_check_status_request.proto [1-1-1]
+│     ├─ 📥 go_features.proto
+│     └─ 📥 common.proto
+│  ├─ ✅ get_health_history_request.proto [1-1-1]
+│     ├─ 📥 go_features.proto
+│     └─ 📥 timestamp.proto
+│     └─ 📥 ... +1 more
+│  ├─ ✅ get_health_metrics_request.proto [1-1-1]
+│     ├─ 📥 go_features.proto
+│     └─ 📥 common.proto
+│  ├─ ✅ get_health_request.proto [1-1-1]
+│     ├─ 📥 go_features.proto
+│     └─ 📥 common.proto
+│  ├─ ✅ get_service_health_request.proto [1-1-1]
+│     ├─ 📥 common.proto
+│     └─ 📥 go_features.proto
+│  ├─ ✅ health_check_request.proto [1-1-1]
+│     ├─ 📥 common.proto
+│     └─ 📥 duration.proto
+│     └─ 📥 ... +1 more
+│  ├─ ✅ list_checks_request.proto [1-1-1]
+│     ├─ 📥 go_features.proto
+│     └─ 📥 common.proto
+│  ├─ ✅ list_services_request.proto [1-1-1]
+│     ├─ 📥 common.proto
+│     └─ 📥 go_features.proto
+│  ├─ ✅ register_check_request.proto [1-1-1]
+│     ├─ 📥 go_features.proto
+│     └─ 📥 common.proto
+│     └─ 📥 ... +1 more
+│  ├─ ✅ reset_health_stats_request.proto [1-1-1]
+│     ├─ 📥 go_features.proto
+│     └─ 📥 common.proto
+│  ├─ ✅ run_check_request.proto [1-1-1]
+│     ├─ 📥 go_features.proto
+│     └─ 📥 common.proto
+│  ├─ ✅ set_health_request.proto [1-1-1]
+│     ├─ 📥 go_features.proto
+│     └─ 📥 common.proto
+│  ├─ ✅ unregister_check_request.proto [1-1-1]
+│     ├─ 📥 go_features.proto
+│     └─ 📥 common.proto
+│  └─ ✅ watch_request.proto [1-1-1]
+│     ├─ 📥 common.proto
+│     └─ 📥 go_features.proto
+└─ 📁 services/
+   └─ ✅ health_admin_service.proto [1-1-1]
+      ├─ 📥 go_features.proto
+      └─ 📥 configure_alerting_request.proto
+      └─ 📥 ... +11 more
+   └─ ✅ health_service.proto [1-1-1]
+      ├─ 📥 go_features.proto
+      └─ 📥 health_check_request.proto
+      └─ 📥 ... +13 more
+│
+📦 LOG
+│
+└─ 📁 log.proto/
+   └─ ✅ log.proto [MULTI]
+      ├─ 📥 common.proto
+      └─ 📥 timestamp.proto
+      └─ 📥 ... +5 more
+│
+📦 METRICS
+│
+├─ 📁 metrics.proto/
+│  └─ ✅ metrics.proto [1-1-1]
+│     └─ 📥 go_features.proto
+├─ 📁 messages/
+│  ├─ ✅ alert_notification.proto [1-1-1]
+│     └─ 📥 go_features.proto
+│  ├─ ✅ alerting_condition.proto [1-1-1]
+│     └─ 📥 go_features.proto
+│  ├─ ✅ alerting_rule.proto [1-1-1]
+│     └─ 📥 go_features.proto
+│  ├─ ✅ counter_metric.proto [1-1-1]
+│     ├─ 📥 go_features.proto
+│     └─ 📥 timestamp.proto
+│  ├─ ✅ export_config.proto [1-1-1]
+│     └─ 📥 go_features.proto
+│  ├─ ✅ gauge_metric.proto [1-1-1]
+│     ├─ 📥 go_features.proto
+│     └─ 📥 timestamp.proto
+│  ├─ ✅ histogram_metric.proto [1-1-1]
+│     ├─ 📥 timestamp.proto
+│     └─ 📥 histogram_bucket.proto
+│  ├─ ✅ import_config.proto [1-1-1]
+│     └─ 📥 go_features.proto
+│  ├─ ✅ metric_aggregation.proto [1-1-1]
+│     └─ 📥 go_features.proto
+│  ├─ ✅ metric_bucket.proto [1-1-1]
+│     └─ 📥 go_features.proto
+│  ├─ ✅ metric_config.proto [1-1-1]
+│     └─ 📥 go_features.proto
+│  ├─ ✅ metric_data.proto [MULTI]
+│     ├─ 📥 go_features.proto
+│     └─ 📥 timestamp.proto
+│     └─ 📥 ... +2 more
+│  ├─ ✅ metric_family.proto [1-1-1]
+│     └─ 📥 go_features.proto
+│  ├─ ✅ metric_filter.proto [MULTI]
+│     ├─ 📥 go_features.proto
+│     └─ 📥 metric_type.proto
+│     └─ 📥 ... +2 more
+│  ├─ ✅ metric_health.proto [1-1-1]
+│     └─ 📥 go_features.proto
+│  ├─ ✅ metric_label.proto [1-1-1]
+│     └─ 📥 go_features.proto
+│  ├─ ✅ metric_metadata.proto [1-1-1]
+│     ├─ 📥 go_features.proto
+│     └─ 📥 timestamp.proto
+│  ├─ ✅ metric_quantile.proto [1-1-1]
+│     └─ 📥 go_features.proto
+│  ├─ ✅ metric_query.proto [MULTI]
+│     ├─ 📥 go_features.proto
+│     └─ 📥 duration.proto
+│     └─ 📥 ... +4 more
+│  ├─ ✅ metric_sample.proto [1-1-1]
+│     └─ 📥 go_features.proto
+│  ├─ ✅ metric_stats.proto [1-1-1]
+│     └─ 📥 go_features.proto
+│  ├─ ✅ retention_policy.proto [1-1-1]
+│     └─ 📥 go_features.proto
+│  ├─ ✅ scrape_config.proto [1-1-1]
+│     └─ 📥 go_features.proto
+│  ├─ ✅ scrape_job.proto [1-1-1]
+│     └─ 📥 go_features.proto
+│  ├─ ✅ scrape_target.proto [1-1-1]
+│     └─ 📥 go_features.proto
+│  ├─ ✅ summary_metric.proto [MULTI]
+│     ├─ 📥 duration.proto
+│     └─ 📥 go_features.proto
+│     └─ 📥 ... +2 more
+│  └─ ✅ time_series.proto [1-1-1]
+│     └─ 📥 go_features.proto
+├─ 📁 types/
+│  ├─ ✅ backup_info.proto [1-1-1]
+│     └─ 📥 timestamp.proto
+│  ├─ ✅ dry_run_result.proto [1-1-1]
+│  ├─ ✅ error_stats.proto [MULTI]
+│  ├─ ✅ export_config.proto [1-1-1]
+│     └─ 📥 duration.proto
+│  ├─ ✅ histogram_bucket.proto [1-1-1]
+│  ├─ ✅ metric_value.proto [MULTI]
+│     ├─ 📥 go_features.proto
+│     └─ 📥 timestamp.proto
+│     └─ 📥 ... +1 more
+│  ├─ ✅ pagination_info.proto [1-1-1]
+│     └─ 📥 go_features.proto
+│  ├─ ✅ performance_stats.proto [1-1-1]
+│     └─ 📥 go_features.proto
+│  ├─ ✅ provider_info.proto [1-1-1]
+│     ├─ 📥 go_features.proto
+│     └─ 📥 timestamp.proto
+│     └─ 📥 ... +1 more
+│  ├─ ✅ provider_status.proto [1-1-1]
+│     ├─ 📥 timestamp.proto
+│     └─ 📥 provider_state.proto
+│  ├─ ✅ provider_summary.proto [1-1-1]
+│     ├─ 📥 go_features.proto
+│     └─ 📥 timestamp.proto
+│     └─ 📥 ... +1 more
+│  ├─ ✅ query_stats.proto [1-1-1]
+│     └─ 📥 go_features.proto
+│  ├─ ✅ recording_stats.proto [1-1-1]
+│  ├─ ✅ resource_limits_summary.proto [1-1-1]
+│     └─ 📥 go_features.proto
+│  ├─ ✅ retention_policy.proto [1-1-1]
+│     └─ 📥 duration.proto
+│  ├─ ✅ time_range.proto [1-1-1]
+│     ├─ 📥 timestamp.proto
+│     └─ 📥 duration.proto
+│  ├─ ✅ timestamp_range.proto [MULTI]
+│     ├─ 📥 go_features.proto
+│     └─ 📥 timestamp.proto
+│     └─ 📥 ... +1 more
+│  ├─ ✅ top_metrics.proto [1-1-1]
+│     └─ 📥 go_features.proto
+│  └─ ✅ validation_result.proto [1-1-1]
+├─ 📁 enums/
+│  ├─ ✅ aggregation_type.proto [1-1-1]
+│     └─ 📥 go_features.proto
+│  ├─ ✅ alert_channel_type.proto [1-1-1]
+│  ├─ ✅ alert_severity.proto [1-1-1]
+│     └─ 📥 go_features.proto
+│  ├─ ✅ alert_state.proto [1-1-1]
+│     └─ 📥 go_features.proto
+│  ├─ ✅ comparison_operator.proto [1-1-1]
+│     └─ 📥 go_features.proto
+│  ├─ ✅ compression_type.proto [1-1-1]
+│     └─ 📥 go_features.proto
+│  ├─ ✅ dashboard_type.proto [1-1-1]
+│  ├─ ✅ export_format.proto [1-1-1]
+│     └─ 📥 go_features.proto
+│  ├─ ✅ health_status.proto [1-1-1]
+│     └─ 📥 go_features.proto
+│  ├─ ✅ metric_aggregation.proto [1-1-1]
+│  ├─ ✅ metric_source.proto [1-1-1]
+│  ├─ ✅ metric_status.proto [1-1-1]
+│     └─ 📥 go_features.proto
+│  ├─ ✅ metric_type.proto [1-1-1]
+│     └─ 📥 go_features.proto
+│  ├─ ✅ notification_type.proto [1-1-1]
+│     └─ 📥 go_features.proto
+│  ├─ ✅ provider_state.proto [1-1-1]
+│  ├─ ✅ query_operation.proto [1-1-1]
+│     └─ 📥 go_features.proto
+│  ├─ ✅ retention_policy.proto [1-1-1]
+│  ├─ ✅ retention_unit.proto [1-1-1]
+│     └─ 📥 go_features.proto
+│  ├─ ✅ sample_rate.proto [1-1-1]
+│  ├─ ✅ scrape_status.proto [1-1-1]
+│     └─ 📥 go_features.proto
+│  ├─ ✅ storage_backend.proto [1-1-1]
+│     └─ 📥 go_features.proto
+│  ├─ ✅ time_unit.proto [1-1-1]
+│     └─ 📥 go_features.proto
+│  ├─ ✅ time_window.proto [1-1-1]
+│  └─ ✅ visualization_type.proto [1-1-1]
+├─ 📁 responses/
+│  ├─ ✅ create_metric_response.proto [1-1-1]
+│     └─ 📥 go_features.proto
+│  ├─ ✅ create_provider_response.proto [MULTI]
+│     ├─ 📥 go_features.proto
+│     └─ 📥 timestamp.proto
+│     └─ 📥 ... +4 more
+│  ├─ ✅ delete_metric_response.proto [1-1-1]
+│     └─ 📥 go_features.proto
+│  ├─ ✅ delete_provider_response.proto [MULTI]
+│     ├─ 📥 go_features.proto
+│     └─ 📥 timestamp.proto
+│     └─ 📥 ... +3 more
+│  ├─ ✅ export_metrics_response.proto [1-1-1]
+│     └─ 📥 go_features.proto
+│  ├─ ✅ get_alerting_rules_response.proto [1-1-1]
+│     └─ 📥 go_features.proto
+│  ├─ ✅ get_metric_config_response.proto [1-1-1]
+│     └─ 📥 go_features.proto
+│  ├─ ✅ get_metric_metadata_response.proto [1-1-1]
+│     ├─ 📥 go_features.proto
+│     └─ 📥 timestamp.proto
+│     └─ 📥 ... +3 more
+│  ├─ ✅ get_metric_response.proto [1-1-1]
+│     └─ 📥 go_features.proto
+│  ├─ ✅ get_metrics_response.proto [1-1-1]
+│     ├─ 📥 go_features.proto
+│     └─ 📥 timestamp.proto
+│     └─ 📥 ... +6 more
+│  ├─ ✅ get_metrics_summary_response.proto [MULTI]
+│     ├─ 📥 go_features.proto
+│     └─ 📥 timestamp.proto
+│     └─ 📥 ... +7 more
+│  ├─ ✅ get_provider_stats_response.proto [MULTI]
+│     ├─ 📥 go_features.proto
+│     └─ 📥 timestamp.proto
+│     └─ 📥 ... +7 more
+│  ├─ ✅ get_scrape_config_response.proto [1-1-1]
+│     └─ 📥 go_features.proto
+│  ├─ ✅ get_stats_response.proto [1-1-1]
+│     └─ 📥 go_features.proto
+│  ├─ ✅ health_check_response.proto [1-1-1]
+│     └─ 📥 go_features.proto
+│  ├─ ✅ import_metrics_response.proto [1-1-1]
+│     └─ 📥 go_features.proto
+│  ├─ ✅ list_metrics_response.proto [1-1-1]
+│     └─ 📥 go_features.proto
+│  ├─ ✅ list_providers_response.proto [MULTI]
+│     ├─ 📥 go_features.proto
+│     └─ 📥 timestamp.proto
+│     └─ 📥 ... +6 more
+│  ├─ ✅ query_metrics_response.proto [MULTI]
+│     ├─ 📥 go_features.proto
+│     └─ 📥 timestamp.proto
+│     └─ 📥 ... +4 more
+│  ├─ ✅ record_counter_response.proto [1-1-1]
+│     ├─ 📥 go_features.proto
+│     └─ 📥 timestamp.proto
+│     └─ 📥 ... +2 more
+│  ├─ ✅ record_gauge_response.proto [1-1-1]
+│     ├─ 📥 go_features.proto
+│     └─ 📥 timestamp.proto
+│     └─ 📥 ... +3 more
+│  ├─ ✅ record_histogram_response.proto [MULTI]
+│     ├─ 📥 go_features.proto
+│     └─ 📥 timestamp.proto
+│     └─ 📥 ... +3 more
+│  ├─ ✅ record_metric_response.proto [1-1-1]
+│     ├─ 📥 go_features.proto
+│     └─ 📥 timestamp.proto
+│     └─ 📥 ... +3 more
+│  ├─ ✅ record_metrics_response.proto [MULTI]
+│     ├─ 📥 go_features.proto
+│     └─ 📥 timestamp.proto
+│     └─ 📥 ... +1 more
+│  ├─ ✅ record_summary_response.proto [1-1-1]
+│     └─ 📥 go_features.proto
+│  ├─ ✅ register_metric_response.proto [MULTI]
+│     ├─ 📥 go_features.proto
+│     └─ 📥 timestamp.proto
+│     └─ 📥 ... +1 more
+│  ├─ ✅ reset_metrics_response.proto [1-1-1]
+│     └─ 📥 go_features.proto
+│  ├─ ✅ set_alerting_rules_response.proto [1-1-1]
+│     └─ 📥 go_features.proto
+│  ├─ ✅ set_metric_config_response.proto [1-1-1]
+│     └─ 📥 go_features.proto
+│  ├─ ✅ set_metric_metadata_response.proto [1-1-1]
+│     └─ 📥 go_features.proto
+│  ├─ ✅ set_scrape_config_response.proto [1-1-1]
+│     └─ 📥 go_features.proto
+│  ├─ ✅ start_scraping_response.proto [1-1-1]
+│     └─ 📥 go_features.proto
+│  ├─ ✅ stop_scraping_response.proto [1-1-1]
+│     └─ 📥 go_features.proto
+│  ├─ ✅ unregister_metric_response.proto [MULTI]
+│     ├─ 📥 go_features.proto
+│     └─ 📥 timestamp.proto
+│     └─ 📥 ... +3 more
+│  ├─ ✅ update_metric_response.proto [1-1-1]
+│     └─ 📥 go_features.proto
+│  └─ ✅ update_provider_response.proto [MULTI]
+│     ├─ 📥 go_features.proto
+│     └─ 📥 timestamp.proto
+│     └─ 📥 ... +4 more
+├─ 📁 requests/
+│  ├─ ✅ create_metric_request.proto [1-1-1]
+│     └─ 📥 go_features.proto
+│  ├─ ✅ create_provider_request.proto [MULTI]
+│     ├─ 📥 go_features.proto
+│     └─ 📥 request_metadata.proto
+│     └─ 📥 ... +1 more
+│  ├─ ✅ delete_metric_request.proto [1-1-1]
+│     └─ 📥 go_features.proto
+│  ├─ ✅ delete_provider_request.proto [MULTI]
+│     ├─ 📥 go_features.proto
+│     └─ 📥 request_metadata.proto
+│  ├─ ✅ export_metrics_request.proto [1-1-1]
+│     └─ 📥 go_features.proto
+│  ├─ ✅ get_alerting_rules_request.proto [1-1-1]
+│     └─ 📥 go_features.proto
+│  ├─ ✅ get_metric_config_request.proto [1-1-1]
+│     └─ 📥 go_features.proto
+│  ├─ ✅ get_metric_metadata_request.proto [1-1-1]
+│     └─ 📥 go_features.proto
+│  ├─ ✅ get_metric_request.proto [1-1-1]
+│     └─ 📥 go_features.proto
+│  ├─ ✅ get_metrics_request.proto [MULTI]
+│     ├─ 📥 go_features.proto
+│     └─ 📥 timestamp.proto
+│     └─ 📥 ... +6 more
+│  ├─ ✅ get_metrics_summary_request.proto [MULTI]
+│     ├─ 📥 go_features.proto
+│     └─ 📥 timestamp.proto
+│     └─ 📥 ... +3 more
+│  ├─ ✅ get_provider_stats_request.proto [MULTI]
+│     ├─ 📥 go_features.proto
+│     └─ 📥 timestamp.proto
+│     └─ 📥 ... +2 more
+│  ├─ ✅ get_scrape_config_request.proto [1-1-1]
+│     └─ 📥 go_features.proto
+│  ├─ ✅ get_stats_request.proto [1-1-1]
+│     └─ 📥 go_features.proto
+│  ├─ ✅ health_check_request.proto [1-1-1]
+│     └─ 📥 go_features.proto
+│  ├─ ✅ import_metrics_request.proto [1-1-1]
+│     └─ 📥 go_features.proto
+│  ├─ ✅ list_metrics_request.proto [1-1-1]
+│     └─ 📥 go_features.proto
+│  ├─ ✅ list_providers_request.proto [MULTI]
+│     ├─ 📥 go_features.proto
+│     └─ 📥 request_metadata.proto
+│     └─ 📥 ... +2 more
+│  ├─ ✅ query_metrics_request.proto [MULTI]
+│     ├─ 📥 go_features.proto
+│     └─ 📥 metric_query.proto
+│     └─ 📥 ... +1 more
+│  ├─ ✅ record_counter_request.proto [1-1-1]
+│     ├─ 📥 go_features.proto
+│     └─ 📥 common.proto
+│     └─ 📥 ... +1 more
+│  ├─ ✅ record_gauge_request.proto [MULTI]
+│     ├─ 📥 go_features.proto
+│     └─ 📥 timestamp.proto
+│     └─ 📥 ... +1 more
+│  ├─ ✅ record_histogram_request.proto [1-1-1]
+│     ├─ 📥 go_features.proto
+│     └─ 📥 timestamp.proto
+│     └─ 📥 ... +1 more
+│  ├─ ✅ record_metric_request.proto [MULTI]
+│     ├─ 📥 go_features.proto
+│     └─ 📥 timestamp.proto
+│     └─ 📥 ... +2 more
+│  ├─ ✅ record_metrics_request.proto [MULTI]
+│     ├─ 📥 go_features.proto
+│     └─ 📥 timestamp.proto
+│     └─ 📥 ... +2 more
+│  ├─ ✅ record_summary_request.proto [1-1-1]
+│     └─ 📥 go_features.proto
+│  ├─ ✅ register_metric_request.proto [MULTI]
+│     ├─ 📥 go_features.proto
+│     └─ 📥 request_metadata.proto
+│     └─ 📥 ... +3 more
+│  ├─ ✅ reset_metrics_request.proto [1-1-1]
+│     └─ 📥 go_features.proto
+│  ├─ ✅ set_alerting_rules_request.proto [1-1-1]
+│     └─ 📥 go_features.proto
+│  ├─ ✅ set_metric_config_request.proto [1-1-1]
+│     └─ 📥 go_features.proto
+│  ├─ ✅ set_metric_metadata_request.proto [1-1-1]
+│     └─ 📥 go_features.proto
+│  ├─ ✅ set_scrape_config_request.proto [1-1-1]
+│     └─ 📥 go_features.proto
+│  ├─ ✅ start_scraping_request.proto [1-1-1]
+│     └─ 📥 go_features.proto
+│  ├─ ✅ stop_scraping_request.proto [1-1-1]
+│     └─ 📥 go_features.proto
+│  ├─ ✅ stream_metrics_request.proto [MULTI]
+│     ├─ 📥 go_features.proto
+│     └─ 📥 timestamp.proto
+│     └─ 📥 ... +2 more
+│  ├─ ✅ unregister_metric_request.proto [MULTI]
+│     ├─ 📥 go_features.proto
+│     └─ 📥 request_metadata.proto
+│  ├─ ✅ update_metric_request.proto [1-1-1]
+│     └─ 📥 go_features.proto
+│  └─ ✅ update_provider_request.proto [MULTI]
+│     ├─ 📥 go_features.proto
+│     └─ 📥 request_metadata.proto
+└─ 📁 services/
+   └─ ✅ metrics_admin_service.proto [1-1-1]
+      ├─ 📥 go_features.proto
+      └─ 📥 create_provider_request.proto
+      └─ 📥 ... +9 more
+   └─ ✅ metrics_service.proto [1-1-1]
+      ├─ 📥 go_features.proto
+      └─ 📥 record_metric_request.proto
+      └─ 📥 ... +17 more
+│
+📦 NOTIFICATION
+│
+├─ 📁 notification.proto/
+│  └─ ✅ notification.proto [1-1-1]
+│     └─ 📥 go_features.proto
+├─ 📁 messages/
+│  ├─ ✅ delivery_channel.proto [MULTI]
+│     └─ 📥 go_features.proto
+│  ├─ ✅ event_notification.proto [1-1-1]
+│     ├─ 📥 timestamp.proto
+│     └─ 📥 any.proto
+│     └─ 📥 ... +2 more
+│  ├─ ✅ notification_message.proto [1-1-1]
+│     ├─ 📥 timestamp.proto
+│     └─ 📥 any.proto
+│     └─ 📥 ... +3 more
+│  ├─ ✅ subscription_preferences.proto [1-1-1]
+│     ├─ 📥 go_features.proto
+│     └─ 📥 delivery_channel.proto
+│  └─ ✅ template.proto [1-1-1]
+│     ├─ 📥 timestamp.proto
+│     └─ 📥 go_features.proto
+└─ 📁 enums/
+   └─ ✅ delivery_status.proto [1-1-1]
+      └─ 📥 go_features.proto
+│
+📦 ORGANIZATION
+│
+├─ 📁 organization.proto/
+│  └─ ✅ organization.proto [1-1-1]
+│     └─ 📥 go_features.proto
+├─ 📁 messages/
+│  ├─ ✅ department.proto [1-1-1]
+│     ├─ 📥 go_features.proto
+│     └─ 📥 timestamp.proto
+│     └─ 📥 ... +1 more
+│  ├─ ✅ organization.proto [1-1-1]
+│     ├─ 📥 go_features.proto
+│     └─ 📥 timestamp.proto
+│     └─ 📥 ... +2 more
+│  ├─ ✅ organization_hierarchy.proto [MULTI]
+│     ├─ 📥 go_features.proto
+│     └─ 📥 timestamp.proto
+│     └─ 📥 ... +2 more
+│  ├─ ✅ organization_member.proto [1-1-1]
+│     ├─ 📥 go_features.proto
+│     └─ 📥 timestamp.proto
+│     └─ 📥 ... +2 more
+│  ├─ ✅ organization_settings.proto [MULTI]
+│     ├─ 📥 go_features.proto
+│     └─ 📥 timestamp.proto
+│     └─ 📥 ... +1 more
+│  ├─ ✅ team.proto [1-1-1]
+│     ├─ 📥 go_features.proto
+│     └─ 📥 timestamp.proto
+│     └─ 📥 ... +1 more
+│  └─ ✅ tenant.proto [MULTI]
+│     ├─ 📥 go_features.proto
+│     └─ 📥 timestamp.proto
+│     └─ 📥 ... +3 more
+├─ 📁 types/
+│  └─ ✅ tenant_isolation.proto [MULTI]
+│     ├─ 📥 go_features.proto
+│     └─ 📥 timestamp.proto
+│     └─ 📥 ... +2 more
+├─ 📁 enums/
+│  ├─ ✅ hierarchy_type.proto [1-1-1]
+│     └─ 📥 go_features.proto
+│  ├─ ✅ isolation_level.proto [1-1-1]
+│     └─ 📥 go_features.proto
+│  ├─ ✅ member_role.proto [1-1-1]
+│     └─ 📥 go_features.proto
+│  ├─ ✅ organization_status.proto [1-1-1]
+│     └─ 📥 go_features.proto
+│  └─ ✅ tenant_status.proto [1-1-1]
+│     └─ 📥 go_features.proto
+├─ 📁 responses/
+│  ├─ ✅ add_member_response.proto [1-1-1]
+│     ├─ 📥 go_features.proto
+│     └─ 📥 error.proto
+│  ├─ ✅ configure_tenant_isolation_response.proto [1-1-1]
+│     ├─ 📥 go_features.proto
+│     └─ 📥 error.proto
+│  ├─ ✅ create_department_response.proto [1-1-1]
+│     ├─ 📥 go_features.proto
+│     └─ 📥 error.proto
+│  ├─ ✅ create_organization_response.proto [1-1-1]
+│     ├─ 📥 go_features.proto
+│     └─ 📥 organization.proto
+│     └─ 📥 ... +2 more
+│  ├─ ✅ create_team_response.proto [1-1-1]
+│     ├─ 📥 go_features.proto
+│     └─ 📥 error.proto
+│  ├─ ✅ create_tenant_response.proto [1-1-1]
+│     ├─ 📥 go_features.proto
+│     └─ 📥 error.proto
+│  ├─ ✅ delete_department_response.proto [1-1-1]
+│     ├─ 📥 go_features.proto
+│     └─ 📥 error.proto
+│  ├─ ✅ delete_organization_response.proto [1-1-1]
+│     ├─ 📥 go_features.proto
+│     └─ 📥 error.proto
+│  ├─ ✅ delete_team_response.proto [1-1-1]
+│     ├─ 📥 go_features.proto
+│     └─ 📥 error.proto
+│  ├─ ✅ delete_tenant_response.proto [1-1-1]
+│     ├─ 📥 go_features.proto
+│     └─ 📥 error.proto
+│  ├─ ✅ get_department_response.proto [1-1-1]
+│     ├─ 📥 go_features.proto
+│     └─ 📥 error.proto
+│  ├─ ✅ get_hierarchy_response.proto [1-1-1]
+│     ├─ 📥 go_features.proto
+│     └─ 📥 error.proto
+│  ├─ ✅ get_organization_response.proto [1-1-1]
+│     ├─ 📥 go_features.proto
+│     └─ 📥 organization.proto
+│     └─ 📥 ... +3 more
+│  ├─ ✅ get_organization_settings_response.proto [1-1-1]
+│     ├─ 📥 go_features.proto
+│     └─ 📥 error.proto
+│  ├─ ✅ get_team_response.proto [1-1-1]
+│     ├─ 📥 go_features.proto
+│     └─ 📥 error.proto
+│  ├─ ✅ get_tenant_isolation_response.proto [1-1-1]
+│     ├─ 📥 go_features.proto
+│     └─ 📥 error.proto
+│  ├─ ✅ get_tenant_response.proto [1-1-1]
+│     ├─ 📥 go_features.proto
+│     └─ 📥 error.proto
+│  ├─ ✅ get_tenant_usage_response.proto [1-1-1]
+│     ├─ 📥 go_features.proto
+│     └─ 📥 error.proto
+│  ├─ ✅ list_departments_response.proto [1-1-1]
+│     ├─ 📥 go_features.proto
+│     └─ 📥 error.proto
+│  ├─ ✅ list_members_response.proto [1-1-1]
+│     ├─ 📥 go_features.proto
+│     └─ 📥 error.proto
+│  ├─ ✅ list_organizations_response.proto [1-1-1]
+│     ├─ 📥 go_features.proto
+│     └─ 📥 error.proto
+│  ├─ ✅ list_teams_response.proto [1-1-1]
+│     ├─ 📥 go_features.proto
+│     └─ 📥 error.proto
+│  ├─ ✅ list_tenants_response.proto [1-1-1]
+│     ├─ 📥 go_features.proto
+│     └─ 📥 error.proto
+│  ├─ ✅ remove_member_response.proto [1-1-1]
+│     ├─ 📥 go_features.proto
+│     └─ 📥 error.proto
+│  ├─ ✅ update_department_response.proto [1-1-1]
+│     ├─ 📥 go_features.proto
+│     └─ 📥 error.proto
+│  ├─ ✅ update_hierarchy_response.proto [1-1-1]
+│     ├─ 📥 go_features.proto
+│     └─ 📥 error.proto
+│  ├─ ✅ update_member_response.proto [1-1-1]
+│     ├─ 📥 go_features.proto
+│     └─ 📥 error.proto
+│  ├─ ✅ update_organization_response.proto [1-1-1]
+│     ├─ 📥 go_features.proto
+│     └─ 📥 organization.proto
+│     └─ 📥 ... +1 more
+│  ├─ ✅ update_organization_settings_response.proto [1-1-1]
+│     ├─ 📥 go_features.proto
+│     └─ 📥 error.proto
+│  ├─ ✅ update_team_response.proto [1-1-1]
+│     ├─ 📥 go_features.proto
+│     └─ 📥 error.proto
+│  ├─ ✅ update_tenant_quota_response.proto [1-1-1]
+│     ├─ 📥 go_features.proto
+│     └─ 📥 error.proto
+│  └─ ✅ update_tenant_response.proto [1-1-1]
+│     ├─ 📥 go_features.proto
+│     └─ 📥 error.proto
+├─ 📁 requests/
+│  ├─ ✅ add_member_request.proto [1-1-1]
+│     ├─ 📥 go_features.proto
+│     └─ 📥 request_metadata.proto
+│  ├─ ✅ configure_tenant_isolation_request.proto [1-1-1]
+│     ├─ 📥 go_features.proto
+│     └─ 📥 request_metadata.proto
+│  ├─ ✅ create_department_request.proto [1-1-1]
+│     ├─ 📥 go_features.proto
+│     └─ 📥 request_metadata.proto
+│  ├─ ✅ create_organization_request.proto [1-1-1]
+│     ├─ 📥 go_features.proto
+│     └─ 📥 organization.proto
+│     └─ 📥 ... +1 more
+│  ├─ ✅ create_team_request.proto [1-1-1]
+│     ├─ 📥 go_features.proto
+│     └─ 📥 request_metadata.proto
+│  ├─ ✅ create_tenant_request.proto [1-1-1]
+│     ├─ 📥 go_features.proto
+│     └─ 📥 request_metadata.proto
+│  ├─ ✅ delete_department_request.proto [1-1-1]
+│     ├─ 📥 go_features.proto
+│     └─ 📥 request_metadata.proto
+│  ├─ ✅ delete_organization_request.proto [1-1-1]
+│     ├─ 📥 go_features.proto
+│     └─ 📥 request_metadata.proto
+│  ├─ ✅ delete_team_request.proto [1-1-1]
+│     ├─ 📥 go_features.proto
+│     └─ 📥 request_metadata.proto
+│  ├─ ✅ delete_tenant_request.proto [1-1-1]
+│     ├─ 📥 go_features.proto
+│     └─ 📥 request_metadata.proto
+│  ├─ ✅ get_department_request.proto [1-1-1]
+│     ├─ 📥 go_features.proto
+│     └─ 📥 request_metadata.proto
+│  ├─ ✅ get_hierarchy_request.proto [1-1-1]
+│     ├─ 📥 go_features.proto
+│     └─ 📥 request_metadata.proto
+│  ├─ ✅ get_organization_request.proto [1-1-1]
+│     ├─ 📥 go_features.proto
+│     └─ 📥 request_metadata.proto
+│  ├─ ✅ get_organization_settings_request.proto [1-1-1]
+│     ├─ 📥 go_features.proto
+│     └─ 📥 request_metadata.proto
+│  ├─ ✅ get_team_request.proto [1-1-1]
+│     ├─ 📥 go_features.proto
+│     └─ 📥 request_metadata.proto
+│  ├─ ✅ get_tenant_isolation_request.proto [1-1-1]
+│     ├─ 📥 go_features.proto
+│     └─ 📥 request_metadata.proto
+│  ├─ ✅ get_tenant_request.proto [1-1-1]
+│     ├─ 📥 go_features.proto
+│     └─ 📥 request_metadata.proto
+│  ├─ ✅ get_tenant_usage_request.proto [1-1-1]
+│     ├─ 📥 go_features.proto
+│     └─ 📥 request_metadata.proto
+│  ├─ ✅ list_departments_request.proto [1-1-1]
+│     ├─ 📥 go_features.proto
+│     └─ 📥 request_metadata.proto
+│  ├─ ✅ list_members_request.proto [1-1-1]
+│     ├─ 📥 go_features.proto
+│     └─ 📥 request_metadata.proto
+│  ├─ ✅ list_organizations_request.proto [1-1-1]
+│     ├─ 📥 go_features.proto
+│     └─ 📥 request_metadata.proto
+│  ├─ ✅ list_teams_request.proto [1-1-1]
+│     ├─ 📥 go_features.proto
+│     └─ 📥 request_metadata.proto
+│  ├─ ✅ list_tenants_request.proto [1-1-1]
+│     ├─ 📥 go_features.proto
+│     └─ 📥 request_metadata.proto
+│  ├─ ✅ remove_member_request.proto [1-1-1]
+│     ├─ 📥 go_features.proto
+│     └─ 📥 request_metadata.proto
+│  ├─ ✅ update_department_request.proto [1-1-1]
+│     ├─ 📥 go_features.proto
+│     └─ 📥 request_metadata.proto
+│  ├─ ✅ update_hierarchy_request.proto [1-1-1]
+│     ├─ 📥 go_features.proto
+│     └─ 📥 request_metadata.proto
+│  ├─ ✅ update_member_request.proto [1-1-1]
+│     ├─ 📥 go_features.proto
+│     └─ 📥 request_metadata.proto
+│  ├─ ✅ update_organization_request.proto [1-1-1]
+│     ├─ 📥 go_features.proto
+│     └─ 📥 organization.proto
+│     └─ 📥 ... +1 more
+│  ├─ ✅ update_organization_settings_request.proto [1-1-1]
+│     ├─ 📥 go_features.proto
+│     └─ 📥 request_metadata.proto
+│  ├─ ✅ update_team_request.proto [1-1-1]
+│     ├─ 📥 go_features.proto
+│     └─ 📥 request_metadata.proto
+│  ├─ ✅ update_tenant_quota_request.proto [1-1-1]
+│     ├─ 📥 go_features.proto
+│     └─ 📥 request_metadata.proto
+│  └─ ✅ update_tenant_request.proto [1-1-1]
+│     ├─ 📥 go_features.proto
+│     └─ 📥 request_metadata.proto
+└─ 📁 services/
+   └─ ✅ hierarchy_service.proto [1-1-1]
+      ├─ 📥 go_features.proto
+      └─ 📥 create_department_request.proto
+      └─ 📥 ... +23 more
+   └─ ✅ organization_service.proto [1-1-1]
+      ├─ 📥 go_features.proto
+      └─ 📥 create_organization_request.proto
+      └─ 📥 ... +21 more
+   └─ ✅ tenant_service.proto [1-1-1]
+      ├─ 📥 go_features.proto
+      └─ 📥 create_tenant_request.proto
+      └─ 📥 ... +17 more
+│
+📦 QUEUE
+│
+├─ 📁 queue.proto/
+│  └─ ✅ queue.proto [MULTI]
+│     ├─ 📥 common.proto
+│     └─ 📥 timestamp.proto
+│     └─ 📥 ... +7 more
+├─ 📁 messages/
+│  ├─ ✅ acknowledgment.proto [1-1-1]
+│     └─ 📥 go_features.proto
+│  ├─ ✅ alerting_config.proto [1-1-1]
+│     └─ 📥 go_features.proto
+│  ├─ ✅ authentication_config.proto [1-1-1]
+│     └─ 📥 go_features.proto
+│  ├─ ✅ authorization_config.proto [1-1-1]
+│     └─ 📥 go_features.proto
+│  ├─ ✅ backup_config.proto [1-1-1]
+│     └─ 📥 go_features.proto
+│  ├─ ✅ batch_config.proto [1-1-1]
+│     └─ 📥 go_features.proto
+│  ├─ ✅ binding_info.proto [1-1-1]
+│     └─ 📥 go_features.proto
+│  ├─ ✅ circuit_breaker_config.proto [1-1-1]
+│     └─ 📥 go_features.proto
+│  ├─ ✅ cluster_info.proto [1-1-1]
+│     └─ 📥 go_features.proto
+│  ├─ ✅ compression_config.proto [1-1-1]
+│     └─ 📥 go_features.proto
+│  ├─ ✅ consistency_config.proto [1-1-1]
+│     └─ 📥 go_features.proto
+│  ├─ ✅ consumer_group.proto [1-1-1]
+│     └─ 📥 go_features.proto
+│  ├─ ✅ dead_letter_config.proto [1-1-1]
+│     └─ 📥 go_features.proto
+│  ├─ ✅ dead_letter_policy.proto [1-1-1]
+│     └─ 📥 go_features.proto
+│  ├─ ✅ delivery_options.proto [1-1-1]
+│     └─ 📥 go_features.proto
+│  ├─ ✅ deserialization_config.proto [1-1-1]
+│     └─ 📥 go_features.proto
+│  ├─ ✅ durability_config.proto [1-1-1]
+│     └─ 📥 go_features.proto
+│  ├─ ✅ encryption_config.proto [1-1-1]
+│     └─ 📥 go_features.proto
+│  ├─ ✅ exchange_config.proto [1-1-1]
+│     └─ 📥 go_features.proto
+│  ├─ ✅ flow_control.proto [1-1-1]
+│     └─ 📥 go_features.proto
+│  ├─ ✅ load_balancing_config.proto [1-1-1]
+│     └─ 📥 go_features.proto
+│  ├─ ✅ message.proto [1-1-1]
+│     └─ 📥 go_features.proto
+│  ├─ ✅ message_envelope.proto [1-1-1]
+│     └─ 📥 go_features.proto
+│  ├─ ✅ message_metadata.proto [1-1-1]
+│     └─ 📥 go_features.proto
+│  ├─ ✅ migration_config.proto [1-1-1]
+│     └─ 📥 go_features.proto
+│  ├─ ✅ monitoring_config.proto [1-1-1]
+│     └─ 📥 go_features.proto
+│  ├─ ✅ node_info.proto [1-1-1]
+│     └─ 📥 go_features.proto
+│  ├─ ✅ offset_info.proto [1-1-1]
+│     └─ 📥 go_features.proto
+│  ├─ ✅ partition_config.proto [1-1-1]
+│     └─ 📥 go_features.proto
+│  ├─ ✅ partition_info.proto [1-1-1]
+│     └─ 📥 go_features.proto
+│  ├─ ✅ performance_config.proto [1-1-1]
+│     └─ 📥 go_features.proto
+│  ├─ ✅ queue_config.proto [1-1-1]
+│     └─ 📥 go_features.proto
+│  ├─ ✅ queue_info.proto [1-1-1]
+│     └─ 📥 go_features.proto
+│  ├─ ✅ queue_message.proto [1-1-1]
+│     └─ 📥 go_features.proto
+│  ├─ ✅ queue_stats.proto [1-1-1]
+│     └─ 📥 go_features.proto
+│  ├─ ✅ rate_limit_config.proto [1-1-1]
+│     └─ 📥 go_features.proto
+│  ├─ ✅ replication_config.proto [1-1-1]
+│     └─ 📥 go_features.proto
+│  ├─ ✅ restore_config.proto [1-1-1]
+│     └─ 📥 go_features.proto
+│  ├─ ✅ retention_policy.proto [1-1-1]
+│     └─ 📥 go_features.proto
+│  ├─ ✅ retry_config.proto [1-1-1]
+│     └─ 📥 go_features.proto
+│  ├─ ✅ retry_policy.proto [1-1-1]
+│     └─ 📥 go_features.proto
+│  ├─ ✅ routing_config.proto [1-1-1]
+│     └─ 📥 go_features.proto
+│  ├─ ✅ routing_key.proto [1-1-1]
+│     └─ 📥 go_features.proto
+│  ├─ ✅ schema_config.proto [1-1-1]
+│     └─ 📥 go_features.proto
+│  ├─ ✅ serialization_config.proto [1-1-1]
+│     └─ 📥 go_features.proto
+│  ├─ ✅ stream_config.proto [1-1-1]
+│     └─ 📥 go_features.proto
+│  ├─ ✅ subscription_config.proto [1-1-1]
+│     └─ 📥 go_features.proto
+│  ├─ ✅ subscription_info.proto [1-1-1]
+│     └─ 📥 go_features.proto
+│  ├─ ✅ subscription_stats.proto [1-1-1]
+│     └─ 📥 go_features.proto
+│  ├─ ✅ timeout_config.proto [1-1-1]
+│     └─ 📥 go_features.proto
+│  ├─ ✅ topic_config.proto [1-1-1]
+│     └─ 📥 go_features.proto
+│  ├─ ✅ topic_info.proto [1-1-1]
+│     └─ 📥 go_features.proto
+│  ├─ ✅ topic_stats.proto [1-1-1]
+│     └─ 📥 go_features.proto
+│  ├─ ✅ transformation_config.proto [1-1-1]
+│     └─ 📥 go_features.proto
+│  └─ ✅ validation_config.proto [1-1-1]
+│     └─ 📥 go_features.proto
+├─ 📁 types/
+│  ├─ ✅ message_id.proto [1-1-1]
+│     └─ 📥 go_features.proto
+│  └─ ✅ timestamp_range.proto [1-1-1]
+│     └─ 📥 go_features.proto
+├─ 📁 enums/
+│  ├─ ✅ acknowledgment_mode.proto [1-1-1]
+│     └─ 📥 go_features.proto
+│  ├─ ✅ compression_type.proto [1-1-1]
+│     └─ 📥 go_features.proto
+│  ├─ ✅ consistency_level.proto [1-1-1]
+│     └─ 📥 go_features.proto
+│  ├─ ✅ consumer_state.proto [1-1-1]
+│     └─ 📥 go_features.proto
+│  ├─ ✅ delivery_mode.proto [1-1-1]
+│     └─ 📥 go_features.proto
+│  ├─ ✅ durability_level.proto [1-1-1]
+│     └─ 📥 go_features.proto
+│  ├─ ✅ health_status.proto [1-1-1]
+│     └─ 📥 go_features.proto
+│  ├─ ✅ message_state.proto [1-1-1]
+│     └─ 📥 go_features.proto
+│  ├─ ✅ partition_strategy.proto [1-1-1]
+│     └─ 📥 go_features.proto
+│  ├─ ✅ priority_level.proto [1-1-1]
+│     └─ 📥 go_features.proto
+│  ├─ ✅ queue_state.proto [1-1-1]
+│     └─ 📥 go_features.proto
+│  ├─ ✅ queue_type.proto [1-1-1]
+│     └─ 📥 go_features.proto
+│  ├─ ✅ replication_mode.proto [1-1-1]
+│     └─ 📥 go_features.proto
+│  ├─ ✅ routing_strategy.proto [1-1-1]
+│     └─ 📥 go_features.proto
+│  ├─ ✅ serialization_format.proto [1-1-1]
+│     └─ 📥 go_features.proto
+│  └─ ✅ subscription_state.proto [1-1-1]
+│     └─ 📥 go_features.proto
+├─ 📁 responses/
+│  ├─ ✅ ack_response.proto [1-1-1]
+│     └─ 📥 go_features.proto
+│  ├─ ✅ backup_queue_response.proto [1-1-1]
+│     └─ 📥 go_features.proto
+│  ├─ ✅ batch_ack_response.proto [1-1-1]
+│     └─ 📥 go_features.proto
+│  ├─ ✅ batch_nack_response.proto [1-1-1]
+│     └─ 📥 go_features.proto
+│  ├─ ✅ batch_publish_response.proto [1-1-1]
+│     └─ 📥 go_features.proto
+│  ├─ ✅ batch_pull_response.proto [1-1-1]
+│     └─ 📥 go_features.proto
+│  ├─ ✅ commit_offset_response.proto [1-1-1]
+│     └─ 📥 go_features.proto
+│  ├─ ✅ create_queue_response.proto [1-1-1]
+│     └─ 📥 go_features.proto
+│  ├─ ✅ create_subscription_response.proto [1-1-1]
+│     └─ 📥 go_features.proto
+│  ├─ ✅ create_topic_response.proto [1-1-1]
+│     └─ 📥 go_features.proto
+│  ├─ ✅ delete_queue_response.proto [1-1-1]
+│     └─ 📥 go_features.proto
+│  ├─ ✅ delete_response.proto [1-1-1]
+│     └─ 📥 go_features.proto
+│  ├─ ✅ delete_subscription_response.proto [1-1-1]
+│     └─ 📥 go_features.proto
+│  ├─ ✅ delete_topic_response.proto [1-1-1]
+│     └─ 📥 go_features.proto
+│  ├─ ✅ export_queue_response.proto [1-1-1]
+│     └─ 📥 go_features.proto
+│  ├─ ✅ flush_queue_response.proto [1-1-1]
+│     └─ 📥 go_features.proto
+│  ├─ ✅ get_cluster_info_response.proto [1-1-1]
+│     └─ 📥 go_features.proto
+│  ├─ ✅ get_message_response.proto [1-1-1]
+│     └─ 📥 go_features.proto
+│  ├─ ✅ get_node_info_response.proto [1-1-1]
+│     └─ 📥 go_features.proto
+│  ├─ ✅ get_offset_response.proto [1-1-1]
+│     └─ 📥 go_features.proto
+│  ├─ ✅ get_partition_info_response.proto [1-1-1]
+│     └─ 📥 go_features.proto
+│  ├─ ✅ get_queue_info_response.proto [1-1-1]
+│     └─ 📥 go_features.proto
+│  ├─ ✅ get_queue_stats_response.proto [1-1-1]
+│     └─ 📥 go_features.proto
+│  ├─ ✅ get_subscription_info_response.proto [1-1-1]
+│     └─ 📥 go_features.proto
+│  ├─ ✅ get_topic_info_response.proto [1-1-1]
+│     └─ 📥 go_features.proto
+│  ├─ ✅ health_check_response.proto [1-1-1]
+│     └─ 📥 go_features.proto
+│  ├─ ✅ import_queue_response.proto [1-1-1]
+│     └─ 📥 go_features.proto
+│  ├─ ✅ list_messages_response.proto [1-1-1]
+│     └─ 📥 go_features.proto
+│  ├─ ✅ list_queues_response.proto [1-1-1]
+│     └─ 📥 go_features.proto
+│  ├─ ✅ list_subscriptions_response.proto [1-1-1]
+│     └─ 📥 go_features.proto
+│  ├─ ✅ list_topics_response.proto [1-1-1]
+│     └─ 📥 go_features.proto
+│  ├─ ✅ migrate_queue_response.proto [1-1-1]
+│     └─ 📥 go_features.proto
+│  ├─ ✅ nack_response.proto [1-1-1]
+│     └─ 📥 go_features.proto
+│  ├─ ✅ pause_queue_response.proto [1-1-1]
+│     └─ 📥 go_features.proto
+│  ├─ ✅ peek_response.proto [1-1-1]
+│     └─ 📥 go_features.proto
+│  ├─ ✅ publish_response.proto [1-1-1]
+│     └─ 📥 go_features.proto
+│  ├─ ✅ pull_response.proto [1-1-1]
+│     └─ 📥 go_features.proto
+│  ├─ ✅ purge_response.proto [1-1-1]
+│     └─ 📥 go_features.proto
+│  ├─ ✅ push_response.proto [1-1-1]
+│     └─ 📥 go_features.proto
+│  ├─ ✅ reset_queue_stats_response.proto [1-1-1]
+│     └─ 📥 go_features.proto
+│  ├─ ✅ restore_queue_response.proto [1-1-1]
+│     └─ 📥 go_features.proto
+│  ├─ ✅ resume_queue_response.proto [1-1-1]
+│     └─ 📥 go_features.proto
+│  ├─ ✅ seek_response.proto [1-1-1]
+│     └─ 📥 go_features.proto
+│  ├─ ✅ stream_messages_response.proto [1-1-1]
+│     └─ 📥 go_features.proto
+│  ├─ ✅ subscribe_response.proto [1-1-1]
+│     └─ 📥 go_features.proto
+│  ├─ ✅ unsubscribe_response.proto [1-1-1]
+│     └─ 📥 go_features.proto
+│  ├─ ✅ update_message_response.proto [1-1-1]
+│     └─ 📥 go_features.proto
+│  ├─ ✅ update_queue_config_response.proto [1-1-1]
+│     └─ 📥 go_features.proto
+│  ├─ ✅ update_subscription_config_response.proto [1-1-1]
+│     └─ 📥 go_features.proto
+│  └─ ✅ update_topic_config_response.proto [1-1-1]
+│     └─ 📥 go_features.proto
+├─ 📁 requests/
+│  ├─ ✅ ack_request.proto [1-1-1]
+│     └─ 📥 go_features.proto
+│  ├─ ✅ backup_queue_request.proto [1-1-1]
+│     └─ 📥 go_features.proto
+│  ├─ ✅ batch_ack_request.proto [1-1-1]
+│     └─ 📥 go_features.proto
+│  ├─ ✅ batch_nack_request.proto [1-1-1]
+│     └─ 📥 go_features.proto
+│  ├─ ✅ batch_publish_request.proto [1-1-1]
+│     └─ 📥 go_features.proto
+│  ├─ ✅ batch_pull_request.proto [1-1-1]
+│     └─ 📥 go_features.proto
+│  ├─ ✅ commit_offset_request.proto [1-1-1]
+│     └─ 📥 go_features.proto
+│  ├─ ✅ create_queue_request.proto [1-1-1]
+│     └─ 📥 go_features.proto
+│  ├─ ✅ create_subscription_request.proto [1-1-1]
+│     └─ 📥 go_features.proto
+│  ├─ ✅ create_topic_request.proto [1-1-1]
+│     └─ 📥 go_features.proto
+│  ├─ ✅ delete_queue_request.proto [1-1-1]
+│     └─ 📥 go_features.proto
+│  ├─ ✅ delete_request.proto [1-1-1]
+│     └─ 📥 go_features.proto
+│  ├─ ✅ delete_subscription_request.proto [1-1-1]
+│     └─ 📥 go_features.proto
+│  ├─ ✅ delete_topic_request.proto [1-1-1]
+│     └─ 📥 go_features.proto
+│  ├─ ✅ export_queue_request.proto [1-1-1]
+│     └─ 📥 go_features.proto
+│  ├─ ✅ flush_queue_request.proto [1-1-1]
+│     └─ 📥 go_features.proto
+│  ├─ ✅ get_cluster_info_request.proto [1-1-1]
+│     └─ 📥 go_features.proto
+│  ├─ ✅ get_message_request.proto [1-1-1]
+│     └─ 📥 go_features.proto
+│  ├─ ✅ get_node_info_request.proto [1-1-1]
+│     └─ 📥 go_features.proto
+│  ├─ ✅ get_offset_request.proto [1-1-1]
+│     └─ 📥 go_features.proto
+│  ├─ ✅ get_partition_info_request.proto [1-1-1]
+│     └─ 📥 go_features.proto
+│  ├─ ✅ get_queue_info_request.proto [1-1-1]
+│     └─ 📥 go_features.proto
+│  ├─ ✅ get_queue_stats_request.proto [1-1-1]
+│     └─ 📥 go_features.proto
+│  ├─ ✅ get_subscription_info_request.proto [1-1-1]
+│     └─ 📥 go_features.proto
+│  ├─ ✅ get_topic_info_request.proto [1-1-1]
+│     └─ 📥 go_features.proto
+│  ├─ ✅ health_check_request.proto [1-1-1]
+│     └─ 📥 go_features.proto
+│  ├─ ✅ import_queue_request.proto [1-1-1]
+│     └─ 📥 go_features.proto
+│  ├─ ✅ list_messages_request.proto [1-1-1]
+│     └─ 📥 go_features.proto
+│  ├─ ✅ list_queues_request.proto [1-1-1]
+│     └─ 📥 go_features.proto
+│  ├─ ✅ list_subscriptions_request.proto [1-1-1]
+│     └─ 📥 go_features.proto
+│  ├─ ✅ list_topics_request.proto [1-1-1]
+│     └─ 📥 go_features.proto
+│  ├─ ✅ migrate_queue_request.proto [1-1-1]
+│     └─ 📥 go_features.proto
+│  ├─ ✅ nack_request.proto [1-1-1]
+│     └─ 📥 go_features.proto
+│  ├─ ✅ pause_queue_request.proto [1-1-1]
+│     └─ 📥 go_features.proto
+│  ├─ ✅ peek_request.proto [1-1-1]
+│     └─ 📥 go_features.proto
+│  ├─ ✅ publish_request.proto [1-1-1]
+│     └─ 📥 go_features.proto
+│  ├─ ✅ pull_request.proto [1-1-1]
+│     └─ 📥 go_features.proto
+│  ├─ ✅ purge_request.proto [1-1-1]
+│     └─ 📥 go_features.proto
+│  ├─ ✅ push_request.proto [1-1-1]
+│     └─ 📥 go_features.proto
+│  ├─ ✅ reset_queue_stats_request.proto [1-1-1]
+│     └─ 📥 go_features.proto
+│  ├─ ✅ restore_queue_request.proto [1-1-1]
+│     └─ 📥 go_features.proto
+│  ├─ ✅ resume_queue_request.proto [1-1-1]
+│     └─ 📥 go_features.proto
+│  ├─ ✅ seek_request.proto [1-1-1]
+│     └─ 📥 go_features.proto
+│  ├─ ✅ stream_messages_request.proto [1-1-1]
+│     └─ 📥 go_features.proto
+│  ├─ ✅ subscribe_request.proto [1-1-1]
+│     └─ 📥 go_features.proto
+│  ├─ ✅ unsubscribe_request.proto [1-1-1]
+│     └─ 📥 go_features.proto
+│  ├─ ✅ update_message_request.proto [1-1-1]
+│     └─ 📥 go_features.proto
+│  ├─ ✅ update_queue_config_request.proto [1-1-1]
+│     └─ 📥 go_features.proto
+│  ├─ ✅ update_subscription_config_request.proto [1-1-1]
+│     └─ 📥 go_features.proto
+│  └─ ✅ update_topic_config_request.proto [1-1-1]
+│     └─ 📥 go_features.proto
+└─ 📁 services/
+   └─ ✅ queue_admin_service.proto [1-1-1]
+      └─ 📥 go_features.proto
+   └─ ✅ queue_monitoring_service.proto [1-1-1]
+      └─ 📥 go_features.proto
+   └─ ✅ queue_service.proto [1-1-1]
+      ├─ 📥 go_features.proto
+      └─ 📥 enqueue_request.proto ❌
+      └─ 📥 ... +5 more
+│
+📦 WEB
+│
+├─ 📁 web.proto/
+│  └─ ✅ web.proto [MULTI]
+│     ├─ 📥 common.proto
+│     └─ 📥 timestamp.proto
+│     └─ 📥 ... +4 more
+├─ 📁 messages/
+│  ├─ ✅ auth_config.proto [1-1-1]
+│     └─ 📥 go_features.proto
+│  ├─ ✅ cache_config.proto [1-1-1]
+│     └─ 📥 go_features.proto
+│  ├─ ✅ compression_config.proto [1-1-1]
+│     └─ 📥 go_features.proto
+│  ├─ ✅ cookie_config.proto [1-1-1]
+│     └─ 📥 go_features.proto
+│  ├─ ✅ cookie_data.proto [1-1-1]
+│     └─ 📥 go_features.proto
+│  ├─ ✅ cors_config.proto [1-1-1]
+│     └─ 📥 go_features.proto
+│  ├─ ✅ csrf_config.proto [1-1-1]
+│     └─ 📥 go_features.proto
+│  ├─ ✅ file_info.proto [1-1-1]
+│     └─ 📥 go_features.proto
+│  ├─ ✅ file_upload.proto [1-1-1]
+│     └─ 📥 go_features.proto
+│  ├─ ✅ handler_config.proto [1-1-1]
+│     └─ 📥 go_features.proto
+│  ├─ ✅ handler_info.proto [1-1-1]
+│     └─ 📥 go_features.proto
+│  ├─ ✅ health_check_config.proto [1-1-1]
+│     └─ 📥 go_features.proto
+│  ├─ ✅ http_request.proto [1-1-1]
+│     └─ 📥 go_features.proto
+│  ├─ ✅ http_response.proto [1-1-1]
+│     └─ 📥 go_features.proto
+│  ├─ ✅ load_balancer_config.proto [1-1-1]
+│     └─ 📥 go_features.proto
+│  ├─ ✅ middleware_config.proto [1-1-1]
+│     └─ 📥 go_features.proto
+│  ├─ ✅ middleware_info.proto [1-1-1]
+│     └─ 📥 go_features.proto
+│  ├─ ✅ performance_stats.proto [1-1-1]
+│     └─ 📥 go_features.proto
+│  ├─ ✅ proxy_config.proto [1-1-1]
+│     └─ 📥 go_features.proto
+│  ├─ ✅ rate_limit_config.proto [1-1-1]
+│     └─ 📥 go_features.proto
+│  ├─ ✅ route_config.proto [1-1-1]
+│     └─ 📥 go_features.proto
+│  ├─ ✅ route_info.proto [1-1-1]
+│     └─ 📥 go_features.proto
+│  ├─ ✅ security_config.proto [1-1-1]
+│     └─ 📥 go_features.proto
+│  ├─ ✅ server_config.proto [1-1-1]
+│     └─ 📥 go_features.proto
+│  ├─ ✅ server_status.proto [1-1-1]
+│     └─ 📥 go_features.proto
+│  ├─ ✅ session_config.proto [1-1-1]
+│     └─ 📥 go_features.proto
+│  ├─ ✅ session_data.proto [1-1-1]
+│     └─ 📥 go_features.proto
+│  ├─ ✅ ssl_config.proto [1-1-1]
+│     └─ 📥 go_features.proto
+│  ├─ ✅ static_config.proto [1-1-1]
+│     └─ 📥 go_features.proto
+│  ├─ ✅ template_config.proto [1-1-1]
+│     └─ 📥 go_features.proto
+│  ├─ ✅ template_data.proto [1-1-1]
+│     └─ 📥 go_features.proto
+│  ├─ ✅ websocket_config.proto [1-1-1]
+│     └─ 📥 go_features.proto
+│  ├─ ✅ websocket_info.proto [1-1-1]
+│     └─ 📥 go_features.proto
+│  └─ ✅ websocket_message.proto [1-1-1]
+│     └─ 📥 go_features.proto
+├─ 📁 types/
+│  ├─ ✅ file_metadata.proto [1-1-1]
+│     └─ 📥 go_features.proto
+│  ├─ ✅ http_header.proto [1-1-1]
+│     └─ 📥 go_features.proto
+│  ├─ ✅ mime_type.proto [1-1-1]
+│     └─ 📥 go_features.proto
+│  └─ ✅ url_path.proto [1-1-1]
+│     └─ 📥 go_features.proto
+├─ 📁 enums/
+│  ├─ ✅ auth_method.proto [1-1-1]
+│     └─ 📥 go_features.proto
+│  ├─ ✅ cache_strategy.proto [1-1-1]
+│     └─ 📥 go_features.proto
+│  ├─ ✅ compression_type.proto [1-1-1]
+│     └─ 📥 go_features.proto
+│  ├─ ✅ content_type.proto [1-1-1]
+│     └─ 📥 go_features.proto
+│  ├─ ✅ cookie_same_site.proto [1-1-1]
+│     └─ 📥 go_features.proto
+│  ├─ ✅ handler_type.proto [1-1-1]
+│     └─ 📥 go_features.proto
+│  ├─ ✅ health_status.proto [1-1-1]
+│     └─ 📥 go_features.proto
+│  ├─ ✅ http_method.proto [1-1-1]
+│     └─ 📥 go_features.proto
+│  ├─ ✅ http_status.proto [1-1-1]
+│     └─ 📥 go_features.proto
+│  ├─ ✅ load_balance_strategy.proto [1-1-1]
+│     └─ 📥 go_features.proto
+│  ├─ ✅ middleware_type.proto [1-1-1]
+│     └─ 📥 go_features.proto
+│  ├─ ✅ proxy_type.proto [1-1-1]
+│     └─ 📥 go_features.proto
+│  ├─ ✅ route_type.proto [1-1-1]
+│     └─ 📥 go_features.proto
+│  ├─ ✅ server_state.proto [1-1-1]
+│     └─ 📥 go_features.proto
+│  ├─ ✅ session_state.proto [1-1-1]
+│     └─ 📥 go_features.proto
+│  ├─ ✅ ssl_protocol.proto [1-1-1]
+│     └─ 📥 go_features.proto
+│  └─ ✅ websocket_state.proto [1-1-1]
+│     └─ 📥 go_features.proto
+├─ 📁 responses/
+│  ├─ ✅ authenticate_response.proto [1-1-1]
+│     └─ 📥 go_features.proto
+│  ├─ ✅ authorize_response.proto [1-1-1]
+│     └─ 📥 go_features.proto
+│  ├─ ✅ close_websocket_response.proto [1-1-1]
+│     └─ 📥 go_features.proto
+│  ├─ ✅ create_cookie_response.proto [1-1-1]
+│     └─ 📥 go_features.proto
+│  ├─ ✅ create_session_response.proto [1-1-1]
+│     └─ 📥 go_features.proto
+│  ├─ ✅ create_template_response.proto [1-1-1]
+│     └─ 📥 go_features.proto
+│  ├─ ✅ create_websocket_response.proto [1-1-1]
+│     └─ 📥 go_features.proto
+│  ├─ ✅ delete_cookie_response.proto [1-1-1]
+│     └─ 📥 go_features.proto
+│  ├─ ✅ delete_file_response.proto [1-1-1]
+│     └─ 📥 go_features.proto
+│  ├─ ✅ delete_session_response.proto [1-1-1]
+│     └─ 📥 go_features.proto
+│  ├─ ✅ delete_template_response.proto [1-1-1]
+│     └─ 📥 go_features.proto
+│  ├─ ✅ download_file_response.proto [1-1-1]
+│     └─ 📥 go_features.proto
+│  ├─ ✅ generate_csrf_token_response.proto [1-1-1]
+│     └─ 📥 go_features.proto
+│  ├─ ✅ get_cookie_response.proto [1-1-1]
+│     └─ 📥 go_features.proto
+│  ├─ ✅ get_cors_config_response.proto [1-1-1]
+│     └─ 📥 go_features.proto
+│  ├─ ✅ get_file_info_response.proto [1-1-1]
+│     └─ 📥 go_features.proto
+│  ├─ ✅ get_handler_info_response.proto [1-1-1]
+│     └─ 📥 go_features.proto
+│  ├─ ✅ get_metrics_response.proto [1-1-1]
+│     └─ 📥 go_features.proto
+│  ├─ ✅ get_middleware_info_response.proto [1-1-1]
+│     └─ 📥 go_features.proto
+│  ├─ ✅ get_performance_stats_response.proto [1-1-1]
+│     └─ 📥 go_features.proto
+│  ├─ ✅ get_route_info_response.proto [1-1-1]
+│     └─ 📥 go_features.proto
+│  ├─ ✅ get_security_config_response.proto [1-1-1]
+│     └─ 📥 go_features.proto
+│  ├─ ✅ get_server_config_response.proto [1-1-1]
+│     └─ 📥 go_features.proto
+│  ├─ ✅ get_server_status_response.proto [1-1-1]
+│     └─ 📥 go_features.proto
+│  ├─ ✅ get_session_response.proto [1-1-1]
+│     └─ 📥 go_features.proto
+│  ├─ ✅ get_template_info_response.proto [1-1-1]
+│     └─ 📥 go_features.proto
+│  ├─ ✅ get_websocket_info_response.proto [1-1-1]
+│     └─ 📥 go_features.proto
+│  ├─ ✅ handle_response.proto [1-1-1]
+│     └─ 📥 go_features.proto
+│  ├─ ✅ health_check_response.proto [1-1-1]
+│     └─ 📥 go_features.proto
+│  ├─ ✅ list_cookies_response.proto [1-1-1]
+│     └─ 📥 go_features.proto
+│  ├─ ✅ list_files_response.proto [1-1-1]
+│     └─ 📥 go_features.proto
+│  ├─ ✅ list_handlers_response.proto [1-1-1]
+│     └─ 📥 go_features.proto
+│  ├─ ✅ list_middleware_response.proto [1-1-1]
+│     └─ 📥 go_features.proto
+│  ├─ ✅ list_routes_response.proto [1-1-1]
+│     └─ 📥 go_features.proto
+│  ├─ ✅ list_sessions_response.proto [1-1-1]
+│     └─ 📥 go_features.proto
+│  ├─ ✅ list_templates_response.proto [1-1-1]
+│     └─ 📥 go_features.proto
+│  ├─ ✅ list_websockets_response.proto [1-1-1]
+│     └─ 📥 go_features.proto
+│  ├─ ✅ register_handler_response.proto [1-1-1]
+│     └─ 📥 go_features.proto
+│  ├─ ✅ register_middleware_response.proto [1-1-1]
+│     └─ 📥 go_features.proto
+│  ├─ ✅ register_route_response.proto [1-1-1]
+│     └─ 📥 go_features.proto
+│  ├─ ✅ render_template_response.proto [1-1-1]
+│     └─ 📥 go_features.proto
+│  ├─ ✅ reset_stats_response.proto [1-1-1]
+│     └─ 📥 go_features.proto
+│  ├─ ✅ restart_server_response.proto [1-1-1]
+│     └─ 📥 go_features.proto
+│  ├─ ✅ send_websocket_message_response.proto [1-1-1]
+│     └─ 📥 go_features.proto
+│  ├─ ✅ serve_static_response.proto [1-1-1]
+│     └─ 📥 go_features.proto
+│  ├─ ✅ start_server_response.proto [1-1-1]
+│     └─ 📥 go_features.proto
+│  ├─ ✅ stop_server_response.proto [1-1-1]
+│     └─ 📥 go_features.proto
+│  ├─ ✅ unregister_handler_response.proto [1-1-1]
+│     └─ 📥 go_features.proto
+│  ├─ ✅ unregister_middleware_response.proto [1-1-1]
+│     └─ 📥 go_features.proto
+│  ├─ ✅ unregister_route_response.proto [1-1-1]
+│     └─ 📥 go_features.proto
+│  ├─ ✅ update_cookie_response.proto [1-1-1]
+│     └─ 📥 go_features.proto
+│  ├─ ✅ update_cors_config_response.proto [1-1-1]
+│     └─ 📥 go_features.proto
+│  ├─ ✅ update_handler_config_response.proto [1-1-1]
+│     └─ 📥 go_features.proto
+│  ├─ ✅ update_middleware_config_response.proto [1-1-1]
+│     └─ 📥 go_features.proto
+│  ├─ ✅ update_route_config_response.proto [1-1-1]
+│     └─ 📥 go_features.proto
+│  ├─ ✅ update_security_config_response.proto [1-1-1]
+│     └─ 📥 go_features.proto
+│  ├─ ✅ update_server_config_response.proto [1-1-1]
+│     └─ 📥 go_features.proto
+│  ├─ ✅ update_session_response.proto [1-1-1]
+│     └─ 📥 go_features.proto
+│  ├─ ✅ upload_file_response.proto [1-1-1]
+│     └─ 📥 go_features.proto
+│  └─ ✅ validate_csrf_token_response.proto [1-1-1]
+│     └─ 📥 go_features.proto
+├─ 📁 requests/
+│  ├─ ✅ authenticate_request.proto [1-1-1]
+│     └─ 📥 go_features.proto
+│  ├─ ✅ authorize_request.proto [1-1-1]
+│     └─ 📥 go_features.proto
+│  ├─ ✅ close_websocket_request.proto [1-1-1]
+│     └─ 📥 go_features.proto
+│  ├─ ✅ create_cookie_request.proto [1-1-1]
+│     └─ 📥 go_features.proto
+│  ├─ ✅ create_session_request.proto [1-1-1]
+│     └─ 📥 go_features.proto
+│  ├─ ✅ create_template_request.proto [1-1-1]
+│     └─ 📥 go_features.proto
+│  ├─ ✅ create_websocket_request.proto [1-1-1]
+│     └─ 📥 go_features.proto
+│  ├─ ✅ delete_cookie_request.proto [1-1-1]
+│     └─ 📥 go_features.proto
+│  ├─ ✅ delete_file_request.proto [1-1-1]
+│     └─ 📥 go_features.proto
+│  ├─ ✅ delete_session_request.proto [1-1-1]
+│     └─ 📥 go_features.proto
+│  ├─ ✅ delete_template_request.proto [1-1-1]
+│     └─ 📥 go_features.proto
+│  ├─ ✅ download_file_request.proto [1-1-1]
+│     └─ 📥 go_features.proto
+│  ├─ ✅ generate_csrf_token_request.proto [1-1-1]
+│     └─ 📥 go_features.proto
+│  ├─ ✅ get_cookie_request.proto [1-1-1]
+│     └─ 📥 go_features.proto
+│  ├─ ✅ get_cors_config_request.proto [1-1-1]
+│     └─ 📥 go_features.proto
+│  ├─ ✅ get_file_info_request.proto [1-1-1]
+│     └─ 📥 go_features.proto
+│  ├─ ✅ get_handler_info_request.proto [1-1-1]
+│     └─ 📥 go_features.proto
+│  ├─ ✅ get_metrics_request.proto [1-1-1]
+│     └─ 📥 go_features.proto
+│  ├─ ✅ get_middleware_info_request.proto [1-1-1]
+│     └─ 📥 go_features.proto
+│  ├─ ✅ get_performance_stats_request.proto [1-1-1]
+│     └─ 📥 go_features.proto
+│  ├─ ✅ get_route_info_request.proto [1-1-1]
+│     └─ 📥 go_features.proto
+│  ├─ ✅ get_security_config_request.proto [1-1-1]
+│     └─ 📥 go_features.proto
+│  ├─ ✅ get_server_config_request.proto [1-1-1]
+│     └─ 📥 go_features.proto
+│  ├─ ✅ get_server_status_request.proto [1-1-1]
+│     └─ 📥 go_features.proto
+│  ├─ ✅ get_session_request.proto [1-1-1]
+│     └─ 📥 go_features.proto
+│  ├─ ✅ get_template_info_request.proto [1-1-1]
+│     └─ 📥 go_features.proto
+│  ├─ ✅ get_websocket_info_request.proto [1-1-1]
+│     └─ 📥 go_features.proto
+│  ├─ ✅ handle_request.proto [1-1-1]
+│     └─ 📥 go_features.proto
+│  ├─ ✅ health_check_request.proto [1-1-1]
+│     └─ 📥 go_features.proto
+│  ├─ ✅ list_cookies_request.proto [1-1-1]
+│     └─ 📥 go_features.proto
+│  ├─ ✅ list_files_request.proto [1-1-1]
+│     └─ 📥 go_features.proto
+│  ├─ ✅ list_handlers_request.proto [1-1-1]
+│     └─ 📥 go_features.proto
+│  ├─ ✅ list_middleware_request.proto [1-1-1]
+│     └─ 📥 go_features.proto
+│  ├─ ✅ list_routes_request.proto [1-1-1]
+│     └─ 📥 go_features.proto
+│  ├─ ✅ list_sessions_request.proto [1-1-1]
+│     └─ 📥 go_features.proto
+│  ├─ ✅ list_templates_request.proto [1-1-1]
+│     └─ 📥 go_features.proto
+│  ├─ ✅ list_websockets_request.proto [1-1-1]
+│     └─ 📥 go_features.proto
+│  ├─ ✅ register_handler_request.proto [1-1-1]
+│     └─ 📥 go_features.proto
+│  ├─ ✅ register_middleware_request.proto [1-1-1]
+│     └─ 📥 go_features.proto
+│  ├─ ✅ register_route_request.proto [1-1-1]
+│     └─ 📥 go_features.proto
+│  ├─ ✅ render_template_request.proto [1-1-1]
+│     └─ 📥 go_features.proto
+│  ├─ ✅ reset_stats_request.proto [1-1-1]
+│     └─ 📥 go_features.proto
+│  ├─ ✅ restart_server_request.proto [1-1-1]
+│     └─ 📥 go_features.proto
+│  ├─ ✅ send_websocket_message_request.proto [1-1-1]
+│     └─ 📥 go_features.proto
+│  ├─ ✅ serve_static_request.proto [1-1-1]
+│     └─ 📥 go_features.proto
+│  ├─ ✅ start_server_request.proto [1-1-1]
+│     └─ 📥 go_features.proto
+│  ├─ ✅ stop_server_request.proto [1-1-1]
+│     └─ 📥 go_features.proto
+│  ├─ ✅ unregister_handler_request.proto [1-1-1]
+│     └─ 📥 go_features.proto
+│  ├─ ✅ unregister_middleware_request.proto [1-1-1]
+│     └─ 📥 go_features.proto
+│  ├─ ✅ unregister_route_request.proto [1-1-1]
+│     └─ 📥 go_features.proto
+│  ├─ ✅ update_cookie_request.proto [1-1-1]
+│     └─ 📥 go_features.proto
+│  ├─ ✅ update_cors_config_request.proto [1-1-1]
+│     └─ 📥 go_features.proto
+│  ├─ ✅ update_handler_config_request.proto [1-1-1]
+│     └─ 📥 go_features.proto
+│  ├─ ✅ update_middleware_config_request.proto [1-1-1]
+│     └─ 📥 go_features.proto
+│  ├─ ✅ update_route_config_request.proto [1-1-1]
+│     └─ 📥 go_features.proto
+│  ├─ ✅ update_security_config_request.proto [1-1-1]
+│     └─ 📥 go_features.proto
+│  ├─ ✅ update_server_config_request.proto [1-1-1]
+│     └─ 📥 go_features.proto
+│  ├─ ✅ update_session_request.proto [1-1-1]
+│     └─ 📥 go_features.proto
+│  ├─ ✅ upload_file_request.proto [1-1-1]
+│     └─ 📥 go_features.proto
+│  └─ ✅ validate_csrf_token_request.proto [1-1-1]
+│     └─ 📥 go_features.proto
+└─ 📁 services/
+   └─ ✅ web_admin_service.proto [1-1-1]
+      └─ 📥 go_features.proto
+   └─ ✅ web_service.proto [1-1-1]
+      ├─ 📥 go_features.proto
+      └─ 📥 http_request.proto ❌
+      └─ 📥 ... +1 more
+│
+❌ MISSING FILES SUMMARY
+│
+├─ 📄 pkg/auth/proto/requests/list_user_sessions_request.proto
+│  └─ 👈 Needed by: session_service.proto
+├─ 📄 pkg/auth/proto/requests/terminate_session_request.proto
+│  └─ 👈 Needed by: session_service.proto
+├─ 📄 pkg/auth/proto/responses/list_user_sessions_response.proto
+│  └─ 👈 Needed by: session_service.proto
+├─ 📄 pkg/queue/proto/requests/dequeue_request.proto
+│  └─ 👈 Needed by: queue_service.proto
+├─ 📄 pkg/queue/proto/requests/enqueue_request.proto
+│  └─ 👈 Needed by: queue_service.proto
+├─ 📄 pkg/queue/proto/responses/dequeue_response.proto
+│  └─ 👈 Needed by: queue_service.proto
+├─ 📄 pkg/queue/proto/responses/enqueue_response.proto
+│  └─ 👈 Needed by: queue_service.proto
+├─ 📄 pkg/web/proto/requests/http_request.proto
+│  └─ 👈 Needed by: web_service.proto
+├─ 📄 pkg/web/proto/responses/http_response.proto
+│  └─ 👈 Needed by: web_service.proto
