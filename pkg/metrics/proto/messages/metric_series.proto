@@ -1,0 +1,180 @@
+// file: pkg/metrics/proto/messages/metric_series.proto
+// version: 1.0.0
+// guid: 9e1f2a3c-8f0d-7a6b-2c1e-0a9f8e7d6c5b
+
+// MetricSeries message definition for time series metrics
+//
+// This file implements the 1-1-1 pattern: one message per file.
+// It defines the MetricSeries message for time-ordered metric data points.
+
+edition = "2023";
+
+package gcommon.v1.metrics;
+
+import "google/protobuf/go_features.proto";
+import "google/protobuf/timestamp.proto";
+import "pkg/metrics/proto/types/time_range.proto";
+import "pkg/metrics/proto/enums/metric_type.proto";
+
+option go_package = "github.com/jdfalk/gcommon/pkg/metrics/proto;metricspb";
+option features.(pb.go).api_level = API_HYBRID;
+
+// MetricSeries represents a time series of metric data points
+//
+// This message contains a sequence of metric values over time,
+// typically used for monitoring and observability data.
+message MetricSeries {
+  // Unique identifier for this metric series
+  string series_id = 1;
+
+  // Name or label for this metric series
+  string name = 2;
+
+  // Description of what this metric series measures
+  string description = 3;
+
+  // Type of metric (counter, gauge, histogram, etc.)
+  MetricType type = 4;
+
+  // Unit of measurement (e.g., "bytes", "requests/sec", "ms")
+  string unit = 5;
+
+  // Labels/tags for categorization and filtering
+  map<string, string> labels = 6;
+
+  // Time-ordered data points in this series
+  repeated DataPoint data_points = 7;
+
+  // Aggregation information for this series
+  SeriesAggregation aggregation = 8;
+
+  // Time range covered by this series
+  TimeRange time_range = 9;
+
+  // Sampling interval for this series
+  SamplingInfo sampling = 10;
+
+  // Metadata about this series
+  SeriesMetadata metadata = 11;
+}
+
+// Individual data point in a metric series
+message DataPoint {
+  // Timestamp for this data point
+  google.protobuf.Timestamp timestamp = 1;
+
+  // Numeric value at this timestamp
+  double value = 2;
+
+  // Optional labels specific to this data point
+  map<string, string> point_labels = 3;
+
+  // Quality indicator for this data point
+  DataQuality quality = 4;
+
+  // Source of this data point
+  string source = 5;
+}
+
+// Aggregation information for a metric series
+message SeriesAggregation {
+  // Aggregation function used (sum, avg, min, max, etc.)
+  AggregationFunction function = 1;
+
+  // Time window for aggregation
+  string window = 2;
+
+  // Whether this series is pre-aggregated
+  bool is_aggregated = 3;
+
+  // Number of raw data points aggregated
+  int64 aggregated_count = 4;
+}
+
+// Time range information
+message TimeRange {
+  // Start time of the series
+  google.protobuf.Timestamp start_time = 1;
+
+  // End time of the series
+  google.protobuf.Timestamp end_time = 2;
+
+  // Total duration covered
+  int64 duration_seconds = 3;
+}
+
+// Sampling information for the series
+message SamplingInfo {
+  // Sampling interval in seconds
+  int64 interval_seconds = 1;
+
+  // Sampling method used
+  SamplingMethod method = 2;
+
+  // Expected number of samples
+  int64 expected_samples = 3;
+
+  // Actual number of samples
+  int64 actual_samples = 4;
+}
+
+// Metadata about the metric series
+message SeriesMetadata {
+  // Source system that generated this series
+  string source_system = 1;
+
+  // Version of the metric definition
+  string metric_version = 2;
+
+  // Creation timestamp of this series
+  google.protobuf.Timestamp created_at = 3;
+
+  // Last update timestamp
+  google.protobuf.Timestamp updated_at = 4;
+
+  // Retention policy for this series
+  string retention_policy = 5;
+}
+
+// Type of metric
+enum MetricType {
+  METRIC_TYPE_UNSPECIFIED = 0;
+  METRIC_TYPE_COUNTER = 1;      // Monotonically increasing value
+  METRIC_TYPE_GAUGE = 2;        // Point-in-time value
+  METRIC_TYPE_HISTOGRAM = 3;    // Distribution of values
+  METRIC_TYPE_TIMER = 4;        // Timing measurements
+  METRIC_TYPE_SUMMARY = 5;      // Summary statistics
+  METRIC_TYPE_SET = 6;          // Unique value counting
+}
+
+// Quality indicator for data points
+enum DataQuality {
+  DATA_QUALITY_UNSPECIFIED = 0;
+  DATA_QUALITY_GOOD = 1;        // High quality, reliable data
+  DATA_QUALITY_FAIR = 2;        // Acceptable quality
+  DATA_QUALITY_POOR = 3;        // Low quality, may be unreliable
+  DATA_QUALITY_INTERPOLATED = 4; // Estimated/interpolated value
+  DATA_QUALITY_MISSING = 5;     // Missing data point
+}
+
+// Aggregation function types
+enum AggregationFunction {
+  AGGREGATION_FUNCTION_UNSPECIFIED = 0;
+  AGGREGATION_FUNCTION_SUM = 1;
+  AGGREGATION_FUNCTION_AVG = 2;
+  AGGREGATION_FUNCTION_MIN = 3;
+  AGGREGATION_FUNCTION_MAX = 4;
+  AGGREGATION_FUNCTION_COUNT = 5;
+  AGGREGATION_FUNCTION_MEDIAN = 6;
+  AGGREGATION_FUNCTION_P95 = 7;
+  AGGREGATION_FUNCTION_P99 = 8;
+}
+
+// Sampling method types
+enum SamplingMethod {
+  SAMPLING_METHOD_UNSPECIFIED = 0;
+  SAMPLING_METHOD_REGULAR = 1;    // Fixed interval sampling
+  SAMPLING_METHOD_ADAPTIVE = 2;   // Variable interval based on rate of change
+  SAMPLING_METHOD_EVENT_DRIVEN = 3; // Sampling on specific events
+  SAMPLING_METHOD_RANDOM = 4;     // Random sampling
+}
