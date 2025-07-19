@@ -63,22 +63,21 @@ import public "pkg/metrics/proto/messages/metric_label.proto";
 import public "pkg/metrics/proto/messages/metric_sample.proto";
 import public "pkg/metrics/proto/messages/metric_data.proto";
 import public "pkg/metrics/proto/messages/metric_aggregation.proto";
-import public "pkg/metrics/proto/messages/alert_rule.proto";
-import public "pkg/metrics/proto/messages/alert_notification.proto";
+// import public "pkg/metrics/proto/messages/alert_rule.proto";    // MISSING - needs creation
 import public "pkg/metrics/proto/messages/alerting_condition.proto";
-import public "pkg/metrics/proto/messages/dashboard.proto";
-import public "pkg/metrics/proto/messages/dashboard_panel.proto";
-import public "pkg/metrics/proto/messages/visualization_config.proto";
-import public "pkg/metrics/proto/messages/query_config.proto";
-import public "pkg/metrics/proto/messages/retention_config.proto";
+// import public "pkg/metrics/proto/messages/dashboard.proto";    // MISSING - needs creation
+// import public "pkg/metrics/proto/messages/dashboard_panel.proto";    // MISSING
+// import public "pkg/metrics/proto/messages/visualization_config.proto";  // MISSING
+// import public "pkg/metrics/proto/messages/query_config.proto";   // MISSING
+// import public "pkg/metrics/proto/messages/retention_config.proto";  // MISSING (use retention_policy.proto)
 import public "pkg/metrics/proto/messages/export_config.proto";
-import public "pkg/metrics/proto/messages/sampling_config.proto";
-import public "pkg/metrics/proto/messages/storage_config.proto";
-import public "pkg/metrics/proto/messages/alert_channel.proto";
-import public "pkg/metrics/proto/messages/notification_config.proto";
+// import public "pkg/metrics/proto/messages/sampling_config.proto";   // MISSING
+// import public "pkg/metrics/proto/messages/storage_config.proto";    // MISSING
+// import public "pkg/metrics/proto/messages/alert_channel.proto";     // MISSING
+// import public "pkg/metrics/proto/messages/notification_config.proto"; // MISSING
 import public "pkg/metrics/proto/messages/metric_metadata.proto";
-import public "pkg/metrics/proto/messages/batch_metrics.proto";
-import public "pkg/metrics/proto/messages/metrics_snapshot.proto";
+// import public "pkg/metrics/proto/messages/batch_metrics.proto";     // MISSING
+// import public "pkg/metrics/proto/messages/metrics_snapshot.proto";  // MISSING
 
 // Types (2 total)
 import public "pkg/metrics/proto/types/timestamp_range.proto";
