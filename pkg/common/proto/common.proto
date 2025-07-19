@@ -46,7 +46,7 @@ import public "pkg/common/proto/enums/eviction_policy.proto";
 import public "pkg/common/proto/enums/expiration_policy.proto";
 import public "pkg/common/proto/enums/circuit_breaker_state.proto";
 
-// Messages (8 total)
+// Messages (9 total)
 import public "pkg/common/proto/messages/error.proto";
 import public "pkg/common/proto/messages/pagination.proto";
 import public "pkg/common/proto/messages/paginated_response.proto";
@@ -54,6 +54,7 @@ import public "pkg/common/proto/messages/rate_limit.proto";
 import public "pkg/common/proto/messages/service_version.proto";
 import public "pkg/common/proto/messages/batch_options.proto";
 import public "pkg/common/proto/messages/request_metadata.proto";
+import public "pkg/common/proto/messages/response_metadata.proto";
 import public "pkg/common/proto/messages/cache_policy.proto";
 
 // Types (7 total)
