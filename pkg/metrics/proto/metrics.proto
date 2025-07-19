@@ -61,7 +61,7 @@ import public "pkg/metrics/proto/messages/summary_metric.proto";
 import public "pkg/metrics/proto/messages/timer_metric.proto";
 import public "pkg/metrics/proto/messages/metric_label.proto";
 import public "pkg/metrics/proto/messages/metric_sample.proto";
-import public "pkg/metrics/proto/messages/metric_series.proto";
+import public "pkg/metrics/proto/messages/metric_data.proto";
 import public "pkg/metrics/proto/messages/metric_aggregation.proto";
 import public "pkg/metrics/proto/messages/alert_rule.proto";
 import public "pkg/metrics/proto/messages/alert_notification.proto";
