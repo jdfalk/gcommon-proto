@@ -1,4 +1,13 @@
-// file: web/proto/services/web_service.proto
+// file: pkg/web/proto/services/web_service.proto
+// version: 1.0.0
+// guid: 7c9e0f1a-6d8b-5f4e-0a9f-8e7d6c5b4a3f
+
+// WebService definition
+//
+// This file implements the 1-1-1 pattern for service definitions.
+// NOTE: The main WebService is defined in pkg/web/proto/web.proto
+// This file is reserved for future additional web services or service extensions.
+
 edition = "2023";
 
 package gcommon.v1.web;
@@ -8,17 +17,16 @@ import "google/protobuf/go_features.proto";
 option go_package = "github.com/jdfalk/gcommon/pkg/web/proto;webpb";
 option features.(pb.go).api_level = API_HYBRID;
 
-import "pkg/web/proto/requests/http_request.proto";
-import "pkg/web/proto/responses/http_response.proto";
+// Future web service extensions can be defined here
+// The main WebService is defined in web.proto to avoid duplication
 
-/**
- * WebService provides HTTP/REST API gateway capabilities.
- * Handles request routing, middleware, and protocol translation.
- */
-service WebService {
+// Example additional service for HTTP handling:
+/*
+service HTTPGatewayService {
   // Handle HTTP request
   rpc HandleRequest(HTTPRequest) returns (HTTPResponse);
-
-  // Get server status
-  rpc GetServerStatus(GetServerStatusRequest) returns (GetServerStatusResponse);
+  
+  // Process REST API calls
+  rpc ProcessRESTCall(RESTRequest) returns (RESTResponse);
 }
+*/
