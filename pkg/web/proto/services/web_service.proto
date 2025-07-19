@@ -25,7 +25,7 @@ option features.(pb.go).api_level = API_HYBRID;
 service HTTPGatewayService {
   // Handle HTTP request
   rpc HandleRequest(HTTPRequest) returns (HTTPResponse);
-  
+
   // Process REST API calls
   rpc ProcessRESTCall(RESTRequest) returns (RESTResponse);
 }
