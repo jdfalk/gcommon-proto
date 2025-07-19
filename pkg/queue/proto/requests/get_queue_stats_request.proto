@@ -1,18 +1,86 @@
-// filepath: pkg/queue/proto/requests/get_queue_stats_request.proto
-// file: queue/proto/requests/get_queue_stats_request.proto
+// file: pkg/queue/proto/requests/get_queue_stats_request.proto
+// version: 1.0.0
+// guid: 3f8a9d2e-7b5c-4a8f-9e1d-6c7b8a9d2e3f
+
+// GetQueueStatsRequest message definition for queue statistics retrieval
 //
-// Request definitions for queue module
-// TODO: Implement actual protobuf definitions
-//
+// This file implements the 1-1-1 pattern: one message per file.
+// It defines the request message for retrieving queue statistics and metrics.
+
 edition = "2023";
 
 package gcommon.v1.queue;
 
 import "google/protobuf/go_features.proto";
+import "google/protobuf/timestamp.proto";
+import "pkg/common/proto/common.proto";
 
 option go_package = "github.com/jdfalk/gcommon/pkg/queue/proto;queuepb";
 option features.(pb.go).api_level = API_HYBRID;
 
-// TODO: Add request definitions here
-// This is a placeholder file created during 1-1-1 migration
-// Implement the actual protobuf definitions according to the queue module requirements
+// GetQueueStatsRequest represents a request to retrieve queue statistics
+//
+// This message is used to request various metrics and statistics about
+// a queue or set of queues, including message counts, processing rates,
+// and performance metrics.
+message GetQueueStatsRequest {
+  // Standard request metadata for tracing and authentication
+  gcommon.v1.common.RequestMetadata metadata = 1;
+
+  // Name of the queue to get statistics for
+  // If empty, returns statistics for all queues accessible to the requester
+  string queue_name = 2;
+
+  // Whether to include detailed statistics (may be more expensive to compute)
+  bool include_detailed_stats = 3;
+
+  // Whether to include historical statistics
+  bool include_historical_stats = 4;
+
+  // Time range for historical statistics
+  google.protobuf.Timestamp start_time = 5;
+  google.protobuf.Timestamp end_time = 6;
+
+  // Specific statistic types to include
+  repeated StatisticType statistic_types = 7;
+
+  // Whether to include per-consumer statistics
+  bool include_consumer_stats = 8;
+
+  // Whether to include message age distribution
+  bool include_age_distribution = 9;
+
+  // Whether to include size distribution
+  bool include_size_distribution = 10;
+
+  // Whether to include error statistics
+  bool include_error_stats = 11;
+
+  // Grouping options for statistics
+  StatisticGrouping grouping = 12;
+}
+
+// Types of statistics that can be requested
+enum StatisticType {
+  STATISTIC_TYPE_UNSPECIFIED = 0;
+  STATISTIC_TYPE_MESSAGE_COUNT = 1;
+  STATISTIC_TYPE_THROUGHPUT = 2;
+  STATISTIC_TYPE_LATENCY = 3;
+  STATISTIC_TYPE_ERROR_RATE = 4;
+  STATISTIC_TYPE_QUEUE_DEPTH = 5;
+  STATISTIC_TYPE_PROCESSING_TIME = 6;
+  STATISTIC_TYPE_CONSUMER_COUNT = 7;
+  STATISTIC_TYPE_MESSAGE_SIZE = 8;
+  STATISTIC_TYPE_AGE_DISTRIBUTION = 9;
+  STATISTIC_TYPE_SUCCESS_RATE = 10;
+}
+
+// How to group statistics in the response
+enum StatisticGrouping {
+  STATISTIC_GROUPING_UNSPECIFIED = 0;
+  STATISTIC_GROUPING_NONE = 1;           // No grouping, flat statistics
+  STATISTIC_GROUPING_BY_QUEUE = 2;       // Group by queue name
+  STATISTIC_GROUPING_BY_CONSUMER = 3;    // Group by consumer
+  STATISTIC_GROUPING_BY_TIME_PERIOD = 4; // Group by time periods
+  STATISTIC_GROUPING_BY_MESSAGE_TYPE = 5; // Group by message type
+}
