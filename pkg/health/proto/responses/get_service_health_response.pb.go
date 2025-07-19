@@ -9,7 +9,9 @@
 package responses
 
 import (
-	proto "github.com/jdfalk/gcommon/pkg/common/proto"
+	_ "github.com/jdfalk/gcommon/pkg/common/proto"
+	enums "github.com/jdfalk/gcommon/pkg/common/proto/enums"
+	messages "github.com/jdfalk/gcommon/pkg/common/proto/messages"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
@@ -31,11 +33,11 @@ const (
 type GetServiceHealthResponse struct {
 	state protoimpl.MessageState `protogen:"hybrid.v1"`
 	// Health status
-	Status *proto.HealthStatus `protobuf:"varint,1,opt,name=status,enum=gcommon.v1.common.HealthStatus" json:"status,omitempty"`
+	Status *enums.HealthStatus `protobuf:"varint,1,opt,name=status,enum=gcommon.v1.common.HealthStatus" json:"status,omitempty"`
 	// Last check timestamp
 	LastCheck *timestamppb.Timestamp `protobuf:"bytes,2,opt,name=last_check,json=lastCheck" json:"last_check,omitempty"`
 	// Error information if unhealthy
-	Error         *proto.Error `protobuf:"bytes,3,opt,name=error" json:"error,omitempty"`
+	Error         *messages.Error `protobuf:"bytes,3,opt,name=error" json:"error,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -65,11 +67,11 @@ func (x *GetServiceHealthResponse) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-func (x *GetServiceHealthResponse) GetStatus() proto.HealthStatus {
+func (x *GetServiceHealthResponse) GetStatus() enums.HealthStatus {
 	if x != nil && x.Status != nil {
 		return *x.Status
 	}
-	return proto.HealthStatus(0)
+	return enums.HealthStatus(0)
 }
 
 func (x *GetServiceHealthResponse) GetLastCheck() *timestamppb.Timestamp {
@@ -79,14 +81,14 @@ func (x *GetServiceHealthResponse) GetLastCheck() *timestamppb.Timestamp {
 	return nil
 }
 
-func (x *GetServiceHealthResponse) GetError() *proto.Error {
+func (x *GetServiceHealthResponse) GetError() *messages.Error {
 	if x != nil {
 		return x.Error
 	}
 	return nil
 }
 
-func (x *GetServiceHealthResponse) SetStatus(v proto.HealthStatus) {
+func (x *GetServiceHealthResponse) SetStatus(v enums.HealthStatus) {
 	x.Status = &v
 }
 
@@ -94,7 +96,7 @@ func (x *GetServiceHealthResponse) SetLastCheck(v *timestamppb.Timestamp) {
 	x.LastCheck = v
 }
 
-func (x *GetServiceHealthResponse) SetError(v *proto.Error) {
+func (x *GetServiceHealthResponse) SetError(v *messages.Error) {
 	x.Error = v
 }
 
@@ -135,11 +137,11 @@ type GetServiceHealthResponse_builder struct {
 	_ [0]func() // Prevents comparability and use of unkeyed literals for the builder.
 
 	// Health status
-	Status *proto.HealthStatus
+	Status *enums.HealthStatus
 	// Last check timestamp
 	LastCheck *timestamppb.Timestamp
 	// Error information if unhealthy
-	Error *proto.Error
+	Error *messages.Error
 }
 
 func (b0 GetServiceHealthResponse_builder) Build() *GetServiceHealthResponse {
@@ -167,9 +169,9 @@ const file_pkg_health_proto_responses_get_service_health_response_proto_rawDesc 
 var file_pkg_health_proto_responses_get_service_health_response_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_pkg_health_proto_responses_get_service_health_response_proto_goTypes = []any{
 	(*GetServiceHealthResponse)(nil), // 0: gcommon.v1.health.GetServiceHealthResponse
-	(proto.HealthStatus)(0),          // 1: gcommon.v1.common.HealthStatus
+	(enums.HealthStatus)(0),          // 1: gcommon.v1.common.HealthStatus
 	(*timestamppb.Timestamp)(nil),    // 2: google.protobuf.Timestamp
-	(*proto.Error)(nil),              // 3: gcommon.v1.common.Error
+	(*messages.Error)(nil),           // 3: gcommon.v1.common.Error
 }
 var file_pkg_health_proto_responses_get_service_health_response_proto_depIdxs = []int32{
 	1, // 0: gcommon.v1.health.GetServiceHealthResponse.status:type_name -> gcommon.v1.common.HealthStatus

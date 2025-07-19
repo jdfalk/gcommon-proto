@@ -9,7 +9,8 @@
 package requests
 
 import (
-	proto "github.com/jdfalk/gcommon/pkg/common/proto"
+	_ "github.com/jdfalk/gcommon/pkg/common/proto"
+	messages "github.com/jdfalk/gcommon/pkg/common/proto/messages"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
@@ -37,7 +38,7 @@ type GetHealthHistoryRequest struct {
 	// Optional end time for history records
 	EndTime *timestamppb.Timestamp `protobuf:"bytes,3,opt,name=end_time,json=endTime" json:"end_time,omitempty"`
 	// Request metadata for authentication and tracing
-	Metadata      *proto.RequestMetadata `protobuf:"bytes,4,opt,name=metadata" json:"metadata,omitempty"`
+	Metadata      *messages.RequestMetadata `protobuf:"bytes,4,opt,name=metadata" json:"metadata,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -88,7 +89,7 @@ func (x *GetHealthHistoryRequest) GetEndTime() *timestamppb.Timestamp {
 	return nil
 }
 
-func (x *GetHealthHistoryRequest) GetMetadata() *proto.RequestMetadata {
+func (x *GetHealthHistoryRequest) GetMetadata() *messages.RequestMetadata {
 	if x != nil {
 		return x.Metadata
 	}
@@ -107,7 +108,7 @@ func (x *GetHealthHistoryRequest) SetEndTime(v *timestamppb.Timestamp) {
 	x.EndTime = v
 }
 
-func (x *GetHealthHistoryRequest) SetMetadata(v *proto.RequestMetadata) {
+func (x *GetHealthHistoryRequest) SetMetadata(v *messages.RequestMetadata) {
 	x.Metadata = v
 }
 
@@ -165,7 +166,7 @@ type GetHealthHistoryRequest_builder struct {
 	// Optional end time for history records
 	EndTime *timestamppb.Timestamp
 	// Request metadata for authentication and tracing
-	Metadata *proto.RequestMetadata
+	Metadata *messages.RequestMetadata
 }
 
 func (b0 GetHealthHistoryRequest_builder) Build() *GetHealthHistoryRequest {
@@ -194,9 +195,9 @@ const file_pkg_health_proto_requests_get_health_history_request_proto_rawDesc = 
 
 var file_pkg_health_proto_requests_get_health_history_request_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_pkg_health_proto_requests_get_health_history_request_proto_goTypes = []any{
-	(*GetHealthHistoryRequest)(nil), // 0: gcommon.v1.health.GetHealthHistoryRequest
-	(*timestamppb.Timestamp)(nil),   // 1: google.protobuf.Timestamp
-	(*proto.RequestMetadata)(nil),   // 2: gcommon.v1.common.RequestMetadata
+	(*GetHealthHistoryRequest)(nil),  // 0: gcommon.v1.health.GetHealthHistoryRequest
+	(*timestamppb.Timestamp)(nil),    // 1: google.protobuf.Timestamp
+	(*messages.RequestMetadata)(nil), // 2: gcommon.v1.common.RequestMetadata
 }
 var file_pkg_health_proto_requests_get_health_history_request_proto_depIdxs = []int32{
 	1, // 0: gcommon.v1.health.GetHealthHistoryRequest.start_time:type_name -> google.protobuf.Timestamp

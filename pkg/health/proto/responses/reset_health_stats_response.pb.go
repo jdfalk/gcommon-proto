@@ -9,7 +9,8 @@
 package responses
 
 import (
-	proto "github.com/jdfalk/gcommon/pkg/common/proto"
+	_ "github.com/jdfalk/gcommon/pkg/common/proto"
+	messages "github.com/jdfalk/gcommon/pkg/common/proto/messages"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
@@ -37,7 +38,7 @@ type ResetHealthStatsResponse struct {
 	// Reset timestamp
 	ResetAt *timestamppb.Timestamp `protobuf:"bytes,3,opt,name=reset_at,json=resetAt" json:"reset_at,omitempty"`
 	// Error information if reset failed
-	Error *proto.Error `protobuf:"bytes,4,opt,name=error" json:"error,omitempty"`
+	Error *messages.Error `protobuf:"bytes,4,opt,name=error" json:"error,omitempty"`
 	// Statistics categories that were reset
 	ResetCategories []string `protobuf:"bytes,5,rep,name=reset_categories,json=resetCategories" json:"reset_categories,omitempty"`
 	unknownFields   protoimpl.UnknownFields
@@ -90,7 +91,7 @@ func (x *ResetHealthStatsResponse) GetResetAt() *timestamppb.Timestamp {
 	return nil
 }
 
-func (x *ResetHealthStatsResponse) GetError() *proto.Error {
+func (x *ResetHealthStatsResponse) GetError() *messages.Error {
 	if x != nil {
 		return x.Error
 	}
@@ -116,7 +117,7 @@ func (x *ResetHealthStatsResponse) SetResetAt(v *timestamppb.Timestamp) {
 	x.ResetAt = v
 }
 
-func (x *ResetHealthStatsResponse) SetError(v *proto.Error) {
+func (x *ResetHealthStatsResponse) SetError(v *messages.Error) {
 	x.Error = v
 }
 
@@ -178,7 +179,7 @@ type ResetHealthStatsResponse_builder struct {
 	// Reset timestamp
 	ResetAt *timestamppb.Timestamp
 	// Error information if reset failed
-	Error *proto.Error
+	Error *messages.Error
 	// Statistics categories that were reset
 	ResetCategories []string
 }
@@ -212,7 +213,7 @@ var file_pkg_health_proto_responses_reset_health_stats_response_proto_msgTypes =
 var file_pkg_health_proto_responses_reset_health_stats_response_proto_goTypes = []any{
 	(*ResetHealthStatsResponse)(nil), // 0: gcommon.v1.health.ResetHealthStatsResponse
 	(*timestamppb.Timestamp)(nil),    // 1: google.protobuf.Timestamp
-	(*proto.Error)(nil),              // 2: gcommon.v1.common.Error
+	(*messages.Error)(nil),           // 2: gcommon.v1.common.Error
 }
 var file_pkg_health_proto_responses_reset_health_stats_response_proto_depIdxs = []int32{
 	1, // 0: gcommon.v1.health.ResetHealthStatsResponse.reset_at:type_name -> google.protobuf.Timestamp

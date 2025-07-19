@@ -9,7 +9,8 @@
 package requests
 
 import (
-	proto "github.com/jdfalk/gcommon/pkg/common/proto"
+	_ "github.com/jdfalk/gcommon/pkg/common/proto"
+	messages "github.com/jdfalk/gcommon/pkg/common/proto/messages"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
@@ -28,9 +29,9 @@ const (
 // GetHealthMetricsRequest retrieves metrics collected for a service's
 // health checks.
 type GetHealthMetricsRequest struct {
-	state               protoimpl.MessageState `protogen:"opaque.v1"`
-	xxx_hidden_Service  *string                `protobuf:"bytes,1,opt,name=service"`
-	xxx_hidden_Metadata *proto.RequestMetadata `protobuf:"bytes,2,opt,name=metadata"`
+	state               protoimpl.MessageState    `protogen:"opaque.v1"`
+	xxx_hidden_Service  *string                   `protobuf:"bytes,1,opt,name=service"`
+	xxx_hidden_Metadata *messages.RequestMetadata `protobuf:"bytes,2,opt,name=metadata"`
 	// Deprecated: Do not use. This will be deleted in the near future.
 	XXX_lazyUnmarshalInfo  protoimpl.LazyUnmarshalInfo
 	XXX_raceDetectHookData protoimpl.RaceDetectHookData
@@ -74,13 +75,13 @@ func (x *GetHealthMetricsRequest) GetService() string {
 	return ""
 }
 
-func (x *GetHealthMetricsRequest) GetMetadata() *proto.RequestMetadata {
+func (x *GetHealthMetricsRequest) GetMetadata() *messages.RequestMetadata {
 	if x != nil {
 		if protoimpl.X.Present(&(x.XXX_presence[0]), 1) {
 			if protoimpl.X.AtomicCheckPointerIsNil(&x.xxx_hidden_Metadata) {
 				protoimpl.X.UnmarshalField(x, 2)
 			}
-			var rv *proto.RequestMetadata
+			var rv *messages.RequestMetadata
 			protoimpl.X.AtomicLoadPointer(protoimpl.Pointer(&x.xxx_hidden_Metadata), protoimpl.Pointer(&rv))
 			return rv
 		}
@@ -93,7 +94,7 @@ func (x *GetHealthMetricsRequest) SetService(v string) {
 	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 0, 2)
 }
 
-func (x *GetHealthMetricsRequest) SetMetadata(v *proto.RequestMetadata) {
+func (x *GetHealthMetricsRequest) SetMetadata(v *messages.RequestMetadata) {
 	protoimpl.X.AtomicSetPointer(&x.xxx_hidden_Metadata, v)
 	if v == nil {
 		protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 1)
@@ -123,7 +124,7 @@ func (x *GetHealthMetricsRequest) ClearService() {
 
 func (x *GetHealthMetricsRequest) ClearMetadata() {
 	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 1)
-	protoimpl.X.AtomicSetPointer(&x.xxx_hidden_Metadata, (*proto.RequestMetadata)(nil))
+	protoimpl.X.AtomicSetPointer(&x.xxx_hidden_Metadata, (*messages.RequestMetadata)(nil))
 }
 
 type GetHealthMetricsRequest_builder struct {
@@ -132,7 +133,7 @@ type GetHealthMetricsRequest_builder struct {
 	// Service name (optional)
 	Service *string
 	// Request metadata used for tracing
-	Metadata *proto.RequestMetadata
+	Metadata *messages.RequestMetadata
 }
 
 func (b0 GetHealthMetricsRequest_builder) Build() *GetHealthMetricsRequest {
@@ -162,8 +163,8 @@ const file_pkg_health_proto_requests_get_health_metrics_request_proto_rawDesc = 
 
 var file_pkg_health_proto_requests_get_health_metrics_request_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_pkg_health_proto_requests_get_health_metrics_request_proto_goTypes = []any{
-	(*GetHealthMetricsRequest)(nil), // 0: gcommon.v1.health.GetHealthMetricsRequest
-	(*proto.RequestMetadata)(nil),   // 1: gcommon.v1.common.RequestMetadata
+	(*GetHealthMetricsRequest)(nil),  // 0: gcommon.v1.health.GetHealthMetricsRequest
+	(*messages.RequestMetadata)(nil), // 1: gcommon.v1.common.RequestMetadata
 }
 var file_pkg_health_proto_requests_get_health_metrics_request_proto_depIdxs = []int32{
 	1, // 0: gcommon.v1.health.GetHealthMetricsRequest.metadata:type_name -> gcommon.v1.common.RequestMetadata

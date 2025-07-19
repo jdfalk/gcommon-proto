@@ -9,7 +9,8 @@
 package requests
 
 import (
-	proto "github.com/jdfalk/gcommon/pkg/common/proto"
+	_ "github.com/jdfalk/gcommon/pkg/common/proto"
+	messages "github.com/jdfalk/gcommon/pkg/common/proto/messages"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
@@ -33,9 +34,9 @@ const (
 // - Global health status streaming (when service is empty)
 // - Real-time health status updates
 type WatchRequest struct {
-	state                  protoimpl.MessageState `protogen:"opaque.v1"`
-	xxx_hidden_Service     *string                `protobuf:"bytes,1,opt,name=service"`
-	xxx_hidden_Metadata    *proto.RequestMetadata `protobuf:"bytes,2,opt,name=metadata"`
+	state                  protoimpl.MessageState    `protogen:"opaque.v1"`
+	xxx_hidden_Service     *string                   `protobuf:"bytes,1,opt,name=service"`
+	xxx_hidden_Metadata    *messages.RequestMetadata `protobuf:"bytes,2,opt,name=metadata"`
 	XXX_raceDetectHookData protoimpl.RaceDetectHookData
 	XXX_presence           [1]uint32
 	unknownFields          protoimpl.UnknownFields
@@ -77,7 +78,7 @@ func (x *WatchRequest) GetService() string {
 	return ""
 }
 
-func (x *WatchRequest) GetMetadata() *proto.RequestMetadata {
+func (x *WatchRequest) GetMetadata() *messages.RequestMetadata {
 	if x != nil {
 		return x.xxx_hidden_Metadata
 	}
@@ -89,7 +90,7 @@ func (x *WatchRequest) SetService(v string) {
 	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 0, 2)
 }
 
-func (x *WatchRequest) SetMetadata(v *proto.RequestMetadata) {
+func (x *WatchRequest) SetMetadata(v *messages.RequestMetadata) {
 	x.xxx_hidden_Metadata = v
 }
 
@@ -122,7 +123,7 @@ type WatchRequest_builder struct {
 	// Service name to watch (empty for all services)
 	Service *string
 	// Request metadata
-	Metadata *proto.RequestMetadata
+	Metadata *messages.RequestMetadata
 }
 
 func (b0 WatchRequest_builder) Build() *WatchRequest {
@@ -149,8 +150,8 @@ const file_pkg_health_proto_requests_watch_request_proto_rawDesc = "" +
 
 var file_pkg_health_proto_requests_watch_request_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_pkg_health_proto_requests_watch_request_proto_goTypes = []any{
-	(*WatchRequest)(nil),          // 0: gcommon.v1.health.WatchRequest
-	(*proto.RequestMetadata)(nil), // 1: gcommon.v1.common.RequestMetadata
+	(*WatchRequest)(nil),             // 0: gcommon.v1.health.WatchRequest
+	(*messages.RequestMetadata)(nil), // 1: gcommon.v1.common.RequestMetadata
 }
 var file_pkg_health_proto_requests_watch_request_proto_depIdxs = []int32{
 	1, // 0: gcommon.v1.health.WatchRequest.metadata:type_name -> gcommon.v1.common.RequestMetadata

@@ -9,7 +9,9 @@
 package responses
 
 import (
-	proto "github.com/jdfalk/gcommon/pkg/common/proto"
+	_ "github.com/jdfalk/gcommon/pkg/common/proto"
+	enums "github.com/jdfalk/gcommon/pkg/common/proto/enums"
+	messages1 "github.com/jdfalk/gcommon/pkg/common/proto/messages"
 	messages "github.com/jdfalk/gcommon/pkg/health/proto/messages"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
@@ -38,13 +40,13 @@ const (
 // - Error information for unhealthy services
 type WatchResponse struct {
 	state                   protoimpl.MessageState   `protogen:"opaque.v1"`
-	xxx_hidden_Status       proto.HealthStatus       `protobuf:"varint,1,opt,name=status,enum=gcommon.v1.common.HealthStatus"`
+	xxx_hidden_Status       enums.HealthStatus       `protobuf:"varint,1,opt,name=status,enum=gcommon.v1.common.HealthStatus"`
 	xxx_hidden_Service      *string                  `protobuf:"bytes,2,opt,name=service"`
 	xxx_hidden_Timestamp    *timestamppb.Timestamp   `protobuf:"bytes,3,opt,name=timestamp"`
 	xxx_hidden_ResponseTime *durationpb.Duration     `protobuf:"bytes,4,opt,name=response_time,json=responseTime"`
 	xxx_hidden_CheckResults *[]*messages.CheckResult `protobuf:"bytes,5,rep,name=check_results,json=checkResults"`
 	xxx_hidden_Message      *string                  `protobuf:"bytes,6,opt,name=message"`
-	xxx_hidden_Error        *proto.Error             `protobuf:"bytes,7,opt,name=error"`
+	xxx_hidden_Error        *messages1.Error         `protobuf:"bytes,7,opt,name=error"`
 	xxx_hidden_Metrics      *messages.HealthMetrics  `protobuf:"bytes,8,opt,name=metrics"`
 	XXX_raceDetectHookData  protoimpl.RaceDetectHookData
 	XXX_presence            [1]uint32
@@ -77,13 +79,13 @@ func (x *WatchResponse) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-func (x *WatchResponse) GetStatus() proto.HealthStatus {
+func (x *WatchResponse) GetStatus() enums.HealthStatus {
 	if x != nil {
 		if protoimpl.X.Present(&(x.XXX_presence[0]), 0) {
 			return x.xxx_hidden_Status
 		}
 	}
-	return proto.HealthStatus(0)
+	return enums.HealthStatus(0)
 }
 
 func (x *WatchResponse) GetService() string {
@@ -129,7 +131,7 @@ func (x *WatchResponse) GetMessage() string {
 	return ""
 }
 
-func (x *WatchResponse) GetError() *proto.Error {
+func (x *WatchResponse) GetError() *messages1.Error {
 	if x != nil {
 		return x.xxx_hidden_Error
 	}
@@ -143,7 +145,7 @@ func (x *WatchResponse) GetMetrics() *messages.HealthMetrics {
 	return nil
 }
 
-func (x *WatchResponse) SetStatus(v proto.HealthStatus) {
+func (x *WatchResponse) SetStatus(v enums.HealthStatus) {
 	x.xxx_hidden_Status = v
 	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 0, 8)
 }
@@ -170,7 +172,7 @@ func (x *WatchResponse) SetMessage(v string) {
 	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 5, 8)
 }
 
-func (x *WatchResponse) SetError(v *proto.Error) {
+func (x *WatchResponse) SetError(v *messages1.Error) {
 	x.xxx_hidden_Error = v
 }
 
@@ -229,7 +231,7 @@ func (x *WatchResponse) HasMetrics() bool {
 
 func (x *WatchResponse) ClearStatus() {
 	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 0)
-	x.xxx_hidden_Status = proto.HealthStatus_HEALTH_STATUS_UNSPECIFIED
+	x.xxx_hidden_Status = enums.HealthStatus_HEALTH_STATUS_UNSPECIFIED
 }
 
 func (x *WatchResponse) ClearService() {
@@ -262,7 +264,7 @@ type WatchResponse_builder struct {
 	_ [0]func() // Prevents comparability and use of unkeyed literals for the builder.
 
 	// Overall health status
-	Status *proto.HealthStatus
+	Status *enums.HealthStatus
 	// Service name
 	Service *string
 	// Check timestamp
@@ -274,7 +276,7 @@ type WatchResponse_builder struct {
 	// Health message
 	Message *string
 	// Error information if unhealthy
-	Error *proto.Error
+	Error *messages1.Error
 	// Health metrics
 	Metrics *messages.HealthMetrics
 }
@@ -322,11 +324,11 @@ const file_pkg_health_proto_responses_watch_response_proto_rawDesc = "" +
 var file_pkg_health_proto_responses_watch_response_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_pkg_health_proto_responses_watch_response_proto_goTypes = []any{
 	(*WatchResponse)(nil),          // 0: gcommon.v1.health.WatchResponse
-	(proto.HealthStatus)(0),        // 1: gcommon.v1.common.HealthStatus
+	(enums.HealthStatus)(0),        // 1: gcommon.v1.common.HealthStatus
 	(*timestamppb.Timestamp)(nil),  // 2: google.protobuf.Timestamp
 	(*durationpb.Duration)(nil),    // 3: google.protobuf.Duration
 	(*messages.CheckResult)(nil),   // 4: gcommon.v1.health.CheckResult
-	(*proto.Error)(nil),            // 5: gcommon.v1.common.Error
+	(*messages1.Error)(nil),        // 5: gcommon.v1.common.Error
 	(*messages.HealthMetrics)(nil), // 6: gcommon.v1.health.HealthMetrics
 }
 var file_pkg_health_proto_responses_watch_response_proto_depIdxs = []int32{

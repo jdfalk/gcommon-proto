@@ -9,7 +9,9 @@
 package responses
 
 import (
-	proto "github.com/jdfalk/gcommon/pkg/common/proto"
+	_ "github.com/jdfalk/gcommon/pkg/common/proto"
+	enums "github.com/jdfalk/gcommon/pkg/common/proto/enums"
+	messages "github.com/jdfalk/gcommon/pkg/common/proto/messages"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
@@ -31,10 +33,10 @@ const (
 type SetHealthResponse struct {
 	state                     protoimpl.MessageState `protogen:"opaque.v1"`
 	xxx_hidden_Success        bool                   `protobuf:"varint,1,opt,name=success"`
-	xxx_hidden_PreviousStatus proto.HealthStatus     `protobuf:"varint,2,opt,name=previous_status,json=previousStatus,enum=gcommon.v1.common.HealthStatus"`
-	xxx_hidden_NewStatus      proto.HealthStatus     `protobuf:"varint,3,opt,name=new_status,json=newStatus,enum=gcommon.v1.common.HealthStatus"`
+	xxx_hidden_PreviousStatus enums.HealthStatus     `protobuf:"varint,2,opt,name=previous_status,json=previousStatus,enum=gcommon.v1.common.HealthStatus"`
+	xxx_hidden_NewStatus      enums.HealthStatus     `protobuf:"varint,3,opt,name=new_status,json=newStatus,enum=gcommon.v1.common.HealthStatus"`
 	xxx_hidden_ChangedAt      *timestamppb.Timestamp `protobuf:"bytes,4,opt,name=changed_at,json=changedAt"`
-	xxx_hidden_Error          *proto.Error           `protobuf:"bytes,5,opt,name=error"`
+	xxx_hidden_Error          *messages.Error        `protobuf:"bytes,5,opt,name=error"`
 	xxx_hidden_Reason         *string                `protobuf:"bytes,6,opt,name=reason"`
 	XXX_raceDetectHookData    protoimpl.RaceDetectHookData
 	XXX_presence              [1]uint32
@@ -74,22 +76,22 @@ func (x *SetHealthResponse) GetSuccess() bool {
 	return false
 }
 
-func (x *SetHealthResponse) GetPreviousStatus() proto.HealthStatus {
+func (x *SetHealthResponse) GetPreviousStatus() enums.HealthStatus {
 	if x != nil {
 		if protoimpl.X.Present(&(x.XXX_presence[0]), 1) {
 			return x.xxx_hidden_PreviousStatus
 		}
 	}
-	return proto.HealthStatus(0)
+	return enums.HealthStatus(0)
 }
 
-func (x *SetHealthResponse) GetNewStatus() proto.HealthStatus {
+func (x *SetHealthResponse) GetNewStatus() enums.HealthStatus {
 	if x != nil {
 		if protoimpl.X.Present(&(x.XXX_presence[0]), 2) {
 			return x.xxx_hidden_NewStatus
 		}
 	}
-	return proto.HealthStatus(0)
+	return enums.HealthStatus(0)
 }
 
 func (x *SetHealthResponse) GetChangedAt() *timestamppb.Timestamp {
@@ -99,7 +101,7 @@ func (x *SetHealthResponse) GetChangedAt() *timestamppb.Timestamp {
 	return nil
 }
 
-func (x *SetHealthResponse) GetError() *proto.Error {
+func (x *SetHealthResponse) GetError() *messages.Error {
 	if x != nil {
 		return x.xxx_hidden_Error
 	}
@@ -121,12 +123,12 @@ func (x *SetHealthResponse) SetSuccess(v bool) {
 	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 0, 6)
 }
 
-func (x *SetHealthResponse) SetPreviousStatus(v proto.HealthStatus) {
+func (x *SetHealthResponse) SetPreviousStatus(v enums.HealthStatus) {
 	x.xxx_hidden_PreviousStatus = v
 	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 1, 6)
 }
 
-func (x *SetHealthResponse) SetNewStatus(v proto.HealthStatus) {
+func (x *SetHealthResponse) SetNewStatus(v enums.HealthStatus) {
 	x.xxx_hidden_NewStatus = v
 	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 2, 6)
 }
@@ -135,7 +137,7 @@ func (x *SetHealthResponse) SetChangedAt(v *timestamppb.Timestamp) {
 	x.xxx_hidden_ChangedAt = v
 }
 
-func (x *SetHealthResponse) SetError(v *proto.Error) {
+func (x *SetHealthResponse) SetError(v *messages.Error) {
 	x.xxx_hidden_Error = v
 }
 
@@ -193,12 +195,12 @@ func (x *SetHealthResponse) ClearSuccess() {
 
 func (x *SetHealthResponse) ClearPreviousStatus() {
 	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 1)
-	x.xxx_hidden_PreviousStatus = proto.HealthStatus_HEALTH_STATUS_UNSPECIFIED
+	x.xxx_hidden_PreviousStatus = enums.HealthStatus_HEALTH_STATUS_UNSPECIFIED
 }
 
 func (x *SetHealthResponse) ClearNewStatus() {
 	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 2)
-	x.xxx_hidden_NewStatus = proto.HealthStatus_HEALTH_STATUS_UNSPECIFIED
+	x.xxx_hidden_NewStatus = enums.HealthStatus_HEALTH_STATUS_UNSPECIFIED
 }
 
 func (x *SetHealthResponse) ClearChangedAt() {
@@ -220,13 +222,13 @@ type SetHealthResponse_builder struct {
 	// Success status
 	Success *bool
 	// Previous health status
-	PreviousStatus *proto.HealthStatus
+	PreviousStatus *enums.HealthStatus
 	// New health status
-	NewStatus *proto.HealthStatus
+	NewStatus *enums.HealthStatus
 	// Timestamp when status was changed
 	ChangedAt *timestamppb.Timestamp
 	// Error information if setting failed
-	Error *proto.Error
+	Error *messages.Error
 	// Reason for the manual status change
 	Reason *string
 }
@@ -275,9 +277,9 @@ const file_pkg_health_proto_responses_set_health_response_proto_rawDesc = "" +
 var file_pkg_health_proto_responses_set_health_response_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_pkg_health_proto_responses_set_health_response_proto_goTypes = []any{
 	(*SetHealthResponse)(nil),     // 0: gcommon.v1.health.SetHealthResponse
-	(proto.HealthStatus)(0),       // 1: gcommon.v1.common.HealthStatus
+	(enums.HealthStatus)(0),       // 1: gcommon.v1.common.HealthStatus
 	(*timestamppb.Timestamp)(nil), // 2: google.protobuf.Timestamp
-	(*proto.Error)(nil),           // 3: gcommon.v1.common.Error
+	(*messages.Error)(nil),        // 3: gcommon.v1.common.Error
 }
 var file_pkg_health_proto_responses_set_health_response_proto_depIdxs = []int32{
 	1, // 0: gcommon.v1.health.SetHealthResponse.previous_status:type_name -> gcommon.v1.common.HealthStatus

@@ -9,7 +9,9 @@
 package responses
 
 import (
-	proto "github.com/jdfalk/gcommon/pkg/common/proto"
+	_ "github.com/jdfalk/gcommon/pkg/common/proto"
+	enums "github.com/jdfalk/gcommon/pkg/common/proto/enums"
+	messages "github.com/jdfalk/gcommon/pkg/common/proto/messages"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
@@ -33,11 +35,11 @@ type RunCheckResponse struct {
 	state                    protoimpl.MessageState `protogen:"opaque.v1"`
 	xxx_hidden_Success       bool                   `protobuf:"varint,1,opt,name=success"`
 	xxx_hidden_CheckId       *string                `protobuf:"bytes,2,opt,name=check_id,json=checkId"`
-	xxx_hidden_Status        proto.HealthStatus     `protobuf:"varint,3,opt,name=status,enum=gcommon.v1.common.HealthStatus"`
+	xxx_hidden_Status        enums.HealthStatus     `protobuf:"varint,3,opt,name=status,enum=gcommon.v1.common.HealthStatus"`
 	xxx_hidden_ExecutedAt    *timestamppb.Timestamp `protobuf:"bytes,4,opt,name=executed_at,json=executedAt"`
 	xxx_hidden_ExecutionTime *durationpb.Duration   `protobuf:"bytes,5,opt,name=execution_time,json=executionTime"`
 	xxx_hidden_Message       *string                `protobuf:"bytes,6,opt,name=message"`
-	xxx_hidden_Error         *proto.Error           `protobuf:"bytes,7,opt,name=error"`
+	xxx_hidden_Error         *messages.Error        `protobuf:"bytes,7,opt,name=error"`
 	XXX_raceDetectHookData   protoimpl.RaceDetectHookData
 	XXX_presence             [1]uint32
 	unknownFields            protoimpl.UnknownFields
@@ -86,13 +88,13 @@ func (x *RunCheckResponse) GetCheckId() string {
 	return ""
 }
 
-func (x *RunCheckResponse) GetStatus() proto.HealthStatus {
+func (x *RunCheckResponse) GetStatus() enums.HealthStatus {
 	if x != nil {
 		if protoimpl.X.Present(&(x.XXX_presence[0]), 2) {
 			return x.xxx_hidden_Status
 		}
 	}
-	return proto.HealthStatus(0)
+	return enums.HealthStatus(0)
 }
 
 func (x *RunCheckResponse) GetExecutedAt() *timestamppb.Timestamp {
@@ -119,7 +121,7 @@ func (x *RunCheckResponse) GetMessage() string {
 	return ""
 }
 
-func (x *RunCheckResponse) GetError() *proto.Error {
+func (x *RunCheckResponse) GetError() *messages.Error {
 	if x != nil {
 		return x.xxx_hidden_Error
 	}
@@ -136,7 +138,7 @@ func (x *RunCheckResponse) SetCheckId(v string) {
 	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 1, 7)
 }
 
-func (x *RunCheckResponse) SetStatus(v proto.HealthStatus) {
+func (x *RunCheckResponse) SetStatus(v enums.HealthStatus) {
 	x.xxx_hidden_Status = v
 	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 2, 7)
 }
@@ -154,7 +156,7 @@ func (x *RunCheckResponse) SetMessage(v string) {
 	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 5, 7)
 }
 
-func (x *RunCheckResponse) SetError(v *proto.Error) {
+func (x *RunCheckResponse) SetError(v *messages.Error) {
 	x.xxx_hidden_Error = v
 }
 
@@ -219,7 +221,7 @@ func (x *RunCheckResponse) ClearCheckId() {
 
 func (x *RunCheckResponse) ClearStatus() {
 	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 2)
-	x.xxx_hidden_Status = proto.HealthStatus_HEALTH_STATUS_UNSPECIFIED
+	x.xxx_hidden_Status = enums.HealthStatus_HEALTH_STATUS_UNSPECIFIED
 }
 
 func (x *RunCheckResponse) ClearExecutedAt() {
@@ -247,7 +249,7 @@ type RunCheckResponse_builder struct {
 	// Check ID that was executed
 	CheckId *string
 	// Health status result
-	Status *proto.HealthStatus
+	Status *enums.HealthStatus
 	// Execution timestamp
 	ExecutedAt *timestamppb.Timestamp
 	// Execution duration
@@ -255,7 +257,7 @@ type RunCheckResponse_builder struct {
 	// Check result message
 	Message *string
 	// Error information if check failed
-	Error *proto.Error
+	Error *messages.Error
 }
 
 func (b0 RunCheckResponse_builder) Build() *RunCheckResponse {
@@ -303,10 +305,10 @@ const file_pkg_health_proto_responses_run_check_response_proto_rawDesc = "" +
 var file_pkg_health_proto_responses_run_check_response_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_pkg_health_proto_responses_run_check_response_proto_goTypes = []any{
 	(*RunCheckResponse)(nil),      // 0: gcommon.v1.health.RunCheckResponse
-	(proto.HealthStatus)(0),       // 1: gcommon.v1.common.HealthStatus
+	(enums.HealthStatus)(0),       // 1: gcommon.v1.common.HealthStatus
 	(*timestamppb.Timestamp)(nil), // 2: google.protobuf.Timestamp
 	(*durationpb.Duration)(nil),   // 3: google.protobuf.Duration
-	(*proto.Error)(nil),           // 4: gcommon.v1.common.Error
+	(*messages.Error)(nil),        // 4: gcommon.v1.common.Error
 }
 var file_pkg_health_proto_responses_run_check_response_proto_depIdxs = []int32{
 	1, // 0: gcommon.v1.health.RunCheckResponse.status:type_name -> gcommon.v1.common.HealthStatus

@@ -9,7 +9,8 @@
 package responses
 
 import (
-	proto "github.com/jdfalk/gcommon/pkg/common/proto"
+	_ "github.com/jdfalk/gcommon/pkg/common/proto"
+	messages "github.com/jdfalk/gcommon/pkg/common/proto/messages"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
@@ -34,7 +35,7 @@ type ConfigureAlertingResponse struct {
 	// Configuration ID
 	ConfigId *string `protobuf:"bytes,2,opt,name=config_id,json=configId" json:"config_id,omitempty"`
 	// Error information if configuration failed
-	Error *proto.Error `protobuf:"bytes,3,opt,name=error" json:"error,omitempty"`
+	Error *messages.Error `protobuf:"bytes,3,opt,name=error" json:"error,omitempty"`
 	// Applied alerting rules
 	AppliedRules  []string `protobuf:"bytes,4,rep,name=applied_rules,json=appliedRules" json:"applied_rules,omitempty"`
 	unknownFields protoimpl.UnknownFields
@@ -80,7 +81,7 @@ func (x *ConfigureAlertingResponse) GetConfigId() string {
 	return ""
 }
 
-func (x *ConfigureAlertingResponse) GetError() *proto.Error {
+func (x *ConfigureAlertingResponse) GetError() *messages.Error {
 	if x != nil {
 		return x.Error
 	}
@@ -102,7 +103,7 @@ func (x *ConfigureAlertingResponse) SetConfigId(v string) {
 	x.ConfigId = &v
 }
 
-func (x *ConfigureAlertingResponse) SetError(v *proto.Error) {
+func (x *ConfigureAlertingResponse) SetError(v *messages.Error) {
 	x.Error = v
 }
 
@@ -151,7 +152,7 @@ type ConfigureAlertingResponse_builder struct {
 	// Configuration ID
 	ConfigId *string
 	// Error information if configuration failed
-	Error *proto.Error
+	Error *messages.Error
 	// Applied alerting rules
 	AppliedRules []string
 }
@@ -182,7 +183,7 @@ const file_pkg_health_proto_responses_configure_alerting_response_proto_rawDesc 
 var file_pkg_health_proto_responses_configure_alerting_response_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_pkg_health_proto_responses_configure_alerting_response_proto_goTypes = []any{
 	(*ConfigureAlertingResponse)(nil), // 0: gcommon.v1.health.ConfigureAlertingResponse
-	(*proto.Error)(nil),               // 1: gcommon.v1.common.Error
+	(*messages.Error)(nil),            // 1: gcommon.v1.common.Error
 }
 var file_pkg_health_proto_responses_configure_alerting_response_proto_depIdxs = []int32{
 	1, // 0: gcommon.v1.health.ConfigureAlertingResponse.error:type_name -> gcommon.v1.common.Error

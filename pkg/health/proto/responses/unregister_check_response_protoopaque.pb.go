@@ -9,7 +9,8 @@
 package responses
 
 import (
-	proto "github.com/jdfalk/gcommon/pkg/common/proto"
+	_ "github.com/jdfalk/gcommon/pkg/common/proto"
+	messages "github.com/jdfalk/gcommon/pkg/common/proto/messages"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
@@ -31,7 +32,7 @@ type UnregisterCheckResponse struct {
 	state                  protoimpl.MessageState `protogen:"opaque.v1"`
 	xxx_hidden_Success     bool                   `protobuf:"varint,1,opt,name=success"`
 	xxx_hidden_CheckId     *string                `protobuf:"bytes,2,opt,name=check_id,json=checkId"`
-	xxx_hidden_Error       *proto.Error           `protobuf:"bytes,3,opt,name=error"`
+	xxx_hidden_Error       *messages.Error        `protobuf:"bytes,3,opt,name=error"`
 	xxx_hidden_Message     *string                `protobuf:"bytes,4,opt,name=message"`
 	XXX_raceDetectHookData protoimpl.RaceDetectHookData
 	XXX_presence           [1]uint32
@@ -81,7 +82,7 @@ func (x *UnregisterCheckResponse) GetCheckId() string {
 	return ""
 }
 
-func (x *UnregisterCheckResponse) GetError() *proto.Error {
+func (x *UnregisterCheckResponse) GetError() *messages.Error {
 	if x != nil {
 		return x.xxx_hidden_Error
 	}
@@ -108,7 +109,7 @@ func (x *UnregisterCheckResponse) SetCheckId(v string) {
 	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 1, 4)
 }
 
-func (x *UnregisterCheckResponse) SetError(v *proto.Error) {
+func (x *UnregisterCheckResponse) SetError(v *messages.Error) {
 	x.xxx_hidden_Error = v
 }
 
@@ -172,7 +173,7 @@ type UnregisterCheckResponse_builder struct {
 	// Check ID that was unregistered
 	CheckId *string
 	// Error information if unregistration failed
-	Error *proto.Error
+	Error *messages.Error
 	// Confirmation message
 	Message *string
 }
@@ -212,7 +213,7 @@ const file_pkg_health_proto_responses_unregister_check_response_proto_rawDesc = 
 var file_pkg_health_proto_responses_unregister_check_response_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_pkg_health_proto_responses_unregister_check_response_proto_goTypes = []any{
 	(*UnregisterCheckResponse)(nil), // 0: gcommon.v1.health.UnregisterCheckResponse
-	(*proto.Error)(nil),             // 1: gcommon.v1.common.Error
+	(*messages.Error)(nil),          // 1: gcommon.v1.common.Error
 }
 var file_pkg_health_proto_responses_unregister_check_response_proto_depIdxs = []int32{
 	1, // 0: gcommon.v1.health.UnregisterCheckResponse.error:type_name -> gcommon.v1.common.Error

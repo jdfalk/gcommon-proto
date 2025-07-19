@@ -9,7 +9,9 @@
 package responses
 
 import (
-	proto "github.com/jdfalk/gcommon/pkg/common/proto"
+	_ "github.com/jdfalk/gcommon/pkg/common/proto"
+	enums "github.com/jdfalk/gcommon/pkg/common/proto/enums"
+	messages "github.com/jdfalk/gcommon/pkg/common/proto/messages"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
@@ -36,7 +38,7 @@ type RunCheckResponse struct {
 	// Check ID that was executed
 	CheckId *string `protobuf:"bytes,2,opt,name=check_id,json=checkId" json:"check_id,omitempty"`
 	// Health status result
-	Status *proto.HealthStatus `protobuf:"varint,3,opt,name=status,enum=gcommon.v1.common.HealthStatus" json:"status,omitempty"`
+	Status *enums.HealthStatus `protobuf:"varint,3,opt,name=status,enum=gcommon.v1.common.HealthStatus" json:"status,omitempty"`
 	// Execution timestamp
 	ExecutedAt *timestamppb.Timestamp `protobuf:"bytes,4,opt,name=executed_at,json=executedAt" json:"executed_at,omitempty"`
 	// Execution duration
@@ -44,7 +46,7 @@ type RunCheckResponse struct {
 	// Check result message
 	Message *string `protobuf:"bytes,6,opt,name=message" json:"message,omitempty"`
 	// Error information if check failed
-	Error         *proto.Error `protobuf:"bytes,7,opt,name=error" json:"error,omitempty"`
+	Error         *messages.Error `protobuf:"bytes,7,opt,name=error" json:"error,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -88,11 +90,11 @@ func (x *RunCheckResponse) GetCheckId() string {
 	return ""
 }
 
-func (x *RunCheckResponse) GetStatus() proto.HealthStatus {
+func (x *RunCheckResponse) GetStatus() enums.HealthStatus {
 	if x != nil && x.Status != nil {
 		return *x.Status
 	}
-	return proto.HealthStatus(0)
+	return enums.HealthStatus(0)
 }
 
 func (x *RunCheckResponse) GetExecutedAt() *timestamppb.Timestamp {
@@ -116,7 +118,7 @@ func (x *RunCheckResponse) GetMessage() string {
 	return ""
 }
 
-func (x *RunCheckResponse) GetError() *proto.Error {
+func (x *RunCheckResponse) GetError() *messages.Error {
 	if x != nil {
 		return x.Error
 	}
@@ -131,7 +133,7 @@ func (x *RunCheckResponse) SetCheckId(v string) {
 	x.CheckId = &v
 }
 
-func (x *RunCheckResponse) SetStatus(v proto.HealthStatus) {
+func (x *RunCheckResponse) SetStatus(v enums.HealthStatus) {
 	x.Status = &v
 }
 
@@ -147,7 +149,7 @@ func (x *RunCheckResponse) SetMessage(v string) {
 	x.Message = &v
 }
 
-func (x *RunCheckResponse) SetError(v *proto.Error) {
+func (x *RunCheckResponse) SetError(v *messages.Error) {
 	x.Error = v
 }
 
@@ -236,7 +238,7 @@ type RunCheckResponse_builder struct {
 	// Check ID that was executed
 	CheckId *string
 	// Health status result
-	Status *proto.HealthStatus
+	Status *enums.HealthStatus
 	// Execution timestamp
 	ExecutedAt *timestamppb.Timestamp
 	// Execution duration
@@ -244,7 +246,7 @@ type RunCheckResponse_builder struct {
 	// Check result message
 	Message *string
 	// Error information if check failed
-	Error *proto.Error
+	Error *messages.Error
 }
 
 func (b0 RunCheckResponse_builder) Build() *RunCheckResponse {
@@ -280,10 +282,10 @@ const file_pkg_health_proto_responses_run_check_response_proto_rawDesc = "" +
 var file_pkg_health_proto_responses_run_check_response_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_pkg_health_proto_responses_run_check_response_proto_goTypes = []any{
 	(*RunCheckResponse)(nil),      // 0: gcommon.v1.health.RunCheckResponse
-	(proto.HealthStatus)(0),       // 1: gcommon.v1.common.HealthStatus
+	(enums.HealthStatus)(0),       // 1: gcommon.v1.common.HealthStatus
 	(*timestamppb.Timestamp)(nil), // 2: google.protobuf.Timestamp
 	(*durationpb.Duration)(nil),   // 3: google.protobuf.Duration
-	(*proto.Error)(nil),           // 4: gcommon.v1.common.Error
+	(*messages.Error)(nil),        // 4: gcommon.v1.common.Error
 }
 var file_pkg_health_proto_responses_run_check_response_proto_depIdxs = []int32{
 	1, // 0: gcommon.v1.health.RunCheckResponse.status:type_name -> gcommon.v1.common.HealthStatus

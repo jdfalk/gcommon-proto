@@ -9,7 +9,9 @@
 package messages
 
 import (
-	proto "github.com/jdfalk/gcommon/pkg/common/proto"
+	_ "github.com/jdfalk/gcommon/pkg/common/proto"
+	enums "github.com/jdfalk/gcommon/pkg/common/proto/enums"
+	messages "github.com/jdfalk/gcommon/pkg/common/proto/messages"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
@@ -34,7 +36,7 @@ type CheckResult struct {
 	// Check name or identifier
 	Name *string `protobuf:"bytes,1,opt,name=name" json:"name,omitempty"`
 	// Health status of this specific check
-	Status *proto.HealthStatus `protobuf:"varint,2,opt,name=status,enum=gcommon.v1.common.HealthStatus" json:"status,omitempty"`
+	Status *enums.HealthStatus `protobuf:"varint,2,opt,name=status,enum=gcommon.v1.common.HealthStatus" json:"status,omitempty"`
 	// Check execution timestamp
 	Timestamp *timestamppb.Timestamp `protobuf:"bytes,3,opt,name=timestamp" json:"timestamp,omitempty"`
 	// Time taken to execute this check
@@ -42,7 +44,7 @@ type CheckResult struct {
 	// Human-readable message about the check result
 	Message *string `protobuf:"bytes,5,opt,name=message" json:"message,omitempty"`
 	// Error details if the check failed
-	Error *proto.Error `protobuf:"bytes,6,opt,name=error" json:"error,omitempty"`
+	Error *messages.Error `protobuf:"bytes,6,opt,name=error" json:"error,omitempty"`
 	// Additional metadata for this check
 	Metadata      map[string]string `protobuf:"bytes,7,rep,name=metadata" json:"metadata,omitempty" protobuf_key:"bytes,1,opt,name=key" protobuf_val:"bytes,2,opt,name=value"`
 	unknownFields protoimpl.UnknownFields
@@ -81,11 +83,11 @@ func (x *CheckResult) GetName() string {
 	return ""
 }
 
-func (x *CheckResult) GetStatus() proto.HealthStatus {
+func (x *CheckResult) GetStatus() enums.HealthStatus {
 	if x != nil && x.Status != nil {
 		return *x.Status
 	}
-	return proto.HealthStatus(0)
+	return enums.HealthStatus(0)
 }
 
 func (x *CheckResult) GetTimestamp() *timestamppb.Timestamp {
@@ -109,7 +111,7 @@ func (x *CheckResult) GetMessage() string {
 	return ""
 }
 
-func (x *CheckResult) GetError() *proto.Error {
+func (x *CheckResult) GetError() *messages.Error {
 	if x != nil {
 		return x.Error
 	}
@@ -127,7 +129,7 @@ func (x *CheckResult) SetName(v string) {
 	x.Name = &v
 }
 
-func (x *CheckResult) SetStatus(v proto.HealthStatus) {
+func (x *CheckResult) SetStatus(v enums.HealthStatus) {
 	x.Status = &v
 }
 
@@ -143,7 +145,7 @@ func (x *CheckResult) SetMessage(v string) {
 	x.Message = &v
 }
 
-func (x *CheckResult) SetError(v *proto.Error) {
+func (x *CheckResult) SetError(v *messages.Error) {
 	x.Error = v
 }
 
@@ -223,7 +225,7 @@ type CheckResult_builder struct {
 	// Check name or identifier
 	Name *string
 	// Health status of this specific check
-	Status *proto.HealthStatus
+	Status *enums.HealthStatus
 	// Check execution timestamp
 	Timestamp *timestamppb.Timestamp
 	// Time taken to execute this check
@@ -231,7 +233,7 @@ type CheckResult_builder struct {
 	// Human-readable message about the check result
 	Message *string
 	// Error details if the check failed
-	Error *proto.Error
+	Error *messages.Error
 	// Additional metadata for this check
 	Metadata map[string]string
 }
@@ -272,10 +274,10 @@ var file_pkg_health_proto_messages_check_result_proto_msgTypes = make([]protoimp
 var file_pkg_health_proto_messages_check_result_proto_goTypes = []any{
 	(*CheckResult)(nil),           // 0: gcommon.v1.health.CheckResult
 	nil,                           // 1: gcommon.v1.health.CheckResult.MetadataEntry
-	(proto.HealthStatus)(0),       // 2: gcommon.v1.common.HealthStatus
+	(enums.HealthStatus)(0),       // 2: gcommon.v1.common.HealthStatus
 	(*timestamppb.Timestamp)(nil), // 3: google.protobuf.Timestamp
 	(*durationpb.Duration)(nil),   // 4: google.protobuf.Duration
-	(*proto.Error)(nil),           // 5: gcommon.v1.common.Error
+	(*messages.Error)(nil),        // 5: gcommon.v1.common.Error
 }
 var file_pkg_health_proto_messages_check_result_proto_depIdxs = []int32{
 	2, // 0: gcommon.v1.health.CheckResult.status:type_name -> gcommon.v1.common.HealthStatus

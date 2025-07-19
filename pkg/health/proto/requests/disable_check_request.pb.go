@@ -9,7 +9,8 @@
 package requests
 
 import (
-	proto "github.com/jdfalk/gcommon/pkg/common/proto"
+	_ "github.com/jdfalk/gcommon/pkg/common/proto"
+	messages "github.com/jdfalk/gcommon/pkg/common/proto/messages"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
@@ -31,7 +32,7 @@ type DisableCheckRequest struct {
 	// Name or ID of the check to disable
 	Name *string `protobuf:"bytes,1,opt,name=name" json:"name,omitempty"`
 	// Request metadata for auditing
-	Metadata      *proto.RequestMetadata `protobuf:"bytes,2,opt,name=metadata" json:"metadata,omitempty"`
+	Metadata      *messages.RequestMetadata `protobuf:"bytes,2,opt,name=metadata" json:"metadata,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -68,7 +69,7 @@ func (x *DisableCheckRequest) GetName() string {
 	return ""
 }
 
-func (x *DisableCheckRequest) GetMetadata() *proto.RequestMetadata {
+func (x *DisableCheckRequest) GetMetadata() *messages.RequestMetadata {
 	if x != nil {
 		return x.Metadata
 	}
@@ -79,7 +80,7 @@ func (x *DisableCheckRequest) SetName(v string) {
 	x.Name = &v
 }
 
-func (x *DisableCheckRequest) SetMetadata(v *proto.RequestMetadata) {
+func (x *DisableCheckRequest) SetMetadata(v *messages.RequestMetadata) {
 	x.Metadata = v
 }
 
@@ -111,7 +112,7 @@ type DisableCheckRequest_builder struct {
 	// Name or ID of the check to disable
 	Name *string
 	// Request metadata for auditing
-	Metadata *proto.RequestMetadata
+	Metadata *messages.RequestMetadata
 }
 
 func (b0 DisableCheckRequest_builder) Build() *DisableCheckRequest {
@@ -135,8 +136,8 @@ const file_pkg_health_proto_requests_disable_check_request_proto_rawDesc = "" +
 
 var file_pkg_health_proto_requests_disable_check_request_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_pkg_health_proto_requests_disable_check_request_proto_goTypes = []any{
-	(*DisableCheckRequest)(nil),   // 0: gcommon.v1.health.DisableCheckRequest
-	(*proto.RequestMetadata)(nil), // 1: gcommon.v1.common.RequestMetadata
+	(*DisableCheckRequest)(nil),      // 0: gcommon.v1.health.DisableCheckRequest
+	(*messages.RequestMetadata)(nil), // 1: gcommon.v1.common.RequestMetadata
 }
 var file_pkg_health_proto_requests_disable_check_request_proto_depIdxs = []int32{
 	1, // 0: gcommon.v1.health.DisableCheckRequest.metadata:type_name -> gcommon.v1.common.RequestMetadata

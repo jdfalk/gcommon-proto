@@ -9,7 +9,9 @@
 package responses
 
 import (
-	proto "github.com/jdfalk/gcommon/pkg/common/proto"
+	_ "github.com/jdfalk/gcommon/pkg/common/proto"
+	enums "github.com/jdfalk/gcommon/pkg/common/proto/enums"
+	messages "github.com/jdfalk/gcommon/pkg/common/proto/messages"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
@@ -33,13 +35,13 @@ type SetHealthResponse struct {
 	// Success status
 	Success *bool `protobuf:"varint,1,opt,name=success" json:"success,omitempty"`
 	// Previous health status
-	PreviousStatus *proto.HealthStatus `protobuf:"varint,2,opt,name=previous_status,json=previousStatus,enum=gcommon.v1.common.HealthStatus" json:"previous_status,omitempty"`
+	PreviousStatus *enums.HealthStatus `protobuf:"varint,2,opt,name=previous_status,json=previousStatus,enum=gcommon.v1.common.HealthStatus" json:"previous_status,omitempty"`
 	// New health status
-	NewStatus *proto.HealthStatus `protobuf:"varint,3,opt,name=new_status,json=newStatus,enum=gcommon.v1.common.HealthStatus" json:"new_status,omitempty"`
+	NewStatus *enums.HealthStatus `protobuf:"varint,3,opt,name=new_status,json=newStatus,enum=gcommon.v1.common.HealthStatus" json:"new_status,omitempty"`
 	// Timestamp when status was changed
 	ChangedAt *timestamppb.Timestamp `protobuf:"bytes,4,opt,name=changed_at,json=changedAt" json:"changed_at,omitempty"`
 	// Error information if setting failed
-	Error *proto.Error `protobuf:"bytes,5,opt,name=error" json:"error,omitempty"`
+	Error *messages.Error `protobuf:"bytes,5,opt,name=error" json:"error,omitempty"`
 	// Reason for the manual status change
 	Reason        *string `protobuf:"bytes,6,opt,name=reason" json:"reason,omitempty"`
 	unknownFields protoimpl.UnknownFields
@@ -78,18 +80,18 @@ func (x *SetHealthResponse) GetSuccess() bool {
 	return false
 }
 
-func (x *SetHealthResponse) GetPreviousStatus() proto.HealthStatus {
+func (x *SetHealthResponse) GetPreviousStatus() enums.HealthStatus {
 	if x != nil && x.PreviousStatus != nil {
 		return *x.PreviousStatus
 	}
-	return proto.HealthStatus(0)
+	return enums.HealthStatus(0)
 }
 
-func (x *SetHealthResponse) GetNewStatus() proto.HealthStatus {
+func (x *SetHealthResponse) GetNewStatus() enums.HealthStatus {
 	if x != nil && x.NewStatus != nil {
 		return *x.NewStatus
 	}
-	return proto.HealthStatus(0)
+	return enums.HealthStatus(0)
 }
 
 func (x *SetHealthResponse) GetChangedAt() *timestamppb.Timestamp {
@@ -99,7 +101,7 @@ func (x *SetHealthResponse) GetChangedAt() *timestamppb.Timestamp {
 	return nil
 }
 
-func (x *SetHealthResponse) GetError() *proto.Error {
+func (x *SetHealthResponse) GetError() *messages.Error {
 	if x != nil {
 		return x.Error
 	}
@@ -117,11 +119,11 @@ func (x *SetHealthResponse) SetSuccess(v bool) {
 	x.Success = &v
 }
 
-func (x *SetHealthResponse) SetPreviousStatus(v proto.HealthStatus) {
+func (x *SetHealthResponse) SetPreviousStatus(v enums.HealthStatus) {
 	x.PreviousStatus = &v
 }
 
-func (x *SetHealthResponse) SetNewStatus(v proto.HealthStatus) {
+func (x *SetHealthResponse) SetNewStatus(v enums.HealthStatus) {
 	x.NewStatus = &v
 }
 
@@ -129,7 +131,7 @@ func (x *SetHealthResponse) SetChangedAt(v *timestamppb.Timestamp) {
 	x.ChangedAt = v
 }
 
-func (x *SetHealthResponse) SetError(v *proto.Error) {
+func (x *SetHealthResponse) SetError(v *messages.Error) {
 	x.Error = v
 }
 
@@ -209,13 +211,13 @@ type SetHealthResponse_builder struct {
 	// Success status
 	Success *bool
 	// Previous health status
-	PreviousStatus *proto.HealthStatus
+	PreviousStatus *enums.HealthStatus
 	// New health status
-	NewStatus *proto.HealthStatus
+	NewStatus *enums.HealthStatus
 	// Timestamp when status was changed
 	ChangedAt *timestamppb.Timestamp
 	// Error information if setting failed
-	Error *proto.Error
+	Error *messages.Error
 	// Reason for the manual status change
 	Reason *string
 }
@@ -252,9 +254,9 @@ const file_pkg_health_proto_responses_set_health_response_proto_rawDesc = "" +
 var file_pkg_health_proto_responses_set_health_response_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_pkg_health_proto_responses_set_health_response_proto_goTypes = []any{
 	(*SetHealthResponse)(nil),     // 0: gcommon.v1.health.SetHealthResponse
-	(proto.HealthStatus)(0),       // 1: gcommon.v1.common.HealthStatus
+	(enums.HealthStatus)(0),       // 1: gcommon.v1.common.HealthStatus
 	(*timestamppb.Timestamp)(nil), // 2: google.protobuf.Timestamp
-	(*proto.Error)(nil),           // 3: gcommon.v1.common.Error
+	(*messages.Error)(nil),        // 3: gcommon.v1.common.Error
 }
 var file_pkg_health_proto_responses_set_health_response_proto_depIdxs = []int32{
 	1, // 0: gcommon.v1.health.SetHealthResponse.previous_status:type_name -> gcommon.v1.common.HealthStatus

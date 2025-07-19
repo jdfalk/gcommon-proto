@@ -9,7 +9,9 @@
 package requests
 
 import (
-	proto "github.com/jdfalk/gcommon/pkg/common/proto"
+	_ "github.com/jdfalk/gcommon/pkg/common/proto"
+	enums "github.com/jdfalk/gcommon/pkg/common/proto/enums"
+	messages "github.com/jdfalk/gcommon/pkg/common/proto/messages"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
@@ -27,10 +29,10 @@ const (
 // *
 // SetHealthRequest allows manually overriding the health status of a service.
 type SetHealthRequest struct {
-	state               protoimpl.MessageState `protogen:"opaque.v1"`
-	xxx_hidden_Service  *string                `protobuf:"bytes,1,opt,name=service"`
-	xxx_hidden_Status   proto.HealthStatus     `protobuf:"varint,2,opt,name=status,enum=gcommon.v1.common.HealthStatus"`
-	xxx_hidden_Metadata *proto.RequestMetadata `protobuf:"bytes,3,opt,name=metadata"`
+	state               protoimpl.MessageState    `protogen:"opaque.v1"`
+	xxx_hidden_Service  *string                   `protobuf:"bytes,1,opt,name=service"`
+	xxx_hidden_Status   enums.HealthStatus        `protobuf:"varint,2,opt,name=status,enum=gcommon.v1.common.HealthStatus"`
+	xxx_hidden_Metadata *messages.RequestMetadata `protobuf:"bytes,3,opt,name=metadata"`
 	// Deprecated: Do not use. This will be deleted in the near future.
 	XXX_lazyUnmarshalInfo  protoimpl.LazyUnmarshalInfo
 	XXX_raceDetectHookData protoimpl.RaceDetectHookData
@@ -74,22 +76,22 @@ func (x *SetHealthRequest) GetService() string {
 	return ""
 }
 
-func (x *SetHealthRequest) GetStatus() proto.HealthStatus {
+func (x *SetHealthRequest) GetStatus() enums.HealthStatus {
 	if x != nil {
 		if protoimpl.X.Present(&(x.XXX_presence[0]), 1) {
 			return x.xxx_hidden_Status
 		}
 	}
-	return proto.HealthStatus(0)
+	return enums.HealthStatus(0)
 }
 
-func (x *SetHealthRequest) GetMetadata() *proto.RequestMetadata {
+func (x *SetHealthRequest) GetMetadata() *messages.RequestMetadata {
 	if x != nil {
 		if protoimpl.X.Present(&(x.XXX_presence[0]), 2) {
 			if protoimpl.X.AtomicCheckPointerIsNil(&x.xxx_hidden_Metadata) {
 				protoimpl.X.UnmarshalField(x, 3)
 			}
-			var rv *proto.RequestMetadata
+			var rv *messages.RequestMetadata
 			protoimpl.X.AtomicLoadPointer(protoimpl.Pointer(&x.xxx_hidden_Metadata), protoimpl.Pointer(&rv))
 			return rv
 		}
@@ -102,12 +104,12 @@ func (x *SetHealthRequest) SetService(v string) {
 	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 0, 3)
 }
 
-func (x *SetHealthRequest) SetStatus(v proto.HealthStatus) {
+func (x *SetHealthRequest) SetStatus(v enums.HealthStatus) {
 	x.xxx_hidden_Status = v
 	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 1, 3)
 }
 
-func (x *SetHealthRequest) SetMetadata(v *proto.RequestMetadata) {
+func (x *SetHealthRequest) SetMetadata(v *messages.RequestMetadata) {
 	protoimpl.X.AtomicSetPointer(&x.xxx_hidden_Metadata, v)
 	if v == nil {
 		protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 2)
@@ -144,12 +146,12 @@ func (x *SetHealthRequest) ClearService() {
 
 func (x *SetHealthRequest) ClearStatus() {
 	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 1)
-	x.xxx_hidden_Status = proto.HealthStatus_HEALTH_STATUS_UNSPECIFIED
+	x.xxx_hidden_Status = enums.HealthStatus_HEALTH_STATUS_UNSPECIFIED
 }
 
 func (x *SetHealthRequest) ClearMetadata() {
 	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 2)
-	protoimpl.X.AtomicSetPointer(&x.xxx_hidden_Metadata, (*proto.RequestMetadata)(nil))
+	protoimpl.X.AtomicSetPointer(&x.xxx_hidden_Metadata, (*messages.RequestMetadata)(nil))
 }
 
 type SetHealthRequest_builder struct {
@@ -158,9 +160,9 @@ type SetHealthRequest_builder struct {
 	// Service name to update
 	Service *string
 	// Desired health status
-	Status *proto.HealthStatus
+	Status *enums.HealthStatus
 	// Request metadata for auditing
-	Metadata *proto.RequestMetadata
+	Metadata *messages.RequestMetadata
 }
 
 func (b0 SetHealthRequest_builder) Build() *SetHealthRequest {
@@ -195,9 +197,9 @@ const file_pkg_health_proto_requests_set_health_request_proto_rawDesc = "" +
 
 var file_pkg_health_proto_requests_set_health_request_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_pkg_health_proto_requests_set_health_request_proto_goTypes = []any{
-	(*SetHealthRequest)(nil),      // 0: gcommon.v1.health.SetHealthRequest
-	(proto.HealthStatus)(0),       // 1: gcommon.v1.common.HealthStatus
-	(*proto.RequestMetadata)(nil), // 2: gcommon.v1.common.RequestMetadata
+	(*SetHealthRequest)(nil),         // 0: gcommon.v1.health.SetHealthRequest
+	(enums.HealthStatus)(0),          // 1: gcommon.v1.common.HealthStatus
+	(*messages.RequestMetadata)(nil), // 2: gcommon.v1.common.RequestMetadata
 }
 var file_pkg_health_proto_requests_set_health_request_proto_depIdxs = []int32{
 	1, // 0: gcommon.v1.health.SetHealthRequest.status:type_name -> gcommon.v1.common.HealthStatus

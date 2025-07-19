@@ -9,7 +9,9 @@
 package responses
 
 import (
-	proto "github.com/jdfalk/gcommon/pkg/common/proto"
+	_ "github.com/jdfalk/gcommon/pkg/common/proto"
+	enums "github.com/jdfalk/gcommon/pkg/common/proto/enums"
+	messages1 "github.com/jdfalk/gcommon/pkg/common/proto/messages"
 	messages "github.com/jdfalk/gcommon/pkg/health/proto/messages"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
@@ -33,7 +35,7 @@ const (
 type HealthCheckResponse struct {
 	state protoimpl.MessageState `protogen:"hybrid.v1"`
 	// Overall health status
-	Status *proto.HealthStatus `protobuf:"varint,1,opt,name=status,enum=gcommon.v1.common.HealthStatus" json:"status,omitempty"`
+	Status *enums.HealthStatus `protobuf:"varint,1,opt,name=status,enum=gcommon.v1.common.HealthStatus" json:"status,omitempty"`
 	// Service name
 	Service *string `protobuf:"bytes,2,opt,name=service" json:"service,omitempty"`
 	// Check timestamp
@@ -45,7 +47,7 @@ type HealthCheckResponse struct {
 	// Health message
 	Message *string `protobuf:"bytes,6,opt,name=message" json:"message,omitempty"`
 	// Error information if unhealthy
-	Error *proto.Error `protobuf:"bytes,7,opt,name=error" json:"error,omitempty"`
+	Error *messages1.Error `protobuf:"bytes,7,opt,name=error" json:"error,omitempty"`
 	// Health metrics
 	Metrics       *messages.HealthMetrics `protobuf:"bytes,8,opt,name=metrics" json:"metrics,omitempty"`
 	unknownFields protoimpl.UnknownFields
@@ -77,11 +79,11 @@ func (x *HealthCheckResponse) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-func (x *HealthCheckResponse) GetStatus() proto.HealthStatus {
+func (x *HealthCheckResponse) GetStatus() enums.HealthStatus {
 	if x != nil && x.Status != nil {
 		return *x.Status
 	}
-	return proto.HealthStatus(0)
+	return enums.HealthStatus(0)
 }
 
 func (x *HealthCheckResponse) GetService() string {
@@ -119,7 +121,7 @@ func (x *HealthCheckResponse) GetMessage() string {
 	return ""
 }
 
-func (x *HealthCheckResponse) GetError() *proto.Error {
+func (x *HealthCheckResponse) GetError() *messages1.Error {
 	if x != nil {
 		return x.Error
 	}
@@ -133,7 +135,7 @@ func (x *HealthCheckResponse) GetMetrics() *messages.HealthMetrics {
 	return nil
 }
 
-func (x *HealthCheckResponse) SetStatus(v proto.HealthStatus) {
+func (x *HealthCheckResponse) SetStatus(v enums.HealthStatus) {
 	x.Status = &v
 }
 
@@ -157,7 +159,7 @@ func (x *HealthCheckResponse) SetMessage(v string) {
 	x.Message = &v
 }
 
-func (x *HealthCheckResponse) SetError(v *proto.Error) {
+func (x *HealthCheckResponse) SetError(v *messages1.Error) {
 	x.Error = v
 }
 
@@ -246,7 +248,7 @@ type HealthCheckResponse_builder struct {
 	_ [0]func() // Prevents comparability and use of unkeyed literals for the builder.
 
 	// Overall health status
-	Status *proto.HealthStatus
+	Status *enums.HealthStatus
 	// Service name
 	Service *string
 	// Check timestamp
@@ -258,7 +260,7 @@ type HealthCheckResponse_builder struct {
 	// Health message
 	Message *string
 	// Error information if unhealthy
-	Error *proto.Error
+	Error *messages1.Error
 	// Health metrics
 	Metrics *messages.HealthMetrics
 }
@@ -297,11 +299,11 @@ const file_pkg_health_proto_responses_health_check_response_proto_rawDesc = "" +
 var file_pkg_health_proto_responses_health_check_response_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_pkg_health_proto_responses_health_check_response_proto_goTypes = []any{
 	(*HealthCheckResponse)(nil),    // 0: gcommon.v1.health.HealthCheckResponse
-	(proto.HealthStatus)(0),        // 1: gcommon.v1.common.HealthStatus
+	(enums.HealthStatus)(0),        // 1: gcommon.v1.common.HealthStatus
 	(*timestamppb.Timestamp)(nil),  // 2: google.protobuf.Timestamp
 	(*durationpb.Duration)(nil),    // 3: google.protobuf.Duration
 	(*messages.CheckResult)(nil),   // 4: gcommon.v1.health.CheckResult
-	(*proto.Error)(nil),            // 5: gcommon.v1.common.Error
+	(*messages1.Error)(nil),        // 5: gcommon.v1.common.Error
 	(*messages.HealthMetrics)(nil), // 6: gcommon.v1.health.HealthMetrics
 }
 var file_pkg_health_proto_responses_health_check_response_proto_depIdxs = []int32{

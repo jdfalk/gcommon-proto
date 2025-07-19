@@ -9,7 +9,8 @@
 package responses
 
 import (
-	proto "github.com/jdfalk/gcommon/pkg/common/proto"
+	_ "github.com/jdfalk/gcommon/pkg/common/proto"
+	messages "github.com/jdfalk/gcommon/pkg/common/proto/messages"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
@@ -34,7 +35,7 @@ type DisableCheckResponse struct {
 	// Check ID that was disabled
 	CheckId *string `protobuf:"bytes,2,opt,name=check_id,json=checkId" json:"check_id,omitempty"`
 	// Error information if disabling failed
-	Error *proto.Error `protobuf:"bytes,3,opt,name=error" json:"error,omitempty"`
+	Error *messages.Error `protobuf:"bytes,3,opt,name=error" json:"error,omitempty"`
 	// Reason for disabling (if provided)
 	Reason        *string `protobuf:"bytes,4,opt,name=reason" json:"reason,omitempty"`
 	unknownFields protoimpl.UnknownFields
@@ -80,7 +81,7 @@ func (x *DisableCheckResponse) GetCheckId() string {
 	return ""
 }
 
-func (x *DisableCheckResponse) GetError() *proto.Error {
+func (x *DisableCheckResponse) GetError() *messages.Error {
 	if x != nil {
 		return x.Error
 	}
@@ -102,7 +103,7 @@ func (x *DisableCheckResponse) SetCheckId(v string) {
 	x.CheckId = &v
 }
 
-func (x *DisableCheckResponse) SetError(v *proto.Error) {
+func (x *DisableCheckResponse) SetError(v *messages.Error) {
 	x.Error = v
 }
 
@@ -162,7 +163,7 @@ type DisableCheckResponse_builder struct {
 	// Check ID that was disabled
 	CheckId *string
 	// Error information if disabling failed
-	Error *proto.Error
+	Error *messages.Error
 	// Reason for disabling (if provided)
 	Reason *string
 }
@@ -193,7 +194,7 @@ const file_pkg_health_proto_responses_disable_check_response_proto_rawDesc = "" 
 var file_pkg_health_proto_responses_disable_check_response_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_pkg_health_proto_responses_disable_check_response_proto_goTypes = []any{
 	(*DisableCheckResponse)(nil), // 0: gcommon.v1.health.DisableCheckResponse
-	(*proto.Error)(nil),          // 1: gcommon.v1.common.Error
+	(*messages.Error)(nil),       // 1: gcommon.v1.common.Error
 }
 var file_pkg_health_proto_responses_disable_check_response_proto_depIdxs = []int32{
 	1, // 0: gcommon.v1.health.DisableCheckResponse.error:type_name -> gcommon.v1.common.Error

@@ -9,7 +9,8 @@
 package requests
 
 import (
-	proto "github.com/jdfalk/gcommon/pkg/common/proto"
+	_ "github.com/jdfalk/gcommon/pkg/common/proto"
+	messages "github.com/jdfalk/gcommon/pkg/common/proto/messages"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
@@ -33,7 +34,7 @@ type RegisterCheckRequest struct {
 	// Parameters describing the check to execute
 	Check *HealthCheckRequest `protobuf:"bytes,2,opt,name=check" json:"check,omitempty"`
 	// Standard request metadata
-	Metadata      *proto.RequestMetadata `protobuf:"bytes,3,opt,name=metadata" json:"metadata,omitempty"`
+	Metadata      *messages.RequestMetadata `protobuf:"bytes,3,opt,name=metadata" json:"metadata,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -77,7 +78,7 @@ func (x *RegisterCheckRequest) GetCheck() *HealthCheckRequest {
 	return nil
 }
 
-func (x *RegisterCheckRequest) GetMetadata() *proto.RequestMetadata {
+func (x *RegisterCheckRequest) GetMetadata() *messages.RequestMetadata {
 	if x != nil {
 		return x.Metadata
 	}
@@ -92,7 +93,7 @@ func (x *RegisterCheckRequest) SetCheck(v *HealthCheckRequest) {
 	x.Check = v
 }
 
-func (x *RegisterCheckRequest) SetMetadata(v *proto.RequestMetadata) {
+func (x *RegisterCheckRequest) SetMetadata(v *messages.RequestMetadata) {
 	x.Metadata = v
 }
 
@@ -137,7 +138,7 @@ type RegisterCheckRequest_builder struct {
 	// Parameters describing the check to execute
 	Check *HealthCheckRequest
 	// Standard request metadata
-	Metadata *proto.RequestMetadata
+	Metadata *messages.RequestMetadata
 }
 
 func (b0 RegisterCheckRequest_builder) Build() *RegisterCheckRequest {
@@ -163,9 +164,9 @@ const file_pkg_health_proto_requests_register_check_request_proto_rawDesc = "" +
 
 var file_pkg_health_proto_requests_register_check_request_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_pkg_health_proto_requests_register_check_request_proto_goTypes = []any{
-	(*RegisterCheckRequest)(nil),  // 0: gcommon.v1.health.RegisterCheckRequest
-	(*HealthCheckRequest)(nil),    // 1: gcommon.v1.health.HealthCheckRequest
-	(*proto.RequestMetadata)(nil), // 2: gcommon.v1.common.RequestMetadata
+	(*RegisterCheckRequest)(nil),     // 0: gcommon.v1.health.RegisterCheckRequest
+	(*HealthCheckRequest)(nil),       // 1: gcommon.v1.health.HealthCheckRequest
+	(*messages.RequestMetadata)(nil), // 2: gcommon.v1.common.RequestMetadata
 }
 var file_pkg_health_proto_requests_register_check_request_proto_depIdxs = []int32{
 	1, // 0: gcommon.v1.health.RegisterCheckRequest.check:type_name -> gcommon.v1.health.HealthCheckRequest

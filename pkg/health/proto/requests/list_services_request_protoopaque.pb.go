@@ -9,7 +9,8 @@
 package requests
 
 import (
-	proto "github.com/jdfalk/gcommon/pkg/common/proto"
+	_ "github.com/jdfalk/gcommon/pkg/common/proto"
+	messages "github.com/jdfalk/gcommon/pkg/common/proto/messages"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
@@ -33,8 +34,8 @@ const (
 // - Service inventory management
 // - Health monitoring scope awareness
 type ListServicesRequest struct {
-	state               protoimpl.MessageState `protogen:"opaque.v1"`
-	xxx_hidden_Metadata *proto.RequestMetadata `protobuf:"bytes,1,opt,name=metadata"`
+	state               protoimpl.MessageState    `protogen:"opaque.v1"`
+	xxx_hidden_Metadata *messages.RequestMetadata `protobuf:"bytes,1,opt,name=metadata"`
 	unknownFields       protoimpl.UnknownFields
 	sizeCache           protoimpl.SizeCache
 }
@@ -64,14 +65,14 @@ func (x *ListServicesRequest) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-func (x *ListServicesRequest) GetMetadata() *proto.RequestMetadata {
+func (x *ListServicesRequest) GetMetadata() *messages.RequestMetadata {
 	if x != nil {
 		return x.xxx_hidden_Metadata
 	}
 	return nil
 }
 
-func (x *ListServicesRequest) SetMetadata(v *proto.RequestMetadata) {
+func (x *ListServicesRequest) SetMetadata(v *messages.RequestMetadata) {
 	x.xxx_hidden_Metadata = v
 }
 
@@ -90,7 +91,7 @@ type ListServicesRequest_builder struct {
 	_ [0]func() // Prevents comparability and use of unkeyed literals for the builder.
 
 	// Request metadata
-	Metadata *proto.RequestMetadata
+	Metadata *messages.RequestMetadata
 }
 
 func (b0 ListServicesRequest_builder) Build() *ListServicesRequest {
@@ -112,8 +113,8 @@ const file_pkg_health_proto_requests_list_services_request_proto_rawDesc = "" +
 
 var file_pkg_health_proto_requests_list_services_request_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_pkg_health_proto_requests_list_services_request_proto_goTypes = []any{
-	(*ListServicesRequest)(nil),   // 0: gcommon.v1.health.ListServicesRequest
-	(*proto.RequestMetadata)(nil), // 1: gcommon.v1.common.RequestMetadata
+	(*ListServicesRequest)(nil),      // 0: gcommon.v1.health.ListServicesRequest
+	(*messages.RequestMetadata)(nil), // 1: gcommon.v1.common.RequestMetadata
 }
 var file_pkg_health_proto_requests_list_services_request_proto_depIdxs = []int32{
 	1, // 0: gcommon.v1.health.ListServicesRequest.metadata:type_name -> gcommon.v1.common.RequestMetadata

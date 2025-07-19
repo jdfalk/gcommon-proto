@@ -9,7 +9,9 @@
 package requests
 
 import (
-	proto "github.com/jdfalk/gcommon/pkg/common/proto"
+	_ "github.com/jdfalk/gcommon/pkg/common/proto"
+	enums "github.com/jdfalk/gcommon/pkg/common/proto/enums"
+	messages "github.com/jdfalk/gcommon/pkg/common/proto/messages"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
@@ -31,9 +33,9 @@ type SetHealthRequest struct {
 	// Service name to update
 	Service *string `protobuf:"bytes,1,opt,name=service" json:"service,omitempty"`
 	// Desired health status
-	Status *proto.HealthStatus `protobuf:"varint,2,opt,name=status,enum=gcommon.v1.common.HealthStatus" json:"status,omitempty"`
+	Status *enums.HealthStatus `protobuf:"varint,2,opt,name=status,enum=gcommon.v1.common.HealthStatus" json:"status,omitempty"`
 	// Request metadata for auditing
-	Metadata      *proto.RequestMetadata `protobuf:"bytes,3,opt,name=metadata" json:"metadata,omitempty"`
+	Metadata      *messages.RequestMetadata `protobuf:"bytes,3,opt,name=metadata" json:"metadata,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -70,14 +72,14 @@ func (x *SetHealthRequest) GetService() string {
 	return ""
 }
 
-func (x *SetHealthRequest) GetStatus() proto.HealthStatus {
+func (x *SetHealthRequest) GetStatus() enums.HealthStatus {
 	if x != nil && x.Status != nil {
 		return *x.Status
 	}
-	return proto.HealthStatus(0)
+	return enums.HealthStatus(0)
 }
 
-func (x *SetHealthRequest) GetMetadata() *proto.RequestMetadata {
+func (x *SetHealthRequest) GetMetadata() *messages.RequestMetadata {
 	if x != nil {
 		return x.Metadata
 	}
@@ -88,11 +90,11 @@ func (x *SetHealthRequest) SetService(v string) {
 	x.Service = &v
 }
 
-func (x *SetHealthRequest) SetStatus(v proto.HealthStatus) {
+func (x *SetHealthRequest) SetStatus(v enums.HealthStatus) {
 	x.Status = &v
 }
 
-func (x *SetHealthRequest) SetMetadata(v *proto.RequestMetadata) {
+func (x *SetHealthRequest) SetMetadata(v *messages.RequestMetadata) {
 	x.Metadata = v
 }
 
@@ -135,9 +137,9 @@ type SetHealthRequest_builder struct {
 	// Service name to update
 	Service *string
 	// Desired health status
-	Status *proto.HealthStatus
+	Status *enums.HealthStatus
 	// Request metadata for auditing
-	Metadata *proto.RequestMetadata
+	Metadata *messages.RequestMetadata
 }
 
 func (b0 SetHealthRequest_builder) Build() *SetHealthRequest {
@@ -163,9 +165,9 @@ const file_pkg_health_proto_requests_set_health_request_proto_rawDesc = "" +
 
 var file_pkg_health_proto_requests_set_health_request_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_pkg_health_proto_requests_set_health_request_proto_goTypes = []any{
-	(*SetHealthRequest)(nil),      // 0: gcommon.v1.health.SetHealthRequest
-	(proto.HealthStatus)(0),       // 1: gcommon.v1.common.HealthStatus
-	(*proto.RequestMetadata)(nil), // 2: gcommon.v1.common.RequestMetadata
+	(*SetHealthRequest)(nil),         // 0: gcommon.v1.health.SetHealthRequest
+	(enums.HealthStatus)(0),          // 1: gcommon.v1.common.HealthStatus
+	(*messages.RequestMetadata)(nil), // 2: gcommon.v1.common.RequestMetadata
 }
 var file_pkg_health_proto_requests_set_health_request_proto_depIdxs = []int32{
 	1, // 0: gcommon.v1.health.SetHealthRequest.status:type_name -> gcommon.v1.common.HealthStatus

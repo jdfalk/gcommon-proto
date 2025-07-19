@@ -9,7 +9,8 @@
 package requests
 
 import (
-	proto "github.com/jdfalk/gcommon/pkg/common/proto"
+	_ "github.com/jdfalk/gcommon/pkg/common/proto"
+	messages "github.com/jdfalk/gcommon/pkg/common/proto/messages"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
@@ -29,12 +30,12 @@ const (
 // It allows enabling or disabling alert notifications and defining
 // basic thresholds for when an alert should be triggered.
 type ConfigureAlertingRequest struct {
-	state                       protoimpl.MessageState `protogen:"opaque.v1"`
-	xxx_hidden_Target           *string                `protobuf:"bytes,1,opt,name=target"`
-	xxx_hidden_Enabled          bool                   `protobuf:"varint,2,opt,name=enabled"`
-	xxx_hidden_FailureThreshold int32                  `protobuf:"varint,3,opt,name=failure_threshold,json=failureThreshold"`
-	xxx_hidden_Channels         []string               `protobuf:"bytes,4,rep,name=channels"`
-	xxx_hidden_Metadata         *proto.RequestMetadata `protobuf:"bytes,5,opt,name=metadata"`
+	state                       protoimpl.MessageState    `protogen:"opaque.v1"`
+	xxx_hidden_Target           *string                   `protobuf:"bytes,1,opt,name=target"`
+	xxx_hidden_Enabled          bool                      `protobuf:"varint,2,opt,name=enabled"`
+	xxx_hidden_FailureThreshold int32                     `protobuf:"varint,3,opt,name=failure_threshold,json=failureThreshold"`
+	xxx_hidden_Channels         []string                  `protobuf:"bytes,4,rep,name=channels"`
+	xxx_hidden_Metadata         *messages.RequestMetadata `protobuf:"bytes,5,opt,name=metadata"`
 	XXX_raceDetectHookData      protoimpl.RaceDetectHookData
 	XXX_presence                [1]uint32
 	unknownFields               protoimpl.UnknownFields
@@ -97,7 +98,7 @@ func (x *ConfigureAlertingRequest) GetChannels() []string {
 	return nil
 }
 
-func (x *ConfigureAlertingRequest) GetMetadata() *proto.RequestMetadata {
+func (x *ConfigureAlertingRequest) GetMetadata() *messages.RequestMetadata {
 	if x != nil {
 		return x.xxx_hidden_Metadata
 	}
@@ -123,7 +124,7 @@ func (x *ConfigureAlertingRequest) SetChannels(v []string) {
 	x.xxx_hidden_Channels = v
 }
 
-func (x *ConfigureAlertingRequest) SetMetadata(v *proto.RequestMetadata) {
+func (x *ConfigureAlertingRequest) SetMetadata(v *messages.RequestMetadata) {
 	x.xxx_hidden_Metadata = v
 }
 
@@ -186,7 +187,7 @@ type ConfigureAlertingRequest_builder struct {
 	// Optional notification channels (email, slack, etc.)
 	Channels []string
 	// Standard request metadata for tracing and auth
-	Metadata *proto.RequestMetadata
+	Metadata *messages.RequestMetadata
 }
 
 func (b0 ConfigureAlertingRequest_builder) Build() *ConfigureAlertingRequest {
@@ -226,7 +227,7 @@ const file_pkg_health_proto_requests_configure_alerting_request_proto_rawDesc = 
 var file_pkg_health_proto_requests_configure_alerting_request_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_pkg_health_proto_requests_configure_alerting_request_proto_goTypes = []any{
 	(*ConfigureAlertingRequest)(nil), // 0: gcommon.v1.health.ConfigureAlertingRequest
-	(*proto.RequestMetadata)(nil),    // 1: gcommon.v1.common.RequestMetadata
+	(*messages.RequestMetadata)(nil), // 1: gcommon.v1.common.RequestMetadata
 }
 var file_pkg_health_proto_requests_configure_alerting_request_proto_depIdxs = []int32{
 	1, // 0: gcommon.v1.health.ConfigureAlertingRequest.metadata:type_name -> gcommon.v1.common.RequestMetadata

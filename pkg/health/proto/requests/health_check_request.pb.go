@@ -9,7 +9,8 @@
 package requests
 
 import (
-	proto "github.com/jdfalk/gcommon/pkg/common/proto"
+	_ "github.com/jdfalk/gcommon/pkg/common/proto"
+	messages "github.com/jdfalk/gcommon/pkg/common/proto/messages"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
@@ -38,7 +39,7 @@ type HealthCheckRequest struct {
 	// Service name to check (empty for overall health)
 	Service *string `protobuf:"bytes,1,opt,name=service" json:"service,omitempty"`
 	// Request metadata
-	Metadata *proto.RequestMetadata `protobuf:"bytes,2,opt,name=metadata" json:"metadata,omitempty"`
+	Metadata *messages.RequestMetadata `protobuf:"bytes,2,opt,name=metadata" json:"metadata,omitempty"`
 	// Check timeout
 	Timeout *durationpb.Duration `protobuf:"bytes,3,opt,name=timeout" json:"timeout,omitempty"`
 	// Include detailed check results
@@ -79,7 +80,7 @@ func (x *HealthCheckRequest) GetService() string {
 	return ""
 }
 
-func (x *HealthCheckRequest) GetMetadata() *proto.RequestMetadata {
+func (x *HealthCheckRequest) GetMetadata() *messages.RequestMetadata {
 	if x != nil {
 		return x.Metadata
 	}
@@ -104,7 +105,7 @@ func (x *HealthCheckRequest) SetService(v string) {
 	x.Service = &v
 }
 
-func (x *HealthCheckRequest) SetMetadata(v *proto.RequestMetadata) {
+func (x *HealthCheckRequest) SetMetadata(v *messages.RequestMetadata) {
 	x.Metadata = v
 }
 
@@ -166,7 +167,7 @@ type HealthCheckRequest_builder struct {
 	// Service name to check (empty for overall health)
 	Service *string
 	// Request metadata
-	Metadata *proto.RequestMetadata
+	Metadata *messages.RequestMetadata
 	// Check timeout
 	Timeout *durationpb.Duration
 	// Include detailed check results
@@ -198,9 +199,9 @@ const file_pkg_health_proto_requests_health_check_request_proto_rawDesc = "" +
 
 var file_pkg_health_proto_requests_health_check_request_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_pkg_health_proto_requests_health_check_request_proto_goTypes = []any{
-	(*HealthCheckRequest)(nil),    // 0: gcommon.v1.health.HealthCheckRequest
-	(*proto.RequestMetadata)(nil), // 1: gcommon.v1.common.RequestMetadata
-	(*durationpb.Duration)(nil),   // 2: google.protobuf.Duration
+	(*HealthCheckRequest)(nil),       // 0: gcommon.v1.health.HealthCheckRequest
+	(*messages.RequestMetadata)(nil), // 1: gcommon.v1.common.RequestMetadata
+	(*durationpb.Duration)(nil),      // 2: google.protobuf.Duration
 }
 var file_pkg_health_proto_requests_health_check_request_proto_depIdxs = []int32{
 	1, // 0: gcommon.v1.health.HealthCheckRequest.metadata:type_name -> gcommon.v1.common.RequestMetadata

@@ -9,7 +9,8 @@
 package responses
 
 import (
-	proto "github.com/jdfalk/gcommon/pkg/common/proto"
+	_ "github.com/jdfalk/gcommon/pkg/common/proto"
+	messages1 "github.com/jdfalk/gcommon/pkg/common/proto/messages"
 	messages "github.com/jdfalk/gcommon/pkg/health/proto/messages"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
@@ -33,7 +34,7 @@ type GetHealthMetricsResponse struct {
 	// Health metrics data
 	Metrics []*messages.HealthMetricData `protobuf:"bytes,1,rep,name=metrics" json:"metrics,omitempty"`
 	// Request metadata
-	Metadata      *proto.RequestMetadata `protobuf:"bytes,2,opt,name=metadata" json:"metadata,omitempty"`
+	Metadata      *messages1.RequestMetadata `protobuf:"bytes,2,opt,name=metadata" json:"metadata,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -70,7 +71,7 @@ func (x *GetHealthMetricsResponse) GetMetrics() []*messages.HealthMetricData {
 	return nil
 }
 
-func (x *GetHealthMetricsResponse) GetMetadata() *proto.RequestMetadata {
+func (x *GetHealthMetricsResponse) GetMetadata() *messages1.RequestMetadata {
 	if x != nil {
 		return x.Metadata
 	}
@@ -81,7 +82,7 @@ func (x *GetHealthMetricsResponse) SetMetrics(v []*messages.HealthMetricData) {
 	x.Metrics = v
 }
 
-func (x *GetHealthMetricsResponse) SetMetadata(v *proto.RequestMetadata) {
+func (x *GetHealthMetricsResponse) SetMetadata(v *messages1.RequestMetadata) {
 	x.Metadata = v
 }
 
@@ -102,7 +103,7 @@ type GetHealthMetricsResponse_builder struct {
 	// Health metrics data
 	Metrics []*messages.HealthMetricData
 	// Request metadata
-	Metadata *proto.RequestMetadata
+	Metadata *messages1.RequestMetadata
 }
 
 func (b0 GetHealthMetricsResponse_builder) Build() *GetHealthMetricsResponse {
@@ -128,7 +129,7 @@ var file_pkg_health_proto_responses_get_health_metrics_response_proto_msgTypes =
 var file_pkg_health_proto_responses_get_health_metrics_response_proto_goTypes = []any{
 	(*GetHealthMetricsResponse)(nil),  // 0: gcommon.v1.health.GetHealthMetricsResponse
 	(*messages.HealthMetricData)(nil), // 1: gcommon.v1.health.HealthMetricData
-	(*proto.RequestMetadata)(nil),     // 2: gcommon.v1.common.RequestMetadata
+	(*messages1.RequestMetadata)(nil), // 2: gcommon.v1.common.RequestMetadata
 }
 var file_pkg_health_proto_responses_get_health_metrics_response_proto_depIdxs = []int32{
 	1, // 0: gcommon.v1.health.GetHealthMetricsResponse.metrics:type_name -> gcommon.v1.health.HealthMetricData
