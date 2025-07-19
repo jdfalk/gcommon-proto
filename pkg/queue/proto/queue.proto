@@ -12,6 +12,8 @@ import "google/protobuf/go_features.proto";
 import "pkg/queue/proto/responses/delete_queue_response.proto";
 import "pkg/queue/proto/responses/delete_topic_response.proto";
 import "pkg/queue/proto/responses/delete_subscription_response.proto";
+import "pkg/queue/proto/requests/get_queue_stats_request.proto";
+import "pkg/queue/proto/responses/get_queue_stats_response.proto";
 
 option go_package = "github.com/jdfalk/gcommon/pkg/queue/proto;queuepb";
 option features.(pb.go).api_level = API_HYBRID;
@@ -711,102 +713,6 @@ message ListMessagesResponse {
   gcommon.v1.common.Error error = 4;
 }
 
-// Get queue stats request
-message GetQueueStatsRequest {
-  // Queue name
-  string queue_name = 1;
-
-  // Request metadata
-  gcommon.v1.common.RequestMetadata metadata = 2;
-}
-
-// Get queue stats response
-message GetQueueStatsResponse {
-  // Queue statistics
-  QueueStats stats = 1;
-
-  // Error information
-  gcommon.v1.common.Error error = 2;
-}
-
-// Queue statistics
-message QueueStats {
-  // Queue name
-  string queue_name = 1;
-
-  // Message counts by state
-  map<string, int64> message_counts = 2;
-
-  // Total messages
-  int64 total_messages = 3;
-
-  // Messages in flight
-  int64 messages_in_flight = 4;
-
-  // Average message size
-  int64 avg_message_size_bytes = 5;
-
-  // Total queue size
-  int64 total_size_bytes = 6;
-
-  // Oldest message age
-  google.protobuf.Duration oldest_message_age = 7;
-
-  // Throughput statistics
-  ThroughputStats throughput = 8;
-
-  // Error statistics
-  ErrorStats errors = 9;
-}
-
-// Throughput statistics
-message ThroughputStats {
-  // Messages per second (current)
-  double messages_per_second = 1;
-
-  // Bytes per second (current)
-  double bytes_per_second = 2;
-
-  // Average processing time
-  google.protobuf.Duration avg_processing_time = 3;
-
-  // Peak messages per second (last hour)
-  double peak_messages_per_second = 4;
-
-  // Peak bytes per second (last hour)
-  double peak_bytes_per_second = 5;
-}
-
-// Error statistics
-message ErrorStats {
-  // Total errors
-  int64 total_errors = 1;
-
-  // Error rate (errors per second)
-  double error_rate = 2;
-
-  // Common error types
-  map<string, int64> error_types = 3;
-
-  // Recent errors
-  repeated RecentError recent_errors = 4;
-}
-
-// Recent error information
-message RecentError {
-  // Error message
-  string message = 1;
-
-  // Error type
-  string type = 2;
-
-  // Occurrence count
-  int32 count = 3;
-
-  // Last occurrence
-  google.protobuf.Timestamp last_occurrence = 4;
-}
-
 // Get subscription stats request
 message GetSubscriptionStatsRequest {
   // Subscription name
@@ -981,8 +887,8 @@ message QueueInfo {
   // Queue configuration
   QueueConfig config = 1;
 
-  // Queue statistics
-  QueueStats stats = 2;
+  // Queue statistics (from GetQueueStatsResponse)
+  gcommon.v1.queue.QueueStats stats = 2;
 
   // Creation time
   google.protobuf.Timestamp created_at = 3;
