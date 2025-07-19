@@ -2,7 +2,7 @@
 // versions:
 // 	protoc-gen-go v1.36.6
 // 	protoc        (unknown)
-// source: pkg/cache/proto/requests/delete_request.proto
+// source: pkg/cache/proto/requests/import_request.proto
 
 //go:build protoopaque
 
@@ -25,10 +25,10 @@ const (
 )
 
 // *
-// Request to delete a cached value by key.
-type DeleteRequest struct {
+// Request to import cache contents from an external source.
+type ImportRequest struct {
 	state                protoimpl.MessageState    `protogen:"opaque.v1"`
-	xxx_hidden_Key       *string                   `protobuf:"bytes,1,opt,name=key"`
+	xxx_hidden_Source    *string                   `protobuf:"bytes,1,opt,name=source"`
 	xxx_hidden_Namespace *string                   `protobuf:"bytes,2,opt,name=namespace"`
 	xxx_hidden_Metadata  *messages.RequestMetadata `protobuf:"bytes,3,opt,name=metadata"`
 	// Deprecated: Do not use. This will be deleted in the near future.
@@ -39,21 +39,21 @@ type DeleteRequest struct {
 	sizeCache              protoimpl.SizeCache
 }
 
-func (x *DeleteRequest) Reset() {
-	*x = DeleteRequest{}
-	mi := &file_pkg_cache_proto_requests_delete_request_proto_msgTypes[0]
+func (x *ImportRequest) Reset() {
+	*x = ImportRequest{}
+	mi := &file_pkg_cache_proto_requests_import_request_proto_msgTypes[0]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
 
-func (x *DeleteRequest) String() string {
+func (x *ImportRequest) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
-func (*DeleteRequest) ProtoMessage() {}
+func (*ImportRequest) ProtoMessage() {}
 
-func (x *DeleteRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_pkg_cache_proto_requests_delete_request_proto_msgTypes[0]
+func (x *ImportRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_pkg_cache_proto_requests_import_request_proto_msgTypes[0]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -64,17 +64,17 @@ func (x *DeleteRequest) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-func (x *DeleteRequest) GetKey() string {
+func (x *ImportRequest) GetSource() string {
 	if x != nil {
-		if x.xxx_hidden_Key != nil {
-			return *x.xxx_hidden_Key
+		if x.xxx_hidden_Source != nil {
+			return *x.xxx_hidden_Source
 		}
 		return ""
 	}
 	return ""
 }
 
-func (x *DeleteRequest) GetNamespace() string {
+func (x *ImportRequest) GetNamespace() string {
 	if x != nil {
 		if x.xxx_hidden_Namespace != nil {
 			return *x.xxx_hidden_Namespace
@@ -84,7 +84,7 @@ func (x *DeleteRequest) GetNamespace() string {
 	return ""
 }
 
-func (x *DeleteRequest) GetMetadata() *messages.RequestMetadata {
+func (x *ImportRequest) GetMetadata() *messages.RequestMetadata {
 	if x != nil {
 		if protoimpl.X.Present(&(x.XXX_presence[0]), 2) {
 			if protoimpl.X.AtomicCheckPointerIsNil(&x.xxx_hidden_Metadata) {
@@ -98,17 +98,17 @@ func (x *DeleteRequest) GetMetadata() *messages.RequestMetadata {
 	return nil
 }
 
-func (x *DeleteRequest) SetKey(v string) {
-	x.xxx_hidden_Key = &v
+func (x *ImportRequest) SetSource(v string) {
+	x.xxx_hidden_Source = &v
 	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 0, 3)
 }
 
-func (x *DeleteRequest) SetNamespace(v string) {
+func (x *ImportRequest) SetNamespace(v string) {
 	x.xxx_hidden_Namespace = &v
 	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 1, 3)
 }
 
-func (x *DeleteRequest) SetMetadata(v *messages.RequestMetadata) {
+func (x *ImportRequest) SetMetadata(v *messages.RequestMetadata) {
 	protoimpl.X.AtomicSetPointer(&x.xxx_hidden_Metadata, v)
 	if v == nil {
 		protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 2)
@@ -117,60 +117,60 @@ func (x *DeleteRequest) SetMetadata(v *messages.RequestMetadata) {
 	}
 }
 
-func (x *DeleteRequest) HasKey() bool {
+func (x *ImportRequest) HasSource() bool {
 	if x == nil {
 		return false
 	}
 	return protoimpl.X.Present(&(x.XXX_presence[0]), 0)
 }
 
-func (x *DeleteRequest) HasNamespace() bool {
+func (x *ImportRequest) HasNamespace() bool {
 	if x == nil {
 		return false
 	}
 	return protoimpl.X.Present(&(x.XXX_presence[0]), 1)
 }
 
-func (x *DeleteRequest) HasMetadata() bool {
+func (x *ImportRequest) HasMetadata() bool {
 	if x == nil {
 		return false
 	}
 	return protoimpl.X.Present(&(x.XXX_presence[0]), 2)
 }
 
-func (x *DeleteRequest) ClearKey() {
+func (x *ImportRequest) ClearSource() {
 	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 0)
-	x.xxx_hidden_Key = nil
+	x.xxx_hidden_Source = nil
 }
 
-func (x *DeleteRequest) ClearNamespace() {
+func (x *ImportRequest) ClearNamespace() {
 	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 1)
 	x.xxx_hidden_Namespace = nil
 }
 
-func (x *DeleteRequest) ClearMetadata() {
+func (x *ImportRequest) ClearMetadata() {
 	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 2)
 	protoimpl.X.AtomicSetPointer(&x.xxx_hidden_Metadata, (*messages.RequestMetadata)(nil))
 }
 
-type DeleteRequest_builder struct {
+type ImportRequest_builder struct {
 	_ [0]func() // Prevents comparability and use of unkeyed literals for the builder.
 
-	// Cache key to delete
-	Key *string
-	// Optional namespace for cache isolation
+	// Source location of the data
+	Source *string
+	// Optional namespace to import into
 	Namespace *string
-	// Request metadata for tracing and correlation
+	// Request metadata
 	Metadata *messages.RequestMetadata
 }
 
-func (b0 DeleteRequest_builder) Build() *DeleteRequest {
-	m0 := &DeleteRequest{}
+func (b0 ImportRequest_builder) Build() *ImportRequest {
+	m0 := &ImportRequest{}
 	b, x := &b0, m0
 	_, _ = b, x
-	if b.Key != nil {
+	if b.Source != nil {
 		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 0, 3)
-		x.xxx_hidden_Key = b.Key
+		x.xxx_hidden_Source = b.Source
 	}
 	if b.Namespace != nil {
 		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 1, 3)
@@ -183,24 +183,24 @@ func (b0 DeleteRequest_builder) Build() *DeleteRequest {
 	return m0
 }
 
-var File_pkg_cache_proto_requests_delete_request_proto protoreflect.FileDescriptor
+var File_pkg_cache_proto_requests_import_request_proto protoreflect.FileDescriptor
 
-const file_pkg_cache_proto_requests_delete_request_proto_rawDesc = "" +
+const file_pkg_cache_proto_requests_import_request_proto_rawDesc = "" +
 	"\n" +
-	"-pkg/cache/proto/requests/delete_request.proto\x12\x10gcommon.v1.cache\x1a!google/protobuf/go_features.proto\x1a0pkg/common/proto/messages/request_metadata.proto\"\x83\x01\n" +
-	"\rDeleteRequest\x12\x10\n" +
-	"\x03key\x18\x01 \x01(\tR\x03key\x12\x1c\n" +
+	"-pkg/cache/proto/requests/import_request.proto\x12\x10gcommon.v1.cache\x1a!google/protobuf/go_features.proto\x1a0pkg/common/proto/messages/request_metadata.proto\"\x89\x01\n" +
+	"\rImportRequest\x12\x16\n" +
+	"\x06source\x18\x01 \x01(\tR\x06source\x12\x1c\n" +
 	"\tnamespace\x18\x02 \x01(\tR\tnamespace\x12B\n" +
 	"\bmetadata\x18\x03 \x01(\v2\".gcommon.v1.common.RequestMetadataB\x02(\x01R\bmetadataB\xc8\x01\n" +
-	"\x14com.gcommon.v1.cacheB\x12DeleteRequestProtoP\x01Z2github.com/jdfalk/gcommon/pkg/cache/proto/requests\xa2\x02\x03GVC\xaa\x02\x10Gcommon.V1.Cache\xca\x02\x10Gcommon\\V1\\Cache\xe2\x02\x1cGcommon\\V1\\Cache\\GPBMetadata\xea\x02\x12Gcommon::V1::Cache\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
+	"\x14com.gcommon.v1.cacheB\x12ImportRequestProtoP\x01Z2github.com/jdfalk/gcommon/pkg/cache/proto/requests\xa2\x02\x03GVC\xaa\x02\x10Gcommon.V1.Cache\xca\x02\x10Gcommon\\V1\\Cache\xe2\x02\x1cGcommon\\V1\\Cache\\GPBMetadata\xea\x02\x12Gcommon::V1::Cache\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
 
-var file_pkg_cache_proto_requests_delete_request_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
-var file_pkg_cache_proto_requests_delete_request_proto_goTypes = []any{
-	(*DeleteRequest)(nil),            // 0: gcommon.v1.cache.DeleteRequest
+var file_pkg_cache_proto_requests_import_request_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
+var file_pkg_cache_proto_requests_import_request_proto_goTypes = []any{
+	(*ImportRequest)(nil),            // 0: gcommon.v1.cache.ImportRequest
 	(*messages.RequestMetadata)(nil), // 1: gcommon.v1.common.RequestMetadata
 }
-var file_pkg_cache_proto_requests_delete_request_proto_depIdxs = []int32{
-	1, // 0: gcommon.v1.cache.DeleteRequest.metadata:type_name -> gcommon.v1.common.RequestMetadata
+var file_pkg_cache_proto_requests_import_request_proto_depIdxs = []int32{
+	1, // 0: gcommon.v1.cache.ImportRequest.metadata:type_name -> gcommon.v1.common.RequestMetadata
 	1, // [1:1] is the sub-list for method output_type
 	1, // [1:1] is the sub-list for method input_type
 	1, // [1:1] is the sub-list for extension type_name
@@ -208,26 +208,26 @@ var file_pkg_cache_proto_requests_delete_request_proto_depIdxs = []int32{
 	0, // [0:1] is the sub-list for field type_name
 }
 
-func init() { file_pkg_cache_proto_requests_delete_request_proto_init() }
-func file_pkg_cache_proto_requests_delete_request_proto_init() {
-	if File_pkg_cache_proto_requests_delete_request_proto != nil {
+func init() { file_pkg_cache_proto_requests_import_request_proto_init() }
+func file_pkg_cache_proto_requests_import_request_proto_init() {
+	if File_pkg_cache_proto_requests_import_request_proto != nil {
 		return
 	}
 	type x struct{}
 	out := protoimpl.TypeBuilder{
 		File: protoimpl.DescBuilder{
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
-			RawDescriptor: unsafe.Slice(unsafe.StringData(file_pkg_cache_proto_requests_delete_request_proto_rawDesc), len(file_pkg_cache_proto_requests_delete_request_proto_rawDesc)),
+			RawDescriptor: unsafe.Slice(unsafe.StringData(file_pkg_cache_proto_requests_import_request_proto_rawDesc), len(file_pkg_cache_proto_requests_import_request_proto_rawDesc)),
 			NumEnums:      0,
 			NumMessages:   1,
 			NumExtensions: 0,
 			NumServices:   0,
 		},
-		GoTypes:           file_pkg_cache_proto_requests_delete_request_proto_goTypes,
-		DependencyIndexes: file_pkg_cache_proto_requests_delete_request_proto_depIdxs,
-		MessageInfos:      file_pkg_cache_proto_requests_delete_request_proto_msgTypes,
+		GoTypes:           file_pkg_cache_proto_requests_import_request_proto_goTypes,
+		DependencyIndexes: file_pkg_cache_proto_requests_import_request_proto_depIdxs,
+		MessageInfos:      file_pkg_cache_proto_requests_import_request_proto_msgTypes,
 	}.Build()
-	File_pkg_cache_proto_requests_delete_request_proto = out.File
-	file_pkg_cache_proto_requests_delete_request_proto_goTypes = nil
-	file_pkg_cache_proto_requests_delete_request_proto_depIdxs = nil
+	File_pkg_cache_proto_requests_import_request_proto = out.File
+	file_pkg_cache_proto_requests_import_request_proto_goTypes = nil
+	file_pkg_cache_proto_requests_import_request_proto_depIdxs = nil
 }
