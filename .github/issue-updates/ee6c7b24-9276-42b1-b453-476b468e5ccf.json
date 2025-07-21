@@ -1,0 +1,8 @@
+{
+  "action": "create",
+  "title": "Logging Module 1-1-1 Migration",
+  "body": "Implemented 10 protobuf files for logging module and converted log.proto to use public imports.",
+  "labels": ["module:log", "type:protobuf"],
+  "guid": "ee6c7b24-9276-42b1-b453-476b468e5ccf",
+  "legacy_guid": "create-logging-module-1-1-1-migration-2025-07-21"
+}

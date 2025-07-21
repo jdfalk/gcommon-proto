@@ -10,6 +10,16 @@ import "google/protobuf/empty.proto";
 import "google/protobuf/any.proto";
 import "google/protobuf/field_mask.proto";
 import "google/protobuf/go_features.proto";
+import public "pkg/log/proto/messages/log_entry.proto"
+import public "pkg/log/proto/messages/source_location.proto"
+import public "pkg/log/proto/messages/error_info.proto"
+import public "pkg/log/proto/enums/log_level.proto"
+import public "pkg/log/proto/enums/log_sort_field.proto"
+import public "pkg/log/proto/enums/appender_type.proto"
+import public "pkg/log/proto/enums/formatter_type.proto"
+import public "pkg/log/proto/enums/filter_type.proto"
+import public "pkg/log/proto/enums/logger_status.proto"
+import public "pkg/log/proto/enums/compression_type.proto"
 
 option go_package = "github.com/jdfalk/gcommon/pkg/log/proto;logpb";
 option features.(pb.go).api_level = API_HYBRID;
@@ -53,25 +63,6 @@ service LogAdminService {
   rpc ListLoggers(ListLoggersRequest) returns (ListLoggersResponse);
 
   // ConfigureAppender configures log output destinations
-  rpc ConfigureAppender(ConfigureAppenderRequest) returns (ConfigureAppenderResponse);
-
-  // RotateLogs forces log rotation
-  rpc RotateLogs(RotateLogsRequest) returns (RotateLogsResponse);
-
-  // ArchiveLogs archives old log files
-  rpc ArchiveLogs(ArchiveLogsRequest) returns (ArchiveLogsResponse);
-}
-
-// Log level enumeration
-enum LogLevel {
-  LOG_LEVEL_UNSPECIFIED = 0;
-  LOG_LEVEL_TRACE = 1;
-  LOG_LEVEL_DEBUG = 2;
-  LOG_LEVEL_INFO = 3;
-  LOG_LEVEL_WARN = 4;
-  LOG_LEVEL_ERROR = 5;
-  LOG_LEVEL_FATAL = 6;
-}
 
 // Log request for writing a single entry
 message LogRequest {
@@ -130,82 +121,10 @@ message LogBatchResponse {
   int32 success_count = 1;
 
   // Number of failed entries
-  int32 failure_count = 2;
-
-  // Entry IDs (if supported)
-  repeated string entry_ids = 3;
-
-  // Error information
-  gcommon.v1.common.Error error = 4;
-}
-
-// Log entry representation
-message LogEntry {
-  // Log level
-  LogLevel level = 1;
-
-  // Log message
-  string message = 2;
-
-  // Timestamp
-  google.protobuf.Timestamp timestamp = 3;
-
-  // Logger name
-  string logger = 4;
-
-  // Thread/goroutine information
-  string thread = 5;
-
-  // Source file information
-  SourceLocation source = 6;
-
-  // Structured fields
-  map<string, google.protobuf.Any> fields = 7;
-
-  // Tags for categorization
-  repeated string tags = 8;
-
-  // Trace ID for distributed tracing
-  string trace_id = 9;
-
-  // Span ID for distributed tracing
-  string span_id = 10;
 
   // User ID associated with the log
-  string user_id = 11;
-
-  // Request ID
-  string request_id = 12;
-
-  // Error information (if log level is ERROR or FATAL)
-  ErrorInfo error_info = 13;
-}
-
-// Source location information
-message SourceLocation {
-  // File name
-  string file = 1;
 
   // Line number
-  int32 line = 2;
-
-  // Function name
-  string function = 3;
-
-  // Package/module name
-  string package = 4;
-}
-
-// Error information for error/fatal logs
-message ErrorInfo {
-  // Error message
-  string message = 1;
-
-  // Error type/class
-  string type = 2;
-
-  // Stack trace
-  string stack_trace = 3;
 
   // Error code
   string code = 4;
@@ -271,23 +190,9 @@ message TimeRange {
   google.protobuf.Timestamp end = 2;
 }
 
-// Log sorting options
-message LogSort {
-  // Sort field
-  LogSortField field = 1;
-
-  // Sort direction
-  gcommon.v1.common.SortDirection direction = 2;
 }
 
 // Log sort fields
-enum LogSortField {
-  LOG_SORT_FIELD_UNSPECIFIED = 0;
-  LOG_SORT_FIELD_TIMESTAMP = 1;
-  LOG_SORT_FIELD_LEVEL = 2;
-  LOG_SORT_FIELD_LOGGER = 3;
-  LOG_SORT_FIELD_MESSAGE = 4;
-}
 
 // Query log response
 message QueryLogResponse {
@@ -459,25 +364,7 @@ message AppenderConfig {
   AppenderType type = 2;
 
   // Output configuration
-  OutputConfig output = 3;
-
-  // Formatter configuration
-  FormatterConfig formatter = 4;
-
-  // Filter configuration
-  FilterConfig filter = 5;
-}
-
 // Appender types
-enum AppenderType {
-  APPENDER_TYPE_UNSPECIFIED = 0;
-  APPENDER_TYPE_CONSOLE = 1;
-  APPENDER_TYPE_FILE = 2;
-  APPENDER_TYPE_ROLLING_FILE = 3;
-  APPENDER_TYPE_SYSLOG = 4;
-  APPENDER_TYPE_NETWORK = 5;
-  APPENDER_TYPE_DATABASE = 6;
-}
 
 // Output configuration
 message OutputConfig {
@@ -494,41 +381,11 @@ message FormatterConfig {
   FormatterType type = 1;
 
   // Format pattern
-  string pattern = 2;
-
-  // Timestamp format
-  string timestamp_format = 3;
-
-  // Additional formatter options
-  map<string, string> options = 4;
 }
 
-// Formatter type enumeration
-enum FormatterType {
-  FORMATTER_TYPE_UNSPECIFIED = 0;
-  FORMATTER_TYPE_TEXT = 1;
-  FORMATTER_TYPE_JSON = 2;
-  FORMATTER_TYPE_XML = 3;
-  FORMATTER_TYPE_CUSTOM = 4;
+
 }
 
-// Filter configuration
-message FilterConfig {
-  // Filter type
-  FilterType type = 1;
-
-  // Filter criteria
-  map<string, string> criteria = 2;
-}
-
-// Filter type enumeration
-enum FilterType {
-  FILTER_TYPE_UNSPECIFIED = 0;
-  FILTER_TYPE_LEVEL = 1;
-  FILTER_TYPE_LOGGER = 2;
-  FILTER_TYPE_MESSAGE = 3;
-  FILTER_TYPE_FIELD = 4;
-}
 
 // Create logger response
 message CreateLoggerResponse {
@@ -626,22 +483,9 @@ message LoggerInfo {
   LogStatistics stats = 5;
 
   // Creation time
-  google.protobuf.Timestamp created_at = 6;
-
-  // Last modified time
-  google.protobuf.Timestamp modified_at = 7;
-
-  // Status
   LoggerStatus status = 8;
 }
 
-// Logger status enumeration
-enum LoggerStatus {
-  LOGGER_STATUS_UNSPECIFIED = 0;
-  LOGGER_STATUS_ACTIVE = 1;
-  LOGGER_STATUS_INACTIVE = 2;
-  LOGGER_STATUS_ERROR = 3;
-}
 
 // Configure appender request
 message ConfigureAppenderRequest {
@@ -711,23 +555,6 @@ message ArchiveCriteria {
   // Size threshold
   int64 size_threshold_bytes = 2;
 
-  // Logger pattern
-  string logger_pattern = 3;
-
-  // Date range
-  google.protobuf.Timestamp start_time = 4;
-  google.protobuf.Timestamp end_time = 5;
-}
-
-// Compression type enumeration
-enum CompressionType {
-  COMPRESSION_TYPE_UNSPECIFIED = 0;
-  COMPRESSION_TYPE_NONE = 1;
-  COMPRESSION_TYPE_GZIP = 2;
-  COMPRESSION_TYPE_ZIP = 3;
-  COMPRESSION_TYPE_BZIP2 = 4;
-  COMPRESSION_TYPE_TAR_GZ = 5;
-}
 
 // Archive logs response
 message ArchiveLogsResponse {
