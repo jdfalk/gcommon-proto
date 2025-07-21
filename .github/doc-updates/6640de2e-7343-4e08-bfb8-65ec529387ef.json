@@ -1,0 +1,16 @@
+{
+  "file": "README.md",
+  "mode": "append",
+  "content": "Project board organized with Todo, In Progress, Review, and Done columns",
+  "guid": "6640de2e-7343-4e08-bfb8-65ec529387ef",
+  "created_at": "2025-07-21T02:13:35Z",
+  "options": {
+    "section": null,
+    "after": null,
+    "before": null,
+    "task_id": null,
+    "badge_name": null,
+    "priority": null,
+    "category": null
+  }
+}
