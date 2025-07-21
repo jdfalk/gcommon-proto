@@ -1,18 +1,27 @@
-// filepath: pkg/metrics/proto/messages/metric_health.proto
-// file: metrics/proto/messages/metric_health.proto
-//
-// Message definitions for metrics module
-// TODO: Implement actual protobuf definitions
-//
+// file: pkg/metrics/proto/messages/metric_health.proto
+// version: 1.0.0
+// guid: eaa94765-18f8-4a94-9530-b8182f2b5092
+
 edition = "2023";
 
 package gcommon.v1.metrics;
 
 import "google/protobuf/go_features.proto";
+import "pkg/metrics/proto/enums/health_status.proto";
 
 option go_package = "github.com/jdfalk/gcommon/pkg/metrics/proto;metricspb";
 option features.(pb.go).api_level = API_HYBRID;
 
-// TODO: Add message definitions here
-// This is a placeholder file created during 1-1-1 migration
-// Implement the actual protobuf definitions according to the metrics module requirements
+/**
+ * MetricHealth provides health information about a metric.
+ */
+message MetricHealth {
+  // Name of the metric
+  string metric_name = 1;
+
+  // Current health status
+  HealthStatus status = 2;
+
+  // Optional descriptive message
+  string message = 3;
+}

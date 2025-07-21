@@ -1,18 +1,24 @@
-// filepath: pkg/metrics/proto/requests/list_metrics_request.proto
-// file: metrics/proto/requests/list_metrics_request.proto
-//
-// Request definitions for metrics module
-// TODO: Implement actual protobuf definitions
-//
+// file: pkg/metrics/proto/requests/list_metrics_request.proto
+// version: 1.0.0
+// guid: a5ae698c-a783-4005-b054-167c31d44c8b
+
 edition = "2023";
 
 package gcommon.v1.metrics;
 
 import "google/protobuf/go_features.proto";
+import "pkg/common/proto/messages/pagination.proto";
 
 option go_package = "github.com/jdfalk/gcommon/pkg/metrics/proto;metricspb";
 option features.(pb.go).api_level = API_HYBRID;
 
-// TODO: Add request definitions here
-// This is a placeholder file created during 1-1-1 migration
-// Implement the actual protobuf definitions according to the metrics module requirements
+/**
+ * ListMetricsRequest requests a paginated list of metrics.
+ */
+message ListMetricsRequest {
+  // Pagination information
+  PaginationRequest pagination = 1;
+
+  // Optional name filter
+  string name_filter = 2;
+}

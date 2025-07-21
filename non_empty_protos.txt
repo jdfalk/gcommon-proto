@@ -263,3 +263,11 @@ pkg/organization/proto/services/hierarchy_service.proto
 pkg/organization/proto/services/organization_service.proto
 pkg/organization/proto/services/tenant_service.proto
 pkg/organization/proto/types/tenant_isolation.proto
+pkg/metrics/proto/messages/metric_label.proto
+pkg/metrics/proto/messages/metric_health.proto
+pkg/metrics/proto/messages/scrape_config.proto
+pkg/metrics/proto/messages/scrape_target.proto
+pkg/metrics/proto/requests/list_metrics_request.proto
+pkg/metrics/proto/requests/set_metric_config_request.proto
+pkg/metrics/proto/responses/get_metric_config_response.proto
+pkg/metrics/proto/responses/set_metric_config_response.proto
