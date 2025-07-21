@@ -1,0 +1,7 @@
+{
+  "action": "comment",
+  "number": 91,
+  "body": "Implemented core queue protobufs: QueueMessage, DeliveryOptions, SendMessageRequest/Response, MessageState",
+  "guid": "d9ab20ff-f9c8-408f-9c25-ae434875de4d",
+  "legacy_guid": "comment-issue-91-2025-07-21"
+}
