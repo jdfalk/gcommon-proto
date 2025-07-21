@@ -6,7 +6,7 @@
 
 //go:build protoopaque
 
-package responses
+package webpb
 
 import (
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
@@ -27,8 +27,8 @@ var File_pkg_web_proto_responses_list_files_response_proto protoreflect.FileDesc
 
 const file_pkg_web_proto_responses_list_files_response_proto_rawDesc = "" +
 	"\n" +
-	"1pkg/web/proto/responses/list_files_response.proto\x12\x0egcommon.v1.web\x1a!google/protobuf/go_features.protoB\xc1\x01\n" +
-	"\x12com.gcommon.v1.webB\x16ListFilesResponseProtoP\x01Z1github.com/jdfalk/gcommon/pkg/web/proto/responses\xa2\x02\x03GVW\xaa\x02\x0eGcommon.V1.Web\xca\x02\x0eGcommon\\V1\\Web\xe2\x02\x1aGcommon\\V1\\Web\\GPBMetadata\xea\x02\x10Gcommon::V1::Web\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
+	"1pkg/web/proto/responses/list_files_response.proto\x12\x0egcommon.v1.web\x1a!google/protobuf/go_features.protoB\xbd\x01\n" +
+	"\x12com.gcommon.v1.webB\x16ListFilesResponseProtoP\x01Z-github.com/jdfalk/gcommon/pkg/web/proto;webpb\xa2\x02\x03GVW\xaa\x02\x0eGcommon.V1.Web\xca\x02\x0eGcommon\\V1\\Web\xe2\x02\x1aGcommon\\V1\\Web\\GPBMetadata\xea\x02\x10Gcommon::V1::Web\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
 
 var file_pkg_web_proto_responses_list_files_response_proto_goTypes = []any{}
 var file_pkg_web_proto_responses_list_files_response_proto_depIdxs = []int32{

@@ -4,7 +4,7 @@
 // - protoc             (unknown)
 // source: pkg/web/proto/web.proto
 
-package proto
+package webpb
 
 import (
 	context "context"
