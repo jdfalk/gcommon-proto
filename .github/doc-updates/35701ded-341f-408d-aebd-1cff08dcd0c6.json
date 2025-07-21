@@ -1,0 +1,16 @@
+{
+  "file": "TODO.md",
+  "mode": "task-add",
+  "content": "Add DebugInfo message to common module",
+  "guid": "35701ded-341f-408d-aebd-1cff08dcd0c6",
+  "created_at": "2025-07-21T04:00:02Z",
+  "options": {
+    "section": null,
+    "after": null,
+    "before": null,
+    "task_id": null,
+    "badge_name": null,
+    "priority": null,
+    "category": null
+  }
+}
