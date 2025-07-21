@@ -6,13 +6,9 @@
 
 //go:build protoopaque
 
-package proto
+package authpb
 
 import (
-	enums "github.com/jdfalk/gcommon/pkg/auth/proto/enums"
-	messages "github.com/jdfalk/gcommon/pkg/auth/proto/messages"
-	_ "github.com/jdfalk/gcommon/pkg/auth/proto/services"
-	types "github.com/jdfalk/gcommon/pkg/auth/proto/types"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
@@ -27,227 +23,12 @@ const (
 	_ = protoimpl.EnforceVersion(protoimpl.MaxVersion - 20)
 )
 
-// Symbols defined in public import of pkg/auth/proto/services/auth_service.proto.
-
-// Symbols defined in public import of pkg/auth/proto/services/authorization_service.proto.
-
-// Symbols defined in public import of pkg/auth/proto/services/session_service.proto.
-
-// Symbols defined in public import of pkg/auth/proto/enums/user_status.proto.
-
-type UserStatus = enums.UserStatus
-
-const UserStatus_USER_STATUS_UNSPECIFIED = enums.UserStatus_USER_STATUS_UNSPECIFIED
-const UserStatus_USER_STATUS_ACTIVE = enums.UserStatus_USER_STATUS_ACTIVE
-const UserStatus_USER_STATUS_INACTIVE = enums.UserStatus_USER_STATUS_INACTIVE
-const UserStatus_USER_STATUS_SUSPENDED = enums.UserStatus_USER_STATUS_SUSPENDED
-const UserStatus_USER_STATUS_PENDING_VERIFICATION = enums.UserStatus_USER_STATUS_PENDING_VERIFICATION
-const UserStatus_USER_STATUS_LOCKED = enums.UserStatus_USER_STATUS_LOCKED
-const UserStatus_USER_STATUS_DELETED = enums.UserStatus_USER_STATUS_DELETED
-
-var UserStatus_name = enums.UserStatus_name
-var UserStatus_value = enums.UserStatus_value
-
-// Symbols defined in public import of pkg/auth/proto/enums/session_status.proto.
-
-type SessionStatus = enums.SessionStatus
-
-const SessionStatus_SESSION_STATUS_UNSPECIFIED = enums.SessionStatus_SESSION_STATUS_UNSPECIFIED
-const SessionStatus_SESSION_STATUS_ACTIVE = enums.SessionStatus_SESSION_STATUS_ACTIVE
-const SessionStatus_SESSION_STATUS_EXPIRED = enums.SessionStatus_SESSION_STATUS_EXPIRED
-const SessionStatus_SESSION_STATUS_TERMINATED = enums.SessionStatus_SESSION_STATUS_TERMINATED
-const SessionStatus_SESSION_STATUS_INVALID = enums.SessionStatus_SESSION_STATUS_INVALID
-
-var SessionStatus_name = enums.SessionStatus_name
-var SessionStatus_value = enums.SessionStatus_value
-
-// Symbols defined in public import of pkg/auth/proto/enums/token_type.proto.
-
-type TokenType = enums.TokenType
-
-const TokenType_TOKEN_TYPE_UNSPECIFIED = enums.TokenType_TOKEN_TYPE_UNSPECIFIED
-const TokenType_TOKEN_TYPE_ACCESS = enums.TokenType_TOKEN_TYPE_ACCESS
-const TokenType_TOKEN_TYPE_REFRESH = enums.TokenType_TOKEN_TYPE_REFRESH
-const TokenType_TOKEN_TYPE_ID = enums.TokenType_TOKEN_TYPE_ID
-const TokenType_TOKEN_TYPE_AUTHORIZATION_CODE = enums.TokenType_TOKEN_TYPE_AUTHORIZATION_CODE
-const TokenType_TOKEN_TYPE_API_KEY = enums.TokenType_TOKEN_TYPE_API_KEY
-const TokenType_TOKEN_TYPE_SESSION = enums.TokenType_TOKEN_TYPE_SESSION
-const TokenType_TOKEN_TYPE_PASSWORD_RESET = enums.TokenType_TOKEN_TYPE_PASSWORD_RESET
-const TokenType_TOKEN_TYPE_EMAIL_VERIFICATION = enums.TokenType_TOKEN_TYPE_EMAIL_VERIFICATION
-const TokenType_TOKEN_TYPE_PHONE_VERIFICATION = enums.TokenType_TOKEN_TYPE_PHONE_VERIFICATION
-const TokenType_TOKEN_TYPE_INVITATION = enums.TokenType_TOKEN_TYPE_INVITATION
-
-var TokenType_name = enums.TokenType_name
-var TokenType_value = enums.TokenType_value
-
-// Symbols defined in public import of pkg/auth/proto/enums/permission_scope.proto.
-
-type PermissionScope = enums.PermissionScope
-
-const PermissionScope_PERMISSION_SCOPE_UNSPECIFIED = enums.PermissionScope_PERMISSION_SCOPE_UNSPECIFIED
-const PermissionScope_PERMISSION_SCOPE_GLOBAL = enums.PermissionScope_PERMISSION_SCOPE_GLOBAL
-const PermissionScope_PERMISSION_SCOPE_ORGANIZATION = enums.PermissionScope_PERMISSION_SCOPE_ORGANIZATION
-const PermissionScope_PERMISSION_SCOPE_PROJECT = enums.PermissionScope_PERMISSION_SCOPE_PROJECT
-const PermissionScope_PERMISSION_SCOPE_RESOURCE = enums.PermissionScope_PERMISSION_SCOPE_RESOURCE
-const PermissionScope_PERMISSION_SCOPE_USER = enums.PermissionScope_PERMISSION_SCOPE_USER
-
-var PermissionScope_name = enums.PermissionScope_name
-var PermissionScope_value = enums.PermissionScope_value
-
-// Symbols defined in public import of pkg/auth/proto/enums/mfa_type.proto.
-
-// Symbols defined in public import of pkg/auth/proto/enums/audit_action.proto.
-
-type AuditAction = enums.AuditAction
-
-const AuditAction_AUDIT_ACTION_UNSPECIFIED = enums.AuditAction_AUDIT_ACTION_UNSPECIFIED
-const AuditAction_AUDIT_ACTION_LOGIN = enums.AuditAction_AUDIT_ACTION_LOGIN
-const AuditAction_AUDIT_ACTION_LOGOUT = enums.AuditAction_AUDIT_ACTION_LOGOUT
-const AuditAction_AUDIT_ACTION_LOGIN_FAILED = enums.AuditAction_AUDIT_ACTION_LOGIN_FAILED
-const AuditAction_AUDIT_ACTION_ACCESS_GRANTED = enums.AuditAction_AUDIT_ACTION_ACCESS_GRANTED
-const AuditAction_AUDIT_ACTION_ACCESS_DENIED = enums.AuditAction_AUDIT_ACTION_ACCESS_DENIED
-const AuditAction_AUDIT_ACTION_USER_CREATED = enums.AuditAction_AUDIT_ACTION_USER_CREATED
-const AuditAction_AUDIT_ACTION_USER_UPDATED = enums.AuditAction_AUDIT_ACTION_USER_UPDATED
-const AuditAction_AUDIT_ACTION_USER_DELETED = enums.AuditAction_AUDIT_ACTION_USER_DELETED
-const AuditAction_AUDIT_ACTION_USER_SUSPENDED = enums.AuditAction_AUDIT_ACTION_USER_SUSPENDED
-const AuditAction_AUDIT_ACTION_ROLE_ASSIGNED = enums.AuditAction_AUDIT_ACTION_ROLE_ASSIGNED
-const AuditAction_AUDIT_ACTION_ROLE_REMOVED = enums.AuditAction_AUDIT_ACTION_ROLE_REMOVED
-const AuditAction_AUDIT_ACTION_ROLE_CREATED = enums.AuditAction_AUDIT_ACTION_ROLE_CREATED
-const AuditAction_AUDIT_ACTION_ROLE_UPDATED = enums.AuditAction_AUDIT_ACTION_ROLE_UPDATED
-const AuditAction_AUDIT_ACTION_ROLE_DELETED = enums.AuditAction_AUDIT_ACTION_ROLE_DELETED
-const AuditAction_AUDIT_ACTION_PERMISSION_GRANTED = enums.AuditAction_AUDIT_ACTION_PERMISSION_GRANTED
-const AuditAction_AUDIT_ACTION_PERMISSION_REVOKED = enums.AuditAction_AUDIT_ACTION_PERMISSION_REVOKED
-const AuditAction_AUDIT_ACTION_SESSION_CREATED = enums.AuditAction_AUDIT_ACTION_SESSION_CREATED
-const AuditAction_AUDIT_ACTION_SESSION_TERMINATED = enums.AuditAction_AUDIT_ACTION_SESSION_TERMINATED
-const AuditAction_AUDIT_ACTION_CONFIG_UPDATED = enums.AuditAction_AUDIT_ACTION_CONFIG_UPDATED
-const AuditAction_AUDIT_ACTION_SYSTEM_BACKUP = enums.AuditAction_AUDIT_ACTION_SYSTEM_BACKUP
-const AuditAction_AUDIT_ACTION_SYSTEM_RESTORE = enums.AuditAction_AUDIT_ACTION_SYSTEM_RESTORE
-
-var AuditAction_name = enums.AuditAction_name
-var AuditAction_value = enums.AuditAction_value
-
-// Symbols defined in public import of pkg/auth/proto/enums/role_scope.proto.
-
-type RoleScope = enums.RoleScope
-
-const RoleScope_ROLE_SCOPE_UNSPECIFIED = enums.RoleScope_ROLE_SCOPE_UNSPECIFIED
-const RoleScope_ROLE_SCOPE_GLOBAL = enums.RoleScope_ROLE_SCOPE_GLOBAL
-const RoleScope_ROLE_SCOPE_ORGANIZATION = enums.RoleScope_ROLE_SCOPE_ORGANIZATION
-const RoleScope_ROLE_SCOPE_PROJECT = enums.RoleScope_ROLE_SCOPE_PROJECT
-const RoleScope_ROLE_SCOPE_TEAM = enums.RoleScope_ROLE_SCOPE_TEAM
-const RoleScope_ROLE_SCOPE_RESOURCE = enums.RoleScope_ROLE_SCOPE_RESOURCE
-
-var RoleScope_name = enums.RoleScope_name
-var RoleScope_value = enums.RoleScope_value
-
-// Symbols defined in public import of pkg/auth/proto/enums/token_status.proto.
-
-type TokenStatus = enums.TokenStatus
-
-const TokenStatus_TOKEN_STATUS_UNSPECIFIED = enums.TokenStatus_TOKEN_STATUS_UNSPECIFIED
-const TokenStatus_TOKEN_STATUS_ACTIVE = enums.TokenStatus_TOKEN_STATUS_ACTIVE
-const TokenStatus_TOKEN_STATUS_EXPIRED = enums.TokenStatus_TOKEN_STATUS_EXPIRED
-const TokenStatus_TOKEN_STATUS_REVOKED = enums.TokenStatus_TOKEN_STATUS_REVOKED
-const TokenStatus_TOKEN_STATUS_SUSPENDED = enums.TokenStatus_TOKEN_STATUS_SUSPENDED
-const TokenStatus_TOKEN_STATUS_PENDING = enums.TokenStatus_TOKEN_STATUS_PENDING
-const TokenStatus_TOKEN_STATUS_INVALID = enums.TokenStatus_TOKEN_STATUS_INVALID
-
-var TokenStatus_name = enums.TokenStatus_name
-var TokenStatus_value = enums.TokenStatus_value
-
-// Symbols defined in public import of pkg/auth/proto/messages/user.proto.
-
-type User = messages.User
-type User_builder = messages.User_builder
-
-// Symbols defined in public import of pkg/auth/proto/messages/session.proto.
-
-type Session = messages.Session
-type Session_builder = messages.Session_builder
-
-// Symbols defined in public import of pkg/auth/proto/messages/token.proto.
-
-type Token = messages.Token
-type Token_builder = messages.Token_builder
-
-// Symbols defined in public import of pkg/auth/proto/messages/permission.proto.
-
-// Symbols defined in public import of pkg/auth/proto/types/role.proto.
-
-type Role = types.Role
-type Role_builder = types.Role_builder
-
-// Symbols defined in public import of pkg/auth/proto/messages/group.proto.
-
-type Group = messages.Group
-type Group_builder = messages.Group_builder
-
-// Symbols defined in public import of pkg/auth/proto/messages/audit_log.proto.
-
-// Symbols defined in public import of pkg/auth/proto/messages/mfa_config.proto.
-
-// Symbols defined in public import of pkg/auth/proto/messages/rate_limit_config.proto.
-
-type RateLimitConfig = messages.RateLimitConfig
-type RateLimitConfig_builder = messages.RateLimitConfig_builder
-
-// Symbols defined in public import of pkg/auth/proto/messages/password_policy.proto.
-
-// Symbols defined in public import of pkg/auth/proto/messages/oauth_client.proto.
-
-type OAuthClient = messages.OAuthClient
-type OAuthClient_builder = messages.OAuthClient_builder
-
-// Symbols defined in public import of pkg/auth/proto/messages/api_key.proto.
-
-// Symbols defined in public import of pkg/auth/proto/messages/user_profile.proto.
-
-// Symbols defined in public import of pkg/auth/proto/messages/session_info.proto.
-
-type SessionInfo = messages.SessionInfo
-type SessionInfo_builder = messages.SessionInfo_builder
-
-// Symbols defined in public import of pkg/auth/proto/messages/token_info.proto.
-
-type TokenInfo = messages.TokenInfo
-type TokenInfo_builder = messages.TokenInfo_builder
-
-// Symbols defined in public import of pkg/auth/proto/messages/permission_grant.proto.
-
-type PermissionGrant = messages.PermissionGrant
-type PermissionGrant_builder = messages.PermissionGrant_builder
-
-// Symbols defined in public import of pkg/auth/proto/messages/role_assignment.proto.
-
-type RoleAssignment = messages.RoleAssignment
-type RoleAssignment_builder = messages.RoleAssignment_builder
-
-// Symbols defined in public import of pkg/auth/proto/types/password_credentials.proto.
-
-type PasswordCredentials = types.PasswordCredentials
-type PasswordCredentials_builder = types.PasswordCredentials_builder
-
-// Symbols defined in public import of pkg/auth/proto/types/api_key_credentials.proto.
-
-type APIKeyCredentials = types.APIKeyCredentials
-type APIKeyCredentials_builder = types.APIKeyCredentials_builder
-
-// Symbols defined in public import of pkg/auth/proto/types/oauth2_credentials.proto.
-
-type OAuth2Credentials = types.OAuth2Credentials
-type OAuth2Credentials_builder = types.OAuth2Credentials_builder
-
-// Symbols defined in public import of pkg/auth/proto/types/jwt_credentials.proto.
-
-type JWTCredentials = types.JWTCredentials
-type JWTCredentials_builder = types.JWTCredentials_builder
-
 var File_pkg_auth_proto_auth_proto protoreflect.FileDescriptor
 
 const file_pkg_auth_proto_auth_proto_rawDesc = "" +
 	"\n" +
-	"\x19pkg/auth/proto/auth.proto\x12\x0fgcommon.v1.auth\x1a!google/protobuf/go_features.proto\x1a*pkg/auth/proto/services/auth_service.proto\x1a3pkg/auth/proto/services/authorization_service.proto\x1a-pkg/auth/proto/services/session_service.proto\x1a&pkg/auth/proto/enums/user_status.proto\x1a)pkg/auth/proto/enums/session_status.proto\x1a%pkg/auth/proto/enums/token_type.proto\x1a+pkg/auth/proto/enums/permission_scope.proto\x1a#pkg/auth/proto/enums/mfa_type.proto\x1a'pkg/auth/proto/enums/audit_action.proto\x1a%pkg/auth/proto/enums/role_scope.proto\x1a'pkg/auth/proto/enums/token_status.proto\x1a\"pkg/auth/proto/messages/user.proto\x1a%pkg/auth/proto/messages/session.proto\x1a#pkg/auth/proto/messages/token.proto\x1a(pkg/auth/proto/messages/permission.proto\x1a\x1fpkg/auth/proto/types/role.proto\x1a#pkg/auth/proto/messages/group.proto\x1a'pkg/auth/proto/messages/audit_log.proto\x1a(pkg/auth/proto/messages/mfa_config.proto\x1a/pkg/auth/proto/messages/rate_limit_config.proto\x1a-pkg/auth/proto/messages/password_policy.proto\x1a*pkg/auth/proto/messages/oauth_client.proto\x1a%pkg/auth/proto/messages/api_key.proto\x1a*pkg/auth/proto/messages/user_profile.proto\x1a*pkg/auth/proto/messages/session_info.proto\x1a(pkg/auth/proto/messages/token_info.proto\x1a.pkg/auth/proto/messages/permission_grant.proto\x1a-pkg/auth/proto/messages/role_assignment.proto\x1a/pkg/auth/proto/types/password_credentials.proto\x1a.pkg/auth/proto/types/api_key_credentials.proto\x1a-pkg/auth/proto/types/oauth2_credentials.proto\x1a*pkg/auth/proto/types/jwt_credentials.protoB\xb0\x01\n" +
-	"\x13com.gcommon.v1.authB\tAuthProtoP\x01Z(github.com/jdfalk/gcommon/pkg/auth/proto\xa2\x02\x03GVA\xaa\x02\x0fGcommon.V1.Auth\xca\x02\x0fGcommon\\V1\\Auth\xe2\x02\x1bGcommon\\V1\\Auth\\GPBMetadata\xea\x02\x11Gcommon::V1::Auth\x92\x03\x05\xd2>\x02\x10\x02P\x01P\x02P\x03P\x04P\x05P\x06P\aP\bP\tP\n" +
+	"\x19pkg/auth/proto/auth.proto\x12\x0fgcommon.v1.auth\x1a!google/protobuf/go_features.proto\x1a*pkg/auth/proto/services/auth_service.proto\x1a3pkg/auth/proto/services/authorization_service.proto\x1a-pkg/auth/proto/services/session_service.proto\x1a&pkg/auth/proto/enums/user_status.proto\x1a)pkg/auth/proto/enums/session_status.proto\x1a%pkg/auth/proto/enums/token_type.proto\x1a+pkg/auth/proto/enums/permission_scope.proto\x1a#pkg/auth/proto/enums/mfa_type.proto\x1a'pkg/auth/proto/enums/audit_action.proto\x1a%pkg/auth/proto/enums/role_scope.proto\x1a'pkg/auth/proto/enums/token_status.proto\x1a\"pkg/auth/proto/messages/user.proto\x1a%pkg/auth/proto/messages/session.proto\x1a#pkg/auth/proto/messages/token.proto\x1a(pkg/auth/proto/messages/permission.proto\x1a\x1fpkg/auth/proto/types/role.proto\x1a#pkg/auth/proto/messages/group.proto\x1a'pkg/auth/proto/messages/audit_log.proto\x1a(pkg/auth/proto/messages/mfa_config.proto\x1a/pkg/auth/proto/messages/rate_limit_config.proto\x1a-pkg/auth/proto/messages/password_policy.proto\x1a*pkg/auth/proto/messages/oauth_client.proto\x1a%pkg/auth/proto/messages/api_key.proto\x1a*pkg/auth/proto/messages/user_profile.proto\x1a*pkg/auth/proto/messages/session_info.proto\x1a(pkg/auth/proto/messages/token_info.proto\x1a.pkg/auth/proto/messages/permission_grant.proto\x1a-pkg/auth/proto/messages/role_assignment.proto\x1a/pkg/auth/proto/types/password_credentials.proto\x1a.pkg/auth/proto/types/api_key_credentials.proto\x1a-pkg/auth/proto/types/oauth2_credentials.proto\x1a*pkg/auth/proto/types/jwt_credentials.protoB\xb7\x01\n" +
+	"\x13com.gcommon.v1.authB\tAuthProtoP\x01Z/github.com/jdfalk/gcommon/pkg/auth/proto;authpb\xa2\x02\x03GVA\xaa\x02\x0fGcommon.V1.Auth\xca\x02\x0fGcommon\\V1\\Auth\xe2\x02\x1bGcommon\\V1\\Auth\\GPBMetadata\xea\x02\x11Gcommon::V1::Auth\x92\x03\x05\xd2>\x02\x10\x02P\x01P\x02P\x03P\x04P\x05P\x06P\aP\bP\tP\n" +
 	"P\vP\fP\rP\x0eP\x0fP\x10P\x11P\x12P\x13P\x14P\x15P\x16P\x17P\x18P\x19P\x1aP\x1bP\x1cP\x1dP\x1eP\x1fP b\beditionsp\xe8\a"
 
 var file_pkg_auth_proto_auth_proto_goTypes = []any{}
@@ -264,6 +45,38 @@ func file_pkg_auth_proto_auth_proto_init() {
 	if File_pkg_auth_proto_auth_proto != nil {
 		return
 	}
+	file_pkg_auth_proto_services_auth_service_proto_init()
+	file_pkg_auth_proto_services_authorization_service_proto_init()
+	file_pkg_auth_proto_services_session_service_proto_init()
+	file_pkg_auth_proto_enums_user_status_proto_init()
+	file_pkg_auth_proto_enums_session_status_proto_init()
+	file_pkg_auth_proto_enums_token_type_proto_init()
+	file_pkg_auth_proto_enums_permission_scope_proto_init()
+	file_pkg_auth_proto_enums_mfa_type_proto_init()
+	file_pkg_auth_proto_enums_audit_action_proto_init()
+	file_pkg_auth_proto_enums_role_scope_proto_init()
+	file_pkg_auth_proto_enums_token_status_proto_init()
+	file_pkg_auth_proto_messages_user_proto_init()
+	file_pkg_auth_proto_messages_session_proto_init()
+	file_pkg_auth_proto_messages_token_proto_init()
+	file_pkg_auth_proto_messages_permission_proto_init()
+	file_pkg_auth_proto_types_role_proto_init()
+	file_pkg_auth_proto_messages_group_proto_init()
+	file_pkg_auth_proto_messages_audit_log_proto_init()
+	file_pkg_auth_proto_messages_mfa_config_proto_init()
+	file_pkg_auth_proto_messages_rate_limit_config_proto_init()
+	file_pkg_auth_proto_messages_password_policy_proto_init()
+	file_pkg_auth_proto_messages_oauth_client_proto_init()
+	file_pkg_auth_proto_messages_api_key_proto_init()
+	file_pkg_auth_proto_messages_user_profile_proto_init()
+	file_pkg_auth_proto_messages_session_info_proto_init()
+	file_pkg_auth_proto_messages_token_info_proto_init()
+	file_pkg_auth_proto_messages_permission_grant_proto_init()
+	file_pkg_auth_proto_messages_role_assignment_proto_init()
+	file_pkg_auth_proto_types_password_credentials_proto_init()
+	file_pkg_auth_proto_types_api_key_credentials_proto_init()
+	file_pkg_auth_proto_types_oauth2_credentials_proto_init()
+	file_pkg_auth_proto_types_jwt_credentials_proto_init()
 	type x struct{}
 	out := protoimpl.TypeBuilder{
 		File: protoimpl.DescBuilder{
