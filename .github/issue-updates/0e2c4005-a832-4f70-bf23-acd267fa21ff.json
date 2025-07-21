@@ -1,0 +1,8 @@
+{
+  "action": "update",
+  "number": 90,
+  "body": "Implemented AckResponse",
+  "labels": ["in-progress"],
+  "guid": "0e2c4005-a832-4f70-bf23-acd267fa21ff",
+  "legacy_guid": "update-issue-90-2025-07-21"
+}
