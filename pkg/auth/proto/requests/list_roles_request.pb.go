@@ -6,11 +6,10 @@
 
 //go:build !protoopaque
 
-package requests
+package authpb
 
 import (
-	messages "github.com/jdfalk/gcommon/pkg/common/proto/messages"
-	types "github.com/jdfalk/gcommon/pkg/common/proto/types"
+	proto "github.com/jdfalk/gcommon/pkg/common/proto"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
@@ -32,13 +31,13 @@ const (
 type ListRolesRequest struct {
 	state protoimpl.MessageState `protogen:"hybrid.v1"`
 	// Pagination parameters
-	Pagination *messages.Pagination `protobuf:"bytes,1,opt,name=pagination" json:"pagination,omitempty"`
+	Pagination *proto.Pagination `protobuf:"bytes,1,opt,name=pagination" json:"pagination,omitempty"`
 	// Filter options for role selection
-	Filter *messages.FilterOptions `protobuf:"bytes,2,opt,name=filter" json:"filter,omitempty"`
+	Filter *proto.FilterOptions `protobuf:"bytes,2,opt,name=filter" json:"filter,omitempty"`
 	// Sort options for result ordering
-	Sort *types.SortOptions `protobuf:"bytes,3,opt,name=sort" json:"sort,omitempty"`
+	Sort *proto.SortOptions `protobuf:"bytes,3,opt,name=sort" json:"sort,omitempty"`
 	// Request metadata for tracing and correlation
-	Metadata      *messages.RequestMetadata `protobuf:"bytes,4,opt,name=metadata" json:"metadata,omitempty"`
+	Metadata      *proto.RequestMetadata `protobuf:"bytes,4,opt,name=metadata" json:"metadata,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -68,47 +67,47 @@ func (x *ListRolesRequest) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-func (x *ListRolesRequest) GetPagination() *messages.Pagination {
+func (x *ListRolesRequest) GetPagination() *proto.Pagination {
 	if x != nil {
 		return x.Pagination
 	}
 	return nil
 }
 
-func (x *ListRolesRequest) GetFilter() *messages.FilterOptions {
+func (x *ListRolesRequest) GetFilter() *proto.FilterOptions {
 	if x != nil {
 		return x.Filter
 	}
 	return nil
 }
 
-func (x *ListRolesRequest) GetSort() *types.SortOptions {
+func (x *ListRolesRequest) GetSort() *proto.SortOptions {
 	if x != nil {
 		return x.Sort
 	}
 	return nil
 }
 
-func (x *ListRolesRequest) GetMetadata() *messages.RequestMetadata {
+func (x *ListRolesRequest) GetMetadata() *proto.RequestMetadata {
 	if x != nil {
 		return x.Metadata
 	}
 	return nil
 }
 
-func (x *ListRolesRequest) SetPagination(v *messages.Pagination) {
+func (x *ListRolesRequest) SetPagination(v *proto.Pagination) {
 	x.Pagination = v
 }
 
-func (x *ListRolesRequest) SetFilter(v *messages.FilterOptions) {
+func (x *ListRolesRequest) SetFilter(v *proto.FilterOptions) {
 	x.Filter = v
 }
 
-func (x *ListRolesRequest) SetSort(v *types.SortOptions) {
+func (x *ListRolesRequest) SetSort(v *proto.SortOptions) {
 	x.Sort = v
 }
 
-func (x *ListRolesRequest) SetMetadata(v *messages.RequestMetadata) {
+func (x *ListRolesRequest) SetMetadata(v *proto.RequestMetadata) {
 	x.Metadata = v
 }
 
@@ -160,13 +159,13 @@ type ListRolesRequest_builder struct {
 	_ [0]func() // Prevents comparability and use of unkeyed literals for the builder.
 
 	// Pagination parameters
-	Pagination *messages.Pagination
+	Pagination *proto.Pagination
 	// Filter options for role selection
-	Filter *messages.FilterOptions
+	Filter *proto.FilterOptions
 	// Sort options for result ordering
-	Sort *types.SortOptions
+	Sort *proto.SortOptions
 	// Request metadata for tracing and correlation
-	Metadata *messages.RequestMetadata
+	Metadata *proto.RequestMetadata
 }
 
 func (b0 ListRolesRequest_builder) Build() *ListRolesRequest {
@@ -191,16 +190,16 @@ const file_pkg_auth_proto_requests_list_roles_request_proto_rawDesc = "" +
 	"pagination\x128\n" +
 	"\x06filter\x18\x02 \x01(\v2 .gcommon.v1.common.FilterOptionsR\x06filter\x122\n" +
 	"\x04sort\x18\x03 \x01(\v2\x1e.gcommon.v1.common.SortOptionsR\x04sort\x12>\n" +
-	"\bmetadata\x18\x04 \x01(\v2\".gcommon.v1.common.RequestMetadataR\bmetadataB\xc5\x01\n" +
-	"\x13com.gcommon.v1.authB\x15ListRolesRequestProtoP\x01Z1github.com/jdfalk/gcommon/pkg/auth/proto/requests\xa2\x02\x03GVA\xaa\x02\x0fGcommon.V1.Auth\xca\x02\x0fGcommon\\V1\\Auth\xe2\x02\x1bGcommon\\V1\\Auth\\GPBMetadata\xea\x02\x11Gcommon::V1::Auth\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
+	"\bmetadata\x18\x04 \x01(\v2\".gcommon.v1.common.RequestMetadataR\bmetadataB\xc3\x01\n" +
+	"\x13com.gcommon.v1.authB\x15ListRolesRequestProtoP\x01Z/github.com/jdfalk/gcommon/pkg/auth/proto;authpb\xa2\x02\x03GVA\xaa\x02\x0fGcommon.V1.Auth\xca\x02\x0fGcommon\\V1\\Auth\xe2\x02\x1bGcommon\\V1\\Auth\\GPBMetadata\xea\x02\x11Gcommon::V1::Auth\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
 
 var file_pkg_auth_proto_requests_list_roles_request_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_pkg_auth_proto_requests_list_roles_request_proto_goTypes = []any{
-	(*ListRolesRequest)(nil),         // 0: gcommon.v1.auth.ListRolesRequest
-	(*messages.Pagination)(nil),      // 1: gcommon.v1.common.Pagination
-	(*messages.FilterOptions)(nil),   // 2: gcommon.v1.common.FilterOptions
-	(*types.SortOptions)(nil),        // 3: gcommon.v1.common.SortOptions
-	(*messages.RequestMetadata)(nil), // 4: gcommon.v1.common.RequestMetadata
+	(*ListRolesRequest)(nil),      // 0: gcommon.v1.auth.ListRolesRequest
+	(*proto.Pagination)(nil),      // 1: gcommon.v1.common.Pagination
+	(*proto.FilterOptions)(nil),   // 2: gcommon.v1.common.FilterOptions
+	(*proto.SortOptions)(nil),     // 3: gcommon.v1.common.SortOptions
+	(*proto.RequestMetadata)(nil), // 4: gcommon.v1.common.RequestMetadata
 }
 var file_pkg_auth_proto_requests_list_roles_request_proto_depIdxs = []int32{
 	1, // 0: gcommon.v1.auth.ListRolesRequest.pagination:type_name -> gcommon.v1.common.Pagination

@@ -6,11 +6,10 @@
 
 //go:build !protoopaque
 
-package requests
+package authpb
 
 import (
-	types "github.com/jdfalk/gcommon/pkg/auth/proto/types"
-	messages "github.com/jdfalk/gcommon/pkg/common/proto/messages"
+	proto "github.com/jdfalk/gcommon/pkg/common/proto"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
@@ -33,11 +32,11 @@ const (
 type UpdateRoleRequest struct {
 	state protoimpl.MessageState `protogen:"hybrid.v1"`
 	// Role data with updates
-	Role *types.Role `protobuf:"bytes,1,opt,name=role" json:"role,omitempty"`
+	Role *Role `protobuf:"bytes,1,opt,name=role" json:"role,omitempty"`
 	// Field mask specifying which fields to update
 	UpdateMask *fieldmaskpb.FieldMask `protobuf:"bytes,2,opt,name=update_mask,json=updateMask" json:"update_mask,omitempty"`
 	// Request metadata for tracing and correlation
-	Metadata      *messages.RequestMetadata `protobuf:"bytes,3,opt,name=metadata" json:"metadata,omitempty"`
+	Metadata      *proto.RequestMetadata `protobuf:"bytes,3,opt,name=metadata" json:"metadata,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -67,7 +66,7 @@ func (x *UpdateRoleRequest) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-func (x *UpdateRoleRequest) GetRole() *types.Role {
+func (x *UpdateRoleRequest) GetRole() *Role {
 	if x != nil {
 		return x.Role
 	}
@@ -81,14 +80,14 @@ func (x *UpdateRoleRequest) GetUpdateMask() *fieldmaskpb.FieldMask {
 	return nil
 }
 
-func (x *UpdateRoleRequest) GetMetadata() *messages.RequestMetadata {
+func (x *UpdateRoleRequest) GetMetadata() *proto.RequestMetadata {
 	if x != nil {
 		return x.Metadata
 	}
 	return nil
 }
 
-func (x *UpdateRoleRequest) SetRole(v *types.Role) {
+func (x *UpdateRoleRequest) SetRole(v *Role) {
 	x.Role = v
 }
 
@@ -96,7 +95,7 @@ func (x *UpdateRoleRequest) SetUpdateMask(v *fieldmaskpb.FieldMask) {
 	x.UpdateMask = v
 }
 
-func (x *UpdateRoleRequest) SetMetadata(v *messages.RequestMetadata) {
+func (x *UpdateRoleRequest) SetMetadata(v *proto.RequestMetadata) {
 	x.Metadata = v
 }
 
@@ -137,11 +136,11 @@ type UpdateRoleRequest_builder struct {
 	_ [0]func() // Prevents comparability and use of unkeyed literals for the builder.
 
 	// Role data with updates
-	Role *types.Role
+	Role *Role
 	// Field mask specifying which fields to update
 	UpdateMask *fieldmaskpb.FieldMask
 	// Request metadata for tracing and correlation
-	Metadata *messages.RequestMetadata
+	Metadata *proto.RequestMetadata
 }
 
 func (b0 UpdateRoleRequest_builder) Build() *UpdateRoleRequest {
@@ -163,15 +162,15 @@ const file_pkg_auth_proto_requests_update_role_request_proto_rawDesc = "" +
 	"\x04role\x18\x01 \x01(\v2\x15.gcommon.v1.auth.RoleR\x04role\x12;\n" +
 	"\vupdate_mask\x18\x02 \x01(\v2\x1a.google.protobuf.FieldMaskR\n" +
 	"updateMask\x12>\n" +
-	"\bmetadata\x18\x03 \x01(\v2\".gcommon.v1.common.RequestMetadataR\bmetadataB\xc6\x01\n" +
-	"\x13com.gcommon.v1.authB\x16UpdateRoleRequestProtoP\x01Z1github.com/jdfalk/gcommon/pkg/auth/proto/requests\xa2\x02\x03GVA\xaa\x02\x0fGcommon.V1.Auth\xca\x02\x0fGcommon\\V1\\Auth\xe2\x02\x1bGcommon\\V1\\Auth\\GPBMetadata\xea\x02\x11Gcommon::V1::Auth\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
+	"\bmetadata\x18\x03 \x01(\v2\".gcommon.v1.common.RequestMetadataR\bmetadataB\xc4\x01\n" +
+	"\x13com.gcommon.v1.authB\x16UpdateRoleRequestProtoP\x01Z/github.com/jdfalk/gcommon/pkg/auth/proto;authpb\xa2\x02\x03GVA\xaa\x02\x0fGcommon.V1.Auth\xca\x02\x0fGcommon\\V1\\Auth\xe2\x02\x1bGcommon\\V1\\Auth\\GPBMetadata\xea\x02\x11Gcommon::V1::Auth\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
 
 var file_pkg_auth_proto_requests_update_role_request_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_pkg_auth_proto_requests_update_role_request_proto_goTypes = []any{
-	(*UpdateRoleRequest)(nil),        // 0: gcommon.v1.auth.UpdateRoleRequest
-	(*types.Role)(nil),               // 1: gcommon.v1.auth.Role
-	(*fieldmaskpb.FieldMask)(nil),    // 2: google.protobuf.FieldMask
-	(*messages.RequestMetadata)(nil), // 3: gcommon.v1.common.RequestMetadata
+	(*UpdateRoleRequest)(nil),     // 0: gcommon.v1.auth.UpdateRoleRequest
+	(*Role)(nil),                  // 1: gcommon.v1.auth.Role
+	(*fieldmaskpb.FieldMask)(nil), // 2: google.protobuf.FieldMask
+	(*proto.RequestMetadata)(nil), // 3: gcommon.v1.common.RequestMetadata
 }
 var file_pkg_auth_proto_requests_update_role_request_proto_depIdxs = []int32{
 	1, // 0: gcommon.v1.auth.UpdateRoleRequest.role:type_name -> gcommon.v1.auth.Role
@@ -189,6 +188,7 @@ func file_pkg_auth_proto_requests_update_role_request_proto_init() {
 	if File_pkg_auth_proto_requests_update_role_request_proto != nil {
 		return
 	}
+	file_pkg_auth_proto_types_role_proto_init()
 	type x struct{}
 	out := protoimpl.TypeBuilder{
 		File: protoimpl.DescBuilder{

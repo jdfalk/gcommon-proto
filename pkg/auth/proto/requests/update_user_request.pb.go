@@ -4,7 +4,7 @@
 // 	protoc        (unknown)
 // source: pkg/auth/proto/requests/update_user_request.proto
 
-package requests
+package authpb
 
 import (
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
@@ -160,8 +160,8 @@ const file_pkg_auth_proto_requests_update_user_request_proto_rawDesc = "" +
 	"updateMask\x1a;\n" +
 	"\rMetadataEntry\x12\x10\n" +
 	"\x03key\x18\x01 \x01(\tR\x03key\x12\x14\n" +
-	"\x05value\x18\x02 \x01(\tR\x05value:\x028\x01B\xbe\x01\n" +
-	"\x13com.gcommon.v1.authB\x16UpdateUserRequestProtoP\x01Z1github.com/jdfalk/gcommon/pkg/auth/proto/requests\xa2\x02\x03GVA\xaa\x02\x0fGcommon.V1.Auth\xca\x02\x0fGcommon\\V1\\Auth\xe2\x02\x1bGcommon\\V1\\Auth\\GPBMetadata\xea\x02\x11Gcommon::V1::Authb\beditionsp\xe8\a"
+	"\x05value\x18\x02 \x01(\tR\x05value:\x028\x01B\xbc\x01\n" +
+	"\x13com.gcommon.v1.authB\x16UpdateUserRequestProtoP\x01Z/github.com/jdfalk/gcommon/pkg/auth/proto;authpb\xa2\x02\x03GVA\xaa\x02\x0fGcommon.V1.Auth\xca\x02\x0fGcommon\\V1\\Auth\xe2\x02\x1bGcommon\\V1\\Auth\\GPBMetadata\xea\x02\x11Gcommon::V1::Authb\beditionsp\xe8\a"
 
 var (
 	file_pkg_auth_proto_requests_update_user_request_proto_rawDescOnce sync.Once

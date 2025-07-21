@@ -4,11 +4,10 @@
 // 	protoc        (unknown)
 // source: pkg/auth/proto/requests/terminate_session_request.proto
 
-package requests
+package authpb
 
 import (
-	_ "github.com/jdfalk/gcommon/pkg/common/proto"
-	messages "github.com/jdfalk/gcommon/pkg/common/proto/messages"
+	proto "github.com/jdfalk/gcommon/pkg/common/proto"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	timestamppb "google.golang.org/protobuf/types/known/timestamppb"
@@ -44,7 +43,7 @@ type TerminateSessionRequest struct {
 	// *
 	// Standard request metadata including authentication context,
 	// tracing information, and client details.
-	Metadata *messages.RequestMetadata `protobuf:"bytes,11,opt,name=metadata" json:"metadata,omitempty"`
+	Metadata *proto.RequestMetadata `protobuf:"bytes,11,opt,name=metadata" json:"metadata,omitempty"`
 	// *
 	// Terminate all sessions for this user. When true, ignores
 	// session_ids and other filters. Requires admin permissions
@@ -127,7 +126,7 @@ func (x *TerminateSessionRequest) GetSessionIds() []string {
 	return nil
 }
 
-func (x *TerminateSessionRequest) GetMetadata() *messages.RequestMetadata {
+func (x *TerminateSessionRequest) GetMetadata() *proto.RequestMetadata {
 	if x != nil {
 		return x.Metadata
 	}
@@ -207,8 +206,8 @@ const file_pkg_auth_proto_requests_terminate_session_request_proto_rawDesc = "" 
 	"\x17exclude_current_session\x18\x10 \x01(\bR\x15excludeCurrentSession\x12-\n" +
 	"\x12termination_reason\x18\x11 \x01(\tR\x11terminationReason\x12+\n" +
 	"\x11send_notification\x18\x12 \x01(\bR\x10sendNotification\x12'\n" +
-	"\x0fforce_immediate\x18\x13 \x01(\bR\x0eforceImmediateB\xc4\x01\n" +
-	"\x13com.gcommon.v1.authB\x1cTerminateSessionRequestProtoP\x01Z1github.com/jdfalk/gcommon/pkg/auth/proto/requests\xa2\x02\x03GVA\xaa\x02\x0fGcommon.V1.Auth\xca\x02\x0fGcommon\\V1\\Auth\xe2\x02\x1bGcommon\\V1\\Auth\\GPBMetadata\xea\x02\x11Gcommon::V1::Authb\beditionsp\xe8\a"
+	"\x0fforce_immediate\x18\x13 \x01(\bR\x0eforceImmediateB\xc2\x01\n" +
+	"\x13com.gcommon.v1.authB\x1cTerminateSessionRequestProtoP\x01Z/github.com/jdfalk/gcommon/pkg/auth/proto;authpb\xa2\x02\x03GVA\xaa\x02\x0fGcommon.V1.Auth\xca\x02\x0fGcommon\\V1\\Auth\xe2\x02\x1bGcommon\\V1\\Auth\\GPBMetadata\xea\x02\x11Gcommon::V1::Authb\beditionsp\xe8\a"
 
 var (
 	file_pkg_auth_proto_requests_terminate_session_request_proto_rawDescOnce sync.Once
@@ -224,9 +223,9 @@ func file_pkg_auth_proto_requests_terminate_session_request_proto_rawDescGZIP() 
 
 var file_pkg_auth_proto_requests_terminate_session_request_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_pkg_auth_proto_requests_terminate_session_request_proto_goTypes = []any{
-	(*TerminateSessionRequest)(nil),  // 0: gcommon.v1.auth.TerminateSessionRequest
-	(*messages.RequestMetadata)(nil), // 1: gcommon.v1.common.RequestMetadata
-	(*timestamppb.Timestamp)(nil),    // 2: google.protobuf.Timestamp
+	(*TerminateSessionRequest)(nil), // 0: gcommon.v1.auth.TerminateSessionRequest
+	(*proto.RequestMetadata)(nil),   // 1: gcommon.v1.common.RequestMetadata
+	(*timestamppb.Timestamp)(nil),   // 2: google.protobuf.Timestamp
 }
 var file_pkg_auth_proto_requests_terminate_session_request_proto_depIdxs = []int32{
 	1, // 0: gcommon.v1.auth.TerminateSessionRequest.metadata:type_name -> gcommon.v1.common.RequestMetadata

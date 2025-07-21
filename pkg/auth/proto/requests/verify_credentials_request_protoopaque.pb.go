@@ -6,11 +6,10 @@
 
 //go:build protoopaque
 
-package requests
+package authpb
 
 import (
-	types "github.com/jdfalk/gcommon/pkg/auth/proto/types"
-	messages "github.com/jdfalk/gcommon/pkg/common/proto/messages"
+	proto "github.com/jdfalk/gcommon/pkg/common/proto"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
@@ -31,7 +30,7 @@ const (
 // Supports password and API key credential verification.
 type VerifyCredentialsRequest struct {
 	state                  protoimpl.MessageState                 `protogen:"opaque.v1"`
-	xxx_hidden_Metadata    *messages.RequestMetadata              `protobuf:"bytes,1,opt,name=metadata"`
+	xxx_hidden_Metadata    *proto.RequestMetadata                 `protobuf:"bytes,1,opt,name=metadata"`
 	xxx_hidden_Credentials isVerifyCredentialsRequest_Credentials `protobuf_oneof:"credentials"`
 	unknownFields          protoimpl.UnknownFields
 	sizeCache              protoimpl.SizeCache
@@ -62,14 +61,14 @@ func (x *VerifyCredentialsRequest) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-func (x *VerifyCredentialsRequest) GetMetadata() *messages.RequestMetadata {
+func (x *VerifyCredentialsRequest) GetMetadata() *proto.RequestMetadata {
 	if x != nil {
 		return x.xxx_hidden_Metadata
 	}
 	return nil
 }
 
-func (x *VerifyCredentialsRequest) GetPassword() *types.PasswordCredentials {
+func (x *VerifyCredentialsRequest) GetPassword() *PasswordCredentials {
 	if x != nil {
 		if x, ok := x.xxx_hidden_Credentials.(*verifyCredentialsRequest_Password); ok {
 			return x.Password
@@ -78,7 +77,7 @@ func (x *VerifyCredentialsRequest) GetPassword() *types.PasswordCredentials {
 	return nil
 }
 
-func (x *VerifyCredentialsRequest) GetApiKey() *types.APIKeyCredentials {
+func (x *VerifyCredentialsRequest) GetApiKey() *APIKeyCredentials {
 	if x != nil {
 		if x, ok := x.xxx_hidden_Credentials.(*verifyCredentialsRequest_ApiKey); ok {
 			return x.ApiKey
@@ -87,11 +86,11 @@ func (x *VerifyCredentialsRequest) GetApiKey() *types.APIKeyCredentials {
 	return nil
 }
 
-func (x *VerifyCredentialsRequest) SetMetadata(v *messages.RequestMetadata) {
+func (x *VerifyCredentialsRequest) SetMetadata(v *proto.RequestMetadata) {
 	x.xxx_hidden_Metadata = v
 }
 
-func (x *VerifyCredentialsRequest) SetPassword(v *types.PasswordCredentials) {
+func (x *VerifyCredentialsRequest) SetPassword(v *PasswordCredentials) {
 	if v == nil {
 		x.xxx_hidden_Credentials = nil
 		return
@@ -99,7 +98,7 @@ func (x *VerifyCredentialsRequest) SetPassword(v *types.PasswordCredentials) {
 	x.xxx_hidden_Credentials = &verifyCredentialsRequest_Password{v}
 }
 
-func (x *VerifyCredentialsRequest) SetApiKey(v *types.APIKeyCredentials) {
+func (x *VerifyCredentialsRequest) SetApiKey(v *APIKeyCredentials) {
 	if v == nil {
 		x.xxx_hidden_Credentials = nil
 		return
@@ -179,14 +178,14 @@ type VerifyCredentialsRequest_builder struct {
 	_ [0]func() // Prevents comparability and use of unkeyed literals for the builder.
 
 	// Request metadata for tracing and correlation
-	Metadata *messages.RequestMetadata
+	Metadata *proto.RequestMetadata
 	// Credentials to verify (oneof ensures only one type is used)
 
 	// Fields of oneof xxx_hidden_Credentials:
 	// Username/password credentials
-	Password *types.PasswordCredentials
+	Password *PasswordCredentials
 	// API key credentials
-	ApiKey *types.APIKeyCredentials
+	ApiKey *APIKeyCredentials
 	// -- end of xxx_hidden_Credentials
 }
 
@@ -220,12 +219,12 @@ type isVerifyCredentialsRequest_Credentials interface {
 
 type verifyCredentialsRequest_Password struct {
 	// Username/password credentials
-	Password *types.PasswordCredentials `protobuf:"bytes,2,opt,name=password,oneof"`
+	Password *PasswordCredentials `protobuf:"bytes,2,opt,name=password,oneof"`
 }
 
 type verifyCredentialsRequest_ApiKey struct {
 	// API key credentials
-	ApiKey *types.APIKeyCredentials `protobuf:"bytes,3,opt,name=api_key,json=apiKey,oneof"`
+	ApiKey *APIKeyCredentials `protobuf:"bytes,3,opt,name=api_key,json=apiKey,oneof"`
 }
 
 func (*verifyCredentialsRequest_Password) isVerifyCredentialsRequest_Credentials() {}
@@ -241,15 +240,15 @@ const file_pkg_auth_proto_requests_verify_credentials_request_proto_rawDesc = ""
 	"\bmetadata\x18\x01 \x01(\v2\".gcommon.v1.common.RequestMetadataR\bmetadata\x12B\n" +
 	"\bpassword\x18\x02 \x01(\v2$.gcommon.v1.auth.PasswordCredentialsH\x00R\bpassword\x12=\n" +
 	"\aapi_key\x18\x03 \x01(\v2\".gcommon.v1.auth.APIKeyCredentialsH\x00R\x06apiKeyB\r\n" +
-	"\vcredentialsB\xcd\x01\n" +
-	"\x13com.gcommon.v1.authB\x1dVerifyCredentialsRequestProtoP\x01Z1github.com/jdfalk/gcommon/pkg/auth/proto/requests\xa2\x02\x03GVA\xaa\x02\x0fGcommon.V1.Auth\xca\x02\x0fGcommon\\V1\\Auth\xe2\x02\x1bGcommon\\V1\\Auth\\GPBMetadata\xea\x02\x11Gcommon::V1::Auth\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
+	"\vcredentialsB\xcb\x01\n" +
+	"\x13com.gcommon.v1.authB\x1dVerifyCredentialsRequestProtoP\x01Z/github.com/jdfalk/gcommon/pkg/auth/proto;authpb\xa2\x02\x03GVA\xaa\x02\x0fGcommon.V1.Auth\xca\x02\x0fGcommon\\V1\\Auth\xe2\x02\x1bGcommon\\V1\\Auth\\GPBMetadata\xea\x02\x11Gcommon::V1::Auth\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
 
 var file_pkg_auth_proto_requests_verify_credentials_request_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_pkg_auth_proto_requests_verify_credentials_request_proto_goTypes = []any{
-	(*VerifyCredentialsRequest)(nil),  // 0: gcommon.v1.auth.VerifyCredentialsRequest
-	(*messages.RequestMetadata)(nil),  // 1: gcommon.v1.common.RequestMetadata
-	(*types.PasswordCredentials)(nil), // 2: gcommon.v1.auth.PasswordCredentials
-	(*types.APIKeyCredentials)(nil),   // 3: gcommon.v1.auth.APIKeyCredentials
+	(*VerifyCredentialsRequest)(nil), // 0: gcommon.v1.auth.VerifyCredentialsRequest
+	(*proto.RequestMetadata)(nil),    // 1: gcommon.v1.common.RequestMetadata
+	(*PasswordCredentials)(nil),      // 2: gcommon.v1.auth.PasswordCredentials
+	(*APIKeyCredentials)(nil),        // 3: gcommon.v1.auth.APIKeyCredentials
 }
 var file_pkg_auth_proto_requests_verify_credentials_request_proto_depIdxs = []int32{
 	1, // 0: gcommon.v1.auth.VerifyCredentialsRequest.metadata:type_name -> gcommon.v1.common.RequestMetadata
@@ -267,6 +266,8 @@ func file_pkg_auth_proto_requests_verify_credentials_request_proto_init() {
 	if File_pkg_auth_proto_requests_verify_credentials_request_proto != nil {
 		return
 	}
+	file_pkg_auth_proto_types_password_credentials_proto_init()
+	file_pkg_auth_proto_types_api_key_credentials_proto_init()
 	file_pkg_auth_proto_requests_verify_credentials_request_proto_msgTypes[0].OneofWrappers = []any{
 		(*verifyCredentialsRequest_Password)(nil),
 		(*verifyCredentialsRequest_ApiKey)(nil),

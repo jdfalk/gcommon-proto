@@ -6,11 +6,10 @@
 
 //go:build !protoopaque
 
-package requests
+package authpb
 
 import (
-	types "github.com/jdfalk/gcommon/pkg/auth/proto/types"
-	messages "github.com/jdfalk/gcommon/pkg/common/proto/messages"
+	proto "github.com/jdfalk/gcommon/pkg/common/proto"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
@@ -32,9 +31,9 @@ const (
 type CreateRoleRequest struct {
 	state protoimpl.MessageState `protogen:"hybrid.v1"`
 	// Role data to create
-	Role *types.Role `protobuf:"bytes,1,opt,name=role" json:"role,omitempty"`
+	Role *Role `protobuf:"bytes,1,opt,name=role" json:"role,omitempty"`
 	// Request metadata for tracing and correlation
-	Metadata      *messages.RequestMetadata `protobuf:"bytes,2,opt,name=metadata" json:"metadata,omitempty"`
+	Metadata      *proto.RequestMetadata `protobuf:"bytes,2,opt,name=metadata" json:"metadata,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -64,25 +63,25 @@ func (x *CreateRoleRequest) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-func (x *CreateRoleRequest) GetRole() *types.Role {
+func (x *CreateRoleRequest) GetRole() *Role {
 	if x != nil {
 		return x.Role
 	}
 	return nil
 }
 
-func (x *CreateRoleRequest) GetMetadata() *messages.RequestMetadata {
+func (x *CreateRoleRequest) GetMetadata() *proto.RequestMetadata {
 	if x != nil {
 		return x.Metadata
 	}
 	return nil
 }
 
-func (x *CreateRoleRequest) SetRole(v *types.Role) {
+func (x *CreateRoleRequest) SetRole(v *Role) {
 	x.Role = v
 }
 
-func (x *CreateRoleRequest) SetMetadata(v *messages.RequestMetadata) {
+func (x *CreateRoleRequest) SetMetadata(v *proto.RequestMetadata) {
 	x.Metadata = v
 }
 
@@ -112,9 +111,9 @@ type CreateRoleRequest_builder struct {
 	_ [0]func() // Prevents comparability and use of unkeyed literals for the builder.
 
 	// Role data to create
-	Role *types.Role
+	Role *Role
 	// Request metadata for tracing and correlation
-	Metadata *messages.RequestMetadata
+	Metadata *proto.RequestMetadata
 }
 
 func (b0 CreateRoleRequest_builder) Build() *CreateRoleRequest {
@@ -133,14 +132,14 @@ const file_pkg_auth_proto_requests_create_role_request_proto_rawDesc = "" +
 	"1pkg/auth/proto/requests/create_role_request.proto\x12\x0fgcommon.v1.auth\x1a!google/protobuf/go_features.proto\x1a0pkg/common/proto/messages/request_metadata.proto\x1a\x1fpkg/auth/proto/types/role.proto\"~\n" +
 	"\x11CreateRoleRequest\x12)\n" +
 	"\x04role\x18\x01 \x01(\v2\x15.gcommon.v1.auth.RoleR\x04role\x12>\n" +
-	"\bmetadata\x18\x02 \x01(\v2\".gcommon.v1.common.RequestMetadataR\bmetadataB\xc6\x01\n" +
-	"\x13com.gcommon.v1.authB\x16CreateRoleRequestProtoP\x01Z1github.com/jdfalk/gcommon/pkg/auth/proto/requests\xa2\x02\x03GVA\xaa\x02\x0fGcommon.V1.Auth\xca\x02\x0fGcommon\\V1\\Auth\xe2\x02\x1bGcommon\\V1\\Auth\\GPBMetadata\xea\x02\x11Gcommon::V1::Auth\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
+	"\bmetadata\x18\x02 \x01(\v2\".gcommon.v1.common.RequestMetadataR\bmetadataB\xc4\x01\n" +
+	"\x13com.gcommon.v1.authB\x16CreateRoleRequestProtoP\x01Z/github.com/jdfalk/gcommon/pkg/auth/proto;authpb\xa2\x02\x03GVA\xaa\x02\x0fGcommon.V1.Auth\xca\x02\x0fGcommon\\V1\\Auth\xe2\x02\x1bGcommon\\V1\\Auth\\GPBMetadata\xea\x02\x11Gcommon::V1::Auth\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
 
 var file_pkg_auth_proto_requests_create_role_request_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_pkg_auth_proto_requests_create_role_request_proto_goTypes = []any{
-	(*CreateRoleRequest)(nil),        // 0: gcommon.v1.auth.CreateRoleRequest
-	(*types.Role)(nil),               // 1: gcommon.v1.auth.Role
-	(*messages.RequestMetadata)(nil), // 2: gcommon.v1.common.RequestMetadata
+	(*CreateRoleRequest)(nil),     // 0: gcommon.v1.auth.CreateRoleRequest
+	(*Role)(nil),                  // 1: gcommon.v1.auth.Role
+	(*proto.RequestMetadata)(nil), // 2: gcommon.v1.common.RequestMetadata
 }
 var file_pkg_auth_proto_requests_create_role_request_proto_depIdxs = []int32{
 	1, // 0: gcommon.v1.auth.CreateRoleRequest.role:type_name -> gcommon.v1.auth.Role
@@ -157,6 +156,7 @@ func file_pkg_auth_proto_requests_create_role_request_proto_init() {
 	if File_pkg_auth_proto_requests_create_role_request_proto != nil {
 		return
 	}
+	file_pkg_auth_proto_types_role_proto_init()
 	type x struct{}
 	out := protoimpl.TypeBuilder{
 		File: protoimpl.DescBuilder{

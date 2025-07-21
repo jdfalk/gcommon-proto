@@ -6,10 +6,10 @@
 
 //go:build !protoopaque
 
-package requests
+package authpb
 
 import (
-	messages "github.com/jdfalk/gcommon/pkg/common/proto/messages"
+	proto "github.com/jdfalk/gcommon/pkg/common/proto"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
@@ -33,7 +33,7 @@ type GetSessionRequest struct {
 	// Session ID to retrieve
 	SessionId *string `protobuf:"bytes,1,opt,name=session_id,json=sessionId" json:"session_id,omitempty"`
 	// Request metadata for tracing and correlation
-	Metadata      *messages.RequestMetadata `protobuf:"bytes,2,opt,name=metadata" json:"metadata,omitempty"`
+	Metadata      *proto.RequestMetadata `protobuf:"bytes,2,opt,name=metadata" json:"metadata,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -70,7 +70,7 @@ func (x *GetSessionRequest) GetSessionId() string {
 	return ""
 }
 
-func (x *GetSessionRequest) GetMetadata() *messages.RequestMetadata {
+func (x *GetSessionRequest) GetMetadata() *proto.RequestMetadata {
 	if x != nil {
 		return x.Metadata
 	}
@@ -81,7 +81,7 @@ func (x *GetSessionRequest) SetSessionId(v string) {
 	x.SessionId = &v
 }
 
-func (x *GetSessionRequest) SetMetadata(v *messages.RequestMetadata) {
+func (x *GetSessionRequest) SetMetadata(v *proto.RequestMetadata) {
 	x.Metadata = v
 }
 
@@ -113,7 +113,7 @@ type GetSessionRequest_builder struct {
 	// Session ID to retrieve
 	SessionId *string
 	// Request metadata for tracing and correlation
-	Metadata *messages.RequestMetadata
+	Metadata *proto.RequestMetadata
 }
 
 func (b0 GetSessionRequest_builder) Build() *GetSessionRequest {
@@ -133,13 +133,13 @@ const file_pkg_auth_proto_requests_get_session_request_proto_rawDesc = "" +
 	"\x11GetSessionRequest\x12\x1d\n" +
 	"\n" +
 	"session_id\x18\x01 \x01(\tR\tsessionId\x12>\n" +
-	"\bmetadata\x18\x02 \x01(\v2\".gcommon.v1.common.RequestMetadataR\bmetadataB\xc6\x01\n" +
-	"\x13com.gcommon.v1.authB\x16GetSessionRequestProtoP\x01Z1github.com/jdfalk/gcommon/pkg/auth/proto/requests\xa2\x02\x03GVA\xaa\x02\x0fGcommon.V1.Auth\xca\x02\x0fGcommon\\V1\\Auth\xe2\x02\x1bGcommon\\V1\\Auth\\GPBMetadata\xea\x02\x11Gcommon::V1::Auth\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
+	"\bmetadata\x18\x02 \x01(\v2\".gcommon.v1.common.RequestMetadataR\bmetadataB\xc4\x01\n" +
+	"\x13com.gcommon.v1.authB\x16GetSessionRequestProtoP\x01Z/github.com/jdfalk/gcommon/pkg/auth/proto;authpb\xa2\x02\x03GVA\xaa\x02\x0fGcommon.V1.Auth\xca\x02\x0fGcommon\\V1\\Auth\xe2\x02\x1bGcommon\\V1\\Auth\\GPBMetadata\xea\x02\x11Gcommon::V1::Auth\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
 
 var file_pkg_auth_proto_requests_get_session_request_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_pkg_auth_proto_requests_get_session_request_proto_goTypes = []any{
-	(*GetSessionRequest)(nil),        // 0: gcommon.v1.auth.GetSessionRequest
-	(*messages.RequestMetadata)(nil), // 1: gcommon.v1.common.RequestMetadata
+	(*GetSessionRequest)(nil),     // 0: gcommon.v1.auth.GetSessionRequest
+	(*proto.RequestMetadata)(nil), // 1: gcommon.v1.common.RequestMetadata
 }
 var file_pkg_auth_proto_requests_get_session_request_proto_depIdxs = []int32{
 	1, // 0: gcommon.v1.auth.GetSessionRequest.metadata:type_name -> gcommon.v1.common.RequestMetadata

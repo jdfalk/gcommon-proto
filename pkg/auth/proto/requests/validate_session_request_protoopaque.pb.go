@@ -6,10 +6,10 @@
 
 //go:build protoopaque
 
-package requests
+package authpb
 
 import (
-	messages "github.com/jdfalk/gcommon/pkg/common/proto/messages"
+	proto "github.com/jdfalk/gcommon/pkg/common/proto"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
@@ -29,9 +29,9 @@ const (
 // Used to verify session validity and retrieve session information.
 // Returns session and user data if token is valid.
 type ValidateSessionRequest struct {
-	state                   protoimpl.MessageState    `protogen:"opaque.v1"`
-	xxx_hidden_SessionToken *string                   `protobuf:"bytes,1,opt,name=session_token,json=sessionToken"`
-	xxx_hidden_Metadata     *messages.RequestMetadata `protobuf:"bytes,2,opt,name=metadata"`
+	state                   protoimpl.MessageState `protogen:"opaque.v1"`
+	xxx_hidden_SessionToken *string                `protobuf:"bytes,1,opt,name=session_token,json=sessionToken"`
+	xxx_hidden_Metadata     *proto.RequestMetadata `protobuf:"bytes,2,opt,name=metadata"`
 	XXX_raceDetectHookData  protoimpl.RaceDetectHookData
 	XXX_presence            [1]uint32
 	unknownFields           protoimpl.UnknownFields
@@ -73,7 +73,7 @@ func (x *ValidateSessionRequest) GetSessionToken() string {
 	return ""
 }
 
-func (x *ValidateSessionRequest) GetMetadata() *messages.RequestMetadata {
+func (x *ValidateSessionRequest) GetMetadata() *proto.RequestMetadata {
 	if x != nil {
 		return x.xxx_hidden_Metadata
 	}
@@ -85,7 +85,7 @@ func (x *ValidateSessionRequest) SetSessionToken(v string) {
 	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 0, 2)
 }
 
-func (x *ValidateSessionRequest) SetMetadata(v *messages.RequestMetadata) {
+func (x *ValidateSessionRequest) SetMetadata(v *proto.RequestMetadata) {
 	x.xxx_hidden_Metadata = v
 }
 
@@ -118,7 +118,7 @@ type ValidateSessionRequest_builder struct {
 	// Session token to validate
 	SessionToken *string
 	// Request metadata for tracing and correlation
-	Metadata *messages.RequestMetadata
+	Metadata *proto.RequestMetadata
 }
 
 func (b0 ValidateSessionRequest_builder) Build() *ValidateSessionRequest {
@@ -140,13 +140,13 @@ const file_pkg_auth_proto_requests_validate_session_request_proto_rawDesc = "" +
 	"6pkg/auth/proto/requests/validate_session_request.proto\x12\x0fgcommon.v1.auth\x1a!google/protobuf/go_features.proto\x1a0pkg/common/proto/messages/request_metadata.proto\"}\n" +
 	"\x16ValidateSessionRequest\x12#\n" +
 	"\rsession_token\x18\x01 \x01(\tR\fsessionToken\x12>\n" +
-	"\bmetadata\x18\x02 \x01(\v2\".gcommon.v1.common.RequestMetadataR\bmetadataB\xcb\x01\n" +
-	"\x13com.gcommon.v1.authB\x1bValidateSessionRequestProtoP\x01Z1github.com/jdfalk/gcommon/pkg/auth/proto/requests\xa2\x02\x03GVA\xaa\x02\x0fGcommon.V1.Auth\xca\x02\x0fGcommon\\V1\\Auth\xe2\x02\x1bGcommon\\V1\\Auth\\GPBMetadata\xea\x02\x11Gcommon::V1::Auth\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
+	"\bmetadata\x18\x02 \x01(\v2\".gcommon.v1.common.RequestMetadataR\bmetadataB\xc9\x01\n" +
+	"\x13com.gcommon.v1.authB\x1bValidateSessionRequestProtoP\x01Z/github.com/jdfalk/gcommon/pkg/auth/proto;authpb\xa2\x02\x03GVA\xaa\x02\x0fGcommon.V1.Auth\xca\x02\x0fGcommon\\V1\\Auth\xe2\x02\x1bGcommon\\V1\\Auth\\GPBMetadata\xea\x02\x11Gcommon::V1::Auth\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
 
 var file_pkg_auth_proto_requests_validate_session_request_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_pkg_auth_proto_requests_validate_session_request_proto_goTypes = []any{
-	(*ValidateSessionRequest)(nil),   // 0: gcommon.v1.auth.ValidateSessionRequest
-	(*messages.RequestMetadata)(nil), // 1: gcommon.v1.common.RequestMetadata
+	(*ValidateSessionRequest)(nil), // 0: gcommon.v1.auth.ValidateSessionRequest
+	(*proto.RequestMetadata)(nil),  // 1: gcommon.v1.common.RequestMetadata
 }
 var file_pkg_auth_proto_requests_validate_session_request_proto_depIdxs = []int32{
 	1, // 0: gcommon.v1.auth.ValidateSessionRequest.metadata:type_name -> gcommon.v1.common.RequestMetadata

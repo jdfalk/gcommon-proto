@@ -6,10 +6,10 @@
 
 //go:build protoopaque
 
-package requests
+package authpb
 
 import (
-	messages "github.com/jdfalk/gcommon/pkg/common/proto/messages"
+	proto "github.com/jdfalk/gcommon/pkg/common/proto"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
@@ -29,10 +29,10 @@ const (
 // Requires current password for security validation.
 // Used for authenticated password change operations.
 type ChangePasswordRequest struct {
-	state                      protoimpl.MessageState    `protogen:"opaque.v1"`
-	xxx_hidden_CurrentPassword *string                   `protobuf:"bytes,1,opt,name=current_password,json=currentPassword"`
-	xxx_hidden_NewPassword     *string                   `protobuf:"bytes,2,opt,name=new_password,json=newPassword"`
-	xxx_hidden_Metadata        *messages.RequestMetadata `protobuf:"bytes,3,opt,name=metadata"`
+	state                      protoimpl.MessageState `protogen:"opaque.v1"`
+	xxx_hidden_CurrentPassword *string                `protobuf:"bytes,1,opt,name=current_password,json=currentPassword"`
+	xxx_hidden_NewPassword     *string                `protobuf:"bytes,2,opt,name=new_password,json=newPassword"`
+	xxx_hidden_Metadata        *proto.RequestMetadata `protobuf:"bytes,3,opt,name=metadata"`
 	XXX_raceDetectHookData     protoimpl.RaceDetectHookData
 	XXX_presence               [1]uint32
 	unknownFields              protoimpl.UnknownFields
@@ -84,7 +84,7 @@ func (x *ChangePasswordRequest) GetNewPassword() string {
 	return ""
 }
 
-func (x *ChangePasswordRequest) GetMetadata() *messages.RequestMetadata {
+func (x *ChangePasswordRequest) GetMetadata() *proto.RequestMetadata {
 	if x != nil {
 		return x.xxx_hidden_Metadata
 	}
@@ -101,7 +101,7 @@ func (x *ChangePasswordRequest) SetNewPassword(v string) {
 	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 1, 3)
 }
 
-func (x *ChangePasswordRequest) SetMetadata(v *messages.RequestMetadata) {
+func (x *ChangePasswordRequest) SetMetadata(v *proto.RequestMetadata) {
 	x.xxx_hidden_Metadata = v
 }
 
@@ -148,7 +148,7 @@ type ChangePasswordRequest_builder struct {
 	// New password to set
 	NewPassword *string
 	// Request metadata for tracing and correlation
-	Metadata *messages.RequestMetadata
+	Metadata *proto.RequestMetadata
 }
 
 func (b0 ChangePasswordRequest_builder) Build() *ChangePasswordRequest {
@@ -175,13 +175,13 @@ const file_pkg_auth_proto_requests_change_password_request_proto_rawDesc = "" +
 	"\x15ChangePasswordRequest\x12)\n" +
 	"\x10current_password\x18\x01 \x01(\tR\x0fcurrentPassword\x12!\n" +
 	"\fnew_password\x18\x02 \x01(\tR\vnewPassword\x12>\n" +
-	"\bmetadata\x18\x03 \x01(\v2\".gcommon.v1.common.RequestMetadataR\bmetadataB\xca\x01\n" +
-	"\x13com.gcommon.v1.authB\x1aChangePasswordRequestProtoP\x01Z1github.com/jdfalk/gcommon/pkg/auth/proto/requests\xa2\x02\x03GVA\xaa\x02\x0fGcommon.V1.Auth\xca\x02\x0fGcommon\\V1\\Auth\xe2\x02\x1bGcommon\\V1\\Auth\\GPBMetadata\xea\x02\x11Gcommon::V1::Auth\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
+	"\bmetadata\x18\x03 \x01(\v2\".gcommon.v1.common.RequestMetadataR\bmetadataB\xc8\x01\n" +
+	"\x13com.gcommon.v1.authB\x1aChangePasswordRequestProtoP\x01Z/github.com/jdfalk/gcommon/pkg/auth/proto;authpb\xa2\x02\x03GVA\xaa\x02\x0fGcommon.V1.Auth\xca\x02\x0fGcommon\\V1\\Auth\xe2\x02\x1bGcommon\\V1\\Auth\\GPBMetadata\xea\x02\x11Gcommon::V1::Auth\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
 
 var file_pkg_auth_proto_requests_change_password_request_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_pkg_auth_proto_requests_change_password_request_proto_goTypes = []any{
-	(*ChangePasswordRequest)(nil),    // 0: gcommon.v1.auth.ChangePasswordRequest
-	(*messages.RequestMetadata)(nil), // 1: gcommon.v1.common.RequestMetadata
+	(*ChangePasswordRequest)(nil), // 0: gcommon.v1.auth.ChangePasswordRequest
+	(*proto.RequestMetadata)(nil), // 1: gcommon.v1.common.RequestMetadata
 }
 var file_pkg_auth_proto_requests_change_password_request_proto_depIdxs = []int32{
 	1, // 0: gcommon.v1.auth.ChangePasswordRequest.metadata:type_name -> gcommon.v1.common.RequestMetadata
