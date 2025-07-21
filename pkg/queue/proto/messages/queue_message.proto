@@ -1,18 +1,50 @@
-// filepath: pkg/queue/proto/messages/queue_message.proto
 // file: queue/proto/messages/queue_message.proto
-//
-// Message definitions for queue module
-// TODO: Implement actual protobuf definitions
-//
+// version: 1.0.0
+// guid: a2597962-4731-4f47-b6dd-4da9a937c834
+
 edition = "2023";
 
 package gcommon.v1.queue;
 
+import "google/protobuf/any.proto";
+import "google/protobuf/timestamp.proto";
 import "google/protobuf/go_features.proto";
 
 option go_package = "github.com/jdfalk/gcommon/pkg/queue/proto;queuepb";
 option features.(pb.go).api_level = API_HYBRID;
 
-// TODO: Add message definitions here
-// This is a placeholder file created during 1-1-1 migration
-// Implement the actual protobuf definitions according to the queue module requirements
+// QueueMessage represents a single item in a queue.
+message QueueMessage {
+  // Message ID (auto-generated if not provided).
+  string id = 1;
+
+  // Arbitrary payload for the message.
+  google.protobuf.Any body = 2;
+
+  // Custom key/value attributes for routing or metadata.
+  map<string, string> attributes = 3;
+
+  // Additional headers attached to the message.
+  map<string, string> headers = 4;
+
+  // Priority value (0-255, higher values processed first).
+  int32 priority = 5;
+
+  // Expiration time for the message.
+  google.protobuf.Timestamp expires_at = 6;
+
+  // Optional correlation identifier.
+  string correlation_id = 7;
+
+  // Queue name for replies.
+  string reply_to = 8;
+
+  // MIME type of the message body.
+  string content_type = 9;
+
+  // Encoding used for the message body.
+  string content_encoding = 10;
+
+  // Creation timestamp of the message.
+  google.protobuf.Timestamp created_at = 11;
+}
