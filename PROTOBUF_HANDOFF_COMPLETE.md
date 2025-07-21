@@ -41,7 +41,7 @@ find pkg/config -name "*.proto" -exec grep -L "message\|service\|enum" {} \; | w
 # 1. Clean rebuild (always start here)
 make clean-rebuild
 
-# 2. Check compilation status  
+# 2. Check compilation status
 go test ./pkg/[MODULE]/proto -v
 
 # 3. Implement missing protobuf files using 1-1-1 pattern
