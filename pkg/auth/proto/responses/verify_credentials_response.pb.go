@@ -6,11 +6,10 @@
 
 //go:build !protoopaque
 
-package responses
+package authpb
 
 import (
-	messages "github.com/jdfalk/gcommon/pkg/auth/proto/messages"
-	messages1 "github.com/jdfalk/gcommon/pkg/common/proto/messages"
+	proto "github.com/jdfalk/gcommon/pkg/common/proto"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
@@ -34,9 +33,9 @@ type VerifyCredentialsResponse struct {
 	// Whether the credentials are valid
 	Verified *bool `protobuf:"varint,1,opt,name=verified" json:"verified,omitempty"`
 	// User information if credentials are verified
-	UserInfo *messages.UserInfo `protobuf:"bytes,2,opt,name=user_info,json=userInfo" json:"user_info,omitempty"`
+	UserInfo *UserInfo `protobuf:"bytes,2,opt,name=user_info,json=userInfo" json:"user_info,omitempty"`
 	// Error information if verification fails
-	Error         *messages1.Error `protobuf:"bytes,3,opt,name=error" json:"error,omitempty"`
+	Error         *proto.Error `protobuf:"bytes,3,opt,name=error" json:"error,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -73,14 +72,14 @@ func (x *VerifyCredentialsResponse) GetVerified() bool {
 	return false
 }
 
-func (x *VerifyCredentialsResponse) GetUserInfo() *messages.UserInfo {
+func (x *VerifyCredentialsResponse) GetUserInfo() *UserInfo {
 	if x != nil {
 		return x.UserInfo
 	}
 	return nil
 }
 
-func (x *VerifyCredentialsResponse) GetError() *messages1.Error {
+func (x *VerifyCredentialsResponse) GetError() *proto.Error {
 	if x != nil {
 		return x.Error
 	}
@@ -91,11 +90,11 @@ func (x *VerifyCredentialsResponse) SetVerified(v bool) {
 	x.Verified = &v
 }
 
-func (x *VerifyCredentialsResponse) SetUserInfo(v *messages.UserInfo) {
+func (x *VerifyCredentialsResponse) SetUserInfo(v *UserInfo) {
 	x.UserInfo = v
 }
 
-func (x *VerifyCredentialsResponse) SetError(v *messages1.Error) {
+func (x *VerifyCredentialsResponse) SetError(v *proto.Error) {
 	x.Error = v
 }
 
@@ -138,9 +137,9 @@ type VerifyCredentialsResponse_builder struct {
 	// Whether the credentials are valid
 	Verified *bool
 	// User information if credentials are verified
-	UserInfo *messages.UserInfo
+	UserInfo *UserInfo
 	// Error information if verification fails
-	Error *messages1.Error
+	Error *proto.Error
 }
 
 func (b0 VerifyCredentialsResponse_builder) Build() *VerifyCredentialsResponse {
@@ -161,14 +160,14 @@ const file_pkg_auth_proto_responses_verify_credentials_response_proto_rawDesc = 
 	"\x19VerifyCredentialsResponse\x12\x1a\n" +
 	"\bverified\x18\x01 \x01(\bR\bverified\x12:\n" +
 	"\tuser_info\x18\x02 \x01(\v2\x19.gcommon.v1.auth.UserInfoB\x02(\x01R\buserInfo\x122\n" +
-	"\x05error\x18\x03 \x01(\v2\x18.gcommon.v1.common.ErrorB\x02(\x01R\x05errorB\xcf\x01\n" +
-	"\x13com.gcommon.v1.authB\x1eVerifyCredentialsResponseProtoP\x01Z2github.com/jdfalk/gcommon/pkg/auth/proto/responses\xa2\x02\x03GVA\xaa\x02\x0fGcommon.V1.Auth\xca\x02\x0fGcommon\\V1\\Auth\xe2\x02\x1bGcommon\\V1\\Auth\\GPBMetadata\xea\x02\x11Gcommon::V1::Auth\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
+	"\x05error\x18\x03 \x01(\v2\x18.gcommon.v1.common.ErrorB\x02(\x01R\x05errorB\xcc\x01\n" +
+	"\x13com.gcommon.v1.authB\x1eVerifyCredentialsResponseProtoP\x01Z/github.com/jdfalk/gcommon/pkg/auth/proto;authpb\xa2\x02\x03GVA\xaa\x02\x0fGcommon.V1.Auth\xca\x02\x0fGcommon\\V1\\Auth\xe2\x02\x1bGcommon\\V1\\Auth\\GPBMetadata\xea\x02\x11Gcommon::V1::Auth\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
 
 var file_pkg_auth_proto_responses_verify_credentials_response_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_pkg_auth_proto_responses_verify_credentials_response_proto_goTypes = []any{
 	(*VerifyCredentialsResponse)(nil), // 0: gcommon.v1.auth.VerifyCredentialsResponse
-	(*messages.UserInfo)(nil),         // 1: gcommon.v1.auth.UserInfo
-	(*messages1.Error)(nil),           // 2: gcommon.v1.common.Error
+	(*UserInfo)(nil),                  // 1: gcommon.v1.auth.UserInfo
+	(*proto.Error)(nil),               // 2: gcommon.v1.common.Error
 }
 var file_pkg_auth_proto_responses_verify_credentials_response_proto_depIdxs = []int32{
 	1, // 0: gcommon.v1.auth.VerifyCredentialsResponse.user_info:type_name -> gcommon.v1.auth.UserInfo
@@ -185,6 +184,7 @@ func file_pkg_auth_proto_responses_verify_credentials_response_proto_init() {
 	if File_pkg_auth_proto_responses_verify_credentials_response_proto != nil {
 		return
 	}
+	file_pkg_auth_proto_messages_user_info_proto_init()
 	type x struct{}
 	out := protoimpl.TypeBuilder{
 		File: protoimpl.DescBuilder{

@@ -4,10 +4,9 @@
 // 	protoc        (unknown)
 // source: pkg/auth/proto/responses/list_users_response.proto
 
-package responses
+package authpb
 
 import (
-	messages "github.com/jdfalk/gcommon/pkg/auth/proto/messages"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	reflect "reflect"
@@ -27,7 +26,7 @@ const (
 type ListUsersResponse struct {
 	state protoimpl.MessageState `protogen:"open.v1"`
 	// List of users
-	Users []*messages.UserInfo `protobuf:"bytes,1,rep,name=users" json:"users,omitempty"`
+	Users []*UserInfo `protobuf:"bytes,1,rep,name=users" json:"users,omitempty"`
 	// Total number of users (before pagination)
 	TotalCount *int32 `protobuf:"varint,2,opt,name=total_count,json=totalCount" json:"total_count,omitempty"`
 	// Current page number
@@ -74,7 +73,7 @@ func (*ListUsersResponse) Descriptor() ([]byte, []int) {
 	return file_pkg_auth_proto_responses_list_users_response_proto_rawDescGZIP(), []int{0}
 }
 
-func (x *ListUsersResponse) GetUsers() []*messages.UserInfo {
+func (x *ListUsersResponse) GetUsers() []*UserInfo {
 	if x != nil {
 		return x.Users
 	}
@@ -137,8 +136,8 @@ const file_pkg_auth_proto_responses_list_users_response_proto_rawDesc = "" +
 	"\vtotal_pages\x18\x05 \x01(\x05R\n" +
 	"totalPages\x12\"\n" +
 	"\rhas_next_page\x18\x06 \x01(\bR\vhasNextPage\x12*\n" +
-	"\x11has_previous_page\x18\a \x01(\bR\x0fhasPreviousPageB\xbf\x01\n" +
-	"\x13com.gcommon.v1.authB\x16ListUsersResponseProtoP\x01Z2github.com/jdfalk/gcommon/pkg/auth/proto/responses\xa2\x02\x03GVA\xaa\x02\x0fGcommon.V1.Auth\xca\x02\x0fGcommon\\V1\\Auth\xe2\x02\x1bGcommon\\V1\\Auth\\GPBMetadata\xea\x02\x11Gcommon::V1::Authb\beditionsp\xe8\a"
+	"\x11has_previous_page\x18\a \x01(\bR\x0fhasPreviousPageB\xbc\x01\n" +
+	"\x13com.gcommon.v1.authB\x16ListUsersResponseProtoP\x01Z/github.com/jdfalk/gcommon/pkg/auth/proto;authpb\xa2\x02\x03GVA\xaa\x02\x0fGcommon.V1.Auth\xca\x02\x0fGcommon\\V1\\Auth\xe2\x02\x1bGcommon\\V1\\Auth\\GPBMetadata\xea\x02\x11Gcommon::V1::Authb\beditionsp\xe8\a"
 
 var (
 	file_pkg_auth_proto_responses_list_users_response_proto_rawDescOnce sync.Once
@@ -155,7 +154,7 @@ func file_pkg_auth_proto_responses_list_users_response_proto_rawDescGZIP() []byt
 var file_pkg_auth_proto_responses_list_users_response_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_pkg_auth_proto_responses_list_users_response_proto_goTypes = []any{
 	(*ListUsersResponse)(nil), // 0: gcommon.v1.auth.ListUsersResponse
-	(*messages.UserInfo)(nil), // 1: gcommon.v1.auth.UserInfo
+	(*UserInfo)(nil),          // 1: gcommon.v1.auth.UserInfo
 }
 var file_pkg_auth_proto_responses_list_users_response_proto_depIdxs = []int32{
 	1, // 0: gcommon.v1.auth.ListUsersResponse.users:type_name -> gcommon.v1.auth.UserInfo
@@ -171,6 +170,7 @@ func file_pkg_auth_proto_responses_list_users_response_proto_init() {
 	if File_pkg_auth_proto_responses_list_users_response_proto != nil {
 		return
 	}
+	file_pkg_auth_proto_messages_user_info_proto_init()
 	type x struct{}
 	out := protoimpl.TypeBuilder{
 		File: protoimpl.DescBuilder{

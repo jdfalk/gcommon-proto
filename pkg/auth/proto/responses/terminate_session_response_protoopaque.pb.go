@@ -6,7 +6,7 @@
 
 //go:build protoopaque
 
-package responses
+package authpb
 
 import (
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
@@ -410,8 +410,8 @@ const file_pkg_auth_proto_responses_terminate_session_response_proto_rawDesc = "
 	"\x12forced_termination\x18\b \x01(\bR\x11forcedTermination\x126\n" +
 	"\x17remaining_session_count\x18\t \x01(\x05R\x15remainingSessionCount\x12\x18\n" +
 	"\amessage\x18\n" +
-	" \x01(\tR\amessageB\xce\x01\n" +
-	"\x13com.gcommon.v1.authB\x1dTerminateSessionResponseProtoP\x01Z2github.com/jdfalk/gcommon/pkg/auth/proto/responses\xa2\x02\x03GVA\xaa\x02\x0fGcommon.V1.Auth\xca\x02\x0fGcommon\\V1\\Auth\xe2\x02\x1bGcommon\\V1\\Auth\\GPBMetadata\xea\x02\x11Gcommon::V1::Auth\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
+	" \x01(\tR\amessageB\xcb\x01\n" +
+	"\x13com.gcommon.v1.authB\x1dTerminateSessionResponseProtoP\x01Z/github.com/jdfalk/gcommon/pkg/auth/proto;authpb\xa2\x02\x03GVA\xaa\x02\x0fGcommon.V1.Auth\xca\x02\x0fGcommon\\V1\\Auth\xe2\x02\x1bGcommon\\V1\\Auth\\GPBMetadata\xea\x02\x11Gcommon::V1::Auth\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
 
 var file_pkg_auth_proto_responses_terminate_session_response_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_pkg_auth_proto_responses_terminate_session_response_proto_goTypes = []any{

@@ -6,11 +6,10 @@
 
 //go:build !protoopaque
 
-package responses
+package authpb
 
 import (
-	types "github.com/jdfalk/gcommon/pkg/auth/proto/types"
-	messages "github.com/jdfalk/gcommon/pkg/common/proto/messages"
+	proto "github.com/jdfalk/gcommon/pkg/common/proto"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
@@ -32,9 +31,9 @@ const (
 type ListRolesResponse struct {
 	state protoimpl.MessageState `protogen:"hybrid.v1"`
 	// List of roles matching the request criteria
-	Roles []*types.Role `protobuf:"bytes,1,rep,name=roles" json:"roles,omitempty"`
+	Roles []*Role `protobuf:"bytes,1,rep,name=roles" json:"roles,omitempty"`
 	// Pagination information for the response
-	Pagination    *messages.PaginatedResponse `protobuf:"bytes,2,opt,name=pagination" json:"pagination,omitempty"`
+	Pagination    *proto.PaginatedResponse `protobuf:"bytes,2,opt,name=pagination" json:"pagination,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -64,25 +63,25 @@ func (x *ListRolesResponse) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-func (x *ListRolesResponse) GetRoles() []*types.Role {
+func (x *ListRolesResponse) GetRoles() []*Role {
 	if x != nil {
 		return x.Roles
 	}
 	return nil
 }
 
-func (x *ListRolesResponse) GetPagination() *messages.PaginatedResponse {
+func (x *ListRolesResponse) GetPagination() *proto.PaginatedResponse {
 	if x != nil {
 		return x.Pagination
 	}
 	return nil
 }
 
-func (x *ListRolesResponse) SetRoles(v []*types.Role) {
+func (x *ListRolesResponse) SetRoles(v []*Role) {
 	x.Roles = v
 }
 
-func (x *ListRolesResponse) SetPagination(v *messages.PaginatedResponse) {
+func (x *ListRolesResponse) SetPagination(v *proto.PaginatedResponse) {
 	x.Pagination = v
 }
 
@@ -101,9 +100,9 @@ type ListRolesResponse_builder struct {
 	_ [0]func() // Prevents comparability and use of unkeyed literals for the builder.
 
 	// List of roles matching the request criteria
-	Roles []*types.Role
+	Roles []*Role
 	// Pagination information for the response
-	Pagination *messages.PaginatedResponse
+	Pagination *proto.PaginatedResponse
 }
 
 func (b0 ListRolesResponse_builder) Build() *ListRolesResponse {
@@ -124,14 +123,14 @@ const file_pkg_auth_proto_responses_list_roles_response_proto_rawDesc = "" +
 	"\x05roles\x18\x01 \x03(\v2\x15.gcommon.v1.auth.RoleR\x05roles\x12D\n" +
 	"\n" +
 	"pagination\x18\x02 \x01(\v2$.gcommon.v1.common.PaginatedResponseR\n" +
-	"paginationB\xc7\x01\n" +
-	"\x13com.gcommon.v1.authB\x16ListRolesResponseProtoP\x01Z2github.com/jdfalk/gcommon/pkg/auth/proto/responses\xa2\x02\x03GVA\xaa\x02\x0fGcommon.V1.Auth\xca\x02\x0fGcommon\\V1\\Auth\xe2\x02\x1bGcommon\\V1\\Auth\\GPBMetadata\xea\x02\x11Gcommon::V1::Auth\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
+	"paginationB\xc4\x01\n" +
+	"\x13com.gcommon.v1.authB\x16ListRolesResponseProtoP\x01Z/github.com/jdfalk/gcommon/pkg/auth/proto;authpb\xa2\x02\x03GVA\xaa\x02\x0fGcommon.V1.Auth\xca\x02\x0fGcommon\\V1\\Auth\xe2\x02\x1bGcommon\\V1\\Auth\\GPBMetadata\xea\x02\x11Gcommon::V1::Auth\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
 
 var file_pkg_auth_proto_responses_list_roles_response_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_pkg_auth_proto_responses_list_roles_response_proto_goTypes = []any{
-	(*ListRolesResponse)(nil),          // 0: gcommon.v1.auth.ListRolesResponse
-	(*types.Role)(nil),                 // 1: gcommon.v1.auth.Role
-	(*messages.PaginatedResponse)(nil), // 2: gcommon.v1.common.PaginatedResponse
+	(*ListRolesResponse)(nil),       // 0: gcommon.v1.auth.ListRolesResponse
+	(*Role)(nil),                    // 1: gcommon.v1.auth.Role
+	(*proto.PaginatedResponse)(nil), // 2: gcommon.v1.common.PaginatedResponse
 }
 var file_pkg_auth_proto_responses_list_roles_response_proto_depIdxs = []int32{
 	1, // 0: gcommon.v1.auth.ListRolesResponse.roles:type_name -> gcommon.v1.auth.Role
@@ -148,6 +147,7 @@ func file_pkg_auth_proto_responses_list_roles_response_proto_init() {
 	if File_pkg_auth_proto_responses_list_roles_response_proto != nil {
 		return
 	}
+	file_pkg_auth_proto_types_role_proto_init()
 	type x struct{}
 	out := protoimpl.TypeBuilder{
 		File: protoimpl.DescBuilder{

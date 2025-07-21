@@ -6,11 +6,10 @@
 
 //go:build protoopaque
 
-package responses
+package authpb
 
 import (
-	messages "github.com/jdfalk/gcommon/pkg/auth/proto/messages"
-	messages1 "github.com/jdfalk/gcommon/pkg/common/proto/messages"
+	proto "github.com/jdfalk/gcommon/pkg/common/proto"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
@@ -32,9 +31,9 @@ const (
 type ValidateSessionResponse struct {
 	state               protoimpl.MessageState `protogen:"opaque.v1"`
 	xxx_hidden_Valid    bool                   `protobuf:"varint,1,opt,name=valid"`
-	xxx_hidden_Session  *messages.Session      `protobuf:"bytes,2,opt,name=session"`
-	xxx_hidden_UserInfo *messages.UserInfo     `protobuf:"bytes,3,opt,name=user_info,json=userInfo"`
-	xxx_hidden_Error    *messages1.Error       `protobuf:"bytes,4,opt,name=error"`
+	xxx_hidden_Session  *Session               `protobuf:"bytes,2,opt,name=session"`
+	xxx_hidden_UserInfo *UserInfo              `protobuf:"bytes,3,opt,name=user_info,json=userInfo"`
+	xxx_hidden_Error    *proto.Error           `protobuf:"bytes,4,opt,name=error"`
 	// Deprecated: Do not use. This will be deleted in the near future.
 	XXX_lazyUnmarshalInfo  protoimpl.LazyUnmarshalInfo
 	XXX_raceDetectHookData protoimpl.RaceDetectHookData
@@ -75,13 +74,13 @@ func (x *ValidateSessionResponse) GetValid() bool {
 	return false
 }
 
-func (x *ValidateSessionResponse) GetSession() *messages.Session {
+func (x *ValidateSessionResponse) GetSession() *Session {
 	if x != nil {
 		if protoimpl.X.Present(&(x.XXX_presence[0]), 1) {
 			if protoimpl.X.AtomicCheckPointerIsNil(&x.xxx_hidden_Session) {
 				protoimpl.X.UnmarshalField(x, 2)
 			}
-			var rv *messages.Session
+			var rv *Session
 			protoimpl.X.AtomicLoadPointer(protoimpl.Pointer(&x.xxx_hidden_Session), protoimpl.Pointer(&rv))
 			return rv
 		}
@@ -89,13 +88,13 @@ func (x *ValidateSessionResponse) GetSession() *messages.Session {
 	return nil
 }
 
-func (x *ValidateSessionResponse) GetUserInfo() *messages.UserInfo {
+func (x *ValidateSessionResponse) GetUserInfo() *UserInfo {
 	if x != nil {
 		if protoimpl.X.Present(&(x.XXX_presence[0]), 2) {
 			if protoimpl.X.AtomicCheckPointerIsNil(&x.xxx_hidden_UserInfo) {
 				protoimpl.X.UnmarshalField(x, 3)
 			}
-			var rv *messages.UserInfo
+			var rv *UserInfo
 			protoimpl.X.AtomicLoadPointer(protoimpl.Pointer(&x.xxx_hidden_UserInfo), protoimpl.Pointer(&rv))
 			return rv
 		}
@@ -103,13 +102,13 @@ func (x *ValidateSessionResponse) GetUserInfo() *messages.UserInfo {
 	return nil
 }
 
-func (x *ValidateSessionResponse) GetError() *messages1.Error {
+func (x *ValidateSessionResponse) GetError() *proto.Error {
 	if x != nil {
 		if protoimpl.X.Present(&(x.XXX_presence[0]), 3) {
 			if protoimpl.X.AtomicCheckPointerIsNil(&x.xxx_hidden_Error) {
 				protoimpl.X.UnmarshalField(x, 4)
 			}
-			var rv *messages1.Error
+			var rv *proto.Error
 			protoimpl.X.AtomicLoadPointer(protoimpl.Pointer(&x.xxx_hidden_Error), protoimpl.Pointer(&rv))
 			return rv
 		}
@@ -122,7 +121,7 @@ func (x *ValidateSessionResponse) SetValid(v bool) {
 	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 0, 4)
 }
 
-func (x *ValidateSessionResponse) SetSession(v *messages.Session) {
+func (x *ValidateSessionResponse) SetSession(v *Session) {
 	protoimpl.X.AtomicSetPointer(&x.xxx_hidden_Session, v)
 	if v == nil {
 		protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 1)
@@ -131,7 +130,7 @@ func (x *ValidateSessionResponse) SetSession(v *messages.Session) {
 	}
 }
 
-func (x *ValidateSessionResponse) SetUserInfo(v *messages.UserInfo) {
+func (x *ValidateSessionResponse) SetUserInfo(v *UserInfo) {
 	protoimpl.X.AtomicSetPointer(&x.xxx_hidden_UserInfo, v)
 	if v == nil {
 		protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 2)
@@ -140,7 +139,7 @@ func (x *ValidateSessionResponse) SetUserInfo(v *messages.UserInfo) {
 	}
 }
 
-func (x *ValidateSessionResponse) SetError(v *messages1.Error) {
+func (x *ValidateSessionResponse) SetError(v *proto.Error) {
 	protoimpl.X.AtomicSetPointer(&x.xxx_hidden_Error, v)
 	if v == nil {
 		protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 3)
@@ -184,17 +183,17 @@ func (x *ValidateSessionResponse) ClearValid() {
 
 func (x *ValidateSessionResponse) ClearSession() {
 	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 1)
-	protoimpl.X.AtomicSetPointer(&x.xxx_hidden_Session, (*messages.Session)(nil))
+	protoimpl.X.AtomicSetPointer(&x.xxx_hidden_Session, (*Session)(nil))
 }
 
 func (x *ValidateSessionResponse) ClearUserInfo() {
 	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 2)
-	protoimpl.X.AtomicSetPointer(&x.xxx_hidden_UserInfo, (*messages.UserInfo)(nil))
+	protoimpl.X.AtomicSetPointer(&x.xxx_hidden_UserInfo, (*UserInfo)(nil))
 }
 
 func (x *ValidateSessionResponse) ClearError() {
 	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 3)
-	protoimpl.X.AtomicSetPointer(&x.xxx_hidden_Error, (*messages1.Error)(nil))
+	protoimpl.X.AtomicSetPointer(&x.xxx_hidden_Error, (*proto.Error)(nil))
 }
 
 type ValidateSessionResponse_builder struct {
@@ -203,11 +202,11 @@ type ValidateSessionResponse_builder struct {
 	// Whether the session is valid
 	Valid *bool
 	// Session information if valid
-	Session *messages.Session
+	Session *Session
 	// User information associated with the session
-	UserInfo *messages.UserInfo
+	UserInfo *UserInfo
 	// Error information if validation fails
-	Error *messages1.Error
+	Error *proto.Error
 }
 
 func (b0 ValidateSessionResponse_builder) Build() *ValidateSessionResponse {
@@ -242,15 +241,15 @@ const file_pkg_auth_proto_responses_validate_session_response_proto_rawDesc = ""
 	"\x05valid\x18\x01 \x01(\bR\x05valid\x126\n" +
 	"\asession\x18\x02 \x01(\v2\x18.gcommon.v1.auth.SessionB\x02(\x01R\asession\x12:\n" +
 	"\tuser_info\x18\x03 \x01(\v2\x19.gcommon.v1.auth.UserInfoB\x02(\x01R\buserInfo\x122\n" +
-	"\x05error\x18\x04 \x01(\v2\x18.gcommon.v1.common.ErrorB\x02(\x01R\x05errorB\xcd\x01\n" +
-	"\x13com.gcommon.v1.authB\x1cValidateSessionResponseProtoP\x01Z2github.com/jdfalk/gcommon/pkg/auth/proto/responses\xa2\x02\x03GVA\xaa\x02\x0fGcommon.V1.Auth\xca\x02\x0fGcommon\\V1\\Auth\xe2\x02\x1bGcommon\\V1\\Auth\\GPBMetadata\xea\x02\x11Gcommon::V1::Auth\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
+	"\x05error\x18\x04 \x01(\v2\x18.gcommon.v1.common.ErrorB\x02(\x01R\x05errorB\xca\x01\n" +
+	"\x13com.gcommon.v1.authB\x1cValidateSessionResponseProtoP\x01Z/github.com/jdfalk/gcommon/pkg/auth/proto;authpb\xa2\x02\x03GVA\xaa\x02\x0fGcommon.V1.Auth\xca\x02\x0fGcommon\\V1\\Auth\xe2\x02\x1bGcommon\\V1\\Auth\\GPBMetadata\xea\x02\x11Gcommon::V1::Auth\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
 
 var file_pkg_auth_proto_responses_validate_session_response_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_pkg_auth_proto_responses_validate_session_response_proto_goTypes = []any{
 	(*ValidateSessionResponse)(nil), // 0: gcommon.v1.auth.ValidateSessionResponse
-	(*messages.Session)(nil),        // 1: gcommon.v1.auth.Session
-	(*messages.UserInfo)(nil),       // 2: gcommon.v1.auth.UserInfo
-	(*messages1.Error)(nil),         // 3: gcommon.v1.common.Error
+	(*Session)(nil),                 // 1: gcommon.v1.auth.Session
+	(*UserInfo)(nil),                // 2: gcommon.v1.auth.UserInfo
+	(*proto.Error)(nil),             // 3: gcommon.v1.common.Error
 }
 var file_pkg_auth_proto_responses_validate_session_response_proto_depIdxs = []int32{
 	1, // 0: gcommon.v1.auth.ValidateSessionResponse.session:type_name -> gcommon.v1.auth.Session
@@ -268,6 +267,8 @@ func file_pkg_auth_proto_responses_validate_session_response_proto_init() {
 	if File_pkg_auth_proto_responses_validate_session_response_proto != nil {
 		return
 	}
+	file_pkg_auth_proto_messages_session_proto_init()
+	file_pkg_auth_proto_messages_user_info_proto_init()
 	type x struct{}
 	out := protoimpl.TypeBuilder{
 		File: protoimpl.DescBuilder{

@@ -6,10 +6,9 @@
 
 //go:build protoopaque
 
-package responses
+package authpb
 
 import (
-	types "github.com/jdfalk/gcommon/pkg/auth/proto/types"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
@@ -33,7 +32,7 @@ type RemoveRoleResponse struct {
 	state                           protoimpl.MessageState `protogen:"opaque.v1"`
 	xxx_hidden_UserId               *string                `protobuf:"bytes,1,opt,name=user_id,json=userId"`
 	xxx_hidden_Username             *string                `protobuf:"bytes,2,opt,name=username"`
-	xxx_hidden_Role                 *types.Role            `protobuf:"bytes,3,opt,name=role"`
+	xxx_hidden_Role                 *Role                  `protobuf:"bytes,3,opt,name=role"`
 	xxx_hidden_RemovedAt            *timestamppb.Timestamp `protobuf:"bytes,4,opt,name=removed_at,json=removedAt"`
 	xxx_hidden_RemovedByUserId      *string                `protobuf:"bytes,5,opt,name=removed_by_user_id,json=removedByUserId"`
 	xxx_hidden_RemovedByUsername    *string                `protobuf:"bytes,6,opt,name=removed_by_username,json=removedByUsername"`
@@ -92,7 +91,7 @@ func (x *RemoveRoleResponse) GetUsername() string {
 	return ""
 }
 
-func (x *RemoveRoleResponse) GetRole() *types.Role {
+func (x *RemoveRoleResponse) GetRole() *Role {
 	if x != nil {
 		return x.xxx_hidden_Role
 	}
@@ -167,7 +166,7 @@ func (x *RemoveRoleResponse) SetUsername(v string) {
 	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 1, 10)
 }
 
-func (x *RemoveRoleResponse) SetRole(v *types.Role) {
+func (x *RemoveRoleResponse) SetRole(v *Role) {
 	x.xxx_hidden_Role = v
 }
 
@@ -331,7 +330,7 @@ type RemoveRoleResponse_builder struct {
 	// Username of the user
 	Username *string
 	// Role that was removed from the user
-	Role *types.Role
+	Role *Role
 	// Timestamp when the role was removed
 	RemovedAt *timestamppb.Timestamp
 	// ID of the admin user who performed the removal
@@ -406,13 +405,13 @@ const file_pkg_auth_proto_responses_remove_role_response_proto_rawDesc = "" +
 	"\x13has_remaining_roles\x18\b \x01(\bR\x11hasRemainingRoles\x120\n" +
 	"\x14remaining_role_count\x18\t \x01(\x05R\x12remainingRoleCount\x12\x18\n" +
 	"\amessage\x18\n" +
-	" \x01(\tR\amessageB\xc8\x01\n" +
-	"\x13com.gcommon.v1.authB\x17RemoveRoleResponseProtoP\x01Z2github.com/jdfalk/gcommon/pkg/auth/proto/responses\xa2\x02\x03GVA\xaa\x02\x0fGcommon.V1.Auth\xca\x02\x0fGcommon\\V1\\Auth\xe2\x02\x1bGcommon\\V1\\Auth\\GPBMetadata\xea\x02\x11Gcommon::V1::Auth\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
+	" \x01(\tR\amessageB\xc5\x01\n" +
+	"\x13com.gcommon.v1.authB\x17RemoveRoleResponseProtoP\x01Z/github.com/jdfalk/gcommon/pkg/auth/proto;authpb\xa2\x02\x03GVA\xaa\x02\x0fGcommon.V1.Auth\xca\x02\x0fGcommon\\V1\\Auth\xe2\x02\x1bGcommon\\V1\\Auth\\GPBMetadata\xea\x02\x11Gcommon::V1::Auth\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
 
 var file_pkg_auth_proto_responses_remove_role_response_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_pkg_auth_proto_responses_remove_role_response_proto_goTypes = []any{
 	(*RemoveRoleResponse)(nil),    // 0: gcommon.v1.auth.RemoveRoleResponse
-	(*types.Role)(nil),            // 1: gcommon.v1.auth.Role
+	(*Role)(nil),                  // 1: gcommon.v1.auth.Role
 	(*timestamppb.Timestamp)(nil), // 2: google.protobuf.Timestamp
 }
 var file_pkg_auth_proto_responses_remove_role_response_proto_depIdxs = []int32{
@@ -430,6 +429,7 @@ func file_pkg_auth_proto_responses_remove_role_response_proto_init() {
 	if File_pkg_auth_proto_responses_remove_role_response_proto != nil {
 		return
 	}
+	file_pkg_auth_proto_types_role_proto_init()
 	type x struct{}
 	out := protoimpl.TypeBuilder{
 		File: protoimpl.DescBuilder{

@@ -4,7 +4,7 @@
 // 	protoc        (unknown)
 // source: pkg/auth/proto/responses/update_user_response.proto
 
-package responses
+package authpb
 
 import (
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
@@ -157,8 +157,8 @@ const file_pkg_auth_proto_responses_update_user_response_proto_rawDesc = "" +
 	"updated_at\x18\a \x01(\v2\x1a.google.protobuf.TimestampR\tupdatedAt\x129\n" +
 	"\n" +
 	"expires_at\x18\b \x01(\v2\x1a.google.protobuf.TimestampR\texpiresAt\x12%\n" +
-	"\x0eupdated_fields\x18\t \x03(\tR\rupdatedFieldsB\xc0\x01\n" +
-	"\x13com.gcommon.v1.authB\x17UpdateUserResponseProtoP\x01Z2github.com/jdfalk/gcommon/pkg/auth/proto/responses\xa2\x02\x03GVA\xaa\x02\x0fGcommon.V1.Auth\xca\x02\x0fGcommon\\V1\\Auth\xe2\x02\x1bGcommon\\V1\\Auth\\GPBMetadata\xea\x02\x11Gcommon::V1::Authb\beditionsp\xe8\a"
+	"\x0eupdated_fields\x18\t \x03(\tR\rupdatedFieldsB\xbd\x01\n" +
+	"\x13com.gcommon.v1.authB\x17UpdateUserResponseProtoP\x01Z/github.com/jdfalk/gcommon/pkg/auth/proto;authpb\xa2\x02\x03GVA\xaa\x02\x0fGcommon.V1.Auth\xca\x02\x0fGcommon\\V1\\Auth\xe2\x02\x1bGcommon\\V1\\Auth\\GPBMetadata\xea\x02\x11Gcommon::V1::Authb\beditionsp\xe8\a"
 
 var (
 	file_pkg_auth_proto_responses_update_user_response_proto_rawDescOnce sync.Once

@@ -6,11 +6,10 @@
 
 //go:build protoopaque
 
-package responses
+package authpb
 
 import (
-	types "github.com/jdfalk/gcommon/pkg/auth/proto/types"
-	messages "github.com/jdfalk/gcommon/pkg/common/proto/messages"
+	proto "github.com/jdfalk/gcommon/pkg/common/proto"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
@@ -30,8 +29,8 @@ const (
 // Returns the updated role.
 type UpdateRoleResponse struct {
 	state            protoimpl.MessageState `protogen:"opaque.v1"`
-	xxx_hidden_Role  *types.Role            `protobuf:"bytes,1,opt,name=role"`
-	xxx_hidden_Error *messages.Error        `protobuf:"bytes,2,opt,name=error"`
+	xxx_hidden_Role  *Role                  `protobuf:"bytes,1,opt,name=role"`
+	xxx_hidden_Error *proto.Error           `protobuf:"bytes,2,opt,name=error"`
 	unknownFields    protoimpl.UnknownFields
 	sizeCache        protoimpl.SizeCache
 }
@@ -61,25 +60,25 @@ func (x *UpdateRoleResponse) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-func (x *UpdateRoleResponse) GetRole() *types.Role {
+func (x *UpdateRoleResponse) GetRole() *Role {
 	if x != nil {
 		return x.xxx_hidden_Role
 	}
 	return nil
 }
 
-func (x *UpdateRoleResponse) GetError() *messages.Error {
+func (x *UpdateRoleResponse) GetError() *proto.Error {
 	if x != nil {
 		return x.xxx_hidden_Error
 	}
 	return nil
 }
 
-func (x *UpdateRoleResponse) SetRole(v *types.Role) {
+func (x *UpdateRoleResponse) SetRole(v *Role) {
 	x.xxx_hidden_Role = v
 }
 
-func (x *UpdateRoleResponse) SetError(v *messages.Error) {
+func (x *UpdateRoleResponse) SetError(v *proto.Error) {
 	x.xxx_hidden_Error = v
 }
 
@@ -109,9 +108,9 @@ type UpdateRoleResponse_builder struct {
 	_ [0]func() // Prevents comparability and use of unkeyed literals for the builder.
 
 	// The updated role
-	Role *types.Role
+	Role *Role
 	// Error information if update failed
-	Error *messages.Error
+	Error *proto.Error
 }
 
 func (b0 UpdateRoleResponse_builder) Build() *UpdateRoleResponse {
@@ -130,14 +129,14 @@ const file_pkg_auth_proto_responses_update_role_response_proto_rawDesc = "" +
 	"3pkg/auth/proto/responses/update_role_response.proto\x12\x0fgcommon.v1.auth\x1a!google/protobuf/go_features.proto\x1a%pkg/common/proto/messages/error.proto\x1a\x1fpkg/auth/proto/types/role.proto\"o\n" +
 	"\x12UpdateRoleResponse\x12)\n" +
 	"\x04role\x18\x01 \x01(\v2\x15.gcommon.v1.auth.RoleR\x04role\x12.\n" +
-	"\x05error\x18\x02 \x01(\v2\x18.gcommon.v1.common.ErrorR\x05errorB\xc8\x01\n" +
-	"\x13com.gcommon.v1.authB\x17UpdateRoleResponseProtoP\x01Z2github.com/jdfalk/gcommon/pkg/auth/proto/responses\xa2\x02\x03GVA\xaa\x02\x0fGcommon.V1.Auth\xca\x02\x0fGcommon\\V1\\Auth\xe2\x02\x1bGcommon\\V1\\Auth\\GPBMetadata\xea\x02\x11Gcommon::V1::Auth\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
+	"\x05error\x18\x02 \x01(\v2\x18.gcommon.v1.common.ErrorR\x05errorB\xc5\x01\n" +
+	"\x13com.gcommon.v1.authB\x17UpdateRoleResponseProtoP\x01Z/github.com/jdfalk/gcommon/pkg/auth/proto;authpb\xa2\x02\x03GVA\xaa\x02\x0fGcommon.V1.Auth\xca\x02\x0fGcommon\\V1\\Auth\xe2\x02\x1bGcommon\\V1\\Auth\\GPBMetadata\xea\x02\x11Gcommon::V1::Auth\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
 
 var file_pkg_auth_proto_responses_update_role_response_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_pkg_auth_proto_responses_update_role_response_proto_goTypes = []any{
 	(*UpdateRoleResponse)(nil), // 0: gcommon.v1.auth.UpdateRoleResponse
-	(*types.Role)(nil),         // 1: gcommon.v1.auth.Role
-	(*messages.Error)(nil),     // 2: gcommon.v1.common.Error
+	(*Role)(nil),               // 1: gcommon.v1.auth.Role
+	(*proto.Error)(nil),        // 2: gcommon.v1.common.Error
 }
 var file_pkg_auth_proto_responses_update_role_response_proto_depIdxs = []int32{
 	1, // 0: gcommon.v1.auth.UpdateRoleResponse.role:type_name -> gcommon.v1.auth.Role
@@ -154,6 +153,7 @@ func file_pkg_auth_proto_responses_update_role_response_proto_init() {
 	if File_pkg_auth_proto_responses_update_role_response_proto != nil {
 		return
 	}
+	file_pkg_auth_proto_types_role_proto_init()
 	type x struct{}
 	out := protoimpl.TypeBuilder{
 		File: protoimpl.DescBuilder{

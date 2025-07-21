@@ -4,7 +4,7 @@
 // 	protoc        (unknown)
 // source: pkg/auth/proto/responses/get_user_response.proto
 
-package responses
+package authpb
 
 import (
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
@@ -292,8 +292,8 @@ const file_pkg_auth_proto_responses_get_user_response_proto_rawDesc = "" +
 	"\x05value\x18\x02 \x01(\tR\x05value:\x028\x01\"Y\n" +
 	"\x0fGetUserResponse\x120\n" +
 	"\x04user\x18\x01 \x01(\v2\x1c.gcommon.v1.auth.UserDetailsR\x04user\x12\x14\n" +
-	"\x05found\x18\x02 \x01(\bR\x05foundB\xbd\x01\n" +
-	"\x13com.gcommon.v1.authB\x14GetUserResponseProtoP\x01Z2github.com/jdfalk/gcommon/pkg/auth/proto/responses\xa2\x02\x03GVA\xaa\x02\x0fGcommon.V1.Auth\xca\x02\x0fGcommon\\V1\\Auth\xe2\x02\x1bGcommon\\V1\\Auth\\GPBMetadata\xea\x02\x11Gcommon::V1::Authb\beditionsp\xe8\a"
+	"\x05found\x18\x02 \x01(\bR\x05foundB\xba\x01\n" +
+	"\x13com.gcommon.v1.authB\x14GetUserResponseProtoP\x01Z/github.com/jdfalk/gcommon/pkg/auth/proto;authpb\xa2\x02\x03GVA\xaa\x02\x0fGcommon.V1.Auth\xca\x02\x0fGcommon\\V1\\Auth\xe2\x02\x1bGcommon\\V1\\Auth\\GPBMetadata\xea\x02\x11Gcommon::V1::Authb\beditionsp\xe8\a"
 
 var (
 	file_pkg_auth_proto_responses_get_user_response_proto_rawDescOnce sync.Once

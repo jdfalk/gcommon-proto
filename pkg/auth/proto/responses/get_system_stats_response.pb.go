@@ -6,10 +6,10 @@
 
 //go:build !protoopaque
 
-package responses
+package authpb
 
 import (
-	messages "github.com/jdfalk/gcommon/pkg/common/proto/messages"
+	proto "github.com/jdfalk/gcommon/pkg/common/proto"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
@@ -39,7 +39,7 @@ type GetSystemStatsResponse struct {
 	// Authentication system uptime in seconds
 	UptimeSeconds *int64 `protobuf:"varint,5,opt,name=uptime_seconds,json=uptimeSeconds" json:"uptime_seconds,omitempty"`
 	// Error information if stats retrieval failed
-	Error         *messages.Error `protobuf:"bytes,6,opt,name=error" json:"error,omitempty"`
+	Error         *proto.Error `protobuf:"bytes,6,opt,name=error" json:"error,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -104,7 +104,7 @@ func (x *GetSystemStatsResponse) GetUptimeSeconds() int64 {
 	return 0
 }
 
-func (x *GetSystemStatsResponse) GetError() *messages.Error {
+func (x *GetSystemStatsResponse) GetError() *proto.Error {
 	if x != nil {
 		return x.Error
 	}
@@ -131,7 +131,7 @@ func (x *GetSystemStatsResponse) SetUptimeSeconds(v int64) {
 	x.UptimeSeconds = &v
 }
 
-func (x *GetSystemStatsResponse) SetError(v *messages.Error) {
+func (x *GetSystemStatsResponse) SetError(v *proto.Error) {
 	x.Error = v
 }
 
@@ -215,7 +215,7 @@ type GetSystemStatsResponse_builder struct {
 	// Authentication system uptime in seconds
 	UptimeSeconds *int64
 	// Error information if stats retrieval failed
-	Error *messages.Error
+	Error *proto.Error
 }
 
 func (b0 GetSystemStatsResponse_builder) Build() *GetSystemStatsResponse {
@@ -243,13 +243,13 @@ const file_pkg_auth_proto_responses_get_system_stats_response_proto_rawDesc = ""
 	"\x0factive_sessions\x18\x03 \x01(\x03R\x0eactiveSessions\x12#\n" +
 	"\rfailed_logins\x18\x04 \x01(\x03R\ffailedLogins\x12%\n" +
 	"\x0euptime_seconds\x18\x05 \x01(\x03R\ruptimeSeconds\x12.\n" +
-	"\x05error\x18\x06 \x01(\v2\x18.gcommon.v1.common.ErrorR\x05errorB\xcc\x01\n" +
-	"\x13com.gcommon.v1.authB\x1bGetSystemStatsResponseProtoP\x01Z2github.com/jdfalk/gcommon/pkg/auth/proto/responses\xa2\x02\x03GVA\xaa\x02\x0fGcommon.V1.Auth\xca\x02\x0fGcommon\\V1\\Auth\xe2\x02\x1bGcommon\\V1\\Auth\\GPBMetadata\xea\x02\x11Gcommon::V1::Auth\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
+	"\x05error\x18\x06 \x01(\v2\x18.gcommon.v1.common.ErrorR\x05errorB\xc9\x01\n" +
+	"\x13com.gcommon.v1.authB\x1bGetSystemStatsResponseProtoP\x01Z/github.com/jdfalk/gcommon/pkg/auth/proto;authpb\xa2\x02\x03GVA\xaa\x02\x0fGcommon.V1.Auth\xca\x02\x0fGcommon\\V1\\Auth\xe2\x02\x1bGcommon\\V1\\Auth\\GPBMetadata\xea\x02\x11Gcommon::V1::Auth\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
 
 var file_pkg_auth_proto_responses_get_system_stats_response_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_pkg_auth_proto_responses_get_system_stats_response_proto_goTypes = []any{
 	(*GetSystemStatsResponse)(nil), // 0: gcommon.v1.auth.GetSystemStatsResponse
-	(*messages.Error)(nil),         // 1: gcommon.v1.common.Error
+	(*proto.Error)(nil),            // 1: gcommon.v1.common.Error
 }
 var file_pkg_auth_proto_responses_get_system_stats_response_proto_depIdxs = []int32{
 	1, // 0: gcommon.v1.auth.GetSystemStatsResponse.error:type_name -> gcommon.v1.common.Error

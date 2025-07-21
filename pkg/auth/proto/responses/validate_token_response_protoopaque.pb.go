@@ -6,10 +6,9 @@
 
 //go:build protoopaque
 
-package responses
+package authpb
 
 import (
-	messages "github.com/jdfalk/gcommon/pkg/auth/proto/messages"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
@@ -32,7 +31,7 @@ type ValidateTokenResponse struct {
 	state                protoimpl.MessageState `protogen:"opaque.v1"`
 	xxx_hidden_Valid     bool                   `protobuf:"varint,1,opt,name=valid"`
 	xxx_hidden_ExpiresAt *timestamppb.Timestamp `protobuf:"bytes,2,opt,name=expires_at,json=expiresAt"`
-	xxx_hidden_UserInfo  *messages.UserInfo     `protobuf:"bytes,3,opt,name=user_info,json=userInfo"`
+	xxx_hidden_UserInfo  *UserInfo              `protobuf:"bytes,3,opt,name=user_info,json=userInfo"`
 	xxx_hidden_Scopes    []string               `protobuf:"bytes,4,rep,name=scopes"`
 	xxx_hidden_Subject   *string                `protobuf:"bytes,5,opt,name=subject"`
 	xxx_hidden_Issuer    *string                `protobuf:"bytes,6,opt,name=issuer"`
@@ -91,13 +90,13 @@ func (x *ValidateTokenResponse) GetExpiresAt() *timestamppb.Timestamp {
 	return nil
 }
 
-func (x *ValidateTokenResponse) GetUserInfo() *messages.UserInfo {
+func (x *ValidateTokenResponse) GetUserInfo() *UserInfo {
 	if x != nil {
 		if protoimpl.X.Present(&(x.XXX_presence[0]), 2) {
 			if protoimpl.X.AtomicCheckPointerIsNil(&x.xxx_hidden_UserInfo) {
 				protoimpl.X.UnmarshalField(x, 3)
 			}
-			var rv *messages.UserInfo
+			var rv *UserInfo
 			protoimpl.X.AtomicLoadPointer(protoimpl.Pointer(&x.xxx_hidden_UserInfo), protoimpl.Pointer(&rv))
 			return rv
 		}
@@ -153,7 +152,7 @@ func (x *ValidateTokenResponse) SetExpiresAt(v *timestamppb.Timestamp) {
 	}
 }
 
-func (x *ValidateTokenResponse) SetUserInfo(v *messages.UserInfo) {
+func (x *ValidateTokenResponse) SetUserInfo(v *UserInfo) {
 	protoimpl.X.AtomicSetPointer(&x.xxx_hidden_UserInfo, v)
 	if v == nil {
 		protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 2)
@@ -235,7 +234,7 @@ func (x *ValidateTokenResponse) ClearExpiresAt() {
 
 func (x *ValidateTokenResponse) ClearUserInfo() {
 	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 2)
-	protoimpl.X.AtomicSetPointer(&x.xxx_hidden_UserInfo, (*messages.UserInfo)(nil))
+	protoimpl.X.AtomicSetPointer(&x.xxx_hidden_UserInfo, (*UserInfo)(nil))
 }
 
 func (x *ValidateTokenResponse) ClearSubject() {
@@ -261,7 +260,7 @@ type ValidateTokenResponse_builder struct {
 	// Token expiration timestamp
 	ExpiresAt *timestamppb.Timestamp
 	// User information associated with the token
-	UserInfo *messages.UserInfo
+	UserInfo *UserInfo
 	// Token scopes/permissions
 	Scopes []string
 	// Token subject (user ID)
@@ -318,14 +317,14 @@ const file_pkg_auth_proto_responses_validate_token_response_proto_rawDesc = "" +
 	"\asubject\x18\x05 \x01(\tR\asubject\x12\x16\n" +
 	"\x06issuer\x18\x06 \x01(\tR\x06issuer\x12\x1d\n" +
 	"\n" +
-	"expires_in\x18\a \x01(\x05R\texpiresInB\xcb\x01\n" +
-	"\x13com.gcommon.v1.authB\x1aValidateTokenResponseProtoP\x01Z2github.com/jdfalk/gcommon/pkg/auth/proto/responses\xa2\x02\x03GVA\xaa\x02\x0fGcommon.V1.Auth\xca\x02\x0fGcommon\\V1\\Auth\xe2\x02\x1bGcommon\\V1\\Auth\\GPBMetadata\xea\x02\x11Gcommon::V1::Auth\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
+	"expires_in\x18\a \x01(\x05R\texpiresInB\xc8\x01\n" +
+	"\x13com.gcommon.v1.authB\x1aValidateTokenResponseProtoP\x01Z/github.com/jdfalk/gcommon/pkg/auth/proto;authpb\xa2\x02\x03GVA\xaa\x02\x0fGcommon.V1.Auth\xca\x02\x0fGcommon\\V1\\Auth\xe2\x02\x1bGcommon\\V1\\Auth\\GPBMetadata\xea\x02\x11Gcommon::V1::Auth\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
 
 var file_pkg_auth_proto_responses_validate_token_response_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_pkg_auth_proto_responses_validate_token_response_proto_goTypes = []any{
 	(*ValidateTokenResponse)(nil), // 0: gcommon.v1.auth.ValidateTokenResponse
 	(*timestamppb.Timestamp)(nil), // 1: google.protobuf.Timestamp
-	(*messages.UserInfo)(nil),     // 2: gcommon.v1.auth.UserInfo
+	(*UserInfo)(nil),              // 2: gcommon.v1.auth.UserInfo
 }
 var file_pkg_auth_proto_responses_validate_token_response_proto_depIdxs = []int32{
 	1, // 0: gcommon.v1.auth.ValidateTokenResponse.expires_at:type_name -> google.protobuf.Timestamp
@@ -342,6 +341,7 @@ func file_pkg_auth_proto_responses_validate_token_response_proto_init() {
 	if File_pkg_auth_proto_responses_validate_token_response_proto != nil {
 		return
 	}
+	file_pkg_auth_proto_messages_user_info_proto_init()
 	type x struct{}
 	out := protoimpl.TypeBuilder{
 		File: protoimpl.DescBuilder{

@@ -6,10 +6,9 @@
 
 //go:build !protoopaque
 
-package responses
+package authpb
 
 import (
-	types "github.com/jdfalk/gcommon/pkg/auth/proto/types"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
@@ -37,7 +36,7 @@ type GetUserPermissionsResponse struct {
 	// All effective permissions (union of direct and role permissions)
 	EffectivePermissions []string `protobuf:"bytes,3,rep,name=effective_permissions,json=effectivePermissions" json:"effective_permissions,omitempty"`
 	// User's roles (includes permission details)
-	Roles         []*types.Role `protobuf:"bytes,4,rep,name=roles" json:"roles,omitempty"`
+	Roles         []*Role `protobuf:"bytes,4,rep,name=roles" json:"roles,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -88,7 +87,7 @@ func (x *GetUserPermissionsResponse) GetEffectivePermissions() []string {
 	return nil
 }
 
-func (x *GetUserPermissionsResponse) GetRoles() []*types.Role {
+func (x *GetUserPermissionsResponse) GetRoles() []*Role {
 	if x != nil {
 		return x.Roles
 	}
@@ -107,7 +106,7 @@ func (x *GetUserPermissionsResponse) SetEffectivePermissions(v []string) {
 	x.EffectivePermissions = v
 }
 
-func (x *GetUserPermissionsResponse) SetRoles(v []*types.Role) {
+func (x *GetUserPermissionsResponse) SetRoles(v []*Role) {
 	x.Roles = v
 }
 
@@ -121,7 +120,7 @@ type GetUserPermissionsResponse_builder struct {
 	// All effective permissions (union of direct and role permissions)
 	EffectivePermissions []string
 	// User's roles (includes permission details)
-	Roles []*types.Role
+	Roles []*Role
 }
 
 func (b0 GetUserPermissionsResponse_builder) Build() *GetUserPermissionsResponse {
@@ -144,13 +143,13 @@ const file_pkg_auth_proto_responses_get_user_permissions_response_proto_rawDesc 
 	"\vpermissions\x18\x01 \x03(\tR\vpermissions\x12)\n" +
 	"\x10role_permissions\x18\x02 \x03(\tR\x0frolePermissions\x123\n" +
 	"\x15effective_permissions\x18\x03 \x03(\tR\x14effectivePermissions\x12/\n" +
-	"\x05roles\x18\x04 \x03(\v2\x15.gcommon.v1.auth.RoleB\x02(\x01R\x05rolesB\xd0\x01\n" +
-	"\x13com.gcommon.v1.authB\x1fGetUserPermissionsResponseProtoP\x01Z2github.com/jdfalk/gcommon/pkg/auth/proto/responses\xa2\x02\x03GVA\xaa\x02\x0fGcommon.V1.Auth\xca\x02\x0fGcommon\\V1\\Auth\xe2\x02\x1bGcommon\\V1\\Auth\\GPBMetadata\xea\x02\x11Gcommon::V1::Auth\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
+	"\x05roles\x18\x04 \x03(\v2\x15.gcommon.v1.auth.RoleB\x02(\x01R\x05rolesB\xcd\x01\n" +
+	"\x13com.gcommon.v1.authB\x1fGetUserPermissionsResponseProtoP\x01Z/github.com/jdfalk/gcommon/pkg/auth/proto;authpb\xa2\x02\x03GVA\xaa\x02\x0fGcommon.V1.Auth\xca\x02\x0fGcommon\\V1\\Auth\xe2\x02\x1bGcommon\\V1\\Auth\\GPBMetadata\xea\x02\x11Gcommon::V1::Auth\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
 
 var file_pkg_auth_proto_responses_get_user_permissions_response_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_pkg_auth_proto_responses_get_user_permissions_response_proto_goTypes = []any{
 	(*GetUserPermissionsResponse)(nil), // 0: gcommon.v1.auth.GetUserPermissionsResponse
-	(*types.Role)(nil),                 // 1: gcommon.v1.auth.Role
+	(*Role)(nil),                       // 1: gcommon.v1.auth.Role
 }
 var file_pkg_auth_proto_responses_get_user_permissions_response_proto_depIdxs = []int32{
 	1, // 0: gcommon.v1.auth.GetUserPermissionsResponse.roles:type_name -> gcommon.v1.auth.Role
@@ -166,6 +165,7 @@ func file_pkg_auth_proto_responses_get_user_permissions_response_proto_init() {
 	if File_pkg_auth_proto_responses_get_user_permissions_response_proto != nil {
 		return
 	}
+	file_pkg_auth_proto_types_role_proto_init()
 	type x struct{}
 	out := protoimpl.TypeBuilder{
 		File: protoimpl.DescBuilder{

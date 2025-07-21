@@ -6,11 +6,10 @@
 
 //go:build protoopaque
 
-package responses
+package authpb
 
 import (
-	messages "github.com/jdfalk/gcommon/pkg/auth/proto/messages"
-	messages1 "github.com/jdfalk/gcommon/pkg/common/proto/messages"
+	proto "github.com/jdfalk/gcommon/pkg/common/proto"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
@@ -36,9 +35,9 @@ type AuthenticateResponse struct {
 	xxx_hidden_TokenType    *string                `protobuf:"bytes,3,opt,name=token_type,json=tokenType"`
 	xxx_hidden_ExpiresIn    int32                  `protobuf:"varint,4,opt,name=expires_in,json=expiresIn"`
 	xxx_hidden_Scopes       []string               `protobuf:"bytes,5,rep,name=scopes"`
-	xxx_hidden_UserInfo     *messages.UserInfo     `protobuf:"bytes,6,opt,name=user_info,json=userInfo"`
-	xxx_hidden_Session      *messages.Session      `protobuf:"bytes,7,opt,name=session"`
-	xxx_hidden_RateLimit    *messages1.RateLimit   `protobuf:"bytes,8,opt,name=rate_limit,json=rateLimit"`
+	xxx_hidden_UserInfo     *UserInfo              `protobuf:"bytes,6,opt,name=user_info,json=userInfo"`
+	xxx_hidden_Session      *Session               `protobuf:"bytes,7,opt,name=session"`
+	xxx_hidden_RateLimit    *proto.RateLimit       `protobuf:"bytes,8,opt,name=rate_limit,json=rateLimit"`
 	// Deprecated: Do not use. This will be deleted in the near future.
 	XXX_lazyUnmarshalInfo  protoimpl.LazyUnmarshalInfo
 	XXX_raceDetectHookData protoimpl.RaceDetectHookData
@@ -116,13 +115,13 @@ func (x *AuthenticateResponse) GetScopes() []string {
 	return nil
 }
 
-func (x *AuthenticateResponse) GetUserInfo() *messages.UserInfo {
+func (x *AuthenticateResponse) GetUserInfo() *UserInfo {
 	if x != nil {
 		if protoimpl.X.Present(&(x.XXX_presence[0]), 5) {
 			if protoimpl.X.AtomicCheckPointerIsNil(&x.xxx_hidden_UserInfo) {
 				protoimpl.X.UnmarshalField(x, 6)
 			}
-			var rv *messages.UserInfo
+			var rv *UserInfo
 			protoimpl.X.AtomicLoadPointer(protoimpl.Pointer(&x.xxx_hidden_UserInfo), protoimpl.Pointer(&rv))
 			return rv
 		}
@@ -130,13 +129,13 @@ func (x *AuthenticateResponse) GetUserInfo() *messages.UserInfo {
 	return nil
 }
 
-func (x *AuthenticateResponse) GetSession() *messages.Session {
+func (x *AuthenticateResponse) GetSession() *Session {
 	if x != nil {
 		if protoimpl.X.Present(&(x.XXX_presence[0]), 6) {
 			if protoimpl.X.AtomicCheckPointerIsNil(&x.xxx_hidden_Session) {
 				protoimpl.X.UnmarshalField(x, 7)
 			}
-			var rv *messages.Session
+			var rv *Session
 			protoimpl.X.AtomicLoadPointer(protoimpl.Pointer(&x.xxx_hidden_Session), protoimpl.Pointer(&rv))
 			return rv
 		}
@@ -144,13 +143,13 @@ func (x *AuthenticateResponse) GetSession() *messages.Session {
 	return nil
 }
 
-func (x *AuthenticateResponse) GetRateLimit() *messages1.RateLimit {
+func (x *AuthenticateResponse) GetRateLimit() *proto.RateLimit {
 	if x != nil {
 		if protoimpl.X.Present(&(x.XXX_presence[0]), 7) {
 			if protoimpl.X.AtomicCheckPointerIsNil(&x.xxx_hidden_RateLimit) {
 				protoimpl.X.UnmarshalField(x, 8)
 			}
-			var rv *messages1.RateLimit
+			var rv *proto.RateLimit
 			protoimpl.X.AtomicLoadPointer(protoimpl.Pointer(&x.xxx_hidden_RateLimit), protoimpl.Pointer(&rv))
 			return rv
 		}
@@ -182,7 +181,7 @@ func (x *AuthenticateResponse) SetScopes(v []string) {
 	x.xxx_hidden_Scopes = v
 }
 
-func (x *AuthenticateResponse) SetUserInfo(v *messages.UserInfo) {
+func (x *AuthenticateResponse) SetUserInfo(v *UserInfo) {
 	protoimpl.X.AtomicSetPointer(&x.xxx_hidden_UserInfo, v)
 	if v == nil {
 		protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 5)
@@ -191,7 +190,7 @@ func (x *AuthenticateResponse) SetUserInfo(v *messages.UserInfo) {
 	}
 }
 
-func (x *AuthenticateResponse) SetSession(v *messages.Session) {
+func (x *AuthenticateResponse) SetSession(v *Session) {
 	protoimpl.X.AtomicSetPointer(&x.xxx_hidden_Session, v)
 	if v == nil {
 		protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 6)
@@ -200,7 +199,7 @@ func (x *AuthenticateResponse) SetSession(v *messages.Session) {
 	}
 }
 
-func (x *AuthenticateResponse) SetRateLimit(v *messages1.RateLimit) {
+func (x *AuthenticateResponse) SetRateLimit(v *proto.RateLimit) {
 	protoimpl.X.AtomicSetPointer(&x.xxx_hidden_RateLimit, v)
 	if v == nil {
 		protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 7)
@@ -280,17 +279,17 @@ func (x *AuthenticateResponse) ClearExpiresIn() {
 
 func (x *AuthenticateResponse) ClearUserInfo() {
 	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 5)
-	protoimpl.X.AtomicSetPointer(&x.xxx_hidden_UserInfo, (*messages.UserInfo)(nil))
+	protoimpl.X.AtomicSetPointer(&x.xxx_hidden_UserInfo, (*UserInfo)(nil))
 }
 
 func (x *AuthenticateResponse) ClearSession() {
 	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 6)
-	protoimpl.X.AtomicSetPointer(&x.xxx_hidden_Session, (*messages.Session)(nil))
+	protoimpl.X.AtomicSetPointer(&x.xxx_hidden_Session, (*Session)(nil))
 }
 
 func (x *AuthenticateResponse) ClearRateLimit() {
 	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 7)
-	protoimpl.X.AtomicSetPointer(&x.xxx_hidden_RateLimit, (*messages1.RateLimit)(nil))
+	protoimpl.X.AtomicSetPointer(&x.xxx_hidden_RateLimit, (*proto.RateLimit)(nil))
 }
 
 type AuthenticateResponse_builder struct {
@@ -307,11 +306,11 @@ type AuthenticateResponse_builder struct {
 	// Granted authorization scopes
 	Scopes []string
 	// Complete user information
-	UserInfo *messages.UserInfo
+	UserInfo *UserInfo
 	// Session information for session management
-	Session *messages.Session
+	Session *Session
 	// Rate limiting information for client throttling
-	RateLimit *messages1.RateLimit
+	RateLimit *proto.RateLimit
 }
 
 func (b0 AuthenticateResponse_builder) Build() *AuthenticateResponse {
@@ -366,15 +365,15 @@ const file_pkg_auth_proto_responses_authenticate_response_proto_rawDesc = "" +
 	"\tuser_info\x18\x06 \x01(\v2\x19.gcommon.v1.auth.UserInfoB\x02(\x01R\buserInfo\x126\n" +
 	"\asession\x18\a \x01(\v2\x18.gcommon.v1.auth.SessionB\x02(\x01R\asession\x12?\n" +
 	"\n" +
-	"rate_limit\x18\b \x01(\v2\x1c.gcommon.v1.common.RateLimitB\x02(\x01R\trateLimitB\xca\x01\n" +
-	"\x13com.gcommon.v1.authB\x19AuthenticateResponseProtoP\x01Z2github.com/jdfalk/gcommon/pkg/auth/proto/responses\xa2\x02\x03GVA\xaa\x02\x0fGcommon.V1.Auth\xca\x02\x0fGcommon\\V1\\Auth\xe2\x02\x1bGcommon\\V1\\Auth\\GPBMetadata\xea\x02\x11Gcommon::V1::Auth\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
+	"rate_limit\x18\b \x01(\v2\x1c.gcommon.v1.common.RateLimitB\x02(\x01R\trateLimitB\xc7\x01\n" +
+	"\x13com.gcommon.v1.authB\x19AuthenticateResponseProtoP\x01Z/github.com/jdfalk/gcommon/pkg/auth/proto;authpb\xa2\x02\x03GVA\xaa\x02\x0fGcommon.V1.Auth\xca\x02\x0fGcommon\\V1\\Auth\xe2\x02\x1bGcommon\\V1\\Auth\\GPBMetadata\xea\x02\x11Gcommon::V1::Auth\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
 
 var file_pkg_auth_proto_responses_authenticate_response_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_pkg_auth_proto_responses_authenticate_response_proto_goTypes = []any{
 	(*AuthenticateResponse)(nil), // 0: gcommon.v1.auth.AuthenticateResponse
-	(*messages.UserInfo)(nil),    // 1: gcommon.v1.auth.UserInfo
-	(*messages.Session)(nil),     // 2: gcommon.v1.auth.Session
-	(*messages1.RateLimit)(nil),  // 3: gcommon.v1.common.RateLimit
+	(*UserInfo)(nil),             // 1: gcommon.v1.auth.UserInfo
+	(*Session)(nil),              // 2: gcommon.v1.auth.Session
+	(*proto.RateLimit)(nil),      // 3: gcommon.v1.common.RateLimit
 }
 var file_pkg_auth_proto_responses_authenticate_response_proto_depIdxs = []int32{
 	1, // 0: gcommon.v1.auth.AuthenticateResponse.user_info:type_name -> gcommon.v1.auth.UserInfo
@@ -392,6 +391,8 @@ func file_pkg_auth_proto_responses_authenticate_response_proto_init() {
 	if File_pkg_auth_proto_responses_authenticate_response_proto != nil {
 		return
 	}
+	file_pkg_auth_proto_messages_user_info_proto_init()
+	file_pkg_auth_proto_messages_session_proto_init()
 	type x struct{}
 	out := protoimpl.TypeBuilder{
 		File: protoimpl.DescBuilder{

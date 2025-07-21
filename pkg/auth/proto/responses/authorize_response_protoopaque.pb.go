@@ -6,10 +6,10 @@
 
 //go:build protoopaque
 
-package responses
+package authpb
 
 import (
-	messages "github.com/jdfalk/gcommon/pkg/common/proto/messages"
+	proto "github.com/jdfalk/gcommon/pkg/common/proto"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
@@ -33,7 +33,7 @@ type AuthorizeResponse struct {
 	xxx_hidden_Authorized   bool                   `protobuf:"varint,1,opt,name=authorized"`
 	xxx_hidden_Permissions  []string               `protobuf:"bytes,2,rep,name=permissions"`
 	xxx_hidden_DenialReason *string                `protobuf:"bytes,3,opt,name=denial_reason,json=denialReason"`
-	xxx_hidden_Error        *messages.Error        `protobuf:"bytes,4,opt,name=error"`
+	xxx_hidden_Error        *proto.Error           `protobuf:"bytes,4,opt,name=error"`
 	// Deprecated: Do not use. This will be deleted in the near future.
 	XXX_lazyUnmarshalInfo  protoimpl.LazyUnmarshalInfo
 	XXX_raceDetectHookData protoimpl.RaceDetectHookData
@@ -91,13 +91,13 @@ func (x *AuthorizeResponse) GetDenialReason() string {
 	return ""
 }
 
-func (x *AuthorizeResponse) GetError() *messages.Error {
+func (x *AuthorizeResponse) GetError() *proto.Error {
 	if x != nil {
 		if protoimpl.X.Present(&(x.XXX_presence[0]), 3) {
 			if protoimpl.X.AtomicCheckPointerIsNil(&x.xxx_hidden_Error) {
 				protoimpl.X.UnmarshalField(x, 4)
 			}
-			var rv *messages.Error
+			var rv *proto.Error
 			protoimpl.X.AtomicLoadPointer(protoimpl.Pointer(&x.xxx_hidden_Error), protoimpl.Pointer(&rv))
 			return rv
 		}
@@ -119,7 +119,7 @@ func (x *AuthorizeResponse) SetDenialReason(v string) {
 	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 2, 4)
 }
 
-func (x *AuthorizeResponse) SetError(v *messages.Error) {
+func (x *AuthorizeResponse) SetError(v *proto.Error) {
 	protoimpl.X.AtomicSetPointer(&x.xxx_hidden_Error, v)
 	if v == nil {
 		protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 3)
@@ -161,7 +161,7 @@ func (x *AuthorizeResponse) ClearDenialReason() {
 
 func (x *AuthorizeResponse) ClearError() {
 	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 3)
-	protoimpl.X.AtomicSetPointer(&x.xxx_hidden_Error, (*messages.Error)(nil))
+	protoimpl.X.AtomicSetPointer(&x.xxx_hidden_Error, (*proto.Error)(nil))
 }
 
 type AuthorizeResponse_builder struct {
@@ -174,7 +174,7 @@ type AuthorizeResponse_builder struct {
 	// Reason for denial if authorization failed
 	DenialReason *string
 	// Error information if authorization check failed
-	Error *messages.Error
+	Error *proto.Error
 }
 
 func (b0 AuthorizeResponse_builder) Build() *AuthorizeResponse {
@@ -208,13 +208,13 @@ const file_pkg_auth_proto_responses_authorize_response_proto_rawDesc = "" +
 	"authorized\x12 \n" +
 	"\vpermissions\x18\x02 \x03(\tR\vpermissions\x12#\n" +
 	"\rdenial_reason\x18\x03 \x01(\tR\fdenialReason\x122\n" +
-	"\x05error\x18\x04 \x01(\v2\x18.gcommon.v1.common.ErrorB\x02(\x01R\x05errorB\xc7\x01\n" +
-	"\x13com.gcommon.v1.authB\x16AuthorizeResponseProtoP\x01Z2github.com/jdfalk/gcommon/pkg/auth/proto/responses\xa2\x02\x03GVA\xaa\x02\x0fGcommon.V1.Auth\xca\x02\x0fGcommon\\V1\\Auth\xe2\x02\x1bGcommon\\V1\\Auth\\GPBMetadata\xea\x02\x11Gcommon::V1::Auth\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
+	"\x05error\x18\x04 \x01(\v2\x18.gcommon.v1.common.ErrorB\x02(\x01R\x05errorB\xc4\x01\n" +
+	"\x13com.gcommon.v1.authB\x16AuthorizeResponseProtoP\x01Z/github.com/jdfalk/gcommon/pkg/auth/proto;authpb\xa2\x02\x03GVA\xaa\x02\x0fGcommon.V1.Auth\xca\x02\x0fGcommon\\V1\\Auth\xe2\x02\x1bGcommon\\V1\\Auth\\GPBMetadata\xea\x02\x11Gcommon::V1::Auth\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
 
 var file_pkg_auth_proto_responses_authorize_response_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_pkg_auth_proto_responses_authorize_response_proto_goTypes = []any{
 	(*AuthorizeResponse)(nil), // 0: gcommon.v1.auth.AuthorizeResponse
-	(*messages.Error)(nil),    // 1: gcommon.v1.common.Error
+	(*proto.Error)(nil),       // 1: gcommon.v1.common.Error
 }
 var file_pkg_auth_proto_responses_authorize_response_proto_depIdxs = []int32{
 	1, // 0: gcommon.v1.auth.AuthorizeResponse.error:type_name -> gcommon.v1.common.Error

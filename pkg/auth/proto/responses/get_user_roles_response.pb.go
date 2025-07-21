@@ -6,10 +6,9 @@
 
 //go:build !protoopaque
 
-package responses
+package authpb
 
 import (
-	types "github.com/jdfalk/gcommon/pkg/auth/proto/types"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
@@ -31,7 +30,7 @@ const (
 type GetUserRolesResponse struct {
 	state protoimpl.MessageState `protogen:"hybrid.v1"`
 	// All roles assigned to the user
-	Roles         []*types.Role `protobuf:"bytes,1,rep,name=roles" json:"roles,omitempty"`
+	Roles         []*Role `protobuf:"bytes,1,rep,name=roles" json:"roles,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -61,14 +60,14 @@ func (x *GetUserRolesResponse) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-func (x *GetUserRolesResponse) GetRoles() []*types.Role {
+func (x *GetUserRolesResponse) GetRoles() []*Role {
 	if x != nil {
 		return x.Roles
 	}
 	return nil
 }
 
-func (x *GetUserRolesResponse) SetRoles(v []*types.Role) {
+func (x *GetUserRolesResponse) SetRoles(v []*Role) {
 	x.Roles = v
 }
 
@@ -76,7 +75,7 @@ type GetUserRolesResponse_builder struct {
 	_ [0]func() // Prevents comparability and use of unkeyed literals for the builder.
 
 	// All roles assigned to the user
-	Roles []*types.Role
+	Roles []*Role
 }
 
 func (b0 GetUserRolesResponse_builder) Build() *GetUserRolesResponse {
@@ -93,13 +92,13 @@ const file_pkg_auth_proto_responses_get_user_roles_response_proto_rawDesc = "" +
 	"\n" +
 	"6pkg/auth/proto/responses/get_user_roles_response.proto\x12\x0fgcommon.v1.auth\x1a!google/protobuf/go_features.proto\x1a\x1fpkg/auth/proto/types/role.proto\"C\n" +
 	"\x14GetUserRolesResponse\x12+\n" +
-	"\x05roles\x18\x01 \x03(\v2\x15.gcommon.v1.auth.RoleR\x05rolesB\xca\x01\n" +
-	"\x13com.gcommon.v1.authB\x19GetUserRolesResponseProtoP\x01Z2github.com/jdfalk/gcommon/pkg/auth/proto/responses\xa2\x02\x03GVA\xaa\x02\x0fGcommon.V1.Auth\xca\x02\x0fGcommon\\V1\\Auth\xe2\x02\x1bGcommon\\V1\\Auth\\GPBMetadata\xea\x02\x11Gcommon::V1::Auth\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
+	"\x05roles\x18\x01 \x03(\v2\x15.gcommon.v1.auth.RoleR\x05rolesB\xc7\x01\n" +
+	"\x13com.gcommon.v1.authB\x19GetUserRolesResponseProtoP\x01Z/github.com/jdfalk/gcommon/pkg/auth/proto;authpb\xa2\x02\x03GVA\xaa\x02\x0fGcommon.V1.Auth\xca\x02\x0fGcommon\\V1\\Auth\xe2\x02\x1bGcommon\\V1\\Auth\\GPBMetadata\xea\x02\x11Gcommon::V1::Auth\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
 
 var file_pkg_auth_proto_responses_get_user_roles_response_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_pkg_auth_proto_responses_get_user_roles_response_proto_goTypes = []any{
 	(*GetUserRolesResponse)(nil), // 0: gcommon.v1.auth.GetUserRolesResponse
-	(*types.Role)(nil),           // 1: gcommon.v1.auth.Role
+	(*Role)(nil),                 // 1: gcommon.v1.auth.Role
 }
 var file_pkg_auth_proto_responses_get_user_roles_response_proto_depIdxs = []int32{
 	1, // 0: gcommon.v1.auth.GetUserRolesResponse.roles:type_name -> gcommon.v1.auth.Role
@@ -115,6 +114,7 @@ func file_pkg_auth_proto_responses_get_user_roles_response_proto_init() {
 	if File_pkg_auth_proto_responses_get_user_roles_response_proto != nil {
 		return
 	}
+	file_pkg_auth_proto_types_role_proto_init()
 	type x struct{}
 	out := protoimpl.TypeBuilder{
 		File: protoimpl.DescBuilder{

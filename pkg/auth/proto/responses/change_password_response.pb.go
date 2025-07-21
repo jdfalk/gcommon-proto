@@ -6,10 +6,10 @@
 
 //go:build !protoopaque
 
-package responses
+package authpb
 
 import (
-	messages "github.com/jdfalk/gcommon/pkg/common/proto/messages"
+	proto "github.com/jdfalk/gcommon/pkg/common/proto"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
@@ -35,7 +35,7 @@ type ChangePasswordResponse struct {
 	// Confirmation message
 	Message *string `protobuf:"bytes,2,opt,name=message" json:"message,omitempty"`
 	// Error information if password change failed
-	Error *messages.Error `protobuf:"bytes,3,opt,name=error" json:"error,omitempty"`
+	Error *proto.Error `protobuf:"bytes,3,opt,name=error" json:"error,omitempty"`
 	// Whether all existing sessions should be terminated
 	SessionsTerminated *bool `protobuf:"varint,4,opt,name=sessions_terminated,json=sessionsTerminated" json:"sessions_terminated,omitempty"`
 	// Number of sessions that were terminated
@@ -83,7 +83,7 @@ func (x *ChangePasswordResponse) GetMessage() string {
 	return ""
 }
 
-func (x *ChangePasswordResponse) GetError() *messages.Error {
+func (x *ChangePasswordResponse) GetError() *proto.Error {
 	if x != nil {
 		return x.Error
 	}
@@ -112,7 +112,7 @@ func (x *ChangePasswordResponse) SetMessage(v string) {
 	x.Message = &v
 }
 
-func (x *ChangePasswordResponse) SetError(v *messages.Error) {
+func (x *ChangePasswordResponse) SetError(v *proto.Error) {
 	x.Error = v
 }
 
@@ -187,7 +187,7 @@ type ChangePasswordResponse_builder struct {
 	// Confirmation message
 	Message *string
 	// Error information if password change failed
-	Error *messages.Error
+	Error *proto.Error
 	// Whether all existing sessions should be terminated
 	SessionsTerminated *bool
 	// Number of sessions that were terminated
@@ -216,13 +216,13 @@ const file_pkg_auth_proto_responses_change_password_response_proto_rawDesc = "" 
 	"\amessage\x18\x02 \x01(\tR\amessage\x122\n" +
 	"\x05error\x18\x03 \x01(\v2\x18.gcommon.v1.common.ErrorB\x02(\x01R\x05error\x12/\n" +
 	"\x13sessions_terminated\x18\x04 \x01(\bR\x12sessionsTerminated\x128\n" +
-	"\x18terminated_session_count\x18\x05 \x01(\x05R\x16terminatedSessionCountB\xcc\x01\n" +
-	"\x13com.gcommon.v1.authB\x1bChangePasswordResponseProtoP\x01Z2github.com/jdfalk/gcommon/pkg/auth/proto/responses\xa2\x02\x03GVA\xaa\x02\x0fGcommon.V1.Auth\xca\x02\x0fGcommon\\V1\\Auth\xe2\x02\x1bGcommon\\V1\\Auth\\GPBMetadata\xea\x02\x11Gcommon::V1::Auth\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
+	"\x18terminated_session_count\x18\x05 \x01(\x05R\x16terminatedSessionCountB\xc9\x01\n" +
+	"\x13com.gcommon.v1.authB\x1bChangePasswordResponseProtoP\x01Z/github.com/jdfalk/gcommon/pkg/auth/proto;authpb\xa2\x02\x03GVA\xaa\x02\x0fGcommon.V1.Auth\xca\x02\x0fGcommon\\V1\\Auth\xe2\x02\x1bGcommon\\V1\\Auth\\GPBMetadata\xea\x02\x11Gcommon::V1::Auth\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
 
 var file_pkg_auth_proto_responses_change_password_response_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_pkg_auth_proto_responses_change_password_response_proto_goTypes = []any{
 	(*ChangePasswordResponse)(nil), // 0: gcommon.v1.auth.ChangePasswordResponse
-	(*messages.Error)(nil),         // 1: gcommon.v1.common.Error
+	(*proto.Error)(nil),            // 1: gcommon.v1.common.Error
 }
 var file_pkg_auth_proto_responses_change_password_response_proto_depIdxs = []int32{
 	1, // 0: gcommon.v1.auth.ChangePasswordResponse.error:type_name -> gcommon.v1.common.Error
