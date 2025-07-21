@@ -6,12 +6,9 @@
 
 //go:build protoopaque
 
-package services
+package authpb
 
 import (
-	requests "github.com/jdfalk/gcommon/pkg/auth/proto/requests"
-	responses "github.com/jdfalk/gcommon/pkg/auth/proto/responses"
-	types "github.com/jdfalk/gcommon/pkg/auth/proto/types"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
@@ -46,25 +43,25 @@ const file_pkg_auth_proto_services_authorization_service_proto_rawDesc = "" +
 	"UpdateRole\x12\".gcommon.v1.auth.UpdateRoleRequest\x1a\x15.gcommon.v1.auth.Role\x12H\n" +
 	"\n" +
 	"DeleteRole\x12\".gcommon.v1.auth.DeleteRoleRequest\x1a\x16.google.protobuf.Empty\x12R\n" +
-	"\tListRoles\x12!.gcommon.v1.auth.ListRolesRequest\x1a\".gcommon.v1.auth.ListRolesResponseB\xc9\x01\n" +
-	"\x13com.gcommon.v1.authB\x19AuthorizationServiceProtoP\x01Z1github.com/jdfalk/gcommon/pkg/auth/proto/services\xa2\x02\x03GVA\xaa\x02\x0fGcommon.V1.Auth\xca\x02\x0fGcommon\\V1\\Auth\xe2\x02\x1bGcommon\\V1\\Auth\\GPBMetadata\xea\x02\x11Gcommon::V1::Auth\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
+	"\tListRoles\x12!.gcommon.v1.auth.ListRolesRequest\x1a\".gcommon.v1.auth.ListRolesResponseB\xc7\x01\n" +
+	"\x13com.gcommon.v1.authB\x19AuthorizationServiceProtoP\x01Z/github.com/jdfalk/gcommon/pkg/auth/proto;authpb\xa2\x02\x03GVA\xaa\x02\x0fGcommon.V1.Auth\xca\x02\x0fGcommon\\V1\\Auth\xe2\x02\x1bGcommon\\V1\\Auth\\GPBMetadata\xea\x02\x11Gcommon::V1::Auth\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
 
 var file_pkg_auth_proto_services_authorization_service_proto_goTypes = []any{
-	(*requests.AuthorizeRequest)(nil),            // 0: gcommon.v1.auth.AuthorizeRequest
-	(*requests.GetUserPermissionsRequest)(nil),   // 1: gcommon.v1.auth.GetUserPermissionsRequest
-	(*requests.GetUserRolesRequest)(nil),         // 2: gcommon.v1.auth.GetUserRolesRequest
-	(*requests.AssignRoleRequest)(nil),           // 3: gcommon.v1.auth.AssignRoleRequest
-	(*requests.RemoveRoleRequest)(nil),           // 4: gcommon.v1.auth.RemoveRoleRequest
-	(*requests.CreateRoleRequest)(nil),           // 5: gcommon.v1.auth.CreateRoleRequest
-	(*requests.UpdateRoleRequest)(nil),           // 6: gcommon.v1.auth.UpdateRoleRequest
-	(*requests.DeleteRoleRequest)(nil),           // 7: gcommon.v1.auth.DeleteRoleRequest
-	(*requests.ListRolesRequest)(nil),            // 8: gcommon.v1.auth.ListRolesRequest
-	(*responses.AuthorizeResponse)(nil),          // 9: gcommon.v1.auth.AuthorizeResponse
-	(*responses.GetUserPermissionsResponse)(nil), // 10: gcommon.v1.auth.GetUserPermissionsResponse
-	(*responses.GetUserRolesResponse)(nil),       // 11: gcommon.v1.auth.GetUserRolesResponse
-	(*emptypb.Empty)(nil),                        // 12: google.protobuf.Empty
-	(*types.Role)(nil),                           // 13: gcommon.v1.auth.Role
-	(*responses.ListRolesResponse)(nil),          // 14: gcommon.v1.auth.ListRolesResponse
+	(*AuthorizeRequest)(nil),           // 0: gcommon.v1.auth.AuthorizeRequest
+	(*GetUserPermissionsRequest)(nil),  // 1: gcommon.v1.auth.GetUserPermissionsRequest
+	(*GetUserRolesRequest)(nil),        // 2: gcommon.v1.auth.GetUserRolesRequest
+	(*AssignRoleRequest)(nil),          // 3: gcommon.v1.auth.AssignRoleRequest
+	(*RemoveRoleRequest)(nil),          // 4: gcommon.v1.auth.RemoveRoleRequest
+	(*CreateRoleRequest)(nil),          // 5: gcommon.v1.auth.CreateRoleRequest
+	(*UpdateRoleRequest)(nil),          // 6: gcommon.v1.auth.UpdateRoleRequest
+	(*DeleteRoleRequest)(nil),          // 7: gcommon.v1.auth.DeleteRoleRequest
+	(*ListRolesRequest)(nil),           // 8: gcommon.v1.auth.ListRolesRequest
+	(*AuthorizeResponse)(nil),          // 9: gcommon.v1.auth.AuthorizeResponse
+	(*GetUserPermissionsResponse)(nil), // 10: gcommon.v1.auth.GetUserPermissionsResponse
+	(*GetUserRolesResponse)(nil),       // 11: gcommon.v1.auth.GetUserRolesResponse
+	(*emptypb.Empty)(nil),              // 12: google.protobuf.Empty
+	(*Role)(nil),                       // 13: gcommon.v1.auth.Role
+	(*ListRolesResponse)(nil),          // 14: gcommon.v1.auth.ListRolesResponse
 }
 var file_pkg_auth_proto_services_authorization_service_proto_depIdxs = []int32{
 	0,  // 0: gcommon.v1.auth.AuthorizationService.Authorize:input_type -> gcommon.v1.auth.AuthorizeRequest
@@ -97,6 +94,20 @@ func file_pkg_auth_proto_services_authorization_service_proto_init() {
 	if File_pkg_auth_proto_services_authorization_service_proto != nil {
 		return
 	}
+	file_pkg_auth_proto_requests_authorize_request_proto_init()
+	file_pkg_auth_proto_responses_authorize_response_proto_init()
+	file_pkg_auth_proto_requests_get_user_permissions_request_proto_init()
+	file_pkg_auth_proto_responses_get_user_permissions_response_proto_init()
+	file_pkg_auth_proto_requests_get_user_roles_request_proto_init()
+	file_pkg_auth_proto_responses_get_user_roles_response_proto_init()
+	file_pkg_auth_proto_requests_assign_role_request_proto_init()
+	file_pkg_auth_proto_requests_remove_role_request_proto_init()
+	file_pkg_auth_proto_requests_create_role_request_proto_init()
+	file_pkg_auth_proto_types_role_proto_init()
+	file_pkg_auth_proto_requests_update_role_request_proto_init()
+	file_pkg_auth_proto_requests_delete_role_request_proto_init()
+	file_pkg_auth_proto_requests_list_roles_request_proto_init()
+	file_pkg_auth_proto_responses_list_roles_response_proto_init()
 	type x struct{}
 	out := protoimpl.TypeBuilder{
 		File: protoimpl.DescBuilder{

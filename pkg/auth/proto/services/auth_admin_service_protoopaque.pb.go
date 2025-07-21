@@ -6,11 +6,9 @@
 
 //go:build protoopaque
 
-package services
+package authpb
 
 import (
-	requests "github.com/jdfalk/gcommon/pkg/auth/proto/requests"
-	responses "github.com/jdfalk/gcommon/pkg/auth/proto/responses"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
@@ -52,32 +50,32 @@ const file_pkg_auth_proto_services_auth_admin_service_proto_rawDesc = "" +
 	"DeleteRole\x12\".gcommon.v1.auth.DeleteRoleRequest\x1a\x16.google.protobuf.Empty\x12R\n" +
 	"\tListRoles\x12!.gcommon.v1.auth.ListRolesRequest\x1a\".gcommon.v1.auth.ListRolesResponse\x12`\n" +
 	"\x16InvalidateUserSessions\x12..gcommon.v1.auth.InvalidateUserSessionsRequest\x1a\x16.google.protobuf.Empty\x12a\n" +
-	"\x0eGetSystemStats\x12&.gcommon.v1.auth.GetSystemStatsRequest\x1a'.gcommon.v1.auth.GetSystemStatsResponseB\xc5\x01\n" +
-	"\x13com.gcommon.v1.authB\x15AuthAdminServiceProtoP\x01Z1github.com/jdfalk/gcommon/pkg/auth/proto/services\xa2\x02\x03GVA\xaa\x02\x0fGcommon.V1.Auth\xca\x02\x0fGcommon\\V1\\Auth\xe2\x02\x1bGcommon\\V1\\Auth\\GPBMetadata\xea\x02\x11Gcommon::V1::Auth\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
+	"\x0eGetSystemStats\x12&.gcommon.v1.auth.GetSystemStatsRequest\x1a'.gcommon.v1.auth.GetSystemStatsResponseB\xc3\x01\n" +
+	"\x13com.gcommon.v1.authB\x15AuthAdminServiceProtoP\x01Z/github.com/jdfalk/gcommon/pkg/auth/proto;authpb\xa2\x02\x03GVA\xaa\x02\x0fGcommon.V1.Auth\xca\x02\x0fGcommon\\V1\\Auth\xe2\x02\x1bGcommon\\V1\\Auth\\GPBMetadata\xea\x02\x11Gcommon::V1::Auth\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
 
 var file_pkg_auth_proto_services_auth_admin_service_proto_goTypes = []any{
-	(*requests.CreateUserRequest)(nil),             // 0: gcommon.v1.auth.CreateUserRequest
-	(*requests.UpdateUserRequest)(nil),             // 1: gcommon.v1.auth.UpdateUserRequest
-	(*requests.DeleteUserRequest)(nil),             // 2: gcommon.v1.auth.DeleteUserRequest
-	(*requests.ListUsersRequest)(nil),              // 3: gcommon.v1.auth.ListUsersRequest
-	(*requests.GetUserRequest)(nil),                // 4: gcommon.v1.auth.GetUserRequest
-	(*requests.AssignRoleRequest)(nil),             // 5: gcommon.v1.auth.AssignRoleRequest
-	(*requests.RemoveRoleRequest)(nil),             // 6: gcommon.v1.auth.RemoveRoleRequest
-	(*requests.CreateRoleRequest)(nil),             // 7: gcommon.v1.auth.CreateRoleRequest
-	(*requests.UpdateRoleRequest)(nil),             // 8: gcommon.v1.auth.UpdateRoleRequest
-	(*requests.DeleteRoleRequest)(nil),             // 9: gcommon.v1.auth.DeleteRoleRequest
-	(*requests.ListRolesRequest)(nil),              // 10: gcommon.v1.auth.ListRolesRequest
-	(*requests.InvalidateUserSessionsRequest)(nil), // 11: gcommon.v1.auth.InvalidateUserSessionsRequest
-	(*requests.GetSystemStatsRequest)(nil),         // 12: gcommon.v1.auth.GetSystemStatsRequest
-	(*responses.CreateUserResponse)(nil),           // 13: gcommon.v1.auth.CreateUserResponse
-	(*responses.UpdateUserResponse)(nil),           // 14: gcommon.v1.auth.UpdateUserResponse
-	(*emptypb.Empty)(nil),                          // 15: google.protobuf.Empty
-	(*responses.ListUsersResponse)(nil),            // 16: gcommon.v1.auth.ListUsersResponse
-	(*responses.GetUserResponse)(nil),              // 17: gcommon.v1.auth.GetUserResponse
-	(*responses.CreateRoleResponse)(nil),           // 18: gcommon.v1.auth.CreateRoleResponse
-	(*responses.UpdateRoleResponse)(nil),           // 19: gcommon.v1.auth.UpdateRoleResponse
-	(*responses.ListRolesResponse)(nil),            // 20: gcommon.v1.auth.ListRolesResponse
-	(*responses.GetSystemStatsResponse)(nil),       // 21: gcommon.v1.auth.GetSystemStatsResponse
+	(*CreateUserRequest)(nil),             // 0: gcommon.v1.auth.CreateUserRequest
+	(*UpdateUserRequest)(nil),             // 1: gcommon.v1.auth.UpdateUserRequest
+	(*DeleteUserRequest)(nil),             // 2: gcommon.v1.auth.DeleteUserRequest
+	(*ListUsersRequest)(nil),              // 3: gcommon.v1.auth.ListUsersRequest
+	(*GetUserRequest)(nil),                // 4: gcommon.v1.auth.GetUserRequest
+	(*AssignRoleRequest)(nil),             // 5: gcommon.v1.auth.AssignRoleRequest
+	(*RemoveRoleRequest)(nil),             // 6: gcommon.v1.auth.RemoveRoleRequest
+	(*CreateRoleRequest)(nil),             // 7: gcommon.v1.auth.CreateRoleRequest
+	(*UpdateRoleRequest)(nil),             // 8: gcommon.v1.auth.UpdateRoleRequest
+	(*DeleteRoleRequest)(nil),             // 9: gcommon.v1.auth.DeleteRoleRequest
+	(*ListRolesRequest)(nil),              // 10: gcommon.v1.auth.ListRolesRequest
+	(*InvalidateUserSessionsRequest)(nil), // 11: gcommon.v1.auth.InvalidateUserSessionsRequest
+	(*GetSystemStatsRequest)(nil),         // 12: gcommon.v1.auth.GetSystemStatsRequest
+	(*CreateUserResponse)(nil),            // 13: gcommon.v1.auth.CreateUserResponse
+	(*UpdateUserResponse)(nil),            // 14: gcommon.v1.auth.UpdateUserResponse
+	(*emptypb.Empty)(nil),                 // 15: google.protobuf.Empty
+	(*ListUsersResponse)(nil),             // 16: gcommon.v1.auth.ListUsersResponse
+	(*GetUserResponse)(nil),               // 17: gcommon.v1.auth.GetUserResponse
+	(*CreateRoleResponse)(nil),            // 18: gcommon.v1.auth.CreateRoleResponse
+	(*UpdateRoleResponse)(nil),            // 19: gcommon.v1.auth.UpdateRoleResponse
+	(*ListRolesResponse)(nil),             // 20: gcommon.v1.auth.ListRolesResponse
+	(*GetSystemStatsResponse)(nil),        // 21: gcommon.v1.auth.GetSystemStatsResponse
 }
 var file_pkg_auth_proto_services_auth_admin_service_proto_depIdxs = []int32{
 	0,  // 0: gcommon.v1.auth.AuthAdminService.CreateUser:input_type -> gcommon.v1.auth.CreateUserRequest
@@ -118,6 +116,27 @@ func file_pkg_auth_proto_services_auth_admin_service_proto_init() {
 	if File_pkg_auth_proto_services_auth_admin_service_proto != nil {
 		return
 	}
+	file_pkg_auth_proto_requests_create_user_request_proto_init()
+	file_pkg_auth_proto_responses_create_user_response_proto_init()
+	file_pkg_auth_proto_requests_update_user_request_proto_init()
+	file_pkg_auth_proto_requests_delete_user_request_proto_init()
+	file_pkg_auth_proto_requests_list_users_request_proto_init()
+	file_pkg_auth_proto_requests_get_user_request_proto_init()
+	file_pkg_auth_proto_requests_assign_role_request_proto_init()
+	file_pkg_auth_proto_requests_remove_role_request_proto_init()
+	file_pkg_auth_proto_requests_create_role_request_proto_init()
+	file_pkg_auth_proto_requests_update_role_request_proto_init()
+	file_pkg_auth_proto_requests_delete_role_request_proto_init()
+	file_pkg_auth_proto_requests_list_roles_request_proto_init()
+	file_pkg_auth_proto_responses_update_user_response_proto_init()
+	file_pkg_auth_proto_responses_list_users_response_proto_init()
+	file_pkg_auth_proto_responses_get_user_response_proto_init()
+	file_pkg_auth_proto_responses_create_role_response_proto_init()
+	file_pkg_auth_proto_responses_update_role_response_proto_init()
+	file_pkg_auth_proto_responses_list_roles_response_proto_init()
+	file_pkg_auth_proto_requests_invalidate_user_sessions_request_proto_init()
+	file_pkg_auth_proto_requests_get_system_stats_request_proto_init()
+	file_pkg_auth_proto_responses_get_system_stats_response_proto_init()
 	type x struct{}
 	out := protoimpl.TypeBuilder{
 		File: protoimpl.DescBuilder{

@@ -4,13 +4,10 @@
 // - protoc             (unknown)
 // source: pkg/auth/proto/services/authorization_service.proto
 
-package services
+package authpb
 
 import (
 	context "context"
-	requests "github.com/jdfalk/gcommon/pkg/auth/proto/requests"
-	responses "github.com/jdfalk/gcommon/pkg/auth/proto/responses"
-	types "github.com/jdfalk/gcommon/pkg/auth/proto/types"
 	grpc "google.golang.org/grpc"
 	codes "google.golang.org/grpc/codes"
 	status "google.golang.org/grpc/status"
@@ -44,23 +41,23 @@ const (
 // and role lifecycle management for fine-grained access control.
 type AuthorizationServiceClient interface {
 	// Check if a user is authorized for a specific action on a resource
-	Authorize(ctx context.Context, in *requests.AuthorizeRequest, opts ...grpc.CallOption) (*responses.AuthorizeResponse, error)
+	Authorize(ctx context.Context, in *AuthorizeRequest, opts ...grpc.CallOption) (*AuthorizeResponse, error)
 	// Get all permissions granted to a user (direct and via roles)
-	GetUserPermissions(ctx context.Context, in *requests.GetUserPermissionsRequest, opts ...grpc.CallOption) (*responses.GetUserPermissionsResponse, error)
+	GetUserPermissions(ctx context.Context, in *GetUserPermissionsRequest, opts ...grpc.CallOption) (*GetUserPermissionsResponse, error)
 	// Get all roles assigned to a user
-	GetUserRoles(ctx context.Context, in *requests.GetUserRolesRequest, opts ...grpc.CallOption) (*responses.GetUserRolesResponse, error)
+	GetUserRoles(ctx context.Context, in *GetUserRolesRequest, opts ...grpc.CallOption) (*GetUserRolesResponse, error)
 	// Assign a role to a user
-	AssignRole(ctx context.Context, in *requests.AssignRoleRequest, opts ...grpc.CallOption) (*emptypb.Empty, error)
+	AssignRole(ctx context.Context, in *AssignRoleRequest, opts ...grpc.CallOption) (*emptypb.Empty, error)
 	// Remove a role from a user
-	RemoveRole(ctx context.Context, in *requests.RemoveRoleRequest, opts ...grpc.CallOption) (*emptypb.Empty, error)
+	RemoveRole(ctx context.Context, in *RemoveRoleRequest, opts ...grpc.CallOption) (*emptypb.Empty, error)
 	// Create a new role with specified permissions
-	CreateRole(ctx context.Context, in *requests.CreateRoleRequest, opts ...grpc.CallOption) (*types.Role, error)
+	CreateRole(ctx context.Context, in *CreateRoleRequest, opts ...grpc.CallOption) (*Role, error)
 	// Update an existing role's permissions or metadata
-	UpdateRole(ctx context.Context, in *requests.UpdateRoleRequest, opts ...grpc.CallOption) (*types.Role, error)
+	UpdateRole(ctx context.Context, in *UpdateRoleRequest, opts ...grpc.CallOption) (*Role, error)
 	// Delete a role (must not be assigned to any users)
-	DeleteRole(ctx context.Context, in *requests.DeleteRoleRequest, opts ...grpc.CallOption) (*emptypb.Empty, error)
+	DeleteRole(ctx context.Context, in *DeleteRoleRequest, opts ...grpc.CallOption) (*emptypb.Empty, error)
 	// List roles with filtering and pagination support
-	ListRoles(ctx context.Context, in *requests.ListRolesRequest, opts ...grpc.CallOption) (*responses.ListRolesResponse, error)
+	ListRoles(ctx context.Context, in *ListRolesRequest, opts ...grpc.CallOption) (*ListRolesResponse, error)
 }
 
 type authorizationServiceClient struct {
@@ -71,9 +68,9 @@ func NewAuthorizationServiceClient(cc grpc.ClientConnInterface) AuthorizationSer
 	return &authorizationServiceClient{cc}
 }
 
-func (c *authorizationServiceClient) Authorize(ctx context.Context, in *requests.AuthorizeRequest, opts ...grpc.CallOption) (*responses.AuthorizeResponse, error) {
+func (c *authorizationServiceClient) Authorize(ctx context.Context, in *AuthorizeRequest, opts ...grpc.CallOption) (*AuthorizeResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(responses.AuthorizeResponse)
+	out := new(AuthorizeResponse)
 	err := c.cc.Invoke(ctx, AuthorizationService_Authorize_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
@@ -81,9 +78,9 @@ func (c *authorizationServiceClient) Authorize(ctx context.Context, in *requests
 	return out, nil
 }
 
-func (c *authorizationServiceClient) GetUserPermissions(ctx context.Context, in *requests.GetUserPermissionsRequest, opts ...grpc.CallOption) (*responses.GetUserPermissionsResponse, error) {
+func (c *authorizationServiceClient) GetUserPermissions(ctx context.Context, in *GetUserPermissionsRequest, opts ...grpc.CallOption) (*GetUserPermissionsResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(responses.GetUserPermissionsResponse)
+	out := new(GetUserPermissionsResponse)
 	err := c.cc.Invoke(ctx, AuthorizationService_GetUserPermissions_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
@@ -91,9 +88,9 @@ func (c *authorizationServiceClient) GetUserPermissions(ctx context.Context, in 
 	return out, nil
 }
 
-func (c *authorizationServiceClient) GetUserRoles(ctx context.Context, in *requests.GetUserRolesRequest, opts ...grpc.CallOption) (*responses.GetUserRolesResponse, error) {
+func (c *authorizationServiceClient) GetUserRoles(ctx context.Context, in *GetUserRolesRequest, opts ...grpc.CallOption) (*GetUserRolesResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(responses.GetUserRolesResponse)
+	out := new(GetUserRolesResponse)
 	err := c.cc.Invoke(ctx, AuthorizationService_GetUserRoles_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
@@ -101,7 +98,7 @@ func (c *authorizationServiceClient) GetUserRoles(ctx context.Context, in *reque
 	return out, nil
 }
 
-func (c *authorizationServiceClient) AssignRole(ctx context.Context, in *requests.AssignRoleRequest, opts ...grpc.CallOption) (*emptypb.Empty, error) {
+func (c *authorizationServiceClient) AssignRole(ctx context.Context, in *AssignRoleRequest, opts ...grpc.CallOption) (*emptypb.Empty, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(emptypb.Empty)
 	err := c.cc.Invoke(ctx, AuthorizationService_AssignRole_FullMethodName, in, out, cOpts...)
@@ -111,7 +108,7 @@ func (c *authorizationServiceClient) AssignRole(ctx context.Context, in *request
 	return out, nil
 }
 
-func (c *authorizationServiceClient) RemoveRole(ctx context.Context, in *requests.RemoveRoleRequest, opts ...grpc.CallOption) (*emptypb.Empty, error) {
+func (c *authorizationServiceClient) RemoveRole(ctx context.Context, in *RemoveRoleRequest, opts ...grpc.CallOption) (*emptypb.Empty, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(emptypb.Empty)
 	err := c.cc.Invoke(ctx, AuthorizationService_RemoveRole_FullMethodName, in, out, cOpts...)
@@ -121,9 +118,9 @@ func (c *authorizationServiceClient) RemoveRole(ctx context.Context, in *request
 	return out, nil
 }
 
-func (c *authorizationServiceClient) CreateRole(ctx context.Context, in *requests.CreateRoleRequest, opts ...grpc.CallOption) (*types.Role, error) {
+func (c *authorizationServiceClient) CreateRole(ctx context.Context, in *CreateRoleRequest, opts ...grpc.CallOption) (*Role, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(types.Role)
+	out := new(Role)
 	err := c.cc.Invoke(ctx, AuthorizationService_CreateRole_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
@@ -131,9 +128,9 @@ func (c *authorizationServiceClient) CreateRole(ctx context.Context, in *request
 	return out, nil
 }
 
-func (c *authorizationServiceClient) UpdateRole(ctx context.Context, in *requests.UpdateRoleRequest, opts ...grpc.CallOption) (*types.Role, error) {
+func (c *authorizationServiceClient) UpdateRole(ctx context.Context, in *UpdateRoleRequest, opts ...grpc.CallOption) (*Role, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(types.Role)
+	out := new(Role)
 	err := c.cc.Invoke(ctx, AuthorizationService_UpdateRole_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
@@ -141,7 +138,7 @@ func (c *authorizationServiceClient) UpdateRole(ctx context.Context, in *request
 	return out, nil
 }
 
-func (c *authorizationServiceClient) DeleteRole(ctx context.Context, in *requests.DeleteRoleRequest, opts ...grpc.CallOption) (*emptypb.Empty, error) {
+func (c *authorizationServiceClient) DeleteRole(ctx context.Context, in *DeleteRoleRequest, opts ...grpc.CallOption) (*emptypb.Empty, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(emptypb.Empty)
 	err := c.cc.Invoke(ctx, AuthorizationService_DeleteRole_FullMethodName, in, out, cOpts...)
@@ -151,9 +148,9 @@ func (c *authorizationServiceClient) DeleteRole(ctx context.Context, in *request
 	return out, nil
 }
 
-func (c *authorizationServiceClient) ListRoles(ctx context.Context, in *requests.ListRolesRequest, opts ...grpc.CallOption) (*responses.ListRolesResponse, error) {
+func (c *authorizationServiceClient) ListRoles(ctx context.Context, in *ListRolesRequest, opts ...grpc.CallOption) (*ListRolesResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(responses.ListRolesResponse)
+	out := new(ListRolesResponse)
 	err := c.cc.Invoke(ctx, AuthorizationService_ListRoles_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
@@ -171,23 +168,23 @@ func (c *authorizationServiceClient) ListRoles(ctx context.Context, in *requests
 // and role lifecycle management for fine-grained access control.
 type AuthorizationServiceServer interface {
 	// Check if a user is authorized for a specific action on a resource
-	Authorize(context.Context, *requests.AuthorizeRequest) (*responses.AuthorizeResponse, error)
+	Authorize(context.Context, *AuthorizeRequest) (*AuthorizeResponse, error)
 	// Get all permissions granted to a user (direct and via roles)
-	GetUserPermissions(context.Context, *requests.GetUserPermissionsRequest) (*responses.GetUserPermissionsResponse, error)
+	GetUserPermissions(context.Context, *GetUserPermissionsRequest) (*GetUserPermissionsResponse, error)
 	// Get all roles assigned to a user
-	GetUserRoles(context.Context, *requests.GetUserRolesRequest) (*responses.GetUserRolesResponse, error)
+	GetUserRoles(context.Context, *GetUserRolesRequest) (*GetUserRolesResponse, error)
 	// Assign a role to a user
-	AssignRole(context.Context, *requests.AssignRoleRequest) (*emptypb.Empty, error)
+	AssignRole(context.Context, *AssignRoleRequest) (*emptypb.Empty, error)
 	// Remove a role from a user
-	RemoveRole(context.Context, *requests.RemoveRoleRequest) (*emptypb.Empty, error)
+	RemoveRole(context.Context, *RemoveRoleRequest) (*emptypb.Empty, error)
 	// Create a new role with specified permissions
-	CreateRole(context.Context, *requests.CreateRoleRequest) (*types.Role, error)
+	CreateRole(context.Context, *CreateRoleRequest) (*Role, error)
 	// Update an existing role's permissions or metadata
-	UpdateRole(context.Context, *requests.UpdateRoleRequest) (*types.Role, error)
+	UpdateRole(context.Context, *UpdateRoleRequest) (*Role, error)
 	// Delete a role (must not be assigned to any users)
-	DeleteRole(context.Context, *requests.DeleteRoleRequest) (*emptypb.Empty, error)
+	DeleteRole(context.Context, *DeleteRoleRequest) (*emptypb.Empty, error)
 	// List roles with filtering and pagination support
-	ListRoles(context.Context, *requests.ListRolesRequest) (*responses.ListRolesResponse, error)
+	ListRoles(context.Context, *ListRolesRequest) (*ListRolesResponse, error)
 }
 
 // UnimplementedAuthorizationServiceServer should be embedded to have
@@ -197,31 +194,31 @@ type AuthorizationServiceServer interface {
 // pointer dereference when methods are called.
 type UnimplementedAuthorizationServiceServer struct{}
 
-func (UnimplementedAuthorizationServiceServer) Authorize(context.Context, *requests.AuthorizeRequest) (*responses.AuthorizeResponse, error) {
+func (UnimplementedAuthorizationServiceServer) Authorize(context.Context, *AuthorizeRequest) (*AuthorizeResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method Authorize not implemented")
 }
-func (UnimplementedAuthorizationServiceServer) GetUserPermissions(context.Context, *requests.GetUserPermissionsRequest) (*responses.GetUserPermissionsResponse, error) {
+func (UnimplementedAuthorizationServiceServer) GetUserPermissions(context.Context, *GetUserPermissionsRequest) (*GetUserPermissionsResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method GetUserPermissions not implemented")
 }
-func (UnimplementedAuthorizationServiceServer) GetUserRoles(context.Context, *requests.GetUserRolesRequest) (*responses.GetUserRolesResponse, error) {
+func (UnimplementedAuthorizationServiceServer) GetUserRoles(context.Context, *GetUserRolesRequest) (*GetUserRolesResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method GetUserRoles not implemented")
 }
-func (UnimplementedAuthorizationServiceServer) AssignRole(context.Context, *requests.AssignRoleRequest) (*emptypb.Empty, error) {
+func (UnimplementedAuthorizationServiceServer) AssignRole(context.Context, *AssignRoleRequest) (*emptypb.Empty, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method AssignRole not implemented")
 }
-func (UnimplementedAuthorizationServiceServer) RemoveRole(context.Context, *requests.RemoveRoleRequest) (*emptypb.Empty, error) {
+func (UnimplementedAuthorizationServiceServer) RemoveRole(context.Context, *RemoveRoleRequest) (*emptypb.Empty, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method RemoveRole not implemented")
 }
-func (UnimplementedAuthorizationServiceServer) CreateRole(context.Context, *requests.CreateRoleRequest) (*types.Role, error) {
+func (UnimplementedAuthorizationServiceServer) CreateRole(context.Context, *CreateRoleRequest) (*Role, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method CreateRole not implemented")
 }
-func (UnimplementedAuthorizationServiceServer) UpdateRole(context.Context, *requests.UpdateRoleRequest) (*types.Role, error) {
+func (UnimplementedAuthorizationServiceServer) UpdateRole(context.Context, *UpdateRoleRequest) (*Role, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method UpdateRole not implemented")
 }
-func (UnimplementedAuthorizationServiceServer) DeleteRole(context.Context, *requests.DeleteRoleRequest) (*emptypb.Empty, error) {
+func (UnimplementedAuthorizationServiceServer) DeleteRole(context.Context, *DeleteRoleRequest) (*emptypb.Empty, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method DeleteRole not implemented")
 }
-func (UnimplementedAuthorizationServiceServer) ListRoles(context.Context, *requests.ListRolesRequest) (*responses.ListRolesResponse, error) {
+func (UnimplementedAuthorizationServiceServer) ListRoles(context.Context, *ListRolesRequest) (*ListRolesResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method ListRoles not implemented")
 }
 func (UnimplementedAuthorizationServiceServer) testEmbeddedByValue() {}
@@ -245,7 +242,7 @@ func RegisterAuthorizationServiceServer(s grpc.ServiceRegistrar, srv Authorizati
 }
 
 func _AuthorizationService_Authorize_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(requests.AuthorizeRequest)
+	in := new(AuthorizeRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
@@ -257,13 +254,13 @@ func _AuthorizationService_Authorize_Handler(srv interface{}, ctx context.Contex
 		FullMethod: AuthorizationService_Authorize_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(AuthorizationServiceServer).Authorize(ctx, req.(*requests.AuthorizeRequest))
+		return srv.(AuthorizationServiceServer).Authorize(ctx, req.(*AuthorizeRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
 func _AuthorizationService_GetUserPermissions_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(requests.GetUserPermissionsRequest)
+	in := new(GetUserPermissionsRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
@@ -275,13 +272,13 @@ func _AuthorizationService_GetUserPermissions_Handler(srv interface{}, ctx conte
 		FullMethod: AuthorizationService_GetUserPermissions_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(AuthorizationServiceServer).GetUserPermissions(ctx, req.(*requests.GetUserPermissionsRequest))
+		return srv.(AuthorizationServiceServer).GetUserPermissions(ctx, req.(*GetUserPermissionsRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
 func _AuthorizationService_GetUserRoles_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(requests.GetUserRolesRequest)
+	in := new(GetUserRolesRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
@@ -293,13 +290,13 @@ func _AuthorizationService_GetUserRoles_Handler(srv interface{}, ctx context.Con
 		FullMethod: AuthorizationService_GetUserRoles_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(AuthorizationServiceServer).GetUserRoles(ctx, req.(*requests.GetUserRolesRequest))
+		return srv.(AuthorizationServiceServer).GetUserRoles(ctx, req.(*GetUserRolesRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
 func _AuthorizationService_AssignRole_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(requests.AssignRoleRequest)
+	in := new(AssignRoleRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
@@ -311,13 +308,13 @@ func _AuthorizationService_AssignRole_Handler(srv interface{}, ctx context.Conte
 		FullMethod: AuthorizationService_AssignRole_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(AuthorizationServiceServer).AssignRole(ctx, req.(*requests.AssignRoleRequest))
+		return srv.(AuthorizationServiceServer).AssignRole(ctx, req.(*AssignRoleRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
 func _AuthorizationService_RemoveRole_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(requests.RemoveRoleRequest)
+	in := new(RemoveRoleRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
@@ -329,13 +326,13 @@ func _AuthorizationService_RemoveRole_Handler(srv interface{}, ctx context.Conte
 		FullMethod: AuthorizationService_RemoveRole_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(AuthorizationServiceServer).RemoveRole(ctx, req.(*requests.RemoveRoleRequest))
+		return srv.(AuthorizationServiceServer).RemoveRole(ctx, req.(*RemoveRoleRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
 func _AuthorizationService_CreateRole_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(requests.CreateRoleRequest)
+	in := new(CreateRoleRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
@@ -347,13 +344,13 @@ func _AuthorizationService_CreateRole_Handler(srv interface{}, ctx context.Conte
 		FullMethod: AuthorizationService_CreateRole_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(AuthorizationServiceServer).CreateRole(ctx, req.(*requests.CreateRoleRequest))
+		return srv.(AuthorizationServiceServer).CreateRole(ctx, req.(*CreateRoleRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
 func _AuthorizationService_UpdateRole_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(requests.UpdateRoleRequest)
+	in := new(UpdateRoleRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
@@ -365,13 +362,13 @@ func _AuthorizationService_UpdateRole_Handler(srv interface{}, ctx context.Conte
 		FullMethod: AuthorizationService_UpdateRole_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(AuthorizationServiceServer).UpdateRole(ctx, req.(*requests.UpdateRoleRequest))
+		return srv.(AuthorizationServiceServer).UpdateRole(ctx, req.(*UpdateRoleRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
 func _AuthorizationService_DeleteRole_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(requests.DeleteRoleRequest)
+	in := new(DeleteRoleRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
@@ -383,13 +380,13 @@ func _AuthorizationService_DeleteRole_Handler(srv interface{}, ctx context.Conte
 		FullMethod: AuthorizationService_DeleteRole_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(AuthorizationServiceServer).DeleteRole(ctx, req.(*requests.DeleteRoleRequest))
+		return srv.(AuthorizationServiceServer).DeleteRole(ctx, req.(*DeleteRoleRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
 func _AuthorizationService_ListRoles_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(requests.ListRolesRequest)
+	in := new(ListRolesRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
@@ -401,7 +398,7 @@ func _AuthorizationService_ListRoles_Handler(srv interface{}, ctx context.Contex
 		FullMethod: AuthorizationService_ListRoles_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(AuthorizationServiceServer).ListRoles(ctx, req.(*requests.ListRolesRequest))
+		return srv.(AuthorizationServiceServer).ListRoles(ctx, req.(*ListRolesRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }

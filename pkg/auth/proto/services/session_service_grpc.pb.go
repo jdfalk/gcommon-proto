@@ -4,12 +4,10 @@
 // - protoc             (unknown)
 // source: pkg/auth/proto/services/session_service.proto
 
-package services
+package authpb
 
 import (
 	context "context"
-	messages "github.com/jdfalk/gcommon/pkg/auth/proto/messages"
-	requests "github.com/jdfalk/gcommon/pkg/auth/proto/requests"
 	grpc "google.golang.org/grpc"
 	codes "google.golang.org/grpc/codes"
 	status "google.golang.org/grpc/status"
@@ -34,7 +32,7 @@ const (
 // for stateful authentication and user activity monitoring.
 type SessionServiceClient interface {
 	// Create a new session for an authenticated user
-	CreateSession(ctx context.Context, in *requests.CreateSessionRequest, opts ...grpc.CallOption) (*messages.Session, error)
+	CreateSession(ctx context.Context, in *CreateSessionRequest, opts ...grpc.CallOption) (*Session, error)
 }
 
 type sessionServiceClient struct {
@@ -45,9 +43,9 @@ func NewSessionServiceClient(cc grpc.ClientConnInterface) SessionServiceClient {
 	return &sessionServiceClient{cc}
 }
 
-func (c *sessionServiceClient) CreateSession(ctx context.Context, in *requests.CreateSessionRequest, opts ...grpc.CallOption) (*messages.Session, error) {
+func (c *sessionServiceClient) CreateSession(ctx context.Context, in *CreateSessionRequest, opts ...grpc.CallOption) (*Session, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(messages.Session)
+	out := new(Session)
 	err := c.cc.Invoke(ctx, SessionService_CreateSession_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
@@ -65,7 +63,7 @@ func (c *sessionServiceClient) CreateSession(ctx context.Context, in *requests.C
 // for stateful authentication and user activity monitoring.
 type SessionServiceServer interface {
 	// Create a new session for an authenticated user
-	CreateSession(context.Context, *requests.CreateSessionRequest) (*messages.Session, error)
+	CreateSession(context.Context, *CreateSessionRequest) (*Session, error)
 }
 
 // UnimplementedSessionServiceServer should be embedded to have
@@ -75,7 +73,7 @@ type SessionServiceServer interface {
 // pointer dereference when methods are called.
 type UnimplementedSessionServiceServer struct{}
 
-func (UnimplementedSessionServiceServer) CreateSession(context.Context, *requests.CreateSessionRequest) (*messages.Session, error) {
+func (UnimplementedSessionServiceServer) CreateSession(context.Context, *CreateSessionRequest) (*Session, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method CreateSession not implemented")
 }
 func (UnimplementedSessionServiceServer) testEmbeddedByValue() {}
@@ -99,7 +97,7 @@ func RegisterSessionServiceServer(s grpc.ServiceRegistrar, srv SessionServiceSer
 }
 
 func _SessionService_CreateSession_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(requests.CreateSessionRequest)
+	in := new(CreateSessionRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
@@ -111,7 +109,7 @@ func _SessionService_CreateSession_Handler(srv interface{}, ctx context.Context,
 		FullMethod: SessionService_CreateSession_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(SessionServiceServer).CreateSession(ctx, req.(*requests.CreateSessionRequest))
+		return srv.(SessionServiceServer).CreateSession(ctx, req.(*CreateSessionRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }

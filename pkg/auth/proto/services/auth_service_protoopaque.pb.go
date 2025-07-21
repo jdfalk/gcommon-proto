@@ -6,11 +6,9 @@
 
 //go:build protoopaque
 
-package services
+package authpb
 
 import (
-	requests "github.com/jdfalk/gcommon/pkg/auth/proto/requests"
-	responses "github.com/jdfalk/gcommon/pkg/auth/proto/responses"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
@@ -39,28 +37,28 @@ const file_pkg_auth_proto_services_auth_service_proto_rawDesc = "" +
 	"\vGetUserInfo\x12#.gcommon.v1.auth.GetUserInfoRequest\x1a$.gcommon.v1.auth.GetUserInfoResponse\x12v\n" +
 	"\x15InitiatePasswordReset\x12-.gcommon.v1.auth.InitiatePasswordResetRequest\x1a..gcommon.v1.auth.InitiatePasswordResetResponse\x12v\n" +
 	"\x15CompletePasswordReset\x12-.gcommon.v1.auth.CompletePasswordResetRequest\x1a..gcommon.v1.auth.CompletePasswordResetResponse\x12a\n" +
-	"\x0eChangePassword\x12&.gcommon.v1.auth.ChangePasswordRequest\x1a'.gcommon.v1.auth.ChangePasswordResponseB\xc0\x01\n" +
-	"\x13com.gcommon.v1.authB\x10AuthServiceProtoP\x01Z1github.com/jdfalk/gcommon/pkg/auth/proto/services\xa2\x02\x03GVA\xaa\x02\x0fGcommon.V1.Auth\xca\x02\x0fGcommon\\V1\\Auth\xe2\x02\x1bGcommon\\V1\\Auth\\GPBMetadata\xea\x02\x11Gcommon::V1::Auth\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
+	"\x0eChangePassword\x12&.gcommon.v1.auth.ChangePasswordRequest\x1a'.gcommon.v1.auth.ChangePasswordResponseB\xbe\x01\n" +
+	"\x13com.gcommon.v1.authB\x10AuthServiceProtoP\x01Z/github.com/jdfalk/gcommon/pkg/auth/proto;authpb\xa2\x02\x03GVA\xaa\x02\x0fGcommon.V1.Auth\xca\x02\x0fGcommon\\V1\\Auth\xe2\x02\x1bGcommon\\V1\\Auth\\GPBMetadata\xea\x02\x11Gcommon::V1::Auth\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
 
 var file_pkg_auth_proto_services_auth_service_proto_goTypes = []any{
-	(*requests.AuthenticateRequest)(nil),            // 0: gcommon.v1.auth.AuthenticateRequest
-	(*requests.ValidateTokenRequest)(nil),           // 1: gcommon.v1.auth.ValidateTokenRequest
-	(*requests.VerifyCredentialsRequest)(nil),       // 2: gcommon.v1.auth.VerifyCredentialsRequest
-	(*requests.RefreshTokenRequest)(nil),            // 3: gcommon.v1.auth.RefreshTokenRequest
-	(*requests.RevokeTokenRequest)(nil),             // 4: gcommon.v1.auth.RevokeTokenRequest
-	(*requests.GetUserInfoRequest)(nil),             // 5: gcommon.v1.auth.GetUserInfoRequest
-	(*requests.InitiatePasswordResetRequest)(nil),   // 6: gcommon.v1.auth.InitiatePasswordResetRequest
-	(*requests.CompletePasswordResetRequest)(nil),   // 7: gcommon.v1.auth.CompletePasswordResetRequest
-	(*requests.ChangePasswordRequest)(nil),          // 8: gcommon.v1.auth.ChangePasswordRequest
-	(*responses.AuthenticateResponse)(nil),          // 9: gcommon.v1.auth.AuthenticateResponse
-	(*responses.ValidateTokenResponse)(nil),         // 10: gcommon.v1.auth.ValidateTokenResponse
-	(*responses.VerifyCredentialsResponse)(nil),     // 11: gcommon.v1.auth.VerifyCredentialsResponse
-	(*responses.RefreshTokenResponse)(nil),          // 12: gcommon.v1.auth.RefreshTokenResponse
-	(*responses.RevokeTokenResponse)(nil),           // 13: gcommon.v1.auth.RevokeTokenResponse
-	(*responses.GetUserInfoResponse)(nil),           // 14: gcommon.v1.auth.GetUserInfoResponse
-	(*responses.InitiatePasswordResetResponse)(nil), // 15: gcommon.v1.auth.InitiatePasswordResetResponse
-	(*responses.CompletePasswordResetResponse)(nil), // 16: gcommon.v1.auth.CompletePasswordResetResponse
-	(*responses.ChangePasswordResponse)(nil),        // 17: gcommon.v1.auth.ChangePasswordResponse
+	(*AuthenticateRequest)(nil),           // 0: gcommon.v1.auth.AuthenticateRequest
+	(*ValidateTokenRequest)(nil),          // 1: gcommon.v1.auth.ValidateTokenRequest
+	(*VerifyCredentialsRequest)(nil),      // 2: gcommon.v1.auth.VerifyCredentialsRequest
+	(*RefreshTokenRequest)(nil),           // 3: gcommon.v1.auth.RefreshTokenRequest
+	(*RevokeTokenRequest)(nil),            // 4: gcommon.v1.auth.RevokeTokenRequest
+	(*GetUserInfoRequest)(nil),            // 5: gcommon.v1.auth.GetUserInfoRequest
+	(*InitiatePasswordResetRequest)(nil),  // 6: gcommon.v1.auth.InitiatePasswordResetRequest
+	(*CompletePasswordResetRequest)(nil),  // 7: gcommon.v1.auth.CompletePasswordResetRequest
+	(*ChangePasswordRequest)(nil),         // 8: gcommon.v1.auth.ChangePasswordRequest
+	(*AuthenticateResponse)(nil),          // 9: gcommon.v1.auth.AuthenticateResponse
+	(*ValidateTokenResponse)(nil),         // 10: gcommon.v1.auth.ValidateTokenResponse
+	(*VerifyCredentialsResponse)(nil),     // 11: gcommon.v1.auth.VerifyCredentialsResponse
+	(*RefreshTokenResponse)(nil),          // 12: gcommon.v1.auth.RefreshTokenResponse
+	(*RevokeTokenResponse)(nil),           // 13: gcommon.v1.auth.RevokeTokenResponse
+	(*GetUserInfoResponse)(nil),           // 14: gcommon.v1.auth.GetUserInfoResponse
+	(*InitiatePasswordResetResponse)(nil), // 15: gcommon.v1.auth.InitiatePasswordResetResponse
+	(*CompletePasswordResetResponse)(nil), // 16: gcommon.v1.auth.CompletePasswordResetResponse
+	(*ChangePasswordResponse)(nil),        // 17: gcommon.v1.auth.ChangePasswordResponse
 }
 var file_pkg_auth_proto_services_auth_service_proto_depIdxs = []int32{
 	0,  // 0: gcommon.v1.auth.AuthService.Authenticate:input_type -> gcommon.v1.auth.AuthenticateRequest
@@ -93,6 +91,24 @@ func file_pkg_auth_proto_services_auth_service_proto_init() {
 	if File_pkg_auth_proto_services_auth_service_proto != nil {
 		return
 	}
+	file_pkg_auth_proto_requests_authenticate_request_proto_init()
+	file_pkg_auth_proto_responses_authenticate_response_proto_init()
+	file_pkg_auth_proto_requests_validate_token_request_proto_init()
+	file_pkg_auth_proto_responses_validate_token_response_proto_init()
+	file_pkg_auth_proto_requests_verify_credentials_request_proto_init()
+	file_pkg_auth_proto_responses_verify_credentials_response_proto_init()
+	file_pkg_auth_proto_requests_refresh_token_request_proto_init()
+	file_pkg_auth_proto_responses_refresh_token_response_proto_init()
+	file_pkg_auth_proto_requests_revoke_token_request_proto_init()
+	file_pkg_auth_proto_responses_revoke_token_response_proto_init()
+	file_pkg_auth_proto_requests_get_user_info_request_proto_init()
+	file_pkg_auth_proto_responses_get_user_info_response_proto_init()
+	file_pkg_auth_proto_requests_initiate_password_reset_request_proto_init()
+	file_pkg_auth_proto_responses_initiate_password_reset_response_proto_init()
+	file_pkg_auth_proto_requests_complete_password_reset_request_proto_init()
+	file_pkg_auth_proto_responses_complete_password_reset_response_proto_init()
+	file_pkg_auth_proto_requests_change_password_request_proto_init()
+	file_pkg_auth_proto_responses_change_password_response_proto_init()
 	type x struct{}
 	out := protoimpl.TypeBuilder{
 		File: protoimpl.DescBuilder{

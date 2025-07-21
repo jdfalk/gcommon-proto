@@ -6,11 +6,9 @@
 
 //go:build !protoopaque
 
-package services
+package authpb
 
 import (
-	messages "github.com/jdfalk/gcommon/pkg/auth/proto/messages"
-	requests "github.com/jdfalk/gcommon/pkg/auth/proto/requests"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
@@ -31,12 +29,12 @@ const file_pkg_auth_proto_services_session_service_proto_rawDesc = "" +
 	"\n" +
 	"-pkg/auth/proto/services/session_service.proto\x12\x0fgcommon.v1.auth\x1a!google/protobuf/go_features.proto\x1a4pkg/auth/proto/requests/create_session_request.proto\x1a%pkg/auth/proto/messages/session.proto2b\n" +
 	"\x0eSessionService\x12P\n" +
-	"\rCreateSession\x12%.gcommon.v1.auth.CreateSessionRequest\x1a\x18.gcommon.v1.auth.SessionB\xc3\x01\n" +
-	"\x13com.gcommon.v1.authB\x13SessionServiceProtoP\x01Z1github.com/jdfalk/gcommon/pkg/auth/proto/services\xa2\x02\x03GVA\xaa\x02\x0fGcommon.V1.Auth\xca\x02\x0fGcommon\\V1\\Auth\xe2\x02\x1bGcommon\\V1\\Auth\\GPBMetadata\xea\x02\x11Gcommon::V1::Auth\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
+	"\rCreateSession\x12%.gcommon.v1.auth.CreateSessionRequest\x1a\x18.gcommon.v1.auth.SessionB\xc1\x01\n" +
+	"\x13com.gcommon.v1.authB\x13SessionServiceProtoP\x01Z/github.com/jdfalk/gcommon/pkg/auth/proto;authpb\xa2\x02\x03GVA\xaa\x02\x0fGcommon.V1.Auth\xca\x02\x0fGcommon\\V1\\Auth\xe2\x02\x1bGcommon\\V1\\Auth\\GPBMetadata\xea\x02\x11Gcommon::V1::Auth\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
 
 var file_pkg_auth_proto_services_session_service_proto_goTypes = []any{
-	(*requests.CreateSessionRequest)(nil), // 0: gcommon.v1.auth.CreateSessionRequest
-	(*messages.Session)(nil),              // 1: gcommon.v1.auth.Session
+	(*CreateSessionRequest)(nil), // 0: gcommon.v1.auth.CreateSessionRequest
+	(*Session)(nil),              // 1: gcommon.v1.auth.Session
 }
 var file_pkg_auth_proto_services_session_service_proto_depIdxs = []int32{
 	0, // 0: gcommon.v1.auth.SessionService.CreateSession:input_type -> gcommon.v1.auth.CreateSessionRequest
@@ -53,6 +51,8 @@ func file_pkg_auth_proto_services_session_service_proto_init() {
 	if File_pkg_auth_proto_services_session_service_proto != nil {
 		return
 	}
+	file_pkg_auth_proto_requests_create_session_request_proto_init()
+	file_pkg_auth_proto_messages_session_proto_init()
 	type x struct{}
 	out := protoimpl.TypeBuilder{
 		File: protoimpl.DescBuilder{
