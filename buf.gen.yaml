@@ -4,9 +4,7 @@ managed:
   disable:
     - file_option: go_package
       module: buf.build/googleapis/googleapis
-  override:
-    - file_option: go_package_prefix
-      value: github.com/jdfalk/gcommon
+    - file_option: go_package
 plugins:
   - remote: buf.build/protocolbuffers/go:v1.36.6
     out: .

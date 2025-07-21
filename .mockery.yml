@@ -15,6 +15,8 @@ packages:
     interfaces:
       AuthServiceClient:
       AuthServiceServer:
+      AuthAdminServiceClient:
+      AuthAdminServiceServer:
       AuthorizationServiceClient:
       AuthorizationServiceServer:
       SessionServiceClient:
@@ -41,8 +43,6 @@ packages:
     interfaces:
       ConfigServiceClient:
       ConfigServiceServer:
-      # ConfigAdminServiceClient:  # TODO: Uncomment when service is implemented
-      # ConfigAdminServiceServer:  # TODO: Uncomment when service is implemented
 
   github.com/jdfalk/gcommon/pkg/db/proto:
     config:
@@ -65,10 +65,8 @@ packages:
     interfaces:
       HealthServiceClient:
       HealthServiceServer:
-      # HealthCheckServiceClient:  # TODO: Uncomment when service is implemented
-      # HealthCheckServiceServer:  # TODO: Uncomment when service is implemented
-      # HealthAdminServiceClient:  # TODO: Uncomment when service is implemented
-      # HealthAdminServiceServer:  # TODO: Uncomment when service is implemented
+      HealthAdminServiceClient:
+      HealthAdminServiceServer:
 
   github.com/jdfalk/gcommon/pkg/log/proto:
     config:
@@ -77,10 +75,10 @@ packages:
       pkgname: mock
       structname: "Mock{{.InterfaceName}}"
     interfaces:
-      # LogServiceClient:          # TODO: Uncomment when service is implemented
-      # LogServiceServer:          # TODO: Uncomment when service is implemented
-      # LogAdminServiceClient:     # TODO: Uncomment when service is implemented
-      # LogAdminServiceServer:     # TODO: Uncomment when service is implemented
+      LogServiceClient:
+      LogServiceServer:
+      LogAdminServiceClient:
+      LogAdminServiceServer:
 
   github.com/jdfalk/gcommon/pkg/metrics/proto:
     config:
@@ -91,8 +89,22 @@ packages:
     interfaces:
       MetricsServiceClient:
       MetricsServiceServer:
-      MetricsAdminServiceClient:
-      MetricsAdminServiceServer:
+      MetricsManagementServiceClient:
+      MetricsManagementServiceServer:
+
+  github.com/jdfalk/gcommon/pkg/organization/proto:
+    config:
+      dir: pkg/organization/mock
+      filename: "{{.InterfaceName}}_mock.go"
+      pkgname: mock
+      structname: "Mock{{.InterfaceName}}"
+    interfaces:
+      OrganizationServiceClient:
+      OrganizationServiceServer:
+      TenantServiceClient:
+      TenantServiceServer:
+      HierarchyServiceClient:
+      HierarchyServiceServer:
 
   github.com/jdfalk/gcommon/pkg/queue/proto:
     config:
@@ -101,10 +113,12 @@ packages:
       pkgname: mock
       structname: "Mock{{.InterfaceName}}"
     interfaces:
-      # QueueServiceClient:        # TODO: Uncomment when service is implemented
-      # QueueServiceServer:        # TODO: Uncomment when service is implemented
-      # QueueAdminServiceClient:   # TODO: Uncomment when service is implemented
-      # QueueAdminServiceServer:   # TODO: Uncomment when service is implemented
+      QueueServiceClient:
+      QueueServiceServer:
+      QueueAdminServiceClient:
+      QueueAdminServiceServer:
+      WorkflowServiceClient:
+      WorkflowServiceServer:
 
   github.com/jdfalk/gcommon/pkg/web/proto:
     config:

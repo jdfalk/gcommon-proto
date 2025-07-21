@@ -9,9 +9,11 @@
 package authpb
 
 import (
+	proto "github.com/jdfalk/gcommon/pkg/common/proto"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
+	timestamppb "google.golang.org/protobuf/types/known/timestamppb"
 	reflect "reflect"
 	unsafe "unsafe"
 )
@@ -23,20 +25,295 @@ const (
 	_ = protoimpl.EnforceVersion(protoimpl.MaxVersion - 20)
 )
 
+// *
+// Response for session creation operations.
+// Contains session token, expiration details, and user context.
+type CreateSessionResponse struct {
+	state protoimpl.MessageState `protogen:"hybrid.v1"`
+	// Standard response metadata
+	Metadata *proto.ResponseMetadata `protobuf:"bytes,1,opt,name=metadata" json:"metadata,omitempty"`
+	// Created session details
+	SessionId        *string                `protobuf:"bytes,2,opt,name=session_id,json=sessionId" json:"session_id,omitempty"`
+	AccessToken      *string                `protobuf:"bytes,3,opt,name=access_token,json=accessToken" json:"access_token,omitempty"`
+	RefreshToken     *string                `protobuf:"bytes,4,opt,name=refresh_token,json=refreshToken" json:"refresh_token,omitempty"`
+	ExpiresAt        *timestamppb.Timestamp `protobuf:"bytes,5,opt,name=expires_at,json=expiresAt" json:"expires_at,omitempty"`
+	RefreshExpiresAt *timestamppb.Timestamp `protobuf:"bytes,6,opt,name=refresh_expires_at,json=refreshExpiresAt" json:"refresh_expires_at,omitempty"`
+	// User context
+	UserId        *string  `protobuf:"bytes,7,opt,name=user_id,json=userId" json:"user_id,omitempty"`
+	Roles         []string `protobuf:"bytes,8,rep,name=roles" json:"roles,omitempty"`
+	Permissions   []string `protobuf:"bytes,9,rep,name=permissions" json:"permissions,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *CreateSessionResponse) Reset() {
+	*x = CreateSessionResponse{}
+	mi := &file_pkg_auth_proto_responses_create_session_response_proto_msgTypes[0]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *CreateSessionResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*CreateSessionResponse) ProtoMessage() {}
+
+func (x *CreateSessionResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_pkg_auth_proto_responses_create_session_response_proto_msgTypes[0]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+func (x *CreateSessionResponse) GetMetadata() *proto.ResponseMetadata {
+	if x != nil {
+		return x.Metadata
+	}
+	return nil
+}
+
+func (x *CreateSessionResponse) GetSessionId() string {
+	if x != nil && x.SessionId != nil {
+		return *x.SessionId
+	}
+	return ""
+}
+
+func (x *CreateSessionResponse) GetAccessToken() string {
+	if x != nil && x.AccessToken != nil {
+		return *x.AccessToken
+	}
+	return ""
+}
+
+func (x *CreateSessionResponse) GetRefreshToken() string {
+	if x != nil && x.RefreshToken != nil {
+		return *x.RefreshToken
+	}
+	return ""
+}
+
+func (x *CreateSessionResponse) GetExpiresAt() *timestamppb.Timestamp {
+	if x != nil {
+		return x.ExpiresAt
+	}
+	return nil
+}
+
+func (x *CreateSessionResponse) GetRefreshExpiresAt() *timestamppb.Timestamp {
+	if x != nil {
+		return x.RefreshExpiresAt
+	}
+	return nil
+}
+
+func (x *CreateSessionResponse) GetUserId() string {
+	if x != nil && x.UserId != nil {
+		return *x.UserId
+	}
+	return ""
+}
+
+func (x *CreateSessionResponse) GetRoles() []string {
+	if x != nil {
+		return x.Roles
+	}
+	return nil
+}
+
+func (x *CreateSessionResponse) GetPermissions() []string {
+	if x != nil {
+		return x.Permissions
+	}
+	return nil
+}
+
+func (x *CreateSessionResponse) SetMetadata(v *proto.ResponseMetadata) {
+	x.Metadata = v
+}
+
+func (x *CreateSessionResponse) SetSessionId(v string) {
+	x.SessionId = &v
+}
+
+func (x *CreateSessionResponse) SetAccessToken(v string) {
+	x.AccessToken = &v
+}
+
+func (x *CreateSessionResponse) SetRefreshToken(v string) {
+	x.RefreshToken = &v
+}
+
+func (x *CreateSessionResponse) SetExpiresAt(v *timestamppb.Timestamp) {
+	x.ExpiresAt = v
+}
+
+func (x *CreateSessionResponse) SetRefreshExpiresAt(v *timestamppb.Timestamp) {
+	x.RefreshExpiresAt = v
+}
+
+func (x *CreateSessionResponse) SetUserId(v string) {
+	x.UserId = &v
+}
+
+func (x *CreateSessionResponse) SetRoles(v []string) {
+	x.Roles = v
+}
+
+func (x *CreateSessionResponse) SetPermissions(v []string) {
+	x.Permissions = v
+}
+
+func (x *CreateSessionResponse) HasMetadata() bool {
+	if x == nil {
+		return false
+	}
+	return x.Metadata != nil
+}
+
+func (x *CreateSessionResponse) HasSessionId() bool {
+	if x == nil {
+		return false
+	}
+	return x.SessionId != nil
+}
+
+func (x *CreateSessionResponse) HasAccessToken() bool {
+	if x == nil {
+		return false
+	}
+	return x.AccessToken != nil
+}
+
+func (x *CreateSessionResponse) HasRefreshToken() bool {
+	if x == nil {
+		return false
+	}
+	return x.RefreshToken != nil
+}
+
+func (x *CreateSessionResponse) HasExpiresAt() bool {
+	if x == nil {
+		return false
+	}
+	return x.ExpiresAt != nil
+}
+
+func (x *CreateSessionResponse) HasRefreshExpiresAt() bool {
+	if x == nil {
+		return false
+	}
+	return x.RefreshExpiresAt != nil
+}
+
+func (x *CreateSessionResponse) HasUserId() bool {
+	if x == nil {
+		return false
+	}
+	return x.UserId != nil
+}
+
+func (x *CreateSessionResponse) ClearMetadata() {
+	x.Metadata = nil
+}
+
+func (x *CreateSessionResponse) ClearSessionId() {
+	x.SessionId = nil
+}
+
+func (x *CreateSessionResponse) ClearAccessToken() {
+	x.AccessToken = nil
+}
+
+func (x *CreateSessionResponse) ClearRefreshToken() {
+	x.RefreshToken = nil
+}
+
+func (x *CreateSessionResponse) ClearExpiresAt() {
+	x.ExpiresAt = nil
+}
+
+func (x *CreateSessionResponse) ClearRefreshExpiresAt() {
+	x.RefreshExpiresAt = nil
+}
+
+func (x *CreateSessionResponse) ClearUserId() {
+	x.UserId = nil
+}
+
+type CreateSessionResponse_builder struct {
+	_ [0]func() // Prevents comparability and use of unkeyed literals for the builder.
+
+	// Standard response metadata
+	Metadata *proto.ResponseMetadata
+	// Created session details
+	SessionId        *string
+	AccessToken      *string
+	RefreshToken     *string
+	ExpiresAt        *timestamppb.Timestamp
+	RefreshExpiresAt *timestamppb.Timestamp
+	// User context
+	UserId      *string
+	Roles       []string
+	Permissions []string
+}
+
+func (b0 CreateSessionResponse_builder) Build() *CreateSessionResponse {
+	m0 := &CreateSessionResponse{}
+	b, x := &b0, m0
+	_, _ = b, x
+	x.Metadata = b.Metadata
+	x.SessionId = b.SessionId
+	x.AccessToken = b.AccessToken
+	x.RefreshToken = b.RefreshToken
+	x.ExpiresAt = b.ExpiresAt
+	x.RefreshExpiresAt = b.RefreshExpiresAt
+	x.UserId = b.UserId
+	x.Roles = b.Roles
+	x.Permissions = b.Permissions
+	return m0
+}
+
 var File_pkg_auth_proto_responses_create_session_response_proto protoreflect.FileDescriptor
 
 const file_pkg_auth_proto_responses_create_session_response_proto_rawDesc = "" +
 	"\n" +
-	"6pkg/auth/proto/responses/create_session_response.proto\x12\x0fgcommon.v1.auth\x1a!google/protobuf/go_features.protoB\xc8\x01\n" +
+	"6pkg/auth/proto/responses/create_session_response.proto\x12\x0fgcommon.v1.auth\x1a!google/protobuf/go_features.proto\x1a\x1fgoogle/protobuf/timestamp.proto\x1a\x1dpkg/common/proto/common.proto\"\x95\x03\n" +
+	"\x15CreateSessionResponse\x12?\n" +
+	"\bmetadata\x18\x01 \x01(\v2#.gcommon.v1.common.ResponseMetadataR\bmetadata\x12\x1d\n" +
+	"\n" +
+	"session_id\x18\x02 \x01(\tR\tsessionId\x12!\n" +
+	"\faccess_token\x18\x03 \x01(\tR\vaccessToken\x12#\n" +
+	"\rrefresh_token\x18\x04 \x01(\tR\frefreshToken\x129\n" +
+	"\n" +
+	"expires_at\x18\x05 \x01(\v2\x1a.google.protobuf.TimestampR\texpiresAt\x12H\n" +
+	"\x12refresh_expires_at\x18\x06 \x01(\v2\x1a.google.protobuf.TimestampR\x10refreshExpiresAt\x12\x17\n" +
+	"\auser_id\x18\a \x01(\tR\x06userId\x12\x14\n" +
+	"\x05roles\x18\b \x03(\tR\x05roles\x12 \n" +
+	"\vpermissions\x18\t \x03(\tR\vpermissionsB\xc8\x01\n" +
 	"\x13com.gcommon.v1.authB\x1aCreateSessionResponseProtoP\x01Z/github.com/jdfalk/gcommon/pkg/auth/proto;authpb\xa2\x02\x03GVA\xaa\x02\x0fGcommon.V1.Auth\xca\x02\x0fGcommon\\V1\\Auth\xe2\x02\x1bGcommon\\V1\\Auth\\GPBMetadata\xea\x02\x11Gcommon::V1::Auth\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
 
-var file_pkg_auth_proto_responses_create_session_response_proto_goTypes = []any{}
+var file_pkg_auth_proto_responses_create_session_response_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
+var file_pkg_auth_proto_responses_create_session_response_proto_goTypes = []any{
+	(*CreateSessionResponse)(nil),  // 0: gcommon.v1.auth.CreateSessionResponse
+	(*proto.ResponseMetadata)(nil), // 1: gcommon.v1.common.ResponseMetadata
+	(*timestamppb.Timestamp)(nil),  // 2: google.protobuf.Timestamp
+}
 var file_pkg_auth_proto_responses_create_session_response_proto_depIdxs = []int32{
-	0, // [0:0] is the sub-list for method output_type
-	0, // [0:0] is the sub-list for method input_type
-	0, // [0:0] is the sub-list for extension type_name
-	0, // [0:0] is the sub-list for extension extendee
-	0, // [0:0] is the sub-list for field type_name
+	1, // 0: gcommon.v1.auth.CreateSessionResponse.metadata:type_name -> gcommon.v1.common.ResponseMetadata
+	2, // 1: gcommon.v1.auth.CreateSessionResponse.expires_at:type_name -> google.protobuf.Timestamp
+	2, // 2: gcommon.v1.auth.CreateSessionResponse.refresh_expires_at:type_name -> google.protobuf.Timestamp
+	3, // [3:3] is the sub-list for method output_type
+	3, // [3:3] is the sub-list for method input_type
+	3, // [3:3] is the sub-list for extension type_name
+	3, // [3:3] is the sub-list for extension extendee
+	0, // [0:3] is the sub-list for field type_name
 }
 
 func init() { file_pkg_auth_proto_responses_create_session_response_proto_init() }
@@ -50,12 +327,13 @@ func file_pkg_auth_proto_responses_create_session_response_proto_init() {
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: unsafe.Slice(unsafe.StringData(file_pkg_auth_proto_responses_create_session_response_proto_rawDesc), len(file_pkg_auth_proto_responses_create_session_response_proto_rawDesc)),
 			NumEnums:      0,
-			NumMessages:   0,
+			NumMessages:   1,
 			NumExtensions: 0,
 			NumServices:   0,
 		},
 		GoTypes:           file_pkg_auth_proto_responses_create_session_response_proto_goTypes,
 		DependencyIndexes: file_pkg_auth_proto_responses_create_session_response_proto_depIdxs,
+		MessageInfos:      file_pkg_auth_proto_responses_create_session_response_proto_msgTypes,
 	}.Build()
 	File_pkg_auth_proto_responses_create_session_response_proto = out.File
 	file_pkg_auth_proto_responses_create_session_response_proto_goTypes = nil

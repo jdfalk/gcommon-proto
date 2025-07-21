@@ -24,10 +24,32 @@ test: ## Run all tests
 	@echo "🧪 Running tests..."
 	@go test ./... -v
 
-clean: ## Clean generated files
-	@echo "🧹 Cleaning generated files..."
+clean: ## Clean all generated files
+	@echo "🧹 Cleaning all generated files..."
 	@find . -name "*.pb.go" -delete
 	@find . -name "*_grpc.pb.go" -delete
+	@find . -name "*_mock.go" -delete
+	@find . -name "placeholder.go" -delete
+	@echo "✅ All generated files cleaned"
+
+clean-rebuild: ## Clean and regenerate all protobuf files and mocks (skip mocks if compilation fails)
+	@echo "🔄 Clean rebuild of all protobuf files and mocks..."
+	@$(MAKE) clean
+	@echo "🔨 Regenerating protobuf files..."
+	@buf generate
+	@echo "🎭 Attempting to generate mocks..."
+	@$(MAKE) generate-mocks || echo "⚠️  Mock generation skipped due to compilation errors (this is expected until all protobuf files are implemented)"
+	@echo "✅ Clean rebuild complete"
+
+generate-mocks: ## Generate all mock files using mockery
+	@echo "🎭 Generating mocks..."
+	@mockery --config .mockery.yml
+	@echo "✅ Mocks generated"
+
+force-mocks: ## Force mock generation even with errors
+	@echo "🎭 Force generating mocks (ignoring errors)..."
+	@mockery --config .mockery.yml || echo "⚠️  Some mocks failed to generate due to compilation errors"
+	@echo "✅ Mock generation attempted"
 
 quick-wins: ## Execute high-impact quick wins
 	@echo "⚡ Executing quick wins..."
