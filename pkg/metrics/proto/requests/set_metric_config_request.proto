@@ -1,18 +1,21 @@
-// filepath: pkg/metrics/proto/requests/set_metric_config_request.proto
-// file: metrics/proto/requests/set_metric_config_request.proto
-//
-// Request definitions for metrics module
-// TODO: Implement actual protobuf definitions
-//
+// file: pkg/metrics/proto/requests/set_metric_config_request.proto
+// version: 1.0.0
+// guid: d1b98b0c-98f7-47fc-9bb5-f18ebfbbe1d3
+
 edition = "2023";
 
 package gcommon.v1.metrics;
 
 import "google/protobuf/go_features.proto";
+import "pkg/metrics/proto/messages/metric_config.proto";
 
 option go_package = "github.com/jdfalk/gcommon/pkg/metrics/proto;metricspb";
 option features.(pb.go).api_level = API_HYBRID;
 
-// TODO: Add request definitions here
-// This is a placeholder file created during 1-1-1 migration
-// Implement the actual protobuf definitions according to the metrics module requirements
+/**
+ * SetMetricConfigRequest updates configuration for a metric.
+ */
+message SetMetricConfigRequest {
+  // Updated configuration
+  MetricConfig config = 1;
+}

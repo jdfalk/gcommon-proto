@@ -1,6 +1,5 @@
 pkg/metrics/proto/messages/scrape_job.proto
 pkg/metrics/proto/messages/histogram_metric.proto
-pkg/metrics/proto/messages/metric_health.proto
 pkg/metrics/proto/messages/metric_family.proto
 pkg/metrics/proto/messages/retention_policy.proto
 pkg/metrics/proto/messages/import_config.proto
@@ -14,15 +13,12 @@ pkg/metrics/proto/messages/summary_metric.proto
 pkg/metrics/proto/messages/metric_config.proto
 pkg/metrics/proto/messages/alerting_rule.proto
 pkg/metrics/proto/messages/metric_query.proto
-pkg/metrics/proto/messages/metric_label.proto
 pkg/metrics/proto/messages/export_config.proto
 pkg/metrics/proto/messages/metric_aggregation.proto
 pkg/metrics/proto/messages/metric_filter.proto
-pkg/metrics/proto/messages/scrape_target.proto
 pkg/metrics/proto/messages/gauge_metric.proto
 pkg/metrics/proto/messages/metric_quantile.proto
 pkg/metrics/proto/messages/metric_metadata.proto
-pkg/metrics/proto/messages/scrape_config.proto
 pkg/metrics/proto/messages/counter_metric.proto
 pkg/metrics/proto/messages/alert_notification.proto
 pkg/metrics/proto/types/timestamp_range.proto
@@ -46,7 +42,6 @@ pkg/metrics/proto/responses/get_stats_response.proto
 pkg/metrics/proto/responses/set_alerting_rules_response.proto
 pkg/metrics/proto/responses/record_gauge_response.proto
 pkg/metrics/proto/responses/record_summary_response.proto
-pkg/metrics/proto/responses/get_metric_config_response.proto
 pkg/metrics/proto/responses/query_metrics_response.proto
 pkg/metrics/proto/responses/reset_metrics_response.proto
 pkg/metrics/proto/responses/get_metric_metadata_response.proto
@@ -59,7 +54,6 @@ pkg/metrics/proto/responses/set_scrape_config_response.proto
 pkg/metrics/proto/responses/list_metrics_response.proto
 pkg/metrics/proto/responses/record_histogram_response.proto
 pkg/metrics/proto/responses/get_alerting_rules_response.proto
-pkg/metrics/proto/responses/set_metric_config_response.proto
 pkg/metrics/proto/responses/start_scraping_response.proto
 pkg/metrics/proto/responses/create_metric_response.proto
 pkg/metrics/proto/responses/export_metrics_response.proto
@@ -82,14 +76,12 @@ pkg/metrics/proto/requests/reset_metrics_request.proto
 pkg/metrics/proto/requests/record_summary_request.proto
 pkg/metrics/proto/requests/stop_scraping_request.proto
 pkg/metrics/proto/requests/get_scrape_config_request.proto
-pkg/metrics/proto/requests/set_metric_config_request.proto
 pkg/metrics/proto/requests/set_scrape_config_request.proto
 pkg/metrics/proto/requests/get_metric_config_request.proto
 pkg/metrics/proto/requests/health_check_request.proto
 pkg/metrics/proto/requests/get_alerting_rules_request.proto
 pkg/metrics/proto/requests/start_scraping_request.proto
 pkg/metrics/proto/requests/get_metric_metadata_request.proto
-pkg/metrics/proto/requests/list_metrics_request.proto
 pkg/metrics/proto/requests/import_metrics_request.proto
 pkg/metrics/proto/requests/query_metrics_request.proto
 pkg/metrics/proto/services/metrics_admin_service.proto

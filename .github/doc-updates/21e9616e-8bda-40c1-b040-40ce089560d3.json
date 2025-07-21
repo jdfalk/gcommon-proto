@@ -1,0 +1,16 @@
+{
+  "file": "CHANGELOG.md",
+  "mode": "changelog-entry",
+  "content": "### Added\n\n- Implemented initial metrics protobufs",
+  "guid": "21e9616e-8bda-40c1-b040-40ce089560d3",
+  "created_at": "2025-07-21T03:59:48Z",
+  "options": {
+    "section": null,
+    "after": null,
+    "before": null,
+    "task_id": null,
+    "badge_name": null,
+    "priority": null,
+    "category": null
+  }
+}
