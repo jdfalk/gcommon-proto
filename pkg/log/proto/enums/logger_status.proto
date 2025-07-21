@@ -1,0 +1,20 @@
+// file: pkg/log/proto/enums/logger_status.proto
+// version: 1.0.0
+// guid: c65806e5-27c2-4c3e-8f3b-e23b66bca610
+
+edition = "2023";
+
+package gcommon.v1.log;
+
+import "google/protobuf/go_features.proto";
+
+option go_package = "github.com/jdfalk/gcommon/pkg/log/proto;logpb";
+option features.(pb.go).api_level = API_HYBRID;
+
+// LoggerStatus represents health of a logger instance
+enum LoggerStatus {
+  LOGGER_STATUS_UNSPECIFIED = 0;
+  LOGGER_STATUS_ACTIVE = 1;
+  LOGGER_STATUS_INACTIVE = 2;
+  LOGGER_STATUS_ERROR = 3;
+}
