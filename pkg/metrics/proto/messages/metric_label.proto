@@ -1,6 +1,6 @@
 // file: pkg/metrics/proto/messages/metric_label.proto
 // version: 1.0.0
-// guid: 7c0ce179-e17c-43b0-8f57-cc7585f6cb85
+// guid: 8a39fa3e-a2eb-4df9-9dcf-0c9482a16722
 
 edition = "2023";
 
@@ -12,7 +12,8 @@ option go_package = "github.com/jdfalk/gcommon/pkg/metrics/proto;metricspb";
 option features.(pb.go).api_level = API_HYBRID;
 
 /**
- * MetricLabel represents a key/value label attached to a metric.
+ * MetricLabel represents a single key/value label used for
+ * metric identification and filtering.
  */
 message MetricLabel {
   // Label key

@@ -1,27 +1,31 @@
 // file: pkg/metrics/proto/messages/metric_health.proto
 // version: 1.0.0
-// guid: eaa94765-18f8-4a94-9530-b8182f2b5092
+// guid: c0c75431-e37e-4748-8a0d-44a7b15c5e3b
 
 edition = "2023";
 
 package gcommon.v1.metrics;
 
 import "google/protobuf/go_features.proto";
+import "google/protobuf/timestamp.proto";
 import "pkg/metrics/proto/enums/health_status.proto";
 
 option go_package = "github.com/jdfalk/gcommon/pkg/metrics/proto;metricspb";
 option features.(pb.go).api_level = API_HYBRID;
 
 /**
- * MetricHealth provides health information about a metric.
+ * MetricHealth captures the health status of a metric source or scrape job.
  */
 message MetricHealth {
-  // Name of the metric
-  string metric_name = 1;
+  // Metric identifier or scrape job id
+  string target_id = 1;
 
-  // Current health status
+  // Health status
   HealthStatus status = 2;
 
-  // Optional descriptive message
-  string message = 3;
+  // When this health status was checked
+  google.protobuf.Timestamp checked_at = 3;
+
+  // Additional message or context
+  string message = 4;
 }
