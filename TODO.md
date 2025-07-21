@@ -1406,3 +1406,5 @@ Implement SetOptions message and update cache proto imports
 
 Implemented 13 Config request protobufs
 Add DebugInfo message to common module
+
+Implement TransactionService and MigrationService protobufs
