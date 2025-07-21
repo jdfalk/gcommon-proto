@@ -9,6 +9,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+Added 10 log protobuf files and migrated log.proto to aggregator
+
 ### Added
 
 - Implemented initial auth configuration and API key messages
