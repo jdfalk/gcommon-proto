@@ -39,6 +39,7 @@ on:
           - "issues"
           - "docs"
           - "label"
+          - "intelligent-labeling"
           - "lint"
           - "rebase"
         default: "all"
