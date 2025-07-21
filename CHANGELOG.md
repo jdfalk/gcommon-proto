@@ -9,6 +9,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+Organized GitHub project board with standard columns
+
 ### Added
 
 - Added improved GitHub project setup script with automatic authentication and issue linking
