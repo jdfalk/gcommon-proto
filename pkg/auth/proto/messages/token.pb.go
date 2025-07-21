@@ -6,10 +6,9 @@
 
 //go:build !protoopaque
 
-package messages
+package authpb
 
 import (
-	enums "github.com/jdfalk/gcommon/pkg/auth/proto/enums"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
@@ -36,9 +35,9 @@ type Token struct {
 	// Token value (may be JWT or opaque)
 	Value *string `protobuf:"bytes,2,opt,name=value" json:"value,omitempty"`
 	// Token type (access, refresh, etc.)
-	Type *enums.TokenType `protobuf:"varint,3,opt,name=type,enum=gcommon.v1.auth.TokenType" json:"type,omitempty"`
+	Type *TokenType `protobuf:"varint,3,opt,name=type,enum=gcommon.v1.auth.TokenType" json:"type,omitempty"`
 	// Token status
-	Status *enums.TokenStatus `protobuf:"varint,4,opt,name=status,enum=gcommon.v1.auth.TokenStatus" json:"status,omitempty"`
+	Status *TokenStatus `protobuf:"varint,4,opt,name=status,enum=gcommon.v1.auth.TokenStatus" json:"status,omitempty"`
 	// User ID associated with this token
 	UserId *string `protobuf:"bytes,5,opt,name=user_id,json=userId" json:"user_id,omitempty"`
 	// Client ID that requested this token
@@ -102,18 +101,18 @@ func (x *Token) GetValue() string {
 	return ""
 }
 
-func (x *Token) GetType() enums.TokenType {
+func (x *Token) GetType() TokenType {
 	if x != nil && x.Type != nil {
 		return *x.Type
 	}
-	return enums.TokenType(0)
+	return TokenType_TOKEN_TYPE_UNSPECIFIED
 }
 
-func (x *Token) GetStatus() enums.TokenStatus {
+func (x *Token) GetStatus() TokenStatus {
 	if x != nil && x.Status != nil {
 		return *x.Status
 	}
-	return enums.TokenStatus(0)
+	return TokenStatus_TOKEN_STATUS_UNSPECIFIED
 }
 
 func (x *Token) GetUserId() string {
@@ -194,11 +193,11 @@ func (x *Token) SetValue(v string) {
 	x.Value = &v
 }
 
-func (x *Token) SetType(v enums.TokenType) {
+func (x *Token) SetType(v TokenType) {
 	x.Type = &v
 }
 
-func (x *Token) SetStatus(v enums.TokenStatus) {
+func (x *Token) SetStatus(v TokenStatus) {
 	x.Status = &v
 }
 
@@ -382,9 +381,9 @@ type Token_builder struct {
 	// Token value (may be JWT or opaque)
 	Value *string
 	// Token type (access, refresh, etc.)
-	Type *enums.TokenType
+	Type *TokenType
 	// Token status
-	Status *enums.TokenStatus
+	Status *TokenStatus
 	// User ID associated with this token
 	UserId *string
 	// Client ID that requested this token
@@ -456,16 +455,16 @@ const file_pkg_auth_proto_messages_token_proto_rawDesc = "" +
 	"\x10refresh_token_id\x18\x0e \x01(\tR\x0erefreshTokenId\x1a;\n" +
 	"\rMetadataEntry\x12\x10\n" +
 	"\x03key\x18\x01 \x01(\tR\x03key\x12\x14\n" +
-	"\x05value\x18\x02 \x01(\tR\x05value:\x028\x01B\xba\x01\n" +
+	"\x05value\x18\x02 \x01(\tR\x05value:\x028\x01B\xb8\x01\n" +
 	"\x13com.gcommon.v1.authB\n" +
-	"TokenProtoP\x01Z1github.com/jdfalk/gcommon/pkg/auth/proto/messages\xa2\x02\x03GVA\xaa\x02\x0fGcommon.V1.Auth\xca\x02\x0fGcommon\\V1\\Auth\xe2\x02\x1bGcommon\\V1\\Auth\\GPBMetadata\xea\x02\x11Gcommon::V1::Auth\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
+	"TokenProtoP\x01Z/github.com/jdfalk/gcommon/pkg/auth/proto;authpb\xa2\x02\x03GVA\xaa\x02\x0fGcommon.V1.Auth\xca\x02\x0fGcommon\\V1\\Auth\xe2\x02\x1bGcommon\\V1\\Auth\\GPBMetadata\xea\x02\x11Gcommon::V1::Auth\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
 
 var file_pkg_auth_proto_messages_token_proto_msgTypes = make([]protoimpl.MessageInfo, 2)
 var file_pkg_auth_proto_messages_token_proto_goTypes = []any{
 	(*Token)(nil),                 // 0: gcommon.v1.auth.Token
 	nil,                           // 1: gcommon.v1.auth.Token.MetadataEntry
-	(enums.TokenType)(0),          // 2: gcommon.v1.auth.TokenType
-	(enums.TokenStatus)(0),        // 3: gcommon.v1.auth.TokenStatus
+	(TokenType)(0),                // 2: gcommon.v1.auth.TokenType
+	(TokenStatus)(0),              // 3: gcommon.v1.auth.TokenStatus
 	(*timestamppb.Timestamp)(nil), // 4: google.protobuf.Timestamp
 }
 var file_pkg_auth_proto_messages_token_proto_depIdxs = []int32{
@@ -487,6 +486,8 @@ func file_pkg_auth_proto_messages_token_proto_init() {
 	if File_pkg_auth_proto_messages_token_proto != nil {
 		return
 	}
+	file_pkg_auth_proto_enums_token_type_proto_init()
+	file_pkg_auth_proto_enums_token_status_proto_init()
 	type x struct{}
 	out := protoimpl.TypeBuilder{
 		File: protoimpl.DescBuilder{

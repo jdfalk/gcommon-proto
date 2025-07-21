@@ -6,10 +6,9 @@
 
 //go:build protoopaque
 
-package messages
+package authpb
 
 import (
-	enums "github.com/jdfalk/gcommon/pkg/auth/proto/enums"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
@@ -35,7 +34,7 @@ type RoleAssignment struct {
 	xxx_hidden_UserId           *string                `protobuf:"bytes,2,opt,name=user_id,json=userId"`
 	xxx_hidden_RoleId           *string                `protobuf:"bytes,3,opt,name=role_id,json=roleId"`
 	xxx_hidden_Resource         *string                `protobuf:"bytes,4,opt,name=resource"`
-	xxx_hidden_Scope            enums.RoleScope        `protobuf:"varint,5,opt,name=scope,enum=gcommon.v1.auth.RoleScope"`
+	xxx_hidden_Scope            RoleScope              `protobuf:"varint,5,opt,name=scope,enum=gcommon.v1.auth.RoleScope"`
 	xxx_hidden_CreatedAt        *timestamppb.Timestamp `protobuf:"bytes,6,opt,name=created_at,json=createdAt"`
 	xxx_hidden_ExpiresAt        *timestamppb.Timestamp `protobuf:"bytes,7,opt,name=expires_at,json=expiresAt"`
 	xxx_hidden_AssignedByUserId *string                `protobuf:"bytes,8,opt,name=assigned_by_user_id,json=assignedByUserId"`
@@ -114,13 +113,13 @@ func (x *RoleAssignment) GetResource() string {
 	return ""
 }
 
-func (x *RoleAssignment) GetScope() enums.RoleScope {
+func (x *RoleAssignment) GetScope() RoleScope {
 	if x != nil {
 		if protoimpl.X.Present(&(x.XXX_presence[0]), 4) {
 			return x.xxx_hidden_Scope
 		}
 	}
-	return enums.RoleScope(0)
+	return RoleScope_ROLE_SCOPE_UNSPECIFIED
 }
 
 func (x *RoleAssignment) GetCreatedAt() *timestamppb.Timestamp {
@@ -200,7 +199,7 @@ func (x *RoleAssignment) SetResource(v string) {
 	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 3, 10)
 }
 
-func (x *RoleAssignment) SetScope(v enums.RoleScope) {
+func (x *RoleAssignment) SetScope(v RoleScope) {
 	x.xxx_hidden_Scope = v
 	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 4, 10)
 }
@@ -327,7 +326,7 @@ func (x *RoleAssignment) ClearResource() {
 
 func (x *RoleAssignment) ClearScope() {
 	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 4)
-	x.xxx_hidden_Scope = enums.RoleScope_ROLE_SCOPE_UNSPECIFIED
+	x.xxx_hidden_Scope = RoleScope_ROLE_SCOPE_UNSPECIFIED
 }
 
 func (x *RoleAssignment) ClearCreatedAt() {
@@ -362,7 +361,7 @@ type RoleAssignment_builder struct {
 	// Resource the role applies to (optional, for scoped roles)
 	Resource *string
 	// Role scope
-	Scope *enums.RoleScope
+	Scope *RoleScope
 	// Assignment creation timestamp
 	CreatedAt *timestamppb.Timestamp
 	// Assignment expiration timestamp (optional)
@@ -443,14 +442,14 @@ const file_pkg_auth_proto_messages_role_assignment_proto_rawDesc = "" +
 	" \x01(\bR\x06active\x1a;\n" +
 	"\rMetadataEntry\x12\x10\n" +
 	"\x03key\x18\x01 \x01(\tR\x03key\x12\x14\n" +
-	"\x05value\x18\x02 \x01(\tR\x05value:\x028\x01B\xc3\x01\n" +
-	"\x13com.gcommon.v1.authB\x13RoleAssignmentProtoP\x01Z1github.com/jdfalk/gcommon/pkg/auth/proto/messages\xa2\x02\x03GVA\xaa\x02\x0fGcommon.V1.Auth\xca\x02\x0fGcommon\\V1\\Auth\xe2\x02\x1bGcommon\\V1\\Auth\\GPBMetadata\xea\x02\x11Gcommon::V1::Auth\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
+	"\x05value\x18\x02 \x01(\tR\x05value:\x028\x01B\xc1\x01\n" +
+	"\x13com.gcommon.v1.authB\x13RoleAssignmentProtoP\x01Z/github.com/jdfalk/gcommon/pkg/auth/proto;authpb\xa2\x02\x03GVA\xaa\x02\x0fGcommon.V1.Auth\xca\x02\x0fGcommon\\V1\\Auth\xe2\x02\x1bGcommon\\V1\\Auth\\GPBMetadata\xea\x02\x11Gcommon::V1::Auth\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
 
 var file_pkg_auth_proto_messages_role_assignment_proto_msgTypes = make([]protoimpl.MessageInfo, 2)
 var file_pkg_auth_proto_messages_role_assignment_proto_goTypes = []any{
 	(*RoleAssignment)(nil),        // 0: gcommon.v1.auth.RoleAssignment
 	nil,                           // 1: gcommon.v1.auth.RoleAssignment.MetadataEntry
-	(enums.RoleScope)(0),          // 2: gcommon.v1.auth.RoleScope
+	(RoleScope)(0),                // 2: gcommon.v1.auth.RoleScope
 	(*timestamppb.Timestamp)(nil), // 3: google.protobuf.Timestamp
 }
 var file_pkg_auth_proto_messages_role_assignment_proto_depIdxs = []int32{
@@ -470,6 +469,7 @@ func file_pkg_auth_proto_messages_role_assignment_proto_init() {
 	if File_pkg_auth_proto_messages_role_assignment_proto != nil {
 		return
 	}
+	file_pkg_auth_proto_enums_role_scope_proto_init()
 	type x struct{}
 	out := protoimpl.TypeBuilder{
 		File: protoimpl.DescBuilder{

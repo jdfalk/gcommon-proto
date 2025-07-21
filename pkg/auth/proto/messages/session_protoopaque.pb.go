@@ -6,11 +6,10 @@
 
 //go:build protoopaque
 
-package messages
+package authpb
 
 import (
-	enums "github.com/jdfalk/gcommon/pkg/auth/proto/enums"
-	types "github.com/jdfalk/gcommon/pkg/common/proto/types"
+	proto "github.com/jdfalk/gcommon/pkg/common/proto"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
@@ -37,8 +36,8 @@ type Session struct {
 	xxx_hidden_CreatedAt      *timestamppb.Timestamp `protobuf:"bytes,3,opt,name=created_at,json=createdAt"`
 	xxx_hidden_LastActivityAt *timestamppb.Timestamp `protobuf:"bytes,4,opt,name=last_activity_at,json=lastActivityAt"`
 	xxx_hidden_ExpiresAt      *timestamppb.Timestamp `protobuf:"bytes,5,opt,name=expires_at,json=expiresAt"`
-	xxx_hidden_ClientInfo     *types.ClientInfo      `protobuf:"bytes,6,opt,name=client_info,json=clientInfo"`
-	xxx_hidden_Status         enums.SessionStatus    `protobuf:"varint,7,opt,name=status,enum=gcommon.v1.auth.SessionStatus"`
+	xxx_hidden_ClientInfo     *proto.ClientInfo      `protobuf:"bytes,6,opt,name=client_info,json=clientInfo"`
+	xxx_hidden_Status         SessionStatus          `protobuf:"varint,7,opt,name=status,enum=gcommon.v1.auth.SessionStatus"`
 	xxx_hidden_Metadata       map[string]string      `protobuf:"bytes,8,rep,name=metadata" protobuf_key:"bytes,1,opt,name=key" protobuf_val:"bytes,2,opt,name=value"`
 	xxx_hidden_IpAddress      *string                `protobuf:"bytes,9,opt,name=ip_address,json=ipAddress"`
 	xxx_hidden_UserAgent      *string                `protobuf:"bytes,10,opt,name=user_agent,json=userAgent"`
@@ -137,13 +136,13 @@ func (x *Session) GetExpiresAt() *timestamppb.Timestamp {
 	return nil
 }
 
-func (x *Session) GetClientInfo() *types.ClientInfo {
+func (x *Session) GetClientInfo() *proto.ClientInfo {
 	if x != nil {
 		if protoimpl.X.Present(&(x.XXX_presence[0]), 5) {
 			if protoimpl.X.AtomicCheckPointerIsNil(&x.xxx_hidden_ClientInfo) {
 				protoimpl.X.UnmarshalField(x, 6)
 			}
-			var rv *types.ClientInfo
+			var rv *proto.ClientInfo
 			protoimpl.X.AtomicLoadPointer(protoimpl.Pointer(&x.xxx_hidden_ClientInfo), protoimpl.Pointer(&rv))
 			return rv
 		}
@@ -151,13 +150,13 @@ func (x *Session) GetClientInfo() *types.ClientInfo {
 	return nil
 }
 
-func (x *Session) GetStatus() enums.SessionStatus {
+func (x *Session) GetStatus() SessionStatus {
 	if x != nil {
 		if protoimpl.X.Present(&(x.XXX_presence[0]), 6) {
 			return x.xxx_hidden_Status
 		}
 	}
-	return enums.SessionStatus(0)
+	return SessionStatus_SESSION_STATUS_UNSPECIFIED
 }
 
 func (x *Session) GetMetadata() map[string]string {
@@ -229,7 +228,7 @@ func (x *Session) SetExpiresAt(v *timestamppb.Timestamp) {
 	}
 }
 
-func (x *Session) SetClientInfo(v *types.ClientInfo) {
+func (x *Session) SetClientInfo(v *proto.ClientInfo) {
 	protoimpl.X.AtomicSetPointer(&x.xxx_hidden_ClientInfo, v)
 	if v == nil {
 		protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 5)
@@ -238,7 +237,7 @@ func (x *Session) SetClientInfo(v *types.ClientInfo) {
 	}
 }
 
-func (x *Session) SetStatus(v enums.SessionStatus) {
+func (x *Session) SetStatus(v SessionStatus) {
 	x.xxx_hidden_Status = v
 	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 6, 10)
 }
@@ -352,12 +351,12 @@ func (x *Session) ClearExpiresAt() {
 
 func (x *Session) ClearClientInfo() {
 	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 5)
-	protoimpl.X.AtomicSetPointer(&x.xxx_hidden_ClientInfo, (*types.ClientInfo)(nil))
+	protoimpl.X.AtomicSetPointer(&x.xxx_hidden_ClientInfo, (*proto.ClientInfo)(nil))
 }
 
 func (x *Session) ClearStatus() {
 	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 6)
-	x.xxx_hidden_Status = enums.SessionStatus_SESSION_STATUS_UNSPECIFIED
+	x.xxx_hidden_Status = SessionStatus_SESSION_STATUS_UNSPECIFIED
 }
 
 func (x *Session) ClearIpAddress() {
@@ -384,9 +383,9 @@ type Session_builder struct {
 	// Session expiration timestamp
 	ExpiresAt *timestamppb.Timestamp
 	// Client information from session creation
-	ClientInfo *types.ClientInfo
+	ClientInfo *proto.ClientInfo
 	// Current session status
-	Status *enums.SessionStatus
+	Status *SessionStatus
 	// Session metadata for extensibility and tracking
 	Metadata map[string]string
 	// IP address when session was created
@@ -466,16 +465,16 @@ const file_pkg_auth_proto_messages_session_proto_rawDesc = "" +
 	" \x01(\tR\tuserAgent\x1a;\n" +
 	"\rMetadataEntry\x12\x10\n" +
 	"\x03key\x18\x01 \x01(\tR\x03key\x12\x14\n" +
-	"\x05value\x18\x02 \x01(\tR\x05value:\x028\x01B\xbc\x01\n" +
-	"\x13com.gcommon.v1.authB\fSessionProtoP\x01Z1github.com/jdfalk/gcommon/pkg/auth/proto/messages\xa2\x02\x03GVA\xaa\x02\x0fGcommon.V1.Auth\xca\x02\x0fGcommon\\V1\\Auth\xe2\x02\x1bGcommon\\V1\\Auth\\GPBMetadata\xea\x02\x11Gcommon::V1::Auth\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
+	"\x05value\x18\x02 \x01(\tR\x05value:\x028\x01B\xba\x01\n" +
+	"\x13com.gcommon.v1.authB\fSessionProtoP\x01Z/github.com/jdfalk/gcommon/pkg/auth/proto;authpb\xa2\x02\x03GVA\xaa\x02\x0fGcommon.V1.Auth\xca\x02\x0fGcommon\\V1\\Auth\xe2\x02\x1bGcommon\\V1\\Auth\\GPBMetadata\xea\x02\x11Gcommon::V1::Auth\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
 
 var file_pkg_auth_proto_messages_session_proto_msgTypes = make([]protoimpl.MessageInfo, 2)
 var file_pkg_auth_proto_messages_session_proto_goTypes = []any{
 	(*Session)(nil),               // 0: gcommon.v1.auth.Session
 	nil,                           // 1: gcommon.v1.auth.Session.MetadataEntry
 	(*timestamppb.Timestamp)(nil), // 2: google.protobuf.Timestamp
-	(*types.ClientInfo)(nil),      // 3: gcommon.v1.common.ClientInfo
-	(enums.SessionStatus)(0),      // 4: gcommon.v1.auth.SessionStatus
+	(*proto.ClientInfo)(nil),      // 3: gcommon.v1.common.ClientInfo
+	(SessionStatus)(0),            // 4: gcommon.v1.auth.SessionStatus
 }
 var file_pkg_auth_proto_messages_session_proto_depIdxs = []int32{
 	2, // 0: gcommon.v1.auth.Session.created_at:type_name -> google.protobuf.Timestamp
@@ -496,6 +495,7 @@ func file_pkg_auth_proto_messages_session_proto_init() {
 	if File_pkg_auth_proto_messages_session_proto != nil {
 		return
 	}
+	file_pkg_auth_proto_enums_session_status_proto_init()
 	type x struct{}
 	out := protoimpl.TypeBuilder{
 		File: protoimpl.DescBuilder{

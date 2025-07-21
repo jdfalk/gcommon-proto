@@ -6,11 +6,10 @@
 
 //go:build !protoopaque
 
-package messages
+package authpb
 
 import (
-	enums "github.com/jdfalk/gcommon/pkg/auth/proto/enums"
-	types "github.com/jdfalk/gcommon/pkg/common/proto/types"
+	proto "github.com/jdfalk/gcommon/pkg/common/proto"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
@@ -43,9 +42,9 @@ type Session struct {
 	// Session expiration timestamp
 	ExpiresAt *timestamppb.Timestamp `protobuf:"bytes,5,opt,name=expires_at,json=expiresAt" json:"expires_at,omitempty"`
 	// Client information from session creation
-	ClientInfo *types.ClientInfo `protobuf:"bytes,6,opt,name=client_info,json=clientInfo" json:"client_info,omitempty"`
+	ClientInfo *proto.ClientInfo `protobuf:"bytes,6,opt,name=client_info,json=clientInfo" json:"client_info,omitempty"`
 	// Current session status
-	Status *enums.SessionStatus `protobuf:"varint,7,opt,name=status,enum=gcommon.v1.auth.SessionStatus" json:"status,omitempty"`
+	Status *SessionStatus `protobuf:"varint,7,opt,name=status,enum=gcommon.v1.auth.SessionStatus" json:"status,omitempty"`
 	// Session metadata for extensibility and tracking
 	Metadata map[string]string `protobuf:"bytes,8,rep,name=metadata" json:"metadata,omitempty" protobuf_key:"bytes,1,opt,name=key" protobuf_val:"bytes,2,opt,name=value"`
 	// IP address when session was created
@@ -116,18 +115,18 @@ func (x *Session) GetExpiresAt() *timestamppb.Timestamp {
 	return nil
 }
 
-func (x *Session) GetClientInfo() *types.ClientInfo {
+func (x *Session) GetClientInfo() *proto.ClientInfo {
 	if x != nil {
 		return x.ClientInfo
 	}
 	return nil
 }
 
-func (x *Session) GetStatus() enums.SessionStatus {
+func (x *Session) GetStatus() SessionStatus {
 	if x != nil && x.Status != nil {
 		return *x.Status
 	}
-	return enums.SessionStatus(0)
+	return SessionStatus_SESSION_STATUS_UNSPECIFIED
 }
 
 func (x *Session) GetMetadata() map[string]string {
@@ -171,11 +170,11 @@ func (x *Session) SetExpiresAt(v *timestamppb.Timestamp) {
 	x.ExpiresAt = v
 }
 
-func (x *Session) SetClientInfo(v *types.ClientInfo) {
+func (x *Session) SetClientInfo(v *proto.ClientInfo) {
 	x.ClientInfo = v
 }
 
-func (x *Session) SetStatus(v enums.SessionStatus) {
+func (x *Session) SetStatus(v SessionStatus) {
 	x.Status = &v
 }
 
@@ -304,9 +303,9 @@ type Session_builder struct {
 	// Session expiration timestamp
 	ExpiresAt *timestamppb.Timestamp
 	// Client information from session creation
-	ClientInfo *types.ClientInfo
+	ClientInfo *proto.ClientInfo
 	// Current session status
-	Status *enums.SessionStatus
+	Status *SessionStatus
 	// Session metadata for extensibility and tracking
 	Metadata map[string]string
 	// IP address when session was created
@@ -356,16 +355,16 @@ const file_pkg_auth_proto_messages_session_proto_rawDesc = "" +
 	" \x01(\tR\tuserAgent\x1a;\n" +
 	"\rMetadataEntry\x12\x10\n" +
 	"\x03key\x18\x01 \x01(\tR\x03key\x12\x14\n" +
-	"\x05value\x18\x02 \x01(\tR\x05value:\x028\x01B\xbc\x01\n" +
-	"\x13com.gcommon.v1.authB\fSessionProtoP\x01Z1github.com/jdfalk/gcommon/pkg/auth/proto/messages\xa2\x02\x03GVA\xaa\x02\x0fGcommon.V1.Auth\xca\x02\x0fGcommon\\V1\\Auth\xe2\x02\x1bGcommon\\V1\\Auth\\GPBMetadata\xea\x02\x11Gcommon::V1::Auth\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
+	"\x05value\x18\x02 \x01(\tR\x05value:\x028\x01B\xba\x01\n" +
+	"\x13com.gcommon.v1.authB\fSessionProtoP\x01Z/github.com/jdfalk/gcommon/pkg/auth/proto;authpb\xa2\x02\x03GVA\xaa\x02\x0fGcommon.V1.Auth\xca\x02\x0fGcommon\\V1\\Auth\xe2\x02\x1bGcommon\\V1\\Auth\\GPBMetadata\xea\x02\x11Gcommon::V1::Auth\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
 
 var file_pkg_auth_proto_messages_session_proto_msgTypes = make([]protoimpl.MessageInfo, 2)
 var file_pkg_auth_proto_messages_session_proto_goTypes = []any{
 	(*Session)(nil),               // 0: gcommon.v1.auth.Session
 	nil,                           // 1: gcommon.v1.auth.Session.MetadataEntry
 	(*timestamppb.Timestamp)(nil), // 2: google.protobuf.Timestamp
-	(*types.ClientInfo)(nil),      // 3: gcommon.v1.common.ClientInfo
-	(enums.SessionStatus)(0),      // 4: gcommon.v1.auth.SessionStatus
+	(*proto.ClientInfo)(nil),      // 3: gcommon.v1.common.ClientInfo
+	(SessionStatus)(0),            // 4: gcommon.v1.auth.SessionStatus
 }
 var file_pkg_auth_proto_messages_session_proto_depIdxs = []int32{
 	2, // 0: gcommon.v1.auth.Session.created_at:type_name -> google.protobuf.Timestamp
@@ -386,6 +385,7 @@ func file_pkg_auth_proto_messages_session_proto_init() {
 	if File_pkg_auth_proto_messages_session_proto != nil {
 		return
 	}
+	file_pkg_auth_proto_enums_session_status_proto_init()
 	type x struct{}
 	out := protoimpl.TypeBuilder{
 		File: protoimpl.DescBuilder{

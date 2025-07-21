@@ -6,7 +6,7 @@
 
 //go:build !protoopaque
 
-package messages
+package authpb
 
 import (
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
@@ -27,8 +27,8 @@ var File_pkg_auth_proto_messages_api_key_proto protoreflect.FileDescriptor
 
 const file_pkg_auth_proto_messages_api_key_proto_rawDesc = "" +
 	"\n" +
-	"%pkg/auth/proto/messages/api_key.proto\x12\x0fgcommon.v1.auth\x1a!google/protobuf/go_features.protoB\xbb\x01\n" +
-	"\x13com.gcommon.v1.authB\vApiKeyProtoP\x01Z1github.com/jdfalk/gcommon/pkg/auth/proto/messages\xa2\x02\x03GVA\xaa\x02\x0fGcommon.V1.Auth\xca\x02\x0fGcommon\\V1\\Auth\xe2\x02\x1bGcommon\\V1\\Auth\\GPBMetadata\xea\x02\x11Gcommon::V1::Auth\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
+	"%pkg/auth/proto/messages/api_key.proto\x12\x0fgcommon.v1.auth\x1a!google/protobuf/go_features.protoB\xb9\x01\n" +
+	"\x13com.gcommon.v1.authB\vApiKeyProtoP\x01Z/github.com/jdfalk/gcommon/pkg/auth/proto;authpb\xa2\x02\x03GVA\xaa\x02\x0fGcommon.V1.Auth\xca\x02\x0fGcommon\\V1\\Auth\xe2\x02\x1bGcommon\\V1\\Auth\\GPBMetadata\xea\x02\x11Gcommon::V1::Auth\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
 
 var file_pkg_auth_proto_messages_api_key_proto_goTypes = []any{}
 var file_pkg_auth_proto_messages_api_key_proto_depIdxs = []int32{

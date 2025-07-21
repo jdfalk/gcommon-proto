@@ -6,10 +6,9 @@
 
 //go:build !protoopaque
 
-package messages
+package authpb
 
 import (
-	enums "github.com/jdfalk/gcommon/pkg/auth/proto/enums"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
@@ -44,7 +43,7 @@ type User struct {
 	// Last name
 	LastName *string `protobuf:"bytes,6,opt,name=last_name,json=lastName" json:"last_name,omitempty"`
 	// User account status
-	Status *enums.UserStatus `protobuf:"varint,7,opt,name=status,enum=gcommon.v1.auth.UserStatus" json:"status,omitempty"`
+	Status *UserStatus `protobuf:"varint,7,opt,name=status,enum=gcommon.v1.auth.UserStatus" json:"status,omitempty"`
 	// Account creation timestamp (immutable)
 	CreatedAt *timestamppb.Timestamp `protobuf:"bytes,8,opt,name=created_at,json=createdAt" json:"created_at,omitempty"`
 	// Last account update timestamp
@@ -138,11 +137,11 @@ func (x *User) GetLastName() string {
 	return ""
 }
 
-func (x *User) GetStatus() enums.UserStatus {
+func (x *User) GetStatus() UserStatus {
 	if x != nil && x.Status != nil {
 		return *x.Status
 	}
-	return enums.UserStatus(0)
+	return UserStatus_USER_STATUS_UNSPECIFIED
 }
 
 func (x *User) GetCreatedAt() *timestamppb.Timestamp {
@@ -246,7 +245,7 @@ func (x *User) SetLastName(v string) {
 	x.LastName = &v
 }
 
-func (x *User) SetStatus(v enums.UserStatus) {
+func (x *User) SetStatus(v UserStatus) {
 	x.Status = &v
 }
 
@@ -486,7 +485,7 @@ type User_builder struct {
 	// Last name
 	LastName *string
 	// User account status
-	Status *enums.UserStatus
+	Status *UserStatus
 	// Account creation timestamp (immutable)
 	CreatedAt *timestamppb.Timestamp
 	// Last account update timestamp
@@ -570,15 +569,15 @@ const file_pkg_auth_proto_messages_user_proto_rawDesc = "" +
 	"\x05value\x18\x02 \x01(\tR\x05value:\x028\x01\x1a;\n" +
 	"\rMetadataEntry\x12\x10\n" +
 	"\x03key\x18\x01 \x01(\tR\x03key\x12\x14\n" +
-	"\x05value\x18\x02 \x01(\tR\x05value:\x028\x01B\xb9\x01\n" +
-	"\x13com.gcommon.v1.authB\tUserProtoP\x01Z1github.com/jdfalk/gcommon/pkg/auth/proto/messages\xa2\x02\x03GVA\xaa\x02\x0fGcommon.V1.Auth\xca\x02\x0fGcommon\\V1\\Auth\xe2\x02\x1bGcommon\\V1\\Auth\\GPBMetadata\xea\x02\x11Gcommon::V1::Auth\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
+	"\x05value\x18\x02 \x01(\tR\x05value:\x028\x01B\xb7\x01\n" +
+	"\x13com.gcommon.v1.authB\tUserProtoP\x01Z/github.com/jdfalk/gcommon/pkg/auth/proto;authpb\xa2\x02\x03GVA\xaa\x02\x0fGcommon.V1.Auth\xca\x02\x0fGcommon\\V1\\Auth\xe2\x02\x1bGcommon\\V1\\Auth\\GPBMetadata\xea\x02\x11Gcommon::V1::Auth\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
 
 var file_pkg_auth_proto_messages_user_proto_msgTypes = make([]protoimpl.MessageInfo, 3)
 var file_pkg_auth_proto_messages_user_proto_goTypes = []any{
 	(*User)(nil),                  // 0: gcommon.v1.auth.User
 	nil,                           // 1: gcommon.v1.auth.User.PreferencesEntry
 	nil,                           // 2: gcommon.v1.auth.User.MetadataEntry
-	(enums.UserStatus)(0),         // 3: gcommon.v1.auth.UserStatus
+	(UserStatus)(0),               // 3: gcommon.v1.auth.UserStatus
 	(*timestamppb.Timestamp)(nil), // 4: google.protobuf.Timestamp
 }
 var file_pkg_auth_proto_messages_user_proto_depIdxs = []int32{
@@ -600,6 +599,7 @@ func file_pkg_auth_proto_messages_user_proto_init() {
 	if File_pkg_auth_proto_messages_user_proto != nil {
 		return
 	}
+	file_pkg_auth_proto_enums_user_status_proto_init()
 	type x struct{}
 	out := protoimpl.TypeBuilder{
 		File: protoimpl.DescBuilder{

@@ -6,10 +6,9 @@
 
 //go:build !protoopaque
 
-package messages
+package authpb
 
 import (
-	enums "github.com/jdfalk/gcommon/pkg/auth/proto/enums"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
@@ -34,7 +33,7 @@ type TokenInfo struct {
 	// Token identifier
 	TokenId *string `protobuf:"bytes,1,opt,name=token_id,json=tokenId" json:"token_id,omitempty"`
 	// Token type
-	Type *enums.TokenType `protobuf:"varint,2,opt,name=type,enum=gcommon.v1.auth.TokenType" json:"type,omitempty"`
+	Type *TokenType `protobuf:"varint,2,opt,name=type,enum=gcommon.v1.auth.TokenType" json:"type,omitempty"`
 	// User ID associated with token
 	UserId *string `protobuf:"bytes,3,opt,name=user_id,json=userId" json:"user_id,omitempty"`
 	// Client ID that owns the token
@@ -85,11 +84,11 @@ func (x *TokenInfo) GetTokenId() string {
 	return ""
 }
 
-func (x *TokenInfo) GetType() enums.TokenType {
+func (x *TokenInfo) GetType() TokenType {
 	if x != nil && x.Type != nil {
 		return *x.Type
 	}
-	return enums.TokenType(0)
+	return TokenType_TOKEN_TYPE_UNSPECIFIED
 }
 
 func (x *TokenInfo) GetUserId() string {
@@ -145,7 +144,7 @@ func (x *TokenInfo) SetTokenId(v string) {
 	x.TokenId = &v
 }
 
-func (x *TokenInfo) SetType(v enums.TokenType) {
+func (x *TokenInfo) SetType(v TokenType) {
 	x.Type = &v
 }
 
@@ -271,7 +270,7 @@ type TokenInfo_builder struct {
 	// Token identifier
 	TokenId *string
 	// Token type
-	Type *enums.TokenType
+	Type *TokenType
 	// User ID associated with token
 	UserId *string
 	// Client ID that owns the token
@@ -321,13 +320,13 @@ const file_pkg_auth_proto_messages_token_info_proto_rawDesc = "" +
 	"expires_at\x18\a \x01(\v2\x1a.google.protobuf.TimestampR\texpiresAt\x12\x16\n" +
 	"\x06active\x18\b \x01(\bR\x06active\x12\x1d\n" +
 	"\n" +
-	"expires_in\x18\t \x01(\x03R\texpiresInB\xbe\x01\n" +
-	"\x13com.gcommon.v1.authB\x0eTokenInfoProtoP\x01Z1github.com/jdfalk/gcommon/pkg/auth/proto/messages\xa2\x02\x03GVA\xaa\x02\x0fGcommon.V1.Auth\xca\x02\x0fGcommon\\V1\\Auth\xe2\x02\x1bGcommon\\V1\\Auth\\GPBMetadata\xea\x02\x11Gcommon::V1::Auth\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
+	"expires_in\x18\t \x01(\x03R\texpiresInB\xbc\x01\n" +
+	"\x13com.gcommon.v1.authB\x0eTokenInfoProtoP\x01Z/github.com/jdfalk/gcommon/pkg/auth/proto;authpb\xa2\x02\x03GVA\xaa\x02\x0fGcommon.V1.Auth\xca\x02\x0fGcommon\\V1\\Auth\xe2\x02\x1bGcommon\\V1\\Auth\\GPBMetadata\xea\x02\x11Gcommon::V1::Auth\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
 
 var file_pkg_auth_proto_messages_token_info_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_pkg_auth_proto_messages_token_info_proto_goTypes = []any{
 	(*TokenInfo)(nil),             // 0: gcommon.v1.auth.TokenInfo
-	(enums.TokenType)(0),          // 1: gcommon.v1.auth.TokenType
+	(TokenType)(0),                // 1: gcommon.v1.auth.TokenType
 	(*timestamppb.Timestamp)(nil), // 2: google.protobuf.Timestamp
 }
 var file_pkg_auth_proto_messages_token_info_proto_depIdxs = []int32{
@@ -346,6 +345,7 @@ func file_pkg_auth_proto_messages_token_info_proto_init() {
 	if File_pkg_auth_proto_messages_token_info_proto != nil {
 		return
 	}
+	file_pkg_auth_proto_enums_token_type_proto_init()
 	type x struct{}
 	out := protoimpl.TypeBuilder{
 		File: protoimpl.DescBuilder{
