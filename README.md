@@ -322,3 +322,5 @@ Implemented TransactionService and MigrationService protobufs
 # Metrics
 
 | **Metrics**      | 🔄 7%     | ❌ No                 | 🔄 In Progress | **❌ 90/97 files need implementation**     |
+
+Queue module progress: implemented acknowledgment messages and types (approx. 6% complete)
