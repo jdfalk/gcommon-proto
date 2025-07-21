@@ -4,7 +4,7 @@
 // - protoc             (unknown)
 // source: pkg/log/proto/log.proto
 
-package proto
+package logpb
 
 import (
 	context "context"

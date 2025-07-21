@@ -6,12 +6,10 @@
 
 //go:build !protoopaque
 
-package proto
+package logpb
 
 import (
-	_ "github.com/jdfalk/gcommon/pkg/common/proto"
-	messages "github.com/jdfalk/gcommon/pkg/common/proto/messages"
-	types "github.com/jdfalk/gcommon/pkg/common/proto/types"
+	proto "github.com/jdfalk/gcommon/pkg/common/proto"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
@@ -408,7 +406,7 @@ type LogRequest struct {
 	// Logger name (optional)
 	Logger *string `protobuf:"bytes,2,opt,name=logger" json:"logger,omitempty"`
 	// Request metadata
-	Metadata      *messages.RequestMetadata `protobuf:"bytes,3,opt,name=metadata" json:"metadata,omitempty"`
+	Metadata      *proto.RequestMetadata `protobuf:"bytes,3,opt,name=metadata" json:"metadata,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -452,7 +450,7 @@ func (x *LogRequest) GetLogger() string {
 	return ""
 }
 
-func (x *LogRequest) GetMetadata() *messages.RequestMetadata {
+func (x *LogRequest) GetMetadata() *proto.RequestMetadata {
 	if x != nil {
 		return x.Metadata
 	}
@@ -467,7 +465,7 @@ func (x *LogRequest) SetLogger(v string) {
 	x.Logger = &v
 }
 
-func (x *LogRequest) SetMetadata(v *messages.RequestMetadata) {
+func (x *LogRequest) SetMetadata(v *proto.RequestMetadata) {
 	x.Metadata = v
 }
 
@@ -512,7 +510,7 @@ type LogRequest_builder struct {
 	// Logger name (optional)
 	Logger *string
 	// Request metadata
-	Metadata *messages.RequestMetadata
+	Metadata *proto.RequestMetadata
 }
 
 func (b0 LogRequest_builder) Build() *LogRequest {
@@ -533,7 +531,7 @@ type LogResponse struct {
 	// Entry ID (if supported)
 	EntryId *string `protobuf:"bytes,2,opt,name=entry_id,json=entryId" json:"entry_id,omitempty"`
 	// Error information
-	Error         *messages.Error `protobuf:"bytes,3,opt,name=error" json:"error,omitempty"`
+	Error         *proto.Error `protobuf:"bytes,3,opt,name=error" json:"error,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -577,7 +575,7 @@ func (x *LogResponse) GetEntryId() string {
 	return ""
 }
 
-func (x *LogResponse) GetError() *messages.Error {
+func (x *LogResponse) GetError() *proto.Error {
 	if x != nil {
 		return x.Error
 	}
@@ -592,7 +590,7 @@ func (x *LogResponse) SetEntryId(v string) {
 	x.EntryId = &v
 }
 
-func (x *LogResponse) SetError(v *messages.Error) {
+func (x *LogResponse) SetError(v *proto.Error) {
 	x.Error = v
 }
 
@@ -637,7 +635,7 @@ type LogResponse_builder struct {
 	// Entry ID (if supported)
 	EntryId *string
 	// Error information
-	Error *messages.Error
+	Error *proto.Error
 }
 
 func (b0 LogResponse_builder) Build() *LogResponse {
@@ -658,7 +656,7 @@ type LogBatchRequest struct {
 	// Logger name (optional)
 	Logger *string `protobuf:"bytes,2,opt,name=logger" json:"logger,omitempty"`
 	// Request metadata
-	Metadata *messages.RequestMetadata `protobuf:"bytes,3,opt,name=metadata" json:"metadata,omitempty"`
+	Metadata *proto.RequestMetadata `protobuf:"bytes,3,opt,name=metadata" json:"metadata,omitempty"`
 	// Batch options
 	Options       *BatchLogOptions `protobuf:"bytes,4,opt,name=options" json:"options,omitempty"`
 	unknownFields protoimpl.UnknownFields
@@ -704,7 +702,7 @@ func (x *LogBatchRequest) GetLogger() string {
 	return ""
 }
 
-func (x *LogBatchRequest) GetMetadata() *messages.RequestMetadata {
+func (x *LogBatchRequest) GetMetadata() *proto.RequestMetadata {
 	if x != nil {
 		return x.Metadata
 	}
@@ -726,7 +724,7 @@ func (x *LogBatchRequest) SetLogger(v string) {
 	x.Logger = &v
 }
 
-func (x *LogBatchRequest) SetMetadata(v *messages.RequestMetadata) {
+func (x *LogBatchRequest) SetMetadata(v *proto.RequestMetadata) {
 	x.Metadata = v
 }
 
@@ -775,7 +773,7 @@ type LogBatchRequest_builder struct {
 	// Logger name (optional)
 	Logger *string
 	// Request metadata
-	Metadata *messages.RequestMetadata
+	Metadata *proto.RequestMetadata
 	// Batch options
 	Options *BatchLogOptions
 }
@@ -926,7 +924,7 @@ type LogBatchResponse struct {
 	// Entry IDs (if supported)
 	EntryIds []string `protobuf:"bytes,3,rep,name=entry_ids,json=entryIds" json:"entry_ids,omitempty"`
 	// Error information
-	Error         *messages.Error `protobuf:"bytes,4,opt,name=error" json:"error,omitempty"`
+	Error         *proto.Error `protobuf:"bytes,4,opt,name=error" json:"error,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -977,7 +975,7 @@ func (x *LogBatchResponse) GetEntryIds() []string {
 	return nil
 }
 
-func (x *LogBatchResponse) GetError() *messages.Error {
+func (x *LogBatchResponse) GetError() *proto.Error {
 	if x != nil {
 		return x.Error
 	}
@@ -996,7 +994,7 @@ func (x *LogBatchResponse) SetEntryIds(v []string) {
 	x.EntryIds = v
 }
 
-func (x *LogBatchResponse) SetError(v *messages.Error) {
+func (x *LogBatchResponse) SetError(v *proto.Error) {
 	x.Error = v
 }
 
@@ -1043,7 +1041,7 @@ type LogBatchResponse_builder struct {
 	// Entry IDs (if supported)
 	EntryIds []string
 	// Error information
-	Error *messages.Error
+	Error *proto.Error
 }
 
 func (b0 LogBatchResponse_builder) Build() *LogBatchResponse {
@@ -1772,11 +1770,11 @@ type QueryLogRequest struct {
 	// Query filters
 	Filter *LogFilter `protobuf:"bytes,1,opt,name=filter" json:"filter,omitempty"`
 	// Pagination
-	Pagination *messages.Pagination `protobuf:"bytes,2,opt,name=pagination" json:"pagination,omitempty"`
+	Pagination *proto.Pagination `protobuf:"bytes,2,opt,name=pagination" json:"pagination,omitempty"`
 	// Sorting options
 	Sort *LogSort `protobuf:"bytes,3,opt,name=sort" json:"sort,omitempty"`
 	// Request metadata
-	Metadata      *messages.RequestMetadata `protobuf:"bytes,4,opt,name=metadata" json:"metadata,omitempty"`
+	Metadata      *proto.RequestMetadata `protobuf:"bytes,4,opt,name=metadata" json:"metadata,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -1813,7 +1811,7 @@ func (x *QueryLogRequest) GetFilter() *LogFilter {
 	return nil
 }
 
-func (x *QueryLogRequest) GetPagination() *messages.Pagination {
+func (x *QueryLogRequest) GetPagination() *proto.Pagination {
 	if x != nil {
 		return x.Pagination
 	}
@@ -1827,7 +1825,7 @@ func (x *QueryLogRequest) GetSort() *LogSort {
 	return nil
 }
 
-func (x *QueryLogRequest) GetMetadata() *messages.RequestMetadata {
+func (x *QueryLogRequest) GetMetadata() *proto.RequestMetadata {
 	if x != nil {
 		return x.Metadata
 	}
@@ -1838,7 +1836,7 @@ func (x *QueryLogRequest) SetFilter(v *LogFilter) {
 	x.Filter = v
 }
 
-func (x *QueryLogRequest) SetPagination(v *messages.Pagination) {
+func (x *QueryLogRequest) SetPagination(v *proto.Pagination) {
 	x.Pagination = v
 }
 
@@ -1846,7 +1844,7 @@ func (x *QueryLogRequest) SetSort(v *LogSort) {
 	x.Sort = v
 }
 
-func (x *QueryLogRequest) SetMetadata(v *messages.RequestMetadata) {
+func (x *QueryLogRequest) SetMetadata(v *proto.RequestMetadata) {
 	x.Metadata = v
 }
 
@@ -1900,11 +1898,11 @@ type QueryLogRequest_builder struct {
 	// Query filters
 	Filter *LogFilter
 	// Pagination
-	Pagination *messages.Pagination
+	Pagination *proto.Pagination
 	// Sorting options
 	Sort *LogSort
 	// Request metadata
-	Metadata *messages.RequestMetadata
+	Metadata *proto.RequestMetadata
 }
 
 func (b0 QueryLogRequest_builder) Build() *QueryLogRequest {
@@ -2265,7 +2263,7 @@ type LogSort struct {
 	// Sort field
 	Field *LogSortField `protobuf:"varint,1,opt,name=field,enum=gcommon.v1.log.LogSortField" json:"field,omitempty"`
 	// Sort direction
-	Direction     *types.SortDirection `protobuf:"varint,2,opt,name=direction,enum=gcommon.v1.common.SortDirection" json:"direction,omitempty"`
+	Direction     *proto.SortDirection `protobuf:"varint,2,opt,name=direction,enum=gcommon.v1.common.SortDirection" json:"direction,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -2302,18 +2300,18 @@ func (x *LogSort) GetField() LogSortField {
 	return LogSortField_LOG_SORT_FIELD_UNSPECIFIED
 }
 
-func (x *LogSort) GetDirection() types.SortDirection {
+func (x *LogSort) GetDirection() proto.SortDirection {
 	if x != nil && x.Direction != nil {
 		return *x.Direction
 	}
-	return types.SortDirection(0)
+	return proto.SortDirection(0)
 }
 
 func (x *LogSort) SetField(v LogSortField) {
 	x.Field = &v
 }
 
-func (x *LogSort) SetDirection(v types.SortDirection) {
+func (x *LogSort) SetDirection(v proto.SortDirection) {
 	x.Direction = &v
 }
 
@@ -2345,7 +2343,7 @@ type LogSort_builder struct {
 	// Sort field
 	Field *LogSortField
 	// Sort direction
-	Direction *types.SortDirection
+	Direction *proto.SortDirection
 }
 
 func (b0 LogSort_builder) Build() *LogSort {
@@ -2363,11 +2361,11 @@ type QueryLogResponse struct {
 	// Found log entries
 	Entries []*LogEntry `protobuf:"bytes,1,rep,name=entries" json:"entries,omitempty"`
 	// Pagination info
-	Pagination *messages.Pagination `protobuf:"bytes,2,opt,name=pagination" json:"pagination,omitempty"`
+	Pagination *proto.Pagination `protobuf:"bytes,2,opt,name=pagination" json:"pagination,omitempty"`
 	// Total count (if requested)
 	TotalCount *int64 `protobuf:"varint,3,opt,name=total_count,json=totalCount" json:"total_count,omitempty"`
 	// Error information
-	Error         *messages.Error `protobuf:"bytes,4,opt,name=error" json:"error,omitempty"`
+	Error         *proto.Error `protobuf:"bytes,4,opt,name=error" json:"error,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -2404,7 +2402,7 @@ func (x *QueryLogResponse) GetEntries() []*LogEntry {
 	return nil
 }
 
-func (x *QueryLogResponse) GetPagination() *messages.Pagination {
+func (x *QueryLogResponse) GetPagination() *proto.Pagination {
 	if x != nil {
 		return x.Pagination
 	}
@@ -2418,7 +2416,7 @@ func (x *QueryLogResponse) GetTotalCount() int64 {
 	return 0
 }
 
-func (x *QueryLogResponse) GetError() *messages.Error {
+func (x *QueryLogResponse) GetError() *proto.Error {
 	if x != nil {
 		return x.Error
 	}
@@ -2429,7 +2427,7 @@ func (x *QueryLogResponse) SetEntries(v []*LogEntry) {
 	x.Entries = v
 }
 
-func (x *QueryLogResponse) SetPagination(v *messages.Pagination) {
+func (x *QueryLogResponse) SetPagination(v *proto.Pagination) {
 	x.Pagination = v
 }
 
@@ -2437,7 +2435,7 @@ func (x *QueryLogResponse) SetTotalCount(v int64) {
 	x.TotalCount = &v
 }
 
-func (x *QueryLogResponse) SetError(v *messages.Error) {
+func (x *QueryLogResponse) SetError(v *proto.Error) {
 	x.Error = v
 }
 
@@ -2480,11 +2478,11 @@ type QueryLogResponse_builder struct {
 	// Found log entries
 	Entries []*LogEntry
 	// Pagination info
-	Pagination *messages.Pagination
+	Pagination *proto.Pagination
 	// Total count (if requested)
 	TotalCount *int64
 	// Error information
-	Error *messages.Error
+	Error *proto.Error
 }
 
 func (b0 QueryLogResponse_builder) Build() *QueryLogResponse {
@@ -2508,7 +2506,7 @@ type StreamLogRequest struct {
 	// Buffer size
 	BufferSize *int32 `protobuf:"varint,3,opt,name=buffer_size,json=bufferSize" json:"buffer_size,omitempty"`
 	// Request metadata
-	Metadata      *messages.RequestMetadata `protobuf:"bytes,4,opt,name=metadata" json:"metadata,omitempty"`
+	Metadata      *proto.RequestMetadata `protobuf:"bytes,4,opt,name=metadata" json:"metadata,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -2559,7 +2557,7 @@ func (x *StreamLogRequest) GetBufferSize() int32 {
 	return 0
 }
 
-func (x *StreamLogRequest) GetMetadata() *messages.RequestMetadata {
+func (x *StreamLogRequest) GetMetadata() *proto.RequestMetadata {
 	if x != nil {
 		return x.Metadata
 	}
@@ -2578,7 +2576,7 @@ func (x *StreamLogRequest) SetBufferSize(v int32) {
 	x.BufferSize = &v
 }
 
-func (x *StreamLogRequest) SetMetadata(v *messages.RequestMetadata) {
+func (x *StreamLogRequest) SetMetadata(v *proto.RequestMetadata) {
 	x.Metadata = v
 }
 
@@ -2636,7 +2634,7 @@ type StreamLogRequest_builder struct {
 	// Buffer size
 	BufferSize *int32
 	// Request metadata
-	Metadata *messages.RequestMetadata
+	Metadata *proto.RequestMetadata
 }
 
 func (b0 StreamLogRequest_builder) Build() *StreamLogRequest {
@@ -2656,7 +2654,7 @@ type GetLogLevelRequest struct {
 	// Logger name (optional, defaults to root)
 	Logger *string `protobuf:"bytes,1,opt,name=logger" json:"logger,omitempty"`
 	// Request metadata
-	Metadata      *messages.RequestMetadata `protobuf:"bytes,2,opt,name=metadata" json:"metadata,omitempty"`
+	Metadata      *proto.RequestMetadata `protobuf:"bytes,2,opt,name=metadata" json:"metadata,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -2693,7 +2691,7 @@ func (x *GetLogLevelRequest) GetLogger() string {
 	return ""
 }
 
-func (x *GetLogLevelRequest) GetMetadata() *messages.RequestMetadata {
+func (x *GetLogLevelRequest) GetMetadata() *proto.RequestMetadata {
 	if x != nil {
 		return x.Metadata
 	}
@@ -2704,7 +2702,7 @@ func (x *GetLogLevelRequest) SetLogger(v string) {
 	x.Logger = &v
 }
 
-func (x *GetLogLevelRequest) SetMetadata(v *messages.RequestMetadata) {
+func (x *GetLogLevelRequest) SetMetadata(v *proto.RequestMetadata) {
 	x.Metadata = v
 }
 
@@ -2736,7 +2734,7 @@ type GetLogLevelRequest_builder struct {
 	// Logger name (optional, defaults to root)
 	Logger *string
 	// Request metadata
-	Metadata *messages.RequestMetadata
+	Metadata *proto.RequestMetadata
 }
 
 func (b0 GetLogLevelRequest_builder) Build() *GetLogLevelRequest {
@@ -2756,7 +2754,7 @@ type GetLogLevelResponse struct {
 	// Logger name
 	Logger *string `protobuf:"bytes,2,opt,name=logger" json:"logger,omitempty"`
 	// Error information
-	Error         *messages.Error `protobuf:"bytes,3,opt,name=error" json:"error,omitempty"`
+	Error         *proto.Error `protobuf:"bytes,3,opt,name=error" json:"error,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -2800,7 +2798,7 @@ func (x *GetLogLevelResponse) GetLogger() string {
 	return ""
 }
 
-func (x *GetLogLevelResponse) GetError() *messages.Error {
+func (x *GetLogLevelResponse) GetError() *proto.Error {
 	if x != nil {
 		return x.Error
 	}
@@ -2815,7 +2813,7 @@ func (x *GetLogLevelResponse) SetLogger(v string) {
 	x.Logger = &v
 }
 
-func (x *GetLogLevelResponse) SetError(v *messages.Error) {
+func (x *GetLogLevelResponse) SetError(v *proto.Error) {
 	x.Error = v
 }
 
@@ -2860,7 +2858,7 @@ type GetLogLevelResponse_builder struct {
 	// Logger name
 	Logger *string
 	// Error information
-	Error *messages.Error
+	Error *proto.Error
 }
 
 func (b0 GetLogLevelResponse_builder) Build() *GetLogLevelResponse {
@@ -2883,7 +2881,7 @@ type SetLogLevelRequest struct {
 	// Whether to persist the change
 	Persist *bool `protobuf:"varint,3,opt,name=persist" json:"persist,omitempty"`
 	// Request metadata
-	Metadata      *messages.RequestMetadata `protobuf:"bytes,4,opt,name=metadata" json:"metadata,omitempty"`
+	Metadata      *proto.RequestMetadata `protobuf:"bytes,4,opt,name=metadata" json:"metadata,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -2934,7 +2932,7 @@ func (x *SetLogLevelRequest) GetPersist() bool {
 	return false
 }
 
-func (x *SetLogLevelRequest) GetMetadata() *messages.RequestMetadata {
+func (x *SetLogLevelRequest) GetMetadata() *proto.RequestMetadata {
 	if x != nil {
 		return x.Metadata
 	}
@@ -2953,7 +2951,7 @@ func (x *SetLogLevelRequest) SetPersist(v bool) {
 	x.Persist = &v
 }
 
-func (x *SetLogLevelRequest) SetMetadata(v *messages.RequestMetadata) {
+func (x *SetLogLevelRequest) SetMetadata(v *proto.RequestMetadata) {
 	x.Metadata = v
 }
 
@@ -3011,7 +3009,7 @@ type SetLogLevelRequest_builder struct {
 	// Whether to persist the change
 	Persist *bool
 	// Request metadata
-	Metadata *messages.RequestMetadata
+	Metadata *proto.RequestMetadata
 }
 
 func (b0 SetLogLevelRequest_builder) Build() *SetLogLevelRequest {
@@ -3035,7 +3033,7 @@ type SetLogLevelResponse struct {
 	// Logger name
 	Logger *string `protobuf:"bytes,3,opt,name=logger" json:"logger,omitempty"`
 	// Error information
-	Error         *messages.Error `protobuf:"bytes,4,opt,name=error" json:"error,omitempty"`
+	Error         *proto.Error `protobuf:"bytes,4,opt,name=error" json:"error,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -3086,7 +3084,7 @@ func (x *SetLogLevelResponse) GetLogger() string {
 	return ""
 }
 
-func (x *SetLogLevelResponse) GetError() *messages.Error {
+func (x *SetLogLevelResponse) GetError() *proto.Error {
 	if x != nil {
 		return x.Error
 	}
@@ -3105,7 +3103,7 @@ func (x *SetLogLevelResponse) SetLogger(v string) {
 	x.Logger = &v
 }
 
-func (x *SetLogLevelResponse) SetError(v *messages.Error) {
+func (x *SetLogLevelResponse) SetError(v *proto.Error) {
 	x.Error = v
 }
 
@@ -3163,7 +3161,7 @@ type SetLogLevelResponse_builder struct {
 	// Logger name
 	Logger *string
 	// Error information
-	Error *messages.Error
+	Error *proto.Error
 }
 
 func (b0 SetLogLevelResponse_builder) Build() *SetLogLevelResponse {
@@ -3185,7 +3183,7 @@ type GetLogStatsRequest struct {
 	// Logger filter
 	Loggers []string `protobuf:"bytes,2,rep,name=loggers" json:"loggers,omitempty"`
 	// Request metadata
-	Metadata      *messages.RequestMetadata `protobuf:"bytes,3,opt,name=metadata" json:"metadata,omitempty"`
+	Metadata      *proto.RequestMetadata `protobuf:"bytes,3,opt,name=metadata" json:"metadata,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -3229,7 +3227,7 @@ func (x *GetLogStatsRequest) GetLoggers() []string {
 	return nil
 }
 
-func (x *GetLogStatsRequest) GetMetadata() *messages.RequestMetadata {
+func (x *GetLogStatsRequest) GetMetadata() *proto.RequestMetadata {
 	if x != nil {
 		return x.Metadata
 	}
@@ -3244,7 +3242,7 @@ func (x *GetLogStatsRequest) SetLoggers(v []string) {
 	x.Loggers = v
 }
 
-func (x *GetLogStatsRequest) SetMetadata(v *messages.RequestMetadata) {
+func (x *GetLogStatsRequest) SetMetadata(v *proto.RequestMetadata) {
 	x.Metadata = v
 }
 
@@ -3278,7 +3276,7 @@ type GetLogStatsRequest_builder struct {
 	// Logger filter
 	Loggers []string
 	// Request metadata
-	Metadata *messages.RequestMetadata
+	Metadata *proto.RequestMetadata
 }
 
 func (b0 GetLogStatsRequest_builder) Build() *GetLogStatsRequest {
@@ -3301,7 +3299,7 @@ type GetLogStatsResponse struct {
 	// Per-logger statistics
 	LoggerStats map[string]*LogStatistics `protobuf:"bytes,3,rep,name=logger_stats,json=loggerStats" json:"logger_stats,omitempty" protobuf_key:"bytes,1,opt,name=key" protobuf_val:"bytes,2,opt,name=value"`
 	// Error information
-	Error         *messages.Error `protobuf:"bytes,4,opt,name=error" json:"error,omitempty"`
+	Error         *proto.Error `protobuf:"bytes,4,opt,name=error" json:"error,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -3352,7 +3350,7 @@ func (x *GetLogStatsResponse) GetLoggerStats() map[string]*LogStatistics {
 	return nil
 }
 
-func (x *GetLogStatsResponse) GetError() *messages.Error {
+func (x *GetLogStatsResponse) GetError() *proto.Error {
 	if x != nil {
 		return x.Error
 	}
@@ -3371,7 +3369,7 @@ func (x *GetLogStatsResponse) SetLoggerStats(v map[string]*LogStatistics) {
 	x.LoggerStats = v
 }
 
-func (x *GetLogStatsResponse) SetError(v *messages.Error) {
+func (x *GetLogStatsResponse) SetError(v *proto.Error) {
 	x.Error = v
 }
 
@@ -3407,7 +3405,7 @@ type GetLogStatsResponse_builder struct {
 	// Per-logger statistics
 	LoggerStats map[string]*LogStatistics
 	// Error information
-	Error *messages.Error
+	Error *proto.Error
 }
 
 func (b0 GetLogStatsResponse_builder) Build() *GetLogStatsResponse {
@@ -3635,7 +3633,7 @@ type CreateLoggerRequest struct {
 	// Logger configuration
 	Config *LoggerConfig `protobuf:"bytes,2,opt,name=config" json:"config,omitempty"`
 	// Request metadata
-	Metadata      *messages.RequestMetadata `protobuf:"bytes,3,opt,name=metadata" json:"metadata,omitempty"`
+	Metadata      *proto.RequestMetadata `protobuf:"bytes,3,opt,name=metadata" json:"metadata,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -3679,7 +3677,7 @@ func (x *CreateLoggerRequest) GetConfig() *LoggerConfig {
 	return nil
 }
 
-func (x *CreateLoggerRequest) GetMetadata() *messages.RequestMetadata {
+func (x *CreateLoggerRequest) GetMetadata() *proto.RequestMetadata {
 	if x != nil {
 		return x.Metadata
 	}
@@ -3694,7 +3692,7 @@ func (x *CreateLoggerRequest) SetConfig(v *LoggerConfig) {
 	x.Config = v
 }
 
-func (x *CreateLoggerRequest) SetMetadata(v *messages.RequestMetadata) {
+func (x *CreateLoggerRequest) SetMetadata(v *proto.RequestMetadata) {
 	x.Metadata = v
 }
 
@@ -3739,7 +3737,7 @@ type CreateLoggerRequest_builder struct {
 	// Logger configuration
 	Config *LoggerConfig
 	// Request metadata
-	Metadata *messages.RequestMetadata
+	Metadata *proto.RequestMetadata
 }
 
 func (b0 CreateLoggerRequest_builder) Build() *CreateLoggerRequest {
@@ -4411,7 +4409,7 @@ type CreateLoggerResponse struct {
 	// Success status
 	Success *bool `protobuf:"varint,2,opt,name=success" json:"success,omitempty"`
 	// Error information
-	Error         *messages.Error `protobuf:"bytes,3,opt,name=error" json:"error,omitempty"`
+	Error         *proto.Error `protobuf:"bytes,3,opt,name=error" json:"error,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -4455,7 +4453,7 @@ func (x *CreateLoggerResponse) GetSuccess() bool {
 	return false
 }
 
-func (x *CreateLoggerResponse) GetError() *messages.Error {
+func (x *CreateLoggerResponse) GetError() *proto.Error {
 	if x != nil {
 		return x.Error
 	}
@@ -4470,7 +4468,7 @@ func (x *CreateLoggerResponse) SetSuccess(v bool) {
 	x.Success = &v
 }
 
-func (x *CreateLoggerResponse) SetError(v *messages.Error) {
+func (x *CreateLoggerResponse) SetError(v *proto.Error) {
 	x.Error = v
 }
 
@@ -4515,7 +4513,7 @@ type CreateLoggerResponse_builder struct {
 	// Success status
 	Success *bool
 	// Error information
-	Error *messages.Error
+	Error *proto.Error
 }
 
 func (b0 CreateLoggerResponse_builder) Build() *CreateLoggerResponse {
@@ -4538,7 +4536,7 @@ type UpdateLoggerRequest struct {
 	// Update mask
 	UpdateMask *fieldmaskpb.FieldMask `protobuf:"bytes,3,opt,name=update_mask,json=updateMask" json:"update_mask,omitempty"`
 	// Request metadata
-	Metadata      *messages.RequestMetadata `protobuf:"bytes,4,opt,name=metadata" json:"metadata,omitempty"`
+	Metadata      *proto.RequestMetadata `protobuf:"bytes,4,opt,name=metadata" json:"metadata,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -4589,7 +4587,7 @@ func (x *UpdateLoggerRequest) GetUpdateMask() *fieldmaskpb.FieldMask {
 	return nil
 }
 
-func (x *UpdateLoggerRequest) GetMetadata() *messages.RequestMetadata {
+func (x *UpdateLoggerRequest) GetMetadata() *proto.RequestMetadata {
 	if x != nil {
 		return x.Metadata
 	}
@@ -4608,7 +4606,7 @@ func (x *UpdateLoggerRequest) SetUpdateMask(v *fieldmaskpb.FieldMask) {
 	x.UpdateMask = v
 }
 
-func (x *UpdateLoggerRequest) SetMetadata(v *messages.RequestMetadata) {
+func (x *UpdateLoggerRequest) SetMetadata(v *proto.RequestMetadata) {
 	x.Metadata = v
 }
 
@@ -4666,7 +4664,7 @@ type UpdateLoggerRequest_builder struct {
 	// Update mask
 	UpdateMask *fieldmaskpb.FieldMask
 	// Request metadata
-	Metadata *messages.RequestMetadata
+	Metadata *proto.RequestMetadata
 }
 
 func (b0 UpdateLoggerRequest_builder) Build() *UpdateLoggerRequest {
@@ -4688,7 +4686,7 @@ type UpdateLoggerResponse struct {
 	// Success status
 	Success *bool `protobuf:"varint,2,opt,name=success" json:"success,omitempty"`
 	// Error information
-	Error         *messages.Error `protobuf:"bytes,3,opt,name=error" json:"error,omitempty"`
+	Error         *proto.Error `protobuf:"bytes,3,opt,name=error" json:"error,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -4732,7 +4730,7 @@ func (x *UpdateLoggerResponse) GetSuccess() bool {
 	return false
 }
 
-func (x *UpdateLoggerResponse) GetError() *messages.Error {
+func (x *UpdateLoggerResponse) GetError() *proto.Error {
 	if x != nil {
 		return x.Error
 	}
@@ -4747,7 +4745,7 @@ func (x *UpdateLoggerResponse) SetSuccess(v bool) {
 	x.Success = &v
 }
 
-func (x *UpdateLoggerResponse) SetError(v *messages.Error) {
+func (x *UpdateLoggerResponse) SetError(v *proto.Error) {
 	x.Error = v
 }
 
@@ -4792,7 +4790,7 @@ type UpdateLoggerResponse_builder struct {
 	// Success status
 	Success *bool
 	// Error information
-	Error *messages.Error
+	Error *proto.Error
 }
 
 func (b0 UpdateLoggerResponse_builder) Build() *UpdateLoggerResponse {
@@ -4813,7 +4811,7 @@ type DeleteLoggerRequest struct {
 	// Force deletion
 	Force *bool `protobuf:"varint,2,opt,name=force" json:"force,omitempty"`
 	// Request metadata
-	Metadata      *messages.RequestMetadata `protobuf:"bytes,3,opt,name=metadata" json:"metadata,omitempty"`
+	Metadata      *proto.RequestMetadata `protobuf:"bytes,3,opt,name=metadata" json:"metadata,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -4857,7 +4855,7 @@ func (x *DeleteLoggerRequest) GetForce() bool {
 	return false
 }
 
-func (x *DeleteLoggerRequest) GetMetadata() *messages.RequestMetadata {
+func (x *DeleteLoggerRequest) GetMetadata() *proto.RequestMetadata {
 	if x != nil {
 		return x.Metadata
 	}
@@ -4872,7 +4870,7 @@ func (x *DeleteLoggerRequest) SetForce(v bool) {
 	x.Force = &v
 }
 
-func (x *DeleteLoggerRequest) SetMetadata(v *messages.RequestMetadata) {
+func (x *DeleteLoggerRequest) SetMetadata(v *proto.RequestMetadata) {
 	x.Metadata = v
 }
 
@@ -4917,7 +4915,7 @@ type DeleteLoggerRequest_builder struct {
 	// Force deletion
 	Force *bool
 	// Request metadata
-	Metadata *messages.RequestMetadata
+	Metadata *proto.RequestMetadata
 }
 
 func (b0 DeleteLoggerRequest_builder) Build() *DeleteLoggerRequest {
@@ -4938,9 +4936,9 @@ type ListLoggersRequest struct {
 	// Level filter
 	Levels []LogLevel `protobuf:"varint,2,rep,packed,name=levels,enum=gcommon.v1.log.LogLevel" json:"levels,omitempty"`
 	// Pagination
-	Pagination *messages.Pagination `protobuf:"bytes,3,opt,name=pagination" json:"pagination,omitempty"`
+	Pagination *proto.Pagination `protobuf:"bytes,3,opt,name=pagination" json:"pagination,omitempty"`
 	// Request metadata
-	Metadata      *messages.RequestMetadata `protobuf:"bytes,4,opt,name=metadata" json:"metadata,omitempty"`
+	Metadata      *proto.RequestMetadata `protobuf:"bytes,4,opt,name=metadata" json:"metadata,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -4984,14 +4982,14 @@ func (x *ListLoggersRequest) GetLevels() []LogLevel {
 	return nil
 }
 
-func (x *ListLoggersRequest) GetPagination() *messages.Pagination {
+func (x *ListLoggersRequest) GetPagination() *proto.Pagination {
 	if x != nil {
 		return x.Pagination
 	}
 	return nil
 }
 
-func (x *ListLoggersRequest) GetMetadata() *messages.RequestMetadata {
+func (x *ListLoggersRequest) GetMetadata() *proto.RequestMetadata {
 	if x != nil {
 		return x.Metadata
 	}
@@ -5006,11 +5004,11 @@ func (x *ListLoggersRequest) SetLevels(v []LogLevel) {
 	x.Levels = v
 }
 
-func (x *ListLoggersRequest) SetPagination(v *messages.Pagination) {
+func (x *ListLoggersRequest) SetPagination(v *proto.Pagination) {
 	x.Pagination = v
 }
 
-func (x *ListLoggersRequest) SetMetadata(v *messages.RequestMetadata) {
+func (x *ListLoggersRequest) SetMetadata(v *proto.RequestMetadata) {
 	x.Metadata = v
 }
 
@@ -5055,9 +5053,9 @@ type ListLoggersRequest_builder struct {
 	// Level filter
 	Levels []LogLevel
 	// Pagination
-	Pagination *messages.Pagination
+	Pagination *proto.Pagination
 	// Request metadata
-	Metadata *messages.RequestMetadata
+	Metadata *proto.RequestMetadata
 }
 
 func (b0 ListLoggersRequest_builder) Build() *ListLoggersRequest {
@@ -5077,9 +5075,9 @@ type ListLoggersResponse struct {
 	// Logger information
 	Loggers []*LoggerInfo `protobuf:"bytes,1,rep,name=loggers" json:"loggers,omitempty"`
 	// Pagination info
-	Pagination *messages.Pagination `protobuf:"bytes,2,opt,name=pagination" json:"pagination,omitempty"`
+	Pagination *proto.Pagination `protobuf:"bytes,2,opt,name=pagination" json:"pagination,omitempty"`
 	// Error information
-	Error         *messages.Error `protobuf:"bytes,3,opt,name=error" json:"error,omitempty"`
+	Error         *proto.Error `protobuf:"bytes,3,opt,name=error" json:"error,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -5116,14 +5114,14 @@ func (x *ListLoggersResponse) GetLoggers() []*LoggerInfo {
 	return nil
 }
 
-func (x *ListLoggersResponse) GetPagination() *messages.Pagination {
+func (x *ListLoggersResponse) GetPagination() *proto.Pagination {
 	if x != nil {
 		return x.Pagination
 	}
 	return nil
 }
 
-func (x *ListLoggersResponse) GetError() *messages.Error {
+func (x *ListLoggersResponse) GetError() *proto.Error {
 	if x != nil {
 		return x.Error
 	}
@@ -5134,11 +5132,11 @@ func (x *ListLoggersResponse) SetLoggers(v []*LoggerInfo) {
 	x.Loggers = v
 }
 
-func (x *ListLoggersResponse) SetPagination(v *messages.Pagination) {
+func (x *ListLoggersResponse) SetPagination(v *proto.Pagination) {
 	x.Pagination = v
 }
 
-func (x *ListLoggersResponse) SetError(v *messages.Error) {
+func (x *ListLoggersResponse) SetError(v *proto.Error) {
 	x.Error = v
 }
 
@@ -5170,9 +5168,9 @@ type ListLoggersResponse_builder struct {
 	// Logger information
 	Loggers []*LoggerInfo
 	// Pagination info
-	Pagination *messages.Pagination
+	Pagination *proto.Pagination
 	// Error information
-	Error *messages.Error
+	Error *proto.Error
 }
 
 func (b0 ListLoggersResponse_builder) Build() *ListLoggersResponse {
@@ -5440,7 +5438,7 @@ type ConfigureAppenderRequest struct {
 	// Appender configuration
 	Config *AppenderConfig `protobuf:"bytes,1,opt,name=config" json:"config,omitempty"`
 	// Request metadata
-	Metadata      *messages.RequestMetadata `protobuf:"bytes,2,opt,name=metadata" json:"metadata,omitempty"`
+	Metadata      *proto.RequestMetadata `protobuf:"bytes,2,opt,name=metadata" json:"metadata,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -5477,7 +5475,7 @@ func (x *ConfigureAppenderRequest) GetConfig() *AppenderConfig {
 	return nil
 }
 
-func (x *ConfigureAppenderRequest) GetMetadata() *messages.RequestMetadata {
+func (x *ConfigureAppenderRequest) GetMetadata() *proto.RequestMetadata {
 	if x != nil {
 		return x.Metadata
 	}
@@ -5488,7 +5486,7 @@ func (x *ConfigureAppenderRequest) SetConfig(v *AppenderConfig) {
 	x.Config = v
 }
 
-func (x *ConfigureAppenderRequest) SetMetadata(v *messages.RequestMetadata) {
+func (x *ConfigureAppenderRequest) SetMetadata(v *proto.RequestMetadata) {
 	x.Metadata = v
 }
 
@@ -5520,7 +5518,7 @@ type ConfigureAppenderRequest_builder struct {
 	// Appender configuration
 	Config *AppenderConfig
 	// Request metadata
-	Metadata *messages.RequestMetadata
+	Metadata *proto.RequestMetadata
 }
 
 func (b0 ConfigureAppenderRequest_builder) Build() *ConfigureAppenderRequest {
@@ -5540,7 +5538,7 @@ type ConfigureAppenderResponse struct {
 	// Success status
 	Success *bool `protobuf:"varint,2,opt,name=success" json:"success,omitempty"`
 	// Error information
-	Error         *messages.Error `protobuf:"bytes,3,opt,name=error" json:"error,omitempty"`
+	Error         *proto.Error `protobuf:"bytes,3,opt,name=error" json:"error,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -5584,7 +5582,7 @@ func (x *ConfigureAppenderResponse) GetSuccess() bool {
 	return false
 }
 
-func (x *ConfigureAppenderResponse) GetError() *messages.Error {
+func (x *ConfigureAppenderResponse) GetError() *proto.Error {
 	if x != nil {
 		return x.Error
 	}
@@ -5599,7 +5597,7 @@ func (x *ConfigureAppenderResponse) SetSuccess(v bool) {
 	x.Success = &v
 }
 
-func (x *ConfigureAppenderResponse) SetError(v *messages.Error) {
+func (x *ConfigureAppenderResponse) SetError(v *proto.Error) {
 	x.Error = v
 }
 
@@ -5644,7 +5642,7 @@ type ConfigureAppenderResponse_builder struct {
 	// Success status
 	Success *bool
 	// Error information
-	Error *messages.Error
+	Error *proto.Error
 }
 
 func (b0 ConfigureAppenderResponse_builder) Build() *ConfigureAppenderResponse {
@@ -5665,7 +5663,7 @@ type RotateLogsRequest struct {
 	// Force rotation
 	Force *bool `protobuf:"varint,2,opt,name=force" json:"force,omitempty"`
 	// Request metadata
-	Metadata      *messages.RequestMetadata `protobuf:"bytes,3,opt,name=metadata" json:"metadata,omitempty"`
+	Metadata      *proto.RequestMetadata `protobuf:"bytes,3,opt,name=metadata" json:"metadata,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -5709,7 +5707,7 @@ func (x *RotateLogsRequest) GetForce() bool {
 	return false
 }
 
-func (x *RotateLogsRequest) GetMetadata() *messages.RequestMetadata {
+func (x *RotateLogsRequest) GetMetadata() *proto.RequestMetadata {
 	if x != nil {
 		return x.Metadata
 	}
@@ -5724,7 +5722,7 @@ func (x *RotateLogsRequest) SetForce(v bool) {
 	x.Force = &v
 }
 
-func (x *RotateLogsRequest) SetMetadata(v *messages.RequestMetadata) {
+func (x *RotateLogsRequest) SetMetadata(v *proto.RequestMetadata) {
 	x.Metadata = v
 }
 
@@ -5769,7 +5767,7 @@ type RotateLogsRequest_builder struct {
 	// Force rotation
 	Force *bool
 	// Request metadata
-	Metadata *messages.RequestMetadata
+	Metadata *proto.RequestMetadata
 }
 
 func (b0 RotateLogsRequest_builder) Build() *RotateLogsRequest {
@@ -5790,7 +5788,7 @@ type RotateLogsResponse struct {
 	// Rotated file paths
 	RotatedFiles []string `protobuf:"bytes,2,rep,name=rotated_files,json=rotatedFiles" json:"rotated_files,omitempty"`
 	// Error information
-	Error         *messages.Error `protobuf:"bytes,3,opt,name=error" json:"error,omitempty"`
+	Error         *proto.Error `protobuf:"bytes,3,opt,name=error" json:"error,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -5834,7 +5832,7 @@ func (x *RotateLogsResponse) GetRotatedFiles() []string {
 	return nil
 }
 
-func (x *RotateLogsResponse) GetError() *messages.Error {
+func (x *RotateLogsResponse) GetError() *proto.Error {
 	if x != nil {
 		return x.Error
 	}
@@ -5849,7 +5847,7 @@ func (x *RotateLogsResponse) SetRotatedFiles(v []string) {
 	x.RotatedFiles = v
 }
 
-func (x *RotateLogsResponse) SetError(v *messages.Error) {
+func (x *RotateLogsResponse) SetError(v *proto.Error) {
 	x.Error = v
 }
 
@@ -5883,7 +5881,7 @@ type RotateLogsResponse_builder struct {
 	// Rotated file paths
 	RotatedFiles []string
 	// Error information
-	Error *messages.Error
+	Error *proto.Error
 }
 
 func (b0 RotateLogsResponse_builder) Build() *RotateLogsResponse {
@@ -5906,7 +5904,7 @@ type ArchiveLogsRequest struct {
 	// Compression type
 	Compression *CompressionType `protobuf:"varint,3,opt,name=compression,enum=gcommon.v1.log.CompressionType" json:"compression,omitempty"`
 	// Request metadata
-	Metadata      *messages.RequestMetadata `protobuf:"bytes,4,opt,name=metadata" json:"metadata,omitempty"`
+	Metadata      *proto.RequestMetadata `protobuf:"bytes,4,opt,name=metadata" json:"metadata,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -5957,7 +5955,7 @@ func (x *ArchiveLogsRequest) GetCompression() CompressionType {
 	return CompressionType_COMPRESSION_TYPE_UNSPECIFIED
 }
 
-func (x *ArchiveLogsRequest) GetMetadata() *messages.RequestMetadata {
+func (x *ArchiveLogsRequest) GetMetadata() *proto.RequestMetadata {
 	if x != nil {
 		return x.Metadata
 	}
@@ -5976,7 +5974,7 @@ func (x *ArchiveLogsRequest) SetCompression(v CompressionType) {
 	x.Compression = &v
 }
 
-func (x *ArchiveLogsRequest) SetMetadata(v *messages.RequestMetadata) {
+func (x *ArchiveLogsRequest) SetMetadata(v *proto.RequestMetadata) {
 	x.Metadata = v
 }
 
@@ -6034,7 +6032,7 @@ type ArchiveLogsRequest_builder struct {
 	// Compression type
 	Compression *CompressionType
 	// Request metadata
-	Metadata *messages.RequestMetadata
+	Metadata *proto.RequestMetadata
 }
 
 func (b0 ArchiveLogsRequest_builder) Build() *ArchiveLogsRequest {
@@ -6235,7 +6233,7 @@ type ArchiveLogsResponse struct {
 	// Archive size
 	ArchiveSize *int64 `protobuf:"varint,3,opt,name=archive_size,json=archiveSize" json:"archive_size,omitempty"`
 	// Error information
-	Error         *messages.Error `protobuf:"bytes,4,opt,name=error" json:"error,omitempty"`
+	Error         *proto.Error `protobuf:"bytes,4,opt,name=error" json:"error,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -6286,7 +6284,7 @@ func (x *ArchiveLogsResponse) GetArchiveSize() int64 {
 	return 0
 }
 
-func (x *ArchiveLogsResponse) GetError() *messages.Error {
+func (x *ArchiveLogsResponse) GetError() *proto.Error {
 	if x != nil {
 		return x.Error
 	}
@@ -6305,7 +6303,7 @@ func (x *ArchiveLogsResponse) SetArchiveSize(v int64) {
 	x.ArchiveSize = &v
 }
 
-func (x *ArchiveLogsResponse) SetError(v *messages.Error) {
+func (x *ArchiveLogsResponse) SetError(v *proto.Error) {
 	x.Error = v
 }
 
@@ -6363,7 +6361,7 @@ type ArchiveLogsResponse_builder struct {
 	// Archive size
 	ArchiveSize *int64
 	// Error information
-	Error *messages.Error
+	Error *proto.Error
 }
 
 func (b0 ArchiveLogsResponse_builder) Build() *ArchiveLogsResponse {
@@ -6706,8 +6704,8 @@ const file_pkg_log_proto_log_proto_rawDesc = "" +
 	"\x11ConfigureAppender\x12(.gcommon.v1.log.ConfigureAppenderRequest\x1a).gcommon.v1.log.ConfigureAppenderResponse\x12S\n" +
 	"\n" +
 	"RotateLogs\x12!.gcommon.v1.log.RotateLogsRequest\x1a\".gcommon.v1.log.RotateLogsResponse\x12V\n" +
-	"\vArchiveLogs\x12\".gcommon.v1.log.ArchiveLogsRequest\x1a#.gcommon.v1.log.ArchiveLogsResponseB\xa9\x01\n" +
-	"\x12com.gcommon.v1.logB\bLogProtoP\x01Z'github.com/jdfalk/gcommon/pkg/log/proto\xa2\x02\x03GVL\xaa\x02\x0eGcommon.V1.Log\xca\x02\x0eGcommon\\V1\\Log\xe2\x02\x1aGcommon\\V1\\Log\\GPBMetadata\xea\x02\x10Gcommon::V1::Log\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
+	"\vArchiveLogs\x12\".gcommon.v1.log.ArchiveLogsRequest\x1a#.gcommon.v1.log.ArchiveLogsResponseB\xaf\x01\n" +
+	"\x12com.gcommon.v1.logB\bLogProtoP\x01Z-github.com/jdfalk/gcommon/pkg/log/proto;logpb\xa2\x02\x03GVL\xaa\x02\x0eGcommon.V1.Log\xca\x02\x0eGcommon\\V1\\Log\xe2\x02\x1aGcommon\\V1\\Log\\GPBMetadata\xea\x02\x10Gcommon::V1::Log\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
 
 var file_pkg_log_proto_log_proto_enumTypes = make([]protoimpl.EnumInfo, 7)
 var file_pkg_log_proto_log_proto_msgTypes = make([]protoimpl.MessageInfo, 50)
@@ -6769,12 +6767,12 @@ var file_pkg_log_proto_log_proto_goTypes = []any{
 	nil,                               // 54: gcommon.v1.log.OutputConfig.OptionsEntry
 	nil,                               // 55: gcommon.v1.log.FormatterConfig.OptionsEntry
 	nil,                               // 56: gcommon.v1.log.FilterConfig.CriteriaEntry
-	(*messages.RequestMetadata)(nil),  // 57: gcommon.v1.common.RequestMetadata
-	(*messages.Error)(nil),            // 58: gcommon.v1.common.Error
+	(*proto.RequestMetadata)(nil),     // 57: gcommon.v1.common.RequestMetadata
+	(*proto.Error)(nil),               // 58: gcommon.v1.common.Error
 	(*durationpb.Duration)(nil),       // 59: google.protobuf.Duration
 	(*timestamppb.Timestamp)(nil),     // 60: google.protobuf.Timestamp
-	(*messages.Pagination)(nil),       // 61: gcommon.v1.common.Pagination
-	(types.SortDirection)(0),          // 62: gcommon.v1.common.SortDirection
+	(*proto.Pagination)(nil),          // 61: gcommon.v1.common.Pagination
+	(proto.SortDirection)(0),          // 62: gcommon.v1.common.SortDirection
 	(*fieldmaskpb.FieldMask)(nil),     // 63: google.protobuf.FieldMask
 	(*anypb.Any)(nil),                 // 64: google.protobuf.Any
 	(*emptypb.Empty)(nil),             // 65: google.protobuf.Empty
