@@ -1397,3 +1397,5 @@ Automate issue linking for project boards
 Setup protobuf validation workflow (#67)
 
 Automate issue linking for project boards
+
+Implement core Auth configuration messages
