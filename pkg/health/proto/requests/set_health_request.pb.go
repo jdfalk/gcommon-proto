@@ -6,12 +6,10 @@
 
 //go:build !protoopaque
 
-package requests
+package healthpb
 
 import (
-	_ "github.com/jdfalk/gcommon/pkg/common/proto"
-	enums "github.com/jdfalk/gcommon/pkg/common/proto/enums"
-	messages "github.com/jdfalk/gcommon/pkg/common/proto/messages"
+	proto "github.com/jdfalk/gcommon/pkg/common/proto"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
@@ -33,9 +31,9 @@ type SetHealthRequest struct {
 	// Service name to update
 	Service *string `protobuf:"bytes,1,opt,name=service" json:"service,omitempty"`
 	// Desired health status
-	Status *enums.HealthStatus `protobuf:"varint,2,opt,name=status,enum=gcommon.v1.common.HealthStatus" json:"status,omitempty"`
+	Status *proto.HealthStatus `protobuf:"varint,2,opt,name=status,enum=gcommon.v1.common.HealthStatus" json:"status,omitempty"`
 	// Request metadata for auditing
-	Metadata      *messages.RequestMetadata `protobuf:"bytes,3,opt,name=metadata" json:"metadata,omitempty"`
+	Metadata      *proto.RequestMetadata `protobuf:"bytes,3,opt,name=metadata" json:"metadata,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -72,14 +70,14 @@ func (x *SetHealthRequest) GetService() string {
 	return ""
 }
 
-func (x *SetHealthRequest) GetStatus() enums.HealthStatus {
+func (x *SetHealthRequest) GetStatus() proto.HealthStatus {
 	if x != nil && x.Status != nil {
 		return *x.Status
 	}
-	return enums.HealthStatus(0)
+	return proto.HealthStatus(0)
 }
 
-func (x *SetHealthRequest) GetMetadata() *messages.RequestMetadata {
+func (x *SetHealthRequest) GetMetadata() *proto.RequestMetadata {
 	if x != nil {
 		return x.Metadata
 	}
@@ -90,11 +88,11 @@ func (x *SetHealthRequest) SetService(v string) {
 	x.Service = &v
 }
 
-func (x *SetHealthRequest) SetStatus(v enums.HealthStatus) {
+func (x *SetHealthRequest) SetStatus(v proto.HealthStatus) {
 	x.Status = &v
 }
 
-func (x *SetHealthRequest) SetMetadata(v *messages.RequestMetadata) {
+func (x *SetHealthRequest) SetMetadata(v *proto.RequestMetadata) {
 	x.Metadata = v
 }
 
@@ -137,9 +135,9 @@ type SetHealthRequest_builder struct {
 	// Service name to update
 	Service *string
 	// Desired health status
-	Status *enums.HealthStatus
+	Status *proto.HealthStatus
 	// Request metadata for auditing
-	Metadata *messages.RequestMetadata
+	Metadata *proto.RequestMetadata
 }
 
 func (b0 SetHealthRequest_builder) Build() *SetHealthRequest {
@@ -161,13 +159,13 @@ const file_pkg_health_proto_requests_set_health_request_proto_rawDesc = "" +
 	"\aservice\x18\x01 \x01(\tR\aservice\x127\n" +
 	"\x06status\x18\x02 \x01(\x0e2\x1f.gcommon.v1.common.HealthStatusR\x06status\x12B\n" +
 	"\bmetadata\x18\x03 \x01(\v2\".gcommon.v1.common.RequestMetadataB\x02(\x01R\bmetadataB\xd1\x01\n" +
-	"\x15com.gcommon.v1.healthB\x15SetHealthRequestProtoP\x01Z3github.com/jdfalk/gcommon/pkg/health/proto/requests\xa2\x02\x03GVH\xaa\x02\x11Gcommon.V1.Health\xca\x02\x11Gcommon\\V1\\Health\xe2\x02\x1dGcommon\\V1\\Health\\GPBMetadata\xea\x02\x13Gcommon::V1::Health\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
+	"\x15com.gcommon.v1.healthB\x15SetHealthRequestProtoP\x01Z3github.com/jdfalk/gcommon/pkg/health/proto;healthpb\xa2\x02\x03GVH\xaa\x02\x11Gcommon.V1.Health\xca\x02\x11Gcommon\\V1\\Health\xe2\x02\x1dGcommon\\V1\\Health\\GPBMetadata\xea\x02\x13Gcommon::V1::Health\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
 
 var file_pkg_health_proto_requests_set_health_request_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_pkg_health_proto_requests_set_health_request_proto_goTypes = []any{
-	(*SetHealthRequest)(nil),         // 0: gcommon.v1.health.SetHealthRequest
-	(enums.HealthStatus)(0),          // 1: gcommon.v1.common.HealthStatus
-	(*messages.RequestMetadata)(nil), // 2: gcommon.v1.common.RequestMetadata
+	(*SetHealthRequest)(nil),      // 0: gcommon.v1.health.SetHealthRequest
+	(proto.HealthStatus)(0),       // 1: gcommon.v1.common.HealthStatus
+	(*proto.RequestMetadata)(nil), // 2: gcommon.v1.common.RequestMetadata
 }
 var file_pkg_health_proto_requests_set_health_request_proto_depIdxs = []int32{
 	1, // 0: gcommon.v1.health.SetHealthRequest.status:type_name -> gcommon.v1.common.HealthStatus

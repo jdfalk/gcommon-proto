@@ -6,11 +6,10 @@
 
 //go:build !protoopaque
 
-package responses
+package healthpb
 
 import (
-	_ "github.com/jdfalk/gcommon/pkg/common/proto"
-	messages "github.com/jdfalk/gcommon/pkg/common/proto/messages"
+	proto "github.com/jdfalk/gcommon/pkg/common/proto"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
@@ -35,7 +34,7 @@ type EnableCheckResponse struct {
 	// Check ID that was enabled
 	CheckId *string `protobuf:"bytes,2,opt,name=check_id,json=checkId" json:"check_id,omitempty"`
 	// Error information if enabling failed
-	Error *messages.Error `protobuf:"bytes,3,opt,name=error" json:"error,omitempty"`
+	Error *proto.Error `protobuf:"bytes,3,opt,name=error" json:"error,omitempty"`
 	// Check status after enabling
 	Status        *string `protobuf:"bytes,4,opt,name=status" json:"status,omitempty"`
 	unknownFields protoimpl.UnknownFields
@@ -81,7 +80,7 @@ func (x *EnableCheckResponse) GetCheckId() string {
 	return ""
 }
 
-func (x *EnableCheckResponse) GetError() *messages.Error {
+func (x *EnableCheckResponse) GetError() *proto.Error {
 	if x != nil {
 		return x.Error
 	}
@@ -103,7 +102,7 @@ func (x *EnableCheckResponse) SetCheckId(v string) {
 	x.CheckId = &v
 }
 
-func (x *EnableCheckResponse) SetError(v *messages.Error) {
+func (x *EnableCheckResponse) SetError(v *proto.Error) {
 	x.Error = v
 }
 
@@ -163,7 +162,7 @@ type EnableCheckResponse_builder struct {
 	// Check ID that was enabled
 	CheckId *string
 	// Error information if enabling failed
-	Error *messages.Error
+	Error *proto.Error
 	// Check status after enabling
 	Status *string
 }
@@ -188,13 +187,13 @@ const file_pkg_health_proto_responses_enable_check_response_proto_rawDesc = "" +
 	"\asuccess\x18\x01 \x01(\bR\asuccess\x12\x19\n" +
 	"\bcheck_id\x18\x02 \x01(\tR\acheckId\x12.\n" +
 	"\x05error\x18\x03 \x01(\v2\x18.gcommon.v1.common.ErrorR\x05error\x12\x16\n" +
-	"\x06status\x18\x04 \x01(\tR\x06statusB\xd5\x01\n" +
-	"\x15com.gcommon.v1.healthB\x18EnableCheckResponseProtoP\x01Z4github.com/jdfalk/gcommon/pkg/health/proto/responses\xa2\x02\x03GVH\xaa\x02\x11Gcommon.V1.Health\xca\x02\x11Gcommon\\V1\\Health\xe2\x02\x1dGcommon\\V1\\Health\\GPBMetadata\xea\x02\x13Gcommon::V1::Health\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
+	"\x06status\x18\x04 \x01(\tR\x06statusB\xd4\x01\n" +
+	"\x15com.gcommon.v1.healthB\x18EnableCheckResponseProtoP\x01Z3github.com/jdfalk/gcommon/pkg/health/proto;healthpb\xa2\x02\x03GVH\xaa\x02\x11Gcommon.V1.Health\xca\x02\x11Gcommon\\V1\\Health\xe2\x02\x1dGcommon\\V1\\Health\\GPBMetadata\xea\x02\x13Gcommon::V1::Health\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
 
 var file_pkg_health_proto_responses_enable_check_response_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_pkg_health_proto_responses_enable_check_response_proto_goTypes = []any{
 	(*EnableCheckResponse)(nil), // 0: gcommon.v1.health.EnableCheckResponse
-	(*messages.Error)(nil),      // 1: gcommon.v1.common.Error
+	(*proto.Error)(nil),         // 1: gcommon.v1.common.Error
 }
 var file_pkg_health_proto_responses_enable_check_response_proto_depIdxs = []int32{
 	1, // 0: gcommon.v1.health.EnableCheckResponse.error:type_name -> gcommon.v1.common.Error

@@ -6,11 +6,10 @@
 
 //go:build !protoopaque
 
-package responses
+package healthpb
 
 import (
-	_ "github.com/jdfalk/gcommon/pkg/common/proto"
-	messages "github.com/jdfalk/gcommon/pkg/common/proto/messages"
+	proto "github.com/jdfalk/gcommon/pkg/common/proto"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
@@ -38,7 +37,7 @@ type ResetHealthStatsResponse struct {
 	// Reset timestamp
 	ResetAt *timestamppb.Timestamp `protobuf:"bytes,3,opt,name=reset_at,json=resetAt" json:"reset_at,omitempty"`
 	// Error information if reset failed
-	Error *messages.Error `protobuf:"bytes,4,opt,name=error" json:"error,omitempty"`
+	Error *proto.Error `protobuf:"bytes,4,opt,name=error" json:"error,omitempty"`
 	// Statistics categories that were reset
 	ResetCategories []string `protobuf:"bytes,5,rep,name=reset_categories,json=resetCategories" json:"reset_categories,omitempty"`
 	unknownFields   protoimpl.UnknownFields
@@ -91,7 +90,7 @@ func (x *ResetHealthStatsResponse) GetResetAt() *timestamppb.Timestamp {
 	return nil
 }
 
-func (x *ResetHealthStatsResponse) GetError() *messages.Error {
+func (x *ResetHealthStatsResponse) GetError() *proto.Error {
 	if x != nil {
 		return x.Error
 	}
@@ -117,7 +116,7 @@ func (x *ResetHealthStatsResponse) SetResetAt(v *timestamppb.Timestamp) {
 	x.ResetAt = v
 }
 
-func (x *ResetHealthStatsResponse) SetError(v *messages.Error) {
+func (x *ResetHealthStatsResponse) SetError(v *proto.Error) {
 	x.Error = v
 }
 
@@ -179,7 +178,7 @@ type ResetHealthStatsResponse_builder struct {
 	// Reset timestamp
 	ResetAt *timestamppb.Timestamp
 	// Error information if reset failed
-	Error *messages.Error
+	Error *proto.Error
 	// Statistics categories that were reset
 	ResetCategories []string
 }
@@ -206,14 +205,14 @@ const file_pkg_health_proto_responses_reset_health_stats_response_proto_rawDesc 
 	"\x0fcleared_entries\x18\x02 \x01(\x05R\x0eclearedEntries\x125\n" +
 	"\breset_at\x18\x03 \x01(\v2\x1a.google.protobuf.TimestampR\aresetAt\x12.\n" +
 	"\x05error\x18\x04 \x01(\v2\x18.gcommon.v1.common.ErrorR\x05error\x12)\n" +
-	"\x10reset_categories\x18\x05 \x03(\tR\x0fresetCategoriesB\xda\x01\n" +
-	"\x15com.gcommon.v1.healthB\x1dResetHealthStatsResponseProtoP\x01Z4github.com/jdfalk/gcommon/pkg/health/proto/responses\xa2\x02\x03GVH\xaa\x02\x11Gcommon.V1.Health\xca\x02\x11Gcommon\\V1\\Health\xe2\x02\x1dGcommon\\V1\\Health\\GPBMetadata\xea\x02\x13Gcommon::V1::Health\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
+	"\x10reset_categories\x18\x05 \x03(\tR\x0fresetCategoriesB\xd9\x01\n" +
+	"\x15com.gcommon.v1.healthB\x1dResetHealthStatsResponseProtoP\x01Z3github.com/jdfalk/gcommon/pkg/health/proto;healthpb\xa2\x02\x03GVH\xaa\x02\x11Gcommon.V1.Health\xca\x02\x11Gcommon\\V1\\Health\xe2\x02\x1dGcommon\\V1\\Health\\GPBMetadata\xea\x02\x13Gcommon::V1::Health\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
 
 var file_pkg_health_proto_responses_reset_health_stats_response_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_pkg_health_proto_responses_reset_health_stats_response_proto_goTypes = []any{
 	(*ResetHealthStatsResponse)(nil), // 0: gcommon.v1.health.ResetHealthStatsResponse
 	(*timestamppb.Timestamp)(nil),    // 1: google.protobuf.Timestamp
-	(*messages.Error)(nil),           // 2: gcommon.v1.common.Error
+	(*proto.Error)(nil),              // 2: gcommon.v1.common.Error
 }
 var file_pkg_health_proto_responses_reset_health_stats_response_proto_depIdxs = []int32{
 	1, // 0: gcommon.v1.health.ResetHealthStatsResponse.reset_at:type_name -> google.protobuf.Timestamp

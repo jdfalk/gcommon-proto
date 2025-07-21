@@ -6,11 +6,9 @@
 
 //go:build !protoopaque
 
-package services
+package healthpb
 
 import (
-	requests "github.com/jdfalk/gcommon/pkg/health/proto/requests"
-	responses "github.com/jdfalk/gcommon/pkg/health/proto/responses"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
@@ -38,23 +36,23 @@ const file_pkg_health_proto_services_health_service_proto_rawDesc = "" +
 	"\rRegisterCheck\x12'.gcommon.v1.health.RegisterCheckRequest\x1a(.gcommon.v1.health.RegisterCheckResponse\x12h\n" +
 	"\x0fUnregisterCheck\x12).gcommon.v1.health.UnregisterCheckRequest\x1a*.gcommon.v1.health.UnregisterCheckResponse\x12k\n" +
 	"\x10GetHealthMetrics\x12*.gcommon.v1.health.GetHealthMetricsRequest\x1a+.gcommon.v1.health.GetHealthMetricsResponseB\xce\x01\n" +
-	"\x15com.gcommon.v1.healthB\x12HealthServiceProtoP\x01Z3github.com/jdfalk/gcommon/pkg/health/proto/services\xa2\x02\x03GVH\xaa\x02\x11Gcommon.V1.Health\xca\x02\x11Gcommon\\V1\\Health\xe2\x02\x1dGcommon\\V1\\Health\\GPBMetadata\xea\x02\x13Gcommon::V1::Health\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
+	"\x15com.gcommon.v1.healthB\x12HealthServiceProtoP\x01Z3github.com/jdfalk/gcommon/pkg/health/proto;healthpb\xa2\x02\x03GVH\xaa\x02\x11Gcommon.V1.Health\xca\x02\x11Gcommon\\V1\\Health\xe2\x02\x1dGcommon\\V1\\Health\\GPBMetadata\xea\x02\x13Gcommon::V1::Health\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
 
 var file_pkg_health_proto_services_health_service_proto_goTypes = []any{
-	(*requests.HealthCheckRequest)(nil),        // 0: gcommon.v1.health.HealthCheckRequest
-	(*requests.WatchRequest)(nil),              // 1: gcommon.v1.health.WatchRequest
-	(*requests.GetServiceHealthRequest)(nil),   // 2: gcommon.v1.health.GetServiceHealthRequest
-	(*requests.ListServicesRequest)(nil),       // 3: gcommon.v1.health.ListServicesRequest
-	(*requests.RegisterCheckRequest)(nil),      // 4: gcommon.v1.health.RegisterCheckRequest
-	(*requests.UnregisterCheckRequest)(nil),    // 5: gcommon.v1.health.UnregisterCheckRequest
-	(*requests.GetHealthMetricsRequest)(nil),   // 6: gcommon.v1.health.GetHealthMetricsRequest
-	(*responses.HealthCheckResponse)(nil),      // 7: gcommon.v1.health.HealthCheckResponse
-	(*responses.WatchResponse)(nil),            // 8: gcommon.v1.health.WatchResponse
-	(*responses.GetServiceHealthResponse)(nil), // 9: gcommon.v1.health.GetServiceHealthResponse
-	(*responses.ListServicesResponse)(nil),     // 10: gcommon.v1.health.ListServicesResponse
-	(*responses.RegisterCheckResponse)(nil),    // 11: gcommon.v1.health.RegisterCheckResponse
-	(*responses.UnregisterCheckResponse)(nil),  // 12: gcommon.v1.health.UnregisterCheckResponse
-	(*responses.GetHealthMetricsResponse)(nil), // 13: gcommon.v1.health.GetHealthMetricsResponse
+	(*HealthCheckRequest)(nil),       // 0: gcommon.v1.health.HealthCheckRequest
+	(*WatchRequest)(nil),             // 1: gcommon.v1.health.WatchRequest
+	(*GetServiceHealthRequest)(nil),  // 2: gcommon.v1.health.GetServiceHealthRequest
+	(*ListServicesRequest)(nil),      // 3: gcommon.v1.health.ListServicesRequest
+	(*RegisterCheckRequest)(nil),     // 4: gcommon.v1.health.RegisterCheckRequest
+	(*UnregisterCheckRequest)(nil),   // 5: gcommon.v1.health.UnregisterCheckRequest
+	(*GetHealthMetricsRequest)(nil),  // 6: gcommon.v1.health.GetHealthMetricsRequest
+	(*HealthCheckResponse)(nil),      // 7: gcommon.v1.health.HealthCheckResponse
+	(*WatchResponse)(nil),            // 8: gcommon.v1.health.WatchResponse
+	(*GetServiceHealthResponse)(nil), // 9: gcommon.v1.health.GetServiceHealthResponse
+	(*ListServicesResponse)(nil),     // 10: gcommon.v1.health.ListServicesResponse
+	(*RegisterCheckResponse)(nil),    // 11: gcommon.v1.health.RegisterCheckResponse
+	(*UnregisterCheckResponse)(nil),  // 12: gcommon.v1.health.UnregisterCheckResponse
+	(*GetHealthMetricsResponse)(nil), // 13: gcommon.v1.health.GetHealthMetricsResponse
 }
 var file_pkg_health_proto_services_health_service_proto_depIdxs = []int32{
 	0,  // 0: gcommon.v1.health.HealthService.Check:input_type -> gcommon.v1.health.HealthCheckRequest
@@ -83,6 +81,20 @@ func file_pkg_health_proto_services_health_service_proto_init() {
 	if File_pkg_health_proto_services_health_service_proto != nil {
 		return
 	}
+	file_pkg_health_proto_requests_health_check_request_proto_init()
+	file_pkg_health_proto_requests_watch_request_proto_init()
+	file_pkg_health_proto_requests_get_service_health_request_proto_init()
+	file_pkg_health_proto_requests_list_services_request_proto_init()
+	file_pkg_health_proto_requests_register_check_request_proto_init()
+	file_pkg_health_proto_requests_unregister_check_request_proto_init()
+	file_pkg_health_proto_requests_get_health_metrics_request_proto_init()
+	file_pkg_health_proto_responses_health_check_response_proto_init()
+	file_pkg_health_proto_responses_watch_response_proto_init()
+	file_pkg_health_proto_responses_get_service_health_response_proto_init()
+	file_pkg_health_proto_responses_list_services_response_proto_init()
+	file_pkg_health_proto_responses_register_check_response_proto_init()
+	file_pkg_health_proto_responses_unregister_check_response_proto_init()
+	file_pkg_health_proto_responses_get_health_metrics_response_proto_init()
 	type x struct{}
 	out := protoimpl.TypeBuilder{
 		File: protoimpl.DescBuilder{

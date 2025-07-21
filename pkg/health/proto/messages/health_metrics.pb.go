@@ -6,7 +6,7 @@
 
 //go:build !protoopaque
 
-package messages
+package healthpb
 
 import (
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
@@ -292,7 +292,7 @@ const file_pkg_health_proto_messages_health_metrics_proto_rawDesc = "" +
 	"\x12CustomMetricsEntry\x12\x10\n" +
 	"\x03key\x18\x01 \x01(\tR\x03key\x12\x14\n" +
 	"\x05value\x18\x02 \x01(\x01R\x05value:\x028\x01B\xce\x01\n" +
-	"\x15com.gcommon.v1.healthB\x12HealthMetricsProtoP\x01Z3github.com/jdfalk/gcommon/pkg/health/proto/messages\xa2\x02\x03GVH\xaa\x02\x11Gcommon.V1.Health\xca\x02\x11Gcommon\\V1\\Health\xe2\x02\x1dGcommon\\V1\\Health\\GPBMetadata\xea\x02\x13Gcommon::V1::Health\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
+	"\x15com.gcommon.v1.healthB\x12HealthMetricsProtoP\x01Z3github.com/jdfalk/gcommon/pkg/health/proto;healthpb\xa2\x02\x03GVH\xaa\x02\x11Gcommon.V1.Health\xca\x02\x11Gcommon\\V1\\Health\xe2\x02\x1dGcommon\\V1\\Health\\GPBMetadata\xea\x02\x13Gcommon::V1::Health\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
 
 var file_pkg_health_proto_messages_health_metrics_proto_msgTypes = make([]protoimpl.MessageInfo, 2)
 var file_pkg_health_proto_messages_health_metrics_proto_goTypes = []any{

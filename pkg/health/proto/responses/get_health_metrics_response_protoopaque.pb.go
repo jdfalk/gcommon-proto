@@ -6,12 +6,10 @@
 
 //go:build protoopaque
 
-package responses
+package healthpb
 
 import (
-	_ "github.com/jdfalk/gcommon/pkg/common/proto"
-	messages1 "github.com/jdfalk/gcommon/pkg/common/proto/messages"
-	messages "github.com/jdfalk/gcommon/pkg/health/proto/messages"
+	proto "github.com/jdfalk/gcommon/pkg/common/proto"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
@@ -30,9 +28,9 @@ const (
 // Response message for health metrics requests.
 // Contains health metrics and statistics data.
 type GetHealthMetricsResponse struct {
-	state               protoimpl.MessageState        `protogen:"opaque.v1"`
-	xxx_hidden_Metrics  *[]*messages.HealthMetricData `protobuf:"bytes,1,rep,name=metrics"`
-	xxx_hidden_Metadata *messages1.RequestMetadata    `protobuf:"bytes,2,opt,name=metadata"`
+	state               protoimpl.MessageState `protogen:"opaque.v1"`
+	xxx_hidden_Metrics  *[]*HealthMetricData   `protobuf:"bytes,1,rep,name=metrics"`
+	xxx_hidden_Metadata *proto.RequestMetadata `protobuf:"bytes,2,opt,name=metadata"`
 	unknownFields       protoimpl.UnknownFields
 	sizeCache           protoimpl.SizeCache
 }
@@ -62,7 +60,7 @@ func (x *GetHealthMetricsResponse) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-func (x *GetHealthMetricsResponse) GetMetrics() []*messages.HealthMetricData {
+func (x *GetHealthMetricsResponse) GetMetrics() []*HealthMetricData {
 	if x != nil {
 		if x.xxx_hidden_Metrics != nil {
 			return *x.xxx_hidden_Metrics
@@ -71,18 +69,18 @@ func (x *GetHealthMetricsResponse) GetMetrics() []*messages.HealthMetricData {
 	return nil
 }
 
-func (x *GetHealthMetricsResponse) GetMetadata() *messages1.RequestMetadata {
+func (x *GetHealthMetricsResponse) GetMetadata() *proto.RequestMetadata {
 	if x != nil {
 		return x.xxx_hidden_Metadata
 	}
 	return nil
 }
 
-func (x *GetHealthMetricsResponse) SetMetrics(v []*messages.HealthMetricData) {
+func (x *GetHealthMetricsResponse) SetMetrics(v []*HealthMetricData) {
 	x.xxx_hidden_Metrics = &v
 }
 
-func (x *GetHealthMetricsResponse) SetMetadata(v *messages1.RequestMetadata) {
+func (x *GetHealthMetricsResponse) SetMetadata(v *proto.RequestMetadata) {
 	x.xxx_hidden_Metadata = v
 }
 
@@ -101,9 +99,9 @@ type GetHealthMetricsResponse_builder struct {
 	_ [0]func() // Prevents comparability and use of unkeyed literals for the builder.
 
 	// Health metrics data
-	Metrics []*messages.HealthMetricData
+	Metrics []*HealthMetricData
 	// Request metadata
-	Metadata *messages1.RequestMetadata
+	Metadata *proto.RequestMetadata
 }
 
 func (b0 GetHealthMetricsResponse_builder) Build() *GetHealthMetricsResponse {
@@ -122,14 +120,14 @@ const file_pkg_health_proto_responses_get_health_metrics_response_proto_rawDesc 
 	"<pkg/health/proto/responses/get_health_metrics_response.proto\x12\x11gcommon.v1.health\x1a!google/protobuf/go_features.proto\x1a\x1dpkg/common/proto/common.proto\x1a2pkg/health/proto/messages/health_metric_data.proto\"\x99\x01\n" +
 	"\x18GetHealthMetricsResponse\x12=\n" +
 	"\ametrics\x18\x01 \x03(\v2#.gcommon.v1.health.HealthMetricDataR\ametrics\x12>\n" +
-	"\bmetadata\x18\x02 \x01(\v2\".gcommon.v1.common.RequestMetadataR\bmetadataB\xda\x01\n" +
-	"\x15com.gcommon.v1.healthB\x1dGetHealthMetricsResponseProtoP\x01Z4github.com/jdfalk/gcommon/pkg/health/proto/responses\xa2\x02\x03GVH\xaa\x02\x11Gcommon.V1.Health\xca\x02\x11Gcommon\\V1\\Health\xe2\x02\x1dGcommon\\V1\\Health\\GPBMetadata\xea\x02\x13Gcommon::V1::Health\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
+	"\bmetadata\x18\x02 \x01(\v2\".gcommon.v1.common.RequestMetadataR\bmetadataB\xd9\x01\n" +
+	"\x15com.gcommon.v1.healthB\x1dGetHealthMetricsResponseProtoP\x01Z3github.com/jdfalk/gcommon/pkg/health/proto;healthpb\xa2\x02\x03GVH\xaa\x02\x11Gcommon.V1.Health\xca\x02\x11Gcommon\\V1\\Health\xe2\x02\x1dGcommon\\V1\\Health\\GPBMetadata\xea\x02\x13Gcommon::V1::Health\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
 
 var file_pkg_health_proto_responses_get_health_metrics_response_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_pkg_health_proto_responses_get_health_metrics_response_proto_goTypes = []any{
-	(*GetHealthMetricsResponse)(nil),  // 0: gcommon.v1.health.GetHealthMetricsResponse
-	(*messages.HealthMetricData)(nil), // 1: gcommon.v1.health.HealthMetricData
-	(*messages1.RequestMetadata)(nil), // 2: gcommon.v1.common.RequestMetadata
+	(*GetHealthMetricsResponse)(nil), // 0: gcommon.v1.health.GetHealthMetricsResponse
+	(*HealthMetricData)(nil),         // 1: gcommon.v1.health.HealthMetricData
+	(*proto.RequestMetadata)(nil),    // 2: gcommon.v1.common.RequestMetadata
 }
 var file_pkg_health_proto_responses_get_health_metrics_response_proto_depIdxs = []int32{
 	1, // 0: gcommon.v1.health.GetHealthMetricsResponse.metrics:type_name -> gcommon.v1.health.HealthMetricData
@@ -146,6 +144,7 @@ func file_pkg_health_proto_responses_get_health_metrics_response_proto_init() {
 	if File_pkg_health_proto_responses_get_health_metrics_response_proto != nil {
 		return
 	}
+	file_pkg_health_proto_messages_health_metric_data_proto_init()
 	type x struct{}
 	out := protoimpl.TypeBuilder{
 		File: protoimpl.DescBuilder{

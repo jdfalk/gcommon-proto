@@ -6,11 +6,9 @@
 
 //go:build !protoopaque
 
-package services
+package healthpb
 
 import (
-	requests "github.com/jdfalk/gcommon/pkg/health/proto/requests"
-	responses "github.com/jdfalk/gcommon/pkg/health/proto/responses"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
@@ -37,21 +35,21 @@ const file_pkg_health_proto_services_health_admin_service_proto_rawDesc = "" +
 	"\bRunCheck\x12\".gcommon.v1.health.RunCheckRequest\x1a#.gcommon.v1.health.RunCheckResponse\x12k\n" +
 	"\x10ResetHealthStats\x12*.gcommon.v1.health.ResetHealthStatsRequest\x1a+.gcommon.v1.health.ResetHealthStatsResponse\x12V\n" +
 	"\tSetHealth\x12#.gcommon.v1.health.SetHealthRequest\x1a$.gcommon.v1.health.SetHealthResponseB\xd3\x01\n" +
-	"\x15com.gcommon.v1.healthB\x17HealthAdminServiceProtoP\x01Z3github.com/jdfalk/gcommon/pkg/health/proto/services\xa2\x02\x03GVH\xaa\x02\x11Gcommon.V1.Health\xca\x02\x11Gcommon\\V1\\Health\xe2\x02\x1dGcommon\\V1\\Health\\GPBMetadata\xea\x02\x13Gcommon::V1::Health\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
+	"\x15com.gcommon.v1.healthB\x17HealthAdminServiceProtoP\x01Z3github.com/jdfalk/gcommon/pkg/health/proto;healthpb\xa2\x02\x03GVH\xaa\x02\x11Gcommon.V1.Health\xca\x02\x11Gcommon\\V1\\Health\xe2\x02\x1dGcommon\\V1\\Health\\GPBMetadata\xea\x02\x13Gcommon::V1::Health\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
 
 var file_pkg_health_proto_services_health_admin_service_proto_goTypes = []any{
-	(*requests.ConfigureAlertingRequest)(nil),   // 0: gcommon.v1.health.ConfigureAlertingRequest
-	(*requests.EnableCheckRequest)(nil),         // 1: gcommon.v1.health.EnableCheckRequest
-	(*requests.DisableCheckRequest)(nil),        // 2: gcommon.v1.health.DisableCheckRequest
-	(*requests.RunCheckRequest)(nil),            // 3: gcommon.v1.health.RunCheckRequest
-	(*requests.ResetHealthStatsRequest)(nil),    // 4: gcommon.v1.health.ResetHealthStatsRequest
-	(*requests.SetHealthRequest)(nil),           // 5: gcommon.v1.health.SetHealthRequest
-	(*responses.ConfigureAlertingResponse)(nil), // 6: gcommon.v1.health.ConfigureAlertingResponse
-	(*responses.EnableCheckResponse)(nil),       // 7: gcommon.v1.health.EnableCheckResponse
-	(*responses.DisableCheckResponse)(nil),      // 8: gcommon.v1.health.DisableCheckResponse
-	(*responses.RunCheckResponse)(nil),          // 9: gcommon.v1.health.RunCheckResponse
-	(*responses.ResetHealthStatsResponse)(nil),  // 10: gcommon.v1.health.ResetHealthStatsResponse
-	(*responses.SetHealthResponse)(nil),         // 11: gcommon.v1.health.SetHealthResponse
+	(*ConfigureAlertingRequest)(nil),  // 0: gcommon.v1.health.ConfigureAlertingRequest
+	(*EnableCheckRequest)(nil),        // 1: gcommon.v1.health.EnableCheckRequest
+	(*DisableCheckRequest)(nil),       // 2: gcommon.v1.health.DisableCheckRequest
+	(*RunCheckRequest)(nil),           // 3: gcommon.v1.health.RunCheckRequest
+	(*ResetHealthStatsRequest)(nil),   // 4: gcommon.v1.health.ResetHealthStatsRequest
+	(*SetHealthRequest)(nil),          // 5: gcommon.v1.health.SetHealthRequest
+	(*ConfigureAlertingResponse)(nil), // 6: gcommon.v1.health.ConfigureAlertingResponse
+	(*EnableCheckResponse)(nil),       // 7: gcommon.v1.health.EnableCheckResponse
+	(*DisableCheckResponse)(nil),      // 8: gcommon.v1.health.DisableCheckResponse
+	(*RunCheckResponse)(nil),          // 9: gcommon.v1.health.RunCheckResponse
+	(*ResetHealthStatsResponse)(nil),  // 10: gcommon.v1.health.ResetHealthStatsResponse
+	(*SetHealthResponse)(nil),         // 11: gcommon.v1.health.SetHealthResponse
 }
 var file_pkg_health_proto_services_health_admin_service_proto_depIdxs = []int32{
 	0,  // 0: gcommon.v1.health.HealthAdminService.ConfigureAlerting:input_type -> gcommon.v1.health.ConfigureAlertingRequest
@@ -78,6 +76,18 @@ func file_pkg_health_proto_services_health_admin_service_proto_init() {
 	if File_pkg_health_proto_services_health_admin_service_proto != nil {
 		return
 	}
+	file_pkg_health_proto_requests_configure_alerting_request_proto_init()
+	file_pkg_health_proto_requests_enable_check_request_proto_init()
+	file_pkg_health_proto_requests_disable_check_request_proto_init()
+	file_pkg_health_proto_requests_reset_health_stats_request_proto_init()
+	file_pkg_health_proto_requests_set_health_request_proto_init()
+	file_pkg_health_proto_requests_run_check_request_proto_init()
+	file_pkg_health_proto_responses_configure_alerting_response_proto_init()
+	file_pkg_health_proto_responses_enable_check_response_proto_init()
+	file_pkg_health_proto_responses_disable_check_response_proto_init()
+	file_pkg_health_proto_responses_reset_health_stats_response_proto_init()
+	file_pkg_health_proto_responses_set_health_response_proto_init()
+	file_pkg_health_proto_responses_run_check_response_proto_init()
 	type x struct{}
 	out := protoimpl.TypeBuilder{
 		File: protoimpl.DescBuilder{

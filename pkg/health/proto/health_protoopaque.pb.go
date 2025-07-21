@@ -6,7 +6,7 @@
 
 //go:build protoopaque
 
-package proto
+package healthpb
 
 import (
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
@@ -27,8 +27,8 @@ var File_pkg_health_proto_health_proto protoreflect.FileDescriptor
 
 const file_pkg_health_proto_health_proto_rawDesc = "" +
 	"\n" +
-	"\x1dpkg/health/proto/health.proto\x12\x11gcommon.v1.health\x1a!google/protobuf/go_features.protoB\xbe\x01\n" +
-	"\x15com.gcommon.v1.healthB\vHealthProtoP\x01Z*github.com/jdfalk/gcommon/pkg/health/proto\xa2\x02\x03GVH\xaa\x02\x11Gcommon.V1.Health\xca\x02\x11Gcommon\\V1\\Health\xe2\x02\x1dGcommon\\V1\\Health\\GPBMetadata\xea\x02\x13Gcommon::V1::Health\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
+	"\x1dpkg/health/proto/health.proto\x12\x11gcommon.v1.health\x1a!google/protobuf/go_features.protoB\xc7\x01\n" +
+	"\x15com.gcommon.v1.healthB\vHealthProtoP\x01Z3github.com/jdfalk/gcommon/pkg/health/proto;healthpb\xa2\x02\x03GVH\xaa\x02\x11Gcommon.V1.Health\xca\x02\x11Gcommon\\V1\\Health\xe2\x02\x1dGcommon\\V1\\Health\\GPBMetadata\xea\x02\x13Gcommon::V1::Health\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
 
 var file_pkg_health_proto_health_proto_goTypes = []any{}
 var file_pkg_health_proto_health_proto_depIdxs = []int32{

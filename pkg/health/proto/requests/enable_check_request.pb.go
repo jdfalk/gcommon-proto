@@ -6,11 +6,10 @@
 
 //go:build !protoopaque
 
-package requests
+package healthpb
 
 import (
-	_ "github.com/jdfalk/gcommon/pkg/common/proto"
-	messages "github.com/jdfalk/gcommon/pkg/common/proto/messages"
+	proto "github.com/jdfalk/gcommon/pkg/common/proto"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
@@ -32,7 +31,7 @@ type EnableCheckRequest struct {
 	// Name or ID of the check to enable
 	Name *string `protobuf:"bytes,1,opt,name=name" json:"name,omitempty"`
 	// Request metadata for auditing
-	Metadata      *messages.RequestMetadata `protobuf:"bytes,2,opt,name=metadata" json:"metadata,omitempty"`
+	Metadata      *proto.RequestMetadata `protobuf:"bytes,2,opt,name=metadata" json:"metadata,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -69,7 +68,7 @@ func (x *EnableCheckRequest) GetName() string {
 	return ""
 }
 
-func (x *EnableCheckRequest) GetMetadata() *messages.RequestMetadata {
+func (x *EnableCheckRequest) GetMetadata() *proto.RequestMetadata {
 	if x != nil {
 		return x.Metadata
 	}
@@ -80,7 +79,7 @@ func (x *EnableCheckRequest) SetName(v string) {
 	x.Name = &v
 }
 
-func (x *EnableCheckRequest) SetMetadata(v *messages.RequestMetadata) {
+func (x *EnableCheckRequest) SetMetadata(v *proto.RequestMetadata) {
 	x.Metadata = v
 }
 
@@ -112,7 +111,7 @@ type EnableCheckRequest_builder struct {
 	// Name or ID of the check to enable
 	Name *string
 	// Request metadata for auditing
-	Metadata *messages.RequestMetadata
+	Metadata *proto.RequestMetadata
 }
 
 func (b0 EnableCheckRequest_builder) Build() *EnableCheckRequest {
@@ -132,12 +131,12 @@ const file_pkg_health_proto_requests_enable_check_request_proto_rawDesc = "" +
 	"\x12EnableCheckRequest\x12\x12\n" +
 	"\x04name\x18\x01 \x01(\tR\x04name\x12B\n" +
 	"\bmetadata\x18\x02 \x01(\v2\".gcommon.v1.common.RequestMetadataB\x02(\x01R\bmetadataB\xd3\x01\n" +
-	"\x15com.gcommon.v1.healthB\x17EnableCheckRequestProtoP\x01Z3github.com/jdfalk/gcommon/pkg/health/proto/requests\xa2\x02\x03GVH\xaa\x02\x11Gcommon.V1.Health\xca\x02\x11Gcommon\\V1\\Health\xe2\x02\x1dGcommon\\V1\\Health\\GPBMetadata\xea\x02\x13Gcommon::V1::Health\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
+	"\x15com.gcommon.v1.healthB\x17EnableCheckRequestProtoP\x01Z3github.com/jdfalk/gcommon/pkg/health/proto;healthpb\xa2\x02\x03GVH\xaa\x02\x11Gcommon.V1.Health\xca\x02\x11Gcommon\\V1\\Health\xe2\x02\x1dGcommon\\V1\\Health\\GPBMetadata\xea\x02\x13Gcommon::V1::Health\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
 
 var file_pkg_health_proto_requests_enable_check_request_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_pkg_health_proto_requests_enable_check_request_proto_goTypes = []any{
-	(*EnableCheckRequest)(nil),       // 0: gcommon.v1.health.EnableCheckRequest
-	(*messages.RequestMetadata)(nil), // 1: gcommon.v1.common.RequestMetadata
+	(*EnableCheckRequest)(nil),    // 0: gcommon.v1.health.EnableCheckRequest
+	(*proto.RequestMetadata)(nil), // 1: gcommon.v1.common.RequestMetadata
 }
 var file_pkg_health_proto_requests_enable_check_request_proto_depIdxs = []int32{
 	1, // 0: gcommon.v1.health.EnableCheckRequest.metadata:type_name -> gcommon.v1.common.RequestMetadata

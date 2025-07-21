@@ -6,11 +6,10 @@
 
 //go:build !protoopaque
 
-package requests
+package healthpb
 
 import (
-	_ "github.com/jdfalk/gcommon/pkg/common/proto"
-	messages "github.com/jdfalk/gcommon/pkg/common/proto/messages"
+	proto "github.com/jdfalk/gcommon/pkg/common/proto"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
@@ -40,7 +39,7 @@ type ConfigureAlertingRequest struct {
 	// Optional notification channels (email, slack, etc.)
 	Channels []string `protobuf:"bytes,4,rep,name=channels" json:"channels,omitempty"`
 	// Standard request metadata for tracing and auth
-	Metadata      *messages.RequestMetadata `protobuf:"bytes,5,opt,name=metadata" json:"metadata,omitempty"`
+	Metadata      *proto.RequestMetadata `protobuf:"bytes,5,opt,name=metadata" json:"metadata,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -98,7 +97,7 @@ func (x *ConfigureAlertingRequest) GetChannels() []string {
 	return nil
 }
 
-func (x *ConfigureAlertingRequest) GetMetadata() *messages.RequestMetadata {
+func (x *ConfigureAlertingRequest) GetMetadata() *proto.RequestMetadata {
 	if x != nil {
 		return x.Metadata
 	}
@@ -121,7 +120,7 @@ func (x *ConfigureAlertingRequest) SetChannels(v []string) {
 	x.Channels = v
 }
 
-func (x *ConfigureAlertingRequest) SetMetadata(v *messages.RequestMetadata) {
+func (x *ConfigureAlertingRequest) SetMetadata(v *proto.RequestMetadata) {
 	x.Metadata = v
 }
 
@@ -181,7 +180,7 @@ type ConfigureAlertingRequest_builder struct {
 	// Optional notification channels (email, slack, etc.)
 	Channels []string
 	// Standard request metadata for tracing and auth
-	Metadata *messages.RequestMetadata
+	Metadata *proto.RequestMetadata
 }
 
 func (b0 ConfigureAlertingRequest_builder) Build() *ConfigureAlertingRequest {
@@ -207,12 +206,12 @@ const file_pkg_health_proto_requests_configure_alerting_request_proto_rawDesc = 
 	"\x11failure_threshold\x18\x03 \x01(\x05R\x10failureThreshold\x12\x1a\n" +
 	"\bchannels\x18\x04 \x03(\tR\bchannels\x12>\n" +
 	"\bmetadata\x18\x05 \x01(\v2\".gcommon.v1.common.RequestMetadataR\bmetadataB\xd9\x01\n" +
-	"\x15com.gcommon.v1.healthB\x1dConfigureAlertingRequestProtoP\x01Z3github.com/jdfalk/gcommon/pkg/health/proto/requests\xa2\x02\x03GVH\xaa\x02\x11Gcommon.V1.Health\xca\x02\x11Gcommon\\V1\\Health\xe2\x02\x1dGcommon\\V1\\Health\\GPBMetadata\xea\x02\x13Gcommon::V1::Health\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
+	"\x15com.gcommon.v1.healthB\x1dConfigureAlertingRequestProtoP\x01Z3github.com/jdfalk/gcommon/pkg/health/proto;healthpb\xa2\x02\x03GVH\xaa\x02\x11Gcommon.V1.Health\xca\x02\x11Gcommon\\V1\\Health\xe2\x02\x1dGcommon\\V1\\Health\\GPBMetadata\xea\x02\x13Gcommon::V1::Health\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
 
 var file_pkg_health_proto_requests_configure_alerting_request_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_pkg_health_proto_requests_configure_alerting_request_proto_goTypes = []any{
 	(*ConfigureAlertingRequest)(nil), // 0: gcommon.v1.health.ConfigureAlertingRequest
-	(*messages.RequestMetadata)(nil), // 1: gcommon.v1.common.RequestMetadata
+	(*proto.RequestMetadata)(nil),    // 1: gcommon.v1.common.RequestMetadata
 }
 var file_pkg_health_proto_requests_configure_alerting_request_proto_depIdxs = []int32{
 	1, // 0: gcommon.v1.health.ConfigureAlertingRequest.metadata:type_name -> gcommon.v1.common.RequestMetadata

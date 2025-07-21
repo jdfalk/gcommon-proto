@@ -6,12 +6,10 @@
 
 //go:build !protoopaque
 
-package responses
+package healthpb
 
 import (
-	_ "github.com/jdfalk/gcommon/pkg/common/proto"
-	enums "github.com/jdfalk/gcommon/pkg/common/proto/enums"
-	messages "github.com/jdfalk/gcommon/pkg/common/proto/messages"
+	proto "github.com/jdfalk/gcommon/pkg/common/proto"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
@@ -38,7 +36,7 @@ type RunCheckResponse struct {
 	// Check ID that was executed
 	CheckId *string `protobuf:"bytes,2,opt,name=check_id,json=checkId" json:"check_id,omitempty"`
 	// Health status result
-	Status *enums.HealthStatus `protobuf:"varint,3,opt,name=status,enum=gcommon.v1.common.HealthStatus" json:"status,omitempty"`
+	Status *proto.HealthStatus `protobuf:"varint,3,opt,name=status,enum=gcommon.v1.common.HealthStatus" json:"status,omitempty"`
 	// Execution timestamp
 	ExecutedAt *timestamppb.Timestamp `protobuf:"bytes,4,opt,name=executed_at,json=executedAt" json:"executed_at,omitempty"`
 	// Execution duration
@@ -46,7 +44,7 @@ type RunCheckResponse struct {
 	// Check result message
 	Message *string `protobuf:"bytes,6,opt,name=message" json:"message,omitempty"`
 	// Error information if check failed
-	Error         *messages.Error `protobuf:"bytes,7,opt,name=error" json:"error,omitempty"`
+	Error         *proto.Error `protobuf:"bytes,7,opt,name=error" json:"error,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -90,11 +88,11 @@ func (x *RunCheckResponse) GetCheckId() string {
 	return ""
 }
 
-func (x *RunCheckResponse) GetStatus() enums.HealthStatus {
+func (x *RunCheckResponse) GetStatus() proto.HealthStatus {
 	if x != nil && x.Status != nil {
 		return *x.Status
 	}
-	return enums.HealthStatus(0)
+	return proto.HealthStatus(0)
 }
 
 func (x *RunCheckResponse) GetExecutedAt() *timestamppb.Timestamp {
@@ -118,7 +116,7 @@ func (x *RunCheckResponse) GetMessage() string {
 	return ""
 }
 
-func (x *RunCheckResponse) GetError() *messages.Error {
+func (x *RunCheckResponse) GetError() *proto.Error {
 	if x != nil {
 		return x.Error
 	}
@@ -133,7 +131,7 @@ func (x *RunCheckResponse) SetCheckId(v string) {
 	x.CheckId = &v
 }
 
-func (x *RunCheckResponse) SetStatus(v enums.HealthStatus) {
+func (x *RunCheckResponse) SetStatus(v proto.HealthStatus) {
 	x.Status = &v
 }
 
@@ -149,7 +147,7 @@ func (x *RunCheckResponse) SetMessage(v string) {
 	x.Message = &v
 }
 
-func (x *RunCheckResponse) SetError(v *messages.Error) {
+func (x *RunCheckResponse) SetError(v *proto.Error) {
 	x.Error = v
 }
 
@@ -238,7 +236,7 @@ type RunCheckResponse_builder struct {
 	// Check ID that was executed
 	CheckId *string
 	// Health status result
-	Status *enums.HealthStatus
+	Status *proto.HealthStatus
 	// Execution timestamp
 	ExecutedAt *timestamppb.Timestamp
 	// Execution duration
@@ -246,7 +244,7 @@ type RunCheckResponse_builder struct {
 	// Check result message
 	Message *string
 	// Error information if check failed
-	Error *messages.Error
+	Error *proto.Error
 }
 
 func (b0 RunCheckResponse_builder) Build() *RunCheckResponse {
@@ -276,16 +274,16 @@ const file_pkg_health_proto_responses_run_check_response_proto_rawDesc = "" +
 	"executedAt\x12@\n" +
 	"\x0eexecution_time\x18\x05 \x01(\v2\x19.google.protobuf.DurationR\rexecutionTime\x12\x18\n" +
 	"\amessage\x18\x06 \x01(\tR\amessage\x12.\n" +
-	"\x05error\x18\a \x01(\v2\x18.gcommon.v1.common.ErrorR\x05errorB\xd2\x01\n" +
-	"\x15com.gcommon.v1.healthB\x15RunCheckResponseProtoP\x01Z4github.com/jdfalk/gcommon/pkg/health/proto/responses\xa2\x02\x03GVH\xaa\x02\x11Gcommon.V1.Health\xca\x02\x11Gcommon\\V1\\Health\xe2\x02\x1dGcommon\\V1\\Health\\GPBMetadata\xea\x02\x13Gcommon::V1::Health\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
+	"\x05error\x18\a \x01(\v2\x18.gcommon.v1.common.ErrorR\x05errorB\xd1\x01\n" +
+	"\x15com.gcommon.v1.healthB\x15RunCheckResponseProtoP\x01Z3github.com/jdfalk/gcommon/pkg/health/proto;healthpb\xa2\x02\x03GVH\xaa\x02\x11Gcommon.V1.Health\xca\x02\x11Gcommon\\V1\\Health\xe2\x02\x1dGcommon\\V1\\Health\\GPBMetadata\xea\x02\x13Gcommon::V1::Health\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
 
 var file_pkg_health_proto_responses_run_check_response_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_pkg_health_proto_responses_run_check_response_proto_goTypes = []any{
 	(*RunCheckResponse)(nil),      // 0: gcommon.v1.health.RunCheckResponse
-	(enums.HealthStatus)(0),       // 1: gcommon.v1.common.HealthStatus
+	(proto.HealthStatus)(0),       // 1: gcommon.v1.common.HealthStatus
 	(*timestamppb.Timestamp)(nil), // 2: google.protobuf.Timestamp
 	(*durationpb.Duration)(nil),   // 3: google.protobuf.Duration
-	(*messages.Error)(nil),        // 4: gcommon.v1.common.Error
+	(*proto.Error)(nil),           // 4: gcommon.v1.common.Error
 }
 var file_pkg_health_proto_responses_run_check_response_proto_depIdxs = []int32{
 	1, // 0: gcommon.v1.health.RunCheckResponse.status:type_name -> gcommon.v1.common.HealthStatus

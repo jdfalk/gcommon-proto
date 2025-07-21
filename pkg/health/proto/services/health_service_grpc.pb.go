@@ -4,12 +4,10 @@
 // - protoc             (unknown)
 // source: pkg/health/proto/services/health_service.proto
 
-package services
+package healthpb
 
 import (
 	context "context"
-	requests "github.com/jdfalk/gcommon/pkg/health/proto/requests"
-	responses "github.com/jdfalk/gcommon/pkg/health/proto/responses"
 	grpc "google.golang.org/grpc"
 	codes "google.golang.org/grpc/codes"
 	status "google.golang.org/grpc/status"
@@ -39,19 +37,19 @@ const (
 // Supports individual check status, system-wide health, and health monitoring.
 type HealthServiceClient interface {
 	// Check performs a health check for a specific service
-	Check(ctx context.Context, in *requests.HealthCheckRequest, opts ...grpc.CallOption) (*responses.HealthCheckResponse, error)
+	Check(ctx context.Context, in *HealthCheckRequest, opts ...grpc.CallOption) (*HealthCheckResponse, error)
 	// Watch returns a stream of health check results
-	Watch(ctx context.Context, in *requests.WatchRequest, opts ...grpc.CallOption) (grpc.ServerStreamingClient[responses.WatchResponse], error)
+	Watch(ctx context.Context, in *WatchRequest, opts ...grpc.CallOption) (grpc.ServerStreamingClient[WatchResponse], error)
 	// GetServiceHealth returns health status for a service
-	GetServiceHealth(ctx context.Context, in *requests.GetServiceHealthRequest, opts ...grpc.CallOption) (*responses.GetServiceHealthResponse, error)
+	GetServiceHealth(ctx context.Context, in *GetServiceHealthRequest, opts ...grpc.CallOption) (*GetServiceHealthResponse, error)
 	// ListServices returns all monitored services
-	ListServices(ctx context.Context, in *requests.ListServicesRequest, opts ...grpc.CallOption) (*responses.ListServicesResponse, error)
+	ListServices(ctx context.Context, in *ListServicesRequest, opts ...grpc.CallOption) (*ListServicesResponse, error)
 	// RegisterCheck registers a new health check
-	RegisterCheck(ctx context.Context, in *requests.RegisterCheckRequest, opts ...grpc.CallOption) (*responses.RegisterCheckResponse, error)
+	RegisterCheck(ctx context.Context, in *RegisterCheckRequest, opts ...grpc.CallOption) (*RegisterCheckResponse, error)
 	// UnregisterCheck removes a health check
-	UnregisterCheck(ctx context.Context, in *requests.UnregisterCheckRequest, opts ...grpc.CallOption) (*responses.UnregisterCheckResponse, error)
+	UnregisterCheck(ctx context.Context, in *UnregisterCheckRequest, opts ...grpc.CallOption) (*UnregisterCheckResponse, error)
 	// GetHealthMetrics returns health metrics and statistics
-	GetHealthMetrics(ctx context.Context, in *requests.GetHealthMetricsRequest, opts ...grpc.CallOption) (*responses.GetHealthMetricsResponse, error)
+	GetHealthMetrics(ctx context.Context, in *GetHealthMetricsRequest, opts ...grpc.CallOption) (*GetHealthMetricsResponse, error)
 }
 
 type healthServiceClient struct {
@@ -62,9 +60,9 @@ func NewHealthServiceClient(cc grpc.ClientConnInterface) HealthServiceClient {
 	return &healthServiceClient{cc}
 }
 
-func (c *healthServiceClient) Check(ctx context.Context, in *requests.HealthCheckRequest, opts ...grpc.CallOption) (*responses.HealthCheckResponse, error) {
+func (c *healthServiceClient) Check(ctx context.Context, in *HealthCheckRequest, opts ...grpc.CallOption) (*HealthCheckResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(responses.HealthCheckResponse)
+	out := new(HealthCheckResponse)
 	err := c.cc.Invoke(ctx, HealthService_Check_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
@@ -72,13 +70,13 @@ func (c *healthServiceClient) Check(ctx context.Context, in *requests.HealthChec
 	return out, nil
 }
 
-func (c *healthServiceClient) Watch(ctx context.Context, in *requests.WatchRequest, opts ...grpc.CallOption) (grpc.ServerStreamingClient[responses.WatchResponse], error) {
+func (c *healthServiceClient) Watch(ctx context.Context, in *WatchRequest, opts ...grpc.CallOption) (grpc.ServerStreamingClient[WatchResponse], error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	stream, err := c.cc.NewStream(ctx, &HealthService_ServiceDesc.Streams[0], HealthService_Watch_FullMethodName, cOpts...)
 	if err != nil {
 		return nil, err
 	}
-	x := &grpc.GenericClientStream[requests.WatchRequest, responses.WatchResponse]{ClientStream: stream}
+	x := &grpc.GenericClientStream[WatchRequest, WatchResponse]{ClientStream: stream}
 	if err := x.ClientStream.SendMsg(in); err != nil {
 		return nil, err
 	}
@@ -89,11 +87,11 @@ func (c *healthServiceClient) Watch(ctx context.Context, in *requests.WatchReque
 }
 
 // This type alias is provided for backwards compatibility with existing code that references the prior non-generic stream type by name.
-type HealthService_WatchClient = grpc.ServerStreamingClient[responses.WatchResponse]
+type HealthService_WatchClient = grpc.ServerStreamingClient[WatchResponse]
 
-func (c *healthServiceClient) GetServiceHealth(ctx context.Context, in *requests.GetServiceHealthRequest, opts ...grpc.CallOption) (*responses.GetServiceHealthResponse, error) {
+func (c *healthServiceClient) GetServiceHealth(ctx context.Context, in *GetServiceHealthRequest, opts ...grpc.CallOption) (*GetServiceHealthResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(responses.GetServiceHealthResponse)
+	out := new(GetServiceHealthResponse)
 	err := c.cc.Invoke(ctx, HealthService_GetServiceHealth_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
@@ -101,9 +99,9 @@ func (c *healthServiceClient) GetServiceHealth(ctx context.Context, in *requests
 	return out, nil
 }
 
-func (c *healthServiceClient) ListServices(ctx context.Context, in *requests.ListServicesRequest, opts ...grpc.CallOption) (*responses.ListServicesResponse, error) {
+func (c *healthServiceClient) ListServices(ctx context.Context, in *ListServicesRequest, opts ...grpc.CallOption) (*ListServicesResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(responses.ListServicesResponse)
+	out := new(ListServicesResponse)
 	err := c.cc.Invoke(ctx, HealthService_ListServices_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
@@ -111,9 +109,9 @@ func (c *healthServiceClient) ListServices(ctx context.Context, in *requests.Lis
 	return out, nil
 }
 
-func (c *healthServiceClient) RegisterCheck(ctx context.Context, in *requests.RegisterCheckRequest, opts ...grpc.CallOption) (*responses.RegisterCheckResponse, error) {
+func (c *healthServiceClient) RegisterCheck(ctx context.Context, in *RegisterCheckRequest, opts ...grpc.CallOption) (*RegisterCheckResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(responses.RegisterCheckResponse)
+	out := new(RegisterCheckResponse)
 	err := c.cc.Invoke(ctx, HealthService_RegisterCheck_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
@@ -121,9 +119,9 @@ func (c *healthServiceClient) RegisterCheck(ctx context.Context, in *requests.Re
 	return out, nil
 }
 
-func (c *healthServiceClient) UnregisterCheck(ctx context.Context, in *requests.UnregisterCheckRequest, opts ...grpc.CallOption) (*responses.UnregisterCheckResponse, error) {
+func (c *healthServiceClient) UnregisterCheck(ctx context.Context, in *UnregisterCheckRequest, opts ...grpc.CallOption) (*UnregisterCheckResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(responses.UnregisterCheckResponse)
+	out := new(UnregisterCheckResponse)
 	err := c.cc.Invoke(ctx, HealthService_UnregisterCheck_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
@@ -131,9 +129,9 @@ func (c *healthServiceClient) UnregisterCheck(ctx context.Context, in *requests.
 	return out, nil
 }
 
-func (c *healthServiceClient) GetHealthMetrics(ctx context.Context, in *requests.GetHealthMetricsRequest, opts ...grpc.CallOption) (*responses.GetHealthMetricsResponse, error) {
+func (c *healthServiceClient) GetHealthMetrics(ctx context.Context, in *GetHealthMetricsRequest, opts ...grpc.CallOption) (*GetHealthMetricsResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(responses.GetHealthMetricsResponse)
+	out := new(GetHealthMetricsResponse)
 	err := c.cc.Invoke(ctx, HealthService_GetHealthMetrics_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
@@ -150,19 +148,19 @@ func (c *healthServiceClient) GetHealthMetrics(ctx context.Context, in *requests
 // Supports individual check status, system-wide health, and health monitoring.
 type HealthServiceServer interface {
 	// Check performs a health check for a specific service
-	Check(context.Context, *requests.HealthCheckRequest) (*responses.HealthCheckResponse, error)
+	Check(context.Context, *HealthCheckRequest) (*HealthCheckResponse, error)
 	// Watch returns a stream of health check results
-	Watch(*requests.WatchRequest, grpc.ServerStreamingServer[responses.WatchResponse]) error
+	Watch(*WatchRequest, grpc.ServerStreamingServer[WatchResponse]) error
 	// GetServiceHealth returns health status for a service
-	GetServiceHealth(context.Context, *requests.GetServiceHealthRequest) (*responses.GetServiceHealthResponse, error)
+	GetServiceHealth(context.Context, *GetServiceHealthRequest) (*GetServiceHealthResponse, error)
 	// ListServices returns all monitored services
-	ListServices(context.Context, *requests.ListServicesRequest) (*responses.ListServicesResponse, error)
+	ListServices(context.Context, *ListServicesRequest) (*ListServicesResponse, error)
 	// RegisterCheck registers a new health check
-	RegisterCheck(context.Context, *requests.RegisterCheckRequest) (*responses.RegisterCheckResponse, error)
+	RegisterCheck(context.Context, *RegisterCheckRequest) (*RegisterCheckResponse, error)
 	// UnregisterCheck removes a health check
-	UnregisterCheck(context.Context, *requests.UnregisterCheckRequest) (*responses.UnregisterCheckResponse, error)
+	UnregisterCheck(context.Context, *UnregisterCheckRequest) (*UnregisterCheckResponse, error)
 	// GetHealthMetrics returns health metrics and statistics
-	GetHealthMetrics(context.Context, *requests.GetHealthMetricsRequest) (*responses.GetHealthMetricsResponse, error)
+	GetHealthMetrics(context.Context, *GetHealthMetricsRequest) (*GetHealthMetricsResponse, error)
 }
 
 // UnimplementedHealthServiceServer should be embedded to have
@@ -172,25 +170,25 @@ type HealthServiceServer interface {
 // pointer dereference when methods are called.
 type UnimplementedHealthServiceServer struct{}
 
-func (UnimplementedHealthServiceServer) Check(context.Context, *requests.HealthCheckRequest) (*responses.HealthCheckResponse, error) {
+func (UnimplementedHealthServiceServer) Check(context.Context, *HealthCheckRequest) (*HealthCheckResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method Check not implemented")
 }
-func (UnimplementedHealthServiceServer) Watch(*requests.WatchRequest, grpc.ServerStreamingServer[responses.WatchResponse]) error {
+func (UnimplementedHealthServiceServer) Watch(*WatchRequest, grpc.ServerStreamingServer[WatchResponse]) error {
 	return status.Errorf(codes.Unimplemented, "method Watch not implemented")
 }
-func (UnimplementedHealthServiceServer) GetServiceHealth(context.Context, *requests.GetServiceHealthRequest) (*responses.GetServiceHealthResponse, error) {
+func (UnimplementedHealthServiceServer) GetServiceHealth(context.Context, *GetServiceHealthRequest) (*GetServiceHealthResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method GetServiceHealth not implemented")
 }
-func (UnimplementedHealthServiceServer) ListServices(context.Context, *requests.ListServicesRequest) (*responses.ListServicesResponse, error) {
+func (UnimplementedHealthServiceServer) ListServices(context.Context, *ListServicesRequest) (*ListServicesResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method ListServices not implemented")
 }
-func (UnimplementedHealthServiceServer) RegisterCheck(context.Context, *requests.RegisterCheckRequest) (*responses.RegisterCheckResponse, error) {
+func (UnimplementedHealthServiceServer) RegisterCheck(context.Context, *RegisterCheckRequest) (*RegisterCheckResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method RegisterCheck not implemented")
 }
-func (UnimplementedHealthServiceServer) UnregisterCheck(context.Context, *requests.UnregisterCheckRequest) (*responses.UnregisterCheckResponse, error) {
+func (UnimplementedHealthServiceServer) UnregisterCheck(context.Context, *UnregisterCheckRequest) (*UnregisterCheckResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method UnregisterCheck not implemented")
 }
-func (UnimplementedHealthServiceServer) GetHealthMetrics(context.Context, *requests.GetHealthMetricsRequest) (*responses.GetHealthMetricsResponse, error) {
+func (UnimplementedHealthServiceServer) GetHealthMetrics(context.Context, *GetHealthMetricsRequest) (*GetHealthMetricsResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method GetHealthMetrics not implemented")
 }
 func (UnimplementedHealthServiceServer) testEmbeddedByValue() {}
@@ -214,7 +212,7 @@ func RegisterHealthServiceServer(s grpc.ServiceRegistrar, srv HealthServiceServe
 }
 
 func _HealthService_Check_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(requests.HealthCheckRequest)
+	in := new(HealthCheckRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
@@ -226,24 +224,24 @@ func _HealthService_Check_Handler(srv interface{}, ctx context.Context, dec func
 		FullMethod: HealthService_Check_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(HealthServiceServer).Check(ctx, req.(*requests.HealthCheckRequest))
+		return srv.(HealthServiceServer).Check(ctx, req.(*HealthCheckRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
 func _HealthService_Watch_Handler(srv interface{}, stream grpc.ServerStream) error {
-	m := new(requests.WatchRequest)
+	m := new(WatchRequest)
 	if err := stream.RecvMsg(m); err != nil {
 		return err
 	}
-	return srv.(HealthServiceServer).Watch(m, &grpc.GenericServerStream[requests.WatchRequest, responses.WatchResponse]{ServerStream: stream})
+	return srv.(HealthServiceServer).Watch(m, &grpc.GenericServerStream[WatchRequest, WatchResponse]{ServerStream: stream})
 }
 
 // This type alias is provided for backwards compatibility with existing code that references the prior non-generic stream type by name.
-type HealthService_WatchServer = grpc.ServerStreamingServer[responses.WatchResponse]
+type HealthService_WatchServer = grpc.ServerStreamingServer[WatchResponse]
 
 func _HealthService_GetServiceHealth_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(requests.GetServiceHealthRequest)
+	in := new(GetServiceHealthRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
@@ -255,13 +253,13 @@ func _HealthService_GetServiceHealth_Handler(srv interface{}, ctx context.Contex
 		FullMethod: HealthService_GetServiceHealth_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(HealthServiceServer).GetServiceHealth(ctx, req.(*requests.GetServiceHealthRequest))
+		return srv.(HealthServiceServer).GetServiceHealth(ctx, req.(*GetServiceHealthRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
 func _HealthService_ListServices_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(requests.ListServicesRequest)
+	in := new(ListServicesRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
@@ -273,13 +271,13 @@ func _HealthService_ListServices_Handler(srv interface{}, ctx context.Context, d
 		FullMethod: HealthService_ListServices_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(HealthServiceServer).ListServices(ctx, req.(*requests.ListServicesRequest))
+		return srv.(HealthServiceServer).ListServices(ctx, req.(*ListServicesRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
 func _HealthService_RegisterCheck_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(requests.RegisterCheckRequest)
+	in := new(RegisterCheckRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
@@ -291,13 +289,13 @@ func _HealthService_RegisterCheck_Handler(srv interface{}, ctx context.Context, 
 		FullMethod: HealthService_RegisterCheck_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(HealthServiceServer).RegisterCheck(ctx, req.(*requests.RegisterCheckRequest))
+		return srv.(HealthServiceServer).RegisterCheck(ctx, req.(*RegisterCheckRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
 func _HealthService_UnregisterCheck_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(requests.UnregisterCheckRequest)
+	in := new(UnregisterCheckRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
@@ -309,13 +307,13 @@ func _HealthService_UnregisterCheck_Handler(srv interface{}, ctx context.Context
 		FullMethod: HealthService_UnregisterCheck_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(HealthServiceServer).UnregisterCheck(ctx, req.(*requests.UnregisterCheckRequest))
+		return srv.(HealthServiceServer).UnregisterCheck(ctx, req.(*UnregisterCheckRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
 func _HealthService_GetHealthMetrics_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(requests.GetHealthMetricsRequest)
+	in := new(GetHealthMetricsRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
@@ -327,7 +325,7 @@ func _HealthService_GetHealthMetrics_Handler(srv interface{}, ctx context.Contex
 		FullMethod: HealthService_GetHealthMetrics_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(HealthServiceServer).GetHealthMetrics(ctx, req.(*requests.GetHealthMetricsRequest))
+		return srv.(HealthServiceServer).GetHealthMetrics(ctx, req.(*GetHealthMetricsRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
