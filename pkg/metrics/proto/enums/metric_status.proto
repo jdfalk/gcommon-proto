@@ -1,9 +1,7 @@
-// filepath: pkg/metrics/proto/enums/metric_status.proto
-// file: metrics/proto/enums/metric_status.proto
-//
-// Enum definitions for metrics module
-// TODO: Implement actual protobuf definitions
-//
+// file: pkg/metrics/proto/enums/metric_status.proto
+// version: 1.0.0
+// guid: 0f4752cc-8120-45bb-a7c9-1fb475c11998
+
 edition = "2023";
 
 package gcommon.v1.metrics;
@@ -13,6 +11,22 @@ import "google/protobuf/go_features.proto";
 option go_package = "github.com/jdfalk/gcommon/pkg/metrics/proto;metricspb";
 option features.(pb.go).api_level = API_HYBRID;
 
-// TODO: Add enum definitions here
-// This is a placeholder file created during 1-1-1 migration
-// Implement the actual protobuf definitions according to the metrics module requirements
+/**
+ * MetricStatus indicates the lifecycle state of a metric definition.
+ */
+enum MetricStatus {
+  // Unspecified status.
+  METRIC_STATUS_UNSPECIFIED = 0;
+
+  // Metric is active and being collected.
+  METRIC_STATUS_ACTIVE = 1;
+
+  // Metric is temporarily disabled.
+  METRIC_STATUS_DISABLED = 2;
+
+  // Metric is in error state and not reliable.
+  METRIC_STATUS_ERROR = 3;
+
+  // Metric has been removed and should no longer be used.
+  METRIC_STATUS_DELETED = 4;
+}
