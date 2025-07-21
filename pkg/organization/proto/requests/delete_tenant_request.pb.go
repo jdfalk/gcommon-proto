@@ -6,10 +6,10 @@
 
 //go:build !protoopaque
 
-package requests
+package organizationpb
 
 import (
-	messages "github.com/jdfalk/gcommon/pkg/common/proto/messages"
+	proto "github.com/jdfalk/gcommon/pkg/common/proto"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
@@ -28,7 +28,7 @@ const (
 type DeleteTenantRequest struct {
 	state protoimpl.MessageState `protogen:"hybrid.v1"`
 	// Request metadata for tracing and context
-	Metadata      *messages.RequestMetadata `protobuf:"bytes,1,opt,name=metadata" json:"metadata,omitempty"`
+	Metadata      *proto.RequestMetadata `protobuf:"bytes,1,opt,name=metadata" json:"metadata,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -58,14 +58,14 @@ func (x *DeleteTenantRequest) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-func (x *DeleteTenantRequest) GetMetadata() *messages.RequestMetadata {
+func (x *DeleteTenantRequest) GetMetadata() *proto.RequestMetadata {
 	if x != nil {
 		return x.Metadata
 	}
 	return nil
 }
 
-func (x *DeleteTenantRequest) SetMetadata(v *messages.RequestMetadata) {
+func (x *DeleteTenantRequest) SetMetadata(v *proto.RequestMetadata) {
 	x.Metadata = v
 }
 
@@ -84,7 +84,7 @@ type DeleteTenantRequest_builder struct {
 	_ [0]func() // Prevents comparability and use of unkeyed literals for the builder.
 
 	// Request metadata for tracing and context
-	Metadata *messages.RequestMetadata
+	Metadata *proto.RequestMetadata
 }
 
 func (b0 DeleteTenantRequest_builder) Build() *DeleteTenantRequest {
@@ -101,13 +101,13 @@ const file_pkg_organization_proto_requests_delete_tenant_request_proto_rawDesc =
 	"\n" +
 	";pkg/organization/proto/requests/delete_tenant_request.proto\x12\x17gcommon.v1.organization\x1a!google/protobuf/go_features.proto\x1a0pkg/common/proto/messages/request_metadata.proto\"U\n" +
 	"\x13DeleteTenantRequest\x12>\n" +
-	"\bmetadata\x18\x01 \x01(\v2\".gcommon.v1.common.RequestMetadataR\bmetadataB\xf8\x01\n" +
-	"\x1bcom.gcommon.v1.organizationB\x18DeleteTenantRequestProtoP\x01Z9github.com/jdfalk/gcommon/pkg/organization/proto/requests\xa2\x02\x03GVO\xaa\x02\x17Gcommon.V1.Organization\xca\x02\x17Gcommon\\V1\\Organization\xe2\x02#Gcommon\\V1\\Organization\\GPBMetadata\xea\x02\x19Gcommon::V1::Organization\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
+	"\bmetadata\x18\x01 \x01(\v2\".gcommon.v1.common.RequestMetadataR\bmetadataB\xfe\x01\n" +
+	"\x1bcom.gcommon.v1.organizationB\x18DeleteTenantRequestProtoP\x01Z?github.com/jdfalk/gcommon/pkg/organization/proto;organizationpb\xa2\x02\x03GVO\xaa\x02\x17Gcommon.V1.Organization\xca\x02\x17Gcommon\\V1\\Organization\xe2\x02#Gcommon\\V1\\Organization\\GPBMetadata\xea\x02\x19Gcommon::V1::Organization\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
 
 var file_pkg_organization_proto_requests_delete_tenant_request_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_pkg_organization_proto_requests_delete_tenant_request_proto_goTypes = []any{
-	(*DeleteTenantRequest)(nil),      // 0: gcommon.v1.organization.DeleteTenantRequest
-	(*messages.RequestMetadata)(nil), // 1: gcommon.v1.common.RequestMetadata
+	(*DeleteTenantRequest)(nil),   // 0: gcommon.v1.organization.DeleteTenantRequest
+	(*proto.RequestMetadata)(nil), // 1: gcommon.v1.common.RequestMetadata
 }
 var file_pkg_organization_proto_requests_delete_tenant_request_proto_depIdxs = []int32{
 	1, // 0: gcommon.v1.organization.DeleteTenantRequest.metadata:type_name -> gcommon.v1.common.RequestMetadata

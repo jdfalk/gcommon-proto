@@ -6,11 +6,9 @@
 
 //go:build !protoopaque
 
-package services
+package organizationpb
 
 import (
-	requests "github.com/jdfalk/gcommon/pkg/organization/proto/requests"
-	responses "github.com/jdfalk/gcommon/pkg/organization/proto/responses"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
@@ -46,34 +44,34 @@ const file_pkg_organization_proto_services_hierarchy_service_proto_rawDesc = "" 
 	"DeleteTeam\x12*.gcommon.v1.organization.DeleteTeamRequest\x1a+.gcommon.v1.organization.DeleteTeamResponse\x12b\n" +
 	"\tListTeams\x12).gcommon.v1.organization.ListTeamsRequest\x1a*.gcommon.v1.organization.ListTeamsResponse\x12k\n" +
 	"\fGetHierarchy\x12,.gcommon.v1.organization.GetHierarchyRequest\x1a-.gcommon.v1.organization.GetHierarchyResponse\x12t\n" +
-	"\x0fUpdateHierarchy\x12/.gcommon.v1.organization.UpdateHierarchyRequest\x1a0.gcommon.v1.organization.UpdateHierarchyResponseB\xf5\x01\n" +
-	"\x1bcom.gcommon.v1.organizationB\x15HierarchyServiceProtoP\x01Z9github.com/jdfalk/gcommon/pkg/organization/proto/services\xa2\x02\x03GVO\xaa\x02\x17Gcommon.V1.Organization\xca\x02\x17Gcommon\\V1\\Organization\xe2\x02#Gcommon\\V1\\Organization\\GPBMetadata\xea\x02\x19Gcommon::V1::Organization\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
+	"\x0fUpdateHierarchy\x12/.gcommon.v1.organization.UpdateHierarchyRequest\x1a0.gcommon.v1.organization.UpdateHierarchyResponseB\xfb\x01\n" +
+	"\x1bcom.gcommon.v1.organizationB\x15HierarchyServiceProtoP\x01Z?github.com/jdfalk/gcommon/pkg/organization/proto;organizationpb\xa2\x02\x03GVO\xaa\x02\x17Gcommon.V1.Organization\xca\x02\x17Gcommon\\V1\\Organization\xe2\x02#Gcommon\\V1\\Organization\\GPBMetadata\xea\x02\x19Gcommon::V1::Organization\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
 
 var file_pkg_organization_proto_services_hierarchy_service_proto_goTypes = []any{
-	(*requests.CreateDepartmentRequest)(nil),   // 0: gcommon.v1.organization.CreateDepartmentRequest
-	(*requests.GetDepartmentRequest)(nil),      // 1: gcommon.v1.organization.GetDepartmentRequest
-	(*requests.UpdateDepartmentRequest)(nil),   // 2: gcommon.v1.organization.UpdateDepartmentRequest
-	(*requests.DeleteDepartmentRequest)(nil),   // 3: gcommon.v1.organization.DeleteDepartmentRequest
-	(*requests.ListDepartmentsRequest)(nil),    // 4: gcommon.v1.organization.ListDepartmentsRequest
-	(*requests.CreateTeamRequest)(nil),         // 5: gcommon.v1.organization.CreateTeamRequest
-	(*requests.GetTeamRequest)(nil),            // 6: gcommon.v1.organization.GetTeamRequest
-	(*requests.UpdateTeamRequest)(nil),         // 7: gcommon.v1.organization.UpdateTeamRequest
-	(*requests.DeleteTeamRequest)(nil),         // 8: gcommon.v1.organization.DeleteTeamRequest
-	(*requests.ListTeamsRequest)(nil),          // 9: gcommon.v1.organization.ListTeamsRequest
-	(*requests.GetHierarchyRequest)(nil),       // 10: gcommon.v1.organization.GetHierarchyRequest
-	(*requests.UpdateHierarchyRequest)(nil),    // 11: gcommon.v1.organization.UpdateHierarchyRequest
-	(*responses.CreateDepartmentResponse)(nil), // 12: gcommon.v1.organization.CreateDepartmentResponse
-	(*responses.GetDepartmentResponse)(nil),    // 13: gcommon.v1.organization.GetDepartmentResponse
-	(*responses.UpdateDepartmentResponse)(nil), // 14: gcommon.v1.organization.UpdateDepartmentResponse
-	(*responses.DeleteDepartmentResponse)(nil), // 15: gcommon.v1.organization.DeleteDepartmentResponse
-	(*responses.ListDepartmentsResponse)(nil),  // 16: gcommon.v1.organization.ListDepartmentsResponse
-	(*responses.CreateTeamResponse)(nil),       // 17: gcommon.v1.organization.CreateTeamResponse
-	(*responses.GetTeamResponse)(nil),          // 18: gcommon.v1.organization.GetTeamResponse
-	(*responses.UpdateTeamResponse)(nil),       // 19: gcommon.v1.organization.UpdateTeamResponse
-	(*responses.DeleteTeamResponse)(nil),       // 20: gcommon.v1.organization.DeleteTeamResponse
-	(*responses.ListTeamsResponse)(nil),        // 21: gcommon.v1.organization.ListTeamsResponse
-	(*responses.GetHierarchyResponse)(nil),     // 22: gcommon.v1.organization.GetHierarchyResponse
-	(*responses.UpdateHierarchyResponse)(nil),  // 23: gcommon.v1.organization.UpdateHierarchyResponse
+	(*CreateDepartmentRequest)(nil),  // 0: gcommon.v1.organization.CreateDepartmentRequest
+	(*GetDepartmentRequest)(nil),     // 1: gcommon.v1.organization.GetDepartmentRequest
+	(*UpdateDepartmentRequest)(nil),  // 2: gcommon.v1.organization.UpdateDepartmentRequest
+	(*DeleteDepartmentRequest)(nil),  // 3: gcommon.v1.organization.DeleteDepartmentRequest
+	(*ListDepartmentsRequest)(nil),   // 4: gcommon.v1.organization.ListDepartmentsRequest
+	(*CreateTeamRequest)(nil),        // 5: gcommon.v1.organization.CreateTeamRequest
+	(*GetTeamRequest)(nil),           // 6: gcommon.v1.organization.GetTeamRequest
+	(*UpdateTeamRequest)(nil),        // 7: gcommon.v1.organization.UpdateTeamRequest
+	(*DeleteTeamRequest)(nil),        // 8: gcommon.v1.organization.DeleteTeamRequest
+	(*ListTeamsRequest)(nil),         // 9: gcommon.v1.organization.ListTeamsRequest
+	(*GetHierarchyRequest)(nil),      // 10: gcommon.v1.organization.GetHierarchyRequest
+	(*UpdateHierarchyRequest)(nil),   // 11: gcommon.v1.organization.UpdateHierarchyRequest
+	(*CreateDepartmentResponse)(nil), // 12: gcommon.v1.organization.CreateDepartmentResponse
+	(*GetDepartmentResponse)(nil),    // 13: gcommon.v1.organization.GetDepartmentResponse
+	(*UpdateDepartmentResponse)(nil), // 14: gcommon.v1.organization.UpdateDepartmentResponse
+	(*DeleteDepartmentResponse)(nil), // 15: gcommon.v1.organization.DeleteDepartmentResponse
+	(*ListDepartmentsResponse)(nil),  // 16: gcommon.v1.organization.ListDepartmentsResponse
+	(*CreateTeamResponse)(nil),       // 17: gcommon.v1.organization.CreateTeamResponse
+	(*GetTeamResponse)(nil),          // 18: gcommon.v1.organization.GetTeamResponse
+	(*UpdateTeamResponse)(nil),       // 19: gcommon.v1.organization.UpdateTeamResponse
+	(*DeleteTeamResponse)(nil),       // 20: gcommon.v1.organization.DeleteTeamResponse
+	(*ListTeamsResponse)(nil),        // 21: gcommon.v1.organization.ListTeamsResponse
+	(*GetHierarchyResponse)(nil),     // 22: gcommon.v1.organization.GetHierarchyResponse
+	(*UpdateHierarchyResponse)(nil),  // 23: gcommon.v1.organization.UpdateHierarchyResponse
 }
 var file_pkg_organization_proto_services_hierarchy_service_proto_depIdxs = []int32{
 	0,  // 0: gcommon.v1.organization.HierarchyService.CreateDepartment:input_type -> gcommon.v1.organization.CreateDepartmentRequest
@@ -112,6 +110,30 @@ func file_pkg_organization_proto_services_hierarchy_service_proto_init() {
 	if File_pkg_organization_proto_services_hierarchy_service_proto != nil {
 		return
 	}
+	file_pkg_organization_proto_requests_create_department_request_proto_init()
+	file_pkg_organization_proto_responses_create_department_response_proto_init()
+	file_pkg_organization_proto_requests_get_department_request_proto_init()
+	file_pkg_organization_proto_responses_get_department_response_proto_init()
+	file_pkg_organization_proto_requests_update_department_request_proto_init()
+	file_pkg_organization_proto_responses_update_department_response_proto_init()
+	file_pkg_organization_proto_requests_delete_department_request_proto_init()
+	file_pkg_organization_proto_responses_delete_department_response_proto_init()
+	file_pkg_organization_proto_requests_list_departments_request_proto_init()
+	file_pkg_organization_proto_responses_list_departments_response_proto_init()
+	file_pkg_organization_proto_requests_create_team_request_proto_init()
+	file_pkg_organization_proto_responses_create_team_response_proto_init()
+	file_pkg_organization_proto_requests_get_team_request_proto_init()
+	file_pkg_organization_proto_responses_get_team_response_proto_init()
+	file_pkg_organization_proto_requests_update_team_request_proto_init()
+	file_pkg_organization_proto_responses_update_team_response_proto_init()
+	file_pkg_organization_proto_requests_delete_team_request_proto_init()
+	file_pkg_organization_proto_responses_delete_team_response_proto_init()
+	file_pkg_organization_proto_requests_list_teams_request_proto_init()
+	file_pkg_organization_proto_responses_list_teams_response_proto_init()
+	file_pkg_organization_proto_requests_get_hierarchy_request_proto_init()
+	file_pkg_organization_proto_responses_get_hierarchy_response_proto_init()
+	file_pkg_organization_proto_requests_update_hierarchy_request_proto_init()
+	file_pkg_organization_proto_responses_update_hierarchy_response_proto_init()
 	type x struct{}
 	out := protoimpl.TypeBuilder{
 		File: protoimpl.DescBuilder{

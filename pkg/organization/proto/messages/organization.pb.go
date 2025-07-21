@@ -6,11 +6,10 @@
 
 //go:build !protoopaque
 
-package messages
+package organizationpb
 
 import (
-	types "github.com/jdfalk/gcommon/pkg/common/proto/types"
-	enums "github.com/jdfalk/gcommon/pkg/organization/proto/enums"
+	proto "github.com/jdfalk/gcommon/pkg/common/proto"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
@@ -53,9 +52,9 @@ type Organization struct {
 	// Organization's industry or business sector
 	Industry *string `protobuf:"bytes,10,opt,name=industry" json:"industry,omitempty"`
 	// Current operational status of the organization
-	Status *enums.OrganizationStatus `protobuf:"varint,11,opt,name=status,enum=gcommon.v1.organization.OrganizationStatus" json:"status,omitempty"`
+	Status *OrganizationStatus `protobuf:"varint,11,opt,name=status,enum=gcommon.v1.organization.OrganizationStatus" json:"status,omitempty"`
 	// Organization metadata and custom attributes
-	Metadata []*types.KeyValue `protobuf:"bytes,12,rep,name=metadata" json:"metadata,omitempty"`
+	Metadata []*proto.KeyValue `protobuf:"bytes,12,rep,name=metadata" json:"metadata,omitempty"`
 	// Organization creation timestamp (immutable)
 	CreatedAt *timestamppb.Timestamp `protobuf:"bytes,13,opt,name=created_at,json=createdAt" json:"created_at,omitempty"`
 	// Last update timestamp
@@ -175,14 +174,14 @@ func (x *Organization) GetIndustry() string {
 	return ""
 }
 
-func (x *Organization) GetStatus() enums.OrganizationStatus {
+func (x *Organization) GetStatus() OrganizationStatus {
 	if x != nil && x.Status != nil {
 		return *x.Status
 	}
-	return enums.OrganizationStatus(0)
+	return OrganizationStatus_ORGANIZATION_STATUS_UNSPECIFIED
 }
 
-func (x *Organization) GetMetadata() []*types.KeyValue {
+func (x *Organization) GetMetadata() []*proto.KeyValue {
 	if x != nil {
 		return x.Metadata
 	}
@@ -299,11 +298,11 @@ func (x *Organization) SetIndustry(v string) {
 	x.Industry = &v
 }
 
-func (x *Organization) SetStatus(v enums.OrganizationStatus) {
+func (x *Organization) SetStatus(v OrganizationStatus) {
 	x.Status = &v
 }
 
-func (x *Organization) SetMetadata(v []*types.KeyValue) {
+func (x *Organization) SetMetadata(v []*proto.KeyValue) {
 	x.Metadata = v
 }
 
@@ -602,9 +601,9 @@ type Organization_builder struct {
 	// Organization's industry or business sector
 	Industry *string
 	// Current operational status of the organization
-	Status *enums.OrganizationStatus
+	Status *OrganizationStatus
 	// Organization metadata and custom attributes
-	Metadata []*types.KeyValue
+	Metadata []*proto.KeyValue
 	// Organization creation timestamp (immutable)
 	CreatedAt *timestamppb.Timestamp
 	// Last update timestamp
@@ -690,14 +689,14 @@ const file_pkg_organization_proto_messages_organization_proto_rawDesc = "" +
 	"\x14multi_tenant_enabled\x18\x14 \x01(\bR\x12multiTenantEnabled\x12\x1d\n" +
 	"\n" +
 	"avatar_url\x18\x15 \x01(\tR\tavatarUrl\x12#\n" +
-	"\rbilling_email\x18\x16 \x01(\tR\fbillingEmailB\xf1\x01\n" +
-	"\x1bcom.gcommon.v1.organizationB\x11OrganizationProtoP\x01Z9github.com/jdfalk/gcommon/pkg/organization/proto/messages\xa2\x02\x03GVO\xaa\x02\x17Gcommon.V1.Organization\xca\x02\x17Gcommon\\V1\\Organization\xe2\x02#Gcommon\\V1\\Organization\\GPBMetadata\xea\x02\x19Gcommon::V1::Organization\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
+	"\rbilling_email\x18\x16 \x01(\tR\fbillingEmailB\xf7\x01\n" +
+	"\x1bcom.gcommon.v1.organizationB\x11OrganizationProtoP\x01Z?github.com/jdfalk/gcommon/pkg/organization/proto;organizationpb\xa2\x02\x03GVO\xaa\x02\x17Gcommon.V1.Organization\xca\x02\x17Gcommon\\V1\\Organization\xe2\x02#Gcommon\\V1\\Organization\\GPBMetadata\xea\x02\x19Gcommon::V1::Organization\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
 
 var file_pkg_organization_proto_messages_organization_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_pkg_organization_proto_messages_organization_proto_goTypes = []any{
 	(*Organization)(nil),          // 0: gcommon.v1.organization.Organization
-	(enums.OrganizationStatus)(0), // 1: gcommon.v1.organization.OrganizationStatus
-	(*types.KeyValue)(nil),        // 2: gcommon.v1.common.KeyValue
+	(OrganizationStatus)(0),       // 1: gcommon.v1.organization.OrganizationStatus
+	(*proto.KeyValue)(nil),        // 2: gcommon.v1.common.KeyValue
 	(*timestamppb.Timestamp)(nil), // 3: google.protobuf.Timestamp
 }
 var file_pkg_organization_proto_messages_organization_proto_depIdxs = []int32{
@@ -717,6 +716,7 @@ func file_pkg_organization_proto_messages_organization_proto_init() {
 	if File_pkg_organization_proto_messages_organization_proto != nil {
 		return
 	}
+	file_pkg_organization_proto_enums_organization_status_proto_init()
 	type x struct{}
 	out := protoimpl.TypeBuilder{
 		File: protoimpl.DescBuilder{

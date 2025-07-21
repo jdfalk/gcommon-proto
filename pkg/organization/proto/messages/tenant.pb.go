@@ -6,11 +6,10 @@
 
 //go:build !protoopaque
 
-package messages
+package organizationpb
 
 import (
-	types "github.com/jdfalk/gcommon/pkg/common/proto/types"
-	enums "github.com/jdfalk/gcommon/pkg/organization/proto/enums"
+	proto "github.com/jdfalk/gcommon/pkg/common/proto"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
@@ -43,11 +42,11 @@ type Tenant struct {
 	// Tenant description
 	Description *string `protobuf:"bytes,5,opt,name=description" json:"description,omitempty"`
 	// Current status of the tenant
-	Status *enums.TenantStatus `protobuf:"varint,6,opt,name=status,enum=gcommon.v1.organization.TenantStatus" json:"status,omitempty"`
+	Status *TenantStatus `protobuf:"varint,6,opt,name=status,enum=gcommon.v1.organization.TenantStatus" json:"status,omitempty"`
 	// Isolation level for this tenant
-	IsolationLevel *enums.IsolationLevel `protobuf:"varint,7,opt,name=isolation_level,json=isolationLevel,enum=gcommon.v1.organization.IsolationLevel" json:"isolation_level,omitempty"`
+	IsolationLevel *IsolationLevel `protobuf:"varint,7,opt,name=isolation_level,json=isolationLevel,enum=gcommon.v1.organization.IsolationLevel" json:"isolation_level,omitempty"`
 	// Tenant metadata and custom attributes
-	Metadata []*types.KeyValue `protobuf:"bytes,8,rep,name=metadata" json:"metadata,omitempty"`
+	Metadata []*proto.KeyValue `protobuf:"bytes,8,rep,name=metadata" json:"metadata,omitempty"`
 	// Tenant creation timestamp (immutable)
 	CreatedAt *timestamppb.Timestamp `protobuf:"bytes,9,opt,name=created_at,json=createdAt" json:"created_at,omitempty"`
 	// Last update timestamp
@@ -136,21 +135,21 @@ func (x *Tenant) GetDescription() string {
 	return ""
 }
 
-func (x *Tenant) GetStatus() enums.TenantStatus {
+func (x *Tenant) GetStatus() TenantStatus {
 	if x != nil && x.Status != nil {
 		return *x.Status
 	}
-	return enums.TenantStatus(0)
+	return TenantStatus_TENANT_STATUS_UNSPECIFIED
 }
 
-func (x *Tenant) GetIsolationLevel() enums.IsolationLevel {
+func (x *Tenant) GetIsolationLevel() IsolationLevel {
 	if x != nil && x.IsolationLevel != nil {
 		return *x.IsolationLevel
 	}
-	return enums.IsolationLevel(0)
+	return IsolationLevel_ISOLATION_LEVEL_UNSPECIFIED
 }
 
-func (x *Tenant) GetMetadata() []*types.KeyValue {
+func (x *Tenant) GetMetadata() []*proto.KeyValue {
 	if x != nil {
 		return x.Metadata
 	}
@@ -261,15 +260,15 @@ func (x *Tenant) SetDescription(v string) {
 	x.Description = &v
 }
 
-func (x *Tenant) SetStatus(v enums.TenantStatus) {
+func (x *Tenant) SetStatus(v TenantStatus) {
 	x.Status = &v
 }
 
-func (x *Tenant) SetIsolationLevel(v enums.IsolationLevel) {
+func (x *Tenant) SetIsolationLevel(v IsolationLevel) {
 	x.IsolationLevel = &v
 }
 
-func (x *Tenant) SetMetadata(v []*types.KeyValue) {
+func (x *Tenant) SetMetadata(v []*proto.KeyValue) {
 	x.Metadata = v
 }
 
@@ -544,11 +543,11 @@ type Tenant_builder struct {
 	// Tenant description
 	Description *string
 	// Current status of the tenant
-	Status *enums.TenantStatus
+	Status *TenantStatus
 	// Isolation level for this tenant
-	IsolationLevel *enums.IsolationLevel
+	IsolationLevel *IsolationLevel
 	// Tenant metadata and custom attributes
-	Metadata []*types.KeyValue
+	Metadata []*proto.KeyValue
 	// Tenant creation timestamp (immutable)
 	CreatedAt *timestamppb.Timestamp
 	// Last update timestamp
@@ -620,7 +619,7 @@ type TenantQuota struct {
 	// Maximum number of custom domains
 	MaxCustomDomains *int32 `protobuf:"varint,6,opt,name=max_custom_domains,json=maxCustomDomains" json:"max_custom_domains,omitempty"`
 	// Custom quota limits (key-value pairs for extensibility)
-	CustomLimits  []*types.KeyValue `protobuf:"bytes,7,rep,name=custom_limits,json=customLimits" json:"custom_limits,omitempty"`
+	CustomLimits  []*proto.KeyValue `protobuf:"bytes,7,rep,name=custom_limits,json=customLimits" json:"custom_limits,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -692,7 +691,7 @@ func (x *TenantQuota) GetMaxCustomDomains() int32 {
 	return 0
 }
 
-func (x *TenantQuota) GetCustomLimits() []*types.KeyValue {
+func (x *TenantQuota) GetCustomLimits() []*proto.KeyValue {
 	if x != nil {
 		return x.CustomLimits
 	}
@@ -723,7 +722,7 @@ func (x *TenantQuota) SetMaxCustomDomains(v int32) {
 	x.MaxCustomDomains = &v
 }
 
-func (x *TenantQuota) SetCustomLimits(v []*types.KeyValue) {
+func (x *TenantQuota) SetCustomLimits(v []*proto.KeyValue) {
 	x.CustomLimits = v
 }
 
@@ -809,7 +808,7 @@ type TenantQuota_builder struct {
 	// Maximum number of custom domains
 	MaxCustomDomains *int32
 	// Custom quota limits (key-value pairs for extensibility)
-	CustomLimits []*types.KeyValue
+	CustomLimits []*proto.KeyValue
 }
 
 func (b0 TenantQuota_builder) Build() *TenantQuota {
@@ -865,16 +864,16 @@ const file_pkg_organization_proto_messages_tenant_proto_rawDesc = "" +
 	"\x1amax_concurrent_connections\x18\x04 \x01(\x05R\x18maxConcurrentConnections\x12#\n" +
 	"\rmax_databases\x18\x05 \x01(\x05R\fmaxDatabases\x12,\n" +
 	"\x12max_custom_domains\x18\x06 \x01(\x05R\x10maxCustomDomains\x12D\n" +
-	"\rcustom_limits\x18\a \x03(\v2\x1b.gcommon.v1.common.KeyValueB\x02(\x01R\fcustomLimitsB\xeb\x01\n" +
-	"\x1bcom.gcommon.v1.organizationB\vTenantProtoP\x01Z9github.com/jdfalk/gcommon/pkg/organization/proto/messages\xa2\x02\x03GVO\xaa\x02\x17Gcommon.V1.Organization\xca\x02\x17Gcommon\\V1\\Organization\xe2\x02#Gcommon\\V1\\Organization\\GPBMetadata\xea\x02\x19Gcommon::V1::Organization\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
+	"\rcustom_limits\x18\a \x03(\v2\x1b.gcommon.v1.common.KeyValueB\x02(\x01R\fcustomLimitsB\xf1\x01\n" +
+	"\x1bcom.gcommon.v1.organizationB\vTenantProtoP\x01Z?github.com/jdfalk/gcommon/pkg/organization/proto;organizationpb\xa2\x02\x03GVO\xaa\x02\x17Gcommon.V1.Organization\xca\x02\x17Gcommon\\V1\\Organization\xe2\x02#Gcommon\\V1\\Organization\\GPBMetadata\xea\x02\x19Gcommon::V1::Organization\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
 
 var file_pkg_organization_proto_messages_tenant_proto_msgTypes = make([]protoimpl.MessageInfo, 2)
 var file_pkg_organization_proto_messages_tenant_proto_goTypes = []any{
 	(*Tenant)(nil),                // 0: gcommon.v1.organization.Tenant
 	(*TenantQuota)(nil),           // 1: gcommon.v1.organization.TenantQuota
-	(enums.TenantStatus)(0),       // 2: gcommon.v1.organization.TenantStatus
-	(enums.IsolationLevel)(0),     // 3: gcommon.v1.organization.IsolationLevel
-	(*types.KeyValue)(nil),        // 4: gcommon.v1.common.KeyValue
+	(TenantStatus)(0),             // 2: gcommon.v1.organization.TenantStatus
+	(IsolationLevel)(0),           // 3: gcommon.v1.organization.IsolationLevel
+	(*proto.KeyValue)(nil),        // 4: gcommon.v1.common.KeyValue
 	(*timestamppb.Timestamp)(nil), // 5: google.protobuf.Timestamp
 }
 var file_pkg_organization_proto_messages_tenant_proto_depIdxs = []int32{
@@ -898,6 +897,8 @@ func file_pkg_organization_proto_messages_tenant_proto_init() {
 	if File_pkg_organization_proto_messages_tenant_proto != nil {
 		return
 	}
+	file_pkg_organization_proto_enums_tenant_status_proto_init()
+	file_pkg_organization_proto_enums_isolation_level_proto_init()
 	type x struct{}
 	out := protoimpl.TypeBuilder{
 		File: protoimpl.DescBuilder{

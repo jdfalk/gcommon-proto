@@ -6,10 +6,10 @@
 
 //go:build protoopaque
 
-package requests
+package organizationpb
 
 import (
-	messages "github.com/jdfalk/gcommon/pkg/common/proto/messages"
+	proto "github.com/jdfalk/gcommon/pkg/common/proto"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
@@ -26,8 +26,8 @@ const (
 
 // TODO: Implement update_tenant_quota_request message
 type UpdateTenantQuotaRequest struct {
-	state               protoimpl.MessageState    `protogen:"opaque.v1"`
-	xxx_hidden_Metadata *messages.RequestMetadata `protobuf:"bytes,1,opt,name=metadata"`
+	state               protoimpl.MessageState `protogen:"opaque.v1"`
+	xxx_hidden_Metadata *proto.RequestMetadata `protobuf:"bytes,1,opt,name=metadata"`
 	unknownFields       protoimpl.UnknownFields
 	sizeCache           protoimpl.SizeCache
 }
@@ -57,14 +57,14 @@ func (x *UpdateTenantQuotaRequest) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-func (x *UpdateTenantQuotaRequest) GetMetadata() *messages.RequestMetadata {
+func (x *UpdateTenantQuotaRequest) GetMetadata() *proto.RequestMetadata {
 	if x != nil {
 		return x.xxx_hidden_Metadata
 	}
 	return nil
 }
 
-func (x *UpdateTenantQuotaRequest) SetMetadata(v *messages.RequestMetadata) {
+func (x *UpdateTenantQuotaRequest) SetMetadata(v *proto.RequestMetadata) {
 	x.xxx_hidden_Metadata = v
 }
 
@@ -83,7 +83,7 @@ type UpdateTenantQuotaRequest_builder struct {
 	_ [0]func() // Prevents comparability and use of unkeyed literals for the builder.
 
 	// Request metadata for tracing and context
-	Metadata *messages.RequestMetadata
+	Metadata *proto.RequestMetadata
 }
 
 func (b0 UpdateTenantQuotaRequest_builder) Build() *UpdateTenantQuotaRequest {
@@ -100,13 +100,13 @@ const file_pkg_organization_proto_requests_update_tenant_quota_request_proto_raw
 	"\n" +
 	"Apkg/organization/proto/requests/update_tenant_quota_request.proto\x12\x17gcommon.v1.organization\x1a!google/protobuf/go_features.proto\x1a0pkg/common/proto/messages/request_metadata.proto\"Z\n" +
 	"\x18UpdateTenantQuotaRequest\x12>\n" +
-	"\bmetadata\x18\x01 \x01(\v2\".gcommon.v1.common.RequestMetadataR\bmetadataB\xfd\x01\n" +
-	"\x1bcom.gcommon.v1.organizationB\x1dUpdateTenantQuotaRequestProtoP\x01Z9github.com/jdfalk/gcommon/pkg/organization/proto/requests\xa2\x02\x03GVO\xaa\x02\x17Gcommon.V1.Organization\xca\x02\x17Gcommon\\V1\\Organization\xe2\x02#Gcommon\\V1\\Organization\\GPBMetadata\xea\x02\x19Gcommon::V1::Organization\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
+	"\bmetadata\x18\x01 \x01(\v2\".gcommon.v1.common.RequestMetadataR\bmetadataB\x83\x02\n" +
+	"\x1bcom.gcommon.v1.organizationB\x1dUpdateTenantQuotaRequestProtoP\x01Z?github.com/jdfalk/gcommon/pkg/organization/proto;organizationpb\xa2\x02\x03GVO\xaa\x02\x17Gcommon.V1.Organization\xca\x02\x17Gcommon\\V1\\Organization\xe2\x02#Gcommon\\V1\\Organization\\GPBMetadata\xea\x02\x19Gcommon::V1::Organization\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
 
 var file_pkg_organization_proto_requests_update_tenant_quota_request_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_pkg_organization_proto_requests_update_tenant_quota_request_proto_goTypes = []any{
 	(*UpdateTenantQuotaRequest)(nil), // 0: gcommon.v1.organization.UpdateTenantQuotaRequest
-	(*messages.RequestMetadata)(nil), // 1: gcommon.v1.common.RequestMetadata
+	(*proto.RequestMetadata)(nil),    // 1: gcommon.v1.common.RequestMetadata
 }
 var file_pkg_organization_proto_requests_update_tenant_quota_request_proto_depIdxs = []int32{
 	1, // 0: gcommon.v1.organization.UpdateTenantQuotaRequest.metadata:type_name -> gcommon.v1.common.RequestMetadata

@@ -6,7 +6,7 @@
 
 //go:build protoopaque
 
-package enums
+package organizationpb
 
 import (
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
@@ -101,8 +101,8 @@ const file_pkg_organization_proto_enums_organization_status_proto_rawDesc = "" +
 	"\x1dORGANIZATION_STATUS_SUSPENDED\x10\x03\x12\x1f\n" +
 	"\x1bORGANIZATION_STATUS_PENDING\x10\x04\x12 \n" +
 	"\x1cORGANIZATION_STATUS_ARCHIVED\x10\x05\x12\x1f\n" +
-	"\x1bORGANIZATION_STATUS_DELETED\x10\x06B\xf4\x01\n" +
-	"\x1bcom.gcommon.v1.organizationB\x17OrganizationStatusProtoP\x01Z6github.com/jdfalk/gcommon/pkg/organization/proto/enums\xa2\x02\x03GVO\xaa\x02\x17Gcommon.V1.Organization\xca\x02\x17Gcommon\\V1\\Organization\xe2\x02#Gcommon\\V1\\Organization\\GPBMetadata\xea\x02\x19Gcommon::V1::Organization\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
+	"\x1bORGANIZATION_STATUS_DELETED\x10\x06B\xfd\x01\n" +
+	"\x1bcom.gcommon.v1.organizationB\x17OrganizationStatusProtoP\x01Z?github.com/jdfalk/gcommon/pkg/organization/proto;organizationpb\xa2\x02\x03GVO\xaa\x02\x17Gcommon.V1.Organization\xca\x02\x17Gcommon\\V1\\Organization\xe2\x02#Gcommon\\V1\\Organization\\GPBMetadata\xea\x02\x19Gcommon::V1::Organization\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
 
 var file_pkg_organization_proto_enums_organization_status_proto_enumTypes = make([]protoimpl.EnumInfo, 1)
 var file_pkg_organization_proto_enums_organization_status_proto_goTypes = []any{

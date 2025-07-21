@@ -6,11 +6,10 @@
 
 //go:build protoopaque
 
-package messages
+package organizationpb
 
 import (
-	types "github.com/jdfalk/gcommon/pkg/common/proto/types"
-	enums "github.com/jdfalk/gcommon/pkg/organization/proto/enums"
+	proto "github.com/jdfalk/gcommon/pkg/common/proto"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
@@ -31,29 +30,29 @@ const (
 // Contains all core information needed for organization management,
 // including metadata, settings, and administrative information.
 type Organization struct {
-	state                         protoimpl.MessageState   `protogen:"opaque.v1"`
-	xxx_hidden_Id                 *string                  `protobuf:"bytes,1,opt,name=id"`
-	xxx_hidden_Name               *string                  `protobuf:"bytes,2,opt,name=name"`
-	xxx_hidden_Slug               *string                  `protobuf:"bytes,3,opt,name=slug"`
-	xxx_hidden_Description        *string                  `protobuf:"bytes,4,opt,name=description"`
-	xxx_hidden_Website            *string                  `protobuf:"bytes,5,opt,name=website"`
-	xxx_hidden_ContactEmail       *string                  `protobuf:"bytes,6,opt,name=contact_email,json=contactEmail"`
-	xxx_hidden_Address            *string                  `protobuf:"bytes,7,opt,name=address"`
-	xxx_hidden_Phone              *string                  `protobuf:"bytes,8,opt,name=phone"`
-	xxx_hidden_TaxId              *string                  `protobuf:"bytes,9,opt,name=tax_id,json=taxId"`
-	xxx_hidden_Industry           *string                  `protobuf:"bytes,10,opt,name=industry"`
-	xxx_hidden_Status             enums.OrganizationStatus `protobuf:"varint,11,opt,name=status,enum=gcommon.v1.organization.OrganizationStatus"`
-	xxx_hidden_Metadata           *[]*types.KeyValue       `protobuf:"bytes,12,rep,name=metadata"`
-	xxx_hidden_CreatedAt          *timestamppb.Timestamp   `protobuf:"bytes,13,opt,name=created_at,json=createdAt"`
-	xxx_hidden_UpdatedAt          *timestamppb.Timestamp   `protobuf:"bytes,14,opt,name=updated_at,json=updatedAt"`
-	xxx_hidden_CreatedBy          *string                  `protobuf:"bytes,15,opt,name=created_by,json=createdBy"`
-	xxx_hidden_UpdatedBy          *string                  `protobuf:"bytes,16,opt,name=updated_by,json=updatedBy"`
-	xxx_hidden_Timezone           *string                  `protobuf:"bytes,17,opt,name=timezone"`
-	xxx_hidden_Locale             *string                  `protobuf:"bytes,18,opt,name=locale"`
-	xxx_hidden_MaxMembers         int32                    `protobuf:"varint,19,opt,name=max_members,json=maxMembers"`
-	xxx_hidden_MultiTenantEnabled bool                     `protobuf:"varint,20,opt,name=multi_tenant_enabled,json=multiTenantEnabled"`
-	xxx_hidden_AvatarUrl          *string                  `protobuf:"bytes,21,opt,name=avatar_url,json=avatarUrl"`
-	xxx_hidden_BillingEmail       *string                  `protobuf:"bytes,22,opt,name=billing_email,json=billingEmail"`
+	state                         protoimpl.MessageState `protogen:"opaque.v1"`
+	xxx_hidden_Id                 *string                `protobuf:"bytes,1,opt,name=id"`
+	xxx_hidden_Name               *string                `protobuf:"bytes,2,opt,name=name"`
+	xxx_hidden_Slug               *string                `protobuf:"bytes,3,opt,name=slug"`
+	xxx_hidden_Description        *string                `protobuf:"bytes,4,opt,name=description"`
+	xxx_hidden_Website            *string                `protobuf:"bytes,5,opt,name=website"`
+	xxx_hidden_ContactEmail       *string                `protobuf:"bytes,6,opt,name=contact_email,json=contactEmail"`
+	xxx_hidden_Address            *string                `protobuf:"bytes,7,opt,name=address"`
+	xxx_hidden_Phone              *string                `protobuf:"bytes,8,opt,name=phone"`
+	xxx_hidden_TaxId              *string                `protobuf:"bytes,9,opt,name=tax_id,json=taxId"`
+	xxx_hidden_Industry           *string                `protobuf:"bytes,10,opt,name=industry"`
+	xxx_hidden_Status             OrganizationStatus     `protobuf:"varint,11,opt,name=status,enum=gcommon.v1.organization.OrganizationStatus"`
+	xxx_hidden_Metadata           *[]*proto.KeyValue     `protobuf:"bytes,12,rep,name=metadata"`
+	xxx_hidden_CreatedAt          *timestamppb.Timestamp `protobuf:"bytes,13,opt,name=created_at,json=createdAt"`
+	xxx_hidden_UpdatedAt          *timestamppb.Timestamp `protobuf:"bytes,14,opt,name=updated_at,json=updatedAt"`
+	xxx_hidden_CreatedBy          *string                `protobuf:"bytes,15,opt,name=created_by,json=createdBy"`
+	xxx_hidden_UpdatedBy          *string                `protobuf:"bytes,16,opt,name=updated_by,json=updatedBy"`
+	xxx_hidden_Timezone           *string                `protobuf:"bytes,17,opt,name=timezone"`
+	xxx_hidden_Locale             *string                `protobuf:"bytes,18,opt,name=locale"`
+	xxx_hidden_MaxMembers         int32                  `protobuf:"varint,19,opt,name=max_members,json=maxMembers"`
+	xxx_hidden_MultiTenantEnabled bool                   `protobuf:"varint,20,opt,name=multi_tenant_enabled,json=multiTenantEnabled"`
+	xxx_hidden_AvatarUrl          *string                `protobuf:"bytes,21,opt,name=avatar_url,json=avatarUrl"`
+	xxx_hidden_BillingEmail       *string                `protobuf:"bytes,22,opt,name=billing_email,json=billingEmail"`
 	// Deprecated: Do not use. This will be deleted in the near future.
 	XXX_lazyUnmarshalInfo  protoimpl.LazyUnmarshalInfo
 	XXX_raceDetectHookData protoimpl.RaceDetectHookData
@@ -187,22 +186,22 @@ func (x *Organization) GetIndustry() string {
 	return ""
 }
 
-func (x *Organization) GetStatus() enums.OrganizationStatus {
+func (x *Organization) GetStatus() OrganizationStatus {
 	if x != nil {
 		if protoimpl.X.Present(&(x.XXX_presence[0]), 10) {
 			return x.xxx_hidden_Status
 		}
 	}
-	return enums.OrganizationStatus(0)
+	return OrganizationStatus_ORGANIZATION_STATUS_UNSPECIFIED
 }
 
-func (x *Organization) GetMetadata() []*types.KeyValue {
+func (x *Organization) GetMetadata() []*proto.KeyValue {
 	if x != nil {
 		if protoimpl.X.Present(&(x.XXX_presence[0]), 11) {
 			if protoimpl.X.AtomicCheckPointerIsNil(&x.xxx_hidden_Metadata) {
 				protoimpl.X.UnmarshalField(x, 12)
 			}
-			var rv *[]*types.KeyValue
+			var rv *[]*proto.KeyValue
 			protoimpl.X.AtomicLoadPointer(protoimpl.Pointer(&x.xxx_hidden_Metadata), protoimpl.Pointer(&rv))
 			return *rv
 		}
@@ -362,16 +361,16 @@ func (x *Organization) SetIndustry(v string) {
 	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 9, 22)
 }
 
-func (x *Organization) SetStatus(v enums.OrganizationStatus) {
+func (x *Organization) SetStatus(v OrganizationStatus) {
 	x.xxx_hidden_Status = v
 	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 10, 22)
 }
 
-func (x *Organization) SetMetadata(v []*types.KeyValue) {
-	var sv *[]*types.KeyValue
+func (x *Organization) SetMetadata(v []*proto.KeyValue) {
+	var sv *[]*proto.KeyValue
 	protoimpl.X.AtomicLoadPointer(protoimpl.Pointer(&x.xxx_hidden_Metadata), protoimpl.Pointer(&sv))
 	if sv == nil {
-		sv = &[]*types.KeyValue{}
+		sv = &[]*proto.KeyValue{}
 		protoimpl.X.AtomicInitializePointer(protoimpl.Pointer(&x.xxx_hidden_Metadata), protoimpl.Pointer(&sv))
 	}
 	*sv = v
@@ -635,7 +634,7 @@ func (x *Organization) ClearIndustry() {
 
 func (x *Organization) ClearStatus() {
 	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 10)
-	x.xxx_hidden_Status = enums.OrganizationStatus_ORGANIZATION_STATUS_UNSPECIFIED
+	x.xxx_hidden_Status = OrganizationStatus_ORGANIZATION_STATUS_UNSPECIFIED
 }
 
 func (x *Organization) ClearCreatedAt() {
@@ -712,9 +711,9 @@ type Organization_builder struct {
 	// Organization's industry or business sector
 	Industry *string
 	// Current operational status of the organization
-	Status *enums.OrganizationStatus
+	Status *OrganizationStatus
 	// Organization metadata and custom attributes
-	Metadata []*types.KeyValue
+	Metadata []*proto.KeyValue
 	// Organization creation timestamp (immutable)
 	CreatedAt *timestamppb.Timestamp
 	// Last update timestamp
@@ -866,14 +865,14 @@ const file_pkg_organization_proto_messages_organization_proto_rawDesc = "" +
 	"\x14multi_tenant_enabled\x18\x14 \x01(\bR\x12multiTenantEnabled\x12\x1d\n" +
 	"\n" +
 	"avatar_url\x18\x15 \x01(\tR\tavatarUrl\x12#\n" +
-	"\rbilling_email\x18\x16 \x01(\tR\fbillingEmailB\xf1\x01\n" +
-	"\x1bcom.gcommon.v1.organizationB\x11OrganizationProtoP\x01Z9github.com/jdfalk/gcommon/pkg/organization/proto/messages\xa2\x02\x03GVO\xaa\x02\x17Gcommon.V1.Organization\xca\x02\x17Gcommon\\V1\\Organization\xe2\x02#Gcommon\\V1\\Organization\\GPBMetadata\xea\x02\x19Gcommon::V1::Organization\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
+	"\rbilling_email\x18\x16 \x01(\tR\fbillingEmailB\xf7\x01\n" +
+	"\x1bcom.gcommon.v1.organizationB\x11OrganizationProtoP\x01Z?github.com/jdfalk/gcommon/pkg/organization/proto;organizationpb\xa2\x02\x03GVO\xaa\x02\x17Gcommon.V1.Organization\xca\x02\x17Gcommon\\V1\\Organization\xe2\x02#Gcommon\\V1\\Organization\\GPBMetadata\xea\x02\x19Gcommon::V1::Organization\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
 
 var file_pkg_organization_proto_messages_organization_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_pkg_organization_proto_messages_organization_proto_goTypes = []any{
 	(*Organization)(nil),          // 0: gcommon.v1.organization.Organization
-	(enums.OrganizationStatus)(0), // 1: gcommon.v1.organization.OrganizationStatus
-	(*types.KeyValue)(nil),        // 2: gcommon.v1.common.KeyValue
+	(OrganizationStatus)(0),       // 1: gcommon.v1.organization.OrganizationStatus
+	(*proto.KeyValue)(nil),        // 2: gcommon.v1.common.KeyValue
 	(*timestamppb.Timestamp)(nil), // 3: google.protobuf.Timestamp
 }
 var file_pkg_organization_proto_messages_organization_proto_depIdxs = []int32{
@@ -893,6 +892,7 @@ func file_pkg_organization_proto_messages_organization_proto_init() {
 	if File_pkg_organization_proto_messages_organization_proto != nil {
 		return
 	}
+	file_pkg_organization_proto_enums_organization_status_proto_init()
 	type x struct{}
 	out := protoimpl.TypeBuilder{
 		File: protoimpl.DescBuilder{

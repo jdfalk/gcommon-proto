@@ -6,10 +6,10 @@
 
 //go:build !protoopaque
 
-package requests
+package organizationpb
 
 import (
-	messages "github.com/jdfalk/gcommon/pkg/common/proto/messages"
+	proto "github.com/jdfalk/gcommon/pkg/common/proto"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
@@ -28,7 +28,7 @@ const (
 type UpdateHierarchyRequest struct {
 	state protoimpl.MessageState `protogen:"hybrid.v1"`
 	// Request metadata for tracing and context
-	Metadata      *messages.RequestMetadata `protobuf:"bytes,1,opt,name=metadata" json:"metadata,omitempty"`
+	Metadata      *proto.RequestMetadata `protobuf:"bytes,1,opt,name=metadata" json:"metadata,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -58,14 +58,14 @@ func (x *UpdateHierarchyRequest) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-func (x *UpdateHierarchyRequest) GetMetadata() *messages.RequestMetadata {
+func (x *UpdateHierarchyRequest) GetMetadata() *proto.RequestMetadata {
 	if x != nil {
 		return x.Metadata
 	}
 	return nil
 }
 
-func (x *UpdateHierarchyRequest) SetMetadata(v *messages.RequestMetadata) {
+func (x *UpdateHierarchyRequest) SetMetadata(v *proto.RequestMetadata) {
 	x.Metadata = v
 }
 
@@ -84,7 +84,7 @@ type UpdateHierarchyRequest_builder struct {
 	_ [0]func() // Prevents comparability and use of unkeyed literals for the builder.
 
 	// Request metadata for tracing and context
-	Metadata *messages.RequestMetadata
+	Metadata *proto.RequestMetadata
 }
 
 func (b0 UpdateHierarchyRequest_builder) Build() *UpdateHierarchyRequest {
@@ -101,13 +101,13 @@ const file_pkg_organization_proto_requests_update_hierarchy_request_proto_rawDes
 	"\n" +
 	">pkg/organization/proto/requests/update_hierarchy_request.proto\x12\x17gcommon.v1.organization\x1a!google/protobuf/go_features.proto\x1a0pkg/common/proto/messages/request_metadata.proto\"X\n" +
 	"\x16UpdateHierarchyRequest\x12>\n" +
-	"\bmetadata\x18\x01 \x01(\v2\".gcommon.v1.common.RequestMetadataR\bmetadataB\xfb\x01\n" +
-	"\x1bcom.gcommon.v1.organizationB\x1bUpdateHierarchyRequestProtoP\x01Z9github.com/jdfalk/gcommon/pkg/organization/proto/requests\xa2\x02\x03GVO\xaa\x02\x17Gcommon.V1.Organization\xca\x02\x17Gcommon\\V1\\Organization\xe2\x02#Gcommon\\V1\\Organization\\GPBMetadata\xea\x02\x19Gcommon::V1::Organization\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
+	"\bmetadata\x18\x01 \x01(\v2\".gcommon.v1.common.RequestMetadataR\bmetadataB\x81\x02\n" +
+	"\x1bcom.gcommon.v1.organizationB\x1bUpdateHierarchyRequestProtoP\x01Z?github.com/jdfalk/gcommon/pkg/organization/proto;organizationpb\xa2\x02\x03GVO\xaa\x02\x17Gcommon.V1.Organization\xca\x02\x17Gcommon\\V1\\Organization\xe2\x02#Gcommon\\V1\\Organization\\GPBMetadata\xea\x02\x19Gcommon::V1::Organization\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
 
 var file_pkg_organization_proto_requests_update_hierarchy_request_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_pkg_organization_proto_requests_update_hierarchy_request_proto_goTypes = []any{
-	(*UpdateHierarchyRequest)(nil),   // 0: gcommon.v1.organization.UpdateHierarchyRequest
-	(*messages.RequestMetadata)(nil), // 1: gcommon.v1.common.RequestMetadata
+	(*UpdateHierarchyRequest)(nil), // 0: gcommon.v1.organization.UpdateHierarchyRequest
+	(*proto.RequestMetadata)(nil),  // 1: gcommon.v1.common.RequestMetadata
 }
 var file_pkg_organization_proto_requests_update_hierarchy_request_proto_depIdxs = []int32{
 	1, // 0: gcommon.v1.organization.UpdateHierarchyRequest.metadata:type_name -> gcommon.v1.common.RequestMetadata

@@ -6,10 +6,10 @@
 
 //go:build protoopaque
 
-package responses
+package organizationpb
 
 import (
-	messages "github.com/jdfalk/gcommon/pkg/common/proto/messages"
+	proto "github.com/jdfalk/gcommon/pkg/common/proto"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
@@ -27,7 +27,7 @@ const (
 // TODO: Implement list_teams_response message
 type ListTeamsResponse struct {
 	state                  protoimpl.MessageState `protogen:"opaque.v1"`
-	xxx_hidden_Errors      *[]*messages.Error     `protobuf:"bytes,1,rep,name=errors"`
+	xxx_hidden_Errors      *[]*proto.Error        `protobuf:"bytes,1,rep,name=errors"`
 	xxx_hidden_Success     bool                   `protobuf:"varint,2,opt,name=success"`
 	XXX_raceDetectHookData protoimpl.RaceDetectHookData
 	XXX_presence           [1]uint32
@@ -60,7 +60,7 @@ func (x *ListTeamsResponse) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-func (x *ListTeamsResponse) GetErrors() []*messages.Error {
+func (x *ListTeamsResponse) GetErrors() []*proto.Error {
 	if x != nil {
 		if x.xxx_hidden_Errors != nil {
 			return *x.xxx_hidden_Errors
@@ -76,7 +76,7 @@ func (x *ListTeamsResponse) GetSuccess() bool {
 	return false
 }
 
-func (x *ListTeamsResponse) SetErrors(v []*messages.Error) {
+func (x *ListTeamsResponse) SetErrors(v []*proto.Error) {
 	x.xxx_hidden_Errors = &v
 }
 
@@ -101,7 +101,7 @@ type ListTeamsResponse_builder struct {
 	_ [0]func() // Prevents comparability and use of unkeyed literals for the builder.
 
 	// Any errors encountered
-	Errors []*messages.Error
+	Errors []*proto.Error
 	// Success status
 	Success *bool
 }
@@ -125,13 +125,13 @@ const file_pkg_organization_proto_responses_list_teams_response_proto_rawDesc = 
 	":pkg/organization/proto/responses/list_teams_response.proto\x12\x17gcommon.v1.organization\x1a!google/protobuf/go_features.proto\x1a%pkg/common/proto/messages/error.proto\"_\n" +
 	"\x11ListTeamsResponse\x120\n" +
 	"\x06errors\x18\x01 \x03(\v2\x18.gcommon.v1.common.ErrorR\x06errors\x12\x18\n" +
-	"\asuccess\x18\x02 \x01(\bR\asuccessB\xf7\x01\n" +
-	"\x1bcom.gcommon.v1.organizationB\x16ListTeamsResponseProtoP\x01Z:github.com/jdfalk/gcommon/pkg/organization/proto/responses\xa2\x02\x03GVO\xaa\x02\x17Gcommon.V1.Organization\xca\x02\x17Gcommon\\V1\\Organization\xe2\x02#Gcommon\\V1\\Organization\\GPBMetadata\xea\x02\x19Gcommon::V1::Organization\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
+	"\asuccess\x18\x02 \x01(\bR\asuccessB\xfc\x01\n" +
+	"\x1bcom.gcommon.v1.organizationB\x16ListTeamsResponseProtoP\x01Z?github.com/jdfalk/gcommon/pkg/organization/proto;organizationpb\xa2\x02\x03GVO\xaa\x02\x17Gcommon.V1.Organization\xca\x02\x17Gcommon\\V1\\Organization\xe2\x02#Gcommon\\V1\\Organization\\GPBMetadata\xea\x02\x19Gcommon::V1::Organization\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
 
 var file_pkg_organization_proto_responses_list_teams_response_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_pkg_organization_proto_responses_list_teams_response_proto_goTypes = []any{
 	(*ListTeamsResponse)(nil), // 0: gcommon.v1.organization.ListTeamsResponse
-	(*messages.Error)(nil),    // 1: gcommon.v1.common.Error
+	(*proto.Error)(nil),       // 1: gcommon.v1.common.Error
 }
 var file_pkg_organization_proto_responses_list_teams_response_proto_depIdxs = []int32{
 	1, // 0: gcommon.v1.organization.ListTeamsResponse.errors:type_name -> gcommon.v1.common.Error

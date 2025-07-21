@@ -6,11 +6,10 @@
 
 //go:build protoopaque
 
-package messages
+package organizationpb
 
 import (
-	types "github.com/jdfalk/gcommon/pkg/common/proto/types"
-	enums "github.com/jdfalk/gcommon/pkg/organization/proto/enums"
+	proto "github.com/jdfalk/gcommon/pkg/common/proto"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
@@ -37,9 +36,9 @@ type Tenant struct {
 	xxx_hidden_Name           *string                `protobuf:"bytes,3,opt,name=name"`
 	xxx_hidden_Slug           *string                `protobuf:"bytes,4,opt,name=slug"`
 	xxx_hidden_Description    *string                `protobuf:"bytes,5,opt,name=description"`
-	xxx_hidden_Status         enums.TenantStatus     `protobuf:"varint,6,opt,name=status,enum=gcommon.v1.organization.TenantStatus"`
-	xxx_hidden_IsolationLevel enums.IsolationLevel   `protobuf:"varint,7,opt,name=isolation_level,json=isolationLevel,enum=gcommon.v1.organization.IsolationLevel"`
-	xxx_hidden_Metadata       *[]*types.KeyValue     `protobuf:"bytes,8,rep,name=metadata"`
+	xxx_hidden_Status         TenantStatus           `protobuf:"varint,6,opt,name=status,enum=gcommon.v1.organization.TenantStatus"`
+	xxx_hidden_IsolationLevel IsolationLevel         `protobuf:"varint,7,opt,name=isolation_level,json=isolationLevel,enum=gcommon.v1.organization.IsolationLevel"`
+	xxx_hidden_Metadata       *[]*proto.KeyValue     `protobuf:"bytes,8,rep,name=metadata"`
 	xxx_hidden_CreatedAt      *timestamppb.Timestamp `protobuf:"bytes,9,opt,name=created_at,json=createdAt"`
 	xxx_hidden_UpdatedAt      *timestamppb.Timestamp `protobuf:"bytes,10,opt,name=updated_at,json=updatedAt"`
 	xxx_hidden_CreatedBy      *string                `protobuf:"bytes,11,opt,name=created_by,json=createdBy"`
@@ -135,31 +134,31 @@ func (x *Tenant) GetDescription() string {
 	return ""
 }
 
-func (x *Tenant) GetStatus() enums.TenantStatus {
+func (x *Tenant) GetStatus() TenantStatus {
 	if x != nil {
 		if protoimpl.X.Present(&(x.XXX_presence[0]), 5) {
 			return x.xxx_hidden_Status
 		}
 	}
-	return enums.TenantStatus(0)
+	return TenantStatus_TENANT_STATUS_UNSPECIFIED
 }
 
-func (x *Tenant) GetIsolationLevel() enums.IsolationLevel {
+func (x *Tenant) GetIsolationLevel() IsolationLevel {
 	if x != nil {
 		if protoimpl.X.Present(&(x.XXX_presence[0]), 6) {
 			return x.xxx_hidden_IsolationLevel
 		}
 	}
-	return enums.IsolationLevel(0)
+	return IsolationLevel_ISOLATION_LEVEL_UNSPECIFIED
 }
 
-func (x *Tenant) GetMetadata() []*types.KeyValue {
+func (x *Tenant) GetMetadata() []*proto.KeyValue {
 	if x != nil {
 		if protoimpl.X.Present(&(x.XXX_presence[0]), 7) {
 			if protoimpl.X.AtomicCheckPointerIsNil(&x.xxx_hidden_Metadata) {
 				protoimpl.X.UnmarshalField(x, 8)
 			}
-			var rv *[]*types.KeyValue
+			var rv *[]*proto.KeyValue
 			protoimpl.X.AtomicLoadPointer(protoimpl.Pointer(&x.xxx_hidden_Metadata), protoimpl.Pointer(&rv))
 			return *rv
 		}
@@ -318,21 +317,21 @@ func (x *Tenant) SetDescription(v string) {
 	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 4, 20)
 }
 
-func (x *Tenant) SetStatus(v enums.TenantStatus) {
+func (x *Tenant) SetStatus(v TenantStatus) {
 	x.xxx_hidden_Status = v
 	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 5, 20)
 }
 
-func (x *Tenant) SetIsolationLevel(v enums.IsolationLevel) {
+func (x *Tenant) SetIsolationLevel(v IsolationLevel) {
 	x.xxx_hidden_IsolationLevel = v
 	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 6, 20)
 }
 
-func (x *Tenant) SetMetadata(v []*types.KeyValue) {
-	var sv *[]*types.KeyValue
+func (x *Tenant) SetMetadata(v []*proto.KeyValue) {
+	var sv *[]*proto.KeyValue
 	protoimpl.X.AtomicLoadPointer(protoimpl.Pointer(&x.xxx_hidden_Metadata), protoimpl.Pointer(&sv))
 	if sv == nil {
-		sv = &[]*types.KeyValue{}
+		sv = &[]*proto.KeyValue{}
 		protoimpl.X.AtomicInitializePointer(protoimpl.Pointer(&x.xxx_hidden_Metadata), protoimpl.Pointer(&sv))
 	}
 	*sv = v
@@ -570,12 +569,12 @@ func (x *Tenant) ClearDescription() {
 
 func (x *Tenant) ClearStatus() {
 	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 5)
-	x.xxx_hidden_Status = enums.TenantStatus_TENANT_STATUS_UNSPECIFIED
+	x.xxx_hidden_Status = TenantStatus_TENANT_STATUS_UNSPECIFIED
 }
 
 func (x *Tenant) ClearIsolationLevel() {
 	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 6)
-	x.xxx_hidden_IsolationLevel = enums.IsolationLevel_ISOLATION_LEVEL_UNSPECIFIED
+	x.xxx_hidden_IsolationLevel = IsolationLevel_ISOLATION_LEVEL_UNSPECIFIED
 }
 
 func (x *Tenant) ClearCreatedAt() {
@@ -651,11 +650,11 @@ type Tenant_builder struct {
 	// Tenant description
 	Description *string
 	// Current status of the tenant
-	Status *enums.TenantStatus
+	Status *TenantStatus
 	// Isolation level for this tenant
-	IsolationLevel *enums.IsolationLevel
+	IsolationLevel *IsolationLevel
 	// Tenant metadata and custom attributes
-	Metadata []*types.KeyValue
+	Metadata []*proto.KeyValue
 	// Tenant creation timestamp (immutable)
 	CreatedAt *timestamppb.Timestamp
 	// Last update timestamp
@@ -777,7 +776,7 @@ type TenantQuota struct {
 	xxx_hidden_MaxConcurrentConnections int32                  `protobuf:"varint,4,opt,name=max_concurrent_connections,json=maxConcurrentConnections"`
 	xxx_hidden_MaxDatabases             int32                  `protobuf:"varint,5,opt,name=max_databases,json=maxDatabases"`
 	xxx_hidden_MaxCustomDomains         int32                  `protobuf:"varint,6,opt,name=max_custom_domains,json=maxCustomDomains"`
-	xxx_hidden_CustomLimits             *[]*types.KeyValue     `protobuf:"bytes,7,rep,name=custom_limits,json=customLimits"`
+	xxx_hidden_CustomLimits             *[]*proto.KeyValue     `protobuf:"bytes,7,rep,name=custom_limits,json=customLimits"`
 	// Deprecated: Do not use. This will be deleted in the near future.
 	XXX_lazyUnmarshalInfo  protoimpl.LazyUnmarshalInfo
 	XXX_raceDetectHookData protoimpl.RaceDetectHookData
@@ -853,13 +852,13 @@ func (x *TenantQuota) GetMaxCustomDomains() int32 {
 	return 0
 }
 
-func (x *TenantQuota) GetCustomLimits() []*types.KeyValue {
+func (x *TenantQuota) GetCustomLimits() []*proto.KeyValue {
 	if x != nil {
 		if protoimpl.X.Present(&(x.XXX_presence[0]), 6) {
 			if protoimpl.X.AtomicCheckPointerIsNil(&x.xxx_hidden_CustomLimits) {
 				protoimpl.X.UnmarshalField(x, 7)
 			}
-			var rv *[]*types.KeyValue
+			var rv *[]*proto.KeyValue
 			protoimpl.X.AtomicLoadPointer(protoimpl.Pointer(&x.xxx_hidden_CustomLimits), protoimpl.Pointer(&rv))
 			return *rv
 		}
@@ -897,11 +896,11 @@ func (x *TenantQuota) SetMaxCustomDomains(v int32) {
 	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 5, 7)
 }
 
-func (x *TenantQuota) SetCustomLimits(v []*types.KeyValue) {
-	var sv *[]*types.KeyValue
+func (x *TenantQuota) SetCustomLimits(v []*proto.KeyValue) {
+	var sv *[]*proto.KeyValue
 	protoimpl.X.AtomicLoadPointer(protoimpl.Pointer(&x.xxx_hidden_CustomLimits), protoimpl.Pointer(&sv))
 	if sv == nil {
-		sv = &[]*types.KeyValue{}
+		sv = &[]*proto.KeyValue{}
 		protoimpl.X.AtomicInitializePointer(protoimpl.Pointer(&x.xxx_hidden_CustomLimits), protoimpl.Pointer(&sv))
 	}
 	*sv = v
@@ -996,7 +995,7 @@ type TenantQuota_builder struct {
 	// Maximum number of custom domains
 	MaxCustomDomains *int32
 	// Custom quota limits (key-value pairs for extensibility)
-	CustomLimits []*types.KeyValue
+	CustomLimits []*proto.KeyValue
 }
 
 func (b0 TenantQuota_builder) Build() *TenantQuota {
@@ -1073,16 +1072,16 @@ const file_pkg_organization_proto_messages_tenant_proto_rawDesc = "" +
 	"\x1amax_concurrent_connections\x18\x04 \x01(\x05R\x18maxConcurrentConnections\x12#\n" +
 	"\rmax_databases\x18\x05 \x01(\x05R\fmaxDatabases\x12,\n" +
 	"\x12max_custom_domains\x18\x06 \x01(\x05R\x10maxCustomDomains\x12D\n" +
-	"\rcustom_limits\x18\a \x03(\v2\x1b.gcommon.v1.common.KeyValueB\x02(\x01R\fcustomLimitsB\xeb\x01\n" +
-	"\x1bcom.gcommon.v1.organizationB\vTenantProtoP\x01Z9github.com/jdfalk/gcommon/pkg/organization/proto/messages\xa2\x02\x03GVO\xaa\x02\x17Gcommon.V1.Organization\xca\x02\x17Gcommon\\V1\\Organization\xe2\x02#Gcommon\\V1\\Organization\\GPBMetadata\xea\x02\x19Gcommon::V1::Organization\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
+	"\rcustom_limits\x18\a \x03(\v2\x1b.gcommon.v1.common.KeyValueB\x02(\x01R\fcustomLimitsB\xf1\x01\n" +
+	"\x1bcom.gcommon.v1.organizationB\vTenantProtoP\x01Z?github.com/jdfalk/gcommon/pkg/organization/proto;organizationpb\xa2\x02\x03GVO\xaa\x02\x17Gcommon.V1.Organization\xca\x02\x17Gcommon\\V1\\Organization\xe2\x02#Gcommon\\V1\\Organization\\GPBMetadata\xea\x02\x19Gcommon::V1::Organization\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
 
 var file_pkg_organization_proto_messages_tenant_proto_msgTypes = make([]protoimpl.MessageInfo, 2)
 var file_pkg_organization_proto_messages_tenant_proto_goTypes = []any{
 	(*Tenant)(nil),                // 0: gcommon.v1.organization.Tenant
 	(*TenantQuota)(nil),           // 1: gcommon.v1.organization.TenantQuota
-	(enums.TenantStatus)(0),       // 2: gcommon.v1.organization.TenantStatus
-	(enums.IsolationLevel)(0),     // 3: gcommon.v1.organization.IsolationLevel
-	(*types.KeyValue)(nil),        // 4: gcommon.v1.common.KeyValue
+	(TenantStatus)(0),             // 2: gcommon.v1.organization.TenantStatus
+	(IsolationLevel)(0),           // 3: gcommon.v1.organization.IsolationLevel
+	(*proto.KeyValue)(nil),        // 4: gcommon.v1.common.KeyValue
 	(*timestamppb.Timestamp)(nil), // 5: google.protobuf.Timestamp
 }
 var file_pkg_organization_proto_messages_tenant_proto_depIdxs = []int32{
@@ -1106,6 +1105,8 @@ func file_pkg_organization_proto_messages_tenant_proto_init() {
 	if File_pkg_organization_proto_messages_tenant_proto != nil {
 		return
 	}
+	file_pkg_organization_proto_enums_tenant_status_proto_init()
+	file_pkg_organization_proto_enums_isolation_level_proto_init()
 	type x struct{}
 	out := protoimpl.TypeBuilder{
 		File: protoimpl.DescBuilder{

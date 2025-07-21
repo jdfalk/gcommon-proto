@@ -6,11 +6,10 @@
 
 //go:build !protoopaque
 
-package messages
+package organizationpb
 
 import (
-	types "github.com/jdfalk/gcommon/pkg/common/proto/types"
-	enums "github.com/jdfalk/gcommon/pkg/organization/proto/enums"
+	proto "github.com/jdfalk/gcommon/pkg/common/proto"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
@@ -42,9 +41,9 @@ type OrganizationMember struct {
 	// User's display name (cached for quick access)
 	DisplayName *string `protobuf:"bytes,5,opt,name=display_name,json=displayName" json:"display_name,omitempty"`
 	// Primary role of the user in this organization
-	Role *enums.MemberRole `protobuf:"varint,6,opt,name=role,enum=gcommon.v1.organization.MemberRole" json:"role,omitempty"`
+	Role *MemberRole `protobuf:"varint,6,opt,name=role,enum=gcommon.v1.organization.MemberRole" json:"role,omitempty"`
 	// Additional roles the user may have
-	AdditionalRoles []enums.MemberRole `protobuf:"varint,7,rep,packed,name=additional_roles,json=additionalRoles,enum=gcommon.v1.organization.MemberRole" json:"additional_roles,omitempty"`
+	AdditionalRoles []MemberRole `protobuf:"varint,7,rep,packed,name=additional_roles,json=additionalRoles,enum=gcommon.v1.organization.MemberRole" json:"additional_roles,omitempty"`
 	// Specific permissions granted to this member
 	Permissions []string `protobuf:"bytes,8,rep,name=permissions" json:"permissions,omitempty"`
 	// Department IDs this member belongs to
@@ -54,7 +53,7 @@ type OrganizationMember struct {
 	// Tenant IDs this member has access to (for multi-tenant organizations)
 	TenantIds []string `protobuf:"bytes,11,rep,name=tenant_ids,json=tenantIds" json:"tenant_ids,omitempty"`
 	// Member metadata and custom attributes
-	Metadata []*types.KeyValue `protobuf:"bytes,12,rep,name=metadata" json:"metadata,omitempty"`
+	Metadata []*proto.KeyValue `protobuf:"bytes,12,rep,name=metadata" json:"metadata,omitempty"`
 	// Membership creation timestamp (when user joined organization)
 	CreatedAt *timestamppb.Timestamp `protobuf:"bytes,13,opt,name=created_at,json=createdAt" json:"created_at,omitempty"`
 	// Last update timestamp
@@ -143,14 +142,14 @@ func (x *OrganizationMember) GetDisplayName() string {
 	return ""
 }
 
-func (x *OrganizationMember) GetRole() enums.MemberRole {
+func (x *OrganizationMember) GetRole() MemberRole {
 	if x != nil && x.Role != nil {
 		return *x.Role
 	}
-	return enums.MemberRole(0)
+	return MemberRole_MEMBER_ROLE_UNSPECIFIED
 }
 
-func (x *OrganizationMember) GetAdditionalRoles() []enums.MemberRole {
+func (x *OrganizationMember) GetAdditionalRoles() []MemberRole {
 	if x != nil {
 		return x.AdditionalRoles
 	}
@@ -185,7 +184,7 @@ func (x *OrganizationMember) GetTenantIds() []string {
 	return nil
 }
 
-func (x *OrganizationMember) GetMetadata() []*types.KeyValue {
+func (x *OrganizationMember) GetMetadata() []*proto.KeyValue {
 	if x != nil {
 		return x.Metadata
 	}
@@ -296,11 +295,11 @@ func (x *OrganizationMember) SetDisplayName(v string) {
 	x.DisplayName = &v
 }
 
-func (x *OrganizationMember) SetRole(v enums.MemberRole) {
+func (x *OrganizationMember) SetRole(v MemberRole) {
 	x.Role = &v
 }
 
-func (x *OrganizationMember) SetAdditionalRoles(v []enums.MemberRole) {
+func (x *OrganizationMember) SetAdditionalRoles(v []MemberRole) {
 	x.AdditionalRoles = v
 }
 
@@ -320,7 +319,7 @@ func (x *OrganizationMember) SetTenantIds(v []string) {
 	x.TenantIds = v
 }
 
-func (x *OrganizationMember) SetMetadata(v []*types.KeyValue) {
+func (x *OrganizationMember) SetMetadata(v []*proto.KeyValue) {
 	x.Metadata = v
 }
 
@@ -573,9 +572,9 @@ type OrganizationMember_builder struct {
 	// User's display name (cached for quick access)
 	DisplayName *string
 	// Primary role of the user in this organization
-	Role *enums.MemberRole
+	Role *MemberRole
 	// Additional roles the user may have
-	AdditionalRoles []enums.MemberRole
+	AdditionalRoles []MemberRole
 	// Specific permissions granted to this member
 	Permissions []string
 	// Department IDs this member belongs to
@@ -585,7 +584,7 @@ type OrganizationMember_builder struct {
 	// Tenant IDs this member has access to (for multi-tenant organizations)
 	TenantIds []string
 	// Member metadata and custom attributes
-	Metadata []*types.KeyValue
+	Metadata []*proto.KeyValue
 	// Membership creation timestamp (when user joined organization)
 	CreatedAt *timestamppb.Timestamp
 	// Last update timestamp
@@ -680,14 +679,14 @@ const file_pkg_organization_proto_messages_organization_member_proto_rawDesc = "
 	"\n" +
 	"avatar_url\x18\x16 \x01(\tR\tavatarUrl\x12\x14\n" +
 	"\x05phone\x18\x17 \x01(\tR\x05phone\x12\x1a\n" +
-	"\blocation\x18\x18 \x01(\tR\blocationB\xf7\x01\n" +
-	"\x1bcom.gcommon.v1.organizationB\x17OrganizationMemberProtoP\x01Z9github.com/jdfalk/gcommon/pkg/organization/proto/messages\xa2\x02\x03GVO\xaa\x02\x17Gcommon.V1.Organization\xca\x02\x17Gcommon\\V1\\Organization\xe2\x02#Gcommon\\V1\\Organization\\GPBMetadata\xea\x02\x19Gcommon::V1::Organization\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
+	"\blocation\x18\x18 \x01(\tR\blocationB\xfd\x01\n" +
+	"\x1bcom.gcommon.v1.organizationB\x17OrganizationMemberProtoP\x01Z?github.com/jdfalk/gcommon/pkg/organization/proto;organizationpb\xa2\x02\x03GVO\xaa\x02\x17Gcommon.V1.Organization\xca\x02\x17Gcommon\\V1\\Organization\xe2\x02#Gcommon\\V1\\Organization\\GPBMetadata\xea\x02\x19Gcommon::V1::Organization\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
 
 var file_pkg_organization_proto_messages_organization_member_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_pkg_organization_proto_messages_organization_member_proto_goTypes = []any{
 	(*OrganizationMember)(nil),    // 0: gcommon.v1.organization.OrganizationMember
-	(enums.MemberRole)(0),         // 1: gcommon.v1.organization.MemberRole
-	(*types.KeyValue)(nil),        // 2: gcommon.v1.common.KeyValue
+	(MemberRole)(0),               // 1: gcommon.v1.organization.MemberRole
+	(*proto.KeyValue)(nil),        // 2: gcommon.v1.common.KeyValue
 	(*timestamppb.Timestamp)(nil), // 3: google.protobuf.Timestamp
 }
 var file_pkg_organization_proto_messages_organization_member_proto_depIdxs = []int32{
@@ -709,6 +708,7 @@ func file_pkg_organization_proto_messages_organization_member_proto_init() {
 	if File_pkg_organization_proto_messages_organization_member_proto != nil {
 		return
 	}
+	file_pkg_organization_proto_enums_member_role_proto_init()
 	type x struct{}
 	out := protoimpl.TypeBuilder{
 		File: protoimpl.DescBuilder{

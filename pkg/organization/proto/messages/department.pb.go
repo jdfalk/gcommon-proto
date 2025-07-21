@@ -6,10 +6,10 @@
 
 //go:build !protoopaque
 
-package messages
+package organizationpb
 
 import (
-	types "github.com/jdfalk/gcommon/pkg/common/proto/types"
+	proto "github.com/jdfalk/gcommon/pkg/common/proto"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
@@ -50,7 +50,7 @@ type Department struct {
 	// Physical location or office for this department
 	Location *string `protobuf:"bytes,9,opt,name=location" json:"location,omitempty"`
 	// Department metadata and custom attributes
-	Metadata []*types.KeyValue `protobuf:"bytes,10,rep,name=metadata" json:"metadata,omitempty"`
+	Metadata []*proto.KeyValue `protobuf:"bytes,10,rep,name=metadata" json:"metadata,omitempty"`
 	// Department creation timestamp
 	CreatedAt *timestamppb.Timestamp `protobuf:"bytes,11,opt,name=created_at,json=createdAt" json:"created_at,omitempty"`
 	// Last update timestamp
@@ -167,7 +167,7 @@ func (x *Department) GetLocation() string {
 	return ""
 }
 
-func (x *Department) GetMetadata() []*types.KeyValue {
+func (x *Department) GetMetadata() []*proto.KeyValue {
 	if x != nil {
 		return x.Metadata
 	}
@@ -294,7 +294,7 @@ func (x *Department) SetLocation(v string) {
 	x.Location = &v
 }
 
-func (x *Department) SetMetadata(v []*types.KeyValue) {
+func (x *Department) SetMetadata(v []*proto.KeyValue) {
 	x.Metadata = v
 }
 
@@ -577,7 +577,7 @@ type Department_builder struct {
 	// Physical location or office for this department
 	Location *string
 	// Department metadata and custom attributes
-	Metadata []*types.KeyValue
+	Metadata []*proto.KeyValue
 	// Department creation timestamp
 	CreatedAt *timestamppb.Timestamp
 	// Last update timestamp
@@ -669,13 +669,13 @@ const file_pkg_organization_proto_messages_department_proto_rawDesc = "" +
 	"\rannual_budget\x18\x13 \x01(\x01R\fannualBudget\x12\x1a\n" +
 	"\btimezone\x18\x14 \x01(\tR\btimezone\x120\n" +
 	"\x14child_department_ids\x18\x15 \x03(\tR\x12childDepartmentIds\x12\x19\n" +
-	"\bteam_ids\x18\x16 \x03(\tR\ateamIdsB\xef\x01\n" +
-	"\x1bcom.gcommon.v1.organizationB\x0fDepartmentProtoP\x01Z9github.com/jdfalk/gcommon/pkg/organization/proto/messages\xa2\x02\x03GVO\xaa\x02\x17Gcommon.V1.Organization\xca\x02\x17Gcommon\\V1\\Organization\xe2\x02#Gcommon\\V1\\Organization\\GPBMetadata\xea\x02\x19Gcommon::V1::Organization\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
+	"\bteam_ids\x18\x16 \x03(\tR\ateamIdsB\xf5\x01\n" +
+	"\x1bcom.gcommon.v1.organizationB\x0fDepartmentProtoP\x01Z?github.com/jdfalk/gcommon/pkg/organization/proto;organizationpb\xa2\x02\x03GVO\xaa\x02\x17Gcommon.V1.Organization\xca\x02\x17Gcommon\\V1\\Organization\xe2\x02#Gcommon\\V1\\Organization\\GPBMetadata\xea\x02\x19Gcommon::V1::Organization\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
 
 var file_pkg_organization_proto_messages_department_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_pkg_organization_proto_messages_department_proto_goTypes = []any{
 	(*Department)(nil),            // 0: gcommon.v1.organization.Department
-	(*types.KeyValue)(nil),        // 1: gcommon.v1.common.KeyValue
+	(*proto.KeyValue)(nil),        // 1: gcommon.v1.common.KeyValue
 	(*timestamppb.Timestamp)(nil), // 2: google.protobuf.Timestamp
 }
 var file_pkg_organization_proto_messages_department_proto_depIdxs = []int32{

@@ -6,11 +6,9 @@
 
 //go:build protoopaque
 
-package services
+package organizationpb
 
 import (
-	requests "github.com/jdfalk/gcommon/pkg/organization/proto/requests"
-	responses "github.com/jdfalk/gcommon/pkg/organization/proto/responses"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
@@ -39,28 +37,28 @@ const file_pkg_organization_proto_services_tenant_service_proto_rawDesc = "" +
 	"\x18ConfigureTenantIsolation\x128.gcommon.v1.organization.ConfigureTenantIsolationRequest\x1a9.gcommon.v1.organization.ConfigureTenantIsolationResponse\x12}\n" +
 	"\x12GetTenantIsolation\x122.gcommon.v1.organization.GetTenantIsolationRequest\x1a3.gcommon.v1.organization.GetTenantIsolationResponse\x12z\n" +
 	"\x11UpdateTenantQuota\x121.gcommon.v1.organization.UpdateTenantQuotaRequest\x1a2.gcommon.v1.organization.UpdateTenantQuotaResponse\x12q\n" +
-	"\x0eGetTenantUsage\x12..gcommon.v1.organization.GetTenantUsageRequest\x1a/.gcommon.v1.organization.GetTenantUsageResponseB\xf2\x01\n" +
-	"\x1bcom.gcommon.v1.organizationB\x12TenantServiceProtoP\x01Z9github.com/jdfalk/gcommon/pkg/organization/proto/services\xa2\x02\x03GVO\xaa\x02\x17Gcommon.V1.Organization\xca\x02\x17Gcommon\\V1\\Organization\xe2\x02#Gcommon\\V1\\Organization\\GPBMetadata\xea\x02\x19Gcommon::V1::Organization\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
+	"\x0eGetTenantUsage\x12..gcommon.v1.organization.GetTenantUsageRequest\x1a/.gcommon.v1.organization.GetTenantUsageResponseB\xf8\x01\n" +
+	"\x1bcom.gcommon.v1.organizationB\x12TenantServiceProtoP\x01Z?github.com/jdfalk/gcommon/pkg/organization/proto;organizationpb\xa2\x02\x03GVO\xaa\x02\x17Gcommon.V1.Organization\xca\x02\x17Gcommon\\V1\\Organization\xe2\x02#Gcommon\\V1\\Organization\\GPBMetadata\xea\x02\x19Gcommon::V1::Organization\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
 
 var file_pkg_organization_proto_services_tenant_service_proto_goTypes = []any{
-	(*requests.CreateTenantRequest)(nil),               // 0: gcommon.v1.organization.CreateTenantRequest
-	(*requests.GetTenantRequest)(nil),                  // 1: gcommon.v1.organization.GetTenantRequest
-	(*requests.UpdateTenantRequest)(nil),               // 2: gcommon.v1.organization.UpdateTenantRequest
-	(*requests.DeleteTenantRequest)(nil),               // 3: gcommon.v1.organization.DeleteTenantRequest
-	(*requests.ListTenantsRequest)(nil),                // 4: gcommon.v1.organization.ListTenantsRequest
-	(*requests.ConfigureTenantIsolationRequest)(nil),   // 5: gcommon.v1.organization.ConfigureTenantIsolationRequest
-	(*requests.GetTenantIsolationRequest)(nil),         // 6: gcommon.v1.organization.GetTenantIsolationRequest
-	(*requests.UpdateTenantQuotaRequest)(nil),          // 7: gcommon.v1.organization.UpdateTenantQuotaRequest
-	(*requests.GetTenantUsageRequest)(nil),             // 8: gcommon.v1.organization.GetTenantUsageRequest
-	(*responses.CreateTenantResponse)(nil),             // 9: gcommon.v1.organization.CreateTenantResponse
-	(*responses.GetTenantResponse)(nil),                // 10: gcommon.v1.organization.GetTenantResponse
-	(*responses.UpdateTenantResponse)(nil),             // 11: gcommon.v1.organization.UpdateTenantResponse
-	(*responses.DeleteTenantResponse)(nil),             // 12: gcommon.v1.organization.DeleteTenantResponse
-	(*responses.ListTenantsResponse)(nil),              // 13: gcommon.v1.organization.ListTenantsResponse
-	(*responses.ConfigureTenantIsolationResponse)(nil), // 14: gcommon.v1.organization.ConfigureTenantIsolationResponse
-	(*responses.GetTenantIsolationResponse)(nil),       // 15: gcommon.v1.organization.GetTenantIsolationResponse
-	(*responses.UpdateTenantQuotaResponse)(nil),        // 16: gcommon.v1.organization.UpdateTenantQuotaResponse
-	(*responses.GetTenantUsageResponse)(nil),           // 17: gcommon.v1.organization.GetTenantUsageResponse
+	(*CreateTenantRequest)(nil),              // 0: gcommon.v1.organization.CreateTenantRequest
+	(*GetTenantRequest)(nil),                 // 1: gcommon.v1.organization.GetTenantRequest
+	(*UpdateTenantRequest)(nil),              // 2: gcommon.v1.organization.UpdateTenantRequest
+	(*DeleteTenantRequest)(nil),              // 3: gcommon.v1.organization.DeleteTenantRequest
+	(*ListTenantsRequest)(nil),               // 4: gcommon.v1.organization.ListTenantsRequest
+	(*ConfigureTenantIsolationRequest)(nil),  // 5: gcommon.v1.organization.ConfigureTenantIsolationRequest
+	(*GetTenantIsolationRequest)(nil),        // 6: gcommon.v1.organization.GetTenantIsolationRequest
+	(*UpdateTenantQuotaRequest)(nil),         // 7: gcommon.v1.organization.UpdateTenantQuotaRequest
+	(*GetTenantUsageRequest)(nil),            // 8: gcommon.v1.organization.GetTenantUsageRequest
+	(*CreateTenantResponse)(nil),             // 9: gcommon.v1.organization.CreateTenantResponse
+	(*GetTenantResponse)(nil),                // 10: gcommon.v1.organization.GetTenantResponse
+	(*UpdateTenantResponse)(nil),             // 11: gcommon.v1.organization.UpdateTenantResponse
+	(*DeleteTenantResponse)(nil),             // 12: gcommon.v1.organization.DeleteTenantResponse
+	(*ListTenantsResponse)(nil),              // 13: gcommon.v1.organization.ListTenantsResponse
+	(*ConfigureTenantIsolationResponse)(nil), // 14: gcommon.v1.organization.ConfigureTenantIsolationResponse
+	(*GetTenantIsolationResponse)(nil),       // 15: gcommon.v1.organization.GetTenantIsolationResponse
+	(*UpdateTenantQuotaResponse)(nil),        // 16: gcommon.v1.organization.UpdateTenantQuotaResponse
+	(*GetTenantUsageResponse)(nil),           // 17: gcommon.v1.organization.GetTenantUsageResponse
 }
 var file_pkg_organization_proto_services_tenant_service_proto_depIdxs = []int32{
 	0,  // 0: gcommon.v1.organization.TenantService.CreateTenant:input_type -> gcommon.v1.organization.CreateTenantRequest
@@ -93,6 +91,24 @@ func file_pkg_organization_proto_services_tenant_service_proto_init() {
 	if File_pkg_organization_proto_services_tenant_service_proto != nil {
 		return
 	}
+	file_pkg_organization_proto_requests_create_tenant_request_proto_init()
+	file_pkg_organization_proto_responses_create_tenant_response_proto_init()
+	file_pkg_organization_proto_requests_get_tenant_request_proto_init()
+	file_pkg_organization_proto_responses_get_tenant_response_proto_init()
+	file_pkg_organization_proto_requests_update_tenant_request_proto_init()
+	file_pkg_organization_proto_responses_update_tenant_response_proto_init()
+	file_pkg_organization_proto_requests_delete_tenant_request_proto_init()
+	file_pkg_organization_proto_responses_delete_tenant_response_proto_init()
+	file_pkg_organization_proto_requests_list_tenants_request_proto_init()
+	file_pkg_organization_proto_responses_list_tenants_response_proto_init()
+	file_pkg_organization_proto_requests_configure_tenant_isolation_request_proto_init()
+	file_pkg_organization_proto_responses_configure_tenant_isolation_response_proto_init()
+	file_pkg_organization_proto_requests_get_tenant_isolation_request_proto_init()
+	file_pkg_organization_proto_responses_get_tenant_isolation_response_proto_init()
+	file_pkg_organization_proto_requests_update_tenant_quota_request_proto_init()
+	file_pkg_organization_proto_responses_update_tenant_quota_response_proto_init()
+	file_pkg_organization_proto_requests_get_tenant_usage_request_proto_init()
+	file_pkg_organization_proto_responses_get_tenant_usage_response_proto_init()
 	type x struct{}
 	out := protoimpl.TypeBuilder{
 		File: protoimpl.DescBuilder{

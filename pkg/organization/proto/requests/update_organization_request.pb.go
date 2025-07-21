@@ -6,11 +6,10 @@
 
 //go:build !protoopaque
 
-package requests
+package organizationpb
 
 import (
-	messages "github.com/jdfalk/gcommon/pkg/common/proto/messages"
-	messages1 "github.com/jdfalk/gcommon/pkg/organization/proto/messages"
+	proto "github.com/jdfalk/gcommon/pkg/common/proto"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
@@ -30,11 +29,11 @@ const (
 type UpdateOrganizationRequest struct {
 	state protoimpl.MessageState `protogen:"hybrid.v1"`
 	// Request metadata for tracing and context
-	Metadata *messages.RequestMetadata `protobuf:"bytes,1,opt,name=metadata" json:"metadata,omitempty"`
+	Metadata *proto.RequestMetadata `protobuf:"bytes,1,opt,name=metadata" json:"metadata,omitempty"`
 	// Organization ID to update
 	OrganizationId *string `protobuf:"bytes,2,opt,name=organization_id,json=organizationId" json:"organization_id,omitempty"`
 	// Updated organization information
-	Organization *messages1.Organization `protobuf:"bytes,3,opt,name=organization" json:"organization,omitempty"`
+	Organization *Organization `protobuf:"bytes,3,opt,name=organization" json:"organization,omitempty"`
 	// Fields to update (field mask)
 	UpdateFields  []string `protobuf:"bytes,4,rep,name=update_fields,json=updateFields" json:"update_fields,omitempty"`
 	unknownFields protoimpl.UnknownFields
@@ -66,7 +65,7 @@ func (x *UpdateOrganizationRequest) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-func (x *UpdateOrganizationRequest) GetMetadata() *messages.RequestMetadata {
+func (x *UpdateOrganizationRequest) GetMetadata() *proto.RequestMetadata {
 	if x != nil {
 		return x.Metadata
 	}
@@ -80,7 +79,7 @@ func (x *UpdateOrganizationRequest) GetOrganizationId() string {
 	return ""
 }
 
-func (x *UpdateOrganizationRequest) GetOrganization() *messages1.Organization {
+func (x *UpdateOrganizationRequest) GetOrganization() *Organization {
 	if x != nil {
 		return x.Organization
 	}
@@ -94,7 +93,7 @@ func (x *UpdateOrganizationRequest) GetUpdateFields() []string {
 	return nil
 }
 
-func (x *UpdateOrganizationRequest) SetMetadata(v *messages.RequestMetadata) {
+func (x *UpdateOrganizationRequest) SetMetadata(v *proto.RequestMetadata) {
 	x.Metadata = v
 }
 
@@ -102,7 +101,7 @@ func (x *UpdateOrganizationRequest) SetOrganizationId(v string) {
 	x.OrganizationId = &v
 }
 
-func (x *UpdateOrganizationRequest) SetOrganization(v *messages1.Organization) {
+func (x *UpdateOrganizationRequest) SetOrganization(v *Organization) {
 	x.Organization = v
 }
 
@@ -147,11 +146,11 @@ type UpdateOrganizationRequest_builder struct {
 	_ [0]func() // Prevents comparability and use of unkeyed literals for the builder.
 
 	// Request metadata for tracing and context
-	Metadata *messages.RequestMetadata
+	Metadata *proto.RequestMetadata
 	// Organization ID to update
 	OrganizationId *string
 	// Updated organization information
-	Organization *messages1.Organization
+	Organization *Organization
 	// Fields to update (field mask)
 	UpdateFields []string
 }
@@ -176,14 +175,14 @@ const file_pkg_organization_proto_requests_update_organization_request_proto_raw
 	"\bmetadata\x18\x01 \x01(\v2\".gcommon.v1.common.RequestMetadataR\bmetadata\x12'\n" +
 	"\x0forganization_id\x18\x02 \x01(\tR\x0eorganizationId\x12I\n" +
 	"\forganization\x18\x03 \x01(\v2%.gcommon.v1.organization.OrganizationR\forganization\x12#\n" +
-	"\rupdate_fields\x18\x04 \x03(\tR\fupdateFieldsB\xfe\x01\n" +
-	"\x1bcom.gcommon.v1.organizationB\x1eUpdateOrganizationRequestProtoP\x01Z9github.com/jdfalk/gcommon/pkg/organization/proto/requests\xa2\x02\x03GVO\xaa\x02\x17Gcommon.V1.Organization\xca\x02\x17Gcommon\\V1\\Organization\xe2\x02#Gcommon\\V1\\Organization\\GPBMetadata\xea\x02\x19Gcommon::V1::Organization\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
+	"\rupdate_fields\x18\x04 \x03(\tR\fupdateFieldsB\x84\x02\n" +
+	"\x1bcom.gcommon.v1.organizationB\x1eUpdateOrganizationRequestProtoP\x01Z?github.com/jdfalk/gcommon/pkg/organization/proto;organizationpb\xa2\x02\x03GVO\xaa\x02\x17Gcommon.V1.Organization\xca\x02\x17Gcommon\\V1\\Organization\xe2\x02#Gcommon\\V1\\Organization\\GPBMetadata\xea\x02\x19Gcommon::V1::Organization\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
 
 var file_pkg_organization_proto_requests_update_organization_request_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_pkg_organization_proto_requests_update_organization_request_proto_goTypes = []any{
 	(*UpdateOrganizationRequest)(nil), // 0: gcommon.v1.organization.UpdateOrganizationRequest
-	(*messages.RequestMetadata)(nil),  // 1: gcommon.v1.common.RequestMetadata
-	(*messages1.Organization)(nil),    // 2: gcommon.v1.organization.Organization
+	(*proto.RequestMetadata)(nil),     // 1: gcommon.v1.common.RequestMetadata
+	(*Organization)(nil),              // 2: gcommon.v1.organization.Organization
 }
 var file_pkg_organization_proto_requests_update_organization_request_proto_depIdxs = []int32{
 	1, // 0: gcommon.v1.organization.UpdateOrganizationRequest.metadata:type_name -> gcommon.v1.common.RequestMetadata
@@ -200,6 +199,7 @@ func file_pkg_organization_proto_requests_update_organization_request_proto_init
 	if File_pkg_organization_proto_requests_update_organization_request_proto != nil {
 		return
 	}
+	file_pkg_organization_proto_messages_organization_proto_init()
 	type x struct{}
 	out := protoimpl.TypeBuilder{
 		File: protoimpl.DescBuilder{
