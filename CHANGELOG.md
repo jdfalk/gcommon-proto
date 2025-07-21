@@ -11,6 +11,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 
+- Completed Cache module protobufs and updated aggregator
+
+### Added
+
 - Implemented initial metrics protobufs
 
 Added 10 log protobuf files and migrated log.proto to aggregator
