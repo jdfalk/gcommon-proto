@@ -6,10 +6,10 @@
 
 //go:build protoopaque
 
-package requests
+package dbpb
 
 import (
-	messages "github.com/jdfalk/gcommon/pkg/common/proto/messages"
+	proto "github.com/jdfalk/gcommon/pkg/common/proto"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
@@ -28,9 +28,9 @@ const (
 // ListSchemasRequest represents a request to retrieve all schemas
 // within a specific database.
 type ListSchemasRequest struct {
-	state               protoimpl.MessageState    `protogen:"opaque.v1"`
-	xxx_hidden_Database *string                   `protobuf:"bytes,1,opt,name=database"`
-	xxx_hidden_Metadata *messages.RequestMetadata `protobuf:"bytes,2,opt,name=metadata"`
+	state               protoimpl.MessageState `protogen:"opaque.v1"`
+	xxx_hidden_Database *string                `protobuf:"bytes,1,opt,name=database"`
+	xxx_hidden_Metadata *proto.RequestMetadata `protobuf:"bytes,2,opt,name=metadata"`
 	// Deprecated: Do not use. This will be deleted in the near future.
 	XXX_lazyUnmarshalInfo  protoimpl.LazyUnmarshalInfo
 	XXX_raceDetectHookData protoimpl.RaceDetectHookData
@@ -74,13 +74,13 @@ func (x *ListSchemasRequest) GetDatabase() string {
 	return ""
 }
 
-func (x *ListSchemasRequest) GetMetadata() *messages.RequestMetadata {
+func (x *ListSchemasRequest) GetMetadata() *proto.RequestMetadata {
 	if x != nil {
 		if protoimpl.X.Present(&(x.XXX_presence[0]), 1) {
 			if protoimpl.X.AtomicCheckPointerIsNil(&x.xxx_hidden_Metadata) {
 				protoimpl.X.UnmarshalField(x, 2)
 			}
-			var rv *messages.RequestMetadata
+			var rv *proto.RequestMetadata
 			protoimpl.X.AtomicLoadPointer(protoimpl.Pointer(&x.xxx_hidden_Metadata), protoimpl.Pointer(&rv))
 			return rv
 		}
@@ -93,7 +93,7 @@ func (x *ListSchemasRequest) SetDatabase(v string) {
 	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 0, 2)
 }
 
-func (x *ListSchemasRequest) SetMetadata(v *messages.RequestMetadata) {
+func (x *ListSchemasRequest) SetMetadata(v *proto.RequestMetadata) {
 	protoimpl.X.AtomicSetPointer(&x.xxx_hidden_Metadata, v)
 	if v == nil {
 		protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 1)
@@ -123,7 +123,7 @@ func (x *ListSchemasRequest) ClearDatabase() {
 
 func (x *ListSchemasRequest) ClearMetadata() {
 	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 1)
-	protoimpl.X.AtomicSetPointer(&x.xxx_hidden_Metadata, (*messages.RequestMetadata)(nil))
+	protoimpl.X.AtomicSetPointer(&x.xxx_hidden_Metadata, (*proto.RequestMetadata)(nil))
 }
 
 type ListSchemasRequest_builder struct {
@@ -132,7 +132,7 @@ type ListSchemasRequest_builder struct {
 	// Database name to list schemas from
 	Database *string
 	// Request metadata for tracing and authentication
-	Metadata *messages.RequestMetadata
+	Metadata *proto.RequestMetadata
 }
 
 func (b0 ListSchemasRequest_builder) Build() *ListSchemasRequest {
@@ -157,13 +157,13 @@ const file_pkg_db_proto_requests_list_schemas_request_proto_rawDesc = "" +
 	"0pkg/db/proto/requests/list_schemas_request.proto\x12\x13gcommon.v1.database\x1a0pkg/common/proto/messages/request_metadata.proto\x1a!google/protobuf/go_features.proto\"t\n" +
 	"\x12ListSchemasRequest\x12\x1a\n" +
 	"\bdatabase\x18\x01 \x01(\tR\bdatabase\x12B\n" +
-	"\bmetadata\x18\x02 \x01(\v2\".gcommon.v1.common.RequestMetadataB\x02(\x01R\bmetadataB\xd9\x01\n" +
-	"\x17com.gcommon.v1.databaseB\x17ListSchemasRequestProtoP\x01Z/github.com/jdfalk/gcommon/pkg/db/proto/requests\xa2\x02\x03GVD\xaa\x02\x13Gcommon.V1.Database\xca\x02\x13Gcommon\\V1\\Database\xe2\x02\x1fGcommon\\V1\\Database\\GPBMetadata\xea\x02\x15Gcommon::V1::Database\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
+	"\bmetadata\x18\x02 \x01(\v2\".gcommon.v1.common.RequestMetadataB\x02(\x01R\bmetadataB\xd5\x01\n" +
+	"\x17com.gcommon.v1.databaseB\x17ListSchemasRequestProtoP\x01Z+github.com/jdfalk/gcommon/pkg/db/proto;dbpb\xa2\x02\x03GVD\xaa\x02\x13Gcommon.V1.Database\xca\x02\x13Gcommon\\V1\\Database\xe2\x02\x1fGcommon\\V1\\Database\\GPBMetadata\xea\x02\x15Gcommon::V1::Database\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
 
 var file_pkg_db_proto_requests_list_schemas_request_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_pkg_db_proto_requests_list_schemas_request_proto_goTypes = []any{
-	(*ListSchemasRequest)(nil),       // 0: gcommon.v1.database.ListSchemasRequest
-	(*messages.RequestMetadata)(nil), // 1: gcommon.v1.common.RequestMetadata
+	(*ListSchemasRequest)(nil),    // 0: gcommon.v1.database.ListSchemasRequest
+	(*proto.RequestMetadata)(nil), // 1: gcommon.v1.common.RequestMetadata
 }
 var file_pkg_db_proto_requests_list_schemas_request_proto_depIdxs = []int32{
 	1, // 0: gcommon.v1.database.ListSchemasRequest.metadata:type_name -> gcommon.v1.common.RequestMetadata

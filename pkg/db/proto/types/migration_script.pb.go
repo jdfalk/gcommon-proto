@@ -6,7 +6,7 @@
 
 //go:build !protoopaque
 
-package types
+package dbpb
 
 import (
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
@@ -158,8 +158,8 @@ const file_pkg_db_proto_types_migration_script_proto_rawDesc = "" +
 	"\x0fMigrationScript\x12\x18\n" +
 	"\aversion\x18\x01 \x01(\tR\aversion\x12\x16\n" +
 	"\x06script\x18\x02 \x01(\tR\x06script\x12 \n" +
-	"\vdescription\x18\x03 \x01(\tR\vdescriptionB\xd3\x01\n" +
-	"\x17com.gcommon.v1.databaseB\x14MigrationScriptProtoP\x01Z,github.com/jdfalk/gcommon/pkg/db/proto/types\xa2\x02\x03GVD\xaa\x02\x13Gcommon.V1.Database\xca\x02\x13Gcommon\\V1\\Database\xe2\x02\x1fGcommon\\V1\\Database\\GPBMetadata\xea\x02\x15Gcommon::V1::Database\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
+	"\vdescription\x18\x03 \x01(\tR\vdescriptionB\xd2\x01\n" +
+	"\x17com.gcommon.v1.databaseB\x14MigrationScriptProtoP\x01Z+github.com/jdfalk/gcommon/pkg/db/proto;dbpb\xa2\x02\x03GVD\xaa\x02\x13Gcommon.V1.Database\xca\x02\x13Gcommon\\V1\\Database\xe2\x02\x1fGcommon\\V1\\Database\\GPBMetadata\xea\x02\x15Gcommon::V1::Database\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
 
 var file_pkg_db_proto_types_migration_script_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_pkg_db_proto_types_migration_script_proto_goTypes = []any{

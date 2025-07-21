@@ -6,10 +6,9 @@
 
 //go:build protoopaque
 
-package messages
+package dbpb
 
 import (
-	types "github.com/jdfalk/gcommon/pkg/db/proto/types"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
@@ -28,9 +27,9 @@ const (
 // BatchOperation represents a single operation within a batch execution.
 // Contains the SQL statement and its parameters for batch processing.
 type BatchOperation struct {
-	state                 protoimpl.MessageState   `protogen:"opaque.v1"`
-	xxx_hidden_Statement  *string                  `protobuf:"bytes,1,opt,name=statement"`
-	xxx_hidden_Parameters *[]*types.QueryParameter `protobuf:"bytes,2,rep,name=parameters"`
+	state                 protoimpl.MessageState `protogen:"opaque.v1"`
+	xxx_hidden_Statement  *string                `protobuf:"bytes,1,opt,name=statement"`
+	xxx_hidden_Parameters *[]*QueryParameter     `protobuf:"bytes,2,rep,name=parameters"`
 	// Deprecated: Do not use. This will be deleted in the near future.
 	XXX_lazyUnmarshalInfo  protoimpl.LazyUnmarshalInfo
 	XXX_raceDetectHookData protoimpl.RaceDetectHookData
@@ -74,13 +73,13 @@ func (x *BatchOperation) GetStatement() string {
 	return ""
 }
 
-func (x *BatchOperation) GetParameters() []*types.QueryParameter {
+func (x *BatchOperation) GetParameters() []*QueryParameter {
 	if x != nil {
 		if protoimpl.X.Present(&(x.XXX_presence[0]), 1) {
 			if protoimpl.X.AtomicCheckPointerIsNil(&x.xxx_hidden_Parameters) {
 				protoimpl.X.UnmarshalField(x, 2)
 			}
-			var rv *[]*types.QueryParameter
+			var rv *[]*QueryParameter
 			protoimpl.X.AtomicLoadPointer(protoimpl.Pointer(&x.xxx_hidden_Parameters), protoimpl.Pointer(&rv))
 			return *rv
 		}
@@ -93,11 +92,11 @@ func (x *BatchOperation) SetStatement(v string) {
 	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 0, 2)
 }
 
-func (x *BatchOperation) SetParameters(v []*types.QueryParameter) {
-	var sv *[]*types.QueryParameter
+func (x *BatchOperation) SetParameters(v []*QueryParameter) {
+	var sv *[]*QueryParameter
 	protoimpl.X.AtomicLoadPointer(protoimpl.Pointer(&x.xxx_hidden_Parameters), protoimpl.Pointer(&sv))
 	if sv == nil {
-		sv = &[]*types.QueryParameter{}
+		sv = &[]*QueryParameter{}
 		protoimpl.X.AtomicInitializePointer(protoimpl.Pointer(&x.xxx_hidden_Parameters), protoimpl.Pointer(&sv))
 	}
 	*sv = v
@@ -122,7 +121,7 @@ type BatchOperation_builder struct {
 	// SQL statement or database operation to execute
 	Statement *string
 	// Parameters for the statement
-	Parameters []*types.QueryParameter
+	Parameters []*QueryParameter
 }
 
 func (b0 BatchOperation_builder) Build() *BatchOperation {
@@ -149,13 +148,13 @@ const file_pkg_db_proto_messages_batch_operation_proto_rawDesc = "" +
 	"\tstatement\x18\x01 \x01(\tR\tstatement\x12G\n" +
 	"\n" +
 	"parameters\x18\x02 \x03(\v2#.gcommon.v1.database.QueryParameterB\x02(\x01R\n" +
-	"parametersB\xd5\x01\n" +
-	"\x17com.gcommon.v1.databaseB\x13BatchOperationProtoP\x01Z/github.com/jdfalk/gcommon/pkg/db/proto/messages\xa2\x02\x03GVD\xaa\x02\x13Gcommon.V1.Database\xca\x02\x13Gcommon\\V1\\Database\xe2\x02\x1fGcommon\\V1\\Database\\GPBMetadata\xea\x02\x15Gcommon::V1::Database\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
+	"parametersB\xd1\x01\n" +
+	"\x17com.gcommon.v1.databaseB\x13BatchOperationProtoP\x01Z+github.com/jdfalk/gcommon/pkg/db/proto;dbpb\xa2\x02\x03GVD\xaa\x02\x13Gcommon.V1.Database\xca\x02\x13Gcommon\\V1\\Database\xe2\x02\x1fGcommon\\V1\\Database\\GPBMetadata\xea\x02\x15Gcommon::V1::Database\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
 
 var file_pkg_db_proto_messages_batch_operation_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_pkg_db_proto_messages_batch_operation_proto_goTypes = []any{
-	(*BatchOperation)(nil),       // 0: gcommon.v1.database.BatchOperation
-	(*types.QueryParameter)(nil), // 1: gcommon.v1.database.QueryParameter
+	(*BatchOperation)(nil), // 0: gcommon.v1.database.BatchOperation
+	(*QueryParameter)(nil), // 1: gcommon.v1.database.QueryParameter
 }
 var file_pkg_db_proto_messages_batch_operation_proto_depIdxs = []int32{
 	1, // 0: gcommon.v1.database.BatchOperation.parameters:type_name -> gcommon.v1.database.QueryParameter
@@ -171,6 +170,7 @@ func file_pkg_db_proto_messages_batch_operation_proto_init() {
 	if File_pkg_db_proto_messages_batch_operation_proto != nil {
 		return
 	}
+	file_pkg_db_proto_types_query_parameter_proto_init()
 	type x struct{}
 	out := protoimpl.TypeBuilder{
 		File: protoimpl.DescBuilder{

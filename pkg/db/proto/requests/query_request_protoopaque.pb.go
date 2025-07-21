@@ -6,12 +6,10 @@
 
 //go:build protoopaque
 
-package requests
+package dbpb
 
 import (
-	messages1 "github.com/jdfalk/gcommon/pkg/common/proto/messages"
-	messages "github.com/jdfalk/gcommon/pkg/db/proto/messages"
-	types "github.com/jdfalk/gcommon/pkg/db/proto/types"
+	proto "github.com/jdfalk/gcommon/pkg/common/proto"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
@@ -30,13 +28,13 @@ const (
 // QueryRequest represents a request to execute a database query.
 // Supports parameterized queries with options and transaction context.
 type QueryRequest struct {
-	state                    protoimpl.MessageState     `protogen:"opaque.v1"`
-	xxx_hidden_Query         *string                    `protobuf:"bytes,1,opt,name=query"`
-	xxx_hidden_Parameters    *[]*types.QueryParameter   `protobuf:"bytes,2,rep,name=parameters"`
-	xxx_hidden_Database      *string                    `protobuf:"bytes,3,opt,name=database"`
-	xxx_hidden_Options       *messages.QueryOptions     `protobuf:"bytes,4,opt,name=options"`
-	xxx_hidden_Metadata      *messages1.RequestMetadata `protobuf:"bytes,5,opt,name=metadata"`
-	xxx_hidden_TransactionId *string                    `protobuf:"bytes,6,opt,name=transaction_id,json=transactionId"`
+	state                    protoimpl.MessageState `protogen:"opaque.v1"`
+	xxx_hidden_Query         *string                `protobuf:"bytes,1,opt,name=query"`
+	xxx_hidden_Parameters    *[]*QueryParameter     `protobuf:"bytes,2,rep,name=parameters"`
+	xxx_hidden_Database      *string                `protobuf:"bytes,3,opt,name=database"`
+	xxx_hidden_Options       *QueryOptions          `protobuf:"bytes,4,opt,name=options"`
+	xxx_hidden_Metadata      *proto.RequestMetadata `protobuf:"bytes,5,opt,name=metadata"`
+	xxx_hidden_TransactionId *string                `protobuf:"bytes,6,opt,name=transaction_id,json=transactionId"`
 	// Deprecated: Do not use. This will be deleted in the near future.
 	XXX_lazyUnmarshalInfo  protoimpl.LazyUnmarshalInfo
 	XXX_raceDetectHookData protoimpl.RaceDetectHookData
@@ -80,13 +78,13 @@ func (x *QueryRequest) GetQuery() string {
 	return ""
 }
 
-func (x *QueryRequest) GetParameters() []*types.QueryParameter {
+func (x *QueryRequest) GetParameters() []*QueryParameter {
 	if x != nil {
 		if protoimpl.X.Present(&(x.XXX_presence[0]), 1) {
 			if protoimpl.X.AtomicCheckPointerIsNil(&x.xxx_hidden_Parameters) {
 				protoimpl.X.UnmarshalField(x, 2)
 			}
-			var rv *[]*types.QueryParameter
+			var rv *[]*QueryParameter
 			protoimpl.X.AtomicLoadPointer(protoimpl.Pointer(&x.xxx_hidden_Parameters), protoimpl.Pointer(&rv))
 			return *rv
 		}
@@ -104,13 +102,13 @@ func (x *QueryRequest) GetDatabase() string {
 	return ""
 }
 
-func (x *QueryRequest) GetOptions() *messages.QueryOptions {
+func (x *QueryRequest) GetOptions() *QueryOptions {
 	if x != nil {
 		if protoimpl.X.Present(&(x.XXX_presence[0]), 3) {
 			if protoimpl.X.AtomicCheckPointerIsNil(&x.xxx_hidden_Options) {
 				protoimpl.X.UnmarshalField(x, 4)
 			}
-			var rv *messages.QueryOptions
+			var rv *QueryOptions
 			protoimpl.X.AtomicLoadPointer(protoimpl.Pointer(&x.xxx_hidden_Options), protoimpl.Pointer(&rv))
 			return rv
 		}
@@ -118,13 +116,13 @@ func (x *QueryRequest) GetOptions() *messages.QueryOptions {
 	return nil
 }
 
-func (x *QueryRequest) GetMetadata() *messages1.RequestMetadata {
+func (x *QueryRequest) GetMetadata() *proto.RequestMetadata {
 	if x != nil {
 		if protoimpl.X.Present(&(x.XXX_presence[0]), 4) {
 			if protoimpl.X.AtomicCheckPointerIsNil(&x.xxx_hidden_Metadata) {
 				protoimpl.X.UnmarshalField(x, 5)
 			}
-			var rv *messages1.RequestMetadata
+			var rv *proto.RequestMetadata
 			protoimpl.X.AtomicLoadPointer(protoimpl.Pointer(&x.xxx_hidden_Metadata), protoimpl.Pointer(&rv))
 			return rv
 		}
@@ -147,11 +145,11 @@ func (x *QueryRequest) SetQuery(v string) {
 	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 0, 6)
 }
 
-func (x *QueryRequest) SetParameters(v []*types.QueryParameter) {
-	var sv *[]*types.QueryParameter
+func (x *QueryRequest) SetParameters(v []*QueryParameter) {
+	var sv *[]*QueryParameter
 	protoimpl.X.AtomicLoadPointer(protoimpl.Pointer(&x.xxx_hidden_Parameters), protoimpl.Pointer(&sv))
 	if sv == nil {
-		sv = &[]*types.QueryParameter{}
+		sv = &[]*QueryParameter{}
 		protoimpl.X.AtomicInitializePointer(protoimpl.Pointer(&x.xxx_hidden_Parameters), protoimpl.Pointer(&sv))
 	}
 	*sv = v
@@ -163,7 +161,7 @@ func (x *QueryRequest) SetDatabase(v string) {
 	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 2, 6)
 }
 
-func (x *QueryRequest) SetOptions(v *messages.QueryOptions) {
+func (x *QueryRequest) SetOptions(v *QueryOptions) {
 	protoimpl.X.AtomicSetPointer(&x.xxx_hidden_Options, v)
 	if v == nil {
 		protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 3)
@@ -172,7 +170,7 @@ func (x *QueryRequest) SetOptions(v *messages.QueryOptions) {
 	}
 }
 
-func (x *QueryRequest) SetMetadata(v *messages1.RequestMetadata) {
+func (x *QueryRequest) SetMetadata(v *proto.RequestMetadata) {
 	protoimpl.X.AtomicSetPointer(&x.xxx_hidden_Metadata, v)
 	if v == nil {
 		protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 4)
@@ -233,12 +231,12 @@ func (x *QueryRequest) ClearDatabase() {
 
 func (x *QueryRequest) ClearOptions() {
 	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 3)
-	protoimpl.X.AtomicSetPointer(&x.xxx_hidden_Options, (*messages.QueryOptions)(nil))
+	protoimpl.X.AtomicSetPointer(&x.xxx_hidden_Options, (*QueryOptions)(nil))
 }
 
 func (x *QueryRequest) ClearMetadata() {
 	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 4)
-	protoimpl.X.AtomicSetPointer(&x.xxx_hidden_Metadata, (*messages1.RequestMetadata)(nil))
+	protoimpl.X.AtomicSetPointer(&x.xxx_hidden_Metadata, (*proto.RequestMetadata)(nil))
 }
 
 func (x *QueryRequest) ClearTransactionId() {
@@ -252,13 +250,13 @@ type QueryRequest_builder struct {
 	// SQL query or NoSQL query string
 	Query *string
 	// Query parameters for parameterized queries
-	Parameters []*types.QueryParameter
+	Parameters []*QueryParameter
 	// Database name (optional, uses default if not specified)
 	Database *string
 	// Query execution options
-	Options *messages.QueryOptions
+	Options *QueryOptions
 	// Request metadata for tracing and authentication
-	Metadata *messages1.RequestMetadata
+	Metadata *proto.RequestMetadata
 	// Transaction ID if this query is part of a transaction
 	TransactionId *string
 }
@@ -307,15 +305,15 @@ const file_pkg_db_proto_requests_query_request_proto_rawDesc = "" +
 	"\bdatabase\x18\x03 \x01(\tR\bdatabase\x12?\n" +
 	"\aoptions\x18\x04 \x01(\v2!.gcommon.v1.database.QueryOptionsB\x02(\x01R\aoptions\x12B\n" +
 	"\bmetadata\x18\x05 \x01(\v2\".gcommon.v1.common.RequestMetadataB\x02(\x01R\bmetadata\x12%\n" +
-	"\x0etransaction_id\x18\x06 \x01(\tR\rtransactionIdB\xd3\x01\n" +
-	"\x17com.gcommon.v1.databaseB\x11QueryRequestProtoP\x01Z/github.com/jdfalk/gcommon/pkg/db/proto/requests\xa2\x02\x03GVD\xaa\x02\x13Gcommon.V1.Database\xca\x02\x13Gcommon\\V1\\Database\xe2\x02\x1fGcommon\\V1\\Database\\GPBMetadata\xea\x02\x15Gcommon::V1::Database\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
+	"\x0etransaction_id\x18\x06 \x01(\tR\rtransactionIdB\xcf\x01\n" +
+	"\x17com.gcommon.v1.databaseB\x11QueryRequestProtoP\x01Z+github.com/jdfalk/gcommon/pkg/db/proto;dbpb\xa2\x02\x03GVD\xaa\x02\x13Gcommon.V1.Database\xca\x02\x13Gcommon\\V1\\Database\xe2\x02\x1fGcommon\\V1\\Database\\GPBMetadata\xea\x02\x15Gcommon::V1::Database\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
 
 var file_pkg_db_proto_requests_query_request_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_pkg_db_proto_requests_query_request_proto_goTypes = []any{
-	(*QueryRequest)(nil),              // 0: gcommon.v1.database.QueryRequest
-	(*types.QueryParameter)(nil),      // 1: gcommon.v1.database.QueryParameter
-	(*messages.QueryOptions)(nil),     // 2: gcommon.v1.database.QueryOptions
-	(*messages1.RequestMetadata)(nil), // 3: gcommon.v1.common.RequestMetadata
+	(*QueryRequest)(nil),          // 0: gcommon.v1.database.QueryRequest
+	(*QueryParameter)(nil),        // 1: gcommon.v1.database.QueryParameter
+	(*QueryOptions)(nil),          // 2: gcommon.v1.database.QueryOptions
+	(*proto.RequestMetadata)(nil), // 3: gcommon.v1.common.RequestMetadata
 }
 var file_pkg_db_proto_requests_query_request_proto_depIdxs = []int32{
 	1, // 0: gcommon.v1.database.QueryRequest.parameters:type_name -> gcommon.v1.database.QueryParameter
@@ -333,6 +331,8 @@ func file_pkg_db_proto_requests_query_request_proto_init() {
 	if File_pkg_db_proto_requests_query_request_proto != nil {
 		return
 	}
+	file_pkg_db_proto_types_query_parameter_proto_init()
+	file_pkg_db_proto_messages_query_options_proto_init()
 	type x struct{}
 	out := protoimpl.TypeBuilder{
 		File: protoimpl.DescBuilder{

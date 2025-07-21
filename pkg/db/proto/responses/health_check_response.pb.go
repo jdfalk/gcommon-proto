@@ -6,11 +6,10 @@
 
 //go:build !protoopaque
 
-package responses
+package dbpb
 
 import (
-	enums "github.com/jdfalk/gcommon/pkg/common/proto/enums"
-	messages "github.com/jdfalk/gcommon/pkg/common/proto/messages"
+	proto "github.com/jdfalk/gcommon/pkg/common/proto"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
@@ -32,13 +31,13 @@ const (
 type HealthCheckResponse struct {
 	state protoimpl.MessageState `protogen:"hybrid.v1"`
 	// Overall health status of the database
-	Status *enums.HealthStatus `protobuf:"varint,1,opt,name=status,enum=gcommon.v1.common.HealthStatus" json:"status,omitempty"`
+	Status *proto.HealthStatus `protobuf:"varint,1,opt,name=status,enum=gcommon.v1.common.HealthStatus" json:"status,omitempty"`
 	// Whether the database connection is operational
 	ConnectionOk *bool `protobuf:"varint,2,opt,name=connection_ok,json=connectionOk" json:"connection_ok,omitempty"`
 	// Time taken to perform the health check
 	ResponseTime *durationpb.Duration `protobuf:"bytes,3,opt,name=response_time,json=responseTime" json:"response_time,omitempty"`
 	// Error information if the health check failed
-	Error         *messages.Error `protobuf:"bytes,4,opt,name=error" json:"error,omitempty"`
+	Error         *proto.Error `protobuf:"bytes,4,opt,name=error" json:"error,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -68,11 +67,11 @@ func (x *HealthCheckResponse) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-func (x *HealthCheckResponse) GetStatus() enums.HealthStatus {
+func (x *HealthCheckResponse) GetStatus() proto.HealthStatus {
 	if x != nil && x.Status != nil {
 		return *x.Status
 	}
-	return enums.HealthStatus(0)
+	return proto.HealthStatus(0)
 }
 
 func (x *HealthCheckResponse) GetConnectionOk() bool {
@@ -89,14 +88,14 @@ func (x *HealthCheckResponse) GetResponseTime() *durationpb.Duration {
 	return nil
 }
 
-func (x *HealthCheckResponse) GetError() *messages.Error {
+func (x *HealthCheckResponse) GetError() *proto.Error {
 	if x != nil {
 		return x.Error
 	}
 	return nil
 }
 
-func (x *HealthCheckResponse) SetStatus(v enums.HealthStatus) {
+func (x *HealthCheckResponse) SetStatus(v proto.HealthStatus) {
 	x.Status = &v
 }
 
@@ -108,7 +107,7 @@ func (x *HealthCheckResponse) SetResponseTime(v *durationpb.Duration) {
 	x.ResponseTime = v
 }
 
-func (x *HealthCheckResponse) SetError(v *messages.Error) {
+func (x *HealthCheckResponse) SetError(v *proto.Error) {
 	x.Error = v
 }
 
@@ -160,13 +159,13 @@ type HealthCheckResponse_builder struct {
 	_ [0]func() // Prevents comparability and use of unkeyed literals for the builder.
 
 	// Overall health status of the database
-	Status *enums.HealthStatus
+	Status *proto.HealthStatus
 	// Whether the database connection is operational
 	ConnectionOk *bool
 	// Time taken to perform the health check
 	ResponseTime *durationpb.Duration
 	// Error information if the health check failed
-	Error *messages.Error
+	Error *proto.Error
 }
 
 func (b0 HealthCheckResponse_builder) Build() *HealthCheckResponse {
@@ -189,15 +188,15 @@ const file_pkg_db_proto_responses_health_check_response_proto_rawDesc = "" +
 	"\x06status\x18\x01 \x01(\x0e2\x1f.gcommon.v1.common.HealthStatusR\x06status\x12#\n" +
 	"\rconnection_ok\x18\x02 \x01(\bR\fconnectionOk\x12B\n" +
 	"\rresponse_time\x18\x03 \x01(\v2\x19.google.protobuf.DurationB\x02(\x01R\fresponseTime\x122\n" +
-	"\x05error\x18\x04 \x01(\v2\x18.gcommon.v1.common.ErrorB\x02(\x01R\x05errorB\xdb\x01\n" +
-	"\x17com.gcommon.v1.databaseB\x18HealthCheckResponseProtoP\x01Z0github.com/jdfalk/gcommon/pkg/db/proto/responses\xa2\x02\x03GVD\xaa\x02\x13Gcommon.V1.Database\xca\x02\x13Gcommon\\V1\\Database\xe2\x02\x1fGcommon\\V1\\Database\\GPBMetadata\xea\x02\x15Gcommon::V1::Database\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
+	"\x05error\x18\x04 \x01(\v2\x18.gcommon.v1.common.ErrorB\x02(\x01R\x05errorB\xd6\x01\n" +
+	"\x17com.gcommon.v1.databaseB\x18HealthCheckResponseProtoP\x01Z+github.com/jdfalk/gcommon/pkg/db/proto;dbpb\xa2\x02\x03GVD\xaa\x02\x13Gcommon.V1.Database\xca\x02\x13Gcommon\\V1\\Database\xe2\x02\x1fGcommon\\V1\\Database\\GPBMetadata\xea\x02\x15Gcommon::V1::Database\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
 
 var file_pkg_db_proto_responses_health_check_response_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_pkg_db_proto_responses_health_check_response_proto_goTypes = []any{
 	(*HealthCheckResponse)(nil), // 0: gcommon.v1.database.HealthCheckResponse
-	(enums.HealthStatus)(0),     // 1: gcommon.v1.common.HealthStatus
+	(proto.HealthStatus)(0),     // 1: gcommon.v1.common.HealthStatus
 	(*durationpb.Duration)(nil), // 2: google.protobuf.Duration
-	(*messages.Error)(nil),      // 3: gcommon.v1.common.Error
+	(*proto.Error)(nil),         // 3: gcommon.v1.common.Error
 }
 var file_pkg_db_proto_responses_health_check_response_proto_depIdxs = []int32{
 	1, // 0: gcommon.v1.database.HealthCheckResponse.status:type_name -> gcommon.v1.common.HealthStatus

@@ -6,10 +6,10 @@
 
 //go:build !protoopaque
 
-package requests
+package dbpb
 
 import (
-	messages "github.com/jdfalk/gcommon/pkg/common/proto/messages"
+	proto "github.com/jdfalk/gcommon/pkg/common/proto"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
@@ -32,7 +32,7 @@ type GetDatabaseInfoRequest struct {
 	// Name of the database to get information about
 	Name *string `protobuf:"bytes,1,opt,name=name" json:"name,omitempty"`
 	// Request metadata for tracing and authentication
-	Metadata      *messages.RequestMetadata `protobuf:"bytes,2,opt,name=metadata" json:"metadata,omitempty"`
+	Metadata      *proto.RequestMetadata `protobuf:"bytes,2,opt,name=metadata" json:"metadata,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -69,7 +69,7 @@ func (x *GetDatabaseInfoRequest) GetName() string {
 	return ""
 }
 
-func (x *GetDatabaseInfoRequest) GetMetadata() *messages.RequestMetadata {
+func (x *GetDatabaseInfoRequest) GetMetadata() *proto.RequestMetadata {
 	if x != nil {
 		return x.Metadata
 	}
@@ -80,7 +80,7 @@ func (x *GetDatabaseInfoRequest) SetName(v string) {
 	x.Name = &v
 }
 
-func (x *GetDatabaseInfoRequest) SetMetadata(v *messages.RequestMetadata) {
+func (x *GetDatabaseInfoRequest) SetMetadata(v *proto.RequestMetadata) {
 	x.Metadata = v
 }
 
@@ -112,7 +112,7 @@ type GetDatabaseInfoRequest_builder struct {
 	// Name of the database to get information about
 	Name *string
 	// Request metadata for tracing and authentication
-	Metadata *messages.RequestMetadata
+	Metadata *proto.RequestMetadata
 }
 
 func (b0 GetDatabaseInfoRequest_builder) Build() *GetDatabaseInfoRequest {
@@ -131,13 +131,13 @@ const file_pkg_db_proto_requests_get_database_info_request_proto_rawDesc = "" +
 	"5pkg/db/proto/requests/get_database_info_request.proto\x12\x13gcommon.v1.database\x1a0pkg/common/proto/messages/request_metadata.proto\x1a!google/protobuf/go_features.proto\"p\n" +
 	"\x16GetDatabaseInfoRequest\x12\x12\n" +
 	"\x04name\x18\x01 \x01(\tR\x04name\x12B\n" +
-	"\bmetadata\x18\x02 \x01(\v2\".gcommon.v1.common.RequestMetadataB\x02(\x01R\bmetadataB\xdd\x01\n" +
-	"\x17com.gcommon.v1.databaseB\x1bGetDatabaseInfoRequestProtoP\x01Z/github.com/jdfalk/gcommon/pkg/db/proto/requests\xa2\x02\x03GVD\xaa\x02\x13Gcommon.V1.Database\xca\x02\x13Gcommon\\V1\\Database\xe2\x02\x1fGcommon\\V1\\Database\\GPBMetadata\xea\x02\x15Gcommon::V1::Database\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
+	"\bmetadata\x18\x02 \x01(\v2\".gcommon.v1.common.RequestMetadataB\x02(\x01R\bmetadataB\xd9\x01\n" +
+	"\x17com.gcommon.v1.databaseB\x1bGetDatabaseInfoRequestProtoP\x01Z+github.com/jdfalk/gcommon/pkg/db/proto;dbpb\xa2\x02\x03GVD\xaa\x02\x13Gcommon.V1.Database\xca\x02\x13Gcommon\\V1\\Database\xe2\x02\x1fGcommon\\V1\\Database\\GPBMetadata\xea\x02\x15Gcommon::V1::Database\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
 
 var file_pkg_db_proto_requests_get_database_info_request_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_pkg_db_proto_requests_get_database_info_request_proto_goTypes = []any{
-	(*GetDatabaseInfoRequest)(nil),   // 0: gcommon.v1.database.GetDatabaseInfoRequest
-	(*messages.RequestMetadata)(nil), // 1: gcommon.v1.common.RequestMetadata
+	(*GetDatabaseInfoRequest)(nil), // 0: gcommon.v1.database.GetDatabaseInfoRequest
+	(*proto.RequestMetadata)(nil),  // 1: gcommon.v1.common.RequestMetadata
 }
 var file_pkg_db_proto_requests_get_database_info_request_proto_depIdxs = []int32{
 	1, // 0: gcommon.v1.database.GetDatabaseInfoRequest.metadata:type_name -> gcommon.v1.common.RequestMetadata

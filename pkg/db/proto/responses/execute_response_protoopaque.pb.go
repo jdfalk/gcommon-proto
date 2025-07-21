@@ -6,11 +6,10 @@
 
 //go:build protoopaque
 
-package responses
+package dbpb
 
 import (
-	messages1 "github.com/jdfalk/gcommon/pkg/common/proto/messages"
-	messages "github.com/jdfalk/gcommon/pkg/db/proto/messages"
+	proto "github.com/jdfalk/gcommon/pkg/common/proto"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
@@ -33,8 +32,8 @@ type ExecuteResponse struct {
 	state                    protoimpl.MessageState `protogen:"opaque.v1"`
 	xxx_hidden_AffectedRows  int64                  `protobuf:"varint,1,opt,name=affected_rows,json=affectedRows"`
 	xxx_hidden_GeneratedKeys *[]*anypb.Any          `protobuf:"bytes,2,rep,name=generated_keys,json=generatedKeys"`
-	xxx_hidden_Stats         *messages.ExecuteStats `protobuf:"bytes,3,opt,name=stats"`
-	xxx_hidden_Error         *messages1.Error       `protobuf:"bytes,4,opt,name=error"`
+	xxx_hidden_Stats         *ExecuteStats          `protobuf:"bytes,3,opt,name=stats"`
+	xxx_hidden_Error         *proto.Error           `protobuf:"bytes,4,opt,name=error"`
 	// Deprecated: Do not use. This will be deleted in the near future.
 	XXX_lazyUnmarshalInfo  protoimpl.LazyUnmarshalInfo
 	XXX_raceDetectHookData protoimpl.RaceDetectHookData
@@ -89,13 +88,13 @@ func (x *ExecuteResponse) GetGeneratedKeys() []*anypb.Any {
 	return nil
 }
 
-func (x *ExecuteResponse) GetStats() *messages.ExecuteStats {
+func (x *ExecuteResponse) GetStats() *ExecuteStats {
 	if x != nil {
 		if protoimpl.X.Present(&(x.XXX_presence[0]), 2) {
 			if protoimpl.X.AtomicCheckPointerIsNil(&x.xxx_hidden_Stats) {
 				protoimpl.X.UnmarshalField(x, 3)
 			}
-			var rv *messages.ExecuteStats
+			var rv *ExecuteStats
 			protoimpl.X.AtomicLoadPointer(protoimpl.Pointer(&x.xxx_hidden_Stats), protoimpl.Pointer(&rv))
 			return rv
 		}
@@ -103,13 +102,13 @@ func (x *ExecuteResponse) GetStats() *messages.ExecuteStats {
 	return nil
 }
 
-func (x *ExecuteResponse) GetError() *messages1.Error {
+func (x *ExecuteResponse) GetError() *proto.Error {
 	if x != nil {
 		if protoimpl.X.Present(&(x.XXX_presence[0]), 3) {
 			if protoimpl.X.AtomicCheckPointerIsNil(&x.xxx_hidden_Error) {
 				protoimpl.X.UnmarshalField(x, 4)
 			}
-			var rv *messages1.Error
+			var rv *proto.Error
 			protoimpl.X.AtomicLoadPointer(protoimpl.Pointer(&x.xxx_hidden_Error), protoimpl.Pointer(&rv))
 			return rv
 		}
@@ -133,7 +132,7 @@ func (x *ExecuteResponse) SetGeneratedKeys(v []*anypb.Any) {
 	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 1, 4)
 }
 
-func (x *ExecuteResponse) SetStats(v *messages.ExecuteStats) {
+func (x *ExecuteResponse) SetStats(v *ExecuteStats) {
 	protoimpl.X.AtomicSetPointer(&x.xxx_hidden_Stats, v)
 	if v == nil {
 		protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 2)
@@ -142,7 +141,7 @@ func (x *ExecuteResponse) SetStats(v *messages.ExecuteStats) {
 	}
 }
 
-func (x *ExecuteResponse) SetError(v *messages1.Error) {
+func (x *ExecuteResponse) SetError(v *proto.Error) {
 	protoimpl.X.AtomicSetPointer(&x.xxx_hidden_Error, v)
 	if v == nil {
 		protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 3)
@@ -179,12 +178,12 @@ func (x *ExecuteResponse) ClearAffectedRows() {
 
 func (x *ExecuteResponse) ClearStats() {
 	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 2)
-	protoimpl.X.AtomicSetPointer(&x.xxx_hidden_Stats, (*messages.ExecuteStats)(nil))
+	protoimpl.X.AtomicSetPointer(&x.xxx_hidden_Stats, (*ExecuteStats)(nil))
 }
 
 func (x *ExecuteResponse) ClearError() {
 	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 3)
-	protoimpl.X.AtomicSetPointer(&x.xxx_hidden_Error, (*messages1.Error)(nil))
+	protoimpl.X.AtomicSetPointer(&x.xxx_hidden_Error, (*proto.Error)(nil))
 }
 
 type ExecuteResponse_builder struct {
@@ -195,9 +194,9 @@ type ExecuteResponse_builder struct {
 	// Generated keys from INSERT operations
 	GeneratedKeys []*anypb.Any
 	// Execution statistics and performance metrics
-	Stats *messages.ExecuteStats
+	Stats *ExecuteStats
 	// Error information if the operation failed
-	Error *messages1.Error
+	Error *proto.Error
 }
 
 func (b0 ExecuteResponse_builder) Build() *ExecuteResponse {
@@ -232,15 +231,15 @@ const file_pkg_db_proto_responses_execute_response_proto_rawDesc = "" +
 	"\raffected_rows\x18\x01 \x01(\x03R\faffectedRows\x12?\n" +
 	"\x0egenerated_keys\x18\x02 \x03(\v2\x14.google.protobuf.AnyB\x02(\x01R\rgeneratedKeys\x12;\n" +
 	"\x05stats\x18\x03 \x01(\v2!.gcommon.v1.database.ExecuteStatsB\x02(\x01R\x05stats\x122\n" +
-	"\x05error\x18\x04 \x01(\v2\x18.gcommon.v1.common.ErrorB\x02(\x01R\x05errorB\xd7\x01\n" +
-	"\x17com.gcommon.v1.databaseB\x14ExecuteResponseProtoP\x01Z0github.com/jdfalk/gcommon/pkg/db/proto/responses\xa2\x02\x03GVD\xaa\x02\x13Gcommon.V1.Database\xca\x02\x13Gcommon\\V1\\Database\xe2\x02\x1fGcommon\\V1\\Database\\GPBMetadata\xea\x02\x15Gcommon::V1::Database\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
+	"\x05error\x18\x04 \x01(\v2\x18.gcommon.v1.common.ErrorB\x02(\x01R\x05errorB\xd2\x01\n" +
+	"\x17com.gcommon.v1.databaseB\x14ExecuteResponseProtoP\x01Z+github.com/jdfalk/gcommon/pkg/db/proto;dbpb\xa2\x02\x03GVD\xaa\x02\x13Gcommon.V1.Database\xca\x02\x13Gcommon\\V1\\Database\xe2\x02\x1fGcommon\\V1\\Database\\GPBMetadata\xea\x02\x15Gcommon::V1::Database\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
 
 var file_pkg_db_proto_responses_execute_response_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_pkg_db_proto_responses_execute_response_proto_goTypes = []any{
-	(*ExecuteResponse)(nil),       // 0: gcommon.v1.database.ExecuteResponse
-	(*anypb.Any)(nil),             // 1: google.protobuf.Any
-	(*messages.ExecuteStats)(nil), // 2: gcommon.v1.database.ExecuteStats
-	(*messages1.Error)(nil),       // 3: gcommon.v1.common.Error
+	(*ExecuteResponse)(nil), // 0: gcommon.v1.database.ExecuteResponse
+	(*anypb.Any)(nil),       // 1: google.protobuf.Any
+	(*ExecuteStats)(nil),    // 2: gcommon.v1.database.ExecuteStats
+	(*proto.Error)(nil),     // 3: gcommon.v1.common.Error
 }
 var file_pkg_db_proto_responses_execute_response_proto_depIdxs = []int32{
 	1, // 0: gcommon.v1.database.ExecuteResponse.generated_keys:type_name -> google.protobuf.Any
@@ -258,6 +257,7 @@ func file_pkg_db_proto_responses_execute_response_proto_init() {
 	if File_pkg_db_proto_responses_execute_response_proto != nil {
 		return
 	}
+	file_pkg_db_proto_messages_execute_stats_proto_init()
 	type x struct{}
 	out := protoimpl.TypeBuilder{
 		File: protoimpl.DescBuilder{

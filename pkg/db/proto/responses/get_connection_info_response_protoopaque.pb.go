@@ -6,10 +6,9 @@
 
 //go:build protoopaque
 
-package responses
+package dbpb
 
 import (
-	messages "github.com/jdfalk/gcommon/pkg/db/proto/messages"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
@@ -28,9 +27,9 @@ const (
 // GetConnectionInfoResponse contains database connection and pool information.
 // Provides details about connection health and database capabilities.
 type GetConnectionInfoResponse struct {
-	state                   protoimpl.MessageState       `protogen:"opaque.v1"`
-	xxx_hidden_PoolInfo     *messages.ConnectionPoolInfo `protobuf:"bytes,1,opt,name=pool_info,json=poolInfo"`
-	xxx_hidden_DatabaseInfo *messages.DatabaseInfo       `protobuf:"bytes,2,opt,name=database_info,json=databaseInfo"`
+	state                   protoimpl.MessageState `protogen:"opaque.v1"`
+	xxx_hidden_PoolInfo     *ConnectionPoolInfo    `protobuf:"bytes,1,opt,name=pool_info,json=poolInfo"`
+	xxx_hidden_DatabaseInfo *DatabaseInfo          `protobuf:"bytes,2,opt,name=database_info,json=databaseInfo"`
 	// Deprecated: Do not use. This will be deleted in the near future.
 	XXX_lazyUnmarshalInfo  protoimpl.LazyUnmarshalInfo
 	XXX_raceDetectHookData protoimpl.RaceDetectHookData
@@ -64,13 +63,13 @@ func (x *GetConnectionInfoResponse) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-func (x *GetConnectionInfoResponse) GetPoolInfo() *messages.ConnectionPoolInfo {
+func (x *GetConnectionInfoResponse) GetPoolInfo() *ConnectionPoolInfo {
 	if x != nil {
 		if protoimpl.X.Present(&(x.XXX_presence[0]), 0) {
 			if protoimpl.X.AtomicCheckPointerIsNil(&x.xxx_hidden_PoolInfo) {
 				protoimpl.X.UnmarshalField(x, 1)
 			}
-			var rv *messages.ConnectionPoolInfo
+			var rv *ConnectionPoolInfo
 			protoimpl.X.AtomicLoadPointer(protoimpl.Pointer(&x.xxx_hidden_PoolInfo), protoimpl.Pointer(&rv))
 			return rv
 		}
@@ -78,13 +77,13 @@ func (x *GetConnectionInfoResponse) GetPoolInfo() *messages.ConnectionPoolInfo {
 	return nil
 }
 
-func (x *GetConnectionInfoResponse) GetDatabaseInfo() *messages.DatabaseInfo {
+func (x *GetConnectionInfoResponse) GetDatabaseInfo() *DatabaseInfo {
 	if x != nil {
 		if protoimpl.X.Present(&(x.XXX_presence[0]), 1) {
 			if protoimpl.X.AtomicCheckPointerIsNil(&x.xxx_hidden_DatabaseInfo) {
 				protoimpl.X.UnmarshalField(x, 2)
 			}
-			var rv *messages.DatabaseInfo
+			var rv *DatabaseInfo
 			protoimpl.X.AtomicLoadPointer(protoimpl.Pointer(&x.xxx_hidden_DatabaseInfo), protoimpl.Pointer(&rv))
 			return rv
 		}
@@ -92,7 +91,7 @@ func (x *GetConnectionInfoResponse) GetDatabaseInfo() *messages.DatabaseInfo {
 	return nil
 }
 
-func (x *GetConnectionInfoResponse) SetPoolInfo(v *messages.ConnectionPoolInfo) {
+func (x *GetConnectionInfoResponse) SetPoolInfo(v *ConnectionPoolInfo) {
 	protoimpl.X.AtomicSetPointer(&x.xxx_hidden_PoolInfo, v)
 	if v == nil {
 		protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 0)
@@ -101,7 +100,7 @@ func (x *GetConnectionInfoResponse) SetPoolInfo(v *messages.ConnectionPoolInfo) 
 	}
 }
 
-func (x *GetConnectionInfoResponse) SetDatabaseInfo(v *messages.DatabaseInfo) {
+func (x *GetConnectionInfoResponse) SetDatabaseInfo(v *DatabaseInfo) {
 	protoimpl.X.AtomicSetPointer(&x.xxx_hidden_DatabaseInfo, v)
 	if v == nil {
 		protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 1)
@@ -126,21 +125,21 @@ func (x *GetConnectionInfoResponse) HasDatabaseInfo() bool {
 
 func (x *GetConnectionInfoResponse) ClearPoolInfo() {
 	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 0)
-	protoimpl.X.AtomicSetPointer(&x.xxx_hidden_PoolInfo, (*messages.ConnectionPoolInfo)(nil))
+	protoimpl.X.AtomicSetPointer(&x.xxx_hidden_PoolInfo, (*ConnectionPoolInfo)(nil))
 }
 
 func (x *GetConnectionInfoResponse) ClearDatabaseInfo() {
 	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 1)
-	protoimpl.X.AtomicSetPointer(&x.xxx_hidden_DatabaseInfo, (*messages.DatabaseInfo)(nil))
+	protoimpl.X.AtomicSetPointer(&x.xxx_hidden_DatabaseInfo, (*DatabaseInfo)(nil))
 }
 
 type GetConnectionInfoResponse_builder struct {
 	_ [0]func() // Prevents comparability and use of unkeyed literals for the builder.
 
 	// Database connection pool information and statistics
-	PoolInfo *messages.ConnectionPoolInfo
+	PoolInfo *ConnectionPoolInfo
 	// Database instance information and metadata
-	DatabaseInfo *messages.DatabaseInfo
+	DatabaseInfo *DatabaseInfo
 }
 
 func (b0 GetConnectionInfoResponse_builder) Build() *GetConnectionInfoResponse {
@@ -165,14 +164,14 @@ const file_pkg_db_proto_responses_get_connection_info_response_proto_rawDesc = "
 	"9pkg/db/proto/responses/get_connection_info_response.proto\x12\x13gcommon.v1.database\x1a0pkg/db/proto/messages/connection_pool_info.proto\x1a)pkg/db/proto/messages/database_info.proto\x1a!google/protobuf/go_features.proto\"\xb1\x01\n" +
 	"\x19GetConnectionInfoResponse\x12H\n" +
 	"\tpool_info\x18\x01 \x01(\v2'.gcommon.v1.database.ConnectionPoolInfoB\x02(\x01R\bpoolInfo\x12J\n" +
-	"\rdatabase_info\x18\x02 \x01(\v2!.gcommon.v1.database.DatabaseInfoB\x02(\x01R\fdatabaseInfoB\xe1\x01\n" +
-	"\x17com.gcommon.v1.databaseB\x1eGetConnectionInfoResponseProtoP\x01Z0github.com/jdfalk/gcommon/pkg/db/proto/responses\xa2\x02\x03GVD\xaa\x02\x13Gcommon.V1.Database\xca\x02\x13Gcommon\\V1\\Database\xe2\x02\x1fGcommon\\V1\\Database\\GPBMetadata\xea\x02\x15Gcommon::V1::Database\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
+	"\rdatabase_info\x18\x02 \x01(\v2!.gcommon.v1.database.DatabaseInfoB\x02(\x01R\fdatabaseInfoB\xdc\x01\n" +
+	"\x17com.gcommon.v1.databaseB\x1eGetConnectionInfoResponseProtoP\x01Z+github.com/jdfalk/gcommon/pkg/db/proto;dbpb\xa2\x02\x03GVD\xaa\x02\x13Gcommon.V1.Database\xca\x02\x13Gcommon\\V1\\Database\xe2\x02\x1fGcommon\\V1\\Database\\GPBMetadata\xea\x02\x15Gcommon::V1::Database\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
 
 var file_pkg_db_proto_responses_get_connection_info_response_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_pkg_db_proto_responses_get_connection_info_response_proto_goTypes = []any{
-	(*GetConnectionInfoResponse)(nil),   // 0: gcommon.v1.database.GetConnectionInfoResponse
-	(*messages.ConnectionPoolInfo)(nil), // 1: gcommon.v1.database.ConnectionPoolInfo
-	(*messages.DatabaseInfo)(nil),       // 2: gcommon.v1.database.DatabaseInfo
+	(*GetConnectionInfoResponse)(nil), // 0: gcommon.v1.database.GetConnectionInfoResponse
+	(*ConnectionPoolInfo)(nil),        // 1: gcommon.v1.database.ConnectionPoolInfo
+	(*DatabaseInfo)(nil),              // 2: gcommon.v1.database.DatabaseInfo
 }
 var file_pkg_db_proto_responses_get_connection_info_response_proto_depIdxs = []int32{
 	1, // 0: gcommon.v1.database.GetConnectionInfoResponse.pool_info:type_name -> gcommon.v1.database.ConnectionPoolInfo
@@ -189,6 +188,8 @@ func file_pkg_db_proto_responses_get_connection_info_response_proto_init() {
 	if File_pkg_db_proto_responses_get_connection_info_response_proto != nil {
 		return
 	}
+	file_pkg_db_proto_messages_connection_pool_info_proto_init()
+	file_pkg_db_proto_messages_database_info_proto_init()
 	type x struct{}
 	out := protoimpl.TypeBuilder{
 		File: protoimpl.DescBuilder{

@@ -6,11 +6,9 @@
 
 //go:build !protoopaque
 
-package services
+package dbpb
 
 import (
-	requests "github.com/jdfalk/gcommon/pkg/db/proto/requests"
-	responses "github.com/jdfalk/gcommon/pkg/db/proto/responses"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
@@ -41,27 +39,27 @@ const file_pkg_db_proto_services_database_admin_service_proto_rawDesc = "" +
 	"DropSchema\x12&.gcommon.v1.database.DropSchemaRequest\x1a\x16.google.protobuf.Empty\x12`\n" +
 	"\vListSchemas\x12'.gcommon.v1.database.ListSchemasRequest\x1a(.gcommon.v1.database.ListSchemasResponse\x12c\n" +
 	"\fRunMigration\x12(.gcommon.v1.database.RunMigrationRequest\x1a).gcommon.v1.database.RunMigrationResponse\x12u\n" +
-	"\x12GetMigrationStatus\x12..gcommon.v1.database.GetMigrationStatusRequest\x1a/.gcommon.v1.database.GetMigrationStatusResponseB\xdb\x01\n" +
-	"\x17com.gcommon.v1.databaseB\x19DatabaseAdminServiceProtoP\x01Z/github.com/jdfalk/gcommon/pkg/db/proto/services\xa2\x02\x03GVD\xaa\x02\x13Gcommon.V1.Database\xca\x02\x13Gcommon\\V1\\Database\xe2\x02\x1fGcommon\\V1\\Database\\GPBMetadata\xea\x02\x15Gcommon::V1::Database\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
+	"\x12GetMigrationStatus\x12..gcommon.v1.database.GetMigrationStatusRequest\x1a/.gcommon.v1.database.GetMigrationStatusResponseB\xd7\x01\n" +
+	"\x17com.gcommon.v1.databaseB\x19DatabaseAdminServiceProtoP\x01Z+github.com/jdfalk/gcommon/pkg/db/proto;dbpb\xa2\x02\x03GVD\xaa\x02\x13Gcommon.V1.Database\xca\x02\x13Gcommon\\V1\\Database\xe2\x02\x1fGcommon\\V1\\Database\\GPBMetadata\xea\x02\x15Gcommon::V1::Database\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
 
 var file_pkg_db_proto_services_database_admin_service_proto_goTypes = []any{
-	(*requests.CreateDatabaseRequest)(nil),       // 0: gcommon.v1.database.CreateDatabaseRequest
-	(*requests.DropDatabaseRequest)(nil),         // 1: gcommon.v1.database.DropDatabaseRequest
-	(*requests.ListDatabasesRequest)(nil),        // 2: gcommon.v1.database.ListDatabasesRequest
-	(*requests.GetDatabaseInfoRequest)(nil),      // 3: gcommon.v1.database.GetDatabaseInfoRequest
-	(*requests.CreateSchemaRequest)(nil),         // 4: gcommon.v1.database.CreateSchemaRequest
-	(*requests.DropSchemaRequest)(nil),           // 5: gcommon.v1.database.DropSchemaRequest
-	(*requests.ListSchemasRequest)(nil),          // 6: gcommon.v1.database.ListSchemasRequest
-	(*requests.RunMigrationRequest)(nil),         // 7: gcommon.v1.database.RunMigrationRequest
-	(*requests.GetMigrationStatusRequest)(nil),   // 8: gcommon.v1.database.GetMigrationStatusRequest
-	(*responses.CreateDatabaseResponse)(nil),     // 9: gcommon.v1.database.CreateDatabaseResponse
-	(*emptypb.Empty)(nil),                        // 10: google.protobuf.Empty
-	(*responses.ListDatabasesResponse)(nil),      // 11: gcommon.v1.database.ListDatabasesResponse
-	(*responses.GetDatabaseInfoResponse)(nil),    // 12: gcommon.v1.database.GetDatabaseInfoResponse
-	(*responses.CreateSchemaResponse)(nil),       // 13: gcommon.v1.database.CreateSchemaResponse
-	(*responses.ListSchemasResponse)(nil),        // 14: gcommon.v1.database.ListSchemasResponse
-	(*responses.RunMigrationResponse)(nil),       // 15: gcommon.v1.database.RunMigrationResponse
-	(*responses.GetMigrationStatusResponse)(nil), // 16: gcommon.v1.database.GetMigrationStatusResponse
+	(*CreateDatabaseRequest)(nil),      // 0: gcommon.v1.database.CreateDatabaseRequest
+	(*DropDatabaseRequest)(nil),        // 1: gcommon.v1.database.DropDatabaseRequest
+	(*ListDatabasesRequest)(nil),       // 2: gcommon.v1.database.ListDatabasesRequest
+	(*GetDatabaseInfoRequest)(nil),     // 3: gcommon.v1.database.GetDatabaseInfoRequest
+	(*CreateSchemaRequest)(nil),        // 4: gcommon.v1.database.CreateSchemaRequest
+	(*DropSchemaRequest)(nil),          // 5: gcommon.v1.database.DropSchemaRequest
+	(*ListSchemasRequest)(nil),         // 6: gcommon.v1.database.ListSchemasRequest
+	(*RunMigrationRequest)(nil),        // 7: gcommon.v1.database.RunMigrationRequest
+	(*GetMigrationStatusRequest)(nil),  // 8: gcommon.v1.database.GetMigrationStatusRequest
+	(*CreateDatabaseResponse)(nil),     // 9: gcommon.v1.database.CreateDatabaseResponse
+	(*emptypb.Empty)(nil),              // 10: google.protobuf.Empty
+	(*ListDatabasesResponse)(nil),      // 11: gcommon.v1.database.ListDatabasesResponse
+	(*GetDatabaseInfoResponse)(nil),    // 12: gcommon.v1.database.GetDatabaseInfoResponse
+	(*CreateSchemaResponse)(nil),       // 13: gcommon.v1.database.CreateSchemaResponse
+	(*ListSchemasResponse)(nil),        // 14: gcommon.v1.database.ListSchemasResponse
+	(*RunMigrationResponse)(nil),       // 15: gcommon.v1.database.RunMigrationResponse
+	(*GetMigrationStatusResponse)(nil), // 16: gcommon.v1.database.GetMigrationStatusResponse
 }
 var file_pkg_db_proto_services_database_admin_service_proto_depIdxs = []int32{
 	0,  // 0: gcommon.v1.database.DatabaseAdminService.CreateDatabase:input_type -> gcommon.v1.database.CreateDatabaseRequest
@@ -94,6 +92,22 @@ func file_pkg_db_proto_services_database_admin_service_proto_init() {
 	if File_pkg_db_proto_services_database_admin_service_proto != nil {
 		return
 	}
+	file_pkg_db_proto_requests_create_database_request_proto_init()
+	file_pkg_db_proto_responses_create_database_response_proto_init()
+	file_pkg_db_proto_requests_drop_database_request_proto_init()
+	file_pkg_db_proto_requests_list_databases_request_proto_init()
+	file_pkg_db_proto_responses_list_databases_response_proto_init()
+	file_pkg_db_proto_requests_get_database_info_request_proto_init()
+	file_pkg_db_proto_responses_get_database_info_response_proto_init()
+	file_pkg_db_proto_requests_create_schema_request_proto_init()
+	file_pkg_db_proto_responses_create_schema_response_proto_init()
+	file_pkg_db_proto_requests_drop_schema_request_proto_init()
+	file_pkg_db_proto_requests_list_schemas_request_proto_init()
+	file_pkg_db_proto_responses_list_schemas_response_proto_init()
+	file_pkg_db_proto_requests_run_migration_request_proto_init()
+	file_pkg_db_proto_responses_run_migration_response_proto_init()
+	file_pkg_db_proto_requests_get_migration_status_request_proto_init()
+	file_pkg_db_proto_responses_get_migration_status_response_proto_init()
 	type x struct{}
 	out := protoimpl.TypeBuilder{
 		File: protoimpl.DescBuilder{

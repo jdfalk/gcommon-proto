@@ -6,11 +6,10 @@
 
 //go:build !protoopaque
 
-package requests
+package dbpb
 
 import (
-	messages1 "github.com/jdfalk/gcommon/pkg/common/proto/messages"
-	messages "github.com/jdfalk/gcommon/pkg/db/proto/messages"
+	proto "github.com/jdfalk/gcommon/pkg/common/proto"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
@@ -33,9 +32,9 @@ type BeginTransactionRequest struct {
 	// Database name (optional, uses default if not specified)
 	Database *string `protobuf:"bytes,1,opt,name=database" json:"database,omitempty"`
 	// Transaction configuration options
-	Options *messages.TransactionOptions `protobuf:"bytes,2,opt,name=options" json:"options,omitempty"`
+	Options *TransactionOptions `protobuf:"bytes,2,opt,name=options" json:"options,omitempty"`
 	// Request metadata for tracing and authentication
-	Metadata      *messages1.RequestMetadata `protobuf:"bytes,3,opt,name=metadata" json:"metadata,omitempty"`
+	Metadata      *proto.RequestMetadata `protobuf:"bytes,3,opt,name=metadata" json:"metadata,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -72,14 +71,14 @@ func (x *BeginTransactionRequest) GetDatabase() string {
 	return ""
 }
 
-func (x *BeginTransactionRequest) GetOptions() *messages.TransactionOptions {
+func (x *BeginTransactionRequest) GetOptions() *TransactionOptions {
 	if x != nil {
 		return x.Options
 	}
 	return nil
 }
 
-func (x *BeginTransactionRequest) GetMetadata() *messages1.RequestMetadata {
+func (x *BeginTransactionRequest) GetMetadata() *proto.RequestMetadata {
 	if x != nil {
 		return x.Metadata
 	}
@@ -90,11 +89,11 @@ func (x *BeginTransactionRequest) SetDatabase(v string) {
 	x.Database = &v
 }
 
-func (x *BeginTransactionRequest) SetOptions(v *messages.TransactionOptions) {
+func (x *BeginTransactionRequest) SetOptions(v *TransactionOptions) {
 	x.Options = v
 }
 
-func (x *BeginTransactionRequest) SetMetadata(v *messages1.RequestMetadata) {
+func (x *BeginTransactionRequest) SetMetadata(v *proto.RequestMetadata) {
 	x.Metadata = v
 }
 
@@ -137,9 +136,9 @@ type BeginTransactionRequest_builder struct {
 	// Database name (optional, uses default if not specified)
 	Database *string
 	// Transaction configuration options
-	Options *messages.TransactionOptions
+	Options *TransactionOptions
 	// Request metadata for tracing and authentication
-	Metadata *messages1.RequestMetadata
+	Metadata *proto.RequestMetadata
 }
 
 func (b0 BeginTransactionRequest_builder) Build() *BeginTransactionRequest {
@@ -160,14 +159,14 @@ const file_pkg_db_proto_requests_begin_transaction_request_proto_rawDesc = "" +
 	"\x17BeginTransactionRequest\x12\x1a\n" +
 	"\bdatabase\x18\x01 \x01(\tR\bdatabase\x12E\n" +
 	"\aoptions\x18\x02 \x01(\v2'.gcommon.v1.database.TransactionOptionsB\x02(\x01R\aoptions\x12B\n" +
-	"\bmetadata\x18\x03 \x01(\v2\".gcommon.v1.common.RequestMetadataB\x02(\x01R\bmetadataB\xde\x01\n" +
-	"\x17com.gcommon.v1.databaseB\x1cBeginTransactionRequestProtoP\x01Z/github.com/jdfalk/gcommon/pkg/db/proto/requests\xa2\x02\x03GVD\xaa\x02\x13Gcommon.V1.Database\xca\x02\x13Gcommon\\V1\\Database\xe2\x02\x1fGcommon\\V1\\Database\\GPBMetadata\xea\x02\x15Gcommon::V1::Database\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
+	"\bmetadata\x18\x03 \x01(\v2\".gcommon.v1.common.RequestMetadataB\x02(\x01R\bmetadataB\xda\x01\n" +
+	"\x17com.gcommon.v1.databaseB\x1cBeginTransactionRequestProtoP\x01Z+github.com/jdfalk/gcommon/pkg/db/proto;dbpb\xa2\x02\x03GVD\xaa\x02\x13Gcommon.V1.Database\xca\x02\x13Gcommon\\V1\\Database\xe2\x02\x1fGcommon\\V1\\Database\\GPBMetadata\xea\x02\x15Gcommon::V1::Database\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
 
 var file_pkg_db_proto_requests_begin_transaction_request_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_pkg_db_proto_requests_begin_transaction_request_proto_goTypes = []any{
-	(*BeginTransactionRequest)(nil),     // 0: gcommon.v1.database.BeginTransactionRequest
-	(*messages.TransactionOptions)(nil), // 1: gcommon.v1.database.TransactionOptions
-	(*messages1.RequestMetadata)(nil),   // 2: gcommon.v1.common.RequestMetadata
+	(*BeginTransactionRequest)(nil), // 0: gcommon.v1.database.BeginTransactionRequest
+	(*TransactionOptions)(nil),      // 1: gcommon.v1.database.TransactionOptions
+	(*proto.RequestMetadata)(nil),   // 2: gcommon.v1.common.RequestMetadata
 }
 var file_pkg_db_proto_requests_begin_transaction_request_proto_depIdxs = []int32{
 	1, // 0: gcommon.v1.database.BeginTransactionRequest.options:type_name -> gcommon.v1.database.TransactionOptions
@@ -184,6 +183,7 @@ func file_pkg_db_proto_requests_begin_transaction_request_proto_init() {
 	if File_pkg_db_proto_requests_begin_transaction_request_proto != nil {
 		return
 	}
+	file_pkg_db_proto_messages_transaction_options_proto_init()
 	type x struct{}
 	out := protoimpl.TypeBuilder{
 		File: protoimpl.DescBuilder{

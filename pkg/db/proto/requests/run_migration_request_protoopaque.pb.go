@@ -6,11 +6,10 @@
 
 //go:build protoopaque
 
-package requests
+package dbpb
 
 import (
-	messages "github.com/jdfalk/gcommon/pkg/common/proto/messages"
-	types "github.com/jdfalk/gcommon/pkg/db/proto/types"
+	proto "github.com/jdfalk/gcommon/pkg/common/proto"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
@@ -29,10 +28,10 @@ const (
 // RunMigrationRequest represents a request to execute database migration scripts.
 // Supports multiple scripts for complex migration scenarios.
 type RunMigrationRequest struct {
-	state               protoimpl.MessageState    `protogen:"opaque.v1"`
-	xxx_hidden_Database *string                   `protobuf:"bytes,1,opt,name=database"`
-	xxx_hidden_Scripts  *[]*types.MigrationScript `protobuf:"bytes,2,rep,name=scripts"`
-	xxx_hidden_Metadata *messages.RequestMetadata `protobuf:"bytes,3,opt,name=metadata"`
+	state               protoimpl.MessageState `protogen:"opaque.v1"`
+	xxx_hidden_Database *string                `protobuf:"bytes,1,opt,name=database"`
+	xxx_hidden_Scripts  *[]*MigrationScript    `protobuf:"bytes,2,rep,name=scripts"`
+	xxx_hidden_Metadata *proto.RequestMetadata `protobuf:"bytes,3,opt,name=metadata"`
 	// Deprecated: Do not use. This will be deleted in the near future.
 	XXX_lazyUnmarshalInfo  protoimpl.LazyUnmarshalInfo
 	XXX_raceDetectHookData protoimpl.RaceDetectHookData
@@ -76,13 +75,13 @@ func (x *RunMigrationRequest) GetDatabase() string {
 	return ""
 }
 
-func (x *RunMigrationRequest) GetScripts() []*types.MigrationScript {
+func (x *RunMigrationRequest) GetScripts() []*MigrationScript {
 	if x != nil {
 		if protoimpl.X.Present(&(x.XXX_presence[0]), 1) {
 			if protoimpl.X.AtomicCheckPointerIsNil(&x.xxx_hidden_Scripts) {
 				protoimpl.X.UnmarshalField(x, 2)
 			}
-			var rv *[]*types.MigrationScript
+			var rv *[]*MigrationScript
 			protoimpl.X.AtomicLoadPointer(protoimpl.Pointer(&x.xxx_hidden_Scripts), protoimpl.Pointer(&rv))
 			return *rv
 		}
@@ -90,13 +89,13 @@ func (x *RunMigrationRequest) GetScripts() []*types.MigrationScript {
 	return nil
 }
 
-func (x *RunMigrationRequest) GetMetadata() *messages.RequestMetadata {
+func (x *RunMigrationRequest) GetMetadata() *proto.RequestMetadata {
 	if x != nil {
 		if protoimpl.X.Present(&(x.XXX_presence[0]), 2) {
 			if protoimpl.X.AtomicCheckPointerIsNil(&x.xxx_hidden_Metadata) {
 				protoimpl.X.UnmarshalField(x, 3)
 			}
-			var rv *messages.RequestMetadata
+			var rv *proto.RequestMetadata
 			protoimpl.X.AtomicLoadPointer(protoimpl.Pointer(&x.xxx_hidden_Metadata), protoimpl.Pointer(&rv))
 			return rv
 		}
@@ -109,18 +108,18 @@ func (x *RunMigrationRequest) SetDatabase(v string) {
 	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 0, 3)
 }
 
-func (x *RunMigrationRequest) SetScripts(v []*types.MigrationScript) {
-	var sv *[]*types.MigrationScript
+func (x *RunMigrationRequest) SetScripts(v []*MigrationScript) {
+	var sv *[]*MigrationScript
 	protoimpl.X.AtomicLoadPointer(protoimpl.Pointer(&x.xxx_hidden_Scripts), protoimpl.Pointer(&sv))
 	if sv == nil {
-		sv = &[]*types.MigrationScript{}
+		sv = &[]*MigrationScript{}
 		protoimpl.X.AtomicInitializePointer(protoimpl.Pointer(&x.xxx_hidden_Scripts), protoimpl.Pointer(&sv))
 	}
 	*sv = v
 	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 1, 3)
 }
 
-func (x *RunMigrationRequest) SetMetadata(v *messages.RequestMetadata) {
+func (x *RunMigrationRequest) SetMetadata(v *proto.RequestMetadata) {
 	protoimpl.X.AtomicSetPointer(&x.xxx_hidden_Metadata, v)
 	if v == nil {
 		protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 2)
@@ -150,7 +149,7 @@ func (x *RunMigrationRequest) ClearDatabase() {
 
 func (x *RunMigrationRequest) ClearMetadata() {
 	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 2)
-	protoimpl.X.AtomicSetPointer(&x.xxx_hidden_Metadata, (*messages.RequestMetadata)(nil))
+	protoimpl.X.AtomicSetPointer(&x.xxx_hidden_Metadata, (*proto.RequestMetadata)(nil))
 }
 
 type RunMigrationRequest_builder struct {
@@ -159,9 +158,9 @@ type RunMigrationRequest_builder struct {
 	// Database name to run migrations against
 	Database *string
 	// List of migration scripts to execute
-	Scripts []*types.MigrationScript
+	Scripts []*MigrationScript
 	// Request metadata for tracing and authentication
-	Metadata *messages.RequestMetadata
+	Metadata *proto.RequestMetadata
 }
 
 func (b0 RunMigrationRequest_builder) Build() *RunMigrationRequest {
@@ -191,14 +190,14 @@ const file_pkg_db_proto_requests_run_migration_request_proto_rawDesc = "" +
 	"\x13RunMigrationRequest\x12\x1a\n" +
 	"\bdatabase\x18\x01 \x01(\tR\bdatabase\x12B\n" +
 	"\ascripts\x18\x02 \x03(\v2$.gcommon.v1.database.MigrationScriptB\x02(\x01R\ascripts\x12B\n" +
-	"\bmetadata\x18\x03 \x01(\v2\".gcommon.v1.common.RequestMetadataB\x02(\x01R\bmetadataB\xda\x01\n" +
-	"\x17com.gcommon.v1.databaseB\x18RunMigrationRequestProtoP\x01Z/github.com/jdfalk/gcommon/pkg/db/proto/requests\xa2\x02\x03GVD\xaa\x02\x13Gcommon.V1.Database\xca\x02\x13Gcommon\\V1\\Database\xe2\x02\x1fGcommon\\V1\\Database\\GPBMetadata\xea\x02\x15Gcommon::V1::Database\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
+	"\bmetadata\x18\x03 \x01(\v2\".gcommon.v1.common.RequestMetadataB\x02(\x01R\bmetadataB\xd6\x01\n" +
+	"\x17com.gcommon.v1.databaseB\x18RunMigrationRequestProtoP\x01Z+github.com/jdfalk/gcommon/pkg/db/proto;dbpb\xa2\x02\x03GVD\xaa\x02\x13Gcommon.V1.Database\xca\x02\x13Gcommon\\V1\\Database\xe2\x02\x1fGcommon\\V1\\Database\\GPBMetadata\xea\x02\x15Gcommon::V1::Database\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
 
 var file_pkg_db_proto_requests_run_migration_request_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_pkg_db_proto_requests_run_migration_request_proto_goTypes = []any{
-	(*RunMigrationRequest)(nil),      // 0: gcommon.v1.database.RunMigrationRequest
-	(*types.MigrationScript)(nil),    // 1: gcommon.v1.database.MigrationScript
-	(*messages.RequestMetadata)(nil), // 2: gcommon.v1.common.RequestMetadata
+	(*RunMigrationRequest)(nil),   // 0: gcommon.v1.database.RunMigrationRequest
+	(*MigrationScript)(nil),       // 1: gcommon.v1.database.MigrationScript
+	(*proto.RequestMetadata)(nil), // 2: gcommon.v1.common.RequestMetadata
 }
 var file_pkg_db_proto_requests_run_migration_request_proto_depIdxs = []int32{
 	1, // 0: gcommon.v1.database.RunMigrationRequest.scripts:type_name -> gcommon.v1.database.MigrationScript
@@ -215,6 +214,7 @@ func file_pkg_db_proto_requests_run_migration_request_proto_init() {
 	if File_pkg_db_proto_requests_run_migration_request_proto != nil {
 		return
 	}
+	file_pkg_db_proto_types_migration_script_proto_init()
 	type x struct{}
 	out := protoimpl.TypeBuilder{
 		File: protoimpl.DescBuilder{

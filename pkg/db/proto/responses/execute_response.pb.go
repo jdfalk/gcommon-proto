@@ -6,11 +6,10 @@
 
 //go:build !protoopaque
 
-package responses
+package dbpb
 
 import (
-	messages1 "github.com/jdfalk/gcommon/pkg/common/proto/messages"
-	messages "github.com/jdfalk/gcommon/pkg/db/proto/messages"
+	proto "github.com/jdfalk/gcommon/pkg/common/proto"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
@@ -36,9 +35,9 @@ type ExecuteResponse struct {
 	// Generated keys from INSERT operations
 	GeneratedKeys []*anypb.Any `protobuf:"bytes,2,rep,name=generated_keys,json=generatedKeys" json:"generated_keys,omitempty"`
 	// Execution statistics and performance metrics
-	Stats *messages.ExecuteStats `protobuf:"bytes,3,opt,name=stats" json:"stats,omitempty"`
+	Stats *ExecuteStats `protobuf:"bytes,3,opt,name=stats" json:"stats,omitempty"`
 	// Error information if the operation failed
-	Error         *messages1.Error `protobuf:"bytes,4,opt,name=error" json:"error,omitempty"`
+	Error         *proto.Error `protobuf:"bytes,4,opt,name=error" json:"error,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -82,14 +81,14 @@ func (x *ExecuteResponse) GetGeneratedKeys() []*anypb.Any {
 	return nil
 }
 
-func (x *ExecuteResponse) GetStats() *messages.ExecuteStats {
+func (x *ExecuteResponse) GetStats() *ExecuteStats {
 	if x != nil {
 		return x.Stats
 	}
 	return nil
 }
 
-func (x *ExecuteResponse) GetError() *messages1.Error {
+func (x *ExecuteResponse) GetError() *proto.Error {
 	if x != nil {
 		return x.Error
 	}
@@ -104,11 +103,11 @@ func (x *ExecuteResponse) SetGeneratedKeys(v []*anypb.Any) {
 	x.GeneratedKeys = v
 }
 
-func (x *ExecuteResponse) SetStats(v *messages.ExecuteStats) {
+func (x *ExecuteResponse) SetStats(v *ExecuteStats) {
 	x.Stats = v
 }
 
-func (x *ExecuteResponse) SetError(v *messages1.Error) {
+func (x *ExecuteResponse) SetError(v *proto.Error) {
 	x.Error = v
 }
 
@@ -153,9 +152,9 @@ type ExecuteResponse_builder struct {
 	// Generated keys from INSERT operations
 	GeneratedKeys []*anypb.Any
 	// Execution statistics and performance metrics
-	Stats *messages.ExecuteStats
+	Stats *ExecuteStats
 	// Error information if the operation failed
-	Error *messages1.Error
+	Error *proto.Error
 }
 
 func (b0 ExecuteResponse_builder) Build() *ExecuteResponse {
@@ -178,15 +177,15 @@ const file_pkg_db_proto_responses_execute_response_proto_rawDesc = "" +
 	"\raffected_rows\x18\x01 \x01(\x03R\faffectedRows\x12?\n" +
 	"\x0egenerated_keys\x18\x02 \x03(\v2\x14.google.protobuf.AnyB\x02(\x01R\rgeneratedKeys\x12;\n" +
 	"\x05stats\x18\x03 \x01(\v2!.gcommon.v1.database.ExecuteStatsB\x02(\x01R\x05stats\x122\n" +
-	"\x05error\x18\x04 \x01(\v2\x18.gcommon.v1.common.ErrorB\x02(\x01R\x05errorB\xd7\x01\n" +
-	"\x17com.gcommon.v1.databaseB\x14ExecuteResponseProtoP\x01Z0github.com/jdfalk/gcommon/pkg/db/proto/responses\xa2\x02\x03GVD\xaa\x02\x13Gcommon.V1.Database\xca\x02\x13Gcommon\\V1\\Database\xe2\x02\x1fGcommon\\V1\\Database\\GPBMetadata\xea\x02\x15Gcommon::V1::Database\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
+	"\x05error\x18\x04 \x01(\v2\x18.gcommon.v1.common.ErrorB\x02(\x01R\x05errorB\xd2\x01\n" +
+	"\x17com.gcommon.v1.databaseB\x14ExecuteResponseProtoP\x01Z+github.com/jdfalk/gcommon/pkg/db/proto;dbpb\xa2\x02\x03GVD\xaa\x02\x13Gcommon.V1.Database\xca\x02\x13Gcommon\\V1\\Database\xe2\x02\x1fGcommon\\V1\\Database\\GPBMetadata\xea\x02\x15Gcommon::V1::Database\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
 
 var file_pkg_db_proto_responses_execute_response_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_pkg_db_proto_responses_execute_response_proto_goTypes = []any{
-	(*ExecuteResponse)(nil),       // 0: gcommon.v1.database.ExecuteResponse
-	(*anypb.Any)(nil),             // 1: google.protobuf.Any
-	(*messages.ExecuteStats)(nil), // 2: gcommon.v1.database.ExecuteStats
-	(*messages1.Error)(nil),       // 3: gcommon.v1.common.Error
+	(*ExecuteResponse)(nil), // 0: gcommon.v1.database.ExecuteResponse
+	(*anypb.Any)(nil),       // 1: google.protobuf.Any
+	(*ExecuteStats)(nil),    // 2: gcommon.v1.database.ExecuteStats
+	(*proto.Error)(nil),     // 3: gcommon.v1.common.Error
 }
 var file_pkg_db_proto_responses_execute_response_proto_depIdxs = []int32{
 	1, // 0: gcommon.v1.database.ExecuteResponse.generated_keys:type_name -> google.protobuf.Any
@@ -204,6 +203,7 @@ func file_pkg_db_proto_responses_execute_response_proto_init() {
 	if File_pkg_db_proto_responses_execute_response_proto != nil {
 		return
 	}
+	file_pkg_db_proto_messages_execute_stats_proto_init()
 	type x struct{}
 	out := protoimpl.TypeBuilder{
 		File: protoimpl.DescBuilder{

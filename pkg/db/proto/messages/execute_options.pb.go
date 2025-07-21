@@ -6,10 +6,9 @@
 
 //go:build !protoopaque
 
-package messages
+package dbpb
 
 import (
-	enums "github.com/jdfalk/gcommon/pkg/db/proto/enums"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
@@ -35,7 +34,7 @@ type ExecuteOptions struct {
 	// Whether to return generated keys (for INSERT operations)
 	ReturnGeneratedKeys *bool `protobuf:"varint,2,opt,name=return_generated_keys,json=returnGeneratedKeys" json:"return_generated_keys,omitempty"`
 	// Isolation level for transaction operations
-	Isolation     *enums.IsolationLevel `protobuf:"varint,3,opt,name=isolation,enum=gcommon.v1.database.IsolationLevel" json:"isolation,omitempty"`
+	Isolation     *IsolationLevel `protobuf:"varint,3,opt,name=isolation,enum=gcommon.v1.database.IsolationLevel" json:"isolation,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -79,11 +78,11 @@ func (x *ExecuteOptions) GetReturnGeneratedKeys() bool {
 	return false
 }
 
-func (x *ExecuteOptions) GetIsolation() enums.IsolationLevel {
+func (x *ExecuteOptions) GetIsolation() IsolationLevel {
 	if x != nil && x.Isolation != nil {
 		return *x.Isolation
 	}
-	return enums.IsolationLevel(0)
+	return IsolationLevel_ISOLATION_LEVEL_UNSPECIFIED
 }
 
 func (x *ExecuteOptions) SetTimeout(v *durationpb.Duration) {
@@ -94,7 +93,7 @@ func (x *ExecuteOptions) SetReturnGeneratedKeys(v bool) {
 	x.ReturnGeneratedKeys = &v
 }
 
-func (x *ExecuteOptions) SetIsolation(v enums.IsolationLevel) {
+func (x *ExecuteOptions) SetIsolation(v IsolationLevel) {
 	x.Isolation = &v
 }
 
@@ -139,7 +138,7 @@ type ExecuteOptions_builder struct {
 	// Whether to return generated keys (for INSERT operations)
 	ReturnGeneratedKeys *bool
 	// Isolation level for transaction operations
-	Isolation *enums.IsolationLevel
+	Isolation *IsolationLevel
 }
 
 func (b0 ExecuteOptions_builder) Build() *ExecuteOptions {
@@ -160,14 +159,14 @@ const file_pkg_db_proto_messages_execute_options_proto_rawDesc = "" +
 	"\x0eExecuteOptions\x127\n" +
 	"\atimeout\x18\x01 \x01(\v2\x19.google.protobuf.DurationB\x02(\x01R\atimeout\x122\n" +
 	"\x15return_generated_keys\x18\x02 \x01(\bR\x13returnGeneratedKeys\x12A\n" +
-	"\tisolation\x18\x03 \x01(\x0e2#.gcommon.v1.database.IsolationLevelR\tisolationB\xd5\x01\n" +
-	"\x17com.gcommon.v1.databaseB\x13ExecuteOptionsProtoP\x01Z/github.com/jdfalk/gcommon/pkg/db/proto/messages\xa2\x02\x03GVD\xaa\x02\x13Gcommon.V1.Database\xca\x02\x13Gcommon\\V1\\Database\xe2\x02\x1fGcommon\\V1\\Database\\GPBMetadata\xea\x02\x15Gcommon::V1::Database\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
+	"\tisolation\x18\x03 \x01(\x0e2#.gcommon.v1.database.IsolationLevelR\tisolationB\xd1\x01\n" +
+	"\x17com.gcommon.v1.databaseB\x13ExecuteOptionsProtoP\x01Z+github.com/jdfalk/gcommon/pkg/db/proto;dbpb\xa2\x02\x03GVD\xaa\x02\x13Gcommon.V1.Database\xca\x02\x13Gcommon\\V1\\Database\xe2\x02\x1fGcommon\\V1\\Database\\GPBMetadata\xea\x02\x15Gcommon::V1::Database\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
 
 var file_pkg_db_proto_messages_execute_options_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_pkg_db_proto_messages_execute_options_proto_goTypes = []any{
 	(*ExecuteOptions)(nil),      // 0: gcommon.v1.database.ExecuteOptions
 	(*durationpb.Duration)(nil), // 1: google.protobuf.Duration
-	(enums.IsolationLevel)(0),   // 2: gcommon.v1.database.IsolationLevel
+	(IsolationLevel)(0),         // 2: gcommon.v1.database.IsolationLevel
 }
 var file_pkg_db_proto_messages_execute_options_proto_depIdxs = []int32{
 	1, // 0: gcommon.v1.database.ExecuteOptions.timeout:type_name -> google.protobuf.Duration
@@ -184,6 +183,7 @@ func file_pkg_db_proto_messages_execute_options_proto_init() {
 	if File_pkg_db_proto_messages_execute_options_proto != nil {
 		return
 	}
+	file_pkg_db_proto_enums_isolation_level_proto_init()
 	type x struct{}
 	out := protoimpl.TypeBuilder{
 		File: protoimpl.DescBuilder{

@@ -6,11 +6,10 @@
 
 //go:build protoopaque
 
-package responses
+package dbpb
 
 import (
-	messages1 "github.com/jdfalk/gcommon/pkg/common/proto/messages"
-	messages "github.com/jdfalk/gcommon/pkg/db/proto/messages"
+	proto "github.com/jdfalk/gcommon/pkg/common/proto"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
@@ -29,10 +28,10 @@ const (
 // ExecuteBatchResponse contains the results of a batch database operation.
 // Includes individual operation results and overall batch statistics.
 type ExecuteBatchResponse struct {
-	state              protoimpl.MessageState            `protogen:"opaque.v1"`
-	xxx_hidden_Results *[]*messages.BatchOperationResult `protobuf:"bytes,1,rep,name=results"`
-	xxx_hidden_Stats   *messages.BatchStats              `protobuf:"bytes,2,opt,name=stats"`
-	xxx_hidden_Error   *messages1.Error                  `protobuf:"bytes,3,opt,name=error"`
+	state              protoimpl.MessageState   `protogen:"opaque.v1"`
+	xxx_hidden_Results *[]*BatchOperationResult `protobuf:"bytes,1,rep,name=results"`
+	xxx_hidden_Stats   *BatchStats              `protobuf:"bytes,2,opt,name=stats"`
+	xxx_hidden_Error   *proto.Error             `protobuf:"bytes,3,opt,name=error"`
 	// Deprecated: Do not use. This will be deleted in the near future.
 	XXX_lazyUnmarshalInfo  protoimpl.LazyUnmarshalInfo
 	XXX_raceDetectHookData protoimpl.RaceDetectHookData
@@ -66,13 +65,13 @@ func (x *ExecuteBatchResponse) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-func (x *ExecuteBatchResponse) GetResults() []*messages.BatchOperationResult {
+func (x *ExecuteBatchResponse) GetResults() []*BatchOperationResult {
 	if x != nil {
 		if protoimpl.X.Present(&(x.XXX_presence[0]), 0) {
 			if protoimpl.X.AtomicCheckPointerIsNil(&x.xxx_hidden_Results) {
 				protoimpl.X.UnmarshalField(x, 1)
 			}
-			var rv *[]*messages.BatchOperationResult
+			var rv *[]*BatchOperationResult
 			protoimpl.X.AtomicLoadPointer(protoimpl.Pointer(&x.xxx_hidden_Results), protoimpl.Pointer(&rv))
 			return *rv
 		}
@@ -80,13 +79,13 @@ func (x *ExecuteBatchResponse) GetResults() []*messages.BatchOperationResult {
 	return nil
 }
 
-func (x *ExecuteBatchResponse) GetStats() *messages.BatchStats {
+func (x *ExecuteBatchResponse) GetStats() *BatchStats {
 	if x != nil {
 		if protoimpl.X.Present(&(x.XXX_presence[0]), 1) {
 			if protoimpl.X.AtomicCheckPointerIsNil(&x.xxx_hidden_Stats) {
 				protoimpl.X.UnmarshalField(x, 2)
 			}
-			var rv *messages.BatchStats
+			var rv *BatchStats
 			protoimpl.X.AtomicLoadPointer(protoimpl.Pointer(&x.xxx_hidden_Stats), protoimpl.Pointer(&rv))
 			return rv
 		}
@@ -94,13 +93,13 @@ func (x *ExecuteBatchResponse) GetStats() *messages.BatchStats {
 	return nil
 }
 
-func (x *ExecuteBatchResponse) GetError() *messages1.Error {
+func (x *ExecuteBatchResponse) GetError() *proto.Error {
 	if x != nil {
 		if protoimpl.X.Present(&(x.XXX_presence[0]), 2) {
 			if protoimpl.X.AtomicCheckPointerIsNil(&x.xxx_hidden_Error) {
 				protoimpl.X.UnmarshalField(x, 3)
 			}
-			var rv *messages1.Error
+			var rv *proto.Error
 			protoimpl.X.AtomicLoadPointer(protoimpl.Pointer(&x.xxx_hidden_Error), protoimpl.Pointer(&rv))
 			return rv
 		}
@@ -108,18 +107,18 @@ func (x *ExecuteBatchResponse) GetError() *messages1.Error {
 	return nil
 }
 
-func (x *ExecuteBatchResponse) SetResults(v []*messages.BatchOperationResult) {
-	var sv *[]*messages.BatchOperationResult
+func (x *ExecuteBatchResponse) SetResults(v []*BatchOperationResult) {
+	var sv *[]*BatchOperationResult
 	protoimpl.X.AtomicLoadPointer(protoimpl.Pointer(&x.xxx_hidden_Results), protoimpl.Pointer(&sv))
 	if sv == nil {
-		sv = &[]*messages.BatchOperationResult{}
+		sv = &[]*BatchOperationResult{}
 		protoimpl.X.AtomicInitializePointer(protoimpl.Pointer(&x.xxx_hidden_Results), protoimpl.Pointer(&sv))
 	}
 	*sv = v
 	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 0, 3)
 }
 
-func (x *ExecuteBatchResponse) SetStats(v *messages.BatchStats) {
+func (x *ExecuteBatchResponse) SetStats(v *BatchStats) {
 	protoimpl.X.AtomicSetPointer(&x.xxx_hidden_Stats, v)
 	if v == nil {
 		protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 1)
@@ -128,7 +127,7 @@ func (x *ExecuteBatchResponse) SetStats(v *messages.BatchStats) {
 	}
 }
 
-func (x *ExecuteBatchResponse) SetError(v *messages1.Error) {
+func (x *ExecuteBatchResponse) SetError(v *proto.Error) {
 	protoimpl.X.AtomicSetPointer(&x.xxx_hidden_Error, v)
 	if v == nil {
 		protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 2)
@@ -153,23 +152,23 @@ func (x *ExecuteBatchResponse) HasError() bool {
 
 func (x *ExecuteBatchResponse) ClearStats() {
 	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 1)
-	protoimpl.X.AtomicSetPointer(&x.xxx_hidden_Stats, (*messages.BatchStats)(nil))
+	protoimpl.X.AtomicSetPointer(&x.xxx_hidden_Stats, (*BatchStats)(nil))
 }
 
 func (x *ExecuteBatchResponse) ClearError() {
 	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 2)
-	protoimpl.X.AtomicSetPointer(&x.xxx_hidden_Error, (*messages1.Error)(nil))
+	protoimpl.X.AtomicSetPointer(&x.xxx_hidden_Error, (*proto.Error)(nil))
 }
 
 type ExecuteBatchResponse_builder struct {
 	_ [0]func() // Prevents comparability and use of unkeyed literals for the builder.
 
 	// Results for each operation in the batch
-	Results []*messages.BatchOperationResult
+	Results []*BatchOperationResult
 	// Overall batch execution statistics
-	Stats *messages.BatchStats
+	Stats *BatchStats
 	// Error information if the batch failed
-	Error *messages1.Error
+	Error *proto.Error
 }
 
 func (b0 ExecuteBatchResponse_builder) Build() *ExecuteBatchResponse {
@@ -199,15 +198,15 @@ const file_pkg_db_proto_responses_execute_batch_response_proto_rawDesc = "" +
 	"\x14ExecuteBatchResponse\x12G\n" +
 	"\aresults\x18\x01 \x03(\v2).gcommon.v1.database.BatchOperationResultB\x02(\x01R\aresults\x129\n" +
 	"\x05stats\x18\x02 \x01(\v2\x1f.gcommon.v1.database.BatchStatsB\x02(\x01R\x05stats\x122\n" +
-	"\x05error\x18\x03 \x01(\v2\x18.gcommon.v1.common.ErrorB\x02(\x01R\x05errorB\xdc\x01\n" +
-	"\x17com.gcommon.v1.databaseB\x19ExecuteBatchResponseProtoP\x01Z0github.com/jdfalk/gcommon/pkg/db/proto/responses\xa2\x02\x03GVD\xaa\x02\x13Gcommon.V1.Database\xca\x02\x13Gcommon\\V1\\Database\xe2\x02\x1fGcommon\\V1\\Database\\GPBMetadata\xea\x02\x15Gcommon::V1::Database\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
+	"\x05error\x18\x03 \x01(\v2\x18.gcommon.v1.common.ErrorB\x02(\x01R\x05errorB\xd7\x01\n" +
+	"\x17com.gcommon.v1.databaseB\x19ExecuteBatchResponseProtoP\x01Z+github.com/jdfalk/gcommon/pkg/db/proto;dbpb\xa2\x02\x03GVD\xaa\x02\x13Gcommon.V1.Database\xca\x02\x13Gcommon\\V1\\Database\xe2\x02\x1fGcommon\\V1\\Database\\GPBMetadata\xea\x02\x15Gcommon::V1::Database\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
 
 var file_pkg_db_proto_responses_execute_batch_response_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_pkg_db_proto_responses_execute_batch_response_proto_goTypes = []any{
-	(*ExecuteBatchResponse)(nil),          // 0: gcommon.v1.database.ExecuteBatchResponse
-	(*messages.BatchOperationResult)(nil), // 1: gcommon.v1.database.BatchOperationResult
-	(*messages.BatchStats)(nil),           // 2: gcommon.v1.database.BatchStats
-	(*messages1.Error)(nil),               // 3: gcommon.v1.common.Error
+	(*ExecuteBatchResponse)(nil), // 0: gcommon.v1.database.ExecuteBatchResponse
+	(*BatchOperationResult)(nil), // 1: gcommon.v1.database.BatchOperationResult
+	(*BatchStats)(nil),           // 2: gcommon.v1.database.BatchStats
+	(*proto.Error)(nil),          // 3: gcommon.v1.common.Error
 }
 var file_pkg_db_proto_responses_execute_batch_response_proto_depIdxs = []int32{
 	1, // 0: gcommon.v1.database.ExecuteBatchResponse.results:type_name -> gcommon.v1.database.BatchOperationResult
@@ -225,6 +224,8 @@ func file_pkg_db_proto_responses_execute_batch_response_proto_init() {
 	if File_pkg_db_proto_responses_execute_batch_response_proto != nil {
 		return
 	}
+	file_pkg_db_proto_messages_batch_operation_result_proto_init()
+	file_pkg_db_proto_messages_batch_stats_proto_init()
 	type x struct{}
 	out := protoimpl.TypeBuilder{
 		File: protoimpl.DescBuilder{

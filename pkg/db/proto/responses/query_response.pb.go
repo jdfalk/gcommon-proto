@@ -6,11 +6,10 @@
 
 //go:build !protoopaque
 
-package responses
+package dbpb
 
 import (
-	messages1 "github.com/jdfalk/gcommon/pkg/common/proto/messages"
-	messages "github.com/jdfalk/gcommon/pkg/db/proto/messages"
+	proto "github.com/jdfalk/gcommon/pkg/common/proto"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
@@ -31,11 +30,11 @@ const (
 type QueryResponse struct {
 	state protoimpl.MessageState `protogen:"hybrid.v1"`
 	// Query result set with data and metadata
-	ResultSet *messages.ResultSet `protobuf:"bytes,1,opt,name=result_set,json=resultSet" json:"result_set,omitempty"`
+	ResultSet *ResultSet `protobuf:"bytes,1,opt,name=result_set,json=resultSet" json:"result_set,omitempty"`
 	// Query execution statistics and performance metrics
-	Stats *messages.QueryStats `protobuf:"bytes,2,opt,name=stats" json:"stats,omitempty"`
+	Stats *QueryStats `protobuf:"bytes,2,opt,name=stats" json:"stats,omitempty"`
 	// Error information if the query failed
-	Error         *messages1.Error `protobuf:"bytes,3,opt,name=error" json:"error,omitempty"`
+	Error         *proto.Error `protobuf:"bytes,3,opt,name=error" json:"error,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -65,36 +64,36 @@ func (x *QueryResponse) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-func (x *QueryResponse) GetResultSet() *messages.ResultSet {
+func (x *QueryResponse) GetResultSet() *ResultSet {
 	if x != nil {
 		return x.ResultSet
 	}
 	return nil
 }
 
-func (x *QueryResponse) GetStats() *messages.QueryStats {
+func (x *QueryResponse) GetStats() *QueryStats {
 	if x != nil {
 		return x.Stats
 	}
 	return nil
 }
 
-func (x *QueryResponse) GetError() *messages1.Error {
+func (x *QueryResponse) GetError() *proto.Error {
 	if x != nil {
 		return x.Error
 	}
 	return nil
 }
 
-func (x *QueryResponse) SetResultSet(v *messages.ResultSet) {
+func (x *QueryResponse) SetResultSet(v *ResultSet) {
 	x.ResultSet = v
 }
 
-func (x *QueryResponse) SetStats(v *messages.QueryStats) {
+func (x *QueryResponse) SetStats(v *QueryStats) {
 	x.Stats = v
 }
 
-func (x *QueryResponse) SetError(v *messages1.Error) {
+func (x *QueryResponse) SetError(v *proto.Error) {
 	x.Error = v
 }
 
@@ -135,11 +134,11 @@ type QueryResponse_builder struct {
 	_ [0]func() // Prevents comparability and use of unkeyed literals for the builder.
 
 	// Query result set with data and metadata
-	ResultSet *messages.ResultSet
+	ResultSet *ResultSet
 	// Query execution statistics and performance metrics
-	Stats *messages.QueryStats
+	Stats *QueryStats
 	// Error information if the query failed
-	Error *messages1.Error
+	Error *proto.Error
 }
 
 func (b0 QueryResponse_builder) Build() *QueryResponse {
@@ -161,15 +160,15 @@ const file_pkg_db_proto_responses_query_response_proto_rawDesc = "" +
 	"\n" +
 	"result_set\x18\x01 \x01(\v2\x1e.gcommon.v1.database.ResultSetB\x02(\x01R\tresultSet\x129\n" +
 	"\x05stats\x18\x02 \x01(\v2\x1f.gcommon.v1.database.QueryStatsB\x02(\x01R\x05stats\x122\n" +
-	"\x05error\x18\x03 \x01(\v2\x18.gcommon.v1.common.ErrorB\x02(\x01R\x05errorB\xd5\x01\n" +
-	"\x17com.gcommon.v1.databaseB\x12QueryResponseProtoP\x01Z0github.com/jdfalk/gcommon/pkg/db/proto/responses\xa2\x02\x03GVD\xaa\x02\x13Gcommon.V1.Database\xca\x02\x13Gcommon\\V1\\Database\xe2\x02\x1fGcommon\\V1\\Database\\GPBMetadata\xea\x02\x15Gcommon::V1::Database\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
+	"\x05error\x18\x03 \x01(\v2\x18.gcommon.v1.common.ErrorB\x02(\x01R\x05errorB\xd0\x01\n" +
+	"\x17com.gcommon.v1.databaseB\x12QueryResponseProtoP\x01Z+github.com/jdfalk/gcommon/pkg/db/proto;dbpb\xa2\x02\x03GVD\xaa\x02\x13Gcommon.V1.Database\xca\x02\x13Gcommon\\V1\\Database\xe2\x02\x1fGcommon\\V1\\Database\\GPBMetadata\xea\x02\x15Gcommon::V1::Database\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
 
 var file_pkg_db_proto_responses_query_response_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_pkg_db_proto_responses_query_response_proto_goTypes = []any{
-	(*QueryResponse)(nil),       // 0: gcommon.v1.database.QueryResponse
-	(*messages.ResultSet)(nil),  // 1: gcommon.v1.database.ResultSet
-	(*messages.QueryStats)(nil), // 2: gcommon.v1.database.QueryStats
-	(*messages1.Error)(nil),     // 3: gcommon.v1.common.Error
+	(*QueryResponse)(nil), // 0: gcommon.v1.database.QueryResponse
+	(*ResultSet)(nil),     // 1: gcommon.v1.database.ResultSet
+	(*QueryStats)(nil),    // 2: gcommon.v1.database.QueryStats
+	(*proto.Error)(nil),   // 3: gcommon.v1.common.Error
 }
 var file_pkg_db_proto_responses_query_response_proto_depIdxs = []int32{
 	1, // 0: gcommon.v1.database.QueryResponse.result_set:type_name -> gcommon.v1.database.ResultSet
@@ -187,6 +186,8 @@ func file_pkg_db_proto_responses_query_response_proto_init() {
 	if File_pkg_db_proto_responses_query_response_proto != nil {
 		return
 	}
+	file_pkg_db_proto_messages_result_set_proto_init()
+	file_pkg_db_proto_messages_query_stats_proto_init()
 	type x struct{}
 	out := protoimpl.TypeBuilder{
 		File: protoimpl.DescBuilder{

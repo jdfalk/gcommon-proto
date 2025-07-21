@@ -6,11 +6,10 @@
 
 //go:build protoopaque
 
-package requests
+package dbpb
 
 import (
-	messages1 "github.com/jdfalk/gcommon/pkg/common/proto/messages"
-	messages "github.com/jdfalk/gcommon/pkg/db/proto/messages"
+	proto "github.com/jdfalk/gcommon/pkg/common/proto"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
@@ -29,12 +28,12 @@ const (
 // ExecuteBatchRequest represents a request to execute multiple database operations
 // in a single batch for improved performance and atomicity.
 type ExecuteBatchRequest struct {
-	state                    protoimpl.MessageState        `protogen:"opaque.v1"`
-	xxx_hidden_Operations    *[]*messages.BatchOperation   `protobuf:"bytes,1,rep,name=operations"`
-	xxx_hidden_Database      *string                       `protobuf:"bytes,2,opt,name=database"`
-	xxx_hidden_Options       *messages.BatchExecuteOptions `protobuf:"bytes,3,opt,name=options"`
-	xxx_hidden_Metadata      *messages1.RequestMetadata    `protobuf:"bytes,4,opt,name=metadata"`
-	xxx_hidden_TransactionId *string                       `protobuf:"bytes,5,opt,name=transaction_id,json=transactionId"`
+	state                    protoimpl.MessageState `protogen:"opaque.v1"`
+	xxx_hidden_Operations    *[]*BatchOperation     `protobuf:"bytes,1,rep,name=operations"`
+	xxx_hidden_Database      *string                `protobuf:"bytes,2,opt,name=database"`
+	xxx_hidden_Options       *BatchExecuteOptions   `protobuf:"bytes,3,opt,name=options"`
+	xxx_hidden_Metadata      *proto.RequestMetadata `protobuf:"bytes,4,opt,name=metadata"`
+	xxx_hidden_TransactionId *string                `protobuf:"bytes,5,opt,name=transaction_id,json=transactionId"`
 	// Deprecated: Do not use. This will be deleted in the near future.
 	XXX_lazyUnmarshalInfo  protoimpl.LazyUnmarshalInfo
 	XXX_raceDetectHookData protoimpl.RaceDetectHookData
@@ -68,13 +67,13 @@ func (x *ExecuteBatchRequest) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-func (x *ExecuteBatchRequest) GetOperations() []*messages.BatchOperation {
+func (x *ExecuteBatchRequest) GetOperations() []*BatchOperation {
 	if x != nil {
 		if protoimpl.X.Present(&(x.XXX_presence[0]), 0) {
 			if protoimpl.X.AtomicCheckPointerIsNil(&x.xxx_hidden_Operations) {
 				protoimpl.X.UnmarshalField(x, 1)
 			}
-			var rv *[]*messages.BatchOperation
+			var rv *[]*BatchOperation
 			protoimpl.X.AtomicLoadPointer(protoimpl.Pointer(&x.xxx_hidden_Operations), protoimpl.Pointer(&rv))
 			return *rv
 		}
@@ -92,13 +91,13 @@ func (x *ExecuteBatchRequest) GetDatabase() string {
 	return ""
 }
 
-func (x *ExecuteBatchRequest) GetOptions() *messages.BatchExecuteOptions {
+func (x *ExecuteBatchRequest) GetOptions() *BatchExecuteOptions {
 	if x != nil {
 		if protoimpl.X.Present(&(x.XXX_presence[0]), 2) {
 			if protoimpl.X.AtomicCheckPointerIsNil(&x.xxx_hidden_Options) {
 				protoimpl.X.UnmarshalField(x, 3)
 			}
-			var rv *messages.BatchExecuteOptions
+			var rv *BatchExecuteOptions
 			protoimpl.X.AtomicLoadPointer(protoimpl.Pointer(&x.xxx_hidden_Options), protoimpl.Pointer(&rv))
 			return rv
 		}
@@ -106,13 +105,13 @@ func (x *ExecuteBatchRequest) GetOptions() *messages.BatchExecuteOptions {
 	return nil
 }
 
-func (x *ExecuteBatchRequest) GetMetadata() *messages1.RequestMetadata {
+func (x *ExecuteBatchRequest) GetMetadata() *proto.RequestMetadata {
 	if x != nil {
 		if protoimpl.X.Present(&(x.XXX_presence[0]), 3) {
 			if protoimpl.X.AtomicCheckPointerIsNil(&x.xxx_hidden_Metadata) {
 				protoimpl.X.UnmarshalField(x, 4)
 			}
-			var rv *messages1.RequestMetadata
+			var rv *proto.RequestMetadata
 			protoimpl.X.AtomicLoadPointer(protoimpl.Pointer(&x.xxx_hidden_Metadata), protoimpl.Pointer(&rv))
 			return rv
 		}
@@ -130,11 +129,11 @@ func (x *ExecuteBatchRequest) GetTransactionId() string {
 	return ""
 }
 
-func (x *ExecuteBatchRequest) SetOperations(v []*messages.BatchOperation) {
-	var sv *[]*messages.BatchOperation
+func (x *ExecuteBatchRequest) SetOperations(v []*BatchOperation) {
+	var sv *[]*BatchOperation
 	protoimpl.X.AtomicLoadPointer(protoimpl.Pointer(&x.xxx_hidden_Operations), protoimpl.Pointer(&sv))
 	if sv == nil {
-		sv = &[]*messages.BatchOperation{}
+		sv = &[]*BatchOperation{}
 		protoimpl.X.AtomicInitializePointer(protoimpl.Pointer(&x.xxx_hidden_Operations), protoimpl.Pointer(&sv))
 	}
 	*sv = v
@@ -146,7 +145,7 @@ func (x *ExecuteBatchRequest) SetDatabase(v string) {
 	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 1, 5)
 }
 
-func (x *ExecuteBatchRequest) SetOptions(v *messages.BatchExecuteOptions) {
+func (x *ExecuteBatchRequest) SetOptions(v *BatchExecuteOptions) {
 	protoimpl.X.AtomicSetPointer(&x.xxx_hidden_Options, v)
 	if v == nil {
 		protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 2)
@@ -155,7 +154,7 @@ func (x *ExecuteBatchRequest) SetOptions(v *messages.BatchExecuteOptions) {
 	}
 }
 
-func (x *ExecuteBatchRequest) SetMetadata(v *messages1.RequestMetadata) {
+func (x *ExecuteBatchRequest) SetMetadata(v *proto.RequestMetadata) {
 	protoimpl.X.AtomicSetPointer(&x.xxx_hidden_Metadata, v)
 	if v == nil {
 		protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 3)
@@ -204,12 +203,12 @@ func (x *ExecuteBatchRequest) ClearDatabase() {
 
 func (x *ExecuteBatchRequest) ClearOptions() {
 	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 2)
-	protoimpl.X.AtomicSetPointer(&x.xxx_hidden_Options, (*messages.BatchExecuteOptions)(nil))
+	protoimpl.X.AtomicSetPointer(&x.xxx_hidden_Options, (*BatchExecuteOptions)(nil))
 }
 
 func (x *ExecuteBatchRequest) ClearMetadata() {
 	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 3)
-	protoimpl.X.AtomicSetPointer(&x.xxx_hidden_Metadata, (*messages1.RequestMetadata)(nil))
+	protoimpl.X.AtomicSetPointer(&x.xxx_hidden_Metadata, (*proto.RequestMetadata)(nil))
 }
 
 func (x *ExecuteBatchRequest) ClearTransactionId() {
@@ -221,13 +220,13 @@ type ExecuteBatchRequest_builder struct {
 	_ [0]func() // Prevents comparability and use of unkeyed literals for the builder.
 
 	// List of operations to execute in the batch
-	Operations []*messages.BatchOperation
+	Operations []*BatchOperation
 	// Database name (optional, uses default if not specified)
 	Database *string
 	// Batch execution options and configuration
-	Options *messages.BatchExecuteOptions
+	Options *BatchExecuteOptions
 	// Request metadata for tracing and authentication
-	Metadata *messages1.RequestMetadata
+	Metadata *proto.RequestMetadata
 	// Transaction ID if this batch is part of a transaction
 	TransactionId *string
 }
@@ -271,15 +270,15 @@ const file_pkg_db_proto_requests_execute_batch_request_proto_rawDesc = "" +
 	"\bdatabase\x18\x02 \x01(\tR\bdatabase\x12F\n" +
 	"\aoptions\x18\x03 \x01(\v2(.gcommon.v1.database.BatchExecuteOptionsB\x02(\x01R\aoptions\x12B\n" +
 	"\bmetadata\x18\x04 \x01(\v2\".gcommon.v1.common.RequestMetadataB\x02(\x01R\bmetadata\x12%\n" +
-	"\x0etransaction_id\x18\x05 \x01(\tR\rtransactionIdB\xda\x01\n" +
-	"\x17com.gcommon.v1.databaseB\x18ExecuteBatchRequestProtoP\x01Z/github.com/jdfalk/gcommon/pkg/db/proto/requests\xa2\x02\x03GVD\xaa\x02\x13Gcommon.V1.Database\xca\x02\x13Gcommon\\V1\\Database\xe2\x02\x1fGcommon\\V1\\Database\\GPBMetadata\xea\x02\x15Gcommon::V1::Database\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
+	"\x0etransaction_id\x18\x05 \x01(\tR\rtransactionIdB\xd6\x01\n" +
+	"\x17com.gcommon.v1.databaseB\x18ExecuteBatchRequestProtoP\x01Z+github.com/jdfalk/gcommon/pkg/db/proto;dbpb\xa2\x02\x03GVD\xaa\x02\x13Gcommon.V1.Database\xca\x02\x13Gcommon\\V1\\Database\xe2\x02\x1fGcommon\\V1\\Database\\GPBMetadata\xea\x02\x15Gcommon::V1::Database\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
 
 var file_pkg_db_proto_requests_execute_batch_request_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_pkg_db_proto_requests_execute_batch_request_proto_goTypes = []any{
-	(*ExecuteBatchRequest)(nil),          // 0: gcommon.v1.database.ExecuteBatchRequest
-	(*messages.BatchOperation)(nil),      // 1: gcommon.v1.database.BatchOperation
-	(*messages.BatchExecuteOptions)(nil), // 2: gcommon.v1.database.BatchExecuteOptions
-	(*messages1.RequestMetadata)(nil),    // 3: gcommon.v1.common.RequestMetadata
+	(*ExecuteBatchRequest)(nil),   // 0: gcommon.v1.database.ExecuteBatchRequest
+	(*BatchOperation)(nil),        // 1: gcommon.v1.database.BatchOperation
+	(*BatchExecuteOptions)(nil),   // 2: gcommon.v1.database.BatchExecuteOptions
+	(*proto.RequestMetadata)(nil), // 3: gcommon.v1.common.RequestMetadata
 }
 var file_pkg_db_proto_requests_execute_batch_request_proto_depIdxs = []int32{
 	1, // 0: gcommon.v1.database.ExecuteBatchRequest.operations:type_name -> gcommon.v1.database.BatchOperation
@@ -297,6 +296,8 @@ func file_pkg_db_proto_requests_execute_batch_request_proto_init() {
 	if File_pkg_db_proto_requests_execute_batch_request_proto != nil {
 		return
 	}
+	file_pkg_db_proto_messages_batch_operation_proto_init()
+	file_pkg_db_proto_messages_batch_execute_options_proto_init()
 	type x struct{}
 	out := protoimpl.TypeBuilder{
 		File: protoimpl.DescBuilder{

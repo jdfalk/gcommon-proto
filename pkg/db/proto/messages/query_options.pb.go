@@ -6,10 +6,9 @@
 
 //go:build !protoopaque
 
-package messages
+package dbpb
 
 import (
-	enums "github.com/jdfalk/gcommon/pkg/db/proto/enums"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
@@ -39,7 +38,7 @@ type QueryOptions struct {
 	// Whether to include column metadata in response
 	IncludeMetadata *bool `protobuf:"varint,4,opt,name=include_metadata,json=includeMetadata" json:"include_metadata,omitempty"`
 	// Read consistency level for the query
-	Consistency   *enums.ConsistencyLevel `protobuf:"varint,5,opt,name=consistency,enum=gcommon.v1.database.ConsistencyLevel" json:"consistency,omitempty"`
+	Consistency   *ConsistencyLevel `protobuf:"varint,5,opt,name=consistency,enum=gcommon.v1.database.ConsistencyLevel" json:"consistency,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -97,11 +96,11 @@ func (x *QueryOptions) GetIncludeMetadata() bool {
 	return false
 }
 
-func (x *QueryOptions) GetConsistency() enums.ConsistencyLevel {
+func (x *QueryOptions) GetConsistency() ConsistencyLevel {
 	if x != nil && x.Consistency != nil {
 		return *x.Consistency
 	}
-	return enums.ConsistencyLevel(0)
+	return ConsistencyLevel_CONSISTENCY_LEVEL_UNSPECIFIED
 }
 
 func (x *QueryOptions) SetLimit(v int32) {
@@ -120,7 +119,7 @@ func (x *QueryOptions) SetIncludeMetadata(v bool) {
 	x.IncludeMetadata = &v
 }
 
-func (x *QueryOptions) SetConsistency(v enums.ConsistencyLevel) {
+func (x *QueryOptions) SetConsistency(v ConsistencyLevel) {
 	x.Consistency = &v
 }
 
@@ -191,7 +190,7 @@ type QueryOptions_builder struct {
 	// Whether to include column metadata in response
 	IncludeMetadata *bool
 	// Read consistency level for the query
-	Consistency *enums.ConsistencyLevel
+	Consistency *ConsistencyLevel
 }
 
 func (b0 QueryOptions_builder) Build() *QueryOptions {
@@ -216,14 +215,14 @@ const file_pkg_db_proto_messages_query_options_proto_rawDesc = "" +
 	"\x06offset\x18\x02 \x01(\x05R\x06offset\x127\n" +
 	"\atimeout\x18\x03 \x01(\v2\x19.google.protobuf.DurationB\x02(\x01R\atimeout\x12)\n" +
 	"\x10include_metadata\x18\x04 \x01(\bR\x0fincludeMetadata\x12G\n" +
-	"\vconsistency\x18\x05 \x01(\x0e2%.gcommon.v1.database.ConsistencyLevelR\vconsistencyB\xd3\x01\n" +
-	"\x17com.gcommon.v1.databaseB\x11QueryOptionsProtoP\x01Z/github.com/jdfalk/gcommon/pkg/db/proto/messages\xa2\x02\x03GVD\xaa\x02\x13Gcommon.V1.Database\xca\x02\x13Gcommon\\V1\\Database\xe2\x02\x1fGcommon\\V1\\Database\\GPBMetadata\xea\x02\x15Gcommon::V1::Database\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
+	"\vconsistency\x18\x05 \x01(\x0e2%.gcommon.v1.database.ConsistencyLevelR\vconsistencyB\xcf\x01\n" +
+	"\x17com.gcommon.v1.databaseB\x11QueryOptionsProtoP\x01Z+github.com/jdfalk/gcommon/pkg/db/proto;dbpb\xa2\x02\x03GVD\xaa\x02\x13Gcommon.V1.Database\xca\x02\x13Gcommon\\V1\\Database\xe2\x02\x1fGcommon\\V1\\Database\\GPBMetadata\xea\x02\x15Gcommon::V1::Database\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
 
 var file_pkg_db_proto_messages_query_options_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_pkg_db_proto_messages_query_options_proto_goTypes = []any{
 	(*QueryOptions)(nil),        // 0: gcommon.v1.database.QueryOptions
 	(*durationpb.Duration)(nil), // 1: google.protobuf.Duration
-	(enums.ConsistencyLevel)(0), // 2: gcommon.v1.database.ConsistencyLevel
+	(ConsistencyLevel)(0),       // 2: gcommon.v1.database.ConsistencyLevel
 }
 var file_pkg_db_proto_messages_query_options_proto_depIdxs = []int32{
 	1, // 0: gcommon.v1.database.QueryOptions.timeout:type_name -> google.protobuf.Duration
@@ -240,6 +239,7 @@ func file_pkg_db_proto_messages_query_options_proto_init() {
 	if File_pkg_db_proto_messages_query_options_proto != nil {
 		return
 	}
+	file_pkg_db_proto_enums_consistency_level_proto_init()
 	type x struct{}
 	out := protoimpl.TypeBuilder{
 		File: protoimpl.DescBuilder{

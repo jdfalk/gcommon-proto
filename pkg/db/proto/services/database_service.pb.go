@@ -6,11 +6,9 @@
 
 //go:build !protoopaque
 
-package services
+package dbpb
 
 import (
-	requests "github.com/jdfalk/gcommon/pkg/db/proto/requests"
-	responses "github.com/jdfalk/gcommon/pkg/db/proto/responses"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
@@ -39,25 +37,25 @@ const file_pkg_db_proto_services_database_service_proto_rawDesc = "" +
 	"\x11CommitTransaction\x12-.gcommon.v1.database.CommitTransactionRequest\x1a\x16.google.protobuf.Empty\x12^\n" +
 	"\x13RollbackTransaction\x12/.gcommon.v1.database.RollbackTransactionRequest\x1a\x16.google.protobuf.Empty\x12r\n" +
 	"\x11GetConnectionInfo\x12-.gcommon.v1.database.GetConnectionInfoRequest\x1a..gcommon.v1.database.GetConnectionInfoResponse\x12`\n" +
-	"\vHealthCheck\x12'.gcommon.v1.database.HealthCheckRequest\x1a(.gcommon.v1.database.HealthCheckResponseB\xd6\x01\n" +
-	"\x17com.gcommon.v1.databaseB\x14DatabaseServiceProtoP\x01Z/github.com/jdfalk/gcommon/pkg/db/proto/services\xa2\x02\x03GVD\xaa\x02\x13Gcommon.V1.Database\xca\x02\x13Gcommon\\V1\\Database\xe2\x02\x1fGcommon\\V1\\Database\\GPBMetadata\xea\x02\x15Gcommon::V1::Database\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
+	"\vHealthCheck\x12'.gcommon.v1.database.HealthCheckRequest\x1a(.gcommon.v1.database.HealthCheckResponseB\xd2\x01\n" +
+	"\x17com.gcommon.v1.databaseB\x14DatabaseServiceProtoP\x01Z+github.com/jdfalk/gcommon/pkg/db/proto;dbpb\xa2\x02\x03GVD\xaa\x02\x13Gcommon.V1.Database\xca\x02\x13Gcommon\\V1\\Database\xe2\x02\x1fGcommon\\V1\\Database\\GPBMetadata\xea\x02\x15Gcommon::V1::Database\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
 
 var file_pkg_db_proto_services_database_service_proto_goTypes = []any{
-	(*requests.QueryRequest)(nil),               // 0: gcommon.v1.database.QueryRequest
-	(*requests.ExecuteRequest)(nil),             // 1: gcommon.v1.database.ExecuteRequest
-	(*requests.ExecuteBatchRequest)(nil),        // 2: gcommon.v1.database.ExecuteBatchRequest
-	(*requests.BeginTransactionRequest)(nil),    // 3: gcommon.v1.database.BeginTransactionRequest
-	(*requests.CommitTransactionRequest)(nil),   // 4: gcommon.v1.database.CommitTransactionRequest
-	(*requests.RollbackTransactionRequest)(nil), // 5: gcommon.v1.database.RollbackTransactionRequest
-	(*requests.GetConnectionInfoRequest)(nil),   // 6: gcommon.v1.database.GetConnectionInfoRequest
-	(*requests.HealthCheckRequest)(nil),         // 7: gcommon.v1.database.HealthCheckRequest
-	(*responses.QueryResponse)(nil),             // 8: gcommon.v1.database.QueryResponse
-	(*responses.ExecuteResponse)(nil),           // 9: gcommon.v1.database.ExecuteResponse
-	(*responses.ExecuteBatchResponse)(nil),      // 10: gcommon.v1.database.ExecuteBatchResponse
-	(*responses.BeginTransactionResponse)(nil),  // 11: gcommon.v1.database.BeginTransactionResponse
-	(*emptypb.Empty)(nil),                       // 12: google.protobuf.Empty
-	(*responses.GetConnectionInfoResponse)(nil), // 13: gcommon.v1.database.GetConnectionInfoResponse
-	(*responses.HealthCheckResponse)(nil),       // 14: gcommon.v1.database.HealthCheckResponse
+	(*QueryRequest)(nil),               // 0: gcommon.v1.database.QueryRequest
+	(*ExecuteRequest)(nil),             // 1: gcommon.v1.database.ExecuteRequest
+	(*ExecuteBatchRequest)(nil),        // 2: gcommon.v1.database.ExecuteBatchRequest
+	(*BeginTransactionRequest)(nil),    // 3: gcommon.v1.database.BeginTransactionRequest
+	(*CommitTransactionRequest)(nil),   // 4: gcommon.v1.database.CommitTransactionRequest
+	(*RollbackTransactionRequest)(nil), // 5: gcommon.v1.database.RollbackTransactionRequest
+	(*GetConnectionInfoRequest)(nil),   // 6: gcommon.v1.database.GetConnectionInfoRequest
+	(*HealthCheckRequest)(nil),         // 7: gcommon.v1.database.HealthCheckRequest
+	(*QueryResponse)(nil),              // 8: gcommon.v1.database.QueryResponse
+	(*ExecuteResponse)(nil),            // 9: gcommon.v1.database.ExecuteResponse
+	(*ExecuteBatchResponse)(nil),       // 10: gcommon.v1.database.ExecuteBatchResponse
+	(*BeginTransactionResponse)(nil),   // 11: gcommon.v1.database.BeginTransactionResponse
+	(*emptypb.Empty)(nil),              // 12: google.protobuf.Empty
+	(*GetConnectionInfoResponse)(nil),  // 13: gcommon.v1.database.GetConnectionInfoResponse
+	(*HealthCheckResponse)(nil),        // 14: gcommon.v1.database.HealthCheckResponse
 }
 var file_pkg_db_proto_services_database_service_proto_depIdxs = []int32{
 	0,  // 0: gcommon.v1.database.DatabaseService.Query:input_type -> gcommon.v1.database.QueryRequest
@@ -88,6 +86,20 @@ func file_pkg_db_proto_services_database_service_proto_init() {
 	if File_pkg_db_proto_services_database_service_proto != nil {
 		return
 	}
+	file_pkg_db_proto_requests_query_request_proto_init()
+	file_pkg_db_proto_responses_query_response_proto_init()
+	file_pkg_db_proto_requests_execute_request_proto_init()
+	file_pkg_db_proto_responses_execute_response_proto_init()
+	file_pkg_db_proto_requests_execute_batch_request_proto_init()
+	file_pkg_db_proto_responses_execute_batch_response_proto_init()
+	file_pkg_db_proto_requests_begin_transaction_request_proto_init()
+	file_pkg_db_proto_responses_begin_transaction_response_proto_init()
+	file_pkg_db_proto_requests_commit_transaction_request_proto_init()
+	file_pkg_db_proto_requests_rollback_transaction_request_proto_init()
+	file_pkg_db_proto_requests_get_connection_info_request_proto_init()
+	file_pkg_db_proto_responses_get_connection_info_response_proto_init()
+	file_pkg_db_proto_requests_health_check_request_proto_init()
+	file_pkg_db_proto_responses_health_check_response_proto_init()
 	type x struct{}
 	out := protoimpl.TypeBuilder{
 		File: protoimpl.DescBuilder{

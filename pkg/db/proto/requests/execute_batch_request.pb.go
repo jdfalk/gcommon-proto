@@ -6,11 +6,10 @@
 
 //go:build !protoopaque
 
-package requests
+package dbpb
 
 import (
-	messages1 "github.com/jdfalk/gcommon/pkg/common/proto/messages"
-	messages "github.com/jdfalk/gcommon/pkg/db/proto/messages"
+	proto "github.com/jdfalk/gcommon/pkg/common/proto"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
@@ -31,13 +30,13 @@ const (
 type ExecuteBatchRequest struct {
 	state protoimpl.MessageState `protogen:"hybrid.v1"`
 	// List of operations to execute in the batch
-	Operations []*messages.BatchOperation `protobuf:"bytes,1,rep,name=operations" json:"operations,omitempty"`
+	Operations []*BatchOperation `protobuf:"bytes,1,rep,name=operations" json:"operations,omitempty"`
 	// Database name (optional, uses default if not specified)
 	Database *string `protobuf:"bytes,2,opt,name=database" json:"database,omitempty"`
 	// Batch execution options and configuration
-	Options *messages.BatchExecuteOptions `protobuf:"bytes,3,opt,name=options" json:"options,omitempty"`
+	Options *BatchExecuteOptions `protobuf:"bytes,3,opt,name=options" json:"options,omitempty"`
 	// Request metadata for tracing and authentication
-	Metadata *messages1.RequestMetadata `protobuf:"bytes,4,opt,name=metadata" json:"metadata,omitempty"`
+	Metadata *proto.RequestMetadata `protobuf:"bytes,4,opt,name=metadata" json:"metadata,omitempty"`
 	// Transaction ID if this batch is part of a transaction
 	TransactionId *string `protobuf:"bytes,5,opt,name=transaction_id,json=transactionId" json:"transaction_id,omitempty"`
 	unknownFields protoimpl.UnknownFields
@@ -69,7 +68,7 @@ func (x *ExecuteBatchRequest) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-func (x *ExecuteBatchRequest) GetOperations() []*messages.BatchOperation {
+func (x *ExecuteBatchRequest) GetOperations() []*BatchOperation {
 	if x != nil {
 		return x.Operations
 	}
@@ -83,14 +82,14 @@ func (x *ExecuteBatchRequest) GetDatabase() string {
 	return ""
 }
 
-func (x *ExecuteBatchRequest) GetOptions() *messages.BatchExecuteOptions {
+func (x *ExecuteBatchRequest) GetOptions() *BatchExecuteOptions {
 	if x != nil {
 		return x.Options
 	}
 	return nil
 }
 
-func (x *ExecuteBatchRequest) GetMetadata() *messages1.RequestMetadata {
+func (x *ExecuteBatchRequest) GetMetadata() *proto.RequestMetadata {
 	if x != nil {
 		return x.Metadata
 	}
@@ -104,7 +103,7 @@ func (x *ExecuteBatchRequest) GetTransactionId() string {
 	return ""
 }
 
-func (x *ExecuteBatchRequest) SetOperations(v []*messages.BatchOperation) {
+func (x *ExecuteBatchRequest) SetOperations(v []*BatchOperation) {
 	x.Operations = v
 }
 
@@ -112,11 +111,11 @@ func (x *ExecuteBatchRequest) SetDatabase(v string) {
 	x.Database = &v
 }
 
-func (x *ExecuteBatchRequest) SetOptions(v *messages.BatchExecuteOptions) {
+func (x *ExecuteBatchRequest) SetOptions(v *BatchExecuteOptions) {
 	x.Options = v
 }
 
-func (x *ExecuteBatchRequest) SetMetadata(v *messages1.RequestMetadata) {
+func (x *ExecuteBatchRequest) SetMetadata(v *proto.RequestMetadata) {
 	x.Metadata = v
 }
 
@@ -172,13 +171,13 @@ type ExecuteBatchRequest_builder struct {
 	_ [0]func() // Prevents comparability and use of unkeyed literals for the builder.
 
 	// List of operations to execute in the batch
-	Operations []*messages.BatchOperation
+	Operations []*BatchOperation
 	// Database name (optional, uses default if not specified)
 	Database *string
 	// Batch execution options and configuration
-	Options *messages.BatchExecuteOptions
+	Options *BatchExecuteOptions
 	// Request metadata for tracing and authentication
-	Metadata *messages1.RequestMetadata
+	Metadata *proto.RequestMetadata
 	// Transaction ID if this batch is part of a transaction
 	TransactionId *string
 }
@@ -207,15 +206,15 @@ const file_pkg_db_proto_requests_execute_batch_request_proto_rawDesc = "" +
 	"\bdatabase\x18\x02 \x01(\tR\bdatabase\x12F\n" +
 	"\aoptions\x18\x03 \x01(\v2(.gcommon.v1.database.BatchExecuteOptionsB\x02(\x01R\aoptions\x12B\n" +
 	"\bmetadata\x18\x04 \x01(\v2\".gcommon.v1.common.RequestMetadataB\x02(\x01R\bmetadata\x12%\n" +
-	"\x0etransaction_id\x18\x05 \x01(\tR\rtransactionIdB\xda\x01\n" +
-	"\x17com.gcommon.v1.databaseB\x18ExecuteBatchRequestProtoP\x01Z/github.com/jdfalk/gcommon/pkg/db/proto/requests\xa2\x02\x03GVD\xaa\x02\x13Gcommon.V1.Database\xca\x02\x13Gcommon\\V1\\Database\xe2\x02\x1fGcommon\\V1\\Database\\GPBMetadata\xea\x02\x15Gcommon::V1::Database\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
+	"\x0etransaction_id\x18\x05 \x01(\tR\rtransactionIdB\xd6\x01\n" +
+	"\x17com.gcommon.v1.databaseB\x18ExecuteBatchRequestProtoP\x01Z+github.com/jdfalk/gcommon/pkg/db/proto;dbpb\xa2\x02\x03GVD\xaa\x02\x13Gcommon.V1.Database\xca\x02\x13Gcommon\\V1\\Database\xe2\x02\x1fGcommon\\V1\\Database\\GPBMetadata\xea\x02\x15Gcommon::V1::Database\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
 
 var file_pkg_db_proto_requests_execute_batch_request_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_pkg_db_proto_requests_execute_batch_request_proto_goTypes = []any{
-	(*ExecuteBatchRequest)(nil),          // 0: gcommon.v1.database.ExecuteBatchRequest
-	(*messages.BatchOperation)(nil),      // 1: gcommon.v1.database.BatchOperation
-	(*messages.BatchExecuteOptions)(nil), // 2: gcommon.v1.database.BatchExecuteOptions
-	(*messages1.RequestMetadata)(nil),    // 3: gcommon.v1.common.RequestMetadata
+	(*ExecuteBatchRequest)(nil),   // 0: gcommon.v1.database.ExecuteBatchRequest
+	(*BatchOperation)(nil),        // 1: gcommon.v1.database.BatchOperation
+	(*BatchExecuteOptions)(nil),   // 2: gcommon.v1.database.BatchExecuteOptions
+	(*proto.RequestMetadata)(nil), // 3: gcommon.v1.common.RequestMetadata
 }
 var file_pkg_db_proto_requests_execute_batch_request_proto_depIdxs = []int32{
 	1, // 0: gcommon.v1.database.ExecuteBatchRequest.operations:type_name -> gcommon.v1.database.BatchOperation
@@ -233,6 +232,8 @@ func file_pkg_db_proto_requests_execute_batch_request_proto_init() {
 	if File_pkg_db_proto_requests_execute_batch_request_proto != nil {
 		return
 	}
+	file_pkg_db_proto_messages_batch_operation_proto_init()
+	file_pkg_db_proto_messages_batch_execute_options_proto_init()
 	type x struct{}
 	out := protoimpl.TypeBuilder{
 		File: protoimpl.DescBuilder{

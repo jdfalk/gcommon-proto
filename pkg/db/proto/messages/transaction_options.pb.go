@@ -6,10 +6,9 @@
 
 //go:build !protoopaque
 
-package messages
+package dbpb
 
 import (
-	enums "github.com/jdfalk/gcommon/pkg/db/proto/enums"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
@@ -31,7 +30,7 @@ const (
 type TransactionOptions struct {
 	state protoimpl.MessageState `protogen:"hybrid.v1"`
 	// Isolation level for the transaction
-	Isolation *enums.IsolationLevel `protobuf:"varint,1,opt,name=isolation,enum=gcommon.v1.database.IsolationLevel" json:"isolation,omitempty"`
+	Isolation *IsolationLevel `protobuf:"varint,1,opt,name=isolation,enum=gcommon.v1.database.IsolationLevel" json:"isolation,omitempty"`
 	// Transaction timeout before automatic rollback
 	Timeout *durationpb.Duration `protobuf:"bytes,2,opt,name=timeout" json:"timeout,omitempty"`
 	// Whether this is a read-only transaction
@@ -65,11 +64,11 @@ func (x *TransactionOptions) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-func (x *TransactionOptions) GetIsolation() enums.IsolationLevel {
+func (x *TransactionOptions) GetIsolation() IsolationLevel {
 	if x != nil && x.Isolation != nil {
 		return *x.Isolation
 	}
-	return enums.IsolationLevel(0)
+	return IsolationLevel_ISOLATION_LEVEL_UNSPECIFIED
 }
 
 func (x *TransactionOptions) GetTimeout() *durationpb.Duration {
@@ -86,7 +85,7 @@ func (x *TransactionOptions) GetReadOnly() bool {
 	return false
 }
 
-func (x *TransactionOptions) SetIsolation(v enums.IsolationLevel) {
+func (x *TransactionOptions) SetIsolation(v IsolationLevel) {
 	x.Isolation = &v
 }
 
@@ -135,7 +134,7 @@ type TransactionOptions_builder struct {
 	_ [0]func() // Prevents comparability and use of unkeyed literals for the builder.
 
 	// Isolation level for the transaction
-	Isolation *enums.IsolationLevel
+	Isolation *IsolationLevel
 	// Transaction timeout before automatic rollback
 	Timeout *durationpb.Duration
 	// Whether this is a read-only transaction
@@ -160,13 +159,13 @@ const file_pkg_db_proto_messages_transaction_options_proto_rawDesc = "" +
 	"\x12TransactionOptions\x12A\n" +
 	"\tisolation\x18\x01 \x01(\x0e2#.gcommon.v1.database.IsolationLevelR\tisolation\x127\n" +
 	"\atimeout\x18\x02 \x01(\v2\x19.google.protobuf.DurationB\x02(\x01R\atimeout\x12\x1b\n" +
-	"\tread_only\x18\x03 \x01(\bR\breadOnlyB\xd9\x01\n" +
-	"\x17com.gcommon.v1.databaseB\x17TransactionOptionsProtoP\x01Z/github.com/jdfalk/gcommon/pkg/db/proto/messages\xa2\x02\x03GVD\xaa\x02\x13Gcommon.V1.Database\xca\x02\x13Gcommon\\V1\\Database\xe2\x02\x1fGcommon\\V1\\Database\\GPBMetadata\xea\x02\x15Gcommon::V1::Database\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
+	"\tread_only\x18\x03 \x01(\bR\breadOnlyB\xd5\x01\n" +
+	"\x17com.gcommon.v1.databaseB\x17TransactionOptionsProtoP\x01Z+github.com/jdfalk/gcommon/pkg/db/proto;dbpb\xa2\x02\x03GVD\xaa\x02\x13Gcommon.V1.Database\xca\x02\x13Gcommon\\V1\\Database\xe2\x02\x1fGcommon\\V1\\Database\\GPBMetadata\xea\x02\x15Gcommon::V1::Database\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
 
 var file_pkg_db_proto_messages_transaction_options_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_pkg_db_proto_messages_transaction_options_proto_goTypes = []any{
 	(*TransactionOptions)(nil),  // 0: gcommon.v1.database.TransactionOptions
-	(enums.IsolationLevel)(0),   // 1: gcommon.v1.database.IsolationLevel
+	(IsolationLevel)(0),         // 1: gcommon.v1.database.IsolationLevel
 	(*durationpb.Duration)(nil), // 2: google.protobuf.Duration
 }
 var file_pkg_db_proto_messages_transaction_options_proto_depIdxs = []int32{
@@ -184,6 +183,7 @@ func file_pkg_db_proto_messages_transaction_options_proto_init() {
 	if File_pkg_db_proto_messages_transaction_options_proto != nil {
 		return
 	}
+	file_pkg_db_proto_enums_isolation_level_proto_init()
 	type x struct{}
 	out := protoimpl.TypeBuilder{
 		File: protoimpl.DescBuilder{

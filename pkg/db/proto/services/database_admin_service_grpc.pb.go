@@ -4,12 +4,10 @@
 // - protoc             (unknown)
 // source: pkg/db/proto/services/database_admin_service.proto
 
-package services
+package dbpb
 
 import (
 	context "context"
-	requests "github.com/jdfalk/gcommon/pkg/db/proto/requests"
-	responses "github.com/jdfalk/gcommon/pkg/db/proto/responses"
 	grpc "google.golang.org/grpc"
 	codes "google.golang.org/grpc/codes"
 	status "google.golang.org/grpc/status"
@@ -42,23 +40,23 @@ const (
 // management including schema operations and migrations.
 type DatabaseAdminServiceClient interface {
 	// Create a new database
-	CreateDatabase(ctx context.Context, in *requests.CreateDatabaseRequest, opts ...grpc.CallOption) (*responses.CreateDatabaseResponse, error)
+	CreateDatabase(ctx context.Context, in *CreateDatabaseRequest, opts ...grpc.CallOption) (*CreateDatabaseResponse, error)
 	// Remove an existing database
-	DropDatabase(ctx context.Context, in *requests.DropDatabaseRequest, opts ...grpc.CallOption) (*emptypb.Empty, error)
+	DropDatabase(ctx context.Context, in *DropDatabaseRequest, opts ...grpc.CallOption) (*emptypb.Empty, error)
 	// List all available databases
-	ListDatabases(ctx context.Context, in *requests.ListDatabasesRequest, opts ...grpc.CallOption) (*responses.ListDatabasesResponse, error)
+	ListDatabases(ctx context.Context, in *ListDatabasesRequest, opts ...grpc.CallOption) (*ListDatabasesResponse, error)
 	// Get metadata about a specific database
-	GetDatabaseInfo(ctx context.Context, in *requests.GetDatabaseInfoRequest, opts ...grpc.CallOption) (*responses.GetDatabaseInfoResponse, error)
+	GetDatabaseInfo(ctx context.Context, in *GetDatabaseInfoRequest, opts ...grpc.CallOption) (*GetDatabaseInfoResponse, error)
 	// Create a new schema within a database
-	CreateSchema(ctx context.Context, in *requests.CreateSchemaRequest, opts ...grpc.CallOption) (*responses.CreateSchemaResponse, error)
+	CreateSchema(ctx context.Context, in *CreateSchemaRequest, opts ...grpc.CallOption) (*CreateSchemaResponse, error)
 	// Remove a schema from a database
-	DropSchema(ctx context.Context, in *requests.DropSchemaRequest, opts ...grpc.CallOption) (*emptypb.Empty, error)
+	DropSchema(ctx context.Context, in *DropSchemaRequest, opts ...grpc.CallOption) (*emptypb.Empty, error)
 	// List all schemas in a database
-	ListSchemas(ctx context.Context, in *requests.ListSchemasRequest, opts ...grpc.CallOption) (*responses.ListSchemasResponse, error)
+	ListSchemas(ctx context.Context, in *ListSchemasRequest, opts ...grpc.CallOption) (*ListSchemasResponse, error)
 	// Execute database migration scripts
-	RunMigration(ctx context.Context, in *requests.RunMigrationRequest, opts ...grpc.CallOption) (*responses.RunMigrationResponse, error)
+	RunMigration(ctx context.Context, in *RunMigrationRequest, opts ...grpc.CallOption) (*RunMigrationResponse, error)
 	// Get current migration status for a database
-	GetMigrationStatus(ctx context.Context, in *requests.GetMigrationStatusRequest, opts ...grpc.CallOption) (*responses.GetMigrationStatusResponse, error)
+	GetMigrationStatus(ctx context.Context, in *GetMigrationStatusRequest, opts ...grpc.CallOption) (*GetMigrationStatusResponse, error)
 }
 
 type databaseAdminServiceClient struct {
@@ -69,9 +67,9 @@ func NewDatabaseAdminServiceClient(cc grpc.ClientConnInterface) DatabaseAdminSer
 	return &databaseAdminServiceClient{cc}
 }
 
-func (c *databaseAdminServiceClient) CreateDatabase(ctx context.Context, in *requests.CreateDatabaseRequest, opts ...grpc.CallOption) (*responses.CreateDatabaseResponse, error) {
+func (c *databaseAdminServiceClient) CreateDatabase(ctx context.Context, in *CreateDatabaseRequest, opts ...grpc.CallOption) (*CreateDatabaseResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(responses.CreateDatabaseResponse)
+	out := new(CreateDatabaseResponse)
 	err := c.cc.Invoke(ctx, DatabaseAdminService_CreateDatabase_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
@@ -79,7 +77,7 @@ func (c *databaseAdminServiceClient) CreateDatabase(ctx context.Context, in *req
 	return out, nil
 }
 
-func (c *databaseAdminServiceClient) DropDatabase(ctx context.Context, in *requests.DropDatabaseRequest, opts ...grpc.CallOption) (*emptypb.Empty, error) {
+func (c *databaseAdminServiceClient) DropDatabase(ctx context.Context, in *DropDatabaseRequest, opts ...grpc.CallOption) (*emptypb.Empty, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(emptypb.Empty)
 	err := c.cc.Invoke(ctx, DatabaseAdminService_DropDatabase_FullMethodName, in, out, cOpts...)
@@ -89,9 +87,9 @@ func (c *databaseAdminServiceClient) DropDatabase(ctx context.Context, in *reque
 	return out, nil
 }
 
-func (c *databaseAdminServiceClient) ListDatabases(ctx context.Context, in *requests.ListDatabasesRequest, opts ...grpc.CallOption) (*responses.ListDatabasesResponse, error) {
+func (c *databaseAdminServiceClient) ListDatabases(ctx context.Context, in *ListDatabasesRequest, opts ...grpc.CallOption) (*ListDatabasesResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(responses.ListDatabasesResponse)
+	out := new(ListDatabasesResponse)
 	err := c.cc.Invoke(ctx, DatabaseAdminService_ListDatabases_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
@@ -99,9 +97,9 @@ func (c *databaseAdminServiceClient) ListDatabases(ctx context.Context, in *requ
 	return out, nil
 }
 
-func (c *databaseAdminServiceClient) GetDatabaseInfo(ctx context.Context, in *requests.GetDatabaseInfoRequest, opts ...grpc.CallOption) (*responses.GetDatabaseInfoResponse, error) {
+func (c *databaseAdminServiceClient) GetDatabaseInfo(ctx context.Context, in *GetDatabaseInfoRequest, opts ...grpc.CallOption) (*GetDatabaseInfoResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(responses.GetDatabaseInfoResponse)
+	out := new(GetDatabaseInfoResponse)
 	err := c.cc.Invoke(ctx, DatabaseAdminService_GetDatabaseInfo_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
@@ -109,9 +107,9 @@ func (c *databaseAdminServiceClient) GetDatabaseInfo(ctx context.Context, in *re
 	return out, nil
 }
 
-func (c *databaseAdminServiceClient) CreateSchema(ctx context.Context, in *requests.CreateSchemaRequest, opts ...grpc.CallOption) (*responses.CreateSchemaResponse, error) {
+func (c *databaseAdminServiceClient) CreateSchema(ctx context.Context, in *CreateSchemaRequest, opts ...grpc.CallOption) (*CreateSchemaResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(responses.CreateSchemaResponse)
+	out := new(CreateSchemaResponse)
 	err := c.cc.Invoke(ctx, DatabaseAdminService_CreateSchema_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
@@ -119,7 +117,7 @@ func (c *databaseAdminServiceClient) CreateSchema(ctx context.Context, in *reque
 	return out, nil
 }
 
-func (c *databaseAdminServiceClient) DropSchema(ctx context.Context, in *requests.DropSchemaRequest, opts ...grpc.CallOption) (*emptypb.Empty, error) {
+func (c *databaseAdminServiceClient) DropSchema(ctx context.Context, in *DropSchemaRequest, opts ...grpc.CallOption) (*emptypb.Empty, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(emptypb.Empty)
 	err := c.cc.Invoke(ctx, DatabaseAdminService_DropSchema_FullMethodName, in, out, cOpts...)
@@ -129,9 +127,9 @@ func (c *databaseAdminServiceClient) DropSchema(ctx context.Context, in *request
 	return out, nil
 }
 
-func (c *databaseAdminServiceClient) ListSchemas(ctx context.Context, in *requests.ListSchemasRequest, opts ...grpc.CallOption) (*responses.ListSchemasResponse, error) {
+func (c *databaseAdminServiceClient) ListSchemas(ctx context.Context, in *ListSchemasRequest, opts ...grpc.CallOption) (*ListSchemasResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(responses.ListSchemasResponse)
+	out := new(ListSchemasResponse)
 	err := c.cc.Invoke(ctx, DatabaseAdminService_ListSchemas_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
@@ -139,9 +137,9 @@ func (c *databaseAdminServiceClient) ListSchemas(ctx context.Context, in *reques
 	return out, nil
 }
 
-func (c *databaseAdminServiceClient) RunMigration(ctx context.Context, in *requests.RunMigrationRequest, opts ...grpc.CallOption) (*responses.RunMigrationResponse, error) {
+func (c *databaseAdminServiceClient) RunMigration(ctx context.Context, in *RunMigrationRequest, opts ...grpc.CallOption) (*RunMigrationResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(responses.RunMigrationResponse)
+	out := new(RunMigrationResponse)
 	err := c.cc.Invoke(ctx, DatabaseAdminService_RunMigration_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
@@ -149,9 +147,9 @@ func (c *databaseAdminServiceClient) RunMigration(ctx context.Context, in *reque
 	return out, nil
 }
 
-func (c *databaseAdminServiceClient) GetMigrationStatus(ctx context.Context, in *requests.GetMigrationStatusRequest, opts ...grpc.CallOption) (*responses.GetMigrationStatusResponse, error) {
+func (c *databaseAdminServiceClient) GetMigrationStatus(ctx context.Context, in *GetMigrationStatusRequest, opts ...grpc.CallOption) (*GetMigrationStatusResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(responses.GetMigrationStatusResponse)
+	out := new(GetMigrationStatusResponse)
 	err := c.cc.Invoke(ctx, DatabaseAdminService_GetMigrationStatus_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
@@ -168,23 +166,23 @@ func (c *databaseAdminServiceClient) GetMigrationStatus(ctx context.Context, in 
 // management including schema operations and migrations.
 type DatabaseAdminServiceServer interface {
 	// Create a new database
-	CreateDatabase(context.Context, *requests.CreateDatabaseRequest) (*responses.CreateDatabaseResponse, error)
+	CreateDatabase(context.Context, *CreateDatabaseRequest) (*CreateDatabaseResponse, error)
 	// Remove an existing database
-	DropDatabase(context.Context, *requests.DropDatabaseRequest) (*emptypb.Empty, error)
+	DropDatabase(context.Context, *DropDatabaseRequest) (*emptypb.Empty, error)
 	// List all available databases
-	ListDatabases(context.Context, *requests.ListDatabasesRequest) (*responses.ListDatabasesResponse, error)
+	ListDatabases(context.Context, *ListDatabasesRequest) (*ListDatabasesResponse, error)
 	// Get metadata about a specific database
-	GetDatabaseInfo(context.Context, *requests.GetDatabaseInfoRequest) (*responses.GetDatabaseInfoResponse, error)
+	GetDatabaseInfo(context.Context, *GetDatabaseInfoRequest) (*GetDatabaseInfoResponse, error)
 	// Create a new schema within a database
-	CreateSchema(context.Context, *requests.CreateSchemaRequest) (*responses.CreateSchemaResponse, error)
+	CreateSchema(context.Context, *CreateSchemaRequest) (*CreateSchemaResponse, error)
 	// Remove a schema from a database
-	DropSchema(context.Context, *requests.DropSchemaRequest) (*emptypb.Empty, error)
+	DropSchema(context.Context, *DropSchemaRequest) (*emptypb.Empty, error)
 	// List all schemas in a database
-	ListSchemas(context.Context, *requests.ListSchemasRequest) (*responses.ListSchemasResponse, error)
+	ListSchemas(context.Context, *ListSchemasRequest) (*ListSchemasResponse, error)
 	// Execute database migration scripts
-	RunMigration(context.Context, *requests.RunMigrationRequest) (*responses.RunMigrationResponse, error)
+	RunMigration(context.Context, *RunMigrationRequest) (*RunMigrationResponse, error)
 	// Get current migration status for a database
-	GetMigrationStatus(context.Context, *requests.GetMigrationStatusRequest) (*responses.GetMigrationStatusResponse, error)
+	GetMigrationStatus(context.Context, *GetMigrationStatusRequest) (*GetMigrationStatusResponse, error)
 }
 
 // UnimplementedDatabaseAdminServiceServer should be embedded to have
@@ -194,31 +192,31 @@ type DatabaseAdminServiceServer interface {
 // pointer dereference when methods are called.
 type UnimplementedDatabaseAdminServiceServer struct{}
 
-func (UnimplementedDatabaseAdminServiceServer) CreateDatabase(context.Context, *requests.CreateDatabaseRequest) (*responses.CreateDatabaseResponse, error) {
+func (UnimplementedDatabaseAdminServiceServer) CreateDatabase(context.Context, *CreateDatabaseRequest) (*CreateDatabaseResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method CreateDatabase not implemented")
 }
-func (UnimplementedDatabaseAdminServiceServer) DropDatabase(context.Context, *requests.DropDatabaseRequest) (*emptypb.Empty, error) {
+func (UnimplementedDatabaseAdminServiceServer) DropDatabase(context.Context, *DropDatabaseRequest) (*emptypb.Empty, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method DropDatabase not implemented")
 }
-func (UnimplementedDatabaseAdminServiceServer) ListDatabases(context.Context, *requests.ListDatabasesRequest) (*responses.ListDatabasesResponse, error) {
+func (UnimplementedDatabaseAdminServiceServer) ListDatabases(context.Context, *ListDatabasesRequest) (*ListDatabasesResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method ListDatabases not implemented")
 }
-func (UnimplementedDatabaseAdminServiceServer) GetDatabaseInfo(context.Context, *requests.GetDatabaseInfoRequest) (*responses.GetDatabaseInfoResponse, error) {
+func (UnimplementedDatabaseAdminServiceServer) GetDatabaseInfo(context.Context, *GetDatabaseInfoRequest) (*GetDatabaseInfoResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method GetDatabaseInfo not implemented")
 }
-func (UnimplementedDatabaseAdminServiceServer) CreateSchema(context.Context, *requests.CreateSchemaRequest) (*responses.CreateSchemaResponse, error) {
+func (UnimplementedDatabaseAdminServiceServer) CreateSchema(context.Context, *CreateSchemaRequest) (*CreateSchemaResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method CreateSchema not implemented")
 }
-func (UnimplementedDatabaseAdminServiceServer) DropSchema(context.Context, *requests.DropSchemaRequest) (*emptypb.Empty, error) {
+func (UnimplementedDatabaseAdminServiceServer) DropSchema(context.Context, *DropSchemaRequest) (*emptypb.Empty, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method DropSchema not implemented")
 }
-func (UnimplementedDatabaseAdminServiceServer) ListSchemas(context.Context, *requests.ListSchemasRequest) (*responses.ListSchemasResponse, error) {
+func (UnimplementedDatabaseAdminServiceServer) ListSchemas(context.Context, *ListSchemasRequest) (*ListSchemasResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method ListSchemas not implemented")
 }
-func (UnimplementedDatabaseAdminServiceServer) RunMigration(context.Context, *requests.RunMigrationRequest) (*responses.RunMigrationResponse, error) {
+func (UnimplementedDatabaseAdminServiceServer) RunMigration(context.Context, *RunMigrationRequest) (*RunMigrationResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method RunMigration not implemented")
 }
-func (UnimplementedDatabaseAdminServiceServer) GetMigrationStatus(context.Context, *requests.GetMigrationStatusRequest) (*responses.GetMigrationStatusResponse, error) {
+func (UnimplementedDatabaseAdminServiceServer) GetMigrationStatus(context.Context, *GetMigrationStatusRequest) (*GetMigrationStatusResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method GetMigrationStatus not implemented")
 }
 func (UnimplementedDatabaseAdminServiceServer) testEmbeddedByValue() {}
@@ -242,7 +240,7 @@ func RegisterDatabaseAdminServiceServer(s grpc.ServiceRegistrar, srv DatabaseAdm
 }
 
 func _DatabaseAdminService_CreateDatabase_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(requests.CreateDatabaseRequest)
+	in := new(CreateDatabaseRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
@@ -254,13 +252,13 @@ func _DatabaseAdminService_CreateDatabase_Handler(srv interface{}, ctx context.C
 		FullMethod: DatabaseAdminService_CreateDatabase_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(DatabaseAdminServiceServer).CreateDatabase(ctx, req.(*requests.CreateDatabaseRequest))
+		return srv.(DatabaseAdminServiceServer).CreateDatabase(ctx, req.(*CreateDatabaseRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
 func _DatabaseAdminService_DropDatabase_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(requests.DropDatabaseRequest)
+	in := new(DropDatabaseRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
@@ -272,13 +270,13 @@ func _DatabaseAdminService_DropDatabase_Handler(srv interface{}, ctx context.Con
 		FullMethod: DatabaseAdminService_DropDatabase_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(DatabaseAdminServiceServer).DropDatabase(ctx, req.(*requests.DropDatabaseRequest))
+		return srv.(DatabaseAdminServiceServer).DropDatabase(ctx, req.(*DropDatabaseRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
 func _DatabaseAdminService_ListDatabases_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(requests.ListDatabasesRequest)
+	in := new(ListDatabasesRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
@@ -290,13 +288,13 @@ func _DatabaseAdminService_ListDatabases_Handler(srv interface{}, ctx context.Co
 		FullMethod: DatabaseAdminService_ListDatabases_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(DatabaseAdminServiceServer).ListDatabases(ctx, req.(*requests.ListDatabasesRequest))
+		return srv.(DatabaseAdminServiceServer).ListDatabases(ctx, req.(*ListDatabasesRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
 func _DatabaseAdminService_GetDatabaseInfo_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(requests.GetDatabaseInfoRequest)
+	in := new(GetDatabaseInfoRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
@@ -308,13 +306,13 @@ func _DatabaseAdminService_GetDatabaseInfo_Handler(srv interface{}, ctx context.
 		FullMethod: DatabaseAdminService_GetDatabaseInfo_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(DatabaseAdminServiceServer).GetDatabaseInfo(ctx, req.(*requests.GetDatabaseInfoRequest))
+		return srv.(DatabaseAdminServiceServer).GetDatabaseInfo(ctx, req.(*GetDatabaseInfoRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
 func _DatabaseAdminService_CreateSchema_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(requests.CreateSchemaRequest)
+	in := new(CreateSchemaRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
@@ -326,13 +324,13 @@ func _DatabaseAdminService_CreateSchema_Handler(srv interface{}, ctx context.Con
 		FullMethod: DatabaseAdminService_CreateSchema_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(DatabaseAdminServiceServer).CreateSchema(ctx, req.(*requests.CreateSchemaRequest))
+		return srv.(DatabaseAdminServiceServer).CreateSchema(ctx, req.(*CreateSchemaRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
 func _DatabaseAdminService_DropSchema_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(requests.DropSchemaRequest)
+	in := new(DropSchemaRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
@@ -344,13 +342,13 @@ func _DatabaseAdminService_DropSchema_Handler(srv interface{}, ctx context.Conte
 		FullMethod: DatabaseAdminService_DropSchema_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(DatabaseAdminServiceServer).DropSchema(ctx, req.(*requests.DropSchemaRequest))
+		return srv.(DatabaseAdminServiceServer).DropSchema(ctx, req.(*DropSchemaRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
 func _DatabaseAdminService_ListSchemas_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(requests.ListSchemasRequest)
+	in := new(ListSchemasRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
@@ -362,13 +360,13 @@ func _DatabaseAdminService_ListSchemas_Handler(srv interface{}, ctx context.Cont
 		FullMethod: DatabaseAdminService_ListSchemas_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(DatabaseAdminServiceServer).ListSchemas(ctx, req.(*requests.ListSchemasRequest))
+		return srv.(DatabaseAdminServiceServer).ListSchemas(ctx, req.(*ListSchemasRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
 func _DatabaseAdminService_RunMigration_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(requests.RunMigrationRequest)
+	in := new(RunMigrationRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
@@ -380,13 +378,13 @@ func _DatabaseAdminService_RunMigration_Handler(srv interface{}, ctx context.Con
 		FullMethod: DatabaseAdminService_RunMigration_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(DatabaseAdminServiceServer).RunMigration(ctx, req.(*requests.RunMigrationRequest))
+		return srv.(DatabaseAdminServiceServer).RunMigration(ctx, req.(*RunMigrationRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
 func _DatabaseAdminService_GetMigrationStatus_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(requests.GetMigrationStatusRequest)
+	in := new(GetMigrationStatusRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
@@ -398,7 +396,7 @@ func _DatabaseAdminService_GetMigrationStatus_Handler(srv interface{}, ctx conte
 		FullMethod: DatabaseAdminService_GetMigrationStatus_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(DatabaseAdminServiceServer).GetMigrationStatus(ctx, req.(*requests.GetMigrationStatusRequest))
+		return srv.(DatabaseAdminServiceServer).GetMigrationStatus(ctx, req.(*GetMigrationStatusRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }

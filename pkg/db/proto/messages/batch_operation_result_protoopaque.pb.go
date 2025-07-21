@@ -6,10 +6,10 @@
 
 //go:build protoopaque
 
-package messages
+package dbpb
 
 import (
-	messages "github.com/jdfalk/gcommon/pkg/common/proto/messages"
+	proto "github.com/jdfalk/gcommon/pkg/common/proto"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
@@ -33,7 +33,7 @@ type BatchOperationResult struct {
 	xxx_hidden_Success       bool                   `protobuf:"varint,1,opt,name=success"`
 	xxx_hidden_AffectedRows  int64                  `protobuf:"varint,2,opt,name=affected_rows,json=affectedRows"`
 	xxx_hidden_GeneratedKeys *[]*anypb.Any          `protobuf:"bytes,3,rep,name=generated_keys,json=generatedKeys"`
-	xxx_hidden_Error         *messages.Error        `protobuf:"bytes,4,opt,name=error"`
+	xxx_hidden_Error         *proto.Error           `protobuf:"bytes,4,opt,name=error"`
 	// Deprecated: Do not use. This will be deleted in the near future.
 	XXX_lazyUnmarshalInfo  protoimpl.LazyUnmarshalInfo
 	XXX_raceDetectHookData protoimpl.RaceDetectHookData
@@ -95,13 +95,13 @@ func (x *BatchOperationResult) GetGeneratedKeys() []*anypb.Any {
 	return nil
 }
 
-func (x *BatchOperationResult) GetError() *messages.Error {
+func (x *BatchOperationResult) GetError() *proto.Error {
 	if x != nil {
 		if protoimpl.X.Present(&(x.XXX_presence[0]), 3) {
 			if protoimpl.X.AtomicCheckPointerIsNil(&x.xxx_hidden_Error) {
 				protoimpl.X.UnmarshalField(x, 4)
 			}
-			var rv *messages.Error
+			var rv *proto.Error
 			protoimpl.X.AtomicLoadPointer(protoimpl.Pointer(&x.xxx_hidden_Error), protoimpl.Pointer(&rv))
 			return rv
 		}
@@ -130,7 +130,7 @@ func (x *BatchOperationResult) SetGeneratedKeys(v []*anypb.Any) {
 	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 2, 4)
 }
 
-func (x *BatchOperationResult) SetError(v *messages.Error) {
+func (x *BatchOperationResult) SetError(v *proto.Error) {
 	protoimpl.X.AtomicSetPointer(&x.xxx_hidden_Error, v)
 	if v == nil {
 		protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 3)
@@ -172,7 +172,7 @@ func (x *BatchOperationResult) ClearAffectedRows() {
 
 func (x *BatchOperationResult) ClearError() {
 	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 3)
-	protoimpl.X.AtomicSetPointer(&x.xxx_hidden_Error, (*messages.Error)(nil))
+	protoimpl.X.AtomicSetPointer(&x.xxx_hidden_Error, (*proto.Error)(nil))
 }
 
 type BatchOperationResult_builder struct {
@@ -185,7 +185,7 @@ type BatchOperationResult_builder struct {
 	// Generated keys for INSERT operations
 	GeneratedKeys []*anypb.Any
 	// Error information if the operation failed
-	Error *messages.Error
+	Error *proto.Error
 }
 
 func (b0 BatchOperationResult_builder) Build() *BatchOperationResult {
@@ -220,14 +220,14 @@ const file_pkg_db_proto_messages_batch_operation_result_proto_rawDesc = "" +
 	"\asuccess\x18\x01 \x01(\bR\asuccess\x12#\n" +
 	"\raffected_rows\x18\x02 \x01(\x03R\faffectedRows\x12?\n" +
 	"\x0egenerated_keys\x18\x03 \x03(\v2\x14.google.protobuf.AnyB\x02(\x01R\rgeneratedKeys\x122\n" +
-	"\x05error\x18\x04 \x01(\v2\x18.gcommon.v1.common.ErrorB\x02(\x01R\x05errorB\xdb\x01\n" +
-	"\x17com.gcommon.v1.databaseB\x19BatchOperationResultProtoP\x01Z/github.com/jdfalk/gcommon/pkg/db/proto/messages\xa2\x02\x03GVD\xaa\x02\x13Gcommon.V1.Database\xca\x02\x13Gcommon\\V1\\Database\xe2\x02\x1fGcommon\\V1\\Database\\GPBMetadata\xea\x02\x15Gcommon::V1::Database\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
+	"\x05error\x18\x04 \x01(\v2\x18.gcommon.v1.common.ErrorB\x02(\x01R\x05errorB\xd7\x01\n" +
+	"\x17com.gcommon.v1.databaseB\x19BatchOperationResultProtoP\x01Z+github.com/jdfalk/gcommon/pkg/db/proto;dbpb\xa2\x02\x03GVD\xaa\x02\x13Gcommon.V1.Database\xca\x02\x13Gcommon\\V1\\Database\xe2\x02\x1fGcommon\\V1\\Database\\GPBMetadata\xea\x02\x15Gcommon::V1::Database\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
 
 var file_pkg_db_proto_messages_batch_operation_result_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_pkg_db_proto_messages_batch_operation_result_proto_goTypes = []any{
 	(*BatchOperationResult)(nil), // 0: gcommon.v1.database.BatchOperationResult
 	(*anypb.Any)(nil),            // 1: google.protobuf.Any
-	(*messages.Error)(nil),       // 2: gcommon.v1.common.Error
+	(*proto.Error)(nil),          // 2: gcommon.v1.common.Error
 }
 var file_pkg_db_proto_messages_batch_operation_result_proto_depIdxs = []int32{
 	1, // 0: gcommon.v1.database.BatchOperationResult.generated_keys:type_name -> google.protobuf.Any

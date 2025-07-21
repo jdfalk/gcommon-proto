@@ -4,12 +4,10 @@
 // - protoc             (unknown)
 // source: pkg/db/proto/services/database_service.proto
 
-package services
+package dbpb
 
 import (
 	context "context"
-	requests "github.com/jdfalk/gcommon/pkg/db/proto/requests"
-	responses "github.com/jdfalk/gcommon/pkg/db/proto/responses"
 	grpc "google.golang.org/grpc"
 	codes "google.golang.org/grpc/codes"
 	status "google.golang.org/grpc/status"
@@ -41,21 +39,21 @@ const (
 // queries, transactions, batch operations, and health monitoring.
 type DatabaseServiceClient interface {
 	// Execute a read-only query and return results
-	Query(ctx context.Context, in *requests.QueryRequest, opts ...grpc.CallOption) (*responses.QueryResponse, error)
+	Query(ctx context.Context, in *QueryRequest, opts ...grpc.CallOption) (*QueryResponse, error)
 	// Execute a write operation (INSERT, UPDATE, DELETE)
-	Execute(ctx context.Context, in *requests.ExecuteRequest, opts ...grpc.CallOption) (*responses.ExecuteResponse, error)
+	Execute(ctx context.Context, in *ExecuteRequest, opts ...grpc.CallOption) (*ExecuteResponse, error)
 	// Execute multiple operations in a single batch
-	ExecuteBatch(ctx context.Context, in *requests.ExecuteBatchRequest, opts ...grpc.CallOption) (*responses.ExecuteBatchResponse, error)
+	ExecuteBatch(ctx context.Context, in *ExecuteBatchRequest, opts ...grpc.CallOption) (*ExecuteBatchResponse, error)
 	// Start a new database transaction
-	BeginTransaction(ctx context.Context, in *requests.BeginTransactionRequest, opts ...grpc.CallOption) (*responses.BeginTransactionResponse, error)
+	BeginTransaction(ctx context.Context, in *BeginTransactionRequest, opts ...grpc.CallOption) (*BeginTransactionResponse, error)
 	// Commit an active transaction
-	CommitTransaction(ctx context.Context, in *requests.CommitTransactionRequest, opts ...grpc.CallOption) (*emptypb.Empty, error)
+	CommitTransaction(ctx context.Context, in *CommitTransactionRequest, opts ...grpc.CallOption) (*emptypb.Empty, error)
 	// Roll back an active transaction
-	RollbackTransaction(ctx context.Context, in *requests.RollbackTransactionRequest, opts ...grpc.CallOption) (*emptypb.Empty, error)
+	RollbackTransaction(ctx context.Context, in *RollbackTransactionRequest, opts ...grpc.CallOption) (*emptypb.Empty, error)
 	// Get information about database connection pool
-	GetConnectionInfo(ctx context.Context, in *requests.GetConnectionInfoRequest, opts ...grpc.CallOption) (*responses.GetConnectionInfoResponse, error)
+	GetConnectionInfo(ctx context.Context, in *GetConnectionInfoRequest, opts ...grpc.CallOption) (*GetConnectionInfoResponse, error)
 	// Check database connectivity and health
-	HealthCheck(ctx context.Context, in *requests.HealthCheckRequest, opts ...grpc.CallOption) (*responses.HealthCheckResponse, error)
+	HealthCheck(ctx context.Context, in *HealthCheckRequest, opts ...grpc.CallOption) (*HealthCheckResponse, error)
 }
 
 type databaseServiceClient struct {
@@ -66,9 +64,9 @@ func NewDatabaseServiceClient(cc grpc.ClientConnInterface) DatabaseServiceClient
 	return &databaseServiceClient{cc}
 }
 
-func (c *databaseServiceClient) Query(ctx context.Context, in *requests.QueryRequest, opts ...grpc.CallOption) (*responses.QueryResponse, error) {
+func (c *databaseServiceClient) Query(ctx context.Context, in *QueryRequest, opts ...grpc.CallOption) (*QueryResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(responses.QueryResponse)
+	out := new(QueryResponse)
 	err := c.cc.Invoke(ctx, DatabaseService_Query_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
@@ -76,9 +74,9 @@ func (c *databaseServiceClient) Query(ctx context.Context, in *requests.QueryReq
 	return out, nil
 }
 
-func (c *databaseServiceClient) Execute(ctx context.Context, in *requests.ExecuteRequest, opts ...grpc.CallOption) (*responses.ExecuteResponse, error) {
+func (c *databaseServiceClient) Execute(ctx context.Context, in *ExecuteRequest, opts ...grpc.CallOption) (*ExecuteResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(responses.ExecuteResponse)
+	out := new(ExecuteResponse)
 	err := c.cc.Invoke(ctx, DatabaseService_Execute_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
@@ -86,9 +84,9 @@ func (c *databaseServiceClient) Execute(ctx context.Context, in *requests.Execut
 	return out, nil
 }
 
-func (c *databaseServiceClient) ExecuteBatch(ctx context.Context, in *requests.ExecuteBatchRequest, opts ...grpc.CallOption) (*responses.ExecuteBatchResponse, error) {
+func (c *databaseServiceClient) ExecuteBatch(ctx context.Context, in *ExecuteBatchRequest, opts ...grpc.CallOption) (*ExecuteBatchResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(responses.ExecuteBatchResponse)
+	out := new(ExecuteBatchResponse)
 	err := c.cc.Invoke(ctx, DatabaseService_ExecuteBatch_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
@@ -96,9 +94,9 @@ func (c *databaseServiceClient) ExecuteBatch(ctx context.Context, in *requests.E
 	return out, nil
 }
 
-func (c *databaseServiceClient) BeginTransaction(ctx context.Context, in *requests.BeginTransactionRequest, opts ...grpc.CallOption) (*responses.BeginTransactionResponse, error) {
+func (c *databaseServiceClient) BeginTransaction(ctx context.Context, in *BeginTransactionRequest, opts ...grpc.CallOption) (*BeginTransactionResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(responses.BeginTransactionResponse)
+	out := new(BeginTransactionResponse)
 	err := c.cc.Invoke(ctx, DatabaseService_BeginTransaction_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
@@ -106,7 +104,7 @@ func (c *databaseServiceClient) BeginTransaction(ctx context.Context, in *reques
 	return out, nil
 }
 
-func (c *databaseServiceClient) CommitTransaction(ctx context.Context, in *requests.CommitTransactionRequest, opts ...grpc.CallOption) (*emptypb.Empty, error) {
+func (c *databaseServiceClient) CommitTransaction(ctx context.Context, in *CommitTransactionRequest, opts ...grpc.CallOption) (*emptypb.Empty, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(emptypb.Empty)
 	err := c.cc.Invoke(ctx, DatabaseService_CommitTransaction_FullMethodName, in, out, cOpts...)
@@ -116,7 +114,7 @@ func (c *databaseServiceClient) CommitTransaction(ctx context.Context, in *reque
 	return out, nil
 }
 
-func (c *databaseServiceClient) RollbackTransaction(ctx context.Context, in *requests.RollbackTransactionRequest, opts ...grpc.CallOption) (*emptypb.Empty, error) {
+func (c *databaseServiceClient) RollbackTransaction(ctx context.Context, in *RollbackTransactionRequest, opts ...grpc.CallOption) (*emptypb.Empty, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(emptypb.Empty)
 	err := c.cc.Invoke(ctx, DatabaseService_RollbackTransaction_FullMethodName, in, out, cOpts...)
@@ -126,9 +124,9 @@ func (c *databaseServiceClient) RollbackTransaction(ctx context.Context, in *req
 	return out, nil
 }
 
-func (c *databaseServiceClient) GetConnectionInfo(ctx context.Context, in *requests.GetConnectionInfoRequest, opts ...grpc.CallOption) (*responses.GetConnectionInfoResponse, error) {
+func (c *databaseServiceClient) GetConnectionInfo(ctx context.Context, in *GetConnectionInfoRequest, opts ...grpc.CallOption) (*GetConnectionInfoResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(responses.GetConnectionInfoResponse)
+	out := new(GetConnectionInfoResponse)
 	err := c.cc.Invoke(ctx, DatabaseService_GetConnectionInfo_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
@@ -136,9 +134,9 @@ func (c *databaseServiceClient) GetConnectionInfo(ctx context.Context, in *reque
 	return out, nil
 }
 
-func (c *databaseServiceClient) HealthCheck(ctx context.Context, in *requests.HealthCheckRequest, opts ...grpc.CallOption) (*responses.HealthCheckResponse, error) {
+func (c *databaseServiceClient) HealthCheck(ctx context.Context, in *HealthCheckRequest, opts ...grpc.CallOption) (*HealthCheckResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(responses.HealthCheckResponse)
+	out := new(HealthCheckResponse)
 	err := c.cc.Invoke(ctx, DatabaseService_HealthCheck_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
@@ -155,21 +153,21 @@ func (c *databaseServiceClient) HealthCheck(ctx context.Context, in *requests.He
 // queries, transactions, batch operations, and health monitoring.
 type DatabaseServiceServer interface {
 	// Execute a read-only query and return results
-	Query(context.Context, *requests.QueryRequest) (*responses.QueryResponse, error)
+	Query(context.Context, *QueryRequest) (*QueryResponse, error)
 	// Execute a write operation (INSERT, UPDATE, DELETE)
-	Execute(context.Context, *requests.ExecuteRequest) (*responses.ExecuteResponse, error)
+	Execute(context.Context, *ExecuteRequest) (*ExecuteResponse, error)
 	// Execute multiple operations in a single batch
-	ExecuteBatch(context.Context, *requests.ExecuteBatchRequest) (*responses.ExecuteBatchResponse, error)
+	ExecuteBatch(context.Context, *ExecuteBatchRequest) (*ExecuteBatchResponse, error)
 	// Start a new database transaction
-	BeginTransaction(context.Context, *requests.BeginTransactionRequest) (*responses.BeginTransactionResponse, error)
+	BeginTransaction(context.Context, *BeginTransactionRequest) (*BeginTransactionResponse, error)
 	// Commit an active transaction
-	CommitTransaction(context.Context, *requests.CommitTransactionRequest) (*emptypb.Empty, error)
+	CommitTransaction(context.Context, *CommitTransactionRequest) (*emptypb.Empty, error)
 	// Roll back an active transaction
-	RollbackTransaction(context.Context, *requests.RollbackTransactionRequest) (*emptypb.Empty, error)
+	RollbackTransaction(context.Context, *RollbackTransactionRequest) (*emptypb.Empty, error)
 	// Get information about database connection pool
-	GetConnectionInfo(context.Context, *requests.GetConnectionInfoRequest) (*responses.GetConnectionInfoResponse, error)
+	GetConnectionInfo(context.Context, *GetConnectionInfoRequest) (*GetConnectionInfoResponse, error)
 	// Check database connectivity and health
-	HealthCheck(context.Context, *requests.HealthCheckRequest) (*responses.HealthCheckResponse, error)
+	HealthCheck(context.Context, *HealthCheckRequest) (*HealthCheckResponse, error)
 }
 
 // UnimplementedDatabaseServiceServer should be embedded to have
@@ -179,28 +177,28 @@ type DatabaseServiceServer interface {
 // pointer dereference when methods are called.
 type UnimplementedDatabaseServiceServer struct{}
 
-func (UnimplementedDatabaseServiceServer) Query(context.Context, *requests.QueryRequest) (*responses.QueryResponse, error) {
+func (UnimplementedDatabaseServiceServer) Query(context.Context, *QueryRequest) (*QueryResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method Query not implemented")
 }
-func (UnimplementedDatabaseServiceServer) Execute(context.Context, *requests.ExecuteRequest) (*responses.ExecuteResponse, error) {
+func (UnimplementedDatabaseServiceServer) Execute(context.Context, *ExecuteRequest) (*ExecuteResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method Execute not implemented")
 }
-func (UnimplementedDatabaseServiceServer) ExecuteBatch(context.Context, *requests.ExecuteBatchRequest) (*responses.ExecuteBatchResponse, error) {
+func (UnimplementedDatabaseServiceServer) ExecuteBatch(context.Context, *ExecuteBatchRequest) (*ExecuteBatchResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method ExecuteBatch not implemented")
 }
-func (UnimplementedDatabaseServiceServer) BeginTransaction(context.Context, *requests.BeginTransactionRequest) (*responses.BeginTransactionResponse, error) {
+func (UnimplementedDatabaseServiceServer) BeginTransaction(context.Context, *BeginTransactionRequest) (*BeginTransactionResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method BeginTransaction not implemented")
 }
-func (UnimplementedDatabaseServiceServer) CommitTransaction(context.Context, *requests.CommitTransactionRequest) (*emptypb.Empty, error) {
+func (UnimplementedDatabaseServiceServer) CommitTransaction(context.Context, *CommitTransactionRequest) (*emptypb.Empty, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method CommitTransaction not implemented")
 }
-func (UnimplementedDatabaseServiceServer) RollbackTransaction(context.Context, *requests.RollbackTransactionRequest) (*emptypb.Empty, error) {
+func (UnimplementedDatabaseServiceServer) RollbackTransaction(context.Context, *RollbackTransactionRequest) (*emptypb.Empty, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method RollbackTransaction not implemented")
 }
-func (UnimplementedDatabaseServiceServer) GetConnectionInfo(context.Context, *requests.GetConnectionInfoRequest) (*responses.GetConnectionInfoResponse, error) {
+func (UnimplementedDatabaseServiceServer) GetConnectionInfo(context.Context, *GetConnectionInfoRequest) (*GetConnectionInfoResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method GetConnectionInfo not implemented")
 }
-func (UnimplementedDatabaseServiceServer) HealthCheck(context.Context, *requests.HealthCheckRequest) (*responses.HealthCheckResponse, error) {
+func (UnimplementedDatabaseServiceServer) HealthCheck(context.Context, *HealthCheckRequest) (*HealthCheckResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method HealthCheck not implemented")
 }
 func (UnimplementedDatabaseServiceServer) testEmbeddedByValue() {}
@@ -224,7 +222,7 @@ func RegisterDatabaseServiceServer(s grpc.ServiceRegistrar, srv DatabaseServiceS
 }
 
 func _DatabaseService_Query_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(requests.QueryRequest)
+	in := new(QueryRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
@@ -236,13 +234,13 @@ func _DatabaseService_Query_Handler(srv interface{}, ctx context.Context, dec fu
 		FullMethod: DatabaseService_Query_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(DatabaseServiceServer).Query(ctx, req.(*requests.QueryRequest))
+		return srv.(DatabaseServiceServer).Query(ctx, req.(*QueryRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
 func _DatabaseService_Execute_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(requests.ExecuteRequest)
+	in := new(ExecuteRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
@@ -254,13 +252,13 @@ func _DatabaseService_Execute_Handler(srv interface{}, ctx context.Context, dec 
 		FullMethod: DatabaseService_Execute_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(DatabaseServiceServer).Execute(ctx, req.(*requests.ExecuteRequest))
+		return srv.(DatabaseServiceServer).Execute(ctx, req.(*ExecuteRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
 func _DatabaseService_ExecuteBatch_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(requests.ExecuteBatchRequest)
+	in := new(ExecuteBatchRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
@@ -272,13 +270,13 @@ func _DatabaseService_ExecuteBatch_Handler(srv interface{}, ctx context.Context,
 		FullMethod: DatabaseService_ExecuteBatch_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(DatabaseServiceServer).ExecuteBatch(ctx, req.(*requests.ExecuteBatchRequest))
+		return srv.(DatabaseServiceServer).ExecuteBatch(ctx, req.(*ExecuteBatchRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
 func _DatabaseService_BeginTransaction_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(requests.BeginTransactionRequest)
+	in := new(BeginTransactionRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
@@ -290,13 +288,13 @@ func _DatabaseService_BeginTransaction_Handler(srv interface{}, ctx context.Cont
 		FullMethod: DatabaseService_BeginTransaction_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(DatabaseServiceServer).BeginTransaction(ctx, req.(*requests.BeginTransactionRequest))
+		return srv.(DatabaseServiceServer).BeginTransaction(ctx, req.(*BeginTransactionRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
 func _DatabaseService_CommitTransaction_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(requests.CommitTransactionRequest)
+	in := new(CommitTransactionRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
@@ -308,13 +306,13 @@ func _DatabaseService_CommitTransaction_Handler(srv interface{}, ctx context.Con
 		FullMethod: DatabaseService_CommitTransaction_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(DatabaseServiceServer).CommitTransaction(ctx, req.(*requests.CommitTransactionRequest))
+		return srv.(DatabaseServiceServer).CommitTransaction(ctx, req.(*CommitTransactionRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
 func _DatabaseService_RollbackTransaction_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(requests.RollbackTransactionRequest)
+	in := new(RollbackTransactionRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
@@ -326,13 +324,13 @@ func _DatabaseService_RollbackTransaction_Handler(srv interface{}, ctx context.C
 		FullMethod: DatabaseService_RollbackTransaction_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(DatabaseServiceServer).RollbackTransaction(ctx, req.(*requests.RollbackTransactionRequest))
+		return srv.(DatabaseServiceServer).RollbackTransaction(ctx, req.(*RollbackTransactionRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
 func _DatabaseService_GetConnectionInfo_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(requests.GetConnectionInfoRequest)
+	in := new(GetConnectionInfoRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
@@ -344,13 +342,13 @@ func _DatabaseService_GetConnectionInfo_Handler(srv interface{}, ctx context.Con
 		FullMethod: DatabaseService_GetConnectionInfo_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(DatabaseServiceServer).GetConnectionInfo(ctx, req.(*requests.GetConnectionInfoRequest))
+		return srv.(DatabaseServiceServer).GetConnectionInfo(ctx, req.(*GetConnectionInfoRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
 func _DatabaseService_HealthCheck_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(requests.HealthCheckRequest)
+	in := new(HealthCheckRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
@@ -362,7 +360,7 @@ func _DatabaseService_HealthCheck_Handler(srv interface{}, ctx context.Context, 
 		FullMethod: DatabaseService_HealthCheck_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(DatabaseServiceServer).HealthCheck(ctx, req.(*requests.HealthCheckRequest))
+		return srv.(DatabaseServiceServer).HealthCheck(ctx, req.(*HealthCheckRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }

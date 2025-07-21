@@ -6,10 +6,10 @@
 
 //go:build protoopaque
 
-package responses
+package dbpb
 
 import (
-	messages "github.com/jdfalk/gcommon/pkg/common/proto/messages"
+	proto "github.com/jdfalk/gcommon/pkg/common/proto"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
@@ -30,7 +30,7 @@ const (
 type CreateSchemaResponse struct {
 	state              protoimpl.MessageState `protogen:"opaque.v1"`
 	xxx_hidden_Success bool                   `protobuf:"varint,1,opt,name=success"`
-	xxx_hidden_Error   *messages.Error        `protobuf:"bytes,2,opt,name=error"`
+	xxx_hidden_Error   *proto.Error           `protobuf:"bytes,2,opt,name=error"`
 	// Deprecated: Do not use. This will be deleted in the near future.
 	XXX_lazyUnmarshalInfo  protoimpl.LazyUnmarshalInfo
 	XXX_raceDetectHookData protoimpl.RaceDetectHookData
@@ -71,13 +71,13 @@ func (x *CreateSchemaResponse) GetSuccess() bool {
 	return false
 }
 
-func (x *CreateSchemaResponse) GetError() *messages.Error {
+func (x *CreateSchemaResponse) GetError() *proto.Error {
 	if x != nil {
 		if protoimpl.X.Present(&(x.XXX_presence[0]), 1) {
 			if protoimpl.X.AtomicCheckPointerIsNil(&x.xxx_hidden_Error) {
 				protoimpl.X.UnmarshalField(x, 2)
 			}
-			var rv *messages.Error
+			var rv *proto.Error
 			protoimpl.X.AtomicLoadPointer(protoimpl.Pointer(&x.xxx_hidden_Error), protoimpl.Pointer(&rv))
 			return rv
 		}
@@ -90,7 +90,7 @@ func (x *CreateSchemaResponse) SetSuccess(v bool) {
 	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 0, 2)
 }
 
-func (x *CreateSchemaResponse) SetError(v *messages.Error) {
+func (x *CreateSchemaResponse) SetError(v *proto.Error) {
 	protoimpl.X.AtomicSetPointer(&x.xxx_hidden_Error, v)
 	if v == nil {
 		protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 1)
@@ -120,7 +120,7 @@ func (x *CreateSchemaResponse) ClearSuccess() {
 
 func (x *CreateSchemaResponse) ClearError() {
 	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 1)
-	protoimpl.X.AtomicSetPointer(&x.xxx_hidden_Error, (*messages.Error)(nil))
+	protoimpl.X.AtomicSetPointer(&x.xxx_hidden_Error, (*proto.Error)(nil))
 }
 
 type CreateSchemaResponse_builder struct {
@@ -129,7 +129,7 @@ type CreateSchemaResponse_builder struct {
 	// Whether the schema was created successfully
 	Success *bool
 	// Error information if the creation failed
-	Error *messages.Error
+	Error *proto.Error
 }
 
 func (b0 CreateSchemaResponse_builder) Build() *CreateSchemaResponse {
@@ -154,13 +154,13 @@ const file_pkg_db_proto_responses_create_schema_response_proto_rawDesc = "" +
 	"3pkg/db/proto/responses/create_schema_response.proto\x12\x13gcommon.v1.database\x1a%pkg/common/proto/messages/error.proto\x1a!google/protobuf/go_features.proto\"d\n" +
 	"\x14CreateSchemaResponse\x12\x18\n" +
 	"\asuccess\x18\x01 \x01(\bR\asuccess\x122\n" +
-	"\x05error\x18\x02 \x01(\v2\x18.gcommon.v1.common.ErrorB\x02(\x01R\x05errorB\xdc\x01\n" +
-	"\x17com.gcommon.v1.databaseB\x19CreateSchemaResponseProtoP\x01Z0github.com/jdfalk/gcommon/pkg/db/proto/responses\xa2\x02\x03GVD\xaa\x02\x13Gcommon.V1.Database\xca\x02\x13Gcommon\\V1\\Database\xe2\x02\x1fGcommon\\V1\\Database\\GPBMetadata\xea\x02\x15Gcommon::V1::Database\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
+	"\x05error\x18\x02 \x01(\v2\x18.gcommon.v1.common.ErrorB\x02(\x01R\x05errorB\xd7\x01\n" +
+	"\x17com.gcommon.v1.databaseB\x19CreateSchemaResponseProtoP\x01Z+github.com/jdfalk/gcommon/pkg/db/proto;dbpb\xa2\x02\x03GVD\xaa\x02\x13Gcommon.V1.Database\xca\x02\x13Gcommon\\V1\\Database\xe2\x02\x1fGcommon\\V1\\Database\\GPBMetadata\xea\x02\x15Gcommon::V1::Database\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
 
 var file_pkg_db_proto_responses_create_schema_response_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_pkg_db_proto_responses_create_schema_response_proto_goTypes = []any{
 	(*CreateSchemaResponse)(nil), // 0: gcommon.v1.database.CreateSchemaResponse
-	(*messages.Error)(nil),       // 1: gcommon.v1.common.Error
+	(*proto.Error)(nil),          // 1: gcommon.v1.common.Error
 }
 var file_pkg_db_proto_responses_create_schema_response_proto_depIdxs = []int32{
 	1, // 0: gcommon.v1.database.CreateSchemaResponse.error:type_name -> gcommon.v1.common.Error

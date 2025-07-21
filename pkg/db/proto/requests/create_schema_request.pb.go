@@ -6,10 +6,10 @@
 
 //go:build !protoopaque
 
-package requests
+package dbpb
 
 import (
-	messages "github.com/jdfalk/gcommon/pkg/common/proto/messages"
+	proto "github.com/jdfalk/gcommon/pkg/common/proto"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
@@ -34,7 +34,7 @@ type CreateSchemaRequest struct {
 	// Name of the schema to create
 	Schema *string `protobuf:"bytes,2,opt,name=schema" json:"schema,omitempty"`
 	// Request metadata for tracing and authentication
-	Metadata      *messages.RequestMetadata `protobuf:"bytes,3,opt,name=metadata" json:"metadata,omitempty"`
+	Metadata      *proto.RequestMetadata `protobuf:"bytes,3,opt,name=metadata" json:"metadata,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -78,7 +78,7 @@ func (x *CreateSchemaRequest) GetSchema() string {
 	return ""
 }
 
-func (x *CreateSchemaRequest) GetMetadata() *messages.RequestMetadata {
+func (x *CreateSchemaRequest) GetMetadata() *proto.RequestMetadata {
 	if x != nil {
 		return x.Metadata
 	}
@@ -93,7 +93,7 @@ func (x *CreateSchemaRequest) SetSchema(v string) {
 	x.Schema = &v
 }
 
-func (x *CreateSchemaRequest) SetMetadata(v *messages.RequestMetadata) {
+func (x *CreateSchemaRequest) SetMetadata(v *proto.RequestMetadata) {
 	x.Metadata = v
 }
 
@@ -138,7 +138,7 @@ type CreateSchemaRequest_builder struct {
 	// Name of the schema to create
 	Schema *string
 	// Request metadata for tracing and authentication
-	Metadata *messages.RequestMetadata
+	Metadata *proto.RequestMetadata
 }
 
 func (b0 CreateSchemaRequest_builder) Build() *CreateSchemaRequest {
@@ -159,13 +159,13 @@ const file_pkg_db_proto_requests_create_schema_request_proto_rawDesc = "" +
 	"\x13CreateSchemaRequest\x12\x1a\n" +
 	"\bdatabase\x18\x01 \x01(\tR\bdatabase\x12\x16\n" +
 	"\x06schema\x18\x02 \x01(\tR\x06schema\x12B\n" +
-	"\bmetadata\x18\x03 \x01(\v2\".gcommon.v1.common.RequestMetadataB\x02(\x01R\bmetadataB\xda\x01\n" +
-	"\x17com.gcommon.v1.databaseB\x18CreateSchemaRequestProtoP\x01Z/github.com/jdfalk/gcommon/pkg/db/proto/requests\xa2\x02\x03GVD\xaa\x02\x13Gcommon.V1.Database\xca\x02\x13Gcommon\\V1\\Database\xe2\x02\x1fGcommon\\V1\\Database\\GPBMetadata\xea\x02\x15Gcommon::V1::Database\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
+	"\bmetadata\x18\x03 \x01(\v2\".gcommon.v1.common.RequestMetadataB\x02(\x01R\bmetadataB\xd6\x01\n" +
+	"\x17com.gcommon.v1.databaseB\x18CreateSchemaRequestProtoP\x01Z+github.com/jdfalk/gcommon/pkg/db/proto;dbpb\xa2\x02\x03GVD\xaa\x02\x13Gcommon.V1.Database\xca\x02\x13Gcommon\\V1\\Database\xe2\x02\x1fGcommon\\V1\\Database\\GPBMetadata\xea\x02\x15Gcommon::V1::Database\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
 
 var file_pkg_db_proto_requests_create_schema_request_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_pkg_db_proto_requests_create_schema_request_proto_goTypes = []any{
-	(*CreateSchemaRequest)(nil),      // 0: gcommon.v1.database.CreateSchemaRequest
-	(*messages.RequestMetadata)(nil), // 1: gcommon.v1.common.RequestMetadata
+	(*CreateSchemaRequest)(nil),   // 0: gcommon.v1.database.CreateSchemaRequest
+	(*proto.RequestMetadata)(nil), // 1: gcommon.v1.common.RequestMetadata
 }
 var file_pkg_db_proto_requests_create_schema_request_proto_depIdxs = []int32{
 	1, // 0: gcommon.v1.database.CreateSchemaRequest.metadata:type_name -> gcommon.v1.common.RequestMetadata

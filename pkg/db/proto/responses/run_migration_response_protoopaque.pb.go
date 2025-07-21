@@ -6,10 +6,10 @@
 
 //go:build protoopaque
 
-package responses
+package dbpb
 
 import (
-	messages "github.com/jdfalk/gcommon/pkg/common/proto/messages"
+	proto "github.com/jdfalk/gcommon/pkg/common/proto"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
@@ -31,7 +31,7 @@ type RunMigrationResponse struct {
 	state                      protoimpl.MessageState `protogen:"opaque.v1"`
 	xxx_hidden_Success         bool                   `protobuf:"varint,1,opt,name=success"`
 	xxx_hidden_AppliedVersions []string               `protobuf:"bytes,2,rep,name=applied_versions,json=appliedVersions"`
-	xxx_hidden_Error           *messages.Error        `protobuf:"bytes,3,opt,name=error"`
+	xxx_hidden_Error           *proto.Error           `protobuf:"bytes,3,opt,name=error"`
 	// Deprecated: Do not use. This will be deleted in the near future.
 	XXX_lazyUnmarshalInfo  protoimpl.LazyUnmarshalInfo
 	XXX_raceDetectHookData protoimpl.RaceDetectHookData
@@ -79,13 +79,13 @@ func (x *RunMigrationResponse) GetAppliedVersions() []string {
 	return nil
 }
 
-func (x *RunMigrationResponse) GetError() *messages.Error {
+func (x *RunMigrationResponse) GetError() *proto.Error {
 	if x != nil {
 		if protoimpl.X.Present(&(x.XXX_presence[0]), 2) {
 			if protoimpl.X.AtomicCheckPointerIsNil(&x.xxx_hidden_Error) {
 				protoimpl.X.UnmarshalField(x, 3)
 			}
-			var rv *messages.Error
+			var rv *proto.Error
 			protoimpl.X.AtomicLoadPointer(protoimpl.Pointer(&x.xxx_hidden_Error), protoimpl.Pointer(&rv))
 			return rv
 		}
@@ -102,7 +102,7 @@ func (x *RunMigrationResponse) SetAppliedVersions(v []string) {
 	x.xxx_hidden_AppliedVersions = v
 }
 
-func (x *RunMigrationResponse) SetError(v *messages.Error) {
+func (x *RunMigrationResponse) SetError(v *proto.Error) {
 	protoimpl.X.AtomicSetPointer(&x.xxx_hidden_Error, v)
 	if v == nil {
 		protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 2)
@@ -132,7 +132,7 @@ func (x *RunMigrationResponse) ClearSuccess() {
 
 func (x *RunMigrationResponse) ClearError() {
 	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 2)
-	protoimpl.X.AtomicSetPointer(&x.xxx_hidden_Error, (*messages.Error)(nil))
+	protoimpl.X.AtomicSetPointer(&x.xxx_hidden_Error, (*proto.Error)(nil))
 }
 
 type RunMigrationResponse_builder struct {
@@ -143,7 +143,7 @@ type RunMigrationResponse_builder struct {
 	// List of migration versions that were successfully applied
 	AppliedVersions []string
 	// Error information if any migration failed
-	Error *messages.Error
+	Error *proto.Error
 }
 
 func (b0 RunMigrationResponse_builder) Build() *RunMigrationResponse {
@@ -170,13 +170,13 @@ const file_pkg_db_proto_responses_run_migration_response_proto_rawDesc = "" +
 	"\x14RunMigrationResponse\x12\x18\n" +
 	"\asuccess\x18\x01 \x01(\bR\asuccess\x12)\n" +
 	"\x10applied_versions\x18\x02 \x03(\tR\x0fappliedVersions\x122\n" +
-	"\x05error\x18\x03 \x01(\v2\x18.gcommon.v1.common.ErrorB\x02(\x01R\x05errorB\xdc\x01\n" +
-	"\x17com.gcommon.v1.databaseB\x19RunMigrationResponseProtoP\x01Z0github.com/jdfalk/gcommon/pkg/db/proto/responses\xa2\x02\x03GVD\xaa\x02\x13Gcommon.V1.Database\xca\x02\x13Gcommon\\V1\\Database\xe2\x02\x1fGcommon\\V1\\Database\\GPBMetadata\xea\x02\x15Gcommon::V1::Database\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
+	"\x05error\x18\x03 \x01(\v2\x18.gcommon.v1.common.ErrorB\x02(\x01R\x05errorB\xd7\x01\n" +
+	"\x17com.gcommon.v1.databaseB\x19RunMigrationResponseProtoP\x01Z+github.com/jdfalk/gcommon/pkg/db/proto;dbpb\xa2\x02\x03GVD\xaa\x02\x13Gcommon.V1.Database\xca\x02\x13Gcommon\\V1\\Database\xe2\x02\x1fGcommon\\V1\\Database\\GPBMetadata\xea\x02\x15Gcommon::V1::Database\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
 
 var file_pkg_db_proto_responses_run_migration_response_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_pkg_db_proto_responses_run_migration_response_proto_goTypes = []any{
 	(*RunMigrationResponse)(nil), // 0: gcommon.v1.database.RunMigrationResponse
-	(*messages.Error)(nil),       // 1: gcommon.v1.common.Error
+	(*proto.Error)(nil),          // 1: gcommon.v1.common.Error
 }
 var file_pkg_db_proto_responses_run_migration_response_proto_depIdxs = []int32{
 	1, // 0: gcommon.v1.database.RunMigrationResponse.error:type_name -> gcommon.v1.common.Error

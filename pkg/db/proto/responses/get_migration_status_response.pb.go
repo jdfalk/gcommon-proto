@@ -6,7 +6,7 @@
 
 //go:build !protoopaque
 
-package responses
+package dbpb
 
 import (
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
@@ -136,8 +136,8 @@ const file_pkg_db_proto_responses_get_migration_status_response_proto_rawDesc = 
 	"\x1aGetMigrationStatusResponse\x12'\n" +
 	"\x0fcurrent_version\x18\x01 \x01(\tR\x0ecurrentVersion\x12)\n" +
 	"\x10applied_versions\x18\x02 \x03(\tR\x0fappliedVersions\x12)\n" +
-	"\x10pending_versions\x18\x03 \x03(\tR\x0fpendingVersionsB\xe2\x01\n" +
-	"\x17com.gcommon.v1.databaseB\x1fGetMigrationStatusResponseProtoP\x01Z0github.com/jdfalk/gcommon/pkg/db/proto/responses\xa2\x02\x03GVD\xaa\x02\x13Gcommon.V1.Database\xca\x02\x13Gcommon\\V1\\Database\xe2\x02\x1fGcommon\\V1\\Database\\GPBMetadata\xea\x02\x15Gcommon::V1::Database\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
+	"\x10pending_versions\x18\x03 \x03(\tR\x0fpendingVersionsB\xdd\x01\n" +
+	"\x17com.gcommon.v1.databaseB\x1fGetMigrationStatusResponseProtoP\x01Z+github.com/jdfalk/gcommon/pkg/db/proto;dbpb\xa2\x02\x03GVD\xaa\x02\x13Gcommon.V1.Database\xca\x02\x13Gcommon\\V1\\Database\xe2\x02\x1fGcommon\\V1\\Database\\GPBMetadata\xea\x02\x15Gcommon::V1::Database\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
 
 var file_pkg_db_proto_responses_get_migration_status_response_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_pkg_db_proto_responses_get_migration_status_response_proto_goTypes = []any{

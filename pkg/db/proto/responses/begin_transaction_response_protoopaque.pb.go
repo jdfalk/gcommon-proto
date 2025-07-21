@@ -6,7 +6,7 @@
 
 //go:build protoopaque
 
-package responses
+package dbpb
 
 import (
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
@@ -158,8 +158,8 @@ const file_pkg_db_proto_responses_begin_transaction_response_proto_rawDesc = "" 
 	"\x18BeginTransactionResponse\x12%\n" +
 	"\x0etransaction_id\x18\x01 \x01(\tR\rtransactionId\x12=\n" +
 	"\n" +
-	"started_at\x18\x02 \x01(\v2\x1a.google.protobuf.TimestampB\x02(\x01R\tstartedAtB\xe0\x01\n" +
-	"\x17com.gcommon.v1.databaseB\x1dBeginTransactionResponseProtoP\x01Z0github.com/jdfalk/gcommon/pkg/db/proto/responses\xa2\x02\x03GVD\xaa\x02\x13Gcommon.V1.Database\xca\x02\x13Gcommon\\V1\\Database\xe2\x02\x1fGcommon\\V1\\Database\\GPBMetadata\xea\x02\x15Gcommon::V1::Database\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
+	"started_at\x18\x02 \x01(\v2\x1a.google.protobuf.TimestampB\x02(\x01R\tstartedAtB\xdb\x01\n" +
+	"\x17com.gcommon.v1.databaseB\x1dBeginTransactionResponseProtoP\x01Z+github.com/jdfalk/gcommon/pkg/db/proto;dbpb\xa2\x02\x03GVD\xaa\x02\x13Gcommon.V1.Database\xca\x02\x13Gcommon\\V1\\Database\xe2\x02\x1fGcommon\\V1\\Database\\GPBMetadata\xea\x02\x15Gcommon::V1::Database\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
 
 var file_pkg_db_proto_responses_begin_transaction_response_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_pkg_db_proto_responses_begin_transaction_response_proto_goTypes = []any{

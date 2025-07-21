@@ -6,10 +6,9 @@
 
 //go:build protoopaque
 
-package responses
+package dbpb
 
 import (
-	messages "github.com/jdfalk/gcommon/pkg/db/proto/messages"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
@@ -29,7 +28,7 @@ const (
 // Includes version, type, capabilities, and connection information.
 type GetDatabaseInfoResponse struct {
 	state           protoimpl.MessageState `protogen:"opaque.v1"`
-	xxx_hidden_Info *messages.DatabaseInfo `protobuf:"bytes,1,opt,name=info"`
+	xxx_hidden_Info *DatabaseInfo          `protobuf:"bytes,1,opt,name=info"`
 	// Deprecated: Do not use. This will be deleted in the near future.
 	XXX_lazyUnmarshalInfo  protoimpl.LazyUnmarshalInfo
 	XXX_raceDetectHookData protoimpl.RaceDetectHookData
@@ -63,13 +62,13 @@ func (x *GetDatabaseInfoResponse) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-func (x *GetDatabaseInfoResponse) GetInfo() *messages.DatabaseInfo {
+func (x *GetDatabaseInfoResponse) GetInfo() *DatabaseInfo {
 	if x != nil {
 		if protoimpl.X.Present(&(x.XXX_presence[0]), 0) {
 			if protoimpl.X.AtomicCheckPointerIsNil(&x.xxx_hidden_Info) {
 				protoimpl.X.UnmarshalField(x, 1)
 			}
-			var rv *messages.DatabaseInfo
+			var rv *DatabaseInfo
 			protoimpl.X.AtomicLoadPointer(protoimpl.Pointer(&x.xxx_hidden_Info), protoimpl.Pointer(&rv))
 			return rv
 		}
@@ -77,7 +76,7 @@ func (x *GetDatabaseInfoResponse) GetInfo() *messages.DatabaseInfo {
 	return nil
 }
 
-func (x *GetDatabaseInfoResponse) SetInfo(v *messages.DatabaseInfo) {
+func (x *GetDatabaseInfoResponse) SetInfo(v *DatabaseInfo) {
 	protoimpl.X.AtomicSetPointer(&x.xxx_hidden_Info, v)
 	if v == nil {
 		protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 0)
@@ -95,14 +94,14 @@ func (x *GetDatabaseInfoResponse) HasInfo() bool {
 
 func (x *GetDatabaseInfoResponse) ClearInfo() {
 	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 0)
-	protoimpl.X.AtomicSetPointer(&x.xxx_hidden_Info, (*messages.DatabaseInfo)(nil))
+	protoimpl.X.AtomicSetPointer(&x.xxx_hidden_Info, (*DatabaseInfo)(nil))
 }
 
 type GetDatabaseInfoResponse_builder struct {
 	_ [0]func() // Prevents comparability and use of unkeyed literals for the builder.
 
 	// Detailed database information and metadata
-	Info *messages.DatabaseInfo
+	Info *DatabaseInfo
 }
 
 func (b0 GetDatabaseInfoResponse_builder) Build() *GetDatabaseInfoResponse {
@@ -122,13 +121,13 @@ const file_pkg_db_proto_responses_get_database_info_response_proto_rawDesc = "" 
 	"\n" +
 	"7pkg/db/proto/responses/get_database_info_response.proto\x12\x13gcommon.v1.database\x1a)pkg/db/proto/messages/database_info.proto\x1a!google/protobuf/go_features.proto\"T\n" +
 	"\x17GetDatabaseInfoResponse\x129\n" +
-	"\x04info\x18\x01 \x01(\v2!.gcommon.v1.database.DatabaseInfoB\x02(\x01R\x04infoB\xdf\x01\n" +
-	"\x17com.gcommon.v1.databaseB\x1cGetDatabaseInfoResponseProtoP\x01Z0github.com/jdfalk/gcommon/pkg/db/proto/responses\xa2\x02\x03GVD\xaa\x02\x13Gcommon.V1.Database\xca\x02\x13Gcommon\\V1\\Database\xe2\x02\x1fGcommon\\V1\\Database\\GPBMetadata\xea\x02\x15Gcommon::V1::Database\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
+	"\x04info\x18\x01 \x01(\v2!.gcommon.v1.database.DatabaseInfoB\x02(\x01R\x04infoB\xda\x01\n" +
+	"\x17com.gcommon.v1.databaseB\x1cGetDatabaseInfoResponseProtoP\x01Z+github.com/jdfalk/gcommon/pkg/db/proto;dbpb\xa2\x02\x03GVD\xaa\x02\x13Gcommon.V1.Database\xca\x02\x13Gcommon\\V1\\Database\xe2\x02\x1fGcommon\\V1\\Database\\GPBMetadata\xea\x02\x15Gcommon::V1::Database\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
 
 var file_pkg_db_proto_responses_get_database_info_response_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_pkg_db_proto_responses_get_database_info_response_proto_goTypes = []any{
 	(*GetDatabaseInfoResponse)(nil), // 0: gcommon.v1.database.GetDatabaseInfoResponse
-	(*messages.DatabaseInfo)(nil),   // 1: gcommon.v1.database.DatabaseInfo
+	(*DatabaseInfo)(nil),            // 1: gcommon.v1.database.DatabaseInfo
 }
 var file_pkg_db_proto_responses_get_database_info_response_proto_depIdxs = []int32{
 	1, // 0: gcommon.v1.database.GetDatabaseInfoResponse.info:type_name -> gcommon.v1.database.DatabaseInfo
@@ -144,6 +143,7 @@ func file_pkg_db_proto_responses_get_database_info_response_proto_init() {
 	if File_pkg_db_proto_responses_get_database_info_response_proto != nil {
 		return
 	}
+	file_pkg_db_proto_messages_database_info_proto_init()
 	type x struct{}
 	out := protoimpl.TypeBuilder{
 		File: protoimpl.DescBuilder{

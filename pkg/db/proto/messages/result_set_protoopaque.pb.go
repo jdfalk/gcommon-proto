@@ -6,10 +6,9 @@
 
 //go:build protoopaque
 
-package messages
+package dbpb
 
 import (
-	types "github.com/jdfalk/gcommon/pkg/db/proto/types"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
@@ -28,11 +27,11 @@ const (
 // ResultSet contains the results of a database query operation.
 // Includes column metadata, data rows, and pagination information.
 type ResultSet struct {
-	state                 protoimpl.MessageState   `protogen:"opaque.v1"`
-	xxx_hidden_Columns    *[]*types.ColumnMetadata `protobuf:"bytes,1,rep,name=columns"`
-	xxx_hidden_Rows       *[]*types.Row            `protobuf:"bytes,2,rep,name=rows"`
-	xxx_hidden_TotalCount int64                    `protobuf:"varint,3,opt,name=total_count,json=totalCount"`
-	xxx_hidden_HasMore    bool                     `protobuf:"varint,4,opt,name=has_more,json=hasMore"`
+	state                 protoimpl.MessageState `protogen:"opaque.v1"`
+	xxx_hidden_Columns    *[]*ColumnMetadata     `protobuf:"bytes,1,rep,name=columns"`
+	xxx_hidden_Rows       *[]*Row                `protobuf:"bytes,2,rep,name=rows"`
+	xxx_hidden_TotalCount int64                  `protobuf:"varint,3,opt,name=total_count,json=totalCount"`
+	xxx_hidden_HasMore    bool                   `protobuf:"varint,4,opt,name=has_more,json=hasMore"`
 	// Deprecated: Do not use. This will be deleted in the near future.
 	XXX_lazyUnmarshalInfo  protoimpl.LazyUnmarshalInfo
 	XXX_raceDetectHookData protoimpl.RaceDetectHookData
@@ -66,13 +65,13 @@ func (x *ResultSet) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-func (x *ResultSet) GetColumns() []*types.ColumnMetadata {
+func (x *ResultSet) GetColumns() []*ColumnMetadata {
 	if x != nil {
 		if protoimpl.X.Present(&(x.XXX_presence[0]), 0) {
 			if protoimpl.X.AtomicCheckPointerIsNil(&x.xxx_hidden_Columns) {
 				protoimpl.X.UnmarshalField(x, 1)
 			}
-			var rv *[]*types.ColumnMetadata
+			var rv *[]*ColumnMetadata
 			protoimpl.X.AtomicLoadPointer(protoimpl.Pointer(&x.xxx_hidden_Columns), protoimpl.Pointer(&rv))
 			return *rv
 		}
@@ -80,13 +79,13 @@ func (x *ResultSet) GetColumns() []*types.ColumnMetadata {
 	return nil
 }
 
-func (x *ResultSet) GetRows() []*types.Row {
+func (x *ResultSet) GetRows() []*Row {
 	if x != nil {
 		if protoimpl.X.Present(&(x.XXX_presence[0]), 1) {
 			if protoimpl.X.AtomicCheckPointerIsNil(&x.xxx_hidden_Rows) {
 				protoimpl.X.UnmarshalField(x, 2)
 			}
-			var rv *[]*types.Row
+			var rv *[]*Row
 			protoimpl.X.AtomicLoadPointer(protoimpl.Pointer(&x.xxx_hidden_Rows), protoimpl.Pointer(&rv))
 			return *rv
 		}
@@ -108,22 +107,22 @@ func (x *ResultSet) GetHasMore() bool {
 	return false
 }
 
-func (x *ResultSet) SetColumns(v []*types.ColumnMetadata) {
-	var sv *[]*types.ColumnMetadata
+func (x *ResultSet) SetColumns(v []*ColumnMetadata) {
+	var sv *[]*ColumnMetadata
 	protoimpl.X.AtomicLoadPointer(protoimpl.Pointer(&x.xxx_hidden_Columns), protoimpl.Pointer(&sv))
 	if sv == nil {
-		sv = &[]*types.ColumnMetadata{}
+		sv = &[]*ColumnMetadata{}
 		protoimpl.X.AtomicInitializePointer(protoimpl.Pointer(&x.xxx_hidden_Columns), protoimpl.Pointer(&sv))
 	}
 	*sv = v
 	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 0, 4)
 }
 
-func (x *ResultSet) SetRows(v []*types.Row) {
-	var sv *[]*types.Row
+func (x *ResultSet) SetRows(v []*Row) {
+	var sv *[]*Row
 	protoimpl.X.AtomicLoadPointer(protoimpl.Pointer(&x.xxx_hidden_Rows), protoimpl.Pointer(&sv))
 	if sv == nil {
-		sv = &[]*types.Row{}
+		sv = &[]*Row{}
 		protoimpl.X.AtomicInitializePointer(protoimpl.Pointer(&x.xxx_hidden_Rows), protoimpl.Pointer(&sv))
 	}
 	*sv = v
@@ -168,9 +167,9 @@ type ResultSet_builder struct {
 	_ [0]func() // Prevents comparability and use of unkeyed literals for the builder.
 
 	// Metadata for each column in the result set
-	Columns []*types.ColumnMetadata
+	Columns []*ColumnMetadata
 	// Data rows matching the query
-	Rows []*types.Row
+	Rows []*Row
 	// Total row count if known (for pagination)
 	TotalCount *int64
 	// Whether more rows are available beyond this result set
@@ -210,14 +209,14 @@ const file_pkg_db_proto_messages_result_set_proto_rawDesc = "" +
 	"\x04rows\x18\x02 \x03(\v2\x18.gcommon.v1.database.RowB\x02(\x01R\x04rows\x12\x1f\n" +
 	"\vtotal_count\x18\x03 \x01(\x03R\n" +
 	"totalCount\x12\x19\n" +
-	"\bhas_more\x18\x04 \x01(\bR\ahasMoreB\xd0\x01\n" +
-	"\x17com.gcommon.v1.databaseB\x0eResultSetProtoP\x01Z/github.com/jdfalk/gcommon/pkg/db/proto/messages\xa2\x02\x03GVD\xaa\x02\x13Gcommon.V1.Database\xca\x02\x13Gcommon\\V1\\Database\xe2\x02\x1fGcommon\\V1\\Database\\GPBMetadata\xea\x02\x15Gcommon::V1::Database\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
+	"\bhas_more\x18\x04 \x01(\bR\ahasMoreB\xcc\x01\n" +
+	"\x17com.gcommon.v1.databaseB\x0eResultSetProtoP\x01Z+github.com/jdfalk/gcommon/pkg/db/proto;dbpb\xa2\x02\x03GVD\xaa\x02\x13Gcommon.V1.Database\xca\x02\x13Gcommon\\V1\\Database\xe2\x02\x1fGcommon\\V1\\Database\\GPBMetadata\xea\x02\x15Gcommon::V1::Database\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
 
 var file_pkg_db_proto_messages_result_set_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_pkg_db_proto_messages_result_set_proto_goTypes = []any{
-	(*ResultSet)(nil),            // 0: gcommon.v1.database.ResultSet
-	(*types.ColumnMetadata)(nil), // 1: gcommon.v1.database.ColumnMetadata
-	(*types.Row)(nil),            // 2: gcommon.v1.database.Row
+	(*ResultSet)(nil),      // 0: gcommon.v1.database.ResultSet
+	(*ColumnMetadata)(nil), // 1: gcommon.v1.database.ColumnMetadata
+	(*Row)(nil),            // 2: gcommon.v1.database.Row
 }
 var file_pkg_db_proto_messages_result_set_proto_depIdxs = []int32{
 	1, // 0: gcommon.v1.database.ResultSet.columns:type_name -> gcommon.v1.database.ColumnMetadata
@@ -234,6 +233,8 @@ func file_pkg_db_proto_messages_result_set_proto_init() {
 	if File_pkg_db_proto_messages_result_set_proto != nil {
 		return
 	}
+	file_pkg_db_proto_types_column_metadata_proto_init()
+	file_pkg_db_proto_types_row_proto_init()
 	type x struct{}
 	out := protoimpl.TypeBuilder{
 		File: protoimpl.DescBuilder{

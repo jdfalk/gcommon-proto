@@ -6,11 +6,10 @@
 
 //go:build !protoopaque
 
-package requests
+package dbpb
 
 import (
-	messages "github.com/jdfalk/gcommon/pkg/common/proto/messages"
-	types "github.com/jdfalk/gcommon/pkg/db/proto/types"
+	proto "github.com/jdfalk/gcommon/pkg/common/proto"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
@@ -33,9 +32,9 @@ type RunMigrationRequest struct {
 	// Database name to run migrations against
 	Database *string `protobuf:"bytes,1,opt,name=database" json:"database,omitempty"`
 	// List of migration scripts to execute
-	Scripts []*types.MigrationScript `protobuf:"bytes,2,rep,name=scripts" json:"scripts,omitempty"`
+	Scripts []*MigrationScript `protobuf:"bytes,2,rep,name=scripts" json:"scripts,omitempty"`
 	// Request metadata for tracing and authentication
-	Metadata      *messages.RequestMetadata `protobuf:"bytes,3,opt,name=metadata" json:"metadata,omitempty"`
+	Metadata      *proto.RequestMetadata `protobuf:"bytes,3,opt,name=metadata" json:"metadata,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -72,14 +71,14 @@ func (x *RunMigrationRequest) GetDatabase() string {
 	return ""
 }
 
-func (x *RunMigrationRequest) GetScripts() []*types.MigrationScript {
+func (x *RunMigrationRequest) GetScripts() []*MigrationScript {
 	if x != nil {
 		return x.Scripts
 	}
 	return nil
 }
 
-func (x *RunMigrationRequest) GetMetadata() *messages.RequestMetadata {
+func (x *RunMigrationRequest) GetMetadata() *proto.RequestMetadata {
 	if x != nil {
 		return x.Metadata
 	}
@@ -90,11 +89,11 @@ func (x *RunMigrationRequest) SetDatabase(v string) {
 	x.Database = &v
 }
 
-func (x *RunMigrationRequest) SetScripts(v []*types.MigrationScript) {
+func (x *RunMigrationRequest) SetScripts(v []*MigrationScript) {
 	x.Scripts = v
 }
 
-func (x *RunMigrationRequest) SetMetadata(v *messages.RequestMetadata) {
+func (x *RunMigrationRequest) SetMetadata(v *proto.RequestMetadata) {
 	x.Metadata = v
 }
 
@@ -126,9 +125,9 @@ type RunMigrationRequest_builder struct {
 	// Database name to run migrations against
 	Database *string
 	// List of migration scripts to execute
-	Scripts []*types.MigrationScript
+	Scripts []*MigrationScript
 	// Request metadata for tracing and authentication
-	Metadata *messages.RequestMetadata
+	Metadata *proto.RequestMetadata
 }
 
 func (b0 RunMigrationRequest_builder) Build() *RunMigrationRequest {
@@ -149,14 +148,14 @@ const file_pkg_db_proto_requests_run_migration_request_proto_rawDesc = "" +
 	"\x13RunMigrationRequest\x12\x1a\n" +
 	"\bdatabase\x18\x01 \x01(\tR\bdatabase\x12B\n" +
 	"\ascripts\x18\x02 \x03(\v2$.gcommon.v1.database.MigrationScriptB\x02(\x01R\ascripts\x12B\n" +
-	"\bmetadata\x18\x03 \x01(\v2\".gcommon.v1.common.RequestMetadataB\x02(\x01R\bmetadataB\xda\x01\n" +
-	"\x17com.gcommon.v1.databaseB\x18RunMigrationRequestProtoP\x01Z/github.com/jdfalk/gcommon/pkg/db/proto/requests\xa2\x02\x03GVD\xaa\x02\x13Gcommon.V1.Database\xca\x02\x13Gcommon\\V1\\Database\xe2\x02\x1fGcommon\\V1\\Database\\GPBMetadata\xea\x02\x15Gcommon::V1::Database\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
+	"\bmetadata\x18\x03 \x01(\v2\".gcommon.v1.common.RequestMetadataB\x02(\x01R\bmetadataB\xd6\x01\n" +
+	"\x17com.gcommon.v1.databaseB\x18RunMigrationRequestProtoP\x01Z+github.com/jdfalk/gcommon/pkg/db/proto;dbpb\xa2\x02\x03GVD\xaa\x02\x13Gcommon.V1.Database\xca\x02\x13Gcommon\\V1\\Database\xe2\x02\x1fGcommon\\V1\\Database\\GPBMetadata\xea\x02\x15Gcommon::V1::Database\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
 
 var file_pkg_db_proto_requests_run_migration_request_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_pkg_db_proto_requests_run_migration_request_proto_goTypes = []any{
-	(*RunMigrationRequest)(nil),      // 0: gcommon.v1.database.RunMigrationRequest
-	(*types.MigrationScript)(nil),    // 1: gcommon.v1.database.MigrationScript
-	(*messages.RequestMetadata)(nil), // 2: gcommon.v1.common.RequestMetadata
+	(*RunMigrationRequest)(nil),   // 0: gcommon.v1.database.RunMigrationRequest
+	(*MigrationScript)(nil),       // 1: gcommon.v1.database.MigrationScript
+	(*proto.RequestMetadata)(nil), // 2: gcommon.v1.common.RequestMetadata
 }
 var file_pkg_db_proto_requests_run_migration_request_proto_depIdxs = []int32{
 	1, // 0: gcommon.v1.database.RunMigrationRequest.scripts:type_name -> gcommon.v1.database.MigrationScript
@@ -173,6 +172,7 @@ func file_pkg_db_proto_requests_run_migration_request_proto_init() {
 	if File_pkg_db_proto_requests_run_migration_request_proto != nil {
 		return
 	}
+	file_pkg_db_proto_types_migration_script_proto_init()
 	type x struct{}
 	out := protoimpl.TypeBuilder{
 		File: protoimpl.DescBuilder{
