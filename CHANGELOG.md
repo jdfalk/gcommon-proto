@@ -11,6 +11,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 
+- Implemented additional metrics message definitions
+
+### Added
+
 - Implemented Config module request protobufs
 
 ### Added

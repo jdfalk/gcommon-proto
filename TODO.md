@@ -1408,3 +1408,5 @@ Implemented 13 Config request protobufs
 Add DebugInfo message to common module
 
 Implement TransactionService and MigrationService protobufs
+
+Metrics module progress now at 7% with initial message implementations

@@ -318,3 +318,7 @@ Implemented initial metrics protobufs
 Updated config module progress
 - Added DebugInfo message for advanced debugging
 Implemented TransactionService and MigrationService protobufs
+
+# Metrics
+
+| **Metrics**      | 🔄 7%     | ❌ No                 | 🔄 In Progress | **❌ 90/97 files need implementation**     |

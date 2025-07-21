@@ -231,3 +231,4 @@ Implemented initial metrics protobuf files
 Marked 13 config request protobufs as implemented
 ### July 24, 2025 - Implemented DebugInfo message in Common module
 Implemented new database migration and transaction services
+Implemented 5 metrics message files: MetricLabel, MetricSample, MetricHealth, ImportConfig, RetentionPolicyInfo, TimeSeries
