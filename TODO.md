@@ -1389,3 +1389,19 @@ Automate issue linking for project boards
 - [ ] 🟡 **General**: Remove references to custom add-to-project workflow
 
 Automate issue linking for project boards
+
+Setup protobuf validation workflow (#67)
+
+Migrate remaining proto files to use shared types
+
+- [ ] 🟡 **General**: Remove references to custom add-to-project workflow
+
+Automate issue linking for project boards
+
+
+# #### **High Priority** (Phase 1 - Immediate Action Required)
+
+#### **High Priority** (Phase 1 - Immediate Action Required)
+
+1. **Config Module** - Complete migration of 21 remaining types (2/23 migrated)
+2. **Cache Module** - Complete migration of 39 remaining types (7/46 migrated)

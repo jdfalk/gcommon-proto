@@ -328,3 +328,9 @@ python3 /path/to/ghcommon/scripts/unified_github_project_manager_v2.py
 See `scripts/MIGRATION-NOTICE.md` for migration details.
 
 GitHub's built-in project automation now automatically adds issues and PRs to the board, so the custom workflow has been removed.
+
+GitHub's built-in project automation now automatically adds issues and PRs to the board, so the custom workflow has been removed.
+### Protobuf Validation Pipeline\n\nRun 'make proto-compile' to validate all protobuf files using protoc and buf lint.
+The updated setup script automatically authenticates using `gh auth token` and links open issues by module labels.
+### GitHub Projects\nThis repository now uses a dedicated GitHub Project board for each major module (Metrics, Queue, Web, Auth, Cache, Config). Run `scripts/setup-github-projects.sh` to create these boards and automatically add issues by label.
+Added reference to shared proto types
