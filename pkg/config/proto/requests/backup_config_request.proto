@@ -2,17 +2,31 @@
 // file: config/proto/requests/backup_config_request.proto
 //
 // Request definitions for config module
-// TODO: Implement actual protobuf definitions
+// Generated as part of protobuf implementation
 //
 edition = "2023";
 
 package gcommon.v1.config;
 
 import "google/protobuf/go_features.proto";
+import "pkg/common/proto/messages/request_metadata.proto";
 
 option go_package = "github.com/jdfalk/gcommon/pkg/config/proto;configpb";
 option features.(pb.go).api_level = API_HYBRID;
 
-// TODO: Add request definitions here
-// This is a placeholder file created during 1-1-1 migration
-// Implement the actual protobuf definitions according to the config module requirements
+/**
+ * BackupConfigRequest triggers creation of a configuration backup.
+ */
+message BackupConfigRequest {
+  // Namespace or environment to back up
+  string namespace = 1;
+
+  // Optional description for the backup
+  string description = 2;
+
+  // Include secrets in the backup
+  bool include_secrets = 3;
+
+  // Request metadata
+  gcommon.v1.common.RequestMetadata metadata = 4;
+}
