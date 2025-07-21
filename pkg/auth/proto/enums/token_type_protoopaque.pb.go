@@ -6,7 +6,7 @@
 
 //go:build protoopaque
 
-package enums
+package authpb
 
 import (
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
@@ -122,8 +122,8 @@ const file_pkg_auth_proto_enums_token_type_proto_rawDesc = "" +
 	"\x1dTOKEN_TYPE_EMAIL_VERIFICATION\x10\b\x12!\n" +
 	"\x1dTOKEN_TYPE_PHONE_VERIFICATION\x10\t\x12\x19\n" +
 	"\x15TOKEN_TYPE_INVITATION\x10\n" +
-	"B\xbb\x01\n" +
-	"\x13com.gcommon.v1.authB\x0eTokenTypeProtoP\x01Z.github.com/jdfalk/gcommon/pkg/auth/proto/enums\xa2\x02\x03GVA\xaa\x02\x0fGcommon.V1.Auth\xca\x02\x0fGcommon\\V1\\Auth\xe2\x02\x1bGcommon\\V1\\Auth\\GPBMetadata\xea\x02\x11Gcommon::V1::Auth\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
+	"B\xbc\x01\n" +
+	"\x13com.gcommon.v1.authB\x0eTokenTypeProtoP\x01Z/github.com/jdfalk/gcommon/pkg/auth/proto;authpb\xa2\x02\x03GVA\xaa\x02\x0fGcommon.V1.Auth\xca\x02\x0fGcommon\\V1\\Auth\xe2\x02\x1bGcommon\\V1\\Auth\\GPBMetadata\xea\x02\x11Gcommon::V1::Auth\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
 
 var file_pkg_auth_proto_enums_token_type_proto_enumTypes = make([]protoimpl.EnumInfo, 1)
 var file_pkg_auth_proto_enums_token_type_proto_goTypes = []any{
