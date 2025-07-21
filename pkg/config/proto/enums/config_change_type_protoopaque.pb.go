@@ -6,7 +6,7 @@
 
 //go:build protoopaque
 
-package enums
+package configpb
 
 import (
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
@@ -81,8 +81,8 @@ const file_pkg_config_proto_enums_config_change_type_proto_rawDesc = "" +
 	"\x1eCONFIG_CHANGE_TYPE_UNSPECIFIED\x10\x00\x12\x1e\n" +
 	"\x1aCONFIG_CHANGE_TYPE_CREATED\x10\x01\x12\x1e\n" +
 	"\x1aCONFIG_CHANGE_TYPE_UPDATED\x10\x02\x12\x1e\n" +
-	"\x1aCONFIG_CHANGE_TYPE_DELETED\x10\x03B\xce\x01\n" +
-	"\x15com.gcommon.v1.configB\x15ConfigChangeTypeProtoP\x01Z0github.com/jdfalk/gcommon/pkg/config/proto/enums\xa2\x02\x03GVC\xaa\x02\x11Gcommon.V1.Config\xca\x02\x11Gcommon\\V1\\Config\xe2\x02\x1dGcommon\\V1\\Config\\GPBMetadata\xea\x02\x13Gcommon::V1::Config\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
+	"\x1aCONFIG_CHANGE_TYPE_DELETED\x10\x03B\xd1\x01\n" +
+	"\x15com.gcommon.v1.configB\x15ConfigChangeTypeProtoP\x01Z3github.com/jdfalk/gcommon/pkg/config/proto;configpb\xa2\x02\x03GVC\xaa\x02\x11Gcommon.V1.Config\xca\x02\x11Gcommon\\V1\\Config\xe2\x02\x1dGcommon\\V1\\Config\\GPBMetadata\xea\x02\x13Gcommon::V1::Config\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
 
 var file_pkg_config_proto_enums_config_change_type_proto_enumTypes = make([]protoimpl.EnumInfo, 1)
 var file_pkg_config_proto_enums_config_change_type_proto_goTypes = []any{

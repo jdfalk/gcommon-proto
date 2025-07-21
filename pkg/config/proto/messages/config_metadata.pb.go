@@ -4,11 +4,10 @@
 // 	protoc        (unknown)
 // source: pkg/config/proto/messages/config_metadata.proto
 
-package messages
+package configpb
 
 import (
-	_ "github.com/jdfalk/gcommon/pkg/common/proto"
-	messages "github.com/jdfalk/gcommon/pkg/common/proto/messages"
+	proto "github.com/jdfalk/gcommon/pkg/common/proto"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	timestamppb "google.golang.org/protobuf/types/known/timestamppb"
@@ -596,7 +595,7 @@ type ConfigMetadata struct {
 	// Status of the metadata
 	Status *MetadataStatus `protobuf:"varint,40,opt,name=status,enum=gcommon.v1.config.MetadataStatus" json:"status,omitempty"`
 	// Error information if status is ERROR
-	Error         *messages.Error `protobuf:"bytes,41,opt,name=error" json:"error,omitempty"`
+	Error         *proto.Error `protobuf:"bytes,41,opt,name=error" json:"error,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -911,7 +910,7 @@ func (x *ConfigMetadata) GetStatus() MetadataStatus {
 	return MetadataStatus_METADATA_STATUS_UNSPECIFIED
 }
 
-func (x *ConfigMetadata) GetError() *messages.Error {
+func (x *ConfigMetadata) GetError() *proto.Error {
 	if x != nil {
 		return x.Error
 	}
@@ -1887,7 +1886,7 @@ const file_pkg_config_proto_messages_config_metadata_proto_rawDesc = "" +
 	"\x1aMETADATA_STATUS_DEPRECATED\x10\x04\x12\x1b\n" +
 	"\x17METADATA_STATUS_DELETED\x10\x05\x12\x19\n" +
 	"\x15METADATA_STATUS_ERROR\x10\x06B\xc7\x01\n" +
-	"\x15com.gcommon.v1.configB\x13ConfigMetadataProtoP\x01Z3github.com/jdfalk/gcommon/pkg/config/proto/messages\xa2\x02\x03GVC\xaa\x02\x11Gcommon.V1.Config\xca\x02\x11Gcommon\\V1\\Config\xe2\x02\x1dGcommon\\V1\\Config\\GPBMetadata\xea\x02\x13Gcommon::V1::Configb\beditionsp\xe8\a"
+	"\x15com.gcommon.v1.configB\x13ConfigMetadataProtoP\x01Z3github.com/jdfalk/gcommon/pkg/config/proto;configpb\xa2\x02\x03GVC\xaa\x02\x11Gcommon.V1.Config\xca\x02\x11Gcommon\\V1\\Config\xe2\x02\x1dGcommon\\V1\\Config\\GPBMetadata\xea\x02\x13Gcommon::V1::Configb\beditionsp\xe8\a"
 
 var (
 	file_pkg_config_proto_messages_config_metadata_proto_rawDescOnce sync.Once
@@ -1926,7 +1925,7 @@ var file_pkg_config_proto_messages_config_metadata_proto_goTypes = []any{
 	nil,                           // 19: gcommon.v1.config.BackupSettings.MetadataEntry
 	nil,                           // 20: gcommon.v1.config.VersioningSettings.MetadataEntry
 	(*timestamppb.Timestamp)(nil), // 21: google.protobuf.Timestamp
-	(*messages.Error)(nil),        // 22: gcommon.v1.common.Error
+	(*proto.Error)(nil),           // 22: gcommon.v1.common.Error
 }
 var file_pkg_config_proto_messages_config_metadata_proto_depIdxs = []int32{
 	0,  // 0: gcommon.v1.config.ConfigMetadata.data_type:type_name -> gcommon.v1.config.ConfigDataType

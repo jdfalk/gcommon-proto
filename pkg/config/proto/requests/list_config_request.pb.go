@@ -6,11 +6,10 @@
 
 //go:build !protoopaque
 
-package requests
+package configpb
 
 import (
-	messages "github.com/jdfalk/gcommon/pkg/common/proto/messages"
-	types "github.com/jdfalk/gcommon/pkg/common/proto/types"
+	proto "github.com/jdfalk/gcommon/pkg/common/proto"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
@@ -34,13 +33,13 @@ type ListConfigRequest struct {
 	// Optional namespace/environment
 	Namespace *string `protobuf:"bytes,2,opt,name=namespace" json:"namespace,omitempty"`
 	// Pagination options
-	Pagination *messages.Pagination `protobuf:"bytes,3,opt,name=pagination" json:"pagination,omitempty"`
+	Pagination *proto.Pagination `protobuf:"bytes,3,opt,name=pagination" json:"pagination,omitempty"`
 	// Filter options
-	Filter *messages.FilterOptions `protobuf:"bytes,4,opt,name=filter" json:"filter,omitempty"`
+	Filter *proto.FilterOptions `protobuf:"bytes,4,opt,name=filter" json:"filter,omitempty"`
 	// Sort options
-	Sort *types.SortOptions `protobuf:"bytes,5,opt,name=sort" json:"sort,omitempty"`
+	Sort *proto.SortOptions `protobuf:"bytes,5,opt,name=sort" json:"sort,omitempty"`
 	// Request metadata
-	Metadata      *messages.RequestMetadata `protobuf:"bytes,6,opt,name=metadata" json:"metadata,omitempty"`
+	Metadata      *proto.RequestMetadata `protobuf:"bytes,6,opt,name=metadata" json:"metadata,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -84,28 +83,28 @@ func (x *ListConfigRequest) GetNamespace() string {
 	return ""
 }
 
-func (x *ListConfigRequest) GetPagination() *messages.Pagination {
+func (x *ListConfigRequest) GetPagination() *proto.Pagination {
 	if x != nil {
 		return x.Pagination
 	}
 	return nil
 }
 
-func (x *ListConfigRequest) GetFilter() *messages.FilterOptions {
+func (x *ListConfigRequest) GetFilter() *proto.FilterOptions {
 	if x != nil {
 		return x.Filter
 	}
 	return nil
 }
 
-func (x *ListConfigRequest) GetSort() *types.SortOptions {
+func (x *ListConfigRequest) GetSort() *proto.SortOptions {
 	if x != nil {
 		return x.Sort
 	}
 	return nil
 }
 
-func (x *ListConfigRequest) GetMetadata() *messages.RequestMetadata {
+func (x *ListConfigRequest) GetMetadata() *proto.RequestMetadata {
 	if x != nil {
 		return x.Metadata
 	}
@@ -120,19 +119,19 @@ func (x *ListConfigRequest) SetNamespace(v string) {
 	x.Namespace = &v
 }
 
-func (x *ListConfigRequest) SetPagination(v *messages.Pagination) {
+func (x *ListConfigRequest) SetPagination(v *proto.Pagination) {
 	x.Pagination = v
 }
 
-func (x *ListConfigRequest) SetFilter(v *messages.FilterOptions) {
+func (x *ListConfigRequest) SetFilter(v *proto.FilterOptions) {
 	x.Filter = v
 }
 
-func (x *ListConfigRequest) SetSort(v *types.SortOptions) {
+func (x *ListConfigRequest) SetSort(v *proto.SortOptions) {
 	x.Sort = v
 }
 
-func (x *ListConfigRequest) SetMetadata(v *messages.RequestMetadata) {
+func (x *ListConfigRequest) SetMetadata(v *proto.RequestMetadata) {
 	x.Metadata = v
 }
 
@@ -210,13 +209,13 @@ type ListConfigRequest_builder struct {
 	// Optional namespace/environment
 	Namespace *string
 	// Pagination options
-	Pagination *messages.Pagination
+	Pagination *proto.Pagination
 	// Filter options
-	Filter *messages.FilterOptions
+	Filter *proto.FilterOptions
 	// Sort options
-	Sort *types.SortOptions
+	Sort *proto.SortOptions
 	// Request metadata
-	Metadata *messages.RequestMetadata
+	Metadata *proto.RequestMetadata
 }
 
 func (b0 ListConfigRequest_builder) Build() *ListConfigRequest {
@@ -246,15 +245,15 @@ const file_pkg_config_proto_requests_list_config_request_proto_rawDesc = "" +
 	"\x06filter\x18\x04 \x01(\v2 .gcommon.v1.common.FilterOptionsR\x06filter\x122\n" +
 	"\x04sort\x18\x05 \x01(\v2\x1e.gcommon.v1.common.SortOptionsR\x04sort\x12>\n" +
 	"\bmetadata\x18\x06 \x01(\v2\".gcommon.v1.common.RequestMetadataR\bmetadataB\xd2\x01\n" +
-	"\x15com.gcommon.v1.configB\x16ListConfigRequestProtoP\x01Z3github.com/jdfalk/gcommon/pkg/config/proto/requests\xa2\x02\x03GVC\xaa\x02\x11Gcommon.V1.Config\xca\x02\x11Gcommon\\V1\\Config\xe2\x02\x1dGcommon\\V1\\Config\\GPBMetadata\xea\x02\x13Gcommon::V1::Config\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
+	"\x15com.gcommon.v1.configB\x16ListConfigRequestProtoP\x01Z3github.com/jdfalk/gcommon/pkg/config/proto;configpb\xa2\x02\x03GVC\xaa\x02\x11Gcommon.V1.Config\xca\x02\x11Gcommon\\V1\\Config\xe2\x02\x1dGcommon\\V1\\Config\\GPBMetadata\xea\x02\x13Gcommon::V1::Config\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
 
 var file_pkg_config_proto_requests_list_config_request_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_pkg_config_proto_requests_list_config_request_proto_goTypes = []any{
-	(*ListConfigRequest)(nil),        // 0: gcommon.v1.config.ListConfigRequest
-	(*messages.Pagination)(nil),      // 1: gcommon.v1.common.Pagination
-	(*messages.FilterOptions)(nil),   // 2: gcommon.v1.common.FilterOptions
-	(*types.SortOptions)(nil),        // 3: gcommon.v1.common.SortOptions
-	(*messages.RequestMetadata)(nil), // 4: gcommon.v1.common.RequestMetadata
+	(*ListConfigRequest)(nil),     // 0: gcommon.v1.config.ListConfigRequest
+	(*proto.Pagination)(nil),      // 1: gcommon.v1.common.Pagination
+	(*proto.FilterOptions)(nil),   // 2: gcommon.v1.common.FilterOptions
+	(*proto.SortOptions)(nil),     // 3: gcommon.v1.common.SortOptions
+	(*proto.RequestMetadata)(nil), // 4: gcommon.v1.common.RequestMetadata
 }
 var file_pkg_config_proto_requests_list_config_request_proto_depIdxs = []int32{
 	1, // 0: gcommon.v1.config.ListConfigRequest.pagination:type_name -> gcommon.v1.common.Pagination

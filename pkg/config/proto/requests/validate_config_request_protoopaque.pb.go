@@ -6,11 +6,10 @@
 
 //go:build protoopaque
 
-package requests
+package configpb
 
 import (
-	messages1 "github.com/jdfalk/gcommon/pkg/common/proto/messages"
-	messages "github.com/jdfalk/gcommon/pkg/config/proto/messages"
+	proto "github.com/jdfalk/gcommon/pkg/common/proto"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
@@ -28,10 +27,10 @@ const (
 // *
 // ValidateConfigRequest validates configuration entries against a schema.
 type ValidateConfigRequest struct {
-	state                  protoimpl.MessageState     `protogen:"opaque.v1"`
-	xxx_hidden_Entries     *[]*messages.ConfigEntry   `protobuf:"bytes,1,rep,name=entries"`
-	xxx_hidden_SchemaName  *string                    `protobuf:"bytes,2,opt,name=schema_name,json=schemaName"`
-	xxx_hidden_Metadata    *messages1.RequestMetadata `protobuf:"bytes,3,opt,name=metadata"`
+	state                  protoimpl.MessageState `protogen:"opaque.v1"`
+	xxx_hidden_Entries     *[]*ConfigEntry        `protobuf:"bytes,1,rep,name=entries"`
+	xxx_hidden_SchemaName  *string                `protobuf:"bytes,2,opt,name=schema_name,json=schemaName"`
+	xxx_hidden_Metadata    *proto.RequestMetadata `protobuf:"bytes,3,opt,name=metadata"`
 	XXX_raceDetectHookData protoimpl.RaceDetectHookData
 	XXX_presence           [1]uint32
 	unknownFields          protoimpl.UnknownFields
@@ -63,7 +62,7 @@ func (x *ValidateConfigRequest) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-func (x *ValidateConfigRequest) GetEntries() []*messages.ConfigEntry {
+func (x *ValidateConfigRequest) GetEntries() []*ConfigEntry {
 	if x != nil {
 		if x.xxx_hidden_Entries != nil {
 			return *x.xxx_hidden_Entries
@@ -82,14 +81,14 @@ func (x *ValidateConfigRequest) GetSchemaName() string {
 	return ""
 }
 
-func (x *ValidateConfigRequest) GetMetadata() *messages1.RequestMetadata {
+func (x *ValidateConfigRequest) GetMetadata() *proto.RequestMetadata {
 	if x != nil {
 		return x.xxx_hidden_Metadata
 	}
 	return nil
 }
 
-func (x *ValidateConfigRequest) SetEntries(v []*messages.ConfigEntry) {
+func (x *ValidateConfigRequest) SetEntries(v []*ConfigEntry) {
 	x.xxx_hidden_Entries = &v
 }
 
@@ -98,7 +97,7 @@ func (x *ValidateConfigRequest) SetSchemaName(v string) {
 	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 1, 3)
 }
 
-func (x *ValidateConfigRequest) SetMetadata(v *messages1.RequestMetadata) {
+func (x *ValidateConfigRequest) SetMetadata(v *proto.RequestMetadata) {
 	x.xxx_hidden_Metadata = v
 }
 
@@ -129,11 +128,11 @@ type ValidateConfigRequest_builder struct {
 	_ [0]func() // Prevents comparability and use of unkeyed literals for the builder.
 
 	// Configuration entries to validate
-	Entries []*messages.ConfigEntry
+	Entries []*ConfigEntry
 	// Schema to validate against
 	SchemaName *string
 	// Request metadata
-	Metadata *messages1.RequestMetadata
+	Metadata *proto.RequestMetadata
 }
 
 func (b0 ValidateConfigRequest_builder) Build() *ValidateConfigRequest {
@@ -159,13 +158,13 @@ const file_pkg_config_proto_requests_validate_config_request_proto_rawDesc = "" 
 	"\vschema_name\x18\x02 \x01(\tR\n" +
 	"schemaName\x12>\n" +
 	"\bmetadata\x18\x03 \x01(\v2\".gcommon.v1.common.RequestMetadataR\bmetadataB\xd6\x01\n" +
-	"\x15com.gcommon.v1.configB\x1aValidateConfigRequestProtoP\x01Z3github.com/jdfalk/gcommon/pkg/config/proto/requests\xa2\x02\x03GVC\xaa\x02\x11Gcommon.V1.Config\xca\x02\x11Gcommon\\V1\\Config\xe2\x02\x1dGcommon\\V1\\Config\\GPBMetadata\xea\x02\x13Gcommon::V1::Config\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
+	"\x15com.gcommon.v1.configB\x1aValidateConfigRequestProtoP\x01Z3github.com/jdfalk/gcommon/pkg/config/proto;configpb\xa2\x02\x03GVC\xaa\x02\x11Gcommon.V1.Config\xca\x02\x11Gcommon\\V1\\Config\xe2\x02\x1dGcommon\\V1\\Config\\GPBMetadata\xea\x02\x13Gcommon::V1::Config\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
 
 var file_pkg_config_proto_requests_validate_config_request_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_pkg_config_proto_requests_validate_config_request_proto_goTypes = []any{
-	(*ValidateConfigRequest)(nil),     // 0: gcommon.v1.config.ValidateConfigRequest
-	(*messages.ConfigEntry)(nil),      // 1: gcommon.v1.config.ConfigEntry
-	(*messages1.RequestMetadata)(nil), // 2: gcommon.v1.common.RequestMetadata
+	(*ValidateConfigRequest)(nil), // 0: gcommon.v1.config.ValidateConfigRequest
+	(*ConfigEntry)(nil),           // 1: gcommon.v1.config.ConfigEntry
+	(*proto.RequestMetadata)(nil), // 2: gcommon.v1.common.RequestMetadata
 }
 var file_pkg_config_proto_requests_validate_config_request_proto_depIdxs = []int32{
 	1, // 0: gcommon.v1.config.ValidateConfigRequest.entries:type_name -> gcommon.v1.config.ConfigEntry
@@ -182,6 +181,7 @@ func file_pkg_config_proto_requests_validate_config_request_proto_init() {
 	if File_pkg_config_proto_requests_validate_config_request_proto != nil {
 		return
 	}
+	file_pkg_config_proto_messages_config_entry_proto_init()
 	type x struct{}
 	out := protoimpl.TypeBuilder{
 		File: protoimpl.DescBuilder{

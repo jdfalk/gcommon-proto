@@ -6,10 +6,10 @@
 
 //go:build !protoopaque
 
-package requests
+package configpb
 
 import (
-	messages "github.com/jdfalk/gcommon/pkg/common/proto/messages"
+	proto "github.com/jdfalk/gcommon/pkg/common/proto"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
@@ -33,7 +33,7 @@ type GetConfigRequest struct {
 	// Optional namespace/environment
 	Namespace *string `protobuf:"bytes,2,opt,name=namespace" json:"namespace,omitempty"`
 	// Request metadata
-	Metadata *messages.RequestMetadata `protobuf:"bytes,3,opt,name=metadata" json:"metadata,omitempty"`
+	Metadata *proto.RequestMetadata `protobuf:"bytes,3,opt,name=metadata" json:"metadata,omitempty"`
 	// Whether to decrypt encrypted values
 	Decrypt       *bool `protobuf:"varint,4,opt,name=decrypt" json:"decrypt,omitempty"`
 	unknownFields protoimpl.UnknownFields
@@ -79,7 +79,7 @@ func (x *GetConfigRequest) GetNamespace() string {
 	return ""
 }
 
-func (x *GetConfigRequest) GetMetadata() *messages.RequestMetadata {
+func (x *GetConfigRequest) GetMetadata() *proto.RequestMetadata {
 	if x != nil {
 		return x.Metadata
 	}
@@ -101,7 +101,7 @@ func (x *GetConfigRequest) SetNamespace(v string) {
 	x.Namespace = &v
 }
 
-func (x *GetConfigRequest) SetMetadata(v *messages.RequestMetadata) {
+func (x *GetConfigRequest) SetMetadata(v *proto.RequestMetadata) {
 	x.Metadata = v
 }
 
@@ -161,7 +161,7 @@ type GetConfigRequest_builder struct {
 	// Optional namespace/environment
 	Namespace *string
 	// Request metadata
-	Metadata *messages.RequestMetadata
+	Metadata *proto.RequestMetadata
 	// Whether to decrypt encrypted values
 	Decrypt *bool
 }
@@ -187,12 +187,12 @@ const file_pkg_config_proto_requests_get_config_request_proto_rawDesc = "" +
 	"\tnamespace\x18\x02 \x01(\tR\tnamespace\x12>\n" +
 	"\bmetadata\x18\x03 \x01(\v2\".gcommon.v1.common.RequestMetadataR\bmetadata\x12\x18\n" +
 	"\adecrypt\x18\x04 \x01(\bR\adecryptB\xd1\x01\n" +
-	"\x15com.gcommon.v1.configB\x15GetConfigRequestProtoP\x01Z3github.com/jdfalk/gcommon/pkg/config/proto/requests\xa2\x02\x03GVC\xaa\x02\x11Gcommon.V1.Config\xca\x02\x11Gcommon\\V1\\Config\xe2\x02\x1dGcommon\\V1\\Config\\GPBMetadata\xea\x02\x13Gcommon::V1::Config\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
+	"\x15com.gcommon.v1.configB\x15GetConfigRequestProtoP\x01Z3github.com/jdfalk/gcommon/pkg/config/proto;configpb\xa2\x02\x03GVC\xaa\x02\x11Gcommon.V1.Config\xca\x02\x11Gcommon\\V1\\Config\xe2\x02\x1dGcommon\\V1\\Config\\GPBMetadata\xea\x02\x13Gcommon::V1::Config\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
 
 var file_pkg_config_proto_requests_get_config_request_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_pkg_config_proto_requests_get_config_request_proto_goTypes = []any{
-	(*GetConfigRequest)(nil),         // 0: gcommon.v1.config.GetConfigRequest
-	(*messages.RequestMetadata)(nil), // 1: gcommon.v1.common.RequestMetadata
+	(*GetConfigRequest)(nil),      // 0: gcommon.v1.config.GetConfigRequest
+	(*proto.RequestMetadata)(nil), // 1: gcommon.v1.common.RequestMetadata
 }
 var file_pkg_config_proto_requests_get_config_request_proto_depIdxs = []int32{
 	1, // 0: gcommon.v1.config.GetConfigRequest.metadata:type_name -> gcommon.v1.common.RequestMetadata

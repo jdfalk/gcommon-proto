@@ -4,7 +4,7 @@
 // 	protoc        (unknown)
 // source: pkg/config/proto/messages/config_template.proto
 
-package messages
+package configpb
 
 import (
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
@@ -1621,7 +1621,7 @@ const file_pkg_config_proto_messages_config_template_proto_rawDesc = "" +
 	"\x1aTEMPLATE_STATUS_DEPRECATED\x10\x03\x12\x1c\n" +
 	"\x18TEMPLATE_STATUS_ARCHIVED\x10\x04\x12\x1b\n" +
 	"\x17TEMPLATE_STATUS_DELETED\x10\x05B\xc7\x01\n" +
-	"\x15com.gcommon.v1.configB\x13ConfigTemplateProtoP\x01Z3github.com/jdfalk/gcommon/pkg/config/proto/messages\xa2\x02\x03GVC\xaa\x02\x11Gcommon.V1.Config\xca\x02\x11Gcommon\\V1\\Config\xe2\x02\x1dGcommon\\V1\\Config\\GPBMetadata\xea\x02\x13Gcommon::V1::Configb\beditionsp\xe8\a"
+	"\x15com.gcommon.v1.configB\x13ConfigTemplateProtoP\x01Z3github.com/jdfalk/gcommon/pkg/config/proto;configpb\xa2\x02\x03GVC\xaa\x02\x11Gcommon.V1.Config\xca\x02\x11Gcommon\\V1\\Config\xe2\x02\x1dGcommon\\V1\\Config\\GPBMetadata\xea\x02\x13Gcommon::V1::Configb\beditionsp\xe8\a"
 
 var (
 	file_pkg_config_proto_messages_config_template_proto_rawDescOnce sync.Once

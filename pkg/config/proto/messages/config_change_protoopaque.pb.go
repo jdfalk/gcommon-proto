@@ -6,7 +6,7 @@
 
 //go:build protoopaque
 
-package messages
+package configpb
 
 import (
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
@@ -392,7 +392,7 @@ const file_pkg_config_proto_messages_config_change_proto_rawDesc = "" +
 	"\rMetadataEntry\x12\x10\n" +
 	"\x03key\x18\x01 \x01(\tR\x03key\x12\x14\n" +
 	"\x05value\x18\x02 \x01(\tR\x05value:\x028\x01B\xcd\x01\n" +
-	"\x15com.gcommon.v1.configB\x11ConfigChangeProtoP\x01Z3github.com/jdfalk/gcommon/pkg/config/proto/messages\xa2\x02\x03GVC\xaa\x02\x11Gcommon.V1.Config\xca\x02\x11Gcommon\\V1\\Config\xe2\x02\x1dGcommon\\V1\\Config\\GPBMetadata\xea\x02\x13Gcommon::V1::Config\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
+	"\x15com.gcommon.v1.configB\x11ConfigChangeProtoP\x01Z3github.com/jdfalk/gcommon/pkg/config/proto;configpb\xa2\x02\x03GVC\xaa\x02\x11Gcommon.V1.Config\xca\x02\x11Gcommon\\V1\\Config\xe2\x02\x1dGcommon\\V1\\Config\\GPBMetadata\xea\x02\x13Gcommon::V1::Config\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
 
 var file_pkg_config_proto_messages_config_change_proto_msgTypes = make([]protoimpl.MessageInfo, 2)
 var file_pkg_config_proto_messages_config_change_proto_goTypes = []any{

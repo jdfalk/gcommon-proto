@@ -6,11 +6,10 @@
 
 //go:build !protoopaque
 
-package responses
+package configpb
 
 import (
-	messages1 "github.com/jdfalk/gcommon/pkg/common/proto/messages"
-	messages "github.com/jdfalk/gcommon/pkg/config/proto/messages"
+	proto "github.com/jdfalk/gcommon/pkg/common/proto"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
@@ -30,11 +29,11 @@ const (
 type GetMultipleConfigResponse struct {
 	state protoimpl.MessageState `protogen:"hybrid.v1"`
 	// Retrieved entries mapped by key
-	Entries map[string]*messages.ConfigEntry `protobuf:"bytes,1,rep,name=entries" json:"entries,omitempty" protobuf_key:"bytes,1,opt,name=key" protobuf_val:"bytes,2,opt,name=value"`
+	Entries map[string]*ConfigEntry `protobuf:"bytes,1,rep,name=entries" json:"entries,omitempty" protobuf_key:"bytes,1,opt,name=key" protobuf_val:"bytes,2,opt,name=value"`
 	// Keys that were not found
 	NotFound []string `protobuf:"bytes,2,rep,name=not_found,json=notFound" json:"not_found,omitempty"`
 	// Error information
-	Error         *messages1.Error `protobuf:"bytes,3,opt,name=error" json:"error,omitempty"`
+	Error         *proto.Error `protobuf:"bytes,3,opt,name=error" json:"error,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -64,7 +63,7 @@ func (x *GetMultipleConfigResponse) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-func (x *GetMultipleConfigResponse) GetEntries() map[string]*messages.ConfigEntry {
+func (x *GetMultipleConfigResponse) GetEntries() map[string]*ConfigEntry {
 	if x != nil {
 		return x.Entries
 	}
@@ -78,14 +77,14 @@ func (x *GetMultipleConfigResponse) GetNotFound() []string {
 	return nil
 }
 
-func (x *GetMultipleConfigResponse) GetError() *messages1.Error {
+func (x *GetMultipleConfigResponse) GetError() *proto.Error {
 	if x != nil {
 		return x.Error
 	}
 	return nil
 }
 
-func (x *GetMultipleConfigResponse) SetEntries(v map[string]*messages.ConfigEntry) {
+func (x *GetMultipleConfigResponse) SetEntries(v map[string]*ConfigEntry) {
 	x.Entries = v
 }
 
@@ -93,7 +92,7 @@ func (x *GetMultipleConfigResponse) SetNotFound(v []string) {
 	x.NotFound = v
 }
 
-func (x *GetMultipleConfigResponse) SetError(v *messages1.Error) {
+func (x *GetMultipleConfigResponse) SetError(v *proto.Error) {
 	x.Error = v
 }
 
@@ -112,11 +111,11 @@ type GetMultipleConfigResponse_builder struct {
 	_ [0]func() // Prevents comparability and use of unkeyed literals for the builder.
 
 	// Retrieved entries mapped by key
-	Entries map[string]*messages.ConfigEntry
+	Entries map[string]*ConfigEntry
 	// Keys that were not found
 	NotFound []string
 	// Error information
-	Error *messages1.Error
+	Error *proto.Error
 }
 
 func (b0 GetMultipleConfigResponse_builder) Build() *GetMultipleConfigResponse {
@@ -140,15 +139,15 @@ const file_pkg_config_proto_responses_get_multiple_config_response_proto_rawDesc
 	"\x05error\x18\x03 \x01(\v2\x18.gcommon.v1.common.ErrorR\x05error\x1aZ\n" +
 	"\fEntriesEntry\x12\x10\n" +
 	"\x03key\x18\x01 \x01(\tR\x03key\x124\n" +
-	"\x05value\x18\x02 \x01(\v2\x1e.gcommon.v1.config.ConfigEntryR\x05value:\x028\x01B\xdb\x01\n" +
-	"\x15com.gcommon.v1.configB\x1eGetMultipleConfigResponseProtoP\x01Z4github.com/jdfalk/gcommon/pkg/config/proto/responses\xa2\x02\x03GVC\xaa\x02\x11Gcommon.V1.Config\xca\x02\x11Gcommon\\V1\\Config\xe2\x02\x1dGcommon\\V1\\Config\\GPBMetadata\xea\x02\x13Gcommon::V1::Config\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
+	"\x05value\x18\x02 \x01(\v2\x1e.gcommon.v1.config.ConfigEntryR\x05value:\x028\x01B\xda\x01\n" +
+	"\x15com.gcommon.v1.configB\x1eGetMultipleConfigResponseProtoP\x01Z3github.com/jdfalk/gcommon/pkg/config/proto;configpb\xa2\x02\x03GVC\xaa\x02\x11Gcommon.V1.Config\xca\x02\x11Gcommon\\V1\\Config\xe2\x02\x1dGcommon\\V1\\Config\\GPBMetadata\xea\x02\x13Gcommon::V1::Config\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
 
 var file_pkg_config_proto_responses_get_multiple_config_response_proto_msgTypes = make([]protoimpl.MessageInfo, 2)
 var file_pkg_config_proto_responses_get_multiple_config_response_proto_goTypes = []any{
 	(*GetMultipleConfigResponse)(nil), // 0: gcommon.v1.config.GetMultipleConfigResponse
 	nil,                               // 1: gcommon.v1.config.GetMultipleConfigResponse.EntriesEntry
-	(*messages1.Error)(nil),           // 2: gcommon.v1.common.Error
-	(*messages.ConfigEntry)(nil),      // 3: gcommon.v1.config.ConfigEntry
+	(*proto.Error)(nil),               // 2: gcommon.v1.common.Error
+	(*ConfigEntry)(nil),               // 3: gcommon.v1.config.ConfigEntry
 }
 var file_pkg_config_proto_responses_get_multiple_config_response_proto_depIdxs = []int32{
 	1, // 0: gcommon.v1.config.GetMultipleConfigResponse.entries:type_name -> gcommon.v1.config.GetMultipleConfigResponse.EntriesEntry
@@ -166,6 +165,7 @@ func file_pkg_config_proto_responses_get_multiple_config_response_proto_init() {
 	if File_pkg_config_proto_responses_get_multiple_config_response_proto != nil {
 		return
 	}
+	file_pkg_config_proto_messages_config_entry_proto_init()
 	type x struct{}
 	out := protoimpl.TypeBuilder{
 		File: protoimpl.DescBuilder{

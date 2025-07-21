@@ -6,11 +6,10 @@
 
 //go:build protoopaque
 
-package messages
+package configpb
 
 import (
-	enums "github.com/jdfalk/gcommon/pkg/common/proto/enums"
-	messages "github.com/jdfalk/gcommon/pkg/common/proto/messages"
+	proto "github.com/jdfalk/gcommon/pkg/common/proto"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
@@ -31,14 +30,14 @@ const (
 type ConfigEntry struct {
 	state                  protoimpl.MessageState `protogen:"opaque.v1"`
 	xxx_hidden_Key         *string                `protobuf:"bytes,1,opt,name=key"`
-	xxx_hidden_Value       *messages.ConfigValue  `protobuf:"bytes,2,opt,name=value"`
+	xxx_hidden_Value       *proto.ConfigValue     `protobuf:"bytes,2,opt,name=value"`
 	xxx_hidden_Namespace   *string                `protobuf:"bytes,3,opt,name=namespace"`
 	xxx_hidden_Metadata    map[string]string      `protobuf:"bytes,4,rep,name=metadata" protobuf_key:"bytes,1,opt,name=key" protobuf_val:"bytes,2,opt,name=value"`
 	xxx_hidden_Tags        []string               `protobuf:"bytes,5,rep,name=tags"`
 	xxx_hidden_CreatedAt   *timestamppb.Timestamp `protobuf:"bytes,6,opt,name=created_at,json=createdAt"`
 	xxx_hidden_UpdatedAt   *timestamppb.Timestamp `protobuf:"bytes,7,opt,name=updated_at,json=updatedAt"`
 	xxx_hidden_Version     int64                  `protobuf:"varint,8,opt,name=version"`
-	xxx_hidden_Status      enums.ResourceStatus   `protobuf:"varint,9,opt,name=status,enum=gcommon.v1.common.ResourceStatus"`
+	xxx_hidden_Status      proto.ResourceStatus   `protobuf:"varint,9,opt,name=status,enum=gcommon.v1.common.ResourceStatus"`
 	XXX_raceDetectHookData protoimpl.RaceDetectHookData
 	XXX_presence           [1]uint32
 	unknownFields          protoimpl.UnknownFields
@@ -80,7 +79,7 @@ func (x *ConfigEntry) GetKey() string {
 	return ""
 }
 
-func (x *ConfigEntry) GetValue() *messages.ConfigValue {
+func (x *ConfigEntry) GetValue() *proto.ConfigValue {
 	if x != nil {
 		return x.xxx_hidden_Value
 	}
@@ -132,13 +131,13 @@ func (x *ConfigEntry) GetVersion() int64 {
 	return 0
 }
 
-func (x *ConfigEntry) GetStatus() enums.ResourceStatus {
+func (x *ConfigEntry) GetStatus() proto.ResourceStatus {
 	if x != nil {
 		if protoimpl.X.Present(&(x.XXX_presence[0]), 8) {
 			return x.xxx_hidden_Status
 		}
 	}
-	return enums.ResourceStatus(0)
+	return proto.ResourceStatus(0)
 }
 
 func (x *ConfigEntry) SetKey(v string) {
@@ -146,7 +145,7 @@ func (x *ConfigEntry) SetKey(v string) {
 	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 0, 9)
 }
 
-func (x *ConfigEntry) SetValue(v *messages.ConfigValue) {
+func (x *ConfigEntry) SetValue(v *proto.ConfigValue) {
 	x.xxx_hidden_Value = v
 }
 
@@ -176,7 +175,7 @@ func (x *ConfigEntry) SetVersion(v int64) {
 	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 7, 9)
 }
 
-func (x *ConfigEntry) SetStatus(v enums.ResourceStatus) {
+func (x *ConfigEntry) SetStatus(v proto.ResourceStatus) {
 	x.xxx_hidden_Status = v
 	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 8, 9)
 }
@@ -259,7 +258,7 @@ func (x *ConfigEntry) ClearVersion() {
 
 func (x *ConfigEntry) ClearStatus() {
 	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 8)
-	x.xxx_hidden_Status = enums.ResourceStatus_RESOURCE_STATUS_UNSPECIFIED
+	x.xxx_hidden_Status = proto.ResourceStatus_RESOURCE_STATUS_UNSPECIFIED
 }
 
 type ConfigEntry_builder struct {
@@ -268,7 +267,7 @@ type ConfigEntry_builder struct {
 	// Configuration key
 	Key *string
 	// Configuration value
-	Value *messages.ConfigValue
+	Value *proto.ConfigValue
 	// Namespace/environment
 	Namespace *string
 	// Entry metadata
@@ -282,7 +281,7 @@ type ConfigEntry_builder struct {
 	// Entry version for optimistic concurrency
 	Version *int64
 	// Entry status
-	Status *enums.ResourceStatus
+	Status *proto.ResourceStatus
 }
 
 func (b0 ConfigEntry_builder) Build() *ConfigEntry {
@@ -333,15 +332,15 @@ const file_pkg_config_proto_messages_config_entry_proto_rawDesc = "" +
 	"\rMetadataEntry\x12\x10\n" +
 	"\x03key\x18\x01 \x01(\tR\x03key\x12\x14\n" +
 	"\x05value\x18\x02 \x01(\tR\x05value:\x028\x01B\xcc\x01\n" +
-	"\x15com.gcommon.v1.configB\x10ConfigEntryProtoP\x01Z3github.com/jdfalk/gcommon/pkg/config/proto/messages\xa2\x02\x03GVC\xaa\x02\x11Gcommon.V1.Config\xca\x02\x11Gcommon\\V1\\Config\xe2\x02\x1dGcommon\\V1\\Config\\GPBMetadata\xea\x02\x13Gcommon::V1::Config\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
+	"\x15com.gcommon.v1.configB\x10ConfigEntryProtoP\x01Z3github.com/jdfalk/gcommon/pkg/config/proto;configpb\xa2\x02\x03GVC\xaa\x02\x11Gcommon.V1.Config\xca\x02\x11Gcommon\\V1\\Config\xe2\x02\x1dGcommon\\V1\\Config\\GPBMetadata\xea\x02\x13Gcommon::V1::Config\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
 
 var file_pkg_config_proto_messages_config_entry_proto_msgTypes = make([]protoimpl.MessageInfo, 2)
 var file_pkg_config_proto_messages_config_entry_proto_goTypes = []any{
 	(*ConfigEntry)(nil),           // 0: gcommon.v1.config.ConfigEntry
 	nil,                           // 1: gcommon.v1.config.ConfigEntry.MetadataEntry
-	(*messages.ConfigValue)(nil),  // 2: gcommon.v1.common.ConfigValue
+	(*proto.ConfigValue)(nil),     // 2: gcommon.v1.common.ConfigValue
 	(*timestamppb.Timestamp)(nil), // 3: google.protobuf.Timestamp
-	(enums.ResourceStatus)(0),     // 4: gcommon.v1.common.ResourceStatus
+	(proto.ResourceStatus)(0),     // 4: gcommon.v1.common.ResourceStatus
 }
 var file_pkg_config_proto_messages_config_entry_proto_depIdxs = []int32{
 	2, // 0: gcommon.v1.config.ConfigEntry.value:type_name -> gcommon.v1.common.ConfigValue

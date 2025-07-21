@@ -6,7 +6,7 @@
 
 //go:build protoopaque
 
-package services
+package configpb
 
 import (
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
@@ -28,7 +28,7 @@ var File_pkg_config_proto_services_config_admin_service_proto protoreflect.FileD
 const file_pkg_config_proto_services_config_admin_service_proto_rawDesc = "" +
 	"\n" +
 	"4pkg/config/proto/services/config_admin_service.proto\x12\x11gcommon.v1.config\x1a!google/protobuf/go_features.protoB\xd3\x01\n" +
-	"\x15com.gcommon.v1.configB\x17ConfigAdminServiceProtoP\x01Z3github.com/jdfalk/gcommon/pkg/config/proto/services\xa2\x02\x03GVC\xaa\x02\x11Gcommon.V1.Config\xca\x02\x11Gcommon\\V1\\Config\xe2\x02\x1dGcommon\\V1\\Config\\GPBMetadata\xea\x02\x13Gcommon::V1::Config\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
+	"\x15com.gcommon.v1.configB\x17ConfigAdminServiceProtoP\x01Z3github.com/jdfalk/gcommon/pkg/config/proto;configpb\xa2\x02\x03GVC\xaa\x02\x11Gcommon.V1.Config\xca\x02\x11Gcommon\\V1\\Config\xe2\x02\x1dGcommon\\V1\\Config\\GPBMetadata\xea\x02\x13Gcommon::V1::Config\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
 
 var file_pkg_config_proto_services_config_admin_service_proto_goTypes = []any{}
 var file_pkg_config_proto_services_config_admin_service_proto_depIdxs = []int32{

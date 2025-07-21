@@ -6,10 +6,9 @@
 
 //go:build !protoopaque
 
-package responses
+package configpb
 
 import (
-	messages "github.com/jdfalk/gcommon/pkg/config/proto/messages"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
@@ -31,9 +30,9 @@ type ValidateConfigResponse struct {
 	// Validation result
 	Valid *bool `protobuf:"varint,1,opt,name=valid" json:"valid,omitempty"`
 	// Validation errors
-	Errors []*messages.ConfigValidationError `protobuf:"bytes,2,rep,name=errors" json:"errors,omitempty"`
+	Errors []*ConfigValidationError `protobuf:"bytes,2,rep,name=errors" json:"errors,omitempty"`
 	// Validation warnings
-	Warnings      []*messages.ConfigValidationWarning `protobuf:"bytes,3,rep,name=warnings" json:"warnings,omitempty"`
+	Warnings      []*ConfigValidationWarning `protobuf:"bytes,3,rep,name=warnings" json:"warnings,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -70,14 +69,14 @@ func (x *ValidateConfigResponse) GetValid() bool {
 	return false
 }
 
-func (x *ValidateConfigResponse) GetErrors() []*messages.ConfigValidationError {
+func (x *ValidateConfigResponse) GetErrors() []*ConfigValidationError {
 	if x != nil {
 		return x.Errors
 	}
 	return nil
 }
 
-func (x *ValidateConfigResponse) GetWarnings() []*messages.ConfigValidationWarning {
+func (x *ValidateConfigResponse) GetWarnings() []*ConfigValidationWarning {
 	if x != nil {
 		return x.Warnings
 	}
@@ -88,11 +87,11 @@ func (x *ValidateConfigResponse) SetValid(v bool) {
 	x.Valid = &v
 }
 
-func (x *ValidateConfigResponse) SetErrors(v []*messages.ConfigValidationError) {
+func (x *ValidateConfigResponse) SetErrors(v []*ConfigValidationError) {
 	x.Errors = v
 }
 
-func (x *ValidateConfigResponse) SetWarnings(v []*messages.ConfigValidationWarning) {
+func (x *ValidateConfigResponse) SetWarnings(v []*ConfigValidationWarning) {
 	x.Warnings = v
 }
 
@@ -113,9 +112,9 @@ type ValidateConfigResponse_builder struct {
 	// Validation result
 	Valid *bool
 	// Validation errors
-	Errors []*messages.ConfigValidationError
+	Errors []*ConfigValidationError
 	// Validation warnings
-	Warnings []*messages.ConfigValidationWarning
+	Warnings []*ConfigValidationWarning
 }
 
 func (b0 ValidateConfigResponse_builder) Build() *ValidateConfigResponse {
@@ -136,14 +135,14 @@ const file_pkg_config_proto_responses_validate_config_response_proto_rawDesc = "
 	"\x16ValidateConfigResponse\x12\x14\n" +
 	"\x05valid\x18\x01 \x01(\bR\x05valid\x12@\n" +
 	"\x06errors\x18\x02 \x03(\v2(.gcommon.v1.config.ConfigValidationErrorR\x06errors\x12F\n" +
-	"\bwarnings\x18\x03 \x03(\v2*.gcommon.v1.config.ConfigValidationWarningR\bwarningsB\xd8\x01\n" +
-	"\x15com.gcommon.v1.configB\x1bValidateConfigResponseProtoP\x01Z4github.com/jdfalk/gcommon/pkg/config/proto/responses\xa2\x02\x03GVC\xaa\x02\x11Gcommon.V1.Config\xca\x02\x11Gcommon\\V1\\Config\xe2\x02\x1dGcommon\\V1\\Config\\GPBMetadata\xea\x02\x13Gcommon::V1::Config\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
+	"\bwarnings\x18\x03 \x03(\v2*.gcommon.v1.config.ConfigValidationWarningR\bwarningsB\xd7\x01\n" +
+	"\x15com.gcommon.v1.configB\x1bValidateConfigResponseProtoP\x01Z3github.com/jdfalk/gcommon/pkg/config/proto;configpb\xa2\x02\x03GVC\xaa\x02\x11Gcommon.V1.Config\xca\x02\x11Gcommon\\V1\\Config\xe2\x02\x1dGcommon\\V1\\Config\\GPBMetadata\xea\x02\x13Gcommon::V1::Config\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
 
 var file_pkg_config_proto_responses_validate_config_response_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_pkg_config_proto_responses_validate_config_response_proto_goTypes = []any{
-	(*ValidateConfigResponse)(nil),           // 0: gcommon.v1.config.ValidateConfigResponse
-	(*messages.ConfigValidationError)(nil),   // 1: gcommon.v1.config.ConfigValidationError
-	(*messages.ConfigValidationWarning)(nil), // 2: gcommon.v1.config.ConfigValidationWarning
+	(*ValidateConfigResponse)(nil),  // 0: gcommon.v1.config.ValidateConfigResponse
+	(*ConfigValidationError)(nil),   // 1: gcommon.v1.config.ConfigValidationError
+	(*ConfigValidationWarning)(nil), // 2: gcommon.v1.config.ConfigValidationWarning
 }
 var file_pkg_config_proto_responses_validate_config_response_proto_depIdxs = []int32{
 	1, // 0: gcommon.v1.config.ValidateConfigResponse.errors:type_name -> gcommon.v1.config.ConfigValidationError
@@ -160,6 +159,8 @@ func file_pkg_config_proto_responses_validate_config_response_proto_init() {
 	if File_pkg_config_proto_responses_validate_config_response_proto != nil {
 		return
 	}
+	file_pkg_config_proto_messages_config_validation_error_proto_init()
+	file_pkg_config_proto_messages_config_validation_warning_proto_init()
 	type x struct{}
 	out := protoimpl.TypeBuilder{
 		File: protoimpl.DescBuilder{

@@ -6,11 +6,9 @@
 
 //go:build !protoopaque
 
-package services
+package configpb
 
 import (
-	requests "github.com/jdfalk/gcommon/pkg/config/proto/requests"
-	responses "github.com/jdfalk/gcommon/pkg/config/proto/responses"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
@@ -41,27 +39,27 @@ const file_pkg_config_proto_services_config_service_proto_rawDesc = "" +
 	"\vSetMultiple\x12+.gcommon.v1.config.SetMultipleConfigRequest\x1a,.gcommon.v1.config.SetMultipleConfigResponse\x12_\n" +
 	"\bValidate\x12(.gcommon.v1.config.ValidateConfigRequest\x1a).gcommon.v1.config.ValidateConfigResponse\x12V\n" +
 	"\tGetSchema\x12#.gcommon.v1.config.GetSchemaRequest\x1a$.gcommon.v1.config.GetSchemaResponseB\xce\x01\n" +
-	"\x15com.gcommon.v1.configB\x12ConfigServiceProtoP\x01Z3github.com/jdfalk/gcommon/pkg/config/proto/services\xa2\x02\x03GVC\xaa\x02\x11Gcommon.V1.Config\xca\x02\x11Gcommon\\V1\\Config\xe2\x02\x1dGcommon\\V1\\Config\\GPBMetadata\xea\x02\x13Gcommon::V1::Config\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
+	"\x15com.gcommon.v1.configB\x12ConfigServiceProtoP\x01Z3github.com/jdfalk/gcommon/pkg/config/proto;configpb\xa2\x02\x03GVC\xaa\x02\x11Gcommon.V1.Config\xca\x02\x11Gcommon\\V1\\Config\xe2\x02\x1dGcommon\\V1\\Config\\GPBMetadata\xea\x02\x13Gcommon::V1::Config\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
 
 var file_pkg_config_proto_services_config_service_proto_goTypes = []any{
-	(*requests.GetConfigRequest)(nil),           // 0: gcommon.v1.config.GetConfigRequest
-	(*requests.SetConfigRequest)(nil),           // 1: gcommon.v1.config.SetConfigRequest
-	(*requests.DeleteConfigRequest)(nil),        // 2: gcommon.v1.config.DeleteConfigRequest
-	(*requests.ListConfigRequest)(nil),          // 3: gcommon.v1.config.ListConfigRequest
-	(*requests.WatchConfigRequest)(nil),         // 4: gcommon.v1.config.WatchConfigRequest
-	(*requests.GetMultipleConfigRequest)(nil),   // 5: gcommon.v1.config.GetMultipleConfigRequest
-	(*requests.SetMultipleConfigRequest)(nil),   // 6: gcommon.v1.config.SetMultipleConfigRequest
-	(*requests.ValidateConfigRequest)(nil),      // 7: gcommon.v1.config.ValidateConfigRequest
-	(*requests.GetSchemaRequest)(nil),           // 8: gcommon.v1.config.GetSchemaRequest
-	(*responses.GetConfigResponse)(nil),         // 9: gcommon.v1.config.GetConfigResponse
-	(*responses.SetConfigResponse)(nil),         // 10: gcommon.v1.config.SetConfigResponse
-	(*emptypb.Empty)(nil),                       // 11: google.protobuf.Empty
-	(*responses.ListConfigResponse)(nil),        // 12: gcommon.v1.config.ListConfigResponse
-	(*responses.WatchConfigResponse)(nil),       // 13: gcommon.v1.config.WatchConfigResponse
-	(*responses.GetMultipleConfigResponse)(nil), // 14: gcommon.v1.config.GetMultipleConfigResponse
-	(*responses.SetMultipleConfigResponse)(nil), // 15: gcommon.v1.config.SetMultipleConfigResponse
-	(*responses.ValidateConfigResponse)(nil),    // 16: gcommon.v1.config.ValidateConfigResponse
-	(*responses.GetSchemaResponse)(nil),         // 17: gcommon.v1.config.GetSchemaResponse
+	(*GetConfigRequest)(nil),          // 0: gcommon.v1.config.GetConfigRequest
+	(*SetConfigRequest)(nil),          // 1: gcommon.v1.config.SetConfigRequest
+	(*DeleteConfigRequest)(nil),       // 2: gcommon.v1.config.DeleteConfigRequest
+	(*ListConfigRequest)(nil),         // 3: gcommon.v1.config.ListConfigRequest
+	(*WatchConfigRequest)(nil),        // 4: gcommon.v1.config.WatchConfigRequest
+	(*GetMultipleConfigRequest)(nil),  // 5: gcommon.v1.config.GetMultipleConfigRequest
+	(*SetMultipleConfigRequest)(nil),  // 6: gcommon.v1.config.SetMultipleConfigRequest
+	(*ValidateConfigRequest)(nil),     // 7: gcommon.v1.config.ValidateConfigRequest
+	(*GetSchemaRequest)(nil),          // 8: gcommon.v1.config.GetSchemaRequest
+	(*GetConfigResponse)(nil),         // 9: gcommon.v1.config.GetConfigResponse
+	(*SetConfigResponse)(nil),         // 10: gcommon.v1.config.SetConfigResponse
+	(*emptypb.Empty)(nil),             // 11: google.protobuf.Empty
+	(*ListConfigResponse)(nil),        // 12: gcommon.v1.config.ListConfigResponse
+	(*WatchConfigResponse)(nil),       // 13: gcommon.v1.config.WatchConfigResponse
+	(*GetMultipleConfigResponse)(nil), // 14: gcommon.v1.config.GetMultipleConfigResponse
+	(*SetMultipleConfigResponse)(nil), // 15: gcommon.v1.config.SetMultipleConfigResponse
+	(*ValidateConfigResponse)(nil),    // 16: gcommon.v1.config.ValidateConfigResponse
+	(*GetSchemaResponse)(nil),         // 17: gcommon.v1.config.GetSchemaResponse
 }
 var file_pkg_config_proto_services_config_service_proto_depIdxs = []int32{
 	0,  // 0: gcommon.v1.config.ConfigService.Get:input_type -> gcommon.v1.config.GetConfigRequest
@@ -94,6 +92,23 @@ func file_pkg_config_proto_services_config_service_proto_init() {
 	if File_pkg_config_proto_services_config_service_proto != nil {
 		return
 	}
+	file_pkg_config_proto_requests_get_config_request_proto_init()
+	file_pkg_config_proto_responses_get_config_response_proto_init()
+	file_pkg_config_proto_requests_set_config_request_proto_init()
+	file_pkg_config_proto_responses_set_config_response_proto_init()
+	file_pkg_config_proto_requests_delete_config_request_proto_init()
+	file_pkg_config_proto_requests_list_config_request_proto_init()
+	file_pkg_config_proto_responses_list_config_response_proto_init()
+	file_pkg_config_proto_requests_watch_config_request_proto_init()
+	file_pkg_config_proto_responses_watch_config_response_proto_init()
+	file_pkg_config_proto_requests_get_multiple_config_request_proto_init()
+	file_pkg_config_proto_responses_get_multiple_config_response_proto_init()
+	file_pkg_config_proto_requests_set_multiple_config_request_proto_init()
+	file_pkg_config_proto_responses_set_multiple_config_response_proto_init()
+	file_pkg_config_proto_requests_validate_config_request_proto_init()
+	file_pkg_config_proto_responses_validate_config_response_proto_init()
+	file_pkg_config_proto_requests_get_schema_request_proto_init()
+	file_pkg_config_proto_responses_get_schema_response_proto_init()
 	type x struct{}
 	out := protoimpl.TypeBuilder{
 		File: protoimpl.DescBuilder{

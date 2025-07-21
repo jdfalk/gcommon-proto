@@ -4,11 +4,10 @@
 // 	protoc        (unknown)
 // source: pkg/config/proto/messages/config_secret.proto
 
-package messages
+package configpb
 
 import (
-	_ "github.com/jdfalk/gcommon/pkg/common/proto"
-	messages "github.com/jdfalk/gcommon/pkg/common/proto/messages"
+	proto "github.com/jdfalk/gcommon/pkg/common/proto"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	timestamppb "google.golang.org/protobuf/types/known/timestamppb"
@@ -725,7 +724,7 @@ type ConfigSecret struct {
 	// Secret status
 	Status *SecretStatus `protobuf:"varint,31,opt,name=status,enum=gcommon.v1.config.SecretStatus" json:"status,omitempty"`
 	// Error information if status is ERROR
-	Error *messages.Error `protobuf:"bytes,32,opt,name=error" json:"error,omitempty"`
+	Error *proto.Error `protobuf:"bytes,32,opt,name=error" json:"error,omitempty"`
 	// Secret validation results
 	ValidationResults []*SecretValidationResult `protobuf:"bytes,33,rep,name=validation_results,json=validationResults" json:"validation_results,omitempty"`
 	// Secret usage statistics
@@ -981,7 +980,7 @@ func (x *ConfigSecret) GetStatus() SecretStatus {
 	return SecretStatus_SECRET_STATUS_UNSPECIFIED
 }
 
-func (x *ConfigSecret) GetError() *messages.Error {
+func (x *ConfigSecret) GetError() *proto.Error {
 	if x != nil {
 		return x.Error
 	}
@@ -2772,7 +2771,7 @@ const file_pkg_config_proto_messages_config_secret_proto_rawDesc = "" +
 	"\"SECRET_VALIDATION_SEVERITY_WARNING\x10\x02\x12$\n" +
 	" SECRET_VALIDATION_SEVERITY_ERROR\x10\x03\x12'\n" +
 	"#SECRET_VALIDATION_SEVERITY_CRITICAL\x10\x04B\xc5\x01\n" +
-	"\x15com.gcommon.v1.configB\x11ConfigSecretProtoP\x01Z3github.com/jdfalk/gcommon/pkg/config/proto/messages\xa2\x02\x03GVC\xaa\x02\x11Gcommon.V1.Config\xca\x02\x11Gcommon\\V1\\Config\xe2\x02\x1dGcommon\\V1\\Config\\GPBMetadata\xea\x02\x13Gcommon::V1::Configb\beditionsp\xe8\a"
+	"\x15com.gcommon.v1.configB\x11ConfigSecretProtoP\x01Z3github.com/jdfalk/gcommon/pkg/config/proto;configpb\xa2\x02\x03GVC\xaa\x02\x11Gcommon.V1.Config\xca\x02\x11Gcommon\\V1\\Config\xe2\x02\x1dGcommon\\V1\\Config\\GPBMetadata\xea\x02\x13Gcommon::V1::Configb\beditionsp\xe8\a"
 
 var (
 	file_pkg_config_proto_messages_config_secret_proto_rawDescOnce sync.Once
@@ -2822,7 +2821,7 @@ var file_pkg_config_proto_messages_config_secret_proto_goTypes = []any{
 	nil,                             // 30: gcommon.v1.config.ComplianceSettings.MetadataEntry
 	nil,                             // 31: gcommon.v1.config.SecretValidationResult.DetailsEntry
 	(*timestamppb.Timestamp)(nil),   // 32: google.protobuf.Timestamp
-	(*messages.Error)(nil),          // 33: gcommon.v1.common.Error
+	(*proto.Error)(nil),             // 33: gcommon.v1.common.Error
 }
 var file_pkg_config_proto_messages_config_secret_proto_depIdxs = []int32{
 	0,  // 0: gcommon.v1.config.ConfigSecret.type:type_name -> gcommon.v1.config.SecretType

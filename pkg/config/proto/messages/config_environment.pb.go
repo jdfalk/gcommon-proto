@@ -4,7 +4,7 @@
 // 	protoc        (unknown)
 // source: pkg/config/proto/messages/config_environment.proto
 
-package messages
+package configpb
 
 import (
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
@@ -2262,7 +2262,7 @@ const file_pkg_config_proto_messages_config_environment_proto_rawDesc = "" +
 	"\x15HEALTH_STATE_DEGRADED\x10\x02\x12\x1a\n" +
 	"\x16HEALTH_STATE_UNHEALTHY\x10\x03\x12\x18\n" +
 	"\x14HEALTH_STATE_UNKNOWN\x10\x04B\xca\x01\n" +
-	"\x15com.gcommon.v1.configB\x16ConfigEnvironmentProtoP\x01Z3github.com/jdfalk/gcommon/pkg/config/proto/messages\xa2\x02\x03GVC\xaa\x02\x11Gcommon.V1.Config\xca\x02\x11Gcommon\\V1\\Config\xe2\x02\x1dGcommon\\V1\\Config\\GPBMetadata\xea\x02\x13Gcommon::V1::Configb\beditionsp\xe8\a"
+	"\x15com.gcommon.v1.configB\x16ConfigEnvironmentProtoP\x01Z3github.com/jdfalk/gcommon/pkg/config/proto;configpb\xa2\x02\x03GVC\xaa\x02\x11Gcommon.V1.Config\xca\x02\x11Gcommon\\V1\\Config\xe2\x02\x1dGcommon\\V1\\Config\\GPBMetadata\xea\x02\x13Gcommon::V1::Configb\beditionsp\xe8\a"
 
 var (
 	file_pkg_config_proto_messages_config_environment_proto_rawDescOnce sync.Once

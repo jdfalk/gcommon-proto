@@ -4,7 +4,7 @@
 // 	protoc        (unknown)
 // source: pkg/config/proto/messages/config_version.proto
 
-package messages
+package configpb
 
 import (
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
@@ -1547,7 +1547,7 @@ const file_pkg_config_proto_messages_config_version_proto_rawDesc = "" +
 	"\x1bVERSION_DEPENDENCY_TYPE_DEV\x10\x04\x12 \n" +
 	"\x1cVERSION_DEPENDENCY_TYPE_PEER\x10\x05\x12$\n" +
 	" VERSION_DEPENDENCY_TYPE_OPTIONAL\x10\x06B\xc6\x01\n" +
-	"\x15com.gcommon.v1.configB\x12ConfigVersionProtoP\x01Z3github.com/jdfalk/gcommon/pkg/config/proto/messages\xa2\x02\x03GVC\xaa\x02\x11Gcommon.V1.Config\xca\x02\x11Gcommon\\V1\\Config\xe2\x02\x1dGcommon\\V1\\Config\\GPBMetadata\xea\x02\x13Gcommon::V1::Configb\beditionsp\xe8\a"
+	"\x15com.gcommon.v1.configB\x12ConfigVersionProtoP\x01Z3github.com/jdfalk/gcommon/pkg/config/proto;configpb\xa2\x02\x03GVC\xaa\x02\x11Gcommon.V1.Config\xca\x02\x11Gcommon\\V1\\Config\xe2\x02\x1dGcommon\\V1\\Config\\GPBMetadata\xea\x02\x13Gcommon::V1::Configb\beditionsp\xe8\a"
 
 var (
 	file_pkg_config_proto_messages_config_version_proto_rawDescOnce sync.Once
