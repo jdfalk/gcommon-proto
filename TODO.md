@@ -1403,3 +1403,5 @@ Implement core Auth configuration messages
 Updated log module migration progress: 10/50 files implemented
 Implemented initial metrics protobuf files
 Implement SetOptions message and update cache proto imports
+
+Implemented 13 Config request protobufs

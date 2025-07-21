@@ -11,6 +11,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 
+- Implemented Config module request protobufs
+
+### Added
+
 - Completed Cache module protobufs and updated aggregator
 
 ### Added
