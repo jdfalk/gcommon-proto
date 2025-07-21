@@ -6,10 +6,9 @@
 
 //go:build !protoopaque
 
-package messages
+package notificationpb
 
 import (
-	enums "github.com/jdfalk/gcommon/pkg/notification/proto/enums"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
@@ -44,7 +43,7 @@ type NotificationMessage struct {
 	// Desired send time (defaults to immediate)
 	SendAt *timestamppb.Timestamp `protobuf:"bytes,6,opt,name=send_at,json=sendAt" json:"send_at,omitempty"`
 	// Current delivery status
-	Status *enums.DeliveryStatus `protobuf:"varint,7,opt,name=status,enum=gcommon.v1.notification.DeliveryStatus" json:"status,omitempty"`
+	Status *DeliveryStatus `protobuf:"varint,7,opt,name=status,enum=gcommon.v1.notification.DeliveryStatus" json:"status,omitempty"`
 	// Creation timestamp
 	CreatedAt     *timestamppb.Timestamp `protobuf:"bytes,8,opt,name=created_at,json=createdAt" json:"created_at,omitempty"`
 	unknownFields protoimpl.UnknownFields
@@ -118,11 +117,11 @@ func (x *NotificationMessage) GetSendAt() *timestamppb.Timestamp {
 	return nil
 }
 
-func (x *NotificationMessage) GetStatus() enums.DeliveryStatus {
+func (x *NotificationMessage) GetStatus() DeliveryStatus {
 	if x != nil && x.Status != nil {
 		return *x.Status
 	}
-	return enums.DeliveryStatus(0)
+	return DeliveryStatus_DELIVERY_STATUS_UNSPECIFIED
 }
 
 func (x *NotificationMessage) GetCreatedAt() *timestamppb.Timestamp {
@@ -156,7 +155,7 @@ func (x *NotificationMessage) SetSendAt(v *timestamppb.Timestamp) {
 	x.SendAt = v
 }
 
-func (x *NotificationMessage) SetStatus(v enums.DeliveryStatus) {
+func (x *NotificationMessage) SetStatus(v DeliveryStatus) {
 	x.Status = &v
 }
 
@@ -257,7 +256,7 @@ type NotificationMessage_builder struct {
 	// Desired send time (defaults to immediate)
 	SendAt *timestamppb.Timestamp
 	// Current delivery status
-	Status *enums.DeliveryStatus
+	Status *DeliveryStatus
 	// Creation timestamp
 	CreatedAt *timestamppb.Timestamp
 }
@@ -291,8 +290,8 @@ const file_pkg_notification_proto_messages_notification_message_proto_rawDesc = 
 	"\asend_at\x18\x06 \x01(\v2\x1a.google.protobuf.TimestampB\x02(\x01R\x06sendAt\x12?\n" +
 	"\x06status\x18\a \x01(\x0e2'.gcommon.v1.notification.DeliveryStatusR\x06status\x12=\n" +
 	"\n" +
-	"created_at\x18\b \x01(\v2\x1a.google.protobuf.TimestampB\x02(\x01R\tcreatedAtB\xf8\x01\n" +
-	"\x1bcom.gcommon.v1.notificationB\x18NotificationMessageProtoP\x01Z9github.com/jdfalk/gcommon/pkg/notification/proto/messages\xa2\x02\x03GVN\xaa\x02\x17Gcommon.V1.Notification\xca\x02\x17Gcommon\\V1\\Notification\xe2\x02#Gcommon\\V1\\Notification\\GPBMetadata\xea\x02\x19Gcommon::V1::Notification\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
+	"created_at\x18\b \x01(\v2\x1a.google.protobuf.TimestampB\x02(\x01R\tcreatedAtB\xfe\x01\n" +
+	"\x1bcom.gcommon.v1.notificationB\x18NotificationMessageProtoP\x01Z?github.com/jdfalk/gcommon/pkg/notification/proto;notificationpb\xa2\x02\x03GVN\xaa\x02\x17Gcommon.V1.Notification\xca\x02\x17Gcommon\\V1\\Notification\xe2\x02#Gcommon\\V1\\Notification\\GPBMetadata\xea\x02\x19Gcommon::V1::Notification\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
 
 var file_pkg_notification_proto_messages_notification_message_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_pkg_notification_proto_messages_notification_message_proto_goTypes = []any{
@@ -300,7 +299,7 @@ var file_pkg_notification_proto_messages_notification_message_proto_goTypes = []
 	(*anypb.Any)(nil),             // 1: google.protobuf.Any
 	(*DeliveryChannel)(nil),       // 2: gcommon.v1.notification.DeliveryChannel
 	(*timestamppb.Timestamp)(nil), // 3: google.protobuf.Timestamp
-	(enums.DeliveryStatus)(0),     // 4: gcommon.v1.notification.DeliveryStatus
+	(DeliveryStatus)(0),           // 4: gcommon.v1.notification.DeliveryStatus
 }
 var file_pkg_notification_proto_messages_notification_message_proto_depIdxs = []int32{
 	1, // 0: gcommon.v1.notification.NotificationMessage.data:type_name -> google.protobuf.Any
@@ -321,6 +320,7 @@ func file_pkg_notification_proto_messages_notification_message_proto_init() {
 		return
 	}
 	file_pkg_notification_proto_messages_delivery_channel_proto_init()
+	file_pkg_notification_proto_enums_delivery_status_proto_init()
 	type x struct{}
 	out := protoimpl.TypeBuilder{
 		File: protoimpl.DescBuilder{

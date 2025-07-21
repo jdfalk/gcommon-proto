@@ -6,7 +6,7 @@
 
 //go:build protoopaque
 
-package messages
+package notificationpb
 
 import (
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
@@ -280,8 +280,8 @@ const file_pkg_notification_proto_messages_event_notification_proto_rawDesc = ""
 	"\revent_payload\x18\x03 \x01(\v2\x14.google.protobuf.AnyB\x02(\x01R\feventPayload\x12T\n" +
 	"\fnotification\x18\x04 \x01(\v2,.gcommon.v1.notification.NotificationMessageB\x02(\x01R\fnotification\x12=\n" +
 	"\n" +
-	"event_time\x18\x05 \x01(\v2\x1a.google.protobuf.TimestampB\x02(\x01R\teventTimeB\xf6\x01\n" +
-	"\x1bcom.gcommon.v1.notificationB\x16EventNotificationProtoP\x01Z9github.com/jdfalk/gcommon/pkg/notification/proto/messages\xa2\x02\x03GVN\xaa\x02\x17Gcommon.V1.Notification\xca\x02\x17Gcommon\\V1\\Notification\xe2\x02#Gcommon\\V1\\Notification\\GPBMetadata\xea\x02\x19Gcommon::V1::Notification\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
+	"event_time\x18\x05 \x01(\v2\x1a.google.protobuf.TimestampB\x02(\x01R\teventTimeB\xfc\x01\n" +
+	"\x1bcom.gcommon.v1.notificationB\x16EventNotificationProtoP\x01Z?github.com/jdfalk/gcommon/pkg/notification/proto;notificationpb\xa2\x02\x03GVN\xaa\x02\x17Gcommon.V1.Notification\xca\x02\x17Gcommon\\V1\\Notification\xe2\x02#Gcommon\\V1\\Notification\\GPBMetadata\xea\x02\x19Gcommon::V1::Notification\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
 
 var file_pkg_notification_proto_messages_event_notification_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_pkg_notification_proto_messages_event_notification_proto_goTypes = []any{
