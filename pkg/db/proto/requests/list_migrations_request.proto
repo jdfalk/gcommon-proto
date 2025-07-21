@@ -1,0 +1,27 @@
+// file: pkg/db/proto/requests/list_migrations_request.proto
+// version: 1.0.0
+// guid: e09ee131-1388-41e5-973c-3c7eb4308349
+
+edition = "2023";
+
+package gcommon.v1.database;
+
+import "pkg/common/proto/messages/request_metadata.proto";
+import "google/protobuf/go_features.proto";
+
+option go_package = "github.com/jdfalk/gcommon/pkg/db/proto;dbpb";
+option features.(pb.go).api_level = API_HYBRID;
+
+/**
+ * ListMigrationsRequest lists migrations for a database with optional filtering.
+ */
+message ListMigrationsRequest {
+  // Database name to list migrations for
+  string database = 1;
+
+  // Return only applied or pending migrations (optional)
+  string status_filter = 2;
+
+  // Request metadata for tracing and authentication
+  gcommon.v1.common.RequestMetadata metadata = 3 [lazy = true];
+}

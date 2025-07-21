@@ -1,0 +1,24 @@
+// file: pkg/db/proto/responses/transaction_status_response.proto
+// version: 1.0.0
+// guid: 9cba586d-35b2-48c1-a923-dc28fcc06359
+
+edition = "2023";
+
+package gcommon.v1.database;
+
+import "pkg/common/proto/messages/error.proto";
+import "google/protobuf/go_features.proto";
+
+option go_package = "github.com/jdfalk/gcommon/pkg/db/proto;dbpb";
+option features.(pb.go).api_level = API_HYBRID;
+
+/**
+ * TransactionStatusResponse returns the current status of a transaction.
+ */
+message TransactionStatusResponse {
+  // Current status of the transaction (e.g., ACTIVE, COMMITTED, ROLLED_BACK)
+  string status = 1;
+
+  // Error information if the transaction encountered an issue
+  gcommon.v1.common.Error error = 2 [lazy = true];
+}
