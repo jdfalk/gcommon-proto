@@ -17,8 +17,12 @@ validate: ## Validate protobuf compilation
 	@./test_protoc.sh
 
 compile: ## Compile all protobuf files
-	@echo "🔨 Compiling protobuf files..."
-	@./generate.sh
+        @echo "🔨 Compiling protobuf files..."
+        @./generate.sh
+
+proto-compile: ## Validate protobuf compilation and linting
+        @echo "🔍 Validating protobuf files..."
+        @./scripts/validate-protos.sh
 
 test: ## Run all tests
 	@echo "🧪 Running tests..."

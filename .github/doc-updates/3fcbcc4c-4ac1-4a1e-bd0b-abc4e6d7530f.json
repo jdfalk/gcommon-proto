@@ -1,0 +1,16 @@
+{
+  "file": "CHANGELOG.md",
+  "mode": "changelog-entry",
+  "content": "### Added\n\n- Added protobuf validation workflow",
+  "guid": "3fcbcc4c-4ac1-4a1e-bd0b-abc4e6d7530f",
+  "created_at": "2025-07-21T02:13:16Z",
+  "options": {
+    "section": null,
+    "after": null,
+    "before": null,
+    "task_id": null,
+    "badge_name": null,
+    "priority": null,
+    "category": null
+  }
+}
