@@ -1,0 +1,8 @@
+{
+  "action": "create",
+  "title": "Protobuf: Implement core Auth messages",
+  "body": "Implement APIKey, AuthConfig, and JWTConfig messages plus ProviderType enum",
+  "labels": ["module:auth", "protobuf"],
+  "guid": "8ac7a561-140d-4825-8ac9-fc27384a78d9",
+  "legacy_guid": "create-protobuf-implement-core-auth-messages-2025-07-21"
+}
