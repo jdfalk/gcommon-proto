@@ -6,12 +6,9 @@
 
 //go:build protoopaque
 
-package services
+package metricspb
 
 import (
-	messages "github.com/jdfalk/gcommon/pkg/metrics/proto/messages"
-	requests "github.com/jdfalk/gcommon/pkg/metrics/proto/requests"
-	responses "github.com/jdfalk/gcommon/pkg/metrics/proto/responses"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
@@ -41,28 +38,28 @@ const file_pkg_metrics_proto_services_metrics_service_proto_rawDesc = "" +
 	"\x10UnregisterMetric\x12+.gcommon.v1.metrics.UnregisterMetricRequest\x1a,.gcommon.v1.metrics.UnregisterMetricResponse\x12p\n" +
 	"\x11GetMetricMetadata\x12,.gcommon.v1.metrics.GetMetricMetadataRequest\x1a-.gcommon.v1.metrics.GetMetricMetadataResponse\x12a\n" +
 	"\fQueryMetrics\x12'.gcommon.v1.metrics.QueryMetricsRequest\x1a(.gcommon.v1.metrics.QueryMetricsResponse\x12p\n" +
-	"\x11GetMetricsSummary\x12,.gcommon.v1.metrics.GetMetricsSummaryRequest\x1a-.gcommon.v1.metrics.GetMetricsSummaryResponseB\xd5\x01\n" +
-	"\x16com.gcommon.v1.metricsB\x13MetricsServiceProtoP\x01Z4github.com/jdfalk/gcommon/pkg/metrics/proto/services\xa2\x02\x03GVM\xaa\x02\x12Gcommon.V1.Metrics\xca\x02\x12Gcommon\\V1\\Metrics\xe2\x02\x1eGcommon\\V1\\Metrics\\GPBMetadata\xea\x02\x14Gcommon::V1::Metrics\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
+	"\x11GetMetricsSummary\x12,.gcommon.v1.metrics.GetMetricsSummaryRequest\x1a-.gcommon.v1.metrics.GetMetricsSummaryResponseB\xd6\x01\n" +
+	"\x16com.gcommon.v1.metricsB\x13MetricsServiceProtoP\x01Z5github.com/jdfalk/gcommon/pkg/metrics/proto;metricspb\xa2\x02\x03GVM\xaa\x02\x12Gcommon.V1.Metrics\xca\x02\x12Gcommon\\V1\\Metrics\xe2\x02\x1eGcommon\\V1\\Metrics\\GPBMetadata\xea\x02\x14Gcommon::V1::Metrics\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
 
 var file_pkg_metrics_proto_services_metrics_service_proto_goTypes = []any{
-	(*requests.RecordMetricRequest)(nil),        // 0: gcommon.v1.metrics.RecordMetricRequest
-	(*requests.RecordMetricsRequest)(nil),       // 1: gcommon.v1.metrics.RecordMetricsRequest
-	(*requests.GetMetricsRequest)(nil),          // 2: gcommon.v1.metrics.GetMetricsRequest
-	(*requests.StreamMetricsRequest)(nil),       // 3: gcommon.v1.metrics.StreamMetricsRequest
-	(*requests.RegisterMetricRequest)(nil),      // 4: gcommon.v1.metrics.RegisterMetricRequest
-	(*requests.UnregisterMetricRequest)(nil),    // 5: gcommon.v1.metrics.UnregisterMetricRequest
-	(*requests.GetMetricMetadataRequest)(nil),   // 6: gcommon.v1.metrics.GetMetricMetadataRequest
-	(*requests.QueryMetricsRequest)(nil),        // 7: gcommon.v1.metrics.QueryMetricsRequest
-	(*requests.GetMetricsSummaryRequest)(nil),   // 8: gcommon.v1.metrics.GetMetricsSummaryRequest
-	(*responses.RecordMetricResponse)(nil),      // 9: gcommon.v1.metrics.RecordMetricResponse
-	(*responses.RecordMetricsResponse)(nil),     // 10: gcommon.v1.metrics.RecordMetricsResponse
-	(*responses.GetMetricsResponse)(nil),        // 11: gcommon.v1.metrics.GetMetricsResponse
-	(*messages.MetricData)(nil),                 // 12: gcommon.v1.metrics.MetricData
-	(*responses.RegisterMetricResponse)(nil),    // 13: gcommon.v1.metrics.RegisterMetricResponse
-	(*responses.UnregisterMetricResponse)(nil),  // 14: gcommon.v1.metrics.UnregisterMetricResponse
-	(*responses.GetMetricMetadataResponse)(nil), // 15: gcommon.v1.metrics.GetMetricMetadataResponse
-	(*responses.QueryMetricsResponse)(nil),      // 16: gcommon.v1.metrics.QueryMetricsResponse
-	(*responses.GetMetricsSummaryResponse)(nil), // 17: gcommon.v1.metrics.GetMetricsSummaryResponse
+	(*RecordMetricRequest)(nil),       // 0: gcommon.v1.metrics.RecordMetricRequest
+	(*RecordMetricsRequest)(nil),      // 1: gcommon.v1.metrics.RecordMetricsRequest
+	(*GetMetricsRequest)(nil),         // 2: gcommon.v1.metrics.GetMetricsRequest
+	(*StreamMetricsRequest)(nil),      // 3: gcommon.v1.metrics.StreamMetricsRequest
+	(*RegisterMetricRequest)(nil),     // 4: gcommon.v1.metrics.RegisterMetricRequest
+	(*UnregisterMetricRequest)(nil),   // 5: gcommon.v1.metrics.UnregisterMetricRequest
+	(*GetMetricMetadataRequest)(nil),  // 6: gcommon.v1.metrics.GetMetricMetadataRequest
+	(*QueryMetricsRequest)(nil),       // 7: gcommon.v1.metrics.QueryMetricsRequest
+	(*GetMetricsSummaryRequest)(nil),  // 8: gcommon.v1.metrics.GetMetricsSummaryRequest
+	(*RecordMetricResponse)(nil),      // 9: gcommon.v1.metrics.RecordMetricResponse
+	(*RecordMetricsResponse)(nil),     // 10: gcommon.v1.metrics.RecordMetricsResponse
+	(*GetMetricsResponse)(nil),        // 11: gcommon.v1.metrics.GetMetricsResponse
+	(*MetricData)(nil),                // 12: gcommon.v1.metrics.MetricData
+	(*RegisterMetricResponse)(nil),    // 13: gcommon.v1.metrics.RegisterMetricResponse
+	(*UnregisterMetricResponse)(nil),  // 14: gcommon.v1.metrics.UnregisterMetricResponse
+	(*GetMetricMetadataResponse)(nil), // 15: gcommon.v1.metrics.GetMetricMetadataResponse
+	(*QueryMetricsResponse)(nil),      // 16: gcommon.v1.metrics.QueryMetricsResponse
+	(*GetMetricsSummaryResponse)(nil), // 17: gcommon.v1.metrics.GetMetricsSummaryResponse
 }
 var file_pkg_metrics_proto_services_metrics_service_proto_depIdxs = []int32{
 	0,  // 0: gcommon.v1.metrics.MetricsService.RecordMetric:input_type -> gcommon.v1.metrics.RecordMetricRequest
@@ -95,6 +92,24 @@ func file_pkg_metrics_proto_services_metrics_service_proto_init() {
 	if File_pkg_metrics_proto_services_metrics_service_proto != nil {
 		return
 	}
+	file_pkg_metrics_proto_requests_record_metric_request_proto_init()
+	file_pkg_metrics_proto_responses_record_metric_response_proto_init()
+	file_pkg_metrics_proto_requests_record_metrics_request_proto_init()
+	file_pkg_metrics_proto_responses_record_metrics_response_proto_init()
+	file_pkg_metrics_proto_requests_query_metrics_request_proto_init()
+	file_pkg_metrics_proto_responses_query_metrics_response_proto_init()
+	file_pkg_metrics_proto_requests_get_metrics_summary_request_proto_init()
+	file_pkg_metrics_proto_responses_get_metrics_summary_response_proto_init()
+	file_pkg_metrics_proto_requests_get_metrics_request_proto_init()
+	file_pkg_metrics_proto_responses_get_metrics_response_proto_init()
+	file_pkg_metrics_proto_requests_stream_metrics_request_proto_init()
+	file_pkg_metrics_proto_messages_metric_data_proto_init()
+	file_pkg_metrics_proto_requests_register_metric_request_proto_init()
+	file_pkg_metrics_proto_responses_register_metric_response_proto_init()
+	file_pkg_metrics_proto_requests_unregister_metric_request_proto_init()
+	file_pkg_metrics_proto_responses_unregister_metric_response_proto_init()
+	file_pkg_metrics_proto_requests_get_metric_metadata_request_proto_init()
+	file_pkg_metrics_proto_responses_get_metric_metadata_response_proto_init()
 	type x struct{}
 	out := protoimpl.TypeBuilder{
 		File: protoimpl.DescBuilder{

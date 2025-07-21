@@ -6,12 +6,10 @@
 
 //go:build protoopaque
 
-package responses
+package metricspb
 
 import (
-	messages "github.com/jdfalk/gcommon/pkg/common/proto/messages"
-	messages1 "github.com/jdfalk/gcommon/pkg/metrics/proto/messages"
-	types "github.com/jdfalk/gcommon/pkg/metrics/proto/types"
+	proto "github.com/jdfalk/gcommon/pkg/common/proto"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
@@ -30,17 +28,17 @@ const (
 // *
 // GetMetricsResponse contains the retrieved metrics data.
 type GetMetricsResponse struct {
-	state                  protoimpl.MessageState       `protogen:"opaque.v1"`
-	xxx_hidden_Success     bool                         `protobuf:"varint,1,opt,name=success"`
-	xxx_hidden_Error       *messages.Error              `protobuf:"bytes,2,opt,name=error"`
-	xxx_hidden_Metrics     *[]*messages1.MetricData     `protobuf:"bytes,3,rep,name=metrics"`
-	xxx_hidden_Metadata    *[]*messages1.MetricMetadata `protobuf:"bytes,4,rep,name=metadata"`
-	xxx_hidden_Pagination  *types.PaginationInfo        `protobuf:"bytes,5,opt,name=pagination"`
-	xxx_hidden_Stats       *types.QueryStats            `protobuf:"bytes,6,opt,name=stats"`
-	xxx_hidden_GeneratedAt *timestamppb.Timestamp       `protobuf:"bytes,7,opt,name=generated_at,json=generatedAt"`
-	xxx_hidden_TimeRange   *types.TimeRange             `protobuf:"bytes,8,opt,name=time_range,json=timeRange"`
-	xxx_hidden_Warnings    []string                     `protobuf:"bytes,9,rep,name=warnings"`
-	xxx_hidden_ProviderId  *string                      `protobuf:"bytes,10,opt,name=provider_id,json=providerId"`
+	state                  protoimpl.MessageState `protogen:"opaque.v1"`
+	xxx_hidden_Success     bool                   `protobuf:"varint,1,opt,name=success"`
+	xxx_hidden_Error       *proto.Error           `protobuf:"bytes,2,opt,name=error"`
+	xxx_hidden_Metrics     *[]*MetricData         `protobuf:"bytes,3,rep,name=metrics"`
+	xxx_hidden_Metadata    *[]*MetricMetadata     `protobuf:"bytes,4,rep,name=metadata"`
+	xxx_hidden_Pagination  *PaginationInfo        `protobuf:"bytes,5,opt,name=pagination"`
+	xxx_hidden_Stats       *QueryStats            `protobuf:"bytes,6,opt,name=stats"`
+	xxx_hidden_GeneratedAt *timestamppb.Timestamp `protobuf:"bytes,7,opt,name=generated_at,json=generatedAt"`
+	xxx_hidden_TimeRange   *TimeRange             `protobuf:"bytes,8,opt,name=time_range,json=timeRange"`
+	xxx_hidden_Warnings    []string               `protobuf:"bytes,9,rep,name=warnings"`
+	xxx_hidden_ProviderId  *string                `protobuf:"bytes,10,opt,name=provider_id,json=providerId"`
 	XXX_raceDetectHookData protoimpl.RaceDetectHookData
 	XXX_presence           [1]uint32
 	unknownFields          protoimpl.UnknownFields
@@ -79,14 +77,14 @@ func (x *GetMetricsResponse) GetSuccess() bool {
 	return false
 }
 
-func (x *GetMetricsResponse) GetError() *messages.Error {
+func (x *GetMetricsResponse) GetError() *proto.Error {
 	if x != nil {
 		return x.xxx_hidden_Error
 	}
 	return nil
 }
 
-func (x *GetMetricsResponse) GetMetrics() []*messages1.MetricData {
+func (x *GetMetricsResponse) GetMetrics() []*MetricData {
 	if x != nil {
 		if x.xxx_hidden_Metrics != nil {
 			return *x.xxx_hidden_Metrics
@@ -95,7 +93,7 @@ func (x *GetMetricsResponse) GetMetrics() []*messages1.MetricData {
 	return nil
 }
 
-func (x *GetMetricsResponse) GetMetadata() []*messages1.MetricMetadata {
+func (x *GetMetricsResponse) GetMetadata() []*MetricMetadata {
 	if x != nil {
 		if x.xxx_hidden_Metadata != nil {
 			return *x.xxx_hidden_Metadata
@@ -104,14 +102,14 @@ func (x *GetMetricsResponse) GetMetadata() []*messages1.MetricMetadata {
 	return nil
 }
 
-func (x *GetMetricsResponse) GetPagination() *types.PaginationInfo {
+func (x *GetMetricsResponse) GetPagination() *PaginationInfo {
 	if x != nil {
 		return x.xxx_hidden_Pagination
 	}
 	return nil
 }
 
-func (x *GetMetricsResponse) GetStats() *types.QueryStats {
+func (x *GetMetricsResponse) GetStats() *QueryStats {
 	if x != nil {
 		return x.xxx_hidden_Stats
 	}
@@ -125,7 +123,7 @@ func (x *GetMetricsResponse) GetGeneratedAt() *timestamppb.Timestamp {
 	return nil
 }
 
-func (x *GetMetricsResponse) GetTimeRange() *types.TimeRange {
+func (x *GetMetricsResponse) GetTimeRange() *TimeRange {
 	if x != nil {
 		return x.xxx_hidden_TimeRange
 	}
@@ -154,23 +152,23 @@ func (x *GetMetricsResponse) SetSuccess(v bool) {
 	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 0, 10)
 }
 
-func (x *GetMetricsResponse) SetError(v *messages.Error) {
+func (x *GetMetricsResponse) SetError(v *proto.Error) {
 	x.xxx_hidden_Error = v
 }
 
-func (x *GetMetricsResponse) SetMetrics(v []*messages1.MetricData) {
+func (x *GetMetricsResponse) SetMetrics(v []*MetricData) {
 	x.xxx_hidden_Metrics = &v
 }
 
-func (x *GetMetricsResponse) SetMetadata(v []*messages1.MetricMetadata) {
+func (x *GetMetricsResponse) SetMetadata(v []*MetricMetadata) {
 	x.xxx_hidden_Metadata = &v
 }
 
-func (x *GetMetricsResponse) SetPagination(v *types.PaginationInfo) {
+func (x *GetMetricsResponse) SetPagination(v *PaginationInfo) {
 	x.xxx_hidden_Pagination = v
 }
 
-func (x *GetMetricsResponse) SetStats(v *types.QueryStats) {
+func (x *GetMetricsResponse) SetStats(v *QueryStats) {
 	x.xxx_hidden_Stats = v
 }
 
@@ -178,7 +176,7 @@ func (x *GetMetricsResponse) SetGeneratedAt(v *timestamppb.Timestamp) {
 	x.xxx_hidden_GeneratedAt = v
 }
 
-func (x *GetMetricsResponse) SetTimeRange(v *types.TimeRange) {
+func (x *GetMetricsResponse) SetTimeRange(v *TimeRange) {
 	x.xxx_hidden_TimeRange = v
 }
 
@@ -276,19 +274,19 @@ type GetMetricsResponse_builder struct {
 	// Success status of the operation
 	Success *bool
 	// Error information if the operation failed
-	Error *messages.Error
+	Error *proto.Error
 	// Retrieved metrics data
-	Metrics []*messages1.MetricData
+	Metrics []*MetricData
 	// Metadata for the metrics (if requested)
-	Metadata []*messages1.MetricMetadata
+	Metadata []*MetricMetadata
 	// Pagination information
-	Pagination *types.PaginationInfo
+	Pagination *PaginationInfo
 	// Query execution statistics
-	Stats *types.QueryStats
+	Stats *QueryStats
 	// When the response was generated
 	GeneratedAt *timestamppb.Timestamp
 	// Time range covered by the response
-	TimeRange *types.TimeRange
+	TimeRange *TimeRange
 	// Warnings or informational messages
 	Warnings []string
 	// Provider that handled the request
@@ -339,18 +337,18 @@ const file_pkg_metrics_proto_responses_get_metrics_response_proto_rawDesc = "" +
 	"\vprovider_id\x18\n" +
 	" \x01(\tR\n" +
 	"providerIdB\xda\x01\n" +
-	"\x16com.gcommon.v1.metricsB\x17GetMetricsResponseProtoP\x01Z5github.com/jdfalk/gcommon/pkg/metrics/proto/responses\xa2\x02\x03GVM\xaa\x02\x12Gcommon.V1.Metrics\xca\x02\x12Gcommon\\V1\\Metrics\xe2\x02\x1eGcommon\\V1\\Metrics\\GPBMetadata\xea\x02\x14Gcommon::V1::Metrics\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
+	"\x16com.gcommon.v1.metricsB\x17GetMetricsResponseProtoP\x01Z5github.com/jdfalk/gcommon/pkg/metrics/proto;metricspb\xa2\x02\x03GVM\xaa\x02\x12Gcommon.V1.Metrics\xca\x02\x12Gcommon\\V1\\Metrics\xe2\x02\x1eGcommon\\V1\\Metrics\\GPBMetadata\xea\x02\x14Gcommon::V1::Metrics\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
 
 var file_pkg_metrics_proto_responses_get_metrics_response_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_pkg_metrics_proto_responses_get_metrics_response_proto_goTypes = []any{
-	(*GetMetricsResponse)(nil),       // 0: gcommon.v1.metrics.GetMetricsResponse
-	(*messages.Error)(nil),           // 1: gcommon.v1.common.Error
-	(*messages1.MetricData)(nil),     // 2: gcommon.v1.metrics.MetricData
-	(*messages1.MetricMetadata)(nil), // 3: gcommon.v1.metrics.MetricMetadata
-	(*types.PaginationInfo)(nil),     // 4: gcommon.v1.metrics.PaginationInfo
-	(*types.QueryStats)(nil),         // 5: gcommon.v1.metrics.QueryStats
-	(*timestamppb.Timestamp)(nil),    // 6: google.protobuf.Timestamp
-	(*types.TimeRange)(nil),          // 7: gcommon.v1.metrics.TimeRange
+	(*GetMetricsResponse)(nil),    // 0: gcommon.v1.metrics.GetMetricsResponse
+	(*proto.Error)(nil),           // 1: gcommon.v1.common.Error
+	(*MetricData)(nil),            // 2: gcommon.v1.metrics.MetricData
+	(*MetricMetadata)(nil),        // 3: gcommon.v1.metrics.MetricMetadata
+	(*PaginationInfo)(nil),        // 4: gcommon.v1.metrics.PaginationInfo
+	(*QueryStats)(nil),            // 5: gcommon.v1.metrics.QueryStats
+	(*timestamppb.Timestamp)(nil), // 6: google.protobuf.Timestamp
+	(*TimeRange)(nil),             // 7: gcommon.v1.metrics.TimeRange
 }
 var file_pkg_metrics_proto_responses_get_metrics_response_proto_depIdxs = []int32{
 	1, // 0: gcommon.v1.metrics.GetMetricsResponse.error:type_name -> gcommon.v1.common.Error
@@ -372,6 +370,11 @@ func file_pkg_metrics_proto_responses_get_metrics_response_proto_init() {
 	if File_pkg_metrics_proto_responses_get_metrics_response_proto != nil {
 		return
 	}
+	file_pkg_metrics_proto_messages_metric_data_proto_init()
+	file_pkg_metrics_proto_messages_metric_metadata_proto_init()
+	file_pkg_metrics_proto_types_pagination_info_proto_init()
+	file_pkg_metrics_proto_types_time_range_proto_init()
+	file_pkg_metrics_proto_types_query_stats_proto_init()
 	type x struct{}
 	out := protoimpl.TypeBuilder{
 		File: protoimpl.DescBuilder{

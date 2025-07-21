@@ -6,11 +6,10 @@
 
 //go:build !protoopaque
 
-package responses
+package metricspb
 
 import (
-	messages "github.com/jdfalk/gcommon/pkg/common/proto/messages"
-	types "github.com/jdfalk/gcommon/pkg/metrics/proto/types"
+	proto "github.com/jdfalk/gcommon/pkg/common/proto"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
@@ -33,7 +32,7 @@ type UnregisterMetricResponse struct {
 	// Success status of the unregistration
 	Success *bool `protobuf:"varint,1,opt,name=success" json:"success,omitempty"`
 	// Error information if unregistration failed
-	Error *messages.Error `protobuf:"bytes,2,opt,name=error" json:"error,omitempty"`
+	Error *proto.Error `protobuf:"bytes,2,opt,name=error" json:"error,omitempty"`
 	// ID of the metric that was unregistered
 	MetricId *string `protobuf:"bytes,3,opt,name=metric_id,json=metricId" json:"metric_id,omitempty"`
 	// Name of the metric that was unregistered
@@ -47,7 +46,7 @@ type UnregisterMetricResponse struct {
 	// Warnings or informational messages
 	Warnings []string `protobuf:"bytes,8,rep,name=warnings" json:"warnings,omitempty"`
 	// Backup information (if backup was created)
-	BackupInfo    *types.BackupInfo `protobuf:"bytes,9,opt,name=backup_info,json=backupInfo" json:"backup_info,omitempty"`
+	BackupInfo    *BackupInfo `protobuf:"bytes,9,opt,name=backup_info,json=backupInfo" json:"backup_info,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -84,7 +83,7 @@ func (x *UnregisterMetricResponse) GetSuccess() bool {
 	return false
 }
 
-func (x *UnregisterMetricResponse) GetError() *messages.Error {
+func (x *UnregisterMetricResponse) GetError() *proto.Error {
 	if x != nil {
 		return x.Error
 	}
@@ -133,7 +132,7 @@ func (x *UnregisterMetricResponse) GetWarnings() []string {
 	return nil
 }
 
-func (x *UnregisterMetricResponse) GetBackupInfo() *types.BackupInfo {
+func (x *UnregisterMetricResponse) GetBackupInfo() *BackupInfo {
 	if x != nil {
 		return x.BackupInfo
 	}
@@ -144,7 +143,7 @@ func (x *UnregisterMetricResponse) SetSuccess(v bool) {
 	x.Success = &v
 }
 
-func (x *UnregisterMetricResponse) SetError(v *messages.Error) {
+func (x *UnregisterMetricResponse) SetError(v *proto.Error) {
 	x.Error = v
 }
 
@@ -172,7 +171,7 @@ func (x *UnregisterMetricResponse) SetWarnings(v []string) {
 	x.Warnings = v
 }
 
-func (x *UnregisterMetricResponse) SetBackupInfo(v *types.BackupInfo) {
+func (x *UnregisterMetricResponse) SetBackupInfo(v *BackupInfo) {
 	x.BackupInfo = v
 }
 
@@ -270,7 +269,7 @@ type UnregisterMetricResponse_builder struct {
 	// Success status of the unregistration
 	Success *bool
 	// Error information if unregistration failed
-	Error *messages.Error
+	Error *proto.Error
 	// ID of the metric that was unregistered
 	MetricId *string
 	// Name of the metric that was unregistered
@@ -284,7 +283,7 @@ type UnregisterMetricResponse_builder struct {
 	// Warnings or informational messages
 	Warnings []string
 	// Backup information (if backup was created)
-	BackupInfo *types.BackupInfo
+	BackupInfo *BackupInfo
 }
 
 func (b0 UnregisterMetricResponse_builder) Build() *UnregisterMetricResponse {
@@ -322,7 +321,7 @@ type UnregistrationResult struct {
 	// Time when actual deletion will occur (if grace period is set)
 	ScheduledDeletion *timestamppb.Timestamp `protobuf:"bytes,7,opt,name=scheduled_deletion,json=scheduledDeletion" json:"scheduled_deletion,omitempty"`
 	// What would be deleted (for dry run operations)
-	DryRunResult  *types.DryRunResult `protobuf:"bytes,8,opt,name=dry_run_result,json=dryRunResult" json:"dry_run_result,omitempty"`
+	DryRunResult  *DryRunResult `protobuf:"bytes,8,opt,name=dry_run_result,json=dryRunResult" json:"dry_run_result,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -401,7 +400,7 @@ func (x *UnregistrationResult) GetScheduledDeletion() *timestamppb.Timestamp {
 	return nil
 }
 
-func (x *UnregistrationResult) GetDryRunResult() *types.DryRunResult {
+func (x *UnregistrationResult) GetDryRunResult() *DryRunResult {
 	if x != nil {
 		return x.DryRunResult
 	}
@@ -436,7 +435,7 @@ func (x *UnregistrationResult) SetScheduledDeletion(v *timestamppb.Timestamp) {
 	x.ScheduledDeletion = v
 }
 
-func (x *UnregistrationResult) SetDryRunResult(v *types.DryRunResult) {
+func (x *UnregistrationResult) SetDryRunResult(v *DryRunResult) {
 	x.DryRunResult = v
 }
 
@@ -513,7 +512,7 @@ type UnregistrationResult_builder struct {
 	// Time when actual deletion will occur (if grace period is set)
 	ScheduledDeletion *timestamppb.Timestamp
 	// What would be deleted (for dry run operations)
-	DryRunResult *types.DryRunResult
+	DryRunResult *DryRunResult
 }
 
 func (b0 UnregistrationResult_builder) Build() *UnregistrationResult {
@@ -558,16 +557,16 @@ const file_pkg_metrics_proto_responses_unregister_metric_response_proto_rawDesc 
 	"\x0fstopped_exports\x18\x06 \x03(\tR\x0estoppedExports\x12I\n" +
 	"\x12scheduled_deletion\x18\a \x01(\v2\x1a.google.protobuf.TimestampR\x11scheduledDeletion\x12F\n" +
 	"\x0edry_run_result\x18\b \x01(\v2 .gcommon.v1.metrics.DryRunResultR\fdryRunResultB\xe0\x01\n" +
-	"\x16com.gcommon.v1.metricsB\x1dUnregisterMetricResponseProtoP\x01Z5github.com/jdfalk/gcommon/pkg/metrics/proto/responses\xa2\x02\x03GVM\xaa\x02\x12Gcommon.V1.Metrics\xca\x02\x12Gcommon\\V1\\Metrics\xe2\x02\x1eGcommon\\V1\\Metrics\\GPBMetadata\xea\x02\x14Gcommon::V1::Metrics\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
+	"\x16com.gcommon.v1.metricsB\x1dUnregisterMetricResponseProtoP\x01Z5github.com/jdfalk/gcommon/pkg/metrics/proto;metricspb\xa2\x02\x03GVM\xaa\x02\x12Gcommon.V1.Metrics\xca\x02\x12Gcommon\\V1\\Metrics\xe2\x02\x1eGcommon\\V1\\Metrics\\GPBMetadata\xea\x02\x14Gcommon::V1::Metrics\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
 
 var file_pkg_metrics_proto_responses_unregister_metric_response_proto_msgTypes = make([]protoimpl.MessageInfo, 2)
 var file_pkg_metrics_proto_responses_unregister_metric_response_proto_goTypes = []any{
 	(*UnregisterMetricResponse)(nil), // 0: gcommon.v1.metrics.UnregisterMetricResponse
 	(*UnregistrationResult)(nil),     // 1: gcommon.v1.metrics.UnregistrationResult
-	(*messages.Error)(nil),           // 2: gcommon.v1.common.Error
+	(*proto.Error)(nil),              // 2: gcommon.v1.common.Error
 	(*timestamppb.Timestamp)(nil),    // 3: google.protobuf.Timestamp
-	(*types.BackupInfo)(nil),         // 4: gcommon.v1.metrics.BackupInfo
-	(*types.DryRunResult)(nil),       // 5: gcommon.v1.metrics.DryRunResult
+	(*BackupInfo)(nil),               // 4: gcommon.v1.metrics.BackupInfo
+	(*DryRunResult)(nil),             // 5: gcommon.v1.metrics.DryRunResult
 }
 var file_pkg_metrics_proto_responses_unregister_metric_response_proto_depIdxs = []int32{
 	2, // 0: gcommon.v1.metrics.UnregisterMetricResponse.error:type_name -> gcommon.v1.common.Error
@@ -588,6 +587,8 @@ func file_pkg_metrics_proto_responses_unregister_metric_response_proto_init() {
 	if File_pkg_metrics_proto_responses_unregister_metric_response_proto != nil {
 		return
 	}
+	file_pkg_metrics_proto_types_dry_run_result_proto_init()
+	file_pkg_metrics_proto_types_backup_info_proto_init()
 	type x struct{}
 	out := protoimpl.TypeBuilder{
 		File: protoimpl.DescBuilder{

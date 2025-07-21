@@ -6,12 +6,10 @@
 
 //go:build !protoopaque
 
-package responses
+package metricspb
 
 import (
-	_ "github.com/jdfalk/gcommon/pkg/common/proto"
-	messages1 "github.com/jdfalk/gcommon/pkg/common/proto/messages"
-	messages "github.com/jdfalk/gcommon/pkg/metrics/proto/messages"
+	proto "github.com/jdfalk/gcommon/pkg/common/proto"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
@@ -34,13 +32,13 @@ type RecordCounterResponse struct {
 	// Whether the operation was successful
 	Success *bool `protobuf:"varint,1,opt,name=success" json:"success,omitempty"`
 	// The recorded counter metric with updated value
-	Metric *messages.CounterMetric `protobuf:"bytes,2,opt,name=metric" json:"metric,omitempty"`
+	Metric *CounterMetric `protobuf:"bytes,2,opt,name=metric" json:"metric,omitempty"`
 	// Timestamp when the metric was recorded
 	RecordedAt *timestamppb.Timestamp `protobuf:"bytes,3,opt,name=recorded_at,json=recordedAt" json:"recorded_at,omitempty"`
 	// Error information if operation failed
-	Error *messages1.Error `protobuf:"bytes,4,opt,name=error" json:"error,omitempty"`
+	Error *proto.Error `protobuf:"bytes,4,opt,name=error" json:"error,omitempty"`
 	// Response metadata for tracing
-	Metadata      *messages1.RequestMetadata `protobuf:"bytes,5,opt,name=metadata" json:"metadata,omitempty"`
+	Metadata      *proto.RequestMetadata `protobuf:"bytes,5,opt,name=metadata" json:"metadata,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -77,7 +75,7 @@ func (x *RecordCounterResponse) GetSuccess() bool {
 	return false
 }
 
-func (x *RecordCounterResponse) GetMetric() *messages.CounterMetric {
+func (x *RecordCounterResponse) GetMetric() *CounterMetric {
 	if x != nil {
 		return x.Metric
 	}
@@ -91,14 +89,14 @@ func (x *RecordCounterResponse) GetRecordedAt() *timestamppb.Timestamp {
 	return nil
 }
 
-func (x *RecordCounterResponse) GetError() *messages1.Error {
+func (x *RecordCounterResponse) GetError() *proto.Error {
 	if x != nil {
 		return x.Error
 	}
 	return nil
 }
 
-func (x *RecordCounterResponse) GetMetadata() *messages1.RequestMetadata {
+func (x *RecordCounterResponse) GetMetadata() *proto.RequestMetadata {
 	if x != nil {
 		return x.Metadata
 	}
@@ -109,7 +107,7 @@ func (x *RecordCounterResponse) SetSuccess(v bool) {
 	x.Success = &v
 }
 
-func (x *RecordCounterResponse) SetMetric(v *messages.CounterMetric) {
+func (x *RecordCounterResponse) SetMetric(v *CounterMetric) {
 	x.Metric = v
 }
 
@@ -117,11 +115,11 @@ func (x *RecordCounterResponse) SetRecordedAt(v *timestamppb.Timestamp) {
 	x.RecordedAt = v
 }
 
-func (x *RecordCounterResponse) SetError(v *messages1.Error) {
+func (x *RecordCounterResponse) SetError(v *proto.Error) {
 	x.Error = v
 }
 
-func (x *RecordCounterResponse) SetMetadata(v *messages1.RequestMetadata) {
+func (x *RecordCounterResponse) SetMetadata(v *proto.RequestMetadata) {
 	x.Metadata = v
 }
 
@@ -186,13 +184,13 @@ type RecordCounterResponse_builder struct {
 	// Whether the operation was successful
 	Success *bool
 	// The recorded counter metric with updated value
-	Metric *messages.CounterMetric
+	Metric *CounterMetric
 	// Timestamp when the metric was recorded
 	RecordedAt *timestamppb.Timestamp
 	// Error information if operation failed
-	Error *messages1.Error
+	Error *proto.Error
 	// Response metadata for tracing
-	Metadata *messages1.RequestMetadata
+	Metadata *proto.RequestMetadata
 }
 
 func (b0 RecordCounterResponse_builder) Build() *RecordCounterResponse {
@@ -219,15 +217,15 @@ const file_pkg_metrics_proto_responses_record_counter_response_proto_rawDesc = "
 	"recordedAt\x12.\n" +
 	"\x05error\x18\x04 \x01(\v2\x18.gcommon.v1.common.ErrorR\x05error\x12>\n" +
 	"\bmetadata\x18\x05 \x01(\v2\".gcommon.v1.common.RequestMetadataR\bmetadataB\xdd\x01\n" +
-	"\x16com.gcommon.v1.metricsB\x1aRecordCounterResponseProtoP\x01Z5github.com/jdfalk/gcommon/pkg/metrics/proto/responses\xa2\x02\x03GVM\xaa\x02\x12Gcommon.V1.Metrics\xca\x02\x12Gcommon\\V1\\Metrics\xe2\x02\x1eGcommon\\V1\\Metrics\\GPBMetadata\xea\x02\x14Gcommon::V1::Metrics\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
+	"\x16com.gcommon.v1.metricsB\x1aRecordCounterResponseProtoP\x01Z5github.com/jdfalk/gcommon/pkg/metrics/proto;metricspb\xa2\x02\x03GVM\xaa\x02\x12Gcommon.V1.Metrics\xca\x02\x12Gcommon\\V1\\Metrics\xe2\x02\x1eGcommon\\V1\\Metrics\\GPBMetadata\xea\x02\x14Gcommon::V1::Metrics\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
 
 var file_pkg_metrics_proto_responses_record_counter_response_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_pkg_metrics_proto_responses_record_counter_response_proto_goTypes = []any{
-	(*RecordCounterResponse)(nil),     // 0: gcommon.v1.metrics.RecordCounterResponse
-	(*messages.CounterMetric)(nil),    // 1: gcommon.v1.metrics.CounterMetric
-	(*timestamppb.Timestamp)(nil),     // 2: google.protobuf.Timestamp
-	(*messages1.Error)(nil),           // 3: gcommon.v1.common.Error
-	(*messages1.RequestMetadata)(nil), // 4: gcommon.v1.common.RequestMetadata
+	(*RecordCounterResponse)(nil), // 0: gcommon.v1.metrics.RecordCounterResponse
+	(*CounterMetric)(nil),         // 1: gcommon.v1.metrics.CounterMetric
+	(*timestamppb.Timestamp)(nil), // 2: google.protobuf.Timestamp
+	(*proto.Error)(nil),           // 3: gcommon.v1.common.Error
+	(*proto.RequestMetadata)(nil), // 4: gcommon.v1.common.RequestMetadata
 }
 var file_pkg_metrics_proto_responses_record_counter_response_proto_depIdxs = []int32{
 	1, // 0: gcommon.v1.metrics.RecordCounterResponse.metric:type_name -> gcommon.v1.metrics.CounterMetric
@@ -246,6 +244,7 @@ func file_pkg_metrics_proto_responses_record_counter_response_proto_init() {
 	if File_pkg_metrics_proto_responses_record_counter_response_proto != nil {
 		return
 	}
+	file_pkg_metrics_proto_messages_counter_metric_proto_init()
 	type x struct{}
 	out := protoimpl.TypeBuilder{
 		File: protoimpl.DescBuilder{

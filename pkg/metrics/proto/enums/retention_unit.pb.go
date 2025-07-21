@@ -6,7 +6,7 @@
 
 //go:build !protoopaque
 
-package enums
+package metricspb
 
 import (
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
@@ -111,8 +111,8 @@ const file_pkg_metrics_proto_enums_retention_unit_proto_rawDesc = "" +
 	"\x15RETENTION_UNIT_MONTHS\x10\x05\x12\x18\n" +
 	"\x14RETENTION_UNIT_YEARS\x10\x06\x12\x1a\n" +
 	"\x16RETENTION_UNIT_FOREVER\x10\a\x12\x19\n" +
-	"\x15RETENTION_UNIT_CUSTOM\x10\bB\xd1\x01\n" +
-	"\x16com.gcommon.v1.metricsB\x12RetentionUnitProtoP\x01Z1github.com/jdfalk/gcommon/pkg/metrics/proto/enums\xa2\x02\x03GVM\xaa\x02\x12Gcommon.V1.Metrics\xca\x02\x12Gcommon\\V1\\Metrics\xe2\x02\x1eGcommon\\V1\\Metrics\\GPBMetadata\xea\x02\x14Gcommon::V1::Metrics\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
+	"\x15RETENTION_UNIT_CUSTOM\x10\bB\xd5\x01\n" +
+	"\x16com.gcommon.v1.metricsB\x12RetentionUnitProtoP\x01Z5github.com/jdfalk/gcommon/pkg/metrics/proto;metricspb\xa2\x02\x03GVM\xaa\x02\x12Gcommon.V1.Metrics\xca\x02\x12Gcommon\\V1\\Metrics\xe2\x02\x1eGcommon\\V1\\Metrics\\GPBMetadata\xea\x02\x14Gcommon::V1::Metrics\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
 
 var file_pkg_metrics_proto_enums_retention_unit_proto_enumTypes = make([]protoimpl.EnumInfo, 1)
 var file_pkg_metrics_proto_enums_retention_unit_proto_goTypes = []any{

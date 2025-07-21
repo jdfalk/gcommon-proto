@@ -6,12 +6,10 @@
 
 //go:build !protoopaque
 
-package requests
+package metricspb
 
 import (
-	messages "github.com/jdfalk/gcommon/pkg/common/proto/messages"
-	enums "github.com/jdfalk/gcommon/pkg/metrics/proto/enums"
-	types "github.com/jdfalk/gcommon/pkg/metrics/proto/types"
+	proto "github.com/jdfalk/gcommon/pkg/common/proto"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
@@ -32,7 +30,7 @@ const (
 type RegisterMetricRequest struct {
 	state protoimpl.MessageState `protogen:"hybrid.v1"`
 	// Standard request metadata (tracing, auth, etc.)
-	Metadata *messages.RequestMetadata `protobuf:"bytes,1,opt,name=metadata" json:"metadata,omitempty"`
+	Metadata *proto.RequestMetadata `protobuf:"bytes,1,opt,name=metadata" json:"metadata,omitempty"`
 	// Metric definition to register
 	Definition *MetricDefinition `protobuf:"bytes,2,opt,name=definition" json:"definition,omitempty"`
 	// Optional provider ID to register with
@@ -70,7 +68,7 @@ func (x *RegisterMetricRequest) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-func (x *RegisterMetricRequest) GetMetadata() *messages.RequestMetadata {
+func (x *RegisterMetricRequest) GetMetadata() *proto.RequestMetadata {
 	if x != nil {
 		return x.Metadata
 	}
@@ -105,7 +103,7 @@ func (x *RegisterMetricRequest) GetOptions() *RegistrationOptions {
 	return nil
 }
 
-func (x *RegisterMetricRequest) SetMetadata(v *messages.RequestMetadata) {
+func (x *RegisterMetricRequest) SetMetadata(v *proto.RequestMetadata) {
 	x.Metadata = v
 }
 
@@ -184,7 +182,7 @@ type RegisterMetricRequest_builder struct {
 	_ [0]func() // Prevents comparability and use of unkeyed literals for the builder.
 
 	// Standard request metadata (tracing, auth, etc.)
-	Metadata *messages.RequestMetadata
+	Metadata *proto.RequestMetadata
 	// Metric definition to register
 	Definition *MetricDefinition
 	// Optional provider ID to register with
@@ -214,7 +212,7 @@ type MetricDefinition struct {
 	// Unique name for the metric
 	Name *string `protobuf:"bytes,1,opt,name=name" json:"name,omitempty"`
 	// Type of metric (counter, gauge, histogram, etc.)
-	Type *enums.MetricType `protobuf:"varint,2,opt,name=type,enum=gcommon.v1.metrics.MetricType" json:"type,omitempty"`
+	Type *MetricType `protobuf:"varint,2,opt,name=type,enum=gcommon.v1.metrics.MetricType" json:"type,omitempty"`
 	// Human-readable description
 	Description *string `protobuf:"bytes,3,opt,name=description" json:"description,omitempty"`
 	// Unit of measurement (e.g., "bytes", "requests", "seconds")
@@ -224,9 +222,9 @@ type MetricDefinition struct {
 	// Metric-specific configuration
 	Config *MetricConfig `protobuf:"bytes,6,opt,name=config" json:"config,omitempty"`
 	// Retention policy for this metric
-	Retention *types.RetentionPolicyConfig `protobuf:"bytes,7,opt,name=retention" json:"retention,omitempty"`
+	Retention *RetentionPolicyConfig `protobuf:"bytes,7,opt,name=retention" json:"retention,omitempty"`
 	// Export configuration for this metric
-	ExportConfig *types.ExportConfig `protobuf:"bytes,8,opt,name=export_config,json=exportConfig" json:"export_config,omitempty"`
+	ExportConfig *ExportConfig `protobuf:"bytes,8,opt,name=export_config,json=exportConfig" json:"export_config,omitempty"`
 	// Validation rules for metric values
 	Validation *ValidationRules `protobuf:"bytes,9,opt,name=validation" json:"validation,omitempty"`
 	// Tags for metric organization and discovery
@@ -267,11 +265,11 @@ func (x *MetricDefinition) GetName() string {
 	return ""
 }
 
-func (x *MetricDefinition) GetType() enums.MetricType {
+func (x *MetricDefinition) GetType() MetricType {
 	if x != nil && x.Type != nil {
 		return *x.Type
 	}
-	return enums.MetricType(0)
+	return MetricType_METRIC_TYPE_UNSPECIFIED
 }
 
 func (x *MetricDefinition) GetDescription() string {
@@ -302,14 +300,14 @@ func (x *MetricDefinition) GetConfig() *MetricConfig {
 	return nil
 }
 
-func (x *MetricDefinition) GetRetention() *types.RetentionPolicyConfig {
+func (x *MetricDefinition) GetRetention() *RetentionPolicyConfig {
 	if x != nil {
 		return x.Retention
 	}
 	return nil
 }
 
-func (x *MetricDefinition) GetExportConfig() *types.ExportConfig {
+func (x *MetricDefinition) GetExportConfig() *ExportConfig {
 	if x != nil {
 		return x.ExportConfig
 	}
@@ -334,7 +332,7 @@ func (x *MetricDefinition) SetName(v string) {
 	x.Name = &v
 }
 
-func (x *MetricDefinition) SetType(v enums.MetricType) {
+func (x *MetricDefinition) SetType(v MetricType) {
 	x.Type = &v
 }
 
@@ -354,11 +352,11 @@ func (x *MetricDefinition) SetConfig(v *MetricConfig) {
 	x.Config = v
 }
 
-func (x *MetricDefinition) SetRetention(v *types.RetentionPolicyConfig) {
+func (x *MetricDefinition) SetRetention(v *RetentionPolicyConfig) {
 	x.Retention = v
 }
 
-func (x *MetricDefinition) SetExportConfig(v *types.ExportConfig) {
+func (x *MetricDefinition) SetExportConfig(v *ExportConfig) {
 	x.ExportConfig = v
 }
 
@@ -464,7 +462,7 @@ type MetricDefinition_builder struct {
 	// Unique name for the metric
 	Name *string
 	// Type of metric (counter, gauge, histogram, etc.)
-	Type *enums.MetricType
+	Type *MetricType
 	// Human-readable description
 	Description *string
 	// Unit of measurement (e.g., "bytes", "requests", "seconds")
@@ -474,9 +472,9 @@ type MetricDefinition_builder struct {
 	// Metric-specific configuration
 	Config *MetricConfig
 	// Retention policy for this metric
-	Retention *types.RetentionPolicyConfig
+	Retention *RetentionPolicyConfig
 	// Export configuration for this metric
-	ExportConfig *types.ExportConfig
+	ExportConfig *ExportConfig
 	// Validation rules for metric values
 	Validation *ValidationRules
 	// Tags for metric organization and discovery
@@ -1698,26 +1696,26 @@ const file_pkg_metrics_proto_requests_register_metric_request_proto_rawDesc = ""
 	"\x13validate_definition\x18\x01 \x01(\bR\x12validateDefinition\x12\x17\n" +
 	"\adry_run\x18\x02 \x01(\bR\x06dryRun\x12%\n" +
 	"\x0ecreate_indices\x18\x03 \x01(\bR\rcreateIndices\x12'\n" +
-	"\x0fenable_alerting\x18\x04 \x01(\bR\x0eenableAlertingB\xdc\x01\n" +
-	"\x16com.gcommon.v1.metricsB\x1aRegisterMetricRequestProtoP\x01Z4github.com/jdfalk/gcommon/pkg/metrics/proto/requests\xa2\x02\x03GVM\xaa\x02\x12Gcommon.V1.Metrics\xca\x02\x12Gcommon\\V1\\Metrics\xe2\x02\x1eGcommon\\V1\\Metrics\\GPBMetadata\xea\x02\x14Gcommon::V1::Metrics\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
+	"\x0fenable_alerting\x18\x04 \x01(\bR\x0eenableAlertingB\xdd\x01\n" +
+	"\x16com.gcommon.v1.metricsB\x1aRegisterMetricRequestProtoP\x01Z5github.com/jdfalk/gcommon/pkg/metrics/proto;metricspb\xa2\x02\x03GVM\xaa\x02\x12Gcommon.V1.Metrics\xca\x02\x12Gcommon\\V1\\Metrics\xe2\x02\x1eGcommon\\V1\\Metrics\\GPBMetadata\xea\x02\x14Gcommon::V1::Metrics\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
 
 var file_pkg_metrics_proto_requests_register_metric_request_proto_msgTypes = make([]protoimpl.MessageInfo, 11)
 var file_pkg_metrics_proto_requests_register_metric_request_proto_goTypes = []any{
-	(*RegisterMetricRequest)(nil),       // 0: gcommon.v1.metrics.RegisterMetricRequest
-	(*MetricDefinition)(nil),            // 1: gcommon.v1.metrics.MetricDefinition
-	(*LabelDefinition)(nil),             // 2: gcommon.v1.metrics.LabelDefinition
-	(*MetricConfig)(nil),                // 3: gcommon.v1.metrics.MetricConfig
-	(*HistogramConfig)(nil),             // 4: gcommon.v1.metrics.HistogramConfig
-	(*SummaryConfig)(nil),               // 5: gcommon.v1.metrics.SummaryConfig
-	(*GaugeConfig)(nil),                 // 6: gcommon.v1.metrics.GaugeConfig
-	(*CounterConfig)(nil),               // 7: gcommon.v1.metrics.CounterConfig
-	(*ValidationRules)(nil),             // 8: gcommon.v1.metrics.ValidationRules
-	(*RegistrationOptions)(nil),         // 9: gcommon.v1.metrics.RegistrationOptions
-	nil,                                 // 10: gcommon.v1.metrics.MetricDefinition.TagsEntry
-	(*messages.RequestMetadata)(nil),    // 11: gcommon.v1.common.RequestMetadata
-	(enums.MetricType)(0),               // 12: gcommon.v1.metrics.MetricType
-	(*types.RetentionPolicyConfig)(nil), // 13: gcommon.v1.metrics.RetentionPolicyConfig
-	(*types.ExportConfig)(nil),          // 14: gcommon.v1.metrics.ExportConfig
+	(*RegisterMetricRequest)(nil), // 0: gcommon.v1.metrics.RegisterMetricRequest
+	(*MetricDefinition)(nil),      // 1: gcommon.v1.metrics.MetricDefinition
+	(*LabelDefinition)(nil),       // 2: gcommon.v1.metrics.LabelDefinition
+	(*MetricConfig)(nil),          // 3: gcommon.v1.metrics.MetricConfig
+	(*HistogramConfig)(nil),       // 4: gcommon.v1.metrics.HistogramConfig
+	(*SummaryConfig)(nil),         // 5: gcommon.v1.metrics.SummaryConfig
+	(*GaugeConfig)(nil),           // 6: gcommon.v1.metrics.GaugeConfig
+	(*CounterConfig)(nil),         // 7: gcommon.v1.metrics.CounterConfig
+	(*ValidationRules)(nil),       // 8: gcommon.v1.metrics.ValidationRules
+	(*RegistrationOptions)(nil),   // 9: gcommon.v1.metrics.RegistrationOptions
+	nil,                           // 10: gcommon.v1.metrics.MetricDefinition.TagsEntry
+	(*proto.RequestMetadata)(nil), // 11: gcommon.v1.common.RequestMetadata
+	(MetricType)(0),               // 12: gcommon.v1.metrics.MetricType
+	(*RetentionPolicyConfig)(nil), // 13: gcommon.v1.metrics.RetentionPolicyConfig
+	(*ExportConfig)(nil),          // 14: gcommon.v1.metrics.ExportConfig
 }
 var file_pkg_metrics_proto_requests_register_metric_request_proto_depIdxs = []int32{
 	11, // 0: gcommon.v1.metrics.RegisterMetricRequest.metadata:type_name -> gcommon.v1.common.RequestMetadata
@@ -1746,6 +1744,9 @@ func file_pkg_metrics_proto_requests_register_metric_request_proto_init() {
 	if File_pkg_metrics_proto_requests_register_metric_request_proto != nil {
 		return
 	}
+	file_pkg_metrics_proto_enums_metric_type_proto_init()
+	file_pkg_metrics_proto_types_export_config_proto_init()
+	file_pkg_metrics_proto_types_retention_policy_proto_init()
 	type x struct{}
 	out := protoimpl.TypeBuilder{
 		File: protoimpl.DescBuilder{

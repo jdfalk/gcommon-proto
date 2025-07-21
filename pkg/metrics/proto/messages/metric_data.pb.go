@@ -6,11 +6,9 @@
 
 //go:build !protoopaque
 
-package messages
+package metricspb
 
 import (
-	enums "github.com/jdfalk/gcommon/pkg/metrics/proto/enums"
-	types "github.com/jdfalk/gcommon/pkg/metrics/proto/types"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
@@ -36,7 +34,7 @@ type MetricData struct {
 	// Metric name (e.g., "http_requests_total", "cpu_usage_percent")
 	Name *string `protobuf:"bytes,2,opt,name=name" json:"name,omitempty"`
 	// Type of metric (counter, gauge, histogram, etc.)
-	Type *enums.MetricType `protobuf:"varint,3,opt,name=type,enum=gcommon.v1.metrics.MetricType" json:"type,omitempty"`
+	Type *MetricType `protobuf:"varint,3,opt,name=type,enum=gcommon.v1.metrics.MetricType" json:"type,omitempty"`
 	// Human-readable description of the metric
 	Description *string `protobuf:"bytes,4,opt,name=description" json:"description,omitempty"`
 	// Unit of measurement (e.g., "bytes", "seconds", "requests")
@@ -44,7 +42,7 @@ type MetricData struct {
 	// Base labels/tags that apply to all values in this metric
 	Labels map[string]string `protobuf:"bytes,6,rep,name=labels" json:"labels,omitempty" protobuf_key:"bytes,1,opt,name=key" protobuf_val:"bytes,2,opt,name=value"`
 	// The metric values (can be multiple for time series)
-	Values []*types.MetricValue `protobuf:"bytes,7,rep,name=values" json:"values,omitempty"`
+	Values []*MetricValue `protobuf:"bytes,7,rep,name=values" json:"values,omitempty"`
 	// When this metric data was collected/created
 	CreatedAt *timestamppb.Timestamp `protobuf:"bytes,8,opt,name=created_at,json=createdAt" json:"created_at,omitempty"`
 	// Source system or component that generated this metric
@@ -96,11 +94,11 @@ func (x *MetricData) GetName() string {
 	return ""
 }
 
-func (x *MetricData) GetType() enums.MetricType {
+func (x *MetricData) GetType() MetricType {
 	if x != nil && x.Type != nil {
 		return *x.Type
 	}
-	return enums.MetricType(0)
+	return MetricType_METRIC_TYPE_UNSPECIFIED
 }
 
 func (x *MetricData) GetDescription() string {
@@ -124,7 +122,7 @@ func (x *MetricData) GetLabels() map[string]string {
 	return nil
 }
 
-func (x *MetricData) GetValues() []*types.MetricValue {
+func (x *MetricData) GetValues() []*MetricValue {
 	if x != nil {
 		return x.Values
 	}
@@ -167,7 +165,7 @@ func (x *MetricData) SetName(v string) {
 	x.Name = &v
 }
 
-func (x *MetricData) SetType(v enums.MetricType) {
+func (x *MetricData) SetType(v MetricType) {
 	x.Type = &v
 }
 
@@ -183,7 +181,7 @@ func (x *MetricData) SetLabels(v map[string]string) {
 	x.Labels = v
 }
 
-func (x *MetricData) SetValues(v []*types.MetricValue) {
+func (x *MetricData) SetValues(v []*MetricValue) {
 	x.Values = v
 }
 
@@ -310,7 +308,7 @@ type MetricData_builder struct {
 	// Metric name (e.g., "http_requests_total", "cpu_usage_percent")
 	Name *string
 	// Type of metric (counter, gauge, histogram, etc.)
-	Type *enums.MetricType
+	Type *MetricType
 	// Human-readable description of the metric
 	Description *string
 	// Unit of measurement (e.g., "bytes", "seconds", "requests")
@@ -318,7 +316,7 @@ type MetricData_builder struct {
 	// Base labels/tags that apply to all values in this metric
 	Labels map[string]string
 	// The metric values (can be multiple for time series)
-	Values []*types.MetricValue
+	Values []*MetricValue
 	// When this metric data was collected/created
 	CreatedAt *timestamppb.Timestamp
 	// Source system or component that generated this metric
@@ -354,10 +352,10 @@ type MetricSeries struct {
 	state protoimpl.MessageState `protogen:"hybrid.v1"`
 	// Metric metadata
 	Name   *string           `protobuf:"bytes,1,opt,name=name" json:"name,omitempty"`
-	Type   *enums.MetricType `protobuf:"varint,2,opt,name=type,enum=gcommon.v1.metrics.MetricType" json:"type,omitempty"`
+	Type   *MetricType       `protobuf:"varint,2,opt,name=type,enum=gcommon.v1.metrics.MetricType" json:"type,omitempty"`
 	Labels map[string]string `protobuf:"bytes,3,rep,name=labels" json:"labels,omitempty" protobuf_key:"bytes,1,opt,name=key" protobuf_val:"bytes,2,opt,name=value"`
 	// Time-ordered series of values
-	Values []*types.MetricValue `protobuf:"bytes,4,rep,name=values" json:"values,omitempty"`
+	Values []*MetricValue `protobuf:"bytes,4,rep,name=values" json:"values,omitempty"`
 	// Resolution/step between data points
 	StepSeconds   *int64 `protobuf:"varint,5,opt,name=step_seconds,json=stepSeconds" json:"step_seconds,omitempty"`
 	unknownFields protoimpl.UnknownFields
@@ -396,11 +394,11 @@ func (x *MetricSeries) GetName() string {
 	return ""
 }
 
-func (x *MetricSeries) GetType() enums.MetricType {
+func (x *MetricSeries) GetType() MetricType {
 	if x != nil && x.Type != nil {
 		return *x.Type
 	}
-	return enums.MetricType(0)
+	return MetricType_METRIC_TYPE_UNSPECIFIED
 }
 
 func (x *MetricSeries) GetLabels() map[string]string {
@@ -410,7 +408,7 @@ func (x *MetricSeries) GetLabels() map[string]string {
 	return nil
 }
 
-func (x *MetricSeries) GetValues() []*types.MetricValue {
+func (x *MetricSeries) GetValues() []*MetricValue {
 	if x != nil {
 		return x.Values
 	}
@@ -428,7 +426,7 @@ func (x *MetricSeries) SetName(v string) {
 	x.Name = &v
 }
 
-func (x *MetricSeries) SetType(v enums.MetricType) {
+func (x *MetricSeries) SetType(v MetricType) {
 	x.Type = &v
 }
 
@@ -436,7 +434,7 @@ func (x *MetricSeries) SetLabels(v map[string]string) {
 	x.Labels = v
 }
 
-func (x *MetricSeries) SetValues(v []*types.MetricValue) {
+func (x *MetricSeries) SetValues(v []*MetricValue) {
 	x.Values = v
 }
 
@@ -482,10 +480,10 @@ type MetricSeries_builder struct {
 
 	// Metric metadata
 	Name   *string
-	Type   *enums.MetricType
+	Type   *MetricType
 	Labels map[string]string
 	// Time-ordered series of values
-	Values []*types.MetricValue
+	Values []*MetricValue
 	// Resolution/step between data points
 	StepSeconds *int64
 }
@@ -512,7 +510,7 @@ type MetricFamily struct {
 	// Family description
 	Description *string `protobuf:"bytes,2,opt,name=description" json:"description,omitempty"`
 	// Type of metrics in this family
-	Type *enums.MetricType `protobuf:"varint,3,opt,name=type,enum=gcommon.v1.metrics.MetricType" json:"type,omitempty"`
+	Type *MetricType `protobuf:"varint,3,opt,name=type,enum=gcommon.v1.metrics.MetricType" json:"type,omitempty"`
 	// Unit of measurement for all metrics in this family
 	Unit *string `protobuf:"bytes,4,opt,name=unit" json:"unit,omitempty"`
 	// All metrics in this family
@@ -560,11 +558,11 @@ func (x *MetricFamily) GetDescription() string {
 	return ""
 }
 
-func (x *MetricFamily) GetType() enums.MetricType {
+func (x *MetricFamily) GetType() MetricType {
 	if x != nil && x.Type != nil {
 		return *x.Type
 	}
-	return enums.MetricType(0)
+	return MetricType_METRIC_TYPE_UNSPECIFIED
 }
 
 func (x *MetricFamily) GetUnit() string {
@@ -589,7 +587,7 @@ func (x *MetricFamily) SetDescription(v string) {
 	x.Description = &v
 }
 
-func (x *MetricFamily) SetType(v enums.MetricType) {
+func (x *MetricFamily) SetType(v MetricType) {
 	x.Type = &v
 }
 
@@ -653,7 +651,7 @@ type MetricFamily_builder struct {
 	// Family description
 	Description *string
 	// Type of metrics in this family
-	Type *enums.MetricType
+	Type *MetricType
 	// Unit of measurement for all metrics in this family
 	Unit *string
 	// All metrics in this family
@@ -709,8 +707,8 @@ const file_pkg_metrics_proto_messages_metric_data_proto_rawDesc = "" +
 	"\vdescription\x18\x02 \x01(\tR\vdescription\x122\n" +
 	"\x04type\x18\x03 \x01(\x0e2\x1e.gcommon.v1.metrics.MetricTypeR\x04type\x12\x12\n" +
 	"\x04unit\x18\x04 \x01(\tR\x04unit\x128\n" +
-	"\ametrics\x18\x05 \x03(\v2\x1e.gcommon.v1.metrics.MetricDataR\ametricsB\xd1\x01\n" +
-	"\x16com.gcommon.v1.metricsB\x0fMetricDataProtoP\x01Z4github.com/jdfalk/gcommon/pkg/metrics/proto/messages\xa2\x02\x03GVM\xaa\x02\x12Gcommon.V1.Metrics\xca\x02\x12Gcommon\\V1\\Metrics\xe2\x02\x1eGcommon\\V1\\Metrics\\GPBMetadata\xea\x02\x14Gcommon::V1::Metrics\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
+	"\ametrics\x18\x05 \x03(\v2\x1e.gcommon.v1.metrics.MetricDataR\ametricsB\xd2\x01\n" +
+	"\x16com.gcommon.v1.metricsB\x0fMetricDataProtoP\x01Z5github.com/jdfalk/gcommon/pkg/metrics/proto;metricspb\xa2\x02\x03GVM\xaa\x02\x12Gcommon.V1.Metrics\xca\x02\x12Gcommon\\V1\\Metrics\xe2\x02\x1eGcommon\\V1\\Metrics\\GPBMetadata\xea\x02\x14Gcommon::V1::Metrics\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
 
 var file_pkg_metrics_proto_messages_metric_data_proto_msgTypes = make([]protoimpl.MessageInfo, 5)
 var file_pkg_metrics_proto_messages_metric_data_proto_goTypes = []any{
@@ -719,8 +717,8 @@ var file_pkg_metrics_proto_messages_metric_data_proto_goTypes = []any{
 	(*MetricFamily)(nil),          // 2: gcommon.v1.metrics.MetricFamily
 	nil,                           // 3: gcommon.v1.metrics.MetricData.LabelsEntry
 	nil,                           // 4: gcommon.v1.metrics.MetricSeries.LabelsEntry
-	(enums.MetricType)(0),         // 5: gcommon.v1.metrics.MetricType
-	(*types.MetricValue)(nil),     // 6: gcommon.v1.metrics.MetricValue
+	(MetricType)(0),               // 5: gcommon.v1.metrics.MetricType
+	(*MetricValue)(nil),           // 6: gcommon.v1.metrics.MetricValue
 	(*timestamppb.Timestamp)(nil), // 7: google.protobuf.Timestamp
 }
 var file_pkg_metrics_proto_messages_metric_data_proto_depIdxs = []int32{
@@ -745,6 +743,8 @@ func file_pkg_metrics_proto_messages_metric_data_proto_init() {
 	if File_pkg_metrics_proto_messages_metric_data_proto != nil {
 		return
 	}
+	file_pkg_metrics_proto_enums_metric_type_proto_init()
+	file_pkg_metrics_proto_types_metric_value_proto_init()
 	type x struct{}
 	out := protoimpl.TypeBuilder{
 		File: protoimpl.DescBuilder{

@@ -6,11 +6,10 @@
 
 //go:build protoopaque
 
-package responses
+package metricspb
 
 import (
-	messages "github.com/jdfalk/gcommon/pkg/common/proto/messages"
-	types "github.com/jdfalk/gcommon/pkg/metrics/proto/types"
+	proto "github.com/jdfalk/gcommon/pkg/common/proto"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
@@ -31,12 +30,12 @@ const (
 type DeleteProviderResponse struct {
 	state                        protoimpl.MessageState `protogen:"opaque.v1"`
 	xxx_hidden_Success           bool                   `protobuf:"varint,1,opt,name=success"`
-	xxx_hidden_Error             *messages.Error        `protobuf:"bytes,2,opt,name=error"`
+	xxx_hidden_Error             *proto.Error           `protobuf:"bytes,2,opt,name=error"`
 	xxx_hidden_ProviderId        *string                `protobuf:"bytes,3,opt,name=provider_id,json=providerId"`
 	xxx_hidden_DeletedAt         *timestamppb.Timestamp `protobuf:"bytes,4,opt,name=deleted_at,json=deletedAt"`
 	xxx_hidden_DeletionResult    *DeletionResult        `protobuf:"bytes,5,opt,name=deletion_result,json=deletionResult"`
 	xxx_hidden_Warnings          []string               `protobuf:"bytes,6,rep,name=warnings"`
-	xxx_hidden_BackupInfo        *types.BackupInfo      `protobuf:"bytes,7,opt,name=backup_info,json=backupInfo"`
+	xxx_hidden_BackupInfo        *BackupInfo            `protobuf:"bytes,7,opt,name=backup_info,json=backupInfo"`
 	xxx_hidden_ScheduledDeletion *timestamppb.Timestamp `protobuf:"bytes,8,opt,name=scheduled_deletion,json=scheduledDeletion"`
 	XXX_raceDetectHookData       protoimpl.RaceDetectHookData
 	XXX_presence                 [1]uint32
@@ -76,7 +75,7 @@ func (x *DeleteProviderResponse) GetSuccess() bool {
 	return false
 }
 
-func (x *DeleteProviderResponse) GetError() *messages.Error {
+func (x *DeleteProviderResponse) GetError() *proto.Error {
 	if x != nil {
 		return x.xxx_hidden_Error
 	}
@@ -114,7 +113,7 @@ func (x *DeleteProviderResponse) GetWarnings() []string {
 	return nil
 }
 
-func (x *DeleteProviderResponse) GetBackupInfo() *types.BackupInfo {
+func (x *DeleteProviderResponse) GetBackupInfo() *BackupInfo {
 	if x != nil {
 		return x.xxx_hidden_BackupInfo
 	}
@@ -133,7 +132,7 @@ func (x *DeleteProviderResponse) SetSuccess(v bool) {
 	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 0, 8)
 }
 
-func (x *DeleteProviderResponse) SetError(v *messages.Error) {
+func (x *DeleteProviderResponse) SetError(v *proto.Error) {
 	x.xxx_hidden_Error = v
 }
 
@@ -154,7 +153,7 @@ func (x *DeleteProviderResponse) SetWarnings(v []string) {
 	x.xxx_hidden_Warnings = v
 }
 
-func (x *DeleteProviderResponse) SetBackupInfo(v *types.BackupInfo) {
+func (x *DeleteProviderResponse) SetBackupInfo(v *BackupInfo) {
 	x.xxx_hidden_BackupInfo = v
 }
 
@@ -247,7 +246,7 @@ type DeleteProviderResponse_builder struct {
 	// Success status of the deletion
 	Success *bool
 	// Error information if deletion failed
-	Error *messages.Error
+	Error *proto.Error
 	// Provider ID that was deleted
 	ProviderId *string
 	// When the deletion was completed
@@ -257,7 +256,7 @@ type DeleteProviderResponse_builder struct {
 	// Warnings or informational messages
 	Warnings []string
 	// Backup information (if backup was created)
-	BackupInfo *types.BackupInfo
+	BackupInfo *BackupInfo
 	// When scheduled deletion will occur (if grace period is set)
 	ScheduledDeletion *timestamppb.Timestamp
 }
@@ -296,7 +295,7 @@ type DeletionResult struct {
 	xxx_hidden_DeletedBackups      []string               `protobuf:"bytes,7,rep,name=deleted_backups,json=deletedBackups"`
 	xxx_hidden_CleanupStrategyUsed *string                `protobuf:"bytes,8,opt,name=cleanup_strategy_used,json=cleanupStrategyUsed"`
 	xxx_hidden_DeletionDuration    *string                `protobuf:"bytes,9,opt,name=deletion_duration,json=deletionDuration"`
-	xxx_hidden_DryRunResult        *types.DryRunResult    `protobuf:"bytes,10,opt,name=dry_run_result,json=dryRunResult"`
+	xxx_hidden_DryRunResult        *DryRunResult          `protobuf:"bytes,10,opt,name=dry_run_result,json=dryRunResult"`
 	XXX_raceDetectHookData         protoimpl.RaceDetectHookData
 	XXX_presence                   [1]uint32
 	unknownFields                  protoimpl.UnknownFields
@@ -397,7 +396,7 @@ func (x *DeletionResult) GetDeletionDuration() string {
 	return ""
 }
 
-func (x *DeletionResult) GetDryRunResult() *types.DryRunResult {
+func (x *DeletionResult) GetDryRunResult() *DryRunResult {
 	if x != nil {
 		return x.xxx_hidden_DryRunResult
 	}
@@ -446,7 +445,7 @@ func (x *DeletionResult) SetDeletionDuration(v string) {
 	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 8, 10)
 }
 
-func (x *DeletionResult) SetDryRunResult(v *types.DryRunResult) {
+func (x *DeletionResult) SetDryRunResult(v *DryRunResult) {
 	x.xxx_hidden_DryRunResult = v
 }
 
@@ -555,7 +554,7 @@ type DeletionResult_builder struct {
 	// Time taken for the deletion
 	DeletionDuration *string
 	// What would be deleted (for dry run operations)
-	DryRunResult *types.DryRunResult
+	DryRunResult *DryRunResult
 }
 
 func (b0 DeletionResult_builder) Build() *DeletionResult {
@@ -622,16 +621,16 @@ const file_pkg_metrics_proto_responses_delete_provider_response_proto_rawDesc = 
 	"\x11deletion_duration\x18\t \x01(\tR\x10deletionDuration\x12F\n" +
 	"\x0edry_run_result\x18\n" +
 	" \x01(\v2 .gcommon.v1.metrics.DryRunResultR\fdryRunResultB\xde\x01\n" +
-	"\x16com.gcommon.v1.metricsB\x1bDeleteProviderResponseProtoP\x01Z5github.com/jdfalk/gcommon/pkg/metrics/proto/responses\xa2\x02\x03GVM\xaa\x02\x12Gcommon.V1.Metrics\xca\x02\x12Gcommon\\V1\\Metrics\xe2\x02\x1eGcommon\\V1\\Metrics\\GPBMetadata\xea\x02\x14Gcommon::V1::Metrics\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
+	"\x16com.gcommon.v1.metricsB\x1bDeleteProviderResponseProtoP\x01Z5github.com/jdfalk/gcommon/pkg/metrics/proto;metricspb\xa2\x02\x03GVM\xaa\x02\x12Gcommon.V1.Metrics\xca\x02\x12Gcommon\\V1\\Metrics\xe2\x02\x1eGcommon\\V1\\Metrics\\GPBMetadata\xea\x02\x14Gcommon::V1::Metrics\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
 
 var file_pkg_metrics_proto_responses_delete_provider_response_proto_msgTypes = make([]protoimpl.MessageInfo, 2)
 var file_pkg_metrics_proto_responses_delete_provider_response_proto_goTypes = []any{
 	(*DeleteProviderResponse)(nil), // 0: gcommon.v1.metrics.DeleteProviderResponse
 	(*DeletionResult)(nil),         // 1: gcommon.v1.metrics.DeletionResult
-	(*messages.Error)(nil),         // 2: gcommon.v1.common.Error
+	(*proto.Error)(nil),            // 2: gcommon.v1.common.Error
 	(*timestamppb.Timestamp)(nil),  // 3: google.protobuf.Timestamp
-	(*types.BackupInfo)(nil),       // 4: gcommon.v1.metrics.BackupInfo
-	(*types.DryRunResult)(nil),     // 5: gcommon.v1.metrics.DryRunResult
+	(*BackupInfo)(nil),             // 4: gcommon.v1.metrics.BackupInfo
+	(*DryRunResult)(nil),           // 5: gcommon.v1.metrics.DryRunResult
 }
 var file_pkg_metrics_proto_responses_delete_provider_response_proto_depIdxs = []int32{
 	2, // 0: gcommon.v1.metrics.DeleteProviderResponse.error:type_name -> gcommon.v1.common.Error
@@ -652,6 +651,8 @@ func file_pkg_metrics_proto_responses_delete_provider_response_proto_init() {
 	if File_pkg_metrics_proto_responses_delete_provider_response_proto != nil {
 		return
 	}
+	file_pkg_metrics_proto_types_backup_info_proto_init()
+	file_pkg_metrics_proto_types_dry_run_result_proto_init()
 	type x struct{}
 	out := protoimpl.TypeBuilder{
 		File: protoimpl.DescBuilder{

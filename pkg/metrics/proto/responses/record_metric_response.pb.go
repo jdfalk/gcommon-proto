@@ -6,11 +6,10 @@
 
 //go:build !protoopaque
 
-package responses
+package metricspb
 
 import (
-	messages "github.com/jdfalk/gcommon/pkg/common/proto/messages"
-	types "github.com/jdfalk/gcommon/pkg/metrics/proto/types"
+	proto "github.com/jdfalk/gcommon/pkg/common/proto"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
@@ -33,7 +32,7 @@ type RecordMetricResponse struct {
 	// Success status of the operation
 	Success *bool `protobuf:"varint,1,opt,name=success" json:"success,omitempty"`
 	// Error information if the operation failed
-	Error *messages.Error `protobuf:"bytes,2,opt,name=error" json:"error,omitempty"`
+	Error *proto.Error `protobuf:"bytes,2,opt,name=error" json:"error,omitempty"`
 	// Unique ID assigned to the recorded metric (if applicable)
 	MetricId *string `protobuf:"bytes,3,opt,name=metric_id,json=metricId" json:"metric_id,omitempty"`
 	// Timestamp when the metric was actually recorded
@@ -41,9 +40,9 @@ type RecordMetricResponse struct {
 	// Provider that handled the metric
 	ProviderId *string `protobuf:"bytes,5,opt,name=provider_id,json=providerId" json:"provider_id,omitempty"`
 	// Validation results if validation was requested
-	Validation *types.ValidationResult `protobuf:"bytes,6,opt,name=validation" json:"validation,omitempty"`
+	Validation *ValidationResult `protobuf:"bytes,6,opt,name=validation" json:"validation,omitempty"`
 	// Performance metrics about the recording operation
-	Stats *types.RecordingStats `protobuf:"bytes,7,opt,name=stats" json:"stats,omitempty"`
+	Stats *RecordingStats `protobuf:"bytes,7,opt,name=stats" json:"stats,omitempty"`
 	// Warnings or informational messages
 	Warnings      []string `protobuf:"bytes,8,rep,name=warnings" json:"warnings,omitempty"`
 	unknownFields protoimpl.UnknownFields
@@ -82,7 +81,7 @@ func (x *RecordMetricResponse) GetSuccess() bool {
 	return false
 }
 
-func (x *RecordMetricResponse) GetError() *messages.Error {
+func (x *RecordMetricResponse) GetError() *proto.Error {
 	if x != nil {
 		return x.Error
 	}
@@ -110,14 +109,14 @@ func (x *RecordMetricResponse) GetProviderId() string {
 	return ""
 }
 
-func (x *RecordMetricResponse) GetValidation() *types.ValidationResult {
+func (x *RecordMetricResponse) GetValidation() *ValidationResult {
 	if x != nil {
 		return x.Validation
 	}
 	return nil
 }
 
-func (x *RecordMetricResponse) GetStats() *types.RecordingStats {
+func (x *RecordMetricResponse) GetStats() *RecordingStats {
 	if x != nil {
 		return x.Stats
 	}
@@ -135,7 +134,7 @@ func (x *RecordMetricResponse) SetSuccess(v bool) {
 	x.Success = &v
 }
 
-func (x *RecordMetricResponse) SetError(v *messages.Error) {
+func (x *RecordMetricResponse) SetError(v *proto.Error) {
 	x.Error = v
 }
 
@@ -151,11 +150,11 @@ func (x *RecordMetricResponse) SetProviderId(v string) {
 	x.ProviderId = &v
 }
 
-func (x *RecordMetricResponse) SetValidation(v *types.ValidationResult) {
+func (x *RecordMetricResponse) SetValidation(v *ValidationResult) {
 	x.Validation = v
 }
 
-func (x *RecordMetricResponse) SetStats(v *types.RecordingStats) {
+func (x *RecordMetricResponse) SetStats(v *RecordingStats) {
 	x.Stats = v
 }
 
@@ -246,7 +245,7 @@ type RecordMetricResponse_builder struct {
 	// Success status of the operation
 	Success *bool
 	// Error information if the operation failed
-	Error *messages.Error
+	Error *proto.Error
 	// Unique ID assigned to the recorded metric (if applicable)
 	MetricId *string
 	// Timestamp when the metric was actually recorded
@@ -254,9 +253,9 @@ type RecordMetricResponse_builder struct {
 	// Provider that handled the metric
 	ProviderId *string
 	// Validation results if validation was requested
-	Validation *types.ValidationResult
+	Validation *ValidationResult
 	// Performance metrics about the recording operation
-	Stats *types.RecordingStats
+	Stats *RecordingStats
 	// Warnings or informational messages
 	Warnings []string
 }
@@ -294,15 +293,15 @@ const file_pkg_metrics_proto_responses_record_metric_response_proto_rawDesc = ""
 	"validation\x128\n" +
 	"\x05stats\x18\a \x01(\v2\".gcommon.v1.metrics.RecordingStatsR\x05stats\x12\x1a\n" +
 	"\bwarnings\x18\b \x03(\tR\bwarningsB\xdc\x01\n" +
-	"\x16com.gcommon.v1.metricsB\x19RecordMetricResponseProtoP\x01Z5github.com/jdfalk/gcommon/pkg/metrics/proto/responses\xa2\x02\x03GVM\xaa\x02\x12Gcommon.V1.Metrics\xca\x02\x12Gcommon\\V1\\Metrics\xe2\x02\x1eGcommon\\V1\\Metrics\\GPBMetadata\xea\x02\x14Gcommon::V1::Metrics\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
+	"\x16com.gcommon.v1.metricsB\x19RecordMetricResponseProtoP\x01Z5github.com/jdfalk/gcommon/pkg/metrics/proto;metricspb\xa2\x02\x03GVM\xaa\x02\x12Gcommon.V1.Metrics\xca\x02\x12Gcommon\\V1\\Metrics\xe2\x02\x1eGcommon\\V1\\Metrics\\GPBMetadata\xea\x02\x14Gcommon::V1::Metrics\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
 
 var file_pkg_metrics_proto_responses_record_metric_response_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_pkg_metrics_proto_responses_record_metric_response_proto_goTypes = []any{
-	(*RecordMetricResponse)(nil),   // 0: gcommon.v1.metrics.RecordMetricResponse
-	(*messages.Error)(nil),         // 1: gcommon.v1.common.Error
-	(*timestamppb.Timestamp)(nil),  // 2: google.protobuf.Timestamp
-	(*types.ValidationResult)(nil), // 3: gcommon.v1.metrics.ValidationResult
-	(*types.RecordingStats)(nil),   // 4: gcommon.v1.metrics.RecordingStats
+	(*RecordMetricResponse)(nil),  // 0: gcommon.v1.metrics.RecordMetricResponse
+	(*proto.Error)(nil),           // 1: gcommon.v1.common.Error
+	(*timestamppb.Timestamp)(nil), // 2: google.protobuf.Timestamp
+	(*ValidationResult)(nil),      // 3: gcommon.v1.metrics.ValidationResult
+	(*RecordingStats)(nil),        // 4: gcommon.v1.metrics.RecordingStats
 }
 var file_pkg_metrics_proto_responses_record_metric_response_proto_depIdxs = []int32{
 	1, // 0: gcommon.v1.metrics.RecordMetricResponse.error:type_name -> gcommon.v1.common.Error
@@ -321,6 +320,8 @@ func file_pkg_metrics_proto_responses_record_metric_response_proto_init() {
 	if File_pkg_metrics_proto_responses_record_metric_response_proto != nil {
 		return
 	}
+	file_pkg_metrics_proto_types_validation_result_proto_init()
+	file_pkg_metrics_proto_types_recording_stats_proto_init()
 	type x struct{}
 	out := protoimpl.TypeBuilder{
 		File: protoimpl.DescBuilder{

@@ -4,7 +4,7 @@
 // 	protoc        (unknown)
 // source: pkg/metrics/proto/enums/sample_rate.proto
 
-package enums
+package metricspb
 
 import (
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
@@ -118,8 +118,8 @@ const file_pkg_metrics_proto_enums_sample_rate_proto_rawDesc = "" +
 	"\x15SAMPLE_RATE_HUNDREDTH\x10\x06\x12\x1a\n" +
 	"\x16SAMPLE_RATE_THOUSANDTH\x10\a\x12\x18\n" +
 	"\x14SAMPLE_RATE_ADAPTIVE\x10\b\x12\x16\n" +
-	"\x12SAMPLE_RATE_CUSTOM\x10\tB\xc6\x01\n" +
-	"\x16com.gcommon.v1.metricsB\x0fSampleRateProtoP\x01Z1github.com/jdfalk/gcommon/pkg/metrics/proto/enums\xa2\x02\x03GVM\xaa\x02\x12Gcommon.V1.Metrics\xca\x02\x12Gcommon\\V1\\Metrics\xe2\x02\x1eGcommon\\V1\\Metrics\\GPBMetadata\xea\x02\x14Gcommon::V1::Metricsb\beditionsp\xe8\a"
+	"\x12SAMPLE_RATE_CUSTOM\x10\tB\xca\x01\n" +
+	"\x16com.gcommon.v1.metricsB\x0fSampleRateProtoP\x01Z5github.com/jdfalk/gcommon/pkg/metrics/proto;metricspb\xa2\x02\x03GVM\xaa\x02\x12Gcommon.V1.Metrics\xca\x02\x12Gcommon\\V1\\Metrics\xe2\x02\x1eGcommon\\V1\\Metrics\\GPBMetadata\xea\x02\x14Gcommon::V1::Metricsb\beditionsp\xe8\a"
 
 var (
 	file_pkg_metrics_proto_enums_sample_rate_proto_rawDescOnce sync.Once

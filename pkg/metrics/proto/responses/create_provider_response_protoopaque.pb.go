@@ -6,12 +6,10 @@
 
 //go:build protoopaque
 
-package responses
+package metricspb
 
 import (
-	messages "github.com/jdfalk/gcommon/pkg/common/proto/messages"
-	_ "github.com/jdfalk/gcommon/pkg/metrics/proto/enums"
-	types "github.com/jdfalk/gcommon/pkg/metrics/proto/types"
+	proto "github.com/jdfalk/gcommon/pkg/common/proto"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
@@ -30,16 +28,16 @@ const (
 // *
 // CreateProviderResponse contains the result of creating a metrics provider.
 type CreateProviderResponse struct {
-	state                    protoimpl.MessageState  `protogen:"opaque.v1"`
-	xxx_hidden_Success       bool                    `protobuf:"varint,1,opt,name=success"`
-	xxx_hidden_Error         *messages.Error         `protobuf:"bytes,2,opt,name=error"`
-	xxx_hidden_ProviderId    *string                 `protobuf:"bytes,3,opt,name=provider_id,json=providerId"`
-	xxx_hidden_CreatedAt     *timestamppb.Timestamp  `protobuf:"bytes,4,opt,name=created_at,json=createdAt"`
-	xxx_hidden_Status        *types.ProviderStatus   `protobuf:"bytes,5,opt,name=status"`
-	xxx_hidden_Validation    *types.ValidationResult `protobuf:"bytes,6,opt,name=validation"`
-	xxx_hidden_AppliedConfig *AppliedConfig          `protobuf:"bytes,7,opt,name=applied_config,json=appliedConfig"`
-	xxx_hidden_Warnings      []string                `protobuf:"bytes,8,rep,name=warnings"`
-	xxx_hidden_Endpoints     *ProviderEndpoints      `protobuf:"bytes,9,opt,name=endpoints"`
+	state                    protoimpl.MessageState `protogen:"opaque.v1"`
+	xxx_hidden_Success       bool                   `protobuf:"varint,1,opt,name=success"`
+	xxx_hidden_Error         *proto.Error           `protobuf:"bytes,2,opt,name=error"`
+	xxx_hidden_ProviderId    *string                `protobuf:"bytes,3,opt,name=provider_id,json=providerId"`
+	xxx_hidden_CreatedAt     *timestamppb.Timestamp `protobuf:"bytes,4,opt,name=created_at,json=createdAt"`
+	xxx_hidden_Status        *ProviderStatus        `protobuf:"bytes,5,opt,name=status"`
+	xxx_hidden_Validation    *ValidationResult      `protobuf:"bytes,6,opt,name=validation"`
+	xxx_hidden_AppliedConfig *AppliedConfig         `protobuf:"bytes,7,opt,name=applied_config,json=appliedConfig"`
+	xxx_hidden_Warnings      []string               `protobuf:"bytes,8,rep,name=warnings"`
+	xxx_hidden_Endpoints     *ProviderEndpoints     `protobuf:"bytes,9,opt,name=endpoints"`
 	XXX_raceDetectHookData   protoimpl.RaceDetectHookData
 	XXX_presence             [1]uint32
 	unknownFields            protoimpl.UnknownFields
@@ -78,7 +76,7 @@ func (x *CreateProviderResponse) GetSuccess() bool {
 	return false
 }
 
-func (x *CreateProviderResponse) GetError() *messages.Error {
+func (x *CreateProviderResponse) GetError() *proto.Error {
 	if x != nil {
 		return x.xxx_hidden_Error
 	}
@@ -102,14 +100,14 @@ func (x *CreateProviderResponse) GetCreatedAt() *timestamppb.Timestamp {
 	return nil
 }
 
-func (x *CreateProviderResponse) GetStatus() *types.ProviderStatus {
+func (x *CreateProviderResponse) GetStatus() *ProviderStatus {
 	if x != nil {
 		return x.xxx_hidden_Status
 	}
 	return nil
 }
 
-func (x *CreateProviderResponse) GetValidation() *types.ValidationResult {
+func (x *CreateProviderResponse) GetValidation() *ValidationResult {
 	if x != nil {
 		return x.xxx_hidden_Validation
 	}
@@ -142,7 +140,7 @@ func (x *CreateProviderResponse) SetSuccess(v bool) {
 	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 0, 9)
 }
 
-func (x *CreateProviderResponse) SetError(v *messages.Error) {
+func (x *CreateProviderResponse) SetError(v *proto.Error) {
 	x.xxx_hidden_Error = v
 }
 
@@ -155,11 +153,11 @@ func (x *CreateProviderResponse) SetCreatedAt(v *timestamppb.Timestamp) {
 	x.xxx_hidden_CreatedAt = v
 }
 
-func (x *CreateProviderResponse) SetStatus(v *types.ProviderStatus) {
+func (x *CreateProviderResponse) SetStatus(v *ProviderStatus) {
 	x.xxx_hidden_Status = v
 }
 
-func (x *CreateProviderResponse) SetValidation(v *types.ValidationResult) {
+func (x *CreateProviderResponse) SetValidation(v *ValidationResult) {
 	x.xxx_hidden_Validation = v
 }
 
@@ -271,15 +269,15 @@ type CreateProviderResponse_builder struct {
 	// Success status of the creation
 	Success *bool
 	// Error information if creation failed
-	Error *messages.Error
+	Error *proto.Error
 	// ID of the created provider
 	ProviderId *string
 	// When the provider was created
 	CreatedAt *timestamppb.Timestamp
 	// Current status of the provider
-	Status *types.ProviderStatus
+	Status *ProviderStatus
 	// Validation results
-	Validation *types.ValidationResult
+	Validation *ValidationResult
 	// Configuration details that were applied
 	AppliedConfig *AppliedConfig
 	// Warnings or informational messages
@@ -844,7 +842,7 @@ const file_pkg_metrics_proto_responses_create_provider_response_proto_rawDesc = 
 	"\x18AdditionalEndpointsEntry\x12\x10\n" +
 	"\x03key\x18\x01 \x01(\tR\x03key\x12\x14\n" +
 	"\x05value\x18\x02 \x01(\tR\x05value:\x028\x01B\xde\x01\n" +
-	"\x16com.gcommon.v1.metricsB\x1bCreateProviderResponseProtoP\x01Z5github.com/jdfalk/gcommon/pkg/metrics/proto/responses\xa2\x02\x03GVM\xaa\x02\x12Gcommon.V1.Metrics\xca\x02\x12Gcommon\\V1\\Metrics\xe2\x02\x1eGcommon\\V1\\Metrics\\GPBMetadata\xea\x02\x14Gcommon::V1::Metrics\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
+	"\x16com.gcommon.v1.metricsB\x1bCreateProviderResponseProtoP\x01Z5github.com/jdfalk/gcommon/pkg/metrics/proto;metricspb\xa2\x02\x03GVM\xaa\x02\x12Gcommon.V1.Metrics\xca\x02\x12Gcommon\\V1\\Metrics\xe2\x02\x1eGcommon\\V1\\Metrics\\GPBMetadata\xea\x02\x14Gcommon::V1::Metrics\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
 
 var file_pkg_metrics_proto_responses_create_provider_response_proto_msgTypes = make([]protoimpl.MessageInfo, 7)
 var file_pkg_metrics_proto_responses_create_provider_response_proto_goTypes = []any{
@@ -855,10 +853,10 @@ var file_pkg_metrics_proto_responses_create_provider_response_proto_goTypes = []
 	nil,                            // 4: gcommon.v1.metrics.AppliedConfig.AppliedDefaultsEntry
 	nil,                            // 5: gcommon.v1.metrics.AppliedConfig.AppliedOverridesEntry
 	nil,                            // 6: gcommon.v1.metrics.ProviderEndpoints.AdditionalEndpointsEntry
-	(*messages.Error)(nil),         // 7: gcommon.v1.common.Error
+	(*proto.Error)(nil),            // 7: gcommon.v1.common.Error
 	(*timestamppb.Timestamp)(nil),  // 8: google.protobuf.Timestamp
-	(*types.ProviderStatus)(nil),   // 9: gcommon.v1.metrics.ProviderStatus
-	(*types.ValidationResult)(nil), // 10: gcommon.v1.metrics.ValidationResult
+	(*ProviderStatus)(nil),         // 9: gcommon.v1.metrics.ProviderStatus
+	(*ValidationResult)(nil),       // 10: gcommon.v1.metrics.ValidationResult
 }
 var file_pkg_metrics_proto_responses_create_provider_response_proto_depIdxs = []int32{
 	7,  // 0: gcommon.v1.metrics.CreateProviderResponse.error:type_name -> gcommon.v1.common.Error
@@ -883,6 +881,9 @@ func file_pkg_metrics_proto_responses_create_provider_response_proto_init() {
 	if File_pkg_metrics_proto_responses_create_provider_response_proto != nil {
 		return
 	}
+	file_pkg_metrics_proto_types_provider_status_proto_init()
+	file_pkg_metrics_proto_enums_provider_state_proto_init()
+	file_pkg_metrics_proto_types_validation_result_proto_init()
 	type x struct{}
 	out := protoimpl.TypeBuilder{
 		File: protoimpl.DescBuilder{

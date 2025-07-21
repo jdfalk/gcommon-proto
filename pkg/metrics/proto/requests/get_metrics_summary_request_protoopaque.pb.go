@@ -6,12 +6,10 @@
 
 //go:build protoopaque
 
-package requests
+package metricspb
 
 import (
-	messages "github.com/jdfalk/gcommon/pkg/common/proto/messages"
-	messages1 "github.com/jdfalk/gcommon/pkg/metrics/proto/messages"
-	types "github.com/jdfalk/gcommon/pkg/metrics/proto/types"
+	proto "github.com/jdfalk/gcommon/pkg/common/proto"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
@@ -31,14 +29,14 @@ const (
 // GetMetricsSummaryRequest represents a request to get a summary of metrics data.
 // This provides aggregate information about metrics without returning the full data.
 type GetMetricsSummaryRequest struct {
-	state                           protoimpl.MessageState    `protogen:"opaque.v1"`
-	xxx_hidden_Metadata             *messages.RequestMetadata `protobuf:"bytes,1,opt,name=metadata"`
-	xxx_hidden_Filter               *messages1.MetricFilter   `protobuf:"bytes,2,opt,name=filter"`
-	xxx_hidden_TimeRange            *types.TimeRange          `protobuf:"bytes,3,opt,name=time_range,json=timeRange"`
-	xxx_hidden_Options              *SummaryOptions           `protobuf:"bytes,4,opt,name=options"`
-	xxx_hidden_ProviderId           *string                   `protobuf:"bytes,5,opt,name=provider_id,json=providerId"`
-	xxx_hidden_IncludeProviderStats bool                      `protobuf:"varint,6,opt,name=include_provider_stats,json=includeProviderStats"`
-	xxx_hidden_IncludeHealthStatus  bool                      `protobuf:"varint,7,opt,name=include_health_status,json=includeHealthStatus"`
+	state                           protoimpl.MessageState `protogen:"opaque.v1"`
+	xxx_hidden_Metadata             *proto.RequestMetadata `protobuf:"bytes,1,opt,name=metadata"`
+	xxx_hidden_Filter               *MetricFilter          `protobuf:"bytes,2,opt,name=filter"`
+	xxx_hidden_TimeRange            *TimeRange             `protobuf:"bytes,3,opt,name=time_range,json=timeRange"`
+	xxx_hidden_Options              *SummaryOptions        `protobuf:"bytes,4,opt,name=options"`
+	xxx_hidden_ProviderId           *string                `protobuf:"bytes,5,opt,name=provider_id,json=providerId"`
+	xxx_hidden_IncludeProviderStats bool                   `protobuf:"varint,6,opt,name=include_provider_stats,json=includeProviderStats"`
+	xxx_hidden_IncludeHealthStatus  bool                   `protobuf:"varint,7,opt,name=include_health_status,json=includeHealthStatus"`
 	XXX_raceDetectHookData          protoimpl.RaceDetectHookData
 	XXX_presence                    [1]uint32
 	unknownFields                   protoimpl.UnknownFields
@@ -70,21 +68,21 @@ func (x *GetMetricsSummaryRequest) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-func (x *GetMetricsSummaryRequest) GetMetadata() *messages.RequestMetadata {
+func (x *GetMetricsSummaryRequest) GetMetadata() *proto.RequestMetadata {
 	if x != nil {
 		return x.xxx_hidden_Metadata
 	}
 	return nil
 }
 
-func (x *GetMetricsSummaryRequest) GetFilter() *messages1.MetricFilter {
+func (x *GetMetricsSummaryRequest) GetFilter() *MetricFilter {
 	if x != nil {
 		return x.xxx_hidden_Filter
 	}
 	return nil
 }
 
-func (x *GetMetricsSummaryRequest) GetTimeRange() *types.TimeRange {
+func (x *GetMetricsSummaryRequest) GetTimeRange() *TimeRange {
 	if x != nil {
 		return x.xxx_hidden_TimeRange
 	}
@@ -122,15 +120,15 @@ func (x *GetMetricsSummaryRequest) GetIncludeHealthStatus() bool {
 	return false
 }
 
-func (x *GetMetricsSummaryRequest) SetMetadata(v *messages.RequestMetadata) {
+func (x *GetMetricsSummaryRequest) SetMetadata(v *proto.RequestMetadata) {
 	x.xxx_hidden_Metadata = v
 }
 
-func (x *GetMetricsSummaryRequest) SetFilter(v *messages1.MetricFilter) {
+func (x *GetMetricsSummaryRequest) SetFilter(v *MetricFilter) {
 	x.xxx_hidden_Filter = v
 }
 
-func (x *GetMetricsSummaryRequest) SetTimeRange(v *types.TimeRange) {
+func (x *GetMetricsSummaryRequest) SetTimeRange(v *TimeRange) {
 	x.xxx_hidden_TimeRange = v
 }
 
@@ -237,11 +235,11 @@ type GetMetricsSummaryRequest_builder struct {
 	_ [0]func() // Prevents comparability and use of unkeyed literals for the builder.
 
 	// Standard request metadata (tracing, auth, etc.)
-	Metadata *messages.RequestMetadata
+	Metadata *proto.RequestMetadata
 	// Optional filter to limit which metrics to include in summary
-	Filter *messages1.MetricFilter
+	Filter *MetricFilter
 	// Time range for the summary
-	TimeRange *types.TimeRange
+	TimeRange *TimeRange
 	// What summary information to include
 	Options *SummaryOptions
 	// Optional provider ID to query
@@ -593,16 +591,16 @@ const file_pkg_metrics_proto_requests_get_metrics_summary_request_proto_rawDesc 
 	"\x13include_top_metrics\x18\x05 \x01(\bR\x11includeTopMetrics\x12+\n" +
 	"\x11include_retention\x18\x06 \x01(\bR\x10includeRetention\x122\n" +
 	"\x15include_export_status\x18\a \x01(\bR\x13includeExportStatus\x12*\n" +
-	"\x11top_metrics_limit\x18\b \x01(\x05R\x0ftopMetricsLimitB\xdf\x01\n" +
-	"\x16com.gcommon.v1.metricsB\x1dGetMetricsSummaryRequestProtoP\x01Z4github.com/jdfalk/gcommon/pkg/metrics/proto/requests\xa2\x02\x03GVM\xaa\x02\x12Gcommon.V1.Metrics\xca\x02\x12Gcommon\\V1\\Metrics\xe2\x02\x1eGcommon\\V1\\Metrics\\GPBMetadata\xea\x02\x14Gcommon::V1::Metrics\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
+	"\x11top_metrics_limit\x18\b \x01(\x05R\x0ftopMetricsLimitB\xe0\x01\n" +
+	"\x16com.gcommon.v1.metricsB\x1dGetMetricsSummaryRequestProtoP\x01Z5github.com/jdfalk/gcommon/pkg/metrics/proto;metricspb\xa2\x02\x03GVM\xaa\x02\x12Gcommon.V1.Metrics\xca\x02\x12Gcommon\\V1\\Metrics\xe2\x02\x1eGcommon\\V1\\Metrics\\GPBMetadata\xea\x02\x14Gcommon::V1::Metrics\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
 
 var file_pkg_metrics_proto_requests_get_metrics_summary_request_proto_msgTypes = make([]protoimpl.MessageInfo, 2)
 var file_pkg_metrics_proto_requests_get_metrics_summary_request_proto_goTypes = []any{
 	(*GetMetricsSummaryRequest)(nil), // 0: gcommon.v1.metrics.GetMetricsSummaryRequest
 	(*SummaryOptions)(nil),           // 1: gcommon.v1.metrics.SummaryOptions
-	(*messages.RequestMetadata)(nil), // 2: gcommon.v1.common.RequestMetadata
-	(*messages1.MetricFilter)(nil),   // 3: gcommon.v1.metrics.MetricFilter
-	(*types.TimeRange)(nil),          // 4: gcommon.v1.metrics.TimeRange
+	(*proto.RequestMetadata)(nil),    // 2: gcommon.v1.common.RequestMetadata
+	(*MetricFilter)(nil),             // 3: gcommon.v1.metrics.MetricFilter
+	(*TimeRange)(nil),                // 4: gcommon.v1.metrics.TimeRange
 }
 var file_pkg_metrics_proto_requests_get_metrics_summary_request_proto_depIdxs = []int32{
 	2, // 0: gcommon.v1.metrics.GetMetricsSummaryRequest.metadata:type_name -> gcommon.v1.common.RequestMetadata
@@ -621,6 +619,8 @@ func file_pkg_metrics_proto_requests_get_metrics_summary_request_proto_init() {
 	if File_pkg_metrics_proto_requests_get_metrics_summary_request_proto != nil {
 		return
 	}
+	file_pkg_metrics_proto_messages_metric_filter_proto_init()
+	file_pkg_metrics_proto_types_time_range_proto_init()
 	type x struct{}
 	out := protoimpl.TypeBuilder{
 		File: protoimpl.DescBuilder{

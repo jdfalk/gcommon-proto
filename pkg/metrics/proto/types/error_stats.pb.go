@@ -4,7 +4,7 @@
 // 	protoc        (unknown)
 // source: pkg/metrics/proto/types/error_stats.proto
 
-package types
+package metricspb
 
 import (
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
@@ -177,8 +177,8 @@ const file_pkg_metrics_proto_types_error_stats_proto_rawDesc = "" +
 	"\x05count\x18\x02 \x01(\x03R\x05count\x12\x1e\n" +
 	"\n" +
 	"percentage\x18\x03 \x01(\x01R\n" +
-	"percentageB\xc6\x01\n" +
-	"\x16com.gcommon.v1.metricsB\x0fErrorStatsProtoP\x01Z1github.com/jdfalk/gcommon/pkg/metrics/proto/types\xa2\x02\x03GVM\xaa\x02\x12Gcommon.V1.Metrics\xca\x02\x12Gcommon\\V1\\Metrics\xe2\x02\x1eGcommon\\V1\\Metrics\\GPBMetadata\xea\x02\x14Gcommon::V1::Metricsb\beditionsp\xe8\a"
+	"percentageB\xca\x01\n" +
+	"\x16com.gcommon.v1.metricsB\x0fErrorStatsProtoP\x01Z5github.com/jdfalk/gcommon/pkg/metrics/proto;metricspb\xa2\x02\x03GVM\xaa\x02\x12Gcommon.V1.Metrics\xca\x02\x12Gcommon\\V1\\Metrics\xe2\x02\x1eGcommon\\V1\\Metrics\\GPBMetadata\xea\x02\x14Gcommon::V1::Metricsb\beditionsp\xe8\a"
 
 var (
 	file_pkg_metrics_proto_types_error_stats_proto_rawDescOnce sync.Once

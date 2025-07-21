@@ -6,7 +6,7 @@
 
 //go:build !protoopaque
 
-package types
+package metricspb
 
 import (
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
@@ -394,8 +394,8 @@ const file_pkg_metrics_proto_types_provider_info_proto_rawDesc = "" +
 	"\vdescription\x18\f \x01(\tR\vdescription\x1a9\n" +
 	"\vConfigEntry\x12\x10\n" +
 	"\x03key\x18\x01 \x01(\tR\x03key\x12\x14\n" +
-	"\x05value\x18\x02 \x01(\tR\x05value:\x028\x01B\xd0\x01\n" +
-	"\x16com.gcommon.v1.metricsB\x11ProviderInfoProtoP\x01Z1github.com/jdfalk/gcommon/pkg/metrics/proto/types\xa2\x02\x03GVM\xaa\x02\x12Gcommon.V1.Metrics\xca\x02\x12Gcommon\\V1\\Metrics\xe2\x02\x1eGcommon\\V1\\Metrics\\GPBMetadata\xea\x02\x14Gcommon::V1::Metrics\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
+	"\x05value\x18\x02 \x01(\tR\x05value:\x028\x01B\xd4\x01\n" +
+	"\x16com.gcommon.v1.metricsB\x11ProviderInfoProtoP\x01Z5github.com/jdfalk/gcommon/pkg/metrics/proto;metricspb\xa2\x02\x03GVM\xaa\x02\x12Gcommon.V1.Metrics\xca\x02\x12Gcommon\\V1\\Metrics\xe2\x02\x1eGcommon\\V1\\Metrics\\GPBMetadata\xea\x02\x14Gcommon::V1::Metrics\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
 
 var file_pkg_metrics_proto_types_provider_info_proto_msgTypes = make([]protoimpl.MessageInfo, 2)
 var file_pkg_metrics_proto_types_provider_info_proto_goTypes = []any{

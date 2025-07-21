@@ -6,10 +6,10 @@
 
 //go:build !protoopaque
 
-package requests
+package metricspb
 
 import (
-	messages "github.com/jdfalk/gcommon/pkg/common/proto/messages"
+	proto "github.com/jdfalk/gcommon/pkg/common/proto"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
@@ -81,7 +81,7 @@ func (x UpdateStrategy) Number() protoreflect.EnumNumber {
 type UpdateProviderRequest struct {
 	state protoimpl.MessageState `protogen:"hybrid.v1"`
 	// Standard request metadata (tracing, auth, etc.)
-	Metadata *messages.RequestMetadata `protobuf:"bytes,1,opt,name=metadata" json:"metadata,omitempty"`
+	Metadata *proto.RequestMetadata `protobuf:"bytes,1,opt,name=metadata" json:"metadata,omitempty"`
 	// Provider ID to update
 	ProviderId *string `protobuf:"bytes,2,opt,name=provider_id,json=providerId" json:"provider_id,omitempty"`
 	// Updated configuration
@@ -117,7 +117,7 @@ func (x *UpdateProviderRequest) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-func (x *UpdateProviderRequest) GetMetadata() *messages.RequestMetadata {
+func (x *UpdateProviderRequest) GetMetadata() *proto.RequestMetadata {
 	if x != nil {
 		return x.Metadata
 	}
@@ -145,7 +145,7 @@ func (x *UpdateProviderRequest) GetOptions() *UpdateOptions {
 	return nil
 }
 
-func (x *UpdateProviderRequest) SetMetadata(v *messages.RequestMetadata) {
+func (x *UpdateProviderRequest) SetMetadata(v *proto.RequestMetadata) {
 	x.Metadata = v
 }
 
@@ -209,7 +209,7 @@ type UpdateProviderRequest_builder struct {
 	_ [0]func() // Prevents comparability and use of unkeyed literals for the builder.
 
 	// Standard request metadata (tracing, auth, etc.)
-	Metadata *messages.RequestMetadata
+	Metadata *proto.RequestMetadata
 	// Provider ID to update
 	ProviderId *string
 	// Updated configuration
@@ -2484,8 +2484,8 @@ const file_pkg_metrics_proto_requests_update_provider_request_proto_rawDesc = ""
 	"\x17UPDATE_STRATEGY_ROLLING\x10\x01\x12\x1e\n" +
 	"\x1aUPDATE_STRATEGY_BLUE_GREEN\x10\x02\x12\x1d\n" +
 	"\x19UPDATE_STRATEGY_IMMEDIATE\x10\x03\x12\x1d\n" +
-	"\x19UPDATE_STRATEGY_SCHEDULED\x10\x04B\xdc\x01\n" +
-	"\x16com.gcommon.v1.metricsB\x1aUpdateProviderRequestProtoP\x01Z4github.com/jdfalk/gcommon/pkg/metrics/proto/requests\xa2\x02\x03GVM\xaa\x02\x12Gcommon.V1.Metrics\xca\x02\x12Gcommon\\V1\\Metrics\xe2\x02\x1eGcommon\\V1\\Metrics\\GPBMetadata\xea\x02\x14Gcommon::V1::Metrics\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
+	"\x19UPDATE_STRATEGY_SCHEDULED\x10\x04B\xdd\x01\n" +
+	"\x16com.gcommon.v1.metricsB\x1aUpdateProviderRequestProtoP\x01Z5github.com/jdfalk/gcommon/pkg/metrics/proto;metricspb\xa2\x02\x03GVM\xaa\x02\x12Gcommon.V1.Metrics\xca\x02\x12Gcommon\\V1\\Metrics\xe2\x02\x1eGcommon\\V1\\Metrics\\GPBMetadata\xea\x02\x14Gcommon::V1::Metrics\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
 
 var file_pkg_metrics_proto_requests_update_provider_request_proto_enumTypes = make([]protoimpl.EnumInfo, 1)
 var file_pkg_metrics_proto_requests_update_provider_request_proto_msgTypes = make([]protoimpl.MessageInfo, 20)
@@ -2511,7 +2511,7 @@ var file_pkg_metrics_proto_requests_update_provider_request_proto_goTypes = []an
 	nil,                                 // 18: gcommon.v1.metrics.OpenTelemetrySettingsUpdate.ResourceAttributeUpdatesEntry
 	nil,                                 // 19: gcommon.v1.metrics.ExportDestinationUpdate.ConfigUpdatesEntry
 	nil,                                 // 20: gcommon.v1.metrics.TagUpdates.TagUpdatesEntry
-	(*messages.RequestMetadata)(nil),    // 21: gcommon.v1.common.RequestMetadata
+	(*proto.RequestMetadata)(nil),       // 21: gcommon.v1.common.RequestMetadata
 }
 var file_pkg_metrics_proto_requests_update_provider_request_proto_depIdxs = []int32{
 	21, // 0: gcommon.v1.metrics.UpdateProviderRequest.metadata:type_name -> gcommon.v1.common.RequestMetadata

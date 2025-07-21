@@ -6,7 +6,7 @@
 
 //go:build !protoopaque
 
-package enums
+package metricspb
 
 import (
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
@@ -137,8 +137,8 @@ const file_pkg_metrics_proto_enums_notification_type_proto_rawDesc = "" +
 	"\x12\x1e\n" +
 	"\x1aNOTIFICATION_TYPE_TELEGRAM\x10\v\x12\x1c\n" +
 	"\x18NOTIFICATION_TYPE_MATRIX\x10\f\x12\x1b\n" +
-	"\x17NOTIFICATION_TYPE_VOICE\x10\rB\xd4\x01\n" +
-	"\x16com.gcommon.v1.metricsB\x15NotificationTypeProtoP\x01Z1github.com/jdfalk/gcommon/pkg/metrics/proto/enums\xa2\x02\x03GVM\xaa\x02\x12Gcommon.V1.Metrics\xca\x02\x12Gcommon\\V1\\Metrics\xe2\x02\x1eGcommon\\V1\\Metrics\\GPBMetadata\xea\x02\x14Gcommon::V1::Metrics\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
+	"\x17NOTIFICATION_TYPE_VOICE\x10\rB\xd8\x01\n" +
+	"\x16com.gcommon.v1.metricsB\x15NotificationTypeProtoP\x01Z5github.com/jdfalk/gcommon/pkg/metrics/proto;metricspb\xa2\x02\x03GVM\xaa\x02\x12Gcommon.V1.Metrics\xca\x02\x12Gcommon\\V1\\Metrics\xe2\x02\x1eGcommon\\V1\\Metrics\\GPBMetadata\xea\x02\x14Gcommon::V1::Metrics\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
 
 var file_pkg_metrics_proto_enums_notification_type_proto_enumTypes = make([]protoimpl.EnumInfo, 1)
 var file_pkg_metrics_proto_enums_notification_type_proto_goTypes = []any{

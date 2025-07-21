@@ -6,11 +6,10 @@
 
 //go:build protoopaque
 
-package responses
+package metricspb
 
 import (
-	messages "github.com/jdfalk/gcommon/pkg/common/proto/messages"
-	types "github.com/jdfalk/gcommon/pkg/metrics/proto/types"
+	proto "github.com/jdfalk/gcommon/pkg/common/proto"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
@@ -31,10 +30,10 @@ const (
 type ListProvidersResponse struct {
 	state                  protoimpl.MessageState `protogen:"opaque.v1"`
 	xxx_hidden_Success     bool                   `protobuf:"varint,1,opt,name=success"`
-	xxx_hidden_Error       *messages.Error        `protobuf:"bytes,2,opt,name=error"`
-	xxx_hidden_Providers   *[]*types.ProviderInfo `protobuf:"bytes,3,rep,name=providers"`
-	xxx_hidden_Pagination  *types.PaginationInfo  `protobuf:"bytes,4,opt,name=pagination"`
-	xxx_hidden_Summary     *types.ProviderSummary `protobuf:"bytes,5,opt,name=summary"`
+	xxx_hidden_Error       *proto.Error           `protobuf:"bytes,2,opt,name=error"`
+	xxx_hidden_Providers   *[]*ProviderInfo       `protobuf:"bytes,3,rep,name=providers"`
+	xxx_hidden_Pagination  *PaginationInfo        `protobuf:"bytes,4,opt,name=pagination"`
+	xxx_hidden_Summary     *ProviderSummary       `protobuf:"bytes,5,opt,name=summary"`
 	xxx_hidden_GeneratedAt *timestamppb.Timestamp `protobuf:"bytes,6,opt,name=generated_at,json=generatedAt"`
 	XXX_raceDetectHookData protoimpl.RaceDetectHookData
 	XXX_presence           [1]uint32
@@ -74,14 +73,14 @@ func (x *ListProvidersResponse) GetSuccess() bool {
 	return false
 }
 
-func (x *ListProvidersResponse) GetError() *messages.Error {
+func (x *ListProvidersResponse) GetError() *proto.Error {
 	if x != nil {
 		return x.xxx_hidden_Error
 	}
 	return nil
 }
 
-func (x *ListProvidersResponse) GetProviders() []*types.ProviderInfo {
+func (x *ListProvidersResponse) GetProviders() []*ProviderInfo {
 	if x != nil {
 		if x.xxx_hidden_Providers != nil {
 			return *x.xxx_hidden_Providers
@@ -90,14 +89,14 @@ func (x *ListProvidersResponse) GetProviders() []*types.ProviderInfo {
 	return nil
 }
 
-func (x *ListProvidersResponse) GetPagination() *types.PaginationInfo {
+func (x *ListProvidersResponse) GetPagination() *PaginationInfo {
 	if x != nil {
 		return x.xxx_hidden_Pagination
 	}
 	return nil
 }
 
-func (x *ListProvidersResponse) GetSummary() *types.ProviderSummary {
+func (x *ListProvidersResponse) GetSummary() *ProviderSummary {
 	if x != nil {
 		return x.xxx_hidden_Summary
 	}
@@ -116,19 +115,19 @@ func (x *ListProvidersResponse) SetSuccess(v bool) {
 	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 0, 6)
 }
 
-func (x *ListProvidersResponse) SetError(v *messages.Error) {
+func (x *ListProvidersResponse) SetError(v *proto.Error) {
 	x.xxx_hidden_Error = v
 }
 
-func (x *ListProvidersResponse) SetProviders(v []*types.ProviderInfo) {
+func (x *ListProvidersResponse) SetProviders(v []*ProviderInfo) {
 	x.xxx_hidden_Providers = &v
 }
 
-func (x *ListProvidersResponse) SetPagination(v *types.PaginationInfo) {
+func (x *ListProvidersResponse) SetPagination(v *PaginationInfo) {
 	x.xxx_hidden_Pagination = v
 }
 
-func (x *ListProvidersResponse) SetSummary(v *types.ProviderSummary) {
+func (x *ListProvidersResponse) SetSummary(v *ProviderSummary) {
 	x.xxx_hidden_Summary = v
 }
 
@@ -198,13 +197,13 @@ type ListProvidersResponse_builder struct {
 	// Success status of the operation
 	Success *bool
 	// Error information if the operation failed
-	Error *messages.Error
+	Error *proto.Error
 	// List of providers
-	Providers []*types.ProviderInfo
+	Providers []*ProviderInfo
 	// Pagination information
-	Pagination *types.PaginationInfo
+	Pagination *PaginationInfo
 	// Summary statistics about the providers
-	Summary *types.ProviderSummary
+	Summary *ProviderSummary
 	// When the response was generated
 	GeneratedAt *timestamppb.Timestamp
 }
@@ -228,11 +227,11 @@ func (b0 ListProvidersResponse_builder) Build() *ListProvidersResponse {
 // *
 // ProviderConfigSummary contains a summary of provider configuration.
 type ProviderConfigSummary struct {
-	state                         protoimpl.MessageState       `protogen:"opaque.v1"`
-	xxx_hidden_ExporterCount      int32                        `protobuf:"varint,1,opt,name=exporter_count,json=exporterCount"`
-	xxx_hidden_SecurityEnabled    bool                         `protobuf:"varint,2,opt,name=security_enabled,json=securityEnabled"`
-	xxx_hidden_ResourceLimits     *types.ResourceLimitsSummary `protobuf:"bytes,3,opt,name=resource_limits,json=resourceLimits"`
-	xxx_hidden_ExportDestinations []string                     `protobuf:"bytes,4,rep,name=export_destinations,json=exportDestinations"`
+	state                         protoimpl.MessageState `protogen:"opaque.v1"`
+	xxx_hidden_ExporterCount      int32                  `protobuf:"varint,1,opt,name=exporter_count,json=exporterCount"`
+	xxx_hidden_SecurityEnabled    bool                   `protobuf:"varint,2,opt,name=security_enabled,json=securityEnabled"`
+	xxx_hidden_ResourceLimits     *ResourceLimitsSummary `protobuf:"bytes,3,opt,name=resource_limits,json=resourceLimits"`
+	xxx_hidden_ExportDestinations []string               `protobuf:"bytes,4,rep,name=export_destinations,json=exportDestinations"`
 	XXX_raceDetectHookData        protoimpl.RaceDetectHookData
 	XXX_presence                  [1]uint32
 	unknownFields                 protoimpl.UnknownFields
@@ -278,7 +277,7 @@ func (x *ProviderConfigSummary) GetSecurityEnabled() bool {
 	return false
 }
 
-func (x *ProviderConfigSummary) GetResourceLimits() *types.ResourceLimitsSummary {
+func (x *ProviderConfigSummary) GetResourceLimits() *ResourceLimitsSummary {
 	if x != nil {
 		return x.xxx_hidden_ResourceLimits
 	}
@@ -302,7 +301,7 @@ func (x *ProviderConfigSummary) SetSecurityEnabled(v bool) {
 	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 1, 4)
 }
 
-func (x *ProviderConfigSummary) SetResourceLimits(v *types.ResourceLimitsSummary) {
+func (x *ProviderConfigSummary) SetResourceLimits(v *ResourceLimitsSummary) {
 	x.xxx_hidden_ResourceLimits = v
 }
 
@@ -353,7 +352,7 @@ type ProviderConfigSummary_builder struct {
 	// Whether security is enabled
 	SecurityEnabled *bool
 	// Resource limits summary
-	ResourceLimits *types.ResourceLimitsSummary
+	ResourceLimits *ResourceLimitsSummary
 	// Export destinations
 	ExportDestinations []string
 }
@@ -806,20 +805,20 @@ const file_pkg_metrics_proto_responses_list_providers_response_proto_rawDesc = "
 	"\x10cpu_used_percent\x18\x02 \x01(\x01R\x0ecpuUsedPercent\x12&\n" +
 	"\x0fdisk_used_bytes\x18\x03 \x01(\x03R\rdiskUsedBytes\x12D\n" +
 	"\x1fnetwork_bandwidth_bytes_per_sec\x18\x04 \x01(\x03R\x1bnetworkBandwidthBytesPerSecB\xdd\x01\n" +
-	"\x16com.gcommon.v1.metricsB\x1aListProvidersResponseProtoP\x01Z5github.com/jdfalk/gcommon/pkg/metrics/proto/responses\xa2\x02\x03GVM\xaa\x02\x12Gcommon.V1.Metrics\xca\x02\x12Gcommon\\V1\\Metrics\xe2\x02\x1eGcommon\\V1\\Metrics\\GPBMetadata\xea\x02\x14Gcommon::V1::Metrics\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
+	"\x16com.gcommon.v1.metricsB\x1aListProvidersResponseProtoP\x01Z5github.com/jdfalk/gcommon/pkg/metrics/proto;metricspb\xa2\x02\x03GVM\xaa\x02\x12Gcommon.V1.Metrics\xca\x02\x12Gcommon\\V1\\Metrics\xe2\x02\x1eGcommon\\V1\\Metrics\\GPBMetadata\xea\x02\x14Gcommon::V1::Metrics\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
 
 var file_pkg_metrics_proto_responses_list_providers_response_proto_msgTypes = make([]protoimpl.MessageInfo, 4)
 var file_pkg_metrics_proto_responses_list_providers_response_proto_goTypes = []any{
-	(*ListProvidersResponse)(nil),       // 0: gcommon.v1.metrics.ListProvidersResponse
-	(*ProviderConfigSummary)(nil),       // 1: gcommon.v1.metrics.ProviderConfigSummary
-	(*ProviderStats)(nil),               // 2: gcommon.v1.metrics.ProviderStats
-	(*ResourceUsage)(nil),               // 3: gcommon.v1.metrics.ResourceUsage
-	(*messages.Error)(nil),              // 4: gcommon.v1.common.Error
-	(*types.ProviderInfo)(nil),          // 5: gcommon.v1.metrics.ProviderInfo
-	(*types.PaginationInfo)(nil),        // 6: gcommon.v1.metrics.PaginationInfo
-	(*types.ProviderSummary)(nil),       // 7: gcommon.v1.metrics.ProviderSummary
-	(*timestamppb.Timestamp)(nil),       // 8: google.protobuf.Timestamp
-	(*types.ResourceLimitsSummary)(nil), // 9: gcommon.v1.metrics.ResourceLimitsSummary
+	(*ListProvidersResponse)(nil), // 0: gcommon.v1.metrics.ListProvidersResponse
+	(*ProviderConfigSummary)(nil), // 1: gcommon.v1.metrics.ProviderConfigSummary
+	(*ProviderStats)(nil),         // 2: gcommon.v1.metrics.ProviderStats
+	(*ResourceUsage)(nil),         // 3: gcommon.v1.metrics.ResourceUsage
+	(*proto.Error)(nil),           // 4: gcommon.v1.common.Error
+	(*ProviderInfo)(nil),          // 5: gcommon.v1.metrics.ProviderInfo
+	(*PaginationInfo)(nil),        // 6: gcommon.v1.metrics.PaginationInfo
+	(*ProviderSummary)(nil),       // 7: gcommon.v1.metrics.ProviderSummary
+	(*timestamppb.Timestamp)(nil), // 8: google.protobuf.Timestamp
+	(*ResourceLimitsSummary)(nil), // 9: gcommon.v1.metrics.ResourceLimitsSummary
 }
 var file_pkg_metrics_proto_responses_list_providers_response_proto_depIdxs = []int32{
 	4, // 0: gcommon.v1.metrics.ListProvidersResponse.error:type_name -> gcommon.v1.common.Error
@@ -841,6 +840,11 @@ func file_pkg_metrics_proto_responses_list_providers_response_proto_init() {
 	if File_pkg_metrics_proto_responses_list_providers_response_proto != nil {
 		return
 	}
+	file_pkg_metrics_proto_types_provider_status_proto_init()
+	file_pkg_metrics_proto_types_provider_summary_proto_init()
+	file_pkg_metrics_proto_types_pagination_info_proto_init()
+	file_pkg_metrics_proto_types_provider_info_proto_init()
+	file_pkg_metrics_proto_types_resource_limits_summary_proto_init()
 	type x struct{}
 	out := protoimpl.TypeBuilder{
 		File: protoimpl.DescBuilder{

@@ -4,7 +4,7 @@
 // 	protoc        (unknown)
 // source: pkg/metrics/proto/enums/time_window.proto
 
-package enums
+package metricspb
 
 import (
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
@@ -134,8 +134,8 @@ const file_pkg_metrics_proto_enums_time_window_proto_rawDesc = "" +
 	"\x13TIME_WINDOW_1_MONTH\x10\n" +
 	"\x12\x16\n" +
 	"\x12TIME_WINDOW_1_YEAR\x10\v\x12\x16\n" +
-	"\x12TIME_WINDOW_CUSTOM\x10\fB\xc6\x01\n" +
-	"\x16com.gcommon.v1.metricsB\x0fTimeWindowProtoP\x01Z1github.com/jdfalk/gcommon/pkg/metrics/proto/enums\xa2\x02\x03GVM\xaa\x02\x12Gcommon.V1.Metrics\xca\x02\x12Gcommon\\V1\\Metrics\xe2\x02\x1eGcommon\\V1\\Metrics\\GPBMetadata\xea\x02\x14Gcommon::V1::Metricsb\beditionsp\xe8\a"
+	"\x12TIME_WINDOW_CUSTOM\x10\fB\xca\x01\n" +
+	"\x16com.gcommon.v1.metricsB\x0fTimeWindowProtoP\x01Z5github.com/jdfalk/gcommon/pkg/metrics/proto;metricspb\xa2\x02\x03GVM\xaa\x02\x12Gcommon.V1.Metrics\xca\x02\x12Gcommon\\V1\\Metrics\xe2\x02\x1eGcommon\\V1\\Metrics\\GPBMetadata\xea\x02\x14Gcommon::V1::Metricsb\beditionsp\xe8\a"
 
 var (
 	file_pkg_metrics_proto_enums_time_window_proto_rawDescOnce sync.Once

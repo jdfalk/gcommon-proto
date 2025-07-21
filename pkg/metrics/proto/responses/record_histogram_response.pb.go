@@ -6,12 +6,10 @@
 
 //go:build !protoopaque
 
-package responses
+package metricspb
 
 import (
-	messages "github.com/jdfalk/gcommon/pkg/common/proto/messages"
-	messages1 "github.com/jdfalk/gcommon/pkg/metrics/proto/messages"
-	types "github.com/jdfalk/gcommon/pkg/metrics/proto/types"
+	proto "github.com/jdfalk/gcommon/pkg/common/proto"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
@@ -34,9 +32,9 @@ type RecordHistogramResponse struct {
 	// Whether the operation was successful
 	Success *bool `protobuf:"varint,1,opt,name=success" json:"success,omitempty"`
 	// Error information if the operation failed
-	Error *messages.Error `protobuf:"bytes,2,opt,name=error" json:"error,omitempty"`
+	Error *proto.Error `protobuf:"bytes,2,opt,name=error" json:"error,omitempty"`
 	// The histogram metric with updated bucket counts
-	Metric *messages1.HistogramMetric `protobuf:"bytes,3,opt,name=metric" json:"metric,omitempty"`
+	Metric *HistogramMetric `protobuf:"bytes,3,opt,name=metric" json:"metric,omitempty"`
 	// Current histogram statistics
 	CurrentStats *HistogramStats `protobuf:"bytes,4,opt,name=current_stats,json=currentStats" json:"current_stats,omitempty"`
 	// Timestamp when the observation was recorded
@@ -46,7 +44,7 @@ type RecordHistogramResponse struct {
 	// Bucket that the observation fell into
 	AffectedBucket *BucketInfo `protobuf:"bytes,7,opt,name=affected_bucket,json=affectedBucket" json:"affected_bucket,omitempty"`
 	// Processing statistics
-	RecordingStats *types.RecordingStats `protobuf:"bytes,8,opt,name=recording_stats,json=recordingStats" json:"recording_stats,omitempty"`
+	RecordingStats *RecordingStats `protobuf:"bytes,8,opt,name=recording_stats,json=recordingStats" json:"recording_stats,omitempty"`
 	unknownFields  protoimpl.UnknownFields
 	sizeCache      protoimpl.SizeCache
 }
@@ -83,14 +81,14 @@ func (x *RecordHistogramResponse) GetSuccess() bool {
 	return false
 }
 
-func (x *RecordHistogramResponse) GetError() *messages.Error {
+func (x *RecordHistogramResponse) GetError() *proto.Error {
 	if x != nil {
 		return x.Error
 	}
 	return nil
 }
 
-func (x *RecordHistogramResponse) GetMetric() *messages1.HistogramMetric {
+func (x *RecordHistogramResponse) GetMetric() *HistogramMetric {
 	if x != nil {
 		return x.Metric
 	}
@@ -125,7 +123,7 @@ func (x *RecordHistogramResponse) GetAffectedBucket() *BucketInfo {
 	return nil
 }
 
-func (x *RecordHistogramResponse) GetRecordingStats() *types.RecordingStats {
+func (x *RecordHistogramResponse) GetRecordingStats() *RecordingStats {
 	if x != nil {
 		return x.RecordingStats
 	}
@@ -136,11 +134,11 @@ func (x *RecordHistogramResponse) SetSuccess(v bool) {
 	x.Success = &v
 }
 
-func (x *RecordHistogramResponse) SetError(v *messages.Error) {
+func (x *RecordHistogramResponse) SetError(v *proto.Error) {
 	x.Error = v
 }
 
-func (x *RecordHistogramResponse) SetMetric(v *messages1.HistogramMetric) {
+func (x *RecordHistogramResponse) SetMetric(v *HistogramMetric) {
 	x.Metric = v
 }
 
@@ -160,7 +158,7 @@ func (x *RecordHistogramResponse) SetAffectedBucket(v *BucketInfo) {
 	x.AffectedBucket = v
 }
 
-func (x *RecordHistogramResponse) SetRecordingStats(v *types.RecordingStats) {
+func (x *RecordHistogramResponse) SetRecordingStats(v *RecordingStats) {
 	x.RecordingStats = v
 }
 
@@ -258,9 +256,9 @@ type RecordHistogramResponse_builder struct {
 	// Whether the operation was successful
 	Success *bool
 	// Error information if the operation failed
-	Error *messages.Error
+	Error *proto.Error
 	// The histogram metric with updated bucket counts
-	Metric *messages1.HistogramMetric
+	Metric *HistogramMetric
 	// Current histogram statistics
 	CurrentStats *HistogramStats
 	// Timestamp when the observation was recorded
@@ -270,7 +268,7 @@ type RecordHistogramResponse_builder struct {
 	// Bucket that the observation fell into
 	AffectedBucket *BucketInfo
 	// Processing statistics
-	RecordingStats *types.RecordingStats
+	RecordingStats *RecordingStats
 }
 
 func (b0 RecordHistogramResponse_builder) Build() *RecordHistogramResponse {
@@ -650,17 +648,17 @@ const file_pkg_metrics_proto_responses_record_histogram_response_proto_rawDesc =
 	"\tmin_value\x18\x04 \x01(\x01R\bminValue\x12\x1b\n" +
 	"\tmax_value\x18\x05 \x01(\x01R\bmaxValue\x12#\n" +
 	"\rstd_deviation\x18\x06 \x01(\x01R\fstdDeviationB\xdf\x01\n" +
-	"\x16com.gcommon.v1.metricsB\x1cRecordHistogramResponseProtoP\x01Z5github.com/jdfalk/gcommon/pkg/metrics/proto/responses\xa2\x02\x03GVM\xaa\x02\x12Gcommon.V1.Metrics\xca\x02\x12Gcommon\\V1\\Metrics\xe2\x02\x1eGcommon\\V1\\Metrics\\GPBMetadata\xea\x02\x14Gcommon::V1::Metrics\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
+	"\x16com.gcommon.v1.metricsB\x1cRecordHistogramResponseProtoP\x01Z5github.com/jdfalk/gcommon/pkg/metrics/proto;metricspb\xa2\x02\x03GVM\xaa\x02\x12Gcommon.V1.Metrics\xca\x02\x12Gcommon\\V1\\Metrics\xe2\x02\x1eGcommon\\V1\\Metrics\\GPBMetadata\xea\x02\x14Gcommon::V1::Metrics\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
 
 var file_pkg_metrics_proto_responses_record_histogram_response_proto_msgTypes = make([]protoimpl.MessageInfo, 3)
 var file_pkg_metrics_proto_responses_record_histogram_response_proto_goTypes = []any{
-	(*RecordHistogramResponse)(nil),   // 0: gcommon.v1.metrics.RecordHistogramResponse
-	(*BucketInfo)(nil),                // 1: gcommon.v1.metrics.BucketInfo
-	(*HistogramStats)(nil),            // 2: gcommon.v1.metrics.HistogramStats
-	(*messages.Error)(nil),            // 3: gcommon.v1.common.Error
-	(*messages1.HistogramMetric)(nil), // 4: gcommon.v1.metrics.HistogramMetric
-	(*timestamppb.Timestamp)(nil),     // 5: google.protobuf.Timestamp
-	(*types.RecordingStats)(nil),      // 6: gcommon.v1.metrics.RecordingStats
+	(*RecordHistogramResponse)(nil), // 0: gcommon.v1.metrics.RecordHistogramResponse
+	(*BucketInfo)(nil),              // 1: gcommon.v1.metrics.BucketInfo
+	(*HistogramStats)(nil),          // 2: gcommon.v1.metrics.HistogramStats
+	(*proto.Error)(nil),             // 3: gcommon.v1.common.Error
+	(*HistogramMetric)(nil),         // 4: gcommon.v1.metrics.HistogramMetric
+	(*timestamppb.Timestamp)(nil),   // 5: google.protobuf.Timestamp
+	(*RecordingStats)(nil),          // 6: gcommon.v1.metrics.RecordingStats
 }
 var file_pkg_metrics_proto_responses_record_histogram_response_proto_depIdxs = []int32{
 	3, // 0: gcommon.v1.metrics.RecordHistogramResponse.error:type_name -> gcommon.v1.common.Error
@@ -681,6 +679,8 @@ func file_pkg_metrics_proto_responses_record_histogram_response_proto_init() {
 	if File_pkg_metrics_proto_responses_record_histogram_response_proto != nil {
 		return
 	}
+	file_pkg_metrics_proto_messages_histogram_metric_proto_init()
+	file_pkg_metrics_proto_types_recording_stats_proto_init()
 	type x struct{}
 	out := protoimpl.TypeBuilder{
 		File: protoimpl.DescBuilder{

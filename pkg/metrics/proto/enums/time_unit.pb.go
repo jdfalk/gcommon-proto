@@ -6,7 +6,7 @@
 
 //go:build !protoopaque
 
-package enums
+package metricspb
 
 import (
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
@@ -122,8 +122,8 @@ const file_pkg_metrics_proto_enums_time_unit_proto_rawDesc = "" +
 	"\x0fTIME_UNIT_WEEKS\x10\b\x12\x14\n" +
 	"\x10TIME_UNIT_MONTHS\x10\t\x12\x13\n" +
 	"\x0fTIME_UNIT_YEARS\x10\n" +
-	"B\xcc\x01\n" +
-	"\x16com.gcommon.v1.metricsB\rTimeUnitProtoP\x01Z1github.com/jdfalk/gcommon/pkg/metrics/proto/enums\xa2\x02\x03GVM\xaa\x02\x12Gcommon.V1.Metrics\xca\x02\x12Gcommon\\V1\\Metrics\xe2\x02\x1eGcommon\\V1\\Metrics\\GPBMetadata\xea\x02\x14Gcommon::V1::Metrics\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
+	"B\xd0\x01\n" +
+	"\x16com.gcommon.v1.metricsB\rTimeUnitProtoP\x01Z5github.com/jdfalk/gcommon/pkg/metrics/proto;metricspb\xa2\x02\x03GVM\xaa\x02\x12Gcommon.V1.Metrics\xca\x02\x12Gcommon\\V1\\Metrics\xe2\x02\x1eGcommon\\V1\\Metrics\\GPBMetadata\xea\x02\x14Gcommon::V1::Metrics\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
 
 var file_pkg_metrics_proto_enums_time_unit_proto_enumTypes = make([]protoimpl.EnumInfo, 1)
 var file_pkg_metrics_proto_enums_time_unit_proto_goTypes = []any{

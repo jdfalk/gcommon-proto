@@ -6,12 +6,10 @@
 
 //go:build protoopaque
 
-package responses
+package metricspb
 
 import (
-	messages "github.com/jdfalk/gcommon/pkg/common/proto/messages"
-	messages1 "github.com/jdfalk/gcommon/pkg/metrics/proto/messages"
-	types "github.com/jdfalk/gcommon/pkg/metrics/proto/types"
+	proto "github.com/jdfalk/gcommon/pkg/common/proto"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
@@ -32,12 +30,12 @@ const (
 type RecordGaugeResponse struct {
 	state                    protoimpl.MessageState `protogen:"opaque.v1"`
 	xxx_hidden_Success       bool                   `protobuf:"varint,1,opt,name=success"`
-	xxx_hidden_Error         *messages.Error        `protobuf:"bytes,2,opt,name=error"`
-	xxx_hidden_Metric        *messages1.GaugeMetric `protobuf:"bytes,3,opt,name=metric"`
+	xxx_hidden_Error         *proto.Error           `protobuf:"bytes,2,opt,name=error"`
+	xxx_hidden_Metric        *GaugeMetric           `protobuf:"bytes,3,opt,name=metric"`
 	xxx_hidden_PreviousValue float64                `protobuf:"fixed64,4,opt,name=previous_value,json=previousValue"`
 	xxx_hidden_RecordedAt    *timestamppb.Timestamp `protobuf:"bytes,5,opt,name=recorded_at,json=recordedAt"`
 	xxx_hidden_IsNewMetric   bool                   `protobuf:"varint,6,opt,name=is_new_metric,json=isNewMetric"`
-	xxx_hidden_Stats         *types.RecordingStats  `protobuf:"bytes,7,opt,name=stats"`
+	xxx_hidden_Stats         *RecordingStats        `protobuf:"bytes,7,opt,name=stats"`
 	XXX_raceDetectHookData   protoimpl.RaceDetectHookData
 	XXX_presence             [1]uint32
 	unknownFields            protoimpl.UnknownFields
@@ -76,14 +74,14 @@ func (x *RecordGaugeResponse) GetSuccess() bool {
 	return false
 }
 
-func (x *RecordGaugeResponse) GetError() *messages.Error {
+func (x *RecordGaugeResponse) GetError() *proto.Error {
 	if x != nil {
 		return x.xxx_hidden_Error
 	}
 	return nil
 }
 
-func (x *RecordGaugeResponse) GetMetric() *messages1.GaugeMetric {
+func (x *RecordGaugeResponse) GetMetric() *GaugeMetric {
 	if x != nil {
 		return x.xxx_hidden_Metric
 	}
@@ -111,7 +109,7 @@ func (x *RecordGaugeResponse) GetIsNewMetric() bool {
 	return false
 }
 
-func (x *RecordGaugeResponse) GetStats() *types.RecordingStats {
+func (x *RecordGaugeResponse) GetStats() *RecordingStats {
 	if x != nil {
 		return x.xxx_hidden_Stats
 	}
@@ -123,11 +121,11 @@ func (x *RecordGaugeResponse) SetSuccess(v bool) {
 	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 0, 7)
 }
 
-func (x *RecordGaugeResponse) SetError(v *messages.Error) {
+func (x *RecordGaugeResponse) SetError(v *proto.Error) {
 	x.xxx_hidden_Error = v
 }
 
-func (x *RecordGaugeResponse) SetMetric(v *messages1.GaugeMetric) {
+func (x *RecordGaugeResponse) SetMetric(v *GaugeMetric) {
 	x.xxx_hidden_Metric = v
 }
 
@@ -145,7 +143,7 @@ func (x *RecordGaugeResponse) SetIsNewMetric(v bool) {
 	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 5, 7)
 }
 
-func (x *RecordGaugeResponse) SetStats(v *types.RecordingStats) {
+func (x *RecordGaugeResponse) SetStats(v *RecordingStats) {
 	x.xxx_hidden_Stats = v
 }
 
@@ -235,9 +233,9 @@ type RecordGaugeResponse_builder struct {
 	// Whether the operation was successful
 	Success *bool
 	// Error information if the operation failed
-	Error *messages.Error
+	Error *proto.Error
 	// The recorded gauge metric with updated value
-	Metric *messages1.GaugeMetric
+	Metric *GaugeMetric
 	// Previous value of the gauge (if applicable)
 	PreviousValue *float64
 	// Timestamp when the gauge was recorded
@@ -245,7 +243,7 @@ type RecordGaugeResponse_builder struct {
 	// Whether this was a new gauge or an update to existing
 	IsNewMetric *bool
 	// Processing statistics
-	Stats *types.RecordingStats
+	Stats *RecordingStats
 }
 
 func (b0 RecordGaugeResponse_builder) Build() *RecordGaugeResponse {
@@ -285,15 +283,15 @@ const file_pkg_metrics_proto_responses_record_gauge_response_proto_rawDesc = "" 
 	"recordedAt\x12\"\n" +
 	"\ris_new_metric\x18\x06 \x01(\bR\visNewMetric\x128\n" +
 	"\x05stats\x18\a \x01(\v2\".gcommon.v1.metrics.RecordingStatsR\x05statsB\xdb\x01\n" +
-	"\x16com.gcommon.v1.metricsB\x18RecordGaugeResponseProtoP\x01Z5github.com/jdfalk/gcommon/pkg/metrics/proto/responses\xa2\x02\x03GVM\xaa\x02\x12Gcommon.V1.Metrics\xca\x02\x12Gcommon\\V1\\Metrics\xe2\x02\x1eGcommon\\V1\\Metrics\\GPBMetadata\xea\x02\x14Gcommon::V1::Metrics\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
+	"\x16com.gcommon.v1.metricsB\x18RecordGaugeResponseProtoP\x01Z5github.com/jdfalk/gcommon/pkg/metrics/proto;metricspb\xa2\x02\x03GVM\xaa\x02\x12Gcommon.V1.Metrics\xca\x02\x12Gcommon\\V1\\Metrics\xe2\x02\x1eGcommon\\V1\\Metrics\\GPBMetadata\xea\x02\x14Gcommon::V1::Metrics\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
 
 var file_pkg_metrics_proto_responses_record_gauge_response_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_pkg_metrics_proto_responses_record_gauge_response_proto_goTypes = []any{
 	(*RecordGaugeResponse)(nil),   // 0: gcommon.v1.metrics.RecordGaugeResponse
-	(*messages.Error)(nil),        // 1: gcommon.v1.common.Error
-	(*messages1.GaugeMetric)(nil), // 2: gcommon.v1.metrics.GaugeMetric
+	(*proto.Error)(nil),           // 1: gcommon.v1.common.Error
+	(*GaugeMetric)(nil),           // 2: gcommon.v1.metrics.GaugeMetric
 	(*timestamppb.Timestamp)(nil), // 3: google.protobuf.Timestamp
-	(*types.RecordingStats)(nil),  // 4: gcommon.v1.metrics.RecordingStats
+	(*RecordingStats)(nil),        // 4: gcommon.v1.metrics.RecordingStats
 }
 var file_pkg_metrics_proto_responses_record_gauge_response_proto_depIdxs = []int32{
 	1, // 0: gcommon.v1.metrics.RecordGaugeResponse.error:type_name -> gcommon.v1.common.Error
@@ -312,6 +310,8 @@ func file_pkg_metrics_proto_responses_record_gauge_response_proto_init() {
 	if File_pkg_metrics_proto_responses_record_gauge_response_proto != nil {
 		return
 	}
+	file_pkg_metrics_proto_types_recording_stats_proto_init()
+	file_pkg_metrics_proto_messages_gauge_metric_proto_init()
 	type x struct{}
 	out := protoimpl.TypeBuilder{
 		File: protoimpl.DescBuilder{

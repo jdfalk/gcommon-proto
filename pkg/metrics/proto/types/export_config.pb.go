@@ -4,7 +4,7 @@
 // 	protoc        (unknown)
 // source: pkg/metrics/proto/types/export_config.proto
 
-package types
+package metricspb
 
 import (
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
@@ -105,8 +105,8 @@ const file_pkg_metrics_proto_types_export_config_proto_rawDesc = "" +
 	"\aenabled\x18\x01 \x01(\bR\aenabled\x12\x18\n" +
 	"\aformats\x18\x02 \x03(\tR\aformats\x12\"\n" +
 	"\fdestinations\x18\x03 \x03(\tR\fdestinations\x127\n" +
-	"\tfrequency\x18\x04 \x01(\v2\x19.google.protobuf.DurationR\tfrequencyB\xc8\x01\n" +
-	"\x16com.gcommon.v1.metricsB\x11ExportConfigProtoP\x01Z1github.com/jdfalk/gcommon/pkg/metrics/proto/types\xa2\x02\x03GVM\xaa\x02\x12Gcommon.V1.Metrics\xca\x02\x12Gcommon\\V1\\Metrics\xe2\x02\x1eGcommon\\V1\\Metrics\\GPBMetadata\xea\x02\x14Gcommon::V1::Metricsb\beditionsp\xe8\a"
+	"\tfrequency\x18\x04 \x01(\v2\x19.google.protobuf.DurationR\tfrequencyB\xcc\x01\n" +
+	"\x16com.gcommon.v1.metricsB\x11ExportConfigProtoP\x01Z5github.com/jdfalk/gcommon/pkg/metrics/proto;metricspb\xa2\x02\x03GVM\xaa\x02\x12Gcommon.V1.Metrics\xca\x02\x12Gcommon\\V1\\Metrics\xe2\x02\x1eGcommon\\V1\\Metrics\\GPBMetadata\xea\x02\x14Gcommon::V1::Metricsb\beditionsp\xe8\a"
 
 var (
 	file_pkg_metrics_proto_types_export_config_proto_rawDescOnce sync.Once

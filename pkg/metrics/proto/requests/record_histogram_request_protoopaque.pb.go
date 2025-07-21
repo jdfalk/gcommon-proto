@@ -6,10 +6,10 @@
 
 //go:build protoopaque
 
-package requests
+package metricspb
 
 import (
-	messages "github.com/jdfalk/gcommon/pkg/common/proto/messages"
+	proto "github.com/jdfalk/gcommon/pkg/common/proto"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
@@ -29,17 +29,17 @@ const (
 // RecordHistogramRequest is used to record an observation in a histogram metric.
 // Histograms track the distribution of values in configurable buckets.
 type RecordHistogramRequest struct {
-	state                      protoimpl.MessageState    `protogen:"opaque.v1"`
-	xxx_hidden_Name            *string                   `protobuf:"bytes,1,opt,name=name"`
-	xxx_hidden_Value           float64                   `protobuf:"fixed64,2,opt,name=value"`
-	xxx_hidden_Labels          map[string]string         `protobuf:"bytes,3,rep,name=labels" protobuf_key:"bytes,1,opt,name=key" protobuf_val:"bytes,2,opt,name=value"`
-	xxx_hidden_Help            *string                   `protobuf:"bytes,4,opt,name=help"`
-	xxx_hidden_Unit            *string                   `protobuf:"bytes,5,opt,name=unit"`
-	xxx_hidden_Buckets         []float64                 `protobuf:"fixed64,6,rep,packed,name=buckets"`
-	xxx_hidden_Timestamp       *timestamppb.Timestamp    `protobuf:"bytes,7,opt,name=timestamp"`
-	xxx_hidden_Metadata        *messages.RequestMetadata `protobuf:"bytes,8,opt,name=metadata"`
-	xxx_hidden_SampleWeight    float64                   `protobuf:"fixed64,9,opt,name=sample_weight,json=sampleWeight"`
-	xxx_hidden_CreateIfMissing bool                      `protobuf:"varint,10,opt,name=create_if_missing,json=createIfMissing"`
+	state                      protoimpl.MessageState `protogen:"opaque.v1"`
+	xxx_hidden_Name            *string                `protobuf:"bytes,1,opt,name=name"`
+	xxx_hidden_Value           float64                `protobuf:"fixed64,2,opt,name=value"`
+	xxx_hidden_Labels          map[string]string      `protobuf:"bytes,3,rep,name=labels" protobuf_key:"bytes,1,opt,name=key" protobuf_val:"bytes,2,opt,name=value"`
+	xxx_hidden_Help            *string                `protobuf:"bytes,4,opt,name=help"`
+	xxx_hidden_Unit            *string                `protobuf:"bytes,5,opt,name=unit"`
+	xxx_hidden_Buckets         []float64              `protobuf:"fixed64,6,rep,packed,name=buckets"`
+	xxx_hidden_Timestamp       *timestamppb.Timestamp `protobuf:"bytes,7,opt,name=timestamp"`
+	xxx_hidden_Metadata        *proto.RequestMetadata `protobuf:"bytes,8,opt,name=metadata"`
+	xxx_hidden_SampleWeight    float64                `protobuf:"fixed64,9,opt,name=sample_weight,json=sampleWeight"`
+	xxx_hidden_CreateIfMissing bool                   `protobuf:"varint,10,opt,name=create_if_missing,json=createIfMissing"`
 	XXX_raceDetectHookData     protoimpl.RaceDetectHookData
 	XXX_presence               [1]uint32
 	unknownFields              protoimpl.UnknownFields
@@ -129,7 +129,7 @@ func (x *RecordHistogramRequest) GetTimestamp() *timestamppb.Timestamp {
 	return nil
 }
 
-func (x *RecordHistogramRequest) GetMetadata() *messages.RequestMetadata {
+func (x *RecordHistogramRequest) GetMetadata() *proto.RequestMetadata {
 	if x != nil {
 		return x.xxx_hidden_Metadata
 	}
@@ -182,7 +182,7 @@ func (x *RecordHistogramRequest) SetTimestamp(v *timestamppb.Timestamp) {
 	x.xxx_hidden_Timestamp = v
 }
 
-func (x *RecordHistogramRequest) SetMetadata(v *messages.RequestMetadata) {
+func (x *RecordHistogramRequest) SetMetadata(v *proto.RequestMetadata) {
 	x.xxx_hidden_Metadata = v
 }
 
@@ -308,7 +308,7 @@ type RecordHistogramRequest_builder struct {
 	// Optional timestamp when the observation was made
 	Timestamp *timestamppb.Timestamp
 	// Request metadata for tracing and debugging
-	Metadata *messages.RequestMetadata
+	Metadata *proto.RequestMetadata
 	// Optional sample weight (for weighted observations)
 	SampleWeight *float64
 	// Whether to create the histogram if it doesn't exist
@@ -369,15 +369,15 @@ const file_pkg_metrics_proto_requests_record_histogram_request_proto_rawDesc = "
 	" \x01(\bR\x0fcreateIfMissing\x1a9\n" +
 	"\vLabelsEntry\x12\x10\n" +
 	"\x03key\x18\x01 \x01(\tR\x03key\x12\x14\n" +
-	"\x05value\x18\x02 \x01(\tR\x05value:\x028\x01B\xdd\x01\n" +
-	"\x16com.gcommon.v1.metricsB\x1bRecordHistogramRequestProtoP\x01Z4github.com/jdfalk/gcommon/pkg/metrics/proto/requests\xa2\x02\x03GVM\xaa\x02\x12Gcommon.V1.Metrics\xca\x02\x12Gcommon\\V1\\Metrics\xe2\x02\x1eGcommon\\V1\\Metrics\\GPBMetadata\xea\x02\x14Gcommon::V1::Metrics\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
+	"\x05value\x18\x02 \x01(\tR\x05value:\x028\x01B\xde\x01\n" +
+	"\x16com.gcommon.v1.metricsB\x1bRecordHistogramRequestProtoP\x01Z5github.com/jdfalk/gcommon/pkg/metrics/proto;metricspb\xa2\x02\x03GVM\xaa\x02\x12Gcommon.V1.Metrics\xca\x02\x12Gcommon\\V1\\Metrics\xe2\x02\x1eGcommon\\V1\\Metrics\\GPBMetadata\xea\x02\x14Gcommon::V1::Metrics\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
 
 var file_pkg_metrics_proto_requests_record_histogram_request_proto_msgTypes = make([]protoimpl.MessageInfo, 2)
 var file_pkg_metrics_proto_requests_record_histogram_request_proto_goTypes = []any{
-	(*RecordHistogramRequest)(nil),   // 0: gcommon.v1.metrics.RecordHistogramRequest
-	nil,                              // 1: gcommon.v1.metrics.RecordHistogramRequest.LabelsEntry
-	(*timestamppb.Timestamp)(nil),    // 2: google.protobuf.Timestamp
-	(*messages.RequestMetadata)(nil), // 3: gcommon.v1.common.RequestMetadata
+	(*RecordHistogramRequest)(nil), // 0: gcommon.v1.metrics.RecordHistogramRequest
+	nil,                            // 1: gcommon.v1.metrics.RecordHistogramRequest.LabelsEntry
+	(*timestamppb.Timestamp)(nil),  // 2: google.protobuf.Timestamp
+	(*proto.RequestMetadata)(nil),  // 3: gcommon.v1.common.RequestMetadata
 }
 var file_pkg_metrics_proto_requests_record_histogram_request_proto_depIdxs = []int32{
 	1, // 0: gcommon.v1.metrics.RecordHistogramRequest.labels:type_name -> gcommon.v1.metrics.RecordHistogramRequest.LabelsEntry

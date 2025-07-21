@@ -6,11 +6,10 @@
 
 //go:build !protoopaque
 
-package responses
+package metricspb
 
 import (
-	messages "github.com/jdfalk/gcommon/pkg/common/proto/messages"
-	types "github.com/jdfalk/gcommon/pkg/metrics/proto/types"
+	proto "github.com/jdfalk/gcommon/pkg/common/proto"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
@@ -33,17 +32,17 @@ type GetMetricsSummaryResponse struct {
 	// Success status of the operation
 	Success *bool `protobuf:"varint,1,opt,name=success" json:"success,omitempty"`
 	// Error information if the operation failed
-	Error *messages.Error `protobuf:"bytes,2,opt,name=error" json:"error,omitempty"`
+	Error *proto.Error `protobuf:"bytes,2,opt,name=error" json:"error,omitempty"`
 	// Summary information organized by category
 	Summary *MetricsSummary `protobuf:"bytes,3,opt,name=summary" json:"summary,omitempty"`
 	// Provider-level statistics (if requested)
-	ProviderSummaries []*types.ProviderSummary `protobuf:"bytes,4,rep,name=provider_summaries,json=providerSummaries" json:"provider_summaries,omitempty"`
+	ProviderSummaries []*ProviderSummary `protobuf:"bytes,4,rep,name=provider_summaries,json=providerSummaries" json:"provider_summaries,omitempty"`
 	// Health status information (if requested)
 	HealthStatus *HealthStatus `protobuf:"bytes,5,opt,name=health_status,json=healthStatus" json:"health_status,omitempty"`
 	// When the summary was generated
 	GeneratedAt *timestamppb.Timestamp `protobuf:"bytes,6,opt,name=generated_at,json=generatedAt" json:"generated_at,omitempty"`
 	// Time range covered by the summary
-	TimeRange *types.TimeRange `protobuf:"bytes,7,opt,name=time_range,json=timeRange" json:"time_range,omitempty"`
+	TimeRange *TimeRange `protobuf:"bytes,7,opt,name=time_range,json=timeRange" json:"time_range,omitempty"`
 	// Warnings or informational messages
 	Warnings      []string `protobuf:"bytes,8,rep,name=warnings" json:"warnings,omitempty"`
 	unknownFields protoimpl.UnknownFields
@@ -82,7 +81,7 @@ func (x *GetMetricsSummaryResponse) GetSuccess() bool {
 	return false
 }
 
-func (x *GetMetricsSummaryResponse) GetError() *messages.Error {
+func (x *GetMetricsSummaryResponse) GetError() *proto.Error {
 	if x != nil {
 		return x.Error
 	}
@@ -96,7 +95,7 @@ func (x *GetMetricsSummaryResponse) GetSummary() *MetricsSummary {
 	return nil
 }
 
-func (x *GetMetricsSummaryResponse) GetProviderSummaries() []*types.ProviderSummary {
+func (x *GetMetricsSummaryResponse) GetProviderSummaries() []*ProviderSummary {
 	if x != nil {
 		return x.ProviderSummaries
 	}
@@ -117,7 +116,7 @@ func (x *GetMetricsSummaryResponse) GetGeneratedAt() *timestamppb.Timestamp {
 	return nil
 }
 
-func (x *GetMetricsSummaryResponse) GetTimeRange() *types.TimeRange {
+func (x *GetMetricsSummaryResponse) GetTimeRange() *TimeRange {
 	if x != nil {
 		return x.TimeRange
 	}
@@ -135,7 +134,7 @@ func (x *GetMetricsSummaryResponse) SetSuccess(v bool) {
 	x.Success = &v
 }
 
-func (x *GetMetricsSummaryResponse) SetError(v *messages.Error) {
+func (x *GetMetricsSummaryResponse) SetError(v *proto.Error) {
 	x.Error = v
 }
 
@@ -143,7 +142,7 @@ func (x *GetMetricsSummaryResponse) SetSummary(v *MetricsSummary) {
 	x.Summary = v
 }
 
-func (x *GetMetricsSummaryResponse) SetProviderSummaries(v []*types.ProviderSummary) {
+func (x *GetMetricsSummaryResponse) SetProviderSummaries(v []*ProviderSummary) {
 	x.ProviderSummaries = v
 }
 
@@ -155,7 +154,7 @@ func (x *GetMetricsSummaryResponse) SetGeneratedAt(v *timestamppb.Timestamp) {
 	x.GeneratedAt = v
 }
 
-func (x *GetMetricsSummaryResponse) SetTimeRange(v *types.TimeRange) {
+func (x *GetMetricsSummaryResponse) SetTimeRange(v *TimeRange) {
 	x.TimeRange = v
 }
 
@@ -235,17 +234,17 @@ type GetMetricsSummaryResponse_builder struct {
 	// Success status of the operation
 	Success *bool
 	// Error information if the operation failed
-	Error *messages.Error
+	Error *proto.Error
 	// Summary information organized by category
 	Summary *MetricsSummary
 	// Provider-level statistics (if requested)
-	ProviderSummaries []*types.ProviderSummary
+	ProviderSummaries []*ProviderSummary
 	// Health status information (if requested)
 	HealthStatus *HealthStatus
 	// When the summary was generated
 	GeneratedAt *timestamppb.Timestamp
 	// Time range covered by the summary
-	TimeRange *types.TimeRange
+	TimeRange *TimeRange
 	// Warnings or informational messages
 	Warnings []string
 }
@@ -278,11 +277,11 @@ type MetricsSummary struct {
 	// Metrics by type
 	TypeCounts *MetricTypeCounts `protobuf:"bytes,4,opt,name=type_counts,json=typeCounts" json:"type_counts,omitempty"`
 	// Performance statistics
-	Performance *types.PerformanceStats `protobuf:"bytes,5,opt,name=performance" json:"performance,omitempty"`
+	Performance *PerformanceStats `protobuf:"bytes,5,opt,name=performance" json:"performance,omitempty"`
 	// Error statistics
-	Errors *types.ErrorStats `protobuf:"bytes,6,opt,name=errors" json:"errors,omitempty"`
+	Errors *ErrorStats `protobuf:"bytes,6,opt,name=errors" json:"errors,omitempty"`
 	// Top metrics by various criteria
-	TopMetrics *types.TopMetrics `protobuf:"bytes,7,opt,name=top_metrics,json=topMetrics" json:"top_metrics,omitempty"`
+	TopMetrics *TopMetrics `protobuf:"bytes,7,opt,name=top_metrics,json=topMetrics" json:"top_metrics,omitempty"`
 	// Retention information
 	Retention *RetentionInfo `protobuf:"bytes,8,opt,name=retention" json:"retention,omitempty"`
 	// Export status information
@@ -344,21 +343,21 @@ func (x *MetricsSummary) GetTypeCounts() *MetricTypeCounts {
 	return nil
 }
 
-func (x *MetricsSummary) GetPerformance() *types.PerformanceStats {
+func (x *MetricsSummary) GetPerformance() *PerformanceStats {
 	if x != nil {
 		return x.Performance
 	}
 	return nil
 }
 
-func (x *MetricsSummary) GetErrors() *types.ErrorStats {
+func (x *MetricsSummary) GetErrors() *ErrorStats {
 	if x != nil {
 		return x.Errors
 	}
 	return nil
 }
 
-func (x *MetricsSummary) GetTopMetrics() *types.TopMetrics {
+func (x *MetricsSummary) GetTopMetrics() *TopMetrics {
 	if x != nil {
 		return x.TopMetrics
 	}
@@ -395,15 +394,15 @@ func (x *MetricsSummary) SetTypeCounts(v *MetricTypeCounts) {
 	x.TypeCounts = v
 }
 
-func (x *MetricsSummary) SetPerformance(v *types.PerformanceStats) {
+func (x *MetricsSummary) SetPerformance(v *PerformanceStats) {
 	x.Performance = v
 }
 
-func (x *MetricsSummary) SetErrors(v *types.ErrorStats) {
+func (x *MetricsSummary) SetErrors(v *ErrorStats) {
 	x.Errors = v
 }
 
-func (x *MetricsSummary) SetTopMetrics(v *types.TopMetrics) {
+func (x *MetricsSummary) SetTopMetrics(v *TopMetrics) {
 	x.TopMetrics = v
 }
 
@@ -526,11 +525,11 @@ type MetricsSummary_builder struct {
 	// Metrics by type
 	TypeCounts *MetricTypeCounts
 	// Performance statistics
-	Performance *types.PerformanceStats
+	Performance *PerformanceStats
 	// Error statistics
-	Errors *types.ErrorStats
+	Errors *ErrorStats
 	// Top metrics by various criteria
-	TopMetrics *types.TopMetrics
+	TopMetrics *TopMetrics
 	// Retention information
 	Retention *RetentionInfo
 	// Export status information
@@ -1069,11 +1068,11 @@ func (b0 HealthStatus_builder) Build() *HealthStatus {
 // *
 // RetentionInfo contains information about data retention.
 type RetentionInfo struct {
-	state              protoimpl.MessageState         `protogen:"hybrid.v1"`
-	TotalRetainedBytes *int64                         `protobuf:"varint,1,opt,name=total_retained_bytes,json=totalRetainedBytes" json:"total_retained_bytes,omitempty"`
-	TotalPurgedBytes   *int64                         `protobuf:"varint,2,opt,name=total_purged_bytes,json=totalPurgedBytes" json:"total_purged_bytes,omitempty"`
-	OldestDataAge      *string                        `protobuf:"bytes,3,opt,name=oldest_data_age,json=oldestDataAge" json:"oldest_data_age,omitempty"`
-	Policies           []*types.RetentionPolicyConfig `protobuf:"bytes,4,rep,name=policies" json:"policies,omitempty"`
+	state              protoimpl.MessageState   `protogen:"hybrid.v1"`
+	TotalRetainedBytes *int64                   `protobuf:"varint,1,opt,name=total_retained_bytes,json=totalRetainedBytes" json:"total_retained_bytes,omitempty"`
+	TotalPurgedBytes   *int64                   `protobuf:"varint,2,opt,name=total_purged_bytes,json=totalPurgedBytes" json:"total_purged_bytes,omitempty"`
+	OldestDataAge      *string                  `protobuf:"bytes,3,opt,name=oldest_data_age,json=oldestDataAge" json:"oldest_data_age,omitempty"`
+	Policies           []*RetentionPolicyConfig `protobuf:"bytes,4,rep,name=policies" json:"policies,omitempty"`
 	unknownFields      protoimpl.UnknownFields
 	sizeCache          protoimpl.SizeCache
 }
@@ -1124,7 +1123,7 @@ func (x *RetentionInfo) GetOldestDataAge() string {
 	return ""
 }
 
-func (x *RetentionInfo) GetPolicies() []*types.RetentionPolicyConfig {
+func (x *RetentionInfo) GetPolicies() []*RetentionPolicyConfig {
 	if x != nil {
 		return x.Policies
 	}
@@ -1143,7 +1142,7 @@ func (x *RetentionInfo) SetOldestDataAge(v string) {
 	x.OldestDataAge = &v
 }
 
-func (x *RetentionInfo) SetPolicies(v []*types.RetentionPolicyConfig) {
+func (x *RetentionInfo) SetPolicies(v []*RetentionPolicyConfig) {
 	x.Policies = v
 }
 
@@ -1186,7 +1185,7 @@ type RetentionInfo_builder struct {
 	TotalRetainedBytes *int64
 	TotalPurgedBytes   *int64
 	OldestDataAge      *string
-	Policies           []*types.RetentionPolicyConfig
+	Policies           []*RetentionPolicyConfig
 }
 
 func (b0 RetentionInfo_builder) Build() *RetentionInfo {
@@ -1576,26 +1575,26 @@ const file_pkg_metrics_proto_responses_get_metrics_summary_response_proto_rawDes
 	"\x0eexported_count\x18\x04 \x01(\x03R\rexportedCount\x12;\n" +
 	"\vlast_export\x18\x05 \x01(\v2\x1a.google.protobuf.TimestampR\n" +
 	"lastExportB\xe1\x01\n" +
-	"\x16com.gcommon.v1.metricsB\x1eGetMetricsSummaryResponseProtoP\x01Z5github.com/jdfalk/gcommon/pkg/metrics/proto/responses\xa2\x02\x03GVM\xaa\x02\x12Gcommon.V1.Metrics\xca\x02\x12Gcommon\\V1\\Metrics\xe2\x02\x1eGcommon\\V1\\Metrics\\GPBMetadata\xea\x02\x14Gcommon::V1::Metrics\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
+	"\x16com.gcommon.v1.metricsB\x1eGetMetricsSummaryResponseProtoP\x01Z5github.com/jdfalk/gcommon/pkg/metrics/proto;metricspb\xa2\x02\x03GVM\xaa\x02\x12Gcommon.V1.Metrics\xca\x02\x12Gcommon\\V1\\Metrics\xe2\x02\x1eGcommon\\V1\\Metrics\\GPBMetadata\xea\x02\x14Gcommon::V1::Metrics\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
 
 var file_pkg_metrics_proto_responses_get_metrics_summary_response_proto_msgTypes = make([]protoimpl.MessageInfo, 8)
 var file_pkg_metrics_proto_responses_get_metrics_summary_response_proto_goTypes = []any{
-	(*GetMetricsSummaryResponse)(nil),   // 0: gcommon.v1.metrics.GetMetricsSummaryResponse
-	(*MetricsSummary)(nil),              // 1: gcommon.v1.metrics.MetricsSummary
-	(*MetricTypeCounts)(nil),            // 2: gcommon.v1.metrics.MetricTypeCounts
-	(*MetricInfo)(nil),                  // 3: gcommon.v1.metrics.MetricInfo
-	(*HealthStatus)(nil),                // 4: gcommon.v1.metrics.HealthStatus
-	(*RetentionInfo)(nil),               // 5: gcommon.v1.metrics.RetentionInfo
-	(*ExportStatus)(nil),                // 6: gcommon.v1.metrics.ExportStatus
-	(*ExporterStatus)(nil),              // 7: gcommon.v1.metrics.ExporterStatus
-	(*messages.Error)(nil),              // 8: gcommon.v1.common.Error
-	(*types.ProviderSummary)(nil),       // 9: gcommon.v1.metrics.ProviderSummary
-	(*timestamppb.Timestamp)(nil),       // 10: google.protobuf.Timestamp
-	(*types.TimeRange)(nil),             // 11: gcommon.v1.metrics.TimeRange
-	(*types.PerformanceStats)(nil),      // 12: gcommon.v1.metrics.PerformanceStats
-	(*types.ErrorStats)(nil),            // 13: gcommon.v1.metrics.ErrorStats
-	(*types.TopMetrics)(nil),            // 14: gcommon.v1.metrics.TopMetrics
-	(*types.RetentionPolicyConfig)(nil), // 15: gcommon.v1.metrics.RetentionPolicyConfig
+	(*GetMetricsSummaryResponse)(nil), // 0: gcommon.v1.metrics.GetMetricsSummaryResponse
+	(*MetricsSummary)(nil),            // 1: gcommon.v1.metrics.MetricsSummary
+	(*MetricTypeCounts)(nil),          // 2: gcommon.v1.metrics.MetricTypeCounts
+	(*MetricInfo)(nil),                // 3: gcommon.v1.metrics.MetricInfo
+	(*HealthStatus)(nil),              // 4: gcommon.v1.metrics.HealthStatus
+	(*RetentionInfo)(nil),             // 5: gcommon.v1.metrics.RetentionInfo
+	(*ExportStatus)(nil),              // 6: gcommon.v1.metrics.ExportStatus
+	(*ExporterStatus)(nil),            // 7: gcommon.v1.metrics.ExporterStatus
+	(*proto.Error)(nil),               // 8: gcommon.v1.common.Error
+	(*ProviderSummary)(nil),           // 9: gcommon.v1.metrics.ProviderSummary
+	(*timestamppb.Timestamp)(nil),     // 10: google.protobuf.Timestamp
+	(*TimeRange)(nil),                 // 11: gcommon.v1.metrics.TimeRange
+	(*PerformanceStats)(nil),          // 12: gcommon.v1.metrics.PerformanceStats
+	(*ErrorStats)(nil),                // 13: gcommon.v1.metrics.ErrorStats
+	(*TopMetrics)(nil),                // 14: gcommon.v1.metrics.TopMetrics
+	(*RetentionPolicyConfig)(nil),     // 15: gcommon.v1.metrics.RetentionPolicyConfig
 }
 var file_pkg_metrics_proto_responses_get_metrics_summary_response_proto_depIdxs = []int32{
 	8,  // 0: gcommon.v1.metrics.GetMetricsSummaryResponse.error:type_name -> gcommon.v1.common.Error
@@ -1628,6 +1627,12 @@ func file_pkg_metrics_proto_responses_get_metrics_summary_response_proto_init() 
 	if File_pkg_metrics_proto_responses_get_metrics_summary_response_proto != nil {
 		return
 	}
+	file_pkg_metrics_proto_types_retention_policy_proto_init()
+	file_pkg_metrics_proto_types_time_range_proto_init()
+	file_pkg_metrics_proto_types_error_stats_proto_init()
+	file_pkg_metrics_proto_types_performance_stats_proto_init()
+	file_pkg_metrics_proto_types_top_metrics_proto_init()
+	file_pkg_metrics_proto_types_provider_summary_proto_init()
 	type x struct{}
 	out := protoimpl.TypeBuilder{
 		File: protoimpl.DescBuilder{

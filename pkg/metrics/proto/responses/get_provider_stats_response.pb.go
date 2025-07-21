@@ -6,11 +6,10 @@
 
 //go:build !protoopaque
 
-package responses
+package metricspb
 
 import (
-	messages "github.com/jdfalk/gcommon/pkg/common/proto/messages"
-	types "github.com/jdfalk/gcommon/pkg/metrics/proto/types"
+	proto "github.com/jdfalk/gcommon/pkg/common/proto"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
@@ -33,7 +32,7 @@ type GetProviderStatsResponse struct {
 	// Success status of the operation
 	Success *bool `protobuf:"varint,1,opt,name=success" json:"success,omitempty"`
 	// Error information if the operation failed
-	Error *messages.Error `protobuf:"bytes,2,opt,name=error" json:"error,omitempty"`
+	Error *proto.Error `protobuf:"bytes,2,opt,name=error" json:"error,omitempty"`
 	// Provider ID these stats are for
 	ProviderId *string `protobuf:"bytes,3,opt,name=provider_id,json=providerId" json:"provider_id,omitempty"`
 	// Comprehensive provider statistics
@@ -41,7 +40,7 @@ type GetProviderStatsResponse struct {
 	// When the statistics were generated
 	GeneratedAt *timestamppb.Timestamp `protobuf:"bytes,5,opt,name=generated_at,json=generatedAt" json:"generated_at,omitempty"`
 	// Time range covered by the statistics
-	TimeRange *types.TimeRange `protobuf:"bytes,6,opt,name=time_range,json=timeRange" json:"time_range,omitempty"`
+	TimeRange *TimeRange `protobuf:"bytes,6,opt,name=time_range,json=timeRange" json:"time_range,omitempty"`
 	// Warnings or informational messages
 	Warnings      []string `protobuf:"bytes,7,rep,name=warnings" json:"warnings,omitempty"`
 	unknownFields protoimpl.UnknownFields
@@ -80,7 +79,7 @@ func (x *GetProviderStatsResponse) GetSuccess() bool {
 	return false
 }
 
-func (x *GetProviderStatsResponse) GetError() *messages.Error {
+func (x *GetProviderStatsResponse) GetError() *proto.Error {
 	if x != nil {
 		return x.Error
 	}
@@ -108,7 +107,7 @@ func (x *GetProviderStatsResponse) GetGeneratedAt() *timestamppb.Timestamp {
 	return nil
 }
 
-func (x *GetProviderStatsResponse) GetTimeRange() *types.TimeRange {
+func (x *GetProviderStatsResponse) GetTimeRange() *TimeRange {
 	if x != nil {
 		return x.TimeRange
 	}
@@ -126,7 +125,7 @@ func (x *GetProviderStatsResponse) SetSuccess(v bool) {
 	x.Success = &v
 }
 
-func (x *GetProviderStatsResponse) SetError(v *messages.Error) {
+func (x *GetProviderStatsResponse) SetError(v *proto.Error) {
 	x.Error = v
 }
 
@@ -142,7 +141,7 @@ func (x *GetProviderStatsResponse) SetGeneratedAt(v *timestamppb.Timestamp) {
 	x.GeneratedAt = v
 }
 
-func (x *GetProviderStatsResponse) SetTimeRange(v *types.TimeRange) {
+func (x *GetProviderStatsResponse) SetTimeRange(v *TimeRange) {
 	x.TimeRange = v
 }
 
@@ -222,7 +221,7 @@ type GetProviderStatsResponse_builder struct {
 	// Success status of the operation
 	Success *bool
 	// Error information if the operation failed
-	Error *messages.Error
+	Error *proto.Error
 	// Provider ID these stats are for
 	ProviderId *string
 	// Comprehensive provider statistics
@@ -230,7 +229,7 @@ type GetProviderStatsResponse_builder struct {
 	// When the statistics were generated
 	GeneratedAt *timestamppb.Timestamp
 	// Time range covered by the statistics
-	TimeRange *types.TimeRange
+	TimeRange *TimeRange
 	// Warnings or informational messages
 	Warnings []string
 }
@@ -254,13 +253,13 @@ func (b0 GetProviderStatsResponse_builder) Build() *GetProviderStatsResponse {
 type ProviderStatistics struct {
 	state protoimpl.MessageState `protogen:"hybrid.v1"`
 	// Basic provider information
-	ProviderInfo *types.ProviderInfo `protobuf:"bytes,1,opt,name=provider_info,json=providerInfo" json:"provider_info,omitempty"`
+	ProviderInfo *ProviderInfo `protobuf:"bytes,1,opt,name=provider_info,json=providerInfo" json:"provider_info,omitempty"`
 	// Performance statistics
-	Performance *types.PerformanceStats `protobuf:"bytes,2,opt,name=performance" json:"performance,omitempty"`
+	Performance *PerformanceStats `protobuf:"bytes,2,opt,name=performance" json:"performance,omitempty"`
 	// Resource usage statistics
 	ResourceUsage *ResourceUsageStats `protobuf:"bytes,3,opt,name=resource_usage,json=resourceUsage" json:"resource_usage,omitempty"`
 	// Error statistics
-	Errors *types.ErrorStats `protobuf:"bytes,4,opt,name=errors" json:"errors,omitempty"`
+	Errors *ErrorStats `protobuf:"bytes,4,opt,name=errors" json:"errors,omitempty"`
 	// Data volume statistics
 	DataVolume *DataVolumeStats `protobuf:"bytes,5,opt,name=data_volume,json=dataVolume" json:"data_volume,omitempty"`
 	// Export statistics
@@ -270,7 +269,7 @@ type ProviderStatistics struct {
 	// Configuration summary
 	Config *ConfigurationSummary `protobuf:"bytes,8,opt,name=config" json:"config,omitempty"`
 	// Top metrics
-	TopMetrics *types.TopMetrics `protobuf:"bytes,9,opt,name=top_metrics,json=topMetrics" json:"top_metrics,omitempty"`
+	TopMetrics *TopMetrics `protobuf:"bytes,9,opt,name=top_metrics,json=topMetrics" json:"top_metrics,omitempty"`
 	// Trend analysis
 	Trends        *TrendAnalysis `protobuf:"bytes,10,opt,name=trends" json:"trends,omitempty"`
 	unknownFields protoimpl.UnknownFields
@@ -302,14 +301,14 @@ func (x *ProviderStatistics) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-func (x *ProviderStatistics) GetProviderInfo() *types.ProviderInfo {
+func (x *ProviderStatistics) GetProviderInfo() *ProviderInfo {
 	if x != nil {
 		return x.ProviderInfo
 	}
 	return nil
 }
 
-func (x *ProviderStatistics) GetPerformance() *types.PerformanceStats {
+func (x *ProviderStatistics) GetPerformance() *PerformanceStats {
 	if x != nil {
 		return x.Performance
 	}
@@ -323,7 +322,7 @@ func (x *ProviderStatistics) GetResourceUsage() *ResourceUsageStats {
 	return nil
 }
 
-func (x *ProviderStatistics) GetErrors() *types.ErrorStats {
+func (x *ProviderStatistics) GetErrors() *ErrorStats {
 	if x != nil {
 		return x.Errors
 	}
@@ -358,7 +357,7 @@ func (x *ProviderStatistics) GetConfig() *ConfigurationSummary {
 	return nil
 }
 
-func (x *ProviderStatistics) GetTopMetrics() *types.TopMetrics {
+func (x *ProviderStatistics) GetTopMetrics() *TopMetrics {
 	if x != nil {
 		return x.TopMetrics
 	}
@@ -372,11 +371,11 @@ func (x *ProviderStatistics) GetTrends() *TrendAnalysis {
 	return nil
 }
 
-func (x *ProviderStatistics) SetProviderInfo(v *types.ProviderInfo) {
+func (x *ProviderStatistics) SetProviderInfo(v *ProviderInfo) {
 	x.ProviderInfo = v
 }
 
-func (x *ProviderStatistics) SetPerformance(v *types.PerformanceStats) {
+func (x *ProviderStatistics) SetPerformance(v *PerformanceStats) {
 	x.Performance = v
 }
 
@@ -384,7 +383,7 @@ func (x *ProviderStatistics) SetResourceUsage(v *ResourceUsageStats) {
 	x.ResourceUsage = v
 }
 
-func (x *ProviderStatistics) SetErrors(v *types.ErrorStats) {
+func (x *ProviderStatistics) SetErrors(v *ErrorStats) {
 	x.Errors = v
 }
 
@@ -404,7 +403,7 @@ func (x *ProviderStatistics) SetConfig(v *ConfigurationSummary) {
 	x.Config = v
 }
 
-func (x *ProviderStatistics) SetTopMetrics(v *types.TopMetrics) {
+func (x *ProviderStatistics) SetTopMetrics(v *TopMetrics) {
 	x.TopMetrics = v
 }
 
@@ -515,13 +514,13 @@ type ProviderStatistics_builder struct {
 	_ [0]func() // Prevents comparability and use of unkeyed literals for the builder.
 
 	// Basic provider information
-	ProviderInfo *types.ProviderInfo
+	ProviderInfo *ProviderInfo
 	// Performance statistics
-	Performance *types.PerformanceStats
+	Performance *PerformanceStats
 	// Resource usage statistics
 	ResourceUsage *ResourceUsageStats
 	// Error statistics
-	Errors *types.ErrorStats
+	Errors *ErrorStats
 	// Data volume statistics
 	DataVolume *DataVolumeStats
 	// Export statistics
@@ -531,7 +530,7 @@ type ProviderStatistics_builder struct {
 	// Configuration summary
 	Config *ConfigurationSummary
 	// Top metrics
-	TopMetrics *types.TopMetrics
+	TopMetrics *TopMetrics
 	// Trend analysis
 	Trends *TrendAnalysis
 }
@@ -2972,7 +2971,7 @@ type ConfigurationSummary struct {
 	// Security settings summary
 	Security *SecuritySummary `protobuf:"bytes,2,opt,name=security" json:"security,omitempty"`
 	// Resource limits summary
-	ResourceLimits *types.ResourceLimitsSummary `protobuf:"bytes,3,opt,name=resource_limits,json=resourceLimits" json:"resource_limits,omitempty"`
+	ResourceLimits *ResourceLimitsSummary `protobuf:"bytes,3,opt,name=resource_limits,json=resourceLimits" json:"resource_limits,omitempty"`
 	// Configuration version
 	ConfigVersion *string `protobuf:"bytes,4,opt,name=config_version,json=configVersion" json:"config_version,omitempty"`
 	unknownFields protoimpl.UnknownFields
@@ -3018,7 +3017,7 @@ func (x *ConfigurationSummary) GetSecurity() *SecuritySummary {
 	return nil
 }
 
-func (x *ConfigurationSummary) GetResourceLimits() *types.ResourceLimitsSummary {
+func (x *ConfigurationSummary) GetResourceLimits() *ResourceLimitsSummary {
 	if x != nil {
 		return x.ResourceLimits
 	}
@@ -3040,7 +3039,7 @@ func (x *ConfigurationSummary) SetSecurity(v *SecuritySummary) {
 	x.Security = v
 }
 
-func (x *ConfigurationSummary) SetResourceLimits(v *types.ResourceLimitsSummary) {
+func (x *ConfigurationSummary) SetResourceLimits(v *ResourceLimitsSummary) {
 	x.ResourceLimits = v
 }
 
@@ -3100,7 +3099,7 @@ type ConfigurationSummary_builder struct {
 	// Security settings summary
 	Security *SecuritySummary
 	// Resource limits summary
-	ResourceLimits *types.ResourceLimitsSummary
+	ResourceLimits *ResourceLimitsSummary
 	// Configuration version
 	ConfigVersion *string
 }
@@ -4242,43 +4241,43 @@ const file_pkg_metrics_proto_responses_get_provider_stats_response_proto_rawDesc
 	"\fvolume_trend\x18\x01 \x01(\tR\vvolumeTrend\x12'\n" +
 	"\x0fingestion_trend\x18\x02 \x01(\tR\x0eingestionTrend\x12)\n" +
 	"\x10trend_confidence\x18\x03 \x01(\x01R\x0ftrendConfidenceB\xe0\x01\n" +
-	"\x16com.gcommon.v1.metricsB\x1dGetProviderStatsResponseProtoP\x01Z5github.com/jdfalk/gcommon/pkg/metrics/proto/responses\xa2\x02\x03GVM\xaa\x02\x12Gcommon.V1.Metrics\xca\x02\x12Gcommon\\V1\\Metrics\xe2\x02\x1eGcommon\\V1\\Metrics\\GPBMetadata\xea\x02\x14Gcommon::V1::Metrics\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
+	"\x16com.gcommon.v1.metricsB\x1dGetProviderStatsResponseProtoP\x01Z5github.com/jdfalk/gcommon/pkg/metrics/proto;metricspb\xa2\x02\x03GVM\xaa\x02\x12Gcommon.V1.Metrics\xca\x02\x12Gcommon\\V1\\Metrics\xe2\x02\x1eGcommon\\V1\\Metrics\\GPBMetadata\xea\x02\x14Gcommon::V1::Metrics\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
 
 var file_pkg_metrics_proto_responses_get_provider_stats_response_proto_msgTypes = make([]protoimpl.MessageInfo, 25)
 var file_pkg_metrics_proto_responses_get_provider_stats_response_proto_goTypes = []any{
-	(*GetProviderStatsResponse)(nil),    // 0: gcommon.v1.metrics.GetProviderStatsResponse
-	(*ProviderStatistics)(nil),          // 1: gcommon.v1.metrics.ProviderStatistics
-	(*PerformanceDataPoint)(nil),        // 2: gcommon.v1.metrics.PerformanceDataPoint
-	(*ResourceUsageStats)(nil),          // 3: gcommon.v1.metrics.ResourceUsageStats
-	(*MemoryUsage)(nil),                 // 4: gcommon.v1.metrics.MemoryUsage
-	(*CPUUsage)(nil),                    // 5: gcommon.v1.metrics.CPUUsage
-	(*DiskUsage)(nil),                   // 6: gcommon.v1.metrics.DiskUsage
-	(*NetworkUsage)(nil),                // 7: gcommon.v1.metrics.NetworkUsage
-	(*ResourceDataPoint)(nil),           // 8: gcommon.v1.metrics.ResourceDataPoint
-	(*ErrorTypeStats)(nil),              // 9: gcommon.v1.metrics.ErrorTypeStats
-	(*ErrorEntry)(nil),                  // 10: gcommon.v1.metrics.ErrorEntry
-	(*ErrorDataPoint)(nil),              // 11: gcommon.v1.metrics.ErrorDataPoint
-	(*DataVolumeStats)(nil),             // 12: gcommon.v1.metrics.DataVolumeStats
-	(*DataVolumeDataPoint)(nil),         // 13: gcommon.v1.metrics.DataVolumeDataPoint
-	(*ExportStats)(nil),                 // 14: gcommon.v1.metrics.ExportStats
-	(*ExportDestinationStats)(nil),      // 15: gcommon.v1.metrics.ExportDestinationStats
-	(*HealthStatusEntry)(nil),           // 16: gcommon.v1.metrics.HealthStatusEntry
-	(*ConfigurationSummary)(nil),        // 17: gcommon.v1.metrics.ConfigurationSummary
-	(*SecuritySummary)(nil),             // 18: gcommon.v1.metrics.SecuritySummary
-	(*MetricSummary)(nil),               // 19: gcommon.v1.metrics.MetricSummary
-	(*TrendAnalysis)(nil),               // 20: gcommon.v1.metrics.TrendAnalysis
-	(*PerformanceTrend)(nil),            // 21: gcommon.v1.metrics.PerformanceTrend
-	(*ResourceUsageTrend)(nil),          // 22: gcommon.v1.metrics.ResourceUsageTrend
-	(*ErrorTrend)(nil),                  // 23: gcommon.v1.metrics.ErrorTrend
-	(*DataVolumeTrend)(nil),             // 24: gcommon.v1.metrics.DataVolumeTrend
-	(*messages.Error)(nil),              // 25: gcommon.v1.common.Error
-	(*timestamppb.Timestamp)(nil),       // 26: google.protobuf.Timestamp
-	(*types.TimeRange)(nil),             // 27: gcommon.v1.metrics.TimeRange
-	(*types.ProviderInfo)(nil),          // 28: gcommon.v1.metrics.ProviderInfo
-	(*types.PerformanceStats)(nil),      // 29: gcommon.v1.metrics.PerformanceStats
-	(*types.ErrorStats)(nil),            // 30: gcommon.v1.metrics.ErrorStats
-	(*types.TopMetrics)(nil),            // 31: gcommon.v1.metrics.TopMetrics
-	(*types.ResourceLimitsSummary)(nil), // 32: gcommon.v1.metrics.ResourceLimitsSummary
+	(*GetProviderStatsResponse)(nil), // 0: gcommon.v1.metrics.GetProviderStatsResponse
+	(*ProviderStatistics)(nil),       // 1: gcommon.v1.metrics.ProviderStatistics
+	(*PerformanceDataPoint)(nil),     // 2: gcommon.v1.metrics.PerformanceDataPoint
+	(*ResourceUsageStats)(nil),       // 3: gcommon.v1.metrics.ResourceUsageStats
+	(*MemoryUsage)(nil),              // 4: gcommon.v1.metrics.MemoryUsage
+	(*CPUUsage)(nil),                 // 5: gcommon.v1.metrics.CPUUsage
+	(*DiskUsage)(nil),                // 6: gcommon.v1.metrics.DiskUsage
+	(*NetworkUsage)(nil),             // 7: gcommon.v1.metrics.NetworkUsage
+	(*ResourceDataPoint)(nil),        // 8: gcommon.v1.metrics.ResourceDataPoint
+	(*ErrorTypeStats)(nil),           // 9: gcommon.v1.metrics.ErrorTypeStats
+	(*ErrorEntry)(nil),               // 10: gcommon.v1.metrics.ErrorEntry
+	(*ErrorDataPoint)(nil),           // 11: gcommon.v1.metrics.ErrorDataPoint
+	(*DataVolumeStats)(nil),          // 12: gcommon.v1.metrics.DataVolumeStats
+	(*DataVolumeDataPoint)(nil),      // 13: gcommon.v1.metrics.DataVolumeDataPoint
+	(*ExportStats)(nil),              // 14: gcommon.v1.metrics.ExportStats
+	(*ExportDestinationStats)(nil),   // 15: gcommon.v1.metrics.ExportDestinationStats
+	(*HealthStatusEntry)(nil),        // 16: gcommon.v1.metrics.HealthStatusEntry
+	(*ConfigurationSummary)(nil),     // 17: gcommon.v1.metrics.ConfigurationSummary
+	(*SecuritySummary)(nil),          // 18: gcommon.v1.metrics.SecuritySummary
+	(*MetricSummary)(nil),            // 19: gcommon.v1.metrics.MetricSummary
+	(*TrendAnalysis)(nil),            // 20: gcommon.v1.metrics.TrendAnalysis
+	(*PerformanceTrend)(nil),         // 21: gcommon.v1.metrics.PerformanceTrend
+	(*ResourceUsageTrend)(nil),       // 22: gcommon.v1.metrics.ResourceUsageTrend
+	(*ErrorTrend)(nil),               // 23: gcommon.v1.metrics.ErrorTrend
+	(*DataVolumeTrend)(nil),          // 24: gcommon.v1.metrics.DataVolumeTrend
+	(*proto.Error)(nil),              // 25: gcommon.v1.common.Error
+	(*timestamppb.Timestamp)(nil),    // 26: google.protobuf.Timestamp
+	(*TimeRange)(nil),                // 27: gcommon.v1.metrics.TimeRange
+	(*ProviderInfo)(nil),             // 28: gcommon.v1.metrics.ProviderInfo
+	(*PerformanceStats)(nil),         // 29: gcommon.v1.metrics.PerformanceStats
+	(*ErrorStats)(nil),               // 30: gcommon.v1.metrics.ErrorStats
+	(*TopMetrics)(nil),               // 31: gcommon.v1.metrics.TopMetrics
+	(*ResourceLimitsSummary)(nil),    // 32: gcommon.v1.metrics.ResourceLimitsSummary
 }
 var file_pkg_metrics_proto_responses_get_provider_stats_response_proto_depIdxs = []int32{
 	25, // 0: gcommon.v1.metrics.GetProviderStatsResponse.error:type_name -> gcommon.v1.common.Error
@@ -4329,6 +4328,12 @@ func file_pkg_metrics_proto_responses_get_provider_stats_response_proto_init() {
 	if File_pkg_metrics_proto_responses_get_provider_stats_response_proto != nil {
 		return
 	}
+	file_pkg_metrics_proto_types_error_stats_proto_init()
+	file_pkg_metrics_proto_types_time_range_proto_init()
+	file_pkg_metrics_proto_types_performance_stats_proto_init()
+	file_pkg_metrics_proto_types_top_metrics_proto_init()
+	file_pkg_metrics_proto_types_provider_info_proto_init()
+	file_pkg_metrics_proto_types_resource_limits_summary_proto_init()
 	type x struct{}
 	out := protoimpl.TypeBuilder{
 		File: protoimpl.DescBuilder{

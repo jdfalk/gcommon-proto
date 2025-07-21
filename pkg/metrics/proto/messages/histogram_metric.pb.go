@@ -4,10 +4,9 @@
 // 	protoc        (unknown)
 // source: pkg/metrics/proto/messages/histogram_metric.proto
 
-package messages
+package metricspb
 
 import (
-	types "github.com/jdfalk/gcommon/pkg/metrics/proto/types"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	timestamppb "google.golang.org/protobuf/types/known/timestamppb"
@@ -31,7 +30,7 @@ type HistogramMetric struct {
 	// Metric labels
 	Labels map[string]string `protobuf:"bytes,2,rep,name=labels" json:"labels,omitempty" protobuf_key:"bytes,1,opt,name=key" protobuf_val:"bytes,2,opt,name=value"`
 	// Histogram buckets
-	Buckets []*types.HistogramBucket `protobuf:"bytes,3,rep,name=buckets" json:"buckets,omitempty"`
+	Buckets []*HistogramBucket `protobuf:"bytes,3,rep,name=buckets" json:"buckets,omitempty"`
 	// Sample count
 	SampleCount *uint64 `protobuf:"varint,4,opt,name=sample_count,json=sampleCount" json:"sample_count,omitempty"`
 	// Sample sum
@@ -88,7 +87,7 @@ func (x *HistogramMetric) GetLabels() map[string]string {
 	return nil
 }
 
-func (x *HistogramMetric) GetBuckets() []*types.HistogramBucket {
+func (x *HistogramMetric) GetBuckets() []*HistogramBucket {
 	if x != nil {
 		return x.Buckets
 	}
@@ -139,8 +138,8 @@ const file_pkg_metrics_proto_messages_histogram_metric_proto_rawDesc = "" +
 	"\x04help\x18\a \x01(\tR\x04help\x1a9\n" +
 	"\vLabelsEntry\x12\x10\n" +
 	"\x03key\x18\x01 \x01(\tR\x03key\x12\x14\n" +
-	"\x05value\x18\x02 \x01(\tR\x05value:\x028\x01B\xce\x01\n" +
-	"\x16com.gcommon.v1.metricsB\x14HistogramMetricProtoP\x01Z4github.com/jdfalk/gcommon/pkg/metrics/proto/messages\xa2\x02\x03GVM\xaa\x02\x12Gcommon.V1.Metrics\xca\x02\x12Gcommon\\V1\\Metrics\xe2\x02\x1eGcommon\\V1\\Metrics\\GPBMetadata\xea\x02\x14Gcommon::V1::Metricsb\beditionsp\xe8\a"
+	"\x05value\x18\x02 \x01(\tR\x05value:\x028\x01B\xcf\x01\n" +
+	"\x16com.gcommon.v1.metricsB\x14HistogramMetricProtoP\x01Z5github.com/jdfalk/gcommon/pkg/metrics/proto;metricspb\xa2\x02\x03GVM\xaa\x02\x12Gcommon.V1.Metrics\xca\x02\x12Gcommon\\V1\\Metrics\xe2\x02\x1eGcommon\\V1\\Metrics\\GPBMetadata\xea\x02\x14Gcommon::V1::Metricsb\beditionsp\xe8\a"
 
 var (
 	file_pkg_metrics_proto_messages_histogram_metric_proto_rawDescOnce sync.Once
@@ -158,7 +157,7 @@ var file_pkg_metrics_proto_messages_histogram_metric_proto_msgTypes = make([]pro
 var file_pkg_metrics_proto_messages_histogram_metric_proto_goTypes = []any{
 	(*HistogramMetric)(nil),       // 0: gcommon.v1.metrics.HistogramMetric
 	nil,                           // 1: gcommon.v1.metrics.HistogramMetric.LabelsEntry
-	(*types.HistogramBucket)(nil), // 2: gcommon.v1.metrics.HistogramBucket
+	(*HistogramBucket)(nil),       // 2: gcommon.v1.metrics.HistogramBucket
 	(*timestamppb.Timestamp)(nil), // 3: google.protobuf.Timestamp
 }
 var file_pkg_metrics_proto_messages_histogram_metric_proto_depIdxs = []int32{
@@ -177,6 +176,7 @@ func file_pkg_metrics_proto_messages_histogram_metric_proto_init() {
 	if File_pkg_metrics_proto_messages_histogram_metric_proto != nil {
 		return
 	}
+	file_pkg_metrics_proto_types_histogram_bucket_proto_init()
 	type x struct{}
 	out := protoimpl.TypeBuilder{
 		File: protoimpl.DescBuilder{

@@ -6,11 +6,10 @@
 
 //go:build protoopaque
 
-package requests
+package metricspb
 
 import (
-	messages "github.com/jdfalk/gcommon/pkg/common/proto/messages"
-	types "github.com/jdfalk/gcommon/pkg/metrics/proto/types"
+	proto "github.com/jdfalk/gcommon/pkg/common/proto"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
@@ -29,13 +28,13 @@ const (
 // *
 // GetProviderStatsRequest represents a request to get statistics for a metrics provider.
 type GetProviderStatsRequest struct {
-	state                      protoimpl.MessageState    `protogen:"opaque.v1"`
-	xxx_hidden_Metadata        *messages.RequestMetadata `protobuf:"bytes,1,opt,name=metadata"`
-	xxx_hidden_ProviderId      *string                   `protobuf:"bytes,2,opt,name=provider_id,json=providerId"`
-	xxx_hidden_TimeRange       *types.TimeRange          `protobuf:"bytes,3,opt,name=time_range,json=timeRange"`
-	xxx_hidden_Options         *StatsOptions             `protobuf:"bytes,4,opt,name=options"`
-	xxx_hidden_Granularity     *string                   `protobuf:"bytes,5,opt,name=granularity"`
-	xxx_hidden_IncludeRealtime bool                      `protobuf:"varint,6,opt,name=include_realtime,json=includeRealtime"`
+	state                      protoimpl.MessageState `protogen:"opaque.v1"`
+	xxx_hidden_Metadata        *proto.RequestMetadata `protobuf:"bytes,1,opt,name=metadata"`
+	xxx_hidden_ProviderId      *string                `protobuf:"bytes,2,opt,name=provider_id,json=providerId"`
+	xxx_hidden_TimeRange       *TimeRange             `protobuf:"bytes,3,opt,name=time_range,json=timeRange"`
+	xxx_hidden_Options         *StatsOptions          `protobuf:"bytes,4,opt,name=options"`
+	xxx_hidden_Granularity     *string                `protobuf:"bytes,5,opt,name=granularity"`
+	xxx_hidden_IncludeRealtime bool                   `protobuf:"varint,6,opt,name=include_realtime,json=includeRealtime"`
 	XXX_raceDetectHookData     protoimpl.RaceDetectHookData
 	XXX_presence               [1]uint32
 	unknownFields              protoimpl.UnknownFields
@@ -67,7 +66,7 @@ func (x *GetProviderStatsRequest) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-func (x *GetProviderStatsRequest) GetMetadata() *messages.RequestMetadata {
+func (x *GetProviderStatsRequest) GetMetadata() *proto.RequestMetadata {
 	if x != nil {
 		return x.xxx_hidden_Metadata
 	}
@@ -84,7 +83,7 @@ func (x *GetProviderStatsRequest) GetProviderId() string {
 	return ""
 }
 
-func (x *GetProviderStatsRequest) GetTimeRange() *types.TimeRange {
+func (x *GetProviderStatsRequest) GetTimeRange() *TimeRange {
 	if x != nil {
 		return x.xxx_hidden_TimeRange
 	}
@@ -115,7 +114,7 @@ func (x *GetProviderStatsRequest) GetIncludeRealtime() bool {
 	return false
 }
 
-func (x *GetProviderStatsRequest) SetMetadata(v *messages.RequestMetadata) {
+func (x *GetProviderStatsRequest) SetMetadata(v *proto.RequestMetadata) {
 	x.xxx_hidden_Metadata = v
 }
 
@@ -124,7 +123,7 @@ func (x *GetProviderStatsRequest) SetProviderId(v string) {
 	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 1, 6)
 }
 
-func (x *GetProviderStatsRequest) SetTimeRange(v *types.TimeRange) {
+func (x *GetProviderStatsRequest) SetTimeRange(v *TimeRange) {
 	x.xxx_hidden_TimeRange = v
 }
 
@@ -215,11 +214,11 @@ type GetProviderStatsRequest_builder struct {
 	_ [0]func() // Prevents comparability and use of unkeyed literals for the builder.
 
 	// Standard request metadata (tracing, auth, etc.)
-	Metadata *messages.RequestMetadata
+	Metadata *proto.RequestMetadata
 	// Provider ID to get stats for
 	ProviderId *string
 	// Time range for statistics
-	TimeRange *types.TimeRange
+	TimeRange *TimeRange
 	// What statistics to include
 	Options *StatsOptions
 	// Granularity for time-series statistics
@@ -632,15 +631,15 @@ const file_pkg_metrics_proto_requests_get_provider_stats_request_proto_rawDesc =
 	"\x13include_top_metrics\x18\b \x01(\bR\x11includeTopMetrics\x12*\n" +
 	"\x11top_metrics_limit\x18\t \x01(\x05R\x0ftopMetricsLimit\x12%\n" +
 	"\x0einclude_trends\x18\n" +
-	" \x01(\bR\rincludeTrendsB\xde\x01\n" +
-	"\x16com.gcommon.v1.metricsB\x1cGetProviderStatsRequestProtoP\x01Z4github.com/jdfalk/gcommon/pkg/metrics/proto/requests\xa2\x02\x03GVM\xaa\x02\x12Gcommon.V1.Metrics\xca\x02\x12Gcommon\\V1\\Metrics\xe2\x02\x1eGcommon\\V1\\Metrics\\GPBMetadata\xea\x02\x14Gcommon::V1::Metrics\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
+	" \x01(\bR\rincludeTrendsB\xdf\x01\n" +
+	"\x16com.gcommon.v1.metricsB\x1cGetProviderStatsRequestProtoP\x01Z5github.com/jdfalk/gcommon/pkg/metrics/proto;metricspb\xa2\x02\x03GVM\xaa\x02\x12Gcommon.V1.Metrics\xca\x02\x12Gcommon\\V1\\Metrics\xe2\x02\x1eGcommon\\V1\\Metrics\\GPBMetadata\xea\x02\x14Gcommon::V1::Metrics\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
 
 var file_pkg_metrics_proto_requests_get_provider_stats_request_proto_msgTypes = make([]protoimpl.MessageInfo, 2)
 var file_pkg_metrics_proto_requests_get_provider_stats_request_proto_goTypes = []any{
-	(*GetProviderStatsRequest)(nil),  // 0: gcommon.v1.metrics.GetProviderStatsRequest
-	(*StatsOptions)(nil),             // 1: gcommon.v1.metrics.StatsOptions
-	(*messages.RequestMetadata)(nil), // 2: gcommon.v1.common.RequestMetadata
-	(*types.TimeRange)(nil),          // 3: gcommon.v1.metrics.TimeRange
+	(*GetProviderStatsRequest)(nil), // 0: gcommon.v1.metrics.GetProviderStatsRequest
+	(*StatsOptions)(nil),            // 1: gcommon.v1.metrics.StatsOptions
+	(*proto.RequestMetadata)(nil),   // 2: gcommon.v1.common.RequestMetadata
+	(*TimeRange)(nil),               // 3: gcommon.v1.metrics.TimeRange
 }
 var file_pkg_metrics_proto_requests_get_provider_stats_request_proto_depIdxs = []int32{
 	2, // 0: gcommon.v1.metrics.GetProviderStatsRequest.metadata:type_name -> gcommon.v1.common.RequestMetadata
@@ -658,6 +657,7 @@ func file_pkg_metrics_proto_requests_get_provider_stats_request_proto_init() {
 	if File_pkg_metrics_proto_requests_get_provider_stats_request_proto != nil {
 		return
 	}
+	file_pkg_metrics_proto_types_time_range_proto_init()
 	type x struct{}
 	out := protoimpl.TypeBuilder{
 		File: protoimpl.DescBuilder{

@@ -6,11 +6,10 @@
 
 //go:build !protoopaque
 
-package requests
+package metricspb
 
 import (
-	messages "github.com/jdfalk/gcommon/pkg/common/proto/messages"
-	messages1 "github.com/jdfalk/gcommon/pkg/metrics/proto/messages"
+	proto "github.com/jdfalk/gcommon/pkg/common/proto"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
@@ -31,9 +30,9 @@ const (
 type QueryMetricsRequest struct {
 	state protoimpl.MessageState `protogen:"hybrid.v1"`
 	// Standard request metadata (tracing, auth, etc.)
-	Metadata *messages.RequestMetadata `protobuf:"bytes,1,opt,name=metadata" json:"metadata,omitempty"`
+	Metadata *proto.RequestMetadata `protobuf:"bytes,1,opt,name=metadata" json:"metadata,omitempty"`
 	// The metric query to execute
-	Query *messages1.MetricQuery `protobuf:"bytes,2,opt,name=query" json:"query,omitempty"`
+	Query *MetricQuery `protobuf:"bytes,2,opt,name=query" json:"query,omitempty"`
 	// Optional query timeout in seconds
 	TimeoutSeconds *int32 `protobuf:"varint,3,opt,name=timeout_seconds,json=timeoutSeconds" json:"timeout_seconds,omitempty"`
 	// Whether to return query execution plan (for debugging)
@@ -71,14 +70,14 @@ func (x *QueryMetricsRequest) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-func (x *QueryMetricsRequest) GetMetadata() *messages.RequestMetadata {
+func (x *QueryMetricsRequest) GetMetadata() *proto.RequestMetadata {
 	if x != nil {
 		return x.Metadata
 	}
 	return nil
 }
 
-func (x *QueryMetricsRequest) GetQuery() *messages1.MetricQuery {
+func (x *QueryMetricsRequest) GetQuery() *MetricQuery {
 	if x != nil {
 		return x.Query
 	}
@@ -113,11 +112,11 @@ func (x *QueryMetricsRequest) GetOutputOptions() *QueryOutputOptions {
 	return nil
 }
 
-func (x *QueryMetricsRequest) SetMetadata(v *messages.RequestMetadata) {
+func (x *QueryMetricsRequest) SetMetadata(v *proto.RequestMetadata) {
 	x.Metadata = v
 }
 
-func (x *QueryMetricsRequest) SetQuery(v *messages1.MetricQuery) {
+func (x *QueryMetricsRequest) SetQuery(v *MetricQuery) {
 	x.Query = v
 }
 
@@ -207,9 +206,9 @@ type QueryMetricsRequest_builder struct {
 	_ [0]func() // Prevents comparability and use of unkeyed literals for the builder.
 
 	// Standard request metadata (tracing, auth, etc.)
-	Metadata *messages.RequestMetadata
+	Metadata *proto.RequestMetadata
 	// The metric query to execute
-	Query *messages1.MetricQuery
+	Query *MetricQuery
 	// Optional query timeout in seconds
 	TimeoutSeconds *int32
 	// Whether to return query execution plan (for debugging)
@@ -430,15 +429,15 @@ const file_pkg_metrics_proto_requests_query_metrics_request_proto_rawDesc = "" +
 	"\x0einclude_labels\x18\x02 \x01(\bR\rincludeLabels\x12'\n" +
 	"\x0fcompress_output\x18\x03 \x01(\bR\x0ecompressOutput\x12+\n" +
 	"\x11numeric_precision\x18\x04 \x01(\x05R\x10numericPrecision\x12-\n" +
-	"\x12include_statistics\x18\x05 \x01(\bR\x11includeStatisticsB\xda\x01\n" +
-	"\x16com.gcommon.v1.metricsB\x18QueryMetricsRequestProtoP\x01Z4github.com/jdfalk/gcommon/pkg/metrics/proto/requests\xa2\x02\x03GVM\xaa\x02\x12Gcommon.V1.Metrics\xca\x02\x12Gcommon\\V1\\Metrics\xe2\x02\x1eGcommon\\V1\\Metrics\\GPBMetadata\xea\x02\x14Gcommon::V1::Metrics\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
+	"\x12include_statistics\x18\x05 \x01(\bR\x11includeStatisticsB\xdb\x01\n" +
+	"\x16com.gcommon.v1.metricsB\x18QueryMetricsRequestProtoP\x01Z5github.com/jdfalk/gcommon/pkg/metrics/proto;metricspb\xa2\x02\x03GVM\xaa\x02\x12Gcommon.V1.Metrics\xca\x02\x12Gcommon\\V1\\Metrics\xe2\x02\x1eGcommon\\V1\\Metrics\\GPBMetadata\xea\x02\x14Gcommon::V1::Metrics\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
 
 var file_pkg_metrics_proto_requests_query_metrics_request_proto_msgTypes = make([]protoimpl.MessageInfo, 2)
 var file_pkg_metrics_proto_requests_query_metrics_request_proto_goTypes = []any{
-	(*QueryMetricsRequest)(nil),      // 0: gcommon.v1.metrics.QueryMetricsRequest
-	(*QueryOutputOptions)(nil),       // 1: gcommon.v1.metrics.QueryOutputOptions
-	(*messages.RequestMetadata)(nil), // 2: gcommon.v1.common.RequestMetadata
-	(*messages1.MetricQuery)(nil),    // 3: gcommon.v1.metrics.MetricQuery
+	(*QueryMetricsRequest)(nil),   // 0: gcommon.v1.metrics.QueryMetricsRequest
+	(*QueryOutputOptions)(nil),    // 1: gcommon.v1.metrics.QueryOutputOptions
+	(*proto.RequestMetadata)(nil), // 2: gcommon.v1.common.RequestMetadata
+	(*MetricQuery)(nil),           // 3: gcommon.v1.metrics.MetricQuery
 }
 var file_pkg_metrics_proto_requests_query_metrics_request_proto_depIdxs = []int32{
 	2, // 0: gcommon.v1.metrics.QueryMetricsRequest.metadata:type_name -> gcommon.v1.common.RequestMetadata
@@ -456,6 +455,7 @@ func file_pkg_metrics_proto_requests_query_metrics_request_proto_init() {
 	if File_pkg_metrics_proto_requests_query_metrics_request_proto != nil {
 		return
 	}
+	file_pkg_metrics_proto_messages_metric_query_proto_init()
 	type x struct{}
 	out := protoimpl.TypeBuilder{
 		File: protoimpl.DescBuilder{

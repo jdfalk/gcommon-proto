@@ -6,11 +6,10 @@
 
 //go:build !protoopaque
 
-package messages
+package metricspb
 
 import (
-	_ "github.com/jdfalk/gcommon/pkg/common/proto"
-	messages "github.com/jdfalk/gcommon/pkg/common/proto/messages"
+	proto "github.com/jdfalk/gcommon/pkg/common/proto"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
@@ -150,7 +149,7 @@ type SummaryMetric struct {
 	// Maximum age of observations in the summary
 	MaxAge *durationpb.Duration `protobuf:"bytes,9,opt,name=max_age,json=maxAge" json:"max_age,omitempty"`
 	// Metadata for request tracing
-	Metadata      *messages.RequestMetadata `protobuf:"bytes,10,opt,name=metadata" json:"metadata,omitempty"`
+	Metadata      *proto.RequestMetadata `protobuf:"bytes,10,opt,name=metadata" json:"metadata,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -243,7 +242,7 @@ func (x *SummaryMetric) GetMaxAge() *durationpb.Duration {
 	return nil
 }
 
-func (x *SummaryMetric) GetMetadata() *messages.RequestMetadata {
+func (x *SummaryMetric) GetMetadata() *proto.RequestMetadata {
 	if x != nil {
 		return x.Metadata
 	}
@@ -286,7 +285,7 @@ func (x *SummaryMetric) SetMaxAge(v *durationpb.Duration) {
 	x.MaxAge = v
 }
 
-func (x *SummaryMetric) SetMetadata(v *messages.RequestMetadata) {
+func (x *SummaryMetric) SetMetadata(v *proto.RequestMetadata) {
 	x.Metadata = v
 }
 
@@ -400,7 +399,7 @@ type SummaryMetric_builder struct {
 	// Maximum age of observations in the summary
 	MaxAge *durationpb.Duration
 	// Metadata for request tracing
-	Metadata *messages.RequestMetadata
+	Metadata *proto.RequestMetadata
 }
 
 func (b0 SummaryMetric_builder) Build() *SummaryMetric {
@@ -443,17 +442,17 @@ const file_pkg_metrics_proto_messages_summary_metric_proto_rawDesc = "" +
 	" \x01(\v2\".gcommon.v1.common.RequestMetadataR\bmetadata\x1a9\n" +
 	"\vLabelsEntry\x12\x10\n" +
 	"\x03key\x18\x01 \x01(\tR\x03key\x12\x14\n" +
-	"\x05value\x18\x02 \x01(\tR\x05value:\x028\x01B\xd4\x01\n" +
-	"\x16com.gcommon.v1.metricsB\x12SummaryMetricProtoP\x01Z4github.com/jdfalk/gcommon/pkg/metrics/proto/messages\xa2\x02\x03GVM\xaa\x02\x12Gcommon.V1.Metrics\xca\x02\x12Gcommon\\V1\\Metrics\xe2\x02\x1eGcommon\\V1\\Metrics\\GPBMetadata\xea\x02\x14Gcommon::V1::Metrics\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
+	"\x05value\x18\x02 \x01(\tR\x05value:\x028\x01B\xd5\x01\n" +
+	"\x16com.gcommon.v1.metricsB\x12SummaryMetricProtoP\x01Z5github.com/jdfalk/gcommon/pkg/metrics/proto;metricspb\xa2\x02\x03GVM\xaa\x02\x12Gcommon.V1.Metrics\xca\x02\x12Gcommon\\V1\\Metrics\xe2\x02\x1eGcommon\\V1\\Metrics\\GPBMetadata\xea\x02\x14Gcommon::V1::Metrics\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
 
 var file_pkg_metrics_proto_messages_summary_metric_proto_msgTypes = make([]protoimpl.MessageInfo, 3)
 var file_pkg_metrics_proto_messages_summary_metric_proto_goTypes = []any{
-	(*SummaryQuantile)(nil),          // 0: gcommon.v1.metrics.SummaryQuantile
-	(*SummaryMetric)(nil),            // 1: gcommon.v1.metrics.SummaryMetric
-	nil,                              // 2: gcommon.v1.metrics.SummaryMetric.LabelsEntry
-	(*timestamppb.Timestamp)(nil),    // 3: google.protobuf.Timestamp
-	(*durationpb.Duration)(nil),      // 4: google.protobuf.Duration
-	(*messages.RequestMetadata)(nil), // 5: gcommon.v1.common.RequestMetadata
+	(*SummaryQuantile)(nil),       // 0: gcommon.v1.metrics.SummaryQuantile
+	(*SummaryMetric)(nil),         // 1: gcommon.v1.metrics.SummaryMetric
+	nil,                           // 2: gcommon.v1.metrics.SummaryMetric.LabelsEntry
+	(*timestamppb.Timestamp)(nil), // 3: google.protobuf.Timestamp
+	(*durationpb.Duration)(nil),   // 4: google.protobuf.Duration
+	(*proto.RequestMetadata)(nil), // 5: gcommon.v1.common.RequestMetadata
 }
 var file_pkg_metrics_proto_messages_summary_metric_proto_depIdxs = []int32{
 	0, // 0: gcommon.v1.metrics.SummaryMetric.quantiles:type_name -> gcommon.v1.metrics.SummaryQuantile

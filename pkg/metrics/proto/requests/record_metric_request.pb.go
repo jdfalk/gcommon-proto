@@ -6,11 +6,10 @@
 
 //go:build !protoopaque
 
-package requests
+package metricspb
 
 import (
-	messages "github.com/jdfalk/gcommon/pkg/common/proto/messages"
-	messages1 "github.com/jdfalk/gcommon/pkg/metrics/proto/messages"
+	proto "github.com/jdfalk/gcommon/pkg/common/proto"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
@@ -32,9 +31,9 @@ const (
 type RecordMetricRequest struct {
 	state protoimpl.MessageState `protogen:"hybrid.v1"`
 	// Standard request metadata (tracing, auth, etc.)
-	Metadata *messages.RequestMetadata `protobuf:"bytes,1,opt,name=metadata" json:"metadata,omitempty"`
+	Metadata *proto.RequestMetadata `protobuf:"bytes,1,opt,name=metadata" json:"metadata,omitempty"`
 	// The metric data to record
-	Metric *messages1.MetricData `protobuf:"bytes,2,opt,name=metric" json:"metric,omitempty"`
+	Metric *MetricData `protobuf:"bytes,2,opt,name=metric" json:"metric,omitempty"`
 	// Optional provider ID to use for recording
 	ProviderId *string `protobuf:"bytes,3,opt,name=provider_id,json=providerId" json:"provider_id,omitempty"`
 	// Whether to validate the metric before recording
@@ -72,14 +71,14 @@ func (x *RecordMetricRequest) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-func (x *RecordMetricRequest) GetMetadata() *messages.RequestMetadata {
+func (x *RecordMetricRequest) GetMetadata() *proto.RequestMetadata {
 	if x != nil {
 		return x.Metadata
 	}
 	return nil
 }
 
-func (x *RecordMetricRequest) GetMetric() *messages1.MetricData {
+func (x *RecordMetricRequest) GetMetric() *MetricData {
 	if x != nil {
 		return x.Metric
 	}
@@ -114,11 +113,11 @@ func (x *RecordMetricRequest) GetBatchContext() *BatchContext {
 	return nil
 }
 
-func (x *RecordMetricRequest) SetMetadata(v *messages.RequestMetadata) {
+func (x *RecordMetricRequest) SetMetadata(v *proto.RequestMetadata) {
 	x.Metadata = v
 }
 
-func (x *RecordMetricRequest) SetMetric(v *messages1.MetricData) {
+func (x *RecordMetricRequest) SetMetric(v *MetricData) {
 	x.Metric = v
 }
 
@@ -208,9 +207,9 @@ type RecordMetricRequest_builder struct {
 	_ [0]func() // Prevents comparability and use of unkeyed literals for the builder.
 
 	// Standard request metadata (tracing, auth, etc.)
-	Metadata *messages.RequestMetadata
+	Metadata *proto.RequestMetadata
 	// The metric data to record
-	Metric *messages1.MetricData
+	Metric *MetricData
 	// Optional provider ID to use for recording
 	ProviderId *string
 	// Whether to validate the metric before recording
@@ -405,16 +404,16 @@ const file_pkg_metrics_proto_requests_record_metric_request_proto_rawDesc = "" +
 	"\x0ebatch_position\x18\x02 \x01(\x05R\rbatchPosition\x12\x1d\n" +
 	"\n" +
 	"batch_size\x18\x03 \x01(\x05R\tbatchSize\x12\x17\n" +
-	"\ais_last\x18\x04 \x01(\bR\x06isLastB\xda\x01\n" +
-	"\x16com.gcommon.v1.metricsB\x18RecordMetricRequestProtoP\x01Z4github.com/jdfalk/gcommon/pkg/metrics/proto/requests\xa2\x02\x03GVM\xaa\x02\x12Gcommon.V1.Metrics\xca\x02\x12Gcommon\\V1\\Metrics\xe2\x02\x1eGcommon\\V1\\Metrics\\GPBMetadata\xea\x02\x14Gcommon::V1::Metrics\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
+	"\ais_last\x18\x04 \x01(\bR\x06isLastB\xdb\x01\n" +
+	"\x16com.gcommon.v1.metricsB\x18RecordMetricRequestProtoP\x01Z5github.com/jdfalk/gcommon/pkg/metrics/proto;metricspb\xa2\x02\x03GVM\xaa\x02\x12Gcommon.V1.Metrics\xca\x02\x12Gcommon\\V1\\Metrics\xe2\x02\x1eGcommon\\V1\\Metrics\\GPBMetadata\xea\x02\x14Gcommon::V1::Metrics\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
 
 var file_pkg_metrics_proto_requests_record_metric_request_proto_msgTypes = make([]protoimpl.MessageInfo, 2)
 var file_pkg_metrics_proto_requests_record_metric_request_proto_goTypes = []any{
-	(*RecordMetricRequest)(nil),      // 0: gcommon.v1.metrics.RecordMetricRequest
-	(*BatchContext)(nil),             // 1: gcommon.v1.metrics.BatchContext
-	(*messages.RequestMetadata)(nil), // 2: gcommon.v1.common.RequestMetadata
-	(*messages1.MetricData)(nil),     // 3: gcommon.v1.metrics.MetricData
-	(*timestamppb.Timestamp)(nil),    // 4: google.protobuf.Timestamp
+	(*RecordMetricRequest)(nil),   // 0: gcommon.v1.metrics.RecordMetricRequest
+	(*BatchContext)(nil),          // 1: gcommon.v1.metrics.BatchContext
+	(*proto.RequestMetadata)(nil), // 2: gcommon.v1.common.RequestMetadata
+	(*MetricData)(nil),            // 3: gcommon.v1.metrics.MetricData
+	(*timestamppb.Timestamp)(nil), // 4: google.protobuf.Timestamp
 }
 var file_pkg_metrics_proto_requests_record_metric_request_proto_depIdxs = []int32{
 	2, // 0: gcommon.v1.metrics.RecordMetricRequest.metadata:type_name -> gcommon.v1.common.RequestMetadata
@@ -433,6 +432,7 @@ func file_pkg_metrics_proto_requests_record_metric_request_proto_init() {
 	if File_pkg_metrics_proto_requests_record_metric_request_proto != nil {
 		return
 	}
+	file_pkg_metrics_proto_messages_metric_data_proto_init()
 	type x struct{}
 	out := protoimpl.TypeBuilder{
 		File: protoimpl.DescBuilder{

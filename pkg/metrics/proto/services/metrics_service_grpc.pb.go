@@ -4,13 +4,10 @@
 // - protoc             (unknown)
 // source: pkg/metrics/proto/services/metrics_service.proto
 
-package services
+package metricspb
 
 import (
 	context "context"
-	messages "github.com/jdfalk/gcommon/pkg/metrics/proto/messages"
-	requests "github.com/jdfalk/gcommon/pkg/metrics/proto/requests"
-	responses "github.com/jdfalk/gcommon/pkg/metrics/proto/responses"
 	grpc "google.golang.org/grpc"
 	codes "google.golang.org/grpc/codes"
 	status "google.golang.org/grpc/status"
@@ -42,23 +39,23 @@ const (
 // Supports counters, gauges, histograms, streaming, and custom metrics aggregation.
 type MetricsServiceClient interface {
 	// Record a single metric data point
-	RecordMetric(ctx context.Context, in *requests.RecordMetricRequest, opts ...grpc.CallOption) (*responses.RecordMetricResponse, error)
+	RecordMetric(ctx context.Context, in *RecordMetricRequest, opts ...grpc.CallOption) (*RecordMetricResponse, error)
 	// Record multiple metrics in batch for efficiency
-	RecordBatchMetrics(ctx context.Context, in *requests.RecordMetricsRequest, opts ...grpc.CallOption) (*responses.RecordMetricsResponse, error)
+	RecordBatchMetrics(ctx context.Context, in *RecordMetricsRequest, opts ...grpc.CallOption) (*RecordMetricsResponse, error)
 	// Retrieve metrics data with filtering and aggregation
-	GetMetrics(ctx context.Context, in *requests.GetMetricsRequest, opts ...grpc.CallOption) (*responses.GetMetricsResponse, error)
+	GetMetrics(ctx context.Context, in *GetMetricsRequest, opts ...grpc.CallOption) (*GetMetricsResponse, error)
 	// Stream metrics data in real-time
-	StreamMetrics(ctx context.Context, in *requests.StreamMetricsRequest, opts ...grpc.CallOption) (grpc.ServerStreamingClient[messages.MetricData], error)
+	StreamMetrics(ctx context.Context, in *StreamMetricsRequest, opts ...grpc.CallOption) (grpc.ServerStreamingClient[MetricData], error)
 	// Register a new metric definition
-	RegisterMetric(ctx context.Context, in *requests.RegisterMetricRequest, opts ...grpc.CallOption) (*responses.RegisterMetricResponse, error)
+	RegisterMetric(ctx context.Context, in *RegisterMetricRequest, opts ...grpc.CallOption) (*RegisterMetricResponse, error)
 	// Unregister an existing metric
-	UnregisterMetric(ctx context.Context, in *requests.UnregisterMetricRequest, opts ...grpc.CallOption) (*responses.UnregisterMetricResponse, error)
+	UnregisterMetric(ctx context.Context, in *UnregisterMetricRequest, opts ...grpc.CallOption) (*UnregisterMetricResponse, error)
 	// Get metadata for a specific metric
-	GetMetricMetadata(ctx context.Context, in *requests.GetMetricMetadataRequest, opts ...grpc.CallOption) (*responses.GetMetricMetadataResponse, error)
+	GetMetricMetadata(ctx context.Context, in *GetMetricMetadataRequest, opts ...grpc.CallOption) (*GetMetricMetadataResponse, error)
 	// Query metrics data using complex query expressions
-	QueryMetrics(ctx context.Context, in *requests.QueryMetricsRequest, opts ...grpc.CallOption) (*responses.QueryMetricsResponse, error)
+	QueryMetrics(ctx context.Context, in *QueryMetricsRequest, opts ...grpc.CallOption) (*QueryMetricsResponse, error)
 	// Get summary statistics about metrics
-	GetMetricsSummary(ctx context.Context, in *requests.GetMetricsSummaryRequest, opts ...grpc.CallOption) (*responses.GetMetricsSummaryResponse, error)
+	GetMetricsSummary(ctx context.Context, in *GetMetricsSummaryRequest, opts ...grpc.CallOption) (*GetMetricsSummaryResponse, error)
 }
 
 type metricsServiceClient struct {
@@ -69,9 +66,9 @@ func NewMetricsServiceClient(cc grpc.ClientConnInterface) MetricsServiceClient {
 	return &metricsServiceClient{cc}
 }
 
-func (c *metricsServiceClient) RecordMetric(ctx context.Context, in *requests.RecordMetricRequest, opts ...grpc.CallOption) (*responses.RecordMetricResponse, error) {
+func (c *metricsServiceClient) RecordMetric(ctx context.Context, in *RecordMetricRequest, opts ...grpc.CallOption) (*RecordMetricResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(responses.RecordMetricResponse)
+	out := new(RecordMetricResponse)
 	err := c.cc.Invoke(ctx, MetricsService_RecordMetric_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
@@ -79,9 +76,9 @@ func (c *metricsServiceClient) RecordMetric(ctx context.Context, in *requests.Re
 	return out, nil
 }
 
-func (c *metricsServiceClient) RecordBatchMetrics(ctx context.Context, in *requests.RecordMetricsRequest, opts ...grpc.CallOption) (*responses.RecordMetricsResponse, error) {
+func (c *metricsServiceClient) RecordBatchMetrics(ctx context.Context, in *RecordMetricsRequest, opts ...grpc.CallOption) (*RecordMetricsResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(responses.RecordMetricsResponse)
+	out := new(RecordMetricsResponse)
 	err := c.cc.Invoke(ctx, MetricsService_RecordBatchMetrics_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
@@ -89,9 +86,9 @@ func (c *metricsServiceClient) RecordBatchMetrics(ctx context.Context, in *reque
 	return out, nil
 }
 
-func (c *metricsServiceClient) GetMetrics(ctx context.Context, in *requests.GetMetricsRequest, opts ...grpc.CallOption) (*responses.GetMetricsResponse, error) {
+func (c *metricsServiceClient) GetMetrics(ctx context.Context, in *GetMetricsRequest, opts ...grpc.CallOption) (*GetMetricsResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(responses.GetMetricsResponse)
+	out := new(GetMetricsResponse)
 	err := c.cc.Invoke(ctx, MetricsService_GetMetrics_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
@@ -99,13 +96,13 @@ func (c *metricsServiceClient) GetMetrics(ctx context.Context, in *requests.GetM
 	return out, nil
 }
 
-func (c *metricsServiceClient) StreamMetrics(ctx context.Context, in *requests.StreamMetricsRequest, opts ...grpc.CallOption) (grpc.ServerStreamingClient[messages.MetricData], error) {
+func (c *metricsServiceClient) StreamMetrics(ctx context.Context, in *StreamMetricsRequest, opts ...grpc.CallOption) (grpc.ServerStreamingClient[MetricData], error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	stream, err := c.cc.NewStream(ctx, &MetricsService_ServiceDesc.Streams[0], MetricsService_StreamMetrics_FullMethodName, cOpts...)
 	if err != nil {
 		return nil, err
 	}
-	x := &grpc.GenericClientStream[requests.StreamMetricsRequest, messages.MetricData]{ClientStream: stream}
+	x := &grpc.GenericClientStream[StreamMetricsRequest, MetricData]{ClientStream: stream}
 	if err := x.ClientStream.SendMsg(in); err != nil {
 		return nil, err
 	}
@@ -116,11 +113,11 @@ func (c *metricsServiceClient) StreamMetrics(ctx context.Context, in *requests.S
 }
 
 // This type alias is provided for backwards compatibility with existing code that references the prior non-generic stream type by name.
-type MetricsService_StreamMetricsClient = grpc.ServerStreamingClient[messages.MetricData]
+type MetricsService_StreamMetricsClient = grpc.ServerStreamingClient[MetricData]
 
-func (c *metricsServiceClient) RegisterMetric(ctx context.Context, in *requests.RegisterMetricRequest, opts ...grpc.CallOption) (*responses.RegisterMetricResponse, error) {
+func (c *metricsServiceClient) RegisterMetric(ctx context.Context, in *RegisterMetricRequest, opts ...grpc.CallOption) (*RegisterMetricResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(responses.RegisterMetricResponse)
+	out := new(RegisterMetricResponse)
 	err := c.cc.Invoke(ctx, MetricsService_RegisterMetric_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
@@ -128,9 +125,9 @@ func (c *metricsServiceClient) RegisterMetric(ctx context.Context, in *requests.
 	return out, nil
 }
 
-func (c *metricsServiceClient) UnregisterMetric(ctx context.Context, in *requests.UnregisterMetricRequest, opts ...grpc.CallOption) (*responses.UnregisterMetricResponse, error) {
+func (c *metricsServiceClient) UnregisterMetric(ctx context.Context, in *UnregisterMetricRequest, opts ...grpc.CallOption) (*UnregisterMetricResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(responses.UnregisterMetricResponse)
+	out := new(UnregisterMetricResponse)
 	err := c.cc.Invoke(ctx, MetricsService_UnregisterMetric_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
@@ -138,9 +135,9 @@ func (c *metricsServiceClient) UnregisterMetric(ctx context.Context, in *request
 	return out, nil
 }
 
-func (c *metricsServiceClient) GetMetricMetadata(ctx context.Context, in *requests.GetMetricMetadataRequest, opts ...grpc.CallOption) (*responses.GetMetricMetadataResponse, error) {
+func (c *metricsServiceClient) GetMetricMetadata(ctx context.Context, in *GetMetricMetadataRequest, opts ...grpc.CallOption) (*GetMetricMetadataResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(responses.GetMetricMetadataResponse)
+	out := new(GetMetricMetadataResponse)
 	err := c.cc.Invoke(ctx, MetricsService_GetMetricMetadata_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
@@ -148,9 +145,9 @@ func (c *metricsServiceClient) GetMetricMetadata(ctx context.Context, in *reques
 	return out, nil
 }
 
-func (c *metricsServiceClient) QueryMetrics(ctx context.Context, in *requests.QueryMetricsRequest, opts ...grpc.CallOption) (*responses.QueryMetricsResponse, error) {
+func (c *metricsServiceClient) QueryMetrics(ctx context.Context, in *QueryMetricsRequest, opts ...grpc.CallOption) (*QueryMetricsResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(responses.QueryMetricsResponse)
+	out := new(QueryMetricsResponse)
 	err := c.cc.Invoke(ctx, MetricsService_QueryMetrics_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
@@ -158,9 +155,9 @@ func (c *metricsServiceClient) QueryMetrics(ctx context.Context, in *requests.Qu
 	return out, nil
 }
 
-func (c *metricsServiceClient) GetMetricsSummary(ctx context.Context, in *requests.GetMetricsSummaryRequest, opts ...grpc.CallOption) (*responses.GetMetricsSummaryResponse, error) {
+func (c *metricsServiceClient) GetMetricsSummary(ctx context.Context, in *GetMetricsSummaryRequest, opts ...grpc.CallOption) (*GetMetricsSummaryResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(responses.GetMetricsSummaryResponse)
+	out := new(GetMetricsSummaryResponse)
 	err := c.cc.Invoke(ctx, MetricsService_GetMetricsSummary_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
@@ -177,23 +174,23 @@ func (c *metricsServiceClient) GetMetricsSummary(ctx context.Context, in *reques
 // Supports counters, gauges, histograms, streaming, and custom metrics aggregation.
 type MetricsServiceServer interface {
 	// Record a single metric data point
-	RecordMetric(context.Context, *requests.RecordMetricRequest) (*responses.RecordMetricResponse, error)
+	RecordMetric(context.Context, *RecordMetricRequest) (*RecordMetricResponse, error)
 	// Record multiple metrics in batch for efficiency
-	RecordBatchMetrics(context.Context, *requests.RecordMetricsRequest) (*responses.RecordMetricsResponse, error)
+	RecordBatchMetrics(context.Context, *RecordMetricsRequest) (*RecordMetricsResponse, error)
 	// Retrieve metrics data with filtering and aggregation
-	GetMetrics(context.Context, *requests.GetMetricsRequest) (*responses.GetMetricsResponse, error)
+	GetMetrics(context.Context, *GetMetricsRequest) (*GetMetricsResponse, error)
 	// Stream metrics data in real-time
-	StreamMetrics(*requests.StreamMetricsRequest, grpc.ServerStreamingServer[messages.MetricData]) error
+	StreamMetrics(*StreamMetricsRequest, grpc.ServerStreamingServer[MetricData]) error
 	// Register a new metric definition
-	RegisterMetric(context.Context, *requests.RegisterMetricRequest) (*responses.RegisterMetricResponse, error)
+	RegisterMetric(context.Context, *RegisterMetricRequest) (*RegisterMetricResponse, error)
 	// Unregister an existing metric
-	UnregisterMetric(context.Context, *requests.UnregisterMetricRequest) (*responses.UnregisterMetricResponse, error)
+	UnregisterMetric(context.Context, *UnregisterMetricRequest) (*UnregisterMetricResponse, error)
 	// Get metadata for a specific metric
-	GetMetricMetadata(context.Context, *requests.GetMetricMetadataRequest) (*responses.GetMetricMetadataResponse, error)
+	GetMetricMetadata(context.Context, *GetMetricMetadataRequest) (*GetMetricMetadataResponse, error)
 	// Query metrics data using complex query expressions
-	QueryMetrics(context.Context, *requests.QueryMetricsRequest) (*responses.QueryMetricsResponse, error)
+	QueryMetrics(context.Context, *QueryMetricsRequest) (*QueryMetricsResponse, error)
 	// Get summary statistics about metrics
-	GetMetricsSummary(context.Context, *requests.GetMetricsSummaryRequest) (*responses.GetMetricsSummaryResponse, error)
+	GetMetricsSummary(context.Context, *GetMetricsSummaryRequest) (*GetMetricsSummaryResponse, error)
 }
 
 // UnimplementedMetricsServiceServer should be embedded to have
@@ -203,31 +200,31 @@ type MetricsServiceServer interface {
 // pointer dereference when methods are called.
 type UnimplementedMetricsServiceServer struct{}
 
-func (UnimplementedMetricsServiceServer) RecordMetric(context.Context, *requests.RecordMetricRequest) (*responses.RecordMetricResponse, error) {
+func (UnimplementedMetricsServiceServer) RecordMetric(context.Context, *RecordMetricRequest) (*RecordMetricResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method RecordMetric not implemented")
 }
-func (UnimplementedMetricsServiceServer) RecordBatchMetrics(context.Context, *requests.RecordMetricsRequest) (*responses.RecordMetricsResponse, error) {
+func (UnimplementedMetricsServiceServer) RecordBatchMetrics(context.Context, *RecordMetricsRequest) (*RecordMetricsResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method RecordBatchMetrics not implemented")
 }
-func (UnimplementedMetricsServiceServer) GetMetrics(context.Context, *requests.GetMetricsRequest) (*responses.GetMetricsResponse, error) {
+func (UnimplementedMetricsServiceServer) GetMetrics(context.Context, *GetMetricsRequest) (*GetMetricsResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method GetMetrics not implemented")
 }
-func (UnimplementedMetricsServiceServer) StreamMetrics(*requests.StreamMetricsRequest, grpc.ServerStreamingServer[messages.MetricData]) error {
+func (UnimplementedMetricsServiceServer) StreamMetrics(*StreamMetricsRequest, grpc.ServerStreamingServer[MetricData]) error {
 	return status.Errorf(codes.Unimplemented, "method StreamMetrics not implemented")
 }
-func (UnimplementedMetricsServiceServer) RegisterMetric(context.Context, *requests.RegisterMetricRequest) (*responses.RegisterMetricResponse, error) {
+func (UnimplementedMetricsServiceServer) RegisterMetric(context.Context, *RegisterMetricRequest) (*RegisterMetricResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method RegisterMetric not implemented")
 }
-func (UnimplementedMetricsServiceServer) UnregisterMetric(context.Context, *requests.UnregisterMetricRequest) (*responses.UnregisterMetricResponse, error) {
+func (UnimplementedMetricsServiceServer) UnregisterMetric(context.Context, *UnregisterMetricRequest) (*UnregisterMetricResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method UnregisterMetric not implemented")
 }
-func (UnimplementedMetricsServiceServer) GetMetricMetadata(context.Context, *requests.GetMetricMetadataRequest) (*responses.GetMetricMetadataResponse, error) {
+func (UnimplementedMetricsServiceServer) GetMetricMetadata(context.Context, *GetMetricMetadataRequest) (*GetMetricMetadataResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method GetMetricMetadata not implemented")
 }
-func (UnimplementedMetricsServiceServer) QueryMetrics(context.Context, *requests.QueryMetricsRequest) (*responses.QueryMetricsResponse, error) {
+func (UnimplementedMetricsServiceServer) QueryMetrics(context.Context, *QueryMetricsRequest) (*QueryMetricsResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method QueryMetrics not implemented")
 }
-func (UnimplementedMetricsServiceServer) GetMetricsSummary(context.Context, *requests.GetMetricsSummaryRequest) (*responses.GetMetricsSummaryResponse, error) {
+func (UnimplementedMetricsServiceServer) GetMetricsSummary(context.Context, *GetMetricsSummaryRequest) (*GetMetricsSummaryResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method GetMetricsSummary not implemented")
 }
 func (UnimplementedMetricsServiceServer) testEmbeddedByValue() {}
@@ -251,7 +248,7 @@ func RegisterMetricsServiceServer(s grpc.ServiceRegistrar, srv MetricsServiceSer
 }
 
 func _MetricsService_RecordMetric_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(requests.RecordMetricRequest)
+	in := new(RecordMetricRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
@@ -263,13 +260,13 @@ func _MetricsService_RecordMetric_Handler(srv interface{}, ctx context.Context, 
 		FullMethod: MetricsService_RecordMetric_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(MetricsServiceServer).RecordMetric(ctx, req.(*requests.RecordMetricRequest))
+		return srv.(MetricsServiceServer).RecordMetric(ctx, req.(*RecordMetricRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
 func _MetricsService_RecordBatchMetrics_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(requests.RecordMetricsRequest)
+	in := new(RecordMetricsRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
@@ -281,13 +278,13 @@ func _MetricsService_RecordBatchMetrics_Handler(srv interface{}, ctx context.Con
 		FullMethod: MetricsService_RecordBatchMetrics_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(MetricsServiceServer).RecordBatchMetrics(ctx, req.(*requests.RecordMetricsRequest))
+		return srv.(MetricsServiceServer).RecordBatchMetrics(ctx, req.(*RecordMetricsRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
 func _MetricsService_GetMetrics_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(requests.GetMetricsRequest)
+	in := new(GetMetricsRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
@@ -299,24 +296,24 @@ func _MetricsService_GetMetrics_Handler(srv interface{}, ctx context.Context, de
 		FullMethod: MetricsService_GetMetrics_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(MetricsServiceServer).GetMetrics(ctx, req.(*requests.GetMetricsRequest))
+		return srv.(MetricsServiceServer).GetMetrics(ctx, req.(*GetMetricsRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
 func _MetricsService_StreamMetrics_Handler(srv interface{}, stream grpc.ServerStream) error {
-	m := new(requests.StreamMetricsRequest)
+	m := new(StreamMetricsRequest)
 	if err := stream.RecvMsg(m); err != nil {
 		return err
 	}
-	return srv.(MetricsServiceServer).StreamMetrics(m, &grpc.GenericServerStream[requests.StreamMetricsRequest, messages.MetricData]{ServerStream: stream})
+	return srv.(MetricsServiceServer).StreamMetrics(m, &grpc.GenericServerStream[StreamMetricsRequest, MetricData]{ServerStream: stream})
 }
 
 // This type alias is provided for backwards compatibility with existing code that references the prior non-generic stream type by name.
-type MetricsService_StreamMetricsServer = grpc.ServerStreamingServer[messages.MetricData]
+type MetricsService_StreamMetricsServer = grpc.ServerStreamingServer[MetricData]
 
 func _MetricsService_RegisterMetric_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(requests.RegisterMetricRequest)
+	in := new(RegisterMetricRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
@@ -328,13 +325,13 @@ func _MetricsService_RegisterMetric_Handler(srv interface{}, ctx context.Context
 		FullMethod: MetricsService_RegisterMetric_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(MetricsServiceServer).RegisterMetric(ctx, req.(*requests.RegisterMetricRequest))
+		return srv.(MetricsServiceServer).RegisterMetric(ctx, req.(*RegisterMetricRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
 func _MetricsService_UnregisterMetric_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(requests.UnregisterMetricRequest)
+	in := new(UnregisterMetricRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
@@ -346,13 +343,13 @@ func _MetricsService_UnregisterMetric_Handler(srv interface{}, ctx context.Conte
 		FullMethod: MetricsService_UnregisterMetric_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(MetricsServiceServer).UnregisterMetric(ctx, req.(*requests.UnregisterMetricRequest))
+		return srv.(MetricsServiceServer).UnregisterMetric(ctx, req.(*UnregisterMetricRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
 func _MetricsService_GetMetricMetadata_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(requests.GetMetricMetadataRequest)
+	in := new(GetMetricMetadataRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
@@ -364,13 +361,13 @@ func _MetricsService_GetMetricMetadata_Handler(srv interface{}, ctx context.Cont
 		FullMethod: MetricsService_GetMetricMetadata_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(MetricsServiceServer).GetMetricMetadata(ctx, req.(*requests.GetMetricMetadataRequest))
+		return srv.(MetricsServiceServer).GetMetricMetadata(ctx, req.(*GetMetricMetadataRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
 func _MetricsService_QueryMetrics_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(requests.QueryMetricsRequest)
+	in := new(QueryMetricsRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
@@ -382,13 +379,13 @@ func _MetricsService_QueryMetrics_Handler(srv interface{}, ctx context.Context, 
 		FullMethod: MetricsService_QueryMetrics_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(MetricsServiceServer).QueryMetrics(ctx, req.(*requests.QueryMetricsRequest))
+		return srv.(MetricsServiceServer).QueryMetrics(ctx, req.(*QueryMetricsRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
 func _MetricsService_GetMetricsSummary_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(requests.GetMetricsSummaryRequest)
+	in := new(GetMetricsSummaryRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
@@ -400,7 +397,7 @@ func _MetricsService_GetMetricsSummary_Handler(srv interface{}, ctx context.Cont
 		FullMethod: MetricsService_GetMetricsSummary_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(MetricsServiceServer).GetMetricsSummary(ctx, req.(*requests.GetMetricsSummaryRequest))
+		return srv.(MetricsServiceServer).GetMetricsSummary(ctx, req.(*GetMetricsSummaryRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }

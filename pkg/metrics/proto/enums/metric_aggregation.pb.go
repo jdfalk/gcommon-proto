@@ -4,7 +4,7 @@
 // 	protoc        (unknown)
 // source: pkg/metrics/proto/enums/metric_aggregation.proto
 
-package enums
+package metricspb
 
 import (
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
@@ -118,8 +118,8 @@ const file_pkg_metrics_proto_enums_metric_aggregation_proto_rawDesc = "" +
 	"\x19METRIC_AGGREGATION_MEDIAN\x10\x06\x12\x1a\n" +
 	"\x16METRIC_AGGREGATION_P95\x10\a\x12\x1a\n" +
 	"\x16METRIC_AGGREGATION_P99\x10\b\x12\x1d\n" +
-	"\x19METRIC_AGGREGATION_STDDEV\x10\tB\xcd\x01\n" +
-	"\x16com.gcommon.v1.metricsB\x16MetricAggregationProtoP\x01Z1github.com/jdfalk/gcommon/pkg/metrics/proto/enums\xa2\x02\x03GVM\xaa\x02\x12Gcommon.V1.Metrics\xca\x02\x12Gcommon\\V1\\Metrics\xe2\x02\x1eGcommon\\V1\\Metrics\\GPBMetadata\xea\x02\x14Gcommon::V1::Metricsb\beditionsp\xe8\a"
+	"\x19METRIC_AGGREGATION_STDDEV\x10\tB\xd1\x01\n" +
+	"\x16com.gcommon.v1.metricsB\x16MetricAggregationProtoP\x01Z5github.com/jdfalk/gcommon/pkg/metrics/proto;metricspb\xa2\x02\x03GVM\xaa\x02\x12Gcommon.V1.Metrics\xca\x02\x12Gcommon\\V1\\Metrics\xe2\x02\x1eGcommon\\V1\\Metrics\\GPBMetadata\xea\x02\x14Gcommon::V1::Metricsb\beditionsp\xe8\a"
 
 var (
 	file_pkg_metrics_proto_enums_metric_aggregation_proto_rawDescOnce sync.Once

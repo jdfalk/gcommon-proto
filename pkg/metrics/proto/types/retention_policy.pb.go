@@ -4,7 +4,7 @@
 // 	protoc        (unknown)
 // source: pkg/metrics/proto/types/retention_policy.proto
 
-package types
+package metricspb
 
 import (
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
@@ -95,8 +95,8 @@ const file_pkg_metrics_proto_types_retention_policy_proto_rawDesc = "" +
 	"\x15RetentionPolicyConfig\x125\n" +
 	"\bduration\x18\x01 \x01(\v2\x19.google.protobuf.DurationR\bduration\x12!\n" +
 	"\fstorage_tier\x18\x02 \x01(\tR\vstorageTier\x12 \n" +
-	"\vcompression\x18\x03 \x01(\tR\vcompressionB\xcb\x01\n" +
-	"\x16com.gcommon.v1.metricsB\x14RetentionPolicyProtoP\x01Z1github.com/jdfalk/gcommon/pkg/metrics/proto/types\xa2\x02\x03GVM\xaa\x02\x12Gcommon.V1.Metrics\xca\x02\x12Gcommon\\V1\\Metrics\xe2\x02\x1eGcommon\\V1\\Metrics\\GPBMetadata\xea\x02\x14Gcommon::V1::Metricsb\beditionsp\xe8\a"
+	"\vcompression\x18\x03 \x01(\tR\vcompressionB\xcf\x01\n" +
+	"\x16com.gcommon.v1.metricsB\x14RetentionPolicyProtoP\x01Z5github.com/jdfalk/gcommon/pkg/metrics/proto;metricspb\xa2\x02\x03GVM\xaa\x02\x12Gcommon.V1.Metrics\xca\x02\x12Gcommon\\V1\\Metrics\xe2\x02\x1eGcommon\\V1\\Metrics\\GPBMetadata\xea\x02\x14Gcommon::V1::Metricsb\beditionsp\xe8\a"
 
 var (
 	file_pkg_metrics_proto_types_retention_policy_proto_rawDescOnce sync.Once

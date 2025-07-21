@@ -6,7 +6,7 @@
 
 //go:build !protoopaque
 
-package enums
+package metricspb
 
 import (
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
@@ -27,8 +27,8 @@ var File_pkg_metrics_proto_enums_health_status_proto protoreflect.FileDescriptor
 
 const file_pkg_metrics_proto_enums_health_status_proto_rawDesc = "" +
 	"\n" +
-	"+pkg/metrics/proto/enums/health_status.proto\x12\x12gcommon.v1.metrics\x1a!google/protobuf/go_features.protoB\xd0\x01\n" +
-	"\x16com.gcommon.v1.metricsB\x11HealthStatusProtoP\x01Z1github.com/jdfalk/gcommon/pkg/metrics/proto/enums\xa2\x02\x03GVM\xaa\x02\x12Gcommon.V1.Metrics\xca\x02\x12Gcommon\\V1\\Metrics\xe2\x02\x1eGcommon\\V1\\Metrics\\GPBMetadata\xea\x02\x14Gcommon::V1::Metrics\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
+	"+pkg/metrics/proto/enums/health_status.proto\x12\x12gcommon.v1.metrics\x1a!google/protobuf/go_features.protoB\xd4\x01\n" +
+	"\x16com.gcommon.v1.metricsB\x11HealthStatusProtoP\x01Z5github.com/jdfalk/gcommon/pkg/metrics/proto;metricspb\xa2\x02\x03GVM\xaa\x02\x12Gcommon.V1.Metrics\xca\x02\x12Gcommon\\V1\\Metrics\xe2\x02\x1eGcommon\\V1\\Metrics\\GPBMetadata\xea\x02\x14Gcommon::V1::Metrics\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
 
 var file_pkg_metrics_proto_enums_health_status_proto_goTypes = []any{}
 var file_pkg_metrics_proto_enums_health_status_proto_depIdxs = []int32{

@@ -6,11 +6,10 @@
 
 //go:build !protoopaque
 
-package requests
+package metricspb
 
 import (
-	messages "github.com/jdfalk/gcommon/pkg/common/proto/messages"
-	messages1 "github.com/jdfalk/gcommon/pkg/metrics/proto/messages"
+	proto "github.com/jdfalk/gcommon/pkg/common/proto"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
@@ -84,9 +83,9 @@ func (x BatchPriority) Number() protoreflect.EnumNumber {
 type RecordMetricsRequest struct {
 	state protoimpl.MessageState `protogen:"hybrid.v1"`
 	// Standard request metadata (tracing, auth, etc.)
-	Metadata *messages.RequestMetadata `protobuf:"bytes,1,opt,name=metadata" json:"metadata,omitempty"`
+	Metadata *proto.RequestMetadata `protobuf:"bytes,1,opt,name=metadata" json:"metadata,omitempty"`
 	// The metrics data to record
-	Metrics []*messages1.MetricData `protobuf:"bytes,2,rep,name=metrics" json:"metrics,omitempty"`
+	Metrics []*MetricData `protobuf:"bytes,2,rep,name=metrics" json:"metrics,omitempty"`
 	// Optional provider ID to use for recording
 	ProviderId *string `protobuf:"bytes,3,opt,name=provider_id,json=providerId" json:"provider_id,omitempty"`
 	// Batch processing options
@@ -128,14 +127,14 @@ func (x *RecordMetricsRequest) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-func (x *RecordMetricsRequest) GetMetadata() *messages.RequestMetadata {
+func (x *RecordMetricsRequest) GetMetadata() *proto.RequestMetadata {
 	if x != nil {
 		return x.Metadata
 	}
 	return nil
 }
 
-func (x *RecordMetricsRequest) GetMetrics() []*messages1.MetricData {
+func (x *RecordMetricsRequest) GetMetrics() []*MetricData {
 	if x != nil {
 		return x.Metrics
 	}
@@ -184,11 +183,11 @@ func (x *RecordMetricsRequest) GetValidateAll() bool {
 	return false
 }
 
-func (x *RecordMetricsRequest) SetMetadata(v *messages.RequestMetadata) {
+func (x *RecordMetricsRequest) SetMetadata(v *proto.RequestMetadata) {
 	x.Metadata = v
 }
 
-func (x *RecordMetricsRequest) SetMetrics(v []*messages1.MetricData) {
+func (x *RecordMetricsRequest) SetMetrics(v []*MetricData) {
 	x.Metrics = v
 }
 
@@ -297,9 +296,9 @@ type RecordMetricsRequest_builder struct {
 	_ [0]func() // Prevents comparability and use of unkeyed literals for the builder.
 
 	// Standard request metadata (tracing, auth, etc.)
-	Metadata *messages.RequestMetadata
+	Metadata *proto.RequestMetadata
 	// The metrics data to record
-	Metrics []*messages1.MetricData
+	Metrics []*MetricData
 	// Optional provider ID to use for recording
 	ProviderId *string
 	// Batch processing options
@@ -592,18 +591,18 @@ const file_pkg_metrics_proto_requests_record_metrics_request_proto_rawDesc = "" 
 	"\x12BATCH_PRIORITY_LOW\x10\x01\x12\x19\n" +
 	"\x15BATCH_PRIORITY_NORMAL\x10\x02\x12\x17\n" +
 	"\x13BATCH_PRIORITY_HIGH\x10\x03\x12\x19\n" +
-	"\x15BATCH_PRIORITY_URGENT\x10\x04B\xdb\x01\n" +
-	"\x16com.gcommon.v1.metricsB\x19RecordMetricsRequestProtoP\x01Z4github.com/jdfalk/gcommon/pkg/metrics/proto/requests\xa2\x02\x03GVM\xaa\x02\x12Gcommon.V1.Metrics\xca\x02\x12Gcommon\\V1\\Metrics\xe2\x02\x1eGcommon\\V1\\Metrics\\GPBMetadata\xea\x02\x14Gcommon::V1::Metrics\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
+	"\x15BATCH_PRIORITY_URGENT\x10\x04B\xdc\x01\n" +
+	"\x16com.gcommon.v1.metricsB\x19RecordMetricsRequestProtoP\x01Z5github.com/jdfalk/gcommon/pkg/metrics/proto;metricspb\xa2\x02\x03GVM\xaa\x02\x12Gcommon.V1.Metrics\xca\x02\x12Gcommon\\V1\\Metrics\xe2\x02\x1eGcommon\\V1\\Metrics\\GPBMetadata\xea\x02\x14Gcommon::V1::Metrics\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
 
 var file_pkg_metrics_proto_requests_record_metrics_request_proto_enumTypes = make([]protoimpl.EnumInfo, 1)
 var file_pkg_metrics_proto_requests_record_metrics_request_proto_msgTypes = make([]protoimpl.MessageInfo, 2)
 var file_pkg_metrics_proto_requests_record_metrics_request_proto_goTypes = []any{
-	(BatchPriority)(0),               // 0: gcommon.v1.metrics.BatchPriority
-	(*RecordMetricsRequest)(nil),     // 1: gcommon.v1.metrics.RecordMetricsRequest
-	(*BatchOptions)(nil),             // 2: gcommon.v1.metrics.BatchOptions
-	(*messages.RequestMetadata)(nil), // 3: gcommon.v1.common.RequestMetadata
-	(*messages1.MetricData)(nil),     // 4: gcommon.v1.metrics.MetricData
-	(*timestamppb.Timestamp)(nil),    // 5: google.protobuf.Timestamp
+	(BatchPriority)(0),            // 0: gcommon.v1.metrics.BatchPriority
+	(*RecordMetricsRequest)(nil),  // 1: gcommon.v1.metrics.RecordMetricsRequest
+	(*BatchOptions)(nil),          // 2: gcommon.v1.metrics.BatchOptions
+	(*proto.RequestMetadata)(nil), // 3: gcommon.v1.common.RequestMetadata
+	(*MetricData)(nil),            // 4: gcommon.v1.metrics.MetricData
+	(*timestamppb.Timestamp)(nil), // 5: google.protobuf.Timestamp
 }
 var file_pkg_metrics_proto_requests_record_metrics_request_proto_depIdxs = []int32{
 	3, // 0: gcommon.v1.metrics.RecordMetricsRequest.metadata:type_name -> gcommon.v1.common.RequestMetadata
@@ -623,6 +622,7 @@ func file_pkg_metrics_proto_requests_record_metrics_request_proto_init() {
 	if File_pkg_metrics_proto_requests_record_metrics_request_proto != nil {
 		return
 	}
+	file_pkg_metrics_proto_messages_metric_data_proto_init()
 	type x struct{}
 	out := protoimpl.TypeBuilder{
 		File: protoimpl.DescBuilder{

@@ -6,11 +6,10 @@
 
 //go:build protoopaque
 
-package responses
+package metricspb
 
 import (
-	messages "github.com/jdfalk/gcommon/pkg/common/proto/messages"
-	messages1 "github.com/jdfalk/gcommon/pkg/metrics/proto/messages"
+	proto "github.com/jdfalk/gcommon/pkg/common/proto"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
@@ -30,15 +29,15 @@ const (
 // *
 // QueryMetricsResponse contains the results of a metric query.
 type QueryMetricsResponse struct {
-	state                    protoimpl.MessageState     `protogen:"opaque.v1"`
-	xxx_hidden_Success       bool                       `protobuf:"varint,1,opt,name=success"`
-	xxx_hidden_Error         *messages.Error            `protobuf:"bytes,2,opt,name=error"`
-	xxx_hidden_Series        *[]*messages1.MetricSeries `protobuf:"bytes,3,rep,name=series"`
-	xxx_hidden_Statistics    *QueryStatistics           `protobuf:"bytes,4,opt,name=statistics"`
-	xxx_hidden_QueryPlan     *messages1.QueryPlan       `protobuf:"bytes,5,opt,name=query_plan,json=queryPlan"`
-	xxx_hidden_Warnings      []string                   `protobuf:"bytes,6,rep,name=warnings"`
-	xxx_hidden_NextPageToken *string                    `protobuf:"bytes,7,opt,name=next_page_token,json=nextPageToken"`
-	xxx_hidden_TotalResults  int64                      `protobuf:"varint,8,opt,name=total_results,json=totalResults"`
+	state                    protoimpl.MessageState `protogen:"opaque.v1"`
+	xxx_hidden_Success       bool                   `protobuf:"varint,1,opt,name=success"`
+	xxx_hidden_Error         *proto.Error           `protobuf:"bytes,2,opt,name=error"`
+	xxx_hidden_Series        *[]*MetricSeries       `protobuf:"bytes,3,rep,name=series"`
+	xxx_hidden_Statistics    *QueryStatistics       `protobuf:"bytes,4,opt,name=statistics"`
+	xxx_hidden_QueryPlan     *QueryPlan             `protobuf:"bytes,5,opt,name=query_plan,json=queryPlan"`
+	xxx_hidden_Warnings      []string               `protobuf:"bytes,6,rep,name=warnings"`
+	xxx_hidden_NextPageToken *string                `protobuf:"bytes,7,opt,name=next_page_token,json=nextPageToken"`
+	xxx_hidden_TotalResults  int64                  `protobuf:"varint,8,opt,name=total_results,json=totalResults"`
 	XXX_raceDetectHookData   protoimpl.RaceDetectHookData
 	XXX_presence             [1]uint32
 	unknownFields            protoimpl.UnknownFields
@@ -77,14 +76,14 @@ func (x *QueryMetricsResponse) GetSuccess() bool {
 	return false
 }
 
-func (x *QueryMetricsResponse) GetError() *messages.Error {
+func (x *QueryMetricsResponse) GetError() *proto.Error {
 	if x != nil {
 		return x.xxx_hidden_Error
 	}
 	return nil
 }
 
-func (x *QueryMetricsResponse) GetSeries() []*messages1.MetricSeries {
+func (x *QueryMetricsResponse) GetSeries() []*MetricSeries {
 	if x != nil {
 		if x.xxx_hidden_Series != nil {
 			return *x.xxx_hidden_Series
@@ -100,7 +99,7 @@ func (x *QueryMetricsResponse) GetStatistics() *QueryStatistics {
 	return nil
 }
 
-func (x *QueryMetricsResponse) GetQueryPlan() *messages1.QueryPlan {
+func (x *QueryMetricsResponse) GetQueryPlan() *QueryPlan {
 	if x != nil {
 		return x.xxx_hidden_QueryPlan
 	}
@@ -136,11 +135,11 @@ func (x *QueryMetricsResponse) SetSuccess(v bool) {
 	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 0, 8)
 }
 
-func (x *QueryMetricsResponse) SetError(v *messages.Error) {
+func (x *QueryMetricsResponse) SetError(v *proto.Error) {
 	x.xxx_hidden_Error = v
 }
 
-func (x *QueryMetricsResponse) SetSeries(v []*messages1.MetricSeries) {
+func (x *QueryMetricsResponse) SetSeries(v []*MetricSeries) {
 	x.xxx_hidden_Series = &v
 }
 
@@ -148,7 +147,7 @@ func (x *QueryMetricsResponse) SetStatistics(v *QueryStatistics) {
 	x.xxx_hidden_Statistics = v
 }
 
-func (x *QueryMetricsResponse) SetQueryPlan(v *messages1.QueryPlan) {
+func (x *QueryMetricsResponse) SetQueryPlan(v *QueryPlan) {
 	x.xxx_hidden_QueryPlan = v
 }
 
@@ -241,13 +240,13 @@ type QueryMetricsResponse_builder struct {
 	// Success status of the query
 	Success *bool
 	// Error information if query failed
-	Error *messages.Error
+	Error *proto.Error
 	// Query results organized as metric series
-	Series []*messages1.MetricSeries
+	Series []*MetricSeries
 	// Query execution statistics
 	Statistics *QueryStatistics
 	// Query execution plan (if requested)
-	QueryPlan *messages1.QueryPlan
+	QueryPlan *QueryPlan
 	// Warnings or informational messages about the query
 	Warnings []string
 	// Pagination token for retrieving more results
@@ -576,17 +575,17 @@ const file_pkg_metrics_proto_responses_query_metrics_response_proto_rawDesc = ""
 	"\x0ecache_hit_rate\x18\a \x01(\x01R\fcacheHitRate\x129\n" +
 	"\n" +
 	"query_time\x18\b \x01(\v2\x1a.google.protobuf.TimestampR\tqueryTimeB\xdc\x01\n" +
-	"\x16com.gcommon.v1.metricsB\x19QueryMetricsResponseProtoP\x01Z5github.com/jdfalk/gcommon/pkg/metrics/proto/responses\xa2\x02\x03GVM\xaa\x02\x12Gcommon.V1.Metrics\xca\x02\x12Gcommon\\V1\\Metrics\xe2\x02\x1eGcommon\\V1\\Metrics\\GPBMetadata\xea\x02\x14Gcommon::V1::Metrics\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
+	"\x16com.gcommon.v1.metricsB\x19QueryMetricsResponseProtoP\x01Z5github.com/jdfalk/gcommon/pkg/metrics/proto;metricspb\xa2\x02\x03GVM\xaa\x02\x12Gcommon.V1.Metrics\xca\x02\x12Gcommon\\V1\\Metrics\xe2\x02\x1eGcommon\\V1\\Metrics\\GPBMetadata\xea\x02\x14Gcommon::V1::Metrics\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
 
 var file_pkg_metrics_proto_responses_query_metrics_response_proto_msgTypes = make([]protoimpl.MessageInfo, 2)
 var file_pkg_metrics_proto_responses_query_metrics_response_proto_goTypes = []any{
-	(*QueryMetricsResponse)(nil),   // 0: gcommon.v1.metrics.QueryMetricsResponse
-	(*QueryStatistics)(nil),        // 1: gcommon.v1.metrics.QueryStatistics
-	(*messages.Error)(nil),         // 2: gcommon.v1.common.Error
-	(*messages1.MetricSeries)(nil), // 3: gcommon.v1.metrics.MetricSeries
-	(*messages1.QueryPlan)(nil),    // 4: gcommon.v1.metrics.QueryPlan
-	(*durationpb.Duration)(nil),    // 5: google.protobuf.Duration
-	(*timestamppb.Timestamp)(nil),  // 6: google.protobuf.Timestamp
+	(*QueryMetricsResponse)(nil),  // 0: gcommon.v1.metrics.QueryMetricsResponse
+	(*QueryStatistics)(nil),       // 1: gcommon.v1.metrics.QueryStatistics
+	(*proto.Error)(nil),           // 2: gcommon.v1.common.Error
+	(*MetricSeries)(nil),          // 3: gcommon.v1.metrics.MetricSeries
+	(*QueryPlan)(nil),             // 4: gcommon.v1.metrics.QueryPlan
+	(*durationpb.Duration)(nil),   // 5: google.protobuf.Duration
+	(*timestamppb.Timestamp)(nil), // 6: google.protobuf.Timestamp
 }
 var file_pkg_metrics_proto_responses_query_metrics_response_proto_depIdxs = []int32{
 	2, // 0: gcommon.v1.metrics.QueryMetricsResponse.error:type_name -> gcommon.v1.common.Error
@@ -607,6 +606,8 @@ func file_pkg_metrics_proto_responses_query_metrics_response_proto_init() {
 	if File_pkg_metrics_proto_responses_query_metrics_response_proto != nil {
 		return
 	}
+	file_pkg_metrics_proto_messages_metric_data_proto_init()
+	file_pkg_metrics_proto_messages_metric_query_proto_init()
 	type x struct{}
 	out := protoimpl.TypeBuilder{
 		File: protoimpl.DescBuilder{

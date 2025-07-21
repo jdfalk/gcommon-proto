@@ -6,11 +6,9 @@
 
 //go:build !protoopaque
 
-package messages
+package metricspb
 
 import (
-	enums "github.com/jdfalk/gcommon/pkg/metrics/proto/enums"
-	types "github.com/jdfalk/gcommon/pkg/metrics/proto/types"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
@@ -40,7 +38,7 @@ type MetricQuery struct {
 	// Filter criteria for selecting metrics
 	Filter *MetricFilter `protobuf:"bytes,4,opt,name=filter" json:"filter,omitempty"`
 	// Time range for the query
-	TimeFilter *types.TimeFilter `protobuf:"bytes,5,opt,name=time_filter,json=timeFilter" json:"time_filter,omitempty"`
+	TimeFilter *TimeFilter `protobuf:"bytes,5,opt,name=time_filter,json=timeFilter" json:"time_filter,omitempty"`
 	// Aggregation operations to apply
 	Aggregations []*AggregationSpec `protobuf:"bytes,6,rep,name=aggregations" json:"aggregations,omitempty"`
 	// Group by specifications
@@ -108,7 +106,7 @@ func (x *MetricQuery) GetFilter() *MetricFilter {
 	return nil
 }
 
-func (x *MetricQuery) GetTimeFilter() *types.TimeFilter {
+func (x *MetricQuery) GetTimeFilter() *TimeFilter {
 	if x != nil {
 		return x.TimeFilter
 	}
@@ -166,7 +164,7 @@ func (x *MetricQuery) SetFilter(v *MetricFilter) {
 	x.Filter = v
 }
 
-func (x *MetricQuery) SetTimeFilter(v *types.TimeFilter) {
+func (x *MetricQuery) SetTimeFilter(v *TimeFilter) {
 	x.TimeFilter = v
 }
 
@@ -279,7 +277,7 @@ type MetricQuery_builder struct {
 	// Filter criteria for selecting metrics
 	Filter *MetricFilter
 	// Time range for the query
-	TimeFilter *types.TimeFilter
+	TimeFilter *TimeFilter
 	// Aggregation operations to apply
 	Aggregations []*AggregationSpec
 	// Group by specifications
@@ -314,7 +312,7 @@ func (b0 MetricQuery_builder) Build() *MetricQuery {
 type AggregationSpec struct {
 	state protoimpl.MessageState `protogen:"hybrid.v1"`
 	// Type of aggregation to perform
-	AggregationType *enums.AggregationType `protobuf:"varint,1,opt,name=aggregation_type,json=aggregationType,enum=gcommon.v1.metrics.AggregationType" json:"aggregation_type,omitempty"`
+	AggregationType *AggregationType `protobuf:"varint,1,opt,name=aggregation_type,json=aggregationType,enum=gcommon.v1.metrics.AggregationType" json:"aggregation_type,omitempty"`
 	// Field to aggregate on (if applicable)
 	Field *string `protobuf:"bytes,2,opt,name=field" json:"field,omitempty"`
 	// Time window for aggregation
@@ -352,11 +350,11 @@ func (x *AggregationSpec) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-func (x *AggregationSpec) GetAggregationType() enums.AggregationType {
+func (x *AggregationSpec) GetAggregationType() AggregationType {
 	if x != nil && x.AggregationType != nil {
 		return *x.AggregationType
 	}
-	return enums.AggregationType(0)
+	return AggregationType_AGGREGATION_TYPE_UNSPECIFIED
 }
 
 func (x *AggregationSpec) GetField() string {
@@ -387,7 +385,7 @@ func (x *AggregationSpec) GetParameters() map[string]string {
 	return nil
 }
 
-func (x *AggregationSpec) SetAggregationType(v enums.AggregationType) {
+func (x *AggregationSpec) SetAggregationType(v AggregationType) {
 	x.AggregationType = &v
 }
 
@@ -455,7 +453,7 @@ type AggregationSpec_builder struct {
 	_ [0]func() // Prevents comparability and use of unkeyed literals for the builder.
 
 	// Type of aggregation to perform
-	AggregationType *enums.AggregationType
+	AggregationType *AggregationType
 	// Field to aggregate on (if applicable)
 	Field *string
 	// Time window for aggregation
@@ -759,7 +757,7 @@ type QueryStep struct {
 	// Step identifier
 	StepId *string `protobuf:"bytes,1,opt,name=step_id,json=stepId" json:"step_id,omitempty"`
 	// Operation to perform in this step
-	Operation *enums.QueryOperation `protobuf:"varint,2,opt,name=operation,enum=gcommon.v1.metrics.QueryOperation" json:"operation,omitempty"`
+	Operation *QueryOperation `protobuf:"varint,2,opt,name=operation,enum=gcommon.v1.metrics.QueryOperation" json:"operation,omitempty"`
 	// Description of the operation
 	Description *string `protobuf:"bytes,3,opt,name=description" json:"description,omitempty"`
 	// Estimated cost/time for this step
@@ -802,11 +800,11 @@ func (x *QueryStep) GetStepId() string {
 	return ""
 }
 
-func (x *QueryStep) GetOperation() enums.QueryOperation {
+func (x *QueryStep) GetOperation() QueryOperation {
 	if x != nil && x.Operation != nil {
 		return *x.Operation
 	}
-	return enums.QueryOperation(0)
+	return QueryOperation_QUERY_OPERATION_UNSPECIFIED
 }
 
 func (x *QueryStep) GetDescription() string {
@@ -834,7 +832,7 @@ func (x *QueryStep) SetStepId(v string) {
 	x.StepId = &v
 }
 
-func (x *QueryStep) SetOperation(v enums.QueryOperation) {
+func (x *QueryStep) SetOperation(v QueryOperation) {
 	x.Operation = &v
 }
 
@@ -900,7 +898,7 @@ type QueryStep_builder struct {
 	// Step identifier
 	StepId *string
 	// Operation to perform in this step
-	Operation *enums.QueryOperation
+	Operation *QueryOperation
 	// Description of the operation
 	Description *string
 	// Estimated cost/time for this step
@@ -968,8 +966,8 @@ const file_pkg_metrics_proto_messages_metric_query_proto_rawDesc = "" +
 	"\toperation\x18\x02 \x01(\x0e2\".gcommon.v1.metrics.QueryOperationR\toperation\x12 \n" +
 	"\vdescription\x18\x03 \x01(\tR\vdescription\x12H\n" +
 	"\x12estimated_duration\x18\x04 \x01(\v2\x19.google.protobuf.DurationR\x11estimatedDuration\x12$\n" +
-	"\x0einput_step_ids\x18\x05 \x03(\tR\finputStepIdsB\xd2\x01\n" +
-	"\x16com.gcommon.v1.metricsB\x10MetricQueryProtoP\x01Z4github.com/jdfalk/gcommon/pkg/metrics/proto/messages\xa2\x02\x03GVM\xaa\x02\x12Gcommon.V1.Metrics\xca\x02\x12Gcommon\\V1\\Metrics\xe2\x02\x1eGcommon\\V1\\Metrics\\GPBMetadata\xea\x02\x14Gcommon::V1::Metrics\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
+	"\x0einput_step_ids\x18\x05 \x03(\tR\finputStepIdsB\xd3\x01\n" +
+	"\x16com.gcommon.v1.metricsB\x10MetricQueryProtoP\x01Z5github.com/jdfalk/gcommon/pkg/metrics/proto;metricspb\xa2\x02\x03GVM\xaa\x02\x12Gcommon.V1.Metrics\xca\x02\x12Gcommon\\V1\\Metrics\xe2\x02\x1eGcommon\\V1\\Metrics\\GPBMetadata\xea\x02\x14Gcommon::V1::Metrics\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
 
 var file_pkg_metrics_proto_messages_metric_query_proto_msgTypes = make([]protoimpl.MessageInfo, 6)
 var file_pkg_metrics_proto_messages_metric_query_proto_goTypes = []any{
@@ -980,11 +978,11 @@ var file_pkg_metrics_proto_messages_metric_query_proto_goTypes = []any{
 	(*QueryStep)(nil),           // 4: gcommon.v1.metrics.QueryStep
 	nil,                         // 5: gcommon.v1.metrics.AggregationSpec.ParametersEntry
 	(*MetricFilter)(nil),        // 6: gcommon.v1.metrics.MetricFilter
-	(*types.TimeFilter)(nil),    // 7: gcommon.v1.metrics.TimeFilter
+	(*TimeFilter)(nil),          // 7: gcommon.v1.metrics.TimeFilter
 	(*SortCriteria)(nil),        // 8: gcommon.v1.metrics.SortCriteria
-	(enums.AggregationType)(0),  // 9: gcommon.v1.metrics.AggregationType
+	(AggregationType)(0),        // 9: gcommon.v1.metrics.AggregationType
 	(*durationpb.Duration)(nil), // 10: google.protobuf.Duration
-	(enums.QueryOperation)(0),   // 11: gcommon.v1.metrics.QueryOperation
+	(QueryOperation)(0),         // 11: gcommon.v1.metrics.QueryOperation
 }
 var file_pkg_metrics_proto_messages_metric_query_proto_depIdxs = []int32{
 	6,  // 0: gcommon.v1.metrics.MetricQuery.filter:type_name -> gcommon.v1.metrics.MetricFilter
@@ -1013,7 +1011,10 @@ func file_pkg_metrics_proto_messages_metric_query_proto_init() {
 	if File_pkg_metrics_proto_messages_metric_query_proto != nil {
 		return
 	}
+	file_pkg_metrics_proto_enums_query_operation_proto_init()
+	file_pkg_metrics_proto_enums_aggregation_type_proto_init()
 	file_pkg_metrics_proto_messages_metric_filter_proto_init()
+	file_pkg_metrics_proto_types_timestamp_range_proto_init()
 	type x struct{}
 	out := protoimpl.TypeBuilder{
 		File: protoimpl.DescBuilder{

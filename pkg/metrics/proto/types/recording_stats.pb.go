@@ -4,7 +4,7 @@
 // 	protoc        (unknown)
 // source: pkg/metrics/proto/types/recording_stats.proto
 
-package types
+package metricspb
 
 import (
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
@@ -105,8 +105,8 @@ const file_pkg_metrics_proto_types_recording_stats_proto_rawDesc = "" +
 	"\vretry_count\x18\x02 \x01(\x05R\n" +
 	"retryCount\x12\x1a\n" +
 	"\bbuffered\x18\x03 \x01(\bR\bbuffered\x12\x1c\n" +
-	"\tpersisted\x18\x04 \x01(\bR\tpersistedB\xca\x01\n" +
-	"\x16com.gcommon.v1.metricsB\x13RecordingStatsProtoP\x01Z1github.com/jdfalk/gcommon/pkg/metrics/proto/types\xa2\x02\x03GVM\xaa\x02\x12Gcommon.V1.Metrics\xca\x02\x12Gcommon\\V1\\Metrics\xe2\x02\x1eGcommon\\V1\\Metrics\\GPBMetadata\xea\x02\x14Gcommon::V1::Metricsb\beditionsp\xe8\a"
+	"\tpersisted\x18\x04 \x01(\bR\tpersistedB\xce\x01\n" +
+	"\x16com.gcommon.v1.metricsB\x13RecordingStatsProtoP\x01Z5github.com/jdfalk/gcommon/pkg/metrics/proto;metricspb\xa2\x02\x03GVM\xaa\x02\x12Gcommon.V1.Metrics\xca\x02\x12Gcommon\\V1\\Metrics\xe2\x02\x1eGcommon\\V1\\Metrics\\GPBMetadata\xea\x02\x14Gcommon::V1::Metricsb\beditionsp\xe8\a"
 
 var (
 	file_pkg_metrics_proto_types_recording_stats_proto_rawDescOnce sync.Once

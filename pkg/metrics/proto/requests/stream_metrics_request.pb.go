@@ -6,11 +6,10 @@
 
 //go:build !protoopaque
 
-package requests
+package metricspb
 
 import (
-	messages "github.com/jdfalk/gcommon/pkg/common/proto/messages"
-	messages1 "github.com/jdfalk/gcommon/pkg/metrics/proto/messages"
+	proto "github.com/jdfalk/gcommon/pkg/common/proto"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
@@ -185,9 +184,9 @@ func (x BufferOverflowStrategy) Number() protoreflect.EnumNumber {
 type StreamMetricsRequest struct {
 	state protoimpl.MessageState `protogen:"hybrid.v1"`
 	// Standard request metadata (tracing, auth, etc.)
-	Metadata *messages.RequestMetadata `protobuf:"bytes,1,opt,name=metadata" json:"metadata,omitempty"`
+	Metadata *proto.RequestMetadata `protobuf:"bytes,1,opt,name=metadata" json:"metadata,omitempty"`
 	// Filter to determine which metrics to stream
-	Filter *messages1.MetricFilter `protobuf:"bytes,2,opt,name=filter" json:"filter,omitempty"`
+	Filter *MetricFilter `protobuf:"bytes,2,opt,name=filter" json:"filter,omitempty"`
 	// Streaming configuration options
 	Options *StreamOptions `protobuf:"bytes,3,opt,name=options" json:"options,omitempty"`
 	// Optional provider ID to stream from
@@ -225,14 +224,14 @@ func (x *StreamMetricsRequest) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-func (x *StreamMetricsRequest) GetMetadata() *messages.RequestMetadata {
+func (x *StreamMetricsRequest) GetMetadata() *proto.RequestMetadata {
 	if x != nil {
 		return x.Metadata
 	}
 	return nil
 }
 
-func (x *StreamMetricsRequest) GetFilter() *messages1.MetricFilter {
+func (x *StreamMetricsRequest) GetFilter() *MetricFilter {
 	if x != nil {
 		return x.Filter
 	}
@@ -267,11 +266,11 @@ func (x *StreamMetricsRequest) GetBufferConfig() *BufferConfig {
 	return nil
 }
 
-func (x *StreamMetricsRequest) SetMetadata(v *messages.RequestMetadata) {
+func (x *StreamMetricsRequest) SetMetadata(v *proto.RequestMetadata) {
 	x.Metadata = v
 }
 
-func (x *StreamMetricsRequest) SetFilter(v *messages1.MetricFilter) {
+func (x *StreamMetricsRequest) SetFilter(v *MetricFilter) {
 	x.Filter = v
 }
 
@@ -361,9 +360,9 @@ type StreamMetricsRequest_builder struct {
 	_ [0]func() // Prevents comparability and use of unkeyed literals for the builder.
 
 	// Standard request metadata (tracing, auth, etc.)
-	Metadata *messages.RequestMetadata
+	Metadata *proto.RequestMetadata
 	// Filter to determine which metrics to stream
-	Filter *messages1.MetricFilter
+	Filter *MetricFilter
 	// Streaming configuration options
 	Options *StreamOptions
 	// Optional provider ID to stream from
@@ -1033,22 +1032,22 @@ const file_pkg_metrics_proto_requests_stream_metrics_request_proto_rawDesc = "" 
 	"$BUFFER_OVERFLOW_STRATEGY_DROP_OLDEST\x10\x01\x12(\n" +
 	"$BUFFER_OVERFLOW_STRATEGY_DROP_NEWEST\x10\x02\x12\"\n" +
 	"\x1eBUFFER_OVERFLOW_STRATEGY_BLOCK\x10\x03\x12\"\n" +
-	"\x1eBUFFER_OVERFLOW_STRATEGY_ERROR\x10\x04B\xdb\x01\n" +
-	"\x16com.gcommon.v1.metricsB\x19StreamMetricsRequestProtoP\x01Z4github.com/jdfalk/gcommon/pkg/metrics/proto/requests\xa2\x02\x03GVM\xaa\x02\x12Gcommon.V1.Metrics\xca\x02\x12Gcommon\\V1\\Metrics\xe2\x02\x1eGcommon\\V1\\Metrics\\GPBMetadata\xea\x02\x14Gcommon::V1::Metrics\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
+	"\x1eBUFFER_OVERFLOW_STRATEGY_ERROR\x10\x04B\xdc\x01\n" +
+	"\x16com.gcommon.v1.metricsB\x19StreamMetricsRequestProtoP\x01Z5github.com/jdfalk/gcommon/pkg/metrics/proto;metricspb\xa2\x02\x03GVM\xaa\x02\x12Gcommon.V1.Metrics\xca\x02\x12Gcommon\\V1\\Metrics\xe2\x02\x1eGcommon\\V1\\Metrics\\GPBMetadata\xea\x02\x14Gcommon::V1::Metrics\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
 
 var file_pkg_metrics_proto_requests_stream_metrics_request_proto_enumTypes = make([]protoimpl.EnumInfo, 3)
 var file_pkg_metrics_proto_requests_stream_metrics_request_proto_msgTypes = make([]protoimpl.MessageInfo, 4)
 var file_pkg_metrics_proto_requests_stream_metrics_request_proto_goTypes = []any{
-	(StreamCompression)(0),           // 0: gcommon.v1.metrics.StreamCompression
-	(StreamQOS)(0),                   // 1: gcommon.v1.metrics.StreamQOS
-	(BufferOverflowStrategy)(0),      // 2: gcommon.v1.metrics.BufferOverflowStrategy
-	(*StreamMetricsRequest)(nil),     // 3: gcommon.v1.metrics.StreamMetricsRequest
-	(*StreamOptions)(nil),            // 4: gcommon.v1.metrics.StreamOptions
-	(*StreamStart)(nil),              // 5: gcommon.v1.metrics.StreamStart
-	(*BufferConfig)(nil),             // 6: gcommon.v1.metrics.BufferConfig
-	(*messages.RequestMetadata)(nil), // 7: gcommon.v1.common.RequestMetadata
-	(*messages1.MetricFilter)(nil),   // 8: gcommon.v1.metrics.MetricFilter
-	(*timestamppb.Timestamp)(nil),    // 9: google.protobuf.Timestamp
+	(StreamCompression)(0),        // 0: gcommon.v1.metrics.StreamCompression
+	(StreamQOS)(0),                // 1: gcommon.v1.metrics.StreamQOS
+	(BufferOverflowStrategy)(0),   // 2: gcommon.v1.metrics.BufferOverflowStrategy
+	(*StreamMetricsRequest)(nil),  // 3: gcommon.v1.metrics.StreamMetricsRequest
+	(*StreamOptions)(nil),         // 4: gcommon.v1.metrics.StreamOptions
+	(*StreamStart)(nil),           // 5: gcommon.v1.metrics.StreamStart
+	(*BufferConfig)(nil),          // 6: gcommon.v1.metrics.BufferConfig
+	(*proto.RequestMetadata)(nil), // 7: gcommon.v1.common.RequestMetadata
+	(*MetricFilter)(nil),          // 8: gcommon.v1.metrics.MetricFilter
+	(*timestamppb.Timestamp)(nil), // 9: google.protobuf.Timestamp
 }
 var file_pkg_metrics_proto_requests_stream_metrics_request_proto_depIdxs = []int32{
 	7, // 0: gcommon.v1.metrics.StreamMetricsRequest.metadata:type_name -> gcommon.v1.common.RequestMetadata
@@ -1072,6 +1071,7 @@ func file_pkg_metrics_proto_requests_stream_metrics_request_proto_init() {
 	if File_pkg_metrics_proto_requests_stream_metrics_request_proto != nil {
 		return
 	}
+	file_pkg_metrics_proto_messages_metric_filter_proto_init()
 	type x struct{}
 	out := protoimpl.TypeBuilder{
 		File: protoimpl.DescBuilder{

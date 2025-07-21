@@ -6,11 +6,9 @@
 
 //go:build protoopaque
 
-package messages
+package metricspb
 
 import (
-	enums "github.com/jdfalk/gcommon/pkg/metrics/proto/enums"
-	types "github.com/jdfalk/gcommon/pkg/metrics/proto/types"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
@@ -127,11 +125,11 @@ func (x SortCriteria_SortOrder) Number() protoreflect.EnumNumber {
 type MetricFilter struct {
 	state                   protoimpl.MessageState `protogen:"opaque.v1"`
 	xxx_hidden_MetricNames  []string               `protobuf:"bytes,1,rep,name=metric_names,json=metricNames"`
-	xxx_hidden_MetricTypes  []enums.MetricType     `protobuf:"varint,2,rep,packed,name=metric_types,json=metricTypes,enum=gcommon.v1.metrics.MetricType"`
+	xxx_hidden_MetricTypes  []MetricType           `protobuf:"varint,2,rep,packed,name=metric_types,json=metricTypes,enum=gcommon.v1.metrics.MetricType"`
 	xxx_hidden_LabelFilters *[]*LabelFilter        `protobuf:"bytes,3,rep,name=label_filters,json=labelFilters"`
 	xxx_hidden_Namespaces   []string               `protobuf:"bytes,4,rep,name=namespaces"`
 	xxx_hidden_Sources      []string               `protobuf:"bytes,5,rep,name=sources"`
-	xxx_hidden_TimeFilter   *types.TimeFilter      `protobuf:"bytes,6,opt,name=time_filter,json=timeFilter"`
+	xxx_hidden_TimeFilter   *TimeFilter            `protobuf:"bytes,6,opt,name=time_filter,json=timeFilter"`
 	xxx_hidden_ValueFilters *[]*ValueFilter        `protobuf:"bytes,7,rep,name=value_filters,json=valueFilters"`
 	xxx_hidden_Limit        int32                  `protobuf:"varint,8,opt,name=limit"`
 	xxx_hidden_Offset       int32                  `protobuf:"varint,9,opt,name=offset"`
@@ -173,7 +171,7 @@ func (x *MetricFilter) GetMetricNames() []string {
 	return nil
 }
 
-func (x *MetricFilter) GetMetricTypes() []enums.MetricType {
+func (x *MetricFilter) GetMetricTypes() []MetricType {
 	if x != nil {
 		return x.xxx_hidden_MetricTypes
 	}
@@ -203,7 +201,7 @@ func (x *MetricFilter) GetSources() []string {
 	return nil
 }
 
-func (x *MetricFilter) GetTimeFilter() *types.TimeFilter {
+func (x *MetricFilter) GetTimeFilter() *TimeFilter {
 	if x != nil {
 		return x.xxx_hidden_TimeFilter
 	}
@@ -237,7 +235,7 @@ func (x *MetricFilter) SetMetricNames(v []string) {
 	x.xxx_hidden_MetricNames = v
 }
 
-func (x *MetricFilter) SetMetricTypes(v []enums.MetricType) {
+func (x *MetricFilter) SetMetricTypes(v []MetricType) {
 	x.xxx_hidden_MetricTypes = v
 }
 
@@ -253,7 +251,7 @@ func (x *MetricFilter) SetSources(v []string) {
 	x.xxx_hidden_Sources = v
 }
 
-func (x *MetricFilter) SetTimeFilter(v *types.TimeFilter) {
+func (x *MetricFilter) SetTimeFilter(v *TimeFilter) {
 	x.xxx_hidden_TimeFilter = v
 }
 
@@ -312,7 +310,7 @@ type MetricFilter_builder struct {
 	// Filter by metric name (supports wildcards and regex)
 	MetricNames []string
 	// Filter by metric type
-	MetricTypes []enums.MetricType
+	MetricTypes []MetricType
 	// Filter by labels/tags
 	LabelFilters []*LabelFilter
 	// Filter by namespace
@@ -320,7 +318,7 @@ type MetricFilter_builder struct {
 	// Filter by source system
 	Sources []string
 	// Time range filter
-	TimeFilter *types.TimeFilter
+	TimeFilter *TimeFilter
 	// Filter by value range
 	ValueFilters []*ValueFilter
 	// Limit number of results
@@ -354,11 +352,11 @@ func (b0 MetricFilter_builder) Build() *MetricFilter {
 // *
 // LabelFilter filters metrics based on label values.
 type LabelFilter struct {
-	state                  protoimpl.MessageState   `protogen:"opaque.v1"`
-	xxx_hidden_Key         *string                  `protobuf:"bytes,1,opt,name=key"`
-	xxx_hidden_Operator    enums.ComparisonOperator `protobuf:"varint,2,opt,name=operator,enum=gcommon.v1.metrics.ComparisonOperator"`
-	xxx_hidden_Values      []string                 `protobuf:"bytes,3,rep,name=values"`
-	xxx_hidden_Negated     bool                     `protobuf:"varint,4,opt,name=negated"`
+	state                  protoimpl.MessageState `protogen:"opaque.v1"`
+	xxx_hidden_Key         *string                `protobuf:"bytes,1,opt,name=key"`
+	xxx_hidden_Operator    ComparisonOperator     `protobuf:"varint,2,opt,name=operator,enum=gcommon.v1.metrics.ComparisonOperator"`
+	xxx_hidden_Values      []string               `protobuf:"bytes,3,rep,name=values"`
+	xxx_hidden_Negated     bool                   `protobuf:"varint,4,opt,name=negated"`
 	XXX_raceDetectHookData protoimpl.RaceDetectHookData
 	XXX_presence           [1]uint32
 	unknownFields          protoimpl.UnknownFields
@@ -400,13 +398,13 @@ func (x *LabelFilter) GetKey() string {
 	return ""
 }
 
-func (x *LabelFilter) GetOperator() enums.ComparisonOperator {
+func (x *LabelFilter) GetOperator() ComparisonOperator {
 	if x != nil {
 		if protoimpl.X.Present(&(x.XXX_presence[0]), 1) {
 			return x.xxx_hidden_Operator
 		}
 	}
-	return enums.ComparisonOperator(0)
+	return ComparisonOperator_COMPARISON_OPERATOR_UNSPECIFIED
 }
 
 func (x *LabelFilter) GetValues() []string {
@@ -428,7 +426,7 @@ func (x *LabelFilter) SetKey(v string) {
 	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 0, 4)
 }
 
-func (x *LabelFilter) SetOperator(v enums.ComparisonOperator) {
+func (x *LabelFilter) SetOperator(v ComparisonOperator) {
 	x.xxx_hidden_Operator = v
 	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 1, 4)
 }
@@ -470,7 +468,7 @@ func (x *LabelFilter) ClearKey() {
 
 func (x *LabelFilter) ClearOperator() {
 	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 1)
-	x.xxx_hidden_Operator = enums.ComparisonOperator_COMPARISON_OPERATOR_UNSPECIFIED
+	x.xxx_hidden_Operator = ComparisonOperator_COMPARISON_OPERATOR_UNSPECIFIED
 }
 
 func (x *LabelFilter) ClearNegated() {
@@ -484,7 +482,7 @@ type LabelFilter_builder struct {
 	// Label key to filter on
 	Key *string
 	// Comparison operator for the filter
-	Operator *enums.ComparisonOperator
+	Operator *ComparisonOperator
 	// Value(s) to compare against
 	Values []string
 	// Whether this filter should be negated (NOT condition)
@@ -514,10 +512,10 @@ func (b0 LabelFilter_builder) Build() *LabelFilter {
 // *
 // ValueFilter filters metrics based on their actual values.
 type ValueFilter struct {
-	state                  protoimpl.MessageState   `protogen:"opaque.v1"`
-	xxx_hidden_Operator    enums.ComparisonOperator `protobuf:"varint,1,opt,name=operator,enum=gcommon.v1.metrics.ComparisonOperator"`
-	xxx_hidden_Threshold   isValueFilter_Threshold  `protobuf_oneof:"threshold"`
-	xxx_hidden_Negated     bool                     `protobuf:"varint,6,opt,name=negated"`
+	state                  protoimpl.MessageState  `protogen:"opaque.v1"`
+	xxx_hidden_Operator    ComparisonOperator      `protobuf:"varint,1,opt,name=operator,enum=gcommon.v1.metrics.ComparisonOperator"`
+	xxx_hidden_Threshold   isValueFilter_Threshold `protobuf_oneof:"threshold"`
+	xxx_hidden_Negated     bool                    `protobuf:"varint,6,opt,name=negated"`
 	XXX_raceDetectHookData protoimpl.RaceDetectHookData
 	XXX_presence           [1]uint32
 	unknownFields          protoimpl.UnknownFields
@@ -549,13 +547,13 @@ func (x *ValueFilter) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-func (x *ValueFilter) GetOperator() enums.ComparisonOperator {
+func (x *ValueFilter) GetOperator() ComparisonOperator {
 	if x != nil {
 		if protoimpl.X.Present(&(x.XXX_presence[0]), 0) {
 			return x.xxx_hidden_Operator
 		}
 	}
-	return enums.ComparisonOperator(0)
+	return ComparisonOperator_COMPARISON_OPERATOR_UNSPECIFIED
 }
 
 func (x *ValueFilter) GetDoubleValue() float64 {
@@ -601,7 +599,7 @@ func (x *ValueFilter) GetNegated() bool {
 	return false
 }
 
-func (x *ValueFilter) SetOperator(v enums.ComparisonOperator) {
+func (x *ValueFilter) SetOperator(v ComparisonOperator) {
 	x.xxx_hidden_Operator = v
 	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 0, 3)
 }
@@ -682,7 +680,7 @@ func (x *ValueFilter) HasNegated() bool {
 
 func (x *ValueFilter) ClearOperator() {
 	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 0)
-	x.xxx_hidden_Operator = enums.ComparisonOperator_COMPARISON_OPERATOR_UNSPECIFIED
+	x.xxx_hidden_Operator = ComparisonOperator_COMPARISON_OPERATOR_UNSPECIFIED
 }
 
 func (x *ValueFilter) ClearThreshold() {
@@ -746,7 +744,7 @@ type ValueFilter_builder struct {
 	_ [0]func() // Prevents comparability and use of unkeyed literals for the builder.
 
 	// Comparison operator
-	Operator *enums.ComparisonOperator
+	Operator *ComparisonOperator
 	// Value to compare against
 
 	// Fields of oneof xxx_hidden_Threshold:
@@ -979,21 +977,21 @@ const file_pkg_metrics_proto_messages_metric_filter_proto_rawDesc = "" +
 	"\tSortOrder\x12\x1a\n" +
 	"\x16SORT_ORDER_UNSPECIFIED\x10\x00\x12\x18\n" +
 	"\x14SORT_ORDER_ASCENDING\x10\x01\x12\x19\n" +
-	"\x15SORT_ORDER_DESCENDING\x10\x02B\xd3\x01\n" +
-	"\x16com.gcommon.v1.metricsB\x11MetricFilterProtoP\x01Z4github.com/jdfalk/gcommon/pkg/metrics/proto/messages\xa2\x02\x03GVM\xaa\x02\x12Gcommon.V1.Metrics\xca\x02\x12Gcommon\\V1\\Metrics\xe2\x02\x1eGcommon\\V1\\Metrics\\GPBMetadata\xea\x02\x14Gcommon::V1::Metrics\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
+	"\x15SORT_ORDER_DESCENDING\x10\x02B\xd4\x01\n" +
+	"\x16com.gcommon.v1.metricsB\x11MetricFilterProtoP\x01Z5github.com/jdfalk/gcommon/pkg/metrics/proto;metricspb\xa2\x02\x03GVM\xaa\x02\x12Gcommon.V1.Metrics\xca\x02\x12Gcommon\\V1\\Metrics\xe2\x02\x1eGcommon\\V1\\Metrics\\GPBMetadata\xea\x02\x14Gcommon::V1::Metrics\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
 
 var file_pkg_metrics_proto_messages_metric_filter_proto_enumTypes = make([]protoimpl.EnumInfo, 2)
 var file_pkg_metrics_proto_messages_metric_filter_proto_msgTypes = make([]protoimpl.MessageInfo, 4)
 var file_pkg_metrics_proto_messages_metric_filter_proto_goTypes = []any{
-	(SortCriteria_SortField)(0),   // 0: gcommon.v1.metrics.SortCriteria.SortField
-	(SortCriteria_SortOrder)(0),   // 1: gcommon.v1.metrics.SortCriteria.SortOrder
-	(*MetricFilter)(nil),          // 2: gcommon.v1.metrics.MetricFilter
-	(*LabelFilter)(nil),           // 3: gcommon.v1.metrics.LabelFilter
-	(*ValueFilter)(nil),           // 4: gcommon.v1.metrics.ValueFilter
-	(*SortCriteria)(nil),          // 5: gcommon.v1.metrics.SortCriteria
-	(enums.MetricType)(0),         // 6: gcommon.v1.metrics.MetricType
-	(*types.TimeFilter)(nil),      // 7: gcommon.v1.metrics.TimeFilter
-	(enums.ComparisonOperator)(0), // 8: gcommon.v1.metrics.ComparisonOperator
+	(SortCriteria_SortField)(0), // 0: gcommon.v1.metrics.SortCriteria.SortField
+	(SortCriteria_SortOrder)(0), // 1: gcommon.v1.metrics.SortCriteria.SortOrder
+	(*MetricFilter)(nil),        // 2: gcommon.v1.metrics.MetricFilter
+	(*LabelFilter)(nil),         // 3: gcommon.v1.metrics.LabelFilter
+	(*ValueFilter)(nil),         // 4: gcommon.v1.metrics.ValueFilter
+	(*SortCriteria)(nil),        // 5: gcommon.v1.metrics.SortCriteria
+	(MetricType)(0),             // 6: gcommon.v1.metrics.MetricType
+	(*TimeFilter)(nil),          // 7: gcommon.v1.metrics.TimeFilter
+	(ComparisonOperator)(0),     // 8: gcommon.v1.metrics.ComparisonOperator
 }
 var file_pkg_metrics_proto_messages_metric_filter_proto_depIdxs = []int32{
 	6, // 0: gcommon.v1.metrics.MetricFilter.metric_types:type_name -> gcommon.v1.metrics.MetricType
@@ -1016,6 +1014,9 @@ func file_pkg_metrics_proto_messages_metric_filter_proto_init() {
 	if File_pkg_metrics_proto_messages_metric_filter_proto != nil {
 		return
 	}
+	file_pkg_metrics_proto_enums_metric_type_proto_init()
+	file_pkg_metrics_proto_enums_comparison_operator_proto_init()
+	file_pkg_metrics_proto_types_timestamp_range_proto_init()
 	file_pkg_metrics_proto_messages_metric_filter_proto_msgTypes[2].OneofWrappers = []any{
 		(*valueFilter_DoubleValue)(nil),
 		(*valueFilter_IntValue)(nil),

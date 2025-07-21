@@ -4,10 +4,9 @@
 // 	protoc        (unknown)
 // source: pkg/metrics/proto/types/provider_status.proto
 
-package types
+package metricspb
 
 import (
-	enums "github.com/jdfalk/gcommon/pkg/metrics/proto/enums"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	timestamppb "google.golang.org/protobuf/types/known/timestamppb"
@@ -28,7 +27,7 @@ const (
 type ProviderStatus struct {
 	state protoimpl.MessageState `protogen:"open.v1"`
 	// Current state
-	State *enums.ProviderState `protobuf:"varint,1,opt,name=state,enum=gcommon.v1.metrics.ProviderState" json:"state,omitempty"`
+	State *ProviderState `protobuf:"varint,1,opt,name=state,enum=gcommon.v1.metrics.ProviderState" json:"state,omitempty"`
 	// Status message
 	Message *string `protobuf:"bytes,2,opt,name=message" json:"message,omitempty"`
 	// Health check status
@@ -71,11 +70,11 @@ func (*ProviderStatus) Descriptor() ([]byte, []int) {
 	return file_pkg_metrics_proto_types_provider_status_proto_rawDescGZIP(), []int{0}
 }
 
-func (x *ProviderStatus) GetState() enums.ProviderState {
+func (x *ProviderStatus) GetState() ProviderState {
 	if x != nil && x.State != nil {
 		return *x.State
 	}
-	return enums.ProviderState(0)
+	return ProviderState_PROVIDER_STATE_UNSPECIFIED
 }
 
 func (x *ProviderStatus) GetMessage() string {
@@ -116,8 +115,8 @@ const file_pkg_metrics_proto_types_provider_status_proto_rawDesc = "" +
 	"\amessage\x18\x02 \x01(\tR\amessage\x12\x16\n" +
 	"\x06health\x18\x03 \x01(\tR\x06health\x12=\n" +
 	"\flast_updated\x18\x04 \x01(\v2\x1a.google.protobuf.TimestampR\vlastUpdated\x12\x18\n" +
-	"\aversion\x18\x05 \x01(\tR\aversionB\xca\x01\n" +
-	"\x16com.gcommon.v1.metricsB\x13ProviderStatusProtoP\x01Z1github.com/jdfalk/gcommon/pkg/metrics/proto/types\xa2\x02\x03GVM\xaa\x02\x12Gcommon.V1.Metrics\xca\x02\x12Gcommon\\V1\\Metrics\xe2\x02\x1eGcommon\\V1\\Metrics\\GPBMetadata\xea\x02\x14Gcommon::V1::Metricsb\beditionsp\xe8\a"
+	"\aversion\x18\x05 \x01(\tR\aversionB\xce\x01\n" +
+	"\x16com.gcommon.v1.metricsB\x13ProviderStatusProtoP\x01Z5github.com/jdfalk/gcommon/pkg/metrics/proto;metricspb\xa2\x02\x03GVM\xaa\x02\x12Gcommon.V1.Metrics\xca\x02\x12Gcommon\\V1\\Metrics\xe2\x02\x1eGcommon\\V1\\Metrics\\GPBMetadata\xea\x02\x14Gcommon::V1::Metricsb\beditionsp\xe8\a"
 
 var (
 	file_pkg_metrics_proto_types_provider_status_proto_rawDescOnce sync.Once
@@ -134,7 +133,7 @@ func file_pkg_metrics_proto_types_provider_status_proto_rawDescGZIP() []byte {
 var file_pkg_metrics_proto_types_provider_status_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_pkg_metrics_proto_types_provider_status_proto_goTypes = []any{
 	(*ProviderStatus)(nil),        // 0: gcommon.v1.metrics.ProviderStatus
-	(enums.ProviderState)(0),      // 1: gcommon.v1.metrics.ProviderState
+	(ProviderState)(0),            // 1: gcommon.v1.metrics.ProviderState
 	(*timestamppb.Timestamp)(nil), // 2: google.protobuf.Timestamp
 }
 var file_pkg_metrics_proto_types_provider_status_proto_depIdxs = []int32{
@@ -152,6 +151,7 @@ func file_pkg_metrics_proto_types_provider_status_proto_init() {
 	if File_pkg_metrics_proto_types_provider_status_proto != nil {
 		return
 	}
+	file_pkg_metrics_proto_enums_provider_state_proto_init()
 	type x struct{}
 	out := protoimpl.TypeBuilder{
 		File: protoimpl.DescBuilder{

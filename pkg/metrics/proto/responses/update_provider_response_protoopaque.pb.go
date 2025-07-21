@@ -6,11 +6,10 @@
 
 //go:build protoopaque
 
-package responses
+package metricspb
 
 import (
-	messages "github.com/jdfalk/gcommon/pkg/common/proto/messages"
-	types "github.com/jdfalk/gcommon/pkg/metrics/proto/types"
+	proto "github.com/jdfalk/gcommon/pkg/common/proto"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
@@ -133,16 +132,16 @@ func (x ChangeType) Number() protoreflect.EnumNumber {
 // *
 // UpdateProviderResponse contains the result of updating a metrics provider.
 type UpdateProviderResponse struct {
-	state                   protoimpl.MessageState  `protogen:"opaque.v1"`
-	xxx_hidden_Success      bool                    `protobuf:"varint,1,opt,name=success"`
-	xxx_hidden_Error        *messages.Error         `protobuf:"bytes,2,opt,name=error"`
-	xxx_hidden_ProviderId   *string                 `protobuf:"bytes,3,opt,name=provider_id,json=providerId"`
-	xxx_hidden_UpdatedAt    *timestamppb.Timestamp  `protobuf:"bytes,4,opt,name=updated_at,json=updatedAt"`
-	xxx_hidden_Status       *types.ProviderStatus   `protobuf:"bytes,5,opt,name=status"`
-	xxx_hidden_UpdateResult *UpdateResult           `protobuf:"bytes,6,opt,name=update_result,json=updateResult"`
-	xxx_hidden_Validation   *types.ValidationResult `protobuf:"bytes,7,opt,name=validation"`
-	xxx_hidden_Warnings     []string                `protobuf:"bytes,8,rep,name=warnings"`
-	xxx_hidden_BackupInfo   *types.BackupInfo       `protobuf:"bytes,9,opt,name=backup_info,json=backupInfo"`
+	state                   protoimpl.MessageState `protogen:"opaque.v1"`
+	xxx_hidden_Success      bool                   `protobuf:"varint,1,opt,name=success"`
+	xxx_hidden_Error        *proto.Error           `protobuf:"bytes,2,opt,name=error"`
+	xxx_hidden_ProviderId   *string                `protobuf:"bytes,3,opt,name=provider_id,json=providerId"`
+	xxx_hidden_UpdatedAt    *timestamppb.Timestamp `protobuf:"bytes,4,opt,name=updated_at,json=updatedAt"`
+	xxx_hidden_Status       *ProviderStatus        `protobuf:"bytes,5,opt,name=status"`
+	xxx_hidden_UpdateResult *UpdateResult          `protobuf:"bytes,6,opt,name=update_result,json=updateResult"`
+	xxx_hidden_Validation   *ValidationResult      `protobuf:"bytes,7,opt,name=validation"`
+	xxx_hidden_Warnings     []string               `protobuf:"bytes,8,rep,name=warnings"`
+	xxx_hidden_BackupInfo   *BackupInfo            `protobuf:"bytes,9,opt,name=backup_info,json=backupInfo"`
 	XXX_raceDetectHookData  protoimpl.RaceDetectHookData
 	XXX_presence            [1]uint32
 	unknownFields           protoimpl.UnknownFields
@@ -181,7 +180,7 @@ func (x *UpdateProviderResponse) GetSuccess() bool {
 	return false
 }
 
-func (x *UpdateProviderResponse) GetError() *messages.Error {
+func (x *UpdateProviderResponse) GetError() *proto.Error {
 	if x != nil {
 		return x.xxx_hidden_Error
 	}
@@ -205,7 +204,7 @@ func (x *UpdateProviderResponse) GetUpdatedAt() *timestamppb.Timestamp {
 	return nil
 }
 
-func (x *UpdateProviderResponse) GetStatus() *types.ProviderStatus {
+func (x *UpdateProviderResponse) GetStatus() *ProviderStatus {
 	if x != nil {
 		return x.xxx_hidden_Status
 	}
@@ -219,7 +218,7 @@ func (x *UpdateProviderResponse) GetUpdateResult() *UpdateResult {
 	return nil
 }
 
-func (x *UpdateProviderResponse) GetValidation() *types.ValidationResult {
+func (x *UpdateProviderResponse) GetValidation() *ValidationResult {
 	if x != nil {
 		return x.xxx_hidden_Validation
 	}
@@ -233,7 +232,7 @@ func (x *UpdateProviderResponse) GetWarnings() []string {
 	return nil
 }
 
-func (x *UpdateProviderResponse) GetBackupInfo() *types.BackupInfo {
+func (x *UpdateProviderResponse) GetBackupInfo() *BackupInfo {
 	if x != nil {
 		return x.xxx_hidden_BackupInfo
 	}
@@ -245,7 +244,7 @@ func (x *UpdateProviderResponse) SetSuccess(v bool) {
 	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 0, 9)
 }
 
-func (x *UpdateProviderResponse) SetError(v *messages.Error) {
+func (x *UpdateProviderResponse) SetError(v *proto.Error) {
 	x.xxx_hidden_Error = v
 }
 
@@ -258,7 +257,7 @@ func (x *UpdateProviderResponse) SetUpdatedAt(v *timestamppb.Timestamp) {
 	x.xxx_hidden_UpdatedAt = v
 }
 
-func (x *UpdateProviderResponse) SetStatus(v *types.ProviderStatus) {
+func (x *UpdateProviderResponse) SetStatus(v *ProviderStatus) {
 	x.xxx_hidden_Status = v
 }
 
@@ -266,7 +265,7 @@ func (x *UpdateProviderResponse) SetUpdateResult(v *UpdateResult) {
 	x.xxx_hidden_UpdateResult = v
 }
 
-func (x *UpdateProviderResponse) SetValidation(v *types.ValidationResult) {
+func (x *UpdateProviderResponse) SetValidation(v *ValidationResult) {
 	x.xxx_hidden_Validation = v
 }
 
@@ -274,7 +273,7 @@ func (x *UpdateProviderResponse) SetWarnings(v []string) {
 	x.xxx_hidden_Warnings = v
 }
 
-func (x *UpdateProviderResponse) SetBackupInfo(v *types.BackupInfo) {
+func (x *UpdateProviderResponse) SetBackupInfo(v *BackupInfo) {
 	x.xxx_hidden_BackupInfo = v
 }
 
@@ -374,21 +373,21 @@ type UpdateProviderResponse_builder struct {
 	// Success status of the update
 	Success *bool
 	// Error information if update failed
-	Error *messages.Error
+	Error *proto.Error
 	// Provider ID that was updated
 	ProviderId *string
 	// When the update was completed
 	UpdatedAt *timestamppb.Timestamp
 	// New status of the provider after update
-	Status *types.ProviderStatus
+	Status *ProviderStatus
 	// Update results and changes applied
 	UpdateResult *UpdateResult
 	// Validation results
-	Validation *types.ValidationResult
+	Validation *ValidationResult
 	// Warnings or informational messages
 	Warnings []string
 	// Backup information (if backup was created)
-	BackupInfo *types.BackupInfo
+	BackupInfo *BackupInfo
 }
 
 func (b0 UpdateProviderResponse_builder) Build() *UpdateProviderResponse {
@@ -903,7 +902,7 @@ const file_pkg_metrics_proto_responses_update_provider_response_proto_rawDesc = 
 	"\x13CHANGE_TYPE_UPDATED\x10\x02\x12\x17\n" +
 	"\x13CHANGE_TYPE_REMOVED\x10\x03\x12\x18\n" +
 	"\x14CHANGE_TYPE_REPLACED\x10\x04B\xde\x01\n" +
-	"\x16com.gcommon.v1.metricsB\x1bUpdateProviderResponseProtoP\x01Z5github.com/jdfalk/gcommon/pkg/metrics/proto/responses\xa2\x02\x03GVM\xaa\x02\x12Gcommon.V1.Metrics\xca\x02\x12Gcommon\\V1\\Metrics\xe2\x02\x1eGcommon\\V1\\Metrics\\GPBMetadata\xea\x02\x14Gcommon::V1::Metrics\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
+	"\x16com.gcommon.v1.metricsB\x1bUpdateProviderResponseProtoP\x01Z5github.com/jdfalk/gcommon/pkg/metrics/proto;metricspb\xa2\x02\x03GVM\xaa\x02\x12Gcommon.V1.Metrics\xca\x02\x12Gcommon\\V1\\Metrics\xe2\x02\x1eGcommon\\V1\\Metrics\\GPBMetadata\xea\x02\x14Gcommon::V1::Metrics\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
 
 var file_pkg_metrics_proto_responses_update_provider_response_proto_enumTypes = make([]protoimpl.EnumInfo, 2)
 var file_pkg_metrics_proto_responses_update_provider_response_proto_msgTypes = make([]protoimpl.MessageInfo, 3)
@@ -913,11 +912,11 @@ var file_pkg_metrics_proto_responses_update_provider_response_proto_goTypes = []
 	(*UpdateProviderResponse)(nil), // 2: gcommon.v1.metrics.UpdateProviderResponse
 	(*UpdateResult)(nil),           // 3: gcommon.v1.metrics.UpdateResult
 	(*ConfigChange)(nil),           // 4: gcommon.v1.metrics.ConfigChange
-	(*messages.Error)(nil),         // 5: gcommon.v1.common.Error
+	(*proto.Error)(nil),            // 5: gcommon.v1.common.Error
 	(*timestamppb.Timestamp)(nil),  // 6: google.protobuf.Timestamp
-	(*types.ProviderStatus)(nil),   // 7: gcommon.v1.metrics.ProviderStatus
-	(*types.ValidationResult)(nil), // 8: gcommon.v1.metrics.ValidationResult
-	(*types.BackupInfo)(nil),       // 9: gcommon.v1.metrics.BackupInfo
+	(*ProviderStatus)(nil),         // 7: gcommon.v1.metrics.ProviderStatus
+	(*ValidationResult)(nil),       // 8: gcommon.v1.metrics.ValidationResult
+	(*BackupInfo)(nil),             // 9: gcommon.v1.metrics.BackupInfo
 }
 var file_pkg_metrics_proto_responses_update_provider_response_proto_depIdxs = []int32{
 	5, // 0: gcommon.v1.metrics.UpdateProviderResponse.error:type_name -> gcommon.v1.common.Error
@@ -941,6 +940,9 @@ func file_pkg_metrics_proto_responses_update_provider_response_proto_init() {
 	if File_pkg_metrics_proto_responses_update_provider_response_proto != nil {
 		return
 	}
+	file_pkg_metrics_proto_types_provider_status_proto_init()
+	file_pkg_metrics_proto_types_validation_result_proto_init()
+	file_pkg_metrics_proto_types_backup_info_proto_init()
 	type x struct{}
 	out := protoimpl.TypeBuilder{
 		File: protoimpl.DescBuilder{

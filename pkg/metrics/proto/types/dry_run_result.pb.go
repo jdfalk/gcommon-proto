@@ -4,7 +4,7 @@
 // 	protoc        (unknown)
 // source: pkg/metrics/proto/types/dry_run_result.proto
 
-package types
+package metricspb
 
 import (
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
@@ -114,8 +114,8 @@ const file_pkg_metrics_proto_types_dry_run_result_proto_rawDesc = "" +
 	"\x13would_delete_points\x18\x02 \x01(\x03R\x11wouldDeletePoints\x120\n" +
 	"\x14would_delete_indices\x18\x03 \x01(\x03R\x12wouldDeleteIndices\x12,\n" +
 	"\x12would_stop_exports\x18\x04 \x01(\x03R\x10wouldStopExports\x126\n" +
-	"\x17estimated_deletion_time\x18\x05 \x01(\tR\x15estimatedDeletionTimeB\xc8\x01\n" +
-	"\x16com.gcommon.v1.metricsB\x11DryRunResultProtoP\x01Z1github.com/jdfalk/gcommon/pkg/metrics/proto/types\xa2\x02\x03GVM\xaa\x02\x12Gcommon.V1.Metrics\xca\x02\x12Gcommon\\V1\\Metrics\xe2\x02\x1eGcommon\\V1\\Metrics\\GPBMetadata\xea\x02\x14Gcommon::V1::Metricsb\beditionsp\xe8\a"
+	"\x17estimated_deletion_time\x18\x05 \x01(\tR\x15estimatedDeletionTimeB\xcc\x01\n" +
+	"\x16com.gcommon.v1.metricsB\x11DryRunResultProtoP\x01Z5github.com/jdfalk/gcommon/pkg/metrics/proto;metricspb\xa2\x02\x03GVM\xaa\x02\x12Gcommon.V1.Metrics\xca\x02\x12Gcommon\\V1\\Metrics\xe2\x02\x1eGcommon\\V1\\Metrics\\GPBMetadata\xea\x02\x14Gcommon::V1::Metricsb\beditionsp\xe8\a"
 
 var (
 	file_pkg_metrics_proto_types_dry_run_result_proto_rawDescOnce sync.Once

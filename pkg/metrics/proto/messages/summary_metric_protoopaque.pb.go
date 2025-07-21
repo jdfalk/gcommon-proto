@@ -6,11 +6,10 @@
 
 //go:build protoopaque
 
-package messages
+package metricspb
 
 import (
-	_ "github.com/jdfalk/gcommon/pkg/common/proto"
-	messages "github.com/jdfalk/gcommon/pkg/common/proto/messages"
+	proto "github.com/jdfalk/gcommon/pkg/common/proto"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
@@ -140,17 +139,17 @@ func (b0 SummaryQuantile_builder) Build() *SummaryQuantile {
 // SummaryMetric represents a summary distribution with quantiles.
 // Used for tracking distributions with pre-calculated quantiles.
 type SummaryMetric struct {
-	state                  protoimpl.MessageState    `protogen:"opaque.v1"`
-	xxx_hidden_Name        *string                   `protobuf:"bytes,1,opt,name=name"`
-	xxx_hidden_SampleCount uint64                    `protobuf:"varint,2,opt,name=sample_count,json=sampleCount"`
-	xxx_hidden_SampleSum   float64                   `protobuf:"fixed64,3,opt,name=sample_sum,json=sampleSum"`
-	xxx_hidden_Quantiles   *[]*SummaryQuantile       `protobuf:"bytes,4,rep,name=quantiles"`
-	xxx_hidden_Labels      map[string]string         `protobuf:"bytes,5,rep,name=labels" protobuf_key:"bytes,1,opt,name=key" protobuf_val:"bytes,2,opt,name=value"`
-	xxx_hidden_Timestamp   *timestamppb.Timestamp    `protobuf:"bytes,6,opt,name=timestamp"`
-	xxx_hidden_Help        *string                   `protobuf:"bytes,7,opt,name=help"`
-	xxx_hidden_Unit        *string                   `protobuf:"bytes,8,opt,name=unit"`
-	xxx_hidden_MaxAge      *durationpb.Duration      `protobuf:"bytes,9,opt,name=max_age,json=maxAge"`
-	xxx_hidden_Metadata    *messages.RequestMetadata `protobuf:"bytes,10,opt,name=metadata"`
+	state                  protoimpl.MessageState `protogen:"opaque.v1"`
+	xxx_hidden_Name        *string                `protobuf:"bytes,1,opt,name=name"`
+	xxx_hidden_SampleCount uint64                 `protobuf:"varint,2,opt,name=sample_count,json=sampleCount"`
+	xxx_hidden_SampleSum   float64                `protobuf:"fixed64,3,opt,name=sample_sum,json=sampleSum"`
+	xxx_hidden_Quantiles   *[]*SummaryQuantile    `protobuf:"bytes,4,rep,name=quantiles"`
+	xxx_hidden_Labels      map[string]string      `protobuf:"bytes,5,rep,name=labels" protobuf_key:"bytes,1,opt,name=key" protobuf_val:"bytes,2,opt,name=value"`
+	xxx_hidden_Timestamp   *timestamppb.Timestamp `protobuf:"bytes,6,opt,name=timestamp"`
+	xxx_hidden_Help        *string                `protobuf:"bytes,7,opt,name=help"`
+	xxx_hidden_Unit        *string                `protobuf:"bytes,8,opt,name=unit"`
+	xxx_hidden_MaxAge      *durationpb.Duration   `protobuf:"bytes,9,opt,name=max_age,json=maxAge"`
+	xxx_hidden_Metadata    *proto.RequestMetadata `protobuf:"bytes,10,opt,name=metadata"`
 	XXX_raceDetectHookData protoimpl.RaceDetectHookData
 	XXX_presence           [1]uint32
 	unknownFields          protoimpl.UnknownFields
@@ -256,7 +255,7 @@ func (x *SummaryMetric) GetMaxAge() *durationpb.Duration {
 	return nil
 }
 
-func (x *SummaryMetric) GetMetadata() *messages.RequestMetadata {
+func (x *SummaryMetric) GetMetadata() *proto.RequestMetadata {
 	if x != nil {
 		return x.xxx_hidden_Metadata
 	}
@@ -304,7 +303,7 @@ func (x *SummaryMetric) SetMaxAge(v *durationpb.Duration) {
 	x.xxx_hidden_MaxAge = v
 }
 
-func (x *SummaryMetric) SetMetadata(v *messages.RequestMetadata) {
+func (x *SummaryMetric) SetMetadata(v *proto.RequestMetadata) {
 	x.xxx_hidden_Metadata = v
 }
 
@@ -423,7 +422,7 @@ type SummaryMetric_builder struct {
 	// Maximum age of observations in the summary
 	MaxAge *durationpb.Duration
 	// Metadata for request tracing
-	Metadata *messages.RequestMetadata
+	Metadata *proto.RequestMetadata
 }
 
 func (b0 SummaryMetric_builder) Build() *SummaryMetric {
@@ -481,17 +480,17 @@ const file_pkg_metrics_proto_messages_summary_metric_proto_rawDesc = "" +
 	" \x01(\v2\".gcommon.v1.common.RequestMetadataR\bmetadata\x1a9\n" +
 	"\vLabelsEntry\x12\x10\n" +
 	"\x03key\x18\x01 \x01(\tR\x03key\x12\x14\n" +
-	"\x05value\x18\x02 \x01(\tR\x05value:\x028\x01B\xd4\x01\n" +
-	"\x16com.gcommon.v1.metricsB\x12SummaryMetricProtoP\x01Z4github.com/jdfalk/gcommon/pkg/metrics/proto/messages\xa2\x02\x03GVM\xaa\x02\x12Gcommon.V1.Metrics\xca\x02\x12Gcommon\\V1\\Metrics\xe2\x02\x1eGcommon\\V1\\Metrics\\GPBMetadata\xea\x02\x14Gcommon::V1::Metrics\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
+	"\x05value\x18\x02 \x01(\tR\x05value:\x028\x01B\xd5\x01\n" +
+	"\x16com.gcommon.v1.metricsB\x12SummaryMetricProtoP\x01Z5github.com/jdfalk/gcommon/pkg/metrics/proto;metricspb\xa2\x02\x03GVM\xaa\x02\x12Gcommon.V1.Metrics\xca\x02\x12Gcommon\\V1\\Metrics\xe2\x02\x1eGcommon\\V1\\Metrics\\GPBMetadata\xea\x02\x14Gcommon::V1::Metrics\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
 
 var file_pkg_metrics_proto_messages_summary_metric_proto_msgTypes = make([]protoimpl.MessageInfo, 3)
 var file_pkg_metrics_proto_messages_summary_metric_proto_goTypes = []any{
-	(*SummaryQuantile)(nil),          // 0: gcommon.v1.metrics.SummaryQuantile
-	(*SummaryMetric)(nil),            // 1: gcommon.v1.metrics.SummaryMetric
-	nil,                              // 2: gcommon.v1.metrics.SummaryMetric.LabelsEntry
-	(*timestamppb.Timestamp)(nil),    // 3: google.protobuf.Timestamp
-	(*durationpb.Duration)(nil),      // 4: google.protobuf.Duration
-	(*messages.RequestMetadata)(nil), // 5: gcommon.v1.common.RequestMetadata
+	(*SummaryQuantile)(nil),       // 0: gcommon.v1.metrics.SummaryQuantile
+	(*SummaryMetric)(nil),         // 1: gcommon.v1.metrics.SummaryMetric
+	nil,                           // 2: gcommon.v1.metrics.SummaryMetric.LabelsEntry
+	(*timestamppb.Timestamp)(nil), // 3: google.protobuf.Timestamp
+	(*durationpb.Duration)(nil),   // 4: google.protobuf.Duration
+	(*proto.RequestMetadata)(nil), // 5: gcommon.v1.common.RequestMetadata
 }
 var file_pkg_metrics_proto_messages_summary_metric_proto_depIdxs = []int32{
 	0, // 0: gcommon.v1.metrics.SummaryMetric.quantiles:type_name -> gcommon.v1.metrics.SummaryQuantile

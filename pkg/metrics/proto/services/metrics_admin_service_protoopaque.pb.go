@@ -6,11 +6,9 @@
 
 //go:build protoopaque
 
-package services
+package metricspb
 
 import (
-	requests "github.com/jdfalk/gcommon/pkg/metrics/proto/requests"
-	responses "github.com/jdfalk/gcommon/pkg/metrics/proto/responses"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
@@ -35,20 +33,20 @@ const file_pkg_metrics_proto_services_metrics_admin_service_proto_rawDesc = "" +
 	"\x15UpdateMetricsProvider\x12).gcommon.v1.metrics.UpdateProviderRequest\x1a*.gcommon.v1.metrics.UpdateProviderResponse\x12n\n" +
 	"\x15DeleteMetricsProvider\x12).gcommon.v1.metrics.DeleteProviderRequest\x1a*.gcommon.v1.metrics.DeleteProviderResponse\x12k\n" +
 	"\x14ListMetricsProviders\x12(.gcommon.v1.metrics.ListProvidersRequest\x1a).gcommon.v1.metrics.ListProvidersResponse\x12m\n" +
-	"\x10GetProviderStats\x12+.gcommon.v1.metrics.GetProviderStatsRequest\x1a,.gcommon.v1.metrics.GetProviderStatsResponseB\xda\x01\n" +
-	"\x16com.gcommon.v1.metricsB\x18MetricsAdminServiceProtoP\x01Z4github.com/jdfalk/gcommon/pkg/metrics/proto/services\xa2\x02\x03GVM\xaa\x02\x12Gcommon.V1.Metrics\xca\x02\x12Gcommon\\V1\\Metrics\xe2\x02\x1eGcommon\\V1\\Metrics\\GPBMetadata\xea\x02\x14Gcommon::V1::Metrics\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
+	"\x10GetProviderStats\x12+.gcommon.v1.metrics.GetProviderStatsRequest\x1a,.gcommon.v1.metrics.GetProviderStatsResponseB\xdb\x01\n" +
+	"\x16com.gcommon.v1.metricsB\x18MetricsAdminServiceProtoP\x01Z5github.com/jdfalk/gcommon/pkg/metrics/proto;metricspb\xa2\x02\x03GVM\xaa\x02\x12Gcommon.V1.Metrics\xca\x02\x12Gcommon\\V1\\Metrics\xe2\x02\x1eGcommon\\V1\\Metrics\\GPBMetadata\xea\x02\x14Gcommon::V1::Metrics\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
 
 var file_pkg_metrics_proto_services_metrics_admin_service_proto_goTypes = []any{
-	(*requests.CreateProviderRequest)(nil),     // 0: gcommon.v1.metrics.CreateProviderRequest
-	(*requests.UpdateProviderRequest)(nil),     // 1: gcommon.v1.metrics.UpdateProviderRequest
-	(*requests.DeleteProviderRequest)(nil),     // 2: gcommon.v1.metrics.DeleteProviderRequest
-	(*requests.ListProvidersRequest)(nil),      // 3: gcommon.v1.metrics.ListProvidersRequest
-	(*requests.GetProviderStatsRequest)(nil),   // 4: gcommon.v1.metrics.GetProviderStatsRequest
-	(*responses.CreateProviderResponse)(nil),   // 5: gcommon.v1.metrics.CreateProviderResponse
-	(*responses.UpdateProviderResponse)(nil),   // 6: gcommon.v1.metrics.UpdateProviderResponse
-	(*responses.DeleteProviderResponse)(nil),   // 7: gcommon.v1.metrics.DeleteProviderResponse
-	(*responses.ListProvidersResponse)(nil),    // 8: gcommon.v1.metrics.ListProvidersResponse
-	(*responses.GetProviderStatsResponse)(nil), // 9: gcommon.v1.metrics.GetProviderStatsResponse
+	(*CreateProviderRequest)(nil),    // 0: gcommon.v1.metrics.CreateProviderRequest
+	(*UpdateProviderRequest)(nil),    // 1: gcommon.v1.metrics.UpdateProviderRequest
+	(*DeleteProviderRequest)(nil),    // 2: gcommon.v1.metrics.DeleteProviderRequest
+	(*ListProvidersRequest)(nil),     // 3: gcommon.v1.metrics.ListProvidersRequest
+	(*GetProviderStatsRequest)(nil),  // 4: gcommon.v1.metrics.GetProviderStatsRequest
+	(*CreateProviderResponse)(nil),   // 5: gcommon.v1.metrics.CreateProviderResponse
+	(*UpdateProviderResponse)(nil),   // 6: gcommon.v1.metrics.UpdateProviderResponse
+	(*DeleteProviderResponse)(nil),   // 7: gcommon.v1.metrics.DeleteProviderResponse
+	(*ListProvidersResponse)(nil),    // 8: gcommon.v1.metrics.ListProvidersResponse
+	(*GetProviderStatsResponse)(nil), // 9: gcommon.v1.metrics.GetProviderStatsResponse
 }
 var file_pkg_metrics_proto_services_metrics_admin_service_proto_depIdxs = []int32{
 	0, // 0: gcommon.v1.metrics.MetricsManagementService.CreateMetricsProvider:input_type -> gcommon.v1.metrics.CreateProviderRequest
@@ -73,6 +71,16 @@ func file_pkg_metrics_proto_services_metrics_admin_service_proto_init() {
 	if File_pkg_metrics_proto_services_metrics_admin_service_proto != nil {
 		return
 	}
+	file_pkg_metrics_proto_requests_create_provider_request_proto_init()
+	file_pkg_metrics_proto_responses_create_provider_response_proto_init()
+	file_pkg_metrics_proto_requests_update_provider_request_proto_init()
+	file_pkg_metrics_proto_responses_update_provider_response_proto_init()
+	file_pkg_metrics_proto_requests_delete_provider_request_proto_init()
+	file_pkg_metrics_proto_responses_delete_provider_response_proto_init()
+	file_pkg_metrics_proto_requests_list_providers_request_proto_init()
+	file_pkg_metrics_proto_responses_list_providers_response_proto_init()
+	file_pkg_metrics_proto_requests_get_provider_stats_request_proto_init()
+	file_pkg_metrics_proto_responses_get_provider_stats_response_proto_init()
 	type x struct{}
 	out := protoimpl.TypeBuilder{
 		File: protoimpl.DescBuilder{
