@@ -206,6 +206,18 @@ label_categories:
   issue_types: ["bug", "enhancement", "documentation", "question"]
   priorities: ["priority-high", "priority-medium", "priority-low"]
   technologies: ["tech:go", "tech:protobuf", "tech:python", "tech:javascript", "tech:typescript", "tech:docker", "tech:kubernetes", "tech:shell"]
-  modules: ["module:auth", "module:cache", "module:config", "module:database", "module:metrics", "module:queue", "module:web", "module:ui", "module:grpc", "module:common"]
+  modules:
+    [
+      "module:auth",
+      "module:cache",
+      "module:config",
+      "module:database",
+      "module:metrics",
+      "module:queue",
+      "module:web",
+      "module:ui",
+      "module:grpc",
+      "module:common",
+    ]
   workflows: ["workflow:automation", "workflow:github-actions", "workflow:ci-cd", "workflow:deployment", "workflow:codegen"]
   special: ["security", "performance", "breaking-change", "good first issue", "help wanted", "dependencies"]
