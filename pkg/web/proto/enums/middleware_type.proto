@@ -1,9 +1,8 @@
-// filepath: pkg/web/proto/enums/middleware_type.proto
-// file: web/proto/enums/middleware_type.proto
+// file: pkg/web/proto/enums/middleware_type.proto
+// version: 1.0.0
+// guid: e6a7b5cb-240b-4636-bb49-9615874e9f9d
 //
-// Enum definitions for web module
-// TODO: Implement actual protobuf definitions
-//
+// MiddlewareType represents categories of HTTP middleware.
 edition = "2023";
 
 package gcommon.v1.web;
@@ -13,6 +12,12 @@ import "google/protobuf/go_features.proto";
 option go_package = "github.com/jdfalk/gcommon/pkg/web/proto;webpb";
 option features.(pb.go).api_level = API_HYBRID;
 
-// TODO: Add enum definitions here
-// This is a placeholder file created during 1-1-1 migration
-// Implement the actual protobuf definitions according to the web module requirements
+enum MiddlewareType {
+    MIDDLEWARE_TYPE_UNSPECIFIED = 0;
+    MIDDLEWARE_TYPE_LOGGING = 1;
+    MIDDLEWARE_TYPE_AUTHENTICATION = 2;
+    MIDDLEWARE_TYPE_METRICS = 3;
+    MIDDLEWARE_TYPE_COMPRESSION = 4;
+    MIDDLEWARE_TYPE_CORS = 5;
+    MIDDLEWARE_TYPE_RATE_LIMIT = 6;
+}

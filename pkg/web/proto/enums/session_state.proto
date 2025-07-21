@@ -1,9 +1,8 @@
-// filepath: pkg/web/proto/enums/session_state.proto
-// file: web/proto/enums/session_state.proto
+// file: pkg/web/proto/enums/session_state.proto
+// version: 1.0.0
+// guid: a34ac56d-96ba-4c3e-b36b-a60ba1e62d86
 //
-// Enum definitions for web module
-// TODO: Implement actual protobuf definitions
-//
+// SessionState describes the lifecycle of a user session.
 edition = "2023";
 
 package gcommon.v1.web;
@@ -13,6 +12,9 @@ import "google/protobuf/go_features.proto";
 option go_package = "github.com/jdfalk/gcommon/pkg/web/proto;webpb";
 option features.(pb.go).api_level = API_HYBRID;
 
-// TODO: Add enum definitions here
-// This is a placeholder file created during 1-1-1 migration
-// Implement the actual protobuf definitions according to the web module requirements
+enum SessionState {
+    SESSION_STATE_UNSPECIFIED = 0;
+    SESSION_STATE_ACTIVE = 1;
+    SESSION_STATE_EXPIRED = 2;
+    SESSION_STATE_REVOKED = 3;
+}

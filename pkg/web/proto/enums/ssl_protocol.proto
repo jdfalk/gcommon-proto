@@ -1,9 +1,8 @@
-// filepath: pkg/web/proto/enums/ssl_protocol.proto
-// file: web/proto/enums/ssl_protocol.proto
+// file: pkg/web/proto/enums/ssl_protocol.proto
+// version: 1.0.0
+// guid: 2f6af5d4-4f52-42cd-9ae8-9c6506e0da5e
 //
-// Enum definitions for web module
-// TODO: Implement actual protobuf definitions
-//
+// SSLProtocol lists supported TLS protocol versions.
 edition = "2023";
 
 package gcommon.v1.web;
@@ -13,6 +12,10 @@ import "google/protobuf/go_features.proto";
 option go_package = "github.com/jdfalk/gcommon/pkg/web/proto;webpb";
 option features.(pb.go).api_level = API_HYBRID;
 
-// TODO: Add enum definitions here
-// This is a placeholder file created during 1-1-1 migration
-// Implement the actual protobuf definitions according to the web module requirements
+enum SSLProtocol {
+    SSL_PROTOCOL_UNSPECIFIED = 0;
+    SSL_PROTOCOL_TLS1_0 = 1;
+    SSL_PROTOCOL_TLS1_1 = 2;
+    SSL_PROTOCOL_TLS1_2 = 3;
+    SSL_PROTOCOL_TLS1_3 = 4;
+}

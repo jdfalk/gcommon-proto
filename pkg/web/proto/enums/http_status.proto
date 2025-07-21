@@ -1,9 +1,8 @@
-// filepath: pkg/web/proto/enums/http_status.proto
-// file: web/proto/enums/http_status.proto
+// file: pkg/web/proto/enums/http_status.proto
+// version: 1.0.0
+// guid: 8e7253f5-0453-42e2-b55a-336dd5c9b589
 //
-// Enum definitions for web module
-// TODO: Implement actual protobuf definitions
-//
+// HTTPStatus enumerates common response status codes.
 edition = "2023";
 
 package gcommon.v1.web;
@@ -13,6 +12,12 @@ import "google/protobuf/go_features.proto";
 option go_package = "github.com/jdfalk/gcommon/pkg/web/proto;webpb";
 option features.(pb.go).api_level = API_HYBRID;
 
-// TODO: Add enum definitions here
-// This is a placeholder file created during 1-1-1 migration
-// Implement the actual protobuf definitions according to the web module requirements
+enum HTTPStatus {
+    HTTP_STATUS_UNSPECIFIED = 0;
+    HTTP_STATUS_OK = 200;
+    HTTP_STATUS_BAD_REQUEST = 400;
+    HTTP_STATUS_UNAUTHORIZED = 401;
+    HTTP_STATUS_FORBIDDEN = 403;
+    HTTP_STATUS_NOT_FOUND = 404;
+    HTTP_STATUS_INTERNAL_ERROR = 500;
+}
