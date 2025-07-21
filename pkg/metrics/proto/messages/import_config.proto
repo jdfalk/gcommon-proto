@@ -1,9 +1,7 @@
-// filepath: pkg/metrics/proto/messages/import_config.proto
-// file: metrics/proto/messages/import_config.proto
-//
-// Message definitions for metrics module
-// TODO: Implement actual protobuf definitions
-//
+// file: pkg/metrics/proto/messages/import_config.proto
+// version: 1.0.0
+// guid: f2e3c94f-e0d7-4e2d-9799-1a4005b10c64
+
 edition = "2023";
 
 package gcommon.v1.metrics;
@@ -13,6 +11,17 @@ import "google/protobuf/go_features.proto";
 option go_package = "github.com/jdfalk/gcommon/pkg/metrics/proto;metricspb";
 option features.(pb.go).api_level = API_HYBRID;
 
-// TODO: Add message definitions here
-// This is a placeholder file created during 1-1-1 migration
-// Implement the actual protobuf definitions according to the metrics module requirements
+/**
+ * ImportConfig defines how external metrics should be imported
+ * into the system.
+ */
+message ImportConfig {
+  // List of source identifiers or URLs
+  repeated string sources = 1;
+
+  // Cron-style schedule for imports
+  string schedule = 2;
+
+  // Whether importing is enabled
+  bool enabled = 3;
+}

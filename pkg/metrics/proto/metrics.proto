@@ -71,6 +71,10 @@ import public "pkg/metrics/proto/messages/alert_notification.proto";
 import public "pkg/metrics/proto/messages/metric_bucket.proto";
 import public "pkg/metrics/proto/messages/metric_quantile.proto";
 import public "pkg/metrics/proto/messages/metric_stats.proto";
+import public "pkg/metrics/proto/messages/time_series.proto";
+import public "pkg/metrics/proto/messages/metric_health.proto";
+import public "pkg/metrics/proto/messages/import_config.proto";
+import public "pkg/metrics/proto/messages/retention_policy.proto";
 // import public "pkg/metrics/proto/messages/dashboard.proto";    // MISSING - needs creation
 // import public "pkg/metrics/proto/messages/dashboard_panel.proto";    // MISSING
 // import public "pkg/metrics/proto/messages/visualization_config.proto";  // MISSING
