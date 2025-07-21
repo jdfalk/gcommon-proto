@@ -1,3 +1,7 @@
+<!-- file: TODO.md -->
+<!-- version: 1.0.1 -->
+<!-- guid: b2c3d4e5-f6a7-8b9c-def0-1234567890ab -->
+
 # GCommon Project Roadmap & Implementation Plan
 
 ## ✅ COMPLETED: GitHub Project Setup & Protobuf Analysis (June 8, 2025)
@@ -25,19 +29,19 @@
 
 ### 📋 Current Status by Module
 
-| Module           | Files | Empty | Issues             | Priority    | Next Action        |
-| ---------------- | ----- | ----- | ------------------ | ----------- | ------------------ |
+| Module           | Files | Empty | Issues             | Priority   | Next Action        |
+| ---------------- | ----- | ----- | ------------------ | ---------- | ------------------ |
 | **Metrics**      | 97    | 95    | 6 issues (#68-#73) | 🔴 CRITICAL | **START HERE**     |
 | **Queue**        | 177   | 175   | 6 issues (#87-#92) | 🔴 CRITICAL | After Metrics      |
 | **Web**          | 178   | 176   | 6 issues (#81-#86) | 🔴 CRITICAL | After Queue        |
 | **Auth**         | 126   | 109   | 5 issues (#76-#80) | 🟠 HIGH     | After Web          |
 | **Cache**        | 44    | 36    | 2 issues (#74-#75) | 🟠 HIGH     | After Auth         |
 | **Config**       | 23    | 20    | 2 issues (#93-#94) | 🟡 MEDIUM   | After Cache        |
-| **Health**       | 36    | 0     | Complete ✅        | ✅ DONE     | **Complete 1-1-1** |
+| **Health**       | 36    | 0     | Complete ✅         | ✅ DONE     | **Complete 1-1-1** |
 | **Notification** | 7     | 7     | **Not tracked**    | 🟡 MEDIUM   | Need analysis      |
-| **Common**       | 40    | 0     | Complete ✅        | ✅ DONE     | Reference          |
-| **Database**     | 52    | 0     | Complete ✅        | ✅ DONE     | Gold Standard      |
-| **Log**          | 1     | 0     | Complete ✅        | ✅ DONE     | Minimal            |
+| **Common**       | 40    | 0     | Complete ✅         | ✅ DONE     | Reference          |
+| **Database**     | 52    | 0     | Complete ✅         | ✅ DONE     | Gold Standard      |
+| **Log**          | 1     | 0     | Complete ✅         | ✅ DONE     | Minimal            |
 
 ---
 
@@ -184,18 +188,18 @@ GCommon aims to be the most comprehensive, well-designed Go library for common a
 
 ### Module Completion Matrix
 
-| Module           | Go Interfaces  | Protobuf Definitions | gRPC Services  | Providers                       | Examples       | Tests          | Docs           |
-| ---------------- | -------------- | -------------------- | -------------- | ------------------------------- | -------------- | -------------- | -------------- |
-| **Health**       | ✅ Complete    | ✅ Complete          | ✅ Complete    | ✅ Complete                     | ✅ Complete    | ✅ Complete    | ✅ Complete    |
-| **Metrics**      | ✅ Complete    | ✅ Complete          | ⚠️ Partial     | ✅ Prometheus, 🔄 OpenTelemetry | ✅ Complete    | ✅ Complete    | 🔄 Partial     |
-| **Logging**      | ✅ Complete    | ✅ Complete          | ❌ Not Started | ✅ Std/Zap/Logrus               | 🔄 Partial     | 🔄 Partial     | 🔄 Partial     |
-| **Auth**         | 🔄 Partial     | ✅ Complete          | 🔄 Partial     | ❌ Not Started                  | ❌ Not Started | ❌ Not Started | 🔄 Design Only |
-| **Database**     | ✅ Complete    | 🔄 Partial           | 🔄 Partial     | 🔄 SQLite partial               | ❌ Not Started | ❌ Not Started | 🔄 Design Only |
-| **Cache**        | 🔄 Partial     | ✅ Complete          | ❌ Not Started | 🔄 Memory partial               | ❌ Not Started | ❌ Not Started | 🔄 Design Only |
-| **Config**       | ❌ Not Started | ✅ Complete          | ❌ Not Started | ❌ Not Started                  | ❌ Not Started | ❌ Not Started | 🔄 Design Only |
-| **Notification** | 🔄 Partial     | ✅ Complete          | ❌ Not Started | ❌ Not Started                  | ❌ Not Started | ❌ Not Started | 🔄 Design Only |
-| **Queue**        | ❌ Not Started | ✅ Complete          | ❌ Not Started | ❌ Not Started                  | ❌ Not Started | ❌ Not Started | 🔄 Design Only |
-| **Web**          | 🔄 Partial     | ✅ Complete          | ❌ Not Started | 🔄 Basic server                 | ❌ Not Started | ❌ Not Started | 🔄 Design Only |
+| Module           | Go Interfaces | Protobuf Definitions | gRPC Services | Providers                     | Examples      | Tests         | Docs          |
+| ---------------- | ------------- | -------------------- | ------------- | ----------------------------- | ------------- | ------------- | ------------- |
+| **Health**       | ✅ Complete    | ✅ Complete           | ✅ Complete    | ✅ Complete                    | ✅ Complete    | ✅ Complete    | ✅ Complete    |
+| **Metrics**      | ✅ Complete    | ✅ Complete           | ⚠️ Partial     | ✅ Prometheus, 🔄 OpenTelemetry | ✅ Complete    | ✅ Complete    | 🔄 Partial     |
+| **Logging**      | ✅ Complete    | ✅ Complete           | ❌ Not Started | ✅ Std/Zap/Logrus              | 🔄 Partial     | 🔄 Partial     | 🔄 Partial     |
+| **Auth**         | 🔄 Partial     | ✅ Complete           | 🔄 Partial     | ❌ Not Started                 | ❌ Not Started | ❌ Not Started | 🔄 Design Only |
+| **Database**     | ✅ Complete    | 🔄 Partial            | 🔄 Partial     | 🔄 SQLite partial              | ❌ Not Started | ❌ Not Started | 🔄 Design Only |
+| **Cache**        | 🔄 Partial     | ✅ Complete           | ❌ Not Started | 🔄 Memory partial              | ❌ Not Started | ❌ Not Started | 🔄 Design Only |
+| **Config**       | ❌ Not Started | ✅ Complete           | ❌ Not Started | ❌ Not Started                 | ❌ Not Started | ❌ Not Started | 🔄 Design Only |
+| **Notification** | 🔄 Partial     | ✅ Complete           | ❌ Not Started | ❌ Not Started                 | ❌ Not Started | ❌ Not Started | 🔄 Design Only |
+| **Queue**        | ❌ Not Started | ✅ Complete           | ❌ Not Started | ❌ Not Started                 | ❌ Not Started | ❌ Not Started | 🔄 Design Only |
+| **Web**          | 🔄 Partial     | ✅ Complete           | ❌ Not Started | 🔄 Basic server                | ❌ Not Started | ❌ Not Started | 🔄 Design Only |
 
 **Legend**: ✅ Complete | 🔄 In Progress | ⚠️ Needs Work | ❌ Not Started
 
@@ -266,19 +270,19 @@ This section tracks the migration from monolithic protobuf files (one large file
 
 ### Migration Status Summary
 
-| Module           | Monolithic File | Total Types | Migrated Types | 1-1-1 Files    | Migration %    | Status         |
-| ---------------- | --------------- | ----------- | -------------- | -------------- | -------------- | -------------- | -------------- |
-| **Auth**         | auth.proto      | 48 types    | 16 types       | 16 files       | 33%            | 🔄 Partial     |
-| **Cache**        | cache.proto     | 46 types    | 7 types        | 7 files        | 15%            | ⚠️ Minimal     |
-| **Config**       | config.proto    | 23 types    | 2 types        | 2 files        | 9%             | ⚠️ Minimal     |
-| **Notification** | 🔄 Partial      | ✅ Complete | ❌ Not Started | ❌ Not Started | ❌ Not Started | ❌ Not Started | 🔄 Design Only |
-| **Database**     | database.proto  | 51 types    | 51 types       | 51 files       | 100%           | ✅ Complete    |
-| **Health**       | health.proto    | 36 types    | 36 types       | 36 files       | 100%           | ✅ Complete    |
-| **Log**          | log.proto       | 50 types    | 0 types        | 0 files        | 0%             | ❌ Blocked     |
-| **Metrics**      | metrics.proto   | 95 types    | 1 type         | 1 file         | 1%             | ❌ Blocked     |
-| **Queue**        | queue.proto     | 143 types   | 1 type         | 1 file         | 1%             | ❌ Blocked     |
-| **Web**          | web.proto       | 123 types   | 1 type         | 1 file         | 1%             | ❌ Blocked     |
-| **Common**       | common.proto    | 37 types    | 39 types       | 39 files       | N/A (base)     | ✅ Complete    |
+| Module           | Monolithic File | Total Types | Migrated Types | 1-1-1 Files   | Migration %   | Status        |
+| ---------------- | --------------- | ----------- | -------------- | ------------- | ------------- | ------------- | ------------- |
+| **Auth**         | auth.proto      | 48 types    | 16 types       | 16 files      | 33%           | 🔄 Partial     |
+| **Cache**        | cache.proto     | 46 types    | 7 types        | 7 files       | 15%           | ⚠️ Minimal     |
+| **Config**       | config.proto    | 23 types    | 2 types        | 2 files       | 9%            | ⚠️ Minimal     |
+| **Notification** | 🔄 Partial       | ✅ Complete  | ❌ Not Started  | ❌ Not Started | ❌ Not Started | ❌ Not Started | 🔄 Design Only |
+| **Database**     | database.proto  | 51 types    | 51 types       | 51 files      | 100%          | ✅ Complete    |
+| **Health**       | health.proto    | 36 types    | 36 types       | 36 files      | 100%          | ✅ Complete    |
+| **Log**          | log.proto       | 50 types    | 0 types        | 0 files       | 0%            | ❌ Blocked     |
+| **Metrics**      | metrics.proto   | 95 types    | 1 type         | 1 file        | 1%            | ❌ Blocked     |
+| **Queue**        | queue.proto     | 143 types   | 1 type         | 1 file        | 1%            | ❌ Blocked     |
+| **Web**          | web.proto       | 123 types   | 1 type         | 1 file        | 1%            | ❌ Blocked     |
+| **Common**       | common.proto    | 37 types    | 39 types       | 39 files      | N/A (base)    | ✅ Complete    |
 
 **Legend**: ✅ Complete (90%+) | 🔄 Partial (25-89%) | ⚠️ Minimal (5-24%) | ❌ Blocked (0-4%)
 
@@ -1166,8 +1170,8 @@ Based on the current state, here are the implementation priorities for rapid com
 
 ## Milestone Timeline
 
-| Milestone                           | Target Date  | Status                   |
-| ----------------------------------- | ------------ | ------------------------ |
+| Milestone                           | Target Date  | Status                  |
+| ----------------------------------- | ------------ | ----------------------- |
 | Health Module Complete              | Jan 2025     | ✅ COMPLETED             |
 | Logging Module Basic Implementation | Feb 2025     | ✅ COMPLETED             |
 | Metrics Module Interfaces           | Mar 2025     | ✅ COMPLETED             |
@@ -1392,20 +1396,4 @@ Automate issue linking for project boards
 
 Setup protobuf validation workflow (#67)
 
-Migrate remaining proto files to use shared types
-
-- [ ] 🟡 **General**: Remove references to custom add-to-project workflow
-
 Automate issue linking for project boards
-
-
-# #### **High Priority** (Phase 1 - Immediate Action Required)
-
-#### **High Priority** (Phase 1 - Immediate Action Required)
-
-1. **Config Module** - Complete migration of 21 remaining types (2/23 migrated)
-2. **Cache Module** - Complete migration of 39 remaining types (7/46 migrated)
-
-Continue implementing remaining metrics protobuf files
-
-Continue implementing remaining queue module protobuf files

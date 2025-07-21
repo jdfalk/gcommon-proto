@@ -1,8 +1,16 @@
+<!-- file: README.md -->
+<!-- version: 1.0.1 -->
+<!-- guid: a1b2c3d4-e5f6-7890-abcd-ef0123456789 -->
+
 # GCommon - Common Go Modules
 
 [![Go Version](https://img.shields.io/badge/go-1.21+-blue.svg)](https://golang.org/)
 [![License](https://img.shields.io/badge/license-MIT-green.svg)](LICENSE)
-[![Build Status](h### Essential Documentation
+[![Build Status](https://img.shields.io/badge/build-passing-brightgreen.svg)](https://github.com/jdfalk/gcommon)
+
+> **🚨 MAJOR BREAKING CHANGES COMING**: Version 0.2.0 will introduce significant protobuf message structure changes. See [CHANGELOG.md](CHANGELOG.md) for migration details.
+
+## 📚 Essential Documentation
 
 ### New Users Start Here
 
@@ -17,9 +25,7 @@
 - **[Technical Architecture](CHANGELOG.md)** - Detailed technical documentation
 - **[Protobuf API Design](docs/technical/protobuf-grpc-design.md)** - gRPC service definitions
 
-[![Build Status](https://img.shields.io/badge/build-passing-brightgreen.svg)](https://github.com/jdfalk/gcommon)
-
-> **🚨 MAJOR BREAKING CHANGES COMING**: Version 0.2.0 will introduce significant protobuf message structure changes. See [CHANGELOG.md](CHANGELOG.md) for migration details.
+## � Overview
 
 GCommon is a comprehensive library of common Go modules designed for building robust, scalable applications. It provides consistent APIs across authentication, caching, configuration, database operations, health checking, logging, metrics, message queuing, and web services.
 
@@ -252,28 +258,6 @@ git add issue_updates.json && git commit -m "Complete issue #68: Metrics Message
 
 The GitHub Actions workflow automatically processes these updates on every push to main.
 
-## 📚 Essential Documentation
-
-### New Users Start Here
-
-- **[Getting Started Guide](docs/user/getting-started.md)** - Complete setup and first steps
-- **[Health Module Guide](docs/user/health-kubernetes.md)** - Production-ready health monitoring
-- **[Basic Examples](examples/)** - Working code examples for each module
-
-### For Developers
-
-- **[Project Roadmap](TODO.md)** - Implementation status and plans
-- **[Technical Architecture](CHANGELOG.md)** - Detailed technical documentation
-- **[Protobuf API Design](docs/technical/protobuf-grpc-design.md)** - gRPC service definitions
-
-### Module-Specific Guides
-
-- [Metrics Collection](docs/user/metrics.md) (75% complete)
-- [Logging](docs/user/logging.md) (50% complete)
-- [Database Operations](docs/user/database.md) (30% complete)
-- [Caching](docs/user/cache.md) (20% complete)
-- [Configuration Management](docs/user/config.md) (20% complete)
-
 ## 🏗️ Architecture Overview
 
 ```text
@@ -326,14 +310,3 @@ python3 /path/to/ghcommon/scripts/unified_github_project_manager_v2.py
 ```
 
 See `scripts/MIGRATION-NOTICE.md` for migration details.
-
-GitHub's built-in project automation now automatically adds issues and PRs to the board, so the custom workflow has been removed.
-
-GitHub's built-in project automation now automatically adds issues and PRs to the board, so the custom workflow has been removed.
-### Protobuf Validation Pipeline\n\nRun 'make proto-compile' to validate all protobuf files using protoc and buf lint.
-The updated setup script automatically authenticates using `gh auth token` and links open issues by module labels.
-### GitHub Projects\nThis repository now uses a dedicated GitHub Project board for each major module (Metrics, Queue, Web, Auth, Cache, Config). Run `scripts/setup-github-projects.sh` to create these boards and automatically add issues by label.
-Added reference to shared proto types
-Project board organized with Todo, In Progress, Review, and Done columns
-Metrics module now includes alerting rules and basic stats messages
-### July 21, 2025: Queue module progress\n\nImplemented core protobuf files for queue messages and delivery options. Module completion now 7/177 files (~4%).
