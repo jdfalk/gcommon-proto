@@ -1,0 +1,8 @@
+{
+  "action": "update",
+  "number": 67,
+  "body": "Set up validation pipeline",
+  "labels": ["completed"],
+  "guid": "91c1f39c-7bf8-4adf-aa6f-71e0da3af605",
+  "legacy_guid": "update-issue-67-2025-07-21"
+}
