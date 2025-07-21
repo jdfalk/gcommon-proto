@@ -1,18 +1,31 @@
-// filepath: pkg/metrics/proto/messages/alerting_condition.proto
-// file: metrics/proto/messages/alerting_condition.proto
-//
-// Message definitions for metrics module
-// TODO: Implement actual protobuf definitions
-//
+// file: pkg/metrics/proto/messages/alerting_condition.proto
+// version: 1.0.0
+// guid: c1e0ab41-b93c-4d9f-91a4-035998d0488d
+
 edition = "2023";
 
 package gcommon.v1.metrics;
 
 import "google/protobuf/go_features.proto";
+import "pkg/metrics/proto/enums/comparison_operator.proto";
 
 option go_package = "github.com/jdfalk/gcommon/pkg/metrics/proto;metricspb";
 option features.(pb.go).api_level = API_HYBRID;
 
-// TODO: Add message definitions here
-// This is a placeholder file created during 1-1-1 migration
-// Implement the actual protobuf definitions according to the metrics module requirements
+/**
+ * AlertingCondition specifies a single metric threshold comparison
+ * that triggers an alert when satisfied.
+ */
+message AlertingCondition {
+  // Operator to use when comparing the metric value to the threshold.
+  ComparisonOperator operator = 1;
+
+  // Metric name or query expression being evaluated.
+  string metric = 2;
+
+  // Threshold value to compare against.
+  double threshold = 3;
+
+  // Duration in seconds the condition must hold true before firing.
+  int32 duration_seconds = 4;
+}
