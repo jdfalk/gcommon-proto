@@ -4,12 +4,10 @@
 // 	protoc        (unknown)
 // source: pkg/queue/proto/responses/peek_response.proto
 
-package responses
+package queuepb
 
 import (
-	_ "github.com/jdfalk/gcommon/pkg/common/proto"
-	messages "github.com/jdfalk/gcommon/pkg/common/proto/messages"
-	proto "github.com/jdfalk/gcommon/pkg/queue/proto"
+	proto "github.com/jdfalk/gcommon/pkg/common/proto"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	timestamppb "google.golang.org/protobuf/types/known/timestamppb"
@@ -36,14 +34,14 @@ type PeekResponse struct {
 	// *
 	// Messages viewed from the queue.
 	// Empty if no messages were found matching the criteria.
-	Messages []*proto.QueueMessage `protobuf:"bytes,1,rep,name=messages" json:"messages,omitempty"`
+	Messages []*QueueMessage `protobuf:"bytes,1,rep,name=messages" json:"messages,omitempty"`
 	// *
 	// Indicates whether the peek operation was successful.
 	Success *bool `protobuf:"varint,2,opt,name=success" json:"success,omitempty"`
 	// *
 	// Request processing metadata including timing, request ID,
 	// and other observability information.
-	RequestMetadata *messages.RequestMetadata `protobuf:"bytes,11,opt,name=request_metadata,json=requestMetadata" json:"request_metadata,omitempty"`
+	RequestMetadata *proto.RequestMetadata `protobuf:"bytes,11,opt,name=request_metadata,json=requestMetadata" json:"request_metadata,omitempty"`
 	// *
 	// Name of the queue that was peeked.
 	// Echoed from the request for verification.
@@ -82,7 +80,7 @@ type PeekResponse struct {
 	// *
 	// Error information if the peek operation failed
 	// or completed with warnings.
-	Error *messages.Error `protobuf:"bytes,61,opt,name=error" json:"error,omitempty"`
+	Error *proto.Error `protobuf:"bytes,61,opt,name=error" json:"error,omitempty"`
 	// *
 	// Timestamp when the peek operation was performed.
 	PeekedAt *timestamppb.Timestamp `protobuf:"bytes,51,opt,name=peeked_at,json=peekedAt" json:"peeked_at,omitempty"`
@@ -123,7 +121,7 @@ func (*PeekResponse) Descriptor() ([]byte, []int) {
 	return file_pkg_queue_proto_responses_peek_response_proto_rawDescGZIP(), []int{0}
 }
 
-func (x *PeekResponse) GetMessages() []*proto.QueueMessage {
+func (x *PeekResponse) GetMessages() []*QueueMessage {
 	if x != nil {
 		return x.Messages
 	}
@@ -137,7 +135,7 @@ func (x *PeekResponse) GetSuccess() bool {
 	return false
 }
 
-func (x *PeekResponse) GetRequestMetadata() *messages.RequestMetadata {
+func (x *PeekResponse) GetRequestMetadata() *proto.RequestMetadata {
 	if x != nil {
 		return x.RequestMetadata
 	}
@@ -207,7 +205,7 @@ func (x *PeekResponse) GetNewestMessageTime() *timestamppb.Timestamp {
 	return nil
 }
 
-func (x *PeekResponse) GetError() *messages.Error {
+func (x *PeekResponse) GetError() *proto.Error {
 	if x != nil {
 		return x.Error
 	}
@@ -249,8 +247,8 @@ const file_pkg_queue_proto_responses_peek_response_proto_rawDesc = "" +
 	"\x13newest_message_time\x18\x14 \x01(\v2\x1a.google.protobuf.TimestampR\x11newestMessageTime\x12.\n" +
 	"\x05error\x18= \x01(\v2\x18.gcommon.v1.common.ErrorR\x05error\x127\n" +
 	"\tpeeked_at\x183 \x01(\v2\x1a.google.protobuf.TimestampR\bpeekedAt\x12N\n" +
-	"\x15response_generated_at\x184 \x01(\v2\x1a.google.protobuf.TimestampR\x13responseGeneratedAtB\xc0\x01\n" +
-	"\x14com.gcommon.v1.queueB\x11PeekResponseProtoP\x01Z3github.com/jdfalk/gcommon/pkg/queue/proto/responses\xa2\x02\x03GVQ\xaa\x02\x10Gcommon.V1.Queue\xca\x02\x10Gcommon\\V1\\Queue\xe2\x02\x1cGcommon\\V1\\Queue\\GPBMetadata\xea\x02\x12Gcommon::V1::Queueb\beditionsp\xe8\a"
+	"\x15response_generated_at\x184 \x01(\v2\x1a.google.protobuf.TimestampR\x13responseGeneratedAtB\xbe\x01\n" +
+	"\x14com.gcommon.v1.queueB\x11PeekResponseProtoP\x01Z1github.com/jdfalk/gcommon/pkg/queue/proto;queuepb\xa2\x02\x03GVQ\xaa\x02\x10Gcommon.V1.Queue\xca\x02\x10Gcommon\\V1\\Queue\xe2\x02\x1cGcommon\\V1\\Queue\\GPBMetadata\xea\x02\x12Gcommon::V1::Queueb\beditionsp\xe8\a"
 
 var (
 	file_pkg_queue_proto_responses_peek_response_proto_rawDescOnce sync.Once
@@ -266,11 +264,11 @@ func file_pkg_queue_proto_responses_peek_response_proto_rawDescGZIP() []byte {
 
 var file_pkg_queue_proto_responses_peek_response_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_pkg_queue_proto_responses_peek_response_proto_goTypes = []any{
-	(*PeekResponse)(nil),             // 0: gcommon.v1.queue.PeekResponse
-	(*proto.QueueMessage)(nil),       // 1: gcommon.v1.queue.QueueMessage
-	(*messages.RequestMetadata)(nil), // 2: gcommon.v1.common.RequestMetadata
-	(*timestamppb.Timestamp)(nil),    // 3: google.protobuf.Timestamp
-	(*messages.Error)(nil),           // 4: gcommon.v1.common.Error
+	(*PeekResponse)(nil),          // 0: gcommon.v1.queue.PeekResponse
+	(*QueueMessage)(nil),          // 1: gcommon.v1.queue.QueueMessage
+	(*proto.RequestMetadata)(nil), // 2: gcommon.v1.common.RequestMetadata
+	(*timestamppb.Timestamp)(nil), // 3: google.protobuf.Timestamp
+	(*proto.Error)(nil),           // 4: gcommon.v1.common.Error
 }
 var file_pkg_queue_proto_responses_peek_response_proto_depIdxs = []int32{
 	1, // 0: gcommon.v1.queue.PeekResponse.messages:type_name -> gcommon.v1.queue.QueueMessage
@@ -292,6 +290,7 @@ func file_pkg_queue_proto_responses_peek_response_proto_init() {
 	if File_pkg_queue_proto_responses_peek_response_proto != nil {
 		return
 	}
+	file_pkg_queue_proto_queue_proto_init()
 	type x struct{}
 	out := protoimpl.TypeBuilder{
 		File: protoimpl.DescBuilder{

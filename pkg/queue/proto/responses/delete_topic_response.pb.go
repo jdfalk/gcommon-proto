@@ -6,7 +6,7 @@
 
 //go:build !protoopaque
 
-package responses
+package queuepb
 
 import (
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
@@ -186,8 +186,8 @@ const file_pkg_queue_proto_responses_delete_topic_response_proto_rawDesc = "" +
 	"\asuccess\x18\x01 \x01(\bR\asuccess\x123\n" +
 	"\x15deleted_subscriptions\x18\x02 \x01(\x03R\x14deletedSubscriptions\x12'\n" +
 	"\x0fpurged_messages\x18\x03 \x01(\x03R\x0epurgedMessages\x12\x18\n" +
-	"\amessage\x18\x04 \x01(\tR\amessageB\xcf\x01\n" +
-	"\x14com.gcommon.v1.queueB\x18DeleteTopicResponseProtoP\x01Z3github.com/jdfalk/gcommon/pkg/queue/proto/responses\xa2\x02\x03GVQ\xaa\x02\x10Gcommon.V1.Queue\xca\x02\x10Gcommon\\V1\\Queue\xe2\x02\x1cGcommon\\V1\\Queue\\GPBMetadata\xea\x02\x12Gcommon::V1::Queue\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
+	"\amessage\x18\x04 \x01(\tR\amessageB\xcd\x01\n" +
+	"\x14com.gcommon.v1.queueB\x18DeleteTopicResponseProtoP\x01Z1github.com/jdfalk/gcommon/pkg/queue/proto;queuepb\xa2\x02\x03GVQ\xaa\x02\x10Gcommon.V1.Queue\xca\x02\x10Gcommon\\V1\\Queue\xe2\x02\x1cGcommon\\V1\\Queue\\GPBMetadata\xea\x02\x12Gcommon::V1::Queue\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
 
 var file_pkg_queue_proto_responses_delete_topic_response_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_pkg_queue_proto_responses_delete_topic_response_proto_goTypes = []any{

@@ -6,7 +6,7 @@
 
 //go:build !protoopaque
 
-package messages
+package queuepb
 
 import (
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
@@ -27,8 +27,8 @@ var File_pkg_queue_proto_messages_transformation_config_proto protoreflect.FileD
 
 const file_pkg_queue_proto_messages_transformation_config_proto_rawDesc = "" +
 	"\n" +
-	"4pkg/queue/proto/messages/transformation_config.proto\x12\x10gcommon.v1.queue\x1a!google/protobuf/go_features.protoB\xcf\x01\n" +
-	"\x14com.gcommon.v1.queueB\x19TransformationConfigProtoP\x01Z2github.com/jdfalk/gcommon/pkg/queue/proto/messages\xa2\x02\x03GVQ\xaa\x02\x10Gcommon.V1.Queue\xca\x02\x10Gcommon\\V1\\Queue\xe2\x02\x1cGcommon\\V1\\Queue\\GPBMetadata\xea\x02\x12Gcommon::V1::Queue\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
+	"4pkg/queue/proto/messages/transformation_config.proto\x12\x10gcommon.v1.queue\x1a!google/protobuf/go_features.protoB\xce\x01\n" +
+	"\x14com.gcommon.v1.queueB\x19TransformationConfigProtoP\x01Z1github.com/jdfalk/gcommon/pkg/queue/proto;queuepb\xa2\x02\x03GVQ\xaa\x02\x10Gcommon.V1.Queue\xca\x02\x10Gcommon\\V1\\Queue\xe2\x02\x1cGcommon\\V1\\Queue\\GPBMetadata\xea\x02\x12Gcommon::V1::Queue\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
 
 var file_pkg_queue_proto_messages_transformation_config_proto_goTypes = []any{}
 var file_pkg_queue_proto_messages_transformation_config_proto_depIdxs = []int32{

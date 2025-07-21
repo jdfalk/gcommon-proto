@@ -4,12 +4,10 @@
 // - protoc             (unknown)
 // source: pkg/queue/proto/queue.proto
 
-package proto
+package queuepb
 
 import (
 	context "context"
-	requests "github.com/jdfalk/gcommon/pkg/queue/proto/requests"
-	responses "github.com/jdfalk/gcommon/pkg/queue/proto/responses"
 	grpc "google.golang.org/grpc"
 	codes "google.golang.org/grpc/codes"
 	status "google.golang.org/grpc/status"
@@ -65,7 +63,7 @@ type QueueServiceClient interface {
 	// List messages in a queue
 	ListMessages(ctx context.Context, in *ListMessagesRequest, opts ...grpc.CallOption) (*ListMessagesResponse, error)
 	// Get queue statistics
-	GetQueueStats(ctx context.Context, in *requests.GetQueueStatsRequest, opts ...grpc.CallOption) (*responses.GetQueueStatsResponse, error)
+	GetQueueStats(ctx context.Context, in *GetQueueStatsRequest, opts ...grpc.CallOption) (*GetQueueStatsResponse, error)
 	// Get subscription statistics
 	GetSubscriptionStats(ctx context.Context, in *GetSubscriptionStatsRequest, opts ...grpc.CallOption) (*GetSubscriptionStatsResponse, error)
 }
@@ -197,9 +195,9 @@ func (c *queueServiceClient) ListMessages(ctx context.Context, in *ListMessagesR
 	return out, nil
 }
 
-func (c *queueServiceClient) GetQueueStats(ctx context.Context, in *requests.GetQueueStatsRequest, opts ...grpc.CallOption) (*responses.GetQueueStatsResponse, error) {
+func (c *queueServiceClient) GetQueueStats(ctx context.Context, in *GetQueueStatsRequest, opts ...grpc.CallOption) (*GetQueueStatsResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(responses.GetQueueStatsResponse)
+	out := new(GetQueueStatsResponse)
 	err := c.cc.Invoke(ctx, QueueService_GetQueueStats_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
@@ -246,7 +244,7 @@ type QueueServiceServer interface {
 	// List messages in a queue
 	ListMessages(context.Context, *ListMessagesRequest) (*ListMessagesResponse, error)
 	// Get queue statistics
-	GetQueueStats(context.Context, *requests.GetQueueStatsRequest) (*responses.GetQueueStatsResponse, error)
+	GetQueueStats(context.Context, *GetQueueStatsRequest) (*GetQueueStatsResponse, error)
 	// Get subscription statistics
 	GetSubscriptionStats(context.Context, *GetSubscriptionStatsRequest) (*GetSubscriptionStatsResponse, error)
 }
@@ -291,7 +289,7 @@ func (UnimplementedQueueServiceServer) GetMessage(context.Context, *GetMessageRe
 func (UnimplementedQueueServiceServer) ListMessages(context.Context, *ListMessagesRequest) (*ListMessagesResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method ListMessages not implemented")
 }
-func (UnimplementedQueueServiceServer) GetQueueStats(context.Context, *requests.GetQueueStatsRequest) (*responses.GetQueueStatsResponse, error) {
+func (UnimplementedQueueServiceServer) GetQueueStats(context.Context, *GetQueueStatsRequest) (*GetQueueStatsResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method GetQueueStats not implemented")
 }
 func (UnimplementedQueueServiceServer) GetSubscriptionStats(context.Context, *GetSubscriptionStatsRequest) (*GetSubscriptionStatsResponse, error) {
@@ -509,7 +507,7 @@ func _QueueService_ListMessages_Handler(srv interface{}, ctx context.Context, de
 }
 
 func _QueueService_GetQueueStats_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(requests.GetQueueStatsRequest)
+	in := new(GetQueueStatsRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
@@ -521,7 +519,7 @@ func _QueueService_GetQueueStats_Handler(srv interface{}, ctx context.Context, d
 		FullMethod: QueueService_GetQueueStats_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(QueueServiceServer).GetQueueStats(ctx, req.(*requests.GetQueueStatsRequest))
+		return srv.(QueueServiceServer).GetQueueStats(ctx, req.(*GetQueueStatsRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -640,7 +638,7 @@ type QueueAdminServiceClient interface {
 	// Update a queue
 	UpdateQueue(ctx context.Context, in *UpdateQueueRequest, opts ...grpc.CallOption) (*UpdateQueueResponse, error)
 	// Delete a queue
-	DeleteQueue(ctx context.Context, in *DeleteQueueRequest, opts ...grpc.CallOption) (*responses.DeleteQueueResponse, error)
+	DeleteQueue(ctx context.Context, in *DeleteQueueRequest, opts ...grpc.CallOption) (*DeleteQueueResponse, error)
 	// List queues
 	ListQueues(ctx context.Context, in *ListQueuesRequest, opts ...grpc.CallOption) (*ListQueuesResponse, error)
 	// Create a topic
@@ -648,7 +646,7 @@ type QueueAdminServiceClient interface {
 	// Update a topic
 	UpdateTopic(ctx context.Context, in *UpdateTopicRequest, opts ...grpc.CallOption) (*UpdateTopicResponse, error)
 	// Delete a topic
-	DeleteTopic(ctx context.Context, in *DeleteTopicRequest, opts ...grpc.CallOption) (*responses.DeleteTopicResponse, error)
+	DeleteTopic(ctx context.Context, in *DeleteTopicRequest, opts ...grpc.CallOption) (*DeleteTopicResponse, error)
 	// List topics
 	ListTopics(ctx context.Context, in *ListTopicsRequest, opts ...grpc.CallOption) (*ListTopicsResponse, error)
 	// Create a subscription
@@ -656,7 +654,7 @@ type QueueAdminServiceClient interface {
 	// Update a subscription
 	UpdateSubscription(ctx context.Context, in *UpdateSubscriptionRequest, opts ...grpc.CallOption) (*UpdateSubscriptionResponse, error)
 	// Delete a subscription
-	DeleteSubscription(ctx context.Context, in *DeleteSubscriptionRequest, opts ...grpc.CallOption) (*responses.DeleteSubscriptionResponse, error)
+	DeleteSubscription(ctx context.Context, in *DeleteSubscriptionRequest, opts ...grpc.CallOption) (*DeleteSubscriptionResponse, error)
 	// List subscriptions
 	ListSubscriptions(ctx context.Context, in *ListSubscriptionsRequest, opts ...grpc.CallOption) (*ListSubscriptionsResponse, error)
 	// Purge messages from a queue
@@ -697,9 +695,9 @@ func (c *queueAdminServiceClient) UpdateQueue(ctx context.Context, in *UpdateQue
 	return out, nil
 }
 
-func (c *queueAdminServiceClient) DeleteQueue(ctx context.Context, in *DeleteQueueRequest, opts ...grpc.CallOption) (*responses.DeleteQueueResponse, error) {
+func (c *queueAdminServiceClient) DeleteQueue(ctx context.Context, in *DeleteQueueRequest, opts ...grpc.CallOption) (*DeleteQueueResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(responses.DeleteQueueResponse)
+	out := new(DeleteQueueResponse)
 	err := c.cc.Invoke(ctx, QueueAdminService_DeleteQueue_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
@@ -737,9 +735,9 @@ func (c *queueAdminServiceClient) UpdateTopic(ctx context.Context, in *UpdateTop
 	return out, nil
 }
 
-func (c *queueAdminServiceClient) DeleteTopic(ctx context.Context, in *DeleteTopicRequest, opts ...grpc.CallOption) (*responses.DeleteTopicResponse, error) {
+func (c *queueAdminServiceClient) DeleteTopic(ctx context.Context, in *DeleteTopicRequest, opts ...grpc.CallOption) (*DeleteTopicResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(responses.DeleteTopicResponse)
+	out := new(DeleteTopicResponse)
 	err := c.cc.Invoke(ctx, QueueAdminService_DeleteTopic_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
@@ -777,9 +775,9 @@ func (c *queueAdminServiceClient) UpdateSubscription(ctx context.Context, in *Up
 	return out, nil
 }
 
-func (c *queueAdminServiceClient) DeleteSubscription(ctx context.Context, in *DeleteSubscriptionRequest, opts ...grpc.CallOption) (*responses.DeleteSubscriptionResponse, error) {
+func (c *queueAdminServiceClient) DeleteSubscription(ctx context.Context, in *DeleteSubscriptionRequest, opts ...grpc.CallOption) (*DeleteSubscriptionResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(responses.DeleteSubscriptionResponse)
+	out := new(DeleteSubscriptionResponse)
 	err := c.cc.Invoke(ctx, QueueAdminService_DeleteSubscription_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
@@ -848,7 +846,7 @@ type QueueAdminServiceServer interface {
 	// Update a queue
 	UpdateQueue(context.Context, *UpdateQueueRequest) (*UpdateQueueResponse, error)
 	// Delete a queue
-	DeleteQueue(context.Context, *DeleteQueueRequest) (*responses.DeleteQueueResponse, error)
+	DeleteQueue(context.Context, *DeleteQueueRequest) (*DeleteQueueResponse, error)
 	// List queues
 	ListQueues(context.Context, *ListQueuesRequest) (*ListQueuesResponse, error)
 	// Create a topic
@@ -856,7 +854,7 @@ type QueueAdminServiceServer interface {
 	// Update a topic
 	UpdateTopic(context.Context, *UpdateTopicRequest) (*UpdateTopicResponse, error)
 	// Delete a topic
-	DeleteTopic(context.Context, *DeleteTopicRequest) (*responses.DeleteTopicResponse, error)
+	DeleteTopic(context.Context, *DeleteTopicRequest) (*DeleteTopicResponse, error)
 	// List topics
 	ListTopics(context.Context, *ListTopicsRequest) (*ListTopicsResponse, error)
 	// Create a subscription
@@ -864,7 +862,7 @@ type QueueAdminServiceServer interface {
 	// Update a subscription
 	UpdateSubscription(context.Context, *UpdateSubscriptionRequest) (*UpdateSubscriptionResponse, error)
 	// Delete a subscription
-	DeleteSubscription(context.Context, *DeleteSubscriptionRequest) (*responses.DeleteSubscriptionResponse, error)
+	DeleteSubscription(context.Context, *DeleteSubscriptionRequest) (*DeleteSubscriptionResponse, error)
 	// List subscriptions
 	ListSubscriptions(context.Context, *ListSubscriptionsRequest) (*ListSubscriptionsResponse, error)
 	// Purge messages from a queue
@@ -890,7 +888,7 @@ func (UnimplementedQueueAdminServiceServer) CreateQueue(context.Context, *Create
 func (UnimplementedQueueAdminServiceServer) UpdateQueue(context.Context, *UpdateQueueRequest) (*UpdateQueueResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method UpdateQueue not implemented")
 }
-func (UnimplementedQueueAdminServiceServer) DeleteQueue(context.Context, *DeleteQueueRequest) (*responses.DeleteQueueResponse, error) {
+func (UnimplementedQueueAdminServiceServer) DeleteQueue(context.Context, *DeleteQueueRequest) (*DeleteQueueResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method DeleteQueue not implemented")
 }
 func (UnimplementedQueueAdminServiceServer) ListQueues(context.Context, *ListQueuesRequest) (*ListQueuesResponse, error) {
@@ -902,7 +900,7 @@ func (UnimplementedQueueAdminServiceServer) CreateTopic(context.Context, *Create
 func (UnimplementedQueueAdminServiceServer) UpdateTopic(context.Context, *UpdateTopicRequest) (*UpdateTopicResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method UpdateTopic not implemented")
 }
-func (UnimplementedQueueAdminServiceServer) DeleteTopic(context.Context, *DeleteTopicRequest) (*responses.DeleteTopicResponse, error) {
+func (UnimplementedQueueAdminServiceServer) DeleteTopic(context.Context, *DeleteTopicRequest) (*DeleteTopicResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method DeleteTopic not implemented")
 }
 func (UnimplementedQueueAdminServiceServer) ListTopics(context.Context, *ListTopicsRequest) (*ListTopicsResponse, error) {
@@ -914,7 +912,7 @@ func (UnimplementedQueueAdminServiceServer) CreateSubscription(context.Context, 
 func (UnimplementedQueueAdminServiceServer) UpdateSubscription(context.Context, *UpdateSubscriptionRequest) (*UpdateSubscriptionResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method UpdateSubscription not implemented")
 }
-func (UnimplementedQueueAdminServiceServer) DeleteSubscription(context.Context, *DeleteSubscriptionRequest) (*responses.DeleteSubscriptionResponse, error) {
+func (UnimplementedQueueAdminServiceServer) DeleteSubscription(context.Context, *DeleteSubscriptionRequest) (*DeleteSubscriptionResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method DeleteSubscription not implemented")
 }
 func (UnimplementedQueueAdminServiceServer) ListSubscriptions(context.Context, *ListSubscriptionsRequest) (*ListSubscriptionsResponse, error) {

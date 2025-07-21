@@ -6,7 +6,7 @@
 
 //go:build protoopaque
 
-package enums
+package queuepb
 
 import (
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
@@ -27,8 +27,8 @@ var File_pkg_queue_proto_enums_durability_level_proto protoreflect.FileDescripto
 
 const file_pkg_queue_proto_enums_durability_level_proto_rawDesc = "" +
 	"\n" +
-	",pkg/queue/proto/enums/durability_level.proto\x12\x10gcommon.v1.queue\x1a!google/protobuf/go_features.protoB\xc7\x01\n" +
-	"\x14com.gcommon.v1.queueB\x14DurabilityLevelProtoP\x01Z/github.com/jdfalk/gcommon/pkg/queue/proto/enums\xa2\x02\x03GVQ\xaa\x02\x10Gcommon.V1.Queue\xca\x02\x10Gcommon\\V1\\Queue\xe2\x02\x1cGcommon\\V1\\Queue\\GPBMetadata\xea\x02\x12Gcommon::V1::Queue\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
+	",pkg/queue/proto/enums/durability_level.proto\x12\x10gcommon.v1.queue\x1a!google/protobuf/go_features.protoB\xc9\x01\n" +
+	"\x14com.gcommon.v1.queueB\x14DurabilityLevelProtoP\x01Z1github.com/jdfalk/gcommon/pkg/queue/proto;queuepb\xa2\x02\x03GVQ\xaa\x02\x10Gcommon.V1.Queue\xca\x02\x10Gcommon\\V1\\Queue\xe2\x02\x1cGcommon\\V1\\Queue\\GPBMetadata\xea\x02\x12Gcommon::V1::Queue\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
 
 var file_pkg_queue_proto_enums_durability_level_proto_goTypes = []any{}
 var file_pkg_queue_proto_enums_durability_level_proto_depIdxs = []int32{

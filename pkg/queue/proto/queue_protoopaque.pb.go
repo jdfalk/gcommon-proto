@@ -6,13 +6,10 @@
 
 //go:build protoopaque
 
-package proto
+package queuepb
 
 import (
-	_ "github.com/jdfalk/gcommon/pkg/common/proto"
-	messages "github.com/jdfalk/gcommon/pkg/common/proto/messages"
-	requests "github.com/jdfalk/gcommon/pkg/queue/proto/requests"
-	responses "github.com/jdfalk/gcommon/pkg/queue/proto/responses"
+	proto "github.com/jdfalk/gcommon/pkg/common/proto"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
@@ -915,11 +912,11 @@ func (x TaskStatus) Number() protoreflect.EnumNumber {
 
 // Send message request
 type SendMessageRequest struct {
-	state                      protoimpl.MessageState    `protogen:"opaque.v1"`
-	xxx_hidden_QueueName       *string                   `protobuf:"bytes,1,opt,name=queue_name,json=queueName"`
-	xxx_hidden_Message         *QueueMessage             `protobuf:"bytes,2,opt,name=message"`
-	xxx_hidden_DeliveryOptions *DeliveryOptions          `protobuf:"bytes,3,opt,name=delivery_options,json=deliveryOptions"`
-	xxx_hidden_Metadata        *messages.RequestMetadata `protobuf:"bytes,4,opt,name=metadata"`
+	state                      protoimpl.MessageState `protogen:"opaque.v1"`
+	xxx_hidden_QueueName       *string                `protobuf:"bytes,1,opt,name=queue_name,json=queueName"`
+	xxx_hidden_Message         *QueueMessage          `protobuf:"bytes,2,opt,name=message"`
+	xxx_hidden_DeliveryOptions *DeliveryOptions       `protobuf:"bytes,3,opt,name=delivery_options,json=deliveryOptions"`
+	xxx_hidden_Metadata        *proto.RequestMetadata `protobuf:"bytes,4,opt,name=metadata"`
 	XXX_raceDetectHookData     protoimpl.RaceDetectHookData
 	XXX_presence               [1]uint32
 	unknownFields              protoimpl.UnknownFields
@@ -975,7 +972,7 @@ func (x *SendMessageRequest) GetDeliveryOptions() *DeliveryOptions {
 	return nil
 }
 
-func (x *SendMessageRequest) GetMetadata() *messages.RequestMetadata {
+func (x *SendMessageRequest) GetMetadata() *proto.RequestMetadata {
 	if x != nil {
 		return x.xxx_hidden_Metadata
 	}
@@ -995,7 +992,7 @@ func (x *SendMessageRequest) SetDeliveryOptions(v *DeliveryOptions) {
 	x.xxx_hidden_DeliveryOptions = v
 }
 
-func (x *SendMessageRequest) SetMetadata(v *messages.RequestMetadata) {
+func (x *SendMessageRequest) SetMetadata(v *proto.RequestMetadata) {
 	x.xxx_hidden_Metadata = v
 }
 
@@ -1054,7 +1051,7 @@ type SendMessageRequest_builder struct {
 	// Delivery options
 	DeliveryOptions *DeliveryOptions
 	// Request metadata
-	Metadata *messages.RequestMetadata
+	Metadata *proto.RequestMetadata
 }
 
 func (b0 SendMessageRequest_builder) Build() *SendMessageRequest {
@@ -1709,7 +1706,7 @@ type SendMessageResponse struct {
 	xxx_hidden_MessageId     *string                `protobuf:"bytes,1,opt,name=message_id,json=messageId"`
 	xxx_hidden_Success       bool                   `protobuf:"varint,2,opt,name=success"`
 	xxx_hidden_QueuePosition int64                  `protobuf:"varint,3,opt,name=queue_position,json=queuePosition"`
-	xxx_hidden_Error         *messages.Error        `protobuf:"bytes,4,opt,name=error"`
+	xxx_hidden_Error         *proto.Error           `protobuf:"bytes,4,opt,name=error"`
 	XXX_raceDetectHookData   protoimpl.RaceDetectHookData
 	XXX_presence             [1]uint32
 	unknownFields            protoimpl.UnknownFields
@@ -1765,7 +1762,7 @@ func (x *SendMessageResponse) GetQueuePosition() int64 {
 	return 0
 }
 
-func (x *SendMessageResponse) GetError() *messages.Error {
+func (x *SendMessageResponse) GetError() *proto.Error {
 	if x != nil {
 		return x.xxx_hidden_Error
 	}
@@ -1787,7 +1784,7 @@ func (x *SendMessageResponse) SetQueuePosition(v int64) {
 	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 2, 4)
 }
 
-func (x *SendMessageResponse) SetError(v *messages.Error) {
+func (x *SendMessageResponse) SetError(v *proto.Error) {
 	x.xxx_hidden_Error = v
 }
 
@@ -1848,7 +1845,7 @@ type SendMessageResponse_builder struct {
 	// Queue position (if applicable)
 	QueuePosition *int64
 	// Error information
-	Error *messages.Error
+	Error *proto.Error
 }
 
 func (b0 SendMessageResponse_builder) Build() *SendMessageResponse {
@@ -1873,11 +1870,11 @@ func (b0 SendMessageResponse_builder) Build() *SendMessageResponse {
 
 // Send messages request (batch)
 type SendMessagesRequest struct {
-	state                      protoimpl.MessageState    `protogen:"opaque.v1"`
-	xxx_hidden_QueueName       *string                   `protobuf:"bytes,1,opt,name=queue_name,json=queueName"`
-	xxx_hidden_Messages        *[]*QueueMessage          `protobuf:"bytes,2,rep,name=messages"`
-	xxx_hidden_DeliveryOptions *DeliveryOptions          `protobuf:"bytes,3,opt,name=delivery_options,json=deliveryOptions"`
-	xxx_hidden_Metadata        *messages.RequestMetadata `protobuf:"bytes,4,opt,name=metadata"`
+	state                      protoimpl.MessageState `protogen:"opaque.v1"`
+	xxx_hidden_QueueName       *string                `protobuf:"bytes,1,opt,name=queue_name,json=queueName"`
+	xxx_hidden_Messages        *[]*QueueMessage       `protobuf:"bytes,2,rep,name=messages"`
+	xxx_hidden_DeliveryOptions *DeliveryOptions       `protobuf:"bytes,3,opt,name=delivery_options,json=deliveryOptions"`
+	xxx_hidden_Metadata        *proto.RequestMetadata `protobuf:"bytes,4,opt,name=metadata"`
 	XXX_raceDetectHookData     protoimpl.RaceDetectHookData
 	XXX_presence               [1]uint32
 	unknownFields              protoimpl.UnknownFields
@@ -1935,7 +1932,7 @@ func (x *SendMessagesRequest) GetDeliveryOptions() *DeliveryOptions {
 	return nil
 }
 
-func (x *SendMessagesRequest) GetMetadata() *messages.RequestMetadata {
+func (x *SendMessagesRequest) GetMetadata() *proto.RequestMetadata {
 	if x != nil {
 		return x.xxx_hidden_Metadata
 	}
@@ -1955,7 +1952,7 @@ func (x *SendMessagesRequest) SetDeliveryOptions(v *DeliveryOptions) {
 	x.xxx_hidden_DeliveryOptions = v
 }
 
-func (x *SendMessagesRequest) SetMetadata(v *messages.RequestMetadata) {
+func (x *SendMessagesRequest) SetMetadata(v *proto.RequestMetadata) {
 	x.xxx_hidden_Metadata = v
 }
 
@@ -2003,7 +2000,7 @@ type SendMessagesRequest_builder struct {
 	// Default delivery options
 	DeliveryOptions *DeliveryOptions
 	// Request metadata
-	Metadata *messages.RequestMetadata
+	Metadata *proto.RequestMetadata
 }
 
 func (b0 SendMessagesRequest_builder) Build() *SendMessagesRequest {
@@ -2026,7 +2023,7 @@ type SendMessagesResponse struct {
 	xxx_hidden_MessageIds     []string               `protobuf:"bytes,1,rep,name=message_ids,json=messageIds"`
 	xxx_hidden_FailedMessages *[]*MessageError       `protobuf:"bytes,2,rep,name=failed_messages,json=failedMessages"`
 	xxx_hidden_SentCount      int32                  `protobuf:"varint,3,opt,name=sent_count,json=sentCount"`
-	xxx_hidden_Error          *messages.Error        `protobuf:"bytes,4,opt,name=error"`
+	xxx_hidden_Error          *proto.Error           `protobuf:"bytes,4,opt,name=error"`
 	XXX_raceDetectHookData    protoimpl.RaceDetectHookData
 	XXX_presence              [1]uint32
 	unknownFields             protoimpl.UnknownFields
@@ -2081,7 +2078,7 @@ func (x *SendMessagesResponse) GetSentCount() int32 {
 	return 0
 }
 
-func (x *SendMessagesResponse) GetError() *messages.Error {
+func (x *SendMessagesResponse) GetError() *proto.Error {
 	if x != nil {
 		return x.xxx_hidden_Error
 	}
@@ -2101,7 +2098,7 @@ func (x *SendMessagesResponse) SetSentCount(v int32) {
 	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 2, 4)
 }
 
-func (x *SendMessagesResponse) SetError(v *messages.Error) {
+func (x *SendMessagesResponse) SetError(v *proto.Error) {
 	x.xxx_hidden_Error = v
 }
 
@@ -2138,7 +2135,7 @@ type SendMessagesResponse_builder struct {
 	// Total sent count
 	SentCount *int32
 	// Error information
-	Error *messages.Error
+	Error *proto.Error
 }
 
 func (b0 SendMessagesResponse_builder) Build() *SendMessagesResponse {
@@ -2305,10 +2302,10 @@ func (b0 MessageError_builder) Build() *MessageError {
 
 // Receive message request
 type ReceiveMessageRequest struct {
-	state                     protoimpl.MessageState    `protogen:"opaque.v1"`
-	xxx_hidden_QueueName      *string                   `protobuf:"bytes,1,opt,name=queue_name,json=queueName"`
-	xxx_hidden_ReceiveOptions *ReceiveOptions           `protobuf:"bytes,2,opt,name=receive_options,json=receiveOptions"`
-	xxx_hidden_Metadata       *messages.RequestMetadata `protobuf:"bytes,3,opt,name=metadata"`
+	state                     protoimpl.MessageState `protogen:"opaque.v1"`
+	xxx_hidden_QueueName      *string                `protobuf:"bytes,1,opt,name=queue_name,json=queueName"`
+	xxx_hidden_ReceiveOptions *ReceiveOptions        `protobuf:"bytes,2,opt,name=receive_options,json=receiveOptions"`
+	xxx_hidden_Metadata       *proto.RequestMetadata `protobuf:"bytes,3,opt,name=metadata"`
 	XXX_raceDetectHookData    protoimpl.RaceDetectHookData
 	XXX_presence              [1]uint32
 	unknownFields             protoimpl.UnknownFields
@@ -2357,7 +2354,7 @@ func (x *ReceiveMessageRequest) GetReceiveOptions() *ReceiveOptions {
 	return nil
 }
 
-func (x *ReceiveMessageRequest) GetMetadata() *messages.RequestMetadata {
+func (x *ReceiveMessageRequest) GetMetadata() *proto.RequestMetadata {
 	if x != nil {
 		return x.xxx_hidden_Metadata
 	}
@@ -2373,7 +2370,7 @@ func (x *ReceiveMessageRequest) SetReceiveOptions(v *ReceiveOptions) {
 	x.xxx_hidden_ReceiveOptions = v
 }
 
-func (x *ReceiveMessageRequest) SetMetadata(v *messages.RequestMetadata) {
+func (x *ReceiveMessageRequest) SetMetadata(v *proto.RequestMetadata) {
 	x.xxx_hidden_Metadata = v
 }
 
@@ -2419,7 +2416,7 @@ type ReceiveMessageRequest_builder struct {
 	// Receive options
 	ReceiveOptions *ReceiveOptions
 	// Request metadata
-	Metadata *messages.RequestMetadata
+	Metadata *proto.RequestMetadata
 }
 
 func (b0 ReceiveMessageRequest_builder) Build() *ReceiveMessageRequest {
@@ -2614,7 +2611,7 @@ func (b0 ReceiveOptions_builder) Build() *ReceiveOptions {
 type ReceiveMessageResponse struct {
 	state              protoimpl.MessageState `protogen:"opaque.v1"`
 	xxx_hidden_Message *ReceivedMessage       `protobuf:"bytes,1,opt,name=message"`
-	xxx_hidden_Error   *messages.Error        `protobuf:"bytes,2,opt,name=error"`
+	xxx_hidden_Error   *proto.Error           `protobuf:"bytes,2,opt,name=error"`
 	unknownFields      protoimpl.UnknownFields
 	sizeCache          protoimpl.SizeCache
 }
@@ -2651,7 +2648,7 @@ func (x *ReceiveMessageResponse) GetMessage() *ReceivedMessage {
 	return nil
 }
 
-func (x *ReceiveMessageResponse) GetError() *messages.Error {
+func (x *ReceiveMessageResponse) GetError() *proto.Error {
 	if x != nil {
 		return x.xxx_hidden_Error
 	}
@@ -2662,7 +2659,7 @@ func (x *ReceiveMessageResponse) SetMessage(v *ReceivedMessage) {
 	x.xxx_hidden_Message = v
 }
 
-func (x *ReceiveMessageResponse) SetError(v *messages.Error) {
+func (x *ReceiveMessageResponse) SetError(v *proto.Error) {
 	x.xxx_hidden_Error = v
 }
 
@@ -2694,7 +2691,7 @@ type ReceiveMessageResponse_builder struct {
 	// Received message
 	Message *ReceivedMessage
 	// Error information
-	Error *messages.Error
+	Error *proto.Error
 }
 
 func (b0 ReceiveMessageResponse_builder) Build() *ReceiveMessageResponse {
@@ -2923,10 +2920,10 @@ func (b0 ReceivedMessage_builder) Build() *ReceivedMessage {
 
 // Receive messages request (batch)
 type ReceiveMessagesRequest struct {
-	state                     protoimpl.MessageState    `protogen:"opaque.v1"`
-	xxx_hidden_QueueName      *string                   `protobuf:"bytes,1,opt,name=queue_name,json=queueName"`
-	xxx_hidden_ReceiveOptions *ReceiveOptions           `protobuf:"bytes,2,opt,name=receive_options,json=receiveOptions"`
-	xxx_hidden_Metadata       *messages.RequestMetadata `protobuf:"bytes,3,opt,name=metadata"`
+	state                     protoimpl.MessageState `protogen:"opaque.v1"`
+	xxx_hidden_QueueName      *string                `protobuf:"bytes,1,opt,name=queue_name,json=queueName"`
+	xxx_hidden_ReceiveOptions *ReceiveOptions        `protobuf:"bytes,2,opt,name=receive_options,json=receiveOptions"`
+	xxx_hidden_Metadata       *proto.RequestMetadata `protobuf:"bytes,3,opt,name=metadata"`
 	XXX_raceDetectHookData    protoimpl.RaceDetectHookData
 	XXX_presence              [1]uint32
 	unknownFields             protoimpl.UnknownFields
@@ -2975,7 +2972,7 @@ func (x *ReceiveMessagesRequest) GetReceiveOptions() *ReceiveOptions {
 	return nil
 }
 
-func (x *ReceiveMessagesRequest) GetMetadata() *messages.RequestMetadata {
+func (x *ReceiveMessagesRequest) GetMetadata() *proto.RequestMetadata {
 	if x != nil {
 		return x.xxx_hidden_Metadata
 	}
@@ -2991,7 +2988,7 @@ func (x *ReceiveMessagesRequest) SetReceiveOptions(v *ReceiveOptions) {
 	x.xxx_hidden_ReceiveOptions = v
 }
 
-func (x *ReceiveMessagesRequest) SetMetadata(v *messages.RequestMetadata) {
+func (x *ReceiveMessagesRequest) SetMetadata(v *proto.RequestMetadata) {
 	x.xxx_hidden_Metadata = v
 }
 
@@ -3037,7 +3034,7 @@ type ReceiveMessagesRequest_builder struct {
 	// Receive options
 	ReceiveOptions *ReceiveOptions
 	// Request metadata
-	Metadata *messages.RequestMetadata
+	Metadata *proto.RequestMetadata
 }
 
 func (b0 ReceiveMessagesRequest_builder) Build() *ReceiveMessagesRequest {
@@ -3057,7 +3054,7 @@ func (b0 ReceiveMessagesRequest_builder) Build() *ReceiveMessagesRequest {
 type ReceiveMessagesResponse struct {
 	state               protoimpl.MessageState `protogen:"opaque.v1"`
 	xxx_hidden_Messages *[]*ReceivedMessage    `protobuf:"bytes,1,rep,name=messages"`
-	xxx_hidden_Error    *messages.Error        `protobuf:"bytes,2,opt,name=error"`
+	xxx_hidden_Error    *proto.Error           `protobuf:"bytes,2,opt,name=error"`
 	unknownFields       protoimpl.UnknownFields
 	sizeCache           protoimpl.SizeCache
 }
@@ -3096,7 +3093,7 @@ func (x *ReceiveMessagesResponse) GetMessages() []*ReceivedMessage {
 	return nil
 }
 
-func (x *ReceiveMessagesResponse) GetError() *messages.Error {
+func (x *ReceiveMessagesResponse) GetError() *proto.Error {
 	if x != nil {
 		return x.xxx_hidden_Error
 	}
@@ -3107,7 +3104,7 @@ func (x *ReceiveMessagesResponse) SetMessages(v []*ReceivedMessage) {
 	x.xxx_hidden_Messages = &v
 }
 
-func (x *ReceiveMessagesResponse) SetError(v *messages.Error) {
+func (x *ReceiveMessagesResponse) SetError(v *proto.Error) {
 	x.xxx_hidden_Error = v
 }
 
@@ -3128,7 +3125,7 @@ type ReceiveMessagesResponse_builder struct {
 	// Received messages
 	Messages []*ReceivedMessage
 	// Error information
-	Error *messages.Error
+	Error *proto.Error
 }
 
 func (b0 ReceiveMessagesResponse_builder) Build() *ReceiveMessagesResponse {
@@ -3142,10 +3139,10 @@ func (b0 ReceiveMessagesResponse_builder) Build() *ReceiveMessagesResponse {
 
 // Acknowledge message request
 type AckMessageRequest struct {
-	state                    protoimpl.MessageState    `protogen:"opaque.v1"`
-	xxx_hidden_QueueName     *string                   `protobuf:"bytes,1,opt,name=queue_name,json=queueName"`
-	xxx_hidden_ReceiptHandle *string                   `protobuf:"bytes,2,opt,name=receipt_handle,json=receiptHandle"`
-	xxx_hidden_Metadata      *messages.RequestMetadata `protobuf:"bytes,3,opt,name=metadata"`
+	state                    protoimpl.MessageState `protogen:"opaque.v1"`
+	xxx_hidden_QueueName     *string                `protobuf:"bytes,1,opt,name=queue_name,json=queueName"`
+	xxx_hidden_ReceiptHandle *string                `protobuf:"bytes,2,opt,name=receipt_handle,json=receiptHandle"`
+	xxx_hidden_Metadata      *proto.RequestMetadata `protobuf:"bytes,3,opt,name=metadata"`
 	XXX_raceDetectHookData   protoimpl.RaceDetectHookData
 	XXX_presence             [1]uint32
 	unknownFields            protoimpl.UnknownFields
@@ -3197,7 +3194,7 @@ func (x *AckMessageRequest) GetReceiptHandle() string {
 	return ""
 }
 
-func (x *AckMessageRequest) GetMetadata() *messages.RequestMetadata {
+func (x *AckMessageRequest) GetMetadata() *proto.RequestMetadata {
 	if x != nil {
 		return x.xxx_hidden_Metadata
 	}
@@ -3214,7 +3211,7 @@ func (x *AckMessageRequest) SetReceiptHandle(v string) {
 	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 1, 3)
 }
 
-func (x *AckMessageRequest) SetMetadata(v *messages.RequestMetadata) {
+func (x *AckMessageRequest) SetMetadata(v *proto.RequestMetadata) {
 	x.xxx_hidden_Metadata = v
 }
 
@@ -3261,7 +3258,7 @@ type AckMessageRequest_builder struct {
 	// Receipt handle
 	ReceiptHandle *string
 	// Request metadata
-	Metadata *messages.RequestMetadata
+	Metadata *proto.RequestMetadata
 }
 
 func (b0 AckMessageRequest_builder) Build() *AckMessageRequest {
@@ -3284,7 +3281,7 @@ func (b0 AckMessageRequest_builder) Build() *AckMessageRequest {
 type AckMessageResponse struct {
 	state                  protoimpl.MessageState `protogen:"opaque.v1"`
 	xxx_hidden_Success     bool                   `protobuf:"varint,1,opt,name=success"`
-	xxx_hidden_Error       *messages.Error        `protobuf:"bytes,2,opt,name=error"`
+	xxx_hidden_Error       *proto.Error           `protobuf:"bytes,2,opt,name=error"`
 	XXX_raceDetectHookData protoimpl.RaceDetectHookData
 	XXX_presence           [1]uint32
 	unknownFields          protoimpl.UnknownFields
@@ -3323,7 +3320,7 @@ func (x *AckMessageResponse) GetSuccess() bool {
 	return false
 }
 
-func (x *AckMessageResponse) GetError() *messages.Error {
+func (x *AckMessageResponse) GetError() *proto.Error {
 	if x != nil {
 		return x.xxx_hidden_Error
 	}
@@ -3335,7 +3332,7 @@ func (x *AckMessageResponse) SetSuccess(v bool) {
 	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 0, 2)
 }
 
-func (x *AckMessageResponse) SetError(v *messages.Error) {
+func (x *AckMessageResponse) SetError(v *proto.Error) {
 	x.xxx_hidden_Error = v
 }
 
@@ -3368,7 +3365,7 @@ type AckMessageResponse_builder struct {
 	// Success status
 	Success *bool
 	// Error information
-	Error *messages.Error
+	Error *proto.Error
 }
 
 func (b0 AckMessageResponse_builder) Build() *AckMessageResponse {
@@ -3385,11 +3382,11 @@ func (b0 AckMessageResponse_builder) Build() *AckMessageResponse {
 
 // Negative acknowledge message request
 type NackMessageRequest struct {
-	state                    protoimpl.MessageState    `protogen:"opaque.v1"`
-	xxx_hidden_QueueName     *string                   `protobuf:"bytes,1,opt,name=queue_name,json=queueName"`
-	xxx_hidden_ReceiptHandle *string                   `protobuf:"bytes,2,opt,name=receipt_handle,json=receiptHandle"`
-	xxx_hidden_RequeueDelay  *durationpb.Duration      `protobuf:"bytes,3,opt,name=requeue_delay,json=requeueDelay"`
-	xxx_hidden_Metadata      *messages.RequestMetadata `protobuf:"bytes,4,opt,name=metadata"`
+	state                    protoimpl.MessageState `protogen:"opaque.v1"`
+	xxx_hidden_QueueName     *string                `protobuf:"bytes,1,opt,name=queue_name,json=queueName"`
+	xxx_hidden_ReceiptHandle *string                `protobuf:"bytes,2,opt,name=receipt_handle,json=receiptHandle"`
+	xxx_hidden_RequeueDelay  *durationpb.Duration   `protobuf:"bytes,3,opt,name=requeue_delay,json=requeueDelay"`
+	xxx_hidden_Metadata      *proto.RequestMetadata `protobuf:"bytes,4,opt,name=metadata"`
 	XXX_raceDetectHookData   protoimpl.RaceDetectHookData
 	XXX_presence             [1]uint32
 	unknownFields            protoimpl.UnknownFields
@@ -3448,7 +3445,7 @@ func (x *NackMessageRequest) GetRequeueDelay() *durationpb.Duration {
 	return nil
 }
 
-func (x *NackMessageRequest) GetMetadata() *messages.RequestMetadata {
+func (x *NackMessageRequest) GetMetadata() *proto.RequestMetadata {
 	if x != nil {
 		return x.xxx_hidden_Metadata
 	}
@@ -3469,7 +3466,7 @@ func (x *NackMessageRequest) SetRequeueDelay(v *durationpb.Duration) {
 	x.xxx_hidden_RequeueDelay = v
 }
 
-func (x *NackMessageRequest) SetMetadata(v *messages.RequestMetadata) {
+func (x *NackMessageRequest) SetMetadata(v *proto.RequestMetadata) {
 	x.xxx_hidden_Metadata = v
 }
 
@@ -3529,7 +3526,7 @@ type NackMessageRequest_builder struct {
 	// Requeue delay
 	RequeueDelay *durationpb.Duration
 	// Request metadata
-	Metadata *messages.RequestMetadata
+	Metadata *proto.RequestMetadata
 }
 
 func (b0 NackMessageRequest_builder) Build() *NackMessageRequest {
@@ -3553,7 +3550,7 @@ func (b0 NackMessageRequest_builder) Build() *NackMessageRequest {
 type NackMessageResponse struct {
 	state                  protoimpl.MessageState `protogen:"opaque.v1"`
 	xxx_hidden_Success     bool                   `protobuf:"varint,1,opt,name=success"`
-	xxx_hidden_Error       *messages.Error        `protobuf:"bytes,2,opt,name=error"`
+	xxx_hidden_Error       *proto.Error           `protobuf:"bytes,2,opt,name=error"`
 	XXX_raceDetectHookData protoimpl.RaceDetectHookData
 	XXX_presence           [1]uint32
 	unknownFields          protoimpl.UnknownFields
@@ -3592,7 +3589,7 @@ func (x *NackMessageResponse) GetSuccess() bool {
 	return false
 }
 
-func (x *NackMessageResponse) GetError() *messages.Error {
+func (x *NackMessageResponse) GetError() *proto.Error {
 	if x != nil {
 		return x.xxx_hidden_Error
 	}
@@ -3604,7 +3601,7 @@ func (x *NackMessageResponse) SetSuccess(v bool) {
 	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 0, 2)
 }
 
-func (x *NackMessageResponse) SetError(v *messages.Error) {
+func (x *NackMessageResponse) SetError(v *proto.Error) {
 	x.xxx_hidden_Error = v
 }
 
@@ -3637,7 +3634,7 @@ type NackMessageResponse_builder struct {
 	// Success status
 	Success *bool
 	// Error information
-	Error *messages.Error
+	Error *proto.Error
 }
 
 func (b0 NackMessageResponse_builder) Build() *NackMessageResponse {
@@ -3654,11 +3651,11 @@ func (b0 NackMessageResponse_builder) Build() *NackMessageResponse {
 
 // Publish request
 type PublishRequest struct {
-	state                     protoimpl.MessageState    `protogen:"opaque.v1"`
-	xxx_hidden_TopicName      *string                   `protobuf:"bytes,1,opt,name=topic_name,json=topicName"`
-	xxx_hidden_Message        *PubSubMessage            `protobuf:"bytes,2,opt,name=message"`
-	xxx_hidden_PublishOptions *PublishOptions           `protobuf:"bytes,3,opt,name=publish_options,json=publishOptions"`
-	xxx_hidden_Metadata       *messages.RequestMetadata `protobuf:"bytes,4,opt,name=metadata"`
+	state                     protoimpl.MessageState `protogen:"opaque.v1"`
+	xxx_hidden_TopicName      *string                `protobuf:"bytes,1,opt,name=topic_name,json=topicName"`
+	xxx_hidden_Message        *PubSubMessage         `protobuf:"bytes,2,opt,name=message"`
+	xxx_hidden_PublishOptions *PublishOptions        `protobuf:"bytes,3,opt,name=publish_options,json=publishOptions"`
+	xxx_hidden_Metadata       *proto.RequestMetadata `protobuf:"bytes,4,opt,name=metadata"`
 	XXX_raceDetectHookData    protoimpl.RaceDetectHookData
 	XXX_presence              [1]uint32
 	unknownFields             protoimpl.UnknownFields
@@ -3714,7 +3711,7 @@ func (x *PublishRequest) GetPublishOptions() *PublishOptions {
 	return nil
 }
 
-func (x *PublishRequest) GetMetadata() *messages.RequestMetadata {
+func (x *PublishRequest) GetMetadata() *proto.RequestMetadata {
 	if x != nil {
 		return x.xxx_hidden_Metadata
 	}
@@ -3734,7 +3731,7 @@ func (x *PublishRequest) SetPublishOptions(v *PublishOptions) {
 	x.xxx_hidden_PublishOptions = v
 }
 
-func (x *PublishRequest) SetMetadata(v *messages.RequestMetadata) {
+func (x *PublishRequest) SetMetadata(v *proto.RequestMetadata) {
 	x.xxx_hidden_Metadata = v
 }
 
@@ -3793,7 +3790,7 @@ type PublishRequest_builder struct {
 	// Publish options
 	PublishOptions *PublishOptions
 	// Request metadata
-	Metadata *messages.RequestMetadata
+	Metadata *proto.RequestMetadata
 }
 
 func (b0 PublishRequest_builder) Build() *PublishRequest {
@@ -4162,7 +4159,7 @@ type PublishResponse struct {
 	xxx_hidden_MessageId   *string                `protobuf:"bytes,1,opt,name=message_id,json=messageId"`
 	xxx_hidden_Success     bool                   `protobuf:"varint,2,opt,name=success"`
 	xxx_hidden_PublishedAt *timestamppb.Timestamp `protobuf:"bytes,3,opt,name=published_at,json=publishedAt"`
-	xxx_hidden_Error       *messages.Error        `protobuf:"bytes,4,opt,name=error"`
+	xxx_hidden_Error       *proto.Error           `protobuf:"bytes,4,opt,name=error"`
 	XXX_raceDetectHookData protoimpl.RaceDetectHookData
 	XXX_presence           [1]uint32
 	unknownFields          protoimpl.UnknownFields
@@ -4218,7 +4215,7 @@ func (x *PublishResponse) GetPublishedAt() *timestamppb.Timestamp {
 	return nil
 }
 
-func (x *PublishResponse) GetError() *messages.Error {
+func (x *PublishResponse) GetError() *proto.Error {
 	if x != nil {
 		return x.xxx_hidden_Error
 	}
@@ -4239,7 +4236,7 @@ func (x *PublishResponse) SetPublishedAt(v *timestamppb.Timestamp) {
 	x.xxx_hidden_PublishedAt = v
 }
 
-func (x *PublishResponse) SetError(v *messages.Error) {
+func (x *PublishResponse) SetError(v *proto.Error) {
 	x.xxx_hidden_Error = v
 }
 
@@ -4299,7 +4296,7 @@ type PublishResponse_builder struct {
 	// Publish timestamp
 	PublishedAt *timestamppb.Timestamp
 	// Error information
-	Error *messages.Error
+	Error *proto.Error
 }
 
 func (b0 PublishResponse_builder) Build() *PublishResponse {
@@ -4321,10 +4318,10 @@ func (b0 PublishResponse_builder) Build() *PublishResponse {
 
 // Subscribe request
 type SubscribeRequest struct {
-	state                       protoimpl.MessageState    `protogen:"opaque.v1"`
-	xxx_hidden_SubscriptionName *string                   `protobuf:"bytes,1,opt,name=subscription_name,json=subscriptionName"`
-	xxx_hidden_SubscribeOptions *SubscribeOptions         `protobuf:"bytes,2,opt,name=subscribe_options,json=subscribeOptions"`
-	xxx_hidden_Metadata         *messages.RequestMetadata `protobuf:"bytes,3,opt,name=metadata"`
+	state                       protoimpl.MessageState `protogen:"opaque.v1"`
+	xxx_hidden_SubscriptionName *string                `protobuf:"bytes,1,opt,name=subscription_name,json=subscriptionName"`
+	xxx_hidden_SubscribeOptions *SubscribeOptions      `protobuf:"bytes,2,opt,name=subscribe_options,json=subscribeOptions"`
+	xxx_hidden_Metadata         *proto.RequestMetadata `protobuf:"bytes,3,opt,name=metadata"`
 	XXX_raceDetectHookData      protoimpl.RaceDetectHookData
 	XXX_presence                [1]uint32
 	unknownFields               protoimpl.UnknownFields
@@ -4373,7 +4370,7 @@ func (x *SubscribeRequest) GetSubscribeOptions() *SubscribeOptions {
 	return nil
 }
 
-func (x *SubscribeRequest) GetMetadata() *messages.RequestMetadata {
+func (x *SubscribeRequest) GetMetadata() *proto.RequestMetadata {
 	if x != nil {
 		return x.xxx_hidden_Metadata
 	}
@@ -4389,7 +4386,7 @@ func (x *SubscribeRequest) SetSubscribeOptions(v *SubscribeOptions) {
 	x.xxx_hidden_SubscribeOptions = v
 }
 
-func (x *SubscribeRequest) SetMetadata(v *messages.RequestMetadata) {
+func (x *SubscribeRequest) SetMetadata(v *proto.RequestMetadata) {
 	x.xxx_hidden_Metadata = v
 }
 
@@ -4435,7 +4432,7 @@ type SubscribeRequest_builder struct {
 	// Subscribe options
 	SubscribeOptions *SubscribeOptions
 	// Request metadata
-	Metadata *messages.RequestMetadata
+	Metadata *proto.RequestMetadata
 }
 
 func (b0 SubscribeRequest_builder) Build() *SubscribeRequest {
@@ -4788,7 +4785,7 @@ type MessageEvent struct {
 	state                  protoimpl.MessageState `protogen:"opaque.v1"`
 	xxx_hidden_EventType   MessageEventType       `protobuf:"varint,1,opt,name=event_type,json=eventType,enum=gcommon.v1.queue.MessageEventType"`
 	xxx_hidden_Message     *ReceivedPubSubMessage `protobuf:"bytes,2,opt,name=message"`
-	xxx_hidden_Error       *messages.Error        `protobuf:"bytes,3,opt,name=error"`
+	xxx_hidden_Error       *proto.Error           `protobuf:"bytes,3,opt,name=error"`
 	xxx_hidden_Status      *SubscriptionStatus    `protobuf:"bytes,4,opt,name=status"`
 	XXX_raceDetectHookData protoimpl.RaceDetectHookData
 	XXX_presence           [1]uint32
@@ -4837,7 +4834,7 @@ func (x *MessageEvent) GetMessage() *ReceivedPubSubMessage {
 	return nil
 }
 
-func (x *MessageEvent) GetError() *messages.Error {
+func (x *MessageEvent) GetError() *proto.Error {
 	if x != nil {
 		return x.xxx_hidden_Error
 	}
@@ -4860,7 +4857,7 @@ func (x *MessageEvent) SetMessage(v *ReceivedPubSubMessage) {
 	x.xxx_hidden_Message = v
 }
 
-func (x *MessageEvent) SetError(v *messages.Error) {
+func (x *MessageEvent) SetError(v *proto.Error) {
 	x.xxx_hidden_Error = v
 }
 
@@ -4921,7 +4918,7 @@ type MessageEvent_builder struct {
 	// Pub/Sub message (for MESSAGE event)
 	Message *ReceivedPubSubMessage
 	// Error information (for ERROR event)
-	Error *messages.Error
+	Error *proto.Error
 	// Status information (for STATUS event)
 	Status *SubscriptionStatus
 }
@@ -5332,9 +5329,9 @@ func (b0 SubscriptionStatus_builder) Build() *SubscriptionStatus {
 
 // Unsubscribe request
 type UnsubscribeRequest struct {
-	state                       protoimpl.MessageState    `protogen:"opaque.v1"`
-	xxx_hidden_SubscriptionName *string                   `protobuf:"bytes,1,opt,name=subscription_name,json=subscriptionName"`
-	xxx_hidden_Metadata         *messages.RequestMetadata `protobuf:"bytes,2,opt,name=metadata"`
+	state                       protoimpl.MessageState `protogen:"opaque.v1"`
+	xxx_hidden_SubscriptionName *string                `protobuf:"bytes,1,opt,name=subscription_name,json=subscriptionName"`
+	xxx_hidden_Metadata         *proto.RequestMetadata `protobuf:"bytes,2,opt,name=metadata"`
 	XXX_raceDetectHookData      protoimpl.RaceDetectHookData
 	XXX_presence                [1]uint32
 	unknownFields               protoimpl.UnknownFields
@@ -5376,7 +5373,7 @@ func (x *UnsubscribeRequest) GetSubscriptionName() string {
 	return ""
 }
 
-func (x *UnsubscribeRequest) GetMetadata() *messages.RequestMetadata {
+func (x *UnsubscribeRequest) GetMetadata() *proto.RequestMetadata {
 	if x != nil {
 		return x.xxx_hidden_Metadata
 	}
@@ -5388,7 +5385,7 @@ func (x *UnsubscribeRequest) SetSubscriptionName(v string) {
 	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 0, 2)
 }
 
-func (x *UnsubscribeRequest) SetMetadata(v *messages.RequestMetadata) {
+func (x *UnsubscribeRequest) SetMetadata(v *proto.RequestMetadata) {
 	x.xxx_hidden_Metadata = v
 }
 
@@ -5421,7 +5418,7 @@ type UnsubscribeRequest_builder struct {
 	// Subscription name
 	SubscriptionName *string
 	// Request metadata
-	Metadata *messages.RequestMetadata
+	Metadata *proto.RequestMetadata
 }
 
 func (b0 UnsubscribeRequest_builder) Build() *UnsubscribeRequest {
@@ -5440,7 +5437,7 @@ func (b0 UnsubscribeRequest_builder) Build() *UnsubscribeRequest {
 type UnsubscribeResponse struct {
 	state                  protoimpl.MessageState `protogen:"opaque.v1"`
 	xxx_hidden_Success     bool                   `protobuf:"varint,1,opt,name=success"`
-	xxx_hidden_Error       *messages.Error        `protobuf:"bytes,2,opt,name=error"`
+	xxx_hidden_Error       *proto.Error           `protobuf:"bytes,2,opt,name=error"`
 	XXX_raceDetectHookData protoimpl.RaceDetectHookData
 	XXX_presence           [1]uint32
 	unknownFields          protoimpl.UnknownFields
@@ -5479,7 +5476,7 @@ func (x *UnsubscribeResponse) GetSuccess() bool {
 	return false
 }
 
-func (x *UnsubscribeResponse) GetError() *messages.Error {
+func (x *UnsubscribeResponse) GetError() *proto.Error {
 	if x != nil {
 		return x.xxx_hidden_Error
 	}
@@ -5491,7 +5488,7 @@ func (x *UnsubscribeResponse) SetSuccess(v bool) {
 	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 0, 2)
 }
 
-func (x *UnsubscribeResponse) SetError(v *messages.Error) {
+func (x *UnsubscribeResponse) SetError(v *proto.Error) {
 	x.xxx_hidden_Error = v
 }
 
@@ -5524,7 +5521,7 @@ type UnsubscribeResponse_builder struct {
 	// Success status
 	Success *bool
 	// Error information
-	Error *messages.Error
+	Error *proto.Error
 }
 
 func (b0 UnsubscribeResponse_builder) Build() *UnsubscribeResponse {
@@ -5541,10 +5538,10 @@ func (b0 UnsubscribeResponse_builder) Build() *UnsubscribeResponse {
 
 // Get message request
 type GetMessageRequest struct {
-	state                  protoimpl.MessageState    `protogen:"opaque.v1"`
-	xxx_hidden_QueueName   *string                   `protobuf:"bytes,1,opt,name=queue_name,json=queueName"`
-	xxx_hidden_MessageId   *string                   `protobuf:"bytes,2,opt,name=message_id,json=messageId"`
-	xxx_hidden_Metadata    *messages.RequestMetadata `protobuf:"bytes,3,opt,name=metadata"`
+	state                  protoimpl.MessageState `protogen:"opaque.v1"`
+	xxx_hidden_QueueName   *string                `protobuf:"bytes,1,opt,name=queue_name,json=queueName"`
+	xxx_hidden_MessageId   *string                `protobuf:"bytes,2,opt,name=message_id,json=messageId"`
+	xxx_hidden_Metadata    *proto.RequestMetadata `protobuf:"bytes,3,opt,name=metadata"`
 	XXX_raceDetectHookData protoimpl.RaceDetectHookData
 	XXX_presence           [1]uint32
 	unknownFields          protoimpl.UnknownFields
@@ -5596,7 +5593,7 @@ func (x *GetMessageRequest) GetMessageId() string {
 	return ""
 }
 
-func (x *GetMessageRequest) GetMetadata() *messages.RequestMetadata {
+func (x *GetMessageRequest) GetMetadata() *proto.RequestMetadata {
 	if x != nil {
 		return x.xxx_hidden_Metadata
 	}
@@ -5613,7 +5610,7 @@ func (x *GetMessageRequest) SetMessageId(v string) {
 	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 1, 3)
 }
 
-func (x *GetMessageRequest) SetMetadata(v *messages.RequestMetadata) {
+func (x *GetMessageRequest) SetMetadata(v *proto.RequestMetadata) {
 	x.xxx_hidden_Metadata = v
 }
 
@@ -5660,7 +5657,7 @@ type GetMessageRequest_builder struct {
 	// Message ID
 	MessageId *string
 	// Request metadata
-	Metadata *messages.RequestMetadata
+	Metadata *proto.RequestMetadata
 }
 
 func (b0 GetMessageRequest_builder) Build() *GetMessageRequest {
@@ -5684,7 +5681,7 @@ type GetMessageResponse struct {
 	state              protoimpl.MessageState `protogen:"opaque.v1"`
 	xxx_hidden_Message *QueueMessage          `protobuf:"bytes,1,opt,name=message"`
 	xxx_hidden_Status  *MessageStatus         `protobuf:"bytes,2,opt,name=status"`
-	xxx_hidden_Error   *messages.Error        `protobuf:"bytes,3,opt,name=error"`
+	xxx_hidden_Error   *proto.Error           `protobuf:"bytes,3,opt,name=error"`
 	unknownFields      protoimpl.UnknownFields
 	sizeCache          protoimpl.SizeCache
 }
@@ -5728,7 +5725,7 @@ func (x *GetMessageResponse) GetStatus() *MessageStatus {
 	return nil
 }
 
-func (x *GetMessageResponse) GetError() *messages.Error {
+func (x *GetMessageResponse) GetError() *proto.Error {
 	if x != nil {
 		return x.xxx_hidden_Error
 	}
@@ -5743,7 +5740,7 @@ func (x *GetMessageResponse) SetStatus(v *MessageStatus) {
 	x.xxx_hidden_Status = v
 }
 
-func (x *GetMessageResponse) SetError(v *messages.Error) {
+func (x *GetMessageResponse) SetError(v *proto.Error) {
 	x.xxx_hidden_Error = v
 }
 
@@ -5788,7 +5785,7 @@ type GetMessageResponse_builder struct {
 	// Message status
 	Status *MessageStatus
 	// Error information
-	Error *messages.Error
+	Error *proto.Error
 }
 
 func (b0 GetMessageResponse_builder) Build() *GetMessageResponse {
@@ -6211,13 +6208,13 @@ func (b0 RetryInfo_builder) Build() *RetryInfo {
 
 // List messages request
 type ListMessagesRequest struct {
-	state                  protoimpl.MessageState    `protogen:"opaque.v1"`
-	xxx_hidden_QueueName   *string                   `protobuf:"bytes,1,opt,name=queue_name,json=queueName"`
-	xxx_hidden_State       MessageState              `protobuf:"varint,2,opt,name=state,enum=gcommon.v1.queue.MessageState"`
-	xxx_hidden_StartTime   *timestamppb.Timestamp    `protobuf:"bytes,3,opt,name=start_time,json=startTime"`
-	xxx_hidden_EndTime     *timestamppb.Timestamp    `protobuf:"bytes,4,opt,name=end_time,json=endTime"`
-	xxx_hidden_Pagination  *messages.Pagination      `protobuf:"bytes,5,opt,name=pagination"`
-	xxx_hidden_Metadata    *messages.RequestMetadata `protobuf:"bytes,6,opt,name=metadata"`
+	state                  protoimpl.MessageState `protogen:"opaque.v1"`
+	xxx_hidden_QueueName   *string                `protobuf:"bytes,1,opt,name=queue_name,json=queueName"`
+	xxx_hidden_State       MessageState           `protobuf:"varint,2,opt,name=state,enum=gcommon.v1.queue.MessageState"`
+	xxx_hidden_StartTime   *timestamppb.Timestamp `protobuf:"bytes,3,opt,name=start_time,json=startTime"`
+	xxx_hidden_EndTime     *timestamppb.Timestamp `protobuf:"bytes,4,opt,name=end_time,json=endTime"`
+	xxx_hidden_Pagination  *proto.Pagination      `protobuf:"bytes,5,opt,name=pagination"`
+	xxx_hidden_Metadata    *proto.RequestMetadata `protobuf:"bytes,6,opt,name=metadata"`
 	XXX_raceDetectHookData protoimpl.RaceDetectHookData
 	XXX_presence           [1]uint32
 	unknownFields          protoimpl.UnknownFields
@@ -6282,14 +6279,14 @@ func (x *ListMessagesRequest) GetEndTime() *timestamppb.Timestamp {
 	return nil
 }
 
-func (x *ListMessagesRequest) GetPagination() *messages.Pagination {
+func (x *ListMessagesRequest) GetPagination() *proto.Pagination {
 	if x != nil {
 		return x.xxx_hidden_Pagination
 	}
 	return nil
 }
 
-func (x *ListMessagesRequest) GetMetadata() *messages.RequestMetadata {
+func (x *ListMessagesRequest) GetMetadata() *proto.RequestMetadata {
 	if x != nil {
 		return x.xxx_hidden_Metadata
 	}
@@ -6314,11 +6311,11 @@ func (x *ListMessagesRequest) SetEndTime(v *timestamppb.Timestamp) {
 	x.xxx_hidden_EndTime = v
 }
 
-func (x *ListMessagesRequest) SetPagination(v *messages.Pagination) {
+func (x *ListMessagesRequest) SetPagination(v *proto.Pagination) {
 	x.xxx_hidden_Pagination = v
 }
 
-func (x *ListMessagesRequest) SetMetadata(v *messages.RequestMetadata) {
+func (x *ListMessagesRequest) SetMetadata(v *proto.RequestMetadata) {
 	x.xxx_hidden_Metadata = v
 }
 
@@ -6401,9 +6398,9 @@ type ListMessagesRequest_builder struct {
 	StartTime *timestamppb.Timestamp
 	EndTime   *timestamppb.Timestamp
 	// Pagination options
-	Pagination *messages.Pagination
+	Pagination *proto.Pagination
 	// Request metadata
-	Metadata *messages.RequestMetadata
+	Metadata *proto.RequestMetadata
 }
 
 func (b0 ListMessagesRequest_builder) Build() *ListMessagesRequest {
@@ -6430,8 +6427,8 @@ type ListMessagesResponse struct {
 	state                 protoimpl.MessageState `protogen:"opaque.v1"`
 	xxx_hidden_Messages   *[]*QueueMessage       `protobuf:"bytes,1,rep,name=messages"`
 	xxx_hidden_Statuses   *[]*MessageStatus      `protobuf:"bytes,2,rep,name=statuses"`
-	xxx_hidden_Pagination *messages.Pagination   `protobuf:"bytes,3,opt,name=pagination"`
-	xxx_hidden_Error      *messages.Error        `protobuf:"bytes,4,opt,name=error"`
+	xxx_hidden_Pagination *proto.Pagination      `protobuf:"bytes,3,opt,name=pagination"`
+	xxx_hidden_Error      *proto.Error           `protobuf:"bytes,4,opt,name=error"`
 	unknownFields         protoimpl.UnknownFields
 	sizeCache             protoimpl.SizeCache
 }
@@ -6479,14 +6476,14 @@ func (x *ListMessagesResponse) GetStatuses() []*MessageStatus {
 	return nil
 }
 
-func (x *ListMessagesResponse) GetPagination() *messages.Pagination {
+func (x *ListMessagesResponse) GetPagination() *proto.Pagination {
 	if x != nil {
 		return x.xxx_hidden_Pagination
 	}
 	return nil
 }
 
-func (x *ListMessagesResponse) GetError() *messages.Error {
+func (x *ListMessagesResponse) GetError() *proto.Error {
 	if x != nil {
 		return x.xxx_hidden_Error
 	}
@@ -6501,11 +6498,11 @@ func (x *ListMessagesResponse) SetStatuses(v []*MessageStatus) {
 	x.xxx_hidden_Statuses = &v
 }
 
-func (x *ListMessagesResponse) SetPagination(v *messages.Pagination) {
+func (x *ListMessagesResponse) SetPagination(v *proto.Pagination) {
 	x.xxx_hidden_Pagination = v
 }
 
-func (x *ListMessagesResponse) SetError(v *messages.Error) {
+func (x *ListMessagesResponse) SetError(v *proto.Error) {
 	x.xxx_hidden_Error = v
 }
 
@@ -6539,9 +6536,9 @@ type ListMessagesResponse_builder struct {
 	// Message statuses
 	Statuses []*MessageStatus
 	// Pagination information
-	Pagination *messages.Pagination
+	Pagination *proto.Pagination
 	// Error information
-	Error *messages.Error
+	Error *proto.Error
 }
 
 func (b0 ListMessagesResponse_builder) Build() *ListMessagesResponse {
@@ -6557,9 +6554,9 @@ func (b0 ListMessagesResponse_builder) Build() *ListMessagesResponse {
 
 // Get subscription stats request
 type GetSubscriptionStatsRequest struct {
-	state                       protoimpl.MessageState    `protogen:"opaque.v1"`
-	xxx_hidden_SubscriptionName *string                   `protobuf:"bytes,1,opt,name=subscription_name,json=subscriptionName"`
-	xxx_hidden_Metadata         *messages.RequestMetadata `protobuf:"bytes,2,opt,name=metadata"`
+	state                       protoimpl.MessageState `protogen:"opaque.v1"`
+	xxx_hidden_SubscriptionName *string                `protobuf:"bytes,1,opt,name=subscription_name,json=subscriptionName"`
+	xxx_hidden_Metadata         *proto.RequestMetadata `protobuf:"bytes,2,opt,name=metadata"`
 	XXX_raceDetectHookData      protoimpl.RaceDetectHookData
 	XXX_presence                [1]uint32
 	unknownFields               protoimpl.UnknownFields
@@ -6601,7 +6598,7 @@ func (x *GetSubscriptionStatsRequest) GetSubscriptionName() string {
 	return ""
 }
 
-func (x *GetSubscriptionStatsRequest) GetMetadata() *messages.RequestMetadata {
+func (x *GetSubscriptionStatsRequest) GetMetadata() *proto.RequestMetadata {
 	if x != nil {
 		return x.xxx_hidden_Metadata
 	}
@@ -6613,7 +6610,7 @@ func (x *GetSubscriptionStatsRequest) SetSubscriptionName(v string) {
 	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 0, 2)
 }
 
-func (x *GetSubscriptionStatsRequest) SetMetadata(v *messages.RequestMetadata) {
+func (x *GetSubscriptionStatsRequest) SetMetadata(v *proto.RequestMetadata) {
 	x.xxx_hidden_Metadata = v
 }
 
@@ -6646,7 +6643,7 @@ type GetSubscriptionStatsRequest_builder struct {
 	// Subscription name
 	SubscriptionName *string
 	// Request metadata
-	Metadata *messages.RequestMetadata
+	Metadata *proto.RequestMetadata
 }
 
 func (b0 GetSubscriptionStatsRequest_builder) Build() *GetSubscriptionStatsRequest {
@@ -6665,7 +6662,7 @@ func (b0 GetSubscriptionStatsRequest_builder) Build() *GetSubscriptionStatsReque
 type GetSubscriptionStatsResponse struct {
 	state            protoimpl.MessageState `protogen:"opaque.v1"`
 	xxx_hidden_Stats *SubscriptionStats     `protobuf:"bytes,1,opt,name=stats"`
-	xxx_hidden_Error *messages.Error        `protobuf:"bytes,2,opt,name=error"`
+	xxx_hidden_Error *proto.Error           `protobuf:"bytes,2,opt,name=error"`
 	unknownFields    protoimpl.UnknownFields
 	sizeCache        protoimpl.SizeCache
 }
@@ -6702,7 +6699,7 @@ func (x *GetSubscriptionStatsResponse) GetStats() *SubscriptionStats {
 	return nil
 }
 
-func (x *GetSubscriptionStatsResponse) GetError() *messages.Error {
+func (x *GetSubscriptionStatsResponse) GetError() *proto.Error {
 	if x != nil {
 		return x.xxx_hidden_Error
 	}
@@ -6713,7 +6710,7 @@ func (x *GetSubscriptionStatsResponse) SetStats(v *SubscriptionStats) {
 	x.xxx_hidden_Stats = v
 }
 
-func (x *GetSubscriptionStatsResponse) SetError(v *messages.Error) {
+func (x *GetSubscriptionStatsResponse) SetError(v *proto.Error) {
 	x.xxx_hidden_Error = v
 }
 
@@ -6745,7 +6742,7 @@ type GetSubscriptionStatsResponse_builder struct {
 	// Subscription statistics
 	Stats *SubscriptionStats
 	// Error information
-	Error *messages.Error
+	Error *proto.Error
 }
 
 func (b0 GetSubscriptionStatsResponse_builder) Build() *GetSubscriptionStatsResponse {
@@ -7400,9 +7397,9 @@ func (b0 BacklogInfo_builder) Build() *BacklogInfo {
 
 // Admin service messages
 type CreateQueueRequest struct {
-	state               protoimpl.MessageState    `protogen:"opaque.v1"`
-	xxx_hidden_Config   *QueueConfig              `protobuf:"bytes,1,opt,name=config"`
-	xxx_hidden_Metadata *messages.RequestMetadata `protobuf:"bytes,2,opt,name=metadata"`
+	state               protoimpl.MessageState `protogen:"opaque.v1"`
+	xxx_hidden_Config   *QueueConfig           `protobuf:"bytes,1,opt,name=config"`
+	xxx_hidden_Metadata *proto.RequestMetadata `protobuf:"bytes,2,opt,name=metadata"`
 	unknownFields       protoimpl.UnknownFields
 	sizeCache           protoimpl.SizeCache
 }
@@ -7439,7 +7436,7 @@ func (x *CreateQueueRequest) GetConfig() *QueueConfig {
 	return nil
 }
 
-func (x *CreateQueueRequest) GetMetadata() *messages.RequestMetadata {
+func (x *CreateQueueRequest) GetMetadata() *proto.RequestMetadata {
 	if x != nil {
 		return x.xxx_hidden_Metadata
 	}
@@ -7450,7 +7447,7 @@ func (x *CreateQueueRequest) SetConfig(v *QueueConfig) {
 	x.xxx_hidden_Config = v
 }
 
-func (x *CreateQueueRequest) SetMetadata(v *messages.RequestMetadata) {
+func (x *CreateQueueRequest) SetMetadata(v *proto.RequestMetadata) {
 	x.xxx_hidden_Metadata = v
 }
 
@@ -7482,7 +7479,7 @@ type CreateQueueRequest_builder struct {
 	// Queue configuration
 	Config *QueueConfig
 	// Request metadata
-	Metadata *messages.RequestMetadata
+	Metadata *proto.RequestMetadata
 }
 
 func (b0 CreateQueueRequest_builder) Build() *CreateQueueRequest {
@@ -7993,7 +7990,7 @@ type CreateQueueResponse struct {
 	state                  protoimpl.MessageState `protogen:"opaque.v1"`
 	xxx_hidden_Success     bool                   `protobuf:"varint,1,opt,name=success"`
 	xxx_hidden_Queue       *QueueInfo             `protobuf:"bytes,2,opt,name=queue"`
-	xxx_hidden_Error       *messages.Error        `protobuf:"bytes,3,opt,name=error"`
+	xxx_hidden_Error       *proto.Error           `protobuf:"bytes,3,opt,name=error"`
 	XXX_raceDetectHookData protoimpl.RaceDetectHookData
 	XXX_presence           [1]uint32
 	unknownFields          protoimpl.UnknownFields
@@ -8039,7 +8036,7 @@ func (x *CreateQueueResponse) GetQueue() *QueueInfo {
 	return nil
 }
 
-func (x *CreateQueueResponse) GetError() *messages.Error {
+func (x *CreateQueueResponse) GetError() *proto.Error {
 	if x != nil {
 		return x.xxx_hidden_Error
 	}
@@ -8055,7 +8052,7 @@ func (x *CreateQueueResponse) SetQueue(v *QueueInfo) {
 	x.xxx_hidden_Queue = v
 }
 
-func (x *CreateQueueResponse) SetError(v *messages.Error) {
+func (x *CreateQueueResponse) SetError(v *proto.Error) {
 	x.xxx_hidden_Error = v
 }
 
@@ -8101,7 +8098,7 @@ type CreateQueueResponse_builder struct {
 	// Created queue information
 	Queue *QueueInfo
 	// Error information
-	Error *messages.Error
+	Error *proto.Error
 }
 
 func (b0 CreateQueueResponse_builder) Build() *CreateQueueResponse {
@@ -8121,7 +8118,7 @@ func (b0 CreateQueueResponse_builder) Build() *CreateQueueResponse {
 type QueueInfo struct {
 	state                  protoimpl.MessageState `protogen:"opaque.v1"`
 	xxx_hidden_Config      *QueueConfig           `protobuf:"bytes,1,opt,name=config"`
-	xxx_hidden_Stats       *responses.QueueStats  `protobuf:"bytes,2,opt,name=stats"`
+	xxx_hidden_Stats       *QueueStats            `protobuf:"bytes,2,opt,name=stats"`
 	xxx_hidden_CreatedAt   *timestamppb.Timestamp `protobuf:"bytes,3,opt,name=created_at,json=createdAt"`
 	xxx_hidden_UpdatedAt   *timestamppb.Timestamp `protobuf:"bytes,4,opt,name=updated_at,json=updatedAt"`
 	xxx_hidden_Status      QueueStatus            `protobuf:"varint,5,opt,name=status,enum=gcommon.v1.queue.QueueStatus"`
@@ -8163,7 +8160,7 @@ func (x *QueueInfo) GetConfig() *QueueConfig {
 	return nil
 }
 
-func (x *QueueInfo) GetStats() *responses.QueueStats {
+func (x *QueueInfo) GetStats() *QueueStats {
 	if x != nil {
 		return x.xxx_hidden_Stats
 	}
@@ -8197,7 +8194,7 @@ func (x *QueueInfo) SetConfig(v *QueueConfig) {
 	x.xxx_hidden_Config = v
 }
 
-func (x *QueueInfo) SetStats(v *responses.QueueStats) {
+func (x *QueueInfo) SetStats(v *QueueStats) {
 	x.xxx_hidden_Stats = v
 }
 
@@ -8276,7 +8273,7 @@ type QueueInfo_builder struct {
 	// Queue configuration
 	Config *QueueConfig
 	// Queue statistics (from GetQueueStatsResponse)
-	Stats *responses.QueueStats
+	Stats *QueueStats
 	// Creation time
 	CreatedAt *timestamppb.Timestamp
 	// Last updated time
@@ -8302,11 +8299,11 @@ func (b0 QueueInfo_builder) Build() *QueueInfo {
 
 // Update queue request
 type UpdateQueueRequest struct {
-	state                  protoimpl.MessageState    `protogen:"opaque.v1"`
-	xxx_hidden_Name        *string                   `protobuf:"bytes,1,opt,name=name"`
-	xxx_hidden_Config      *QueueConfig              `protobuf:"bytes,2,opt,name=config"`
-	xxx_hidden_UpdateMask  *fieldmaskpb.FieldMask    `protobuf:"bytes,3,opt,name=update_mask,json=updateMask"`
-	xxx_hidden_Metadata    *messages.RequestMetadata `protobuf:"bytes,4,opt,name=metadata"`
+	state                  protoimpl.MessageState `protogen:"opaque.v1"`
+	xxx_hidden_Name        *string                `protobuf:"bytes,1,opt,name=name"`
+	xxx_hidden_Config      *QueueConfig           `protobuf:"bytes,2,opt,name=config"`
+	xxx_hidden_UpdateMask  *fieldmaskpb.FieldMask `protobuf:"bytes,3,opt,name=update_mask,json=updateMask"`
+	xxx_hidden_Metadata    *proto.RequestMetadata `protobuf:"bytes,4,opt,name=metadata"`
 	XXX_raceDetectHookData protoimpl.RaceDetectHookData
 	XXX_presence           [1]uint32
 	unknownFields          protoimpl.UnknownFields
@@ -8362,7 +8359,7 @@ func (x *UpdateQueueRequest) GetUpdateMask() *fieldmaskpb.FieldMask {
 	return nil
 }
 
-func (x *UpdateQueueRequest) GetMetadata() *messages.RequestMetadata {
+func (x *UpdateQueueRequest) GetMetadata() *proto.RequestMetadata {
 	if x != nil {
 		return x.xxx_hidden_Metadata
 	}
@@ -8382,7 +8379,7 @@ func (x *UpdateQueueRequest) SetUpdateMask(v *fieldmaskpb.FieldMask) {
 	x.xxx_hidden_UpdateMask = v
 }
 
-func (x *UpdateQueueRequest) SetMetadata(v *messages.RequestMetadata) {
+func (x *UpdateQueueRequest) SetMetadata(v *proto.RequestMetadata) {
 	x.xxx_hidden_Metadata = v
 }
 
@@ -8441,7 +8438,7 @@ type UpdateQueueRequest_builder struct {
 	// Field mask for partial updates
 	UpdateMask *fieldmaskpb.FieldMask
 	// Request metadata
-	Metadata *messages.RequestMetadata
+	Metadata *proto.RequestMetadata
 }
 
 func (b0 UpdateQueueRequest_builder) Build() *UpdateQueueRequest {
@@ -8463,7 +8460,7 @@ type UpdateQueueResponse struct {
 	state                  protoimpl.MessageState `protogen:"opaque.v1"`
 	xxx_hidden_Success     bool                   `protobuf:"varint,1,opt,name=success"`
 	xxx_hidden_Queue       *QueueInfo             `protobuf:"bytes,2,opt,name=queue"`
-	xxx_hidden_Error       *messages.Error        `protobuf:"bytes,3,opt,name=error"`
+	xxx_hidden_Error       *proto.Error           `protobuf:"bytes,3,opt,name=error"`
 	XXX_raceDetectHookData protoimpl.RaceDetectHookData
 	XXX_presence           [1]uint32
 	unknownFields          protoimpl.UnknownFields
@@ -8509,7 +8506,7 @@ func (x *UpdateQueueResponse) GetQueue() *QueueInfo {
 	return nil
 }
 
-func (x *UpdateQueueResponse) GetError() *messages.Error {
+func (x *UpdateQueueResponse) GetError() *proto.Error {
 	if x != nil {
 		return x.xxx_hidden_Error
 	}
@@ -8525,7 +8522,7 @@ func (x *UpdateQueueResponse) SetQueue(v *QueueInfo) {
 	x.xxx_hidden_Queue = v
 }
 
-func (x *UpdateQueueResponse) SetError(v *messages.Error) {
+func (x *UpdateQueueResponse) SetError(v *proto.Error) {
 	x.xxx_hidden_Error = v
 }
 
@@ -8571,7 +8568,7 @@ type UpdateQueueResponse_builder struct {
 	// Updated queue information
 	Queue *QueueInfo
 	// Error information
-	Error *messages.Error
+	Error *proto.Error
 }
 
 func (b0 UpdateQueueResponse_builder) Build() *UpdateQueueResponse {
@@ -8589,10 +8586,10 @@ func (b0 UpdateQueueResponse_builder) Build() *UpdateQueueResponse {
 
 // Delete queue request
 type DeleteQueueRequest struct {
-	state                  protoimpl.MessageState    `protogen:"opaque.v1"`
-	xxx_hidden_Name        *string                   `protobuf:"bytes,1,opt,name=name"`
-	xxx_hidden_Force       bool                      `protobuf:"varint,2,opt,name=force"`
-	xxx_hidden_Metadata    *messages.RequestMetadata `protobuf:"bytes,3,opt,name=metadata"`
+	state                  protoimpl.MessageState `protogen:"opaque.v1"`
+	xxx_hidden_Name        *string                `protobuf:"bytes,1,opt,name=name"`
+	xxx_hidden_Force       bool                   `protobuf:"varint,2,opt,name=force"`
+	xxx_hidden_Metadata    *proto.RequestMetadata `protobuf:"bytes,3,opt,name=metadata"`
 	XXX_raceDetectHookData protoimpl.RaceDetectHookData
 	XXX_presence           [1]uint32
 	unknownFields          protoimpl.UnknownFields
@@ -8641,7 +8638,7 @@ func (x *DeleteQueueRequest) GetForce() bool {
 	return false
 }
 
-func (x *DeleteQueueRequest) GetMetadata() *messages.RequestMetadata {
+func (x *DeleteQueueRequest) GetMetadata() *proto.RequestMetadata {
 	if x != nil {
 		return x.xxx_hidden_Metadata
 	}
@@ -8658,7 +8655,7 @@ func (x *DeleteQueueRequest) SetForce(v bool) {
 	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 1, 3)
 }
 
-func (x *DeleteQueueRequest) SetMetadata(v *messages.RequestMetadata) {
+func (x *DeleteQueueRequest) SetMetadata(v *proto.RequestMetadata) {
 	x.xxx_hidden_Metadata = v
 }
 
@@ -8705,7 +8702,7 @@ type DeleteQueueRequest_builder struct {
 	// Force delete even if not empty
 	Force *bool
 	// Request metadata
-	Metadata *messages.RequestMetadata
+	Metadata *proto.RequestMetadata
 }
 
 func (b0 DeleteQueueRequest_builder) Build() *DeleteQueueRequest {
@@ -8726,12 +8723,12 @@ func (b0 DeleteQueueRequest_builder) Build() *DeleteQueueRequest {
 
 // List queues request
 type ListQueuesRequest struct {
-	state                  protoimpl.MessageState    `protogen:"opaque.v1"`
-	xxx_hidden_NamePattern *string                   `protobuf:"bytes,1,opt,name=name_pattern,json=namePattern"`
-	xxx_hidden_Type        QueueType                 `protobuf:"varint,2,opt,name=type,enum=gcommon.v1.queue.QueueType"`
-	xxx_hidden_Status      QueueStatus               `protobuf:"varint,3,opt,name=status,enum=gcommon.v1.queue.QueueStatus"`
-	xxx_hidden_Pagination  *messages.Pagination      `protobuf:"bytes,4,opt,name=pagination"`
-	xxx_hidden_Metadata    *messages.RequestMetadata `protobuf:"bytes,5,opt,name=metadata"`
+	state                  protoimpl.MessageState `protogen:"opaque.v1"`
+	xxx_hidden_NamePattern *string                `protobuf:"bytes,1,opt,name=name_pattern,json=namePattern"`
+	xxx_hidden_Type        QueueType              `protobuf:"varint,2,opt,name=type,enum=gcommon.v1.queue.QueueType"`
+	xxx_hidden_Status      QueueStatus            `protobuf:"varint,3,opt,name=status,enum=gcommon.v1.queue.QueueStatus"`
+	xxx_hidden_Pagination  *proto.Pagination      `protobuf:"bytes,4,opt,name=pagination"`
+	xxx_hidden_Metadata    *proto.RequestMetadata `protobuf:"bytes,5,opt,name=metadata"`
 	XXX_raceDetectHookData protoimpl.RaceDetectHookData
 	XXX_presence           [1]uint32
 	unknownFields          protoimpl.UnknownFields
@@ -8791,14 +8788,14 @@ func (x *ListQueuesRequest) GetStatus() QueueStatus {
 	return QueueStatus_QUEUE_STATUS_UNSPECIFIED
 }
 
-func (x *ListQueuesRequest) GetPagination() *messages.Pagination {
+func (x *ListQueuesRequest) GetPagination() *proto.Pagination {
 	if x != nil {
 		return x.xxx_hidden_Pagination
 	}
 	return nil
 }
 
-func (x *ListQueuesRequest) GetMetadata() *messages.RequestMetadata {
+func (x *ListQueuesRequest) GetMetadata() *proto.RequestMetadata {
 	if x != nil {
 		return x.xxx_hidden_Metadata
 	}
@@ -8820,11 +8817,11 @@ func (x *ListQueuesRequest) SetStatus(v QueueStatus) {
 	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 2, 5)
 }
 
-func (x *ListQueuesRequest) SetPagination(v *messages.Pagination) {
+func (x *ListQueuesRequest) SetPagination(v *proto.Pagination) {
 	x.xxx_hidden_Pagination = v
 }
 
-func (x *ListQueuesRequest) SetMetadata(v *messages.RequestMetadata) {
+func (x *ListQueuesRequest) SetMetadata(v *proto.RequestMetadata) {
 	x.xxx_hidden_Metadata = v
 }
 
@@ -8896,9 +8893,9 @@ type ListQueuesRequest_builder struct {
 	// Status filter
 	Status *QueueStatus
 	// Pagination options
-	Pagination *messages.Pagination
+	Pagination *proto.Pagination
 	// Request metadata
-	Metadata *messages.RequestMetadata
+	Metadata *proto.RequestMetadata
 }
 
 func (b0 ListQueuesRequest_builder) Build() *ListQueuesRequest {
@@ -8926,8 +8923,8 @@ func (b0 ListQueuesRequest_builder) Build() *ListQueuesRequest {
 type ListQueuesResponse struct {
 	state                 protoimpl.MessageState `protogen:"opaque.v1"`
 	xxx_hidden_Queues     *[]*QueueInfo          `protobuf:"bytes,1,rep,name=queues"`
-	xxx_hidden_Pagination *messages.Pagination   `protobuf:"bytes,2,opt,name=pagination"`
-	xxx_hidden_Error      *messages.Error        `protobuf:"bytes,3,opt,name=error"`
+	xxx_hidden_Pagination *proto.Pagination      `protobuf:"bytes,2,opt,name=pagination"`
+	xxx_hidden_Error      *proto.Error           `protobuf:"bytes,3,opt,name=error"`
 	unknownFields         protoimpl.UnknownFields
 	sizeCache             protoimpl.SizeCache
 }
@@ -8966,14 +8963,14 @@ func (x *ListQueuesResponse) GetQueues() []*QueueInfo {
 	return nil
 }
 
-func (x *ListQueuesResponse) GetPagination() *messages.Pagination {
+func (x *ListQueuesResponse) GetPagination() *proto.Pagination {
 	if x != nil {
 		return x.xxx_hidden_Pagination
 	}
 	return nil
 }
 
-func (x *ListQueuesResponse) GetError() *messages.Error {
+func (x *ListQueuesResponse) GetError() *proto.Error {
 	if x != nil {
 		return x.xxx_hidden_Error
 	}
@@ -8984,11 +8981,11 @@ func (x *ListQueuesResponse) SetQueues(v []*QueueInfo) {
 	x.xxx_hidden_Queues = &v
 }
 
-func (x *ListQueuesResponse) SetPagination(v *messages.Pagination) {
+func (x *ListQueuesResponse) SetPagination(v *proto.Pagination) {
 	x.xxx_hidden_Pagination = v
 }
 
-func (x *ListQueuesResponse) SetError(v *messages.Error) {
+func (x *ListQueuesResponse) SetError(v *proto.Error) {
 	x.xxx_hidden_Error = v
 }
 
@@ -9020,9 +9017,9 @@ type ListQueuesResponse_builder struct {
 	// Queue information
 	Queues []*QueueInfo
 	// Pagination information
-	Pagination *messages.Pagination
+	Pagination *proto.Pagination
 	// Error information
-	Error *messages.Error
+	Error *proto.Error
 }
 
 func (b0 ListQueuesResponse_builder) Build() *ListQueuesResponse {
@@ -9037,9 +9034,9 @@ func (b0 ListQueuesResponse_builder) Build() *ListQueuesResponse {
 
 // Create topic request
 type CreateTopicRequest struct {
-	state               protoimpl.MessageState    `protogen:"opaque.v1"`
-	xxx_hidden_Config   *TopicConfig              `protobuf:"bytes,1,opt,name=config"`
-	xxx_hidden_Metadata *messages.RequestMetadata `protobuf:"bytes,2,opt,name=metadata"`
+	state               protoimpl.MessageState `protogen:"opaque.v1"`
+	xxx_hidden_Config   *TopicConfig           `protobuf:"bytes,1,opt,name=config"`
+	xxx_hidden_Metadata *proto.RequestMetadata `protobuf:"bytes,2,opt,name=metadata"`
 	unknownFields       protoimpl.UnknownFields
 	sizeCache           protoimpl.SizeCache
 }
@@ -9076,7 +9073,7 @@ func (x *CreateTopicRequest) GetConfig() *TopicConfig {
 	return nil
 }
 
-func (x *CreateTopicRequest) GetMetadata() *messages.RequestMetadata {
+func (x *CreateTopicRequest) GetMetadata() *proto.RequestMetadata {
 	if x != nil {
 		return x.xxx_hidden_Metadata
 	}
@@ -9087,7 +9084,7 @@ func (x *CreateTopicRequest) SetConfig(v *TopicConfig) {
 	x.xxx_hidden_Config = v
 }
 
-func (x *CreateTopicRequest) SetMetadata(v *messages.RequestMetadata) {
+func (x *CreateTopicRequest) SetMetadata(v *proto.RequestMetadata) {
 	x.xxx_hidden_Metadata = v
 }
 
@@ -9119,7 +9116,7 @@ type CreateTopicRequest_builder struct {
 	// Topic configuration
 	Config *TopicConfig
 	// Request metadata
-	Metadata *messages.RequestMetadata
+	Metadata *proto.RequestMetadata
 }
 
 func (b0 CreateTopicRequest_builder) Build() *CreateTopicRequest {
@@ -9549,7 +9546,7 @@ type CreateTopicResponse struct {
 	state                  protoimpl.MessageState `protogen:"opaque.v1"`
 	xxx_hidden_Success     bool                   `protobuf:"varint,1,opt,name=success"`
 	xxx_hidden_Topic       *TopicInfo             `protobuf:"bytes,2,opt,name=topic"`
-	xxx_hidden_Error       *messages.Error        `protobuf:"bytes,3,opt,name=error"`
+	xxx_hidden_Error       *proto.Error           `protobuf:"bytes,3,opt,name=error"`
 	XXX_raceDetectHookData protoimpl.RaceDetectHookData
 	XXX_presence           [1]uint32
 	unknownFields          protoimpl.UnknownFields
@@ -9595,7 +9592,7 @@ func (x *CreateTopicResponse) GetTopic() *TopicInfo {
 	return nil
 }
 
-func (x *CreateTopicResponse) GetError() *messages.Error {
+func (x *CreateTopicResponse) GetError() *proto.Error {
 	if x != nil {
 		return x.xxx_hidden_Error
 	}
@@ -9611,7 +9608,7 @@ func (x *CreateTopicResponse) SetTopic(v *TopicInfo) {
 	x.xxx_hidden_Topic = v
 }
 
-func (x *CreateTopicResponse) SetError(v *messages.Error) {
+func (x *CreateTopicResponse) SetError(v *proto.Error) {
 	x.xxx_hidden_Error = v
 }
 
@@ -9657,7 +9654,7 @@ type CreateTopicResponse_builder struct {
 	// Created topic information
 	Topic *TopicInfo
 	// Error information
-	Error *messages.Error
+	Error *proto.Error
 }
 
 func (b0 CreateTopicResponse_builder) Build() *CreateTopicResponse {
@@ -10249,11 +10246,11 @@ func (b0 PartitionStats_builder) Build() *PartitionStats {
 
 // Update topic request
 type UpdateTopicRequest struct {
-	state                  protoimpl.MessageState    `protogen:"opaque.v1"`
-	xxx_hidden_Name        *string                   `protobuf:"bytes,1,opt,name=name"`
-	xxx_hidden_Config      *TopicConfig              `protobuf:"bytes,2,opt,name=config"`
-	xxx_hidden_UpdateMask  *fieldmaskpb.FieldMask    `protobuf:"bytes,3,opt,name=update_mask,json=updateMask"`
-	xxx_hidden_Metadata    *messages.RequestMetadata `protobuf:"bytes,4,opt,name=metadata"`
+	state                  protoimpl.MessageState `protogen:"opaque.v1"`
+	xxx_hidden_Name        *string                `protobuf:"bytes,1,opt,name=name"`
+	xxx_hidden_Config      *TopicConfig           `protobuf:"bytes,2,opt,name=config"`
+	xxx_hidden_UpdateMask  *fieldmaskpb.FieldMask `protobuf:"bytes,3,opt,name=update_mask,json=updateMask"`
+	xxx_hidden_Metadata    *proto.RequestMetadata `protobuf:"bytes,4,opt,name=metadata"`
 	XXX_raceDetectHookData protoimpl.RaceDetectHookData
 	XXX_presence           [1]uint32
 	unknownFields          protoimpl.UnknownFields
@@ -10309,7 +10306,7 @@ func (x *UpdateTopicRequest) GetUpdateMask() *fieldmaskpb.FieldMask {
 	return nil
 }
 
-func (x *UpdateTopicRequest) GetMetadata() *messages.RequestMetadata {
+func (x *UpdateTopicRequest) GetMetadata() *proto.RequestMetadata {
 	if x != nil {
 		return x.xxx_hidden_Metadata
 	}
@@ -10329,7 +10326,7 @@ func (x *UpdateTopicRequest) SetUpdateMask(v *fieldmaskpb.FieldMask) {
 	x.xxx_hidden_UpdateMask = v
 }
 
-func (x *UpdateTopicRequest) SetMetadata(v *messages.RequestMetadata) {
+func (x *UpdateTopicRequest) SetMetadata(v *proto.RequestMetadata) {
 	x.xxx_hidden_Metadata = v
 }
 
@@ -10388,7 +10385,7 @@ type UpdateTopicRequest_builder struct {
 	// Field mask for partial updates
 	UpdateMask *fieldmaskpb.FieldMask
 	// Request metadata
-	Metadata *messages.RequestMetadata
+	Metadata *proto.RequestMetadata
 }
 
 func (b0 UpdateTopicRequest_builder) Build() *UpdateTopicRequest {
@@ -10410,7 +10407,7 @@ type UpdateTopicResponse struct {
 	state                  protoimpl.MessageState `protogen:"opaque.v1"`
 	xxx_hidden_Success     bool                   `protobuf:"varint,1,opt,name=success"`
 	xxx_hidden_Topic       *TopicInfo             `protobuf:"bytes,2,opt,name=topic"`
-	xxx_hidden_Error       *messages.Error        `protobuf:"bytes,3,opt,name=error"`
+	xxx_hidden_Error       *proto.Error           `protobuf:"bytes,3,opt,name=error"`
 	XXX_raceDetectHookData protoimpl.RaceDetectHookData
 	XXX_presence           [1]uint32
 	unknownFields          protoimpl.UnknownFields
@@ -10456,7 +10453,7 @@ func (x *UpdateTopicResponse) GetTopic() *TopicInfo {
 	return nil
 }
 
-func (x *UpdateTopicResponse) GetError() *messages.Error {
+func (x *UpdateTopicResponse) GetError() *proto.Error {
 	if x != nil {
 		return x.xxx_hidden_Error
 	}
@@ -10472,7 +10469,7 @@ func (x *UpdateTopicResponse) SetTopic(v *TopicInfo) {
 	x.xxx_hidden_Topic = v
 }
 
-func (x *UpdateTopicResponse) SetError(v *messages.Error) {
+func (x *UpdateTopicResponse) SetError(v *proto.Error) {
 	x.xxx_hidden_Error = v
 }
 
@@ -10518,7 +10515,7 @@ type UpdateTopicResponse_builder struct {
 	// Updated topic information
 	Topic *TopicInfo
 	// Error information
-	Error *messages.Error
+	Error *proto.Error
 }
 
 func (b0 UpdateTopicResponse_builder) Build() *UpdateTopicResponse {
@@ -10536,10 +10533,10 @@ func (b0 UpdateTopicResponse_builder) Build() *UpdateTopicResponse {
 
 // Delete topic request
 type DeleteTopicRequest struct {
-	state                  protoimpl.MessageState    `protogen:"opaque.v1"`
-	xxx_hidden_Name        *string                   `protobuf:"bytes,1,opt,name=name"`
-	xxx_hidden_Force       bool                      `protobuf:"varint,2,opt,name=force"`
-	xxx_hidden_Metadata    *messages.RequestMetadata `protobuf:"bytes,3,opt,name=metadata"`
+	state                  protoimpl.MessageState `protogen:"opaque.v1"`
+	xxx_hidden_Name        *string                `protobuf:"bytes,1,opt,name=name"`
+	xxx_hidden_Force       bool                   `protobuf:"varint,2,opt,name=force"`
+	xxx_hidden_Metadata    *proto.RequestMetadata `protobuf:"bytes,3,opt,name=metadata"`
 	XXX_raceDetectHookData protoimpl.RaceDetectHookData
 	XXX_presence           [1]uint32
 	unknownFields          protoimpl.UnknownFields
@@ -10588,7 +10585,7 @@ func (x *DeleteTopicRequest) GetForce() bool {
 	return false
 }
 
-func (x *DeleteTopicRequest) GetMetadata() *messages.RequestMetadata {
+func (x *DeleteTopicRequest) GetMetadata() *proto.RequestMetadata {
 	if x != nil {
 		return x.xxx_hidden_Metadata
 	}
@@ -10605,7 +10602,7 @@ func (x *DeleteTopicRequest) SetForce(v bool) {
 	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 1, 3)
 }
 
-func (x *DeleteTopicRequest) SetMetadata(v *messages.RequestMetadata) {
+func (x *DeleteTopicRequest) SetMetadata(v *proto.RequestMetadata) {
 	x.xxx_hidden_Metadata = v
 }
 
@@ -10652,7 +10649,7 @@ type DeleteTopicRequest_builder struct {
 	// Force delete even with active subscriptions
 	Force *bool
 	// Request metadata
-	Metadata *messages.RequestMetadata
+	Metadata *proto.RequestMetadata
 }
 
 func (b0 DeleteTopicRequest_builder) Build() *DeleteTopicRequest {
@@ -10673,11 +10670,11 @@ func (b0 DeleteTopicRequest_builder) Build() *DeleteTopicRequest {
 
 // List topics request
 type ListTopicsRequest struct {
-	state                  protoimpl.MessageState    `protogen:"opaque.v1"`
-	xxx_hidden_NamePattern *string                   `protobuf:"bytes,1,opt,name=name_pattern,json=namePattern"`
-	xxx_hidden_Status      TopicStatus               `protobuf:"varint,2,opt,name=status,enum=gcommon.v1.queue.TopicStatus"`
-	xxx_hidden_Pagination  *messages.Pagination      `protobuf:"bytes,3,opt,name=pagination"`
-	xxx_hidden_Metadata    *messages.RequestMetadata `protobuf:"bytes,4,opt,name=metadata"`
+	state                  protoimpl.MessageState `protogen:"opaque.v1"`
+	xxx_hidden_NamePattern *string                `protobuf:"bytes,1,opt,name=name_pattern,json=namePattern"`
+	xxx_hidden_Status      TopicStatus            `protobuf:"varint,2,opt,name=status,enum=gcommon.v1.queue.TopicStatus"`
+	xxx_hidden_Pagination  *proto.Pagination      `protobuf:"bytes,3,opt,name=pagination"`
+	xxx_hidden_Metadata    *proto.RequestMetadata `protobuf:"bytes,4,opt,name=metadata"`
 	XXX_raceDetectHookData protoimpl.RaceDetectHookData
 	XXX_presence           [1]uint32
 	unknownFields          protoimpl.UnknownFields
@@ -10728,14 +10725,14 @@ func (x *ListTopicsRequest) GetStatus() TopicStatus {
 	return TopicStatus_TOPIC_STATUS_UNSPECIFIED
 }
 
-func (x *ListTopicsRequest) GetPagination() *messages.Pagination {
+func (x *ListTopicsRequest) GetPagination() *proto.Pagination {
 	if x != nil {
 		return x.xxx_hidden_Pagination
 	}
 	return nil
 }
 
-func (x *ListTopicsRequest) GetMetadata() *messages.RequestMetadata {
+func (x *ListTopicsRequest) GetMetadata() *proto.RequestMetadata {
 	if x != nil {
 		return x.xxx_hidden_Metadata
 	}
@@ -10752,11 +10749,11 @@ func (x *ListTopicsRequest) SetStatus(v TopicStatus) {
 	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 1, 4)
 }
 
-func (x *ListTopicsRequest) SetPagination(v *messages.Pagination) {
+func (x *ListTopicsRequest) SetPagination(v *proto.Pagination) {
 	x.xxx_hidden_Pagination = v
 }
 
-func (x *ListTopicsRequest) SetMetadata(v *messages.RequestMetadata) {
+func (x *ListTopicsRequest) SetMetadata(v *proto.RequestMetadata) {
 	x.xxx_hidden_Metadata = v
 }
 
@@ -10814,9 +10811,9 @@ type ListTopicsRequest_builder struct {
 	// Status filter
 	Status *TopicStatus
 	// Pagination options
-	Pagination *messages.Pagination
+	Pagination *proto.Pagination
 	// Request metadata
-	Metadata *messages.RequestMetadata
+	Metadata *proto.RequestMetadata
 }
 
 func (b0 ListTopicsRequest_builder) Build() *ListTopicsRequest {
@@ -10840,8 +10837,8 @@ func (b0 ListTopicsRequest_builder) Build() *ListTopicsRequest {
 type ListTopicsResponse struct {
 	state                 protoimpl.MessageState `protogen:"opaque.v1"`
 	xxx_hidden_Topics     *[]*TopicInfo          `protobuf:"bytes,1,rep,name=topics"`
-	xxx_hidden_Pagination *messages.Pagination   `protobuf:"bytes,2,opt,name=pagination"`
-	xxx_hidden_Error      *messages.Error        `protobuf:"bytes,3,opt,name=error"`
+	xxx_hidden_Pagination *proto.Pagination      `protobuf:"bytes,2,opt,name=pagination"`
+	xxx_hidden_Error      *proto.Error           `protobuf:"bytes,3,opt,name=error"`
 	unknownFields         protoimpl.UnknownFields
 	sizeCache             protoimpl.SizeCache
 }
@@ -10880,14 +10877,14 @@ func (x *ListTopicsResponse) GetTopics() []*TopicInfo {
 	return nil
 }
 
-func (x *ListTopicsResponse) GetPagination() *messages.Pagination {
+func (x *ListTopicsResponse) GetPagination() *proto.Pagination {
 	if x != nil {
 		return x.xxx_hidden_Pagination
 	}
 	return nil
 }
 
-func (x *ListTopicsResponse) GetError() *messages.Error {
+func (x *ListTopicsResponse) GetError() *proto.Error {
 	if x != nil {
 		return x.xxx_hidden_Error
 	}
@@ -10898,11 +10895,11 @@ func (x *ListTopicsResponse) SetTopics(v []*TopicInfo) {
 	x.xxx_hidden_Topics = &v
 }
 
-func (x *ListTopicsResponse) SetPagination(v *messages.Pagination) {
+func (x *ListTopicsResponse) SetPagination(v *proto.Pagination) {
 	x.xxx_hidden_Pagination = v
 }
 
-func (x *ListTopicsResponse) SetError(v *messages.Error) {
+func (x *ListTopicsResponse) SetError(v *proto.Error) {
 	x.xxx_hidden_Error = v
 }
 
@@ -10934,9 +10931,9 @@ type ListTopicsResponse_builder struct {
 	// Topic information
 	Topics []*TopicInfo
 	// Pagination information
-	Pagination *messages.Pagination
+	Pagination *proto.Pagination
 	// Error information
-	Error *messages.Error
+	Error *proto.Error
 }
 
 func (b0 ListTopicsResponse_builder) Build() *ListTopicsResponse {
@@ -10951,9 +10948,9 @@ func (b0 ListTopicsResponse_builder) Build() *ListTopicsResponse {
 
 // Create subscription request
 type CreateSubscriptionRequest struct {
-	state               protoimpl.MessageState    `protogen:"opaque.v1"`
-	xxx_hidden_Config   *SubscriptionConfig       `protobuf:"bytes,1,opt,name=config"`
-	xxx_hidden_Metadata *messages.RequestMetadata `protobuf:"bytes,2,opt,name=metadata"`
+	state               protoimpl.MessageState `protogen:"opaque.v1"`
+	xxx_hidden_Config   *SubscriptionConfig    `protobuf:"bytes,1,opt,name=config"`
+	xxx_hidden_Metadata *proto.RequestMetadata `protobuf:"bytes,2,opt,name=metadata"`
 	unknownFields       protoimpl.UnknownFields
 	sizeCache           protoimpl.SizeCache
 }
@@ -10990,7 +10987,7 @@ func (x *CreateSubscriptionRequest) GetConfig() *SubscriptionConfig {
 	return nil
 }
 
-func (x *CreateSubscriptionRequest) GetMetadata() *messages.RequestMetadata {
+func (x *CreateSubscriptionRequest) GetMetadata() *proto.RequestMetadata {
 	if x != nil {
 		return x.xxx_hidden_Metadata
 	}
@@ -11001,7 +10998,7 @@ func (x *CreateSubscriptionRequest) SetConfig(v *SubscriptionConfig) {
 	x.xxx_hidden_Config = v
 }
 
-func (x *CreateSubscriptionRequest) SetMetadata(v *messages.RequestMetadata) {
+func (x *CreateSubscriptionRequest) SetMetadata(v *proto.RequestMetadata) {
 	x.xxx_hidden_Metadata = v
 }
 
@@ -11033,7 +11030,7 @@ type CreateSubscriptionRequest_builder struct {
 	// Subscription configuration
 	Config *SubscriptionConfig
 	// Request metadata
-	Metadata *messages.RequestMetadata
+	Metadata *proto.RequestMetadata
 }
 
 func (b0 CreateSubscriptionRequest_builder) Build() *CreateSubscriptionRequest {
@@ -11863,7 +11860,7 @@ type CreateSubscriptionResponse struct {
 	state                   protoimpl.MessageState `protogen:"opaque.v1"`
 	xxx_hidden_Success      bool                   `protobuf:"varint,1,opt,name=success"`
 	xxx_hidden_Subscription *SubscriptionInfo      `protobuf:"bytes,2,opt,name=subscription"`
-	xxx_hidden_Error        *messages.Error        `protobuf:"bytes,3,opt,name=error"`
+	xxx_hidden_Error        *proto.Error           `protobuf:"bytes,3,opt,name=error"`
 	XXX_raceDetectHookData  protoimpl.RaceDetectHookData
 	XXX_presence            [1]uint32
 	unknownFields           protoimpl.UnknownFields
@@ -11909,7 +11906,7 @@ func (x *CreateSubscriptionResponse) GetSubscription() *SubscriptionInfo {
 	return nil
 }
 
-func (x *CreateSubscriptionResponse) GetError() *messages.Error {
+func (x *CreateSubscriptionResponse) GetError() *proto.Error {
 	if x != nil {
 		return x.xxx_hidden_Error
 	}
@@ -11925,7 +11922,7 @@ func (x *CreateSubscriptionResponse) SetSubscription(v *SubscriptionInfo) {
 	x.xxx_hidden_Subscription = v
 }
 
-func (x *CreateSubscriptionResponse) SetError(v *messages.Error) {
+func (x *CreateSubscriptionResponse) SetError(v *proto.Error) {
 	x.xxx_hidden_Error = v
 }
 
@@ -11971,7 +11968,7 @@ type CreateSubscriptionResponse_builder struct {
 	// Created subscription information
 	Subscription *SubscriptionInfo
 	// Error information
-	Error *messages.Error
+	Error *proto.Error
 }
 
 func (b0 CreateSubscriptionResponse_builder) Build() *CreateSubscriptionResponse {
@@ -12163,11 +12160,11 @@ func (b0 SubscriptionInfo_builder) Build() *SubscriptionInfo {
 
 // Update subscription request
 type UpdateSubscriptionRequest struct {
-	state                  protoimpl.MessageState    `protogen:"opaque.v1"`
-	xxx_hidden_Name        *string                   `protobuf:"bytes,1,opt,name=name"`
-	xxx_hidden_Config      *SubscriptionConfig       `protobuf:"bytes,2,opt,name=config"`
-	xxx_hidden_UpdateMask  *fieldmaskpb.FieldMask    `protobuf:"bytes,3,opt,name=update_mask,json=updateMask"`
-	xxx_hidden_Metadata    *messages.RequestMetadata `protobuf:"bytes,4,opt,name=metadata"`
+	state                  protoimpl.MessageState `protogen:"opaque.v1"`
+	xxx_hidden_Name        *string                `protobuf:"bytes,1,opt,name=name"`
+	xxx_hidden_Config      *SubscriptionConfig    `protobuf:"bytes,2,opt,name=config"`
+	xxx_hidden_UpdateMask  *fieldmaskpb.FieldMask `protobuf:"bytes,3,opt,name=update_mask,json=updateMask"`
+	xxx_hidden_Metadata    *proto.RequestMetadata `protobuf:"bytes,4,opt,name=metadata"`
 	XXX_raceDetectHookData protoimpl.RaceDetectHookData
 	XXX_presence           [1]uint32
 	unknownFields          protoimpl.UnknownFields
@@ -12223,7 +12220,7 @@ func (x *UpdateSubscriptionRequest) GetUpdateMask() *fieldmaskpb.FieldMask {
 	return nil
 }
 
-func (x *UpdateSubscriptionRequest) GetMetadata() *messages.RequestMetadata {
+func (x *UpdateSubscriptionRequest) GetMetadata() *proto.RequestMetadata {
 	if x != nil {
 		return x.xxx_hidden_Metadata
 	}
@@ -12243,7 +12240,7 @@ func (x *UpdateSubscriptionRequest) SetUpdateMask(v *fieldmaskpb.FieldMask) {
 	x.xxx_hidden_UpdateMask = v
 }
 
-func (x *UpdateSubscriptionRequest) SetMetadata(v *messages.RequestMetadata) {
+func (x *UpdateSubscriptionRequest) SetMetadata(v *proto.RequestMetadata) {
 	x.xxx_hidden_Metadata = v
 }
 
@@ -12302,7 +12299,7 @@ type UpdateSubscriptionRequest_builder struct {
 	// Field mask for partial updates
 	UpdateMask *fieldmaskpb.FieldMask
 	// Request metadata
-	Metadata *messages.RequestMetadata
+	Metadata *proto.RequestMetadata
 }
 
 func (b0 UpdateSubscriptionRequest_builder) Build() *UpdateSubscriptionRequest {
@@ -12324,7 +12321,7 @@ type UpdateSubscriptionResponse struct {
 	state                   protoimpl.MessageState `protogen:"opaque.v1"`
 	xxx_hidden_Success      bool                   `protobuf:"varint,1,opt,name=success"`
 	xxx_hidden_Subscription *SubscriptionInfo      `protobuf:"bytes,2,opt,name=subscription"`
-	xxx_hidden_Error        *messages.Error        `protobuf:"bytes,3,opt,name=error"`
+	xxx_hidden_Error        *proto.Error           `protobuf:"bytes,3,opt,name=error"`
 	XXX_raceDetectHookData  protoimpl.RaceDetectHookData
 	XXX_presence            [1]uint32
 	unknownFields           protoimpl.UnknownFields
@@ -12370,7 +12367,7 @@ func (x *UpdateSubscriptionResponse) GetSubscription() *SubscriptionInfo {
 	return nil
 }
 
-func (x *UpdateSubscriptionResponse) GetError() *messages.Error {
+func (x *UpdateSubscriptionResponse) GetError() *proto.Error {
 	if x != nil {
 		return x.xxx_hidden_Error
 	}
@@ -12386,7 +12383,7 @@ func (x *UpdateSubscriptionResponse) SetSubscription(v *SubscriptionInfo) {
 	x.xxx_hidden_Subscription = v
 }
 
-func (x *UpdateSubscriptionResponse) SetError(v *messages.Error) {
+func (x *UpdateSubscriptionResponse) SetError(v *proto.Error) {
 	x.xxx_hidden_Error = v
 }
 
@@ -12432,7 +12429,7 @@ type UpdateSubscriptionResponse_builder struct {
 	// Updated subscription information
 	Subscription *SubscriptionInfo
 	// Error information
-	Error *messages.Error
+	Error *proto.Error
 }
 
 func (b0 UpdateSubscriptionResponse_builder) Build() *UpdateSubscriptionResponse {
@@ -12450,9 +12447,9 @@ func (b0 UpdateSubscriptionResponse_builder) Build() *UpdateSubscriptionResponse
 
 // Delete subscription request
 type DeleteSubscriptionRequest struct {
-	state                  protoimpl.MessageState    `protogen:"opaque.v1"`
-	xxx_hidden_Name        *string                   `protobuf:"bytes,1,opt,name=name"`
-	xxx_hidden_Metadata    *messages.RequestMetadata `protobuf:"bytes,2,opt,name=metadata"`
+	state                  protoimpl.MessageState `protogen:"opaque.v1"`
+	xxx_hidden_Name        *string                `protobuf:"bytes,1,opt,name=name"`
+	xxx_hidden_Metadata    *proto.RequestMetadata `protobuf:"bytes,2,opt,name=metadata"`
 	XXX_raceDetectHookData protoimpl.RaceDetectHookData
 	XXX_presence           [1]uint32
 	unknownFields          protoimpl.UnknownFields
@@ -12494,7 +12491,7 @@ func (x *DeleteSubscriptionRequest) GetName() string {
 	return ""
 }
 
-func (x *DeleteSubscriptionRequest) GetMetadata() *messages.RequestMetadata {
+func (x *DeleteSubscriptionRequest) GetMetadata() *proto.RequestMetadata {
 	if x != nil {
 		return x.xxx_hidden_Metadata
 	}
@@ -12506,7 +12503,7 @@ func (x *DeleteSubscriptionRequest) SetName(v string) {
 	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 0, 2)
 }
 
-func (x *DeleteSubscriptionRequest) SetMetadata(v *messages.RequestMetadata) {
+func (x *DeleteSubscriptionRequest) SetMetadata(v *proto.RequestMetadata) {
 	x.xxx_hidden_Metadata = v
 }
 
@@ -12539,7 +12536,7 @@ type DeleteSubscriptionRequest_builder struct {
 	// Subscription name
 	Name *string
 	// Request metadata
-	Metadata *messages.RequestMetadata
+	Metadata *proto.RequestMetadata
 }
 
 func (b0 DeleteSubscriptionRequest_builder) Build() *DeleteSubscriptionRequest {
@@ -12556,12 +12553,12 @@ func (b0 DeleteSubscriptionRequest_builder) Build() *DeleteSubscriptionRequest {
 
 // List subscriptions request
 type ListSubscriptionsRequest struct {
-	state                  protoimpl.MessageState    `protogen:"opaque.v1"`
-	xxx_hidden_TopicName   *string                   `protobuf:"bytes,1,opt,name=topic_name,json=topicName"`
-	xxx_hidden_NamePattern *string                   `protobuf:"bytes,2,opt,name=name_pattern,json=namePattern"`
-	xxx_hidden_Status      *SubscriptionStatus       `protobuf:"bytes,3,opt,name=status"`
-	xxx_hidden_Pagination  *messages.Pagination      `protobuf:"bytes,4,opt,name=pagination"`
-	xxx_hidden_Metadata    *messages.RequestMetadata `protobuf:"bytes,5,opt,name=metadata"`
+	state                  protoimpl.MessageState `protogen:"opaque.v1"`
+	xxx_hidden_TopicName   *string                `protobuf:"bytes,1,opt,name=topic_name,json=topicName"`
+	xxx_hidden_NamePattern *string                `protobuf:"bytes,2,opt,name=name_pattern,json=namePattern"`
+	xxx_hidden_Status      *SubscriptionStatus    `protobuf:"bytes,3,opt,name=status"`
+	xxx_hidden_Pagination  *proto.Pagination      `protobuf:"bytes,4,opt,name=pagination"`
+	xxx_hidden_Metadata    *proto.RequestMetadata `protobuf:"bytes,5,opt,name=metadata"`
 	XXX_raceDetectHookData protoimpl.RaceDetectHookData
 	XXX_presence           [1]uint32
 	unknownFields          protoimpl.UnknownFields
@@ -12620,14 +12617,14 @@ func (x *ListSubscriptionsRequest) GetStatus() *SubscriptionStatus {
 	return nil
 }
 
-func (x *ListSubscriptionsRequest) GetPagination() *messages.Pagination {
+func (x *ListSubscriptionsRequest) GetPagination() *proto.Pagination {
 	if x != nil {
 		return x.xxx_hidden_Pagination
 	}
 	return nil
 }
 
-func (x *ListSubscriptionsRequest) GetMetadata() *messages.RequestMetadata {
+func (x *ListSubscriptionsRequest) GetMetadata() *proto.RequestMetadata {
 	if x != nil {
 		return x.xxx_hidden_Metadata
 	}
@@ -12648,11 +12645,11 @@ func (x *ListSubscriptionsRequest) SetStatus(v *SubscriptionStatus) {
 	x.xxx_hidden_Status = v
 }
 
-func (x *ListSubscriptionsRequest) SetPagination(v *messages.Pagination) {
+func (x *ListSubscriptionsRequest) SetPagination(v *proto.Pagination) {
 	x.xxx_hidden_Pagination = v
 }
 
-func (x *ListSubscriptionsRequest) SetMetadata(v *messages.RequestMetadata) {
+func (x *ListSubscriptionsRequest) SetMetadata(v *proto.RequestMetadata) {
 	x.xxx_hidden_Metadata = v
 }
 
@@ -12723,9 +12720,9 @@ type ListSubscriptionsRequest_builder struct {
 	// Status filter
 	Status *SubscriptionStatus
 	// Pagination options
-	Pagination *messages.Pagination
+	Pagination *proto.Pagination
 	// Request metadata
-	Metadata *messages.RequestMetadata
+	Metadata *proto.RequestMetadata
 }
 
 func (b0 ListSubscriptionsRequest_builder) Build() *ListSubscriptionsRequest {
@@ -12750,8 +12747,8 @@ func (b0 ListSubscriptionsRequest_builder) Build() *ListSubscriptionsRequest {
 type ListSubscriptionsResponse struct {
 	state                    protoimpl.MessageState `protogen:"opaque.v1"`
 	xxx_hidden_Subscriptions *[]*SubscriptionInfo   `protobuf:"bytes,1,rep,name=subscriptions"`
-	xxx_hidden_Pagination    *messages.Pagination   `protobuf:"bytes,2,opt,name=pagination"`
-	xxx_hidden_Error         *messages.Error        `protobuf:"bytes,3,opt,name=error"`
+	xxx_hidden_Pagination    *proto.Pagination      `protobuf:"bytes,2,opt,name=pagination"`
+	xxx_hidden_Error         *proto.Error           `protobuf:"bytes,3,opt,name=error"`
 	unknownFields            protoimpl.UnknownFields
 	sizeCache                protoimpl.SizeCache
 }
@@ -12790,14 +12787,14 @@ func (x *ListSubscriptionsResponse) GetSubscriptions() []*SubscriptionInfo {
 	return nil
 }
 
-func (x *ListSubscriptionsResponse) GetPagination() *messages.Pagination {
+func (x *ListSubscriptionsResponse) GetPagination() *proto.Pagination {
 	if x != nil {
 		return x.xxx_hidden_Pagination
 	}
 	return nil
 }
 
-func (x *ListSubscriptionsResponse) GetError() *messages.Error {
+func (x *ListSubscriptionsResponse) GetError() *proto.Error {
 	if x != nil {
 		return x.xxx_hidden_Error
 	}
@@ -12808,11 +12805,11 @@ func (x *ListSubscriptionsResponse) SetSubscriptions(v []*SubscriptionInfo) {
 	x.xxx_hidden_Subscriptions = &v
 }
 
-func (x *ListSubscriptionsResponse) SetPagination(v *messages.Pagination) {
+func (x *ListSubscriptionsResponse) SetPagination(v *proto.Pagination) {
 	x.xxx_hidden_Pagination = v
 }
 
-func (x *ListSubscriptionsResponse) SetError(v *messages.Error) {
+func (x *ListSubscriptionsResponse) SetError(v *proto.Error) {
 	x.xxx_hidden_Error = v
 }
 
@@ -12844,9 +12841,9 @@ type ListSubscriptionsResponse_builder struct {
 	// Subscription information
 	Subscriptions []*SubscriptionInfo
 	// Pagination information
-	Pagination *messages.Pagination
+	Pagination *proto.Pagination
 	// Error information
-	Error *messages.Error
+	Error *proto.Error
 }
 
 func (b0 ListSubscriptionsResponse_builder) Build() *ListSubscriptionsResponse {
@@ -12861,10 +12858,10 @@ func (b0 ListSubscriptionsResponse_builder) Build() *ListSubscriptionsResponse {
 
 // Purge queue request
 type PurgeQueueRequest struct {
-	state                  protoimpl.MessageState    `protogen:"opaque.v1"`
-	xxx_hidden_QueueName   *string                   `protobuf:"bytes,1,opt,name=queue_name,json=queueName"`
-	xxx_hidden_Criteria    *PurgeQueueCriteria       `protobuf:"bytes,2,opt,name=criteria"`
-	xxx_hidden_Metadata    *messages.RequestMetadata `protobuf:"bytes,3,opt,name=metadata"`
+	state                  protoimpl.MessageState `protogen:"opaque.v1"`
+	xxx_hidden_QueueName   *string                `protobuf:"bytes,1,opt,name=queue_name,json=queueName"`
+	xxx_hidden_Criteria    *PurgeQueueCriteria    `protobuf:"bytes,2,opt,name=criteria"`
+	xxx_hidden_Metadata    *proto.RequestMetadata `protobuf:"bytes,3,opt,name=metadata"`
 	XXX_raceDetectHookData protoimpl.RaceDetectHookData
 	XXX_presence           [1]uint32
 	unknownFields          protoimpl.UnknownFields
@@ -12913,7 +12910,7 @@ func (x *PurgeQueueRequest) GetCriteria() *PurgeQueueCriteria {
 	return nil
 }
 
-func (x *PurgeQueueRequest) GetMetadata() *messages.RequestMetadata {
+func (x *PurgeQueueRequest) GetMetadata() *proto.RequestMetadata {
 	if x != nil {
 		return x.xxx_hidden_Metadata
 	}
@@ -12929,7 +12926,7 @@ func (x *PurgeQueueRequest) SetCriteria(v *PurgeQueueCriteria) {
 	x.xxx_hidden_Criteria = v
 }
 
-func (x *PurgeQueueRequest) SetMetadata(v *messages.RequestMetadata) {
+func (x *PurgeQueueRequest) SetMetadata(v *proto.RequestMetadata) {
 	x.xxx_hidden_Metadata = v
 }
 
@@ -12975,7 +12972,7 @@ type PurgeQueueRequest_builder struct {
 	// Purge criteria
 	Criteria *PurgeQueueCriteria
 	// Request metadata
-	Metadata *messages.RequestMetadata
+	Metadata *proto.RequestMetadata
 }
 
 func (b0 PurgeQueueRequest_builder) Build() *PurgeQueueRequest {
@@ -13129,7 +13126,7 @@ type PurgeQueueResponse struct {
 	state                     protoimpl.MessageState `protogen:"opaque.v1"`
 	xxx_hidden_MessagesPurged int64                  `protobuf:"varint,1,opt,name=messages_purged,json=messagesPurged"`
 	xxx_hidden_Success        bool                   `protobuf:"varint,2,opt,name=success"`
-	xxx_hidden_Error          *messages.Error        `protobuf:"bytes,3,opt,name=error"`
+	xxx_hidden_Error          *proto.Error           `protobuf:"bytes,3,opt,name=error"`
 	XXX_raceDetectHookData    protoimpl.RaceDetectHookData
 	XXX_presence              [1]uint32
 	unknownFields             protoimpl.UnknownFields
@@ -13175,7 +13172,7 @@ func (x *PurgeQueueResponse) GetSuccess() bool {
 	return false
 }
 
-func (x *PurgeQueueResponse) GetError() *messages.Error {
+func (x *PurgeQueueResponse) GetError() *proto.Error {
 	if x != nil {
 		return x.xxx_hidden_Error
 	}
@@ -13192,7 +13189,7 @@ func (x *PurgeQueueResponse) SetSuccess(v bool) {
 	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 1, 3)
 }
 
-func (x *PurgeQueueResponse) SetError(v *messages.Error) {
+func (x *PurgeQueueResponse) SetError(v *proto.Error) {
 	x.xxx_hidden_Error = v
 }
 
@@ -13239,7 +13236,7 @@ type PurgeQueueResponse_builder struct {
 	// Success status
 	Success *bool
 	// Error information
-	Error *messages.Error
+	Error *proto.Error
 }
 
 func (b0 PurgeQueueResponse_builder) Build() *PurgeQueueResponse {
@@ -13260,10 +13257,10 @@ func (b0 PurgeQueueResponse_builder) Build() *PurgeQueueResponse {
 
 // Get dead letter messages request
 type GetDeadLetterMessagesRequest struct {
-	state                  protoimpl.MessageState    `protogen:"opaque.v1"`
-	xxx_hidden_QueueName   *string                   `protobuf:"bytes,1,opt,name=queue_name,json=queueName"`
-	xxx_hidden_Pagination  *messages.Pagination      `protobuf:"bytes,2,opt,name=pagination"`
-	xxx_hidden_Metadata    *messages.RequestMetadata `protobuf:"bytes,3,opt,name=metadata"`
+	state                  protoimpl.MessageState `protogen:"opaque.v1"`
+	xxx_hidden_QueueName   *string                `protobuf:"bytes,1,opt,name=queue_name,json=queueName"`
+	xxx_hidden_Pagination  *proto.Pagination      `protobuf:"bytes,2,opt,name=pagination"`
+	xxx_hidden_Metadata    *proto.RequestMetadata `protobuf:"bytes,3,opt,name=metadata"`
 	XXX_raceDetectHookData protoimpl.RaceDetectHookData
 	XXX_presence           [1]uint32
 	unknownFields          protoimpl.UnknownFields
@@ -13305,14 +13302,14 @@ func (x *GetDeadLetterMessagesRequest) GetQueueName() string {
 	return ""
 }
 
-func (x *GetDeadLetterMessagesRequest) GetPagination() *messages.Pagination {
+func (x *GetDeadLetterMessagesRequest) GetPagination() *proto.Pagination {
 	if x != nil {
 		return x.xxx_hidden_Pagination
 	}
 	return nil
 }
 
-func (x *GetDeadLetterMessagesRequest) GetMetadata() *messages.RequestMetadata {
+func (x *GetDeadLetterMessagesRequest) GetMetadata() *proto.RequestMetadata {
 	if x != nil {
 		return x.xxx_hidden_Metadata
 	}
@@ -13324,11 +13321,11 @@ func (x *GetDeadLetterMessagesRequest) SetQueueName(v string) {
 	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 0, 3)
 }
 
-func (x *GetDeadLetterMessagesRequest) SetPagination(v *messages.Pagination) {
+func (x *GetDeadLetterMessagesRequest) SetPagination(v *proto.Pagination) {
 	x.xxx_hidden_Pagination = v
 }
 
-func (x *GetDeadLetterMessagesRequest) SetMetadata(v *messages.RequestMetadata) {
+func (x *GetDeadLetterMessagesRequest) SetMetadata(v *proto.RequestMetadata) {
 	x.xxx_hidden_Metadata = v
 }
 
@@ -13372,9 +13369,9 @@ type GetDeadLetterMessagesRequest_builder struct {
 	// Dead letter queue name
 	QueueName *string
 	// Pagination options
-	Pagination *messages.Pagination
+	Pagination *proto.Pagination
 	// Request metadata
-	Metadata *messages.RequestMetadata
+	Metadata *proto.RequestMetadata
 }
 
 func (b0 GetDeadLetterMessagesRequest_builder) Build() *GetDeadLetterMessagesRequest {
@@ -13394,8 +13391,8 @@ func (b0 GetDeadLetterMessagesRequest_builder) Build() *GetDeadLetterMessagesReq
 type GetDeadLetterMessagesResponse struct {
 	state                 protoimpl.MessageState `protogen:"opaque.v1"`
 	xxx_hidden_Messages   *[]*DeadLetterMessage  `protobuf:"bytes,1,rep,name=messages"`
-	xxx_hidden_Pagination *messages.Pagination   `protobuf:"bytes,2,opt,name=pagination"`
-	xxx_hidden_Error      *messages.Error        `protobuf:"bytes,3,opt,name=error"`
+	xxx_hidden_Pagination *proto.Pagination      `protobuf:"bytes,2,opt,name=pagination"`
+	xxx_hidden_Error      *proto.Error           `protobuf:"bytes,3,opt,name=error"`
 	unknownFields         protoimpl.UnknownFields
 	sizeCache             protoimpl.SizeCache
 }
@@ -13434,14 +13431,14 @@ func (x *GetDeadLetterMessagesResponse) GetMessages() []*DeadLetterMessage {
 	return nil
 }
 
-func (x *GetDeadLetterMessagesResponse) GetPagination() *messages.Pagination {
+func (x *GetDeadLetterMessagesResponse) GetPagination() *proto.Pagination {
 	if x != nil {
 		return x.xxx_hidden_Pagination
 	}
 	return nil
 }
 
-func (x *GetDeadLetterMessagesResponse) GetError() *messages.Error {
+func (x *GetDeadLetterMessagesResponse) GetError() *proto.Error {
 	if x != nil {
 		return x.xxx_hidden_Error
 	}
@@ -13452,11 +13449,11 @@ func (x *GetDeadLetterMessagesResponse) SetMessages(v []*DeadLetterMessage) {
 	x.xxx_hidden_Messages = &v
 }
 
-func (x *GetDeadLetterMessagesResponse) SetPagination(v *messages.Pagination) {
+func (x *GetDeadLetterMessagesResponse) SetPagination(v *proto.Pagination) {
 	x.xxx_hidden_Pagination = v
 }
 
-func (x *GetDeadLetterMessagesResponse) SetError(v *messages.Error) {
+func (x *GetDeadLetterMessagesResponse) SetError(v *proto.Error) {
 	x.xxx_hidden_Error = v
 }
 
@@ -13488,9 +13485,9 @@ type GetDeadLetterMessagesResponse_builder struct {
 	// Dead letter messages
 	Messages []*DeadLetterMessage
 	// Pagination information
-	Pagination *messages.Pagination
+	Pagination *proto.Pagination
 	// Error information
-	Error *messages.Error
+	Error *proto.Error
 }
 
 func (b0 GetDeadLetterMessagesResponse_builder) Build() *GetDeadLetterMessagesResponse {
@@ -13728,11 +13725,11 @@ func (b0 DeadLetterMessage_builder) Build() *DeadLetterMessage {
 
 // Requeue dead letter messages request
 type RequeueDeadLetterMessagesRequest struct {
-	state                  protoimpl.MessageState    `protogen:"opaque.v1"`
-	xxx_hidden_QueueName   *string                   `protobuf:"bytes,1,opt,name=queue_name,json=queueName"`
-	xxx_hidden_TargetQueue *string                   `protobuf:"bytes,2,opt,name=target_queue,json=targetQueue"`
-	xxx_hidden_MessageIds  []string                  `protobuf:"bytes,3,rep,name=message_ids,json=messageIds"`
-	xxx_hidden_Metadata    *messages.RequestMetadata `protobuf:"bytes,4,opt,name=metadata"`
+	state                  protoimpl.MessageState `protogen:"opaque.v1"`
+	xxx_hidden_QueueName   *string                `protobuf:"bytes,1,opt,name=queue_name,json=queueName"`
+	xxx_hidden_TargetQueue *string                `protobuf:"bytes,2,opt,name=target_queue,json=targetQueue"`
+	xxx_hidden_MessageIds  []string               `protobuf:"bytes,3,rep,name=message_ids,json=messageIds"`
+	xxx_hidden_Metadata    *proto.RequestMetadata `protobuf:"bytes,4,opt,name=metadata"`
 	XXX_raceDetectHookData protoimpl.RaceDetectHookData
 	XXX_presence           [1]uint32
 	unknownFields          protoimpl.UnknownFields
@@ -13791,7 +13788,7 @@ func (x *RequeueDeadLetterMessagesRequest) GetMessageIds() []string {
 	return nil
 }
 
-func (x *RequeueDeadLetterMessagesRequest) GetMetadata() *messages.RequestMetadata {
+func (x *RequeueDeadLetterMessagesRequest) GetMetadata() *proto.RequestMetadata {
 	if x != nil {
 		return x.xxx_hidden_Metadata
 	}
@@ -13812,7 +13809,7 @@ func (x *RequeueDeadLetterMessagesRequest) SetMessageIds(v []string) {
 	x.xxx_hidden_MessageIds = v
 }
 
-func (x *RequeueDeadLetterMessagesRequest) SetMetadata(v *messages.RequestMetadata) {
+func (x *RequeueDeadLetterMessagesRequest) SetMetadata(v *proto.RequestMetadata) {
 	x.xxx_hidden_Metadata = v
 }
 
@@ -13861,7 +13858,7 @@ type RequeueDeadLetterMessagesRequest_builder struct {
 	// Message IDs to requeue (optional, defaults to all)
 	MessageIds []string
 	// Request metadata
-	Metadata *messages.RequestMetadata
+	Metadata *proto.RequestMetadata
 }
 
 func (b0 RequeueDeadLetterMessagesRequest_builder) Build() *RequeueDeadLetterMessagesRequest {
@@ -13887,7 +13884,7 @@ type RequeueDeadLetterMessagesResponse struct {
 	xxx_hidden_MessagesRequeued int64                  `protobuf:"varint,1,opt,name=messages_requeued,json=messagesRequeued"`
 	xxx_hidden_MessagesFailed   int64                  `protobuf:"varint,2,opt,name=messages_failed,json=messagesFailed"`
 	xxx_hidden_Success          bool                   `protobuf:"varint,3,opt,name=success"`
-	xxx_hidden_Error            *messages.Error        `protobuf:"bytes,4,opt,name=error"`
+	xxx_hidden_Error            *proto.Error           `protobuf:"bytes,4,opt,name=error"`
 	XXX_raceDetectHookData      protoimpl.RaceDetectHookData
 	XXX_presence                [1]uint32
 	unknownFields               protoimpl.UnknownFields
@@ -13940,7 +13937,7 @@ func (x *RequeueDeadLetterMessagesResponse) GetSuccess() bool {
 	return false
 }
 
-func (x *RequeueDeadLetterMessagesResponse) GetError() *messages.Error {
+func (x *RequeueDeadLetterMessagesResponse) GetError() *proto.Error {
 	if x != nil {
 		return x.xxx_hidden_Error
 	}
@@ -13962,7 +13959,7 @@ func (x *RequeueDeadLetterMessagesResponse) SetSuccess(v bool) {
 	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 2, 4)
 }
 
-func (x *RequeueDeadLetterMessagesResponse) SetError(v *messages.Error) {
+func (x *RequeueDeadLetterMessagesResponse) SetError(v *proto.Error) {
 	x.xxx_hidden_Error = v
 }
 
@@ -14023,7 +14020,7 @@ type RequeueDeadLetterMessagesResponse_builder struct {
 	// Success status
 	Success *bool
 	// Error information
-	Error *messages.Error
+	Error *proto.Error
 }
 
 func (b0 RequeueDeadLetterMessagesResponse_builder) Build() *RequeueDeadLetterMessagesResponse {
@@ -14048,9 +14045,9 @@ func (b0 RequeueDeadLetterMessagesResponse_builder) Build() *RequeueDeadLetterMe
 
 // Get system health request
 type GetSystemHealthRequest struct {
-	state                 protoimpl.MessageState    `protogen:"opaque.v1"`
-	xxx_hidden_CheckTypes []HealthCheckType         `protobuf:"varint,1,rep,packed,name=check_types,json=checkTypes,enum=gcommon.v1.queue.HealthCheckType"`
-	xxx_hidden_Metadata   *messages.RequestMetadata `protobuf:"bytes,2,opt,name=metadata"`
+	state                 protoimpl.MessageState `protogen:"opaque.v1"`
+	xxx_hidden_CheckTypes []HealthCheckType      `protobuf:"varint,1,rep,packed,name=check_types,json=checkTypes,enum=gcommon.v1.queue.HealthCheckType"`
+	xxx_hidden_Metadata   *proto.RequestMetadata `protobuf:"bytes,2,opt,name=metadata"`
 	unknownFields         protoimpl.UnknownFields
 	sizeCache             protoimpl.SizeCache
 }
@@ -14087,7 +14084,7 @@ func (x *GetSystemHealthRequest) GetCheckTypes() []HealthCheckType {
 	return nil
 }
 
-func (x *GetSystemHealthRequest) GetMetadata() *messages.RequestMetadata {
+func (x *GetSystemHealthRequest) GetMetadata() *proto.RequestMetadata {
 	if x != nil {
 		return x.xxx_hidden_Metadata
 	}
@@ -14098,7 +14095,7 @@ func (x *GetSystemHealthRequest) SetCheckTypes(v []HealthCheckType) {
 	x.xxx_hidden_CheckTypes = v
 }
 
-func (x *GetSystemHealthRequest) SetMetadata(v *messages.RequestMetadata) {
+func (x *GetSystemHealthRequest) SetMetadata(v *proto.RequestMetadata) {
 	x.xxx_hidden_Metadata = v
 }
 
@@ -14119,7 +14116,7 @@ type GetSystemHealthRequest_builder struct {
 	// Health check types to include
 	CheckTypes []HealthCheckType
 	// Request metadata
-	Metadata *messages.RequestMetadata
+	Metadata *proto.RequestMetadata
 }
 
 func (b0 GetSystemHealthRequest_builder) Build() *GetSystemHealthRequest {
@@ -14137,7 +14134,7 @@ type GetSystemHealthResponse struct {
 	xxx_hidden_OverallStatus HealthStatus           `protobuf:"varint,1,opt,name=overall_status,json=overallStatus,enum=gcommon.v1.queue.HealthStatus"`
 	xxx_hidden_HealthChecks  *[]*HealthCheck        `protobuf:"bytes,2,rep,name=health_checks,json=healthChecks"`
 	xxx_hidden_Metrics       *SystemMetrics         `protobuf:"bytes,3,opt,name=metrics"`
-	xxx_hidden_Error         *messages.Error        `protobuf:"bytes,4,opt,name=error"`
+	xxx_hidden_Error         *proto.Error           `protobuf:"bytes,4,opt,name=error"`
 	XXX_raceDetectHookData   protoimpl.RaceDetectHookData
 	XXX_presence             [1]uint32
 	unknownFields            protoimpl.UnknownFields
@@ -14194,7 +14191,7 @@ func (x *GetSystemHealthResponse) GetMetrics() *SystemMetrics {
 	return nil
 }
 
-func (x *GetSystemHealthResponse) GetError() *messages.Error {
+func (x *GetSystemHealthResponse) GetError() *proto.Error {
 	if x != nil {
 		return x.xxx_hidden_Error
 	}
@@ -14214,7 +14211,7 @@ func (x *GetSystemHealthResponse) SetMetrics(v *SystemMetrics) {
 	x.xxx_hidden_Metrics = v
 }
 
-func (x *GetSystemHealthResponse) SetError(v *messages.Error) {
+func (x *GetSystemHealthResponse) SetError(v *proto.Error) {
 	x.xxx_hidden_Error = v
 }
 
@@ -14262,7 +14259,7 @@ type GetSystemHealthResponse_builder struct {
 	// System metrics
 	Metrics *SystemMetrics
 	// Error information
-	Error *messages.Error
+	Error *proto.Error
 }
 
 func (b0 GetSystemHealthResponse_builder) Build() *GetSystemHealthResponse {
@@ -15072,11 +15069,11 @@ func (b0 QueueSystemMetrics_builder) Build() *QueueSystemMetrics {
 
 // Workflow service messages
 type StartWorkflowRequest struct {
-	state                protoimpl.MessageState    `protogen:"opaque.v1"`
-	xxx_hidden_Workflow  *WorkflowDefinition       `protobuf:"bytes,1,opt,name=workflow"`
-	xxx_hidden_InputData *anypb.Any                `protobuf:"bytes,2,opt,name=input_data,json=inputData"`
-	xxx_hidden_Options   *WorkflowOptions          `protobuf:"bytes,3,opt,name=options"`
-	xxx_hidden_Metadata  *messages.RequestMetadata `protobuf:"bytes,4,opt,name=metadata"`
+	state                protoimpl.MessageState `protogen:"opaque.v1"`
+	xxx_hidden_Workflow  *WorkflowDefinition    `protobuf:"bytes,1,opt,name=workflow"`
+	xxx_hidden_InputData *anypb.Any             `protobuf:"bytes,2,opt,name=input_data,json=inputData"`
+	xxx_hidden_Options   *WorkflowOptions       `protobuf:"bytes,3,opt,name=options"`
+	xxx_hidden_Metadata  *proto.RequestMetadata `protobuf:"bytes,4,opt,name=metadata"`
 	unknownFields        protoimpl.UnknownFields
 	sizeCache            protoimpl.SizeCache
 }
@@ -15127,7 +15124,7 @@ func (x *StartWorkflowRequest) GetOptions() *WorkflowOptions {
 	return nil
 }
 
-func (x *StartWorkflowRequest) GetMetadata() *messages.RequestMetadata {
+func (x *StartWorkflowRequest) GetMetadata() *proto.RequestMetadata {
 	if x != nil {
 		return x.xxx_hidden_Metadata
 	}
@@ -15146,7 +15143,7 @@ func (x *StartWorkflowRequest) SetOptions(v *WorkflowOptions) {
 	x.xxx_hidden_Options = v
 }
 
-func (x *StartWorkflowRequest) SetMetadata(v *messages.RequestMetadata) {
+func (x *StartWorkflowRequest) SetMetadata(v *proto.RequestMetadata) {
 	x.xxx_hidden_Metadata = v
 }
 
@@ -15204,7 +15201,7 @@ type StartWorkflowRequest_builder struct {
 	// Workflow options
 	Options *WorkflowOptions
 	// Request metadata
-	Metadata *messages.RequestMetadata
+	Metadata *proto.RequestMetadata
 }
 
 func (b0 StartWorkflowRequest_builder) Build() *StartWorkflowRequest {
@@ -16112,7 +16109,7 @@ type StartWorkflowResponse struct {
 	xxx_hidden_WorkflowId  *string                `protobuf:"bytes,1,opt,name=workflow_id,json=workflowId"`
 	xxx_hidden_Status      WorkflowStatus         `protobuf:"varint,2,opt,name=status,enum=gcommon.v1.queue.WorkflowStatus"`
 	xxx_hidden_Success     bool                   `protobuf:"varint,3,opt,name=success"`
-	xxx_hidden_Error       *messages.Error        `protobuf:"bytes,4,opt,name=error"`
+	xxx_hidden_Error       *proto.Error           `protobuf:"bytes,4,opt,name=error"`
 	XXX_raceDetectHookData protoimpl.RaceDetectHookData
 	XXX_presence           [1]uint32
 	unknownFields          protoimpl.UnknownFields
@@ -16170,7 +16167,7 @@ func (x *StartWorkflowResponse) GetSuccess() bool {
 	return false
 }
 
-func (x *StartWorkflowResponse) GetError() *messages.Error {
+func (x *StartWorkflowResponse) GetError() *proto.Error {
 	if x != nil {
 		return x.xxx_hidden_Error
 	}
@@ -16192,7 +16189,7 @@ func (x *StartWorkflowResponse) SetSuccess(v bool) {
 	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 2, 4)
 }
 
-func (x *StartWorkflowResponse) SetError(v *messages.Error) {
+func (x *StartWorkflowResponse) SetError(v *proto.Error) {
 	x.xxx_hidden_Error = v
 }
 
@@ -16253,7 +16250,7 @@ type StartWorkflowResponse_builder struct {
 	// Success status
 	Success *bool
 	// Error information
-	Error *messages.Error
+	Error *proto.Error
 }
 
 func (b0 StartWorkflowResponse_builder) Build() *StartWorkflowResponse {
@@ -16278,9 +16275,9 @@ func (b0 StartWorkflowResponse_builder) Build() *StartWorkflowResponse {
 
 // Get workflow request
 type GetWorkflowRequest struct {
-	state                  protoimpl.MessageState    `protogen:"opaque.v1"`
-	xxx_hidden_WorkflowId  *string                   `protobuf:"bytes,1,opt,name=workflow_id,json=workflowId"`
-	xxx_hidden_Metadata    *messages.RequestMetadata `protobuf:"bytes,2,opt,name=metadata"`
+	state                  protoimpl.MessageState `protogen:"opaque.v1"`
+	xxx_hidden_WorkflowId  *string                `protobuf:"bytes,1,opt,name=workflow_id,json=workflowId"`
+	xxx_hidden_Metadata    *proto.RequestMetadata `protobuf:"bytes,2,opt,name=metadata"`
 	XXX_raceDetectHookData protoimpl.RaceDetectHookData
 	XXX_presence           [1]uint32
 	unknownFields          protoimpl.UnknownFields
@@ -16322,7 +16319,7 @@ func (x *GetWorkflowRequest) GetWorkflowId() string {
 	return ""
 }
 
-func (x *GetWorkflowRequest) GetMetadata() *messages.RequestMetadata {
+func (x *GetWorkflowRequest) GetMetadata() *proto.RequestMetadata {
 	if x != nil {
 		return x.xxx_hidden_Metadata
 	}
@@ -16334,7 +16331,7 @@ func (x *GetWorkflowRequest) SetWorkflowId(v string) {
 	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 0, 2)
 }
 
-func (x *GetWorkflowRequest) SetMetadata(v *messages.RequestMetadata) {
+func (x *GetWorkflowRequest) SetMetadata(v *proto.RequestMetadata) {
 	x.xxx_hidden_Metadata = v
 }
 
@@ -16367,7 +16364,7 @@ type GetWorkflowRequest_builder struct {
 	// Workflow ID
 	WorkflowId *string
 	// Request metadata
-	Metadata *messages.RequestMetadata
+	Metadata *proto.RequestMetadata
 }
 
 func (b0 GetWorkflowRequest_builder) Build() *GetWorkflowRequest {
@@ -16386,7 +16383,7 @@ func (b0 GetWorkflowRequest_builder) Build() *GetWorkflowRequest {
 type GetWorkflowResponse struct {
 	state               protoimpl.MessageState `protogen:"opaque.v1"`
 	xxx_hidden_Workflow *WorkflowInfo          `protobuf:"bytes,1,opt,name=workflow"`
-	xxx_hidden_Error    *messages.Error        `protobuf:"bytes,2,opt,name=error"`
+	xxx_hidden_Error    *proto.Error           `protobuf:"bytes,2,opt,name=error"`
 	unknownFields       protoimpl.UnknownFields
 	sizeCache           protoimpl.SizeCache
 }
@@ -16423,7 +16420,7 @@ func (x *GetWorkflowResponse) GetWorkflow() *WorkflowInfo {
 	return nil
 }
 
-func (x *GetWorkflowResponse) GetError() *messages.Error {
+func (x *GetWorkflowResponse) GetError() *proto.Error {
 	if x != nil {
 		return x.xxx_hidden_Error
 	}
@@ -16434,7 +16431,7 @@ func (x *GetWorkflowResponse) SetWorkflow(v *WorkflowInfo) {
 	x.xxx_hidden_Workflow = v
 }
 
-func (x *GetWorkflowResponse) SetError(v *messages.Error) {
+func (x *GetWorkflowResponse) SetError(v *proto.Error) {
 	x.xxx_hidden_Error = v
 }
 
@@ -16466,7 +16463,7 @@ type GetWorkflowResponse_builder struct {
 	// Workflow information
 	Workflow *WorkflowInfo
 	// Error information
-	Error *messages.Error
+	Error *proto.Error
 }
 
 func (b0 GetWorkflowResponse_builder) Build() *GetWorkflowResponse {
@@ -17074,14 +17071,14 @@ func (b0 TaskExecution_builder) Build() *TaskExecution {
 
 // List workflows request
 type ListWorkflowsRequest struct {
-	state                  protoimpl.MessageState    `protogen:"opaque.v1"`
-	xxx_hidden_Status      WorkflowStatus            `protobuf:"varint,1,opt,name=status,enum=gcommon.v1.queue.WorkflowStatus"`
-	xxx_hidden_NamePattern *string                   `protobuf:"bytes,2,opt,name=name_pattern,json=namePattern"`
-	xxx_hidden_TagFilters  map[string]string         `protobuf:"bytes,3,rep,name=tag_filters,json=tagFilters" protobuf_key:"bytes,1,opt,name=key" protobuf_val:"bytes,2,opt,name=value"`
-	xxx_hidden_StartTime   *timestamppb.Timestamp    `protobuf:"bytes,4,opt,name=start_time,json=startTime"`
-	xxx_hidden_EndTime     *timestamppb.Timestamp    `protobuf:"bytes,5,opt,name=end_time,json=endTime"`
-	xxx_hidden_Pagination  *messages.Pagination      `protobuf:"bytes,6,opt,name=pagination"`
-	xxx_hidden_Metadata    *messages.RequestMetadata `protobuf:"bytes,7,opt,name=metadata"`
+	state                  protoimpl.MessageState `protogen:"opaque.v1"`
+	xxx_hidden_Status      WorkflowStatus         `protobuf:"varint,1,opt,name=status,enum=gcommon.v1.queue.WorkflowStatus"`
+	xxx_hidden_NamePattern *string                `protobuf:"bytes,2,opt,name=name_pattern,json=namePattern"`
+	xxx_hidden_TagFilters  map[string]string      `protobuf:"bytes,3,rep,name=tag_filters,json=tagFilters" protobuf_key:"bytes,1,opt,name=key" protobuf_val:"bytes,2,opt,name=value"`
+	xxx_hidden_StartTime   *timestamppb.Timestamp `protobuf:"bytes,4,opt,name=start_time,json=startTime"`
+	xxx_hidden_EndTime     *timestamppb.Timestamp `protobuf:"bytes,5,opt,name=end_time,json=endTime"`
+	xxx_hidden_Pagination  *proto.Pagination      `protobuf:"bytes,6,opt,name=pagination"`
+	xxx_hidden_Metadata    *proto.RequestMetadata `protobuf:"bytes,7,opt,name=metadata"`
 	XXX_raceDetectHookData protoimpl.RaceDetectHookData
 	XXX_presence           [1]uint32
 	unknownFields          protoimpl.UnknownFields
@@ -17153,14 +17150,14 @@ func (x *ListWorkflowsRequest) GetEndTime() *timestamppb.Timestamp {
 	return nil
 }
 
-func (x *ListWorkflowsRequest) GetPagination() *messages.Pagination {
+func (x *ListWorkflowsRequest) GetPagination() *proto.Pagination {
 	if x != nil {
 		return x.xxx_hidden_Pagination
 	}
 	return nil
 }
 
-func (x *ListWorkflowsRequest) GetMetadata() *messages.RequestMetadata {
+func (x *ListWorkflowsRequest) GetMetadata() *proto.RequestMetadata {
 	if x != nil {
 		return x.xxx_hidden_Metadata
 	}
@@ -17189,11 +17186,11 @@ func (x *ListWorkflowsRequest) SetEndTime(v *timestamppb.Timestamp) {
 	x.xxx_hidden_EndTime = v
 }
 
-func (x *ListWorkflowsRequest) SetPagination(v *messages.Pagination) {
+func (x *ListWorkflowsRequest) SetPagination(v *proto.Pagination) {
 	x.xxx_hidden_Pagination = v
 }
 
-func (x *ListWorkflowsRequest) SetMetadata(v *messages.RequestMetadata) {
+func (x *ListWorkflowsRequest) SetMetadata(v *proto.RequestMetadata) {
 	x.xxx_hidden_Metadata = v
 }
 
@@ -17278,9 +17275,9 @@ type ListWorkflowsRequest_builder struct {
 	StartTime *timestamppb.Timestamp
 	EndTime   *timestamppb.Timestamp
 	// Pagination options
-	Pagination *messages.Pagination
+	Pagination *proto.Pagination
 	// Request metadata
-	Metadata *messages.RequestMetadata
+	Metadata *proto.RequestMetadata
 }
 
 func (b0 ListWorkflowsRequest_builder) Build() *ListWorkflowsRequest {
@@ -17307,8 +17304,8 @@ func (b0 ListWorkflowsRequest_builder) Build() *ListWorkflowsRequest {
 type ListWorkflowsResponse struct {
 	state                 protoimpl.MessageState `protogen:"opaque.v1"`
 	xxx_hidden_Workflows  *[]*WorkflowInfo       `protobuf:"bytes,1,rep,name=workflows"`
-	xxx_hidden_Pagination *messages.Pagination   `protobuf:"bytes,2,opt,name=pagination"`
-	xxx_hidden_Error      *messages.Error        `protobuf:"bytes,3,opt,name=error"`
+	xxx_hidden_Pagination *proto.Pagination      `protobuf:"bytes,2,opt,name=pagination"`
+	xxx_hidden_Error      *proto.Error           `protobuf:"bytes,3,opt,name=error"`
 	unknownFields         protoimpl.UnknownFields
 	sizeCache             protoimpl.SizeCache
 }
@@ -17347,14 +17344,14 @@ func (x *ListWorkflowsResponse) GetWorkflows() []*WorkflowInfo {
 	return nil
 }
 
-func (x *ListWorkflowsResponse) GetPagination() *messages.Pagination {
+func (x *ListWorkflowsResponse) GetPagination() *proto.Pagination {
 	if x != nil {
 		return x.xxx_hidden_Pagination
 	}
 	return nil
 }
 
-func (x *ListWorkflowsResponse) GetError() *messages.Error {
+func (x *ListWorkflowsResponse) GetError() *proto.Error {
 	if x != nil {
 		return x.xxx_hidden_Error
 	}
@@ -17365,11 +17362,11 @@ func (x *ListWorkflowsResponse) SetWorkflows(v []*WorkflowInfo) {
 	x.xxx_hidden_Workflows = &v
 }
 
-func (x *ListWorkflowsResponse) SetPagination(v *messages.Pagination) {
+func (x *ListWorkflowsResponse) SetPagination(v *proto.Pagination) {
 	x.xxx_hidden_Pagination = v
 }
 
-func (x *ListWorkflowsResponse) SetError(v *messages.Error) {
+func (x *ListWorkflowsResponse) SetError(v *proto.Error) {
 	x.xxx_hidden_Error = v
 }
 
@@ -17401,9 +17398,9 @@ type ListWorkflowsResponse_builder struct {
 	// Workflow information
 	Workflows []*WorkflowInfo
 	// Pagination information
-	Pagination *messages.Pagination
+	Pagination *proto.Pagination
 	// Error information
-	Error *messages.Error
+	Error *proto.Error
 }
 
 func (b0 ListWorkflowsResponse_builder) Build() *ListWorkflowsResponse {
@@ -17418,10 +17415,10 @@ func (b0 ListWorkflowsResponse_builder) Build() *ListWorkflowsResponse {
 
 // Cancel workflow request
 type CancelWorkflowRequest struct {
-	state                  protoimpl.MessageState    `protogen:"opaque.v1"`
-	xxx_hidden_WorkflowId  *string                   `protobuf:"bytes,1,opt,name=workflow_id,json=workflowId"`
-	xxx_hidden_Reason      *string                   `protobuf:"bytes,2,opt,name=reason"`
-	xxx_hidden_Metadata    *messages.RequestMetadata `protobuf:"bytes,3,opt,name=metadata"`
+	state                  protoimpl.MessageState `protogen:"opaque.v1"`
+	xxx_hidden_WorkflowId  *string                `protobuf:"bytes,1,opt,name=workflow_id,json=workflowId"`
+	xxx_hidden_Reason      *string                `protobuf:"bytes,2,opt,name=reason"`
+	xxx_hidden_Metadata    *proto.RequestMetadata `protobuf:"bytes,3,opt,name=metadata"`
 	XXX_raceDetectHookData protoimpl.RaceDetectHookData
 	XXX_presence           [1]uint32
 	unknownFields          protoimpl.UnknownFields
@@ -17473,7 +17470,7 @@ func (x *CancelWorkflowRequest) GetReason() string {
 	return ""
 }
 
-func (x *CancelWorkflowRequest) GetMetadata() *messages.RequestMetadata {
+func (x *CancelWorkflowRequest) GetMetadata() *proto.RequestMetadata {
 	if x != nil {
 		return x.xxx_hidden_Metadata
 	}
@@ -17490,7 +17487,7 @@ func (x *CancelWorkflowRequest) SetReason(v string) {
 	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 1, 3)
 }
 
-func (x *CancelWorkflowRequest) SetMetadata(v *messages.RequestMetadata) {
+func (x *CancelWorkflowRequest) SetMetadata(v *proto.RequestMetadata) {
 	x.xxx_hidden_Metadata = v
 }
 
@@ -17537,7 +17534,7 @@ type CancelWorkflowRequest_builder struct {
 	// Reason for cancellation
 	Reason *string
 	// Request metadata
-	Metadata *messages.RequestMetadata
+	Metadata *proto.RequestMetadata
 }
 
 func (b0 CancelWorkflowRequest_builder) Build() *CancelWorkflowRequest {
@@ -17560,7 +17557,7 @@ func (b0 CancelWorkflowRequest_builder) Build() *CancelWorkflowRequest {
 type CancelWorkflowResponse struct {
 	state                  protoimpl.MessageState `protogen:"opaque.v1"`
 	xxx_hidden_Success     bool                   `protobuf:"varint,1,opt,name=success"`
-	xxx_hidden_Error       *messages.Error        `protobuf:"bytes,2,opt,name=error"`
+	xxx_hidden_Error       *proto.Error           `protobuf:"bytes,2,opt,name=error"`
 	XXX_raceDetectHookData protoimpl.RaceDetectHookData
 	XXX_presence           [1]uint32
 	unknownFields          protoimpl.UnknownFields
@@ -17599,7 +17596,7 @@ func (x *CancelWorkflowResponse) GetSuccess() bool {
 	return false
 }
 
-func (x *CancelWorkflowResponse) GetError() *messages.Error {
+func (x *CancelWorkflowResponse) GetError() *proto.Error {
 	if x != nil {
 		return x.xxx_hidden_Error
 	}
@@ -17611,7 +17608,7 @@ func (x *CancelWorkflowResponse) SetSuccess(v bool) {
 	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 0, 2)
 }
 
-func (x *CancelWorkflowResponse) SetError(v *messages.Error) {
+func (x *CancelWorkflowResponse) SetError(v *proto.Error) {
 	x.xxx_hidden_Error = v
 }
 
@@ -17644,7 +17641,7 @@ type CancelWorkflowResponse_builder struct {
 	// Success status
 	Success *bool
 	// Error information
-	Error *messages.Error
+	Error *proto.Error
 }
 
 func (b0 CancelWorkflowResponse_builder) Build() *CancelWorkflowResponse {
@@ -17661,9 +17658,9 @@ func (b0 CancelWorkflowResponse_builder) Build() *CancelWorkflowResponse {
 
 // Pause workflow request
 type PauseWorkflowRequest struct {
-	state                  protoimpl.MessageState    `protogen:"opaque.v1"`
-	xxx_hidden_WorkflowId  *string                   `protobuf:"bytes,1,opt,name=workflow_id,json=workflowId"`
-	xxx_hidden_Metadata    *messages.RequestMetadata `protobuf:"bytes,2,opt,name=metadata"`
+	state                  protoimpl.MessageState `protogen:"opaque.v1"`
+	xxx_hidden_WorkflowId  *string                `protobuf:"bytes,1,opt,name=workflow_id,json=workflowId"`
+	xxx_hidden_Metadata    *proto.RequestMetadata `protobuf:"bytes,2,opt,name=metadata"`
 	XXX_raceDetectHookData protoimpl.RaceDetectHookData
 	XXX_presence           [1]uint32
 	unknownFields          protoimpl.UnknownFields
@@ -17705,7 +17702,7 @@ func (x *PauseWorkflowRequest) GetWorkflowId() string {
 	return ""
 }
 
-func (x *PauseWorkflowRequest) GetMetadata() *messages.RequestMetadata {
+func (x *PauseWorkflowRequest) GetMetadata() *proto.RequestMetadata {
 	if x != nil {
 		return x.xxx_hidden_Metadata
 	}
@@ -17717,7 +17714,7 @@ func (x *PauseWorkflowRequest) SetWorkflowId(v string) {
 	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 0, 2)
 }
 
-func (x *PauseWorkflowRequest) SetMetadata(v *messages.RequestMetadata) {
+func (x *PauseWorkflowRequest) SetMetadata(v *proto.RequestMetadata) {
 	x.xxx_hidden_Metadata = v
 }
 
@@ -17750,7 +17747,7 @@ type PauseWorkflowRequest_builder struct {
 	// Workflow ID
 	WorkflowId *string
 	// Request metadata
-	Metadata *messages.RequestMetadata
+	Metadata *proto.RequestMetadata
 }
 
 func (b0 PauseWorkflowRequest_builder) Build() *PauseWorkflowRequest {
@@ -17769,7 +17766,7 @@ func (b0 PauseWorkflowRequest_builder) Build() *PauseWorkflowRequest {
 type PauseWorkflowResponse struct {
 	state                  protoimpl.MessageState `protogen:"opaque.v1"`
 	xxx_hidden_Success     bool                   `protobuf:"varint,1,opt,name=success"`
-	xxx_hidden_Error       *messages.Error        `protobuf:"bytes,2,opt,name=error"`
+	xxx_hidden_Error       *proto.Error           `protobuf:"bytes,2,opt,name=error"`
 	XXX_raceDetectHookData protoimpl.RaceDetectHookData
 	XXX_presence           [1]uint32
 	unknownFields          protoimpl.UnknownFields
@@ -17808,7 +17805,7 @@ func (x *PauseWorkflowResponse) GetSuccess() bool {
 	return false
 }
 
-func (x *PauseWorkflowResponse) GetError() *messages.Error {
+func (x *PauseWorkflowResponse) GetError() *proto.Error {
 	if x != nil {
 		return x.xxx_hidden_Error
 	}
@@ -17820,7 +17817,7 @@ func (x *PauseWorkflowResponse) SetSuccess(v bool) {
 	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 0, 2)
 }
 
-func (x *PauseWorkflowResponse) SetError(v *messages.Error) {
+func (x *PauseWorkflowResponse) SetError(v *proto.Error) {
 	x.xxx_hidden_Error = v
 }
 
@@ -17853,7 +17850,7 @@ type PauseWorkflowResponse_builder struct {
 	// Success status
 	Success *bool
 	// Error information
-	Error *messages.Error
+	Error *proto.Error
 }
 
 func (b0 PauseWorkflowResponse_builder) Build() *PauseWorkflowResponse {
@@ -17870,9 +17867,9 @@ func (b0 PauseWorkflowResponse_builder) Build() *PauseWorkflowResponse {
 
 // Resume workflow request
 type ResumeWorkflowRequest struct {
-	state                  protoimpl.MessageState    `protogen:"opaque.v1"`
-	xxx_hidden_WorkflowId  *string                   `protobuf:"bytes,1,opt,name=workflow_id,json=workflowId"`
-	xxx_hidden_Metadata    *messages.RequestMetadata `protobuf:"bytes,2,opt,name=metadata"`
+	state                  protoimpl.MessageState `protogen:"opaque.v1"`
+	xxx_hidden_WorkflowId  *string                `protobuf:"bytes,1,opt,name=workflow_id,json=workflowId"`
+	xxx_hidden_Metadata    *proto.RequestMetadata `protobuf:"bytes,2,opt,name=metadata"`
 	XXX_raceDetectHookData protoimpl.RaceDetectHookData
 	XXX_presence           [1]uint32
 	unknownFields          protoimpl.UnknownFields
@@ -17914,7 +17911,7 @@ func (x *ResumeWorkflowRequest) GetWorkflowId() string {
 	return ""
 }
 
-func (x *ResumeWorkflowRequest) GetMetadata() *messages.RequestMetadata {
+func (x *ResumeWorkflowRequest) GetMetadata() *proto.RequestMetadata {
 	if x != nil {
 		return x.xxx_hidden_Metadata
 	}
@@ -17926,7 +17923,7 @@ func (x *ResumeWorkflowRequest) SetWorkflowId(v string) {
 	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 0, 2)
 }
 
-func (x *ResumeWorkflowRequest) SetMetadata(v *messages.RequestMetadata) {
+func (x *ResumeWorkflowRequest) SetMetadata(v *proto.RequestMetadata) {
 	x.xxx_hidden_Metadata = v
 }
 
@@ -17959,7 +17956,7 @@ type ResumeWorkflowRequest_builder struct {
 	// Workflow ID
 	WorkflowId *string
 	// Request metadata
-	Metadata *messages.RequestMetadata
+	Metadata *proto.RequestMetadata
 }
 
 func (b0 ResumeWorkflowRequest_builder) Build() *ResumeWorkflowRequest {
@@ -17978,7 +17975,7 @@ func (b0 ResumeWorkflowRequest_builder) Build() *ResumeWorkflowRequest {
 type ResumeWorkflowResponse struct {
 	state                  protoimpl.MessageState `protogen:"opaque.v1"`
 	xxx_hidden_Success     bool                   `protobuf:"varint,1,opt,name=success"`
-	xxx_hidden_Error       *messages.Error        `protobuf:"bytes,2,opt,name=error"`
+	xxx_hidden_Error       *proto.Error           `protobuf:"bytes,2,opt,name=error"`
 	XXX_raceDetectHookData protoimpl.RaceDetectHookData
 	XXX_presence           [1]uint32
 	unknownFields          protoimpl.UnknownFields
@@ -18017,7 +18014,7 @@ func (x *ResumeWorkflowResponse) GetSuccess() bool {
 	return false
 }
 
-func (x *ResumeWorkflowResponse) GetError() *messages.Error {
+func (x *ResumeWorkflowResponse) GetError() *proto.Error {
 	if x != nil {
 		return x.xxx_hidden_Error
 	}
@@ -18029,7 +18026,7 @@ func (x *ResumeWorkflowResponse) SetSuccess(v bool) {
 	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 0, 2)
 }
 
-func (x *ResumeWorkflowResponse) SetError(v *messages.Error) {
+func (x *ResumeWorkflowResponse) SetError(v *proto.Error) {
 	x.xxx_hidden_Error = v
 }
 
@@ -18062,7 +18059,7 @@ type ResumeWorkflowResponse_builder struct {
 	// Success status
 	Success *bool
 	// Error information
-	Error *messages.Error
+	Error *proto.Error
 }
 
 func (b0 ResumeWorkflowResponse_builder) Build() *ResumeWorkflowResponse {
@@ -18079,11 +18076,11 @@ func (b0 ResumeWorkflowResponse_builder) Build() *ResumeWorkflowResponse {
 
 // Complete task request
 type CompleteTaskRequest struct {
-	state                  protoimpl.MessageState    `protogen:"opaque.v1"`
-	xxx_hidden_WorkflowId  *string                   `protobuf:"bytes,1,opt,name=workflow_id,json=workflowId"`
-	xxx_hidden_TaskName    *string                   `protobuf:"bytes,2,opt,name=task_name,json=taskName"`
-	xxx_hidden_OutputData  *anypb.Any                `protobuf:"bytes,3,opt,name=output_data,json=outputData"`
-	xxx_hidden_Metadata    *messages.RequestMetadata `protobuf:"bytes,4,opt,name=metadata"`
+	state                  protoimpl.MessageState `protogen:"opaque.v1"`
+	xxx_hidden_WorkflowId  *string                `protobuf:"bytes,1,opt,name=workflow_id,json=workflowId"`
+	xxx_hidden_TaskName    *string                `protobuf:"bytes,2,opt,name=task_name,json=taskName"`
+	xxx_hidden_OutputData  *anypb.Any             `protobuf:"bytes,3,opt,name=output_data,json=outputData"`
+	xxx_hidden_Metadata    *proto.RequestMetadata `protobuf:"bytes,4,opt,name=metadata"`
 	XXX_raceDetectHookData protoimpl.RaceDetectHookData
 	XXX_presence           [1]uint32
 	unknownFields          protoimpl.UnknownFields
@@ -18142,7 +18139,7 @@ func (x *CompleteTaskRequest) GetOutputData() *anypb.Any {
 	return nil
 }
 
-func (x *CompleteTaskRequest) GetMetadata() *messages.RequestMetadata {
+func (x *CompleteTaskRequest) GetMetadata() *proto.RequestMetadata {
 	if x != nil {
 		return x.xxx_hidden_Metadata
 	}
@@ -18163,7 +18160,7 @@ func (x *CompleteTaskRequest) SetOutputData(v *anypb.Any) {
 	x.xxx_hidden_OutputData = v
 }
 
-func (x *CompleteTaskRequest) SetMetadata(v *messages.RequestMetadata) {
+func (x *CompleteTaskRequest) SetMetadata(v *proto.RequestMetadata) {
 	x.xxx_hidden_Metadata = v
 }
 
@@ -18223,7 +18220,7 @@ type CompleteTaskRequest_builder struct {
 	// Task output data
 	OutputData *anypb.Any
 	// Request metadata
-	Metadata *messages.RequestMetadata
+	Metadata *proto.RequestMetadata
 }
 
 func (b0 CompleteTaskRequest_builder) Build() *CompleteTaskRequest {
@@ -18247,7 +18244,7 @@ func (b0 CompleteTaskRequest_builder) Build() *CompleteTaskRequest {
 type CompleteTaskResponse struct {
 	state                  protoimpl.MessageState `protogen:"opaque.v1"`
 	xxx_hidden_Success     bool                   `protobuf:"varint,1,opt,name=success"`
-	xxx_hidden_Error       *messages.Error        `protobuf:"bytes,2,opt,name=error"`
+	xxx_hidden_Error       *proto.Error           `protobuf:"bytes,2,opt,name=error"`
 	XXX_raceDetectHookData protoimpl.RaceDetectHookData
 	XXX_presence           [1]uint32
 	unknownFields          protoimpl.UnknownFields
@@ -18286,7 +18283,7 @@ func (x *CompleteTaskResponse) GetSuccess() bool {
 	return false
 }
 
-func (x *CompleteTaskResponse) GetError() *messages.Error {
+func (x *CompleteTaskResponse) GetError() *proto.Error {
 	if x != nil {
 		return x.xxx_hidden_Error
 	}
@@ -18298,7 +18295,7 @@ func (x *CompleteTaskResponse) SetSuccess(v bool) {
 	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 0, 2)
 }
 
-func (x *CompleteTaskResponse) SetError(v *messages.Error) {
+func (x *CompleteTaskResponse) SetError(v *proto.Error) {
 	x.xxx_hidden_Error = v
 }
 
@@ -18331,7 +18328,7 @@ type CompleteTaskResponse_builder struct {
 	// Success status
 	Success *bool
 	// Error information
-	Error *messages.Error
+	Error *proto.Error
 }
 
 func (b0 CompleteTaskResponse_builder) Build() *CompleteTaskResponse {
@@ -18348,12 +18345,12 @@ func (b0 CompleteTaskResponse_builder) Build() *CompleteTaskResponse {
 
 // Fail task request
 type FailTaskRequest struct {
-	state                   protoimpl.MessageState    `protogen:"opaque.v1"`
-	xxx_hidden_WorkflowId   *string                   `protobuf:"bytes,1,opt,name=workflow_id,json=workflowId"`
-	xxx_hidden_TaskName     *string                   `protobuf:"bytes,2,opt,name=task_name,json=taskName"`
-	xxx_hidden_ErrorMessage *string                   `protobuf:"bytes,3,opt,name=error_message,json=errorMessage"`
-	xxx_hidden_Retry        bool                      `protobuf:"varint,4,opt,name=retry"`
-	xxx_hidden_Metadata     *messages.RequestMetadata `protobuf:"bytes,5,opt,name=metadata"`
+	state                   protoimpl.MessageState `protogen:"opaque.v1"`
+	xxx_hidden_WorkflowId   *string                `protobuf:"bytes,1,opt,name=workflow_id,json=workflowId"`
+	xxx_hidden_TaskName     *string                `protobuf:"bytes,2,opt,name=task_name,json=taskName"`
+	xxx_hidden_ErrorMessage *string                `protobuf:"bytes,3,opt,name=error_message,json=errorMessage"`
+	xxx_hidden_Retry        bool                   `protobuf:"varint,4,opt,name=retry"`
+	xxx_hidden_Metadata     *proto.RequestMetadata `protobuf:"bytes,5,opt,name=metadata"`
 	XXX_raceDetectHookData  protoimpl.RaceDetectHookData
 	XXX_presence            [1]uint32
 	unknownFields           protoimpl.UnknownFields
@@ -18422,7 +18419,7 @@ func (x *FailTaskRequest) GetRetry() bool {
 	return false
 }
 
-func (x *FailTaskRequest) GetMetadata() *messages.RequestMetadata {
+func (x *FailTaskRequest) GetMetadata() *proto.RequestMetadata {
 	if x != nil {
 		return x.xxx_hidden_Metadata
 	}
@@ -18449,7 +18446,7 @@ func (x *FailTaskRequest) SetRetry(v bool) {
 	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 3, 5)
 }
 
-func (x *FailTaskRequest) SetMetadata(v *messages.RequestMetadata) {
+func (x *FailTaskRequest) SetMetadata(v *proto.RequestMetadata) {
 	x.xxx_hidden_Metadata = v
 }
 
@@ -18524,7 +18521,7 @@ type FailTaskRequest_builder struct {
 	// Whether to retry the task
 	Retry *bool
 	// Request metadata
-	Metadata *messages.RequestMetadata
+	Metadata *proto.RequestMetadata
 }
 
 func (b0 FailTaskRequest_builder) Build() *FailTaskRequest {
@@ -18555,7 +18552,7 @@ func (b0 FailTaskRequest_builder) Build() *FailTaskRequest {
 type FailTaskResponse struct {
 	state                  protoimpl.MessageState `protogen:"opaque.v1"`
 	xxx_hidden_Success     bool                   `protobuf:"varint,1,opt,name=success"`
-	xxx_hidden_Error       *messages.Error        `protobuf:"bytes,2,opt,name=error"`
+	xxx_hidden_Error       *proto.Error           `protobuf:"bytes,2,opt,name=error"`
 	XXX_raceDetectHookData protoimpl.RaceDetectHookData
 	XXX_presence           [1]uint32
 	unknownFields          protoimpl.UnknownFields
@@ -18594,7 +18591,7 @@ func (x *FailTaskResponse) GetSuccess() bool {
 	return false
 }
 
-func (x *FailTaskResponse) GetError() *messages.Error {
+func (x *FailTaskResponse) GetError() *proto.Error {
 	if x != nil {
 		return x.xxx_hidden_Error
 	}
@@ -18606,7 +18603,7 @@ func (x *FailTaskResponse) SetSuccess(v bool) {
 	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 0, 2)
 }
 
-func (x *FailTaskResponse) SetError(v *messages.Error) {
+func (x *FailTaskResponse) SetError(v *proto.Error) {
 	x.xxx_hidden_Error = v
 }
 
@@ -18639,7 +18636,7 @@ type FailTaskResponse_builder struct {
 	// Success status
 	Success *bool
 	// Error information
-	Error *messages.Error
+	Error *proto.Error
 }
 
 func (b0 FailTaskResponse_builder) Build() *FailTaskResponse {
@@ -18656,10 +18653,10 @@ func (b0 FailTaskResponse_builder) Build() *FailTaskResponse {
 
 // Get task request
 type GetTaskRequest struct {
-	state                  protoimpl.MessageState    `protogen:"opaque.v1"`
-	xxx_hidden_WorkflowId  *string                   `protobuf:"bytes,1,opt,name=workflow_id,json=workflowId"`
-	xxx_hidden_TaskName    *string                   `protobuf:"bytes,2,opt,name=task_name,json=taskName"`
-	xxx_hidden_Metadata    *messages.RequestMetadata `protobuf:"bytes,3,opt,name=metadata"`
+	state                  protoimpl.MessageState `protogen:"opaque.v1"`
+	xxx_hidden_WorkflowId  *string                `protobuf:"bytes,1,opt,name=workflow_id,json=workflowId"`
+	xxx_hidden_TaskName    *string                `protobuf:"bytes,2,opt,name=task_name,json=taskName"`
+	xxx_hidden_Metadata    *proto.RequestMetadata `protobuf:"bytes,3,opt,name=metadata"`
 	XXX_raceDetectHookData protoimpl.RaceDetectHookData
 	XXX_presence           [1]uint32
 	unknownFields          protoimpl.UnknownFields
@@ -18711,7 +18708,7 @@ func (x *GetTaskRequest) GetTaskName() string {
 	return ""
 }
 
-func (x *GetTaskRequest) GetMetadata() *messages.RequestMetadata {
+func (x *GetTaskRequest) GetMetadata() *proto.RequestMetadata {
 	if x != nil {
 		return x.xxx_hidden_Metadata
 	}
@@ -18728,7 +18725,7 @@ func (x *GetTaskRequest) SetTaskName(v string) {
 	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 1, 3)
 }
 
-func (x *GetTaskRequest) SetMetadata(v *messages.RequestMetadata) {
+func (x *GetTaskRequest) SetMetadata(v *proto.RequestMetadata) {
 	x.xxx_hidden_Metadata = v
 }
 
@@ -18775,7 +18772,7 @@ type GetTaskRequest_builder struct {
 	// Task name
 	TaskName *string
 	// Request metadata
-	Metadata *messages.RequestMetadata
+	Metadata *proto.RequestMetadata
 }
 
 func (b0 GetTaskRequest_builder) Build() *GetTaskRequest {
@@ -18798,7 +18795,7 @@ func (b0 GetTaskRequest_builder) Build() *GetTaskRequest {
 type GetTaskResponse struct {
 	state                    protoimpl.MessageState `protogen:"opaque.v1"`
 	xxx_hidden_TaskExecution *TaskExecution         `protobuf:"bytes,1,opt,name=task_execution,json=taskExecution"`
-	xxx_hidden_Error         *messages.Error        `protobuf:"bytes,2,opt,name=error"`
+	xxx_hidden_Error         *proto.Error           `protobuf:"bytes,2,opt,name=error"`
 	unknownFields            protoimpl.UnknownFields
 	sizeCache                protoimpl.SizeCache
 }
@@ -18835,7 +18832,7 @@ func (x *GetTaskResponse) GetTaskExecution() *TaskExecution {
 	return nil
 }
 
-func (x *GetTaskResponse) GetError() *messages.Error {
+func (x *GetTaskResponse) GetError() *proto.Error {
 	if x != nil {
 		return x.xxx_hidden_Error
 	}
@@ -18846,7 +18843,7 @@ func (x *GetTaskResponse) SetTaskExecution(v *TaskExecution) {
 	x.xxx_hidden_TaskExecution = v
 }
 
-func (x *GetTaskResponse) SetError(v *messages.Error) {
+func (x *GetTaskResponse) SetError(v *proto.Error) {
 	x.xxx_hidden_Error = v
 }
 
@@ -18878,7 +18875,7 @@ type GetTaskResponse_builder struct {
 	// Task execution information
 	TaskExecution *TaskExecution
 	// Error information
-	Error *messages.Error
+	Error *proto.Error
 }
 
 func (b0 GetTaskResponse_builder) Build() *GetTaskResponse {
@@ -18892,11 +18889,11 @@ func (b0 GetTaskResponse_builder) Build() *GetTaskResponse {
 
 // List tasks request
 type ListTasksRequest struct {
-	state                  protoimpl.MessageState    `protogen:"opaque.v1"`
-	xxx_hidden_WorkflowId  *string                   `protobuf:"bytes,1,opt,name=workflow_id,json=workflowId"`
-	xxx_hidden_Status      TaskStatus                `protobuf:"varint,2,opt,name=status,enum=gcommon.v1.queue.TaskStatus"`
-	xxx_hidden_Pagination  *messages.Pagination      `protobuf:"bytes,3,opt,name=pagination"`
-	xxx_hidden_Metadata    *messages.RequestMetadata `protobuf:"bytes,4,opt,name=metadata"`
+	state                  protoimpl.MessageState `protogen:"opaque.v1"`
+	xxx_hidden_WorkflowId  *string                `protobuf:"bytes,1,opt,name=workflow_id,json=workflowId"`
+	xxx_hidden_Status      TaskStatus             `protobuf:"varint,2,opt,name=status,enum=gcommon.v1.queue.TaskStatus"`
+	xxx_hidden_Pagination  *proto.Pagination      `protobuf:"bytes,3,opt,name=pagination"`
+	xxx_hidden_Metadata    *proto.RequestMetadata `protobuf:"bytes,4,opt,name=metadata"`
 	XXX_raceDetectHookData protoimpl.RaceDetectHookData
 	XXX_presence           [1]uint32
 	unknownFields          protoimpl.UnknownFields
@@ -18947,14 +18944,14 @@ func (x *ListTasksRequest) GetStatus() TaskStatus {
 	return TaskStatus_TASK_STATUS_UNSPECIFIED
 }
 
-func (x *ListTasksRequest) GetPagination() *messages.Pagination {
+func (x *ListTasksRequest) GetPagination() *proto.Pagination {
 	if x != nil {
 		return x.xxx_hidden_Pagination
 	}
 	return nil
 }
 
-func (x *ListTasksRequest) GetMetadata() *messages.RequestMetadata {
+func (x *ListTasksRequest) GetMetadata() *proto.RequestMetadata {
 	if x != nil {
 		return x.xxx_hidden_Metadata
 	}
@@ -18971,11 +18968,11 @@ func (x *ListTasksRequest) SetStatus(v TaskStatus) {
 	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 1, 4)
 }
 
-func (x *ListTasksRequest) SetPagination(v *messages.Pagination) {
+func (x *ListTasksRequest) SetPagination(v *proto.Pagination) {
 	x.xxx_hidden_Pagination = v
 }
 
-func (x *ListTasksRequest) SetMetadata(v *messages.RequestMetadata) {
+func (x *ListTasksRequest) SetMetadata(v *proto.RequestMetadata) {
 	x.xxx_hidden_Metadata = v
 }
 
@@ -19033,9 +19030,9 @@ type ListTasksRequest_builder struct {
 	// Status filter
 	Status *TaskStatus
 	// Pagination options
-	Pagination *messages.Pagination
+	Pagination *proto.Pagination
 	// Request metadata
-	Metadata *messages.RequestMetadata
+	Metadata *proto.RequestMetadata
 }
 
 func (b0 ListTasksRequest_builder) Build() *ListTasksRequest {
@@ -19059,8 +19056,8 @@ func (b0 ListTasksRequest_builder) Build() *ListTasksRequest {
 type ListTasksResponse struct {
 	state                     protoimpl.MessageState `protogen:"opaque.v1"`
 	xxx_hidden_TaskExecutions *[]*TaskExecution      `protobuf:"bytes,1,rep,name=task_executions,json=taskExecutions"`
-	xxx_hidden_Pagination     *messages.Pagination   `protobuf:"bytes,2,opt,name=pagination"`
-	xxx_hidden_Error          *messages.Error        `protobuf:"bytes,3,opt,name=error"`
+	xxx_hidden_Pagination     *proto.Pagination      `protobuf:"bytes,2,opt,name=pagination"`
+	xxx_hidden_Error          *proto.Error           `protobuf:"bytes,3,opt,name=error"`
 	unknownFields             protoimpl.UnknownFields
 	sizeCache                 protoimpl.SizeCache
 }
@@ -19099,14 +19096,14 @@ func (x *ListTasksResponse) GetTaskExecutions() []*TaskExecution {
 	return nil
 }
 
-func (x *ListTasksResponse) GetPagination() *messages.Pagination {
+func (x *ListTasksResponse) GetPagination() *proto.Pagination {
 	if x != nil {
 		return x.xxx_hidden_Pagination
 	}
 	return nil
 }
 
-func (x *ListTasksResponse) GetError() *messages.Error {
+func (x *ListTasksResponse) GetError() *proto.Error {
 	if x != nil {
 		return x.xxx_hidden_Error
 	}
@@ -19117,11 +19114,11 @@ func (x *ListTasksResponse) SetTaskExecutions(v []*TaskExecution) {
 	x.xxx_hidden_TaskExecutions = &v
 }
 
-func (x *ListTasksResponse) SetPagination(v *messages.Pagination) {
+func (x *ListTasksResponse) SetPagination(v *proto.Pagination) {
 	x.xxx_hidden_Pagination = v
 }
 
-func (x *ListTasksResponse) SetError(v *messages.Error) {
+func (x *ListTasksResponse) SetError(v *proto.Error) {
 	x.xxx_hidden_Error = v
 }
 
@@ -19153,9 +19150,9 @@ type ListTasksResponse_builder struct {
 	// Task executions
 	TaskExecutions []*TaskExecution
 	// Pagination information
-	Pagination *messages.Pagination
+	Pagination *proto.Pagination
 	// Error information
-	Error *messages.Error
+	Error *proto.Error
 }
 
 func (b0 ListTasksResponse_builder) Build() *ListTasksResponse {
@@ -20077,173 +20074,173 @@ const file_pkg_queue_proto_queue_proto_rawDesc = "" +
 	"\fCompleteTask\x12%.gcommon.v1.queue.CompleteTaskRequest\x1a&.gcommon.v1.queue.CompleteTaskResponse\x12Q\n" +
 	"\bFailTask\x12!.gcommon.v1.queue.FailTaskRequest\x1a\".gcommon.v1.queue.FailTaskResponse\x12N\n" +
 	"\aGetTask\x12 .gcommon.v1.queue.GetTaskRequest\x1a!.gcommon.v1.queue.GetTaskResponse\x12T\n" +
-	"\tListTasks\x12\".gcommon.v1.queue.ListTasksRequest\x1a#.gcommon.v1.queue.ListTasksResponseB\xb7\x01\n" +
+	"\tListTasks\x12\".gcommon.v1.queue.ListTasksRequest\x1a#.gcommon.v1.queue.ListTasksResponseB\xbf\x01\n" +
 	"\x14com.gcommon.v1.queueB\n" +
-	"QueueProtoP\x01Z)github.com/jdfalk/gcommon/pkg/queue/proto\xa2\x02\x03GVQ\xaa\x02\x10Gcommon.V1.Queue\xca\x02\x10Gcommon\\V1\\Queue\xe2\x02\x1cGcommon\\V1\\Queue\\GPBMetadata\xea\x02\x12Gcommon::V1::Queue\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
+	"QueueProtoP\x01Z1github.com/jdfalk/gcommon/pkg/queue/proto;queuepb\xa2\x02\x03GVQ\xaa\x02\x10Gcommon.V1.Queue\xca\x02\x10Gcommon\\V1\\Queue\xe2\x02\x1cGcommon\\V1\\Queue\\GPBMetadata\xea\x02\x12Gcommon::V1::Queue\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
 
 var file_pkg_queue_proto_queue_proto_enumTypes = make([]protoimpl.EnumInfo, 17)
 var file_pkg_queue_proto_queue_proto_msgTypes = make([]protoimpl.MessageInfo, 130)
 var file_pkg_queue_proto_queue_proto_goTypes = []any{
-	(FlowControlBehavior)(0),                     // 0: gcommon.v1.queue.FlowControlBehavior
-	(MessageEventType)(0),                        // 1: gcommon.v1.queue.MessageEventType
-	(ConnectionStatus)(0),                        // 2: gcommon.v1.queue.ConnectionStatus
-	(MessageState)(0),                            // 3: gcommon.v1.queue.MessageState
-	(QueueType)(0),                               // 4: gcommon.v1.queue.QueueType
-	(QueueOperation)(0),                          // 5: gcommon.v1.queue.QueueOperation
-	(QueueStatus)(0),                             // 6: gcommon.v1.queue.QueueStatus
-	(SchemaType)(0),                              // 7: gcommon.v1.queue.SchemaType
-	(TopicStatus)(0),                             // 8: gcommon.v1.queue.TopicStatus
-	(AuthType)(0),                                // 9: gcommon.v1.queue.AuthType
-	(HealthCheckType)(0),                         // 10: gcommon.v1.queue.HealthCheckType
-	(HealthStatus)(0),                            // 11: gcommon.v1.queue.HealthStatus
-	(TaskType)(0),                                // 12: gcommon.v1.queue.TaskType
-	(ExecutionMode)(0),                           // 13: gcommon.v1.queue.ExecutionMode
-	(ErrorHandlingStrategy)(0),                   // 14: gcommon.v1.queue.ErrorHandlingStrategy
-	(WorkflowStatus)(0),                          // 15: gcommon.v1.queue.WorkflowStatus
-	(TaskStatus)(0),                              // 16: gcommon.v1.queue.TaskStatus
-	(*SendMessageRequest)(nil),                   // 17: gcommon.v1.queue.SendMessageRequest
-	(*QueueMessage)(nil),                         // 18: gcommon.v1.queue.QueueMessage
-	(*DeliveryOptions)(nil),                      // 19: gcommon.v1.queue.DeliveryOptions
-	(*SendMessageResponse)(nil),                  // 20: gcommon.v1.queue.SendMessageResponse
-	(*SendMessagesRequest)(nil),                  // 21: gcommon.v1.queue.SendMessagesRequest
-	(*SendMessagesResponse)(nil),                 // 22: gcommon.v1.queue.SendMessagesResponse
-	(*MessageError)(nil),                         // 23: gcommon.v1.queue.MessageError
-	(*ReceiveMessageRequest)(nil),                // 24: gcommon.v1.queue.ReceiveMessageRequest
-	(*ReceiveOptions)(nil),                       // 25: gcommon.v1.queue.ReceiveOptions
-	(*ReceiveMessageResponse)(nil),               // 26: gcommon.v1.queue.ReceiveMessageResponse
-	(*ReceivedMessage)(nil),                      // 27: gcommon.v1.queue.ReceivedMessage
-	(*ReceiveMessagesRequest)(nil),               // 28: gcommon.v1.queue.ReceiveMessagesRequest
-	(*ReceiveMessagesResponse)(nil),              // 29: gcommon.v1.queue.ReceiveMessagesResponse
-	(*AckMessageRequest)(nil),                    // 30: gcommon.v1.queue.AckMessageRequest
-	(*AckMessageResponse)(nil),                   // 31: gcommon.v1.queue.AckMessageResponse
-	(*NackMessageRequest)(nil),                   // 32: gcommon.v1.queue.NackMessageRequest
-	(*NackMessageResponse)(nil),                  // 33: gcommon.v1.queue.NackMessageResponse
-	(*PublishRequest)(nil),                       // 34: gcommon.v1.queue.PublishRequest
-	(*PubSubMessage)(nil),                        // 35: gcommon.v1.queue.PubSubMessage
-	(*PublishOptions)(nil),                       // 36: gcommon.v1.queue.PublishOptions
-	(*PublishResponse)(nil),                      // 37: gcommon.v1.queue.PublishResponse
-	(*SubscribeRequest)(nil),                     // 38: gcommon.v1.queue.SubscribeRequest
-	(*SubscribeOptions)(nil),                     // 39: gcommon.v1.queue.SubscribeOptions
-	(*FlowControlSettings)(nil),                  // 40: gcommon.v1.queue.FlowControlSettings
-	(*MessageEvent)(nil),                         // 41: gcommon.v1.queue.MessageEvent
-	(*ReceivedPubSubMessage)(nil),                // 42: gcommon.v1.queue.ReceivedPubSubMessage
-	(*SubscriptionStatus)(nil),                   // 43: gcommon.v1.queue.SubscriptionStatus
-	(*UnsubscribeRequest)(nil),                   // 44: gcommon.v1.queue.UnsubscribeRequest
-	(*UnsubscribeResponse)(nil),                  // 45: gcommon.v1.queue.UnsubscribeResponse
-	(*GetMessageRequest)(nil),                    // 46: gcommon.v1.queue.GetMessageRequest
-	(*GetMessageResponse)(nil),                   // 47: gcommon.v1.queue.GetMessageResponse
-	(*MessageStatus)(nil),                        // 48: gcommon.v1.queue.MessageStatus
-	(*RetryInfo)(nil),                            // 49: gcommon.v1.queue.RetryInfo
-	(*ListMessagesRequest)(nil),                  // 50: gcommon.v1.queue.ListMessagesRequest
-	(*ListMessagesResponse)(nil),                 // 51: gcommon.v1.queue.ListMessagesResponse
-	(*GetSubscriptionStatsRequest)(nil),          // 52: gcommon.v1.queue.GetSubscriptionStatsRequest
-	(*GetSubscriptionStatsResponse)(nil),         // 53: gcommon.v1.queue.GetSubscriptionStatsResponse
-	(*SubscriptionStats)(nil),                    // 54: gcommon.v1.queue.SubscriptionStats
-	(*DeliveryStats)(nil),                        // 55: gcommon.v1.queue.DeliveryStats
-	(*BacklogInfo)(nil),                          // 56: gcommon.v1.queue.BacklogInfo
-	(*CreateQueueRequest)(nil),                   // 57: gcommon.v1.queue.CreateQueueRequest
-	(*QueueConfig)(nil),                          // 58: gcommon.v1.queue.QueueConfig
-	(*DeadLetterQueueConfig)(nil),                // 59: gcommon.v1.queue.DeadLetterQueueConfig
-	(*AccessPolicy)(nil),                         // 60: gcommon.v1.queue.AccessPolicy
-	(*CreateQueueResponse)(nil),                  // 61: gcommon.v1.queue.CreateQueueResponse
-	(*QueueInfo)(nil),                            // 62: gcommon.v1.queue.QueueInfo
-	(*UpdateQueueRequest)(nil),                   // 63: gcommon.v1.queue.UpdateQueueRequest
-	(*UpdateQueueResponse)(nil),                  // 64: gcommon.v1.queue.UpdateQueueResponse
-	(*DeleteQueueRequest)(nil),                   // 65: gcommon.v1.queue.DeleteQueueRequest
-	(*ListQueuesRequest)(nil),                    // 66: gcommon.v1.queue.ListQueuesRequest
-	(*ListQueuesResponse)(nil),                   // 67: gcommon.v1.queue.ListQueuesResponse
-	(*CreateTopicRequest)(nil),                   // 68: gcommon.v1.queue.CreateTopicRequest
-	(*TopicConfig)(nil),                          // 69: gcommon.v1.queue.TopicConfig
-	(*SchemaConfig)(nil),                         // 70: gcommon.v1.queue.SchemaConfig
-	(*CreateTopicResponse)(nil),                  // 71: gcommon.v1.queue.CreateTopicResponse
-	(*TopicInfo)(nil),                            // 72: gcommon.v1.queue.TopicInfo
-	(*TopicStats)(nil),                           // 73: gcommon.v1.queue.TopicStats
-	(*PartitionStats)(nil),                       // 74: gcommon.v1.queue.PartitionStats
-	(*UpdateTopicRequest)(nil),                   // 75: gcommon.v1.queue.UpdateTopicRequest
-	(*UpdateTopicResponse)(nil),                  // 76: gcommon.v1.queue.UpdateTopicResponse
-	(*DeleteTopicRequest)(nil),                   // 77: gcommon.v1.queue.DeleteTopicRequest
-	(*ListTopicsRequest)(nil),                    // 78: gcommon.v1.queue.ListTopicsRequest
-	(*ListTopicsResponse)(nil),                   // 79: gcommon.v1.queue.ListTopicsResponse
-	(*CreateSubscriptionRequest)(nil),            // 80: gcommon.v1.queue.CreateSubscriptionRequest
-	(*SubscriptionConfig)(nil),                   // 81: gcommon.v1.queue.SubscriptionConfig
-	(*RetryPolicy)(nil),                          // 82: gcommon.v1.queue.RetryPolicy
-	(*DeadLetterPolicy)(nil),                     // 83: gcommon.v1.queue.DeadLetterPolicy
-	(*PushConfig)(nil),                           // 84: gcommon.v1.queue.PushConfig
-	(*AuthConfig)(nil),                           // 85: gcommon.v1.queue.AuthConfig
-	(*CreateSubscriptionResponse)(nil),           // 86: gcommon.v1.queue.CreateSubscriptionResponse
-	(*SubscriptionInfo)(nil),                     // 87: gcommon.v1.queue.SubscriptionInfo
-	(*UpdateSubscriptionRequest)(nil),            // 88: gcommon.v1.queue.UpdateSubscriptionRequest
-	(*UpdateSubscriptionResponse)(nil),           // 89: gcommon.v1.queue.UpdateSubscriptionResponse
-	(*DeleteSubscriptionRequest)(nil),            // 90: gcommon.v1.queue.DeleteSubscriptionRequest
-	(*ListSubscriptionsRequest)(nil),             // 91: gcommon.v1.queue.ListSubscriptionsRequest
-	(*ListSubscriptionsResponse)(nil),            // 92: gcommon.v1.queue.ListSubscriptionsResponse
-	(*PurgeQueueRequest)(nil),                    // 93: gcommon.v1.queue.PurgeQueueRequest
-	(*PurgeQueueCriteria)(nil),                   // 94: gcommon.v1.queue.PurgeQueueCriteria
-	(*PurgeQueueResponse)(nil),                   // 95: gcommon.v1.queue.PurgeQueueResponse
-	(*GetDeadLetterMessagesRequest)(nil),         // 96: gcommon.v1.queue.GetDeadLetterMessagesRequest
-	(*GetDeadLetterMessagesResponse)(nil),        // 97: gcommon.v1.queue.GetDeadLetterMessagesResponse
-	(*DeadLetterMessage)(nil),                    // 98: gcommon.v1.queue.DeadLetterMessage
-	(*RequeueDeadLetterMessagesRequest)(nil),     // 99: gcommon.v1.queue.RequeueDeadLetterMessagesRequest
-	(*RequeueDeadLetterMessagesResponse)(nil),    // 100: gcommon.v1.queue.RequeueDeadLetterMessagesResponse
-	(*GetSystemHealthRequest)(nil),               // 101: gcommon.v1.queue.GetSystemHealthRequest
-	(*GetSystemHealthResponse)(nil),              // 102: gcommon.v1.queue.GetSystemHealthResponse
-	(*HealthCheck)(nil),                          // 103: gcommon.v1.queue.HealthCheck
-	(*SystemMetrics)(nil),                        // 104: gcommon.v1.queue.SystemMetrics
-	(*NetworkIOStats)(nil),                       // 105: gcommon.v1.queue.NetworkIOStats
-	(*QueueSystemMetrics)(nil),                   // 106: gcommon.v1.queue.QueueSystemMetrics
-	(*StartWorkflowRequest)(nil),                 // 107: gcommon.v1.queue.StartWorkflowRequest
-	(*WorkflowDefinition)(nil),                   // 108: gcommon.v1.queue.WorkflowDefinition
-	(*TaskDefinition)(nil),                       // 109: gcommon.v1.queue.TaskDefinition
-	(*TaskRetryPolicy)(nil),                      // 110: gcommon.v1.queue.TaskRetryPolicy
-	(*WorkflowConfig)(nil),                       // 111: gcommon.v1.queue.WorkflowConfig
-	(*WorkflowOptions)(nil),                      // 112: gcommon.v1.queue.WorkflowOptions
-	(*StartWorkflowResponse)(nil),                // 113: gcommon.v1.queue.StartWorkflowResponse
-	(*GetWorkflowRequest)(nil),                   // 114: gcommon.v1.queue.GetWorkflowRequest
-	(*GetWorkflowResponse)(nil),                  // 115: gcommon.v1.queue.GetWorkflowResponse
-	(*WorkflowInfo)(nil),                         // 116: gcommon.v1.queue.WorkflowInfo
-	(*TaskExecution)(nil),                        // 117: gcommon.v1.queue.TaskExecution
-	(*ListWorkflowsRequest)(nil),                 // 118: gcommon.v1.queue.ListWorkflowsRequest
-	(*ListWorkflowsResponse)(nil),                // 119: gcommon.v1.queue.ListWorkflowsResponse
-	(*CancelWorkflowRequest)(nil),                // 120: gcommon.v1.queue.CancelWorkflowRequest
-	(*CancelWorkflowResponse)(nil),               // 121: gcommon.v1.queue.CancelWorkflowResponse
-	(*PauseWorkflowRequest)(nil),                 // 122: gcommon.v1.queue.PauseWorkflowRequest
-	(*PauseWorkflowResponse)(nil),                // 123: gcommon.v1.queue.PauseWorkflowResponse
-	(*ResumeWorkflowRequest)(nil),                // 124: gcommon.v1.queue.ResumeWorkflowRequest
-	(*ResumeWorkflowResponse)(nil),               // 125: gcommon.v1.queue.ResumeWorkflowResponse
-	(*CompleteTaskRequest)(nil),                  // 126: gcommon.v1.queue.CompleteTaskRequest
-	(*CompleteTaskResponse)(nil),                 // 127: gcommon.v1.queue.CompleteTaskResponse
-	(*FailTaskRequest)(nil),                      // 128: gcommon.v1.queue.FailTaskRequest
-	(*FailTaskResponse)(nil),                     // 129: gcommon.v1.queue.FailTaskResponse
-	(*GetTaskRequest)(nil),                       // 130: gcommon.v1.queue.GetTaskRequest
-	(*GetTaskResponse)(nil),                      // 131: gcommon.v1.queue.GetTaskResponse
-	(*ListTasksRequest)(nil),                     // 132: gcommon.v1.queue.ListTasksRequest
-	(*ListTasksResponse)(nil),                    // 133: gcommon.v1.queue.ListTasksResponse
-	nil,                                          // 134: gcommon.v1.queue.QueueMessage.AttributesEntry
-	nil,                                          // 135: gcommon.v1.queue.QueueMessage.HeadersEntry
-	nil,                                          // 136: gcommon.v1.queue.PubSubMessage.AttributesEntry
-	nil,                                          // 137: gcommon.v1.queue.QueueConfig.AttributesEntry
-	nil,                                          // 138: gcommon.v1.queue.AccessPolicy.ConditionsEntry
-	nil,                                          // 139: gcommon.v1.queue.TopicConfig.AttributesEntry
-	nil,                                          // 140: gcommon.v1.queue.SubscriptionConfig.AttributesEntry
-	nil,                                          // 141: gcommon.v1.queue.PushConfig.AttributesEntry
-	nil,                                          // 142: gcommon.v1.queue.AuthConfig.ParametersEntry
-	nil,                                          // 143: gcommon.v1.queue.PurgeQueueCriteria.AttributeFiltersEntry
-	nil,                                          // 144: gcommon.v1.queue.WorkflowConfig.AttributesEntry
-	nil,                                          // 145: gcommon.v1.queue.WorkflowOptions.TagsEntry
-	nil,                                          // 146: gcommon.v1.queue.ListWorkflowsRequest.TagFiltersEntry
-	(*messages.RequestMetadata)(nil),             // 147: gcommon.v1.common.RequestMetadata
-	(*anypb.Any)(nil),                            // 148: google.protobuf.Any
-	(*timestamppb.Timestamp)(nil),                // 149: google.protobuf.Timestamp
-	(*durationpb.Duration)(nil),                  // 150: google.protobuf.Duration
-	(*messages.Error)(nil),                       // 151: gcommon.v1.common.Error
-	(*messages.Pagination)(nil),                  // 152: gcommon.v1.common.Pagination
-	(*responses.QueueStats)(nil),                 // 153: gcommon.v1.queue.QueueStats
-	(*fieldmaskpb.FieldMask)(nil),                // 154: google.protobuf.FieldMask
-	(*requests.GetQueueStatsRequest)(nil),        // 155: gcommon.v1.queue.GetQueueStatsRequest
-	(*responses.GetQueueStatsResponse)(nil),      // 156: gcommon.v1.queue.GetQueueStatsResponse
-	(*responses.DeleteQueueResponse)(nil),        // 157: gcommon.v1.queue.DeleteQueueResponse
-	(*responses.DeleteTopicResponse)(nil),        // 158: gcommon.v1.queue.DeleteTopicResponse
-	(*responses.DeleteSubscriptionResponse)(nil), // 159: gcommon.v1.queue.DeleteSubscriptionResponse
+	(FlowControlBehavior)(0),                  // 0: gcommon.v1.queue.FlowControlBehavior
+	(MessageEventType)(0),                     // 1: gcommon.v1.queue.MessageEventType
+	(ConnectionStatus)(0),                     // 2: gcommon.v1.queue.ConnectionStatus
+	(MessageState)(0),                         // 3: gcommon.v1.queue.MessageState
+	(QueueType)(0),                            // 4: gcommon.v1.queue.QueueType
+	(QueueOperation)(0),                       // 5: gcommon.v1.queue.QueueOperation
+	(QueueStatus)(0),                          // 6: gcommon.v1.queue.QueueStatus
+	(SchemaType)(0),                           // 7: gcommon.v1.queue.SchemaType
+	(TopicStatus)(0),                          // 8: gcommon.v1.queue.TopicStatus
+	(AuthType)(0),                             // 9: gcommon.v1.queue.AuthType
+	(HealthCheckType)(0),                      // 10: gcommon.v1.queue.HealthCheckType
+	(HealthStatus)(0),                         // 11: gcommon.v1.queue.HealthStatus
+	(TaskType)(0),                             // 12: gcommon.v1.queue.TaskType
+	(ExecutionMode)(0),                        // 13: gcommon.v1.queue.ExecutionMode
+	(ErrorHandlingStrategy)(0),                // 14: gcommon.v1.queue.ErrorHandlingStrategy
+	(WorkflowStatus)(0),                       // 15: gcommon.v1.queue.WorkflowStatus
+	(TaskStatus)(0),                           // 16: gcommon.v1.queue.TaskStatus
+	(*SendMessageRequest)(nil),                // 17: gcommon.v1.queue.SendMessageRequest
+	(*QueueMessage)(nil),                      // 18: gcommon.v1.queue.QueueMessage
+	(*DeliveryOptions)(nil),                   // 19: gcommon.v1.queue.DeliveryOptions
+	(*SendMessageResponse)(nil),               // 20: gcommon.v1.queue.SendMessageResponse
+	(*SendMessagesRequest)(nil),               // 21: gcommon.v1.queue.SendMessagesRequest
+	(*SendMessagesResponse)(nil),              // 22: gcommon.v1.queue.SendMessagesResponse
+	(*MessageError)(nil),                      // 23: gcommon.v1.queue.MessageError
+	(*ReceiveMessageRequest)(nil),             // 24: gcommon.v1.queue.ReceiveMessageRequest
+	(*ReceiveOptions)(nil),                    // 25: gcommon.v1.queue.ReceiveOptions
+	(*ReceiveMessageResponse)(nil),            // 26: gcommon.v1.queue.ReceiveMessageResponse
+	(*ReceivedMessage)(nil),                   // 27: gcommon.v1.queue.ReceivedMessage
+	(*ReceiveMessagesRequest)(nil),            // 28: gcommon.v1.queue.ReceiveMessagesRequest
+	(*ReceiveMessagesResponse)(nil),           // 29: gcommon.v1.queue.ReceiveMessagesResponse
+	(*AckMessageRequest)(nil),                 // 30: gcommon.v1.queue.AckMessageRequest
+	(*AckMessageResponse)(nil),                // 31: gcommon.v1.queue.AckMessageResponse
+	(*NackMessageRequest)(nil),                // 32: gcommon.v1.queue.NackMessageRequest
+	(*NackMessageResponse)(nil),               // 33: gcommon.v1.queue.NackMessageResponse
+	(*PublishRequest)(nil),                    // 34: gcommon.v1.queue.PublishRequest
+	(*PubSubMessage)(nil),                     // 35: gcommon.v1.queue.PubSubMessage
+	(*PublishOptions)(nil),                    // 36: gcommon.v1.queue.PublishOptions
+	(*PublishResponse)(nil),                   // 37: gcommon.v1.queue.PublishResponse
+	(*SubscribeRequest)(nil),                  // 38: gcommon.v1.queue.SubscribeRequest
+	(*SubscribeOptions)(nil),                  // 39: gcommon.v1.queue.SubscribeOptions
+	(*FlowControlSettings)(nil),               // 40: gcommon.v1.queue.FlowControlSettings
+	(*MessageEvent)(nil),                      // 41: gcommon.v1.queue.MessageEvent
+	(*ReceivedPubSubMessage)(nil),             // 42: gcommon.v1.queue.ReceivedPubSubMessage
+	(*SubscriptionStatus)(nil),                // 43: gcommon.v1.queue.SubscriptionStatus
+	(*UnsubscribeRequest)(nil),                // 44: gcommon.v1.queue.UnsubscribeRequest
+	(*UnsubscribeResponse)(nil),               // 45: gcommon.v1.queue.UnsubscribeResponse
+	(*GetMessageRequest)(nil),                 // 46: gcommon.v1.queue.GetMessageRequest
+	(*GetMessageResponse)(nil),                // 47: gcommon.v1.queue.GetMessageResponse
+	(*MessageStatus)(nil),                     // 48: gcommon.v1.queue.MessageStatus
+	(*RetryInfo)(nil),                         // 49: gcommon.v1.queue.RetryInfo
+	(*ListMessagesRequest)(nil),               // 50: gcommon.v1.queue.ListMessagesRequest
+	(*ListMessagesResponse)(nil),              // 51: gcommon.v1.queue.ListMessagesResponse
+	(*GetSubscriptionStatsRequest)(nil),       // 52: gcommon.v1.queue.GetSubscriptionStatsRequest
+	(*GetSubscriptionStatsResponse)(nil),      // 53: gcommon.v1.queue.GetSubscriptionStatsResponse
+	(*SubscriptionStats)(nil),                 // 54: gcommon.v1.queue.SubscriptionStats
+	(*DeliveryStats)(nil),                     // 55: gcommon.v1.queue.DeliveryStats
+	(*BacklogInfo)(nil),                       // 56: gcommon.v1.queue.BacklogInfo
+	(*CreateQueueRequest)(nil),                // 57: gcommon.v1.queue.CreateQueueRequest
+	(*QueueConfig)(nil),                       // 58: gcommon.v1.queue.QueueConfig
+	(*DeadLetterQueueConfig)(nil),             // 59: gcommon.v1.queue.DeadLetterQueueConfig
+	(*AccessPolicy)(nil),                      // 60: gcommon.v1.queue.AccessPolicy
+	(*CreateQueueResponse)(nil),               // 61: gcommon.v1.queue.CreateQueueResponse
+	(*QueueInfo)(nil),                         // 62: gcommon.v1.queue.QueueInfo
+	(*UpdateQueueRequest)(nil),                // 63: gcommon.v1.queue.UpdateQueueRequest
+	(*UpdateQueueResponse)(nil),               // 64: gcommon.v1.queue.UpdateQueueResponse
+	(*DeleteQueueRequest)(nil),                // 65: gcommon.v1.queue.DeleteQueueRequest
+	(*ListQueuesRequest)(nil),                 // 66: gcommon.v1.queue.ListQueuesRequest
+	(*ListQueuesResponse)(nil),                // 67: gcommon.v1.queue.ListQueuesResponse
+	(*CreateTopicRequest)(nil),                // 68: gcommon.v1.queue.CreateTopicRequest
+	(*TopicConfig)(nil),                       // 69: gcommon.v1.queue.TopicConfig
+	(*SchemaConfig)(nil),                      // 70: gcommon.v1.queue.SchemaConfig
+	(*CreateTopicResponse)(nil),               // 71: gcommon.v1.queue.CreateTopicResponse
+	(*TopicInfo)(nil),                         // 72: gcommon.v1.queue.TopicInfo
+	(*TopicStats)(nil),                        // 73: gcommon.v1.queue.TopicStats
+	(*PartitionStats)(nil),                    // 74: gcommon.v1.queue.PartitionStats
+	(*UpdateTopicRequest)(nil),                // 75: gcommon.v1.queue.UpdateTopicRequest
+	(*UpdateTopicResponse)(nil),               // 76: gcommon.v1.queue.UpdateTopicResponse
+	(*DeleteTopicRequest)(nil),                // 77: gcommon.v1.queue.DeleteTopicRequest
+	(*ListTopicsRequest)(nil),                 // 78: gcommon.v1.queue.ListTopicsRequest
+	(*ListTopicsResponse)(nil),                // 79: gcommon.v1.queue.ListTopicsResponse
+	(*CreateSubscriptionRequest)(nil),         // 80: gcommon.v1.queue.CreateSubscriptionRequest
+	(*SubscriptionConfig)(nil),                // 81: gcommon.v1.queue.SubscriptionConfig
+	(*RetryPolicy)(nil),                       // 82: gcommon.v1.queue.RetryPolicy
+	(*DeadLetterPolicy)(nil),                  // 83: gcommon.v1.queue.DeadLetterPolicy
+	(*PushConfig)(nil),                        // 84: gcommon.v1.queue.PushConfig
+	(*AuthConfig)(nil),                        // 85: gcommon.v1.queue.AuthConfig
+	(*CreateSubscriptionResponse)(nil),        // 86: gcommon.v1.queue.CreateSubscriptionResponse
+	(*SubscriptionInfo)(nil),                  // 87: gcommon.v1.queue.SubscriptionInfo
+	(*UpdateSubscriptionRequest)(nil),         // 88: gcommon.v1.queue.UpdateSubscriptionRequest
+	(*UpdateSubscriptionResponse)(nil),        // 89: gcommon.v1.queue.UpdateSubscriptionResponse
+	(*DeleteSubscriptionRequest)(nil),         // 90: gcommon.v1.queue.DeleteSubscriptionRequest
+	(*ListSubscriptionsRequest)(nil),          // 91: gcommon.v1.queue.ListSubscriptionsRequest
+	(*ListSubscriptionsResponse)(nil),         // 92: gcommon.v1.queue.ListSubscriptionsResponse
+	(*PurgeQueueRequest)(nil),                 // 93: gcommon.v1.queue.PurgeQueueRequest
+	(*PurgeQueueCriteria)(nil),                // 94: gcommon.v1.queue.PurgeQueueCriteria
+	(*PurgeQueueResponse)(nil),                // 95: gcommon.v1.queue.PurgeQueueResponse
+	(*GetDeadLetterMessagesRequest)(nil),      // 96: gcommon.v1.queue.GetDeadLetterMessagesRequest
+	(*GetDeadLetterMessagesResponse)(nil),     // 97: gcommon.v1.queue.GetDeadLetterMessagesResponse
+	(*DeadLetterMessage)(nil),                 // 98: gcommon.v1.queue.DeadLetterMessage
+	(*RequeueDeadLetterMessagesRequest)(nil),  // 99: gcommon.v1.queue.RequeueDeadLetterMessagesRequest
+	(*RequeueDeadLetterMessagesResponse)(nil), // 100: gcommon.v1.queue.RequeueDeadLetterMessagesResponse
+	(*GetSystemHealthRequest)(nil),            // 101: gcommon.v1.queue.GetSystemHealthRequest
+	(*GetSystemHealthResponse)(nil),           // 102: gcommon.v1.queue.GetSystemHealthResponse
+	(*HealthCheck)(nil),                       // 103: gcommon.v1.queue.HealthCheck
+	(*SystemMetrics)(nil),                     // 104: gcommon.v1.queue.SystemMetrics
+	(*NetworkIOStats)(nil),                    // 105: gcommon.v1.queue.NetworkIOStats
+	(*QueueSystemMetrics)(nil),                // 106: gcommon.v1.queue.QueueSystemMetrics
+	(*StartWorkflowRequest)(nil),              // 107: gcommon.v1.queue.StartWorkflowRequest
+	(*WorkflowDefinition)(nil),                // 108: gcommon.v1.queue.WorkflowDefinition
+	(*TaskDefinition)(nil),                    // 109: gcommon.v1.queue.TaskDefinition
+	(*TaskRetryPolicy)(nil),                   // 110: gcommon.v1.queue.TaskRetryPolicy
+	(*WorkflowConfig)(nil),                    // 111: gcommon.v1.queue.WorkflowConfig
+	(*WorkflowOptions)(nil),                   // 112: gcommon.v1.queue.WorkflowOptions
+	(*StartWorkflowResponse)(nil),             // 113: gcommon.v1.queue.StartWorkflowResponse
+	(*GetWorkflowRequest)(nil),                // 114: gcommon.v1.queue.GetWorkflowRequest
+	(*GetWorkflowResponse)(nil),               // 115: gcommon.v1.queue.GetWorkflowResponse
+	(*WorkflowInfo)(nil),                      // 116: gcommon.v1.queue.WorkflowInfo
+	(*TaskExecution)(nil),                     // 117: gcommon.v1.queue.TaskExecution
+	(*ListWorkflowsRequest)(nil),              // 118: gcommon.v1.queue.ListWorkflowsRequest
+	(*ListWorkflowsResponse)(nil),             // 119: gcommon.v1.queue.ListWorkflowsResponse
+	(*CancelWorkflowRequest)(nil),             // 120: gcommon.v1.queue.CancelWorkflowRequest
+	(*CancelWorkflowResponse)(nil),            // 121: gcommon.v1.queue.CancelWorkflowResponse
+	(*PauseWorkflowRequest)(nil),              // 122: gcommon.v1.queue.PauseWorkflowRequest
+	(*PauseWorkflowResponse)(nil),             // 123: gcommon.v1.queue.PauseWorkflowResponse
+	(*ResumeWorkflowRequest)(nil),             // 124: gcommon.v1.queue.ResumeWorkflowRequest
+	(*ResumeWorkflowResponse)(nil),            // 125: gcommon.v1.queue.ResumeWorkflowResponse
+	(*CompleteTaskRequest)(nil),               // 126: gcommon.v1.queue.CompleteTaskRequest
+	(*CompleteTaskResponse)(nil),              // 127: gcommon.v1.queue.CompleteTaskResponse
+	(*FailTaskRequest)(nil),                   // 128: gcommon.v1.queue.FailTaskRequest
+	(*FailTaskResponse)(nil),                  // 129: gcommon.v1.queue.FailTaskResponse
+	(*GetTaskRequest)(nil),                    // 130: gcommon.v1.queue.GetTaskRequest
+	(*GetTaskResponse)(nil),                   // 131: gcommon.v1.queue.GetTaskResponse
+	(*ListTasksRequest)(nil),                  // 132: gcommon.v1.queue.ListTasksRequest
+	(*ListTasksResponse)(nil),                 // 133: gcommon.v1.queue.ListTasksResponse
+	nil,                                       // 134: gcommon.v1.queue.QueueMessage.AttributesEntry
+	nil,                                       // 135: gcommon.v1.queue.QueueMessage.HeadersEntry
+	nil,                                       // 136: gcommon.v1.queue.PubSubMessage.AttributesEntry
+	nil,                                       // 137: gcommon.v1.queue.QueueConfig.AttributesEntry
+	nil,                                       // 138: gcommon.v1.queue.AccessPolicy.ConditionsEntry
+	nil,                                       // 139: gcommon.v1.queue.TopicConfig.AttributesEntry
+	nil,                                       // 140: gcommon.v1.queue.SubscriptionConfig.AttributesEntry
+	nil,                                       // 141: gcommon.v1.queue.PushConfig.AttributesEntry
+	nil,                                       // 142: gcommon.v1.queue.AuthConfig.ParametersEntry
+	nil,                                       // 143: gcommon.v1.queue.PurgeQueueCriteria.AttributeFiltersEntry
+	nil,                                       // 144: gcommon.v1.queue.WorkflowConfig.AttributesEntry
+	nil,                                       // 145: gcommon.v1.queue.WorkflowOptions.TagsEntry
+	nil,                                       // 146: gcommon.v1.queue.ListWorkflowsRequest.TagFiltersEntry
+	(*proto.RequestMetadata)(nil),             // 147: gcommon.v1.common.RequestMetadata
+	(*anypb.Any)(nil),                         // 148: google.protobuf.Any
+	(*timestamppb.Timestamp)(nil),             // 149: google.protobuf.Timestamp
+	(*durationpb.Duration)(nil),               // 150: google.protobuf.Duration
+	(*proto.Error)(nil),                       // 151: gcommon.v1.common.Error
+	(*proto.Pagination)(nil),                  // 152: gcommon.v1.common.Pagination
+	(*QueueStats)(nil),                        // 153: gcommon.v1.queue.QueueStats
+	(*fieldmaskpb.FieldMask)(nil),             // 154: google.protobuf.FieldMask
+	(*GetQueueStatsRequest)(nil),              // 155: gcommon.v1.queue.GetQueueStatsRequest
+	(*GetQueueStatsResponse)(nil),             // 156: gcommon.v1.queue.GetQueueStatsResponse
+	(*DeleteQueueResponse)(nil),               // 157: gcommon.v1.queue.DeleteQueueResponse
+	(*DeleteTopicResponse)(nil),               // 158: gcommon.v1.queue.DeleteTopicResponse
+	(*DeleteSubscriptionResponse)(nil),        // 159: gcommon.v1.queue.DeleteSubscriptionResponse
 }
 var file_pkg_queue_proto_queue_proto_depIdxs = []int32{
 	18,  // 0: gcommon.v1.queue.SendMessageRequest.message:type_name -> gcommon.v1.queue.QueueMessage
@@ -20612,6 +20609,11 @@ func file_pkg_queue_proto_queue_proto_init() {
 	if File_pkg_queue_proto_queue_proto != nil {
 		return
 	}
+	file_pkg_queue_proto_responses_delete_queue_response_proto_init()
+	file_pkg_queue_proto_responses_delete_topic_response_proto_init()
+	file_pkg_queue_proto_responses_delete_subscription_response_proto_init()
+	file_pkg_queue_proto_requests_get_queue_stats_request_proto_init()
+	file_pkg_queue_proto_responses_get_queue_stats_response_proto_init()
 	type x struct{}
 	out := protoimpl.TypeBuilder{
 		File: protoimpl.DescBuilder{

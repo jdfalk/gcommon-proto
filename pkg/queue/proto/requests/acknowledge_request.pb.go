@@ -4,11 +4,10 @@
 // 	protoc        (unknown)
 // source: pkg/queue/proto/requests/acknowledge_request.proto
 
-package requests
+package queuepb
 
 import (
-	_ "github.com/jdfalk/gcommon/pkg/common/proto"
-	messages "github.com/jdfalk/gcommon/pkg/common/proto/messages"
+	proto "github.com/jdfalk/gcommon/pkg/common/proto"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	reflect "reflect"
@@ -42,7 +41,7 @@ type AcknowledgeRequest struct {
 	// *
 	// Standard request metadata including authentication context,
 	// tracing information, and client details.
-	Metadata *messages.RequestMetadata `protobuf:"bytes,11,opt,name=metadata" json:"metadata,omitempty"`
+	Metadata *proto.RequestMetadata `protobuf:"bytes,11,opt,name=metadata" json:"metadata,omitempty"`
 	// *
 	// Consumer ID that processed these messages.
 	// Used for tracking and metrics.
@@ -116,7 +115,7 @@ func (x *AcknowledgeRequest) GetReceiptHandles() []string {
 	return nil
 }
 
-func (x *AcknowledgeRequest) GetMetadata() *messages.RequestMetadata {
+func (x *AcknowledgeRequest) GetMetadata() *proto.RequestMetadata {
 	if x != nil {
 		return x.Metadata
 	}
@@ -182,8 +181,8 @@ const file_pkg_queue_proto_requests_acknowledge_request_proto_rawDesc = "" +
 	"\x13processing_times_ms\x18\x0f \x03(\x03R\x11processingTimesMs\x12+\n" +
 	"\x11force_acknowledge\x18\x10 \x01(\bR\x10forceAcknowledge\x12\x1d\n" +
 	"\n" +
-	"batch_mode\x18\x11 \x01(\bR\tbatchModeB\xc5\x01\n" +
-	"\x14com.gcommon.v1.queueB\x17AcknowledgeRequestProtoP\x01Z2github.com/jdfalk/gcommon/pkg/queue/proto/requests\xa2\x02\x03GVQ\xaa\x02\x10Gcommon.V1.Queue\xca\x02\x10Gcommon\\V1\\Queue\xe2\x02\x1cGcommon\\V1\\Queue\\GPBMetadata\xea\x02\x12Gcommon::V1::Queueb\beditionsp\xe8\a"
+	"batch_mode\x18\x11 \x01(\bR\tbatchModeB\xc4\x01\n" +
+	"\x14com.gcommon.v1.queueB\x17AcknowledgeRequestProtoP\x01Z1github.com/jdfalk/gcommon/pkg/queue/proto;queuepb\xa2\x02\x03GVQ\xaa\x02\x10Gcommon.V1.Queue\xca\x02\x10Gcommon\\V1\\Queue\xe2\x02\x1cGcommon\\V1\\Queue\\GPBMetadata\xea\x02\x12Gcommon::V1::Queueb\beditionsp\xe8\a"
 
 var (
 	file_pkg_queue_proto_requests_acknowledge_request_proto_rawDescOnce sync.Once
@@ -199,8 +198,8 @@ func file_pkg_queue_proto_requests_acknowledge_request_proto_rawDescGZIP() []byt
 
 var file_pkg_queue_proto_requests_acknowledge_request_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_pkg_queue_proto_requests_acknowledge_request_proto_goTypes = []any{
-	(*AcknowledgeRequest)(nil),       // 0: gcommon.v1.queue.AcknowledgeRequest
-	(*messages.RequestMetadata)(nil), // 1: gcommon.v1.common.RequestMetadata
+	(*AcknowledgeRequest)(nil),    // 0: gcommon.v1.queue.AcknowledgeRequest
+	(*proto.RequestMetadata)(nil), // 1: gcommon.v1.common.RequestMetadata
 }
 var file_pkg_queue_proto_requests_acknowledge_request_proto_depIdxs = []int32{
 	1, // 0: gcommon.v1.queue.AcknowledgeRequest.metadata:type_name -> gcommon.v1.common.RequestMetadata

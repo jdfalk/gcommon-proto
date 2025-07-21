@@ -6,7 +6,7 @@
 
 //go:build protoopaque
 
-package messages
+package queuepb
 
 import (
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
@@ -27,8 +27,8 @@ var File_pkg_queue_proto_messages_partition_info_proto protoreflect.FileDescript
 
 const file_pkg_queue_proto_messages_partition_info_proto_rawDesc = "" +
 	"\n" +
-	"-pkg/queue/proto/messages/partition_info.proto\x12\x10gcommon.v1.queue\x1a!google/protobuf/go_features.protoB\xc8\x01\n" +
-	"\x14com.gcommon.v1.queueB\x12PartitionInfoProtoP\x01Z2github.com/jdfalk/gcommon/pkg/queue/proto/messages\xa2\x02\x03GVQ\xaa\x02\x10Gcommon.V1.Queue\xca\x02\x10Gcommon\\V1\\Queue\xe2\x02\x1cGcommon\\V1\\Queue\\GPBMetadata\xea\x02\x12Gcommon::V1::Queue\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
+	"-pkg/queue/proto/messages/partition_info.proto\x12\x10gcommon.v1.queue\x1a!google/protobuf/go_features.protoB\xc7\x01\n" +
+	"\x14com.gcommon.v1.queueB\x12PartitionInfoProtoP\x01Z1github.com/jdfalk/gcommon/pkg/queue/proto;queuepb\xa2\x02\x03GVQ\xaa\x02\x10Gcommon.V1.Queue\xca\x02\x10Gcommon\\V1\\Queue\xe2\x02\x1cGcommon\\V1\\Queue\\GPBMetadata\xea\x02\x12Gcommon::V1::Queue\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
 
 var file_pkg_queue_proto_messages_partition_info_proto_goTypes = []any{}
 var file_pkg_queue_proto_messages_partition_info_proto_depIdxs = []int32{

@@ -4,12 +4,10 @@
 // 	protoc        (unknown)
 // source: pkg/queue/proto/responses/dequeue_response.proto
 
-package responses
+package queuepb
 
 import (
-	_ "github.com/jdfalk/gcommon/pkg/common/proto"
-	messages "github.com/jdfalk/gcommon/pkg/common/proto/messages"
-	proto "github.com/jdfalk/gcommon/pkg/queue/proto"
+	proto "github.com/jdfalk/gcommon/pkg/common/proto"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	timestamppb "google.golang.org/protobuf/types/known/timestamppb"
@@ -36,14 +34,14 @@ type DequeueResponse struct {
 	// *
 	// Messages retrieved from the queue.
 	// Empty if no messages were available.
-	Messages []*proto.QueueMessage `protobuf:"bytes,1,rep,name=messages" json:"messages,omitempty"`
+	Messages []*QueueMessage `protobuf:"bytes,1,rep,name=messages" json:"messages,omitempty"`
 	// *
 	// Indicates whether the dequeue operation was successful.
 	Success *bool `protobuf:"varint,2,opt,name=success" json:"success,omitempty"`
 	// *
 	// Request processing metadata including timing, request ID,
 	// and other observability information.
-	RequestMetadata *messages.RequestMetadata `protobuf:"bytes,11,opt,name=request_metadata,json=requestMetadata" json:"request_metadata,omitempty"`
+	RequestMetadata *proto.RequestMetadata `protobuf:"bytes,11,opt,name=request_metadata,json=requestMetadata" json:"request_metadata,omitempty"`
 	// *
 	// Name of the queue messages were retrieved from.
 	// Echoed from the request for verification.
@@ -74,7 +72,7 @@ type DequeueResponse struct {
 	// *
 	// Error information if the dequeue operation failed
 	// or completed with warnings.
-	Error *messages.Error `protobuf:"bytes,61,opt,name=error" json:"error,omitempty"`
+	Error *proto.Error `protobuf:"bytes,61,opt,name=error" json:"error,omitempty"`
 	// *
 	// Timestamp when the dequeue operation started.
 	OperationStartedAt *timestamppb.Timestamp `protobuf:"bytes,51,opt,name=operation_started_at,json=operationStartedAt" json:"operation_started_at,omitempty"`
@@ -115,7 +113,7 @@ func (*DequeueResponse) Descriptor() ([]byte, []int) {
 	return file_pkg_queue_proto_responses_dequeue_response_proto_rawDescGZIP(), []int{0}
 }
 
-func (x *DequeueResponse) GetMessages() []*proto.QueueMessage {
+func (x *DequeueResponse) GetMessages() []*QueueMessage {
 	if x != nil {
 		return x.Messages
 	}
@@ -129,7 +127,7 @@ func (x *DequeueResponse) GetSuccess() bool {
 	return false
 }
 
-func (x *DequeueResponse) GetRequestMetadata() *messages.RequestMetadata {
+func (x *DequeueResponse) GetRequestMetadata() *proto.RequestMetadata {
 	if x != nil {
 		return x.RequestMetadata
 	}
@@ -185,7 +183,7 @@ func (x *DequeueResponse) GetTimedOut() bool {
 	return false
 }
 
-func (x *DequeueResponse) GetError() *messages.Error {
+func (x *DequeueResponse) GetError() *proto.Error {
 	if x != nil {
 		return x.Error
 	}
@@ -226,8 +224,8 @@ const file_pkg_queue_proto_responses_dequeue_response_proto_rawDesc = "" +
 	"\ttimed_out\x18\x12 \x01(\bR\btimedOut\x12.\n" +
 	"\x05error\x18= \x01(\v2\x18.gcommon.v1.common.ErrorR\x05error\x12L\n" +
 	"\x14operation_started_at\x183 \x01(\v2\x1a.google.protobuf.TimestampR\x12operationStartedAt\x12N\n" +
-	"\x15response_generated_at\x184 \x01(\v2\x1a.google.protobuf.TimestampR\x13responseGeneratedAtB\xc3\x01\n" +
-	"\x14com.gcommon.v1.queueB\x14DequeueResponseProtoP\x01Z3github.com/jdfalk/gcommon/pkg/queue/proto/responses\xa2\x02\x03GVQ\xaa\x02\x10Gcommon.V1.Queue\xca\x02\x10Gcommon\\V1\\Queue\xe2\x02\x1cGcommon\\V1\\Queue\\GPBMetadata\xea\x02\x12Gcommon::V1::Queueb\beditionsp\xe8\a"
+	"\x15response_generated_at\x184 \x01(\v2\x1a.google.protobuf.TimestampR\x13responseGeneratedAtB\xc1\x01\n" +
+	"\x14com.gcommon.v1.queueB\x14DequeueResponseProtoP\x01Z1github.com/jdfalk/gcommon/pkg/queue/proto;queuepb\xa2\x02\x03GVQ\xaa\x02\x10Gcommon.V1.Queue\xca\x02\x10Gcommon\\V1\\Queue\xe2\x02\x1cGcommon\\V1\\Queue\\GPBMetadata\xea\x02\x12Gcommon::V1::Queueb\beditionsp\xe8\a"
 
 var (
 	file_pkg_queue_proto_responses_dequeue_response_proto_rawDescOnce sync.Once
@@ -243,11 +241,11 @@ func file_pkg_queue_proto_responses_dequeue_response_proto_rawDescGZIP() []byte 
 
 var file_pkg_queue_proto_responses_dequeue_response_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_pkg_queue_proto_responses_dequeue_response_proto_goTypes = []any{
-	(*DequeueResponse)(nil),          // 0: gcommon.v1.queue.DequeueResponse
-	(*proto.QueueMessage)(nil),       // 1: gcommon.v1.queue.QueueMessage
-	(*messages.RequestMetadata)(nil), // 2: gcommon.v1.common.RequestMetadata
-	(*timestamppb.Timestamp)(nil),    // 3: google.protobuf.Timestamp
-	(*messages.Error)(nil),           // 4: gcommon.v1.common.Error
+	(*DequeueResponse)(nil),       // 0: gcommon.v1.queue.DequeueResponse
+	(*QueueMessage)(nil),          // 1: gcommon.v1.queue.QueueMessage
+	(*proto.RequestMetadata)(nil), // 2: gcommon.v1.common.RequestMetadata
+	(*timestamppb.Timestamp)(nil), // 3: google.protobuf.Timestamp
+	(*proto.Error)(nil),           // 4: gcommon.v1.common.Error
 }
 var file_pkg_queue_proto_responses_dequeue_response_proto_depIdxs = []int32{
 	1, // 0: gcommon.v1.queue.DequeueResponse.messages:type_name -> gcommon.v1.queue.QueueMessage
@@ -268,6 +266,7 @@ func file_pkg_queue_proto_responses_dequeue_response_proto_init() {
 	if File_pkg_queue_proto_responses_dequeue_response_proto != nil {
 		return
 	}
+	file_pkg_queue_proto_queue_proto_init()
 	type x struct{}
 	out := protoimpl.TypeBuilder{
 		File: protoimpl.DescBuilder{

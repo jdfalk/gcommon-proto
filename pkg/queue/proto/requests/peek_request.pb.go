@@ -4,11 +4,10 @@
 // 	protoc        (unknown)
 // source: pkg/queue/proto/requests/peek_request.proto
 
-package requests
+package queuepb
 
 import (
-	_ "github.com/jdfalk/gcommon/pkg/common/proto"
-	messages "github.com/jdfalk/gcommon/pkg/common/proto/messages"
+	proto "github.com/jdfalk/gcommon/pkg/common/proto"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	reflect "reflect"
@@ -38,7 +37,7 @@ type PeekRequest struct {
 	// *
 	// Standard request metadata including authentication context,
 	// tracing information, and client details.
-	Metadata *messages.RequestMetadata `protobuf:"bytes,11,opt,name=metadata" json:"metadata,omitempty"`
+	Metadata *proto.RequestMetadata `protobuf:"bytes,11,opt,name=metadata" json:"metadata,omitempty"`
 	// *
 	// Maximum number of messages to peek at.
 	// Range: 1-100. Default: 1.
@@ -117,7 +116,7 @@ func (x *PeekRequest) GetQueueName() string {
 	return ""
 }
 
-func (x *PeekRequest) GetMetadata() *messages.RequestMetadata {
+func (x *PeekRequest) GetMetadata() *proto.RequestMetadata {
 	if x != nil {
 		return x.Metadata
 	}
@@ -207,8 +206,8 @@ const file_pkg_queue_proto_requests_peek_request_proto_rawDesc = "" +
 	"\x19include_delivery_metadata\x18\x14 \x01(\bR\x17includeDeliveryMetadata\x1aC\n" +
 	"\x15AttributeFiltersEntry\x12\x10\n" +
 	"\x03key\x18\x01 \x01(\tR\x03key\x12\x14\n" +
-	"\x05value\x18\x02 \x01(\tR\x05value:\x028\x01B\xbe\x01\n" +
-	"\x14com.gcommon.v1.queueB\x10PeekRequestProtoP\x01Z2github.com/jdfalk/gcommon/pkg/queue/proto/requests\xa2\x02\x03GVQ\xaa\x02\x10Gcommon.V1.Queue\xca\x02\x10Gcommon\\V1\\Queue\xe2\x02\x1cGcommon\\V1\\Queue\\GPBMetadata\xea\x02\x12Gcommon::V1::Queueb\beditionsp\xe8\a"
+	"\x05value\x18\x02 \x01(\tR\x05value:\x028\x01B\xbd\x01\n" +
+	"\x14com.gcommon.v1.queueB\x10PeekRequestProtoP\x01Z1github.com/jdfalk/gcommon/pkg/queue/proto;queuepb\xa2\x02\x03GVQ\xaa\x02\x10Gcommon.V1.Queue\xca\x02\x10Gcommon\\V1\\Queue\xe2\x02\x1cGcommon\\V1\\Queue\\GPBMetadata\xea\x02\x12Gcommon::V1::Queueb\beditionsp\xe8\a"
 
 var (
 	file_pkg_queue_proto_requests_peek_request_proto_rawDescOnce sync.Once
@@ -224,9 +223,9 @@ func file_pkg_queue_proto_requests_peek_request_proto_rawDescGZIP() []byte {
 
 var file_pkg_queue_proto_requests_peek_request_proto_msgTypes = make([]protoimpl.MessageInfo, 2)
 var file_pkg_queue_proto_requests_peek_request_proto_goTypes = []any{
-	(*PeekRequest)(nil),              // 0: gcommon.v1.queue.PeekRequest
-	nil,                              // 1: gcommon.v1.queue.PeekRequest.AttributeFiltersEntry
-	(*messages.RequestMetadata)(nil), // 2: gcommon.v1.common.RequestMetadata
+	(*PeekRequest)(nil),           // 0: gcommon.v1.queue.PeekRequest
+	nil,                           // 1: gcommon.v1.queue.PeekRequest.AttributeFiltersEntry
+	(*proto.RequestMetadata)(nil), // 2: gcommon.v1.common.RequestMetadata
 }
 var file_pkg_queue_proto_requests_peek_request_proto_depIdxs = []int32{
 	2, // 0: gcommon.v1.queue.PeekRequest.metadata:type_name -> gcommon.v1.common.RequestMetadata
