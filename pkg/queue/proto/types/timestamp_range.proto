@@ -1,18 +1,26 @@
-// filepath: pkg/queue/proto/types/timestamp_range.proto
-// file: queue/proto/types/timestamp_range.proto
-//
-// Type definitions for queue module
-// TODO: Implement actual protobuf definitions
-//
+// file: pkg/queue/proto/types/timestamp_range.proto
+// version: 1.0.0
+// guid: 4fdb7c93-4616-4db9-a2d6-50f41676b4b6
+
+// TimestampRange defines a start and end time for filtering or
+// statistics queries. This implementation replaces the placeholder
+// added during the 1-1-1 migration.
 edition = "2023";
 
 package gcommon.v1.queue;
 
 import "google/protobuf/go_features.proto";
+import "google/protobuf/timestamp.proto";
 
 option go_package = "github.com/jdfalk/gcommon/pkg/queue/proto;queuepb";
 option features.(pb.go).api_level = API_HYBRID;
 
-// TODO: Add type definitions here
-// This is a placeholder file created during 1-1-1 migration
-// Implement the actual protobuf definitions according to the queue module requirements
+// TimestampRange is used to specify a time window when querying
+// statistics or messages.
+message TimestampRange {
+  // Start of the range (inclusive).
+  google.protobuf.Timestamp start = 1;
+
+  // End of the range (exclusive).
+  google.protobuf.Timestamp end = 2;
+}

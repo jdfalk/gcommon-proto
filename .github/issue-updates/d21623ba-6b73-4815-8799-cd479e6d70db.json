@@ -1,0 +1,8 @@
+{
+  "action": "update",
+  "number": 88,
+  "body": "Implemented MessageId and TimestampRange types",
+  "labels": ["in-progress"],
+  "guid": "d21623ba-6b73-4815-8799-cd479e6d70db",
+  "legacy_guid": "update-issue-88-2025-07-21"
+}

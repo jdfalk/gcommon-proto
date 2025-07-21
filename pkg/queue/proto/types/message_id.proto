@@ -1,9 +1,10 @@
-// filepath: pkg/queue/proto/types/message_id.proto
-// file: queue/proto/types/message_id.proto
-//
-// Type definitions for queue module
-// TODO: Implement actual protobuf definitions
-//
+// file: pkg/queue/proto/types/message_id.proto
+// version: 1.0.0
+// guid: 9bd8b62d-3655-4ff5-9f3a-4d5da241dc77
+
+// MessageId is a simple wrapper type used for referencing messages
+// in a type-safe manner across the Queue API. This replaces the
+// placeholder created during the migration.
 edition = "2023";
 
 package gcommon.v1.queue;
@@ -13,6 +14,9 @@ import "google/protobuf/go_features.proto";
 option go_package = "github.com/jdfalk/gcommon/pkg/queue/proto;queuepb";
 option features.(pb.go).api_level = API_HYBRID;
 
-// TODO: Add type definitions here
-// This is a placeholder file created during 1-1-1 migration
-// Implement the actual protobuf definitions according to the queue module requirements
+// MessageId uniquely identifies a message within a queue.
+// It can be referenced by other messages or API calls.
+message MessageId {
+  // Opaque identifier assigned by the queue implementation.
+  string value = 1;
+}

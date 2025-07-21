@@ -1,0 +1,8 @@
+{
+  "action": "update",
+  "number": 89,
+  "body": "Implemented AcknowledgmentMode enum",
+  "labels": ["in-progress"],
+  "guid": "aaf43433-4247-4de6-8594-7257e833e578",
+  "legacy_guid": "update-issue-89-2025-07-21"
+}
