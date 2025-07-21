@@ -6,10 +6,9 @@
 
 //go:build protoopaque
 
-package messages
+package commonpb
 
 import (
-	enums "github.com/jdfalk/gcommon/pkg/common/proto/enums"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
@@ -32,7 +31,7 @@ const (
 type ConfigValue struct {
 	state                protoimpl.MessageState `protogen:"opaque.v1"`
 	xxx_hidden_Value     isConfigValue_Value    `protobuf_oneof:"value"`
-	xxx_hidden_Type      enums.ValueType        `protobuf:"varint,7,opt,name=type,enum=gcommon.v1.common.ValueType"`
+	xxx_hidden_Type      ValueType              `protobuf:"varint,7,opt,name=type,enum=gcommon.v1.common.ValueType"`
 	xxx_hidden_Encrypted bool                   `protobuf:"varint,8,opt,name=encrypted"`
 	xxx_hidden_Metadata  map[string]string      `protobuf:"bytes,9,rep,name=metadata" protobuf_key:"bytes,1,opt,name=key" protobuf_val:"bytes,2,opt,name=value"`
 	// Deprecated: Do not use. This will be deleted in the near future.
@@ -122,13 +121,13 @@ func (x *ConfigValue) GetAnyValue() *anypb.Any {
 	return nil
 }
 
-func (x *ConfigValue) GetType() enums.ValueType {
+func (x *ConfigValue) GetType() ValueType {
 	if x != nil {
 		if protoimpl.X.Present(&(x.XXX_presence[0]), 1) {
 			return x.xxx_hidden_Type
 		}
 	}
-	return enums.ValueType(0)
+	return ValueType_VALUE_TYPE_UNSPECIFIED
 }
 
 func (x *ConfigValue) GetEncrypted() bool {
@@ -181,7 +180,7 @@ func (x *ConfigValue) SetAnyValue(v *anypb.Any) {
 	x.xxx_hidden_Value = &configValue_AnyValue{v}
 }
 
-func (x *ConfigValue) SetType(v enums.ValueType) {
+func (x *ConfigValue) SetType(v ValueType) {
 	x.xxx_hidden_Type = v
 	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 1, 4)
 }
@@ -311,7 +310,7 @@ func (x *ConfigValue) ClearAnyValue() {
 
 func (x *ConfigValue) ClearType() {
 	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 1)
-	x.xxx_hidden_Type = enums.ValueType_VALUE_TYPE_UNSPECIFIED
+	x.xxx_hidden_Type = ValueType_VALUE_TYPE_UNSPECIFIED
 }
 
 func (x *ConfigValue) ClearEncrypted() {
@@ -369,7 +368,7 @@ type ConfigValue_builder struct {
 	AnyValue *anypb.Any
 	// -- end of xxx_hidden_Value
 	// Value type for validation and serialization
-	Type *enums.ValueType
+	Type *ValueType
 	// Whether the value is encrypted at rest
 	Encrypted *bool
 	// Additional metadata about the configuration value
@@ -490,14 +489,14 @@ const file_pkg_common_proto_messages_config_value_proto_rawDesc = "" +
 	"\x03key\x18\x01 \x01(\tR\x03key\x12\x14\n" +
 	"\x05value\x18\x02 \x01(\tR\x05value:\x028\x01B\a\n" +
 	"\x05valueB\xcc\x01\n" +
-	"\x15com.gcommon.v1.commonB\x10ConfigValueProtoP\x01Z3github.com/jdfalk/gcommon/pkg/common/proto/messages\xa2\x02\x03GVC\xaa\x02\x11Gcommon.V1.Common\xca\x02\x11Gcommon\\V1\\Common\xe2\x02\x1dGcommon\\V1\\Common\\GPBMetadata\xea\x02\x13Gcommon::V1::Common\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
+	"\x15com.gcommon.v1.commonB\x10ConfigValueProtoP\x01Z3github.com/jdfalk/gcommon/pkg/common/proto;commonpb\xa2\x02\x03GVC\xaa\x02\x11Gcommon.V1.Common\xca\x02\x11Gcommon\\V1\\Common\xe2\x02\x1dGcommon\\V1\\Common\\GPBMetadata\xea\x02\x13Gcommon::V1::Common\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
 
 var file_pkg_common_proto_messages_config_value_proto_msgTypes = make([]protoimpl.MessageInfo, 2)
 var file_pkg_common_proto_messages_config_value_proto_goTypes = []any{
-	(*ConfigValue)(nil),  // 0: gcommon.v1.common.ConfigValue
-	nil,                  // 1: gcommon.v1.common.ConfigValue.MetadataEntry
-	(*anypb.Any)(nil),    // 2: google.protobuf.Any
-	(enums.ValueType)(0), // 3: gcommon.v1.common.ValueType
+	(*ConfigValue)(nil), // 0: gcommon.v1.common.ConfigValue
+	nil,                 // 1: gcommon.v1.common.ConfigValue.MetadataEntry
+	(*anypb.Any)(nil),   // 2: google.protobuf.Any
+	(ValueType)(0),      // 3: gcommon.v1.common.ValueType
 }
 var file_pkg_common_proto_messages_config_value_proto_depIdxs = []int32{
 	2, // 0: gcommon.v1.common.ConfigValue.any_value:type_name -> google.protobuf.Any
@@ -515,6 +514,7 @@ func file_pkg_common_proto_messages_config_value_proto_init() {
 	if File_pkg_common_proto_messages_config_value_proto != nil {
 		return
 	}
+	file_pkg_common_proto_enums_value_type_proto_init()
 	file_pkg_common_proto_messages_config_value_proto_msgTypes[0].OneofWrappers = []any{
 		(*configValue_StringValue)(nil),
 		(*configValue_IntValue)(nil),

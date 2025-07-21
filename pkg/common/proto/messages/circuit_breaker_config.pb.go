@@ -6,10 +6,9 @@
 
 //go:build !protoopaque
 
-package messages
+package commonpb
 
 import (
-	enums "github.com/jdfalk/gcommon/pkg/common/proto/enums"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
@@ -42,7 +41,7 @@ type CircuitBreakerConfig struct {
 	// Time window for counting failures and successes
 	WindowSize *durationpb.Duration `protobuf:"bytes,5,opt,name=window_size,json=windowSize" json:"window_size,omitempty"`
 	// Current state of the circuit breaker
-	State         *enums.CircuitBreakerState `protobuf:"varint,6,opt,name=state,enum=gcommon.v1.common.CircuitBreakerState" json:"state,omitempty"`
+	State         *CircuitBreakerState `protobuf:"varint,6,opt,name=state,enum=gcommon.v1.common.CircuitBreakerState" json:"state,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -107,11 +106,11 @@ func (x *CircuitBreakerConfig) GetWindowSize() *durationpb.Duration {
 	return nil
 }
 
-func (x *CircuitBreakerConfig) GetState() enums.CircuitBreakerState {
+func (x *CircuitBreakerConfig) GetState() CircuitBreakerState {
 	if x != nil && x.State != nil {
 		return *x.State
 	}
-	return enums.CircuitBreakerState(0)
+	return CircuitBreakerState_CIRCUIT_BREAKER_STATE_UNSPECIFIED
 }
 
 func (x *CircuitBreakerConfig) SetFailureThreshold(v int32) {
@@ -134,7 +133,7 @@ func (x *CircuitBreakerConfig) SetWindowSize(v *durationpb.Duration) {
 	x.WindowSize = v
 }
 
-func (x *CircuitBreakerConfig) SetState(v enums.CircuitBreakerState) {
+func (x *CircuitBreakerConfig) SetState(v CircuitBreakerState) {
 	x.State = &v
 }
 
@@ -218,7 +217,7 @@ type CircuitBreakerConfig_builder struct {
 	// Time window for counting failures and successes
 	WindowSize *durationpb.Duration
 	// Current state of the circuit breaker
-	State *enums.CircuitBreakerState
+	State *CircuitBreakerState
 }
 
 func (b0 CircuitBreakerConfig_builder) Build() *CircuitBreakerConfig {
@@ -247,13 +246,13 @@ const file_pkg_common_proto_messages_circuit_breaker_config_proto_rawDesc = "" +
 	"\vwindow_size\x18\x05 \x01(\v2\x19.google.protobuf.DurationR\n" +
 	"windowSize\x12<\n" +
 	"\x05state\x18\x06 \x01(\x0e2&.gcommon.v1.common.CircuitBreakerStateR\x05stateB\xd5\x01\n" +
-	"\x15com.gcommon.v1.commonB\x19CircuitBreakerConfigProtoP\x01Z3github.com/jdfalk/gcommon/pkg/common/proto/messages\xa2\x02\x03GVC\xaa\x02\x11Gcommon.V1.Common\xca\x02\x11Gcommon\\V1\\Common\xe2\x02\x1dGcommon\\V1\\Common\\GPBMetadata\xea\x02\x13Gcommon::V1::Common\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
+	"\x15com.gcommon.v1.commonB\x19CircuitBreakerConfigProtoP\x01Z3github.com/jdfalk/gcommon/pkg/common/proto;commonpb\xa2\x02\x03GVC\xaa\x02\x11Gcommon.V1.Common\xca\x02\x11Gcommon\\V1\\Common\xe2\x02\x1dGcommon\\V1\\Common\\GPBMetadata\xea\x02\x13Gcommon::V1::Common\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
 
 var file_pkg_common_proto_messages_circuit_breaker_config_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_pkg_common_proto_messages_circuit_breaker_config_proto_goTypes = []any{
-	(*CircuitBreakerConfig)(nil),   // 0: gcommon.v1.common.CircuitBreakerConfig
-	(*durationpb.Duration)(nil),    // 1: google.protobuf.Duration
-	(enums.CircuitBreakerState)(0), // 2: gcommon.v1.common.CircuitBreakerState
+	(*CircuitBreakerConfig)(nil), // 0: gcommon.v1.common.CircuitBreakerConfig
+	(*durationpb.Duration)(nil),  // 1: google.protobuf.Duration
+	(CircuitBreakerState)(0),     // 2: gcommon.v1.common.CircuitBreakerState
 }
 var file_pkg_common_proto_messages_circuit_breaker_config_proto_depIdxs = []int32{
 	1, // 0: gcommon.v1.common.CircuitBreakerConfig.timeout:type_name -> google.protobuf.Duration
@@ -271,6 +270,7 @@ func file_pkg_common_proto_messages_circuit_breaker_config_proto_init() {
 	if File_pkg_common_proto_messages_circuit_breaker_config_proto != nil {
 		return
 	}
+	file_pkg_common_proto_enums_circuit_breaker_state_proto_init()
 	type x struct{}
 	out := protoimpl.TypeBuilder{
 		File: protoimpl.DescBuilder{

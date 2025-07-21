@@ -6,10 +6,9 @@
 
 //go:build !protoopaque
 
-package messages
+package commonpb
 
 import (
-	types "github.com/jdfalk/gcommon/pkg/common/proto/types"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
@@ -37,7 +36,7 @@ type FilterOptions struct {
 	// Full-text search query for text-based filtering
 	SearchQuery *string `protobuf:"bytes,2,opt,name=search_query,json=searchQuery" json:"search_query,omitempty"`
 	// Time range filter for temporal data
-	TimeRange     *types.TimeRange `protobuf:"bytes,3,opt,name=time_range,json=timeRange" json:"time_range,omitempty"`
+	TimeRange     *TimeRange `protobuf:"bytes,3,opt,name=time_range,json=timeRange" json:"time_range,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -81,7 +80,7 @@ func (x *FilterOptions) GetSearchQuery() string {
 	return ""
 }
 
-func (x *FilterOptions) GetTimeRange() *types.TimeRange {
+func (x *FilterOptions) GetTimeRange() *TimeRange {
 	if x != nil {
 		return x.TimeRange
 	}
@@ -96,7 +95,7 @@ func (x *FilterOptions) SetSearchQuery(v string) {
 	x.SearchQuery = &v
 }
 
-func (x *FilterOptions) SetTimeRange(v *types.TimeRange) {
+func (x *FilterOptions) SetTimeRange(v *TimeRange) {
 	x.TimeRange = v
 }
 
@@ -130,7 +129,7 @@ type FilterOptions_builder struct {
 	// Full-text search query for text-based filtering
 	SearchQuery *string
 	// Time range filter for temporal data
-	TimeRange *types.TimeRange
+	TimeRange *TimeRange
 }
 
 func (b0 FilterOptions_builder) Build() *FilterOptions {
@@ -156,14 +155,14 @@ const file_pkg_common_proto_messages_filter_options_proto_rawDesc = "" +
 	"\fFiltersEntry\x12\x10\n" +
 	"\x03key\x18\x01 \x01(\tR\x03key\x124\n" +
 	"\x05value\x18\x02 \x01(\v2\x1e.gcommon.v1.common.FilterValueR\x05value:\x028\x01B\xce\x01\n" +
-	"\x15com.gcommon.v1.commonB\x12FilterOptionsProtoP\x01Z3github.com/jdfalk/gcommon/pkg/common/proto/messages\xa2\x02\x03GVC\xaa\x02\x11Gcommon.V1.Common\xca\x02\x11Gcommon\\V1\\Common\xe2\x02\x1dGcommon\\V1\\Common\\GPBMetadata\xea\x02\x13Gcommon::V1::Common\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
+	"\x15com.gcommon.v1.commonB\x12FilterOptionsProtoP\x01Z3github.com/jdfalk/gcommon/pkg/common/proto;commonpb\xa2\x02\x03GVC\xaa\x02\x11Gcommon.V1.Common\xca\x02\x11Gcommon\\V1\\Common\xe2\x02\x1dGcommon\\V1\\Common\\GPBMetadata\xea\x02\x13Gcommon::V1::Common\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
 
 var file_pkg_common_proto_messages_filter_options_proto_msgTypes = make([]protoimpl.MessageInfo, 2)
 var file_pkg_common_proto_messages_filter_options_proto_goTypes = []any{
-	(*FilterOptions)(nil),   // 0: gcommon.v1.common.FilterOptions
-	nil,                     // 1: gcommon.v1.common.FilterOptions.FiltersEntry
-	(*types.TimeRange)(nil), // 2: gcommon.v1.common.TimeRange
-	(*FilterValue)(nil),     // 3: gcommon.v1.common.FilterValue
+	(*FilterOptions)(nil), // 0: gcommon.v1.common.FilterOptions
+	nil,                   // 1: gcommon.v1.common.FilterOptions.FiltersEntry
+	(*TimeRange)(nil),     // 2: gcommon.v1.common.TimeRange
+	(*FilterValue)(nil),   // 3: gcommon.v1.common.FilterValue
 }
 var file_pkg_common_proto_messages_filter_options_proto_depIdxs = []int32{
 	1, // 0: gcommon.v1.common.FilterOptions.filters:type_name -> gcommon.v1.common.FilterOptions.FiltersEntry
@@ -182,6 +181,7 @@ func file_pkg_common_proto_messages_filter_options_proto_init() {
 		return
 	}
 	file_pkg_common_proto_messages_filter_value_proto_init()
+	file_pkg_common_proto_types_time_range_proto_init()
 	type x struct{}
 	out := protoimpl.TypeBuilder{
 		File: protoimpl.DescBuilder{

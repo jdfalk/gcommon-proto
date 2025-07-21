@@ -6,10 +6,9 @@
 
 //go:build !protoopaque
 
-package messages
+package commonpb
 
 import (
-	types "github.com/jdfalk/gcommon/pkg/common/proto/types"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
@@ -40,7 +39,7 @@ type RequestMetadata struct {
 	// HTTP headers or gRPC metadata from the original request
 	Headers map[string]string `protobuf:"bytes,4,rep,name=headers" json:"headers,omitempty" protobuf_key:"bytes,1,opt,name=key" protobuf_val:"bytes,2,opt,name=value"`
 	// Client application information
-	Client *types.ClientInfo `protobuf:"bytes,5,opt,name=client" json:"client,omitempty"`
+	Client *ClientInfo `protobuf:"bytes,5,opt,name=client" json:"client,omitempty"`
 	// Timestamp when the request was initiated
 	Timestamp *timestamppb.Timestamp `protobuf:"bytes,6,opt,name=timestamp" json:"timestamp,omitempty"`
 	// Session ID if the request is part of a user session
@@ -102,7 +101,7 @@ func (x *RequestMetadata) GetHeaders() map[string]string {
 	return nil
 }
 
-func (x *RequestMetadata) GetClient() *types.ClientInfo {
+func (x *RequestMetadata) GetClient() *ClientInfo {
 	if x != nil {
 		return x.Client
 	}
@@ -139,7 +138,7 @@ func (x *RequestMetadata) SetHeaders(v map[string]string) {
 	x.Headers = v
 }
 
-func (x *RequestMetadata) SetClient(v *types.ClientInfo) {
+func (x *RequestMetadata) SetClient(v *ClientInfo) {
 	x.Client = v
 }
 
@@ -229,7 +228,7 @@ type RequestMetadata_builder struct {
 	// HTTP headers or gRPC metadata from the original request
 	Headers map[string]string
 	// Client application information
-	Client *types.ClientInfo
+	Client *ClientInfo
 	// Timestamp when the request was initiated
 	Timestamp *timestamppb.Timestamp
 	// Session ID if the request is part of a user session
@@ -267,13 +266,13 @@ const file_pkg_common_proto_messages_request_metadata_proto_rawDesc = "" +
 	"\fHeadersEntry\x12\x10\n" +
 	"\x03key\x18\x01 \x01(\tR\x03key\x12\x14\n" +
 	"\x05value\x18\x02 \x01(\tR\x05value:\x028\x01B\xd0\x01\n" +
-	"\x15com.gcommon.v1.commonB\x14RequestMetadataProtoP\x01Z3github.com/jdfalk/gcommon/pkg/common/proto/messages\xa2\x02\x03GVC\xaa\x02\x11Gcommon.V1.Common\xca\x02\x11Gcommon\\V1\\Common\xe2\x02\x1dGcommon\\V1\\Common\\GPBMetadata\xea\x02\x13Gcommon::V1::Common\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
+	"\x15com.gcommon.v1.commonB\x14RequestMetadataProtoP\x01Z3github.com/jdfalk/gcommon/pkg/common/proto;commonpb\xa2\x02\x03GVC\xaa\x02\x11Gcommon.V1.Common\xca\x02\x11Gcommon\\V1\\Common\xe2\x02\x1dGcommon\\V1\\Common\\GPBMetadata\xea\x02\x13Gcommon::V1::Common\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
 
 var file_pkg_common_proto_messages_request_metadata_proto_msgTypes = make([]protoimpl.MessageInfo, 2)
 var file_pkg_common_proto_messages_request_metadata_proto_goTypes = []any{
 	(*RequestMetadata)(nil),       // 0: gcommon.v1.common.RequestMetadata
 	nil,                           // 1: gcommon.v1.common.RequestMetadata.HeadersEntry
-	(*types.ClientInfo)(nil),      // 2: gcommon.v1.common.ClientInfo
+	(*ClientInfo)(nil),            // 2: gcommon.v1.common.ClientInfo
 	(*timestamppb.Timestamp)(nil), // 3: google.protobuf.Timestamp
 }
 var file_pkg_common_proto_messages_request_metadata_proto_depIdxs = []int32{
@@ -292,6 +291,7 @@ func file_pkg_common_proto_messages_request_metadata_proto_init() {
 	if File_pkg_common_proto_messages_request_metadata_proto != nil {
 		return
 	}
+	file_pkg_common_proto_types_client_info_proto_init()
 	type x struct{}
 	out := protoimpl.TypeBuilder{
 		File: protoimpl.DescBuilder{

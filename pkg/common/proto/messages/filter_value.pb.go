@@ -6,11 +6,9 @@
 
 //go:build !protoopaque
 
-package messages
+package commonpb
 
 import (
-	enums "github.com/jdfalk/gcommon/pkg/common/proto/enums"
-	types "github.com/jdfalk/gcommon/pkg/common/proto/types"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
@@ -45,7 +43,7 @@ type FilterValue struct {
 	//	*FilterValue_IntArray
 	Value isFilterValue_Value `protobuf_oneof:"value"`
 	// Filter operation type (equals, contains, greater than, etc.)
-	Operation     *enums.FilterOperation `protobuf:"varint,7,opt,name=operation,enum=gcommon.v1.common.FilterOperation" json:"operation,omitempty"`
+	Operation     *FilterOperation `protobuf:"varint,7,opt,name=operation,enum=gcommon.v1.common.FilterOperation" json:"operation,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -118,7 +116,7 @@ func (x *FilterValue) GetBoolValue() bool {
 	return false
 }
 
-func (x *FilterValue) GetStringArray() *types.StringArray {
+func (x *FilterValue) GetStringArray() *StringArray {
 	if x != nil {
 		if x, ok := x.Value.(*FilterValue_StringArray); ok {
 			return x.StringArray
@@ -127,7 +125,7 @@ func (x *FilterValue) GetStringArray() *types.StringArray {
 	return nil
 }
 
-func (x *FilterValue) GetIntArray() *types.Int64Array {
+func (x *FilterValue) GetIntArray() *Int64Array {
 	if x != nil {
 		if x, ok := x.Value.(*FilterValue_IntArray); ok {
 			return x.IntArray
@@ -136,11 +134,11 @@ func (x *FilterValue) GetIntArray() *types.Int64Array {
 	return nil
 }
 
-func (x *FilterValue) GetOperation() enums.FilterOperation {
+func (x *FilterValue) GetOperation() FilterOperation {
 	if x != nil && x.Operation != nil {
 		return *x.Operation
 	}
-	return enums.FilterOperation(0)
+	return FilterOperation_FILTER_OPERATION_UNSPECIFIED
 }
 
 func (x *FilterValue) SetStringValue(v string) {
@@ -159,7 +157,7 @@ func (x *FilterValue) SetBoolValue(v bool) {
 	x.Value = &FilterValue_BoolValue{v}
 }
 
-func (x *FilterValue) SetStringArray(v *types.StringArray) {
+func (x *FilterValue) SetStringArray(v *StringArray) {
 	if v == nil {
 		x.Value = nil
 		return
@@ -167,7 +165,7 @@ func (x *FilterValue) SetStringArray(v *types.StringArray) {
 	x.Value = &FilterValue_StringArray{v}
 }
 
-func (x *FilterValue) SetIntArray(v *types.Int64Array) {
+func (x *FilterValue) SetIntArray(v *Int64Array) {
 	if v == nil {
 		x.Value = nil
 		return
@@ -175,7 +173,7 @@ func (x *FilterValue) SetIntArray(v *types.Int64Array) {
 	x.Value = &FilterValue_IntArray{v}
 }
 
-func (x *FilterValue) SetOperation(v enums.FilterOperation) {
+func (x *FilterValue) SetOperation(v FilterOperation) {
 	x.Operation = &v
 }
 
@@ -330,12 +328,12 @@ type FilterValue_builder struct {
 	// Boolean value for true/false filtering
 	BoolValue *bool
 	// Array of strings for multi-value filtering
-	StringArray *types.StringArray
+	StringArray *StringArray
 	// Array of integers for multi-value filtering
-	IntArray *types.Int64Array
+	IntArray *Int64Array
 	// -- end of Value
 	// Filter operation type (equals, contains, greater than, etc.)
-	Operation *enums.FilterOperation
+	Operation *FilterOperation
 }
 
 func (b0 FilterValue_builder) Build() *FilterValue {
@@ -400,12 +398,12 @@ type FilterValue_BoolValue struct {
 
 type FilterValue_StringArray struct {
 	// Array of strings for multi-value filtering
-	StringArray *types.StringArray `protobuf:"bytes,5,opt,name=string_array,json=stringArray,oneof"`
+	StringArray *StringArray `protobuf:"bytes,5,opt,name=string_array,json=stringArray,oneof"`
 }
 
 type FilterValue_IntArray struct {
 	// Array of integers for multi-value filtering
-	IntArray *types.Int64Array `protobuf:"bytes,6,opt,name=int_array,json=intArray,oneof"`
+	IntArray *Int64Array `protobuf:"bytes,6,opt,name=int_array,json=intArray,oneof"`
 }
 
 func (*FilterValue_StringValue) isFilterValue_Value() {}
@@ -435,14 +433,14 @@ const file_pkg_common_proto_messages_filter_value_proto_rawDesc = "" +
 	"\tint_array\x18\x06 \x01(\v2\x1d.gcommon.v1.common.Int64ArrayB\x02(\x01H\x00R\bintArray\x12@\n" +
 	"\toperation\x18\a \x01(\x0e2\".gcommon.v1.common.FilterOperationR\toperationB\a\n" +
 	"\x05valueB\xcc\x01\n" +
-	"\x15com.gcommon.v1.commonB\x10FilterValueProtoP\x01Z3github.com/jdfalk/gcommon/pkg/common/proto/messages\xa2\x02\x03GVC\xaa\x02\x11Gcommon.V1.Common\xca\x02\x11Gcommon\\V1\\Common\xe2\x02\x1dGcommon\\V1\\Common\\GPBMetadata\xea\x02\x13Gcommon::V1::Common\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
+	"\x15com.gcommon.v1.commonB\x10FilterValueProtoP\x01Z3github.com/jdfalk/gcommon/pkg/common/proto;commonpb\xa2\x02\x03GVC\xaa\x02\x11Gcommon.V1.Common\xca\x02\x11Gcommon\\V1\\Common\xe2\x02\x1dGcommon\\V1\\Common\\GPBMetadata\xea\x02\x13Gcommon::V1::Common\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
 
 var file_pkg_common_proto_messages_filter_value_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_pkg_common_proto_messages_filter_value_proto_goTypes = []any{
-	(*FilterValue)(nil),        // 0: gcommon.v1.common.FilterValue
-	(*types.StringArray)(nil),  // 1: gcommon.v1.common.StringArray
-	(*types.Int64Array)(nil),   // 2: gcommon.v1.common.Int64Array
-	(enums.FilterOperation)(0), // 3: gcommon.v1.common.FilterOperation
+	(*FilterValue)(nil),  // 0: gcommon.v1.common.FilterValue
+	(*StringArray)(nil),  // 1: gcommon.v1.common.StringArray
+	(*Int64Array)(nil),   // 2: gcommon.v1.common.Int64Array
+	(FilterOperation)(0), // 3: gcommon.v1.common.FilterOperation
 }
 var file_pkg_common_proto_messages_filter_value_proto_depIdxs = []int32{
 	1, // 0: gcommon.v1.common.FilterValue.string_array:type_name -> gcommon.v1.common.StringArray
@@ -460,6 +458,9 @@ func file_pkg_common_proto_messages_filter_value_proto_init() {
 	if File_pkg_common_proto_messages_filter_value_proto != nil {
 		return
 	}
+	file_pkg_common_proto_types_string_array_proto_init()
+	file_pkg_common_proto_types_int64_array_proto_init()
+	file_pkg_common_proto_enums_filter_operation_proto_init()
 	file_pkg_common_proto_messages_filter_value_proto_msgTypes[0].OneofWrappers = []any{
 		(*FilterValue_StringValue)(nil),
 		(*FilterValue_IntValue)(nil),

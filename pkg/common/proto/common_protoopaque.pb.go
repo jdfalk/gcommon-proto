@@ -6,12 +6,9 @@
 
 //go:build protoopaque
 
-package proto
+package commonpb
 
 import (
-	enums "github.com/jdfalk/gcommon/pkg/common/proto/enums"
-	messages "github.com/jdfalk/gcommon/pkg/common/proto/messages"
-	types "github.com/jdfalk/gcommon/pkg/common/proto/types"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
@@ -26,271 +23,12 @@ const (
 	_ = protoimpl.EnforceVersion(protoimpl.MaxVersion - 20)
 )
 
-// Symbols defined in public import of pkg/common/proto/enums/error_code.proto.
-
-type ErrorCode = enums.ErrorCode
-
-const ErrorCode_ERROR_CODE_UNSPECIFIED = enums.ErrorCode_ERROR_CODE_UNSPECIFIED
-const ErrorCode_ERROR_CODE_INVALID_ARGUMENT = enums.ErrorCode_ERROR_CODE_INVALID_ARGUMENT
-const ErrorCode_ERROR_CODE_NOT_FOUND = enums.ErrorCode_ERROR_CODE_NOT_FOUND
-const ErrorCode_ERROR_CODE_ALREADY_EXISTS = enums.ErrorCode_ERROR_CODE_ALREADY_EXISTS
-const ErrorCode_ERROR_CODE_PERMISSION_DENIED = enums.ErrorCode_ERROR_CODE_PERMISSION_DENIED
-const ErrorCode_ERROR_CODE_UNAUTHENTICATED = enums.ErrorCode_ERROR_CODE_UNAUTHENTICATED
-const ErrorCode_ERROR_CODE_INTERNAL = enums.ErrorCode_ERROR_CODE_INTERNAL
-const ErrorCode_ERROR_CODE_UNAVAILABLE = enums.ErrorCode_ERROR_CODE_UNAVAILABLE
-const ErrorCode_ERROR_CODE_TIMEOUT = enums.ErrorCode_ERROR_CODE_TIMEOUT
-const ErrorCode_ERROR_CODE_RESOURCE_EXHAUSTED = enums.ErrorCode_ERROR_CODE_RESOURCE_EXHAUSTED
-const ErrorCode_ERROR_CODE_FAILED_PRECONDITION = enums.ErrorCode_ERROR_CODE_FAILED_PRECONDITION
-const ErrorCode_ERROR_CODE_ABORTED = enums.ErrorCode_ERROR_CODE_ABORTED
-const ErrorCode_ERROR_CODE_OUT_OF_RANGE = enums.ErrorCode_ERROR_CODE_OUT_OF_RANGE
-const ErrorCode_ERROR_CODE_UNIMPLEMENTED = enums.ErrorCode_ERROR_CODE_UNIMPLEMENTED
-const ErrorCode_ERROR_CODE_DATA_LOSS = enums.ErrorCode_ERROR_CODE_DATA_LOSS
-
-var ErrorCode_name = enums.ErrorCode_name
-var ErrorCode_value = enums.ErrorCode_value
-
-// Symbols defined in public import of pkg/common/proto/types/sort.proto.
-
-type SortDirection = types.SortDirection
-
-const SortDirection_SORT_DIRECTION_UNSPECIFIED = types.SortDirection_SORT_DIRECTION_UNSPECIFIED
-const SortDirection_SORT_DIRECTION_ASC = types.SortDirection_SORT_DIRECTION_ASC
-const SortDirection_SORT_DIRECTION_DESC = types.SortDirection_SORT_DIRECTION_DESC
-
-var SortDirection_name = types.SortDirection_name
-var SortDirection_value = types.SortDirection_value
-
-type SortOptions = types.SortOptions
-
-// Symbols defined in public import of pkg/common/proto/enums/filter_operation.proto.
-
-type FilterOperation = enums.FilterOperation
-
-const FilterOperation_FILTER_OPERATION_UNSPECIFIED = enums.FilterOperation_FILTER_OPERATION_UNSPECIFIED
-const FilterOperation_FILTER_OPERATION_EQUALS = enums.FilterOperation_FILTER_OPERATION_EQUALS
-const FilterOperation_FILTER_OPERATION_NOT_EQUALS = enums.FilterOperation_FILTER_OPERATION_NOT_EQUALS
-const FilterOperation_FILTER_OPERATION_GREATER_THAN = enums.FilterOperation_FILTER_OPERATION_GREATER_THAN
-const FilterOperation_FILTER_OPERATION_LESS_THAN = enums.FilterOperation_FILTER_OPERATION_LESS_THAN
-const FilterOperation_FILTER_OPERATION_GREATER_THAN_OR_EQUAL = enums.FilterOperation_FILTER_OPERATION_GREATER_THAN_OR_EQUAL
-const FilterOperation_FILTER_OPERATION_LESS_THAN_OR_EQUAL = enums.FilterOperation_FILTER_OPERATION_LESS_THAN_OR_EQUAL
-const FilterOperation_FILTER_OPERATION_CONTAINS = enums.FilterOperation_FILTER_OPERATION_CONTAINS
-const FilterOperation_FILTER_OPERATION_STARTS_WITH = enums.FilterOperation_FILTER_OPERATION_STARTS_WITH
-const FilterOperation_FILTER_OPERATION_ENDS_WITH = enums.FilterOperation_FILTER_OPERATION_ENDS_WITH
-const FilterOperation_FILTER_OPERATION_IN = enums.FilterOperation_FILTER_OPERATION_IN
-const FilterOperation_FILTER_OPERATION_NOT_IN = enums.FilterOperation_FILTER_OPERATION_NOT_IN
-
-var FilterOperation_name = enums.FilterOperation_name
-var FilterOperation_value = enums.FilterOperation_value
-
-// Symbols defined in public import of pkg/common/proto/enums/health_status.proto.
-
-type HealthStatus = enums.HealthStatus
-
-const HealthStatus_HEALTH_STATUS_UNSPECIFIED = enums.HealthStatus_HEALTH_STATUS_UNSPECIFIED
-const HealthStatus_HEALTH_STATUS_HEALTHY = enums.HealthStatus_HEALTH_STATUS_HEALTHY
-const HealthStatus_HEALTH_STATUS_UNHEALTHY = enums.HealthStatus_HEALTH_STATUS_UNHEALTHY
-const HealthStatus_HEALTH_STATUS_DEGRADED = enums.HealthStatus_HEALTH_STATUS_DEGRADED
-const HealthStatus_HEALTH_STATUS_STARTING = enums.HealthStatus_HEALTH_STATUS_STARTING
-const HealthStatus_HEALTH_STATUS_STOPPING = enums.HealthStatus_HEALTH_STATUS_STOPPING
-
-var HealthStatus_name = enums.HealthStatus_name
-var HealthStatus_value = enums.HealthStatus_value
-
-// Symbols defined in public import of pkg/common/proto/enums/resource_status.proto.
-
-type ResourceStatus = enums.ResourceStatus
-
-const ResourceStatus_RESOURCE_STATUS_UNSPECIFIED = enums.ResourceStatus_RESOURCE_STATUS_UNSPECIFIED
-const ResourceStatus_RESOURCE_STATUS_ACTIVE = enums.ResourceStatus_RESOURCE_STATUS_ACTIVE
-const ResourceStatus_RESOURCE_STATUS_INACTIVE = enums.ResourceStatus_RESOURCE_STATUS_INACTIVE
-const ResourceStatus_RESOURCE_STATUS_PENDING = enums.ResourceStatus_RESOURCE_STATUS_PENDING
-const ResourceStatus_RESOURCE_STATUS_DELETED = enums.ResourceStatus_RESOURCE_STATUS_DELETED
-const ResourceStatus_RESOURCE_STATUS_ERROR = enums.ResourceStatus_RESOURCE_STATUS_ERROR
-
-var ResourceStatus_name = enums.ResourceStatus_name
-var ResourceStatus_value = enums.ResourceStatus_value
-
-// Symbols defined in public import of pkg/common/proto/enums/value_type.proto.
-
-type ValueType = enums.ValueType
-
-const ValueType_VALUE_TYPE_UNSPECIFIED = enums.ValueType_VALUE_TYPE_UNSPECIFIED
-const ValueType_VALUE_TYPE_STRING = enums.ValueType_VALUE_TYPE_STRING
-const ValueType_VALUE_TYPE_INT = enums.ValueType_VALUE_TYPE_INT
-const ValueType_VALUE_TYPE_DOUBLE = enums.ValueType_VALUE_TYPE_DOUBLE
-const ValueType_VALUE_TYPE_BOOL = enums.ValueType_VALUE_TYPE_BOOL
-const ValueType_VALUE_TYPE_BYTES = enums.ValueType_VALUE_TYPE_BYTES
-const ValueType_VALUE_TYPE_JSON = enums.ValueType_VALUE_TYPE_JSON
-const ValueType_VALUE_TYPE_YAML = enums.ValueType_VALUE_TYPE_YAML
-
-var ValueType_name = enums.ValueType_name
-var ValueType_value = enums.ValueType_value
-
-// Symbols defined in public import of pkg/common/proto/enums/audit_result.proto.
-
-type AuditResult = enums.AuditResult
-
-const AuditResult_AUDIT_RESULT_UNSPECIFIED = enums.AuditResult_AUDIT_RESULT_UNSPECIFIED
-const AuditResult_AUDIT_RESULT_SUCCESS = enums.AuditResult_AUDIT_RESULT_SUCCESS
-const AuditResult_AUDIT_RESULT_FAILURE = enums.AuditResult_AUDIT_RESULT_FAILURE
-const AuditResult_AUDIT_RESULT_PARTIAL = enums.AuditResult_AUDIT_RESULT_PARTIAL
-
-var AuditResult_name = enums.AuditResult_name
-var AuditResult_value = enums.AuditResult_value
-
-// Symbols defined in public import of pkg/common/proto/enums/subscription_status.proto.
-
-type SubscriptionStatus = enums.SubscriptionStatus
-
-const SubscriptionStatus_SUBSCRIPTION_STATUS_UNSPECIFIED = enums.SubscriptionStatus_SUBSCRIPTION_STATUS_UNSPECIFIED
-const SubscriptionStatus_SUBSCRIPTION_STATUS_ACTIVE = enums.SubscriptionStatus_SUBSCRIPTION_STATUS_ACTIVE
-const SubscriptionStatus_SUBSCRIPTION_STATUS_PAUSED = enums.SubscriptionStatus_SUBSCRIPTION_STATUS_PAUSED
-const SubscriptionStatus_SUBSCRIPTION_STATUS_CANCELLED = enums.SubscriptionStatus_SUBSCRIPTION_STATUS_CANCELLED
-const SubscriptionStatus_SUBSCRIPTION_STATUS_ERROR = enums.SubscriptionStatus_SUBSCRIPTION_STATUS_ERROR
-
-var SubscriptionStatus_name = enums.SubscriptionStatus_name
-var SubscriptionStatus_value = enums.SubscriptionStatus_value
-
-// Symbols defined in public import of pkg/common/proto/enums/ack_mode.proto.
-
-type AckMode = enums.AckMode
-
-const AckMode_ACK_MODE_UNSPECIFIED = enums.AckMode_ACK_MODE_UNSPECIFIED
-const AckMode_ACK_MODE_MANUAL = enums.AckMode_ACK_MODE_MANUAL
-const AckMode_ACK_MODE_AUTO = enums.AckMode_ACK_MODE_AUTO
-const AckMode_ACK_MODE_CLIENT = enums.AckMode_ACK_MODE_CLIENT
-
-var AckMode_name = enums.AckMode_name
-var AckMode_value = enums.AckMode_value
-
-// Symbols defined in public import of pkg/common/proto/enums/eviction_policy.proto.
-
-type EvictionPolicy = enums.EvictionPolicy
-
-const EvictionPolicy_EVICTION_POLICY_UNSPECIFIED = enums.EvictionPolicy_EVICTION_POLICY_UNSPECIFIED
-const EvictionPolicy_EVICTION_POLICY_LRU = enums.EvictionPolicy_EVICTION_POLICY_LRU
-const EvictionPolicy_EVICTION_POLICY_LFU = enums.EvictionPolicy_EVICTION_POLICY_LFU
-const EvictionPolicy_EVICTION_POLICY_FIFO = enums.EvictionPolicy_EVICTION_POLICY_FIFO
-const EvictionPolicy_EVICTION_POLICY_RANDOM = enums.EvictionPolicy_EVICTION_POLICY_RANDOM
-
-var EvictionPolicy_name = enums.EvictionPolicy_name
-var EvictionPolicy_value = enums.EvictionPolicy_value
-
-// Symbols defined in public import of pkg/common/proto/enums/expiration_policy.proto.
-
-type ExpirationPolicy = enums.ExpirationPolicy
-
-const ExpirationPolicy_EXPIRATION_POLICY_UNSPECIFIED = enums.ExpirationPolicy_EXPIRATION_POLICY_UNSPECIFIED
-const ExpirationPolicy_EXPIRATION_POLICY_TTL = enums.ExpirationPolicy_EXPIRATION_POLICY_TTL
-const ExpirationPolicy_EXPIRATION_POLICY_IDLE = enums.ExpirationPolicy_EXPIRATION_POLICY_IDLE
-const ExpirationPolicy_EXPIRATION_POLICY_WRITE = enums.ExpirationPolicy_EXPIRATION_POLICY_WRITE
-const ExpirationPolicy_EXPIRATION_POLICY_NEVER = enums.ExpirationPolicy_EXPIRATION_POLICY_NEVER
-
-var ExpirationPolicy_name = enums.ExpirationPolicy_name
-var ExpirationPolicy_value = enums.ExpirationPolicy_value
-
-// Symbols defined in public import of pkg/common/proto/enums/circuit_breaker_state.proto.
-
-type CircuitBreakerState = enums.CircuitBreakerState
-
-const CircuitBreakerState_CIRCUIT_BREAKER_STATE_UNSPECIFIED = enums.CircuitBreakerState_CIRCUIT_BREAKER_STATE_UNSPECIFIED
-const CircuitBreakerState_CIRCUIT_BREAKER_STATE_CLOSED = enums.CircuitBreakerState_CIRCUIT_BREAKER_STATE_CLOSED
-const CircuitBreakerState_CIRCUIT_BREAKER_STATE_OPEN = enums.CircuitBreakerState_CIRCUIT_BREAKER_STATE_OPEN
-const CircuitBreakerState_CIRCUIT_BREAKER_STATE_HALF_OPEN = enums.CircuitBreakerState_CIRCUIT_BREAKER_STATE_HALF_OPEN
-
-var CircuitBreakerState_name = enums.CircuitBreakerState_name
-var CircuitBreakerState_value = enums.CircuitBreakerState_value
-
-// Symbols defined in public import of pkg/common/proto/messages/error.proto.
-
-type Error = messages.Error
-type Error_builder = messages.Error_builder
-
-// Symbols defined in public import of pkg/common/proto/messages/pagination.proto.
-
-type Pagination = messages.Pagination
-type Pagination_builder = messages.Pagination_builder
-
-// Symbols defined in public import of pkg/common/proto/messages/paginated_response.proto.
-
-type PaginatedResponse = messages.PaginatedResponse
-type PaginatedResponse_builder = messages.PaginatedResponse_builder
-
-// Symbols defined in public import of pkg/common/proto/messages/rate_limit.proto.
-
-type RateLimit = messages.RateLimit
-type RateLimit_builder = messages.RateLimit_builder
-
-// Symbols defined in public import of pkg/common/proto/messages/service_version.proto.
-
-type ServiceVersion = messages.ServiceVersion
-type ServiceVersion_builder = messages.ServiceVersion_builder
-
-// Symbols defined in public import of pkg/common/proto/messages/batch_options.proto.
-
-type BatchOptions = messages.BatchOptions
-type BatchOptions_builder = messages.BatchOptions_builder
-
-// Symbols defined in public import of pkg/common/proto/messages/request_metadata.proto.
-
-type RequestMetadata = messages.RequestMetadata
-type RequestMetadata_builder = messages.RequestMetadata_builder
-
-// Symbols defined in public import of pkg/common/proto/messages/response_metadata.proto.
-
-type ResponseMetadata = messages.ResponseMetadata
-type ResponseMetadata_builder = messages.ResponseMetadata_builder
-type RateLimitInfo = messages.RateLimitInfo
-type RateLimitInfo_builder = messages.RateLimitInfo_builder
-type PaginationInfo = messages.PaginationInfo
-type PaginationInfo_builder = messages.PaginationInfo_builder
-
-// Symbols defined in public import of pkg/common/proto/messages/cache_policy.proto.
-
-type CachePolicy = messages.CachePolicy
-type CachePolicy_builder = messages.CachePolicy_builder
-
-// Symbols defined in public import of pkg/common/proto/types/time_range.proto.
-
-type TimeRange = types.TimeRange
-type TimeRange_builder = types.TimeRange_builder
-
-// Symbols defined in public import of pkg/common/proto/types/client_info.proto.
-
-type ClientInfo = types.ClientInfo
-type ClientInfo_builder = types.ClientInfo_builder
-
-// Symbols defined in public import of pkg/common/proto/types/string_array.proto.
-
-type StringArray = types.StringArray
-type StringArray_builder = types.StringArray_builder
-
-// Symbols defined in public import of pkg/common/proto/types/int64_array.proto.
-
-type Int64Array = types.Int64Array
-type Int64Array_builder = types.Int64Array_builder
-
-// Symbols defined in public import of pkg/common/proto/types/key_value.proto.
-
-type KeyValue = types.KeyValue
-type KeyValue_builder = types.KeyValue_builder
-
-// Symbols defined in public import of pkg/common/proto/types/resource_reference.proto.
-
-type ResourceReference = types.ResourceReference
-type ResourceReference_builder = types.ResourceReference_builder
-
-// Symbols defined in public import of pkg/common/proto/types/metric_point.proto.
-
-type MetricPoint = types.MetricPoint
-type MetricPoint_builder = types.MetricPoint_builder
-
 var File_pkg_common_proto_common_proto protoreflect.FileDescriptor
 
 const file_pkg_common_proto_common_proto_rawDesc = "" +
 	"\n" +
-	"\x1dpkg/common/proto/common.proto\x12\x11gcommon.v1.common\x1a!google/protobuf/go_features.proto\x1a'pkg/common/proto/enums/error_code.proto\x1a!pkg/common/proto/types/sort.proto\x1a-pkg/common/proto/enums/filter_operation.proto\x1a*pkg/common/proto/enums/health_status.proto\x1a,pkg/common/proto/enums/resource_status.proto\x1a'pkg/common/proto/enums/value_type.proto\x1a)pkg/common/proto/enums/audit_result.proto\x1a0pkg/common/proto/enums/subscription_status.proto\x1a%pkg/common/proto/enums/ack_mode.proto\x1a,pkg/common/proto/enums/eviction_policy.proto\x1a.pkg/common/proto/enums/expiration_policy.proto\x1a2pkg/common/proto/enums/circuit_breaker_state.proto\x1a%pkg/common/proto/messages/error.proto\x1a*pkg/common/proto/messages/pagination.proto\x1a2pkg/common/proto/messages/paginated_response.proto\x1a*pkg/common/proto/messages/rate_limit.proto\x1a/pkg/common/proto/messages/service_version.proto\x1a-pkg/common/proto/messages/batch_options.proto\x1a0pkg/common/proto/messages/request_metadata.proto\x1a1pkg/common/proto/messages/response_metadata.proto\x1a,pkg/common/proto/messages/cache_policy.proto\x1a'pkg/common/proto/types/time_range.proto\x1a(pkg/common/proto/types/client_info.proto\x1a)pkg/common/proto/types/string_array.proto\x1a(pkg/common/proto/types/int64_array.proto\x1a&pkg/common/proto/types/key_value.proto\x1a/pkg/common/proto/types/resource_reference.proto\x1a)pkg/common/proto/types/metric_point.protoB\xbe\x01\n" +
-	"\x15com.gcommon.v1.commonB\vCommonProtoP\x01Z*github.com/jdfalk/gcommon/pkg/common/proto\xa2\x02\x03GVC\xaa\x02\x11Gcommon.V1.Common\xca\x02\x11Gcommon\\V1\\Common\xe2\x02\x1dGcommon\\V1\\Common\\GPBMetadata\xea\x02\x13Gcommon::V1::Common\x92\x03\x05\xd2>\x02\x10\x02P\x01P\x02P\x03P\x04P\x05P\x06P\aP\bP\tP\n" +
+	"\x1dpkg/common/proto/common.proto\x12\x11gcommon.v1.common\x1a!google/protobuf/go_features.proto\x1a'pkg/common/proto/enums/error_code.proto\x1a!pkg/common/proto/types/sort.proto\x1a-pkg/common/proto/enums/filter_operation.proto\x1a*pkg/common/proto/enums/health_status.proto\x1a,pkg/common/proto/enums/resource_status.proto\x1a'pkg/common/proto/enums/value_type.proto\x1a)pkg/common/proto/enums/audit_result.proto\x1a0pkg/common/proto/enums/subscription_status.proto\x1a%pkg/common/proto/enums/ack_mode.proto\x1a,pkg/common/proto/enums/eviction_policy.proto\x1a.pkg/common/proto/enums/expiration_policy.proto\x1a2pkg/common/proto/enums/circuit_breaker_state.proto\x1a%pkg/common/proto/messages/error.proto\x1a*pkg/common/proto/messages/pagination.proto\x1a2pkg/common/proto/messages/paginated_response.proto\x1a*pkg/common/proto/messages/rate_limit.proto\x1a/pkg/common/proto/messages/service_version.proto\x1a-pkg/common/proto/messages/batch_options.proto\x1a0pkg/common/proto/messages/request_metadata.proto\x1a1pkg/common/proto/messages/response_metadata.proto\x1a,pkg/common/proto/messages/cache_policy.proto\x1a'pkg/common/proto/types/time_range.proto\x1a(pkg/common/proto/types/client_info.proto\x1a)pkg/common/proto/types/string_array.proto\x1a(pkg/common/proto/types/int64_array.proto\x1a&pkg/common/proto/types/key_value.proto\x1a/pkg/common/proto/types/resource_reference.proto\x1a)pkg/common/proto/types/metric_point.protoB\xc7\x01\n" +
+	"\x15com.gcommon.v1.commonB\vCommonProtoP\x01Z3github.com/jdfalk/gcommon/pkg/common/proto;commonpb\xa2\x02\x03GVC\xaa\x02\x11Gcommon.V1.Common\xca\x02\x11Gcommon\\V1\\Common\xe2\x02\x1dGcommon\\V1\\Common\\GPBMetadata\xea\x02\x13Gcommon::V1::Common\x92\x03\x05\xd2>\x02\x10\x02P\x01P\x02P\x03P\x04P\x05P\x06P\aP\bP\tP\n" +
 	"P\vP\fP\rP\x0eP\x0fP\x10P\x11P\x12P\x13P\x14P\x15P\x16P\x17P\x18P\x19P\x1aP\x1bP\x1cb\beditionsp\xe8\a"
 
 var file_pkg_common_proto_common_proto_goTypes = []any{}
@@ -307,6 +45,34 @@ func file_pkg_common_proto_common_proto_init() {
 	if File_pkg_common_proto_common_proto != nil {
 		return
 	}
+	file_pkg_common_proto_enums_error_code_proto_init()
+	file_pkg_common_proto_types_sort_proto_init()
+	file_pkg_common_proto_enums_filter_operation_proto_init()
+	file_pkg_common_proto_enums_health_status_proto_init()
+	file_pkg_common_proto_enums_resource_status_proto_init()
+	file_pkg_common_proto_enums_value_type_proto_init()
+	file_pkg_common_proto_enums_audit_result_proto_init()
+	file_pkg_common_proto_enums_subscription_status_proto_init()
+	file_pkg_common_proto_enums_ack_mode_proto_init()
+	file_pkg_common_proto_enums_eviction_policy_proto_init()
+	file_pkg_common_proto_enums_expiration_policy_proto_init()
+	file_pkg_common_proto_enums_circuit_breaker_state_proto_init()
+	file_pkg_common_proto_messages_error_proto_init()
+	file_pkg_common_proto_messages_pagination_proto_init()
+	file_pkg_common_proto_messages_paginated_response_proto_init()
+	file_pkg_common_proto_messages_rate_limit_proto_init()
+	file_pkg_common_proto_messages_service_version_proto_init()
+	file_pkg_common_proto_messages_batch_options_proto_init()
+	file_pkg_common_proto_messages_request_metadata_proto_init()
+	file_pkg_common_proto_messages_response_metadata_proto_init()
+	file_pkg_common_proto_messages_cache_policy_proto_init()
+	file_pkg_common_proto_types_time_range_proto_init()
+	file_pkg_common_proto_types_client_info_proto_init()
+	file_pkg_common_proto_types_string_array_proto_init()
+	file_pkg_common_proto_types_int64_array_proto_init()
+	file_pkg_common_proto_types_key_value_proto_init()
+	file_pkg_common_proto_types_resource_reference_proto_init()
+	file_pkg_common_proto_types_metric_point_proto_init()
 	type x struct{}
 	out := protoimpl.TypeBuilder{
 		File: protoimpl.DescBuilder{

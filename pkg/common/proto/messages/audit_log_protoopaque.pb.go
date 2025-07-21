@@ -6,11 +6,9 @@
 
 //go:build protoopaque
 
-package messages
+package commonpb
 
 import (
-	enums "github.com/jdfalk/gcommon/pkg/common/proto/enums"
-	types "github.com/jdfalk/gcommon/pkg/common/proto/types"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
@@ -31,17 +29,17 @@ const (
 // Provides comprehensive audit trail with user identification,
 // action details, and contextual metadata for compliance and debugging.
 type AuditLog struct {
-	state                  protoimpl.MessageState   `protogen:"opaque.v1"`
-	xxx_hidden_Id          *string                  `protobuf:"bytes,1,opt,name=id"`
-	xxx_hidden_UserId      *string                  `protobuf:"bytes,2,opt,name=user_id,json=userId"`
-	xxx_hidden_Action      *string                  `protobuf:"bytes,3,opt,name=action"`
-	xxx_hidden_Resource    *types.ResourceReference `protobuf:"bytes,4,opt,name=resource"`
-	xxx_hidden_Timestamp   *timestamppb.Timestamp   `protobuf:"bytes,5,opt,name=timestamp"`
-	xxx_hidden_SourceIp    *string                  `protobuf:"bytes,6,opt,name=source_ip,json=sourceIp"`
-	xxx_hidden_UserAgent   *string                  `protobuf:"bytes,7,opt,name=user_agent,json=userAgent"`
-	xxx_hidden_Metadata    map[string]string        `protobuf:"bytes,8,rep,name=metadata" protobuf_key:"bytes,1,opt,name=key" protobuf_val:"bytes,2,opt,name=value"`
-	xxx_hidden_Result      enums.AuditResult        `protobuf:"varint,9,opt,name=result,enum=gcommon.v1.common.AuditResult"`
-	xxx_hidden_SessionId   *string                  `protobuf:"bytes,10,opt,name=session_id,json=sessionId"`
+	state                  protoimpl.MessageState `protogen:"opaque.v1"`
+	xxx_hidden_Id          *string                `protobuf:"bytes,1,opt,name=id"`
+	xxx_hidden_UserId      *string                `protobuf:"bytes,2,opt,name=user_id,json=userId"`
+	xxx_hidden_Action      *string                `protobuf:"bytes,3,opt,name=action"`
+	xxx_hidden_Resource    *ResourceReference     `protobuf:"bytes,4,opt,name=resource"`
+	xxx_hidden_Timestamp   *timestamppb.Timestamp `protobuf:"bytes,5,opt,name=timestamp"`
+	xxx_hidden_SourceIp    *string                `protobuf:"bytes,6,opt,name=source_ip,json=sourceIp"`
+	xxx_hidden_UserAgent   *string                `protobuf:"bytes,7,opt,name=user_agent,json=userAgent"`
+	xxx_hidden_Metadata    map[string]string      `protobuf:"bytes,8,rep,name=metadata" protobuf_key:"bytes,1,opt,name=key" protobuf_val:"bytes,2,opt,name=value"`
+	xxx_hidden_Result      AuditResult            `protobuf:"varint,9,opt,name=result,enum=gcommon.v1.common.AuditResult"`
+	xxx_hidden_SessionId   *string                `protobuf:"bytes,10,opt,name=session_id,json=sessionId"`
 	XXX_raceDetectHookData protoimpl.RaceDetectHookData
 	XXX_presence           [1]uint32
 	unknownFields          protoimpl.UnknownFields
@@ -103,7 +101,7 @@ func (x *AuditLog) GetAction() string {
 	return ""
 }
 
-func (x *AuditLog) GetResource() *types.ResourceReference {
+func (x *AuditLog) GetResource() *ResourceReference {
 	if x != nil {
 		return x.xxx_hidden_Resource
 	}
@@ -144,13 +142,13 @@ func (x *AuditLog) GetMetadata() map[string]string {
 	return nil
 }
 
-func (x *AuditLog) GetResult() enums.AuditResult {
+func (x *AuditLog) GetResult() AuditResult {
 	if x != nil {
 		if protoimpl.X.Present(&(x.XXX_presence[0]), 8) {
 			return x.xxx_hidden_Result
 		}
 	}
-	return enums.AuditResult(0)
+	return AuditResult_AUDIT_RESULT_UNSPECIFIED
 }
 
 func (x *AuditLog) GetSessionId() string {
@@ -178,7 +176,7 @@ func (x *AuditLog) SetAction(v string) {
 	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 2, 10)
 }
 
-func (x *AuditLog) SetResource(v *types.ResourceReference) {
+func (x *AuditLog) SetResource(v *ResourceReference) {
 	x.xxx_hidden_Resource = v
 }
 
@@ -200,7 +198,7 @@ func (x *AuditLog) SetMetadata(v map[string]string) {
 	x.xxx_hidden_Metadata = v
 }
 
-func (x *AuditLog) SetResult(v enums.AuditResult) {
+func (x *AuditLog) SetResult(v AuditResult) {
 	x.xxx_hidden_Result = v
 	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 8, 10)
 }
@@ -308,7 +306,7 @@ func (x *AuditLog) ClearUserAgent() {
 
 func (x *AuditLog) ClearResult() {
 	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 8)
-	x.xxx_hidden_Result = enums.AuditResult_AUDIT_RESULT_UNSPECIFIED
+	x.xxx_hidden_Result = AuditResult_AUDIT_RESULT_UNSPECIFIED
 }
 
 func (x *AuditLog) ClearSessionId() {
@@ -326,7 +324,7 @@ type AuditLog_builder struct {
 	// Action or operation that was performed
 	Action *string
 	// Resource that was acted upon
-	Resource *types.ResourceReference
+	Resource *ResourceReference
 	// Timestamp when the action occurred
 	Timestamp *timestamppb.Timestamp
 	// Source IP address of the request
@@ -336,7 +334,7 @@ type AuditLog_builder struct {
 	// Additional contextual metadata about the action
 	Metadata map[string]string
 	// Result of the action (success, failure, partial)
-	Result *enums.AuditResult
+	Result *AuditResult
 	// Session identifier if applicable
 	SessionId *string
 }
@@ -401,15 +399,15 @@ const file_pkg_common_proto_messages_audit_log_proto_rawDesc = "" +
 	"\rMetadataEntry\x12\x10\n" +
 	"\x03key\x18\x01 \x01(\tR\x03key\x12\x14\n" +
 	"\x05value\x18\x02 \x01(\tR\x05value:\x028\x01B\xc9\x01\n" +
-	"\x15com.gcommon.v1.commonB\rAuditLogProtoP\x01Z3github.com/jdfalk/gcommon/pkg/common/proto/messages\xa2\x02\x03GVC\xaa\x02\x11Gcommon.V1.Common\xca\x02\x11Gcommon\\V1\\Common\xe2\x02\x1dGcommon\\V1\\Common\\GPBMetadata\xea\x02\x13Gcommon::V1::Common\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
+	"\x15com.gcommon.v1.commonB\rAuditLogProtoP\x01Z3github.com/jdfalk/gcommon/pkg/common/proto;commonpb\xa2\x02\x03GVC\xaa\x02\x11Gcommon.V1.Common\xca\x02\x11Gcommon\\V1\\Common\xe2\x02\x1dGcommon\\V1\\Common\\GPBMetadata\xea\x02\x13Gcommon::V1::Common\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
 
 var file_pkg_common_proto_messages_audit_log_proto_msgTypes = make([]protoimpl.MessageInfo, 2)
 var file_pkg_common_proto_messages_audit_log_proto_goTypes = []any{
-	(*AuditLog)(nil),                // 0: gcommon.v1.common.AuditLog
-	nil,                             // 1: gcommon.v1.common.AuditLog.MetadataEntry
-	(*types.ResourceReference)(nil), // 2: gcommon.v1.common.ResourceReference
-	(*timestamppb.Timestamp)(nil),   // 3: google.protobuf.Timestamp
-	(enums.AuditResult)(0),          // 4: gcommon.v1.common.AuditResult
+	(*AuditLog)(nil),              // 0: gcommon.v1.common.AuditLog
+	nil,                           // 1: gcommon.v1.common.AuditLog.MetadataEntry
+	(*ResourceReference)(nil),     // 2: gcommon.v1.common.ResourceReference
+	(*timestamppb.Timestamp)(nil), // 3: google.protobuf.Timestamp
+	(AuditResult)(0),              // 4: gcommon.v1.common.AuditResult
 }
 var file_pkg_common_proto_messages_audit_log_proto_depIdxs = []int32{
 	2, // 0: gcommon.v1.common.AuditLog.resource:type_name -> gcommon.v1.common.ResourceReference
@@ -428,6 +426,8 @@ func file_pkg_common_proto_messages_audit_log_proto_init() {
 	if File_pkg_common_proto_messages_audit_log_proto != nil {
 		return
 	}
+	file_pkg_common_proto_types_resource_reference_proto_init()
+	file_pkg_common_proto_enums_audit_result_proto_init()
 	type x struct{}
 	out := protoimpl.TypeBuilder{
 		File: protoimpl.DescBuilder{

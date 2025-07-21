@@ -6,7 +6,7 @@
 
 //go:build protoopaque
 
-package enums
+package commonpb
 
 import (
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
@@ -96,8 +96,8 @@ const file_pkg_common_proto_enums_health_status_proto_rawDesc = "" +
 	"\x17HEALTH_STATUS_UNHEALTHY\x10\x02\x12\x1a\n" +
 	"\x16HEALTH_STATUS_DEGRADED\x10\x03\x12\x1a\n" +
 	"\x16HEALTH_STATUS_STARTING\x10\x04\x12\x1a\n" +
-	"\x16HEALTH_STATUS_STOPPING\x10\x05B\xca\x01\n" +
-	"\x15com.gcommon.v1.commonB\x11HealthStatusProtoP\x01Z0github.com/jdfalk/gcommon/pkg/common/proto/enums\xa2\x02\x03GVC\xaa\x02\x11Gcommon.V1.Common\xca\x02\x11Gcommon\\V1\\Common\xe2\x02\x1dGcommon\\V1\\Common\\GPBMetadata\xea\x02\x13Gcommon::V1::Common\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
+	"\x16HEALTH_STATUS_STOPPING\x10\x05B\xcd\x01\n" +
+	"\x15com.gcommon.v1.commonB\x11HealthStatusProtoP\x01Z3github.com/jdfalk/gcommon/pkg/common/proto;commonpb\xa2\x02\x03GVC\xaa\x02\x11Gcommon.V1.Common\xca\x02\x11Gcommon\\V1\\Common\xe2\x02\x1dGcommon\\V1\\Common\\GPBMetadata\xea\x02\x13Gcommon::V1::Common\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
 
 var file_pkg_common_proto_enums_health_status_proto_enumTypes = make([]protoimpl.EnumInfo, 1)
 var file_pkg_common_proto_enums_health_status_proto_goTypes = []any{

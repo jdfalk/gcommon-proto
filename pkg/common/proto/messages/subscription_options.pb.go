@@ -6,10 +6,9 @@
 
 //go:build !protoopaque
 
-package messages
+package commonpb
 
 import (
-	enums "github.com/jdfalk/gcommon/pkg/common/proto/enums"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
@@ -36,7 +35,7 @@ type SubscriptionOptions struct {
 	// Maximum number of events to batch together
 	MaxBatchSize *int32 `protobuf:"varint,2,opt,name=max_batch_size,json=maxBatchSize" json:"max_batch_size,omitempty"`
 	// Acknowledgment mode for message delivery
-	AckMode *enums.AckMode `protobuf:"varint,3,opt,name=ack_mode,json=ackMode,enum=gcommon.v1.common.AckMode" json:"ack_mode,omitempty"`
+	AckMode *AckMode `protobuf:"varint,3,opt,name=ack_mode,json=ackMode,enum=gcommon.v1.common.AckMode" json:"ack_mode,omitempty"`
 	// Keep-alive interval to maintain connection
 	KeepAlive     *durationpb.Duration `protobuf:"bytes,4,opt,name=keep_alive,json=keepAlive" json:"keep_alive,omitempty"`
 	unknownFields protoimpl.UnknownFields
@@ -82,11 +81,11 @@ func (x *SubscriptionOptions) GetMaxBatchSize() int32 {
 	return 0
 }
 
-func (x *SubscriptionOptions) GetAckMode() enums.AckMode {
+func (x *SubscriptionOptions) GetAckMode() AckMode {
 	if x != nil && x.AckMode != nil {
 		return *x.AckMode
 	}
-	return enums.AckMode(0)
+	return AckMode_ACK_MODE_UNSPECIFIED
 }
 
 func (x *SubscriptionOptions) GetKeepAlive() *durationpb.Duration {
@@ -104,7 +103,7 @@ func (x *SubscriptionOptions) SetMaxBatchSize(v int32) {
 	x.MaxBatchSize = &v
 }
 
-func (x *SubscriptionOptions) SetAckMode(v enums.AckMode) {
+func (x *SubscriptionOptions) SetAckMode(v AckMode) {
 	x.AckMode = &v
 }
 
@@ -164,7 +163,7 @@ type SubscriptionOptions_builder struct {
 	// Maximum number of events to batch together
 	MaxBatchSize *int32
 	// Acknowledgment mode for message delivery
-	AckMode *enums.AckMode
+	AckMode *AckMode
 	// Keep-alive interval to maintain connection
 	KeepAlive *durationpb.Duration
 }
@@ -191,12 +190,12 @@ const file_pkg_common_proto_messages_subscription_options_proto_rawDesc = "" +
 	"\back_mode\x18\x03 \x01(\x0e2\x1a.gcommon.v1.common.AckModeR\aackMode\x128\n" +
 	"\n" +
 	"keep_alive\x18\x04 \x01(\v2\x19.google.protobuf.DurationR\tkeepAliveB\xd4\x01\n" +
-	"\x15com.gcommon.v1.commonB\x18SubscriptionOptionsProtoP\x01Z3github.com/jdfalk/gcommon/pkg/common/proto/messages\xa2\x02\x03GVC\xaa\x02\x11Gcommon.V1.Common\xca\x02\x11Gcommon\\V1\\Common\xe2\x02\x1dGcommon\\V1\\Common\\GPBMetadata\xea\x02\x13Gcommon::V1::Common\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
+	"\x15com.gcommon.v1.commonB\x18SubscriptionOptionsProtoP\x01Z3github.com/jdfalk/gcommon/pkg/common/proto;commonpb\xa2\x02\x03GVC\xaa\x02\x11Gcommon.V1.Common\xca\x02\x11Gcommon\\V1\\Common\xe2\x02\x1dGcommon\\V1\\Common\\GPBMetadata\xea\x02\x13Gcommon::V1::Common\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
 
 var file_pkg_common_proto_messages_subscription_options_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_pkg_common_proto_messages_subscription_options_proto_goTypes = []any{
 	(*SubscriptionOptions)(nil), // 0: gcommon.v1.common.SubscriptionOptions
-	(enums.AckMode)(0),          // 1: gcommon.v1.common.AckMode
+	(AckMode)(0),                // 1: gcommon.v1.common.AckMode
 	(*durationpb.Duration)(nil), // 2: google.protobuf.Duration
 }
 var file_pkg_common_proto_messages_subscription_options_proto_depIdxs = []int32{
@@ -214,6 +213,7 @@ func file_pkg_common_proto_messages_subscription_options_proto_init() {
 	if File_pkg_common_proto_messages_subscription_options_proto != nil {
 		return
 	}
+	file_pkg_common_proto_enums_ack_mode_proto_init()
 	type x struct{}
 	out := protoimpl.TypeBuilder{
 		File: protoimpl.DescBuilder{
