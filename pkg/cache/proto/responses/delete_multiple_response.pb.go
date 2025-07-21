@@ -6,10 +6,10 @@
 
 //go:build !protoopaque
 
-package responses
+package cachepb
 
 import (
-	messages "github.com/jdfalk/gcommon/pkg/common/proto/messages"
+	proto "github.com/jdfalk/gcommon/pkg/common/proto"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
@@ -36,7 +36,7 @@ type DeleteMultipleResponse struct {
 	// List of keys that failed to delete
 	FailedKeys []string `protobuf:"bytes,3,rep,name=failed_keys,json=failedKeys" json:"failed_keys,omitempty"`
 	// Error details if any deletions failed
-	Error         *messages.Error `protobuf:"bytes,4,opt,name=error" json:"error,omitempty"`
+	Error         *proto.Error `protobuf:"bytes,4,opt,name=error" json:"error,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -87,7 +87,7 @@ func (x *DeleteMultipleResponse) GetFailedKeys() []string {
 	return nil
 }
 
-func (x *DeleteMultipleResponse) GetError() *messages.Error {
+func (x *DeleteMultipleResponse) GetError() *proto.Error {
 	if x != nil {
 		return x.Error
 	}
@@ -106,7 +106,7 @@ func (x *DeleteMultipleResponse) SetFailedKeys(v []string) {
 	x.FailedKeys = v
 }
 
-func (x *DeleteMultipleResponse) SetError(v *messages.Error) {
+func (x *DeleteMultipleResponse) SetError(v *proto.Error) {
 	x.Error = v
 }
 
@@ -153,7 +153,7 @@ type DeleteMultipleResponse_builder struct {
 	// List of keys that failed to delete
 	FailedKeys []string
 	// Error details if any deletions failed
-	Error *messages.Error
+	Error *proto.Error
 }
 
 func (b0 DeleteMultipleResponse_builder) Build() *DeleteMultipleResponse {
@@ -177,13 +177,13 @@ const file_pkg_cache_proto_responses_delete_multiple_response_proto_rawDesc = ""
 	"\ffailed_count\x18\x02 \x01(\x05R\vfailedCount\x12\x1f\n" +
 	"\vfailed_keys\x18\x03 \x03(\tR\n" +
 	"failedKeys\x12.\n" +
-	"\x05error\x18\x04 \x01(\v2\x18.gcommon.v1.common.ErrorR\x05errorB\xd2\x01\n" +
-	"\x14com.gcommon.v1.cacheB\x1bDeleteMultipleResponseProtoP\x01Z3github.com/jdfalk/gcommon/pkg/cache/proto/responses\xa2\x02\x03GVC\xaa\x02\x10Gcommon.V1.Cache\xca\x02\x10Gcommon\\V1\\Cache\xe2\x02\x1cGcommon\\V1\\Cache\\GPBMetadata\xea\x02\x12Gcommon::V1::Cache\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
+	"\x05error\x18\x04 \x01(\v2\x18.gcommon.v1.common.ErrorR\x05errorB\xd0\x01\n" +
+	"\x14com.gcommon.v1.cacheB\x1bDeleteMultipleResponseProtoP\x01Z1github.com/jdfalk/gcommon/pkg/cache/proto;cachepb\xa2\x02\x03GVC\xaa\x02\x10Gcommon.V1.Cache\xca\x02\x10Gcommon\\V1\\Cache\xe2\x02\x1cGcommon\\V1\\Cache\\GPBMetadata\xea\x02\x12Gcommon::V1::Cache\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
 
 var file_pkg_cache_proto_responses_delete_multiple_response_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_pkg_cache_proto_responses_delete_multiple_response_proto_goTypes = []any{
 	(*DeleteMultipleResponse)(nil), // 0: gcommon.v1.cache.DeleteMultipleResponse
-	(*messages.Error)(nil),         // 1: gcommon.v1.common.Error
+	(*proto.Error)(nil),            // 1: gcommon.v1.common.Error
 }
 var file_pkg_cache_proto_responses_delete_multiple_response_proto_depIdxs = []int32{
 	1, // 0: gcommon.v1.cache.DeleteMultipleResponse.error:type_name -> gcommon.v1.common.Error

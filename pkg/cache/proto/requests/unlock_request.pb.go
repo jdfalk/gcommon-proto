@@ -6,10 +6,10 @@
 
 //go:build !protoopaque
 
-package requests
+package cachepb
 
 import (
-	messages "github.com/jdfalk/gcommon/pkg/common/proto/messages"
+	proto "github.com/jdfalk/gcommon/pkg/common/proto"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
@@ -33,7 +33,7 @@ type UnlockRequest struct {
 	// Optional namespace
 	Namespace *string `protobuf:"bytes,2,opt,name=namespace" json:"namespace,omitempty"`
 	// Request metadata
-	Metadata      *messages.RequestMetadata `protobuf:"bytes,3,opt,name=metadata" json:"metadata,omitempty"`
+	Metadata      *proto.RequestMetadata `protobuf:"bytes,3,opt,name=metadata" json:"metadata,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -77,7 +77,7 @@ func (x *UnlockRequest) GetNamespace() string {
 	return ""
 }
 
-func (x *UnlockRequest) GetMetadata() *messages.RequestMetadata {
+func (x *UnlockRequest) GetMetadata() *proto.RequestMetadata {
 	if x != nil {
 		return x.Metadata
 	}
@@ -92,7 +92,7 @@ func (x *UnlockRequest) SetNamespace(v string) {
 	x.Namespace = &v
 }
 
-func (x *UnlockRequest) SetMetadata(v *messages.RequestMetadata) {
+func (x *UnlockRequest) SetMetadata(v *proto.RequestMetadata) {
 	x.Metadata = v
 }
 
@@ -137,7 +137,7 @@ type UnlockRequest_builder struct {
 	// Optional namespace
 	Namespace *string
 	// Request metadata
-	Metadata *messages.RequestMetadata
+	Metadata *proto.RequestMetadata
 }
 
 func (b0 UnlockRequest_builder) Build() *UnlockRequest {
@@ -158,13 +158,13 @@ const file_pkg_cache_proto_requests_unlock_request_proto_rawDesc = "" +
 	"\rUnlockRequest\x12\x10\n" +
 	"\x03key\x18\x01 \x01(\tR\x03key\x12\x1c\n" +
 	"\tnamespace\x18\x02 \x01(\tR\tnamespace\x12B\n" +
-	"\bmetadata\x18\x03 \x01(\v2\".gcommon.v1.common.RequestMetadataB\x02(\x01R\bmetadataB\xc8\x01\n" +
-	"\x14com.gcommon.v1.cacheB\x12UnlockRequestProtoP\x01Z2github.com/jdfalk/gcommon/pkg/cache/proto/requests\xa2\x02\x03GVC\xaa\x02\x10Gcommon.V1.Cache\xca\x02\x10Gcommon\\V1\\Cache\xe2\x02\x1cGcommon\\V1\\Cache\\GPBMetadata\xea\x02\x12Gcommon::V1::Cache\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
+	"\bmetadata\x18\x03 \x01(\v2\".gcommon.v1.common.RequestMetadataB\x02(\x01R\bmetadataB\xc7\x01\n" +
+	"\x14com.gcommon.v1.cacheB\x12UnlockRequestProtoP\x01Z1github.com/jdfalk/gcommon/pkg/cache/proto;cachepb\xa2\x02\x03GVC\xaa\x02\x10Gcommon.V1.Cache\xca\x02\x10Gcommon\\V1\\Cache\xe2\x02\x1cGcommon\\V1\\Cache\\GPBMetadata\xea\x02\x12Gcommon::V1::Cache\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
 
 var file_pkg_cache_proto_requests_unlock_request_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_pkg_cache_proto_requests_unlock_request_proto_goTypes = []any{
-	(*UnlockRequest)(nil),            // 0: gcommon.v1.cache.UnlockRequest
-	(*messages.RequestMetadata)(nil), // 1: gcommon.v1.common.RequestMetadata
+	(*UnlockRequest)(nil),         // 0: gcommon.v1.cache.UnlockRequest
+	(*proto.RequestMetadata)(nil), // 1: gcommon.v1.common.RequestMetadata
 }
 var file_pkg_cache_proto_requests_unlock_request_proto_depIdxs = []int32{
 	1, // 0: gcommon.v1.cache.UnlockRequest.metadata:type_name -> gcommon.v1.common.RequestMetadata

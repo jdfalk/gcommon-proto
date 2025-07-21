@@ -4,7 +4,7 @@
 // 	protoc        (unknown)
 // source: pkg/cache/proto/requests/get_namespace_stats_request.proto
 
-package requests
+package cachepb
 
 import (
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
@@ -94,8 +94,8 @@ const file_pkg_cache_proto_requests_get_namespace_stats_request_proto_rawDesc = 
 	"\x18GetNamespaceStatsRequest\x12!\n" +
 	"\fnamespace_id\x18\x01 \x01(\tR\vnamespaceId\x128\n" +
 	"\x18include_detailed_metrics\x18\x02 \x01(\bR\x16includeDetailedMetrics\x128\n" +
-	"\x18include_key_distribution\x18\x03 \x01(\bR\x16includeKeyDistributionB\xcb\x01\n" +
-	"\x14com.gcommon.v1.cacheB\x1dGetNamespaceStatsRequestProtoP\x01Z2github.com/jdfalk/gcommon/pkg/cache/proto/requests\xa2\x02\x03GVC\xaa\x02\x10Gcommon.V1.Cache\xca\x02\x10Gcommon\\V1\\Cache\xe2\x02\x1cGcommon\\V1\\Cache\\GPBMetadata\xea\x02\x12Gcommon::V1::Cacheb\beditionsp\xe8\a"
+	"\x18include_key_distribution\x18\x03 \x01(\bR\x16includeKeyDistributionB\xca\x01\n" +
+	"\x14com.gcommon.v1.cacheB\x1dGetNamespaceStatsRequestProtoP\x01Z1github.com/jdfalk/gcommon/pkg/cache/proto;cachepb\xa2\x02\x03GVC\xaa\x02\x10Gcommon.V1.Cache\xca\x02\x10Gcommon\\V1\\Cache\xe2\x02\x1cGcommon\\V1\\Cache\\GPBMetadata\xea\x02\x12Gcommon::V1::Cacheb\beditionsp\xe8\a"
 
 var (
 	file_pkg_cache_proto_requests_get_namespace_stats_request_proto_rawDescOnce sync.Once

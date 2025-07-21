@@ -6,7 +6,7 @@
 
 //go:build !protoopaque
 
-package messages
+package cachepb
 
 import (
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
@@ -325,8 +325,8 @@ const file_pkg_cache_proto_messages_cache_entry_proto_rawDesc = "" +
 	"\tnamespace\x18\t \x01(\tR\tnamespace\x1a;\n" +
 	"\rMetadataEntry\x12\x10\n" +
 	"\x03key\x18\x01 \x01(\tR\x03key\x12\x14\n" +
-	"\x05value\x18\x02 \x01(\tR\x05value:\x028\x01B\xc5\x01\n" +
-	"\x14com.gcommon.v1.cacheB\x0fCacheEntryProtoP\x01Z2github.com/jdfalk/gcommon/pkg/cache/proto/messages\xa2\x02\x03GVC\xaa\x02\x10Gcommon.V1.Cache\xca\x02\x10Gcommon\\V1\\Cache\xe2\x02\x1cGcommon\\V1\\Cache\\GPBMetadata\xea\x02\x12Gcommon::V1::Cache\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
+	"\x05value\x18\x02 \x01(\tR\x05value:\x028\x01B\xc4\x01\n" +
+	"\x14com.gcommon.v1.cacheB\x0fCacheEntryProtoP\x01Z1github.com/jdfalk/gcommon/pkg/cache/proto;cachepb\xa2\x02\x03GVC\xaa\x02\x10Gcommon.V1.Cache\xca\x02\x10Gcommon\\V1\\Cache\xe2\x02\x1cGcommon\\V1\\Cache\\GPBMetadata\xea\x02\x12Gcommon::V1::Cache\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
 
 var file_pkg_cache_proto_messages_cache_entry_proto_msgTypes = make([]protoimpl.MessageInfo, 2)
 var file_pkg_cache_proto_messages_cache_entry_proto_goTypes = []any{

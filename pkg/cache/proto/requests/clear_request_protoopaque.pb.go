@@ -6,10 +6,10 @@
 
 //go:build protoopaque
 
-package requests
+package cachepb
 
 import (
-	messages "github.com/jdfalk/gcommon/pkg/common/proto/messages"
+	proto "github.com/jdfalk/gcommon/pkg/common/proto"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
@@ -28,9 +28,9 @@ const (
 // Request to clear all cache entries.
 // Optionally clear only a specific namespace.
 type ClearRequest struct {
-	state                  protoimpl.MessageState    `protogen:"opaque.v1"`
-	xxx_hidden_Namespace   *string                   `protobuf:"bytes,1,opt,name=namespace"`
-	xxx_hidden_Metadata    *messages.RequestMetadata `protobuf:"bytes,2,opt,name=metadata"`
+	state                  protoimpl.MessageState `protogen:"opaque.v1"`
+	xxx_hidden_Namespace   *string                `protobuf:"bytes,1,opt,name=namespace"`
+	xxx_hidden_Metadata    *proto.RequestMetadata `protobuf:"bytes,2,opt,name=metadata"`
 	XXX_raceDetectHookData protoimpl.RaceDetectHookData
 	XXX_presence           [1]uint32
 	unknownFields          protoimpl.UnknownFields
@@ -72,7 +72,7 @@ func (x *ClearRequest) GetNamespace() string {
 	return ""
 }
 
-func (x *ClearRequest) GetMetadata() *messages.RequestMetadata {
+func (x *ClearRequest) GetMetadata() *proto.RequestMetadata {
 	if x != nil {
 		return x.xxx_hidden_Metadata
 	}
@@ -84,7 +84,7 @@ func (x *ClearRequest) SetNamespace(v string) {
 	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 0, 2)
 }
 
-func (x *ClearRequest) SetMetadata(v *messages.RequestMetadata) {
+func (x *ClearRequest) SetMetadata(v *proto.RequestMetadata) {
 	x.xxx_hidden_Metadata = v
 }
 
@@ -117,7 +117,7 @@ type ClearRequest_builder struct {
 	// Optional namespace to clear (if empty, clears all)
 	Namespace *string
 	// Request metadata for tracing
-	Metadata *messages.RequestMetadata
+	Metadata *proto.RequestMetadata
 }
 
 func (b0 ClearRequest_builder) Build() *ClearRequest {
@@ -139,13 +139,13 @@ const file_pkg_cache_proto_requests_clear_request_proto_rawDesc = "" +
 	",pkg/cache/proto/requests/clear_request.proto\x12\x10gcommon.v1.cache\x1a!google/protobuf/go_features.proto\x1a0pkg/common/proto/messages/request_metadata.proto\"l\n" +
 	"\fClearRequest\x12\x1c\n" +
 	"\tnamespace\x18\x01 \x01(\tR\tnamespace\x12>\n" +
-	"\bmetadata\x18\x02 \x01(\v2\".gcommon.v1.common.RequestMetadataR\bmetadataB\xc7\x01\n" +
-	"\x14com.gcommon.v1.cacheB\x11ClearRequestProtoP\x01Z2github.com/jdfalk/gcommon/pkg/cache/proto/requests\xa2\x02\x03GVC\xaa\x02\x10Gcommon.V1.Cache\xca\x02\x10Gcommon\\V1\\Cache\xe2\x02\x1cGcommon\\V1\\Cache\\GPBMetadata\xea\x02\x12Gcommon::V1::Cache\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
+	"\bmetadata\x18\x02 \x01(\v2\".gcommon.v1.common.RequestMetadataR\bmetadataB\xc6\x01\n" +
+	"\x14com.gcommon.v1.cacheB\x11ClearRequestProtoP\x01Z1github.com/jdfalk/gcommon/pkg/cache/proto;cachepb\xa2\x02\x03GVC\xaa\x02\x10Gcommon.V1.Cache\xca\x02\x10Gcommon\\V1\\Cache\xe2\x02\x1cGcommon\\V1\\Cache\\GPBMetadata\xea\x02\x12Gcommon::V1::Cache\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
 
 var file_pkg_cache_proto_requests_clear_request_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_pkg_cache_proto_requests_clear_request_proto_goTypes = []any{
-	(*ClearRequest)(nil),             // 0: gcommon.v1.cache.ClearRequest
-	(*messages.RequestMetadata)(nil), // 1: gcommon.v1.common.RequestMetadata
+	(*ClearRequest)(nil),          // 0: gcommon.v1.cache.ClearRequest
+	(*proto.RequestMetadata)(nil), // 1: gcommon.v1.common.RequestMetadata
 }
 var file_pkg_cache_proto_requests_clear_request_proto_depIdxs = []int32{
 	1, // 0: gcommon.v1.cache.ClearRequest.metadata:type_name -> gcommon.v1.common.RequestMetadata

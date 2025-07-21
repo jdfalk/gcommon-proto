@@ -6,10 +6,10 @@
 
 //go:build protoopaque
 
-package requests
+package cachepb
 
 import (
-	messages "github.com/jdfalk/gcommon/pkg/common/proto/messages"
+	proto "github.com/jdfalk/gcommon/pkg/common/proto"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
@@ -29,11 +29,11 @@ const (
 // Supports namespace isolation and access time tracking
 // for LRU cache policies.
 type GetRequest struct {
-	state                       protoimpl.MessageState    `protogen:"opaque.v1"`
-	xxx_hidden_Key              *string                   `protobuf:"bytes,1,opt,name=key"`
-	xxx_hidden_Namespace        *string                   `protobuf:"bytes,2,opt,name=namespace"`
-	xxx_hidden_Metadata         *messages.RequestMetadata `protobuf:"bytes,3,opt,name=metadata"`
-	xxx_hidden_UpdateAccessTime bool                      `protobuf:"varint,4,opt,name=update_access_time,json=updateAccessTime"`
+	state                       protoimpl.MessageState `protogen:"opaque.v1"`
+	xxx_hidden_Key              *string                `protobuf:"bytes,1,opt,name=key"`
+	xxx_hidden_Namespace        *string                `protobuf:"bytes,2,opt,name=namespace"`
+	xxx_hidden_Metadata         *proto.RequestMetadata `protobuf:"bytes,3,opt,name=metadata"`
+	xxx_hidden_UpdateAccessTime bool                   `protobuf:"varint,4,opt,name=update_access_time,json=updateAccessTime"`
 	// Deprecated: Do not use. This will be deleted in the near future.
 	XXX_lazyUnmarshalInfo  protoimpl.LazyUnmarshalInfo
 	XXX_raceDetectHookData protoimpl.RaceDetectHookData
@@ -87,13 +87,13 @@ func (x *GetRequest) GetNamespace() string {
 	return ""
 }
 
-func (x *GetRequest) GetMetadata() *messages.RequestMetadata {
+func (x *GetRequest) GetMetadata() *proto.RequestMetadata {
 	if x != nil {
 		if protoimpl.X.Present(&(x.XXX_presence[0]), 2) {
 			if protoimpl.X.AtomicCheckPointerIsNil(&x.xxx_hidden_Metadata) {
 				protoimpl.X.UnmarshalField(x, 3)
 			}
-			var rv *messages.RequestMetadata
+			var rv *proto.RequestMetadata
 			protoimpl.X.AtomicLoadPointer(protoimpl.Pointer(&x.xxx_hidden_Metadata), protoimpl.Pointer(&rv))
 			return rv
 		}
@@ -118,7 +118,7 @@ func (x *GetRequest) SetNamespace(v string) {
 	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 1, 4)
 }
 
-func (x *GetRequest) SetMetadata(v *messages.RequestMetadata) {
+func (x *GetRequest) SetMetadata(v *proto.RequestMetadata) {
 	protoimpl.X.AtomicSetPointer(&x.xxx_hidden_Metadata, v)
 	if v == nil {
 		protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 2)
@@ -172,7 +172,7 @@ func (x *GetRequest) ClearNamespace() {
 
 func (x *GetRequest) ClearMetadata() {
 	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 2)
-	protoimpl.X.AtomicSetPointer(&x.xxx_hidden_Metadata, (*messages.RequestMetadata)(nil))
+	protoimpl.X.AtomicSetPointer(&x.xxx_hidden_Metadata, (*proto.RequestMetadata)(nil))
 }
 
 func (x *GetRequest) ClearUpdateAccessTime() {
@@ -188,7 +188,7 @@ type GetRequest_builder struct {
 	// Optional namespace for cache isolation
 	Namespace *string
 	// Request metadata for tracing and correlation
-	Metadata *messages.RequestMetadata
+	Metadata *proto.RequestMetadata
 	// Whether to update access time (for LRU policies)
 	UpdateAccessTime *bool
 }
@@ -226,13 +226,13 @@ const file_pkg_cache_proto_requests_get_request_proto_rawDesc = "" +
 	"\x03key\x18\x01 \x01(\tR\x03key\x12\x1c\n" +
 	"\tnamespace\x18\x02 \x01(\tR\tnamespace\x12B\n" +
 	"\bmetadata\x18\x03 \x01(\v2\".gcommon.v1.common.RequestMetadataB\x02(\x01R\bmetadata\x12,\n" +
-	"\x12update_access_time\x18\x04 \x01(\bR\x10updateAccessTimeB\xc5\x01\n" +
-	"\x14com.gcommon.v1.cacheB\x0fGetRequestProtoP\x01Z2github.com/jdfalk/gcommon/pkg/cache/proto/requests\xa2\x02\x03GVC\xaa\x02\x10Gcommon.V1.Cache\xca\x02\x10Gcommon\\V1\\Cache\xe2\x02\x1cGcommon\\V1\\Cache\\GPBMetadata\xea\x02\x12Gcommon::V1::Cache\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
+	"\x12update_access_time\x18\x04 \x01(\bR\x10updateAccessTimeB\xc4\x01\n" +
+	"\x14com.gcommon.v1.cacheB\x0fGetRequestProtoP\x01Z1github.com/jdfalk/gcommon/pkg/cache/proto;cachepb\xa2\x02\x03GVC\xaa\x02\x10Gcommon.V1.Cache\xca\x02\x10Gcommon\\V1\\Cache\xe2\x02\x1cGcommon\\V1\\Cache\\GPBMetadata\xea\x02\x12Gcommon::V1::Cache\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
 
 var file_pkg_cache_proto_requests_get_request_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_pkg_cache_proto_requests_get_request_proto_goTypes = []any{
-	(*GetRequest)(nil),               // 0: gcommon.v1.cache.GetRequest
-	(*messages.RequestMetadata)(nil), // 1: gcommon.v1.common.RequestMetadata
+	(*GetRequest)(nil),            // 0: gcommon.v1.cache.GetRequest
+	(*proto.RequestMetadata)(nil), // 1: gcommon.v1.common.RequestMetadata
 }
 var file_pkg_cache_proto_requests_get_request_proto_depIdxs = []int32{
 	1, // 0: gcommon.v1.cache.GetRequest.metadata:type_name -> gcommon.v1.common.RequestMetadata

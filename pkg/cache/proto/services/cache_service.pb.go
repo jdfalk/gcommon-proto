@@ -6,11 +6,9 @@
 
 //go:build !protoopaque
 
-package services
+package cachepb
 
 import (
-	requests "github.com/jdfalk/gcommon/pkg/cache/proto/requests"
-	responses "github.com/jdfalk/gcommon/pkg/cache/proto/responses"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
@@ -44,38 +42,38 @@ const file_pkg_cache_proto_services_cache_service_proto_rawDesc = "" +
 	"\x04Keys\x12\x1d.gcommon.v1.cache.KeysRequest\x1a\x1e.gcommon.v1.cache.KeysResponse\x12Q\n" +
 	"\bGetStats\x12!.gcommon.v1.cache.GetStatsRequest\x1a\".gcommon.v1.cache.GetStatsResponse\x12H\n" +
 	"\x05Flush\x12\x1e.gcommon.v1.cache.FlushRequest\x1a\x1f.gcommon.v1.cache.FlushResponse\x12f\n" +
-	"\x0fTouchExpiration\x12(.gcommon.v1.cache.TouchExpirationRequest\x1a).gcommon.v1.cache.TouchExpirationResponseB\xc7\x01\n" +
-	"\x14com.gcommon.v1.cacheB\x11CacheServiceProtoP\x01Z2github.com/jdfalk/gcommon/pkg/cache/proto/services\xa2\x02\x03GVC\xaa\x02\x10Gcommon.V1.Cache\xca\x02\x10Gcommon\\V1\\Cache\xe2\x02\x1cGcommon\\V1\\Cache\\GPBMetadata\xea\x02\x12Gcommon::V1::Cache\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
+	"\x0fTouchExpiration\x12(.gcommon.v1.cache.TouchExpirationRequest\x1a).gcommon.v1.cache.TouchExpirationResponseB\xc6\x01\n" +
+	"\x14com.gcommon.v1.cacheB\x11CacheServiceProtoP\x01Z1github.com/jdfalk/gcommon/pkg/cache/proto;cachepb\xa2\x02\x03GVC\xaa\x02\x10Gcommon.V1.Cache\xca\x02\x10Gcommon\\V1\\Cache\xe2\x02\x1cGcommon\\V1\\Cache\\GPBMetadata\xea\x02\x12Gcommon::V1::Cache\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
 
 var file_pkg_cache_proto_services_cache_service_proto_goTypes = []any{
-	(*requests.GetRequest)(nil),               // 0: gcommon.v1.cache.GetRequest
-	(*requests.SetRequest)(nil),               // 1: gcommon.v1.cache.SetRequest
-	(*requests.DeleteRequest)(nil),            // 2: gcommon.v1.cache.DeleteRequest
-	(*requests.ExistsRequest)(nil),            // 3: gcommon.v1.cache.ExistsRequest
-	(*requests.GetMultipleRequest)(nil),       // 4: gcommon.v1.cache.GetMultipleRequest
-	(*requests.SetMultipleRequest)(nil),       // 5: gcommon.v1.cache.SetMultipleRequest
-	(*requests.DeleteMultipleRequest)(nil),    // 6: gcommon.v1.cache.DeleteMultipleRequest
-	(*requests.IncrementRequest)(nil),         // 7: gcommon.v1.cache.IncrementRequest
-	(*requests.DecrementRequest)(nil),         // 8: gcommon.v1.cache.DecrementRequest
-	(*requests.ClearRequest)(nil),             // 9: gcommon.v1.cache.ClearRequest
-	(*requests.KeysRequest)(nil),              // 10: gcommon.v1.cache.KeysRequest
-	(*requests.GetStatsRequest)(nil),          // 11: gcommon.v1.cache.GetStatsRequest
-	(*requests.FlushRequest)(nil),             // 12: gcommon.v1.cache.FlushRequest
-	(*requests.TouchExpirationRequest)(nil),   // 13: gcommon.v1.cache.TouchExpirationRequest
-	(*responses.GetResponse)(nil),             // 14: gcommon.v1.cache.GetResponse
-	(*responses.SetResponse)(nil),             // 15: gcommon.v1.cache.SetResponse
-	(*responses.DeleteResponse)(nil),          // 16: gcommon.v1.cache.DeleteResponse
-	(*responses.ExistsResponse)(nil),          // 17: gcommon.v1.cache.ExistsResponse
-	(*responses.GetMultipleResponse)(nil),     // 18: gcommon.v1.cache.GetMultipleResponse
-	(*responses.SetMultipleResponse)(nil),     // 19: gcommon.v1.cache.SetMultipleResponse
-	(*responses.DeleteMultipleResponse)(nil),  // 20: gcommon.v1.cache.DeleteMultipleResponse
-	(*responses.IncrementResponse)(nil),       // 21: gcommon.v1.cache.IncrementResponse
-	(*responses.DecrementResponse)(nil),       // 22: gcommon.v1.cache.DecrementResponse
-	(*responses.ClearResponse)(nil),           // 23: gcommon.v1.cache.ClearResponse
-	(*responses.KeysResponse)(nil),            // 24: gcommon.v1.cache.KeysResponse
-	(*responses.GetStatsResponse)(nil),        // 25: gcommon.v1.cache.GetStatsResponse
-	(*responses.FlushResponse)(nil),           // 26: gcommon.v1.cache.FlushResponse
-	(*responses.TouchExpirationResponse)(nil), // 27: gcommon.v1.cache.TouchExpirationResponse
+	(*GetRequest)(nil),              // 0: gcommon.v1.cache.GetRequest
+	(*SetRequest)(nil),              // 1: gcommon.v1.cache.SetRequest
+	(*DeleteRequest)(nil),           // 2: gcommon.v1.cache.DeleteRequest
+	(*ExistsRequest)(nil),           // 3: gcommon.v1.cache.ExistsRequest
+	(*GetMultipleRequest)(nil),      // 4: gcommon.v1.cache.GetMultipleRequest
+	(*SetMultipleRequest)(nil),      // 5: gcommon.v1.cache.SetMultipleRequest
+	(*DeleteMultipleRequest)(nil),   // 6: gcommon.v1.cache.DeleteMultipleRequest
+	(*IncrementRequest)(nil),        // 7: gcommon.v1.cache.IncrementRequest
+	(*DecrementRequest)(nil),        // 8: gcommon.v1.cache.DecrementRequest
+	(*ClearRequest)(nil),            // 9: gcommon.v1.cache.ClearRequest
+	(*KeysRequest)(nil),             // 10: gcommon.v1.cache.KeysRequest
+	(*GetStatsRequest)(nil),         // 11: gcommon.v1.cache.GetStatsRequest
+	(*FlushRequest)(nil),            // 12: gcommon.v1.cache.FlushRequest
+	(*TouchExpirationRequest)(nil),  // 13: gcommon.v1.cache.TouchExpirationRequest
+	(*GetResponse)(nil),             // 14: gcommon.v1.cache.GetResponse
+	(*SetResponse)(nil),             // 15: gcommon.v1.cache.SetResponse
+	(*DeleteResponse)(nil),          // 16: gcommon.v1.cache.DeleteResponse
+	(*ExistsResponse)(nil),          // 17: gcommon.v1.cache.ExistsResponse
+	(*GetMultipleResponse)(nil),     // 18: gcommon.v1.cache.GetMultipleResponse
+	(*SetMultipleResponse)(nil),     // 19: gcommon.v1.cache.SetMultipleResponse
+	(*DeleteMultipleResponse)(nil),  // 20: gcommon.v1.cache.DeleteMultipleResponse
+	(*IncrementResponse)(nil),       // 21: gcommon.v1.cache.IncrementResponse
+	(*DecrementResponse)(nil),       // 22: gcommon.v1.cache.DecrementResponse
+	(*ClearResponse)(nil),           // 23: gcommon.v1.cache.ClearResponse
+	(*KeysResponse)(nil),            // 24: gcommon.v1.cache.KeysResponse
+	(*GetStatsResponse)(nil),        // 25: gcommon.v1.cache.GetStatsResponse
+	(*FlushResponse)(nil),           // 26: gcommon.v1.cache.FlushResponse
+	(*TouchExpirationResponse)(nil), // 27: gcommon.v1.cache.TouchExpirationResponse
 }
 var file_pkg_cache_proto_services_cache_service_proto_depIdxs = []int32{
 	0,  // 0: gcommon.v1.cache.CacheService.Get:input_type -> gcommon.v1.cache.GetRequest
@@ -118,6 +116,34 @@ func file_pkg_cache_proto_services_cache_service_proto_init() {
 	if File_pkg_cache_proto_services_cache_service_proto != nil {
 		return
 	}
+	file_pkg_cache_proto_requests_get_request_proto_init()
+	file_pkg_cache_proto_responses_get_response_proto_init()
+	file_pkg_cache_proto_requests_set_request_proto_init()
+	file_pkg_cache_proto_responses_set_response_proto_init()
+	file_pkg_cache_proto_requests_delete_request_proto_init()
+	file_pkg_cache_proto_responses_delete_response_proto_init()
+	file_pkg_cache_proto_requests_exists_request_proto_init()
+	file_pkg_cache_proto_responses_exists_response_proto_init()
+	file_pkg_cache_proto_requests_get_multiple_request_proto_init()
+	file_pkg_cache_proto_responses_get_multiple_response_proto_init()
+	file_pkg_cache_proto_requests_set_multiple_request_proto_init()
+	file_pkg_cache_proto_responses_set_multiple_response_proto_init()
+	file_pkg_cache_proto_requests_delete_multiple_request_proto_init()
+	file_pkg_cache_proto_responses_delete_multiple_response_proto_init()
+	file_pkg_cache_proto_requests_increment_request_proto_init()
+	file_pkg_cache_proto_responses_increment_response_proto_init()
+	file_pkg_cache_proto_requests_decrement_request_proto_init()
+	file_pkg_cache_proto_responses_decrement_response_proto_init()
+	file_pkg_cache_proto_requests_clear_request_proto_init()
+	file_pkg_cache_proto_responses_clear_response_proto_init()
+	file_pkg_cache_proto_requests_keys_request_proto_init()
+	file_pkg_cache_proto_responses_keys_response_proto_init()
+	file_pkg_cache_proto_requests_stats_request_proto_init()
+	file_pkg_cache_proto_responses_get_stats_response_proto_init()
+	file_pkg_cache_proto_requests_flush_request_proto_init()
+	file_pkg_cache_proto_responses_flush_response_proto_init()
+	file_pkg_cache_proto_requests_ttl_request_proto_init()
+	file_pkg_cache_proto_responses_touch_expiration_response_proto_init()
 	type x struct{}
 	out := protoimpl.TypeBuilder{
 		File: protoimpl.DescBuilder{

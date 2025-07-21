@@ -6,7 +6,7 @@
 
 //go:build !protoopaque
 
-package messages
+package cachepb
 
 import (
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
@@ -441,8 +441,8 @@ const file_pkg_cache_proto_messages_cache_metrics_proto_rawDesc = "" +
 	" \x01(\x03R\x0fnetworkBytesOut\x12*\n" +
 	"\x11cpu_usage_percent\x18\v \x01(\x01R\x0fcpuUsagePercent\x120\n" +
 	"\x14memory_usage_percent\x18\f \x01(\x01R\x12memoryUsagePercent\x12=\n" +
-	"\fcollected_at\x18\r \x01(\v2\x1a.google.protobuf.TimestampR\vcollectedAtB\xc7\x01\n" +
-	"\x14com.gcommon.v1.cacheB\x11CacheMetricsProtoP\x01Z2github.com/jdfalk/gcommon/pkg/cache/proto/messages\xa2\x02\x03GVC\xaa\x02\x10Gcommon.V1.Cache\xca\x02\x10Gcommon\\V1\\Cache\xe2\x02\x1cGcommon\\V1\\Cache\\GPBMetadata\xea\x02\x12Gcommon::V1::Cache\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
+	"\fcollected_at\x18\r \x01(\v2\x1a.google.protobuf.TimestampR\vcollectedAtB\xc6\x01\n" +
+	"\x14com.gcommon.v1.cacheB\x11CacheMetricsProtoP\x01Z1github.com/jdfalk/gcommon/pkg/cache/proto;cachepb\xa2\x02\x03GVC\xaa\x02\x10Gcommon.V1.Cache\xca\x02\x10Gcommon\\V1\\Cache\xe2\x02\x1cGcommon\\V1\\Cache\\GPBMetadata\xea\x02\x12Gcommon::V1::Cache\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
 
 var file_pkg_cache_proto_messages_cache_metrics_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_pkg_cache_proto_messages_cache_metrics_proto_goTypes = []any{

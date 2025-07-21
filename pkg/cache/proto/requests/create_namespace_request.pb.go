@@ -4,7 +4,7 @@
 // 	protoc        (unknown)
 // source: pkg/cache/proto/requests/create_namespace_request.proto
 
-package requests
+package cachepb
 
 import (
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
@@ -127,8 +127,8 @@ const file_pkg_cache_proto_requests_create_namespace_request_proto_rawDesc = "" 
 	"\x06config\x18\x06 \x03(\v24.gcommon.v1.cache.CreateNamespaceRequest.ConfigEntryR\x06config\x1a9\n" +
 	"\vConfigEntry\x12\x10\n" +
 	"\x03key\x18\x01 \x01(\tR\x03key\x12\x14\n" +
-	"\x05value\x18\x02 \x01(\tR\x05value:\x028\x01B\xc9\x01\n" +
-	"\x14com.gcommon.v1.cacheB\x1bCreateNamespaceRequestProtoP\x01Z2github.com/jdfalk/gcommon/pkg/cache/proto/requests\xa2\x02\x03GVC\xaa\x02\x10Gcommon.V1.Cache\xca\x02\x10Gcommon\\V1\\Cache\xe2\x02\x1cGcommon\\V1\\Cache\\GPBMetadata\xea\x02\x12Gcommon::V1::Cacheb\beditionsp\xe8\a"
+	"\x05value\x18\x02 \x01(\tR\x05value:\x028\x01B\xc8\x01\n" +
+	"\x14com.gcommon.v1.cacheB\x1bCreateNamespaceRequestProtoP\x01Z1github.com/jdfalk/gcommon/pkg/cache/proto;cachepb\xa2\x02\x03GVC\xaa\x02\x10Gcommon.V1.Cache\xca\x02\x10Gcommon\\V1\\Cache\xe2\x02\x1cGcommon\\V1\\Cache\\GPBMetadata\xea\x02\x12Gcommon::V1::Cacheb\beditionsp\xe8\a"
 
 var (
 	file_pkg_cache_proto_requests_create_namespace_request_proto_rawDescOnce sync.Once

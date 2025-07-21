@@ -6,11 +6,9 @@
 
 //go:build !protoopaque
 
-package proto
+package cachepb
 
 import (
-	messages "github.com/jdfalk/gcommon/pkg/cache/proto/messages"
-	_ "github.com/jdfalk/gcommon/pkg/cache/proto/services"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
@@ -25,52 +23,13 @@ const (
 	_ = protoimpl.EnforceVersion(protoimpl.MaxVersion - 20)
 )
 
-// Symbols defined in public import of pkg/cache/proto/services/cache_service.proto.
-
-// Symbols defined in public import of pkg/cache/proto/services/cache_admin_service.proto.
-
-// Symbols defined in public import of pkg/cache/proto/messages/cache_entry.proto.
-
-type CacheEntry = messages.CacheEntry
-type CacheEntry_builder = messages.CacheEntry_builder
-
-// Symbols defined in public import of pkg/cache/proto/messages/cache_config.proto.
-
-type CacheConfig = messages.CacheConfig
-type CacheConfig_builder = messages.CacheConfig_builder
-
-// Symbols defined in public import of pkg/cache/proto/messages/cache_stats.proto.
-
-type CacheStats = messages.CacheStats
-type CacheStats_builder = messages.CacheStats_builder
-
-// Symbols defined in public import of pkg/cache/proto/messages/cache_info.proto.
-
-type CacheInfo = messages.CacheInfo
-type CacheInfo_builder = messages.CacheInfo_builder
-
-// Symbols defined in public import of pkg/cache/proto/messages/eviction_result.proto.
-
-type EvictionResult = messages.EvictionResult
-type EvictionResult_builder = messages.EvictionResult_builder
-
-// Symbols defined in public import of pkg/cache/proto/messages/cache_metrics.proto.
-
-type CacheMetrics = messages.CacheMetrics
-type CacheMetrics_builder = messages.CacheMetrics_builder
-
-// Symbols defined in public import of pkg/cache/proto/messages/cache_operation_result.proto.
-
-type CacheOperationResult = messages.CacheOperationResult
-type CacheOperationResult_builder = messages.CacheOperationResult_builder
-
 var File_pkg_cache_proto_cache_proto protoreflect.FileDescriptor
 
 const file_pkg_cache_proto_cache_proto_rawDesc = "" +
 	"\n" +
-	"\x1bpkg/cache/proto/cache.proto\x12\x10gcommon.v1.cache\x1a!google/protobuf/go_features.proto\x1a,pkg/cache/proto/services/cache_service.proto\x1a2pkg/cache/proto/services/cache_admin_service.proto\x1a*pkg/cache/proto/messages/cache_entry.proto\x1a+pkg/cache/proto/messages/cache_config.proto\x1a*pkg/cache/proto/messages/cache_stats.proto\x1a)pkg/cache/proto/messages/cache_info.proto\x1a.pkg/cache/proto/messages/eviction_result.proto\x1a,pkg/cache/proto/messages/cache_metrics.proto\x1a5pkg/cache/proto/messages/cache_operation_result.protoB\xb7\x01\n" +
+	"\x1bpkg/cache/proto/cache.proto\x12\x10gcommon.v1.cache\x1a!google/protobuf/go_features.proto\x1a,pkg/cache/proto/services/cache_service.proto\x1a2pkg/cache/proto/services/cache_admin_service.proto\x1a*pkg/cache/proto/messages/cache_entry.proto\x1a+pkg/cache/proto/messages/cache_config.proto\x1a*pkg/cache/proto/messages/cache_stats.proto\x1a)pkg/cache/proto/messages/cache_info.proto\x1a.pkg/cache/proto/messages/eviction_result.proto\x1a,pkg/cache/proto/messages/cache_metrics.proto\x1a5pkg/cache/proto/messages/cache_operation_result.protoB\xbf\x01\n" +
 	"\x14com.gcommon.v1.cacheB\n" +
-	"CacheProtoP\x01Z)github.com/jdfalk/gcommon/pkg/cache/proto\xa2\x02\x03GVC\xaa\x02\x10Gcommon.V1.Cache\xca\x02\x10Gcommon\\V1\\Cache\xe2\x02\x1cGcommon\\V1\\Cache\\GPBMetadata\xea\x02\x12Gcommon::V1::Cache\x92\x03\x05\xd2>\x02\x10\x02P\x01P\x02P\x03P\x04P\x05P\x06P\aP\bP\tb\beditionsp\xe8\a"
+	"CacheProtoP\x01Z1github.com/jdfalk/gcommon/pkg/cache/proto;cachepb\xa2\x02\x03GVC\xaa\x02\x10Gcommon.V1.Cache\xca\x02\x10Gcommon\\V1\\Cache\xe2\x02\x1cGcommon\\V1\\Cache\\GPBMetadata\xea\x02\x12Gcommon::V1::Cache\x92\x03\x05\xd2>\x02\x10\x02P\x01P\x02P\x03P\x04P\x05P\x06P\aP\bP\tb\beditionsp\xe8\a"
 
 var file_pkg_cache_proto_cache_proto_goTypes = []any{}
 var file_pkg_cache_proto_cache_proto_depIdxs = []int32{
@@ -86,6 +45,15 @@ func file_pkg_cache_proto_cache_proto_init() {
 	if File_pkg_cache_proto_cache_proto != nil {
 		return
 	}
+	file_pkg_cache_proto_services_cache_service_proto_init()
+	file_pkg_cache_proto_services_cache_admin_service_proto_init()
+	file_pkg_cache_proto_messages_cache_entry_proto_init()
+	file_pkg_cache_proto_messages_cache_config_proto_init()
+	file_pkg_cache_proto_messages_cache_stats_proto_init()
+	file_pkg_cache_proto_messages_cache_info_proto_init()
+	file_pkg_cache_proto_messages_eviction_result_proto_init()
+	file_pkg_cache_proto_messages_cache_metrics_proto_init()
+	file_pkg_cache_proto_messages_cache_operation_result_proto_init()
 	type x struct{}
 	out := protoimpl.TypeBuilder{
 		File: protoimpl.DescBuilder{

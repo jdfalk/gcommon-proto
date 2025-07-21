@@ -6,10 +6,9 @@
 
 //go:build !protoopaque
 
-package responses
+package cachepb
 
 import (
-	messages "github.com/jdfalk/gcommon/pkg/cache/proto/messages"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
@@ -30,7 +29,7 @@ const (
 type GetResponse struct {
 	state protoimpl.MessageState `protogen:"hybrid.v1"`
 	// The cached entry (only present if found)
-	Entry *messages.CacheEntry `protobuf:"bytes,1,opt,name=entry" json:"entry,omitempty"`
+	Entry *CacheEntry `protobuf:"bytes,1,opt,name=entry" json:"entry,omitempty"`
 	// Whether the key was found in the cache
 	Found *bool `protobuf:"varint,2,opt,name=found" json:"found,omitempty"`
 	// Cache hit/miss information for metrics
@@ -64,7 +63,7 @@ func (x *GetResponse) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-func (x *GetResponse) GetEntry() *messages.CacheEntry {
+func (x *GetResponse) GetEntry() *CacheEntry {
 	if x != nil {
 		return x.Entry
 	}
@@ -85,7 +84,7 @@ func (x *GetResponse) GetCacheHit() bool {
 	return false
 }
 
-func (x *GetResponse) SetEntry(v *messages.CacheEntry) {
+func (x *GetResponse) SetEntry(v *CacheEntry) {
 	x.Entry = v
 }
 
@@ -134,7 +133,7 @@ type GetResponse_builder struct {
 	_ [0]func() // Prevents comparability and use of unkeyed literals for the builder.
 
 	// The cached entry (only present if found)
-	Entry *messages.CacheEntry
+	Entry *CacheEntry
 	// Whether the key was found in the cache
 	Found *bool
 	// Cache hit/miss information for metrics
@@ -159,13 +158,13 @@ const file_pkg_cache_proto_responses_get_response_proto_rawDesc = "" +
 	"\vGetResponse\x126\n" +
 	"\x05entry\x18\x01 \x01(\v2\x1c.gcommon.v1.cache.CacheEntryB\x02(\x01R\x05entry\x12\x14\n" +
 	"\x05found\x18\x02 \x01(\bR\x05found\x12\x1b\n" +
-	"\tcache_hit\x18\x03 \x01(\bR\bcacheHitB\xc7\x01\n" +
-	"\x14com.gcommon.v1.cacheB\x10GetResponseProtoP\x01Z3github.com/jdfalk/gcommon/pkg/cache/proto/responses\xa2\x02\x03GVC\xaa\x02\x10Gcommon.V1.Cache\xca\x02\x10Gcommon\\V1\\Cache\xe2\x02\x1cGcommon\\V1\\Cache\\GPBMetadata\xea\x02\x12Gcommon::V1::Cache\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
+	"\tcache_hit\x18\x03 \x01(\bR\bcacheHitB\xc5\x01\n" +
+	"\x14com.gcommon.v1.cacheB\x10GetResponseProtoP\x01Z1github.com/jdfalk/gcommon/pkg/cache/proto;cachepb\xa2\x02\x03GVC\xaa\x02\x10Gcommon.V1.Cache\xca\x02\x10Gcommon\\V1\\Cache\xe2\x02\x1cGcommon\\V1\\Cache\\GPBMetadata\xea\x02\x12Gcommon::V1::Cache\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
 
 var file_pkg_cache_proto_responses_get_response_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_pkg_cache_proto_responses_get_response_proto_goTypes = []any{
-	(*GetResponse)(nil),         // 0: gcommon.v1.cache.GetResponse
-	(*messages.CacheEntry)(nil), // 1: gcommon.v1.cache.CacheEntry
+	(*GetResponse)(nil), // 0: gcommon.v1.cache.GetResponse
+	(*CacheEntry)(nil),  // 1: gcommon.v1.cache.CacheEntry
 }
 var file_pkg_cache_proto_responses_get_response_proto_depIdxs = []int32{
 	1, // 0: gcommon.v1.cache.GetResponse.entry:type_name -> gcommon.v1.cache.CacheEntry
@@ -181,6 +180,7 @@ func file_pkg_cache_proto_responses_get_response_proto_init() {
 	if File_pkg_cache_proto_responses_get_response_proto != nil {
 		return
 	}
+	file_pkg_cache_proto_messages_cache_entry_proto_init()
 	type x struct{}
 	out := protoimpl.TypeBuilder{
 		File: protoimpl.DescBuilder{

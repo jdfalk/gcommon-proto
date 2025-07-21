@@ -4,7 +4,7 @@
 // 	protoc        (unknown)
 // source: pkg/cache/proto/responses/list_namespaces_response.proto
 
-package responses
+package cachepb
 
 import (
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
@@ -232,8 +232,8 @@ const file_pkg_cache_proto_responses_list_namespaces_response_proto_rawDesc = ""
 	"\x04page\x18\x03 \x01(\x05R\x04page\x12\x1b\n" +
 	"\tpage_size\x18\x04 \x01(\x05R\bpageSize\x12\x1f\n" +
 	"\vtotal_pages\x18\x05 \x01(\x05R\n" +
-	"totalPagesB\xca\x01\n" +
-	"\x14com.gcommon.v1.cacheB\x1bListNamespacesResponseProtoP\x01Z3github.com/jdfalk/gcommon/pkg/cache/proto/responses\xa2\x02\x03GVC\xaa\x02\x10Gcommon.V1.Cache\xca\x02\x10Gcommon\\V1\\Cache\xe2\x02\x1cGcommon\\V1\\Cache\\GPBMetadata\xea\x02\x12Gcommon::V1::Cacheb\beditionsp\xe8\a"
+	"totalPagesB\xc8\x01\n" +
+	"\x14com.gcommon.v1.cacheB\x1bListNamespacesResponseProtoP\x01Z1github.com/jdfalk/gcommon/pkg/cache/proto;cachepb\xa2\x02\x03GVC\xaa\x02\x10Gcommon.V1.Cache\xca\x02\x10Gcommon\\V1\\Cache\xe2\x02\x1cGcommon\\V1\\Cache\\GPBMetadata\xea\x02\x12Gcommon::V1::Cacheb\beditionsp\xe8\a"
 
 var (
 	file_pkg_cache_proto_responses_list_namespaces_response_proto_rawDescOnce sync.Once

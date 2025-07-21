@@ -6,10 +6,10 @@
 
 //go:build !protoopaque
 
-package requests
+package cachepb
 
 import (
-	messages "github.com/jdfalk/gcommon/pkg/common/proto/messages"
+	proto "github.com/jdfalk/gcommon/pkg/common/proto"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
@@ -40,7 +40,7 @@ type SetRequest struct {
 	// Time-to-live for the cache entry (0 for no expiration)
 	Ttl *durationpb.Duration `protobuf:"bytes,4,opt,name=ttl" json:"ttl,omitempty"`
 	// Request metadata for tracing and correlation
-	Metadata *messages.RequestMetadata `protobuf:"bytes,5,opt,name=metadata" json:"metadata,omitempty"`
+	Metadata *proto.RequestMetadata `protobuf:"bytes,5,opt,name=metadata" json:"metadata,omitempty"`
 	// Whether to overwrite existing value
 	Overwrite *bool `protobuf:"varint,6,opt,name=overwrite" json:"overwrite,omitempty"`
 	// Entry metadata for extensibility
@@ -102,7 +102,7 @@ func (x *SetRequest) GetTtl() *durationpb.Duration {
 	return nil
 }
 
-func (x *SetRequest) GetMetadata() *messages.RequestMetadata {
+func (x *SetRequest) GetMetadata() *proto.RequestMetadata {
 	if x != nil {
 		return x.Metadata
 	}
@@ -139,7 +139,7 @@ func (x *SetRequest) SetTtl(v *durationpb.Duration) {
 	x.Ttl = v
 }
 
-func (x *SetRequest) SetMetadata(v *messages.RequestMetadata) {
+func (x *SetRequest) SetMetadata(v *proto.RequestMetadata) {
 	x.Metadata = v
 }
 
@@ -229,7 +229,7 @@ type SetRequest_builder struct {
 	// Time-to-live for the cache entry (0 for no expiration)
 	Ttl *durationpb.Duration
 	// Request metadata for tracing and correlation
-	Metadata *messages.RequestMetadata
+	Metadata *proto.RequestMetadata
 	// Whether to overwrite existing value
 	Overwrite *bool
 	// Entry metadata for extensibility
@@ -266,16 +266,16 @@ const file_pkg_cache_proto_requests_set_request_proto_rawDesc = "" +
 	"\x0eentry_metadata\x18\a \x03(\v2/.gcommon.v1.cache.SetRequest.EntryMetadataEntryB\x02(\x01R\rentryMetadata\x1a@\n" +
 	"\x12EntryMetadataEntry\x12\x10\n" +
 	"\x03key\x18\x01 \x01(\tR\x03key\x12\x14\n" +
-	"\x05value\x18\x02 \x01(\tR\x05value:\x028\x01B\xc5\x01\n" +
-	"\x14com.gcommon.v1.cacheB\x0fSetRequestProtoP\x01Z2github.com/jdfalk/gcommon/pkg/cache/proto/requests\xa2\x02\x03GVC\xaa\x02\x10Gcommon.V1.Cache\xca\x02\x10Gcommon\\V1\\Cache\xe2\x02\x1cGcommon\\V1\\Cache\\GPBMetadata\xea\x02\x12Gcommon::V1::Cache\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
+	"\x05value\x18\x02 \x01(\tR\x05value:\x028\x01B\xc4\x01\n" +
+	"\x14com.gcommon.v1.cacheB\x0fSetRequestProtoP\x01Z1github.com/jdfalk/gcommon/pkg/cache/proto;cachepb\xa2\x02\x03GVC\xaa\x02\x10Gcommon.V1.Cache\xca\x02\x10Gcommon\\V1\\Cache\xe2\x02\x1cGcommon\\V1\\Cache\\GPBMetadata\xea\x02\x12Gcommon::V1::Cache\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
 
 var file_pkg_cache_proto_requests_set_request_proto_msgTypes = make([]protoimpl.MessageInfo, 2)
 var file_pkg_cache_proto_requests_set_request_proto_goTypes = []any{
-	(*SetRequest)(nil),               // 0: gcommon.v1.cache.SetRequest
-	nil,                              // 1: gcommon.v1.cache.SetRequest.EntryMetadataEntry
-	(*anypb.Any)(nil),                // 2: google.protobuf.Any
-	(*durationpb.Duration)(nil),      // 3: google.protobuf.Duration
-	(*messages.RequestMetadata)(nil), // 4: gcommon.v1.common.RequestMetadata
+	(*SetRequest)(nil),            // 0: gcommon.v1.cache.SetRequest
+	nil,                           // 1: gcommon.v1.cache.SetRequest.EntryMetadataEntry
+	(*anypb.Any)(nil),             // 2: google.protobuf.Any
+	(*durationpb.Duration)(nil),   // 3: google.protobuf.Duration
+	(*proto.RequestMetadata)(nil), // 4: gcommon.v1.common.RequestMetadata
 }
 var file_pkg_cache_proto_requests_set_request_proto_depIdxs = []int32{
 	2, // 0: gcommon.v1.cache.SetRequest.value:type_name -> google.protobuf.Any

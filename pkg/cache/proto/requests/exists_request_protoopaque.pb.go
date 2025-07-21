@@ -6,10 +6,10 @@
 
 //go:build protoopaque
 
-package requests
+package cachepb
 
 import (
-	messages "github.com/jdfalk/gcommon/pkg/common/proto/messages"
+	proto "github.com/jdfalk/gcommon/pkg/common/proto"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
@@ -27,10 +27,10 @@ const (
 // *
 // Request to check for the existence of a cache key.
 type ExistsRequest struct {
-	state                protoimpl.MessageState    `protogen:"opaque.v1"`
-	xxx_hidden_Key       *string                   `protobuf:"bytes,1,opt,name=key"`
-	xxx_hidden_Namespace *string                   `protobuf:"bytes,2,opt,name=namespace"`
-	xxx_hidden_Metadata  *messages.RequestMetadata `protobuf:"bytes,3,opt,name=metadata"`
+	state                protoimpl.MessageState `protogen:"opaque.v1"`
+	xxx_hidden_Key       *string                `protobuf:"bytes,1,opt,name=key"`
+	xxx_hidden_Namespace *string                `protobuf:"bytes,2,opt,name=namespace"`
+	xxx_hidden_Metadata  *proto.RequestMetadata `protobuf:"bytes,3,opt,name=metadata"`
 	// Deprecated: Do not use. This will be deleted in the near future.
 	XXX_lazyUnmarshalInfo  protoimpl.LazyUnmarshalInfo
 	XXX_raceDetectHookData protoimpl.RaceDetectHookData
@@ -84,13 +84,13 @@ func (x *ExistsRequest) GetNamespace() string {
 	return ""
 }
 
-func (x *ExistsRequest) GetMetadata() *messages.RequestMetadata {
+func (x *ExistsRequest) GetMetadata() *proto.RequestMetadata {
 	if x != nil {
 		if protoimpl.X.Present(&(x.XXX_presence[0]), 2) {
 			if protoimpl.X.AtomicCheckPointerIsNil(&x.xxx_hidden_Metadata) {
 				protoimpl.X.UnmarshalField(x, 3)
 			}
-			var rv *messages.RequestMetadata
+			var rv *proto.RequestMetadata
 			protoimpl.X.AtomicLoadPointer(protoimpl.Pointer(&x.xxx_hidden_Metadata), protoimpl.Pointer(&rv))
 			return rv
 		}
@@ -108,7 +108,7 @@ func (x *ExistsRequest) SetNamespace(v string) {
 	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 1, 3)
 }
 
-func (x *ExistsRequest) SetMetadata(v *messages.RequestMetadata) {
+func (x *ExistsRequest) SetMetadata(v *proto.RequestMetadata) {
 	protoimpl.X.AtomicSetPointer(&x.xxx_hidden_Metadata, v)
 	if v == nil {
 		protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 2)
@@ -150,7 +150,7 @@ func (x *ExistsRequest) ClearNamespace() {
 
 func (x *ExistsRequest) ClearMetadata() {
 	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 2)
-	protoimpl.X.AtomicSetPointer(&x.xxx_hidden_Metadata, (*messages.RequestMetadata)(nil))
+	protoimpl.X.AtomicSetPointer(&x.xxx_hidden_Metadata, (*proto.RequestMetadata)(nil))
 }
 
 type ExistsRequest_builder struct {
@@ -161,7 +161,7 @@ type ExistsRequest_builder struct {
 	// Optional namespace
 	Namespace *string
 	// Request metadata
-	Metadata *messages.RequestMetadata
+	Metadata *proto.RequestMetadata
 }
 
 func (b0 ExistsRequest_builder) Build() *ExistsRequest {
@@ -191,13 +191,13 @@ const file_pkg_cache_proto_requests_exists_request_proto_rawDesc = "" +
 	"\rExistsRequest\x12\x10\n" +
 	"\x03key\x18\x01 \x01(\tR\x03key\x12\x1c\n" +
 	"\tnamespace\x18\x02 \x01(\tR\tnamespace\x12B\n" +
-	"\bmetadata\x18\x03 \x01(\v2\".gcommon.v1.common.RequestMetadataB\x02(\x01R\bmetadataB\xc8\x01\n" +
-	"\x14com.gcommon.v1.cacheB\x12ExistsRequestProtoP\x01Z2github.com/jdfalk/gcommon/pkg/cache/proto/requests\xa2\x02\x03GVC\xaa\x02\x10Gcommon.V1.Cache\xca\x02\x10Gcommon\\V1\\Cache\xe2\x02\x1cGcommon\\V1\\Cache\\GPBMetadata\xea\x02\x12Gcommon::V1::Cache\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
+	"\bmetadata\x18\x03 \x01(\v2\".gcommon.v1.common.RequestMetadataB\x02(\x01R\bmetadataB\xc7\x01\n" +
+	"\x14com.gcommon.v1.cacheB\x12ExistsRequestProtoP\x01Z1github.com/jdfalk/gcommon/pkg/cache/proto;cachepb\xa2\x02\x03GVC\xaa\x02\x10Gcommon.V1.Cache\xca\x02\x10Gcommon\\V1\\Cache\xe2\x02\x1cGcommon\\V1\\Cache\\GPBMetadata\xea\x02\x12Gcommon::V1::Cache\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
 
 var file_pkg_cache_proto_requests_exists_request_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_pkg_cache_proto_requests_exists_request_proto_goTypes = []any{
-	(*ExistsRequest)(nil),            // 0: gcommon.v1.cache.ExistsRequest
-	(*messages.RequestMetadata)(nil), // 1: gcommon.v1.common.RequestMetadata
+	(*ExistsRequest)(nil),         // 0: gcommon.v1.cache.ExistsRequest
+	(*proto.RequestMetadata)(nil), // 1: gcommon.v1.common.RequestMetadata
 }
 var file_pkg_cache_proto_requests_exists_request_proto_depIdxs = []int32{
 	1, // 0: gcommon.v1.cache.ExistsRequest.metadata:type_name -> gcommon.v1.common.RequestMetadata

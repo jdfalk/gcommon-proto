@@ -6,7 +6,7 @@
 
 //go:build !protoopaque
 
-package messages
+package cachepb
 
 import (
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
@@ -388,8 +388,8 @@ const file_pkg_cache_proto_messages_cache_stats_proto_rawDesc = "" +
 	"\n" +
 	"last_reset\x18\n" +
 	" \x01(\v2\x1a.google.protobuf.TimestampR\tlastReset\x12%\n" +
-	"\x0euptime_seconds\x18\v \x01(\x03R\ruptimeSecondsB\xc5\x01\n" +
-	"\x14com.gcommon.v1.cacheB\x0fCacheStatsProtoP\x01Z2github.com/jdfalk/gcommon/pkg/cache/proto/messages\xa2\x02\x03GVC\xaa\x02\x10Gcommon.V1.Cache\xca\x02\x10Gcommon\\V1\\Cache\xe2\x02\x1cGcommon\\V1\\Cache\\GPBMetadata\xea\x02\x12Gcommon::V1::Cache\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
+	"\x0euptime_seconds\x18\v \x01(\x03R\ruptimeSecondsB\xc4\x01\n" +
+	"\x14com.gcommon.v1.cacheB\x0fCacheStatsProtoP\x01Z1github.com/jdfalk/gcommon/pkg/cache/proto;cachepb\xa2\x02\x03GVC\xaa\x02\x10Gcommon.V1.Cache\xca\x02\x10Gcommon\\V1\\Cache\xe2\x02\x1cGcommon\\V1\\Cache\\GPBMetadata\xea\x02\x12Gcommon::V1::Cache\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
 
 var file_pkg_cache_proto_messages_cache_stats_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_pkg_cache_proto_messages_cache_stats_proto_goTypes = []any{

@@ -6,11 +6,9 @@
 
 //go:build !protoopaque
 
-package services
+package cachepb
 
 import (
-	requests "github.com/jdfalk/gcommon/pkg/cache/proto/requests"
-	responses "github.com/jdfalk/gcommon/pkg/cache/proto/responses"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
@@ -36,20 +34,20 @@ const file_pkg_cache_proto_services_cache_admin_service_proto_rawDesc = "" +
 	"\x0fDeleteNamespace\x12(.gcommon.v1.cache.DeleteNamespaceRequest\x1a\x16.google.protobuf.Empty\x12c\n" +
 	"\x0eListNamespaces\x12'.gcommon.v1.cache.ListNamespacesRequest\x1a(.gcommon.v1.cache.ListNamespacesResponse\x12l\n" +
 	"\x11GetNamespaceStats\x12*.gcommon.v1.cache.GetNamespaceStatsRequest\x1a+.gcommon.v1.cache.GetNamespaceStatsResponse\x12f\n" +
-	"\x0fConfigurePolicy\x12(.gcommon.v1.cache.ConfigurePolicyRequest\x1a).gcommon.v1.cache.ConfigurePolicyResponseB\xcc\x01\n" +
-	"\x14com.gcommon.v1.cacheB\x16CacheAdminServiceProtoP\x01Z2github.com/jdfalk/gcommon/pkg/cache/proto/services\xa2\x02\x03GVC\xaa\x02\x10Gcommon.V1.Cache\xca\x02\x10Gcommon\\V1\\Cache\xe2\x02\x1cGcommon\\V1\\Cache\\GPBMetadata\xea\x02\x12Gcommon::V1::Cache\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
+	"\x0fConfigurePolicy\x12(.gcommon.v1.cache.ConfigurePolicyRequest\x1a).gcommon.v1.cache.ConfigurePolicyResponseB\xcb\x01\n" +
+	"\x14com.gcommon.v1.cacheB\x16CacheAdminServiceProtoP\x01Z1github.com/jdfalk/gcommon/pkg/cache/proto;cachepb\xa2\x02\x03GVC\xaa\x02\x10Gcommon.V1.Cache\xca\x02\x10Gcommon\\V1\\Cache\xe2\x02\x1cGcommon\\V1\\Cache\\GPBMetadata\xea\x02\x12Gcommon::V1::Cache\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
 
 var file_pkg_cache_proto_services_cache_admin_service_proto_goTypes = []any{
-	(*requests.CreateNamespaceRequest)(nil),     // 0: gcommon.v1.cache.CreateNamespaceRequest
-	(*requests.DeleteNamespaceRequest)(nil),     // 1: gcommon.v1.cache.DeleteNamespaceRequest
-	(*requests.ListNamespacesRequest)(nil),      // 2: gcommon.v1.cache.ListNamespacesRequest
-	(*requests.GetNamespaceStatsRequest)(nil),   // 3: gcommon.v1.cache.GetNamespaceStatsRequest
-	(*requests.ConfigurePolicyRequest)(nil),     // 4: gcommon.v1.cache.ConfigurePolicyRequest
-	(*responses.CreateNamespaceResponse)(nil),   // 5: gcommon.v1.cache.CreateNamespaceResponse
-	(*emptypb.Empty)(nil),                       // 6: google.protobuf.Empty
-	(*responses.ListNamespacesResponse)(nil),    // 7: gcommon.v1.cache.ListNamespacesResponse
-	(*responses.GetNamespaceStatsResponse)(nil), // 8: gcommon.v1.cache.GetNamespaceStatsResponse
-	(*responses.ConfigurePolicyResponse)(nil),   // 9: gcommon.v1.cache.ConfigurePolicyResponse
+	(*CreateNamespaceRequest)(nil),    // 0: gcommon.v1.cache.CreateNamespaceRequest
+	(*DeleteNamespaceRequest)(nil),    // 1: gcommon.v1.cache.DeleteNamespaceRequest
+	(*ListNamespacesRequest)(nil),     // 2: gcommon.v1.cache.ListNamespacesRequest
+	(*GetNamespaceStatsRequest)(nil),  // 3: gcommon.v1.cache.GetNamespaceStatsRequest
+	(*ConfigurePolicyRequest)(nil),    // 4: gcommon.v1.cache.ConfigurePolicyRequest
+	(*CreateNamespaceResponse)(nil),   // 5: gcommon.v1.cache.CreateNamespaceResponse
+	(*emptypb.Empty)(nil),             // 6: google.protobuf.Empty
+	(*ListNamespacesResponse)(nil),    // 7: gcommon.v1.cache.ListNamespacesResponse
+	(*GetNamespaceStatsResponse)(nil), // 8: gcommon.v1.cache.GetNamespaceStatsResponse
+	(*ConfigurePolicyResponse)(nil),   // 9: gcommon.v1.cache.ConfigurePolicyResponse
 }
 var file_pkg_cache_proto_services_cache_admin_service_proto_depIdxs = []int32{
 	0, // 0: gcommon.v1.cache.CacheAdminService.CreateNamespace:input_type -> gcommon.v1.cache.CreateNamespaceRequest
@@ -74,6 +72,15 @@ func file_pkg_cache_proto_services_cache_admin_service_proto_init() {
 	if File_pkg_cache_proto_services_cache_admin_service_proto != nil {
 		return
 	}
+	file_pkg_cache_proto_requests_create_namespace_request_proto_init()
+	file_pkg_cache_proto_responses_create_namespace_response_proto_init()
+	file_pkg_cache_proto_requests_delete_namespace_request_proto_init()
+	file_pkg_cache_proto_requests_list_namespaces_request_proto_init()
+	file_pkg_cache_proto_responses_list_namespaces_response_proto_init()
+	file_pkg_cache_proto_requests_get_namespace_stats_request_proto_init()
+	file_pkg_cache_proto_responses_get_namespace_stats_response_proto_init()
+	file_pkg_cache_proto_requests_configure_policy_request_proto_init()
+	file_pkg_cache_proto_responses_configure_policy_response_proto_init()
 	type x struct{}
 	out := protoimpl.TypeBuilder{
 		File: protoimpl.DescBuilder{

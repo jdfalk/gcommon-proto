@@ -6,10 +6,10 @@
 
 //go:build protoopaque
 
-package responses
+package cachepb
 
 import (
-	messages "github.com/jdfalk/gcommon/pkg/common/proto/messages"
+	proto "github.com/jdfalk/gcommon/pkg/common/proto"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
@@ -30,7 +30,7 @@ const (
 type DeleteResponse struct {
 	state                   protoimpl.MessageState `protogen:"opaque.v1"`
 	xxx_hidden_Success      bool                   `protobuf:"varint,1,opt,name=success"`
-	xxx_hidden_Error        *messages.Error        `protobuf:"bytes,2,opt,name=error"`
+	xxx_hidden_Error        *proto.Error           `protobuf:"bytes,2,opt,name=error"`
 	xxx_hidden_DeletedCount int32                  `protobuf:"varint,3,opt,name=deleted_count,json=deletedCount"`
 	XXX_raceDetectHookData  protoimpl.RaceDetectHookData
 	XXX_presence            [1]uint32
@@ -70,7 +70,7 @@ func (x *DeleteResponse) GetSuccess() bool {
 	return false
 }
 
-func (x *DeleteResponse) GetError() *messages.Error {
+func (x *DeleteResponse) GetError() *proto.Error {
 	if x != nil {
 		return x.xxx_hidden_Error
 	}
@@ -89,7 +89,7 @@ func (x *DeleteResponse) SetSuccess(v bool) {
 	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 0, 3)
 }
 
-func (x *DeleteResponse) SetError(v *messages.Error) {
+func (x *DeleteResponse) SetError(v *proto.Error) {
 	x.xxx_hidden_Error = v
 }
 
@@ -139,7 +139,7 @@ type DeleteResponse_builder struct {
 	// Whether the key was successfully deleted
 	Success *bool
 	// Error details if deletion failed
-	Error *messages.Error
+	Error *proto.Error
 	// Number of keys that were actually deleted
 	DeletedCount *int32
 }
@@ -168,13 +168,13 @@ const file_pkg_cache_proto_responses_delete_response_proto_rawDesc = "" +
 	"\x0eDeleteResponse\x12\x18\n" +
 	"\asuccess\x18\x01 \x01(\bR\asuccess\x12.\n" +
 	"\x05error\x18\x02 \x01(\v2\x18.gcommon.v1.common.ErrorR\x05error\x12#\n" +
-	"\rdeleted_count\x18\x03 \x01(\x05R\fdeletedCountB\xca\x01\n" +
-	"\x14com.gcommon.v1.cacheB\x13DeleteResponseProtoP\x01Z3github.com/jdfalk/gcommon/pkg/cache/proto/responses\xa2\x02\x03GVC\xaa\x02\x10Gcommon.V1.Cache\xca\x02\x10Gcommon\\V1\\Cache\xe2\x02\x1cGcommon\\V1\\Cache\\GPBMetadata\xea\x02\x12Gcommon::V1::Cache\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
+	"\rdeleted_count\x18\x03 \x01(\x05R\fdeletedCountB\xc8\x01\n" +
+	"\x14com.gcommon.v1.cacheB\x13DeleteResponseProtoP\x01Z1github.com/jdfalk/gcommon/pkg/cache/proto;cachepb\xa2\x02\x03GVC\xaa\x02\x10Gcommon.V1.Cache\xca\x02\x10Gcommon\\V1\\Cache\xe2\x02\x1cGcommon\\V1\\Cache\\GPBMetadata\xea\x02\x12Gcommon::V1::Cache\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
 
 var file_pkg_cache_proto_responses_delete_response_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_pkg_cache_proto_responses_delete_response_proto_goTypes = []any{
 	(*DeleteResponse)(nil), // 0: gcommon.v1.cache.DeleteResponse
-	(*messages.Error)(nil), // 1: gcommon.v1.common.Error
+	(*proto.Error)(nil),    // 1: gcommon.v1.common.Error
 }
 var file_pkg_cache_proto_responses_delete_response_proto_depIdxs = []int32{
 	1, // 0: gcommon.v1.cache.DeleteResponse.error:type_name -> gcommon.v1.common.Error

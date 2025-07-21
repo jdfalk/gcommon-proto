@@ -6,10 +6,10 @@
 
 //go:build protoopaque
 
-package requests
+package cachepb
 
 import (
-	messages "github.com/jdfalk/gcommon/pkg/common/proto/messages"
+	proto "github.com/jdfalk/gcommon/pkg/common/proto"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
@@ -27,8 +27,8 @@ const (
 // *
 // Request to list active cache subscriptions.
 type ListSubscriptionsRequest struct {
-	state               protoimpl.MessageState    `protogen:"opaque.v1"`
-	xxx_hidden_Metadata *messages.RequestMetadata `protobuf:"bytes,1,opt,name=metadata"`
+	state               protoimpl.MessageState `protogen:"opaque.v1"`
+	xxx_hidden_Metadata *proto.RequestMetadata `protobuf:"bytes,1,opt,name=metadata"`
 	// Deprecated: Do not use. This will be deleted in the near future.
 	XXX_lazyUnmarshalInfo  protoimpl.LazyUnmarshalInfo
 	XXX_raceDetectHookData protoimpl.RaceDetectHookData
@@ -62,13 +62,13 @@ func (x *ListSubscriptionsRequest) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-func (x *ListSubscriptionsRequest) GetMetadata() *messages.RequestMetadata {
+func (x *ListSubscriptionsRequest) GetMetadata() *proto.RequestMetadata {
 	if x != nil {
 		if protoimpl.X.Present(&(x.XXX_presence[0]), 0) {
 			if protoimpl.X.AtomicCheckPointerIsNil(&x.xxx_hidden_Metadata) {
 				protoimpl.X.UnmarshalField(x, 1)
 			}
-			var rv *messages.RequestMetadata
+			var rv *proto.RequestMetadata
 			protoimpl.X.AtomicLoadPointer(protoimpl.Pointer(&x.xxx_hidden_Metadata), protoimpl.Pointer(&rv))
 			return rv
 		}
@@ -76,7 +76,7 @@ func (x *ListSubscriptionsRequest) GetMetadata() *messages.RequestMetadata {
 	return nil
 }
 
-func (x *ListSubscriptionsRequest) SetMetadata(v *messages.RequestMetadata) {
+func (x *ListSubscriptionsRequest) SetMetadata(v *proto.RequestMetadata) {
 	protoimpl.X.AtomicSetPointer(&x.xxx_hidden_Metadata, v)
 	if v == nil {
 		protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 0)
@@ -94,14 +94,14 @@ func (x *ListSubscriptionsRequest) HasMetadata() bool {
 
 func (x *ListSubscriptionsRequest) ClearMetadata() {
 	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 0)
-	protoimpl.X.AtomicSetPointer(&x.xxx_hidden_Metadata, (*messages.RequestMetadata)(nil))
+	protoimpl.X.AtomicSetPointer(&x.xxx_hidden_Metadata, (*proto.RequestMetadata)(nil))
 }
 
 type ListSubscriptionsRequest_builder struct {
 	_ [0]func() // Prevents comparability and use of unkeyed literals for the builder.
 
 	// Request metadata
-	Metadata *messages.RequestMetadata
+	Metadata *proto.RequestMetadata
 }
 
 func (b0 ListSubscriptionsRequest_builder) Build() *ListSubscriptionsRequest {
@@ -121,13 +121,13 @@ const file_pkg_cache_proto_requests_list_subscriptions_request_proto_rawDesc = "
 	"\n" +
 	"9pkg/cache/proto/requests/list_subscriptions_request.proto\x12\x10gcommon.v1.cache\x1a!google/protobuf/go_features.proto\x1a0pkg/common/proto/messages/request_metadata.proto\"^\n" +
 	"\x18ListSubscriptionsRequest\x12B\n" +
-	"\bmetadata\x18\x01 \x01(\v2\".gcommon.v1.common.RequestMetadataB\x02(\x01R\bmetadataB\xd3\x01\n" +
-	"\x14com.gcommon.v1.cacheB\x1dListSubscriptionsRequestProtoP\x01Z2github.com/jdfalk/gcommon/pkg/cache/proto/requests\xa2\x02\x03GVC\xaa\x02\x10Gcommon.V1.Cache\xca\x02\x10Gcommon\\V1\\Cache\xe2\x02\x1cGcommon\\V1\\Cache\\GPBMetadata\xea\x02\x12Gcommon::V1::Cache\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
+	"\bmetadata\x18\x01 \x01(\v2\".gcommon.v1.common.RequestMetadataB\x02(\x01R\bmetadataB\xd2\x01\n" +
+	"\x14com.gcommon.v1.cacheB\x1dListSubscriptionsRequestProtoP\x01Z1github.com/jdfalk/gcommon/pkg/cache/proto;cachepb\xa2\x02\x03GVC\xaa\x02\x10Gcommon.V1.Cache\xca\x02\x10Gcommon\\V1\\Cache\xe2\x02\x1cGcommon\\V1\\Cache\\GPBMetadata\xea\x02\x12Gcommon::V1::Cache\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
 
 var file_pkg_cache_proto_requests_list_subscriptions_request_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_pkg_cache_proto_requests_list_subscriptions_request_proto_goTypes = []any{
 	(*ListSubscriptionsRequest)(nil), // 0: gcommon.v1.cache.ListSubscriptionsRequest
-	(*messages.RequestMetadata)(nil), // 1: gcommon.v1.common.RequestMetadata
+	(*proto.RequestMetadata)(nil),    // 1: gcommon.v1.common.RequestMetadata
 }
 var file_pkg_cache_proto_requests_list_subscriptions_request_proto_depIdxs = []int32{
 	1, // 0: gcommon.v1.cache.ListSubscriptionsRequest.metadata:type_name -> gcommon.v1.common.RequestMetadata

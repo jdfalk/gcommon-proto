@@ -6,10 +6,10 @@
 
 //go:build !protoopaque
 
-package messages
+package cachepb
 
 import (
-	enums "github.com/jdfalk/gcommon/pkg/common/proto/enums"
+	proto "github.com/jdfalk/gcommon/pkg/common/proto"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
@@ -37,7 +37,7 @@ type CacheConfig struct {
 	// Default time-to-live for entries
 	DefaultTtl *durationpb.Duration `protobuf:"bytes,3,opt,name=default_ttl,json=defaultTtl" json:"default_ttl,omitempty"`
 	// Eviction policy when cache is full
-	EvictionPolicy *enums.EvictionPolicy `protobuf:"varint,4,opt,name=eviction_policy,json=evictionPolicy,enum=gcommon.v1.common.EvictionPolicy" json:"eviction_policy,omitempty"`
+	EvictionPolicy *proto.EvictionPolicy `protobuf:"varint,4,opt,name=eviction_policy,json=evictionPolicy,enum=gcommon.v1.common.EvictionPolicy" json:"eviction_policy,omitempty"`
 	// Whether to enable cache statistics
 	EnableStats *bool `protobuf:"varint,5,opt,name=enable_stats,json=enableStats" json:"enable_stats,omitempty"`
 	// Whether to enable cache persistence
@@ -96,11 +96,11 @@ func (x *CacheConfig) GetDefaultTtl() *durationpb.Duration {
 	return nil
 }
 
-func (x *CacheConfig) GetEvictionPolicy() enums.EvictionPolicy {
+func (x *CacheConfig) GetEvictionPolicy() proto.EvictionPolicy {
 	if x != nil && x.EvictionPolicy != nil {
 		return *x.EvictionPolicy
 	}
-	return enums.EvictionPolicy(0)
+	return proto.EvictionPolicy(0)
 }
 
 func (x *CacheConfig) GetEnableStats() bool {
@@ -143,7 +143,7 @@ func (x *CacheConfig) SetDefaultTtl(v *durationpb.Duration) {
 	x.DefaultTtl = v
 }
 
-func (x *CacheConfig) SetEvictionPolicy(v enums.EvictionPolicy) {
+func (x *CacheConfig) SetEvictionPolicy(v proto.EvictionPolicy) {
 	x.EvictionPolicy = &v
 }
 
@@ -261,7 +261,7 @@ type CacheConfig_builder struct {
 	// Default time-to-live for entries
 	DefaultTtl *durationpb.Duration
 	// Eviction policy when cache is full
-	EvictionPolicy *enums.EvictionPolicy
+	EvictionPolicy *proto.EvictionPolicy
 	// Whether to enable cache statistics
 	EnableStats *bool
 	// Whether to enable cache persistence
@@ -302,14 +302,14 @@ const file_pkg_cache_proto_messages_cache_config_proto_rawDesc = "" +
 	"\fenable_stats\x18\x05 \x01(\bR\venableStats\x12-\n" +
 	"\x12enable_persistence\x18\x06 \x01(\bR\x11enablePersistence\x12)\n" +
 	"\x10persistence_file\x18\a \x01(\tR\x0fpersistenceFile\x12\x12\n" +
-	"\x04name\x18\b \x01(\tR\x04nameB\xc6\x01\n" +
-	"\x14com.gcommon.v1.cacheB\x10CacheConfigProtoP\x01Z2github.com/jdfalk/gcommon/pkg/cache/proto/messages\xa2\x02\x03GVC\xaa\x02\x10Gcommon.V1.Cache\xca\x02\x10Gcommon\\V1\\Cache\xe2\x02\x1cGcommon\\V1\\Cache\\GPBMetadata\xea\x02\x12Gcommon::V1::Cache\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
+	"\x04name\x18\b \x01(\tR\x04nameB\xc5\x01\n" +
+	"\x14com.gcommon.v1.cacheB\x10CacheConfigProtoP\x01Z1github.com/jdfalk/gcommon/pkg/cache/proto;cachepb\xa2\x02\x03GVC\xaa\x02\x10Gcommon.V1.Cache\xca\x02\x10Gcommon\\V1\\Cache\xe2\x02\x1cGcommon\\V1\\Cache\\GPBMetadata\xea\x02\x12Gcommon::V1::Cache\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
 
 var file_pkg_cache_proto_messages_cache_config_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_pkg_cache_proto_messages_cache_config_proto_goTypes = []any{
 	(*CacheConfig)(nil),         // 0: gcommon.v1.cache.CacheConfig
 	(*durationpb.Duration)(nil), // 1: google.protobuf.Duration
-	(enums.EvictionPolicy)(0),   // 2: gcommon.v1.common.EvictionPolicy
+	(proto.EvictionPolicy)(0),   // 2: gcommon.v1.common.EvictionPolicy
 }
 var file_pkg_cache_proto_messages_cache_config_proto_depIdxs = []int32{
 	1, // 0: gcommon.v1.cache.CacheConfig.default_ttl:type_name -> google.protobuf.Duration

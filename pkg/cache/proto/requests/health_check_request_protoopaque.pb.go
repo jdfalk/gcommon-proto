@@ -6,10 +6,10 @@
 
 //go:build protoopaque
 
-package requests
+package cachepb
 
 import (
-	messages "github.com/jdfalk/gcommon/pkg/common/proto/messages"
+	proto "github.com/jdfalk/gcommon/pkg/common/proto"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
@@ -27,9 +27,9 @@ const (
 // *
 // Request to perform a cache health check.
 type HealthCheckRequest struct {
-	state                protoimpl.MessageState    `protogen:"opaque.v1"`
-	xxx_hidden_Namespace *string                   `protobuf:"bytes,1,opt,name=namespace"`
-	xxx_hidden_Metadata  *messages.RequestMetadata `protobuf:"bytes,2,opt,name=metadata"`
+	state                protoimpl.MessageState `protogen:"opaque.v1"`
+	xxx_hidden_Namespace *string                `protobuf:"bytes,1,opt,name=namespace"`
+	xxx_hidden_Metadata  *proto.RequestMetadata `protobuf:"bytes,2,opt,name=metadata"`
 	// Deprecated: Do not use. This will be deleted in the near future.
 	XXX_lazyUnmarshalInfo  protoimpl.LazyUnmarshalInfo
 	XXX_raceDetectHookData protoimpl.RaceDetectHookData
@@ -73,13 +73,13 @@ func (x *HealthCheckRequest) GetNamespace() string {
 	return ""
 }
 
-func (x *HealthCheckRequest) GetMetadata() *messages.RequestMetadata {
+func (x *HealthCheckRequest) GetMetadata() *proto.RequestMetadata {
 	if x != nil {
 		if protoimpl.X.Present(&(x.XXX_presence[0]), 1) {
 			if protoimpl.X.AtomicCheckPointerIsNil(&x.xxx_hidden_Metadata) {
 				protoimpl.X.UnmarshalField(x, 2)
 			}
-			var rv *messages.RequestMetadata
+			var rv *proto.RequestMetadata
 			protoimpl.X.AtomicLoadPointer(protoimpl.Pointer(&x.xxx_hidden_Metadata), protoimpl.Pointer(&rv))
 			return rv
 		}
@@ -92,7 +92,7 @@ func (x *HealthCheckRequest) SetNamespace(v string) {
 	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 0, 2)
 }
 
-func (x *HealthCheckRequest) SetMetadata(v *messages.RequestMetadata) {
+func (x *HealthCheckRequest) SetMetadata(v *proto.RequestMetadata) {
 	protoimpl.X.AtomicSetPointer(&x.xxx_hidden_Metadata, v)
 	if v == nil {
 		protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 1)
@@ -122,7 +122,7 @@ func (x *HealthCheckRequest) ClearNamespace() {
 
 func (x *HealthCheckRequest) ClearMetadata() {
 	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 1)
-	protoimpl.X.AtomicSetPointer(&x.xxx_hidden_Metadata, (*messages.RequestMetadata)(nil))
+	protoimpl.X.AtomicSetPointer(&x.xxx_hidden_Metadata, (*proto.RequestMetadata)(nil))
 }
 
 type HealthCheckRequest_builder struct {
@@ -131,7 +131,7 @@ type HealthCheckRequest_builder struct {
 	// Optional namespace to check
 	Namespace *string
 	// Request metadata
-	Metadata *messages.RequestMetadata
+	Metadata *proto.RequestMetadata
 }
 
 func (b0 HealthCheckRequest_builder) Build() *HealthCheckRequest {
@@ -156,13 +156,13 @@ const file_pkg_cache_proto_requests_health_check_request_proto_rawDesc = "" +
 	"3pkg/cache/proto/requests/health_check_request.proto\x12\x10gcommon.v1.cache\x1a!google/protobuf/go_features.proto\x1a0pkg/common/proto/messages/request_metadata.proto\"v\n" +
 	"\x12HealthCheckRequest\x12\x1c\n" +
 	"\tnamespace\x18\x01 \x01(\tR\tnamespace\x12B\n" +
-	"\bmetadata\x18\x02 \x01(\v2\".gcommon.v1.common.RequestMetadataB\x02(\x01R\bmetadataB\xcd\x01\n" +
-	"\x14com.gcommon.v1.cacheB\x17HealthCheckRequestProtoP\x01Z2github.com/jdfalk/gcommon/pkg/cache/proto/requests\xa2\x02\x03GVC\xaa\x02\x10Gcommon.V1.Cache\xca\x02\x10Gcommon\\V1\\Cache\xe2\x02\x1cGcommon\\V1\\Cache\\GPBMetadata\xea\x02\x12Gcommon::V1::Cache\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
+	"\bmetadata\x18\x02 \x01(\v2\".gcommon.v1.common.RequestMetadataB\x02(\x01R\bmetadataB\xcc\x01\n" +
+	"\x14com.gcommon.v1.cacheB\x17HealthCheckRequestProtoP\x01Z1github.com/jdfalk/gcommon/pkg/cache/proto;cachepb\xa2\x02\x03GVC\xaa\x02\x10Gcommon.V1.Cache\xca\x02\x10Gcommon\\V1\\Cache\xe2\x02\x1cGcommon\\V1\\Cache\\GPBMetadata\xea\x02\x12Gcommon::V1::Cache\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
 
 var file_pkg_cache_proto_requests_health_check_request_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_pkg_cache_proto_requests_health_check_request_proto_goTypes = []any{
-	(*HealthCheckRequest)(nil),       // 0: gcommon.v1.cache.HealthCheckRequest
-	(*messages.RequestMetadata)(nil), // 1: gcommon.v1.common.RequestMetadata
+	(*HealthCheckRequest)(nil),    // 0: gcommon.v1.cache.HealthCheckRequest
+	(*proto.RequestMetadata)(nil), // 1: gcommon.v1.common.RequestMetadata
 }
 var file_pkg_cache_proto_requests_health_check_request_proto_depIdxs = []int32{
 	1, // 0: gcommon.v1.cache.HealthCheckRequest.metadata:type_name -> gcommon.v1.common.RequestMetadata

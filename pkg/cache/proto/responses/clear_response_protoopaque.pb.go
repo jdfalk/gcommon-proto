@@ -6,10 +6,10 @@
 
 //go:build protoopaque
 
-package responses
+package cachepb
 
 import (
-	messages "github.com/jdfalk/gcommon/pkg/common/proto/messages"
+	proto "github.com/jdfalk/gcommon/pkg/common/proto"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
@@ -31,7 +31,7 @@ type ClearResponse struct {
 	state                   protoimpl.MessageState `protogen:"opaque.v1"`
 	xxx_hidden_ClearedCount int64                  `protobuf:"varint,1,opt,name=cleared_count,json=clearedCount"`
 	xxx_hidden_Success      bool                   `protobuf:"varint,2,opt,name=success"`
-	xxx_hidden_Error        *messages.Error        `protobuf:"bytes,3,opt,name=error"`
+	xxx_hidden_Error        *proto.Error           `protobuf:"bytes,3,opt,name=error"`
 	XXX_raceDetectHookData  protoimpl.RaceDetectHookData
 	XXX_presence            [1]uint32
 	unknownFields           protoimpl.UnknownFields
@@ -77,7 +77,7 @@ func (x *ClearResponse) GetSuccess() bool {
 	return false
 }
 
-func (x *ClearResponse) GetError() *messages.Error {
+func (x *ClearResponse) GetError() *proto.Error {
 	if x != nil {
 		return x.xxx_hidden_Error
 	}
@@ -94,7 +94,7 @@ func (x *ClearResponse) SetSuccess(v bool) {
 	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 1, 3)
 }
 
-func (x *ClearResponse) SetError(v *messages.Error) {
+func (x *ClearResponse) SetError(v *proto.Error) {
 	x.xxx_hidden_Error = v
 }
 
@@ -141,7 +141,7 @@ type ClearResponse_builder struct {
 	// Whether the operation was successful
 	Success *bool
 	// Error details if clear failed
-	Error *messages.Error
+	Error *proto.Error
 }
 
 func (b0 ClearResponse_builder) Build() *ClearResponse {
@@ -168,13 +168,13 @@ const file_pkg_cache_proto_responses_clear_response_proto_rawDesc = "" +
 	"\rClearResponse\x12#\n" +
 	"\rcleared_count\x18\x01 \x01(\x03R\fclearedCount\x12\x18\n" +
 	"\asuccess\x18\x02 \x01(\bR\asuccess\x12.\n" +
-	"\x05error\x18\x03 \x01(\v2\x18.gcommon.v1.common.ErrorR\x05errorB\xc9\x01\n" +
-	"\x14com.gcommon.v1.cacheB\x12ClearResponseProtoP\x01Z3github.com/jdfalk/gcommon/pkg/cache/proto/responses\xa2\x02\x03GVC\xaa\x02\x10Gcommon.V1.Cache\xca\x02\x10Gcommon\\V1\\Cache\xe2\x02\x1cGcommon\\V1\\Cache\\GPBMetadata\xea\x02\x12Gcommon::V1::Cache\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
+	"\x05error\x18\x03 \x01(\v2\x18.gcommon.v1.common.ErrorR\x05errorB\xc7\x01\n" +
+	"\x14com.gcommon.v1.cacheB\x12ClearResponseProtoP\x01Z1github.com/jdfalk/gcommon/pkg/cache/proto;cachepb\xa2\x02\x03GVC\xaa\x02\x10Gcommon.V1.Cache\xca\x02\x10Gcommon\\V1\\Cache\xe2\x02\x1cGcommon\\V1\\Cache\\GPBMetadata\xea\x02\x12Gcommon::V1::Cache\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
 
 var file_pkg_cache_proto_responses_clear_response_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_pkg_cache_proto_responses_clear_response_proto_goTypes = []any{
-	(*ClearResponse)(nil),  // 0: gcommon.v1.cache.ClearResponse
-	(*messages.Error)(nil), // 1: gcommon.v1.common.Error
+	(*ClearResponse)(nil), // 0: gcommon.v1.cache.ClearResponse
+	(*proto.Error)(nil),   // 1: gcommon.v1.common.Error
 }
 var file_pkg_cache_proto_responses_clear_response_proto_depIdxs = []int32{
 	1, // 0: gcommon.v1.cache.ClearResponse.error:type_name -> gcommon.v1.common.Error

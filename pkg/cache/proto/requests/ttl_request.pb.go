@@ -6,10 +6,10 @@
 
 //go:build !protoopaque
 
-package requests
+package cachepb
 
 import (
-	messages "github.com/jdfalk/gcommon/pkg/common/proto/messages"
+	proto "github.com/jdfalk/gcommon/pkg/common/proto"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
@@ -36,7 +36,7 @@ type TouchExpirationRequest struct {
 	// Optional namespace
 	Namespace *string `protobuf:"bytes,3,opt,name=namespace" json:"namespace,omitempty"`
 	// Request metadata
-	Metadata      *messages.RequestMetadata `protobuf:"bytes,4,opt,name=metadata" json:"metadata,omitempty"`
+	Metadata      *proto.RequestMetadata `protobuf:"bytes,4,opt,name=metadata" json:"metadata,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -87,7 +87,7 @@ func (x *TouchExpirationRequest) GetNamespace() string {
 	return ""
 }
 
-func (x *TouchExpirationRequest) GetMetadata() *messages.RequestMetadata {
+func (x *TouchExpirationRequest) GetMetadata() *proto.RequestMetadata {
 	if x != nil {
 		return x.Metadata
 	}
@@ -106,7 +106,7 @@ func (x *TouchExpirationRequest) SetNamespace(v string) {
 	x.Namespace = &v
 }
 
-func (x *TouchExpirationRequest) SetMetadata(v *messages.RequestMetadata) {
+func (x *TouchExpirationRequest) SetMetadata(v *proto.RequestMetadata) {
 	x.Metadata = v
 }
 
@@ -164,7 +164,7 @@ type TouchExpirationRequest_builder struct {
 	// Optional namespace
 	Namespace *string
 	// Request metadata
-	Metadata *messages.RequestMetadata
+	Metadata *proto.RequestMetadata
 }
 
 func (b0 TouchExpirationRequest_builder) Build() *TouchExpirationRequest {
@@ -187,14 +187,14 @@ const file_pkg_cache_proto_requests_ttl_request_proto_rawDesc = "" +
 	"\x03key\x18\x01 \x01(\tR\x03key\x12/\n" +
 	"\x03ttl\x18\x02 \x01(\v2\x19.google.protobuf.DurationB\x02(\x01R\x03ttl\x12\x1c\n" +
 	"\tnamespace\x18\x03 \x01(\tR\tnamespace\x12B\n" +
-	"\bmetadata\x18\x04 \x01(\v2\".gcommon.v1.common.RequestMetadataB\x02(\x01R\bmetadataB\xc5\x01\n" +
-	"\x14com.gcommon.v1.cacheB\x0fTtlRequestProtoP\x01Z2github.com/jdfalk/gcommon/pkg/cache/proto/requests\xa2\x02\x03GVC\xaa\x02\x10Gcommon.V1.Cache\xca\x02\x10Gcommon\\V1\\Cache\xe2\x02\x1cGcommon\\V1\\Cache\\GPBMetadata\xea\x02\x12Gcommon::V1::Cache\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
+	"\bmetadata\x18\x04 \x01(\v2\".gcommon.v1.common.RequestMetadataB\x02(\x01R\bmetadataB\xc4\x01\n" +
+	"\x14com.gcommon.v1.cacheB\x0fTtlRequestProtoP\x01Z1github.com/jdfalk/gcommon/pkg/cache/proto;cachepb\xa2\x02\x03GVC\xaa\x02\x10Gcommon.V1.Cache\xca\x02\x10Gcommon\\V1\\Cache\xe2\x02\x1cGcommon\\V1\\Cache\\GPBMetadata\xea\x02\x12Gcommon::V1::Cache\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
 
 var file_pkg_cache_proto_requests_ttl_request_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_pkg_cache_proto_requests_ttl_request_proto_goTypes = []any{
-	(*TouchExpirationRequest)(nil),   // 0: gcommon.v1.cache.TouchExpirationRequest
-	(*durationpb.Duration)(nil),      // 1: google.protobuf.Duration
-	(*messages.RequestMetadata)(nil), // 2: gcommon.v1.common.RequestMetadata
+	(*TouchExpirationRequest)(nil), // 0: gcommon.v1.cache.TouchExpirationRequest
+	(*durationpb.Duration)(nil),    // 1: google.protobuf.Duration
+	(*proto.RequestMetadata)(nil),  // 2: gcommon.v1.common.RequestMetadata
 }
 var file_pkg_cache_proto_requests_ttl_request_proto_depIdxs = []int32{
 	1, // 0: gcommon.v1.cache.TouchExpirationRequest.ttl:type_name -> google.protobuf.Duration
