@@ -2,17 +2,29 @@
 // file: config/proto/requests/restore_config_request.proto
 //
 // Request definitions for config module
-// TODO: Implement actual protobuf definitions
+// Generated as part of protobuf implementation
 //
 edition = "2023";
 
 package gcommon.v1.config;
 
 import "google/protobuf/go_features.proto";
+import "pkg/common/proto/messages/request_metadata.proto";
+import "pkg/config/proto/messages/config_restore_point.proto";
 
 option go_package = "github.com/jdfalk/gcommon/pkg/config/proto;configpb";
 option features.(pb.go).api_level = API_HYBRID;
 
-// TODO: Add request definitions here
-// This is a placeholder file created during 1-1-1 migration
-// Implement the actual protobuf definitions according to the config module requirements
+/**
+ * RestoreConfigRequest restores configuration from a restore point.
+ */
+message RestoreConfigRequest {
+  // Restore point identifier
+  string restore_point_id = 1;
+
+  // Namespace/environment to restore
+  string namespace = 2;
+
+  // Request metadata
+  gcommon.v1.common.RequestMetadata metadata = 3;
+}

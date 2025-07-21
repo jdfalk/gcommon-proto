@@ -2,17 +2,31 @@
 // file: config/proto/requests/import_config_request.proto
 //
 // Request definitions for config module
-// TODO: Implement actual protobuf definitions
+// Generated as part of protobuf implementation
 //
 edition = "2023";
 
 package gcommon.v1.config;
 
 import "google/protobuf/go_features.proto";
+import "pkg/common/proto/messages/request_metadata.proto";
 
 option go_package = "github.com/jdfalk/gcommon/pkg/config/proto;configpb";
 option features.(pb.go).api_level = API_HYBRID;
 
-// TODO: Add request definitions here
-// This is a placeholder file created during 1-1-1 migration
-// Implement the actual protobuf definitions according to the config module requirements
+/**
+ * ImportConfigRequest imports configuration from an external source.
+ */
+message ImportConfigRequest {
+  // Namespace/environment for imported values
+  string namespace = 1;
+
+  // Serialized configuration content
+  bytes content = 2;
+
+  // Input format (e.g., JSON, YAML)
+  string format = 3;
+
+  // Request metadata
+  gcommon.v1.common.RequestMetadata metadata = 4;
+}
