@@ -1,0 +1,16 @@
+{
+  "file": "CHANGELOG.md",
+  "mode": "changelog-entry",
+  "content": "### Added\n\n- Completed Cache module protobufs and updated aggregator",
+  "guid": "87687ace-f97e-4d08-b382-af4d8bdc7eeb",
+  "created_at": "2025-07-21T04:01:31Z",
+  "options": {
+    "section": null,
+    "after": null,
+    "before": null,
+    "task_id": null,
+    "badge_name": null,
+    "priority": null,
+    "category": null
+  }
+}
