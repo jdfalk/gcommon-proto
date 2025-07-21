@@ -6,7 +6,7 @@
 
 //go:build !protoopaque
 
-package types
+package authpb
 
 import (
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
@@ -132,8 +132,8 @@ const file_pkg_auth_proto_types_api_key_credentials_proto_rawDesc = "" +
 	".pkg/auth/proto/types/api_key_credentials.proto\x12\x0fgcommon.v1.auth\x1a!google/protobuf/go_features.proto\"<\n" +
 	"\x11APIKeyCredentials\x12\x10\n" +
 	"\x03key\x18\x01 \x01(\tR\x03key\x12\x15\n" +
-	"\x06key_id\x18\x02 \x01(\tR\x05keyIdB\xc3\x01\n" +
-	"\x13com.gcommon.v1.authB\x16ApiKeyCredentialsProtoP\x01Z.github.com/jdfalk/gcommon/pkg/auth/proto/types\xa2\x02\x03GVA\xaa\x02\x0fGcommon.V1.Auth\xca\x02\x0fGcommon\\V1\\Auth\xe2\x02\x1bGcommon\\V1\\Auth\\GPBMetadata\xea\x02\x11Gcommon::V1::Auth\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
+	"\x06key_id\x18\x02 \x01(\tR\x05keyIdB\xc4\x01\n" +
+	"\x13com.gcommon.v1.authB\x16ApiKeyCredentialsProtoP\x01Z/github.com/jdfalk/gcommon/pkg/auth/proto;authpb\xa2\x02\x03GVA\xaa\x02\x0fGcommon.V1.Auth\xca\x02\x0fGcommon\\V1\\Auth\xe2\x02\x1bGcommon\\V1\\Auth\\GPBMetadata\xea\x02\x11Gcommon::V1::Auth\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
 
 var file_pkg_auth_proto_types_api_key_credentials_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_pkg_auth_proto_types_api_key_credentials_proto_goTypes = []any{
