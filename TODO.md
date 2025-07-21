@@ -1405,3 +1405,5 @@ Automate issue linking for project boards
 
 1. **Config Module** - Complete migration of 21 remaining types (2/23 migrated)
 2. **Cache Module** - Complete migration of 39 remaining types (7/46 migrated)
+
+Continue implementing remaining metrics protobuf files

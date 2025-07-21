@@ -335,3 +335,4 @@ The updated setup script automatically authenticates using `gh auth token` and l
 ### GitHub Projects\nThis repository now uses a dedicated GitHub Project board for each major module (Metrics, Queue, Web, Auth, Cache, Config). Run `scripts/setup-github-projects.sh` to create these boards and automatically add issues by label.
 Added reference to shared proto types
 Project board organized with Todo, In Progress, Review, and Done columns
+Metrics module now includes alerting rules and basic stats messages
