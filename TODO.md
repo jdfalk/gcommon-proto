@@ -812,7 +812,7 @@ _This roadmap is a living document, updated quarterly based on development progr
 
 #### Week 17-18: Web Module
 
-- [ ] **Complete Web protobuf definitions** (40+ messages)
+- [x] **Complete Web protobuf definitions** (40+ messages)
   - [ ] WebService: 7 methods
   - [ ] MiddlewareService: 4 methods
   - [ ] WebSocketService: 4 methods

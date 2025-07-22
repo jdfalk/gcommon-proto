@@ -324,3 +324,5 @@ Implemented TransactionService and MigrationService protobufs
 | **Metrics**      | 🔄 7%     | ❌ No                 | 🔄 In Progress | **❌ 90/97 files need implementation**     |
 
 Queue module progress: implemented acknowledgment messages and types (approx. 6% complete)
+- Implemented core web protobufs
+### July 21, 2025: Web module protobufs implemented (178 files)

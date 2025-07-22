@@ -11,6 +11,14 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 
+- Implemented Web module protobufs
+
+### Added
+
+- Implemented core web protobuf definitions
+
+### Added
+
 - Implemented queue acknowledgment messages and types
 
 ### Added
