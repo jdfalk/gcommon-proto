@@ -17,7 +17,7 @@ option features.(pb.go).api_level = API_HYBRID;
  */
 message ListMetricsRequest {
   // Pagination information
-  PaginationRequest pagination = 1;
+  gcommon.v1.common.Pagination pagination = 1;
 
   // Optional name filter
   string name_filter = 2;

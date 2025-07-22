@@ -10,6 +10,7 @@ package gcommon.v1.metrics;
 import "google/protobuf/go_features.proto";
 import "google/protobuf/timestamp.proto";
 import "pkg/common/proto/messages/error.proto";
+import "pkg/metrics/proto/enums/health_status.proto";
 import "pkg/metrics/proto/types/retention_policy.proto";
 import "pkg/metrics/proto/types/time_range.proto";
 import "pkg/metrics/proto/types/error_stats.proto";
@@ -37,7 +38,7 @@ message GetMetricsSummaryResponse {
   repeated ProviderSummary provider_summaries = 4;
 
   // Health status information (if requested)
-  HealthStatus health_status = 5;
+  MetricsHealthInfo health_status = 5;
 
   // When the summary was generated
   google.protobuf.Timestamp generated_at = 6;
@@ -106,10 +107,10 @@ message MetricInfo {
 }
 
 /**
- * HealthStatus contains health information about the metrics system.
+ * MetricsHealthInfo contains health information about the metrics system.
  */
-message HealthStatus {
-  string overall_status = 1; // "healthy", "degraded", "unhealthy"
+message MetricsHealthInfo {
+  HealthStatus overall_status = 1;
   repeated string health_checks = 2;
   repeated string warnings = 3;
   google.protobuf.Timestamp last_check = 4;
