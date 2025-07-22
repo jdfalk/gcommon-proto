@@ -1,9 +1,7 @@
-// filepath: pkg/web/proto/responses/get_handler_info_response.proto
-// file: web/proto/responses/get_handler_info_response.proto
-//
-// Response definitions for web module
-// TODO: Implement actual protobuf definitions
-//
+// file: pkg/web/proto/responses/get_handler_info_response.proto
+// version: 1.0.0
+// guid: d6203aa9-40d1-47d9-8c6d-ea2d7cf3c76e
+
 edition = "2023";
 
 package gcommon.v1.web;
@@ -13,6 +11,7 @@ import "google/protobuf/go_features.proto";
 option go_package = "github.com/jdfalk/gcommon/pkg/web/proto;webpb";
 option features.(pb.go).api_level = API_HYBRID;
 
-// TODO: Add response definitions here
-// This is a placeholder file created during 1-1-1 migration
-// Implement the actual protobuf definitions according to the web module requirements
+// GetHandlerInfoResponse response definition.
+message GetHandlerInfoResponse {
+  string placeholder = 1;
+}

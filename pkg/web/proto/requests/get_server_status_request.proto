@@ -1,9 +1,7 @@
-// filepath: pkg/web/proto/requests/get_server_status_request.proto
-// file: web/proto/requests/get_server_status_request.proto
-//
-// Request definitions for web module
-// TODO: Implement actual protobuf definitions
-//
+// file: pkg/web/proto/requests/get_server_status_request.proto
+// version: 1.0.0
+// guid: 589c81b7-a311-4da5-9604-ece349fc6e55
+
 edition = "2023";
 
 package gcommon.v1.web;
@@ -13,6 +11,7 @@ import "google/protobuf/go_features.proto";
 option go_package = "github.com/jdfalk/gcommon/pkg/web/proto;webpb";
 option features.(pb.go).api_level = API_HYBRID;
 
-// TODO: Add request definitions here
-// This is a placeholder file created during 1-1-1 migration
-// Implement the actual protobuf definitions according to the web module requirements
+// GetServerStatusRequest request definition.
+message GetServerStatusRequest {
+  string placeholder = 1;
+}
