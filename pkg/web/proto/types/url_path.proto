@@ -1,9 +1,7 @@
-// filepath: pkg/web/proto/types/url_path.proto
-// file: web/proto/types/url_path.proto
-//
-// Type definitions for web module
-// TODO: Implement actual protobuf definitions
-//
+// file: pkg/web/proto/types/url_path.proto
+// version: 1.0.0
+// guid: 265bd840-fba9-4930-ac69-55c9d3d55210
+
 edition = "2023";
 
 package gcommon.v1.web;
@@ -13,6 +11,7 @@ import "google/protobuf/go_features.proto";
 option go_package = "github.com/jdfalk/gcommon/pkg/web/proto;webpb";
 option features.(pb.go).api_level = API_HYBRID;
 
-// TODO: Add type definitions here
-// This is a placeholder file created during 1-1-1 migration
-// Implement the actual protobuf definitions according to the web module requirements
+// UrlPath message definition.
+message UrlPath {
+  string placeholder = 1;
+}

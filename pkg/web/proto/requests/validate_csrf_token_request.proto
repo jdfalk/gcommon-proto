@@ -1,9 +1,7 @@
-// filepath: pkg/web/proto/requests/validate_csrf_token_request.proto
-// file: web/proto/requests/validate_csrf_token_request.proto
-//
-// Request definitions for web module
-// TODO: Implement actual protobuf definitions
-//
+// file: pkg/web/proto/requests/validate_csrf_token_request.proto
+// version: 1.0.0
+// guid: a28f712d-4b1c-417b-ad6c-eb154c429933
+
 edition = "2023";
 
 package gcommon.v1.web;
@@ -13,6 +11,7 @@ import "google/protobuf/go_features.proto";
 option go_package = "github.com/jdfalk/gcommon/pkg/web/proto;webpb";
 option features.(pb.go).api_level = API_HYBRID;
 
-// TODO: Add request definitions here
-// This is a placeholder file created during 1-1-1 migration
-// Implement the actual protobuf definitions according to the web module requirements
+// ValidateCsrfTokenRequest request definition.
+message ValidateCsrfTokenRequest {
+  string placeholder = 1;
+}

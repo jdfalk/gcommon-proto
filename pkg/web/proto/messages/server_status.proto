@@ -1,9 +1,7 @@
-// filepath: pkg/web/proto/messages/server_status.proto
-// file: web/proto/messages/server_status.proto
-//
-// Message definitions for web module
-// TODO: Implement actual protobuf definitions
-//
+// file: pkg/web/proto/messages/server_status.proto
+// version: 1.0.1
+// guid: 1846bf32-3652-4e52-a6fc-333db4886d5c
+
 edition = "2023";
 
 package gcommon.v1.web;
@@ -13,6 +11,13 @@ import "google/protobuf/go_features.proto";
 option go_package = "github.com/jdfalk/gcommon/pkg/web/proto;webpb";
 option features.(pb.go).api_level = API_HYBRID;
 
-// TODO: Add message definitions here
-// This is a placeholder file created during 1-1-1 migration
-// Implement the actual protobuf definitions according to the web module requirements
+// ServerStatus enumeration describing server lifecycle states.
+enum ServerStatus {
+  SERVER_STATUS_UNSPECIFIED = 0;
+  SERVER_STATUS_CREATED = 1;
+  SERVER_STATUS_STARTING = 2;
+  SERVER_STATUS_RUNNING = 3;
+  SERVER_STATUS_STOPPING = 4;
+  SERVER_STATUS_STOPPED = 5;
+  SERVER_STATUS_ERROR = 6;
+}

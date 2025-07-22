@@ -1,9 +1,7 @@
-// filepath: pkg/web/proto/messages/http_response.proto
-// file: web/proto/messages/http_response.proto
-//
-// Message definitions for web module
-// TODO: Implement actual protobuf definitions
-//
+// file: pkg/web/proto/messages/http_response.proto
+// version: 1.0.1
+// guid: e9b0fcee-3b0a-4b04-b8f5-68aa199c7d6f
+
 edition = "2023";
 
 package gcommon.v1.web;
@@ -13,6 +11,23 @@ import "google/protobuf/go_features.proto";
 option go_package = "github.com/jdfalk/gcommon/pkg/web/proto;webpb";
 option features.(pb.go).api_level = API_HYBRID;
 
-// TODO: Add message definitions here
-// This is a placeholder file created during 1-1-1 migration
-// Implement the actual protobuf definitions according to the web module requirements
+// HttpResponse message definition.
+message HTTPResponse {
+  // Status code
+  int32 status_code = 1;
+
+  // Status message
+  string status_message = 2;
+
+  // Response headers
+  map<string, string> headers = 3;
+
+  // Response body
+  bytes body = 4;
+
+  // Content type
+  string content_type = 5;
+
+  // Content length
+  int64 content_length = 6;
+}

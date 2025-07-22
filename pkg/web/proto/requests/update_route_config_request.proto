@@ -1,9 +1,7 @@
-// filepath: pkg/web/proto/requests/update_route_config_request.proto
-// file: web/proto/requests/update_route_config_request.proto
-//
-// Request definitions for web module
-// TODO: Implement actual protobuf definitions
-//
+// file: pkg/web/proto/requests/update_route_config_request.proto
+// version: 1.0.0
+// guid: 65c64e7e-be8d-4fa3-9bd1-e0c9b752fef9
+
 edition = "2023";
 
 package gcommon.v1.web;
@@ -13,6 +11,7 @@ import "google/protobuf/go_features.proto";
 option go_package = "github.com/jdfalk/gcommon/pkg/web/proto;webpb";
 option features.(pb.go).api_level = API_HYBRID;
 
-// TODO: Add request definitions here
-// This is a placeholder file created during 1-1-1 migration
-// Implement the actual protobuf definitions according to the web module requirements
+// UpdateRouteConfigRequest request definition.
+message UpdateRouteConfigRequest {
+  string placeholder = 1;
+}

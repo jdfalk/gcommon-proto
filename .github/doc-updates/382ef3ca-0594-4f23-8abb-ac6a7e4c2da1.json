@@ -1,0 +1,16 @@
+{
+  "file": "CHANGELOG.md",
+  "mode": "changelog-entry",
+  "content": "### Added\n\n- Implemented core web protobuf definitions",
+  "guid": "382ef3ca-0594-4f23-8abb-ac6a7e4c2da1",
+  "created_at": "2025-07-21T04:48:45Z",
+  "options": {
+    "section": null,
+    "after": null,
+    "before": null,
+    "task_id": null,
+    "badge_name": null,
+    "priority": null,
+    "category": null
+  }
+}

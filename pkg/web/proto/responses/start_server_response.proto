@@ -1,18 +1,29 @@
-// filepath: pkg/web/proto/responses/start_server_response.proto
-// file: web/proto/responses/start_server_response.proto
-//
-// Response definitions for web module
-// TODO: Implement actual protobuf definitions
-//
+// file: pkg/web/proto/responses/start_server_response.proto
+// version: 1.0.1
+// guid: 0655b1fa-e5f9-419d-a4f1-dcd1a5b474b5
+
 edition = "2023";
 
 package gcommon.v1.web;
 
 import "google/protobuf/go_features.proto";
+import "pkg/common/proto/common.proto";
+import "pkg/web/proto/messages/server_status.proto";
 
 option go_package = "github.com/jdfalk/gcommon/pkg/web/proto;webpb";
 option features.(pb.go).api_level = API_HYBRID;
 
-// TODO: Add response definitions here
-// This is a placeholder file created during 1-1-1 migration
-// Implement the actual protobuf definitions according to the web module requirements
+// StartServerResponse response definition.
+message StartServerResponse {
+  // Success status
+  bool success = 1;
+
+  // Server status
+  ServerStatus status = 2;
+
+  // Listen address
+  string listen_address = 3;
+
+  // Error information
+  gcommon.v1.common.Error error = 4;
+}
