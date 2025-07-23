@@ -1,18 +1,33 @@
-// filepath: pkg/metrics/proto/responses/health_check_response.proto
-// file: metrics/proto/responses/health_check_response.proto
+// file: pkg/metrics/proto/responses/health_check_response.proto
+// version: 1.0.0
+// guid: 2d9c7ce3-2e5b-42d7-9473-70bef7518cdd
 //
-// Response definitions for metrics module
-// TODO: Implement actual protobuf definitions
-//
+// HealthCheckResponse for the metrics module
 edition = "2023";
 
 package gcommon.v1.metrics;
 
 import "google/protobuf/go_features.proto";
+import "google/protobuf/duration.proto";
+import "pkg/common/proto/enums/health_status.proto";
+import "pkg/common/proto/messages/error.proto";
 
 option go_package = "github.com/jdfalk/gcommon/pkg/metrics/proto;metricspb";
 option features.(pb.go).api_level = API_HYBRID;
 
-// TODO: Add response definitions here
-// This is a placeholder file created during 1-1-1 migration
-// Implement the actual protobuf definitions according to the metrics module requirements
+/**
+ * HealthCheckResponse contains the result of a metrics subsystem health check.
+ */
+message HealthCheckResponse {
+  // Health status of the subsystem.
+  gcommon.v1.common.HealthStatus status = 1;
+
+  // Time taken to execute the health check.
+  google.protobuf.Duration response_time = 2 [lazy = true];
+
+  // Optional human-readable message.
+  string message = 3;
+
+  // Error details if unhealthy.
+  gcommon.v1.common.Error error = 4 [lazy = true];
+}

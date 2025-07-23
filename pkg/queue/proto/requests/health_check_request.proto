@@ -1,18 +1,25 @@
-// filepath: pkg/queue/proto/requests/health_check_request.proto
-// file: queue/proto/requests/health_check_request.proto
+// file: pkg/queue/proto/requests/health_check_request.proto
+// version: 1.0.0
+// guid: e9e95e53-7d2b-4dbf-896d-e9dea8853bd0
 //
-// Request definitions for queue module
-// TODO: Implement actual protobuf definitions
-//
+// HealthCheckRequest for the queue module
 edition = "2023";
 
 package gcommon.v1.queue;
 
 import "google/protobuf/go_features.proto";
+import "pkg/common/proto/messages/request_metadata.proto";
 
 option go_package = "github.com/jdfalk/gcommon/pkg/queue/proto;queuepb";
 option features.(pb.go).api_level = API_HYBRID;
 
-// TODO: Add request definitions here
-// This is a placeholder file created during 1-1-1 migration
-// Implement the actual protobuf definitions according to the queue module requirements
+/**
+ * HealthCheckRequest checks the health of a specific queue.
+ */
+message HealthCheckRequest {
+  // Name of the queue to check.
+  string queue = 1;
+
+  // Request metadata for tracing.
+  gcommon.v1.common.RequestMetadata metadata = 2 [lazy = true];
+}
