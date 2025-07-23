@@ -1,0 +1,16 @@
+{
+  "file": "CHANGELOG.md",
+  "mode": "changelog-entry",
+  "content": "### Added\n\n- Implemented Notification service protobufs",
+  "guid": "e5041c67-0985-43a5-b8a5-365458f422ba",
+  "created_at": "2025-07-23T03:14:45Z",
+  "options": {
+    "section": null,
+    "after": null,
+    "before": null,
+    "task_id": null,
+    "badge_name": null,
+    "priority": null,
+    "category": null
+  }
+}

@@ -20,6 +20,11 @@ import public "pkg/notification/proto/messages/template.proto";
 import public "pkg/notification/proto/messages/subscription_preferences.proto";
 import public "pkg/notification/proto/messages/event_notification.proto";
 import public "pkg/notification/proto/enums/delivery_status.proto";
+import public "pkg/notification/proto/requests/send_notification_request.proto";
+import public "pkg/notification/proto/responses/send_notification_response.proto";
+import public "pkg/notification/proto/requests/list_notifications_request.proto";
+import public "pkg/notification/proto/responses/list_notifications_response.proto";
+import public "pkg/notification/proto/services/notification_service.proto";
 
 import "google/protobuf/go_features.proto";
 
