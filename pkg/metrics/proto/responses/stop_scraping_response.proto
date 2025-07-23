@@ -1,18 +1,32 @@
-// filepath: pkg/metrics/proto/responses/stop_scraping_response.proto
-// file: metrics/proto/responses/stop_scraping_response.proto
-//
-// Response definitions for metrics module
-// TODO: Implement actual protobuf definitions
-//
+// file: pkg/metrics/proto/responses/stop_scraping_response.proto
+// version: 1.1.0
+// guid: 7d2eb263-b398-4b98-af07-c9950ab73d05
+
 edition = "2023";
 
 package gcommon.v1.metrics;
 
 import "google/protobuf/go_features.proto";
+import "google/protobuf/timestamp.proto";
+import "pkg/common/proto/messages/error.proto";
+import "pkg/metrics/proto/messages/scrape_job.proto";
 
 option go_package = "github.com/jdfalk/gcommon/pkg/metrics/proto;metricspb";
 option features.(pb.go).api_level = API_HYBRID;
 
-// TODO: Add response definitions here
-// This is a placeholder file created during 1-1-1 migration
-// Implement the actual protobuf definitions according to the metrics module requirements
+/**
+ * StopScrapingResponse returns the result of stopping a scrape job.
+ */
+message StopScrapingResponse {
+  // Whether the job was stopped successfully
+  bool success = 1;
+
+  // Error information if unsuccessful
+  gcommon.v1.common.Error error = 2;
+
+  // Details of the stopped job
+  ScrapeJob job = 3;
+
+  // Timestamp when the job stopped
+  google.protobuf.Timestamp stopped_at = 4;
+}
