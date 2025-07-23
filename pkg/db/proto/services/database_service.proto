@@ -5,6 +5,7 @@ package gcommon.v1.database;
 
 import "pkg/db/proto/requests/query_request.proto";
 import "pkg/db/proto/responses/query_response.proto";
+import "pkg/db/proto/responses/query_row_response.proto";
 import "pkg/db/proto/requests/execute_request.proto";
 import "pkg/db/proto/responses/execute_response.proto";
 import "pkg/db/proto/requests/execute_batch_request.proto";
@@ -30,6 +31,9 @@ option features.(pb.go).api_level = API_HYBRID;
 service DatabaseService {
   // Execute a read-only query and return results
   rpc Query(QueryRequest) returns (QueryResponse);
+
+  // Execute a query expected to return at most one row
+  rpc QueryRow(QueryRequest) returns (QueryRowResponse);
 
   // Execute a write operation (INSERT, UPDATE, DELETE)
   rpc Execute(ExecuteRequest) returns (ExecuteResponse);

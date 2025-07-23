@@ -1,0 +1,16 @@
+{
+  "file": "TODO.md",
+  "mode": "task-add",
+  "content": "Add QueryRowResponse message and QueryRow RPC to DatabaseService",
+  "guid": "c7cc29ed-2376-4b52-bf90-bcb14c2deffd",
+  "created_at": "2025-07-23T03:12:45Z",
+  "options": {
+    "section": null,
+    "after": null,
+    "before": null,
+    "task_id": null,
+    "badge_name": null,
+    "priority": null,
+    "category": null
+  }
+}
