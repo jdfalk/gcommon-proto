@@ -1,0 +1,7 @@
+{
+  "action": "comment",
+  "number": 57,
+  "body": "Implemented request/response messages for tenant, team, and member management",
+  "guid": "338e895f-0634-46b1-95ba-37c14961d534",
+  "legacy_guid": "comment-issue-57-2025-07-23"
+}

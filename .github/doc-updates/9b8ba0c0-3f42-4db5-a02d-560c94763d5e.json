@@ -1,0 +1,16 @@
+{
+  "file": "CHANGELOG.md",
+  "mode": "changelog-entry",
+  "content": "### Added\n\n- Implemented core Organization requests and responses",
+  "guid": "9b8ba0c0-3f42-4db5-a02d-560c94763d5e",
+  "created_at": "2025-07-23T03:16:46Z",
+  "options": {
+    "section": null,
+    "after": null,
+    "before": null,
+    "task_id": null,
+    "badge_name": null,
+    "priority": null,
+    "category": null
+  }
+}

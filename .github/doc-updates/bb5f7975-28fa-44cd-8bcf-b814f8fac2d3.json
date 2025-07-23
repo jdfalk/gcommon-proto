@@ -1,0 +1,16 @@
+{
+  "file": "TODO.md",
+  "mode": "task-add",
+  "content": "Implement Organization requests/responses",
+  "guid": "bb5f7975-28fa-44cd-8bcf-b814f8fac2d3",
+  "created_at": "2025-07-23T03:16:56Z",
+  "options": {
+    "section": null,
+    "after": null,
+    "before": null,
+    "task_id": null,
+    "badge_name": null,
+    "priority": null,
+    "category": null
+  }
+}

@@ -5,17 +5,18 @@ package gcommon.v1.organization;
 
 import "google/protobuf/go_features.proto";
 import "pkg/common/proto/messages/error.proto";
+import "pkg/organization/proto/messages/tenant.proto";
 
 option go_package = "github.com/jdfalk/gcommon/pkg/organization/proto;organizationpb";
 option features.(pb.go).api_level = API_HYBRID;
 
-// TODO: Implement create_tenant_response message
 message CreateTenantResponse {
   // Any errors encountered
   repeated gcommon.v1.common.Error errors = 1;
 
   // Success status
   bool success = 2;
-  
-  // TODO: Add specific fields for this response
+
+  // Newly created tenant details
+  gcommon.v1.organization.Tenant tenant = 3;
 }
