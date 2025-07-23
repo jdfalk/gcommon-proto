@@ -91,7 +91,8 @@ import public "pkg/cache/proto/requests/unlock_request.proto";
 import public "pkg/cache/proto/requests/unsubscribe_request.proto";
 import public "pkg/cache/proto/requests/unwatch_request.proto";
 import public "pkg/cache/proto/requests/watch_request.proto";
-\n// Response types (18 total)
+
+// Response types (18 total)
 import public "pkg/cache/proto/responses/clear_response.proto";
 import public "pkg/cache/proto/responses/configure_policy_response.proto";
 import public "pkg/cache/proto/responses/create_namespace_response.proto";

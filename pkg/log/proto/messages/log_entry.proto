@@ -10,6 +10,9 @@ import "google/protobuf/go_features.proto";
 import "google/protobuf/timestamp.proto";
 import "google/protobuf/any.proto";
 import "pkg/common/proto/common.proto";
+import "pkg/log/proto/enums/log_level.proto";
+import "pkg/log/proto/messages/source_location.proto";
+import "pkg/log/proto/messages/error_info.proto";
 
 option go_package = "github.com/jdfalk/gcommon/pkg/log/proto;logpb";
 option features.(pb.go).api_level = API_HYBRID;

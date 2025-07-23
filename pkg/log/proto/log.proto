@@ -10,16 +10,16 @@ import "google/protobuf/empty.proto";
 import "google/protobuf/any.proto";
 import "google/protobuf/field_mask.proto";
 import "google/protobuf/go_features.proto";
-import public "pkg/log/proto/messages/log_entry.proto"
-import public "pkg/log/proto/messages/source_location.proto"
-import public "pkg/log/proto/messages/error_info.proto"
-import public "pkg/log/proto/enums/log_level.proto"
-import public "pkg/log/proto/enums/log_sort_field.proto"
-import public "pkg/log/proto/enums/appender_type.proto"
-import public "pkg/log/proto/enums/formatter_type.proto"
-import public "pkg/log/proto/enums/filter_type.proto"
-import public "pkg/log/proto/enums/logger_status.proto"
-import public "pkg/log/proto/enums/compression_type.proto"
+import public "pkg/log/proto/messages/log_entry.proto";
+import public "pkg/log/proto/messages/source_location.proto";
+import public "pkg/log/proto/messages/error_info.proto";
+import public "pkg/log/proto/enums/log_level.proto";
+import public "pkg/log/proto/enums/log_sort_field.proto";
+import public "pkg/log/proto/enums/appender_type.proto";
+import public "pkg/log/proto/enums/formatter_type.proto";
+import public "pkg/log/proto/enums/filter_type.proto";
+import public "pkg/log/proto/enums/logger_status.proto";
+import public "pkg/log/proto/enums/compression_type.proto";
 
 option go_package = "github.com/jdfalk/gcommon/pkg/log/proto;logpb";
 option features.(pb.go).api_level = API_HYBRID;
@@ -63,6 +63,8 @@ service LogAdminService {
   rpc ListLoggers(ListLoggersRequest) returns (ListLoggersResponse);
 
   // ConfigureAppender configures log output destinations
+  rpc ConfigureAppender(ConfigureAppenderRequest) returns (ConfigureAppenderResponse);
+}
 
 // Log request for writing a single entry
 message LogRequest {
@@ -136,6 +138,15 @@ message LogBatchResponse {
   repeated ErrorInfo causes = 6;
 }
 
+// LogSort defines sorting options for log queries
+message LogSort {
+  // Field to sort by
+  LogSortField field = 1;
+
+  // Sort direction (true for ascending, false for descending)
+  bool ascending = 2;
+}
+
 // Query log request
 message QueryLogRequest {
   // Query filters
@@ -188,8 +199,6 @@ message TimeRange {
 
   // End time (exclusive)
   google.protobuf.Timestamp end = 2;
-}
-
 }
 
 // Log sort fields
@@ -554,7 +563,7 @@ message ArchiveCriteria {
 
   // Size threshold
   int64 size_threshold_bytes = 2;
-
+}
 
 // Archive logs response
 message ArchiveLogsResponse {
