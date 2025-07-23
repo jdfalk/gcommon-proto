@@ -1,18 +1,25 @@
-// filepath: pkg/auth/proto/requests/check_permission_request.proto
-// file: auth/proto/requests/check_permission_request.proto
-//
-// Request definitions for auth module
-// TODO: Implement actual protobuf definitions
-//
+// file: pkg/auth/proto/requests/check_permission_request.proto
+// version: 1.0.0
+// guid: db7aca7d-742a-443b-b641-448ddf4a8518
+
 edition = "2023";
 
 package gcommon.v1.auth;
 
-import "google/protobuf/go_features.proto";
+import "pkg/common/proto/messages/request_metadata.proto";
 
 option go_package = "github.com/jdfalk/gcommon/pkg/auth/proto;authpb";
-option features.(pb.go).api_level = API_HYBRID;
 
-// TODO: Add request definitions here
-// This is a placeholder file created during 1-1-1 migration
-// Implement the actual protobuf definitions according to the auth module requirements
+/**
+ * Request to verify that a user possesses a specific permission.
+ */
+message CheckPermissionRequest {
+  // Metadata for tracing and audit purposes
+  gcommon.v1.common.RequestMetadata metadata = 1 [lazy = true];
+
+  // User ID being verified
+  string user_id = 2;
+
+  // Permission ID to check
+  string permission_id = 3;
+}
