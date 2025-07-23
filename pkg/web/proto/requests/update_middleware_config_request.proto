@@ -7,11 +7,18 @@ edition = "2023";
 package gcommon.v1.web;
 
 import "google/protobuf/go_features.proto";
+import "pkg/common/proto/messages/request_metadata.proto";
+import "pkg/web/proto/messages/middleware_config.proto";
 
 option go_package = "github.com/jdfalk/gcommon/pkg/web/proto;webpb";
 option features.(pb.go).api_level = API_HYBRID;
 
 // UpdateMiddlewareConfigRequest request definition.
+// UpdateMiddlewareConfigRequest updates an existing middleware configuration.
 message UpdateMiddlewareConfigRequest {
-  string placeholder = 1;
+  // Request metadata for tracing and auth
+  gcommon.v1.common.RequestMetadata metadata = 1;
+
+  // Updated middleware configuration
+  MiddlewareConfig config = 2;
 }
