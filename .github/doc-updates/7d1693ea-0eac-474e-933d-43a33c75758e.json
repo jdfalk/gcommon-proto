@@ -1,0 +1,16 @@
+{
+  "file": "TODO.md",
+  "mode": "task-add",
+  "content": "Implement additional auth protobuf definitions",
+  "guid": "7d1693ea-0eac-474e-933d-43a33c75758e",
+  "created_at": "2025-07-23T03:10:46Z",
+  "options": {
+    "section": null,
+    "after": null,
+    "before": null,
+    "task_id": null,
+    "badge_name": null,
+    "priority": null,
+    "category": null
+  }
+}

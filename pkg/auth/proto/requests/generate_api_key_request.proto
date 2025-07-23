@@ -1,18 +1,30 @@
-// filepath: pkg/auth/proto/requests/generate_api_key_request.proto
-// file: auth/proto/requests/generate_api_key_request.proto
-//
-// Request definitions for auth module
-// TODO: Implement actual protobuf definitions
-//
+// file: pkg/auth/proto/requests/generate_api_key_request.proto
+// version: 1.0.0
+// guid: 5590365e-02f0-4a3d-96eb-15bc615c14ef
+
 edition = "2023";
 
 package gcommon.v1.auth;
 
 import "google/protobuf/go_features.proto";
+import "pkg/common/proto/messages/request_metadata.proto";
 
 option go_package = "github.com/jdfalk/gcommon/pkg/auth/proto;authpb";
 option features.(pb.go).api_level = API_HYBRID;
 
-// TODO: Add request definitions here
-// This is a placeholder file created during 1-1-1 migration
-// Implement the actual protobuf definitions according to the auth module requirements
+/**
+ * GenerateAPIKeyRequest requests creation of a new API key for a user.
+ */
+message GenerateAPIKeyRequest {
+  // User ID for whom to generate the key
+  string user_id = 1;
+
+  // Optional name/description for the key
+  string name = 2;
+
+  // Optional expiration in seconds
+  int32 expires_in = 3;
+
+  // Metadata for tracing and correlation
+  gcommon.v1.common.RequestMetadata metadata = 4;
+}
