@@ -1,0 +1,16 @@
+{
+  "file": "PROTOBUF_IMPLEMENTATION_PLAN.md",
+  "mode": "replace-section",
+  "content": "| Module       | Total Files | Empty | Implemented | Completion | Priority    |\n| ------------ | ----------- | ----- | ----------- | ---------- | ----------- |\n| **Queue**    | 177         | 175   | 2           | 1.1%       | 🔴 CRITICAL |\n| **Web**      | 178         | 176   | 2           | 1.1%       | 🔴 CRITICAL |\n| **Metrics**  | 97          | 95    | 2           | 2.1%       | 🔴 CRITICAL |\n| **Auth**     | 126         | 109   | 17          | 13.5%      | 🟠 HIGH     |\n| **Cache**    | 44          | 0     | 44          | 100%       | ✅ COMPLETE |\n| **Config**   | 23          | 20    | 3           | 13.0%      | 🟡 MEDIUM   |\n| **Health**   | 16          | 14    | 2           | 12.5%      | 🟡 MEDIUM   |\n| **Common**   | 40          | 0     | 40          | 100%       | ✅ COMPLETE |\n| **Database** | 52          | 0     | 52          | 100%       | ✅ COMPLETE |\n| **Log**      | 11          | 0     | 11          | 100%       | ✅ COMPLETE |",
+  "guid": "67b1b412-d223-4136-826e-80b797b83de1",
+  "created_at": "2025-07-23T03:16:54Z",
+  "options": {
+    "section": null,
+    "after": null,
+    "before": null,
+    "task_id": null,
+    "badge_name": null,
+    "priority": null,
+    "category": null
+  }
+}
