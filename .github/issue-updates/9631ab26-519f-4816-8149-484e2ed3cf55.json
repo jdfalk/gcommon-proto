@@ -1,0 +1,8 @@
+{
+  "action": "create",
+  "title": "MySQL protobufs",
+  "body": "Add MySQLConfig and MySQLStatus messages",
+  "labels": ["module:db", "mysql", "enhancement"],
+  "guid": "9631ab26-519f-4816-8149-484e2ed3cf55",
+  "legacy_guid": "create-mysql-protobufs-2025-07-23"
+}
