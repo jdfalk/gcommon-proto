@@ -1,0 +1,16 @@
+{
+  "file": "TODO.md",
+  "mode": "task-add",
+  "content": "Implement CockroachDB config protobuf message",
+  "guid": "6fea8390-b7b8-4806-9c06-b0fa0c96ab5c",
+  "created_at": "2025-07-23T03:39:55Z",
+  "options": {
+    "section": null,
+    "after": null,
+    "before": null,
+    "task_id": null,
+    "badge_name": null,
+    "priority": null,
+    "category": null
+  }
+}

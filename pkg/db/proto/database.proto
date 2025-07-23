@@ -37,7 +37,7 @@ import public "pkg/db/proto/services/migration_service.proto";
 import public "pkg/db/proto/enums/consistency_level.proto";
 import public "pkg/db/proto/enums/isolation_level.proto";
 
-// Messages (14 total)
+// Messages (15 total)
 import public "pkg/db/proto/messages/batch_execute_options.proto";
 import public "pkg/db/proto/messages/batch_operation.proto";
 import public "pkg/db/proto/messages/batch_operation_result.proto";
@@ -52,6 +52,7 @@ import public "pkg/db/proto/messages/query_stats.proto";
 import public "pkg/db/proto/messages/result_set.proto";
 import public "pkg/db/proto/messages/transaction_options.proto";
 import public "pkg/db/proto/messages/migration_info.proto";
+import public "pkg/db/proto/messages/cockroach_config.proto";
 
 // Request types (21 total)
 import public "pkg/db/proto/requests/begin_transaction_request.proto";

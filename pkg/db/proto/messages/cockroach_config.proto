@@ -1,0 +1,45 @@
+// file: pkg/db/proto/messages/cockroach_config.proto
+// version: 1.0.0
+// guid: a505881e-946a-4a19-9fd5-1e81405e1f73
+
+edition = "2023";
+
+package gcommon.v1.database;
+
+import "google/protobuf/go_features.proto";
+
+option go_package = "github.com/jdfalk/gcommon/pkg/db/proto;dbpb";
+option features.(pb.go).api_level = API_HYBRID;
+
+/**
+ * CockroachConfig provides CockroachDB-specific connection configuration.
+ * Includes retry behavior and identification options for robust connections.
+ */
+message CockroachConfig {
+  // Host is the database host.
+  string host = 1;
+
+  // Port is the database port.
+  int32 port = 2;
+
+  // User is the database user.
+  string user = 3;
+
+  // Password is the database password.
+  string password = 4;
+
+  // Database is the database name.
+  string database = 5;
+
+  // SSLMode is the SSL mode.
+  string ssl_mode = 6;
+
+  // ApplicationName is the application name.
+  string application_name = 7;
+
+  // RetryBackoffFactor is the retry backoff factor.
+  float retry_backoff_factor = 8;
+
+  // MaxRetries is the maximum number of retries.
+  int32 max_retries = 9;
+}
