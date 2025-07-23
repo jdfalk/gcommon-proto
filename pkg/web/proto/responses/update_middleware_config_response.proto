@@ -7,11 +7,17 @@ edition = "2023";
 package gcommon.v1.web;
 
 import "google/protobuf/go_features.proto";
+import "pkg/common/proto/messages/response_metadata.proto";
 
 option go_package = "github.com/jdfalk/gcommon/pkg/web/proto;webpb";
 option features.(pb.go).api_level = API_HYBRID;
 
 // UpdateMiddlewareConfigResponse response definition.
+// UpdateMiddlewareConfigResponse returns the result of updating middleware config.
 message UpdateMiddlewareConfigResponse {
-  string placeholder = 1;
+  // Standard response metadata
+  gcommon.v1.common.ResponseMetadata metadata = 1;
+
+  // Whether the middleware was updated
+  bool updated = 2;
 }

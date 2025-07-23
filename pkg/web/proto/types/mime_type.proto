@@ -12,6 +12,14 @@ option go_package = "github.com/jdfalk/gcommon/pkg/web/proto;webpb";
 option features.(pb.go).api_level = API_HYBRID;
 
 // MimeType message definition.
+// MimeType represents a content type with optional parameters.
 message MimeType {
-  string placeholder = 1;
+  // Primary type, e.g. "text"
+  string type = 1;
+
+  // Subtype, e.g. "html"
+  string subtype = 2;
+
+  // Optional parameters such as charset
+  map<string, string> parameters = 3;
 }
