@@ -1,0 +1,23 @@
+// file: pkg/notification/proto/requests/get_template_request.proto
+// version: 1.0.0
+// guid: 4b8dae31-438b-4407-8f5e-25e99ebd347b
+edition = "2023";
+
+package gcommon.v1.notification;
+
+import "google/protobuf/go_features.proto";
+import "pkg/common/proto/messages/request_metadata.proto";
+
+option go_package = "github.com/jdfalk/gcommon/pkg/notification/proto;notificationpb";
+option features.(pb.go).api_level = API_HYBRID;
+
+/**
+ * Retrieve a notification template by ID.
+ */
+message GetTemplateRequest {
+  // Template identifier to fetch
+  string id = 1;
+
+  // Request metadata for tracing
+  gcommon.v1.common.RequestMetadata metadata = 2 [lazy = true];
+}

@@ -507,13 +507,6 @@ pkg/queue/proto/responses/import_queue_response.proto
 pkg/queue/proto/responses/update_topic_config_response.proto
 pkg/queue/proto/responses/get_subscription_info_response.proto
 pkg/queue/proto/responses/get_cluster_info_response.proto
-pkg/notification/proto/enums/delivery_status.proto
-pkg/notification/proto/messages/delivery_channel.proto
-pkg/notification/proto/messages/event_notification.proto
-pkg/notification/proto/messages/notification_message.proto
-pkg/notification/proto/messages/subscription_preferences.proto
-pkg/notification/proto/messages/template.proto
-pkg/notification/proto/notification.proto
 pkg/queue/proto/requests/delete_subscription_request.proto
 pkg/queue/proto/requests/get_message_request.proto
 pkg/queue/proto/requests/list_messages_request.proto
