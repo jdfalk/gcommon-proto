@@ -1,0 +1,27 @@
+// file: pkg/notification/proto/services/notification_service.proto
+// version: 1.0.0
+// guid: e9327023-1377-4f3c-8fed-77a4c7e40b1b
+
+edition = "2023";
+
+package gcommon.v1.notification;
+
+import "google/protobuf/go_features.proto";
+import "pkg/notification/proto/requests/send_notification_request.proto";
+import "pkg/notification/proto/responses/send_notification_response.proto";
+import "pkg/notification/proto/requests/list_notifications_request.proto";
+import "pkg/notification/proto/responses/list_notifications_response.proto";
+
+option go_package = "github.com/jdfalk/gcommon/pkg/notification/proto;notificationpb";
+option features.(pb.go).api_level = API_HYBRID;
+
+/**
+ * NotificationService handles delivery and retrieval of notifications.
+ */
+service NotificationService {
+  // Send delivers a notification through configured channels.
+  rpc Send(SendNotificationRequest) returns (SendNotificationResponse);
+
+  // List returns previously sent notifications.
+  rpc List(ListNotificationsRequest) returns (ListNotificationsResponse);
+}
