@@ -1,0 +1,16 @@
+{
+  "file": "CHANGELOG.md",
+  "mode": "changelog-entry",
+  "content": "### Added\\n- Marked Cache module protobufs complete and updated tracking lists",
+  "guid": "4ce794d4-4073-4f9b-a6ab-d8d0f2f45f94",
+  "created_at": "2025-07-23T03:42:58Z",
+  "options": {
+    "section": null,
+    "after": null,
+    "before": null,
+    "task_id": null,
+    "badge_name": null,
+    "priority": null,
+    "category": null
+  }
+}
