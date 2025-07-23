@@ -1,0 +1,16 @@
+{
+  "file": "TODO.md",
+  "mode": "task-add",
+  "content": "- [ ] 🟡 **General**: Issue #132 closed: GRPCService implementations complete",
+  "guid": "b1d2fe45-d78c-4e60-ac2e-157a57654d5f",
+  "created_at": "2025-07-22T16:15:13Z",
+  "options": {
+    "section": null,
+    "after": null,
+    "before": null,
+    "task_id": null,
+    "badge_name": null,
+    "priority": null,
+    "category": null
+  }
+}
