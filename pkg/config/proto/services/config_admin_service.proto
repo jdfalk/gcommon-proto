@@ -1,18 +1,67 @@
-// filepath: pkg/config/proto/services/config_admin_service.proto
-// file: config/proto/services/config_admin_service.proto
-//
-// Service definitions for config module
-// TODO: Implement actual protobuf definitions
-//
+// file: pkg/config/proto/services/config_admin_service.proto
+// version: 1.0.0
+// guid: 115f65c3-94f2-4c4d-892d-27eb6c9fcece
+
 edition = "2023";
 
 package gcommon.v1.config;
 
 import "google/protobuf/go_features.proto";
+import "google/protobuf/empty.proto";
+import "pkg/config/proto/requests/backup_config_request.proto";
+import "pkg/config/proto/messages/config_backup.proto";
+import "pkg/config/proto/requests/restore_config_request.proto";
+import "pkg/config/proto/requests/import_config_request.proto";
+import "pkg/config/proto/requests/export_config_request.proto";
+import "pkg/config/proto/messages/config_snapshot.proto";
+import "pkg/config/proto/requests/reload_config_request.proto";
+import "pkg/config/proto/requests/rollback_config_request.proto";
+import "pkg/config/proto/requests/set_config_schema_request.proto";
+import "pkg/config/proto/requests/get_config_history_request.proto";
+import "pkg/config/proto/responses/get_config_history_response.proto";
+import "pkg/config/proto/requests/get_config_stats_request.proto";
+import "pkg/config/proto/responses/get_config_stats_response.proto";
+import "pkg/config/proto/requests/health_check_request.proto";
+import "pkg/config/proto/responses/health_check_response.proto";
+import "pkg/config/proto/requests/unwatch_config_request.proto";
 
 option go_package = "github.com/jdfalk/gcommon/pkg/config/proto;configpb";
 option features.(pb.go).api_level = API_HYBRID;
 
-// TODO: Add service definitions here
-// This is a placeholder file created during 1-1-1 migration
-// Implement the actual protobuf definitions according to the config module requirements
+/**
+ * ConfigAdminService provides administrative configuration operations.
+ */
+service ConfigAdminService {
+  // Create a configuration backup
+  rpc BackupConfig(BackupConfigRequest) returns (ConfigBackup);
+
+  // Restore configuration from a backup or restore point
+  rpc RestoreConfig(RestoreConfigRequest) returns (google.protobuf.Empty);
+
+  // Import configuration values
+  rpc ImportConfig(ImportConfigRequest) returns (google.protobuf.Empty);
+
+  // Export configuration snapshot
+  rpc ExportConfig(ExportConfigRequest) returns (ConfigSnapshot);
+
+  // Reload configuration from persistent storage
+  rpc ReloadConfig(ReloadConfigRequest) returns (google.protobuf.Empty);
+
+  // Roll back configuration to a previous restore point
+  rpc RollbackConfig(RollbackConfigRequest) returns (google.protobuf.Empty);
+
+  // Update configuration schema
+  rpc SetConfigSchema(SetConfigSchemaRequest) returns (google.protobuf.Empty);
+
+  // Retrieve configuration change history
+  rpc GetConfigHistory(GetConfigHistoryRequest) returns (GetConfigHistoryResponse);
+
+  // Retrieve configuration statistics
+  rpc GetConfigStats(GetConfigStatsRequest) returns (GetConfigStatsResponse);
+
+  // Perform service health check
+  rpc HealthCheck(HealthCheckRequest) returns (HealthCheckResponse);
+
+  // Stop watching configuration changes
+  rpc UnwatchConfig(UnwatchConfigRequest) returns (google.protobuf.Empty);
+}
