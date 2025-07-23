@@ -1,18 +1,32 @@
-// filepath: pkg/queue/proto/responses/publish_response.proto
-// file: queue/proto/responses/publish_response.proto
-//
-// Response definitions for queue module
-// TODO: Implement actual protobuf definitions
-//
+// file: pkg/queue/proto/responses/publish_response.proto
+// version: 1.0.0
+// guid: 8b12b279-f7c6-40fe-9147-4a663fb0c9c6
+
+syntax = "proto3";
+// PublishResponse reports the outcome of publishing a message to a
+// topic.
 edition = "2023";
 
 package gcommon.v1.queue;
 
 import "google/protobuf/go_features.proto";
+import "pkg/common/proto/common.proto";
 
 option go_package = "github.com/jdfalk/gcommon/pkg/queue/proto;queuepb";
 option features.(pb.go).api_level = API_HYBRID;
 
-// TODO: Add response definitions here
-// This is a placeholder file created during 1-1-1 migration
-// Implement the actual protobuf definitions according to the queue module requirements
+// PublishResponse contains the identifier of the published message
+// and success status.
+message PublishResponse {
+  // Unique identifier of the message as stored by the broker.
+  string message_id = 1;
+
+  // Whether the publish operation succeeded.
+  bool success = 2;
+
+  // Error information when success is false.
+  gcommon.v1.common.Error error = 3;
+
+  // Request metadata echoed back for tracing.
+  gcommon.v1.common.RequestMetadata request_metadata = 4;
+}
