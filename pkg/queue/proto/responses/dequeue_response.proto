@@ -14,8 +14,8 @@ import "google/protobuf/timestamp.proto";
 // Common types
 import "pkg/common/proto/common.proto";
 
-// Queue types - import existing QueueMessage
-import "pkg/queue/proto/queue.proto";
+// Queue message types
+import "pkg/queue/proto/messages/queue_message.proto";
 
 /**
  * DequeueResponse returns messages retrieved from a queue.
