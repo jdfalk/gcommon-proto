@@ -1411,3 +1411,5 @@ Implement TransactionService and MigrationService protobufs
 
 Metrics module progress now at 7% with initial message implementations
 - [ ] 🔴 **General**: Implement queue ack request/response and related types
+
+Implement additional auth protobuf definitions

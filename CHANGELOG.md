@@ -11,6 +11,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 
+- Implemented initial auth provider and password reset protobufs
+
+### Added
+
 - Implemented Web module protobufs
 
 ### Added
