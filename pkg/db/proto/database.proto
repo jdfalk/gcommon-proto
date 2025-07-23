@@ -99,6 +99,7 @@ import public "pkg/db/proto/types/column_metadata.proto";
 import public "pkg/db/proto/types/migration_script.proto";
 import public "pkg/db/proto/types/query_parameter.proto";
 import public "pkg/db/proto/types/row.proto";
+import public "pkg/db/proto/types/pebble_config.proto";
 
 import "google/protobuf/go_features.proto";
 

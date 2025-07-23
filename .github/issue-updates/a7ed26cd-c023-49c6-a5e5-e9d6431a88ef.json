@@ -1,0 +1,8 @@
+{
+  "action": "create",
+  "title": "Pebble DB: Add configuration protobuf",
+  "body": "Define PebbleConfig proto message for Pebble driver",
+  "labels": ["enhancement", "database", "proto"],
+  "guid": "a7ed26cd-c023-49c6-a5e5-e9d6431a88ef",
+  "legacy_guid": "create-pebble-db-add-configuration-protobuf-2025-07-23"
+}

@@ -1,0 +1,16 @@
+{
+  "file": "CHANGELOG.md",
+  "mode": "changelog-entry",
+  "content": "### Added\n\n- Added PebbleConfig protobuf for Pebble driver",
+  "guid": "89237136-7f9b-4912-ad4f-8483ebf652f2",
+  "created_at": "2025-07-23T03:44:03Z",
+  "options": {
+    "section": null,
+    "after": null,
+    "before": null,
+    "task_id": null,
+    "badge_name": null,
+    "priority": null,
+    "category": null
+  }
+}
