@@ -24,6 +24,10 @@ import public "pkg/notification/proto/requests/send_notification_request.proto";
 import public "pkg/notification/proto/responses/send_notification_response.proto";
 import public "pkg/notification/proto/requests/list_notifications_request.proto";
 import public "pkg/notification/proto/responses/list_notifications_response.proto";
+import public "pkg/notification/proto/requests/update_preferences_request.proto";
+import public "pkg/notification/proto/responses/update_preferences_response.proto";
+import public "pkg/notification/proto/requests/get_template_request.proto";
+import public "pkg/notification/proto/responses/get_template_response.proto";
 import public "pkg/notification/proto/services/notification_service.proto";
 
 import "google/protobuf/go_features.proto";
