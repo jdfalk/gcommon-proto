@@ -1,18 +1,32 @@
-// filepath: pkg/auth/proto/types/auth_context.proto
-// file: auth/proto/types/auth_context.proto
-//
-// Type definitions for auth module
-// TODO: Implement actual protobuf definitions
-//
+// file: pkg/auth/proto/types/auth_context.proto
+// version: 1.0.0
+// guid: 70848c6a-eeb6-46ee-b108-9159435b2475
+
 edition = "2023";
 
 package gcommon.v1.auth;
 
-import "google/protobuf/go_features.proto";
+import "google/protobuf/timestamp.proto";
 
 option go_package = "github.com/jdfalk/gcommon/pkg/auth/proto;authpb";
-option features.(pb.go).api_level = API_HYBRID;
 
-// TODO: Add type definitions here
-// This is a placeholder file created during 1-1-1 migration
-// Implement the actual protobuf definitions according to the auth module requirements
+/**
+ * AuthContext carries user identity and authorization details
+ * generated during authentication.
+ */
+message AuthContext {
+  // ID of the authenticated user
+  string user_id = 1;
+
+  // Roles assigned to the user
+  repeated string roles = 2;
+
+  // Permissions granted to the user
+  repeated string permissions = 3;
+
+  // When this context was generated
+  google.protobuf.Timestamp issued_at = 4 [lazy = true];
+
+  // Arbitrary metadata passed between services
+  map<string, string> metadata = 5;
+}
