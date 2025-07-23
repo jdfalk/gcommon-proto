@@ -1,0 +1,16 @@
+{
+  "file": "TODO.md",
+  "mode": "task-add",
+  "content": "OpenTelemetry metrics protobufs implemented for scraping and export",
+  "guid": "d89903af-e0a4-41f6-8867-1889eb562b1c",
+  "created_at": "2025-07-23T03:16:56Z",
+  "options": {
+    "section": null,
+    "after": null,
+    "before": null,
+    "task_id": null,
+    "badge_name": null,
+    "priority": null,
+    "category": null
+  }
+}
