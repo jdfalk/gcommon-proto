@@ -1,0 +1,16 @@
+{
+  "file": "CHANGELOG.md",
+  "mode": "changelog-entry",
+  "content": "Added MySQLConfig and MySQLStatus protobuf messages",
+  "guid": "d769882b-26df-4a6a-936e-609c724dd0c4",
+  "created_at": "2025-07-23T03:43:52Z",
+  "options": {
+    "section": null,
+    "after": null,
+    "before": null,
+    "task_id": null,
+    "badge_name": null,
+    "priority": null,
+    "category": null
+  }
+}
