@@ -14,8 +14,9 @@ print_status "Running protobuf compilation test"
 
 # Compile all proto files with protoc to verify they compile
 proto_failures=()
+PROTO_INCLUDE="$(go env GOPATH)/pkg/mod/google.golang.org/protobuf@*/src"
 for proto in $(find pkg -name "*.proto" -type f); do
-    if ! protoc --proto_path=. --go_out=/tmp --go-grpc_out=/tmp "$proto" 2> /dev/null; then
+    if ! protoc --proto_path=. --proto_path="$PROTO_INCLUDE" --go_out=/tmp --go-grpc_out=/tmp "$proto" 2> /dev/null; then
         proto_failures+=("$proto")
     fi
 done
