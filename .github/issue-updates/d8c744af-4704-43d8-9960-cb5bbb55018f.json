@@ -1,0 +1,7 @@
+{
+  "action": "comment",
+  "number": 95,
+  "body": "Added ListQueuesRequest, ListSubscriptionsRequest, and PullRequest",
+  "guid": "d8c744af-4704-43d8-9960-cb5bbb55018f",
+  "legacy_guid": "comment-issue-95-2025-07-23"
+}

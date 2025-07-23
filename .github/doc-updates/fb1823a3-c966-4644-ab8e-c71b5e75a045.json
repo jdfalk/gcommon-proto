@@ -1,0 +1,16 @@
+{
+  "file": "CHANGELOG.md",
+  "mode": "changelog-entry",
+  "content": "### Added\n\n- Implemented additional queue protobufs for listing and pull operations",
+  "guid": "fb1823a3-c966-4644-ab8e-c71b5e75a045",
+  "created_at": "2025-07-23T03:29:30Z",
+  "options": {
+    "section": null,
+    "after": null,
+    "before": null,
+    "task_id": null,
+    "badge_name": null,
+    "priority": null,
+    "category": null
+  }
+}

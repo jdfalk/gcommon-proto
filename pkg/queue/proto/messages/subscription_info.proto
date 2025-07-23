@@ -1,18 +1,40 @@
-// filepath: pkg/queue/proto/messages/subscription_info.proto
-// file: queue/proto/messages/subscription_info.proto
-//
-// Message definitions for queue module
-// TODO: Implement actual protobuf definitions
-//
+// file: pkg/queue/proto/messages/subscription_info.proto
+// version: 1.0.0
+// guid: 9b9d0532-72ff-4a42-b3b2-689a1a26dd9f
+
+// SubscriptionInfo provides metadata about a subscription to a topic
+// or queue. It replaces the placeholder file created during the
+// 1-1-1 migration.
 edition = "2023";
 
 package gcommon.v1.queue;
 
 import "google/protobuf/go_features.proto";
+import "google/protobuf/timestamp.proto";
+import "pkg/common/proto/common.proto";
 
 option go_package = "github.com/jdfalk/gcommon/pkg/queue/proto;queuepb";
 option features.(pb.go).api_level = API_HYBRID;
 
-// TODO: Add message definitions here
-// This is a placeholder file created during 1-1-1 migration
-// Implement the actual protobuf definitions according to the queue module requirements
+/**
+ * SubscriptionInfo describes a subscriber's configuration and status.
+ */
+message SubscriptionInfo {
+  // Name of the subscription
+  string name = 1;
+
+  // Topic or queue this subscription belongs to
+  string topic = 2;
+
+  // Whether the subscription is currently active
+  bool active = 3;
+
+  // Number of pending messages for this subscription
+  int64 pending_message_count = 4;
+
+  // Time when the subscription was created
+  google.protobuf.Timestamp created_at = 5;
+
+  // Arbitrary labels associated with the subscription
+  map<string, string> labels = 6;
+}
