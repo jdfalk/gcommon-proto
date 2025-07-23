@@ -1,20 +1,8 @@
 [
   {
     "action": "create",
-    "title": "Implement TransactionService and MigrationService protobufs",
-    "body": "Add new protobuf service definitions and associated request/response messages for database migrations and transaction status.",
-    "labels": ["codex", "module:database", "enhancement"]
-  },
-  {
-    "action": "update",
-    "number": 74,
-    "state": "closed",
-    "labels": ["completed"]
-  },
-  {
-    "action": "update",
-    "number": 75,
-    "state": "closed",
-    "labels": ["completed"]
+    "title": "Queue: implement publish and offset protos",
+    "body": "Implement PublishRequest/PublishResponse and CommitOffsetRequest/GetOffsetResponse for queue module to expand pub-sub functionality.",
+    "labels": ["module:queue", "type:protobuf", "enhancement"]
   }
 ]

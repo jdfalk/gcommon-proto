@@ -1,0 +1,16 @@
+{
+  "file": "TODO.md",
+  "mode": "task-add",
+  "content": "Implement publish and offset queue protobufs",
+  "guid": "ab202f8b-bb97-4fd8-89a9-0e48839c3894",
+  "created_at": "2025-07-23T03:41:11Z",
+  "options": {
+    "section": null,
+    "after": null,
+    "before": null,
+    "task_id": null,
+    "badge_name": null,
+    "priority": null,
+    "category": null
+  }
+}
