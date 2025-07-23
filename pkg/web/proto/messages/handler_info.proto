@@ -1,5 +1,5 @@
 // file: pkg/web/proto/messages/handler_info.proto
-// version: 1.0.0
+// version: 1.1.0
 // guid: ce840d82-a0a7-451a-ace7-062820511c9a
 
 edition = "2023";
@@ -7,11 +7,22 @@ edition = "2023";
 package gcommon.v1.web;
 
 import "google/protobuf/go_features.proto";
+import "google/protobuf/timestamp.proto";
 
 option go_package = "github.com/jdfalk/gcommon/pkg/web/proto;webpb";
 option features.(pb.go).api_level = API_HYBRID;
 
 // HandlerInfo message definition.
 message HandlerInfo {
-  string placeholder = 1;
+  // Handler identifier
+  string handler_id = 1;
+
+  // Configuration for the handler
+  HandlerConfig config = 2;
+
+  // Creation timestamp
+  google.protobuf.Timestamp created_at = 3;
+
+  // Last updated timestamp
+  google.protobuf.Timestamp updated_at = 4;
 }

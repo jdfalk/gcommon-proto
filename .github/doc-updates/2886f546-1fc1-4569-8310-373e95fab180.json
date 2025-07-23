@@ -1,0 +1,16 @@
+{
+  "file": "CHANGELOG.md",
+  "mode": "changelog-entry",
+  "content": "### Added\n\n- Implemented initial web middleware protobufs",
+  "guid": "2886f546-1fc1-4569-8310-373e95fab180",
+  "created_at": "2025-07-23T03:13:56Z",
+  "options": {
+    "section": null,
+    "after": null,
+    "before": null,
+    "task_id": null,
+    "badge_name": null,
+    "priority": null,
+    "category": null
+  }
+}
