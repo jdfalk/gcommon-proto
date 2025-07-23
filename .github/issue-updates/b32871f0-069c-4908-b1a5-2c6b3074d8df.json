@@ -1,0 +1,7 @@
+{
+  "action": "comment",
+  "number": 91,
+  "body": "Implemented QueueInfo and SubscriptionInfo messages",
+  "guid": "b32871f0-069c-4908-b1a5-2c6b3074d8df",
+  "legacy_guid": "comment-issue-91-2025-07-23"
+}

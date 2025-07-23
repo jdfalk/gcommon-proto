@@ -1,0 +1,7 @@
+{
+  "action": "comment",
+  "number": 94,
+  "body": "Implemented ListQueuesResponse, ListSubscriptionsResponse, and PullResponse",
+  "guid": "c8a08160-26cf-42c0-a17c-d066441137be",
+  "legacy_guid": "comment-issue-94-2025-07-23"
+}
