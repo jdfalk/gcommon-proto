@@ -1,0 +1,16 @@
+{
+  "file": "CHANGELOG.md",
+  "mode": "changelog-entry",
+  "content": "### Added\n\n- Added cross-module health check protobufs for metrics, auth, queue, and web modules",
+  "guid": "bce94c30-ee47-447b-8ba2-bef3d7cec6b3",
+  "created_at": "2025-07-23T03:10:05Z",
+  "options": {
+    "section": null,
+    "after": null,
+    "before": null,
+    "task_id": null,
+    "badge_name": null,
+    "priority": null,
+    "category": null
+  }
+}

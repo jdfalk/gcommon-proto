@@ -1,18 +1,25 @@
-// filepath: pkg/metrics/proto/requests/health_check_request.proto
-// file: metrics/proto/requests/health_check_request.proto
+// file: pkg/metrics/proto/requests/health_check_request.proto
+// version: 1.0.0
+// guid: ffa1c922-b413-4b2d-a7fd-0d58fcd0b048
 //
-// Request definitions for metrics module
-// TODO: Implement actual protobuf definitions
-//
+// HealthCheckRequest for the metrics module
 edition = "2023";
 
 package gcommon.v1.metrics;
 
 import "google/protobuf/go_features.proto";
+import "pkg/common/proto/messages/request_metadata.proto";
 
 option go_package = "github.com/jdfalk/gcommon/pkg/metrics/proto;metricspb";
 option features.(pb.go).api_level = API_HYBRID;
 
-// TODO: Add request definitions here
-// This is a placeholder file created during 1-1-1 migration
-// Implement the actual protobuf definitions according to the metrics module requirements
+/**
+ * HealthCheckRequest verifies the health of the metrics subsystem.
+ */
+message HealthCheckRequest {
+  // Metrics subsystem name (e.g., "prometheus").
+  string subsystem = 1;
+
+  // Request metadata for tracing and auth.
+  gcommon.v1.common.RequestMetadata metadata = 2 [lazy = true];
+}
