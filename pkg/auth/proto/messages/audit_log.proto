@@ -1,18 +1,31 @@
-// filepath: pkg/auth/proto/messages/audit_log.proto
-// file: auth/proto/messages/audit_log.proto
-//
-// Message definitions for auth module
-// TODO: Implement actual protobuf definitions
-//
+// file: pkg/auth/proto/messages/audit_log.proto
+// version: 1.0.0
+// guid: 404a4fba-327e-4ad8-a144-f337dd511f36
+
 edition = "2023";
 
 package gcommon.v1.auth;
 
 import "google/protobuf/go_features.proto";
+import "google/protobuf/timestamp.proto";
 
 option go_package = "github.com/jdfalk/gcommon/pkg/auth/proto;authpb";
 option features.(pb.go).api_level = API_HYBRID;
 
-// TODO: Add message definitions here
-// This is a placeholder file created during 1-1-1 migration
-// Implement the actual protobuf definitions according to the auth module requirements
+// AuditLog captures security-relevant user actions for auditing purposes
+message AuditLog {
+  // Unique identifier of the user performing the action
+  string user_id = 1;
+
+  // Action performed (e.g., LOGIN, LOGOUT, UPDATE_PROFILE)
+  string action = 2;
+
+  // Time the action occurred
+  google.protobuf.Timestamp timestamp = 3;
+
+  // IP address of the client
+  string ip_address = 4;
+
+  // Additional metadata for the audit entry
+  map<string, string> metadata = 5;
+}
