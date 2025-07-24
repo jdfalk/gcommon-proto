@@ -4,5 +4,11 @@
     "title": "Queue: implement publish and offset protos",
     "body": "Implement PublishRequest/PublishResponse and CommitOffsetRequest/GetOffsetResponse for queue module to expand pub-sub functionality.",
     "labels": ["module:queue", "type:protobuf", "enhancement"]
+  },
+  {
+    "action": "create",
+    "title": "Implement audit logging protobufs",
+    "body": "Add AuditLog message and logout request/response protobuf definitions in auth module.",
+    "labels": ["module:auth", "module:log", "enhancement"]
   }
 ]

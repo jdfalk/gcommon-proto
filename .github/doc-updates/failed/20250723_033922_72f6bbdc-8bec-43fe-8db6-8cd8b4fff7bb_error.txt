@@ -1,0 +1,10 @@
+File: 72f6bbdc-8bec-43fe-8db6-8cd8b4fff7bb.json
+Error: Update application failed
+Timestamp: 2025-07-23T03:39:22.296902
+Stack trace:
+Traceback (most recent call last):
+  File "/workspace/gcommon/doc_update_manager.py", line 447, in _process_single_file_safely
+    self.process_update_file_data(update_file, update_data)
+  File "/workspace/gcommon/doc_update_manager.py", line 495, in process_update_file_data
+    raise Exception("Update application failed")
+Exception: Update application failed

@@ -1,0 +1,16 @@
+{
+  "file": "TODO.md",
+  "mode": "task-add",
+  "content": "Implement audit log and logout protobuf definitions",
+  "guid": "07fd0c0d-4374-4f02-ba68-88e03cbc35f0",
+  "created_at": "2025-07-23T13:06:06Z",
+  "options": {
+    "section": null,
+    "after": null,
+    "before": null,
+    "task_id": null,
+    "badge_name": null,
+    "priority": null,
+    "category": null
+  }
+}
