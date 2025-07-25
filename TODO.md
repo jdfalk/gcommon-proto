@@ -294,19 +294,19 @@ This section tracks the migration from monolithic protobuf files (one large file
 
 ### Migration Status Summary
 
-| Module           | Monolithic File | Total Types | Migrated Types | 1-1-1 Files   | Migration %   | Status        |
-| ---------------- | --------------- | ----------- | -------------- | ------------- | ------------- | ------------- | ------------- |
-| **Auth**         | auth.proto      | 48 types    | 16 types       | 16 files      | 33%           | 🔄 Partial     |
-| **Cache**        | cache.proto     | 46 types    | 7 types        | 7 files       | 15%           | ⚠️ Minimal     |
-| **Config**       | config.proto    | 23 types    | 2 types        | 2 files       | 9%            | ⚠️ Minimal     |
-| **Notification** | 🔄 Partial       | ✅ Complete  | ❌ Not Started  | ❌ Not Started | ❌ Not Started | ❌ Not Started | 🔄 Design Only |
-| **Database**     | database.proto  | 51 types    | 51 types       | 51 files      | 100%          | ✅ Complete    |
-| **Health**       | health.proto    | 36 types    | 36 types       | 36 files      | 100%          | ✅ Complete    |
-| **Log**          | log.proto       | 50 types    | 0 types        | 0 files       | 0%            | ❌ Blocked     |
-| **Metrics**      | metrics.proto   | 95 types    | 1 type         | 1 file        | 1%            | ❌ Blocked     |
-| **Queue**        | queue.proto     | 143 types   | 1 type         | 1 file        | 1%            | ❌ Blocked     |
-| **Web**          | web.proto       | 123 types   | 1 type         | 1 file        | 1%            | ❌ Blocked     |
-| **Common**       | common.proto    | 37 types    | 39 types       | 39 files      | N/A (base)    | ✅ Complete    |
+| Module           | Monolithic File | Services | Requests | Responses | Messages | Enums | Types | Total | Migrated | Migration % | Status |
+|------------------|-----------------|----------|----------|-----------|----------|-------|-------|-------|----------|-------------|--------|
+| **Auth**         | auth.proto      | 3        | 15       | 15        | 8        | 2     | 5     | 48    | 16       | 33%         | 🔄 Partial |
+| **Cache**        | cache.proto     | 2        | 22       | 18        | 4        | 0     | 0     | 46    | 7        | 15%         | ⚠️ Minimal |
+| **Config**       | config.proto    | 2        | 12       | 6         | 2        | 1     | 0     | 23    | 2        | 9%          | ⚠️ Minimal |
+| **Database**     | database.proto  | 4        | 21       | 17        | 5        | 2     | 2     | 51    | 51       | 100%        | ✅ Complete |
+| **Health**       | health.proto    | 2        | 8        | 8         | 16       | 2     | 0     | 36    | 36       | 100%        | ✅ Complete |
+| **Log**          | log.proto       | 2        | 24       | 17        | 5        | 2     | 0     | 50    | 0        | 0%          | ❌ Blocked |
+| **Metrics**      | metrics.proto   | 2        | 38       | 35        | 12       | 8     | 0     | 95    | 1        | 1%          | ⚠️ Minimal |
+| **Queue**        | queue.proto     | 3        | 58       | 52        | 20       | 10    | 0     | 143   | 1        | 1%          | ⚠️ Minimal |
+| **Web**          | web.proto       | 3        | 49       | 42        | 18       | 11    | 0     | 123   | 1        | 1%          | ⚠️ Minimal |
+| **Common**       | common.proto    | 0        | 0        | 0         | 17       | 22    | 0     | 39    | 39       | 100%        | ✅ Complete |
+| **TOTALS**       | -               | **21**   | **247**  | **210**   | **107**  | **60**| **7** |**654**| **154**  | **24%**     | 🔄 In Progress |
 
 **Legend**: ✅ Complete (90%+) | 🔄 Partial (25-89%) | ⚠️ Minimal (5-24%) | ❌ Blocked (0-4%)
 
