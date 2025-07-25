@@ -9,6 +9,38 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### BREAKING: Protobuf Strategy Migration
+
+**🚨 CRITICAL ARCHITECTURAL CHANGE**: Based on Go best practices research, we are migrating away from `import public` aggregator files to direct imports of specific proto files.
+
+**Why This Change Is Necessary**:
+- `import public` is a C++-centric feature that creates complexity in Go
+- Go protobuf compiler must generate type aliases (e.g., `type Foo = foopb.Foo`) for backward compatibility
+- This feature is obscure and not well-supported across all protobuf backends
+- Direct imports make dependencies explicit and easier to understand
+- Follows Go's philosophy of explicit over implicit
+
+**Migration Plan**:
+1. **Phase 1**: Deprecate aggregator files (auth.proto, cache.proto, etc.) as import-only
+2. **Phase 2**: Update all consuming code to import specific proto files directly
+3. **Phase 3**: Remove aggregator files entirely in v0.3.0
+4. **Phase 4**: Update buf.yaml to restore IMPORT_NO_PUBLIC lint rule
+
+**Example Migration**:
+```protobuf
+// OLD (deprecated):
+import "pkg/auth/proto/auth.proto";  // Imports everything via public imports
+
+// NEW (recommended):
+import "pkg/auth/proto/messages/user.proto";
+import "pkg/auth/proto/requests/login_request.proto";
+import "pkg/auth/proto/responses/login_response.proto";
+```
+
+**Timeline**:
+- v0.2.0: Deprecation warnings
+- v0.3.0: Remove aggregator files (BREAKING)
+
 ### Added
 
 - Database drivers expose GRPCService() registration - closes #132

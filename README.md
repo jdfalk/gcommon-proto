@@ -8,7 +8,7 @@
 [![License](https://img.shields.io/badge/license-MIT-green.svg)](LICENSE)
 [![Build Status](https://img.shields.io/badge/build-passing-brightgreen.svg)](https://github.com/jdfalk/gcommon)
 
-> **🚨 MAJOR BREAKING CHANGES COMING**: Version 0.2.0 will introduce significant protobuf message structure changes. See [CHANGELOG.md](CHANGELOG.md) for migration details.
+> **🚨 MAJOR BREAKING CHANGES COMING**: Version 0.2.0 will introduce significant protobuf message structure changes. **NEW**: We are migrating from `import public` aggregator files to direct proto imports for better Go compatibility. See [CHANGELOG.md](CHANGELOG.md) for migration details.
 
 ## 📚 Essential Documentation
 
@@ -276,6 +276,30 @@ The GitHub Actions workflow automatically processes these updates on every push 
 - **Protocol Buffers Foundation**: All services defined using protobuf
 - **Dual API Support**: Both Go interfaces and gRPC for maximum flexibility
 - **Common Types**: Shared definitions for consistency across modules
+- **Direct Proto Imports**: Import specific proto files directly (v0.3.0+) instead of aggregator files
+
+## 🔄 Protobuf Import Strategy (BREAKING CHANGE in v0.3.0)
+
+**Current (Deprecated)**:
+```protobuf
+// Aggregator file imports (will be removed)
+import "pkg/auth/proto/auth.proto";  // Brings in everything via import public
+```
+
+**New (Recommended)**:
+```protobuf
+// Direct imports for explicit dependencies
+import "pkg/auth/proto/messages/user.proto";
+import "pkg/auth/proto/requests/login_request.proto";
+import "pkg/auth/proto/responses/login_response.proto";
+```
+
+**Benefits**:
+- Explicit dependencies (follows Go philosophy)
+- Better IDE support and autocomplete
+- Reduced compilation overhead
+- No need for Go type aliases
+- Cleaner generated code
 
 ## 🤝 Contributing
 
