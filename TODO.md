@@ -49,8 +49,8 @@
 
 **BREAKING CHANGE**: Migrating from `import public` aggregator pattern to direct proto imports.
 
-**Current Problem**: 
-- Our aggregator files (auth.proto, cache.proto, etc.) use `import public` 
+**Current Problem**:
+- Our aggregator files (auth.proto, cache.proto, etc.) use `import public`
 - This is a C++-centric feature that creates complexity in Go
 - Go compiler must generate type aliases for backward compatibility
 - Makes dependencies implicit and harder to understand

@@ -21,7 +21,6 @@
 ### For Developers
 
 - **[Project Roadmap](TODO.md)** - Implementation status and plans
-- **[Issue Management Workflow](ISSUE_MANAGEMENT.md)** - Required process for all development work
 - **[Technical Architecture](CHANGELOG.md)** - Detailed technical documentation
 - **[Protobuf API Design](docs/technical/protobuf-grpc-design.md)** - gRPC service definitions
 
