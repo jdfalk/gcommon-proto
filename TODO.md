@@ -45,6 +45,30 @@
 
 ---
 
+## 🚨 NEW: Protobuf Strategy Migration (July 2025)
+
+**BREAKING CHANGE**: Migrating from `import public` aggregator pattern to direct proto imports.
+
+**Current Problem**: 
+- Our aggregator files (auth.proto, cache.proto, etc.) use `import public` 
+- This is a C++-centric feature that creates complexity in Go
+- Go compiler must generate type aliases for backward compatibility
+- Makes dependencies implicit and harder to understand
+
+**New Strategy**:
+- Import specific proto files directly where needed
+- Remove aggregator files in v0.3.0
+- Update all consuming code to use direct imports
+- Restore IMPORT_NO_PUBLIC buf lint rule
+
+**Action Items**:
+- [ ] Update buf.yaml to remove IMPORT_NO_PUBLIC exception (after migration)
+- [ ] Create migration guide for consumers
+- [ ] Update all examples to use direct imports
+- [ ] Schedule deprecation warnings for v0.2.0
+
+---
+
 ## 🎯 CURRENT FOCUS: Implementation Phase
 
 ### Immediate Next Steps (Ready to Execute)
