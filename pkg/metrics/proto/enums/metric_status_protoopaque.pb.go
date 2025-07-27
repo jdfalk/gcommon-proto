@@ -23,14 +23,80 @@ const (
 	_ = protoimpl.EnforceVersion(protoimpl.MaxVersion - 20)
 )
 
+// *
+// MetricStatus indicates the lifecycle state of a metric definition.
+type MetricStatus int32
+
+const (
+	// Unspecified status.
+	MetricStatus_METRIC_STATUS_UNSPECIFIED MetricStatus = 0
+	// Metric is active and being collected.
+	MetricStatus_METRIC_STATUS_ACTIVE MetricStatus = 1
+	// Metric is temporarily disabled.
+	MetricStatus_METRIC_STATUS_DISABLED MetricStatus = 2
+	// Metric is in error state and not reliable.
+	MetricStatus_METRIC_STATUS_ERROR MetricStatus = 3
+	// Metric has been removed and should no longer be used.
+	MetricStatus_METRIC_STATUS_DELETED MetricStatus = 4
+)
+
+// Enum value maps for MetricStatus.
+var (
+	MetricStatus_name = map[int32]string{
+		0: "METRIC_STATUS_UNSPECIFIED",
+		1: "METRIC_STATUS_ACTIVE",
+		2: "METRIC_STATUS_DISABLED",
+		3: "METRIC_STATUS_ERROR",
+		4: "METRIC_STATUS_DELETED",
+	}
+	MetricStatus_value = map[string]int32{
+		"METRIC_STATUS_UNSPECIFIED": 0,
+		"METRIC_STATUS_ACTIVE":      1,
+		"METRIC_STATUS_DISABLED":    2,
+		"METRIC_STATUS_ERROR":       3,
+		"METRIC_STATUS_DELETED":     4,
+	}
+)
+
+func (x MetricStatus) Enum() *MetricStatus {
+	p := new(MetricStatus)
+	*p = x
+	return p
+}
+
+func (x MetricStatus) String() string {
+	return protoimpl.X.EnumStringOf(x.Descriptor(), protoreflect.EnumNumber(x))
+}
+
+func (MetricStatus) Descriptor() protoreflect.EnumDescriptor {
+	return file_pkg_metrics_proto_enums_metric_status_proto_enumTypes[0].Descriptor()
+}
+
+func (MetricStatus) Type() protoreflect.EnumType {
+	return &file_pkg_metrics_proto_enums_metric_status_proto_enumTypes[0]
+}
+
+func (x MetricStatus) Number() protoreflect.EnumNumber {
+	return protoreflect.EnumNumber(x)
+}
+
 var File_pkg_metrics_proto_enums_metric_status_proto protoreflect.FileDescriptor
 
 const file_pkg_metrics_proto_enums_metric_status_proto_rawDesc = "" +
 	"\n" +
-	"+pkg/metrics/proto/enums/metric_status.proto\x12\x12gcommon.v1.metrics\x1a!google/protobuf/go_features.protoB\xd4\x01\n" +
+	"+pkg/metrics/proto/enums/metric_status.proto\x12\x12gcommon.v1.metrics\x1a!google/protobuf/go_features.proto*\x97\x01\n" +
+	"\fMetricStatus\x12\x1d\n" +
+	"\x19METRIC_STATUS_UNSPECIFIED\x10\x00\x12\x18\n" +
+	"\x14METRIC_STATUS_ACTIVE\x10\x01\x12\x1a\n" +
+	"\x16METRIC_STATUS_DISABLED\x10\x02\x12\x17\n" +
+	"\x13METRIC_STATUS_ERROR\x10\x03\x12\x19\n" +
+	"\x15METRIC_STATUS_DELETED\x10\x04B\xd4\x01\n" +
 	"\x16com.gcommon.v1.metricsB\x11MetricStatusProtoP\x01Z5github.com/jdfalk/gcommon/pkg/metrics/proto;metricspb\xa2\x02\x03GVM\xaa\x02\x12Gcommon.V1.Metrics\xca\x02\x12Gcommon\\V1\\Metrics\xe2\x02\x1eGcommon\\V1\\Metrics\\GPBMetadata\xea\x02\x14Gcommon::V1::Metrics\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
 
-var file_pkg_metrics_proto_enums_metric_status_proto_goTypes = []any{}
+var file_pkg_metrics_proto_enums_metric_status_proto_enumTypes = make([]protoimpl.EnumInfo, 1)
+var file_pkg_metrics_proto_enums_metric_status_proto_goTypes = []any{
+	(MetricStatus)(0), // 0: gcommon.v1.metrics.MetricStatus
+}
 var file_pkg_metrics_proto_enums_metric_status_proto_depIdxs = []int32{
 	0, // [0:0] is the sub-list for method output_type
 	0, // [0:0] is the sub-list for method input_type
@@ -49,13 +115,14 @@ func file_pkg_metrics_proto_enums_metric_status_proto_init() {
 		File: protoimpl.DescBuilder{
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: unsafe.Slice(unsafe.StringData(file_pkg_metrics_proto_enums_metric_status_proto_rawDesc), len(file_pkg_metrics_proto_enums_metric_status_proto_rawDesc)),
-			NumEnums:      0,
+			NumEnums:      1,
 			NumMessages:   0,
 			NumExtensions: 0,
 			NumServices:   0,
 		},
 		GoTypes:           file_pkg_metrics_proto_enums_metric_status_proto_goTypes,
 		DependencyIndexes: file_pkg_metrics_proto_enums_metric_status_proto_depIdxs,
+		EnumInfos:         file_pkg_metrics_proto_enums_metric_status_proto_enumTypes,
 	}.Build()
 	File_pkg_metrics_proto_enums_metric_status_proto = out.File
 	file_pkg_metrics_proto_enums_metric_status_proto_goTypes = nil
