@@ -9,9 +9,11 @@
 package queuepb
 
 import (
+	_ "github.com/jdfalk/gcommon/pkg/common/proto"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
+	timestamppb "google.golang.org/protobuf/types/known/timestamppb"
 	reflect "reflect"
 	unsafe "unsafe"
 )
@@ -23,20 +25,256 @@ const (
 	_ = protoimpl.EnforceVersion(protoimpl.MaxVersion - 20)
 )
 
+// *
+// SubscriptionInfo describes a subscriber's configuration and status.
+type SubscriptionInfo struct {
+	state                          protoimpl.MessageState `protogen:"opaque.v1"`
+	xxx_hidden_Name                *string                `protobuf:"bytes,1,opt,name=name"`
+	xxx_hidden_Topic               *string                `protobuf:"bytes,2,opt,name=topic"`
+	xxx_hidden_Active              bool                   `protobuf:"varint,3,opt,name=active"`
+	xxx_hidden_PendingMessageCount int64                  `protobuf:"varint,4,opt,name=pending_message_count,json=pendingMessageCount"`
+	xxx_hidden_CreatedAt           *timestamppb.Timestamp `protobuf:"bytes,5,opt,name=created_at,json=createdAt"`
+	xxx_hidden_Labels              map[string]string      `protobuf:"bytes,6,rep,name=labels" protobuf_key:"bytes,1,opt,name=key" protobuf_val:"bytes,2,opt,name=value"`
+	XXX_raceDetectHookData         protoimpl.RaceDetectHookData
+	XXX_presence                   [1]uint32
+	unknownFields                  protoimpl.UnknownFields
+	sizeCache                      protoimpl.SizeCache
+}
+
+func (x *SubscriptionInfo) Reset() {
+	*x = SubscriptionInfo{}
+	mi := &file_pkg_queue_proto_messages_subscription_info_proto_msgTypes[0]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SubscriptionInfo) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SubscriptionInfo) ProtoMessage() {}
+
+func (x *SubscriptionInfo) ProtoReflect() protoreflect.Message {
+	mi := &file_pkg_queue_proto_messages_subscription_info_proto_msgTypes[0]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+func (x *SubscriptionInfo) GetName() string {
+	if x != nil {
+		if x.xxx_hidden_Name != nil {
+			return *x.xxx_hidden_Name
+		}
+		return ""
+	}
+	return ""
+}
+
+func (x *SubscriptionInfo) GetTopic() string {
+	if x != nil {
+		if x.xxx_hidden_Topic != nil {
+			return *x.xxx_hidden_Topic
+		}
+		return ""
+	}
+	return ""
+}
+
+func (x *SubscriptionInfo) GetActive() bool {
+	if x != nil {
+		return x.xxx_hidden_Active
+	}
+	return false
+}
+
+func (x *SubscriptionInfo) GetPendingMessageCount() int64 {
+	if x != nil {
+		return x.xxx_hidden_PendingMessageCount
+	}
+	return 0
+}
+
+func (x *SubscriptionInfo) GetCreatedAt() *timestamppb.Timestamp {
+	if x != nil {
+		return x.xxx_hidden_CreatedAt
+	}
+	return nil
+}
+
+func (x *SubscriptionInfo) GetLabels() map[string]string {
+	if x != nil {
+		return x.xxx_hidden_Labels
+	}
+	return nil
+}
+
+func (x *SubscriptionInfo) SetName(v string) {
+	x.xxx_hidden_Name = &v
+	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 0, 6)
+}
+
+func (x *SubscriptionInfo) SetTopic(v string) {
+	x.xxx_hidden_Topic = &v
+	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 1, 6)
+}
+
+func (x *SubscriptionInfo) SetActive(v bool) {
+	x.xxx_hidden_Active = v
+	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 2, 6)
+}
+
+func (x *SubscriptionInfo) SetPendingMessageCount(v int64) {
+	x.xxx_hidden_PendingMessageCount = v
+	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 3, 6)
+}
+
+func (x *SubscriptionInfo) SetCreatedAt(v *timestamppb.Timestamp) {
+	x.xxx_hidden_CreatedAt = v
+}
+
+func (x *SubscriptionInfo) SetLabels(v map[string]string) {
+	x.xxx_hidden_Labels = v
+}
+
+func (x *SubscriptionInfo) HasName() bool {
+	if x == nil {
+		return false
+	}
+	return protoimpl.X.Present(&(x.XXX_presence[0]), 0)
+}
+
+func (x *SubscriptionInfo) HasTopic() bool {
+	if x == nil {
+		return false
+	}
+	return protoimpl.X.Present(&(x.XXX_presence[0]), 1)
+}
+
+func (x *SubscriptionInfo) HasActive() bool {
+	if x == nil {
+		return false
+	}
+	return protoimpl.X.Present(&(x.XXX_presence[0]), 2)
+}
+
+func (x *SubscriptionInfo) HasPendingMessageCount() bool {
+	if x == nil {
+		return false
+	}
+	return protoimpl.X.Present(&(x.XXX_presence[0]), 3)
+}
+
+func (x *SubscriptionInfo) HasCreatedAt() bool {
+	if x == nil {
+		return false
+	}
+	return x.xxx_hidden_CreatedAt != nil
+}
+
+func (x *SubscriptionInfo) ClearName() {
+	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 0)
+	x.xxx_hidden_Name = nil
+}
+
+func (x *SubscriptionInfo) ClearTopic() {
+	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 1)
+	x.xxx_hidden_Topic = nil
+}
+
+func (x *SubscriptionInfo) ClearActive() {
+	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 2)
+	x.xxx_hidden_Active = false
+}
+
+func (x *SubscriptionInfo) ClearPendingMessageCount() {
+	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 3)
+	x.xxx_hidden_PendingMessageCount = 0
+}
+
+func (x *SubscriptionInfo) ClearCreatedAt() {
+	x.xxx_hidden_CreatedAt = nil
+}
+
+type SubscriptionInfo_builder struct {
+	_ [0]func() // Prevents comparability and use of unkeyed literals for the builder.
+
+	// Name of the subscription
+	Name *string
+	// Topic or queue this subscription belongs to
+	Topic *string
+	// Whether the subscription is currently active
+	Active *bool
+	// Number of pending messages for this subscription
+	PendingMessageCount *int64
+	// Time when the subscription was created
+	CreatedAt *timestamppb.Timestamp
+	// Arbitrary labels associated with the subscription
+	Labels map[string]string
+}
+
+func (b0 SubscriptionInfo_builder) Build() *SubscriptionInfo {
+	m0 := &SubscriptionInfo{}
+	b, x := &b0, m0
+	_, _ = b, x
+	if b.Name != nil {
+		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 0, 6)
+		x.xxx_hidden_Name = b.Name
+	}
+	if b.Topic != nil {
+		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 1, 6)
+		x.xxx_hidden_Topic = b.Topic
+	}
+	if b.Active != nil {
+		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 2, 6)
+		x.xxx_hidden_Active = *b.Active
+	}
+	if b.PendingMessageCount != nil {
+		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 3, 6)
+		x.xxx_hidden_PendingMessageCount = *b.PendingMessageCount
+	}
+	x.xxx_hidden_CreatedAt = b.CreatedAt
+	x.xxx_hidden_Labels = b.Labels
+	return m0
+}
+
 var File_pkg_queue_proto_messages_subscription_info_proto protoreflect.FileDescriptor
 
 const file_pkg_queue_proto_messages_subscription_info_proto_rawDesc = "" +
 	"\n" +
-	"0pkg/queue/proto/messages/subscription_info.proto\x12\x10gcommon.v1.queue\x1a!google/protobuf/go_features.protoB\xca\x01\n" +
+	"0pkg/queue/proto/messages/subscription_info.proto\x12\x10gcommon.v1.queue\x1a!google/protobuf/go_features.proto\x1a\x1fgoogle/protobuf/timestamp.proto\x1a\x1dpkg/common/proto/common.proto\"\xc6\x02\n" +
+	"\x10SubscriptionInfo\x12\x12\n" +
+	"\x04name\x18\x01 \x01(\tR\x04name\x12\x14\n" +
+	"\x05topic\x18\x02 \x01(\tR\x05topic\x12\x16\n" +
+	"\x06active\x18\x03 \x01(\bR\x06active\x122\n" +
+	"\x15pending_message_count\x18\x04 \x01(\x03R\x13pendingMessageCount\x129\n" +
+	"\n" +
+	"created_at\x18\x05 \x01(\v2\x1a.google.protobuf.TimestampR\tcreatedAt\x12F\n" +
+	"\x06labels\x18\x06 \x03(\v2..gcommon.v1.queue.SubscriptionInfo.LabelsEntryR\x06labels\x1a9\n" +
+	"\vLabelsEntry\x12\x10\n" +
+	"\x03key\x18\x01 \x01(\tR\x03key\x12\x14\n" +
+	"\x05value\x18\x02 \x01(\tR\x05value:\x028\x01B\xca\x01\n" +
 	"\x14com.gcommon.v1.queueB\x15SubscriptionInfoProtoP\x01Z1github.com/jdfalk/gcommon/pkg/queue/proto;queuepb\xa2\x02\x03GVQ\xaa\x02\x10Gcommon.V1.Queue\xca\x02\x10Gcommon\\V1\\Queue\xe2\x02\x1cGcommon\\V1\\Queue\\GPBMetadata\xea\x02\x12Gcommon::V1::Queue\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
 
-var file_pkg_queue_proto_messages_subscription_info_proto_goTypes = []any{}
+var file_pkg_queue_proto_messages_subscription_info_proto_msgTypes = make([]protoimpl.MessageInfo, 2)
+var file_pkg_queue_proto_messages_subscription_info_proto_goTypes = []any{
+	(*SubscriptionInfo)(nil),      // 0: gcommon.v1.queue.SubscriptionInfo
+	nil,                           // 1: gcommon.v1.queue.SubscriptionInfo.LabelsEntry
+	(*timestamppb.Timestamp)(nil), // 2: google.protobuf.Timestamp
+}
 var file_pkg_queue_proto_messages_subscription_info_proto_depIdxs = []int32{
-	0, // [0:0] is the sub-list for method output_type
-	0, // [0:0] is the sub-list for method input_type
-	0, // [0:0] is the sub-list for extension type_name
-	0, // [0:0] is the sub-list for extension extendee
-	0, // [0:0] is the sub-list for field type_name
+	2, // 0: gcommon.v1.queue.SubscriptionInfo.created_at:type_name -> google.protobuf.Timestamp
+	1, // 1: gcommon.v1.queue.SubscriptionInfo.labels:type_name -> gcommon.v1.queue.SubscriptionInfo.LabelsEntry
+	2, // [2:2] is the sub-list for method output_type
+	2, // [2:2] is the sub-list for method input_type
+	2, // [2:2] is the sub-list for extension type_name
+	2, // [2:2] is the sub-list for extension extendee
+	0, // [0:2] is the sub-list for field type_name
 }
 
 func init() { file_pkg_queue_proto_messages_subscription_info_proto_init() }
@@ -50,12 +288,13 @@ func file_pkg_queue_proto_messages_subscription_info_proto_init() {
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: unsafe.Slice(unsafe.StringData(file_pkg_queue_proto_messages_subscription_info_proto_rawDesc), len(file_pkg_queue_proto_messages_subscription_info_proto_rawDesc)),
 			NumEnums:      0,
-			NumMessages:   0,
+			NumMessages:   2,
 			NumExtensions: 0,
 			NumServices:   0,
 		},
 		GoTypes:           file_pkg_queue_proto_messages_subscription_info_proto_goTypes,
 		DependencyIndexes: file_pkg_queue_proto_messages_subscription_info_proto_depIdxs,
+		MessageInfos:      file_pkg_queue_proto_messages_subscription_info_proto_msgTypes,
 	}.Build()
 	File_pkg_queue_proto_messages_subscription_info_proto = out.File
 	file_pkg_queue_proto_messages_subscription_info_proto_goTypes = nil

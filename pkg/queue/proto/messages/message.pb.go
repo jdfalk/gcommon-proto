@@ -12,6 +12,7 @@ import (
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
+	timestamppb "google.golang.org/protobuf/types/known/timestamppb"
 	reflect "reflect"
 	unsafe "unsafe"
 )
@@ -23,20 +24,216 @@ const (
 	_ = protoimpl.EnforceVersion(protoimpl.MaxVersion - 20)
 )
 
+// *
+// ReceivedMessage represents a message that has been received from a queue,
+// including the original message and metadata about its reception.
+type ReceivedMessage struct {
+	state protoimpl.MessageState `protogen:"hybrid.v1"`
+	// The original queue message
+	Message *QueueMessage `protobuf:"bytes,1,opt,name=message" json:"message,omitempty"`
+	// Unique receipt handle for acknowledgment
+	ReceiptHandle *string `protobuf:"bytes,2,opt,name=receipt_handle,json=receiptHandle" json:"receipt_handle,omitempty"`
+	// Timestamp when the message was received
+	ReceivedAt *timestamppb.Timestamp `protobuf:"bytes,3,opt,name=received_at,json=receivedAt" json:"received_at,omitempty"`
+	// Number of times this message has been received (redelivery count)
+	ReceiveCount *int32 `protobuf:"varint,4,opt,name=receive_count,json=receiveCount" json:"receive_count,omitempty"`
+	// Approximate timestamp when the message was first sent to the queue
+	ApproximateFirstReceiveTimestamp *timestamppb.Timestamp `protobuf:"bytes,5,opt,name=approximate_first_receive_timestamp,json=approximateFirstReceiveTimestamp" json:"approximate_first_receive_timestamp,omitempty"`
+	unknownFields                    protoimpl.UnknownFields
+	sizeCache                        protoimpl.SizeCache
+}
+
+func (x *ReceivedMessage) Reset() {
+	*x = ReceivedMessage{}
+	mi := &file_pkg_queue_proto_messages_message_proto_msgTypes[0]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *ReceivedMessage) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*ReceivedMessage) ProtoMessage() {}
+
+func (x *ReceivedMessage) ProtoReflect() protoreflect.Message {
+	mi := &file_pkg_queue_proto_messages_message_proto_msgTypes[0]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+func (x *ReceivedMessage) GetMessage() *QueueMessage {
+	if x != nil {
+		return x.Message
+	}
+	return nil
+}
+
+func (x *ReceivedMessage) GetReceiptHandle() string {
+	if x != nil && x.ReceiptHandle != nil {
+		return *x.ReceiptHandle
+	}
+	return ""
+}
+
+func (x *ReceivedMessage) GetReceivedAt() *timestamppb.Timestamp {
+	if x != nil {
+		return x.ReceivedAt
+	}
+	return nil
+}
+
+func (x *ReceivedMessage) GetReceiveCount() int32 {
+	if x != nil && x.ReceiveCount != nil {
+		return *x.ReceiveCount
+	}
+	return 0
+}
+
+func (x *ReceivedMessage) GetApproximateFirstReceiveTimestamp() *timestamppb.Timestamp {
+	if x != nil {
+		return x.ApproximateFirstReceiveTimestamp
+	}
+	return nil
+}
+
+func (x *ReceivedMessage) SetMessage(v *QueueMessage) {
+	x.Message = v
+}
+
+func (x *ReceivedMessage) SetReceiptHandle(v string) {
+	x.ReceiptHandle = &v
+}
+
+func (x *ReceivedMessage) SetReceivedAt(v *timestamppb.Timestamp) {
+	x.ReceivedAt = v
+}
+
+func (x *ReceivedMessage) SetReceiveCount(v int32) {
+	x.ReceiveCount = &v
+}
+
+func (x *ReceivedMessage) SetApproximateFirstReceiveTimestamp(v *timestamppb.Timestamp) {
+	x.ApproximateFirstReceiveTimestamp = v
+}
+
+func (x *ReceivedMessage) HasMessage() bool {
+	if x == nil {
+		return false
+	}
+	return x.Message != nil
+}
+
+func (x *ReceivedMessage) HasReceiptHandle() bool {
+	if x == nil {
+		return false
+	}
+	return x.ReceiptHandle != nil
+}
+
+func (x *ReceivedMessage) HasReceivedAt() bool {
+	if x == nil {
+		return false
+	}
+	return x.ReceivedAt != nil
+}
+
+func (x *ReceivedMessage) HasReceiveCount() bool {
+	if x == nil {
+		return false
+	}
+	return x.ReceiveCount != nil
+}
+
+func (x *ReceivedMessage) HasApproximateFirstReceiveTimestamp() bool {
+	if x == nil {
+		return false
+	}
+	return x.ApproximateFirstReceiveTimestamp != nil
+}
+
+func (x *ReceivedMessage) ClearMessage() {
+	x.Message = nil
+}
+
+func (x *ReceivedMessage) ClearReceiptHandle() {
+	x.ReceiptHandle = nil
+}
+
+func (x *ReceivedMessage) ClearReceivedAt() {
+	x.ReceivedAt = nil
+}
+
+func (x *ReceivedMessage) ClearReceiveCount() {
+	x.ReceiveCount = nil
+}
+
+func (x *ReceivedMessage) ClearApproximateFirstReceiveTimestamp() {
+	x.ApproximateFirstReceiveTimestamp = nil
+}
+
+type ReceivedMessage_builder struct {
+	_ [0]func() // Prevents comparability and use of unkeyed literals for the builder.
+
+	// The original queue message
+	Message *QueueMessage
+	// Unique receipt handle for acknowledgment
+	ReceiptHandle *string
+	// Timestamp when the message was received
+	ReceivedAt *timestamppb.Timestamp
+	// Number of times this message has been received (redelivery count)
+	ReceiveCount *int32
+	// Approximate timestamp when the message was first sent to the queue
+	ApproximateFirstReceiveTimestamp *timestamppb.Timestamp
+}
+
+func (b0 ReceivedMessage_builder) Build() *ReceivedMessage {
+	m0 := &ReceivedMessage{}
+	b, x := &b0, m0
+	_, _ = b, x
+	x.Message = b.Message
+	x.ReceiptHandle = b.ReceiptHandle
+	x.ReceivedAt = b.ReceivedAt
+	x.ReceiveCount = b.ReceiveCount
+	x.ApproximateFirstReceiveTimestamp = b.ApproximateFirstReceiveTimestamp
+	return m0
+}
+
 var File_pkg_queue_proto_messages_message_proto protoreflect.FileDescriptor
 
 const file_pkg_queue_proto_messages_message_proto_rawDesc = "" +
 	"\n" +
-	"&pkg/queue/proto/messages/message.proto\x12\x10gcommon.v1.queue\x1a!google/protobuf/go_features.protoB\xc1\x01\n" +
+	"&pkg/queue/proto/messages/message.proto\x12\x10gcommon.v1.queue\x1a!google/protobuf/go_features.proto\x1a\x1fgoogle/protobuf/timestamp.proto\x1a,pkg/queue/proto/messages/queue_message.proto\"\xbf\x02\n" +
+	"\x0fReceivedMessage\x128\n" +
+	"\amessage\x18\x01 \x01(\v2\x1e.gcommon.v1.queue.QueueMessageR\amessage\x12%\n" +
+	"\x0ereceipt_handle\x18\x02 \x01(\tR\rreceiptHandle\x12;\n" +
+	"\vreceived_at\x18\x03 \x01(\v2\x1a.google.protobuf.TimestampR\n" +
+	"receivedAt\x12#\n" +
+	"\rreceive_count\x18\x04 \x01(\x05R\freceiveCount\x12i\n" +
+	"#approximate_first_receive_timestamp\x18\x05 \x01(\v2\x1a.google.protobuf.TimestampR approximateFirstReceiveTimestampB\xc1\x01\n" +
 	"\x14com.gcommon.v1.queueB\fMessageProtoP\x01Z1github.com/jdfalk/gcommon/pkg/queue/proto;queuepb\xa2\x02\x03GVQ\xaa\x02\x10Gcommon.V1.Queue\xca\x02\x10Gcommon\\V1\\Queue\xe2\x02\x1cGcommon\\V1\\Queue\\GPBMetadata\xea\x02\x12Gcommon::V1::Queue\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
 
-var file_pkg_queue_proto_messages_message_proto_goTypes = []any{}
+var file_pkg_queue_proto_messages_message_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
+var file_pkg_queue_proto_messages_message_proto_goTypes = []any{
+	(*ReceivedMessage)(nil),       // 0: gcommon.v1.queue.ReceivedMessage
+	(*QueueMessage)(nil),          // 1: gcommon.v1.queue.QueueMessage
+	(*timestamppb.Timestamp)(nil), // 2: google.protobuf.Timestamp
+}
 var file_pkg_queue_proto_messages_message_proto_depIdxs = []int32{
-	0, // [0:0] is the sub-list for method output_type
-	0, // [0:0] is the sub-list for method input_type
-	0, // [0:0] is the sub-list for extension type_name
-	0, // [0:0] is the sub-list for extension extendee
-	0, // [0:0] is the sub-list for field type_name
+	1, // 0: gcommon.v1.queue.ReceivedMessage.message:type_name -> gcommon.v1.queue.QueueMessage
+	2, // 1: gcommon.v1.queue.ReceivedMessage.received_at:type_name -> google.protobuf.Timestamp
+	2, // 2: gcommon.v1.queue.ReceivedMessage.approximate_first_receive_timestamp:type_name -> google.protobuf.Timestamp
+	3, // [3:3] is the sub-list for method output_type
+	3, // [3:3] is the sub-list for method input_type
+	3, // [3:3] is the sub-list for extension type_name
+	3, // [3:3] is the sub-list for extension extendee
+	0, // [0:3] is the sub-list for field type_name
 }
 
 func init() { file_pkg_queue_proto_messages_message_proto_init() }
@@ -44,18 +241,20 @@ func file_pkg_queue_proto_messages_message_proto_init() {
 	if File_pkg_queue_proto_messages_message_proto != nil {
 		return
 	}
+	file_pkg_queue_proto_messages_queue_message_proto_init()
 	type x struct{}
 	out := protoimpl.TypeBuilder{
 		File: protoimpl.DescBuilder{
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: unsafe.Slice(unsafe.StringData(file_pkg_queue_proto_messages_message_proto_rawDesc), len(file_pkg_queue_proto_messages_message_proto_rawDesc)),
 			NumEnums:      0,
-			NumMessages:   0,
+			NumMessages:   1,
 			NumExtensions: 0,
 			NumServices:   0,
 		},
 		GoTypes:           file_pkg_queue_proto_messages_message_proto_goTypes,
 		DependencyIndexes: file_pkg_queue_proto_messages_message_proto_depIdxs,
+		MessageInfos:      file_pkg_queue_proto_messages_message_proto_msgTypes,
 	}.Build()
 	File_pkg_queue_proto_messages_message_proto = out.File
 	file_pkg_queue_proto_messages_message_proto_goTypes = nil

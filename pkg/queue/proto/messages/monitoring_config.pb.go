@@ -23,14 +23,118 @@ const (
 	_ = protoimpl.EnforceVersion(protoimpl.MaxVersion - 20)
 )
 
+// MonitoringConfig controls runtime monitoring for a queue.
+type MonitoringConfig struct {
+	state protoimpl.MessageState `protogen:"hybrid.v1"`
+	// Enable or disable monitoring for this queue.
+	Enabled *bool `protobuf:"varint,1,opt,name=enabled" json:"enabled,omitempty"`
+	// Optional endpoint for publishing metrics.
+	MetricsEndpoint *string `protobuf:"bytes,2,opt,name=metrics_endpoint,json=metricsEndpoint" json:"metrics_endpoint,omitempty"`
+	unknownFields   protoimpl.UnknownFields
+	sizeCache       protoimpl.SizeCache
+}
+
+func (x *MonitoringConfig) Reset() {
+	*x = MonitoringConfig{}
+	mi := &file_pkg_queue_proto_messages_monitoring_config_proto_msgTypes[0]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *MonitoringConfig) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*MonitoringConfig) ProtoMessage() {}
+
+func (x *MonitoringConfig) ProtoReflect() protoreflect.Message {
+	mi := &file_pkg_queue_proto_messages_monitoring_config_proto_msgTypes[0]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+func (x *MonitoringConfig) GetEnabled() bool {
+	if x != nil && x.Enabled != nil {
+		return *x.Enabled
+	}
+	return false
+}
+
+func (x *MonitoringConfig) GetMetricsEndpoint() string {
+	if x != nil && x.MetricsEndpoint != nil {
+		return *x.MetricsEndpoint
+	}
+	return ""
+}
+
+func (x *MonitoringConfig) SetEnabled(v bool) {
+	x.Enabled = &v
+}
+
+func (x *MonitoringConfig) SetMetricsEndpoint(v string) {
+	x.MetricsEndpoint = &v
+}
+
+func (x *MonitoringConfig) HasEnabled() bool {
+	if x == nil {
+		return false
+	}
+	return x.Enabled != nil
+}
+
+func (x *MonitoringConfig) HasMetricsEndpoint() bool {
+	if x == nil {
+		return false
+	}
+	return x.MetricsEndpoint != nil
+}
+
+func (x *MonitoringConfig) ClearEnabled() {
+	x.Enabled = nil
+}
+
+func (x *MonitoringConfig) ClearMetricsEndpoint() {
+	x.MetricsEndpoint = nil
+}
+
+type MonitoringConfig_builder struct {
+	_ [0]func() // Prevents comparability and use of unkeyed literals for the builder.
+
+	// Enable or disable monitoring for this queue.
+	Enabled *bool
+	// Optional endpoint for publishing metrics.
+	MetricsEndpoint *string
+}
+
+func (b0 MonitoringConfig_builder) Build() *MonitoringConfig {
+	m0 := &MonitoringConfig{}
+	b, x := &b0, m0
+	_, _ = b, x
+	x.Enabled = b.Enabled
+	x.MetricsEndpoint = b.MetricsEndpoint
+	return m0
+}
+
 var File_pkg_queue_proto_messages_monitoring_config_proto protoreflect.FileDescriptor
 
 const file_pkg_queue_proto_messages_monitoring_config_proto_rawDesc = "" +
 	"\n" +
-	"0pkg/queue/proto/messages/monitoring_config.proto\x12\x10gcommon.v1.queue\x1a!google/protobuf/go_features.protoB\xca\x01\n" +
+	"0pkg/queue/proto/messages/monitoring_config.proto\x12\x10gcommon.v1.queue\x1a!google/protobuf/go_features.proto\"W\n" +
+	"\x10MonitoringConfig\x12\x18\n" +
+	"\aenabled\x18\x01 \x01(\bR\aenabled\x12)\n" +
+	"\x10metrics_endpoint\x18\x02 \x01(\tR\x0fmetricsEndpointB\xca\x01\n" +
 	"\x14com.gcommon.v1.queueB\x15MonitoringConfigProtoP\x01Z1github.com/jdfalk/gcommon/pkg/queue/proto;queuepb\xa2\x02\x03GVQ\xaa\x02\x10Gcommon.V1.Queue\xca\x02\x10Gcommon\\V1\\Queue\xe2\x02\x1cGcommon\\V1\\Queue\\GPBMetadata\xea\x02\x12Gcommon::V1::Queue\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
 
-var file_pkg_queue_proto_messages_monitoring_config_proto_goTypes = []any{}
+var file_pkg_queue_proto_messages_monitoring_config_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
+var file_pkg_queue_proto_messages_monitoring_config_proto_goTypes = []any{
+	(*MonitoringConfig)(nil), // 0: gcommon.v1.queue.MonitoringConfig
+}
 var file_pkg_queue_proto_messages_monitoring_config_proto_depIdxs = []int32{
 	0, // [0:0] is the sub-list for method output_type
 	0, // [0:0] is the sub-list for method input_type
@@ -50,12 +154,13 @@ func file_pkg_queue_proto_messages_monitoring_config_proto_init() {
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: unsafe.Slice(unsafe.StringData(file_pkg_queue_proto_messages_monitoring_config_proto_rawDesc), len(file_pkg_queue_proto_messages_monitoring_config_proto_rawDesc)),
 			NumEnums:      0,
-			NumMessages:   0,
+			NumMessages:   1,
 			NumExtensions: 0,
 			NumServices:   0,
 		},
 		GoTypes:           file_pkg_queue_proto_messages_monitoring_config_proto_goTypes,
 		DependencyIndexes: file_pkg_queue_proto_messages_monitoring_config_proto_depIdxs,
+		MessageInfos:      file_pkg_queue_proto_messages_monitoring_config_proto_msgTypes,
 	}.Build()
 	File_pkg_queue_proto_messages_monitoring_config_proto = out.File
 	file_pkg_queue_proto_messages_monitoring_config_proto_goTypes = nil
