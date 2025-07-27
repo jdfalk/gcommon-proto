@@ -9,7 +9,6 @@
 package queuepb
 
 import (
-	_ "github.com/jdfalk/gcommon/pkg/common/proto"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
@@ -247,7 +246,7 @@ var File_pkg_queue_proto_messages_subscription_info_proto protoreflect.FileDescr
 
 const file_pkg_queue_proto_messages_subscription_info_proto_rawDesc = "" +
 	"\n" +
-	"0pkg/queue/proto/messages/subscription_info.proto\x12\x10gcommon.v1.queue\x1a!google/protobuf/go_features.proto\x1a\x1fgoogle/protobuf/timestamp.proto\x1a\x1dpkg/common/proto/common.proto\"\xc6\x02\n" +
+	"0pkg/queue/proto/messages/subscription_info.proto\x12\x10gcommon.v1.queue\x1a!google/protobuf/go_features.proto\x1a\x1fgoogle/protobuf/timestamp.proto\"\xc6\x02\n" +
 	"\x10SubscriptionInfo\x12\x12\n" +
 	"\x04name\x18\x01 \x01(\tR\x04name\x12\x14\n" +
 	"\x05topic\x18\x02 \x01(\tR\x05topic\x12\x16\n" +
