@@ -23,14 +23,80 @@ const (
 	_ = protoimpl.EnforceVersion(protoimpl.MaxVersion - 20)
 )
 
+// CompressionType defines how message bodies are compressed
+// when stored or transmitted.
+type CompressionType int32
+
+const (
+	// Default compression type selected by the implementation.
+	CompressionType_COMPRESSION_TYPE_UNSPECIFIED CompressionType = 0
+	// No compression is applied.
+	CompressionType_COMPRESSION_TYPE_NONE CompressionType = 1
+	// GZIP compression.
+	CompressionType_COMPRESSION_TYPE_GZIP CompressionType = 2
+	// LZ4 compression algorithm.
+	CompressionType_COMPRESSION_TYPE_LZ4 CompressionType = 3
+	// Zstandard compression algorithm.
+	CompressionType_COMPRESSION_TYPE_ZSTD CompressionType = 4
+)
+
+// Enum value maps for CompressionType.
+var (
+	CompressionType_name = map[int32]string{
+		0: "COMPRESSION_TYPE_UNSPECIFIED",
+		1: "COMPRESSION_TYPE_NONE",
+		2: "COMPRESSION_TYPE_GZIP",
+		3: "COMPRESSION_TYPE_LZ4",
+		4: "COMPRESSION_TYPE_ZSTD",
+	}
+	CompressionType_value = map[string]int32{
+		"COMPRESSION_TYPE_UNSPECIFIED": 0,
+		"COMPRESSION_TYPE_NONE":        1,
+		"COMPRESSION_TYPE_GZIP":        2,
+		"COMPRESSION_TYPE_LZ4":         3,
+		"COMPRESSION_TYPE_ZSTD":        4,
+	}
+)
+
+func (x CompressionType) Enum() *CompressionType {
+	p := new(CompressionType)
+	*p = x
+	return p
+}
+
+func (x CompressionType) String() string {
+	return protoimpl.X.EnumStringOf(x.Descriptor(), protoreflect.EnumNumber(x))
+}
+
+func (CompressionType) Descriptor() protoreflect.EnumDescriptor {
+	return file_pkg_queue_proto_enums_compression_type_proto_enumTypes[0].Descriptor()
+}
+
+func (CompressionType) Type() protoreflect.EnumType {
+	return &file_pkg_queue_proto_enums_compression_type_proto_enumTypes[0]
+}
+
+func (x CompressionType) Number() protoreflect.EnumNumber {
+	return protoreflect.EnumNumber(x)
+}
+
 var File_pkg_queue_proto_enums_compression_type_proto protoreflect.FileDescriptor
 
 const file_pkg_queue_proto_enums_compression_type_proto_rawDesc = "" +
 	"\n" +
-	",pkg/queue/proto/enums/compression_type.proto\x12\x10gcommon.v1.queue\x1a!google/protobuf/go_features.protoB\xc9\x01\n" +
+	",pkg/queue/proto/enums/compression_type.proto\x12\x10gcommon.v1.queue\x1a!google/protobuf/go_features.proto*\x9e\x01\n" +
+	"\x0fCompressionType\x12 \n" +
+	"\x1cCOMPRESSION_TYPE_UNSPECIFIED\x10\x00\x12\x19\n" +
+	"\x15COMPRESSION_TYPE_NONE\x10\x01\x12\x19\n" +
+	"\x15COMPRESSION_TYPE_GZIP\x10\x02\x12\x18\n" +
+	"\x14COMPRESSION_TYPE_LZ4\x10\x03\x12\x19\n" +
+	"\x15COMPRESSION_TYPE_ZSTD\x10\x04B\xc9\x01\n" +
 	"\x14com.gcommon.v1.queueB\x14CompressionTypeProtoP\x01Z1github.com/jdfalk/gcommon/pkg/queue/proto;queuepb\xa2\x02\x03GVQ\xaa\x02\x10Gcommon.V1.Queue\xca\x02\x10Gcommon\\V1\\Queue\xe2\x02\x1cGcommon\\V1\\Queue\\GPBMetadata\xea\x02\x12Gcommon::V1::Queue\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
 
-var file_pkg_queue_proto_enums_compression_type_proto_goTypes = []any{}
+var file_pkg_queue_proto_enums_compression_type_proto_enumTypes = make([]protoimpl.EnumInfo, 1)
+var file_pkg_queue_proto_enums_compression_type_proto_goTypes = []any{
+	(CompressionType)(0), // 0: gcommon.v1.queue.CompressionType
+}
 var file_pkg_queue_proto_enums_compression_type_proto_depIdxs = []int32{
 	0, // [0:0] is the sub-list for method output_type
 	0, // [0:0] is the sub-list for method input_type
@@ -49,13 +115,14 @@ func file_pkg_queue_proto_enums_compression_type_proto_init() {
 		File: protoimpl.DescBuilder{
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: unsafe.Slice(unsafe.StringData(file_pkg_queue_proto_enums_compression_type_proto_rawDesc), len(file_pkg_queue_proto_enums_compression_type_proto_rawDesc)),
-			NumEnums:      0,
+			NumEnums:      1,
 			NumMessages:   0,
 			NumExtensions: 0,
 			NumServices:   0,
 		},
 		GoTypes:           file_pkg_queue_proto_enums_compression_type_proto_goTypes,
 		DependencyIndexes: file_pkg_queue_proto_enums_compression_type_proto_depIdxs,
+		EnumInfos:         file_pkg_queue_proto_enums_compression_type_proto_enumTypes,
 	}.Build()
 	File_pkg_queue_proto_enums_compression_type_proto = out.File
 	file_pkg_queue_proto_enums_compression_type_proto_goTypes = nil
