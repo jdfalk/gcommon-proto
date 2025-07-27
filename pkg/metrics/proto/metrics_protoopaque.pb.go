@@ -27,9 +27,9 @@ var File_pkg_metrics_proto_metrics_proto protoreflect.FileDescriptor
 
 const file_pkg_metrics_proto_metrics_proto_rawDesc = "" +
 	"\n" +
-	"\x1fpkg/metrics/proto/metrics.proto\x12\x12gcommon.v1.metrics\x1a!google/protobuf/go_features.proto\x1a0pkg/metrics/proto/services/metrics_service.proto\x1a6pkg/metrics/proto/services/metrics_admin_service.proto\x1a)pkg/metrics/proto/enums/metric_type.proto\x1a.pkg/metrics/proto/enums/aggregation_type.proto\x1a,pkg/metrics/proto/enums/alert_severity.proto\x1a)pkg/metrics/proto/enums/alert_state.proto\x1a1pkg/metrics/proto/enums/comparison_operator.proto\x1a.pkg/metrics/proto/enums/retention_policy.proto\x1a+pkg/metrics/proto/enums/export_format.proto\x1a)pkg/metrics/proto/enums/sample_rate.proto\x1a+pkg/metrics/proto/enums/metric_status.proto\x1a0pkg/metrics/proto/enums/alert_channel_type.proto\x1a,pkg/metrics/proto/enums/dashboard_type.proto\x1a0pkg/metrics/proto/enums/visualization_type.proto\x1a)pkg/metrics/proto/enums/time_window.proto\x1a+pkg/metrics/proto/enums/metric_source.proto\x1a-pkg/metrics/proto/enums/storage_backend.proto\x1a/pkg/metrics/proto/messages/counter_metric.proto\x1a-pkg/metrics/proto/messages/gauge_metric.proto\x1a1pkg/metrics/proto/messages/histogram_metric.proto\x1a/pkg/metrics/proto/messages/summary_metric.proto\x1a-pkg/metrics/proto/messages/timer_metric.proto\x1a-pkg/metrics/proto/messages/metric_label.proto\x1a.pkg/metrics/proto/messages/metric_sample.proto\x1a,pkg/metrics/proto/messages/metric_data.proto\x1a3pkg/metrics/proto/messages/metric_aggregation.proto\x1a3pkg/metrics/proto/messages/alerting_condition.proto\x1a.pkg/metrics/proto/messages/export_config.proto\x1a0pkg/metrics/proto/messages/metric_metadata.proto\x1a-pkg/metrics/proto/types/timestamp_range.proto\x1a*pkg/metrics/proto/types/metric_value.protoB\xcf\x01\n" +
+	"\x1fpkg/metrics/proto/metrics.proto\x12\x12gcommon.v1.metrics\x1a!google/protobuf/go_features.proto\x1a0pkg/metrics/proto/services/metrics_service.proto\x1a6pkg/metrics/proto/services/metrics_admin_service.proto\x1a)pkg/metrics/proto/enums/metric_type.proto\x1a.pkg/metrics/proto/enums/aggregation_type.proto\x1a,pkg/metrics/proto/enums/alert_severity.proto\x1a)pkg/metrics/proto/enums/alert_state.proto\x1a1pkg/metrics/proto/enums/comparison_operator.proto\x1a.pkg/metrics/proto/enums/retention_policy.proto\x1a+pkg/metrics/proto/enums/export_format.proto\x1a)pkg/metrics/proto/enums/sample_rate.proto\x1a+pkg/metrics/proto/enums/metric_status.proto\x1a0pkg/metrics/proto/enums/alert_channel_type.proto\x1a,pkg/metrics/proto/enums/dashboard_type.proto\x1a0pkg/metrics/proto/enums/visualization_type.proto\x1a)pkg/metrics/proto/enums/time_window.proto\x1a+pkg/metrics/proto/enums/metric_source.proto\x1a-pkg/metrics/proto/enums/storage_backend.proto\x1a.pkg/metrics/proto/enums/compression_type.proto\x1a+pkg/metrics/proto/enums/health_status.proto\x1a/pkg/metrics/proto/messages/counter_metric.proto\x1a-pkg/metrics/proto/messages/gauge_metric.proto\x1a1pkg/metrics/proto/messages/histogram_metric.proto\x1a/pkg/metrics/proto/messages/summary_metric.proto\x1a-pkg/metrics/proto/messages/timer_metric.proto\x1a-pkg/metrics/proto/messages/metric_label.proto\x1a.pkg/metrics/proto/messages/metric_sample.proto\x1a,pkg/metrics/proto/messages/metric_data.proto\x1a3pkg/metrics/proto/messages/metric_aggregation.proto\x1a.pkg/metrics/proto/messages/alerting_rule.proto\x1a3pkg/metrics/proto/messages/alerting_condition.proto\x1a3pkg/metrics/proto/messages/alert_notification.proto\x1a.pkg/metrics/proto/messages/metric_bucket.proto\x1a0pkg/metrics/proto/messages/metric_quantile.proto\x1a-pkg/metrics/proto/messages/metric_stats.proto\x1a,pkg/metrics/proto/messages/time_series.proto\x1a.pkg/metrics/proto/messages/metric_health.proto\x1a.pkg/metrics/proto/messages/import_config.proto\x1a1pkg/metrics/proto/messages/retention_policy.proto\x1a.pkg/metrics/proto/messages/export_config.proto\x1a0pkg/metrics/proto/messages/metric_metadata.proto\x1a-pkg/metrics/proto/types/timestamp_range.proto\x1a*pkg/metrics/proto/types/metric_value.protoB\xcf\x01\n" +
 	"\x16com.gcommon.v1.metricsB\fMetricsProtoP\x01Z5github.com/jdfalk/gcommon/pkg/metrics/proto;metricspb\xa2\x02\x03GVM\xaa\x02\x12Gcommon.V1.Metrics\xca\x02\x12Gcommon\\V1\\Metrics\xe2\x02\x1eGcommon\\V1\\Metrics\\GPBMetadata\xea\x02\x14Gcommon::V1::Metrics\x92\x03\x05\xd2>\x02\x10\x02P\x01P\x02P\x03P\x04P\x05P\x06P\aP\bP\tP\n" +
-	"P\vP\fP\rP\x0eP\x0fP\x10P\x11P\x12P\x13P\x14P\x15P\x16P\x17P\x18P\x19P\x1aP\x1bP\x1cP\x1dP\x1eP\x1fb\beditionsp\xe8\a"
+	"P\vP\fP\rP\x0eP\x0fP\x10P\x11P\x12P\x13P\x14P\x15P\x16P\x17P\x18P\x19P\x1aP\x1bP\x1cP\x1dP\x1eP\x1fP P!P\"P#P$P%P&P'P(P)P*b\beditionsp\xe8\a"
 
 var file_pkg_metrics_proto_metrics_proto_goTypes = []any{}
 var file_pkg_metrics_proto_metrics_proto_depIdxs = []int32{
@@ -62,6 +62,8 @@ func file_pkg_metrics_proto_metrics_proto_init() {
 	file_pkg_metrics_proto_enums_time_window_proto_init()
 	file_pkg_metrics_proto_enums_metric_source_proto_init()
 	file_pkg_metrics_proto_enums_storage_backend_proto_init()
+	file_pkg_metrics_proto_enums_compression_type_proto_init()
+	file_pkg_metrics_proto_enums_health_status_proto_init()
 	file_pkg_metrics_proto_messages_counter_metric_proto_init()
 	file_pkg_metrics_proto_messages_gauge_metric_proto_init()
 	file_pkg_metrics_proto_messages_histogram_metric_proto_init()
@@ -71,7 +73,16 @@ func file_pkg_metrics_proto_metrics_proto_init() {
 	file_pkg_metrics_proto_messages_metric_sample_proto_init()
 	file_pkg_metrics_proto_messages_metric_data_proto_init()
 	file_pkg_metrics_proto_messages_metric_aggregation_proto_init()
+	file_pkg_metrics_proto_messages_alerting_rule_proto_init()
 	file_pkg_metrics_proto_messages_alerting_condition_proto_init()
+	file_pkg_metrics_proto_messages_alert_notification_proto_init()
+	file_pkg_metrics_proto_messages_metric_bucket_proto_init()
+	file_pkg_metrics_proto_messages_metric_quantile_proto_init()
+	file_pkg_metrics_proto_messages_metric_stats_proto_init()
+	file_pkg_metrics_proto_messages_time_series_proto_init()
+	file_pkg_metrics_proto_messages_metric_health_proto_init()
+	file_pkg_metrics_proto_messages_import_config_proto_init()
+	file_pkg_metrics_proto_messages_retention_policy_proto_init()
 	file_pkg_metrics_proto_messages_export_config_proto_init()
 	file_pkg_metrics_proto_messages_metric_metadata_proto_init()
 	file_pkg_metrics_proto_types_timestamp_range_proto_init()
