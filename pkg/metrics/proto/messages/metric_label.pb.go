@@ -23,14 +23,120 @@ const (
 	_ = protoimpl.EnforceVersion(protoimpl.MaxVersion - 20)
 )
 
+// *
+// MetricLabel represents a single key/value label used for
+// metric identification and filtering.
+type MetricLabel struct {
+	state protoimpl.MessageState `protogen:"hybrid.v1"`
+	// Label key
+	Key *string `protobuf:"bytes,1,opt,name=key" json:"key,omitempty"`
+	// Label value
+	Value         *string `protobuf:"bytes,2,opt,name=value" json:"value,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *MetricLabel) Reset() {
+	*x = MetricLabel{}
+	mi := &file_pkg_metrics_proto_messages_metric_label_proto_msgTypes[0]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *MetricLabel) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*MetricLabel) ProtoMessage() {}
+
+func (x *MetricLabel) ProtoReflect() protoreflect.Message {
+	mi := &file_pkg_metrics_proto_messages_metric_label_proto_msgTypes[0]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+func (x *MetricLabel) GetKey() string {
+	if x != nil && x.Key != nil {
+		return *x.Key
+	}
+	return ""
+}
+
+func (x *MetricLabel) GetValue() string {
+	if x != nil && x.Value != nil {
+		return *x.Value
+	}
+	return ""
+}
+
+func (x *MetricLabel) SetKey(v string) {
+	x.Key = &v
+}
+
+func (x *MetricLabel) SetValue(v string) {
+	x.Value = &v
+}
+
+func (x *MetricLabel) HasKey() bool {
+	if x == nil {
+		return false
+	}
+	return x.Key != nil
+}
+
+func (x *MetricLabel) HasValue() bool {
+	if x == nil {
+		return false
+	}
+	return x.Value != nil
+}
+
+func (x *MetricLabel) ClearKey() {
+	x.Key = nil
+}
+
+func (x *MetricLabel) ClearValue() {
+	x.Value = nil
+}
+
+type MetricLabel_builder struct {
+	_ [0]func() // Prevents comparability and use of unkeyed literals for the builder.
+
+	// Label key
+	Key *string
+	// Label value
+	Value *string
+}
+
+func (b0 MetricLabel_builder) Build() *MetricLabel {
+	m0 := &MetricLabel{}
+	b, x := &b0, m0
+	_, _ = b, x
+	x.Key = b.Key
+	x.Value = b.Value
+	return m0
+}
+
 var File_pkg_metrics_proto_messages_metric_label_proto protoreflect.FileDescriptor
 
 const file_pkg_metrics_proto_messages_metric_label_proto_rawDesc = "" +
 	"\n" +
-	"-pkg/metrics/proto/messages/metric_label.proto\x12\x12gcommon.v1.metrics\x1a!google/protobuf/go_features.protoB\xd3\x01\n" +
+	"-pkg/metrics/proto/messages/metric_label.proto\x12\x12gcommon.v1.metrics\x1a!google/protobuf/go_features.proto\"5\n" +
+	"\vMetricLabel\x12\x10\n" +
+	"\x03key\x18\x01 \x01(\tR\x03key\x12\x14\n" +
+	"\x05value\x18\x02 \x01(\tR\x05valueB\xd3\x01\n" +
 	"\x16com.gcommon.v1.metricsB\x10MetricLabelProtoP\x01Z5github.com/jdfalk/gcommon/pkg/metrics/proto;metricspb\xa2\x02\x03GVM\xaa\x02\x12Gcommon.V1.Metrics\xca\x02\x12Gcommon\\V1\\Metrics\xe2\x02\x1eGcommon\\V1\\Metrics\\GPBMetadata\xea\x02\x14Gcommon::V1::Metrics\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
 
-var file_pkg_metrics_proto_messages_metric_label_proto_goTypes = []any{}
+var file_pkg_metrics_proto_messages_metric_label_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
+var file_pkg_metrics_proto_messages_metric_label_proto_goTypes = []any{
+	(*MetricLabel)(nil), // 0: gcommon.v1.metrics.MetricLabel
+}
 var file_pkg_metrics_proto_messages_metric_label_proto_depIdxs = []int32{
 	0, // [0:0] is the sub-list for method output_type
 	0, // [0:0] is the sub-list for method input_type
@@ -50,12 +156,13 @@ func file_pkg_metrics_proto_messages_metric_label_proto_init() {
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: unsafe.Slice(unsafe.StringData(file_pkg_metrics_proto_messages_metric_label_proto_rawDesc), len(file_pkg_metrics_proto_messages_metric_label_proto_rawDesc)),
 			NumEnums:      0,
-			NumMessages:   0,
+			NumMessages:   1,
 			NumExtensions: 0,
 			NumServices:   0,
 		},
 		GoTypes:           file_pkg_metrics_proto_messages_metric_label_proto_goTypes,
 		DependencyIndexes: file_pkg_metrics_proto_messages_metric_label_proto_depIdxs,
+		MessageInfos:      file_pkg_metrics_proto_messages_metric_label_proto_msgTypes,
 	}.Build()
 	File_pkg_metrics_proto_messages_metric_label_proto = out.File
 	file_pkg_metrics_proto_messages_metric_label_proto_goTypes = nil

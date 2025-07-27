@@ -23,20 +23,158 @@ const (
 	_ = protoimpl.EnforceVersion(protoimpl.MaxVersion - 20)
 )
 
+// *
+// ScrapeConfig defines how metrics should be scraped from targets.
+type ScrapeConfig struct {
+	state                            protoimpl.MessageState `protogen:"opaque.v1"`
+	xxx_hidden_JobName               *string                `protobuf:"bytes,1,opt,name=job_name,json=jobName"`
+	xxx_hidden_Targets               *[]*ScrapeTarget       `protobuf:"bytes,2,rep,name=targets"`
+	xxx_hidden_ScrapeIntervalSeconds int32                  `protobuf:"varint,3,opt,name=scrape_interval_seconds,json=scrapeIntervalSeconds"`
+	XXX_raceDetectHookData           protoimpl.RaceDetectHookData
+	XXX_presence                     [1]uint32
+	unknownFields                    protoimpl.UnknownFields
+	sizeCache                        protoimpl.SizeCache
+}
+
+func (x *ScrapeConfig) Reset() {
+	*x = ScrapeConfig{}
+	mi := &file_pkg_metrics_proto_messages_scrape_config_proto_msgTypes[0]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *ScrapeConfig) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*ScrapeConfig) ProtoMessage() {}
+
+func (x *ScrapeConfig) ProtoReflect() protoreflect.Message {
+	mi := &file_pkg_metrics_proto_messages_scrape_config_proto_msgTypes[0]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+func (x *ScrapeConfig) GetJobName() string {
+	if x != nil {
+		if x.xxx_hidden_JobName != nil {
+			return *x.xxx_hidden_JobName
+		}
+		return ""
+	}
+	return ""
+}
+
+func (x *ScrapeConfig) GetTargets() []*ScrapeTarget {
+	if x != nil {
+		if x.xxx_hidden_Targets != nil {
+			return *x.xxx_hidden_Targets
+		}
+	}
+	return nil
+}
+
+func (x *ScrapeConfig) GetScrapeIntervalSeconds() int32 {
+	if x != nil {
+		return x.xxx_hidden_ScrapeIntervalSeconds
+	}
+	return 0
+}
+
+func (x *ScrapeConfig) SetJobName(v string) {
+	x.xxx_hidden_JobName = &v
+	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 0, 3)
+}
+
+func (x *ScrapeConfig) SetTargets(v []*ScrapeTarget) {
+	x.xxx_hidden_Targets = &v
+}
+
+func (x *ScrapeConfig) SetScrapeIntervalSeconds(v int32) {
+	x.xxx_hidden_ScrapeIntervalSeconds = v
+	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 2, 3)
+}
+
+func (x *ScrapeConfig) HasJobName() bool {
+	if x == nil {
+		return false
+	}
+	return protoimpl.X.Present(&(x.XXX_presence[0]), 0)
+}
+
+func (x *ScrapeConfig) HasScrapeIntervalSeconds() bool {
+	if x == nil {
+		return false
+	}
+	return protoimpl.X.Present(&(x.XXX_presence[0]), 2)
+}
+
+func (x *ScrapeConfig) ClearJobName() {
+	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 0)
+	x.xxx_hidden_JobName = nil
+}
+
+func (x *ScrapeConfig) ClearScrapeIntervalSeconds() {
+	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 2)
+	x.xxx_hidden_ScrapeIntervalSeconds = 0
+}
+
+type ScrapeConfig_builder struct {
+	_ [0]func() // Prevents comparability and use of unkeyed literals for the builder.
+
+	// Job name for the scrape configuration
+	JobName *string
+	// Targets to scrape
+	Targets []*ScrapeTarget
+	// Interval between scrapes in seconds
+	ScrapeIntervalSeconds *int32
+}
+
+func (b0 ScrapeConfig_builder) Build() *ScrapeConfig {
+	m0 := &ScrapeConfig{}
+	b, x := &b0, m0
+	_, _ = b, x
+	if b.JobName != nil {
+		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 0, 3)
+		x.xxx_hidden_JobName = b.JobName
+	}
+	x.xxx_hidden_Targets = &b.Targets
+	if b.ScrapeIntervalSeconds != nil {
+		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 2, 3)
+		x.xxx_hidden_ScrapeIntervalSeconds = *b.ScrapeIntervalSeconds
+	}
+	return m0
+}
+
 var File_pkg_metrics_proto_messages_scrape_config_proto protoreflect.FileDescriptor
 
 const file_pkg_metrics_proto_messages_scrape_config_proto_rawDesc = "" +
 	"\n" +
-	".pkg/metrics/proto/messages/scrape_config.proto\x12\x12gcommon.v1.metrics\x1a!google/protobuf/go_features.protoB\xd4\x01\n" +
+	".pkg/metrics/proto/messages/scrape_config.proto\x12\x12gcommon.v1.metrics\x1a!google/protobuf/go_features.proto\x1a.pkg/metrics/proto/messages/scrape_target.proto\"\x9d\x01\n" +
+	"\fScrapeConfig\x12\x19\n" +
+	"\bjob_name\x18\x01 \x01(\tR\ajobName\x12:\n" +
+	"\atargets\x18\x02 \x03(\v2 .gcommon.v1.metrics.ScrapeTargetR\atargets\x126\n" +
+	"\x17scrape_interval_seconds\x18\x03 \x01(\x05R\x15scrapeIntervalSecondsB\xd4\x01\n" +
 	"\x16com.gcommon.v1.metricsB\x11ScrapeConfigProtoP\x01Z5github.com/jdfalk/gcommon/pkg/metrics/proto;metricspb\xa2\x02\x03GVM\xaa\x02\x12Gcommon.V1.Metrics\xca\x02\x12Gcommon\\V1\\Metrics\xe2\x02\x1eGcommon\\V1\\Metrics\\GPBMetadata\xea\x02\x14Gcommon::V1::Metrics\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
 
-var file_pkg_metrics_proto_messages_scrape_config_proto_goTypes = []any{}
+var file_pkg_metrics_proto_messages_scrape_config_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
+var file_pkg_metrics_proto_messages_scrape_config_proto_goTypes = []any{
+	(*ScrapeConfig)(nil), // 0: gcommon.v1.metrics.ScrapeConfig
+	(*ScrapeTarget)(nil), // 1: gcommon.v1.metrics.ScrapeTarget
+}
 var file_pkg_metrics_proto_messages_scrape_config_proto_depIdxs = []int32{
-	0, // [0:0] is the sub-list for method output_type
-	0, // [0:0] is the sub-list for method input_type
-	0, // [0:0] is the sub-list for extension type_name
-	0, // [0:0] is the sub-list for extension extendee
-	0, // [0:0] is the sub-list for field type_name
+	1, // 0: gcommon.v1.metrics.ScrapeConfig.targets:type_name -> gcommon.v1.metrics.ScrapeTarget
+	1, // [1:1] is the sub-list for method output_type
+	1, // [1:1] is the sub-list for method input_type
+	1, // [1:1] is the sub-list for extension type_name
+	1, // [1:1] is the sub-list for extension extendee
+	0, // [0:1] is the sub-list for field type_name
 }
 
 func init() { file_pkg_metrics_proto_messages_scrape_config_proto_init() }
@@ -44,18 +182,20 @@ func file_pkg_metrics_proto_messages_scrape_config_proto_init() {
 	if File_pkg_metrics_proto_messages_scrape_config_proto != nil {
 		return
 	}
+	file_pkg_metrics_proto_messages_scrape_target_proto_init()
 	type x struct{}
 	out := protoimpl.TypeBuilder{
 		File: protoimpl.DescBuilder{
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: unsafe.Slice(unsafe.StringData(file_pkg_metrics_proto_messages_scrape_config_proto_rawDesc), len(file_pkg_metrics_proto_messages_scrape_config_proto_rawDesc)),
 			NumEnums:      0,
-			NumMessages:   0,
+			NumMessages:   1,
 			NumExtensions: 0,
 			NumServices:   0,
 		},
 		GoTypes:           file_pkg_metrics_proto_messages_scrape_config_proto_goTypes,
 		DependencyIndexes: file_pkg_metrics_proto_messages_scrape_config_proto_depIdxs,
+		MessageInfos:      file_pkg_metrics_proto_messages_scrape_config_proto_msgTypes,
 	}.Build()
 	File_pkg_metrics_proto_messages_scrape_config_proto = out.File
 	file_pkg_metrics_proto_messages_scrape_config_proto_goTypes = nil

@@ -23,14 +23,149 @@ const (
 	_ = protoimpl.EnforceVersion(protoimpl.MaxVersion - 20)
 )
 
+// *
+// MetricBucket represents a histogram bucket with bounds and count.
+type MetricBucket struct {
+	state protoimpl.MessageState `protogen:"hybrid.v1"`
+	// Lower bound inclusive.
+	LowerBound *float64 `protobuf:"fixed64,1,opt,name=lower_bound,json=lowerBound" json:"lower_bound,omitempty"`
+	// Upper bound exclusive.
+	UpperBound *float64 `protobuf:"fixed64,2,opt,name=upper_bound,json=upperBound" json:"upper_bound,omitempty"`
+	// Number of samples in the bucket.
+	Count         *int64 `protobuf:"varint,3,opt,name=count" json:"count,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *MetricBucket) Reset() {
+	*x = MetricBucket{}
+	mi := &file_pkg_metrics_proto_messages_metric_bucket_proto_msgTypes[0]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *MetricBucket) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*MetricBucket) ProtoMessage() {}
+
+func (x *MetricBucket) ProtoReflect() protoreflect.Message {
+	mi := &file_pkg_metrics_proto_messages_metric_bucket_proto_msgTypes[0]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+func (x *MetricBucket) GetLowerBound() float64 {
+	if x != nil && x.LowerBound != nil {
+		return *x.LowerBound
+	}
+	return 0
+}
+
+func (x *MetricBucket) GetUpperBound() float64 {
+	if x != nil && x.UpperBound != nil {
+		return *x.UpperBound
+	}
+	return 0
+}
+
+func (x *MetricBucket) GetCount() int64 {
+	if x != nil && x.Count != nil {
+		return *x.Count
+	}
+	return 0
+}
+
+func (x *MetricBucket) SetLowerBound(v float64) {
+	x.LowerBound = &v
+}
+
+func (x *MetricBucket) SetUpperBound(v float64) {
+	x.UpperBound = &v
+}
+
+func (x *MetricBucket) SetCount(v int64) {
+	x.Count = &v
+}
+
+func (x *MetricBucket) HasLowerBound() bool {
+	if x == nil {
+		return false
+	}
+	return x.LowerBound != nil
+}
+
+func (x *MetricBucket) HasUpperBound() bool {
+	if x == nil {
+		return false
+	}
+	return x.UpperBound != nil
+}
+
+func (x *MetricBucket) HasCount() bool {
+	if x == nil {
+		return false
+	}
+	return x.Count != nil
+}
+
+func (x *MetricBucket) ClearLowerBound() {
+	x.LowerBound = nil
+}
+
+func (x *MetricBucket) ClearUpperBound() {
+	x.UpperBound = nil
+}
+
+func (x *MetricBucket) ClearCount() {
+	x.Count = nil
+}
+
+type MetricBucket_builder struct {
+	_ [0]func() // Prevents comparability and use of unkeyed literals for the builder.
+
+	// Lower bound inclusive.
+	LowerBound *float64
+	// Upper bound exclusive.
+	UpperBound *float64
+	// Number of samples in the bucket.
+	Count *int64
+}
+
+func (b0 MetricBucket_builder) Build() *MetricBucket {
+	m0 := &MetricBucket{}
+	b, x := &b0, m0
+	_, _ = b, x
+	x.LowerBound = b.LowerBound
+	x.UpperBound = b.UpperBound
+	x.Count = b.Count
+	return m0
+}
+
 var File_pkg_metrics_proto_messages_metric_bucket_proto protoreflect.FileDescriptor
 
 const file_pkg_metrics_proto_messages_metric_bucket_proto_rawDesc = "" +
 	"\n" +
-	".pkg/metrics/proto/messages/metric_bucket.proto\x12\x12gcommon.v1.metrics\x1a!google/protobuf/go_features.protoB\xd4\x01\n" +
+	".pkg/metrics/proto/messages/metric_bucket.proto\x12\x12gcommon.v1.metrics\x1a!google/protobuf/go_features.proto\"f\n" +
+	"\fMetricBucket\x12\x1f\n" +
+	"\vlower_bound\x18\x01 \x01(\x01R\n" +
+	"lowerBound\x12\x1f\n" +
+	"\vupper_bound\x18\x02 \x01(\x01R\n" +
+	"upperBound\x12\x14\n" +
+	"\x05count\x18\x03 \x01(\x03R\x05countB\xd4\x01\n" +
 	"\x16com.gcommon.v1.metricsB\x11MetricBucketProtoP\x01Z5github.com/jdfalk/gcommon/pkg/metrics/proto;metricspb\xa2\x02\x03GVM\xaa\x02\x12Gcommon.V1.Metrics\xca\x02\x12Gcommon\\V1\\Metrics\xe2\x02\x1eGcommon\\V1\\Metrics\\GPBMetadata\xea\x02\x14Gcommon::V1::Metrics\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
 
-var file_pkg_metrics_proto_messages_metric_bucket_proto_goTypes = []any{}
+var file_pkg_metrics_proto_messages_metric_bucket_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
+var file_pkg_metrics_proto_messages_metric_bucket_proto_goTypes = []any{
+	(*MetricBucket)(nil), // 0: gcommon.v1.metrics.MetricBucket
+}
 var file_pkg_metrics_proto_messages_metric_bucket_proto_depIdxs = []int32{
 	0, // [0:0] is the sub-list for method output_type
 	0, // [0:0] is the sub-list for method input_type
@@ -50,12 +185,13 @@ func file_pkg_metrics_proto_messages_metric_bucket_proto_init() {
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: unsafe.Slice(unsafe.StringData(file_pkg_metrics_proto_messages_metric_bucket_proto_rawDesc), len(file_pkg_metrics_proto_messages_metric_bucket_proto_rawDesc)),
 			NumEnums:      0,
-			NumMessages:   0,
+			NumMessages:   1,
 			NumExtensions: 0,
 			NumServices:   0,
 		},
 		GoTypes:           file_pkg_metrics_proto_messages_metric_bucket_proto_goTypes,
 		DependencyIndexes: file_pkg_metrics_proto_messages_metric_bucket_proto_depIdxs,
+		MessageInfos:      file_pkg_metrics_proto_messages_metric_bucket_proto_msgTypes,
 	}.Build()
 	File_pkg_metrics_proto_messages_metric_bucket_proto = out.File
 	file_pkg_metrics_proto_messages_metric_bucket_proto_goTypes = nil
