@@ -13,6 +13,7 @@ import (
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
+	fieldmaskpb "google.golang.org/protobuf/types/known/fieldmaskpb"
 	reflect "reflect"
 	unsafe "unsafe"
 )
@@ -24,12 +25,16 @@ const (
 	_ = protoimpl.EnforceVersion(protoimpl.MaxVersion - 20)
 )
 
-// TODO: Implement update_member_request message
 type UpdateMemberRequest struct {
-	state               protoimpl.MessageState `protogen:"opaque.v1"`
-	xxx_hidden_Metadata *proto.RequestMetadata `protobuf:"bytes,1,opt,name=metadata"`
-	unknownFields       protoimpl.UnknownFields
-	sizeCache           protoimpl.SizeCache
+	state                  protoimpl.MessageState `protogen:"opaque.v1"`
+	xxx_hidden_Metadata    *proto.RequestMetadata `protobuf:"bytes,1,opt,name=metadata"`
+	xxx_hidden_MemberId    *string                `protobuf:"bytes,2,opt,name=member_id,json=memberId"`
+	xxx_hidden_Member      *OrganizationMember    `protobuf:"bytes,3,opt,name=member"`
+	xxx_hidden_UpdateMask  *fieldmaskpb.FieldMask `protobuf:"bytes,4,opt,name=update_mask,json=updateMask"`
+	XXX_raceDetectHookData protoimpl.RaceDetectHookData
+	XXX_presence           [1]uint32
+	unknownFields          protoimpl.UnknownFields
+	sizeCache              protoimpl.SizeCache
 }
 
 func (x *UpdateMemberRequest) Reset() {
@@ -64,8 +69,45 @@ func (x *UpdateMemberRequest) GetMetadata() *proto.RequestMetadata {
 	return nil
 }
 
+func (x *UpdateMemberRequest) GetMemberId() string {
+	if x != nil {
+		if x.xxx_hidden_MemberId != nil {
+			return *x.xxx_hidden_MemberId
+		}
+		return ""
+	}
+	return ""
+}
+
+func (x *UpdateMemberRequest) GetMember() *OrganizationMember {
+	if x != nil {
+		return x.xxx_hidden_Member
+	}
+	return nil
+}
+
+func (x *UpdateMemberRequest) GetUpdateMask() *fieldmaskpb.FieldMask {
+	if x != nil {
+		return x.xxx_hidden_UpdateMask
+	}
+	return nil
+}
+
 func (x *UpdateMemberRequest) SetMetadata(v *proto.RequestMetadata) {
 	x.xxx_hidden_Metadata = v
+}
+
+func (x *UpdateMemberRequest) SetMemberId(v string) {
+	x.xxx_hidden_MemberId = &v
+	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 1, 4)
+}
+
+func (x *UpdateMemberRequest) SetMember(v *OrganizationMember) {
+	x.xxx_hidden_Member = v
+}
+
+func (x *UpdateMemberRequest) SetUpdateMask(v *fieldmaskpb.FieldMask) {
+	x.xxx_hidden_UpdateMask = v
 }
 
 func (x *UpdateMemberRequest) HasMetadata() bool {
@@ -75,8 +117,42 @@ func (x *UpdateMemberRequest) HasMetadata() bool {
 	return x.xxx_hidden_Metadata != nil
 }
 
+func (x *UpdateMemberRequest) HasMemberId() bool {
+	if x == nil {
+		return false
+	}
+	return protoimpl.X.Present(&(x.XXX_presence[0]), 1)
+}
+
+func (x *UpdateMemberRequest) HasMember() bool {
+	if x == nil {
+		return false
+	}
+	return x.xxx_hidden_Member != nil
+}
+
+func (x *UpdateMemberRequest) HasUpdateMask() bool {
+	if x == nil {
+		return false
+	}
+	return x.xxx_hidden_UpdateMask != nil
+}
+
 func (x *UpdateMemberRequest) ClearMetadata() {
 	x.xxx_hidden_Metadata = nil
+}
+
+func (x *UpdateMemberRequest) ClearMemberId() {
+	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 1)
+	x.xxx_hidden_MemberId = nil
+}
+
+func (x *UpdateMemberRequest) ClearMember() {
+	x.xxx_hidden_Member = nil
+}
+
+func (x *UpdateMemberRequest) ClearUpdateMask() {
+	x.xxx_hidden_UpdateMask = nil
 }
 
 type UpdateMemberRequest_builder struct {
@@ -84,6 +160,12 @@ type UpdateMemberRequest_builder struct {
 
 	// Request metadata for tracing and context
 	Metadata *proto.RequestMetadata
+	// Identifier of the member to update
+	MemberId *string
+	// Updated member information
+	Member *OrganizationMember
+	// Fields to update for partial updates
+	UpdateMask *fieldmaskpb.FieldMask
 }
 
 func (b0 UpdateMemberRequest_builder) Build() *UpdateMemberRequest {
@@ -91,6 +173,12 @@ func (b0 UpdateMemberRequest_builder) Build() *UpdateMemberRequest {
 	b, x := &b0, m0
 	_, _ = b, x
 	x.xxx_hidden_Metadata = b.Metadata
+	if b.MemberId != nil {
+		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 1, 4)
+		x.xxx_hidden_MemberId = b.MemberId
+	}
+	x.xxx_hidden_Member = b.Member
+	x.xxx_hidden_UpdateMask = b.UpdateMask
 	return m0
 }
 
@@ -98,23 +186,31 @@ var File_pkg_organization_proto_requests_update_member_request_proto protoreflec
 
 const file_pkg_organization_proto_requests_update_member_request_proto_rawDesc = "" +
 	"\n" +
-	";pkg/organization/proto/requests/update_member_request.proto\x12\x17gcommon.v1.organization\x1a!google/protobuf/go_features.proto\x1a0pkg/common/proto/messages/request_metadata.proto\"U\n" +
+	";pkg/organization/proto/requests/update_member_request.proto\x12\x17gcommon.v1.organization\x1a!google/protobuf/go_features.proto\x1a0pkg/common/proto/messages/request_metadata.proto\x1a google/protobuf/field_mask.proto\x1a9pkg/organization/proto/messages/organization_member.proto\"\xf4\x01\n" +
 	"\x13UpdateMemberRequest\x12>\n" +
-	"\bmetadata\x18\x01 \x01(\v2\".gcommon.v1.common.RequestMetadataR\bmetadataB\xfe\x01\n" +
+	"\bmetadata\x18\x01 \x01(\v2\".gcommon.v1.common.RequestMetadataR\bmetadata\x12\x1b\n" +
+	"\tmember_id\x18\x02 \x01(\tR\bmemberId\x12C\n" +
+	"\x06member\x18\x03 \x01(\v2+.gcommon.v1.organization.OrganizationMemberR\x06member\x12;\n" +
+	"\vupdate_mask\x18\x04 \x01(\v2\x1a.google.protobuf.FieldMaskR\n" +
+	"updateMaskB\xfe\x01\n" +
 	"\x1bcom.gcommon.v1.organizationB\x18UpdateMemberRequestProtoP\x01Z?github.com/jdfalk/gcommon/pkg/organization/proto;organizationpb\xa2\x02\x03GVO\xaa\x02\x17Gcommon.V1.Organization\xca\x02\x17Gcommon\\V1\\Organization\xe2\x02#Gcommon\\V1\\Organization\\GPBMetadata\xea\x02\x19Gcommon::V1::Organization\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
 
 var file_pkg_organization_proto_requests_update_member_request_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_pkg_organization_proto_requests_update_member_request_proto_goTypes = []any{
 	(*UpdateMemberRequest)(nil),   // 0: gcommon.v1.organization.UpdateMemberRequest
 	(*proto.RequestMetadata)(nil), // 1: gcommon.v1.common.RequestMetadata
+	(*OrganizationMember)(nil),    // 2: gcommon.v1.organization.OrganizationMember
+	(*fieldmaskpb.FieldMask)(nil), // 3: google.protobuf.FieldMask
 }
 var file_pkg_organization_proto_requests_update_member_request_proto_depIdxs = []int32{
 	1, // 0: gcommon.v1.organization.UpdateMemberRequest.metadata:type_name -> gcommon.v1.common.RequestMetadata
-	1, // [1:1] is the sub-list for method output_type
-	1, // [1:1] is the sub-list for method input_type
-	1, // [1:1] is the sub-list for extension type_name
-	1, // [1:1] is the sub-list for extension extendee
-	0, // [0:1] is the sub-list for field type_name
+	2, // 1: gcommon.v1.organization.UpdateMemberRequest.member:type_name -> gcommon.v1.organization.OrganizationMember
+	3, // 2: gcommon.v1.organization.UpdateMemberRequest.update_mask:type_name -> google.protobuf.FieldMask
+	3, // [3:3] is the sub-list for method output_type
+	3, // [3:3] is the sub-list for method input_type
+	3, // [3:3] is the sub-list for extension type_name
+	3, // [3:3] is the sub-list for extension extendee
+	0, // [0:3] is the sub-list for field type_name
 }
 
 func init() { file_pkg_organization_proto_requests_update_member_request_proto_init() }
@@ -122,6 +218,7 @@ func file_pkg_organization_proto_requests_update_member_request_proto_init() {
 	if File_pkg_organization_proto_requests_update_member_request_proto != nil {
 		return
 	}
+	file_pkg_organization_proto_messages_organization_member_proto_init()
 	type x struct{}
 	out := protoimpl.TypeBuilder{
 		File: protoimpl.DescBuilder{

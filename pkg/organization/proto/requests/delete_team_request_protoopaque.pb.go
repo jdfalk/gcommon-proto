@@ -24,12 +24,15 @@ const (
 	_ = protoimpl.EnforceVersion(protoimpl.MaxVersion - 20)
 )
 
-// TODO: Implement delete_team_request message
 type DeleteTeamRequest struct {
-	state               protoimpl.MessageState `protogen:"opaque.v1"`
-	xxx_hidden_Metadata *proto.RequestMetadata `protobuf:"bytes,1,opt,name=metadata"`
-	unknownFields       protoimpl.UnknownFields
-	sizeCache           protoimpl.SizeCache
+	state                  protoimpl.MessageState `protogen:"opaque.v1"`
+	xxx_hidden_Metadata    *proto.RequestMetadata `protobuf:"bytes,1,opt,name=metadata"`
+	xxx_hidden_TeamId      *string                `protobuf:"bytes,2,opt,name=team_id,json=teamId"`
+	xxx_hidden_Force       bool                   `protobuf:"varint,3,opt,name=force"`
+	XXX_raceDetectHookData protoimpl.RaceDetectHookData
+	XXX_presence           [1]uint32
+	unknownFields          protoimpl.UnknownFields
+	sizeCache              protoimpl.SizeCache
 }
 
 func (x *DeleteTeamRequest) Reset() {
@@ -64,8 +67,35 @@ func (x *DeleteTeamRequest) GetMetadata() *proto.RequestMetadata {
 	return nil
 }
 
+func (x *DeleteTeamRequest) GetTeamId() string {
+	if x != nil {
+		if x.xxx_hidden_TeamId != nil {
+			return *x.xxx_hidden_TeamId
+		}
+		return ""
+	}
+	return ""
+}
+
+func (x *DeleteTeamRequest) GetForce() bool {
+	if x != nil {
+		return x.xxx_hidden_Force
+	}
+	return false
+}
+
 func (x *DeleteTeamRequest) SetMetadata(v *proto.RequestMetadata) {
 	x.xxx_hidden_Metadata = v
+}
+
+func (x *DeleteTeamRequest) SetTeamId(v string) {
+	x.xxx_hidden_TeamId = &v
+	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 1, 3)
+}
+
+func (x *DeleteTeamRequest) SetForce(v bool) {
+	x.xxx_hidden_Force = v
+	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 2, 3)
 }
 
 func (x *DeleteTeamRequest) HasMetadata() bool {
@@ -75,8 +105,32 @@ func (x *DeleteTeamRequest) HasMetadata() bool {
 	return x.xxx_hidden_Metadata != nil
 }
 
+func (x *DeleteTeamRequest) HasTeamId() bool {
+	if x == nil {
+		return false
+	}
+	return protoimpl.X.Present(&(x.XXX_presence[0]), 1)
+}
+
+func (x *DeleteTeamRequest) HasForce() bool {
+	if x == nil {
+		return false
+	}
+	return protoimpl.X.Present(&(x.XXX_presence[0]), 2)
+}
+
 func (x *DeleteTeamRequest) ClearMetadata() {
 	x.xxx_hidden_Metadata = nil
+}
+
+func (x *DeleteTeamRequest) ClearTeamId() {
+	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 1)
+	x.xxx_hidden_TeamId = nil
+}
+
+func (x *DeleteTeamRequest) ClearForce() {
+	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 2)
+	x.xxx_hidden_Force = false
 }
 
 type DeleteTeamRequest_builder struct {
@@ -84,6 +138,10 @@ type DeleteTeamRequest_builder struct {
 
 	// Request metadata for tracing and context
 	Metadata *proto.RequestMetadata
+	// Identifier of the team to delete
+	TeamId *string
+	// Force delete even if team has members
+	Force *bool
 }
 
 func (b0 DeleteTeamRequest_builder) Build() *DeleteTeamRequest {
@@ -91,6 +149,14 @@ func (b0 DeleteTeamRequest_builder) Build() *DeleteTeamRequest {
 	b, x := &b0, m0
 	_, _ = b, x
 	x.xxx_hidden_Metadata = b.Metadata
+	if b.TeamId != nil {
+		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 1, 3)
+		x.xxx_hidden_TeamId = b.TeamId
+	}
+	if b.Force != nil {
+		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 2, 3)
+		x.xxx_hidden_Force = *b.Force
+	}
 	return m0
 }
 
@@ -98,9 +164,11 @@ var File_pkg_organization_proto_requests_delete_team_request_proto protoreflect.
 
 const file_pkg_organization_proto_requests_delete_team_request_proto_rawDesc = "" +
 	"\n" +
-	"9pkg/organization/proto/requests/delete_team_request.proto\x12\x17gcommon.v1.organization\x1a!google/protobuf/go_features.proto\x1a0pkg/common/proto/messages/request_metadata.proto\"S\n" +
+	"9pkg/organization/proto/requests/delete_team_request.proto\x12\x17gcommon.v1.organization\x1a!google/protobuf/go_features.proto\x1a0pkg/common/proto/messages/request_metadata.proto\"\x82\x01\n" +
 	"\x11DeleteTeamRequest\x12>\n" +
-	"\bmetadata\x18\x01 \x01(\v2\".gcommon.v1.common.RequestMetadataR\bmetadataB\xfc\x01\n" +
+	"\bmetadata\x18\x01 \x01(\v2\".gcommon.v1.common.RequestMetadataR\bmetadata\x12\x17\n" +
+	"\ateam_id\x18\x02 \x01(\tR\x06teamId\x12\x14\n" +
+	"\x05force\x18\x03 \x01(\bR\x05forceB\xfc\x01\n" +
 	"\x1bcom.gcommon.v1.organizationB\x16DeleteTeamRequestProtoP\x01Z?github.com/jdfalk/gcommon/pkg/organization/proto;organizationpb\xa2\x02\x03GVO\xaa\x02\x17Gcommon.V1.Organization\xca\x02\x17Gcommon\\V1\\Organization\xe2\x02#Gcommon\\V1\\Organization\\GPBMetadata\xea\x02\x19Gcommon::V1::Organization\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
 
 var file_pkg_organization_proto_requests_delete_team_request_proto_msgTypes = make([]protoimpl.MessageInfo, 1)

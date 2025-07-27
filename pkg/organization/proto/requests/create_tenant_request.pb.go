@@ -24,11 +24,14 @@ const (
 	_ = protoimpl.EnforceVersion(protoimpl.MaxVersion - 20)
 )
 
-// TODO: Implement create_tenant_request message
 type CreateTenantRequest struct {
 	state protoimpl.MessageState `protogen:"hybrid.v1"`
 	// Request metadata for tracing and context
-	Metadata      *proto.RequestMetadata `protobuf:"bytes,1,opt,name=metadata" json:"metadata,omitempty"`
+	Metadata *proto.RequestMetadata `protobuf:"bytes,1,opt,name=metadata" json:"metadata,omitempty"`
+	// Tenant information to create
+	Tenant *Tenant `protobuf:"bytes,2,opt,name=tenant" json:"tenant,omitempty"`
+	// Validate only without persisting if true
+	ValidateOnly  *bool `protobuf:"varint,3,opt,name=validate_only,json=validateOnly" json:"validate_only,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -65,8 +68,30 @@ func (x *CreateTenantRequest) GetMetadata() *proto.RequestMetadata {
 	return nil
 }
 
+func (x *CreateTenantRequest) GetTenant() *Tenant {
+	if x != nil {
+		return x.Tenant
+	}
+	return nil
+}
+
+func (x *CreateTenantRequest) GetValidateOnly() bool {
+	if x != nil && x.ValidateOnly != nil {
+		return *x.ValidateOnly
+	}
+	return false
+}
+
 func (x *CreateTenantRequest) SetMetadata(v *proto.RequestMetadata) {
 	x.Metadata = v
+}
+
+func (x *CreateTenantRequest) SetTenant(v *Tenant) {
+	x.Tenant = v
+}
+
+func (x *CreateTenantRequest) SetValidateOnly(v bool) {
+	x.ValidateOnly = &v
 }
 
 func (x *CreateTenantRequest) HasMetadata() bool {
@@ -76,8 +101,30 @@ func (x *CreateTenantRequest) HasMetadata() bool {
 	return x.Metadata != nil
 }
 
+func (x *CreateTenantRequest) HasTenant() bool {
+	if x == nil {
+		return false
+	}
+	return x.Tenant != nil
+}
+
+func (x *CreateTenantRequest) HasValidateOnly() bool {
+	if x == nil {
+		return false
+	}
+	return x.ValidateOnly != nil
+}
+
 func (x *CreateTenantRequest) ClearMetadata() {
 	x.Metadata = nil
+}
+
+func (x *CreateTenantRequest) ClearTenant() {
+	x.Tenant = nil
+}
+
+func (x *CreateTenantRequest) ClearValidateOnly() {
+	x.ValidateOnly = nil
 }
 
 type CreateTenantRequest_builder struct {
@@ -85,6 +132,10 @@ type CreateTenantRequest_builder struct {
 
 	// Request metadata for tracing and context
 	Metadata *proto.RequestMetadata
+	// Tenant information to create
+	Tenant *Tenant
+	// Validate only without persisting if true
+	ValidateOnly *bool
 }
 
 func (b0 CreateTenantRequest_builder) Build() *CreateTenantRequest {
@@ -92,6 +143,8 @@ func (b0 CreateTenantRequest_builder) Build() *CreateTenantRequest {
 	b, x := &b0, m0
 	_, _ = b, x
 	x.Metadata = b.Metadata
+	x.Tenant = b.Tenant
+	x.ValidateOnly = b.ValidateOnly
 	return m0
 }
 
@@ -99,23 +152,27 @@ var File_pkg_organization_proto_requests_create_tenant_request_proto protoreflec
 
 const file_pkg_organization_proto_requests_create_tenant_request_proto_rawDesc = "" +
 	"\n" +
-	";pkg/organization/proto/requests/create_tenant_request.proto\x12\x17gcommon.v1.organization\x1a!google/protobuf/go_features.proto\x1a0pkg/common/proto/messages/request_metadata.proto\"U\n" +
+	";pkg/organization/proto/requests/create_tenant_request.proto\x12\x17gcommon.v1.organization\x1a!google/protobuf/go_features.proto\x1a0pkg/common/proto/messages/request_metadata.proto\x1a,pkg/organization/proto/messages/tenant.proto\"\xb3\x01\n" +
 	"\x13CreateTenantRequest\x12>\n" +
-	"\bmetadata\x18\x01 \x01(\v2\".gcommon.v1.common.RequestMetadataR\bmetadataB\xfe\x01\n" +
+	"\bmetadata\x18\x01 \x01(\v2\".gcommon.v1.common.RequestMetadataR\bmetadata\x127\n" +
+	"\x06tenant\x18\x02 \x01(\v2\x1f.gcommon.v1.organization.TenantR\x06tenant\x12#\n" +
+	"\rvalidate_only\x18\x03 \x01(\bR\fvalidateOnlyB\xfe\x01\n" +
 	"\x1bcom.gcommon.v1.organizationB\x18CreateTenantRequestProtoP\x01Z?github.com/jdfalk/gcommon/pkg/organization/proto;organizationpb\xa2\x02\x03GVO\xaa\x02\x17Gcommon.V1.Organization\xca\x02\x17Gcommon\\V1\\Organization\xe2\x02#Gcommon\\V1\\Organization\\GPBMetadata\xea\x02\x19Gcommon::V1::Organization\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
 
 var file_pkg_organization_proto_requests_create_tenant_request_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_pkg_organization_proto_requests_create_tenant_request_proto_goTypes = []any{
 	(*CreateTenantRequest)(nil),   // 0: gcommon.v1.organization.CreateTenantRequest
 	(*proto.RequestMetadata)(nil), // 1: gcommon.v1.common.RequestMetadata
+	(*Tenant)(nil),                // 2: gcommon.v1.organization.Tenant
 }
 var file_pkg_organization_proto_requests_create_tenant_request_proto_depIdxs = []int32{
 	1, // 0: gcommon.v1.organization.CreateTenantRequest.metadata:type_name -> gcommon.v1.common.RequestMetadata
-	1, // [1:1] is the sub-list for method output_type
-	1, // [1:1] is the sub-list for method input_type
-	1, // [1:1] is the sub-list for extension type_name
-	1, // [1:1] is the sub-list for extension extendee
-	0, // [0:1] is the sub-list for field type_name
+	2, // 1: gcommon.v1.organization.CreateTenantRequest.tenant:type_name -> gcommon.v1.organization.Tenant
+	2, // [2:2] is the sub-list for method output_type
+	2, // [2:2] is the sub-list for method input_type
+	2, // [2:2] is the sub-list for extension type_name
+	2, // [2:2] is the sub-list for extension extendee
+	0, // [0:2] is the sub-list for field type_name
 }
 
 func init() { file_pkg_organization_proto_requests_create_tenant_request_proto_init() }
@@ -123,6 +180,7 @@ func file_pkg_organization_proto_requests_create_tenant_request_proto_init() {
 	if File_pkg_organization_proto_requests_create_tenant_request_proto != nil {
 		return
 	}
+	file_pkg_organization_proto_messages_tenant_proto_init()
 	type x struct{}
 	out := protoimpl.TypeBuilder{
 		File: protoimpl.DescBuilder{
