@@ -2,9 +2,7 @@
   "action": "update",
   "number": 77,
   "body": "Implemented ConfigAdminService and related protobufs",
-  "labels": [
-    "completed"
-  ],
+  "labels": ["completed"],
   "guid": "2c8838d6-87a6-444d-a51e-8ddc45ae1950",
   "legacy_guid": "update-issue-77-2025-07-23",
   "file_modified_at": "2025-07-25T02:11:13.699297+00:00",

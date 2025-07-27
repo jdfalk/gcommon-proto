@@ -2,10 +2,7 @@
   "action": "create",
   "title": "Document contribution guidelines in CONTRIBUTING.md",
   "body": "Add detailed CONTRIBUTING.md explaining issue workflow, commit message conventions, and code formatting. Reference scripts/create-issue-update.sh usage.",
-  "labels": [
-    "documentation",
-    "community"
-  ],
+  "labels": ["documentation", "community"],
   "guid": "b440c691-87de-47d0-a0b0-bbaed2e2d340",
   "legacy_guid": "create-document-contribution-guidelines-in-contributing-md-2025-06-29",
   "file_modified_at": "2025-07-25T02:04:57.761942+00:00",

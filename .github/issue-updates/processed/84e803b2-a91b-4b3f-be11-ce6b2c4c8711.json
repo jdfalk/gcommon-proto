@@ -2,10 +2,7 @@
   "action": "create",
   "title": "Add context-aware logging",
   "body": "Enhance logging interfaces to accept context.Context and propagate fields. Update existing providers (std, logrus, zap) and add tests.",
-  "labels": [
-    "enhancement",
-    "module:log"
-  ],
+  "labels": ["enhancement", "module:log"],
   "guid": "0b087c36-65ba-4341-ad6d-65f524861ec6",
   "legacy_guid": "create-add-context-aware-logging-2025-06-28",
   "file_modified_at": "2025-07-25T02:04:57.761437+00:00",

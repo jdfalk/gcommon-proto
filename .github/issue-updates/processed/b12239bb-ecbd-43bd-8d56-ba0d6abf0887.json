@@ -2,10 +2,7 @@
   "action": "create",
   "title": "OpenTelemetry metrics protobufs",
   "body": "Implement metrics protobufs for scraping and export operations",
-  "labels": [
-    "module:metrics",
-    "enhancement"
-  ],
+  "labels": ["module:metrics", "enhancement"],
   "guid": "b12239bb-ecbd-43bd-8d56-ba0d6abf0887",
   "legacy_guid": "create-opentelemetry-metrics-protobufs-2025-07-23",
   "file_modified_at": "2025-07-25T02:11:13.701265+00:00",

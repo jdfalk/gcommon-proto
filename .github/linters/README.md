@@ -17,6 +17,7 @@ These configurations are automatically used by Super Linter when running in GitH
 ## Customization
 
 When modifying these files, ensure they align with:
+
 - General coding instructions in `.github/instructions/general-coding.instructions.md`
 - Language-specific instructions in `.github/instructions/<language>.instructions.md`
 - Project coding standards and style guides

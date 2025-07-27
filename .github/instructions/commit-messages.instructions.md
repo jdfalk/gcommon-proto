@@ -2,9 +2,9 @@
 <!-- version: 1.0.0 -->
 <!-- guid: c0mm1712-e553-4a6e-9f8b-1234567890ab -->
 
-applyTo: "**"
+applyTo: "\*\*"
 description: |
-  Conventional commit message format rules for all Copilot/AI agents and VS Code Copilot customization. These rules apply to all git commits and follow the project's commit message standards. For details, see the main documentation in `.github/copilot-instructions.md`.
+Conventional commit message format rules for all Copilot/AI agents and VS Code Copilot customization. These rules apply to all git commits and follow the project's commit message standards. For details, see the main documentation in `.github/copilot-instructions.md`.
 
 ---
 

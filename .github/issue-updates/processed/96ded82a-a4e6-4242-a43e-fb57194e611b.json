@@ -2,10 +2,7 @@
   "action": "update",
   "number": 83,
   "body": "Implemented AuthConfig, ServerConfig, MiddlewareConfig messages",
-  "labels": [
-    "in-progress",
-    "module:web"
-  ],
+  "labels": ["in-progress", "module:web"],
   "guid": "96ded82a-a4e6-4242-a43e-fb57194e611b",
   "legacy_guid": "update-issue-83-2025-07-23",
   "file_modified_at": "2025-07-25T02:11:13.700835+00:00",

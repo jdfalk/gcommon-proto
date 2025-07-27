@@ -2,11 +2,7 @@
   "action": "create",
   "title": "CockroachDB Config Protobufs",
   "body": "Implement CockroachConfig and related messages for database module",
-  "labels": [
-    "enhancement",
-    "proto",
-    "cockroachdb"
-  ],
+  "labels": ["enhancement", "proto", "cockroachdb"],
   "guid": "7165a812-967c-4d94-aec9-5b726925ae31",
   "legacy_guid": "create-cockroachdb-config-protobufs-2025-07-23",
   "file_modified_at": "2025-07-25T02:11:13.700221+00:00",

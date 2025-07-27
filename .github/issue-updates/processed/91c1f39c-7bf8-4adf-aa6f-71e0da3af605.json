@@ -2,9 +2,7 @@
   "action": "update",
   "number": 67,
   "body": "Set up validation pipeline",
-  "labels": [
-    "completed"
-  ],
+  "labels": ["completed"],
   "guid": "91c1f39c-7bf8-4adf-aa6f-71e0da3af605",
   "legacy_guid": "update-issue-67-2025-07-21",
   "file_modified_at": "2025-07-25T02:11:13.751873+00:00",

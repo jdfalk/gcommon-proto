@@ -8,17 +8,17 @@ on:
   push:
     branches: [main]
     paths:
-      - 'pkg/**/*.proto'
-      - '.github/workflows/protobuf-validation.yml'
-      - 'scripts/validate-protos.sh'
-      - 'buf.yaml'
+      - "pkg/**/*.proto"
+      - ".github/workflows/protobuf-validation.yml"
+      - "scripts/validate-protos.sh"
+      - "buf.yaml"
   pull_request:
     branches: [main]
     paths:
-      - 'pkg/**/*.proto'
-      - 'scripts/validate-protos.sh'
-      - '.github/workflows/protobuf-validation.yml'
-      - 'buf.yaml'
+      - "pkg/**/*.proto"
+      - "scripts/validate-protos.sh"
+      - ".github/workflows/protobuf-validation.yml"
+      - "buf.yaml"
 
 jobs:
   validate-protos:
@@ -28,7 +28,7 @@ jobs:
       - name: Set up Go
         uses: actions/setup-go@v5
         with:
-          go-version: '1.22'
+          go-version: "1.22"
       - name: Install buf
         uses: bufbuild/buf-setup-action@v1
         with:

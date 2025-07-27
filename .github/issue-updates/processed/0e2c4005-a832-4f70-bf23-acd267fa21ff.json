@@ -2,9 +2,7 @@
   "action": "update",
   "number": 90,
   "body": "Implemented AckResponse",
-  "labels": [
-    "in-progress"
-  ],
+  "labels": ["in-progress"],
   "guid": "0e2c4005-a832-4f70-bf23-acd267fa21ff",
   "legacy_guid": "update-issue-90-2025-07-21",
   "file_modified_at": "2025-07-25T02:11:13.750952+00:00",

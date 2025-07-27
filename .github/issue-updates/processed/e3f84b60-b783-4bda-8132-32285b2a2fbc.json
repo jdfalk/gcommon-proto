@@ -2,10 +2,7 @@
   "action": "create",
   "title": "Integrate golangci-lint into development workflow",
   "body": "Add Makefile lint target using golangci-lint run. Provide .golangci.yml with standard checks and update CI to run lint. Document usage in README.",
-  "labels": [
-    "enhancement",
-    "ci"
-  ],
+  "labels": ["enhancement", "ci"],
   "guid": "4ce54b5c-5434-4cc0-aa55-64f2cdf20bbd",
   "legacy_guid": "create-integrate-golangci-lint-into-development-workflow-2025-06-29",
   "file_modified_at": "2025-07-25T02:04:57.761875+00:00",

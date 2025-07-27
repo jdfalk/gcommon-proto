@@ -2,10 +2,7 @@
   "action": "create",
   "title": "Add QueryRow RPC",
   "body": "Implement QueryRowResponse message and QueryRow RPC in DatabaseService",
-  "labels": [
-    "module:db",
-    "protobuf"
-  ],
+  "labels": ["module:db", "protobuf"],
   "guid": "20d6e6d3-248f-4c86-9941-692806fce85a",
   "legacy_guid": "create-add-queryrow-rpc-2025-07-23",
   "file_modified_at": "2025-07-25T02:11:13.699094+00:00",

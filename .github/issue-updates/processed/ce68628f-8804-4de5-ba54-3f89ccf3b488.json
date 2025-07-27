@@ -2,9 +2,7 @@
   "action": "update",
   "number": 68,
   "body": "Implemented initial metrics messages",
-  "labels": [
-    "in-progress"
-  ],
+  "labels": ["in-progress"],
   "guid": "ce68628f-8804-4de5-ba54-3f89ccf3b488",
   "legacy_guid": "update-issue-68-2025-07-21",
   "file_modified_at": "2025-07-25T02:11:13.752445+00:00",

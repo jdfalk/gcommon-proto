@@ -2,9 +2,7 @@
   "action": "update",
   "number": 91,
   "body": "Implemented AckRequest",
-  "labels": [
-    "in-progress"
-  ],
+  "labels": ["in-progress"],
   "guid": "cc32e36e-5a4d-491c-9157-c12881631424",
   "legacy_guid": "update-issue-91-2025-07-21",
   "file_modified_at": "2025-07-25T02:11:13.752327+00:00",

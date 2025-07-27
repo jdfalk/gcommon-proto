@@ -2,9 +2,7 @@
   "action": "update",
   "number": 55,
   "body": "--state",
-  "labels": [
-    "closed"
-  ],
+  "labels": ["closed"],
   "guid": "80359e9b-f5dc-413c-aab9-a3bf71c3bad5",
   "legacy_guid": "update-issue-55-2025-07-23",
   "parent": "--labels",

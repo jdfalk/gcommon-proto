@@ -2,10 +2,7 @@
   "action": "create",
   "title": "Resolve proto package conflicts",
   "body": "Rename manual proto alias files to match generated package names (e.g., package commonpb). Update imports and tests.",
-  "labels": [
-    "bug",
-    "protobuf"
-  ],
+  "labels": ["bug", "protobuf"],
   "guid": "0372be2f-d5d5-416d-b2e6-65948223e296",
   "legacy_guid": "create-resolve-proto-package-conflicts-2025-06-28",
   "file_modified_at": "2025-07-25T02:04:57.761213+00:00",
