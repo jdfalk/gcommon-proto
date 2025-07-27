@@ -4,21 +4,12 @@ edition = "2023";
 package gcommon.v1.auth;
 
 import "google/protobuf/go_features.proto";
-import "google/protobuf/empty.proto";
 import "pkg/auth/proto/requests/authorize_request.proto";
 import "pkg/auth/proto/responses/authorize_response.proto";
 import "pkg/auth/proto/requests/get_user_permissions_request.proto";
 import "pkg/auth/proto/responses/get_user_permissions_response.proto";
 import "pkg/auth/proto/requests/get_user_roles_request.proto";
 import "pkg/auth/proto/responses/get_user_roles_response.proto";
-import "pkg/auth/proto/requests/assign_role_request.proto";
-import "pkg/auth/proto/requests/remove_role_request.proto";
-import "pkg/auth/proto/requests/create_role_request.proto";
-import "pkg/auth/proto/types/role.proto";
-import "pkg/auth/proto/requests/update_role_request.proto";
-import "pkg/auth/proto/requests/delete_role_request.proto";
-import "pkg/auth/proto/requests/list_roles_request.proto";
-import "pkg/auth/proto/responses/list_roles_response.proto";
 
 option go_package = "github.com/jdfalk/gcommon/pkg/auth/proto;authpb";
 option features.(pb.go).api_level = API_HYBRID;
@@ -37,22 +28,4 @@ service AuthorizationService {
 
   // Get all roles assigned to a user
   rpc GetUserRoles(GetUserRolesRequest) returns (GetUserRolesResponse);
-
-  // Assign a role to a user
-  rpc AssignRole(AssignRoleRequest) returns (google.protobuf.Empty);
-
-  // Remove a role from a user
-  rpc RemoveRole(RemoveRoleRequest) returns (google.protobuf.Empty);
-
-  // Create a new role with specified permissions
-  rpc CreateRole(CreateRoleRequest) returns (Role);
-
-  // Update an existing role's permissions or metadata
-  rpc UpdateRole(UpdateRoleRequest) returns (Role);
-
-  // Delete a role (must not be assigned to any users)
-  rpc DeleteRole(DeleteRoleRequest) returns (google.protobuf.Empty);
-
-  // List roles with filtering and pagination support
-  rpc ListRoles(ListRolesRequest) returns (ListRolesResponse);
 }
