@@ -23,14 +23,100 @@ const (
 	_ = protoimpl.EnforceVersion(protoimpl.MaxVersion - 20)
 )
 
+// MessageId uniquely identifies a message within a queue.
+// It can be referenced by other messages or API calls.
+type MessageId struct {
+	state                  protoimpl.MessageState `protogen:"opaque.v1"`
+	xxx_hidden_Value       *string                `protobuf:"bytes,1,opt,name=value"`
+	XXX_raceDetectHookData protoimpl.RaceDetectHookData
+	XXX_presence           [1]uint32
+	unknownFields          protoimpl.UnknownFields
+	sizeCache              protoimpl.SizeCache
+}
+
+func (x *MessageId) Reset() {
+	*x = MessageId{}
+	mi := &file_pkg_queue_proto_types_message_id_proto_msgTypes[0]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *MessageId) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*MessageId) ProtoMessage() {}
+
+func (x *MessageId) ProtoReflect() protoreflect.Message {
+	mi := &file_pkg_queue_proto_types_message_id_proto_msgTypes[0]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+func (x *MessageId) GetValue() string {
+	if x != nil {
+		if x.xxx_hidden_Value != nil {
+			return *x.xxx_hidden_Value
+		}
+		return ""
+	}
+	return ""
+}
+
+func (x *MessageId) SetValue(v string) {
+	x.xxx_hidden_Value = &v
+	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 0, 1)
+}
+
+func (x *MessageId) HasValue() bool {
+	if x == nil {
+		return false
+	}
+	return protoimpl.X.Present(&(x.XXX_presence[0]), 0)
+}
+
+func (x *MessageId) ClearValue() {
+	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 0)
+	x.xxx_hidden_Value = nil
+}
+
+type MessageId_builder struct {
+	_ [0]func() // Prevents comparability and use of unkeyed literals for the builder.
+
+	// Opaque identifier assigned by the queue implementation.
+	Value *string
+}
+
+func (b0 MessageId_builder) Build() *MessageId {
+	m0 := &MessageId{}
+	b, x := &b0, m0
+	_, _ = b, x
+	if b.Value != nil {
+		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 0, 1)
+		x.xxx_hidden_Value = b.Value
+	}
+	return m0
+}
+
 var File_pkg_queue_proto_types_message_id_proto protoreflect.FileDescriptor
 
 const file_pkg_queue_proto_types_message_id_proto_rawDesc = "" +
 	"\n" +
-	"&pkg/queue/proto/types/message_id.proto\x12\x10gcommon.v1.queue\x1a!google/protobuf/go_features.protoB\xc3\x01\n" +
+	"&pkg/queue/proto/types/message_id.proto\x12\x10gcommon.v1.queue\x1a!google/protobuf/go_features.proto\"!\n" +
+	"\tMessageId\x12\x14\n" +
+	"\x05value\x18\x01 \x01(\tR\x05valueB\xc3\x01\n" +
 	"\x14com.gcommon.v1.queueB\x0eMessageIdProtoP\x01Z1github.com/jdfalk/gcommon/pkg/queue/proto;queuepb\xa2\x02\x03GVQ\xaa\x02\x10Gcommon.V1.Queue\xca\x02\x10Gcommon\\V1\\Queue\xe2\x02\x1cGcommon\\V1\\Queue\\GPBMetadata\xea\x02\x12Gcommon::V1::Queue\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
 
-var file_pkg_queue_proto_types_message_id_proto_goTypes = []any{}
+var file_pkg_queue_proto_types_message_id_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
+var file_pkg_queue_proto_types_message_id_proto_goTypes = []any{
+	(*MessageId)(nil), // 0: gcommon.v1.queue.MessageId
+}
 var file_pkg_queue_proto_types_message_id_proto_depIdxs = []int32{
 	0, // [0:0] is the sub-list for method output_type
 	0, // [0:0] is the sub-list for method input_type
@@ -50,12 +136,13 @@ func file_pkg_queue_proto_types_message_id_proto_init() {
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: unsafe.Slice(unsafe.StringData(file_pkg_queue_proto_types_message_id_proto_rawDesc), len(file_pkg_queue_proto_types_message_id_proto_rawDesc)),
 			NumEnums:      0,
-			NumMessages:   0,
+			NumMessages:   1,
 			NumExtensions: 0,
 			NumServices:   0,
 		},
 		GoTypes:           file_pkg_queue_proto_types_message_id_proto_goTypes,
 		DependencyIndexes: file_pkg_queue_proto_types_message_id_proto_depIdxs,
+		MessageInfos:      file_pkg_queue_proto_types_message_id_proto_msgTypes,
 	}.Build()
 	File_pkg_queue_proto_types_message_id_proto = out.File
 	file_pkg_queue_proto_types_message_id_proto_goTypes = nil
