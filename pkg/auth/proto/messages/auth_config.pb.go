@@ -4,15 +4,14 @@
 // 	protoc        (unknown)
 // source: pkg/auth/proto/messages/auth_config.proto
 
-//go:build !protoopaque
-
 package authpb
 
 import (
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
-	_ "google.golang.org/protobuf/types/gofeaturespb"
+	timestamppb "google.golang.org/protobuf/types/known/timestamppb"
 	reflect "reflect"
+	sync "sync"
 	unsafe "unsafe"
 )
 
@@ -23,20 +22,110 @@ const (
 	_ = protoimpl.EnforceVersion(protoimpl.MaxVersion - 20)
 )
 
+// *
+// AuthConfig defines authentication configuration for the application
+// including token lifetimes and password requirements.
+type AuthConfig struct {
+	state protoimpl.MessageState `protogen:"open.v1"`
+	// How long issued access tokens remain valid
+	AccessTokenTtl *timestamppb.Timestamp `protobuf:"bytes,1,opt,name=access_token_ttl,json=accessTokenTtl" json:"access_token_ttl,omitempty"`
+	// How long refresh tokens remain valid
+	RefreshTokenTtl *timestamppb.Timestamp `protobuf:"bytes,2,opt,name=refresh_token_ttl,json=refreshTokenTtl" json:"refresh_token_ttl,omitempty"`
+	// Whether multi-factor authentication is required
+	RequireMfa    *bool `protobuf:"varint,3,opt,name=require_mfa,json=requireMfa" json:"require_mfa,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *AuthConfig) Reset() {
+	*x = AuthConfig{}
+	mi := &file_pkg_auth_proto_messages_auth_config_proto_msgTypes[0]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *AuthConfig) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*AuthConfig) ProtoMessage() {}
+
+func (x *AuthConfig) ProtoReflect() protoreflect.Message {
+	mi := &file_pkg_auth_proto_messages_auth_config_proto_msgTypes[0]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use AuthConfig.ProtoReflect.Descriptor instead.
+func (*AuthConfig) Descriptor() ([]byte, []int) {
+	return file_pkg_auth_proto_messages_auth_config_proto_rawDescGZIP(), []int{0}
+}
+
+func (x *AuthConfig) GetAccessTokenTtl() *timestamppb.Timestamp {
+	if x != nil {
+		return x.AccessTokenTtl
+	}
+	return nil
+}
+
+func (x *AuthConfig) GetRefreshTokenTtl() *timestamppb.Timestamp {
+	if x != nil {
+		return x.RefreshTokenTtl
+	}
+	return nil
+}
+
+func (x *AuthConfig) GetRequireMfa() bool {
+	if x != nil && x.RequireMfa != nil {
+		return *x.RequireMfa
+	}
+	return false
+}
+
 var File_pkg_auth_proto_messages_auth_config_proto protoreflect.FileDescriptor
 
 const file_pkg_auth_proto_messages_auth_config_proto_rawDesc = "" +
 	"\n" +
-	")pkg/auth/proto/messages/auth_config.proto\x12\x0fgcommon.v1.auth\x1a!google/protobuf/go_features.protoB\xbd\x01\n" +
-	"\x13com.gcommon.v1.authB\x0fAuthConfigProtoP\x01Z/github.com/jdfalk/gcommon/pkg/auth/proto;authpb\xa2\x02\x03GVA\xaa\x02\x0fGcommon.V1.Auth\xca\x02\x0fGcommon\\V1\\Auth\xe2\x02\x1bGcommon\\V1\\Auth\\GPBMetadata\xea\x02\x11Gcommon::V1::Auth\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
+	")pkg/auth/proto/messages/auth_config.proto\x12\x0fgcommon.v1.auth\x1a\x1fgoogle/protobuf/timestamp.proto\"\xbb\x01\n" +
+	"\n" +
+	"AuthConfig\x12D\n" +
+	"\x10access_token_ttl\x18\x01 \x01(\v2\x1a.google.protobuf.TimestampR\x0eaccessTokenTtl\x12F\n" +
+	"\x11refresh_token_ttl\x18\x02 \x01(\v2\x1a.google.protobuf.TimestampR\x0frefreshTokenTtl\x12\x1f\n" +
+	"\vrequire_mfa\x18\x03 \x01(\bR\n" +
+	"requireMfaB\xb5\x01\n" +
+	"\x13com.gcommon.v1.authB\x0fAuthConfigProtoP\x01Z/github.com/jdfalk/gcommon/pkg/auth/proto;authpb\xa2\x02\x03GVA\xaa\x02\x0fGcommon.V1.Auth\xca\x02\x0fGcommon\\V1\\Auth\xe2\x02\x1bGcommon\\V1\\Auth\\GPBMetadata\xea\x02\x11Gcommon::V1::Authb\beditionsp\xe8\a"
 
-var file_pkg_auth_proto_messages_auth_config_proto_goTypes = []any{}
+var (
+	file_pkg_auth_proto_messages_auth_config_proto_rawDescOnce sync.Once
+	file_pkg_auth_proto_messages_auth_config_proto_rawDescData []byte
+)
+
+func file_pkg_auth_proto_messages_auth_config_proto_rawDescGZIP() []byte {
+	file_pkg_auth_proto_messages_auth_config_proto_rawDescOnce.Do(func() {
+		file_pkg_auth_proto_messages_auth_config_proto_rawDescData = protoimpl.X.CompressGZIP(unsafe.Slice(unsafe.StringData(file_pkg_auth_proto_messages_auth_config_proto_rawDesc), len(file_pkg_auth_proto_messages_auth_config_proto_rawDesc)))
+	})
+	return file_pkg_auth_proto_messages_auth_config_proto_rawDescData
+}
+
+var file_pkg_auth_proto_messages_auth_config_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
+var file_pkg_auth_proto_messages_auth_config_proto_goTypes = []any{
+	(*AuthConfig)(nil),            // 0: gcommon.v1.auth.AuthConfig
+	(*timestamppb.Timestamp)(nil), // 1: google.protobuf.Timestamp
+}
 var file_pkg_auth_proto_messages_auth_config_proto_depIdxs = []int32{
-	0, // [0:0] is the sub-list for method output_type
-	0, // [0:0] is the sub-list for method input_type
-	0, // [0:0] is the sub-list for extension type_name
-	0, // [0:0] is the sub-list for extension extendee
-	0, // [0:0] is the sub-list for field type_name
+	1, // 0: gcommon.v1.auth.AuthConfig.access_token_ttl:type_name -> google.protobuf.Timestamp
+	1, // 1: gcommon.v1.auth.AuthConfig.refresh_token_ttl:type_name -> google.protobuf.Timestamp
+	2, // [2:2] is the sub-list for method output_type
+	2, // [2:2] is the sub-list for method input_type
+	2, // [2:2] is the sub-list for extension type_name
+	2, // [2:2] is the sub-list for extension extendee
+	0, // [0:2] is the sub-list for field type_name
 }
 
 func init() { file_pkg_auth_proto_messages_auth_config_proto_init() }
@@ -50,12 +139,13 @@ func file_pkg_auth_proto_messages_auth_config_proto_init() {
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: unsafe.Slice(unsafe.StringData(file_pkg_auth_proto_messages_auth_config_proto_rawDesc), len(file_pkg_auth_proto_messages_auth_config_proto_rawDesc)),
 			NumEnums:      0,
-			NumMessages:   0,
+			NumMessages:   1,
 			NumExtensions: 0,
 			NumServices:   0,
 		},
 		GoTypes:           file_pkg_auth_proto_messages_auth_config_proto_goTypes,
 		DependencyIndexes: file_pkg_auth_proto_messages_auth_config_proto_depIdxs,
+		MessageInfos:      file_pkg_auth_proto_messages_auth_config_proto_msgTypes,
 	}.Build()
 	File_pkg_auth_proto_messages_auth_config_proto = out.File
 	file_pkg_auth_proto_messages_auth_config_proto_goTypes = nil
