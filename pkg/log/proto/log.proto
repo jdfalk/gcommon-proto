@@ -7,7 +7,6 @@ import "pkg/common/proto/common.proto";
 import "google/protobuf/timestamp.proto";
 import "google/protobuf/duration.proto";
 import "google/protobuf/empty.proto";
-import "google/protobuf/any.proto";
 import "google/protobuf/field_mask.proto";
 import "google/protobuf/go_features.proto";
 import public "pkg/log/proto/messages/log_entry.proto";
