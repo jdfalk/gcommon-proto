@@ -3,5 +3,15 @@
   "number": 94,
   "body": "Implemented ListQueuesResponse, ListSubscriptionsResponse, and PullResponse",
   "guid": "c8a08160-26cf-42c0-a17c-d066441137be",
-  "legacy_guid": "comment-issue-94-2025-07-23"
+  "legacy_guid": "comment-issue-94-2025-07-23",
+  "file_modified_at": "2025-07-25T02:11:13.701612+00:00",
+  "file_created_at": "2025-07-25T02:11:13.701545+00:00",
+  "created_at": "2025-07-25T02:11:13.701545+00:00",
+  "timestamp_extracted_at": "2025-07-26T23:40:50.260297+00:00",
+  "processing_metadata": {
+    "enhanced_at": "2025-07-26T23:40:50.260307+00:00",
+    "source_file": ".github/issue-updates/processed/c8a08160-26cf-42c0-a17c-d066441137be.json",
+    "version": "2.0.0"
+  },
+  "processed_at": "2025-07-26T23:40:50.775977+00:00"
 }

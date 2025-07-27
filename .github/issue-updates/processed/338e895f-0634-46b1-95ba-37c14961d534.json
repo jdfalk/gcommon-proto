@@ -3,5 +3,15 @@
   "number": 57,
   "body": "Implemented request/response messages for tenant, team, and member management",
   "guid": "338e895f-0634-46b1-95ba-37c14961d534",
-  "legacy_guid": "comment-issue-57-2025-07-23"
+  "legacy_guid": "comment-issue-57-2025-07-23",
+  "file_modified_at": "2025-07-25T02:11:13.699526+00:00",
+  "file_created_at": "2025-07-25T02:11:13.699451+00:00",
+  "created_at": "2025-07-25T02:11:13.699451+00:00",
+  "timestamp_extracted_at": "2025-07-26T23:40:50.417877+00:00",
+  "processing_metadata": {
+    "enhanced_at": "2025-07-26T23:40:50.417884+00:00",
+    "source_file": ".github/issue-updates/processed/338e895f-0634-46b1-95ba-37c14961d534.json",
+    "version": "2.0.0"
+  },
+  "processed_at": "2025-07-26T23:40:50.774723+00:00"
 }

@@ -2,7 +2,19 @@
   "action": "update",
   "number": 90,
   "body": "Implemented AckResponse",
-  "labels": ["in-progress"],
+  "labels": [
+    "in-progress"
+  ],
   "guid": "0e2c4005-a832-4f70-bf23-acd267fa21ff",
-  "legacy_guid": "update-issue-90-2025-07-21"
+  "legacy_guid": "update-issue-90-2025-07-21",
+  "file_modified_at": "2025-07-25T02:11:13.750952+00:00",
+  "file_created_at": "2025-07-25T02:11:13.750884+00:00",
+  "created_at": "2025-07-25T02:11:13.750884+00:00",
+  "timestamp_extracted_at": "2025-07-26T23:40:50.300441+00:00",
+  "processing_metadata": {
+    "enhanced_at": "2025-07-26T23:40:50.300447+00:00",
+    "source_file": ".github/issue-updates/processed/0e2c4005-a832-4f70-bf23-acd267fa21ff.json",
+    "version": "2.0.0"
+  },
+  "processed_at": "2025-07-26T23:40:50.776531+00:00"
 }

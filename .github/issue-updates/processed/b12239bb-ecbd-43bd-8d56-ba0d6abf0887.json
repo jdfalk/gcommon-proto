@@ -2,7 +2,20 @@
   "action": "create",
   "title": "OpenTelemetry metrics protobufs",
   "body": "Implement metrics protobufs for scraping and export operations",
-  "labels": ["module:metrics", "enhancement"],
+  "labels": [
+    "module:metrics",
+    "enhancement"
+  ],
   "guid": "b12239bb-ecbd-43bd-8d56-ba0d6abf0887",
-  "legacy_guid": "create-opentelemetry-metrics-protobufs-2025-07-23"
+  "legacy_guid": "create-opentelemetry-metrics-protobufs-2025-07-23",
+  "file_modified_at": "2025-07-25T02:11:13.701265+00:00",
+  "file_created_at": "2025-07-25T02:11:13.701190+00:00",
+  "created_at": "2025-07-25T02:11:13.701190+00:00",
+  "timestamp_extracted_at": "2025-07-26T23:40:49.735800+00:00",
+  "processing_metadata": {
+    "enhanced_at": "2025-07-26T23:40:49.735806+00:00",
+    "source_file": ".github/issue-updates/processed/b12239bb-ecbd-43bd-8d56-ba0d6abf0887.json",
+    "version": "2.0.0"
+  },
+  "processed_at": "2025-07-26T23:40:50.775772+00:00"
 }

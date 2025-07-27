@@ -3,5 +3,15 @@
   "number": 68,
   "body": "Implemented initial metrics protobuf files",
   "guid": "0bc04fa5-fc83-45a7-ab89-105afbb49679",
-  "legacy_guid": "comment-issue-68-2025-07-21"
+  "legacy_guid": "comment-issue-68-2025-07-21",
+  "file_modified_at": "2025-07-25T02:11:13.750844+00:00",
+  "file_created_at": "2025-07-25T02:11:13.750767+00:00",
+  "created_at": "2025-07-25T02:11:13.750767+00:00",
+  "timestamp_extracted_at": "2025-07-26T23:40:49.855720+00:00",
+  "processing_metadata": {
+    "enhanced_at": "2025-07-26T23:40:49.855729+00:00",
+    "source_file": ".github/issue-updates/processed/0bc04fa5-fc83-45a7-ab89-105afbb49679.json",
+    "version": "2.0.0"
+  },
+  "processed_at": "2025-07-26T23:40:50.776440+00:00"
 }

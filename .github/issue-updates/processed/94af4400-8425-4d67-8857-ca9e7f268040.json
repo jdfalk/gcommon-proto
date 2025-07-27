@@ -2,7 +2,20 @@
   "action": "create",
   "title": "Add runtime metrics collection",
   "body": "Implement Go runtime metrics in the Prometheus provider. Expose gauges for memory, goroutines, and GC. Add enable flag in Config and unit tests.",
-  "labels": ["enhancement", "module:metrics"],
+  "labels": [
+    "enhancement",
+    "module:metrics"
+  ],
   "guid": "4d6da6cc-927d-4fcc-82c0-3c8c4c494fc6",
-  "legacy_guid": "create-add-runtime-metrics-collection-2025-06-28"
+  "legacy_guid": "create-add-runtime-metrics-collection-2025-06-28",
+  "file_modified_at": "2025-07-25T02:04:57.761507+00:00",
+  "file_created_at": "2025-07-25T02:04:57.761475+00:00",
+  "created_at": "2025-07-25T02:04:57.761475+00:00",
+  "timestamp_extracted_at": "2025-07-26T23:40:49.977106+00:00",
+  "processing_metadata": {
+    "enhanced_at": "2025-07-26T23:40:49.977114+00:00",
+    "source_file": ".github/issue-updates/processed/94af4400-8425-4d67-8857-ca9e7f268040.json",
+    "version": "2.0.0"
+  },
+  "processed_at": "2025-07-26T23:40:50.773397+00:00"
 }

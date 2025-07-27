@@ -12,5 +12,16 @@
   ],
   "assignee": "",
   "milestone": "",
-  "projects": []
+  "projects": [],
+  "file_modified_at": "2025-07-25T02:11:13.752857+00:00",
+  "file_created_at": "2025-07-25T02:11:13.752748+00:00",
+  "created_at": "2025-07-25T02:11:13.752748+00:00",
+  "timestamp_extracted_at": "2025-07-26T23:40:50.535438+00:00",
+  "guid": "4317c93f-62ed-4d96-af81-b93677a054be",
+  "processing_metadata": {
+    "enhanced_at": "2025-07-26T23:40:50.535486+00:00",
+    "source_file": ".github/issue-updates/processed/protobuf-completion-issue.json",
+    "version": "2.0.0"
+  },
+  "processed_at": "2025-07-26T23:40:50.778351+00:00"
 }

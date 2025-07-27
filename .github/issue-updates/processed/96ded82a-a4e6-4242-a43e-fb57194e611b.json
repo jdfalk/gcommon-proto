@@ -2,7 +2,20 @@
   "action": "update",
   "number": 83,
   "body": "Implemented AuthConfig, ServerConfig, MiddlewareConfig messages",
-  "labels": ["in-progress", "module:web"],
+  "labels": [
+    "in-progress",
+    "module:web"
+  ],
   "guid": "96ded82a-a4e6-4242-a43e-fb57194e611b",
-  "legacy_guid": "update-issue-83-2025-07-23"
+  "legacy_guid": "update-issue-83-2025-07-23",
+  "file_modified_at": "2025-07-25T02:11:13.700835+00:00",
+  "file_created_at": "2025-07-25T02:11:13.700803+00:00",
+  "created_at": "2025-07-25T02:11:13.700803+00:00",
+  "timestamp_extracted_at": "2025-07-26T23:40:49.046836+00:00",
+  "processing_metadata": {
+    "enhanced_at": "2025-07-26T23:40:49.046844+00:00",
+    "source_file": ".github/issue-updates/processed/96ded82a-a4e6-4242-a43e-fb57194e611b.json",
+    "version": "2.0.0"
+  },
+  "processed_at": "2025-07-26T23:40:50.775482+00:00"
 }

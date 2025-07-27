@@ -2,7 +2,20 @@
   "action": "create",
   "title": "Add CI workflow for Go tests",
   "body": "Create GitHub Actions workflow to run go vet, go test, and protobuf coverage. Add node_modules to .gitignore.",
-  "labels": ["ci", "cleanup"],
+  "labels": [
+    "ci",
+    "cleanup"
+  ],
   "guid": "ddcc545f-ee9a-46bf-91b0-ad524a0c0f47",
-  "legacy_guid": "create-add-ci-workflow-for-go-tests-2025-06-28"
+  "legacy_guid": "create-add-ci-workflow-for-go-tests-2025-06-28",
+  "file_modified_at": "2025-07-25T02:04:57.761580+00:00",
+  "file_created_at": "2025-07-25T02:04:57.761546+00:00",
+  "created_at": "2025-07-25T02:04:57.761546+00:00",
+  "timestamp_extracted_at": "2025-07-26T23:40:49.492438+00:00",
+  "processing_metadata": {
+    "enhanced_at": "2025-07-26T23:40:49.492449+00:00",
+    "source_file": ".github/issue-updates/processed/9f0b8bcb-a10a-4480-8e6c-7b90a0dd4dad.json",
+    "version": "2.0.0"
+  },
+  "processed_at": "2025-07-26T23:40:50.773498+00:00"
 }
