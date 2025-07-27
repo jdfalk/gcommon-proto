@@ -13,7 +13,7 @@ import (
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
-	anypb "google.golang.org/protobuf/types/known/anypb"
+	_ "google.golang.org/protobuf/types/known/anypb"
 	durationpb "google.golang.org/protobuf/types/known/durationpb"
 	emptypb "google.golang.org/protobuf/types/known/emptypb"
 	fieldmaskpb "google.golang.org/protobuf/types/known/fieldmaskpb"
@@ -28,375 +28,6 @@ const (
 	// Verify that runtime/protoimpl is sufficiently up-to-date.
 	_ = protoimpl.EnforceVersion(protoimpl.MaxVersion - 20)
 )
-
-// Log level enumeration
-type LogLevel int32
-
-const (
-	LogLevel_LOG_LEVEL_UNSPECIFIED LogLevel = 0
-	LogLevel_LOG_LEVEL_TRACE       LogLevel = 1
-	LogLevel_LOG_LEVEL_DEBUG       LogLevel = 2
-	LogLevel_LOG_LEVEL_INFO        LogLevel = 3
-	LogLevel_LOG_LEVEL_WARN        LogLevel = 4
-	LogLevel_LOG_LEVEL_ERROR       LogLevel = 5
-	LogLevel_LOG_LEVEL_FATAL       LogLevel = 6
-)
-
-// Enum value maps for LogLevel.
-var (
-	LogLevel_name = map[int32]string{
-		0: "LOG_LEVEL_UNSPECIFIED",
-		1: "LOG_LEVEL_TRACE",
-		2: "LOG_LEVEL_DEBUG",
-		3: "LOG_LEVEL_INFO",
-		4: "LOG_LEVEL_WARN",
-		5: "LOG_LEVEL_ERROR",
-		6: "LOG_LEVEL_FATAL",
-	}
-	LogLevel_value = map[string]int32{
-		"LOG_LEVEL_UNSPECIFIED": 0,
-		"LOG_LEVEL_TRACE":       1,
-		"LOG_LEVEL_DEBUG":       2,
-		"LOG_LEVEL_INFO":        3,
-		"LOG_LEVEL_WARN":        4,
-		"LOG_LEVEL_ERROR":       5,
-		"LOG_LEVEL_FATAL":       6,
-	}
-)
-
-func (x LogLevel) Enum() *LogLevel {
-	p := new(LogLevel)
-	*p = x
-	return p
-}
-
-func (x LogLevel) String() string {
-	return protoimpl.X.EnumStringOf(x.Descriptor(), protoreflect.EnumNumber(x))
-}
-
-func (LogLevel) Descriptor() protoreflect.EnumDescriptor {
-	return file_pkg_log_proto_log_proto_enumTypes[0].Descriptor()
-}
-
-func (LogLevel) Type() protoreflect.EnumType {
-	return &file_pkg_log_proto_log_proto_enumTypes[0]
-}
-
-func (x LogLevel) Number() protoreflect.EnumNumber {
-	return protoreflect.EnumNumber(x)
-}
-
-// Log sort fields
-type LogSortField int32
-
-const (
-	LogSortField_LOG_SORT_FIELD_UNSPECIFIED LogSortField = 0
-	LogSortField_LOG_SORT_FIELD_TIMESTAMP   LogSortField = 1
-	LogSortField_LOG_SORT_FIELD_LEVEL       LogSortField = 2
-	LogSortField_LOG_SORT_FIELD_LOGGER      LogSortField = 3
-	LogSortField_LOG_SORT_FIELD_MESSAGE     LogSortField = 4
-)
-
-// Enum value maps for LogSortField.
-var (
-	LogSortField_name = map[int32]string{
-		0: "LOG_SORT_FIELD_UNSPECIFIED",
-		1: "LOG_SORT_FIELD_TIMESTAMP",
-		2: "LOG_SORT_FIELD_LEVEL",
-		3: "LOG_SORT_FIELD_LOGGER",
-		4: "LOG_SORT_FIELD_MESSAGE",
-	}
-	LogSortField_value = map[string]int32{
-		"LOG_SORT_FIELD_UNSPECIFIED": 0,
-		"LOG_SORT_FIELD_TIMESTAMP":   1,
-		"LOG_SORT_FIELD_LEVEL":       2,
-		"LOG_SORT_FIELD_LOGGER":      3,
-		"LOG_SORT_FIELD_MESSAGE":     4,
-	}
-)
-
-func (x LogSortField) Enum() *LogSortField {
-	p := new(LogSortField)
-	*p = x
-	return p
-}
-
-func (x LogSortField) String() string {
-	return protoimpl.X.EnumStringOf(x.Descriptor(), protoreflect.EnumNumber(x))
-}
-
-func (LogSortField) Descriptor() protoreflect.EnumDescriptor {
-	return file_pkg_log_proto_log_proto_enumTypes[1].Descriptor()
-}
-
-func (LogSortField) Type() protoreflect.EnumType {
-	return &file_pkg_log_proto_log_proto_enumTypes[1]
-}
-
-func (x LogSortField) Number() protoreflect.EnumNumber {
-	return protoreflect.EnumNumber(x)
-}
-
-// Appender types
-type AppenderType int32
-
-const (
-	AppenderType_APPENDER_TYPE_UNSPECIFIED  AppenderType = 0
-	AppenderType_APPENDER_TYPE_CONSOLE      AppenderType = 1
-	AppenderType_APPENDER_TYPE_FILE         AppenderType = 2
-	AppenderType_APPENDER_TYPE_ROLLING_FILE AppenderType = 3
-	AppenderType_APPENDER_TYPE_SYSLOG       AppenderType = 4
-	AppenderType_APPENDER_TYPE_NETWORK      AppenderType = 5
-	AppenderType_APPENDER_TYPE_DATABASE     AppenderType = 6
-)
-
-// Enum value maps for AppenderType.
-var (
-	AppenderType_name = map[int32]string{
-		0: "APPENDER_TYPE_UNSPECIFIED",
-		1: "APPENDER_TYPE_CONSOLE",
-		2: "APPENDER_TYPE_FILE",
-		3: "APPENDER_TYPE_ROLLING_FILE",
-		4: "APPENDER_TYPE_SYSLOG",
-		5: "APPENDER_TYPE_NETWORK",
-		6: "APPENDER_TYPE_DATABASE",
-	}
-	AppenderType_value = map[string]int32{
-		"APPENDER_TYPE_UNSPECIFIED":  0,
-		"APPENDER_TYPE_CONSOLE":      1,
-		"APPENDER_TYPE_FILE":         2,
-		"APPENDER_TYPE_ROLLING_FILE": 3,
-		"APPENDER_TYPE_SYSLOG":       4,
-		"APPENDER_TYPE_NETWORK":      5,
-		"APPENDER_TYPE_DATABASE":     6,
-	}
-)
-
-func (x AppenderType) Enum() *AppenderType {
-	p := new(AppenderType)
-	*p = x
-	return p
-}
-
-func (x AppenderType) String() string {
-	return protoimpl.X.EnumStringOf(x.Descriptor(), protoreflect.EnumNumber(x))
-}
-
-func (AppenderType) Descriptor() protoreflect.EnumDescriptor {
-	return file_pkg_log_proto_log_proto_enumTypes[2].Descriptor()
-}
-
-func (AppenderType) Type() protoreflect.EnumType {
-	return &file_pkg_log_proto_log_proto_enumTypes[2]
-}
-
-func (x AppenderType) Number() protoreflect.EnumNumber {
-	return protoreflect.EnumNumber(x)
-}
-
-// Formatter type enumeration
-type FormatterType int32
-
-const (
-	FormatterType_FORMATTER_TYPE_UNSPECIFIED FormatterType = 0
-	FormatterType_FORMATTER_TYPE_TEXT        FormatterType = 1
-	FormatterType_FORMATTER_TYPE_JSON        FormatterType = 2
-	FormatterType_FORMATTER_TYPE_XML         FormatterType = 3
-	FormatterType_FORMATTER_TYPE_CUSTOM      FormatterType = 4
-)
-
-// Enum value maps for FormatterType.
-var (
-	FormatterType_name = map[int32]string{
-		0: "FORMATTER_TYPE_UNSPECIFIED",
-		1: "FORMATTER_TYPE_TEXT",
-		2: "FORMATTER_TYPE_JSON",
-		3: "FORMATTER_TYPE_XML",
-		4: "FORMATTER_TYPE_CUSTOM",
-	}
-	FormatterType_value = map[string]int32{
-		"FORMATTER_TYPE_UNSPECIFIED": 0,
-		"FORMATTER_TYPE_TEXT":        1,
-		"FORMATTER_TYPE_JSON":        2,
-		"FORMATTER_TYPE_XML":         3,
-		"FORMATTER_TYPE_CUSTOM":      4,
-	}
-)
-
-func (x FormatterType) Enum() *FormatterType {
-	p := new(FormatterType)
-	*p = x
-	return p
-}
-
-func (x FormatterType) String() string {
-	return protoimpl.X.EnumStringOf(x.Descriptor(), protoreflect.EnumNumber(x))
-}
-
-func (FormatterType) Descriptor() protoreflect.EnumDescriptor {
-	return file_pkg_log_proto_log_proto_enumTypes[3].Descriptor()
-}
-
-func (FormatterType) Type() protoreflect.EnumType {
-	return &file_pkg_log_proto_log_proto_enumTypes[3]
-}
-
-func (x FormatterType) Number() protoreflect.EnumNumber {
-	return protoreflect.EnumNumber(x)
-}
-
-// Filter type enumeration
-type FilterType int32
-
-const (
-	FilterType_FILTER_TYPE_UNSPECIFIED FilterType = 0
-	FilterType_FILTER_TYPE_LEVEL       FilterType = 1
-	FilterType_FILTER_TYPE_LOGGER      FilterType = 2
-	FilterType_FILTER_TYPE_MESSAGE     FilterType = 3
-	FilterType_FILTER_TYPE_FIELD       FilterType = 4
-)
-
-// Enum value maps for FilterType.
-var (
-	FilterType_name = map[int32]string{
-		0: "FILTER_TYPE_UNSPECIFIED",
-		1: "FILTER_TYPE_LEVEL",
-		2: "FILTER_TYPE_LOGGER",
-		3: "FILTER_TYPE_MESSAGE",
-		4: "FILTER_TYPE_FIELD",
-	}
-	FilterType_value = map[string]int32{
-		"FILTER_TYPE_UNSPECIFIED": 0,
-		"FILTER_TYPE_LEVEL":       1,
-		"FILTER_TYPE_LOGGER":      2,
-		"FILTER_TYPE_MESSAGE":     3,
-		"FILTER_TYPE_FIELD":       4,
-	}
-)
-
-func (x FilterType) Enum() *FilterType {
-	p := new(FilterType)
-	*p = x
-	return p
-}
-
-func (x FilterType) String() string {
-	return protoimpl.X.EnumStringOf(x.Descriptor(), protoreflect.EnumNumber(x))
-}
-
-func (FilterType) Descriptor() protoreflect.EnumDescriptor {
-	return file_pkg_log_proto_log_proto_enumTypes[4].Descriptor()
-}
-
-func (FilterType) Type() protoreflect.EnumType {
-	return &file_pkg_log_proto_log_proto_enumTypes[4]
-}
-
-func (x FilterType) Number() protoreflect.EnumNumber {
-	return protoreflect.EnumNumber(x)
-}
-
-// Logger status enumeration
-type LoggerStatus int32
-
-const (
-	LoggerStatus_LOGGER_STATUS_UNSPECIFIED LoggerStatus = 0
-	LoggerStatus_LOGGER_STATUS_ACTIVE      LoggerStatus = 1
-	LoggerStatus_LOGGER_STATUS_INACTIVE    LoggerStatus = 2
-	LoggerStatus_LOGGER_STATUS_ERROR       LoggerStatus = 3
-)
-
-// Enum value maps for LoggerStatus.
-var (
-	LoggerStatus_name = map[int32]string{
-		0: "LOGGER_STATUS_UNSPECIFIED",
-		1: "LOGGER_STATUS_ACTIVE",
-		2: "LOGGER_STATUS_INACTIVE",
-		3: "LOGGER_STATUS_ERROR",
-	}
-	LoggerStatus_value = map[string]int32{
-		"LOGGER_STATUS_UNSPECIFIED": 0,
-		"LOGGER_STATUS_ACTIVE":      1,
-		"LOGGER_STATUS_INACTIVE":    2,
-		"LOGGER_STATUS_ERROR":       3,
-	}
-)
-
-func (x LoggerStatus) Enum() *LoggerStatus {
-	p := new(LoggerStatus)
-	*p = x
-	return p
-}
-
-func (x LoggerStatus) String() string {
-	return protoimpl.X.EnumStringOf(x.Descriptor(), protoreflect.EnumNumber(x))
-}
-
-func (LoggerStatus) Descriptor() protoreflect.EnumDescriptor {
-	return file_pkg_log_proto_log_proto_enumTypes[5].Descriptor()
-}
-
-func (LoggerStatus) Type() protoreflect.EnumType {
-	return &file_pkg_log_proto_log_proto_enumTypes[5]
-}
-
-func (x LoggerStatus) Number() protoreflect.EnumNumber {
-	return protoreflect.EnumNumber(x)
-}
-
-// Compression type enumeration
-type CompressionType int32
-
-const (
-	CompressionType_COMPRESSION_TYPE_UNSPECIFIED CompressionType = 0
-	CompressionType_COMPRESSION_TYPE_NONE        CompressionType = 1
-	CompressionType_COMPRESSION_TYPE_GZIP        CompressionType = 2
-	CompressionType_COMPRESSION_TYPE_ZIP         CompressionType = 3
-	CompressionType_COMPRESSION_TYPE_BZIP2       CompressionType = 4
-	CompressionType_COMPRESSION_TYPE_TAR_GZ      CompressionType = 5
-)
-
-// Enum value maps for CompressionType.
-var (
-	CompressionType_name = map[int32]string{
-		0: "COMPRESSION_TYPE_UNSPECIFIED",
-		1: "COMPRESSION_TYPE_NONE",
-		2: "COMPRESSION_TYPE_GZIP",
-		3: "COMPRESSION_TYPE_ZIP",
-		4: "COMPRESSION_TYPE_BZIP2",
-		5: "COMPRESSION_TYPE_TAR_GZ",
-	}
-	CompressionType_value = map[string]int32{
-		"COMPRESSION_TYPE_UNSPECIFIED": 0,
-		"COMPRESSION_TYPE_NONE":        1,
-		"COMPRESSION_TYPE_GZIP":        2,
-		"COMPRESSION_TYPE_ZIP":         3,
-		"COMPRESSION_TYPE_BZIP2":       4,
-		"COMPRESSION_TYPE_TAR_GZ":      5,
-	}
-)
-
-func (x CompressionType) Enum() *CompressionType {
-	p := new(CompressionType)
-	*p = x
-	return p
-}
-
-func (x CompressionType) String() string {
-	return protoimpl.X.EnumStringOf(x.Descriptor(), protoreflect.EnumNumber(x))
-}
-
-func (CompressionType) Descriptor() protoreflect.EnumDescriptor {
-	return file_pkg_log_proto_log_proto_enumTypes[6].Descriptor()
-}
-
-func (CompressionType) Type() protoreflect.EnumType {
-	return &file_pkg_log_proto_log_proto_enumTypes[6]
-}
-
-func (x CompressionType) Number() protoreflect.EnumNumber {
-	return protoreflect.EnumNumber(x)
-}
 
 // Log request for writing a single entry
 type LogRequest struct {
@@ -919,12 +550,12 @@ type LogBatchResponse struct {
 	state protoimpl.MessageState `protogen:"hybrid.v1"`
 	// Number of successfully written entries
 	SuccessCount *int32 `protobuf:"varint,1,opt,name=success_count,json=successCount" json:"success_count,omitempty"`
-	// Number of failed entries
-	FailureCount *int32 `protobuf:"varint,2,opt,name=failure_count,json=failureCount" json:"failure_count,omitempty"`
-	// Entry IDs (if supported)
-	EntryIds []string `protobuf:"bytes,3,rep,name=entry_ids,json=entryIds" json:"entry_ids,omitempty"`
-	// Error information
-	Error         *proto.Error `protobuf:"bytes,4,opt,name=error" json:"error,omitempty"`
+	// Error code
+	Code *string `protobuf:"bytes,4,opt,name=code" json:"code,omitempty"`
+	// Additional error context
+	Context map[string]string `protobuf:"bytes,5,rep,name=context" json:"context,omitempty" protobuf_key:"bytes,1,opt,name=key" protobuf_val:"bytes,2,opt,name=value"`
+	// Cause chain for error propagation
+	Causes        []*ErrorInfo `protobuf:"bytes,6,rep,name=causes" json:"causes,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -961,23 +592,23 @@ func (x *LogBatchResponse) GetSuccessCount() int32 {
 	return 0
 }
 
-func (x *LogBatchResponse) GetFailureCount() int32 {
-	if x != nil && x.FailureCount != nil {
-		return *x.FailureCount
+func (x *LogBatchResponse) GetCode() string {
+	if x != nil && x.Code != nil {
+		return *x.Code
 	}
-	return 0
+	return ""
 }
 
-func (x *LogBatchResponse) GetEntryIds() []string {
+func (x *LogBatchResponse) GetContext() map[string]string {
 	if x != nil {
-		return x.EntryIds
+		return x.Context
 	}
 	return nil
 }
 
-func (x *LogBatchResponse) GetError() *proto.Error {
+func (x *LogBatchResponse) GetCauses() []*ErrorInfo {
 	if x != nil {
-		return x.Error
+		return x.Causes
 	}
 	return nil
 }
@@ -986,16 +617,16 @@ func (x *LogBatchResponse) SetSuccessCount(v int32) {
 	x.SuccessCount = &v
 }
 
-func (x *LogBatchResponse) SetFailureCount(v int32) {
-	x.FailureCount = &v
+func (x *LogBatchResponse) SetCode(v string) {
+	x.Code = &v
 }
 
-func (x *LogBatchResponse) SetEntryIds(v []string) {
-	x.EntryIds = v
+func (x *LogBatchResponse) SetContext(v map[string]string) {
+	x.Context = v
 }
 
-func (x *LogBatchResponse) SetError(v *proto.Error) {
-	x.Error = v
+func (x *LogBatchResponse) SetCauses(v []*ErrorInfo) {
+	x.Causes = v
 }
 
 func (x *LogBatchResponse) HasSuccessCount() bool {
@@ -1005,30 +636,19 @@ func (x *LogBatchResponse) HasSuccessCount() bool {
 	return x.SuccessCount != nil
 }
 
-func (x *LogBatchResponse) HasFailureCount() bool {
+func (x *LogBatchResponse) HasCode() bool {
 	if x == nil {
 		return false
 	}
-	return x.FailureCount != nil
-}
-
-func (x *LogBatchResponse) HasError() bool {
-	if x == nil {
-		return false
-	}
-	return x.Error != nil
+	return x.Code != nil
 }
 
 func (x *LogBatchResponse) ClearSuccessCount() {
 	x.SuccessCount = nil
 }
 
-func (x *LogBatchResponse) ClearFailureCount() {
-	x.FailureCount = nil
-}
-
-func (x *LogBatchResponse) ClearError() {
-	x.Error = nil
+func (x *LogBatchResponse) ClearCode() {
+	x.Code = nil
 }
 
 type LogBatchResponse_builder struct {
@@ -1036,713 +656,6 @@ type LogBatchResponse_builder struct {
 
 	// Number of successfully written entries
 	SuccessCount *int32
-	// Number of failed entries
-	FailureCount *int32
-	// Entry IDs (if supported)
-	EntryIds []string
-	// Error information
-	Error *proto.Error
-}
-
-func (b0 LogBatchResponse_builder) Build() *LogBatchResponse {
-	m0 := &LogBatchResponse{}
-	b, x := &b0, m0
-	_, _ = b, x
-	x.SuccessCount = b.SuccessCount
-	x.FailureCount = b.FailureCount
-	x.EntryIds = b.EntryIds
-	x.Error = b.Error
-	return m0
-}
-
-// Log entry representation
-type LogEntry struct {
-	state protoimpl.MessageState `protogen:"hybrid.v1"`
-	// Log level
-	Level *LogLevel `protobuf:"varint,1,opt,name=level,enum=gcommon.v1.log.LogLevel" json:"level,omitempty"`
-	// Log message
-	Message *string `protobuf:"bytes,2,opt,name=message" json:"message,omitempty"`
-	// Timestamp
-	Timestamp *timestamppb.Timestamp `protobuf:"bytes,3,opt,name=timestamp" json:"timestamp,omitempty"`
-	// Logger name
-	Logger *string `protobuf:"bytes,4,opt,name=logger" json:"logger,omitempty"`
-	// Thread/goroutine information
-	Thread *string `protobuf:"bytes,5,opt,name=thread" json:"thread,omitempty"`
-	// Source file information
-	Source *SourceLocation `protobuf:"bytes,6,opt,name=source" json:"source,omitempty"`
-	// Structured fields
-	Fields map[string]*anypb.Any `protobuf:"bytes,7,rep,name=fields" json:"fields,omitempty" protobuf_key:"bytes,1,opt,name=key" protobuf_val:"bytes,2,opt,name=value"`
-	// Tags for categorization
-	Tags []string `protobuf:"bytes,8,rep,name=tags" json:"tags,omitempty"`
-	// Trace ID for distributed tracing
-	TraceId *string `protobuf:"bytes,9,opt,name=trace_id,json=traceId" json:"trace_id,omitempty"`
-	// Span ID for distributed tracing
-	SpanId *string `protobuf:"bytes,10,opt,name=span_id,json=spanId" json:"span_id,omitempty"`
-	// User ID associated with the log
-	UserId *string `protobuf:"bytes,11,opt,name=user_id,json=userId" json:"user_id,omitempty"`
-	// Request ID
-	RequestId *string `protobuf:"bytes,12,opt,name=request_id,json=requestId" json:"request_id,omitempty"`
-	// Error information (if log level is ERROR or FATAL)
-	ErrorInfo     *ErrorInfo `protobuf:"bytes,13,opt,name=error_info,json=errorInfo" json:"error_info,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *LogEntry) Reset() {
-	*x = LogEntry{}
-	mi := &file_pkg_log_proto_log_proto_msgTypes[5]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *LogEntry) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*LogEntry) ProtoMessage() {}
-
-func (x *LogEntry) ProtoReflect() protoreflect.Message {
-	mi := &file_pkg_log_proto_log_proto_msgTypes[5]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-func (x *LogEntry) GetLevel() LogLevel {
-	if x != nil && x.Level != nil {
-		return *x.Level
-	}
-	return LogLevel_LOG_LEVEL_UNSPECIFIED
-}
-
-func (x *LogEntry) GetMessage() string {
-	if x != nil && x.Message != nil {
-		return *x.Message
-	}
-	return ""
-}
-
-func (x *LogEntry) GetTimestamp() *timestamppb.Timestamp {
-	if x != nil {
-		return x.Timestamp
-	}
-	return nil
-}
-
-func (x *LogEntry) GetLogger() string {
-	if x != nil && x.Logger != nil {
-		return *x.Logger
-	}
-	return ""
-}
-
-func (x *LogEntry) GetThread() string {
-	if x != nil && x.Thread != nil {
-		return *x.Thread
-	}
-	return ""
-}
-
-func (x *LogEntry) GetSource() *SourceLocation {
-	if x != nil {
-		return x.Source
-	}
-	return nil
-}
-
-func (x *LogEntry) GetFields() map[string]*anypb.Any {
-	if x != nil {
-		return x.Fields
-	}
-	return nil
-}
-
-func (x *LogEntry) GetTags() []string {
-	if x != nil {
-		return x.Tags
-	}
-	return nil
-}
-
-func (x *LogEntry) GetTraceId() string {
-	if x != nil && x.TraceId != nil {
-		return *x.TraceId
-	}
-	return ""
-}
-
-func (x *LogEntry) GetSpanId() string {
-	if x != nil && x.SpanId != nil {
-		return *x.SpanId
-	}
-	return ""
-}
-
-func (x *LogEntry) GetUserId() string {
-	if x != nil && x.UserId != nil {
-		return *x.UserId
-	}
-	return ""
-}
-
-func (x *LogEntry) GetRequestId() string {
-	if x != nil && x.RequestId != nil {
-		return *x.RequestId
-	}
-	return ""
-}
-
-func (x *LogEntry) GetErrorInfo() *ErrorInfo {
-	if x != nil {
-		return x.ErrorInfo
-	}
-	return nil
-}
-
-func (x *LogEntry) SetLevel(v LogLevel) {
-	x.Level = &v
-}
-
-func (x *LogEntry) SetMessage(v string) {
-	x.Message = &v
-}
-
-func (x *LogEntry) SetTimestamp(v *timestamppb.Timestamp) {
-	x.Timestamp = v
-}
-
-func (x *LogEntry) SetLogger(v string) {
-	x.Logger = &v
-}
-
-func (x *LogEntry) SetThread(v string) {
-	x.Thread = &v
-}
-
-func (x *LogEntry) SetSource(v *SourceLocation) {
-	x.Source = v
-}
-
-func (x *LogEntry) SetFields(v map[string]*anypb.Any) {
-	x.Fields = v
-}
-
-func (x *LogEntry) SetTags(v []string) {
-	x.Tags = v
-}
-
-func (x *LogEntry) SetTraceId(v string) {
-	x.TraceId = &v
-}
-
-func (x *LogEntry) SetSpanId(v string) {
-	x.SpanId = &v
-}
-
-func (x *LogEntry) SetUserId(v string) {
-	x.UserId = &v
-}
-
-func (x *LogEntry) SetRequestId(v string) {
-	x.RequestId = &v
-}
-
-func (x *LogEntry) SetErrorInfo(v *ErrorInfo) {
-	x.ErrorInfo = v
-}
-
-func (x *LogEntry) HasLevel() bool {
-	if x == nil {
-		return false
-	}
-	return x.Level != nil
-}
-
-func (x *LogEntry) HasMessage() bool {
-	if x == nil {
-		return false
-	}
-	return x.Message != nil
-}
-
-func (x *LogEntry) HasTimestamp() bool {
-	if x == nil {
-		return false
-	}
-	return x.Timestamp != nil
-}
-
-func (x *LogEntry) HasLogger() bool {
-	if x == nil {
-		return false
-	}
-	return x.Logger != nil
-}
-
-func (x *LogEntry) HasThread() bool {
-	if x == nil {
-		return false
-	}
-	return x.Thread != nil
-}
-
-func (x *LogEntry) HasSource() bool {
-	if x == nil {
-		return false
-	}
-	return x.Source != nil
-}
-
-func (x *LogEntry) HasTraceId() bool {
-	if x == nil {
-		return false
-	}
-	return x.TraceId != nil
-}
-
-func (x *LogEntry) HasSpanId() bool {
-	if x == nil {
-		return false
-	}
-	return x.SpanId != nil
-}
-
-func (x *LogEntry) HasUserId() bool {
-	if x == nil {
-		return false
-	}
-	return x.UserId != nil
-}
-
-func (x *LogEntry) HasRequestId() bool {
-	if x == nil {
-		return false
-	}
-	return x.RequestId != nil
-}
-
-func (x *LogEntry) HasErrorInfo() bool {
-	if x == nil {
-		return false
-	}
-	return x.ErrorInfo != nil
-}
-
-func (x *LogEntry) ClearLevel() {
-	x.Level = nil
-}
-
-func (x *LogEntry) ClearMessage() {
-	x.Message = nil
-}
-
-func (x *LogEntry) ClearTimestamp() {
-	x.Timestamp = nil
-}
-
-func (x *LogEntry) ClearLogger() {
-	x.Logger = nil
-}
-
-func (x *LogEntry) ClearThread() {
-	x.Thread = nil
-}
-
-func (x *LogEntry) ClearSource() {
-	x.Source = nil
-}
-
-func (x *LogEntry) ClearTraceId() {
-	x.TraceId = nil
-}
-
-func (x *LogEntry) ClearSpanId() {
-	x.SpanId = nil
-}
-
-func (x *LogEntry) ClearUserId() {
-	x.UserId = nil
-}
-
-func (x *LogEntry) ClearRequestId() {
-	x.RequestId = nil
-}
-
-func (x *LogEntry) ClearErrorInfo() {
-	x.ErrorInfo = nil
-}
-
-type LogEntry_builder struct {
-	_ [0]func() // Prevents comparability and use of unkeyed literals for the builder.
-
-	// Log level
-	Level *LogLevel
-	// Log message
-	Message *string
-	// Timestamp
-	Timestamp *timestamppb.Timestamp
-	// Logger name
-	Logger *string
-	// Thread/goroutine information
-	Thread *string
-	// Source file information
-	Source *SourceLocation
-	// Structured fields
-	Fields map[string]*anypb.Any
-	// Tags for categorization
-	Tags []string
-	// Trace ID for distributed tracing
-	TraceId *string
-	// Span ID for distributed tracing
-	SpanId *string
-	// User ID associated with the log
-	UserId *string
-	// Request ID
-	RequestId *string
-	// Error information (if log level is ERROR or FATAL)
-	ErrorInfo *ErrorInfo
-}
-
-func (b0 LogEntry_builder) Build() *LogEntry {
-	m0 := &LogEntry{}
-	b, x := &b0, m0
-	_, _ = b, x
-	x.Level = b.Level
-	x.Message = b.Message
-	x.Timestamp = b.Timestamp
-	x.Logger = b.Logger
-	x.Thread = b.Thread
-	x.Source = b.Source
-	x.Fields = b.Fields
-	x.Tags = b.Tags
-	x.TraceId = b.TraceId
-	x.SpanId = b.SpanId
-	x.UserId = b.UserId
-	x.RequestId = b.RequestId
-	x.ErrorInfo = b.ErrorInfo
-	return m0
-}
-
-// Source location information
-type SourceLocation struct {
-	state protoimpl.MessageState `protogen:"hybrid.v1"`
-	// File name
-	File *string `protobuf:"bytes,1,opt,name=file" json:"file,omitempty"`
-	// Line number
-	Line *int32 `protobuf:"varint,2,opt,name=line" json:"line,omitempty"`
-	// Function name
-	Function *string `protobuf:"bytes,3,opt,name=function" json:"function,omitempty"`
-	// Package/module name
-	Package       *string `protobuf:"bytes,4,opt,name=package" json:"package,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *SourceLocation) Reset() {
-	*x = SourceLocation{}
-	mi := &file_pkg_log_proto_log_proto_msgTypes[6]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *SourceLocation) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*SourceLocation) ProtoMessage() {}
-
-func (x *SourceLocation) ProtoReflect() protoreflect.Message {
-	mi := &file_pkg_log_proto_log_proto_msgTypes[6]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-func (x *SourceLocation) GetFile() string {
-	if x != nil && x.File != nil {
-		return *x.File
-	}
-	return ""
-}
-
-func (x *SourceLocation) GetLine() int32 {
-	if x != nil && x.Line != nil {
-		return *x.Line
-	}
-	return 0
-}
-
-func (x *SourceLocation) GetFunction() string {
-	if x != nil && x.Function != nil {
-		return *x.Function
-	}
-	return ""
-}
-
-func (x *SourceLocation) GetPackage() string {
-	if x != nil && x.Package != nil {
-		return *x.Package
-	}
-	return ""
-}
-
-func (x *SourceLocation) SetFile(v string) {
-	x.File = &v
-}
-
-func (x *SourceLocation) SetLine(v int32) {
-	x.Line = &v
-}
-
-func (x *SourceLocation) SetFunction(v string) {
-	x.Function = &v
-}
-
-func (x *SourceLocation) SetPackage(v string) {
-	x.Package = &v
-}
-
-func (x *SourceLocation) HasFile() bool {
-	if x == nil {
-		return false
-	}
-	return x.File != nil
-}
-
-func (x *SourceLocation) HasLine() bool {
-	if x == nil {
-		return false
-	}
-	return x.Line != nil
-}
-
-func (x *SourceLocation) HasFunction() bool {
-	if x == nil {
-		return false
-	}
-	return x.Function != nil
-}
-
-func (x *SourceLocation) HasPackage() bool {
-	if x == nil {
-		return false
-	}
-	return x.Package != nil
-}
-
-func (x *SourceLocation) ClearFile() {
-	x.File = nil
-}
-
-func (x *SourceLocation) ClearLine() {
-	x.Line = nil
-}
-
-func (x *SourceLocation) ClearFunction() {
-	x.Function = nil
-}
-
-func (x *SourceLocation) ClearPackage() {
-	x.Package = nil
-}
-
-type SourceLocation_builder struct {
-	_ [0]func() // Prevents comparability and use of unkeyed literals for the builder.
-
-	// File name
-	File *string
-	// Line number
-	Line *int32
-	// Function name
-	Function *string
-	// Package/module name
-	Package *string
-}
-
-func (b0 SourceLocation_builder) Build() *SourceLocation {
-	m0 := &SourceLocation{}
-	b, x := &b0, m0
-	_, _ = b, x
-	x.File = b.File
-	x.Line = b.Line
-	x.Function = b.Function
-	x.Package = b.Package
-	return m0
-}
-
-// Error information for error/fatal logs
-type ErrorInfo struct {
-	state protoimpl.MessageState `protogen:"hybrid.v1"`
-	// Error message
-	Message *string `protobuf:"bytes,1,opt,name=message" json:"message,omitempty"`
-	// Error type/class
-	Type *string `protobuf:"bytes,2,opt,name=type" json:"type,omitempty"`
-	// Stack trace
-	StackTrace *string `protobuf:"bytes,3,opt,name=stack_trace,json=stackTrace" json:"stack_trace,omitempty"`
-	// Error code
-	Code *string `protobuf:"bytes,4,opt,name=code" json:"code,omitempty"`
-	// Additional error context
-	Context map[string]string `protobuf:"bytes,5,rep,name=context" json:"context,omitempty" protobuf_key:"bytes,1,opt,name=key" protobuf_val:"bytes,2,opt,name=value"`
-	// Cause chain for error propagation
-	Causes        []*ErrorInfo `protobuf:"bytes,6,rep,name=causes" json:"causes,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *ErrorInfo) Reset() {
-	*x = ErrorInfo{}
-	mi := &file_pkg_log_proto_log_proto_msgTypes[7]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *ErrorInfo) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*ErrorInfo) ProtoMessage() {}
-
-func (x *ErrorInfo) ProtoReflect() protoreflect.Message {
-	mi := &file_pkg_log_proto_log_proto_msgTypes[7]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-func (x *ErrorInfo) GetMessage() string {
-	if x != nil && x.Message != nil {
-		return *x.Message
-	}
-	return ""
-}
-
-func (x *ErrorInfo) GetType() string {
-	if x != nil && x.Type != nil {
-		return *x.Type
-	}
-	return ""
-}
-
-func (x *ErrorInfo) GetStackTrace() string {
-	if x != nil && x.StackTrace != nil {
-		return *x.StackTrace
-	}
-	return ""
-}
-
-func (x *ErrorInfo) GetCode() string {
-	if x != nil && x.Code != nil {
-		return *x.Code
-	}
-	return ""
-}
-
-func (x *ErrorInfo) GetContext() map[string]string {
-	if x != nil {
-		return x.Context
-	}
-	return nil
-}
-
-func (x *ErrorInfo) GetCauses() []*ErrorInfo {
-	if x != nil {
-		return x.Causes
-	}
-	return nil
-}
-
-func (x *ErrorInfo) SetMessage(v string) {
-	x.Message = &v
-}
-
-func (x *ErrorInfo) SetType(v string) {
-	x.Type = &v
-}
-
-func (x *ErrorInfo) SetStackTrace(v string) {
-	x.StackTrace = &v
-}
-
-func (x *ErrorInfo) SetCode(v string) {
-	x.Code = &v
-}
-
-func (x *ErrorInfo) SetContext(v map[string]string) {
-	x.Context = v
-}
-
-func (x *ErrorInfo) SetCauses(v []*ErrorInfo) {
-	x.Causes = v
-}
-
-func (x *ErrorInfo) HasMessage() bool {
-	if x == nil {
-		return false
-	}
-	return x.Message != nil
-}
-
-func (x *ErrorInfo) HasType() bool {
-	if x == nil {
-		return false
-	}
-	return x.Type != nil
-}
-
-func (x *ErrorInfo) HasStackTrace() bool {
-	if x == nil {
-		return false
-	}
-	return x.StackTrace != nil
-}
-
-func (x *ErrorInfo) HasCode() bool {
-	if x == nil {
-		return false
-	}
-	return x.Code != nil
-}
-
-func (x *ErrorInfo) ClearMessage() {
-	x.Message = nil
-}
-
-func (x *ErrorInfo) ClearType() {
-	x.Type = nil
-}
-
-func (x *ErrorInfo) ClearStackTrace() {
-	x.StackTrace = nil
-}
-
-func (x *ErrorInfo) ClearCode() {
-	x.Code = nil
-}
-
-type ErrorInfo_builder struct {
-	_ [0]func() // Prevents comparability and use of unkeyed literals for the builder.
-
-	// Error message
-	Message *string
-	// Error type/class
-	Type *string
-	// Stack trace
-	StackTrace *string
 	// Error code
 	Code *string
 	// Additional error context
@@ -1751,16 +664,112 @@ type ErrorInfo_builder struct {
 	Causes []*ErrorInfo
 }
 
-func (b0 ErrorInfo_builder) Build() *ErrorInfo {
-	m0 := &ErrorInfo{}
+func (b0 LogBatchResponse_builder) Build() *LogBatchResponse {
+	m0 := &LogBatchResponse{}
 	b, x := &b0, m0
 	_, _ = b, x
-	x.Message = b.Message
-	x.Type = b.Type
-	x.StackTrace = b.StackTrace
+	x.SuccessCount = b.SuccessCount
 	x.Code = b.Code
 	x.Context = b.Context
 	x.Causes = b.Causes
+	return m0
+}
+
+// LogSort defines sorting options for log queries
+type LogSort struct {
+	state protoimpl.MessageState `protogen:"hybrid.v1"`
+	// Field to sort by
+	Field *LogSortField `protobuf:"varint,1,opt,name=field,enum=gcommon.v1.log.LogSortField" json:"field,omitempty"`
+	// Sort direction (true for ascending, false for descending)
+	Ascending     *bool `protobuf:"varint,2,opt,name=ascending" json:"ascending,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *LogSort) Reset() {
+	*x = LogSort{}
+	mi := &file_pkg_log_proto_log_proto_msgTypes[5]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *LogSort) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*LogSort) ProtoMessage() {}
+
+func (x *LogSort) ProtoReflect() protoreflect.Message {
+	mi := &file_pkg_log_proto_log_proto_msgTypes[5]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+func (x *LogSort) GetField() LogSortField {
+	if x != nil && x.Field != nil {
+		return *x.Field
+	}
+	return LogSortField_LOG_SORT_FIELD_UNSPECIFIED
+}
+
+func (x *LogSort) GetAscending() bool {
+	if x != nil && x.Ascending != nil {
+		return *x.Ascending
+	}
+	return false
+}
+
+func (x *LogSort) SetField(v LogSortField) {
+	x.Field = &v
+}
+
+func (x *LogSort) SetAscending(v bool) {
+	x.Ascending = &v
+}
+
+func (x *LogSort) HasField() bool {
+	if x == nil {
+		return false
+	}
+	return x.Field != nil
+}
+
+func (x *LogSort) HasAscending() bool {
+	if x == nil {
+		return false
+	}
+	return x.Ascending != nil
+}
+
+func (x *LogSort) ClearField() {
+	x.Field = nil
+}
+
+func (x *LogSort) ClearAscending() {
+	x.Ascending = nil
+}
+
+type LogSort_builder struct {
+	_ [0]func() // Prevents comparability and use of unkeyed literals for the builder.
+
+	// Field to sort by
+	Field *LogSortField
+	// Sort direction (true for ascending, false for descending)
+	Ascending *bool
+}
+
+func (b0 LogSort_builder) Build() *LogSort {
+	m0 := &LogSort{}
+	b, x := &b0, m0
+	_, _ = b, x
+	x.Field = b.Field
+	x.Ascending = b.Ascending
 	return m0
 }
 
@@ -1781,7 +790,7 @@ type QueryLogRequest struct {
 
 func (x *QueryLogRequest) Reset() {
 	*x = QueryLogRequest{}
-	mi := &file_pkg_log_proto_log_proto_msgTypes[8]
+	mi := &file_pkg_log_proto_log_proto_msgTypes[6]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1793,7 +802,7 @@ func (x *QueryLogRequest) String() string {
 func (*QueryLogRequest) ProtoMessage() {}
 
 func (x *QueryLogRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_pkg_log_proto_log_proto_msgTypes[8]
+	mi := &file_pkg_log_proto_log_proto_msgTypes[6]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1943,7 +952,7 @@ type LogFilter struct {
 
 func (x *LogFilter) Reset() {
 	*x = LogFilter{}
-	mi := &file_pkg_log_proto_log_proto_msgTypes[9]
+	mi := &file_pkg_log_proto_log_proto_msgTypes[7]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1955,7 +964,7 @@ func (x *LogFilter) String() string {
 func (*LogFilter) ProtoMessage() {}
 
 func (x *LogFilter) ProtoReflect() protoreflect.Message {
-	mi := &file_pkg_log_proto_log_proto_msgTypes[9]
+	mi := &file_pkg_log_proto_log_proto_msgTypes[7]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2172,7 +1181,7 @@ type TimeRange struct {
 
 func (x *TimeRange) Reset() {
 	*x = TimeRange{}
-	mi := &file_pkg_log_proto_log_proto_msgTypes[10]
+	mi := &file_pkg_log_proto_log_proto_msgTypes[8]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2184,7 +1193,7 @@ func (x *TimeRange) String() string {
 func (*TimeRange) ProtoMessage() {}
 
 func (x *TimeRange) ProtoReflect() protoreflect.Message {
-	mi := &file_pkg_log_proto_log_proto_msgTypes[10]
+	mi := &file_pkg_log_proto_log_proto_msgTypes[8]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2257,104 +1266,6 @@ func (b0 TimeRange_builder) Build() *TimeRange {
 	return m0
 }
 
-// Log sorting options
-type LogSort struct {
-	state protoimpl.MessageState `protogen:"hybrid.v1"`
-	// Sort field
-	Field *LogSortField `protobuf:"varint,1,opt,name=field,enum=gcommon.v1.log.LogSortField" json:"field,omitempty"`
-	// Sort direction
-	Direction     *proto.SortDirection `protobuf:"varint,2,opt,name=direction,enum=gcommon.v1.common.SortDirection" json:"direction,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *LogSort) Reset() {
-	*x = LogSort{}
-	mi := &file_pkg_log_proto_log_proto_msgTypes[11]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *LogSort) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*LogSort) ProtoMessage() {}
-
-func (x *LogSort) ProtoReflect() protoreflect.Message {
-	mi := &file_pkg_log_proto_log_proto_msgTypes[11]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-func (x *LogSort) GetField() LogSortField {
-	if x != nil && x.Field != nil {
-		return *x.Field
-	}
-	return LogSortField_LOG_SORT_FIELD_UNSPECIFIED
-}
-
-func (x *LogSort) GetDirection() proto.SortDirection {
-	if x != nil && x.Direction != nil {
-		return *x.Direction
-	}
-	return proto.SortDirection(0)
-}
-
-func (x *LogSort) SetField(v LogSortField) {
-	x.Field = &v
-}
-
-func (x *LogSort) SetDirection(v proto.SortDirection) {
-	x.Direction = &v
-}
-
-func (x *LogSort) HasField() bool {
-	if x == nil {
-		return false
-	}
-	return x.Field != nil
-}
-
-func (x *LogSort) HasDirection() bool {
-	if x == nil {
-		return false
-	}
-	return x.Direction != nil
-}
-
-func (x *LogSort) ClearField() {
-	x.Field = nil
-}
-
-func (x *LogSort) ClearDirection() {
-	x.Direction = nil
-}
-
-type LogSort_builder struct {
-	_ [0]func() // Prevents comparability and use of unkeyed literals for the builder.
-
-	// Sort field
-	Field *LogSortField
-	// Sort direction
-	Direction *proto.SortDirection
-}
-
-func (b0 LogSort_builder) Build() *LogSort {
-	m0 := &LogSort{}
-	b, x := &b0, m0
-	_, _ = b, x
-	x.Field = b.Field
-	x.Direction = b.Direction
-	return m0
-}
-
 // Query log response
 type QueryLogResponse struct {
 	state protoimpl.MessageState `protogen:"hybrid.v1"`
@@ -2372,7 +1283,7 @@ type QueryLogResponse struct {
 
 func (x *QueryLogResponse) Reset() {
 	*x = QueryLogResponse{}
-	mi := &file_pkg_log_proto_log_proto_msgTypes[12]
+	mi := &file_pkg_log_proto_log_proto_msgTypes[9]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2384,7 +1295,7 @@ func (x *QueryLogResponse) String() string {
 func (*QueryLogResponse) ProtoMessage() {}
 
 func (x *QueryLogResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_pkg_log_proto_log_proto_msgTypes[12]
+	mi := &file_pkg_log_proto_log_proto_msgTypes[9]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2513,7 +1424,7 @@ type StreamLogRequest struct {
 
 func (x *StreamLogRequest) Reset() {
 	*x = StreamLogRequest{}
-	mi := &file_pkg_log_proto_log_proto_msgTypes[13]
+	mi := &file_pkg_log_proto_log_proto_msgTypes[10]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2525,7 +1436,7 @@ func (x *StreamLogRequest) String() string {
 func (*StreamLogRequest) ProtoMessage() {}
 
 func (x *StreamLogRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_pkg_log_proto_log_proto_msgTypes[13]
+	mi := &file_pkg_log_proto_log_proto_msgTypes[10]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2661,7 +1572,7 @@ type GetLogLevelRequest struct {
 
 func (x *GetLogLevelRequest) Reset() {
 	*x = GetLogLevelRequest{}
-	mi := &file_pkg_log_proto_log_proto_msgTypes[14]
+	mi := &file_pkg_log_proto_log_proto_msgTypes[11]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2673,7 +1584,7 @@ func (x *GetLogLevelRequest) String() string {
 func (*GetLogLevelRequest) ProtoMessage() {}
 
 func (x *GetLogLevelRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_pkg_log_proto_log_proto_msgTypes[14]
+	mi := &file_pkg_log_proto_log_proto_msgTypes[11]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2761,7 +1672,7 @@ type GetLogLevelResponse struct {
 
 func (x *GetLogLevelResponse) Reset() {
 	*x = GetLogLevelResponse{}
-	mi := &file_pkg_log_proto_log_proto_msgTypes[15]
+	mi := &file_pkg_log_proto_log_proto_msgTypes[12]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2773,7 +1684,7 @@ func (x *GetLogLevelResponse) String() string {
 func (*GetLogLevelResponse) ProtoMessage() {}
 
 func (x *GetLogLevelResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_pkg_log_proto_log_proto_msgTypes[15]
+	mi := &file_pkg_log_proto_log_proto_msgTypes[12]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2888,7 +1799,7 @@ type SetLogLevelRequest struct {
 
 func (x *SetLogLevelRequest) Reset() {
 	*x = SetLogLevelRequest{}
-	mi := &file_pkg_log_proto_log_proto_msgTypes[16]
+	mi := &file_pkg_log_proto_log_proto_msgTypes[13]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2900,7 +1811,7 @@ func (x *SetLogLevelRequest) String() string {
 func (*SetLogLevelRequest) ProtoMessage() {}
 
 func (x *SetLogLevelRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_pkg_log_proto_log_proto_msgTypes[16]
+	mi := &file_pkg_log_proto_log_proto_msgTypes[13]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3040,7 +1951,7 @@ type SetLogLevelResponse struct {
 
 func (x *SetLogLevelResponse) Reset() {
 	*x = SetLogLevelResponse{}
-	mi := &file_pkg_log_proto_log_proto_msgTypes[17]
+	mi := &file_pkg_log_proto_log_proto_msgTypes[14]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -3052,7 +1963,7 @@ func (x *SetLogLevelResponse) String() string {
 func (*SetLogLevelResponse) ProtoMessage() {}
 
 func (x *SetLogLevelResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_pkg_log_proto_log_proto_msgTypes[17]
+	mi := &file_pkg_log_proto_log_proto_msgTypes[14]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3190,7 +2101,7 @@ type GetLogStatsRequest struct {
 
 func (x *GetLogStatsRequest) Reset() {
 	*x = GetLogStatsRequest{}
-	mi := &file_pkg_log_proto_log_proto_msgTypes[18]
+	mi := &file_pkg_log_proto_log_proto_msgTypes[15]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -3202,7 +2113,7 @@ func (x *GetLogStatsRequest) String() string {
 func (*GetLogStatsRequest) ProtoMessage() {}
 
 func (x *GetLogStatsRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_pkg_log_proto_log_proto_msgTypes[18]
+	mi := &file_pkg_log_proto_log_proto_msgTypes[15]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3306,7 +2217,7 @@ type GetLogStatsResponse struct {
 
 func (x *GetLogStatsResponse) Reset() {
 	*x = GetLogStatsResponse{}
-	mi := &file_pkg_log_proto_log_proto_msgTypes[19]
+	mi := &file_pkg_log_proto_log_proto_msgTypes[16]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -3318,7 +2229,7 @@ func (x *GetLogStatsResponse) String() string {
 func (*GetLogStatsResponse) ProtoMessage() {}
 
 func (x *GetLogStatsResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_pkg_log_proto_log_proto_msgTypes[19]
+	mi := &file_pkg_log_proto_log_proto_msgTypes[16]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3440,7 +2351,7 @@ type LogStatistics struct {
 
 func (x *LogStatistics) Reset() {
 	*x = LogStatistics{}
-	mi := &file_pkg_log_proto_log_proto_msgTypes[20]
+	mi := &file_pkg_log_proto_log_proto_msgTypes[17]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -3452,7 +2363,7 @@ func (x *LogStatistics) String() string {
 func (*LogStatistics) ProtoMessage() {}
 
 func (x *LogStatistics) ProtoReflect() protoreflect.Message {
-	mi := &file_pkg_log_proto_log_proto_msgTypes[20]
+	mi := &file_pkg_log_proto_log_proto_msgTypes[17]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3640,7 +2551,7 @@ type CreateLoggerRequest struct {
 
 func (x *CreateLoggerRequest) Reset() {
 	*x = CreateLoggerRequest{}
-	mi := &file_pkg_log_proto_log_proto_msgTypes[21]
+	mi := &file_pkg_log_proto_log_proto_msgTypes[18]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -3652,7 +2563,7 @@ func (x *CreateLoggerRequest) String() string {
 func (*CreateLoggerRequest) ProtoMessage() {}
 
 func (x *CreateLoggerRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_pkg_log_proto_log_proto_msgTypes[21]
+	mi := &file_pkg_log_proto_log_proto_msgTypes[18]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3769,7 +2680,7 @@ type LoggerConfig struct {
 
 func (x *LoggerConfig) Reset() {
 	*x = LoggerConfig{}
-	mi := &file_pkg_log_proto_log_proto_msgTypes[22]
+	mi := &file_pkg_log_proto_log_proto_msgTypes[19]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -3781,7 +2692,7 @@ func (x *LoggerConfig) String() string {
 func (*LoggerConfig) ProtoMessage() {}
 
 func (x *LoggerConfig) ProtoReflect() protoreflect.Message {
-	mi := &file_pkg_log_proto_log_proto_msgTypes[22]
+	mi := &file_pkg_log_proto_log_proto_msgTypes[19]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3913,20 +2824,14 @@ type AppenderConfig struct {
 	// Appender name
 	Name *string `protobuf:"bytes,1,opt,name=name" json:"name,omitempty"`
 	// Appender type
-	Type *AppenderType `protobuf:"varint,2,opt,name=type,enum=gcommon.v1.log.AppenderType" json:"type,omitempty"`
-	// Output configuration
-	Output *OutputConfig `protobuf:"bytes,3,opt,name=output" json:"output,omitempty"`
-	// Formatter configuration
-	Formatter *FormatterConfig `protobuf:"bytes,4,opt,name=formatter" json:"formatter,omitempty"`
-	// Filter configuration
-	Filter        *FilterConfig `protobuf:"bytes,5,opt,name=filter" json:"filter,omitempty"`
+	Type          *AppenderType `protobuf:"varint,2,opt,name=type,enum=gcommon.v1.log.AppenderType" json:"type,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
 
 func (x *AppenderConfig) Reset() {
 	*x = AppenderConfig{}
-	mi := &file_pkg_log_proto_log_proto_msgTypes[23]
+	mi := &file_pkg_log_proto_log_proto_msgTypes[20]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -3938,7 +2843,7 @@ func (x *AppenderConfig) String() string {
 func (*AppenderConfig) ProtoMessage() {}
 
 func (x *AppenderConfig) ProtoReflect() protoreflect.Message {
-	mi := &file_pkg_log_proto_log_proto_msgTypes[23]
+	mi := &file_pkg_log_proto_log_proto_msgTypes[20]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3963,45 +2868,12 @@ func (x *AppenderConfig) GetType() AppenderType {
 	return AppenderType_APPENDER_TYPE_UNSPECIFIED
 }
 
-func (x *AppenderConfig) GetOutput() *OutputConfig {
-	if x != nil {
-		return x.Output
-	}
-	return nil
-}
-
-func (x *AppenderConfig) GetFormatter() *FormatterConfig {
-	if x != nil {
-		return x.Formatter
-	}
-	return nil
-}
-
-func (x *AppenderConfig) GetFilter() *FilterConfig {
-	if x != nil {
-		return x.Filter
-	}
-	return nil
-}
-
 func (x *AppenderConfig) SetName(v string) {
 	x.Name = &v
 }
 
 func (x *AppenderConfig) SetType(v AppenderType) {
 	x.Type = &v
-}
-
-func (x *AppenderConfig) SetOutput(v *OutputConfig) {
-	x.Output = v
-}
-
-func (x *AppenderConfig) SetFormatter(v *FormatterConfig) {
-	x.Formatter = v
-}
-
-func (x *AppenderConfig) SetFilter(v *FilterConfig) {
-	x.Filter = v
 }
 
 func (x *AppenderConfig) HasName() bool {
@@ -4018,45 +2890,12 @@ func (x *AppenderConfig) HasType() bool {
 	return x.Type != nil
 }
 
-func (x *AppenderConfig) HasOutput() bool {
-	if x == nil {
-		return false
-	}
-	return x.Output != nil
-}
-
-func (x *AppenderConfig) HasFormatter() bool {
-	if x == nil {
-		return false
-	}
-	return x.Formatter != nil
-}
-
-func (x *AppenderConfig) HasFilter() bool {
-	if x == nil {
-		return false
-	}
-	return x.Filter != nil
-}
-
 func (x *AppenderConfig) ClearName() {
 	x.Name = nil
 }
 
 func (x *AppenderConfig) ClearType() {
 	x.Type = nil
-}
-
-func (x *AppenderConfig) ClearOutput() {
-	x.Output = nil
-}
-
-func (x *AppenderConfig) ClearFormatter() {
-	x.Formatter = nil
-}
-
-func (x *AppenderConfig) ClearFilter() {
-	x.Filter = nil
 }
 
 type AppenderConfig_builder struct {
@@ -4066,12 +2905,6 @@ type AppenderConfig_builder struct {
 	Name *string
 	// Appender type
 	Type *AppenderType
-	// Output configuration
-	Output *OutputConfig
-	// Formatter configuration
-	Formatter *FormatterConfig
-	// Filter configuration
-	Filter *FilterConfig
 }
 
 func (b0 AppenderConfig_builder) Build() *AppenderConfig {
@@ -4080,324 +2913,6 @@ func (b0 AppenderConfig_builder) Build() *AppenderConfig {
 	_, _ = b, x
 	x.Name = b.Name
 	x.Type = b.Type
-	x.Output = b.Output
-	x.Formatter = b.Formatter
-	x.Filter = b.Filter
-	return m0
-}
-
-// Output configuration
-type OutputConfig struct {
-	state protoimpl.MessageState `protogen:"hybrid.v1"`
-	// Output target (file path, network address, etc.)
-	Target *string `protobuf:"bytes,1,opt,name=target" json:"target,omitempty"`
-	// Additional output options
-	Options       map[string]string `protobuf:"bytes,2,rep,name=options" json:"options,omitempty" protobuf_key:"bytes,1,opt,name=key" protobuf_val:"bytes,2,opt,name=value"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *OutputConfig) Reset() {
-	*x = OutputConfig{}
-	mi := &file_pkg_log_proto_log_proto_msgTypes[24]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *OutputConfig) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*OutputConfig) ProtoMessage() {}
-
-func (x *OutputConfig) ProtoReflect() protoreflect.Message {
-	mi := &file_pkg_log_proto_log_proto_msgTypes[24]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-func (x *OutputConfig) GetTarget() string {
-	if x != nil && x.Target != nil {
-		return *x.Target
-	}
-	return ""
-}
-
-func (x *OutputConfig) GetOptions() map[string]string {
-	if x != nil {
-		return x.Options
-	}
-	return nil
-}
-
-func (x *OutputConfig) SetTarget(v string) {
-	x.Target = &v
-}
-
-func (x *OutputConfig) SetOptions(v map[string]string) {
-	x.Options = v
-}
-
-func (x *OutputConfig) HasTarget() bool {
-	if x == nil {
-		return false
-	}
-	return x.Target != nil
-}
-
-func (x *OutputConfig) ClearTarget() {
-	x.Target = nil
-}
-
-type OutputConfig_builder struct {
-	_ [0]func() // Prevents comparability and use of unkeyed literals for the builder.
-
-	// Output target (file path, network address, etc.)
-	Target *string
-	// Additional output options
-	Options map[string]string
-}
-
-func (b0 OutputConfig_builder) Build() *OutputConfig {
-	m0 := &OutputConfig{}
-	b, x := &b0, m0
-	_, _ = b, x
-	x.Target = b.Target
-	x.Options = b.Options
-	return m0
-}
-
-// Formatter configuration
-type FormatterConfig struct {
-	state protoimpl.MessageState `protogen:"hybrid.v1"`
-	// Formatter type
-	Type *FormatterType `protobuf:"varint,1,opt,name=type,enum=gcommon.v1.log.FormatterType" json:"type,omitempty"`
-	// Format pattern
-	Pattern *string `protobuf:"bytes,2,opt,name=pattern" json:"pattern,omitempty"`
-	// Timestamp format
-	TimestampFormat *string `protobuf:"bytes,3,opt,name=timestamp_format,json=timestampFormat" json:"timestamp_format,omitempty"`
-	// Additional formatter options
-	Options       map[string]string `protobuf:"bytes,4,rep,name=options" json:"options,omitempty" protobuf_key:"bytes,1,opt,name=key" protobuf_val:"bytes,2,opt,name=value"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *FormatterConfig) Reset() {
-	*x = FormatterConfig{}
-	mi := &file_pkg_log_proto_log_proto_msgTypes[25]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *FormatterConfig) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*FormatterConfig) ProtoMessage() {}
-
-func (x *FormatterConfig) ProtoReflect() protoreflect.Message {
-	mi := &file_pkg_log_proto_log_proto_msgTypes[25]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-func (x *FormatterConfig) GetType() FormatterType {
-	if x != nil && x.Type != nil {
-		return *x.Type
-	}
-	return FormatterType_FORMATTER_TYPE_UNSPECIFIED
-}
-
-func (x *FormatterConfig) GetPattern() string {
-	if x != nil && x.Pattern != nil {
-		return *x.Pattern
-	}
-	return ""
-}
-
-func (x *FormatterConfig) GetTimestampFormat() string {
-	if x != nil && x.TimestampFormat != nil {
-		return *x.TimestampFormat
-	}
-	return ""
-}
-
-func (x *FormatterConfig) GetOptions() map[string]string {
-	if x != nil {
-		return x.Options
-	}
-	return nil
-}
-
-func (x *FormatterConfig) SetType(v FormatterType) {
-	x.Type = &v
-}
-
-func (x *FormatterConfig) SetPattern(v string) {
-	x.Pattern = &v
-}
-
-func (x *FormatterConfig) SetTimestampFormat(v string) {
-	x.TimestampFormat = &v
-}
-
-func (x *FormatterConfig) SetOptions(v map[string]string) {
-	x.Options = v
-}
-
-func (x *FormatterConfig) HasType() bool {
-	if x == nil {
-		return false
-	}
-	return x.Type != nil
-}
-
-func (x *FormatterConfig) HasPattern() bool {
-	if x == nil {
-		return false
-	}
-	return x.Pattern != nil
-}
-
-func (x *FormatterConfig) HasTimestampFormat() bool {
-	if x == nil {
-		return false
-	}
-	return x.TimestampFormat != nil
-}
-
-func (x *FormatterConfig) ClearType() {
-	x.Type = nil
-}
-
-func (x *FormatterConfig) ClearPattern() {
-	x.Pattern = nil
-}
-
-func (x *FormatterConfig) ClearTimestampFormat() {
-	x.TimestampFormat = nil
-}
-
-type FormatterConfig_builder struct {
-	_ [0]func() // Prevents comparability and use of unkeyed literals for the builder.
-
-	// Formatter type
-	Type *FormatterType
-	// Format pattern
-	Pattern *string
-	// Timestamp format
-	TimestampFormat *string
-	// Additional formatter options
-	Options map[string]string
-}
-
-func (b0 FormatterConfig_builder) Build() *FormatterConfig {
-	m0 := &FormatterConfig{}
-	b, x := &b0, m0
-	_, _ = b, x
-	x.Type = b.Type
-	x.Pattern = b.Pattern
-	x.TimestampFormat = b.TimestampFormat
-	x.Options = b.Options
-	return m0
-}
-
-// Filter configuration
-type FilterConfig struct {
-	state protoimpl.MessageState `protogen:"hybrid.v1"`
-	// Filter type
-	Type *FilterType `protobuf:"varint,1,opt,name=type,enum=gcommon.v1.log.FilterType" json:"type,omitempty"`
-	// Filter criteria
-	Criteria      map[string]string `protobuf:"bytes,2,rep,name=criteria" json:"criteria,omitempty" protobuf_key:"bytes,1,opt,name=key" protobuf_val:"bytes,2,opt,name=value"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *FilterConfig) Reset() {
-	*x = FilterConfig{}
-	mi := &file_pkg_log_proto_log_proto_msgTypes[26]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *FilterConfig) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*FilterConfig) ProtoMessage() {}
-
-func (x *FilterConfig) ProtoReflect() protoreflect.Message {
-	mi := &file_pkg_log_proto_log_proto_msgTypes[26]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-func (x *FilterConfig) GetType() FilterType {
-	if x != nil && x.Type != nil {
-		return *x.Type
-	}
-	return FilterType_FILTER_TYPE_UNSPECIFIED
-}
-
-func (x *FilterConfig) GetCriteria() map[string]string {
-	if x != nil {
-		return x.Criteria
-	}
-	return nil
-}
-
-func (x *FilterConfig) SetType(v FilterType) {
-	x.Type = &v
-}
-
-func (x *FilterConfig) SetCriteria(v map[string]string) {
-	x.Criteria = v
-}
-
-func (x *FilterConfig) HasType() bool {
-	if x == nil {
-		return false
-	}
-	return x.Type != nil
-}
-
-func (x *FilterConfig) ClearType() {
-	x.Type = nil
-}
-
-type FilterConfig_builder struct {
-	_ [0]func() // Prevents comparability and use of unkeyed literals for the builder.
-
-	// Filter type
-	Type *FilterType
-	// Filter criteria
-	Criteria map[string]string
-}
-
-func (b0 FilterConfig_builder) Build() *FilterConfig {
-	m0 := &FilterConfig{}
-	b, x := &b0, m0
-	_, _ = b, x
-	x.Type = b.Type
-	x.Criteria = b.Criteria
 	return m0
 }
 
@@ -4416,7 +2931,7 @@ type CreateLoggerResponse struct {
 
 func (x *CreateLoggerResponse) Reset() {
 	*x = CreateLoggerResponse{}
-	mi := &file_pkg_log_proto_log_proto_msgTypes[27]
+	mi := &file_pkg_log_proto_log_proto_msgTypes[21]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -4428,7 +2943,7 @@ func (x *CreateLoggerResponse) String() string {
 func (*CreateLoggerResponse) ProtoMessage() {}
 
 func (x *CreateLoggerResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_pkg_log_proto_log_proto_msgTypes[27]
+	mi := &file_pkg_log_proto_log_proto_msgTypes[21]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -4543,7 +3058,7 @@ type UpdateLoggerRequest struct {
 
 func (x *UpdateLoggerRequest) Reset() {
 	*x = UpdateLoggerRequest{}
-	mi := &file_pkg_log_proto_log_proto_msgTypes[28]
+	mi := &file_pkg_log_proto_log_proto_msgTypes[22]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -4555,7 +3070,7 @@ func (x *UpdateLoggerRequest) String() string {
 func (*UpdateLoggerRequest) ProtoMessage() {}
 
 func (x *UpdateLoggerRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_pkg_log_proto_log_proto_msgTypes[28]
+	mi := &file_pkg_log_proto_log_proto_msgTypes[22]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -4693,7 +3208,7 @@ type UpdateLoggerResponse struct {
 
 func (x *UpdateLoggerResponse) Reset() {
 	*x = UpdateLoggerResponse{}
-	mi := &file_pkg_log_proto_log_proto_msgTypes[29]
+	mi := &file_pkg_log_proto_log_proto_msgTypes[23]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -4705,7 +3220,7 @@ func (x *UpdateLoggerResponse) String() string {
 func (*UpdateLoggerResponse) ProtoMessage() {}
 
 func (x *UpdateLoggerResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_pkg_log_proto_log_proto_msgTypes[29]
+	mi := &file_pkg_log_proto_log_proto_msgTypes[23]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -4818,7 +3333,7 @@ type DeleteLoggerRequest struct {
 
 func (x *DeleteLoggerRequest) Reset() {
 	*x = DeleteLoggerRequest{}
-	mi := &file_pkg_log_proto_log_proto_msgTypes[30]
+	mi := &file_pkg_log_proto_log_proto_msgTypes[24]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -4830,7 +3345,7 @@ func (x *DeleteLoggerRequest) String() string {
 func (*DeleteLoggerRequest) ProtoMessage() {}
 
 func (x *DeleteLoggerRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_pkg_log_proto_log_proto_msgTypes[30]
+	mi := &file_pkg_log_proto_log_proto_msgTypes[24]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -4945,7 +3460,7 @@ type ListLoggersRequest struct {
 
 func (x *ListLoggersRequest) Reset() {
 	*x = ListLoggersRequest{}
-	mi := &file_pkg_log_proto_log_proto_msgTypes[31]
+	mi := &file_pkg_log_proto_log_proto_msgTypes[25]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -4957,7 +3472,7 @@ func (x *ListLoggersRequest) String() string {
 func (*ListLoggersRequest) ProtoMessage() {}
 
 func (x *ListLoggersRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_pkg_log_proto_log_proto_msgTypes[31]
+	mi := &file_pkg_log_proto_log_proto_msgTypes[25]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -5084,7 +3599,7 @@ type ListLoggersResponse struct {
 
 func (x *ListLoggersResponse) Reset() {
 	*x = ListLoggersResponse{}
-	mi := &file_pkg_log_proto_log_proto_msgTypes[32]
+	mi := &file_pkg_log_proto_log_proto_msgTypes[26]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -5096,7 +3611,7 @@ func (x *ListLoggersResponse) String() string {
 func (*ListLoggersResponse) ProtoMessage() {}
 
 func (x *ListLoggersResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_pkg_log_proto_log_proto_msgTypes[32]
+	mi := &file_pkg_log_proto_log_proto_msgTypes[26]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -5197,10 +3712,6 @@ type LoggerInfo struct {
 	// Statistics
 	Stats *LogStatistics `protobuf:"bytes,5,opt,name=stats" json:"stats,omitempty"`
 	// Creation time
-	CreatedAt *timestamppb.Timestamp `protobuf:"bytes,6,opt,name=created_at,json=createdAt" json:"created_at,omitempty"`
-	// Last modified time
-	ModifiedAt *timestamppb.Timestamp `protobuf:"bytes,7,opt,name=modified_at,json=modifiedAt" json:"modified_at,omitempty"`
-	// Status
 	Status        *LoggerStatus `protobuf:"varint,8,opt,name=status,enum=gcommon.v1.log.LoggerStatus" json:"status,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
@@ -5208,7 +3719,7 @@ type LoggerInfo struct {
 
 func (x *LoggerInfo) Reset() {
 	*x = LoggerInfo{}
-	mi := &file_pkg_log_proto_log_proto_msgTypes[33]
+	mi := &file_pkg_log_proto_log_proto_msgTypes[27]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -5220,7 +3731,7 @@ func (x *LoggerInfo) String() string {
 func (*LoggerInfo) ProtoMessage() {}
 
 func (x *LoggerInfo) ProtoReflect() protoreflect.Message {
-	mi := &file_pkg_log_proto_log_proto_msgTypes[33]
+	mi := &file_pkg_log_proto_log_proto_msgTypes[27]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -5266,20 +3777,6 @@ func (x *LoggerInfo) GetStats() *LogStatistics {
 	return nil
 }
 
-func (x *LoggerInfo) GetCreatedAt() *timestamppb.Timestamp {
-	if x != nil {
-		return x.CreatedAt
-	}
-	return nil
-}
-
-func (x *LoggerInfo) GetModifiedAt() *timestamppb.Timestamp {
-	if x != nil {
-		return x.ModifiedAt
-	}
-	return nil
-}
-
 func (x *LoggerInfo) GetStatus() LoggerStatus {
 	if x != nil && x.Status != nil {
 		return *x.Status
@@ -5305,14 +3802,6 @@ func (x *LoggerInfo) SetChildren(v []string) {
 
 func (x *LoggerInfo) SetStats(v *LogStatistics) {
 	x.Stats = v
-}
-
-func (x *LoggerInfo) SetCreatedAt(v *timestamppb.Timestamp) {
-	x.CreatedAt = v
-}
-
-func (x *LoggerInfo) SetModifiedAt(v *timestamppb.Timestamp) {
-	x.ModifiedAt = v
 }
 
 func (x *LoggerInfo) SetStatus(v LoggerStatus) {
@@ -5347,20 +3836,6 @@ func (x *LoggerInfo) HasStats() bool {
 	return x.Stats != nil
 }
 
-func (x *LoggerInfo) HasCreatedAt() bool {
-	if x == nil {
-		return false
-	}
-	return x.CreatedAt != nil
-}
-
-func (x *LoggerInfo) HasModifiedAt() bool {
-	if x == nil {
-		return false
-	}
-	return x.ModifiedAt != nil
-}
-
 func (x *LoggerInfo) HasStatus() bool {
 	if x == nil {
 		return false
@@ -5384,14 +3859,6 @@ func (x *LoggerInfo) ClearStats() {
 	x.Stats = nil
 }
 
-func (x *LoggerInfo) ClearCreatedAt() {
-	x.CreatedAt = nil
-}
-
-func (x *LoggerInfo) ClearModifiedAt() {
-	x.ModifiedAt = nil
-}
-
 func (x *LoggerInfo) ClearStatus() {
 	x.Status = nil
 }
@@ -5410,10 +3877,6 @@ type LoggerInfo_builder struct {
 	// Statistics
 	Stats *LogStatistics
 	// Creation time
-	CreatedAt *timestamppb.Timestamp
-	// Last modified time
-	ModifiedAt *timestamppb.Timestamp
-	// Status
 	Status *LoggerStatus
 }
 
@@ -5426,8 +3889,6 @@ func (b0 LoggerInfo_builder) Build() *LoggerInfo {
 	x.Parent = b.Parent
 	x.Children = b.Children
 	x.Stats = b.Stats
-	x.CreatedAt = b.CreatedAt
-	x.ModifiedAt = b.ModifiedAt
 	x.Status = b.Status
 	return m0
 }
@@ -5445,7 +3906,7 @@ type ConfigureAppenderRequest struct {
 
 func (x *ConfigureAppenderRequest) Reset() {
 	*x = ConfigureAppenderRequest{}
-	mi := &file_pkg_log_proto_log_proto_msgTypes[34]
+	mi := &file_pkg_log_proto_log_proto_msgTypes[28]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -5457,7 +3918,7 @@ func (x *ConfigureAppenderRequest) String() string {
 func (*ConfigureAppenderRequest) ProtoMessage() {}
 
 func (x *ConfigureAppenderRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_pkg_log_proto_log_proto_msgTypes[34]
+	mi := &file_pkg_log_proto_log_proto_msgTypes[28]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -5545,7 +4006,7 @@ type ConfigureAppenderResponse struct {
 
 func (x *ConfigureAppenderResponse) Reset() {
 	*x = ConfigureAppenderResponse{}
-	mi := &file_pkg_log_proto_log_proto_msgTypes[35]
+	mi := &file_pkg_log_proto_log_proto_msgTypes[29]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -5557,7 +4018,7 @@ func (x *ConfigureAppenderResponse) String() string {
 func (*ConfigureAppenderResponse) ProtoMessage() {}
 
 func (x *ConfigureAppenderResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_pkg_log_proto_log_proto_msgTypes[35]
+	mi := &file_pkg_log_proto_log_proto_msgTypes[29]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -5670,7 +4131,7 @@ type RotateLogsRequest struct {
 
 func (x *RotateLogsRequest) Reset() {
 	*x = RotateLogsRequest{}
-	mi := &file_pkg_log_proto_log_proto_msgTypes[36]
+	mi := &file_pkg_log_proto_log_proto_msgTypes[30]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -5682,7 +4143,7 @@ func (x *RotateLogsRequest) String() string {
 func (*RotateLogsRequest) ProtoMessage() {}
 
 func (x *RotateLogsRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_pkg_log_proto_log_proto_msgTypes[36]
+	mi := &file_pkg_log_proto_log_proto_msgTypes[30]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -5795,7 +4256,7 @@ type RotateLogsResponse struct {
 
 func (x *RotateLogsResponse) Reset() {
 	*x = RotateLogsResponse{}
-	mi := &file_pkg_log_proto_log_proto_msgTypes[37]
+	mi := &file_pkg_log_proto_log_proto_msgTypes[31]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -5807,7 +4268,7 @@ func (x *RotateLogsResponse) String() string {
 func (*RotateLogsResponse) ProtoMessage() {}
 
 func (x *RotateLogsResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_pkg_log_proto_log_proto_msgTypes[37]
+	mi := &file_pkg_log_proto_log_proto_msgTypes[31]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -5911,7 +4372,7 @@ type ArchiveLogsRequest struct {
 
 func (x *ArchiveLogsRequest) Reset() {
 	*x = ArchiveLogsRequest{}
-	mi := &file_pkg_log_proto_log_proto_msgTypes[38]
+	mi := &file_pkg_log_proto_log_proto_msgTypes[32]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -5923,7 +4384,7 @@ func (x *ArchiveLogsRequest) String() string {
 func (*ArchiveLogsRequest) ProtoMessage() {}
 
 func (x *ArchiveLogsRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_pkg_log_proto_log_proto_msgTypes[38]
+	mi := &file_pkg_log_proto_log_proto_msgTypes[32]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -6053,18 +4514,13 @@ type ArchiveCriteria struct {
 	OlderThan *durationpb.Duration `protobuf:"bytes,1,opt,name=older_than,json=olderThan" json:"older_than,omitempty"`
 	// Size threshold
 	SizeThresholdBytes *int64 `protobuf:"varint,2,opt,name=size_threshold_bytes,json=sizeThresholdBytes" json:"size_threshold_bytes,omitempty"`
-	// Logger pattern
-	LoggerPattern *string `protobuf:"bytes,3,opt,name=logger_pattern,json=loggerPattern" json:"logger_pattern,omitempty"`
-	// Date range
-	StartTime     *timestamppb.Timestamp `protobuf:"bytes,4,opt,name=start_time,json=startTime" json:"start_time,omitempty"`
-	EndTime       *timestamppb.Timestamp `protobuf:"bytes,5,opt,name=end_time,json=endTime" json:"end_time,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
+	unknownFields      protoimpl.UnknownFields
+	sizeCache          protoimpl.SizeCache
 }
 
 func (x *ArchiveCriteria) Reset() {
 	*x = ArchiveCriteria{}
-	mi := &file_pkg_log_proto_log_proto_msgTypes[39]
+	mi := &file_pkg_log_proto_log_proto_msgTypes[33]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -6076,7 +4532,7 @@ func (x *ArchiveCriteria) String() string {
 func (*ArchiveCriteria) ProtoMessage() {}
 
 func (x *ArchiveCriteria) ProtoReflect() protoreflect.Message {
-	mi := &file_pkg_log_proto_log_proto_msgTypes[39]
+	mi := &file_pkg_log_proto_log_proto_msgTypes[33]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -6101,45 +4557,12 @@ func (x *ArchiveCriteria) GetSizeThresholdBytes() int64 {
 	return 0
 }
 
-func (x *ArchiveCriteria) GetLoggerPattern() string {
-	if x != nil && x.LoggerPattern != nil {
-		return *x.LoggerPattern
-	}
-	return ""
-}
-
-func (x *ArchiveCriteria) GetStartTime() *timestamppb.Timestamp {
-	if x != nil {
-		return x.StartTime
-	}
-	return nil
-}
-
-func (x *ArchiveCriteria) GetEndTime() *timestamppb.Timestamp {
-	if x != nil {
-		return x.EndTime
-	}
-	return nil
-}
-
 func (x *ArchiveCriteria) SetOlderThan(v *durationpb.Duration) {
 	x.OlderThan = v
 }
 
 func (x *ArchiveCriteria) SetSizeThresholdBytes(v int64) {
 	x.SizeThresholdBytes = &v
-}
-
-func (x *ArchiveCriteria) SetLoggerPattern(v string) {
-	x.LoggerPattern = &v
-}
-
-func (x *ArchiveCriteria) SetStartTime(v *timestamppb.Timestamp) {
-	x.StartTime = v
-}
-
-func (x *ArchiveCriteria) SetEndTime(v *timestamppb.Timestamp) {
-	x.EndTime = v
 }
 
 func (x *ArchiveCriteria) HasOlderThan() bool {
@@ -6156,45 +4579,12 @@ func (x *ArchiveCriteria) HasSizeThresholdBytes() bool {
 	return x.SizeThresholdBytes != nil
 }
 
-func (x *ArchiveCriteria) HasLoggerPattern() bool {
-	if x == nil {
-		return false
-	}
-	return x.LoggerPattern != nil
-}
-
-func (x *ArchiveCriteria) HasStartTime() bool {
-	if x == nil {
-		return false
-	}
-	return x.StartTime != nil
-}
-
-func (x *ArchiveCriteria) HasEndTime() bool {
-	if x == nil {
-		return false
-	}
-	return x.EndTime != nil
-}
-
 func (x *ArchiveCriteria) ClearOlderThan() {
 	x.OlderThan = nil
 }
 
 func (x *ArchiveCriteria) ClearSizeThresholdBytes() {
 	x.SizeThresholdBytes = nil
-}
-
-func (x *ArchiveCriteria) ClearLoggerPattern() {
-	x.LoggerPattern = nil
-}
-
-func (x *ArchiveCriteria) ClearStartTime() {
-	x.StartTime = nil
-}
-
-func (x *ArchiveCriteria) ClearEndTime() {
-	x.EndTime = nil
 }
 
 type ArchiveCriteria_builder struct {
@@ -6204,11 +4594,6 @@ type ArchiveCriteria_builder struct {
 	OlderThan *durationpb.Duration
 	// Size threshold
 	SizeThresholdBytes *int64
-	// Logger pattern
-	LoggerPattern *string
-	// Date range
-	StartTime *timestamppb.Timestamp
-	EndTime   *timestamppb.Timestamp
 }
 
 func (b0 ArchiveCriteria_builder) Build() *ArchiveCriteria {
@@ -6217,9 +4602,6 @@ func (b0 ArchiveCriteria_builder) Build() *ArchiveCriteria {
 	_, _ = b, x
 	x.OlderThan = b.OlderThan
 	x.SizeThresholdBytes = b.SizeThresholdBytes
-	x.LoggerPattern = b.LoggerPattern
-	x.StartTime = b.StartTime
-	x.EndTime = b.EndTime
 	return m0
 }
 
@@ -6240,7 +4622,7 @@ type ArchiveLogsResponse struct {
 
 func (x *ArchiveLogsResponse) Reset() {
 	*x = ArchiveLogsResponse{}
-	mi := &file_pkg_log_proto_log_proto_msgTypes[40]
+	mi := &file_pkg_log_proto_log_proto_msgTypes[34]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -6252,7 +4634,7 @@ func (x *ArchiveLogsResponse) String() string {
 func (*ArchiveLogsResponse) ProtoMessage() {}
 
 func (x *ArchiveLogsResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_pkg_log_proto_log_proto_msgTypes[40]
+	mi := &file_pkg_log_proto_log_proto_msgTypes[34]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -6375,11 +4757,169 @@ func (b0 ArchiveLogsResponse_builder) Build() *ArchiveLogsResponse {
 	return m0
 }
 
+// Output configuration
+type AppenderConfig_OutputConfig struct {
+	state protoimpl.MessageState `protogen:"hybrid.v1"`
+	// Output target (file path, network address, etc.)
+	Target *string `protobuf:"bytes,1,opt,name=target" json:"target,omitempty"`
+	// Additional output options
+	Options       map[string]string `protobuf:"bytes,2,rep,name=options" json:"options,omitempty" protobuf_key:"bytes,1,opt,name=key" protobuf_val:"bytes,2,opt,name=value"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *AppenderConfig_OutputConfig) Reset() {
+	*x = AppenderConfig_OutputConfig{}
+	mi := &file_pkg_log_proto_log_proto_msgTypes[40]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *AppenderConfig_OutputConfig) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*AppenderConfig_OutputConfig) ProtoMessage() {}
+
+func (x *AppenderConfig_OutputConfig) ProtoReflect() protoreflect.Message {
+	mi := &file_pkg_log_proto_log_proto_msgTypes[40]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+func (x *AppenderConfig_OutputConfig) GetTarget() string {
+	if x != nil && x.Target != nil {
+		return *x.Target
+	}
+	return ""
+}
+
+func (x *AppenderConfig_OutputConfig) GetOptions() map[string]string {
+	if x != nil {
+		return x.Options
+	}
+	return nil
+}
+
+func (x *AppenderConfig_OutputConfig) SetTarget(v string) {
+	x.Target = &v
+}
+
+func (x *AppenderConfig_OutputConfig) SetOptions(v map[string]string) {
+	x.Options = v
+}
+
+func (x *AppenderConfig_OutputConfig) HasTarget() bool {
+	if x == nil {
+		return false
+	}
+	return x.Target != nil
+}
+
+func (x *AppenderConfig_OutputConfig) ClearTarget() {
+	x.Target = nil
+}
+
+type AppenderConfig_OutputConfig_builder struct {
+	_ [0]func() // Prevents comparability and use of unkeyed literals for the builder.
+
+	// Output target (file path, network address, etc.)
+	Target *string
+	// Additional output options
+	Options map[string]string
+}
+
+func (b0 AppenderConfig_OutputConfig_builder) Build() *AppenderConfig_OutputConfig {
+	m0 := &AppenderConfig_OutputConfig{}
+	b, x := &b0, m0
+	_, _ = b, x
+	x.Target = b.Target
+	x.Options = b.Options
+	return m0
+}
+
+// Formatter configuration
+type AppenderConfig_FormatterConfig struct {
+	state protoimpl.MessageState `protogen:"hybrid.v1"`
+	// Formatter type
+	Type          *FormatterType `protobuf:"varint,1,opt,name=type,enum=gcommon.v1.log.FormatterType" json:"type,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *AppenderConfig_FormatterConfig) Reset() {
+	*x = AppenderConfig_FormatterConfig{}
+	mi := &file_pkg_log_proto_log_proto_msgTypes[41]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *AppenderConfig_FormatterConfig) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*AppenderConfig_FormatterConfig) ProtoMessage() {}
+
+func (x *AppenderConfig_FormatterConfig) ProtoReflect() protoreflect.Message {
+	mi := &file_pkg_log_proto_log_proto_msgTypes[41]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+func (x *AppenderConfig_FormatterConfig) GetType() FormatterType {
+	if x != nil && x.Type != nil {
+		return *x.Type
+	}
+	return FormatterType_FORMATTER_TYPE_UNSPECIFIED
+}
+
+func (x *AppenderConfig_FormatterConfig) SetType(v FormatterType) {
+	x.Type = &v
+}
+
+func (x *AppenderConfig_FormatterConfig) HasType() bool {
+	if x == nil {
+		return false
+	}
+	return x.Type != nil
+}
+
+func (x *AppenderConfig_FormatterConfig) ClearType() {
+	x.Type = nil
+}
+
+type AppenderConfig_FormatterConfig_builder struct {
+	_ [0]func() // Prevents comparability and use of unkeyed literals for the builder.
+
+	// Formatter type
+	Type *FormatterType
+}
+
+func (b0 AppenderConfig_FormatterConfig_builder) Build() *AppenderConfig_FormatterConfig {
+	m0 := &AppenderConfig_FormatterConfig{}
+	b, x := &b0, m0
+	_, _ = b, x
+	x.Type = b.Type
+	return m0
+}
+
 var File_pkg_log_proto_log_proto protoreflect.FileDescriptor
 
 const file_pkg_log_proto_log_proto_rawDesc = "" +
 	"\n" +
-	"\x17pkg/log/proto/log.proto\x12\x0egcommon.v1.log\x1a\x1dpkg/common/proto/common.proto\x1a\x1fgoogle/protobuf/timestamp.proto\x1a\x1egoogle/protobuf/duration.proto\x1a\x1bgoogle/protobuf/empty.proto\x1a\x19google/protobuf/any.proto\x1a google/protobuf/field_mask.proto\x1a!google/protobuf/go_features.proto\"\x94\x01\n" +
+	"\x17pkg/log/proto/log.proto\x12\x0egcommon.v1.log\x1a\x1dpkg/common/proto/common.proto\x1a\x1fgoogle/protobuf/timestamp.proto\x1a\x1egoogle/protobuf/duration.proto\x1a\x1bgoogle/protobuf/empty.proto\x1a\x19google/protobuf/any.proto\x1a google/protobuf/field_mask.proto\x1a!google/protobuf/go_features.proto\x1a&pkg/log/proto/messages/log_entry.proto\x1a,pkg/log/proto/messages/source_location.proto\x1a'pkg/log/proto/messages/error_info.proto\x1a#pkg/log/proto/enums/log_level.proto\x1a(pkg/log/proto/enums/log_sort_field.proto\x1a'pkg/log/proto/enums/appender_type.proto\x1a(pkg/log/proto/enums/formatter_type.proto\x1a%pkg/log/proto/enums/filter_type.proto\x1a'pkg/log/proto/enums/logger_status.proto\x1a*pkg/log/proto/enums/compression_type.proto\"\x94\x01\n" +
 	"\n" +
 	"LogRequest\x12.\n" +
 	"\x05entry\x18\x01 \x01(\v2\x18.gcommon.v1.log.LogEntryR\x05entry\x12\x16\n" +
@@ -6397,48 +4937,18 @@ const file_pkg_log_proto_log_proto_rawDesc = "" +
 	"\x0fBatchLogOptions\x12\x1b\n" +
 	"\tfail_fast\x18\x01 \x01(\bR\bfailFast\x12$\n" +
 	"\x0emax_batch_size\x18\x02 \x01(\x05R\fmaxBatchSize\x123\n" +
-	"\atimeout\x18\x03 \x01(\v2\x19.google.protobuf.DurationR\atimeout\"\xa9\x01\n" +
+	"\atimeout\x18\x03 \x01(\v2\x19.google.protobuf.DurationR\atimeout\"\x83\x02\n" +
 	"\x10LogBatchResponse\x12#\n" +
-	"\rsuccess_count\x18\x01 \x01(\x05R\fsuccessCount\x12#\n" +
-	"\rfailure_count\x18\x02 \x01(\x05R\ffailureCount\x12\x1b\n" +
-	"\tentry_ids\x18\x03 \x03(\tR\bentryIds\x12.\n" +
-	"\x05error\x18\x04 \x01(\v2\x18.gcommon.v1.common.ErrorR\x05error\"\xbf\x04\n" +
-	"\bLogEntry\x12.\n" +
-	"\x05level\x18\x01 \x01(\x0e2\x18.gcommon.v1.log.LogLevelR\x05level\x12\x18\n" +
-	"\amessage\x18\x02 \x01(\tR\amessage\x128\n" +
-	"\ttimestamp\x18\x03 \x01(\v2\x1a.google.protobuf.TimestampR\ttimestamp\x12\x16\n" +
-	"\x06logger\x18\x04 \x01(\tR\x06logger\x12\x16\n" +
-	"\x06thread\x18\x05 \x01(\tR\x06thread\x126\n" +
-	"\x06source\x18\x06 \x01(\v2\x1e.gcommon.v1.log.SourceLocationR\x06source\x12<\n" +
-	"\x06fields\x18\a \x03(\v2$.gcommon.v1.log.LogEntry.FieldsEntryR\x06fields\x12\x12\n" +
-	"\x04tags\x18\b \x03(\tR\x04tags\x12\x19\n" +
-	"\btrace_id\x18\t \x01(\tR\atraceId\x12\x17\n" +
-	"\aspan_id\x18\n" +
-	" \x01(\tR\x06spanId\x12\x17\n" +
-	"\auser_id\x18\v \x01(\tR\x06userId\x12\x1d\n" +
-	"\n" +
-	"request_id\x18\f \x01(\tR\trequestId\x128\n" +
-	"\n" +
-	"error_info\x18\r \x01(\v2\x19.gcommon.v1.log.ErrorInfoR\terrorInfo\x1aO\n" +
-	"\vFieldsEntry\x12\x10\n" +
-	"\x03key\x18\x01 \x01(\tR\x03key\x12*\n" +
-	"\x05value\x18\x02 \x01(\v2\x14.google.protobuf.AnyR\x05value:\x028\x01\"n\n" +
-	"\x0eSourceLocation\x12\x12\n" +
-	"\x04file\x18\x01 \x01(\tR\x04file\x12\x12\n" +
-	"\x04line\x18\x02 \x01(\x05R\x04line\x12\x1a\n" +
-	"\bfunction\x18\x03 \x01(\tR\bfunction\x12\x18\n" +
-	"\apackage\x18\x04 \x01(\tR\apackage\"\x9f\x02\n" +
-	"\tErrorInfo\x12\x18\n" +
-	"\amessage\x18\x01 \x01(\tR\amessage\x12\x12\n" +
-	"\x04type\x18\x02 \x01(\tR\x04type\x12\x1f\n" +
-	"\vstack_trace\x18\x03 \x01(\tR\n" +
-	"stackTrace\x12\x12\n" +
-	"\x04code\x18\x04 \x01(\tR\x04code\x12@\n" +
-	"\acontext\x18\x05 \x03(\v2&.gcommon.v1.log.ErrorInfo.ContextEntryR\acontext\x121\n" +
+	"\rsuccess_count\x18\x01 \x01(\x05R\fsuccessCount\x12\x12\n" +
+	"\x04code\x18\x04 \x01(\tR\x04code\x12G\n" +
+	"\acontext\x18\x05 \x03(\v2-.gcommon.v1.log.LogBatchResponse.ContextEntryR\acontext\x121\n" +
 	"\x06causes\x18\x06 \x03(\v2\x19.gcommon.v1.log.ErrorInfoR\x06causes\x1a:\n" +
 	"\fContextEntry\x12\x10\n" +
 	"\x03key\x18\x01 \x01(\tR\x03key\x12\x14\n" +
-	"\x05value\x18\x02 \x01(\tR\x05value:\x028\x01\"\xf0\x01\n" +
+	"\x05value\x18\x02 \x01(\tR\x05value:\x028\x01\"[\n" +
+	"\aLogSort\x122\n" +
+	"\x05field\x18\x01 \x01(\x0e2\x1c.gcommon.v1.log.LogSortFieldR\x05field\x12\x1c\n" +
+	"\tascending\x18\x02 \x01(\bR\tascending\"\xf0\x01\n" +
 	"\x0fQueryLogRequest\x121\n" +
 	"\x06filter\x18\x01 \x01(\v2\x19.gcommon.v1.log.LogFilterR\x06filter\x12=\n" +
 	"\n" +
@@ -6463,10 +4973,7 @@ const file_pkg_log_proto_log_proto_rawDesc = "" +
 	"\x05value\x18\x02 \x01(\tR\x05value:\x028\x01\"k\n" +
 	"\tTimeRange\x120\n" +
 	"\x05start\x18\x01 \x01(\v2\x1a.google.protobuf.TimestampR\x05start\x12,\n" +
-	"\x03end\x18\x02 \x01(\v2\x1a.google.protobuf.TimestampR\x03end\"}\n" +
-	"\aLogSort\x122\n" +
-	"\x05field\x18\x01 \x01(\x0e2\x1c.gcommon.v1.log.LogSortFieldR\x05field\x12>\n" +
-	"\tdirection\x18\x02 \x01(\x0e2 .gcommon.v1.common.SortDirectionR\tdirection\"\xd6\x01\n" +
+	"\x03end\x18\x02 \x01(\v2\x1a.google.protobuf.TimestampR\x03end\"\xd6\x01\n" +
 	"\x10QueryLogResponse\x122\n" +
 	"\aentries\x18\x01 \x03(\v2\x18.gcommon.v1.log.LogEntryR\aentries\x12=\n" +
 	"\n" +
@@ -6537,33 +5044,18 @@ const file_pkg_log_proto_log_proto_rawDesc = "" +
 	"properties\x1a=\n" +
 	"\x0fPropertiesEntry\x12\x10\n" +
 	"\x03key\x18\x01 \x01(\tR\x03key\x12\x14\n" +
-	"\x05value\x18\x02 \x01(\tR\x05value:\x028\x01\"\x81\x02\n" +
+	"\x05value\x18\x02 \x01(\tR\x05value:\x028\x01\"\xd5\x02\n" +
 	"\x0eAppenderConfig\x12\x12\n" +
 	"\x04name\x18\x01 \x01(\tR\x04name\x120\n" +
-	"\x04type\x18\x02 \x01(\x0e2\x1c.gcommon.v1.log.AppenderTypeR\x04type\x124\n" +
-	"\x06output\x18\x03 \x01(\v2\x1c.gcommon.v1.log.OutputConfigR\x06output\x12=\n" +
-	"\tformatter\x18\x04 \x01(\v2\x1f.gcommon.v1.log.FormatterConfigR\tformatter\x124\n" +
-	"\x06filter\x18\x05 \x01(\v2\x1c.gcommon.v1.log.FilterConfigR\x06filter\"\xa7\x01\n" +
+	"\x04type\x18\x02 \x01(\x0e2\x1c.gcommon.v1.log.AppenderTypeR\x04type\x1a\xb6\x01\n" +
 	"\fOutputConfig\x12\x16\n" +
-	"\x06target\x18\x01 \x01(\tR\x06target\x12C\n" +
-	"\aoptions\x18\x02 \x03(\v2).gcommon.v1.log.OutputConfig.OptionsEntryR\aoptions\x1a:\n" +
+	"\x06target\x18\x01 \x01(\tR\x06target\x12R\n" +
+	"\aoptions\x18\x02 \x03(\v28.gcommon.v1.log.AppenderConfig.OutputConfig.OptionsEntryR\aoptions\x1a:\n" +
 	"\fOptionsEntry\x12\x10\n" +
 	"\x03key\x18\x01 \x01(\tR\x03key\x12\x14\n" +
-	"\x05value\x18\x02 \x01(\tR\x05value:\x028\x01\"\x8d\x02\n" +
+	"\x05value\x18\x02 \x01(\tR\x05value:\x028\x01\x1aD\n" +
 	"\x0fFormatterConfig\x121\n" +
-	"\x04type\x18\x01 \x01(\x0e2\x1d.gcommon.v1.log.FormatterTypeR\x04type\x12\x18\n" +
-	"\apattern\x18\x02 \x01(\tR\apattern\x12)\n" +
-	"\x10timestamp_format\x18\x03 \x01(\tR\x0ftimestampFormat\x12F\n" +
-	"\aoptions\x18\x04 \x03(\v2,.gcommon.v1.log.FormatterConfig.OptionsEntryR\aoptions\x1a:\n" +
-	"\fOptionsEntry\x12\x10\n" +
-	"\x03key\x18\x01 \x01(\tR\x03key\x12\x14\n" +
-	"\x05value\x18\x02 \x01(\tR\x05value:\x028\x01\"\xc3\x01\n" +
-	"\fFilterConfig\x12.\n" +
-	"\x04type\x18\x01 \x01(\x0e2\x1a.gcommon.v1.log.FilterTypeR\x04type\x12F\n" +
-	"\bcriteria\x18\x02 \x03(\v2*.gcommon.v1.log.FilterConfig.CriteriaEntryR\bcriteria\x1a;\n" +
-	"\rCriteriaEntry\x12\x10\n" +
-	"\x03key\x18\x01 \x01(\tR\x03key\x12\x14\n" +
-	"\x05value\x18\x02 \x01(\tR\x05value:\x028\x01\"t\n" +
+	"\x04type\x18\x01 \x01(\x0e2\x1d.gcommon.v1.log.FormatterTypeR\x04type\"t\n" +
 	"\x14CreateLoggerResponse\x12\x12\n" +
 	"\x04name\x18\x01 \x01(\tR\x04name\x12\x18\n" +
 	"\asuccess\x18\x02 \x01(\bR\asuccess\x12.\n" +
@@ -6594,18 +5086,14 @@ const file_pkg_log_proto_log_proto_rawDesc = "" +
 	"\n" +
 	"pagination\x18\x02 \x01(\v2\x1d.gcommon.v1.common.PaginationR\n" +
 	"pagination\x12.\n" +
-	"\x05error\x18\x03 \x01(\v2\x18.gcommon.v1.common.ErrorR\x05error\"\xed\x02\n" +
+	"\x05error\x18\x03 \x01(\v2\x18.gcommon.v1.common.ErrorR\x05error\"\xf5\x01\n" +
 	"\n" +
 	"LoggerInfo\x12\x12\n" +
 	"\x04name\x18\x01 \x01(\tR\x04name\x124\n" +
 	"\x06config\x18\x02 \x01(\v2\x1c.gcommon.v1.log.LoggerConfigR\x06config\x12\x16\n" +
 	"\x06parent\x18\x03 \x01(\tR\x06parent\x12\x1a\n" +
 	"\bchildren\x18\x04 \x03(\tR\bchildren\x123\n" +
-	"\x05stats\x18\x05 \x01(\v2\x1d.gcommon.v1.log.LogStatisticsR\x05stats\x129\n" +
-	"\n" +
-	"created_at\x18\x06 \x01(\v2\x1a.google.protobuf.TimestampR\tcreatedAt\x12;\n" +
-	"\vmodified_at\x18\a \x01(\v2\x1a.google.protobuf.TimestampR\n" +
-	"modifiedAt\x124\n" +
+	"\x05stats\x18\x05 \x01(\v2\x1d.gcommon.v1.log.LogStatisticsR\x05stats\x124\n" +
 	"\x06status\x18\b \x01(\x0e2\x1c.gcommon.v1.log.LoggerStatusR\x06status\"\x92\x01\n" +
 	"\x18ConfigureAppenderRequest\x126\n" +
 	"\x06config\x18\x01 \x01(\v2\x1e.gcommon.v1.log.AppenderConfigR\x06config\x12>\n" +
@@ -6626,67 +5114,16 @@ const file_pkg_log_proto_log_proto_rawDesc = "" +
 	"\bcriteria\x18\x01 \x01(\v2\x1f.gcommon.v1.log.ArchiveCriteriaR\bcriteria\x12 \n" +
 	"\vdestination\x18\x02 \x01(\tR\vdestination\x12A\n" +
 	"\vcompression\x18\x03 \x01(\x0e2\x1f.gcommon.v1.log.CompressionTypeR\vcompression\x12>\n" +
-	"\bmetadata\x18\x04 \x01(\v2\".gcommon.v1.common.RequestMetadataR\bmetadata\"\x96\x02\n" +
+	"\bmetadata\x18\x04 \x01(\v2\".gcommon.v1.common.RequestMetadataR\bmetadata\"}\n" +
 	"\x0fArchiveCriteria\x128\n" +
 	"\n" +
 	"older_than\x18\x01 \x01(\v2\x19.google.protobuf.DurationR\tolderThan\x120\n" +
-	"\x14size_threshold_bytes\x18\x02 \x01(\x03R\x12sizeThresholdBytes\x12%\n" +
-	"\x0elogger_pattern\x18\x03 \x01(\tR\rloggerPattern\x129\n" +
-	"\n" +
-	"start_time\x18\x04 \x01(\v2\x1a.google.protobuf.TimestampR\tstartTime\x125\n" +
-	"\bend_time\x18\x05 \x01(\v2\x1a.google.protobuf.TimestampR\aendTime\"\xb2\x01\n" +
+	"\x14size_threshold_bytes\x18\x02 \x01(\x03R\x12sizeThresholdBytes\"\xb2\x01\n" +
 	"\x13ArchiveLogsResponse\x12%\n" +
 	"\x0earchived_count\x18\x01 \x01(\x05R\rarchivedCount\x12!\n" +
 	"\farchive_path\x18\x02 \x01(\tR\varchivePath\x12!\n" +
 	"\farchive_size\x18\x03 \x01(\x03R\varchiveSize\x12.\n" +
-	"\x05error\x18\x04 \x01(\v2\x18.gcommon.v1.common.ErrorR\x05error*\xa1\x01\n" +
-	"\bLogLevel\x12\x19\n" +
-	"\x15LOG_LEVEL_UNSPECIFIED\x10\x00\x12\x13\n" +
-	"\x0fLOG_LEVEL_TRACE\x10\x01\x12\x13\n" +
-	"\x0fLOG_LEVEL_DEBUG\x10\x02\x12\x12\n" +
-	"\x0eLOG_LEVEL_INFO\x10\x03\x12\x12\n" +
-	"\x0eLOG_LEVEL_WARN\x10\x04\x12\x13\n" +
-	"\x0fLOG_LEVEL_ERROR\x10\x05\x12\x13\n" +
-	"\x0fLOG_LEVEL_FATAL\x10\x06*\x9d\x01\n" +
-	"\fLogSortField\x12\x1e\n" +
-	"\x1aLOG_SORT_FIELD_UNSPECIFIED\x10\x00\x12\x1c\n" +
-	"\x18LOG_SORT_FIELD_TIMESTAMP\x10\x01\x12\x18\n" +
-	"\x14LOG_SORT_FIELD_LEVEL\x10\x02\x12\x19\n" +
-	"\x15LOG_SORT_FIELD_LOGGER\x10\x03\x12\x1a\n" +
-	"\x16LOG_SORT_FIELD_MESSAGE\x10\x04*\xd1\x01\n" +
-	"\fAppenderType\x12\x1d\n" +
-	"\x19APPENDER_TYPE_UNSPECIFIED\x10\x00\x12\x19\n" +
-	"\x15APPENDER_TYPE_CONSOLE\x10\x01\x12\x16\n" +
-	"\x12APPENDER_TYPE_FILE\x10\x02\x12\x1e\n" +
-	"\x1aAPPENDER_TYPE_ROLLING_FILE\x10\x03\x12\x18\n" +
-	"\x14APPENDER_TYPE_SYSLOG\x10\x04\x12\x19\n" +
-	"\x15APPENDER_TYPE_NETWORK\x10\x05\x12\x1a\n" +
-	"\x16APPENDER_TYPE_DATABASE\x10\x06*\x94\x01\n" +
-	"\rFormatterType\x12\x1e\n" +
-	"\x1aFORMATTER_TYPE_UNSPECIFIED\x10\x00\x12\x17\n" +
-	"\x13FORMATTER_TYPE_TEXT\x10\x01\x12\x17\n" +
-	"\x13FORMATTER_TYPE_JSON\x10\x02\x12\x16\n" +
-	"\x12FORMATTER_TYPE_XML\x10\x03\x12\x19\n" +
-	"\x15FORMATTER_TYPE_CUSTOM\x10\x04*\x88\x01\n" +
-	"\n" +
-	"FilterType\x12\x1b\n" +
-	"\x17FILTER_TYPE_UNSPECIFIED\x10\x00\x12\x15\n" +
-	"\x11FILTER_TYPE_LEVEL\x10\x01\x12\x16\n" +
-	"\x12FILTER_TYPE_LOGGER\x10\x02\x12\x17\n" +
-	"\x13FILTER_TYPE_MESSAGE\x10\x03\x12\x15\n" +
-	"\x11FILTER_TYPE_FIELD\x10\x04*|\n" +
-	"\fLoggerStatus\x12\x1d\n" +
-	"\x19LOGGER_STATUS_UNSPECIFIED\x10\x00\x12\x18\n" +
-	"\x14LOGGER_STATUS_ACTIVE\x10\x01\x12\x1a\n" +
-	"\x16LOGGER_STATUS_INACTIVE\x10\x02\x12\x17\n" +
-	"\x13LOGGER_STATUS_ERROR\x10\x03*\xbc\x01\n" +
-	"\x0fCompressionType\x12 \n" +
-	"\x1cCOMPRESSION_TYPE_UNSPECIFIED\x10\x00\x12\x19\n" +
-	"\x15COMPRESSION_TYPE_NONE\x10\x01\x12\x19\n" +
-	"\x15COMPRESSION_TYPE_GZIP\x10\x02\x12\x18\n" +
-	"\x14COMPRESSION_TYPE_ZIP\x10\x03\x12\x1a\n" +
-	"\x16COMPRESSION_TYPE_BZIP2\x10\x04\x12\x1b\n" +
-	"\x17COMPRESSION_TYPE_TAR_GZ\x10\x052\xb7\x04\n" +
+	"\x05error\x18\x04 \x01(\v2\x18.gcommon.v1.common.ErrorR\x05error2\xb7\x04\n" +
 	"\n" +
 	"LogService\x12>\n" +
 	"\x03Log\x12\x1a.gcommon.v1.log.LogRequest\x1a\x1b.gcommon.v1.log.LogResponse\x12M\n" +
@@ -6695,212 +5132,179 @@ const file_pkg_log_proto_log_proto_rawDesc = "" +
 	"\x06Stream\x12 .gcommon.v1.log.StreamLogRequest\x1a\x18.gcommon.v1.log.LogEntry0\x01\x12V\n" +
 	"\vGetLogLevel\x12\".gcommon.v1.log.GetLogLevelRequest\x1a#.gcommon.v1.log.GetLogLevelResponse\x12V\n" +
 	"\vSetLogLevel\x12\".gcommon.v1.log.SetLogLevelRequest\x1a#.gcommon.v1.log.SetLogLevelResponse\x12V\n" +
-	"\vGetLogStats\x12\".gcommon.v1.log.GetLogStatsRequest\x1a#.gcommon.v1.log.GetLogStatsResponse2\x83\x05\n" +
+	"\vGetLogStats\x12\".gcommon.v1.log.GetLogStatsRequest\x1a#.gcommon.v1.log.GetLogStatsResponse2\xd6\x03\n" +
 	"\x0fLogAdminService\x12Y\n" +
 	"\fCreateLogger\x12#.gcommon.v1.log.CreateLoggerRequest\x1a$.gcommon.v1.log.CreateLoggerResponse\x12Y\n" +
 	"\fUpdateLogger\x12#.gcommon.v1.log.UpdateLoggerRequest\x1a$.gcommon.v1.log.UpdateLoggerResponse\x12K\n" +
 	"\fDeleteLogger\x12#.gcommon.v1.log.DeleteLoggerRequest\x1a\x16.google.protobuf.Empty\x12V\n" +
 	"\vListLoggers\x12\".gcommon.v1.log.ListLoggersRequest\x1a#.gcommon.v1.log.ListLoggersResponse\x12h\n" +
-	"\x11ConfigureAppender\x12(.gcommon.v1.log.ConfigureAppenderRequest\x1a).gcommon.v1.log.ConfigureAppenderResponse\x12S\n" +
-	"\n" +
-	"RotateLogs\x12!.gcommon.v1.log.RotateLogsRequest\x1a\".gcommon.v1.log.RotateLogsResponse\x12V\n" +
-	"\vArchiveLogs\x12\".gcommon.v1.log.ArchiveLogsRequest\x1a#.gcommon.v1.log.ArchiveLogsResponseB\xaf\x01\n" +
-	"\x12com.gcommon.v1.logB\bLogProtoP\x01Z-github.com/jdfalk/gcommon/pkg/log/proto;logpb\xa2\x02\x03GVL\xaa\x02\x0eGcommon.V1.Log\xca\x02\x0eGcommon\\V1\\Log\xe2\x02\x1aGcommon\\V1\\Log\\GPBMetadata\xea\x02\x10Gcommon::V1::Log\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
+	"\x11ConfigureAppender\x12(.gcommon.v1.log.ConfigureAppenderRequest\x1a).gcommon.v1.log.ConfigureAppenderResponseB\xaf\x01\n" +
+	"\x12com.gcommon.v1.logB\bLogProtoP\x01Z-github.com/jdfalk/gcommon/pkg/log/proto;logpb\xa2\x02\x03GVL\xaa\x02\x0eGcommon.V1.Log\xca\x02\x0eGcommon\\V1\\Log\xe2\x02\x1aGcommon\\V1\\Log\\GPBMetadata\xea\x02\x10Gcommon::V1::Log\x92\x03\x05\xd2>\x02\x10\x02P\aP\bP\tP\n" +
+	"P\vP\fP\rP\x0eP\x0fP\x10b\beditionsp\xe8\a"
 
-var file_pkg_log_proto_log_proto_enumTypes = make([]protoimpl.EnumInfo, 7)
-var file_pkg_log_proto_log_proto_msgTypes = make([]protoimpl.MessageInfo, 50)
+var file_pkg_log_proto_log_proto_msgTypes = make([]protoimpl.MessageInfo, 43)
 var file_pkg_log_proto_log_proto_goTypes = []any{
-	(LogLevel)(0),                     // 0: gcommon.v1.log.LogLevel
-	(LogSortField)(0),                 // 1: gcommon.v1.log.LogSortField
-	(AppenderType)(0),                 // 2: gcommon.v1.log.AppenderType
-	(FormatterType)(0),                // 3: gcommon.v1.log.FormatterType
-	(FilterType)(0),                   // 4: gcommon.v1.log.FilterType
-	(LoggerStatus)(0),                 // 5: gcommon.v1.log.LoggerStatus
-	(CompressionType)(0),              // 6: gcommon.v1.log.CompressionType
-	(*LogRequest)(nil),                // 7: gcommon.v1.log.LogRequest
-	(*LogResponse)(nil),               // 8: gcommon.v1.log.LogResponse
-	(*LogBatchRequest)(nil),           // 9: gcommon.v1.log.LogBatchRequest
-	(*BatchLogOptions)(nil),           // 10: gcommon.v1.log.BatchLogOptions
-	(*LogBatchResponse)(nil),          // 11: gcommon.v1.log.LogBatchResponse
-	(*LogEntry)(nil),                  // 12: gcommon.v1.log.LogEntry
-	(*SourceLocation)(nil),            // 13: gcommon.v1.log.SourceLocation
-	(*ErrorInfo)(nil),                 // 14: gcommon.v1.log.ErrorInfo
-	(*QueryLogRequest)(nil),           // 15: gcommon.v1.log.QueryLogRequest
-	(*LogFilter)(nil),                 // 16: gcommon.v1.log.LogFilter
-	(*TimeRange)(nil),                 // 17: gcommon.v1.log.TimeRange
-	(*LogSort)(nil),                   // 18: gcommon.v1.log.LogSort
-	(*QueryLogResponse)(nil),          // 19: gcommon.v1.log.QueryLogResponse
-	(*StreamLogRequest)(nil),          // 20: gcommon.v1.log.StreamLogRequest
-	(*GetLogLevelRequest)(nil),        // 21: gcommon.v1.log.GetLogLevelRequest
-	(*GetLogLevelResponse)(nil),       // 22: gcommon.v1.log.GetLogLevelResponse
-	(*SetLogLevelRequest)(nil),        // 23: gcommon.v1.log.SetLogLevelRequest
-	(*SetLogLevelResponse)(nil),       // 24: gcommon.v1.log.SetLogLevelResponse
-	(*GetLogStatsRequest)(nil),        // 25: gcommon.v1.log.GetLogStatsRequest
-	(*GetLogStatsResponse)(nil),       // 26: gcommon.v1.log.GetLogStatsResponse
-	(*LogStatistics)(nil),             // 27: gcommon.v1.log.LogStatistics
-	(*CreateLoggerRequest)(nil),       // 28: gcommon.v1.log.CreateLoggerRequest
-	(*LoggerConfig)(nil),              // 29: gcommon.v1.log.LoggerConfig
-	(*AppenderConfig)(nil),            // 30: gcommon.v1.log.AppenderConfig
-	(*OutputConfig)(nil),              // 31: gcommon.v1.log.OutputConfig
-	(*FormatterConfig)(nil),           // 32: gcommon.v1.log.FormatterConfig
-	(*FilterConfig)(nil),              // 33: gcommon.v1.log.FilterConfig
-	(*CreateLoggerResponse)(nil),      // 34: gcommon.v1.log.CreateLoggerResponse
-	(*UpdateLoggerRequest)(nil),       // 35: gcommon.v1.log.UpdateLoggerRequest
-	(*UpdateLoggerResponse)(nil),      // 36: gcommon.v1.log.UpdateLoggerResponse
-	(*DeleteLoggerRequest)(nil),       // 37: gcommon.v1.log.DeleteLoggerRequest
-	(*ListLoggersRequest)(nil),        // 38: gcommon.v1.log.ListLoggersRequest
-	(*ListLoggersResponse)(nil),       // 39: gcommon.v1.log.ListLoggersResponse
-	(*LoggerInfo)(nil),                // 40: gcommon.v1.log.LoggerInfo
-	(*ConfigureAppenderRequest)(nil),  // 41: gcommon.v1.log.ConfigureAppenderRequest
-	(*ConfigureAppenderResponse)(nil), // 42: gcommon.v1.log.ConfigureAppenderResponse
-	(*RotateLogsRequest)(nil),         // 43: gcommon.v1.log.RotateLogsRequest
-	(*RotateLogsResponse)(nil),        // 44: gcommon.v1.log.RotateLogsResponse
-	(*ArchiveLogsRequest)(nil),        // 45: gcommon.v1.log.ArchiveLogsRequest
-	(*ArchiveCriteria)(nil),           // 46: gcommon.v1.log.ArchiveCriteria
-	(*ArchiveLogsResponse)(nil),       // 47: gcommon.v1.log.ArchiveLogsResponse
-	nil,                               // 48: gcommon.v1.log.LogEntry.FieldsEntry
-	nil,                               // 49: gcommon.v1.log.ErrorInfo.ContextEntry
-	nil,                               // 50: gcommon.v1.log.LogFilter.FieldFiltersEntry
-	nil,                               // 51: gcommon.v1.log.GetLogStatsResponse.LevelCountsEntry
-	nil,                               // 52: gcommon.v1.log.GetLogStatsResponse.LoggerStatsEntry
-	nil,                               // 53: gcommon.v1.log.LoggerConfig.PropertiesEntry
-	nil,                               // 54: gcommon.v1.log.OutputConfig.OptionsEntry
-	nil,                               // 55: gcommon.v1.log.FormatterConfig.OptionsEntry
-	nil,                               // 56: gcommon.v1.log.FilterConfig.CriteriaEntry
-	(*proto.RequestMetadata)(nil),     // 57: gcommon.v1.common.RequestMetadata
-	(*proto.Error)(nil),               // 58: gcommon.v1.common.Error
-	(*durationpb.Duration)(nil),       // 59: google.protobuf.Duration
-	(*timestamppb.Timestamp)(nil),     // 60: google.protobuf.Timestamp
-	(*proto.Pagination)(nil),          // 61: gcommon.v1.common.Pagination
-	(proto.SortDirection)(0),          // 62: gcommon.v1.common.SortDirection
-	(*fieldmaskpb.FieldMask)(nil),     // 63: google.protobuf.FieldMask
-	(*anypb.Any)(nil),                 // 64: google.protobuf.Any
-	(*emptypb.Empty)(nil),             // 65: google.protobuf.Empty
+	(*LogRequest)(nil),                     // 0: gcommon.v1.log.LogRequest
+	(*LogResponse)(nil),                    // 1: gcommon.v1.log.LogResponse
+	(*LogBatchRequest)(nil),                // 2: gcommon.v1.log.LogBatchRequest
+	(*BatchLogOptions)(nil),                // 3: gcommon.v1.log.BatchLogOptions
+	(*LogBatchResponse)(nil),               // 4: gcommon.v1.log.LogBatchResponse
+	(*LogSort)(nil),                        // 5: gcommon.v1.log.LogSort
+	(*QueryLogRequest)(nil),                // 6: gcommon.v1.log.QueryLogRequest
+	(*LogFilter)(nil),                      // 7: gcommon.v1.log.LogFilter
+	(*TimeRange)(nil),                      // 8: gcommon.v1.log.TimeRange
+	(*QueryLogResponse)(nil),               // 9: gcommon.v1.log.QueryLogResponse
+	(*StreamLogRequest)(nil),               // 10: gcommon.v1.log.StreamLogRequest
+	(*GetLogLevelRequest)(nil),             // 11: gcommon.v1.log.GetLogLevelRequest
+	(*GetLogLevelResponse)(nil),            // 12: gcommon.v1.log.GetLogLevelResponse
+	(*SetLogLevelRequest)(nil),             // 13: gcommon.v1.log.SetLogLevelRequest
+	(*SetLogLevelResponse)(nil),            // 14: gcommon.v1.log.SetLogLevelResponse
+	(*GetLogStatsRequest)(nil),             // 15: gcommon.v1.log.GetLogStatsRequest
+	(*GetLogStatsResponse)(nil),            // 16: gcommon.v1.log.GetLogStatsResponse
+	(*LogStatistics)(nil),                  // 17: gcommon.v1.log.LogStatistics
+	(*CreateLoggerRequest)(nil),            // 18: gcommon.v1.log.CreateLoggerRequest
+	(*LoggerConfig)(nil),                   // 19: gcommon.v1.log.LoggerConfig
+	(*AppenderConfig)(nil),                 // 20: gcommon.v1.log.AppenderConfig
+	(*CreateLoggerResponse)(nil),           // 21: gcommon.v1.log.CreateLoggerResponse
+	(*UpdateLoggerRequest)(nil),            // 22: gcommon.v1.log.UpdateLoggerRequest
+	(*UpdateLoggerResponse)(nil),           // 23: gcommon.v1.log.UpdateLoggerResponse
+	(*DeleteLoggerRequest)(nil),            // 24: gcommon.v1.log.DeleteLoggerRequest
+	(*ListLoggersRequest)(nil),             // 25: gcommon.v1.log.ListLoggersRequest
+	(*ListLoggersResponse)(nil),            // 26: gcommon.v1.log.ListLoggersResponse
+	(*LoggerInfo)(nil),                     // 27: gcommon.v1.log.LoggerInfo
+	(*ConfigureAppenderRequest)(nil),       // 28: gcommon.v1.log.ConfigureAppenderRequest
+	(*ConfigureAppenderResponse)(nil),      // 29: gcommon.v1.log.ConfigureAppenderResponse
+	(*RotateLogsRequest)(nil),              // 30: gcommon.v1.log.RotateLogsRequest
+	(*RotateLogsResponse)(nil),             // 31: gcommon.v1.log.RotateLogsResponse
+	(*ArchiveLogsRequest)(nil),             // 32: gcommon.v1.log.ArchiveLogsRequest
+	(*ArchiveCriteria)(nil),                // 33: gcommon.v1.log.ArchiveCriteria
+	(*ArchiveLogsResponse)(nil),            // 34: gcommon.v1.log.ArchiveLogsResponse
+	nil,                                    // 35: gcommon.v1.log.LogBatchResponse.ContextEntry
+	nil,                                    // 36: gcommon.v1.log.LogFilter.FieldFiltersEntry
+	nil,                                    // 37: gcommon.v1.log.GetLogStatsResponse.LevelCountsEntry
+	nil,                                    // 38: gcommon.v1.log.GetLogStatsResponse.LoggerStatsEntry
+	nil,                                    // 39: gcommon.v1.log.LoggerConfig.PropertiesEntry
+	(*AppenderConfig_OutputConfig)(nil),    // 40: gcommon.v1.log.AppenderConfig.OutputConfig
+	(*AppenderConfig_FormatterConfig)(nil), // 41: gcommon.v1.log.AppenderConfig.FormatterConfig
+	nil,                                    // 42: gcommon.v1.log.AppenderConfig.OutputConfig.OptionsEntry
+	(*LogEntry)(nil),                       // 43: gcommon.v1.log.LogEntry
+	(*proto.RequestMetadata)(nil),          // 44: gcommon.v1.common.RequestMetadata
+	(*proto.Error)(nil),                    // 45: gcommon.v1.common.Error
+	(*durationpb.Duration)(nil),            // 46: google.protobuf.Duration
+	(*ErrorInfo)(nil),                      // 47: gcommon.v1.log.ErrorInfo
+	(LogSortField)(0),                      // 48: gcommon.v1.log.LogSortField
+	(*proto.Pagination)(nil),               // 49: gcommon.v1.common.Pagination
+	(LogLevel)(0),                          // 50: gcommon.v1.log.LogLevel
+	(*timestamppb.Timestamp)(nil),          // 51: google.protobuf.Timestamp
+	(AppenderType)(0),                      // 52: gcommon.v1.log.AppenderType
+	(*fieldmaskpb.FieldMask)(nil),          // 53: google.protobuf.FieldMask
+	(LoggerStatus)(0),                      // 54: gcommon.v1.log.LoggerStatus
+	(CompressionType)(0),                   // 55: gcommon.v1.log.CompressionType
+	(FormatterType)(0),                     // 56: gcommon.v1.log.FormatterType
+	(*emptypb.Empty)(nil),                  // 57: google.protobuf.Empty
 }
 var file_pkg_log_proto_log_proto_depIdxs = []int32{
-	12,  // 0: gcommon.v1.log.LogRequest.entry:type_name -> gcommon.v1.log.LogEntry
-	57,  // 1: gcommon.v1.log.LogRequest.metadata:type_name -> gcommon.v1.common.RequestMetadata
-	58,  // 2: gcommon.v1.log.LogResponse.error:type_name -> gcommon.v1.common.Error
-	12,  // 3: gcommon.v1.log.LogBatchRequest.entries:type_name -> gcommon.v1.log.LogEntry
-	57,  // 4: gcommon.v1.log.LogBatchRequest.metadata:type_name -> gcommon.v1.common.RequestMetadata
-	10,  // 5: gcommon.v1.log.LogBatchRequest.options:type_name -> gcommon.v1.log.BatchLogOptions
-	59,  // 6: gcommon.v1.log.BatchLogOptions.timeout:type_name -> google.protobuf.Duration
-	58,  // 7: gcommon.v1.log.LogBatchResponse.error:type_name -> gcommon.v1.common.Error
-	0,   // 8: gcommon.v1.log.LogEntry.level:type_name -> gcommon.v1.log.LogLevel
-	60,  // 9: gcommon.v1.log.LogEntry.timestamp:type_name -> google.protobuf.Timestamp
-	13,  // 10: gcommon.v1.log.LogEntry.source:type_name -> gcommon.v1.log.SourceLocation
-	48,  // 11: gcommon.v1.log.LogEntry.fields:type_name -> gcommon.v1.log.LogEntry.FieldsEntry
-	14,  // 12: gcommon.v1.log.LogEntry.error_info:type_name -> gcommon.v1.log.ErrorInfo
-	49,  // 13: gcommon.v1.log.ErrorInfo.context:type_name -> gcommon.v1.log.ErrorInfo.ContextEntry
-	14,  // 14: gcommon.v1.log.ErrorInfo.causes:type_name -> gcommon.v1.log.ErrorInfo
-	16,  // 15: gcommon.v1.log.QueryLogRequest.filter:type_name -> gcommon.v1.log.LogFilter
-	61,  // 16: gcommon.v1.log.QueryLogRequest.pagination:type_name -> gcommon.v1.common.Pagination
-	18,  // 17: gcommon.v1.log.QueryLogRequest.sort:type_name -> gcommon.v1.log.LogSort
-	57,  // 18: gcommon.v1.log.QueryLogRequest.metadata:type_name -> gcommon.v1.common.RequestMetadata
-	0,   // 19: gcommon.v1.log.LogFilter.levels:type_name -> gcommon.v1.log.LogLevel
-	17,  // 20: gcommon.v1.log.LogFilter.time_range:type_name -> gcommon.v1.log.TimeRange
-	50,  // 21: gcommon.v1.log.LogFilter.field_filters:type_name -> gcommon.v1.log.LogFilter.FieldFiltersEntry
-	60,  // 22: gcommon.v1.log.TimeRange.start:type_name -> google.protobuf.Timestamp
-	60,  // 23: gcommon.v1.log.TimeRange.end:type_name -> google.protobuf.Timestamp
-	1,   // 24: gcommon.v1.log.LogSort.field:type_name -> gcommon.v1.log.LogSortField
-	62,  // 25: gcommon.v1.log.LogSort.direction:type_name -> gcommon.v1.common.SortDirection
-	12,  // 26: gcommon.v1.log.QueryLogResponse.entries:type_name -> gcommon.v1.log.LogEntry
-	61,  // 27: gcommon.v1.log.QueryLogResponse.pagination:type_name -> gcommon.v1.common.Pagination
-	58,  // 28: gcommon.v1.log.QueryLogResponse.error:type_name -> gcommon.v1.common.Error
-	16,  // 29: gcommon.v1.log.StreamLogRequest.filter:type_name -> gcommon.v1.log.LogFilter
-	57,  // 30: gcommon.v1.log.StreamLogRequest.metadata:type_name -> gcommon.v1.common.RequestMetadata
-	57,  // 31: gcommon.v1.log.GetLogLevelRequest.metadata:type_name -> gcommon.v1.common.RequestMetadata
-	0,   // 32: gcommon.v1.log.GetLogLevelResponse.level:type_name -> gcommon.v1.log.LogLevel
-	58,  // 33: gcommon.v1.log.GetLogLevelResponse.error:type_name -> gcommon.v1.common.Error
-	0,   // 34: gcommon.v1.log.SetLogLevelRequest.level:type_name -> gcommon.v1.log.LogLevel
-	57,  // 35: gcommon.v1.log.SetLogLevelRequest.metadata:type_name -> gcommon.v1.common.RequestMetadata
-	0,   // 36: gcommon.v1.log.SetLogLevelResponse.previous_level:type_name -> gcommon.v1.log.LogLevel
-	0,   // 37: gcommon.v1.log.SetLogLevelResponse.new_level:type_name -> gcommon.v1.log.LogLevel
-	58,  // 38: gcommon.v1.log.SetLogLevelResponse.error:type_name -> gcommon.v1.common.Error
-	17,  // 39: gcommon.v1.log.GetLogStatsRequest.time_range:type_name -> gcommon.v1.log.TimeRange
-	57,  // 40: gcommon.v1.log.GetLogStatsRequest.metadata:type_name -> gcommon.v1.common.RequestMetadata
-	27,  // 41: gcommon.v1.log.GetLogStatsResponse.stats:type_name -> gcommon.v1.log.LogStatistics
-	51,  // 42: gcommon.v1.log.GetLogStatsResponse.level_counts:type_name -> gcommon.v1.log.GetLogStatsResponse.LevelCountsEntry
-	52,  // 43: gcommon.v1.log.GetLogStatsResponse.logger_stats:type_name -> gcommon.v1.log.GetLogStatsResponse.LoggerStatsEntry
-	58,  // 44: gcommon.v1.log.GetLogStatsResponse.error:type_name -> gcommon.v1.common.Error
-	29,  // 45: gcommon.v1.log.CreateLoggerRequest.config:type_name -> gcommon.v1.log.LoggerConfig
-	57,  // 46: gcommon.v1.log.CreateLoggerRequest.metadata:type_name -> gcommon.v1.common.RequestMetadata
-	0,   // 47: gcommon.v1.log.LoggerConfig.level:type_name -> gcommon.v1.log.LogLevel
-	30,  // 48: gcommon.v1.log.LoggerConfig.appenders:type_name -> gcommon.v1.log.AppenderConfig
-	53,  // 49: gcommon.v1.log.LoggerConfig.properties:type_name -> gcommon.v1.log.LoggerConfig.PropertiesEntry
-	2,   // 50: gcommon.v1.log.AppenderConfig.type:type_name -> gcommon.v1.log.AppenderType
-	31,  // 51: gcommon.v1.log.AppenderConfig.output:type_name -> gcommon.v1.log.OutputConfig
-	32,  // 52: gcommon.v1.log.AppenderConfig.formatter:type_name -> gcommon.v1.log.FormatterConfig
-	33,  // 53: gcommon.v1.log.AppenderConfig.filter:type_name -> gcommon.v1.log.FilterConfig
-	54,  // 54: gcommon.v1.log.OutputConfig.options:type_name -> gcommon.v1.log.OutputConfig.OptionsEntry
-	3,   // 55: gcommon.v1.log.FormatterConfig.type:type_name -> gcommon.v1.log.FormatterType
-	55,  // 56: gcommon.v1.log.FormatterConfig.options:type_name -> gcommon.v1.log.FormatterConfig.OptionsEntry
-	4,   // 57: gcommon.v1.log.FilterConfig.type:type_name -> gcommon.v1.log.FilterType
-	56,  // 58: gcommon.v1.log.FilterConfig.criteria:type_name -> gcommon.v1.log.FilterConfig.CriteriaEntry
-	58,  // 59: gcommon.v1.log.CreateLoggerResponse.error:type_name -> gcommon.v1.common.Error
-	29,  // 60: gcommon.v1.log.UpdateLoggerRequest.config:type_name -> gcommon.v1.log.LoggerConfig
-	63,  // 61: gcommon.v1.log.UpdateLoggerRequest.update_mask:type_name -> google.protobuf.FieldMask
-	57,  // 62: gcommon.v1.log.UpdateLoggerRequest.metadata:type_name -> gcommon.v1.common.RequestMetadata
-	58,  // 63: gcommon.v1.log.UpdateLoggerResponse.error:type_name -> gcommon.v1.common.Error
-	57,  // 64: gcommon.v1.log.DeleteLoggerRequest.metadata:type_name -> gcommon.v1.common.RequestMetadata
-	0,   // 65: gcommon.v1.log.ListLoggersRequest.levels:type_name -> gcommon.v1.log.LogLevel
-	61,  // 66: gcommon.v1.log.ListLoggersRequest.pagination:type_name -> gcommon.v1.common.Pagination
-	57,  // 67: gcommon.v1.log.ListLoggersRequest.metadata:type_name -> gcommon.v1.common.RequestMetadata
-	40,  // 68: gcommon.v1.log.ListLoggersResponse.loggers:type_name -> gcommon.v1.log.LoggerInfo
-	61,  // 69: gcommon.v1.log.ListLoggersResponse.pagination:type_name -> gcommon.v1.common.Pagination
-	58,  // 70: gcommon.v1.log.ListLoggersResponse.error:type_name -> gcommon.v1.common.Error
-	29,  // 71: gcommon.v1.log.LoggerInfo.config:type_name -> gcommon.v1.log.LoggerConfig
-	27,  // 72: gcommon.v1.log.LoggerInfo.stats:type_name -> gcommon.v1.log.LogStatistics
-	60,  // 73: gcommon.v1.log.LoggerInfo.created_at:type_name -> google.protobuf.Timestamp
-	60,  // 74: gcommon.v1.log.LoggerInfo.modified_at:type_name -> google.protobuf.Timestamp
-	5,   // 75: gcommon.v1.log.LoggerInfo.status:type_name -> gcommon.v1.log.LoggerStatus
-	30,  // 76: gcommon.v1.log.ConfigureAppenderRequest.config:type_name -> gcommon.v1.log.AppenderConfig
-	57,  // 77: gcommon.v1.log.ConfigureAppenderRequest.metadata:type_name -> gcommon.v1.common.RequestMetadata
-	58,  // 78: gcommon.v1.log.ConfigureAppenderResponse.error:type_name -> gcommon.v1.common.Error
-	57,  // 79: gcommon.v1.log.RotateLogsRequest.metadata:type_name -> gcommon.v1.common.RequestMetadata
-	58,  // 80: gcommon.v1.log.RotateLogsResponse.error:type_name -> gcommon.v1.common.Error
-	46,  // 81: gcommon.v1.log.ArchiveLogsRequest.criteria:type_name -> gcommon.v1.log.ArchiveCriteria
-	6,   // 82: gcommon.v1.log.ArchiveLogsRequest.compression:type_name -> gcommon.v1.log.CompressionType
-	57,  // 83: gcommon.v1.log.ArchiveLogsRequest.metadata:type_name -> gcommon.v1.common.RequestMetadata
-	59,  // 84: gcommon.v1.log.ArchiveCriteria.older_than:type_name -> google.protobuf.Duration
-	60,  // 85: gcommon.v1.log.ArchiveCriteria.start_time:type_name -> google.protobuf.Timestamp
-	60,  // 86: gcommon.v1.log.ArchiveCriteria.end_time:type_name -> google.protobuf.Timestamp
-	58,  // 87: gcommon.v1.log.ArchiveLogsResponse.error:type_name -> gcommon.v1.common.Error
-	64,  // 88: gcommon.v1.log.LogEntry.FieldsEntry.value:type_name -> google.protobuf.Any
-	27,  // 89: gcommon.v1.log.GetLogStatsResponse.LoggerStatsEntry.value:type_name -> gcommon.v1.log.LogStatistics
-	7,   // 90: gcommon.v1.log.LogService.Log:input_type -> gcommon.v1.log.LogRequest
-	9,   // 91: gcommon.v1.log.LogService.LogBatch:input_type -> gcommon.v1.log.LogBatchRequest
-	15,  // 92: gcommon.v1.log.LogService.Query:input_type -> gcommon.v1.log.QueryLogRequest
-	20,  // 93: gcommon.v1.log.LogService.Stream:input_type -> gcommon.v1.log.StreamLogRequest
-	21,  // 94: gcommon.v1.log.LogService.GetLogLevel:input_type -> gcommon.v1.log.GetLogLevelRequest
-	23,  // 95: gcommon.v1.log.LogService.SetLogLevel:input_type -> gcommon.v1.log.SetLogLevelRequest
-	25,  // 96: gcommon.v1.log.LogService.GetLogStats:input_type -> gcommon.v1.log.GetLogStatsRequest
-	28,  // 97: gcommon.v1.log.LogAdminService.CreateLogger:input_type -> gcommon.v1.log.CreateLoggerRequest
-	35,  // 98: gcommon.v1.log.LogAdminService.UpdateLogger:input_type -> gcommon.v1.log.UpdateLoggerRequest
-	37,  // 99: gcommon.v1.log.LogAdminService.DeleteLogger:input_type -> gcommon.v1.log.DeleteLoggerRequest
-	38,  // 100: gcommon.v1.log.LogAdminService.ListLoggers:input_type -> gcommon.v1.log.ListLoggersRequest
-	41,  // 101: gcommon.v1.log.LogAdminService.ConfigureAppender:input_type -> gcommon.v1.log.ConfigureAppenderRequest
-	43,  // 102: gcommon.v1.log.LogAdminService.RotateLogs:input_type -> gcommon.v1.log.RotateLogsRequest
-	45,  // 103: gcommon.v1.log.LogAdminService.ArchiveLogs:input_type -> gcommon.v1.log.ArchiveLogsRequest
-	8,   // 104: gcommon.v1.log.LogService.Log:output_type -> gcommon.v1.log.LogResponse
-	11,  // 105: gcommon.v1.log.LogService.LogBatch:output_type -> gcommon.v1.log.LogBatchResponse
-	19,  // 106: gcommon.v1.log.LogService.Query:output_type -> gcommon.v1.log.QueryLogResponse
-	12,  // 107: gcommon.v1.log.LogService.Stream:output_type -> gcommon.v1.log.LogEntry
-	22,  // 108: gcommon.v1.log.LogService.GetLogLevel:output_type -> gcommon.v1.log.GetLogLevelResponse
-	24,  // 109: gcommon.v1.log.LogService.SetLogLevel:output_type -> gcommon.v1.log.SetLogLevelResponse
-	26,  // 110: gcommon.v1.log.LogService.GetLogStats:output_type -> gcommon.v1.log.GetLogStatsResponse
-	34,  // 111: gcommon.v1.log.LogAdminService.CreateLogger:output_type -> gcommon.v1.log.CreateLoggerResponse
-	36,  // 112: gcommon.v1.log.LogAdminService.UpdateLogger:output_type -> gcommon.v1.log.UpdateLoggerResponse
-	65,  // 113: gcommon.v1.log.LogAdminService.DeleteLogger:output_type -> google.protobuf.Empty
-	39,  // 114: gcommon.v1.log.LogAdminService.ListLoggers:output_type -> gcommon.v1.log.ListLoggersResponse
-	42,  // 115: gcommon.v1.log.LogAdminService.ConfigureAppender:output_type -> gcommon.v1.log.ConfigureAppenderResponse
-	44,  // 116: gcommon.v1.log.LogAdminService.RotateLogs:output_type -> gcommon.v1.log.RotateLogsResponse
-	47,  // 117: gcommon.v1.log.LogAdminService.ArchiveLogs:output_type -> gcommon.v1.log.ArchiveLogsResponse
-	104, // [104:118] is the sub-list for method output_type
-	90,  // [90:104] is the sub-list for method input_type
-	90,  // [90:90] is the sub-list for extension type_name
-	90,  // [90:90] is the sub-list for extension extendee
-	0,   // [0:90] is the sub-list for field type_name
+	43, // 0: gcommon.v1.log.LogRequest.entry:type_name -> gcommon.v1.log.LogEntry
+	44, // 1: gcommon.v1.log.LogRequest.metadata:type_name -> gcommon.v1.common.RequestMetadata
+	45, // 2: gcommon.v1.log.LogResponse.error:type_name -> gcommon.v1.common.Error
+	43, // 3: gcommon.v1.log.LogBatchRequest.entries:type_name -> gcommon.v1.log.LogEntry
+	44, // 4: gcommon.v1.log.LogBatchRequest.metadata:type_name -> gcommon.v1.common.RequestMetadata
+	3,  // 5: gcommon.v1.log.LogBatchRequest.options:type_name -> gcommon.v1.log.BatchLogOptions
+	46, // 6: gcommon.v1.log.BatchLogOptions.timeout:type_name -> google.protobuf.Duration
+	35, // 7: gcommon.v1.log.LogBatchResponse.context:type_name -> gcommon.v1.log.LogBatchResponse.ContextEntry
+	47, // 8: gcommon.v1.log.LogBatchResponse.causes:type_name -> gcommon.v1.log.ErrorInfo
+	48, // 9: gcommon.v1.log.LogSort.field:type_name -> gcommon.v1.log.LogSortField
+	7,  // 10: gcommon.v1.log.QueryLogRequest.filter:type_name -> gcommon.v1.log.LogFilter
+	49, // 11: gcommon.v1.log.QueryLogRequest.pagination:type_name -> gcommon.v1.common.Pagination
+	5,  // 12: gcommon.v1.log.QueryLogRequest.sort:type_name -> gcommon.v1.log.LogSort
+	44, // 13: gcommon.v1.log.QueryLogRequest.metadata:type_name -> gcommon.v1.common.RequestMetadata
+	50, // 14: gcommon.v1.log.LogFilter.levels:type_name -> gcommon.v1.log.LogLevel
+	8,  // 15: gcommon.v1.log.LogFilter.time_range:type_name -> gcommon.v1.log.TimeRange
+	36, // 16: gcommon.v1.log.LogFilter.field_filters:type_name -> gcommon.v1.log.LogFilter.FieldFiltersEntry
+	51, // 17: gcommon.v1.log.TimeRange.start:type_name -> google.protobuf.Timestamp
+	51, // 18: gcommon.v1.log.TimeRange.end:type_name -> google.protobuf.Timestamp
+	43, // 19: gcommon.v1.log.QueryLogResponse.entries:type_name -> gcommon.v1.log.LogEntry
+	49, // 20: gcommon.v1.log.QueryLogResponse.pagination:type_name -> gcommon.v1.common.Pagination
+	45, // 21: gcommon.v1.log.QueryLogResponse.error:type_name -> gcommon.v1.common.Error
+	7,  // 22: gcommon.v1.log.StreamLogRequest.filter:type_name -> gcommon.v1.log.LogFilter
+	44, // 23: gcommon.v1.log.StreamLogRequest.metadata:type_name -> gcommon.v1.common.RequestMetadata
+	44, // 24: gcommon.v1.log.GetLogLevelRequest.metadata:type_name -> gcommon.v1.common.RequestMetadata
+	50, // 25: gcommon.v1.log.GetLogLevelResponse.level:type_name -> gcommon.v1.log.LogLevel
+	45, // 26: gcommon.v1.log.GetLogLevelResponse.error:type_name -> gcommon.v1.common.Error
+	50, // 27: gcommon.v1.log.SetLogLevelRequest.level:type_name -> gcommon.v1.log.LogLevel
+	44, // 28: gcommon.v1.log.SetLogLevelRequest.metadata:type_name -> gcommon.v1.common.RequestMetadata
+	50, // 29: gcommon.v1.log.SetLogLevelResponse.previous_level:type_name -> gcommon.v1.log.LogLevel
+	50, // 30: gcommon.v1.log.SetLogLevelResponse.new_level:type_name -> gcommon.v1.log.LogLevel
+	45, // 31: gcommon.v1.log.SetLogLevelResponse.error:type_name -> gcommon.v1.common.Error
+	8,  // 32: gcommon.v1.log.GetLogStatsRequest.time_range:type_name -> gcommon.v1.log.TimeRange
+	44, // 33: gcommon.v1.log.GetLogStatsRequest.metadata:type_name -> gcommon.v1.common.RequestMetadata
+	17, // 34: gcommon.v1.log.GetLogStatsResponse.stats:type_name -> gcommon.v1.log.LogStatistics
+	37, // 35: gcommon.v1.log.GetLogStatsResponse.level_counts:type_name -> gcommon.v1.log.GetLogStatsResponse.LevelCountsEntry
+	38, // 36: gcommon.v1.log.GetLogStatsResponse.logger_stats:type_name -> gcommon.v1.log.GetLogStatsResponse.LoggerStatsEntry
+	45, // 37: gcommon.v1.log.GetLogStatsResponse.error:type_name -> gcommon.v1.common.Error
+	19, // 38: gcommon.v1.log.CreateLoggerRequest.config:type_name -> gcommon.v1.log.LoggerConfig
+	44, // 39: gcommon.v1.log.CreateLoggerRequest.metadata:type_name -> gcommon.v1.common.RequestMetadata
+	50, // 40: gcommon.v1.log.LoggerConfig.level:type_name -> gcommon.v1.log.LogLevel
+	20, // 41: gcommon.v1.log.LoggerConfig.appenders:type_name -> gcommon.v1.log.AppenderConfig
+	39, // 42: gcommon.v1.log.LoggerConfig.properties:type_name -> gcommon.v1.log.LoggerConfig.PropertiesEntry
+	52, // 43: gcommon.v1.log.AppenderConfig.type:type_name -> gcommon.v1.log.AppenderType
+	45, // 44: gcommon.v1.log.CreateLoggerResponse.error:type_name -> gcommon.v1.common.Error
+	19, // 45: gcommon.v1.log.UpdateLoggerRequest.config:type_name -> gcommon.v1.log.LoggerConfig
+	53, // 46: gcommon.v1.log.UpdateLoggerRequest.update_mask:type_name -> google.protobuf.FieldMask
+	44, // 47: gcommon.v1.log.UpdateLoggerRequest.metadata:type_name -> gcommon.v1.common.RequestMetadata
+	45, // 48: gcommon.v1.log.UpdateLoggerResponse.error:type_name -> gcommon.v1.common.Error
+	44, // 49: gcommon.v1.log.DeleteLoggerRequest.metadata:type_name -> gcommon.v1.common.RequestMetadata
+	50, // 50: gcommon.v1.log.ListLoggersRequest.levels:type_name -> gcommon.v1.log.LogLevel
+	49, // 51: gcommon.v1.log.ListLoggersRequest.pagination:type_name -> gcommon.v1.common.Pagination
+	44, // 52: gcommon.v1.log.ListLoggersRequest.metadata:type_name -> gcommon.v1.common.RequestMetadata
+	27, // 53: gcommon.v1.log.ListLoggersResponse.loggers:type_name -> gcommon.v1.log.LoggerInfo
+	49, // 54: gcommon.v1.log.ListLoggersResponse.pagination:type_name -> gcommon.v1.common.Pagination
+	45, // 55: gcommon.v1.log.ListLoggersResponse.error:type_name -> gcommon.v1.common.Error
+	19, // 56: gcommon.v1.log.LoggerInfo.config:type_name -> gcommon.v1.log.LoggerConfig
+	17, // 57: gcommon.v1.log.LoggerInfo.stats:type_name -> gcommon.v1.log.LogStatistics
+	54, // 58: gcommon.v1.log.LoggerInfo.status:type_name -> gcommon.v1.log.LoggerStatus
+	20, // 59: gcommon.v1.log.ConfigureAppenderRequest.config:type_name -> gcommon.v1.log.AppenderConfig
+	44, // 60: gcommon.v1.log.ConfigureAppenderRequest.metadata:type_name -> gcommon.v1.common.RequestMetadata
+	45, // 61: gcommon.v1.log.ConfigureAppenderResponse.error:type_name -> gcommon.v1.common.Error
+	44, // 62: gcommon.v1.log.RotateLogsRequest.metadata:type_name -> gcommon.v1.common.RequestMetadata
+	45, // 63: gcommon.v1.log.RotateLogsResponse.error:type_name -> gcommon.v1.common.Error
+	33, // 64: gcommon.v1.log.ArchiveLogsRequest.criteria:type_name -> gcommon.v1.log.ArchiveCriteria
+	55, // 65: gcommon.v1.log.ArchiveLogsRequest.compression:type_name -> gcommon.v1.log.CompressionType
+	44, // 66: gcommon.v1.log.ArchiveLogsRequest.metadata:type_name -> gcommon.v1.common.RequestMetadata
+	46, // 67: gcommon.v1.log.ArchiveCriteria.older_than:type_name -> google.protobuf.Duration
+	45, // 68: gcommon.v1.log.ArchiveLogsResponse.error:type_name -> gcommon.v1.common.Error
+	17, // 69: gcommon.v1.log.GetLogStatsResponse.LoggerStatsEntry.value:type_name -> gcommon.v1.log.LogStatistics
+	42, // 70: gcommon.v1.log.AppenderConfig.OutputConfig.options:type_name -> gcommon.v1.log.AppenderConfig.OutputConfig.OptionsEntry
+	56, // 71: gcommon.v1.log.AppenderConfig.FormatterConfig.type:type_name -> gcommon.v1.log.FormatterType
+	0,  // 72: gcommon.v1.log.LogService.Log:input_type -> gcommon.v1.log.LogRequest
+	2,  // 73: gcommon.v1.log.LogService.LogBatch:input_type -> gcommon.v1.log.LogBatchRequest
+	6,  // 74: gcommon.v1.log.LogService.Query:input_type -> gcommon.v1.log.QueryLogRequest
+	10, // 75: gcommon.v1.log.LogService.Stream:input_type -> gcommon.v1.log.StreamLogRequest
+	11, // 76: gcommon.v1.log.LogService.GetLogLevel:input_type -> gcommon.v1.log.GetLogLevelRequest
+	13, // 77: gcommon.v1.log.LogService.SetLogLevel:input_type -> gcommon.v1.log.SetLogLevelRequest
+	15, // 78: gcommon.v1.log.LogService.GetLogStats:input_type -> gcommon.v1.log.GetLogStatsRequest
+	18, // 79: gcommon.v1.log.LogAdminService.CreateLogger:input_type -> gcommon.v1.log.CreateLoggerRequest
+	22, // 80: gcommon.v1.log.LogAdminService.UpdateLogger:input_type -> gcommon.v1.log.UpdateLoggerRequest
+	24, // 81: gcommon.v1.log.LogAdminService.DeleteLogger:input_type -> gcommon.v1.log.DeleteLoggerRequest
+	25, // 82: gcommon.v1.log.LogAdminService.ListLoggers:input_type -> gcommon.v1.log.ListLoggersRequest
+	28, // 83: gcommon.v1.log.LogAdminService.ConfigureAppender:input_type -> gcommon.v1.log.ConfigureAppenderRequest
+	1,  // 84: gcommon.v1.log.LogService.Log:output_type -> gcommon.v1.log.LogResponse
+	4,  // 85: gcommon.v1.log.LogService.LogBatch:output_type -> gcommon.v1.log.LogBatchResponse
+	9,  // 86: gcommon.v1.log.LogService.Query:output_type -> gcommon.v1.log.QueryLogResponse
+	43, // 87: gcommon.v1.log.LogService.Stream:output_type -> gcommon.v1.log.LogEntry
+	12, // 88: gcommon.v1.log.LogService.GetLogLevel:output_type -> gcommon.v1.log.GetLogLevelResponse
+	14, // 89: gcommon.v1.log.LogService.SetLogLevel:output_type -> gcommon.v1.log.SetLogLevelResponse
+	16, // 90: gcommon.v1.log.LogService.GetLogStats:output_type -> gcommon.v1.log.GetLogStatsResponse
+	21, // 91: gcommon.v1.log.LogAdminService.CreateLogger:output_type -> gcommon.v1.log.CreateLoggerResponse
+	23, // 92: gcommon.v1.log.LogAdminService.UpdateLogger:output_type -> gcommon.v1.log.UpdateLoggerResponse
+	57, // 93: gcommon.v1.log.LogAdminService.DeleteLogger:output_type -> google.protobuf.Empty
+	26, // 94: gcommon.v1.log.LogAdminService.ListLoggers:output_type -> gcommon.v1.log.ListLoggersResponse
+	29, // 95: gcommon.v1.log.LogAdminService.ConfigureAppender:output_type -> gcommon.v1.log.ConfigureAppenderResponse
+	84, // [84:96] is the sub-list for method output_type
+	72, // [72:84] is the sub-list for method input_type
+	72, // [72:72] is the sub-list for extension type_name
+	72, // [72:72] is the sub-list for extension extendee
+	0,  // [0:72] is the sub-list for field type_name
 }
 
 func init() { file_pkg_log_proto_log_proto_init() }
@@ -6908,19 +5312,28 @@ func file_pkg_log_proto_log_proto_init() {
 	if File_pkg_log_proto_log_proto != nil {
 		return
 	}
+	file_pkg_log_proto_messages_log_entry_proto_init()
+	file_pkg_log_proto_messages_source_location_proto_init()
+	file_pkg_log_proto_messages_error_info_proto_init()
+	file_pkg_log_proto_enums_log_level_proto_init()
+	file_pkg_log_proto_enums_log_sort_field_proto_init()
+	file_pkg_log_proto_enums_appender_type_proto_init()
+	file_pkg_log_proto_enums_formatter_type_proto_init()
+	file_pkg_log_proto_enums_filter_type_proto_init()
+	file_pkg_log_proto_enums_logger_status_proto_init()
+	file_pkg_log_proto_enums_compression_type_proto_init()
 	type x struct{}
 	out := protoimpl.TypeBuilder{
 		File: protoimpl.DescBuilder{
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: unsafe.Slice(unsafe.StringData(file_pkg_log_proto_log_proto_rawDesc), len(file_pkg_log_proto_log_proto_rawDesc)),
-			NumEnums:      7,
-			NumMessages:   50,
+			NumEnums:      0,
+			NumMessages:   43,
 			NumExtensions: 0,
 			NumServices:   2,
 		},
 		GoTypes:           file_pkg_log_proto_log_proto_goTypes,
 		DependencyIndexes: file_pkg_log_proto_log_proto_depIdxs,
-		EnumInfos:         file_pkg_log_proto_log_proto_enumTypes,
 		MessageInfos:      file_pkg_log_proto_log_proto_msgTypes,
 	}.Build()
 	File_pkg_log_proto_log_proto = out.File

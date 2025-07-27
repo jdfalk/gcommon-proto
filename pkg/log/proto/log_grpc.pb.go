@@ -375,8 +375,6 @@ const (
 	LogAdminService_DeleteLogger_FullMethodName      = "/gcommon.v1.log.LogAdminService/DeleteLogger"
 	LogAdminService_ListLoggers_FullMethodName       = "/gcommon.v1.log.LogAdminService/ListLoggers"
 	LogAdminService_ConfigureAppender_FullMethodName = "/gcommon.v1.log.LogAdminService/ConfigureAppender"
-	LogAdminService_RotateLogs_FullMethodName        = "/gcommon.v1.log.LogAdminService/RotateLogs"
-	LogAdminService_ArchiveLogs_FullMethodName       = "/gcommon.v1.log.LogAdminService/ArchiveLogs"
 )
 
 // LogAdminServiceClient is the client API for LogAdminService service.
@@ -395,10 +393,6 @@ type LogAdminServiceClient interface {
 	ListLoggers(ctx context.Context, in *ListLoggersRequest, opts ...grpc.CallOption) (*ListLoggersResponse, error)
 	// ConfigureAppender configures log output destinations
 	ConfigureAppender(ctx context.Context, in *ConfigureAppenderRequest, opts ...grpc.CallOption) (*ConfigureAppenderResponse, error)
-	// RotateLogs forces log rotation
-	RotateLogs(ctx context.Context, in *RotateLogsRequest, opts ...grpc.CallOption) (*RotateLogsResponse, error)
-	// ArchiveLogs archives old log files
-	ArchiveLogs(ctx context.Context, in *ArchiveLogsRequest, opts ...grpc.CallOption) (*ArchiveLogsResponse, error)
 }
 
 type logAdminServiceClient struct {
@@ -459,26 +453,6 @@ func (c *logAdminServiceClient) ConfigureAppender(ctx context.Context, in *Confi
 	return out, nil
 }
 
-func (c *logAdminServiceClient) RotateLogs(ctx context.Context, in *RotateLogsRequest, opts ...grpc.CallOption) (*RotateLogsResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(RotateLogsResponse)
-	err := c.cc.Invoke(ctx, LogAdminService_RotateLogs_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *logAdminServiceClient) ArchiveLogs(ctx context.Context, in *ArchiveLogsRequest, opts ...grpc.CallOption) (*ArchiveLogsResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(ArchiveLogsResponse)
-	err := c.cc.Invoke(ctx, LogAdminService_ArchiveLogs_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
 // LogAdminServiceServer is the server API for LogAdminService service.
 // All implementations should embed UnimplementedLogAdminServiceServer
 // for forward compatibility.
@@ -495,10 +469,6 @@ type LogAdminServiceServer interface {
 	ListLoggers(context.Context, *ListLoggersRequest) (*ListLoggersResponse, error)
 	// ConfigureAppender configures log output destinations
 	ConfigureAppender(context.Context, *ConfigureAppenderRequest) (*ConfigureAppenderResponse, error)
-	// RotateLogs forces log rotation
-	RotateLogs(context.Context, *RotateLogsRequest) (*RotateLogsResponse, error)
-	// ArchiveLogs archives old log files
-	ArchiveLogs(context.Context, *ArchiveLogsRequest) (*ArchiveLogsResponse, error)
 }
 
 // UnimplementedLogAdminServiceServer should be embedded to have
@@ -522,12 +492,6 @@ func (UnimplementedLogAdminServiceServer) ListLoggers(context.Context, *ListLogg
 }
 func (UnimplementedLogAdminServiceServer) ConfigureAppender(context.Context, *ConfigureAppenderRequest) (*ConfigureAppenderResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method ConfigureAppender not implemented")
-}
-func (UnimplementedLogAdminServiceServer) RotateLogs(context.Context, *RotateLogsRequest) (*RotateLogsResponse, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method RotateLogs not implemented")
-}
-func (UnimplementedLogAdminServiceServer) ArchiveLogs(context.Context, *ArchiveLogsRequest) (*ArchiveLogsResponse, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method ArchiveLogs not implemented")
 }
 func (UnimplementedLogAdminServiceServer) testEmbeddedByValue() {}
 
@@ -639,42 +603,6 @@ func _LogAdminService_ConfigureAppender_Handler(srv interface{}, ctx context.Con
 	return interceptor(ctx, in, info, handler)
 }
 
-func _LogAdminService_RotateLogs_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(RotateLogsRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(LogAdminServiceServer).RotateLogs(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: LogAdminService_RotateLogs_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(LogAdminServiceServer).RotateLogs(ctx, req.(*RotateLogsRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _LogAdminService_ArchiveLogs_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(ArchiveLogsRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(LogAdminServiceServer).ArchiveLogs(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: LogAdminService_ArchiveLogs_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(LogAdminServiceServer).ArchiveLogs(ctx, req.(*ArchiveLogsRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
 // LogAdminService_ServiceDesc is the grpc.ServiceDesc for LogAdminService service.
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
@@ -701,14 +629,6 @@ var LogAdminService_ServiceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "ConfigureAppender",
 			Handler:    _LogAdminService_ConfigureAppender_Handler,
-		},
-		{
-			MethodName: "RotateLogs",
-			Handler:    _LogAdminService_RotateLogs_Handler,
-		},
-		{
-			MethodName: "ArchiveLogs",
-			Handler:    _LogAdminService_ArchiveLogs_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},
