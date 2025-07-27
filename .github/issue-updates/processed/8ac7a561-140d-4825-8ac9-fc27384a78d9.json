@@ -2,7 +2,20 @@
   "action": "create",
   "title": "Protobuf: Implement core Auth messages",
   "body": "Implement APIKey, AuthConfig, and JWTConfig messages plus ProviderType enum",
-  "labels": ["module:auth", "protobuf"],
+  "labels": [
+    "module:auth",
+    "protobuf"
+  ],
   "guid": "8ac7a561-140d-4825-8ac9-fc27384a78d9",
-  "legacy_guid": "create-protobuf-implement-core-auth-messages-2025-07-21"
+  "legacy_guid": "create-protobuf-implement-core-auth-messages-2025-07-21",
+  "file_modified_at": "2025-07-25T02:11:13.751741+00:00",
+  "file_created_at": "2025-07-25T02:11:13.751649+00:00",
+  "created_at": "2025-07-25T02:11:13.751649+00:00",
+  "timestamp_extracted_at": "2025-07-26T23:40:50.574213+00:00",
+  "processing_metadata": {
+    "enhanced_at": "2025-07-26T23:40:50.574222+00:00",
+    "source_file": ".github/issue-updates/processed/8ac7a561-140d-4825-8ac9-fc27384a78d9.json",
+    "version": "2.0.0"
+  },
+  "processed_at": "2025-07-26T23:40:50.777272+00:00"
 }

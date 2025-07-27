@@ -2,7 +2,20 @@
   "action": "create",
   "title": "Logging Module 1-1-1 Migration",
   "body": "Implemented 10 protobuf files for logging module and converted log.proto to use public imports.",
-  "labels": ["module:log", "type:protobuf"],
+  "labels": [
+    "module:log",
+    "type:protobuf"
+  ],
   "guid": "ee6c7b24-9276-42b1-b453-476b468e5ccf",
-  "legacy_guid": "create-logging-module-1-1-1-migration-2025-07-21"
+  "legacy_guid": "create-logging-module-1-1-1-migration-2025-07-21",
+  "file_modified_at": "2025-07-25T02:11:13.752651+00:00",
+  "file_created_at": "2025-07-25T02:11:13.752590+00:00",
+  "created_at": "2025-07-25T02:11:13.752590+00:00",
+  "timestamp_extracted_at": "2025-07-26T23:40:48.426878+00:00",
+  "processing_metadata": {
+    "enhanced_at": "2025-07-26T23:40:48.426888+00:00",
+    "source_file": ".github/issue-updates/processed/ee6c7b24-9276-42b1-b453-476b468e5ccf.json",
+    "version": "2.0.0"
+  },
+  "processed_at": "2025-07-26T23:40:50.778079+00:00"
 }

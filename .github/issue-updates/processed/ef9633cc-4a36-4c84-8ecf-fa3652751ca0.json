@@ -3,5 +3,15 @@
   "number": 81,
   "body": "Implemented middleware config and requests",
   "guid": "ef9633cc-4a36-4c84-8ecf-fa3652751ca0",
-  "legacy_guid": "comment-issue-81-2025-07-23"
+  "legacy_guid": "comment-issue-81-2025-07-23",
+  "file_modified_at": "2025-07-25T02:11:13.702353+00:00",
+  "file_created_at": "2025-07-25T02:11:13.702276+00:00",
+  "created_at": "2025-07-25T02:11:13.702276+00:00",
+  "timestamp_extracted_at": "2025-07-26T23:40:48.800060+00:00",
+  "processing_metadata": {
+    "enhanced_at": "2025-07-26T23:40:48.800067+00:00",
+    "source_file": ".github/issue-updates/processed/ef9633cc-4a36-4c84-8ecf-fa3652751ca0.json",
+    "version": "2.0.0"
+  },
+  "processed_at": "2025-07-26T23:40:50.776163+00:00"
 }

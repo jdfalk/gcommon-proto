@@ -3,5 +3,15 @@
   "number": 85,
   "state_reason": "completed",
   "guid": "37b5f9d4-462a-4395-97ed-4fc2491634de",
-  "legacy_guid": "close-issue-85-2025-07-21"
+  "legacy_guid": "close-issue-85-2025-07-21",
+  "file_modified_at": "2025-07-25T02:11:13.751226+00:00",
+  "file_created_at": "2025-07-25T02:11:13.751186+00:00",
+  "created_at": "2025-07-25T02:11:13.751186+00:00",
+  "timestamp_extracted_at": "2025-07-26T23:40:49.374269+00:00",
+  "processing_metadata": {
+    "enhanced_at": "2025-07-26T23:40:49.374275+00:00",
+    "source_file": ".github/issue-updates/processed/37b5f9d4-462a-4395-97ed-4fc2491634de.json",
+    "version": "2.0.0"
+  },
+  "processed_at": "2025-07-26T23:40:50.776809+00:00"
 }

@@ -2,7 +2,20 @@
   "action": "create",
   "title": "Add QueryRow RPC",
   "body": "Implement QueryRowResponse message and QueryRow RPC in DatabaseService",
-  "labels": ["module:db", "protobuf"],
+  "labels": [
+    "module:db",
+    "protobuf"
+  ],
   "guid": "20d6e6d3-248f-4c86-9941-692806fce85a",
-  "legacy_guid": "create-add-queryrow-rpc-2025-07-23"
+  "legacy_guid": "create-add-queryrow-rpc-2025-07-23",
+  "file_modified_at": "2025-07-25T02:11:13.699094+00:00",
+  "file_created_at": "2025-07-25T02:11:13.699019+00:00",
+  "created_at": "2025-07-25T02:11:13.699019+00:00",
+  "timestamp_extracted_at": "2025-07-26T23:40:48.551535+00:00",
+  "processing_metadata": {
+    "enhanced_at": "2025-07-26T23:40:48.551542+00:00",
+    "source_file": ".github/issue-updates/processed/20d6e6d3-248f-4c86-9941-692806fce85a.json",
+    "version": "2.0.0"
+  },
+  "processed_at": "2025-07-26T23:40:50.774403+00:00"
 }

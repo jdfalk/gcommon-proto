@@ -3,5 +3,15 @@
   "number": 81,
   "body": "Implemented core HTTP request/response messages",
   "guid": "01e292d9-819e-4c0f-b399-48fc09c59b77",
-  "legacy_guid": "comment-issue-81-2025-07-21"
+  "legacy_guid": "comment-issue-81-2025-07-21",
+  "file_modified_at": "2025-07-25T02:11:13.750650+00:00",
+  "file_created_at": "2025-07-25T02:11:13.750584+00:00",
+  "created_at": "2025-07-25T02:11:13.750584+00:00",
+  "timestamp_extracted_at": "2025-07-26T23:40:48.637065+00:00",
+  "processing_metadata": {
+    "enhanced_at": "2025-07-26T23:40:48.637072+00:00",
+    "source_file": ".github/issue-updates/processed/01e292d9-819e-4c0f-b399-48fc09c59b77.json",
+    "version": "2.0.0"
+  },
+  "processed_at": "2025-07-26T23:40:50.776264+00:00"
 }

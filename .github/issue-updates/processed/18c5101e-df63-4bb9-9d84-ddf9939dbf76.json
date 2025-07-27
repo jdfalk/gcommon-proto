@@ -2,7 +2,20 @@
   "action": "create",
   "title": "Implement environment variable config provider",
   "body": "Create a configuration provider that reads settings from environment variables with prefix support. Register provider in factory and add tests.",
-  "labels": ["enhancement", "module:config"],
+  "labels": [
+    "enhancement",
+    "module:config"
+  ],
   "guid": "84c67e08-7d7a-4c49-b408-55432c457f02",
-  "legacy_guid": "create-implement-environment-variable-config-provider-2025-06-28"
+  "legacy_guid": "create-implement-environment-variable-config-provider-2025-06-28",
+  "file_modified_at": "2025-07-25T02:04:57.760855+00:00",
+  "file_created_at": "2025-07-25T02:04:57.760816+00:00",
+  "created_at": "2025-07-25T02:04:57.760816+00:00",
+  "timestamp_extracted_at": "2025-07-26T23:40:49.613025+00:00",
+  "processing_metadata": {
+    "enhanced_at": "2025-07-26T23:40:49.613037+00:00",
+    "source_file": ".github/issue-updates/processed/18c5101e-df63-4bb9-9d84-ddf9939dbf76.json",
+    "version": "2.0.0"
+  },
+  "processed_at": "2025-07-26T23:40:50.772083+00:00"
 }

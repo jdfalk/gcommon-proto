@@ -3,5 +3,15 @@
   "number": 84,
   "body": "Implemented middleware responses",
   "guid": "579867fe-1f29-4829-8f8d-eb4e1f8e9f35",
-  "legacy_guid": "comment-issue-84-2025-07-23"
+  "legacy_guid": "comment-issue-84-2025-07-23",
+  "file_modified_at": "2025-07-25T02:11:13.700024+00:00",
+  "file_created_at": "2025-07-25T02:11:13.699957+00:00",
+  "created_at": "2025-07-25T02:11:13.699957+00:00",
+  "timestamp_extracted_at": "2025-07-26T23:40:49.453992+00:00",
+  "processing_metadata": {
+    "enhanced_at": "2025-07-26T23:40:49.453999+00:00",
+    "source_file": ".github/issue-updates/processed/579867fe-1f29-4829-8f8d-eb4e1f8e9f35.json",
+    "version": "2.0.0"
+  },
+  "processed_at": "2025-07-26T23:40:50.774911+00:00"
 }

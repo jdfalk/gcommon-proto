@@ -3,5 +3,15 @@
   "number": 80,
   "body": "Added CheckPermission request/response",
   "guid": "0111c8c9-e85b-4637-aeb7-b0698235ccb3",
-  "legacy_guid": "comment-issue-80-2025-07-23"
+  "legacy_guid": "comment-issue-80-2025-07-23",
+  "file_modified_at": "2025-07-25T02:11:13.698249+00:00",
+  "file_created_at": "2025-07-25T02:11:13.698194+00:00",
+  "created_at": "2025-07-25T02:11:13.698194+00:00",
+  "timestamp_extracted_at": "2025-07-26T23:40:49.088472+00:00",
+  "processing_metadata": {
+    "enhanced_at": "2025-07-26T23:40:49.088479+00:00",
+    "source_file": ".github/issue-updates/processed/0111c8c9-e85b-4637-aeb7-b0698235ccb3.json",
+    "version": "2.0.0"
+  },
+  "processed_at": "2025-07-26T23:40:50.774121+00:00"
 }
