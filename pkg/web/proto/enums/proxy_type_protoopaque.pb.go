@@ -23,14 +23,69 @@ const (
 	_ = protoimpl.EnforceVersion(protoimpl.MaxVersion - 20)
 )
 
+type ProxyType int32
+
+const (
+	ProxyType_PROXY_TYPE_UNSPECIFIED ProxyType = 0
+	ProxyType_PROXY_TYPE_FORWARD     ProxyType = 1
+	ProxyType_PROXY_TYPE_REVERSE     ProxyType = 2
+	ProxyType_PROXY_TYPE_TRANSPARENT ProxyType = 3
+)
+
+// Enum value maps for ProxyType.
+var (
+	ProxyType_name = map[int32]string{
+		0: "PROXY_TYPE_UNSPECIFIED",
+		1: "PROXY_TYPE_FORWARD",
+		2: "PROXY_TYPE_REVERSE",
+		3: "PROXY_TYPE_TRANSPARENT",
+	}
+	ProxyType_value = map[string]int32{
+		"PROXY_TYPE_UNSPECIFIED": 0,
+		"PROXY_TYPE_FORWARD":     1,
+		"PROXY_TYPE_REVERSE":     2,
+		"PROXY_TYPE_TRANSPARENT": 3,
+	}
+)
+
+func (x ProxyType) Enum() *ProxyType {
+	p := new(ProxyType)
+	*p = x
+	return p
+}
+
+func (x ProxyType) String() string {
+	return protoimpl.X.EnumStringOf(x.Descriptor(), protoreflect.EnumNumber(x))
+}
+
+func (ProxyType) Descriptor() protoreflect.EnumDescriptor {
+	return file_pkg_web_proto_enums_proxy_type_proto_enumTypes[0].Descriptor()
+}
+
+func (ProxyType) Type() protoreflect.EnumType {
+	return &file_pkg_web_proto_enums_proxy_type_proto_enumTypes[0]
+}
+
+func (x ProxyType) Number() protoreflect.EnumNumber {
+	return protoreflect.EnumNumber(x)
+}
+
 var File_pkg_web_proto_enums_proxy_type_proto protoreflect.FileDescriptor
 
 const file_pkg_web_proto_enums_proxy_type_proto_rawDesc = "" +
 	"\n" +
-	"$pkg/web/proto/enums/proxy_type.proto\x12\x0egcommon.v1.web\x1a!google/protobuf/go_features.protoB\xb5\x01\n" +
+	"$pkg/web/proto/enums/proxy_type.proto\x12\x0egcommon.v1.web\x1a!google/protobuf/go_features.proto*s\n" +
+	"\tProxyType\x12\x1a\n" +
+	"\x16PROXY_TYPE_UNSPECIFIED\x10\x00\x12\x16\n" +
+	"\x12PROXY_TYPE_FORWARD\x10\x01\x12\x16\n" +
+	"\x12PROXY_TYPE_REVERSE\x10\x02\x12\x1a\n" +
+	"\x16PROXY_TYPE_TRANSPARENT\x10\x03B\xb5\x01\n" +
 	"\x12com.gcommon.v1.webB\x0eProxyTypeProtoP\x01Z-github.com/jdfalk/gcommon/pkg/web/proto;webpb\xa2\x02\x03GVW\xaa\x02\x0eGcommon.V1.Web\xca\x02\x0eGcommon\\V1\\Web\xe2\x02\x1aGcommon\\V1\\Web\\GPBMetadata\xea\x02\x10Gcommon::V1::Web\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
 
-var file_pkg_web_proto_enums_proxy_type_proto_goTypes = []any{}
+var file_pkg_web_proto_enums_proxy_type_proto_enumTypes = make([]protoimpl.EnumInfo, 1)
+var file_pkg_web_proto_enums_proxy_type_proto_goTypes = []any{
+	(ProxyType)(0), // 0: gcommon.v1.web.ProxyType
+}
 var file_pkg_web_proto_enums_proxy_type_proto_depIdxs = []int32{
 	0, // [0:0] is the sub-list for method output_type
 	0, // [0:0] is the sub-list for method input_type
@@ -49,13 +104,14 @@ func file_pkg_web_proto_enums_proxy_type_proto_init() {
 		File: protoimpl.DescBuilder{
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: unsafe.Slice(unsafe.StringData(file_pkg_web_proto_enums_proxy_type_proto_rawDesc), len(file_pkg_web_proto_enums_proxy_type_proto_rawDesc)),
-			NumEnums:      0,
+			NumEnums:      1,
 			NumMessages:   0,
 			NumExtensions: 0,
 			NumServices:   0,
 		},
 		GoTypes:           file_pkg_web_proto_enums_proxy_type_proto_goTypes,
 		DependencyIndexes: file_pkg_web_proto_enums_proxy_type_proto_depIdxs,
+		EnumInfos:         file_pkg_web_proto_enums_proxy_type_proto_enumTypes,
 	}.Build()
 	File_pkg_web_proto_enums_proxy_type_proto = out.File
 	file_pkg_web_proto_enums_proxy_type_proto_goTypes = nil

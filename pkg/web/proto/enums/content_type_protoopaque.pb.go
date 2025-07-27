@@ -23,14 +23,78 @@ const (
 	_ = protoimpl.EnforceVersion(protoimpl.MaxVersion - 20)
 )
 
+// Well-known MIME types supported by the server.
+type ContentType int32
+
+const (
+	ContentType_CONTENT_TYPE_UNSPECIFIED ContentType = 0
+	ContentType_CONTENT_TYPE_HTML        ContentType = 1
+	ContentType_CONTENT_TYPE_JSON        ContentType = 2
+	ContentType_CONTENT_TYPE_XML         ContentType = 3
+	ContentType_CONTENT_TYPE_TEXT        ContentType = 4
+	ContentType_CONTENT_TYPE_BINARY      ContentType = 5
+)
+
+// Enum value maps for ContentType.
+var (
+	ContentType_name = map[int32]string{
+		0: "CONTENT_TYPE_UNSPECIFIED",
+		1: "CONTENT_TYPE_HTML",
+		2: "CONTENT_TYPE_JSON",
+		3: "CONTENT_TYPE_XML",
+		4: "CONTENT_TYPE_TEXT",
+		5: "CONTENT_TYPE_BINARY",
+	}
+	ContentType_value = map[string]int32{
+		"CONTENT_TYPE_UNSPECIFIED": 0,
+		"CONTENT_TYPE_HTML":        1,
+		"CONTENT_TYPE_JSON":        2,
+		"CONTENT_TYPE_XML":         3,
+		"CONTENT_TYPE_TEXT":        4,
+		"CONTENT_TYPE_BINARY":      5,
+	}
+)
+
+func (x ContentType) Enum() *ContentType {
+	p := new(ContentType)
+	*p = x
+	return p
+}
+
+func (x ContentType) String() string {
+	return protoimpl.X.EnumStringOf(x.Descriptor(), protoreflect.EnumNumber(x))
+}
+
+func (ContentType) Descriptor() protoreflect.EnumDescriptor {
+	return file_pkg_web_proto_enums_content_type_proto_enumTypes[0].Descriptor()
+}
+
+func (ContentType) Type() protoreflect.EnumType {
+	return &file_pkg_web_proto_enums_content_type_proto_enumTypes[0]
+}
+
+func (x ContentType) Number() protoreflect.EnumNumber {
+	return protoreflect.EnumNumber(x)
+}
+
 var File_pkg_web_proto_enums_content_type_proto protoreflect.FileDescriptor
 
 const file_pkg_web_proto_enums_content_type_proto_rawDesc = "" +
 	"\n" +
-	"&pkg/web/proto/enums/content_type.proto\x12\x0egcommon.v1.web\x1a!google/protobuf/go_features.protoB\xb7\x01\n" +
+	"&pkg/web/proto/enums/content_type.proto\x12\x0egcommon.v1.web\x1a!google/protobuf/go_features.proto*\x9f\x01\n" +
+	"\vContentType\x12\x1c\n" +
+	"\x18CONTENT_TYPE_UNSPECIFIED\x10\x00\x12\x15\n" +
+	"\x11CONTENT_TYPE_HTML\x10\x01\x12\x15\n" +
+	"\x11CONTENT_TYPE_JSON\x10\x02\x12\x14\n" +
+	"\x10CONTENT_TYPE_XML\x10\x03\x12\x15\n" +
+	"\x11CONTENT_TYPE_TEXT\x10\x04\x12\x17\n" +
+	"\x13CONTENT_TYPE_BINARY\x10\x05B\xb7\x01\n" +
 	"\x12com.gcommon.v1.webB\x10ContentTypeProtoP\x01Z-github.com/jdfalk/gcommon/pkg/web/proto;webpb\xa2\x02\x03GVW\xaa\x02\x0eGcommon.V1.Web\xca\x02\x0eGcommon\\V1\\Web\xe2\x02\x1aGcommon\\V1\\Web\\GPBMetadata\xea\x02\x10Gcommon::V1::Web\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
 
-var file_pkg_web_proto_enums_content_type_proto_goTypes = []any{}
+var file_pkg_web_proto_enums_content_type_proto_enumTypes = make([]protoimpl.EnumInfo, 1)
+var file_pkg_web_proto_enums_content_type_proto_goTypes = []any{
+	(ContentType)(0), // 0: gcommon.v1.web.ContentType
+}
 var file_pkg_web_proto_enums_content_type_proto_depIdxs = []int32{
 	0, // [0:0] is the sub-list for method output_type
 	0, // [0:0] is the sub-list for method input_type
@@ -49,13 +113,14 @@ func file_pkg_web_proto_enums_content_type_proto_init() {
 		File: protoimpl.DescBuilder{
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: unsafe.Slice(unsafe.StringData(file_pkg_web_proto_enums_content_type_proto_rawDesc), len(file_pkg_web_proto_enums_content_type_proto_rawDesc)),
-			NumEnums:      0,
+			NumEnums:      1,
 			NumMessages:   0,
 			NumExtensions: 0,
 			NumServices:   0,
 		},
 		GoTypes:           file_pkg_web_proto_enums_content_type_proto_goTypes,
 		DependencyIndexes: file_pkg_web_proto_enums_content_type_proto_depIdxs,
+		EnumInfos:         file_pkg_web_proto_enums_content_type_proto_enumTypes,
 	}.Build()
 	File_pkg_web_proto_enums_content_type_proto = out.File
 	file_pkg_web_proto_enums_content_type_proto_goTypes = nil

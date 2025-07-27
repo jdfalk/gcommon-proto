@@ -23,14 +23,73 @@ const (
 	_ = protoimpl.EnforceVersion(protoimpl.MaxVersion - 20)
 )
 
+type SSLProtocol int32
+
+const (
+	SSLProtocol_SSL_PROTOCOL_UNSPECIFIED SSLProtocol = 0
+	SSLProtocol_SSL_PROTOCOL_TLS1_0      SSLProtocol = 1
+	SSLProtocol_SSL_PROTOCOL_TLS1_1      SSLProtocol = 2
+	SSLProtocol_SSL_PROTOCOL_TLS1_2      SSLProtocol = 3
+	SSLProtocol_SSL_PROTOCOL_TLS1_3      SSLProtocol = 4
+)
+
+// Enum value maps for SSLProtocol.
+var (
+	SSLProtocol_name = map[int32]string{
+		0: "SSL_PROTOCOL_UNSPECIFIED",
+		1: "SSL_PROTOCOL_TLS1_0",
+		2: "SSL_PROTOCOL_TLS1_1",
+		3: "SSL_PROTOCOL_TLS1_2",
+		4: "SSL_PROTOCOL_TLS1_3",
+	}
+	SSLProtocol_value = map[string]int32{
+		"SSL_PROTOCOL_UNSPECIFIED": 0,
+		"SSL_PROTOCOL_TLS1_0":      1,
+		"SSL_PROTOCOL_TLS1_1":      2,
+		"SSL_PROTOCOL_TLS1_2":      3,
+		"SSL_PROTOCOL_TLS1_3":      4,
+	}
+)
+
+func (x SSLProtocol) Enum() *SSLProtocol {
+	p := new(SSLProtocol)
+	*p = x
+	return p
+}
+
+func (x SSLProtocol) String() string {
+	return protoimpl.X.EnumStringOf(x.Descriptor(), protoreflect.EnumNumber(x))
+}
+
+func (SSLProtocol) Descriptor() protoreflect.EnumDescriptor {
+	return file_pkg_web_proto_enums_ssl_protocol_proto_enumTypes[0].Descriptor()
+}
+
+func (SSLProtocol) Type() protoreflect.EnumType {
+	return &file_pkg_web_proto_enums_ssl_protocol_proto_enumTypes[0]
+}
+
+func (x SSLProtocol) Number() protoreflect.EnumNumber {
+	return protoreflect.EnumNumber(x)
+}
+
 var File_pkg_web_proto_enums_ssl_protocol_proto protoreflect.FileDescriptor
 
 const file_pkg_web_proto_enums_ssl_protocol_proto_rawDesc = "" +
 	"\n" +
-	"&pkg/web/proto/enums/ssl_protocol.proto\x12\x0egcommon.v1.web\x1a!google/protobuf/go_features.protoB\xb7\x01\n" +
+	"&pkg/web/proto/enums/ssl_protocol.proto\x12\x0egcommon.v1.web\x1a!google/protobuf/go_features.proto*\x8f\x01\n" +
+	"\vSSLProtocol\x12\x1c\n" +
+	"\x18SSL_PROTOCOL_UNSPECIFIED\x10\x00\x12\x17\n" +
+	"\x13SSL_PROTOCOL_TLS1_0\x10\x01\x12\x17\n" +
+	"\x13SSL_PROTOCOL_TLS1_1\x10\x02\x12\x17\n" +
+	"\x13SSL_PROTOCOL_TLS1_2\x10\x03\x12\x17\n" +
+	"\x13SSL_PROTOCOL_TLS1_3\x10\x04B\xb7\x01\n" +
 	"\x12com.gcommon.v1.webB\x10SslProtocolProtoP\x01Z-github.com/jdfalk/gcommon/pkg/web/proto;webpb\xa2\x02\x03GVW\xaa\x02\x0eGcommon.V1.Web\xca\x02\x0eGcommon\\V1\\Web\xe2\x02\x1aGcommon\\V1\\Web\\GPBMetadata\xea\x02\x10Gcommon::V1::Web\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
 
-var file_pkg_web_proto_enums_ssl_protocol_proto_goTypes = []any{}
+var file_pkg_web_proto_enums_ssl_protocol_proto_enumTypes = make([]protoimpl.EnumInfo, 1)
+var file_pkg_web_proto_enums_ssl_protocol_proto_goTypes = []any{
+	(SSLProtocol)(0), // 0: gcommon.v1.web.SSLProtocol
+}
 var file_pkg_web_proto_enums_ssl_protocol_proto_depIdxs = []int32{
 	0, // [0:0] is the sub-list for method output_type
 	0, // [0:0] is the sub-list for method input_type
@@ -49,13 +108,14 @@ func file_pkg_web_proto_enums_ssl_protocol_proto_init() {
 		File: protoimpl.DescBuilder{
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: unsafe.Slice(unsafe.StringData(file_pkg_web_proto_enums_ssl_protocol_proto_rawDesc), len(file_pkg_web_proto_enums_ssl_protocol_proto_rawDesc)),
-			NumEnums:      0,
+			NumEnums:      1,
 			NumMessages:   0,
 			NumExtensions: 0,
 			NumServices:   0,
 		},
 		GoTypes:           file_pkg_web_proto_enums_ssl_protocol_proto_goTypes,
 		DependencyIndexes: file_pkg_web_proto_enums_ssl_protocol_proto_depIdxs,
+		EnumInfos:         file_pkg_web_proto_enums_ssl_protocol_proto_enumTypes,
 	}.Build()
 	File_pkg_web_proto_enums_ssl_protocol_proto = out.File
 	file_pkg_web_proto_enums_ssl_protocol_proto_goTypes = nil

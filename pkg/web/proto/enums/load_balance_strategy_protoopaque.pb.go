@@ -23,14 +23,69 @@ const (
 	_ = protoimpl.EnforceVersion(protoimpl.MaxVersion - 20)
 )
 
+type LoadBalanceStrategy int32
+
+const (
+	LoadBalanceStrategy_LOAD_BALANCE_STRATEGY_UNSPECIFIED       LoadBalanceStrategy = 0
+	LoadBalanceStrategy_LOAD_BALANCE_STRATEGY_ROUND_ROBIN       LoadBalanceStrategy = 1
+	LoadBalanceStrategy_LOAD_BALANCE_STRATEGY_LEAST_CONNECTIONS LoadBalanceStrategy = 2
+	LoadBalanceStrategy_LOAD_BALANCE_STRATEGY_IP_HASH           LoadBalanceStrategy = 3
+)
+
+// Enum value maps for LoadBalanceStrategy.
+var (
+	LoadBalanceStrategy_name = map[int32]string{
+		0: "LOAD_BALANCE_STRATEGY_UNSPECIFIED",
+		1: "LOAD_BALANCE_STRATEGY_ROUND_ROBIN",
+		2: "LOAD_BALANCE_STRATEGY_LEAST_CONNECTIONS",
+		3: "LOAD_BALANCE_STRATEGY_IP_HASH",
+	}
+	LoadBalanceStrategy_value = map[string]int32{
+		"LOAD_BALANCE_STRATEGY_UNSPECIFIED":       0,
+		"LOAD_BALANCE_STRATEGY_ROUND_ROBIN":       1,
+		"LOAD_BALANCE_STRATEGY_LEAST_CONNECTIONS": 2,
+		"LOAD_BALANCE_STRATEGY_IP_HASH":           3,
+	}
+)
+
+func (x LoadBalanceStrategy) Enum() *LoadBalanceStrategy {
+	p := new(LoadBalanceStrategy)
+	*p = x
+	return p
+}
+
+func (x LoadBalanceStrategy) String() string {
+	return protoimpl.X.EnumStringOf(x.Descriptor(), protoreflect.EnumNumber(x))
+}
+
+func (LoadBalanceStrategy) Descriptor() protoreflect.EnumDescriptor {
+	return file_pkg_web_proto_enums_load_balance_strategy_proto_enumTypes[0].Descriptor()
+}
+
+func (LoadBalanceStrategy) Type() protoreflect.EnumType {
+	return &file_pkg_web_proto_enums_load_balance_strategy_proto_enumTypes[0]
+}
+
+func (x LoadBalanceStrategy) Number() protoreflect.EnumNumber {
+	return protoreflect.EnumNumber(x)
+}
+
 var File_pkg_web_proto_enums_load_balance_strategy_proto protoreflect.FileDescriptor
 
 const file_pkg_web_proto_enums_load_balance_strategy_proto_rawDesc = "" +
 	"\n" +
-	"/pkg/web/proto/enums/load_balance_strategy.proto\x12\x0egcommon.v1.web\x1a!google/protobuf/go_features.protoB\xbf\x01\n" +
+	"/pkg/web/proto/enums/load_balance_strategy.proto\x12\x0egcommon.v1.web\x1a!google/protobuf/go_features.proto*\xb3\x01\n" +
+	"\x13LoadBalanceStrategy\x12%\n" +
+	"!LOAD_BALANCE_STRATEGY_UNSPECIFIED\x10\x00\x12%\n" +
+	"!LOAD_BALANCE_STRATEGY_ROUND_ROBIN\x10\x01\x12+\n" +
+	"'LOAD_BALANCE_STRATEGY_LEAST_CONNECTIONS\x10\x02\x12!\n" +
+	"\x1dLOAD_BALANCE_STRATEGY_IP_HASH\x10\x03B\xbf\x01\n" +
 	"\x12com.gcommon.v1.webB\x18LoadBalanceStrategyProtoP\x01Z-github.com/jdfalk/gcommon/pkg/web/proto;webpb\xa2\x02\x03GVW\xaa\x02\x0eGcommon.V1.Web\xca\x02\x0eGcommon\\V1\\Web\xe2\x02\x1aGcommon\\V1\\Web\\GPBMetadata\xea\x02\x10Gcommon::V1::Web\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
 
-var file_pkg_web_proto_enums_load_balance_strategy_proto_goTypes = []any{}
+var file_pkg_web_proto_enums_load_balance_strategy_proto_enumTypes = make([]protoimpl.EnumInfo, 1)
+var file_pkg_web_proto_enums_load_balance_strategy_proto_goTypes = []any{
+	(LoadBalanceStrategy)(0), // 0: gcommon.v1.web.LoadBalanceStrategy
+}
 var file_pkg_web_proto_enums_load_balance_strategy_proto_depIdxs = []int32{
 	0, // [0:0] is the sub-list for method output_type
 	0, // [0:0] is the sub-list for method input_type
@@ -49,13 +104,14 @@ func file_pkg_web_proto_enums_load_balance_strategy_proto_init() {
 		File: protoimpl.DescBuilder{
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: unsafe.Slice(unsafe.StringData(file_pkg_web_proto_enums_load_balance_strategy_proto_rawDesc), len(file_pkg_web_proto_enums_load_balance_strategy_proto_rawDesc)),
-			NumEnums:      0,
+			NumEnums:      1,
 			NumMessages:   0,
 			NumExtensions: 0,
 			NumServices:   0,
 		},
 		GoTypes:           file_pkg_web_proto_enums_load_balance_strategy_proto_goTypes,
 		DependencyIndexes: file_pkg_web_proto_enums_load_balance_strategy_proto_depIdxs,
+		EnumInfos:         file_pkg_web_proto_enums_load_balance_strategy_proto_enumTypes,
 	}.Build()
 	File_pkg_web_proto_enums_load_balance_strategy_proto = out.File
 	file_pkg_web_proto_enums_load_balance_strategy_proto_goTypes = nil

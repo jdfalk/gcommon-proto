@@ -23,14 +23,81 @@ const (
 	_ = protoimpl.EnforceVersion(protoimpl.MaxVersion - 20)
 )
 
+type MiddlewareType int32
+
+const (
+	MiddlewareType_MIDDLEWARE_TYPE_UNSPECIFIED    MiddlewareType = 0
+	MiddlewareType_MIDDLEWARE_TYPE_LOGGING        MiddlewareType = 1
+	MiddlewareType_MIDDLEWARE_TYPE_AUTHENTICATION MiddlewareType = 2
+	MiddlewareType_MIDDLEWARE_TYPE_METRICS        MiddlewareType = 3
+	MiddlewareType_MIDDLEWARE_TYPE_COMPRESSION    MiddlewareType = 4
+	MiddlewareType_MIDDLEWARE_TYPE_CORS           MiddlewareType = 5
+	MiddlewareType_MIDDLEWARE_TYPE_RATE_LIMIT     MiddlewareType = 6
+)
+
+// Enum value maps for MiddlewareType.
+var (
+	MiddlewareType_name = map[int32]string{
+		0: "MIDDLEWARE_TYPE_UNSPECIFIED",
+		1: "MIDDLEWARE_TYPE_LOGGING",
+		2: "MIDDLEWARE_TYPE_AUTHENTICATION",
+		3: "MIDDLEWARE_TYPE_METRICS",
+		4: "MIDDLEWARE_TYPE_COMPRESSION",
+		5: "MIDDLEWARE_TYPE_CORS",
+		6: "MIDDLEWARE_TYPE_RATE_LIMIT",
+	}
+	MiddlewareType_value = map[string]int32{
+		"MIDDLEWARE_TYPE_UNSPECIFIED":    0,
+		"MIDDLEWARE_TYPE_LOGGING":        1,
+		"MIDDLEWARE_TYPE_AUTHENTICATION": 2,
+		"MIDDLEWARE_TYPE_METRICS":        3,
+		"MIDDLEWARE_TYPE_COMPRESSION":    4,
+		"MIDDLEWARE_TYPE_CORS":           5,
+		"MIDDLEWARE_TYPE_RATE_LIMIT":     6,
+	}
+)
+
+func (x MiddlewareType) Enum() *MiddlewareType {
+	p := new(MiddlewareType)
+	*p = x
+	return p
+}
+
+func (x MiddlewareType) String() string {
+	return protoimpl.X.EnumStringOf(x.Descriptor(), protoreflect.EnumNumber(x))
+}
+
+func (MiddlewareType) Descriptor() protoreflect.EnumDescriptor {
+	return file_pkg_web_proto_enums_middleware_type_proto_enumTypes[0].Descriptor()
+}
+
+func (MiddlewareType) Type() protoreflect.EnumType {
+	return &file_pkg_web_proto_enums_middleware_type_proto_enumTypes[0]
+}
+
+func (x MiddlewareType) Number() protoreflect.EnumNumber {
+	return protoreflect.EnumNumber(x)
+}
+
 var File_pkg_web_proto_enums_middleware_type_proto protoreflect.FileDescriptor
 
 const file_pkg_web_proto_enums_middleware_type_proto_rawDesc = "" +
 	"\n" +
-	")pkg/web/proto/enums/middleware_type.proto\x12\x0egcommon.v1.web\x1a!google/protobuf/go_features.protoB\xba\x01\n" +
+	")pkg/web/proto/enums/middleware_type.proto\x12\x0egcommon.v1.web\x1a!google/protobuf/go_features.proto*\xea\x01\n" +
+	"\x0eMiddlewareType\x12\x1f\n" +
+	"\x1bMIDDLEWARE_TYPE_UNSPECIFIED\x10\x00\x12\x1b\n" +
+	"\x17MIDDLEWARE_TYPE_LOGGING\x10\x01\x12\"\n" +
+	"\x1eMIDDLEWARE_TYPE_AUTHENTICATION\x10\x02\x12\x1b\n" +
+	"\x17MIDDLEWARE_TYPE_METRICS\x10\x03\x12\x1f\n" +
+	"\x1bMIDDLEWARE_TYPE_COMPRESSION\x10\x04\x12\x18\n" +
+	"\x14MIDDLEWARE_TYPE_CORS\x10\x05\x12\x1e\n" +
+	"\x1aMIDDLEWARE_TYPE_RATE_LIMIT\x10\x06B\xba\x01\n" +
 	"\x12com.gcommon.v1.webB\x13MiddlewareTypeProtoP\x01Z-github.com/jdfalk/gcommon/pkg/web/proto;webpb\xa2\x02\x03GVW\xaa\x02\x0eGcommon.V1.Web\xca\x02\x0eGcommon\\V1\\Web\xe2\x02\x1aGcommon\\V1\\Web\\GPBMetadata\xea\x02\x10Gcommon::V1::Web\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
 
-var file_pkg_web_proto_enums_middleware_type_proto_goTypes = []any{}
+var file_pkg_web_proto_enums_middleware_type_proto_enumTypes = make([]protoimpl.EnumInfo, 1)
+var file_pkg_web_proto_enums_middleware_type_proto_goTypes = []any{
+	(MiddlewareType)(0), // 0: gcommon.v1.web.MiddlewareType
+}
 var file_pkg_web_proto_enums_middleware_type_proto_depIdxs = []int32{
 	0, // [0:0] is the sub-list for method output_type
 	0, // [0:0] is the sub-list for method input_type
@@ -49,13 +116,14 @@ func file_pkg_web_proto_enums_middleware_type_proto_init() {
 		File: protoimpl.DescBuilder{
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: unsafe.Slice(unsafe.StringData(file_pkg_web_proto_enums_middleware_type_proto_rawDesc), len(file_pkg_web_proto_enums_middleware_type_proto_rawDesc)),
-			NumEnums:      0,
+			NumEnums:      1,
 			NumMessages:   0,
 			NumExtensions: 0,
 			NumServices:   0,
 		},
 		GoTypes:           file_pkg_web_proto_enums_middleware_type_proto_goTypes,
 		DependencyIndexes: file_pkg_web_proto_enums_middleware_type_proto_depIdxs,
+		EnumInfos:         file_pkg_web_proto_enums_middleware_type_proto_enumTypes,
 	}.Build()
 	File_pkg_web_proto_enums_middleware_type_proto = out.File
 	file_pkg_web_proto_enums_middleware_type_proto_goTypes = nil
