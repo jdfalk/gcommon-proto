@@ -23,14 +23,88 @@ const (
 	_ = protoimpl.EnforceVersion(protoimpl.MaxVersion - 20)
 )
 
+// DownloadFileRequest request definition.
+type DownloadFileRequest struct {
+	state         protoimpl.MessageState `protogen:"hybrid.v1"`
+	Placeholder   *string                `protobuf:"bytes,1,opt,name=placeholder" json:"placeholder,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *DownloadFileRequest) Reset() {
+	*x = DownloadFileRequest{}
+	mi := &file_pkg_web_proto_requests_download_file_request_proto_msgTypes[0]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *DownloadFileRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*DownloadFileRequest) ProtoMessage() {}
+
+func (x *DownloadFileRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_pkg_web_proto_requests_download_file_request_proto_msgTypes[0]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+func (x *DownloadFileRequest) GetPlaceholder() string {
+	if x != nil && x.Placeholder != nil {
+		return *x.Placeholder
+	}
+	return ""
+}
+
+func (x *DownloadFileRequest) SetPlaceholder(v string) {
+	x.Placeholder = &v
+}
+
+func (x *DownloadFileRequest) HasPlaceholder() bool {
+	if x == nil {
+		return false
+	}
+	return x.Placeholder != nil
+}
+
+func (x *DownloadFileRequest) ClearPlaceholder() {
+	x.Placeholder = nil
+}
+
+type DownloadFileRequest_builder struct {
+	_ [0]func() // Prevents comparability and use of unkeyed literals for the builder.
+
+	Placeholder *string
+}
+
+func (b0 DownloadFileRequest_builder) Build() *DownloadFileRequest {
+	m0 := &DownloadFileRequest{}
+	b, x := &b0, m0
+	_, _ = b, x
+	x.Placeholder = b.Placeholder
+	return m0
+}
+
 var File_pkg_web_proto_requests_download_file_request_proto protoreflect.FileDescriptor
 
 const file_pkg_web_proto_requests_download_file_request_proto_rawDesc = "" +
 	"\n" +
-	"2pkg/web/proto/requests/download_file_request.proto\x12\x0egcommon.v1.web\x1a!google/protobuf/go_features.protoB\xbf\x01\n" +
+	"2pkg/web/proto/requests/download_file_request.proto\x12\x0egcommon.v1.web\x1a!google/protobuf/go_features.proto\"7\n" +
+	"\x13DownloadFileRequest\x12 \n" +
+	"\vplaceholder\x18\x01 \x01(\tR\vplaceholderB\xbf\x01\n" +
 	"\x12com.gcommon.v1.webB\x18DownloadFileRequestProtoP\x01Z-github.com/jdfalk/gcommon/pkg/web/proto;webpb\xa2\x02\x03GVW\xaa\x02\x0eGcommon.V1.Web\xca\x02\x0eGcommon\\V1\\Web\xe2\x02\x1aGcommon\\V1\\Web\\GPBMetadata\xea\x02\x10Gcommon::V1::Web\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
 
-var file_pkg_web_proto_requests_download_file_request_proto_goTypes = []any{}
+var file_pkg_web_proto_requests_download_file_request_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
+var file_pkg_web_proto_requests_download_file_request_proto_goTypes = []any{
+	(*DownloadFileRequest)(nil), // 0: gcommon.v1.web.DownloadFileRequest
+}
 var file_pkg_web_proto_requests_download_file_request_proto_depIdxs = []int32{
 	0, // [0:0] is the sub-list for method output_type
 	0, // [0:0] is the sub-list for method input_type
@@ -50,12 +124,13 @@ func file_pkg_web_proto_requests_download_file_request_proto_init() {
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: unsafe.Slice(unsafe.StringData(file_pkg_web_proto_requests_download_file_request_proto_rawDesc), len(file_pkg_web_proto_requests_download_file_request_proto_rawDesc)),
 			NumEnums:      0,
-			NumMessages:   0,
+			NumMessages:   1,
 			NumExtensions: 0,
 			NumServices:   0,
 		},
 		GoTypes:           file_pkg_web_proto_requests_download_file_request_proto_goTypes,
 		DependencyIndexes: file_pkg_web_proto_requests_download_file_request_proto_depIdxs,
+		MessageInfos:      file_pkg_web_proto_requests_download_file_request_proto_msgTypes,
 	}.Build()
 	File_pkg_web_proto_requests_download_file_request_proto = out.File
 	file_pkg_web_proto_requests_download_file_request_proto_goTypes = nil
