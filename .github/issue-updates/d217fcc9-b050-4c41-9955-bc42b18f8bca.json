@@ -1,0 +1,8 @@
+{
+  "action": "create",
+  "title": "Notification: implement subscription management protobufs",
+  "body": "Add GetPreferences and UpdatePreferences requests/responses with service methods",
+  "labels": ["codex", "module:notification", "enhancement"],
+  "guid": "d217fcc9-b050-4c41-9955-bc42b18f8bca",
+  "legacy_guid": "create-notification-implement-subscription-management-protobufs-2025-07-23"
+}
