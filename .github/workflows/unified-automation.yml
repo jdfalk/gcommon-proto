@@ -1,5 +1,5 @@
 # file: .github/workflows/unified-automation.yml
-# version: 2.3.0
+# version: 2.4.0
 # guid: 8b7c6d5e-4f3a-2b1c-0d1e-2f3a4b5c6d7e
 
 name: Unified Issue & Docs Automation
@@ -32,4 +32,6 @@ jobs:
     uses: jdfalk/ghcommon/.github/workflows/reusable-unified-automation.yml@main
     with:
       operation: ${{ github.event.inputs.operation || 'all' }}
-    secrets: inherit
+    secrets:
+      github-pat: ${{ secrets.GITHUB_PAT }}
+      github-token: ${{ secrets.GITHUB_TOKEN }}
