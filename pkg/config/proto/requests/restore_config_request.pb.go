@@ -9,6 +9,7 @@
 package configpb
 
 import (
+	proto "github.com/jdfalk/gcommon/pkg/common/proto"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
@@ -23,20 +24,155 @@ const (
 	_ = protoimpl.EnforceVersion(protoimpl.MaxVersion - 20)
 )
 
+// *
+// RestoreConfigRequest restores configuration from a restore point.
+type RestoreConfigRequest struct {
+	state protoimpl.MessageState `protogen:"hybrid.v1"`
+	// Restore point identifier
+	RestorePointId *string `protobuf:"bytes,1,opt,name=restore_point_id,json=restorePointId" json:"restore_point_id,omitempty"`
+	// Namespace/environment to restore
+	Namespace *string `protobuf:"bytes,2,opt,name=namespace" json:"namespace,omitempty"`
+	// Request metadata
+	Metadata      *proto.RequestMetadata `protobuf:"bytes,3,opt,name=metadata" json:"metadata,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *RestoreConfigRequest) Reset() {
+	*x = RestoreConfigRequest{}
+	mi := &file_pkg_config_proto_requests_restore_config_request_proto_msgTypes[0]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *RestoreConfigRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*RestoreConfigRequest) ProtoMessage() {}
+
+func (x *RestoreConfigRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_pkg_config_proto_requests_restore_config_request_proto_msgTypes[0]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+func (x *RestoreConfigRequest) GetRestorePointId() string {
+	if x != nil && x.RestorePointId != nil {
+		return *x.RestorePointId
+	}
+	return ""
+}
+
+func (x *RestoreConfigRequest) GetNamespace() string {
+	if x != nil && x.Namespace != nil {
+		return *x.Namespace
+	}
+	return ""
+}
+
+func (x *RestoreConfigRequest) GetMetadata() *proto.RequestMetadata {
+	if x != nil {
+		return x.Metadata
+	}
+	return nil
+}
+
+func (x *RestoreConfigRequest) SetRestorePointId(v string) {
+	x.RestorePointId = &v
+}
+
+func (x *RestoreConfigRequest) SetNamespace(v string) {
+	x.Namespace = &v
+}
+
+func (x *RestoreConfigRequest) SetMetadata(v *proto.RequestMetadata) {
+	x.Metadata = v
+}
+
+func (x *RestoreConfigRequest) HasRestorePointId() bool {
+	if x == nil {
+		return false
+	}
+	return x.RestorePointId != nil
+}
+
+func (x *RestoreConfigRequest) HasNamespace() bool {
+	if x == nil {
+		return false
+	}
+	return x.Namespace != nil
+}
+
+func (x *RestoreConfigRequest) HasMetadata() bool {
+	if x == nil {
+		return false
+	}
+	return x.Metadata != nil
+}
+
+func (x *RestoreConfigRequest) ClearRestorePointId() {
+	x.RestorePointId = nil
+}
+
+func (x *RestoreConfigRequest) ClearNamespace() {
+	x.Namespace = nil
+}
+
+func (x *RestoreConfigRequest) ClearMetadata() {
+	x.Metadata = nil
+}
+
+type RestoreConfigRequest_builder struct {
+	_ [0]func() // Prevents comparability and use of unkeyed literals for the builder.
+
+	// Restore point identifier
+	RestorePointId *string
+	// Namespace/environment to restore
+	Namespace *string
+	// Request metadata
+	Metadata *proto.RequestMetadata
+}
+
+func (b0 RestoreConfigRequest_builder) Build() *RestoreConfigRequest {
+	m0 := &RestoreConfigRequest{}
+	b, x := &b0, m0
+	_, _ = b, x
+	x.RestorePointId = b.RestorePointId
+	x.Namespace = b.Namespace
+	x.Metadata = b.Metadata
+	return m0
+}
+
 var File_pkg_config_proto_requests_restore_config_request_proto protoreflect.FileDescriptor
 
 const file_pkg_config_proto_requests_restore_config_request_proto_rawDesc = "" +
 	"\n" +
-	"6pkg/config/proto/requests/restore_config_request.proto\x12\x11gcommon.v1.config\x1a!google/protobuf/go_features.protoB\xd5\x01\n" +
+	"6pkg/config/proto/requests/restore_config_request.proto\x12\x11gcommon.v1.config\x1a!google/protobuf/go_features.proto\x1a0pkg/common/proto/messages/request_metadata.proto\x1a4pkg/config/proto/messages/config_restore_point.proto\"\x9e\x01\n" +
+	"\x14RestoreConfigRequest\x12(\n" +
+	"\x10restore_point_id\x18\x01 \x01(\tR\x0erestorePointId\x12\x1c\n" +
+	"\tnamespace\x18\x02 \x01(\tR\tnamespace\x12>\n" +
+	"\bmetadata\x18\x03 \x01(\v2\".gcommon.v1.common.RequestMetadataR\bmetadataB\xd5\x01\n" +
 	"\x15com.gcommon.v1.configB\x19RestoreConfigRequestProtoP\x01Z3github.com/jdfalk/gcommon/pkg/config/proto;configpb\xa2\x02\x03GVC\xaa\x02\x11Gcommon.V1.Config\xca\x02\x11Gcommon\\V1\\Config\xe2\x02\x1dGcommon\\V1\\Config\\GPBMetadata\xea\x02\x13Gcommon::V1::Config\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
 
-var file_pkg_config_proto_requests_restore_config_request_proto_goTypes = []any{}
+var file_pkg_config_proto_requests_restore_config_request_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
+var file_pkg_config_proto_requests_restore_config_request_proto_goTypes = []any{
+	(*RestoreConfigRequest)(nil),  // 0: gcommon.v1.config.RestoreConfigRequest
+	(*proto.RequestMetadata)(nil), // 1: gcommon.v1.common.RequestMetadata
+}
 var file_pkg_config_proto_requests_restore_config_request_proto_depIdxs = []int32{
-	0, // [0:0] is the sub-list for method output_type
-	0, // [0:0] is the sub-list for method input_type
-	0, // [0:0] is the sub-list for extension type_name
-	0, // [0:0] is the sub-list for extension extendee
-	0, // [0:0] is the sub-list for field type_name
+	1, // 0: gcommon.v1.config.RestoreConfigRequest.metadata:type_name -> gcommon.v1.common.RequestMetadata
+	1, // [1:1] is the sub-list for method output_type
+	1, // [1:1] is the sub-list for method input_type
+	1, // [1:1] is the sub-list for extension type_name
+	1, // [1:1] is the sub-list for extension extendee
+	0, // [0:1] is the sub-list for field type_name
 }
 
 func init() { file_pkg_config_proto_requests_restore_config_request_proto_init() }
@@ -44,18 +180,20 @@ func file_pkg_config_proto_requests_restore_config_request_proto_init() {
 	if File_pkg_config_proto_requests_restore_config_request_proto != nil {
 		return
 	}
+	file_pkg_config_proto_messages_config_restore_point_proto_init()
 	type x struct{}
 	out := protoimpl.TypeBuilder{
 		File: protoimpl.DescBuilder{
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: unsafe.Slice(unsafe.StringData(file_pkg_config_proto_requests_restore_config_request_proto_rawDesc), len(file_pkg_config_proto_requests_restore_config_request_proto_rawDesc)),
 			NumEnums:      0,
-			NumMessages:   0,
+			NumMessages:   1,
 			NumExtensions: 0,
 			NumServices:   0,
 		},
 		GoTypes:           file_pkg_config_proto_requests_restore_config_request_proto_goTypes,
 		DependencyIndexes: file_pkg_config_proto_requests_restore_config_request_proto_depIdxs,
+		MessageInfos:      file_pkg_config_proto_requests_restore_config_request_proto_msgTypes,
 	}.Build()
 	File_pkg_config_proto_requests_restore_config_request_proto = out.File
 	file_pkg_config_proto_requests_restore_config_request_proto_goTypes = nil

@@ -9,6 +9,7 @@
 package configpb
 
 import (
+	proto "github.com/jdfalk/gcommon/pkg/common/proto"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
@@ -23,20 +24,170 @@ const (
 	_ = protoimpl.EnforceVersion(protoimpl.MaxVersion - 20)
 )
 
+// *
+// ExportConfigRequest exports configuration values to an external format.
+type ExportConfigRequest struct {
+	state                  protoimpl.MessageState `protogen:"opaque.v1"`
+	xxx_hidden_Namespace   *string                `protobuf:"bytes,1,opt,name=namespace"`
+	xxx_hidden_Format      *string                `protobuf:"bytes,2,opt,name=format"`
+	xxx_hidden_Metadata    *proto.RequestMetadata `protobuf:"bytes,3,opt,name=metadata"`
+	XXX_raceDetectHookData protoimpl.RaceDetectHookData
+	XXX_presence           [1]uint32
+	unknownFields          protoimpl.UnknownFields
+	sizeCache              protoimpl.SizeCache
+}
+
+func (x *ExportConfigRequest) Reset() {
+	*x = ExportConfigRequest{}
+	mi := &file_pkg_config_proto_requests_export_config_request_proto_msgTypes[0]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *ExportConfigRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*ExportConfigRequest) ProtoMessage() {}
+
+func (x *ExportConfigRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_pkg_config_proto_requests_export_config_request_proto_msgTypes[0]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+func (x *ExportConfigRequest) GetNamespace() string {
+	if x != nil {
+		if x.xxx_hidden_Namespace != nil {
+			return *x.xxx_hidden_Namespace
+		}
+		return ""
+	}
+	return ""
+}
+
+func (x *ExportConfigRequest) GetFormat() string {
+	if x != nil {
+		if x.xxx_hidden_Format != nil {
+			return *x.xxx_hidden_Format
+		}
+		return ""
+	}
+	return ""
+}
+
+func (x *ExportConfigRequest) GetMetadata() *proto.RequestMetadata {
+	if x != nil {
+		return x.xxx_hidden_Metadata
+	}
+	return nil
+}
+
+func (x *ExportConfigRequest) SetNamespace(v string) {
+	x.xxx_hidden_Namespace = &v
+	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 0, 3)
+}
+
+func (x *ExportConfigRequest) SetFormat(v string) {
+	x.xxx_hidden_Format = &v
+	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 1, 3)
+}
+
+func (x *ExportConfigRequest) SetMetadata(v *proto.RequestMetadata) {
+	x.xxx_hidden_Metadata = v
+}
+
+func (x *ExportConfigRequest) HasNamespace() bool {
+	if x == nil {
+		return false
+	}
+	return protoimpl.X.Present(&(x.XXX_presence[0]), 0)
+}
+
+func (x *ExportConfigRequest) HasFormat() bool {
+	if x == nil {
+		return false
+	}
+	return protoimpl.X.Present(&(x.XXX_presence[0]), 1)
+}
+
+func (x *ExportConfigRequest) HasMetadata() bool {
+	if x == nil {
+		return false
+	}
+	return x.xxx_hidden_Metadata != nil
+}
+
+func (x *ExportConfigRequest) ClearNamespace() {
+	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 0)
+	x.xxx_hidden_Namespace = nil
+}
+
+func (x *ExportConfigRequest) ClearFormat() {
+	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 1)
+	x.xxx_hidden_Format = nil
+}
+
+func (x *ExportConfigRequest) ClearMetadata() {
+	x.xxx_hidden_Metadata = nil
+}
+
+type ExportConfigRequest_builder struct {
+	_ [0]func() // Prevents comparability and use of unkeyed literals for the builder.
+
+	// Namespace/environment to export
+	Namespace *string
+	// Target format (e.g., JSON, YAML)
+	Format *string
+	// Request metadata
+	Metadata *proto.RequestMetadata
+}
+
+func (b0 ExportConfigRequest_builder) Build() *ExportConfigRequest {
+	m0 := &ExportConfigRequest{}
+	b, x := &b0, m0
+	_, _ = b, x
+	if b.Namespace != nil {
+		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 0, 3)
+		x.xxx_hidden_Namespace = b.Namespace
+	}
+	if b.Format != nil {
+		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 1, 3)
+		x.xxx_hidden_Format = b.Format
+	}
+	x.xxx_hidden_Metadata = b.Metadata
+	return m0
+}
+
 var File_pkg_config_proto_requests_export_config_request_proto protoreflect.FileDescriptor
 
 const file_pkg_config_proto_requests_export_config_request_proto_rawDesc = "" +
 	"\n" +
-	"5pkg/config/proto/requests/export_config_request.proto\x12\x11gcommon.v1.config\x1a!google/protobuf/go_features.protoB\xd4\x01\n" +
+	"5pkg/config/proto/requests/export_config_request.proto\x12\x11gcommon.v1.config\x1a!google/protobuf/go_features.proto\x1a0pkg/common/proto/messages/request_metadata.proto\"\x8b\x01\n" +
+	"\x13ExportConfigRequest\x12\x1c\n" +
+	"\tnamespace\x18\x01 \x01(\tR\tnamespace\x12\x16\n" +
+	"\x06format\x18\x02 \x01(\tR\x06format\x12>\n" +
+	"\bmetadata\x18\x03 \x01(\v2\".gcommon.v1.common.RequestMetadataR\bmetadataB\xd4\x01\n" +
 	"\x15com.gcommon.v1.configB\x18ExportConfigRequestProtoP\x01Z3github.com/jdfalk/gcommon/pkg/config/proto;configpb\xa2\x02\x03GVC\xaa\x02\x11Gcommon.V1.Config\xca\x02\x11Gcommon\\V1\\Config\xe2\x02\x1dGcommon\\V1\\Config\\GPBMetadata\xea\x02\x13Gcommon::V1::Config\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
 
-var file_pkg_config_proto_requests_export_config_request_proto_goTypes = []any{}
+var file_pkg_config_proto_requests_export_config_request_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
+var file_pkg_config_proto_requests_export_config_request_proto_goTypes = []any{
+	(*ExportConfigRequest)(nil),   // 0: gcommon.v1.config.ExportConfigRequest
+	(*proto.RequestMetadata)(nil), // 1: gcommon.v1.common.RequestMetadata
+}
 var file_pkg_config_proto_requests_export_config_request_proto_depIdxs = []int32{
-	0, // [0:0] is the sub-list for method output_type
-	0, // [0:0] is the sub-list for method input_type
-	0, // [0:0] is the sub-list for extension type_name
-	0, // [0:0] is the sub-list for extension extendee
-	0, // [0:0] is the sub-list for field type_name
+	1, // 0: gcommon.v1.config.ExportConfigRequest.metadata:type_name -> gcommon.v1.common.RequestMetadata
+	1, // [1:1] is the sub-list for method output_type
+	1, // [1:1] is the sub-list for method input_type
+	1, // [1:1] is the sub-list for extension type_name
+	1, // [1:1] is the sub-list for extension extendee
+	0, // [0:1] is the sub-list for field type_name
 }
 
 func init() { file_pkg_config_proto_requests_export_config_request_proto_init() }
@@ -50,12 +201,13 @@ func file_pkg_config_proto_requests_export_config_request_proto_init() {
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: unsafe.Slice(unsafe.StringData(file_pkg_config_proto_requests_export_config_request_proto_rawDesc), len(file_pkg_config_proto_requests_export_config_request_proto_rawDesc)),
 			NumEnums:      0,
-			NumMessages:   0,
+			NumMessages:   1,
 			NumExtensions: 0,
 			NumServices:   0,
 		},
 		GoTypes:           file_pkg_config_proto_requests_export_config_request_proto_goTypes,
 		DependencyIndexes: file_pkg_config_proto_requests_export_config_request_proto_depIdxs,
+		MessageInfos:      file_pkg_config_proto_requests_export_config_request_proto_msgTypes,
 	}.Build()
 	File_pkg_config_proto_requests_export_config_request_proto = out.File
 	file_pkg_config_proto_requests_export_config_request_proto_goTypes = nil
