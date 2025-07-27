@@ -310,3 +310,9 @@ git add . && git commit -m "Complete issue #68: Implemented all metrics message 
 ---
 
 _This changelog consolidates technical documentation that would otherwise be scattered across multiple files, following the GCommon documentation organization policy._
+
+## Changelog
+
+- **Feature**: Added DebugInfo message for enhanced debugging metadata
+- **Feature**: Added TransactionService and MigrationService with new request/response messages
+
