@@ -9,6 +9,7 @@
 package metricspb
 
 import (
+	proto "github.com/jdfalk/gcommon/pkg/common/proto"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
@@ -23,20 +24,165 @@ const (
 	_ = protoimpl.EnforceVersion(protoimpl.MaxVersion - 20)
 )
 
+// *
+// StartScrapingRequest initiates a new scrape job for the given provider.
+type StartScrapingRequest struct {
+	state                  protoimpl.MessageState `protogen:"opaque.v1"`
+	xxx_hidden_Metadata    *proto.RequestMetadata `protobuf:"bytes,1,opt,name=metadata"`
+	xxx_hidden_ProviderId  *string                `protobuf:"bytes,2,opt,name=provider_id,json=providerId"`
+	xxx_hidden_Config      *ScrapeConfig          `protobuf:"bytes,3,opt,name=config"`
+	XXX_raceDetectHookData protoimpl.RaceDetectHookData
+	XXX_presence           [1]uint32
+	unknownFields          protoimpl.UnknownFields
+	sizeCache              protoimpl.SizeCache
+}
+
+func (x *StartScrapingRequest) Reset() {
+	*x = StartScrapingRequest{}
+	mi := &file_pkg_metrics_proto_requests_start_scraping_request_proto_msgTypes[0]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *StartScrapingRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*StartScrapingRequest) ProtoMessage() {}
+
+func (x *StartScrapingRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_pkg_metrics_proto_requests_start_scraping_request_proto_msgTypes[0]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+func (x *StartScrapingRequest) GetMetadata() *proto.RequestMetadata {
+	if x != nil {
+		return x.xxx_hidden_Metadata
+	}
+	return nil
+}
+
+func (x *StartScrapingRequest) GetProviderId() string {
+	if x != nil {
+		if x.xxx_hidden_ProviderId != nil {
+			return *x.xxx_hidden_ProviderId
+		}
+		return ""
+	}
+	return ""
+}
+
+func (x *StartScrapingRequest) GetConfig() *ScrapeConfig {
+	if x != nil {
+		return x.xxx_hidden_Config
+	}
+	return nil
+}
+
+func (x *StartScrapingRequest) SetMetadata(v *proto.RequestMetadata) {
+	x.xxx_hidden_Metadata = v
+}
+
+func (x *StartScrapingRequest) SetProviderId(v string) {
+	x.xxx_hidden_ProviderId = &v
+	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 1, 3)
+}
+
+func (x *StartScrapingRequest) SetConfig(v *ScrapeConfig) {
+	x.xxx_hidden_Config = v
+}
+
+func (x *StartScrapingRequest) HasMetadata() bool {
+	if x == nil {
+		return false
+	}
+	return x.xxx_hidden_Metadata != nil
+}
+
+func (x *StartScrapingRequest) HasProviderId() bool {
+	if x == nil {
+		return false
+	}
+	return protoimpl.X.Present(&(x.XXX_presence[0]), 1)
+}
+
+func (x *StartScrapingRequest) HasConfig() bool {
+	if x == nil {
+		return false
+	}
+	return x.xxx_hidden_Config != nil
+}
+
+func (x *StartScrapingRequest) ClearMetadata() {
+	x.xxx_hidden_Metadata = nil
+}
+
+func (x *StartScrapingRequest) ClearProviderId() {
+	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 1)
+	x.xxx_hidden_ProviderId = nil
+}
+
+func (x *StartScrapingRequest) ClearConfig() {
+	x.xxx_hidden_Config = nil
+}
+
+type StartScrapingRequest_builder struct {
+	_ [0]func() // Prevents comparability and use of unkeyed literals for the builder.
+
+	// Standard request metadata
+	Metadata *proto.RequestMetadata
+	// Metrics provider identifier
+	ProviderId *string
+	// Scrape configuration to use
+	Config *ScrapeConfig
+}
+
+func (b0 StartScrapingRequest_builder) Build() *StartScrapingRequest {
+	m0 := &StartScrapingRequest{}
+	b, x := &b0, m0
+	_, _ = b, x
+	x.xxx_hidden_Metadata = b.Metadata
+	if b.ProviderId != nil {
+		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 1, 3)
+		x.xxx_hidden_ProviderId = b.ProviderId
+	}
+	x.xxx_hidden_Config = b.Config
+	return m0
+}
+
 var File_pkg_metrics_proto_requests_start_scraping_request_proto protoreflect.FileDescriptor
 
 const file_pkg_metrics_proto_requests_start_scraping_request_proto_rawDesc = "" +
 	"\n" +
-	"7pkg/metrics/proto/requests/start_scraping_request.proto\x12\x12gcommon.v1.metrics\x1a!google/protobuf/go_features.protoB\xdc\x01\n" +
+	"7pkg/metrics/proto/requests/start_scraping_request.proto\x12\x12gcommon.v1.metrics\x1a!google/protobuf/go_features.proto\x1a0pkg/common/proto/messages/request_metadata.proto\x1a.pkg/metrics/proto/messages/scrape_config.proto\"\xb1\x01\n" +
+	"\x14StartScrapingRequest\x12>\n" +
+	"\bmetadata\x18\x01 \x01(\v2\".gcommon.v1.common.RequestMetadataR\bmetadata\x12\x1f\n" +
+	"\vprovider_id\x18\x02 \x01(\tR\n" +
+	"providerId\x128\n" +
+	"\x06config\x18\x03 \x01(\v2 .gcommon.v1.metrics.ScrapeConfigR\x06configB\xdc\x01\n" +
 	"\x16com.gcommon.v1.metricsB\x19StartScrapingRequestProtoP\x01Z5github.com/jdfalk/gcommon/pkg/metrics/proto;metricspb\xa2\x02\x03GVM\xaa\x02\x12Gcommon.V1.Metrics\xca\x02\x12Gcommon\\V1\\Metrics\xe2\x02\x1eGcommon\\V1\\Metrics\\GPBMetadata\xea\x02\x14Gcommon::V1::Metrics\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
 
-var file_pkg_metrics_proto_requests_start_scraping_request_proto_goTypes = []any{}
+var file_pkg_metrics_proto_requests_start_scraping_request_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
+var file_pkg_metrics_proto_requests_start_scraping_request_proto_goTypes = []any{
+	(*StartScrapingRequest)(nil),  // 0: gcommon.v1.metrics.StartScrapingRequest
+	(*proto.RequestMetadata)(nil), // 1: gcommon.v1.common.RequestMetadata
+	(*ScrapeConfig)(nil),          // 2: gcommon.v1.metrics.ScrapeConfig
+}
 var file_pkg_metrics_proto_requests_start_scraping_request_proto_depIdxs = []int32{
-	0, // [0:0] is the sub-list for method output_type
-	0, // [0:0] is the sub-list for method input_type
-	0, // [0:0] is the sub-list for extension type_name
-	0, // [0:0] is the sub-list for extension extendee
-	0, // [0:0] is the sub-list for field type_name
+	1, // 0: gcommon.v1.metrics.StartScrapingRequest.metadata:type_name -> gcommon.v1.common.RequestMetadata
+	2, // 1: gcommon.v1.metrics.StartScrapingRequest.config:type_name -> gcommon.v1.metrics.ScrapeConfig
+	2, // [2:2] is the sub-list for method output_type
+	2, // [2:2] is the sub-list for method input_type
+	2, // [2:2] is the sub-list for extension type_name
+	2, // [2:2] is the sub-list for extension extendee
+	0, // [0:2] is the sub-list for field type_name
 }
 
 func init() { file_pkg_metrics_proto_requests_start_scraping_request_proto_init() }
@@ -44,18 +190,20 @@ func file_pkg_metrics_proto_requests_start_scraping_request_proto_init() {
 	if File_pkg_metrics_proto_requests_start_scraping_request_proto != nil {
 		return
 	}
+	file_pkg_metrics_proto_messages_scrape_config_proto_init()
 	type x struct{}
 	out := protoimpl.TypeBuilder{
 		File: protoimpl.DescBuilder{
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: unsafe.Slice(unsafe.StringData(file_pkg_metrics_proto_requests_start_scraping_request_proto_rawDesc), len(file_pkg_metrics_proto_requests_start_scraping_request_proto_rawDesc)),
 			NumEnums:      0,
-			NumMessages:   0,
+			NumMessages:   1,
 			NumExtensions: 0,
 			NumServices:   0,
 		},
 		GoTypes:           file_pkg_metrics_proto_requests_start_scraping_request_proto_goTypes,
 		DependencyIndexes: file_pkg_metrics_proto_requests_start_scraping_request_proto_depIdxs,
+		MessageInfos:      file_pkg_metrics_proto_requests_start_scraping_request_proto_msgTypes,
 	}.Build()
 	File_pkg_metrics_proto_requests_start_scraping_request_proto = out.File
 	file_pkg_metrics_proto_requests_start_scraping_request_proto_goTypes = nil

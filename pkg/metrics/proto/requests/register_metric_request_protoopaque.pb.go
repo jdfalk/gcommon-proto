@@ -224,7 +224,7 @@ type MetricDefinition struct {
 	xxx_hidden_Description  *string                `protobuf:"bytes,3,opt,name=description"`
 	xxx_hidden_Unit         *string                `protobuf:"bytes,4,opt,name=unit"`
 	xxx_hidden_Labels       *[]*LabelDefinition    `protobuf:"bytes,5,rep,name=labels"`
-	xxx_hidden_Config       *MetricConfig          `protobuf:"bytes,6,opt,name=config"`
+	xxx_hidden_Config       *MetricTypeConfig      `protobuf:"bytes,6,opt,name=config"`
 	xxx_hidden_Retention    *RetentionPolicyConfig `protobuf:"bytes,7,opt,name=retention"`
 	xxx_hidden_ExportConfig *ExportConfig          `protobuf:"bytes,8,opt,name=export_config,json=exportConfig"`
 	xxx_hidden_Validation   *ValidationRules       `protobuf:"bytes,9,opt,name=validation"`
@@ -308,7 +308,7 @@ func (x *MetricDefinition) GetLabels() []*LabelDefinition {
 	return nil
 }
 
-func (x *MetricDefinition) GetConfig() *MetricConfig {
+func (x *MetricDefinition) GetConfig() *MetricTypeConfig {
 	if x != nil {
 		return x.xxx_hidden_Config
 	}
@@ -367,7 +367,7 @@ func (x *MetricDefinition) SetLabels(v []*LabelDefinition) {
 	x.xxx_hidden_Labels = &v
 }
 
-func (x *MetricDefinition) SetConfig(v *MetricConfig) {
+func (x *MetricDefinition) SetConfig(v *MetricTypeConfig) {
 	x.xxx_hidden_Config = v
 }
 
@@ -493,7 +493,7 @@ type MetricDefinition_builder struct {
 	// Labels that this metric supports
 	Labels []*LabelDefinition
 	// Metric-specific configuration
-	Config *MetricConfig
+	Config *MetricTypeConfig
 	// Retention policy for this metric
 	Retention *RetentionPolicyConfig
 	// Export configuration for this metric
@@ -763,8 +763,8 @@ func (b0 LabelDefinition_builder) Build() *LabelDefinition {
 }
 
 // *
-// MetricConfig contains type-specific configuration for metrics.
-type MetricConfig struct {
+// MetricTypeConfig contains type-specific configuration for metrics.
+type MetricTypeConfig struct {
 	state                protoimpl.MessageState `protogen:"opaque.v1"`
 	xxx_hidden_Histogram *HistogramConfig       `protobuf:"bytes,1,opt,name=histogram"`
 	xxx_hidden_Summary   *SummaryConfig         `protobuf:"bytes,2,opt,name=summary"`
@@ -774,20 +774,20 @@ type MetricConfig struct {
 	sizeCache            protoimpl.SizeCache
 }
 
-func (x *MetricConfig) Reset() {
-	*x = MetricConfig{}
+func (x *MetricTypeConfig) Reset() {
+	*x = MetricTypeConfig{}
 	mi := &file_pkg_metrics_proto_requests_register_metric_request_proto_msgTypes[3]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
 
-func (x *MetricConfig) String() string {
+func (x *MetricTypeConfig) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
-func (*MetricConfig) ProtoMessage() {}
+func (*MetricTypeConfig) ProtoMessage() {}
 
-func (x *MetricConfig) ProtoReflect() protoreflect.Message {
+func (x *MetricTypeConfig) ProtoReflect() protoreflect.Message {
 	mi := &file_pkg_metrics_proto_requests_register_metric_request_proto_msgTypes[3]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
@@ -799,95 +799,95 @@ func (x *MetricConfig) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-func (x *MetricConfig) GetHistogram() *HistogramConfig {
+func (x *MetricTypeConfig) GetHistogram() *HistogramConfig {
 	if x != nil {
 		return x.xxx_hidden_Histogram
 	}
 	return nil
 }
 
-func (x *MetricConfig) GetSummary() *SummaryConfig {
+func (x *MetricTypeConfig) GetSummary() *SummaryConfig {
 	if x != nil {
 		return x.xxx_hidden_Summary
 	}
 	return nil
 }
 
-func (x *MetricConfig) GetGauge() *GaugeConfig {
+func (x *MetricTypeConfig) GetGauge() *GaugeConfig {
 	if x != nil {
 		return x.xxx_hidden_Gauge
 	}
 	return nil
 }
 
-func (x *MetricConfig) GetCounter() *CounterConfig {
+func (x *MetricTypeConfig) GetCounter() *CounterConfig {
 	if x != nil {
 		return x.xxx_hidden_Counter
 	}
 	return nil
 }
 
-func (x *MetricConfig) SetHistogram(v *HistogramConfig) {
+func (x *MetricTypeConfig) SetHistogram(v *HistogramConfig) {
 	x.xxx_hidden_Histogram = v
 }
 
-func (x *MetricConfig) SetSummary(v *SummaryConfig) {
+func (x *MetricTypeConfig) SetSummary(v *SummaryConfig) {
 	x.xxx_hidden_Summary = v
 }
 
-func (x *MetricConfig) SetGauge(v *GaugeConfig) {
+func (x *MetricTypeConfig) SetGauge(v *GaugeConfig) {
 	x.xxx_hidden_Gauge = v
 }
 
-func (x *MetricConfig) SetCounter(v *CounterConfig) {
+func (x *MetricTypeConfig) SetCounter(v *CounterConfig) {
 	x.xxx_hidden_Counter = v
 }
 
-func (x *MetricConfig) HasHistogram() bool {
+func (x *MetricTypeConfig) HasHistogram() bool {
 	if x == nil {
 		return false
 	}
 	return x.xxx_hidden_Histogram != nil
 }
 
-func (x *MetricConfig) HasSummary() bool {
+func (x *MetricTypeConfig) HasSummary() bool {
 	if x == nil {
 		return false
 	}
 	return x.xxx_hidden_Summary != nil
 }
 
-func (x *MetricConfig) HasGauge() bool {
+func (x *MetricTypeConfig) HasGauge() bool {
 	if x == nil {
 		return false
 	}
 	return x.xxx_hidden_Gauge != nil
 }
 
-func (x *MetricConfig) HasCounter() bool {
+func (x *MetricTypeConfig) HasCounter() bool {
 	if x == nil {
 		return false
 	}
 	return x.xxx_hidden_Counter != nil
 }
 
-func (x *MetricConfig) ClearHistogram() {
+func (x *MetricTypeConfig) ClearHistogram() {
 	x.xxx_hidden_Histogram = nil
 }
 
-func (x *MetricConfig) ClearSummary() {
+func (x *MetricTypeConfig) ClearSummary() {
 	x.xxx_hidden_Summary = nil
 }
 
-func (x *MetricConfig) ClearGauge() {
+func (x *MetricTypeConfig) ClearGauge() {
 	x.xxx_hidden_Gauge = nil
 }
 
-func (x *MetricConfig) ClearCounter() {
+func (x *MetricTypeConfig) ClearCounter() {
 	x.xxx_hidden_Counter = nil
 }
 
-type MetricConfig_builder struct {
+type MetricTypeConfig_builder struct {
 	_ [0]func() // Prevents comparability and use of unkeyed literals for the builder.
 
 	// Configuration for histogram metrics
@@ -900,8 +900,8 @@ type MetricConfig_builder struct {
 	Counter *CounterConfig
 }
 
-func (b0 MetricConfig_builder) Build() *MetricConfig {
-	m0 := &MetricConfig{}
+func (b0 MetricTypeConfig_builder) Build() *MetricTypeConfig {
+	m0 := &MetricTypeConfig{}
 	b, x := &b0, m0
 	_, _ = b, x
 	x.xxx_hidden_Histogram = b.Histogram
@@ -1784,14 +1784,14 @@ const file_pkg_metrics_proto_requests_register_metric_request_proto_rawDesc = ""
 	"\vprovider_id\x18\x03 \x01(\tR\n" +
 	"providerId\x12)\n" +
 	"\x10replace_existing\x18\x04 \x01(\bR\x0freplaceExisting\x12A\n" +
-	"\aoptions\x18\x05 \x01(\v2'.gcommon.v1.metrics.RegistrationOptionsR\aoptions\"\xd9\x04\n" +
+	"\aoptions\x18\x05 \x01(\v2'.gcommon.v1.metrics.RegistrationOptionsR\aoptions\"\xdd\x04\n" +
 	"\x10MetricDefinition\x12\x12\n" +
 	"\x04name\x18\x01 \x01(\tR\x04name\x122\n" +
 	"\x04type\x18\x02 \x01(\x0e2\x1e.gcommon.v1.metrics.MetricTypeR\x04type\x12 \n" +
 	"\vdescription\x18\x03 \x01(\tR\vdescription\x12\x12\n" +
 	"\x04unit\x18\x04 \x01(\tR\x04unit\x12;\n" +
-	"\x06labels\x18\x05 \x03(\v2#.gcommon.v1.metrics.LabelDefinitionR\x06labels\x128\n" +
-	"\x06config\x18\x06 \x01(\v2 .gcommon.v1.metrics.MetricConfigR\x06config\x12G\n" +
+	"\x06labels\x18\x05 \x03(\v2#.gcommon.v1.metrics.LabelDefinitionR\x06labels\x12<\n" +
+	"\x06config\x18\x06 \x01(\v2$.gcommon.v1.metrics.MetricTypeConfigR\x06config\x12G\n" +
 	"\tretention\x18\a \x01(\v2).gcommon.v1.metrics.RetentionPolicyConfigR\tretention\x12E\n" +
 	"\rexport_config\x18\b \x01(\v2 .gcommon.v1.metrics.ExportConfigR\fexportConfig\x12C\n" +
 	"\n" +
@@ -1808,8 +1808,8 @@ const file_pkg_metrics_proto_requests_register_metric_request_proto_rawDesc = ""
 	"\brequired\x18\x03 \x01(\bR\brequired\x12%\n" +
 	"\x0eallowed_values\x18\x04 \x03(\tR\rallowedValues\x12-\n" +
 	"\x12validation_pattern\x18\x05 \x01(\tR\x11validationPattern\x12#\n" +
-	"\rdefault_value\x18\x06 \x01(\tR\fdefaultValue\"\x82\x02\n" +
-	"\fMetricConfig\x12A\n" +
+	"\rdefault_value\x18\x06 \x01(\tR\fdefaultValue\"\x86\x02\n" +
+	"\x10MetricTypeConfig\x12A\n" +
 	"\thistogram\x18\x01 \x01(\v2#.gcommon.v1.metrics.HistogramConfigR\thistogram\x12;\n" +
 	"\asummary\x18\x02 \x01(\v2!.gcommon.v1.metrics.SummaryConfigR\asummary\x125\n" +
 	"\x05gauge\x18\x03 \x01(\v2\x1f.gcommon.v1.metrics.GaugeConfigR\x05gauge\x12;\n" +
@@ -1851,7 +1851,7 @@ var file_pkg_metrics_proto_requests_register_metric_request_proto_goTypes = []an
 	(*RegisterMetricRequest)(nil), // 0: gcommon.v1.metrics.RegisterMetricRequest
 	(*MetricDefinition)(nil),      // 1: gcommon.v1.metrics.MetricDefinition
 	(*LabelDefinition)(nil),       // 2: gcommon.v1.metrics.LabelDefinition
-	(*MetricConfig)(nil),          // 3: gcommon.v1.metrics.MetricConfig
+	(*MetricTypeConfig)(nil),      // 3: gcommon.v1.metrics.MetricTypeConfig
 	(*HistogramConfig)(nil),       // 4: gcommon.v1.metrics.HistogramConfig
 	(*SummaryConfig)(nil),         // 5: gcommon.v1.metrics.SummaryConfig
 	(*GaugeConfig)(nil),           // 6: gcommon.v1.metrics.GaugeConfig
@@ -1870,15 +1870,15 @@ var file_pkg_metrics_proto_requests_register_metric_request_proto_depIdxs = []in
 	9,  // 2: gcommon.v1.metrics.RegisterMetricRequest.options:type_name -> gcommon.v1.metrics.RegistrationOptions
 	12, // 3: gcommon.v1.metrics.MetricDefinition.type:type_name -> gcommon.v1.metrics.MetricType
 	2,  // 4: gcommon.v1.metrics.MetricDefinition.labels:type_name -> gcommon.v1.metrics.LabelDefinition
-	3,  // 5: gcommon.v1.metrics.MetricDefinition.config:type_name -> gcommon.v1.metrics.MetricConfig
+	3,  // 5: gcommon.v1.metrics.MetricDefinition.config:type_name -> gcommon.v1.metrics.MetricTypeConfig
 	13, // 6: gcommon.v1.metrics.MetricDefinition.retention:type_name -> gcommon.v1.metrics.RetentionPolicyConfig
 	14, // 7: gcommon.v1.metrics.MetricDefinition.export_config:type_name -> gcommon.v1.metrics.ExportConfig
 	8,  // 8: gcommon.v1.metrics.MetricDefinition.validation:type_name -> gcommon.v1.metrics.ValidationRules
 	10, // 9: gcommon.v1.metrics.MetricDefinition.tags:type_name -> gcommon.v1.metrics.MetricDefinition.TagsEntry
-	4,  // 10: gcommon.v1.metrics.MetricConfig.histogram:type_name -> gcommon.v1.metrics.HistogramConfig
-	5,  // 11: gcommon.v1.metrics.MetricConfig.summary:type_name -> gcommon.v1.metrics.SummaryConfig
-	6,  // 12: gcommon.v1.metrics.MetricConfig.gauge:type_name -> gcommon.v1.metrics.GaugeConfig
-	7,  // 13: gcommon.v1.metrics.MetricConfig.counter:type_name -> gcommon.v1.metrics.CounterConfig
+	4,  // 10: gcommon.v1.metrics.MetricTypeConfig.histogram:type_name -> gcommon.v1.metrics.HistogramConfig
+	5,  // 11: gcommon.v1.metrics.MetricTypeConfig.summary:type_name -> gcommon.v1.metrics.SummaryConfig
+	6,  // 12: gcommon.v1.metrics.MetricTypeConfig.gauge:type_name -> gcommon.v1.metrics.GaugeConfig
+	7,  // 13: gcommon.v1.metrics.MetricTypeConfig.counter:type_name -> gcommon.v1.metrics.CounterConfig
 	14, // [14:14] is the sub-list for method output_type
 	14, // [14:14] is the sub-list for method input_type
 	14, // [14:14] is the sub-list for extension type_name

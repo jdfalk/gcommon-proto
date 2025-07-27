@@ -23,20 +23,99 @@ const (
 	_ = protoimpl.EnforceVersion(protoimpl.MaxVersion - 20)
 )
 
+// *
+// SetMetricConfigRequest updates configuration for a metric.
+type SetMetricConfigRequest struct {
+	state protoimpl.MessageState `protogen:"hybrid.v1"`
+	// Updated configuration
+	Config        *MetricConfig `protobuf:"bytes,1,opt,name=config" json:"config,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SetMetricConfigRequest) Reset() {
+	*x = SetMetricConfigRequest{}
+	mi := &file_pkg_metrics_proto_requests_set_metric_config_request_proto_msgTypes[0]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetMetricConfigRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetMetricConfigRequest) ProtoMessage() {}
+
+func (x *SetMetricConfigRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_pkg_metrics_proto_requests_set_metric_config_request_proto_msgTypes[0]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+func (x *SetMetricConfigRequest) GetConfig() *MetricConfig {
+	if x != nil {
+		return x.Config
+	}
+	return nil
+}
+
+func (x *SetMetricConfigRequest) SetConfig(v *MetricConfig) {
+	x.Config = v
+}
+
+func (x *SetMetricConfigRequest) HasConfig() bool {
+	if x == nil {
+		return false
+	}
+	return x.Config != nil
+}
+
+func (x *SetMetricConfigRequest) ClearConfig() {
+	x.Config = nil
+}
+
+type SetMetricConfigRequest_builder struct {
+	_ [0]func() // Prevents comparability and use of unkeyed literals for the builder.
+
+	// Updated configuration
+	Config *MetricConfig
+}
+
+func (b0 SetMetricConfigRequest_builder) Build() *SetMetricConfigRequest {
+	m0 := &SetMetricConfigRequest{}
+	b, x := &b0, m0
+	_, _ = b, x
+	x.Config = b.Config
+	return m0
+}
+
 var File_pkg_metrics_proto_requests_set_metric_config_request_proto protoreflect.FileDescriptor
 
 const file_pkg_metrics_proto_requests_set_metric_config_request_proto_rawDesc = "" +
 	"\n" +
-	":pkg/metrics/proto/requests/set_metric_config_request.proto\x12\x12gcommon.v1.metrics\x1a!google/protobuf/go_features.protoB\xde\x01\n" +
+	":pkg/metrics/proto/requests/set_metric_config_request.proto\x12\x12gcommon.v1.metrics\x1a!google/protobuf/go_features.proto\x1a.pkg/metrics/proto/messages/metric_config.proto\"R\n" +
+	"\x16SetMetricConfigRequest\x128\n" +
+	"\x06config\x18\x01 \x01(\v2 .gcommon.v1.metrics.MetricConfigR\x06configB\xde\x01\n" +
 	"\x16com.gcommon.v1.metricsB\x1bSetMetricConfigRequestProtoP\x01Z5github.com/jdfalk/gcommon/pkg/metrics/proto;metricspb\xa2\x02\x03GVM\xaa\x02\x12Gcommon.V1.Metrics\xca\x02\x12Gcommon\\V1\\Metrics\xe2\x02\x1eGcommon\\V1\\Metrics\\GPBMetadata\xea\x02\x14Gcommon::V1::Metrics\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
 
-var file_pkg_metrics_proto_requests_set_metric_config_request_proto_goTypes = []any{}
+var file_pkg_metrics_proto_requests_set_metric_config_request_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
+var file_pkg_metrics_proto_requests_set_metric_config_request_proto_goTypes = []any{
+	(*SetMetricConfigRequest)(nil), // 0: gcommon.v1.metrics.SetMetricConfigRequest
+	(*MetricConfig)(nil),           // 1: gcommon.v1.metrics.MetricConfig
+}
 var file_pkg_metrics_proto_requests_set_metric_config_request_proto_depIdxs = []int32{
-	0, // [0:0] is the sub-list for method output_type
-	0, // [0:0] is the sub-list for method input_type
-	0, // [0:0] is the sub-list for extension type_name
-	0, // [0:0] is the sub-list for extension extendee
-	0, // [0:0] is the sub-list for field type_name
+	1, // 0: gcommon.v1.metrics.SetMetricConfigRequest.config:type_name -> gcommon.v1.metrics.MetricConfig
+	1, // [1:1] is the sub-list for method output_type
+	1, // [1:1] is the sub-list for method input_type
+	1, // [1:1] is the sub-list for extension type_name
+	1, // [1:1] is the sub-list for extension extendee
+	0, // [0:1] is the sub-list for field type_name
 }
 
 func init() { file_pkg_metrics_proto_requests_set_metric_config_request_proto_init() }
@@ -44,18 +123,20 @@ func file_pkg_metrics_proto_requests_set_metric_config_request_proto_init() {
 	if File_pkg_metrics_proto_requests_set_metric_config_request_proto != nil {
 		return
 	}
+	file_pkg_metrics_proto_messages_metric_config_proto_init()
 	type x struct{}
 	out := protoimpl.TypeBuilder{
 		File: protoimpl.DescBuilder{
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: unsafe.Slice(unsafe.StringData(file_pkg_metrics_proto_requests_set_metric_config_request_proto_rawDesc), len(file_pkg_metrics_proto_requests_set_metric_config_request_proto_rawDesc)),
 			NumEnums:      0,
-			NumMessages:   0,
+			NumMessages:   1,
 			NumExtensions: 0,
 			NumServices:   0,
 		},
 		GoTypes:           file_pkg_metrics_proto_requests_set_metric_config_request_proto_goTypes,
 		DependencyIndexes: file_pkg_metrics_proto_requests_set_metric_config_request_proto_depIdxs,
+		MessageInfos:      file_pkg_metrics_proto_requests_set_metric_config_request_proto_msgTypes,
 	}.Build()
 	File_pkg_metrics_proto_requests_set_metric_config_request_proto = out.File
 	file_pkg_metrics_proto_requests_set_metric_config_request_proto_goTypes = nil
