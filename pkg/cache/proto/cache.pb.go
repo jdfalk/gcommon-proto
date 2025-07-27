@@ -27,9 +27,10 @@ var File_pkg_cache_proto_cache_proto protoreflect.FileDescriptor
 
 const file_pkg_cache_proto_cache_proto_rawDesc = "" +
 	"\n" +
-	"\x1bpkg/cache/proto/cache.proto\x12\x10gcommon.v1.cache\x1a!google/protobuf/go_features.proto\x1a,pkg/cache/proto/services/cache_service.proto\x1a2pkg/cache/proto/services/cache_admin_service.proto\x1a*pkg/cache/proto/messages/cache_entry.proto\x1a+pkg/cache/proto/messages/cache_config.proto\x1a*pkg/cache/proto/messages/cache_stats.proto\x1a)pkg/cache/proto/messages/cache_info.proto\x1a.pkg/cache/proto/messages/eviction_result.proto\x1a,pkg/cache/proto/messages/cache_metrics.proto\x1a5pkg/cache/proto/messages/cache_operation_result.protoB\xbf\x01\n" +
+	"\x1bpkg/cache/proto/cache.proto\x12\x10gcommon.v1.cache\x1a!google/protobuf/go_features.proto\x1a,pkg/cache/proto/services/cache_service.proto\x1a2pkg/cache/proto/services/cache_admin_service.proto\x1a*pkg/cache/proto/messages/cache_entry.proto\x1a+pkg/cache/proto/messages/cache_config.proto\x1a*pkg/cache/proto/messages/cache_stats.proto\x1a)pkg/cache/proto/messages/cache_info.proto\x1a.pkg/cache/proto/messages/eviction_result.proto\x1a,pkg/cache/proto/messages/cache_metrics.proto\x1a5pkg/cache/proto/messages/cache_operation_result.proto\x1a*pkg/cache/proto/messages/set_options.proto\x1a-pkg/cache/proto/requests/append_request.proto\x1a-pkg/cache/proto/requests/backup_request.proto\x1a,pkg/cache/proto/requests/clear_request.proto\x1a7pkg/cache/proto/requests/configure_policy_request.proto\x1a7pkg/cache/proto/requests/create_namespace_request.proto\x1a0pkg/cache/proto/requests/decrement_request.proto\x1a-pkg/cache/proto/requests/defrag_request.proto\x1a6pkg/cache/proto/requests/delete_multiple_request.proto\x1a7pkg/cache/proto/requests/delete_namespace_request.proto\x1a-pkg/cache/proto/requests/delete_request.proto\x1a-pkg/cache/proto/requests/exists_request.proto\x1a-pkg/cache/proto/requests/expire_request.proto\x1a-pkg/cache/proto/requests/export_request.proto\x1a,pkg/cache/proto/requests/flush_request.proto\x1a)pkg/cache/proto/requests/gc_request.proto\x1a7pkg/cache/proto/requests/get_memory_usage_request.proto\x1a3pkg/cache/proto/requests/get_multiple_request.proto\x1a:pkg/cache/proto/requests/get_namespace_stats_request.proto\x1a*pkg/cache/proto/requests/get_request.proto\x1a3pkg/cache/proto/requests/health_check_request.proto\x1a-pkg/cache/proto/requests/import_request.proto\x1a0pkg/cache/proto/requests/increment_request.proto\x1a+pkg/cache/proto/requests/info_request.proto\x1a+pkg/cache/proto/requests/keys_request.proto\x1a6pkg/cache/proto/requests/list_namespaces_request.proto\x1a9pkg/cache/proto/requests/list_subscriptions_request.proto\x1a+pkg/cache/proto/requests/lock_request.proto\x1a+pkg/cache/proto/requests/mget_request.proto\x1a/pkg/cache/proto/requests/optimize_request.proto\x1a/pkg/cache/proto/requests/pipeline_request.proto\x1a.pkg/cache/proto/requests/prepend_request.proto\x1a.pkg/cache/proto/requests/publish_request.proto\x1a.pkg/cache/proto/requests/restore_request.proto\x1a+pkg/cache/proto/requests/scan_request.proto\x1a3pkg/cache/proto/requests/set_multiple_request.proto\x1a*pkg/cache/proto/requests/set_request.proto\x1a,pkg/cache/proto/requests/stats_request.proto\x1a0pkg/cache/proto/requests/subscribe_request.proto\x1a2pkg/cache/proto/requests/transaction_request.proto\x1a*pkg/cache/proto/requests/ttl_request.proto\x1a-pkg/cache/proto/requests/unlock_request.proto\x1a2pkg/cache/proto/requests/unsubscribe_request.proto\x1a.pkg/cache/proto/requests/unwatch_request.proto\x1a,pkg/cache/proto/requests/watch_request.proto\x1a.pkg/cache/proto/responses/clear_response.proto\x1a9pkg/cache/proto/responses/configure_policy_response.proto\x1a9pkg/cache/proto/responses/create_namespace_response.proto\x1a2pkg/cache/proto/responses/decrement_response.proto\x1a8pkg/cache/proto/responses/delete_multiple_response.proto\x1a/pkg/cache/proto/responses/delete_response.proto\x1a/pkg/cache/proto/responses/exists_response.proto\x1a.pkg/cache/proto/responses/flush_response.proto\x1a5pkg/cache/proto/responses/get_multiple_response.proto\x1a<pkg/cache/proto/responses/get_namespace_stats_response.proto\x1a,pkg/cache/proto/responses/get_response.proto\x1a2pkg/cache/proto/responses/get_stats_response.proto\x1a9pkg/cache/proto/responses/get_memory_usage_response.proto\x1a2pkg/cache/proto/responses/increment_response.proto\x1a-pkg/cache/proto/responses/keys_response.proto\x1a8pkg/cache/proto/responses/list_namespaces_response.proto\x1a5pkg/cache/proto/responses/set_multiple_response.proto\x1a,pkg/cache/proto/responses/set_response.proto\x1a9pkg/cache/proto/responses/touch_expiration_response.protoB\xbf\x01\n" +
 	"\x14com.gcommon.v1.cacheB\n" +
-	"CacheProtoP\x01Z1github.com/jdfalk/gcommon/pkg/cache/proto;cachepb\xa2\x02\x03GVC\xaa\x02\x10Gcommon.V1.Cache\xca\x02\x10Gcommon\\V1\\Cache\xe2\x02\x1cGcommon\\V1\\Cache\\GPBMetadata\xea\x02\x12Gcommon::V1::Cache\x92\x03\x05\xd2>\x02\x10\x02P\x01P\x02P\x03P\x04P\x05P\x06P\aP\bP\tb\beditionsp\xe8\a"
+	"CacheProtoP\x01Z1github.com/jdfalk/gcommon/pkg/cache/proto;cachepb\xa2\x02\x03GVC\xaa\x02\x10Gcommon.V1.Cache\xca\x02\x10Gcommon\\V1\\Cache\xe2\x02\x1cGcommon\\V1\\Cache\\GPBMetadata\xea\x02\x12Gcommon::V1::Cache\x92\x03\x05\xd2>\x02\x10\x02P\x01P\x02P\x03P\x04P\x05P\x06P\aP\bP\tP\n" +
+	"P\vP\fP\rP\x0eP\x0fP\x10P\x11P\x12P\x13P\x14P\x15P\x16P\x17P\x18P\x19P\x1aP\x1bP\x1cP\x1dP\x1eP\x1fP P!P\"P#P$P%P&P'P(P)P*P+P,P-P.P/P0P1P2P3P4P5P6P7P8P9P:P;P<P=P>P?P@PAPBPCPDPEPFPGPHPIb\beditionsp\xe8\a"
 
 var file_pkg_cache_proto_cache_proto_goTypes = []any{}
 var file_pkg_cache_proto_cache_proto_depIdxs = []int32{
@@ -54,6 +55,70 @@ func file_pkg_cache_proto_cache_proto_init() {
 	file_pkg_cache_proto_messages_eviction_result_proto_init()
 	file_pkg_cache_proto_messages_cache_metrics_proto_init()
 	file_pkg_cache_proto_messages_cache_operation_result_proto_init()
+	file_pkg_cache_proto_messages_set_options_proto_init()
+	file_pkg_cache_proto_requests_append_request_proto_init()
+	file_pkg_cache_proto_requests_backup_request_proto_init()
+	file_pkg_cache_proto_requests_clear_request_proto_init()
+	file_pkg_cache_proto_requests_configure_policy_request_proto_init()
+	file_pkg_cache_proto_requests_create_namespace_request_proto_init()
+	file_pkg_cache_proto_requests_decrement_request_proto_init()
+	file_pkg_cache_proto_requests_defrag_request_proto_init()
+	file_pkg_cache_proto_requests_delete_multiple_request_proto_init()
+	file_pkg_cache_proto_requests_delete_namespace_request_proto_init()
+	file_pkg_cache_proto_requests_delete_request_proto_init()
+	file_pkg_cache_proto_requests_exists_request_proto_init()
+	file_pkg_cache_proto_requests_expire_request_proto_init()
+	file_pkg_cache_proto_requests_export_request_proto_init()
+	file_pkg_cache_proto_requests_flush_request_proto_init()
+	file_pkg_cache_proto_requests_gc_request_proto_init()
+	file_pkg_cache_proto_requests_get_memory_usage_request_proto_init()
+	file_pkg_cache_proto_requests_get_multiple_request_proto_init()
+	file_pkg_cache_proto_requests_get_namespace_stats_request_proto_init()
+	file_pkg_cache_proto_requests_get_request_proto_init()
+	file_pkg_cache_proto_requests_health_check_request_proto_init()
+	file_pkg_cache_proto_requests_import_request_proto_init()
+	file_pkg_cache_proto_requests_increment_request_proto_init()
+	file_pkg_cache_proto_requests_info_request_proto_init()
+	file_pkg_cache_proto_requests_keys_request_proto_init()
+	file_pkg_cache_proto_requests_list_namespaces_request_proto_init()
+	file_pkg_cache_proto_requests_list_subscriptions_request_proto_init()
+	file_pkg_cache_proto_requests_lock_request_proto_init()
+	file_pkg_cache_proto_requests_mget_request_proto_init()
+	file_pkg_cache_proto_requests_optimize_request_proto_init()
+	file_pkg_cache_proto_requests_pipeline_request_proto_init()
+	file_pkg_cache_proto_requests_prepend_request_proto_init()
+	file_pkg_cache_proto_requests_publish_request_proto_init()
+	file_pkg_cache_proto_requests_restore_request_proto_init()
+	file_pkg_cache_proto_requests_scan_request_proto_init()
+	file_pkg_cache_proto_requests_set_multiple_request_proto_init()
+	file_pkg_cache_proto_requests_set_request_proto_init()
+	file_pkg_cache_proto_requests_stats_request_proto_init()
+	file_pkg_cache_proto_requests_subscribe_request_proto_init()
+	file_pkg_cache_proto_requests_transaction_request_proto_init()
+	file_pkg_cache_proto_requests_ttl_request_proto_init()
+	file_pkg_cache_proto_requests_unlock_request_proto_init()
+	file_pkg_cache_proto_requests_unsubscribe_request_proto_init()
+	file_pkg_cache_proto_requests_unwatch_request_proto_init()
+	file_pkg_cache_proto_requests_watch_request_proto_init()
+	file_pkg_cache_proto_responses_clear_response_proto_init()
+	file_pkg_cache_proto_responses_configure_policy_response_proto_init()
+	file_pkg_cache_proto_responses_create_namespace_response_proto_init()
+	file_pkg_cache_proto_responses_decrement_response_proto_init()
+	file_pkg_cache_proto_responses_delete_multiple_response_proto_init()
+	file_pkg_cache_proto_responses_delete_response_proto_init()
+	file_pkg_cache_proto_responses_exists_response_proto_init()
+	file_pkg_cache_proto_responses_flush_response_proto_init()
+	file_pkg_cache_proto_responses_get_multiple_response_proto_init()
+	file_pkg_cache_proto_responses_get_namespace_stats_response_proto_init()
+	file_pkg_cache_proto_responses_get_response_proto_init()
+	file_pkg_cache_proto_responses_get_stats_response_proto_init()
+	file_pkg_cache_proto_responses_get_memory_usage_response_proto_init()
+	file_pkg_cache_proto_responses_increment_response_proto_init()
+	file_pkg_cache_proto_responses_keys_response_proto_init()
+	file_pkg_cache_proto_responses_list_namespaces_response_proto_init()
+	file_pkg_cache_proto_responses_set_multiple_response_proto_init()
+	file_pkg_cache_proto_responses_set_response_proto_init()
+	file_pkg_cache_proto_responses_touch_expiration_response_proto_init()
 	type x struct{}
 	out := protoimpl.TypeBuilder{
 		File: protoimpl.DescBuilder{
