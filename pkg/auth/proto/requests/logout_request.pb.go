@@ -9,6 +9,7 @@
 package authpb
 
 import (
+	proto "github.com/jdfalk/gcommon/pkg/common/proto"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
@@ -23,20 +24,155 @@ const (
 	_ = protoimpl.EnforceVersion(protoimpl.MaxVersion - 20)
 )
 
+// LogoutRequest ends a user session and invalidates tokens
+type LogoutRequest struct {
+	state protoimpl.MessageState `protogen:"hybrid.v1"`
+	// ID of the session to terminate
+	SessionId *string `protobuf:"bytes,1,opt,name=session_id,json=sessionId" json:"session_id,omitempty"`
+	// Optional user ID for audit purposes
+	UserId *string `protobuf:"bytes,2,opt,name=user_id,json=userId" json:"user_id,omitempty"`
+	// Request metadata for tracing
+	Metadata      *proto.RequestMetadata `protobuf:"bytes,3,opt,name=metadata" json:"metadata,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *LogoutRequest) Reset() {
+	*x = LogoutRequest{}
+	mi := &file_pkg_auth_proto_requests_logout_request_proto_msgTypes[0]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *LogoutRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*LogoutRequest) ProtoMessage() {}
+
+func (x *LogoutRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_pkg_auth_proto_requests_logout_request_proto_msgTypes[0]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+func (x *LogoutRequest) GetSessionId() string {
+	if x != nil && x.SessionId != nil {
+		return *x.SessionId
+	}
+	return ""
+}
+
+func (x *LogoutRequest) GetUserId() string {
+	if x != nil && x.UserId != nil {
+		return *x.UserId
+	}
+	return ""
+}
+
+func (x *LogoutRequest) GetMetadata() *proto.RequestMetadata {
+	if x != nil {
+		return x.Metadata
+	}
+	return nil
+}
+
+func (x *LogoutRequest) SetSessionId(v string) {
+	x.SessionId = &v
+}
+
+func (x *LogoutRequest) SetUserId(v string) {
+	x.UserId = &v
+}
+
+func (x *LogoutRequest) SetMetadata(v *proto.RequestMetadata) {
+	x.Metadata = v
+}
+
+func (x *LogoutRequest) HasSessionId() bool {
+	if x == nil {
+		return false
+	}
+	return x.SessionId != nil
+}
+
+func (x *LogoutRequest) HasUserId() bool {
+	if x == nil {
+		return false
+	}
+	return x.UserId != nil
+}
+
+func (x *LogoutRequest) HasMetadata() bool {
+	if x == nil {
+		return false
+	}
+	return x.Metadata != nil
+}
+
+func (x *LogoutRequest) ClearSessionId() {
+	x.SessionId = nil
+}
+
+func (x *LogoutRequest) ClearUserId() {
+	x.UserId = nil
+}
+
+func (x *LogoutRequest) ClearMetadata() {
+	x.Metadata = nil
+}
+
+type LogoutRequest_builder struct {
+	_ [0]func() // Prevents comparability and use of unkeyed literals for the builder.
+
+	// ID of the session to terminate
+	SessionId *string
+	// Optional user ID for audit purposes
+	UserId *string
+	// Request metadata for tracing
+	Metadata *proto.RequestMetadata
+}
+
+func (b0 LogoutRequest_builder) Build() *LogoutRequest {
+	m0 := &LogoutRequest{}
+	b, x := &b0, m0
+	_, _ = b, x
+	x.SessionId = b.SessionId
+	x.UserId = b.UserId
+	x.Metadata = b.Metadata
+	return m0
+}
+
 var File_pkg_auth_proto_requests_logout_request_proto protoreflect.FileDescriptor
 
 const file_pkg_auth_proto_requests_logout_request_proto_rawDesc = "" +
 	"\n" +
-	",pkg/auth/proto/requests/logout_request.proto\x12\x0fgcommon.v1.auth\x1a!google/protobuf/go_features.protoB\xc0\x01\n" +
+	",pkg/auth/proto/requests/logout_request.proto\x12\x0fgcommon.v1.auth\x1a!google/protobuf/go_features.proto\x1a\x1dpkg/common/proto/common.proto\"\x87\x01\n" +
+	"\rLogoutRequest\x12\x1d\n" +
+	"\n" +
+	"session_id\x18\x01 \x01(\tR\tsessionId\x12\x17\n" +
+	"\auser_id\x18\x02 \x01(\tR\x06userId\x12>\n" +
+	"\bmetadata\x18\x03 \x01(\v2\".gcommon.v1.common.RequestMetadataR\bmetadataB\xc0\x01\n" +
 	"\x13com.gcommon.v1.authB\x12LogoutRequestProtoP\x01Z/github.com/jdfalk/gcommon/pkg/auth/proto;authpb\xa2\x02\x03GVA\xaa\x02\x0fGcommon.V1.Auth\xca\x02\x0fGcommon\\V1\\Auth\xe2\x02\x1bGcommon\\V1\\Auth\\GPBMetadata\xea\x02\x11Gcommon::V1::Auth\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
 
-var file_pkg_auth_proto_requests_logout_request_proto_goTypes = []any{}
+var file_pkg_auth_proto_requests_logout_request_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
+var file_pkg_auth_proto_requests_logout_request_proto_goTypes = []any{
+	(*LogoutRequest)(nil),         // 0: gcommon.v1.auth.LogoutRequest
+	(*proto.RequestMetadata)(nil), // 1: gcommon.v1.common.RequestMetadata
+}
 var file_pkg_auth_proto_requests_logout_request_proto_depIdxs = []int32{
-	0, // [0:0] is the sub-list for method output_type
-	0, // [0:0] is the sub-list for method input_type
-	0, // [0:0] is the sub-list for extension type_name
-	0, // [0:0] is the sub-list for extension extendee
-	0, // [0:0] is the sub-list for field type_name
+	1, // 0: gcommon.v1.auth.LogoutRequest.metadata:type_name -> gcommon.v1.common.RequestMetadata
+	1, // [1:1] is the sub-list for method output_type
+	1, // [1:1] is the sub-list for method input_type
+	1, // [1:1] is the sub-list for extension type_name
+	1, // [1:1] is the sub-list for extension extendee
+	0, // [0:1] is the sub-list for field type_name
 }
 
 func init() { file_pkg_auth_proto_requests_logout_request_proto_init() }
@@ -50,12 +186,13 @@ func file_pkg_auth_proto_requests_logout_request_proto_init() {
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: unsafe.Slice(unsafe.StringData(file_pkg_auth_proto_requests_logout_request_proto_rawDesc), len(file_pkg_auth_proto_requests_logout_request_proto_rawDesc)),
 			NumEnums:      0,
-			NumMessages:   0,
+			NumMessages:   1,
 			NumExtensions: 0,
 			NumServices:   0,
 		},
 		GoTypes:           file_pkg_auth_proto_requests_logout_request_proto_goTypes,
 		DependencyIndexes: file_pkg_auth_proto_requests_logout_request_proto_depIdxs,
+		MessageInfos:      file_pkg_auth_proto_requests_logout_request_proto_msgTypes,
 	}.Build()
 	File_pkg_auth_proto_requests_logout_request_proto = out.File
 	file_pkg_auth_proto_requests_logout_request_proto_goTypes = nil
