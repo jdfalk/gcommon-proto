@@ -1,0 +1,25 @@
+{
+  "file": "CHANGELOG.md",
+  "mode": "changelog-feature",
+  "content": "Added TransactionService and MigrationService with new request/response messages",
+  "guid": "81cb2cf4-92f3-40c2-82f9-f82e4ec5e6af",
+  "created_at": "2025-07-21T04:02:50Z",
+  "options": {
+    "section": null,
+    "after": null,
+    "before": null,
+    "task_id": null,
+    "badge_name": null,
+    "priority": null,
+    "category": null
+  },
+  "file_modified_at": "2025-07-25T02:04:57.702018+00:00",
+  "file_created_at": "2025-07-25T02:04:57.701472+00:00",
+  "timestamp_extracted_at": "2025-07-26T23:40:51.882956+00:00",
+  "processing_metadata": {
+    "enhanced_at": "2025-07-26T23:40:51.882963+00:00",
+    "source_file": ".github/doc-updates/failed/20250721_234751_81cb2cf4-92f3-40c2-82f9-f82e4ec5e6af.json",
+    "version": "2.0.0"
+  },
+  "processed_at": "2025-07-26T23:40:54.164290+00:00"
+}

@@ -1,0 +1,25 @@
+{
+  "file": "CHANGELOG.md",
+  "mode": "changelog-feature",
+  "content": "Added DebugInfo message for enhanced debugging metadata",
+  "guid": "472d7df9-5656-4353-9202-af1e68f2c1be",
+  "created_at": "2025-07-21T03:59:52Z",
+  "options": {
+    "section": null,
+    "after": null,
+    "before": null,
+    "task_id": null,
+    "badge_name": null,
+    "priority": null,
+    "category": null
+  },
+  "file_modified_at": "2025-07-25T02:04:57.700207+00:00",
+  "file_created_at": "2025-07-25T02:04:57.699970+00:00",
+  "timestamp_extracted_at": "2025-07-26T23:40:51.844244+00:00",
+  "processing_metadata": {
+    "enhanced_at": "2025-07-26T23:40:51.844251+00:00",
+    "source_file": ".github/doc-updates/failed/20250721_234047_472d7df9-5656-4353-9202-af1e68f2c1be.json",
+    "version": "2.0.0"
+  },
+  "processed_at": "2025-07-26T23:40:54.162952+00:00"
+}
