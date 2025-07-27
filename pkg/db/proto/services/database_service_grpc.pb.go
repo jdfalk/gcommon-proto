@@ -21,6 +21,7 @@ const _ = grpc.SupportPackageIsVersion9
 
 const (
 	DatabaseService_Query_FullMethodName               = "/gcommon.v1.database.DatabaseService/Query"
+	DatabaseService_QueryRow_FullMethodName            = "/gcommon.v1.database.DatabaseService/QueryRow"
 	DatabaseService_Execute_FullMethodName             = "/gcommon.v1.database.DatabaseService/Execute"
 	DatabaseService_ExecuteBatch_FullMethodName        = "/gcommon.v1.database.DatabaseService/ExecuteBatch"
 	DatabaseService_BeginTransaction_FullMethodName    = "/gcommon.v1.database.DatabaseService/BeginTransaction"
@@ -40,6 +41,8 @@ const (
 type DatabaseServiceClient interface {
 	// Execute a read-only query and return results
 	Query(ctx context.Context, in *QueryRequest, opts ...grpc.CallOption) (*QueryResponse, error)
+	// Execute a query expected to return at most one row
+	QueryRow(ctx context.Context, in *QueryRequest, opts ...grpc.CallOption) (*QueryRowResponse, error)
 	// Execute a write operation (INSERT, UPDATE, DELETE)
 	Execute(ctx context.Context, in *ExecuteRequest, opts ...grpc.CallOption) (*ExecuteResponse, error)
 	// Execute multiple operations in a single batch
@@ -68,6 +71,16 @@ func (c *databaseServiceClient) Query(ctx context.Context, in *QueryRequest, opt
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(QueryResponse)
 	err := c.cc.Invoke(ctx, DatabaseService_Query_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *databaseServiceClient) QueryRow(ctx context.Context, in *QueryRequest, opts ...grpc.CallOption) (*QueryRowResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(QueryRowResponse)
+	err := c.cc.Invoke(ctx, DatabaseService_QueryRow_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
@@ -154,6 +167,8 @@ func (c *databaseServiceClient) HealthCheck(ctx context.Context, in *HealthCheck
 type DatabaseServiceServer interface {
 	// Execute a read-only query and return results
 	Query(context.Context, *QueryRequest) (*QueryResponse, error)
+	// Execute a query expected to return at most one row
+	QueryRow(context.Context, *QueryRequest) (*QueryRowResponse, error)
 	// Execute a write operation (INSERT, UPDATE, DELETE)
 	Execute(context.Context, *ExecuteRequest) (*ExecuteResponse, error)
 	// Execute multiple operations in a single batch
@@ -179,6 +194,9 @@ type UnimplementedDatabaseServiceServer struct{}
 
 func (UnimplementedDatabaseServiceServer) Query(context.Context, *QueryRequest) (*QueryResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method Query not implemented")
+}
+func (UnimplementedDatabaseServiceServer) QueryRow(context.Context, *QueryRequest) (*QueryRowResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method QueryRow not implemented")
 }
 func (UnimplementedDatabaseServiceServer) Execute(context.Context, *ExecuteRequest) (*ExecuteResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method Execute not implemented")
@@ -235,6 +253,24 @@ func _DatabaseService_Query_Handler(srv interface{}, ctx context.Context, dec fu
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(DatabaseServiceServer).Query(ctx, req.(*QueryRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _DatabaseService_QueryRow_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(QueryRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(DatabaseServiceServer).QueryRow(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: DatabaseService_QueryRow_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(DatabaseServiceServer).QueryRow(ctx, req.(*QueryRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -375,6 +411,10 @@ var DatabaseService_ServiceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "Query",
 			Handler:    _DatabaseService_Query_Handler,
+		},
+		{
+			MethodName: "QueryRow",
+			Handler:    _DatabaseService_QueryRow_Handler,
 		},
 		{
 			MethodName: "Execute",
