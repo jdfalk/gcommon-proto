@@ -23,14 +23,98 @@ const (
 	_ = protoimpl.EnforceVersion(protoimpl.MaxVersion - 20)
 )
 
+// CreateTemplateResponse response definition.
+type CreateTemplateResponse struct {
+	state                  protoimpl.MessageState `protogen:"opaque.v1"`
+	xxx_hidden_Placeholder *string                `protobuf:"bytes,1,opt,name=placeholder"`
+	XXX_raceDetectHookData protoimpl.RaceDetectHookData
+	XXX_presence           [1]uint32
+	unknownFields          protoimpl.UnknownFields
+	sizeCache              protoimpl.SizeCache
+}
+
+func (x *CreateTemplateResponse) Reset() {
+	*x = CreateTemplateResponse{}
+	mi := &file_pkg_web_proto_responses_create_template_response_proto_msgTypes[0]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *CreateTemplateResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*CreateTemplateResponse) ProtoMessage() {}
+
+func (x *CreateTemplateResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_pkg_web_proto_responses_create_template_response_proto_msgTypes[0]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+func (x *CreateTemplateResponse) GetPlaceholder() string {
+	if x != nil {
+		if x.xxx_hidden_Placeholder != nil {
+			return *x.xxx_hidden_Placeholder
+		}
+		return ""
+	}
+	return ""
+}
+
+func (x *CreateTemplateResponse) SetPlaceholder(v string) {
+	x.xxx_hidden_Placeholder = &v
+	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 0, 1)
+}
+
+func (x *CreateTemplateResponse) HasPlaceholder() bool {
+	if x == nil {
+		return false
+	}
+	return protoimpl.X.Present(&(x.XXX_presence[0]), 0)
+}
+
+func (x *CreateTemplateResponse) ClearPlaceholder() {
+	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 0)
+	x.xxx_hidden_Placeholder = nil
+}
+
+type CreateTemplateResponse_builder struct {
+	_ [0]func() // Prevents comparability and use of unkeyed literals for the builder.
+
+	Placeholder *string
+}
+
+func (b0 CreateTemplateResponse_builder) Build() *CreateTemplateResponse {
+	m0 := &CreateTemplateResponse{}
+	b, x := &b0, m0
+	_, _ = b, x
+	if b.Placeholder != nil {
+		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 0, 1)
+		x.xxx_hidden_Placeholder = b.Placeholder
+	}
+	return m0
+}
+
 var File_pkg_web_proto_responses_create_template_response_proto protoreflect.FileDescriptor
 
 const file_pkg_web_proto_responses_create_template_response_proto_rawDesc = "" +
 	"\n" +
-	"6pkg/web/proto/responses/create_template_response.proto\x12\x0egcommon.v1.web\x1a!google/protobuf/go_features.protoB\xc2\x01\n" +
+	"6pkg/web/proto/responses/create_template_response.proto\x12\x0egcommon.v1.web\x1a!google/protobuf/go_features.proto\":\n" +
+	"\x16CreateTemplateResponse\x12 \n" +
+	"\vplaceholder\x18\x01 \x01(\tR\vplaceholderB\xc2\x01\n" +
 	"\x12com.gcommon.v1.webB\x1bCreateTemplateResponseProtoP\x01Z-github.com/jdfalk/gcommon/pkg/web/proto;webpb\xa2\x02\x03GVW\xaa\x02\x0eGcommon.V1.Web\xca\x02\x0eGcommon\\V1\\Web\xe2\x02\x1aGcommon\\V1\\Web\\GPBMetadata\xea\x02\x10Gcommon::V1::Web\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
 
-var file_pkg_web_proto_responses_create_template_response_proto_goTypes = []any{}
+var file_pkg_web_proto_responses_create_template_response_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
+var file_pkg_web_proto_responses_create_template_response_proto_goTypes = []any{
+	(*CreateTemplateResponse)(nil), // 0: gcommon.v1.web.CreateTemplateResponse
+}
 var file_pkg_web_proto_responses_create_template_response_proto_depIdxs = []int32{
 	0, // [0:0] is the sub-list for method output_type
 	0, // [0:0] is the sub-list for method input_type
@@ -50,12 +134,13 @@ func file_pkg_web_proto_responses_create_template_response_proto_init() {
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: unsafe.Slice(unsafe.StringData(file_pkg_web_proto_responses_create_template_response_proto_rawDesc), len(file_pkg_web_proto_responses_create_template_response_proto_rawDesc)),
 			NumEnums:      0,
-			NumMessages:   0,
+			NumMessages:   1,
 			NumExtensions: 0,
 			NumServices:   0,
 		},
 		GoTypes:           file_pkg_web_proto_responses_create_template_response_proto_goTypes,
 		DependencyIndexes: file_pkg_web_proto_responses_create_template_response_proto_depIdxs,
+		MessageInfos:      file_pkg_web_proto_responses_create_template_response_proto_msgTypes,
 	}.Build()
 	File_pkg_web_proto_responses_create_template_response_proto = out.File
 	file_pkg_web_proto_responses_create_template_response_proto_goTypes = nil
