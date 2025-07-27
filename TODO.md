@@ -2408,4 +2408,5 @@ Implement publish and offset queue protobufs
 - [ ] Implement additional MySQL protobuf messages
 
 Cache module protobuf implementation complete. All 74 files implemented.
+
 - Web module progress: implemented AuthConfig, ServerConfig, MiddlewareConfig messages and UpdateMiddlewareConfig request/response

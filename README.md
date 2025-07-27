@@ -347,7 +347,7 @@ See `scripts/MIGRATION-NOTICE.md` for migration details.
 - Added DebugInfo message for advanced debugging
 - Implemented TransactionService and MigrationService protobufs
 - Queue module progress: implemented acknowledgment messages and types (approx. 6% complete)
-Queue module progress updated: implemented listing and pull protobufs (approx. 10% complete)
+  Queue module progress updated: implemented listing and pull protobufs (approx. 10% complete)
 - Implemented core web protobufs
 - July 21, 2025: Web module protobufs implemented (178 files)
 - Updated auth module progress to 24/126 implemented
