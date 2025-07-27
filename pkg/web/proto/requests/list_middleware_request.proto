@@ -7,7 +7,6 @@ edition = "2023";
 package gcommon.v1.web;
 
 import "google/protobuf/go_features.proto";
-import "pkg/web/proto/messages/middleware_config.proto";
 import "pkg/common/proto/messages/pagination.proto";
 import "pkg/common/proto/messages/request_metadata.proto";
 
