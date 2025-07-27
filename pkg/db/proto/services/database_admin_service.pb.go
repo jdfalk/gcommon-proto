@@ -28,7 +28,7 @@ var File_pkg_db_proto_services_database_admin_service_proto protoreflect.FileDes
 
 const file_pkg_db_proto_services_database_admin_service_proto_rawDesc = "" +
 	"\n" +
-	"2pkg/db/proto/services/database_admin_service.proto\x12\x13gcommon.v1.database\x1a3pkg/db/proto/requests/create_database_request.proto\x1a5pkg/db/proto/responses/create_database_response.proto\x1a1pkg/db/proto/requests/drop_database_request.proto\x1a2pkg/db/proto/requests/list_databases_request.proto\x1a4pkg/db/proto/responses/list_databases_response.proto\x1a5pkg/db/proto/requests/get_database_info_request.proto\x1a7pkg/db/proto/responses/get_database_info_response.proto\x1a1pkg/db/proto/requests/create_schema_request.proto\x1a3pkg/db/proto/responses/create_schema_response.proto\x1a/pkg/db/proto/requests/drop_schema_request.proto\x1a0pkg/db/proto/requests/list_schemas_request.proto\x1a2pkg/db/proto/responses/list_schemas_response.proto\x1a1pkg/db/proto/requests/run_migration_request.proto\x1a3pkg/db/proto/responses/run_migration_response.proto\x1a8pkg/db/proto/requests/get_migration_status_request.proto\x1a:pkg/db/proto/responses/get_migration_status_response.proto\x1a\x1bgoogle/protobuf/empty.proto\x1a!google/protobuf/go_features.proto2\x9a\a\n" +
+	"2pkg/db/proto/services/database_admin_service.proto\x12\x13gcommon.v1.database\x1a3pkg/db/proto/requests/create_database_request.proto\x1a5pkg/db/proto/responses/create_database_response.proto\x1a1pkg/db/proto/requests/drop_database_request.proto\x1a2pkg/db/proto/requests/list_databases_request.proto\x1a4pkg/db/proto/responses/list_databases_response.proto\x1a5pkg/db/proto/requests/get_database_info_request.proto\x1a7pkg/db/proto/responses/get_database_info_response.proto\x1a1pkg/db/proto/requests/create_schema_request.proto\x1a3pkg/db/proto/responses/create_schema_response.proto\x1a/pkg/db/proto/requests/drop_schema_request.proto\x1a0pkg/db/proto/requests/list_schemas_request.proto\x1a2pkg/db/proto/responses/list_schemas_response.proto\x1a\x1bgoogle/protobuf/empty.proto\x1a!google/protobuf/go_features.proto2\xbe\x05\n" +
 	"\x14DatabaseAdminService\x12i\n" +
 	"\x0eCreateDatabase\x12*.gcommon.v1.database.CreateDatabaseRequest\x1a+.gcommon.v1.database.CreateDatabaseResponse\x12P\n" +
 	"\fDropDatabase\x12(.gcommon.v1.database.DropDatabaseRequest\x1a\x16.google.protobuf.Empty\x12f\n" +
@@ -37,29 +37,23 @@ const file_pkg_db_proto_services_database_admin_service_proto_rawDesc = "" +
 	"\fCreateSchema\x12(.gcommon.v1.database.CreateSchemaRequest\x1a).gcommon.v1.database.CreateSchemaResponse\x12L\n" +
 	"\n" +
 	"DropSchema\x12&.gcommon.v1.database.DropSchemaRequest\x1a\x16.google.protobuf.Empty\x12`\n" +
-	"\vListSchemas\x12'.gcommon.v1.database.ListSchemasRequest\x1a(.gcommon.v1.database.ListSchemasResponse\x12c\n" +
-	"\fRunMigration\x12(.gcommon.v1.database.RunMigrationRequest\x1a).gcommon.v1.database.RunMigrationResponse\x12u\n" +
-	"\x12GetMigrationStatus\x12..gcommon.v1.database.GetMigrationStatusRequest\x1a/.gcommon.v1.database.GetMigrationStatusResponseB\xd7\x01\n" +
+	"\vListSchemas\x12'.gcommon.v1.database.ListSchemasRequest\x1a(.gcommon.v1.database.ListSchemasResponseB\xd7\x01\n" +
 	"\x17com.gcommon.v1.databaseB\x19DatabaseAdminServiceProtoP\x01Z+github.com/jdfalk/gcommon/pkg/db/proto;dbpb\xa2\x02\x03GVD\xaa\x02\x13Gcommon.V1.Database\xca\x02\x13Gcommon\\V1\\Database\xe2\x02\x1fGcommon\\V1\\Database\\GPBMetadata\xea\x02\x15Gcommon::V1::Database\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
 
 var file_pkg_db_proto_services_database_admin_service_proto_goTypes = []any{
-	(*CreateDatabaseRequest)(nil),      // 0: gcommon.v1.database.CreateDatabaseRequest
-	(*DropDatabaseRequest)(nil),        // 1: gcommon.v1.database.DropDatabaseRequest
-	(*ListDatabasesRequest)(nil),       // 2: gcommon.v1.database.ListDatabasesRequest
-	(*GetDatabaseInfoRequest)(nil),     // 3: gcommon.v1.database.GetDatabaseInfoRequest
-	(*CreateSchemaRequest)(nil),        // 4: gcommon.v1.database.CreateSchemaRequest
-	(*DropSchemaRequest)(nil),          // 5: gcommon.v1.database.DropSchemaRequest
-	(*ListSchemasRequest)(nil),         // 6: gcommon.v1.database.ListSchemasRequest
-	(*RunMigrationRequest)(nil),        // 7: gcommon.v1.database.RunMigrationRequest
-	(*GetMigrationStatusRequest)(nil),  // 8: gcommon.v1.database.GetMigrationStatusRequest
-	(*CreateDatabaseResponse)(nil),     // 9: gcommon.v1.database.CreateDatabaseResponse
-	(*emptypb.Empty)(nil),              // 10: google.protobuf.Empty
-	(*ListDatabasesResponse)(nil),      // 11: gcommon.v1.database.ListDatabasesResponse
-	(*GetDatabaseInfoResponse)(nil),    // 12: gcommon.v1.database.GetDatabaseInfoResponse
-	(*CreateSchemaResponse)(nil),       // 13: gcommon.v1.database.CreateSchemaResponse
-	(*ListSchemasResponse)(nil),        // 14: gcommon.v1.database.ListSchemasResponse
-	(*RunMigrationResponse)(nil),       // 15: gcommon.v1.database.RunMigrationResponse
-	(*GetMigrationStatusResponse)(nil), // 16: gcommon.v1.database.GetMigrationStatusResponse
+	(*CreateDatabaseRequest)(nil),   // 0: gcommon.v1.database.CreateDatabaseRequest
+	(*DropDatabaseRequest)(nil),     // 1: gcommon.v1.database.DropDatabaseRequest
+	(*ListDatabasesRequest)(nil),    // 2: gcommon.v1.database.ListDatabasesRequest
+	(*GetDatabaseInfoRequest)(nil),  // 3: gcommon.v1.database.GetDatabaseInfoRequest
+	(*CreateSchemaRequest)(nil),     // 4: gcommon.v1.database.CreateSchemaRequest
+	(*DropSchemaRequest)(nil),       // 5: gcommon.v1.database.DropSchemaRequest
+	(*ListSchemasRequest)(nil),      // 6: gcommon.v1.database.ListSchemasRequest
+	(*CreateDatabaseResponse)(nil),  // 7: gcommon.v1.database.CreateDatabaseResponse
+	(*emptypb.Empty)(nil),           // 8: google.protobuf.Empty
+	(*ListDatabasesResponse)(nil),   // 9: gcommon.v1.database.ListDatabasesResponse
+	(*GetDatabaseInfoResponse)(nil), // 10: gcommon.v1.database.GetDatabaseInfoResponse
+	(*CreateSchemaResponse)(nil),    // 11: gcommon.v1.database.CreateSchemaResponse
+	(*ListSchemasResponse)(nil),     // 12: gcommon.v1.database.ListSchemasResponse
 }
 var file_pkg_db_proto_services_database_admin_service_proto_depIdxs = []int32{
 	0,  // 0: gcommon.v1.database.DatabaseAdminService.CreateDatabase:input_type -> gcommon.v1.database.CreateDatabaseRequest
@@ -69,19 +63,15 @@ var file_pkg_db_proto_services_database_admin_service_proto_depIdxs = []int32{
 	4,  // 4: gcommon.v1.database.DatabaseAdminService.CreateSchema:input_type -> gcommon.v1.database.CreateSchemaRequest
 	5,  // 5: gcommon.v1.database.DatabaseAdminService.DropSchema:input_type -> gcommon.v1.database.DropSchemaRequest
 	6,  // 6: gcommon.v1.database.DatabaseAdminService.ListSchemas:input_type -> gcommon.v1.database.ListSchemasRequest
-	7,  // 7: gcommon.v1.database.DatabaseAdminService.RunMigration:input_type -> gcommon.v1.database.RunMigrationRequest
-	8,  // 8: gcommon.v1.database.DatabaseAdminService.GetMigrationStatus:input_type -> gcommon.v1.database.GetMigrationStatusRequest
-	9,  // 9: gcommon.v1.database.DatabaseAdminService.CreateDatabase:output_type -> gcommon.v1.database.CreateDatabaseResponse
-	10, // 10: gcommon.v1.database.DatabaseAdminService.DropDatabase:output_type -> google.protobuf.Empty
-	11, // 11: gcommon.v1.database.DatabaseAdminService.ListDatabases:output_type -> gcommon.v1.database.ListDatabasesResponse
-	12, // 12: gcommon.v1.database.DatabaseAdminService.GetDatabaseInfo:output_type -> gcommon.v1.database.GetDatabaseInfoResponse
-	13, // 13: gcommon.v1.database.DatabaseAdminService.CreateSchema:output_type -> gcommon.v1.database.CreateSchemaResponse
-	10, // 14: gcommon.v1.database.DatabaseAdminService.DropSchema:output_type -> google.protobuf.Empty
-	14, // 15: gcommon.v1.database.DatabaseAdminService.ListSchemas:output_type -> gcommon.v1.database.ListSchemasResponse
-	15, // 16: gcommon.v1.database.DatabaseAdminService.RunMigration:output_type -> gcommon.v1.database.RunMigrationResponse
-	16, // 17: gcommon.v1.database.DatabaseAdminService.GetMigrationStatus:output_type -> gcommon.v1.database.GetMigrationStatusResponse
-	9,  // [9:18] is the sub-list for method output_type
-	0,  // [0:9] is the sub-list for method input_type
+	7,  // 7: gcommon.v1.database.DatabaseAdminService.CreateDatabase:output_type -> gcommon.v1.database.CreateDatabaseResponse
+	8,  // 8: gcommon.v1.database.DatabaseAdminService.DropDatabase:output_type -> google.protobuf.Empty
+	9,  // 9: gcommon.v1.database.DatabaseAdminService.ListDatabases:output_type -> gcommon.v1.database.ListDatabasesResponse
+	10, // 10: gcommon.v1.database.DatabaseAdminService.GetDatabaseInfo:output_type -> gcommon.v1.database.GetDatabaseInfoResponse
+	11, // 11: gcommon.v1.database.DatabaseAdminService.CreateSchema:output_type -> gcommon.v1.database.CreateSchemaResponse
+	8,  // 12: gcommon.v1.database.DatabaseAdminService.DropSchema:output_type -> google.protobuf.Empty
+	12, // 13: gcommon.v1.database.DatabaseAdminService.ListSchemas:output_type -> gcommon.v1.database.ListSchemasResponse
+	7,  // [7:14] is the sub-list for method output_type
+	0,  // [0:7] is the sub-list for method input_type
 	0,  // [0:0] is the sub-list for extension type_name
 	0,  // [0:0] is the sub-list for extension extendee
 	0,  // [0:0] is the sub-list for field type_name
@@ -104,10 +94,6 @@ func file_pkg_db_proto_services_database_admin_service_proto_init() {
 	file_pkg_db_proto_requests_drop_schema_request_proto_init()
 	file_pkg_db_proto_requests_list_schemas_request_proto_init()
 	file_pkg_db_proto_responses_list_schemas_response_proto_init()
-	file_pkg_db_proto_requests_run_migration_request_proto_init()
-	file_pkg_db_proto_responses_run_migration_response_proto_init()
-	file_pkg_db_proto_requests_get_migration_status_request_proto_init()
-	file_pkg_db_proto_responses_get_migration_status_response_proto_init()
 	type x struct{}
 	out := protoimpl.TypeBuilder{
 		File: protoimpl.DescBuilder{

@@ -12,7 +12,6 @@ import (
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
-	emptypb "google.golang.org/protobuf/types/known/emptypb"
 	reflect "reflect"
 	unsafe "unsafe"
 )
@@ -28,58 +27,45 @@ var File_pkg_db_proto_services_database_service_proto protoreflect.FileDescripto
 
 const file_pkg_db_proto_services_database_service_proto_rawDesc = "" +
 	"\n" +
-	",pkg/db/proto/services/database_service.proto\x12\x13gcommon.v1.database\x1a)pkg/db/proto/requests/query_request.proto\x1a+pkg/db/proto/responses/query_response.proto\x1a/pkg/db/proto/responses/query_row_response.proto\x1a+pkg/db/proto/requests/execute_request.proto\x1a-pkg/db/proto/responses/execute_response.proto\x1a1pkg/db/proto/requests/execute_batch_request.proto\x1a3pkg/db/proto/responses/execute_batch_response.proto\x1a5pkg/db/proto/requests/begin_transaction_request.proto\x1a7pkg/db/proto/responses/begin_transaction_response.proto\x1a6pkg/db/proto/requests/commit_transaction_request.proto\x1a8pkg/db/proto/requests/rollback_transaction_request.proto\x1a7pkg/db/proto/requests/get_connection_info_request.proto\x1a9pkg/db/proto/responses/get_connection_info_response.proto\x1a0pkg/db/proto/requests/health_check_request.proto\x1a2pkg/db/proto/responses/health_check_response.proto\x1a\x1bgoogle/protobuf/empty.proto\x1a!google/protobuf/go_features.proto2\xf5\x06\n" +
+	",pkg/db/proto/services/database_service.proto\x12\x13gcommon.v1.database\x1a)pkg/db/proto/requests/query_request.proto\x1a-pkg/db/proto/requests/query_row_request.proto\x1a+pkg/db/proto/responses/query_response.proto\x1a/pkg/db/proto/responses/query_row_response.proto\x1a+pkg/db/proto/requests/execute_request.proto\x1a-pkg/db/proto/responses/execute_response.proto\x1a1pkg/db/proto/requests/execute_batch_request.proto\x1a3pkg/db/proto/responses/execute_batch_response.proto\x1a7pkg/db/proto/requests/get_connection_info_request.proto\x1a9pkg/db/proto/responses/get_connection_info_response.proto\x1a0pkg/db/proto/requests/health_check_request.proto\x1a2pkg/db/proto/responses/health_check_response.proto\x1a!google/protobuf/go_features.proto2\xcb\x04\n" +
 	"\x0fDatabaseService\x12N\n" +
-	"\x05Query\x12!.gcommon.v1.database.QueryRequest\x1a\".gcommon.v1.database.QueryResponse\x12T\n" +
-	"\bQueryRow\x12!.gcommon.v1.database.QueryRequest\x1a%.gcommon.v1.database.QueryRowResponse\x12T\n" +
+	"\x05Query\x12!.gcommon.v1.database.QueryRequest\x1a\".gcommon.v1.database.QueryResponse\x12W\n" +
+	"\bQueryRow\x12$.gcommon.v1.database.QueryRowRequest\x1a%.gcommon.v1.database.QueryRowResponse\x12T\n" +
 	"\aExecute\x12#.gcommon.v1.database.ExecuteRequest\x1a$.gcommon.v1.database.ExecuteResponse\x12c\n" +
-	"\fExecuteBatch\x12(.gcommon.v1.database.ExecuteBatchRequest\x1a).gcommon.v1.database.ExecuteBatchResponse\x12o\n" +
-	"\x10BeginTransaction\x12,.gcommon.v1.database.BeginTransactionRequest\x1a-.gcommon.v1.database.BeginTransactionResponse\x12Z\n" +
-	"\x11CommitTransaction\x12-.gcommon.v1.database.CommitTransactionRequest\x1a\x16.google.protobuf.Empty\x12^\n" +
-	"\x13RollbackTransaction\x12/.gcommon.v1.database.RollbackTransactionRequest\x1a\x16.google.protobuf.Empty\x12r\n" +
+	"\fExecuteBatch\x12(.gcommon.v1.database.ExecuteBatchRequest\x1a).gcommon.v1.database.ExecuteBatchResponse\x12r\n" +
 	"\x11GetConnectionInfo\x12-.gcommon.v1.database.GetConnectionInfoRequest\x1a..gcommon.v1.database.GetConnectionInfoResponse\x12`\n" +
 	"\vHealthCheck\x12'.gcommon.v1.database.HealthCheckRequest\x1a(.gcommon.v1.database.HealthCheckResponseB\xd2\x01\n" +
 	"\x17com.gcommon.v1.databaseB\x14DatabaseServiceProtoP\x01Z+github.com/jdfalk/gcommon/pkg/db/proto;dbpb\xa2\x02\x03GVD\xaa\x02\x13Gcommon.V1.Database\xca\x02\x13Gcommon\\V1\\Database\xe2\x02\x1fGcommon\\V1\\Database\\GPBMetadata\xea\x02\x15Gcommon::V1::Database\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
 
 var file_pkg_db_proto_services_database_service_proto_goTypes = []any{
-	(*QueryRequest)(nil),               // 0: gcommon.v1.database.QueryRequest
-	(*ExecuteRequest)(nil),             // 1: gcommon.v1.database.ExecuteRequest
-	(*ExecuteBatchRequest)(nil),        // 2: gcommon.v1.database.ExecuteBatchRequest
-	(*BeginTransactionRequest)(nil),    // 3: gcommon.v1.database.BeginTransactionRequest
-	(*CommitTransactionRequest)(nil),   // 4: gcommon.v1.database.CommitTransactionRequest
-	(*RollbackTransactionRequest)(nil), // 5: gcommon.v1.database.RollbackTransactionRequest
-	(*GetConnectionInfoRequest)(nil),   // 6: gcommon.v1.database.GetConnectionInfoRequest
-	(*HealthCheckRequest)(nil),         // 7: gcommon.v1.database.HealthCheckRequest
-	(*QueryResponse)(nil),              // 8: gcommon.v1.database.QueryResponse
-	(*QueryRowResponse)(nil),           // 9: gcommon.v1.database.QueryRowResponse
-	(*ExecuteResponse)(nil),            // 10: gcommon.v1.database.ExecuteResponse
-	(*ExecuteBatchResponse)(nil),       // 11: gcommon.v1.database.ExecuteBatchResponse
-	(*BeginTransactionResponse)(nil),   // 12: gcommon.v1.database.BeginTransactionResponse
-	(*emptypb.Empty)(nil),              // 13: google.protobuf.Empty
-	(*GetConnectionInfoResponse)(nil),  // 14: gcommon.v1.database.GetConnectionInfoResponse
-	(*HealthCheckResponse)(nil),        // 15: gcommon.v1.database.HealthCheckResponse
+	(*QueryRequest)(nil),              // 0: gcommon.v1.database.QueryRequest
+	(*QueryRowRequest)(nil),           // 1: gcommon.v1.database.QueryRowRequest
+	(*ExecuteRequest)(nil),            // 2: gcommon.v1.database.ExecuteRequest
+	(*ExecuteBatchRequest)(nil),       // 3: gcommon.v1.database.ExecuteBatchRequest
+	(*GetConnectionInfoRequest)(nil),  // 4: gcommon.v1.database.GetConnectionInfoRequest
+	(*HealthCheckRequest)(nil),        // 5: gcommon.v1.database.HealthCheckRequest
+	(*QueryResponse)(nil),             // 6: gcommon.v1.database.QueryResponse
+	(*QueryRowResponse)(nil),          // 7: gcommon.v1.database.QueryRowResponse
+	(*ExecuteResponse)(nil),           // 8: gcommon.v1.database.ExecuteResponse
+	(*ExecuteBatchResponse)(nil),      // 9: gcommon.v1.database.ExecuteBatchResponse
+	(*GetConnectionInfoResponse)(nil), // 10: gcommon.v1.database.GetConnectionInfoResponse
+	(*HealthCheckResponse)(nil),       // 11: gcommon.v1.database.HealthCheckResponse
 }
 var file_pkg_db_proto_services_database_service_proto_depIdxs = []int32{
 	0,  // 0: gcommon.v1.database.DatabaseService.Query:input_type -> gcommon.v1.database.QueryRequest
-	0,  // 1: gcommon.v1.database.DatabaseService.QueryRow:input_type -> gcommon.v1.database.QueryRequest
-	1,  // 2: gcommon.v1.database.DatabaseService.Execute:input_type -> gcommon.v1.database.ExecuteRequest
-	2,  // 3: gcommon.v1.database.DatabaseService.ExecuteBatch:input_type -> gcommon.v1.database.ExecuteBatchRequest
-	3,  // 4: gcommon.v1.database.DatabaseService.BeginTransaction:input_type -> gcommon.v1.database.BeginTransactionRequest
-	4,  // 5: gcommon.v1.database.DatabaseService.CommitTransaction:input_type -> gcommon.v1.database.CommitTransactionRequest
-	5,  // 6: gcommon.v1.database.DatabaseService.RollbackTransaction:input_type -> gcommon.v1.database.RollbackTransactionRequest
-	6,  // 7: gcommon.v1.database.DatabaseService.GetConnectionInfo:input_type -> gcommon.v1.database.GetConnectionInfoRequest
-	7,  // 8: gcommon.v1.database.DatabaseService.HealthCheck:input_type -> gcommon.v1.database.HealthCheckRequest
-	8,  // 9: gcommon.v1.database.DatabaseService.Query:output_type -> gcommon.v1.database.QueryResponse
-	9,  // 10: gcommon.v1.database.DatabaseService.QueryRow:output_type -> gcommon.v1.database.QueryRowResponse
-	10, // 11: gcommon.v1.database.DatabaseService.Execute:output_type -> gcommon.v1.database.ExecuteResponse
-	11, // 12: gcommon.v1.database.DatabaseService.ExecuteBatch:output_type -> gcommon.v1.database.ExecuteBatchResponse
-	12, // 13: gcommon.v1.database.DatabaseService.BeginTransaction:output_type -> gcommon.v1.database.BeginTransactionResponse
-	13, // 14: gcommon.v1.database.DatabaseService.CommitTransaction:output_type -> google.protobuf.Empty
-	13, // 15: gcommon.v1.database.DatabaseService.RollbackTransaction:output_type -> google.protobuf.Empty
-	14, // 16: gcommon.v1.database.DatabaseService.GetConnectionInfo:output_type -> gcommon.v1.database.GetConnectionInfoResponse
-	15, // 17: gcommon.v1.database.DatabaseService.HealthCheck:output_type -> gcommon.v1.database.HealthCheckResponse
-	9,  // [9:18] is the sub-list for method output_type
-	0,  // [0:9] is the sub-list for method input_type
+	1,  // 1: gcommon.v1.database.DatabaseService.QueryRow:input_type -> gcommon.v1.database.QueryRowRequest
+	2,  // 2: gcommon.v1.database.DatabaseService.Execute:input_type -> gcommon.v1.database.ExecuteRequest
+	3,  // 3: gcommon.v1.database.DatabaseService.ExecuteBatch:input_type -> gcommon.v1.database.ExecuteBatchRequest
+	4,  // 4: gcommon.v1.database.DatabaseService.GetConnectionInfo:input_type -> gcommon.v1.database.GetConnectionInfoRequest
+	5,  // 5: gcommon.v1.database.DatabaseService.HealthCheck:input_type -> gcommon.v1.database.HealthCheckRequest
+	6,  // 6: gcommon.v1.database.DatabaseService.Query:output_type -> gcommon.v1.database.QueryResponse
+	7,  // 7: gcommon.v1.database.DatabaseService.QueryRow:output_type -> gcommon.v1.database.QueryRowResponse
+	8,  // 8: gcommon.v1.database.DatabaseService.Execute:output_type -> gcommon.v1.database.ExecuteResponse
+	9,  // 9: gcommon.v1.database.DatabaseService.ExecuteBatch:output_type -> gcommon.v1.database.ExecuteBatchResponse
+	10, // 10: gcommon.v1.database.DatabaseService.GetConnectionInfo:output_type -> gcommon.v1.database.GetConnectionInfoResponse
+	11, // 11: gcommon.v1.database.DatabaseService.HealthCheck:output_type -> gcommon.v1.database.HealthCheckResponse
+	6,  // [6:12] is the sub-list for method output_type
+	0,  // [0:6] is the sub-list for method input_type
 	0,  // [0:0] is the sub-list for extension type_name
 	0,  // [0:0] is the sub-list for extension extendee
 	0,  // [0:0] is the sub-list for field type_name
@@ -91,16 +77,13 @@ func file_pkg_db_proto_services_database_service_proto_init() {
 		return
 	}
 	file_pkg_db_proto_requests_query_request_proto_init()
+	file_pkg_db_proto_requests_query_row_request_proto_init()
 	file_pkg_db_proto_responses_query_response_proto_init()
 	file_pkg_db_proto_responses_query_row_response_proto_init()
 	file_pkg_db_proto_requests_execute_request_proto_init()
 	file_pkg_db_proto_responses_execute_response_proto_init()
 	file_pkg_db_proto_requests_execute_batch_request_proto_init()
 	file_pkg_db_proto_responses_execute_batch_response_proto_init()
-	file_pkg_db_proto_requests_begin_transaction_request_proto_init()
-	file_pkg_db_proto_responses_begin_transaction_response_proto_init()
-	file_pkg_db_proto_requests_commit_transaction_request_proto_init()
-	file_pkg_db_proto_requests_rollback_transaction_request_proto_init()
 	file_pkg_db_proto_requests_get_connection_info_request_proto_init()
 	file_pkg_db_proto_responses_get_connection_info_response_proto_init()
 	file_pkg_db_proto_requests_health_check_request_proto_init()

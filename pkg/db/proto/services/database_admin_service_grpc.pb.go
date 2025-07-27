@@ -20,15 +20,13 @@ import (
 const _ = grpc.SupportPackageIsVersion9
 
 const (
-	DatabaseAdminService_CreateDatabase_FullMethodName     = "/gcommon.v1.database.DatabaseAdminService/CreateDatabase"
-	DatabaseAdminService_DropDatabase_FullMethodName       = "/gcommon.v1.database.DatabaseAdminService/DropDatabase"
-	DatabaseAdminService_ListDatabases_FullMethodName      = "/gcommon.v1.database.DatabaseAdminService/ListDatabases"
-	DatabaseAdminService_GetDatabaseInfo_FullMethodName    = "/gcommon.v1.database.DatabaseAdminService/GetDatabaseInfo"
-	DatabaseAdminService_CreateSchema_FullMethodName       = "/gcommon.v1.database.DatabaseAdminService/CreateSchema"
-	DatabaseAdminService_DropSchema_FullMethodName         = "/gcommon.v1.database.DatabaseAdminService/DropSchema"
-	DatabaseAdminService_ListSchemas_FullMethodName        = "/gcommon.v1.database.DatabaseAdminService/ListSchemas"
-	DatabaseAdminService_RunMigration_FullMethodName       = "/gcommon.v1.database.DatabaseAdminService/RunMigration"
-	DatabaseAdminService_GetMigrationStatus_FullMethodName = "/gcommon.v1.database.DatabaseAdminService/GetMigrationStatus"
+	DatabaseAdminService_CreateDatabase_FullMethodName  = "/gcommon.v1.database.DatabaseAdminService/CreateDatabase"
+	DatabaseAdminService_DropDatabase_FullMethodName    = "/gcommon.v1.database.DatabaseAdminService/DropDatabase"
+	DatabaseAdminService_ListDatabases_FullMethodName   = "/gcommon.v1.database.DatabaseAdminService/ListDatabases"
+	DatabaseAdminService_GetDatabaseInfo_FullMethodName = "/gcommon.v1.database.DatabaseAdminService/GetDatabaseInfo"
+	DatabaseAdminService_CreateSchema_FullMethodName    = "/gcommon.v1.database.DatabaseAdminService/CreateSchema"
+	DatabaseAdminService_DropSchema_FullMethodName      = "/gcommon.v1.database.DatabaseAdminService/DropSchema"
+	DatabaseAdminService_ListSchemas_FullMethodName     = "/gcommon.v1.database.DatabaseAdminService/ListSchemas"
 )
 
 // DatabaseAdminServiceClient is the client API for DatabaseAdminService service.
@@ -53,10 +51,6 @@ type DatabaseAdminServiceClient interface {
 	DropSchema(ctx context.Context, in *DropSchemaRequest, opts ...grpc.CallOption) (*emptypb.Empty, error)
 	// List all schemas in a database
 	ListSchemas(ctx context.Context, in *ListSchemasRequest, opts ...grpc.CallOption) (*ListSchemasResponse, error)
-	// Execute database migration scripts
-	RunMigration(ctx context.Context, in *RunMigrationRequest, opts ...grpc.CallOption) (*RunMigrationResponse, error)
-	// Get current migration status for a database
-	GetMigrationStatus(ctx context.Context, in *GetMigrationStatusRequest, opts ...grpc.CallOption) (*GetMigrationStatusResponse, error)
 }
 
 type databaseAdminServiceClient struct {
@@ -137,26 +131,6 @@ func (c *databaseAdminServiceClient) ListSchemas(ctx context.Context, in *ListSc
 	return out, nil
 }
 
-func (c *databaseAdminServiceClient) RunMigration(ctx context.Context, in *RunMigrationRequest, opts ...grpc.CallOption) (*RunMigrationResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(RunMigrationResponse)
-	err := c.cc.Invoke(ctx, DatabaseAdminService_RunMigration_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *databaseAdminServiceClient) GetMigrationStatus(ctx context.Context, in *GetMigrationStatusRequest, opts ...grpc.CallOption) (*GetMigrationStatusResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetMigrationStatusResponse)
-	err := c.cc.Invoke(ctx, DatabaseAdminService_GetMigrationStatus_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
 // DatabaseAdminServiceServer is the server API for DatabaseAdminService service.
 // All implementations should embed UnimplementedDatabaseAdminServiceServer
 // for forward compatibility.
@@ -179,10 +153,6 @@ type DatabaseAdminServiceServer interface {
 	DropSchema(context.Context, *DropSchemaRequest) (*emptypb.Empty, error)
 	// List all schemas in a database
 	ListSchemas(context.Context, *ListSchemasRequest) (*ListSchemasResponse, error)
-	// Execute database migration scripts
-	RunMigration(context.Context, *RunMigrationRequest) (*RunMigrationResponse, error)
-	// Get current migration status for a database
-	GetMigrationStatus(context.Context, *GetMigrationStatusRequest) (*GetMigrationStatusResponse, error)
 }
 
 // UnimplementedDatabaseAdminServiceServer should be embedded to have
@@ -212,12 +182,6 @@ func (UnimplementedDatabaseAdminServiceServer) DropSchema(context.Context, *Drop
 }
 func (UnimplementedDatabaseAdminServiceServer) ListSchemas(context.Context, *ListSchemasRequest) (*ListSchemasResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method ListSchemas not implemented")
-}
-func (UnimplementedDatabaseAdminServiceServer) RunMigration(context.Context, *RunMigrationRequest) (*RunMigrationResponse, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method RunMigration not implemented")
-}
-func (UnimplementedDatabaseAdminServiceServer) GetMigrationStatus(context.Context, *GetMigrationStatusRequest) (*GetMigrationStatusResponse, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method GetMigrationStatus not implemented")
 }
 func (UnimplementedDatabaseAdminServiceServer) testEmbeddedByValue() {}
 
@@ -365,42 +329,6 @@ func _DatabaseAdminService_ListSchemas_Handler(srv interface{}, ctx context.Cont
 	return interceptor(ctx, in, info, handler)
 }
 
-func _DatabaseAdminService_RunMigration_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(RunMigrationRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(DatabaseAdminServiceServer).RunMigration(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: DatabaseAdminService_RunMigration_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(DatabaseAdminServiceServer).RunMigration(ctx, req.(*RunMigrationRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _DatabaseAdminService_GetMigrationStatus_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetMigrationStatusRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(DatabaseAdminServiceServer).GetMigrationStatus(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: DatabaseAdminService_GetMigrationStatus_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(DatabaseAdminServiceServer).GetMigrationStatus(ctx, req.(*GetMigrationStatusRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
 // DatabaseAdminService_ServiceDesc is the grpc.ServiceDesc for DatabaseAdminService service.
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
@@ -435,14 +363,6 @@ var DatabaseAdminService_ServiceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "ListSchemas",
 			Handler:    _DatabaseAdminService_ListSchemas_Handler,
-		},
-		{
-			MethodName: "RunMigration",
-			Handler:    _DatabaseAdminService_RunMigration_Handler,
-		},
-		{
-			MethodName: "GetMigrationStatus",
-			Handler:    _DatabaseAdminService_GetMigrationStatus_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},
