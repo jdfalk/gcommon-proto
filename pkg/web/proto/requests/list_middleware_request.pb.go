@@ -207,7 +207,7 @@ var File_pkg_web_proto_requests_list_middleware_request_proto protoreflect.FileD
 
 const file_pkg_web_proto_requests_list_middleware_request_proto_rawDesc = "" +
 	"\n" +
-	"4pkg/web/proto/requests/list_middleware_request.proto\x12\x0egcommon.v1.web\x1a!google/protobuf/go_features.proto\x1a.pkg/web/proto/messages/middleware_config.proto\x1a*pkg/common/proto/messages/pagination.proto\x1a0pkg/common/proto/messages/request_metadata.proto\x1a)pkg/web/proto/enums/middleware_type.proto\"\x81\x02\n" +
+	"4pkg/web/proto/requests/list_middleware_request.proto\x12\x0egcommon.v1.web\x1a!google/protobuf/go_features.proto\x1a*pkg/common/proto/messages/pagination.proto\x1a0pkg/common/proto/messages/request_metadata.proto\x1a)pkg/web/proto/enums/middleware_type.proto\"\x81\x02\n" +
 	"\x15ListMiddlewareRequest\x12\x1b\n" +
 	"\tserver_id\x18\x01 \x01(\tR\bserverId\x122\n" +
 	"\x04type\x18\x02 \x01(\x0e2\x1e.gcommon.v1.web.MiddlewareTypeR\x04type\x12\x18\n" +
@@ -241,7 +241,6 @@ func file_pkg_web_proto_requests_list_middleware_request_proto_init() {
 	if File_pkg_web_proto_requests_list_middleware_request_proto != nil {
 		return
 	}
-	file_pkg_web_proto_messages_middleware_config_proto_init()
 	file_pkg_web_proto_enums_middleware_type_proto_init()
 	type x struct{}
 	out := protoimpl.TypeBuilder{
