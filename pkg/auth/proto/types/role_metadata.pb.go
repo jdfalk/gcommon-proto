@@ -12,6 +12,7 @@ import (
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
+	timestamppb "google.golang.org/protobuf/types/known/timestamppb"
 	reflect "reflect"
 	unsafe "unsafe"
 )
@@ -23,20 +24,159 @@ const (
 	_ = protoimpl.EnforceVersion(protoimpl.MaxVersion - 20)
 )
 
+// *
+// RoleMetadata provides metadata about role creation and updates.
+type RoleMetadata struct {
+	state protoimpl.MessageState `protogen:"hybrid.v1"`
+	// Timestamp when the role was created
+	CreatedAt *timestamppb.Timestamp `protobuf:"bytes,1,opt,name=created_at,json=createdAt" json:"created_at,omitempty"`
+	// Timestamp of the last update to the role
+	UpdatedAt *timestamppb.Timestamp `protobuf:"bytes,2,opt,name=updated_at,json=updatedAt" json:"updated_at,omitempty"`
+	// User ID that created the role
+	CreatedBy     *string `protobuf:"bytes,3,opt,name=created_by,json=createdBy" json:"created_by,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *RoleMetadata) Reset() {
+	*x = RoleMetadata{}
+	mi := &file_pkg_auth_proto_types_role_metadata_proto_msgTypes[0]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *RoleMetadata) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*RoleMetadata) ProtoMessage() {}
+
+func (x *RoleMetadata) ProtoReflect() protoreflect.Message {
+	mi := &file_pkg_auth_proto_types_role_metadata_proto_msgTypes[0]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+func (x *RoleMetadata) GetCreatedAt() *timestamppb.Timestamp {
+	if x != nil {
+		return x.CreatedAt
+	}
+	return nil
+}
+
+func (x *RoleMetadata) GetUpdatedAt() *timestamppb.Timestamp {
+	if x != nil {
+		return x.UpdatedAt
+	}
+	return nil
+}
+
+func (x *RoleMetadata) GetCreatedBy() string {
+	if x != nil && x.CreatedBy != nil {
+		return *x.CreatedBy
+	}
+	return ""
+}
+
+func (x *RoleMetadata) SetCreatedAt(v *timestamppb.Timestamp) {
+	x.CreatedAt = v
+}
+
+func (x *RoleMetadata) SetUpdatedAt(v *timestamppb.Timestamp) {
+	x.UpdatedAt = v
+}
+
+func (x *RoleMetadata) SetCreatedBy(v string) {
+	x.CreatedBy = &v
+}
+
+func (x *RoleMetadata) HasCreatedAt() bool {
+	if x == nil {
+		return false
+	}
+	return x.CreatedAt != nil
+}
+
+func (x *RoleMetadata) HasUpdatedAt() bool {
+	if x == nil {
+		return false
+	}
+	return x.UpdatedAt != nil
+}
+
+func (x *RoleMetadata) HasCreatedBy() bool {
+	if x == nil {
+		return false
+	}
+	return x.CreatedBy != nil
+}
+
+func (x *RoleMetadata) ClearCreatedAt() {
+	x.CreatedAt = nil
+}
+
+func (x *RoleMetadata) ClearUpdatedAt() {
+	x.UpdatedAt = nil
+}
+
+func (x *RoleMetadata) ClearCreatedBy() {
+	x.CreatedBy = nil
+}
+
+type RoleMetadata_builder struct {
+	_ [0]func() // Prevents comparability and use of unkeyed literals for the builder.
+
+	// Timestamp when the role was created
+	CreatedAt *timestamppb.Timestamp
+	// Timestamp of the last update to the role
+	UpdatedAt *timestamppb.Timestamp
+	// User ID that created the role
+	CreatedBy *string
+}
+
+func (b0 RoleMetadata_builder) Build() *RoleMetadata {
+	m0 := &RoleMetadata{}
+	b, x := &b0, m0
+	_, _ = b, x
+	x.CreatedAt = b.CreatedAt
+	x.UpdatedAt = b.UpdatedAt
+	x.CreatedBy = b.CreatedBy
+	return m0
+}
+
 var File_pkg_auth_proto_types_role_metadata_proto protoreflect.FileDescriptor
 
 const file_pkg_auth_proto_types_role_metadata_proto_rawDesc = "" +
 	"\n" +
-	"(pkg/auth/proto/types/role_metadata.proto\x12\x0fgcommon.v1.auth\x1a!google/protobuf/go_features.protoB\xbf\x01\n" +
+	"(pkg/auth/proto/types/role_metadata.proto\x12\x0fgcommon.v1.auth\x1a!google/protobuf/go_features.proto\x1a\x1fgoogle/protobuf/timestamp.proto\"\xab\x01\n" +
+	"\fRoleMetadata\x12=\n" +
+	"\n" +
+	"created_at\x18\x01 \x01(\v2\x1a.google.protobuf.TimestampB\x02(\x01R\tcreatedAt\x12=\n" +
+	"\n" +
+	"updated_at\x18\x02 \x01(\v2\x1a.google.protobuf.TimestampB\x02(\x01R\tupdatedAt\x12\x1d\n" +
+	"\n" +
+	"created_by\x18\x03 \x01(\tR\tcreatedByB\xbf\x01\n" +
 	"\x13com.gcommon.v1.authB\x11RoleMetadataProtoP\x01Z/github.com/jdfalk/gcommon/pkg/auth/proto;authpb\xa2\x02\x03GVA\xaa\x02\x0fGcommon.V1.Auth\xca\x02\x0fGcommon\\V1\\Auth\xe2\x02\x1bGcommon\\V1\\Auth\\GPBMetadata\xea\x02\x11Gcommon::V1::Auth\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
 
-var file_pkg_auth_proto_types_role_metadata_proto_goTypes = []any{}
+var file_pkg_auth_proto_types_role_metadata_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
+var file_pkg_auth_proto_types_role_metadata_proto_goTypes = []any{
+	(*RoleMetadata)(nil),          // 0: gcommon.v1.auth.RoleMetadata
+	(*timestamppb.Timestamp)(nil), // 1: google.protobuf.Timestamp
+}
 var file_pkg_auth_proto_types_role_metadata_proto_depIdxs = []int32{
-	0, // [0:0] is the sub-list for method output_type
-	0, // [0:0] is the sub-list for method input_type
-	0, // [0:0] is the sub-list for extension type_name
-	0, // [0:0] is the sub-list for extension extendee
-	0, // [0:0] is the sub-list for field type_name
+	1, // 0: gcommon.v1.auth.RoleMetadata.created_at:type_name -> google.protobuf.Timestamp
+	1, // 1: gcommon.v1.auth.RoleMetadata.updated_at:type_name -> google.protobuf.Timestamp
+	2, // [2:2] is the sub-list for method output_type
+	2, // [2:2] is the sub-list for method input_type
+	2, // [2:2] is the sub-list for extension type_name
+	2, // [2:2] is the sub-list for extension extendee
+	0, // [0:2] is the sub-list for field type_name
 }
 
 func init() { file_pkg_auth_proto_types_role_metadata_proto_init() }
@@ -50,12 +190,13 @@ func file_pkg_auth_proto_types_role_metadata_proto_init() {
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: unsafe.Slice(unsafe.StringData(file_pkg_auth_proto_types_role_metadata_proto_rawDesc), len(file_pkg_auth_proto_types_role_metadata_proto_rawDesc)),
 			NumEnums:      0,
-			NumMessages:   0,
+			NumMessages:   1,
 			NumExtensions: 0,
 			NumServices:   0,
 		},
 		GoTypes:           file_pkg_auth_proto_types_role_metadata_proto_goTypes,
 		DependencyIndexes: file_pkg_auth_proto_types_role_metadata_proto_depIdxs,
+		MessageInfos:      file_pkg_auth_proto_types_role_metadata_proto_msgTypes,
 	}.Build()
 	File_pkg_auth_proto_types_role_metadata_proto = out.File
 	file_pkg_auth_proto_types_role_metadata_proto_goTypes = nil
