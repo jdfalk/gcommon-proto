@@ -13,7 +13,6 @@ import (
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
-	_ "google.golang.org/protobuf/types/known/anypb"
 	durationpb "google.golang.org/protobuf/types/known/durationpb"
 	emptypb "google.golang.org/protobuf/types/known/emptypb"
 	fieldmaskpb "google.golang.org/protobuf/types/known/fieldmaskpb"
@@ -4919,7 +4918,7 @@ var File_pkg_log_proto_log_proto protoreflect.FileDescriptor
 
 const file_pkg_log_proto_log_proto_rawDesc = "" +
 	"\n" +
-	"\x17pkg/log/proto/log.proto\x12\x0egcommon.v1.log\x1a\x1dpkg/common/proto/common.proto\x1a\x1fgoogle/protobuf/timestamp.proto\x1a\x1egoogle/protobuf/duration.proto\x1a\x1bgoogle/protobuf/empty.proto\x1a\x19google/protobuf/any.proto\x1a google/protobuf/field_mask.proto\x1a!google/protobuf/go_features.proto\x1a&pkg/log/proto/messages/log_entry.proto\x1a,pkg/log/proto/messages/source_location.proto\x1a'pkg/log/proto/messages/error_info.proto\x1a#pkg/log/proto/enums/log_level.proto\x1a(pkg/log/proto/enums/log_sort_field.proto\x1a'pkg/log/proto/enums/appender_type.proto\x1a(pkg/log/proto/enums/formatter_type.proto\x1a%pkg/log/proto/enums/filter_type.proto\x1a'pkg/log/proto/enums/logger_status.proto\x1a*pkg/log/proto/enums/compression_type.proto\"\x94\x01\n" +
+	"\x17pkg/log/proto/log.proto\x12\x0egcommon.v1.log\x1a\x1dpkg/common/proto/common.proto\x1a\x1fgoogle/protobuf/timestamp.proto\x1a\x1egoogle/protobuf/duration.proto\x1a\x1bgoogle/protobuf/empty.proto\x1a google/protobuf/field_mask.proto\x1a!google/protobuf/go_features.proto\x1a&pkg/log/proto/messages/log_entry.proto\x1a,pkg/log/proto/messages/source_location.proto\x1a'pkg/log/proto/messages/error_info.proto\x1a#pkg/log/proto/enums/log_level.proto\x1a(pkg/log/proto/enums/log_sort_field.proto\x1a'pkg/log/proto/enums/appender_type.proto\x1a(pkg/log/proto/enums/formatter_type.proto\x1a%pkg/log/proto/enums/filter_type.proto\x1a'pkg/log/proto/enums/logger_status.proto\x1a*pkg/log/proto/enums/compression_type.proto\"\x94\x01\n" +
 	"\n" +
 	"LogRequest\x12.\n" +
 	"\x05entry\x18\x01 \x01(\v2\x18.gcommon.v1.log.LogEntryR\x05entry\x12\x16\n" +
@@ -5139,8 +5138,8 @@ const file_pkg_log_proto_log_proto_rawDesc = "" +
 	"\fDeleteLogger\x12#.gcommon.v1.log.DeleteLoggerRequest\x1a\x16.google.protobuf.Empty\x12V\n" +
 	"\vListLoggers\x12\".gcommon.v1.log.ListLoggersRequest\x1a#.gcommon.v1.log.ListLoggersResponse\x12h\n" +
 	"\x11ConfigureAppender\x12(.gcommon.v1.log.ConfigureAppenderRequest\x1a).gcommon.v1.log.ConfigureAppenderResponseB\xaf\x01\n" +
-	"\x12com.gcommon.v1.logB\bLogProtoP\x01Z-github.com/jdfalk/gcommon/pkg/log/proto;logpb\xa2\x02\x03GVL\xaa\x02\x0eGcommon.V1.Log\xca\x02\x0eGcommon\\V1\\Log\xe2\x02\x1aGcommon\\V1\\Log\\GPBMetadata\xea\x02\x10Gcommon::V1::Log\x92\x03\x05\xd2>\x02\x10\x02P\aP\bP\tP\n" +
-	"P\vP\fP\rP\x0eP\x0fP\x10b\beditionsp\xe8\a"
+	"\x12com.gcommon.v1.logB\bLogProtoP\x01Z-github.com/jdfalk/gcommon/pkg/log/proto;logpb\xa2\x02\x03GVL\xaa\x02\x0eGcommon.V1.Log\xca\x02\x0eGcommon\\V1\\Log\xe2\x02\x1aGcommon\\V1\\Log\\GPBMetadata\xea\x02\x10Gcommon::V1::Log\x92\x03\x05\xd2>\x02\x10\x02P\x06P\aP\bP\tP\n" +
+	"P\vP\fP\rP\x0eP\x0fb\beditionsp\xe8\a"
 
 var file_pkg_log_proto_log_proto_msgTypes = make([]protoimpl.MessageInfo, 43)
 var file_pkg_log_proto_log_proto_goTypes = []any{

@@ -9,7 +9,6 @@
 package logpb
 
 import (
-	_ "github.com/jdfalk/gcommon/pkg/common/proto"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
@@ -455,7 +454,7 @@ var File_pkg_log_proto_messages_log_entry_proto protoreflect.FileDescriptor
 
 const file_pkg_log_proto_messages_log_entry_proto_rawDesc = "" +
 	"\n" +
-	"&pkg/log/proto/messages/log_entry.proto\x12\x0egcommon.v1.log\x1a!google/protobuf/go_features.proto\x1a\x1fgoogle/protobuf/timestamp.proto\x1a\x19google/protobuf/any.proto\x1a\x1dpkg/common/proto/common.proto\x1a#pkg/log/proto/enums/log_level.proto\x1a,pkg/log/proto/messages/source_location.proto\x1a'pkg/log/proto/messages/error_info.proto\"\xbf\x04\n" +
+	"&pkg/log/proto/messages/log_entry.proto\x12\x0egcommon.v1.log\x1a!google/protobuf/go_features.proto\x1a\x1fgoogle/protobuf/timestamp.proto\x1a\x19google/protobuf/any.proto\x1a#pkg/log/proto/enums/log_level.proto\x1a,pkg/log/proto/messages/source_location.proto\x1a'pkg/log/proto/messages/error_info.proto\"\xbf\x04\n" +
 	"\bLogEntry\x12.\n" +
 	"\x05level\x18\x01 \x01(\x0e2\x18.gcommon.v1.log.LogLevelR\x05level\x12\x18\n" +
 	"\amessage\x18\x02 \x01(\tR\amessage\x128\n" +
