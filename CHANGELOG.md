@@ -9,6 +9,44 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Added
+
+- Implemented additional queue protobufs for listing and pull operations
+
+### Added
+
+- Implemented core permission and auth context protobufs
+
+Added MySQLConfig and MySQLStatus protobuf messages
+
+### Added
+
+- Added CockroachDB config protobuf
+
+### Added
+
+- Added PebbleConfig protobuf for Pebble driver
+
+### Added
+
+- Implemented initial web configuration messages and middleware update request/response
+
+### Added
+
+- Implemented Notification service and request/response protobufs
+
+### Added
+
+- Implemented additional Queue protobuf definitions for publish and offset operations
+
+### Added\n- Marked Cache module protobufs complete and updated tracking lists
+
+Added more queue configuration messages and enum
+
+### Added
+
+- Implemented audit logging and logout protobuf messages
+
 ### BREAKING: Protobuf Strategy Migration
 
 **🚨 CRITICAL ARCHITECTURAL CHANGE**: Based on Go best practices research, we are migrating away from `import public` aggregator files to direct imports of specific proto files.

@@ -1,0 +1,10 @@
+File: db1e796e-a2bb-45c8-8d27-eb01cb974606.json
+Error: Update application failed
+Timestamp: 2025-07-27T02:50:53.332926
+Stack trace:
+Traceback (most recent call last):
+  File "/home/runner/work/gcommon/gcommon/doc_update_manager.py", line 447, in _process_single_file_safely
+    self.process_update_file_data(update_file, update_data)
+  File "/home/runner/work/gcommon/gcommon/doc_update_manager.py", line 495, in process_update_file_data
+    raise Exception("Update application failed")
+Exception: Update application failed

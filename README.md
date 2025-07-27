@@ -347,6 +347,7 @@ See `scripts/MIGRATION-NOTICE.md` for migration details.
 - Added DebugInfo message for advanced debugging
 - Implemented TransactionService and MigrationService protobufs
 - Queue module progress: implemented acknowledgment messages and types (approx. 6% complete)
+Queue module progress updated: implemented listing and pull protobufs (approx. 10% complete)
 - Implemented core web protobufs
 - July 21, 2025: Web module protobufs implemented (178 files)
 - Updated auth module progress to 24/126 implemented
@@ -392,3 +393,6 @@ See `scripts/MIGRATION-NOTICE.md` for migration details.
 **Current Module Status (June 8, 2025):**\n\n- **✅ Common Module**: 100% complete (40/40 files) - **Shared Types Foundation**\n- **✅ Database Module**: 100% complete (53/53 files) - **Gold Standard Reference** (QueryRow RPC implemented)\n- **✅ Log Module**: 100% complete (1/1 files) - **Minimal Implementation**\n- **🔄 Auth Module**: 13.5% complete (17/126 files) - 109 files need implementation\n- **🔄 Cache Module**: 18.2% complete (8/44 files) - 36 files need implementation\n- **🔄 Config Module**: 13.0% complete (3/23 files) - 20 files need implementation\n- **✅ Health Module**: 100% complete (16/16 files) - Stable and production-ready\n- **❌ Metrics Module**: 2.1% complete (2/97 files) - **95 files need implementation**\n- **❌ Queue Module**: 1.1% complete (2/177 files) - **175 files need implementation**\n- **❌ Web Module**: 1.1% complete (2/178 files) - **176 files need implementation**
 
 | **Notification** | ✅ 100% | ✅ Yes | ✅ Complete | **✅ Notification service implemented** |
+
+Updated queue module progress to reflect new protobuf implementations
+MySQL protobuf messages added

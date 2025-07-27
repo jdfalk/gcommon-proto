@@ -1,0 +1,1 @@
+Document CockroachDB proto addition

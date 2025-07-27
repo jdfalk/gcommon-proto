@@ -2388,3 +2388,24 @@ Implemented health check request and response messages for metrics, auth, queue,
 - [x] 📋 Organize Project Board
 
 - [x] Implement web protobufs
+
+Implement audit log and logout protobuf definitions
+
+Implement additional Queue configuration protobufs
+
+Continue implementing remaining Auth protobufs
+
+Implement CockroachDB config protobuf message
+
+- [ ] 🟡 **General**: Implement Notification service protobufs
+
+- [ ] 🟡 **General**: Implemented queue list and pull protobufs
+
+Add PebbleConfig protobuf message
+
+Implement publish and offset queue protobufs
+
+- [ ] Implement additional MySQL protobuf messages
+
+Cache module protobuf implementation complete. All 74 files implemented.
+- Web module progress: implemented AuthConfig, ServerConfig, MiddlewareConfig messages and UpdateMiddlewareConfig request/response
