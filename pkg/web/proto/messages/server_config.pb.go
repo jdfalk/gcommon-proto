@@ -23,20 +23,250 @@ const (
 	_ = protoimpl.EnforceVersion(protoimpl.MaxVersion - 20)
 )
 
+// ServerConfig message definition.
+// ServerConfig defines basic web server settings.
+type ServerConfig struct {
+	state protoimpl.MessageState `protogen:"hybrid.v1"`
+	// Hostname or IP address to bind
+	Host *string `protobuf:"bytes,1,opt,name=host" json:"host,omitempty"`
+	// Listening port number
+	Port *int32 `protobuf:"varint,2,opt,name=port" json:"port,omitempty"`
+	// Enable TLS for secure communication
+	EnableTls *bool `protobuf:"varint,3,opt,name=enable_tls,json=enableTls" json:"enable_tls,omitempty"`
+	// Path to TLS certificate
+	TlsCertPath *string `protobuf:"bytes,4,opt,name=tls_cert_path,json=tlsCertPath" json:"tls_cert_path,omitempty"`
+	// Path to TLS key
+	TlsKeyPath *string `protobuf:"bytes,5,opt,name=tls_key_path,json=tlsKeyPath" json:"tls_key_path,omitempty"`
+	// Trusted proxy addresses
+	TrustedProxies []string `protobuf:"bytes,6,rep,name=trusted_proxies,json=trustedProxies" json:"trusted_proxies,omitempty"`
+	// Additional server options
+	Options       map[string]string `protobuf:"bytes,7,rep,name=options" json:"options,omitempty" protobuf_key:"bytes,1,opt,name=key" protobuf_val:"bytes,2,opt,name=value"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *ServerConfig) Reset() {
+	*x = ServerConfig{}
+	mi := &file_pkg_web_proto_messages_server_config_proto_msgTypes[0]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *ServerConfig) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*ServerConfig) ProtoMessage() {}
+
+func (x *ServerConfig) ProtoReflect() protoreflect.Message {
+	mi := &file_pkg_web_proto_messages_server_config_proto_msgTypes[0]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+func (x *ServerConfig) GetHost() string {
+	if x != nil && x.Host != nil {
+		return *x.Host
+	}
+	return ""
+}
+
+func (x *ServerConfig) GetPort() int32 {
+	if x != nil && x.Port != nil {
+		return *x.Port
+	}
+	return 0
+}
+
+func (x *ServerConfig) GetEnableTls() bool {
+	if x != nil && x.EnableTls != nil {
+		return *x.EnableTls
+	}
+	return false
+}
+
+func (x *ServerConfig) GetTlsCertPath() string {
+	if x != nil && x.TlsCertPath != nil {
+		return *x.TlsCertPath
+	}
+	return ""
+}
+
+func (x *ServerConfig) GetTlsKeyPath() string {
+	if x != nil && x.TlsKeyPath != nil {
+		return *x.TlsKeyPath
+	}
+	return ""
+}
+
+func (x *ServerConfig) GetTrustedProxies() []string {
+	if x != nil {
+		return x.TrustedProxies
+	}
+	return nil
+}
+
+func (x *ServerConfig) GetOptions() map[string]string {
+	if x != nil {
+		return x.Options
+	}
+	return nil
+}
+
+func (x *ServerConfig) SetHost(v string) {
+	x.Host = &v
+}
+
+func (x *ServerConfig) SetPort(v int32) {
+	x.Port = &v
+}
+
+func (x *ServerConfig) SetEnableTls(v bool) {
+	x.EnableTls = &v
+}
+
+func (x *ServerConfig) SetTlsCertPath(v string) {
+	x.TlsCertPath = &v
+}
+
+func (x *ServerConfig) SetTlsKeyPath(v string) {
+	x.TlsKeyPath = &v
+}
+
+func (x *ServerConfig) SetTrustedProxies(v []string) {
+	x.TrustedProxies = v
+}
+
+func (x *ServerConfig) SetOptions(v map[string]string) {
+	x.Options = v
+}
+
+func (x *ServerConfig) HasHost() bool {
+	if x == nil {
+		return false
+	}
+	return x.Host != nil
+}
+
+func (x *ServerConfig) HasPort() bool {
+	if x == nil {
+		return false
+	}
+	return x.Port != nil
+}
+
+func (x *ServerConfig) HasEnableTls() bool {
+	if x == nil {
+		return false
+	}
+	return x.EnableTls != nil
+}
+
+func (x *ServerConfig) HasTlsCertPath() bool {
+	if x == nil {
+		return false
+	}
+	return x.TlsCertPath != nil
+}
+
+func (x *ServerConfig) HasTlsKeyPath() bool {
+	if x == nil {
+		return false
+	}
+	return x.TlsKeyPath != nil
+}
+
+func (x *ServerConfig) ClearHost() {
+	x.Host = nil
+}
+
+func (x *ServerConfig) ClearPort() {
+	x.Port = nil
+}
+
+func (x *ServerConfig) ClearEnableTls() {
+	x.EnableTls = nil
+}
+
+func (x *ServerConfig) ClearTlsCertPath() {
+	x.TlsCertPath = nil
+}
+
+func (x *ServerConfig) ClearTlsKeyPath() {
+	x.TlsKeyPath = nil
+}
+
+type ServerConfig_builder struct {
+	_ [0]func() // Prevents comparability and use of unkeyed literals for the builder.
+
+	// Hostname or IP address to bind
+	Host *string
+	// Listening port number
+	Port *int32
+	// Enable TLS for secure communication
+	EnableTls *bool
+	// Path to TLS certificate
+	TlsCertPath *string
+	// Path to TLS key
+	TlsKeyPath *string
+	// Trusted proxy addresses
+	TrustedProxies []string
+	// Additional server options
+	Options map[string]string
+}
+
+func (b0 ServerConfig_builder) Build() *ServerConfig {
+	m0 := &ServerConfig{}
+	b, x := &b0, m0
+	_, _ = b, x
+	x.Host = b.Host
+	x.Port = b.Port
+	x.EnableTls = b.EnableTls
+	x.TlsCertPath = b.TlsCertPath
+	x.TlsKeyPath = b.TlsKeyPath
+	x.TrustedProxies = b.TrustedProxies
+	x.Options = b.Options
+	return m0
+}
+
 var File_pkg_web_proto_messages_server_config_proto protoreflect.FileDescriptor
 
 const file_pkg_web_proto_messages_server_config_proto_rawDesc = "" +
 	"\n" +
-	"*pkg/web/proto/messages/server_config.proto\x12\x0egcommon.v1.web\x1a!google/protobuf/go_features.protoB\xb8\x01\n" +
+	"*pkg/web/proto/messages/server_config.proto\x12\x0egcommon.v1.web\x1a!google/protobuf/go_features.proto\"\xc5\x02\n" +
+	"\fServerConfig\x12\x12\n" +
+	"\x04host\x18\x01 \x01(\tR\x04host\x12\x12\n" +
+	"\x04port\x18\x02 \x01(\x05R\x04port\x12\x1d\n" +
+	"\n" +
+	"enable_tls\x18\x03 \x01(\bR\tenableTls\x12\"\n" +
+	"\rtls_cert_path\x18\x04 \x01(\tR\vtlsCertPath\x12 \n" +
+	"\ftls_key_path\x18\x05 \x01(\tR\n" +
+	"tlsKeyPath\x12'\n" +
+	"\x0ftrusted_proxies\x18\x06 \x03(\tR\x0etrustedProxies\x12C\n" +
+	"\aoptions\x18\a \x03(\v2).gcommon.v1.web.ServerConfig.OptionsEntryR\aoptions\x1a:\n" +
+	"\fOptionsEntry\x12\x10\n" +
+	"\x03key\x18\x01 \x01(\tR\x03key\x12\x14\n" +
+	"\x05value\x18\x02 \x01(\tR\x05value:\x028\x01B\xb8\x01\n" +
 	"\x12com.gcommon.v1.webB\x11ServerConfigProtoP\x01Z-github.com/jdfalk/gcommon/pkg/web/proto;webpb\xa2\x02\x03GVW\xaa\x02\x0eGcommon.V1.Web\xca\x02\x0eGcommon\\V1\\Web\xe2\x02\x1aGcommon\\V1\\Web\\GPBMetadata\xea\x02\x10Gcommon::V1::Web\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
 
-var file_pkg_web_proto_messages_server_config_proto_goTypes = []any{}
+var file_pkg_web_proto_messages_server_config_proto_msgTypes = make([]protoimpl.MessageInfo, 2)
+var file_pkg_web_proto_messages_server_config_proto_goTypes = []any{
+	(*ServerConfig)(nil), // 0: gcommon.v1.web.ServerConfig
+	nil,                  // 1: gcommon.v1.web.ServerConfig.OptionsEntry
+}
 var file_pkg_web_proto_messages_server_config_proto_depIdxs = []int32{
-	0, // [0:0] is the sub-list for method output_type
-	0, // [0:0] is the sub-list for method input_type
-	0, // [0:0] is the sub-list for extension type_name
-	0, // [0:0] is the sub-list for extension extendee
-	0, // [0:0] is the sub-list for field type_name
+	1, // 0: gcommon.v1.web.ServerConfig.options:type_name -> gcommon.v1.web.ServerConfig.OptionsEntry
+	1, // [1:1] is the sub-list for method output_type
+	1, // [1:1] is the sub-list for method input_type
+	1, // [1:1] is the sub-list for extension type_name
+	1, // [1:1] is the sub-list for extension extendee
+	0, // [0:1] is the sub-list for field type_name
 }
 
 func init() { file_pkg_web_proto_messages_server_config_proto_init() }
@@ -50,12 +280,13 @@ func file_pkg_web_proto_messages_server_config_proto_init() {
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: unsafe.Slice(unsafe.StringData(file_pkg_web_proto_messages_server_config_proto_rawDesc), len(file_pkg_web_proto_messages_server_config_proto_rawDesc)),
 			NumEnums:      0,
-			NumMessages:   0,
+			NumMessages:   2,
 			NumExtensions: 0,
 			NumServices:   0,
 		},
 		GoTypes:           file_pkg_web_proto_messages_server_config_proto_goTypes,
 		DependencyIndexes: file_pkg_web_proto_messages_server_config_proto_depIdxs,
+		MessageInfos:      file_pkg_web_proto_messages_server_config_proto_msgTypes,
 	}.Build()
 	File_pkg_web_proto_messages_server_config_proto = out.File
 	file_pkg_web_proto_messages_server_config_proto_goTypes = nil
