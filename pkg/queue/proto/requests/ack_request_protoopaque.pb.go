@@ -9,6 +9,7 @@
 package queuepb
 
 import (
+	proto "github.com/jdfalk/gcommon/pkg/common/proto"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
@@ -23,20 +24,173 @@ const (
 	_ = protoimpl.EnforceVersion(protoimpl.MaxVersion - 20)
 )
 
+// AckRequest contains the information required to acknowledge a
+// single message. The receipt handle is provided by the queue when
+// the message is received.
+type AckRequest struct {
+	state                    protoimpl.MessageState `protogen:"opaque.v1"`
+	xxx_hidden_QueueName     *string                `protobuf:"bytes,1,opt,name=queue_name,json=queueName"`
+	xxx_hidden_ReceiptHandle *string                `protobuf:"bytes,2,opt,name=receipt_handle,json=receiptHandle"`
+	xxx_hidden_Metadata      *proto.RequestMetadata `protobuf:"bytes,3,opt,name=metadata"`
+	XXX_raceDetectHookData   protoimpl.RaceDetectHookData
+	XXX_presence             [1]uint32
+	unknownFields            protoimpl.UnknownFields
+	sizeCache                protoimpl.SizeCache
+}
+
+func (x *AckRequest) Reset() {
+	*x = AckRequest{}
+	mi := &file_pkg_queue_proto_requests_ack_request_proto_msgTypes[0]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *AckRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*AckRequest) ProtoMessage() {}
+
+func (x *AckRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_pkg_queue_proto_requests_ack_request_proto_msgTypes[0]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+func (x *AckRequest) GetQueueName() string {
+	if x != nil {
+		if x.xxx_hidden_QueueName != nil {
+			return *x.xxx_hidden_QueueName
+		}
+		return ""
+	}
+	return ""
+}
+
+func (x *AckRequest) GetReceiptHandle() string {
+	if x != nil {
+		if x.xxx_hidden_ReceiptHandle != nil {
+			return *x.xxx_hidden_ReceiptHandle
+		}
+		return ""
+	}
+	return ""
+}
+
+func (x *AckRequest) GetMetadata() *proto.RequestMetadata {
+	if x != nil {
+		return x.xxx_hidden_Metadata
+	}
+	return nil
+}
+
+func (x *AckRequest) SetQueueName(v string) {
+	x.xxx_hidden_QueueName = &v
+	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 0, 3)
+}
+
+func (x *AckRequest) SetReceiptHandle(v string) {
+	x.xxx_hidden_ReceiptHandle = &v
+	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 1, 3)
+}
+
+func (x *AckRequest) SetMetadata(v *proto.RequestMetadata) {
+	x.xxx_hidden_Metadata = v
+}
+
+func (x *AckRequest) HasQueueName() bool {
+	if x == nil {
+		return false
+	}
+	return protoimpl.X.Present(&(x.XXX_presence[0]), 0)
+}
+
+func (x *AckRequest) HasReceiptHandle() bool {
+	if x == nil {
+		return false
+	}
+	return protoimpl.X.Present(&(x.XXX_presence[0]), 1)
+}
+
+func (x *AckRequest) HasMetadata() bool {
+	if x == nil {
+		return false
+	}
+	return x.xxx_hidden_Metadata != nil
+}
+
+func (x *AckRequest) ClearQueueName() {
+	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 0)
+	x.xxx_hidden_QueueName = nil
+}
+
+func (x *AckRequest) ClearReceiptHandle() {
+	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 1)
+	x.xxx_hidden_ReceiptHandle = nil
+}
+
+func (x *AckRequest) ClearMetadata() {
+	x.xxx_hidden_Metadata = nil
+}
+
+type AckRequest_builder struct {
+	_ [0]func() // Prevents comparability and use of unkeyed literals for the builder.
+
+	// Name of the queue containing the message.
+	QueueName *string
+	// Receipt handle identifying the message instance.
+	ReceiptHandle *string
+	// Standard request metadata including authentication and tracing.
+	Metadata *proto.RequestMetadata
+}
+
+func (b0 AckRequest_builder) Build() *AckRequest {
+	m0 := &AckRequest{}
+	b, x := &b0, m0
+	_, _ = b, x
+	if b.QueueName != nil {
+		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 0, 3)
+		x.xxx_hidden_QueueName = b.QueueName
+	}
+	if b.ReceiptHandle != nil {
+		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 1, 3)
+		x.xxx_hidden_ReceiptHandle = b.ReceiptHandle
+	}
+	x.xxx_hidden_Metadata = b.Metadata
+	return m0
+}
+
 var File_pkg_queue_proto_requests_ack_request_proto protoreflect.FileDescriptor
 
 const file_pkg_queue_proto_requests_ack_request_proto_rawDesc = "" +
 	"\n" +
-	"*pkg/queue/proto/requests/ack_request.proto\x12\x10gcommon.v1.queue\x1a!google/protobuf/go_features.protoB\xc4\x01\n" +
+	"*pkg/queue/proto/requests/ack_request.proto\x12\x10gcommon.v1.queue\x1a!google/protobuf/go_features.proto\x1a\x1dpkg/common/proto/common.proto\"\x92\x01\n" +
+	"\n" +
+	"AckRequest\x12\x1d\n" +
+	"\n" +
+	"queue_name\x18\x01 \x01(\tR\tqueueName\x12%\n" +
+	"\x0ereceipt_handle\x18\x02 \x01(\tR\rreceiptHandle\x12>\n" +
+	"\bmetadata\x18\x03 \x01(\v2\".gcommon.v1.common.RequestMetadataR\bmetadataB\xc4\x01\n" +
 	"\x14com.gcommon.v1.queueB\x0fAckRequestProtoP\x01Z1github.com/jdfalk/gcommon/pkg/queue/proto;queuepb\xa2\x02\x03GVQ\xaa\x02\x10Gcommon.V1.Queue\xca\x02\x10Gcommon\\V1\\Queue\xe2\x02\x1cGcommon\\V1\\Queue\\GPBMetadata\xea\x02\x12Gcommon::V1::Queue\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
 
-var file_pkg_queue_proto_requests_ack_request_proto_goTypes = []any{}
+var file_pkg_queue_proto_requests_ack_request_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
+var file_pkg_queue_proto_requests_ack_request_proto_goTypes = []any{
+	(*AckRequest)(nil),            // 0: gcommon.v1.queue.AckRequest
+	(*proto.RequestMetadata)(nil), // 1: gcommon.v1.common.RequestMetadata
+}
 var file_pkg_queue_proto_requests_ack_request_proto_depIdxs = []int32{
-	0, // [0:0] is the sub-list for method output_type
-	0, // [0:0] is the sub-list for method input_type
-	0, // [0:0] is the sub-list for extension type_name
-	0, // [0:0] is the sub-list for extension extendee
-	0, // [0:0] is the sub-list for field type_name
+	1, // 0: gcommon.v1.queue.AckRequest.metadata:type_name -> gcommon.v1.common.RequestMetadata
+	1, // [1:1] is the sub-list for method output_type
+	1, // [1:1] is the sub-list for method input_type
+	1, // [1:1] is the sub-list for extension type_name
+	1, // [1:1] is the sub-list for extension extendee
+	0, // [0:1] is the sub-list for field type_name
 }
 
 func init() { file_pkg_queue_proto_requests_ack_request_proto_init() }
@@ -50,12 +204,13 @@ func file_pkg_queue_proto_requests_ack_request_proto_init() {
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: unsafe.Slice(unsafe.StringData(file_pkg_queue_proto_requests_ack_request_proto_rawDesc), len(file_pkg_queue_proto_requests_ack_request_proto_rawDesc)),
 			NumEnums:      0,
-			NumMessages:   0,
+			NumMessages:   1,
 			NumExtensions: 0,
 			NumServices:   0,
 		},
 		GoTypes:           file_pkg_queue_proto_requests_ack_request_proto_goTypes,
 		DependencyIndexes: file_pkg_queue_proto_requests_ack_request_proto_depIdxs,
+		MessageInfos:      file_pkg_queue_proto_requests_ack_request_proto_msgTypes,
 	}.Build()
 	File_pkg_queue_proto_requests_ack_request_proto = out.File
 	file_pkg_queue_proto_requests_ack_request_proto_goTypes = nil

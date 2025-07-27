@@ -2,7 +2,6 @@
 // version: 1.0.0
 // guid: dd17ade2-5399-4fe8-83ba-ffe1227da728
 
-syntax = "proto3";
 // CommitOffsetRequest records the latest processed offset for a
 // consumer group. This allows the queue provider to resume message
 // delivery from the correct position on reconnect.
