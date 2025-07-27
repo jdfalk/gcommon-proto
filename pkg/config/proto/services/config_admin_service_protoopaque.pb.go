@@ -12,6 +12,7 @@ import (
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
+	emptypb "google.golang.org/protobuf/types/known/emptypb"
 	reflect "reflect"
 	unsafe "unsafe"
 )
@@ -27,16 +28,68 @@ var File_pkg_config_proto_services_config_admin_service_proto protoreflect.FileD
 
 const file_pkg_config_proto_services_config_admin_service_proto_rawDesc = "" +
 	"\n" +
-	"4pkg/config/proto/services/config_admin_service.proto\x12\x11gcommon.v1.config\x1a!google/protobuf/go_features.protoB\xd3\x01\n" +
+	"4pkg/config/proto/services/config_admin_service.proto\x12\x11gcommon.v1.config\x1a!google/protobuf/go_features.proto\x1a\x1bgoogle/protobuf/empty.proto\x1a5pkg/config/proto/requests/backup_config_request.proto\x1a-pkg/config/proto/messages/config_backup.proto\x1a6pkg/config/proto/requests/restore_config_request.proto\x1a5pkg/config/proto/requests/import_config_request.proto\x1a5pkg/config/proto/requests/export_config_request.proto\x1a/pkg/config/proto/messages/config_snapshot.proto\x1a5pkg/config/proto/requests/reload_config_request.proto\x1a7pkg/config/proto/requests/rollback_config_request.proto\x1a9pkg/config/proto/requests/set_config_schema_request.proto\x1a:pkg/config/proto/requests/get_config_history_request.proto\x1a<pkg/config/proto/responses/get_config_history_response.proto\x1a8pkg/config/proto/requests/get_config_stats_request.proto\x1a:pkg/config/proto/responses/get_config_stats_response.proto\x1a4pkg/config/proto/requests/health_check_request.proto\x1a6pkg/config/proto/responses/health_check_response.proto\x1a6pkg/config/proto/requests/unwatch_config_request.proto2\xe8\a\n" +
+	"\x12ConfigAdminService\x12W\n" +
+	"\fBackupConfig\x12&.gcommon.v1.config.BackupConfigRequest\x1a\x1f.gcommon.v1.config.ConfigBackup\x12P\n" +
+	"\rRestoreConfig\x12'.gcommon.v1.config.RestoreConfigRequest\x1a\x16.google.protobuf.Empty\x12N\n" +
+	"\fImportConfig\x12&.gcommon.v1.config.ImportConfigRequest\x1a\x16.google.protobuf.Empty\x12Y\n" +
+	"\fExportConfig\x12&.gcommon.v1.config.ExportConfigRequest\x1a!.gcommon.v1.config.ConfigSnapshot\x12N\n" +
+	"\fReloadConfig\x12&.gcommon.v1.config.ReloadConfigRequest\x1a\x16.google.protobuf.Empty\x12R\n" +
+	"\x0eRollbackConfig\x12(.gcommon.v1.config.RollbackConfigRequest\x1a\x16.google.protobuf.Empty\x12T\n" +
+	"\x0fSetConfigSchema\x12).gcommon.v1.config.SetConfigSchemaRequest\x1a\x16.google.protobuf.Empty\x12k\n" +
+	"\x10GetConfigHistory\x12*.gcommon.v1.config.GetConfigHistoryRequest\x1a+.gcommon.v1.config.GetConfigHistoryResponse\x12e\n" +
+	"\x0eGetConfigStats\x12(.gcommon.v1.config.GetConfigStatsRequest\x1a).gcommon.v1.config.GetConfigStatsResponse\x12\\\n" +
+	"\vHealthCheck\x12%.gcommon.v1.config.HealthCheckRequest\x1a&.gcommon.v1.config.HealthCheckResponse\x12P\n" +
+	"\rUnwatchConfig\x12'.gcommon.v1.config.UnwatchConfigRequest\x1a\x16.google.protobuf.EmptyB\xd3\x01\n" +
 	"\x15com.gcommon.v1.configB\x17ConfigAdminServiceProtoP\x01Z3github.com/jdfalk/gcommon/pkg/config/proto;configpb\xa2\x02\x03GVC\xaa\x02\x11Gcommon.V1.Config\xca\x02\x11Gcommon\\V1\\Config\xe2\x02\x1dGcommon\\V1\\Config\\GPBMetadata\xea\x02\x13Gcommon::V1::Config\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
 
-var file_pkg_config_proto_services_config_admin_service_proto_goTypes = []any{}
+var file_pkg_config_proto_services_config_admin_service_proto_goTypes = []any{
+	(*BackupConfigRequest)(nil),      // 0: gcommon.v1.config.BackupConfigRequest
+	(*RestoreConfigRequest)(nil),     // 1: gcommon.v1.config.RestoreConfigRequest
+	(*ImportConfigRequest)(nil),      // 2: gcommon.v1.config.ImportConfigRequest
+	(*ExportConfigRequest)(nil),      // 3: gcommon.v1.config.ExportConfigRequest
+	(*ReloadConfigRequest)(nil),      // 4: gcommon.v1.config.ReloadConfigRequest
+	(*RollbackConfigRequest)(nil),    // 5: gcommon.v1.config.RollbackConfigRequest
+	(*SetConfigSchemaRequest)(nil),   // 6: gcommon.v1.config.SetConfigSchemaRequest
+	(*GetConfigHistoryRequest)(nil),  // 7: gcommon.v1.config.GetConfigHistoryRequest
+	(*GetConfigStatsRequest)(nil),    // 8: gcommon.v1.config.GetConfigStatsRequest
+	(*HealthCheckRequest)(nil),       // 9: gcommon.v1.config.HealthCheckRequest
+	(*UnwatchConfigRequest)(nil),     // 10: gcommon.v1.config.UnwatchConfigRequest
+	(*ConfigBackup)(nil),             // 11: gcommon.v1.config.ConfigBackup
+	(*emptypb.Empty)(nil),            // 12: google.protobuf.Empty
+	(*ConfigSnapshot)(nil),           // 13: gcommon.v1.config.ConfigSnapshot
+	(*GetConfigHistoryResponse)(nil), // 14: gcommon.v1.config.GetConfigHistoryResponse
+	(*GetConfigStatsResponse)(nil),   // 15: gcommon.v1.config.GetConfigStatsResponse
+	(*HealthCheckResponse)(nil),      // 16: gcommon.v1.config.HealthCheckResponse
+}
 var file_pkg_config_proto_services_config_admin_service_proto_depIdxs = []int32{
-	0, // [0:0] is the sub-list for method output_type
-	0, // [0:0] is the sub-list for method input_type
-	0, // [0:0] is the sub-list for extension type_name
-	0, // [0:0] is the sub-list for extension extendee
-	0, // [0:0] is the sub-list for field type_name
+	0,  // 0: gcommon.v1.config.ConfigAdminService.BackupConfig:input_type -> gcommon.v1.config.BackupConfigRequest
+	1,  // 1: gcommon.v1.config.ConfigAdminService.RestoreConfig:input_type -> gcommon.v1.config.RestoreConfigRequest
+	2,  // 2: gcommon.v1.config.ConfigAdminService.ImportConfig:input_type -> gcommon.v1.config.ImportConfigRequest
+	3,  // 3: gcommon.v1.config.ConfigAdminService.ExportConfig:input_type -> gcommon.v1.config.ExportConfigRequest
+	4,  // 4: gcommon.v1.config.ConfigAdminService.ReloadConfig:input_type -> gcommon.v1.config.ReloadConfigRequest
+	5,  // 5: gcommon.v1.config.ConfigAdminService.RollbackConfig:input_type -> gcommon.v1.config.RollbackConfigRequest
+	6,  // 6: gcommon.v1.config.ConfigAdminService.SetConfigSchema:input_type -> gcommon.v1.config.SetConfigSchemaRequest
+	7,  // 7: gcommon.v1.config.ConfigAdminService.GetConfigHistory:input_type -> gcommon.v1.config.GetConfigHistoryRequest
+	8,  // 8: gcommon.v1.config.ConfigAdminService.GetConfigStats:input_type -> gcommon.v1.config.GetConfigStatsRequest
+	9,  // 9: gcommon.v1.config.ConfigAdminService.HealthCheck:input_type -> gcommon.v1.config.HealthCheckRequest
+	10, // 10: gcommon.v1.config.ConfigAdminService.UnwatchConfig:input_type -> gcommon.v1.config.UnwatchConfigRequest
+	11, // 11: gcommon.v1.config.ConfigAdminService.BackupConfig:output_type -> gcommon.v1.config.ConfigBackup
+	12, // 12: gcommon.v1.config.ConfigAdminService.RestoreConfig:output_type -> google.protobuf.Empty
+	12, // 13: gcommon.v1.config.ConfigAdminService.ImportConfig:output_type -> google.protobuf.Empty
+	13, // 14: gcommon.v1.config.ConfigAdminService.ExportConfig:output_type -> gcommon.v1.config.ConfigSnapshot
+	12, // 15: gcommon.v1.config.ConfigAdminService.ReloadConfig:output_type -> google.protobuf.Empty
+	12, // 16: gcommon.v1.config.ConfigAdminService.RollbackConfig:output_type -> google.protobuf.Empty
+	12, // 17: gcommon.v1.config.ConfigAdminService.SetConfigSchema:output_type -> google.protobuf.Empty
+	14, // 18: gcommon.v1.config.ConfigAdminService.GetConfigHistory:output_type -> gcommon.v1.config.GetConfigHistoryResponse
+	15, // 19: gcommon.v1.config.ConfigAdminService.GetConfigStats:output_type -> gcommon.v1.config.GetConfigStatsResponse
+	16, // 20: gcommon.v1.config.ConfigAdminService.HealthCheck:output_type -> gcommon.v1.config.HealthCheckResponse
+	12, // 21: gcommon.v1.config.ConfigAdminService.UnwatchConfig:output_type -> google.protobuf.Empty
+	11, // [11:22] is the sub-list for method output_type
+	0,  // [0:11] is the sub-list for method input_type
+	0,  // [0:0] is the sub-list for extension type_name
+	0,  // [0:0] is the sub-list for extension extendee
+	0,  // [0:0] is the sub-list for field type_name
 }
 
 func init() { file_pkg_config_proto_services_config_admin_service_proto_init() }
@@ -44,6 +97,22 @@ func file_pkg_config_proto_services_config_admin_service_proto_init() {
 	if File_pkg_config_proto_services_config_admin_service_proto != nil {
 		return
 	}
+	file_pkg_config_proto_requests_backup_config_request_proto_init()
+	file_pkg_config_proto_messages_config_backup_proto_init()
+	file_pkg_config_proto_requests_restore_config_request_proto_init()
+	file_pkg_config_proto_requests_import_config_request_proto_init()
+	file_pkg_config_proto_requests_export_config_request_proto_init()
+	file_pkg_config_proto_messages_config_snapshot_proto_init()
+	file_pkg_config_proto_requests_reload_config_request_proto_init()
+	file_pkg_config_proto_requests_rollback_config_request_proto_init()
+	file_pkg_config_proto_requests_set_config_schema_request_proto_init()
+	file_pkg_config_proto_requests_get_config_history_request_proto_init()
+	file_pkg_config_proto_responses_get_config_history_response_proto_init()
+	file_pkg_config_proto_requests_get_config_stats_request_proto_init()
+	file_pkg_config_proto_responses_get_config_stats_response_proto_init()
+	file_pkg_config_proto_requests_health_check_request_proto_init()
+	file_pkg_config_proto_responses_health_check_response_proto_init()
+	file_pkg_config_proto_requests_unwatch_config_request_proto_init()
 	type x struct{}
 	out := protoimpl.TypeBuilder{
 		File: protoimpl.DescBuilder{
@@ -52,7 +121,7 @@ func file_pkg_config_proto_services_config_admin_service_proto_init() {
 			NumEnums:      0,
 			NumMessages:   0,
 			NumExtensions: 0,
-			NumServices:   0,
+			NumServices:   1,
 		},
 		GoTypes:           file_pkg_config_proto_services_config_admin_service_proto_goTypes,
 		DependencyIndexes: file_pkg_config_proto_services_config_admin_service_proto_depIdxs,
