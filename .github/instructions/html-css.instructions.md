@@ -1,16 +1,13 @@
 <!-- file: .github/instructions/html-css.instructions.md -->
-<!-- version: 1.0.0 -->
+<!-- version: 1.1.0 -->
 <!-- guid: 2d1e0f9a-8b7c-6d5e-4f3a-2b1c0d9e8f7a -->
+<!-- DO NOT EDIT: This file is managed centrally in ghcommon repository -->
+<!-- To update: Create an issue/PR in jdfalk/ghcommon -->
 
-applyTo: "\*\*/\*.{html,css}"ile: .github/instructions/html-css.instructions.md -->
 
-<!-- version: 1.0.0 -->
-
-## <!-- guid: 2d1e0f9a-8b7c-6d5e-4f3a-2b1c0d9e8f7a -->
-
-applyTo: "\*_/_.{html,css}"
+applyTo: "**/*.{html,css}"
 description: |
-Coding, documentation, and workflow rules for HTML and CSS files, following Google HTML/CSS style guide and general project rules. Reference this for all HTML and CSS code, documentation, and formatting in this repository. All unique content from the Google HTML/CSS Style Guide is merged here.
+  Coding, documentation, and workflow rules for HTML and CSS files, following Google HTML/CSS style guide and general project rules. Reference this for all HTML and CSS code, documentation, and formatting in this repository. All unique content from the Google HTML/CSS Style Guide is merged here.
 
 ---
 
@@ -34,7 +31,8 @@ Coding, documentation, and workflow rules for HTML and CSS files, following Goog
 - Use valid HTML, validate with W3C tools
 - Use UTF-8 encoding: `<meta charset="utf-8" />`
 - Use semantic HTML and accessible markup
-- Use 2 spaces for indentation, lowercase for tags/attributes, double quotes for attribute values
+- Use 2 spaces for indentation, lowercase for tags/attributes, double quotes for
+  attribute values
 - Provide alternative content for multimedia
 - Use appropriate input types and labels in forms
 
@@ -48,7 +46,8 @@ Coding, documentation, and workflow rules for HTML and CSS files, following Goog
 
 ## Required File Header
 
-All HTML and CSS files must begin with a standard header as described in the [general coding instructions](general-coding.instructions.md). Example for CSS:
+All HTML and CSS files must begin with a standard header as described in the
+[general coding instructions](general-coding.instructions.md). Example for CSS:
 
 ```css
 /* file: path/to/file.css */

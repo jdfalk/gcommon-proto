@@ -1,18 +1,24 @@
 <!-- file: .github/instructions/go.instructions.md -->
-<!-- version: 1.0.0 -->
+<!-- version: 1.1.0 -->
 <!-- guid: 8f4a3c5d-6e7b-5d9f-0a1b-2c3d4e5f6a7b -->
+<!-- DO NOT EDIT: This file is managed centrally in ghcommon repository -->
+<!-- To update: Create an issue/PR in jdfalk/ghcommon -->
 
-applyTo: "\*\*/\*.go"
+
+applyTo: "**/*.go"
 description: |
-Go language-specific coding, documentation, and testing rules for Copilot/AI agents and VS Code Copilot customization. These rules extend the general instructions in `general-coding.instructions.md` and merge all unique content from the Google Go Style Guide.
+  Go language-specific coding, documentation, and testing rules for Copilot/AI agents and VS Code Copilot customization. These rules extend the general instructions in `general-coding.instructions.md` and merge all unique content from the Google Go Style Guide.
 
 ---
 
 # Go Coding Instructions
 
 - Follow the [general coding instructions](general-coding.instructions.md).
-- Follow the [Google Go Style Guide](https://google.github.io/styleguide/go/index.html) for additional best practices.
-- All Go files must begin with the required file header (see general instructions for details and Go example).
+- Follow the
+  [Google Go Style Guide](https://google.github.io/styleguide/go/index.html) for
+  additional best practices.
+- All Go files must begin with the required file header (see general
+  instructions for details and Go example).
 
 ## Core Principles
 
@@ -25,7 +31,8 @@ Go language-specific coding, documentation, and testing rules for Copilot/AI age
 
 - Use short, concise, evocative package names (lowercase, no underscores)
 - Use camelCase for unexported names, PascalCase for exported names
-- Use short names for short-lived variables, descriptive names for longer-lived variables
+- Use short names for short-lived variables, descriptive names for longer-lived
+  variables
 - Use PascalCase for exported constants, camelCase for unexported constants
 - Single-method interfaces should end in "-er" (e.g., Reader, Writer)
 
@@ -71,7 +78,8 @@ Go language-specific coding, documentation, and testing rules for Copilot/AI age
 
 ## Required File Header
 
-All Go files must begin with a standard header as described in the [general coding instructions](general-coding.instructions.md). Example for Go:
+All Go files must begin with a standard header as described in the
+[general coding instructions](general-coding.instructions.md). Example for Go:
 
 ```go
 // file: path/to/file.go
