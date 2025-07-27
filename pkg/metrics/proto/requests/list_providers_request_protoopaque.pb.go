@@ -510,7 +510,7 @@ var File_pkg_metrics_proto_requests_list_providers_request_proto protoreflect.Fi
 
 const file_pkg_metrics_proto_requests_list_providers_request_proto_rawDesc = "" +
 	"\n" +
-	"7pkg/metrics/proto/requests/list_providers_request.proto\x12\x12gcommon.v1.metrics\x1a!google/protobuf/go_features.proto\x1a0pkg/common/proto/messages/request_metadata.proto\x1a'pkg/common/proto/types/pagination.proto\x1a!pkg/common/proto/types/sort.proto\"\xcb\x02\n" +
+	"7pkg/metrics/proto/requests/list_providers_request.proto\x12\x12gcommon.v1.metrics\x1a!google/protobuf/go_features.proto\x1a0pkg/common/proto/messages/request_metadata.proto\x1a'pkg/common/proto/types/pagination.proto\"\xcb\x02\n" +
 	"\x14ListProvidersRequest\x12>\n" +
 	"\bmetadata\x18\x01 \x01(\v2\".gcommon.v1.common.RequestMetadataR\bmetadata\x12:\n" +
 	"\x06filter\x18\x02 \x01(\v2\".gcommon.v1.metrics.ProviderFilterR\x06filter\x12D\n" +

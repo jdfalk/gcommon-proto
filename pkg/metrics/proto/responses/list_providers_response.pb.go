@@ -727,7 +727,7 @@ var File_pkg_metrics_proto_responses_list_providers_response_proto protoreflect.
 
 const file_pkg_metrics_proto_responses_list_providers_response_proto_rawDesc = "" +
 	"\n" +
-	"9pkg/metrics/proto/responses/list_providers_response.proto\x12\x12gcommon.v1.metrics\x1a!google/protobuf/go_features.proto\x1a\x1fgoogle/protobuf/timestamp.proto\x1a%pkg/common/proto/messages/error.proto\x1a-pkg/metrics/proto/types/provider_status.proto\x1a.pkg/metrics/proto/types/provider_summary.proto\x1a-pkg/metrics/proto/types/pagination_info.proto\x1a+pkg/metrics/proto/types/provider_info.proto\x1a5pkg/metrics/proto/types/resource_limits_summary.proto\"\xe3\x02\n" +
+	"9pkg/metrics/proto/responses/list_providers_response.proto\x12\x12gcommon.v1.metrics\x1a!google/protobuf/go_features.proto\x1a\x1fgoogle/protobuf/timestamp.proto\x1a%pkg/common/proto/messages/error.proto\x1a.pkg/metrics/proto/types/provider_summary.proto\x1a-pkg/metrics/proto/types/pagination_info.proto\x1a+pkg/metrics/proto/types/provider_info.proto\x1a5pkg/metrics/proto/types/resource_limits_summary.proto\"\xe3\x02\n" +
 	"\x15ListProvidersResponse\x12\x18\n" +
 	"\asuccess\x18\x01 \x01(\bR\asuccess\x12.\n" +
 	"\x05error\x18\x02 \x01(\v2\x18.gcommon.v1.common.ErrorR\x05error\x12>\n" +
@@ -790,7 +790,6 @@ func file_pkg_metrics_proto_responses_list_providers_response_proto_init() {
 	if File_pkg_metrics_proto_responses_list_providers_response_proto != nil {
 		return
 	}
-	file_pkg_metrics_proto_types_provider_status_proto_init()
 	file_pkg_metrics_proto_types_provider_summary_proto_init()
 	file_pkg_metrics_proto_types_pagination_info_proto_init()
 	file_pkg_metrics_proto_types_provider_info_proto_init()

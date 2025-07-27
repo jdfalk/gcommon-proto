@@ -13,7 +13,6 @@ import (
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
-	_ "google.golang.org/protobuf/types/known/timestamppb"
 	reflect "reflect"
 	unsafe "unsafe"
 )
@@ -610,7 +609,7 @@ var File_pkg_metrics_proto_requests_get_provider_stats_request_proto protoreflec
 
 const file_pkg_metrics_proto_requests_get_provider_stats_request_proto_rawDesc = "" +
 	"\n" +
-	";pkg/metrics/proto/requests/get_provider_stats_request.proto\x12\x12gcommon.v1.metrics\x1a!google/protobuf/go_features.proto\x1a\x1fgoogle/protobuf/timestamp.proto\x1a0pkg/common/proto/messages/request_metadata.proto\x1a(pkg/metrics/proto/types/time_range.proto\"\xc1\x02\n" +
+	";pkg/metrics/proto/requests/get_provider_stats_request.proto\x12\x12gcommon.v1.metrics\x1a!google/protobuf/go_features.proto\x1a0pkg/common/proto/messages/request_metadata.proto\x1a(pkg/metrics/proto/types/time_range.proto\"\xc1\x02\n" +
 	"\x17GetProviderStatsRequest\x12>\n" +
 	"\bmetadata\x18\x01 \x01(\v2\".gcommon.v1.common.RequestMetadataR\bmetadata\x12\x1f\n" +
 	"\vprovider_id\x18\x02 \x01(\tR\n" +

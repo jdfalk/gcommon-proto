@@ -748,7 +748,7 @@ var File_pkg_metrics_proto_responses_create_provider_response_proto protoreflect
 
 const file_pkg_metrics_proto_responses_create_provider_response_proto_rawDesc = "" +
 	"\n" +
-	":pkg/metrics/proto/responses/create_provider_response.proto\x12\x12gcommon.v1.metrics\x1a!google/protobuf/go_features.proto\x1a\x1fgoogle/protobuf/timestamp.proto\x1a%pkg/common/proto/messages/error.proto\x1a-pkg/metrics/proto/types/provider_status.proto\x1a,pkg/metrics/proto/enums/provider_state.proto\x1a/pkg/metrics/proto/types/validation_result.proto\"\xeb\x03\n" +
+	":pkg/metrics/proto/responses/create_provider_response.proto\x12\x12gcommon.v1.metrics\x1a!google/protobuf/go_features.proto\x1a\x1fgoogle/protobuf/timestamp.proto\x1a%pkg/common/proto/messages/error.proto\x1a-pkg/metrics/proto/types/provider_status.proto\x1a/pkg/metrics/proto/types/validation_result.proto\"\xeb\x03\n" +
 	"\x16CreateProviderResponse\x12\x18\n" +
 	"\asuccess\x18\x01 \x01(\bR\asuccess\x12.\n" +
 	"\x05error\x18\x02 \x01(\v2\x18.gcommon.v1.common.ErrorR\x05error\x12\x1f\n" +
@@ -828,7 +828,6 @@ func file_pkg_metrics_proto_responses_create_provider_response_proto_init() {
 		return
 	}
 	file_pkg_metrics_proto_types_provider_status_proto_init()
-	file_pkg_metrics_proto_enums_provider_state_proto_init()
 	file_pkg_metrics_proto_types_validation_result_proto_init()
 	type x struct{}
 	out := protoimpl.TypeBuilder{

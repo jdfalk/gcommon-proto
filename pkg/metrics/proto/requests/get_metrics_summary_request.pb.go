@@ -13,7 +13,6 @@ import (
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
-	_ "google.golang.org/protobuf/types/known/timestamppb"
 	reflect "reflect"
 	unsafe "unsafe"
 )
@@ -525,7 +524,7 @@ var File_pkg_metrics_proto_requests_get_metrics_summary_request_proto protorefle
 
 const file_pkg_metrics_proto_requests_get_metrics_summary_request_proto_rawDesc = "" +
 	"\n" +
-	"<pkg/metrics/proto/requests/get_metrics_summary_request.proto\x12\x12gcommon.v1.metrics\x1a!google/protobuf/go_features.proto\x1a\x1fgoogle/protobuf/timestamp.proto\x1a0pkg/common/proto/messages/request_metadata.proto\x1a.pkg/metrics/proto/messages/metric_filter.proto\x1a(pkg/metrics/proto/types/time_range.proto\"\x9b\x03\n" +
+	"<pkg/metrics/proto/requests/get_metrics_summary_request.proto\x12\x12gcommon.v1.metrics\x1a!google/protobuf/go_features.proto\x1a0pkg/common/proto/messages/request_metadata.proto\x1a.pkg/metrics/proto/messages/metric_filter.proto\x1a(pkg/metrics/proto/types/time_range.proto\"\x9b\x03\n" +
 	"\x18GetMetricsSummaryRequest\x12>\n" +
 	"\bmetadata\x18\x01 \x01(\v2\".gcommon.v1.common.RequestMetadataR\bmetadata\x128\n" +
 	"\x06filter\x18\x02 \x01(\v2 .gcommon.v1.metrics.MetricFilterR\x06filter\x12<\n" +
