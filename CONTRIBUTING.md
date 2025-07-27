@@ -13,12 +13,14 @@ Thank you for your interest in contributing to GCommon! This guide will help you
 ### Setting Up Your Development Environment
 
 1. **Fork and clone the repository:**
+
    ```bash
    git clone https://github.com/YOUR_USERNAME/gcommon.git
    cd gcommon
    ```
 
 2. **Set up the development environment:**
+
    ```bash
    make setup-dev
    go mod tidy
@@ -37,8 +39,9 @@ Thank you for your interest in contributing to GCommon! This guide will help you
 ### Starting Work on an Issue
 
 1. **Assign yourself and mark the issue as in progress:**
+
    ```bash
-   ./scripts/create-issue-update.sh update ISSUE_NUMBER "" "in-progress" 
+   ./scripts/create-issue-update.sh update ISSUE_NUMBER "" "in-progress"
    # Or manually:
    echo '[{"action": "update", "number": ISSUE_NUMBER, "assignees": ["your-github-username"], "labels": ["in-progress"]}]' > issue_updates.json
    git add issue_updates.json && git commit -m "Start work on issue #ISSUE_NUMBER: [Brief Description]" && git push
@@ -87,6 +90,7 @@ The `scripts/create-issue-update.sh` script is the **required** way to manage Gi
 ```
 
 **Best practices:**
+
 - Use clear, concise titles and bodies
 - Use comma-separated labels (no spaces)
 - Always check the script output for success and file path
@@ -136,6 +140,7 @@ The `scripts/create-issue-update.sh` script is the **required** way to manage Gi
 We use [Conventional Commits](https://www.conventionalcommits.org/) format:
 
 ### Format
+
 ```
 <type>[optional scope]: <description>
 
@@ -145,6 +150,7 @@ We use [Conventional Commits](https://www.conventionalcommits.org/) format:
 ```
 
 ### Types
+
 - `feat`: New feature
 - `fix`: Bug fix
 - `docs`: Documentation changes
@@ -197,6 +203,7 @@ Fixes #68
 ### Before Creating a PR
 
 1. **Ensure your branch is up to date:**
+
    ```bash
    git checkout main
    git pull origin main
@@ -205,6 +212,7 @@ Fixes #68
    ```
 
 2. **Run tests and validation:**
+
    ```bash
    make validate
    make test

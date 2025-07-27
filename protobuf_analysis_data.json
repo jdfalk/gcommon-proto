@@ -17,9 +17,7 @@
     "total_fields": 541,
     "avg_fields_per_message": 4.584745762711864,
     "completion_estimate": "\ud83d\udd04 IN PROGRESS",
-    "critical_issues": [
-      "96 TODO comments need attention"
-    ],
+    "critical_issues": ["96 TODO comments need attention"],
     "sample_files": [
       {
         "path": "pkg/organization/proto/organization.proto",
@@ -86,9 +84,7 @@
     "total_fields": 1443,
     "avg_fields_per_message": 7.143564356435643,
     "completion_estimate": "\ud83d\udd04 IN PROGRESS",
-    "critical_issues": [
-      "86 TODO comments need attention"
-    ],
+    "critical_issues": ["86 TODO comments need attention"],
     "sample_files": [
       {
         "path": "pkg/metrics/proto/messages/metric_family.proto",
@@ -364,9 +360,7 @@
     "total_fields": 498,
     "avg_fields_per_message": 5.724137931034483,
     "completion_estimate": "\ud83d\udd04 IN PROGRESS",
-    "critical_issues": [
-      "139 TODO comments need attention"
-    ],
+    "critical_issues": ["139 TODO comments need attention"],
     "sample_files": [
       {
         "path": "pkg/auth/proto/auth.proto",
@@ -575,9 +569,7 @@
     "total_fields": 499,
     "avg_fields_per_message": 2.5589743589743588,
     "completion_estimate": "\u274c MOSTLY PLACEHOLDER",
-    "critical_issues": [
-      "182 placeholder files need implementation"
-    ],
+    "critical_issues": ["182 placeholder files need implementation"],
     "sample_files": [
       {
         "path": "pkg/web/proto/messages/performance_stats.proto",
@@ -1005,9 +997,7 @@
     "total_fields": 190,
     "avg_fields_per_message": 4.75,
     "completion_estimate": "\u26a0\ufe0f NEEDS MAJOR WORK",
-    "critical_issues": [
-      "7 placeholder files need implementation"
-    ],
+    "critical_issues": ["7 placeholder files need implementation"],
     "sample_files": [
       {
         "path": "pkg/log/proto/enums/log_sort_field.proto",
