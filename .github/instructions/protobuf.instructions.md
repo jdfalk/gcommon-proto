@@ -1,12 +1,12 @@
 <!-- file: .github/instructions/protobuf.instructions.md -->
-<!-- version: 2.0.0 -->
+<!-- version: 2.1.0 -->
 <!-- guid: 7d6c5b4a-3c2d-1e0f-9a8b-7c6d5e4f3a2b -->
 <!-- DO NOT EDIT: This file is managed centrally in ghcommon repository -->
 <!-- To update: Create an issue/PR in jdfalk/ghcommon -->
 
-applyTo: "**/*.proto"
+applyTo: "\*_/_.proto"
 description: |
-  Protocol Buffers (protobuf) style and documentation rules for Copilot/AI agents and VS Code Copilot customization. These rules extend the general instructions in `general-coding.instructions.md` and implement comprehensive protobuf best practices including the 1-1-1 design pattern, Edition 2023 features, and Google's style guide.
+Protocol Buffers (protobuf) style and documentation rules for Copilot/AI agents and VS Code Copilot customization. These rules extend the general instructions in `general-coding.instructions.md` and implement comprehensive protobuf best practices including the 1-1-1 design pattern, Edition 2023 features, and Google's style guide.
 
 ---
 
@@ -46,11 +46,13 @@ option go_package = "github.com/owner/repo/path/to/package;packagepb";
 ## 1-1-1 Design Pattern (MANDATORY)
 
 Each protobuf file contains exactly ONE of:
+
 - One message definition
 - One enum definition
 - One service definition
 
 ### Benefits
+
 - **Modularity**: Easy to find and modify specific types
 - **Dependency Management**: Clear import relationships
 - **Code Generation**: Cleaner generated code
@@ -85,6 +87,7 @@ pkg/module/proto/
 ## Naming Conventions
 
 ### Files
+
 - Use `lower_snake_case.proto` for filenames
 - **Services**: `{service_name}_service.proto`
 - **Messages**: `{message_name}.proto` (snake_case)
@@ -92,20 +95,24 @@ pkg/module/proto/
 - **Types**: `{type_category}.proto` for shared types
 
 ### Packages
+
 - Use dot-delimited `lower_snake_case`: `gcommon.v1.auth`
 - Format: `{project}.{version}.{module}`
 - Example: `gcommon.v1.subtitle`, `myproject.v2.storage`
 
 ### Messages
+
 - Use `TitleCase` for message names
 - Example: `UserInfo`, `ConfigData`, `CreateUserRequest`
 
 ### Fields
+
 - Use `snake_case` for field names
 - Use pluralized names for repeated fields
 - Example: `user_name = 1`, `user_emails = 2`
 
 ### Enums
+
 - Use `TitleCase` for enum type names
 - Use `UPPER_SNAKE_CASE` for enum values
 - **MANDATORY**: First value must be `{ENUM_NAME}_UNSPECIFIED = 0`
@@ -120,13 +127,16 @@ enum UserStatus {
 ```
 
 ### Services
+
 - Use `TitleCase` for service and method names
 - Example: `AuthService`, `GetUserInfo`, `CreateUser`
 
 ## Import Guidelines
 
 ### Import Order (MANDATORY)
+
 1. **Standard Google imports first**:
+
    ```protobuf
    import "google/protobuf/timestamp.proto";
    import "google/protobuf/duration.proto";
@@ -134,6 +144,7 @@ enum UserStatus {
    ```
 
 2. **Types imports second** (from types/ directory):
+
    ```protobuf
    import "pkg/common/proto/types/error_types.proto";
    import "pkg/auth/proto/types/user_status.proto";
@@ -209,11 +220,13 @@ service UserService {
 ## Types Package Strategy
 
 ### Purpose
+
 The `types/` directory contains fundamental, reusable types imported by other protobuf files.
 
 ### Implementation Pattern
 
 1. **Define Basic Types First** in `types/`:
+
    ```protobuf
    // pkg/auth/proto/types/user_status.proto
    edition = "2023";
@@ -227,6 +240,7 @@ The `types/` directory contains fundamental, reusable types imported by other pr
    ```
 
 2. **Import Types in Messages**:
+
    ```protobuf
    // pkg/auth/proto/messages/user_info.proto
    edition = "2023";
@@ -248,6 +262,7 @@ The `types/` directory contains fundamental, reusable types imported by other pr
 ## Edition 2023 Features
 
 ### Enhanced Default Values
+
 ```protobuf
 // Explicit default values for singular fields
 int32 result_per_page = 3 [default = 10];
@@ -255,13 +270,49 @@ string status = 4 [default = "pending"];
 ```
 
 ### Improved Field Presence
+
+**CRITICAL: Edition 2023 Field Presence Rules**
+
+In Edition 2023, the `optional` label is **NOT ALLOWED**. Instead, use `option features.field_presence` to control field presence:
+
 ```protobuf
-// Field presence control
-optional string optional_field = 1;  // Explicit presence
-string implicit_field = 2;           // Implicit presence (default)
+// ❌ WRONG - Do NOT use 'optional' label in Edition 2023
+optional string confidence_score = 1;
+optional string parent_id = 2;
+
+// ✅ CORRECT - Use features.field_presence instead
+string confidence_score = 1 [features.field_presence = EXPLICIT];
+string parent_id = 2 [features.field_presence = EXPLICIT];
+
+// ✅ CORRECT - Default implicit presence (most common)
+string user_id = 3;  // Implicit presence (default behavior)
+string name = 4;     // Implicit presence (default behavior)
+```
+
+**Field Presence Options:**
+
+- `EXPLICIT` - Field can be unset/null (equivalent to old `optional`)
+- `IMPLICIT` - Field always has a value (default behavior)
+- `LEGACY_REQUIRED` - Field must be set (proto2 style)
+
+**When to Use EXPLICIT Presence:**
+
+- Optional configuration values
+- Nullable database fields
+- Fields that may not be available in all contexts
+- Fields where "unset" vs "default value" matters
+
+```protobuf
+message SubtitleRecord {
+  string id = 1;                                           // Always present
+  string content = 2;                                      // Always present
+  double confidence_score = 3 [features.field_presence = EXPLICIT];  // May be unset
+  string parent_id = 4 [features.field_presence = EXPLICIT];         // May be unset
+}
 ```
 
 ### Better Validation
+
 ```protobuf
 // Built-in validation rules
 string email = 1 [(validate.rules).string.pattern = "^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}$"];
@@ -271,6 +322,7 @@ int32 age = 2 [(validate.rules).int32.gte = 0];
 ## Documentation Requirements
 
 ### File-Level Documentation
+
 ```protobuf
 // file: pkg/auth/proto/messages/user_info.proto
 // version: 1.0.0
@@ -286,6 +338,7 @@ option go_package = "github.com/jdfalk/gcommon/pkg/auth/proto;authpb";
 ```
 
 ### Message Documentation
+
 ```protobuf
 // UserInfo represents a user account with authentication details.
 // This message contains sensitive PII and should be handled according
@@ -306,6 +359,7 @@ message UserInfo {
 ```
 
 ### Enum Documentation
+
 ```protobuf
 // UserStatus defines the possible states of a user account.
 // These states control access permissions and available operations.
@@ -328,6 +382,7 @@ enum UserStatus {
 ```
 
 ### Service Documentation
+
 ```protobuf
 // AuthService provides user authentication and authorization operations.
 // All methods require appropriate permissions and rate limiting applies.
@@ -353,6 +408,7 @@ service AuthService {
 ## Common Patterns and Best Practices
 
 ### Error Handling
+
 ```protobuf
 // Standard error message structure
 message Error {
@@ -371,6 +427,7 @@ message Error {
 ```
 
 ### Pagination
+
 ```protobuf
 message ListUsersRequest {
   // Maximum number of users to return (1-100)
@@ -396,6 +453,7 @@ message ListUsersResponse {
 ```
 
 ### Versioning Strategy
+
 ```protobuf
 // Use package versioning for API versions
 package gcommon.v1.auth;  // Version 1
@@ -413,6 +471,7 @@ message UserInfo {
 ## Build Integration
 
 ### buf.yaml Configuration
+
 ```yaml
 version: v1
 breaking:
@@ -426,6 +485,7 @@ lint:
 ```
 
 ### buf.gen.yaml Configuration
+
 ```yaml
 version: v1
 plugins:
@@ -444,6 +504,7 @@ plugins:
 ## Validation Commands
 
 ### Local Testing
+
 ```bash
 # Lint specific file
 buf lint path/to/file.proto
@@ -459,6 +520,7 @@ buf breaking --against '.git#branch=main'
 ```
 
 ### Integration Testing
+
 ```bash
 # Test Go code generation
 go build ./...
@@ -473,6 +535,7 @@ go mod graph | grep -E ".*->.*->.*"
 ## Migration Guidelines
 
 ### From Proto2/Proto3 to Edition 2023
+
 1. Change `syntax = "proto3";` to `edition = "2023";`
 2. Update package structure to follow 1-1-1 pattern
 3. Move shared types to `types/` directory
@@ -481,6 +544,7 @@ go mod graph | grep -E ".*->.*->.*"
 6. Test generated code compatibility
 
 ### Breaking Change Checklist
+
 - [ ] Field number changes (NEVER do this)
 - [ ] Field type changes (carefully evaluate)
 - [ ] Message/enum renames (use deprecation first)
@@ -490,6 +554,7 @@ go mod graph | grep -E ".*->.*->.*"
 ## Security Considerations
 
 ### Sensitive Data Handling
+
 ```protobuf
 // Mark sensitive fields for proper handling
 message UserCredentials {
@@ -504,6 +569,7 @@ message UserCredentials {
 ```
 
 ### Access Control
+
 ```protobuf
 // Document security requirements in service methods
 service AdminService {
