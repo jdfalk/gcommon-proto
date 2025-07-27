@@ -11,7 +11,6 @@ import (
 	grpc "google.golang.org/grpc"
 	codes "google.golang.org/grpc/codes"
 	status "google.golang.org/grpc/status"
-	emptypb "google.golang.org/protobuf/types/known/emptypb"
 )
 
 // This is a compile-time assertion to ensure that this generated file
@@ -23,12 +22,6 @@ const (
 	AuthorizationService_Authorize_FullMethodName          = "/gcommon.v1.auth.AuthorizationService/Authorize"
 	AuthorizationService_GetUserPermissions_FullMethodName = "/gcommon.v1.auth.AuthorizationService/GetUserPermissions"
 	AuthorizationService_GetUserRoles_FullMethodName       = "/gcommon.v1.auth.AuthorizationService/GetUserRoles"
-	AuthorizationService_AssignRole_FullMethodName         = "/gcommon.v1.auth.AuthorizationService/AssignRole"
-	AuthorizationService_RemoveRole_FullMethodName         = "/gcommon.v1.auth.AuthorizationService/RemoveRole"
-	AuthorizationService_CreateRole_FullMethodName         = "/gcommon.v1.auth.AuthorizationService/CreateRole"
-	AuthorizationService_UpdateRole_FullMethodName         = "/gcommon.v1.auth.AuthorizationService/UpdateRole"
-	AuthorizationService_DeleteRole_FullMethodName         = "/gcommon.v1.auth.AuthorizationService/DeleteRole"
-	AuthorizationService_ListRoles_FullMethodName          = "/gcommon.v1.auth.AuthorizationService/ListRoles"
 )
 
 // AuthorizationServiceClient is the client API for AuthorizationService service.
@@ -46,18 +39,6 @@ type AuthorizationServiceClient interface {
 	GetUserPermissions(ctx context.Context, in *GetUserPermissionsRequest, opts ...grpc.CallOption) (*GetUserPermissionsResponse, error)
 	// Get all roles assigned to a user
 	GetUserRoles(ctx context.Context, in *GetUserRolesRequest, opts ...grpc.CallOption) (*GetUserRolesResponse, error)
-	// Assign a role to a user
-	AssignRole(ctx context.Context, in *AssignRoleRequest, opts ...grpc.CallOption) (*emptypb.Empty, error)
-	// Remove a role from a user
-	RemoveRole(ctx context.Context, in *RemoveRoleRequest, opts ...grpc.CallOption) (*emptypb.Empty, error)
-	// Create a new role with specified permissions
-	CreateRole(ctx context.Context, in *CreateRoleRequest, opts ...grpc.CallOption) (*Role, error)
-	// Update an existing role's permissions or metadata
-	UpdateRole(ctx context.Context, in *UpdateRoleRequest, opts ...grpc.CallOption) (*Role, error)
-	// Delete a role (must not be assigned to any users)
-	DeleteRole(ctx context.Context, in *DeleteRoleRequest, opts ...grpc.CallOption) (*emptypb.Empty, error)
-	// List roles with filtering and pagination support
-	ListRoles(ctx context.Context, in *ListRolesRequest, opts ...grpc.CallOption) (*ListRolesResponse, error)
 }
 
 type authorizationServiceClient struct {
@@ -98,66 +79,6 @@ func (c *authorizationServiceClient) GetUserRoles(ctx context.Context, in *GetUs
 	return out, nil
 }
 
-func (c *authorizationServiceClient) AssignRole(ctx context.Context, in *AssignRoleRequest, opts ...grpc.CallOption) (*emptypb.Empty, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(emptypb.Empty)
-	err := c.cc.Invoke(ctx, AuthorizationService_AssignRole_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *authorizationServiceClient) RemoveRole(ctx context.Context, in *RemoveRoleRequest, opts ...grpc.CallOption) (*emptypb.Empty, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(emptypb.Empty)
-	err := c.cc.Invoke(ctx, AuthorizationService_RemoveRole_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *authorizationServiceClient) CreateRole(ctx context.Context, in *CreateRoleRequest, opts ...grpc.CallOption) (*Role, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(Role)
-	err := c.cc.Invoke(ctx, AuthorizationService_CreateRole_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *authorizationServiceClient) UpdateRole(ctx context.Context, in *UpdateRoleRequest, opts ...grpc.CallOption) (*Role, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(Role)
-	err := c.cc.Invoke(ctx, AuthorizationService_UpdateRole_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *authorizationServiceClient) DeleteRole(ctx context.Context, in *DeleteRoleRequest, opts ...grpc.CallOption) (*emptypb.Empty, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(emptypb.Empty)
-	err := c.cc.Invoke(ctx, AuthorizationService_DeleteRole_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *authorizationServiceClient) ListRoles(ctx context.Context, in *ListRolesRequest, opts ...grpc.CallOption) (*ListRolesResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(ListRolesResponse)
-	err := c.cc.Invoke(ctx, AuthorizationService_ListRoles_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
 // AuthorizationServiceServer is the server API for AuthorizationService service.
 // All implementations should embed UnimplementedAuthorizationServiceServer
 // for forward compatibility.
@@ -173,18 +94,6 @@ type AuthorizationServiceServer interface {
 	GetUserPermissions(context.Context, *GetUserPermissionsRequest) (*GetUserPermissionsResponse, error)
 	// Get all roles assigned to a user
 	GetUserRoles(context.Context, *GetUserRolesRequest) (*GetUserRolesResponse, error)
-	// Assign a role to a user
-	AssignRole(context.Context, *AssignRoleRequest) (*emptypb.Empty, error)
-	// Remove a role from a user
-	RemoveRole(context.Context, *RemoveRoleRequest) (*emptypb.Empty, error)
-	// Create a new role with specified permissions
-	CreateRole(context.Context, *CreateRoleRequest) (*Role, error)
-	// Update an existing role's permissions or metadata
-	UpdateRole(context.Context, *UpdateRoleRequest) (*Role, error)
-	// Delete a role (must not be assigned to any users)
-	DeleteRole(context.Context, *DeleteRoleRequest) (*emptypb.Empty, error)
-	// List roles with filtering and pagination support
-	ListRoles(context.Context, *ListRolesRequest) (*ListRolesResponse, error)
 }
 
 // UnimplementedAuthorizationServiceServer should be embedded to have
@@ -202,24 +111,6 @@ func (UnimplementedAuthorizationServiceServer) GetUserPermissions(context.Contex
 }
 func (UnimplementedAuthorizationServiceServer) GetUserRoles(context.Context, *GetUserRolesRequest) (*GetUserRolesResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method GetUserRoles not implemented")
-}
-func (UnimplementedAuthorizationServiceServer) AssignRole(context.Context, *AssignRoleRequest) (*emptypb.Empty, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method AssignRole not implemented")
-}
-func (UnimplementedAuthorizationServiceServer) RemoveRole(context.Context, *RemoveRoleRequest) (*emptypb.Empty, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method RemoveRole not implemented")
-}
-func (UnimplementedAuthorizationServiceServer) CreateRole(context.Context, *CreateRoleRequest) (*Role, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method CreateRole not implemented")
-}
-func (UnimplementedAuthorizationServiceServer) UpdateRole(context.Context, *UpdateRoleRequest) (*Role, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method UpdateRole not implemented")
-}
-func (UnimplementedAuthorizationServiceServer) DeleteRole(context.Context, *DeleteRoleRequest) (*emptypb.Empty, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method DeleteRole not implemented")
-}
-func (UnimplementedAuthorizationServiceServer) ListRoles(context.Context, *ListRolesRequest) (*ListRolesResponse, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method ListRoles not implemented")
 }
 func (UnimplementedAuthorizationServiceServer) testEmbeddedByValue() {}
 
@@ -295,114 +186,6 @@ func _AuthorizationService_GetUserRoles_Handler(srv interface{}, ctx context.Con
 	return interceptor(ctx, in, info, handler)
 }
 
-func _AuthorizationService_AssignRole_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(AssignRoleRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(AuthorizationServiceServer).AssignRole(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: AuthorizationService_AssignRole_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(AuthorizationServiceServer).AssignRole(ctx, req.(*AssignRoleRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _AuthorizationService_RemoveRole_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(RemoveRoleRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(AuthorizationServiceServer).RemoveRole(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: AuthorizationService_RemoveRole_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(AuthorizationServiceServer).RemoveRole(ctx, req.(*RemoveRoleRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _AuthorizationService_CreateRole_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(CreateRoleRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(AuthorizationServiceServer).CreateRole(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: AuthorizationService_CreateRole_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(AuthorizationServiceServer).CreateRole(ctx, req.(*CreateRoleRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _AuthorizationService_UpdateRole_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(UpdateRoleRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(AuthorizationServiceServer).UpdateRole(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: AuthorizationService_UpdateRole_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(AuthorizationServiceServer).UpdateRole(ctx, req.(*UpdateRoleRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _AuthorizationService_DeleteRole_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(DeleteRoleRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(AuthorizationServiceServer).DeleteRole(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: AuthorizationService_DeleteRole_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(AuthorizationServiceServer).DeleteRole(ctx, req.(*DeleteRoleRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _AuthorizationService_ListRoles_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(ListRolesRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(AuthorizationServiceServer).ListRoles(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: AuthorizationService_ListRoles_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(AuthorizationServiceServer).ListRoles(ctx, req.(*ListRolesRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
 // AuthorizationService_ServiceDesc is the grpc.ServiceDesc for AuthorizationService service.
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
@@ -421,30 +204,6 @@ var AuthorizationService_ServiceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "GetUserRoles",
 			Handler:    _AuthorizationService_GetUserRoles_Handler,
-		},
-		{
-			MethodName: "AssignRole",
-			Handler:    _AuthorizationService_AssignRole_Handler,
-		},
-		{
-			MethodName: "RemoveRole",
-			Handler:    _AuthorizationService_RemoveRole_Handler,
-		},
-		{
-			MethodName: "CreateRole",
-			Handler:    _AuthorizationService_CreateRole_Handler,
-		},
-		{
-			MethodName: "UpdateRole",
-			Handler:    _AuthorizationService_UpdateRole_Handler,
-		},
-		{
-			MethodName: "DeleteRole",
-			Handler:    _AuthorizationService_DeleteRole_Handler,
-		},
-		{
-			MethodName: "ListRoles",
-			Handler:    _AuthorizationService_ListRoles_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},
