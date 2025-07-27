@@ -9,9 +9,11 @@
 package metricspb
 
 import (
+	proto "github.com/jdfalk/gcommon/pkg/common/proto"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
+	timestamppb "google.golang.org/protobuf/types/known/timestamppb"
 	reflect "reflect"
 	unsafe "unsafe"
 )
@@ -23,20 +25,188 @@ const (
 	_ = protoimpl.EnforceVersion(protoimpl.MaxVersion - 20)
 )
 
+// *
+// StartScrapingResponse returns the result of starting a scrape job.
+type StartScrapingResponse struct {
+	state protoimpl.MessageState `protogen:"hybrid.v1"`
+	// Whether the job was started successfully
+	Success *bool `protobuf:"varint,1,opt,name=success" json:"success,omitempty"`
+	// Error information if unsuccessful
+	Error *proto.Error `protobuf:"bytes,2,opt,name=error" json:"error,omitempty"`
+	// Details of the started scrape job
+	Job *ScrapeJob `protobuf:"bytes,3,opt,name=job" json:"job,omitempty"`
+	// Timestamp when the job started
+	StartedAt     *timestamppb.Timestamp `protobuf:"bytes,4,opt,name=started_at,json=startedAt" json:"started_at,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *StartScrapingResponse) Reset() {
+	*x = StartScrapingResponse{}
+	mi := &file_pkg_metrics_proto_responses_start_scraping_response_proto_msgTypes[0]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *StartScrapingResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*StartScrapingResponse) ProtoMessage() {}
+
+func (x *StartScrapingResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_pkg_metrics_proto_responses_start_scraping_response_proto_msgTypes[0]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+func (x *StartScrapingResponse) GetSuccess() bool {
+	if x != nil && x.Success != nil {
+		return *x.Success
+	}
+	return false
+}
+
+func (x *StartScrapingResponse) GetError() *proto.Error {
+	if x != nil {
+		return x.Error
+	}
+	return nil
+}
+
+func (x *StartScrapingResponse) GetJob() *ScrapeJob {
+	if x != nil {
+		return x.Job
+	}
+	return nil
+}
+
+func (x *StartScrapingResponse) GetStartedAt() *timestamppb.Timestamp {
+	if x != nil {
+		return x.StartedAt
+	}
+	return nil
+}
+
+func (x *StartScrapingResponse) SetSuccess(v bool) {
+	x.Success = &v
+}
+
+func (x *StartScrapingResponse) SetError(v *proto.Error) {
+	x.Error = v
+}
+
+func (x *StartScrapingResponse) SetJob(v *ScrapeJob) {
+	x.Job = v
+}
+
+func (x *StartScrapingResponse) SetStartedAt(v *timestamppb.Timestamp) {
+	x.StartedAt = v
+}
+
+func (x *StartScrapingResponse) HasSuccess() bool {
+	if x == nil {
+		return false
+	}
+	return x.Success != nil
+}
+
+func (x *StartScrapingResponse) HasError() bool {
+	if x == nil {
+		return false
+	}
+	return x.Error != nil
+}
+
+func (x *StartScrapingResponse) HasJob() bool {
+	if x == nil {
+		return false
+	}
+	return x.Job != nil
+}
+
+func (x *StartScrapingResponse) HasStartedAt() bool {
+	if x == nil {
+		return false
+	}
+	return x.StartedAt != nil
+}
+
+func (x *StartScrapingResponse) ClearSuccess() {
+	x.Success = nil
+}
+
+func (x *StartScrapingResponse) ClearError() {
+	x.Error = nil
+}
+
+func (x *StartScrapingResponse) ClearJob() {
+	x.Job = nil
+}
+
+func (x *StartScrapingResponse) ClearStartedAt() {
+	x.StartedAt = nil
+}
+
+type StartScrapingResponse_builder struct {
+	_ [0]func() // Prevents comparability and use of unkeyed literals for the builder.
+
+	// Whether the job was started successfully
+	Success *bool
+	// Error information if unsuccessful
+	Error *proto.Error
+	// Details of the started scrape job
+	Job *ScrapeJob
+	// Timestamp when the job started
+	StartedAt *timestamppb.Timestamp
+}
+
+func (b0 StartScrapingResponse_builder) Build() *StartScrapingResponse {
+	m0 := &StartScrapingResponse{}
+	b, x := &b0, m0
+	_, _ = b, x
+	x.Success = b.Success
+	x.Error = b.Error
+	x.Job = b.Job
+	x.StartedAt = b.StartedAt
+	return m0
+}
+
 var File_pkg_metrics_proto_responses_start_scraping_response_proto protoreflect.FileDescriptor
 
 const file_pkg_metrics_proto_responses_start_scraping_response_proto_rawDesc = "" +
 	"\n" +
-	"9pkg/metrics/proto/responses/start_scraping_response.proto\x12\x12gcommon.v1.metrics\x1a!google/protobuf/go_features.protoB\xdd\x01\n" +
+	"9pkg/metrics/proto/responses/start_scraping_response.proto\x12\x12gcommon.v1.metrics\x1a!google/protobuf/go_features.proto\x1a\x1fgoogle/protobuf/timestamp.proto\x1a%pkg/common/proto/messages/error.proto\x1a+pkg/metrics/proto/messages/scrape_job.proto\"\xcd\x01\n" +
+	"\x15StartScrapingResponse\x12\x18\n" +
+	"\asuccess\x18\x01 \x01(\bR\asuccess\x12.\n" +
+	"\x05error\x18\x02 \x01(\v2\x18.gcommon.v1.common.ErrorR\x05error\x12/\n" +
+	"\x03job\x18\x03 \x01(\v2\x1d.gcommon.v1.metrics.ScrapeJobR\x03job\x129\n" +
+	"\n" +
+	"started_at\x18\x04 \x01(\v2\x1a.google.protobuf.TimestampR\tstartedAtB\xdd\x01\n" +
 	"\x16com.gcommon.v1.metricsB\x1aStartScrapingResponseProtoP\x01Z5github.com/jdfalk/gcommon/pkg/metrics/proto;metricspb\xa2\x02\x03GVM\xaa\x02\x12Gcommon.V1.Metrics\xca\x02\x12Gcommon\\V1\\Metrics\xe2\x02\x1eGcommon\\V1\\Metrics\\GPBMetadata\xea\x02\x14Gcommon::V1::Metrics\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
 
-var file_pkg_metrics_proto_responses_start_scraping_response_proto_goTypes = []any{}
+var file_pkg_metrics_proto_responses_start_scraping_response_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
+var file_pkg_metrics_proto_responses_start_scraping_response_proto_goTypes = []any{
+	(*StartScrapingResponse)(nil), // 0: gcommon.v1.metrics.StartScrapingResponse
+	(*proto.Error)(nil),           // 1: gcommon.v1.common.Error
+	(*ScrapeJob)(nil),             // 2: gcommon.v1.metrics.ScrapeJob
+	(*timestamppb.Timestamp)(nil), // 3: google.protobuf.Timestamp
+}
 var file_pkg_metrics_proto_responses_start_scraping_response_proto_depIdxs = []int32{
-	0, // [0:0] is the sub-list for method output_type
-	0, // [0:0] is the sub-list for method input_type
-	0, // [0:0] is the sub-list for extension type_name
-	0, // [0:0] is the sub-list for extension extendee
-	0, // [0:0] is the sub-list for field type_name
+	1, // 0: gcommon.v1.metrics.StartScrapingResponse.error:type_name -> gcommon.v1.common.Error
+	2, // 1: gcommon.v1.metrics.StartScrapingResponse.job:type_name -> gcommon.v1.metrics.ScrapeJob
+	3, // 2: gcommon.v1.metrics.StartScrapingResponse.started_at:type_name -> google.protobuf.Timestamp
+	3, // [3:3] is the sub-list for method output_type
+	3, // [3:3] is the sub-list for method input_type
+	3, // [3:3] is the sub-list for extension type_name
+	3, // [3:3] is the sub-list for extension extendee
+	0, // [0:3] is the sub-list for field type_name
 }
 
 func init() { file_pkg_metrics_proto_responses_start_scraping_response_proto_init() }
@@ -44,18 +214,20 @@ func file_pkg_metrics_proto_responses_start_scraping_response_proto_init() {
 	if File_pkg_metrics_proto_responses_start_scraping_response_proto != nil {
 		return
 	}
+	file_pkg_metrics_proto_messages_scrape_job_proto_init()
 	type x struct{}
 	out := protoimpl.TypeBuilder{
 		File: protoimpl.DescBuilder{
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: unsafe.Slice(unsafe.StringData(file_pkg_metrics_proto_responses_start_scraping_response_proto_rawDesc), len(file_pkg_metrics_proto_responses_start_scraping_response_proto_rawDesc)),
 			NumEnums:      0,
-			NumMessages:   0,
+			NumMessages:   1,
 			NumExtensions: 0,
 			NumServices:   0,
 		},
 		GoTypes:           file_pkg_metrics_proto_responses_start_scraping_response_proto_goTypes,
 		DependencyIndexes: file_pkg_metrics_proto_responses_start_scraping_response_proto_depIdxs,
+		MessageInfos:      file_pkg_metrics_proto_responses_start_scraping_response_proto_msgTypes,
 	}.Build()
 	File_pkg_metrics_proto_responses_start_scraping_response_proto = out.File
 	file_pkg_metrics_proto_responses_start_scraping_response_proto_goTypes = nil

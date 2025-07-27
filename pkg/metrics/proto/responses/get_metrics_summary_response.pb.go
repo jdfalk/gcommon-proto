@@ -38,7 +38,7 @@ type GetMetricsSummaryResponse struct {
 	// Provider-level statistics (if requested)
 	ProviderSummaries []*ProviderSummary `protobuf:"bytes,4,rep,name=provider_summaries,json=providerSummaries" json:"provider_summaries,omitempty"`
 	// Health status information (if requested)
-	HealthStatus *HealthStatus `protobuf:"bytes,5,opt,name=health_status,json=healthStatus" json:"health_status,omitempty"`
+	HealthStatus *MetricsHealthInfo `protobuf:"bytes,5,opt,name=health_status,json=healthStatus" json:"health_status,omitempty"`
 	// When the summary was generated
 	GeneratedAt *timestamppb.Timestamp `protobuf:"bytes,6,opt,name=generated_at,json=generatedAt" json:"generated_at,omitempty"`
 	// Time range covered by the summary
@@ -102,7 +102,7 @@ func (x *GetMetricsSummaryResponse) GetProviderSummaries() []*ProviderSummary {
 	return nil
 }
 
-func (x *GetMetricsSummaryResponse) GetHealthStatus() *HealthStatus {
+func (x *GetMetricsSummaryResponse) GetHealthStatus() *MetricsHealthInfo {
 	if x != nil {
 		return x.HealthStatus
 	}
@@ -146,7 +146,7 @@ func (x *GetMetricsSummaryResponse) SetProviderSummaries(v []*ProviderSummary) {
 	x.ProviderSummaries = v
 }
 
-func (x *GetMetricsSummaryResponse) SetHealthStatus(v *HealthStatus) {
+func (x *GetMetricsSummaryResponse) SetHealthStatus(v *MetricsHealthInfo) {
 	x.HealthStatus = v
 }
 
@@ -240,7 +240,7 @@ type GetMetricsSummaryResponse_builder struct {
 	// Provider-level statistics (if requested)
 	ProviderSummaries []*ProviderSummary
 	// Health status information (if requested)
-	HealthStatus *HealthStatus
+	HealthStatus *MetricsHealthInfo
 	// When the summary was generated
 	GeneratedAt *timestamppb.Timestamp
 	// Time range covered by the summary
@@ -943,10 +943,10 @@ func (b0 MetricInfo_builder) Build() *MetricInfo {
 }
 
 // *
-// HealthStatus contains health information about the metrics system.
-type HealthStatus struct {
+// MetricsHealthInfo contains health information about the metrics system.
+type MetricsHealthInfo struct {
 	state         protoimpl.MessageState `protogen:"hybrid.v1"`
-	OverallStatus *string                `protobuf:"bytes,1,opt,name=overall_status,json=overallStatus" json:"overall_status,omitempty"` // "healthy", "degraded", "unhealthy"
+	OverallStatus *HealthStatus          `protobuf:"varint,1,opt,name=overall_status,json=overallStatus,enum=gcommon.v1.metrics.HealthStatus" json:"overall_status,omitempty"`
 	HealthChecks  []string               `protobuf:"bytes,2,rep,name=health_checks,json=healthChecks" json:"health_checks,omitempty"`
 	Warnings      []string               `protobuf:"bytes,3,rep,name=warnings" json:"warnings,omitempty"`
 	LastCheck     *timestamppb.Timestamp `protobuf:"bytes,4,opt,name=last_check,json=lastCheck" json:"last_check,omitempty"`
@@ -954,20 +954,20 @@ type HealthStatus struct {
 	sizeCache     protoimpl.SizeCache
 }
 
-func (x *HealthStatus) Reset() {
-	*x = HealthStatus{}
+func (x *MetricsHealthInfo) Reset() {
+	*x = MetricsHealthInfo{}
 	mi := &file_pkg_metrics_proto_responses_get_metrics_summary_response_proto_msgTypes[4]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
 
-func (x *HealthStatus) String() string {
+func (x *MetricsHealthInfo) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
-func (*HealthStatus) ProtoMessage() {}
+func (*MetricsHealthInfo) ProtoMessage() {}
 
-func (x *HealthStatus) ProtoReflect() protoreflect.Message {
+func (x *MetricsHealthInfo) ProtoReflect() protoreflect.Message {
 	mi := &file_pkg_metrics_proto_responses_get_metrics_summary_response_proto_msgTypes[4]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
@@ -979,83 +979,83 @@ func (x *HealthStatus) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-func (x *HealthStatus) GetOverallStatus() string {
+func (x *MetricsHealthInfo) GetOverallStatus() HealthStatus {
 	if x != nil && x.OverallStatus != nil {
 		return *x.OverallStatus
 	}
-	return ""
+	return HealthStatus_HEALTH_STATUS_UNSPECIFIED
 }
 
-func (x *HealthStatus) GetHealthChecks() []string {
+func (x *MetricsHealthInfo) GetHealthChecks() []string {
 	if x != nil {
 		return x.HealthChecks
 	}
 	return nil
 }
 
-func (x *HealthStatus) GetWarnings() []string {
+func (x *MetricsHealthInfo) GetWarnings() []string {
 	if x != nil {
 		return x.Warnings
 	}
 	return nil
 }
 
-func (x *HealthStatus) GetLastCheck() *timestamppb.Timestamp {
+func (x *MetricsHealthInfo) GetLastCheck() *timestamppb.Timestamp {
 	if x != nil {
 		return x.LastCheck
 	}
 	return nil
 }
 
-func (x *HealthStatus) SetOverallStatus(v string) {
+func (x *MetricsHealthInfo) SetOverallStatus(v HealthStatus) {
 	x.OverallStatus = &v
 }
 
-func (x *HealthStatus) SetHealthChecks(v []string) {
+func (x *MetricsHealthInfo) SetHealthChecks(v []string) {
 	x.HealthChecks = v
 }
 
-func (x *HealthStatus) SetWarnings(v []string) {
+func (x *MetricsHealthInfo) SetWarnings(v []string) {
 	x.Warnings = v
 }
 
-func (x *HealthStatus) SetLastCheck(v *timestamppb.Timestamp) {
+func (x *MetricsHealthInfo) SetLastCheck(v *timestamppb.Timestamp) {
 	x.LastCheck = v
 }
 
-func (x *HealthStatus) HasOverallStatus() bool {
+func (x *MetricsHealthInfo) HasOverallStatus() bool {
 	if x == nil {
 		return false
 	}
 	return x.OverallStatus != nil
 }
 
-func (x *HealthStatus) HasLastCheck() bool {
+func (x *MetricsHealthInfo) HasLastCheck() bool {
 	if x == nil {
 		return false
 	}
 	return x.LastCheck != nil
 }
 
-func (x *HealthStatus) ClearOverallStatus() {
+func (x *MetricsHealthInfo) ClearOverallStatus() {
 	x.OverallStatus = nil
 }
 
-func (x *HealthStatus) ClearLastCheck() {
+func (x *MetricsHealthInfo) ClearLastCheck() {
 	x.LastCheck = nil
 }
 
-type HealthStatus_builder struct {
+type MetricsHealthInfo_builder struct {
 	_ [0]func() // Prevents comparability and use of unkeyed literals for the builder.
 
-	OverallStatus *string
+	OverallStatus *HealthStatus
 	HealthChecks  []string
 	Warnings      []string
 	LastCheck     *timestamppb.Timestamp
 }
 
-func (b0 HealthStatus_builder) Build() *HealthStatus {
-	m0 := &HealthStatus{}
+func (b0 MetricsHealthInfo_builder) Build() *MetricsHealthInfo {
+	m0 := &MetricsHealthInfo{}
 	b, x := &b0, m0
 	_, _ = b, x
 	x.OverallStatus = b.OverallStatus
@@ -1507,13 +1507,13 @@ var File_pkg_metrics_proto_responses_get_metrics_summary_response_proto protoref
 
 const file_pkg_metrics_proto_responses_get_metrics_summary_response_proto_rawDesc = "" +
 	"\n" +
-	">pkg/metrics/proto/responses/get_metrics_summary_response.proto\x12\x12gcommon.v1.metrics\x1a!google/protobuf/go_features.proto\x1a\x1fgoogle/protobuf/timestamp.proto\x1a%pkg/common/proto/messages/error.proto\x1a.pkg/metrics/proto/types/retention_policy.proto\x1a(pkg/metrics/proto/types/time_range.proto\x1a)pkg/metrics/proto/types/error_stats.proto\x1a/pkg/metrics/proto/types/performance_stats.proto\x1a)pkg/metrics/proto/types/top_metrics.proto\x1a.pkg/metrics/proto/types/provider_summary.proto\"\xd7\x03\n" +
+	">pkg/metrics/proto/responses/get_metrics_summary_response.proto\x12\x12gcommon.v1.metrics\x1a!google/protobuf/go_features.proto\x1a\x1fgoogle/protobuf/timestamp.proto\x1a%pkg/common/proto/messages/error.proto\x1a+pkg/metrics/proto/enums/health_status.proto\x1a.pkg/metrics/proto/types/retention_policy.proto\x1a(pkg/metrics/proto/types/time_range.proto\x1a)pkg/metrics/proto/types/error_stats.proto\x1a/pkg/metrics/proto/types/performance_stats.proto\x1a)pkg/metrics/proto/types/top_metrics.proto\x1a.pkg/metrics/proto/types/provider_summary.proto\"\xdc\x03\n" +
 	"\x19GetMetricsSummaryResponse\x12\x18\n" +
 	"\asuccess\x18\x01 \x01(\bR\asuccess\x12.\n" +
 	"\x05error\x18\x02 \x01(\v2\x18.gcommon.v1.common.ErrorR\x05error\x12<\n" +
 	"\asummary\x18\x03 \x01(\v2\".gcommon.v1.metrics.MetricsSummaryR\asummary\x12R\n" +
-	"\x12provider_summaries\x18\x04 \x03(\v2#.gcommon.v1.metrics.ProviderSummaryR\x11providerSummaries\x12E\n" +
-	"\rhealth_status\x18\x05 \x01(\v2 .gcommon.v1.metrics.HealthStatusR\fhealthStatus\x12=\n" +
+	"\x12provider_summaries\x18\x04 \x03(\v2#.gcommon.v1.metrics.ProviderSummaryR\x11providerSummaries\x12J\n" +
+	"\rhealth_status\x18\x05 \x01(\v2%.gcommon.v1.metrics.MetricsHealthInfoR\fhealthStatus\x12=\n" +
 	"\fgenerated_at\x18\x06 \x01(\v2\x1a.google.protobuf.TimestampR\vgeneratedAt\x12<\n" +
 	"\n" +
 	"time_range\x18\a \x01(\v2\x1d.gcommon.v1.metrics.TimeRangeR\ttimeRange\x12\x1a\n" +
@@ -1549,9 +1549,9 @@ const file_pkg_metrics_proto_responses_get_metrics_summary_response_proto_rawDes
 	"\x11data_volume_bytes\x18\x04 \x01(\x03R\x0fdataVolumeBytes\x12\x1d\n" +
 	"\n" +
 	"error_rate\x18\x05 \x01(\x01R\terrorRate\x12=\n" +
-	"\flast_updated\x18\x06 \x01(\v2\x1a.google.protobuf.TimestampR\vlastUpdated\"\xb1\x01\n" +
-	"\fHealthStatus\x12%\n" +
-	"\x0eoverall_status\x18\x01 \x01(\tR\roverallStatus\x12#\n" +
+	"\flast_updated\x18\x06 \x01(\v2\x1a.google.protobuf.TimestampR\vlastUpdated\"\xd8\x01\n" +
+	"\x11MetricsHealthInfo\x12G\n" +
+	"\x0eoverall_status\x18\x01 \x01(\x0e2 .gcommon.v1.metrics.HealthStatusR\roverallStatus\x12#\n" +
 	"\rhealth_checks\x18\x02 \x03(\tR\fhealthChecks\x12\x1a\n" +
 	"\bwarnings\x18\x03 \x03(\tR\bwarnings\x129\n" +
 	"\n" +
@@ -1583,7 +1583,7 @@ var file_pkg_metrics_proto_responses_get_metrics_summary_response_proto_goTypes 
 	(*MetricsSummary)(nil),            // 1: gcommon.v1.metrics.MetricsSummary
 	(*MetricTypeCounts)(nil),          // 2: gcommon.v1.metrics.MetricTypeCounts
 	(*MetricInfo)(nil),                // 3: gcommon.v1.metrics.MetricInfo
-	(*HealthStatus)(nil),              // 4: gcommon.v1.metrics.HealthStatus
+	(*MetricsHealthInfo)(nil),         // 4: gcommon.v1.metrics.MetricsHealthInfo
 	(*RetentionInfo)(nil),             // 5: gcommon.v1.metrics.RetentionInfo
 	(*ExportStatus)(nil),              // 6: gcommon.v1.metrics.ExportStatus
 	(*ExporterStatus)(nil),            // 7: gcommon.v1.metrics.ExporterStatus
@@ -1594,13 +1594,14 @@ var file_pkg_metrics_proto_responses_get_metrics_summary_response_proto_goTypes 
 	(*PerformanceStats)(nil),          // 12: gcommon.v1.metrics.PerformanceStats
 	(*ErrorStats)(nil),                // 13: gcommon.v1.metrics.ErrorStats
 	(*TopMetrics)(nil),                // 14: gcommon.v1.metrics.TopMetrics
-	(*RetentionPolicyConfig)(nil),     // 15: gcommon.v1.metrics.RetentionPolicyConfig
+	(HealthStatus)(0),                 // 15: gcommon.v1.metrics.HealthStatus
+	(*RetentionPolicyConfig)(nil),     // 16: gcommon.v1.metrics.RetentionPolicyConfig
 }
 var file_pkg_metrics_proto_responses_get_metrics_summary_response_proto_depIdxs = []int32{
 	8,  // 0: gcommon.v1.metrics.GetMetricsSummaryResponse.error:type_name -> gcommon.v1.common.Error
 	1,  // 1: gcommon.v1.metrics.GetMetricsSummaryResponse.summary:type_name -> gcommon.v1.metrics.MetricsSummary
 	9,  // 2: gcommon.v1.metrics.GetMetricsSummaryResponse.provider_summaries:type_name -> gcommon.v1.metrics.ProviderSummary
-	4,  // 3: gcommon.v1.metrics.GetMetricsSummaryResponse.health_status:type_name -> gcommon.v1.metrics.HealthStatus
+	4,  // 3: gcommon.v1.metrics.GetMetricsSummaryResponse.health_status:type_name -> gcommon.v1.metrics.MetricsHealthInfo
 	10, // 4: gcommon.v1.metrics.GetMetricsSummaryResponse.generated_at:type_name -> google.protobuf.Timestamp
 	11, // 5: gcommon.v1.metrics.GetMetricsSummaryResponse.time_range:type_name -> gcommon.v1.metrics.TimeRange
 	2,  // 6: gcommon.v1.metrics.MetricsSummary.type_counts:type_name -> gcommon.v1.metrics.MetricTypeCounts
@@ -1610,16 +1611,17 @@ var file_pkg_metrics_proto_responses_get_metrics_summary_response_proto_depIdxs 
 	5,  // 10: gcommon.v1.metrics.MetricsSummary.retention:type_name -> gcommon.v1.metrics.RetentionInfo
 	6,  // 11: gcommon.v1.metrics.MetricsSummary.export_status:type_name -> gcommon.v1.metrics.ExportStatus
 	10, // 12: gcommon.v1.metrics.MetricInfo.last_updated:type_name -> google.protobuf.Timestamp
-	10, // 13: gcommon.v1.metrics.HealthStatus.last_check:type_name -> google.protobuf.Timestamp
-	15, // 14: gcommon.v1.metrics.RetentionInfo.policies:type_name -> gcommon.v1.metrics.RetentionPolicyConfig
-	10, // 15: gcommon.v1.metrics.ExportStatus.last_export:type_name -> google.protobuf.Timestamp
-	7,  // 16: gcommon.v1.metrics.ExportStatus.exporters:type_name -> gcommon.v1.metrics.ExporterStatus
-	10, // 17: gcommon.v1.metrics.ExporterStatus.last_export:type_name -> google.protobuf.Timestamp
-	18, // [18:18] is the sub-list for method output_type
-	18, // [18:18] is the sub-list for method input_type
-	18, // [18:18] is the sub-list for extension type_name
-	18, // [18:18] is the sub-list for extension extendee
-	0,  // [0:18] is the sub-list for field type_name
+	15, // 13: gcommon.v1.metrics.MetricsHealthInfo.overall_status:type_name -> gcommon.v1.metrics.HealthStatus
+	10, // 14: gcommon.v1.metrics.MetricsHealthInfo.last_check:type_name -> google.protobuf.Timestamp
+	16, // 15: gcommon.v1.metrics.RetentionInfo.policies:type_name -> gcommon.v1.metrics.RetentionPolicyConfig
+	10, // 16: gcommon.v1.metrics.ExportStatus.last_export:type_name -> google.protobuf.Timestamp
+	7,  // 17: gcommon.v1.metrics.ExportStatus.exporters:type_name -> gcommon.v1.metrics.ExporterStatus
+	10, // 18: gcommon.v1.metrics.ExporterStatus.last_export:type_name -> google.protobuf.Timestamp
+	19, // [19:19] is the sub-list for method output_type
+	19, // [19:19] is the sub-list for method input_type
+	19, // [19:19] is the sub-list for extension type_name
+	19, // [19:19] is the sub-list for extension extendee
+	0,  // [0:19] is the sub-list for field type_name
 }
 
 func init() { file_pkg_metrics_proto_responses_get_metrics_summary_response_proto_init() }
@@ -1627,6 +1629,7 @@ func file_pkg_metrics_proto_responses_get_metrics_summary_response_proto_init() 
 	if File_pkg_metrics_proto_responses_get_metrics_summary_response_proto != nil {
 		return
 	}
+	file_pkg_metrics_proto_enums_health_status_proto_init()
 	file_pkg_metrics_proto_types_retention_policy_proto_init()
 	file_pkg_metrics_proto_types_time_range_proto_init()
 	file_pkg_metrics_proto_types_error_stats_proto_init()
