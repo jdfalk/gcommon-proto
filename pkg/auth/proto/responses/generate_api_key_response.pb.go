@@ -9,6 +9,7 @@
 package authpb
 
 import (
+	proto "github.com/jdfalk/gcommon/pkg/common/proto"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
@@ -23,20 +24,155 @@ const (
 	_ = protoimpl.EnforceVersion(protoimpl.MaxVersion - 20)
 )
 
+// *
+// GenerateAPIKeyResponse returns the newly created API key.
+type GenerateAPIKeyResponse struct {
+	state protoimpl.MessageState `protogen:"hybrid.v1"`
+	// Generated API key value
+	Key *string `protobuf:"bytes,1,opt,name=key" json:"key,omitempty"`
+	// Optional key identifier
+	KeyId *string `protobuf:"bytes,2,opt,name=key_id,json=keyId" json:"key_id,omitempty"`
+	// Response metadata for rate limiting and tracing
+	Metadata      *proto.ResponseMetadata `protobuf:"bytes,3,opt,name=metadata" json:"metadata,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GenerateAPIKeyResponse) Reset() {
+	*x = GenerateAPIKeyResponse{}
+	mi := &file_pkg_auth_proto_responses_generate_api_key_response_proto_msgTypes[0]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GenerateAPIKeyResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GenerateAPIKeyResponse) ProtoMessage() {}
+
+func (x *GenerateAPIKeyResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_pkg_auth_proto_responses_generate_api_key_response_proto_msgTypes[0]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+func (x *GenerateAPIKeyResponse) GetKey() string {
+	if x != nil && x.Key != nil {
+		return *x.Key
+	}
+	return ""
+}
+
+func (x *GenerateAPIKeyResponse) GetKeyId() string {
+	if x != nil && x.KeyId != nil {
+		return *x.KeyId
+	}
+	return ""
+}
+
+func (x *GenerateAPIKeyResponse) GetMetadata() *proto.ResponseMetadata {
+	if x != nil {
+		return x.Metadata
+	}
+	return nil
+}
+
+func (x *GenerateAPIKeyResponse) SetKey(v string) {
+	x.Key = &v
+}
+
+func (x *GenerateAPIKeyResponse) SetKeyId(v string) {
+	x.KeyId = &v
+}
+
+func (x *GenerateAPIKeyResponse) SetMetadata(v *proto.ResponseMetadata) {
+	x.Metadata = v
+}
+
+func (x *GenerateAPIKeyResponse) HasKey() bool {
+	if x == nil {
+		return false
+	}
+	return x.Key != nil
+}
+
+func (x *GenerateAPIKeyResponse) HasKeyId() bool {
+	if x == nil {
+		return false
+	}
+	return x.KeyId != nil
+}
+
+func (x *GenerateAPIKeyResponse) HasMetadata() bool {
+	if x == nil {
+		return false
+	}
+	return x.Metadata != nil
+}
+
+func (x *GenerateAPIKeyResponse) ClearKey() {
+	x.Key = nil
+}
+
+func (x *GenerateAPIKeyResponse) ClearKeyId() {
+	x.KeyId = nil
+}
+
+func (x *GenerateAPIKeyResponse) ClearMetadata() {
+	x.Metadata = nil
+}
+
+type GenerateAPIKeyResponse_builder struct {
+	_ [0]func() // Prevents comparability and use of unkeyed literals for the builder.
+
+	// Generated API key value
+	Key *string
+	// Optional key identifier
+	KeyId *string
+	// Response metadata for rate limiting and tracing
+	Metadata *proto.ResponseMetadata
+}
+
+func (b0 GenerateAPIKeyResponse_builder) Build() *GenerateAPIKeyResponse {
+	m0 := &GenerateAPIKeyResponse{}
+	b, x := &b0, m0
+	_, _ = b, x
+	x.Key = b.Key
+	x.KeyId = b.KeyId
+	x.Metadata = b.Metadata
+	return m0
+}
+
 var File_pkg_auth_proto_responses_generate_api_key_response_proto protoreflect.FileDescriptor
 
 const file_pkg_auth_proto_responses_generate_api_key_response_proto_rawDesc = "" +
 	"\n" +
-	"8pkg/auth/proto/responses/generate_api_key_response.proto\x12\x0fgcommon.v1.auth\x1a!google/protobuf/go_features.protoB\xc9\x01\n" +
+	"8pkg/auth/proto/responses/generate_api_key_response.proto\x12\x0fgcommon.v1.auth\x1a!google/protobuf/go_features.proto\x1a1pkg/common/proto/messages/response_metadata.proto\"\x82\x01\n" +
+	"\x16GenerateAPIKeyResponse\x12\x10\n" +
+	"\x03key\x18\x01 \x01(\tR\x03key\x12\x15\n" +
+	"\x06key_id\x18\x02 \x01(\tR\x05keyId\x12?\n" +
+	"\bmetadata\x18\x03 \x01(\v2#.gcommon.v1.common.ResponseMetadataR\bmetadataB\xc9\x01\n" +
 	"\x13com.gcommon.v1.authB\x1bGenerateApiKeyResponseProtoP\x01Z/github.com/jdfalk/gcommon/pkg/auth/proto;authpb\xa2\x02\x03GVA\xaa\x02\x0fGcommon.V1.Auth\xca\x02\x0fGcommon\\V1\\Auth\xe2\x02\x1bGcommon\\V1\\Auth\\GPBMetadata\xea\x02\x11Gcommon::V1::Auth\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
 
-var file_pkg_auth_proto_responses_generate_api_key_response_proto_goTypes = []any{}
+var file_pkg_auth_proto_responses_generate_api_key_response_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
+var file_pkg_auth_proto_responses_generate_api_key_response_proto_goTypes = []any{
+	(*GenerateAPIKeyResponse)(nil), // 0: gcommon.v1.auth.GenerateAPIKeyResponse
+	(*proto.ResponseMetadata)(nil), // 1: gcommon.v1.common.ResponseMetadata
+}
 var file_pkg_auth_proto_responses_generate_api_key_response_proto_depIdxs = []int32{
-	0, // [0:0] is the sub-list for method output_type
-	0, // [0:0] is the sub-list for method input_type
-	0, // [0:0] is the sub-list for extension type_name
-	0, // [0:0] is the sub-list for extension extendee
-	0, // [0:0] is the sub-list for field type_name
+	1, // 0: gcommon.v1.auth.GenerateAPIKeyResponse.metadata:type_name -> gcommon.v1.common.ResponseMetadata
+	1, // [1:1] is the sub-list for method output_type
+	1, // [1:1] is the sub-list for method input_type
+	1, // [1:1] is the sub-list for extension type_name
+	1, // [1:1] is the sub-list for extension extendee
+	0, // [0:1] is the sub-list for field type_name
 }
 
 func init() { file_pkg_auth_proto_responses_generate_api_key_response_proto_init() }
@@ -50,12 +186,13 @@ func file_pkg_auth_proto_responses_generate_api_key_response_proto_init() {
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: unsafe.Slice(unsafe.StringData(file_pkg_auth_proto_responses_generate_api_key_response_proto_rawDesc), len(file_pkg_auth_proto_responses_generate_api_key_response_proto_rawDesc)),
 			NumEnums:      0,
-			NumMessages:   0,
+			NumMessages:   1,
 			NumExtensions: 0,
 			NumServices:   0,
 		},
 		GoTypes:           file_pkg_auth_proto_responses_generate_api_key_response_proto_goTypes,
 		DependencyIndexes: file_pkg_auth_proto_responses_generate_api_key_response_proto_depIdxs,
+		MessageInfos:      file_pkg_auth_proto_responses_generate_api_key_response_proto_msgTypes,
 	}.Build()
 	File_pkg_auth_proto_responses_generate_api_key_response_proto = out.File
 	file_pkg_auth_proto_responses_generate_api_key_response_proto_goTypes = nil
