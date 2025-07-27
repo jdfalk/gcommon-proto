@@ -169,7 +169,7 @@ var File_pkg_config_proto_requests_restore_config_request_proto protoreflect.Fil
 
 const file_pkg_config_proto_requests_restore_config_request_proto_rawDesc = "" +
 	"\n" +
-	"6pkg/config/proto/requests/restore_config_request.proto\x12\x11gcommon.v1.config\x1a!google/protobuf/go_features.proto\x1a0pkg/common/proto/messages/request_metadata.proto\x1a4pkg/config/proto/messages/config_restore_point.proto\"\x9e\x01\n" +
+	"6pkg/config/proto/requests/restore_config_request.proto\x12\x11gcommon.v1.config\x1a!google/protobuf/go_features.proto\x1a0pkg/common/proto/messages/request_metadata.proto\"\x9e\x01\n" +
 	"\x14RestoreConfigRequest\x12(\n" +
 	"\x10restore_point_id\x18\x01 \x01(\tR\x0erestorePointId\x12\x1c\n" +
 	"\tnamespace\x18\x02 \x01(\tR\tnamespace\x12>\n" +
@@ -195,7 +195,6 @@ func file_pkg_config_proto_requests_restore_config_request_proto_init() {
 	if File_pkg_config_proto_requests_restore_config_request_proto != nil {
 		return
 	}
-	file_pkg_config_proto_messages_config_restore_point_proto_init()
 	type x struct{}
 	out := protoimpl.TypeBuilder{
 		File: protoimpl.DescBuilder{
