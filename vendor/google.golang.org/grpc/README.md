@@ -17,7 +17,6 @@ RPC framework that puts mobile and HTTP/2 first. For more information see the
 Simply add the following import to your code, and then `go [build|run|test]`
 will automatically fetch the necessary dependencies:
 
-
 ```go
 import "google.golang.org/grpc"
 ```
@@ -50,7 +49,7 @@ To build Go code, there are several options:
 - Set up a VPN and access google.golang.org through that.
 
 - With Go module support: it is possible to use the `replace` feature of `go
-  mod` to create aliases for golang.org packages.  In your project's directory:
+mod` to create aliases for golang.org packages. In your project's directory:
 
   ```sh
   go mod edit -replace=google.golang.org/grpc=github.com/grpc/grpc-go@latest
@@ -82,10 +81,11 @@ $ export GRPC_GO_LOG_SEVERITY_LEVEL=info
 
 This error means the connection the RPC is using was closed, and there are many
 possible reasons, including:
- 1. mis-configured transport credentials, connection failed on handshaking
- 1. bytes disrupted, possibly by a proxy in between
- 1. server shutdown
- 1. Keepalive parameters caused connection shutdown, for example if you have
+
+1.  mis-configured transport credentials, connection failed on handshaking
+1.  bytes disrupted, possibly by a proxy in between
+1.  server shutdown
+1.  Keepalive parameters caused connection shutdown, for example if you have
     configured your server to terminate connections regularly to [trigger DNS
     lookups](https://github.com/grpc/grpc-go/issues/3170#issuecomment-552517779).
     If this is the case, you may want to increase your
@@ -94,7 +94,7 @@ possible reasons, including:
 
 It can be tricky to debug this because the error happens on the client side but
 the root cause of the connection being closed is on the server side. Turn on
-logging on __both client and server__, and see if there are any transport
+logging on **both client and server**, and see if there are any transport
 errors.
 
 [API]: https://pkg.go.dev/google.golang.org/grpc

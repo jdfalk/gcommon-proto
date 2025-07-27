@@ -11,13 +11,13 @@ All POSIX.1 and POSIX.2 variables are supported, see [References](#references) f
 
 Additionally, the following non-standard variables are supported on some operating systems:
 
-| Variable | Supported on |
-|---|---|
+| Variable              | Supported on                                            |
+| --------------------- | ------------------------------------------------------- |
 | `SC_PHYS_PAGES`       | Linux, macOS, FreeBSD, NetBSD, OpenBSD, Solaris/Illumos |
-| `SC_AVPHYS_PAGES`     | Linux, OpenBSD, Solaris/Illumos |
+| `SC_AVPHYS_PAGES`     | Linux, OpenBSD, Solaris/Illumos                         |
 | `SC_NPROCESSORS_CONF` | Linux, macOS, FreeBSD, NetBSD, OpenBSD, Solaris/Illumos |
 | `SC_NPROCESSORS_ONLN` | Linux, macOS, FreeBSD, NetBSD, OpenBSD, Solaris/Illumos |
-| `SC_UIO_MAXIOV`       | Linux |
+| `SC_UIO_MAXIOV`       | Linux                                                   |
 
 ## Usage
 
@@ -41,6 +41,6 @@ func main() {
 
 ## References
 
-* [POSIX documenation for `sysconf`](http://pubs.opengroup.org/onlinepubs/9699919799/functions/sysconf.html)
-* [Linux manpage for `sysconf(3)`](http://man7.org/linux/man-pages/man3/sysconf.3.html)
-* [glibc constants for `sysconf` parameters](https://www.gnu.org/software/libc/manual/html_node/Constants-for-Sysconf.html)
+- [POSIX documenation for `sysconf`](http://pubs.opengroup.org/onlinepubs/9699919799/functions/sysconf.html)
+- [Linux manpage for `sysconf(3)`](http://man7.org/linux/man-pages/man3/sysconf.3.html)
+- [glibc constants for `sysconf` parameters](https://www.gnu.org/software/libc/manual/html_node/Constants-for-Sysconf.html)

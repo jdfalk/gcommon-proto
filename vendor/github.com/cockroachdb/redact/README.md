@@ -1,4 +1,5 @@
 # redact
+
 Utilities to redact Go strings for confidentiality
 
 ![Build Status](https://github.com/cockroachdb/redact/actions/workflows/ci.yaml/badge.svg?branch=master)

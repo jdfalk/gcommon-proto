@@ -13,13 +13,13 @@ user-facing details from the call stack, for use in logging output.
   ```go
   func AddTag(ctx context.Context, key string, value interface{}) context.Context
   ```
-  
+
   For example:
-  
+
   ```go
   func foo(ctx context.Context) {
-	  ctx = logtags.AddTag(ctx, "foo", 123)
-	  bar(ctx)
+    ctx = logtags.AddTag(ctx, "foo", 123)
+    bar(ctx)
   }
   ```
 
@@ -58,7 +58,8 @@ To add multiple k/v pairs in one go, without using quadratic space in
 
 To format all the contained k/v pairs in a `Buffer`, use its
 `String()` or `FormatToString(*strings.Builder)` methods:
-- when the `value` part is `nil`,  only the key is displayed.
+
+- when the `value` part is `nil`, only the key is displayed.
 - when the `value` part is non-nil, and the key is just one character
   long, the key and value are concatenated for display. This enables e.g.
   printing k=`"n"`, v=123 as `n123`.
@@ -73,4 +74,3 @@ For example:
    fmt.Println(logtags.FromContext(ctx).String())
    // prints foo=123,x456,bar
 ```
-

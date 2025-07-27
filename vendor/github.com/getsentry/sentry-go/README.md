@@ -63,6 +63,7 @@ More on this in the [Configuration section of the official Sentry Go SDK documen
 The SDK supports reporting errors and tracking application performance.
 
 To get started, have a look at one of our [examples](_examples/):
+
 - [Basic error instrumentation](_examples/basic/main.go)
 - [Error and tracing for HTTP servers](_examples/http/main.go)
 

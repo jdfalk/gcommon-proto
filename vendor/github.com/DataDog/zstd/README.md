@@ -3,24 +3,22 @@
 [![CircleCI](https://circleci.com/gh/DataDog/zstd/tree/1.x.svg?style=svg)](https://circleci.com/gh/DataDog/zstd/tree/1.x)
 [![GoDoc](https://godoc.org/github.com/DataDog/zstd?status.svg)](https://godoc.org/github.com/DataDog/zstd)
 
-
 [C Zstd Homepage](https://github.com/facebook/zstd)
 
-The current headers and C files are from *v1.4.4* (Commit
+The current headers and C files are from _v1.4.4_ (Commit
 [10f0e699](https://github.com/facebook/zstd/releases/tag/v1.4.4)).
 
 ## Usage
 
 There are two main APIs:
 
-* simple Compress/Decompress
-* streaming API (io.Reader/io.Writer)
+- simple Compress/Decompress
+- streaming API (io.Reader/io.Writer)
 
 The compress/decompress APIs mirror that of lz4, while the streaming API was
 designed to be a drop-in replacement for zlib.
 
 ### Simple `Compress/Decompress`
-
 
 ```go
 // Compress compresses the byte array given in src and writes it to dst.
@@ -76,7 +74,7 @@ NewReaderDict(r io.Reader, dict []byte) io.ReadCloser
 ### Benchmarks (benchmarked with v0.5.0)
 
 The author of Zstd also wrote lz4. Zstd is intended to occupy a speed/ratio
-level similar to what zlib currently provides.  In our tests, the can always
+level similar to what zlib currently provides. In our tests, the can always
 be made to be better than zlib by chosing an appropriate level while still
 keeping compression and decompression time faster than zlib.
 
@@ -88,6 +86,7 @@ go test -bench .
 ```
 
 Compression of a 7Mb pdf zstd (this wrapper) vs [czlib](https://github.com/DataDog/czlib):
+
 ```
 BenchmarkCompression               5     221056624 ns/op      67.34 MB/s
 BenchmarkDecompression           100      18370416 ns/op     810.32 MB/s

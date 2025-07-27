@@ -13,11 +13,11 @@ It provides a set of APIs to directly measure performance and behavior of your s
 
 ## Project Status
 
-| Signal  | Status             |
-|---------|--------------------|
-| Traces  | Stable             |
-| Metrics | Stable             |
-| Logs    | Beta[^1]           |
+| Signal  | Status   |
+| ------- | -------- |
+| Traces  | Stable   |
+| Metrics | Stable   |
+| Logs    | Beta[^1] |
 
 Progress and status specific to this repository is tracked in our
 [project boards](https://github.com/open-telemetry/opentelemetry-go/projects)
@@ -50,7 +50,7 @@ stop ensuring compatibility with these versions in the following manner:
 Currently, this project supports the following environments.
 
 | OS       | Go Version | Architecture |
-|----------|------------|--------------|
+| -------- | ---------- | ------------ |
 | Ubuntu   | 1.24       | amd64        |
 | Ubuntu   | 1.23       | amd64        |
 | Ubuntu   | 1.22       | amd64        |
@@ -109,7 +109,7 @@ export pipeline to send that telemetry to an observability platform.
 All officially supported exporters for the OpenTelemetry project are contained in the [exporters directory](./exporters).
 
 | Exporter                              | Logs | Metrics | Traces |
-|---------------------------------------|:----:|:-------:|:------:|
+| ------------------------------------- | :--: | :-----: | :----: |
 | [OTLP](./exporters/otlp/)             |  ✓   |    ✓    |   ✓    |
 | [Prometheus](./exporters/prometheus/) |      |    ✓    |        |
 | [stdout](./exporters/stdout/)         |  ✓   |    ✓    |   ✓    |

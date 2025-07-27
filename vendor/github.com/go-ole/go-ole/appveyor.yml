@@ -22,10 +22,10 @@ clone_folder: c:\gopath\src\github.com\go-ole\go-ole
 environment:
   GOPATH: c:\gopath
   matrix:
-  - GOARCH: amd64
-    GOVERSION: 1.5
-    GOROOT: c:\go
-    DOWNLOADPLATFORM: "x64"
+    - GOARCH: amd64
+      GOVERSION: 1.5
+      GOROOT: c:\go
+      DOWNLOADPLATFORM: "x64"
 
 install:
   - choco install mingw

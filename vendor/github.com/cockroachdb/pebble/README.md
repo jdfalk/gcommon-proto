@@ -11,41 +11,41 @@ format.
 Pebble intentionally does not aspire to include every feature in RocksDB and
 specifically targets the use case and feature set needed by CockroachDB:
 
-* Block-based tables
-* Checkpoints
-* Indexed batches
-* Iterator options (lower/upper bound, table filter)
-* Level-based compaction
-* Manual compaction
-* Merge operator
-* Prefix bloom filters
-* Prefix iteration
-* Range deletion tombstones
-* Reverse iteration
-* SSTable ingestion
-* Single delete
-* Snapshots
-* Table-level bloom filters
+- Block-based tables
+- Checkpoints
+- Indexed batches
+- Iterator options (lower/upper bound, table filter)
+- Level-based compaction
+- Manual compaction
+- Merge operator
+- Prefix bloom filters
+- Prefix iteration
+- Range deletion tombstones
+- Reverse iteration
+- SSTable ingestion
+- Single delete
+- Snapshots
+- Table-level bloom filters
 
 RocksDB has a large number of features that are not implemented in
 Pebble:
 
-* Backups
-* Column families
-* Delete files in range
-* FIFO compaction style
-* Forward iterator / tailing iterator
-* Hash table format
-* Memtable bloom filter
-* Persistent cache
-* Pin iterator key / value
-* Plain table format
-* SSTable ingest-behind
-* Sub-compactions
-* Transactions
-* Universal compaction style
+- Backups
+- Column families
+- Delete files in range
+- FIFO compaction style
+- Forward iterator / tailing iterator
+- Hash table format
+- Memtable bloom filter
+- Persistent cache
+- Pin iterator key / value
+- Plain table format
+- SSTable ingest-behind
+- Sub-compactions
+- Transactions
+- Universal compaction style
 
-***WARNING***: Pebble may silently corrupt data or behave incorrectly if
+**_WARNING_**: Pebble may silently corrupt data or behave incorrectly if
 used with a RocksDB database that uses a feature Pebble doesn't
 support. Caveat emptor!
 
@@ -62,23 +62,23 @@ and production ready.
 
 Pebble offers several improvements over RocksDB:
 
-* Faster reverse iteration via backwards links in the memtable's
+- Faster reverse iteration via backwards links in the memtable's
   skiplist.
-* Faster commit pipeline that achieves better concurrency.
-* Seamless merged iteration of indexed batches. The mutations in the
+- Faster commit pipeline that achieves better concurrency.
+- Seamless merged iteration of indexed batches. The mutations in the
   batch conceptually occupy another memtable level.
-* L0 sublevels and flush splitting for concurrent compactions out of L0 and
+- L0 sublevels and flush splitting for concurrent compactions out of L0 and
   reduced read-amplification during heavy write load.
-* Faster LSM edits in LSMs with large numbers of sstables through use of a
+- Faster LSM edits in LSMs with large numbers of sstables through use of a
   copy-on-write B-tree to hold file metadata.
-* Delete-only compactions that drop whole sstables that fall within the bounds
+- Delete-only compactions that drop whole sstables that fall within the bounds
   of a range deletion.
-* Block-property collectors and filters that enable iterators to skip tables,
+- Block-property collectors and filters that enable iterators to skip tables,
   index blocks and data blocks that are irrelevant, according to user-defined
   properties over key-value pairs.
-* Range keys API, allowing KV pairs defined over a range of keyspace with
+- Range keys API, allowing KV pairs defined over a range of keyspace with
   user-defined semantics and interleaved during iteration.
-* Smaller, more approachable code base.
+- Smaller, more approachable code base.
 
 See the [Pebble vs RocksDB: Implementation
 Differences](docs/rocksdb.md) doc for more details on implementation
@@ -98,26 +98,26 @@ of RocksDB functionality and configuration is too large to adequately
 test and document all the incompatibilities. The list below contains
 known incompatibilities.
 
-* Pebble's use of WAL recycling is only compatible with RocksDB's
+- Pebble's use of WAL recycling is only compatible with RocksDB's
   `kTolerateCorruptedTailRecords` WAL recovery mode. Older versions of
   RocksDB would automatically map incompatible WAL recovery modes to
   `kTolerateCorruptedTailRecords`. New versions of RocksDB will
   disable WAL recycling.
-* Column families. Pebble does not support column families, nor does
+- Column families. Pebble does not support column families, nor does
   it attempt to detect their usage when opening a DB that may contain
   them.
-* Hash table format. Pebble does not support the hash table sstable
+- Hash table format. Pebble does not support the hash table sstable
   format.
-* Plain table format. Pebble does not support the plain table sstable
+- Plain table format. Pebble does not support the plain table sstable
   format.
-* SSTable format version 3 and 4. Pebble does not support version 3
+- SSTable format version 3 and 4. Pebble does not support version 3
   and version 4 format sstables. The sstable format version is
   controlled by the `BlockBasedTableOptions::format_version` option.
   See [#97](https://github.com/cockroachdb/pebble/issues/97).
 
 ## Format major versions
 
-Over time Pebble has introduced new physical file formats.  Backwards
+Over time Pebble has introduced new physical file formats. Backwards
 incompatible changes are made through the introduction of 'format major
 versions'. By default, when Pebble opens a database, it defaults to
 `FormatMostCompatible`. This version is bi-directionally compatible with RocksDB
@@ -135,21 +135,21 @@ return to an earlier format.
 The table below outlines the history of format major versions:
 
 | Name                               | Value | Migration  |
-|------------------------------------|-------|------------|
-| FormatMostCompatible               |   1   | No         |
-| FormatVersioned                    |   3   | No         |
-| FormatSetWithDelete                |   4   | No         |
-| FormatBlockPropertyCollector       |   5   | No         |
-| FormatSplitUserKeysMarked          |   6   | Background |
-| FormatSplitUserKeysMarkedCompacted |   7   | Blocking   |
-| FormatRangeKeys                    |   8   | No         |
-| FormatMinTableFormatPebblev1       |   9   | No         |
-| FormatPrePebblev1Marked            |  10   | Background |
-| FormatSSTableValueBlocks           |  12   | No         |
-| FormatFlushableIngest              |  13   | No         |
-| FormatPrePebblev1MarkedCompacted   |  14   | Blocking   |
-| FormatDeleteSizedAndObsolete       |  15   | No         |
-| FormatVirtualSSTables              |  16   | No         |
+| ---------------------------------- | ----- | ---------- |
+| FormatMostCompatible               | 1     | No         |
+| FormatVersioned                    | 3     | No         |
+| FormatSetWithDelete                | 4     | No         |
+| FormatBlockPropertyCollector       | 5     | No         |
+| FormatSplitUserKeysMarked          | 6     | Background |
+| FormatSplitUserKeysMarkedCompacted | 7     | Blocking   |
+| FormatRangeKeys                    | 8     | No         |
+| FormatMinTableFormatPebblev1       | 9     | No         |
+| FormatPrePebblev1Marked            | 10    | Background |
+| FormatSSTableValueBlocks           | 12    | No         |
+| FormatFlushableIngest              | 13    | No         |
+| FormatPrePebblev1MarkedCompacted   | 14    | Blocking   |
+| FormatDeleteSizedAndObsolete       | 15    | No         |
+| FormatVirtualSSTables              | 16    | No         |
 
 Upgrading to a format major version with 'Background' in the migration
 column may trigger background activity to rewrite physical file
@@ -164,7 +164,7 @@ For reference, the table below lists the range of supported Pebble format major
 versions for CockroachDB releases.
 
 | CockroachDB release | Earliest supported                 | Latest supported          |
-|---------------------|------------------------------------|---------------------------|
+| ------------------- | ---------------------------------- | ------------------------- |
 | 20.1 through 21.1   | FormatMostCompatible               | FormatMostCompatible      |
 | 21.2                | FormatMostCompatible               | FormatSetWithDelete       |
 | 21.2                | FormatMostCompatible               | FormatSetWithDelete       |

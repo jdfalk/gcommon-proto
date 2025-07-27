@@ -4,6 +4,7 @@ The root sentry-go SDK (namely, the Dynamic Sampling functionality) needs an imp
 For that reason, we've taken the existing baggage implementation from the [opentelemetry-go](https://github.com/open-telemetry/opentelemetry-go/) repository, and fixed a few things that in our opinion were violating the specification.
 
 These issues are:
+
 1. Baggage string value `one%20two` should be properly parsed as "one two"
 1. Baggage string value `one+two` should be parsed as "one+two"
 1. Go string value "one two" should be encoded as `one%20two` (percent encoding), and NOT as `one+two` (URL query encoding).

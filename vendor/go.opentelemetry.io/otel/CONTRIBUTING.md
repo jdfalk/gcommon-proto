@@ -61,7 +61,7 @@ can alternatively use `git` directly with:
 git clone https://github.com/open-telemetry/opentelemetry-go
 ```
 
-(Note that `git clone` is *not* using the `go.opentelemetry.io/otel` name -
+(Note that `git clone` is _not_ using the `go.opentelemetry.io/otel` name -
 that name is a kind of a redirector to GitHub that `go get` can
 understand, but `git` does not.)
 
@@ -96,65 +96,68 @@ All pull requests are squashed to a single commit upon merge to `main`.
 
 ### How to Receive Comments
 
-* If the PR is not ready for review, please put `[WIP]` in the title,
+- If the PR is not ready for review, please put `[WIP]` in the title,
   tag it as `work-in-progress`, or mark it as
   [`draft`](https://github.blog/2019-02-14-introducing-draft-pull-requests/).
-* Make sure CLA is signed and CI is clear.
+- Make sure CLA is signed and CI is clear.
 
 ### How to Get PRs Merged
 
 A PR is considered **ready to merge** when:
 
-* It has received two qualified approvals[^1].
+- It has received two qualified approvals[^1].
 
   This is not enforced through automation, but needs to be validated by the
   maintainer merging.
-  * The qualified approvals need to be from [Approver]s/[Maintainer]s
+  - The qualified approvals need to be from [Approver]s/[Maintainer]s
     affiliated with different companies. Two qualified approvals from
     [Approver]s or [Maintainer]s affiliated with the same company counts as a
     single qualified approval.
-  * PRs introducing changes that have already been discussed and consensus
+  - PRs introducing changes that have already been discussed and consensus
     reached only need one qualified approval. The discussion and resolution
     needs to be linked to the PR.
-  * Trivial changes[^2] only need one qualified approval.
+  - Trivial changes[^2] only need one qualified approval.
 
-* All feedback has been addressed.
-  * All PR comments and suggestions are resolved.
-  * All GitHub Pull Request reviews with a status of "Request changes" have
+- All feedback has been addressed.
+  - All PR comments and suggestions are resolved.
+  - All GitHub Pull Request reviews with a status of "Request changes" have
     been addressed. Another review by the objecting reviewer with a different
     status can be submitted to clear the original review, or the review can be
     dismissed by a [Maintainer] when the issues from the original review have
     been addressed.
-  * Any comments or reviews that cannot be resolved between the PR author and
+  - Any comments or reviews that cannot be resolved between the PR author and
     reviewers can be submitted to the community [Approver]s and [Maintainer]s
     during the weekly SIG meeting. If consensus is reached among the
     [Approver]s and [Maintainer]s during the SIG meeting the objections to the
     PR may be dismissed or resolved or the PR closed by a [Maintainer].
-  * Any substantive changes to the PR require existing Approval reviews be
+  - Any substantive changes to the PR require existing Approval reviews be
     cleared unless the approver explicitly states that their approval persists
     across changes. This includes changes resulting from other feedback.
     [Approver]s and [Maintainer]s can help in clearing reviews and they should
     be consulted if there are any questions.
 
-* The PR branch is up to date with the base branch it is merging into.
-  * To ensure this does not block the PR, it should be configured to allow
+- The PR branch is up to date with the base branch it is merging into.
+  - To ensure this does not block the PR, it should be configured to allow
     maintainers to update it.
 
-* It has been open for review for at least one working day. This gives people
+- It has been open for review for at least one working day. This gives people
   reasonable time to review.
-  * Trivial changes[^2] do not have to wait for one day and may be merged with
+  - Trivial changes[^2] do not have to wait for one day and may be merged with
     a single [Maintainer]'s approval.
 
-* All required GitHub workflows have succeeded.
-* Urgent fix can take exception as long as it has been actively communicated
+- All required GitHub workflows have succeeded.
+- Urgent fix can take exception as long as it has been actively communicated
   among [Maintainer]s.
 
 Any [Maintainer] can merge the PR once the above criteria have been met.
 
-[^1]: A qualified approval is a GitHub Pull Request review with "Approve"
-  status from an OpenTelemetry Go [Approver] or [Maintainer].
-[^2]: Trivial changes include: typo corrections, cosmetic non-substantive
-  changes, documentation corrections or updates, dependency updates, etc.
+[^1]:
+    A qualified approval is a GitHub Pull Request review with "Approve"
+    status from an OpenTelemetry Go [Approver] or [Maintainer].
+
+[^2]:
+    Trivial changes include: typo corrections, cosmetic non-substantive
+    changes, documentation corrections or updates, dependency updates, etc.
 
 ## Design Choices
 
@@ -188,10 +191,10 @@ Each functionality should be covered by tests.
 Performance-critical functionality should also be covered by benchmarks.
 
 - Pull requests adding a performance-critical functionality
-should have `go test -bench` output in their description.
+  should have `go test -bench` output in their description.
 - Pull requests changing a performance-critical functionality
-should have [`benchstat`](https://pkg.go.dev/golang.org/x/perf/cmd/benchstat)
-output in their description.
+  should have [`benchstat`](https://pkg.go.dev/golang.org/x/perf/cmd/benchstat)
+  output in their description.
 
 ## Documentation
 
@@ -205,10 +208,10 @@ In some cases, you can even create [Testable Examples](https://go.dev/blog/examp
 
 You can install and run a "local Go Doc site" in the following way:
 
-  ```sh
-  go install golang.org/x/pkgsite/cmd/pkgsite@latest
-  pkgsite
-  ```
+```sh
+go install golang.org/x/pkgsite/cmd/pkgsite@latest
+pkgsite
+```
 
 [`go.opentelemetry.io/otel/metric`](https://pkg.go.dev/go.opentelemetry.io/otel/metric)
 is an example of a very well-documented package.
@@ -272,7 +275,7 @@ how the user can extend the configuration.
 
 It is important that internal `config` are not shared across package boundaries.
 Meaning a `config` from one package should not be directly used by another. The
-one exception is the API packages.  The configs from the base API, eg.
+one exception is the API packages. The configs from the base API, eg.
 `go.opentelemetry.io/otel/trace.TracerConfig` and
 `go.opentelemetry.io/otel/metric.InstrumentConfig`, are intended to be consumed
 by the SDK therefore it is expected that these are exported.
@@ -606,11 +609,11 @@ There are two known exceptions to this rule:
 
 - `go.opentelemetry.io/otel/internal/global`
   - This package manages global state for all of opentelemetry-go. It needs to
-  be a single package in order to ensure the uniqueness of the global state.
+    be a single package in order to ensure the uniqueness of the global state.
 - `go.opentelemetry.io/otel/internal/baggage`
   - This package provides values in a `context.Context` that need to be
-  recognized by `go.opentelemetry.io/otel/baggage` and
-  `go.opentelemetry.io/otel/bridge/opentracing` but remain private.
+    recognized by `go.opentelemetry.io/otel/baggage` and
+    `go.opentelemetry.io/otel/bridge/opentracing` but remain private.
 
 If you have duplicate code in multiple modules, make that code into a Go
 template stored in `go.opentelemetry.io/otel/internal/shared` and use [gotmpl]

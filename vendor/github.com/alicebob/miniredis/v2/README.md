@@ -2,7 +2,6 @@
 
 Pure Go Redis test server, used in Go unittests.
 
-
 ##
 
 Sometimes you want to test code which uses Redis, without making it a full-blown
@@ -17,6 +16,7 @@ stack.
 There are no dependencies on external binaries, so you can easily integrate it in automated build processes.
 
 Be sure to import v2:
+
 ```
 import "github.com/alicebob/miniredis/v2"
 ```
@@ -25,208 +25,207 @@ import "github.com/alicebob/miniredis/v2"
 
 Implemented commands:
 
- - Connection (complete)
-   - AUTH -- see RequireAuth()
-   - ECHO
-   - HELLO -- see RequireUserAuth()
-   - PING
-   - SELECT
-   - SWAPDB
-   - QUIT
- - Key
-   - COPY
-   - DEL
-   - EXISTS
-   - EXPIRE
-   - EXPIREAT
-   - EXPIRETIME
-   - KEYS
-   - MOVE
-   - PERSIST
-   - PEXPIRE
-   - PEXPIREAT
-   - PEXPIRETIME
-   - PTTL
-   - RANDOMKEY -- see m.Seed(...)
-   - RENAME
-   - RENAMENX
-   - SCAN
-   - TOUCH
-   - TTL
-   - TYPE
-   - UNLINK
- - Transactions (complete)
-   - DISCARD
-   - EXEC
-   - MULTI
-   - UNWATCH
-   - WATCH
- - Server
-   - DBSIZE
-   - FLUSHALL
-   - FLUSHDB
-   - TIME -- returns time.Now() or value set by SetTime()
-   - COMMAND -- partly
-   - INFO -- partly, returns only "clients" section with one field "connected_clients"
- - String keys (complete)
-   - APPEND
-   - BITCOUNT
-   - BITOP
-   - BITPOS
-   - DECR
-   - DECRBY
-   - GET
-   - GETBIT
-   - GETRANGE
-   - GETSET
-   - GETDEL
-   - GETEX
-   - INCR
-   - INCRBY
-   - INCRBYFLOAT
-   - MGET
-   - MSET
-   - MSETNX
-   - PSETEX
-   - SET
-   - SETBIT
-   - SETEX
-   - SETNX
-   - SETRANGE
-   - STRLEN
- - Hash keys (complete)
-   - HDEL
-   - HEXISTS
-   - HGET
-   - HGETALL
-   - HINCRBY
-   - HINCRBYFLOAT
-   - HKEYS
-   - HLEN
-   - HMGET
-   - HMSET
-   - HRANDFIELD
-   - HSET
-   - HSETNX
-   - HSTRLEN
-   - HVALS
-   - HSCAN
- - List keys (complete)
-   - BLPOP
-   - BRPOP
-   - BRPOPLPUSH
-   - LINDEX
-   - LINSERT
-   - LLEN
-   - LPOP
-   - LPUSH
-   - LPUSHX
-   - LRANGE
-   - LREM
-   - LSET
-   - LTRIM
-   - RPOP
-   - RPOPLPUSH
-   - RPUSH
-   - RPUSHX
-   - LMOVE
-   - BLMOVE
- - Pub/Sub (complete)
-   - PSUBSCRIBE
-   - PUBLISH
-   - PUBSUB
-   - PUNSUBSCRIBE
-   - SUBSCRIBE
-   - UNSUBSCRIBE
- - Set keys (complete)
-   - SADD
-   - SCARD
-   - SDIFF
-   - SDIFFSTORE
-   - SINTER
-   - SINTERSTORE
-   - SINTERCARD
-   - SISMEMBER
-   - SMEMBERS
-   - SMISMEMBER
-   - SMOVE
-   - SPOP -- see m.Seed(...)
-   - SRANDMEMBER -- see m.Seed(...)
-   - SREM
-   - SSCAN
-   - SUNION
-   - SUNIONSTORE
- - Sorted Set keys (complete)
-   - ZADD
-   - ZCARD
-   - ZCOUNT
-   - ZINCRBY
-   - ZINTER
-   - ZINTERSTORE
-   - ZLEXCOUNT
-   - ZPOPMIN
-   - ZPOPMAX
-   - ZRANDMEMBER
-   - ZRANGE
-   - ZRANGEBYLEX
-   - ZRANGEBYSCORE
-   - ZRANK
-   - ZREM
-   - ZREMRANGEBYLEX
-   - ZREMRANGEBYRANK
-   - ZREMRANGEBYSCORE
-   - ZREVRANGE
-   - ZREVRANGEBYLEX
-   - ZREVRANGEBYSCORE
-   - ZREVRANK
-   - ZSCORE
-   - ZUNION
-   - ZUNIONSTORE
-   - ZSCAN
- - Stream keys
-   - XACK
-   - XADD
-   - XAUTOCLAIM
-   - XCLAIM
-   - XDEL
-   - XGROUP CREATE
-   - XGROUP CREATECONSUMER
-   - XGROUP DESTROY
-   - XGROUP DELCONSUMER
-   - XINFO STREAM -- partly
-   - XINFO GROUPS
-   - XINFO CONSUMERS -- partly
-   - XLEN
-   - XRANGE
-   - XREAD
-   - XREADGROUP
-   - XREVRANGE
-   - XPENDING
-   - XTRIM
- - Scripting
-   - EVAL
-   - EVALSHA
-   - SCRIPT LOAD
-   - SCRIPT EXISTS
-   - SCRIPT FLUSH
- - GEO
-   - GEOADD
-   - GEODIST
-   - ~~GEOHASH~~
-   - GEOPOS
-   - GEORADIUS
-   - GEORADIUS_RO
-   - GEORADIUSBYMEMBER
-   - GEORADIUSBYMEMBER_RO
- - Cluster
-   - CLUSTER SLOTS
-   - CLUSTER KEYSLOT
-   - CLUSTER NODES
- - HyperLogLog (complete)
-   - PFADD
-   - PFCOUNT
-   - PFMERGE
-
+- Connection (complete)
+  - AUTH -- see RequireAuth()
+  - ECHO
+  - HELLO -- see RequireUserAuth()
+  - PING
+  - SELECT
+  - SWAPDB
+  - QUIT
+- Key
+  - COPY
+  - DEL
+  - EXISTS
+  - EXPIRE
+  - EXPIREAT
+  - EXPIRETIME
+  - KEYS
+  - MOVE
+  - PERSIST
+  - PEXPIRE
+  - PEXPIREAT
+  - PEXPIRETIME
+  - PTTL
+  - RANDOMKEY -- see m.Seed(...)
+  - RENAME
+  - RENAMENX
+  - SCAN
+  - TOUCH
+  - TTL
+  - TYPE
+  - UNLINK
+- Transactions (complete)
+  - DISCARD
+  - EXEC
+  - MULTI
+  - UNWATCH
+  - WATCH
+- Server
+  - DBSIZE
+  - FLUSHALL
+  - FLUSHDB
+  - TIME -- returns time.Now() or value set by SetTime()
+  - COMMAND -- partly
+  - INFO -- partly, returns only "clients" section with one field "connected_clients"
+- String keys (complete)
+  - APPEND
+  - BITCOUNT
+  - BITOP
+  - BITPOS
+  - DECR
+  - DECRBY
+  - GET
+  - GETBIT
+  - GETRANGE
+  - GETSET
+  - GETDEL
+  - GETEX
+  - INCR
+  - INCRBY
+  - INCRBYFLOAT
+  - MGET
+  - MSET
+  - MSETNX
+  - PSETEX
+  - SET
+  - SETBIT
+  - SETEX
+  - SETNX
+  - SETRANGE
+  - STRLEN
+- Hash keys (complete)
+  - HDEL
+  - HEXISTS
+  - HGET
+  - HGETALL
+  - HINCRBY
+  - HINCRBYFLOAT
+  - HKEYS
+  - HLEN
+  - HMGET
+  - HMSET
+  - HRANDFIELD
+  - HSET
+  - HSETNX
+  - HSTRLEN
+  - HVALS
+  - HSCAN
+- List keys (complete)
+  - BLPOP
+  - BRPOP
+  - BRPOPLPUSH
+  - LINDEX
+  - LINSERT
+  - LLEN
+  - LPOP
+  - LPUSH
+  - LPUSHX
+  - LRANGE
+  - LREM
+  - LSET
+  - LTRIM
+  - RPOP
+  - RPOPLPUSH
+  - RPUSH
+  - RPUSHX
+  - LMOVE
+  - BLMOVE
+- Pub/Sub (complete)
+  - PSUBSCRIBE
+  - PUBLISH
+  - PUBSUB
+  - PUNSUBSCRIBE
+  - SUBSCRIBE
+  - UNSUBSCRIBE
+- Set keys (complete)
+  - SADD
+  - SCARD
+  - SDIFF
+  - SDIFFSTORE
+  - SINTER
+  - SINTERSTORE
+  - SINTERCARD
+  - SISMEMBER
+  - SMEMBERS
+  - SMISMEMBER
+  - SMOVE
+  - SPOP -- see m.Seed(...)
+  - SRANDMEMBER -- see m.Seed(...)
+  - SREM
+  - SSCAN
+  - SUNION
+  - SUNIONSTORE
+- Sorted Set keys (complete)
+  - ZADD
+  - ZCARD
+  - ZCOUNT
+  - ZINCRBY
+  - ZINTER
+  - ZINTERSTORE
+  - ZLEXCOUNT
+  - ZPOPMIN
+  - ZPOPMAX
+  - ZRANDMEMBER
+  - ZRANGE
+  - ZRANGEBYLEX
+  - ZRANGEBYSCORE
+  - ZRANK
+  - ZREM
+  - ZREMRANGEBYLEX
+  - ZREMRANGEBYRANK
+  - ZREMRANGEBYSCORE
+  - ZREVRANGE
+  - ZREVRANGEBYLEX
+  - ZREVRANGEBYSCORE
+  - ZREVRANK
+  - ZSCORE
+  - ZUNION
+  - ZUNIONSTORE
+  - ZSCAN
+- Stream keys
+  - XACK
+  - XADD
+  - XAUTOCLAIM
+  - XCLAIM
+  - XDEL
+  - XGROUP CREATE
+  - XGROUP CREATECONSUMER
+  - XGROUP DESTROY
+  - XGROUP DELCONSUMER
+  - XINFO STREAM -- partly
+  - XINFO GROUPS
+  - XINFO CONSUMERS -- partly
+  - XLEN
+  - XRANGE
+  - XREAD
+  - XREADGROUP
+  - XREVRANGE
+  - XPENDING
+  - XTRIM
+- Scripting
+  - EVAL
+  - EVALSHA
+  - SCRIPT LOAD
+  - SCRIPT EXISTS
+  - SCRIPT FLUSH
+- GEO
+  - GEOADD
+  - GEODIST
+  - ~~GEOHASH~~
+  - GEOPOS
+  - GEORADIUS
+  - GEORADIUS_RO
+  - GEORADIUSBYMEMBER
+  - GEORADIUSBYMEMBER_RO
+- Cluster
+  - CLUSTER SLOTS
+  - CLUSTER KEYSLOT
+  - CLUSTER NODES
+- HyperLogLog (complete)
+  - PFADD
+  - PFCOUNT
+  - PFMERGE
 
 ## TTLs, key expiration, and time
 
@@ -255,7 +254,7 @@ Commands which use randomness are: RANDOMKEY, SPOP, and SRANDMEMBER.
 
 ## Example
 
-``` Go
+```Go
 
 import (
     ...
@@ -296,34 +295,33 @@ func TestSomething(t *testing.T) {
 
 Commands which will probably not be implemented:
 
- - CLUSTER (all)
-    - ~~CLUSTER *~~
-    - ~~READONLY~~
-    - ~~READWRITE~~
- - Key
-    - ~~DUMP~~
-    - ~~MIGRATE~~
-    - ~~OBJECT~~
-    - ~~RESTORE~~
-    - ~~WAIT~~
- - Scripting
-    - ~~SCRIPT DEBUG~~
-    - ~~SCRIPT KILL~~
- - Server
-    - ~~BGSAVE~~
-    - ~~BGWRITEAOF~~
-    - ~~CLIENT *~~
-    - ~~CONFIG *~~
-    - ~~DEBUG *~~
-    - ~~LASTSAVE~~
-    - ~~MONITOR~~
-    - ~~ROLE~~
-    - ~~SAVE~~
-    - ~~SHUTDOWN~~
-    - ~~SLAVEOF~~
-    - ~~SLOWLOG~~
-    - ~~SYNC~~
-
+- CLUSTER (all)
+  - ~~CLUSTER \*~~
+  - ~~READONLY~~
+  - ~~READWRITE~~
+- Key
+  - ~~DUMP~~
+  - ~~MIGRATE~~
+  - ~~OBJECT~~
+  - ~~RESTORE~~
+  - ~~WAIT~~
+- Scripting
+  - ~~SCRIPT DEBUG~~
+  - ~~SCRIPT KILL~~
+- Server
+  - ~~BGSAVE~~
+  - ~~BGWRITEAOF~~
+  - ~~CLIENT \*~~
+  - ~~CONFIG \*~~
+  - ~~DEBUG \*~~
+  - ~~LASTSAVE~~
+  - ~~MONITOR~~
+  - ~~ROLE~~
+  - ~~SAVE~~
+  - ~~SHUTDOWN~~
+  - ~~SLAVEOF~~
+  - ~~SLOWLOG~~
+  - ~~SYNC~~
 
 ## &c.
 

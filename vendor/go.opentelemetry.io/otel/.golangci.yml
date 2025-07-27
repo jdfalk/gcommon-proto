@@ -49,7 +49,7 @@ issues:
     # TODO: Having appropriate comments for exported objects helps development,
     # even for objects in internal packages. Appropriate comments for all
     # exported objects should be added and this exclusion removed.
-    - path: '.*internal/.*'
+    - path: ".*internal/.*"
       text: "exported (method|function|type|const) (.+) should have comment or be unexported"
       linters:
         - revive
@@ -155,9 +155,9 @@ linters-settings:
       # Exclude links.
       - '^ *\[[^]]+\]:'
       # Exclude sentence fragments for lists.
-      - '^[ ]*[-•]'
+      - "^[ ]*[-•]"
       # Exclude sentences prefixing a list.
-      - ':$'
+      - ":$"
   goimports:
     local-prefixes: go.opentelemetry.io
   misspell:

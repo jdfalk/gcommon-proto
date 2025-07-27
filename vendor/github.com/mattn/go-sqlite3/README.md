@@ -1,9 +1,8 @@
-go-sqlite3
-==========
+# go-sqlite3
 
 [![Go Reference](https://pkg.go.dev/badge/github.com/mattn/go-sqlite3.svg)](https://pkg.go.dev/github.com/mattn/go-sqlite3)
 [![GitHub Actions](https://github.com/mattn/go-sqlite3/workflows/Go/badge.svg)](https://github.com/mattn/go-sqlite3/actions?query=workflow%3AGo)
-[![Financial Contributors on Open Collective](https://opencollective.com/mattn-go-sqlite3/all/badge.svg?label=financial+contributors)](https://opencollective.com/mattn-go-sqlite3) 
+[![Financial Contributors on Open Collective](https://opencollective.com/mattn-go-sqlite3/all/badge.svg?label=financial+contributors)](https://opencollective.com/mattn-go-sqlite3)
 [![codecov](https://codecov.io/gh/mattn/go-sqlite3/branch/master/graph/badge.svg)](https://codecov.io/gh/mattn/go-sqlite3)
 [![Go Report Card](https://goreportcard.com/badge/github.com/mattn/go-sqlite3)](https://goreportcard.com/report/github.com/mattn/go-sqlite3)
 
@@ -23,14 +22,14 @@ This package follows the official [Golang Release Policy](https://golang.org/doc
 
 - [go-sqlite3](#go-sqlite3)
 - [Description](#description)
-    - [Overview](#overview)
+  - [Overview](#overview)
 - [Installation](#installation)
 - [API Reference](#api-reference)
 - [Connection String](#connection-string)
   - [DSN Examples](#dsn-examples)
 - [Features](#features)
-    - [Usage](#usage)
-    - [Feature / Extension List](#feature--extension-list)
+  - [Usage](#usage)
+  - [Feature / Extension List](#feature--extension-list)
 - [Compilation](#compilation)
   - [Android](#android)
 - [ARM](#arm)
@@ -54,7 +53,7 @@ This package follows the official [Golang Release Policy](https://golang.org/doc
     - [User Management](#user-management)
       - [SQL](#sql)
         - [Examples](#examples)
-      - [*SQLiteConn](#sqliteconn)
+      - [\*SQLiteConn](#sqliteconn)
     - [Attached database](#attached-database)
 - [Extensions](#extensions)
   - [Spatialite](#spatialite)
@@ -68,10 +67,10 @@ This package can be installed with the `go get` command:
 
     go get github.com/mattn/go-sqlite3
 
-_go-sqlite3_ is *cgo* package.
+_go-sqlite3_ is _cgo_ package.
 If you want to build your app using go-sqlite3, you need gcc.
 
-***Important: because this is a `CGO` enabled package, you are required to set the environment variable `CGO_ENABLED=1` and have a `gcc` compiler present within your path.***
+**_Important: because this is a `CGO` enabled package, you are required to set the environment variable `CGO_ENABLED=1` and have a `gcc` compiler present within your path._**
 
 # API Reference
 
@@ -95,37 +94,37 @@ Options can be given using the following format: `KEYWORD=VALUE` and multiple op
 This library supports DSN options of SQLite itself and provides additional options.
 
 Boolean values can be one of:
-* `0` `no` `false` `off`
-* `1` `yes` `true` `on`
 
-| Name | Key | Value(s) | Description |
-|------|-----|----------|-------------|
-| UA - Create | `_auth` | - | Create User Authentication, for more information see [User Authentication](#user-authentication) |
-| UA - Username | `_auth_user` | `string` | Username for User Authentication, for more information see [User Authentication](#user-authentication) |
-| UA - Password | `_auth_pass` | `string` | Password for User Authentication, for more information see [User Authentication](#user-authentication) |
-| UA - Crypt | `_auth_crypt` | <ul><li>SHA1</li><li>SSHA1</li><li>SHA256</li><li>SSHA256</li><li>SHA384</li><li>SSHA384</li><li>SHA512</li><li>SSHA512</li></ul> | Password encoder to use for User Authentication, for more information see [User Authentication](#user-authentication) |
-| UA - Salt | `_auth_salt` | `string` | Salt to use if the configure password encoder requires a salt, for User Authentication, for more information see [User Authentication](#user-authentication) |
-| Auto Vacuum | `_auto_vacuum` \| `_vacuum` | <ul><li>`0` \| `none`</li><li>`1` \| `full`</li><li>`2` \| `incremental`</li></ul> | For more information see [PRAGMA auto_vacuum](https://www.sqlite.org/pragma.html#pragma_auto_vacuum) |
-| Busy Timeout | `_busy_timeout` \| `_timeout` | `int` | Specify value for sqlite3_busy_timeout. For more information see [PRAGMA busy_timeout](https://www.sqlite.org/pragma.html#pragma_busy_timeout) |
-| Case Sensitive LIKE | `_case_sensitive_like` \| `_cslike` | `boolean` | For more information see [PRAGMA case_sensitive_like](https://www.sqlite.org/pragma.html#pragma_case_sensitive_like) |
-| Defer Foreign Keys | `_defer_foreign_keys` \| `_defer_fk` | `boolean` | For more information see [PRAGMA defer_foreign_keys](https://www.sqlite.org/pragma.html#pragma_defer_foreign_keys) |
-| Foreign Keys | `_foreign_keys` \| `_fk` | `boolean` | For more information see [PRAGMA foreign_keys](https://www.sqlite.org/pragma.html#pragma_foreign_keys) |
-| Ignore CHECK Constraints | `_ignore_check_constraints` | `boolean` | For more information see [PRAGMA ignore_check_constraints](https://www.sqlite.org/pragma.html#pragma_ignore_check_constraints) |
-| Immutable | `immutable` | `boolean` | For more information see [Immutable](https://www.sqlite.org/c3ref/open.html) |
-| Journal Mode | `_journal_mode` \| `_journal` | <ul><li>DELETE</li><li>TRUNCATE</li><li>PERSIST</li><li>MEMORY</li><li>WAL</li><li>OFF</li></ul> | For more information see [PRAGMA journal_mode](https://www.sqlite.org/pragma.html#pragma_journal_mode) |
-| Locking Mode | `_locking_mode` \| `_locking` | <ul><li>NORMAL</li><li>EXCLUSIVE</li></ul> | For more information see [PRAGMA locking_mode](https://www.sqlite.org/pragma.html#pragma_locking_mode) |
-| Mode | `mode` | <ul><li>ro</li><li>rw</li><li>rwc</li><li>memory</li></ul> | Access Mode of the database. For more information see [SQLite Open](https://www.sqlite.org/c3ref/open.html) |
-| Mutex Locking | `_mutex` | <ul><li>no</li><li>full</li></ul> | Specify mutex mode. |
-| Query Only | `_query_only` | `boolean` | For more information see [PRAGMA query_only](https://www.sqlite.org/pragma.html#pragma_query_only) |
-| Recursive Triggers | `_recursive_triggers` \| `_rt` | `boolean` | For more information see [PRAGMA recursive_triggers](https://www.sqlite.org/pragma.html#pragma_recursive_triggers) |
-| Secure Delete | `_secure_delete` | `boolean` \| `FAST` | For more information see [PRAGMA secure_delete](https://www.sqlite.org/pragma.html#pragma_secure_delete) |
-| Shared-Cache Mode | `cache` | <ul><li>shared</li><li>private</li></ul> | Set cache mode for more information see [sqlite.org](https://www.sqlite.org/sharedcache.html) |
-| Synchronous | `_synchronous` \| `_sync` | <ul><li>0 \| OFF</li><li>1 \| NORMAL</li><li>2 \| FULL</li><li>3 \| EXTRA</li></ul> | For more information see [PRAGMA synchronous](https://www.sqlite.org/pragma.html#pragma_synchronous) |
-| Time Zone Location | `_loc` | auto | Specify location of time format. |
-| Transaction Lock | `_txlock` | <ul><li>immediate</li><li>deferred</li><li>exclusive</li></ul> | Specify locking behavior for transactions. |
-| Writable Schema | `_writable_schema` | `Boolean` | When this pragma is on, the SQLITE_MASTER tables in which database can be changed using ordinary UPDATE, INSERT, and DELETE statements. Warning: misuse of this pragma can easily result in a corrupt database file. |
-| Cache Size | `_cache_size` | `int` | Maximum cache size; default is 2000K (2M). See [PRAGMA cache_size](https://sqlite.org/pragma.html#pragma_cache_size) |
+- `0` `no` `false` `off`
+- `1` `yes` `true` `on`
 
+| Name                     | Key                                  | Value(s)                                                                                                                          | Description                                                                                                                                                                                                          |
+| ------------------------ | ------------------------------------ | --------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| UA - Create              | `_auth`                              | -                                                                                                                                 | Create User Authentication, for more information see [User Authentication](#user-authentication)                                                                                                                     |
+| UA - Username            | `_auth_user`                         | `string`                                                                                                                          | Username for User Authentication, for more information see [User Authentication](#user-authentication)                                                                                                               |
+| UA - Password            | `_auth_pass`                         | `string`                                                                                                                          | Password for User Authentication, for more information see [User Authentication](#user-authentication)                                                                                                               |
+| UA - Crypt               | `_auth_crypt`                        | <ul><li>SHA1</li><li>SSHA1</li><li>SHA256</li><li>SSHA256</li><li>SHA384</li><li>SSHA384</li><li>SHA512</li><li>SSHA512</li></ul> | Password encoder to use for User Authentication, for more information see [User Authentication](#user-authentication)                                                                                                |
+| UA - Salt                | `_auth_salt`                         | `string`                                                                                                                          | Salt to use if the configure password encoder requires a salt, for User Authentication, for more information see [User Authentication](#user-authentication)                                                         |
+| Auto Vacuum              | `_auto_vacuum` \| `_vacuum`          | <ul><li>`0` \| `none`</li><li>`1` \| `full`</li><li>`2` \| `incremental`</li></ul>                                                | For more information see [PRAGMA auto_vacuum](https://www.sqlite.org/pragma.html#pragma_auto_vacuum)                                                                                                                 |
+| Busy Timeout             | `_busy_timeout` \| `_timeout`        | `int`                                                                                                                             | Specify value for sqlite3_busy_timeout. For more information see [PRAGMA busy_timeout](https://www.sqlite.org/pragma.html#pragma_busy_timeout)                                                                       |
+| Case Sensitive LIKE      | `_case_sensitive_like` \| `_cslike`  | `boolean`                                                                                                                         | For more information see [PRAGMA case_sensitive_like](https://www.sqlite.org/pragma.html#pragma_case_sensitive_like)                                                                                                 |
+| Defer Foreign Keys       | `_defer_foreign_keys` \| `_defer_fk` | `boolean`                                                                                                                         | For more information see [PRAGMA defer_foreign_keys](https://www.sqlite.org/pragma.html#pragma_defer_foreign_keys)                                                                                                   |
+| Foreign Keys             | `_foreign_keys` \| `_fk`             | `boolean`                                                                                                                         | For more information see [PRAGMA foreign_keys](https://www.sqlite.org/pragma.html#pragma_foreign_keys)                                                                                                               |
+| Ignore CHECK Constraints | `_ignore_check_constraints`          | `boolean`                                                                                                                         | For more information see [PRAGMA ignore_check_constraints](https://www.sqlite.org/pragma.html#pragma_ignore_check_constraints)                                                                                       |
+| Immutable                | `immutable`                          | `boolean`                                                                                                                         | For more information see [Immutable](https://www.sqlite.org/c3ref/open.html)                                                                                                                                         |
+| Journal Mode             | `_journal_mode` \| `_journal`        | <ul><li>DELETE</li><li>TRUNCATE</li><li>PERSIST</li><li>MEMORY</li><li>WAL</li><li>OFF</li></ul>                                  | For more information see [PRAGMA journal_mode](https://www.sqlite.org/pragma.html#pragma_journal_mode)                                                                                                               |
+| Locking Mode             | `_locking_mode` \| `_locking`        | <ul><li>NORMAL</li><li>EXCLUSIVE</li></ul>                                                                                        | For more information see [PRAGMA locking_mode](https://www.sqlite.org/pragma.html#pragma_locking_mode)                                                                                                               |
+| Mode                     | `mode`                               | <ul><li>ro</li><li>rw</li><li>rwc</li><li>memory</li></ul>                                                                        | Access Mode of the database. For more information see [SQLite Open](https://www.sqlite.org/c3ref/open.html)                                                                                                          |
+| Mutex Locking            | `_mutex`                             | <ul><li>no</li><li>full</li></ul>                                                                                                 | Specify mutex mode.                                                                                                                                                                                                  |
+| Query Only               | `_query_only`                        | `boolean`                                                                                                                         | For more information see [PRAGMA query_only](https://www.sqlite.org/pragma.html#pragma_query_only)                                                                                                                   |
+| Recursive Triggers       | `_recursive_triggers` \| `_rt`       | `boolean`                                                                                                                         | For more information see [PRAGMA recursive_triggers](https://www.sqlite.org/pragma.html#pragma_recursive_triggers)                                                                                                   |
+| Secure Delete            | `_secure_delete`                     | `boolean` \| `FAST`                                                                                                               | For more information see [PRAGMA secure_delete](https://www.sqlite.org/pragma.html#pragma_secure_delete)                                                                                                             |
+| Shared-Cache Mode        | `cache`                              | <ul><li>shared</li><li>private</li></ul>                                                                                          | Set cache mode for more information see [sqlite.org](https://www.sqlite.org/sharedcache.html)                                                                                                                        |
+| Synchronous              | `_synchronous` \| `_sync`            | <ul><li>0 \| OFF</li><li>1 \| NORMAL</li><li>2 \| FULL</li><li>3 \| EXTRA</li></ul>                                               | For more information see [PRAGMA synchronous](https://www.sqlite.org/pragma.html#pragma_synchronous)                                                                                                                 |
+| Time Zone Location       | `_loc`                               | auto                                                                                                                              | Specify location of time format.                                                                                                                                                                                     |
+| Transaction Lock         | `_txlock`                            | <ul><li>immediate</li><li>deferred</li><li>exclusive</li></ul>                                                                    | Specify locking behavior for transactions.                                                                                                                                                                           |
+| Writable Schema          | `_writable_schema`                   | `Boolean`                                                                                                                         | When this pragma is on, the SQLITE_MASTER tables in which database can be changed using ordinary UPDATE, INSERT, and DELETE statements. Warning: misuse of this pragma can easily result in a corrupt database file. |
+| Cache Size               | `_cache_size`                        | `int`                                                                                                                             | Maximum cache size; default is 2000K (2M). See [PRAGMA cache_size](https://sqlite.org/pragma.html#pragma_cache_size)                                                                                                 |
 
 ## DSN Examples
 
@@ -158,28 +157,28 @@ go build -tags "icu json1 fts5 secure_delete"
 
 ### Feature / Extension List
 
-| Extension | Build Tag | Description |
-|-----------|-----------|-------------|
-| Additional Statistics | sqlite_stat4 | This option adds additional logic to the ANALYZE command and to the query planner that can help SQLite to chose a better query plan under certain situations. The ANALYZE command is enhanced to collect histogram data from all columns of every index and store that data in the sqlite_stat4 table.<br><br>The query planner will then use the histogram data to help it make better index choices. The downside of this compile-time option is that it violates the query planner stability guarantee making it more difficult to ensure consistent performance in mass-produced applications.<br><br>SQLITE_ENABLE_STAT4 is an enhancement of SQLITE_ENABLE_STAT3. STAT3 only recorded histogram data for the left-most column of each index whereas the STAT4 enhancement records histogram data from all columns of each index.<br><br>The SQLITE_ENABLE_STAT3 compile-time option is a no-op and is ignored if the SQLITE_ENABLE_STAT4 compile-time option is used |
-| Allow URI Authority | sqlite_allow_uri_authority | URI filenames normally throws an error if the authority section is not either empty or "localhost".<br><br>However, if SQLite is compiled with the SQLITE_ALLOW_URI_AUTHORITY compile-time option, then the URI is converted into a Uniform Naming Convention (UNC) filename and passed down to the underlying operating system that way |
-| App Armor | sqlite_app_armor | When defined, this C-preprocessor macro activates extra code that attempts to detect misuse of the SQLite API, such as passing in NULL pointers to required parameters or using objects after they have been destroyed. <br><br>App Armor is not available under `Windows`. |
-| Disable Load Extensions | sqlite_omit_load_extension | Loading of external extensions is enabled by default.<br><br>To disable extension loading add the build tag `sqlite_omit_load_extension`. |
-| Enable Serialization with `libsqlite3` | sqlite_serialize | Serialization and deserialization of a SQLite database is available by default, unless the build tag `libsqlite3` is set.<br><br>To enable this functionality even if `libsqlite3` is set, add the build tag `sqlite_serialize`. |
-| Foreign Keys | sqlite_foreign_keys | This macro determines whether enforcement of foreign key constraints is enabled or disabled by default for new database connections.<br><br>Each database connection can always turn enforcement of foreign key constraints on and off and run-time using the foreign_keys pragma.<br><br>Enforcement of foreign key constraints is normally off by default, but if this compile-time parameter is set to 1, enforcement of foreign key constraints will be on by default | 
-| Full Auto Vacuum | sqlite_vacuum_full | Set the default auto vacuum to full |
-| Incremental Auto Vacuum | sqlite_vacuum_incr | Set the default auto vacuum to incremental |
-| Full Text Search Engine | sqlite_fts5 | When this option is defined in the amalgamation, versions 5 of the full-text search engine (fts5) is added to the build automatically |
-|  International Components for Unicode | sqlite_icu | This option causes the International Components for Unicode or "ICU" extension to SQLite to be added to the build |
-| Introspect PRAGMAS | sqlite_introspect | This option adds some extra PRAGMA statements. <ul><li>PRAGMA function_list</li><li>PRAGMA module_list</li><li>PRAGMA pragma_list</li></ul> |
-| JSON SQL Functions | sqlite_json | When this option is defined in the amalgamation, the JSON SQL functions are added to the build automatically |
-| Math Functions | sqlite_math_functions | This compile-time option enables built-in scalar math functions. For more information see [Built-In Mathematical SQL Functions](https://www.sqlite.org/lang_mathfunc.html) |
-| OS Trace | sqlite_os_trace | This option enables OSTRACE() debug logging. This can be verbose and should not be used in production. |
-| Pre Update Hook | sqlite_preupdate_hook | Registers a callback function that is invoked prior to each INSERT, UPDATE, and DELETE operation on a database table. |
-| Secure Delete | sqlite_secure_delete | This compile-time option changes the default setting of the secure_delete pragma.<br><br>When this option is not used, secure_delete defaults to off. When this option is present, secure_delete defaults to on.<br><br>The secure_delete setting causes deleted content to be overwritten with zeros. There is a small performance penalty since additional I/O must occur.<br><br>On the other hand, secure_delete can prevent fragments of sensitive information from lingering in unused parts of the database file after it has been deleted. See the documentation on the secure_delete pragma for additional information |
-| Secure Delete (FAST) | sqlite_secure_delete_fast | For more information see [PRAGMA secure_delete](https://www.sqlite.org/pragma.html#pragma_secure_delete) |
-| Tracing / Debug | sqlite_trace | Activate trace functions |
-| User Authentication | sqlite_userauth | SQLite User Authentication see [User Authentication](#user-authentication) for more information. |
-| Virtual Tables | sqlite_vtable | SQLite Virtual Tables see [SQLite Official VTABLE Documentation](https://www.sqlite.org/vtab.html) for more information, and a [full example here](https://github.com/mattn/go-sqlite3/tree/master/_example/vtable) |
+| Extension                              | Build Tag                  | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
+| -------------------------------------- | -------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Additional Statistics                  | sqlite_stat4               | This option adds additional logic to the ANALYZE command and to the query planner that can help SQLite to chose a better query plan under certain situations. The ANALYZE command is enhanced to collect histogram data from all columns of every index and store that data in the sqlite_stat4 table.<br><br>The query planner will then use the histogram data to help it make better index choices. The downside of this compile-time option is that it violates the query planner stability guarantee making it more difficult to ensure consistent performance in mass-produced applications.<br><br>SQLITE_ENABLE_STAT4 is an enhancement of SQLITE_ENABLE_STAT3. STAT3 only recorded histogram data for the left-most column of each index whereas the STAT4 enhancement records histogram data from all columns of each index.<br><br>The SQLITE_ENABLE_STAT3 compile-time option is a no-op and is ignored if the SQLITE_ENABLE_STAT4 compile-time option is used |
+| Allow URI Authority                    | sqlite_allow_uri_authority | URI filenames normally throws an error if the authority section is not either empty or "localhost".<br><br>However, if SQLite is compiled with the SQLITE_ALLOW_URI_AUTHORITY compile-time option, then the URI is converted into a Uniform Naming Convention (UNC) filename and passed down to the underlying operating system that way                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   |
+| App Armor                              | sqlite_app_armor           | When defined, this C-preprocessor macro activates extra code that attempts to detect misuse of the SQLite API, such as passing in NULL pointers to required parameters or using objects after they have been destroyed. <br><br>App Armor is not available under `Windows`.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
+| Disable Load Extensions                | sqlite_omit_load_extension | Loading of external extensions is enabled by default.<br><br>To disable extension loading add the build tag `sqlite_omit_load_extension`.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
+| Enable Serialization with `libsqlite3` | sqlite_serialize           | Serialization and deserialization of a SQLite database is available by default, unless the build tag `libsqlite3` is set.<br><br>To enable this functionality even if `libsqlite3` is set, add the build tag `sqlite_serialize`.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
+| Foreign Keys                           | sqlite_foreign_keys        | This macro determines whether enforcement of foreign key constraints is enabled or disabled by default for new database connections.<br><br>Each database connection can always turn enforcement of foreign key constraints on and off and run-time using the foreign_keys pragma.<br><br>Enforcement of foreign key constraints is normally off by default, but if this compile-time parameter is set to 1, enforcement of foreign key constraints will be on by default                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
+| Full Auto Vacuum                       | sqlite_vacuum_full         | Set the default auto vacuum to full                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
+| Incremental Auto Vacuum                | sqlite_vacuum_incr         | Set the default auto vacuum to incremental                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
+| Full Text Search Engine                | sqlite_fts5                | When this option is defined in the amalgamation, versions 5 of the full-text search engine (fts5) is added to the build automatically                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
+| International Components for Unicode   | sqlite_icu                 | This option causes the International Components for Unicode or "ICU" extension to SQLite to be added to the build                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          |
+| Introspect PRAGMAS                     | sqlite_introspect          | This option adds some extra PRAGMA statements. <ul><li>PRAGMA function_list</li><li>PRAGMA module_list</li><li>PRAGMA pragma_list</li></ul>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
+| JSON SQL Functions                     | sqlite_json                | When this option is defined in the amalgamation, the JSON SQL functions are added to the build automatically                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               |
+| Math Functions                         | sqlite_math_functions      | This compile-time option enables built-in scalar math functions. For more information see [Built-In Mathematical SQL Functions](https://www.sqlite.org/lang_mathfunc.html)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
+| OS Trace                               | sqlite_os_trace            | This option enables OSTRACE() debug logging. This can be verbose and should not be used in production.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
+| Pre Update Hook                        | sqlite_preupdate_hook      | Registers a callback function that is invoked prior to each INSERT, UPDATE, and DELETE operation on a database table.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
+| Secure Delete                          | sqlite_secure_delete       | This compile-time option changes the default setting of the secure_delete pragma.<br><br>When this option is not used, secure_delete defaults to off. When this option is present, secure_delete defaults to on.<br><br>The secure_delete setting causes deleted content to be overwritten with zeros. There is a small performance penalty since additional I/O must occur.<br><br>On the other hand, secure_delete can prevent fragments of sensitive information from lingering in unused parts of the database file after it has been deleted. See the documentation on the secure_delete pragma for additional information                                                                                                                                                                                                                                                                                                                                            |
+| Secure Delete (FAST)                   | sqlite_secure_delete_fast  | For more information see [PRAGMA secure_delete](https://www.sqlite.org/pragma.html#pragma_secure_delete)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   |
+| Tracing / Debug                        | sqlite_trace               | Activate trace functions                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   |
+| User Authentication                    | sqlite_userauth            | SQLite User Authentication see [User Authentication](#user-authentication) for more information.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
+| Virtual Tables                         | sqlite_vtable              | SQLite Virtual Tables see [SQLite Official VTABLE Documentation](https://www.sqlite.org/vtab.html) for more information, and a [full example here](https://github.com/mattn/go-sqlite3/tree/master/_example/vtable)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
 
 # Compilation
 
@@ -205,10 +204,11 @@ To compile for `ARM` use the following environment:
 ```bash
 env CC=arm-linux-gnueabihf-gcc CXX=arm-linux-gnueabihf-g++ \
     CGO_ENABLED=1 GOOS=linux GOARCH=arm GOARM=7 \
-    go build -v 
+    go build -v
 ```
 
 Additional information:
+
 - [#242](https://github.com/mattn/go-sqlite3/issues/242)
 - [#504](https://github.com/mattn/go-sqlite3/issues/504)
 
@@ -219,9 +219,11 @@ This library can be cross-compiled.
 In some cases you are required to the `CC` environment variable with the cross compiler.
 
 ## Cross Compiling from macOS
+
 The simplest way to cross compile from macOS is to use [xgo](https://github.com/karalabe/xgo).
 
 Steps:
+
 - Install [musl-cross](https://github.com/FiloSottile/homebrew-musl-cross) (`brew install FiloSottile/musl-cross/musl-cross`).
 - Run `CC=x86_64-linux-musl-gcc CXX=x86_64-linux-musl-g++ GOARCH=amd64 GOOS=linux CGO_ENABLED=1 go build -ldflags "-linkmode external -extldflags -static"`.
 
@@ -247,7 +249,7 @@ go build -tags "libsqlite3 linux"
 
 ### Alpine
 
-When building in an `alpine` container  run the following command before building:
+When building in an `alpine` container run the following command before building:
 
 ```
 apk add --update gcc musl-dev
@@ -298,13 +300,14 @@ go build -tags "darwin arm64"
 If you wish to link directly to libsqlite3, use the `libsqlite3` build tag:
 
 ```
-# x86 
+# x86
 go build -tags "libsqlite3 darwin amd64"
 # ARM
 go build -tags "libsqlite3 darwin arm64"
 ```
 
 Additional information:
+
 - [#206](https://github.com/mattn/go-sqlite3/issues/206)
 - [#404](https://github.com/mattn/go-sqlite3/issues/404)
 
@@ -312,10 +315,10 @@ Additional information:
 
 To compile this package on Windows, you must have the `gcc` compiler installed.
 
-1) Install a Windows `gcc` toolchain.
-2) Add the `bin` folder to the Windows path, if the installer did not do this by default.
-3) Open a terminal for the TDM-GCC toolchain, which can be found in the Windows Start menu.
-4) Navigate to your project folder and run the `go build ...` command for this package.
+1. Install a Windows `gcc` toolchain.
+2. Add the `bin` folder to the Windows path, if the installer did not do this by default.
+3. Open a terminal for the TDM-GCC toolchain, which can be found in the Windows Start menu.
+4. Navigate to your project folder and run the `go build ...` command for this package.
 
 For example the TDM-GCC Toolchain can be found [here](https://jmeubank.github.io/tdm-gcc/).
 
@@ -323,31 +326,31 @@ For example the TDM-GCC Toolchain can be found [here](https://jmeubank.github.io
 
 - Compile error: `can not be used when making a shared object; recompile with -fPIC`
 
-    When receiving a compile time error referencing recompile with `-FPIC` then you
-    are probably using a hardend system.
+  When receiving a compile time error referencing recompile with `-FPIC` then you
+  are probably using a hardend system.
 
-    You can compile the library on a hardend system with the following command.
+  You can compile the library on a hardend system with the following command.
 
-    ```bash
-    go build -ldflags '-extldflags=-fno-PIC'
-    ```
+  ```bash
+  go build -ldflags '-extldflags=-fno-PIC'
+  ```
 
-    More details see [#120](https://github.com/mattn/go-sqlite3/issues/120)
+  More details see [#120](https://github.com/mattn/go-sqlite3/issues/120)
 
 - Can't build go-sqlite3 on windows 64bit.
 
-    > Probably, you are using go 1.0, go1.0 has a problem when it comes to compiling/linking on windows 64bit.
-    > See: [#27](https://github.com/mattn/go-sqlite3/issues/27)
+  > Probably, you are using go 1.0, go1.0 has a problem when it comes to compiling/linking on windows 64bit.
+  > See: [#27](https://github.com/mattn/go-sqlite3/issues/27)
 
 - `go get github.com/mattn/go-sqlite3` throws compilation error.
 
-    `gcc` throws: `internal compiler error`
+  `gcc` throws: `internal compiler error`
 
-    Remove the download repository from your disk and try re-install with:
+  Remove the download repository from your disk and try re-install with:
 
-    ```bash
-    go install github.com/mattn/go-sqlite3
-    ```
+  ```bash
+  go install github.com/mattn/go-sqlite3
+  ```
 
 # User Authentication
 
@@ -419,12 +422,12 @@ User management can be done by directly using the `*SQLiteConn` or by SQL.
 
 The following sql functions are available for user management:
 
-| Function | Arguments | Description |
-|----------|-----------|-------------|
-| `authenticate` | username `string`, password `string` | Will authenticate an user, this is done by the connection; and should not be used manually. |
-| `auth_user_add` | username `string`, password `string`, admin `int` | This function will add an user to the database.<br>if the database is not protected by user authentication it will enable it. Argument `admin` is an integer identifying if the added user should be an administrator. Only Administrators can add administrators. |
-| `auth_user_change` | username `string`, password `string`, admin `int` | Function to modify an user. Users can change their own password, but only an administrator can change the administrator flag. |
-| `authUserDelete` | username `string` | Delete an user from the database. Can only be used by an administrator. The current logged in administrator cannot be deleted. This is to make sure their is always an administrator remaining. |
+| Function           | Arguments                                         | Description                                                                                                                                                                                                                                                        |
+| ------------------ | ------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `authenticate`     | username `string`, password `string`              | Will authenticate an user, this is done by the connection; and should not be used manually.                                                                                                                                                                        |
+| `auth_user_add`    | username `string`, password `string`, admin `int` | This function will add an user to the database.<br>if the database is not protected by user authentication it will enable it. Argument `admin` is an integer identifying if the added user should be an administrator. Only Administrators can add administrators. |
+| `auth_user_change` | username `string`, password `string`, admin `int` | Function to modify an user. Users can change their own password, but only an administrator can change the administrator flag.                                                                                                                                      |
+| `authUserDelete`   | username `string`                                 | Delete an user from the database. Can only be used by an administrator. The current logged in administrator cannot be deleted. This is to make sure their is always an administrator remaining.                                                                    |
 
 These functions will return an integer:
 
@@ -445,16 +448,16 @@ SELECT auth_user_change('user', 'userpassword', 0);
 SELECT user_delete('user');
 ```
 
-#### *SQLiteConn
+#### \*SQLiteConn
 
 The following functions are available for User authentication from the `*SQLiteConn`:
 
-| Function | Description |
-|----------|-------------|
-| `Authenticate(username, password string) error` | Authenticate user |
-| `AuthUserAdd(username, password string, admin bool) error` | Add user |
-| `AuthUserChange(username, password string, admin bool) error` | Modify user |
-| `AuthUserDelete(username string) error` | Delete user |
+| Function                                                      | Description       |
+| ------------------------------------------------------------- | ----------------- |
+| `Authenticate(username, password string) error`               | Authenticate user |
+| `AuthUserAdd(username, password string, admin bool) error`    | Add user          |
+| `AuthUserChange(username, password string, admin bool) error` | Modify user       |
+| `AuthUserDelete(username string) error`                       | Delete user       |
 
 ### Attached database
 
@@ -483,73 +486,74 @@ For an example, see [dinedal/go-sqlite3-extension-functions](https://github.com/
 
 - Getting insert error while query is opened.
 
-    > You can pass some arguments into the connection string, for example, a URI.
-    > See: [#39](https://github.com/mattn/go-sqlite3/issues/39)
+  > You can pass some arguments into the connection string, for example, a URI.
+  > See: [#39](https://github.com/mattn/go-sqlite3/issues/39)
 
 - Do you want to cross compile? mingw on Linux or Mac?
 
-    > See: [#106](https://github.com/mattn/go-sqlite3/issues/106)
-    > See also: http://www.limitlessfx.com/cross-compile-golang-app-for-windows-from-linux.html
+  > See: [#106](https://github.com/mattn/go-sqlite3/issues/106)
+  > See also: http://www.limitlessfx.com/cross-compile-golang-app-for-windows-from-linux.html
 
 - Want to get time.Time with current locale
 
-    Use `_loc=auto` in SQLite3 filename schema like `file:foo.db?_loc=auto`.
+  Use `_loc=auto` in SQLite3 filename schema like `file:foo.db?_loc=auto`.
 
 - Can I use this in multiple routines concurrently?
 
-    Yes for readonly. But not for writable. See [#50](https://github.com/mattn/go-sqlite3/issues/50), [#51](https://github.com/mattn/go-sqlite3/issues/51), [#209](https://github.com/mattn/go-sqlite3/issues/209), [#274](https://github.com/mattn/go-sqlite3/issues/274).
+  Yes for readonly. But not for writable. See [#50](https://github.com/mattn/go-sqlite3/issues/50), [#51](https://github.com/mattn/go-sqlite3/issues/51), [#209](https://github.com/mattn/go-sqlite3/issues/209), [#274](https://github.com/mattn/go-sqlite3/issues/274).
 
 - Why I'm getting `no such table` error?
 
-    Why is it racy if I use a `sql.Open("sqlite3", ":memory:")` database?
+  Why is it racy if I use a `sql.Open("sqlite3", ":memory:")` database?
 
-    Each connection to `":memory:"` opens a brand new in-memory sql database, so if
-    the stdlib's sql engine happens to open another connection and you've only
-    specified `":memory:"`, that connection will see a brand new database. A
-    workaround is to use `"file::memory:?cache=shared"` (or `"file:foobar?mode=memory&cache=shared"`). Every
-    connection to this string will point to the same in-memory database.
-    
-    Note that if the last database connection in the pool closes, the in-memory database is deleted. Make sure the [max idle connection limit](https://golang.org/pkg/database/sql/#DB.SetMaxIdleConns) is > 0, and the [connection lifetime](https://golang.org/pkg/database/sql/#DB.SetConnMaxLifetime) is infinite.
-    
-    For more information see:
-    * [#204](https://github.com/mattn/go-sqlite3/issues/204)
-    * [#511](https://github.com/mattn/go-sqlite3/issues/511)
-    * https://www.sqlite.org/sharedcache.html#shared_cache_and_in_memory_databases
-    * https://www.sqlite.org/inmemorydb.html#sharedmemdb
+  Each connection to `":memory:"` opens a brand new in-memory sql database, so if
+  the stdlib's sql engine happens to open another connection and you've only
+  specified `":memory:"`, that connection will see a brand new database. A
+  workaround is to use `"file::memory:?cache=shared"` (or `"file:foobar?mode=memory&cache=shared"`). Every
+  connection to this string will point to the same in-memory database.
+
+  Note that if the last database connection in the pool closes, the in-memory database is deleted. Make sure the [max idle connection limit](https://golang.org/pkg/database/sql/#DB.SetMaxIdleConns) is > 0, and the [connection lifetime](https://golang.org/pkg/database/sql/#DB.SetConnMaxLifetime) is infinite.
+
+  For more information see:
+  - [#204](https://github.com/mattn/go-sqlite3/issues/204)
+  - [#511](https://github.com/mattn/go-sqlite3/issues/511)
+  - https://www.sqlite.org/sharedcache.html#shared_cache_and_in_memory_databases
+  - https://www.sqlite.org/inmemorydb.html#sharedmemdb
 
 - Reading from database with large amount of goroutines fails on OSX.
 
-    OS X limits OS-wide to not have more than 1000 files open simultaneously by default.
+  OS X limits OS-wide to not have more than 1000 files open simultaneously by default.
 
-    For more information, see [#289](https://github.com/mattn/go-sqlite3/issues/289)
+  For more information, see [#289](https://github.com/mattn/go-sqlite3/issues/289)
 
 - Trying to execute a `.` (dot) command throws an error.
 
-    Error: `Error: near ".": syntax error`
-    Dot command are part of SQLite3 CLI, not of this library.
+  Error: `Error: near ".": syntax error`
+  Dot command are part of SQLite3 CLI, not of this library.
 
-    You need to implement the feature or call the sqlite3 cli.
+  You need to implement the feature or call the sqlite3 cli.
 
-    More information see [#305](https://github.com/mattn/go-sqlite3/issues/305).
+  More information see [#305](https://github.com/mattn/go-sqlite3/issues/305).
 
 - Error: `database is locked`
 
-    When you get a database is locked, please use the following options.
+  When you get a database is locked, please use the following options.
 
-    Add to DSN: `cache=shared`
+  Add to DSN: `cache=shared`
 
-    Example:
-    ```go
-    db, err := sql.Open("sqlite3", "file:locked.sqlite?cache=shared")
-    ```
+  Example:
 
-    Next, please set the database connections of the SQL package to 1:
-    
-    ```go
-    db.SetMaxOpenConns(1)
-    ```
+  ```go
+  db, err := sql.Open("sqlite3", "file:locked.sqlite?cache=shared")
+  ```
 
-    For more information, see [#209](https://github.com/mattn/go-sqlite3/issues/209).
+  Next, please set the database connections of the SQL package to 1:
+
+  ```go
+  db.SetMaxOpenConns(1)
+  ```
+
+  For more information, see [#209](https://github.com/mattn/go-sqlite3/issues/209).
 
 ## Contributors
 

@@ -32,6 +32,7 @@ As previously announced, this release removes some methods from the SDK.
   ```go
   span := sentry.StartSpan(ctx, "http.client", WithDescription("GET /api/users"))
   ```
+
 - Add support for package name parsing in Go 1.20 and higher ([#730](https://github.com/getsentry/sentry-go/pull/730))
 
 ### Bug Fixes
@@ -203,7 +204,7 @@ Note: this release includes one **breaking change** and some **deprecations**, w
 **This change does not apply if you use [https://sentry.io](https://sentry.io)**
 
 - Remove support for the `/store` endpoint ([#631](https://github.com/getsentry/sentry-go/pull/631))
-  - This change requires a self-hosted version of Sentry 20.6.0 or higher. If you are using a version of [self-hosted Sentry](https://develop.sentry.dev/self-hosted/) (aka *on-premise*) older than 20.6.0, then you will need to [upgrade](https://develop.sentry.dev/self-hosted/releases/) your instance.
+  - This change requires a self-hosted version of Sentry 20.6.0 or higher. If you are using a version of [self-hosted Sentry](https://develop.sentry.dev/self-hosted/) (aka _on-premise_) older than 20.6.0, then you will need to [upgrade](https://develop.sentry.dev/self-hosted/releases/) your instance.
 
 ### Features
 
@@ -243,6 +244,7 @@ Note: this release has some **breaking changes**, which are listed below.
   For example, the following [`TracesSampler`](https://docs.sentry.io/platforms/go/configuration/sampling/#setting-a-sampling-function) function should be now written as follows:
 
   **Before:**
+
   ```go
   TracesSampler: func(ctx sentry.SamplingContext) float64 {
     hub := sentry.GetHubFromContext(ctx.Span.Context())
@@ -254,6 +256,7 @@ Note: this release has some **breaking changes**, which are listed below.
   ```
 
   **After:**
+
   ```go
   TracesSampler: func(ctx sentry.SamplingContext) float64 {
     if ctx.Span.Name == "GET /health" {
@@ -280,7 +283,7 @@ Note: this release has some **breaking changes**, which are listed below.
 
 - Bump minimum versions: `github.com/kataras/iris/v12` to 12.2.0, `github.com/labstack/echo/v4` to v4.10.0 ([#595](https://github.com/getsentry/sentry-go/pull/595))
   - Resolves [GO-2022-1144 / CVE-2022-41717](https://deps.dev/advisory/osv/GO-2022-1144), [GO-2023-1495 / CVE-2022-41721](https://deps.dev/advisory/osv/GO-2023-1495), [GO-2022-1059 / CVE-2022-32149](https://deps.dev/advisory/osv/GO-2022-1059).
-- Bump `google.golang.org/protobuf` minimum required version to 1.29.1  ([#604](https://github.com/getsentry/sentry-go/pull/604))
+- Bump `google.golang.org/protobuf` minimum required version to 1.29.1 ([#604](https://github.com/getsentry/sentry-go/pull/604))
   - This fixes a potential denial of service issue ([CVE-2023-24535](https://github.com/advisories/GHSA-hw7c-3rfg-p46j)).
 - Exclude the `otel` module when building in GOPATH mode ([#615](https://github.com/getsentry/sentry-go/pull/615))
 
@@ -294,10 +297,11 @@ The Sentry SDK team is happy to announce the immediate availability of Sentry Go
   - More about exception mechanisms [here](https://develop.sentry.dev/sdk/event-payloads/exception/#exception-mechanism).
 
 ### Bug Fixes
+
 - [otel] Use the correct "trace" context when sending a Sentry error ([#580](https://github.com/getsentry/sentry-go/pull/580/))
 
-
 ### Misc
+
 - Drop support for Go 1.17, add support for Go 1.20 ([#563](https://github.com/getsentry/sentry-go/pull/563/))
   - According to our policy, we're officially supporting the last three minor releases of Go.
 - Switch repository license to MIT ([#583](https://github.com/getsentry/sentry-go/pull/583/))
@@ -401,48 +405,49 @@ Due to ongoing work towards a stable API for `v1.0.0`, we sadly had to include *
 ### Breaking Changes
 
 - Add `EnableTracing`, a boolean option flag to enable performance monitoring (`false` by default).
-   - If you're using `TracesSampleRate` or `TracesSampler`, this option is **required** to enable performance monitoring.
+  - If you're using `TracesSampleRate` or `TracesSampler`, this option is **required** to enable performance monitoring.
 
-      ```go
-      sentry.Init(sentry.ClientOptions{
-          EnableTracing: true,
-          TracesSampleRate: 1.0,
-      })
-      ```
+    ```go
+    sentry.Init(sentry.ClientOptions{
+        EnableTracing: true,
+        TracesSampleRate: 1.0,
+    })
+    ```
+
 - Unify TracesSampler [#498](https://github.com/getsentry/sentry-go/pull/498)
-    - `TracesSampler` was changed to a callback that must return a `float64` between `0.0` and `1.0`.
+  - `TracesSampler` was changed to a callback that must return a `float64` between `0.0` and `1.0`.
 
-       For example, you can apply a sample rate of `1.0` (100%) to all `/api` transactions, and a sample rate of `0.5` (50%) to all other transactions.
-       You can read more about this in our [SDK docs](https://docs.sentry.io/platforms/go/configuration/filtering/#using-sampling-to-filter-transaction-events).
+    For example, you can apply a sample rate of `1.0` (100%) to all `/api` transactions, and a sample rate of `0.5` (50%) to all other transactions.
+    You can read more about this in our [SDK docs](https://docs.sentry.io/platforms/go/configuration/filtering/#using-sampling-to-filter-transaction-events).
 
-       ```go
-       sentry.Init(sentry.ClientOptions{
-           TracesSampler: sentry.TracesSampler(func(ctx sentry.SamplingContext) float64 {
-                hub := sentry.GetHubFromContext(ctx.Span.Context())
-                name := hub.Scope().Transaction()
+    ```go
+    sentry.Init(sentry.ClientOptions{
+        TracesSampler: sentry.TracesSampler(func(ctx sentry.SamplingContext) float64 {
+             hub := sentry.GetHubFromContext(ctx.Span.Context())
+             name := hub.Scope().Transaction()
 
-                if strings.HasPrefix(name, "GET /api") {
-                    return 1.0
-                }
+             if strings.HasPrefix(name, "GET /api") {
+                 return 1.0
+             }
 
-                return 0.5
-            }),
-        }
-        ```
+             return 0.5
+         }),
+     }
+    ```
 
 ### Features
 
 - Send errors logged with [Logrus](https://github.com/sirupsen/logrus) to Sentry.
-    - Have a look at our [logrus examples](https://github.com/getsentry/sentry-go/blob/master/_examples/logrus/main.go) on how to use the integration.
+  - Have a look at our [logrus examples](https://github.com/getsentry/sentry-go/blob/master/_examples/logrus/main.go) on how to use the integration.
 - Add support for Dynamic Sampling [#491](https://github.com/getsentry/sentry-go/pull/491)
-    - You can read more about Dynamic Sampling in our [product docs](https://docs.sentry.io/product/data-management-settings/dynamic-sampling/).
+  - You can read more about Dynamic Sampling in our [product docs](https://docs.sentry.io/product/data-management-settings/dynamic-sampling/).
 - Add detailed logging about the reason transactions are being dropped.
-    - You can enable SDK logging via `sentry.ClientOptions.Debug: true`.
+  - You can enable SDK logging via `sentry.ClientOptions.Debug: true`.
 
 ### Bug Fixes
 
 - Do not clone the hub when calling `StartTransaction` [#505](https://github.com/getsentry/sentry-go/pull/505)
-    - Fixes [#502](https://github.com/getsentry/sentry-go/issues/502)
+  - Fixes [#502](https://github.com/getsentry/sentry-go/issues/502)
 
 ## 0.15.0
 
@@ -456,8 +461,8 @@ Due to ongoing work towards a stable API for `v1.0.0`, we sadly had to include *
 
 - feat: Add function to continue from trace string (#434)
 - feat: Add `max-depth` options (#428)
-- *[breaking]* ref: Use a `Context` type mapping to a `map[string]interface{}` for all event contexts (#444)
-- *[breaking]* ref: Replace deprecated `ioutil` pkg with `os` & `io` (#454)
+- _[breaking]_ ref: Use a `Context` type mapping to a `map[string]interface{}` for all event contexts (#444)
+- _[breaking]_ ref: Replace deprecated `ioutil` pkg with `os` & `io` (#454)
 - ref: Optimize `stacktrace.go` from size and speed (#467)
 - ci: Test against `go1.19` and `go1.18`, drop `go1.16` and `go1.15` support (#432, #477)
 - deps: Dependency update to fix CVEs (#462, #464, #477)
@@ -607,6 +612,7 @@ allocated.
 - **[breaking]** fix: Rename fasthttp integration package sentryhttp => sentryfasthttp
   The current recommendation is to use a named import, in which case existing
   code should not require any change:
+
   ```go
   package main
 

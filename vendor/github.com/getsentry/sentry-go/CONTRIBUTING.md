@@ -25,7 +25,6 @@ process:
    guidelines][commit-guide].
 
 5. We have [guidelines for PR submitters][pr-guide]. A short summary:
-
    - Good PR descriptions are very helpful and most of the time they include
      **why** something is done and why done in this particular way. Also list
      other possible solutions that were considered and discarded.

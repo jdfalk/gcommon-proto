@@ -1,8 +1,8 @@
 # cockroachdb/errors: Go errors with network portability
 
 This library aims to be used as a drop-in replacement to
-`github.com/pkg/errors` and Go's standard `errors` package.  It also
-provides *network portability* of error objects, in ways suitable for
+`github.com/pkg/errors` and Go's standard `errors` package. It also
+provides _network portability_ of error objects, in ways suitable for
 distributed systems with mixed-version software compatibility.
 
 It also provides native and comprehensive support for [PII](https://en.wikipedia.org/wiki/Personal_data)-free details
@@ -29,26 +29,26 @@ Table of contents:
 ## Features
 
 | Feature                                                                                               | Go's <1.13 `errors` | `github.com/pkg/errors` | Go 1.13 `errors`/`xerrors` | `cockroachdb/errors` |
-|-------------------------------------------------------------------------------------------------------|---------------------|-------------------------|----------------------------|----------------------|
-| error constructors (`New`, `Errorf` etc)                                                              | ✔                   | ✔                       | ✔                          | ✔                    |
-| error causes (`Cause` / `Unwrap`)                                                                     |                     | ✔                       | ✔                          | ✔                    |
-| cause barriers (`Opaque` / `Handled`)                                                                 |                     |                         | ✔                          | ✔                    |
-| `errors.As()`, `errors.Is()`                                                                          |                     |                         | ✔                          | ✔                    |
-| automatic error wrap when format ends with `: %w`                                                     |                     |                         | ✔                          | ✔                    |
-| standard wrappers with efficient stack trace capture                                                  |                     | ✔                       |                            | ✔                    |
-| **transparent protobuf encode/decode with forward compatibility**                                     |                     |                         |                            | ✔                    |
-| **`errors.Is()` recognizes errors across the network**                                                |                     |                         |                            | ✔                    |
-| **comprehensive support for PII-free reportable strings**                                             |                     |                         |                            | ✔                    |
-| support for both `Cause()` and `Unwrap()` [go#31778](https://github.com/golang/go/issues/31778)       |                     |                         |                            | ✔                    |
-| standard error reports to Sentry.io                                                                   |                     |                         |                            | ✔                    |
-| wrappers to denote assertion failures                                                                 |                     |                         |                            | ✔                    |
-| wrappers with issue tracker references                                                                |                     |                         |                            | ✔                    |
-| wrappers for user-facing hints and details                                                            |                     |                         |                            | ✔                    |
-| wrappers to attach secondary causes                                                                   |                     |                         |                            | ✔                    |
-| wrappers to attach [`logtags`](https://github.com/cockroachdb/logtags) details from `context.Context` |                     |                         |                            | ✔                    |
-| `errors.FormatError()`, `Formatter`, `Printer`                                                        |                     |                         | (under construction)       | ✔                    |
-| `errors.SafeFormatError()`, `SafeFormatter`                                                           |                     |                         |                            | ✔                    |
-| wrapper-aware `IsPermission()`, `IsTimeout()`, `IsExist()`, `IsNotExist()`                            |                     |                         |                            | ✔                    |
+| ----------------------------------------------------------------------------------------------------- | ------------------- | ----------------------- | -------------------------- | -------------------- |
+| error constructors (`New`, `Errorf` etc)                                                              | ✔                  | ✔                      | ✔                         | ✔                   |
+| error causes (`Cause` / `Unwrap`)                                                                     |                     | ✔                      | ✔                         | ✔                   |
+| cause barriers (`Opaque` / `Handled`)                                                                 |                     |                         | ✔                         | ✔                   |
+| `errors.As()`, `errors.Is()`                                                                          |                     |                         | ✔                         | ✔                   |
+| automatic error wrap when format ends with `: %w`                                                     |                     |                         | ✔                         | ✔                   |
+| standard wrappers with efficient stack trace capture                                                  |                     | ✔                      |                            | ✔                   |
+| **transparent protobuf encode/decode with forward compatibility**                                     |                     |                         |                            | ✔                   |
+| **`errors.Is()` recognizes errors across the network**                                                |                     |                         |                            | ✔                   |
+| **comprehensive support for PII-free reportable strings**                                             |                     |                         |                            | ✔                   |
+| support for both `Cause()` and `Unwrap()` [go#31778](https://github.com/golang/go/issues/31778)       |                     |                         |                            | ✔                   |
+| standard error reports to Sentry.io                                                                   |                     |                         |                            | ✔                   |
+| wrappers to denote assertion failures                                                                 |                     |                         |                            | ✔                   |
+| wrappers with issue tracker references                                                                |                     |                         |                            | ✔                   |
+| wrappers for user-facing hints and details                                                            |                     |                         |                            | ✔                   |
+| wrappers to attach secondary causes                                                                   |                     |                         |                            | ✔                   |
+| wrappers to attach [`logtags`](https://github.com/cockroachdb/logtags) details from `context.Context` |                     |                         |                            | ✔                   |
+| `errors.FormatError()`, `Formatter`, `Printer`                                                        |                     |                         | (under construction)       | ✔                   |
+| `errors.SafeFormatError()`, `SafeFormatter`                                                           |                     |                         |                            | ✔                   |
+| wrapper-aware `IsPermission()`, `IsTimeout()`, `IsExist()`, `IsNotExist()`                            |                     |                         |                            | ✔                   |
 
 "Forward compatibility" above refers to the ability of this library to
 recognize and properly handle network communication of error types it
@@ -79,7 +79,7 @@ older version of the package.
 ## What comes out of an error?
 
 | Error detail                                                    | `Error()` and format `%s`/`%q`/`%v` | format `%+v` | `GetSafeDetails()`            | Sentry report via `ReportError()` |
-|-----------------------------------------------------------------|-------------------------------------|--------------|-------------------------------|-----------------------------------|
+| --------------------------------------------------------------- | ----------------------------------- | ------------ | ----------------------------- | --------------------------------- |
 | main message, eg `New()`                                        | visible                             | visible      | yes (CHANGED IN v1.6)         | full (CHANGED IN v1.6)            |
 | wrap prefix, eg `WithMessage()`                                 | visible (as prefix)                 | visible      | yes (CHANGED IN v1.6)         | full (CHANGED IN v1.6)            |
 | stack trace, eg `WithStack()`                                   | not visible                         | simplified   | yes                           | full                              |
@@ -96,7 +96,7 @@ older version of the package.
 
 ## Available error leaves
 
-An error *leaf* is an object that implements the `error` interface,
+An error _leaf_ is an object that implements the `error` interface,
 but does not refer to another error via a `Unwrap()` or `Cause()`
 method.
 
@@ -125,7 +125,7 @@ method.
 
 ## Available wrapper constructors
 
-An error *wrapper* is an object that implements the `error` interface,
+An error _wrapper_ is an object that implements the `error` interface,
 and also refers to another error via an `Unwrap()` (preferred) and/or
 `Cause()` method.
 
@@ -169,7 +169,6 @@ return errors.Wrap(foo(), "foo")
   - **when to use:** usually not needed, use `errors.Wrap()`/`errors.Wrapf()` instead.
 
     **Special cases:**
-
     - when returning a sentinel, for example:
 
       ```go
@@ -192,7 +191,7 @@ return errors.Wrap(foo(), "foo")
            return errors.WithStack(err)
         }
       }
-        ```
+      ```
 
   - what it does: captures (efficiently) a stack trace.
   - how to access the details: format with `%+v`, `errors.GetSafeDetails()`, Sentry reports. The stack trace is considered safe for reporting.
@@ -221,13 +220,13 @@ return errors.Wrap(foo(), "foo")
 - `WithIssueLink(error, IssueLink) error`: annotate an error with an URL and arbitrary string.
   - **when to use: to refer (human) users to some external resources.**
   - what it does: captures the URL and detail in a wrapper. Both are considered safe for reporting.
-  - how to access the detail: `errors.GetAllHints()`, `errors.FlattenHints()`,  `errors.GetSafeDetails()`, format with `%+v`, Sentry report.
+  - how to access the detail: `errors.GetAllHints()`, `errors.FlattenHints()`, `errors.GetSafeDetails()`, format with `%+v`, Sentry report.
   - see also: `errors.UnimplementedError()` to construct leaves (see previous section).
 
 - `WithTelemetry(error, string) error`: annotate an error with a key suitable for telemetry.
   - **when to use: to gather strings during error handling, for capture in the telemetry sub-system of a server package.**
   - what it does: captures the string. The telemetry key is considered safe for reporting.
-  - how to access the detail: `errors.GetTelemetryKeys()`,  `errors.GetSafeDetails()`, format with `%+v`, Sentry report.
+  - how to access the detail: `errors.GetTelemetryKeys()`, `errors.GetSafeDetails()`, format with `%+v`, Sentry report.
 
 - `WithDomain(error, Domain) error`, `HandledInDomain(error, Domain) error`, `HandledInDomainWithMessage(error, Domain, string) error` **(experimental)**: annotate an error with an origin package.
   - **when to use: at package boundaries.**
@@ -257,15 +256,15 @@ The library support PII-free strings essentially as follows:
 The following strings from this library are considered to be PII-free,
 and thus included in Sentry reports automatically:
 
-- the *type* of error objects,
+- the _type_ of error objects,
 - stack traces (containing only file paths, line numbers, function names - arguments are not included),
 - issue tracker links (including URL and detail field),
 - telemetry keys,
 - error domains,
 - context tag keys,
 - the `format string` argument of `Newf`, `AssertionFailedf`, etc (the constructors ending with `...f()`),
-- the *type* of the additional arguments passed to the `...f()` constructors,
-- the *value of specific argument types* passed to the `...f()` constructors, when known to be PII-safe.
+- the _type_ of the additional arguments passed to the `...f()` constructors,
+- the _value of specific argument types_ passed to the `...f()` constructors, when known to be PII-safe.
   For details of which arguments are considered PII-free, see the [`redact` package](https://github.com/cockroachdb/redact).
 
 It is possible to opt additional in to Sentry reporting, using either of the following methods:
@@ -311,7 +310,7 @@ and the errors library will use that automatically. If you do not or
 cannot implement `proto.Message`, or your error type is a wrapper,
 read on.
 
-At a minimum, you will need a *decoder function*: while
+At a minimum, you will need a _decoder function_: while
 `cockroachdb/errors` already does a bunch of encoding/decoding work on
 new types automatically, the one thing it really cannot do on its own
 is instantiate a Go object using your new type.
@@ -347,8 +346,8 @@ do.
 [`assert/assert.go`](assert/assert.go) for an example of this simple
 case.)
 
-If your type does have additional fields, you *may* still not need a
-custom encoder.  This is because the library automatically
+If your type does have additional fields, you _may_ still not need a
+custom encoder. This is because the library automatically
 encodes/decodes the main error message and any safe strings that your
 error types makes available via the `errors.SafeDetailer` interface
 (the `SafeDetails()` method).
@@ -423,10 +422,10 @@ func myLeafDecoder(_ string, details []string, _ proto.Message) error {
 
 (For an example, see the `withTelemetry` type in [`telemetry/with_telemetry.go`](telemetry/with_telemetry.go).)
 
-__The only case where you need a custom encoder is when your error
+**The only case where you need a custom encoder is when your error
 type contains some fields that are not reflected in the error message
 (so you can't extract them back from there), and are not PII-free and
-thus cannot be reported as "safe details".__
+thus cannot be reported as "safe details".**
 
 To take inspiration from examples, see the following types in the
 library that need a custom encoder:
@@ -452,7 +451,7 @@ In short:
   to the causes chained from your wrapper.)
 
 - You may optionally implement the `errors.SafeFormatter` interface:
-  `SafeFormatError(p errors.Printer) (next error)`.  This is optional, but
+  `SafeFormatError(p errors.Printer) (next error)`. This is optional, but
   should be done when some details are not included by `Error()` and
   should be emitted upon `%+v`.
 
@@ -478,11 +477,11 @@ func (w *withHTTPCode) SafeFormatError(p errors.Printer) (next error) {
 Technical details follow:
 
 - The errors library follows [the Go 2
-proposal](https://go.googlesource.com/proposal/+/master/design/29934-error-values.md).
+  proposal](https://go.googlesource.com/proposal/+/master/design/29934-error-values.md).
 
 - At some point in the future, Go's standard `fmt` library will learn
   [how to recognize error wrappers, and how to use the `errors.Formatter`
-  interface automatically](https://github.com/golang/go/issues/29934).  Until
+  interface automatically](https://github.com/golang/go/issues/29934). Until
   then, you must ensure that you also implement a `Format()` method
   (from `fmt.Formatter`) that redirects to `errors.FormatError`.
 
@@ -521,7 +520,7 @@ Example use:
 ## Error composition (summary)
 
 | Constructor                        | Composes                                                                          |
-|------------------------------------|-----------------------------------------------------------------------------------|
+| ---------------------------------- | --------------------------------------------------------------------------------- |
 | `New`                              | `NewWithDepth` (see below)                                                        |
 | `Errorf`                           | = `Newf`                                                                          |
 | `Newf`                             | `NewWithDepthf` (see below)                                                       |
@@ -535,9 +534,10 @@ Example use:
 | `WrapWithDepth`                    | `WithMessage` + `WithStackDepth`                                                  |
 | `WrapWithDepthf`                   | `WithMessagef` + `WithStackDepth`                                                 |
 | `AssertionFailedWithDepthf`        | `NewWithDepthf` + `WithAssertionFailure`                                          |
-| `NewAssertionErrorWithWrappedErrf` | `HandledWithMessagef` (barrier) + `WrapWithDepthf` +  `WithAssertionFailure`      |
+| `NewAssertionErrorWithWrappedErrf` | `HandledWithMessagef` (barrier) + `WrapWithDepthf` + `WithAssertionFailure`       |
 | `Join`                             | `JoinWithDepth` (see below)                                                       |
 | `JoinWithDepth`                    | multi-cause wrapper + `WithStackDepth`                                            |
+
 ## API (not constructing error objects)
 
 The following is a summary of the non-constructor API functions, grouped by category.

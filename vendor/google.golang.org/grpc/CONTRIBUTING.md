@@ -12,6 +12,7 @@ In order to protect both you and ourselves, you will need to sign the
 [Contributor License Agreement](https://identity.linuxfoundation.org/projects/cncf).
 
 ## Guidelines for Pull Requests
+
 How to get your contributions merged smoothly and quickly.
 
 - Create **small PRs** that are narrowly focused on **addressing a single
@@ -49,7 +50,7 @@ How to get your contributions merged smoothly and quickly.
 
 - Unless your PR is trivial, you should expect there will be reviewer comments
   that you'll need to address before merging. We'll mark it as `Status: Requires
-  Reporter Clarification` if we expect you to respond to these comments in a
+Reporter Clarification` if we expect you to respond to these comments in a
   timely manner. If the PR remains inactive for 6 days, it will be marked as
   `stale` and automatically close 7 days after that if we don't hear back from
   you.

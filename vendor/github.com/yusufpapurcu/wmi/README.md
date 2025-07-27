@@ -1,5 +1,4 @@
-wmi
-===
+# wmi
 
 Package wmi provides a WQL interface to Windows WMI.
 

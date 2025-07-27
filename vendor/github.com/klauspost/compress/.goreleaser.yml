@@ -5,8 +5,7 @@ before:
     - ./gen.sh
 
 builds:
-  -
-    id: "s2c"
+  - id: "s2c"
     binary: s2c
     main: ./s2/cmd/s2c/main.go
     flags:
@@ -31,8 +30,7 @@ builds:
       - mips64le
     goarm:
       - 7
-  -
-    id: "s2d"
+  - id: "s2d"
     binary: s2d
     main: ./s2/cmd/s2d/main.go
     flags:
@@ -57,8 +55,7 @@ builds:
       - mips64le
     goarm:
       - 7
-  -
-    id: "s2sx"
+  - id: "s2sx"
     binary: s2sx
     main: ./s2/cmd/_s2sx/main.go
     flags:
@@ -86,8 +83,7 @@ builds:
       - 7
 
 archives:
-  -
-    id: s2-binaries
+  - id: s2-binaries
     name_template: "s2-{{ .Os }}_{{ .Arch }}{{ if .Arm }}v{{ .Arm }}{{ end }}"
     format_overrides:
       - goos: windows
@@ -97,22 +93,21 @@ archives:
       - s2/LICENSE
       - s2/README.md
 checksum:
-  name_template: 'checksums.txt'
+  name_template: "checksums.txt"
 snapshot:
   version_template: "{{ .Tag }}-next"
 changelog:
   sort: asc
   filters:
     exclude:
-    - '^doc:'
-    - '^docs:'
-    - '^test:'
-    - '^tests:'
-    - '^Update\sREADME.md'
+      - "^doc:"
+      - "^docs:"
+      - "^test:"
+      - "^tests:"
+      - '^Update\sREADME.md'
 
 nfpms:
-  -
-    file_name_template: "s2_package__{{ .Os }}_{{ .Arch }}{{ if .Arm }}v{{ .Arm }}{{ end }}"
+  - file_name_template: "s2_package__{{ .Os }}_{{ .Arch }}{{ if .Arm }}v{{ .Arm }}{{ end }}"
     vendor: Klaus Post
     homepage: https://github.com/klauspost/compress
     maintainer: Klaus Post <klauspost@gmail.com>

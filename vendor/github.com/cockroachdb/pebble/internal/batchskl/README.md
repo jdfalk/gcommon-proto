@@ -5,10 +5,10 @@ forward and backward iteration.
 
 ## Limitations
 
-* The interface is tailored for use in indexing pebble batches. Keys
+- The interface is tailored for use in indexing pebble batches. Keys
   and values are stored outside of the skiplist making the skiplist
   awkward for general purpose use.
-* Deletion is not supported. Instead, higher-level code is expected to
+- Deletion is not supported. Instead, higher-level code is expected to
   add deletion tombstones and needs to process those tombstones
   appropriately.
 

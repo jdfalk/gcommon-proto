@@ -7,22 +7,22 @@ in both directions.
 
 Arenaskl offers several advantages over other skiplist implementations:
 
-* High performance that linearly scales with the number of cores. This is
+- High performance that linearly scales with the number of cores. This is
   achieved by allocating from a fixed-size arena and by avoiding locks.
-* Iterators that can be allocated on the stack and easily cloned by value.
-* Simple-to-use and low overhead model for detecting and handling race conditions
+- Iterators that can be allocated on the stack and easily cloned by value.
+- Simple-to-use and low overhead model for detecting and handling race conditions
   with other threads.
-* Support for iterating in reverse (i.e. previous links). 
+- Support for iterating in reverse (i.e. previous links).
 
 ## Limitations
 
 The advantages come at a cost that prevents arenaskl from being a general-purpose
 skiplist implementation:
 
-* The size of the arena sets a hard upper bound on the combined size of skiplist
+- The size of the arena sets a hard upper bound on the combined size of skiplist
   nodes, keys, and values. This limit includes even the size of deleted nodes,
   keys, and values.
-* Deletion is not supported. Instead, higher-level code is expected to
+- Deletion is not supported. Instead, higher-level code is expected to
   add deletion tombstones and needs to process those tombstones
   appropriately.
 

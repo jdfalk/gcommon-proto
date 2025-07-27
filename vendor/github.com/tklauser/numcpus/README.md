@@ -48,5 +48,5 @@ func main() {
 
 ## References
 
-* [Linux kernel sysfs documentation for CPU attributes](https://www.kernel.org/doc/Documentation/ABI/testing/sysfs-devices-system-cpu)
-* [Linux kernel CPU topology documentation](https://www.kernel.org/doc/Documentation/cputopology.txt)
+- [Linux kernel sysfs documentation for CPU attributes](https://www.kernel.org/doc/Documentation/ABI/testing/sysfs-devices-system-cpu)
+- [Linux kernel CPU topology documentation](https://www.kernel.org/doc/Documentation/cputopology.txt)

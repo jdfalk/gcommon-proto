@@ -21,6 +21,7 @@ for general contribution guidelines.
 - [zasweq](https://github.com/zasweq), Google LLC
 
 ## Emeritus Maintainers (in alphabetical order)
+
 - [adelez](https://github.com/adelez)
 - [canguler](https://github.com/canguler)
 - [cesarghali](https://github.com/cesarghali)

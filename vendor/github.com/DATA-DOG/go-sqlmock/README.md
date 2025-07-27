@@ -44,7 +44,7 @@ See implementation examples:
 
 ### Something you may want to test, assuming you use the [go-mysql-driver](https://github.com/go-sql-driver/mysql)
 
-``` go
+```go
 package main
 
 import (
@@ -93,7 +93,7 @@ func main() {
 
 ### Tests with sqlmock
 
-``` go
+```go
 package main
 
 import (
@@ -169,7 +169,7 @@ which uses expected SQL string as a regular expression to match incoming query s
 
 In order to customize the QueryMatcher, use the following:
 
-``` go
+```go
 	db, mock, err := sqlmock.New(sqlmock.QueryMatcherOption(sqlmock.QueryMatcherEqual))
 ```
 
@@ -182,7 +182,7 @@ There may be arguments which are of `struct` type and cannot be compared easily 
 **sqlmock** provides an [Argument](https://godoc.org/github.com/DATA-DOG/go-sqlmock#Argument) interface which
 can be used in more sophisticated matching. Here is a simple example of time argument matching:
 
-``` go
+```go
 type AnyTime struct{}
 
 // Match satisfies sqlmock.Argument interface
@@ -242,16 +242,16 @@ It only asserts that argument is of `time.Time` type.
 - **2015-08-27** - **v1** api change, concurrency support, all known issues fixed.
 - **2014-08-16** instead of **panic** during reflect type mismatch when comparing query arguments - now return error
 - **2014-08-14** added **sqlmock.NewErrorResult** which gives an option to return driver.Result with errors for
-interface methods, see [issue](https://github.com/DATA-DOG/go-sqlmock/issues/5)
+  interface methods, see [issue](https://github.com/DATA-DOG/go-sqlmock/issues/5)
 - **2014-05-29** allow to match arguments in more sophisticated ways, by providing an **sqlmock.Argument** interface
 - **2014-04-21** introduce **sqlmock.New()** to open a mock database connection for tests. This method
-calls sql.DB.Ping to ensure that connection is open, see [issue](https://github.com/DATA-DOG/go-sqlmock/issues/4).
-This way on Close it will surely assert if all expectations are met, even if database was not triggered at all.
-The old way is still available, but it is advisable to call db.Ping manually before asserting with db.Close.
+  calls sql.DB.Ping to ensure that connection is open, see [issue](https://github.com/DATA-DOG/go-sqlmock/issues/4).
+  This way on Close it will surely assert if all expectations are met, even if database was not triggered at all.
+  The old way is still available, but it is advisable to call db.Ping manually before asserting with db.Close.
 - **2014-02-14** RowsFromCSVString is now a part of Rows interface named as FromCSVString.
-It has changed to allow more ways to construct rows and to easily extend this API in future.
-See [issue 1](https://github.com/DATA-DOG/go-sqlmock/issues/1)
-**RowsFromCSVString** is deprecated and will be removed in future
+  It has changed to allow more ways to construct rows and to easily extend this API in future.
+  See [issue 1](https://github.com/DATA-DOG/go-sqlmock/issues/1)
+  **RowsFromCSVString** is deprecated and will be removed in future
 
 ## Contributions
 
@@ -262,4 +262,3 @@ and will be treated cautiously
 ## License
 
 The [three clause BSD license](http://en.wikipedia.org/wiki/BSD_licenses)
-
