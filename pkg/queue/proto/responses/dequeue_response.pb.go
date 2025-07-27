@@ -208,7 +208,7 @@ var File_pkg_queue_proto_responses_dequeue_response_proto protoreflect.FileDescr
 
 const file_pkg_queue_proto_responses_dequeue_response_proto_rawDesc = "" +
 	"\n" +
-	"0pkg/queue/proto/responses/dequeue_response.proto\x12\x10gcommon.v1.queue\x1a\x1fgoogle/protobuf/timestamp.proto\x1a\x1dpkg/common/proto/common.proto\x1a\x1bpkg/queue/proto/queue.proto\"\xb4\x05\n" +
+	"0pkg/queue/proto/responses/dequeue_response.proto\x12\x10gcommon.v1.queue\x1a\x1fgoogle/protobuf/timestamp.proto\x1a\x1dpkg/common/proto/common.proto\x1a,pkg/queue/proto/messages/queue_message.proto\"\xb4\x05\n" +
 	"\x0fDequeueResponse\x12:\n" +
 	"\bmessages\x18\x01 \x03(\v2\x1e.gcommon.v1.queue.QueueMessageR\bmessages\x12\x18\n" +
 	"\asuccess\x18\x02 \x01(\bR\asuccess\x12M\n" +
@@ -266,7 +266,7 @@ func file_pkg_queue_proto_responses_dequeue_response_proto_init() {
 	if File_pkg_queue_proto_responses_dequeue_response_proto != nil {
 		return
 	}
-	file_pkg_queue_proto_queue_proto_init()
+	file_pkg_queue_proto_messages_queue_message_proto_init()
 	type x struct{}
 	out := protoimpl.TypeBuilder{
 		File: protoimpl.DescBuilder{

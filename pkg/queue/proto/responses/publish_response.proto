@@ -2,7 +2,6 @@
 // version: 1.0.0
 // guid: 8b12b279-f7c6-40fe-9147-4a663fb0c9c6
 
-syntax = "proto3";
 // PublishResponse reports the outcome of publishing a message to a
 // topic.
 edition = "2023";

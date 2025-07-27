@@ -2,7 +2,6 @@
 // version: 1.0.0
 // guid: 28ce7fa9-da40-4119-8167-285e4ff6179a
 
-syntax = "proto3";
 // GetOffsetResponse returns the current committed offset for a
 // consumer group within a queue or topic.
 edition = "2023";
