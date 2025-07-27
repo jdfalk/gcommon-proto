@@ -1,23 +1,23 @@
 {
     "version": "2.0.0",
     "tasks": [
-        {
-            "label": "buf lint",
-            "type": "shell",
-            "command": "buf",
-            "args": [
-                "lint"
-            ],
-            "group": "build",
-            "presentation": {
-                "echo": true,
-                "reveal": "always",
-                "focus": false,
-                "panel": "shared"
-            },
-            "problemMatcher": [],
-            "detail": "Lint protobuf files using buf"
-        },
+        // {
+        //     "label": "buf lint",
+        //     "type": "shell",
+        //     "command": "buf",
+        //     "args": [
+        //         "lint"
+        //     ],
+        //     "group": "build",
+        //     "presentation": {
+        //         "echo": true,
+        //         "reveal": "always",
+        //         "focus": false,
+        //         "panel": "shared"
+        //     },
+        //     "problemMatcher": [],
+        //     "detail": "Lint protobuf files using buf"
+        // },
         {
             "label": "buf build",
             "type": "shell",
