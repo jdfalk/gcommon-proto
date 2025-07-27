@@ -1,0 +1,99 @@
+# file: .goreleaser.yml
+# version: 1.0.0
+# guid: e5f6a7b8-c9d0-1e2f-3a4b-5c6d7e8f9a0b
+
+version: 2
+
+before:
+  hooks:
+    - go mod tidy
+    - go generate ./...
+
+builds:
+  # Since this is primarily a library, we don't need binaries
+  # But we include this in case there are future CLI tools
+  - env:
+      - CGO_ENABLED=0
+    goos:
+      - linux
+      - windows
+      - darwin
+    goarch:
+      - "386"
+      - amd64
+      - arm
+      - arm64
+    main: ./cmd/...
+    skip: true # Skip builds since this is a library
+
+archives:
+  - format: tar.gz
+    name_template: >-
+      {{ .ProjectName }}_
+      {{- title .Os }}_
+      {{- if eq .Arch "amd64" }}x86_64
+      {{- else if eq .Arch "386" }}i386
+      {{- else }}{{ .Arch }}{{ end }}
+      {{- if .Arm }}v{{ .Arm }}{{ end }}
+    format_overrides:
+      - goos: windows
+        format: zip
+
+checksum:
+  name_template: "checksums.txt"
+
+snapshot:
+  name_template: "{{ incpatch .Version }}-next"
+
+changelog:
+  sort: asc
+  filters:
+    exclude:
+      - "^docs:"
+      - "^test:"
+      - "^chore:"
+      - "^ci:"
+  groups:
+    - title: Features
+      regexp: '^.*?feat(\(.+\))??!?:.+$'
+      order: 0
+    - title: "Bug fixes"
+      regexp: '^.*?fix(\(.+\))??!?:.+$'
+      order: 1
+    - title: "Protobuf Changes"
+      regexp: '^.*?proto(\(.+\))??!?:.+$'
+      order: 2
+    - title: Others
+      order: 999
+
+release:
+  github:
+    owner: jdfalk
+    name: gcommon
+  name_template: "Release {{.Tag}}"
+  header: |
+    ## GCommon Release {{.Tag}}
+
+    This release includes improvements to the gcommon Go library for building robust, scalable applications.
+
+    ### Installation
+    ```bash
+    go get github.com/jdfalk/gcommon@{{.Tag}}
+    ```
+
+    ### What's New
+  footer: |
+    ### Module Status
+    - ✅ **Health**: Production ready
+    - ✅ **Common**: Production ready
+    - ✅ **Database**: Production ready
+    - ✅ **Log**: Complete
+    - 🔄 **Auth**: Partial (core functionality working)
+    - 🔄 **Cache**: Partial
+    - 🔄 **Config**: Partial
+    - 🔄 **Metrics**: In progress
+    - 🔄 **Queue**: In progress
+    - 🔄 **Web**: In progress
+
+    For detailed documentation, see [README.md](https://github.com/jdfalk/gcommon/blob/main/README.md).
+  prerelease: auto

@@ -1,0 +1,40 @@
+# file: .github/workflows/release.yml
+# version: 1.0.0
+# guid: b2c3d4e5-f6a7-8b9c-0d1e-2f3a4b5c6d7e
+
+name: Release
+
+on:
+  workflow_dispatch:
+    inputs:
+      release-type:
+        description: "Type of release"
+        required: true
+        type: choice
+        options:
+          - patch
+          - minor
+          - major
+          - prerelease
+        default: "patch"
+      dry-run:
+        description: "Run in dry-run mode (no actual release)"
+        required: false
+        type: boolean
+        default: false
+
+permissions:
+  contents: write
+  packages: write
+  issues: write
+  pull-requests: write
+
+jobs:
+  release:
+    uses: jdfalk/ghcommon/.github/workflows/reusable-goreleaser.yml@main
+    with:
+      go-version: "1.23"
+      release-type: ${{ github.event.inputs.release-type }}
+      dry-run: ${{ github.event.inputs.dry-run == 'true' }}
+      snapshot: false
+    secrets: inherit
