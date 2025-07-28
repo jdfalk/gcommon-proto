@@ -36,6 +36,7 @@ import public "pkg/db/proto/services/migration_service.proto";
 // Enums (2 total)
 import public "pkg/db/proto/enums/consistency_level.proto";
 import public "pkg/db/proto/enums/isolation_level.proto";
+import public "pkg/db/proto/enums/database_status_code.proto";
 
 // Messages (16 total)
 import public "pkg/db/proto/messages/batch_execute_options.proto";
@@ -54,6 +55,7 @@ import public "pkg/db/proto/messages/transaction_options.proto";
 import public "pkg/db/proto/messages/migration_info.proto";
 import public "pkg/db/proto/messages/mysql_config.proto";
 import public "pkg/db/proto/messages/mysql_status.proto";
+import public "pkg/db/proto/messages/database_status.proto";
 
 // Request types (21 total)
 import public "pkg/db/proto/requests/begin_transaction_request.proto";
