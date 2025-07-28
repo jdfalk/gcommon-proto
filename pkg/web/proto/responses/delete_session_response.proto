@@ -1,5 +1,5 @@
 // file: pkg/web/proto/responses/delete_session_response.proto
-// version: 1.0.0
+// version: 1.1.0
 // guid: 4115c974-f373-4e67-aeb0-fff852ec685a
 
 edition = "2023";
@@ -13,5 +13,6 @@ option features.(pb.go).api_level = API_HYBRID;
 
 // DeleteSessionResponse response definition.
 message DeleteSessionResponse {
-  string placeholder = 1;
+  // Indicates if the session was deleted
+  bool success = 1;
 }

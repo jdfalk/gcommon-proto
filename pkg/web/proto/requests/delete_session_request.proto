@@ -1,5 +1,5 @@
 // file: pkg/web/proto/requests/delete_session_request.proto
-// version: 1.0.0
+// version: 1.1.0
 // guid: 90ce1e00-4c38-47bf-b246-fba60817030a
 
 edition = "2023";
@@ -13,5 +13,6 @@ option features.(pb.go).api_level = API_HYBRID;
 
 // DeleteSessionRequest request definition.
 message DeleteSessionRequest {
-  string placeholder = 1;
+  // Identifier of the session to delete
+  string session_id = 1;
 }
