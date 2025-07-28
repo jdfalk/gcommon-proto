@@ -16,13 +16,13 @@ option features.(pb.go).api_level = API_HYBRID;
 /**
  * MetricAggregation represents aggregated metric value.
  */
-message MetricAggregation {
-  // Aggregation type performed
-  AggregationType type = 1;
-
-  // Value produced by aggregation
-  double value = 2;
-
-  // Number of samples aggregated
-  int64 sample_count = 3;
-}
+// CONFLICT_DISABLED: message MetricAggregation {
+// CONFLICT_DISABLED:   // Aggregation type performed
+// CONFLICT_DISABLED:   AggregationType type = 1;
+// CONFLICT_DISABLED: 
+// CONFLICT_DISABLED:   // Value produced by aggregation
+// CONFLICT_DISABLED:   double value = 2;
+// CONFLICT_DISABLED: 
+// CONFLICT_DISABLED:   // Number of samples aggregated
+// CONFLICT_DISABLED:   int64 sample_count = 3;
+// CONFLICT_DISABLED: }

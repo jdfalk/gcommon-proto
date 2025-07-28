@@ -17,13 +17,13 @@ option features.(pb.go).api_level = API_HYBRID;
 /**
  * ExportConfig defines how metrics are exported.
  */
-message ExportConfig {
-  // Output format (e.g., prometheus, json)
-  ExportFormat format = 1;
-
-  // Compression algorithm to use
-  CompressionType compression = 2;
-
-  // Destination URL or path
-  string destination = 3;
-}
+// CONFLICT_DISABLED: message ExportConfig {
+// CONFLICT_DISABLED:   // Output format (e.g., prometheus, json)
+// CONFLICT_DISABLED:   ExportFormat format = 1;
+// CONFLICT_DISABLED: 
+// CONFLICT_DISABLED:   // Compression algorithm to use
+// CONFLICT_DISABLED:   CompressionType compression = 2;
+// CONFLICT_DISABLED: 
+// CONFLICT_DISABLED:   // Destination URL or path
+// CONFLICT_DISABLED:   string destination = 3;
+// CONFLICT_DISABLED: }
