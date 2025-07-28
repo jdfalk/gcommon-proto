@@ -1,0 +1,16 @@
+{
+  "file": "CHANGELOG.md",
+  "mode": "changelog-entry",
+  "content": "Implemented remaining organization protobuf messages",
+  "guid": "d776fc9e-64ed-412c-bf83-75d65d23ea5e",
+  "created_at": "2025-07-28T03:18:42Z",
+  "options": {
+    "section": null,
+    "after": null,
+    "before": null,
+    "task_id": null,
+    "badge_name": null,
+    "priority": null,
+    "category": null
+  }
+}

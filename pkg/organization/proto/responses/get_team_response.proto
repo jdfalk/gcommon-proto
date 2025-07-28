@@ -5,11 +5,11 @@ package gcommon.v1.organization;
 
 import "google/protobuf/go_features.proto";
 import "pkg/common/proto/messages/error.proto";
+import "pkg/organization/proto/messages/team.proto";
 
 option go_package = "github.com/jdfalk/gcommon/pkg/organization/proto;organizationpb";
 option features.(pb.go).api_level = API_HYBRID;
 
-// TODO: Implement get_team_response message
 message GetTeamResponse {
   // Any errors encountered
   repeated gcommon.v1.common.Error errors = 1;
@@ -17,5 +17,6 @@ message GetTeamResponse {
   // Success status
   bool success = 2;
   
-  // TODO: Add specific fields for this response
+  // Team information
+  gcommon.v1.organization.Team team = 3;
 }

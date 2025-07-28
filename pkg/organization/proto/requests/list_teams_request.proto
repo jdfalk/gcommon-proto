@@ -9,10 +9,22 @@ import "pkg/common/proto/messages/request_metadata.proto";
 option go_package = "github.com/jdfalk/gcommon/pkg/organization/proto;organizationpb";
 option features.(pb.go).api_level = API_HYBRID;
 
-// TODO: Implement list_teams_request message
 message ListTeamsRequest {
   // Request metadata for tracing and context
   gcommon.v1.common.RequestMetadata metadata = 1;
   
-  // TODO: Add specific fields for this request
+  // Organization identifier
+  string organization_id = 2;
+
+  // Optional department identifier to scope teams
+  string department_id = 3;
+
+  // Maximum number of teams to return
+  int32 page_size = 4;
+
+  // Pagination token from previous response
+  string page_token = 5;
+
+  // Optional filter expression
+  string filter = 6;
 }
