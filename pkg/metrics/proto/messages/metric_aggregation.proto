@@ -1,18 +1,28 @@
 // filepath: pkg/metrics/proto/messages/metric_aggregation.proto
 // file: metrics/proto/messages/metric_aggregation.proto
 //
-// Message definitions for metrics module
-// TODO: Implement actual protobuf definitions
+// Definition of aggregation results for metrics queries.
 //
 edition = "2023";
 
 package gcommon.v1.metrics;
 
 import "google/protobuf/go_features.proto";
+import "pkg/metrics/proto/enums/aggregation_type.proto";
 
 option go_package = "github.com/jdfalk/gcommon/pkg/metrics/proto;metricspb";
 option features.(pb.go).api_level = API_HYBRID;
 
-// TODO: Add message definitions here
-// This is a placeholder file created during 1-1-1 migration
-// Implement the actual protobuf definitions according to the metrics module requirements
+/**
+ * MetricAggregation represents aggregated metric value.
+ */
+message MetricAggregation {
+  // Aggregation type performed
+  AggregationType type = 1;
+
+  // Value produced by aggregation
+  double value = 2;
+
+  // Number of samples aggregated
+  int64 sample_count = 3;
+}
