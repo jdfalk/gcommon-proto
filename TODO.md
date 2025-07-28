@@ -2410,3 +2410,5 @@ Implement publish and offset queue protobufs
 Cache module protobuf implementation complete. All 74 files implemented.
 
 - Web module progress: implemented AuthConfig, ServerConfig, MiddlewareConfig messages and UpdateMiddlewareConfig request/response
+
+Implement Web HealthCheckConfig protobuf

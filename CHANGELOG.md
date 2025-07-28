@@ -11,6 +11,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 
+- Implemented Web HealthCheckConfig protobuf
+
+### Added
+
 - Implemented additional queue protobufs for listing and pull operations
 
 ### Added
