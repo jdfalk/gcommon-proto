@@ -1,5 +1,5 @@
 // file: pkg/web/proto/types/file_metadata.proto
-// version: 1.0.0
+// version: 1.1.0
 // guid: ac289d4b-2cc8-4cfb-a360-36eef7dba093
 
 edition = "2023";
@@ -7,11 +7,26 @@ edition = "2023";
 package gcommon.v1.web;
 
 import "google/protobuf/go_features.proto";
+import "google/protobuf/timestamp.proto";
+import "pkg/web/proto/types/mime_type.proto";
 
 option go_package = "github.com/jdfalk/gcommon/pkg/web/proto;webpb";
 option features.(pb.go).api_level = API_HYBRID;
 
 // FileMetadata message definition.
 message FileMetadata {
-  string placeholder = 1;
+  // File name
+  string name = 1;
+
+  // File size in bytes
+  int64 size_bytes = 2;
+
+  // MIME type of the file
+  MimeType mime_type = 3;
+
+  // Optional checksum string
+  string checksum = 4;
+
+  // Last modification time
+  google.protobuf.Timestamp modified_at = 5;
 }

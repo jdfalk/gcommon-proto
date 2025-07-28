@@ -1,5 +1,5 @@
 // file: pkg/web/proto/messages/template_config.proto
-// version: 1.0.0
+// version: 1.1.0
 // guid: 02942f54-029c-468f-85df-cdf3042e8ee6
 
 edition = "2023";
@@ -13,5 +13,15 @@ option features.(pb.go).api_level = API_HYBRID;
 
 // TemplateConfig message definition.
 message TemplateConfig {
-  string placeholder = 1;
+  // Directory containing template files
+  string directory = 1;
+
+  // Default file extension
+  string extension = 2;
+
+  // Reload templates on change
+  bool reload = 3;
+
+  // Custom template function names
+  repeated string functions = 4;
 }
