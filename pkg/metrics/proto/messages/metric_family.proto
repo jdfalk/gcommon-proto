@@ -1,18 +1,35 @@
 // filepath: pkg/metrics/proto/messages/metric_family.proto
 // file: metrics/proto/messages/metric_family.proto
 //
-// Message definitions for metrics module
-// TODO: Implement actual protobuf definitions
+// MetricFamily groups related metrics together.
 //
 edition = "2023";
 
 package gcommon.v1.metrics;
 
 import "google/protobuf/go_features.proto";
+import "pkg/metrics/proto/enums/metric_type.proto";
+import "pkg/metrics/proto/messages/metric_data.proto";
 
 option go_package = "github.com/jdfalk/gcommon/pkg/metrics/proto;metricspb";
 option features.(pb.go).api_level = API_HYBRID;
 
-// TODO: Add message definitions here
-// This is a placeholder file created during 1-1-1 migration
-// Implement the actual protobuf definitions according to the metrics module requirements
+/**
+ * MetricFamily groups metrics of the same name and type.
+ */
+message MetricFamily {
+  // Family name (e.g., http_requests)
+  string name = 1;
+
+  // Family description
+  string description = 2;
+
+  // Metric type for this family
+  MetricType type = 3;
+
+  // Unit of measurement
+  string unit = 4;
+
+  // Metrics in this family
+  repeated MetricData metrics = 5;
+}

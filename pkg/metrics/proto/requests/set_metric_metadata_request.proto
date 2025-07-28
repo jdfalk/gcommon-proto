@@ -1,18 +1,26 @@
 // filepath: pkg/metrics/proto/requests/set_metric_metadata_request.proto
 // file: metrics/proto/requests/set_metric_metadata_request.proto
 //
-// Request definitions for metrics module
-// TODO: Implement actual protobuf definitions
+// Request message for updating metric metadata.
 //
 edition = "2023";
 
 package gcommon.v1.metrics;
 
 import "google/protobuf/go_features.proto";
+import "pkg/common/proto/messages/request_metadata.proto";
+import "pkg/metrics/proto/messages/metric_metadata.proto";
 
 option go_package = "github.com/jdfalk/gcommon/pkg/metrics/proto;metricspb";
 option features.(pb.go).api_level = API_HYBRID;
 
-// TODO: Add request definitions here
-// This is a placeholder file created during 1-1-1 migration
-// Implement the actual protobuf definitions according to the metrics module requirements
+/**
+ * SetMetricMetadataRequest updates metadata for a metric.
+ */
+message SetMetricMetadataRequest {
+  // Metric metadata to apply
+  MetricMetadata metadata = 1;
+
+  // Request metadata
+  gcommon.v1.common.RequestMetadata request_meta = 2 [lazy = true];
+}
