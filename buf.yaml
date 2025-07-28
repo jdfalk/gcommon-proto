@@ -3,6 +3,7 @@ modules:
   - path: .
     excludes:
       - pkg/test
+      - protobuf_backup_*
 lint:
   use:
     - STANDARD
