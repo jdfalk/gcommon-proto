@@ -2430,3 +2430,5 @@ Implement initial log protobuf refactor
 
 - Metrics module progress now at 34% with request and response messages implemented
 Cache module protobufs verified 100% complete. No remaining placeholder files.
+Completed remaining organization protobuf implementations
+Implement remaining organization protobufs
