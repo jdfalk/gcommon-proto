@@ -74,4 +74,5 @@ type (
 	Field          = dbpb_messages.Field
 	Transaction    = dbpb_messages.Transaction
 	BatchOperation = dbpb_messages.BatchOperation
+	DatabaseStatus = dbpb_messages.DatabaseStatus
 )
