@@ -1,9 +1,7 @@
-// filepath: pkg/queue/proto/enums/queue_type.proto
-// file: queue/proto/enums/queue_type.proto
-//
-// Enum definitions for queue module
-// TODO: Implement actual protobuf definitions
-//
+// file: pkg/queue/proto/enums/queue_type.proto
+// version: 1.0.0
+// guid: d6bb0e83-91d3-406a-9a66-519b5860d137
+
 edition = "2023";
 
 package gcommon.v1.queue;
@@ -13,6 +11,16 @@ import "google/protobuf/go_features.proto";
 option go_package = "github.com/jdfalk/gcommon/pkg/queue/proto;queuepb";
 option features.(pb.go).api_level = API_HYBRID;
 
-// TODO: Add enum definitions here
-// This is a placeholder file created during 1-1-1 migration
-// Implement the actual protobuf definitions according to the queue module requirements
+// QueueType enumerates supported queue implementations.
+enum QueueType {
+  // Default unspecified implementation.
+  QUEUE_TYPE_UNSPECIFIED = 0;
+  // In-memory queue for testing or lightweight workloads.
+  QUEUE_TYPE_MEMORY = 1;
+  // Redis-backed queue.
+  QUEUE_TYPE_REDIS = 2;
+  // NATS-based streaming queue.
+  QUEUE_TYPE_NATS = 3;
+  // Cloud provider queue (e.g., AWS SQS).
+  QUEUE_TYPE_CLOUD = 4;
+}
