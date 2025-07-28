@@ -2397,7 +2397,7 @@ Continue implementing remaining Auth protobufs
 
 Implement CockroachDB config protobuf message
 
-- [ ] 🟡 **General**: Implement Notification service protobufs
+- [x] 🟡 **General**: Implement Notification service protobufs
 
 - [ ] 🟡 **General**: Implemented queue list and pull protobufs
 
