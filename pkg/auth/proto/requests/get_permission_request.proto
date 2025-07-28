@@ -1,18 +1,22 @@
-// filepath: pkg/auth/proto/requests/get_permission_request.proto
-// file: auth/proto/requests/get_permission_request.proto
-//
-// Request definitions for auth module
-// TODO: Implement actual protobuf definitions
-//
+// file: pkg/auth/proto/requests/get_permission_request.proto
+// version: 1.0.0
+// guid: 0658829b-708a-480e-942d-42b7ce0e4fdd
+
 edition = "2023";
 
 package gcommon.v1.auth;
 
-import "google/protobuf/go_features.proto";
+import "pkg/common/proto/messages/request_metadata.proto";
 
 option go_package = "github.com/jdfalk/gcommon/pkg/auth/proto;authpb";
-option features.(pb.go).api_level = API_HYBRID;
 
-// TODO: Add request definitions here
-// This is a placeholder file created during 1-1-1 migration
-// Implement the actual protobuf definitions according to the auth module requirements
+/**
+ * Request to fetch details about a permission entry.
+ */
+message GetPermissionRequest {
+  // Permission identifier
+  string permission_id = 1;
+
+  // Request metadata for tracing and correlation
+  gcommon.v1.common.RequestMetadata metadata = 2;
+}

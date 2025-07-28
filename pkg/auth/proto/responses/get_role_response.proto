@@ -1,18 +1,25 @@
-// filepath: pkg/auth/proto/responses/get_role_response.proto
-// file: auth/proto/responses/get_role_response.proto
-//
-// Response definitions for auth module
-// TODO: Implement actual protobuf definitions
-//
+// file: pkg/auth/proto/responses/get_role_response.proto
+// version: 1.0.0
+// guid: 4da329f9-4bb7-4695-85e7-a7083ae930e1
+
 edition = "2023";
 
 package gcommon.v1.auth;
 
 import "google/protobuf/go_features.proto";
+import "pkg/auth/proto/types/role.proto";
+import "pkg/common/proto/messages/error.proto";
 
 option go_package = "github.com/jdfalk/gcommon/pkg/auth/proto;authpb";
 option features.(pb.go).api_level = API_HYBRID;
 
-// TODO: Add response definitions here
-// This is a placeholder file created during 1-1-1 migration
-// Implement the actual protobuf definitions according to the auth module requirements
+/**
+ * Response containing role information or an error.
+ */
+message GetRoleResponse {
+  // Role details if found
+  Role role = 1 [lazy = true];
+
+  // Error information if retrieval failed
+  gcommon.v1.common.Error error = 2 [lazy = true];
+}
