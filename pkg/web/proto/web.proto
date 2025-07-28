@@ -117,34 +117,34 @@ service WebService {
 }
 
 // WebAdminService provides web server administration
-service WebAdminService {
-  // Configure global settings
-  rpc ConfigureGlobal(ConfigureGlobalRequest) returns (ConfigureGlobalResponse);
-
-  // Update server configuration
-  rpc UpdateServerConfig(UpdateServerConfigRequest) returns (UpdateServerConfigResponse);
-
-  // Get server logs
-  rpc GetServerLogs(GetServerLogsRequest) returns (GetServerLogsResponse);
-
-  // Get access logs
-  rpc GetAccessLogs(GetAccessLogsRequest) returns (GetAccessLogsResponse);
-
-  // Reload server configuration
-  rpc ReloadServerConfig(ReloadServerConfigRequest) returns (ReloadServerConfigResponse);
-
-  // Get SSL certificate info
-  rpc GetSSLCertificateInfo(GetSSLCertificateInfoRequest) returns (GetSSLCertificateInfoResponse);
-
-  // Update SSL certificate
-  rpc UpdateSSLCertificate(UpdateSSLCertificateRequest) returns (UpdateSSLCertificateResponse);
-
-  // Get server health
-  rpc GetServerHealth(GetServerHealthRequest) returns (GetServerHealthResponse);
-
-  // Export server configuration
-  rpc ExportServerConfig(ExportServerConfigRequest) returns (ExportServerConfigResponse);
-
-  // Import server configuration
-  rpc ImportServerConfig(ImportServerConfigRequest) returns (ImportServerConfigResponse);
-}
+// CONFLICT_DISABLED: service WebAdminService {
+// CONFLICT_DISABLED:   // Configure global settings
+// CONFLICT_DISABLED:   rpc ConfigureGlobal(ConfigureGlobalRequest) returns (ConfigureGlobalResponse);
+// CONFLICT_DISABLED: 
+// CONFLICT_DISABLED:   // Update server configuration
+// CONFLICT_DISABLED:   rpc UpdateServerConfig(UpdateServerConfigRequest) returns (UpdateServerConfigResponse);
+// CONFLICT_DISABLED: 
+// CONFLICT_DISABLED:   // Get server logs
+// CONFLICT_DISABLED:   rpc GetServerLogs(GetServerLogsRequest) returns (GetServerLogsResponse);
+// CONFLICT_DISABLED: 
+// CONFLICT_DISABLED:   // Get access logs
+// CONFLICT_DISABLED:   rpc GetAccessLogs(GetAccessLogsRequest) returns (GetAccessLogsResponse);
+// CONFLICT_DISABLED: 
+// CONFLICT_DISABLED:   // Reload server configuration
+// CONFLICT_DISABLED:   rpc ReloadServerConfig(ReloadServerConfigRequest) returns (ReloadServerConfigResponse);
+// CONFLICT_DISABLED: 
+// CONFLICT_DISABLED:   // Get SSL certificate info
+// CONFLICT_DISABLED:   rpc GetSSLCertificateInfo(GetSSLCertificateInfoRequest) returns (GetSSLCertificateInfoResponse);
+// CONFLICT_DISABLED: 
+// CONFLICT_DISABLED:   // Update SSL certificate
+// CONFLICT_DISABLED:   rpc UpdateSSLCertificate(UpdateSSLCertificateRequest) returns (UpdateSSLCertificateResponse);
+// CONFLICT_DISABLED: 
+// CONFLICT_DISABLED:   // Get server health
+// CONFLICT_DISABLED:   rpc GetServerHealth(GetServerHealthRequest) returns (GetServerHealthResponse);
+// CONFLICT_DISABLED: 
+// CONFLICT_DISABLED:   // Export server configuration
+// CONFLICT_DISABLED:   rpc ExportServerConfig(ExportServerConfigRequest) returns (ExportServerConfigResponse);
+// CONFLICT_DISABLED: 
+// CONFLICT_DISABLED:   // Import server configuration
+// CONFLICT_DISABLED:   rpc ImportServerConfig(ImportServerConfigRequest) returns (ImportServerConfigResponse);
+// CONFLICT_DISABLED: }
