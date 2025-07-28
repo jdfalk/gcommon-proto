@@ -1,0 +1,8 @@
+{
+  "action": "create",
+  "title": "Verify common protobufs",
+  "body": "Confirmed there are no remaining empty protobuf files in pkg/common.",
+  "labels": ["module:common","type:maintenance"],
+  "guid": "33ee5611-a207-4481-9d38-252ca92c97e3",
+  "created_at": "2025-07-28T03:19:22.000Z"
+}
