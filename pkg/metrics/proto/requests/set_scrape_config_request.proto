@@ -1,18 +1,29 @@
 // filepath: pkg/metrics/proto/requests/set_scrape_config_request.proto
 // file: metrics/proto/requests/set_scrape_config_request.proto
 //
-// Request definitions for metrics module
-// TODO: Implement actual protobuf definitions
+// Request message to set scraping configuration for a provider.
 //
 edition = "2023";
 
 package gcommon.v1.metrics;
 
 import "google/protobuf/go_features.proto";
+import "pkg/common/proto/messages/request_metadata.proto";
+import "pkg/metrics/proto/messages/scrape_config.proto";
 
 option go_package = "github.com/jdfalk/gcommon/pkg/metrics/proto;metricspb";
 option features.(pb.go).api_level = API_HYBRID;
 
-// TODO: Add request definitions here
-// This is a placeholder file created during 1-1-1 migration
-// Implement the actual protobuf definitions according to the metrics module requirements
+/**
+ * SetScrapeConfigRequest updates scrape configuration.
+ */
+message SetScrapeConfigRequest {
+  // Provider identifier
+  string provider_id = 1;
+
+  // New scrape configuration
+  ScrapeConfig config = 2;
+
+  // Request metadata
+  gcommon.v1.common.RequestMetadata metadata = 3 [lazy = true];
+}

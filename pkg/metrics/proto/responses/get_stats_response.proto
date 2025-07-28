@@ -1,18 +1,26 @@
 // filepath: pkg/metrics/proto/responses/get_stats_response.proto
 // file: metrics/proto/responses/get_stats_response.proto
 //
-// Response definitions for metrics module
-// TODO: Implement actual protobuf definitions
+// Response containing metric statistics over a time range.
 //
 edition = "2023";
 
 package gcommon.v1.metrics;
 
 import "google/protobuf/go_features.proto";
+import "pkg/common/proto/messages/error.proto";
+import "pkg/metrics/proto/types/query_stats.proto";
 
 option go_package = "github.com/jdfalk/gcommon/pkg/metrics/proto;metricspb";
 option features.(pb.go).api_level = API_HYBRID;
 
-// TODO: Add response definitions here
-// This is a placeholder file created during 1-1-1 migration
-// Implement the actual protobuf definitions according to the metrics module requirements
+/**
+ * GetStatsResponse returns statistics for a metric.
+ */
+message GetStatsResponse {
+  // Statistics for the query
+  QueryStats stats = 1;
+
+  // Error information
+  gcommon.v1.common.Error error = 2;
+}
