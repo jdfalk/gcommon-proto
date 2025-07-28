@@ -1,5 +1,5 @@
 // file: pkg/web/proto/messages/health_check_config.proto
-// version: 1.0.0
+// version: 1.1.0
 // guid: 7aea6b7c-133f-4443-b7b6-c1cdeb194f0b
 
 edition = "2023";
@@ -11,7 +11,23 @@ import "google/protobuf/go_features.proto";
 option go_package = "github.com/jdfalk/gcommon/pkg/web/proto;webpb";
 option features.(pb.go).api_level = API_HYBRID;
 
-// HealthCheckConfig message definition.
+// HealthCheckConfig defines parameters for performing HTTP health checks.
 message HealthCheckConfig {
-  string placeholder = 1;
+  // HTTP path used for the health check request.
+  string path = 1;
+
+  // Interval between health checks in seconds.
+  double interval_seconds = 2;
+
+  // Timeout for a single health check in seconds.
+  double timeout_seconds = 3;
+
+  // Expected HTTP status code indicating a healthy response.
+  int32 expected_status = 4;
+
+  // Additional headers to include with the request.
+  map<string, string> headers = 5;
+
+  // Whether the health check is enabled.
+  bool enabled = 6;
 }
