@@ -1,0 +1,13 @@
+{
+  "action": "create",
+  "title": "Notification Module: add read/delete protobufs",
+  "body": "Implement MarkAsReadRequest/Response and DeleteNotificationRequest/Response with new service methods.",
+  "labels": ["module:notification", "type:protobuf", "enhancement"],
+  "guid": "4b1aedd6-e906-47be-aee1-e255fd82b62f",
+  "legacy_guid": "create-notification-module-add-read-delete-protobufs-2025-07-28",
+  "created_at": "2025-07-28T03:18:09.000Z",
+  "processed_at": null,
+  "failed_at": null,
+  "sequence": 0,
+  "parent_guid": null
+}

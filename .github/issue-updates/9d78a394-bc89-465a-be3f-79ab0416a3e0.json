@@ -1,0 +1,12 @@
+{
+  "action": "close",
+  "number": 55,
+  "state_reason": "completed",
+  "guid": "9d78a394-bc89-465a-be3f-79ab0416a3e0",
+  "legacy_guid": "close-issue-55-2025-07-28",
+  "created_at": "2025-07-28T03:18:15.406Z",
+  "processed_at": null,
+  "failed_at": null,
+  "sequence": 0,
+  "parent_guid": null
+}
