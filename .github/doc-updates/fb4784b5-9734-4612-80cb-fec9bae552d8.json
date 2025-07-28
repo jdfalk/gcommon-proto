@@ -1,0 +1,16 @@
+{
+  "file": "TODO.md",
+  "mode": "task-add",
+  "content": "Implement initial log protobuf refactor",
+  "guid": "fb4784b5-9734-4612-80cb-fec9bae552d8",
+  "created_at": "2025-07-28T03:30:00Z",
+  "options": {
+    "section": null,
+    "after": null,
+    "before": null,
+    "task_id": null,
+    "badge_name": null,
+    "priority": null,
+    "category": null
+  }
+}
