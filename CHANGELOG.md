@@ -9,6 +9,24 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+Implemented remaining organization protobuf messages
+
+### Added
+
+- Started migrating log protobufs to 1-1-1
+
+### Added
+
+- Implemented initial queue configuration messages and enums
+
+### Added
+
+- Implemented new auth protobufs: refresh token, security policy, audit event
+
+### Added
+
+- Implemented session management protobufs for web module
+
 ### Added
 
 - Implemented metrics request and response protobufs

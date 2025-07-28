@@ -2417,3 +2417,13 @@ Verify database module protobufs complete
 
 Implemented web cache config and admin service
 - Metrics module progress now at 34% with request and response messages implemented
+- [ ] 🟡 **General**: Finish remaining auth protobuf implementations
+
+- [ ] 🟡 **General**: Web: implement session management protobufs
+
+Completed remaining organization protobuf implementations
+Implement remaining organization protobufs
+
+Implement basic queue configuration messages and enums
+
+Implement initial log protobuf refactor
