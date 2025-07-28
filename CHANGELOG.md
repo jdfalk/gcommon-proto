@@ -9,6 +9,14 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Added
+
+- Implemented metrics request and response protobufs
+
+### Added
+
+- Verified completion of all cache protobufs
+
 Implemented remaining organization protobuf messages
 
 ### Added
