@@ -9,6 +9,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+Implemented web cache configuration message and admin service
+
+### Added
+
+- Verified database module protobufs complete
+
 ### Added
 
 - Implemented MarkAsRead and Delete notification protobufs
