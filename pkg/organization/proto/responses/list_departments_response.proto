@@ -5,11 +5,12 @@ package gcommon.v1.organization;
 
 import "google/protobuf/go_features.proto";
 import "pkg/common/proto/messages/error.proto";
+import "pkg/common/proto/messages/paginated_response.proto";
+import "pkg/organization/proto/messages/department.proto";
 
 option go_package = "github.com/jdfalk/gcommon/pkg/organization/proto;organizationpb";
 option features.(pb.go).api_level = API_HYBRID;
 
-// TODO: Implement list_departments_response message
 message ListDepartmentsResponse {
   // Any errors encountered
   repeated gcommon.v1.common.Error errors = 1;
@@ -17,5 +18,9 @@ message ListDepartmentsResponse {
   // Success status
   bool success = 2;
   
-  // TODO: Add specific fields for this response
+  // List of departments returned
+  repeated gcommon.v1.organization.Department departments = 3 [lazy = true];
+
+  // Pagination metadata
+  gcommon.v1.common.PaginatedResponse pagination = 4;
 }
