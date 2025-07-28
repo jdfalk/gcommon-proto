@@ -1,0 +1,29 @@
+// file: pkg/cache/proto/requests/configure_policy_request.proto
+// version: 1.0.0
+// guid: 123e4567-e89b-12d3-a456-426614174019
+
+edition = "2023";
+
+package gcommon.v1.cache;
+
+option go_package = "github.com/jdfalk/gcommon/pkg/cache/proto;cachepb";
+
+/**
+ * Request to configure cache policies.
+ */
+message ConfigurePolicyRequest {
+  // Namespace ID to configure
+  string namespace_id = 1;
+
+  // Eviction policy (LRU, LFU, FIFO, etc.)
+  string eviction_policy = 2;
+
+  // Maximum TTL in seconds
+  int32 max_ttl_seconds = 3;
+
+  // Memory threshold for eviction (percentage)
+  double memory_threshold_percent = 4;
+
+  // Additional policy configuration
+  map<string, string> policy_config = 5;
+}

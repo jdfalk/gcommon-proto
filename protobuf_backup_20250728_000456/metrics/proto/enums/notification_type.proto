@@ -1,0 +1,62 @@
+// filepath: pkg/metrics/proto/enums/notification_type.proto
+// file: metrics/proto/enums/notification_type.proto
+//
+// Enum definitions for metrics module
+// TODO: Implement actual protobuf definitions
+//
+edition = "2023";
+
+package gcommon.v1.metrics;
+
+import "google/protobuf/go_features.proto";
+
+option go_package = "github.com/jdfalk/gcommon/pkg/metrics/proto;metricspb";
+option features.(pb.go).api_level = API_HYBRID;
+
+/**
+ * NotificationType defines the types of notifications for metric alerts.
+ * Used to specify how alerts should be delivered to users.
+ */
+enum NotificationType {
+  // Unspecified notification type (default)
+  NOTIFICATION_TYPE_UNSPECIFIED = 0;
+
+  // Email notification
+  NOTIFICATION_TYPE_EMAIL = 1;
+
+  // SMS text message
+  NOTIFICATION_TYPE_SMS = 2;
+
+  // Push notification (mobile app)
+  NOTIFICATION_TYPE_PUSH = 3;
+
+  // Slack message
+  NOTIFICATION_TYPE_SLACK = 4;
+
+  // Microsoft Teams message
+  NOTIFICATION_TYPE_TEAMS = 5;
+
+  // Discord message
+  NOTIFICATION_TYPE_DISCORD = 6;
+
+  // PagerDuty incident
+  NOTIFICATION_TYPE_PAGERDUTY = 7;
+
+  // Webhook/HTTP POST
+  NOTIFICATION_TYPE_WEBHOOK = 8;
+
+  // In-app notification
+  NOTIFICATION_TYPE_IN_APP = 9;
+
+  // SNMP trap
+  NOTIFICATION_TYPE_SNMP = 10;
+
+  // Telegram message
+  NOTIFICATION_TYPE_TELEGRAM = 11;
+
+  // Matrix message
+  NOTIFICATION_TYPE_MATRIX = 12;
+
+  // Voice call
+  NOTIFICATION_TYPE_VOICE = 13;
+}

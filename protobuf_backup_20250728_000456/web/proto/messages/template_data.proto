@@ -1,0 +1,17 @@
+// file: pkg/web/proto/messages/template_data.proto
+// version: 1.0.0
+// guid: 31c5d8ac-caa3-4a45-816d-b831995e1757
+
+edition = "2023";
+
+package gcommon.v1.web;
+
+import "google/protobuf/go_features.proto";
+
+option go_package = "github.com/jdfalk/gcommon/pkg/web/proto;webpb";
+option features.(pb.go).api_level = API_HYBRID;
+
+// TemplateData message definition.
+message TemplateData {
+  string placeholder = 1;
+}

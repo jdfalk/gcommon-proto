@@ -1,0 +1,24 @@
+// file: pkg/queue/proto/responses/delete_queue_response.proto
+edition = "2023";
+
+package gcommon.v1.queue;
+
+import "google/protobuf/go_features.proto";
+
+option go_package = "github.com/jdfalk/gcommon/pkg/queue/proto;queuepb";
+option features.(pb.go).api_level = API_HYBRID;
+
+/**
+ * Response for deleting a queue.
+ * Confirms successful deletion and provides cleanup information.
+ */
+message DeleteQueueResponse {
+  // Whether the queue was successfully deleted
+  bool success = 1;
+
+  // Number of messages that were purged during deletion
+  int64 purged_messages = 2;
+
+  // Human-readable message describing the deletion result
+  string message = 3;
+}

@@ -1,0 +1,21 @@
+// file: pkg/organization/proto/requests/delete_team_request.proto
+edition = "2023";
+
+package gcommon.v1.organization;
+
+import "google/protobuf/go_features.proto";
+import "pkg/common/proto/messages/request_metadata.proto";
+
+option go_package = "github.com/jdfalk/gcommon/pkg/organization/proto;organizationpb";
+option features.(pb.go).api_level = API_HYBRID;
+
+message DeleteTeamRequest {
+  // Request metadata for tracing and context
+  gcommon.v1.common.RequestMetadata metadata = 1;
+
+  // Identifier of the team to delete
+  string team_id = 2;
+
+  // Force delete even if team has members
+  bool force = 3;
+}

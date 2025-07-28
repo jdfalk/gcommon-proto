@@ -1,0 +1,17 @@
+// file: pkg/web/proto/requests/get_handler_info_request.proto
+// version: 1.0.0
+// guid: 8e46bc43-d8f7-4053-bb73-4e458022efb6
+
+edition = "2023";
+
+package gcommon.v1.web;
+
+import "google/protobuf/go_features.proto";
+
+option go_package = "github.com/jdfalk/gcommon/pkg/web/proto;webpb";
+option features.(pb.go).api_level = API_HYBRID;
+
+// GetHandlerInfoRequest request definition.
+message GetHandlerInfoRequest {
+  string placeholder = 1;
+}

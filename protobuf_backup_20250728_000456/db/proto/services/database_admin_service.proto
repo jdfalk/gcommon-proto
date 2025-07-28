@@ -1,0 +1,49 @@
+// file: pkg/db/proto/services/database_admin_service.proto
+edition = "2023";
+
+package gcommon.v1.database;
+
+import "pkg/db/proto/requests/create_database_request.proto";
+import "pkg/db/proto/responses/create_database_response.proto";
+import "pkg/db/proto/requests/drop_database_request.proto";
+import "pkg/db/proto/requests/list_databases_request.proto";
+import "pkg/db/proto/responses/list_databases_response.proto";
+import "pkg/db/proto/requests/get_database_info_request.proto";
+import "pkg/db/proto/responses/get_database_info_response.proto";
+import "pkg/db/proto/requests/create_schema_request.proto";
+import "pkg/db/proto/responses/create_schema_response.proto";
+import "pkg/db/proto/requests/drop_schema_request.proto";
+import "pkg/db/proto/requests/list_schemas_request.proto";
+import "pkg/db/proto/responses/list_schemas_response.proto";
+import "google/protobuf/empty.proto";
+import "google/protobuf/go_features.proto";
+
+option go_package = "github.com/jdfalk/gcommon/pkg/db/proto;dbpb";
+option features.(pb.go).api_level = API_HYBRID;
+
+/**
+ * DatabaseAdminService provides administrative operations for database
+ * management including schema operations and migrations.
+ */
+service DatabaseAdminService {
+  // Create a new database
+  rpc CreateDatabase(CreateDatabaseRequest) returns (CreateDatabaseResponse);
+
+  // Remove an existing database
+  rpc DropDatabase(DropDatabaseRequest) returns (google.protobuf.Empty);
+
+  // List all available databases
+  rpc ListDatabases(ListDatabasesRequest) returns (ListDatabasesResponse);
+
+  // Get metadata about a specific database
+  rpc GetDatabaseInfo(GetDatabaseInfoRequest) returns (GetDatabaseInfoResponse);
+
+  // Create a new schema within a database
+  rpc CreateSchema(CreateSchemaRequest) returns (CreateSchemaResponse);
+
+  // Remove a schema from a database
+  rpc DropSchema(DropSchemaRequest) returns (google.protobuf.Empty);
+
+  // List all schemas in a database
+  rpc ListSchemas(ListSchemasRequest) returns (ListSchemasResponse);
+}

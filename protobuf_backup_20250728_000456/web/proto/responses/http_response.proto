@@ -1,0 +1,187 @@
+// file: pkg/web/proto/responses/http_response.proto
+// version: 1.0.0
+// guid: 0c1d2e3f-4a5b-6c7d-8e9f-0a1b2c3d4e5f
+
+edition = "2023";
+
+package gcommon.v1.web;
+
+option go_package = "github.com/jdfalk/gcommon/pkg/web/proto;webpb";
+
+// Standard imports
+import "google/protobuf/timestamp.proto";
+import "google/protobuf/any.proto";
+
+// Common types
+import "pkg/common/proto/common.proto";
+
+/**
+ * HttpResponse represents an HTTP response from web services.
+ * Captures all essential HTTP response information including status,
+ * headers, body, and metadata for service mesh and proxy use cases.
+ *
+ * Follows 1-1-1 pattern: one message per file.
+ */
+message HttpResponse {
+  // Required fields (1-10)
+
+  /**
+   * HTTP status code (200, 404, 500, etc.).
+   */
+  int32 status_code = 1;
+
+  /**
+   * HTTP status message/reason phrase (OK, Not Found, Internal Server Error, etc.).
+   */
+  string status_message = 2;
+
+  /**
+   * HTTP protocol version used for the response.
+   */
+  string protocol_version = 3;
+
+  // Optional fields (11-50)
+
+  /**
+   * Request processing metadata including timing, request ID,
+   * and other observability information.
+   */
+  gcommon.v1.common.RequestMetadata request_metadata = 11;
+
+  /**
+   * HTTP response headers as key-value pairs.
+   * Includes standard headers like Content-Type, Cache-Control, etc.
+   */
+  map<string, string> headers = 12;
+
+  /**
+   * Response body/payload data.
+   * Can contain any content type (JSON, XML, HTML, binary, etc.).
+   */
+  google.protobuf.Any body = 13;
+
+  /**
+   * Cookies to be set in the client.
+   */
+  map<string, string> cookies = 14;
+
+  /**
+   * Content length in bytes.
+   */
+  int64 content_length = 15;
+
+  /**
+   * Content type of the response body.
+   */
+  string content_type = 16;
+
+  /**
+   * Content encoding (gzip, deflate, etc.).
+   */
+  string content_encoding = 17;
+
+  /**
+   * Cache-Control header value.
+   */
+  string cache_control = 18;
+
+  /**
+   * ETag header for caching and conditional requests.
+   */
+  string etag = 19;
+
+  /**
+   * Location header for redirects.
+   */
+  string location = 20;
+
+  /**
+   * Server header identifying the server software.
+   */
+  string server = 21;
+
+  /**
+   * CORS Access-Control-Allow-Origin header.
+   */
+  string access_control_allow_origin = 22;
+
+  /**
+   * CORS Access-Control-Allow-Methods header.
+   */
+  string access_control_allow_methods = 23;
+
+  /**
+   * CORS Access-Control-Allow-Headers header.
+   */
+  string access_control_allow_headers = 24;
+
+  /**
+   * Request ID that was processed (for correlation).
+   */
+  string request_id = 25;
+
+  /**
+   * Service name that generated this response.
+   */
+  string service_name = 26;
+
+  /**
+   * Service version that generated this response.
+   */
+  string service_version = 27;
+
+  /**
+   * Response processing time in milliseconds.
+   */
+  int64 processing_time_ms = 28;
+
+  /**
+   * Whether the response was served from cache.
+   */
+  bool served_from_cache = 29;
+
+  /**
+   * Whether the response is being streamed.
+   */
+  bool streaming = 30;
+
+  /**
+   * Whether the connection will be kept alive.
+   */
+  bool keep_alive = 31;
+
+  /**
+   * Whether the response was compressed.
+   */
+  bool compressed = 32;
+
+  /**
+   * Compression ratio if compressed (0.0-1.0).
+   */
+  float compression_ratio = 33;
+
+  // Status and error fields (61-70)
+
+  /**
+   * Error information if the response represents an error
+   * or if there were issues generating the response.
+   */
+  gcommon.v1.common.Error error = 61;
+
+  // Timestamps (51-60)
+
+  /**
+   * When response generation started.
+   */
+  google.protobuf.Timestamp processing_started_at = 51;
+
+  /**
+   * When the response was generated.
+   */
+  google.protobuf.Timestamp generated_at = 52;
+
+  /**
+   * When the response was sent to the client.
+   */
+  google.protobuf.Timestamp sent_at = 53;
+}

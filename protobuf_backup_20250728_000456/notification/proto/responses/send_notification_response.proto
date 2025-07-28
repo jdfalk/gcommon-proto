@@ -1,0 +1,27 @@
+// file: pkg/notification/proto/responses/send_notification_response.proto
+// version: 1.0.0
+// guid: 4c4e1ac6-1393-496b-80b5-cb0bd7ef41f1
+
+edition = "2023";
+
+package gcommon.v1.notification;
+
+import "google/protobuf/go_features.proto";
+import "pkg/notification/proto/enums/delivery_status.proto";
+
+option go_package = "github.com/jdfalk/gcommon/pkg/notification/proto;notificationpb";
+option features.(pb.go).api_level = API_HYBRID;
+
+/**
+ * Response returned after sending a notification.
+ */
+message SendNotificationResponse {
+  // Unique identifier for the queued notification.
+  string notification_id = 1;
+
+  // Whether the notification was accepted for delivery
+  bool accepted = 2;
+
+  // Current delivery status of the notification
+  DeliveryStatus status = 3;
+}

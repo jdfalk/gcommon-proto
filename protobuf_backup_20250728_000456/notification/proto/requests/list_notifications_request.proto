@@ -1,0 +1,21 @@
+// file: pkg/notification/proto/requests/list_notifications_request.proto
+// version: 1.0.0
+// guid: 34151d3e-f3cb-4445-a801-c9a44078e3cd
+
+edition = "2023";
+
+package gcommon.v1.notification;
+
+import "google/protobuf/go_features.proto";
+import "pkg/common/proto/messages/pagination.proto";
+
+option go_package = "github.com/jdfalk/gcommon/pkg/notification/proto;notificationpb";
+option features.(pb.go).api_level = API_HYBRID;
+
+/**
+ * Request to list previously sent notifications.
+ */
+message ListNotificationsRequest {
+  // Pagination information for result set.
+  gcommon.v1.common.Pagination pagination = 1;
+}

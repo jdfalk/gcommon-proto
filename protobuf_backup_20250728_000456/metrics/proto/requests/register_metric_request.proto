@@ -1,0 +1,205 @@
+// filepath: pkg/metrics/proto/requests/register_metric_request.proto
+// file: metrics/proto/requests/register_metric_request.proto
+//
+// Register metric request definitions for metrics module
+//
+edition = "2023";
+
+package gcommon.v1.metrics;
+
+import "google/protobuf/go_features.proto";
+import "pkg/common/proto/messages/request_metadata.proto";
+import "pkg/metrics/proto/enums/metric_type.proto";
+import "pkg/metrics/proto/types/export_config.proto";
+import "pkg/metrics/proto/types/retention_policy.proto";
+
+option go_package = "github.com/jdfalk/gcommon/pkg/metrics/proto;metricspb";
+option features.(pb.go).api_level = API_HYBRID;
+
+/**
+ * RegisterMetricRequest represents a request to register a new metric definition.
+ * This creates a metric schema that can be used for validation and metadata.
+ */
+message RegisterMetricRequest {
+  // Standard request metadata (tracing, auth, etc.)
+  gcommon.v1.common.RequestMetadata metadata = 1;
+
+  // Metric definition to register
+  MetricDefinition definition = 2;
+
+  // Optional provider ID to register with
+  string provider_id = 3;
+
+  // Whether to replace an existing metric with the same name
+  bool replace_existing = 4;
+
+  // Validation options for the registration
+  RegistrationOptions options = 5;
+}
+
+/**
+ * MetricDefinition contains the complete definition of a metric.
+ */
+message MetricDefinition {
+  // Unique name for the metric
+  string name = 1;
+
+  // Type of metric (counter, gauge, histogram, etc.)
+  MetricType type = 2;
+
+  // Human-readable description
+  string description = 3;
+
+  // Unit of measurement (e.g., "bytes", "requests", "seconds")
+  string unit = 4;
+
+  // Labels that this metric supports
+  repeated LabelDefinition labels = 5;
+
+  // Metric-specific configuration
+  MetricTypeConfig config = 6;
+
+  // Retention policy for this metric
+  RetentionPolicyConfig retention = 7;
+
+  // Export configuration for this metric
+  ExportConfig export_config = 8;
+
+  // Validation rules for metric values
+  ValidationRules validation = 9;
+
+  // Tags for metric organization and discovery
+  map<string, string> tags = 10;
+}
+
+/**
+ * LabelDefinition defines a label that can be attached to the metric.
+ */
+message LabelDefinition {
+  // Name of the label
+  string name = 1;
+
+  // Description of what this label represents
+  string description = 2;
+
+  // Whether this label is required
+  bool required = 3;
+
+  // Allowed values for this label (empty = any value allowed)
+  repeated string allowed_values = 4;
+
+  // Pattern for validating label values (regex)
+  string validation_pattern = 5;
+
+  // Default value if not specified
+  string default_value = 6;
+}
+
+/**
+ * MetricTypeConfig contains type-specific configuration for metrics.
+ */
+message MetricTypeConfig {
+  // Configuration for histogram metrics
+  HistogramConfig histogram = 1;
+
+  // Configuration for summary metrics
+  SummaryConfig summary = 2;
+
+  // Configuration for gauge metrics
+  GaugeConfig gauge = 3;
+
+  // Configuration for counter metrics
+  CounterConfig counter = 4;
+}
+
+/**
+ * HistogramConfig contains configuration specific to histogram metrics.
+ */
+message HistogramConfig {
+  // Predefined buckets for the histogram
+  repeated double buckets = 1;
+
+  // Whether to automatically adjust buckets based on data
+  bool auto_buckets = 2;
+
+  // Maximum number of buckets to maintain
+  int32 max_buckets = 3;
+}
+
+/**
+ * SummaryConfig contains configuration specific to summary metrics.
+ */
+message SummaryConfig {
+  // Quantiles to calculate (e.g., 0.5, 0.95, 0.99)
+  repeated double quantiles = 1;
+
+  // Time window for calculating quantiles
+  string time_window = 2;
+
+  // Maximum age of observations to include
+  string max_age = 3;
+}
+
+/**
+ * GaugeConfig contains configuration specific to gauge metrics.
+ */
+message GaugeConfig {
+  // Minimum allowed value
+  double min_value = 1;
+
+  // Maximum allowed value
+  double max_value = 2;
+
+  // Whether the gauge can go negative
+  bool allow_negative = 3;
+}
+
+/**
+ * CounterConfig contains configuration specific to counter metrics.
+ */
+message CounterConfig {
+  // Starting value for the counter
+  double initial_value = 1;
+
+  // Whether the counter can be reset
+  bool allow_reset = 2;
+
+  // Maximum value before rolling over
+  double max_value = 3;
+}
+
+
+
+/**
+ * ValidationRules define validation rules for metric values.
+ */
+message ValidationRules {
+  // Minimum allowed value
+  double min_value = 1;
+
+  // Maximum allowed value
+  double max_value = 2;
+
+  // Whether null/zero values are allowed
+  bool allow_null = 3;
+
+  // Custom validation expressions
+  repeated string validation_expressions = 4;
+}
+
+/**
+ * RegistrationOptions configure the registration process.
+ */
+message RegistrationOptions {
+  // Whether to validate the definition before registration
+  bool validate_definition = 1;
+
+  // Whether to perform a dry run (validation only)
+  bool dry_run = 2;
+
+  // Whether to create indices for efficient querying
+  bool create_indices = 3;
+
+  // Whether to enable real-time alerts for this metric
+  bool enable_alerting = 4;
+}

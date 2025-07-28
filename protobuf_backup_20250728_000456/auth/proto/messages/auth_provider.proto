@@ -1,0 +1,31 @@
+// file: pkg/auth/proto/messages/auth_provider.proto
+// version: 1.0.0
+// guid: 7293f6cc-7049-493d-9e7c-b17f00dd8a76
+
+edition = "2023";
+
+package gcommon.v1.auth;
+
+import "google/protobuf/go_features.proto";
+import "pkg/auth/proto/enums/provider_type.proto";
+
+option go_package = "github.com/jdfalk/gcommon/pkg/auth/proto;authpb";
+option features.(pb.go).api_level = API_HYBRID;
+
+/**
+ * AuthProvider represents an external authentication provider configuration.
+ * It defines the provider type and connection details used for authentication.
+ */
+message AuthProvider {
+  // Unique provider identifier
+  string id = 1;
+
+  // Human readable provider name
+  string name = 2;
+
+  // Provider type (e.g., LDAP, OAUTH2, SAML)
+  ProviderType type = 3;
+
+  // Provider-specific configuration reference or JSON blob
+  string config = 4;
+}

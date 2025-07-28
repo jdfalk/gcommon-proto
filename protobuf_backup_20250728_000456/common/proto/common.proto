@@ -1,0 +1,65 @@
+// filepath: /Users/jdfalk/repos/github.com/jdfalk/gcommon/pkg/common/proto/common.proto
+// file: pkg/common/proto/common.proto
+//
+// Common Module - Import Aggregator for Backward Compatibility
+//
+// MIGRATION STATUS: ✅ COMPLETE - All types migrated to 1-1-1 structure
+//
+// This file serves as a backward compatibility layer that publicly re-exports
+// all common module types from their individual 1-1-1 proto files.
+//
+// USAGE:
+//   For existing code: import "pkg/common/proto/common.proto"
+//   For new code: import specific 1-1-1 files directly, e.g.:
+//     import "pkg/common/proto/enums/error_code.proto"
+//     import "pkg/common/proto/messages/error.proto"
+//
+// STRUCTURE:
+//   Enums: 12 total (ErrorCode, SortDirection, FilterOperation, etc.)
+//   Messages: 6 total (Error, Pagination, RateLimit, etc.)
+//   Types: 7 total (TimeRange, ClientInfo, StringArray, etc.)
+//
+// All imports use 'public' keyword to ensure backward compatibility.
+//
+edition = "2023";
+
+package gcommon.v1.common;
+
+import "google/protobuf/go_features.proto";
+import public "pkg/common/proto/enums/ack_mode.proto";
+import public "pkg/common/proto/enums/audit_result.proto";
+import public "pkg/common/proto/enums/circuit_breaker_state.proto";
+// Import all 1-1-1 protobuf files with public visibility for backward compatibility
+
+// Enums (12 total)
+import public "pkg/common/proto/enums/error_code.proto";
+import public "pkg/common/proto/enums/eviction_policy.proto";
+import public "pkg/common/proto/enums/expiration_policy.proto";
+import public "pkg/common/proto/enums/filter_operation.proto";
+import public "pkg/common/proto/enums/health_status.proto";
+import public "pkg/common/proto/enums/resource_status.proto";
+import public "pkg/common/proto/enums/subscription_status.proto";
+import public "pkg/common/proto/enums/value_type.proto";
+import public "pkg/common/proto/messages/batch_options.proto";
+import public "pkg/common/proto/messages/cache_policy.proto";
+import public "pkg/common/proto/messages/debug_info.proto";
+// Messages (10 total)
+import public "pkg/common/proto/messages/error.proto";
+import public "pkg/common/proto/messages/paginated_response.proto";
+import public "pkg/common/proto/messages/pagination.proto";
+import public "pkg/common/proto/messages/rate_limit.proto";
+import public "pkg/common/proto/messages/request_metadata.proto";
+import public "pkg/common/proto/messages/response_metadata.proto";
+import public "pkg/common/proto/messages/service_version.proto";
+import public "pkg/common/proto/types/client_info.proto";
+import public "pkg/common/proto/types/int64_array.proto";
+import public "pkg/common/proto/types/key_value.proto";
+import public "pkg/common/proto/types/metric_point.proto";
+import public "pkg/common/proto/types/resource_reference.proto";
+import public "pkg/common/proto/types/sort.proto";
+import public "pkg/common/proto/types/string_array.proto";
+// Types (7 total)
+import public "pkg/common/proto/types/time_range.proto";
+
+option features.(pb.go).api_level = API_HYBRID;
+option go_package = "github.com/jdfalk/gcommon/pkg/common/proto;commonpb";

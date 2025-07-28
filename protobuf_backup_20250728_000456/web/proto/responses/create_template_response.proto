@@ -1,0 +1,17 @@
+// file: pkg/web/proto/responses/create_template_response.proto
+// version: 1.0.0
+// guid: 294f4744-3238-404c-94ec-85cb4b77bfbe
+
+edition = "2023";
+
+package gcommon.v1.web;
+
+import "google/protobuf/go_features.proto";
+
+option go_package = "github.com/jdfalk/gcommon/pkg/web/proto;webpb";
+option features.(pb.go).api_level = API_HYBRID;
+
+// CreateTemplateResponse response definition.
+message CreateTemplateResponse {
+  string placeholder = 1;
+}

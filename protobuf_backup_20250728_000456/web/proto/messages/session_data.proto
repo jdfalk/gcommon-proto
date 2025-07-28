@@ -1,0 +1,17 @@
+// file: pkg/web/proto/messages/session_data.proto
+// version: 1.0.0
+// guid: f93f7cc5-48c6-4b64-98d2-35549cf19b02
+
+edition = "2023";
+
+package gcommon.v1.web;
+
+import "google/protobuf/go_features.proto";
+
+option go_package = "github.com/jdfalk/gcommon/pkg/web/proto;webpb";
+option features.(pb.go).api_level = API_HYBRID;
+
+// SessionData message definition.
+message SessionData {
+  string placeholder = 1;
+}

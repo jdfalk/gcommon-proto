@@ -1,0 +1,75 @@
+// filepath: /Users/jdfalk/repos/github.com/jdfalk/gcommon/pkg/auth/proto/auth.proto
+// file: pkg/auth/proto/auth.proto
+//
+// Auth Module - Import Aggregator for Backward Compatibility
+//
+// MIGRATION STATUS: 🔄 IN PROGRESS - Converting from monolithic to 1-1-1 structure
+//
+// This file serves as a backward compatibility layer that publicly re-exports
+// all auth module types from their individual 1-1-1 proto files.
+//
+// USAGE:
+//   For existing code: import "pkg/auth/proto/auth.proto"
+//   For new code: import specific 1-1-1 files directly, e.g.:
+//     import "pkg/auth/proto/services/auth_service.proto"
+//     import "pkg/auth/proto/enums/user_status.proto"
+//
+// STRUCTURE:
+//   Services: AuthService, AuthAdminService, SessionService, PermissionService
+//   Enums: UserStatus, SessionStatus, TokenType, PermissionScope, etc.
+//   Messages: User, Session, Token, Permission, etc.
+//   Types: PasswordCredentials, APIKeyCredentials, OAuth2Credentials, etc.
+//
+// All imports use 'public' keyword to ensure backward compatibility.
+//
+edition = "2023";
+
+package gcommon.v1.auth;
+
+import "google/protobuf/go_features.proto";
+
+option go_package = "github.com/jdfalk/gcommon/pkg/auth/proto;authpb";
+option features.(pb.go).api_level = API_HYBRID;
+
+// Import all 1-1-1 protobuf files with public visibility for backward compatibility
+
+// Services (4 total)
+import public "pkg/auth/proto/services/auth_service.proto";
+import public "pkg/auth/proto/services/authorization_service.proto";
+import public "pkg/auth/proto/services/session_service.proto";
+// import public "pkg/auth/proto/services/auth_admin_service.proto"; // TODO: Restore when request/response types are implemented
+
+// Enums (working subset - removing problematic imports temporarily)
+import public "pkg/auth/proto/enums/user_status.proto";
+import public "pkg/auth/proto/enums/session_status.proto";
+import public "pkg/auth/proto/enums/token_type.proto";
+import public "pkg/auth/proto/enums/permission_scope.proto";
+import public "pkg/auth/proto/enums/mfa_type.proto";
+import public "pkg/auth/proto/enums/audit_action.proto";
+import public "pkg/auth/proto/enums/role_scope.proto";
+import public "pkg/auth/proto/enums/token_status.proto";
+
+// Messages (17 total)
+import public "pkg/auth/proto/messages/user.proto";
+import public "pkg/auth/proto/messages/session.proto";
+import public "pkg/auth/proto/messages/token.proto";
+import public "pkg/auth/proto/messages/permission.proto";
+import public "pkg/auth/proto/types/role.proto";
+import public "pkg/auth/proto/messages/group.proto";
+import public "pkg/auth/proto/messages/audit_log.proto";
+import public "pkg/auth/proto/messages/mfa_config.proto";
+import public "pkg/auth/proto/messages/rate_limit_config.proto";
+import public "pkg/auth/proto/messages/password_policy.proto";
+import public "pkg/auth/proto/messages/oauth_client.proto";
+import public "pkg/auth/proto/messages/api_key.proto";
+import public "pkg/auth/proto/messages/user_profile.proto";
+import public "pkg/auth/proto/messages/session_info.proto";
+import public "pkg/auth/proto/messages/token_info.proto";
+import public "pkg/auth/proto/messages/permission_grant.proto";
+import public "pkg/auth/proto/messages/role_assignment.proto";
+
+// Types (4 total)
+import public "pkg/auth/proto/types/password_credentials.proto";
+import public "pkg/auth/proto/types/api_key_credentials.proto";
+import public "pkg/auth/proto/types/oauth2_credentials.proto";
+import public "pkg/auth/proto/types/jwt_credentials.proto";

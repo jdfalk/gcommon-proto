@@ -1,0 +1,17 @@
+// file: pkg/web/proto/requests/create_session_request.proto
+// version: 1.0.0
+// guid: 1022341d-b551-43d4-b090-2354a82b624c
+
+edition = "2023";
+
+package gcommon.v1.web;
+
+import "google/protobuf/go_features.proto";
+
+option go_package = "github.com/jdfalk/gcommon/pkg/web/proto;webpb";
+option features.(pb.go).api_level = API_HYBRID;
+
+// CreateSessionRequest request definition.
+message CreateSessionRequest {
+  string placeholder = 1;
+}

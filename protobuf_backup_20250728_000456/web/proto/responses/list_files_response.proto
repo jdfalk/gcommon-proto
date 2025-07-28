@@ -1,0 +1,17 @@
+// file: pkg/web/proto/responses/list_files_response.proto
+// version: 1.0.0
+// guid: 0ee5d62d-df69-4b40-a4ea-a36fb6e16147
+
+edition = "2023";
+
+package gcommon.v1.web;
+
+import "google/protobuf/go_features.proto";
+
+option go_package = "github.com/jdfalk/gcommon/pkg/web/proto;webpb";
+option features.(pb.go).api_level = API_HYBRID;
+
+// ListFilesResponse response definition.
+message ListFilesResponse {
+  string placeholder = 1;
+}

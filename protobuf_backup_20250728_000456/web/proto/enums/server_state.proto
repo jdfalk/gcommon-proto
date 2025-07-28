@@ -1,0 +1,21 @@
+// file: pkg/web/proto/enums/server_state.proto
+// version: 1.0.0
+// guid: edc8f45d-5db0-4b28-b04a-c6eedc98b19b
+//
+// ServerState represents lifecycle states of the server.
+edition = "2023";
+
+package gcommon.v1.web;
+
+import "google/protobuf/go_features.proto";
+
+option go_package = "github.com/jdfalk/gcommon/pkg/web/proto;webpb";
+option features.(pb.go).api_level = API_HYBRID;
+
+enum ServerState {
+    SERVER_STATE_UNSPECIFIED = 0;
+    SERVER_STATE_STARTING = 1;
+    SERVER_STATE_RUNNING = 2;
+    SERVER_STATE_STOPPING = 3;
+    SERVER_STATE_STOPPED = 4;
+}

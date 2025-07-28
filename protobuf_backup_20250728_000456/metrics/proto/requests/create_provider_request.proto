@@ -1,0 +1,245 @@
+// filepath: pkg/metrics/proto/requests/create_provider_request.proto
+// file: metrics/proto/requests/create_provider_request.proto
+//
+// Create provider request definitions for metrics module
+//
+edition = "2023";
+
+package gcommon.v1.metrics;
+
+import "google/protobuf/go_features.proto";
+import "pkg/common/proto/messages/request_metadata.proto";
+import "pkg/metrics/proto/types/export_config.proto";
+
+option go_package = "github.com/jdfalk/gcommon/pkg/metrics/proto;metricspb";
+option features.(pb.go).api_level = API_HYBRID;
+
+/**
+ * CreateProviderRequest represents a request to create a new metrics provider.
+ */
+message CreateProviderRequest {
+  // Standard request metadata (tracing, auth, etc.)
+  gcommon.v1.common.RequestMetadata metadata = 1;
+
+  // Provider configuration
+  ProviderConfig config = 2;
+
+  // Whether to validate the configuration before creating
+  bool validate_config = 3;
+
+  // Whether to perform a dry run (validation only)
+  bool dry_run = 4;
+
+  // Whether to start the provider immediately after creation
+  bool auto_start = 5;
+}
+
+/**
+ * ProviderConfig contains the configuration for a metrics provider.
+ */
+message ProviderConfig {
+  // Unique identifier for the provider
+  string provider_id = 1;
+
+  // Human-readable name for the provider
+  string name = 2;
+
+  // Type of provider (prometheus, opentelemetry, custom, etc.)
+  ProviderType type = 3;
+
+  // Provider-specific configuration
+  ProviderSettings settings = 4;
+
+  // Export configuration for this provider
+  ExportConfig export_config = 5;
+
+  // Resource limits for this provider
+  ResourceLimits resource_limits = 6;
+
+  // Security configuration
+  SecurityConfig security_config = 7;
+
+  // Tags for provider organization
+  map<string, string> tags = 8;
+
+  // Description of the provider
+  string description = 9;
+}
+
+/**
+ * ProviderType defines the type of metrics provider.
+ */
+enum ProviderType {
+  PROVIDER_TYPE_UNSPECIFIED = 0;
+  PROVIDER_TYPE_PROMETHEUS = 1;
+  PROVIDER_TYPE_OPENTELEMETRY = 2;
+  PROVIDER_TYPE_STATSD = 3;
+  PROVIDER_TYPE_CUSTOM = 4;
+  PROVIDER_TYPE_MEMORY = 5;
+  PROVIDER_TYPE_MULTI = 6;
+}
+
+/**
+ * ProviderSettings contains type-specific configuration.
+ */
+message ProviderSettings {
+  // Prometheus-specific settings
+  PrometheusSettings prometheus = 1;
+
+  // OpenTelemetry-specific settings
+  OpenTelemetrySettings opentelemetry = 2;
+
+  // StatsD-specific settings
+  StatsDSettings statsd = 3;
+
+  // Custom provider settings
+  map<string, string> custom = 4;
+}
+
+/**
+ * PrometheusSettings contains Prometheus-specific configuration.
+ */
+message PrometheusSettings {
+  // Registry to use
+  string registry = 1;
+
+  // Whether to enable push gateway
+  bool enable_push_gateway = 2;
+
+  // Push gateway URL
+  string push_gateway_url = 3;
+
+  // Job name for push gateway
+  string job_name = 4;
+
+  // Instance name
+  string instance = 5;
+
+  // Additional labels
+  map<string, string> labels = 6;
+}
+
+/**
+ * OpenTelemetrySettings contains OpenTelemetry-specific configuration.
+ */
+message OpenTelemetrySettings {
+  // OTLP endpoint
+  string endpoint = 1;
+
+  // Whether to use TLS
+  bool use_tls = 2;
+
+  // Headers to include with requests
+  map<string, string> headers = 3;
+
+  // Resource attributes
+  map<string, string> resource_attributes = 4;
+
+  // Export timeout
+  string timeout = 5;
+}
+
+/**
+ * StatsDSettings contains StatsD-specific configuration.
+ */
+message StatsDSettings {
+  // StatsD server address
+  string address = 1;
+
+  // Protocol to use (udp, tcp)
+  string protocol = 2;
+
+  // Prefix for all metrics
+  string prefix = 3;
+
+  // Sampling rate
+  double sample_rate = 4;
+
+  // Buffer size
+  int32 buffer_size = 5;
+}
+
+/**
+ * ExportDestination defines a destination for metric exports.
+ */
+message ExportDestination {
+  // Destination type (file, http, s3, etc.)
+  string type = 1;
+
+  // Destination configuration
+  map<string, string> config = 2;
+
+  // Whether this destination is enabled
+  bool enabled = 3;
+}
+
+/**
+ * ResourceLimits defines resource limits for the provider.
+ */
+message ResourceLimits {
+  // Maximum memory usage (bytes)
+  int64 max_memory_bytes = 1;
+
+  // Maximum CPU usage (percentage)
+  double max_cpu_percent = 2;
+
+  // Maximum disk usage (bytes)
+  int64 max_disk_bytes = 3;
+
+  // Maximum number of metrics
+  int64 max_metrics = 4;
+
+  // Maximum data points per metric
+  int64 max_data_points_per_metric = 5;
+}
+
+/**
+ * SecurityConfig defines security configuration for the provider.
+ */
+message SecurityConfig {
+  // Whether authentication is required
+  bool require_auth = 1;
+
+  // Allowed authentication methods
+  repeated string auth_methods = 2;
+
+  // Whether TLS is required
+  bool require_tls = 3;
+
+  // TLS configuration
+  TLSConfig tls_config = 4;
+
+  // API key configuration
+  APIKeyConfig api_key_config = 5;
+}
+
+/**
+ * TLSConfig defines TLS configuration.
+ */
+message TLSConfig {
+  // Certificate file path
+  string cert_file = 1;
+
+  // Private key file path
+  string key_file = 2;
+
+  // CA certificate file path
+  string ca_file = 3;
+
+  // Whether to verify certificates
+  bool verify_certs = 4;
+}
+
+/**
+ * APIKeyConfig defines API key configuration.
+ */
+message APIKeyConfig {
+  // Header name for API key
+  string header_name = 1;
+
+  // Whether API key is required
+  bool required = 2;
+
+  // Allowed API keys (for validation)
+  repeated string allowed_keys = 3;
+}

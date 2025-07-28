@@ -1,0 +1,52 @@
+// file: pkg/cache/proto/messages/cache_stats.proto
+// version: 1.0.0
+// guid: mn3opqrs-45t6-7u8v-9w0x-1y2z3a4b5c6d
+
+edition = "2023";
+
+package gcommon.v1.cache;
+
+import "google/protobuf/go_features.proto";
+import "google/protobuf/timestamp.proto";
+
+option go_package = "github.com/jdfalk/gcommon/pkg/cache/proto;cachepb";
+option features.(pb.go).api_level = API_HYBRID;
+
+/**
+ * Cache statistics and performance metrics.
+ * Provides detailed information about cache usage and performance.
+ */
+message CacheStats {
+  // Total number of cached items
+  int64 total_items = 1;
+
+  // Total cache hits
+  int64 cache_hits = 2;
+
+  // Total cache misses
+  int64 cache_misses = 3;
+
+  // Cache hit ratio (0.0 to 1.0)
+  double hit_ratio = 4;
+
+  // Memory usage in bytes
+  int64 memory_usage = 5;
+
+  // Maximum memory limit in bytes
+  int64 memory_limit = 6;
+
+  // Number of evicted items
+  int64 evicted_items = 7;
+
+  // Number of expired items
+  int64 expired_items = 8;
+
+  // Average access time in milliseconds
+  double avg_access_time_ms = 9;
+
+  // Last reset timestamp
+  google.protobuf.Timestamp last_reset = 10;
+
+  // Cache uptime in seconds
+  int64 uptime_seconds = 11;
+}

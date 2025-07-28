@@ -1,0 +1,17 @@
+// file: pkg/web/proto/requests/list_sessions_request.proto
+// version: 1.0.0
+// guid: a6c1c53c-e5dd-4cbc-9a88-357c8c22e179
+
+edition = "2023";
+
+package gcommon.v1.web;
+
+import "google/protobuf/go_features.proto";
+
+option go_package = "github.com/jdfalk/gcommon/pkg/web/proto;webpb";
+option features.(pb.go).api_level = API_HYBRID;
+
+// ListSessionsRequest request definition.
+message ListSessionsRequest {
+  string placeholder = 1;
+}

@@ -1,0 +1,22 @@
+// file: pkg/health/proto/responses/list_services_response.proto
+edition = "2023";
+
+package gcommon.v1.health;
+
+import "google/protobuf/go_features.proto";
+import "pkg/common/proto/common.proto";
+
+option go_package = "github.com/jdfalk/gcommon/pkg/health/proto;healthpb";
+option features.(pb.go).api_level = API_HYBRID;
+
+/**
+ * Response message for listing monitored services.
+ * Returns all services currently being monitored by the health system.
+ */
+message ListServicesResponse {
+  // List of service names
+  repeated string services = 1;
+
+  // Request metadata
+  gcommon.v1.common.RequestMetadata metadata = 2;
+}

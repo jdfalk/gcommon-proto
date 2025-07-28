@@ -1,0 +1,25 @@
+// filepath: pkg/health/proto/requests/list_checks_request.proto
+// file: health/proto/requests/list_checks_request.proto
+//
+// Request definitions for health module
+//
+edition = "2023";
+
+package gcommon.v1.health;
+
+import "google/protobuf/go_features.proto";
+import "pkg/common/proto/common.proto";
+
+option go_package = "github.com/jdfalk/gcommon/pkg/health/proto;healthpb";
+option features.(pb.go).api_level = API_HYBRID;
+
+/**
+ * ListChecksRequest lists all registered health checks.
+ */
+message ListChecksRequest {
+  // Optional service name to filter checks
+  string service = 1;
+
+  // Request metadata for tracing
+  gcommon.v1.common.RequestMetadata metadata = 2 [lazy = true];
+}

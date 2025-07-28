@@ -1,0 +1,39 @@
+// file: pkg/common/proto/messages/retry_policy.proto
+edition = "2023";
+
+package gcommon.v1.common;
+
+import "google/protobuf/go_features.proto";
+import "google/protobuf/duration.proto";
+import "pkg/common/proto/enums/error_code.proto";
+
+option go_package = "github.com/jdfalk/gcommon/pkg/common/proto;commonpb";
+option features.(pb.go).api_level = API_HYBRID;
+
+/**
+ * Retry policy configuration for resilient operation handling.
+ * Defines retry behavior with exponential backoff, jitter,
+ * and configurable error handling for robust service interactions.
+ */
+message RetryPolicy {
+  // Maximum number of retry attempts (including initial attempt)
+  int32 max_attempts = 1;
+
+  // Initial delay before first retry
+  google.protobuf.Duration initial_delay = 2;
+
+  // Maximum delay between retry attempts
+  google.protobuf.Duration max_delay = 3;
+
+  // Multiplier for exponential backoff (e.g., 2.0 for doubling)
+  double backoff_multiplier = 4;
+
+  // Whether to add random jitter to retry timing
+  bool enable_jitter = 5;
+
+  // List of error codes that should trigger retries
+  repeated ErrorCode retryable_errors = 6;
+
+  // Total timeout for all retry attempts combined
+  google.protobuf.Duration total_timeout = 7;
+}

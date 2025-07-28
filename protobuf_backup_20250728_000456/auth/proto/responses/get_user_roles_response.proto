@@ -1,0 +1,20 @@
+// file: pkg/auth/proto/responses/get_user_roles_response.proto
+edition = "2023";
+
+package gcommon.v1.auth;
+
+import "google/protobuf/go_features.proto";
+import "pkg/auth/proto/types/role.proto";
+
+option go_package = "github.com/jdfalk/gcommon/pkg/auth/proto;authpb";
+option features.(pb.go).api_level = API_HYBRID;
+
+/**
+ * Response containing all roles assigned to a user.
+ * Provides complete role information including permissions and metadata.
+ * Used for role management and authorization display.
+ */
+message GetUserRolesResponse {
+  // All roles assigned to the user
+  repeated Role roles = 1;
+}

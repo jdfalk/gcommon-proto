@@ -1,0 +1,343 @@
+// file: pkg/config/proto/messages/config_version.proto
+// version: 1.0.0
+// guid: 8e9f0a1b-2c3d-4e5f-6a7b-8c9d0e1f2a3b
+
+edition = "2023";
+
+package gcommon.v1.config;
+
+import "google/protobuf/timestamp.proto";
+import "pkg/config/proto/messages/config_change.proto";
+import "pkg/config/proto/messages/config_audit_log.proto";
+
+option go_package = "github.com/jdfalk/gcommon/pkg/config/proto;configpb";
+
+// ConfigVersion represents a version of configuration
+message ConfigVersion {
+  // Unique identifier for the version
+  string version_id = 1;
+
+  // Version number (semantic version)
+  string version = 2;
+
+  // Version name/label
+  string name = 3;
+
+  // Version description
+  string description = 4;
+
+  // Creation timestamp
+  google.protobuf.Timestamp created_at = 5;
+
+  // User who created the version
+  string created_by = 6;
+
+  // Environment this version applies to
+  string environment = 7;
+
+  // Version status
+  VersionStatus status = 8;
+
+  // Version type
+  VersionType type = 9;
+
+  // Parent version (for branches)
+  string parent_version_id = 10;
+
+  // Child versions
+  repeated string child_version_ids = 11;
+
+  // Version tags
+  repeated string tags = 12;
+
+  // Version metadata
+  map<string, string> metadata = 13;
+
+  // Configuration changes in this version
+  repeated ConfigChange changes = 14;
+
+  // Version checksum
+  string checksum = 15;
+
+  // Version size in bytes
+  int64 size_bytes = 16;
+
+  // Version approval status
+  ApprovalStatus approval_status = 17;
+
+  // Version approval info
+  ApprovalInfo approval_info = 18;
+
+  // Version deployment info
+  VersionDeploymentInfo deployment_info = 19;
+
+  // Version validation results
+  repeated ValidationResult validation_results = 20;
+
+  // Version quality metrics
+  VersionQualityMetrics quality_metrics = 21;
+
+  // Version dependencies
+  repeated VersionDependency dependencies = 22;
+
+  // Version compatibility info
+  VersionCompatibilityInfo compatibility_info = 23;
+
+  // Version promotion history
+  repeated VersionPromotionEvent promotion_history = 24;
+
+  // Version artifacts
+  repeated VersionArtifact artifacts = 25;
+
+  // Version documentation
+  string documentation = 26;
+
+  // Version changelog
+  string changelog = 27;
+
+  // Version release notes
+  string release_notes = 28;
+}
+
+// VersionStatus represents the status of a version
+enum VersionStatus {
+  VERSION_STATUS_UNSPECIFIED = 0;
+  VERSION_STATUS_DRAFT = 1;
+  VERSION_STATUS_PENDING = 2;
+  VERSION_STATUS_ACTIVE = 3;
+  VERSION_STATUS_DEPRECATED = 4;
+  VERSION_STATUS_ARCHIVED = 5;
+  VERSION_STATUS_DELETED = 6;
+  VERSION_STATUS_FAILED = 7;
+  VERSION_STATUS_CANCELLED = 8;
+}
+
+// VersionType represents the type of version
+enum VersionType {
+  VERSION_TYPE_UNSPECIFIED = 0;
+  VERSION_TYPE_MAJOR = 1;
+  VERSION_TYPE_MINOR = 2;
+  VERSION_TYPE_PATCH = 3;
+  VERSION_TYPE_HOTFIX = 4;
+  VERSION_TYPE_PRERELEASE = 5;
+  VERSION_TYPE_SNAPSHOT = 6;
+  VERSION_TYPE_BRANCH = 7;
+  VERSION_TYPE_TAG = 8;
+}
+
+// VersionDeploymentInfo represents deployment information for a version
+message VersionDeploymentInfo {
+  // Deployment status
+  VersionDeploymentStatus status = 1;
+
+  // Deployment timestamp
+  google.protobuf.Timestamp deployed_at = 2;
+
+  // Deployment environment
+  string environment = 3;
+
+  // Deployment method
+  string method = 4;
+
+  // Deployment user
+  string deployed_by = 5;
+
+  // Deployment configuration
+  map<string, string> config = 6;
+
+  // Deployment artifacts
+  repeated string artifacts = 7;
+
+  // Deployment health
+  VersionHealthStatus health = 8;
+
+  // Deployment metrics
+  map<string, double> metrics = 9;
+}
+
+// VersionDeploymentStatus represents the status of a deployment
+enum VersionDeploymentStatus {
+  VERSION_DEPLOYMENT_STATUS_UNSPECIFIED = 0;
+  VERSION_DEPLOYMENT_STATUS_PENDING = 1;
+  VERSION_DEPLOYMENT_STATUS_IN_PROGRESS = 2;
+  VERSION_DEPLOYMENT_STATUS_SUCCESS = 3;
+  VERSION_DEPLOYMENT_STATUS_FAILED = 4;
+  VERSION_DEPLOYMENT_STATUS_ROLLED_BACK = 5;
+  VERSION_DEPLOYMENT_STATUS_CANCELLED = 6;
+}
+
+// VersionHealthStatus represents the health status of a deployment
+enum VersionHealthStatus {
+  VERSION_HEALTH_STATUS_UNSPECIFIED = 0;
+  VERSION_HEALTH_STATUS_HEALTHY = 1;
+  VERSION_HEALTH_STATUS_DEGRADED = 2;
+  VERSION_HEALTH_STATUS_UNHEALTHY = 3;
+  VERSION_HEALTH_STATUS_UNKNOWN = 4;
+}
+
+// VersionQualityMetrics represents quality metrics for a version
+message VersionQualityMetrics {
+  // Code quality score
+  double quality_score = 1;
+
+  // Test coverage
+  double test_coverage = 2;
+
+  // Security score
+  double security_score = 3;
+
+  // Performance score
+  double performance_score = 4;
+
+  // Complexity score
+  double complexity_score = 5;
+
+  // Technical debt score
+  double technical_debt_score = 6;
+
+  // Quality gate status
+  bool quality_gate_passed = 7;
+
+  // Quality issues
+  repeated VersionQualityIssue issues = 8;
+
+  // Quality metrics timestamp
+  google.protobuf.Timestamp timestamp = 9;
+}
+
+// VersionQualityIssue represents a quality issue
+message VersionQualityIssue {
+  // Issue type
+  string type = 1;
+
+  // Issue severity
+  string severity = 2;
+
+  // Issue description
+  string description = 3;
+
+  // Issue location
+  string location = 4;
+
+  // Issue rule
+  string rule = 5;
+
+  // Issue fix suggestion
+  string fix_suggestion = 6;
+}
+
+// VersionDependency represents a dependency between versions
+message VersionDependency {
+  // Dependency name
+  string name = 1;
+
+  // Dependency version
+  string version = 2;
+
+  // Dependency type
+  VersionDependencyType type = 3;
+
+  // Dependency scope
+  string scope = 4;
+
+  // Dependency optional
+  bool optional = 5;
+
+  // Dependency constraints
+  repeated string constraints = 6;
+
+  // Dependency metadata
+  map<string, string> metadata = 7;
+}
+
+// VersionDependencyType represents the type of dependency
+enum VersionDependencyType {
+  VERSION_DEPENDENCY_TYPE_UNSPECIFIED = 0;
+  VERSION_DEPENDENCY_TYPE_RUNTIME = 1;
+  VERSION_DEPENDENCY_TYPE_BUILD = 2;
+  VERSION_DEPENDENCY_TYPE_TEST = 3;
+  VERSION_DEPENDENCY_TYPE_DEV = 4;
+  VERSION_DEPENDENCY_TYPE_PEER = 5;
+  VERSION_DEPENDENCY_TYPE_OPTIONAL = 6;
+}
+
+// VersionCompatibilityInfo represents compatibility information for a version
+message VersionCompatibilityInfo {
+  // Backward compatible
+  bool backward_compatible = 1;
+
+  // Forward compatible
+  bool forward_compatible = 2;
+
+  // Breaking changes
+  repeated string breaking_changes = 3;
+
+  // Compatibility notes
+  string notes = 4;
+
+  // Minimum version
+  string min_version = 5;
+
+  // Maximum version
+  string max_version = 6;
+
+  // Deprecated features
+  repeated string deprecated_features = 7;
+
+  // Migration guide
+  string migration_guide = 8;
+}
+
+// VersionPromotionEvent represents a promotion event in version history
+message VersionPromotionEvent {
+  // Source environment
+  string source_environment = 1;
+
+  // Target environment
+  string target_environment = 2;
+
+  // Promotion timestamp
+  google.protobuf.Timestamp timestamp = 3;
+
+  // Promotion user
+  string promoted_by = 4;
+
+  // Promotion reason
+  string reason = 5;
+
+  // Promotion method
+  string method = 6;
+
+  // Promotion success
+  bool success = 7;
+
+  // Promotion error
+  string error = 8;
+
+  // Promotion metadata
+  map<string, string> metadata = 9;
+}
+
+// VersionArtifact represents an artifact associated with a version
+message VersionArtifact {
+  // Artifact name
+  string name = 1;
+
+  // Artifact type
+  string type = 2;
+
+  // Artifact path
+  string path = 3;
+
+  // Artifact size
+  int64 size = 4;
+
+  // Artifact checksum
+  string checksum = 5;
+
+  // Artifact metadata
+  map<string, string> metadata = 6;
+
+  // Artifact timestamp
+  google.protobuf.Timestamp timestamp = 7;
+}

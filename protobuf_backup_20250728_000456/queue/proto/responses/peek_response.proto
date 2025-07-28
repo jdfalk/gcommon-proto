@@ -1,0 +1,121 @@
+// file: pkg/queue/proto/responses/peek_response.proto
+// version: 1.0.0
+// guid: 2e3f4a5b-6c7d-8e9f-0a1b-2c3d4e5f6a7b
+
+edition = "2023";
+
+package gcommon.v1.queue;
+
+option go_package = "github.com/jdfalk/gcommon/pkg/queue/proto;queuepb";
+
+// Standard imports
+import "google/protobuf/timestamp.proto";
+
+// Common types
+import "pkg/common/proto/common.proto";
+
+// Queue message types
+import "pkg/queue/proto/messages/queue_message.proto";
+
+/**
+ * PeekResponse returns messages viewed from a queue without removing them.
+ * Contains message data and metadata for inspection purposes
+ * without affecting the queue state.
+ *
+ * Follows 1-1-1 pattern: one message per file.
+ */
+message PeekResponse {
+  // Required fields (1-10)
+
+  /**
+   * Messages viewed from the queue.
+   * Empty if no messages were found matching the criteria.
+   */
+  repeated gcommon.v1.queue.QueueMessage messages = 1;
+
+  /**
+   * Indicates whether the peek operation was successful.
+   */
+  bool success = 2;
+
+  // Optional fields (11-50)
+
+  /**
+   * Request processing metadata including timing, request ID,
+   * and other observability information.
+   */
+  gcommon.v1.common.RequestMetadata request_metadata = 11;
+
+  /**
+   * Name of the queue that was peeked.
+   * Echoed from the request for verification.
+   */
+  string queue_name = 12;
+
+  /**
+   * Total number of messages that matched the peek criteria.
+   * May be larger than the number of messages returned due to max_messages limit.
+   */
+  int32 total_matching_messages = 13;
+
+  /**
+   * Approximate total number of messages currently in the queue.
+   * Useful for monitoring and capacity planning.
+   */
+  int64 approximate_queue_size = 14;
+
+  /**
+   * Position in the queue where peeking started.
+   * Echoed from the request for verification.
+   */
+  int32 start_position = 15;
+
+  /**
+   * Position in the queue where peeking ended.
+   * Helpful for subsequent peek operations.
+   */
+  int32 end_position = 16;
+
+  /**
+   * Whether there are more messages available beyond the returned set.
+   * True if total_matching_messages > returned messages count.
+   */
+  bool has_more_messages = 17;
+
+  /**
+   * Number of messages that were skipped due to filters.
+   * Useful for understanding filter effectiveness.
+   */
+  int32 filtered_message_count = 18;
+
+  /**
+   * Oldest message timestamp in the peeked set.
+   * Useful for understanding queue age/staleness.
+   */
+  google.protobuf.Timestamp oldest_message_time = 19;
+
+  /**
+   * Newest message timestamp in the peeked set.
+   */
+  google.protobuf.Timestamp newest_message_time = 20;
+
+  // Status and error fields (61-70)
+
+  /**
+   * Error information if the peek operation failed
+   * or completed with warnings.
+   */
+  gcommon.v1.common.Error error = 61;
+
+  // Timestamps (51-60)
+
+  /**
+   * Timestamp when the peek operation was performed.
+   */
+  google.protobuf.Timestamp peeked_at = 51;
+
+  /**
+   * Timestamp when this response was generated.
+   */
+  google.protobuf.Timestamp response_generated_at = 52;
+}

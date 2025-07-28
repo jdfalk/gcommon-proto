@@ -1,0 +1,17 @@
+// file: pkg/web/proto/requests/unregister_handler_request.proto
+// version: 1.0.0
+// guid: b3a2283a-da75-498d-bcd6-73068020f71f
+
+edition = "2023";
+
+package gcommon.v1.web;
+
+import "google/protobuf/go_features.proto";
+
+option go_package = "github.com/jdfalk/gcommon/pkg/web/proto;webpb";
+option features.(pb.go).api_level = API_HYBRID;
+
+// UnregisterHandlerRequest request definition.
+message UnregisterHandlerRequest {
+  string placeholder = 1;
+}

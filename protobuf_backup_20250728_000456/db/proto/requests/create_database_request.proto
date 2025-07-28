@@ -1,0 +1,25 @@
+// file: pkg/db/proto/requests/create_database_request.proto
+edition = "2023";
+
+package gcommon.v1.database;
+
+import "pkg/common/proto/messages/request_metadata.proto";
+import "google/protobuf/go_features.proto";
+
+option go_package = "github.com/jdfalk/gcommon/pkg/db/proto;dbpb";
+option features.(pb.go).api_level = API_HYBRID;
+
+/**
+ * CreateDatabaseRequest represents a request to create a new database.
+ * Allows specification of database name and configuration options.
+ */
+message CreateDatabaseRequest {
+  // Name of the database to create
+  string name = 1;
+
+  // Database creation options and configuration
+  map<string, string> options = 2 [lazy = true];
+
+  // Request metadata for tracing and authentication
+  gcommon.v1.common.RequestMetadata metadata = 3 [lazy = true];
+}

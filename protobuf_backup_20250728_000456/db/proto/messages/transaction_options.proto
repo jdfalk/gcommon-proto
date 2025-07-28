@@ -1,0 +1,26 @@
+// file: pkg/db/proto/messages/transaction_options.proto
+edition = "2023";
+
+package gcommon.v1.database;
+
+import "pkg/db/proto/enums/isolation_level.proto";
+import "google/protobuf/duration.proto";
+import "google/protobuf/go_features.proto";
+
+option go_package = "github.com/jdfalk/gcommon/pkg/db/proto;dbpb";
+option features.(pb.go).api_level = API_HYBRID;
+
+/**
+ * TransactionOptions configures behavior for database transactions.
+ * Controls isolation level, timeout, and read-only mode.
+ */
+message TransactionOptions {
+  // Isolation level for the transaction
+  IsolationLevel isolation = 1;
+
+  // Transaction timeout before automatic rollback
+  google.protobuf.Duration timeout = 2 [lazy = true];
+
+  // Whether this is a read-only transaction
+  bool read_only = 3;
+}

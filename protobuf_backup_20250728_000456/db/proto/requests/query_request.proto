@@ -1,0 +1,36 @@
+// file: pkg/db/proto/requests/query_request.proto
+edition = "2023";
+
+package gcommon.v1.database;
+
+import "pkg/db/proto/types/query_parameter.proto";
+import "pkg/db/proto/messages/query_options.proto";
+import "pkg/common/proto/messages/request_metadata.proto";
+import "google/protobuf/go_features.proto";
+
+option go_package = "github.com/jdfalk/gcommon/pkg/db/proto;dbpb";
+option features.(pb.go).api_level = API_HYBRID;
+
+/**
+ * QueryRequest represents a request to execute a database query.
+ * Supports parameterized queries with options and transaction context.
+ */
+message QueryRequest {
+  // SQL query or NoSQL query string
+  string query = 1;
+
+  // Query parameters for parameterized queries
+  repeated QueryParameter parameters = 2 [lazy = true];
+
+  // Database name (optional, uses default if not specified)
+  string database = 3;
+
+  // Query execution options
+  QueryOptions options = 4 [lazy = true];
+
+  // Request metadata for tracing and authentication
+  gcommon.v1.common.RequestMetadata metadata = 5 [lazy = true];
+
+  // Transaction ID if this query is part of a transaction
+  string transaction_id = 6;
+}

@@ -1,0 +1,41 @@
+// filepath: pkg/metrics/proto/requests/record_counter_request.proto
+// file: metrics/proto/requests/record_counter_request.proto
+//
+// Record counter request definitions for metrics module
+//
+edition = "2023";
+
+package gcommon.v1.metrics;
+
+import "google/protobuf/go_features.proto";
+import "pkg/common/proto/common.proto";
+// import "pkg/metrics/proto/messages/counter_metric.proto";
+
+option go_package = "github.com/jdfalk/gcommon/pkg/metrics/proto;metricspb";
+option features.(pb.go).api_level = API_HYBRID;
+
+/**
+ * RecordCounterRequest is used to record or increment a counter metric.
+ */
+message RecordCounterRequest {
+  // Metric name (e.g., "http_requests_total")
+  string name = 1;
+
+  // Value to add to the counter (default: 1.0)
+  double value = 2;
+
+  // Labels for metric dimensions
+  map<string, string> labels = 3;
+
+  // Help text describing the metric
+  string help = 4;
+
+  // Metric unit (e.g., "requests", "bytes")
+  string unit = 5;
+
+  // Sample rate (0.0-1.0, used for sampling)
+  double sample_rate = 6;
+
+  // Request metadata for tracing and debugging
+  gcommon.v1.common.RequestMetadata metadata = 7;
+}

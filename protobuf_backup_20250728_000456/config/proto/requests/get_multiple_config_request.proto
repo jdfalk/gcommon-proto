@@ -1,0 +1,27 @@
+// file: pkg/config/proto/requests/get_multiple_config_request.proto
+edition = "2023";
+
+package gcommon.v1.config;
+
+import "google/protobuf/go_features.proto";
+import "pkg/common/proto/messages/request_metadata.proto";
+
+option go_package = "github.com/jdfalk/gcommon/pkg/config/proto;configpb";
+option features.(pb.go).api_level = API_HYBRID;
+
+/**
+ * GetMultipleConfigRequest retrieves multiple configuration values.
+ */
+message GetMultipleConfigRequest {
+  // Configuration keys to retrieve
+  repeated string keys = 1;
+
+  // Optional namespace/environment
+  string namespace = 2;
+
+  // Whether to decrypt encrypted values
+  bool decrypt = 3;
+
+  // Request metadata
+  gcommon.v1.common.RequestMetadata metadata = 4;
+}

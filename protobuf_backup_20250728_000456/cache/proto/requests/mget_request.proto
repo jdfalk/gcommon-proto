@@ -1,0 +1,35 @@
+// filepath: pkg/cache/proto/requests/mget_request.proto
+// file: cache/proto/requests/mget_request.proto
+//
+// Multi-get request definitions for cache module
+//
+edition = "2023";
+
+package gcommon.v1.cache;
+
+import "google/protobuf/go_features.proto";
+import "pkg/common/proto/common.proto";
+
+option go_package = "github.com/jdfalk/gcommon/pkg/cache/proto;cachepb";
+option features.(pb.go).api_level = API_HYBRID;
+
+/**
+ * MGetRequest is used to retrieve multiple cache entries in a single operation.
+ * This is more efficient than multiple individual Get operations.
+ */
+message MGetRequest {
+  // List of keys to retrieve
+  repeated string keys = 1;
+
+  // Namespace to search in (optional)
+  string namespace = 2;
+
+  // Whether to return expired entries
+  bool include_expired = 3;
+
+  // Whether to update access time for retrieved entries
+  bool update_access_time = 4;
+
+  // Request metadata for tracing and debugging
+  gcommon.v1.common.RequestMetadata metadata = 5;
+}

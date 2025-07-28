@@ -1,0 +1,32 @@
+// file: pkg/common/proto/types/metric_point.proto
+edition = "2023";
+
+package gcommon.v1.common;
+
+import "google/protobuf/go_features.proto";
+import "google/protobuf/timestamp.proto";
+
+option go_package = "github.com/jdfalk/gcommon/pkg/common/proto;commonpb";
+option features.(pb.go).api_level = API_HYBRID;
+
+/**
+ * Common metrics data point for standardized metric collection.
+ * Provides a unified structure for metrics across all GCommon modules
+ * with timestamp, labels, and unit information for observability.
+ */
+message MetricPoint {
+  // Metric name identifier (e.g., "request_count", "response_time")
+  string name = 1;
+
+  // Numeric value of the metric
+  double value = 2;
+
+  // Timestamp when the metric was recorded
+  google.protobuf.Timestamp timestamp = 3;
+
+  // Key-value labels for metric dimensions and filtering
+  map<string, string> labels = 4;
+
+  // Unit of measurement (e.g., "seconds", "bytes", "requests")
+  string unit = 5;
+}

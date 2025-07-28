@@ -1,0 +1,30 @@
+// file: pkg/common/proto/messages/subscription_options.proto
+edition = "2023";
+
+package gcommon.v1.common;
+
+import "google/protobuf/go_features.proto";
+import "google/protobuf/duration.proto";
+import "pkg/common/proto/enums/ack_mode.proto";
+
+option go_package = "github.com/jdfalk/gcommon/pkg/common/proto;commonpb";
+option features.(pb.go).api_level = API_HYBRID;
+
+/**
+ * Subscription options for configuring streaming behavior.
+ * Controls historical data inclusion, batching, acknowledgment,
+ * and keep-alive settings for optimal streaming performance.
+ */
+message SubscriptionOptions {
+  // Whether to include historical data in the subscription
+  bool include_history = 1;
+
+  // Maximum number of events to batch together
+  int32 max_batch_size = 2;
+
+  // Acknowledgment mode for message delivery
+  AckMode ack_mode = 3;
+
+  // Keep-alive interval to maintain connection
+  google.protobuf.Duration keep_alive = 4;
+}

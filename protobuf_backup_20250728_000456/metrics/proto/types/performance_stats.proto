@@ -1,0 +1,59 @@
+// file: pkg/metrics/proto/types/performance_stats.proto
+// version: 1.0.0
+// guid: b3c4d5e6-f7a8-9b0c-1d2e-3f4a5b6c7d8e
+
+edition = "2023";
+
+package gcommon.v1.metrics;
+
+import "google/protobuf/go_features.proto";
+
+option go_package = "github.com/jdfalk/gcommon/pkg/metrics/proto;metricspb";
+option features.(pb.go).api_level = API_HYBRID;
+
+/**
+ * PerformanceStats contains performance metrics for provider operations.
+ */
+message PerformanceStats {
+  // Average response time in milliseconds
+  double avg_response_time_ms = 1;
+
+  // Maximum response time in milliseconds
+  double max_response_time_ms = 2;
+
+  // Minimum response time in milliseconds
+  double min_response_time_ms = 3;
+
+  // 95th percentile response time in milliseconds
+  double p95_response_time_ms = 4;
+
+  // 99th percentile response time in milliseconds
+  double p99_response_time_ms = 5;
+
+  // Requests per second
+  double requests_per_second = 6;
+
+  // Total number of requests processed
+  uint64 total_requests = 7;
+
+  // Number of successful requests
+  uint64 successful_requests = 8;
+
+  // Number of failed requests
+  uint64 failed_requests = 9;
+
+  // Success rate (0.0 to 1.0)
+  double success_rate = 10;
+
+  // CPU utilization percentage (0.0 to 100.0)
+  double cpu_utilization = 11;
+
+  // Memory utilization percentage (0.0 to 100.0)
+  double memory_utilization = 12;
+
+  // Network I/O in bytes per second
+  double network_io_bytes_per_sec = 13;
+
+  // Disk I/O in bytes per second
+  double disk_io_bytes_per_sec = 14;
+}

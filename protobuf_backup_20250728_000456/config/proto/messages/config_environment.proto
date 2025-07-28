@@ -1,0 +1,496 @@
+// file: pkg/config/proto/messages/config_environment.proto
+// version: 1.0.0
+// guid: 7d8e9f0a-1b2c-3d4e-5f6a-7b8c9d0e1f2a
+
+edition = "2023";
+
+package gcommon.v1.config;
+
+import "google/protobuf/timestamp.proto";
+import "pkg/config/proto/messages/config_metadata.proto";
+import "pkg/config/proto/messages/config_secret.proto";
+
+option go_package = "github.com/jdfalk/gcommon/pkg/config/proto;configpb";
+
+// ConfigEnvironment represents a configuration environment
+message ConfigEnvironment {
+  // Unique identifier for the environment
+  string environment_id = 1;
+
+  // Environment name
+  string name = 2;
+
+  // Environment description
+  string description = 3;
+
+  // Environment type
+  EnvironmentType type = 4;
+
+  // Environment status
+  EnvironmentStatus status = 5;
+
+  // Creation timestamp
+  google.protobuf.Timestamp created_at = 6;
+
+  // Last modification timestamp
+  google.protobuf.Timestamp updated_at = 7;
+
+  // Environment owner
+  string owner = 8;
+
+  // Environment tags
+  repeated string tags = 9;
+
+  // Environment metadata
+  map<string, string> metadata = 10;
+
+  // Environment configuration
+  map<string, string> config = 11;
+
+  // Environment secrets (encrypted)
+  map<string, string> secrets = 12;
+
+  // Environment variables
+  map<string, string> variables = 13;
+
+  // Parent environment (for inheritance)
+  string parent_environment_id = 14;
+
+  // Child environments
+  repeated string child_environment_ids = 15;
+
+  // Environment promotion rules
+  repeated PromotionRule promotion_rules = 16;
+
+  // Environment access control
+  repeated AccessControl access_controls = 17;
+
+  // Environment deployment info
+  DeploymentInfo deployment_info = 18;
+
+  // Environment health status
+  HealthStatus health_status = 19;
+
+  // Environment resource limits
+  ResourceLimits resource_limits = 20;
+
+  // Environment backup policy
+  BackupPolicy backup_policy = 21;
+
+  // Environment approval workflow
+  ApprovalWorkflow approval_workflow = 22;
+
+  // Environment monitoring config
+  MonitoringConfig monitoring_config = 23;
+
+  // Environment retention policy
+  RetentionPolicy retention_policy = 24;
+
+  // Environment compliance settings
+  ComplianceSettings compliance_settings = 25;
+
+  // Environment encryption settings
+  EncryptionSettings encryption_settings = 26;
+
+  // Environment audit settings
+  AuditSettings audit_settings = 27;
+
+  // Environment notification settings
+  NotificationSettings notification_settings = 28;
+
+  // Environment sync settings
+  SyncSettings sync_settings = 29;
+
+  // Environment version
+  string version = 30;
+}
+
+// EnvironmentType represents the type of environment
+enum EnvironmentType {
+  ENVIRONMENT_TYPE_UNSPECIFIED = 0;
+  ENVIRONMENT_TYPE_DEVELOPMENT = 1;
+  ENVIRONMENT_TYPE_TESTING = 2;
+  ENVIRONMENT_TYPE_STAGING = 3;
+  ENVIRONMENT_TYPE_PRODUCTION = 4;
+  ENVIRONMENT_TYPE_SANDBOX = 5;
+  ENVIRONMENT_TYPE_CANARY = 6;
+  ENVIRONMENT_TYPE_DISASTER_RECOVERY = 7;
+  ENVIRONMENT_TYPE_INTEGRATION = 8;
+  ENVIRONMENT_TYPE_PERFORMANCE = 9;
+  ENVIRONMENT_TYPE_SECURITY = 10;
+}
+
+// EnvironmentStatus represents the status of an environment
+enum EnvironmentStatus {
+  ENVIRONMENT_STATUS_UNSPECIFIED = 0;
+  ENVIRONMENT_STATUS_ACTIVE = 1;
+  ENVIRONMENT_STATUS_INACTIVE = 2;
+  ENVIRONMENT_STATUS_MAINTENANCE = 3;
+  ENVIRONMENT_STATUS_DEPRECATED = 4;
+  ENVIRONMENT_STATUS_ARCHIVED = 5;
+  ENVIRONMENT_STATUS_ERROR = 6;
+}
+
+// PromotionRule represents rules for promoting configurations between environments
+message PromotionRule {
+  // Rule name
+  string name = 1;
+
+  // Source environment
+  string source_environment = 2;
+
+  // Target environment
+  string target_environment = 3;
+
+  // Promotion conditions
+  repeated string conditions = 4;
+
+  // Approval required
+  bool approval_required = 5;
+
+  // Approvers
+  repeated string approvers = 6;
+
+  // Automatic promotion
+  bool automatic = 7;
+
+  // Promotion schedule
+  string schedule = 8;
+
+  // Promotion filters
+  repeated string filters = 9;
+
+  // Promotion transformations
+  repeated string transformations = 10;
+}
+
+
+
+// DeploymentInfo represents deployment information for an environment
+message DeploymentInfo {
+  // Deployment status
+  DeploymentStatus status = 1;
+
+  // Last deployment timestamp
+  google.protobuf.Timestamp last_deployed_at = 2;
+
+  // Deployment version
+  string version = 3;
+
+  // Deployment method
+  string method = 4;
+
+  // Deployment target
+  string target = 5;
+
+  // Deployment configuration
+  map<string, string> config = 6;
+
+  // Deployment health checks
+  repeated HealthCheck health_checks = 7;
+
+  // Deployment rollback info
+  DeploymentRollbackInfo rollback_info = 8;
+}
+
+// DeploymentStatus represents the status of a deployment
+enum DeploymentStatus {
+  DEPLOYMENT_STATUS_UNSPECIFIED = 0;
+  DEPLOYMENT_STATUS_PENDING = 1;
+  DEPLOYMENT_STATUS_IN_PROGRESS = 2;
+  DEPLOYMENT_STATUS_SUCCESS = 3;
+  DEPLOYMENT_STATUS_FAILED = 4;
+  DEPLOYMENT_STATUS_ROLLED_BACK = 5;
+  DEPLOYMENT_STATUS_CANCELLED = 6;
+}
+
+// HealthCheck represents a health check for an environment
+message HealthCheck {
+  // Health check name
+  string name = 1;
+
+  // Health check type
+  HealthCheckType type = 2;
+
+  // Health check endpoint
+  string endpoint = 3;
+
+  // Health check interval
+  int32 interval_seconds = 4;
+
+  // Health check timeout
+  int32 timeout_seconds = 5;
+
+  // Health check retries
+  int32 retries = 6;
+
+  // Health check conditions
+  repeated string conditions = 7;
+}
+
+// HealthCheckType represents the type of health check
+enum HealthCheckType {
+  HEALTH_CHECK_TYPE_UNSPECIFIED = 0;
+  HEALTH_CHECK_TYPE_HTTP = 1;
+  HEALTH_CHECK_TYPE_HTTPS = 2;
+  HEALTH_CHECK_TYPE_TCP = 3;
+  HEALTH_CHECK_TYPE_UDP = 4;
+  HEALTH_CHECK_TYPE_GRPC = 5;
+  HEALTH_CHECK_TYPE_DATABASE = 6;
+  HEALTH_CHECK_TYPE_CUSTOM = 7;
+}
+
+// DeploymentRollbackInfo represents rollback information for deployments
+message DeploymentRollbackInfo {
+  // Rollback available
+  bool available = 1;
+
+  // Previous version
+  string previous_version = 2;
+
+  // Rollback timestamp
+  google.protobuf.Timestamp rollback_timestamp = 3;
+
+  // Rollback reason
+  string reason = 4;
+
+  // Rollback method
+  string method = 5;
+}
+
+// HealthStatus represents the health status of an environment
+message HealthStatus {
+  // Overall health
+  HealthState overall = 1;
+
+  // Component health
+  map<string, HealthState> components = 2;
+
+  // Health checks
+  repeated HealthCheckResult health_checks = 3;
+
+  // Last health check
+  google.protobuf.Timestamp last_check = 4;
+
+  // Health metrics
+  map<string, double> metrics = 5;
+}
+
+// HealthState represents the state of health
+enum HealthState {
+  HEALTH_STATE_UNSPECIFIED = 0;
+  HEALTH_STATE_HEALTHY = 1;
+  HEALTH_STATE_DEGRADED = 2;
+  HEALTH_STATE_UNHEALTHY = 3;
+  HEALTH_STATE_UNKNOWN = 4;
+}
+
+// HealthCheckResult represents the result of a health check
+message HealthCheckResult {
+  // Health check name
+  string name = 1;
+
+  // Health check status
+  HealthState status = 2;
+
+  // Health check message
+  string message = 3;
+
+  // Health check timestamp
+  google.protobuf.Timestamp timestamp = 4;
+
+  // Health check duration
+  int32 duration_ms = 5;
+
+  // Health check details
+  map<string, string> details = 6;
+}
+
+// ResourceLimits represents resource limits for an environment
+message ResourceLimits {
+  // CPU limit
+  string cpu_limit = 1;
+
+  // Memory limit
+  string memory_limit = 2;
+
+  // Storage limit
+  string storage_limit = 3;
+
+  // Network limit
+  string network_limit = 4;
+
+  // Request rate limit
+  int32 request_rate_limit = 5;
+
+  // Concurrent connections limit
+  int32 connection_limit = 6;
+
+  // Custom limits
+  map<string, string> custom_limits = 7;
+}
+
+// BackupPolicy represents backup policy for an environment
+message BackupPolicy {
+  // Backup enabled
+  bool enabled = 1;
+
+  // Backup schedule
+  string schedule = 2;
+
+  // Backup retention
+  int32 retention_days = 3;
+
+  // Backup location
+  string location = 4;
+
+  // Backup encryption
+  bool encrypted = 5;
+
+  // Backup compression
+  bool compressed = 6;
+
+  // Backup verification
+  bool verified = 7;
+
+  // Backup metadata
+  map<string, string> metadata = 8;
+}
+
+// ApprovalWorkflow represents approval workflow for an environment
+message ApprovalWorkflow {
+  // Workflow enabled
+  bool enabled = 1;
+
+  // Workflow type
+  string type = 2;
+
+  // Approval stages
+  repeated ApprovalStage stages = 3;
+
+  // Workflow timeout
+  int32 timeout_hours = 4;
+
+  // Workflow conditions
+  repeated string conditions = 5;
+
+  // Workflow notifications
+  repeated string notifications = 6;
+}
+
+// ApprovalStage represents a stage in the approval workflow
+message ApprovalStage {
+  // Stage name
+  string name = 1;
+
+  // Required approvers
+  repeated string approvers = 2;
+
+  // Required approvals
+  int32 required_approvals = 3;
+
+  // Stage conditions
+  repeated string conditions = 4;
+
+  // Stage timeout
+  int32 timeout_hours = 5;
+
+  // Stage order
+  int32 order = 6;
+}
+
+// MonitoringConfig represents monitoring configuration for an environment
+message MonitoringConfig {
+  // Monitoring enabled
+  bool enabled = 1;
+
+  // Monitoring provider
+  string provider = 2;
+
+  // Monitoring endpoints
+  repeated string endpoints = 3;
+
+  // Monitoring metrics
+  repeated string metrics = 4;
+
+  // Monitoring alerts
+  repeated string alerts = 5;
+
+  // Monitoring dashboards
+  repeated string dashboards = 6;
+
+  // Monitoring configuration
+  map<string, string> config = 7;
+}
+
+// RetentionPolicy represents retention policy for an environment
+message RetentionPolicy {
+  // Retention enabled
+  bool enabled = 1;
+
+  // Configuration retention
+  int32 config_retention_days = 2;
+
+  // Audit log retention
+  int32 audit_retention_days = 3;
+
+  // Backup retention
+  int32 backup_retention_days = 4;
+
+  // Metrics retention
+  int32 metrics_retention_days = 5;
+
+  // Custom retention policies
+  map<string, int32> custom_retention = 6;
+}
+
+
+
+// EncryptionSettings represents encryption settings for an environment
+message EncryptionSettings {
+  // Encryption enabled
+  bool enabled = 1;
+
+  // Encryption provider
+  string provider = 2;
+
+  // Encryption key
+  string key_id = 3;
+
+  // Encryption algorithm
+  string algorithm = 4;
+
+  // Encryption mode
+  string mode = 5;
+
+  // Encryption configuration
+  map<string, string> config = 6;
+}
+
+
+
+
+
+// SyncSettings represents sync settings for an environment
+message SyncSettings {
+  // Sync enabled
+  bool enabled = 1;
+
+  // Sync source
+  string source = 2;
+
+  // Sync target
+  string target = 3;
+
+  // Sync schedule
+  string schedule = 4;
+
+  // Sync filters
+  repeated string filters = 5;
+
+  // Sync transformations
+  repeated string transformations = 6;
+
+  // Sync configuration
+  map<string, string> config = 7;
+}

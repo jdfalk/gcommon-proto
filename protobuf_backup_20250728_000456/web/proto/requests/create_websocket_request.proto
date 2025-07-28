@@ -1,0 +1,17 @@
+// file: pkg/web/proto/requests/create_websocket_request.proto
+// version: 1.0.0
+// guid: df288e0f-57af-4326-a2a7-91ff6b3ed38b
+
+edition = "2023";
+
+package gcommon.v1.web;
+
+import "google/protobuf/go_features.proto";
+
+option go_package = "github.com/jdfalk/gcommon/pkg/web/proto;webpb";
+option features.(pb.go).api_level = API_HYBRID;
+
+// CreateWebsocketRequest request definition.
+message CreateWebsocketRequest {
+  string placeholder = 1;
+}

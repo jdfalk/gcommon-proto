@@ -1,0 +1,45 @@
+// file: pkg/auth/proto/services/session_service.proto
+edition = "2023";
+
+package gcommon.v1.auth;
+
+import "google/protobuf/go_features.proto";
+import "pkg/auth/proto/requests/create_session_request.proto";
+import "pkg/auth/proto/messages/session.proto";
+// TODO: Add these imports when the files are created:
+// import "pkg/auth/proto/requests/get_session_request.proto";
+// import "pkg/auth/proto/requests/update_session_request.proto";
+// import "pkg/auth/proto/requests/terminate_session_request.proto";
+// import "pkg/auth/proto/requests/list_user_sessions_request.proto";
+// import "pkg/auth/proto/responses/list_user_sessions_response.proto";
+// import "pkg/auth/proto/requests/validate_session_request.proto";
+// import "pkg/auth/proto/responses/validate_session_response.proto";
+
+option go_package = "github.com/jdfalk/gcommon/pkg/auth/proto;authpb";
+option features.(pb.go).api_level = API_HYBRID;
+
+/**
+ * SessionService manages user sessions and session lifecycle.
+ * Provides session creation, validation, tracking, and termination
+ * for stateful authentication and user activity monitoring.
+ */
+service SessionService {
+  // Create a new session for an authenticated user
+  rpc CreateSession(CreateSessionRequest) returns (Session);
+
+  // TODO: Uncomment these when the missing message types are created:
+  // // Get detailed information about a specific session
+  // rpc GetSession(GetSessionRequest) returns (Session);
+  //
+  // // Update session information (e.g., refresh activity timestamp)
+  // rpc UpdateSession(UpdateSessionRequest) returns (Session);
+  //
+  // // Terminate a session (logout)
+  // rpc TerminateSession(TerminateSessionRequest) returns (google.protobuf.Empty);
+  //
+  // // List all active sessions for a user
+  // rpc ListUserSessions(ListUserSessionsRequest) returns (ListUserSessionsResponse);
+  //
+  // // Validate session token and return session state
+  // rpc ValidateSession(ValidateSessionRequest) returns (ValidateSessionResponse);
+}

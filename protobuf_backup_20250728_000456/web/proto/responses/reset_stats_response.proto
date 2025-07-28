@@ -1,0 +1,17 @@
+// file: pkg/web/proto/responses/reset_stats_response.proto
+// version: 1.0.0
+// guid: 1d37d4bf-fa7b-4794-aa70-4d3b11142625
+
+edition = "2023";
+
+package gcommon.v1.web;
+
+import "google/protobuf/go_features.proto";
+
+option go_package = "github.com/jdfalk/gcommon/pkg/web/proto;webpb";
+option features.(pb.go).api_level = API_HYBRID;
+
+// ResetStatsResponse response definition.
+message ResetStatsResponse {
+  string placeholder = 1;
+}

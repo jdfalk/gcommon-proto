@@ -1,0 +1,35 @@
+// file: pkg/auth/proto/enums/auth_method.proto
+// version: 1.0.0
+// guid: 815bb886-5864-44fd-ae07-c6102c110fd7
+
+edition = "2023";
+
+package gcommon.v1.auth;
+
+option go_package = "github.com/jdfalk/gcommon/pkg/auth/proto;authpb";
+
+/**
+ * AuthMethod enumerates the supported authentication mechanisms.
+ */
+enum AuthMethod {
+  // Default unknown method
+  AUTH_METHOD_UNSPECIFIED = 0;
+
+  // Traditional username and password authentication
+  AUTH_METHOD_PASSWORD = 1;
+
+  // API key based authentication
+  AUTH_METHOD_API_KEY = 2;
+
+  // OAuth2 or OpenID Connect authentication
+  AUTH_METHOD_OAUTH2 = 3;
+
+  // SAML identity provider authentication
+  AUTH_METHOD_SAML = 4;
+
+  // LDAP directory authentication
+  AUTH_METHOD_LDAP = 5;
+
+  // Multi-factor authentication method
+  AUTH_METHOD_MFA = 6;
+}

@@ -1,0 +1,17 @@
+// file: pkg/web/proto/responses/upload_file_response.proto
+// version: 1.0.0
+// guid: d6f9dad0-3449-4808-b710-f73253ba1b06
+
+edition = "2023";
+
+package gcommon.v1.web;
+
+import "google/protobuf/go_features.proto";
+
+option go_package = "github.com/jdfalk/gcommon/pkg/web/proto;webpb";
+option features.(pb.go).api_level = API_HYBRID;
+
+// UploadFileResponse response definition.
+message UploadFileResponse {
+  string placeholder = 1;
+}

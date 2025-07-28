@@ -1,0 +1,38 @@
+// file: pkg/auth/proto/messages/rate_limit_config.proto
+edition = "2023";
+
+package gcommon.v1.auth;
+
+import "google/protobuf/go_features.proto";
+import "google/protobuf/duration.proto";
+
+option go_package = "github.com/jdfalk/gcommon/pkg/auth/proto;authpb";
+option features.(pb.go).api_level = API_HYBRID;
+
+/**
+ * Rate limiting configuration for authentication operations.
+ * Used to prevent abuse and enforce security policies.
+ * Supports various rate limiting strategies.
+ */
+message RateLimitConfig {
+  // Maximum number of requests allowed
+  int32 max_requests = 1;
+
+  // Time window for rate limiting
+  google.protobuf.Duration time_window = 2;
+
+  // Burst allowance (max requests in short burst)
+  int32 burst_allowance = 3;
+
+  // Rate limit scope (per user, per IP, etc.)
+  string scope = 4;
+
+  // Action to take when rate limit is exceeded
+  string action = 5; // "block", "delay", "throttle"
+
+  // Rate limit enabled flag
+  bool enabled = 6;
+
+  // Rate limit metadata
+  map<string, string> metadata = 7 [lazy = true];
+}

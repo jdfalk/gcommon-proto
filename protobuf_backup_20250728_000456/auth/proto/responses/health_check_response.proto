@@ -1,0 +1,30 @@
+// file: pkg/auth/proto/responses/health_check_response.proto
+// version: 1.0.0
+// guid: fef90e32-7ccd-4a2d-bcc8-7c86a5f15d36
+//
+// HealthCheckResponse for the auth module
+edition = "2023";
+
+package gcommon.v1.auth;
+
+import "google/protobuf/go_features.proto";
+import "google/protobuf/duration.proto";
+import "pkg/common/proto/enums/health_status.proto";
+import "pkg/common/proto/messages/error.proto";
+
+option go_package = "github.com/jdfalk/gcommon/pkg/auth/proto;authpb";
+option features.(pb.go).api_level = API_HYBRID;
+
+/**
+ * HealthCheckResponse conveys the authentication service health status.
+ */
+message HealthCheckResponse {
+  // Overall health status.
+  gcommon.v1.common.HealthStatus status = 1;
+
+  // Response time for the health check.
+  google.protobuf.Duration response_time = 2 [lazy = true];
+
+  // Error information if unhealthy.
+  gcommon.v1.common.Error error = 3 [lazy = true];
+}

@@ -1,0 +1,17 @@
+// file: pkg/web/proto/messages/ssl_config.proto
+// version: 1.0.0
+// guid: 4d5ec783-ec4b-4ffc-a7e6-28df5382a594
+
+edition = "2023";
+
+package gcommon.v1.web;
+
+import "google/protobuf/go_features.proto";
+
+option go_package = "github.com/jdfalk/gcommon/pkg/web/proto;webpb";
+option features.(pb.go).api_level = API_HYBRID;
+
+// SslConfig message definition.
+message SslConfig {
+  string placeholder = 1;
+}

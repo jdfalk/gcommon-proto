@@ -1,0 +1,410 @@
+// file: pkg/config/proto/messages/config_metadata.proto
+// version: 1.0.0
+// guid: 9f0a1b2c-3d4e-5f6a-7b8c-9d0e1f2a3b4c
+
+edition = "2023";
+
+package gcommon.v1.config;
+
+import "google/protobuf/timestamp.proto";
+import "pkg/common/proto/common.proto";
+
+option go_package = "github.com/jdfalk/gcommon/pkg/config/proto;configpb";
+
+// ConfigMetadata represents metadata about configuration items
+message ConfigMetadata {
+  // Unique identifier for the metadata
+  string metadata_id = 1;
+
+  // Configuration key this metadata applies to
+  string config_key = 2;
+
+  // Display name for the configuration
+  string display_name = 3;
+
+  // Description of the configuration
+  string description = 4;
+
+  // Category/group for the configuration
+  string category = 5;
+
+  // Subcategory for the configuration
+  string subcategory = 6;
+
+  // Tags for categorization and search
+  repeated string tags = 7;
+
+  // Data type of the configuration value
+  ConfigDataType data_type = 8;
+
+  // Whether this configuration is required
+  bool required = 9;
+
+  // Whether this configuration is sensitive
+  bool sensitive = 10;
+
+  // Whether this configuration is encrypted
+  bool encrypted = 11;
+
+  // Whether this configuration is read-only
+  bool read_only = 12;
+
+  // Default value for the configuration
+  string default_value = 13;
+
+  // Allowed values (for enumeration types)
+  repeated string allowed_values = 14;
+
+  // Minimum value (for numeric types)
+  string min_value = 15;
+
+  // Maximum value (for numeric types)
+  string max_value = 16;
+
+  // Validation pattern (regex for string types)
+  string validation_pattern = 17;
+
+  // Validation message for invalid values
+  string validation_message = 18;
+
+  // Format hint for the value
+  string format_hint = 19;
+
+  // Examples of valid values
+  repeated string examples = 20;
+
+  // Documentation URL
+  string documentation_url = 21;
+
+  // Source of the configuration
+  string source = 22;
+
+  // Owner of the configuration
+  string owner = 23;
+
+  // Contact information for the owner
+  string contact = 24;
+
+  // Environment applicability
+  repeated string environments = 25;
+
+  // Service applicability
+  repeated string services = 26;
+
+  // Component applicability
+  repeated string components = 27;
+
+  // Deprecation information
+  DeprecationInfo deprecation = 28;
+
+  // Change approval requirements
+  ApprovalRequirement approval_requirement = 29;
+
+  // Audit settings
+  AuditSettings audit_settings = 30;
+
+  // Notification settings
+  NotificationSettings notification_settings = 31;
+
+  // Backup settings
+  BackupSettings backup_settings = 32;
+
+  // Versioning settings
+  VersioningSettings versioning_settings = 33;
+
+  // Additional metadata
+  map<string, string> metadata = 34;
+
+  // Creation timestamp
+  google.protobuf.Timestamp created_at = 35;
+
+  // Last update timestamp
+  google.protobuf.Timestamp updated_at = 36;
+
+  // User who created the metadata
+  string created_by = 37;
+
+  // User who last updated the metadata
+  string updated_by = 38;
+
+  // Metadata version
+  string version = 39;
+
+  // Status of the metadata
+  MetadataStatus status = 40;
+
+  // Error information if status is ERROR
+  gcommon.v1.common.Error error = 41;
+}
+
+// ConfigDataType represents the data type of a configuration value
+enum ConfigDataType {
+  CONFIG_DATA_TYPE_UNSPECIFIED = 0;
+  CONFIG_DATA_TYPE_STRING = 1;
+  CONFIG_DATA_TYPE_INTEGER = 2;
+  CONFIG_DATA_TYPE_FLOAT = 3;
+  CONFIG_DATA_TYPE_BOOLEAN = 4;
+  CONFIG_DATA_TYPE_ENUM = 5;
+  CONFIG_DATA_TYPE_LIST = 6;
+  CONFIG_DATA_TYPE_MAP = 7;
+  CONFIG_DATA_TYPE_JSON = 8;
+  CONFIG_DATA_TYPE_YAML = 9;
+  CONFIG_DATA_TYPE_URL = 10;
+  CONFIG_DATA_TYPE_EMAIL = 11;
+  CONFIG_DATA_TYPE_PASSWORD = 12;
+  CONFIG_DATA_TYPE_CERTIFICATE = 13;
+  CONFIG_DATA_TYPE_PRIVATE_KEY = 14;
+  CONFIG_DATA_TYPE_PUBLIC_KEY = 15;
+  CONFIG_DATA_TYPE_DURATION = 16;
+  CONFIG_DATA_TYPE_TIMESTAMP = 17;
+  CONFIG_DATA_TYPE_REGEX = 18;
+  CONFIG_DATA_TYPE_IPV4 = 19;
+  CONFIG_DATA_TYPE_IPV6 = 20;
+  CONFIG_DATA_TYPE_CIDR = 21;
+  CONFIG_DATA_TYPE_PORT = 22;
+  CONFIG_DATA_TYPE_UUID = 23;
+  CONFIG_DATA_TYPE_BASE64 = 24;
+  CONFIG_DATA_TYPE_HEX = 25;
+}
+
+// DeprecationInfo represents deprecation information for a configuration
+message DeprecationInfo {
+  // Whether the configuration is deprecated
+  bool deprecated = 1;
+
+  // Deprecation reason
+  string reason = 2;
+
+  // Deprecation date
+  google.protobuf.Timestamp deprecated_at = 3;
+
+  // Replacement configuration key
+  string replacement_key = 4;
+
+  // Removal date
+  google.protobuf.Timestamp removal_date = 5;
+
+  // Migration guide
+  string migration_guide = 6;
+
+  // Deprecation level
+  DeprecationLevel level = 7;
+}
+
+// DeprecationLevel represents the level of deprecation
+enum DeprecationLevel {
+  DEPRECATION_LEVEL_UNSPECIFIED = 0;
+  DEPRECATION_LEVEL_SOFT = 1;     // Soft deprecation (warning)
+  DEPRECATION_LEVEL_HARD = 2;     // Hard deprecation (error)
+  DEPRECATION_LEVEL_REMOVAL = 3;  // Scheduled for removal
+}
+
+// ApprovalRequirement represents approval requirements for configuration changes
+message ApprovalRequirement {
+  // Whether approval is required
+  bool required = 1;
+
+  // Number of approvals required
+  int32 approval_count = 2;
+
+  // Required approver roles
+  repeated string approver_roles = 3;
+
+  // Required approver users
+  repeated string approver_users = 4;
+
+  // Approval policy
+  string policy = 5;
+
+  // Approval workflow
+  string workflow = 6;
+
+  // Auto-approval conditions
+  repeated string auto_approval_conditions = 7;
+
+  // Approval timeout
+  int32 approval_timeout_hours = 8;
+}
+
+// AuditSettings represents audit settings for configuration changes
+message AuditSettings {
+  // Whether audit logging is enabled
+  bool enabled = 1;
+
+  // Audit log level
+  AuditLevel level = 2;
+
+  // Audit log retention period in days
+  int32 retention_days = 3;
+
+  // Whether to include sensitive data in audit logs
+  bool include_sensitive_data = 4;
+
+  // External audit destinations
+  repeated string destinations = 5;
+
+  // Audit log format
+  string format = 6;
+
+  // Additional audit metadata
+  map<string, string> metadata = 7;
+}
+
+// AuditLevel represents the level of audit logging
+enum AuditLevel {
+  AUDIT_LEVEL_UNSPECIFIED = 0;
+  AUDIT_LEVEL_NONE = 1;
+  AUDIT_LEVEL_MINIMAL = 2;
+  AUDIT_LEVEL_STANDARD = 3;
+  AUDIT_LEVEL_DETAILED = 4;
+  AUDIT_LEVEL_VERBOSE = 5;
+}
+
+// NotificationSettings represents notification settings for configuration changes
+message NotificationSettings {
+  // Whether notifications are enabled
+  bool enabled = 1;
+
+  // Notification channels
+  repeated NotificationChannel channels = 2;
+
+  // Notification triggers
+  repeated NotificationTrigger triggers = 3;
+
+  // Notification template
+  string template = 4;
+
+  // Notification recipients
+  repeated string recipients = 5;
+
+  // Notification delay in minutes
+  int32 delay_minutes = 6;
+
+  // Notification batching settings
+  BatchingSettings batching = 7;
+}
+
+// NotificationChannel represents a notification channel
+message NotificationChannel {
+  // Channel type
+  ChannelType type = 1;
+
+  // Channel configuration
+  map<string, string> config = 2;
+
+  // Whether channel is enabled
+  bool enabled = 3;
+
+  // Channel priority
+  int32 priority = 4;
+}
+
+// ChannelType represents the type of notification channel
+enum ChannelType {
+  CHANNEL_TYPE_UNSPECIFIED = 0;
+  CHANNEL_TYPE_EMAIL = 1;
+  CHANNEL_TYPE_SLACK = 2;
+  CHANNEL_TYPE_WEBHOOK = 3;
+  CHANNEL_TYPE_SMS = 4;
+  CHANNEL_TYPE_PAGERDUTY = 5;
+  CHANNEL_TYPE_TEAMS = 6;
+  CHANNEL_TYPE_DISCORD = 7;
+  CHANNEL_TYPE_JIRA = 8;
+}
+
+// NotificationTrigger represents a notification trigger
+enum NotificationTrigger {
+  NOTIFICATION_TRIGGER_UNSPECIFIED = 0;
+  NOTIFICATION_TRIGGER_CHANGE = 1;
+  NOTIFICATION_TRIGGER_DELETE = 2;
+  NOTIFICATION_TRIGGER_ERROR = 3;
+  NOTIFICATION_TRIGGER_APPROVAL = 4;
+  NOTIFICATION_TRIGGER_DEPLOYMENT = 5;
+  NOTIFICATION_TRIGGER_ROLLBACK = 6;
+  NOTIFICATION_TRIGGER_SCHEDULE = 7;
+}
+
+// BatchingSettings represents notification batching settings
+message BatchingSettings {
+  // Whether batching is enabled
+  bool enabled = 1;
+
+  // Batch size
+  int32 batch_size = 2;
+
+  // Batch timeout in minutes
+  int32 timeout_minutes = 3;
+
+  // Batch grouping key
+  string grouping_key = 4;
+}
+
+// BackupSettings represents backup settings for configuration
+message BackupSettings {
+  // Whether backup is enabled
+  bool enabled = 1;
+
+  // Backup frequency
+  BackupFrequency frequency = 2;
+
+  // Backup retention period in days
+  int32 retention_days = 3;
+
+  // Backup storage location
+  string storage_location = 4;
+
+  // Backup encryption
+  bool encrypted = 5;
+
+  // Backup compression
+  bool compressed = 6;
+
+  // Backup metadata
+  map<string, string> metadata = 7;
+}
+
+// BackupFrequency represents backup frequency
+enum BackupFrequency {
+  BACKUP_FREQUENCY_UNSPECIFIED = 0;
+  BACKUP_FREQUENCY_MANUAL = 1;
+  BACKUP_FREQUENCY_HOURLY = 2;
+  BACKUP_FREQUENCY_DAILY = 3;
+  BACKUP_FREQUENCY_WEEKLY = 4;
+  BACKUP_FREQUENCY_MONTHLY = 5;
+  BACKUP_FREQUENCY_ON_CHANGE = 6;
+}
+
+// VersioningSettings represents versioning settings for configuration
+message VersioningSettings {
+  // Whether versioning is enabled
+  bool enabled = 1;
+
+  // Maximum number of versions to keep
+  int32 max_versions = 2;
+
+  // Version retention period in days
+  int32 retention_days = 3;
+
+  // Whether to create versions on change
+  bool version_on_change = 4;
+
+  // Whether to create versions on schedule
+  bool version_on_schedule = 5;
+
+  // Versioning schedule
+  string schedule = 6;
+
+  // Version metadata
+  map<string, string> metadata = 7;
+}
+
+// MetadataStatus represents the status of metadata
+enum MetadataStatus {
+  METADATA_STATUS_UNSPECIFIED = 0;
+  METADATA_STATUS_ACTIVE = 1;
+  METADATA_STATUS_INACTIVE = 2;
+  METADATA_STATUS_DRAFT = 3;
+  METADATA_STATUS_DEPRECATED = 4;
+  METADATA_STATUS_DELETED = 5;
+  METADATA_STATUS_ERROR = 6;
+}

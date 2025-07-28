@@ -1,0 +1,94 @@
+// file: pkg/queue/proto/requests/peek_request.proto
+// version: 1.0.0
+// guid: 1d2e3f4a-5b6c-7d8e-9f0a-1b2c3d4e5f6a
+
+edition = "2023";
+
+package gcommon.v1.queue;
+
+option go_package = "github.com/jdfalk/gcommon/pkg/queue/proto;queuepb";
+
+// Standard imports
+
+// Common types
+import "pkg/common/proto/common.proto";
+
+/**
+ * PeekRequest allows viewing messages in a queue without removing them.
+ * Useful for inspection, monitoring, and debugging queue contents
+ * without affecting message processing.
+ *
+ * Follows 1-1-1 pattern: one message per file.
+ */
+message PeekRequest {
+  // Required fields (1-10)
+
+  /**
+   * The name/identifier of the queue to peek into.
+   * Must be a valid existing queue.
+   */
+  string queue_name = 1;
+
+  // Optional fields (11-50)
+
+  /**
+   * Standard request metadata including authentication context,
+   * tracing information, and client details.
+   */
+  gcommon.v1.common.RequestMetadata metadata = 11;
+
+  /**
+   * Maximum number of messages to peek at.
+   * Range: 1-100. Default: 1.
+   */
+  int32 max_messages = 12;
+
+  /**
+   * Starting position in the queue for peeking.
+   * 0 = first message, 1 = second message, etc.
+   * Default: 0 (peek at head of queue).
+   */
+  int32 start_position = 13;
+
+  /**
+   * Message group ID filter. If specified, only messages
+   * from this group will be returned.
+   */
+  string group_id_filter = 14;
+
+  /**
+   * Attribute filters for selective message viewing.
+   * Only messages matching all specified attributes will be returned.
+   */
+  map<string, string> attribute_filters = 15;
+
+  /**
+   * Message type filter. If specified, only messages of
+   * this type will be returned.
+   */
+  string message_type_filter = 16;
+
+  /**
+   * Priority threshold - only return messages with priority
+   * greater than or equal to this value. Range: 0-255.
+   */
+  int32 min_priority = 17;
+
+  /**
+   * Include message content/payload in the response.
+   * Default: true. Set to false to only get metadata.
+   */
+  bool include_payload = 18;
+
+  /**
+   * Include message attributes in the response.
+   * Default: true. Set to false to reduce response size.
+   */
+  bool include_attributes = 19;
+
+  /**
+   * Include detailed delivery metadata (timestamps, delivery count, etc.).
+   * Default: false for performance.
+   */
+  bool include_delivery_metadata = 20;
+}

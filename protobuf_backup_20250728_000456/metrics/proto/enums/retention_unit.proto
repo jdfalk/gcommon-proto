@@ -1,0 +1,47 @@
+// filepath: pkg/metrics/proto/enums/retention_unit.proto
+// file: metrics/proto/enums/retention_unit.proto
+//
+// Enum definitions for metrics module
+// TODO: Implement actual protobuf definitions
+//
+edition = "2023";
+
+package gcommon.v1.metrics;
+
+import "google/protobuf/go_features.proto";
+
+option go_package = "github.com/jdfalk/gcommon/pkg/metrics/proto;metricspb";
+option features.(pb.go).api_level = API_HYBRID;
+
+/**
+ * RetentionUnit defines the units for data retention policies.
+ * Used to specify how long metric data should be kept in storage.
+ */
+enum RetentionUnit {
+  // Unspecified retention unit (default)
+  RETENTION_UNIT_UNSPECIFIED = 0;
+
+  // Minutes
+  RETENTION_UNIT_MINUTES = 1;
+
+  // Hours
+  RETENTION_UNIT_HOURS = 2;
+
+  // Days
+  RETENTION_UNIT_DAYS = 3;
+
+  // Weeks
+  RETENTION_UNIT_WEEKS = 4;
+
+  // Months
+  RETENTION_UNIT_MONTHS = 5;
+
+  // Years
+  RETENTION_UNIT_YEARS = 6;
+
+  // Forever (no expiration)
+  RETENTION_UNIT_FOREVER = 7;
+
+  // Custom duration (specify in seconds)
+  RETENTION_UNIT_CUSTOM = 8;
+}

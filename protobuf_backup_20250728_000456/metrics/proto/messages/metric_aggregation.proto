@@ -1,0 +1,28 @@
+// filepath: pkg/metrics/proto/messages/metric_aggregation.proto
+// file: metrics/proto/messages/metric_aggregation.proto
+//
+// Definition of aggregation results for metrics queries.
+//
+edition = "2023";
+
+package gcommon.v1.metrics;
+
+import "google/protobuf/go_features.proto";
+import "pkg/metrics/proto/enums/aggregation_type.proto";
+
+option go_package = "github.com/jdfalk/gcommon/pkg/metrics/proto;metricspb";
+option features.(pb.go).api_level = API_HYBRID;
+
+/**
+ * MetricAggregation represents aggregated metric value.
+ */
+message MetricAggregation {
+  // Aggregation type performed
+  AggregationType type = 1;
+
+  // Value produced by aggregation
+  double value = 2;
+
+  // Number of samples aggregated
+  int64 sample_count = 3;
+}

@@ -1,0 +1,20 @@
+// file: pkg/web/proto/enums/route_type.proto
+// version: 1.0.0
+// guid: a655dd19-273c-4cb4-a5ea-71ce983e16cd
+//
+// RouteType distinguishes different route behaviors.
+edition = "2023";
+
+package gcommon.v1.web;
+
+import "google/protobuf/go_features.proto";
+
+option go_package = "github.com/jdfalk/gcommon/pkg/web/proto;webpb";
+option features.(pb.go).api_level = API_HYBRID;
+
+enum RouteType {
+    ROUTE_TYPE_UNSPECIFIED = 0;
+    ROUTE_TYPE_STATIC_FILE = 1;
+    ROUTE_TYPE_API = 2;
+    ROUTE_TYPE_REDIRECT = 3;
+}

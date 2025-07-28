@@ -1,0 +1,26 @@
+// filepath: pkg/config/proto/requests/get_config_stats_request.proto
+// file: config/proto/requests/get_config_stats_request.proto
+//
+// Request definitions for config module
+// Generated as part of protobuf implementation
+//
+edition = "2023";
+
+package gcommon.v1.config;
+
+import "google/protobuf/go_features.proto";
+import "pkg/common/proto/messages/request_metadata.proto";
+
+option go_package = "github.com/jdfalk/gcommon/pkg/config/proto;configpb";
+option features.(pb.go).api_level = API_HYBRID;
+
+/**
+ * GetConfigStatsRequest retrieves configuration statistics.
+ */
+message GetConfigStatsRequest {
+  // Namespace or environment to query
+  string namespace = 1;
+
+  // Request metadata
+  gcommon.v1.common.RequestMetadata metadata = 2;
+}

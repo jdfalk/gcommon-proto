@@ -1,0 +1,44 @@
+// file: pkg/metrics/proto/messages/gauge_metric.proto
+edition = "2023";
+
+package gcommon.v1.metrics;
+
+import "google/protobuf/go_features.proto";
+import "google/protobuf/timestamp.proto";
+
+option go_package = "github.com/jdfalk/gcommon/pkg/metrics/proto;metricspb";
+option features.(pb.go).api_level = API_HYBRID;
+
+/**
+ * GaugeMetric represents a value that can go up and down.
+ * Gauges are used for tracking instantaneous values like memory usage,
+ * temperature, active connections, or CPU utilization.
+ */
+message GaugeMetric {
+  // Unique identifier for this gauge
+  string id = 1;
+
+  // Gauge name/label
+  string name = 2;
+
+  // Current gauge value (can increase or decrease)
+  double value = 3;
+
+  // Timestamp when this value was recorded
+  google.protobuf.Timestamp timestamp = 4;
+
+  // Gauge description/help text
+  string description = 5;
+
+  // Key-value labels for this gauge
+  map<string, string> labels = 6;
+
+  // Minimum allowed value (constraint)
+  double min_value = 7;
+
+  // Maximum allowed value (constraint)
+  double max_value = 8;
+
+  // Unit of measurement (e.g., "bytes", "percent", "connections")
+  string unit = 9;
+}

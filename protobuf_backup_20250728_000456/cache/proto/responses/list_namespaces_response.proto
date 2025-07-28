@@ -1,0 +1,57 @@
+// file: pkg/cache/proto/responses/list_namespaces_response.proto
+// version: 1.0.0
+// guid: 123e4567-e89b-12d3-a456-426614174016
+
+edition = "2023";
+
+package gcommon.v1.cache;
+
+import "google/protobuf/timestamp.proto";
+
+option go_package = "github.com/jdfalk/gcommon/pkg/cache/proto;cachepb";
+
+/**
+ * Namespace information.
+ */
+message NamespaceInfo {
+  // ID of the namespace
+  string namespace_id = 1;
+
+  // Name of the namespace
+  string name = 2;
+
+  // Description
+  string description = 3;
+
+  // When created
+  google.protobuf.Timestamp created_at = 4;
+
+  // Current key count
+  int64 current_keys = 5;
+
+  // Current memory usage (bytes)
+  int64 current_memory_bytes = 6;
+
+  // Configuration
+  map<string, string> config = 7;
+}
+
+/**
+ * Response for listing namespaces.
+ */
+message ListNamespacesResponse {
+  // List of namespaces
+  repeated NamespaceInfo namespaces = 1;
+
+  // Total count
+  int32 total_count = 2;
+
+  // Current page
+  int32 page = 3;
+
+  // Page size
+  int32 page_size = 4;
+
+  // Total pages
+  int32 total_pages = 5;
+}

@@ -1,0 +1,32 @@
+// file: pkg/queue/proto/requests/commit_offset_request.proto
+// version: 1.0.0
+// guid: dd17ade2-5399-4fe8-83ba-ffe1227da728
+
+// CommitOffsetRequest records the latest processed offset for a
+// consumer group. This allows the queue provider to resume message
+// delivery from the correct position on reconnect.
+edition = "2023";
+
+package gcommon.v1.queue;
+
+import "google/protobuf/go_features.proto";
+import "pkg/common/proto/common.proto";
+
+option go_package = "github.com/jdfalk/gcommon/pkg/queue/proto;queuepb";
+option features.(pb.go).api_level = API_HYBRID;
+
+// CommitOffsetRequest stores the offset a consumer has successfully
+// processed within a queue or topic.
+message CommitOffsetRequest {
+  // Name of the queue or topic.
+  string queue_name = 1;
+
+  // Identifier for the consumer group.
+  string consumer_group = 2;
+
+  // Offset that was last processed successfully.
+  int64 offset = 3;
+
+  // Optional request metadata for tracing and auth.
+  gcommon.v1.common.RequestMetadata metadata = 4;
+}

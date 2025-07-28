@@ -1,0 +1,29 @@
+// filepath: pkg/config/proto/requests/export_config_request.proto
+// file: config/proto/requests/export_config_request.proto
+//
+// Request definitions for config module
+// Generated as part of protobuf implementation
+//
+edition = "2023";
+
+package gcommon.v1.config;
+
+import "google/protobuf/go_features.proto";
+import "pkg/common/proto/messages/request_metadata.proto";
+
+option go_package = "github.com/jdfalk/gcommon/pkg/config/proto;configpb";
+option features.(pb.go).api_level = API_HYBRID;
+
+/**
+ * ExportConfigRequest exports configuration values to an external format.
+ */
+message ExportConfigRequest {
+  // Namespace/environment to export
+  string namespace = 1;
+
+  // Target format (e.g., JSON, YAML)
+  string format = 2;
+
+  // Request metadata
+  gcommon.v1.common.RequestMetadata metadata = 3;
+}

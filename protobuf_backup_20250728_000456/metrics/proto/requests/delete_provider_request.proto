@@ -1,0 +1,77 @@
+// filepath: pkg/metrics/proto/requests/delete_provider_request.proto
+// file: metrics/proto/requests/delete_provider_request.proto
+//
+// Delete provider request definitions for metrics module
+//
+edition = "2023";
+
+package gcommon.v1.metrics;
+
+import "google/protobuf/go_features.proto";
+import "pkg/common/proto/messages/request_metadata.proto";
+
+option go_package = "github.com/jdfalk/gcommon/pkg/metrics/proto;metricspb";
+option features.(pb.go).api_level = API_HYBRID;
+
+/**
+ * DeleteProviderRequest represents a request to delete a metrics provider.
+ */
+message DeleteProviderRequest {
+  // Standard request metadata (tracing, auth, etc.)
+  gcommon.v1.common.RequestMetadata metadata = 1;
+
+  // Provider ID to delete
+  string provider_id = 2;
+
+  // Deletion options
+  DeletionOptions options = 3;
+}
+
+/**
+ * DeletionOptions configure the deletion process.
+ */
+message DeletionOptions {
+  // Whether to delete all associated data
+  bool delete_data = 1;
+
+  // Whether to delete associated indices
+  bool delete_indices = 2;
+
+  // Whether to delete configuration backups
+  bool delete_backups = 3;
+
+  // Whether to stop all exports before deletion
+  bool stop_exports = 4;
+
+  // Grace period before actual deletion
+  string grace_period = 5;
+
+  // Whether to perform a dry run
+  bool dry_run = 6;
+
+  // Whether to force deletion even if provider is in use
+  bool force = 7;
+
+  // Whether to create a final backup before deletion
+  bool create_backup = 8;
+
+  // Cleanup strategy to use
+  CleanupStrategy cleanup_strategy = 9;
+
+  // Whether to wait for ongoing operations to complete
+  bool wait_for_completion = 10;
+
+  // Maximum time to wait for operations to complete
+  string completion_timeout = 11;
+}
+
+/**
+ * CleanupStrategy defines how cleanup should be performed.
+ */
+enum CleanupStrategy {
+  CLEANUP_STRATEGY_UNSPECIFIED = 0;
+  CLEANUP_STRATEGY_IMMEDIATE = 1;
+  CLEANUP_STRATEGY_GRACEFUL = 2;
+  CLEANUP_STRATEGY_BACKGROUND = 3;
+  CLEANUP_STRATEGY_SCHEDULED = 4;
+}

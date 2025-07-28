@@ -1,0 +1,32 @@
+// file: pkg/db/proto/messages/connection_pool_info.proto
+edition = "2023";
+
+package gcommon.v1.database;
+
+import "pkg/db/proto/messages/pool_stats.proto";
+import "google/protobuf/duration.proto";
+import "google/protobuf/go_features.proto";
+
+option go_package = "github.com/jdfalk/gcommon/pkg/db/proto;dbpb";
+option features.(pb.go).api_level = API_HYBRID;
+
+/**
+ * ConnectionPoolInfo provides information about database connection pool status.
+ * Used for monitoring connection health and pool performance.
+ */
+message ConnectionPoolInfo {
+  // Maximum number of connections allowed in the pool
+  int32 max_connections = 1;
+
+  // Number of currently active connections
+  int32 active_connections = 2;
+
+  // Number of idle connections in the pool
+  int32 idle_connections = 3;
+
+  // Average lifetime of connections in the pool
+  google.protobuf.Duration avg_lifetime = 4 [lazy = true];
+
+  // Detailed connection pool statistics
+  PoolStats stats = 5 [lazy = true];
+}

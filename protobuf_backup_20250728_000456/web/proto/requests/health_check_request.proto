@@ -1,0 +1,19 @@
+// file: pkg/web/proto/requests/health_check_request.proto
+// version: 1.0.0
+// guid: 08748b61-ccf0-4bfe-bfc6-ad2778f3959c
+
+edition = "2023";
+
+package gcommon.v1.web;
+
+import "google/protobuf/go_features.proto";
+import "pkg/common/proto/messages/request_metadata.proto";
+
+option go_package = "github.com/jdfalk/gcommon/pkg/web/proto;webpb";
+option features.(pb.go).api_level = API_HYBRID;
+
+// HealthCheckRequest request definition.
+message HealthCheckRequest {
+  // Request metadata for the HTTP server.
+  gcommon.v1.common.RequestMetadata metadata = 1 [lazy = true];
+}

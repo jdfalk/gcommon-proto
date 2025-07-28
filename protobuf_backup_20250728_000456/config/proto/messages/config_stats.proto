@@ -1,0 +1,26 @@
+// file: pkg/config/proto/messages/config_stats.proto
+// version: 1.0.0
+// guid: 57dfad7b-0867-4628-a18b-0846e8f0bf0c
+
+edition = "2023";
+
+package gcommon.v1.config;
+
+import "google/protobuf/go_features.proto";
+
+option go_package = "github.com/jdfalk/gcommon/pkg/config/proto;configpb";
+option features.(pb.go).api_level = API_HYBRID;
+
+/**
+ * ConfigStats provides statistics about configuration data.
+ */
+message ConfigStats {
+  // Total number of configuration keys
+  int64 total_keys = 1;
+
+  // Number of namespaces/environments
+  int64 namespaces = 2;
+
+  // Number of configuration versions
+  int64 versions = 3;
+}

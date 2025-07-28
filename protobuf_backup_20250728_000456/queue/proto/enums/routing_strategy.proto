@@ -1,0 +1,26 @@
+// file: pkg/queue/proto/enums/routing_strategy.proto
+// version: 1.0.0
+// guid: 7470584d-8517-42b3-b7f1-c5d5a594001c
+
+edition = "2023";
+
+package gcommon.v1.queue;
+
+import "google/protobuf/go_features.proto";
+
+option go_package = "github.com/jdfalk/gcommon/pkg/queue/proto;queuepb";
+option features.(pb.go).api_level = API_HYBRID;
+
+// RoutingStrategy defines how messages are distributed to consumers.
+enum RoutingStrategy {
+  // Implementation-defined default strategy.
+  ROUTING_STRATEGY_UNSPECIFIED = 0;
+  // Distribute messages evenly across consumers.
+  ROUTING_STRATEGY_ROUND_ROBIN = 1;
+  // Select consumers randomly.
+  ROUTING_STRATEGY_RANDOM = 2;
+  // Route based on a hash of message attributes.
+  ROUTING_STRATEGY_HASH = 3;
+  // Send to all available consumers.
+  ROUTING_STRATEGY_BROADCAST = 4;
+}

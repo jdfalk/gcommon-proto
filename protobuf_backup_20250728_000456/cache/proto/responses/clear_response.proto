@@ -1,0 +1,28 @@
+// file: pkg/cache/proto/responses/clear_response.proto
+// version: 1.0.0
+// guid: ef5ghijk-67l8-9m0n-1o2p-3q4r5s6t7u8v
+
+edition = "2023";
+
+package gcommon.v1.cache;
+
+import "google/protobuf/go_features.proto";
+import "pkg/common/proto/messages/error.proto";
+
+option go_package = "github.com/jdfalk/gcommon/pkg/cache/proto;cachepb";
+option features.(pb.go).api_level = API_HYBRID;
+
+/**
+ * Response for cache clear operations.
+ * Indicates success/failure of clearing cache entries.
+ */
+message ClearResponse {
+  // Number of entries that were cleared
+  int64 cleared_count = 1;
+
+  // Whether the operation was successful
+  bool success = 2;
+
+  // Error details if clear failed
+  gcommon.v1.common.Error error = 3;
+}

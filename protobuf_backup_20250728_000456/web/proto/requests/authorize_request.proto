@@ -1,0 +1,17 @@
+// file: pkg/web/proto/requests/authorize_request.proto
+// version: 1.0.0
+// guid: 1582f475-35f6-43c9-ac19-74b29568fa64
+
+edition = "2023";
+
+package gcommon.v1.web;
+
+import "google/protobuf/go_features.proto";
+
+option go_package = "github.com/jdfalk/gcommon/pkg/web/proto;webpb";
+option features.(pb.go).api_level = API_HYBRID;
+
+// AuthorizeRequest request definition.
+message AuthorizeRequest {
+  string placeholder = 1;
+}

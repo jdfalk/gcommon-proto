@@ -1,0 +1,36 @@
+// file: pkg/queue/proto/enums/acknowledgment_mode.proto
+// version: 1.0.0
+// guid: 6f4b2414-998e-4fc3-bc68-188dff6d2f25
+
+// Enumeration describing how message acknowledgments are handled by a
+// queue consumer. This was previously left as a placeholder during the
+// 1-1-1 migration.
+edition = "2023";
+
+package gcommon.v1.queue;
+
+import "google/protobuf/go_features.proto";
+
+option go_package = "github.com/jdfalk/gcommon/pkg/queue/proto;queuepb";
+option features.(pb.go).api_level = API_HYBRID;
+
+// AcknowledgmentMode specifies how a message should be acknowledged
+// by the consumer. It provides flexibility for different delivery
+// guarantees and consumer implementations.
+enum AcknowledgmentMode {
+  // Default mode. The broker chooses a sensible default based on
+  // queue configuration.
+  ACKNOWLEDGMENT_MODE_UNSPECIFIED = 0;
+
+  // Messages are automatically acknowledged immediately after
+  // successful processing by the consumer.
+  ACKNOWLEDGMENT_MODE_AUTO = 1;
+
+  // The consumer is responsible for explicitly sending an AckRequest
+  // after processing the message.
+  ACKNOWLEDGMENT_MODE_MANUAL = 2;
+
+  // No acknowledgment is required. Messages are considered processed
+  // once delivered. Use with care.
+  ACKNOWLEDGMENT_MODE_NONE = 3;
+}

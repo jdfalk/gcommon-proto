@@ -1,0 +1,26 @@
+// filepath: pkg/metrics/proto/responses/get_alerting_rules_response.proto
+// file: metrics/proto/responses/get_alerting_rules_response.proto
+//
+// Response message containing alerting rules for a metric.
+//
+edition = "2023";
+
+package gcommon.v1.metrics;
+
+import "google/protobuf/go_features.proto";
+import "pkg/common/proto/messages/error.proto";
+import "pkg/metrics/proto/messages/alerting_rule.proto";
+
+option go_package = "github.com/jdfalk/gcommon/pkg/metrics/proto;metricspb";
+option features.(pb.go).api_level = API_HYBRID;
+
+/**
+ * GetAlertingRulesResponse returns configured alerting rules.
+ */
+message GetAlertingRulesResponse {
+  // Alerting rules for the metric
+  repeated AlertingRule rules = 1;
+
+  // Error information if retrieval failed
+  gcommon.v1.common.Error error = 2;
+}

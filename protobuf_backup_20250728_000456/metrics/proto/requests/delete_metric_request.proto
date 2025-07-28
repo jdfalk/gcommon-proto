@@ -1,0 +1,28 @@
+// filepath: pkg/metrics/proto/requests/delete_metric_request.proto
+// file: metrics/proto/requests/delete_metric_request.proto
+//
+// Request to delete an existing metric definition.
+//
+edition = "2023";
+
+package gcommon.v1.metrics;
+
+import "google/protobuf/go_features.proto";
+import "pkg/common/proto/messages/request_metadata.proto";
+
+option go_package = "github.com/jdfalk/gcommon/pkg/metrics/proto;metricspb";
+option features.(pb.go).api_level = API_HYBRID;
+
+/**
+ * DeleteMetricRequest removes a metric by ID.
+ */
+message DeleteMetricRequest {
+  // Unique identifier of the metric
+  string metric_id = 1;
+
+  // Optional namespace
+  string namespace = 2;
+
+  // Request metadata for auditing
+  gcommon.v1.common.RequestMetadata metadata = 3 [lazy = true];
+}

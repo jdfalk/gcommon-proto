@@ -1,0 +1,29 @@
+// filepath: pkg/metrics/proto/messages/export_config.proto
+// file: metrics/proto/messages/export_config.proto
+//
+// Configuration options for exporting metrics to external systems.
+//
+edition = "2023";
+
+package gcommon.v1.metrics;
+
+import "google/protobuf/go_features.proto";
+import "pkg/metrics/proto/enums/export_format.proto";
+import "pkg/metrics/proto/enums/compression_type.proto";
+
+option go_package = "github.com/jdfalk/gcommon/pkg/metrics/proto;metricspb";
+option features.(pb.go).api_level = API_HYBRID;
+
+/**
+ * ExportConfig defines how metrics are exported.
+ */
+message ExportConfig {
+  // Output format (e.g., prometheus, json)
+  ExportFormat format = 1;
+
+  // Compression algorithm to use
+  CompressionType compression = 2;
+
+  // Destination URL or path
+  string destination = 3;
+}

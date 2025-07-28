@@ -1,0 +1,29 @@
+// filepath: pkg/metrics/proto/requests/set_alerting_rules_request.proto
+// file: metrics/proto/requests/set_alerting_rules_request.proto
+//
+// Request message for configuring alerting rules for a metric.
+//
+edition = "2023";
+
+package gcommon.v1.metrics;
+
+import "google/protobuf/go_features.proto";
+import "pkg/common/proto/messages/request_metadata.proto";
+import "pkg/metrics/proto/messages/alerting_rule.proto";
+
+option go_package = "github.com/jdfalk/gcommon/pkg/metrics/proto;metricspb";
+option features.(pb.go).api_level = API_HYBRID;
+
+/**
+ * SetAlertingRulesRequest sets alerting rules for a metric.
+ */
+message SetAlertingRulesRequest {
+  // Metric identifier
+  string metric_id = 1;
+
+  // Rules to set
+  repeated AlertingRule rules = 2;
+
+  // Request metadata
+  gcommon.v1.common.RequestMetadata metadata = 3 [lazy = true];
+}

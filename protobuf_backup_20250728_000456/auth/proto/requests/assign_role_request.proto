@@ -1,0 +1,28 @@
+// file: pkg/auth/proto/requests/assign_role_request.proto
+edition = "2023";
+
+package gcommon.v1.auth;
+
+import "google/protobuf/go_features.proto";
+import "pkg/common/proto/messages/request_metadata.proto";
+
+option go_package = "github.com/jdfalk/gcommon/pkg/auth/proto;authpb";
+option features.(pb.go).api_level = API_HYBRID;
+
+/**
+ * Request to assign a role to a user.
+ * Used for role-based access control management.
+ * Grants the specified role permissions to the user.
+ */
+message AssignRoleRequest {
+  // User ID to assign role to
+  string user_id = 1;
+
+  // Role ID to assign
+  string role_id = 2;
+
+  // Request metadata for tracing and correlation
+  gcommon.v1.common.RequestMetadata metadata = 3;
+}
+// This is a placeholder file created during 1-1-1 migration
+// Implement the actual protobuf definitions according to the auth module requirements

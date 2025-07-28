@@ -1,0 +1,35 @@
+// filepath: pkg/metrics/proto/messages/metric_family.proto
+// file: metrics/proto/messages/metric_family.proto
+//
+// MetricFamily groups related metrics together.
+//
+edition = "2023";
+
+package gcommon.v1.metrics;
+
+import "google/protobuf/go_features.proto";
+import "pkg/metrics/proto/enums/metric_type.proto";
+import "pkg/metrics/proto/messages/metric_data.proto";
+
+option go_package = "github.com/jdfalk/gcommon/pkg/metrics/proto;metricspb";
+option features.(pb.go).api_level = API_HYBRID;
+
+/**
+ * MetricFamily groups metrics of the same name and type.
+ */
+message MetricFamily {
+  // Family name (e.g., http_requests)
+  string name = 1;
+
+  // Family description
+  string description = 2;
+
+  // Metric type for this family
+  MetricType type = 3;
+
+  // Unit of measurement
+  string unit = 4;
+
+  // Metrics in this family
+  repeated MetricData metrics = 5;
+}

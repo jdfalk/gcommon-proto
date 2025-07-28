@@ -1,0 +1,33 @@
+// file: pkg/web/proto/messages/cache_config.proto
+// version: 1.1.0
+// guid: 21e9abdf-bf09-4c22-b45b-eb9c092d9664
+
+edition = "2023";
+
+package gcommon.v1.web;
+
+import "google/protobuf/go_features.proto";
+import "google/protobuf/duration.proto";
+import "pkg/common/proto/messages/cache_policy.proto";
+import "pkg/web/proto/enums/cache_strategy.proto";
+
+option go_package = "github.com/jdfalk/gcommon/pkg/web/proto;webpb";
+option features.(pb.go).api_level = API_HYBRID;
+
+// CacheConfig defines caching behavior for web responses.
+message CacheConfig {
+  // Selected cache strategy for responses
+  CacheStrategy strategy = 1;
+
+  // Detailed cache policy settings
+  gcommon.v1.common.CachePolicy policy = 2 [lazy = true];
+
+  // Override time to live for web resources
+  google.protobuf.Duration ttl = 3;
+
+  // Whether caching is enabled for this server
+  bool enabled = 4;
+
+  // Optional namespace or cache name
+  string cache_name = 5;
+}

@@ -1,0 +1,79 @@
+// filepath: pkg/metrics/proto/responses/unregister_metric_response.proto
+// file: metrics/proto/responses/unregister_metric_response.proto
+//
+// Unregister metric response definitions for metrics module
+//
+edition = "2023";
+
+package gcommon.v1.metrics;
+
+import "google/protobuf/go_features.proto";
+import "google/protobuf/timestamp.proto";
+import "pkg/common/proto/messages/error.proto";
+import "pkg/metrics/proto/types/dry_run_result.proto";
+import "pkg/metrics/proto/types/backup_info.proto";
+
+option go_package = "github.com/jdfalk/gcommon/pkg/metrics/proto;metricspb";
+option features.(pb.go).api_level = API_HYBRID;
+
+/**
+ * UnregisterMetricResponse contains the result of unregistering a metric.
+ */
+message UnregisterMetricResponse {
+  // Success status of the unregistration
+  bool success = 1;
+
+  // Error information if unregistration failed
+  gcommon.v1.common.Error error = 2;
+
+  // ID of the metric that was unregistered
+  string metric_id = 3;
+
+  // Name of the metric that was unregistered
+  string metric_name = 4;
+
+  // When the metric was unregistered
+  google.protobuf.Timestamp unregistered_at = 5;
+
+  // Provider that handled the unregistration
+  string provider_id = 6;
+
+  // Information about what was deleted/cleaned up
+  UnregistrationResult result = 7;
+
+  // Warnings or informational messages
+  repeated string warnings = 8;
+
+  // Backup information (if backup was created)
+  BackupInfo backup_info = 9;
+}
+
+/**
+ * UnregistrationResult contains information about what was deleted/cleaned up.
+ */
+message UnregistrationResult {
+  // Whether the metric definition was deleted
+  bool definition_deleted = 1;
+
+  // Amount of data that was deleted (bytes)
+  int64 data_deleted_bytes = 2;
+
+  // Number of data points deleted
+  int64 data_points_deleted = 3;
+
+  // Indices that were deleted
+  repeated string deleted_indices = 4;
+
+  // Alert rules that were removed
+  repeated string removed_alerts = 5;
+
+  // Export configurations that were stopped
+  repeated string stopped_exports = 6;
+
+  // Time when actual deletion will occur (if grace period is set)
+  google.protobuf.Timestamp scheduled_deletion = 7;
+
+  // What would be deleted (for dry run operations)
+  DryRunResult dry_run_result = 8;
+}
+

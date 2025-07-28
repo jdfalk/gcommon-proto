@@ -1,0 +1,17 @@
+// file: pkg/web/proto/messages/performance_stats.proto
+// version: 1.0.0
+// guid: 2ea24441-9142-4f94-b30e-9d8d07afa209
+
+edition = "2023";
+
+package gcommon.v1.web;
+
+import "google/protobuf/go_features.proto";
+
+option go_package = "github.com/jdfalk/gcommon/pkg/web/proto;webpb";
+option features.(pb.go).api_level = API_HYBRID;
+
+// PerformanceStats message definition.
+message PerformanceStats {
+  string placeholder = 1;
+}

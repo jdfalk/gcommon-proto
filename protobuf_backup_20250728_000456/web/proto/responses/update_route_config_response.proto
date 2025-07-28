@@ -1,0 +1,17 @@
+// file: pkg/web/proto/responses/update_route_config_response.proto
+// version: 1.0.0
+// guid: 07ee551d-a9ae-4d39-995c-3442717c934b
+
+edition = "2023";
+
+package gcommon.v1.web;
+
+import "google/protobuf/go_features.proto";
+
+option go_package = "github.com/jdfalk/gcommon/pkg/web/proto;webpb";
+option features.(pb.go).api_level = API_HYBRID;
+
+// UpdateRouteConfigResponse response definition.
+message UpdateRouteConfigResponse {
+  string placeholder = 1;
+}

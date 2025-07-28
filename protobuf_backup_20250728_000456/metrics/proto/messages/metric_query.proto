@@ -1,0 +1,130 @@
+// filepath: pkg/metrics/proto/messages/metric_query.proto
+// file: metrics/proto/messages/metric_query.proto
+//
+// Message definitions for metrics module
+// TODO: Implement actual protobuf definitions
+//
+edition = "2023";
+
+package gcommon.v1.metrics;
+
+import "google/protobuf/go_features.proto";
+import "google/protobuf/duration.proto";
+import "pkg/metrics/proto/enums/query_operation.proto";
+import "pkg/metrics/proto/enums/aggregation_type.proto";
+import "pkg/metrics/proto/messages/metric_filter.proto";
+import "pkg/metrics/proto/types/timestamp_range.proto";
+
+option go_package = "github.com/jdfalk/gcommon/pkg/metrics/proto;metricspb";
+option features.(pb.go).api_level = API_HYBRID;
+
+/**
+ * MetricQuery represents a query for retrieving and processing metric data.
+ * Supports filtering, aggregation, and transformation operations.
+ */
+message MetricQuery {
+  // Unique identifier for this query
+  string query_id = 1;
+
+  // Human-readable query name or description
+  string name = 2;
+
+  // Query string (PromQL, SQL, or custom query language)
+  string query_string = 3;
+
+  // Filter criteria for selecting metrics
+  MetricFilter filter = 4;
+
+  // Time range for the query
+  TimeFilter time_filter = 5;
+
+  // Aggregation operations to apply
+  repeated AggregationSpec aggregations = 6;
+
+  // Group by specifications
+  repeated GroupBySpec group_by = 7;
+
+  // Sort criteria
+  repeated SortCriteria sort_criteria = 8;
+
+  // Maximum number of results to return
+  int32 limit = 9;
+
+  // Offset for pagination
+  int32 offset = 10;
+}
+
+/**
+ * AggregationSpec defines how to aggregate metric data.
+ */
+message AggregationSpec {
+  // Type of aggregation to perform
+  AggregationType aggregation_type = 1;
+
+  // Field to aggregate on (if applicable)
+  string field = 2;
+
+  // Time window for aggregation
+  google.protobuf.Duration window = 3;
+
+  // Step/resolution for time-based aggregation
+  google.protobuf.Duration step = 4;
+
+  // Additional parameters for complex aggregations
+  map<string, string> parameters = 5;
+}
+
+/**
+ * GroupBySpec defines how to group metric results.
+ */
+message GroupBySpec {
+  // Label keys to group by
+  repeated string label_keys = 1;
+
+  // Time-based grouping (e.g., by hour, day)
+  google.protobuf.Duration time_group = 2;
+
+  // Maximum number of groups to return
+  int32 max_groups = 3;
+}
+
+/**
+ * QueryPlan represents an execution plan for a metric query.
+ * Used for query optimization and debugging.
+ */
+message QueryPlan {
+  // Query that this plan is for
+  string query_id = 1;
+
+  // Estimated execution time
+  google.protobuf.Duration estimated_duration = 2;
+
+  // Estimated number of data points to process
+  int64 estimated_data_points = 3;
+
+  // Execution steps
+  repeated QueryStep steps = 4;
+
+  // Storage backends that will be queried
+  repeated string storage_backends = 5;
+}
+
+/**
+ * QueryStep represents a single step in query execution.
+ */
+message QueryStep {
+  // Step identifier
+  string step_id = 1;
+
+  // Operation to perform in this step
+  QueryOperation operation = 2;
+
+  // Description of the operation
+  string description = 3;
+
+  // Estimated cost/time for this step
+  google.protobuf.Duration estimated_duration = 4;
+
+  // Input from previous steps
+  repeated string input_step_ids = 5;
+}

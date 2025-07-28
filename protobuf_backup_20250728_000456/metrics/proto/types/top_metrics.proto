@@ -1,0 +1,35 @@
+// file: pkg/metrics/proto/types/top_metrics.proto
+// version: 1.0.0
+// guid: c4d5e6f7-a8b9-0c1d-2e3f-4a5b6c7d8e9f
+
+edition = "2023";
+
+package gcommon.v1.metrics;
+
+import "google/protobuf/go_features.proto";
+
+option go_package = "github.com/jdfalk/gcommon/pkg/metrics/proto;metricspb";
+option features.(pb.go).api_level = API_HYBRID;
+
+/**
+ * TopMetrics contains information about top performing/problematic metrics.
+ */
+message TopMetrics {
+  // Most active metrics (by volume)
+  repeated string most_active = 1;
+
+  // Largest metrics by data volume
+  repeated string largest_by_volume = 2;
+
+  // Metrics with highest error rates
+  repeated string highest_errors = 3;
+
+  // Most frequently queried metrics
+  repeated string most_queried = 4;
+
+  // Slowest performing metrics
+  repeated string slowest_performing = 5;
+
+  // Most resource-intensive metrics
+  repeated string most_resource_intensive = 6;
+}

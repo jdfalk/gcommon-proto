@@ -1,0 +1,32 @@
+// filepath: pkg/web/proto/services/web_admin_service.proto
+// file: pkg/web/proto/services/web_admin_service.proto
+//
+// Administrative service for managing web server cache settings.
+//
+edition = "2023";
+
+package gcommon.v1.web;
+
+import "google/protobuf/go_features.proto";
+import "google/protobuf/empty.proto";
+import "pkg/web/proto/messages/cache_config.proto";
+import "pkg/cache/proto/requests/flush_request.proto";
+import "pkg/cache/proto/responses/flush_response.proto";
+
+option go_package = "github.com/jdfalk/gcommon/pkg/web/proto;webpb";
+option features.(pb.go).api_level = API_HYBRID;
+
+/**
+ * WebAdminService provides cache administration endpoints
+ * for web server management tools.
+ */
+service WebAdminService {
+  // Retrieve current cache configuration
+  rpc GetCacheConfig(google.protobuf.Empty) returns (CacheConfig);
+
+  // Update cache configuration
+  rpc UpdateCacheConfig(CacheConfig) returns (google.protobuf.Empty);
+
+  // Flush all cached entries
+  rpc FlushCache(gcommon.v1.cache.FlushRequest) returns (gcommon.v1.cache.FlushResponse);
+}

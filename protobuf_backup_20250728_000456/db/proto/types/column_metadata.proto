@@ -1,0 +1,33 @@
+// file: pkg/db/proto/types/column_metadata.proto
+edition = "2023";
+
+package gcommon.v1.database;
+
+import "google/protobuf/go_features.proto";
+
+option go_package = "github.com/jdfalk/gcommon/pkg/db/proto;dbpb";
+option features.(pb.go).api_level = API_HYBRID;
+
+/**
+ * ColumnMetadata describes the structure and properties of a database column.
+ * Used in result sets to provide type information for proper data handling.
+ */
+message ColumnMetadata {
+  // Column name as defined in the database
+  string name = 1;
+
+  // Column data type (database-specific)
+  string type = 2;
+
+  // Whether the column allows NULL values
+  bool nullable = 3;
+
+  // Column size/precision for numeric and string types
+  int32 size = 4;
+
+  // Column scale for decimal/numeric types
+  int32 scale = 5;
+
+  // Additional column-specific metadata
+  map<string, string> metadata = 6 [lazy = true];
+}

@@ -1,0 +1,63 @@
+// filepath: pkg/metrics/proto/messages/summary_metric.proto
+// file: metrics/proto/messages/summary_metric.proto
+//
+// Summary metric message definition for metrics module
+//
+edition = "2023";
+
+package gcommon.v1.metrics;
+
+import "google/protobuf/duration.proto";
+import "google/protobuf/go_features.proto";
+import "google/protobuf/timestamp.proto";
+import "pkg/common/proto/common.proto";
+
+option go_package = "github.com/jdfalk/gcommon/pkg/metrics/proto;metricspb";
+option features.(pb.go).api_level = API_HYBRID;
+
+/**
+ * SummaryQuantile represents a single quantile in a summary.
+ */
+message SummaryQuantile {
+  // Quantile value (0.0-1.0, e.g., 0.5 for median, 0.95 for 95th percentile)
+  double quantile = 1;
+
+  // Value at this quantile
+  double value = 2;
+}
+
+/**
+ * SummaryMetric represents a summary distribution with quantiles.
+ * Used for tracking distributions with pre-calculated quantiles.
+ */
+message SummaryMetric {
+  // Metric name (e.g., "http_request_duration_seconds")
+  string name = 1;
+
+  // Total count of observations
+  uint64 sample_count = 2;
+
+  // Sum of all observed values
+  double sample_sum = 3;
+
+  // Quantiles (e.g., 0.5, 0.9, 0.95, 0.99)
+  repeated SummaryQuantile quantiles = 4;
+
+  // Labels for metric dimensions
+  map<string, string> labels = 5;
+
+  // Timestamp when metric was recorded
+  google.protobuf.Timestamp timestamp = 6;
+
+  // Help text describing the metric
+  string help = 7;
+
+  // Metric unit (e.g., "seconds", "bytes")
+  string unit = 8;
+
+  // Maximum age of observations in the summary
+  google.protobuf.Duration max_age = 9;
+
+  // Metadata for request tracing
+  gcommon.v1.common.RequestMetadata metadata = 10;
+}

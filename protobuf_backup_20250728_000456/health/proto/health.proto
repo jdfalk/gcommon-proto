@@ -1,0 +1,27 @@
+// file: pkg/health/proto/health.proto
+edition = "2023";
+
+package gcommon.v1.health;
+
+import "google/protobuf/go_features.proto";
+
+option go_package = "github.com/jdfalk/gcommon/pkg/health/proto;healthpb";
+option features.(pb.go).api_level = API_HYBRID;
+
+/**
+ * Main health module protobuf aggregation file.
+ *
+ * This file serves as the central import point for all health-related
+ * protobuf definitions. Individual message types are defined in their
+ * respective files following the 1-1-1 pattern:
+ * - One message per file
+ * - One file per message
+ * - One responsibility per file
+ *
+ * Services are defined in:
+ * - health_service.proto - Core health checking service
+ * - health_admin_service.proto - Administrative health operations
+ *
+ * For backwards compatibility, this file can be imported to access
+ * all health-related types and services.
+ */

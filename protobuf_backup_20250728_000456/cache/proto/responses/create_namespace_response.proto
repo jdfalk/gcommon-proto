@@ -1,0 +1,40 @@
+// file: pkg/cache/proto/responses/create_namespace_response.proto
+// version: 1.0.0
+// guid: 123e4567-e89b-12d3-a456-426614174013
+
+edition = "2023";
+
+package gcommon.v1.cache;
+
+import "google/protobuf/timestamp.proto";
+
+option go_package = "github.com/jdfalk/gcommon/pkg/cache/proto;cachepb";
+
+/**
+ * Response for creating a cache namespace.
+ */
+message CreateNamespaceResponse {
+  // ID of the created namespace
+  string namespace_id = 1;
+
+  // Name of the created namespace
+  string name = 2;
+
+  // Description of the namespace
+  string description = 3;
+
+  // When the namespace was created
+  google.protobuf.Timestamp created_at = 4;
+
+  // Maximum number of keys allowed
+  int64 max_keys = 5;
+
+  // Maximum memory usage (in bytes)
+  int64 max_memory_bytes = 6;
+
+  // Default TTL for keys (in seconds)
+  int32 default_ttl_seconds = 7;
+
+  // Current configuration
+  map<string, string> config = 8;
+}

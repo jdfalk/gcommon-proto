@@ -1,0 +1,29 @@
+// file: pkg/organization/proto/requests/update_organization_settings_request.proto
+edition = "2023";
+
+package gcommon.v1.organization;
+
+import "google/protobuf/go_features.proto";
+import "pkg/common/proto/messages/request_metadata.proto";
+import "google/protobuf/field_mask.proto";
+import "pkg/organization/proto/messages/organization_settings.proto";
+
+option go_package = "github.com/jdfalk/gcommon/pkg/organization/proto;organizationpb";
+option features.(pb.go).api_level = API_HYBRID;
+
+message UpdateOrganizationSettingsRequest {
+  // Request metadata for tracing and context
+  gcommon.v1.common.RequestMetadata metadata = 1;
+  
+  // Organization identifier
+  string organization_id = 2;
+
+  // Updated settings
+  gcommon.v1.organization.OrganizationSettings settings = 3;
+
+  // Fields to update
+  google.protobuf.FieldMask update_mask = 4;
+
+  // Validate only without persisting if true
+  bool validate_only = 5;
+}

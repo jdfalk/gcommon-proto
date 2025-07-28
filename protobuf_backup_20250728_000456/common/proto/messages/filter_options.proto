@@ -1,0 +1,29 @@
+// file: pkg/common/proto/messages/filter_options.proto
+edition = "2023";
+
+package gcommon.v1.common;
+
+import "google/protobuf/go_features.proto";
+import "pkg/common/proto/messages/filter_value.proto";
+import "pkg/common/proto/types/time_range.proto";
+
+option go_package = "github.com/jdfalk/gcommon/pkg/common/proto;commonpb";
+option features.(pb.go).api_level = API_HYBRID;
+
+/**
+ * Common filtering options for search and query operations.
+ * Provides a unified interface for filtering data across all GCommon modules.
+ *
+ * Supports field-based filters, text search, and time range filtering,
+ * enabling flexible and powerful query capabilities.
+ */
+message FilterOptions {
+  // Field-based filters with typed values and operations
+  map<string, FilterValue> filters = 1;
+
+  // Full-text search query for text-based filtering
+  string search_query = 2;
+
+  // Time range filter for temporal data
+  TimeRange time_range = 3;
+}

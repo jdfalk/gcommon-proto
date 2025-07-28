@@ -1,0 +1,29 @@
+// file: pkg/queue/proto/messages/backup_config.proto
+// version: 1.0.0
+// guid: 2e127d68-6db3-4c2e-a0ff-bb7a2e5542b8
+
+edition = "2023";
+
+package gcommon.v1.queue;
+
+import "google/protobuf/go_features.proto";
+import "google/protobuf/duration.proto";
+
+option go_package = "github.com/jdfalk/gcommon/pkg/queue/proto;queuepb";
+option features.(pb.go).api_level = API_HYBRID;
+
+// BackupConfig defines how queued messages should be backed up
+// for disaster recovery.
+message BackupConfig {
+  // Interval between automatic backups.
+  google.protobuf.Duration interval = 1;
+
+  // Duration to retain each backup before deletion.
+  google.protobuf.Duration retention = 2;
+
+  // Storage location for backups (e.g., S3 bucket).
+  string location = 3;
+
+  // Whether backups are enabled for this queue.
+  bool enabled = 4;
+}

@@ -1,0 +1,28 @@
+// filepath: pkg/health/proto/requests/get_health_request.proto
+// file: health/proto/requests/get_health_request.proto
+//
+// Request definitions for health module
+//
+edition = "2023";
+
+package gcommon.v1.health;
+
+import "google/protobuf/go_features.proto";
+import "pkg/common/proto/common.proto";
+
+option go_package = "github.com/jdfalk/gcommon/pkg/health/proto;healthpb";
+option features.(pb.go).api_level = API_HYBRID;
+
+/**
+ * GetHealthRequest retrieves the current health status for a service.
+ */
+message GetHealthRequest {
+  // Service name to query
+  string service = 1;
+
+  // Whether to include detailed check results
+  bool include_details = 2;
+
+  // Request metadata for tracing
+  gcommon.v1.common.RequestMetadata metadata = 3 [lazy = true];
+}

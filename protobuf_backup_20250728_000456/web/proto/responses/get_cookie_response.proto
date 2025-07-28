@@ -1,0 +1,17 @@
+// file: pkg/web/proto/responses/get_cookie_response.proto
+// version: 1.0.0
+// guid: 9408a9d0-e0d9-4b42-97c3-bb662f1a5990
+
+edition = "2023";
+
+package gcommon.v1.web;
+
+import "google/protobuf/go_features.proto";
+
+option go_package = "github.com/jdfalk/gcommon/pkg/web/proto;webpb";
+option features.(pb.go).api_level = API_HYBRID;
+
+// GetCookieResponse response definition.
+message GetCookieResponse {
+  string placeholder = 1;
+}

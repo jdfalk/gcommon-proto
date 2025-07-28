@@ -1,0 +1,302 @@
+// filepath: pkg/metrics/proto/requests/update_provider_request.proto
+// file: metrics/proto/requests/update_provider_request.proto
+//
+// Update provider request definitions for metrics module
+//
+edition = "2023";
+
+package gcommon.v1.metrics;
+
+import "google/protobuf/go_features.proto";
+import "pkg/common/proto/messages/request_metadata.proto";
+
+option go_package = "github.com/jdfalk/gcommon/pkg/metrics/proto;metricspb";
+option features.(pb.go).api_level = API_HYBRID;
+
+/**
+ * UpdateProviderRequest represents a request to update an existing metrics provider.
+ */
+message UpdateProviderRequest {
+  // Standard request metadata (tracing, auth, etc.)
+  gcommon.v1.common.RequestMetadata metadata = 1;
+
+  // Provider ID to update
+  string provider_id = 2;
+
+  // Updated configuration
+  ProviderConfigUpdate config_update = 3;
+
+  // Update options
+  UpdateOptions options = 4;
+}
+
+/**
+ * ProviderConfigUpdate contains the configuration updates to apply.
+ */
+message ProviderConfigUpdate {
+  // Updated name (if changing)
+  string name = 1;
+
+  // Updated description (if changing)
+  string description = 2;
+
+  // Provider settings updates
+  ProviderSettingsUpdate settings_update = 3;
+
+  // Export configuration updates
+  ExportConfigUpdate export_config_update = 4;
+
+  // Resource limits updates
+  ResourceLimitsUpdate resource_limits_update = 5;
+
+  // Security configuration updates
+  SecurityConfigUpdate security_config_update = 6;
+
+  // Tag updates
+  TagUpdates tag_updates = 7;
+}
+
+/**
+ * ProviderSettingsUpdate contains updates to provider-specific settings.
+ */
+message ProviderSettingsUpdate {
+  // Updates for Prometheus settings
+  PrometheusSettingsUpdate prometheus = 1;
+
+  // Updates for OpenTelemetry settings
+  OpenTelemetrySettingsUpdate opentelemetry = 2;
+
+  // Updates for StatsD settings
+  StatsDSettingsUpdate statsd = 3;
+
+  // Updates for custom settings
+  map<string, string> custom_updates = 4;
+
+  // Custom settings to remove
+  repeated string custom_removes = 5;
+}
+
+/**
+ * PrometheusSettingsUpdate contains updates to Prometheus-specific settings.
+ */
+message PrometheusSettingsUpdate {
+  // Updated push gateway URL
+  string push_gateway_url = 1;
+
+  // Updated job name
+  string job_name = 2;
+
+  // Updated instance name
+  string instance = 3;
+
+  // Label updates
+  map<string, string> label_updates = 4;
+
+  // Labels to remove
+  repeated string label_removes = 5;
+}
+
+/**
+ * OpenTelemetrySettingsUpdate contains updates to OpenTelemetry settings.
+ */
+message OpenTelemetrySettingsUpdate {
+  // Updated endpoint
+  string endpoint = 1;
+
+  // Updated TLS setting
+  bool use_tls = 2;
+
+  // Header updates
+  map<string, string> header_updates = 3;
+
+  // Headers to remove
+  repeated string header_removes = 4;
+
+  // Resource attribute updates
+  map<string, string> resource_attribute_updates = 5;
+
+  // Resource attributes to remove
+  repeated string resource_attribute_removes = 6;
+
+  // Updated timeout
+  string timeout = 7;
+}
+
+/**
+ * StatsDSettingsUpdate contains updates to StatsD settings.
+ */
+message StatsDSettingsUpdate {
+  // Updated server address
+  string address = 1;
+
+  // Updated protocol
+  string protocol = 2;
+
+  // Updated prefix
+  string prefix = 3;
+
+  // Updated sample rate
+  double sample_rate = 4;
+
+  // Updated buffer size
+  int32 buffer_size = 5;
+}
+
+/**
+ * ExportConfigUpdate contains updates to export configuration.
+ */
+message ExportConfigUpdate {
+  // Updated enabled status
+  bool enabled = 1;
+
+  // Format updates
+  repeated string format_updates = 2;
+
+  // Formats to remove
+  repeated string format_removes = 3;
+
+  // Destination updates
+  repeated ExportDestinationUpdate destination_updates = 4;
+
+  // Destinations to remove
+  repeated string destination_removes = 5;
+
+  // Updated export frequency
+  string frequency = 6;
+
+  // Updated batch size
+  int32 batch_size = 7;
+}
+
+/**
+ * ExportDestinationUpdate contains updates to an export destination.
+ */
+message ExportDestinationUpdate {
+  // Destination identifier
+  string destination_id = 1;
+
+  // Updated configuration
+  map<string, string> config_updates = 2;
+
+  // Configuration keys to remove
+  repeated string config_removes = 3;
+
+  // Updated enabled status
+  bool enabled = 4;
+}
+
+/**
+ * ResourceLimitsUpdate contains updates to resource limits.
+ */
+message ResourceLimitsUpdate {
+  // Updated memory limit
+  int64 max_memory_bytes = 1;
+
+  // Updated CPU limit
+  double max_cpu_percent = 2;
+
+  // Updated disk limit
+  int64 max_disk_bytes = 3;
+
+  // Updated metrics limit
+  int64 max_metrics = 4;
+
+  // Updated data points per metric limit
+  int64 max_data_points_per_metric = 5;
+}
+
+/**
+ * SecurityConfigUpdate contains updates to security configuration.
+ */
+message SecurityConfigUpdate {
+  // Updated authentication requirement
+  bool require_auth = 1;
+
+  // Updated authentication methods
+  repeated string auth_methods = 2;
+
+  // Updated TLS requirement
+  bool require_tls = 3;
+
+  // TLS configuration updates
+  TLSConfigUpdate tls_config_update = 4;
+
+  // API key configuration updates
+  APIKeyConfigUpdate api_key_config_update = 5;
+}
+
+/**
+ * TLSConfigUpdate contains updates to TLS configuration.
+ */
+message TLSConfigUpdate {
+  // Updated certificate file path
+  string cert_file = 1;
+
+  // Updated private key file path
+  string key_file = 2;
+
+  // Updated CA certificate file path
+  string ca_file = 3;
+
+  // Updated certificate verification setting
+  bool verify_certs = 4;
+}
+
+/**
+ * APIKeyConfigUpdate contains updates to API key configuration.
+ */
+message APIKeyConfigUpdate {
+  // Updated header name
+  string header_name = 1;
+
+  // Updated required setting
+  bool required = 2;
+
+  // API key updates
+  repeated string allowed_key_updates = 3;
+
+  // API keys to remove
+  repeated string allowed_key_removes = 4;
+}
+
+/**
+ * TagUpdates contains tag update operations.
+ */
+message TagUpdates {
+  // Tags to add or update
+  map<string, string> tag_updates = 1;
+
+  // Tag keys to remove
+  repeated string tag_removes = 2;
+}
+
+/**
+ * UpdateOptions configure the update process.
+ */
+message UpdateOptions {
+  // Whether to validate the configuration before updating
+  bool validate_config = 1;
+
+  // Whether to perform a dry run
+  bool dry_run = 2;
+
+  // Whether to restart the provider after update (if needed)
+  bool restart_if_needed = 3;
+
+  // Whether to backup current configuration before update
+  bool backup_config = 4;
+
+  // Update strategy
+  UpdateStrategy strategy = 5;
+}
+
+/**
+ * UpdateStrategy defines how updates should be applied.
+ */
+enum UpdateStrategy {
+  UPDATE_STRATEGY_UNSPECIFIED = 0;
+  UPDATE_STRATEGY_ROLLING = 1;
+  UPDATE_STRATEGY_BLUE_GREEN = 2;
+  UPDATE_STRATEGY_IMMEDIATE = 3;
+  UPDATE_STRATEGY_SCHEDULED = 4;
+}

@@ -1,0 +1,31 @@
+// file: pkg/queue/proto/enums/compression_type.proto
+// version: 1.0.0
+// guid: cfc59161-9a08-4b97-b947-cecc9b2ab5ef
+
+edition = "2023";
+
+package gcommon.v1.queue;
+
+import "google/protobuf/go_features.proto";
+
+option go_package = "github.com/jdfalk/gcommon/pkg/queue/proto;queuepb";
+option features.(pb.go).api_level = API_HYBRID;
+
+// CompressionType defines how message bodies are compressed
+// when stored or transmitted.
+enum CompressionType {
+  // Default compression type selected by the implementation.
+  COMPRESSION_TYPE_UNSPECIFIED = 0;
+
+  // No compression is applied.
+  COMPRESSION_TYPE_NONE = 1;
+
+  // GZIP compression.
+  COMPRESSION_TYPE_GZIP = 2;
+
+  // LZ4 compression algorithm.
+  COMPRESSION_TYPE_LZ4 = 3;
+
+  // Zstandard compression algorithm.
+  COMPRESSION_TYPE_ZSTD = 4;
+}

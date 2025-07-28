@@ -1,0 +1,17 @@
+// file: pkg/web/proto/responses/get_cors_config_response.proto
+// version: 1.0.0
+// guid: 15367ee2-9586-4b6b-a32f-69bf3a2f3310
+
+edition = "2023";
+
+package gcommon.v1.web;
+
+import "google/protobuf/go_features.proto";
+
+option go_package = "github.com/jdfalk/gcommon/pkg/web/proto;webpb";
+option features.(pb.go).api_level = API_HYBRID;
+
+// GetCorsConfigResponse response definition.
+message GetCorsConfigResponse {
+  string placeholder = 1;
+}

@@ -1,0 +1,48 @@
+// file: pkg/web/proto/messages/http_request.proto
+// version: 1.0.1
+// guid: 01f1be0e-353e-4d6b-9cbc-d47f6c09fd89
+
+edition = "2023";
+
+package gcommon.v1.web;
+
+import "google/protobuf/go_features.proto";
+
+option go_package = "github.com/jdfalk/gcommon/pkg/web/proto;webpb";
+option features.(pb.go).api_level = API_HYBRID;
+
+// HttpRequest message definition.
+message HTTPRequest {
+  // HTTP method
+  string method = 1;
+
+  // Request URL
+  string url = 2;
+
+  // Request path
+  string path = 3;
+
+  // Query parameters
+  map<string, string> query_params = 4;
+
+  // HTTP headers
+  map<string, string> headers = 5;
+
+  // Request body
+  bytes body = 6;
+
+  // Content type
+  string content_type = 7;
+
+  // Content length
+  int64 content_length = 8;
+
+  // Remote address
+  string remote_addr = 9;
+
+  // User agent
+  string user_agent = 10;
+
+  // Request ID
+  string request_id = 11;
+}

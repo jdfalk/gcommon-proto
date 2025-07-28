@@ -1,0 +1,26 @@
+// file: pkg/db/proto/messages/execute_options.proto
+edition = "2023";
+
+package gcommon.v1.database;
+
+import "pkg/db/proto/enums/isolation_level.proto";
+import "google/protobuf/duration.proto";
+import "google/protobuf/go_features.proto";
+
+option go_package = "github.com/jdfalk/gcommon/pkg/db/proto;dbpb";
+option features.(pb.go).api_level = API_HYBRID;
+
+/**
+ * ExecuteOptions configures behavior for database execute operations.
+ * Controls timeouts, transaction isolation, and result handling.
+ */
+message ExecuteOptions {
+  // Execution timeout for the operation
+  google.protobuf.Duration timeout = 1 [lazy = true];
+
+  // Whether to return generated keys (for INSERT operations)
+  bool return_generated_keys = 2;
+
+  // Isolation level for transaction operations
+  IsolationLevel isolation = 3;
+}
