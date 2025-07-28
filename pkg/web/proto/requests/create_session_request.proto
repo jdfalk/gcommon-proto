@@ -1,5 +1,5 @@
 // file: pkg/web/proto/requests/create_session_request.proto
-// version: 1.0.0
+// version: 1.1.0
 // guid: 1022341d-b551-43d4-b090-2354a82b624c
 
 edition = "2023";
@@ -13,5 +13,9 @@ option features.(pb.go).api_level = API_HYBRID;
 
 // CreateSessionRequest request definition.
 message CreateSessionRequest {
-  string placeholder = 1;
+  // User ID for the new session
+  string user_id = 1;
+
+  // Optional initial metadata
+  map<string, string> metadata = 2;
 }
