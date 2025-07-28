@@ -2416,3 +2416,4 @@ Implement Web HealthCheckConfig protobuf
 Verify database module protobufs complete
 
 Implemented web cache config and admin service
+- Metrics module progress now at 34% with request and response messages implemented

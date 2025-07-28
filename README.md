@@ -396,3 +396,5 @@ See `scripts/MIGRATION-NOTICE.md` for migration details.
 
 Updated queue module progress to reflect new protobuf implementations
 MySQL protobuf messages added
+
+### July 28, 2025 - Metrics module progress updated: 33 of 97 protobufs implemented
