@@ -15,6 +15,10 @@ import "pkg/notification/proto/requests/update_preferences_request.proto";
 import "pkg/notification/proto/responses/update_preferences_response.proto";
 import "pkg/notification/proto/requests/get_template_request.proto";
 import "pkg/notification/proto/responses/get_template_response.proto";
+import "pkg/notification/proto/requests/mark_as_read_request.proto";
+import "pkg/notification/proto/responses/mark_as_read_response.proto";
+import "pkg/notification/proto/requests/delete_notification_request.proto";
+import "pkg/notification/proto/responses/delete_notification_response.proto";
 
 option go_package = "github.com/jdfalk/gcommon/pkg/notification/proto;notificationpb";
 option features.(pb.go).api_level = API_HYBRID;
@@ -34,4 +38,10 @@ service NotificationService {
 
   // Retrieve a notification template by ID
   rpc GetTemplate(GetTemplateRequest) returns (GetTemplateResponse);
+
+  // Mark a notification as read
+  rpc MarkAsRead(MarkAsReadRequest) returns (MarkAsReadResponse);
+
+  // Delete a notification
+  rpc Delete(DeleteNotificationRequest) returns (DeleteNotificationResponse);
 }
