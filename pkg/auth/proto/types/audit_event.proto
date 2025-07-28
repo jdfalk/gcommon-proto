@@ -1,0 +1,30 @@
+// file: pkg/auth/proto/types/audit_event.proto
+// version: 1.0.0
+// guid: 07442bc2-38fe-42b3-aecd-0ffda724fa86
+
+edition = "2023";
+
+package gcommon.v1.auth;
+
+import "google/protobuf/timestamp.proto";
+import "google/protobuf/go_features.proto";
+
+option go_package = "github.com/jdfalk/gcommon/pkg/auth/proto;authpb";
+option features.(pb.go).api_level = API_HYBRID;
+
+/**
+ * AuditEvent records authentication-related actions for auditing.
+ */
+message AuditEvent {
+  // Type of event (e.g., LOGIN, LOGOUT)
+  string event_type = 1;
+
+  // User ID associated with the event
+  string user_id = 2;
+
+  // Time event occurred
+  google.protobuf.Timestamp timestamp = 3 [lazy = true];
+
+  // Additional metadata about the event
+  map<string, string> metadata = 4;
+}

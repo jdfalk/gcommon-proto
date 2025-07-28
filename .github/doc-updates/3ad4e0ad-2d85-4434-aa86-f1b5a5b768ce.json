@@ -1,0 +1,16 @@
+{
+  "file": "PROTOBUF_IMPLEMENTATION_PLAN.md",
+  "mode": "append",
+  "content": "Implemented refresh_token, security_policy, audit_event, get_role_request/response, get_permission_request/response",
+  "guid": "3ad4e0ad-2d85-4434-aa86-f1b5a5b768ce",
+  "created_at": "2025-07-28T03:25:10Z",
+  "options": {
+    "section": null,
+    "after": null,
+    "before": null,
+    "task_id": null,
+    "badge_name": null,
+    "priority": null,
+    "category": null
+  }
+}
