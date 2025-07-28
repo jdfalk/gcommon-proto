@@ -1,0 +1,16 @@
+{
+  "file": "TODO.md",
+  "mode": "task-add",
+  "content": "Implement remaining organization protobufs",
+  "guid": "ca7b5a55-56dd-4f65-bf7e-8b390919fe0a",
+  "created_at": "2025-07-28T03:18:34Z",
+  "options": {
+    "section": null,
+    "after": null,
+    "before": null,
+    "task_id": null,
+    "badge_name": null,
+    "priority": null,
+    "category": null
+  }
+}
