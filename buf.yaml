@@ -4,6 +4,7 @@ modules:
     excludes:
       - pkg/test
       - protobuf_backup_*
+      - vendor/
 lint:
   use:
     - STANDARD
