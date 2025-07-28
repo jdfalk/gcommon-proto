@@ -1,9 +1,7 @@
-// filepath: pkg/queue/proto/messages/validation_config.proto
-// file: queue/proto/messages/validation_config.proto
-//
-// Message definitions for queue module
-// TODO: Implement actual protobuf definitions
-//
+// file: pkg/queue/proto/messages/validation_config.proto
+// version: 1.0.0
+// guid: 50a55c81-98ea-49a5-8d18-c188a48acc5f
+
 edition = "2023";
 
 package gcommon.v1.queue;
@@ -13,6 +11,12 @@ import "google/protobuf/go_features.proto";
 option go_package = "github.com/jdfalk/gcommon/pkg/queue/proto;queuepb";
 option features.(pb.go).api_level = API_HYBRID;
 
-// TODO: Add message definitions here
-// This is a placeholder file created during 1-1-1 migration
-// Implement the actual protobuf definitions according to the queue module requirements
+// ValidationConfig defines rules for validating queued messages.
+message ValidationConfig {
+  // Whether to validate message schema.
+  bool validate_schema = 1;
+  // Maximum allowed size of the message body in bytes.
+  int64 max_body_bytes = 2;
+  // If true, reject messages that exceed validation limits.
+  bool reject_invalid = 3;
+}
