@@ -5,14 +5,25 @@ package gcommon.v1.organization;
 
 import "google/protobuf/go_features.proto";
 import "pkg/common/proto/messages/request_metadata.proto";
+import "google/protobuf/field_mask.proto";
+import "pkg/organization/proto/messages/team.proto";
 
 option go_package = "github.com/jdfalk/gcommon/pkg/organization/proto;organizationpb";
 option features.(pb.go).api_level = API_HYBRID;
 
-// TODO: Implement update_team_request message
 message UpdateTeamRequest {
   // Request metadata for tracing and context
   gcommon.v1.common.RequestMetadata metadata = 1;
   
-  // TODO: Add specific fields for this request
+  // Team identifier to update
+  string team_id = 2;
+
+  // Updated team information
+  gcommon.v1.organization.Team team = 3;
+
+  // Fields to update in partial mode
+  google.protobuf.FieldMask update_mask = 4;
+
+  // Validate only without persisting if true
+  bool validate_only = 5;
 }
