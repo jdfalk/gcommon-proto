@@ -1,0 +1,16 @@
+{
+  "file": "CHANGELOG.md",
+  "mode": "changelog-entry",
+  "content": "### Added\n\n- Added MediaFile and related types for subtitle-manager support",
+  "guid": "d6b35842-648f-457a-a13d-9666a6beb90c",
+  "created_at": "2025-07-28T03:37:37Z",
+  "options": {
+    "section": null,
+    "after": null,
+    "before": null,
+    "task_id": null,
+    "badge_name": null,
+    "priority": null,
+    "category": null
+  }
+}

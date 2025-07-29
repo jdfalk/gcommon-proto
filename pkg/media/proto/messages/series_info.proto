@@ -1,0 +1,22 @@
+// file: pkg/media/proto/messages/series_info.proto
+// version: 1.0.0
+// guid: 1ff30d9b-8171-4cb2-885c-0ae98bd2ad17
+
+edition = "2023";
+
+package gcommon.v1.media;
+
+import "google/protobuf/timestamp.proto";
+import "google/protobuf/go_features.proto";
+
+option go_package = "github.com/jdfalk/gcommon/pkg/media/proto;mediapb";
+option features.(pb.go).api_level = API_HYBRID;
+
+// TV series specific information.
+message SeriesInfo {
+  int32 season = 1;
+  int32 episode = 2;
+  string series_name = 3;
+  string episode_title = 4;
+  google.protobuf.Timestamp air_date = 5;
+}
