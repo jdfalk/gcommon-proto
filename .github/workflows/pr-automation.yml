@@ -1,5 +1,5 @@
 # file: .github/workflows/pr-automation.yml
-# version: 2.1.0
+# version: 2.1.1
 # guid: a7b8c9d0-e1f2-3456-a789-0123456789bc
 
 name: PR Automation
@@ -20,6 +20,8 @@ permissions:
   actions: write
   packages: read
   id-token: write
+  repository-projects: write
+  models: read
 
 jobs:
   # Enhanced super linter with auto-fix and proper output
