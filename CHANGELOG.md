@@ -9,6 +9,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Added
+
+- Added MediaFile and related types for subtitle-manager support
+
 Implemented remaining organization protobuf messages
 
 ### Added
