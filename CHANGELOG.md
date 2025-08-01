@@ -11,6 +11,16 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 
+- Implemented all Metrics request and response protobufs
+
+### Added
+
+- Added DatabaseStatus message and DatabaseStatusCode enum for database module
+
+### Changed\n- Verified common module protobufs fully implemented
+
+### Added
+
 - Implemented web module message definitions
 
 ### Added
