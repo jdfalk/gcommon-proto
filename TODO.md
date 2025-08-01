@@ -2434,3 +2434,5 @@ Completed remaining organization protobuf implementations
 Implement remaining organization protobufs
 
 - [ ] 🟡 **General**: Create MediaService messages for subtitle-manager integration
+
+Implemented core web message definitions for session, cookie, route, and websocket functionality
