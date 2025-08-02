@@ -5,7 +5,7 @@ go 1.23.0
 require (
 	github.com/cockroachdb/pebble v1.1.5
 	github.com/jackc/pgx/v4 v4.18.3
-	github.com/mattn/go-sqlite3 v1.14.28
+	github.com/mattn/go-sqlite3 v1.14.30
 	github.com/prometheus/client_golang v1.22.0
 	github.com/stretchr/testify v1.10.0
 	go.opentelemetry.io/otel v1.36.0
