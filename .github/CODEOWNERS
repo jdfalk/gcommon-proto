@@ -1,0 +1,25 @@
+# Global ownership
+* @jdfalk
+
+# Protobuf definitions
+*.proto @jdfalk
+proto/ @jdfalk
+
+# Build and CI configuration
+buf.yaml @jdfalk
+buf.gen.yaml @jdfalk
+Makefile @jdfalk
+.github/workflows/ @jdfalk
+
+# Documentation
+*.md @jdfalk
+docs/ @jdfalk
+
+# Scripts and automation
+scripts/ @jdfalk
+*.py @jdfalk
+*.sh @jdfalk
+
+# Go modules and configuration
+go.mod @jdfalk
+go.sum @jdfalk
