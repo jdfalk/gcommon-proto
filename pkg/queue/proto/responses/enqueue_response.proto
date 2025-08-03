@@ -12,7 +12,8 @@ option go_package = "github.com/jdfalk/gcommon/pkg/queue/proto;queuepb";
 import "google/protobuf/timestamp.proto";
 
 // Common types
-import "pkg/common/proto/common.proto";
+import "pkg/common/proto/messages/request_metadata.proto";
+import "pkg/common/proto/messages/error.proto";
 
 /**
  * EnqueueResponse confirms successful message enqueuing.

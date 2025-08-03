@@ -14,7 +14,8 @@ import "google/protobuf/duration.proto";
 import "google/protobuf/any.proto";
 
 // Common types
-import "pkg/common/proto/common.proto";
+import "pkg/common/proto/messages/request_metadata.proto";
+import "pkg/common/proto/messages/error.proto";
 
 /**
  * EnqueueRequest adds a message to a queue.

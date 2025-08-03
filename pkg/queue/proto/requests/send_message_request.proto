@@ -7,7 +7,8 @@ edition = "2023";
 package gcommon.v1.queue;
 
 import "google/protobuf/go_features.proto";
-import "pkg/common/proto/common.proto";
+import "pkg/common/proto/messages/request_metadata.proto";
+import "pkg/common/proto/messages/error.proto";
 import "pkg/queue/proto/messages/queue_message.proto";
 import "pkg/queue/proto/messages/delivery_options.proto";
 

@@ -9,7 +9,8 @@ package gcommon.v1.queue;
 option go_package = "github.com/jdfalk/gcommon/pkg/queue/proto;queuepb";
 
 // Common types
-import "pkg/common/proto/common.proto";
+import "pkg/common/proto/messages/request_metadata.proto";
+import "pkg/common/proto/messages/error.proto";
 
 /**
  * AcknowledgeRequest confirms successful processing of one or more messages.
