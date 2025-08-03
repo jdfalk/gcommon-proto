@@ -1,0 +1,29 @@
+// file: pkg/cache/proto/responses/keys_response.proto
+// version: 1.0.0
+// guid: fg6hijkl-78m9-0n1o-2p3q-4r5s6t7u8v9w
+
+edition = "2023";
+
+package gcommon.v1.cache;
+
+import "google/protobuf/go_features.proto";
+import "pkg/common/proto/jdfalk/gcommon/pkg/cache/proto;cachepb";
+option features.(pb.go).api_level = API_HYBRID;
+
+/**
+ * Response for cache keys listing operations.
+ * Returns all matching keys from the cache.
+ */
+message KeysResponse {
+  // List of keys matching the pattern
+  repeated string keys = 1;
+
+  // Total number of keys found
+  int64 total_count = 2;
+
+  // Whether the operation was successful
+  bool success = 3;
+
+  // Error details if keys retrieval failed
+  gcommon.v1.common.Error error = 4;
+}

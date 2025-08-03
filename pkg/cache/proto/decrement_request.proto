@@ -1,0 +1,32 @@
+// file: pkg/cache/proto/requests/decrement_request.proto
+edition = "2023";
+
+package gcommon.v1.cache;
+
+import "google/protobuf/go_features.proto";
+import "google/protobuf/duration.proto";
+import "pkg/common/proto/jdfalk/gcommon/pkg/cache/proto;cachepb";
+option features.(pb.go).api_level = API_HYBRID;
+
+/**
+ * Request to decrement a cached counter atomically.
+ */
+message DecrementRequest {
+  // Counter key
+  string key = 1;
+
+  // Decrement delta (can be negative)
+  int64 delta = 2;
+
+  // Initial value if key doesn't exist
+  int64 initial_value = 3;
+
+  // TTL for the counter
+  google.protobuf.Duration ttl = 4 [lazy = true];
+
+  // Optional namespace
+  string namespace = 5;
+
+  // Request metadata
+  gcommon.v1.common.RequestMetadata metadata = 6 [lazy = true];
+}

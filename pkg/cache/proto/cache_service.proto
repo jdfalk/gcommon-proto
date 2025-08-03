@@ -1,0 +1,72 @@
+// file: pkg/cache/proto/services/cache_service.proto
+edition = "2023";
+
+package gcommon.v1.cache;
+
+import "google/protobuf/go_features.proto";
+import "pkg/cache/proto/proto/get_response.proto";
+import "pkg/cache/proto/proto/set_response.proto";
+import "pkg/cache/proto/proto/delete_response.proto";
+import "pkg/cache/proto/proto/exists_response.proto";
+import "pkg/cache/proto/proto/get_multiple_response.proto";
+import "pkg/cache/proto/proto/set_multiple_response.proto";
+import "pkg/cache/proto/proto/delete_multiple_response.proto";
+import "pkg/cache/proto/proto/increment_response.proto";
+import "pkg/cache/proto/proto/decrement_response.proto";
+import "pkg/cache/proto/proto/clear_response.proto";
+import "pkg/cache/proto/proto/keys_response.proto";
+import "pkg/cache/proto/proto/get_stats_response.proto";
+import "pkg/cache/proto/proto/flush_response.proto";
+import "pkg/cache/proto/proto/touch_expiration_response.proto";
+
+option go_package = "github.com/jdfalk/gcommon/pkg/cache/proto;cachepb";
+option features.(pb.go).api_level = API_HYBRID;
+
+/**
+ * CacheService provides comprehensive caching capabilities.
+ * Supports CRUD operations, batch operations, atomic operations,
+ * and cache management with flexible expiration policies.
+ */
+service CacheService {
+  // Get retrieves a value from the cache by key
+  rpc Get(GetRequest) returns (GetResponse);
+
+  // Set stores a value in the cache with optional expiration
+  rpc Set(SetRequest) returns (SetResponse);
+
+  // Delete removes a value from the cache
+  rpc Delete(DeleteRequest) returns (DeleteResponse);
+
+  // Exists checks if a key exists in the cache
+  rpc Exists(ExistsRequest) returns (ExistsResponse);
+
+  // GetMultiple retrieves multiple values from the cache in a single operation
+  rpc GetMultiple(GetMultipleRequest) returns (GetMultipleResponse);
+
+  // SetMultiple stores multiple values in the cache atomically
+  rpc SetMultiple(SetMultipleRequest) returns (SetMultipleResponse);
+
+  // DeleteMultiple removes multiple values from the cache atomically
+  rpc DeleteMultiple(DeleteMultipleRequest) returns (DeleteMultipleResponse);
+
+  // Increment atomically increments a numeric value
+  rpc Increment(IncrementRequest) returns (IncrementResponse);
+
+  // Decrement atomically decrements a numeric value
+  rpc Decrement(DecrementRequest) returns (DecrementResponse);
+
+  // Clear removes all entries from the cache or by pattern
+  rpc Clear(ClearRequest) returns (ClearResponse);
+
+  // Keys returns all keys matching a pattern
+  rpc Keys(KeysRequest) returns (KeysResponse);
+
+  // GetStats returns cache statistics and performance metrics
+  rpc GetStats(GetStatsRequest) returns (GetStatsResponse);
+
+  // Flush forces cache persistence if supported by the backend
+  rpc Flush(FlushRequest) returns (FlushResponse);
+
+  // TouchExpiration updates the expiration time of an existing key
+  rpc TouchExpiration(TouchExpirationRequest) returns (TouchExpirationResponse);
+}

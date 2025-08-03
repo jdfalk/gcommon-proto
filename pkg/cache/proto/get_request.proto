@@ -1,0 +1,27 @@
+// file: pkg/cache/proto/requests/get_request.proto
+edition = "2023";
+
+package gcommon.v1.cache;
+
+import "google/protobuf/go_features.proto";
+import "pkg/common/proto/jdfalk/gcommon/pkg/cache/proto;cachepb";
+option features.(pb.go).api_level = API_HYBRID;
+
+/**
+ * Request to retrieve a cached value by key.
+ * Supports namespace isolation and access time tracking
+ * for LRU cache policies.
+ */
+message GetRequest {
+  // Cache key to retrieve
+  string key = 1;
+
+  // Optional namespace for cache isolation
+  string namespace = 2;
+
+  // Request metadata for tracing and correlation
+  gcommon.v1.common.RequestMetadata metadata = 3 [lazy = true];
+
+  // Whether to update access time (for LRU policies)
+  bool update_access_time = 4;
+}

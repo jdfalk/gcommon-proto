@@ -1,0 +1,26 @@
+// file: pkg/cache/proto/requests/ttl_request.proto
+edition = "2023";
+
+package gcommon.v1.cache;
+
+import "google/protobuf/go_features.proto";
+import "google/protobuf/duration.proto";
+import "pkg/common/proto/jdfalk/gcommon/pkg/cache/proto;cachepb";
+option features.(pb.go).api_level = API_HYBRID;
+
+/**
+ * Request to update the TTL of an existing cache key.
+ */
+message TouchExpirationRequest {
+  // Key to update
+  string key = 1;
+
+  // New TTL duration
+  google.protobuf.Duration ttl = 2 [lazy = true];
+
+  // Optional namespace
+  string namespace = 3;
+
+  // Request metadata
+  gcommon.v1.common.RequestMetadata metadata = 4 [lazy = true];
+}

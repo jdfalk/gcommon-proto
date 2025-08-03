@@ -1,0 +1,19 @@
+// file: pkg/cache/proto/requests/unwatch_request.proto
+edition = "2023";
+
+package gcommon.v1.cache;
+
+import "google/protobuf/go_features.proto";
+import "pkg/common/proto/jdfalk/gcommon/pkg/cache/proto;cachepb";
+option features.(pb.go).api_level = API_HYBRID;
+
+/**
+ * Request to stop watching a cache key for changes.
+ */
+message UnwatchRequest {
+  // Key being watched
+  string key = 1;
+
+  // Request metadata
+  gcommon.v1.common.RequestMetadata metadata = 2 [lazy = true];
+}

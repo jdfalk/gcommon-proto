@@ -1,0 +1,25 @@
+// file: cache/proto/requests/delete_request.proto
+edition = "2023";
+
+package gcommon.v1.cache;
+
+import "google/protobuf/go_features.proto";
+
+option go_package = "github.com/jdfalk/gcommon/pkg/cache/proto;cachepb";
+option features.(pb.go).api_level = API_HYBRID;
+
+import "pkg/common/proto/request_metadata.proto";
+
+/**
+ * Request to delete a cached value by key.
+ */
+message DeleteRequest {
+  // Cache key to delete
+  string key = 1;
+
+  // Optional namespace for cache isolation
+  string namespace = 2;
+
+  // Request metadata for tracing and correlation
+  gcommon.v1.common.RequestMetadata metadata = 3 [lazy = true];
+}
