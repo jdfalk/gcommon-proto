@@ -1,0 +1,259 @@
+// file: pkg/queue/proto/responses/get_queue_stats_response.proto
+// version: 1.0.0
+// guid: 4e9b8c7d-6a5f-3e2d-8c1b-7a9e8d7c6b5a
+
+// GetQueueStatsResponse message definition for queue statistics retrieval
+//
+// This file implements the 1-1-1 pattern: one message per file.
+// It defines the response message containing queue statistics and metrics.
+
+edition = "2023";
+
+package gcommon.v1.queue;
+
+import "google/protobuf/go_features.proto";
+import "google/protobuf/timestamp.proto";
+import "google/protobuf/duration.proto";
+
+import "pkg/common/proto/jdfalk/gcommon/pkg/queue/proto;queuepb";
+option features.(pb.go).api_level = API_HYBRID;
+
+// GetQueueStatsResponse contains comprehensive queue statistics
+//
+// This message provides detailed metrics about queue performance,
+// message processing, and system health.
+message GetQueueStatsResponse {
+  // Standard response metadata
+  gcommon.v1.common.ResponseMetadata metadata = 1;
+
+  // Overall statistics summary
+  QueueStatsSummary summary = 2;
+
+  // Per-queue statistics (if multiple queues requested)
+  repeated QueueStats queue_stats = 3;
+
+  // Consumer statistics (if requested)
+  repeated ConsumerStats consumer_stats = 4;
+
+  // Historical statistics (if requested)
+  HistoricalStats historical_stats = 5;
+
+  // Error statistics (if requested)
+  ErrorStats error_stats = 6;
+
+  // Performance metrics
+  PerformanceMetrics performance_metrics = 7;
+
+  // Timestamp when these statistics were generated
+  google.protobuf.Timestamp generated_at = 8;
+}
+
+// Summary of overall queue system statistics
+message QueueStatsSummary {
+  // Total number of queues
+  int64 total_queues = 1;
+
+  // Total messages across all queues
+  int64 total_messages = 2;
+
+  // Total messages processed in the last hour
+  int64 messages_processed_last_hour = 3;
+
+  // Average processing time across all queues
+  google.protobuf.Duration average_processing_time = 4;
+
+  // Overall system health score (0-100)
+  int32 health_score = 5;
+
+  // Total active consumers
+  int64 active_consumers = 6;
+
+  // Total storage used by messages
+  int64 total_storage_bytes = 7;
+}
+
+// Statistics for a specific queue
+message QueueStats {
+  // Queue name
+  string queue_name = 1;
+
+  // Current message count
+  int64 message_count = 2;
+
+  // Messages in different states
+  MessageStateCounts state_counts = 3;
+
+  // Throughput metrics
+  ThroughputMetrics throughput = 4;
+
+  // Latency metrics
+  LatencyMetrics latency = 5;
+
+  // Queue depth over time
+  repeated QueueDepthSample depth_samples = 6;
+
+  // Message size distribution
+  SizeDistribution size_distribution = 7;
+
+  // Message age distribution
+  AgeDistribution age_distribution = 8;
+
+  // Queue configuration details
+  QueueConfiguration configuration = 9;
+
+  // Last activity timestamp
+  google.protobuf.Timestamp last_activity = 10;
+}
+
+// Message counts by state
+message MessageStateCounts {
+  int64 pending = 1;
+  int64 processing = 2;
+  int64 completed = 3;
+  int64 failed = 4;
+  int64 retrying = 5;
+  int64 dead_letter = 6;
+}
+
+// Throughput-related metrics
+message ThroughputMetrics {
+  // Messages per second over different time windows
+  double messages_per_second_1m = 1;
+  double messages_per_second_5m = 2;
+  double messages_per_second_15m = 3;
+  double messages_per_second_1h = 4;
+
+  // Peak throughput observed
+  double peak_messages_per_second = 5;
+  google.protobuf.Timestamp peak_timestamp = 6;
+}
+
+// Latency-related metrics
+message LatencyMetrics {
+  // Processing latency percentiles (in milliseconds)
+  double p50_processing_latency_ms = 1;
+  double p95_processing_latency_ms = 2;
+  double p99_processing_latency_ms = 3;
+
+  // Queue latency (time from enqueue to dequeue)
+  double average_queue_latency_ms = 4;
+  double p95_queue_latency_ms = 5;
+
+  // End-to-end latency (enqueue to completion)
+  double average_e2e_latency_ms = 6;
+  double p95_e2e_latency_ms = 7;
+}
+
+// Queue depth at a specific time
+message QueueDepthSample {
+  google.protobuf.Timestamp timestamp = 1;
+  int64 depth = 2;
+}
+
+// Distribution of message sizes
+message SizeDistribution {
+  // Size buckets in bytes
+  repeated SizeBucket buckets = 1;
+
+  // Summary statistics
+  int64 min_size_bytes = 2;
+  int64 max_size_bytes = 3;
+  double average_size_bytes = 4;
+  double median_size_bytes = 5;
+}
+
+// Size bucket for distribution
+message SizeBucket {
+  int64 min_size_bytes = 1;
+  int64 max_size_bytes = 2;
+  int64 message_count = 3;
+}
+
+// Distribution of message ages
+message AgeDistribution {
+  // Age buckets in seconds
+  repeated AgeBucket buckets = 1;
+
+  // Summary statistics
+  double average_age_seconds = 2;
+  double oldest_message_age_seconds = 3;
+}
+
+// Age bucket for distribution
+message AgeBucket {
+  int64 min_age_seconds = 1;
+  int64 max_age_seconds = 2;
+  int64 message_count = 3;
+}
+
+// Queue configuration information
+message QueueConfiguration {
+  int64 max_messages = 1;
+  google.protobuf.Duration visibility_timeout = 2;
+  google.protobuf.Duration message_retention_period = 3;
+  int32 max_retry_attempts = 4;
+  bool dead_letter_queue_enabled = 5;
+}
+
+// Statistics for individual consumers
+message ConsumerStats {
+  string consumer_id = 1;
+  string queue_name = 2;
+  int64 messages_processed = 3;
+  double processing_rate = 4;
+  double success_rate = 5;
+  google.protobuf.Timestamp last_activity = 6;
+  google.protobuf.Duration average_processing_time = 7;
+}
+
+// Historical statistics over time
+message HistoricalStats {
+  repeated HistoricalDataPoint data_points = 1;
+  google.protobuf.Duration aggregation_period = 2;
+}
+
+// A single historical data point
+message HistoricalDataPoint {
+  google.protobuf.Timestamp timestamp = 1;
+  int64 message_count = 2;
+  double throughput = 3;
+  double average_latency_ms = 4;
+  double error_rate = 5;
+}
+
+// Error-related statistics
+message ErrorStats {
+  int64 total_errors = 1;
+  double error_rate = 2;
+  repeated ErrorTypeStat error_types = 3;
+  repeated string recent_error_messages = 4;
+}
+
+// Statistics for a specific error type
+message ErrorTypeStat {
+  string error_type = 1;
+  int64 count = 2;
+  double rate = 3;
+  string last_occurrence = 4;
+}
+
+// Performance metrics for the queue system
+message PerformanceMetrics {
+  // Memory usage
+  int64 memory_used_bytes = 1;
+  int64 memory_available_bytes = 2;
+
+  // CPU usage percentage
+  double cpu_usage_percent = 3;
+
+  // Disk usage for persistent storage
+  int64 disk_used_bytes = 4;
+  int64 disk_available_bytes = 5;
+
+  // Network metrics
+  double network_bytes_per_second = 6;
+
+  // Connection metrics
+  int32 active_connections = 7;
+  int32 max_connections = 8;
+}

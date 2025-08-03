@@ -1,0 +1,30 @@
+// file: pkg/queue/proto/messages/queue_config.proto
+// version: 1.0.0
+// guid: c64defde-30d1-41e5-bfac-b415cbf929c6
+
+edition = "2023";
+
+package gcommon.v1.queue;
+
+import "google/protobuf/go_features.proto";
+import "pkg/queue/proto/proto/priority_level.proto";
+import "pkg/queue/proto/gcommon/pkg/queue/proto;queuepb";
+option features.(pb.go).api_level = API_HYBRID;
+
+// QueueConfig defines settings for creating a queue instance.
+message QueueConfig {
+  // Name of the queue.
+  string name = 1;
+  // Queue implementation type.
+  QueueType type = 2;
+  // Number of partitions for the queue.
+  int32 partitions = 3;
+  // Retention policy for stored messages.
+  RetentionPolicy retention = 4;
+  // Default priority applied when publishing.
+  PriorityLevel default_priority = 5;
+  // If true, queue persists messages to disk.
+  bool durable = 6;
+  // Whether the queue should be automatically deleted when unused.
+  bool auto_delete = 7;
+}

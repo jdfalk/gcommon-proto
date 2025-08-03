@@ -1,0 +1,32 @@
+// file: pkg/queue/proto/responses/health_check_response.proto
+// version: 1.0.0
+// guid: 24f4fcb1-f84d-4f02-845d-01b9759bfb6a
+//
+// HealthCheckResponse for the queue module
+edition = "2023";
+
+package gcommon.v1.queue;
+
+import "google/protobuf/go_features.proto";
+import "google/protobuf/duration.proto";
+import "pkg/common/proto/common/proto/error.proto";
+
+option go_package = "github.com/jdfalk/gcommon/pkg/queue/proto;queuepb";
+option features.(pb.go).api_level = API_HYBRID;
+
+/**
+ * HealthCheckResponse returns queue service health status.
+ */
+message HealthCheckResponse {
+  // Overall queue service health.
+  gcommon.v1.common.HealthStatus status = 1;
+
+  // Whether the queue connection is operational.
+  bool connection_ok = 2;
+
+  // Time taken to check the queue health.
+  google.protobuf.Duration response_time = 3 [lazy = true];
+
+  // Error information if the check failed.
+  gcommon.v1.common.Error error = 4 [lazy = true];
+}

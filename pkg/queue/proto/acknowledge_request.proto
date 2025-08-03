@@ -1,0 +1,78 @@
+// file: pkg/queue/proto/requests/acknowledge_request.proto
+// version: 1.0.0
+// guid: 3f4a5b6c-7d8e-9f0a-1b2c-3d4e5f6a7b8c
+
+edition = "2023";
+
+package gcommon.v1.queue;
+
+option go_package = "github.com/jdfalk/gcommon/pkg/queue/proto;queuepb";
+
+// Common types
+import "pkg/common/proto/**
+ * AcknowledgeRequest confirms successful processing of one or more messages.
+ * Once acknowledged, messages are permanently removed from the queue
+ * and will not be redelivered.
+ *
+ * Follows 1-1-1 pattern: one message per file.
+ */
+message AcknowledgeRequest {
+  // Required fields (1-10)
+
+  /**
+   * The name/identifier of the queue containing the messages.
+   * Must match the queue from which messages were dequeued.
+   */
+  string queue_name = 1;
+
+  /**
+   * Receipt handles of messages to acknowledge.
+   * These handles were provided in the DequeueResponse.
+   */
+  repeated string receipt_handles = 2;
+
+  // Optional fields (11-50)
+
+  /**
+   * Standard request metadata including authentication context,
+   * tracing information, and client details.
+   */
+  gcommon.v1.common.RequestMetadata metadata = 11;
+
+  /**
+   * Consumer ID that processed these messages.
+   * Used for tracking and metrics.
+   */
+  string consumer_id = 12;
+
+  /**
+   * Processing result for each message (same order as receipt_handles).
+   * Valid values: "success", "failed", "retry", "skip".
+   * If not provided, "success" is assumed for all messages.
+   */
+  repeated string processing_results = 13;
+
+  /**
+   * Optional processing notes or error details for each message.
+   * Useful for debugging and audit trails.
+   */
+  repeated string processing_notes = 14;
+
+  /**
+   * Processing time in milliseconds for each message.
+   * Used for performance monitoring and SLA tracking.
+   */
+  repeated int64 processing_times_ms = 15;
+
+  /**
+   * Whether to force acknowledgment even if visibility timeout expired.
+   * Use with caution as it may cause duplicate processing. Default: false.
+   */
+  bool force_acknowledge = 16;
+
+  /**
+   * Batch acknowledgment mode. If true, all messages succeed or fail together.
+   * If false, each message is processed individually. Default: false.
+   */
+  bool batch_mode = 17;
+}

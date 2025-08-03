@@ -1,0 +1,27 @@
+// file: queue/proto/responses/send_message_response.proto
+// version: 1.0.0
+// guid: 2bbac133-fc81-4653-a03a-e5227ae81d4e
+
+edition = "2023";
+
+package gcommon.v1.queue;
+
+import "google/protobuf/go_features.proto";
+
+import "pkg/common/proto/jdfalk/gcommon/pkg/queue/proto;queuepb";
+option features.(pb.go).api_level = API_HYBRID;
+
+// SendMessageResponse contains the result of a send operation.
+message SendMessageResponse {
+  // Identifier of the queued message.
+  string message_id = 1;
+
+  // Whether the send operation succeeded.
+  bool success = 2;
+
+  // Position in the queue if known.
+  int64 queue_position = 3;
+
+  // Error information when `success` is false.
+  gcommon.v1.common.Error error = 4;
+}
