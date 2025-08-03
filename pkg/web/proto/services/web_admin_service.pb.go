@@ -9,11 +9,9 @@
 package webpb
 
 import (
-	pb "../../../../pkg/cache/pb"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
-	emptypb "google.golang.org/protobuf/types/known/emptypb"
 	reflect "reflect"
 	unsafe "unsafe"
 )
@@ -29,27 +27,29 @@ var File_pkg_web_proto_services_web_admin_service_proto protoreflect.FileDescrip
 
 const file_pkg_web_proto_services_web_admin_service_proto_rawDesc = "" +
 	"\n" +
-	".pkg/web/proto/services/web_admin_service.proto\x12\x0egcommon.v1.web\x1a!google/protobuf/go_features.proto\x1a\x1bgoogle/protobuf/empty.proto\x1a)pkg/web/proto/messages/cache_config.proto\x1a,pkg/cache/proto/requests/flush_request.proto\x1a.pkg/cache/proto/responses/flush_response.proto2\xf1\x01\n" +
-	"\x0fWebAdminService\x12E\n" +
-	"\x0eGetCacheConfig\x12\x16.google.protobuf.Empty\x1a\x1b.gcommon.v1.web.CacheConfig\x12H\n" +
-	"\x11UpdateCacheConfig\x12\x1b.gcommon.v1.web.CacheConfig\x1a\x16.google.protobuf.Empty\x12M\n" +
+	".pkg/web/proto/services/web_admin_service.proto\x12\x0egcommon.v1.web\x1a!google/protobuf/go_features.proto\x1a5pkg/web/proto/requests/get_cache_config_request.proto\x1a7pkg/web/proto/responses/get_cache_config_response.proto\x1a8pkg/web/proto/requests/update_cache_config_request.proto\x1a:pkg/web/proto/responses/update_cache_config_response.proto\x1a0pkg/web/proto/requests/flush_cache_request.proto\x1a2pkg/web/proto/responses/flush_cache_response.proto2\xb1\x02\n" +
+	"\x0fWebAdminService\x12_\n" +
+	"\x0eGetCacheConfig\x12%.gcommon.v1.web.GetCacheConfigRequest\x1a&.gcommon.v1.web.GetCacheConfigResponse\x12h\n" +
+	"\x11UpdateCacheConfig\x12(.gcommon.v1.web.UpdateCacheConfigRequest\x1a).gcommon.v1.web.UpdateCacheConfigResponse\x12S\n" +
 	"\n" +
-	"FlushCache\x12\x1e.gcommon.v1.cache.FlushRequest\x1a\x1f.gcommon.v1.cache.FlushResponseB\xaa\x01\n" +
+	"FlushCache\x12!.gcommon.v1.web.FlushCacheRequest\x1a\".gcommon.v1.web.FlushCacheResponseB\xaa\x01\n" +
 	"\x12com.gcommon.v1.webB\x14WebAdminServiceProtoP\x01Z\x1c../../../../pkg/web/pb;webpb\xa2\x02\x03GVW\xaa\x02\x0eGcommon.V1.Web\xca\x02\x0eGcommon\\V1\\Web\xe2\x02\x1aGcommon\\V1\\Web\\GPBMetadata\xea\x02\x10Gcommon::V1::Web\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
 
 var file_pkg_web_proto_services_web_admin_service_proto_goTypes = []any{
-	(*emptypb.Empty)(nil),    // 0: google.protobuf.Empty
-	(*CacheConfig)(nil),      // 1: gcommon.v1.web.CacheConfig
-	(*pb.FlushRequest)(nil),  // 2: gcommon.v1.cache.FlushRequest
-	(*pb.FlushResponse)(nil), // 3: gcommon.v1.cache.FlushResponse
+	(*GetCacheConfigRequest)(nil),     // 0: gcommon.v1.web.GetCacheConfigRequest
+	(*UpdateCacheConfigRequest)(nil),  // 1: gcommon.v1.web.UpdateCacheConfigRequest
+	(*FlushCacheRequest)(nil),         // 2: gcommon.v1.web.FlushCacheRequest
+	(*GetCacheConfigResponse)(nil),    // 3: gcommon.v1.web.GetCacheConfigResponse
+	(*UpdateCacheConfigResponse)(nil), // 4: gcommon.v1.web.UpdateCacheConfigResponse
+	(*FlushCacheResponse)(nil),        // 5: gcommon.v1.web.FlushCacheResponse
 }
 var file_pkg_web_proto_services_web_admin_service_proto_depIdxs = []int32{
-	0, // 0: gcommon.v1.web.WebAdminService.GetCacheConfig:input_type -> google.protobuf.Empty
-	1, // 1: gcommon.v1.web.WebAdminService.UpdateCacheConfig:input_type -> gcommon.v1.web.CacheConfig
-	2, // 2: gcommon.v1.web.WebAdminService.FlushCache:input_type -> gcommon.v1.cache.FlushRequest
-	1, // 3: gcommon.v1.web.WebAdminService.GetCacheConfig:output_type -> gcommon.v1.web.CacheConfig
-	0, // 4: gcommon.v1.web.WebAdminService.UpdateCacheConfig:output_type -> google.protobuf.Empty
-	3, // 5: gcommon.v1.web.WebAdminService.FlushCache:output_type -> gcommon.v1.cache.FlushResponse
+	0, // 0: gcommon.v1.web.WebAdminService.GetCacheConfig:input_type -> gcommon.v1.web.GetCacheConfigRequest
+	1, // 1: gcommon.v1.web.WebAdminService.UpdateCacheConfig:input_type -> gcommon.v1.web.UpdateCacheConfigRequest
+	2, // 2: gcommon.v1.web.WebAdminService.FlushCache:input_type -> gcommon.v1.web.FlushCacheRequest
+	3, // 3: gcommon.v1.web.WebAdminService.GetCacheConfig:output_type -> gcommon.v1.web.GetCacheConfigResponse
+	4, // 4: gcommon.v1.web.WebAdminService.UpdateCacheConfig:output_type -> gcommon.v1.web.UpdateCacheConfigResponse
+	5, // 5: gcommon.v1.web.WebAdminService.FlushCache:output_type -> gcommon.v1.web.FlushCacheResponse
 	3, // [3:6] is the sub-list for method output_type
 	0, // [0:3] is the sub-list for method input_type
 	0, // [0:0] is the sub-list for extension type_name
@@ -62,7 +62,12 @@ func file_pkg_web_proto_services_web_admin_service_proto_init() {
 	if File_pkg_web_proto_services_web_admin_service_proto != nil {
 		return
 	}
-	file_pkg_web_proto_messages_cache_config_proto_init()
+	file_pkg_web_proto_requests_get_cache_config_request_proto_init()
+	file_pkg_web_proto_responses_get_cache_config_response_proto_init()
+	file_pkg_web_proto_requests_update_cache_config_request_proto_init()
+	file_pkg_web_proto_responses_update_cache_config_response_proto_init()
+	file_pkg_web_proto_requests_flush_cache_request_proto_init()
+	file_pkg_web_proto_responses_flush_cache_response_proto_init()
 	type x struct{}
 	out := protoimpl.TypeBuilder{
 		File: protoimpl.DescBuilder{

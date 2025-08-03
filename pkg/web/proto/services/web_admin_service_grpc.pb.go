@@ -7,12 +7,10 @@
 package webpb
 
 import (
-	pb "../../../../pkg/cache/pb"
 	context "context"
 	grpc "google.golang.org/grpc"
 	codes "google.golang.org/grpc/codes"
 	status "google.golang.org/grpc/status"
-	emptypb "google.golang.org/protobuf/types/known/emptypb"
 )
 
 // This is a compile-time assertion to ensure that this generated file
@@ -35,11 +33,11 @@ const (
 // for web server management tools.
 type WebAdminServiceClient interface {
 	// Retrieve current cache configuration
-	GetCacheConfig(ctx context.Context, in *emptypb.Empty, opts ...grpc.CallOption) (*CacheConfig, error)
+	GetCacheConfig(ctx context.Context, in *GetCacheConfigRequest, opts ...grpc.CallOption) (*GetCacheConfigResponse, error)
 	// Update cache configuration
-	UpdateCacheConfig(ctx context.Context, in *CacheConfig, opts ...grpc.CallOption) (*emptypb.Empty, error)
+	UpdateCacheConfig(ctx context.Context, in *UpdateCacheConfigRequest, opts ...grpc.CallOption) (*UpdateCacheConfigResponse, error)
 	// Flush all cached entries
-	FlushCache(ctx context.Context, in *pb.FlushRequest, opts ...grpc.CallOption) (*pb.FlushResponse, error)
+	FlushCache(ctx context.Context, in *FlushCacheRequest, opts ...grpc.CallOption) (*FlushCacheResponse, error)
 }
 
 type webAdminServiceClient struct {
@@ -50,9 +48,9 @@ func NewWebAdminServiceClient(cc grpc.ClientConnInterface) WebAdminServiceClient
 	return &webAdminServiceClient{cc}
 }
 
-func (c *webAdminServiceClient) GetCacheConfig(ctx context.Context, in *emptypb.Empty, opts ...grpc.CallOption) (*CacheConfig, error) {
+func (c *webAdminServiceClient) GetCacheConfig(ctx context.Context, in *GetCacheConfigRequest, opts ...grpc.CallOption) (*GetCacheConfigResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(CacheConfig)
+	out := new(GetCacheConfigResponse)
 	err := c.cc.Invoke(ctx, WebAdminService_GetCacheConfig_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
@@ -60,9 +58,9 @@ func (c *webAdminServiceClient) GetCacheConfig(ctx context.Context, in *emptypb.
 	return out, nil
 }
 
-func (c *webAdminServiceClient) UpdateCacheConfig(ctx context.Context, in *CacheConfig, opts ...grpc.CallOption) (*emptypb.Empty, error) {
+func (c *webAdminServiceClient) UpdateCacheConfig(ctx context.Context, in *UpdateCacheConfigRequest, opts ...grpc.CallOption) (*UpdateCacheConfigResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(emptypb.Empty)
+	out := new(UpdateCacheConfigResponse)
 	err := c.cc.Invoke(ctx, WebAdminService_UpdateCacheConfig_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
@@ -70,9 +68,9 @@ func (c *webAdminServiceClient) UpdateCacheConfig(ctx context.Context, in *Cache
 	return out, nil
 }
 
-func (c *webAdminServiceClient) FlushCache(ctx context.Context, in *pb.FlushRequest, opts ...grpc.CallOption) (*pb.FlushResponse, error) {
+func (c *webAdminServiceClient) FlushCache(ctx context.Context, in *FlushCacheRequest, opts ...grpc.CallOption) (*FlushCacheResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(pb.FlushResponse)
+	out := new(FlushCacheResponse)
 	err := c.cc.Invoke(ctx, WebAdminService_FlushCache_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
@@ -89,11 +87,11 @@ func (c *webAdminServiceClient) FlushCache(ctx context.Context, in *pb.FlushRequ
 // for web server management tools.
 type WebAdminServiceServer interface {
 	// Retrieve current cache configuration
-	GetCacheConfig(context.Context, *emptypb.Empty) (*CacheConfig, error)
+	GetCacheConfig(context.Context, *GetCacheConfigRequest) (*GetCacheConfigResponse, error)
 	// Update cache configuration
-	UpdateCacheConfig(context.Context, *CacheConfig) (*emptypb.Empty, error)
+	UpdateCacheConfig(context.Context, *UpdateCacheConfigRequest) (*UpdateCacheConfigResponse, error)
 	// Flush all cached entries
-	FlushCache(context.Context, *pb.FlushRequest) (*pb.FlushResponse, error)
+	FlushCache(context.Context, *FlushCacheRequest) (*FlushCacheResponse, error)
 }
 
 // UnimplementedWebAdminServiceServer should be embedded to have
@@ -103,13 +101,13 @@ type WebAdminServiceServer interface {
 // pointer dereference when methods are called.
 type UnimplementedWebAdminServiceServer struct{}
 
-func (UnimplementedWebAdminServiceServer) GetCacheConfig(context.Context, *emptypb.Empty) (*CacheConfig, error) {
+func (UnimplementedWebAdminServiceServer) GetCacheConfig(context.Context, *GetCacheConfigRequest) (*GetCacheConfigResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method GetCacheConfig not implemented")
 }
-func (UnimplementedWebAdminServiceServer) UpdateCacheConfig(context.Context, *CacheConfig) (*emptypb.Empty, error) {
+func (UnimplementedWebAdminServiceServer) UpdateCacheConfig(context.Context, *UpdateCacheConfigRequest) (*UpdateCacheConfigResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method UpdateCacheConfig not implemented")
 }
-func (UnimplementedWebAdminServiceServer) FlushCache(context.Context, *pb.FlushRequest) (*pb.FlushResponse, error) {
+func (UnimplementedWebAdminServiceServer) FlushCache(context.Context, *FlushCacheRequest) (*FlushCacheResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method FlushCache not implemented")
 }
 func (UnimplementedWebAdminServiceServer) testEmbeddedByValue() {}
@@ -133,7 +131,7 @@ func RegisterWebAdminServiceServer(s grpc.ServiceRegistrar, srv WebAdminServiceS
 }
 
 func _WebAdminService_GetCacheConfig_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(emptypb.Empty)
+	in := new(GetCacheConfigRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
@@ -145,13 +143,13 @@ func _WebAdminService_GetCacheConfig_Handler(srv interface{}, ctx context.Contex
 		FullMethod: WebAdminService_GetCacheConfig_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(WebAdminServiceServer).GetCacheConfig(ctx, req.(*emptypb.Empty))
+		return srv.(WebAdminServiceServer).GetCacheConfig(ctx, req.(*GetCacheConfigRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
 func _WebAdminService_UpdateCacheConfig_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(CacheConfig)
+	in := new(UpdateCacheConfigRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
@@ -163,13 +161,13 @@ func _WebAdminService_UpdateCacheConfig_Handler(srv interface{}, ctx context.Con
 		FullMethod: WebAdminService_UpdateCacheConfig_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(WebAdminServiceServer).UpdateCacheConfig(ctx, req.(*CacheConfig))
+		return srv.(WebAdminServiceServer).UpdateCacheConfig(ctx, req.(*UpdateCacheConfigRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
 func _WebAdminService_FlushCache_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(pb.FlushRequest)
+	in := new(FlushCacheRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
@@ -181,7 +179,7 @@ func _WebAdminService_FlushCache_Handler(srv interface{}, ctx context.Context, d
 		FullMethod: WebAdminService_FlushCache_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(WebAdminServiceServer).FlushCache(ctx, req.(*pb.FlushRequest))
+		return srv.(WebAdminServiceServer).FlushCache(ctx, req.(*FlushCacheRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
