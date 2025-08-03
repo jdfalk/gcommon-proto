@@ -24,7 +24,6 @@ const (
 	_ = protoimpl.EnforceVersion(protoimpl.MaxVersion - 20)
 )
 
-// TODO: Implement remove_member_response message
 type RemoveMemberResponse struct {
 	state protoimpl.MessageState `protogen:"hybrid.v1"`
 	// Any errors encountered
