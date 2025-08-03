@@ -25,12 +25,16 @@ const (
 
 // WebsocketConfig message definition.
 type WebsocketConfig struct {
-	state                  protoimpl.MessageState `protogen:"opaque.v1"`
-	xxx_hidden_Placeholder *string                `protobuf:"bytes,1,opt,name=placeholder"`
-	XXX_raceDetectHookData protoimpl.RaceDetectHookData
-	XXX_presence           [1]uint32
-	unknownFields          protoimpl.UnknownFields
-	sizeCache              protoimpl.SizeCache
+	state                        protoimpl.MessageState `protogen:"opaque.v1"`
+	xxx_hidden_Endpoint          *string                `protobuf:"bytes,1,opt,name=endpoint"`
+	xxx_hidden_AllowedOrigins    []string               `protobuf:"bytes,2,rep,name=allowed_origins,json=allowedOrigins"`
+	xxx_hidden_EnableCompression bool                   `protobuf:"varint,3,opt,name=enable_compression,json=enableCompression"`
+	xxx_hidden_ReadBufferSize    int32                  `protobuf:"varint,4,opt,name=read_buffer_size,json=readBufferSize"`
+	xxx_hidden_WriteBufferSize   int32                  `protobuf:"varint,5,opt,name=write_buffer_size,json=writeBufferSize"`
+	XXX_raceDetectHookData       protoimpl.RaceDetectHookData
+	XXX_presence                 [1]uint32
+	unknownFields                protoimpl.UnknownFields
+	sizeCache                    protoimpl.SizeCache
 }
 
 func (x *WebsocketConfig) Reset() {
@@ -58,46 +62,151 @@ func (x *WebsocketConfig) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-func (x *WebsocketConfig) GetPlaceholder() string {
+func (x *WebsocketConfig) GetEndpoint() string {
 	if x != nil {
-		if x.xxx_hidden_Placeholder != nil {
-			return *x.xxx_hidden_Placeholder
+		if x.xxx_hidden_Endpoint != nil {
+			return *x.xxx_hidden_Endpoint
 		}
 		return ""
 	}
 	return ""
 }
 
-func (x *WebsocketConfig) SetPlaceholder(v string) {
-	x.xxx_hidden_Placeholder = &v
-	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 0, 1)
+func (x *WebsocketConfig) GetAllowedOrigins() []string {
+	if x != nil {
+		return x.xxx_hidden_AllowedOrigins
+	}
+	return nil
 }
 
-func (x *WebsocketConfig) HasPlaceholder() bool {
+func (x *WebsocketConfig) GetEnableCompression() bool {
+	if x != nil {
+		return x.xxx_hidden_EnableCompression
+	}
+	return false
+}
+
+func (x *WebsocketConfig) GetReadBufferSize() int32 {
+	if x != nil {
+		return x.xxx_hidden_ReadBufferSize
+	}
+	return 0
+}
+
+func (x *WebsocketConfig) GetWriteBufferSize() int32 {
+	if x != nil {
+		return x.xxx_hidden_WriteBufferSize
+	}
+	return 0
+}
+
+func (x *WebsocketConfig) SetEndpoint(v string) {
+	x.xxx_hidden_Endpoint = &v
+	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 0, 5)
+}
+
+func (x *WebsocketConfig) SetAllowedOrigins(v []string) {
+	x.xxx_hidden_AllowedOrigins = v
+}
+
+func (x *WebsocketConfig) SetEnableCompression(v bool) {
+	x.xxx_hidden_EnableCompression = v
+	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 2, 5)
+}
+
+func (x *WebsocketConfig) SetReadBufferSize(v int32) {
+	x.xxx_hidden_ReadBufferSize = v
+	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 3, 5)
+}
+
+func (x *WebsocketConfig) SetWriteBufferSize(v int32) {
+	x.xxx_hidden_WriteBufferSize = v
+	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 4, 5)
+}
+
+func (x *WebsocketConfig) HasEndpoint() bool {
 	if x == nil {
 		return false
 	}
 	return protoimpl.X.Present(&(x.XXX_presence[0]), 0)
 }
 
-func (x *WebsocketConfig) ClearPlaceholder() {
+func (x *WebsocketConfig) HasEnableCompression() bool {
+	if x == nil {
+		return false
+	}
+	return protoimpl.X.Present(&(x.XXX_presence[0]), 2)
+}
+
+func (x *WebsocketConfig) HasReadBufferSize() bool {
+	if x == nil {
+		return false
+	}
+	return protoimpl.X.Present(&(x.XXX_presence[0]), 3)
+}
+
+func (x *WebsocketConfig) HasWriteBufferSize() bool {
+	if x == nil {
+		return false
+	}
+	return protoimpl.X.Present(&(x.XXX_presence[0]), 4)
+}
+
+func (x *WebsocketConfig) ClearEndpoint() {
 	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 0)
-	x.xxx_hidden_Placeholder = nil
+	x.xxx_hidden_Endpoint = nil
+}
+
+func (x *WebsocketConfig) ClearEnableCompression() {
+	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 2)
+	x.xxx_hidden_EnableCompression = false
+}
+
+func (x *WebsocketConfig) ClearReadBufferSize() {
+	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 3)
+	x.xxx_hidden_ReadBufferSize = 0
+}
+
+func (x *WebsocketConfig) ClearWriteBufferSize() {
+	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 4)
+	x.xxx_hidden_WriteBufferSize = 0
 }
 
 type WebsocketConfig_builder struct {
 	_ [0]func() // Prevents comparability and use of unkeyed literals for the builder.
 
-	Placeholder *string
+	// Endpoint path for websocket connections
+	Endpoint *string
+	// Allowed origin hosts
+	AllowedOrigins []string
+	// Enable per-message compression
+	EnableCompression *bool
+	// Read buffer size in bytes
+	ReadBufferSize *int32
+	// Write buffer size in bytes
+	WriteBufferSize *int32
 }
 
 func (b0 WebsocketConfig_builder) Build() *WebsocketConfig {
 	m0 := &WebsocketConfig{}
 	b, x := &b0, m0
 	_, _ = b, x
-	if b.Placeholder != nil {
-		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 0, 1)
-		x.xxx_hidden_Placeholder = b.Placeholder
+	if b.Endpoint != nil {
+		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 0, 5)
+		x.xxx_hidden_Endpoint = b.Endpoint
+	}
+	x.xxx_hidden_AllowedOrigins = b.AllowedOrigins
+	if b.EnableCompression != nil {
+		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 2, 5)
+		x.xxx_hidden_EnableCompression = *b.EnableCompression
+	}
+	if b.ReadBufferSize != nil {
+		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 3, 5)
+		x.xxx_hidden_ReadBufferSize = *b.ReadBufferSize
+	}
+	if b.WriteBufferSize != nil {
+		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 4, 5)
+		x.xxx_hidden_WriteBufferSize = *b.WriteBufferSize
 	}
 	return m0
 }
@@ -106,9 +215,13 @@ var File_pkg_web_proto_messages_websocket_config_proto protoreflect.FileDescript
 
 const file_pkg_web_proto_messages_websocket_config_proto_rawDesc = "" +
 	"\n" +
-	"-pkg/web/proto/messages/websocket_config.proto\x12\x0egcommon.v1.web\x1a!google/protobuf/go_features.proto\"3\n" +
-	"\x0fWebsocketConfig\x12 \n" +
-	"\vplaceholder\x18\x01 \x01(\tR\vplaceholderB\xbb\x01\n" +
+	"-pkg/web/proto/messages/websocket_config.proto\x12\x0egcommon.v1.web\x1a!google/protobuf/go_features.proto\"\xdb\x01\n" +
+	"\x0fWebsocketConfig\x12\x1a\n" +
+	"\bendpoint\x18\x01 \x01(\tR\bendpoint\x12'\n" +
+	"\x0fallowed_origins\x18\x02 \x03(\tR\x0eallowedOrigins\x12-\n" +
+	"\x12enable_compression\x18\x03 \x01(\bR\x11enableCompression\x12(\n" +
+	"\x10read_buffer_size\x18\x04 \x01(\x05R\x0ereadBufferSize\x12*\n" +
+	"\x11write_buffer_size\x18\x05 \x01(\x05R\x0fwriteBufferSizeB\xbb\x01\n" +
 	"\x12com.gcommon.v1.webB\x14WebsocketConfigProtoP\x01Z-github.com/jdfalk/gcommon/pkg/web/proto;webpb\xa2\x02\x03GVW\xaa\x02\x0eGcommon.V1.Web\xca\x02\x0eGcommon\\V1\\Web\xe2\x02\x1aGcommon\\V1\\Web\\GPBMetadata\xea\x02\x10Gcommon::V1::Web\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
 
 var file_pkg_web_proto_messages_websocket_config_proto_msgTypes = make([]protoimpl.MessageInfo, 1)

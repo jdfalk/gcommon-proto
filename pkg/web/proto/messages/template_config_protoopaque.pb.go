@@ -26,7 +26,10 @@ const (
 // TemplateConfig message definition.
 type TemplateConfig struct {
 	state                  protoimpl.MessageState `protogen:"opaque.v1"`
-	xxx_hidden_Placeholder *string                `protobuf:"bytes,1,opt,name=placeholder"`
+	xxx_hidden_Directory   *string                `protobuf:"bytes,1,opt,name=directory"`
+	xxx_hidden_Extension   *string                `protobuf:"bytes,2,opt,name=extension"`
+	xxx_hidden_Reload      bool                   `protobuf:"varint,3,opt,name=reload"`
+	xxx_hidden_Functions   []string               `protobuf:"bytes,4,rep,name=functions"`
 	XXX_raceDetectHookData protoimpl.RaceDetectHookData
 	XXX_presence           [1]uint32
 	unknownFields          protoimpl.UnknownFields
@@ -58,47 +61,125 @@ func (x *TemplateConfig) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-func (x *TemplateConfig) GetPlaceholder() string {
+func (x *TemplateConfig) GetDirectory() string {
 	if x != nil {
-		if x.xxx_hidden_Placeholder != nil {
-			return *x.xxx_hidden_Placeholder
+		if x.xxx_hidden_Directory != nil {
+			return *x.xxx_hidden_Directory
 		}
 		return ""
 	}
 	return ""
 }
 
-func (x *TemplateConfig) SetPlaceholder(v string) {
-	x.xxx_hidden_Placeholder = &v
-	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 0, 1)
+func (x *TemplateConfig) GetExtension() string {
+	if x != nil {
+		if x.xxx_hidden_Extension != nil {
+			return *x.xxx_hidden_Extension
+		}
+		return ""
+	}
+	return ""
 }
 
-func (x *TemplateConfig) HasPlaceholder() bool {
+func (x *TemplateConfig) GetReload() bool {
+	if x != nil {
+		return x.xxx_hidden_Reload
+	}
+	return false
+}
+
+func (x *TemplateConfig) GetFunctions() []string {
+	if x != nil {
+		return x.xxx_hidden_Functions
+	}
+	return nil
+}
+
+func (x *TemplateConfig) SetDirectory(v string) {
+	x.xxx_hidden_Directory = &v
+	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 0, 4)
+}
+
+func (x *TemplateConfig) SetExtension(v string) {
+	x.xxx_hidden_Extension = &v
+	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 1, 4)
+}
+
+func (x *TemplateConfig) SetReload(v bool) {
+	x.xxx_hidden_Reload = v
+	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 2, 4)
+}
+
+func (x *TemplateConfig) SetFunctions(v []string) {
+	x.xxx_hidden_Functions = v
+}
+
+func (x *TemplateConfig) HasDirectory() bool {
 	if x == nil {
 		return false
 	}
 	return protoimpl.X.Present(&(x.XXX_presence[0]), 0)
 }
 
-func (x *TemplateConfig) ClearPlaceholder() {
+func (x *TemplateConfig) HasExtension() bool {
+	if x == nil {
+		return false
+	}
+	return protoimpl.X.Present(&(x.XXX_presence[0]), 1)
+}
+
+func (x *TemplateConfig) HasReload() bool {
+	if x == nil {
+		return false
+	}
+	return protoimpl.X.Present(&(x.XXX_presence[0]), 2)
+}
+
+func (x *TemplateConfig) ClearDirectory() {
 	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 0)
-	x.xxx_hidden_Placeholder = nil
+	x.xxx_hidden_Directory = nil
+}
+
+func (x *TemplateConfig) ClearExtension() {
+	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 1)
+	x.xxx_hidden_Extension = nil
+}
+
+func (x *TemplateConfig) ClearReload() {
+	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 2)
+	x.xxx_hidden_Reload = false
 }
 
 type TemplateConfig_builder struct {
 	_ [0]func() // Prevents comparability and use of unkeyed literals for the builder.
 
-	Placeholder *string
+	// Directory containing template files
+	Directory *string
+	// Default file extension
+	Extension *string
+	// Reload templates on change
+	Reload *bool
+	// Custom template function names
+	Functions []string
 }
 
 func (b0 TemplateConfig_builder) Build() *TemplateConfig {
 	m0 := &TemplateConfig{}
 	b, x := &b0, m0
 	_, _ = b, x
-	if b.Placeholder != nil {
-		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 0, 1)
-		x.xxx_hidden_Placeholder = b.Placeholder
+	if b.Directory != nil {
+		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 0, 4)
+		x.xxx_hidden_Directory = b.Directory
 	}
+	if b.Extension != nil {
+		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 1, 4)
+		x.xxx_hidden_Extension = b.Extension
+	}
+	if b.Reload != nil {
+		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 2, 4)
+		x.xxx_hidden_Reload = *b.Reload
+	}
+	x.xxx_hidden_Functions = b.Functions
 	return m0
 }
 
@@ -106,9 +187,12 @@ var File_pkg_web_proto_messages_template_config_proto protoreflect.FileDescripto
 
 const file_pkg_web_proto_messages_template_config_proto_rawDesc = "" +
 	"\n" +
-	",pkg/web/proto/messages/template_config.proto\x12\x0egcommon.v1.web\x1a!google/protobuf/go_features.proto\"2\n" +
-	"\x0eTemplateConfig\x12 \n" +
-	"\vplaceholder\x18\x01 \x01(\tR\vplaceholderB\xba\x01\n" +
+	",pkg/web/proto/messages/template_config.proto\x12\x0egcommon.v1.web\x1a!google/protobuf/go_features.proto\"\x82\x01\n" +
+	"\x0eTemplateConfig\x12\x1c\n" +
+	"\tdirectory\x18\x01 \x01(\tR\tdirectory\x12\x1c\n" +
+	"\textension\x18\x02 \x01(\tR\textension\x12\x16\n" +
+	"\x06reload\x18\x03 \x01(\bR\x06reload\x12\x1c\n" +
+	"\tfunctions\x18\x04 \x03(\tR\tfunctionsB\xba\x01\n" +
 	"\x12com.gcommon.v1.webB\x13TemplateConfigProtoP\x01Z-github.com/jdfalk/gcommon/pkg/web/proto;webpb\xa2\x02\x03GVW\xaa\x02\x0eGcommon.V1.Web\xca\x02\x0eGcommon\\V1\\Web\xe2\x02\x1aGcommon\\V1\\Web\\GPBMetadata\xea\x02\x10Gcommon::V1::Web\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
 
 var file_pkg_web_proto_messages_template_config_proto_msgTypes = make([]protoimpl.MessageInfo, 1)

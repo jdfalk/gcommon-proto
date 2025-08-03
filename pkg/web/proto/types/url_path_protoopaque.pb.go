@@ -25,12 +25,10 @@ const (
 
 // UrlPath message definition.
 type UrlPath struct {
-	state                  protoimpl.MessageState `protogen:"opaque.v1"`
-	xxx_hidden_Placeholder *string                `protobuf:"bytes,1,opt,name=placeholder"`
-	XXX_raceDetectHookData protoimpl.RaceDetectHookData
-	XXX_presence           [1]uint32
-	unknownFields          protoimpl.UnknownFields
-	sizeCache              protoimpl.SizeCache
+	state               protoimpl.MessageState `protogen:"opaque.v1"`
+	xxx_hidden_Segments []string               `protobuf:"bytes,1,rep,name=segments"`
+	unknownFields       protoimpl.UnknownFields
+	sizeCache           protoimpl.SizeCache
 }
 
 func (x *UrlPath) Reset() {
@@ -58,47 +56,29 @@ func (x *UrlPath) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-func (x *UrlPath) GetPlaceholder() string {
+func (x *UrlPath) GetSegments() []string {
 	if x != nil {
-		if x.xxx_hidden_Placeholder != nil {
-			return *x.xxx_hidden_Placeholder
-		}
-		return ""
+		return x.xxx_hidden_Segments
 	}
-	return ""
+	return nil
 }
 
-func (x *UrlPath) SetPlaceholder(v string) {
-	x.xxx_hidden_Placeholder = &v
-	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 0, 1)
-}
-
-func (x *UrlPath) HasPlaceholder() bool {
-	if x == nil {
-		return false
-	}
-	return protoimpl.X.Present(&(x.XXX_presence[0]), 0)
-}
-
-func (x *UrlPath) ClearPlaceholder() {
-	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 0)
-	x.xxx_hidden_Placeholder = nil
+func (x *UrlPath) SetSegments(v []string) {
+	x.xxx_hidden_Segments = v
 }
 
 type UrlPath_builder struct {
 	_ [0]func() // Prevents comparability and use of unkeyed literals for the builder.
 
-	Placeholder *string
+	// Individual path segments
+	Segments []string
 }
 
 func (b0 UrlPath_builder) Build() *UrlPath {
 	m0 := &UrlPath{}
 	b, x := &b0, m0
 	_, _ = b, x
-	if b.Placeholder != nil {
-		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 0, 1)
-		x.xxx_hidden_Placeholder = b.Placeholder
-	}
+	x.xxx_hidden_Segments = b.Segments
 	return m0
 }
 
@@ -106,9 +86,9 @@ var File_pkg_web_proto_types_url_path_proto protoreflect.FileDescriptor
 
 const file_pkg_web_proto_types_url_path_proto_rawDesc = "" +
 	"\n" +
-	"\"pkg/web/proto/types/url_path.proto\x12\x0egcommon.v1.web\x1a!google/protobuf/go_features.proto\"+\n" +
-	"\aUrlPath\x12 \n" +
-	"\vplaceholder\x18\x01 \x01(\tR\vplaceholderB\xb3\x01\n" +
+	"\"pkg/web/proto/types/url_path.proto\x12\x0egcommon.v1.web\x1a!google/protobuf/go_features.proto\"%\n" +
+	"\aUrlPath\x12\x1a\n" +
+	"\bsegments\x18\x01 \x03(\tR\bsegmentsB\xb3\x01\n" +
 	"\x12com.gcommon.v1.webB\fUrlPathProtoP\x01Z-github.com/jdfalk/gcommon/pkg/web/proto;webpb\xa2\x02\x03GVW\xaa\x02\x0eGcommon.V1.Web\xca\x02\x0eGcommon\\V1\\Web\xe2\x02\x1aGcommon\\V1\\Web\\GPBMetadata\xea\x02\x10Gcommon::V1::Web\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
 
 var file_pkg_web_proto_types_url_path_proto_msgTypes = make([]protoimpl.MessageInfo, 1)

@@ -25,8 +25,15 @@ const (
 
 // TemplateConfig message definition.
 type TemplateConfig struct {
-	state         protoimpl.MessageState `protogen:"hybrid.v1"`
-	Placeholder   *string                `protobuf:"bytes,1,opt,name=placeholder" json:"placeholder,omitempty"`
+	state protoimpl.MessageState `protogen:"hybrid.v1"`
+	// Directory containing template files
+	Directory *string `protobuf:"bytes,1,opt,name=directory" json:"directory,omitempty"`
+	// Default file extension
+	Extension *string `protobuf:"bytes,2,opt,name=extension" json:"extension,omitempty"`
+	// Reload templates on change
+	Reload *bool `protobuf:"varint,3,opt,name=reload" json:"reload,omitempty"`
+	// Custom template function names
+	Functions     []string `protobuf:"bytes,4,rep,name=functions" json:"functions,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -56,39 +63,104 @@ func (x *TemplateConfig) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-func (x *TemplateConfig) GetPlaceholder() string {
-	if x != nil && x.Placeholder != nil {
-		return *x.Placeholder
+func (x *TemplateConfig) GetDirectory() string {
+	if x != nil && x.Directory != nil {
+		return *x.Directory
 	}
 	return ""
 }
 
-func (x *TemplateConfig) SetPlaceholder(v string) {
-	x.Placeholder = &v
+func (x *TemplateConfig) GetExtension() string {
+	if x != nil && x.Extension != nil {
+		return *x.Extension
+	}
+	return ""
 }
 
-func (x *TemplateConfig) HasPlaceholder() bool {
+func (x *TemplateConfig) GetReload() bool {
+	if x != nil && x.Reload != nil {
+		return *x.Reload
+	}
+	return false
+}
+
+func (x *TemplateConfig) GetFunctions() []string {
+	if x != nil {
+		return x.Functions
+	}
+	return nil
+}
+
+func (x *TemplateConfig) SetDirectory(v string) {
+	x.Directory = &v
+}
+
+func (x *TemplateConfig) SetExtension(v string) {
+	x.Extension = &v
+}
+
+func (x *TemplateConfig) SetReload(v bool) {
+	x.Reload = &v
+}
+
+func (x *TemplateConfig) SetFunctions(v []string) {
+	x.Functions = v
+}
+
+func (x *TemplateConfig) HasDirectory() bool {
 	if x == nil {
 		return false
 	}
-	return x.Placeholder != nil
+	return x.Directory != nil
 }
 
-func (x *TemplateConfig) ClearPlaceholder() {
-	x.Placeholder = nil
+func (x *TemplateConfig) HasExtension() bool {
+	if x == nil {
+		return false
+	}
+	return x.Extension != nil
+}
+
+func (x *TemplateConfig) HasReload() bool {
+	if x == nil {
+		return false
+	}
+	return x.Reload != nil
+}
+
+func (x *TemplateConfig) ClearDirectory() {
+	x.Directory = nil
+}
+
+func (x *TemplateConfig) ClearExtension() {
+	x.Extension = nil
+}
+
+func (x *TemplateConfig) ClearReload() {
+	x.Reload = nil
 }
 
 type TemplateConfig_builder struct {
 	_ [0]func() // Prevents comparability and use of unkeyed literals for the builder.
 
-	Placeholder *string
+	// Directory containing template files
+	Directory *string
+	// Default file extension
+	Extension *string
+	// Reload templates on change
+	Reload *bool
+	// Custom template function names
+	Functions []string
 }
 
 func (b0 TemplateConfig_builder) Build() *TemplateConfig {
 	m0 := &TemplateConfig{}
 	b, x := &b0, m0
 	_, _ = b, x
-	x.Placeholder = b.Placeholder
+	x.Directory = b.Directory
+	x.Extension = b.Extension
+	x.Reload = b.Reload
+	x.Functions = b.Functions
 	return m0
 }
 
@@ -96,9 +168,12 @@ var File_pkg_web_proto_messages_template_config_proto protoreflect.FileDescripto
 
 const file_pkg_web_proto_messages_template_config_proto_rawDesc = "" +
 	"\n" +
-	",pkg/web/proto/messages/template_config.proto\x12\x0egcommon.v1.web\x1a!google/protobuf/go_features.proto\"2\n" +
-	"\x0eTemplateConfig\x12 \n" +
-	"\vplaceholder\x18\x01 \x01(\tR\vplaceholderB\xba\x01\n" +
+	",pkg/web/proto/messages/template_config.proto\x12\x0egcommon.v1.web\x1a!google/protobuf/go_features.proto\"\x82\x01\n" +
+	"\x0eTemplateConfig\x12\x1c\n" +
+	"\tdirectory\x18\x01 \x01(\tR\tdirectory\x12\x1c\n" +
+	"\textension\x18\x02 \x01(\tR\textension\x12\x16\n" +
+	"\x06reload\x18\x03 \x01(\bR\x06reload\x12\x1c\n" +
+	"\tfunctions\x18\x04 \x03(\tR\tfunctionsB\xba\x01\n" +
 	"\x12com.gcommon.v1.webB\x13TemplateConfigProtoP\x01Z-github.com/jdfalk/gcommon/pkg/web/proto;webpb\xa2\x02\x03GVW\xaa\x02\x0eGcommon.V1.Web\xca\x02\x0eGcommon\\V1\\Web\xe2\x02\x1aGcommon\\V1\\Web\\GPBMetadata\xea\x02\x10Gcommon::V1::Web\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
 
 var file_pkg_web_proto_messages_template_config_proto_msgTypes = make([]protoimpl.MessageInfo, 1)

@@ -26,7 +26,8 @@ const (
 // UpdateSessionRequest request definition.
 type UpdateSessionRequest struct {
 	state                  protoimpl.MessageState `protogen:"opaque.v1"`
-	xxx_hidden_Placeholder *string                `protobuf:"bytes,1,opt,name=placeholder"`
+	xxx_hidden_SessionId   *string                `protobuf:"bytes,1,opt,name=session_id,json=sessionId"`
+	xxx_hidden_Metadata    map[string]string      `protobuf:"bytes,2,rep,name=metadata" protobuf_key:"bytes,1,opt,name=key" protobuf_val:"bytes,2,opt,name=value"`
 	XXX_raceDetectHookData protoimpl.RaceDetectHookData
 	XXX_presence           [1]uint32
 	unknownFields          protoimpl.UnknownFields
@@ -58,47 +59,62 @@ func (x *UpdateSessionRequest) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-func (x *UpdateSessionRequest) GetPlaceholder() string {
+func (x *UpdateSessionRequest) GetSessionId() string {
 	if x != nil {
-		if x.xxx_hidden_Placeholder != nil {
-			return *x.xxx_hidden_Placeholder
+		if x.xxx_hidden_SessionId != nil {
+			return *x.xxx_hidden_SessionId
 		}
 		return ""
 	}
 	return ""
 }
 
-func (x *UpdateSessionRequest) SetPlaceholder(v string) {
-	x.xxx_hidden_Placeholder = &v
-	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 0, 1)
+func (x *UpdateSessionRequest) GetMetadata() map[string]string {
+	if x != nil {
+		return x.xxx_hidden_Metadata
+	}
+	return nil
 }
 
-func (x *UpdateSessionRequest) HasPlaceholder() bool {
+func (x *UpdateSessionRequest) SetSessionId(v string) {
+	x.xxx_hidden_SessionId = &v
+	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 0, 2)
+}
+
+func (x *UpdateSessionRequest) SetMetadata(v map[string]string) {
+	x.xxx_hidden_Metadata = v
+}
+
+func (x *UpdateSessionRequest) HasSessionId() bool {
 	if x == nil {
 		return false
 	}
 	return protoimpl.X.Present(&(x.XXX_presence[0]), 0)
 }
 
-func (x *UpdateSessionRequest) ClearPlaceholder() {
+func (x *UpdateSessionRequest) ClearSessionId() {
 	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 0)
-	x.xxx_hidden_Placeholder = nil
+	x.xxx_hidden_SessionId = nil
 }
 
 type UpdateSessionRequest_builder struct {
 	_ [0]func() // Prevents comparability and use of unkeyed literals for the builder.
 
-	Placeholder *string
+	// Identifier of the session to update
+	SessionId *string
+	// New metadata to apply
+	Metadata map[string]string
 }
 
 func (b0 UpdateSessionRequest_builder) Build() *UpdateSessionRequest {
 	m0 := &UpdateSessionRequest{}
 	b, x := &b0, m0
 	_, _ = b, x
-	if b.Placeholder != nil {
-		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 0, 1)
-		x.xxx_hidden_Placeholder = b.Placeholder
+	if b.SessionId != nil {
+		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 0, 2)
+		x.xxx_hidden_SessionId = b.SessionId
 	}
+	x.xxx_hidden_Metadata = b.Metadata
 	return m0
 }
 
@@ -106,21 +122,28 @@ var File_pkg_web_proto_requests_update_session_request_proto protoreflect.FileDe
 
 const file_pkg_web_proto_requests_update_session_request_proto_rawDesc = "" +
 	"\n" +
-	"3pkg/web/proto/requests/update_session_request.proto\x12\x0egcommon.v1.web\x1a!google/protobuf/go_features.proto\"8\n" +
-	"\x14UpdateSessionRequest\x12 \n" +
-	"\vplaceholder\x18\x01 \x01(\tR\vplaceholderB\xc0\x01\n" +
+	"3pkg/web/proto/requests/update_session_request.proto\x12\x0egcommon.v1.web\x1a!google/protobuf/go_features.proto\"\xc2\x01\n" +
+	"\x14UpdateSessionRequest\x12\x1d\n" +
+	"\n" +
+	"session_id\x18\x01 \x01(\tR\tsessionId\x12N\n" +
+	"\bmetadata\x18\x02 \x03(\v22.gcommon.v1.web.UpdateSessionRequest.MetadataEntryR\bmetadata\x1a;\n" +
+	"\rMetadataEntry\x12\x10\n" +
+	"\x03key\x18\x01 \x01(\tR\x03key\x12\x14\n" +
+	"\x05value\x18\x02 \x01(\tR\x05value:\x028\x01B\xc0\x01\n" +
 	"\x12com.gcommon.v1.webB\x19UpdateSessionRequestProtoP\x01Z-github.com/jdfalk/gcommon/pkg/web/proto;webpb\xa2\x02\x03GVW\xaa\x02\x0eGcommon.V1.Web\xca\x02\x0eGcommon\\V1\\Web\xe2\x02\x1aGcommon\\V1\\Web\\GPBMetadata\xea\x02\x10Gcommon::V1::Web\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
 
-var file_pkg_web_proto_requests_update_session_request_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
+var file_pkg_web_proto_requests_update_session_request_proto_msgTypes = make([]protoimpl.MessageInfo, 2)
 var file_pkg_web_proto_requests_update_session_request_proto_goTypes = []any{
 	(*UpdateSessionRequest)(nil), // 0: gcommon.v1.web.UpdateSessionRequest
+	nil,                          // 1: gcommon.v1.web.UpdateSessionRequest.MetadataEntry
 }
 var file_pkg_web_proto_requests_update_session_request_proto_depIdxs = []int32{
-	0, // [0:0] is the sub-list for method output_type
-	0, // [0:0] is the sub-list for method input_type
-	0, // [0:0] is the sub-list for extension type_name
-	0, // [0:0] is the sub-list for extension extendee
-	0, // [0:0] is the sub-list for field type_name
+	1, // 0: gcommon.v1.web.UpdateSessionRequest.metadata:type_name -> gcommon.v1.web.UpdateSessionRequest.MetadataEntry
+	1, // [1:1] is the sub-list for method output_type
+	1, // [1:1] is the sub-list for method input_type
+	1, // [1:1] is the sub-list for extension type_name
+	1, // [1:1] is the sub-list for extension extendee
+	0, // [0:1] is the sub-list for field type_name
 }
 
 func init() { file_pkg_web_proto_requests_update_session_request_proto_init() }
@@ -134,7 +157,7 @@ func file_pkg_web_proto_requests_update_session_request_proto_init() {
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: unsafe.Slice(unsafe.StringData(file_pkg_web_proto_requests_update_session_request_proto_rawDesc), len(file_pkg_web_proto_requests_update_session_request_proto_rawDesc)),
 			NumEnums:      0,
-			NumMessages:   1,
+			NumMessages:   2,
 			NumExtensions: 0,
 			NumServices:   0,
 		},

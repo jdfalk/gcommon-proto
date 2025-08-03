@@ -25,8 +25,11 @@ const (
 
 // CreateSessionRequest request definition.
 type CreateSessionRequest struct {
-	state         protoimpl.MessageState `protogen:"hybrid.v1"`
-	Placeholder   *string                `protobuf:"bytes,1,opt,name=placeholder" json:"placeholder,omitempty"`
+	state protoimpl.MessageState `protogen:"hybrid.v1"`
+	// User ID for the new session
+	UserId *string `protobuf:"bytes,1,opt,name=user_id,json=userId" json:"user_id,omitempty"`
+	// Optional initial metadata
+	Metadata      map[string]string `protobuf:"bytes,2,rep,name=metadata" json:"metadata,omitempty" protobuf_key:"bytes,1,opt,name=key" protobuf_val:"bytes,2,opt,name=value"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -56,39 +59,54 @@ func (x *CreateSessionRequest) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-func (x *CreateSessionRequest) GetPlaceholder() string {
-	if x != nil && x.Placeholder != nil {
-		return *x.Placeholder
+func (x *CreateSessionRequest) GetUserId() string {
+	if x != nil && x.UserId != nil {
+		return *x.UserId
 	}
 	return ""
 }
 
-func (x *CreateSessionRequest) SetPlaceholder(v string) {
-	x.Placeholder = &v
+func (x *CreateSessionRequest) GetMetadata() map[string]string {
+	if x != nil {
+		return x.Metadata
+	}
+	return nil
 }
 
-func (x *CreateSessionRequest) HasPlaceholder() bool {
+func (x *CreateSessionRequest) SetUserId(v string) {
+	x.UserId = &v
+}
+
+func (x *CreateSessionRequest) SetMetadata(v map[string]string) {
+	x.Metadata = v
+}
+
+func (x *CreateSessionRequest) HasUserId() bool {
 	if x == nil {
 		return false
 	}
-	return x.Placeholder != nil
+	return x.UserId != nil
 }
 
-func (x *CreateSessionRequest) ClearPlaceholder() {
-	x.Placeholder = nil
+func (x *CreateSessionRequest) ClearUserId() {
+	x.UserId = nil
 }
 
 type CreateSessionRequest_builder struct {
 	_ [0]func() // Prevents comparability and use of unkeyed literals for the builder.
 
-	Placeholder *string
+	// User ID for the new session
+	UserId *string
+	// Optional initial metadata
+	Metadata map[string]string
 }
 
 func (b0 CreateSessionRequest_builder) Build() *CreateSessionRequest {
 	m0 := &CreateSessionRequest{}
 	b, x := &b0, m0
 	_, _ = b, x
-	x.Placeholder = b.Placeholder
+	x.UserId = b.UserId
+	x.Metadata = b.Metadata
 	return m0
 }
 
@@ -96,21 +114,27 @@ var File_pkg_web_proto_requests_create_session_request_proto protoreflect.FileDe
 
 const file_pkg_web_proto_requests_create_session_request_proto_rawDesc = "" +
 	"\n" +
-	"3pkg/web/proto/requests/create_session_request.proto\x12\x0egcommon.v1.web\x1a!google/protobuf/go_features.proto\"8\n" +
-	"\x14CreateSessionRequest\x12 \n" +
-	"\vplaceholder\x18\x01 \x01(\tR\vplaceholderB\xc0\x01\n" +
+	"3pkg/web/proto/requests/create_session_request.proto\x12\x0egcommon.v1.web\x1a!google/protobuf/go_features.proto\"\xbc\x01\n" +
+	"\x14CreateSessionRequest\x12\x17\n" +
+	"\auser_id\x18\x01 \x01(\tR\x06userId\x12N\n" +
+	"\bmetadata\x18\x02 \x03(\v22.gcommon.v1.web.CreateSessionRequest.MetadataEntryR\bmetadata\x1a;\n" +
+	"\rMetadataEntry\x12\x10\n" +
+	"\x03key\x18\x01 \x01(\tR\x03key\x12\x14\n" +
+	"\x05value\x18\x02 \x01(\tR\x05value:\x028\x01B\xc0\x01\n" +
 	"\x12com.gcommon.v1.webB\x19CreateSessionRequestProtoP\x01Z-github.com/jdfalk/gcommon/pkg/web/proto;webpb\xa2\x02\x03GVW\xaa\x02\x0eGcommon.V1.Web\xca\x02\x0eGcommon\\V1\\Web\xe2\x02\x1aGcommon\\V1\\Web\\GPBMetadata\xea\x02\x10Gcommon::V1::Web\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
 
-var file_pkg_web_proto_requests_create_session_request_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
+var file_pkg_web_proto_requests_create_session_request_proto_msgTypes = make([]protoimpl.MessageInfo, 2)
 var file_pkg_web_proto_requests_create_session_request_proto_goTypes = []any{
 	(*CreateSessionRequest)(nil), // 0: gcommon.v1.web.CreateSessionRequest
+	nil,                          // 1: gcommon.v1.web.CreateSessionRequest.MetadataEntry
 }
 var file_pkg_web_proto_requests_create_session_request_proto_depIdxs = []int32{
-	0, // [0:0] is the sub-list for method output_type
-	0, // [0:0] is the sub-list for method input_type
-	0, // [0:0] is the sub-list for extension type_name
-	0, // [0:0] is the sub-list for extension extendee
-	0, // [0:0] is the sub-list for field type_name
+	1, // 0: gcommon.v1.web.CreateSessionRequest.metadata:type_name -> gcommon.v1.web.CreateSessionRequest.MetadataEntry
+	1, // [1:1] is the sub-list for method output_type
+	1, // [1:1] is the sub-list for method input_type
+	1, // [1:1] is the sub-list for extension type_name
+	1, // [1:1] is the sub-list for extension extendee
+	0, // [0:1] is the sub-list for field type_name
 }
 
 func init() { file_pkg_web_proto_requests_create_session_request_proto_init() }
@@ -124,7 +148,7 @@ func file_pkg_web_proto_requests_create_session_request_proto_init() {
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: unsafe.Slice(unsafe.StringData(file_pkg_web_proto_requests_create_session_request_proto_rawDesc), len(file_pkg_web_proto_requests_create_session_request_proto_rawDesc)),
 			NumEnums:      0,
-			NumMessages:   1,
+			NumMessages:   2,
 			NumExtensions: 0,
 			NumServices:   0,
 		},

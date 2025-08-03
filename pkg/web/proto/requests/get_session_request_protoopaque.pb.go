@@ -26,7 +26,7 @@ const (
 // GetSessionRequest request definition.
 type GetSessionRequest struct {
 	state                  protoimpl.MessageState `protogen:"opaque.v1"`
-	xxx_hidden_Placeholder *string                `protobuf:"bytes,1,opt,name=placeholder"`
+	xxx_hidden_SessionId   *string                `protobuf:"bytes,1,opt,name=session_id,json=sessionId"`
 	XXX_raceDetectHookData protoimpl.RaceDetectHookData
 	XXX_presence           [1]uint32
 	unknownFields          protoimpl.UnknownFields
@@ -58,46 +58,47 @@ func (x *GetSessionRequest) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-func (x *GetSessionRequest) GetPlaceholder() string {
+func (x *GetSessionRequest) GetSessionId() string {
 	if x != nil {
-		if x.xxx_hidden_Placeholder != nil {
-			return *x.xxx_hidden_Placeholder
+		if x.xxx_hidden_SessionId != nil {
+			return *x.xxx_hidden_SessionId
 		}
 		return ""
 	}
 	return ""
 }
 
-func (x *GetSessionRequest) SetPlaceholder(v string) {
-	x.xxx_hidden_Placeholder = &v
+func (x *GetSessionRequest) SetSessionId(v string) {
+	x.xxx_hidden_SessionId = &v
 	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 0, 1)
 }
 
-func (x *GetSessionRequest) HasPlaceholder() bool {
+func (x *GetSessionRequest) HasSessionId() bool {
 	if x == nil {
 		return false
 	}
 	return protoimpl.X.Present(&(x.XXX_presence[0]), 0)
 }
 
-func (x *GetSessionRequest) ClearPlaceholder() {
+func (x *GetSessionRequest) ClearSessionId() {
 	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 0)
-	x.xxx_hidden_Placeholder = nil
+	x.xxx_hidden_SessionId = nil
 }
 
 type GetSessionRequest_builder struct {
 	_ [0]func() // Prevents comparability and use of unkeyed literals for the builder.
 
-	Placeholder *string
+	// Identifier of the session to retrieve
+	SessionId *string
 }
 
 func (b0 GetSessionRequest_builder) Build() *GetSessionRequest {
 	m0 := &GetSessionRequest{}
 	b, x := &b0, m0
 	_, _ = b, x
-	if b.Placeholder != nil {
+	if b.SessionId != nil {
 		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 0, 1)
-		x.xxx_hidden_Placeholder = b.Placeholder
+		x.xxx_hidden_SessionId = b.SessionId
 	}
 	return m0
 }
@@ -106,9 +107,10 @@ var File_pkg_web_proto_requests_get_session_request_proto protoreflect.FileDescr
 
 const file_pkg_web_proto_requests_get_session_request_proto_rawDesc = "" +
 	"\n" +
-	"0pkg/web/proto/requests/get_session_request.proto\x12\x0egcommon.v1.web\x1a!google/protobuf/go_features.proto\"5\n" +
-	"\x11GetSessionRequest\x12 \n" +
-	"\vplaceholder\x18\x01 \x01(\tR\vplaceholderB\xbd\x01\n" +
+	"0pkg/web/proto/requests/get_session_request.proto\x12\x0egcommon.v1.web\x1a!google/protobuf/go_features.proto\"2\n" +
+	"\x11GetSessionRequest\x12\x1d\n" +
+	"\n" +
+	"session_id\x18\x01 \x01(\tR\tsessionIdB\xbd\x01\n" +
 	"\x12com.gcommon.v1.webB\x16GetSessionRequestProtoP\x01Z-github.com/jdfalk/gcommon/pkg/web/proto;webpb\xa2\x02\x03GVW\xaa\x02\x0eGcommon.V1.Web\xca\x02\x0eGcommon\\V1\\Web\xe2\x02\x1aGcommon\\V1\\Web\\GPBMetadata\xea\x02\x10Gcommon::V1::Web\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
 
 var file_pkg_web_proto_requests_get_session_request_proto_msgTypes = make([]protoimpl.MessageInfo, 1)

@@ -25,10 +25,19 @@ const (
 
 // WebsocketConfig message definition.
 type WebsocketConfig struct {
-	state         protoimpl.MessageState `protogen:"hybrid.v1"`
-	Placeholder   *string                `protobuf:"bytes,1,opt,name=placeholder" json:"placeholder,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
+	state protoimpl.MessageState `protogen:"hybrid.v1"`
+	// Endpoint path for websocket connections
+	Endpoint *string `protobuf:"bytes,1,opt,name=endpoint" json:"endpoint,omitempty"`
+	// Allowed origin hosts
+	AllowedOrigins []string `protobuf:"bytes,2,rep,name=allowed_origins,json=allowedOrigins" json:"allowed_origins,omitempty"`
+	// Enable per-message compression
+	EnableCompression *bool `protobuf:"varint,3,opt,name=enable_compression,json=enableCompression" json:"enable_compression,omitempty"`
+	// Read buffer size in bytes
+	ReadBufferSize *int32 `protobuf:"varint,4,opt,name=read_buffer_size,json=readBufferSize" json:"read_buffer_size,omitempty"`
+	// Write buffer size in bytes
+	WriteBufferSize *int32 `protobuf:"varint,5,opt,name=write_buffer_size,json=writeBufferSize" json:"write_buffer_size,omitempty"`
+	unknownFields   protoimpl.UnknownFields
+	sizeCache       protoimpl.SizeCache
 }
 
 func (x *WebsocketConfig) Reset() {
@@ -56,39 +65,129 @@ func (x *WebsocketConfig) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-func (x *WebsocketConfig) GetPlaceholder() string {
-	if x != nil && x.Placeholder != nil {
-		return *x.Placeholder
+func (x *WebsocketConfig) GetEndpoint() string {
+	if x != nil && x.Endpoint != nil {
+		return *x.Endpoint
 	}
 	return ""
 }
 
-func (x *WebsocketConfig) SetPlaceholder(v string) {
-	x.Placeholder = &v
+func (x *WebsocketConfig) GetAllowedOrigins() []string {
+	if x != nil {
+		return x.AllowedOrigins
+	}
+	return nil
 }
 
-func (x *WebsocketConfig) HasPlaceholder() bool {
+func (x *WebsocketConfig) GetEnableCompression() bool {
+	if x != nil && x.EnableCompression != nil {
+		return *x.EnableCompression
+	}
+	return false
+}
+
+func (x *WebsocketConfig) GetReadBufferSize() int32 {
+	if x != nil && x.ReadBufferSize != nil {
+		return *x.ReadBufferSize
+	}
+	return 0
+}
+
+func (x *WebsocketConfig) GetWriteBufferSize() int32 {
+	if x != nil && x.WriteBufferSize != nil {
+		return *x.WriteBufferSize
+	}
+	return 0
+}
+
+func (x *WebsocketConfig) SetEndpoint(v string) {
+	x.Endpoint = &v
+}
+
+func (x *WebsocketConfig) SetAllowedOrigins(v []string) {
+	x.AllowedOrigins = v
+}
+
+func (x *WebsocketConfig) SetEnableCompression(v bool) {
+	x.EnableCompression = &v
+}
+
+func (x *WebsocketConfig) SetReadBufferSize(v int32) {
+	x.ReadBufferSize = &v
+}
+
+func (x *WebsocketConfig) SetWriteBufferSize(v int32) {
+	x.WriteBufferSize = &v
+}
+
+func (x *WebsocketConfig) HasEndpoint() bool {
 	if x == nil {
 		return false
 	}
-	return x.Placeholder != nil
+	return x.Endpoint != nil
 }
 
-func (x *WebsocketConfig) ClearPlaceholder() {
-	x.Placeholder = nil
+func (x *WebsocketConfig) HasEnableCompression() bool {
+	if x == nil {
+		return false
+	}
+	return x.EnableCompression != nil
+}
+
+func (x *WebsocketConfig) HasReadBufferSize() bool {
+	if x == nil {
+		return false
+	}
+	return x.ReadBufferSize != nil
+}
+
+func (x *WebsocketConfig) HasWriteBufferSize() bool {
+	if x == nil {
+		return false
+	}
+	return x.WriteBufferSize != nil
+}
+
+func (x *WebsocketConfig) ClearEndpoint() {
+	x.Endpoint = nil
+}
+
+func (x *WebsocketConfig) ClearEnableCompression() {
+	x.EnableCompression = nil
+}
+
+func (x *WebsocketConfig) ClearReadBufferSize() {
+	x.ReadBufferSize = nil
+}
+
+func (x *WebsocketConfig) ClearWriteBufferSize() {
+	x.WriteBufferSize = nil
 }
 
 type WebsocketConfig_builder struct {
 	_ [0]func() // Prevents comparability and use of unkeyed literals for the builder.
 
-	Placeholder *string
+	// Endpoint path for websocket connections
+	Endpoint *string
+	// Allowed origin hosts
+	AllowedOrigins []string
+	// Enable per-message compression
+	EnableCompression *bool
+	// Read buffer size in bytes
+	ReadBufferSize *int32
+	// Write buffer size in bytes
+	WriteBufferSize *int32
 }
 
 func (b0 WebsocketConfig_builder) Build() *WebsocketConfig {
 	m0 := &WebsocketConfig{}
 	b, x := &b0, m0
 	_, _ = b, x
-	x.Placeholder = b.Placeholder
+	x.Endpoint = b.Endpoint
+	x.AllowedOrigins = b.AllowedOrigins
+	x.EnableCompression = b.EnableCompression
+	x.ReadBufferSize = b.ReadBufferSize
+	x.WriteBufferSize = b.WriteBufferSize
 	return m0
 }
 
@@ -96,9 +195,13 @@ var File_pkg_web_proto_messages_websocket_config_proto protoreflect.FileDescript
 
 const file_pkg_web_proto_messages_websocket_config_proto_rawDesc = "" +
 	"\n" +
-	"-pkg/web/proto/messages/websocket_config.proto\x12\x0egcommon.v1.web\x1a!google/protobuf/go_features.proto\"3\n" +
-	"\x0fWebsocketConfig\x12 \n" +
-	"\vplaceholder\x18\x01 \x01(\tR\vplaceholderB\xbb\x01\n" +
+	"-pkg/web/proto/messages/websocket_config.proto\x12\x0egcommon.v1.web\x1a!google/protobuf/go_features.proto\"\xdb\x01\n" +
+	"\x0fWebsocketConfig\x12\x1a\n" +
+	"\bendpoint\x18\x01 \x01(\tR\bendpoint\x12'\n" +
+	"\x0fallowed_origins\x18\x02 \x03(\tR\x0eallowedOrigins\x12-\n" +
+	"\x12enable_compression\x18\x03 \x01(\bR\x11enableCompression\x12(\n" +
+	"\x10read_buffer_size\x18\x04 \x01(\x05R\x0ereadBufferSize\x12*\n" +
+	"\x11write_buffer_size\x18\x05 \x01(\x05R\x0fwriteBufferSizeB\xbb\x01\n" +
 	"\x12com.gcommon.v1.webB\x14WebsocketConfigProtoP\x01Z-github.com/jdfalk/gcommon/pkg/web/proto;webpb\xa2\x02\x03GVW\xaa\x02\x0eGcommon.V1.Web\xca\x02\x0eGcommon\\V1\\Web\xe2\x02\x1aGcommon\\V1\\Web\\GPBMetadata\xea\x02\x10Gcommon::V1::Web\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
 
 var file_pkg_web_proto_messages_websocket_config_proto_msgTypes = make([]protoimpl.MessageInfo, 1)

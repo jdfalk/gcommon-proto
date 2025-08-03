@@ -25,8 +25,9 @@ const (
 
 // DeleteSessionResponse response definition.
 type DeleteSessionResponse struct {
-	state         protoimpl.MessageState `protogen:"hybrid.v1"`
-	Placeholder   *string                `protobuf:"bytes,1,opt,name=placeholder" json:"placeholder,omitempty"`
+	state protoimpl.MessageState `protogen:"hybrid.v1"`
+	// Indicates if the session was deleted
+	Success       *bool `protobuf:"varint,1,opt,name=success" json:"success,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -56,39 +57,40 @@ func (x *DeleteSessionResponse) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-func (x *DeleteSessionResponse) GetPlaceholder() string {
-	if x != nil && x.Placeholder != nil {
-		return *x.Placeholder
+func (x *DeleteSessionResponse) GetSuccess() bool {
+	if x != nil && x.Success != nil {
+		return *x.Success
 	}
-	return ""
+	return false
 }
 
-func (x *DeleteSessionResponse) SetPlaceholder(v string) {
-	x.Placeholder = &v
+func (x *DeleteSessionResponse) SetSuccess(v bool) {
+	x.Success = &v
 }
 
-func (x *DeleteSessionResponse) HasPlaceholder() bool {
+func (x *DeleteSessionResponse) HasSuccess() bool {
 	if x == nil {
 		return false
 	}
-	return x.Placeholder != nil
+	return x.Success != nil
 }
 
-func (x *DeleteSessionResponse) ClearPlaceholder() {
-	x.Placeholder = nil
+func (x *DeleteSessionResponse) ClearSuccess() {
+	x.Success = nil
 }
 
 type DeleteSessionResponse_builder struct {
 	_ [0]func() // Prevents comparability and use of unkeyed literals for the builder.
 
-	Placeholder *string
+	// Indicates if the session was deleted
+	Success *bool
 }
 
 func (b0 DeleteSessionResponse_builder) Build() *DeleteSessionResponse {
 	m0 := &DeleteSessionResponse{}
 	b, x := &b0, m0
 	_, _ = b, x
-	x.Placeholder = b.Placeholder
+	x.Success = b.Success
 	return m0
 }
 
@@ -96,9 +98,9 @@ var File_pkg_web_proto_responses_delete_session_response_proto protoreflect.File
 
 const file_pkg_web_proto_responses_delete_session_response_proto_rawDesc = "" +
 	"\n" +
-	"5pkg/web/proto/responses/delete_session_response.proto\x12\x0egcommon.v1.web\x1a!google/protobuf/go_features.proto\"9\n" +
-	"\x15DeleteSessionResponse\x12 \n" +
-	"\vplaceholder\x18\x01 \x01(\tR\vplaceholderB\xc1\x01\n" +
+	"5pkg/web/proto/responses/delete_session_response.proto\x12\x0egcommon.v1.web\x1a!google/protobuf/go_features.proto\"1\n" +
+	"\x15DeleteSessionResponse\x12\x18\n" +
+	"\asuccess\x18\x01 \x01(\bR\asuccessB\xc1\x01\n" +
 	"\x12com.gcommon.v1.webB\x1aDeleteSessionResponseProtoP\x01Z-github.com/jdfalk/gcommon/pkg/web/proto;webpb\xa2\x02\x03GVW\xaa\x02\x0eGcommon.V1.Web\xca\x02\x0eGcommon\\V1\\Web\xe2\x02\x1aGcommon\\V1\\Web\\GPBMetadata\xea\x02\x10Gcommon::V1::Web\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
 
 var file_pkg_web_proto_responses_delete_session_response_proto_msgTypes = make([]protoimpl.MessageInfo, 1)

@@ -12,6 +12,7 @@ import (
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
+	timestamppb "google.golang.org/protobuf/types/known/timestamppb"
 	reflect "reflect"
 	unsafe "unsafe"
 )
@@ -25,8 +26,17 @@ const (
 
 // FileMetadata message definition.
 type FileMetadata struct {
-	state         protoimpl.MessageState `protogen:"hybrid.v1"`
-	Placeholder   *string                `protobuf:"bytes,1,opt,name=placeholder" json:"placeholder,omitempty"`
+	state protoimpl.MessageState `protogen:"hybrid.v1"`
+	// File name
+	Name *string `protobuf:"bytes,1,opt,name=name" json:"name,omitempty"`
+	// File size in bytes
+	SizeBytes *int64 `protobuf:"varint,2,opt,name=size_bytes,json=sizeBytes" json:"size_bytes,omitempty"`
+	// MIME type of the file
+	MimeType *MimeType `protobuf:"bytes,3,opt,name=mime_type,json=mimeType" json:"mime_type,omitempty"`
+	// Optional checksum string
+	Checksum *string `protobuf:"bytes,4,opt,name=checksum" json:"checksum,omitempty"`
+	// Last modification time
+	ModifiedAt    *timestamppb.Timestamp `protobuf:"bytes,5,opt,name=modified_at,json=modifiedAt" json:"modified_at,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -56,39 +66,140 @@ func (x *FileMetadata) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-func (x *FileMetadata) GetPlaceholder() string {
-	if x != nil && x.Placeholder != nil {
-		return *x.Placeholder
+func (x *FileMetadata) GetName() string {
+	if x != nil && x.Name != nil {
+		return *x.Name
 	}
 	return ""
 }
 
-func (x *FileMetadata) SetPlaceholder(v string) {
-	x.Placeholder = &v
+func (x *FileMetadata) GetSizeBytes() int64 {
+	if x != nil && x.SizeBytes != nil {
+		return *x.SizeBytes
+	}
+	return 0
 }
 
-func (x *FileMetadata) HasPlaceholder() bool {
+func (x *FileMetadata) GetMimeType() *MimeType {
+	if x != nil {
+		return x.MimeType
+	}
+	return nil
+}
+
+func (x *FileMetadata) GetChecksum() string {
+	if x != nil && x.Checksum != nil {
+		return *x.Checksum
+	}
+	return ""
+}
+
+func (x *FileMetadata) GetModifiedAt() *timestamppb.Timestamp {
+	if x != nil {
+		return x.ModifiedAt
+	}
+	return nil
+}
+
+func (x *FileMetadata) SetName(v string) {
+	x.Name = &v
+}
+
+func (x *FileMetadata) SetSizeBytes(v int64) {
+	x.SizeBytes = &v
+}
+
+func (x *FileMetadata) SetMimeType(v *MimeType) {
+	x.MimeType = v
+}
+
+func (x *FileMetadata) SetChecksum(v string) {
+	x.Checksum = &v
+}
+
+func (x *FileMetadata) SetModifiedAt(v *timestamppb.Timestamp) {
+	x.ModifiedAt = v
+}
+
+func (x *FileMetadata) HasName() bool {
 	if x == nil {
 		return false
 	}
-	return x.Placeholder != nil
+	return x.Name != nil
 }
 
-func (x *FileMetadata) ClearPlaceholder() {
-	x.Placeholder = nil
+func (x *FileMetadata) HasSizeBytes() bool {
+	if x == nil {
+		return false
+	}
+	return x.SizeBytes != nil
+}
+
+func (x *FileMetadata) HasMimeType() bool {
+	if x == nil {
+		return false
+	}
+	return x.MimeType != nil
+}
+
+func (x *FileMetadata) HasChecksum() bool {
+	if x == nil {
+		return false
+	}
+	return x.Checksum != nil
+}
+
+func (x *FileMetadata) HasModifiedAt() bool {
+	if x == nil {
+		return false
+	}
+	return x.ModifiedAt != nil
+}
+
+func (x *FileMetadata) ClearName() {
+	x.Name = nil
+}
+
+func (x *FileMetadata) ClearSizeBytes() {
+	x.SizeBytes = nil
+}
+
+func (x *FileMetadata) ClearMimeType() {
+	x.MimeType = nil
+}
+
+func (x *FileMetadata) ClearChecksum() {
+	x.Checksum = nil
+}
+
+func (x *FileMetadata) ClearModifiedAt() {
+	x.ModifiedAt = nil
 }
 
 type FileMetadata_builder struct {
 	_ [0]func() // Prevents comparability and use of unkeyed literals for the builder.
 
-	Placeholder *string
+	// File name
+	Name *string
+	// File size in bytes
+	SizeBytes *int64
+	// MIME type of the file
+	MimeType *MimeType
+	// Optional checksum string
+	Checksum *string
+	// Last modification time
+	ModifiedAt *timestamppb.Timestamp
 }
 
 func (b0 FileMetadata_builder) Build() *FileMetadata {
 	m0 := &FileMetadata{}
 	b, x := &b0, m0
 	_, _ = b, x
-	x.Placeholder = b.Placeholder
+	x.Name = b.Name
+	x.SizeBytes = b.SizeBytes
+	x.MimeType = b.MimeType
+	x.Checksum = b.Checksum
+	x.ModifiedAt = b.ModifiedAt
 	return m0
 }
 
@@ -96,21 +207,31 @@ var File_pkg_web_proto_types_file_metadata_proto protoreflect.FileDescriptor
 
 const file_pkg_web_proto_types_file_metadata_proto_rawDesc = "" +
 	"\n" +
-	"'pkg/web/proto/types/file_metadata.proto\x12\x0egcommon.v1.web\x1a!google/protobuf/go_features.proto\"0\n" +
-	"\fFileMetadata\x12 \n" +
-	"\vplaceholder\x18\x01 \x01(\tR\vplaceholderB\xb8\x01\n" +
+	"'pkg/web/proto/types/file_metadata.proto\x12\x0egcommon.v1.web\x1a!google/protobuf/go_features.proto\x1a\x1fgoogle/protobuf/timestamp.proto\x1a#pkg/web/proto/types/mime_type.proto\"\xd1\x01\n" +
+	"\fFileMetadata\x12\x12\n" +
+	"\x04name\x18\x01 \x01(\tR\x04name\x12\x1d\n" +
+	"\n" +
+	"size_bytes\x18\x02 \x01(\x03R\tsizeBytes\x125\n" +
+	"\tmime_type\x18\x03 \x01(\v2\x18.gcommon.v1.web.MimeTypeR\bmimeType\x12\x1a\n" +
+	"\bchecksum\x18\x04 \x01(\tR\bchecksum\x12;\n" +
+	"\vmodified_at\x18\x05 \x01(\v2\x1a.google.protobuf.TimestampR\n" +
+	"modifiedAtB\xb8\x01\n" +
 	"\x12com.gcommon.v1.webB\x11FileMetadataProtoP\x01Z-github.com/jdfalk/gcommon/pkg/web/proto;webpb\xa2\x02\x03GVW\xaa\x02\x0eGcommon.V1.Web\xca\x02\x0eGcommon\\V1\\Web\xe2\x02\x1aGcommon\\V1\\Web\\GPBMetadata\xea\x02\x10Gcommon::V1::Web\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
 
 var file_pkg_web_proto_types_file_metadata_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_pkg_web_proto_types_file_metadata_proto_goTypes = []any{
-	(*FileMetadata)(nil), // 0: gcommon.v1.web.FileMetadata
+	(*FileMetadata)(nil),          // 0: gcommon.v1.web.FileMetadata
+	(*MimeType)(nil),              // 1: gcommon.v1.web.MimeType
+	(*timestamppb.Timestamp)(nil), // 2: google.protobuf.Timestamp
 }
 var file_pkg_web_proto_types_file_metadata_proto_depIdxs = []int32{
-	0, // [0:0] is the sub-list for method output_type
-	0, // [0:0] is the sub-list for method input_type
-	0, // [0:0] is the sub-list for extension type_name
-	0, // [0:0] is the sub-list for extension extendee
-	0, // [0:0] is the sub-list for field type_name
+	1, // 0: gcommon.v1.web.FileMetadata.mime_type:type_name -> gcommon.v1.web.MimeType
+	2, // 1: gcommon.v1.web.FileMetadata.modified_at:type_name -> google.protobuf.Timestamp
+	2, // [2:2] is the sub-list for method output_type
+	2, // [2:2] is the sub-list for method input_type
+	2, // [2:2] is the sub-list for extension type_name
+	2, // [2:2] is the sub-list for extension extendee
+	0, // [0:2] is the sub-list for field type_name
 }
 
 func init() { file_pkg_web_proto_types_file_metadata_proto_init() }
@@ -118,6 +239,7 @@ func file_pkg_web_proto_types_file_metadata_proto_init() {
 	if File_pkg_web_proto_types_file_metadata_proto != nil {
 		return
 	}
+	file_pkg_web_proto_types_mime_type_proto_init()
 	type x struct{}
 	out := protoimpl.TypeBuilder{
 		File: protoimpl.DescBuilder{

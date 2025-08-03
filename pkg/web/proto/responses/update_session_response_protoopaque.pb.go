@@ -25,12 +25,10 @@ const (
 
 // UpdateSessionResponse response definition.
 type UpdateSessionResponse struct {
-	state                  protoimpl.MessageState `protogen:"opaque.v1"`
-	xxx_hidden_Placeholder *string                `protobuf:"bytes,1,opt,name=placeholder"`
-	XXX_raceDetectHookData protoimpl.RaceDetectHookData
-	XXX_presence           [1]uint32
-	unknownFields          protoimpl.UnknownFields
-	sizeCache              protoimpl.SizeCache
+	state              protoimpl.MessageState `protogen:"opaque.v1"`
+	xxx_hidden_Session *SessionData           `protobuf:"bytes,1,opt,name=session"`
+	unknownFields      protoimpl.UnknownFields
+	sizeCache          protoimpl.SizeCache
 }
 
 func (x *UpdateSessionResponse) Reset() {
@@ -58,47 +56,40 @@ func (x *UpdateSessionResponse) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-func (x *UpdateSessionResponse) GetPlaceholder() string {
+func (x *UpdateSessionResponse) GetSession() *SessionData {
 	if x != nil {
-		if x.xxx_hidden_Placeholder != nil {
-			return *x.xxx_hidden_Placeholder
-		}
-		return ""
+		return x.xxx_hidden_Session
 	}
-	return ""
+	return nil
 }
 
-func (x *UpdateSessionResponse) SetPlaceholder(v string) {
-	x.xxx_hidden_Placeholder = &v
-	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 0, 1)
+func (x *UpdateSessionResponse) SetSession(v *SessionData) {
+	x.xxx_hidden_Session = v
 }
 
-func (x *UpdateSessionResponse) HasPlaceholder() bool {
+func (x *UpdateSessionResponse) HasSession() bool {
 	if x == nil {
 		return false
 	}
-	return protoimpl.X.Present(&(x.XXX_presence[0]), 0)
+	return x.xxx_hidden_Session != nil
 }
 
-func (x *UpdateSessionResponse) ClearPlaceholder() {
-	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 0)
-	x.xxx_hidden_Placeholder = nil
+func (x *UpdateSessionResponse) ClearSession() {
+	x.xxx_hidden_Session = nil
 }
 
 type UpdateSessionResponse_builder struct {
 	_ [0]func() // Prevents comparability and use of unkeyed literals for the builder.
 
-	Placeholder *string
+	// Updated session data
+	Session *SessionData
 }
 
 func (b0 UpdateSessionResponse_builder) Build() *UpdateSessionResponse {
 	m0 := &UpdateSessionResponse{}
 	b, x := &b0, m0
 	_, _ = b, x
-	if b.Placeholder != nil {
-		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 0, 1)
-		x.xxx_hidden_Placeholder = b.Placeholder
-	}
+	x.xxx_hidden_Session = b.Session
 	return m0
 }
 
@@ -106,21 +97,23 @@ var File_pkg_web_proto_responses_update_session_response_proto protoreflect.File
 
 const file_pkg_web_proto_responses_update_session_response_proto_rawDesc = "" +
 	"\n" +
-	"5pkg/web/proto/responses/update_session_response.proto\x12\x0egcommon.v1.web\x1a!google/protobuf/go_features.proto\"9\n" +
-	"\x15UpdateSessionResponse\x12 \n" +
-	"\vplaceholder\x18\x01 \x01(\tR\vplaceholderB\xc1\x01\n" +
+	"5pkg/web/proto/responses/update_session_response.proto\x12\x0egcommon.v1.web\x1a!google/protobuf/go_features.proto\x1a)pkg/web/proto/messages/session_data.proto\"N\n" +
+	"\x15UpdateSessionResponse\x125\n" +
+	"\asession\x18\x01 \x01(\v2\x1b.gcommon.v1.web.SessionDataR\asessionB\xc1\x01\n" +
 	"\x12com.gcommon.v1.webB\x1aUpdateSessionResponseProtoP\x01Z-github.com/jdfalk/gcommon/pkg/web/proto;webpb\xa2\x02\x03GVW\xaa\x02\x0eGcommon.V1.Web\xca\x02\x0eGcommon\\V1\\Web\xe2\x02\x1aGcommon\\V1\\Web\\GPBMetadata\xea\x02\x10Gcommon::V1::Web\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
 
 var file_pkg_web_proto_responses_update_session_response_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_pkg_web_proto_responses_update_session_response_proto_goTypes = []any{
 	(*UpdateSessionResponse)(nil), // 0: gcommon.v1.web.UpdateSessionResponse
+	(*SessionData)(nil),           // 1: gcommon.v1.web.SessionData
 }
 var file_pkg_web_proto_responses_update_session_response_proto_depIdxs = []int32{
-	0, // [0:0] is the sub-list for method output_type
-	0, // [0:0] is the sub-list for method input_type
-	0, // [0:0] is the sub-list for extension type_name
-	0, // [0:0] is the sub-list for extension extendee
-	0, // [0:0] is the sub-list for field type_name
+	1, // 0: gcommon.v1.web.UpdateSessionResponse.session:type_name -> gcommon.v1.web.SessionData
+	1, // [1:1] is the sub-list for method output_type
+	1, // [1:1] is the sub-list for method input_type
+	1, // [1:1] is the sub-list for extension type_name
+	1, // [1:1] is the sub-list for extension extendee
+	0, // [0:1] is the sub-list for field type_name
 }
 
 func init() { file_pkg_web_proto_responses_update_session_response_proto_init() }
@@ -128,6 +121,7 @@ func file_pkg_web_proto_responses_update_session_response_proto_init() {
 	if File_pkg_web_proto_responses_update_session_response_proto != nil {
 		return
 	}
+	file_pkg_web_proto_messages_session_data_proto_init()
 	type x struct{}
 	out := protoimpl.TypeBuilder{
 		File: protoimpl.DescBuilder{

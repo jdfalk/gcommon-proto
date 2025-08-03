@@ -12,6 +12,8 @@ import (
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
+	anypb "google.golang.org/protobuf/types/known/anypb"
+	timestamppb "google.golang.org/protobuf/types/known/timestamppb"
 	reflect "reflect"
 	unsafe "unsafe"
 )
@@ -25,12 +27,15 @@ const (
 
 // TemplateData message definition.
 type TemplateData struct {
-	state                  protoimpl.MessageState `protogen:"opaque.v1"`
-	xxx_hidden_Placeholder *string                `protobuf:"bytes,1,opt,name=placeholder"`
-	XXX_raceDetectHookData protoimpl.RaceDetectHookData
-	XXX_presence           [1]uint32
-	unknownFields          protoimpl.UnknownFields
-	sizeCache              protoimpl.SizeCache
+	state                   protoimpl.MessageState `protogen:"opaque.v1"`
+	xxx_hidden_Name         *string                `protobuf:"bytes,1,opt,name=name"`
+	xxx_hidden_Context      *anypb.Any             `protobuf:"bytes,2,opt,name=context"`
+	xxx_hidden_TemplateBody *string                `protobuf:"bytes,3,opt,name=template_body,json=templateBody"`
+	xxx_hidden_CompiledAt   *timestamppb.Timestamp `protobuf:"bytes,4,opt,name=compiled_at,json=compiledAt"`
+	XXX_raceDetectHookData  protoimpl.RaceDetectHookData
+	XXX_presence            [1]uint32
+	unknownFields           protoimpl.UnknownFields
+	sizeCache               protoimpl.SizeCache
 }
 
 func (x *TemplateData) Reset() {
@@ -58,47 +63,131 @@ func (x *TemplateData) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-func (x *TemplateData) GetPlaceholder() string {
+func (x *TemplateData) GetName() string {
 	if x != nil {
-		if x.xxx_hidden_Placeholder != nil {
-			return *x.xxx_hidden_Placeholder
+		if x.xxx_hidden_Name != nil {
+			return *x.xxx_hidden_Name
 		}
 		return ""
 	}
 	return ""
 }
 
-func (x *TemplateData) SetPlaceholder(v string) {
-	x.xxx_hidden_Placeholder = &v
-	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 0, 1)
+func (x *TemplateData) GetContext() *anypb.Any {
+	if x != nil {
+		return x.xxx_hidden_Context
+	}
+	return nil
 }
 
-func (x *TemplateData) HasPlaceholder() bool {
+func (x *TemplateData) GetTemplateBody() string {
+	if x != nil {
+		if x.xxx_hidden_TemplateBody != nil {
+			return *x.xxx_hidden_TemplateBody
+		}
+		return ""
+	}
+	return ""
+}
+
+func (x *TemplateData) GetCompiledAt() *timestamppb.Timestamp {
+	if x != nil {
+		return x.xxx_hidden_CompiledAt
+	}
+	return nil
+}
+
+func (x *TemplateData) SetName(v string) {
+	x.xxx_hidden_Name = &v
+	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 0, 4)
+}
+
+func (x *TemplateData) SetContext(v *anypb.Any) {
+	x.xxx_hidden_Context = v
+}
+
+func (x *TemplateData) SetTemplateBody(v string) {
+	x.xxx_hidden_TemplateBody = &v
+	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 2, 4)
+}
+
+func (x *TemplateData) SetCompiledAt(v *timestamppb.Timestamp) {
+	x.xxx_hidden_CompiledAt = v
+}
+
+func (x *TemplateData) HasName() bool {
 	if x == nil {
 		return false
 	}
 	return protoimpl.X.Present(&(x.XXX_presence[0]), 0)
 }
 
-func (x *TemplateData) ClearPlaceholder() {
+func (x *TemplateData) HasContext() bool {
+	if x == nil {
+		return false
+	}
+	return x.xxx_hidden_Context != nil
+}
+
+func (x *TemplateData) HasTemplateBody() bool {
+	if x == nil {
+		return false
+	}
+	return protoimpl.X.Present(&(x.XXX_presence[0]), 2)
+}
+
+func (x *TemplateData) HasCompiledAt() bool {
+	if x == nil {
+		return false
+	}
+	return x.xxx_hidden_CompiledAt != nil
+}
+
+func (x *TemplateData) ClearName() {
 	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 0)
-	x.xxx_hidden_Placeholder = nil
+	x.xxx_hidden_Name = nil
+}
+
+func (x *TemplateData) ClearContext() {
+	x.xxx_hidden_Context = nil
+}
+
+func (x *TemplateData) ClearTemplateBody() {
+	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 2)
+	x.xxx_hidden_TemplateBody = nil
+}
+
+func (x *TemplateData) ClearCompiledAt() {
+	x.xxx_hidden_CompiledAt = nil
 }
 
 type TemplateData_builder struct {
 	_ [0]func() // Prevents comparability and use of unkeyed literals for the builder.
 
-	Placeholder *string
+	// Template name
+	Name *string
+	// Arbitrary context data
+	Context *anypb.Any
+	// Template body source
+	TemplateBody *string
+	// Last compilation timestamp
+	CompiledAt *timestamppb.Timestamp
 }
 
 func (b0 TemplateData_builder) Build() *TemplateData {
 	m0 := &TemplateData{}
 	b, x := &b0, m0
 	_, _ = b, x
-	if b.Placeholder != nil {
-		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 0, 1)
-		x.xxx_hidden_Placeholder = b.Placeholder
+	if b.Name != nil {
+		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 0, 4)
+		x.xxx_hidden_Name = b.Name
 	}
+	x.xxx_hidden_Context = b.Context
+	if b.TemplateBody != nil {
+		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 2, 4)
+		x.xxx_hidden_TemplateBody = b.TemplateBody
+	}
+	x.xxx_hidden_CompiledAt = b.CompiledAt
 	return m0
 }
 
@@ -106,21 +195,29 @@ var File_pkg_web_proto_messages_template_data_proto protoreflect.FileDescriptor
 
 const file_pkg_web_proto_messages_template_data_proto_rawDesc = "" +
 	"\n" +
-	"*pkg/web/proto/messages/template_data.proto\x12\x0egcommon.v1.web\x1a!google/protobuf/go_features.proto\"0\n" +
-	"\fTemplateData\x12 \n" +
-	"\vplaceholder\x18\x01 \x01(\tR\vplaceholderB\xb8\x01\n" +
+	"*pkg/web/proto/messages/template_data.proto\x12\x0egcommon.v1.web\x1a!google/protobuf/go_features.proto\x1a\x19google/protobuf/any.proto\x1a\x1fgoogle/protobuf/timestamp.proto\"\xb4\x01\n" +
+	"\fTemplateData\x12\x12\n" +
+	"\x04name\x18\x01 \x01(\tR\x04name\x12.\n" +
+	"\acontext\x18\x02 \x01(\v2\x14.google.protobuf.AnyR\acontext\x12#\n" +
+	"\rtemplate_body\x18\x03 \x01(\tR\ftemplateBody\x12;\n" +
+	"\vcompiled_at\x18\x04 \x01(\v2\x1a.google.protobuf.TimestampR\n" +
+	"compiledAtB\xb8\x01\n" +
 	"\x12com.gcommon.v1.webB\x11TemplateDataProtoP\x01Z-github.com/jdfalk/gcommon/pkg/web/proto;webpb\xa2\x02\x03GVW\xaa\x02\x0eGcommon.V1.Web\xca\x02\x0eGcommon\\V1\\Web\xe2\x02\x1aGcommon\\V1\\Web\\GPBMetadata\xea\x02\x10Gcommon::V1::Web\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
 
 var file_pkg_web_proto_messages_template_data_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_pkg_web_proto_messages_template_data_proto_goTypes = []any{
-	(*TemplateData)(nil), // 0: gcommon.v1.web.TemplateData
+	(*TemplateData)(nil),          // 0: gcommon.v1.web.TemplateData
+	(*anypb.Any)(nil),             // 1: google.protobuf.Any
+	(*timestamppb.Timestamp)(nil), // 2: google.protobuf.Timestamp
 }
 var file_pkg_web_proto_messages_template_data_proto_depIdxs = []int32{
-	0, // [0:0] is the sub-list for method output_type
-	0, // [0:0] is the sub-list for method input_type
-	0, // [0:0] is the sub-list for extension type_name
-	0, // [0:0] is the sub-list for extension extendee
-	0, // [0:0] is the sub-list for field type_name
+	1, // 0: gcommon.v1.web.TemplateData.context:type_name -> google.protobuf.Any
+	2, // 1: gcommon.v1.web.TemplateData.compiled_at:type_name -> google.protobuf.Timestamp
+	2, // [2:2] is the sub-list for method output_type
+	2, // [2:2] is the sub-list for method input_type
+	2, // [2:2] is the sub-list for extension type_name
+	2, // [2:2] is the sub-list for extension extendee
+	0, // [0:2] is the sub-list for field type_name
 }
 
 func init() { file_pkg_web_proto_messages_template_data_proto_init() }

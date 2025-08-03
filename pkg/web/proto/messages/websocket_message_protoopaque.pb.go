@@ -12,6 +12,7 @@ import (
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
+	timestamppb "google.golang.org/protobuf/types/known/timestamppb"
 	reflect "reflect"
 	unsafe "unsafe"
 )
@@ -25,12 +26,15 @@ const (
 
 // WebsocketMessage message definition.
 type WebsocketMessage struct {
-	state                  protoimpl.MessageState `protogen:"opaque.v1"`
-	xxx_hidden_Placeholder *string                `protobuf:"bytes,1,opt,name=placeholder"`
-	XXX_raceDetectHookData protoimpl.RaceDetectHookData
-	XXX_presence           [1]uint32
-	unknownFields          protoimpl.UnknownFields
-	sizeCache              protoimpl.SizeCache
+	state                   protoimpl.MessageState `protogen:"opaque.v1"`
+	xxx_hidden_ConnectionId *string                `protobuf:"bytes,1,opt,name=connection_id,json=connectionId"`
+	xxx_hidden_Data         []byte                 `protobuf:"bytes,2,opt,name=data"`
+	xxx_hidden_MessageType  *string                `protobuf:"bytes,3,opt,name=message_type,json=messageType"`
+	xxx_hidden_SentAt       *timestamppb.Timestamp `protobuf:"bytes,4,opt,name=sent_at,json=sentAt"`
+	XXX_raceDetectHookData  protoimpl.RaceDetectHookData
+	XXX_presence            [1]uint32
+	unknownFields           protoimpl.UnknownFields
+	sizeCache               protoimpl.SizeCache
 }
 
 func (x *WebsocketMessage) Reset() {
@@ -58,47 +62,139 @@ func (x *WebsocketMessage) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-func (x *WebsocketMessage) GetPlaceholder() string {
+func (x *WebsocketMessage) GetConnectionId() string {
 	if x != nil {
-		if x.xxx_hidden_Placeholder != nil {
-			return *x.xxx_hidden_Placeholder
+		if x.xxx_hidden_ConnectionId != nil {
+			return *x.xxx_hidden_ConnectionId
 		}
 		return ""
 	}
 	return ""
 }
 
-func (x *WebsocketMessage) SetPlaceholder(v string) {
-	x.xxx_hidden_Placeholder = &v
-	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 0, 1)
+func (x *WebsocketMessage) GetData() []byte {
+	if x != nil {
+		return x.xxx_hidden_Data
+	}
+	return nil
 }
 
-func (x *WebsocketMessage) HasPlaceholder() bool {
+func (x *WebsocketMessage) GetMessageType() string {
+	if x != nil {
+		if x.xxx_hidden_MessageType != nil {
+			return *x.xxx_hidden_MessageType
+		}
+		return ""
+	}
+	return ""
+}
+
+func (x *WebsocketMessage) GetSentAt() *timestamppb.Timestamp {
+	if x != nil {
+		return x.xxx_hidden_SentAt
+	}
+	return nil
+}
+
+func (x *WebsocketMessage) SetConnectionId(v string) {
+	x.xxx_hidden_ConnectionId = &v
+	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 0, 4)
+}
+
+func (x *WebsocketMessage) SetData(v []byte) {
+	if v == nil {
+		v = []byte{}
+	}
+	x.xxx_hidden_Data = v
+	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 1, 4)
+}
+
+func (x *WebsocketMessage) SetMessageType(v string) {
+	x.xxx_hidden_MessageType = &v
+	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 2, 4)
+}
+
+func (x *WebsocketMessage) SetSentAt(v *timestamppb.Timestamp) {
+	x.xxx_hidden_SentAt = v
+}
+
+func (x *WebsocketMessage) HasConnectionId() bool {
 	if x == nil {
 		return false
 	}
 	return protoimpl.X.Present(&(x.XXX_presence[0]), 0)
 }
 
-func (x *WebsocketMessage) ClearPlaceholder() {
+func (x *WebsocketMessage) HasData() bool {
+	if x == nil {
+		return false
+	}
+	return protoimpl.X.Present(&(x.XXX_presence[0]), 1)
+}
+
+func (x *WebsocketMessage) HasMessageType() bool {
+	if x == nil {
+		return false
+	}
+	return protoimpl.X.Present(&(x.XXX_presence[0]), 2)
+}
+
+func (x *WebsocketMessage) HasSentAt() bool {
+	if x == nil {
+		return false
+	}
+	return x.xxx_hidden_SentAt != nil
+}
+
+func (x *WebsocketMessage) ClearConnectionId() {
 	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 0)
-	x.xxx_hidden_Placeholder = nil
+	x.xxx_hidden_ConnectionId = nil
+}
+
+func (x *WebsocketMessage) ClearData() {
+	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 1)
+	x.xxx_hidden_Data = nil
+}
+
+func (x *WebsocketMessage) ClearMessageType() {
+	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 2)
+	x.xxx_hidden_MessageType = nil
+}
+
+func (x *WebsocketMessage) ClearSentAt() {
+	x.xxx_hidden_SentAt = nil
 }
 
 type WebsocketMessage_builder struct {
 	_ [0]func() // Prevents comparability and use of unkeyed literals for the builder.
 
-	Placeholder *string
+	// Connection identifier
+	ConnectionId *string
+	// Payload data
+	Data []byte
+	// Optional message type label
+	MessageType *string
+	// Timestamp when the message was sent
+	SentAt *timestamppb.Timestamp
 }
 
 func (b0 WebsocketMessage_builder) Build() *WebsocketMessage {
 	m0 := &WebsocketMessage{}
 	b, x := &b0, m0
 	_, _ = b, x
-	if b.Placeholder != nil {
-		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 0, 1)
-		x.xxx_hidden_Placeholder = b.Placeholder
+	if b.ConnectionId != nil {
+		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 0, 4)
+		x.xxx_hidden_ConnectionId = b.ConnectionId
 	}
+	if b.Data != nil {
+		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 1, 4)
+		x.xxx_hidden_Data = b.Data
+	}
+	if b.MessageType != nil {
+		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 2, 4)
+		x.xxx_hidden_MessageType = b.MessageType
+	}
+	x.xxx_hidden_SentAt = b.SentAt
 	return m0
 }
 
@@ -106,21 +202,26 @@ var File_pkg_web_proto_messages_websocket_message_proto protoreflect.FileDescrip
 
 const file_pkg_web_proto_messages_websocket_message_proto_rawDesc = "" +
 	"\n" +
-	".pkg/web/proto/messages/websocket_message.proto\x12\x0egcommon.v1.web\x1a!google/protobuf/go_features.proto\"4\n" +
-	"\x10WebsocketMessage\x12 \n" +
-	"\vplaceholder\x18\x01 \x01(\tR\vplaceholderB\xbc\x01\n" +
+	".pkg/web/proto/messages/websocket_message.proto\x12\x0egcommon.v1.web\x1a!google/protobuf/go_features.proto\x1a\x1fgoogle/protobuf/timestamp.proto\"\xa3\x01\n" +
+	"\x10WebsocketMessage\x12#\n" +
+	"\rconnection_id\x18\x01 \x01(\tR\fconnectionId\x12\x12\n" +
+	"\x04data\x18\x02 \x01(\fR\x04data\x12!\n" +
+	"\fmessage_type\x18\x03 \x01(\tR\vmessageType\x123\n" +
+	"\asent_at\x18\x04 \x01(\v2\x1a.google.protobuf.TimestampR\x06sentAtB\xbc\x01\n" +
 	"\x12com.gcommon.v1.webB\x15WebsocketMessageProtoP\x01Z-github.com/jdfalk/gcommon/pkg/web/proto;webpb\xa2\x02\x03GVW\xaa\x02\x0eGcommon.V1.Web\xca\x02\x0eGcommon\\V1\\Web\xe2\x02\x1aGcommon\\V1\\Web\\GPBMetadata\xea\x02\x10Gcommon::V1::Web\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
 
 var file_pkg_web_proto_messages_websocket_message_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_pkg_web_proto_messages_websocket_message_proto_goTypes = []any{
-	(*WebsocketMessage)(nil), // 0: gcommon.v1.web.WebsocketMessage
+	(*WebsocketMessage)(nil),      // 0: gcommon.v1.web.WebsocketMessage
+	(*timestamppb.Timestamp)(nil), // 1: google.protobuf.Timestamp
 }
 var file_pkg_web_proto_messages_websocket_message_proto_depIdxs = []int32{
-	0, // [0:0] is the sub-list for method output_type
-	0, // [0:0] is the sub-list for method input_type
-	0, // [0:0] is the sub-list for extension type_name
-	0, // [0:0] is the sub-list for extension extendee
-	0, // [0:0] is the sub-list for field type_name
+	1, // 0: gcommon.v1.web.WebsocketMessage.sent_at:type_name -> google.protobuf.Timestamp
+	1, // [1:1] is the sub-list for method output_type
+	1, // [1:1] is the sub-list for method input_type
+	1, // [1:1] is the sub-list for extension type_name
+	1, // [1:1] is the sub-list for extension extendee
+	0, // [0:1] is the sub-list for field type_name
 }
 
 func init() { file_pkg_web_proto_messages_websocket_message_proto_init() }

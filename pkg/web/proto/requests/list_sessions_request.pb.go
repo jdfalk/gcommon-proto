@@ -25,8 +25,9 @@ const (
 
 // ListSessionsRequest request definition.
 type ListSessionsRequest struct {
-	state         protoimpl.MessageState `protogen:"hybrid.v1"`
-	Placeholder   *string                `protobuf:"bytes,1,opt,name=placeholder" json:"placeholder,omitempty"`
+	state protoimpl.MessageState `protogen:"hybrid.v1"`
+	// Filter sessions by user ID (optional)
+	UserId        *string `protobuf:"bytes,1,opt,name=user_id,json=userId" json:"user_id,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -56,39 +57,40 @@ func (x *ListSessionsRequest) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-func (x *ListSessionsRequest) GetPlaceholder() string {
-	if x != nil && x.Placeholder != nil {
-		return *x.Placeholder
+func (x *ListSessionsRequest) GetUserId() string {
+	if x != nil && x.UserId != nil {
+		return *x.UserId
 	}
 	return ""
 }
 
-func (x *ListSessionsRequest) SetPlaceholder(v string) {
-	x.Placeholder = &v
+func (x *ListSessionsRequest) SetUserId(v string) {
+	x.UserId = &v
 }
 
-func (x *ListSessionsRequest) HasPlaceholder() bool {
+func (x *ListSessionsRequest) HasUserId() bool {
 	if x == nil {
 		return false
 	}
-	return x.Placeholder != nil
+	return x.UserId != nil
 }
 
-func (x *ListSessionsRequest) ClearPlaceholder() {
-	x.Placeholder = nil
+func (x *ListSessionsRequest) ClearUserId() {
+	x.UserId = nil
 }
 
 type ListSessionsRequest_builder struct {
 	_ [0]func() // Prevents comparability and use of unkeyed literals for the builder.
 
-	Placeholder *string
+	// Filter sessions by user ID (optional)
+	UserId *string
 }
 
 func (b0 ListSessionsRequest_builder) Build() *ListSessionsRequest {
 	m0 := &ListSessionsRequest{}
 	b, x := &b0, m0
 	_, _ = b, x
-	x.Placeholder = b.Placeholder
+	x.UserId = b.UserId
 	return m0
 }
 
@@ -96,9 +98,9 @@ var File_pkg_web_proto_requests_list_sessions_request_proto protoreflect.FileDes
 
 const file_pkg_web_proto_requests_list_sessions_request_proto_rawDesc = "" +
 	"\n" +
-	"2pkg/web/proto/requests/list_sessions_request.proto\x12\x0egcommon.v1.web\x1a!google/protobuf/go_features.proto\"7\n" +
-	"\x13ListSessionsRequest\x12 \n" +
-	"\vplaceholder\x18\x01 \x01(\tR\vplaceholderB\xbf\x01\n" +
+	"2pkg/web/proto/requests/list_sessions_request.proto\x12\x0egcommon.v1.web\x1a!google/protobuf/go_features.proto\".\n" +
+	"\x13ListSessionsRequest\x12\x17\n" +
+	"\auser_id\x18\x01 \x01(\tR\x06userIdB\xbf\x01\n" +
 	"\x12com.gcommon.v1.webB\x18ListSessionsRequestProtoP\x01Z-github.com/jdfalk/gcommon/pkg/web/proto;webpb\xa2\x02\x03GVW\xaa\x02\x0eGcommon.V1.Web\xca\x02\x0eGcommon\\V1\\Web\xe2\x02\x1aGcommon\\V1\\Web\\GPBMetadata\xea\x02\x10Gcommon::V1::Web\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
 
 var file_pkg_web_proto_requests_list_sessions_request_proto_msgTypes = make([]protoimpl.MessageInfo, 1)

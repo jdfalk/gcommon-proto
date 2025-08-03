@@ -25,12 +25,16 @@ const (
 
 // SslConfig message definition.
 type SslConfig struct {
-	state                  protoimpl.MessageState `protogen:"opaque.v1"`
-	xxx_hidden_Placeholder *string                `protobuf:"bytes,1,opt,name=placeholder"`
-	XXX_raceDetectHookData protoimpl.RaceDetectHookData
-	XXX_presence           [1]uint32
-	unknownFields          protoimpl.UnknownFields
-	sizeCache              protoimpl.SizeCache
+	state                        protoimpl.MessageState `protogen:"opaque.v1"`
+	xxx_hidden_Protocol          SSLProtocol            `protobuf:"varint,1,opt,name=protocol,enum=gcommon.v1.web.SSLProtocol"`
+	xxx_hidden_CertFile          *string                `protobuf:"bytes,2,opt,name=cert_file,json=certFile"`
+	xxx_hidden_KeyFile           *string                `protobuf:"bytes,3,opt,name=key_file,json=keyFile"`
+	xxx_hidden_CaFile            *string                `protobuf:"bytes,4,opt,name=ca_file,json=caFile"`
+	xxx_hidden_RequireClientAuth bool                   `protobuf:"varint,5,opt,name=require_client_auth,json=requireClientAuth"`
+	XXX_raceDetectHookData       protoimpl.RaceDetectHookData
+	XXX_presence                 [1]uint32
+	unknownFields                protoimpl.UnknownFields
+	sizeCache                    protoimpl.SizeCache
 }
 
 func (x *SslConfig) Reset() {
@@ -58,46 +62,175 @@ func (x *SslConfig) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-func (x *SslConfig) GetPlaceholder() string {
+func (x *SslConfig) GetProtocol() SSLProtocol {
 	if x != nil {
-		if x.xxx_hidden_Placeholder != nil {
-			return *x.xxx_hidden_Placeholder
+		if protoimpl.X.Present(&(x.XXX_presence[0]), 0) {
+			return x.xxx_hidden_Protocol
+		}
+	}
+	return SSLProtocol_SSL_PROTOCOL_UNSPECIFIED
+}
+
+func (x *SslConfig) GetCertFile() string {
+	if x != nil {
+		if x.xxx_hidden_CertFile != nil {
+			return *x.xxx_hidden_CertFile
 		}
 		return ""
 	}
 	return ""
 }
 
-func (x *SslConfig) SetPlaceholder(v string) {
-	x.xxx_hidden_Placeholder = &v
-	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 0, 1)
+func (x *SslConfig) GetKeyFile() string {
+	if x != nil {
+		if x.xxx_hidden_KeyFile != nil {
+			return *x.xxx_hidden_KeyFile
+		}
+		return ""
+	}
+	return ""
 }
 
-func (x *SslConfig) HasPlaceholder() bool {
+func (x *SslConfig) GetCaFile() string {
+	if x != nil {
+		if x.xxx_hidden_CaFile != nil {
+			return *x.xxx_hidden_CaFile
+		}
+		return ""
+	}
+	return ""
+}
+
+func (x *SslConfig) GetRequireClientAuth() bool {
+	if x != nil {
+		return x.xxx_hidden_RequireClientAuth
+	}
+	return false
+}
+
+func (x *SslConfig) SetProtocol(v SSLProtocol) {
+	x.xxx_hidden_Protocol = v
+	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 0, 5)
+}
+
+func (x *SslConfig) SetCertFile(v string) {
+	x.xxx_hidden_CertFile = &v
+	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 1, 5)
+}
+
+func (x *SslConfig) SetKeyFile(v string) {
+	x.xxx_hidden_KeyFile = &v
+	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 2, 5)
+}
+
+func (x *SslConfig) SetCaFile(v string) {
+	x.xxx_hidden_CaFile = &v
+	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 3, 5)
+}
+
+func (x *SslConfig) SetRequireClientAuth(v bool) {
+	x.xxx_hidden_RequireClientAuth = v
+	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 4, 5)
+}
+
+func (x *SslConfig) HasProtocol() bool {
 	if x == nil {
 		return false
 	}
 	return protoimpl.X.Present(&(x.XXX_presence[0]), 0)
 }
 
-func (x *SslConfig) ClearPlaceholder() {
+func (x *SslConfig) HasCertFile() bool {
+	if x == nil {
+		return false
+	}
+	return protoimpl.X.Present(&(x.XXX_presence[0]), 1)
+}
+
+func (x *SslConfig) HasKeyFile() bool {
+	if x == nil {
+		return false
+	}
+	return protoimpl.X.Present(&(x.XXX_presence[0]), 2)
+}
+
+func (x *SslConfig) HasCaFile() bool {
+	if x == nil {
+		return false
+	}
+	return protoimpl.X.Present(&(x.XXX_presence[0]), 3)
+}
+
+func (x *SslConfig) HasRequireClientAuth() bool {
+	if x == nil {
+		return false
+	}
+	return protoimpl.X.Present(&(x.XXX_presence[0]), 4)
+}
+
+func (x *SslConfig) ClearProtocol() {
 	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 0)
-	x.xxx_hidden_Placeholder = nil
+	x.xxx_hidden_Protocol = SSLProtocol_SSL_PROTOCOL_UNSPECIFIED
+}
+
+func (x *SslConfig) ClearCertFile() {
+	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 1)
+	x.xxx_hidden_CertFile = nil
+}
+
+func (x *SslConfig) ClearKeyFile() {
+	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 2)
+	x.xxx_hidden_KeyFile = nil
+}
+
+func (x *SslConfig) ClearCaFile() {
+	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 3)
+	x.xxx_hidden_CaFile = nil
+}
+
+func (x *SslConfig) ClearRequireClientAuth() {
+	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 4)
+	x.xxx_hidden_RequireClientAuth = false
 }
 
 type SslConfig_builder struct {
 	_ [0]func() // Prevents comparability and use of unkeyed literals for the builder.
 
-	Placeholder *string
+	// TLS protocol version
+	Protocol *SSLProtocol
+	// Path to certificate file
+	CertFile *string
+	// Path to key file
+	KeyFile *string
+	// Optional CA bundle path
+	CaFile *string
+	// Require client certificates
+	RequireClientAuth *bool
 }
 
 func (b0 SslConfig_builder) Build() *SslConfig {
 	m0 := &SslConfig{}
 	b, x := &b0, m0
 	_, _ = b, x
-	if b.Placeholder != nil {
-		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 0, 1)
-		x.xxx_hidden_Placeholder = b.Placeholder
+	if b.Protocol != nil {
+		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 0, 5)
+		x.xxx_hidden_Protocol = *b.Protocol
+	}
+	if b.CertFile != nil {
+		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 1, 5)
+		x.xxx_hidden_CertFile = b.CertFile
+	}
+	if b.KeyFile != nil {
+		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 2, 5)
+		x.xxx_hidden_KeyFile = b.KeyFile
+	}
+	if b.CaFile != nil {
+		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 3, 5)
+		x.xxx_hidden_CaFile = b.CaFile
+	}
+	if b.RequireClientAuth != nil {
+		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 4, 5)
+		x.xxx_hidden_RequireClientAuth = *b.RequireClientAuth
 	}
 	return m0
 }
@@ -106,21 +239,27 @@ var File_pkg_web_proto_messages_ssl_config_proto protoreflect.FileDescriptor
 
 const file_pkg_web_proto_messages_ssl_config_proto_rawDesc = "" +
 	"\n" +
-	"'pkg/web/proto/messages/ssl_config.proto\x12\x0egcommon.v1.web\x1a!google/protobuf/go_features.proto\"-\n" +
-	"\tSslConfig\x12 \n" +
-	"\vplaceholder\x18\x01 \x01(\tR\vplaceholderB\xb5\x01\n" +
+	"'pkg/web/proto/messages/ssl_config.proto\x12\x0egcommon.v1.web\x1a!google/protobuf/go_features.proto\x1a&pkg/web/proto/enums/ssl_protocol.proto\"\xc5\x01\n" +
+	"\tSslConfig\x127\n" +
+	"\bprotocol\x18\x01 \x01(\x0e2\x1b.gcommon.v1.web.SSLProtocolR\bprotocol\x12\x1b\n" +
+	"\tcert_file\x18\x02 \x01(\tR\bcertFile\x12\x19\n" +
+	"\bkey_file\x18\x03 \x01(\tR\akeyFile\x12\x17\n" +
+	"\aca_file\x18\x04 \x01(\tR\x06caFile\x12.\n" +
+	"\x13require_client_auth\x18\x05 \x01(\bR\x11requireClientAuthB\xb5\x01\n" +
 	"\x12com.gcommon.v1.webB\x0eSslConfigProtoP\x01Z-github.com/jdfalk/gcommon/pkg/web/proto;webpb\xa2\x02\x03GVW\xaa\x02\x0eGcommon.V1.Web\xca\x02\x0eGcommon\\V1\\Web\xe2\x02\x1aGcommon\\V1\\Web\\GPBMetadata\xea\x02\x10Gcommon::V1::Web\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
 
 var file_pkg_web_proto_messages_ssl_config_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_pkg_web_proto_messages_ssl_config_proto_goTypes = []any{
 	(*SslConfig)(nil), // 0: gcommon.v1.web.SslConfig
+	(SSLProtocol)(0),  // 1: gcommon.v1.web.SSLProtocol
 }
 var file_pkg_web_proto_messages_ssl_config_proto_depIdxs = []int32{
-	0, // [0:0] is the sub-list for method output_type
-	0, // [0:0] is the sub-list for method input_type
-	0, // [0:0] is the sub-list for extension type_name
-	0, // [0:0] is the sub-list for extension extendee
-	0, // [0:0] is the sub-list for field type_name
+	1, // 0: gcommon.v1.web.SslConfig.protocol:type_name -> gcommon.v1.web.SSLProtocol
+	1, // [1:1] is the sub-list for method output_type
+	1, // [1:1] is the sub-list for method input_type
+	1, // [1:1] is the sub-list for extension type_name
+	1, // [1:1] is the sub-list for extension extendee
+	0, // [0:1] is the sub-list for field type_name
 }
 
 func init() { file_pkg_web_proto_messages_ssl_config_proto_init() }
@@ -128,6 +267,7 @@ func file_pkg_web_proto_messages_ssl_config_proto_init() {
 	if File_pkg_web_proto_messages_ssl_config_proto != nil {
 		return
 	}
+	file_pkg_web_proto_enums_ssl_protocol_proto_init()
 	type x struct{}
 	out := protoimpl.TypeBuilder{
 		File: protoimpl.DescBuilder{

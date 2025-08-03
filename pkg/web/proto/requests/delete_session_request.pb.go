@@ -25,8 +25,9 @@ const (
 
 // DeleteSessionRequest request definition.
 type DeleteSessionRequest struct {
-	state         protoimpl.MessageState `protogen:"hybrid.v1"`
-	Placeholder   *string                `protobuf:"bytes,1,opt,name=placeholder" json:"placeholder,omitempty"`
+	state protoimpl.MessageState `protogen:"hybrid.v1"`
+	// Identifier of the session to delete
+	SessionId     *string `protobuf:"bytes,1,opt,name=session_id,json=sessionId" json:"session_id,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -56,39 +57,40 @@ func (x *DeleteSessionRequest) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-func (x *DeleteSessionRequest) GetPlaceholder() string {
-	if x != nil && x.Placeholder != nil {
-		return *x.Placeholder
+func (x *DeleteSessionRequest) GetSessionId() string {
+	if x != nil && x.SessionId != nil {
+		return *x.SessionId
 	}
 	return ""
 }
 
-func (x *DeleteSessionRequest) SetPlaceholder(v string) {
-	x.Placeholder = &v
+func (x *DeleteSessionRequest) SetSessionId(v string) {
+	x.SessionId = &v
 }
 
-func (x *DeleteSessionRequest) HasPlaceholder() bool {
+func (x *DeleteSessionRequest) HasSessionId() bool {
 	if x == nil {
 		return false
 	}
-	return x.Placeholder != nil
+	return x.SessionId != nil
 }
 
-func (x *DeleteSessionRequest) ClearPlaceholder() {
-	x.Placeholder = nil
+func (x *DeleteSessionRequest) ClearSessionId() {
+	x.SessionId = nil
 }
 
 type DeleteSessionRequest_builder struct {
 	_ [0]func() // Prevents comparability and use of unkeyed literals for the builder.
 
-	Placeholder *string
+	// Identifier of the session to delete
+	SessionId *string
 }
 
 func (b0 DeleteSessionRequest_builder) Build() *DeleteSessionRequest {
 	m0 := &DeleteSessionRequest{}
 	b, x := &b0, m0
 	_, _ = b, x
-	x.Placeholder = b.Placeholder
+	x.SessionId = b.SessionId
 	return m0
 }
 
@@ -96,9 +98,10 @@ var File_pkg_web_proto_requests_delete_session_request_proto protoreflect.FileDe
 
 const file_pkg_web_proto_requests_delete_session_request_proto_rawDesc = "" +
 	"\n" +
-	"3pkg/web/proto/requests/delete_session_request.proto\x12\x0egcommon.v1.web\x1a!google/protobuf/go_features.proto\"8\n" +
-	"\x14DeleteSessionRequest\x12 \n" +
-	"\vplaceholder\x18\x01 \x01(\tR\vplaceholderB\xc0\x01\n" +
+	"3pkg/web/proto/requests/delete_session_request.proto\x12\x0egcommon.v1.web\x1a!google/protobuf/go_features.proto\"5\n" +
+	"\x14DeleteSessionRequest\x12\x1d\n" +
+	"\n" +
+	"session_id\x18\x01 \x01(\tR\tsessionIdB\xc0\x01\n" +
 	"\x12com.gcommon.v1.webB\x19DeleteSessionRequestProtoP\x01Z-github.com/jdfalk/gcommon/pkg/web/proto;webpb\xa2\x02\x03GVW\xaa\x02\x0eGcommon.V1.Web\xca\x02\x0eGcommon\\V1\\Web\xe2\x02\x1aGcommon\\V1\\Web\\GPBMetadata\xea\x02\x10Gcommon::V1::Web\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
 
 var file_pkg_web_proto_requests_delete_session_request_proto_msgTypes = make([]protoimpl.MessageInfo, 1)

@@ -26,7 +26,7 @@ const (
 // ListSessionsRequest request definition.
 type ListSessionsRequest struct {
 	state                  protoimpl.MessageState `protogen:"opaque.v1"`
-	xxx_hidden_Placeholder *string                `protobuf:"bytes,1,opt,name=placeholder"`
+	xxx_hidden_UserId      *string                `protobuf:"bytes,1,opt,name=user_id,json=userId"`
 	XXX_raceDetectHookData protoimpl.RaceDetectHookData
 	XXX_presence           [1]uint32
 	unknownFields          protoimpl.UnknownFields
@@ -58,46 +58,47 @@ func (x *ListSessionsRequest) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-func (x *ListSessionsRequest) GetPlaceholder() string {
+func (x *ListSessionsRequest) GetUserId() string {
 	if x != nil {
-		if x.xxx_hidden_Placeholder != nil {
-			return *x.xxx_hidden_Placeholder
+		if x.xxx_hidden_UserId != nil {
+			return *x.xxx_hidden_UserId
 		}
 		return ""
 	}
 	return ""
 }
 
-func (x *ListSessionsRequest) SetPlaceholder(v string) {
-	x.xxx_hidden_Placeholder = &v
+func (x *ListSessionsRequest) SetUserId(v string) {
+	x.xxx_hidden_UserId = &v
 	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 0, 1)
 }
 
-func (x *ListSessionsRequest) HasPlaceholder() bool {
+func (x *ListSessionsRequest) HasUserId() bool {
 	if x == nil {
 		return false
 	}
 	return protoimpl.X.Present(&(x.XXX_presence[0]), 0)
 }
 
-func (x *ListSessionsRequest) ClearPlaceholder() {
+func (x *ListSessionsRequest) ClearUserId() {
 	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 0)
-	x.xxx_hidden_Placeholder = nil
+	x.xxx_hidden_UserId = nil
 }
 
 type ListSessionsRequest_builder struct {
 	_ [0]func() // Prevents comparability and use of unkeyed literals for the builder.
 
-	Placeholder *string
+	// Filter sessions by user ID (optional)
+	UserId *string
 }
 
 func (b0 ListSessionsRequest_builder) Build() *ListSessionsRequest {
 	m0 := &ListSessionsRequest{}
 	b, x := &b0, m0
 	_, _ = b, x
-	if b.Placeholder != nil {
+	if b.UserId != nil {
 		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 0, 1)
-		x.xxx_hidden_Placeholder = b.Placeholder
+		x.xxx_hidden_UserId = b.UserId
 	}
 	return m0
 }
@@ -106,9 +107,9 @@ var File_pkg_web_proto_requests_list_sessions_request_proto protoreflect.FileDes
 
 const file_pkg_web_proto_requests_list_sessions_request_proto_rawDesc = "" +
 	"\n" +
-	"2pkg/web/proto/requests/list_sessions_request.proto\x12\x0egcommon.v1.web\x1a!google/protobuf/go_features.proto\"7\n" +
-	"\x13ListSessionsRequest\x12 \n" +
-	"\vplaceholder\x18\x01 \x01(\tR\vplaceholderB\xbf\x01\n" +
+	"2pkg/web/proto/requests/list_sessions_request.proto\x12\x0egcommon.v1.web\x1a!google/protobuf/go_features.proto\".\n" +
+	"\x13ListSessionsRequest\x12\x17\n" +
+	"\auser_id\x18\x01 \x01(\tR\x06userIdB\xbf\x01\n" +
 	"\x12com.gcommon.v1.webB\x18ListSessionsRequestProtoP\x01Z-github.com/jdfalk/gcommon/pkg/web/proto;webpb\xa2\x02\x03GVW\xaa\x02\x0eGcommon.V1.Web\xca\x02\x0eGcommon\\V1\\Web\xe2\x02\x1aGcommon\\V1\\Web\\GPBMetadata\xea\x02\x10Gcommon::V1::Web\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
 
 var file_pkg_web_proto_requests_list_sessions_request_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
