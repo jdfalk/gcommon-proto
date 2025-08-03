@@ -1,4 +1,4 @@
-// file: pkg/web/proto/responses/http_response.proto
+// file: pkg/web/proto/responses/http_response_per.proto
 // version: 1.0.0
 // guid: 0c1d2e3f-4a5b-6c7d-8e9f-0a1b2c3d4e5f
 
@@ -6,7 +6,7 @@ edition = "2023";
 
 package gcommon.v1.web;
 
-option go_package = "github.com/jdfalk/gcommon/pkg/web/proto;webpb";
+option go_package = "../../../../pb;webpb";
 
 // Standard imports
 import "google/protobuf/timestamp.proto";

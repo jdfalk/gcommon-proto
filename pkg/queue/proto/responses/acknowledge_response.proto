@@ -6,7 +6,7 @@ edition = "2023";
 
 package gcommon.v1.queue;
 
-option go_package = "github.com/jdfalk/gcommon/pkg/queue/proto;queuepb";
+option go_package = "../../../../pb;queuepb";
 
 // Standard imports
 import "google/protobuf/timestamp.proto";

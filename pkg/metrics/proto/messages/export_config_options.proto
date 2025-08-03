@@ -1,5 +1,5 @@
-// filepath: pkg/metrics/proto/messages/export_config.proto
-// file: metrics/proto/messages/export_config.proto
+// filepath: pkg/metrics/proto/messages/export_config_options.proto
+// file: metrics/proto/messages/export_config_options.proto
 //
 // Configuration options for exporting metrics to external systems.
 //
@@ -8,11 +8,11 @@ edition = "2023";
 package gcommon.v1.metrics;
 
 import "google/protobuf/go_features.proto";
-import "pkg/metrics/proto/enums/export_format.proto";
 import "pkg/metrics/proto/enums/compression_type.proto";
+import "pkg/metrics/proto/enums/export_format.proto";
 
-option go_package = "github.com/jdfalk/gcommon/pkg/metrics/proto;metricspb";
 option features.(pb.go).api_level = API_HYBRID;
+option go_package = "../../../../pb;metricspb";
 
 /**
  * ExportConfig defines how metrics are exported.
@@ -20,10 +20,10 @@ option features.(pb.go).api_level = API_HYBRID;
 // CONFLICT_DISABLED: message ExportConfig {
 // CONFLICT_DISABLED:   // Output format (e.g., prometheus, json)
 // CONFLICT_DISABLED:   ExportFormat format = 1;
-// CONFLICT_DISABLED: 
+// CONFLICT_DISABLED:
 // CONFLICT_DISABLED:   // Compression algorithm to use
 // CONFLICT_DISABLED:   CompressionType compression = 2;
-// CONFLICT_DISABLED: 
+// CONFLICT_DISABLED:
 // CONFLICT_DISABLED:   // Destination URL or path
 // CONFLICT_DISABLED:   string destination = 3;
 // CONFLICT_DISABLED: }

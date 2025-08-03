@@ -11,14 +11,14 @@ import "google/protobuf/go_features.proto";
 import "google/protobuf/timestamp.proto";
 import "pkg/common/proto/messages/error.proto";
 import "pkg/metrics/proto/enums/health_status.proto";
-import "pkg/metrics/proto/types/retention_policy.proto";
+import "pkg/metrics/proto/types/retention_policy_retentionpolicyconfig.proto";
 import "pkg/metrics/proto/types/time_range.proto";
 import "pkg/metrics/proto/types/error_stats.proto";
 import "pkg/metrics/proto/types/performance_stats.proto";
 import "pkg/metrics/proto/types/top_metrics.proto";
 import "pkg/metrics/proto/types/provider_summary.proto";
 
-option go_package = "github.com/jdfalk/gcommon/pkg/metrics/proto;metricspb";
+option go_package = "../../../../pb;metricspb";
 option features.(pb.go).api_level = API_HYBRID;
 
 /**

@@ -11,7 +11,7 @@ import "pkg/auth/proto/types/api_key_credentials.proto";
 import "pkg/auth/proto/types/oauth2_credentials.proto";
 import "pkg/auth/proto/types/jwt_credentials.proto";
 
-option go_package = "github.com/jdfalk/gcommon/pkg/auth/proto;authpb";
+option go_package = "../../../../pb;authpb";
 option features.(pb.go).api_level = API_HYBRID;
 
 /**

@@ -6,7 +6,7 @@ edition = "2023";
 
 package gcommon.v1.web;
 
-option go_package = "github.com/jdfalk/gcommon/pkg/web/proto;webpb";
+option go_package = "../../../../pb;webpb";
 
 // Standard imports
 import "google/protobuf/timestamp.proto";

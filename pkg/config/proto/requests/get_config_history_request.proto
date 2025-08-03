@@ -12,7 +12,7 @@ import "google/protobuf/go_features.proto";
 import "google/protobuf/timestamp.proto";
 import "pkg/common/proto/messages/request_metadata.proto";
 
-option go_package = "github.com/jdfalk/gcommon/pkg/config/proto;configpb";
+option go_package = "../../../../pb;configpb";
 option features.(pb.go).api_level = API_HYBRID;
 
 /**

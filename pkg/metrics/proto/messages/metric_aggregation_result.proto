@@ -1,5 +1,5 @@
-// filepath: pkg/metrics/proto/messages/metric_aggregation.proto
-// file: metrics/proto/messages/metric_aggregation.proto
+// filepath: pkg/metrics/proto/messages/metric_aggregation_result.proto
+// file: metrics/proto/messages/metric_aggregation_result.proto
 //
 // Definition of aggregation results for metrics queries.
 //
@@ -10,8 +10,8 @@ package gcommon.v1.metrics;
 import "google/protobuf/go_features.proto";
 import "pkg/metrics/proto/enums/aggregation_type.proto";
 
-option go_package = "github.com/jdfalk/gcommon/pkg/metrics/proto;metricspb";
 option features.(pb.go).api_level = API_HYBRID;
+option go_package = "../../../../pb;metricspb";
 
 /**
  * MetricAggregation represents aggregated metric value.
@@ -19,10 +19,10 @@ option features.(pb.go).api_level = API_HYBRID;
 // CONFLICT_DISABLED: message MetricAggregation {
 // CONFLICT_DISABLED:   // Aggregation type performed
 // CONFLICT_DISABLED:   AggregationType type = 1;
-// CONFLICT_DISABLED: 
+// CONFLICT_DISABLED:
 // CONFLICT_DISABLED:   // Value produced by aggregation
 // CONFLICT_DISABLED:   double value = 2;
-// CONFLICT_DISABLED: 
+// CONFLICT_DISABLED:
 // CONFLICT_DISABLED:   // Number of samples aggregated
 // CONFLICT_DISABLED:   int64 sample_count = 3;
 // CONFLICT_DISABLED: }

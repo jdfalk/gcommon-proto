@@ -9,7 +9,7 @@ package gcommon.v1.metrics;
 import "google/protobuf/timestamp.proto";
 import "pkg/metrics/proto/types/histogram_bucket.proto";
 
-option go_package = "github.com/jdfalk/gcommon/pkg/metrics/proto;metricspb";
+option go_package = "../../../../pb;metricspb";
 
 // HistogramMetric represents a histogram metric with buckets
 message HistogramMetric {

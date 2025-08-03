@@ -6,7 +6,7 @@ edition = "2023";
 
 package gcommon.v1.metrics;
 
-option go_package = "github.com/jdfalk/gcommon/pkg/metrics/proto;metricspb";
+option go_package = "../../../../pb;metricspb";
 
 // DashboardType represents different types of dashboards
 enum DashboardType {

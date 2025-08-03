@@ -1,4 +1,4 @@
-// file: pkg/metrics/proto/types/retention_policy.proto
+// file: pkg/metrics/proto/types/retention_policy_retentionpolicyconfig.proto
 // version: 1.0.0
 // guid: 123e4567-e89b-12d3-a456-426614174024
 
@@ -8,7 +8,7 @@ package gcommon.v1.metrics;
 
 import "google/protobuf/duration.proto";
 
-option go_package = "github.com/jdfalk/gcommon/pkg/metrics/proto;metricspb";
+option go_package = "../../../../pb;metricspb";
 
 /**
  * Retention policy configuration for metric data.

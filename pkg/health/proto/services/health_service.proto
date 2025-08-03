@@ -19,7 +19,7 @@ import "pkg/health/proto/responses/register_check_response.proto";
 import "pkg/health/proto/responses/unregister_check_response.proto";
 import "pkg/health/proto/responses/get_health_metrics_response.proto";
 
-option go_package = "github.com/jdfalk/gcommon/pkg/health/proto;healthpb";
+option go_package = "../../../../pb;healthpb";
 option features.(pb.go).api_level = API_HYBRID;
 
 /**

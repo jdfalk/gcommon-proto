@@ -27,7 +27,7 @@ import "pkg/auth/proto/requests/invalidate_user_sessions_request.proto";
 import "pkg/auth/proto/requests/get_system_stats_request.proto";
 import "pkg/auth/proto/responses/get_system_stats_response.proto";
 
-option go_package = "github.com/jdfalk/gcommon/pkg/auth/proto;authpb";
+option go_package = "../../../../pb;authpb";
 option features.(pb.go).api_level = API_HYBRID;
 
 /**

@@ -11,9 +11,9 @@ import "google/protobuf/go_features.proto";
 import "pkg/common/proto/messages/request_metadata.proto";
 import "pkg/metrics/proto/enums/metric_type.proto";
 import "pkg/metrics/proto/types/export_config.proto";
-import "pkg/metrics/proto/types/retention_policy.proto";
+import "pkg/metrics/proto/types/retention_policy_retentionpolicyconfig.proto";
 
-option go_package = "github.com/jdfalk/gcommon/pkg/metrics/proto;metricspb";
+option go_package = "../../../../pb;metricspb";
 option features.(pb.go).api_level = API_HYBRID;
 
 /**

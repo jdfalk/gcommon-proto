@@ -8,7 +8,7 @@ package gcommon.v1.auth;
 
 import "pkg/common/proto/messages/request_metadata.proto";
 
-option go_package = "github.com/jdfalk/gcommon/pkg/auth/proto;authpb";
+option go_package = "../../../../pb;authpb";
 
 /**
  * Request to retrieve details about a specific role.

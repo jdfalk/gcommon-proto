@@ -13,7 +13,7 @@ import "pkg/common/proto/messages/error.proto";
 import "pkg/config/proto/messages/config_metadata.proto";
 import "pkg/config/proto/messages/config_template.proto";
 
-option go_package = "github.com/jdfalk/gcommon/pkg/config/proto;configpb";
+option go_package = "../../../../pb;configpb";
 
 // ConfigValue represents a configuration value
 message ConfigValue {

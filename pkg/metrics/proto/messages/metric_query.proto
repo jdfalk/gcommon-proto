@@ -15,7 +15,7 @@ import "pkg/metrics/proto/enums/aggregation_type.proto";
 import "pkg/metrics/proto/messages/metric_filter.proto";
 import "pkg/metrics/proto/types/timestamp_range.proto";
 
-option go_package = "github.com/jdfalk/gcommon/pkg/metrics/proto;metricspb";
+option go_package = "../../../../pb;metricspb";
 option features.(pb.go).api_level = API_HYBRID;
 
 /**
