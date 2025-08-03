@@ -7,18 +7,12 @@ edition = "2023";
 package gcommon.v1.notification;
 
 import "google/protobuf/go_features.proto";
-import "pkg/notification/proto/requests/send_notification_request.proto";
-import "pkg/notification/proto/responses/send_notification_response.proto";
-import "pkg/notification/proto/requests/list_notifications_request.proto";
-import "pkg/notification/proto/responses/list_notifications_response.proto";
-import "pkg/notification/proto/requests/update_preferences_request.proto";
-import "pkg/notification/proto/responses/update_preferences_response.proto";
-import "pkg/notification/proto/requests/get_template_request.proto";
-import "pkg/notification/proto/responses/get_template_response.proto";
-import "pkg/notification/proto/requests/mark_as_read_request.proto";
-import "pkg/notification/proto/responses/mark_as_read_response.proto";
-import "pkg/notification/proto/requests/delete_notification_request.proto";
-import "pkg/notification/proto/responses/delete_notification_response.proto";
+import "pkg/notification/proto/proto/send_notification_response.proto";
+import "pkg/notification/proto/proto/list_notifications_response.proto";
+import "pkg/notification/proto/proto/update_preferences_response.proto";
+import "pkg/notification/proto/proto/get_template_response.proto";
+import "pkg/notification/proto/proto/mark_as_read_response.proto";
+import "pkg/notification/proto/proto/delete_notification_response.proto";
 
 option go_package = "github.com/jdfalk/gcommon/pkg/notification/proto;notificationpb";
 option features.(pb.go).api_level = API_HYBRID;

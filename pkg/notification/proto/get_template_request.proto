@@ -6,9 +6,7 @@ edition = "2023";
 package gcommon.v1.notification;
 
 import "google/protobuf/go_features.proto";
-import "pkg/common/proto/messages/request_metadata.proto";
-
-option go_package = "github.com/jdfalk/gcommon/pkg/notification/proto;notificationpb";
+import "pkg/common/proto/jdfalk/gcommon/pkg/notification/proto;notificationpb";
 option features.(pb.go).api_level = API_HYBRID;
 
 /**
