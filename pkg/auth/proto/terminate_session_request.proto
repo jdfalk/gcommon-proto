@@ -12,9 +12,7 @@ option go_package = "github.com/jdfalk/gcommon/pkg/auth/proto;authpb";
 import "google/protobuf/timestamp.proto";
 
 // Common types
-import "pkg/common/proto/request_metadata.proto";
-
-/**
+import "pkg/common/proto/**
  * TerminateSessionRequest terminates one or more user sessions.
  * Used by administrators to forcibly terminate user sessions,
  * or by users to terminate their own sessions (e.g., "log out all devices").

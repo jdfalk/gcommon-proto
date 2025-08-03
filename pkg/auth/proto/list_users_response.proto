@@ -6,7 +6,7 @@ edition = "2023";
 
 package gcommon.v1.auth;
 
-import "pkg/auth/proto/jdfalk/gcommon/pkg/auth/proto;authpb";
+import "pkg/auth/proto/gcommon/pkg/auth/proto;authpb";
 
 /**
  * Response for listing users.

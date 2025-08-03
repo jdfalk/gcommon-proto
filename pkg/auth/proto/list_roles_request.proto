@@ -4,10 +4,8 @@ edition = "2023";
 package gcommon.v1.auth;
 
 import "google/protobuf/go_features.proto";
-import "pkg/common/proto/request_metadata.proto";
-import "pkg/common/proto/pagination.proto";
-import "pkg/common/proto/filter_options.proto";
-import "pkg/common/proto/sort.proto";
+import "pkg/common/proto/common/proto/pagination.proto";
+import "pkg/common/proto/common/proto/sort.proto";
 
 option go_package = "github.com/jdfalk/gcommon/pkg/auth/proto;authpb";
 option features.(pb.go).api_level = API_HYBRID;

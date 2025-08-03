@@ -4,9 +4,9 @@ edition = "2023";
 package gcommon.v1.auth;
 
 import "google/protobuf/go_features.proto";
-import "pkg/auth/proto/auth/proto/authorize_response.proto";
-import "pkg/auth/proto/auth/proto/get_user_permissions_response.proto";
-import "pkg/auth/proto/auth/proto/get_user_roles_response.proto";
+import "pkg/auth/proto/proto/authorize_response.proto";
+import "pkg/auth/proto/proto/get_user_permissions_response.proto";
+import "pkg/auth/proto/proto/get_user_roles_response.proto";
 
 option go_package = "github.com/jdfalk/gcommon/pkg/auth/proto;authpb";
 option features.(pb.go).api_level = API_HYBRID;

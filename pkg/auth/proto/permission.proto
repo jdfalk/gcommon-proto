@@ -7,7 +7,7 @@ edition = "2023";
 package gcommon.v1.auth;
 
 import "google/protobuf/timestamp.proto";
-import "pkg/auth/proto/jdfalk/gcommon/pkg/auth/proto;authpb";
+import "pkg/auth/proto/gcommon/pkg/auth/proto;authpb";
 
 /**
  * Permission represents a specific action that can be granted
