@@ -10,7 +10,7 @@ import "google/protobuf/go_features.proto";
 import "pkg/media/proto/messages/series_info.proto";
 import "pkg/media/proto/messages/movie_info.proto";
 
-option go_package = "../../../../pkg/media/proto;mediapb";
+option go_package = "github.com/jdfalk/gcommon/pkg/media/proto;mediapb";
 option features.(pb.go).api_level = API_HYBRID;
 
 // Metadata information for a media file from external sources.

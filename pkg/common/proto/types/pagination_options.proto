@@ -6,7 +6,7 @@ edition = "2023";
 
 package gcommon.v1.common;
 
-option go_package = "../../../../pkg/common/proto;commonpb";
+option go_package = "github.com/jdfalk/gcommon/pkg/common/proto;commonpb";
 
 // PaginationOptions defines standard paging parameters.
 message PaginationOptions {

@@ -6,7 +6,7 @@ edition = "2023";
 
 package gcommon.v1.cache;
 
-option go_package = "../../../../pkg/cache/proto;cachepb";
+option go_package = "github.com/jdfalk/gcommon/pkg/cache/proto;cachepb";
 
 /**
  * Request to delete a cache namespace.

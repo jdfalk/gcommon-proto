@@ -9,7 +9,7 @@ package gcommon.v1.config;
 import "google/protobuf/timestamp.proto";
 import "pkg/config/proto/messages/config_audit_log.proto";
 
-option go_package = "../../../../pkg/config/proto;configpb";
+option go_package = "github.com/jdfalk/gcommon/pkg/config/proto;configpb";
 
 // ConfigTemplate represents a configuration template for reuse
 message ConfigTemplate {

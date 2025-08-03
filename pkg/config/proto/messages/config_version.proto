@@ -10,7 +10,7 @@ import "google/protobuf/timestamp.proto";
 import "pkg/config/proto/messages/config_change.proto";
 import "pkg/config/proto/messages/config_audit_log.proto";
 
-option go_package = "../../../../pkg/config/proto;configpb";
+option go_package = "github.com/jdfalk/gcommon/pkg/config/proto;configpb";
 
 // ConfigVersion represents a version of configuration
 message ConfigVersion {

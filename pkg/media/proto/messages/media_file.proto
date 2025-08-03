@@ -14,7 +14,7 @@ import "pkg/media/proto/messages/subtitle_track.proto";
 import "pkg/media/proto/messages/audio_track.proto";
 import "pkg/media/proto/messages/media_quality.proto";
 
-option go_package = "../../../../pkg/media/proto;mediapb";
+option go_package = "github.com/jdfalk/gcommon/pkg/media/proto;mediapb";
 option features.(pb.go).api_level = API_HYBRID;
 
 // Media file representation with associated metadata and tracks.

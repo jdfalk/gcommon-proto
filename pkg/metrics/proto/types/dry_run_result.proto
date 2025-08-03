@@ -6,7 +6,7 @@ edition = "2023";
 
 package gcommon.v1.metrics;
 
-option go_package = "../../../../pkg/metrics/proto;metricspb";
+option go_package = "github.com/jdfalk/gcommon/pkg/metrics/proto;metricspb";
 
 /**
  * DryRunResult contains information about what would happen in a dry run.

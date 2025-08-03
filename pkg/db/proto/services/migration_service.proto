@@ -16,7 +16,7 @@ import "pkg/db/proto/requests/list_migrations_request.proto";
 import "pkg/db/proto/responses/list_migrations_response.proto";
 import "google/protobuf/go_features.proto";
 
-option go_package = "../../../../pkg/db/proto;dbpb";
+option go_package = "github.com/jdfalk/gcommon/pkg/db/proto;dbpb";
 option features.(pb.go).api_level = API_HYBRID;
 
 /**

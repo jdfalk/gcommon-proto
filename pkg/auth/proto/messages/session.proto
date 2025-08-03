@@ -8,7 +8,7 @@ import "google/protobuf/timestamp.proto";
 import "pkg/common/proto/types/client_info.proto";
 import "pkg/auth/proto/enums/session_status.proto";
 
-option go_package = "../../../../pkg/auth/proto;authpb";
+option go_package = "github.com/jdfalk/gcommon/pkg/auth/proto;authpb";
 option features.(pb.go).api_level = API_HYBRID;
 
 /**

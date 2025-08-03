@@ -8,7 +8,7 @@ package gcommon.v1.auth;
 
 import "google/protobuf/timestamp.proto";
 
-option go_package = "../../../../pkg/auth/proto;authpb";
+option go_package = "github.com/jdfalk/gcommon/pkg/auth/proto;authpb";
 
 /**
  * Detailed user information.

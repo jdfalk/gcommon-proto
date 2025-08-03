@@ -10,7 +10,7 @@ import "google/protobuf/timestamp.proto";
 import "pkg/config/proto/messages/config_metadata.proto";
 import "pkg/config/proto/messages/config_secret.proto";
 
-option go_package = "../../../../pkg/config/proto;configpb";
+option go_package = "github.com/jdfalk/gcommon/pkg/config/proto;configpb";
 
 // ConfigEnvironment represents a configuration environment
 message ConfigEnvironment {

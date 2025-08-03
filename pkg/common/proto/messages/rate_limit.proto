@@ -6,7 +6,7 @@ package gcommon.v1.common;
 import "google/protobuf/go_features.proto";
 import "google/protobuf/duration.proto";
 
-option go_package = "../../../../pkg/common/proto;commonpb";
+option go_package = "github.com/jdfalk/gcommon/pkg/common/proto;commonpb";
 option features.(pb.go).api_level = API_HYBRID;
 
 /**

@@ -8,7 +8,7 @@ import "google/protobuf/timestamp.proto";
 import "pkg/common/proto/types/resource_reference.proto";
 import "pkg/common/proto/enums/audit_result.proto";
 
-option go_package = "../../../../pkg/common/proto;commonpb";
+option go_package = "github.com/jdfalk/gcommon/pkg/common/proto;commonpb";
 option features.(pb.go).api_level = API_HYBRID;
 
 /**

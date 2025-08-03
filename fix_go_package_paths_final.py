@@ -30,12 +30,16 @@ def fix_go_package_paths():
             # Pattern to match go_package options with relative paths
             # Example: option go_package = "../../../../pkg/auth/proto;authpb";
             # Should become: option go_package = "github.com/jdfalk/gcommon/pkg/auth/proto;authpb";
-            go_package_pattern = r'option go_package = "(\.\./)*pkg/([^/]+)/proto;([^"]*)"'
+            go_package_pattern = (
+                r'option go_package = "(\.\./)*pkg/([^/]+)/proto;([^"]*)"'
+            )
 
             def replace_go_package(match):
                 module = match.group(2)  # Extract module name like 'auth', 'web', etc.
                 package_suffix = match.group(3)  # Extract package suffix like 'authpb'
-                new_path = f"github.com/jdfalk/gcommon/pkg/{module}/proto;{package_suffix}"
+                new_path = (
+                    f"github.com/jdfalk/gcommon/pkg/{module}/proto;{package_suffix}"
+                )
                 return f'option go_package = "{new_path}"'
 
             content = re.sub(go_package_pattern, replace_go_package, content)

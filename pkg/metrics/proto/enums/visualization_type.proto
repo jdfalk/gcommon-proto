@@ -6,7 +6,7 @@ edition = "2023";
 
 package gcommon.v1.metrics;
 
-option go_package = "../../../../pkg/metrics/proto;metricspb";
+option go_package = "github.com/jdfalk/gcommon/pkg/metrics/proto;metricspb";
 
 // VisualizationType represents different types of data visualizations
 enum VisualizationType {

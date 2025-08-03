@@ -8,7 +8,7 @@ import "google/protobuf/any.proto";
 import "pkg/common/proto/messages/batch_options.proto";
 import "pkg/common/proto/messages/request_metadata.proto";
 
-option go_package = "../../../../pkg/common/proto;commonpb";
+option go_package = "github.com/jdfalk/gcommon/pkg/common/proto;commonpb";
 option features.(pb.go).api_level = API_HYBRID;
 
 /**

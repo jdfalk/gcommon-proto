@@ -13,7 +13,7 @@ import "google/protobuf/timestamp.proto";
 import "pkg/common/proto/messages/request_metadata.proto";
 import "pkg/common/proto/types/pagination_options.proto";
 
-option go_package = "../../../../pkg/auth/proto;authpb";
+option go_package = "github.com/jdfalk/gcommon/pkg/auth/proto;authpb";
 
 /**
  * ListUserSessionsRequest requests a list of active sessions for a user.

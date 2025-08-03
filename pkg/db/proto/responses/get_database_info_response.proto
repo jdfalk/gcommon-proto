@@ -6,7 +6,7 @@ package gcommon.v1.database;
 import "pkg/db/proto/messages/database_info.proto";
 import "google/protobuf/go_features.proto";
 
-option go_package = "../../../../pkg/db/proto;dbpb";
+option go_package = "github.com/jdfalk/gcommon/pkg/db/proto;dbpb";
 option features.(pb.go).api_level = API_HYBRID;
 
 /**

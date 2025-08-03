@@ -10,7 +10,7 @@ import "google/protobuf/go_features.proto";
 import "pkg/common/proto/messages/response_metadata.proto";
 import "pkg/notification/proto/messages/subscription_preferences.proto";
 
-option go_package = "../../../../pkg/notification/proto;notificationpb";
+option go_package = "github.com/jdfalk/gcommon/pkg/notification/proto;notificationpb";
 option features.(pb.go).api_level = API_HYBRID;
 
 /**
