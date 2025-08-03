@@ -12,6 +12,7 @@
 This comprehensive analysis examines the subtitle-manager project to identify missing protobuf services and message types that need to be implemented in the gcommon repository. Based on the analysis of subtitle-manager's architecture, existing protobuf usage, and business domain requirements, this report provides a detailed roadmap for extending gcommon to fully support subtitle management operations.
 
 **Key Findings:**
+
 - **Current Integration**: Subtitle-manager already uses gcommon for basic types (RequestMetadata, Error)
 - **Missing Services**: 8 major service categories need implementation in gcommon
 - **Required Messages**: ~150+ new message types across multiple domains
@@ -41,6 +42,7 @@ This comprehensive analysis examines the subtitle-manager project to identify mi
 Subtitle Manager is a comprehensive subtitle management system with the following key domains:
 
 **1. Core Business Functions:**
+
 - Subtitle format conversion (SRT, VTT, ASS, SSA)
 - Translation services (Google Translate, OpenAI GPT)
 - Audio transcription (Whisper integration)
@@ -48,12 +50,14 @@ Subtitle Manager is a comprehensive subtitle management system with the followin
 - Provider management (40+ subtitle providers)
 
 **2. Media Library Management:**
+
 - Media file scanning and indexing
 - Metadata fetching (TheMovieDB integration)
 - Library watching and auto-processing
 - Sonarr/Radarr integration for media servers
 
 **3. Enterprise Features:**
+
 - User authentication and RBAC
 - Session management and API keys
 - Audit logging and history tracking
@@ -61,6 +65,7 @@ Subtitle Manager is a comprehensive subtitle management system with the followin
 - Webhook system for external integrations
 
 **4. Infrastructure:**
+
 - Multi-database support (SQLite, PebbleDB, PostgreSQL)
 - gRPC services for remote operations
 - REST API with comprehensive endpoints
@@ -68,6 +73,7 @@ Subtitle Manager is a comprehensive subtitle management system with the followin
 - Container deployment (multi-arch Docker)
 
 ### Current Architecture Stats
+
 - **LOC**: ~50,000+ lines of Go code
 - **Packages**: 60+ internal packages
 - **Dependencies**: Uses gcommon v0.1.0 minimally
@@ -84,6 +90,7 @@ Subtitle Manager is a comprehensive subtitle management system with the followin
 Subtitle-manager currently uses gcommon in a minimal capacity:
 
 **1. Protobuf Messages Used:**
+
 ```protobuf
 // From translator.proto
 import "pkg/common/proto/messages/request_metadata.proto";
@@ -95,17 +102,20 @@ repeated gcommon.v1.common.Error errors = 2;
 ```
 
 **2. Go Module Dependency:**
+
 ```go
 // go.mod
 github.com/jdfalk/gcommon v0.1.0
 ```
 
 **3. Internal Implementations:**
+
 - Authentication: `pkg/gcommonauth/` (local implementation)
 - Configuration: `pkg/gcommon/config/` (local wrapper)
 - Database: Custom implementations for each backend
 
 ### Integration Readiness
+
 - ✅ **Protocol Buffers**: Already using Edition 2023
 - ✅ **Import Structure**: Uses direct imports (recommended pattern)
 - ✅ **Error Handling**: Basic error types from gcommon
@@ -125,6 +135,7 @@ Based on subtitle-manager's architecture, the following services are needed in g
 **Subtitle Manager Usage**: Core business domain
 
 **Required Services:**
+
 ```protobuf
 service MediaService {
   // Media file operations
@@ -158,6 +169,7 @@ service MediaLibraryService {
 **Subtitle Manager Usage**: Primary business function
 
 **Required Services:**
+
 ```protobuf
 service SubtitleService {
   // Core subtitle operations
@@ -192,6 +204,7 @@ service SubtitleProviderService {
 **Subtitle Manager Usage**: Core feature differentiator
 
 **Required Services:**
+
 ```protobuf
 service TranslationService {
   // Translation operations
@@ -224,6 +237,7 @@ service TranscriptionService {
 **Subtitle Manager Usage**: Enterprise features
 
 **Required Services:**
+
 ```protobuf
 service IntegrationService {
   // Media server integration
@@ -252,6 +266,7 @@ service ExternalAPIService {
 **Subtitle Manager Usage**: Async operations
 
 **Required Enhancements to Existing Queue Module:**
+
 ```protobuf
 service TaskService {
   // Specialized task operations
@@ -281,6 +296,7 @@ service SchedulerService {
 **Subtitle Manager Usage**: User customization
 
 **Required Enhancements to Existing Auth Module:**
+
 ```protobuf
 service UserProfileService {
   // Profile management
@@ -303,6 +319,7 @@ service UserProfileService {
 **Subtitle Manager Usage**: Enterprise alerting
 
 **Required Services:**
+
 ```protobuf
 service NotificationService {
   // Notification management
@@ -325,6 +342,7 @@ service NotificationService {
 **Subtitle Manager Usage**: Operational insights
 
 **Required Enhancements to Existing Metrics Module:**
+
 ```protobuf
 service AnalyticsService {
   // Usage analytics
@@ -875,18 +893,21 @@ enum NotificationEvent {
 **Location**: `pkg/media/proto/services/`
 
 #### MediaService
+
 - **Purpose**: Core media file and library management
 - **Methods**: 12 RPC methods for scanning, metadata, and file operations
 - **Dependencies**: Database, Config, Auth modules
 - **Estimated Complexity**: Large (will be heavily used)
 
 #### SubtitleService
+
 - **Purpose**: Subtitle processing, conversion, and synchronization
 - **Methods**: 10 RPC methods for subtitle operations
 - **Dependencies**: Media, Translation, Provider modules
 - **Estimated Complexity**: Large (core business logic)
 
 #### SubtitleProviderService
+
 - **Purpose**: Managing 40+ subtitle provider integrations
 - **Methods**: 4 RPC methods for provider configuration and testing
 - **Dependencies**: Config, Auth modules
@@ -897,12 +918,14 @@ enum NotificationEvent {
 **Location**: `pkg/translation/proto/services/`
 
 #### TranslationService
+
 - **Purpose**: Text and subtitle translation via Google/OpenAI
 - **Methods**: 6 RPC methods for translation operations
 - **Dependencies**: Config, Auth modules
 - **Estimated Complexity**: Medium (external API integration)
 
 #### TranscriptionService
+
 - **Purpose**: Audio transcription via Whisper and other services
 - **Methods**: 6 RPC methods for transcription operations
 - **Dependencies**: Media, Config modules
@@ -913,12 +936,14 @@ enum NotificationEvent {
 **Location**: `pkg/integration/proto/services/`
 
 #### IntegrationService
+
 - **Purpose**: Sonarr, Radarr, Plex integration
 - **Methods**: 6 RPC methods for external service integration
 - **Dependencies**: Config, Auth, Webhook modules
 - **Estimated Complexity**: Medium (external API coordination)
 
 #### ExternalAPIService
+
 - **Purpose**: TheMovieDB and other metadata APIs
 - **Methods**: 3 RPC methods for external data fetching
 - **Dependencies**: Config, Cache modules
@@ -929,18 +954,21 @@ enum NotificationEvent {
 **Location**: `pkg/profile/proto/services/` and `pkg/task/proto/services/`
 
 #### UserProfileService (extends existing auth)
+
 - **Purpose**: User preferences and language profiles
 - **Methods**: 6 RPC methods for profile management
 - **Dependencies**: Auth module
 - **Estimated Complexity**: Small (data management)
 
 #### TaskService (extends existing queue)
+
 - **Purpose**: Background job processing for subtitle operations
 - **Methods**: 6 RPC methods for job management
 - **Dependencies**: Queue, Auth modules
 - **Estimated Complexity**: Medium (async processing)
 
 #### SchedulerService (extends existing queue)
+
 - **Purpose**: Cron-based scheduling for library scans
 - **Methods**: 4 RPC methods for schedule management
 - **Dependencies**: Queue, Config modules
@@ -951,65 +979,74 @@ enum NotificationEvent {
 ## Implementation Priority Matrix
 
 ### 🔥 **Phase 1: Core Media & Subtitle Operations** (Weeks 1-4)
+
 **Impact**: High | **Effort**: High | **Dependencies**: Low
 
 | Service                 | Priority | Estimated Work | Key Benefits              |
 | ----------------------- | -------- | -------------- | ------------------------- |
-| MediaService            | ⭐⭐⭐      | 3 weeks        | Core business foundation  |
-| SubtitleService         | ⭐⭐⭐      | 3 weeks        | Primary value proposition |
-| SubtitleProviderService | ⭐⭐⭐      | 2 weeks        | Provider abstraction      |
+| MediaService            | ⭐⭐⭐   | 3 weeks        | Core business foundation  |
+| SubtitleService         | ⭐⭐⭐   | 3 weeks        | Primary value proposition |
+| SubtitleProviderService | ⭐⭐⭐   | 2 weeks        | Provider abstraction      |
 
 **Deliverables:**
+
 - Complete media file management
 - Subtitle format conversion and synchronization
 - Provider registry and configuration
 - ~80 new message types
 
 ### 🚀 **Phase 2: Language Processing** (Weeks 5-7)
+
 **Impact**: High | **Effort**: Medium | **Dependencies**: Medium
 
 | Service              | Priority | Estimated Work | Key Benefits               |
 | -------------------- | -------- | -------------- | -------------------------- |
-| TranslationService   | ⭐⭐       | 2 weeks        | Translation feature parity |
-| TranscriptionService | ⭐⭐       | 2 weeks        | Whisper integration        |
+| TranslationService   | ⭐⭐     | 2 weeks        | Translation feature parity |
+| TranscriptionService | ⭐⭐     | 2 weeks        | Whisper integration        |
 
 **Deliverables:**
+
 - Google Translate and OpenAI integration
 - Whisper transcription services
 - Language detection and management
 - ~40 new message types
 
 ### 🔧 **Phase 3: Integration & Automation** (Weeks 8-10)
+
 **Impact**: Medium | **Effort**: Medium | **Dependencies**: High
 
 | Service            | Priority | Estimated Work | Key Benefits          |
 | ------------------ | -------- | -------------- | --------------------- |
-| IntegrationService | ⭐⭐       | 2 weeks        | Enterprise features   |
-| TaskService        | ⭐⭐       | 1.5 weeks      | Background processing |
-| SchedulerService   | ⭐        | 1 week         | Automated operations  |
+| IntegrationService | ⭐⭐     | 2 weeks        | Enterprise features   |
+| TaskService        | ⭐⭐     | 1.5 weeks      | Background processing |
+| SchedulerService   | ⭐       | 1 week         | Automated operations  |
 
 **Deliverables:**
+
 - Sonarr/Radarr/Plex integration
 - Background job processing
 - Cron-based scheduling
 - ~30 new message types
 
 ### 🎨 **Phase 4: User Experience & Analytics** (Weeks 11-12)
+
 **Impact**: Medium | **Effort**: Low | **Dependencies**: High
 
 | Service             | Priority | Estimated Work | Key Benefits         |
 | ------------------- | -------- | -------------- | -------------------- |
-| UserProfileService  | ⭐        | 1 week         | User customization   |
-| NotificationService | ⭐        | 1 week         | User engagement      |
-| AnalyticsService    | ⭐        | 1 week         | Operational insights |
+| UserProfileService  | ⭐       | 1 week         | User customization   |
+| NotificationService | ⭐       | 1 week         | User engagement      |
+| AnalyticsService    | ⭐       | 1 week         | Operational insights |
 
 **Deliverables:**
+
 - User preferences and language profiles
 - Multi-channel notifications
 - Usage analytics and monitoring
 - ~25 new message types
 
 ### 📊 **Total Implementation Estimate**
+
 - **Timeline**: 12 weeks for full implementation
 - **New Message Types**: ~175 messages across 8 modules
 - **New Services**: 11 new services + enhancements to 3 existing
@@ -1022,6 +1059,7 @@ enum NotificationEvent {
 ### Migration Approach
 
 **1. Gradual Service Migration**
+
 ```go
 // Phase 1: Add gRPC alongside existing implementations
 type MediaManager struct {
@@ -1042,11 +1080,13 @@ func (m *MediaManager) ScanLibrary(ctx context.Context, path string) error {
 ```
 
 **2. Protobuf-First Development**
+
 - All new features use gCommon protobuf messages
 - Existing types gradually converted to protobuf equivalents
 - Maintain backward compatibility during transition
 
 **3. Configuration Migration**
+
 ```yaml
 # Current subtitle-manager.yaml
 providers:
@@ -1071,6 +1111,7 @@ providers: # Backward compatibility maintained
 ### Backward Compatibility Strategy
 
 **1. Interface Preservation**
+
 ```go
 // Existing subtitle-manager interfaces remain unchanged
 type SubtitleProvider interface {
@@ -1094,6 +1135,7 @@ func (p *GCommonSubtitleProvider) Search(ctx context.Context, query SearchQuery)
 ```
 
 **2. Data Migration Tools**
+
 ```bash
 # Migrate existing SQLite data to gCommon format
 subtitle-manager migrate-to-gcommon --db-path ./data.db --gcommon-endpoint localhost:50051
@@ -1105,6 +1147,7 @@ subtitle-manager export-config --format gcommon --output gcommon-config.yaml
 ### Testing Strategy
 
 **1. Integration Test Suite**
+
 ```go
 // Test both local and gCommon implementations
 func TestMediaServiceParity(t *testing.T) {
@@ -1139,6 +1182,7 @@ func TestMediaServiceParity(t *testing.T) {
 ```
 
 **2. Performance Benchmarks**
+
 ```go
 func BenchmarkSubtitleConversion(b *testing.B) {
     implementations := map[string]SubtitleService{
@@ -1162,93 +1206,111 @@ func BenchmarkSubtitleConversion(b *testing.B) {
 ## Migration Roadmap
 
 ### Phase 1: Foundation (Weeks 1-4)
+
 **Goal**: Core media and subtitle services operational
 
 **Week 1-2: Media Service Implementation**
+
 - [ ] Implement `MediaService` with file scanning and metadata operations
 - [ ] Create `MediaFile`, `MediaMetadata`, and related message types
 - [ ] Add support for directory watching and library management
 - [ ] Implement media quality assessment and validation
 
 **Week 3-4: Subtitle Service Implementation**
+
 - [ ] Implement `SubtitleService` with format conversion and synchronization
 - [ ] Create `SubtitleFile`, `SubtitleMetadata`, and quality scoring types
 - [ ] Add subtitle provider abstraction layer
 - [ ] Implement subtitle search and download operations
 
 **Integration Tasks:**
+
 - [ ] Update subtitle-manager to use new media types optionally
 - [ ] Create adapter layer for backward compatibility
 - [ ] Add feature flags for gradual migration
 
 ### Phase 2: Language Processing (Weeks 5-7)
+
 **Goal**: Translation and transcription services integrated
 
 **Week 5-6: Translation Service**
+
 - [ ] Implement `TranslationService` with Google and OpenAI support
 - [ ] Create translation metadata and language profile types
 - [ ] Add batch translation capabilities
 - [ ] Implement language detection and preference management
 
 **Week 7: Transcription Service**
+
 - [ ] Implement `TranscriptionService` with Whisper integration
 - [ ] Create transcription result and configuration types
 - [ ] Add audio processing and segment timing
 - [ ] Implement model selection and optimization
 
 **Integration Tasks:**
+
 - [ ] Migrate subtitle-manager translation features to gCommon
 - [ ] Update Whisper integration to use gRPC services
 - [ ] Add language profile management to web UI
 
 ### Phase 3: Integration & Automation (Weeks 8-10)
+
 **Goal**: External services and background processing
 
 **Week 8: Integration Service**
+
 - [ ] Implement `IntegrationService` for Sonarr/Radarr/Plex
 - [ ] Create webhook event processing and configuration types
 - [ ] Add external API abstraction for metadata services
 - [ ] Implement path mapping and sync configuration
 
 **Week 9: Task Management**
+
 - [ ] Enhance existing queue module with subtitle-specific operations
 - [ ] Implement `TaskService` for background job processing
 - [ ] Add progress tracking and job history
 - [ ] Create batch operation support
 
 **Week 10: Scheduler Service**
+
 - [ ] Implement `SchedulerService` with cron-based scheduling
 - [ ] Add library scan automation
 - [ ] Create maintenance task scheduling
 - [ ] Implement job retry and error handling
 
 **Integration Tasks:**
+
 - [ ] Migrate subtitle-manager webhook system to gCommon
 - [ ] Update background job processing to use gRPC
 - [ ] Add scheduler integration to web UI
 
 ### Phase 4: User Experience (Weeks 11-12)
+
 **Goal**: User profiles and operational features
 
 **Week 11: User Profiles**
+
 - [ ] Enhance existing auth module with profile management
 - [ ] Implement `UserProfileService` for preferences and settings
 - [ ] Create language profile and provider preference types
 - [ ] Add user customization and interface settings
 
 **Week 12: Notifications & Analytics**
+
 - [ ] Implement `NotificationService` for multi-channel alerts
 - [ ] Enhance existing metrics module with subtitle-specific analytics
 - [ ] Add usage tracking and performance monitoring
 - [ ] Create system health and alerting
 
 **Integration Tasks:**
+
 - [ ] Complete subtitle-manager migration to gCommon services
 - [ ] Add user profile management to web UI
 - [ ] Implement notification configuration interface
 - [ ] Add analytics dashboard to web UI
 
 ### Post-Migration Cleanup (Week 13)
+
 - [ ] Remove deprecated local implementations
 - [ ] Update documentation and examples
 - [ ] Performance optimization and load testing
@@ -1261,21 +1323,25 @@ func BenchmarkSubtitleConversion(b *testing.B) {
 ### For Subtitle Manager
 
 **1. Reduced Codebase Complexity**
+
 - **Before**: ~50,000 LOC with multiple database implementations
 - **After**: ~30,000 LOC focused on business logic and UI
 - **Benefit**: 40% reduction in maintenance burden
 
 **2. Enhanced Reliability**
+
 - **Before**: Custom implementations with potential bugs
 - **After**: Shared, tested services from gCommon
 - **Benefit**: Production-tested reliability and consistency
 
 **3. Better Performance**
+
 - **Before**: Direct database calls and synchronous operations
 - **After**: Optimized gRPC services with connection pooling
 - **Benefit**: Improved scalability and response times
 
 **4. Enterprise Features**
+
 - **Before**: Basic functionality with limited scalability
 - **After**: Enterprise-grade services (PostgreSQL, clustering, etc.)
 - **Benefit**: Production deployment capabilities
@@ -1283,21 +1349,25 @@ func BenchmarkSubtitleConversion(b *testing.B) {
 ### For GCommon Project
 
 **1. Real-World Validation**
+
 - **Before**: Theoretical protobuf services without concrete use cases
 - **After**: Production-proven services tested by subtitle-manager
 - **Benefit**: Validates API design and identifies edge cases
 
 **2. Domain Expansion**
+
 - **Before**: Generic infrastructure services only
 - **After**: Media processing and content management capabilities
 - **Benefit**: Broadens gCommon's applicability to media applications
 
 **3. Service Maturation**
+
 - **Before**: Basic CRUD operations in most modules
 - **After**: Complex workflows and real-world business logic
 - **Benefit**: More sophisticated and useful service offerings
 
 **4. Documentation and Examples**
+
 - **Before**: Limited real-world usage examples
 - **After**: Complete application demonstrating gCommon integration
 - **Benefit**: Better developer onboarding and adoption
@@ -1305,16 +1375,19 @@ func BenchmarkSubtitleConversion(b *testing.B) {
 ### For the Broader Ecosystem
 
 **1. Microservices Reference Architecture**
+
 - Complete example of migrating monolithic application to microservices
 - Demonstrates gradual migration strategies and backward compatibility
 - Shows real-world gRPC service design patterns
 
 **2. Media Processing Framework**
+
 - Reusable services for other media management applications
 - Standardized APIs for subtitle, translation, and transcription services
 - Foundation for building additional media-focused applications
 
 **3. Production Readiness Template**
+
 - Authentication, authorization, and user management
 - Background job processing and scheduling
 - Notification and monitoring integration
@@ -1327,18 +1400,21 @@ func BenchmarkSubtitleConversion(b *testing.B) {
 ### Immediate Actions (Next 2 Weeks)
 
 **1. Architecture Planning**
+
 - [ ] Review and approve this requirements analysis
 - [ ] Create detailed service interface specifications
 - [ ] Design protobuf package structure and naming conventions
 - [ ] Plan backward compatibility and migration strategy
 
 **2. Development Environment Setup**
+
 - [ ] Create feature branches for new service modules
 - [ ] Set up development and testing infrastructure for new services
 - [ ] Establish CI/CD pipelines for protobuf generation and testing
 - [ ] Create integration testing framework
 
 **3. Stakeholder Alignment**
+
 - [ ] Review requirements with subtitle-manager maintainers
 - [ ] Confirm service interface designs and message types
 - [ ] Establish timeline and resource allocation
@@ -1347,12 +1423,14 @@ func BenchmarkSubtitleConversion(b *testing.B) {
 ### Short-term Implementation (Weeks 3-6)
 
 **1. Core Service Development**
+
 - [ ] Begin implementation of MediaService and SubtitleService
 - [ ] Create foundational message types and enums
 - [ ] Implement basic CRUD operations for each service
 - [ ] Set up service registration and discovery
 
 **2. Integration Preparation**
+
 - [ ] Create adapter layer in subtitle-manager for gCommon services
 - [ ] Implement feature flags for gradual service migration
 - [ ] Develop data migration tools and scripts
@@ -1361,12 +1439,14 @@ func BenchmarkSubtitleConversion(b *testing.B) {
 ### Medium-term Goals (Weeks 7-12)
 
 **1. Service Completion**
+
 - [ ] Complete all Priority 1 and Priority 2 services
 - [ ] Implement comprehensive error handling and logging
 - [ ] Add performance monitoring and metrics collection
 - [ ] Create complete documentation and examples
 
 **2. Production Migration**
+
 - [ ] Begin gradual migration of subtitle-manager to gCommon services
 - [ ] Conduct performance testing and optimization
 - [ ] Implement production monitoring and alerting
@@ -1375,12 +1455,14 @@ func BenchmarkSubtitleConversion(b *testing.B) {
 ### Long-term Vision (Beyond 12 Weeks)
 
 **1. Ecosystem Development**
+
 - [ ] Open source the enhanced gCommon services
 - [ ] Create developer documentation and migration guides
 - [ ] Build additional applications using the media services
 - [ ] Establish community contribution guidelines
 
 **2. Service Enhancement**
+
 - [ ] Add advanced features based on real-world usage
 - [ ] Implement additional integrations and protocols
 - [ ] Optimize performance for large-scale deployments
