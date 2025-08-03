@@ -24,11 +24,13 @@ const (
 	_ = protoimpl.EnforceVersion(protoimpl.MaxVersion - 20)
 )
 
-// TODO: Implement get_tenant_usage_response message
 type GetTenantUsageResponse struct {
-	state                  protoimpl.MessageState `protogen:"opaque.v1"`
-	xxx_hidden_Errors      *[]*proto.Error        `protobuf:"bytes,1,rep,name=errors"`
-	xxx_hidden_Success     bool                   `protobuf:"varint,2,opt,name=success"`
+	state                 protoimpl.MessageState `protogen:"opaque.v1"`
+	xxx_hidden_Errors     *[]*proto.Error        `protobuf:"bytes,1,rep,name=errors"`
+	xxx_hidden_Success    bool                   `protobuf:"varint,2,opt,name=success"`
+	xxx_hidden_UsageStats *[]*proto.KeyValue     `protobuf:"bytes,3,rep,name=usage_stats,json=usageStats"`
+	// Deprecated: Do not use. This will be deleted in the near future.
+	XXX_lazyUnmarshalInfo  protoimpl.LazyUnmarshalInfo
 	XXX_raceDetectHookData protoimpl.RaceDetectHookData
 	XXX_presence           [1]uint32
 	unknownFields          protoimpl.UnknownFields
@@ -76,13 +78,38 @@ func (x *GetTenantUsageResponse) GetSuccess() bool {
 	return false
 }
 
+func (x *GetTenantUsageResponse) GetUsageStats() []*proto.KeyValue {
+	if x != nil {
+		if protoimpl.X.Present(&(x.XXX_presence[0]), 2) {
+			if protoimpl.X.AtomicCheckPointerIsNil(&x.xxx_hidden_UsageStats) {
+				protoimpl.X.UnmarshalField(x, 3)
+			}
+			var rv *[]*proto.KeyValue
+			protoimpl.X.AtomicLoadPointer(protoimpl.Pointer(&x.xxx_hidden_UsageStats), protoimpl.Pointer(&rv))
+			return *rv
+		}
+	}
+	return nil
+}
+
 func (x *GetTenantUsageResponse) SetErrors(v []*proto.Error) {
 	x.xxx_hidden_Errors = &v
 }
 
 func (x *GetTenantUsageResponse) SetSuccess(v bool) {
 	x.xxx_hidden_Success = v
-	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 1, 2)
+	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 1, 3)
+}
+
+func (x *GetTenantUsageResponse) SetUsageStats(v []*proto.KeyValue) {
+	var sv *[]*proto.KeyValue
+	protoimpl.X.AtomicLoadPointer(protoimpl.Pointer(&x.xxx_hidden_UsageStats), protoimpl.Pointer(&sv))
+	if sv == nil {
+		sv = &[]*proto.KeyValue{}
+		protoimpl.X.AtomicInitializePointer(protoimpl.Pointer(&x.xxx_hidden_UsageStats), protoimpl.Pointer(&sv))
+	}
+	*sv = v
+	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 2, 3)
 }
 
 func (x *GetTenantUsageResponse) HasSuccess() bool {
@@ -104,6 +131,8 @@ type GetTenantUsageResponse_builder struct {
 	Errors []*proto.Error
 	// Success status
 	Success *bool
+	// Usage statistics for the tenant
+	UsageStats []*proto.KeyValue
 }
 
 func (b0 GetTenantUsageResponse_builder) Build() *GetTenantUsageResponse {
@@ -112,8 +141,12 @@ func (b0 GetTenantUsageResponse_builder) Build() *GetTenantUsageResponse {
 	_, _ = b, x
 	x.xxx_hidden_Errors = &b.Errors
 	if b.Success != nil {
-		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 1, 2)
+		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 1, 3)
 		x.xxx_hidden_Success = *b.Success
+	}
+	if b.UsageStats != nil {
+		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 2, 3)
+		x.xxx_hidden_UsageStats = &b.UsageStats
 	}
 	return m0
 }
@@ -122,24 +155,28 @@ var File_pkg_organization_proto_responses_get_tenant_usage_response_proto protor
 
 const file_pkg_organization_proto_responses_get_tenant_usage_response_proto_rawDesc = "" +
 	"\n" +
-	"@pkg/organization/proto/responses/get_tenant_usage_response.proto\x12\x17gcommon.v1.organization\x1a!google/protobuf/go_features.proto\x1a%pkg/common/proto/messages/error.proto\"d\n" +
+	"@pkg/organization/proto/responses/get_tenant_usage_response.proto\x12\x17gcommon.v1.organization\x1a!google/protobuf/go_features.proto\x1a%pkg/common/proto/messages/error.proto\x1a&pkg/common/proto/types/key_value.proto\"\xa6\x01\n" +
 	"\x16GetTenantUsageResponse\x120\n" +
 	"\x06errors\x18\x01 \x03(\v2\x18.gcommon.v1.common.ErrorR\x06errors\x12\x18\n" +
-	"\asuccess\x18\x02 \x01(\bR\asuccessB\x81\x02\n" +
+	"\asuccess\x18\x02 \x01(\bR\asuccess\x12@\n" +
+	"\vusage_stats\x18\x03 \x03(\v2\x1b.gcommon.v1.common.KeyValueB\x02(\x01R\n" +
+	"usageStatsB\x81\x02\n" +
 	"\x1bcom.gcommon.v1.organizationB\x1bGetTenantUsageResponseProtoP\x01Z?github.com/jdfalk/gcommon/pkg/organization/proto;organizationpb\xa2\x02\x03GVO\xaa\x02\x17Gcommon.V1.Organization\xca\x02\x17Gcommon\\V1\\Organization\xe2\x02#Gcommon\\V1\\Organization\\GPBMetadata\xea\x02\x19Gcommon::V1::Organization\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
 
 var file_pkg_organization_proto_responses_get_tenant_usage_response_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_pkg_organization_proto_responses_get_tenant_usage_response_proto_goTypes = []any{
 	(*GetTenantUsageResponse)(nil), // 0: gcommon.v1.organization.GetTenantUsageResponse
 	(*proto.Error)(nil),            // 1: gcommon.v1.common.Error
+	(*proto.KeyValue)(nil),         // 2: gcommon.v1.common.KeyValue
 }
 var file_pkg_organization_proto_responses_get_tenant_usage_response_proto_depIdxs = []int32{
 	1, // 0: gcommon.v1.organization.GetTenantUsageResponse.errors:type_name -> gcommon.v1.common.Error
-	1, // [1:1] is the sub-list for method output_type
-	1, // [1:1] is the sub-list for method input_type
-	1, // [1:1] is the sub-list for extension type_name
-	1, // [1:1] is the sub-list for extension extendee
-	0, // [0:1] is the sub-list for field type_name
+	2, // 1: gcommon.v1.organization.GetTenantUsageResponse.usage_stats:type_name -> gcommon.v1.common.KeyValue
+	2, // [2:2] is the sub-list for method output_type
+	2, // [2:2] is the sub-list for method input_type
+	2, // [2:2] is the sub-list for extension type_name
+	2, // [2:2] is the sub-list for extension extendee
+	0, // [0:2] is the sub-list for field type_name
 }
 
 func init() { file_pkg_organization_proto_responses_get_tenant_usage_response_proto_init() }

@@ -24,11 +24,14 @@ const (
 	_ = protoimpl.EnforceVersion(protoimpl.MaxVersion - 20)
 )
 
-// TODO: Implement list_teams_response message
 type ListTeamsResponse struct {
-	state                  protoimpl.MessageState `protogen:"opaque.v1"`
-	xxx_hidden_Errors      *[]*proto.Error        `protobuf:"bytes,1,rep,name=errors"`
-	xxx_hidden_Success     bool                   `protobuf:"varint,2,opt,name=success"`
+	state                 protoimpl.MessageState   `protogen:"opaque.v1"`
+	xxx_hidden_Errors     *[]*proto.Error          `protobuf:"bytes,1,rep,name=errors"`
+	xxx_hidden_Success    bool                     `protobuf:"varint,2,opt,name=success"`
+	xxx_hidden_Teams      *[]*Team                 `protobuf:"bytes,3,rep,name=teams"`
+	xxx_hidden_Pagination *proto.PaginatedResponse `protobuf:"bytes,4,opt,name=pagination"`
+	// Deprecated: Do not use. This will be deleted in the near future.
+	XXX_lazyUnmarshalInfo  protoimpl.LazyUnmarshalInfo
 	XXX_raceDetectHookData protoimpl.RaceDetectHookData
 	XXX_presence           [1]uint32
 	unknownFields          protoimpl.UnknownFields
@@ -76,13 +79,49 @@ func (x *ListTeamsResponse) GetSuccess() bool {
 	return false
 }
 
+func (x *ListTeamsResponse) GetTeams() []*Team {
+	if x != nil {
+		if protoimpl.X.Present(&(x.XXX_presence[0]), 2) {
+			if protoimpl.X.AtomicCheckPointerIsNil(&x.xxx_hidden_Teams) {
+				protoimpl.X.UnmarshalField(x, 3)
+			}
+			var rv *[]*Team
+			protoimpl.X.AtomicLoadPointer(protoimpl.Pointer(&x.xxx_hidden_Teams), protoimpl.Pointer(&rv))
+			return *rv
+		}
+	}
+	return nil
+}
+
+func (x *ListTeamsResponse) GetPagination() *proto.PaginatedResponse {
+	if x != nil {
+		return x.xxx_hidden_Pagination
+	}
+	return nil
+}
+
 func (x *ListTeamsResponse) SetErrors(v []*proto.Error) {
 	x.xxx_hidden_Errors = &v
 }
 
 func (x *ListTeamsResponse) SetSuccess(v bool) {
 	x.xxx_hidden_Success = v
-	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 1, 2)
+	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 1, 4)
+}
+
+func (x *ListTeamsResponse) SetTeams(v []*Team) {
+	var sv *[]*Team
+	protoimpl.X.AtomicLoadPointer(protoimpl.Pointer(&x.xxx_hidden_Teams), protoimpl.Pointer(&sv))
+	if sv == nil {
+		sv = &[]*Team{}
+		protoimpl.X.AtomicInitializePointer(protoimpl.Pointer(&x.xxx_hidden_Teams), protoimpl.Pointer(&sv))
+	}
+	*sv = v
+	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 2, 4)
+}
+
+func (x *ListTeamsResponse) SetPagination(v *proto.PaginatedResponse) {
+	x.xxx_hidden_Pagination = v
 }
 
 func (x *ListTeamsResponse) HasSuccess() bool {
@@ -92,9 +131,20 @@ func (x *ListTeamsResponse) HasSuccess() bool {
 	return protoimpl.X.Present(&(x.XXX_presence[0]), 1)
 }
 
+func (x *ListTeamsResponse) HasPagination() bool {
+	if x == nil {
+		return false
+	}
+	return x.xxx_hidden_Pagination != nil
+}
+
 func (x *ListTeamsResponse) ClearSuccess() {
 	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 1)
 	x.xxx_hidden_Success = false
+}
+
+func (x *ListTeamsResponse) ClearPagination() {
+	x.xxx_hidden_Pagination = nil
 }
 
 type ListTeamsResponse_builder struct {
@@ -104,6 +154,10 @@ type ListTeamsResponse_builder struct {
 	Errors []*proto.Error
 	// Success status
 	Success *bool
+	// List of teams returned
+	Teams []*Team
+	// Pagination metadata
+	Pagination *proto.PaginatedResponse
 }
 
 func (b0 ListTeamsResponse_builder) Build() *ListTeamsResponse {
@@ -112,9 +166,14 @@ func (b0 ListTeamsResponse_builder) Build() *ListTeamsResponse {
 	_, _ = b, x
 	x.xxx_hidden_Errors = &b.Errors
 	if b.Success != nil {
-		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 1, 2)
+		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 1, 4)
 		x.xxx_hidden_Success = *b.Success
 	}
+	if b.Teams != nil {
+		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 2, 4)
+		x.xxx_hidden_Teams = &b.Teams
+	}
+	x.xxx_hidden_Pagination = b.Pagination
 	return m0
 }
 
@@ -122,24 +181,32 @@ var File_pkg_organization_proto_responses_list_teams_response_proto protoreflect
 
 const file_pkg_organization_proto_responses_list_teams_response_proto_rawDesc = "" +
 	"\n" +
-	":pkg/organization/proto/responses/list_teams_response.proto\x12\x17gcommon.v1.organization\x1a!google/protobuf/go_features.proto\x1a%pkg/common/proto/messages/error.proto\"_\n" +
+	":pkg/organization/proto/responses/list_teams_response.proto\x12\x17gcommon.v1.organization\x1a!google/protobuf/go_features.proto\x1a%pkg/common/proto/messages/error.proto\x1a2pkg/common/proto/messages/paginated_response.proto\x1a*pkg/organization/proto/messages/team.proto\"\xde\x01\n" +
 	"\x11ListTeamsResponse\x120\n" +
 	"\x06errors\x18\x01 \x03(\v2\x18.gcommon.v1.common.ErrorR\x06errors\x12\x18\n" +
-	"\asuccess\x18\x02 \x01(\bR\asuccessB\xfc\x01\n" +
+	"\asuccess\x18\x02 \x01(\bR\asuccess\x127\n" +
+	"\x05teams\x18\x03 \x03(\v2\x1d.gcommon.v1.organization.TeamB\x02(\x01R\x05teams\x12D\n" +
+	"\n" +
+	"pagination\x18\x04 \x01(\v2$.gcommon.v1.common.PaginatedResponseR\n" +
+	"paginationB\xfc\x01\n" +
 	"\x1bcom.gcommon.v1.organizationB\x16ListTeamsResponseProtoP\x01Z?github.com/jdfalk/gcommon/pkg/organization/proto;organizationpb\xa2\x02\x03GVO\xaa\x02\x17Gcommon.V1.Organization\xca\x02\x17Gcommon\\V1\\Organization\xe2\x02#Gcommon\\V1\\Organization\\GPBMetadata\xea\x02\x19Gcommon::V1::Organization\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
 
 var file_pkg_organization_proto_responses_list_teams_response_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_pkg_organization_proto_responses_list_teams_response_proto_goTypes = []any{
-	(*ListTeamsResponse)(nil), // 0: gcommon.v1.organization.ListTeamsResponse
-	(*proto.Error)(nil),       // 1: gcommon.v1.common.Error
+	(*ListTeamsResponse)(nil),       // 0: gcommon.v1.organization.ListTeamsResponse
+	(*proto.Error)(nil),             // 1: gcommon.v1.common.Error
+	(*Team)(nil),                    // 2: gcommon.v1.organization.Team
+	(*proto.PaginatedResponse)(nil), // 3: gcommon.v1.common.PaginatedResponse
 }
 var file_pkg_organization_proto_responses_list_teams_response_proto_depIdxs = []int32{
 	1, // 0: gcommon.v1.organization.ListTeamsResponse.errors:type_name -> gcommon.v1.common.Error
-	1, // [1:1] is the sub-list for method output_type
-	1, // [1:1] is the sub-list for method input_type
-	1, // [1:1] is the sub-list for extension type_name
-	1, // [1:1] is the sub-list for extension extendee
-	0, // [0:1] is the sub-list for field type_name
+	2, // 1: gcommon.v1.organization.ListTeamsResponse.teams:type_name -> gcommon.v1.organization.Team
+	3, // 2: gcommon.v1.organization.ListTeamsResponse.pagination:type_name -> gcommon.v1.common.PaginatedResponse
+	3, // [3:3] is the sub-list for method output_type
+	3, // [3:3] is the sub-list for method input_type
+	3, // [3:3] is the sub-list for extension type_name
+	3, // [3:3] is the sub-list for extension extendee
+	0, // [0:3] is the sub-list for field type_name
 }
 
 func init() { file_pkg_organization_proto_responses_list_teams_response_proto_init() }
@@ -147,6 +214,7 @@ func file_pkg_organization_proto_responses_list_teams_response_proto_init() {
 	if File_pkg_organization_proto_responses_list_teams_response_proto != nil {
 		return
 	}
+	file_pkg_organization_proto_messages_team_proto_init()
 	type x struct{}
 	out := protoimpl.TypeBuilder{
 		File: protoimpl.DescBuilder{

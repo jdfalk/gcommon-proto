@@ -23,14 +23,146 @@ const (
 	_ = protoimpl.EnforceVersion(protoimpl.MaxVersion - 20)
 )
 
+// ValidationConfig defines rules for validating queued messages.
+type ValidationConfig struct {
+	state protoimpl.MessageState `protogen:"hybrid.v1"`
+	// Whether to validate message schema.
+	ValidateSchema *bool `protobuf:"varint,1,opt,name=validate_schema,json=validateSchema" json:"validate_schema,omitempty"`
+	// Maximum allowed size of the message body in bytes.
+	MaxBodyBytes *int64 `protobuf:"varint,2,opt,name=max_body_bytes,json=maxBodyBytes" json:"max_body_bytes,omitempty"`
+	// If true, reject messages that exceed validation limits.
+	RejectInvalid *bool `protobuf:"varint,3,opt,name=reject_invalid,json=rejectInvalid" json:"reject_invalid,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *ValidationConfig) Reset() {
+	*x = ValidationConfig{}
+	mi := &file_pkg_queue_proto_messages_validation_config_proto_msgTypes[0]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *ValidationConfig) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*ValidationConfig) ProtoMessage() {}
+
+func (x *ValidationConfig) ProtoReflect() protoreflect.Message {
+	mi := &file_pkg_queue_proto_messages_validation_config_proto_msgTypes[0]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+func (x *ValidationConfig) GetValidateSchema() bool {
+	if x != nil && x.ValidateSchema != nil {
+		return *x.ValidateSchema
+	}
+	return false
+}
+
+func (x *ValidationConfig) GetMaxBodyBytes() int64 {
+	if x != nil && x.MaxBodyBytes != nil {
+		return *x.MaxBodyBytes
+	}
+	return 0
+}
+
+func (x *ValidationConfig) GetRejectInvalid() bool {
+	if x != nil && x.RejectInvalid != nil {
+		return *x.RejectInvalid
+	}
+	return false
+}
+
+func (x *ValidationConfig) SetValidateSchema(v bool) {
+	x.ValidateSchema = &v
+}
+
+func (x *ValidationConfig) SetMaxBodyBytes(v int64) {
+	x.MaxBodyBytes = &v
+}
+
+func (x *ValidationConfig) SetRejectInvalid(v bool) {
+	x.RejectInvalid = &v
+}
+
+func (x *ValidationConfig) HasValidateSchema() bool {
+	if x == nil {
+		return false
+	}
+	return x.ValidateSchema != nil
+}
+
+func (x *ValidationConfig) HasMaxBodyBytes() bool {
+	if x == nil {
+		return false
+	}
+	return x.MaxBodyBytes != nil
+}
+
+func (x *ValidationConfig) HasRejectInvalid() bool {
+	if x == nil {
+		return false
+	}
+	return x.RejectInvalid != nil
+}
+
+func (x *ValidationConfig) ClearValidateSchema() {
+	x.ValidateSchema = nil
+}
+
+func (x *ValidationConfig) ClearMaxBodyBytes() {
+	x.MaxBodyBytes = nil
+}
+
+func (x *ValidationConfig) ClearRejectInvalid() {
+	x.RejectInvalid = nil
+}
+
+type ValidationConfig_builder struct {
+	_ [0]func() // Prevents comparability and use of unkeyed literals for the builder.
+
+	// Whether to validate message schema.
+	ValidateSchema *bool
+	// Maximum allowed size of the message body in bytes.
+	MaxBodyBytes *int64
+	// If true, reject messages that exceed validation limits.
+	RejectInvalid *bool
+}
+
+func (b0 ValidationConfig_builder) Build() *ValidationConfig {
+	m0 := &ValidationConfig{}
+	b, x := &b0, m0
+	_, _ = b, x
+	x.ValidateSchema = b.ValidateSchema
+	x.MaxBodyBytes = b.MaxBodyBytes
+	x.RejectInvalid = b.RejectInvalid
+	return m0
+}
+
 var File_pkg_queue_proto_messages_validation_config_proto protoreflect.FileDescriptor
 
 const file_pkg_queue_proto_messages_validation_config_proto_rawDesc = "" +
 	"\n" +
-	"0pkg/queue/proto/messages/validation_config.proto\x12\x10gcommon.v1.queue\x1a!google/protobuf/go_features.protoB\xca\x01\n" +
+	"0pkg/queue/proto/messages/validation_config.proto\x12\x10gcommon.v1.queue\x1a!google/protobuf/go_features.proto\"\x88\x01\n" +
+	"\x10ValidationConfig\x12'\n" +
+	"\x0fvalidate_schema\x18\x01 \x01(\bR\x0evalidateSchema\x12$\n" +
+	"\x0emax_body_bytes\x18\x02 \x01(\x03R\fmaxBodyBytes\x12%\n" +
+	"\x0ereject_invalid\x18\x03 \x01(\bR\rrejectInvalidB\xca\x01\n" +
 	"\x14com.gcommon.v1.queueB\x15ValidationConfigProtoP\x01Z1github.com/jdfalk/gcommon/pkg/queue/proto;queuepb\xa2\x02\x03GVQ\xaa\x02\x10Gcommon.V1.Queue\xca\x02\x10Gcommon\\V1\\Queue\xe2\x02\x1cGcommon\\V1\\Queue\\GPBMetadata\xea\x02\x12Gcommon::V1::Queue\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
 
-var file_pkg_queue_proto_messages_validation_config_proto_goTypes = []any{}
+var file_pkg_queue_proto_messages_validation_config_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
+var file_pkg_queue_proto_messages_validation_config_proto_goTypes = []any{
+	(*ValidationConfig)(nil), // 0: gcommon.v1.queue.ValidationConfig
+}
 var file_pkg_queue_proto_messages_validation_config_proto_depIdxs = []int32{
 	0, // [0:0] is the sub-list for method output_type
 	0, // [0:0] is the sub-list for method input_type
@@ -50,12 +182,13 @@ func file_pkg_queue_proto_messages_validation_config_proto_init() {
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: unsafe.Slice(unsafe.StringData(file_pkg_queue_proto_messages_validation_config_proto_rawDesc), len(file_pkg_queue_proto_messages_validation_config_proto_rawDesc)),
 			NumEnums:      0,
-			NumMessages:   0,
+			NumMessages:   1,
 			NumExtensions: 0,
 			NumServices:   0,
 		},
 		GoTypes:           file_pkg_queue_proto_messages_validation_config_proto_goTypes,
 		DependencyIndexes: file_pkg_queue_proto_messages_validation_config_proto_depIdxs,
+		MessageInfos:      file_pkg_queue_proto_messages_validation_config_proto_msgTypes,
 	}.Build()
 	File_pkg_queue_proto_messages_validation_config_proto = out.File
 	file_pkg_queue_proto_messages_validation_config_proto_goTypes = nil
