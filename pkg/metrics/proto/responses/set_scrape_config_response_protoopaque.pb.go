@@ -9,6 +9,7 @@
 package metricspb
 
 import (
+	proto "github.com/jdfalk/gcommon/pkg/common/proto"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
@@ -23,20 +24,132 @@ const (
 	_ = protoimpl.EnforceVersion(protoimpl.MaxVersion - 20)
 )
 
+// *
+// SetScrapeConfigResponse confirms new configuration.
+type SetScrapeConfigResponse struct {
+	state                  protoimpl.MessageState `protogen:"opaque.v1"`
+	xxx_hidden_Success     bool                   `protobuf:"varint,1,opt,name=success"`
+	xxx_hidden_Error       *proto.Error           `protobuf:"bytes,2,opt,name=error"`
+	XXX_raceDetectHookData protoimpl.RaceDetectHookData
+	XXX_presence           [1]uint32
+	unknownFields          protoimpl.UnknownFields
+	sizeCache              protoimpl.SizeCache
+}
+
+func (x *SetScrapeConfigResponse) Reset() {
+	*x = SetScrapeConfigResponse{}
+	mi := &file_pkg_metrics_proto_responses_set_scrape_config_response_proto_msgTypes[0]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SetScrapeConfigResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SetScrapeConfigResponse) ProtoMessage() {}
+
+func (x *SetScrapeConfigResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_pkg_metrics_proto_responses_set_scrape_config_response_proto_msgTypes[0]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+func (x *SetScrapeConfigResponse) GetSuccess() bool {
+	if x != nil {
+		return x.xxx_hidden_Success
+	}
+	return false
+}
+
+func (x *SetScrapeConfigResponse) GetError() *proto.Error {
+	if x != nil {
+		return x.xxx_hidden_Error
+	}
+	return nil
+}
+
+func (x *SetScrapeConfigResponse) SetSuccess(v bool) {
+	x.xxx_hidden_Success = v
+	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 0, 2)
+}
+
+func (x *SetScrapeConfigResponse) SetError(v *proto.Error) {
+	x.xxx_hidden_Error = v
+}
+
+func (x *SetScrapeConfigResponse) HasSuccess() bool {
+	if x == nil {
+		return false
+	}
+	return protoimpl.X.Present(&(x.XXX_presence[0]), 0)
+}
+
+func (x *SetScrapeConfigResponse) HasError() bool {
+	if x == nil {
+		return false
+	}
+	return x.xxx_hidden_Error != nil
+}
+
+func (x *SetScrapeConfigResponse) ClearSuccess() {
+	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 0)
+	x.xxx_hidden_Success = false
+}
+
+func (x *SetScrapeConfigResponse) ClearError() {
+	x.xxx_hidden_Error = nil
+}
+
+type SetScrapeConfigResponse_builder struct {
+	_ [0]func() // Prevents comparability and use of unkeyed literals for the builder.
+
+	// Whether the update succeeded
+	Success *bool
+	// Error information
+	Error *proto.Error
+}
+
+func (b0 SetScrapeConfigResponse_builder) Build() *SetScrapeConfigResponse {
+	m0 := &SetScrapeConfigResponse{}
+	b, x := &b0, m0
+	_, _ = b, x
+	if b.Success != nil {
+		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 0, 2)
+		x.xxx_hidden_Success = *b.Success
+	}
+	x.xxx_hidden_Error = b.Error
+	return m0
+}
+
 var File_pkg_metrics_proto_responses_set_scrape_config_response_proto protoreflect.FileDescriptor
 
 const file_pkg_metrics_proto_responses_set_scrape_config_response_proto_rawDesc = "" +
 	"\n" +
-	"<pkg/metrics/proto/responses/set_scrape_config_response.proto\x12\x12gcommon.v1.metrics\x1a!google/protobuf/go_features.protoB\xdf\x01\n" +
+	"<pkg/metrics/proto/responses/set_scrape_config_response.proto\x12\x12gcommon.v1.metrics\x1a!google/protobuf/go_features.proto\x1a%pkg/common/proto/messages/error.proto\"c\n" +
+	"\x17SetScrapeConfigResponse\x12\x18\n" +
+	"\asuccess\x18\x01 \x01(\bR\asuccess\x12.\n" +
+	"\x05error\x18\x02 \x01(\v2\x18.gcommon.v1.common.ErrorR\x05errorB\xdf\x01\n" +
 	"\x16com.gcommon.v1.metricsB\x1cSetScrapeConfigResponseProtoP\x01Z5github.com/jdfalk/gcommon/pkg/metrics/proto;metricspb\xa2\x02\x03GVM\xaa\x02\x12Gcommon.V1.Metrics\xca\x02\x12Gcommon\\V1\\Metrics\xe2\x02\x1eGcommon\\V1\\Metrics\\GPBMetadata\xea\x02\x14Gcommon::V1::Metrics\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
 
-var file_pkg_metrics_proto_responses_set_scrape_config_response_proto_goTypes = []any{}
+var file_pkg_metrics_proto_responses_set_scrape_config_response_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
+var file_pkg_metrics_proto_responses_set_scrape_config_response_proto_goTypes = []any{
+	(*SetScrapeConfigResponse)(nil), // 0: gcommon.v1.metrics.SetScrapeConfigResponse
+	(*proto.Error)(nil),             // 1: gcommon.v1.common.Error
+}
 var file_pkg_metrics_proto_responses_set_scrape_config_response_proto_depIdxs = []int32{
-	0, // [0:0] is the sub-list for method output_type
-	0, // [0:0] is the sub-list for method input_type
-	0, // [0:0] is the sub-list for extension type_name
-	0, // [0:0] is the sub-list for extension extendee
-	0, // [0:0] is the sub-list for field type_name
+	1, // 0: gcommon.v1.metrics.SetScrapeConfigResponse.error:type_name -> gcommon.v1.common.Error
+	1, // [1:1] is the sub-list for method output_type
+	1, // [1:1] is the sub-list for method input_type
+	1, // [1:1] is the sub-list for extension type_name
+	1, // [1:1] is the sub-list for extension extendee
+	0, // [0:1] is the sub-list for field type_name
 }
 
 func init() { file_pkg_metrics_proto_responses_set_scrape_config_response_proto_init() }
@@ -50,12 +163,13 @@ func file_pkg_metrics_proto_responses_set_scrape_config_response_proto_init() {
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: unsafe.Slice(unsafe.StringData(file_pkg_metrics_proto_responses_set_scrape_config_response_proto_rawDesc), len(file_pkg_metrics_proto_responses_set_scrape_config_response_proto_rawDesc)),
 			NumEnums:      0,
-			NumMessages:   0,
+			NumMessages:   1,
 			NumExtensions: 0,
 			NumServices:   0,
 		},
 		GoTypes:           file_pkg_metrics_proto_responses_set_scrape_config_response_proto_goTypes,
 		DependencyIndexes: file_pkg_metrics_proto_responses_set_scrape_config_response_proto_depIdxs,
+		MessageInfos:      file_pkg_metrics_proto_responses_set_scrape_config_response_proto_msgTypes,
 	}.Build()
 	File_pkg_metrics_proto_responses_set_scrape_config_response_proto = out.File
 	file_pkg_metrics_proto_responses_set_scrape_config_response_proto_goTypes = nil
