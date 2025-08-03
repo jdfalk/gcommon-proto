@@ -163,8 +163,6 @@ message PromotionRule {
   repeated string transformations = 10;
 }
 
-
-
 // DeploymentInfo represents deployment information for an environment
 message DeploymentInfo {
   // Deployment status
@@ -443,8 +441,6 @@ message RetentionPolicy {
   map<string, int32> custom_retention = 6;
 }
 
-
-
 // EncryptionSettings represents encryption settings for an environment
 message EncryptionSettings {
   // Encryption enabled
@@ -465,10 +461,6 @@ message EncryptionSettings {
   // Encryption configuration
   map<string, string> config = 6;
 }
-
-
-
-
 
 // SyncSettings represents sync settings for an environment
 message SyncSettings {

@@ -7,8 +7,8 @@ import "google/protobuf/go_features.proto";
 import "google/protobuf/timestamp.proto";
 import "pkg/auth/proto/proto/token_status.proto";
 
-option go_package = "github.com/jdfalk/gcommon/pkg/auth/proto;authpb";
 option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/jdfalk/gcommon/pkg/auth/proto;authpb";
 
 /**
  * Token entity representing authentication and authorization tokens.

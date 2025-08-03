@@ -5,6 +5,7 @@ package gcommon.v1.organization;
 
 import "google/protobuf/go_features.proto";
 import "pkg/common/proto/organization/proto/jdfalk/gcommon/pkg/organization/proto;organizationpb";
+
 option features.(pb.go).api_level = API_OPAQUE;
 
 message UpdateDepartmentResponse {
@@ -13,7 +14,7 @@ message UpdateDepartmentResponse {
 
   // Success status
   bool success = 2;
-  
+
   // Updated department information
   gcommon.v1.organization.Department department = 3;
 }

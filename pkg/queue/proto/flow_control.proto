@@ -6,11 +6,11 @@ edition = "2023";
 
 package gcommon.v1.queue;
 
-import "google/protobuf/go_features.proto";
 import "google/protobuf/duration.proto";
+import "google/protobuf/go_features.proto";
 
-option go_package = "github.com/jdfalk/gcommon/pkg/queue/proto;queuepb";
 option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/jdfalk/gcommon/pkg/queue/proto;queuepb";
 
 // FlowControl settings influence how the queue handles
 // bursts of incoming messages.

@@ -11,6 +11,7 @@ import "google/protobuf/go_features.proto";
 import "google/protobuf/timestamp.proto";
 import "pkg/common/proto/metrics/proto/metrics/proto/validation_result.proto";
 import "pkg/metrics/proto/gcommon/pkg/metrics/proto;metricspb";
+
 option features.(pb.go).api_level = API_OPAQUE;
 
 /**
@@ -112,5 +113,3 @@ enum ChangeType {
   CHANGE_TYPE_REMOVED = 3;
   CHANGE_TYPE_REPLACED = 4;
 }
-
-

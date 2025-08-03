@@ -4,9 +4,18 @@ edition = "2023";
 package gcommon.v1.auth;
 
 import "google/protobuf/go_features.proto";
-// TODO: Add these imports when the files are created:
-// import "pkg/auth/proto/session.proto";
-// import "pkg/auth/proto/create_session_request.proto";
+import "pkg/auth/proto/session.proto";
+import "pkg/auth/proto/create_session_request.proto";
+import "pkg/auth/proto/create_session_response.proto";
+import "pkg/auth/proto/get_session_response.proto";
+import "pkg/auth/proto/update_session_request.proto";
+import "pkg/auth/proto/update_session_response.proto";
+import "pkg/auth/proto/delete_session_request.proto";
+import "pkg/auth/proto/delete_session_response.proto";
+import "pkg/auth/proto/list_sessions_request.proto";
+import "pkg/auth/proto/list_sessions_response.proto";
+import "pkg/auth/proto/list_user_sessions_request.proto";
+import "pkg/auth/proto/list_user_sessions_response.proto";
 option features.(pb.go).api_level = API_OPAQUE;
 
 /**
@@ -15,23 +24,27 @@ option features.(pb.go).api_level = API_OPAQUE;
  * for stateful authentication and user activity monitoring.
  */
 service SessionService {
-  // TODO: Uncomment these when the missing message types are created:
   // Create a new session for an authenticated user
-  // rpc CreateSession(CreateSessionRequest) returns (Session);
+  rpc CreateSession(CreateSessionRequest) returns (CreateSessionResponse);
 
-  // TODO: Uncomment these when the missing message types are created:
-  // // Get detailed information about a specific session
-  // rpc GetSession(GetSessionRequest) returns (Session);
-  //
-  // // Update session information (e.g., refresh activity timestamp)
-  // rpc UpdateSession(UpdateSessionRequest) returns (Session);
-  //
-  // // Terminate a session (logout)
-  // rpc TerminateSession(TerminateSessionRequest) returns (google.protobuf.Empty);
-  //
-  // // List all active sessions for a user
-  // rpc ListUserSessions(ListUserSessionsRequest) returns (ListUserSessionsResponse);
-  //
-  // // Validate session token and return session state
-  // rpc ValidateSession(ValidateSessionRequest) returns (ValidateSessionResponse);
+  // Get detailed information about a specific session
+  rpc GetSession(GetSessionRequest) returns (GetSessionResponse);
+
+  // Update session information (e.g., refresh activity timestamp)
+  rpc UpdateSession(UpdateSessionRequest) returns (UpdateSessionResponse);
+
+  // Validate a session and return session information
+  rpc ValidateSession(ValidateSessionRequest) returns (ValidateSessionResponse);
+
+  // Terminate a session (logout)
+  rpc TerminateSession(TerminateSessionRequest) returns (TerminateSessionResponse);
+
+  // Delete a specific session
+  rpc DeleteSession(DeleteSessionRequest) returns (DeleteSessionResponse);
+
+  // List all active sessions for a user
+  rpc ListUserSessions(ListUserSessionsRequest) returns (ListUserSessionsResponse);
+
+  // List all sessions (admin only)
+  rpc ListSessions(ListSessionsRequest) returns (ListSessionsResponse);
 }

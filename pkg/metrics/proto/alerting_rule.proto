@@ -7,8 +7,9 @@ edition = "2023";
 package gcommon.v1.metrics;
 
 import "google/protobuf/go_features.proto";
-import "pkg/metrics/proto/proto/alert_severity.proto";
 import "pkg/metrics/proto/gcommon/pkg/metrics/proto;metricspb";
+import "pkg/metrics/proto/proto/alert_severity.proto";
+
 option features.(pb.go).api_level = API_OPAQUE;
 
 /**

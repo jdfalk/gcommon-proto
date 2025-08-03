@@ -7,7 +7,6 @@ edition = "2023";
 package gcommon.v1.config;
 
 import "google/protobuf/timestamp.proto";
-
 import "pkg/common/proto/jdfalk/gcommon/pkg/config/proto;configpb";
 
 // ConfigMetadata represents metadata about configuration items
@@ -193,9 +192,9 @@ message DeprecationInfo {
 // DeprecationLevel represents the level of deprecation
 enum DeprecationLevel {
   DEPRECATION_LEVEL_UNSPECIFIED = 0;
-  DEPRECATION_LEVEL_SOFT = 1;     // Soft deprecation (warning)
-  DEPRECATION_LEVEL_HARD = 2;     // Hard deprecation (error)
-  DEPRECATION_LEVEL_REMOVAL = 3;  // Scheduled for removal
+  DEPRECATION_LEVEL_SOFT = 1; // Soft deprecation (warning)
+  DEPRECATION_LEVEL_HARD = 2; // Hard deprecation (error)
+  DEPRECATION_LEVEL_REMOVAL = 3; // Scheduled for removal
 }
 
 // ApprovalRequirement represents approval requirements for configuration changes

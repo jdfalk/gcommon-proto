@@ -6,8 +6,8 @@ package gcommon.v1.cache;
 import "google/protobuf/go_features.proto";
 import "pkg/common/proto/common/proto/pagination.proto";
 
-option go_package = "github.com/jdfalk/gcommon/pkg/cache/proto;cachepb";
 option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/jdfalk/gcommon/pkg/cache/proto;cachepb";
 
 /**
  * Request to list cache keys matching a pattern.

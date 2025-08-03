@@ -9,16 +9,16 @@ package gcommon.v1.web;
 
 import "google/protobuf/go_features.proto";
 
-option go_package = "github.com/jdfalk/gcommon/pkg/web/proto;webpb";
 option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/jdfalk/gcommon/pkg/web/proto;webpb";
 
 enum HTTPMethod {
-    HTTP_METHOD_UNSPECIFIED = 0;
-    HTTP_METHOD_GET = 1;
-    HTTP_METHOD_POST = 2;
-    HTTP_METHOD_PUT = 3;
-    HTTP_METHOD_DELETE = 4;
-    HTTP_METHOD_PATCH = 5;
-    HTTP_METHOD_OPTIONS = 6;
-    HTTP_METHOD_HEAD = 7;
+  HTTP_METHOD_UNSPECIFIED = 0;
+  HTTP_METHOD_GET = 1;
+  HTTP_METHOD_POST = 2;
+  HTTP_METHOD_PUT = 3;
+  HTTP_METHOD_DELETE = 4;
+  HTTP_METHOD_PATCH = 5;
+  HTTP_METHOD_OPTIONS = 6;
+  HTTP_METHOD_HEAD = 7;
 }

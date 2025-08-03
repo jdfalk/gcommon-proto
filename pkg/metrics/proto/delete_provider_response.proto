@@ -11,8 +11,8 @@ import "google/protobuf/go_features.proto";
 import "google/protobuf/timestamp.proto";
 import "pkg/common/proto/metrics/proto/metrics/proto/dry_run_result.proto";
 
-option go_package = "github.com/jdfalk/gcommon/pkg/metrics/proto;metricspb";
 option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/jdfalk/gcommon/pkg/metrics/proto;metricspb";
 
 /**
  * DeleteProviderResponse contains the result of deleting a metrics provider.
@@ -81,4 +81,3 @@ message DeletionResult {
 /**
  * DryRunResult shows what would be deleted in a dry run operation.
  */
-

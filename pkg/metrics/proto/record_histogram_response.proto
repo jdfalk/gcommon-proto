@@ -12,8 +12,8 @@ import "google/protobuf/go_features.proto";
 import "google/protobuf/timestamp.proto";
 import "pkg/common/proto/metrics/proto/metrics/proto/recording_stats.proto";
 
-option go_package = "github.com/jdfalk/gcommon/pkg/metrics/proto;metricspb";
 option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/jdfalk/gcommon/pkg/metrics/proto;metricspb";
 
 /**
  * RecordHistogramResponse is returned after recording a histogram observation.
@@ -80,5 +80,3 @@ message HistogramStats {
   // Standard deviation (if calculated)
   double std_deviation = 6;
 }
-
-

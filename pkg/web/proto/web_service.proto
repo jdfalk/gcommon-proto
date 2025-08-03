@@ -14,19 +14,19 @@ package gcommon.v1.web;
 
 import "google/protobuf/go_features.proto";
 
-option go_package = "github.com/jdfalk/gcommon/pkg/web/proto;webpb";
 option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/jdfalk/gcommon/pkg/web/proto;webpb";
 
 // Future web service extensions can be defined here
 // The main WebService is defined in web.proto to avoid duplication
 
 // Example additional service for HTTP handling:
 /*
-service HTTPGatewayService {
-  // Handle HTTP request
-  rpc HandleRequest(HTTPRequest) returns (HTTPResponse);
+   service HTTPGatewayService {
+     // Handle HTTP request
+     rpc HandleRequest(HTTPRequest) returns (HTTPResponse);
 
-  // Process REST API calls
-  rpc ProcessRESTCall(RESTRequest) returns (RESTResponse);
-}
+     // Process REST API calls
+     rpc ProcessRESTCall(RESTRequest) returns (RESTResponse);
+   }
 */

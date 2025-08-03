@@ -8,8 +8,8 @@ import "google/protobuf/timestamp.proto";
 import "pkg/common/proto/proto/client_info.proto";
 import "pkg/common/proto/proto/subscription_status.proto";
 
-option go_package = "github.com/jdfalk/gcommon/pkg/common/proto;commonpb";
 option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/jdfalk/gcommon/pkg/common/proto;commonpb";
 
 /**
  * Subscription information for streaming and event-driven operations.

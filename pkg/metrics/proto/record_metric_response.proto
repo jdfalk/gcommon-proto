@@ -11,8 +11,8 @@ import "google/protobuf/go_features.proto";
 import "google/protobuf/timestamp.proto";
 import "pkg/common/proto/metrics/proto/metrics/proto/recording_stats.proto";
 
-option go_package = "github.com/jdfalk/gcommon/pkg/metrics/proto;metricspb";
 option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/jdfalk/gcommon/pkg/metrics/proto;metricspb";
 
 /**
  * RecordMetricResponse contains the result of recording a metric data point.
@@ -42,5 +42,3 @@ message RecordMetricResponse {
   // Warnings or informational messages
   repeated string warnings = 8;
 }
-
-

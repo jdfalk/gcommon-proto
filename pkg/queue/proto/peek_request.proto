@@ -6,12 +6,12 @@ edition = "2023";
 
 package gcommon.v1.queue;
 
-option go_package = "github.com/jdfalk/gcommon/pkg/queue/proto;queuepb";
-
 // Standard imports
 
 // Common types
 import "pkg/common/proto/request_metadata.proto";
+
+option go_package = "github.com/jdfalk/gcommon/pkg/queue/proto;queuepb";
 
 /**
  * PeekRequest allows viewing messages in a queue without removing them.

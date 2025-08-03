@@ -6,6 +6,7 @@ package gcommon.v1.organization;
 import "google/protobuf/go_features.proto";
 import "pkg/common/proto/common/proto/paginated_response.proto";
 import "pkg/organization/proto/gcommon/pkg/organization/proto;organizationpb";
+
 option features.(pb.go).api_level = API_OPAQUE;
 
 message ListMembersResponse {
@@ -14,7 +15,7 @@ message ListMembersResponse {
 
   // Success status
   bool success = 2;
-  
+
   // List of members returned
   repeated gcommon.v1.organization.OrganizationMember members = 3 [lazy = true];
 

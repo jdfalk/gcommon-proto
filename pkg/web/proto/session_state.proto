@@ -9,12 +9,12 @@ package gcommon.v1.web;
 
 import "google/protobuf/go_features.proto";
 
-option go_package = "github.com/jdfalk/gcommon/pkg/web/proto;webpb";
 option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/jdfalk/gcommon/pkg/web/proto;webpb";
 
 enum SessionState {
-    SESSION_STATE_UNSPECIFIED = 0;
-    SESSION_STATE_ACTIVE = 1;
-    SESSION_STATE_EXPIRED = 2;
-    SESSION_STATE_REVOKED = 3;
+  SESSION_STATE_UNSPECIFIED = 0;
+  SESSION_STATE_ACTIVE = 1;
+  SESSION_STATE_EXPIRED = 2;
+  SESSION_STATE_REVOKED = 3;
 }

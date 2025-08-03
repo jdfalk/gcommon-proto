@@ -10,6 +10,7 @@ package gcommon.v1.metrics;
 import "google/protobuf/go_features.proto";
 import "pkg/common/proto/metrics/proto/metrics/proto/export_config.proto";
 import "pkg/metrics/proto/gcommon/pkg/metrics/proto;metricspb";
+
 option features.(pb.go).api_level = API_OPAQUE;
 
 /**
@@ -163,8 +164,6 @@ message CounterConfig {
   // Maximum value before rolling over
   double max_value = 3;
 }
-
-
 
 /**
  * ValidationRules define validation rules for metric values.

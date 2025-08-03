@@ -9,13 +9,13 @@ package gcommon.v1.web;
 
 import "google/protobuf/go_features.proto";
 
-option go_package = "github.com/jdfalk/gcommon/pkg/web/proto;webpb";
 option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/jdfalk/gcommon/pkg/web/proto;webpb";
 
 enum SSLProtocol {
-    SSL_PROTOCOL_UNSPECIFIED = 0;
-    SSL_PROTOCOL_TLS1_0 = 1;
-    SSL_PROTOCOL_TLS1_1 = 2;
-    SSL_PROTOCOL_TLS1_2 = 3;
-    SSL_PROTOCOL_TLS1_3 = 4;
+  SSL_PROTOCOL_UNSPECIFIED = 0;
+  SSL_PROTOCOL_TLS1_0 = 1;
+  SSL_PROTOCOL_TLS1_1 = 2;
+  SSL_PROTOCOL_TLS1_2 = 3;
+  SSL_PROTOCOL_TLS1_3 = 4;
 }

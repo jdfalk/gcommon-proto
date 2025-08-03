@@ -3,16 +3,16 @@ edition = "2023";
 
 package gcommon.v1.database;
 
-import "pkg/db/proto/proto/query_row_request.proto";
-import "pkg/db/proto/proto/query_row_response.proto";
-import "pkg/db/proto/proto/execute_response.proto";
+import "google/protobuf/go_features.proto";
 import "pkg/db/proto/proto/execute_batch_response.proto";
+import "pkg/db/proto/proto/execute_response.proto";
 import "pkg/db/proto/proto/get_connection_info_response.proto";
 import "pkg/db/proto/proto/health_check_response.proto";
-import "google/protobuf/go_features.proto";
+import "pkg/db/proto/proto/query_row_request.proto";
+import "pkg/db/proto/proto/query_row_response.proto";
 
-option go_package = "github.com/jdfalk/gcommon/pkg/db/proto;dbpb";
 option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/jdfalk/gcommon/pkg/db/proto;dbpb";
 
 /**
  * DatabaseService provides comprehensive database operations including

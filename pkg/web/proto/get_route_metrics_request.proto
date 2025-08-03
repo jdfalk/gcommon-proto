@@ -6,13 +6,12 @@ edition = "2023";
 
 package gcommon.v1.web;
 
-option go_package = "github.com/jdfalk/gcommon/pkg/web/proto;webpb";
-
 // Standard imports
 import "google/protobuf/timestamp.proto";
-
 // Common types
 import "pkg/common/proto/request_metadata.proto";
+
+option go_package = "github.com/jdfalk/gcommon/pkg/web/proto;webpb";
 
 /**
  * GetRouteMetricsRequest message for web service operations.

@@ -6,16 +6,14 @@ edition = "2023";
 
 package gcommon.v1.queue;
 
-option go_package = "github.com/jdfalk/gcommon/pkg/queue/proto;queuepb";
-
 // Standard imports
 import "google/protobuf/timestamp.proto";
-
 // Common types
 import "pkg/common/proto/common/proto/error.proto";
-
 // Queue message types
 import "pkg/queue/proto/queue_message.proto";
+
+option go_package = "github.com/jdfalk/gcommon/pkg/queue/proto;queuepb";
 
 /**
  * PeekResponse returns messages viewed from a queue without removing them.

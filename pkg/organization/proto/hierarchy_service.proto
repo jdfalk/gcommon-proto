@@ -5,20 +5,20 @@ package gcommon.v1.organization;
 
 import "google/protobuf/go_features.proto";
 import "pkg/organization/proto/proto/create_department_response.proto";
-import "pkg/organization/proto/proto/get_department_response.proto";
-import "pkg/organization/proto/proto/update_department_response.proto";
-import "pkg/organization/proto/proto/delete_department_response.proto";
-import "pkg/organization/proto/proto/list_departments_response.proto";
 import "pkg/organization/proto/proto/create_team_response.proto";
-import "pkg/organization/proto/proto/get_team_response.proto";
-import "pkg/organization/proto/proto/update_team_response.proto";
+import "pkg/organization/proto/proto/delete_department_response.proto";
 import "pkg/organization/proto/proto/delete_team_response.proto";
-import "pkg/organization/proto/proto/list_teams_response.proto";
+import "pkg/organization/proto/proto/get_department_response.proto";
 import "pkg/organization/proto/proto/get_hierarchy_response.proto";
+import "pkg/organization/proto/proto/get_team_response.proto";
+import "pkg/organization/proto/proto/list_departments_response.proto";
+import "pkg/organization/proto/proto/list_teams_response.proto";
+import "pkg/organization/proto/proto/update_department_response.proto";
 import "pkg/organization/proto/proto/update_hierarchy_response.proto";
+import "pkg/organization/proto/proto/update_team_response.proto";
 
-option go_package = "github.com/jdfalk/gcommon/pkg/organization/proto;organizationpb";
 option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/jdfalk/gcommon/pkg/organization/proto;organizationpb";
 
 /**
  * HierarchyService provides comprehensive organizational hierarchy management.

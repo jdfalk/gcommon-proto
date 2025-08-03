@@ -9,9 +9,8 @@ package gcommon.v1.metrics;
 
 import "google/protobuf/go_features.proto";
 
-
-option go_package = "github.com/jdfalk/gcommon/pkg/metrics/proto;metricspb";
 option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/jdfalk/gcommon/pkg/metrics/proto;metricspb";
 
 /**
  * MetricFamily groups metrics of the same name and type.
@@ -19,16 +18,16 @@ option features.(pb.go).api_level = API_OPAQUE;
 // CONFLICT_DISABLED: message MetricFamily {
 // CONFLICT_DISABLED:   // Family name (e.g., http_requests)
 // CONFLICT_DISABLED:   string name = 1;
-// CONFLICT_DISABLED: 
+// CONFLICT_DISABLED:
 // CONFLICT_DISABLED:   // Family description
 // CONFLICT_DISABLED:   string description = 2;
-// CONFLICT_DISABLED: 
+// CONFLICT_DISABLED:
 // CONFLICT_DISABLED:   // Metric type for this family
 // CONFLICT_DISABLED:   MetricType type = 3;
-// CONFLICT_DISABLED: 
+// CONFLICT_DISABLED:
 // CONFLICT_DISABLED:   // Unit of measurement
 // CONFLICT_DISABLED:   string unit = 4;
-// CONFLICT_DISABLED: 
+// CONFLICT_DISABLED:
 // CONFLICT_DISABLED:   // Metrics in this family
 // CONFLICT_DISABLED:   repeated MetricData metrics = 5;
 // CONFLICT_DISABLED: }

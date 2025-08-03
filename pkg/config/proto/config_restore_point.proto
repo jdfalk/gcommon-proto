@@ -7,7 +7,6 @@ edition = "2023";
 package gcommon.v1.config;
 
 import "google/protobuf/timestamp.proto";
-
 import "pkg/common/proto/jdfalk/gcommon/pkg/config/proto;configpb";
 
 // ConfigRestorePoint represents a point-in-time snapshot for configuration rollback
@@ -73,12 +72,12 @@ message ConfigRestorePoint {
 // RestorePointType indicates the type of restore point
 enum RestorePointType {
   RESTORE_POINT_TYPE_UNSPECIFIED = 0;
-  RESTORE_POINT_TYPE_MANUAL = 1;        // Manually created restore point
-  RESTORE_POINT_TYPE_AUTOMATIC = 2;     // Automatically created restore point
-  RESTORE_POINT_TYPE_SCHEDULED = 3;     // Scheduled restore point
-  RESTORE_POINT_TYPE_PRE_CHANGE = 4;    // Created before configuration change
-  RESTORE_POINT_TYPE_MILESTONE = 5;     // Milestone restore point
-  RESTORE_POINT_TYPE_BACKUP = 6;        // Backup restore point
+  RESTORE_POINT_TYPE_MANUAL = 1; // Manually created restore point
+  RESTORE_POINT_TYPE_AUTOMATIC = 2; // Automatically created restore point
+  RESTORE_POINT_TYPE_SCHEDULED = 3; // Scheduled restore point
+  RESTORE_POINT_TYPE_PRE_CHANGE = 4; // Created before configuration change
+  RESTORE_POINT_TYPE_MILESTONE = 5; // Milestone restore point
+  RESTORE_POINT_TYPE_BACKUP = 6; // Backup restore point
 }
 
 // CompressionType for restore point storage

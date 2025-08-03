@@ -9,8 +9,8 @@ package gcommon.v1.metrics;
 import "google/protobuf/go_features.proto";
 import "pkg/metrics/proto/proto/messages/error.proto";
 
-option go_package = "github.com/jdfalk/gcommon/pkg/metrics/proto;metricspb";
 option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/jdfalk/gcommon/pkg/metrics/proto;metricspb";
 
 /**
  * GetMetricConfigResponse contains metric configuration information.

@@ -9,14 +9,14 @@ package gcommon.v1.health;
 
 import "google/protobuf/go_features.proto";
 import "pkg/health/proto/proto/enable_check_request.proto";
-import "pkg/health/proto/proto/reset_health_stats_request.proto";
-import "pkg/health/proto/proto/run_check_request.proto";
 import "pkg/health/proto/proto/enable_check_response.proto";
+import "pkg/health/proto/proto/reset_health_stats_request.proto";
 import "pkg/health/proto/proto/reset_health_stats_response.proto";
+import "pkg/health/proto/proto/run_check_request.proto";
 import "pkg/health/proto/proto/run_check_response.proto";
 
-option go_package = "github.com/jdfalk/gcommon/pkg/health/proto;healthpb";
 option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/jdfalk/gcommon/pkg/health/proto;healthpb";
 
 /**
  * HealthAdminService provides administrative health operations

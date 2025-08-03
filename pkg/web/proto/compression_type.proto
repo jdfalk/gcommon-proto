@@ -9,16 +9,16 @@ package gcommon.v1.web;
 
 import "google/protobuf/go_features.proto";
 
-option go_package = "github.com/jdfalk/gcommon/pkg/web/proto;webpb";
 option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/jdfalk/gcommon/pkg/web/proto;webpb";
 
 // Supported compression algorithms for responses.
 enum CompressionType {
-    COMPRESSION_TYPE_UNSPECIFIED = 0;
-    // No compression.
-    COMPRESSION_TYPE_NONE = 1;
-    // gzip compression.
-    COMPRESSION_TYPE_GZIP = 2;
-    // brotli compression.
-    COMPRESSION_TYPE_BROTLI = 3;
+  COMPRESSION_TYPE_UNSPECIFIED = 0;
+  // No compression.
+  COMPRESSION_TYPE_NONE = 1;
+  // gzip compression.
+  COMPRESSION_TYPE_GZIP = 2;
+  // brotli compression.
+  COMPRESSION_TYPE_BROTLI = 3;
 }

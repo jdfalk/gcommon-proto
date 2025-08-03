@@ -14,6 +14,7 @@ package gcommon.v1.queue;
 import "google/protobuf/go_features.proto";
 import "google/protobuf/timestamp.proto";
 import "pkg/common/proto/jdfalk/gcommon/pkg/queue/proto;queuepb";
+
 option features.(pb.go).api_level = API_OPAQUE;
 
 // GetQueueStatsRequest represents a request to retrieve queue statistics
@@ -76,9 +77,9 @@ enum StatisticType {
 // How to group statistics in the response
 enum StatisticGrouping {
   STATISTIC_GROUPING_UNSPECIFIED = 0;
-  STATISTIC_GROUPING_NONE = 1;           // No grouping, flat statistics
-  STATISTIC_GROUPING_BY_QUEUE = 2;       // Group by queue name
-  STATISTIC_GROUPING_BY_CONSUMER = 3;    // Group by consumer
+  STATISTIC_GROUPING_NONE = 1; // No grouping, flat statistics
+  STATISTIC_GROUPING_BY_QUEUE = 2; // Group by queue name
+  STATISTIC_GROUPING_BY_CONSUMER = 3; // Group by consumer
   STATISTIC_GROUPING_BY_TIME_PERIOD = 4; // Group by time periods
   STATISTIC_GROUPING_BY_MESSAGE_TYPE = 5; // Group by message type
 }

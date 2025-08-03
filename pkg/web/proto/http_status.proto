@@ -9,15 +9,15 @@ package gcommon.v1.web;
 
 import "google/protobuf/go_features.proto";
 
-option go_package = "github.com/jdfalk/gcommon/pkg/web/proto;webpb";
 option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/jdfalk/gcommon/pkg/web/proto;webpb";
 
 enum HTTPStatus {
-    HTTP_STATUS_UNSPECIFIED = 0;
-    HTTP_STATUS_OK = 200;
-    HTTP_STATUS_BAD_REQUEST = 400;
-    HTTP_STATUS_UNAUTHORIZED = 401;
-    HTTP_STATUS_FORBIDDEN = 403;
-    HTTP_STATUS_NOT_FOUND = 404;
-    HTTP_STATUS_INTERNAL_ERROR = 500;
+  HTTP_STATUS_UNSPECIFIED = 0;
+  HTTP_STATUS_OK = 200;
+  HTTP_STATUS_BAD_REQUEST = 400;
+  HTTP_STATUS_UNAUTHORIZED = 401;
+  HTTP_STATUS_FORBIDDEN = 403;
+  HTTP_STATUS_NOT_FOUND = 404;
+  HTTP_STATUS_INTERNAL_ERROR = 500;
 }

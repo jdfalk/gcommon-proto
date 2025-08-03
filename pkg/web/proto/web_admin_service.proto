@@ -8,12 +8,12 @@ edition = "2023";
 package gcommon.v1.web;
 
 import "google/protobuf/go_features.proto";
+import "pkg/web/proto/proto/flush_cache_response.proto";
 import "pkg/web/proto/proto/get_cache_config_response.proto";
 import "pkg/web/proto/proto/update_cache_config_response.proto";
-import "pkg/web/proto/proto/flush_cache_response.proto";
 
-option go_package = "github.com/jdfalk/gcommon/pkg/web/proto;webpb";
 option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/jdfalk/gcommon/pkg/web/proto;webpb";
 
 /**
  * WebAdminService provides cache administration endpoints

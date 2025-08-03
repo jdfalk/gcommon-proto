@@ -3,12 +3,12 @@ edition = "2023";
 
 package gcommon.v1.common;
 
-import "google/protobuf/timestamp.proto";
 import "google/protobuf/go_features.proto";
+import "google/protobuf/timestamp.proto";
 import "pkg/common/proto/client_info.proto";
 
-option go_package = "github.com/jdfalk/gcommon/pkg/common/proto;commonpb";
 option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/jdfalk/gcommon/pkg/common/proto;commonpb";
 
 /**
  * Common request metadata for observability and security.

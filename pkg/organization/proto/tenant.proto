@@ -5,8 +5,9 @@ package gcommon.v1.organization;
 
 import "google/protobuf/go_features.proto";
 import "google/protobuf/timestamp.proto";
-import "pkg/organization/proto/proto/isolation_level.proto";
 import "pkg/common/proto/jdfalk/gcommon/pkg/organization/proto;organizationpb";
+import "pkg/organization/proto/proto/isolation_level.proto";
+
 option features.(pb.go).api_level = API_OPAQUE;
 
 /**

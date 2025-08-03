@@ -6,12 +6,12 @@ edition = "2023";
 
 package gcommon.v1.web;
 
-import "google/protobuf/go_features.proto";
 import "google/protobuf/duration.proto";
+import "google/protobuf/go_features.proto";
 import "pkg/common/proto/common/proto/error.proto";
 
-option go_package = "github.com/jdfalk/gcommon/pkg/web/proto;webpb";
 option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/jdfalk/gcommon/pkg/web/proto;webpb";
 
 // HealthCheckResponse response definition.
 message HealthCheckResponse {

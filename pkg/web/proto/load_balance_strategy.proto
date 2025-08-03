@@ -9,12 +9,12 @@ package gcommon.v1.web;
 
 import "google/protobuf/go_features.proto";
 
-option go_package = "github.com/jdfalk/gcommon/pkg/web/proto;webpb";
 option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/jdfalk/gcommon/pkg/web/proto;webpb";
 
 enum LoadBalanceStrategy {
-    LOAD_BALANCE_STRATEGY_UNSPECIFIED = 0;
-    LOAD_BALANCE_STRATEGY_ROUND_ROBIN = 1;
-    LOAD_BALANCE_STRATEGY_LEAST_CONNECTIONS = 2;
-    LOAD_BALANCE_STRATEGY_IP_HASH = 3;
+  LOAD_BALANCE_STRATEGY_UNSPECIFIED = 0;
+  LOAD_BALANCE_STRATEGY_ROUND_ROBIN = 1;
+  LOAD_BALANCE_STRATEGY_LEAST_CONNECTIONS = 2;
+  LOAD_BALANCE_STRATEGY_IP_HASH = 3;
 }

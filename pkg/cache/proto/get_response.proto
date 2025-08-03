@@ -5,6 +5,7 @@ package gcommon.v1.cache;
 
 import "google/protobuf/go_features.proto";
 import "pkg/cache/proto/gcommon/pkg/cache/proto;cachepb";
+
 option features.(pb.go).api_level = API_OPAQUE;
 
 /**

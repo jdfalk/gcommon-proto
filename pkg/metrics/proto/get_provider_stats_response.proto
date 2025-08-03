@@ -10,11 +10,11 @@ package gcommon.v1.metrics;
 import "google/protobuf/go_features.proto";
 import "google/protobuf/timestamp.proto";
 import "pkg/common/proto/metrics/proto/metrics/proto/time_range.proto";
-import "pkg/metrics/proto/proto/top_metrics.proto";
 import "pkg/metrics/proto/proto/resource_limits_summary.proto";
+import "pkg/metrics/proto/proto/top_metrics.proto";
 
-option go_package = "github.com/jdfalk/gcommon/pkg/metrics/proto;metricspb";
 option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/jdfalk/gcommon/pkg/metrics/proto;metricspb";
 
 /**
  * GetProviderStatsResponse contains statistics for a metrics provider.
@@ -355,18 +355,18 @@ message TrendAnalysis {
  * PerformanceTrend contains performance trend information.
  */
 message PerformanceTrend {
-  string latency_trend = 1;     // "improving", "degrading", "stable"
-  string throughput_trend = 2;  // "increasing", "decreasing", "stable"
-  double trend_confidence = 3;  // 0.0 to 1.0
+  string latency_trend = 1; // "improving", "degrading", "stable"
+  string throughput_trend = 2; // "increasing", "decreasing", "stable"
+  double trend_confidence = 3; // 0.0 to 1.0
 }
 
 /**
  * ResourceUsageTrend contains resource usage trend information.
  */
 message ResourceUsageTrend {
-  string memory_trend = 1;  // "increasing", "decreasing", "stable"
-  string cpu_trend = 2;     // "increasing", "decreasing", "stable"
-  string disk_trend = 3;    // "increasing", "decreasing", "stable"
+  string memory_trend = 1; // "increasing", "decreasing", "stable"
+  string cpu_trend = 2; // "increasing", "decreasing", "stable"
+  string disk_trend = 3; // "increasing", "decreasing", "stable"
   double trend_confidence = 4;
 }
 
@@ -374,7 +374,7 @@ message ResourceUsageTrend {
  * ErrorTrend contains error trend information.
  */
 message ErrorTrend {
-  string error_rate_trend = 1;  // "improving", "worsening", "stable"
+  string error_rate_trend = 1; // "improving", "worsening", "stable"
   double trend_confidence = 2;
   repeated string emerging_error_types = 3;
 }
@@ -383,7 +383,7 @@ message ErrorTrend {
  * DataVolumeTrend contains data volume trend information.
  */
 message DataVolumeTrend {
-  string volume_trend = 1;     // "increasing", "decreasing", "stable"
-  string ingestion_trend = 2;  // "increasing", "decreasing", "stable"
+  string volume_trend = 1; // "increasing", "decreasing", "stable"
+  string ingestion_trend = 2; // "increasing", "decreasing", "stable"
   double trend_confidence = 3;
 }

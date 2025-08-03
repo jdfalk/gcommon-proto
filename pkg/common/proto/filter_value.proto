@@ -4,8 +4,9 @@ edition = "2023";
 package gcommon.v1.common;
 
 import "google/protobuf/go_features.proto";
-import "pkg/common/proto/proto/int64_array.proto";
 import "pkg/common/proto/gcommon/pkg/common/proto;commonpb";
+import "pkg/common/proto/proto/int64_array.proto";
+
 option features.(pb.go).api_level = API_OPAQUE;
 
 /**

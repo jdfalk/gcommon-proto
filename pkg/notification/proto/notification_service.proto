@@ -7,15 +7,15 @@ edition = "2023";
 package gcommon.v1.notification;
 
 import "google/protobuf/go_features.proto";
-import "pkg/notification/proto/proto/send_notification_response.proto";
-import "pkg/notification/proto/proto/list_notifications_response.proto";
-import "pkg/notification/proto/proto/update_preferences_response.proto";
-import "pkg/notification/proto/proto/get_template_response.proto";
-import "pkg/notification/proto/proto/mark_as_read_response.proto";
 import "pkg/notification/proto/proto/delete_notification_response.proto";
+import "pkg/notification/proto/proto/get_template_response.proto";
+import "pkg/notification/proto/proto/list_notifications_response.proto";
+import "pkg/notification/proto/proto/mark_as_read_response.proto";
+import "pkg/notification/proto/proto/send_notification_response.proto";
+import "pkg/notification/proto/proto/update_preferences_response.proto";
 
-option go_package = "github.com/jdfalk/gcommon/pkg/notification/proto;notificationpb";
 option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/jdfalk/gcommon/pkg/notification/proto;notificationpb";
 
 /**
  * NotificationService handles delivery, retrieval, and management of notifications.

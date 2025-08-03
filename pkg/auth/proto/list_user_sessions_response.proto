@@ -6,18 +6,16 @@ edition = "2023";
 
 package gcommon.v1.auth;
 
-option go_package = "github.com/jdfalk/gcommon/pkg/auth/proto;authpb";
-
 // Standard imports
 import "google/protobuf/timestamp.proto";
-
+// Auth module types
+import "pkg/auth/proto/session_info.proto";
+import "pkg/common/proto/error.proto";
 // Common types
 import "pkg/common/proto/paginated_response.proto";
 import "pkg/common/proto/request_metadata.proto";
-import "pkg/common/proto/error.proto";
 
-// Auth module types
-import "pkg/auth/proto/session_info.proto";
+option go_package = "github.com/jdfalk/gcommon/pkg/auth/proto;authpb";
 
 /**
  * ListUserSessionsResponse returns a list of user sessions.

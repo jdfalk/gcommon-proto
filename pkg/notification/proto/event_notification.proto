@@ -6,10 +6,11 @@ edition = "2023";
 
 package gcommon.v1.notification;
 
-import "google/protobuf/timestamp.proto";
 import "google/protobuf/any.proto";
 import "google/protobuf/go_features.proto";
+import "google/protobuf/timestamp.proto";
 import "pkg/notification/proto/gcommon/pkg/notification/proto;notificationpb";
+
 option features.(pb.go).api_level = API_OPAQUE;
 
 /**
