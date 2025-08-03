@@ -1,5 +1,5 @@
 // file: pkg/auth/proto/oauth2_config.proto
-// version: 1.0.0
+// version: 1.1.0
 // guid: a0b1c2d3-e4f5-6a7b-8c9d-0e1f2a3b4c5d
 
 edition = "2023";
@@ -8,6 +8,7 @@ package gcommon.v1.auth;
 
 import "google/protobuf/go_features.proto";
 import "pkg/auth/proto/jwt_config.proto";
+import "pkg/auth/proto/oauth2_flow_type.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
 option go_package = "github.com/jdfalk/gcommon/pkg/auth/proto;authpb";
@@ -52,24 +53,4 @@ message OAuth2Config {
 
   // JWT configuration for token validation
   gcommon.v1.auth.JWTConfig jwt_config = 12;
-}
-
-/**
- * OAuth2 flow types.
- */
-enum OAuth2FlowType {
-  // Unspecified flow type
-  OAUTH2_FLOW_TYPE_UNSPECIFIED = 0;
-  
-  // Authorization code flow
-  OAUTH2_FLOW_TYPE_AUTHORIZATION_CODE = 1;
-  
-  // Implicit flow
-  OAUTH2_FLOW_TYPE_IMPLICIT = 2;
-  
-  // Client credentials flow
-  OAUTH2_FLOW_TYPE_CLIENT_CREDENTIALS = 3;
-  
-  // Device code flow
-  OAUTH2_FLOW_TYPE_DEVICE_CODE = 4;
 }
