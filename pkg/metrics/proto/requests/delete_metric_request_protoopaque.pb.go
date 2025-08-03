@@ -9,6 +9,7 @@
 package metricspb
 
 import (
+	proto "github.com/jdfalk/gcommon/pkg/common/proto"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
@@ -23,20 +24,188 @@ const (
 	_ = protoimpl.EnforceVersion(protoimpl.MaxVersion - 20)
 )
 
+// *
+// DeleteMetricRequest removes a metric by ID.
+type DeleteMetricRequest struct {
+	state                protoimpl.MessageState `protogen:"opaque.v1"`
+	xxx_hidden_MetricId  *string                `protobuf:"bytes,1,opt,name=metric_id,json=metricId"`
+	xxx_hidden_Namespace *string                `protobuf:"bytes,2,opt,name=namespace"`
+	xxx_hidden_Metadata  *proto.RequestMetadata `protobuf:"bytes,3,opt,name=metadata"`
+	// Deprecated: Do not use. This will be deleted in the near future.
+	XXX_lazyUnmarshalInfo  protoimpl.LazyUnmarshalInfo
+	XXX_raceDetectHookData protoimpl.RaceDetectHookData
+	XXX_presence           [1]uint32
+	unknownFields          protoimpl.UnknownFields
+	sizeCache              protoimpl.SizeCache
+}
+
+func (x *DeleteMetricRequest) Reset() {
+	*x = DeleteMetricRequest{}
+	mi := &file_pkg_metrics_proto_requests_delete_metric_request_proto_msgTypes[0]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *DeleteMetricRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*DeleteMetricRequest) ProtoMessage() {}
+
+func (x *DeleteMetricRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_pkg_metrics_proto_requests_delete_metric_request_proto_msgTypes[0]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+func (x *DeleteMetricRequest) GetMetricId() string {
+	if x != nil {
+		if x.xxx_hidden_MetricId != nil {
+			return *x.xxx_hidden_MetricId
+		}
+		return ""
+	}
+	return ""
+}
+
+func (x *DeleteMetricRequest) GetNamespace() string {
+	if x != nil {
+		if x.xxx_hidden_Namespace != nil {
+			return *x.xxx_hidden_Namespace
+		}
+		return ""
+	}
+	return ""
+}
+
+func (x *DeleteMetricRequest) GetMetadata() *proto.RequestMetadata {
+	if x != nil {
+		if protoimpl.X.Present(&(x.XXX_presence[0]), 2) {
+			if protoimpl.X.AtomicCheckPointerIsNil(&x.xxx_hidden_Metadata) {
+				protoimpl.X.UnmarshalField(x, 3)
+			}
+			var rv *proto.RequestMetadata
+			protoimpl.X.AtomicLoadPointer(protoimpl.Pointer(&x.xxx_hidden_Metadata), protoimpl.Pointer(&rv))
+			return rv
+		}
+	}
+	return nil
+}
+
+func (x *DeleteMetricRequest) SetMetricId(v string) {
+	x.xxx_hidden_MetricId = &v
+	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 0, 3)
+}
+
+func (x *DeleteMetricRequest) SetNamespace(v string) {
+	x.xxx_hidden_Namespace = &v
+	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 1, 3)
+}
+
+func (x *DeleteMetricRequest) SetMetadata(v *proto.RequestMetadata) {
+	protoimpl.X.AtomicSetPointer(&x.xxx_hidden_Metadata, v)
+	if v == nil {
+		protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 2)
+	} else {
+		protoimpl.X.SetPresent(&(x.XXX_presence[0]), 2, 3)
+	}
+}
+
+func (x *DeleteMetricRequest) HasMetricId() bool {
+	if x == nil {
+		return false
+	}
+	return protoimpl.X.Present(&(x.XXX_presence[0]), 0)
+}
+
+func (x *DeleteMetricRequest) HasNamespace() bool {
+	if x == nil {
+		return false
+	}
+	return protoimpl.X.Present(&(x.XXX_presence[0]), 1)
+}
+
+func (x *DeleteMetricRequest) HasMetadata() bool {
+	if x == nil {
+		return false
+	}
+	return protoimpl.X.Present(&(x.XXX_presence[0]), 2)
+}
+
+func (x *DeleteMetricRequest) ClearMetricId() {
+	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 0)
+	x.xxx_hidden_MetricId = nil
+}
+
+func (x *DeleteMetricRequest) ClearNamespace() {
+	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 1)
+	x.xxx_hidden_Namespace = nil
+}
+
+func (x *DeleteMetricRequest) ClearMetadata() {
+	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 2)
+	protoimpl.X.AtomicSetPointer(&x.xxx_hidden_Metadata, (*proto.RequestMetadata)(nil))
+}
+
+type DeleteMetricRequest_builder struct {
+	_ [0]func() // Prevents comparability and use of unkeyed literals for the builder.
+
+	// Unique identifier of the metric
+	MetricId *string
+	// Optional namespace
+	Namespace *string
+	// Request metadata for auditing
+	Metadata *proto.RequestMetadata
+}
+
+func (b0 DeleteMetricRequest_builder) Build() *DeleteMetricRequest {
+	m0 := &DeleteMetricRequest{}
+	b, x := &b0, m0
+	_, _ = b, x
+	if b.MetricId != nil {
+		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 0, 3)
+		x.xxx_hidden_MetricId = b.MetricId
+	}
+	if b.Namespace != nil {
+		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 1, 3)
+		x.xxx_hidden_Namespace = b.Namespace
+	}
+	if b.Metadata != nil {
+		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 2, 3)
+		x.xxx_hidden_Metadata = b.Metadata
+	}
+	return m0
+}
+
 var File_pkg_metrics_proto_requests_delete_metric_request_proto protoreflect.FileDescriptor
 
 const file_pkg_metrics_proto_requests_delete_metric_request_proto_rawDesc = "" +
 	"\n" +
-	"6pkg/metrics/proto/requests/delete_metric_request.proto\x12\x12gcommon.v1.metrics\x1a!google/protobuf/go_features.protoB\xdb\x01\n" +
+	"6pkg/metrics/proto/requests/delete_metric_request.proto\x12\x12gcommon.v1.metrics\x1a!google/protobuf/go_features.proto\x1a0pkg/common/proto/messages/request_metadata.proto\"\x94\x01\n" +
+	"\x13DeleteMetricRequest\x12\x1b\n" +
+	"\tmetric_id\x18\x01 \x01(\tR\bmetricId\x12\x1c\n" +
+	"\tnamespace\x18\x02 \x01(\tR\tnamespace\x12B\n" +
+	"\bmetadata\x18\x03 \x01(\v2\".gcommon.v1.common.RequestMetadataB\x02(\x01R\bmetadataB\xdb\x01\n" +
 	"\x16com.gcommon.v1.metricsB\x18DeleteMetricRequestProtoP\x01Z5github.com/jdfalk/gcommon/pkg/metrics/proto;metricspb\xa2\x02\x03GVM\xaa\x02\x12Gcommon.V1.Metrics\xca\x02\x12Gcommon\\V1\\Metrics\xe2\x02\x1eGcommon\\V1\\Metrics\\GPBMetadata\xea\x02\x14Gcommon::V1::Metrics\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
 
-var file_pkg_metrics_proto_requests_delete_metric_request_proto_goTypes = []any{}
+var file_pkg_metrics_proto_requests_delete_metric_request_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
+var file_pkg_metrics_proto_requests_delete_metric_request_proto_goTypes = []any{
+	(*DeleteMetricRequest)(nil),   // 0: gcommon.v1.metrics.DeleteMetricRequest
+	(*proto.RequestMetadata)(nil), // 1: gcommon.v1.common.RequestMetadata
+}
 var file_pkg_metrics_proto_requests_delete_metric_request_proto_depIdxs = []int32{
-	0, // [0:0] is the sub-list for method output_type
-	0, // [0:0] is the sub-list for method input_type
-	0, // [0:0] is the sub-list for extension type_name
-	0, // [0:0] is the sub-list for extension extendee
-	0, // [0:0] is the sub-list for field type_name
+	1, // 0: gcommon.v1.metrics.DeleteMetricRequest.metadata:type_name -> gcommon.v1.common.RequestMetadata
+	1, // [1:1] is the sub-list for method output_type
+	1, // [1:1] is the sub-list for method input_type
+	1, // [1:1] is the sub-list for extension type_name
+	1, // [1:1] is the sub-list for extension extendee
+	0, // [0:1] is the sub-list for field type_name
 }
 
 func init() { file_pkg_metrics_proto_requests_delete_metric_request_proto_init() }
@@ -50,12 +219,13 @@ func file_pkg_metrics_proto_requests_delete_metric_request_proto_init() {
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: unsafe.Slice(unsafe.StringData(file_pkg_metrics_proto_requests_delete_metric_request_proto_rawDesc), len(file_pkg_metrics_proto_requests_delete_metric_request_proto_rawDesc)),
 			NumEnums:      0,
-			NumMessages:   0,
+			NumMessages:   1,
 			NumExtensions: 0,
 			NumServices:   0,
 		},
 		GoTypes:           file_pkg_metrics_proto_requests_delete_metric_request_proto_goTypes,
 		DependencyIndexes: file_pkg_metrics_proto_requests_delete_metric_request_proto_depIdxs,
+		MessageInfos:      file_pkg_metrics_proto_requests_delete_metric_request_proto_msgTypes,
 	}.Build()
 	File_pkg_metrics_proto_requests_delete_metric_request_proto = out.File
 	file_pkg_metrics_proto_requests_delete_metric_request_proto_goTypes = nil
