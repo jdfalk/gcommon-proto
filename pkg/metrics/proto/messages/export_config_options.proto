@@ -8,8 +8,7 @@ edition = "2023";
 package gcommon.v1.metrics;
 
 import "google/protobuf/go_features.proto";
-import "pkg/metrics/proto/enums/compression_type.proto";
-import "pkg/metrics/proto/enums/export_format.proto";
+
 
 option features.(pb.go).api_level = API_HYBRID;
 option go_package = "../../../../pkg/metrics/pb;metricspb";

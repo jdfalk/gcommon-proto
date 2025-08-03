@@ -9,7 +9,7 @@ package gcommon.v1.metrics;
 
 import "google/protobuf/go_features.proto";
 import "pkg/common/proto/messages/request_metadata.proto";
-import "pkg/common/proto/messages/error.proto";
+
 // import "pkg/metrics/proto/messages/counter_metric.proto";
 
 option go_package = "../../../../pkg/metrics/pb;metricspb";
