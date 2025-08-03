@@ -1,0 +1,17 @@
+// file: pkg/web/proto/responses/update_session_response.proto
+// version: 1.1.0
+// guid: f1b380a2-162b-44ad-a6c0-5fd39e3add91
+
+edition = "2023";
+
+package gcommon.v1.web;
+
+import "google/protobuf/go_features.proto";
+import "pkg/web/proto/gcommon/pkg/web/proto;webpb";
+option features.(pb.go).api_level = API_HYBRID;
+
+// UpdateSessionResponse response definition.
+message UpdateSessionResponse {
+  // Updated session data
+  SessionData session = 1;
+}

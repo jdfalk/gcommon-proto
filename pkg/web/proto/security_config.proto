@@ -1,0 +1,28 @@
+// file: pkg/web/proto/messages/security_config.proto
+// version: 1.1.0
+// guid: 2d5231ca-5b58-4b11-8448-a87d4ae0154e
+
+edition = "2023";
+
+package gcommon.v1.web;
+
+import "google/protobuf/go_features.proto";
+
+// Import TLS config
+import "pkg/web/proto/gcommon/pkg/web/proto;webpb";
+option features.(pb.go).api_level = API_HYBRID;
+
+// SecurityConfig message definition.
+message SecurityConfig {
+  // Enable TLS security
+  bool enable_tls = 1;
+
+  // TLS configuration details
+  TLSConfig tls = 2;
+
+  // Allowed host patterns
+  repeated string allowed_hosts = 3;
+
+  // Additional security options
+  map<string, string> options = 4;
+}

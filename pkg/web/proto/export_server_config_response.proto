@@ -1,0 +1,53 @@
+// file: pkg/web/proto/responses/export_server_config_response.proto
+// version: 1.0.0
+// guid: b7274c09-ff07-4507-8c91-b7bfc995a64b
+
+edition = "2023";
+
+package gcommon.v1.web;
+
+option go_package = "github.com/jdfalk/gcommon/pkg/web/proto;webpb";
+
+// Standard imports
+import "google/protobuf/timestamp.proto";
+
+// Common types
+import "pkg/common/proto/common/proto/error.proto";
+
+/**
+ * ExportServerConfigResponse message for web service operations.
+ * Auto-generated placeholder - implement specific fields as needed.
+ *
+ * Follows 1-1-1 pattern: one message per file.
+ */
+message ExportServerConfigResponse {
+  // Required fields (1-10)
+
+  /**
+   * Indicates whether the operation was successful.
+   */
+  bool success = 1;
+
+  // Optional fields (11-50)
+
+  /**
+   * Request processing metadata including timing, request ID,
+   * and other observability information.
+   */
+  gcommon.v1.common.RequestMetadata request_metadata = 11;
+
+  // Status and error fields (61-70)
+
+  /**
+   * Error information if the operation failed
+   * or completed with warnings.
+   */
+  gcommon.v1.common.Error error = 61;
+
+  // Timestamps (51-60)
+
+  /**
+   * Timestamp when this response was generated.
+   */
+  google.protobuf.Timestamp response_generated_at = 51;
+}
