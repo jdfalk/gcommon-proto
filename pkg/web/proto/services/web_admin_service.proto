@@ -8,10 +8,12 @@ edition = "2023";
 package gcommon.v1.web;
 
 import "google/protobuf/go_features.proto";
-import "google/protobuf/empty.proto";
-import "pkg/web/proto/messages/cache_config.proto";
-import "pkg/cache/proto/requests/flush_request.proto";
-import "pkg/cache/proto/responses/flush_response.proto";
+import "pkg/web/proto/requests/get_cache_config_request.proto";
+import "pkg/web/proto/responses/get_cache_config_response.proto";
+import "pkg/web/proto/requests/update_cache_config_request.proto";
+import "pkg/web/proto/responses/update_cache_config_response.proto";
+import "pkg/web/proto/requests/flush_cache_request.proto";
+import "pkg/web/proto/responses/flush_cache_response.proto";
 
 option go_package = "../../../../pkg/web/pb;webpb";
 option features.(pb.go).api_level = API_HYBRID;
@@ -22,11 +24,11 @@ option features.(pb.go).api_level = API_HYBRID;
  */
 service WebAdminService {
   // Retrieve current cache configuration
-  rpc GetCacheConfig(google.protobuf.Empty) returns (CacheConfig);
+  rpc GetCacheConfig(GetCacheConfigRequest) returns (GetCacheConfigResponse);
 
   // Update cache configuration
-  rpc UpdateCacheConfig(CacheConfig) returns (google.protobuf.Empty);
+  rpc UpdateCacheConfig(UpdateCacheConfigRequest) returns (UpdateCacheConfigResponse);
 
   // Flush all cached entries
-  rpc FlushCache(gcommon.v1.cache.FlushRequest) returns (gcommon.v1.cache.FlushResponse);
+  rpc FlushCache(FlushCacheRequest) returns (FlushCacheResponse);
 }

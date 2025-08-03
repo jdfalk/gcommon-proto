@@ -1,0 +1,21 @@
+// file: pkg/web/proto/requests/get_cache_config_request.proto
+// version: 1.0.0
+// guid: abc12345-6789-0def-1234-567890abcdef
+
+edition = "2023";
+
+package gcommon.v1.web;
+
+import "google/protobuf/go_features.proto";
+import "pkg/common/proto/messages/request_metadata.proto";
+
+option go_package = "../../../../pkg/web/pb;webpb";
+option features.(pb.go).api_level = API_HYBRID;
+
+/**
+ * Request to retrieve current cache configuration.
+ */
+message GetCacheConfigRequest {
+  // Request metadata for tracing
+  gcommon.v1.common.RequestMetadata metadata = 1;
+}
