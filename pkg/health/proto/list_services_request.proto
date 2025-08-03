@@ -1,0 +1,26 @@
+// file: health/proto/requests/list_services_request.proto
+//
+// List services request message definition
+//
+edition = "2023";
+
+package gcommon.v1.health;
+
+import "pkg/common/proto/protobuf/go_features.proto";
+
+option go_package = "github.com/jdfalk/gcommon/pkg/health/proto;healthpb";
+option features.(pb.go).api_level = API_HYBRID;
+
+/**
+ * ListServicesRequest represents a request to retrieve
+ * all monitored services in the health system.
+ *
+ * This message enables:
+ * - Discovery of available health-monitored services
+ * - Service inventory management
+ * - Health monitoring scope awareness
+ */
+message ListServicesRequest {
+  // Request metadata
+  gcommon.v1.common.RequestMetadata metadata = 1;
+}

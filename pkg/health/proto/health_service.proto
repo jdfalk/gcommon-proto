@@ -1,0 +1,43 @@
+// file: health/proto/services/health_service.proto
+edition = "2023";
+
+package gcommon.v1.health;
+
+import "google/protobuf/go_features.proto";
+import "pkg/health/proto/proto/watch_request.proto";
+import "pkg/health/proto/proto/list_services_request.proto";
+import "pkg/health/proto/proto/unregister_check_request.proto";
+import "pkg/health/proto/proto/health_check_response.proto";
+import "pkg/health/proto/proto/get_service_health_response.proto";
+import "pkg/health/proto/proto/register_check_response.proto";
+import "pkg/health/proto/proto/get_health_metrics_response.proto";
+
+option go_package = "github.com/jdfalk/gcommon/pkg/health/proto;healthpb";
+option features.(pb.go).api_level = API_HYBRID;
+
+/**
+ * HealthService provides comprehensive health checking capabilities.
+ * Supports individual check status, system-wide health, and health monitoring.
+ */
+service HealthService {
+  // Check performs a health check for a specific service
+  rpc Check(HealthCheckRequest) returns (HealthCheckResponse);
+
+  // Watch returns a stream of health check results
+  rpc Watch(WatchRequest) returns (stream WatchResponse);
+
+  // GetServiceHealth returns health status for a service
+  rpc GetServiceHealth(GetServiceHealthRequest) returns (GetServiceHealthResponse);
+
+  // ListServices returns all monitored services
+  rpc ListServices(ListServicesRequest) returns (ListServicesResponse);
+
+  // RegisterCheck registers a new health check
+  rpc RegisterCheck(RegisterCheckRequest) returns (RegisterCheckResponse);
+
+  // UnregisterCheck removes a health check
+  rpc UnregisterCheck(UnregisterCheckRequest) returns (UnregisterCheckResponse);
+
+  // GetHealthMetrics returns health metrics and statistics
+  rpc GetHealthMetrics(GetHealthMetricsRequest) returns (GetHealthMetricsResponse);
+}
