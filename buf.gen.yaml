@@ -14,10 +14,6 @@ plugins:
       - Mgoogle/protobuf/duration.proto=google.golang.org/protobuf/types/known/durationpb
       - Mgoogle/protobuf/empty.proto=google.golang.org/protobuf/types/known/emptypb
       - Mgoogle/protobuf/any.proto=google.golang.org/protobuf/types/known/anypb
-      - Mpkg/common/proto/messages/error.proto=github.com/jdfalk/gcommon/pkg/common/proto
-      - Mpkg/common/proto/messages/pagination.proto=github.com/jdfalk/gcommon/pkg/common/proto
-      - Mpkg/common/proto/messages/response_metadata.proto=github.com/jdfalk/gcommon/pkg/common/proto
-      - Mpkg/common/proto/enums/health_status.proto=github.com/jdfalk/gcommon/pkg/common/proto
   - remote: buf.build/grpc/go:v1.5.1
     out: .
     opt:
