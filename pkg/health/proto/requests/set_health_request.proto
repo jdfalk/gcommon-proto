@@ -9,7 +9,7 @@ package gcommon.v1.health;
 
 import "google/protobuf/go_features.proto";
 import "pkg/common/proto/messages/request_metadata.proto";
-import "pkg/common/proto/messages/error.proto";
+
 import "pkg/common/proto/enums/health_status.proto";
 
 option go_package = "../../../../pkg/health/pb;healthpb";

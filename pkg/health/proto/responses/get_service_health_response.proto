@@ -5,7 +5,7 @@ package gcommon.v1.health;
 
 import "google/protobuf/go_features.proto";
 import "google/protobuf/timestamp.proto";
-import "pkg/common/proto/messages/request_metadata.proto";
+
 import "pkg/common/proto/messages/error.proto";
 import "pkg/common/proto/enums/health_status.proto";
 
