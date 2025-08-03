@@ -435,8 +435,8 @@ const file_pkg_log_proto_messages_appender_config_proto_rawDesc = "" +
 	"\x05value\x18\x02 \x01(\tR\x05value:\x028\x01\x1a^\n" +
 	"\x0fFormatterConfig\x121\n" +
 	"\x04type\x18\x01 \x01(\x0e2\x1d.gcommon.v1.log.FormatterTypeR\x04type\x12\x18\n" +
-	"\apattern\x18\x02 \x01(\tR\apatternB\xa9\x01\n" +
-	"\x12com.gcommon.v1.logB\x13AppenderConfigProtoP\x01Z\x1c../../../../pkg/log/pb;logpb\xa2\x02\x03GVL\xaa\x02\x0eGcommon.V1.Log\xca\x02\x0eGcommon\\V1\\Log\xe2\x02\x1aGcommon\\V1\\Log\\GPBMetadata\xea\x02\x10Gcommon::V1::Log\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
+	"\apattern\x18\x02 \x01(\tR\apatternB\xac\x01\n" +
+	"\x12com.gcommon.v1.logB\x13AppenderConfigProtoP\x01Z\x1f../../../../pkg/log/proto;logpb\xa2\x02\x03GVL\xaa\x02\x0eGcommon.V1.Log\xca\x02\x0eGcommon\\V1\\Log\xe2\x02\x1aGcommon\\V1\\Log\\GPBMetadata\xea\x02\x10Gcommon::V1::Log\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
 
 var file_pkg_log_proto_messages_appender_config_proto_msgTypes = make([]protoimpl.MessageInfo, 5)
 var file_pkg_log_proto_messages_appender_config_proto_goTypes = []any{

@@ -83,8 +83,8 @@ const file_pkg_web_proto_enums_websocket_state_proto_rawDesc = "" +
 	"\x1bWEB_SOCKET_STATE_CONNECTING\x10\x01\x12\x19\n" +
 	"\x15WEB_SOCKET_STATE_OPEN\x10\x02\x12\x1c\n" +
 	"\x18WEB_SOCKET_STATE_CLOSING\x10\x03\x12\x1b\n" +
-	"\x17WEB_SOCKET_STATE_CLOSED\x10\x04B\xa9\x01\n" +
-	"\x12com.gcommon.v1.webB\x13WebsocketStateProtoP\x01Z\x1c../../../../pkg/web/pb;webpb\xa2\x02\x03GVW\xaa\x02\x0eGcommon.V1.Web\xca\x02\x0eGcommon\\V1\\Web\xe2\x02\x1aGcommon\\V1\\Web\\GPBMetadata\xea\x02\x10Gcommon::V1::Web\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
+	"\x17WEB_SOCKET_STATE_CLOSED\x10\x04B\xac\x01\n" +
+	"\x12com.gcommon.v1.webB\x13WebsocketStateProtoP\x01Z\x1f../../../../pkg/web/proto;webpb\xa2\x02\x03GVW\xaa\x02\x0eGcommon.V1.Web\xca\x02\x0eGcommon\\V1\\Web\xe2\x02\x1aGcommon\\V1\\Web\\GPBMetadata\xea\x02\x10Gcommon::V1::Web\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
 
 var file_pkg_web_proto_enums_websocket_state_proto_enumTypes = make([]protoimpl.EnumInfo, 1)
 var file_pkg_web_proto_enums_websocket_state_proto_goTypes = []any{

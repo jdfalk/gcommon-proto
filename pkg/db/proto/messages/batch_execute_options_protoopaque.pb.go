@@ -186,8 +186,8 @@ const file_pkg_db_proto_messages_batch_execute_options_proto_rawDesc = "" +
 	"\x13BatchExecuteOptions\x12\x1b\n" +
 	"\tfail_fast\x18\x01 \x01(\bR\bfailFast\x127\n" +
 	"\atimeout\x18\x02 \x01(\v2\x19.google.protobuf.DurationB\x02(\x01R\atimeout\x12!\n" +
-	"\fmax_parallel\x18\x03 \x01(\x05R\vmaxParallelB\xc5\x01\n" +
-	"\x17com.gcommon.v1.databaseB\x18BatchExecuteOptionsProtoP\x01Z\x1a../../../../pkg/db/pb;dbpb\xa2\x02\x03GVD\xaa\x02\x13Gcommon.V1.Database\xca\x02\x13Gcommon\\V1\\Database\xe2\x02\x1fGcommon\\V1\\Database\\GPBMetadata\xea\x02\x15Gcommon::V1::Database\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
+	"\fmax_parallel\x18\x03 \x01(\x05R\vmaxParallelB\xc8\x01\n" +
+	"\x17com.gcommon.v1.databaseB\x18BatchExecuteOptionsProtoP\x01Z\x1d../../../../pkg/db/proto;dbpb\xa2\x02\x03GVD\xaa\x02\x13Gcommon.V1.Database\xca\x02\x13Gcommon\\V1\\Database\xe2\x02\x1fGcommon\\V1\\Database\\GPBMetadata\xea\x02\x15Gcommon::V1::Database\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
 
 var file_pkg_db_proto_messages_batch_execute_options_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_pkg_db_proto_messages_batch_execute_options_proto_goTypes = []any{

@@ -261,8 +261,8 @@ const file_pkg_db_proto_messages_connection_pool_info_proto_rawDesc = "" +
 	"\x12active_connections\x18\x02 \x01(\x05R\x11activeConnections\x12)\n" +
 	"\x10idle_connections\x18\x03 \x01(\x05R\x0fidleConnections\x12@\n" +
 	"\favg_lifetime\x18\x04 \x01(\v2\x19.google.protobuf.DurationB\x02(\x01R\vavgLifetime\x128\n" +
-	"\x05stats\x18\x05 \x01(\v2\x1e.gcommon.v1.database.PoolStatsB\x02(\x01R\x05statsB\xc4\x01\n" +
-	"\x17com.gcommon.v1.databaseB\x17ConnectionPoolInfoProtoP\x01Z\x1a../../../../pkg/db/pb;dbpb\xa2\x02\x03GVD\xaa\x02\x13Gcommon.V1.Database\xca\x02\x13Gcommon\\V1\\Database\xe2\x02\x1fGcommon\\V1\\Database\\GPBMetadata\xea\x02\x15Gcommon::V1::Database\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
+	"\x05stats\x18\x05 \x01(\v2\x1e.gcommon.v1.database.PoolStatsB\x02(\x01R\x05statsB\xc7\x01\n" +
+	"\x17com.gcommon.v1.databaseB\x17ConnectionPoolInfoProtoP\x01Z\x1d../../../../pkg/db/proto;dbpb\xa2\x02\x03GVD\xaa\x02\x13Gcommon.V1.Database\xca\x02\x13Gcommon\\V1\\Database\xe2\x02\x1fGcommon\\V1\\Database\\GPBMetadata\xea\x02\x15Gcommon::V1::Database\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
 
 var file_pkg_db_proto_messages_connection_pool_info_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_pkg_db_proto_messages_connection_pool_info_proto_goTypes = []any{

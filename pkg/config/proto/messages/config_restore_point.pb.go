@@ -7,7 +7,7 @@
 package configpb
 
 import (
-	pb "../../../../pkg/common/pb"
+	proto "../../../../pkg/common/proto"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	timestamppb "google.golang.org/protobuf/types/known/timestamppb"
@@ -240,7 +240,7 @@ type ConfigRestorePoint struct {
 	// Status of the restore point
 	Status *RestorePointStatus `protobuf:"varint,18,opt,name=status,enum=gcommon.v1.config.RestorePointStatus" json:"status,omitempty"`
 	// Error information if status is ERROR
-	Error         *pb.Error `protobuf:"bytes,19,opt,name=error" json:"error,omitempty"`
+	Error         *proto.Error `protobuf:"bytes,19,opt,name=error" json:"error,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -401,7 +401,7 @@ func (x *ConfigRestorePoint) GetStatus() RestorePointStatus {
 	return RestorePointStatus_RESTORE_POINT_STATUS_UNSPECIFIED
 }
 
-func (x *ConfigRestorePoint) GetError() *pb.Error {
+func (x *ConfigRestorePoint) GetError() *proto.Error {
 	if x != nil {
 		return x.Error
 	}
@@ -463,8 +463,8 @@ const file_pkg_config_proto_messages_config_restore_point_proto_rawDesc = "" +
 	"\x1bRESTORE_POINT_STATUS_ACTIVE\x10\x02\x12 \n" +
 	"\x1cRESTORE_POINT_STATUS_EXPIRED\x10\x03\x12 \n" +
 	"\x1cRESTORE_POINT_STATUS_DELETED\x10\x04\x12\x1e\n" +
-	"\x1aRESTORE_POINT_STATUS_ERROR\x10\x05B\xba\x01\n" +
-	"\x15com.gcommon.v1.configB\x17ConfigRestorePointProtoP\x01Z\"../../../../pkg/config/pb;configpb\xa2\x02\x03GVC\xaa\x02\x11Gcommon.V1.Config\xca\x02\x11Gcommon\\V1\\Config\xe2\x02\x1dGcommon\\V1\\Config\\GPBMetadata\xea\x02\x13Gcommon::V1::Configb\beditionsp\xe8\a"
+	"\x1aRESTORE_POINT_STATUS_ERROR\x10\x05B\xbd\x01\n" +
+	"\x15com.gcommon.v1.configB\x17ConfigRestorePointProtoP\x01Z%../../../../pkg/config/proto;configpb\xa2\x02\x03GVC\xaa\x02\x11Gcommon.V1.Config\xca\x02\x11Gcommon\\V1\\Config\xe2\x02\x1dGcommon\\V1\\Config\\GPBMetadata\xea\x02\x13Gcommon::V1::Configb\beditionsp\xe8\a"
 
 var (
 	file_pkg_config_proto_messages_config_restore_point_proto_rawDescOnce sync.Once
@@ -488,7 +488,7 @@ var file_pkg_config_proto_messages_config_restore_point_proto_goTypes = []any{
 	nil,                           // 4: gcommon.v1.config.ConfigRestorePoint.ConfigSnapshotEntry
 	nil,                           // 5: gcommon.v1.config.ConfigRestorePoint.MetadataEntry
 	(*timestamppb.Timestamp)(nil), // 6: google.protobuf.Timestamp
-	(*pb.Error)(nil),              // 7: gcommon.v1.common.Error
+	(*proto.Error)(nil),           // 7: gcommon.v1.common.Error
 }
 var file_pkg_config_proto_messages_config_restore_point_proto_depIdxs = []int32{
 	6, // 0: gcommon.v1.config.ConfigRestorePoint.created_at:type_name -> google.protobuf.Timestamp

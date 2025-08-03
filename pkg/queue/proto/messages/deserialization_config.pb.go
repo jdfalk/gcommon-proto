@@ -27,8 +27,8 @@ var File_pkg_queue_proto_messages_deserialization_config_proto protoreflect.File
 
 const file_pkg_queue_proto_messages_deserialization_config_proto_rawDesc = "" +
 	"\n" +
-	"5pkg/queue/proto/messages/deserialization_config.proto\x12\x10gcommon.v1.queue\x1a!google/protobuf/go_features.protoB\xbe\x01\n" +
-	"\x14com.gcommon.v1.queueB\x1aDeserializationConfigProtoP\x01Z ../../../../pkg/queue/pb;queuepb\xa2\x02\x03GVQ\xaa\x02\x10Gcommon.V1.Queue\xca\x02\x10Gcommon\\V1\\Queue\xe2\x02\x1cGcommon\\V1\\Queue\\GPBMetadata\xea\x02\x12Gcommon::V1::Queue\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
+	"5pkg/queue/proto/messages/deserialization_config.proto\x12\x10gcommon.v1.queue\x1a!google/protobuf/go_features.protoB\xc1\x01\n" +
+	"\x14com.gcommon.v1.queueB\x1aDeserializationConfigProtoP\x01Z#../../../../pkg/queue/proto;queuepb\xa2\x02\x03GVQ\xaa\x02\x10Gcommon.V1.Queue\xca\x02\x10Gcommon\\V1\\Queue\xe2\x02\x1cGcommon\\V1\\Queue\\GPBMetadata\xea\x02\x12Gcommon::V1::Queue\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
 
 var file_pkg_queue_proto_messages_deserialization_config_proto_goTypes = []any{}
 var file_pkg_queue_proto_messages_deserialization_config_proto_depIdxs = []int32{

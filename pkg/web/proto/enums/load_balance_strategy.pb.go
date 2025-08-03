@@ -79,8 +79,8 @@ const file_pkg_web_proto_enums_load_balance_strategy_proto_rawDesc = "" +
 	"!LOAD_BALANCE_STRATEGY_UNSPECIFIED\x10\x00\x12%\n" +
 	"!LOAD_BALANCE_STRATEGY_ROUND_ROBIN\x10\x01\x12+\n" +
 	"'LOAD_BALANCE_STRATEGY_LEAST_CONNECTIONS\x10\x02\x12!\n" +
-	"\x1dLOAD_BALANCE_STRATEGY_IP_HASH\x10\x03B\xae\x01\n" +
-	"\x12com.gcommon.v1.webB\x18LoadBalanceStrategyProtoP\x01Z\x1c../../../../pkg/web/pb;webpb\xa2\x02\x03GVW\xaa\x02\x0eGcommon.V1.Web\xca\x02\x0eGcommon\\V1\\Web\xe2\x02\x1aGcommon\\V1\\Web\\GPBMetadata\xea\x02\x10Gcommon::V1::Web\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
+	"\x1dLOAD_BALANCE_STRATEGY_IP_HASH\x10\x03B\xb1\x01\n" +
+	"\x12com.gcommon.v1.webB\x18LoadBalanceStrategyProtoP\x01Z\x1f../../../../pkg/web/proto;webpb\xa2\x02\x03GVW\xaa\x02\x0eGcommon.V1.Web\xca\x02\x0eGcommon\\V1\\Web\xe2\x02\x1aGcommon\\V1\\Web\\GPBMetadata\xea\x02\x10Gcommon::V1::Web\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
 
 var file_pkg_web_proto_enums_load_balance_strategy_proto_enumTypes = make([]protoimpl.EnumInfo, 1)
 var file_pkg_web_proto_enums_load_balance_strategy_proto_goTypes = []any{

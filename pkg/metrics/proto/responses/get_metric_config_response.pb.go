@@ -9,7 +9,7 @@
 package metricspb
 
 import (
-	pb "../../../../pkg/common/pb"
+	proto "../../../../pkg/common/proto"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
@@ -31,7 +31,7 @@ type GetMetricConfigResponse struct {
 	// Operation success flag
 	Success *bool `protobuf:"varint,1,opt,name=success" json:"success,omitempty"`
 	// Error details if any
-	Error *pb.Error `protobuf:"bytes,2,opt,name=error" json:"error,omitempty"`
+	Error *proto.Error `protobuf:"bytes,2,opt,name=error" json:"error,omitempty"`
 	// Retrieved configuration
 	Config        *MetricConfig `protobuf:"bytes,3,opt,name=config" json:"config,omitempty"`
 	unknownFields protoimpl.UnknownFields
@@ -70,7 +70,7 @@ func (x *GetMetricConfigResponse) GetSuccess() bool {
 	return false
 }
 
-func (x *GetMetricConfigResponse) GetError() *pb.Error {
+func (x *GetMetricConfigResponse) GetError() *proto.Error {
 	if x != nil {
 		return x.Error
 	}
@@ -88,7 +88,7 @@ func (x *GetMetricConfigResponse) SetSuccess(v bool) {
 	x.Success = &v
 }
 
-func (x *GetMetricConfigResponse) SetError(v *pb.Error) {
+func (x *GetMetricConfigResponse) SetError(v *proto.Error) {
 	x.Error = v
 }
 
@@ -135,7 +135,7 @@ type GetMetricConfigResponse_builder struct {
 	// Operation success flag
 	Success *bool
 	// Error details if any
-	Error *pb.Error
+	Error *proto.Error
 	// Retrieved configuration
 	Config *MetricConfig
 }
@@ -158,13 +158,13 @@ const file_pkg_metrics_proto_responses_get_metric_config_response_proto_rawDesc 
 	"\x17GetMetricConfigResponse\x12\x18\n" +
 	"\asuccess\x18\x01 \x01(\bR\asuccess\x12.\n" +
 	"\x05error\x18\x02 \x01(\v2\x18.gcommon.v1.common.ErrorR\x05error\x128\n" +
-	"\x06config\x18\x03 \x01(\v2 .gcommon.v1.metrics.MetricConfigR\x06configB\xce\x01\n" +
-	"\x16com.gcommon.v1.metricsB\x1cGetMetricConfigResponseProtoP\x01Z$../../../../pkg/metrics/pb;metricspb\xa2\x02\x03GVM\xaa\x02\x12Gcommon.V1.Metrics\xca\x02\x12Gcommon\\V1\\Metrics\xe2\x02\x1eGcommon\\V1\\Metrics\\GPBMetadata\xea\x02\x14Gcommon::V1::Metrics\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
+	"\x06config\x18\x03 \x01(\v2 .gcommon.v1.metrics.MetricConfigR\x06configB\xd1\x01\n" +
+	"\x16com.gcommon.v1.metricsB\x1cGetMetricConfigResponseProtoP\x01Z'../../../../pkg/metrics/proto;metricspb\xa2\x02\x03GVM\xaa\x02\x12Gcommon.V1.Metrics\xca\x02\x12Gcommon\\V1\\Metrics\xe2\x02\x1eGcommon\\V1\\Metrics\\GPBMetadata\xea\x02\x14Gcommon::V1::Metrics\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
 
 var file_pkg_metrics_proto_responses_get_metric_config_response_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_pkg_metrics_proto_responses_get_metric_config_response_proto_goTypes = []any{
 	(*GetMetricConfigResponse)(nil), // 0: gcommon.v1.metrics.GetMetricConfigResponse
-	(*pb.Error)(nil),                // 1: gcommon.v1.common.Error
+	(*proto.Error)(nil),             // 1: gcommon.v1.common.Error
 	(*MetricConfig)(nil),            // 2: gcommon.v1.metrics.MetricConfig
 }
 var file_pkg_metrics_proto_responses_get_metric_config_response_proto_depIdxs = []int32{

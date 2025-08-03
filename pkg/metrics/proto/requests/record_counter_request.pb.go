@@ -9,7 +9,7 @@
 package metricspb
 
 import (
-	pb "../../../../pkg/common/pb"
+	proto "../../../../pkg/common/proto"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
@@ -41,7 +41,7 @@ type RecordCounterRequest struct {
 	// Sample rate (0.0-1.0, used for sampling)
 	SampleRate *float64 `protobuf:"fixed64,6,opt,name=sample_rate,json=sampleRate" json:"sample_rate,omitempty"`
 	// Request metadata for tracing and debugging
-	Metadata      *pb.RequestMetadata `protobuf:"bytes,7,opt,name=metadata" json:"metadata,omitempty"`
+	Metadata      *proto.RequestMetadata `protobuf:"bytes,7,opt,name=metadata" json:"metadata,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -113,7 +113,7 @@ func (x *RecordCounterRequest) GetSampleRate() float64 {
 	return 0
 }
 
-func (x *RecordCounterRequest) GetMetadata() *pb.RequestMetadata {
+func (x *RecordCounterRequest) GetMetadata() *proto.RequestMetadata {
 	if x != nil {
 		return x.Metadata
 	}
@@ -144,7 +144,7 @@ func (x *RecordCounterRequest) SetSampleRate(v float64) {
 	x.SampleRate = &v
 }
 
-func (x *RecordCounterRequest) SetMetadata(v *pb.RequestMetadata) {
+func (x *RecordCounterRequest) SetMetadata(v *proto.RequestMetadata) {
 	x.Metadata = v
 }
 
@@ -230,7 +230,7 @@ type RecordCounterRequest_builder struct {
 	// Sample rate (0.0-1.0, used for sampling)
 	SampleRate *float64
 	// Request metadata for tracing and debugging
-	Metadata *pb.RequestMetadata
+	Metadata *proto.RequestMetadata
 }
 
 func (b0 RecordCounterRequest_builder) Build() *RecordCounterRequest {
@@ -263,14 +263,14 @@ const file_pkg_metrics_proto_requests_record_counter_request_proto_rawDesc = "" 
 	"\bmetadata\x18\a \x01(\v2\".gcommon.v1.common.RequestMetadataR\bmetadata\x1a9\n" +
 	"\vLabelsEntry\x12\x10\n" +
 	"\x03key\x18\x01 \x01(\tR\x03key\x12\x14\n" +
-	"\x05value\x18\x02 \x01(\tR\x05value:\x028\x01B\xcb\x01\n" +
-	"\x16com.gcommon.v1.metricsB\x19RecordCounterRequestProtoP\x01Z$../../../../pkg/metrics/pb;metricspb\xa2\x02\x03GVM\xaa\x02\x12Gcommon.V1.Metrics\xca\x02\x12Gcommon\\V1\\Metrics\xe2\x02\x1eGcommon\\V1\\Metrics\\GPBMetadata\xea\x02\x14Gcommon::V1::Metrics\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
+	"\x05value\x18\x02 \x01(\tR\x05value:\x028\x01B\xce\x01\n" +
+	"\x16com.gcommon.v1.metricsB\x19RecordCounterRequestProtoP\x01Z'../../../../pkg/metrics/proto;metricspb\xa2\x02\x03GVM\xaa\x02\x12Gcommon.V1.Metrics\xca\x02\x12Gcommon\\V1\\Metrics\xe2\x02\x1eGcommon\\V1\\Metrics\\GPBMetadata\xea\x02\x14Gcommon::V1::Metrics\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
 
 var file_pkg_metrics_proto_requests_record_counter_request_proto_msgTypes = make([]protoimpl.MessageInfo, 2)
 var file_pkg_metrics_proto_requests_record_counter_request_proto_goTypes = []any{
-	(*RecordCounterRequest)(nil), // 0: gcommon.v1.metrics.RecordCounterRequest
-	nil,                          // 1: gcommon.v1.metrics.RecordCounterRequest.LabelsEntry
-	(*pb.RequestMetadata)(nil),   // 2: gcommon.v1.common.RequestMetadata
+	(*RecordCounterRequest)(nil),  // 0: gcommon.v1.metrics.RecordCounterRequest
+	nil,                           // 1: gcommon.v1.metrics.RecordCounterRequest.LabelsEntry
+	(*proto.RequestMetadata)(nil), // 2: gcommon.v1.common.RequestMetadata
 }
 var file_pkg_metrics_proto_requests_record_counter_request_proto_depIdxs = []int32{
 	1, // 0: gcommon.v1.metrics.RecordCounterRequest.labels:type_name -> gcommon.v1.metrics.RecordCounterRequest.LabelsEntry

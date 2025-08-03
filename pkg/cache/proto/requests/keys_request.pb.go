@@ -9,7 +9,7 @@
 package cachepb
 
 import (
-	pb "../../../../pkg/common/pb"
+	proto "../../../../pkg/common/proto"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
@@ -33,9 +33,9 @@ type KeysRequest struct {
 	// Optional namespace
 	Namespace *string `protobuf:"bytes,2,opt,name=namespace" json:"namespace,omitempty"`
 	// Pagination options
-	Pagination *pb.Pagination `protobuf:"bytes,3,opt,name=pagination" json:"pagination,omitempty"`
+	Pagination *proto.Pagination `protobuf:"bytes,3,opt,name=pagination" json:"pagination,omitempty"`
 	// Request metadata
-	Metadata      *pb.RequestMetadata `protobuf:"bytes,4,opt,name=metadata" json:"metadata,omitempty"`
+	Metadata      *proto.RequestMetadata `protobuf:"bytes,4,opt,name=metadata" json:"metadata,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -79,14 +79,14 @@ func (x *KeysRequest) GetNamespace() string {
 	return ""
 }
 
-func (x *KeysRequest) GetPagination() *pb.Pagination {
+func (x *KeysRequest) GetPagination() *proto.Pagination {
 	if x != nil {
 		return x.Pagination
 	}
 	return nil
 }
 
-func (x *KeysRequest) GetMetadata() *pb.RequestMetadata {
+func (x *KeysRequest) GetMetadata() *proto.RequestMetadata {
 	if x != nil {
 		return x.Metadata
 	}
@@ -101,11 +101,11 @@ func (x *KeysRequest) SetNamespace(v string) {
 	x.Namespace = &v
 }
 
-func (x *KeysRequest) SetPagination(v *pb.Pagination) {
+func (x *KeysRequest) SetPagination(v *proto.Pagination) {
 	x.Pagination = v
 }
 
-func (x *KeysRequest) SetMetadata(v *pb.RequestMetadata) {
+func (x *KeysRequest) SetMetadata(v *proto.RequestMetadata) {
 	x.Metadata = v
 }
 
@@ -161,9 +161,9 @@ type KeysRequest_builder struct {
 	// Optional namespace
 	Namespace *string
 	// Pagination options
-	Pagination *pb.Pagination
+	Pagination *proto.Pagination
 	// Request metadata
-	Metadata *pb.RequestMetadata
+	Metadata *proto.RequestMetadata
 }
 
 func (b0 KeysRequest_builder) Build() *KeysRequest {
@@ -188,14 +188,14 @@ const file_pkg_cache_proto_requests_keys_request_proto_rawDesc = "" +
 	"\n" +
 	"pagination\x18\x03 \x01(\v2\x1d.gcommon.v1.common.PaginationB\x02(\x01R\n" +
 	"pagination\x12B\n" +
-	"\bmetadata\x18\x04 \x01(\v2\".gcommon.v1.common.RequestMetadataB\x02(\x01R\bmetadataB\xb4\x01\n" +
-	"\x14com.gcommon.v1.cacheB\x10KeysRequestProtoP\x01Z ../../../../pkg/cache/pb;cachepb\xa2\x02\x03GVC\xaa\x02\x10Gcommon.V1.Cache\xca\x02\x10Gcommon\\V1\\Cache\xe2\x02\x1cGcommon\\V1\\Cache\\GPBMetadata\xea\x02\x12Gcommon::V1::Cache\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
+	"\bmetadata\x18\x04 \x01(\v2\".gcommon.v1.common.RequestMetadataB\x02(\x01R\bmetadataB\xb7\x01\n" +
+	"\x14com.gcommon.v1.cacheB\x10KeysRequestProtoP\x01Z#../../../../pkg/cache/proto;cachepb\xa2\x02\x03GVC\xaa\x02\x10Gcommon.V1.Cache\xca\x02\x10Gcommon\\V1\\Cache\xe2\x02\x1cGcommon\\V1\\Cache\\GPBMetadata\xea\x02\x12Gcommon::V1::Cache\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
 
 var file_pkg_cache_proto_requests_keys_request_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_pkg_cache_proto_requests_keys_request_proto_goTypes = []any{
-	(*KeysRequest)(nil),        // 0: gcommon.v1.cache.KeysRequest
-	(*pb.Pagination)(nil),      // 1: gcommon.v1.common.Pagination
-	(*pb.RequestMetadata)(nil), // 2: gcommon.v1.common.RequestMetadata
+	(*KeysRequest)(nil),           // 0: gcommon.v1.cache.KeysRequest
+	(*proto.Pagination)(nil),      // 1: gcommon.v1.common.Pagination
+	(*proto.RequestMetadata)(nil), // 2: gcommon.v1.common.RequestMetadata
 }
 var file_pkg_cache_proto_requests_keys_request_proto_depIdxs = []int32{
 	1, // 0: gcommon.v1.cache.KeysRequest.pagination:type_name -> gcommon.v1.common.Pagination

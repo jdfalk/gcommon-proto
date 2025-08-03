@@ -9,7 +9,7 @@
 package dbpb
 
 import (
-	pb "../../../../pkg/common/pb"
+	proto "../../../../pkg/common/proto"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
@@ -33,7 +33,7 @@ type RevertMigrationRequest struct {
 	// Target migration version to revert to
 	TargetVersion *string `protobuf:"bytes,2,opt,name=target_version,json=targetVersion" json:"target_version,omitempty"`
 	// Request metadata for tracing and authentication
-	Metadata      *pb.RequestMetadata `protobuf:"bytes,3,opt,name=metadata" json:"metadata,omitempty"`
+	Metadata      *proto.RequestMetadata `protobuf:"bytes,3,opt,name=metadata" json:"metadata,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -77,7 +77,7 @@ func (x *RevertMigrationRequest) GetTargetVersion() string {
 	return ""
 }
 
-func (x *RevertMigrationRequest) GetMetadata() *pb.RequestMetadata {
+func (x *RevertMigrationRequest) GetMetadata() *proto.RequestMetadata {
 	if x != nil {
 		return x.Metadata
 	}
@@ -92,7 +92,7 @@ func (x *RevertMigrationRequest) SetTargetVersion(v string) {
 	x.TargetVersion = &v
 }
 
-func (x *RevertMigrationRequest) SetMetadata(v *pb.RequestMetadata) {
+func (x *RevertMigrationRequest) SetMetadata(v *proto.RequestMetadata) {
 	x.Metadata = v
 }
 
@@ -137,7 +137,7 @@ type RevertMigrationRequest_builder struct {
 	// Target migration version to revert to
 	TargetVersion *string
 	// Request metadata for tracing and authentication
-	Metadata *pb.RequestMetadata
+	Metadata *proto.RequestMetadata
 }
 
 func (b0 RevertMigrationRequest_builder) Build() *RevertMigrationRequest {
@@ -158,13 +158,13 @@ const file_pkg_db_proto_requests_revert_migration_request_proto_rawDesc = "" +
 	"\x16RevertMigrationRequest\x12\x1a\n" +
 	"\bdatabase\x18\x01 \x01(\tR\bdatabase\x12%\n" +
 	"\x0etarget_version\x18\x02 \x01(\tR\rtargetVersion\x12B\n" +
-	"\bmetadata\x18\x03 \x01(\v2\".gcommon.v1.common.RequestMetadataB\x02(\x01R\bmetadataB\xc8\x01\n" +
-	"\x17com.gcommon.v1.databaseB\x1bRevertMigrationRequestProtoP\x01Z\x1a../../../../pkg/db/pb;dbpb\xa2\x02\x03GVD\xaa\x02\x13Gcommon.V1.Database\xca\x02\x13Gcommon\\V1\\Database\xe2\x02\x1fGcommon\\V1\\Database\\GPBMetadata\xea\x02\x15Gcommon::V1::Database\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
+	"\bmetadata\x18\x03 \x01(\v2\".gcommon.v1.common.RequestMetadataB\x02(\x01R\bmetadataB\xcb\x01\n" +
+	"\x17com.gcommon.v1.databaseB\x1bRevertMigrationRequestProtoP\x01Z\x1d../../../../pkg/db/proto;dbpb\xa2\x02\x03GVD\xaa\x02\x13Gcommon.V1.Database\xca\x02\x13Gcommon\\V1\\Database\xe2\x02\x1fGcommon\\V1\\Database\\GPBMetadata\xea\x02\x15Gcommon::V1::Database\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
 
 var file_pkg_db_proto_requests_revert_migration_request_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_pkg_db_proto_requests_revert_migration_request_proto_goTypes = []any{
 	(*RevertMigrationRequest)(nil), // 0: gcommon.v1.database.RevertMigrationRequest
-	(*pb.RequestMetadata)(nil),     // 1: gcommon.v1.common.RequestMetadata
+	(*proto.RequestMetadata)(nil),  // 1: gcommon.v1.common.RequestMetadata
 }
 var file_pkg_db_proto_requests_revert_migration_request_proto_depIdxs = []int32{
 	1, // 0: gcommon.v1.database.RevertMigrationRequest.metadata:type_name -> gcommon.v1.common.RequestMetadata

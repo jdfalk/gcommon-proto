@@ -92,8 +92,8 @@ const file_pkg_db_proto_responses_list_migrations_response_proto_rawDesc = "" +
 	"\x16ListMigrationsResponse\x12F\n" +
 	"\n" +
 	"migrations\x18\x01 \x03(\v2\".gcommon.v1.database.MigrationInfoB\x02(\x01R\n" +
-	"migrationsB\xc8\x01\n" +
-	"\x17com.gcommon.v1.databaseB\x1bListMigrationsResponseProtoP\x01Z\x1a../../../../pkg/db/pb;dbpb\xa2\x02\x03GVD\xaa\x02\x13Gcommon.V1.Database\xca\x02\x13Gcommon\\V1\\Database\xe2\x02\x1fGcommon\\V1\\Database\\GPBMetadata\xea\x02\x15Gcommon::V1::Database\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
+	"migrationsB\xcb\x01\n" +
+	"\x17com.gcommon.v1.databaseB\x1bListMigrationsResponseProtoP\x01Z\x1d../../../../pkg/db/proto;dbpb\xa2\x02\x03GVD\xaa\x02\x13Gcommon.V1.Database\xca\x02\x13Gcommon\\V1\\Database\xe2\x02\x1fGcommon\\V1\\Database\\GPBMetadata\xea\x02\x15Gcommon::V1::Database\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
 
 var file_pkg_db_proto_responses_list_migrations_response_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_pkg_db_proto_responses_list_migrations_response_proto_goTypes = []any{

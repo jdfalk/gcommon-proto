@@ -9,7 +9,7 @@
 package webpb
 
 import (
-	pb "../../../../pkg/common/pb"
+	proto "../../../../pkg/common/proto"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
@@ -29,7 +29,7 @@ const (
 type GetCacheConfigResponse struct {
 	state               protoimpl.MessageState `protogen:"opaque.v1"`
 	xxx_hidden_Config   *CacheConfig           `protobuf:"bytes,1,opt,name=config"`
-	xxx_hidden_Metadata *pb.RequestMetadata    `protobuf:"bytes,2,opt,name=metadata"`
+	xxx_hidden_Metadata *proto.RequestMetadata `protobuf:"bytes,2,opt,name=metadata"`
 	unknownFields       protoimpl.UnknownFields
 	sizeCache           protoimpl.SizeCache
 }
@@ -66,7 +66,7 @@ func (x *GetCacheConfigResponse) GetConfig() *CacheConfig {
 	return nil
 }
 
-func (x *GetCacheConfigResponse) GetMetadata() *pb.RequestMetadata {
+func (x *GetCacheConfigResponse) GetMetadata() *proto.RequestMetadata {
 	if x != nil {
 		return x.xxx_hidden_Metadata
 	}
@@ -77,7 +77,7 @@ func (x *GetCacheConfigResponse) SetConfig(v *CacheConfig) {
 	x.xxx_hidden_Config = v
 }
 
-func (x *GetCacheConfigResponse) SetMetadata(v *pb.RequestMetadata) {
+func (x *GetCacheConfigResponse) SetMetadata(v *proto.RequestMetadata) {
 	x.xxx_hidden_Metadata = v
 }
 
@@ -109,7 +109,7 @@ type GetCacheConfigResponse_builder struct {
 	// The current cache configuration
 	Config *CacheConfig
 	// Request metadata for tracing
-	Metadata *pb.RequestMetadata
+	Metadata *proto.RequestMetadata
 }
 
 func (b0 GetCacheConfigResponse_builder) Build() *GetCacheConfigResponse {
@@ -128,14 +128,14 @@ const file_pkg_web_proto_responses_get_cache_config_response_proto_rawDesc = "" 
 	"7pkg/web/proto/responses/get_cache_config_response.proto\x12\x0egcommon.v1.web\x1a!google/protobuf/go_features.proto\x1a)pkg/web/proto/messages/cache_config.proto\x1a0pkg/common/proto/messages/request_metadata.proto\"\x8d\x01\n" +
 	"\x16GetCacheConfigResponse\x123\n" +
 	"\x06config\x18\x01 \x01(\v2\x1b.gcommon.v1.web.CacheConfigR\x06config\x12>\n" +
-	"\bmetadata\x18\x02 \x01(\v2\".gcommon.v1.common.RequestMetadataR\bmetadataB\xb1\x01\n" +
-	"\x12com.gcommon.v1.webB\x1bGetCacheConfigResponseProtoP\x01Z\x1c../../../../pkg/web/pb;webpb\xa2\x02\x03GVW\xaa\x02\x0eGcommon.V1.Web\xca\x02\x0eGcommon\\V1\\Web\xe2\x02\x1aGcommon\\V1\\Web\\GPBMetadata\xea\x02\x10Gcommon::V1::Web\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
+	"\bmetadata\x18\x02 \x01(\v2\".gcommon.v1.common.RequestMetadataR\bmetadataB\xb4\x01\n" +
+	"\x12com.gcommon.v1.webB\x1bGetCacheConfigResponseProtoP\x01Z\x1f../../../../pkg/web/proto;webpb\xa2\x02\x03GVW\xaa\x02\x0eGcommon.V1.Web\xca\x02\x0eGcommon\\V1\\Web\xe2\x02\x1aGcommon\\V1\\Web\\GPBMetadata\xea\x02\x10Gcommon::V1::Web\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
 
 var file_pkg_web_proto_responses_get_cache_config_response_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_pkg_web_proto_responses_get_cache_config_response_proto_goTypes = []any{
 	(*GetCacheConfigResponse)(nil), // 0: gcommon.v1.web.GetCacheConfigResponse
 	(*CacheConfig)(nil),            // 1: gcommon.v1.web.CacheConfig
-	(*pb.RequestMetadata)(nil),     // 2: gcommon.v1.common.RequestMetadata
+	(*proto.RequestMetadata)(nil),  // 2: gcommon.v1.common.RequestMetadata
 }
 var file_pkg_web_proto_responses_get_cache_config_response_proto_depIdxs = []int32{
 	1, // 0: gcommon.v1.web.GetCacheConfigResponse.config:type_name -> gcommon.v1.web.CacheConfig

@@ -9,7 +9,7 @@
 package metricspb
 
 import (
-	pb "../../../../pkg/common/pb"
+	proto "../../../../pkg/common/proto"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
@@ -80,7 +80,7 @@ func (x CleanupStrategy) Number() protoreflect.EnumNumber {
 // DeleteProviderRequest represents a request to delete a metrics provider.
 type DeleteProviderRequest struct {
 	state                  protoimpl.MessageState `protogen:"opaque.v1"`
-	xxx_hidden_Metadata    *pb.RequestMetadata    `protobuf:"bytes,1,opt,name=metadata"`
+	xxx_hidden_Metadata    *proto.RequestMetadata `protobuf:"bytes,1,opt,name=metadata"`
 	xxx_hidden_ProviderId  *string                `protobuf:"bytes,2,opt,name=provider_id,json=providerId"`
 	xxx_hidden_Options     *DeletionOptions       `protobuf:"bytes,3,opt,name=options"`
 	XXX_raceDetectHookData protoimpl.RaceDetectHookData
@@ -114,7 +114,7 @@ func (x *DeleteProviderRequest) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-func (x *DeleteProviderRequest) GetMetadata() *pb.RequestMetadata {
+func (x *DeleteProviderRequest) GetMetadata() *proto.RequestMetadata {
 	if x != nil {
 		return x.xxx_hidden_Metadata
 	}
@@ -138,7 +138,7 @@ func (x *DeleteProviderRequest) GetOptions() *DeletionOptions {
 	return nil
 }
 
-func (x *DeleteProviderRequest) SetMetadata(v *pb.RequestMetadata) {
+func (x *DeleteProviderRequest) SetMetadata(v *proto.RequestMetadata) {
 	x.xxx_hidden_Metadata = v
 }
 
@@ -189,7 +189,7 @@ type DeleteProviderRequest_builder struct {
 	_ [0]func() // Prevents comparability and use of unkeyed literals for the builder.
 
 	// Standard request metadata (tracing, auth, etc.)
-	Metadata *pb.RequestMetadata
+	Metadata *proto.RequestMetadata
 	// Provider ID to delete
 	ProviderId *string
 	// Deletion options
@@ -634,8 +634,8 @@ const file_pkg_metrics_proto_requests_delete_provider_request_proto_rawDesc = ""
 	"\x1aCLEANUP_STRATEGY_IMMEDIATE\x10\x01\x12\x1d\n" +
 	"\x19CLEANUP_STRATEGY_GRACEFUL\x10\x02\x12\x1f\n" +
 	"\x1bCLEANUP_STRATEGY_BACKGROUND\x10\x03\x12\x1e\n" +
-	"\x1aCLEANUP_STRATEGY_SCHEDULED\x10\x04B\xcc\x01\n" +
-	"\x16com.gcommon.v1.metricsB\x1aDeleteProviderRequestProtoP\x01Z$../../../../pkg/metrics/pb;metricspb\xa2\x02\x03GVM\xaa\x02\x12Gcommon.V1.Metrics\xca\x02\x12Gcommon\\V1\\Metrics\xe2\x02\x1eGcommon\\V1\\Metrics\\GPBMetadata\xea\x02\x14Gcommon::V1::Metrics\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
+	"\x1aCLEANUP_STRATEGY_SCHEDULED\x10\x04B\xcf\x01\n" +
+	"\x16com.gcommon.v1.metricsB\x1aDeleteProviderRequestProtoP\x01Z'../../../../pkg/metrics/proto;metricspb\xa2\x02\x03GVM\xaa\x02\x12Gcommon.V1.Metrics\xca\x02\x12Gcommon\\V1\\Metrics\xe2\x02\x1eGcommon\\V1\\Metrics\\GPBMetadata\xea\x02\x14Gcommon::V1::Metrics\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
 
 var file_pkg_metrics_proto_requests_delete_provider_request_proto_enumTypes = make([]protoimpl.EnumInfo, 1)
 var file_pkg_metrics_proto_requests_delete_provider_request_proto_msgTypes = make([]protoimpl.MessageInfo, 2)
@@ -643,7 +643,7 @@ var file_pkg_metrics_proto_requests_delete_provider_request_proto_goTypes = []an
 	(CleanupStrategy)(0),          // 0: gcommon.v1.metrics.CleanupStrategy
 	(*DeleteProviderRequest)(nil), // 1: gcommon.v1.metrics.DeleteProviderRequest
 	(*DeletionOptions)(nil),       // 2: gcommon.v1.metrics.DeletionOptions
-	(*pb.RequestMetadata)(nil),    // 3: gcommon.v1.common.RequestMetadata
+	(*proto.RequestMetadata)(nil), // 3: gcommon.v1.common.RequestMetadata
 }
 var file_pkg_metrics_proto_requests_delete_provider_request_proto_depIdxs = []int32{
 	3, // 0: gcommon.v1.metrics.DeleteProviderRequest.metadata:type_name -> gcommon.v1.common.RequestMetadata

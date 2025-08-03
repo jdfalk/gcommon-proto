@@ -7,7 +7,7 @@
 package queuepb
 
 import (
-	pb "../../../../pkg/common/pb"
+	proto "../../../../pkg/common/proto"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	timestamppb "google.golang.org/protobuf/types/known/timestamppb"
@@ -37,7 +37,7 @@ type MessageAckResult struct {
 	Success *bool `protobuf:"varint,2,opt,name=success" json:"success,omitempty"`
 	// *
 	// Error information if acknowledgment failed for this message.
-	Error *pb.Error `protobuf:"bytes,3,opt,name=error" json:"error,omitempty"`
+	Error *proto.Error `protobuf:"bytes,3,opt,name=error" json:"error,omitempty"`
 	// *
 	// Message ID for correlation (if available).
 	MessageId *string `protobuf:"bytes,4,opt,name=message_id,json=messageId" json:"message_id,omitempty"`
@@ -92,7 +92,7 @@ func (x *MessageAckResult) GetSuccess() bool {
 	return false
 }
 
-func (x *MessageAckResult) GetError() *pb.Error {
+func (x *MessageAckResult) GetError() *proto.Error {
 	if x != nil {
 		return x.Error
 	}
@@ -134,7 +134,7 @@ type AcknowledgeResponse struct {
 	// *
 	// Request processing metadata including timing, request ID,
 	// and other observability information.
-	RequestMetadata *pb.RequestMetadata `protobuf:"bytes,11,opt,name=request_metadata,json=requestMetadata" json:"request_metadata,omitempty"`
+	RequestMetadata *proto.RequestMetadata `protobuf:"bytes,11,opt,name=request_metadata,json=requestMetadata" json:"request_metadata,omitempty"`
 	// *
 	// Name of the queue where messages were acknowledged.
 	// Echoed from the request for verification.
@@ -165,7 +165,7 @@ type AcknowledgeResponse struct {
 	// *
 	// Error information if the overall acknowledgment operation failed
 	// or completed with warnings.
-	Error *pb.Error `protobuf:"bytes,61,opt,name=error" json:"error,omitempty"`
+	Error *proto.Error `protobuf:"bytes,61,opt,name=error" json:"error,omitempty"`
 	// *
 	// Timestamp when the acknowledgment operation was processed.
 	AcknowledgedAt *timestamppb.Timestamp `protobuf:"bytes,51,opt,name=acknowledged_at,json=acknowledgedAt" json:"acknowledged_at,omitempty"`
@@ -227,7 +227,7 @@ func (x *AcknowledgeResponse) GetFailedCount() int32 {
 	return 0
 }
 
-func (x *AcknowledgeResponse) GetRequestMetadata() *pb.RequestMetadata {
+func (x *AcknowledgeResponse) GetRequestMetadata() *proto.RequestMetadata {
 	if x != nil {
 		return x.RequestMetadata
 	}
@@ -283,7 +283,7 @@ func (x *AcknowledgeResponse) GetExpiredTimeoutCount() int32 {
 	return 0
 }
 
-func (x *AcknowledgeResponse) GetError() *pb.Error {
+func (x *AcknowledgeResponse) GetError() *proto.Error {
 	if x != nil {
 		return x.Error
 	}
@@ -333,8 +333,8 @@ const file_pkg_queue_proto_responses_acknowledge_response_proto_rawDesc = "" +
 	"\x15expired_timeout_count\x18\x12 \x01(\x05R\x13expiredTimeoutCount\x12.\n" +
 	"\x05error\x18= \x01(\v2\x18.gcommon.v1.common.ErrorR\x05error\x12C\n" +
 	"\x0facknowledged_at\x183 \x01(\v2\x1a.google.protobuf.TimestampR\x0eacknowledgedAt\x12N\n" +
-	"\x15response_generated_at\x184 \x01(\v2\x1a.google.protobuf.TimestampR\x13responseGeneratedAtB\xb4\x01\n" +
-	"\x14com.gcommon.v1.queueB\x18AcknowledgeResponseProtoP\x01Z ../../../../pkg/queue/pb;queuepb\xa2\x02\x03GVQ\xaa\x02\x10Gcommon.V1.Queue\xca\x02\x10Gcommon\\V1\\Queue\xe2\x02\x1cGcommon\\V1\\Queue\\GPBMetadata\xea\x02\x12Gcommon::V1::Queueb\beditionsp\xe8\a"
+	"\x15response_generated_at\x184 \x01(\v2\x1a.google.protobuf.TimestampR\x13responseGeneratedAtB\xb7\x01\n" +
+	"\x14com.gcommon.v1.queueB\x18AcknowledgeResponseProtoP\x01Z#../../../../pkg/queue/proto;queuepb\xa2\x02\x03GVQ\xaa\x02\x10Gcommon.V1.Queue\xca\x02\x10Gcommon\\V1\\Queue\xe2\x02\x1cGcommon\\V1\\Queue\\GPBMetadata\xea\x02\x12Gcommon::V1::Queueb\beditionsp\xe8\a"
 
 var (
 	file_pkg_queue_proto_responses_acknowledge_response_proto_rawDescOnce sync.Once
@@ -352,8 +352,8 @@ var file_pkg_queue_proto_responses_acknowledge_response_proto_msgTypes = make([]
 var file_pkg_queue_proto_responses_acknowledge_response_proto_goTypes = []any{
 	(*MessageAckResult)(nil),      // 0: gcommon.v1.queue.MessageAckResult
 	(*AcknowledgeResponse)(nil),   // 1: gcommon.v1.queue.AcknowledgeResponse
-	(*pb.Error)(nil),              // 2: gcommon.v1.common.Error
-	(*pb.RequestMetadata)(nil),    // 3: gcommon.v1.common.RequestMetadata
+	(*proto.Error)(nil),           // 2: gcommon.v1.common.Error
+	(*proto.RequestMetadata)(nil), // 3: gcommon.v1.common.RequestMetadata
 	(*timestamppb.Timestamp)(nil), // 4: google.protobuf.Timestamp
 }
 var file_pkg_queue_proto_responses_acknowledge_response_proto_depIdxs = []int32{

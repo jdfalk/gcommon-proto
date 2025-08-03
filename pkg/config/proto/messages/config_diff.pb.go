@@ -476,8 +476,8 @@ const file_pkg_config_proto_messages_config_diff_proto_rawDesc = "" +
 	"\tnew_value\x18\x03 \x01(\v2\x14.google.protobuf.AnyR\bnewValue\x12\x1f\n" +
 	"\vchange_type\x18\x04 \x01(\tR\n" +
 	"changeType\x12\x1c\n" +
-	"\tnamespace\x18\x05 \x01(\tR\tnamespaceB\xba\x01\n" +
-	"\x15com.gcommon.v1.configB\x0fConfigDiffProtoP\x01Z\"../../../../pkg/config/pb;configpb\xa2\x02\x03GVC\xaa\x02\x11Gcommon.V1.Config\xca\x02\x11Gcommon\\V1\\Config\xe2\x02\x1dGcommon\\V1\\Config\\GPBMetadata\xea\x02\x13Gcommon::V1::Config\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
+	"\tnamespace\x18\x05 \x01(\tR\tnamespaceB\xbd\x01\n" +
+	"\x15com.gcommon.v1.configB\x0fConfigDiffProtoP\x01Z%../../../../pkg/config/proto;configpb\xa2\x02\x03GVC\xaa\x02\x11Gcommon.V1.Config\xca\x02\x11Gcommon\\V1\\Config\xe2\x02\x1dGcommon\\V1\\Config\\GPBMetadata\xea\x02\x13Gcommon::V1::Config\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
 
 var file_pkg_config_proto_messages_config_diff_proto_msgTypes = make([]protoimpl.MessageInfo, 3)
 var file_pkg_config_proto_messages_config_diff_proto_goTypes = []any{

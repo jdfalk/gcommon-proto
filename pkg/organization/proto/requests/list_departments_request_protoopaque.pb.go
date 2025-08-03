@@ -9,7 +9,7 @@
 package organizationpb
 
 import (
-	pb "../../../../pkg/common/pb"
+	proto "../../../../pkg/common/proto"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
@@ -26,7 +26,7 @@ const (
 
 type ListDepartmentsRequest struct {
 	state                     protoimpl.MessageState `protogen:"opaque.v1"`
-	xxx_hidden_Metadata       *pb.RequestMetadata    `protobuf:"bytes,1,opt,name=metadata"`
+	xxx_hidden_Metadata       *proto.RequestMetadata `protobuf:"bytes,1,opt,name=metadata"`
 	xxx_hidden_OrganizationId *string                `protobuf:"bytes,2,opt,name=organization_id,json=organizationId"`
 	xxx_hidden_PageSize       int32                  `protobuf:"varint,3,opt,name=page_size,json=pageSize"`
 	xxx_hidden_PageToken      *string                `protobuf:"bytes,4,opt,name=page_token,json=pageToken"`
@@ -62,7 +62,7 @@ func (x *ListDepartmentsRequest) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-func (x *ListDepartmentsRequest) GetMetadata() *pb.RequestMetadata {
+func (x *ListDepartmentsRequest) GetMetadata() *proto.RequestMetadata {
 	if x != nil {
 		return x.xxx_hidden_Metadata
 	}
@@ -106,7 +106,7 @@ func (x *ListDepartmentsRequest) GetFilter() string {
 	return ""
 }
 
-func (x *ListDepartmentsRequest) SetMetadata(v *pb.RequestMetadata) {
+func (x *ListDepartmentsRequest) SetMetadata(v *proto.RequestMetadata) {
 	x.xxx_hidden_Metadata = v
 }
 
@@ -193,7 +193,7 @@ type ListDepartmentsRequest_builder struct {
 	_ [0]func() // Prevents comparability and use of unkeyed literals for the builder.
 
 	// Request metadata for tracing and context
-	Metadata *pb.RequestMetadata
+	Metadata *proto.RequestMetadata
 	// Organization identifier to list departments for
 	OrganizationId *string
 	// Pagination size (max results per page)
@@ -239,13 +239,13 @@ const file_pkg_organization_proto_requests_list_departments_request_proto_rawDes
 	"\tpage_size\x18\x03 \x01(\x05R\bpageSize\x12\x1d\n" +
 	"\n" +
 	"page_token\x18\x04 \x01(\tR\tpageToken\x12\x16\n" +
-	"\x06filter\x18\x05 \x01(\tR\x06filterB\xf0\x01\n" +
-	"\x1bcom.gcommon.v1.organizationB\x1bListDepartmentsRequestProtoP\x01Z.../../../../pkg/organization/pb;organizationpb\xa2\x02\x03GVO\xaa\x02\x17Gcommon.V1.Organization\xca\x02\x17Gcommon\\V1\\Organization\xe2\x02#Gcommon\\V1\\Organization\\GPBMetadata\xea\x02\x19Gcommon::V1::Organization\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
+	"\x06filter\x18\x05 \x01(\tR\x06filterB\xf3\x01\n" +
+	"\x1bcom.gcommon.v1.organizationB\x1bListDepartmentsRequestProtoP\x01Z1../../../../pkg/organization/proto;organizationpb\xa2\x02\x03GVO\xaa\x02\x17Gcommon.V1.Organization\xca\x02\x17Gcommon\\V1\\Organization\xe2\x02#Gcommon\\V1\\Organization\\GPBMetadata\xea\x02\x19Gcommon::V1::Organization\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
 
 var file_pkg_organization_proto_requests_list_departments_request_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_pkg_organization_proto_requests_list_departments_request_proto_goTypes = []any{
 	(*ListDepartmentsRequest)(nil), // 0: gcommon.v1.organization.ListDepartmentsRequest
-	(*pb.RequestMetadata)(nil),     // 1: gcommon.v1.common.RequestMetadata
+	(*proto.RequestMetadata)(nil),  // 1: gcommon.v1.common.RequestMetadata
 }
 var file_pkg_organization_proto_requests_list_departments_request_proto_depIdxs = []int32{
 	1, // 0: gcommon.v1.organization.ListDepartmentsRequest.metadata:type_name -> gcommon.v1.common.RequestMetadata

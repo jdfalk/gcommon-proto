@@ -84,8 +84,8 @@ const file_pkg_common_proto_types_pagination_options_proto_rawDesc = "" +
 	"\x11PaginationOptions\x12\x1b\n" +
 	"\tpage_size\x18\x01 \x01(\x05R\bpageSize\x12\x1d\n" +
 	"\n" +
-	"page_token\x18\x02 \x01(\tR\tpageTokenB\xb9\x01\n" +
-	"\x15com.gcommon.v1.commonB\x16PaginationOptionsProtoP\x01Z\"../../../../pkg/common/pb;commonpb\xa2\x02\x03GVC\xaa\x02\x11Gcommon.V1.Common\xca\x02\x11Gcommon\\V1\\Common\xe2\x02\x1dGcommon\\V1\\Common\\GPBMetadata\xea\x02\x13Gcommon::V1::Commonb\beditionsp\xe8\a"
+	"page_token\x18\x02 \x01(\tR\tpageTokenB\xbc\x01\n" +
+	"\x15com.gcommon.v1.commonB\x16PaginationOptionsProtoP\x01Z%../../../../pkg/common/proto;commonpb\xa2\x02\x03GVC\xaa\x02\x11Gcommon.V1.Common\xca\x02\x11Gcommon\\V1\\Common\xe2\x02\x1dGcommon\\V1\\Common\\GPBMetadata\xea\x02\x13Gcommon::V1::Commonb\beditionsp\xe8\a"
 
 var (
 	file_pkg_common_proto_types_pagination_options_proto_rawDescOnce sync.Once

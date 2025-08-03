@@ -7,7 +7,7 @@
 package webpb
 
 import (
-	pb "../../../../pkg/common/pb"
+	proto "../../../../pkg/common/proto"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	timestamppb "google.golang.org/protobuf/types/known/timestamppb"
@@ -36,11 +36,11 @@ type AddMiddlewareResponse struct {
 	// *
 	// Request processing metadata including timing, request ID,
 	// and other observability information.
-	RequestMetadata *pb.RequestMetadata `protobuf:"bytes,11,opt,name=request_metadata,json=requestMetadata" json:"request_metadata,omitempty"`
+	RequestMetadata *proto.RequestMetadata `protobuf:"bytes,11,opt,name=request_metadata,json=requestMetadata" json:"request_metadata,omitempty"`
 	// *
 	// Error information if the operation failed
 	// or completed with warnings.
-	Error *pb.Error `protobuf:"bytes,61,opt,name=error" json:"error,omitempty"`
+	Error *proto.Error `protobuf:"bytes,61,opt,name=error" json:"error,omitempty"`
 	// *
 	// Timestamp when this response was generated.
 	ResponseGeneratedAt *timestamppb.Timestamp `protobuf:"bytes,51,opt,name=response_generated_at,json=responseGeneratedAt" json:"response_generated_at,omitempty"`
@@ -85,14 +85,14 @@ func (x *AddMiddlewareResponse) GetSuccess() bool {
 	return false
 }
 
-func (x *AddMiddlewareResponse) GetRequestMetadata() *pb.RequestMetadata {
+func (x *AddMiddlewareResponse) GetRequestMetadata() *proto.RequestMetadata {
 	if x != nil {
 		return x.RequestMetadata
 	}
 	return nil
 }
 
-func (x *AddMiddlewareResponse) GetError() *pb.Error {
+func (x *AddMiddlewareResponse) GetError() *proto.Error {
 	if x != nil {
 		return x.Error
 	}
@@ -115,8 +115,8 @@ const file_pkg_web_proto_responses_add_middleware_response_proto_rawDesc = "" +
 	"\asuccess\x18\x01 \x01(\bR\asuccess\x12M\n" +
 	"\x10request_metadata\x18\v \x01(\v2\".gcommon.v1.common.RequestMetadataR\x0frequestMetadata\x12.\n" +
 	"\x05error\x18= \x01(\v2\x18.gcommon.v1.common.ErrorR\x05error\x12N\n" +
-	"\x15response_generated_at\x183 \x01(\v2\x1a.google.protobuf.TimestampR\x13responseGeneratedAtB\xa8\x01\n" +
-	"\x12com.gcommon.v1.webB\x1aAddMiddlewareResponseProtoP\x01Z\x1c../../../../pkg/web/pb;webpb\xa2\x02\x03GVW\xaa\x02\x0eGcommon.V1.Web\xca\x02\x0eGcommon\\V1\\Web\xe2\x02\x1aGcommon\\V1\\Web\\GPBMetadata\xea\x02\x10Gcommon::V1::Webb\beditionsp\xe8\a"
+	"\x15response_generated_at\x183 \x01(\v2\x1a.google.protobuf.TimestampR\x13responseGeneratedAtB\xab\x01\n" +
+	"\x12com.gcommon.v1.webB\x1aAddMiddlewareResponseProtoP\x01Z\x1f../../../../pkg/web/proto;webpb\xa2\x02\x03GVW\xaa\x02\x0eGcommon.V1.Web\xca\x02\x0eGcommon\\V1\\Web\xe2\x02\x1aGcommon\\V1\\Web\\GPBMetadata\xea\x02\x10Gcommon::V1::Webb\beditionsp\xe8\a"
 
 var (
 	file_pkg_web_proto_responses_add_middleware_response_proto_rawDescOnce sync.Once
@@ -133,8 +133,8 @@ func file_pkg_web_proto_responses_add_middleware_response_proto_rawDescGZIP() []
 var file_pkg_web_proto_responses_add_middleware_response_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_pkg_web_proto_responses_add_middleware_response_proto_goTypes = []any{
 	(*AddMiddlewareResponse)(nil), // 0: gcommon.v1.web.AddMiddlewareResponse
-	(*pb.RequestMetadata)(nil),    // 1: gcommon.v1.common.RequestMetadata
-	(*pb.Error)(nil),              // 2: gcommon.v1.common.Error
+	(*proto.RequestMetadata)(nil), // 1: gcommon.v1.common.RequestMetadata
+	(*proto.Error)(nil),           // 2: gcommon.v1.common.Error
 	(*timestamppb.Timestamp)(nil), // 3: google.protobuf.Timestamp
 }
 var file_pkg_web_proto_responses_add_middleware_response_proto_depIdxs = []int32{

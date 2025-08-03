@@ -101,8 +101,8 @@ const file_pkg_auth_proto_enums_token_status_proto_rawDesc = "" +
 	"\x14TOKEN_STATUS_REVOKED\x10\x03\x12\x1a\n" +
 	"\x16TOKEN_STATUS_SUSPENDED\x10\x04\x12\x18\n" +
 	"\x14TOKEN_STATUS_PENDING\x10\x05\x12\x18\n" +
-	"\x14TOKEN_STATUS_INVALID\x10\x06B\xad\x01\n" +
-	"\x13com.gcommon.v1.authB\x10TokenStatusProtoP\x01Z\x1e../../../../pkg/auth/pb;authpb\xa2\x02\x03GVA\xaa\x02\x0fGcommon.V1.Auth\xca\x02\x0fGcommon\\V1\\Auth\xe2\x02\x1bGcommon\\V1\\Auth\\GPBMetadata\xea\x02\x11Gcommon::V1::Auth\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
+	"\x14TOKEN_STATUS_INVALID\x10\x06B\xb0\x01\n" +
+	"\x13com.gcommon.v1.authB\x10TokenStatusProtoP\x01Z!../../../../pkg/auth/proto;authpb\xa2\x02\x03GVA\xaa\x02\x0fGcommon.V1.Auth\xca\x02\x0fGcommon\\V1\\Auth\xe2\x02\x1bGcommon\\V1\\Auth\\GPBMetadata\xea\x02\x11Gcommon::V1::Auth\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
 
 var file_pkg_auth_proto_enums_token_status_proto_enumTypes = make([]protoimpl.EnumInfo, 1)
 var file_pkg_auth_proto_enums_token_status_proto_goTypes = []any{

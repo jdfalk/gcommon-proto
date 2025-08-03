@@ -9,7 +9,7 @@
 package webpb
 
 import (
-	pb "../../../../pkg/common/pb"
+	proto "../../../../pkg/common/proto"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
@@ -30,7 +30,7 @@ type UnregisterMiddlewareResponse struct {
 	// Operation success flag
 	Success *bool `protobuf:"varint,1,opt,name=success" json:"success,omitempty"`
 	// Error information if the operation failed
-	Error         *pb.Error `protobuf:"bytes,2,opt,name=error" json:"error,omitempty"`
+	Error         *proto.Error `protobuf:"bytes,2,opt,name=error" json:"error,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -67,7 +67,7 @@ func (x *UnregisterMiddlewareResponse) GetSuccess() bool {
 	return false
 }
 
-func (x *UnregisterMiddlewareResponse) GetError() *pb.Error {
+func (x *UnregisterMiddlewareResponse) GetError() *proto.Error {
 	if x != nil {
 		return x.Error
 	}
@@ -78,7 +78,7 @@ func (x *UnregisterMiddlewareResponse) SetSuccess(v bool) {
 	x.Success = &v
 }
 
-func (x *UnregisterMiddlewareResponse) SetError(v *pb.Error) {
+func (x *UnregisterMiddlewareResponse) SetError(v *proto.Error) {
 	x.Error = v
 }
 
@@ -110,7 +110,7 @@ type UnregisterMiddlewareResponse_builder struct {
 	// Operation success flag
 	Success *bool
 	// Error information if the operation failed
-	Error *pb.Error
+	Error *proto.Error
 }
 
 func (b0 UnregisterMiddlewareResponse_builder) Build() *UnregisterMiddlewareResponse {
@@ -129,13 +129,13 @@ const file_pkg_web_proto_responses_unregister_middleware_response_proto_rawDesc 
 	"<pkg/web/proto/responses/unregister_middleware_response.proto\x12\x0egcommon.v1.web\x1a!google/protobuf/go_features.proto\x1a%pkg/common/proto/messages/error.proto\"h\n" +
 	"\x1cUnregisterMiddlewareResponse\x12\x18\n" +
 	"\asuccess\x18\x01 \x01(\bR\asuccess\x12.\n" +
-	"\x05error\x18\x02 \x01(\v2\x18.gcommon.v1.common.ErrorR\x05errorB\xb7\x01\n" +
-	"\x12com.gcommon.v1.webB!UnregisterMiddlewareResponseProtoP\x01Z\x1c../../../../pkg/web/pb;webpb\xa2\x02\x03GVW\xaa\x02\x0eGcommon.V1.Web\xca\x02\x0eGcommon\\V1\\Web\xe2\x02\x1aGcommon\\V1\\Web\\GPBMetadata\xea\x02\x10Gcommon::V1::Web\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
+	"\x05error\x18\x02 \x01(\v2\x18.gcommon.v1.common.ErrorR\x05errorB\xba\x01\n" +
+	"\x12com.gcommon.v1.webB!UnregisterMiddlewareResponseProtoP\x01Z\x1f../../../../pkg/web/proto;webpb\xa2\x02\x03GVW\xaa\x02\x0eGcommon.V1.Web\xca\x02\x0eGcommon\\V1\\Web\xe2\x02\x1aGcommon\\V1\\Web\\GPBMetadata\xea\x02\x10Gcommon::V1::Web\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
 
 var file_pkg_web_proto_responses_unregister_middleware_response_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_pkg_web_proto_responses_unregister_middleware_response_proto_goTypes = []any{
 	(*UnregisterMiddlewareResponse)(nil), // 0: gcommon.v1.web.UnregisterMiddlewareResponse
-	(*pb.Error)(nil),                     // 1: gcommon.v1.common.Error
+	(*proto.Error)(nil),                  // 1: gcommon.v1.common.Error
 }
 var file_pkg_web_proto_responses_unregister_middleware_response_proto_depIdxs = []int32{
 	1, // 0: gcommon.v1.web.UnregisterMiddlewareResponse.error:type_name -> gcommon.v1.common.Error

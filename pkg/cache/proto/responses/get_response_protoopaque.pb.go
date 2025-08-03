@@ -185,8 +185,8 @@ const file_pkg_cache_proto_responses_get_response_proto_rawDesc = "" +
 	"\vGetResponse\x126\n" +
 	"\x05entry\x18\x01 \x01(\v2\x1c.gcommon.v1.cache.CacheEntryB\x02(\x01R\x05entry\x12\x14\n" +
 	"\x05found\x18\x02 \x01(\bR\x05found\x12\x1b\n" +
-	"\tcache_hit\x18\x03 \x01(\bR\bcacheHitB\xb4\x01\n" +
-	"\x14com.gcommon.v1.cacheB\x10GetResponseProtoP\x01Z ../../../../pkg/cache/pb;cachepb\xa2\x02\x03GVC\xaa\x02\x10Gcommon.V1.Cache\xca\x02\x10Gcommon\\V1\\Cache\xe2\x02\x1cGcommon\\V1\\Cache\\GPBMetadata\xea\x02\x12Gcommon::V1::Cache\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
+	"\tcache_hit\x18\x03 \x01(\bR\bcacheHitB\xb7\x01\n" +
+	"\x14com.gcommon.v1.cacheB\x10GetResponseProtoP\x01Z#../../../../pkg/cache/proto;cachepb\xa2\x02\x03GVC\xaa\x02\x10Gcommon.V1.Cache\xca\x02\x10Gcommon\\V1\\Cache\xe2\x02\x1cGcommon\\V1\\Cache\\GPBMetadata\xea\x02\x12Gcommon::V1::Cache\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
 
 var file_pkg_cache_proto_responses_get_response_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_pkg_cache_proto_responses_get_response_proto_goTypes = []any{

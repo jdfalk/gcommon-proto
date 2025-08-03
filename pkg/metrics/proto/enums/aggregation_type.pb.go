@@ -131,8 +131,8 @@ const file_pkg_metrics_proto_enums_aggregation_type_proto_rawDesc = "" +
 	"\x14AGGREGATION_TYPE_P99\x10\n" +
 	"\x12\x19\n" +
 	"\x15AGGREGATION_TYPE_RATE\x10\v\x12\x1d\n" +
-	"\x19AGGREGATION_TYPE_INCREASE\x10\fB\xc6\x01\n" +
-	"\x16com.gcommon.v1.metricsB\x14AggregationTypeProtoP\x01Z$../../../../pkg/metrics/pb;metricspb\xa2\x02\x03GVM\xaa\x02\x12Gcommon.V1.Metrics\xca\x02\x12Gcommon\\V1\\Metrics\xe2\x02\x1eGcommon\\V1\\Metrics\\GPBMetadata\xea\x02\x14Gcommon::V1::Metrics\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
+	"\x19AGGREGATION_TYPE_INCREASE\x10\fB\xc9\x01\n" +
+	"\x16com.gcommon.v1.metricsB\x14AggregationTypeProtoP\x01Z'../../../../pkg/metrics/proto;metricspb\xa2\x02\x03GVM\xaa\x02\x12Gcommon.V1.Metrics\xca\x02\x12Gcommon\\V1\\Metrics\xe2\x02\x1eGcommon\\V1\\Metrics\\GPBMetadata\xea\x02\x14Gcommon::V1::Metrics\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
 
 var file_pkg_metrics_proto_enums_aggregation_type_proto_enumTypes = make([]protoimpl.EnumInfo, 1)
 var file_pkg_metrics_proto_enums_aggregation_type_proto_goTypes = []any{

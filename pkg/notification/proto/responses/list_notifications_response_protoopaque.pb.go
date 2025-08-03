@@ -91,8 +91,8 @@ const file_pkg_notification_proto_responses_list_notifications_response_proto_ra
 	"\n" +
 	"Bpkg/notification/proto/responses/list_notifications_response.proto\x12\x17gcommon.v1.notification\x1a!google/protobuf/go_features.proto\x1a:pkg/notification/proto/messages/notification_message.proto\"o\n" +
 	"\x19ListNotificationsResponse\x12R\n" +
-	"\rnotifications\x18\x01 \x03(\v2,.gcommon.v1.notification.NotificationMessageR\rnotificationsB\xf3\x01\n" +
-	"\x1bcom.gcommon.v1.notificationB\x1eListNotificationsResponseProtoP\x01Z.../../../../pkg/notification/pb;notificationpb\xa2\x02\x03GVN\xaa\x02\x17Gcommon.V1.Notification\xca\x02\x17Gcommon\\V1\\Notification\xe2\x02#Gcommon\\V1\\Notification\\GPBMetadata\xea\x02\x19Gcommon::V1::Notification\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
+	"\rnotifications\x18\x01 \x03(\v2,.gcommon.v1.notification.NotificationMessageR\rnotificationsB\xf6\x01\n" +
+	"\x1bcom.gcommon.v1.notificationB\x1eListNotificationsResponseProtoP\x01Z1../../../../pkg/notification/proto;notificationpb\xa2\x02\x03GVN\xaa\x02\x17Gcommon.V1.Notification\xca\x02\x17Gcommon\\V1\\Notification\xe2\x02#Gcommon\\V1\\Notification\\GPBMetadata\xea\x02\x19Gcommon::V1::Notification\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
 
 var file_pkg_notification_proto_responses_list_notifications_response_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_pkg_notification_proto_responses_list_notifications_response_proto_goTypes = []any{

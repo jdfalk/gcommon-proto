@@ -93,8 +93,8 @@ const file_pkg_auth_proto_responses_get_user_roles_response_proto_rawDesc = "" +
 	"\n" +
 	"6pkg/auth/proto/responses/get_user_roles_response.proto\x12\x0fgcommon.v1.auth\x1a!google/protobuf/go_features.proto\x1a\x1fpkg/auth/proto/types/role.proto\"C\n" +
 	"\x14GetUserRolesResponse\x12+\n" +
-	"\x05roles\x18\x01 \x03(\v2\x15.gcommon.v1.auth.RoleR\x05rolesB\xb6\x01\n" +
-	"\x13com.gcommon.v1.authB\x19GetUserRolesResponseProtoP\x01Z\x1e../../../../pkg/auth/pb;authpb\xa2\x02\x03GVA\xaa\x02\x0fGcommon.V1.Auth\xca\x02\x0fGcommon\\V1\\Auth\xe2\x02\x1bGcommon\\V1\\Auth\\GPBMetadata\xea\x02\x11Gcommon::V1::Auth\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
+	"\x05roles\x18\x01 \x03(\v2\x15.gcommon.v1.auth.RoleR\x05rolesB\xb9\x01\n" +
+	"\x13com.gcommon.v1.authB\x19GetUserRolesResponseProtoP\x01Z!../../../../pkg/auth/proto;authpb\xa2\x02\x03GVA\xaa\x02\x0fGcommon.V1.Auth\xca\x02\x0fGcommon\\V1\\Auth\xe2\x02\x1bGcommon\\V1\\Auth\\GPBMetadata\xea\x02\x11Gcommon::V1::Auth\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
 
 var file_pkg_auth_proto_responses_get_user_roles_response_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_pkg_auth_proto_responses_get_user_roles_response_proto_goTypes = []any{

@@ -159,8 +159,8 @@ const file_pkg_metrics_proto_messages_metric_bucket_proto_rawDesc = "" +
 	"lowerBound\x12\x1f\n" +
 	"\vupper_bound\x18\x02 \x01(\x01R\n" +
 	"upperBound\x12\x14\n" +
-	"\x05count\x18\x03 \x01(\x03R\x05countB\xc3\x01\n" +
-	"\x16com.gcommon.v1.metricsB\x11MetricBucketProtoP\x01Z$../../../../pkg/metrics/pb;metricspb\xa2\x02\x03GVM\xaa\x02\x12Gcommon.V1.Metrics\xca\x02\x12Gcommon\\V1\\Metrics\xe2\x02\x1eGcommon\\V1\\Metrics\\GPBMetadata\xea\x02\x14Gcommon::V1::Metrics\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
+	"\x05count\x18\x03 \x01(\x03R\x05countB\xc6\x01\n" +
+	"\x16com.gcommon.v1.metricsB\x11MetricBucketProtoP\x01Z'../../../../pkg/metrics/proto;metricspb\xa2\x02\x03GVM\xaa\x02\x12Gcommon.V1.Metrics\xca\x02\x12Gcommon\\V1\\Metrics\xe2\x02\x1eGcommon\\V1\\Metrics\\GPBMetadata\xea\x02\x14Gcommon::V1::Metrics\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
 
 var file_pkg_metrics_proto_messages_metric_bucket_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_pkg_metrics_proto_messages_metric_bucket_proto_goTypes = []any{

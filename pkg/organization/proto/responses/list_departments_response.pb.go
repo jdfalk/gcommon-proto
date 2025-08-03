@@ -9,7 +9,7 @@
 package organizationpb
 
 import (
-	pb "../../../../pkg/common/pb"
+	proto "../../../../pkg/common/proto"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
@@ -27,13 +27,13 @@ const (
 type ListDepartmentsResponse struct {
 	state protoimpl.MessageState `protogen:"hybrid.v1"`
 	// Any errors encountered
-	Errors []*pb.Error `protobuf:"bytes,1,rep,name=errors" json:"errors,omitempty"`
+	Errors []*proto.Error `protobuf:"bytes,1,rep,name=errors" json:"errors,omitempty"`
 	// Success status
 	Success *bool `protobuf:"varint,2,opt,name=success" json:"success,omitempty"`
 	// List of departments returned
 	Departments []*Department `protobuf:"bytes,3,rep,name=departments" json:"departments,omitempty"`
 	// Pagination metadata
-	Pagination    *pb.PaginatedResponse `protobuf:"bytes,4,opt,name=pagination" json:"pagination,omitempty"`
+	Pagination    *proto.PaginatedResponse `protobuf:"bytes,4,opt,name=pagination" json:"pagination,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -63,7 +63,7 @@ func (x *ListDepartmentsResponse) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-func (x *ListDepartmentsResponse) GetErrors() []*pb.Error {
+func (x *ListDepartmentsResponse) GetErrors() []*proto.Error {
 	if x != nil {
 		return x.Errors
 	}
@@ -84,14 +84,14 @@ func (x *ListDepartmentsResponse) GetDepartments() []*Department {
 	return nil
 }
 
-func (x *ListDepartmentsResponse) GetPagination() *pb.PaginatedResponse {
+func (x *ListDepartmentsResponse) GetPagination() *proto.PaginatedResponse {
 	if x != nil {
 		return x.Pagination
 	}
 	return nil
 }
 
-func (x *ListDepartmentsResponse) SetErrors(v []*pb.Error) {
+func (x *ListDepartmentsResponse) SetErrors(v []*proto.Error) {
 	x.Errors = v
 }
 
@@ -103,7 +103,7 @@ func (x *ListDepartmentsResponse) SetDepartments(v []*Department) {
 	x.Departments = v
 }
 
-func (x *ListDepartmentsResponse) SetPagination(v *pb.PaginatedResponse) {
+func (x *ListDepartmentsResponse) SetPagination(v *proto.PaginatedResponse) {
 	x.Pagination = v
 }
 
@@ -133,13 +133,13 @@ type ListDepartmentsResponse_builder struct {
 	_ [0]func() // Prevents comparability and use of unkeyed literals for the builder.
 
 	// Any errors encountered
-	Errors []*pb.Error
+	Errors []*proto.Error
 	// Success status
 	Success *bool
 	// List of departments returned
 	Departments []*Department
 	// Pagination metadata
-	Pagination *pb.PaginatedResponse
+	Pagination *proto.PaginatedResponse
 }
 
 func (b0 ListDepartmentsResponse_builder) Build() *ListDepartmentsResponse {
@@ -164,15 +164,15 @@ const file_pkg_organization_proto_responses_list_departments_response_proto_rawD
 	"\vdepartments\x18\x03 \x03(\v2#.gcommon.v1.organization.DepartmentB\x02(\x01R\vdepartments\x12D\n" +
 	"\n" +
 	"pagination\x18\x04 \x01(\v2$.gcommon.v1.common.PaginatedResponseR\n" +
-	"paginationB\xf1\x01\n" +
-	"\x1bcom.gcommon.v1.organizationB\x1cListDepartmentsResponseProtoP\x01Z.../../../../pkg/organization/pb;organizationpb\xa2\x02\x03GVO\xaa\x02\x17Gcommon.V1.Organization\xca\x02\x17Gcommon\\V1\\Organization\xe2\x02#Gcommon\\V1\\Organization\\GPBMetadata\xea\x02\x19Gcommon::V1::Organization\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
+	"paginationB\xf4\x01\n" +
+	"\x1bcom.gcommon.v1.organizationB\x1cListDepartmentsResponseProtoP\x01Z1../../../../pkg/organization/proto;organizationpb\xa2\x02\x03GVO\xaa\x02\x17Gcommon.V1.Organization\xca\x02\x17Gcommon\\V1\\Organization\xe2\x02#Gcommon\\V1\\Organization\\GPBMetadata\xea\x02\x19Gcommon::V1::Organization\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
 
 var file_pkg_organization_proto_responses_list_departments_response_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_pkg_organization_proto_responses_list_departments_response_proto_goTypes = []any{
 	(*ListDepartmentsResponse)(nil), // 0: gcommon.v1.organization.ListDepartmentsResponse
-	(*pb.Error)(nil),                // 1: gcommon.v1.common.Error
+	(*proto.Error)(nil),             // 1: gcommon.v1.common.Error
 	(*Department)(nil),              // 2: gcommon.v1.organization.Department
-	(*pb.PaginatedResponse)(nil),    // 3: gcommon.v1.common.PaginatedResponse
+	(*proto.PaginatedResponse)(nil), // 3: gcommon.v1.common.PaginatedResponse
 }
 var file_pkg_organization_proto_responses_list_departments_response_proto_depIdxs = []int32{
 	1, // 0: gcommon.v1.organization.ListDepartmentsResponse.errors:type_name -> gcommon.v1.common.Error

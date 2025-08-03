@@ -9,7 +9,7 @@
 package organizationpb
 
 import (
-	pb "../../../../pkg/common/pb"
+	proto "../../../../pkg/common/proto"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
@@ -27,7 +27,7 @@ const (
 type UpdateDepartmentResponse struct {
 	state protoimpl.MessageState `protogen:"hybrid.v1"`
 	// Any errors encountered
-	Errors []*pb.Error `protobuf:"bytes,1,rep,name=errors" json:"errors,omitempty"`
+	Errors []*proto.Error `protobuf:"bytes,1,rep,name=errors" json:"errors,omitempty"`
 	// Success status
 	Success *bool `protobuf:"varint,2,opt,name=success" json:"success,omitempty"`
 	// Updated department information
@@ -61,7 +61,7 @@ func (x *UpdateDepartmentResponse) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-func (x *UpdateDepartmentResponse) GetErrors() []*pb.Error {
+func (x *UpdateDepartmentResponse) GetErrors() []*proto.Error {
 	if x != nil {
 		return x.Errors
 	}
@@ -82,7 +82,7 @@ func (x *UpdateDepartmentResponse) GetDepartment() *Department {
 	return nil
 }
 
-func (x *UpdateDepartmentResponse) SetErrors(v []*pb.Error) {
+func (x *UpdateDepartmentResponse) SetErrors(v []*proto.Error) {
 	x.Errors = v
 }
 
@@ -120,7 +120,7 @@ type UpdateDepartmentResponse_builder struct {
 	_ [0]func() // Prevents comparability and use of unkeyed literals for the builder.
 
 	// Any errors encountered
-	Errors []*pb.Error
+	Errors []*proto.Error
 	// Success status
 	Success *bool
 	// Updated department information
@@ -147,13 +147,13 @@ const file_pkg_organization_proto_responses_update_department_response_proto_raw
 	"\asuccess\x18\x02 \x01(\bR\asuccess\x12C\n" +
 	"\n" +
 	"department\x18\x03 \x01(\v2#.gcommon.v1.organization.DepartmentR\n" +
-	"departmentB\xf2\x01\n" +
-	"\x1bcom.gcommon.v1.organizationB\x1dUpdateDepartmentResponseProtoP\x01Z.../../../../pkg/organization/pb;organizationpb\xa2\x02\x03GVO\xaa\x02\x17Gcommon.V1.Organization\xca\x02\x17Gcommon\\V1\\Organization\xe2\x02#Gcommon\\V1\\Organization\\GPBMetadata\xea\x02\x19Gcommon::V1::Organization\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
+	"departmentB\xf5\x01\n" +
+	"\x1bcom.gcommon.v1.organizationB\x1dUpdateDepartmentResponseProtoP\x01Z1../../../../pkg/organization/proto;organizationpb\xa2\x02\x03GVO\xaa\x02\x17Gcommon.V1.Organization\xca\x02\x17Gcommon\\V1\\Organization\xe2\x02#Gcommon\\V1\\Organization\\GPBMetadata\xea\x02\x19Gcommon::V1::Organization\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
 
 var file_pkg_organization_proto_responses_update_department_response_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_pkg_organization_proto_responses_update_department_response_proto_goTypes = []any{
 	(*UpdateDepartmentResponse)(nil), // 0: gcommon.v1.organization.UpdateDepartmentResponse
-	(*pb.Error)(nil),                 // 1: gcommon.v1.common.Error
+	(*proto.Error)(nil),              // 1: gcommon.v1.common.Error
 	(*Department)(nil),               // 2: gcommon.v1.organization.Department
 }
 var file_pkg_organization_proto_responses_update_department_response_proto_depIdxs = []int32{

@@ -9,7 +9,7 @@
 package organizationpb
 
 import (
-	pb "../../../../pkg/common/pb"
+	proto "../../../../pkg/common/proto"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
@@ -39,7 +39,7 @@ type TenantIsolation struct {
 	xxx_hidden_Encryption    *EncryptionConfig      `protobuf:"bytes,7,opt,name=encryption"`
 	xxx_hidden_AccessControl *AccessControl         `protobuf:"bytes,8,opt,name=access_control,json=accessControl"`
 	xxx_hidden_Audit         *AuditConfig           `protobuf:"bytes,9,opt,name=audit"`
-	xxx_hidden_Metadata      *[]*pb.KeyValue        `protobuf:"bytes,10,rep,name=metadata"`
+	xxx_hidden_Metadata      *[]*proto.KeyValue     `protobuf:"bytes,10,rep,name=metadata"`
 	xxx_hidden_CreatedAt     *timestamppb.Timestamp `protobuf:"bytes,11,opt,name=created_at,json=createdAt"`
 	xxx_hidden_UpdatedAt     *timestamppb.Timestamp `protobuf:"bytes,12,opt,name=updated_at,json=updatedAt"`
 	xxx_hidden_ConfiguredBy  *string                `protobuf:"bytes,13,opt,name=configured_by,json=configuredBy"`
@@ -144,13 +144,13 @@ func (x *TenantIsolation) GetAudit() *AuditConfig {
 	return nil
 }
 
-func (x *TenantIsolation) GetMetadata() []*pb.KeyValue {
+func (x *TenantIsolation) GetMetadata() []*proto.KeyValue {
 	if x != nil {
 		if protoimpl.X.Present(&(x.XXX_presence[0]), 9) {
 			if protoimpl.X.AtomicCheckPointerIsNil(&x.xxx_hidden_Metadata) {
 				protoimpl.X.UnmarshalField(x, 10)
 			}
-			var rv *[]*pb.KeyValue
+			var rv *[]*proto.KeyValue
 			protoimpl.X.AtomicLoadPointer(protoimpl.Pointer(&x.xxx_hidden_Metadata), protoimpl.Pointer(&rv))
 			return *rv
 		}
@@ -234,11 +234,11 @@ func (x *TenantIsolation) SetAudit(v *AuditConfig) {
 	x.xxx_hidden_Audit = v
 }
 
-func (x *TenantIsolation) SetMetadata(v []*pb.KeyValue) {
-	var sv *[]*pb.KeyValue
+func (x *TenantIsolation) SetMetadata(v []*proto.KeyValue) {
+	var sv *[]*proto.KeyValue
 	protoimpl.X.AtomicLoadPointer(protoimpl.Pointer(&x.xxx_hidden_Metadata), protoimpl.Pointer(&sv))
 	if sv == nil {
-		sv = &[]*pb.KeyValue{}
+		sv = &[]*proto.KeyValue{}
 		protoimpl.X.AtomicInitializePointer(protoimpl.Pointer(&x.xxx_hidden_Metadata), protoimpl.Pointer(&sv))
 	}
 	*sv = v
@@ -427,7 +427,7 @@ type TenantIsolation_builder struct {
 	// Audit and compliance configuration
 	Audit *AuditConfig
 	// Isolation metadata and custom settings
-	Metadata []*pb.KeyValue
+	Metadata []*proto.KeyValue
 	// Isolation configuration creation timestamp
 	CreatedAt *timestamppb.Timestamp
 	// Last update timestamp
@@ -480,7 +480,7 @@ type DatabaseIsolation struct {
 	state                          protoimpl.MessageState `protogen:"opaque.v1"`
 	xxx_hidden_DatabaseInstance    *string                `protobuf:"bytes,1,opt,name=database_instance,json=databaseInstance"`
 	xxx_hidden_SchemaName          *string                `protobuf:"bytes,2,opt,name=schema_name,json=schemaName"`
-	xxx_hidden_ConnectionParams    *[]*pb.KeyValue        `protobuf:"bytes,3,rep,name=connection_params,json=connectionParams"`
+	xxx_hidden_ConnectionParams    *[]*proto.KeyValue     `protobuf:"bytes,3,rep,name=connection_params,json=connectionParams"`
 	xxx_hidden_DedicatedDatabase   bool                   `protobuf:"varint,4,opt,name=dedicated_database,json=dedicatedDatabase"`
 	xxx_hidden_Backup              *BackupConfig          `protobuf:"bytes,5,opt,name=backup"`
 	xxx_hidden_AllowedOperations   []string               `protobuf:"bytes,6,rep,name=allowed_operations,json=allowedOperations"`
@@ -539,13 +539,13 @@ func (x *DatabaseIsolation) GetSchemaName() string {
 	return ""
 }
 
-func (x *DatabaseIsolation) GetConnectionParams() []*pb.KeyValue {
+func (x *DatabaseIsolation) GetConnectionParams() []*proto.KeyValue {
 	if x != nil {
 		if protoimpl.X.Present(&(x.XXX_presence[0]), 2) {
 			if protoimpl.X.AtomicCheckPointerIsNil(&x.xxx_hidden_ConnectionParams) {
 				protoimpl.X.UnmarshalField(x, 3)
 			}
-			var rv *[]*pb.KeyValue
+			var rv *[]*proto.KeyValue
 			protoimpl.X.AtomicLoadPointer(protoimpl.Pointer(&x.xxx_hidden_ConnectionParams), protoimpl.Pointer(&rv))
 			return *rv
 		}
@@ -598,11 +598,11 @@ func (x *DatabaseIsolation) SetSchemaName(v string) {
 	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 1, 8)
 }
 
-func (x *DatabaseIsolation) SetConnectionParams(v []*pb.KeyValue) {
-	var sv *[]*pb.KeyValue
+func (x *DatabaseIsolation) SetConnectionParams(v []*proto.KeyValue) {
+	var sv *[]*proto.KeyValue
 	protoimpl.X.AtomicLoadPointer(protoimpl.Pointer(&x.xxx_hidden_ConnectionParams), protoimpl.Pointer(&sv))
 	if sv == nil {
-		sv = &[]*pb.KeyValue{}
+		sv = &[]*proto.KeyValue{}
 		protoimpl.X.AtomicInitializePointer(protoimpl.Pointer(&x.xxx_hidden_ConnectionParams), protoimpl.Pointer(&sv))
 	}
 	*sv = v
@@ -711,7 +711,7 @@ type DatabaseIsolation_builder struct {
 	// Schema or database name for this tenant
 	SchemaName *string
 	// Database connection parameters
-	ConnectionParams []*pb.KeyValue
+	ConnectionParams []*proto.KeyValue
 	// Whether tenant has dedicated database
 	DedicatedDatabase *bool
 	// Database backup configuration
@@ -5574,7 +5574,7 @@ type OriginConfig struct {
 	xxx_hidden_DomainName     *string                `protobuf:"bytes,1,opt,name=domain_name,json=domainName"`
 	xxx_hidden_OriginPath     *string                `protobuf:"bytes,2,opt,name=origin_path,json=originPath"`
 	xxx_hidden_ProtocolPolicy *string                `protobuf:"bytes,3,opt,name=protocol_policy,json=protocolPolicy"`
-	xxx_hidden_CustomHeaders  *[]*pb.KeyValue        `protobuf:"bytes,4,rep,name=custom_headers,json=customHeaders"`
+	xxx_hidden_CustomHeaders  *[]*proto.KeyValue     `protobuf:"bytes,4,rep,name=custom_headers,json=customHeaders"`
 	XXX_raceDetectHookData    protoimpl.RaceDetectHookData
 	XXX_presence              [1]uint32
 	unknownFields             protoimpl.UnknownFields
@@ -5636,7 +5636,7 @@ func (x *OriginConfig) GetProtocolPolicy() string {
 	return ""
 }
 
-func (x *OriginConfig) GetCustomHeaders() []*pb.KeyValue {
+func (x *OriginConfig) GetCustomHeaders() []*proto.KeyValue {
 	if x != nil {
 		if x.xxx_hidden_CustomHeaders != nil {
 			return *x.xxx_hidden_CustomHeaders
@@ -5660,7 +5660,7 @@ func (x *OriginConfig) SetProtocolPolicy(v string) {
 	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 2, 4)
 }
 
-func (x *OriginConfig) SetCustomHeaders(v []*pb.KeyValue) {
+func (x *OriginConfig) SetCustomHeaders(v []*proto.KeyValue) {
 	x.xxx_hidden_CustomHeaders = &v
 }
 
@@ -5710,7 +5710,7 @@ type OriginConfig_builder struct {
 	// Origin protocol policy
 	ProtocolPolicy *string
 	// Custom headers to send to origin
-	CustomHeaders []*pb.KeyValue
+	CustomHeaders []*proto.KeyValue
 }
 
 func (b0 OriginConfig_builder) Build() *OriginConfig {
@@ -6506,8 +6506,8 @@ const file_pkg_organization_proto_types_tenant_isolation_proto_rawDesc = "" +
 	"\x0finclude_headers\x18\x03 \x01(\bR\x0eincludeHeaders\x12)\n" +
 	"\x10header_whitelist\x18\x04 \x03(\tR\x0fheaderWhitelist\x12'\n" +
 	"\x0finclude_cookies\x18\x05 \x01(\bR\x0eincludeCookies\x12)\n" +
-	"\x10cookie_whitelist\x18\x06 \x03(\tR\x0fcookieWhitelistB\xe9\x01\n" +
-	"\x1bcom.gcommon.v1.organizationB\x14TenantIsolationProtoP\x01Z.../../../../pkg/organization/pb;organizationpb\xa2\x02\x03GVO\xaa\x02\x17Gcommon.V1.Organization\xca\x02\x17Gcommon\\V1\\Organization\xe2\x02#Gcommon\\V1\\Organization\\GPBMetadata\xea\x02\x19Gcommon::V1::Organization\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
+	"\x10cookie_whitelist\x18\x06 \x03(\tR\x0fcookieWhitelistB\xec\x01\n" +
+	"\x1bcom.gcommon.v1.organizationB\x14TenantIsolationProtoP\x01Z1../../../../pkg/organization/proto;organizationpb\xa2\x02\x03GVO\xaa\x02\x17Gcommon.V1.Organization\xca\x02\x17Gcommon\\V1\\Organization\xe2\x02#Gcommon\\V1\\Organization\\GPBMetadata\xea\x02\x19Gcommon::V1::Organization\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
 
 var file_pkg_organization_proto_types_tenant_isolation_proto_msgTypes = make([]protoimpl.MessageInfo, 30)
 var file_pkg_organization_proto_types_tenant_isolation_proto_goTypes = []any{
@@ -6542,7 +6542,7 @@ var file_pkg_organization_proto_types_tenant_isolation_proto_goTypes = []any{
 	(*DNSRecord)(nil),             // 28: gcommon.v1.organization.DNSRecord
 	(*CacheKeyPolicy)(nil),        // 29: gcommon.v1.organization.CacheKeyPolicy
 	(IsolationLevel)(0),           // 30: gcommon.v1.organization.IsolationLevel
-	(*pb.KeyValue)(nil),           // 31: gcommon.v1.common.KeyValue
+	(*proto.KeyValue)(nil),        // 31: gcommon.v1.common.KeyValue
 	(*timestamppb.Timestamp)(nil), // 32: google.protobuf.Timestamp
 }
 var file_pkg_organization_proto_types_tenant_isolation_proto_depIdxs = []int32{

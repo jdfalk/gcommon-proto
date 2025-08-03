@@ -93,8 +93,8 @@ const file_pkg_auth_proto_enums_mfa_type_proto_rawDesc = "" +
 	"\rMFA_TYPE_TOTP\x10\x01\x12\x10\n" +
 	"\fMFA_TYPE_SMS\x10\x02\x12\x12\n" +
 	"\x0eMFA_TYPE_EMAIL\x10\x03\x12\x11\n" +
-	"\rMFA_TYPE_PUSH\x10\x04B\xa1\x01\n" +
-	"\x13com.gcommon.v1.authB\fMfaTypeProtoP\x01Z\x1e../../../../pkg/auth/pb;authpb\xa2\x02\x03GVA\xaa\x02\x0fGcommon.V1.Auth\xca\x02\x0fGcommon\\V1\\Auth\xe2\x02\x1bGcommon\\V1\\Auth\\GPBMetadata\xea\x02\x11Gcommon::V1::Authb\beditionsp\xe8\a"
+	"\rMFA_TYPE_PUSH\x10\x04B\xa4\x01\n" +
+	"\x13com.gcommon.v1.authB\fMfaTypeProtoP\x01Z!../../../../pkg/auth/proto;authpb\xa2\x02\x03GVA\xaa\x02\x0fGcommon.V1.Auth\xca\x02\x0fGcommon\\V1\\Auth\xe2\x02\x1bGcommon\\V1\\Auth\\GPBMetadata\xea\x02\x11Gcommon::V1::Authb\beditionsp\xe8\a"
 
 var (
 	file_pkg_auth_proto_enums_mfa_type_proto_rawDescOnce sync.Once

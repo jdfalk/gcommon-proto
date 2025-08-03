@@ -9,7 +9,7 @@
 package configpb
 
 import (
-	pb "../../../../pkg/common/pb"
+	proto "../../../../pkg/common/proto"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
@@ -30,7 +30,7 @@ type SetConfigRequest struct {
 	// Configuration key
 	Key *string `protobuf:"bytes,1,opt,name=key" json:"key,omitempty"`
 	// Configuration value
-	Value *pb.ConfigValue `protobuf:"bytes,2,opt,name=value" json:"value,omitempty"`
+	Value *proto.ConfigValue `protobuf:"bytes,2,opt,name=value" json:"value,omitempty"`
 	// Optional namespace/environment
 	Namespace *string `protobuf:"bytes,3,opt,name=namespace" json:"namespace,omitempty"`
 	// Configuration metadata
@@ -40,7 +40,7 @@ type SetConfigRequest struct {
 	// Tags for categorization
 	Tags []string `protobuf:"bytes,6,rep,name=tags" json:"tags,omitempty"`
 	// Request metadata
-	RequestMetadata *pb.RequestMetadata `protobuf:"bytes,7,opt,name=request_metadata,json=requestMetadata" json:"request_metadata,omitempty"`
+	RequestMetadata *proto.RequestMetadata `protobuf:"bytes,7,opt,name=request_metadata,json=requestMetadata" json:"request_metadata,omitempty"`
 	unknownFields   protoimpl.UnknownFields
 	sizeCache       protoimpl.SizeCache
 }
@@ -77,7 +77,7 @@ func (x *SetConfigRequest) GetKey() string {
 	return ""
 }
 
-func (x *SetConfigRequest) GetValue() *pb.ConfigValue {
+func (x *SetConfigRequest) GetValue() *proto.ConfigValue {
 	if x != nil {
 		return x.Value
 	}
@@ -112,7 +112,7 @@ func (x *SetConfigRequest) GetTags() []string {
 	return nil
 }
 
-func (x *SetConfigRequest) GetRequestMetadata() *pb.RequestMetadata {
+func (x *SetConfigRequest) GetRequestMetadata() *proto.RequestMetadata {
 	if x != nil {
 		return x.RequestMetadata
 	}
@@ -123,7 +123,7 @@ func (x *SetConfigRequest) SetKey(v string) {
 	x.Key = &v
 }
 
-func (x *SetConfigRequest) SetValue(v *pb.ConfigValue) {
+func (x *SetConfigRequest) SetValue(v *proto.ConfigValue) {
 	x.Value = v
 }
 
@@ -143,7 +143,7 @@ func (x *SetConfigRequest) SetTags(v []string) {
 	x.Tags = v
 }
 
-func (x *SetConfigRequest) SetRequestMetadata(v *pb.RequestMetadata) {
+func (x *SetConfigRequest) SetRequestMetadata(v *proto.RequestMetadata) {
 	x.RequestMetadata = v
 }
 
@@ -208,7 +208,7 @@ type SetConfigRequest_builder struct {
 	// Configuration key
 	Key *string
 	// Configuration value
-	Value *pb.ConfigValue
+	Value *proto.ConfigValue
 	// Optional namespace/environment
 	Namespace *string
 	// Configuration metadata
@@ -218,7 +218,7 @@ type SetConfigRequest_builder struct {
 	// Tags for categorization
 	Tags []string
 	// Request metadata
-	RequestMetadata *pb.RequestMetadata
+	RequestMetadata *proto.RequestMetadata
 }
 
 func (b0 SetConfigRequest_builder) Build() *SetConfigRequest {
@@ -250,15 +250,15 @@ const file_pkg_config_proto_requests_set_config_request_proto_rawDesc = "" +
 	"\x10request_metadata\x18\a \x01(\v2\".gcommon.v1.common.RequestMetadataR\x0frequestMetadata\x1a;\n" +
 	"\rMetadataEntry\x12\x10\n" +
 	"\x03key\x18\x01 \x01(\tR\x03key\x12\x14\n" +
-	"\x05value\x18\x02 \x01(\tR\x05value:\x028\x01B\xc0\x01\n" +
-	"\x15com.gcommon.v1.configB\x15SetConfigRequestProtoP\x01Z\"../../../../pkg/config/pb;configpb\xa2\x02\x03GVC\xaa\x02\x11Gcommon.V1.Config\xca\x02\x11Gcommon\\V1\\Config\xe2\x02\x1dGcommon\\V1\\Config\\GPBMetadata\xea\x02\x13Gcommon::V1::Config\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
+	"\x05value\x18\x02 \x01(\tR\x05value:\x028\x01B\xc3\x01\n" +
+	"\x15com.gcommon.v1.configB\x15SetConfigRequestProtoP\x01Z%../../../../pkg/config/proto;configpb\xa2\x02\x03GVC\xaa\x02\x11Gcommon.V1.Config\xca\x02\x11Gcommon\\V1\\Config\xe2\x02\x1dGcommon\\V1\\Config\\GPBMetadata\xea\x02\x13Gcommon::V1::Config\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
 
 var file_pkg_config_proto_requests_set_config_request_proto_msgTypes = make([]protoimpl.MessageInfo, 2)
 var file_pkg_config_proto_requests_set_config_request_proto_goTypes = []any{
-	(*SetConfigRequest)(nil),   // 0: gcommon.v1.config.SetConfigRequest
-	nil,                        // 1: gcommon.v1.config.SetConfigRequest.MetadataEntry
-	(*pb.ConfigValue)(nil),     // 2: gcommon.v1.common.ConfigValue
-	(*pb.RequestMetadata)(nil), // 3: gcommon.v1.common.RequestMetadata
+	(*SetConfigRequest)(nil),      // 0: gcommon.v1.config.SetConfigRequest
+	nil,                           // 1: gcommon.v1.config.SetConfigRequest.MetadataEntry
+	(*proto.ConfigValue)(nil),     // 2: gcommon.v1.common.ConfigValue
+	(*proto.RequestMetadata)(nil), // 3: gcommon.v1.common.RequestMetadata
 }
 var file_pkg_config_proto_requests_set_config_request_proto_depIdxs = []int32{
 	2, // 0: gcommon.v1.config.SetConfigRequest.value:type_name -> gcommon.v1.common.ConfigValue

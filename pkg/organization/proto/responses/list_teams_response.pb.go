@@ -9,7 +9,7 @@
 package organizationpb
 
 import (
-	pb "../../../../pkg/common/pb"
+	proto "../../../../pkg/common/proto"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
@@ -27,13 +27,13 @@ const (
 type ListTeamsResponse struct {
 	state protoimpl.MessageState `protogen:"hybrid.v1"`
 	// Any errors encountered
-	Errors []*pb.Error `protobuf:"bytes,1,rep,name=errors" json:"errors,omitempty"`
+	Errors []*proto.Error `protobuf:"bytes,1,rep,name=errors" json:"errors,omitempty"`
 	// Success status
 	Success *bool `protobuf:"varint,2,opt,name=success" json:"success,omitempty"`
 	// List of teams returned
 	Teams []*Team `protobuf:"bytes,3,rep,name=teams" json:"teams,omitempty"`
 	// Pagination metadata
-	Pagination    *pb.PaginatedResponse `protobuf:"bytes,4,opt,name=pagination" json:"pagination,omitempty"`
+	Pagination    *proto.PaginatedResponse `protobuf:"bytes,4,opt,name=pagination" json:"pagination,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -63,7 +63,7 @@ func (x *ListTeamsResponse) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-func (x *ListTeamsResponse) GetErrors() []*pb.Error {
+func (x *ListTeamsResponse) GetErrors() []*proto.Error {
 	if x != nil {
 		return x.Errors
 	}
@@ -84,14 +84,14 @@ func (x *ListTeamsResponse) GetTeams() []*Team {
 	return nil
 }
 
-func (x *ListTeamsResponse) GetPagination() *pb.PaginatedResponse {
+func (x *ListTeamsResponse) GetPagination() *proto.PaginatedResponse {
 	if x != nil {
 		return x.Pagination
 	}
 	return nil
 }
 
-func (x *ListTeamsResponse) SetErrors(v []*pb.Error) {
+func (x *ListTeamsResponse) SetErrors(v []*proto.Error) {
 	x.Errors = v
 }
 
@@ -103,7 +103,7 @@ func (x *ListTeamsResponse) SetTeams(v []*Team) {
 	x.Teams = v
 }
 
-func (x *ListTeamsResponse) SetPagination(v *pb.PaginatedResponse) {
+func (x *ListTeamsResponse) SetPagination(v *proto.PaginatedResponse) {
 	x.Pagination = v
 }
 
@@ -133,13 +133,13 @@ type ListTeamsResponse_builder struct {
 	_ [0]func() // Prevents comparability and use of unkeyed literals for the builder.
 
 	// Any errors encountered
-	Errors []*pb.Error
+	Errors []*proto.Error
 	// Success status
 	Success *bool
 	// List of teams returned
 	Teams []*Team
 	// Pagination metadata
-	Pagination *pb.PaginatedResponse
+	Pagination *proto.PaginatedResponse
 }
 
 func (b0 ListTeamsResponse_builder) Build() *ListTeamsResponse {
@@ -164,15 +164,15 @@ const file_pkg_organization_proto_responses_list_teams_response_proto_rawDesc = 
 	"\x05teams\x18\x03 \x03(\v2\x1d.gcommon.v1.organization.TeamB\x02(\x01R\x05teams\x12D\n" +
 	"\n" +
 	"pagination\x18\x04 \x01(\v2$.gcommon.v1.common.PaginatedResponseR\n" +
-	"paginationB\xeb\x01\n" +
-	"\x1bcom.gcommon.v1.organizationB\x16ListTeamsResponseProtoP\x01Z.../../../../pkg/organization/pb;organizationpb\xa2\x02\x03GVO\xaa\x02\x17Gcommon.V1.Organization\xca\x02\x17Gcommon\\V1\\Organization\xe2\x02#Gcommon\\V1\\Organization\\GPBMetadata\xea\x02\x19Gcommon::V1::Organization\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
+	"paginationB\xee\x01\n" +
+	"\x1bcom.gcommon.v1.organizationB\x16ListTeamsResponseProtoP\x01Z1../../../../pkg/organization/proto;organizationpb\xa2\x02\x03GVO\xaa\x02\x17Gcommon.V1.Organization\xca\x02\x17Gcommon\\V1\\Organization\xe2\x02#Gcommon\\V1\\Organization\\GPBMetadata\xea\x02\x19Gcommon::V1::Organization\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
 
 var file_pkg_organization_proto_responses_list_teams_response_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_pkg_organization_proto_responses_list_teams_response_proto_goTypes = []any{
-	(*ListTeamsResponse)(nil),    // 0: gcommon.v1.organization.ListTeamsResponse
-	(*pb.Error)(nil),             // 1: gcommon.v1.common.Error
-	(*Team)(nil),                 // 2: gcommon.v1.organization.Team
-	(*pb.PaginatedResponse)(nil), // 3: gcommon.v1.common.PaginatedResponse
+	(*ListTeamsResponse)(nil),       // 0: gcommon.v1.organization.ListTeamsResponse
+	(*proto.Error)(nil),             // 1: gcommon.v1.common.Error
+	(*Team)(nil),                    // 2: gcommon.v1.organization.Team
+	(*proto.PaginatedResponse)(nil), // 3: gcommon.v1.common.PaginatedResponse
 }
 var file_pkg_organization_proto_responses_list_teams_response_proto_depIdxs = []int32{
 	1, // 0: gcommon.v1.organization.ListTeamsResponse.errors:type_name -> gcommon.v1.common.Error

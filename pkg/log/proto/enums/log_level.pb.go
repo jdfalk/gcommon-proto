@@ -92,8 +92,8 @@ const file_pkg_log_proto_enums_log_level_proto_rawDesc = "" +
 	"\x0eLOG_LEVEL_INFO\x10\x03\x12\x12\n" +
 	"\x0eLOG_LEVEL_WARN\x10\x04\x12\x13\n" +
 	"\x0fLOG_LEVEL_ERROR\x10\x05\x12\x13\n" +
-	"\x0fLOG_LEVEL_FATAL\x10\x06B\xa3\x01\n" +
-	"\x12com.gcommon.v1.logB\rLogLevelProtoP\x01Z\x1c../../../../pkg/log/pb;logpb\xa2\x02\x03GVL\xaa\x02\x0eGcommon.V1.Log\xca\x02\x0eGcommon\\V1\\Log\xe2\x02\x1aGcommon\\V1\\Log\\GPBMetadata\xea\x02\x10Gcommon::V1::Log\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
+	"\x0fLOG_LEVEL_FATAL\x10\x06B\xa6\x01\n" +
+	"\x12com.gcommon.v1.logB\rLogLevelProtoP\x01Z\x1f../../../../pkg/log/proto;logpb\xa2\x02\x03GVL\xaa\x02\x0eGcommon.V1.Log\xca\x02\x0eGcommon\\V1\\Log\xe2\x02\x1aGcommon\\V1\\Log\\GPBMetadata\xea\x02\x10Gcommon::V1::Log\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
 
 var file_pkg_log_proto_enums_log_level_proto_enumTypes = make([]protoimpl.EnumInfo, 1)
 var file_pkg_log_proto_enums_log_level_proto_goTypes = []any{

@@ -159,8 +159,8 @@ const file_pkg_cache_proto_responses_set_response_proto_rawDesc = "" +
 	"\asuccess\x18\x01 \x01(\bR\asuccess\x12 \n" +
 	"\voverwritten\x18\x02 \x01(\bR\voverwritten\x12\x1d\n" +
 	"\n" +
-	"size_bytes\x18\x03 \x01(\x03R\tsizeBytesB\xb4\x01\n" +
-	"\x14com.gcommon.v1.cacheB\x10SetResponseProtoP\x01Z ../../../../pkg/cache/pb;cachepb\xa2\x02\x03GVC\xaa\x02\x10Gcommon.V1.Cache\xca\x02\x10Gcommon\\V1\\Cache\xe2\x02\x1cGcommon\\V1\\Cache\\GPBMetadata\xea\x02\x12Gcommon::V1::Cache\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
+	"size_bytes\x18\x03 \x01(\x03R\tsizeBytesB\xb7\x01\n" +
+	"\x14com.gcommon.v1.cacheB\x10SetResponseProtoP\x01Z#../../../../pkg/cache/proto;cachepb\xa2\x02\x03GVC\xaa\x02\x10Gcommon.V1.Cache\xca\x02\x10Gcommon\\V1\\Cache\xe2\x02\x1cGcommon\\V1\\Cache\\GPBMetadata\xea\x02\x12Gcommon::V1::Cache\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
 
 var file_pkg_cache_proto_responses_set_response_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_pkg_cache_proto_responses_set_response_proto_goTypes = []any{

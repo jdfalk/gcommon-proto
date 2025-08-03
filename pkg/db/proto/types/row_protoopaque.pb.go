@@ -112,8 +112,8 @@ const file_pkg_db_proto_types_row_proto_rawDesc = "" +
 	"\n" +
 	"\x1cpkg/db/proto/types/row.proto\x12\x13gcommon.v1.database\x1a\x19google/protobuf/any.proto\x1a!google/protobuf/go_features.proto\"7\n" +
 	"\x03Row\x120\n" +
-	"\x06values\x18\x01 \x03(\v2\x14.google.protobuf.AnyB\x02(\x01R\x06valuesB\xb5\x01\n" +
-	"\x17com.gcommon.v1.databaseB\bRowProtoP\x01Z\x1a../../../../pkg/db/pb;dbpb\xa2\x02\x03GVD\xaa\x02\x13Gcommon.V1.Database\xca\x02\x13Gcommon\\V1\\Database\xe2\x02\x1fGcommon\\V1\\Database\\GPBMetadata\xea\x02\x15Gcommon::V1::Database\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
+	"\x06values\x18\x01 \x03(\v2\x14.google.protobuf.AnyB\x02(\x01R\x06valuesB\xb8\x01\n" +
+	"\x17com.gcommon.v1.databaseB\bRowProtoP\x01Z\x1d../../../../pkg/db/proto;dbpb\xa2\x02\x03GVD\xaa\x02\x13Gcommon.V1.Database\xca\x02\x13Gcommon\\V1\\Database\xe2\x02\x1fGcommon\\V1\\Database\\GPBMetadata\xea\x02\x15Gcommon::V1::Database\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
 
 var file_pkg_db_proto_types_row_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_pkg_db_proto_types_row_proto_goTypes = []any{

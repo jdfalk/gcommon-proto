@@ -9,7 +9,7 @@
 package cachepb
 
 import (
-	pb "../../../../pkg/common/pb"
+	proto "../../../../pkg/common/proto"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
@@ -31,7 +31,7 @@ type PublishRequest struct {
 	state               protoimpl.MessageState `protogen:"opaque.v1"`
 	xxx_hidden_Topic    *string                `protobuf:"bytes,1,opt,name=topic"`
 	xxx_hidden_Payload  *anypb.Any             `protobuf:"bytes,2,opt,name=payload"`
-	xxx_hidden_Metadata *pb.RequestMetadata    `protobuf:"bytes,3,opt,name=metadata"`
+	xxx_hidden_Metadata *proto.RequestMetadata `protobuf:"bytes,3,opt,name=metadata"`
 	// Deprecated: Do not use. This will be deleted in the near future.
 	XXX_lazyUnmarshalInfo  protoimpl.LazyUnmarshalInfo
 	XXX_raceDetectHookData protoimpl.RaceDetectHookData
@@ -89,13 +89,13 @@ func (x *PublishRequest) GetPayload() *anypb.Any {
 	return nil
 }
 
-func (x *PublishRequest) GetMetadata() *pb.RequestMetadata {
+func (x *PublishRequest) GetMetadata() *proto.RequestMetadata {
 	if x != nil {
 		if protoimpl.X.Present(&(x.XXX_presence[0]), 2) {
 			if protoimpl.X.AtomicCheckPointerIsNil(&x.xxx_hidden_Metadata) {
 				protoimpl.X.UnmarshalField(x, 3)
 			}
-			var rv *pb.RequestMetadata
+			var rv *proto.RequestMetadata
 			protoimpl.X.AtomicLoadPointer(protoimpl.Pointer(&x.xxx_hidden_Metadata), protoimpl.Pointer(&rv))
 			return rv
 		}
@@ -117,7 +117,7 @@ func (x *PublishRequest) SetPayload(v *anypb.Any) {
 	}
 }
 
-func (x *PublishRequest) SetMetadata(v *pb.RequestMetadata) {
+func (x *PublishRequest) SetMetadata(v *proto.RequestMetadata) {
 	protoimpl.X.AtomicSetPointer(&x.xxx_hidden_Metadata, v)
 	if v == nil {
 		protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 2)
@@ -159,7 +159,7 @@ func (x *PublishRequest) ClearPayload() {
 
 func (x *PublishRequest) ClearMetadata() {
 	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 2)
-	protoimpl.X.AtomicSetPointer(&x.xxx_hidden_Metadata, (*pb.RequestMetadata)(nil))
+	protoimpl.X.AtomicSetPointer(&x.xxx_hidden_Metadata, (*proto.RequestMetadata)(nil))
 }
 
 type PublishRequest_builder struct {
@@ -170,7 +170,7 @@ type PublishRequest_builder struct {
 	// Payload to publish
 	Payload *anypb.Any
 	// Request metadata
-	Metadata *pb.RequestMetadata
+	Metadata *proto.RequestMetadata
 }
 
 func (b0 PublishRequest_builder) Build() *PublishRequest {
@@ -200,14 +200,14 @@ const file_pkg_cache_proto_requests_publish_request_proto_rawDesc = "" +
 	"\x0ePublishRequest\x12\x14\n" +
 	"\x05topic\x18\x01 \x01(\tR\x05topic\x122\n" +
 	"\apayload\x18\x02 \x01(\v2\x14.google.protobuf.AnyB\x02(\x01R\apayload\x12B\n" +
-	"\bmetadata\x18\x03 \x01(\v2\".gcommon.v1.common.RequestMetadataB\x02(\x01R\bmetadataB\xb7\x01\n" +
-	"\x14com.gcommon.v1.cacheB\x13PublishRequestProtoP\x01Z ../../../../pkg/cache/pb;cachepb\xa2\x02\x03GVC\xaa\x02\x10Gcommon.V1.Cache\xca\x02\x10Gcommon\\V1\\Cache\xe2\x02\x1cGcommon\\V1\\Cache\\GPBMetadata\xea\x02\x12Gcommon::V1::Cache\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
+	"\bmetadata\x18\x03 \x01(\v2\".gcommon.v1.common.RequestMetadataB\x02(\x01R\bmetadataB\xba\x01\n" +
+	"\x14com.gcommon.v1.cacheB\x13PublishRequestProtoP\x01Z#../../../../pkg/cache/proto;cachepb\xa2\x02\x03GVC\xaa\x02\x10Gcommon.V1.Cache\xca\x02\x10Gcommon\\V1\\Cache\xe2\x02\x1cGcommon\\V1\\Cache\\GPBMetadata\xea\x02\x12Gcommon::V1::Cache\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
 
 var file_pkg_cache_proto_requests_publish_request_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_pkg_cache_proto_requests_publish_request_proto_goTypes = []any{
-	(*PublishRequest)(nil),     // 0: gcommon.v1.cache.PublishRequest
-	(*anypb.Any)(nil),          // 1: google.protobuf.Any
-	(*pb.RequestMetadata)(nil), // 2: gcommon.v1.common.RequestMetadata
+	(*PublishRequest)(nil),        // 0: gcommon.v1.cache.PublishRequest
+	(*anypb.Any)(nil),             // 1: google.protobuf.Any
+	(*proto.RequestMetadata)(nil), // 2: gcommon.v1.common.RequestMetadata
 }
 var file_pkg_cache_proto_requests_publish_request_proto_depIdxs = []int32{
 	1, // 0: gcommon.v1.cache.PublishRequest.payload:type_name -> google.protobuf.Any

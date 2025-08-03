@@ -9,7 +9,7 @@
 package cachepb
 
 import (
-	pb "../../../../pkg/common/pb"
+	proto "../../../../pkg/common/proto"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
@@ -32,7 +32,7 @@ type AppendRequest struct {
 	xxx_hidden_Key       *string                `protobuf:"bytes,1,opt,name=key"`
 	xxx_hidden_Value     *anypb.Any             `protobuf:"bytes,2,opt,name=value"`
 	xxx_hidden_Namespace *string                `protobuf:"bytes,3,opt,name=namespace"`
-	xxx_hidden_Metadata  *pb.RequestMetadata    `protobuf:"bytes,4,opt,name=metadata"`
+	xxx_hidden_Metadata  *proto.RequestMetadata `protobuf:"bytes,4,opt,name=metadata"`
 	// Deprecated: Do not use. This will be deleted in the near future.
 	XXX_lazyUnmarshalInfo  protoimpl.LazyUnmarshalInfo
 	XXX_raceDetectHookData protoimpl.RaceDetectHookData
@@ -100,13 +100,13 @@ func (x *AppendRequest) GetNamespace() string {
 	return ""
 }
 
-func (x *AppendRequest) GetMetadata() *pb.RequestMetadata {
+func (x *AppendRequest) GetMetadata() *proto.RequestMetadata {
 	if x != nil {
 		if protoimpl.X.Present(&(x.XXX_presence[0]), 3) {
 			if protoimpl.X.AtomicCheckPointerIsNil(&x.xxx_hidden_Metadata) {
 				protoimpl.X.UnmarshalField(x, 4)
 			}
-			var rv *pb.RequestMetadata
+			var rv *proto.RequestMetadata
 			protoimpl.X.AtomicLoadPointer(protoimpl.Pointer(&x.xxx_hidden_Metadata), protoimpl.Pointer(&rv))
 			return rv
 		}
@@ -133,7 +133,7 @@ func (x *AppendRequest) SetNamespace(v string) {
 	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 2, 4)
 }
 
-func (x *AppendRequest) SetMetadata(v *pb.RequestMetadata) {
+func (x *AppendRequest) SetMetadata(v *proto.RequestMetadata) {
 	protoimpl.X.AtomicSetPointer(&x.xxx_hidden_Metadata, v)
 	if v == nil {
 		protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 3)
@@ -187,7 +187,7 @@ func (x *AppendRequest) ClearNamespace() {
 
 func (x *AppendRequest) ClearMetadata() {
 	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 3)
-	protoimpl.X.AtomicSetPointer(&x.xxx_hidden_Metadata, (*pb.RequestMetadata)(nil))
+	protoimpl.X.AtomicSetPointer(&x.xxx_hidden_Metadata, (*proto.RequestMetadata)(nil))
 }
 
 type AppendRequest_builder struct {
@@ -200,7 +200,7 @@ type AppendRequest_builder struct {
 	// Optional namespace for cache isolation
 	Namespace *string
 	// Request metadata for tracing
-	Metadata *pb.RequestMetadata
+	Metadata *proto.RequestMetadata
 }
 
 func (b0 AppendRequest_builder) Build() *AppendRequest {
@@ -235,14 +235,14 @@ const file_pkg_cache_proto_requests_append_request_proto_rawDesc = "" +
 	"\x03key\x18\x01 \x01(\tR\x03key\x12.\n" +
 	"\x05value\x18\x02 \x01(\v2\x14.google.protobuf.AnyB\x02(\x01R\x05value\x12\x1c\n" +
 	"\tnamespace\x18\x03 \x01(\tR\tnamespace\x12B\n" +
-	"\bmetadata\x18\x04 \x01(\v2\".gcommon.v1.common.RequestMetadataB\x02(\x01R\bmetadataB\xb6\x01\n" +
-	"\x14com.gcommon.v1.cacheB\x12AppendRequestProtoP\x01Z ../../../../pkg/cache/pb;cachepb\xa2\x02\x03GVC\xaa\x02\x10Gcommon.V1.Cache\xca\x02\x10Gcommon\\V1\\Cache\xe2\x02\x1cGcommon\\V1\\Cache\\GPBMetadata\xea\x02\x12Gcommon::V1::Cache\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
+	"\bmetadata\x18\x04 \x01(\v2\".gcommon.v1.common.RequestMetadataB\x02(\x01R\bmetadataB\xb9\x01\n" +
+	"\x14com.gcommon.v1.cacheB\x12AppendRequestProtoP\x01Z#../../../../pkg/cache/proto;cachepb\xa2\x02\x03GVC\xaa\x02\x10Gcommon.V1.Cache\xca\x02\x10Gcommon\\V1\\Cache\xe2\x02\x1cGcommon\\V1\\Cache\\GPBMetadata\xea\x02\x12Gcommon::V1::Cache\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
 
 var file_pkg_cache_proto_requests_append_request_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_pkg_cache_proto_requests_append_request_proto_goTypes = []any{
-	(*AppendRequest)(nil),      // 0: gcommon.v1.cache.AppendRequest
-	(*anypb.Any)(nil),          // 1: google.protobuf.Any
-	(*pb.RequestMetadata)(nil), // 2: gcommon.v1.common.RequestMetadata
+	(*AppendRequest)(nil),         // 0: gcommon.v1.cache.AppendRequest
+	(*anypb.Any)(nil),             // 1: google.protobuf.Any
+	(*proto.RequestMetadata)(nil), // 2: gcommon.v1.common.RequestMetadata
 }
 var file_pkg_cache_proto_requests_append_request_proto_depIdxs = []int32{
 	1, // 0: gcommon.v1.cache.AppendRequest.value:type_name -> google.protobuf.Any

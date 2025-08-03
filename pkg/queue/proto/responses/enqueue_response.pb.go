@@ -7,7 +7,7 @@
 package queuepb
 
 import (
-	pb "../../../../pkg/common/pb"
+	proto "../../../../pkg/common/proto"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	timestamppb "google.golang.org/protobuf/types/known/timestamppb"
@@ -42,7 +42,7 @@ type EnqueueResponse struct {
 	// *
 	// Request processing metadata including timing, request ID,
 	// and other observability information.
-	RequestMetadata *pb.RequestMetadata `protobuf:"bytes,11,opt,name=request_metadata,json=requestMetadata" json:"request_metadata,omitempty"`
+	RequestMetadata *proto.RequestMetadata `protobuf:"bytes,11,opt,name=request_metadata,json=requestMetadata" json:"request_metadata,omitempty"`
 	// *
 	// Name of the queue where the message was enqueued.
 	// Echoed from the request for verification.
@@ -82,7 +82,7 @@ type EnqueueResponse struct {
 	// *
 	// Error information if the enqueue operation failed
 	// or completed with warnings.
-	Error *pb.Error `protobuf:"bytes,61,opt,name=error" json:"error,omitempty"`
+	Error *proto.Error `protobuf:"bytes,61,opt,name=error" json:"error,omitempty"`
 	// *
 	// Timestamp when the message was enqueued.
 	// Precise timing for SLA and performance monitoring.
@@ -139,7 +139,7 @@ func (x *EnqueueResponse) GetSuccess() bool {
 	return false
 }
 
-func (x *EnqueueResponse) GetRequestMetadata() *pb.RequestMetadata {
+func (x *EnqueueResponse) GetRequestMetadata() *proto.RequestMetadata {
 	if x != nil {
 		return x.RequestMetadata
 	}
@@ -209,7 +209,7 @@ func (x *EnqueueResponse) GetExpiresAt() *timestamppb.Timestamp {
 	return nil
 }
 
-func (x *EnqueueResponse) GetError() *pb.Error {
+func (x *EnqueueResponse) GetError() *proto.Error {
 	if x != nil {
 		return x.Error
 	}
@@ -255,8 +255,8 @@ const file_pkg_queue_proto_responses_enqueue_response_proto_rawDesc = "" +
 	"\x05error\x18= \x01(\v2\x18.gcommon.v1.common.ErrorR\x05error\x12;\n" +
 	"\venqueued_at\x183 \x01(\v2\x1a.google.protobuf.TimestampR\n" +
 	"enqueuedAt\x12N\n" +
-	"\x15response_generated_at\x184 \x01(\v2\x1a.google.protobuf.TimestampR\x13responseGeneratedAtB\xb0\x01\n" +
-	"\x14com.gcommon.v1.queueB\x14EnqueueResponseProtoP\x01Z ../../../../pkg/queue/pb;queuepb\xa2\x02\x03GVQ\xaa\x02\x10Gcommon.V1.Queue\xca\x02\x10Gcommon\\V1\\Queue\xe2\x02\x1cGcommon\\V1\\Queue\\GPBMetadata\xea\x02\x12Gcommon::V1::Queueb\beditionsp\xe8\a"
+	"\x15response_generated_at\x184 \x01(\v2\x1a.google.protobuf.TimestampR\x13responseGeneratedAtB\xb3\x01\n" +
+	"\x14com.gcommon.v1.queueB\x14EnqueueResponseProtoP\x01Z#../../../../pkg/queue/proto;queuepb\xa2\x02\x03GVQ\xaa\x02\x10Gcommon.V1.Queue\xca\x02\x10Gcommon\\V1\\Queue\xe2\x02\x1cGcommon\\V1\\Queue\\GPBMetadata\xea\x02\x12Gcommon::V1::Queueb\beditionsp\xe8\a"
 
 var (
 	file_pkg_queue_proto_responses_enqueue_response_proto_rawDescOnce sync.Once
@@ -273,9 +273,9 @@ func file_pkg_queue_proto_responses_enqueue_response_proto_rawDescGZIP() []byte 
 var file_pkg_queue_proto_responses_enqueue_response_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_pkg_queue_proto_responses_enqueue_response_proto_goTypes = []any{
 	(*EnqueueResponse)(nil),       // 0: gcommon.v1.queue.EnqueueResponse
-	(*pb.RequestMetadata)(nil),    // 1: gcommon.v1.common.RequestMetadata
+	(*proto.RequestMetadata)(nil), // 1: gcommon.v1.common.RequestMetadata
 	(*timestamppb.Timestamp)(nil), // 2: google.protobuf.Timestamp
-	(*pb.Error)(nil),              // 3: gcommon.v1.common.Error
+	(*proto.Error)(nil),           // 3: gcommon.v1.common.Error
 }
 var file_pkg_queue_proto_responses_enqueue_response_proto_depIdxs = []int32{
 	1, // 0: gcommon.v1.queue.EnqueueResponse.request_metadata:type_name -> gcommon.v1.common.RequestMetadata

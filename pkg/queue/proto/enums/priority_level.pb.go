@@ -89,8 +89,8 @@ const file_pkg_queue_proto_enums_priority_level_proto_rawDesc = "" +
 	"\x12PRIORITY_LEVEL_LOW\x10\x01\x12\x19\n" +
 	"\x15PRIORITY_LEVEL_MEDIUM\x10\x02\x12\x17\n" +
 	"\x13PRIORITY_LEVEL_HIGH\x10\x03\x12\x1b\n" +
-	"\x17PRIORITY_LEVEL_CRITICAL\x10\x04B\xb6\x01\n" +
-	"\x14com.gcommon.v1.queueB\x12PriorityLevelProtoP\x01Z ../../../../pkg/queue/pb;queuepb\xa2\x02\x03GVQ\xaa\x02\x10Gcommon.V1.Queue\xca\x02\x10Gcommon\\V1\\Queue\xe2\x02\x1cGcommon\\V1\\Queue\\GPBMetadata\xea\x02\x12Gcommon::V1::Queue\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
+	"\x17PRIORITY_LEVEL_CRITICAL\x10\x04B\xb9\x01\n" +
+	"\x14com.gcommon.v1.queueB\x12PriorityLevelProtoP\x01Z#../../../../pkg/queue/proto;queuepb\xa2\x02\x03GVQ\xaa\x02\x10Gcommon.V1.Queue\xca\x02\x10Gcommon\\V1\\Queue\xe2\x02\x1cGcommon\\V1\\Queue\\GPBMetadata\xea\x02\x12Gcommon::V1::Queue\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
 
 var file_pkg_queue_proto_enums_priority_level_proto_enumTypes = make([]protoimpl.EnumInfo, 1)
 var file_pkg_queue_proto_enums_priority_level_proto_goTypes = []any{

@@ -50,8 +50,8 @@ const file_pkg_auth_proto_services_auth_admin_service_proto_rawDesc = "" +
 	"DeleteRole\x12\".gcommon.v1.auth.DeleteRoleRequest\x1a\x16.google.protobuf.Empty\x12R\n" +
 	"\tListRoles\x12!.gcommon.v1.auth.ListRolesRequest\x1a\".gcommon.v1.auth.ListRolesResponse\x12`\n" +
 	"\x16InvalidateUserSessions\x12..gcommon.v1.auth.InvalidateUserSessionsRequest\x1a\x16.google.protobuf.Empty\x12a\n" +
-	"\x0eGetSystemStats\x12&.gcommon.v1.auth.GetSystemStatsRequest\x1a'.gcommon.v1.auth.GetSystemStatsResponseB\xb2\x01\n" +
-	"\x13com.gcommon.v1.authB\x15AuthAdminServiceProtoP\x01Z\x1e../../../../pkg/auth/pb;authpb\xa2\x02\x03GVA\xaa\x02\x0fGcommon.V1.Auth\xca\x02\x0fGcommon\\V1\\Auth\xe2\x02\x1bGcommon\\V1\\Auth\\GPBMetadata\xea\x02\x11Gcommon::V1::Auth\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
+	"\x0eGetSystemStats\x12&.gcommon.v1.auth.GetSystemStatsRequest\x1a'.gcommon.v1.auth.GetSystemStatsResponseB\xb5\x01\n" +
+	"\x13com.gcommon.v1.authB\x15AuthAdminServiceProtoP\x01Z!../../../../pkg/auth/proto;authpb\xa2\x02\x03GVA\xaa\x02\x0fGcommon.V1.Auth\xca\x02\x0fGcommon\\V1\\Auth\xe2\x02\x1bGcommon\\V1\\Auth\\GPBMetadata\xea\x02\x11Gcommon::V1::Auth\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
 
 var file_pkg_auth_proto_services_auth_admin_service_proto_goTypes = []any{
 	(*CreateUserRequest)(nil),             // 0: gcommon.v1.auth.CreateUserRequest

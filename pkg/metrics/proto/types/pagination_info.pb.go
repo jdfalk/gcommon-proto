@@ -300,8 +300,8 @@ const file_pkg_metrics_proto_types_pagination_info_proto_rawDesc = "" +
 	"\fhas_previous\x18\x06 \x01(\bR\vhasPrevious\x12\x1f\n" +
 	"\vnext_cursor\x18\a \x01(\tR\n" +
 	"nextCursor\x12'\n" +
-	"\x0fprevious_cursor\x18\b \x01(\tR\x0epreviousCursorB\xc5\x01\n" +
-	"\x16com.gcommon.v1.metricsB\x13PaginationInfoProtoP\x01Z$../../../../pkg/metrics/pb;metricspb\xa2\x02\x03GVM\xaa\x02\x12Gcommon.V1.Metrics\xca\x02\x12Gcommon\\V1\\Metrics\xe2\x02\x1eGcommon\\V1\\Metrics\\GPBMetadata\xea\x02\x14Gcommon::V1::Metrics\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
+	"\x0fprevious_cursor\x18\b \x01(\tR\x0epreviousCursorB\xc8\x01\n" +
+	"\x16com.gcommon.v1.metricsB\x13PaginationInfoProtoP\x01Z'../../../../pkg/metrics/proto;metricspb\xa2\x02\x03GVM\xaa\x02\x12Gcommon.V1.Metrics\xca\x02\x12Gcommon\\V1\\Metrics\xe2\x02\x1eGcommon\\V1\\Metrics\\GPBMetadata\xea\x02\x14Gcommon::V1::Metrics\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
 
 var file_pkg_metrics_proto_types_pagination_info_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_pkg_metrics_proto_types_pagination_info_proto_goTypes = []any{

@@ -9,7 +9,7 @@
 package notificationpb
 
 import (
-	pb "../../../../pkg/common/pb"
+	proto "../../../../pkg/common/proto"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
@@ -29,7 +29,7 @@ const (
 type ListNotificationsRequest struct {
 	state protoimpl.MessageState `protogen:"hybrid.v1"`
 	// Pagination information for result set.
-	Pagination    *pb.Pagination `protobuf:"bytes,1,opt,name=pagination" json:"pagination,omitempty"`
+	Pagination    *proto.Pagination `protobuf:"bytes,1,opt,name=pagination" json:"pagination,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -59,14 +59,14 @@ func (x *ListNotificationsRequest) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-func (x *ListNotificationsRequest) GetPagination() *pb.Pagination {
+func (x *ListNotificationsRequest) GetPagination() *proto.Pagination {
 	if x != nil {
 		return x.Pagination
 	}
 	return nil
 }
 
-func (x *ListNotificationsRequest) SetPagination(v *pb.Pagination) {
+func (x *ListNotificationsRequest) SetPagination(v *proto.Pagination) {
 	x.Pagination = v
 }
 
@@ -85,7 +85,7 @@ type ListNotificationsRequest_builder struct {
 	_ [0]func() // Prevents comparability and use of unkeyed literals for the builder.
 
 	// Pagination information for result set.
-	Pagination *pb.Pagination
+	Pagination *proto.Pagination
 }
 
 func (b0 ListNotificationsRequest_builder) Build() *ListNotificationsRequest {
@@ -104,13 +104,13 @@ const file_pkg_notification_proto_requests_list_notifications_request_proto_rawD
 	"\x18ListNotificationsRequest\x12=\n" +
 	"\n" +
 	"pagination\x18\x01 \x01(\v2\x1d.gcommon.v1.common.PaginationR\n" +
-	"paginationB\xf2\x01\n" +
-	"\x1bcom.gcommon.v1.notificationB\x1dListNotificationsRequestProtoP\x01Z.../../../../pkg/notification/pb;notificationpb\xa2\x02\x03GVN\xaa\x02\x17Gcommon.V1.Notification\xca\x02\x17Gcommon\\V1\\Notification\xe2\x02#Gcommon\\V1\\Notification\\GPBMetadata\xea\x02\x19Gcommon::V1::Notification\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
+	"paginationB\xf5\x01\n" +
+	"\x1bcom.gcommon.v1.notificationB\x1dListNotificationsRequestProtoP\x01Z1../../../../pkg/notification/proto;notificationpb\xa2\x02\x03GVN\xaa\x02\x17Gcommon.V1.Notification\xca\x02\x17Gcommon\\V1\\Notification\xe2\x02#Gcommon\\V1\\Notification\\GPBMetadata\xea\x02\x19Gcommon::V1::Notification\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
 
 var file_pkg_notification_proto_requests_list_notifications_request_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_pkg_notification_proto_requests_list_notifications_request_proto_goTypes = []any{
 	(*ListNotificationsRequest)(nil), // 0: gcommon.v1.notification.ListNotificationsRequest
-	(*pb.Pagination)(nil),            // 1: gcommon.v1.common.Pagination
+	(*proto.Pagination)(nil),         // 1: gcommon.v1.common.Pagination
 }
 var file_pkg_notification_proto_requests_list_notifications_request_proto_depIdxs = []int32{
 	1, // 0: gcommon.v1.notification.ListNotificationsRequest.pagination:type_name -> gcommon.v1.common.Pagination

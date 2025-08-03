@@ -9,7 +9,7 @@
 package organizationpb
 
 import (
-	pb "../../../../pkg/common/pb"
+	proto "../../../../pkg/common/proto"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
@@ -40,7 +40,7 @@ type Team struct {
 	xxx_hidden_LeadId               *string                `protobuf:"bytes,7,opt,name=lead_id,json=leadId"`
 	xxx_hidden_TeamType             *string                `protobuf:"bytes,8,opt,name=team_type,json=teamType"`
 	xxx_hidden_FocusArea            *string                `protobuf:"bytes,9,opt,name=focus_area,json=focusArea"`
-	xxx_hidden_Metadata             *[]*pb.KeyValue        `protobuf:"bytes,10,rep,name=metadata"`
+	xxx_hidden_Metadata             *[]*proto.KeyValue     `protobuf:"bytes,10,rep,name=metadata"`
 	xxx_hidden_CreatedAt            *timestamppb.Timestamp `protobuf:"bytes,11,opt,name=created_at,json=createdAt"`
 	xxx_hidden_UpdatedAt            *timestamppb.Timestamp `protobuf:"bytes,12,opt,name=updated_at,json=updatedAt"`
 	xxx_hidden_CreatedBy            *string                `protobuf:"bytes,13,opt,name=created_by,json=createdBy"`
@@ -179,13 +179,13 @@ func (x *Team) GetFocusArea() string {
 	return ""
 }
 
-func (x *Team) GetMetadata() []*pb.KeyValue {
+func (x *Team) GetMetadata() []*proto.KeyValue {
 	if x != nil {
 		if protoimpl.X.Present(&(x.XXX_presence[0]), 9) {
 			if protoimpl.X.AtomicCheckPointerIsNil(&x.xxx_hidden_Metadata) {
 				protoimpl.X.UnmarshalField(x, 10)
 			}
-			var rv *[]*pb.KeyValue
+			var rv *[]*proto.KeyValue
 			protoimpl.X.AtomicLoadPointer(protoimpl.Pointer(&x.xxx_hidden_Metadata), protoimpl.Pointer(&rv))
 			return *rv
 		}
@@ -372,11 +372,11 @@ func (x *Team) SetFocusArea(v string) {
 	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 8, 25)
 }
 
-func (x *Team) SetMetadata(v []*pb.KeyValue) {
-	var sv *[]*pb.KeyValue
+func (x *Team) SetMetadata(v []*proto.KeyValue) {
+	var sv *[]*proto.KeyValue
 	protoimpl.X.AtomicLoadPointer(protoimpl.Pointer(&x.xxx_hidden_Metadata), protoimpl.Pointer(&sv))
 	if sv == nil {
-		sv = &[]*pb.KeyValue{}
+		sv = &[]*proto.KeyValue{}
 		protoimpl.X.AtomicInitializePointer(protoimpl.Pointer(&x.xxx_hidden_Metadata), protoimpl.Pointer(&sv))
 	}
 	*sv = v
@@ -724,7 +724,7 @@ type Team_builder struct {
 	// Team's primary focus area or mission
 	FocusArea *string
 	// Team metadata and custom attributes
-	Metadata []*pb.KeyValue
+	Metadata []*proto.KeyValue
 	// Team creation timestamp
 	CreatedAt *timestamppb.Timestamp
 	// Last update timestamp
@@ -893,13 +893,13 @@ const file_pkg_organization_proto_messages_team_proto_rawDesc = "" +
 	"objectives\x18\x17 \x03(\tR\n" +
 	"objectives\x12\x12\n" +
 	"\x04kpis\x18\x18 \x03(\tR\x04kpis\x12)\n" +
-	"\x10cross_functional\x18\x19 \x01(\bR\x0fcrossFunctionalB\xde\x01\n" +
-	"\x1bcom.gcommon.v1.organizationB\tTeamProtoP\x01Z.../../../../pkg/organization/pb;organizationpb\xa2\x02\x03GVO\xaa\x02\x17Gcommon.V1.Organization\xca\x02\x17Gcommon\\V1\\Organization\xe2\x02#Gcommon\\V1\\Organization\\GPBMetadata\xea\x02\x19Gcommon::V1::Organization\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
+	"\x10cross_functional\x18\x19 \x01(\bR\x0fcrossFunctionalB\xe1\x01\n" +
+	"\x1bcom.gcommon.v1.organizationB\tTeamProtoP\x01Z1../../../../pkg/organization/proto;organizationpb\xa2\x02\x03GVO\xaa\x02\x17Gcommon.V1.Organization\xca\x02\x17Gcommon\\V1\\Organization\xe2\x02#Gcommon\\V1\\Organization\\GPBMetadata\xea\x02\x19Gcommon::V1::Organization\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
 
 var file_pkg_organization_proto_messages_team_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_pkg_organization_proto_messages_team_proto_goTypes = []any{
 	(*Team)(nil),                  // 0: gcommon.v1.organization.Team
-	(*pb.KeyValue)(nil),           // 1: gcommon.v1.common.KeyValue
+	(*proto.KeyValue)(nil),        // 1: gcommon.v1.common.KeyValue
 	(*timestamppb.Timestamp)(nil), // 2: google.protobuf.Timestamp
 }
 var file_pkg_organization_proto_messages_team_proto_depIdxs = []int32{

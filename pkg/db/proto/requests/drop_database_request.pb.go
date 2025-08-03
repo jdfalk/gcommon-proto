@@ -9,7 +9,7 @@
 package dbpb
 
 import (
-	pb "../../../../pkg/common/pb"
+	proto "../../../../pkg/common/proto"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
@@ -32,7 +32,7 @@ type DropDatabaseRequest struct {
 	// Name of the database to drop
 	Name *string `protobuf:"bytes,1,opt,name=name" json:"name,omitempty"`
 	// Request metadata for tracing and authentication
-	Metadata      *pb.RequestMetadata `protobuf:"bytes,2,opt,name=metadata" json:"metadata,omitempty"`
+	Metadata      *proto.RequestMetadata `protobuf:"bytes,2,opt,name=metadata" json:"metadata,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -69,7 +69,7 @@ func (x *DropDatabaseRequest) GetName() string {
 	return ""
 }
 
-func (x *DropDatabaseRequest) GetMetadata() *pb.RequestMetadata {
+func (x *DropDatabaseRequest) GetMetadata() *proto.RequestMetadata {
 	if x != nil {
 		return x.Metadata
 	}
@@ -80,7 +80,7 @@ func (x *DropDatabaseRequest) SetName(v string) {
 	x.Name = &v
 }
 
-func (x *DropDatabaseRequest) SetMetadata(v *pb.RequestMetadata) {
+func (x *DropDatabaseRequest) SetMetadata(v *proto.RequestMetadata) {
 	x.Metadata = v
 }
 
@@ -112,7 +112,7 @@ type DropDatabaseRequest_builder struct {
 	// Name of the database to drop
 	Name *string
 	// Request metadata for tracing and authentication
-	Metadata *pb.RequestMetadata
+	Metadata *proto.RequestMetadata
 }
 
 func (b0 DropDatabaseRequest_builder) Build() *DropDatabaseRequest {
@@ -131,13 +131,13 @@ const file_pkg_db_proto_requests_drop_database_request_proto_rawDesc = "" +
 	"1pkg/db/proto/requests/drop_database_request.proto\x12\x13gcommon.v1.database\x1a0pkg/common/proto/messages/request_metadata.proto\x1a!google/protobuf/go_features.proto\"m\n" +
 	"\x13DropDatabaseRequest\x12\x12\n" +
 	"\x04name\x18\x01 \x01(\tR\x04name\x12B\n" +
-	"\bmetadata\x18\x02 \x01(\v2\".gcommon.v1.common.RequestMetadataB\x02(\x01R\bmetadataB\xc5\x01\n" +
-	"\x17com.gcommon.v1.databaseB\x18DropDatabaseRequestProtoP\x01Z\x1a../../../../pkg/db/pb;dbpb\xa2\x02\x03GVD\xaa\x02\x13Gcommon.V1.Database\xca\x02\x13Gcommon\\V1\\Database\xe2\x02\x1fGcommon\\V1\\Database\\GPBMetadata\xea\x02\x15Gcommon::V1::Database\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
+	"\bmetadata\x18\x02 \x01(\v2\".gcommon.v1.common.RequestMetadataB\x02(\x01R\bmetadataB\xc8\x01\n" +
+	"\x17com.gcommon.v1.databaseB\x18DropDatabaseRequestProtoP\x01Z\x1d../../../../pkg/db/proto;dbpb\xa2\x02\x03GVD\xaa\x02\x13Gcommon.V1.Database\xca\x02\x13Gcommon\\V1\\Database\xe2\x02\x1fGcommon\\V1\\Database\\GPBMetadata\xea\x02\x15Gcommon::V1::Database\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
 
 var file_pkg_db_proto_requests_drop_database_request_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_pkg_db_proto_requests_drop_database_request_proto_goTypes = []any{
-	(*DropDatabaseRequest)(nil), // 0: gcommon.v1.database.DropDatabaseRequest
-	(*pb.RequestMetadata)(nil),  // 1: gcommon.v1.common.RequestMetadata
+	(*DropDatabaseRequest)(nil),   // 0: gcommon.v1.database.DropDatabaseRequest
+	(*proto.RequestMetadata)(nil), // 1: gcommon.v1.common.RequestMetadata
 }
 var file_pkg_db_proto_requests_drop_database_request_proto_depIdxs = []int32{
 	1, // 0: gcommon.v1.database.DropDatabaseRequest.metadata:type_name -> gcommon.v1.common.RequestMetadata

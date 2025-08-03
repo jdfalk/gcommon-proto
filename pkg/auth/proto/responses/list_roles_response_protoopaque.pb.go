@@ -9,7 +9,7 @@
 package authpb
 
 import (
-	pb "../../../../pkg/common/pb"
+	proto "../../../../pkg/common/proto"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
@@ -29,9 +29,9 @@ const (
 // Includes pagination information for large result sets.
 // Used for role management interfaces and administration.
 type ListRolesResponse struct {
-	state                 protoimpl.MessageState `protogen:"opaque.v1"`
-	xxx_hidden_Roles      *[]*Role               `protobuf:"bytes,1,rep,name=roles"`
-	xxx_hidden_Pagination *pb.PaginatedResponse  `protobuf:"bytes,2,opt,name=pagination"`
+	state                 protoimpl.MessageState   `protogen:"opaque.v1"`
+	xxx_hidden_Roles      *[]*Role                 `protobuf:"bytes,1,rep,name=roles"`
+	xxx_hidden_Pagination *proto.PaginatedResponse `protobuf:"bytes,2,opt,name=pagination"`
 	unknownFields         protoimpl.UnknownFields
 	sizeCache             protoimpl.SizeCache
 }
@@ -70,7 +70,7 @@ func (x *ListRolesResponse) GetRoles() []*Role {
 	return nil
 }
 
-func (x *ListRolesResponse) GetPagination() *pb.PaginatedResponse {
+func (x *ListRolesResponse) GetPagination() *proto.PaginatedResponse {
 	if x != nil {
 		return x.xxx_hidden_Pagination
 	}
@@ -81,7 +81,7 @@ func (x *ListRolesResponse) SetRoles(v []*Role) {
 	x.xxx_hidden_Roles = &v
 }
 
-func (x *ListRolesResponse) SetPagination(v *pb.PaginatedResponse) {
+func (x *ListRolesResponse) SetPagination(v *proto.PaginatedResponse) {
 	x.xxx_hidden_Pagination = v
 }
 
@@ -102,7 +102,7 @@ type ListRolesResponse_builder struct {
 	// List of roles matching the request criteria
 	Roles []*Role
 	// Pagination information for the response
-	Pagination *pb.PaginatedResponse
+	Pagination *proto.PaginatedResponse
 }
 
 func (b0 ListRolesResponse_builder) Build() *ListRolesResponse {
@@ -123,14 +123,14 @@ const file_pkg_auth_proto_responses_list_roles_response_proto_rawDesc = "" +
 	"\x05roles\x18\x01 \x03(\v2\x15.gcommon.v1.auth.RoleR\x05roles\x12D\n" +
 	"\n" +
 	"pagination\x18\x02 \x01(\v2$.gcommon.v1.common.PaginatedResponseR\n" +
-	"paginationB\xb3\x01\n" +
-	"\x13com.gcommon.v1.authB\x16ListRolesResponseProtoP\x01Z\x1e../../../../pkg/auth/pb;authpb\xa2\x02\x03GVA\xaa\x02\x0fGcommon.V1.Auth\xca\x02\x0fGcommon\\V1\\Auth\xe2\x02\x1bGcommon\\V1\\Auth\\GPBMetadata\xea\x02\x11Gcommon::V1::Auth\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
+	"paginationB\xb6\x01\n" +
+	"\x13com.gcommon.v1.authB\x16ListRolesResponseProtoP\x01Z!../../../../pkg/auth/proto;authpb\xa2\x02\x03GVA\xaa\x02\x0fGcommon.V1.Auth\xca\x02\x0fGcommon\\V1\\Auth\xe2\x02\x1bGcommon\\V1\\Auth\\GPBMetadata\xea\x02\x11Gcommon::V1::Auth\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
 
 var file_pkg_auth_proto_responses_list_roles_response_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_pkg_auth_proto_responses_list_roles_response_proto_goTypes = []any{
-	(*ListRolesResponse)(nil),    // 0: gcommon.v1.auth.ListRolesResponse
-	(*Role)(nil),                 // 1: gcommon.v1.auth.Role
-	(*pb.PaginatedResponse)(nil), // 2: gcommon.v1.common.PaginatedResponse
+	(*ListRolesResponse)(nil),       // 0: gcommon.v1.auth.ListRolesResponse
+	(*Role)(nil),                    // 1: gcommon.v1.auth.Role
+	(*proto.PaginatedResponse)(nil), // 2: gcommon.v1.common.PaginatedResponse
 }
 var file_pkg_auth_proto_responses_list_roles_response_proto_depIdxs = []int32{
 	1, // 0: gcommon.v1.auth.ListRolesResponse.roles:type_name -> gcommon.v1.auth.Role

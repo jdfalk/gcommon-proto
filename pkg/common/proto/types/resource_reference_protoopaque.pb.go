@@ -217,8 +217,8 @@ const file_pkg_common_proto_types_resource_reference_proto_rawDesc = "" +
 	"\x04type\x18\x01 \x01(\tR\x04type\x12\x0e\n" +
 	"\x02id\x18\x02 \x01(\tR\x02id\x12\x12\n" +
 	"\x04name\x18\x03 \x01(\tR\x04name\x12\x16\n" +
-	"\x06module\x18\x04 \x01(\tR\x06moduleB\xc1\x01\n" +
-	"\x15com.gcommon.v1.commonB\x16ResourceReferenceProtoP\x01Z\"../../../../pkg/common/pb;commonpb\xa2\x02\x03GVC\xaa\x02\x11Gcommon.V1.Common\xca\x02\x11Gcommon\\V1\\Common\xe2\x02\x1dGcommon\\V1\\Common\\GPBMetadata\xea\x02\x13Gcommon::V1::Common\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
+	"\x06module\x18\x04 \x01(\tR\x06moduleB\xc4\x01\n" +
+	"\x15com.gcommon.v1.commonB\x16ResourceReferenceProtoP\x01Z%../../../../pkg/common/proto;commonpb\xa2\x02\x03GVC\xaa\x02\x11Gcommon.V1.Common\xca\x02\x11Gcommon\\V1\\Common\xe2\x02\x1dGcommon\\V1\\Common\\GPBMetadata\xea\x02\x13Gcommon::V1::Common\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
 
 var file_pkg_common_proto_types_resource_reference_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_pkg_common_proto_types_resource_reference_proto_goTypes = []any{

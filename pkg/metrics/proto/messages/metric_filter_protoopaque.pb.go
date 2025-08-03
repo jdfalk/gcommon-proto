@@ -977,8 +977,8 @@ const file_pkg_metrics_proto_messages_metric_filter_proto_rawDesc = "" +
 	"\tSortOrder\x12\x1a\n" +
 	"\x16SORT_ORDER_UNSPECIFIED\x10\x00\x12\x18\n" +
 	"\x14SORT_ORDER_ASCENDING\x10\x01\x12\x19\n" +
-	"\x15SORT_ORDER_DESCENDING\x10\x02B\xc3\x01\n" +
-	"\x16com.gcommon.v1.metricsB\x11MetricFilterProtoP\x01Z$../../../../pkg/metrics/pb;metricspb\xa2\x02\x03GVM\xaa\x02\x12Gcommon.V1.Metrics\xca\x02\x12Gcommon\\V1\\Metrics\xe2\x02\x1eGcommon\\V1\\Metrics\\GPBMetadata\xea\x02\x14Gcommon::V1::Metrics\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
+	"\x15SORT_ORDER_DESCENDING\x10\x02B\xc6\x01\n" +
+	"\x16com.gcommon.v1.metricsB\x11MetricFilterProtoP\x01Z'../../../../pkg/metrics/proto;metricspb\xa2\x02\x03GVM\xaa\x02\x12Gcommon.V1.Metrics\xca\x02\x12Gcommon\\V1\\Metrics\xe2\x02\x1eGcommon\\V1\\Metrics\\GPBMetadata\xea\x02\x14Gcommon::V1::Metrics\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
 
 var file_pkg_metrics_proto_messages_metric_filter_proto_enumTypes = make([]protoimpl.EnumInfo, 2)
 var file_pkg_metrics_proto_messages_metric_filter_proto_msgTypes = make([]protoimpl.MessageInfo, 4)

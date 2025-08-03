@@ -9,7 +9,7 @@
 package dbpb
 
 import (
-	pb "../../../../pkg/common/pb"
+	proto "../../../../pkg/common/proto"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
@@ -32,7 +32,7 @@ type CreateDatabaseResponse struct {
 	// Whether the database was created successfully
 	Success *bool `protobuf:"varint,1,opt,name=success" json:"success,omitempty"`
 	// Error information if the creation failed
-	Error         *pb.Error `protobuf:"bytes,2,opt,name=error" json:"error,omitempty"`
+	Error         *proto.Error `protobuf:"bytes,2,opt,name=error" json:"error,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -69,7 +69,7 @@ func (x *CreateDatabaseResponse) GetSuccess() bool {
 	return false
 }
 
-func (x *CreateDatabaseResponse) GetError() *pb.Error {
+func (x *CreateDatabaseResponse) GetError() *proto.Error {
 	if x != nil {
 		return x.Error
 	}
@@ -80,7 +80,7 @@ func (x *CreateDatabaseResponse) SetSuccess(v bool) {
 	x.Success = &v
 }
 
-func (x *CreateDatabaseResponse) SetError(v *pb.Error) {
+func (x *CreateDatabaseResponse) SetError(v *proto.Error) {
 	x.Error = v
 }
 
@@ -112,7 +112,7 @@ type CreateDatabaseResponse_builder struct {
 	// Whether the database was created successfully
 	Success *bool
 	// Error information if the creation failed
-	Error *pb.Error
+	Error *proto.Error
 }
 
 func (b0 CreateDatabaseResponse_builder) Build() *CreateDatabaseResponse {
@@ -131,13 +131,13 @@ const file_pkg_db_proto_responses_create_database_response_proto_rawDesc = "" +
 	"5pkg/db/proto/responses/create_database_response.proto\x12\x13gcommon.v1.database\x1a%pkg/common/proto/messages/error.proto\x1a!google/protobuf/go_features.proto\"f\n" +
 	"\x16CreateDatabaseResponse\x12\x18\n" +
 	"\asuccess\x18\x01 \x01(\bR\asuccess\x122\n" +
-	"\x05error\x18\x02 \x01(\v2\x18.gcommon.v1.common.ErrorB\x02(\x01R\x05errorB\xc8\x01\n" +
-	"\x17com.gcommon.v1.databaseB\x1bCreateDatabaseResponseProtoP\x01Z\x1a../../../../pkg/db/pb;dbpb\xa2\x02\x03GVD\xaa\x02\x13Gcommon.V1.Database\xca\x02\x13Gcommon\\V1\\Database\xe2\x02\x1fGcommon\\V1\\Database\\GPBMetadata\xea\x02\x15Gcommon::V1::Database\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
+	"\x05error\x18\x02 \x01(\v2\x18.gcommon.v1.common.ErrorB\x02(\x01R\x05errorB\xcb\x01\n" +
+	"\x17com.gcommon.v1.databaseB\x1bCreateDatabaseResponseProtoP\x01Z\x1d../../../../pkg/db/proto;dbpb\xa2\x02\x03GVD\xaa\x02\x13Gcommon.V1.Database\xca\x02\x13Gcommon\\V1\\Database\xe2\x02\x1fGcommon\\V1\\Database\\GPBMetadata\xea\x02\x15Gcommon::V1::Database\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
 
 var file_pkg_db_proto_responses_create_database_response_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_pkg_db_proto_responses_create_database_response_proto_goTypes = []any{
 	(*CreateDatabaseResponse)(nil), // 0: gcommon.v1.database.CreateDatabaseResponse
-	(*pb.Error)(nil),               // 1: gcommon.v1.common.Error
+	(*proto.Error)(nil),            // 1: gcommon.v1.common.Error
 }
 var file_pkg_db_proto_responses_create_database_response_proto_depIdxs = []int32{
 	1, // 0: gcommon.v1.database.CreateDatabaseResponse.error:type_name -> gcommon.v1.common.Error

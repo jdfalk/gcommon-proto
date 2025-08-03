@@ -9,7 +9,7 @@
 package authpb
 
 import (
-	pb "../../../../pkg/common/pb"
+	proto "../../../../pkg/common/proto"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
@@ -33,7 +33,7 @@ type GetSystemStatsResponse struct {
 	xxx_hidden_ActiveSessions int64                  `protobuf:"varint,3,opt,name=active_sessions,json=activeSessions"`
 	xxx_hidden_FailedLogins   int64                  `protobuf:"varint,4,opt,name=failed_logins,json=failedLogins"`
 	xxx_hidden_UptimeSeconds  int64                  `protobuf:"varint,5,opt,name=uptime_seconds,json=uptimeSeconds"`
-	xxx_hidden_Error          *pb.Error              `protobuf:"bytes,6,opt,name=error"`
+	xxx_hidden_Error          *proto.Error           `protobuf:"bytes,6,opt,name=error"`
 	XXX_raceDetectHookData    protoimpl.RaceDetectHookData
 	XXX_presence              [1]uint32
 	unknownFields             protoimpl.UnknownFields
@@ -100,7 +100,7 @@ func (x *GetSystemStatsResponse) GetUptimeSeconds() int64 {
 	return 0
 }
 
-func (x *GetSystemStatsResponse) GetError() *pb.Error {
+func (x *GetSystemStatsResponse) GetError() *proto.Error {
 	if x != nil {
 		return x.xxx_hidden_Error
 	}
@@ -132,7 +132,7 @@ func (x *GetSystemStatsResponse) SetUptimeSeconds(v int64) {
 	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 4, 6)
 }
 
-func (x *GetSystemStatsResponse) SetError(v *pb.Error) {
+func (x *GetSystemStatsResponse) SetError(v *proto.Error) {
 	x.xxx_hidden_Error = v
 }
 
@@ -221,7 +221,7 @@ type GetSystemStatsResponse_builder struct {
 	// Authentication system uptime in seconds
 	UptimeSeconds *int64
 	// Error information if stats retrieval failed
-	Error *pb.Error
+	Error *proto.Error
 }
 
 func (b0 GetSystemStatsResponse_builder) Build() *GetSystemStatsResponse {
@@ -264,13 +264,13 @@ const file_pkg_auth_proto_responses_get_system_stats_response_proto_rawDesc = ""
 	"\x0factive_sessions\x18\x03 \x01(\x03R\x0eactiveSessions\x12#\n" +
 	"\rfailed_logins\x18\x04 \x01(\x03R\ffailedLogins\x12%\n" +
 	"\x0euptime_seconds\x18\x05 \x01(\x03R\ruptimeSeconds\x12.\n" +
-	"\x05error\x18\x06 \x01(\v2\x18.gcommon.v1.common.ErrorR\x05errorB\xb8\x01\n" +
-	"\x13com.gcommon.v1.authB\x1bGetSystemStatsResponseProtoP\x01Z\x1e../../../../pkg/auth/pb;authpb\xa2\x02\x03GVA\xaa\x02\x0fGcommon.V1.Auth\xca\x02\x0fGcommon\\V1\\Auth\xe2\x02\x1bGcommon\\V1\\Auth\\GPBMetadata\xea\x02\x11Gcommon::V1::Auth\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
+	"\x05error\x18\x06 \x01(\v2\x18.gcommon.v1.common.ErrorR\x05errorB\xbb\x01\n" +
+	"\x13com.gcommon.v1.authB\x1bGetSystemStatsResponseProtoP\x01Z!../../../../pkg/auth/proto;authpb\xa2\x02\x03GVA\xaa\x02\x0fGcommon.V1.Auth\xca\x02\x0fGcommon\\V1\\Auth\xe2\x02\x1bGcommon\\V1\\Auth\\GPBMetadata\xea\x02\x11Gcommon::V1::Auth\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
 
 var file_pkg_auth_proto_responses_get_system_stats_response_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_pkg_auth_proto_responses_get_system_stats_response_proto_goTypes = []any{
 	(*GetSystemStatsResponse)(nil), // 0: gcommon.v1.auth.GetSystemStatsResponse
-	(*pb.Error)(nil),               // 1: gcommon.v1.common.Error
+	(*proto.Error)(nil),            // 1: gcommon.v1.common.Error
 }
 var file_pkg_auth_proto_responses_get_system_stats_response_proto_depIdxs = []int32{
 	1, // 0: gcommon.v1.auth.GetSystemStatsResponse.error:type_name -> gcommon.v1.common.Error

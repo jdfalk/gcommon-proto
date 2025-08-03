@@ -9,7 +9,7 @@
 package cachepb
 
 import (
-	pb "../../../../pkg/common/pb"
+	proto "../../../../pkg/common/proto"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
@@ -31,7 +31,7 @@ type GcRequest struct {
 	// Optional namespace to clean
 	Namespace *string `protobuf:"bytes,1,opt,name=namespace" json:"namespace,omitempty"`
 	// Request metadata
-	Metadata      *pb.RequestMetadata `protobuf:"bytes,2,opt,name=metadata" json:"metadata,omitempty"`
+	Metadata      *proto.RequestMetadata `protobuf:"bytes,2,opt,name=metadata" json:"metadata,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -68,7 +68,7 @@ func (x *GcRequest) GetNamespace() string {
 	return ""
 }
 
-func (x *GcRequest) GetMetadata() *pb.RequestMetadata {
+func (x *GcRequest) GetMetadata() *proto.RequestMetadata {
 	if x != nil {
 		return x.Metadata
 	}
@@ -79,7 +79,7 @@ func (x *GcRequest) SetNamespace(v string) {
 	x.Namespace = &v
 }
 
-func (x *GcRequest) SetMetadata(v *pb.RequestMetadata) {
+func (x *GcRequest) SetMetadata(v *proto.RequestMetadata) {
 	x.Metadata = v
 }
 
@@ -111,7 +111,7 @@ type GcRequest_builder struct {
 	// Optional namespace to clean
 	Namespace *string
 	// Request metadata
-	Metadata *pb.RequestMetadata
+	Metadata *proto.RequestMetadata
 }
 
 func (b0 GcRequest_builder) Build() *GcRequest {
@@ -130,13 +130,13 @@ const file_pkg_cache_proto_requests_gc_request_proto_rawDesc = "" +
 	")pkg/cache/proto/requests/gc_request.proto\x12\x10gcommon.v1.cache\x1a!google/protobuf/go_features.proto\x1a0pkg/common/proto/messages/request_metadata.proto\"m\n" +
 	"\tGcRequest\x12\x1c\n" +
 	"\tnamespace\x18\x01 \x01(\tR\tnamespace\x12B\n" +
-	"\bmetadata\x18\x02 \x01(\v2\".gcommon.v1.common.RequestMetadataB\x02(\x01R\bmetadataB\xb2\x01\n" +
-	"\x14com.gcommon.v1.cacheB\x0eGcRequestProtoP\x01Z ../../../../pkg/cache/pb;cachepb\xa2\x02\x03GVC\xaa\x02\x10Gcommon.V1.Cache\xca\x02\x10Gcommon\\V1\\Cache\xe2\x02\x1cGcommon\\V1\\Cache\\GPBMetadata\xea\x02\x12Gcommon::V1::Cache\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
+	"\bmetadata\x18\x02 \x01(\v2\".gcommon.v1.common.RequestMetadataB\x02(\x01R\bmetadataB\xb5\x01\n" +
+	"\x14com.gcommon.v1.cacheB\x0eGcRequestProtoP\x01Z#../../../../pkg/cache/proto;cachepb\xa2\x02\x03GVC\xaa\x02\x10Gcommon.V1.Cache\xca\x02\x10Gcommon\\V1\\Cache\xe2\x02\x1cGcommon\\V1\\Cache\\GPBMetadata\xea\x02\x12Gcommon::V1::Cache\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
 
 var file_pkg_cache_proto_requests_gc_request_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_pkg_cache_proto_requests_gc_request_proto_goTypes = []any{
-	(*GcRequest)(nil),          // 0: gcommon.v1.cache.GcRequest
-	(*pb.RequestMetadata)(nil), // 1: gcommon.v1.common.RequestMetadata
+	(*GcRequest)(nil),             // 0: gcommon.v1.cache.GcRequest
+	(*proto.RequestMetadata)(nil), // 1: gcommon.v1.common.RequestMetadata
 }
 var file_pkg_cache_proto_requests_gc_request_proto_depIdxs = []int32{
 	1, // 0: gcommon.v1.cache.GcRequest.metadata:type_name -> gcommon.v1.common.RequestMetadata

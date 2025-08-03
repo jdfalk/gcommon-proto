@@ -139,8 +139,8 @@ const file_pkg_auth_proto_messages_api_key_proto_rawDesc = "" +
 	"created_at\x18\x05 \x01(\v2\x1a.google.protobuf.TimestampB\x02(\x01R\tcreatedAt\x12=\n" +
 	"\n" +
 	"expires_at\x18\x06 \x01(\v2\x1a.google.protobuf.TimestampB\x02(\x01R\texpiresAt\x12\x16\n" +
-	"\x06active\x18\a \x01(\bR\x06activeB\xa0\x01\n" +
-	"\x13com.gcommon.v1.authB\vApiKeyProtoP\x01Z\x1e../../../../pkg/auth/pb;authpb\xa2\x02\x03GVA\xaa\x02\x0fGcommon.V1.Auth\xca\x02\x0fGcommon\\V1\\Auth\xe2\x02\x1bGcommon\\V1\\Auth\\GPBMetadata\xea\x02\x11Gcommon::V1::Authb\beditionsp\xe8\a"
+	"\x06active\x18\a \x01(\bR\x06activeB\xa3\x01\n" +
+	"\x13com.gcommon.v1.authB\vApiKeyProtoP\x01Z!../../../../pkg/auth/proto;authpb\xa2\x02\x03GVA\xaa\x02\x0fGcommon.V1.Auth\xca\x02\x0fGcommon\\V1\\Auth\xe2\x02\x1bGcommon\\V1\\Auth\\GPBMetadata\xea\x02\x11Gcommon::V1::Authb\beditionsp\xe8\a"
 
 var (
 	file_pkg_auth_proto_messages_api_key_proto_rawDescOnce sync.Once

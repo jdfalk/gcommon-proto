@@ -9,7 +9,7 @@
 package configpb
 
 import (
-	pb "../../../../pkg/common/pb"
+	proto "../../../../pkg/common/proto"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
@@ -33,7 +33,7 @@ type GetConfigResponse struct {
 	// Whether the key was found
 	Found *bool `protobuf:"varint,2,opt,name=found" json:"found,omitempty"`
 	// Error information
-	Error         *pb.Error `protobuf:"bytes,3,opt,name=error" json:"error,omitempty"`
+	Error         *proto.Error `protobuf:"bytes,3,opt,name=error" json:"error,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -77,7 +77,7 @@ func (x *GetConfigResponse) GetFound() bool {
 	return false
 }
 
-func (x *GetConfigResponse) GetError() *pb.Error {
+func (x *GetConfigResponse) GetError() *proto.Error {
 	if x != nil {
 		return x.Error
 	}
@@ -92,7 +92,7 @@ func (x *GetConfigResponse) SetFound(v bool) {
 	x.Found = &v
 }
 
-func (x *GetConfigResponse) SetError(v *pb.Error) {
+func (x *GetConfigResponse) SetError(v *proto.Error) {
 	x.Error = v
 }
 
@@ -137,7 +137,7 @@ type GetConfigResponse_builder struct {
 	// Whether the key was found
 	Found *bool
 	// Error information
-	Error *pb.Error
+	Error *proto.Error
 }
 
 func (b0 GetConfigResponse_builder) Build() *GetConfigResponse {
@@ -158,14 +158,14 @@ const file_pkg_config_proto_responses_get_config_response_proto_rawDesc = "" +
 	"\x11GetConfigResponse\x124\n" +
 	"\x05entry\x18\x01 \x01(\v2\x1e.gcommon.v1.config.ConfigEntryR\x05entry\x12\x14\n" +
 	"\x05found\x18\x02 \x01(\bR\x05found\x12.\n" +
-	"\x05error\x18\x03 \x01(\v2\x18.gcommon.v1.common.ErrorR\x05errorB\xc1\x01\n" +
-	"\x15com.gcommon.v1.configB\x16GetConfigResponseProtoP\x01Z\"../../../../pkg/config/pb;configpb\xa2\x02\x03GVC\xaa\x02\x11Gcommon.V1.Config\xca\x02\x11Gcommon\\V1\\Config\xe2\x02\x1dGcommon\\V1\\Config\\GPBMetadata\xea\x02\x13Gcommon::V1::Config\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
+	"\x05error\x18\x03 \x01(\v2\x18.gcommon.v1.common.ErrorR\x05errorB\xc4\x01\n" +
+	"\x15com.gcommon.v1.configB\x16GetConfigResponseProtoP\x01Z%../../../../pkg/config/proto;configpb\xa2\x02\x03GVC\xaa\x02\x11Gcommon.V1.Config\xca\x02\x11Gcommon\\V1\\Config\xe2\x02\x1dGcommon\\V1\\Config\\GPBMetadata\xea\x02\x13Gcommon::V1::Config\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
 
 var file_pkg_config_proto_responses_get_config_response_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_pkg_config_proto_responses_get_config_response_proto_goTypes = []any{
 	(*GetConfigResponse)(nil), // 0: gcommon.v1.config.GetConfigResponse
 	(*ConfigEntry)(nil),       // 1: gcommon.v1.config.ConfigEntry
-	(*pb.Error)(nil),          // 2: gcommon.v1.common.Error
+	(*proto.Error)(nil),       // 2: gcommon.v1.common.Error
 }
 var file_pkg_config_proto_responses_get_config_response_proto_depIdxs = []int32{
 	1, // 0: gcommon.v1.config.GetConfigResponse.entry:type_name -> gcommon.v1.config.ConfigEntry

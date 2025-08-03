@@ -9,7 +9,7 @@
 package organizationpb
 
 import (
-	pb "../../../../pkg/common/pb"
+	proto "../../../../pkg/common/proto"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
@@ -37,7 +37,7 @@ type GetOrganizationResponse struct {
 	// List of tenants in organization (if requested)
 	Tenants []*Tenant `protobuf:"bytes,4,rep,name=tenants" json:"tenants,omitempty"`
 	// Any errors encountered during retrieval
-	Errors []*pb.Error `protobuf:"bytes,5,rep,name=errors" json:"errors,omitempty"`
+	Errors []*proto.Error `protobuf:"bytes,5,rep,name=errors" json:"errors,omitempty"`
 	// Success status
 	Success       *bool `protobuf:"varint,6,opt,name=success" json:"success,omitempty"`
 	unknownFields protoimpl.UnknownFields
@@ -97,7 +97,7 @@ func (x *GetOrganizationResponse) GetTenants() []*Tenant {
 	return nil
 }
 
-func (x *GetOrganizationResponse) GetErrors() []*pb.Error {
+func (x *GetOrganizationResponse) GetErrors() []*proto.Error {
 	if x != nil {
 		return x.Errors
 	}
@@ -127,7 +127,7 @@ func (x *GetOrganizationResponse) SetTenants(v []*Tenant) {
 	x.Tenants = v
 }
 
-func (x *GetOrganizationResponse) SetErrors(v []*pb.Error) {
+func (x *GetOrganizationResponse) SetErrors(v []*proto.Error) {
 	x.Errors = v
 }
 
@@ -191,7 +191,7 @@ type GetOrganizationResponse_builder struct {
 	// List of tenants in organization (if requested)
 	Tenants []*Tenant
 	// Any errors encountered during retrieval
-	Errors []*pb.Error
+	Errors []*proto.Error
 	// Success status
 	Success *bool
 }
@@ -220,8 +220,8 @@ const file_pkg_organization_proto_responses_get_organization_response_proto_rawD
 	"\fmember_count\x18\x03 \x01(\x05R\vmemberCount\x129\n" +
 	"\atenants\x18\x04 \x03(\v2\x1f.gcommon.v1.organization.TenantR\atenants\x120\n" +
 	"\x06errors\x18\x05 \x03(\v2\x18.gcommon.v1.common.ErrorR\x06errors\x12\x18\n" +
-	"\asuccess\x18\x06 \x01(\bR\asuccessB\xf1\x01\n" +
-	"\x1bcom.gcommon.v1.organizationB\x1cGetOrganizationResponseProtoP\x01Z.../../../../pkg/organization/pb;organizationpb\xa2\x02\x03GVO\xaa\x02\x17Gcommon.V1.Organization\xca\x02\x17Gcommon\\V1\\Organization\xe2\x02#Gcommon\\V1\\Organization\\GPBMetadata\xea\x02\x19Gcommon::V1::Organization\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
+	"\asuccess\x18\x06 \x01(\bR\asuccessB\xf4\x01\n" +
+	"\x1bcom.gcommon.v1.organizationB\x1cGetOrganizationResponseProtoP\x01Z1../../../../pkg/organization/proto;organizationpb\xa2\x02\x03GVO\xaa\x02\x17Gcommon.V1.Organization\xca\x02\x17Gcommon\\V1\\Organization\xe2\x02#Gcommon\\V1\\Organization\\GPBMetadata\xea\x02\x19Gcommon::V1::Organization\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
 
 var file_pkg_organization_proto_responses_get_organization_response_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_pkg_organization_proto_responses_get_organization_response_proto_goTypes = []any{
@@ -229,7 +229,7 @@ var file_pkg_organization_proto_responses_get_organization_response_proto_goType
 	(*Organization)(nil),            // 1: gcommon.v1.organization.Organization
 	(*OrganizationSettings)(nil),    // 2: gcommon.v1.organization.OrganizationSettings
 	(*Tenant)(nil),                  // 3: gcommon.v1.organization.Tenant
-	(*pb.Error)(nil),                // 4: gcommon.v1.common.Error
+	(*proto.Error)(nil),             // 4: gcommon.v1.common.Error
 }
 var file_pkg_organization_proto_responses_get_organization_response_proto_depIdxs = []int32{
 	1, // 0: gcommon.v1.organization.GetOrganizationResponse.organization:type_name -> gcommon.v1.organization.Organization

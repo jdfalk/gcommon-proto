@@ -9,7 +9,7 @@
 package authpb
 
 import (
-	pb "../../../../pkg/common/pb"
+	proto "../../../../pkg/common/proto"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
@@ -38,7 +38,7 @@ type Group struct {
 	xxx_hidden_Permissions   []string               `protobuf:"bytes,5,rep,name=permissions"`
 	xxx_hidden_Metadata      map[string]string      `protobuf:"bytes,6,rep,name=metadata" protobuf_key:"bytes,1,opt,name=key" protobuf_val:"bytes,2,opt,name=value"`
 	xxx_hidden_CreatedAt     *timestamppb.Timestamp `protobuf:"bytes,7,opt,name=created_at,json=createdAt"`
-	xxx_hidden_Status        pb.ResourceStatus      `protobuf:"varint,8,opt,name=status,enum=gcommon.v1.common.ResourceStatus"`
+	xxx_hidden_Status        proto.ResourceStatus   `protobuf:"varint,8,opt,name=status,enum=gcommon.v1.common.ResourceStatus"`
 	xxx_hidden_MemberCount   int32                  `protobuf:"varint,9,opt,name=member_count,json=memberCount"`
 	xxx_hidden_AdminUserIds  []string               `protobuf:"bytes,10,rep,name=admin_user_ids,json=adminUserIds"`
 	// Deprecated: Do not use. This will be deleted in the near future.
@@ -147,13 +147,13 @@ func (x *Group) GetCreatedAt() *timestamppb.Timestamp {
 	return nil
 }
 
-func (x *Group) GetStatus() pb.ResourceStatus {
+func (x *Group) GetStatus() proto.ResourceStatus {
 	if x != nil {
 		if protoimpl.X.Present(&(x.XXX_presence[0]), 7) {
 			return x.xxx_hidden_Status
 		}
 	}
-	return pb.ResourceStatus(0)
+	return proto.ResourceStatus(0)
 }
 
 func (x *Group) GetMemberCount() int32 {
@@ -212,7 +212,7 @@ func (x *Group) SetCreatedAt(v *timestamppb.Timestamp) {
 	}
 }
 
-func (x *Group) SetStatus(v pb.ResourceStatus) {
+func (x *Group) SetStatus(v proto.ResourceStatus) {
 	x.xxx_hidden_Status = v
 	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 7, 10)
 }
@@ -302,7 +302,7 @@ func (x *Group) ClearCreatedAt() {
 
 func (x *Group) ClearStatus() {
 	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 7)
-	x.xxx_hidden_Status = pb.ResourceStatus_RESOURCE_STATUS_UNSPECIFIED
+	x.xxx_hidden_Status = proto.ResourceStatus_RESOURCE_STATUS_UNSPECIFIED
 }
 
 func (x *Group) ClearMemberCount() {
@@ -328,7 +328,7 @@ type Group_builder struct {
 	// Group creation timestamp
 	CreatedAt *timestamppb.Timestamp
 	// Group status
-	Status *pb.ResourceStatus
+	Status *proto.ResourceStatus
 	// Group member count
 	MemberCount *int32
 	// Group administrator user IDs
@@ -396,16 +396,16 @@ const file_pkg_auth_proto_messages_group_proto_rawDesc = "" +
 	" \x03(\tR\fadminUserIds\x1a;\n" +
 	"\rMetadataEntry\x12\x10\n" +
 	"\x03key\x18\x01 \x01(\tR\x03key\x12\x14\n" +
-	"\x05value\x18\x02 \x01(\tR\x05value:\x028\x01B\xa7\x01\n" +
+	"\x05value\x18\x02 \x01(\tR\x05value:\x028\x01B\xaa\x01\n" +
 	"\x13com.gcommon.v1.authB\n" +
-	"GroupProtoP\x01Z\x1e../../../../pkg/auth/pb;authpb\xa2\x02\x03GVA\xaa\x02\x0fGcommon.V1.Auth\xca\x02\x0fGcommon\\V1\\Auth\xe2\x02\x1bGcommon\\V1\\Auth\\GPBMetadata\xea\x02\x11Gcommon::V1::Auth\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
+	"GroupProtoP\x01Z!../../../../pkg/auth/proto;authpb\xa2\x02\x03GVA\xaa\x02\x0fGcommon.V1.Auth\xca\x02\x0fGcommon\\V1\\Auth\xe2\x02\x1bGcommon\\V1\\Auth\\GPBMetadata\xea\x02\x11Gcommon::V1::Auth\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
 
 var file_pkg_auth_proto_messages_group_proto_msgTypes = make([]protoimpl.MessageInfo, 2)
 var file_pkg_auth_proto_messages_group_proto_goTypes = []any{
 	(*Group)(nil),                 // 0: gcommon.v1.auth.Group
 	nil,                           // 1: gcommon.v1.auth.Group.MetadataEntry
 	(*timestamppb.Timestamp)(nil), // 2: google.protobuf.Timestamp
-	(pb.ResourceStatus)(0),        // 3: gcommon.v1.common.ResourceStatus
+	(proto.ResourceStatus)(0),     // 3: gcommon.v1.common.ResourceStatus
 }
 var file_pkg_auth_proto_messages_group_proto_depIdxs = []int32{
 	1, // 0: gcommon.v1.auth.Group.metadata:type_name -> gcommon.v1.auth.Group.MetadataEntry

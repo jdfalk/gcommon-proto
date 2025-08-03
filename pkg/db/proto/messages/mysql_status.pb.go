@@ -187,8 +187,8 @@ const file_pkg_db_proto_messages_mysql_status_proto_rawDesc = "" +
 	"\n" +
 	"started_at\x18\x02 \x01(\v2\x1a.google.protobuf.TimestampR\tstartedAt\x12)\n" +
 	"\x10open_connections\x18\x03 \x01(\x05R\x0fopenConnections\x12\x12\n" +
-	"\x04role\x18\x04 \x01(\tR\x04roleB\xbd\x01\n" +
-	"\x17com.gcommon.v1.databaseB\x10MysqlStatusProtoP\x01Z\x1a../../../../pkg/db/pb;dbpb\xa2\x02\x03GVD\xaa\x02\x13Gcommon.V1.Database\xca\x02\x13Gcommon\\V1\\Database\xe2\x02\x1fGcommon\\V1\\Database\\GPBMetadata\xea\x02\x15Gcommon::V1::Database\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
+	"\x04role\x18\x04 \x01(\tR\x04roleB\xc0\x01\n" +
+	"\x17com.gcommon.v1.databaseB\x10MysqlStatusProtoP\x01Z\x1d../../../../pkg/db/proto;dbpb\xa2\x02\x03GVD\xaa\x02\x13Gcommon.V1.Database\xca\x02\x13Gcommon\\V1\\Database\xe2\x02\x1fGcommon\\V1\\Database\\GPBMetadata\xea\x02\x15Gcommon::V1::Database\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
 
 var file_pkg_db_proto_messages_mysql_status_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_pkg_db_proto_messages_mysql_status_proto_goTypes = []any{

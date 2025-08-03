@@ -9,7 +9,7 @@
 package configpb
 
 import (
-	pb "../../../../pkg/common/pb"
+	proto "../../../../pkg/common/proto"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
@@ -32,7 +32,7 @@ type ConfigEntry struct {
 	// Configuration key
 	Key *string `protobuf:"bytes,1,opt,name=key" json:"key,omitempty"`
 	// Configuration value
-	Value *pb.ConfigValue `protobuf:"bytes,2,opt,name=value" json:"value,omitempty"`
+	Value *proto.ConfigValue `protobuf:"bytes,2,opt,name=value" json:"value,omitempty"`
 	// Namespace/environment
 	Namespace *string `protobuf:"bytes,3,opt,name=namespace" json:"namespace,omitempty"`
 	// Entry metadata
@@ -46,7 +46,7 @@ type ConfigEntry struct {
 	// Entry version for optimistic concurrency
 	Version *int64 `protobuf:"varint,8,opt,name=version" json:"version,omitempty"`
 	// Entry status
-	Status        *pb.ResourceStatus `protobuf:"varint,9,opt,name=status,enum=gcommon.v1.common.ResourceStatus" json:"status,omitempty"`
+	Status        *proto.ResourceStatus `protobuf:"varint,9,opt,name=status,enum=gcommon.v1.common.ResourceStatus" json:"status,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -83,7 +83,7 @@ func (x *ConfigEntry) GetKey() string {
 	return ""
 }
 
-func (x *ConfigEntry) GetValue() *pb.ConfigValue {
+func (x *ConfigEntry) GetValue() *proto.ConfigValue {
 	if x != nil {
 		return x.Value
 	}
@@ -132,18 +132,18 @@ func (x *ConfigEntry) GetVersion() int64 {
 	return 0
 }
 
-func (x *ConfigEntry) GetStatus() pb.ResourceStatus {
+func (x *ConfigEntry) GetStatus() proto.ResourceStatus {
 	if x != nil && x.Status != nil {
 		return *x.Status
 	}
-	return pb.ResourceStatus(0)
+	return proto.ResourceStatus(0)
 }
 
 func (x *ConfigEntry) SetKey(v string) {
 	x.Key = &v
 }
 
-func (x *ConfigEntry) SetValue(v *pb.ConfigValue) {
+func (x *ConfigEntry) SetValue(v *proto.ConfigValue) {
 	x.Value = v
 }
 
@@ -171,7 +171,7 @@ func (x *ConfigEntry) SetVersion(v int64) {
 	x.Version = &v
 }
 
-func (x *ConfigEntry) SetStatus(v pb.ResourceStatus) {
+func (x *ConfigEntry) SetStatus(v proto.ResourceStatus) {
 	x.Status = &v
 }
 
@@ -258,7 +258,7 @@ type ConfigEntry_builder struct {
 	// Configuration key
 	Key *string
 	// Configuration value
-	Value *pb.ConfigValue
+	Value *proto.ConfigValue
 	// Namespace/environment
 	Namespace *string
 	// Entry metadata
@@ -272,7 +272,7 @@ type ConfigEntry_builder struct {
 	// Entry version for optimistic concurrency
 	Version *int64
 	// Entry status
-	Status *pb.ResourceStatus
+	Status *proto.ResourceStatus
 }
 
 func (b0 ConfigEntry_builder) Build() *ConfigEntry {
@@ -310,16 +310,16 @@ const file_pkg_config_proto_messages_config_entry_proto_rawDesc = "" +
 	"\x06status\x18\t \x01(\x0e2!.gcommon.v1.common.ResourceStatusR\x06status\x1a;\n" +
 	"\rMetadataEntry\x12\x10\n" +
 	"\x03key\x18\x01 \x01(\tR\x03key\x12\x14\n" +
-	"\x05value\x18\x02 \x01(\tR\x05value:\x028\x01B\xbb\x01\n" +
-	"\x15com.gcommon.v1.configB\x10ConfigEntryProtoP\x01Z\"../../../../pkg/config/pb;configpb\xa2\x02\x03GVC\xaa\x02\x11Gcommon.V1.Config\xca\x02\x11Gcommon\\V1\\Config\xe2\x02\x1dGcommon\\V1\\Config\\GPBMetadata\xea\x02\x13Gcommon::V1::Config\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
+	"\x05value\x18\x02 \x01(\tR\x05value:\x028\x01B\xbe\x01\n" +
+	"\x15com.gcommon.v1.configB\x10ConfigEntryProtoP\x01Z%../../../../pkg/config/proto;configpb\xa2\x02\x03GVC\xaa\x02\x11Gcommon.V1.Config\xca\x02\x11Gcommon\\V1\\Config\xe2\x02\x1dGcommon\\V1\\Config\\GPBMetadata\xea\x02\x13Gcommon::V1::Config\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
 
 var file_pkg_config_proto_messages_config_entry_proto_msgTypes = make([]protoimpl.MessageInfo, 2)
 var file_pkg_config_proto_messages_config_entry_proto_goTypes = []any{
 	(*ConfigEntry)(nil),           // 0: gcommon.v1.config.ConfigEntry
 	nil,                           // 1: gcommon.v1.config.ConfigEntry.MetadataEntry
-	(*pb.ConfigValue)(nil),        // 2: gcommon.v1.common.ConfigValue
+	(*proto.ConfigValue)(nil),     // 2: gcommon.v1.common.ConfigValue
 	(*timestamppb.Timestamp)(nil), // 3: google.protobuf.Timestamp
-	(pb.ResourceStatus)(0),        // 4: gcommon.v1.common.ResourceStatus
+	(proto.ResourceStatus)(0),     // 4: gcommon.v1.common.ResourceStatus
 }
 var file_pkg_config_proto_messages_config_entry_proto_depIdxs = []int32{
 	2, // 0: gcommon.v1.config.ConfigEntry.value:type_name -> gcommon.v1.common.ConfigValue

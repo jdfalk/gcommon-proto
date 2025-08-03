@@ -9,7 +9,7 @@
 package authpb
 
 import (
-	pb "../../../../pkg/common/pb"
+	proto "../../../../pkg/common/proto"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
@@ -35,7 +35,7 @@ type GenerateAPIKeyRequest struct {
 	// Optional expiration in seconds
 	ExpiresIn *int32 `protobuf:"varint,3,opt,name=expires_in,json=expiresIn" json:"expires_in,omitempty"`
 	// Metadata for tracing and correlation
-	Metadata      *pb.RequestMetadata `protobuf:"bytes,4,opt,name=metadata" json:"metadata,omitempty"`
+	Metadata      *proto.RequestMetadata `protobuf:"bytes,4,opt,name=metadata" json:"metadata,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -86,7 +86,7 @@ func (x *GenerateAPIKeyRequest) GetExpiresIn() int32 {
 	return 0
 }
 
-func (x *GenerateAPIKeyRequest) GetMetadata() *pb.RequestMetadata {
+func (x *GenerateAPIKeyRequest) GetMetadata() *proto.RequestMetadata {
 	if x != nil {
 		return x.Metadata
 	}
@@ -105,7 +105,7 @@ func (x *GenerateAPIKeyRequest) SetExpiresIn(v int32) {
 	x.ExpiresIn = &v
 }
 
-func (x *GenerateAPIKeyRequest) SetMetadata(v *pb.RequestMetadata) {
+func (x *GenerateAPIKeyRequest) SetMetadata(v *proto.RequestMetadata) {
 	x.Metadata = v
 }
 
@@ -163,7 +163,7 @@ type GenerateAPIKeyRequest_builder struct {
 	// Optional expiration in seconds
 	ExpiresIn *int32
 	// Metadata for tracing and correlation
-	Metadata *pb.RequestMetadata
+	Metadata *proto.RequestMetadata
 }
 
 func (b0 GenerateAPIKeyRequest_builder) Build() *GenerateAPIKeyRequest {
@@ -187,13 +187,13 @@ const file_pkg_auth_proto_requests_generate_api_key_request_proto_rawDesc = "" +
 	"\x04name\x18\x02 \x01(\tR\x04name\x12\x1d\n" +
 	"\n" +
 	"expires_in\x18\x03 \x01(\x05R\texpiresIn\x12>\n" +
-	"\bmetadata\x18\x04 \x01(\v2\".gcommon.v1.common.RequestMetadataR\bmetadataB\xb7\x01\n" +
-	"\x13com.gcommon.v1.authB\x1aGenerateApiKeyRequestProtoP\x01Z\x1e../../../../pkg/auth/pb;authpb\xa2\x02\x03GVA\xaa\x02\x0fGcommon.V1.Auth\xca\x02\x0fGcommon\\V1\\Auth\xe2\x02\x1bGcommon\\V1\\Auth\\GPBMetadata\xea\x02\x11Gcommon::V1::Auth\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
+	"\bmetadata\x18\x04 \x01(\v2\".gcommon.v1.common.RequestMetadataR\bmetadataB\xba\x01\n" +
+	"\x13com.gcommon.v1.authB\x1aGenerateApiKeyRequestProtoP\x01Z!../../../../pkg/auth/proto;authpb\xa2\x02\x03GVA\xaa\x02\x0fGcommon.V1.Auth\xca\x02\x0fGcommon\\V1\\Auth\xe2\x02\x1bGcommon\\V1\\Auth\\GPBMetadata\xea\x02\x11Gcommon::V1::Auth\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
 
 var file_pkg_auth_proto_requests_generate_api_key_request_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_pkg_auth_proto_requests_generate_api_key_request_proto_goTypes = []any{
 	(*GenerateAPIKeyRequest)(nil), // 0: gcommon.v1.auth.GenerateAPIKeyRequest
-	(*pb.RequestMetadata)(nil),    // 1: gcommon.v1.common.RequestMetadata
+	(*proto.RequestMetadata)(nil), // 1: gcommon.v1.common.RequestMetadata
 }
 var file_pkg_auth_proto_requests_generate_api_key_request_proto_depIdxs = []int32{
 	1, // 0: gcommon.v1.auth.GenerateAPIKeyRequest.metadata:type_name -> gcommon.v1.common.RequestMetadata

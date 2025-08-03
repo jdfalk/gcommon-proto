@@ -159,8 +159,8 @@ const file_pkg_db_proto_messages_migration_info_proto_rawDesc = "" +
 	"\aversion\x18\x01 \x01(\tR\aversion\x12 \n" +
 	"\vdescription\x18\x02 \x01(\tR\vdescription\x129\n" +
 	"\n" +
-	"applied_at\x18\x03 \x01(\v2\x1a.google.protobuf.TimestampR\tappliedAtB\xbf\x01\n" +
-	"\x17com.gcommon.v1.databaseB\x12MigrationInfoProtoP\x01Z\x1a../../../../pkg/db/pb;dbpb\xa2\x02\x03GVD\xaa\x02\x13Gcommon.V1.Database\xca\x02\x13Gcommon\\V1\\Database\xe2\x02\x1fGcommon\\V1\\Database\\GPBMetadata\xea\x02\x15Gcommon::V1::Database\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
+	"applied_at\x18\x03 \x01(\v2\x1a.google.protobuf.TimestampR\tappliedAtB\xc2\x01\n" +
+	"\x17com.gcommon.v1.databaseB\x12MigrationInfoProtoP\x01Z\x1d../../../../pkg/db/proto;dbpb\xa2\x02\x03GVD\xaa\x02\x13Gcommon.V1.Database\xca\x02\x13Gcommon\\V1\\Database\xe2\x02\x1fGcommon\\V1\\Database\\GPBMetadata\xea\x02\x15Gcommon::V1::Database\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
 
 var file_pkg_db_proto_messages_migration_info_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_pkg_db_proto_messages_migration_info_proto_goTypes = []any{

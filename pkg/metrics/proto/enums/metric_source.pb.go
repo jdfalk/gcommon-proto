@@ -143,8 +143,8 @@ const file_pkg_metrics_proto_enums_metric_source_proto_rawDesc = "" +
 	"\x14METRIC_SOURCE_CUSTOM\x10\v\x12\x1d\n" +
 	"\x19METRIC_SOURCE_THIRD_PARTY\x10\f\x12\x1b\n" +
 	"\x17METRIC_SOURCE_SYNTHETIC\x10\r\x12\x1d\n" +
-	"\x19METRIC_SOURCE_LOG_DERIVED\x10\x0eB\xbb\x01\n" +
-	"\x16com.gcommon.v1.metricsB\x11MetricSourceProtoP\x01Z$../../../../pkg/metrics/pb;metricspb\xa2\x02\x03GVM\xaa\x02\x12Gcommon.V1.Metrics\xca\x02\x12Gcommon\\V1\\Metrics\xe2\x02\x1eGcommon\\V1\\Metrics\\GPBMetadata\xea\x02\x14Gcommon::V1::Metricsb\beditionsp\xe8\a"
+	"\x19METRIC_SOURCE_LOG_DERIVED\x10\x0eB\xbe\x01\n" +
+	"\x16com.gcommon.v1.metricsB\x11MetricSourceProtoP\x01Z'../../../../pkg/metrics/proto;metricspb\xa2\x02\x03GVM\xaa\x02\x12Gcommon.V1.Metrics\xca\x02\x12Gcommon\\V1\\Metrics\xe2\x02\x1eGcommon\\V1\\Metrics\\GPBMetadata\xea\x02\x14Gcommon::V1::Metricsb\beditionsp\xe8\a"
 
 var (
 	file_pkg_metrics_proto_enums_metric_source_proto_rawDescOnce sync.Once

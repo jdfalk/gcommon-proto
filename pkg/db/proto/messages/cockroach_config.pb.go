@@ -327,8 +327,8 @@ const file_pkg_db_proto_messages_cockroach_config_proto_rawDesc = "" +
 	"\x10application_name\x18\a \x01(\tR\x0fapplicationName\x120\n" +
 	"\x14retry_backoff_factor\x18\b \x01(\x02R\x12retryBackoffFactor\x12\x1f\n" +
 	"\vmax_retries\x18\t \x01(\x05R\n" +
-	"maxRetriesB\xc1\x01\n" +
-	"\x17com.gcommon.v1.databaseB\x14CockroachConfigProtoP\x01Z\x1a../../../../pkg/db/pb;dbpb\xa2\x02\x03GVD\xaa\x02\x13Gcommon.V1.Database\xca\x02\x13Gcommon\\V1\\Database\xe2\x02\x1fGcommon\\V1\\Database\\GPBMetadata\xea\x02\x15Gcommon::V1::Database\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
+	"maxRetriesB\xc4\x01\n" +
+	"\x17com.gcommon.v1.databaseB\x14CockroachConfigProtoP\x01Z\x1d../../../../pkg/db/proto;dbpb\xa2\x02\x03GVD\xaa\x02\x13Gcommon.V1.Database\xca\x02\x13Gcommon\\V1\\Database\xe2\x02\x1fGcommon\\V1\\Database\\GPBMetadata\xea\x02\x15Gcommon::V1::Database\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
 
 var file_pkg_db_proto_messages_cockroach_config_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_pkg_db_proto_messages_cockroach_config_proto_goTypes = []any{

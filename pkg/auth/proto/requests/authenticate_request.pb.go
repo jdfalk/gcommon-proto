@@ -9,7 +9,7 @@
 package authpb
 
 import (
-	pb "../../../../pkg/common/pb"
+	proto "../../../../pkg/common/proto"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
@@ -31,7 +31,7 @@ const (
 type AuthenticateRequest struct {
 	state protoimpl.MessageState `protogen:"hybrid.v1"`
 	// Request metadata for tracing, correlation, and auditing
-	Metadata *pb.RequestMetadata `protobuf:"bytes,1,opt,name=metadata" json:"metadata,omitempty"`
+	Metadata *proto.RequestMetadata `protobuf:"bytes,1,opt,name=metadata" json:"metadata,omitempty"`
 	// Authentication credentials (oneof ensures only one type is used)
 	//
 	// Types that are valid to be assigned to Credentials:
@@ -44,7 +44,7 @@ type AuthenticateRequest struct {
 	// Requested authorization scopes
 	Scopes []string `protobuf:"bytes,6,rep,name=scopes" json:"scopes,omitempty"`
 	// Client information for security and session management
-	ClientInfo    *pb.ClientInfo `protobuf:"bytes,7,opt,name=client_info,json=clientInfo" json:"client_info,omitempty"`
+	ClientInfo    *proto.ClientInfo `protobuf:"bytes,7,opt,name=client_info,json=clientInfo" json:"client_info,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -74,7 +74,7 @@ func (x *AuthenticateRequest) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-func (x *AuthenticateRequest) GetMetadata() *pb.RequestMetadata {
+func (x *AuthenticateRequest) GetMetadata() *proto.RequestMetadata {
 	if x != nil {
 		return x.Metadata
 	}
@@ -131,14 +131,14 @@ func (x *AuthenticateRequest) GetScopes() []string {
 	return nil
 }
 
-func (x *AuthenticateRequest) GetClientInfo() *pb.ClientInfo {
+func (x *AuthenticateRequest) GetClientInfo() *proto.ClientInfo {
 	if x != nil {
 		return x.ClientInfo
 	}
 	return nil
 }
 
-func (x *AuthenticateRequest) SetMetadata(v *pb.RequestMetadata) {
+func (x *AuthenticateRequest) SetMetadata(v *proto.RequestMetadata) {
 	x.Metadata = v
 }
 
@@ -178,7 +178,7 @@ func (x *AuthenticateRequest) SetScopes(v []string) {
 	x.Scopes = v
 }
 
-func (x *AuthenticateRequest) SetClientInfo(v *pb.ClientInfo) {
+func (x *AuthenticateRequest) SetClientInfo(v *proto.ClientInfo) {
 	x.ClientInfo = v
 }
 
@@ -299,7 +299,7 @@ type AuthenticateRequest_builder struct {
 	_ [0]func() // Prevents comparability and use of unkeyed literals for the builder.
 
 	// Request metadata for tracing, correlation, and auditing
-	Metadata *pb.RequestMetadata
+	Metadata *proto.RequestMetadata
 	// Authentication credentials (oneof ensures only one type is used)
 
 	// Fields of oneof Credentials:
@@ -315,7 +315,7 @@ type AuthenticateRequest_builder struct {
 	// Requested authorization scopes
 	Scopes []string
 	// Client information for security and session management
-	ClientInfo *pb.ClientInfo
+	ClientInfo *proto.ClientInfo
 }
 
 func (b0 AuthenticateRequest_builder) Build() *AuthenticateRequest {
@@ -396,18 +396,18 @@ const file_pkg_auth_proto_requests_authenticate_request_proto_rawDesc = "" +
 	"\x06scopes\x18\x06 \x03(\tR\x06scopes\x12B\n" +
 	"\vclient_info\x18\a \x01(\v2\x1d.gcommon.v1.common.ClientInfoB\x02(\x01R\n" +
 	"clientInfoB\r\n" +
-	"\vcredentialsB\xb5\x01\n" +
-	"\x13com.gcommon.v1.authB\x18AuthenticateRequestProtoP\x01Z\x1e../../../../pkg/auth/pb;authpb\xa2\x02\x03GVA\xaa\x02\x0fGcommon.V1.Auth\xca\x02\x0fGcommon\\V1\\Auth\xe2\x02\x1bGcommon\\V1\\Auth\\GPBMetadata\xea\x02\x11Gcommon::V1::Auth\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
+	"\vcredentialsB\xb8\x01\n" +
+	"\x13com.gcommon.v1.authB\x18AuthenticateRequestProtoP\x01Z!../../../../pkg/auth/proto;authpb\xa2\x02\x03GVA\xaa\x02\x0fGcommon.V1.Auth\xca\x02\x0fGcommon\\V1\\Auth\xe2\x02\x1bGcommon\\V1\\Auth\\GPBMetadata\xea\x02\x11Gcommon::V1::Auth\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
 
 var file_pkg_auth_proto_requests_authenticate_request_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_pkg_auth_proto_requests_authenticate_request_proto_goTypes = []any{
-	(*AuthenticateRequest)(nil), // 0: gcommon.v1.auth.AuthenticateRequest
-	(*pb.RequestMetadata)(nil),  // 1: gcommon.v1.common.RequestMetadata
-	(*PasswordCredentials)(nil), // 2: gcommon.v1.auth.PasswordCredentials
-	(*APIKeyCredentials)(nil),   // 3: gcommon.v1.auth.APIKeyCredentials
-	(*OAuth2Credentials)(nil),   // 4: gcommon.v1.auth.OAuth2Credentials
-	(*JWTCredentials)(nil),      // 5: gcommon.v1.auth.JWTCredentials
-	(*pb.ClientInfo)(nil),       // 6: gcommon.v1.common.ClientInfo
+	(*AuthenticateRequest)(nil),   // 0: gcommon.v1.auth.AuthenticateRequest
+	(*proto.RequestMetadata)(nil), // 1: gcommon.v1.common.RequestMetadata
+	(*PasswordCredentials)(nil),   // 2: gcommon.v1.auth.PasswordCredentials
+	(*APIKeyCredentials)(nil),     // 3: gcommon.v1.auth.APIKeyCredentials
+	(*OAuth2Credentials)(nil),     // 4: gcommon.v1.auth.OAuth2Credentials
+	(*JWTCredentials)(nil),        // 5: gcommon.v1.auth.JWTCredentials
+	(*proto.ClientInfo)(nil),      // 6: gcommon.v1.common.ClientInfo
 }
 var file_pkg_auth_proto_requests_authenticate_request_proto_depIdxs = []int32{
 	1, // 0: gcommon.v1.auth.AuthenticateRequest.metadata:type_name -> gcommon.v1.common.RequestMetadata

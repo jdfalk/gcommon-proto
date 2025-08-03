@@ -206,8 +206,8 @@ const file_pkg_notification_proto_messages_delivery_channel_proto_rawDesc = "" +
 	"\x1bDELIVERY_CHANNEL_TYPE_EMAIL\x10\x01\x12\x1d\n" +
 	"\x19DELIVERY_CHANNEL_TYPE_SMS\x10\x02\x12\x1f\n" +
 	"\x1bDELIVERY_CHANNEL_TYPE_SLACK\x10\x03\x12!\n" +
-	"\x1dDELIVERY_CHANNEL_TYPE_WEBHOOK\x10\x04B\xe9\x01\n" +
-	"\x1bcom.gcommon.v1.notificationB\x14DeliveryChannelProtoP\x01Z.../../../../pkg/notification/pb;notificationpb\xa2\x02\x03GVN\xaa\x02\x17Gcommon.V1.Notification\xca\x02\x17Gcommon\\V1\\Notification\xe2\x02#Gcommon\\V1\\Notification\\GPBMetadata\xea\x02\x19Gcommon::V1::Notification\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
+	"\x1dDELIVERY_CHANNEL_TYPE_WEBHOOK\x10\x04B\xec\x01\n" +
+	"\x1bcom.gcommon.v1.notificationB\x14DeliveryChannelProtoP\x01Z1../../../../pkg/notification/proto;notificationpb\xa2\x02\x03GVN\xaa\x02\x17Gcommon.V1.Notification\xca\x02\x17Gcommon\\V1\\Notification\xe2\x02#Gcommon\\V1\\Notification\\GPBMetadata\xea\x02\x19Gcommon::V1::Notification\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
 
 var file_pkg_notification_proto_messages_delivery_channel_proto_enumTypes = make([]protoimpl.EnumInfo, 1)
 var file_pkg_notification_proto_messages_delivery_channel_proto_msgTypes = make([]protoimpl.MessageInfo, 2)

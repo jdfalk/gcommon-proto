@@ -9,7 +9,7 @@
 package healthpb
 
 import (
-	pb "../../../../pkg/common/pb"
+	proto "../../../../pkg/common/proto"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
@@ -32,7 +32,7 @@ type GetHealthMetricsResponse struct {
 	// Health metrics data
 	Metrics []*HealthMetricData `protobuf:"bytes,1,rep,name=metrics" json:"metrics,omitempty"`
 	// Request metadata
-	Metadata      *pb.RequestMetadata `protobuf:"bytes,2,opt,name=metadata" json:"metadata,omitempty"`
+	Metadata      *proto.RequestMetadata `protobuf:"bytes,2,opt,name=metadata" json:"metadata,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -69,7 +69,7 @@ func (x *GetHealthMetricsResponse) GetMetrics() []*HealthMetricData {
 	return nil
 }
 
-func (x *GetHealthMetricsResponse) GetMetadata() *pb.RequestMetadata {
+func (x *GetHealthMetricsResponse) GetMetadata() *proto.RequestMetadata {
 	if x != nil {
 		return x.Metadata
 	}
@@ -80,7 +80,7 @@ func (x *GetHealthMetricsResponse) SetMetrics(v []*HealthMetricData) {
 	x.Metrics = v
 }
 
-func (x *GetHealthMetricsResponse) SetMetadata(v *pb.RequestMetadata) {
+func (x *GetHealthMetricsResponse) SetMetadata(v *proto.RequestMetadata) {
 	x.Metadata = v
 }
 
@@ -101,7 +101,7 @@ type GetHealthMetricsResponse_builder struct {
 	// Health metrics data
 	Metrics []*HealthMetricData
 	// Request metadata
-	Metadata *pb.RequestMetadata
+	Metadata *proto.RequestMetadata
 }
 
 func (b0 GetHealthMetricsResponse_builder) Build() *GetHealthMetricsResponse {
@@ -120,14 +120,14 @@ const file_pkg_health_proto_responses_get_health_metrics_response_proto_rawDesc 
 	"<pkg/health/proto/responses/get_health_metrics_response.proto\x12\x11gcommon.v1.health\x1a!google/protobuf/go_features.proto\x1a0pkg/common/proto/messages/request_metadata.proto\x1a2pkg/health/proto/messages/health_metric_data.proto\"\x99\x01\n" +
 	"\x18GetHealthMetricsResponse\x12=\n" +
 	"\ametrics\x18\x01 \x03(\v2#.gcommon.v1.health.HealthMetricDataR\ametrics\x12>\n" +
-	"\bmetadata\x18\x02 \x01(\v2\".gcommon.v1.common.RequestMetadataR\bmetadataB\xc8\x01\n" +
-	"\x15com.gcommon.v1.healthB\x1dGetHealthMetricsResponseProtoP\x01Z\"../../../../pkg/health/pb;healthpb\xa2\x02\x03GVH\xaa\x02\x11Gcommon.V1.Health\xca\x02\x11Gcommon\\V1\\Health\xe2\x02\x1dGcommon\\V1\\Health\\GPBMetadata\xea\x02\x13Gcommon::V1::Health\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
+	"\bmetadata\x18\x02 \x01(\v2\".gcommon.v1.common.RequestMetadataR\bmetadataB\xcb\x01\n" +
+	"\x15com.gcommon.v1.healthB\x1dGetHealthMetricsResponseProtoP\x01Z%../../../../pkg/health/proto;healthpb\xa2\x02\x03GVH\xaa\x02\x11Gcommon.V1.Health\xca\x02\x11Gcommon\\V1\\Health\xe2\x02\x1dGcommon\\V1\\Health\\GPBMetadata\xea\x02\x13Gcommon::V1::Health\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
 
 var file_pkg_health_proto_responses_get_health_metrics_response_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_pkg_health_proto_responses_get_health_metrics_response_proto_goTypes = []any{
 	(*GetHealthMetricsResponse)(nil), // 0: gcommon.v1.health.GetHealthMetricsResponse
 	(*HealthMetricData)(nil),         // 1: gcommon.v1.health.HealthMetricData
-	(*pb.RequestMetadata)(nil),       // 2: gcommon.v1.common.RequestMetadata
+	(*proto.RequestMetadata)(nil),    // 2: gcommon.v1.common.RequestMetadata
 }
 var file_pkg_health_proto_responses_get_health_metrics_response_proto_depIdxs = []int32{
 	1, // 0: gcommon.v1.health.GetHealthMetricsResponse.metrics:type_name -> gcommon.v1.health.HealthMetricData

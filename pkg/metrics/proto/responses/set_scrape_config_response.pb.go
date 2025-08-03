@@ -9,7 +9,7 @@
 package metricspb
 
 import (
-	pb "../../../../pkg/common/pb"
+	proto "../../../../pkg/common/proto"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
@@ -31,7 +31,7 @@ type SetScrapeConfigResponse struct {
 	// Whether the update succeeded
 	Success *bool `protobuf:"varint,1,opt,name=success" json:"success,omitempty"`
 	// Error information
-	Error         *pb.Error `protobuf:"bytes,2,opt,name=error" json:"error,omitempty"`
+	Error         *proto.Error `protobuf:"bytes,2,opt,name=error" json:"error,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -68,7 +68,7 @@ func (x *SetScrapeConfigResponse) GetSuccess() bool {
 	return false
 }
 
-func (x *SetScrapeConfigResponse) GetError() *pb.Error {
+func (x *SetScrapeConfigResponse) GetError() *proto.Error {
 	if x != nil {
 		return x.Error
 	}
@@ -79,7 +79,7 @@ func (x *SetScrapeConfigResponse) SetSuccess(v bool) {
 	x.Success = &v
 }
 
-func (x *SetScrapeConfigResponse) SetError(v *pb.Error) {
+func (x *SetScrapeConfigResponse) SetError(v *proto.Error) {
 	x.Error = v
 }
 
@@ -111,7 +111,7 @@ type SetScrapeConfigResponse_builder struct {
 	// Whether the update succeeded
 	Success *bool
 	// Error information
-	Error *pb.Error
+	Error *proto.Error
 }
 
 func (b0 SetScrapeConfigResponse_builder) Build() *SetScrapeConfigResponse {
@@ -130,13 +130,13 @@ const file_pkg_metrics_proto_responses_set_scrape_config_response_proto_rawDesc 
 	"<pkg/metrics/proto/responses/set_scrape_config_response.proto\x12\x12gcommon.v1.metrics\x1a!google/protobuf/go_features.proto\x1a%pkg/common/proto/messages/error.proto\"c\n" +
 	"\x17SetScrapeConfigResponse\x12\x18\n" +
 	"\asuccess\x18\x01 \x01(\bR\asuccess\x12.\n" +
-	"\x05error\x18\x02 \x01(\v2\x18.gcommon.v1.common.ErrorR\x05errorB\xce\x01\n" +
-	"\x16com.gcommon.v1.metricsB\x1cSetScrapeConfigResponseProtoP\x01Z$../../../../pkg/metrics/pb;metricspb\xa2\x02\x03GVM\xaa\x02\x12Gcommon.V1.Metrics\xca\x02\x12Gcommon\\V1\\Metrics\xe2\x02\x1eGcommon\\V1\\Metrics\\GPBMetadata\xea\x02\x14Gcommon::V1::Metrics\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
+	"\x05error\x18\x02 \x01(\v2\x18.gcommon.v1.common.ErrorR\x05errorB\xd1\x01\n" +
+	"\x16com.gcommon.v1.metricsB\x1cSetScrapeConfigResponseProtoP\x01Z'../../../../pkg/metrics/proto;metricspb\xa2\x02\x03GVM\xaa\x02\x12Gcommon.V1.Metrics\xca\x02\x12Gcommon\\V1\\Metrics\xe2\x02\x1eGcommon\\V1\\Metrics\\GPBMetadata\xea\x02\x14Gcommon::V1::Metrics\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
 
 var file_pkg_metrics_proto_responses_set_scrape_config_response_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_pkg_metrics_proto_responses_set_scrape_config_response_proto_goTypes = []any{
 	(*SetScrapeConfigResponse)(nil), // 0: gcommon.v1.metrics.SetScrapeConfigResponse
-	(*pb.Error)(nil),                // 1: gcommon.v1.common.Error
+	(*proto.Error)(nil),             // 1: gcommon.v1.common.Error
 }
 var file_pkg_metrics_proto_responses_set_scrape_config_response_proto_depIdxs = []int32{
 	1, // 0: gcommon.v1.metrics.SetScrapeConfigResponse.error:type_name -> gcommon.v1.common.Error

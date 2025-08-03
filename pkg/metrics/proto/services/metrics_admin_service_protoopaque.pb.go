@@ -33,8 +33,8 @@ const file_pkg_metrics_proto_services_metrics_admin_service_proto_rawDesc = "" +
 	"\x15UpdateMetricsProvider\x12).gcommon.v1.metrics.UpdateProviderRequest\x1a*.gcommon.v1.metrics.UpdateProviderResponse\x12n\n" +
 	"\x15DeleteMetricsProvider\x12).gcommon.v1.metrics.DeleteProviderRequest\x1a*.gcommon.v1.metrics.DeleteProviderResponse\x12k\n" +
 	"\x14ListMetricsProviders\x12(.gcommon.v1.metrics.ListProvidersRequest\x1a).gcommon.v1.metrics.ListProvidersResponse\x12m\n" +
-	"\x10GetProviderStats\x12+.gcommon.v1.metrics.GetProviderStatsRequest\x1a,.gcommon.v1.metrics.GetProviderStatsResponseB\xca\x01\n" +
-	"\x16com.gcommon.v1.metricsB\x18MetricsAdminServiceProtoP\x01Z$../../../../pkg/metrics/pb;metricspb\xa2\x02\x03GVM\xaa\x02\x12Gcommon.V1.Metrics\xca\x02\x12Gcommon\\V1\\Metrics\xe2\x02\x1eGcommon\\V1\\Metrics\\GPBMetadata\xea\x02\x14Gcommon::V1::Metrics\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
+	"\x10GetProviderStats\x12+.gcommon.v1.metrics.GetProviderStatsRequest\x1a,.gcommon.v1.metrics.GetProviderStatsResponseB\xcd\x01\n" +
+	"\x16com.gcommon.v1.metricsB\x18MetricsAdminServiceProtoP\x01Z'../../../../pkg/metrics/proto;metricspb\xa2\x02\x03GVM\xaa\x02\x12Gcommon.V1.Metrics\xca\x02\x12Gcommon\\V1\\Metrics\xe2\x02\x1eGcommon\\V1\\Metrics\\GPBMetadata\xea\x02\x14Gcommon::V1::Metrics\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
 
 var file_pkg_metrics_proto_services_metrics_admin_service_proto_goTypes = []any{
 	(*CreateProviderRequest)(nil),    // 0: gcommon.v1.metrics.CreateProviderRequest

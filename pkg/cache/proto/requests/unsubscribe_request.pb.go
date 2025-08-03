@@ -9,7 +9,7 @@
 package cachepb
 
 import (
-	pb "../../../../pkg/common/pb"
+	proto "../../../../pkg/common/proto"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
@@ -31,7 +31,7 @@ type UnsubscribeRequest struct {
 	// Topic or channel name
 	Topic *string `protobuf:"bytes,1,opt,name=topic" json:"topic,omitempty"`
 	// Request metadata
-	Metadata      *pb.RequestMetadata `protobuf:"bytes,2,opt,name=metadata" json:"metadata,omitempty"`
+	Metadata      *proto.RequestMetadata `protobuf:"bytes,2,opt,name=metadata" json:"metadata,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -68,7 +68,7 @@ func (x *UnsubscribeRequest) GetTopic() string {
 	return ""
 }
 
-func (x *UnsubscribeRequest) GetMetadata() *pb.RequestMetadata {
+func (x *UnsubscribeRequest) GetMetadata() *proto.RequestMetadata {
 	if x != nil {
 		return x.Metadata
 	}
@@ -79,7 +79,7 @@ func (x *UnsubscribeRequest) SetTopic(v string) {
 	x.Topic = &v
 }
 
-func (x *UnsubscribeRequest) SetMetadata(v *pb.RequestMetadata) {
+func (x *UnsubscribeRequest) SetMetadata(v *proto.RequestMetadata) {
 	x.Metadata = v
 }
 
@@ -111,7 +111,7 @@ type UnsubscribeRequest_builder struct {
 	// Topic or channel name
 	Topic *string
 	// Request metadata
-	Metadata *pb.RequestMetadata
+	Metadata *proto.RequestMetadata
 }
 
 func (b0 UnsubscribeRequest_builder) Build() *UnsubscribeRequest {
@@ -130,13 +130,13 @@ const file_pkg_cache_proto_requests_unsubscribe_request_proto_rawDesc = "" +
 	"2pkg/cache/proto/requests/unsubscribe_request.proto\x12\x10gcommon.v1.cache\x1a!google/protobuf/go_features.proto\x1a0pkg/common/proto/messages/request_metadata.proto\"n\n" +
 	"\x12UnsubscribeRequest\x12\x14\n" +
 	"\x05topic\x18\x01 \x01(\tR\x05topic\x12B\n" +
-	"\bmetadata\x18\x02 \x01(\v2\".gcommon.v1.common.RequestMetadataB\x02(\x01R\bmetadataB\xbb\x01\n" +
-	"\x14com.gcommon.v1.cacheB\x17UnsubscribeRequestProtoP\x01Z ../../../../pkg/cache/pb;cachepb\xa2\x02\x03GVC\xaa\x02\x10Gcommon.V1.Cache\xca\x02\x10Gcommon\\V1\\Cache\xe2\x02\x1cGcommon\\V1\\Cache\\GPBMetadata\xea\x02\x12Gcommon::V1::Cache\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
+	"\bmetadata\x18\x02 \x01(\v2\".gcommon.v1.common.RequestMetadataB\x02(\x01R\bmetadataB\xbe\x01\n" +
+	"\x14com.gcommon.v1.cacheB\x17UnsubscribeRequestProtoP\x01Z#../../../../pkg/cache/proto;cachepb\xa2\x02\x03GVC\xaa\x02\x10Gcommon.V1.Cache\xca\x02\x10Gcommon\\V1\\Cache\xe2\x02\x1cGcommon\\V1\\Cache\\GPBMetadata\xea\x02\x12Gcommon::V1::Cache\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
 
 var file_pkg_cache_proto_requests_unsubscribe_request_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_pkg_cache_proto_requests_unsubscribe_request_proto_goTypes = []any{
-	(*UnsubscribeRequest)(nil), // 0: gcommon.v1.cache.UnsubscribeRequest
-	(*pb.RequestMetadata)(nil), // 1: gcommon.v1.common.RequestMetadata
+	(*UnsubscribeRequest)(nil),    // 0: gcommon.v1.cache.UnsubscribeRequest
+	(*proto.RequestMetadata)(nil), // 1: gcommon.v1.common.RequestMetadata
 }
 var file_pkg_cache_proto_requests_unsubscribe_request_proto_depIdxs = []int32{
 	1, // 0: gcommon.v1.cache.UnsubscribeRequest.metadata:type_name -> gcommon.v1.common.RequestMetadata

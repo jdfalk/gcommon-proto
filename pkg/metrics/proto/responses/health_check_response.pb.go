@@ -9,7 +9,7 @@
 package metricspb
 
 import (
-	pb "../../../../pkg/common/pb"
+	proto "../../../../pkg/common/proto"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
@@ -30,13 +30,13 @@ const (
 type HealthCheckResponse struct {
 	state protoimpl.MessageState `protogen:"hybrid.v1"`
 	// Health status of the subsystem.
-	Status *pb.HealthStatus `protobuf:"varint,1,opt,name=status,enum=gcommon.v1.common.HealthStatus" json:"status,omitempty"`
+	Status *proto.HealthStatus `protobuf:"varint,1,opt,name=status,enum=gcommon.v1.common.HealthStatus" json:"status,omitempty"`
 	// Time taken to execute the health check.
 	ResponseTime *durationpb.Duration `protobuf:"bytes,2,opt,name=response_time,json=responseTime" json:"response_time,omitempty"`
 	// Optional human-readable message.
 	Message *string `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
 	// Error details if unhealthy.
-	Error         *pb.Error `protobuf:"bytes,4,opt,name=error" json:"error,omitempty"`
+	Error         *proto.Error `protobuf:"bytes,4,opt,name=error" json:"error,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -66,11 +66,11 @@ func (x *HealthCheckResponse) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-func (x *HealthCheckResponse) GetStatus() pb.HealthStatus {
+func (x *HealthCheckResponse) GetStatus() proto.HealthStatus {
 	if x != nil && x.Status != nil {
 		return *x.Status
 	}
-	return pb.HealthStatus(0)
+	return proto.HealthStatus(0)
 }
 
 func (x *HealthCheckResponse) GetResponseTime() *durationpb.Duration {
@@ -87,14 +87,14 @@ func (x *HealthCheckResponse) GetMessage() string {
 	return ""
 }
 
-func (x *HealthCheckResponse) GetError() *pb.Error {
+func (x *HealthCheckResponse) GetError() *proto.Error {
 	if x != nil {
 		return x.Error
 	}
 	return nil
 }
 
-func (x *HealthCheckResponse) SetStatus(v pb.HealthStatus) {
+func (x *HealthCheckResponse) SetStatus(v proto.HealthStatus) {
 	x.Status = &v
 }
 
@@ -106,7 +106,7 @@ func (x *HealthCheckResponse) SetMessage(v string) {
 	x.Message = &v
 }
 
-func (x *HealthCheckResponse) SetError(v *pb.Error) {
+func (x *HealthCheckResponse) SetError(v *proto.Error) {
 	x.Error = v
 }
 
@@ -158,13 +158,13 @@ type HealthCheckResponse_builder struct {
 	_ [0]func() // Prevents comparability and use of unkeyed literals for the builder.
 
 	// Health status of the subsystem.
-	Status *pb.HealthStatus
+	Status *proto.HealthStatus
 	// Time taken to execute the health check.
 	ResponseTime *durationpb.Duration
 	// Optional human-readable message.
 	Message *string
 	// Error details if unhealthy.
-	Error *pb.Error
+	Error *proto.Error
 }
 
 func (b0 HealthCheckResponse_builder) Build() *HealthCheckResponse {
@@ -187,15 +187,15 @@ const file_pkg_metrics_proto_responses_health_check_response_proto_rawDesc = "" 
 	"\x06status\x18\x01 \x01(\x0e2\x1f.gcommon.v1.common.HealthStatusR\x06status\x12B\n" +
 	"\rresponse_time\x18\x02 \x01(\v2\x19.google.protobuf.DurationB\x02(\x01R\fresponseTime\x12\x18\n" +
 	"\amessage\x18\x03 \x01(\tR\amessage\x122\n" +
-	"\x05error\x18\x04 \x01(\v2\x18.gcommon.v1.common.ErrorB\x02(\x01R\x05errorB\xca\x01\n" +
-	"\x16com.gcommon.v1.metricsB\x18HealthCheckResponseProtoP\x01Z$../../../../pkg/metrics/pb;metricspb\xa2\x02\x03GVM\xaa\x02\x12Gcommon.V1.Metrics\xca\x02\x12Gcommon\\V1\\Metrics\xe2\x02\x1eGcommon\\V1\\Metrics\\GPBMetadata\xea\x02\x14Gcommon::V1::Metrics\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
+	"\x05error\x18\x04 \x01(\v2\x18.gcommon.v1.common.ErrorB\x02(\x01R\x05errorB\xcd\x01\n" +
+	"\x16com.gcommon.v1.metricsB\x18HealthCheckResponseProtoP\x01Z'../../../../pkg/metrics/proto;metricspb\xa2\x02\x03GVM\xaa\x02\x12Gcommon.V1.Metrics\xca\x02\x12Gcommon\\V1\\Metrics\xe2\x02\x1eGcommon\\V1\\Metrics\\GPBMetadata\xea\x02\x14Gcommon::V1::Metrics\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
 
 var file_pkg_metrics_proto_responses_health_check_response_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_pkg_metrics_proto_responses_health_check_response_proto_goTypes = []any{
 	(*HealthCheckResponse)(nil), // 0: gcommon.v1.metrics.HealthCheckResponse
-	(pb.HealthStatus)(0),        // 1: gcommon.v1.common.HealthStatus
+	(proto.HealthStatus)(0),     // 1: gcommon.v1.common.HealthStatus
 	(*durationpb.Duration)(nil), // 2: google.protobuf.Duration
-	(*pb.Error)(nil),            // 3: gcommon.v1.common.Error
+	(*proto.Error)(nil),         // 3: gcommon.v1.common.Error
 }
 var file_pkg_metrics_proto_responses_health_check_response_proto_depIdxs = []int32{
 	1, // 0: gcommon.v1.metrics.HealthCheckResponse.status:type_name -> gcommon.v1.common.HealthStatus

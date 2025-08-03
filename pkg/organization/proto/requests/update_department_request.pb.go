@@ -9,7 +9,7 @@
 package organizationpb
 
 import (
-	pb "../../../../pkg/common/pb"
+	proto "../../../../pkg/common/proto"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
@@ -28,7 +28,7 @@ const (
 type UpdateDepartmentRequest struct {
 	state protoimpl.MessageState `protogen:"hybrid.v1"`
 	// Request metadata for tracing and context
-	Metadata *pb.RequestMetadata `protobuf:"bytes,1,opt,name=metadata" json:"metadata,omitempty"`
+	Metadata *proto.RequestMetadata `protobuf:"bytes,1,opt,name=metadata" json:"metadata,omitempty"`
 	// Department identifier to update
 	DepartmentId *string `protobuf:"bytes,2,opt,name=department_id,json=departmentId" json:"department_id,omitempty"`
 	// Updated department information
@@ -66,7 +66,7 @@ func (x *UpdateDepartmentRequest) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-func (x *UpdateDepartmentRequest) GetMetadata() *pb.RequestMetadata {
+func (x *UpdateDepartmentRequest) GetMetadata() *proto.RequestMetadata {
 	if x != nil {
 		return x.Metadata
 	}
@@ -101,7 +101,7 @@ func (x *UpdateDepartmentRequest) GetValidateOnly() bool {
 	return false
 }
 
-func (x *UpdateDepartmentRequest) SetMetadata(v *pb.RequestMetadata) {
+func (x *UpdateDepartmentRequest) SetMetadata(v *proto.RequestMetadata) {
 	x.Metadata = v
 }
 
@@ -180,7 +180,7 @@ type UpdateDepartmentRequest_builder struct {
 	_ [0]func() // Prevents comparability and use of unkeyed literals for the builder.
 
 	// Request metadata for tracing and context
-	Metadata *pb.RequestMetadata
+	Metadata *proto.RequestMetadata
 	// Department identifier to update
 	DepartmentId *string
 	// Updated department information
@@ -216,13 +216,13 @@ const file_pkg_organization_proto_requests_update_department_request_proto_rawDe
 	"department\x12;\n" +
 	"\vupdate_mask\x18\x04 \x01(\v2\x1a.google.protobuf.FieldMaskR\n" +
 	"updateMask\x12#\n" +
-	"\rvalidate_only\x18\x05 \x01(\bR\fvalidateOnlyB\xf1\x01\n" +
-	"\x1bcom.gcommon.v1.organizationB\x1cUpdateDepartmentRequestProtoP\x01Z.../../../../pkg/organization/pb;organizationpb\xa2\x02\x03GVO\xaa\x02\x17Gcommon.V1.Organization\xca\x02\x17Gcommon\\V1\\Organization\xe2\x02#Gcommon\\V1\\Organization\\GPBMetadata\xea\x02\x19Gcommon::V1::Organization\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
+	"\rvalidate_only\x18\x05 \x01(\bR\fvalidateOnlyB\xf4\x01\n" +
+	"\x1bcom.gcommon.v1.organizationB\x1cUpdateDepartmentRequestProtoP\x01Z1../../../../pkg/organization/proto;organizationpb\xa2\x02\x03GVO\xaa\x02\x17Gcommon.V1.Organization\xca\x02\x17Gcommon\\V1\\Organization\xe2\x02#Gcommon\\V1\\Organization\\GPBMetadata\xea\x02\x19Gcommon::V1::Organization\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
 
 var file_pkg_organization_proto_requests_update_department_request_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_pkg_organization_proto_requests_update_department_request_proto_goTypes = []any{
 	(*UpdateDepartmentRequest)(nil), // 0: gcommon.v1.organization.UpdateDepartmentRequest
-	(*pb.RequestMetadata)(nil),      // 1: gcommon.v1.common.RequestMetadata
+	(*proto.RequestMetadata)(nil),   // 1: gcommon.v1.common.RequestMetadata
 	(*Department)(nil),              // 2: gcommon.v1.organization.Department
 	(*fieldmaskpb.FieldMask)(nil),   // 3: google.protobuf.FieldMask
 }

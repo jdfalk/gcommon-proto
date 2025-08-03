@@ -84,8 +84,8 @@ const file_pkg_notification_proto_enums_delivery_status_proto_rawDesc = "" +
 	"\x17DELIVERY_STATUS_PENDING\x10\x01\x12\x18\n" +
 	"\x14DELIVERY_STATUS_SENT\x10\x02\x12\x1a\n" +
 	"\x16DELIVERY_STATUS_FAILED\x10\x03\x12 \n" +
-	"\x1cDELIVERY_STATUS_ACKNOWLEDGED\x10\x04B\xe8\x01\n" +
-	"\x1bcom.gcommon.v1.notificationB\x13DeliveryStatusProtoP\x01Z.../../../../pkg/notification/pb;notificationpb\xa2\x02\x03GVN\xaa\x02\x17Gcommon.V1.Notification\xca\x02\x17Gcommon\\V1\\Notification\xe2\x02#Gcommon\\V1\\Notification\\GPBMetadata\xea\x02\x19Gcommon::V1::Notification\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
+	"\x1cDELIVERY_STATUS_ACKNOWLEDGED\x10\x04B\xeb\x01\n" +
+	"\x1bcom.gcommon.v1.notificationB\x13DeliveryStatusProtoP\x01Z1../../../../pkg/notification/proto;notificationpb\xa2\x02\x03GVN\xaa\x02\x17Gcommon.V1.Notification\xca\x02\x17Gcommon\\V1\\Notification\xe2\x02#Gcommon\\V1\\Notification\\GPBMetadata\xea\x02\x19Gcommon::V1::Notification\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
 
 var file_pkg_notification_proto_enums_delivery_status_proto_enumTypes = make([]protoimpl.EnumInfo, 1)
 var file_pkg_notification_proto_enums_delivery_status_proto_goTypes = []any{

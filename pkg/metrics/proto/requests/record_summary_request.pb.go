@@ -9,7 +9,7 @@
 package metricspb
 
 import (
-	pb "../../../../pkg/common/pb"
+	proto "../../../../pkg/common/proto"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
@@ -34,7 +34,7 @@ type RecordSummaryRequest struct {
 	// Optional timestamp for the observation
 	ObservedAt *timestamppb.Timestamp `protobuf:"bytes,2,opt,name=observed_at,json=observedAt" json:"observed_at,omitempty"`
 	// Request metadata
-	Metadata      *pb.RequestMetadata `protobuf:"bytes,3,opt,name=metadata" json:"metadata,omitempty"`
+	Metadata      *proto.RequestMetadata `protobuf:"bytes,3,opt,name=metadata" json:"metadata,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -78,7 +78,7 @@ func (x *RecordSummaryRequest) GetObservedAt() *timestamppb.Timestamp {
 	return nil
 }
 
-func (x *RecordSummaryRequest) GetMetadata() *pb.RequestMetadata {
+func (x *RecordSummaryRequest) GetMetadata() *proto.RequestMetadata {
 	if x != nil {
 		return x.Metadata
 	}
@@ -93,7 +93,7 @@ func (x *RecordSummaryRequest) SetObservedAt(v *timestamppb.Timestamp) {
 	x.ObservedAt = v
 }
 
-func (x *RecordSummaryRequest) SetMetadata(v *pb.RequestMetadata) {
+func (x *RecordSummaryRequest) SetMetadata(v *proto.RequestMetadata) {
 	x.Metadata = v
 }
 
@@ -138,7 +138,7 @@ type RecordSummaryRequest_builder struct {
 	// Optional timestamp for the observation
 	ObservedAt *timestamppb.Timestamp
 	// Request metadata
-	Metadata *pb.RequestMetadata
+	Metadata *proto.RequestMetadata
 }
 
 func (b0 RecordSummaryRequest_builder) Build() *RecordSummaryRequest {
@@ -160,15 +160,15 @@ const file_pkg_metrics_proto_requests_record_summary_request_proto_rawDesc = "" 
 	"\x06metric\x18\x01 \x01(\v2!.gcommon.v1.metrics.SummaryMetricR\x06metric\x12;\n" +
 	"\vobserved_at\x18\x02 \x01(\v2\x1a.google.protobuf.TimestampR\n" +
 	"observedAt\x12B\n" +
-	"\bmetadata\x18\x03 \x01(\v2\".gcommon.v1.common.RequestMetadataB\x02(\x01R\bmetadataB\xcb\x01\n" +
-	"\x16com.gcommon.v1.metricsB\x19RecordSummaryRequestProtoP\x01Z$../../../../pkg/metrics/pb;metricspb\xa2\x02\x03GVM\xaa\x02\x12Gcommon.V1.Metrics\xca\x02\x12Gcommon\\V1\\Metrics\xe2\x02\x1eGcommon\\V1\\Metrics\\GPBMetadata\xea\x02\x14Gcommon::V1::Metrics\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
+	"\bmetadata\x18\x03 \x01(\v2\".gcommon.v1.common.RequestMetadataB\x02(\x01R\bmetadataB\xce\x01\n" +
+	"\x16com.gcommon.v1.metricsB\x19RecordSummaryRequestProtoP\x01Z'../../../../pkg/metrics/proto;metricspb\xa2\x02\x03GVM\xaa\x02\x12Gcommon.V1.Metrics\xca\x02\x12Gcommon\\V1\\Metrics\xe2\x02\x1eGcommon\\V1\\Metrics\\GPBMetadata\xea\x02\x14Gcommon::V1::Metrics\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
 
 var file_pkg_metrics_proto_requests_record_summary_request_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_pkg_metrics_proto_requests_record_summary_request_proto_goTypes = []any{
 	(*RecordSummaryRequest)(nil),  // 0: gcommon.v1.metrics.RecordSummaryRequest
 	(*SummaryMetric)(nil),         // 1: gcommon.v1.metrics.SummaryMetric
 	(*timestamppb.Timestamp)(nil), // 2: google.protobuf.Timestamp
-	(*pb.RequestMetadata)(nil),    // 3: gcommon.v1.common.RequestMetadata
+	(*proto.RequestMetadata)(nil), // 3: gcommon.v1.common.RequestMetadata
 }
 var file_pkg_metrics_proto_requests_record_summary_request_proto_depIdxs = []int32{
 	1, // 0: gcommon.v1.metrics.RecordSummaryRequest.metric:type_name -> gcommon.v1.metrics.SummaryMetric

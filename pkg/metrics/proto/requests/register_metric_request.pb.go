@@ -9,7 +9,7 @@
 package metricspb
 
 import (
-	pb "../../../../pkg/common/pb"
+	proto "../../../../pkg/common/proto"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
@@ -30,7 +30,7 @@ const (
 type RegisterMetricRequest struct {
 	state protoimpl.MessageState `protogen:"hybrid.v1"`
 	// Standard request metadata (tracing, auth, etc.)
-	Metadata *pb.RequestMetadata `protobuf:"bytes,1,opt,name=metadata" json:"metadata,omitempty"`
+	Metadata *proto.RequestMetadata `protobuf:"bytes,1,opt,name=metadata" json:"metadata,omitempty"`
 	// Metric definition to register
 	Definition *MetricDefinition `protobuf:"bytes,2,opt,name=definition" json:"definition,omitempty"`
 	// Optional provider ID to register with
@@ -68,7 +68,7 @@ func (x *RegisterMetricRequest) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-func (x *RegisterMetricRequest) GetMetadata() *pb.RequestMetadata {
+func (x *RegisterMetricRequest) GetMetadata() *proto.RequestMetadata {
 	if x != nil {
 		return x.Metadata
 	}
@@ -103,7 +103,7 @@ func (x *RegisterMetricRequest) GetOptions() *RegistrationOptions {
 	return nil
 }
 
-func (x *RegisterMetricRequest) SetMetadata(v *pb.RequestMetadata) {
+func (x *RegisterMetricRequest) SetMetadata(v *proto.RequestMetadata) {
 	x.Metadata = v
 }
 
@@ -182,7 +182,7 @@ type RegisterMetricRequest_builder struct {
 	_ [0]func() // Prevents comparability and use of unkeyed literals for the builder.
 
 	// Standard request metadata (tracing, auth, etc.)
-	Metadata *pb.RequestMetadata
+	Metadata *proto.RequestMetadata
 	// Metric definition to register
 	Definition *MetricDefinition
 	// Optional provider ID to register with
@@ -1696,8 +1696,8 @@ const file_pkg_metrics_proto_requests_register_metric_request_proto_rawDesc = ""
 	"\x13validate_definition\x18\x01 \x01(\bR\x12validateDefinition\x12\x17\n" +
 	"\adry_run\x18\x02 \x01(\bR\x06dryRun\x12%\n" +
 	"\x0ecreate_indices\x18\x03 \x01(\bR\rcreateIndices\x12'\n" +
-	"\x0fenable_alerting\x18\x04 \x01(\bR\x0eenableAlertingB\xcc\x01\n" +
-	"\x16com.gcommon.v1.metricsB\x1aRegisterMetricRequestProtoP\x01Z$../../../../pkg/metrics/pb;metricspb\xa2\x02\x03GVM\xaa\x02\x12Gcommon.V1.Metrics\xca\x02\x12Gcommon\\V1\\Metrics\xe2\x02\x1eGcommon\\V1\\Metrics\\GPBMetadata\xea\x02\x14Gcommon::V1::Metrics\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
+	"\x0fenable_alerting\x18\x04 \x01(\bR\x0eenableAlertingB\xcf\x01\n" +
+	"\x16com.gcommon.v1.metricsB\x1aRegisterMetricRequestProtoP\x01Z'../../../../pkg/metrics/proto;metricspb\xa2\x02\x03GVM\xaa\x02\x12Gcommon.V1.Metrics\xca\x02\x12Gcommon\\V1\\Metrics\xe2\x02\x1eGcommon\\V1\\Metrics\\GPBMetadata\xea\x02\x14Gcommon::V1::Metrics\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
 
 var file_pkg_metrics_proto_requests_register_metric_request_proto_msgTypes = make([]protoimpl.MessageInfo, 11)
 var file_pkg_metrics_proto_requests_register_metric_request_proto_goTypes = []any{
@@ -1712,7 +1712,7 @@ var file_pkg_metrics_proto_requests_register_metric_request_proto_goTypes = []an
 	(*ValidationRules)(nil),       // 8: gcommon.v1.metrics.ValidationRules
 	(*RegistrationOptions)(nil),   // 9: gcommon.v1.metrics.RegistrationOptions
 	nil,                           // 10: gcommon.v1.metrics.MetricDefinition.TagsEntry
-	(*pb.RequestMetadata)(nil),    // 11: gcommon.v1.common.RequestMetadata
+	(*proto.RequestMetadata)(nil), // 11: gcommon.v1.common.RequestMetadata
 	(MetricType)(0),               // 12: gcommon.v1.metrics.MetricType
 	(*RetentionPolicyConfig)(nil), // 13: gcommon.v1.metrics.RetentionPolicyConfig
 	(*ExportConfig)(nil),          // 14: gcommon.v1.metrics.ExportConfig

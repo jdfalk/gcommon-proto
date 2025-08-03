@@ -40,8 +40,8 @@ const file_pkg_organization_proto_services_organization_service_proto_rawDesc = 
 	"\fUpdateMember\x12,.gcommon.v1.organization.UpdateMemberRequest\x1a-.gcommon.v1.organization.UpdateMemberResponse\x12h\n" +
 	"\vListMembers\x12+.gcommon.v1.organization.ListMembersRequest\x1a,.gcommon.v1.organization.ListMembersResponse\x12\x8c\x01\n" +
 	"\x17GetOrganizationSettings\x127.gcommon.v1.organization.GetOrganizationSettingsRequest\x1a8.gcommon.v1.organization.GetOrganizationSettingsResponse\x12\x95\x01\n" +
-	"\x1aUpdateOrganizationSettings\x12:.gcommon.v1.organization.UpdateOrganizationSettingsRequest\x1a;.gcommon.v1.organization.UpdateOrganizationSettingsResponseB\xed\x01\n" +
-	"\x1bcom.gcommon.v1.organizationB\x18OrganizationServiceProtoP\x01Z.../../../../pkg/organization/pb;organizationpb\xa2\x02\x03GVO\xaa\x02\x17Gcommon.V1.Organization\xca\x02\x17Gcommon\\V1\\Organization\xe2\x02#Gcommon\\V1\\Organization\\GPBMetadata\xea\x02\x19Gcommon::V1::Organization\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
+	"\x1aUpdateOrganizationSettings\x12:.gcommon.v1.organization.UpdateOrganizationSettingsRequest\x1a;.gcommon.v1.organization.UpdateOrganizationSettingsResponseB\xf0\x01\n" +
+	"\x1bcom.gcommon.v1.organizationB\x18OrganizationServiceProtoP\x01Z1../../../../pkg/organization/proto;organizationpb\xa2\x02\x03GVO\xaa\x02\x17Gcommon.V1.Organization\xca\x02\x17Gcommon\\V1\\Organization\xe2\x02#Gcommon\\V1\\Organization\\GPBMetadata\xea\x02\x19Gcommon::V1::Organization\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
 
 var file_pkg_organization_proto_services_organization_service_proto_goTypes = []any{
 	(*CreateOrganizationRequest)(nil),          // 0: gcommon.v1.organization.CreateOrganizationRequest

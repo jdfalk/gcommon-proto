@@ -9,7 +9,7 @@
 package configpb
 
 import (
-	pb "../../../../pkg/common/pb"
+	proto "../../../../pkg/common/proto"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
@@ -32,7 +32,7 @@ type GetConfigHistoryRequest struct {
 	xxx_hidden_Key         *string                `protobuf:"bytes,1,opt,name=key"`
 	xxx_hidden_Namespace   *string                `protobuf:"bytes,2,opt,name=namespace"`
 	xxx_hidden_Since       *timestamppb.Timestamp `protobuf:"bytes,3,opt,name=since"`
-	xxx_hidden_Metadata    *pb.RequestMetadata    `protobuf:"bytes,4,opt,name=metadata"`
+	xxx_hidden_Metadata    *proto.RequestMetadata `protobuf:"bytes,4,opt,name=metadata"`
 	XXX_raceDetectHookData protoimpl.RaceDetectHookData
 	XXX_presence           [1]uint32
 	unknownFields          protoimpl.UnknownFields
@@ -91,7 +91,7 @@ func (x *GetConfigHistoryRequest) GetSince() *timestamppb.Timestamp {
 	return nil
 }
 
-func (x *GetConfigHistoryRequest) GetMetadata() *pb.RequestMetadata {
+func (x *GetConfigHistoryRequest) GetMetadata() *proto.RequestMetadata {
 	if x != nil {
 		return x.xxx_hidden_Metadata
 	}
@@ -112,7 +112,7 @@ func (x *GetConfigHistoryRequest) SetSince(v *timestamppb.Timestamp) {
 	x.xxx_hidden_Since = v
 }
 
-func (x *GetConfigHistoryRequest) SetMetadata(v *pb.RequestMetadata) {
+func (x *GetConfigHistoryRequest) SetMetadata(v *proto.RequestMetadata) {
 	x.xxx_hidden_Metadata = v
 }
 
@@ -172,7 +172,7 @@ type GetConfigHistoryRequest_builder struct {
 	// Only return changes after this time
 	Since *timestamppb.Timestamp
 	// Request metadata
-	Metadata *pb.RequestMetadata
+	Metadata *proto.RequestMetadata
 }
 
 func (b0 GetConfigHistoryRequest_builder) Build() *GetConfigHistoryRequest {
@@ -201,14 +201,14 @@ const file_pkg_config_proto_requests_get_config_history_request_proto_rawDesc = 
 	"\x03key\x18\x01 \x01(\tR\x03key\x12\x1c\n" +
 	"\tnamespace\x18\x02 \x01(\tR\tnamespace\x120\n" +
 	"\x05since\x18\x03 \x01(\v2\x1a.google.protobuf.TimestampR\x05since\x12>\n" +
-	"\bmetadata\x18\x04 \x01(\v2\".gcommon.v1.common.RequestMetadataR\bmetadataB\xc7\x01\n" +
-	"\x15com.gcommon.v1.configB\x1cGetConfigHistoryRequestProtoP\x01Z\"../../../../pkg/config/pb;configpb\xa2\x02\x03GVC\xaa\x02\x11Gcommon.V1.Config\xca\x02\x11Gcommon\\V1\\Config\xe2\x02\x1dGcommon\\V1\\Config\\GPBMetadata\xea\x02\x13Gcommon::V1::Config\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
+	"\bmetadata\x18\x04 \x01(\v2\".gcommon.v1.common.RequestMetadataR\bmetadataB\xca\x01\n" +
+	"\x15com.gcommon.v1.configB\x1cGetConfigHistoryRequestProtoP\x01Z%../../../../pkg/config/proto;configpb\xa2\x02\x03GVC\xaa\x02\x11Gcommon.V1.Config\xca\x02\x11Gcommon\\V1\\Config\xe2\x02\x1dGcommon\\V1\\Config\\GPBMetadata\xea\x02\x13Gcommon::V1::Config\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
 
 var file_pkg_config_proto_requests_get_config_history_request_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_pkg_config_proto_requests_get_config_history_request_proto_goTypes = []any{
 	(*GetConfigHistoryRequest)(nil), // 0: gcommon.v1.config.GetConfigHistoryRequest
 	(*timestamppb.Timestamp)(nil),   // 1: google.protobuf.Timestamp
-	(*pb.RequestMetadata)(nil),      // 2: gcommon.v1.common.RequestMetadata
+	(*proto.RequestMetadata)(nil),   // 2: gcommon.v1.common.RequestMetadata
 }
 var file_pkg_config_proto_requests_get_config_history_request_proto_depIdxs = []int32{
 	1, // 0: gcommon.v1.config.GetConfigHistoryRequest.since:type_name -> google.protobuf.Timestamp

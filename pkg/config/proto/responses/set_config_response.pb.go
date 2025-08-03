@@ -9,7 +9,7 @@
 package configpb
 
 import (
-	pb "../../../../pkg/common/pb"
+	proto "../../../../pkg/common/proto"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
@@ -33,7 +33,7 @@ type SetConfigResponse struct {
 	// Previous value if it existed
 	PreviousEntry *ConfigEntry `protobuf:"bytes,2,opt,name=previous_entry,json=previousEntry" json:"previous_entry,omitempty"`
 	// Error information
-	Error         *pb.Error `protobuf:"bytes,3,opt,name=error" json:"error,omitempty"`
+	Error         *proto.Error `protobuf:"bytes,3,opt,name=error" json:"error,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -77,7 +77,7 @@ func (x *SetConfigResponse) GetPreviousEntry() *ConfigEntry {
 	return nil
 }
 
-func (x *SetConfigResponse) GetError() *pb.Error {
+func (x *SetConfigResponse) GetError() *proto.Error {
 	if x != nil {
 		return x.Error
 	}
@@ -92,7 +92,7 @@ func (x *SetConfigResponse) SetPreviousEntry(v *ConfigEntry) {
 	x.PreviousEntry = v
 }
 
-func (x *SetConfigResponse) SetError(v *pb.Error) {
+func (x *SetConfigResponse) SetError(v *proto.Error) {
 	x.Error = v
 }
 
@@ -137,7 +137,7 @@ type SetConfigResponse_builder struct {
 	// Previous value if it existed
 	PreviousEntry *ConfigEntry
 	// Error information
-	Error *pb.Error
+	Error *proto.Error
 }
 
 func (b0 SetConfigResponse_builder) Build() *SetConfigResponse {
@@ -158,14 +158,14 @@ const file_pkg_config_proto_responses_set_config_response_proto_rawDesc = "" +
 	"\x11SetConfigResponse\x12\x18\n" +
 	"\asuccess\x18\x01 \x01(\bR\asuccess\x12E\n" +
 	"\x0eprevious_entry\x18\x02 \x01(\v2\x1e.gcommon.v1.config.ConfigEntryR\rpreviousEntry\x12.\n" +
-	"\x05error\x18\x03 \x01(\v2\x18.gcommon.v1.common.ErrorR\x05errorB\xc1\x01\n" +
-	"\x15com.gcommon.v1.configB\x16SetConfigResponseProtoP\x01Z\"../../../../pkg/config/pb;configpb\xa2\x02\x03GVC\xaa\x02\x11Gcommon.V1.Config\xca\x02\x11Gcommon\\V1\\Config\xe2\x02\x1dGcommon\\V1\\Config\\GPBMetadata\xea\x02\x13Gcommon::V1::Config\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
+	"\x05error\x18\x03 \x01(\v2\x18.gcommon.v1.common.ErrorR\x05errorB\xc4\x01\n" +
+	"\x15com.gcommon.v1.configB\x16SetConfigResponseProtoP\x01Z%../../../../pkg/config/proto;configpb\xa2\x02\x03GVC\xaa\x02\x11Gcommon.V1.Config\xca\x02\x11Gcommon\\V1\\Config\xe2\x02\x1dGcommon\\V1\\Config\\GPBMetadata\xea\x02\x13Gcommon::V1::Config\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
 
 var file_pkg_config_proto_responses_set_config_response_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_pkg_config_proto_responses_set_config_response_proto_goTypes = []any{
 	(*SetConfigResponse)(nil), // 0: gcommon.v1.config.SetConfigResponse
 	(*ConfigEntry)(nil),       // 1: gcommon.v1.config.ConfigEntry
-	(*pb.Error)(nil),          // 2: gcommon.v1.common.Error
+	(*proto.Error)(nil),       // 2: gcommon.v1.common.Error
 }
 var file_pkg_config_proto_responses_set_config_response_proto_depIdxs = []int32{
 	1, // 0: gcommon.v1.config.SetConfigResponse.previous_entry:type_name -> gcommon.v1.config.ConfigEntry

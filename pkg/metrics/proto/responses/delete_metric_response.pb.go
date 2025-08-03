@@ -9,7 +9,7 @@
 package metricspb
 
 import (
-	pb "../../../../pkg/common/pb"
+	proto "../../../../pkg/common/proto"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
@@ -31,7 +31,7 @@ type DeleteMetricResponse struct {
 	// Whether the delete succeeded
 	Success *bool `protobuf:"varint,1,opt,name=success" json:"success,omitempty"`
 	// Error details if the operation failed
-	Error         *pb.Error `protobuf:"bytes,2,opt,name=error" json:"error,omitempty"`
+	Error         *proto.Error `protobuf:"bytes,2,opt,name=error" json:"error,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -68,7 +68,7 @@ func (x *DeleteMetricResponse) GetSuccess() bool {
 	return false
 }
 
-func (x *DeleteMetricResponse) GetError() *pb.Error {
+func (x *DeleteMetricResponse) GetError() *proto.Error {
 	if x != nil {
 		return x.Error
 	}
@@ -79,7 +79,7 @@ func (x *DeleteMetricResponse) SetSuccess(v bool) {
 	x.Success = &v
 }
 
-func (x *DeleteMetricResponse) SetError(v *pb.Error) {
+func (x *DeleteMetricResponse) SetError(v *proto.Error) {
 	x.Error = v
 }
 
@@ -111,7 +111,7 @@ type DeleteMetricResponse_builder struct {
 	// Whether the delete succeeded
 	Success *bool
 	// Error details if the operation failed
-	Error *pb.Error
+	Error *proto.Error
 }
 
 func (b0 DeleteMetricResponse_builder) Build() *DeleteMetricResponse {
@@ -130,13 +130,13 @@ const file_pkg_metrics_proto_responses_delete_metric_response_proto_rawDesc = ""
 	"8pkg/metrics/proto/responses/delete_metric_response.proto\x12\x12gcommon.v1.metrics\x1a!google/protobuf/go_features.proto\x1a%pkg/common/proto/messages/error.proto\"`\n" +
 	"\x14DeleteMetricResponse\x12\x18\n" +
 	"\asuccess\x18\x01 \x01(\bR\asuccess\x12.\n" +
-	"\x05error\x18\x02 \x01(\v2\x18.gcommon.v1.common.ErrorR\x05errorB\xcb\x01\n" +
-	"\x16com.gcommon.v1.metricsB\x19DeleteMetricResponseProtoP\x01Z$../../../../pkg/metrics/pb;metricspb\xa2\x02\x03GVM\xaa\x02\x12Gcommon.V1.Metrics\xca\x02\x12Gcommon\\V1\\Metrics\xe2\x02\x1eGcommon\\V1\\Metrics\\GPBMetadata\xea\x02\x14Gcommon::V1::Metrics\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
+	"\x05error\x18\x02 \x01(\v2\x18.gcommon.v1.common.ErrorR\x05errorB\xce\x01\n" +
+	"\x16com.gcommon.v1.metricsB\x19DeleteMetricResponseProtoP\x01Z'../../../../pkg/metrics/proto;metricspb\xa2\x02\x03GVM\xaa\x02\x12Gcommon.V1.Metrics\xca\x02\x12Gcommon\\V1\\Metrics\xe2\x02\x1eGcommon\\V1\\Metrics\\GPBMetadata\xea\x02\x14Gcommon::V1::Metrics\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
 
 var file_pkg_metrics_proto_responses_delete_metric_response_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_pkg_metrics_proto_responses_delete_metric_response_proto_goTypes = []any{
 	(*DeleteMetricResponse)(nil), // 0: gcommon.v1.metrics.DeleteMetricResponse
-	(*pb.Error)(nil),             // 1: gcommon.v1.common.Error
+	(*proto.Error)(nil),          // 1: gcommon.v1.common.Error
 }
 var file_pkg_metrics_proto_responses_delete_metric_response_proto_depIdxs = []int32{
 	1, // 0: gcommon.v1.metrics.DeleteMetricResponse.error:type_name -> gcommon.v1.common.Error

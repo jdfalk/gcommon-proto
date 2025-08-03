@@ -9,7 +9,7 @@
 package healthpb
 
 import (
-	pb "../../../../pkg/common/pb"
+	proto "../../../../pkg/common/proto"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
@@ -35,7 +35,7 @@ const (
 type GetServiceHealthRequest struct {
 	state                  protoimpl.MessageState `protogen:"opaque.v1"`
 	xxx_hidden_Service     *string                `protobuf:"bytes,1,opt,name=service"`
-	xxx_hidden_Metadata    *pb.RequestMetadata    `protobuf:"bytes,2,opt,name=metadata"`
+	xxx_hidden_Metadata    *proto.RequestMetadata `protobuf:"bytes,2,opt,name=metadata"`
 	XXX_raceDetectHookData protoimpl.RaceDetectHookData
 	XXX_presence           [1]uint32
 	unknownFields          protoimpl.UnknownFields
@@ -77,7 +77,7 @@ func (x *GetServiceHealthRequest) GetService() string {
 	return ""
 }
 
-func (x *GetServiceHealthRequest) GetMetadata() *pb.RequestMetadata {
+func (x *GetServiceHealthRequest) GetMetadata() *proto.RequestMetadata {
 	if x != nil {
 		return x.xxx_hidden_Metadata
 	}
@@ -89,7 +89,7 @@ func (x *GetServiceHealthRequest) SetService(v string) {
 	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 0, 2)
 }
 
-func (x *GetServiceHealthRequest) SetMetadata(v *pb.RequestMetadata) {
+func (x *GetServiceHealthRequest) SetMetadata(v *proto.RequestMetadata) {
 	x.xxx_hidden_Metadata = v
 }
 
@@ -122,7 +122,7 @@ type GetServiceHealthRequest_builder struct {
 	// Service name
 	Service *string
 	// Request metadata
-	Metadata *pb.RequestMetadata
+	Metadata *proto.RequestMetadata
 }
 
 func (b0 GetServiceHealthRequest_builder) Build() *GetServiceHealthRequest {
@@ -144,13 +144,13 @@ const file_pkg_health_proto_requests_get_service_health_request_proto_rawDesc = 
 	":pkg/health/proto/requests/get_service_health_request.proto\x12\x11gcommon.v1.health\x1a0pkg/common/proto/messages/request_metadata.proto\x1a!google/protobuf/go_features.proto\"s\n" +
 	"\x17GetServiceHealthRequest\x12\x18\n" +
 	"\aservice\x18\x01 \x01(\tR\aservice\x12>\n" +
-	"\bmetadata\x18\x02 \x01(\v2\".gcommon.v1.common.RequestMetadataR\bmetadataB\xc7\x01\n" +
-	"\x15com.gcommon.v1.healthB\x1cGetServiceHealthRequestProtoP\x01Z\"../../../../pkg/health/pb;healthpb\xa2\x02\x03GVH\xaa\x02\x11Gcommon.V1.Health\xca\x02\x11Gcommon\\V1\\Health\xe2\x02\x1dGcommon\\V1\\Health\\GPBMetadata\xea\x02\x13Gcommon::V1::Health\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
+	"\bmetadata\x18\x02 \x01(\v2\".gcommon.v1.common.RequestMetadataR\bmetadataB\xca\x01\n" +
+	"\x15com.gcommon.v1.healthB\x1cGetServiceHealthRequestProtoP\x01Z%../../../../pkg/health/proto;healthpb\xa2\x02\x03GVH\xaa\x02\x11Gcommon.V1.Health\xca\x02\x11Gcommon\\V1\\Health\xe2\x02\x1dGcommon\\V1\\Health\\GPBMetadata\xea\x02\x13Gcommon::V1::Health\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
 
 var file_pkg_health_proto_requests_get_service_health_request_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_pkg_health_proto_requests_get_service_health_request_proto_goTypes = []any{
 	(*GetServiceHealthRequest)(nil), // 0: gcommon.v1.health.GetServiceHealthRequest
-	(*pb.RequestMetadata)(nil),      // 1: gcommon.v1.common.RequestMetadata
+	(*proto.RequestMetadata)(nil),   // 1: gcommon.v1.common.RequestMetadata
 }
 var file_pkg_health_proto_requests_get_service_health_request_proto_depIdxs = []int32{
 	1, // 0: gcommon.v1.health.GetServiceHealthRequest.metadata:type_name -> gcommon.v1.common.RequestMetadata

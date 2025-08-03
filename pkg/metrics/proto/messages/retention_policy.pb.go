@@ -130,8 +130,8 @@ const file_pkg_metrics_proto_messages_retention_policy_proto_rawDesc = "" +
 	"1pkg/metrics/proto/messages/retention_policy.proto\x12\x12gcommon.v1.metrics\x1a!google/protobuf/go_features.proto\x1a>pkg/metrics/proto/enums/retention_policy_retentionpolicy.proto\x1aDpkg/metrics/proto/types/retention_policy_retentionpolicyconfig.proto\"\x95\x01\n" +
 	"\x13RetentionPolicyInfo\x12;\n" +
 	"\x06policy\x18\x01 \x01(\x0e2#.gcommon.v1.metrics.RetentionPolicyR\x06policy\x12A\n" +
-	"\x06config\x18\x02 \x01(\v2).gcommon.v1.metrics.RetentionPolicyConfigR\x06configB\xc6\x01\n" +
-	"\x16com.gcommon.v1.metricsB\x14RetentionPolicyProtoP\x01Z$../../../../pkg/metrics/pb;metricspb\xa2\x02\x03GVM\xaa\x02\x12Gcommon.V1.Metrics\xca\x02\x12Gcommon\\V1\\Metrics\xe2\x02\x1eGcommon\\V1\\Metrics\\GPBMetadata\xea\x02\x14Gcommon::V1::Metrics\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
+	"\x06config\x18\x02 \x01(\v2).gcommon.v1.metrics.RetentionPolicyConfigR\x06configB\xc9\x01\n" +
+	"\x16com.gcommon.v1.metricsB\x14RetentionPolicyProtoP\x01Z'../../../../pkg/metrics/proto;metricspb\xa2\x02\x03GVM\xaa\x02\x12Gcommon.V1.Metrics\xca\x02\x12Gcommon\\V1\\Metrics\xe2\x02\x1eGcommon\\V1\\Metrics\\GPBMetadata\xea\x02\x14Gcommon::V1::Metrics\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
 
 var file_pkg_metrics_proto_messages_retention_policy_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_pkg_metrics_proto_messages_retention_policy_proto_goTypes = []any{

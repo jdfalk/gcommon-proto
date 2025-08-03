@@ -9,7 +9,7 @@
 package queuepb
 
 import (
-	pb "../../../../pkg/common/pb"
+	proto "../../../../pkg/common/proto"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
@@ -26,7 +26,7 @@ const (
 
 type PullRequest struct {
 	state                               protoimpl.MessageState `protogen:"opaque.v1"`
-	xxx_hidden_Metadata                 *pb.RequestMetadata    `protobuf:"bytes,1,opt,name=metadata"`
+	xxx_hidden_Metadata                 *proto.RequestMetadata `protobuf:"bytes,1,opt,name=metadata"`
 	xxx_hidden_QueueName                *string                `protobuf:"bytes,2,opt,name=queue_name,json=queueName"`
 	xxx_hidden_VisibilityTimeoutSeconds int32                  `protobuf:"varint,3,opt,name=visibility_timeout_seconds,json=visibilityTimeoutSeconds"`
 	XXX_raceDetectHookData              protoimpl.RaceDetectHookData
@@ -60,7 +60,7 @@ func (x *PullRequest) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-func (x *PullRequest) GetMetadata() *pb.RequestMetadata {
+func (x *PullRequest) GetMetadata() *proto.RequestMetadata {
 	if x != nil {
 		return x.xxx_hidden_Metadata
 	}
@@ -84,7 +84,7 @@ func (x *PullRequest) GetVisibilityTimeoutSeconds() int32 {
 	return 0
 }
 
-func (x *PullRequest) SetMetadata(v *pb.RequestMetadata) {
+func (x *PullRequest) SetMetadata(v *proto.RequestMetadata) {
 	x.xxx_hidden_Metadata = v
 }
 
@@ -137,7 +137,7 @@ type PullRequest_builder struct {
 	_ [0]func() // Prevents comparability and use of unkeyed literals for the builder.
 
 	// Request metadata for tracing and authentication
-	Metadata *pb.RequestMetadata
+	Metadata *proto.RequestMetadata
 	// Queue to pull from
 	QueueName *string
 	// Optional visibility timeout for the pulled message
@@ -169,13 +169,13 @@ const file_pkg_queue_proto_requests_pull_request_proto_rawDesc = "" +
 	"\bmetadata\x18\x01 \x01(\v2\".gcommon.v1.common.RequestMetadataR\bmetadata\x12\x1d\n" +
 	"\n" +
 	"queue_name\x18\x02 \x01(\tR\tqueueName\x12<\n" +
-	"\x1avisibility_timeout_seconds\x18\x03 \x01(\x05R\x18visibilityTimeoutSecondsB\xb4\x01\n" +
-	"\x14com.gcommon.v1.queueB\x10PullRequestProtoP\x01Z ../../../../pkg/queue/pb;queuepb\xa2\x02\x03GVQ\xaa\x02\x10Gcommon.V1.Queue\xca\x02\x10Gcommon\\V1\\Queue\xe2\x02\x1cGcommon\\V1\\Queue\\GPBMetadata\xea\x02\x12Gcommon::V1::Queue\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
+	"\x1avisibility_timeout_seconds\x18\x03 \x01(\x05R\x18visibilityTimeoutSecondsB\xb7\x01\n" +
+	"\x14com.gcommon.v1.queueB\x10PullRequestProtoP\x01Z#../../../../pkg/queue/proto;queuepb\xa2\x02\x03GVQ\xaa\x02\x10Gcommon.V1.Queue\xca\x02\x10Gcommon\\V1\\Queue\xe2\x02\x1cGcommon\\V1\\Queue\\GPBMetadata\xea\x02\x12Gcommon::V1::Queue\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
 
 var file_pkg_queue_proto_requests_pull_request_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_pkg_queue_proto_requests_pull_request_proto_goTypes = []any{
-	(*PullRequest)(nil),        // 0: gcommon.v1.queue.PullRequest
-	(*pb.RequestMetadata)(nil), // 1: gcommon.v1.common.RequestMetadata
+	(*PullRequest)(nil),           // 0: gcommon.v1.queue.PullRequest
+	(*proto.RequestMetadata)(nil), // 1: gcommon.v1.common.RequestMetadata
 }
 var file_pkg_queue_proto_requests_pull_request_proto_depIdxs = []int32{
 	1, // 0: gcommon.v1.queue.PullRequest.metadata:type_name -> gcommon.v1.common.RequestMetadata

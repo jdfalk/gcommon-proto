@@ -9,7 +9,7 @@
 package configpb
 
 import (
-	pb "../../../../pkg/common/pb"
+	proto "../../../../pkg/common/proto"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
@@ -33,7 +33,7 @@ type DecryptConfigRequest struct {
 	// Optional namespace/environment
 	Namespace *string `protobuf:"bytes,2,opt,name=namespace" json:"namespace,omitempty"`
 	// Request metadata
-	Metadata      *pb.RequestMetadata `protobuf:"bytes,3,opt,name=metadata" json:"metadata,omitempty"`
+	Metadata      *proto.RequestMetadata `protobuf:"bytes,3,opt,name=metadata" json:"metadata,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -77,7 +77,7 @@ func (x *DecryptConfigRequest) GetNamespace() string {
 	return ""
 }
 
-func (x *DecryptConfigRequest) GetMetadata() *pb.RequestMetadata {
+func (x *DecryptConfigRequest) GetMetadata() *proto.RequestMetadata {
 	if x != nil {
 		return x.Metadata
 	}
@@ -92,7 +92,7 @@ func (x *DecryptConfigRequest) SetNamespace(v string) {
 	x.Namespace = &v
 }
 
-func (x *DecryptConfigRequest) SetMetadata(v *pb.RequestMetadata) {
+func (x *DecryptConfigRequest) SetMetadata(v *proto.RequestMetadata) {
 	x.Metadata = v
 }
 
@@ -137,7 +137,7 @@ type DecryptConfigRequest_builder struct {
 	// Optional namespace/environment
 	Namespace *string
 	// Request metadata
-	Metadata *pb.RequestMetadata
+	Metadata *proto.RequestMetadata
 }
 
 func (b0 DecryptConfigRequest_builder) Build() *DecryptConfigRequest {
@@ -158,13 +158,13 @@ const file_pkg_config_proto_requests_decrypt_config_request_proto_rawDesc = "" +
 	"\x14DecryptConfigRequest\x12\x10\n" +
 	"\x03key\x18\x01 \x01(\tR\x03key\x12\x1c\n" +
 	"\tnamespace\x18\x02 \x01(\tR\tnamespace\x12>\n" +
-	"\bmetadata\x18\x03 \x01(\v2\".gcommon.v1.common.RequestMetadataR\bmetadataB\xc4\x01\n" +
-	"\x15com.gcommon.v1.configB\x19DecryptConfigRequestProtoP\x01Z\"../../../../pkg/config/pb;configpb\xa2\x02\x03GVC\xaa\x02\x11Gcommon.V1.Config\xca\x02\x11Gcommon\\V1\\Config\xe2\x02\x1dGcommon\\V1\\Config\\GPBMetadata\xea\x02\x13Gcommon::V1::Config\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
+	"\bmetadata\x18\x03 \x01(\v2\".gcommon.v1.common.RequestMetadataR\bmetadataB\xc7\x01\n" +
+	"\x15com.gcommon.v1.configB\x19DecryptConfigRequestProtoP\x01Z%../../../../pkg/config/proto;configpb\xa2\x02\x03GVC\xaa\x02\x11Gcommon.V1.Config\xca\x02\x11Gcommon\\V1\\Config\xe2\x02\x1dGcommon\\V1\\Config\\GPBMetadata\xea\x02\x13Gcommon::V1::Config\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
 
 var file_pkg_config_proto_requests_decrypt_config_request_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_pkg_config_proto_requests_decrypt_config_request_proto_goTypes = []any{
-	(*DecryptConfigRequest)(nil), // 0: gcommon.v1.config.DecryptConfigRequest
-	(*pb.RequestMetadata)(nil),   // 1: gcommon.v1.common.RequestMetadata
+	(*DecryptConfigRequest)(nil),  // 0: gcommon.v1.config.DecryptConfigRequest
+	(*proto.RequestMetadata)(nil), // 1: gcommon.v1.common.RequestMetadata
 }
 var file_pkg_config_proto_requests_decrypt_config_request_proto_depIdxs = []int32{
 	1, // 0: gcommon.v1.config.DecryptConfigRequest.metadata:type_name -> gcommon.v1.common.RequestMetadata

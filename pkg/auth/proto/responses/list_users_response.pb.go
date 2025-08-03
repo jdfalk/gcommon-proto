@@ -136,8 +136,8 @@ const file_pkg_auth_proto_responses_list_users_response_proto_rawDesc = "" +
 	"\vtotal_pages\x18\x05 \x01(\x05R\n" +
 	"totalPages\x12\"\n" +
 	"\rhas_next_page\x18\x06 \x01(\bR\vhasNextPage\x12*\n" +
-	"\x11has_previous_page\x18\a \x01(\bR\x0fhasPreviousPageB\xab\x01\n" +
-	"\x13com.gcommon.v1.authB\x16ListUsersResponseProtoP\x01Z\x1e../../../../pkg/auth/pb;authpb\xa2\x02\x03GVA\xaa\x02\x0fGcommon.V1.Auth\xca\x02\x0fGcommon\\V1\\Auth\xe2\x02\x1bGcommon\\V1\\Auth\\GPBMetadata\xea\x02\x11Gcommon::V1::Authb\beditionsp\xe8\a"
+	"\x11has_previous_page\x18\a \x01(\bR\x0fhasPreviousPageB\xae\x01\n" +
+	"\x13com.gcommon.v1.authB\x16ListUsersResponseProtoP\x01Z!../../../../pkg/auth/proto;authpb\xa2\x02\x03GVA\xaa\x02\x0fGcommon.V1.Auth\xca\x02\x0fGcommon\\V1\\Auth\xe2\x02\x1bGcommon\\V1\\Auth\\GPBMetadata\xea\x02\x11Gcommon::V1::Authb\beditionsp\xe8\a"
 
 var (
 	file_pkg_auth_proto_responses_list_users_response_proto_rawDescOnce sync.Once

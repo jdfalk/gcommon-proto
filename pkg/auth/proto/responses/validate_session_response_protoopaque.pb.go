@@ -9,7 +9,7 @@
 package authpb
 
 import (
-	pb "../../../../pkg/common/pb"
+	proto "../../../../pkg/common/proto"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
@@ -33,7 +33,7 @@ type ValidateSessionResponse struct {
 	xxx_hidden_Valid    bool                   `protobuf:"varint,1,opt,name=valid"`
 	xxx_hidden_Session  *Session               `protobuf:"bytes,2,opt,name=session"`
 	xxx_hidden_UserInfo *UserInfo              `protobuf:"bytes,3,opt,name=user_info,json=userInfo"`
-	xxx_hidden_Error    *pb.Error              `protobuf:"bytes,4,opt,name=error"`
+	xxx_hidden_Error    *proto.Error           `protobuf:"bytes,4,opt,name=error"`
 	// Deprecated: Do not use. This will be deleted in the near future.
 	XXX_lazyUnmarshalInfo  protoimpl.LazyUnmarshalInfo
 	XXX_raceDetectHookData protoimpl.RaceDetectHookData
@@ -102,13 +102,13 @@ func (x *ValidateSessionResponse) GetUserInfo() *UserInfo {
 	return nil
 }
 
-func (x *ValidateSessionResponse) GetError() *pb.Error {
+func (x *ValidateSessionResponse) GetError() *proto.Error {
 	if x != nil {
 		if protoimpl.X.Present(&(x.XXX_presence[0]), 3) {
 			if protoimpl.X.AtomicCheckPointerIsNil(&x.xxx_hidden_Error) {
 				protoimpl.X.UnmarshalField(x, 4)
 			}
-			var rv *pb.Error
+			var rv *proto.Error
 			protoimpl.X.AtomicLoadPointer(protoimpl.Pointer(&x.xxx_hidden_Error), protoimpl.Pointer(&rv))
 			return rv
 		}
@@ -139,7 +139,7 @@ func (x *ValidateSessionResponse) SetUserInfo(v *UserInfo) {
 	}
 }
 
-func (x *ValidateSessionResponse) SetError(v *pb.Error) {
+func (x *ValidateSessionResponse) SetError(v *proto.Error) {
 	protoimpl.X.AtomicSetPointer(&x.xxx_hidden_Error, v)
 	if v == nil {
 		protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 3)
@@ -193,7 +193,7 @@ func (x *ValidateSessionResponse) ClearUserInfo() {
 
 func (x *ValidateSessionResponse) ClearError() {
 	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 3)
-	protoimpl.X.AtomicSetPointer(&x.xxx_hidden_Error, (*pb.Error)(nil))
+	protoimpl.X.AtomicSetPointer(&x.xxx_hidden_Error, (*proto.Error)(nil))
 }
 
 type ValidateSessionResponse_builder struct {
@@ -206,7 +206,7 @@ type ValidateSessionResponse_builder struct {
 	// User information associated with the session
 	UserInfo *UserInfo
 	// Error information if validation fails
-	Error *pb.Error
+	Error *proto.Error
 }
 
 func (b0 ValidateSessionResponse_builder) Build() *ValidateSessionResponse {
@@ -241,15 +241,15 @@ const file_pkg_auth_proto_responses_validate_session_response_proto_rawDesc = ""
 	"\x05valid\x18\x01 \x01(\bR\x05valid\x126\n" +
 	"\asession\x18\x02 \x01(\v2\x18.gcommon.v1.auth.SessionB\x02(\x01R\asession\x12:\n" +
 	"\tuser_info\x18\x03 \x01(\v2\x19.gcommon.v1.auth.UserInfoB\x02(\x01R\buserInfo\x122\n" +
-	"\x05error\x18\x04 \x01(\v2\x18.gcommon.v1.common.ErrorB\x02(\x01R\x05errorB\xb9\x01\n" +
-	"\x13com.gcommon.v1.authB\x1cValidateSessionResponseProtoP\x01Z\x1e../../../../pkg/auth/pb;authpb\xa2\x02\x03GVA\xaa\x02\x0fGcommon.V1.Auth\xca\x02\x0fGcommon\\V1\\Auth\xe2\x02\x1bGcommon\\V1\\Auth\\GPBMetadata\xea\x02\x11Gcommon::V1::Auth\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
+	"\x05error\x18\x04 \x01(\v2\x18.gcommon.v1.common.ErrorB\x02(\x01R\x05errorB\xbc\x01\n" +
+	"\x13com.gcommon.v1.authB\x1cValidateSessionResponseProtoP\x01Z!../../../../pkg/auth/proto;authpb\xa2\x02\x03GVA\xaa\x02\x0fGcommon.V1.Auth\xca\x02\x0fGcommon\\V1\\Auth\xe2\x02\x1bGcommon\\V1\\Auth\\GPBMetadata\xea\x02\x11Gcommon::V1::Auth\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
 
 var file_pkg_auth_proto_responses_validate_session_response_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_pkg_auth_proto_responses_validate_session_response_proto_goTypes = []any{
 	(*ValidateSessionResponse)(nil), // 0: gcommon.v1.auth.ValidateSessionResponse
 	(*Session)(nil),                 // 1: gcommon.v1.auth.Session
 	(*UserInfo)(nil),                // 2: gcommon.v1.auth.UserInfo
-	(*pb.Error)(nil),                // 3: gcommon.v1.common.Error
+	(*proto.Error)(nil),             // 3: gcommon.v1.common.Error
 }
 var file_pkg_auth_proto_responses_validate_session_response_proto_depIdxs = []int32{
 	1, // 0: gcommon.v1.auth.ValidateSessionResponse.session:type_name -> gcommon.v1.auth.Session

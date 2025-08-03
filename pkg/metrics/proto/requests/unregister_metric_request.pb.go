@@ -9,7 +9,7 @@
 package metricspb
 
 import (
-	pb "../../../../pkg/common/pb"
+	proto "../../../../pkg/common/proto"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
@@ -30,7 +30,7 @@ const (
 type UnregisterMetricRequest struct {
 	state protoimpl.MessageState `protogen:"hybrid.v1"`
 	// Standard request metadata (tracing, auth, etc.)
-	Metadata *pb.RequestMetadata `protobuf:"bytes,1,opt,name=metadata" json:"metadata,omitempty"`
+	Metadata *proto.RequestMetadata `protobuf:"bytes,1,opt,name=metadata" json:"metadata,omitempty"`
 	// Metric identifier (either name or ID)
 	//
 	// Types that are valid to be assigned to MetricIdentifier:
@@ -71,7 +71,7 @@ func (x *UnregisterMetricRequest) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-func (x *UnregisterMetricRequest) GetMetadata() *pb.RequestMetadata {
+func (x *UnregisterMetricRequest) GetMetadata() *proto.RequestMetadata {
 	if x != nil {
 		return x.Metadata
 	}
@@ -117,7 +117,7 @@ func (x *UnregisterMetricRequest) GetOptions() *UnregistrationOptions {
 	return nil
 }
 
-func (x *UnregisterMetricRequest) SetMetadata(v *pb.RequestMetadata) {
+func (x *UnregisterMetricRequest) SetMetadata(v *proto.RequestMetadata) {
 	x.Metadata = v
 }
 
@@ -231,7 +231,7 @@ type UnregisterMetricRequest_builder struct {
 	_ [0]func() // Prevents comparability and use of unkeyed literals for the builder.
 
 	// Standard request metadata (tracing, auth, etc.)
-	Metadata *pb.RequestMetadata
+	Metadata *proto.RequestMetadata
 	// Metric identifier (either name or ID)
 
 	// Fields of oneof MetricIdentifier:
@@ -574,14 +574,14 @@ const file_pkg_metrics_proto_requests_unregister_metric_request_proto_rawDesc = 
 	"\fgrace_period\x18\x05 \x01(\tR\vgracePeriod\x12\x17\n" +
 	"\adry_run\x18\x06 \x01(\bR\x06dryRun\x12\x14\n" +
 	"\x05force\x18\a \x01(\bR\x05force\x12#\n" +
-	"\rcreate_backup\x18\b \x01(\bR\fcreateBackupB\xce\x01\n" +
-	"\x16com.gcommon.v1.metricsB\x1cUnregisterMetricRequestProtoP\x01Z$../../../../pkg/metrics/pb;metricspb\xa2\x02\x03GVM\xaa\x02\x12Gcommon.V1.Metrics\xca\x02\x12Gcommon\\V1\\Metrics\xe2\x02\x1eGcommon\\V1\\Metrics\\GPBMetadata\xea\x02\x14Gcommon::V1::Metrics\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
+	"\rcreate_backup\x18\b \x01(\bR\fcreateBackupB\xd1\x01\n" +
+	"\x16com.gcommon.v1.metricsB\x1cUnregisterMetricRequestProtoP\x01Z'../../../../pkg/metrics/proto;metricspb\xa2\x02\x03GVM\xaa\x02\x12Gcommon.V1.Metrics\xca\x02\x12Gcommon\\V1\\Metrics\xe2\x02\x1eGcommon\\V1\\Metrics\\GPBMetadata\xea\x02\x14Gcommon::V1::Metrics\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
 
 var file_pkg_metrics_proto_requests_unregister_metric_request_proto_msgTypes = make([]protoimpl.MessageInfo, 2)
 var file_pkg_metrics_proto_requests_unregister_metric_request_proto_goTypes = []any{
 	(*UnregisterMetricRequest)(nil), // 0: gcommon.v1.metrics.UnregisterMetricRequest
 	(*UnregistrationOptions)(nil),   // 1: gcommon.v1.metrics.UnregistrationOptions
-	(*pb.RequestMetadata)(nil),      // 2: gcommon.v1.common.RequestMetadata
+	(*proto.RequestMetadata)(nil),   // 2: gcommon.v1.common.RequestMetadata
 }
 var file_pkg_metrics_proto_requests_unregister_metric_request_proto_depIdxs = []int32{
 	2, // 0: gcommon.v1.metrics.UnregisterMetricRequest.metadata:type_name -> gcommon.v1.common.RequestMetadata

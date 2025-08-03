@@ -9,7 +9,7 @@
 package authpb
 
 import (
-	pb "../../../../pkg/common/pb"
+	proto "../../../../pkg/common/proto"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
@@ -35,7 +35,7 @@ type RefreshTokenRequest struct {
 	// Requested scopes for the new access token
 	Scopes []string `protobuf:"bytes,2,rep,name=scopes" json:"scopes,omitempty"`
 	// Request metadata for tracing and correlation
-	Metadata      *pb.RequestMetadata `protobuf:"bytes,3,opt,name=metadata" json:"metadata,omitempty"`
+	Metadata      *proto.RequestMetadata `protobuf:"bytes,3,opt,name=metadata" json:"metadata,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -79,7 +79,7 @@ func (x *RefreshTokenRequest) GetScopes() []string {
 	return nil
 }
 
-func (x *RefreshTokenRequest) GetMetadata() *pb.RequestMetadata {
+func (x *RefreshTokenRequest) GetMetadata() *proto.RequestMetadata {
 	if x != nil {
 		return x.Metadata
 	}
@@ -94,7 +94,7 @@ func (x *RefreshTokenRequest) SetScopes(v []string) {
 	x.Scopes = v
 }
 
-func (x *RefreshTokenRequest) SetMetadata(v *pb.RequestMetadata) {
+func (x *RefreshTokenRequest) SetMetadata(v *proto.RequestMetadata) {
 	x.Metadata = v
 }
 
@@ -128,7 +128,7 @@ type RefreshTokenRequest_builder struct {
 	// Requested scopes for the new access token
 	Scopes []string
 	// Request metadata for tracing and correlation
-	Metadata *pb.RequestMetadata
+	Metadata *proto.RequestMetadata
 }
 
 func (b0 RefreshTokenRequest_builder) Build() *RefreshTokenRequest {
@@ -149,13 +149,13 @@ const file_pkg_auth_proto_requests_refresh_token_request_proto_rawDesc = "" +
 	"\x13RefreshTokenRequest\x12#\n" +
 	"\rrefresh_token\x18\x01 \x01(\tR\frefreshToken\x12\x16\n" +
 	"\x06scopes\x18\x02 \x03(\tR\x06scopes\x12>\n" +
-	"\bmetadata\x18\x03 \x01(\v2\".gcommon.v1.common.RequestMetadataR\bmetadataB\xb5\x01\n" +
-	"\x13com.gcommon.v1.authB\x18RefreshTokenRequestProtoP\x01Z\x1e../../../../pkg/auth/pb;authpb\xa2\x02\x03GVA\xaa\x02\x0fGcommon.V1.Auth\xca\x02\x0fGcommon\\V1\\Auth\xe2\x02\x1bGcommon\\V1\\Auth\\GPBMetadata\xea\x02\x11Gcommon::V1::Auth\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
+	"\bmetadata\x18\x03 \x01(\v2\".gcommon.v1.common.RequestMetadataR\bmetadataB\xb8\x01\n" +
+	"\x13com.gcommon.v1.authB\x18RefreshTokenRequestProtoP\x01Z!../../../../pkg/auth/proto;authpb\xa2\x02\x03GVA\xaa\x02\x0fGcommon.V1.Auth\xca\x02\x0fGcommon\\V1\\Auth\xe2\x02\x1bGcommon\\V1\\Auth\\GPBMetadata\xea\x02\x11Gcommon::V1::Auth\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
 
 var file_pkg_auth_proto_requests_refresh_token_request_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_pkg_auth_proto_requests_refresh_token_request_proto_goTypes = []any{
-	(*RefreshTokenRequest)(nil), // 0: gcommon.v1.auth.RefreshTokenRequest
-	(*pb.RequestMetadata)(nil),  // 1: gcommon.v1.common.RequestMetadata
+	(*RefreshTokenRequest)(nil),   // 0: gcommon.v1.auth.RefreshTokenRequest
+	(*proto.RequestMetadata)(nil), // 1: gcommon.v1.common.RequestMetadata
 }
 var file_pkg_auth_proto_requests_refresh_token_request_proto_depIdxs = []int32{
 	1, // 0: gcommon.v1.auth.RefreshTokenRequest.metadata:type_name -> gcommon.v1.common.RequestMetadata

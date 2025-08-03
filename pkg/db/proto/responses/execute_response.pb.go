@@ -9,7 +9,7 @@
 package dbpb
 
 import (
-	pb "../../../../pkg/common/pb"
+	proto "../../../../pkg/common/proto"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
@@ -37,7 +37,7 @@ type ExecuteResponse struct {
 	// Execution statistics and performance metrics
 	Stats *ExecuteStats `protobuf:"bytes,3,opt,name=stats" json:"stats,omitempty"`
 	// Error information if the operation failed
-	Error         *pb.Error `protobuf:"bytes,4,opt,name=error" json:"error,omitempty"`
+	Error         *proto.Error `protobuf:"bytes,4,opt,name=error" json:"error,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -88,7 +88,7 @@ func (x *ExecuteResponse) GetStats() *ExecuteStats {
 	return nil
 }
 
-func (x *ExecuteResponse) GetError() *pb.Error {
+func (x *ExecuteResponse) GetError() *proto.Error {
 	if x != nil {
 		return x.Error
 	}
@@ -107,7 +107,7 @@ func (x *ExecuteResponse) SetStats(v *ExecuteStats) {
 	x.Stats = v
 }
 
-func (x *ExecuteResponse) SetError(v *pb.Error) {
+func (x *ExecuteResponse) SetError(v *proto.Error) {
 	x.Error = v
 }
 
@@ -154,7 +154,7 @@ type ExecuteResponse_builder struct {
 	// Execution statistics and performance metrics
 	Stats *ExecuteStats
 	// Error information if the operation failed
-	Error *pb.Error
+	Error *proto.Error
 }
 
 func (b0 ExecuteResponse_builder) Build() *ExecuteResponse {
@@ -177,15 +177,15 @@ const file_pkg_db_proto_responses_execute_response_proto_rawDesc = "" +
 	"\raffected_rows\x18\x01 \x01(\x03R\faffectedRows\x12?\n" +
 	"\x0egenerated_keys\x18\x02 \x03(\v2\x14.google.protobuf.AnyB\x02(\x01R\rgeneratedKeys\x12;\n" +
 	"\x05stats\x18\x03 \x01(\v2!.gcommon.v1.database.ExecuteStatsB\x02(\x01R\x05stats\x122\n" +
-	"\x05error\x18\x04 \x01(\v2\x18.gcommon.v1.common.ErrorB\x02(\x01R\x05errorB\xc1\x01\n" +
-	"\x17com.gcommon.v1.databaseB\x14ExecuteResponseProtoP\x01Z\x1a../../../../pkg/db/pb;dbpb\xa2\x02\x03GVD\xaa\x02\x13Gcommon.V1.Database\xca\x02\x13Gcommon\\V1\\Database\xe2\x02\x1fGcommon\\V1\\Database\\GPBMetadata\xea\x02\x15Gcommon::V1::Database\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
+	"\x05error\x18\x04 \x01(\v2\x18.gcommon.v1.common.ErrorB\x02(\x01R\x05errorB\xc4\x01\n" +
+	"\x17com.gcommon.v1.databaseB\x14ExecuteResponseProtoP\x01Z\x1d../../../../pkg/db/proto;dbpb\xa2\x02\x03GVD\xaa\x02\x13Gcommon.V1.Database\xca\x02\x13Gcommon\\V1\\Database\xe2\x02\x1fGcommon\\V1\\Database\\GPBMetadata\xea\x02\x15Gcommon::V1::Database\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
 
 var file_pkg_db_proto_responses_execute_response_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_pkg_db_proto_responses_execute_response_proto_goTypes = []any{
 	(*ExecuteResponse)(nil), // 0: gcommon.v1.database.ExecuteResponse
 	(*anypb.Any)(nil),       // 1: google.protobuf.Any
 	(*ExecuteStats)(nil),    // 2: gcommon.v1.database.ExecuteStats
-	(*pb.Error)(nil),        // 3: gcommon.v1.common.Error
+	(*proto.Error)(nil),     // 3: gcommon.v1.common.Error
 }
 var file_pkg_db_proto_responses_execute_response_proto_depIdxs = []int32{
 	1, // 0: gcommon.v1.database.ExecuteResponse.generated_keys:type_name -> google.protobuf.Any

@@ -211,8 +211,8 @@ const file_pkg_log_proto_messages_source_location_proto_rawDesc = "" +
 	"\x04file\x18\x01 \x01(\tR\x04file\x12\x12\n" +
 	"\x04line\x18\x02 \x01(\x05R\x04line\x12\x1a\n" +
 	"\bfunction\x18\x03 \x01(\tR\bfunction\x12\x18\n" +
-	"\apackage\x18\x04 \x01(\tR\apackageB\xa9\x01\n" +
-	"\x12com.gcommon.v1.logB\x13SourceLocationProtoP\x01Z\x1c../../../../pkg/log/pb;logpb\xa2\x02\x03GVL\xaa\x02\x0eGcommon.V1.Log\xca\x02\x0eGcommon\\V1\\Log\xe2\x02\x1aGcommon\\V1\\Log\\GPBMetadata\xea\x02\x10Gcommon::V1::Log\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
+	"\apackage\x18\x04 \x01(\tR\apackageB\xac\x01\n" +
+	"\x12com.gcommon.v1.logB\x13SourceLocationProtoP\x01Z\x1f../../../../pkg/log/proto;logpb\xa2\x02\x03GVL\xaa\x02\x0eGcommon.V1.Log\xca\x02\x0eGcommon\\V1\\Log\xe2\x02\x1aGcommon\\V1\\Log\\GPBMetadata\xea\x02\x10Gcommon::V1::Log\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
 
 var file_pkg_log_proto_messages_source_location_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_pkg_log_proto_messages_source_location_proto_goTypes = []any{

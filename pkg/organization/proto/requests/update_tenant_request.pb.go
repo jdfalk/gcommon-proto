@@ -9,7 +9,7 @@
 package organizationpb
 
 import (
-	pb "../../../../pkg/common/pb"
+	proto "../../../../pkg/common/proto"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
@@ -28,7 +28,7 @@ const (
 type UpdateTenantRequest struct {
 	state protoimpl.MessageState `protogen:"hybrid.v1"`
 	// Request metadata for tracing and context
-	Metadata *pb.RequestMetadata `protobuf:"bytes,1,opt,name=metadata" json:"metadata,omitempty"`
+	Metadata *proto.RequestMetadata `protobuf:"bytes,1,opt,name=metadata" json:"metadata,omitempty"`
 	// Tenant identifier to update
 	TenantId *string `protobuf:"bytes,2,opt,name=tenant_id,json=tenantId" json:"tenant_id,omitempty"`
 	// Updated tenant information
@@ -66,7 +66,7 @@ func (x *UpdateTenantRequest) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-func (x *UpdateTenantRequest) GetMetadata() *pb.RequestMetadata {
+func (x *UpdateTenantRequest) GetMetadata() *proto.RequestMetadata {
 	if x != nil {
 		return x.Metadata
 	}
@@ -101,7 +101,7 @@ func (x *UpdateTenantRequest) GetValidateOnly() bool {
 	return false
 }
 
-func (x *UpdateTenantRequest) SetMetadata(v *pb.RequestMetadata) {
+func (x *UpdateTenantRequest) SetMetadata(v *proto.RequestMetadata) {
 	x.Metadata = v
 }
 
@@ -180,7 +180,7 @@ type UpdateTenantRequest_builder struct {
 	_ [0]func() // Prevents comparability and use of unkeyed literals for the builder.
 
 	// Request metadata for tracing and context
-	Metadata *pb.RequestMetadata
+	Metadata *proto.RequestMetadata
 	// Tenant identifier to update
 	TenantId *string
 	// Updated tenant information
@@ -214,13 +214,13 @@ const file_pkg_organization_proto_requests_update_tenant_request_proto_rawDesc =
 	"\x06tenant\x18\x03 \x01(\v2\x1f.gcommon.v1.organization.TenantR\x06tenant\x12;\n" +
 	"\vupdate_mask\x18\x04 \x01(\v2\x1a.google.protobuf.FieldMaskR\n" +
 	"updateMask\x12#\n" +
-	"\rvalidate_only\x18\x05 \x01(\bR\fvalidateOnlyB\xed\x01\n" +
-	"\x1bcom.gcommon.v1.organizationB\x18UpdateTenantRequestProtoP\x01Z.../../../../pkg/organization/pb;organizationpb\xa2\x02\x03GVO\xaa\x02\x17Gcommon.V1.Organization\xca\x02\x17Gcommon\\V1\\Organization\xe2\x02#Gcommon\\V1\\Organization\\GPBMetadata\xea\x02\x19Gcommon::V1::Organization\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
+	"\rvalidate_only\x18\x05 \x01(\bR\fvalidateOnlyB\xf0\x01\n" +
+	"\x1bcom.gcommon.v1.organizationB\x18UpdateTenantRequestProtoP\x01Z1../../../../pkg/organization/proto;organizationpb\xa2\x02\x03GVO\xaa\x02\x17Gcommon.V1.Organization\xca\x02\x17Gcommon\\V1\\Organization\xe2\x02#Gcommon\\V1\\Organization\\GPBMetadata\xea\x02\x19Gcommon::V1::Organization\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
 
 var file_pkg_organization_proto_requests_update_tenant_request_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_pkg_organization_proto_requests_update_tenant_request_proto_goTypes = []any{
 	(*UpdateTenantRequest)(nil),   // 0: gcommon.v1.organization.UpdateTenantRequest
-	(*pb.RequestMetadata)(nil),    // 1: gcommon.v1.common.RequestMetadata
+	(*proto.RequestMetadata)(nil), // 1: gcommon.v1.common.RequestMetadata
 	(*Tenant)(nil),                // 2: gcommon.v1.organization.Tenant
 	(*fieldmaskpb.FieldMask)(nil), // 3: google.protobuf.FieldMask
 }

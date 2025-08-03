@@ -9,7 +9,7 @@
 package metricspb
 
 import (
-	pb "../../../../pkg/common/pb"
+	proto "../../../../pkg/common/proto"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
@@ -30,7 +30,7 @@ const (
 type RecordGaugeResponse struct {
 	state                    protoimpl.MessageState `protogen:"opaque.v1"`
 	xxx_hidden_Success       bool                   `protobuf:"varint,1,opt,name=success"`
-	xxx_hidden_Error         *pb.Error              `protobuf:"bytes,2,opt,name=error"`
+	xxx_hidden_Error         *proto.Error           `protobuf:"bytes,2,opt,name=error"`
 	xxx_hidden_Metric        *GaugeMetric           `protobuf:"bytes,3,opt,name=metric"`
 	xxx_hidden_PreviousValue float64                `protobuf:"fixed64,4,opt,name=previous_value,json=previousValue"`
 	xxx_hidden_RecordedAt    *timestamppb.Timestamp `protobuf:"bytes,5,opt,name=recorded_at,json=recordedAt"`
@@ -74,7 +74,7 @@ func (x *RecordGaugeResponse) GetSuccess() bool {
 	return false
 }
 
-func (x *RecordGaugeResponse) GetError() *pb.Error {
+func (x *RecordGaugeResponse) GetError() *proto.Error {
 	if x != nil {
 		return x.xxx_hidden_Error
 	}
@@ -121,7 +121,7 @@ func (x *RecordGaugeResponse) SetSuccess(v bool) {
 	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 0, 7)
 }
 
-func (x *RecordGaugeResponse) SetError(v *pb.Error) {
+func (x *RecordGaugeResponse) SetError(v *proto.Error) {
 	x.xxx_hidden_Error = v
 }
 
@@ -233,7 +233,7 @@ type RecordGaugeResponse_builder struct {
 	// Whether the operation was successful
 	Success *bool
 	// Error information if the operation failed
-	Error *pb.Error
+	Error *proto.Error
 	// The recorded gauge metric with updated value
 	Metric *GaugeMetric
 	// Previous value of the gauge (if applicable)
@@ -282,13 +282,13 @@ const file_pkg_metrics_proto_responses_record_gauge_response_proto_rawDesc = "" 
 	"\vrecorded_at\x18\x05 \x01(\v2\x1a.google.protobuf.TimestampR\n" +
 	"recordedAt\x12\"\n" +
 	"\ris_new_metric\x18\x06 \x01(\bR\visNewMetric\x128\n" +
-	"\x05stats\x18\a \x01(\v2\".gcommon.v1.metrics.RecordingStatsR\x05statsB\xca\x01\n" +
-	"\x16com.gcommon.v1.metricsB\x18RecordGaugeResponseProtoP\x01Z$../../../../pkg/metrics/pb;metricspb\xa2\x02\x03GVM\xaa\x02\x12Gcommon.V1.Metrics\xca\x02\x12Gcommon\\V1\\Metrics\xe2\x02\x1eGcommon\\V1\\Metrics\\GPBMetadata\xea\x02\x14Gcommon::V1::Metrics\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
+	"\x05stats\x18\a \x01(\v2\".gcommon.v1.metrics.RecordingStatsR\x05statsB\xcd\x01\n" +
+	"\x16com.gcommon.v1.metricsB\x18RecordGaugeResponseProtoP\x01Z'../../../../pkg/metrics/proto;metricspb\xa2\x02\x03GVM\xaa\x02\x12Gcommon.V1.Metrics\xca\x02\x12Gcommon\\V1\\Metrics\xe2\x02\x1eGcommon\\V1\\Metrics\\GPBMetadata\xea\x02\x14Gcommon::V1::Metrics\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
 
 var file_pkg_metrics_proto_responses_record_gauge_response_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_pkg_metrics_proto_responses_record_gauge_response_proto_goTypes = []any{
 	(*RecordGaugeResponse)(nil),   // 0: gcommon.v1.metrics.RecordGaugeResponse
-	(*pb.Error)(nil),              // 1: gcommon.v1.common.Error
+	(*proto.Error)(nil),           // 1: gcommon.v1.common.Error
 	(*GaugeMetric)(nil),           // 2: gcommon.v1.metrics.GaugeMetric
 	(*timestamppb.Timestamp)(nil), // 3: google.protobuf.Timestamp
 	(*RecordingStats)(nil),        // 4: gcommon.v1.metrics.RecordingStats

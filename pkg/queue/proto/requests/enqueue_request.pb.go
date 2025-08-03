@@ -7,7 +7,7 @@
 package queuepb
 
 import (
-	pb "../../../../pkg/common/pb"
+	proto "../../../../pkg/common/proto"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	anypb "google.golang.org/protobuf/types/known/anypb"
@@ -44,7 +44,7 @@ type EnqueueRequest struct {
 	// *
 	// Standard request metadata including authentication context,
 	// tracing information, and client details.
-	Metadata *pb.RequestMetadata `protobuf:"bytes,11,opt,name=metadata" json:"metadata,omitempty"`
+	Metadata *proto.RequestMetadata `protobuf:"bytes,11,opt,name=metadata" json:"metadata,omitempty"`
 	// *
 	// Message priority (0-255, where 255 is highest priority).
 	// Higher priority messages are delivered first. Default: 128.
@@ -142,7 +142,7 @@ func (x *EnqueueRequest) GetPayload() *anypb.Any {
 	return nil
 }
 
-func (x *EnqueueRequest) GetMetadata() *pb.RequestMetadata {
+func (x *EnqueueRequest) GetMetadata() *proto.RequestMetadata {
 	if x != nil {
 		return x.Metadata
 	}
@@ -260,8 +260,8 @@ const file_pkg_queue_proto_requests_enqueue_request_proto_rawDesc = "" +
 	"\breply_to\x18\x17 \x01(\tR\areplyTo\x1a=\n" +
 	"\x0fAttributesEntry\x12\x10\n" +
 	"\x03key\x18\x01 \x01(\tR\x03key\x12\x14\n" +
-	"\x05value\x18\x02 \x01(\tR\x05value:\x028\x01B\xaf\x01\n" +
-	"\x14com.gcommon.v1.queueB\x13EnqueueRequestProtoP\x01Z ../../../../pkg/queue/pb;queuepb\xa2\x02\x03GVQ\xaa\x02\x10Gcommon.V1.Queue\xca\x02\x10Gcommon\\V1\\Queue\xe2\x02\x1cGcommon\\V1\\Queue\\GPBMetadata\xea\x02\x12Gcommon::V1::Queueb\beditionsp\xe8\a"
+	"\x05value\x18\x02 \x01(\tR\x05value:\x028\x01B\xb2\x01\n" +
+	"\x14com.gcommon.v1.queueB\x13EnqueueRequestProtoP\x01Z#../../../../pkg/queue/proto;queuepb\xa2\x02\x03GVQ\xaa\x02\x10Gcommon.V1.Queue\xca\x02\x10Gcommon\\V1\\Queue\xe2\x02\x1cGcommon\\V1\\Queue\\GPBMetadata\xea\x02\x12Gcommon::V1::Queueb\beditionsp\xe8\a"
 
 var (
 	file_pkg_queue_proto_requests_enqueue_request_proto_rawDescOnce sync.Once
@@ -280,7 +280,7 @@ var file_pkg_queue_proto_requests_enqueue_request_proto_goTypes = []any{
 	(*EnqueueRequest)(nil),        // 0: gcommon.v1.queue.EnqueueRequest
 	nil,                           // 1: gcommon.v1.queue.EnqueueRequest.AttributesEntry
 	(*anypb.Any)(nil),             // 2: google.protobuf.Any
-	(*pb.RequestMetadata)(nil),    // 3: gcommon.v1.common.RequestMetadata
+	(*proto.RequestMetadata)(nil), // 3: gcommon.v1.common.RequestMetadata
 	(*durationpb.Duration)(nil),   // 4: google.protobuf.Duration
 	(*timestamppb.Timestamp)(nil), // 5: google.protobuf.Timestamp
 }

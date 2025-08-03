@@ -114,8 +114,8 @@ const file_pkg_metrics_proto_types_dry_run_result_proto_rawDesc = "" +
 	"\x13would_delete_points\x18\x02 \x01(\x03R\x11wouldDeletePoints\x120\n" +
 	"\x14would_delete_indices\x18\x03 \x01(\x03R\x12wouldDeleteIndices\x12,\n" +
 	"\x12would_stop_exports\x18\x04 \x01(\x03R\x10wouldStopExports\x126\n" +
-	"\x17estimated_deletion_time\x18\x05 \x01(\tR\x15estimatedDeletionTimeB\xbb\x01\n" +
-	"\x16com.gcommon.v1.metricsB\x11DryRunResultProtoP\x01Z$../../../../pkg/metrics/pb;metricspb\xa2\x02\x03GVM\xaa\x02\x12Gcommon.V1.Metrics\xca\x02\x12Gcommon\\V1\\Metrics\xe2\x02\x1eGcommon\\V1\\Metrics\\GPBMetadata\xea\x02\x14Gcommon::V1::Metricsb\beditionsp\xe8\a"
+	"\x17estimated_deletion_time\x18\x05 \x01(\tR\x15estimatedDeletionTimeB\xbe\x01\n" +
+	"\x16com.gcommon.v1.metricsB\x11DryRunResultProtoP\x01Z'../../../../pkg/metrics/proto;metricspb\xa2\x02\x03GVM\xaa\x02\x12Gcommon.V1.Metrics\xca\x02\x12Gcommon\\V1\\Metrics\xe2\x02\x1eGcommon\\V1\\Metrics\\GPBMetadata\xea\x02\x14Gcommon::V1::Metricsb\beditionsp\xe8\a"
 
 var (
 	file_pkg_metrics_proto_types_dry_run_result_proto_rawDescOnce sync.Once

@@ -99,8 +99,8 @@ const file_pkg_queue_proto_enums_message_state_proto_rawDesc = "" +
 	"\x1aMESSAGE_STATE_ACKNOWLEDGED\x10\x03\x12\x18\n" +
 	"\x14MESSAGE_STATE_FAILED\x10\x04\x12\x1d\n" +
 	"\x19MESSAGE_STATE_DEAD_LETTER\x10\x05\x12\x19\n" +
-	"\x15MESSAGE_STATE_EXPIRED\x10\x06B\xb5\x01\n" +
-	"\x14com.gcommon.v1.queueB\x11MessageStateProtoP\x01Z ../../../../pkg/queue/pb;queuepb\xa2\x02\x03GVQ\xaa\x02\x10Gcommon.V1.Queue\xca\x02\x10Gcommon\\V1\\Queue\xe2\x02\x1cGcommon\\V1\\Queue\\GPBMetadata\xea\x02\x12Gcommon::V1::Queue\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
+	"\x15MESSAGE_STATE_EXPIRED\x10\x06B\xb8\x01\n" +
+	"\x14com.gcommon.v1.queueB\x11MessageStateProtoP\x01Z#../../../../pkg/queue/proto;queuepb\xa2\x02\x03GVQ\xaa\x02\x10Gcommon.V1.Queue\xca\x02\x10Gcommon\\V1\\Queue\xe2\x02\x1cGcommon\\V1\\Queue\\GPBMetadata\xea\x02\x12Gcommon::V1::Queue\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
 
 var file_pkg_queue_proto_enums_message_state_proto_enumTypes = make([]protoimpl.EnumInfo, 1)
 var file_pkg_queue_proto_enums_message_state_proto_goTypes = []any{

@@ -9,7 +9,7 @@
 package cachepb
 
 import (
-	pb "../../../../pkg/common/pb"
+	proto "../../../../pkg/common/proto"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
@@ -34,7 +34,7 @@ type GetMultipleResponse struct {
 	// List of keys that were not found
 	MissingKeys []string `protobuf:"bytes,2,rep,name=missing_keys,json=missingKeys" json:"missing_keys,omitempty"`
 	// Error details if operation failed
-	Error         *pb.Error `protobuf:"bytes,3,opt,name=error" json:"error,omitempty"`
+	Error         *proto.Error `protobuf:"bytes,3,opt,name=error" json:"error,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -78,7 +78,7 @@ func (x *GetMultipleResponse) GetMissingKeys() []string {
 	return nil
 }
 
-func (x *GetMultipleResponse) GetError() *pb.Error {
+func (x *GetMultipleResponse) GetError() *proto.Error {
 	if x != nil {
 		return x.Error
 	}
@@ -93,7 +93,7 @@ func (x *GetMultipleResponse) SetMissingKeys(v []string) {
 	x.MissingKeys = v
 }
 
-func (x *GetMultipleResponse) SetError(v *pb.Error) {
+func (x *GetMultipleResponse) SetError(v *proto.Error) {
 	x.Error = v
 }
 
@@ -116,7 +116,7 @@ type GetMultipleResponse_builder struct {
 	// List of keys that were not found
 	MissingKeys []string
 	// Error details if operation failed
-	Error *pb.Error
+	Error *proto.Error
 }
 
 func (b0 GetMultipleResponse_builder) Build() *GetMultipleResponse {
@@ -140,14 +140,14 @@ const file_pkg_cache_proto_responses_get_multiple_response_proto_rawDesc = "" +
 	"\x05error\x18\x03 \x01(\v2\x18.gcommon.v1.common.ErrorR\x05error\x1a9\n" +
 	"\vValuesEntry\x12\x10\n" +
 	"\x03key\x18\x01 \x01(\tR\x03key\x12\x14\n" +
-	"\x05value\x18\x02 \x01(\fR\x05value:\x028\x01B\xbc\x01\n" +
-	"\x14com.gcommon.v1.cacheB\x18GetMultipleResponseProtoP\x01Z ../../../../pkg/cache/pb;cachepb\xa2\x02\x03GVC\xaa\x02\x10Gcommon.V1.Cache\xca\x02\x10Gcommon\\V1\\Cache\xe2\x02\x1cGcommon\\V1\\Cache\\GPBMetadata\xea\x02\x12Gcommon::V1::Cache\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
+	"\x05value\x18\x02 \x01(\fR\x05value:\x028\x01B\xbf\x01\n" +
+	"\x14com.gcommon.v1.cacheB\x18GetMultipleResponseProtoP\x01Z#../../../../pkg/cache/proto;cachepb\xa2\x02\x03GVC\xaa\x02\x10Gcommon.V1.Cache\xca\x02\x10Gcommon\\V1\\Cache\xe2\x02\x1cGcommon\\V1\\Cache\\GPBMetadata\xea\x02\x12Gcommon::V1::Cache\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
 
 var file_pkg_cache_proto_responses_get_multiple_response_proto_msgTypes = make([]protoimpl.MessageInfo, 2)
 var file_pkg_cache_proto_responses_get_multiple_response_proto_goTypes = []any{
 	(*GetMultipleResponse)(nil), // 0: gcommon.v1.cache.GetMultipleResponse
 	nil,                         // 1: gcommon.v1.cache.GetMultipleResponse.ValuesEntry
-	(*pb.Error)(nil),            // 2: gcommon.v1.common.Error
+	(*proto.Error)(nil),         // 2: gcommon.v1.common.Error
 }
 var file_pkg_cache_proto_responses_get_multiple_response_proto_depIdxs = []int32{
 	1, // 0: gcommon.v1.cache.GetMultipleResponse.values:type_name -> gcommon.v1.cache.GetMultipleResponse.ValuesEntry

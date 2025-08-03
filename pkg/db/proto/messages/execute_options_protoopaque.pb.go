@@ -188,8 +188,8 @@ const file_pkg_db_proto_messages_execute_options_proto_rawDesc = "" +
 	"\x0eExecuteOptions\x127\n" +
 	"\atimeout\x18\x01 \x01(\v2\x19.google.protobuf.DurationB\x02(\x01R\atimeout\x122\n" +
 	"\x15return_generated_keys\x18\x02 \x01(\bR\x13returnGeneratedKeys\x12A\n" +
-	"\tisolation\x18\x03 \x01(\x0e2#.gcommon.v1.database.IsolationLevelR\tisolationB\xc0\x01\n" +
-	"\x17com.gcommon.v1.databaseB\x13ExecuteOptionsProtoP\x01Z\x1a../../../../pkg/db/pb;dbpb\xa2\x02\x03GVD\xaa\x02\x13Gcommon.V1.Database\xca\x02\x13Gcommon\\V1\\Database\xe2\x02\x1fGcommon\\V1\\Database\\GPBMetadata\xea\x02\x15Gcommon::V1::Database\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
+	"\tisolation\x18\x03 \x01(\x0e2#.gcommon.v1.database.IsolationLevelR\tisolationB\xc3\x01\n" +
+	"\x17com.gcommon.v1.databaseB\x13ExecuteOptionsProtoP\x01Z\x1d../../../../pkg/db/proto;dbpb\xa2\x02\x03GVD\xaa\x02\x13Gcommon.V1.Database\xca\x02\x13Gcommon\\V1\\Database\xe2\x02\x1fGcommon\\V1\\Database\\GPBMetadata\xea\x02\x15Gcommon::V1::Database\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
 
 var file_pkg_db_proto_messages_execute_options_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_pkg_db_proto_messages_execute_options_proto_goTypes = []any{

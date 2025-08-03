@@ -7,7 +7,7 @@
 package webpb
 
 import (
-	pb "../../../../pkg/common/pb"
+	proto "../../../../pkg/common/proto"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	anypb "google.golang.org/protobuf/types/known/anypb"
@@ -44,7 +44,7 @@ type HttpResponse struct {
 	// *
 	// Request processing metadata including timing, request ID,
 	// and other observability information.
-	RequestMetadata *pb.RequestMetadata `protobuf:"bytes,11,opt,name=request_metadata,json=requestMetadata" json:"request_metadata,omitempty"`
+	RequestMetadata *proto.RequestMetadata `protobuf:"bytes,11,opt,name=request_metadata,json=requestMetadata" json:"request_metadata,omitempty"`
 	// *
 	// HTTP response headers as key-value pairs.
 	// Includes standard headers like Content-Type, Cache-Control, etc.
@@ -116,7 +116,7 @@ type HttpResponse struct {
 	// *
 	// Error information if the response represents an error
 	// or if there were issues generating the response.
-	Error *pb.Error `protobuf:"bytes,61,opt,name=error" json:"error,omitempty"`
+	Error *proto.Error `protobuf:"bytes,61,opt,name=error" json:"error,omitempty"`
 	// *
 	// When response generation started.
 	ProcessingStartedAt *timestamppb.Timestamp `protobuf:"bytes,51,opt,name=processing_started_at,json=processingStartedAt" json:"processing_started_at,omitempty"`
@@ -181,7 +181,7 @@ func (x *HttpResponse) GetProtocolVersion() string {
 	return ""
 }
 
-func (x *HttpResponse) GetRequestMetadata() *pb.RequestMetadata {
+func (x *HttpResponse) GetRequestMetadata() *proto.RequestMetadata {
 	if x != nil {
 		return x.RequestMetadata
 	}
@@ -342,7 +342,7 @@ func (x *HttpResponse) GetCompressionRatio() float32 {
 	return 0
 }
 
-func (x *HttpResponse) GetError() *pb.Error {
+func (x *HttpResponse) GetError() *proto.Error {
 	if x != nil {
 		return x.Error
 	}
@@ -416,8 +416,8 @@ const file_pkg_web_proto_responses_http_response_per_proto_rawDesc = "" +
 	"\x05value\x18\x02 \x01(\tR\x05value:\x028\x01\x1a:\n" +
 	"\fCookiesEntry\x12\x10\n" +
 	"\x03key\x18\x01 \x01(\tR\x03key\x12\x14\n" +
-	"\x05value\x18\x02 \x01(\tR\x05value:\x028\x01B\xa2\x01\n" +
-	"\x12com.gcommon.v1.webB\x14HttpResponsePerProtoP\x01Z\x1c../../../../pkg/web/pb;webpb\xa2\x02\x03GVW\xaa\x02\x0eGcommon.V1.Web\xca\x02\x0eGcommon\\V1\\Web\xe2\x02\x1aGcommon\\V1\\Web\\GPBMetadata\xea\x02\x10Gcommon::V1::Webb\beditionsp\xe8\a"
+	"\x05value\x18\x02 \x01(\tR\x05value:\x028\x01B\xa5\x01\n" +
+	"\x12com.gcommon.v1.webB\x14HttpResponsePerProtoP\x01Z\x1f../../../../pkg/web/proto;webpb\xa2\x02\x03GVW\xaa\x02\x0eGcommon.V1.Web\xca\x02\x0eGcommon\\V1\\Web\xe2\x02\x1aGcommon\\V1\\Web\\GPBMetadata\xea\x02\x10Gcommon::V1::Webb\beditionsp\xe8\a"
 
 var (
 	file_pkg_web_proto_responses_http_response_per_proto_rawDescOnce sync.Once
@@ -436,9 +436,9 @@ var file_pkg_web_proto_responses_http_response_per_proto_goTypes = []any{
 	(*HttpResponse)(nil),          // 0: gcommon.v1.web.HttpResponse
 	nil,                           // 1: gcommon.v1.web.HttpResponse.HeadersEntry
 	nil,                           // 2: gcommon.v1.web.HttpResponse.CookiesEntry
-	(*pb.RequestMetadata)(nil),    // 3: gcommon.v1.common.RequestMetadata
+	(*proto.RequestMetadata)(nil), // 3: gcommon.v1.common.RequestMetadata
 	(*anypb.Any)(nil),             // 4: google.protobuf.Any
-	(*pb.Error)(nil),              // 5: gcommon.v1.common.Error
+	(*proto.Error)(nil),           // 5: gcommon.v1.common.Error
 	(*timestamppb.Timestamp)(nil), // 6: google.protobuf.Timestamp
 }
 var file_pkg_web_proto_responses_http_response_per_proto_depIdxs = []int32{

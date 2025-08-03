@@ -9,7 +9,7 @@
 package metricspb
 
 import (
-	pb "../../../../pkg/common/pb"
+	proto "../../../../pkg/common/proto"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
@@ -32,7 +32,7 @@ type GetMetricsSummaryResponse struct {
 	// Success status of the operation
 	Success *bool `protobuf:"varint,1,opt,name=success" json:"success,omitempty"`
 	// Error information if the operation failed
-	Error *pb.Error `protobuf:"bytes,2,opt,name=error" json:"error,omitempty"`
+	Error *proto.Error `protobuf:"bytes,2,opt,name=error" json:"error,omitempty"`
 	// Summary information organized by category
 	Summary *MetricsSummary `protobuf:"bytes,3,opt,name=summary" json:"summary,omitempty"`
 	// Provider-level statistics (if requested)
@@ -81,7 +81,7 @@ func (x *GetMetricsSummaryResponse) GetSuccess() bool {
 	return false
 }
 
-func (x *GetMetricsSummaryResponse) GetError() *pb.Error {
+func (x *GetMetricsSummaryResponse) GetError() *proto.Error {
 	if x != nil {
 		return x.Error
 	}
@@ -134,7 +134,7 @@ func (x *GetMetricsSummaryResponse) SetSuccess(v bool) {
 	x.Success = &v
 }
 
-func (x *GetMetricsSummaryResponse) SetError(v *pb.Error) {
+func (x *GetMetricsSummaryResponse) SetError(v *proto.Error) {
 	x.Error = v
 }
 
@@ -234,7 +234,7 @@ type GetMetricsSummaryResponse_builder struct {
 	// Success status of the operation
 	Success *bool
 	// Error information if the operation failed
-	Error *pb.Error
+	Error *proto.Error
 	// Summary information organized by category
 	Summary *MetricsSummary
 	// Provider-level statistics (if requested)
@@ -1574,8 +1574,8 @@ const file_pkg_metrics_proto_responses_get_metrics_summary_response_proto_rawDes
 	"\x06status\x18\x03 \x01(\tR\x06status\x12%\n" +
 	"\x0eexported_count\x18\x04 \x01(\x03R\rexportedCount\x12;\n" +
 	"\vlast_export\x18\x05 \x01(\v2\x1a.google.protobuf.TimestampR\n" +
-	"lastExportB\xd0\x01\n" +
-	"\x16com.gcommon.v1.metricsB\x1eGetMetricsSummaryResponseProtoP\x01Z$../../../../pkg/metrics/pb;metricspb\xa2\x02\x03GVM\xaa\x02\x12Gcommon.V1.Metrics\xca\x02\x12Gcommon\\V1\\Metrics\xe2\x02\x1eGcommon\\V1\\Metrics\\GPBMetadata\xea\x02\x14Gcommon::V1::Metrics\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
+	"lastExportB\xd3\x01\n" +
+	"\x16com.gcommon.v1.metricsB\x1eGetMetricsSummaryResponseProtoP\x01Z'../../../../pkg/metrics/proto;metricspb\xa2\x02\x03GVM\xaa\x02\x12Gcommon.V1.Metrics\xca\x02\x12Gcommon\\V1\\Metrics\xe2\x02\x1eGcommon\\V1\\Metrics\\GPBMetadata\xea\x02\x14Gcommon::V1::Metrics\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
 
 var file_pkg_metrics_proto_responses_get_metrics_summary_response_proto_msgTypes = make([]protoimpl.MessageInfo, 8)
 var file_pkg_metrics_proto_responses_get_metrics_summary_response_proto_goTypes = []any{
@@ -1587,7 +1587,7 @@ var file_pkg_metrics_proto_responses_get_metrics_summary_response_proto_goTypes 
 	(*RetentionInfo)(nil),             // 5: gcommon.v1.metrics.RetentionInfo
 	(*ExportStatus)(nil),              // 6: gcommon.v1.metrics.ExportStatus
 	(*ExporterStatus)(nil),            // 7: gcommon.v1.metrics.ExporterStatus
-	(*pb.Error)(nil),                  // 8: gcommon.v1.common.Error
+	(*proto.Error)(nil),               // 8: gcommon.v1.common.Error
 	(*ProviderSummary)(nil),           // 9: gcommon.v1.metrics.ProviderSummary
 	(*timestamppb.Timestamp)(nil),     // 10: google.protobuf.Timestamp
 	(*TimeRange)(nil),                 // 11: gcommon.v1.metrics.TimeRange

@@ -104,8 +104,8 @@ const file_pkg_metrics_proto_types_validation_result_proto_rawDesc = "" +
 	"\x05valid\x18\x01 \x01(\bR\x05valid\x12\x16\n" +
 	"\x06errors\x18\x02 \x03(\tR\x06errors\x12\x1a\n" +
 	"\bwarnings\x18\x03 \x03(\tR\bwarnings\x12 \n" +
-	"\vsuggestions\x18\x04 \x03(\tR\vsuggestionsB\xbf\x01\n" +
-	"\x16com.gcommon.v1.metricsB\x15ValidationResultProtoP\x01Z$../../../../pkg/metrics/pb;metricspb\xa2\x02\x03GVM\xaa\x02\x12Gcommon.V1.Metrics\xca\x02\x12Gcommon\\V1\\Metrics\xe2\x02\x1eGcommon\\V1\\Metrics\\GPBMetadata\xea\x02\x14Gcommon::V1::Metricsb\beditionsp\xe8\a"
+	"\vsuggestions\x18\x04 \x03(\tR\vsuggestionsB\xc2\x01\n" +
+	"\x16com.gcommon.v1.metricsB\x15ValidationResultProtoP\x01Z'../../../../pkg/metrics/proto;metricspb\xa2\x02\x03GVM\xaa\x02\x12Gcommon.V1.Metrics\xca\x02\x12Gcommon\\V1\\Metrics\xe2\x02\x1eGcommon\\V1\\Metrics\\GPBMetadata\xea\x02\x14Gcommon::V1::Metricsb\beditionsp\xe8\a"
 
 var (
 	file_pkg_metrics_proto_types_validation_result_proto_rawDescOnce sync.Once

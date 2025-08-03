@@ -111,8 +111,8 @@ const file_pkg_organization_proto_enums_tenant_status_proto_rawDesc = "" +
 	"\x1cTENANT_STATUS_QUOTA_EXCEEDED\x10\x05\x12\x17\n" +
 	"\x13TENANT_STATUS_TRIAL\x10\x06\x12\x1a\n" +
 	"\x16TENANT_STATUS_ARCHIVED\x10\a\x12\x19\n" +
-	"\x15TENANT_STATUS_DELETED\x10\bB\xe6\x01\n" +
-	"\x1bcom.gcommon.v1.organizationB\x11TenantStatusProtoP\x01Z.../../../../pkg/organization/pb;organizationpb\xa2\x02\x03GVO\xaa\x02\x17Gcommon.V1.Organization\xca\x02\x17Gcommon\\V1\\Organization\xe2\x02#Gcommon\\V1\\Organization\\GPBMetadata\xea\x02\x19Gcommon::V1::Organization\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
+	"\x15TENANT_STATUS_DELETED\x10\bB\xe9\x01\n" +
+	"\x1bcom.gcommon.v1.organizationB\x11TenantStatusProtoP\x01Z1../../../../pkg/organization/proto;organizationpb\xa2\x02\x03GVO\xaa\x02\x17Gcommon.V1.Organization\xca\x02\x17Gcommon\\V1\\Organization\xe2\x02#Gcommon\\V1\\Organization\\GPBMetadata\xea\x02\x19Gcommon::V1::Organization\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
 
 var file_pkg_organization_proto_enums_tenant_status_proto_enumTypes = make([]protoimpl.EnumInfo, 1)
 var file_pkg_organization_proto_enums_tenant_status_proto_goTypes = []any{

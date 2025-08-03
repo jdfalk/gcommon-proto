@@ -101,8 +101,8 @@ const file_pkg_notification_proto_responses_mark_as_read_response_proto_rawDesc 
 	"\n" +
 	"<pkg/notification/proto/responses/mark_as_read_response.proto\x12\x17gcommon.v1.notification\x1a!google/protobuf/go_features.proto\".\n" +
 	"\x12MarkAsReadResponse\x12\x18\n" +
-	"\asuccess\x18\x01 \x01(\bR\asuccessB\xec\x01\n" +
-	"\x1bcom.gcommon.v1.notificationB\x17MarkAsReadResponseProtoP\x01Z.../../../../pkg/notification/pb;notificationpb\xa2\x02\x03GVN\xaa\x02\x17Gcommon.V1.Notification\xca\x02\x17Gcommon\\V1\\Notification\xe2\x02#Gcommon\\V1\\Notification\\GPBMetadata\xea\x02\x19Gcommon::V1::Notification\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
+	"\asuccess\x18\x01 \x01(\bR\asuccessB\xef\x01\n" +
+	"\x1bcom.gcommon.v1.notificationB\x17MarkAsReadResponseProtoP\x01Z1../../../../pkg/notification/proto;notificationpb\xa2\x02\x03GVN\xaa\x02\x17Gcommon.V1.Notification\xca\x02\x17Gcommon\\V1\\Notification\xe2\x02#Gcommon\\V1\\Notification\\GPBMetadata\xea\x02\x19Gcommon::V1::Notification\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
 
 var file_pkg_notification_proto_responses_mark_as_read_response_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_pkg_notification_proto_responses_mark_as_read_response_proto_goTypes = []any{

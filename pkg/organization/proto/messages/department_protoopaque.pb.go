@@ -9,7 +9,7 @@
 package organizationpb
 
 import (
-	pb "../../../../pkg/common/pb"
+	proto "../../../../pkg/common/proto"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
@@ -40,7 +40,7 @@ type Department struct {
 	xxx_hidden_ManagerId          *string                `protobuf:"bytes,7,opt,name=manager_id,json=managerId"`
 	xxx_hidden_CostCenter         *string                `protobuf:"bytes,8,opt,name=cost_center,json=costCenter"`
 	xxx_hidden_Location           *string                `protobuf:"bytes,9,opt,name=location"`
-	xxx_hidden_Metadata           *[]*pb.KeyValue        `protobuf:"bytes,10,rep,name=metadata"`
+	xxx_hidden_Metadata           *[]*proto.KeyValue     `protobuf:"bytes,10,rep,name=metadata"`
 	xxx_hidden_CreatedAt          *timestamppb.Timestamp `protobuf:"bytes,11,opt,name=created_at,json=createdAt"`
 	xxx_hidden_UpdatedAt          *timestamppb.Timestamp `protobuf:"bytes,12,opt,name=updated_at,json=updatedAt"`
 	xxx_hidden_CreatedBy          *string                `protobuf:"bytes,13,opt,name=created_by,json=createdBy"`
@@ -176,13 +176,13 @@ func (x *Department) GetLocation() string {
 	return ""
 }
 
-func (x *Department) GetMetadata() []*pb.KeyValue {
+func (x *Department) GetMetadata() []*proto.KeyValue {
 	if x != nil {
 		if protoimpl.X.Present(&(x.XXX_presence[0]), 9) {
 			if protoimpl.X.AtomicCheckPointerIsNil(&x.xxx_hidden_Metadata) {
 				protoimpl.X.UnmarshalField(x, 10)
 			}
-			var rv *[]*pb.KeyValue
+			var rv *[]*proto.KeyValue
 			protoimpl.X.AtomicLoadPointer(protoimpl.Pointer(&x.xxx_hidden_Metadata), protoimpl.Pointer(&rv))
 			return *rv
 		}
@@ -348,11 +348,11 @@ func (x *Department) SetLocation(v string) {
 	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 8, 22)
 }
 
-func (x *Department) SetMetadata(v []*pb.KeyValue) {
-	var sv *[]*pb.KeyValue
+func (x *Department) SetMetadata(v []*proto.KeyValue) {
+	var sv *[]*proto.KeyValue
 	protoimpl.X.AtomicLoadPointer(protoimpl.Pointer(&x.xxx_hidden_Metadata), protoimpl.Pointer(&sv))
 	if sv == nil {
-		sv = &[]*pb.KeyValue{}
+		sv = &[]*proto.KeyValue{}
 		protoimpl.X.AtomicInitializePointer(protoimpl.Pointer(&x.xxx_hidden_Metadata), protoimpl.Pointer(&sv))
 	}
 	*sv = v
@@ -675,7 +675,7 @@ type Department_builder struct {
 	// Physical location or office for this department
 	Location *string
 	// Department metadata and custom attributes
-	Metadata []*pb.KeyValue
+	Metadata []*proto.KeyValue
 	// Department creation timestamp
 	CreatedAt *timestamppb.Timestamp
 	// Last update timestamp
@@ -827,13 +827,13 @@ const file_pkg_organization_proto_messages_department_proto_rawDesc = "" +
 	"\rannual_budget\x18\x13 \x01(\x01R\fannualBudget\x12\x1a\n" +
 	"\btimezone\x18\x14 \x01(\tR\btimezone\x120\n" +
 	"\x14child_department_ids\x18\x15 \x03(\tR\x12childDepartmentIds\x12\x19\n" +
-	"\bteam_ids\x18\x16 \x03(\tR\ateamIdsB\xe4\x01\n" +
-	"\x1bcom.gcommon.v1.organizationB\x0fDepartmentProtoP\x01Z.../../../../pkg/organization/pb;organizationpb\xa2\x02\x03GVO\xaa\x02\x17Gcommon.V1.Organization\xca\x02\x17Gcommon\\V1\\Organization\xe2\x02#Gcommon\\V1\\Organization\\GPBMetadata\xea\x02\x19Gcommon::V1::Organization\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
+	"\bteam_ids\x18\x16 \x03(\tR\ateamIdsB\xe7\x01\n" +
+	"\x1bcom.gcommon.v1.organizationB\x0fDepartmentProtoP\x01Z1../../../../pkg/organization/proto;organizationpb\xa2\x02\x03GVO\xaa\x02\x17Gcommon.V1.Organization\xca\x02\x17Gcommon\\V1\\Organization\xe2\x02#Gcommon\\V1\\Organization\\GPBMetadata\xea\x02\x19Gcommon::V1::Organization\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
 
 var file_pkg_organization_proto_messages_department_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_pkg_organization_proto_messages_department_proto_goTypes = []any{
 	(*Department)(nil),            // 0: gcommon.v1.organization.Department
-	(*pb.KeyValue)(nil),           // 1: gcommon.v1.common.KeyValue
+	(*proto.KeyValue)(nil),        // 1: gcommon.v1.common.KeyValue
 	(*timestamppb.Timestamp)(nil), // 2: google.protobuf.Timestamp
 }
 var file_pkg_organization_proto_messages_department_proto_depIdxs = []int32{

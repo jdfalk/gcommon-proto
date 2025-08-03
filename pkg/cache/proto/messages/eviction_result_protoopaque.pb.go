@@ -9,7 +9,7 @@
 package cachepb
 
 import (
-	pb "../../../../pkg/common/pb"
+	proto "../../../../pkg/common/proto"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
@@ -32,7 +32,7 @@ type EvictionResult struct {
 	state                     protoimpl.MessageState `protogen:"opaque.v1"`
 	xxx_hidden_EvictedCount   int64                  `protobuf:"varint,1,opt,name=evicted_count,json=evictedCount"`
 	xxx_hidden_EvictedKeys    []string               `protobuf:"bytes,2,rep,name=evicted_keys,json=evictedKeys"`
-	xxx_hidden_PolicyUsed     pb.EvictionPolicy      `protobuf:"varint,3,opt,name=policy_used,json=policyUsed,enum=gcommon.v1.common.EvictionPolicy"`
+	xxx_hidden_PolicyUsed     proto.EvictionPolicy   `protobuf:"varint,3,opt,name=policy_used,json=policyUsed,enum=gcommon.v1.common.EvictionPolicy"`
 	xxx_hidden_EvictionReason *string                `protobuf:"bytes,4,opt,name=eviction_reason,json=evictionReason"`
 	xxx_hidden_EvictedAt      *timestamppb.Timestamp `protobuf:"bytes,5,opt,name=evicted_at,json=evictedAt"`
 	xxx_hidden_MemoryFreed    int64                  `protobuf:"varint,6,opt,name=memory_freed,json=memoryFreed"`
@@ -82,13 +82,13 @@ func (x *EvictionResult) GetEvictedKeys() []string {
 	return nil
 }
 
-func (x *EvictionResult) GetPolicyUsed() pb.EvictionPolicy {
+func (x *EvictionResult) GetPolicyUsed() proto.EvictionPolicy {
 	if x != nil {
 		if protoimpl.X.Present(&(x.XXX_presence[0]), 2) {
 			return x.xxx_hidden_PolicyUsed
 		}
 	}
-	return pb.EvictionPolicy(0)
+	return proto.EvictionPolicy(0)
 }
 
 func (x *EvictionResult) GetEvictionReason() string {
@@ -131,7 +131,7 @@ func (x *EvictionResult) SetEvictedKeys(v []string) {
 	x.xxx_hidden_EvictedKeys = v
 }
 
-func (x *EvictionResult) SetPolicyUsed(v pb.EvictionPolicy) {
+func (x *EvictionResult) SetPolicyUsed(v proto.EvictionPolicy) {
 	x.xxx_hidden_PolicyUsed = v
 	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 2, 7)
 }
@@ -204,7 +204,7 @@ func (x *EvictionResult) ClearEvictedCount() {
 
 func (x *EvictionResult) ClearPolicyUsed() {
 	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 2)
-	x.xxx_hidden_PolicyUsed = pb.EvictionPolicy_EVICTION_POLICY_UNSPECIFIED
+	x.xxx_hidden_PolicyUsed = proto.EvictionPolicy_EVICTION_POLICY_UNSPECIFIED
 }
 
 func (x *EvictionResult) ClearEvictionReason() {
@@ -234,7 +234,7 @@ type EvictionResult_builder struct {
 	// List of evicted keys
 	EvictedKeys []string
 	// Eviction policy used
-	PolicyUsed *pb.EvictionPolicy
+	PolicyUsed *proto.EvictionPolicy
 	// Reason for eviction
 	EvictionReason *string
 	// Timestamp of eviction
@@ -288,13 +288,13 @@ const file_pkg_cache_proto_messages_eviction_result_proto_rawDesc = "" +
 	"\n" +
 	"evicted_at\x18\x05 \x01(\v2\x1a.google.protobuf.TimestampR\tevictedAt\x12!\n" +
 	"\fmemory_freed\x18\x06 \x01(\x03R\vmemoryFreed\x12\x18\n" +
-	"\asuccess\x18\a \x01(\bR\asuccessB\xb7\x01\n" +
-	"\x14com.gcommon.v1.cacheB\x13EvictionResultProtoP\x01Z ../../../../pkg/cache/pb;cachepb\xa2\x02\x03GVC\xaa\x02\x10Gcommon.V1.Cache\xca\x02\x10Gcommon\\V1\\Cache\xe2\x02\x1cGcommon\\V1\\Cache\\GPBMetadata\xea\x02\x12Gcommon::V1::Cache\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
+	"\asuccess\x18\a \x01(\bR\asuccessB\xba\x01\n" +
+	"\x14com.gcommon.v1.cacheB\x13EvictionResultProtoP\x01Z#../../../../pkg/cache/proto;cachepb\xa2\x02\x03GVC\xaa\x02\x10Gcommon.V1.Cache\xca\x02\x10Gcommon\\V1\\Cache\xe2\x02\x1cGcommon\\V1\\Cache\\GPBMetadata\xea\x02\x12Gcommon::V1::Cache\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
 
 var file_pkg_cache_proto_messages_eviction_result_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_pkg_cache_proto_messages_eviction_result_proto_goTypes = []any{
 	(*EvictionResult)(nil),        // 0: gcommon.v1.cache.EvictionResult
-	(pb.EvictionPolicy)(0),        // 1: gcommon.v1.common.EvictionPolicy
+	(proto.EvictionPolicy)(0),     // 1: gcommon.v1.common.EvictionPolicy
 	(*timestamppb.Timestamp)(nil), // 2: google.protobuf.Timestamp
 }
 var file_pkg_cache_proto_messages_eviction_result_proto_depIdxs = []int32{

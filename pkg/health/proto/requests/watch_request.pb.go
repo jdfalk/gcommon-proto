@@ -9,7 +9,7 @@
 package healthpb
 
 import (
-	pb "../../../../pkg/common/pb"
+	proto "../../../../pkg/common/proto"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
@@ -37,7 +37,7 @@ type WatchRequest struct {
 	// Service name to watch (empty for all services)
 	Service *string `protobuf:"bytes,1,opt,name=service" json:"service,omitempty"`
 	// Request metadata
-	Metadata      *pb.RequestMetadata `protobuf:"bytes,2,opt,name=metadata" json:"metadata,omitempty"`
+	Metadata      *proto.RequestMetadata `protobuf:"bytes,2,opt,name=metadata" json:"metadata,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -74,7 +74,7 @@ func (x *WatchRequest) GetService() string {
 	return ""
 }
 
-func (x *WatchRequest) GetMetadata() *pb.RequestMetadata {
+func (x *WatchRequest) GetMetadata() *proto.RequestMetadata {
 	if x != nil {
 		return x.Metadata
 	}
@@ -85,7 +85,7 @@ func (x *WatchRequest) SetService(v string) {
 	x.Service = &v
 }
 
-func (x *WatchRequest) SetMetadata(v *pb.RequestMetadata) {
+func (x *WatchRequest) SetMetadata(v *proto.RequestMetadata) {
 	x.Metadata = v
 }
 
@@ -117,7 +117,7 @@ type WatchRequest_builder struct {
 	// Service name to watch (empty for all services)
 	Service *string
 	// Request metadata
-	Metadata *pb.RequestMetadata
+	Metadata *proto.RequestMetadata
 }
 
 func (b0 WatchRequest_builder) Build() *WatchRequest {
@@ -136,13 +136,13 @@ const file_pkg_health_proto_requests_watch_request_proto_rawDesc = "" +
 	"-pkg/health/proto/requests/watch_request.proto\x12\x11gcommon.v1.health\x1a0pkg/common/proto/messages/request_metadata.proto\x1a!google/protobuf/go_features.proto\"h\n" +
 	"\fWatchRequest\x12\x18\n" +
 	"\aservice\x18\x01 \x01(\tR\aservice\x12>\n" +
-	"\bmetadata\x18\x02 \x01(\v2\".gcommon.v1.common.RequestMetadataR\bmetadataB\xbc\x01\n" +
-	"\x15com.gcommon.v1.healthB\x11WatchRequestProtoP\x01Z\"../../../../pkg/health/pb;healthpb\xa2\x02\x03GVH\xaa\x02\x11Gcommon.V1.Health\xca\x02\x11Gcommon\\V1\\Health\xe2\x02\x1dGcommon\\V1\\Health\\GPBMetadata\xea\x02\x13Gcommon::V1::Health\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
+	"\bmetadata\x18\x02 \x01(\v2\".gcommon.v1.common.RequestMetadataR\bmetadataB\xbf\x01\n" +
+	"\x15com.gcommon.v1.healthB\x11WatchRequestProtoP\x01Z%../../../../pkg/health/proto;healthpb\xa2\x02\x03GVH\xaa\x02\x11Gcommon.V1.Health\xca\x02\x11Gcommon\\V1\\Health\xe2\x02\x1dGcommon\\V1\\Health\\GPBMetadata\xea\x02\x13Gcommon::V1::Health\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
 
 var file_pkg_health_proto_requests_watch_request_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_pkg_health_proto_requests_watch_request_proto_goTypes = []any{
-	(*WatchRequest)(nil),       // 0: gcommon.v1.health.WatchRequest
-	(*pb.RequestMetadata)(nil), // 1: gcommon.v1.common.RequestMetadata
+	(*WatchRequest)(nil),          // 0: gcommon.v1.health.WatchRequest
+	(*proto.RequestMetadata)(nil), // 1: gcommon.v1.common.RequestMetadata
 }
 var file_pkg_health_proto_requests_watch_request_proto_depIdxs = []int32{
 	1, // 0: gcommon.v1.health.WatchRequest.metadata:type_name -> gcommon.v1.common.RequestMetadata

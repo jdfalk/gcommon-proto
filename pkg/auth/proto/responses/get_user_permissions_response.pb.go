@@ -143,8 +143,8 @@ const file_pkg_auth_proto_responses_get_user_permissions_response_proto_rawDesc 
 	"\vpermissions\x18\x01 \x03(\tR\vpermissions\x12)\n" +
 	"\x10role_permissions\x18\x02 \x03(\tR\x0frolePermissions\x123\n" +
 	"\x15effective_permissions\x18\x03 \x03(\tR\x14effectivePermissions\x12/\n" +
-	"\x05roles\x18\x04 \x03(\v2\x15.gcommon.v1.auth.RoleB\x02(\x01R\x05rolesB\xbc\x01\n" +
-	"\x13com.gcommon.v1.authB\x1fGetUserPermissionsResponseProtoP\x01Z\x1e../../../../pkg/auth/pb;authpb\xa2\x02\x03GVA\xaa\x02\x0fGcommon.V1.Auth\xca\x02\x0fGcommon\\V1\\Auth\xe2\x02\x1bGcommon\\V1\\Auth\\GPBMetadata\xea\x02\x11Gcommon::V1::Auth\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
+	"\x05roles\x18\x04 \x03(\v2\x15.gcommon.v1.auth.RoleB\x02(\x01R\x05rolesB\xbf\x01\n" +
+	"\x13com.gcommon.v1.authB\x1fGetUserPermissionsResponseProtoP\x01Z!../../../../pkg/auth/proto;authpb\xa2\x02\x03GVA\xaa\x02\x0fGcommon.V1.Auth\xca\x02\x0fGcommon\\V1\\Auth\xe2\x02\x1bGcommon\\V1\\Auth\\GPBMetadata\xea\x02\x11Gcommon::V1::Auth\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
 
 var file_pkg_auth_proto_responses_get_user_permissions_response_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_pkg_auth_proto_responses_get_user_permissions_response_proto_goTypes = []any{

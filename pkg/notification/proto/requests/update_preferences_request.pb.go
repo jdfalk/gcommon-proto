@@ -9,7 +9,7 @@
 package notificationpb
 
 import (
-	pb "../../../../pkg/common/pb"
+	proto "../../../../pkg/common/proto"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
@@ -31,7 +31,7 @@ type UpdatePreferencesRequest struct {
 	// Subscription preferences to apply
 	Preferences *SubscriptionPreferences `protobuf:"bytes,1,opt,name=preferences" json:"preferences,omitempty"`
 	// Request metadata for auditing
-	Metadata      *pb.RequestMetadata `protobuf:"bytes,2,opt,name=metadata" json:"metadata,omitempty"`
+	Metadata      *proto.RequestMetadata `protobuf:"bytes,2,opt,name=metadata" json:"metadata,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -68,7 +68,7 @@ func (x *UpdatePreferencesRequest) GetPreferences() *SubscriptionPreferences {
 	return nil
 }
 
-func (x *UpdatePreferencesRequest) GetMetadata() *pb.RequestMetadata {
+func (x *UpdatePreferencesRequest) GetMetadata() *proto.RequestMetadata {
 	if x != nil {
 		return x.Metadata
 	}
@@ -79,7 +79,7 @@ func (x *UpdatePreferencesRequest) SetPreferences(v *SubscriptionPreferences) {
 	x.Preferences = v
 }
 
-func (x *UpdatePreferencesRequest) SetMetadata(v *pb.RequestMetadata) {
+func (x *UpdatePreferencesRequest) SetMetadata(v *proto.RequestMetadata) {
 	x.Metadata = v
 }
 
@@ -111,7 +111,7 @@ type UpdatePreferencesRequest_builder struct {
 	// Subscription preferences to apply
 	Preferences *SubscriptionPreferences
 	// Request metadata for auditing
-	Metadata *pb.RequestMetadata
+	Metadata *proto.RequestMetadata
 }
 
 func (b0 UpdatePreferencesRequest_builder) Build() *UpdatePreferencesRequest {
@@ -130,14 +130,14 @@ const file_pkg_notification_proto_requests_update_preferences_request_proto_rawD
 	"@pkg/notification/proto/requests/update_preferences_request.proto\x12\x17gcommon.v1.notification\x1a!google/protobuf/go_features.proto\x1a0pkg/common/proto/messages/request_metadata.proto\x1a>pkg/notification/proto/messages/subscription_preferences.proto\"\xb6\x01\n" +
 	"\x18UpdatePreferencesRequest\x12V\n" +
 	"\vpreferences\x18\x01 \x01(\v20.gcommon.v1.notification.SubscriptionPreferencesB\x02(\x01R\vpreferences\x12B\n" +
-	"\bmetadata\x18\x02 \x01(\v2\".gcommon.v1.common.RequestMetadataB\x02(\x01R\bmetadataB\xf2\x01\n" +
-	"\x1bcom.gcommon.v1.notificationB\x1dUpdatePreferencesRequestProtoP\x01Z.../../../../pkg/notification/pb;notificationpb\xa2\x02\x03GVN\xaa\x02\x17Gcommon.V1.Notification\xca\x02\x17Gcommon\\V1\\Notification\xe2\x02#Gcommon\\V1\\Notification\\GPBMetadata\xea\x02\x19Gcommon::V1::Notification\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
+	"\bmetadata\x18\x02 \x01(\v2\".gcommon.v1.common.RequestMetadataB\x02(\x01R\bmetadataB\xf5\x01\n" +
+	"\x1bcom.gcommon.v1.notificationB\x1dUpdatePreferencesRequestProtoP\x01Z1../../../../pkg/notification/proto;notificationpb\xa2\x02\x03GVN\xaa\x02\x17Gcommon.V1.Notification\xca\x02\x17Gcommon\\V1\\Notification\xe2\x02#Gcommon\\V1\\Notification\\GPBMetadata\xea\x02\x19Gcommon::V1::Notification\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
 
 var file_pkg_notification_proto_requests_update_preferences_request_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_pkg_notification_proto_requests_update_preferences_request_proto_goTypes = []any{
 	(*UpdatePreferencesRequest)(nil), // 0: gcommon.v1.notification.UpdatePreferencesRequest
 	(*SubscriptionPreferences)(nil),  // 1: gcommon.v1.notification.SubscriptionPreferences
-	(*pb.RequestMetadata)(nil),       // 2: gcommon.v1.common.RequestMetadata
+	(*proto.RequestMetadata)(nil),    // 2: gcommon.v1.common.RequestMetadata
 }
 var file_pkg_notification_proto_requests_update_preferences_request_proto_depIdxs = []int32{
 	1, // 0: gcommon.v1.notification.UpdatePreferencesRequest.preferences:type_name -> gcommon.v1.notification.SubscriptionPreferences

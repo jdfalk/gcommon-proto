@@ -9,7 +9,7 @@
 package authpb
 
 import (
-	pb "../../../../pkg/common/pb"
+	proto "../../../../pkg/common/proto"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
@@ -27,10 +27,10 @@ const (
 // *
 // ResetPasswordResponse indicates success or failure of password reset.
 type ResetPasswordResponse struct {
-	state                  protoimpl.MessageState `protogen:"opaque.v1"`
-	xxx_hidden_Success     bool                   `protobuf:"varint,1,opt,name=success"`
-	xxx_hidden_Message     *string                `protobuf:"bytes,2,opt,name=message"`
-	xxx_hidden_Metadata    *pb.ResponseMetadata   `protobuf:"bytes,3,opt,name=metadata"`
+	state                  protoimpl.MessageState  `protogen:"opaque.v1"`
+	xxx_hidden_Success     bool                    `protobuf:"varint,1,opt,name=success"`
+	xxx_hidden_Message     *string                 `protobuf:"bytes,2,opt,name=message"`
+	xxx_hidden_Metadata    *proto.ResponseMetadata `protobuf:"bytes,3,opt,name=metadata"`
 	XXX_raceDetectHookData protoimpl.RaceDetectHookData
 	XXX_presence           [1]uint32
 	unknownFields          protoimpl.UnknownFields
@@ -79,7 +79,7 @@ func (x *ResetPasswordResponse) GetMessage() string {
 	return ""
 }
 
-func (x *ResetPasswordResponse) GetMetadata() *pb.ResponseMetadata {
+func (x *ResetPasswordResponse) GetMetadata() *proto.ResponseMetadata {
 	if x != nil {
 		return x.xxx_hidden_Metadata
 	}
@@ -96,7 +96,7 @@ func (x *ResetPasswordResponse) SetMessage(v string) {
 	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 1, 3)
 }
 
-func (x *ResetPasswordResponse) SetMetadata(v *pb.ResponseMetadata) {
+func (x *ResetPasswordResponse) SetMetadata(v *proto.ResponseMetadata) {
 	x.xxx_hidden_Metadata = v
 }
 
@@ -143,7 +143,7 @@ type ResetPasswordResponse_builder struct {
 	// Optional message describing the result
 	Message *string
 	// Response metadata for rate limiting and tracing
-	Metadata *pb.ResponseMetadata
+	Metadata *proto.ResponseMetadata
 }
 
 func (b0 ResetPasswordResponse_builder) Build() *ResetPasswordResponse {
@@ -170,13 +170,13 @@ const file_pkg_auth_proto_responses_reset_password_response_proto_rawDesc = "" +
 	"\x15ResetPasswordResponse\x12\x18\n" +
 	"\asuccess\x18\x01 \x01(\bR\asuccess\x12\x18\n" +
 	"\amessage\x18\x02 \x01(\tR\amessage\x12?\n" +
-	"\bmetadata\x18\x03 \x01(\v2#.gcommon.v1.common.ResponseMetadataR\bmetadataB\xb7\x01\n" +
-	"\x13com.gcommon.v1.authB\x1aResetPasswordResponseProtoP\x01Z\x1e../../../../pkg/auth/pb;authpb\xa2\x02\x03GVA\xaa\x02\x0fGcommon.V1.Auth\xca\x02\x0fGcommon\\V1\\Auth\xe2\x02\x1bGcommon\\V1\\Auth\\GPBMetadata\xea\x02\x11Gcommon::V1::Auth\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
+	"\bmetadata\x18\x03 \x01(\v2#.gcommon.v1.common.ResponseMetadataR\bmetadataB\xba\x01\n" +
+	"\x13com.gcommon.v1.authB\x1aResetPasswordResponseProtoP\x01Z!../../../../pkg/auth/proto;authpb\xa2\x02\x03GVA\xaa\x02\x0fGcommon.V1.Auth\xca\x02\x0fGcommon\\V1\\Auth\xe2\x02\x1bGcommon\\V1\\Auth\\GPBMetadata\xea\x02\x11Gcommon::V1::Auth\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
 
 var file_pkg_auth_proto_responses_reset_password_response_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_pkg_auth_proto_responses_reset_password_response_proto_goTypes = []any{
-	(*ResetPasswordResponse)(nil), // 0: gcommon.v1.auth.ResetPasswordResponse
-	(*pb.ResponseMetadata)(nil),   // 1: gcommon.v1.common.ResponseMetadata
+	(*ResetPasswordResponse)(nil),  // 0: gcommon.v1.auth.ResetPasswordResponse
+	(*proto.ResponseMetadata)(nil), // 1: gcommon.v1.common.ResponseMetadata
 }
 var file_pkg_auth_proto_responses_reset_password_response_proto_depIdxs = []int32{
 	1, // 0: gcommon.v1.auth.ResetPasswordResponse.metadata:type_name -> gcommon.v1.common.ResponseMetadata

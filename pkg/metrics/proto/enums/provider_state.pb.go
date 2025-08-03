@@ -100,8 +100,8 @@ const file_pkg_metrics_proto_enums_provider_state_proto_rawDesc = "" +
 	"\x17PROVIDER_STATE_STOPPING\x10\x04\x12\x1a\n" +
 	"\x16PROVIDER_STATE_STOPPED\x10\x05\x12\x18\n" +
 	"\x14PROVIDER_STATE_ERROR\x10\x06\x12\x1a\n" +
-	"\x16PROVIDER_STATE_UNKNOWN\x10\aB\xbc\x01\n" +
-	"\x16com.gcommon.v1.metricsB\x12ProviderStateProtoP\x01Z$../../../../pkg/metrics/pb;metricspb\xa2\x02\x03GVM\xaa\x02\x12Gcommon.V1.Metrics\xca\x02\x12Gcommon\\V1\\Metrics\xe2\x02\x1eGcommon\\V1\\Metrics\\GPBMetadata\xea\x02\x14Gcommon::V1::Metricsb\beditionsp\xe8\a"
+	"\x16PROVIDER_STATE_UNKNOWN\x10\aB\xbf\x01\n" +
+	"\x16com.gcommon.v1.metricsB\x12ProviderStateProtoP\x01Z'../../../../pkg/metrics/proto;metricspb\xa2\x02\x03GVM\xaa\x02\x12Gcommon.V1.Metrics\xca\x02\x12Gcommon\\V1\\Metrics\xe2\x02\x1eGcommon\\V1\\Metrics\\GPBMetadata\xea\x02\x14Gcommon::V1::Metricsb\beditionsp\xe8\a"
 
 var (
 	file_pkg_metrics_proto_enums_provider_state_proto_rawDescOnce sync.Once

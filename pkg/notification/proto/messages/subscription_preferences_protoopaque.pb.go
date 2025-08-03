@@ -176,8 +176,8 @@ const file_pkg_notification_proto_messages_subscription_preferences_proto_rawDes
 	"\bmetadata\x18\x04 \x03(\v2>.gcommon.v1.notification.SubscriptionPreferences.MetadataEntryB\x02(\x01R\bmetadata\x1a;\n" +
 	"\rMetadataEntry\x12\x10\n" +
 	"\x03key\x18\x01 \x01(\tR\x03key\x12\x14\n" +
-	"\x05value\x18\x02 \x01(\tR\x05value:\x028\x01B\xf1\x01\n" +
-	"\x1bcom.gcommon.v1.notificationB\x1cSubscriptionPreferencesProtoP\x01Z.../../../../pkg/notification/pb;notificationpb\xa2\x02\x03GVN\xaa\x02\x17Gcommon.V1.Notification\xca\x02\x17Gcommon\\V1\\Notification\xe2\x02#Gcommon\\V1\\Notification\\GPBMetadata\xea\x02\x19Gcommon::V1::Notification\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
+	"\x05value\x18\x02 \x01(\tR\x05value:\x028\x01B\xf4\x01\n" +
+	"\x1bcom.gcommon.v1.notificationB\x1cSubscriptionPreferencesProtoP\x01Z1../../../../pkg/notification/proto;notificationpb\xa2\x02\x03GVN\xaa\x02\x17Gcommon.V1.Notification\xca\x02\x17Gcommon\\V1\\Notification\xe2\x02#Gcommon\\V1\\Notification\\GPBMetadata\xea\x02\x19Gcommon::V1::Notification\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
 
 var file_pkg_notification_proto_messages_subscription_preferences_proto_msgTypes = make([]protoimpl.MessageInfo, 2)
 var file_pkg_notification_proto_messages_subscription_preferences_proto_goTypes = []any{

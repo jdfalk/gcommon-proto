@@ -7,7 +7,7 @@
 package authpb
 
 import (
-	pb "../../../../pkg/common/pb"
+	proto "../../../../pkg/common/proto"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	timestamppb "google.golang.org/protobuf/types/known/timestamppb"
@@ -42,11 +42,11 @@ type ListUserSessionsResponse struct {
 	// *
 	// Pagination information for navigating through large result sets.
 	// Contains next_page_token for retrieving additional results.
-	Pagination *pb.PaginatedResponse `protobuf:"bytes,11,opt,name=pagination" json:"pagination,omitempty"`
+	Pagination *proto.PaginatedResponse `protobuf:"bytes,11,opt,name=pagination" json:"pagination,omitempty"`
 	// *
 	// Request processing metadata including timing, request ID,
 	// and other observability information.
-	RequestMetadata *pb.RequestMetadata `protobuf:"bytes,12,opt,name=request_metadata,json=requestMetadata" json:"request_metadata,omitempty"`
+	RequestMetadata *proto.RequestMetadata `protobuf:"bytes,12,opt,name=request_metadata,json=requestMetadata" json:"request_metadata,omitempty"`
 	// *
 	// Indicates if the current request's session is included
 	// in the results. Useful for UI highlighting.
@@ -62,7 +62,7 @@ type ListUserSessionsResponse struct {
 	// *
 	// Error information if the request failed partially
 	// or if there were issues retrieving some session data.
-	Error *pb.Error `protobuf:"bytes,61,opt,name=error" json:"error,omitempty"`
+	Error *proto.Error `protobuf:"bytes,61,opt,name=error" json:"error,omitempty"`
 	// *
 	// Timestamp when this response was generated.
 	// Useful for caching and staleness detection.
@@ -119,14 +119,14 @@ func (x *ListUserSessionsResponse) GetTotalCount() int32 {
 	return 0
 }
 
-func (x *ListUserSessionsResponse) GetPagination() *pb.PaginatedResponse {
+func (x *ListUserSessionsResponse) GetPagination() *proto.PaginatedResponse {
 	if x != nil {
 		return x.Pagination
 	}
 	return nil
 }
 
-func (x *ListUserSessionsResponse) GetRequestMetadata() *pb.RequestMetadata {
+func (x *ListUserSessionsResponse) GetRequestMetadata() *proto.RequestMetadata {
 	if x != nil {
 		return x.RequestMetadata
 	}
@@ -154,7 +154,7 @@ func (x *ListUserSessionsResponse) GetUserId() string {
 	return ""
 }
 
-func (x *ListUserSessionsResponse) GetError() *pb.Error {
+func (x *ListUserSessionsResponse) GetError() *proto.Error {
 	if x != nil {
 		return x.Error
 	}
@@ -193,8 +193,8 @@ const file_pkg_auth_proto_responses_list_user_sessions_response_proto_rawDesc = 
 	"\auser_id\x18\x0f \x01(\tR\x06userId\x12.\n" +
 	"\x05error\x18= \x01(\v2\x18.gcommon.v1.common.ErrorR\x05error\x12=\n" +
 	"\fgenerated_at\x183 \x01(\v2\x1a.google.protobuf.TimestampR\vgeneratedAt\x12F\n" +
-	"\x11data_refreshed_at\x184 \x01(\v2\x1a.google.protobuf.TimestampR\x0fdataRefreshedAtB\xb2\x01\n" +
-	"\x13com.gcommon.v1.authB\x1dListUserSessionsResponseProtoP\x01Z\x1e../../../../pkg/auth/pb;authpb\xa2\x02\x03GVA\xaa\x02\x0fGcommon.V1.Auth\xca\x02\x0fGcommon\\V1\\Auth\xe2\x02\x1bGcommon\\V1\\Auth\\GPBMetadata\xea\x02\x11Gcommon::V1::Authb\beditionsp\xe8\a"
+	"\x11data_refreshed_at\x184 \x01(\v2\x1a.google.protobuf.TimestampR\x0fdataRefreshedAtB\xb5\x01\n" +
+	"\x13com.gcommon.v1.authB\x1dListUserSessionsResponseProtoP\x01Z!../../../../pkg/auth/proto;authpb\xa2\x02\x03GVA\xaa\x02\x0fGcommon.V1.Auth\xca\x02\x0fGcommon\\V1\\Auth\xe2\x02\x1bGcommon\\V1\\Auth\\GPBMetadata\xea\x02\x11Gcommon::V1::Authb\beditionsp\xe8\a"
 
 var (
 	file_pkg_auth_proto_responses_list_user_sessions_response_proto_rawDescOnce sync.Once
@@ -212,9 +212,9 @@ var file_pkg_auth_proto_responses_list_user_sessions_response_proto_msgTypes = m
 var file_pkg_auth_proto_responses_list_user_sessions_response_proto_goTypes = []any{
 	(*ListUserSessionsResponse)(nil), // 0: gcommon.v1.auth.ListUserSessionsResponse
 	(*SessionInfo)(nil),              // 1: gcommon.v1.auth.SessionInfo
-	(*pb.PaginatedResponse)(nil),     // 2: gcommon.v1.common.PaginatedResponse
-	(*pb.RequestMetadata)(nil),       // 3: gcommon.v1.common.RequestMetadata
-	(*pb.Error)(nil),                 // 4: gcommon.v1.common.Error
+	(*proto.PaginatedResponse)(nil),  // 2: gcommon.v1.common.PaginatedResponse
+	(*proto.RequestMetadata)(nil),    // 3: gcommon.v1.common.RequestMetadata
+	(*proto.Error)(nil),              // 4: gcommon.v1.common.Error
 	(*timestamppb.Timestamp)(nil),    // 5: google.protobuf.Timestamp
 }
 var file_pkg_auth_proto_responses_list_user_sessions_response_proto_depIdxs = []int32{

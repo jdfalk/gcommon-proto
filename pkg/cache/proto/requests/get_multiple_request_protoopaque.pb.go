@@ -9,7 +9,7 @@
 package cachepb
 
 import (
-	pb "../../../../pkg/common/pb"
+	proto "../../../../pkg/common/proto"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
@@ -30,7 +30,7 @@ const (
 type GetMultipleRequest struct {
 	state               protoimpl.MessageState `protogen:"opaque.v1"`
 	xxx_hidden_Keys     []string               `protobuf:"bytes,1,rep,name=keys"`
-	xxx_hidden_Metadata *pb.RequestMetadata    `protobuf:"bytes,2,opt,name=metadata"`
+	xxx_hidden_Metadata *proto.RequestMetadata `protobuf:"bytes,2,opt,name=metadata"`
 	// Deprecated: Do not use. This will be deleted in the near future.
 	XXX_lazyUnmarshalInfo  protoimpl.LazyUnmarshalInfo
 	XXX_raceDetectHookData protoimpl.RaceDetectHookData
@@ -71,13 +71,13 @@ func (x *GetMultipleRequest) GetKeys() []string {
 	return nil
 }
 
-func (x *GetMultipleRequest) GetMetadata() *pb.RequestMetadata {
+func (x *GetMultipleRequest) GetMetadata() *proto.RequestMetadata {
 	if x != nil {
 		if protoimpl.X.Present(&(x.XXX_presence[0]), 1) {
 			if protoimpl.X.AtomicCheckPointerIsNil(&x.xxx_hidden_Metadata) {
 				protoimpl.X.UnmarshalField(x, 2)
 			}
-			var rv *pb.RequestMetadata
+			var rv *proto.RequestMetadata
 			protoimpl.X.AtomicLoadPointer(protoimpl.Pointer(&x.xxx_hidden_Metadata), protoimpl.Pointer(&rv))
 			return rv
 		}
@@ -89,7 +89,7 @@ func (x *GetMultipleRequest) SetKeys(v []string) {
 	x.xxx_hidden_Keys = v
 }
 
-func (x *GetMultipleRequest) SetMetadata(v *pb.RequestMetadata) {
+func (x *GetMultipleRequest) SetMetadata(v *proto.RequestMetadata) {
 	protoimpl.X.AtomicSetPointer(&x.xxx_hidden_Metadata, v)
 	if v == nil {
 		protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 1)
@@ -107,7 +107,7 @@ func (x *GetMultipleRequest) HasMetadata() bool {
 
 func (x *GetMultipleRequest) ClearMetadata() {
 	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 1)
-	protoimpl.X.AtomicSetPointer(&x.xxx_hidden_Metadata, (*pb.RequestMetadata)(nil))
+	protoimpl.X.AtomicSetPointer(&x.xxx_hidden_Metadata, (*proto.RequestMetadata)(nil))
 }
 
 type GetMultipleRequest_builder struct {
@@ -116,7 +116,7 @@ type GetMultipleRequest_builder struct {
 	// List of keys to retrieve
 	Keys []string
 	// Request metadata for tracing
-	Metadata *pb.RequestMetadata
+	Metadata *proto.RequestMetadata
 }
 
 func (b0 GetMultipleRequest_builder) Build() *GetMultipleRequest {
@@ -138,13 +138,13 @@ const file_pkg_cache_proto_requests_get_multiple_request_proto_rawDesc = "" +
 	"3pkg/cache/proto/requests/get_multiple_request.proto\x12\x10gcommon.v1.cache\x1a!google/protobuf/go_features.proto\x1a0pkg/common/proto/messages/request_metadata.proto\"l\n" +
 	"\x12GetMultipleRequest\x12\x12\n" +
 	"\x04keys\x18\x01 \x03(\tR\x04keys\x12B\n" +
-	"\bmetadata\x18\x02 \x01(\v2\".gcommon.v1.common.RequestMetadataB\x02(\x01R\bmetadataB\xbb\x01\n" +
-	"\x14com.gcommon.v1.cacheB\x17GetMultipleRequestProtoP\x01Z ../../../../pkg/cache/pb;cachepb\xa2\x02\x03GVC\xaa\x02\x10Gcommon.V1.Cache\xca\x02\x10Gcommon\\V1\\Cache\xe2\x02\x1cGcommon\\V1\\Cache\\GPBMetadata\xea\x02\x12Gcommon::V1::Cache\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
+	"\bmetadata\x18\x02 \x01(\v2\".gcommon.v1.common.RequestMetadataB\x02(\x01R\bmetadataB\xbe\x01\n" +
+	"\x14com.gcommon.v1.cacheB\x17GetMultipleRequestProtoP\x01Z#../../../../pkg/cache/proto;cachepb\xa2\x02\x03GVC\xaa\x02\x10Gcommon.V1.Cache\xca\x02\x10Gcommon\\V1\\Cache\xe2\x02\x1cGcommon\\V1\\Cache\\GPBMetadata\xea\x02\x12Gcommon::V1::Cache\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
 
 var file_pkg_cache_proto_requests_get_multiple_request_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_pkg_cache_proto_requests_get_multiple_request_proto_goTypes = []any{
-	(*GetMultipleRequest)(nil), // 0: gcommon.v1.cache.GetMultipleRequest
-	(*pb.RequestMetadata)(nil), // 1: gcommon.v1.common.RequestMetadata
+	(*GetMultipleRequest)(nil),    // 0: gcommon.v1.cache.GetMultipleRequest
+	(*proto.RequestMetadata)(nil), // 1: gcommon.v1.common.RequestMetadata
 }
 var file_pkg_cache_proto_requests_get_multiple_request_proto_depIdxs = []int32{
 	1, // 0: gcommon.v1.cache.GetMultipleRequest.metadata:type_name -> gcommon.v1.common.RequestMetadata

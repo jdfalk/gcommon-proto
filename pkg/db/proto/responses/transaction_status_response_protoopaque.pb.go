@@ -9,7 +9,7 @@
 package dbpb
 
 import (
-	pb "../../../../pkg/common/pb"
+	proto "../../../../pkg/common/proto"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
@@ -29,7 +29,7 @@ const (
 type TransactionStatusResponse struct {
 	state             protoimpl.MessageState `protogen:"opaque.v1"`
 	xxx_hidden_Status *string                `protobuf:"bytes,1,opt,name=status"`
-	xxx_hidden_Error  *pb.Error              `protobuf:"bytes,2,opt,name=error"`
+	xxx_hidden_Error  *proto.Error           `protobuf:"bytes,2,opt,name=error"`
 	// Deprecated: Do not use. This will be deleted in the near future.
 	XXX_lazyUnmarshalInfo  protoimpl.LazyUnmarshalInfo
 	XXX_raceDetectHookData protoimpl.RaceDetectHookData
@@ -73,13 +73,13 @@ func (x *TransactionStatusResponse) GetStatus() string {
 	return ""
 }
 
-func (x *TransactionStatusResponse) GetError() *pb.Error {
+func (x *TransactionStatusResponse) GetError() *proto.Error {
 	if x != nil {
 		if protoimpl.X.Present(&(x.XXX_presence[0]), 1) {
 			if protoimpl.X.AtomicCheckPointerIsNil(&x.xxx_hidden_Error) {
 				protoimpl.X.UnmarshalField(x, 2)
 			}
-			var rv *pb.Error
+			var rv *proto.Error
 			protoimpl.X.AtomicLoadPointer(protoimpl.Pointer(&x.xxx_hidden_Error), protoimpl.Pointer(&rv))
 			return rv
 		}
@@ -92,7 +92,7 @@ func (x *TransactionStatusResponse) SetStatus(v string) {
 	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 0, 2)
 }
 
-func (x *TransactionStatusResponse) SetError(v *pb.Error) {
+func (x *TransactionStatusResponse) SetError(v *proto.Error) {
 	protoimpl.X.AtomicSetPointer(&x.xxx_hidden_Error, v)
 	if v == nil {
 		protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 1)
@@ -122,7 +122,7 @@ func (x *TransactionStatusResponse) ClearStatus() {
 
 func (x *TransactionStatusResponse) ClearError() {
 	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 1)
-	protoimpl.X.AtomicSetPointer(&x.xxx_hidden_Error, (*pb.Error)(nil))
+	protoimpl.X.AtomicSetPointer(&x.xxx_hidden_Error, (*proto.Error)(nil))
 }
 
 type TransactionStatusResponse_builder struct {
@@ -131,7 +131,7 @@ type TransactionStatusResponse_builder struct {
 	// Current status of the transaction (e.g., ACTIVE, COMMITTED, ROLLED_BACK)
 	Status *string
 	// Error information if the transaction encountered an issue
-	Error *pb.Error
+	Error *proto.Error
 }
 
 func (b0 TransactionStatusResponse_builder) Build() *TransactionStatusResponse {
@@ -156,13 +156,13 @@ const file_pkg_db_proto_responses_transaction_status_response_proto_rawDesc = ""
 	"8pkg/db/proto/responses/transaction_status_response.proto\x12\x13gcommon.v1.database\x1a%pkg/common/proto/messages/error.proto\x1a!google/protobuf/go_features.proto\"g\n" +
 	"\x19TransactionStatusResponse\x12\x16\n" +
 	"\x06status\x18\x01 \x01(\tR\x06status\x122\n" +
-	"\x05error\x18\x02 \x01(\v2\x18.gcommon.v1.common.ErrorB\x02(\x01R\x05errorB\xcb\x01\n" +
-	"\x17com.gcommon.v1.databaseB\x1eTransactionStatusResponseProtoP\x01Z\x1a../../../../pkg/db/pb;dbpb\xa2\x02\x03GVD\xaa\x02\x13Gcommon.V1.Database\xca\x02\x13Gcommon\\V1\\Database\xe2\x02\x1fGcommon\\V1\\Database\\GPBMetadata\xea\x02\x15Gcommon::V1::Database\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
+	"\x05error\x18\x02 \x01(\v2\x18.gcommon.v1.common.ErrorB\x02(\x01R\x05errorB\xce\x01\n" +
+	"\x17com.gcommon.v1.databaseB\x1eTransactionStatusResponseProtoP\x01Z\x1d../../../../pkg/db/proto;dbpb\xa2\x02\x03GVD\xaa\x02\x13Gcommon.V1.Database\xca\x02\x13Gcommon\\V1\\Database\xe2\x02\x1fGcommon\\V1\\Database\\GPBMetadata\xea\x02\x15Gcommon::V1::Database\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
 
 var file_pkg_db_proto_responses_transaction_status_response_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_pkg_db_proto_responses_transaction_status_response_proto_goTypes = []any{
 	(*TransactionStatusResponse)(nil), // 0: gcommon.v1.database.TransactionStatusResponse
-	(*pb.Error)(nil),                  // 1: gcommon.v1.common.Error
+	(*proto.Error)(nil),               // 1: gcommon.v1.common.Error
 }
 var file_pkg_db_proto_responses_transaction_status_response_proto_depIdxs = []int32{
 	1, // 0: gcommon.v1.database.TransactionStatusResponse.error:type_name -> gcommon.v1.common.Error

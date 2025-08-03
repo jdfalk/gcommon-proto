@@ -174,8 +174,8 @@ const file_pkg_config_proto_messages_config_stats_proto_rawDesc = "" +
 	"\n" +
 	"namespaces\x18\x02 \x01(\x03R\n" +
 	"namespaces\x12\x1a\n" +
-	"\bversions\x18\x03 \x01(\x03R\bversionsB\xbb\x01\n" +
-	"\x15com.gcommon.v1.configB\x10ConfigStatsProtoP\x01Z\"../../../../pkg/config/pb;configpb\xa2\x02\x03GVC\xaa\x02\x11Gcommon.V1.Config\xca\x02\x11Gcommon\\V1\\Config\xe2\x02\x1dGcommon\\V1\\Config\\GPBMetadata\xea\x02\x13Gcommon::V1::Config\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
+	"\bversions\x18\x03 \x01(\x03R\bversionsB\xbe\x01\n" +
+	"\x15com.gcommon.v1.configB\x10ConfigStatsProtoP\x01Z%../../../../pkg/config/proto;configpb\xa2\x02\x03GVC\xaa\x02\x11Gcommon.V1.Config\xca\x02\x11Gcommon\\V1\\Config\xe2\x02\x1dGcommon\\V1\\Config\\GPBMetadata\xea\x02\x13Gcommon::V1::Config\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
 
 var file_pkg_config_proto_messages_config_stats_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_pkg_config_proto_messages_config_stats_proto_goTypes = []any{

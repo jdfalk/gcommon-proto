@@ -9,7 +9,7 @@
 package organizationpb
 
 import (
-	pb "../../../../pkg/common/pb"
+	proto "../../../../pkg/common/proto"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
@@ -27,7 +27,7 @@ const (
 type CreateTeamResponse struct {
 	state protoimpl.MessageState `protogen:"hybrid.v1"`
 	// Any errors encountered
-	Errors []*pb.Error `protobuf:"bytes,1,rep,name=errors" json:"errors,omitempty"`
+	Errors []*proto.Error `protobuf:"bytes,1,rep,name=errors" json:"errors,omitempty"`
 	// Success status
 	Success *bool `protobuf:"varint,2,opt,name=success" json:"success,omitempty"`
 	// Newly created team information
@@ -61,7 +61,7 @@ func (x *CreateTeamResponse) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-func (x *CreateTeamResponse) GetErrors() []*pb.Error {
+func (x *CreateTeamResponse) GetErrors() []*proto.Error {
 	if x != nil {
 		return x.Errors
 	}
@@ -82,7 +82,7 @@ func (x *CreateTeamResponse) GetTeam() *Team {
 	return nil
 }
 
-func (x *CreateTeamResponse) SetErrors(v []*pb.Error) {
+func (x *CreateTeamResponse) SetErrors(v []*proto.Error) {
 	x.Errors = v
 }
 
@@ -120,7 +120,7 @@ type CreateTeamResponse_builder struct {
 	_ [0]func() // Prevents comparability and use of unkeyed literals for the builder.
 
 	// Any errors encountered
-	Errors []*pb.Error
+	Errors []*proto.Error
 	// Success status
 	Success *bool
 	// Newly created team information
@@ -145,13 +145,13 @@ const file_pkg_organization_proto_responses_create_team_response_proto_rawDesc =
 	"\x12CreateTeamResponse\x120\n" +
 	"\x06errors\x18\x01 \x03(\v2\x18.gcommon.v1.common.ErrorR\x06errors\x12\x18\n" +
 	"\asuccess\x18\x02 \x01(\bR\asuccess\x121\n" +
-	"\x04team\x18\x03 \x01(\v2\x1d.gcommon.v1.organization.TeamR\x04teamB\xec\x01\n" +
-	"\x1bcom.gcommon.v1.organizationB\x17CreateTeamResponseProtoP\x01Z.../../../../pkg/organization/pb;organizationpb\xa2\x02\x03GVO\xaa\x02\x17Gcommon.V1.Organization\xca\x02\x17Gcommon\\V1\\Organization\xe2\x02#Gcommon\\V1\\Organization\\GPBMetadata\xea\x02\x19Gcommon::V1::Organization\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
+	"\x04team\x18\x03 \x01(\v2\x1d.gcommon.v1.organization.TeamR\x04teamB\xef\x01\n" +
+	"\x1bcom.gcommon.v1.organizationB\x17CreateTeamResponseProtoP\x01Z1../../../../pkg/organization/proto;organizationpb\xa2\x02\x03GVO\xaa\x02\x17Gcommon.V1.Organization\xca\x02\x17Gcommon\\V1\\Organization\xe2\x02#Gcommon\\V1\\Organization\\GPBMetadata\xea\x02\x19Gcommon::V1::Organization\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
 
 var file_pkg_organization_proto_responses_create_team_response_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_pkg_organization_proto_responses_create_team_response_proto_goTypes = []any{
 	(*CreateTeamResponse)(nil), // 0: gcommon.v1.organization.CreateTeamResponse
-	(*pb.Error)(nil),           // 1: gcommon.v1.common.Error
+	(*proto.Error)(nil),        // 1: gcommon.v1.common.Error
 	(*Team)(nil),               // 2: gcommon.v1.organization.Team
 }
 var file_pkg_organization_proto_responses_create_team_response_proto_depIdxs = []int32{

@@ -9,7 +9,7 @@
 package authpb
 
 import (
-	pb "../../../../pkg/common/pb"
+	proto "../../../../pkg/common/proto"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
@@ -29,16 +29,16 @@ const (
 // Response for session creation operations.
 // Contains session token, expiration details, and user context.
 type CreateSessionResponse struct {
-	state                       protoimpl.MessageState `protogen:"opaque.v1"`
-	xxx_hidden_Metadata         *pb.ResponseMetadata   `protobuf:"bytes,1,opt,name=metadata"`
-	xxx_hidden_SessionId        *string                `protobuf:"bytes,2,opt,name=session_id,json=sessionId"`
-	xxx_hidden_AccessToken      *string                `protobuf:"bytes,3,opt,name=access_token,json=accessToken"`
-	xxx_hidden_RefreshToken     *string                `protobuf:"bytes,4,opt,name=refresh_token,json=refreshToken"`
-	xxx_hidden_ExpiresAt        *timestamppb.Timestamp `protobuf:"bytes,5,opt,name=expires_at,json=expiresAt"`
-	xxx_hidden_RefreshExpiresAt *timestamppb.Timestamp `protobuf:"bytes,6,opt,name=refresh_expires_at,json=refreshExpiresAt"`
-	xxx_hidden_UserId           *string                `protobuf:"bytes,7,opt,name=user_id,json=userId"`
-	xxx_hidden_Roles            []string               `protobuf:"bytes,8,rep,name=roles"`
-	xxx_hidden_Permissions      []string               `protobuf:"bytes,9,rep,name=permissions"`
+	state                       protoimpl.MessageState  `protogen:"opaque.v1"`
+	xxx_hidden_Metadata         *proto.ResponseMetadata `protobuf:"bytes,1,opt,name=metadata"`
+	xxx_hidden_SessionId        *string                 `protobuf:"bytes,2,opt,name=session_id,json=sessionId"`
+	xxx_hidden_AccessToken      *string                 `protobuf:"bytes,3,opt,name=access_token,json=accessToken"`
+	xxx_hidden_RefreshToken     *string                 `protobuf:"bytes,4,opt,name=refresh_token,json=refreshToken"`
+	xxx_hidden_ExpiresAt        *timestamppb.Timestamp  `protobuf:"bytes,5,opt,name=expires_at,json=expiresAt"`
+	xxx_hidden_RefreshExpiresAt *timestamppb.Timestamp  `protobuf:"bytes,6,opt,name=refresh_expires_at,json=refreshExpiresAt"`
+	xxx_hidden_UserId           *string                 `protobuf:"bytes,7,opt,name=user_id,json=userId"`
+	xxx_hidden_Roles            []string                `protobuf:"bytes,8,rep,name=roles"`
+	xxx_hidden_Permissions      []string                `protobuf:"bytes,9,rep,name=permissions"`
 	XXX_raceDetectHookData      protoimpl.RaceDetectHookData
 	XXX_presence                [1]uint32
 	unknownFields               protoimpl.UnknownFields
@@ -70,7 +70,7 @@ func (x *CreateSessionResponse) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-func (x *CreateSessionResponse) GetMetadata() *pb.ResponseMetadata {
+func (x *CreateSessionResponse) GetMetadata() *proto.ResponseMetadata {
 	if x != nil {
 		return x.xxx_hidden_Metadata
 	}
@@ -145,7 +145,7 @@ func (x *CreateSessionResponse) GetPermissions() []string {
 	return nil
 }
 
-func (x *CreateSessionResponse) SetMetadata(v *pb.ResponseMetadata) {
+func (x *CreateSessionResponse) SetMetadata(v *proto.ResponseMetadata) {
 	x.xxx_hidden_Metadata = v
 }
 
@@ -270,7 +270,7 @@ type CreateSessionResponse_builder struct {
 	_ [0]func() // Prevents comparability and use of unkeyed literals for the builder.
 
 	// Standard response metadata
-	Metadata *pb.ResponseMetadata
+	Metadata *proto.ResponseMetadata
 	// Created session details
 	SessionId        *string
 	AccessToken      *string
@@ -327,14 +327,14 @@ const file_pkg_auth_proto_responses_create_session_response_proto_rawDesc = "" +
 	"\x12refresh_expires_at\x18\x06 \x01(\v2\x1a.google.protobuf.TimestampR\x10refreshExpiresAt\x12\x17\n" +
 	"\auser_id\x18\a \x01(\tR\x06userId\x12\x14\n" +
 	"\x05roles\x18\b \x03(\tR\x05roles\x12 \n" +
-	"\vpermissions\x18\t \x03(\tR\vpermissionsB\xb7\x01\n" +
-	"\x13com.gcommon.v1.authB\x1aCreateSessionResponseProtoP\x01Z\x1e../../../../pkg/auth/pb;authpb\xa2\x02\x03GVA\xaa\x02\x0fGcommon.V1.Auth\xca\x02\x0fGcommon\\V1\\Auth\xe2\x02\x1bGcommon\\V1\\Auth\\GPBMetadata\xea\x02\x11Gcommon::V1::Auth\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
+	"\vpermissions\x18\t \x03(\tR\vpermissionsB\xba\x01\n" +
+	"\x13com.gcommon.v1.authB\x1aCreateSessionResponseProtoP\x01Z!../../../../pkg/auth/proto;authpb\xa2\x02\x03GVA\xaa\x02\x0fGcommon.V1.Auth\xca\x02\x0fGcommon\\V1\\Auth\xe2\x02\x1bGcommon\\V1\\Auth\\GPBMetadata\xea\x02\x11Gcommon::V1::Auth\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
 
 var file_pkg_auth_proto_responses_create_session_response_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_pkg_auth_proto_responses_create_session_response_proto_goTypes = []any{
-	(*CreateSessionResponse)(nil), // 0: gcommon.v1.auth.CreateSessionResponse
-	(*pb.ResponseMetadata)(nil),   // 1: gcommon.v1.common.ResponseMetadata
-	(*timestamppb.Timestamp)(nil), // 2: google.protobuf.Timestamp
+	(*CreateSessionResponse)(nil),  // 0: gcommon.v1.auth.CreateSessionResponse
+	(*proto.ResponseMetadata)(nil), // 1: gcommon.v1.common.ResponseMetadata
+	(*timestamppb.Timestamp)(nil),  // 2: google.protobuf.Timestamp
 }
 var file_pkg_auth_proto_responses_create_session_response_proto_depIdxs = []int32{
 	1, // 0: gcommon.v1.auth.CreateSessionResponse.metadata:type_name -> gcommon.v1.common.ResponseMetadata

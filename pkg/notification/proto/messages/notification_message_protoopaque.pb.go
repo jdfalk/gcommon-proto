@@ -367,8 +367,8 @@ const file_pkg_notification_proto_messages_notification_message_proto_rawDesc = 
 	"\asend_at\x18\x06 \x01(\v2\x1a.google.protobuf.TimestampB\x02(\x01R\x06sendAt\x12?\n" +
 	"\x06status\x18\a \x01(\x0e2'.gcommon.v1.notification.DeliveryStatusR\x06status\x12=\n" +
 	"\n" +
-	"created_at\x18\b \x01(\v2\x1a.google.protobuf.TimestampB\x02(\x01R\tcreatedAtB\xed\x01\n" +
-	"\x1bcom.gcommon.v1.notificationB\x18NotificationMessageProtoP\x01Z.../../../../pkg/notification/pb;notificationpb\xa2\x02\x03GVN\xaa\x02\x17Gcommon.V1.Notification\xca\x02\x17Gcommon\\V1\\Notification\xe2\x02#Gcommon\\V1\\Notification\\GPBMetadata\xea\x02\x19Gcommon::V1::Notification\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
+	"created_at\x18\b \x01(\v2\x1a.google.protobuf.TimestampB\x02(\x01R\tcreatedAtB\xf0\x01\n" +
+	"\x1bcom.gcommon.v1.notificationB\x18NotificationMessageProtoP\x01Z1../../../../pkg/notification/proto;notificationpb\xa2\x02\x03GVN\xaa\x02\x17Gcommon.V1.Notification\xca\x02\x17Gcommon\\V1\\Notification\xe2\x02#Gcommon\\V1\\Notification\\GPBMetadata\xea\x02\x19Gcommon::V1::Notification\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
 
 var file_pkg_notification_proto_messages_notification_message_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_pkg_notification_proto_messages_notification_message_proto_goTypes = []any{

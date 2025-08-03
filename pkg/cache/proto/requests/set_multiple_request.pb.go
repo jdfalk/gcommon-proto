@@ -9,7 +9,7 @@
 package cachepb
 
 import (
-	pb "../../../../pkg/common/pb"
+	proto "../../../../pkg/common/proto"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
@@ -35,7 +35,7 @@ type SetMultipleRequest struct {
 	// TTL for the cache entries (optional)
 	Ttl *durationpb.Duration `protobuf:"bytes,2,opt,name=ttl" json:"ttl,omitempty"`
 	// Request metadata for tracing
-	Metadata      *pb.RequestMetadata `protobuf:"bytes,3,opt,name=metadata" json:"metadata,omitempty"`
+	Metadata      *proto.RequestMetadata `protobuf:"bytes,3,opt,name=metadata" json:"metadata,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -79,7 +79,7 @@ func (x *SetMultipleRequest) GetTtl() *durationpb.Duration {
 	return nil
 }
 
-func (x *SetMultipleRequest) GetMetadata() *pb.RequestMetadata {
+func (x *SetMultipleRequest) GetMetadata() *proto.RequestMetadata {
 	if x != nil {
 		return x.Metadata
 	}
@@ -94,7 +94,7 @@ func (x *SetMultipleRequest) SetTtl(v *durationpb.Duration) {
 	x.Ttl = v
 }
 
-func (x *SetMultipleRequest) SetMetadata(v *pb.RequestMetadata) {
+func (x *SetMultipleRequest) SetMetadata(v *proto.RequestMetadata) {
 	x.Metadata = v
 }
 
@@ -128,7 +128,7 @@ type SetMultipleRequest_builder struct {
 	// TTL for the cache entries (optional)
 	Ttl *durationpb.Duration
 	// Request metadata for tracing
-	Metadata *pb.RequestMetadata
+	Metadata *proto.RequestMetadata
 }
 
 func (b0 SetMultipleRequest_builder) Build() *SetMultipleRequest {
@@ -152,15 +152,15 @@ const file_pkg_cache_proto_requests_set_multiple_request_proto_rawDesc = "" +
 	"\bmetadata\x18\x03 \x01(\v2\".gcommon.v1.common.RequestMetadataB\x02(\x01R\bmetadata\x1a9\n" +
 	"\vValuesEntry\x12\x10\n" +
 	"\x03key\x18\x01 \x01(\tR\x03key\x12\x14\n" +
-	"\x05value\x18\x02 \x01(\fR\x05value:\x028\x01B\xbb\x01\n" +
-	"\x14com.gcommon.v1.cacheB\x17SetMultipleRequestProtoP\x01Z ../../../../pkg/cache/pb;cachepb\xa2\x02\x03GVC\xaa\x02\x10Gcommon.V1.Cache\xca\x02\x10Gcommon\\V1\\Cache\xe2\x02\x1cGcommon\\V1\\Cache\\GPBMetadata\xea\x02\x12Gcommon::V1::Cache\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
+	"\x05value\x18\x02 \x01(\fR\x05value:\x028\x01B\xbe\x01\n" +
+	"\x14com.gcommon.v1.cacheB\x17SetMultipleRequestProtoP\x01Z#../../../../pkg/cache/proto;cachepb\xa2\x02\x03GVC\xaa\x02\x10Gcommon.V1.Cache\xca\x02\x10Gcommon\\V1\\Cache\xe2\x02\x1cGcommon\\V1\\Cache\\GPBMetadata\xea\x02\x12Gcommon::V1::Cache\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
 
 var file_pkg_cache_proto_requests_set_multiple_request_proto_msgTypes = make([]protoimpl.MessageInfo, 2)
 var file_pkg_cache_proto_requests_set_multiple_request_proto_goTypes = []any{
-	(*SetMultipleRequest)(nil),  // 0: gcommon.v1.cache.SetMultipleRequest
-	nil,                         // 1: gcommon.v1.cache.SetMultipleRequest.ValuesEntry
-	(*durationpb.Duration)(nil), // 2: google.protobuf.Duration
-	(*pb.RequestMetadata)(nil),  // 3: gcommon.v1.common.RequestMetadata
+	(*SetMultipleRequest)(nil),    // 0: gcommon.v1.cache.SetMultipleRequest
+	nil,                           // 1: gcommon.v1.cache.SetMultipleRequest.ValuesEntry
+	(*durationpb.Duration)(nil),   // 2: google.protobuf.Duration
+	(*proto.RequestMetadata)(nil), // 3: gcommon.v1.common.RequestMetadata
 }
 var file_pkg_cache_proto_requests_set_multiple_request_proto_depIdxs = []int32{
 	1, // 0: gcommon.v1.cache.SetMultipleRequest.values:type_name -> gcommon.v1.cache.SetMultipleRequest.ValuesEntry

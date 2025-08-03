@@ -85,8 +85,8 @@ const file_pkg_metrics_proto_types_histogram_bucket_proto_rawDesc = "" +
 	"\x0fHistogramBucket\x12\x1f\n" +
 	"\vupper_bound\x18\x01 \x01(\x01R\n" +
 	"upperBound\x12\x14\n" +
-	"\x05count\x18\x02 \x01(\x03R\x05countB\xbe\x01\n" +
-	"\x16com.gcommon.v1.metricsB\x14HistogramBucketProtoP\x01Z$../../../../pkg/metrics/pb;metricspb\xa2\x02\x03GVM\xaa\x02\x12Gcommon.V1.Metrics\xca\x02\x12Gcommon\\V1\\Metrics\xe2\x02\x1eGcommon\\V1\\Metrics\\GPBMetadata\xea\x02\x14Gcommon::V1::Metricsb\beditionsp\xe8\a"
+	"\x05count\x18\x02 \x01(\x03R\x05countB\xc1\x01\n" +
+	"\x16com.gcommon.v1.metricsB\x14HistogramBucketProtoP\x01Z'../../../../pkg/metrics/proto;metricspb\xa2\x02\x03GVM\xaa\x02\x12Gcommon.V1.Metrics\xca\x02\x12Gcommon\\V1\\Metrics\xe2\x02\x1eGcommon\\V1\\Metrics\\GPBMetadata\xea\x02\x14Gcommon::V1::Metricsb\beditionsp\xe8\a"
 
 var (
 	file_pkg_metrics_proto_types_histogram_bucket_proto_rawDescOnce sync.Once

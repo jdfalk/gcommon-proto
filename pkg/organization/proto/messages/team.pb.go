@@ -9,7 +9,7 @@
 package organizationpb
 
 import (
-	pb "../../../../pkg/common/pb"
+	proto "../../../../pkg/common/proto"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
@@ -50,7 +50,7 @@ type Team struct {
 	// Team's primary focus area or mission
 	FocusArea *string `protobuf:"bytes,9,opt,name=focus_area,json=focusArea" json:"focus_area,omitempty"`
 	// Team metadata and custom attributes
-	Metadata []*pb.KeyValue `protobuf:"bytes,10,rep,name=metadata" json:"metadata,omitempty"`
+	Metadata []*proto.KeyValue `protobuf:"bytes,10,rep,name=metadata" json:"metadata,omitempty"`
 	// Team creation timestamp
 	CreatedAt *timestamppb.Timestamp `protobuf:"bytes,11,opt,name=created_at,json=createdAt" json:"created_at,omitempty"`
 	// Last update timestamp
@@ -173,7 +173,7 @@ func (x *Team) GetFocusArea() string {
 	return ""
 }
 
-func (x *Team) GetMetadata() []*pb.KeyValue {
+func (x *Team) GetMetadata() []*proto.KeyValue {
 	if x != nil {
 		return x.Metadata
 	}
@@ -321,7 +321,7 @@ func (x *Team) SetFocusArea(v string) {
 	x.FocusArea = &v
 }
 
-func (x *Team) SetMetadata(v []*pb.KeyValue) {
+func (x *Team) SetMetadata(v []*proto.KeyValue) {
 	x.Metadata = v
 }
 
@@ -627,7 +627,7 @@ type Team_builder struct {
 	// Team's primary focus area or mission
 	FocusArea *string
 	// Team metadata and custom attributes
-	Metadata []*pb.KeyValue
+	Metadata []*proto.KeyValue
 	// Team creation timestamp
 	CreatedAt *timestamppb.Timestamp
 	// Last update timestamp
@@ -733,13 +733,13 @@ const file_pkg_organization_proto_messages_team_proto_rawDesc = "" +
 	"objectives\x18\x17 \x03(\tR\n" +
 	"objectives\x12\x12\n" +
 	"\x04kpis\x18\x18 \x03(\tR\x04kpis\x12)\n" +
-	"\x10cross_functional\x18\x19 \x01(\bR\x0fcrossFunctionalB\xde\x01\n" +
-	"\x1bcom.gcommon.v1.organizationB\tTeamProtoP\x01Z.../../../../pkg/organization/pb;organizationpb\xa2\x02\x03GVO\xaa\x02\x17Gcommon.V1.Organization\xca\x02\x17Gcommon\\V1\\Organization\xe2\x02#Gcommon\\V1\\Organization\\GPBMetadata\xea\x02\x19Gcommon::V1::Organization\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
+	"\x10cross_functional\x18\x19 \x01(\bR\x0fcrossFunctionalB\xe1\x01\n" +
+	"\x1bcom.gcommon.v1.organizationB\tTeamProtoP\x01Z1../../../../pkg/organization/proto;organizationpb\xa2\x02\x03GVO\xaa\x02\x17Gcommon.V1.Organization\xca\x02\x17Gcommon\\V1\\Organization\xe2\x02#Gcommon\\V1\\Organization\\GPBMetadata\xea\x02\x19Gcommon::V1::Organization\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
 
 var file_pkg_organization_proto_messages_team_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_pkg_organization_proto_messages_team_proto_goTypes = []any{
 	(*Team)(nil),                  // 0: gcommon.v1.organization.Team
-	(*pb.KeyValue)(nil),           // 1: gcommon.v1.common.KeyValue
+	(*proto.KeyValue)(nil),        // 1: gcommon.v1.common.KeyValue
 	(*timestamppb.Timestamp)(nil), // 2: google.protobuf.Timestamp
 }
 var file_pkg_organization_proto_messages_team_proto_depIdxs = []int32{

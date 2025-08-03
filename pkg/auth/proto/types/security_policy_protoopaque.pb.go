@@ -167,8 +167,8 @@ const file_pkg_auth_proto_types_security_policy_proto_rawDesc = "" +
 	"\x0eSecurityPolicy\x12.\n" +
 	"\x13min_password_length\x18\x01 \x01(\rR\x11minPasswordLength\x12<\n" +
 	"\fpassword_ttl\x18\x02 \x01(\v2\x19.google.protobuf.DurationR\vpasswordTtl\x12.\n" +
-	"\x13max_failed_attempts\x18\x03 \x01(\rR\x11maxFailedAttemptsB\xb0\x01\n" +
-	"\x13com.gcommon.v1.authB\x13SecurityPolicyProtoP\x01Z\x1e../../../../pkg/auth/pb;authpb\xa2\x02\x03GVA\xaa\x02\x0fGcommon.V1.Auth\xca\x02\x0fGcommon\\V1\\Auth\xe2\x02\x1bGcommon\\V1\\Auth\\GPBMetadata\xea\x02\x11Gcommon::V1::Auth\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
+	"\x13max_failed_attempts\x18\x03 \x01(\rR\x11maxFailedAttemptsB\xb3\x01\n" +
+	"\x13com.gcommon.v1.authB\x13SecurityPolicyProtoP\x01Z!../../../../pkg/auth/proto;authpb\xa2\x02\x03GVA\xaa\x02\x0fGcommon.V1.Auth\xca\x02\x0fGcommon\\V1\\Auth\xe2\x02\x1bGcommon\\V1\\Auth\\GPBMetadata\xea\x02\x11Gcommon::V1::Auth\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
 
 var file_pkg_auth_proto_types_security_policy_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_pkg_auth_proto_types_security_policy_proto_goTypes = []any{

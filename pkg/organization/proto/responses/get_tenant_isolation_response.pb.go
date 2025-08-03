@@ -9,7 +9,7 @@
 package organizationpb
 
 import (
-	pb "../../../../pkg/common/pb"
+	proto "../../../../pkg/common/proto"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
@@ -27,7 +27,7 @@ const (
 type GetTenantIsolationResponse struct {
 	state protoimpl.MessageState `protogen:"hybrid.v1"`
 	// Any errors encountered
-	Errors []*pb.Error `protobuf:"bytes,1,rep,name=errors" json:"errors,omitempty"`
+	Errors []*proto.Error `protobuf:"bytes,1,rep,name=errors" json:"errors,omitempty"`
 	// Success status
 	Success *bool `protobuf:"varint,2,opt,name=success" json:"success,omitempty"`
 	// Current isolation configuration
@@ -61,7 +61,7 @@ func (x *GetTenantIsolationResponse) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-func (x *GetTenantIsolationResponse) GetErrors() []*pb.Error {
+func (x *GetTenantIsolationResponse) GetErrors() []*proto.Error {
 	if x != nil {
 		return x.Errors
 	}
@@ -82,7 +82,7 @@ func (x *GetTenantIsolationResponse) GetIsolation() *TenantIsolation {
 	return nil
 }
 
-func (x *GetTenantIsolationResponse) SetErrors(v []*pb.Error) {
+func (x *GetTenantIsolationResponse) SetErrors(v []*proto.Error) {
 	x.Errors = v
 }
 
@@ -120,7 +120,7 @@ type GetTenantIsolationResponse_builder struct {
 	_ [0]func() // Prevents comparability and use of unkeyed literals for the builder.
 
 	// Any errors encountered
-	Errors []*pb.Error
+	Errors []*proto.Error
 	// Success status
 	Success *bool
 	// Current isolation configuration
@@ -145,13 +145,13 @@ const file_pkg_organization_proto_responses_get_tenant_isolation_response_proto_
 	"\x1aGetTenantIsolationResponse\x120\n" +
 	"\x06errors\x18\x01 \x03(\v2\x18.gcommon.v1.common.ErrorR\x06errors\x12\x18\n" +
 	"\asuccess\x18\x02 \x01(\bR\asuccess\x12J\n" +
-	"\tisolation\x18\x03 \x01(\v2(.gcommon.v1.organization.TenantIsolationB\x02(\x01R\tisolationB\xf4\x01\n" +
-	"\x1bcom.gcommon.v1.organizationB\x1fGetTenantIsolationResponseProtoP\x01Z.../../../../pkg/organization/pb;organizationpb\xa2\x02\x03GVO\xaa\x02\x17Gcommon.V1.Organization\xca\x02\x17Gcommon\\V1\\Organization\xe2\x02#Gcommon\\V1\\Organization\\GPBMetadata\xea\x02\x19Gcommon::V1::Organization\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
+	"\tisolation\x18\x03 \x01(\v2(.gcommon.v1.organization.TenantIsolationB\x02(\x01R\tisolationB\xf7\x01\n" +
+	"\x1bcom.gcommon.v1.organizationB\x1fGetTenantIsolationResponseProtoP\x01Z1../../../../pkg/organization/proto;organizationpb\xa2\x02\x03GVO\xaa\x02\x17Gcommon.V1.Organization\xca\x02\x17Gcommon\\V1\\Organization\xe2\x02#Gcommon\\V1\\Organization\\GPBMetadata\xea\x02\x19Gcommon::V1::Organization\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
 
 var file_pkg_organization_proto_responses_get_tenant_isolation_response_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_pkg_organization_proto_responses_get_tenant_isolation_response_proto_goTypes = []any{
 	(*GetTenantIsolationResponse)(nil), // 0: gcommon.v1.organization.GetTenantIsolationResponse
-	(*pb.Error)(nil),                   // 1: gcommon.v1.common.Error
+	(*proto.Error)(nil),                // 1: gcommon.v1.common.Error
 	(*TenantIsolation)(nil),            // 2: gcommon.v1.organization.TenantIsolation
 }
 var file_pkg_organization_proto_responses_get_tenant_isolation_response_proto_depIdxs = []int32{

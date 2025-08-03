@@ -38,8 +38,8 @@ const file_pkg_config_proto_services_config_service_proto_rawDesc = "" +
 	"\vGetMultiple\x12+.gcommon.v1.config.GetMultipleConfigRequest\x1a,.gcommon.v1.config.GetMultipleConfigResponse\x12h\n" +
 	"\vSetMultiple\x12+.gcommon.v1.config.SetMultipleConfigRequest\x1a,.gcommon.v1.config.SetMultipleConfigResponse\x12_\n" +
 	"\bValidate\x12(.gcommon.v1.config.ValidateConfigRequest\x1a).gcommon.v1.config.ValidateConfigResponse\x12V\n" +
-	"\tGetSchema\x12#.gcommon.v1.config.GetSchemaRequest\x1a$.gcommon.v1.config.GetSchemaResponseB\xbd\x01\n" +
-	"\x15com.gcommon.v1.configB\x12ConfigServiceProtoP\x01Z\"../../../../pkg/config/pb;configpb\xa2\x02\x03GVC\xaa\x02\x11Gcommon.V1.Config\xca\x02\x11Gcommon\\V1\\Config\xe2\x02\x1dGcommon\\V1\\Config\\GPBMetadata\xea\x02\x13Gcommon::V1::Config\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
+	"\tGetSchema\x12#.gcommon.v1.config.GetSchemaRequest\x1a$.gcommon.v1.config.GetSchemaResponseB\xc0\x01\n" +
+	"\x15com.gcommon.v1.configB\x12ConfigServiceProtoP\x01Z%../../../../pkg/config/proto;configpb\xa2\x02\x03GVC\xaa\x02\x11Gcommon.V1.Config\xca\x02\x11Gcommon\\V1\\Config\xe2\x02\x1dGcommon\\V1\\Config\\GPBMetadata\xea\x02\x13Gcommon::V1::Config\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
 
 var file_pkg_config_proto_services_config_service_proto_goTypes = []any{
 	(*GetConfigRequest)(nil),          // 0: gcommon.v1.config.GetConfigRequest

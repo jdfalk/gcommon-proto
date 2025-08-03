@@ -9,7 +9,7 @@
 package healthpb
 
 import (
-	pb "../../../../pkg/common/pb"
+	proto "../../../../pkg/common/proto"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
@@ -33,7 +33,7 @@ type GetHealthHistoryRequest struct {
 	xxx_hidden_Service   *string                `protobuf:"bytes,1,opt,name=service"`
 	xxx_hidden_StartTime *timestamppb.Timestamp `protobuf:"bytes,2,opt,name=start_time,json=startTime"`
 	xxx_hidden_EndTime   *timestamppb.Timestamp `protobuf:"bytes,3,opt,name=end_time,json=endTime"`
-	xxx_hidden_Metadata  *pb.RequestMetadata    `protobuf:"bytes,4,opt,name=metadata"`
+	xxx_hidden_Metadata  *proto.RequestMetadata `protobuf:"bytes,4,opt,name=metadata"`
 	// Deprecated: Do not use. This will be deleted in the near future.
 	XXX_lazyUnmarshalInfo  protoimpl.LazyUnmarshalInfo
 	XXX_raceDetectHookData protoimpl.RaceDetectHookData
@@ -91,13 +91,13 @@ func (x *GetHealthHistoryRequest) GetEndTime() *timestamppb.Timestamp {
 	return nil
 }
 
-func (x *GetHealthHistoryRequest) GetMetadata() *pb.RequestMetadata {
+func (x *GetHealthHistoryRequest) GetMetadata() *proto.RequestMetadata {
 	if x != nil {
 		if protoimpl.X.Present(&(x.XXX_presence[0]), 3) {
 			if protoimpl.X.AtomicCheckPointerIsNil(&x.xxx_hidden_Metadata) {
 				protoimpl.X.UnmarshalField(x, 4)
 			}
-			var rv *pb.RequestMetadata
+			var rv *proto.RequestMetadata
 			protoimpl.X.AtomicLoadPointer(protoimpl.Pointer(&x.xxx_hidden_Metadata), protoimpl.Pointer(&rv))
 			return rv
 		}
@@ -118,7 +118,7 @@ func (x *GetHealthHistoryRequest) SetEndTime(v *timestamppb.Timestamp) {
 	x.xxx_hidden_EndTime = v
 }
 
-func (x *GetHealthHistoryRequest) SetMetadata(v *pb.RequestMetadata) {
+func (x *GetHealthHistoryRequest) SetMetadata(v *proto.RequestMetadata) {
 	protoimpl.X.AtomicSetPointer(&x.xxx_hidden_Metadata, v)
 	if v == nil {
 		protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 3)
@@ -170,7 +170,7 @@ func (x *GetHealthHistoryRequest) ClearEndTime() {
 
 func (x *GetHealthHistoryRequest) ClearMetadata() {
 	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 3)
-	protoimpl.X.AtomicSetPointer(&x.xxx_hidden_Metadata, (*pb.RequestMetadata)(nil))
+	protoimpl.X.AtomicSetPointer(&x.xxx_hidden_Metadata, (*proto.RequestMetadata)(nil))
 }
 
 type GetHealthHistoryRequest_builder struct {
@@ -183,7 +183,7 @@ type GetHealthHistoryRequest_builder struct {
 	// Optional end time for history records
 	EndTime *timestamppb.Timestamp
 	// Request metadata for authentication and tracing
-	Metadata *pb.RequestMetadata
+	Metadata *proto.RequestMetadata
 }
 
 func (b0 GetHealthHistoryRequest_builder) Build() *GetHealthHistoryRequest {
@@ -213,14 +213,14 @@ const file_pkg_health_proto_requests_get_health_history_request_proto_rawDesc = 
 	"\n" +
 	"start_time\x18\x02 \x01(\v2\x1a.google.protobuf.TimestampR\tstartTime\x125\n" +
 	"\bend_time\x18\x03 \x01(\v2\x1a.google.protobuf.TimestampR\aendTime\x12B\n" +
-	"\bmetadata\x18\x04 \x01(\v2\".gcommon.v1.common.RequestMetadataB\x02(\x01R\bmetadataB\xc7\x01\n" +
-	"\x15com.gcommon.v1.healthB\x1cGetHealthHistoryRequestProtoP\x01Z\"../../../../pkg/health/pb;healthpb\xa2\x02\x03GVH\xaa\x02\x11Gcommon.V1.Health\xca\x02\x11Gcommon\\V1\\Health\xe2\x02\x1dGcommon\\V1\\Health\\GPBMetadata\xea\x02\x13Gcommon::V1::Health\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
+	"\bmetadata\x18\x04 \x01(\v2\".gcommon.v1.common.RequestMetadataB\x02(\x01R\bmetadataB\xca\x01\n" +
+	"\x15com.gcommon.v1.healthB\x1cGetHealthHistoryRequestProtoP\x01Z%../../../../pkg/health/proto;healthpb\xa2\x02\x03GVH\xaa\x02\x11Gcommon.V1.Health\xca\x02\x11Gcommon\\V1\\Health\xe2\x02\x1dGcommon\\V1\\Health\\GPBMetadata\xea\x02\x13Gcommon::V1::Health\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
 
 var file_pkg_health_proto_requests_get_health_history_request_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_pkg_health_proto_requests_get_health_history_request_proto_goTypes = []any{
 	(*GetHealthHistoryRequest)(nil), // 0: gcommon.v1.health.GetHealthHistoryRequest
 	(*timestamppb.Timestamp)(nil),   // 1: google.protobuf.Timestamp
-	(*pb.RequestMetadata)(nil),      // 2: gcommon.v1.common.RequestMetadata
+	(*proto.RequestMetadata)(nil),   // 2: gcommon.v1.common.RequestMetadata
 }
 var file_pkg_health_proto_requests_get_health_history_request_proto_depIdxs = []int32{
 	1, // 0: gcommon.v1.health.GetHealthHistoryRequest.start_time:type_name -> google.protobuf.Timestamp

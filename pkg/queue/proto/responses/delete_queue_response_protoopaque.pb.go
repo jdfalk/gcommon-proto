@@ -175,8 +175,8 @@ const file_pkg_queue_proto_responses_delete_queue_response_proto_rawDesc = "" +
 	"\x13DeleteQueueResponse\x12\x18\n" +
 	"\asuccess\x18\x01 \x01(\bR\asuccess\x12'\n" +
 	"\x0fpurged_messages\x18\x02 \x01(\x03R\x0epurgedMessages\x12\x18\n" +
-	"\amessage\x18\x03 \x01(\tR\amessageB\xbc\x01\n" +
-	"\x14com.gcommon.v1.queueB\x18DeleteQueueResponseProtoP\x01Z ../../../../pkg/queue/pb;queuepb\xa2\x02\x03GVQ\xaa\x02\x10Gcommon.V1.Queue\xca\x02\x10Gcommon\\V1\\Queue\xe2\x02\x1cGcommon\\V1\\Queue\\GPBMetadata\xea\x02\x12Gcommon::V1::Queue\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
+	"\amessage\x18\x03 \x01(\tR\amessageB\xbf\x01\n" +
+	"\x14com.gcommon.v1.queueB\x18DeleteQueueResponseProtoP\x01Z#../../../../pkg/queue/proto;queuepb\xa2\x02\x03GVQ\xaa\x02\x10Gcommon.V1.Queue\xca\x02\x10Gcommon\\V1\\Queue\xe2\x02\x1cGcommon\\V1\\Queue\\GPBMetadata\xea\x02\x12Gcommon::V1::Queue\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
 
 var file_pkg_queue_proto_responses_delete_queue_response_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_pkg_queue_proto_responses_delete_queue_response_proto_goTypes = []any{

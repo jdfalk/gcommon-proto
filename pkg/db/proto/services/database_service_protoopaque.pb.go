@@ -34,8 +34,8 @@ const file_pkg_db_proto_services_database_service_proto_rawDesc = "" +
 	"\aExecute\x12#.gcommon.v1.database.ExecuteRequest\x1a$.gcommon.v1.database.ExecuteResponse\x12c\n" +
 	"\fExecuteBatch\x12(.gcommon.v1.database.ExecuteBatchRequest\x1a).gcommon.v1.database.ExecuteBatchResponse\x12r\n" +
 	"\x11GetConnectionInfo\x12-.gcommon.v1.database.GetConnectionInfoRequest\x1a..gcommon.v1.database.GetConnectionInfoResponse\x12`\n" +
-	"\vHealthCheck\x12'.gcommon.v1.database.HealthCheckRequest\x1a(.gcommon.v1.database.HealthCheckResponseB\xc1\x01\n" +
-	"\x17com.gcommon.v1.databaseB\x14DatabaseServiceProtoP\x01Z\x1a../../../../pkg/db/pb;dbpb\xa2\x02\x03GVD\xaa\x02\x13Gcommon.V1.Database\xca\x02\x13Gcommon\\V1\\Database\xe2\x02\x1fGcommon\\V1\\Database\\GPBMetadata\xea\x02\x15Gcommon::V1::Database\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
+	"\vHealthCheck\x12'.gcommon.v1.database.HealthCheckRequest\x1a(.gcommon.v1.database.HealthCheckResponseB\xc4\x01\n" +
+	"\x17com.gcommon.v1.databaseB\x14DatabaseServiceProtoP\x01Z\x1d../../../../pkg/db/proto;dbpb\xa2\x02\x03GVD\xaa\x02\x13Gcommon.V1.Database\xca\x02\x13Gcommon\\V1\\Database\xe2\x02\x1fGcommon\\V1\\Database\\GPBMetadata\xea\x02\x15Gcommon::V1::Database\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
 
 var file_pkg_db_proto_services_database_service_proto_goTypes = []any{
 	(*QueryRequest)(nil),              // 0: gcommon.v1.database.QueryRequest

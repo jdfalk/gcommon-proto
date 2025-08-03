@@ -9,7 +9,7 @@
 package webpb
 
 import (
-	pb "../../../../pkg/common/pb"
+	proto "../../../../pkg/common/proto"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
@@ -32,7 +32,7 @@ type RegisterMiddlewareResponse struct {
 	// Details about the registered middleware
 	Middleware *MiddlewareInfo `protobuf:"bytes,2,opt,name=middleware" json:"middleware,omitempty"`
 	// Error information if the operation failed
-	Error         *pb.Error `protobuf:"bytes,3,opt,name=error" json:"error,omitempty"`
+	Error         *proto.Error `protobuf:"bytes,3,opt,name=error" json:"error,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -76,7 +76,7 @@ func (x *RegisterMiddlewareResponse) GetMiddleware() *MiddlewareInfo {
 	return nil
 }
 
-func (x *RegisterMiddlewareResponse) GetError() *pb.Error {
+func (x *RegisterMiddlewareResponse) GetError() *proto.Error {
 	if x != nil {
 		return x.Error
 	}
@@ -91,7 +91,7 @@ func (x *RegisterMiddlewareResponse) SetMiddleware(v *MiddlewareInfo) {
 	x.Middleware = v
 }
 
-func (x *RegisterMiddlewareResponse) SetError(v *pb.Error) {
+func (x *RegisterMiddlewareResponse) SetError(v *proto.Error) {
 	x.Error = v
 }
 
@@ -136,7 +136,7 @@ type RegisterMiddlewareResponse_builder struct {
 	// Details about the registered middleware
 	Middleware *MiddlewareInfo
 	// Error information if the operation failed
-	Error *pb.Error
+	Error *proto.Error
 }
 
 func (b0 RegisterMiddlewareResponse_builder) Build() *RegisterMiddlewareResponse {
@@ -159,14 +159,14 @@ const file_pkg_web_proto_responses_register_middleware_response_proto_rawDesc = 
 	"\n" +
 	"middleware\x18\x02 \x01(\v2\x1e.gcommon.v1.web.MiddlewareInfoR\n" +
 	"middleware\x12.\n" +
-	"\x05error\x18\x03 \x01(\v2\x18.gcommon.v1.common.ErrorR\x05errorB\xb5\x01\n" +
-	"\x12com.gcommon.v1.webB\x1fRegisterMiddlewareResponseProtoP\x01Z\x1c../../../../pkg/web/pb;webpb\xa2\x02\x03GVW\xaa\x02\x0eGcommon.V1.Web\xca\x02\x0eGcommon\\V1\\Web\xe2\x02\x1aGcommon\\V1\\Web\\GPBMetadata\xea\x02\x10Gcommon::V1::Web\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
+	"\x05error\x18\x03 \x01(\v2\x18.gcommon.v1.common.ErrorR\x05errorB\xb8\x01\n" +
+	"\x12com.gcommon.v1.webB\x1fRegisterMiddlewareResponseProtoP\x01Z\x1f../../../../pkg/web/proto;webpb\xa2\x02\x03GVW\xaa\x02\x0eGcommon.V1.Web\xca\x02\x0eGcommon\\V1\\Web\xe2\x02\x1aGcommon\\V1\\Web\\GPBMetadata\xea\x02\x10Gcommon::V1::Web\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
 
 var file_pkg_web_proto_responses_register_middleware_response_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_pkg_web_proto_responses_register_middleware_response_proto_goTypes = []any{
 	(*RegisterMiddlewareResponse)(nil), // 0: gcommon.v1.web.RegisterMiddlewareResponse
 	(*MiddlewareInfo)(nil),             // 1: gcommon.v1.web.MiddlewareInfo
-	(*pb.Error)(nil),                   // 2: gcommon.v1.common.Error
+	(*proto.Error)(nil),                // 2: gcommon.v1.common.Error
 }
 var file_pkg_web_proto_responses_register_middleware_response_proto_depIdxs = []int32{
 	1, // 0: gcommon.v1.web.RegisterMiddlewareResponse.middleware:type_name -> gcommon.v1.web.MiddlewareInfo

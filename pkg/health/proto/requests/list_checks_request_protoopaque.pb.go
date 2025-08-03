@@ -9,7 +9,7 @@
 package healthpb
 
 import (
-	pb "../../../../pkg/common/pb"
+	proto "../../../../pkg/common/proto"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
@@ -29,7 +29,7 @@ const (
 type ListChecksRequest struct {
 	state               protoimpl.MessageState `protogen:"opaque.v1"`
 	xxx_hidden_Service  *string                `protobuf:"bytes,1,opt,name=service"`
-	xxx_hidden_Metadata *pb.RequestMetadata    `protobuf:"bytes,2,opt,name=metadata"`
+	xxx_hidden_Metadata *proto.RequestMetadata `protobuf:"bytes,2,opt,name=metadata"`
 	// Deprecated: Do not use. This will be deleted in the near future.
 	XXX_lazyUnmarshalInfo  protoimpl.LazyUnmarshalInfo
 	XXX_raceDetectHookData protoimpl.RaceDetectHookData
@@ -73,13 +73,13 @@ func (x *ListChecksRequest) GetService() string {
 	return ""
 }
 
-func (x *ListChecksRequest) GetMetadata() *pb.RequestMetadata {
+func (x *ListChecksRequest) GetMetadata() *proto.RequestMetadata {
 	if x != nil {
 		if protoimpl.X.Present(&(x.XXX_presence[0]), 1) {
 			if protoimpl.X.AtomicCheckPointerIsNil(&x.xxx_hidden_Metadata) {
 				protoimpl.X.UnmarshalField(x, 2)
 			}
-			var rv *pb.RequestMetadata
+			var rv *proto.RequestMetadata
 			protoimpl.X.AtomicLoadPointer(protoimpl.Pointer(&x.xxx_hidden_Metadata), protoimpl.Pointer(&rv))
 			return rv
 		}
@@ -92,7 +92,7 @@ func (x *ListChecksRequest) SetService(v string) {
 	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 0, 2)
 }
 
-func (x *ListChecksRequest) SetMetadata(v *pb.RequestMetadata) {
+func (x *ListChecksRequest) SetMetadata(v *proto.RequestMetadata) {
 	protoimpl.X.AtomicSetPointer(&x.xxx_hidden_Metadata, v)
 	if v == nil {
 		protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 1)
@@ -122,7 +122,7 @@ func (x *ListChecksRequest) ClearService() {
 
 func (x *ListChecksRequest) ClearMetadata() {
 	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 1)
-	protoimpl.X.AtomicSetPointer(&x.xxx_hidden_Metadata, (*pb.RequestMetadata)(nil))
+	protoimpl.X.AtomicSetPointer(&x.xxx_hidden_Metadata, (*proto.RequestMetadata)(nil))
 }
 
 type ListChecksRequest_builder struct {
@@ -131,7 +131,7 @@ type ListChecksRequest_builder struct {
 	// Optional service name to filter checks
 	Service *string
 	// Request metadata for tracing
-	Metadata *pb.RequestMetadata
+	Metadata *proto.RequestMetadata
 }
 
 func (b0 ListChecksRequest_builder) Build() *ListChecksRequest {
@@ -156,13 +156,13 @@ const file_pkg_health_proto_requests_list_checks_request_proto_rawDesc = "" +
 	"3pkg/health/proto/requests/list_checks_request.proto\x12\x11gcommon.v1.health\x1a!google/protobuf/go_features.proto\x1a0pkg/common/proto/messages/request_metadata.proto\"q\n" +
 	"\x11ListChecksRequest\x12\x18\n" +
 	"\aservice\x18\x01 \x01(\tR\aservice\x12B\n" +
-	"\bmetadata\x18\x02 \x01(\v2\".gcommon.v1.common.RequestMetadataB\x02(\x01R\bmetadataB\xc1\x01\n" +
-	"\x15com.gcommon.v1.healthB\x16ListChecksRequestProtoP\x01Z\"../../../../pkg/health/pb;healthpb\xa2\x02\x03GVH\xaa\x02\x11Gcommon.V1.Health\xca\x02\x11Gcommon\\V1\\Health\xe2\x02\x1dGcommon\\V1\\Health\\GPBMetadata\xea\x02\x13Gcommon::V1::Health\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
+	"\bmetadata\x18\x02 \x01(\v2\".gcommon.v1.common.RequestMetadataB\x02(\x01R\bmetadataB\xc4\x01\n" +
+	"\x15com.gcommon.v1.healthB\x16ListChecksRequestProtoP\x01Z%../../../../pkg/health/proto;healthpb\xa2\x02\x03GVH\xaa\x02\x11Gcommon.V1.Health\xca\x02\x11Gcommon\\V1\\Health\xe2\x02\x1dGcommon\\V1\\Health\\GPBMetadata\xea\x02\x13Gcommon::V1::Health\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
 
 var file_pkg_health_proto_requests_list_checks_request_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_pkg_health_proto_requests_list_checks_request_proto_goTypes = []any{
-	(*ListChecksRequest)(nil),  // 0: gcommon.v1.health.ListChecksRequest
-	(*pb.RequestMetadata)(nil), // 1: gcommon.v1.common.RequestMetadata
+	(*ListChecksRequest)(nil),     // 0: gcommon.v1.health.ListChecksRequest
+	(*proto.RequestMetadata)(nil), // 1: gcommon.v1.common.RequestMetadata
 }
 var file_pkg_health_proto_requests_list_checks_request_proto_depIdxs = []int32{
 	1, // 0: gcommon.v1.health.ListChecksRequest.metadata:type_name -> gcommon.v1.common.RequestMetadata

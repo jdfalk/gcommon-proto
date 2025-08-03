@@ -9,7 +9,7 @@
 package cachepb
 
 import (
-	pb "../../../../pkg/common/pb"
+	proto "../../../../pkg/common/proto"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
@@ -33,7 +33,7 @@ type GetMemoryUsageResponse struct {
 	// Memory usage as a percentage of total capacity
 	MemoryUsagePercent *float64 `protobuf:"fixed64,2,opt,name=memory_usage_percent,json=memoryUsagePercent" json:"memory_usage_percent,omitempty"`
 	// Error information if the operation failed
-	Error         *pb.Error `protobuf:"bytes,3,opt,name=error" json:"error,omitempty"`
+	Error         *proto.Error `protobuf:"bytes,3,opt,name=error" json:"error,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -77,7 +77,7 @@ func (x *GetMemoryUsageResponse) GetMemoryUsagePercent() float64 {
 	return 0
 }
 
-func (x *GetMemoryUsageResponse) GetError() *pb.Error {
+func (x *GetMemoryUsageResponse) GetError() *proto.Error {
 	if x != nil {
 		return x.Error
 	}
@@ -92,7 +92,7 @@ func (x *GetMemoryUsageResponse) SetMemoryUsagePercent(v float64) {
 	x.MemoryUsagePercent = &v
 }
 
-func (x *GetMemoryUsageResponse) SetError(v *pb.Error) {
+func (x *GetMemoryUsageResponse) SetError(v *proto.Error) {
 	x.Error = v
 }
 
@@ -137,7 +137,7 @@ type GetMemoryUsageResponse_builder struct {
 	// Memory usage as a percentage of total capacity
 	MemoryUsagePercent *float64
 	// Error information if the operation failed
-	Error *pb.Error
+	Error *proto.Error
 }
 
 func (b0 GetMemoryUsageResponse_builder) Build() *GetMemoryUsageResponse {
@@ -158,13 +158,13 @@ const file_pkg_cache_proto_responses_get_memory_usage_response_proto_rawDesc = "
 	"\x16GetMemoryUsageResponse\x12,\n" +
 	"\x12memory_usage_bytes\x18\x01 \x01(\x03R\x10memoryUsageBytes\x120\n" +
 	"\x14memory_usage_percent\x18\x02 \x01(\x01R\x12memoryUsagePercent\x12.\n" +
-	"\x05error\x18\x03 \x01(\v2\x18.gcommon.v1.common.ErrorR\x05errorB\xbf\x01\n" +
-	"\x14com.gcommon.v1.cacheB\x1bGetMemoryUsageResponseProtoP\x01Z ../../../../pkg/cache/pb;cachepb\xa2\x02\x03GVC\xaa\x02\x10Gcommon.V1.Cache\xca\x02\x10Gcommon\\V1\\Cache\xe2\x02\x1cGcommon\\V1\\Cache\\GPBMetadata\xea\x02\x12Gcommon::V1::Cache\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
+	"\x05error\x18\x03 \x01(\v2\x18.gcommon.v1.common.ErrorR\x05errorB\xc2\x01\n" +
+	"\x14com.gcommon.v1.cacheB\x1bGetMemoryUsageResponseProtoP\x01Z#../../../../pkg/cache/proto;cachepb\xa2\x02\x03GVC\xaa\x02\x10Gcommon.V1.Cache\xca\x02\x10Gcommon\\V1\\Cache\xe2\x02\x1cGcommon\\V1\\Cache\\GPBMetadata\xea\x02\x12Gcommon::V1::Cache\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
 
 var file_pkg_cache_proto_responses_get_memory_usage_response_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_pkg_cache_proto_responses_get_memory_usage_response_proto_goTypes = []any{
 	(*GetMemoryUsageResponse)(nil), // 0: gcommon.v1.cache.GetMemoryUsageResponse
-	(*pb.Error)(nil),               // 1: gcommon.v1.common.Error
+	(*proto.Error)(nil),            // 1: gcommon.v1.common.Error
 }
 var file_pkg_cache_proto_responses_get_memory_usage_response_proto_depIdxs = []int32{
 	1, // 0: gcommon.v1.cache.GetMemoryUsageResponse.error:type_name -> gcommon.v1.common.Error

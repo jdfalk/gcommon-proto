@@ -9,7 +9,7 @@
 package configpb
 
 import (
-	pb "../../../../pkg/common/pb"
+	proto "../../../../pkg/common/proto"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
@@ -33,7 +33,7 @@ type RollbackConfigRequest struct {
 	// Namespace/environment of the configuration
 	Namespace *string `protobuf:"bytes,2,opt,name=namespace" json:"namespace,omitempty"`
 	// Request metadata
-	Metadata      *pb.RequestMetadata `protobuf:"bytes,3,opt,name=metadata" json:"metadata,omitempty"`
+	Metadata      *proto.RequestMetadata `protobuf:"bytes,3,opt,name=metadata" json:"metadata,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -77,7 +77,7 @@ func (x *RollbackConfigRequest) GetNamespace() string {
 	return ""
 }
 
-func (x *RollbackConfigRequest) GetMetadata() *pb.RequestMetadata {
+func (x *RollbackConfigRequest) GetMetadata() *proto.RequestMetadata {
 	if x != nil {
 		return x.Metadata
 	}
@@ -92,7 +92,7 @@ func (x *RollbackConfigRequest) SetNamespace(v string) {
 	x.Namespace = &v
 }
 
-func (x *RollbackConfigRequest) SetMetadata(v *pb.RequestMetadata) {
+func (x *RollbackConfigRequest) SetMetadata(v *proto.RequestMetadata) {
 	x.Metadata = v
 }
 
@@ -137,7 +137,7 @@ type RollbackConfigRequest_builder struct {
 	// Namespace/environment of the configuration
 	Namespace *string
 	// Request metadata
-	Metadata *pb.RequestMetadata
+	Metadata *proto.RequestMetadata
 }
 
 func (b0 RollbackConfigRequest_builder) Build() *RollbackConfigRequest {
@@ -158,13 +158,13 @@ const file_pkg_config_proto_requests_rollback_config_request_proto_rawDesc = "" 
 	"\x15RollbackConfigRequest\x12\x18\n" +
 	"\aversion\x18\x01 \x01(\tR\aversion\x12\x1c\n" +
 	"\tnamespace\x18\x02 \x01(\tR\tnamespace\x12>\n" +
-	"\bmetadata\x18\x03 \x01(\v2\".gcommon.v1.common.RequestMetadataR\bmetadataB\xc5\x01\n" +
-	"\x15com.gcommon.v1.configB\x1aRollbackConfigRequestProtoP\x01Z\"../../../../pkg/config/pb;configpb\xa2\x02\x03GVC\xaa\x02\x11Gcommon.V1.Config\xca\x02\x11Gcommon\\V1\\Config\xe2\x02\x1dGcommon\\V1\\Config\\GPBMetadata\xea\x02\x13Gcommon::V1::Config\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
+	"\bmetadata\x18\x03 \x01(\v2\".gcommon.v1.common.RequestMetadataR\bmetadataB\xc8\x01\n" +
+	"\x15com.gcommon.v1.configB\x1aRollbackConfigRequestProtoP\x01Z%../../../../pkg/config/proto;configpb\xa2\x02\x03GVC\xaa\x02\x11Gcommon.V1.Config\xca\x02\x11Gcommon\\V1\\Config\xe2\x02\x1dGcommon\\V1\\Config\\GPBMetadata\xea\x02\x13Gcommon::V1::Config\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
 
 var file_pkg_config_proto_requests_rollback_config_request_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_pkg_config_proto_requests_rollback_config_request_proto_goTypes = []any{
 	(*RollbackConfigRequest)(nil), // 0: gcommon.v1.config.RollbackConfigRequest
-	(*pb.RequestMetadata)(nil),    // 1: gcommon.v1.common.RequestMetadata
+	(*proto.RequestMetadata)(nil), // 1: gcommon.v1.common.RequestMetadata
 }
 var file_pkg_config_proto_requests_rollback_config_request_proto_depIdxs = []int32{
 	1, // 0: gcommon.v1.config.RollbackConfigRequest.metadata:type_name -> gcommon.v1.common.RequestMetadata

@@ -9,7 +9,7 @@
 package queuepb
 
 import (
-	pb "../../../../pkg/common/pb"
+	proto "../../../../pkg/common/proto"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
@@ -33,9 +33,9 @@ type PublishResponse struct {
 	// Whether the publish operation succeeded.
 	Success *bool `protobuf:"varint,2,opt,name=success" json:"success,omitempty"`
 	// Error information when success is false.
-	Error *pb.Error `protobuf:"bytes,3,opt,name=error" json:"error,omitempty"`
+	Error *proto.Error `protobuf:"bytes,3,opt,name=error" json:"error,omitempty"`
 	// Request metadata echoed back for tracing.
-	RequestMetadata *pb.RequestMetadata `protobuf:"bytes,4,opt,name=request_metadata,json=requestMetadata" json:"request_metadata,omitempty"`
+	RequestMetadata *proto.RequestMetadata `protobuf:"bytes,4,opt,name=request_metadata,json=requestMetadata" json:"request_metadata,omitempty"`
 	unknownFields   protoimpl.UnknownFields
 	sizeCache       protoimpl.SizeCache
 }
@@ -79,14 +79,14 @@ func (x *PublishResponse) GetSuccess() bool {
 	return false
 }
 
-func (x *PublishResponse) GetError() *pb.Error {
+func (x *PublishResponse) GetError() *proto.Error {
 	if x != nil {
 		return x.Error
 	}
 	return nil
 }
 
-func (x *PublishResponse) GetRequestMetadata() *pb.RequestMetadata {
+func (x *PublishResponse) GetRequestMetadata() *proto.RequestMetadata {
 	if x != nil {
 		return x.RequestMetadata
 	}
@@ -101,11 +101,11 @@ func (x *PublishResponse) SetSuccess(v bool) {
 	x.Success = &v
 }
 
-func (x *PublishResponse) SetError(v *pb.Error) {
+func (x *PublishResponse) SetError(v *proto.Error) {
 	x.Error = v
 }
 
-func (x *PublishResponse) SetRequestMetadata(v *pb.RequestMetadata) {
+func (x *PublishResponse) SetRequestMetadata(v *proto.RequestMetadata) {
 	x.RequestMetadata = v
 }
 
@@ -161,9 +161,9 @@ type PublishResponse_builder struct {
 	// Whether the publish operation succeeded.
 	Success *bool
 	// Error information when success is false.
-	Error *pb.Error
+	Error *proto.Error
 	// Request metadata echoed back for tracing.
-	RequestMetadata *pb.RequestMetadata
+	RequestMetadata *proto.RequestMetadata
 }
 
 func (b0 PublishResponse_builder) Build() *PublishResponse {
@@ -187,14 +187,14 @@ const file_pkg_queue_proto_responses_publish_response_proto_rawDesc = "" +
 	"message_id\x18\x01 \x01(\tR\tmessageId\x12\x18\n" +
 	"\asuccess\x18\x02 \x01(\bR\asuccess\x12.\n" +
 	"\x05error\x18\x03 \x01(\v2\x18.gcommon.v1.common.ErrorR\x05error\x12M\n" +
-	"\x10request_metadata\x18\x04 \x01(\v2\".gcommon.v1.common.RequestMetadataR\x0frequestMetadataB\xb8\x01\n" +
-	"\x14com.gcommon.v1.queueB\x14PublishResponseProtoP\x01Z ../../../../pkg/queue/pb;queuepb\xa2\x02\x03GVQ\xaa\x02\x10Gcommon.V1.Queue\xca\x02\x10Gcommon\\V1\\Queue\xe2\x02\x1cGcommon\\V1\\Queue\\GPBMetadata\xea\x02\x12Gcommon::V1::Queue\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
+	"\x10request_metadata\x18\x04 \x01(\v2\".gcommon.v1.common.RequestMetadataR\x0frequestMetadataB\xbb\x01\n" +
+	"\x14com.gcommon.v1.queueB\x14PublishResponseProtoP\x01Z#../../../../pkg/queue/proto;queuepb\xa2\x02\x03GVQ\xaa\x02\x10Gcommon.V1.Queue\xca\x02\x10Gcommon\\V1\\Queue\xe2\x02\x1cGcommon\\V1\\Queue\\GPBMetadata\xea\x02\x12Gcommon::V1::Queue\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
 
 var file_pkg_queue_proto_responses_publish_response_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_pkg_queue_proto_responses_publish_response_proto_goTypes = []any{
-	(*PublishResponse)(nil),    // 0: gcommon.v1.queue.PublishResponse
-	(*pb.Error)(nil),           // 1: gcommon.v1.common.Error
-	(*pb.RequestMetadata)(nil), // 2: gcommon.v1.common.RequestMetadata
+	(*PublishResponse)(nil),       // 0: gcommon.v1.queue.PublishResponse
+	(*proto.Error)(nil),           // 1: gcommon.v1.common.Error
+	(*proto.RequestMetadata)(nil), // 2: gcommon.v1.common.RequestMetadata
 }
 var file_pkg_queue_proto_responses_publish_response_proto_depIdxs = []int32{
 	1, // 0: gcommon.v1.queue.PublishResponse.error:type_name -> gcommon.v1.common.Error

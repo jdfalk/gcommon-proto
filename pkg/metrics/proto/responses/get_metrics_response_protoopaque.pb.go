@@ -9,7 +9,7 @@
 package metricspb
 
 import (
-	pb "../../../../pkg/common/pb"
+	proto "../../../../pkg/common/proto"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
@@ -30,7 +30,7 @@ const (
 type GetMetricsResponse struct {
 	state                  protoimpl.MessageState `protogen:"opaque.v1"`
 	xxx_hidden_Success     bool                   `protobuf:"varint,1,opt,name=success"`
-	xxx_hidden_Error       *pb.Error              `protobuf:"bytes,2,opt,name=error"`
+	xxx_hidden_Error       *proto.Error           `protobuf:"bytes,2,opt,name=error"`
 	xxx_hidden_Metrics     *[]*MetricData         `protobuf:"bytes,3,rep,name=metrics"`
 	xxx_hidden_Metadata    *[]*MetricMetadata     `protobuf:"bytes,4,rep,name=metadata"`
 	xxx_hidden_Pagination  *PaginationInfo        `protobuf:"bytes,5,opt,name=pagination"`
@@ -77,7 +77,7 @@ func (x *GetMetricsResponse) GetSuccess() bool {
 	return false
 }
 
-func (x *GetMetricsResponse) GetError() *pb.Error {
+func (x *GetMetricsResponse) GetError() *proto.Error {
 	if x != nil {
 		return x.xxx_hidden_Error
 	}
@@ -152,7 +152,7 @@ func (x *GetMetricsResponse) SetSuccess(v bool) {
 	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 0, 10)
 }
 
-func (x *GetMetricsResponse) SetError(v *pb.Error) {
+func (x *GetMetricsResponse) SetError(v *proto.Error) {
 	x.xxx_hidden_Error = v
 }
 
@@ -274,7 +274,7 @@ type GetMetricsResponse_builder struct {
 	// Success status of the operation
 	Success *bool
 	// Error information if the operation failed
-	Error *pb.Error
+	Error *proto.Error
 	// Retrieved metrics data
 	Metrics []*MetricData
 	// Metadata for the metrics (if requested)
@@ -336,13 +336,13 @@ const file_pkg_metrics_proto_responses_get_metrics_response_proto_rawDesc = "" +
 	"\bwarnings\x18\t \x03(\tR\bwarnings\x12\x1f\n" +
 	"\vprovider_id\x18\n" +
 	" \x01(\tR\n" +
-	"providerIdB\xc9\x01\n" +
-	"\x16com.gcommon.v1.metricsB\x17GetMetricsResponseProtoP\x01Z$../../../../pkg/metrics/pb;metricspb\xa2\x02\x03GVM\xaa\x02\x12Gcommon.V1.Metrics\xca\x02\x12Gcommon\\V1\\Metrics\xe2\x02\x1eGcommon\\V1\\Metrics\\GPBMetadata\xea\x02\x14Gcommon::V1::Metrics\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
+	"providerIdB\xcc\x01\n" +
+	"\x16com.gcommon.v1.metricsB\x17GetMetricsResponseProtoP\x01Z'../../../../pkg/metrics/proto;metricspb\xa2\x02\x03GVM\xaa\x02\x12Gcommon.V1.Metrics\xca\x02\x12Gcommon\\V1\\Metrics\xe2\x02\x1eGcommon\\V1\\Metrics\\GPBMetadata\xea\x02\x14Gcommon::V1::Metrics\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
 
 var file_pkg_metrics_proto_responses_get_metrics_response_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_pkg_metrics_proto_responses_get_metrics_response_proto_goTypes = []any{
 	(*GetMetricsResponse)(nil),    // 0: gcommon.v1.metrics.GetMetricsResponse
-	(*pb.Error)(nil),              // 1: gcommon.v1.common.Error
+	(*proto.Error)(nil),           // 1: gcommon.v1.common.Error
 	(*MetricData)(nil),            // 2: gcommon.v1.metrics.MetricData
 	(*MetricMetadata)(nil),        // 3: gcommon.v1.metrics.MetricMetadata
 	(*PaginationInfo)(nil),        // 4: gcommon.v1.metrics.PaginationInfo

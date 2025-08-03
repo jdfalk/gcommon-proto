@@ -9,7 +9,7 @@
 package metricspb
 
 import (
-	pb "../../../../pkg/common/pb"
+	proto "../../../../pkg/common/proto"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
@@ -86,7 +86,7 @@ func (x ProviderType) Number() protoreflect.EnumNumber {
 // CreateProviderRequest represents a request to create a new metrics provider.
 type CreateProviderRequest struct {
 	state                     protoimpl.MessageState `protogen:"opaque.v1"`
-	xxx_hidden_Metadata       *pb.RequestMetadata    `protobuf:"bytes,1,opt,name=metadata"`
+	xxx_hidden_Metadata       *proto.RequestMetadata `protobuf:"bytes,1,opt,name=metadata"`
 	xxx_hidden_Config         *ProviderConfig        `protobuf:"bytes,2,opt,name=config"`
 	xxx_hidden_ValidateConfig bool                   `protobuf:"varint,3,opt,name=validate_config,json=validateConfig"`
 	xxx_hidden_DryRun         bool                   `protobuf:"varint,4,opt,name=dry_run,json=dryRun"`
@@ -122,7 +122,7 @@ func (x *CreateProviderRequest) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-func (x *CreateProviderRequest) GetMetadata() *pb.RequestMetadata {
+func (x *CreateProviderRequest) GetMetadata() *proto.RequestMetadata {
 	if x != nil {
 		return x.xxx_hidden_Metadata
 	}
@@ -157,7 +157,7 @@ func (x *CreateProviderRequest) GetAutoStart() bool {
 	return false
 }
 
-func (x *CreateProviderRequest) SetMetadata(v *pb.RequestMetadata) {
+func (x *CreateProviderRequest) SetMetadata(v *proto.RequestMetadata) {
 	x.xxx_hidden_Metadata = v
 }
 
@@ -242,7 +242,7 @@ type CreateProviderRequest_builder struct {
 	_ [0]func() // Prevents comparability and use of unkeyed literals for the builder.
 
 	// Standard request metadata (tracing, auth, etc.)
-	Metadata *pb.RequestMetadata
+	Metadata *proto.RequestMetadata
 	// Provider configuration
 	Config *ProviderConfig
 	// Whether to validate the configuration before creating
@@ -2246,8 +2246,8 @@ const file_pkg_metrics_proto_requests_create_provider_request_proto_rawDesc = ""
 	"\x14PROVIDER_TYPE_STATSD\x10\x03\x12\x18\n" +
 	"\x14PROVIDER_TYPE_CUSTOM\x10\x04\x12\x18\n" +
 	"\x14PROVIDER_TYPE_MEMORY\x10\x05\x12\x17\n" +
-	"\x13PROVIDER_TYPE_MULTI\x10\x06B\xcc\x01\n" +
-	"\x16com.gcommon.v1.metricsB\x1aCreateProviderRequestProtoP\x01Z$../../../../pkg/metrics/pb;metricspb\xa2\x02\x03GVM\xaa\x02\x12Gcommon.V1.Metrics\xca\x02\x12Gcommon\\V1\\Metrics\xe2\x02\x1eGcommon\\V1\\Metrics\\GPBMetadata\xea\x02\x14Gcommon::V1::Metrics\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
+	"\x13PROVIDER_TYPE_MULTI\x10\x06B\xcf\x01\n" +
+	"\x16com.gcommon.v1.metricsB\x1aCreateProviderRequestProtoP\x01Z'../../../../pkg/metrics/proto;metricspb\xa2\x02\x03GVM\xaa\x02\x12Gcommon.V1.Metrics\xca\x02\x12Gcommon\\V1\\Metrics\xe2\x02\x1eGcommon\\V1\\Metrics\\GPBMetadata\xea\x02\x14Gcommon::V1::Metrics\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
 
 var file_pkg_metrics_proto_requests_create_provider_request_proto_enumTypes = make([]protoimpl.EnumInfo, 1)
 var file_pkg_metrics_proto_requests_create_provider_request_proto_msgTypes = make([]protoimpl.MessageInfo, 17)
@@ -2270,7 +2270,7 @@ var file_pkg_metrics_proto_requests_create_provider_request_proto_goTypes = []an
 	nil,                           // 15: gcommon.v1.metrics.OpenTelemetrySettings.HeadersEntry
 	nil,                           // 16: gcommon.v1.metrics.OpenTelemetrySettings.ResourceAttributesEntry
 	nil,                           // 17: gcommon.v1.metrics.ExportDestination.ConfigEntry
-	(*pb.RequestMetadata)(nil),    // 18: gcommon.v1.common.RequestMetadata
+	(*proto.RequestMetadata)(nil), // 18: gcommon.v1.common.RequestMetadata
 	(*ExportConfig)(nil),          // 19: gcommon.v1.metrics.ExportConfig
 }
 var file_pkg_metrics_proto_requests_create_provider_request_proto_depIdxs = []int32{

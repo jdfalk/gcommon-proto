@@ -34,8 +34,8 @@ const file_pkg_health_proto_services_health_admin_service_proto_rawDesc = "" +
 	"\fDisableCheck\x12&.gcommon.v1.health.DisableCheckRequest\x1a'.gcommon.v1.health.DisableCheckResponse\x12S\n" +
 	"\bRunCheck\x12\".gcommon.v1.health.RunCheckRequest\x1a#.gcommon.v1.health.RunCheckResponse\x12k\n" +
 	"\x10ResetHealthStats\x12*.gcommon.v1.health.ResetHealthStatsRequest\x1a+.gcommon.v1.health.ResetHealthStatsResponse\x12V\n" +
-	"\tSetHealth\x12#.gcommon.v1.health.SetHealthRequest\x1a$.gcommon.v1.health.SetHealthResponseB\xc2\x01\n" +
-	"\x15com.gcommon.v1.healthB\x17HealthAdminServiceProtoP\x01Z\"../../../../pkg/health/pb;healthpb\xa2\x02\x03GVH\xaa\x02\x11Gcommon.V1.Health\xca\x02\x11Gcommon\\V1\\Health\xe2\x02\x1dGcommon\\V1\\Health\\GPBMetadata\xea\x02\x13Gcommon::V1::Health\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
+	"\tSetHealth\x12#.gcommon.v1.health.SetHealthRequest\x1a$.gcommon.v1.health.SetHealthResponseB\xc5\x01\n" +
+	"\x15com.gcommon.v1.healthB\x17HealthAdminServiceProtoP\x01Z%../../../../pkg/health/proto;healthpb\xa2\x02\x03GVH\xaa\x02\x11Gcommon.V1.Health\xca\x02\x11Gcommon\\V1\\Health\xe2\x02\x1dGcommon\\V1\\Health\\GPBMetadata\xea\x02\x13Gcommon::V1::Health\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
 
 var file_pkg_health_proto_services_health_admin_service_proto_goTypes = []any{
 	(*ConfigureAlertingRequest)(nil),  // 0: gcommon.v1.health.ConfigureAlertingRequest

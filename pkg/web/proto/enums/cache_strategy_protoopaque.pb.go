@@ -88,8 +88,8 @@ const file_pkg_web_proto_enums_cache_strategy_proto_rawDesc = "" +
 	"\x13CACHE_STRATEGY_NONE\x10\x01\x12\x19\n" +
 	"\x15CACHE_STRATEGY_MEMORY\x10\x02\x12\x1e\n" +
 	"\x1aCACHE_STRATEGY_DISTRIBUTED\x10\x03\x12\x16\n" +
-	"\x12CACHE_STRATEGY_CDN\x10\x04B\xa8\x01\n" +
-	"\x12com.gcommon.v1.webB\x12CacheStrategyProtoP\x01Z\x1c../../../../pkg/web/pb;webpb\xa2\x02\x03GVW\xaa\x02\x0eGcommon.V1.Web\xca\x02\x0eGcommon\\V1\\Web\xe2\x02\x1aGcommon\\V1\\Web\\GPBMetadata\xea\x02\x10Gcommon::V1::Web\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
+	"\x12CACHE_STRATEGY_CDN\x10\x04B\xab\x01\n" +
+	"\x12com.gcommon.v1.webB\x12CacheStrategyProtoP\x01Z\x1f../../../../pkg/web/proto;webpb\xa2\x02\x03GVW\xaa\x02\x0eGcommon.V1.Web\xca\x02\x0eGcommon\\V1\\Web\xe2\x02\x1aGcommon\\V1\\Web\\GPBMetadata\xea\x02\x10Gcommon::V1::Web\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
 
 var file_pkg_web_proto_enums_cache_strategy_proto_enumTypes = make([]protoimpl.EnumInfo, 1)
 var file_pkg_web_proto_enums_cache_strategy_proto_goTypes = []any{

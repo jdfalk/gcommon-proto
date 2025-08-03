@@ -9,7 +9,7 @@
 package organizationpb
 
 import (
-	pb "../../../../pkg/common/pb"
+	proto "../../../../pkg/common/proto"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
@@ -27,7 +27,7 @@ const (
 
 type UpdateOrganizationSettingsRequest struct {
 	state                     protoimpl.MessageState `protogen:"opaque.v1"`
-	xxx_hidden_Metadata       *pb.RequestMetadata    `protobuf:"bytes,1,opt,name=metadata"`
+	xxx_hidden_Metadata       *proto.RequestMetadata `protobuf:"bytes,1,opt,name=metadata"`
 	xxx_hidden_OrganizationId *string                `protobuf:"bytes,2,opt,name=organization_id,json=organizationId"`
 	xxx_hidden_Settings       *OrganizationSettings  `protobuf:"bytes,3,opt,name=settings"`
 	xxx_hidden_UpdateMask     *fieldmaskpb.FieldMask `protobuf:"bytes,4,opt,name=update_mask,json=updateMask"`
@@ -63,7 +63,7 @@ func (x *UpdateOrganizationSettingsRequest) ProtoReflect() protoreflect.Message 
 	return mi.MessageOf(x)
 }
 
-func (x *UpdateOrganizationSettingsRequest) GetMetadata() *pb.RequestMetadata {
+func (x *UpdateOrganizationSettingsRequest) GetMetadata() *proto.RequestMetadata {
 	if x != nil {
 		return x.xxx_hidden_Metadata
 	}
@@ -101,7 +101,7 @@ func (x *UpdateOrganizationSettingsRequest) GetValidateOnly() bool {
 	return false
 }
 
-func (x *UpdateOrganizationSettingsRequest) SetMetadata(v *pb.RequestMetadata) {
+func (x *UpdateOrganizationSettingsRequest) SetMetadata(v *proto.RequestMetadata) {
 	x.xxx_hidden_Metadata = v
 }
 
@@ -184,7 +184,7 @@ type UpdateOrganizationSettingsRequest_builder struct {
 	_ [0]func() // Prevents comparability and use of unkeyed literals for the builder.
 
 	// Request metadata for tracing and context
-	Metadata *pb.RequestMetadata
+	Metadata *proto.RequestMetadata
 	// Organization identifier
 	OrganizationId *string
 	// Updated settings
@@ -224,13 +224,13 @@ const file_pkg_organization_proto_requests_update_organization_settings_request_
 	"\bsettings\x18\x03 \x01(\v2-.gcommon.v1.organization.OrganizationSettingsR\bsettings\x12;\n" +
 	"\vupdate_mask\x18\x04 \x01(\v2\x1a.google.protobuf.FieldMaskR\n" +
 	"updateMask\x12#\n" +
-	"\rvalidate_only\x18\x05 \x01(\bR\fvalidateOnlyB\xfb\x01\n" +
-	"\x1bcom.gcommon.v1.organizationB&UpdateOrganizationSettingsRequestProtoP\x01Z.../../../../pkg/organization/pb;organizationpb\xa2\x02\x03GVO\xaa\x02\x17Gcommon.V1.Organization\xca\x02\x17Gcommon\\V1\\Organization\xe2\x02#Gcommon\\V1\\Organization\\GPBMetadata\xea\x02\x19Gcommon::V1::Organization\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
+	"\rvalidate_only\x18\x05 \x01(\bR\fvalidateOnlyB\xfe\x01\n" +
+	"\x1bcom.gcommon.v1.organizationB&UpdateOrganizationSettingsRequestProtoP\x01Z1../../../../pkg/organization/proto;organizationpb\xa2\x02\x03GVO\xaa\x02\x17Gcommon.V1.Organization\xca\x02\x17Gcommon\\V1\\Organization\xe2\x02#Gcommon\\V1\\Organization\\GPBMetadata\xea\x02\x19Gcommon::V1::Organization\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
 
 var file_pkg_organization_proto_requests_update_organization_settings_request_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_pkg_organization_proto_requests_update_organization_settings_request_proto_goTypes = []any{
 	(*UpdateOrganizationSettingsRequest)(nil), // 0: gcommon.v1.organization.UpdateOrganizationSettingsRequest
-	(*pb.RequestMetadata)(nil),                // 1: gcommon.v1.common.RequestMetadata
+	(*proto.RequestMetadata)(nil),             // 1: gcommon.v1.common.RequestMetadata
 	(*OrganizationSettings)(nil),              // 2: gcommon.v1.organization.OrganizationSettings
 	(*fieldmaskpb.FieldMask)(nil),             // 3: google.protobuf.FieldMask
 }

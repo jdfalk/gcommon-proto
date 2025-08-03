@@ -9,7 +9,7 @@
 package configpb
 
 import (
-	pb "../../../../pkg/common/pb"
+	proto "../../../../pkg/common/proto"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
@@ -29,7 +29,7 @@ const (
 type GetSchemaResponse struct {
 	state             protoimpl.MessageState `protogen:"opaque.v1"`
 	xxx_hidden_Schema *ConfigSchema          `protobuf:"bytes,1,opt,name=schema"`
-	xxx_hidden_Error  *pb.Error              `protobuf:"bytes,2,opt,name=error"`
+	xxx_hidden_Error  *proto.Error           `protobuf:"bytes,2,opt,name=error"`
 	unknownFields     protoimpl.UnknownFields
 	sizeCache         protoimpl.SizeCache
 }
@@ -66,7 +66,7 @@ func (x *GetSchemaResponse) GetSchema() *ConfigSchema {
 	return nil
 }
 
-func (x *GetSchemaResponse) GetError() *pb.Error {
+func (x *GetSchemaResponse) GetError() *proto.Error {
 	if x != nil {
 		return x.xxx_hidden_Error
 	}
@@ -77,7 +77,7 @@ func (x *GetSchemaResponse) SetSchema(v *ConfigSchema) {
 	x.xxx_hidden_Schema = v
 }
 
-func (x *GetSchemaResponse) SetError(v *pb.Error) {
+func (x *GetSchemaResponse) SetError(v *proto.Error) {
 	x.xxx_hidden_Error = v
 }
 
@@ -109,7 +109,7 @@ type GetSchemaResponse_builder struct {
 	// Configuration schema
 	Schema *ConfigSchema
 	// Error information
-	Error *pb.Error
+	Error *proto.Error
 }
 
 func (b0 GetSchemaResponse_builder) Build() *GetSchemaResponse {
@@ -128,14 +128,14 @@ const file_pkg_config_proto_responses_get_schema_response_proto_rawDesc = "" +
 	"4pkg/config/proto/responses/get_schema_response.proto\x12\x11gcommon.v1.config\x1a!google/protobuf/go_features.proto\x1a%pkg/common/proto/messages/error.proto\x1a-pkg/config/proto/messages/config_schema.proto\"|\n" +
 	"\x11GetSchemaResponse\x127\n" +
 	"\x06schema\x18\x01 \x01(\v2\x1f.gcommon.v1.config.ConfigSchemaR\x06schema\x12.\n" +
-	"\x05error\x18\x02 \x01(\v2\x18.gcommon.v1.common.ErrorR\x05errorB\xc1\x01\n" +
-	"\x15com.gcommon.v1.configB\x16GetSchemaResponseProtoP\x01Z\"../../../../pkg/config/pb;configpb\xa2\x02\x03GVC\xaa\x02\x11Gcommon.V1.Config\xca\x02\x11Gcommon\\V1\\Config\xe2\x02\x1dGcommon\\V1\\Config\\GPBMetadata\xea\x02\x13Gcommon::V1::Config\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
+	"\x05error\x18\x02 \x01(\v2\x18.gcommon.v1.common.ErrorR\x05errorB\xc4\x01\n" +
+	"\x15com.gcommon.v1.configB\x16GetSchemaResponseProtoP\x01Z%../../../../pkg/config/proto;configpb\xa2\x02\x03GVC\xaa\x02\x11Gcommon.V1.Config\xca\x02\x11Gcommon\\V1\\Config\xe2\x02\x1dGcommon\\V1\\Config\\GPBMetadata\xea\x02\x13Gcommon::V1::Config\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
 
 var file_pkg_config_proto_responses_get_schema_response_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_pkg_config_proto_responses_get_schema_response_proto_goTypes = []any{
 	(*GetSchemaResponse)(nil), // 0: gcommon.v1.config.GetSchemaResponse
 	(*ConfigSchema)(nil),      // 1: gcommon.v1.config.ConfigSchema
-	(*pb.Error)(nil),          // 2: gcommon.v1.common.Error
+	(*proto.Error)(nil),       // 2: gcommon.v1.common.Error
 }
 var file_pkg_config_proto_responses_get_schema_response_proto_depIdxs = []int32{
 	1, // 0: gcommon.v1.config.GetSchemaResponse.schema:type_name -> gcommon.v1.config.ConfigSchema

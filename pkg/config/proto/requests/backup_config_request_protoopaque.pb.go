@@ -9,7 +9,7 @@
 package configpb
 
 import (
-	pb "../../../../pkg/common/pb"
+	proto "../../../../pkg/common/proto"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
@@ -31,7 +31,7 @@ type BackupConfigRequest struct {
 	xxx_hidden_Namespace      *string                `protobuf:"bytes,1,opt,name=namespace"`
 	xxx_hidden_Description    *string                `protobuf:"bytes,2,opt,name=description"`
 	xxx_hidden_IncludeSecrets bool                   `protobuf:"varint,3,opt,name=include_secrets,json=includeSecrets"`
-	xxx_hidden_Metadata       *pb.RequestMetadata    `protobuf:"bytes,4,opt,name=metadata"`
+	xxx_hidden_Metadata       *proto.RequestMetadata `protobuf:"bytes,4,opt,name=metadata"`
 	XXX_raceDetectHookData    protoimpl.RaceDetectHookData
 	XXX_presence              [1]uint32
 	unknownFields             protoimpl.UnknownFields
@@ -90,7 +90,7 @@ func (x *BackupConfigRequest) GetIncludeSecrets() bool {
 	return false
 }
 
-func (x *BackupConfigRequest) GetMetadata() *pb.RequestMetadata {
+func (x *BackupConfigRequest) GetMetadata() *proto.RequestMetadata {
 	if x != nil {
 		return x.xxx_hidden_Metadata
 	}
@@ -112,7 +112,7 @@ func (x *BackupConfigRequest) SetIncludeSecrets(v bool) {
 	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 2, 4)
 }
 
-func (x *BackupConfigRequest) SetMetadata(v *pb.RequestMetadata) {
+func (x *BackupConfigRequest) SetMetadata(v *proto.RequestMetadata) {
 	x.xxx_hidden_Metadata = v
 }
 
@@ -173,7 +173,7 @@ type BackupConfigRequest_builder struct {
 	// Include secrets in the backup
 	IncludeSecrets *bool
 	// Request metadata
-	Metadata *pb.RequestMetadata
+	Metadata *proto.RequestMetadata
 }
 
 func (b0 BackupConfigRequest_builder) Build() *BackupConfigRequest {
@@ -205,13 +205,13 @@ const file_pkg_config_proto_requests_backup_config_request_proto_rawDesc = "" +
 	"\tnamespace\x18\x01 \x01(\tR\tnamespace\x12 \n" +
 	"\vdescription\x18\x02 \x01(\tR\vdescription\x12'\n" +
 	"\x0finclude_secrets\x18\x03 \x01(\bR\x0eincludeSecrets\x12>\n" +
-	"\bmetadata\x18\x04 \x01(\v2\".gcommon.v1.common.RequestMetadataR\bmetadataB\xc3\x01\n" +
-	"\x15com.gcommon.v1.configB\x18BackupConfigRequestProtoP\x01Z\"../../../../pkg/config/pb;configpb\xa2\x02\x03GVC\xaa\x02\x11Gcommon.V1.Config\xca\x02\x11Gcommon\\V1\\Config\xe2\x02\x1dGcommon\\V1\\Config\\GPBMetadata\xea\x02\x13Gcommon::V1::Config\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
+	"\bmetadata\x18\x04 \x01(\v2\".gcommon.v1.common.RequestMetadataR\bmetadataB\xc6\x01\n" +
+	"\x15com.gcommon.v1.configB\x18BackupConfigRequestProtoP\x01Z%../../../../pkg/config/proto;configpb\xa2\x02\x03GVC\xaa\x02\x11Gcommon.V1.Config\xca\x02\x11Gcommon\\V1\\Config\xe2\x02\x1dGcommon\\V1\\Config\\GPBMetadata\xea\x02\x13Gcommon::V1::Config\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
 
 var file_pkg_config_proto_requests_backup_config_request_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_pkg_config_proto_requests_backup_config_request_proto_goTypes = []any{
-	(*BackupConfigRequest)(nil), // 0: gcommon.v1.config.BackupConfigRequest
-	(*pb.RequestMetadata)(nil),  // 1: gcommon.v1.common.RequestMetadata
+	(*BackupConfigRequest)(nil),   // 0: gcommon.v1.config.BackupConfigRequest
+	(*proto.RequestMetadata)(nil), // 1: gcommon.v1.common.RequestMetadata
 }
 var file_pkg_config_proto_requests_backup_config_request_proto_depIdxs = []int32{
 	1, // 0: gcommon.v1.config.BackupConfigRequest.metadata:type_name -> gcommon.v1.common.RequestMetadata

@@ -9,7 +9,7 @@
 package dbpb
 
 import (
-	pb "../../../../pkg/common/pb"
+	proto "../../../../pkg/common/proto"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
@@ -34,7 +34,7 @@ type QueryResponse struct {
 	// Query execution statistics and performance metrics
 	Stats *QueryStats `protobuf:"bytes,2,opt,name=stats" json:"stats,omitempty"`
 	// Error information if the query failed
-	Error         *pb.Error `protobuf:"bytes,3,opt,name=error" json:"error,omitempty"`
+	Error         *proto.Error `protobuf:"bytes,3,opt,name=error" json:"error,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -78,7 +78,7 @@ func (x *QueryResponse) GetStats() *QueryStats {
 	return nil
 }
 
-func (x *QueryResponse) GetError() *pb.Error {
+func (x *QueryResponse) GetError() *proto.Error {
 	if x != nil {
 		return x.Error
 	}
@@ -93,7 +93,7 @@ func (x *QueryResponse) SetStats(v *QueryStats) {
 	x.Stats = v
 }
 
-func (x *QueryResponse) SetError(v *pb.Error) {
+func (x *QueryResponse) SetError(v *proto.Error) {
 	x.Error = v
 }
 
@@ -138,7 +138,7 @@ type QueryResponse_builder struct {
 	// Query execution statistics and performance metrics
 	Stats *QueryStats
 	// Error information if the query failed
-	Error *pb.Error
+	Error *proto.Error
 }
 
 func (b0 QueryResponse_builder) Build() *QueryResponse {
@@ -160,15 +160,15 @@ const file_pkg_db_proto_responses_query_response_proto_rawDesc = "" +
 	"\n" +
 	"result_set\x18\x01 \x01(\v2\x1e.gcommon.v1.database.ResultSetB\x02(\x01R\tresultSet\x129\n" +
 	"\x05stats\x18\x02 \x01(\v2\x1f.gcommon.v1.database.QueryStatsB\x02(\x01R\x05stats\x122\n" +
-	"\x05error\x18\x03 \x01(\v2\x18.gcommon.v1.common.ErrorB\x02(\x01R\x05errorB\xbf\x01\n" +
-	"\x17com.gcommon.v1.databaseB\x12QueryResponseProtoP\x01Z\x1a../../../../pkg/db/pb;dbpb\xa2\x02\x03GVD\xaa\x02\x13Gcommon.V1.Database\xca\x02\x13Gcommon\\V1\\Database\xe2\x02\x1fGcommon\\V1\\Database\\GPBMetadata\xea\x02\x15Gcommon::V1::Database\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
+	"\x05error\x18\x03 \x01(\v2\x18.gcommon.v1.common.ErrorB\x02(\x01R\x05errorB\xc2\x01\n" +
+	"\x17com.gcommon.v1.databaseB\x12QueryResponseProtoP\x01Z\x1d../../../../pkg/db/proto;dbpb\xa2\x02\x03GVD\xaa\x02\x13Gcommon.V1.Database\xca\x02\x13Gcommon\\V1\\Database\xe2\x02\x1fGcommon\\V1\\Database\\GPBMetadata\xea\x02\x15Gcommon::V1::Database\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
 
 var file_pkg_db_proto_responses_query_response_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_pkg_db_proto_responses_query_response_proto_goTypes = []any{
 	(*QueryResponse)(nil), // 0: gcommon.v1.database.QueryResponse
 	(*ResultSet)(nil),     // 1: gcommon.v1.database.ResultSet
 	(*QueryStats)(nil),    // 2: gcommon.v1.database.QueryStats
-	(*pb.Error)(nil),      // 3: gcommon.v1.common.Error
+	(*proto.Error)(nil),   // 3: gcommon.v1.common.Error
 }
 var file_pkg_db_proto_responses_query_response_proto_depIdxs = []int32{
 	1, // 0: gcommon.v1.database.QueryResponse.result_set:type_name -> gcommon.v1.database.ResultSet

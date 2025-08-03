@@ -801,8 +801,8 @@ const file_pkg_metrics_proto_messages_timer_metric_proto_rawDesc = "" +
 	"percentile\x18\x01 \x01(\x01R\n" +
 	"percentile\x125\n" +
 	"\bduration\x18\x02 \x01(\v2\x19.google.protobuf.DurationR\bduration\x12!\n" +
-	"\fsample_count\x18\x03 \x01(\x03R\vsampleCountB\xc2\x01\n" +
-	"\x16com.gcommon.v1.metricsB\x10TimerMetricProtoP\x01Z$../../../../pkg/metrics/pb;metricspb\xa2\x02\x03GVM\xaa\x02\x12Gcommon.V1.Metrics\xca\x02\x12Gcommon\\V1\\Metrics\xe2\x02\x1eGcommon\\V1\\Metrics\\GPBMetadata\xea\x02\x14Gcommon::V1::Metrics\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
+	"\fsample_count\x18\x03 \x01(\x03R\vsampleCountB\xc5\x01\n" +
+	"\x16com.gcommon.v1.metricsB\x10TimerMetricProtoP\x01Z'../../../../pkg/metrics/proto;metricspb\xa2\x02\x03GVM\xaa\x02\x12Gcommon.V1.Metrics\xca\x02\x12Gcommon\\V1\\Metrics\xe2\x02\x1eGcommon\\V1\\Metrics\\GPBMetadata\xea\x02\x14Gcommon::V1::Metrics\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
 
 var file_pkg_metrics_proto_messages_timer_metric_proto_msgTypes = make([]protoimpl.MessageInfo, 4)
 var file_pkg_metrics_proto_messages_timer_metric_proto_goTypes = []any{

@@ -9,7 +9,7 @@
 package configpb
 
 import (
-	pb "../../../../pkg/common/pb"
+	proto "../../../../pkg/common/proto"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
@@ -29,7 +29,7 @@ const (
 type HealthCheckResponse struct {
 	state protoimpl.MessageState `protogen:"hybrid.v1"`
 	// Overall health status
-	Status *pb.HealthStatus `protobuf:"varint,1,opt,name=status,enum=gcommon.v1.common.HealthStatus" json:"status,omitempty"`
+	Status *proto.HealthStatus `protobuf:"varint,1,opt,name=status,enum=gcommon.v1.common.HealthStatus" json:"status,omitempty"`
 	// Optional human-readable message
 	Message       *string `protobuf:"bytes,2,opt,name=message" json:"message,omitempty"`
 	unknownFields protoimpl.UnknownFields
@@ -61,11 +61,11 @@ func (x *HealthCheckResponse) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-func (x *HealthCheckResponse) GetStatus() pb.HealthStatus {
+func (x *HealthCheckResponse) GetStatus() proto.HealthStatus {
 	if x != nil && x.Status != nil {
 		return *x.Status
 	}
-	return pb.HealthStatus(0)
+	return proto.HealthStatus(0)
 }
 
 func (x *HealthCheckResponse) GetMessage() string {
@@ -75,7 +75,7 @@ func (x *HealthCheckResponse) GetMessage() string {
 	return ""
 }
 
-func (x *HealthCheckResponse) SetStatus(v pb.HealthStatus) {
+func (x *HealthCheckResponse) SetStatus(v proto.HealthStatus) {
 	x.Status = &v
 }
 
@@ -109,7 +109,7 @@ type HealthCheckResponse_builder struct {
 	_ [0]func() // Prevents comparability and use of unkeyed literals for the builder.
 
 	// Overall health status
-	Status *pb.HealthStatus
+	Status *proto.HealthStatus
 	// Optional human-readable message
 	Message *string
 }
@@ -130,13 +130,13 @@ const file_pkg_config_proto_responses_health_check_response_proto_rawDesc = "" +
 	"6pkg/config/proto/responses/health_check_response.proto\x12\x11gcommon.v1.config\x1a!google/protobuf/go_features.proto\x1a*pkg/common/proto/enums/health_status.proto\"h\n" +
 	"\x13HealthCheckResponse\x127\n" +
 	"\x06status\x18\x01 \x01(\x0e2\x1f.gcommon.v1.common.HealthStatusR\x06status\x12\x18\n" +
-	"\amessage\x18\x02 \x01(\tR\amessageB\xc3\x01\n" +
-	"\x15com.gcommon.v1.configB\x18HealthCheckResponseProtoP\x01Z\"../../../../pkg/config/pb;configpb\xa2\x02\x03GVC\xaa\x02\x11Gcommon.V1.Config\xca\x02\x11Gcommon\\V1\\Config\xe2\x02\x1dGcommon\\V1\\Config\\GPBMetadata\xea\x02\x13Gcommon::V1::Config\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
+	"\amessage\x18\x02 \x01(\tR\amessageB\xc6\x01\n" +
+	"\x15com.gcommon.v1.configB\x18HealthCheckResponseProtoP\x01Z%../../../../pkg/config/proto;configpb\xa2\x02\x03GVC\xaa\x02\x11Gcommon.V1.Config\xca\x02\x11Gcommon\\V1\\Config\xe2\x02\x1dGcommon\\V1\\Config\\GPBMetadata\xea\x02\x13Gcommon::V1::Config\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
 
 var file_pkg_config_proto_responses_health_check_response_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_pkg_config_proto_responses_health_check_response_proto_goTypes = []any{
 	(*HealthCheckResponse)(nil), // 0: gcommon.v1.config.HealthCheckResponse
-	(pb.HealthStatus)(0),        // 1: gcommon.v1.common.HealthStatus
+	(proto.HealthStatus)(0),     // 1: gcommon.v1.common.HealthStatus
 }
 var file_pkg_config_proto_responses_health_check_response_proto_depIdxs = []int32{
 	1, // 0: gcommon.v1.config.HealthCheckResponse.status:type_name -> gcommon.v1.common.HealthStatus

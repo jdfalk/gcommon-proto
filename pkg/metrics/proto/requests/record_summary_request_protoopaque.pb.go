@@ -9,7 +9,7 @@
 package metricspb
 
 import (
-	pb "../../../../pkg/common/pb"
+	proto "../../../../pkg/common/proto"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
@@ -31,7 +31,7 @@ type RecordSummaryRequest struct {
 	state                 protoimpl.MessageState `protogen:"opaque.v1"`
 	xxx_hidden_Metric     *SummaryMetric         `protobuf:"bytes,1,opt,name=metric"`
 	xxx_hidden_ObservedAt *timestamppb.Timestamp `protobuf:"bytes,2,opt,name=observed_at,json=observedAt"`
-	xxx_hidden_Metadata   *pb.RequestMetadata    `protobuf:"bytes,3,opt,name=metadata"`
+	xxx_hidden_Metadata   *proto.RequestMetadata `protobuf:"bytes,3,opt,name=metadata"`
 	// Deprecated: Do not use. This will be deleted in the near future.
 	XXX_lazyUnmarshalInfo  protoimpl.LazyUnmarshalInfo
 	XXX_raceDetectHookData protoimpl.RaceDetectHookData
@@ -79,13 +79,13 @@ func (x *RecordSummaryRequest) GetObservedAt() *timestamppb.Timestamp {
 	return nil
 }
 
-func (x *RecordSummaryRequest) GetMetadata() *pb.RequestMetadata {
+func (x *RecordSummaryRequest) GetMetadata() *proto.RequestMetadata {
 	if x != nil {
 		if protoimpl.X.Present(&(x.XXX_presence[0]), 2) {
 			if protoimpl.X.AtomicCheckPointerIsNil(&x.xxx_hidden_Metadata) {
 				protoimpl.X.UnmarshalField(x, 3)
 			}
-			var rv *pb.RequestMetadata
+			var rv *proto.RequestMetadata
 			protoimpl.X.AtomicLoadPointer(protoimpl.Pointer(&x.xxx_hidden_Metadata), protoimpl.Pointer(&rv))
 			return rv
 		}
@@ -101,7 +101,7 @@ func (x *RecordSummaryRequest) SetObservedAt(v *timestamppb.Timestamp) {
 	x.xxx_hidden_ObservedAt = v
 }
 
-func (x *RecordSummaryRequest) SetMetadata(v *pb.RequestMetadata) {
+func (x *RecordSummaryRequest) SetMetadata(v *proto.RequestMetadata) {
 	protoimpl.X.AtomicSetPointer(&x.xxx_hidden_Metadata, v)
 	if v == nil {
 		protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 2)
@@ -141,7 +141,7 @@ func (x *RecordSummaryRequest) ClearObservedAt() {
 
 func (x *RecordSummaryRequest) ClearMetadata() {
 	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 2)
-	protoimpl.X.AtomicSetPointer(&x.xxx_hidden_Metadata, (*pb.RequestMetadata)(nil))
+	protoimpl.X.AtomicSetPointer(&x.xxx_hidden_Metadata, (*proto.RequestMetadata)(nil))
 }
 
 type RecordSummaryRequest_builder struct {
@@ -152,7 +152,7 @@ type RecordSummaryRequest_builder struct {
 	// Optional timestamp for the observation
 	ObservedAt *timestamppb.Timestamp
 	// Request metadata
-	Metadata *pb.RequestMetadata
+	Metadata *proto.RequestMetadata
 }
 
 func (b0 RecordSummaryRequest_builder) Build() *RecordSummaryRequest {
@@ -177,15 +177,15 @@ const file_pkg_metrics_proto_requests_record_summary_request_proto_rawDesc = "" 
 	"\x06metric\x18\x01 \x01(\v2!.gcommon.v1.metrics.SummaryMetricR\x06metric\x12;\n" +
 	"\vobserved_at\x18\x02 \x01(\v2\x1a.google.protobuf.TimestampR\n" +
 	"observedAt\x12B\n" +
-	"\bmetadata\x18\x03 \x01(\v2\".gcommon.v1.common.RequestMetadataB\x02(\x01R\bmetadataB\xcb\x01\n" +
-	"\x16com.gcommon.v1.metricsB\x19RecordSummaryRequestProtoP\x01Z$../../../../pkg/metrics/pb;metricspb\xa2\x02\x03GVM\xaa\x02\x12Gcommon.V1.Metrics\xca\x02\x12Gcommon\\V1\\Metrics\xe2\x02\x1eGcommon\\V1\\Metrics\\GPBMetadata\xea\x02\x14Gcommon::V1::Metrics\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
+	"\bmetadata\x18\x03 \x01(\v2\".gcommon.v1.common.RequestMetadataB\x02(\x01R\bmetadataB\xce\x01\n" +
+	"\x16com.gcommon.v1.metricsB\x19RecordSummaryRequestProtoP\x01Z'../../../../pkg/metrics/proto;metricspb\xa2\x02\x03GVM\xaa\x02\x12Gcommon.V1.Metrics\xca\x02\x12Gcommon\\V1\\Metrics\xe2\x02\x1eGcommon\\V1\\Metrics\\GPBMetadata\xea\x02\x14Gcommon::V1::Metrics\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
 
 var file_pkg_metrics_proto_requests_record_summary_request_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_pkg_metrics_proto_requests_record_summary_request_proto_goTypes = []any{
 	(*RecordSummaryRequest)(nil),  // 0: gcommon.v1.metrics.RecordSummaryRequest
 	(*SummaryMetric)(nil),         // 1: gcommon.v1.metrics.SummaryMetric
 	(*timestamppb.Timestamp)(nil), // 2: google.protobuf.Timestamp
-	(*pb.RequestMetadata)(nil),    // 3: gcommon.v1.common.RequestMetadata
+	(*proto.RequestMetadata)(nil), // 3: gcommon.v1.common.RequestMetadata
 }
 var file_pkg_metrics_proto_requests_record_summary_request_proto_depIdxs = []int32{
 	1, // 0: gcommon.v1.metrics.RecordSummaryRequest.metric:type_name -> gcommon.v1.metrics.SummaryMetric

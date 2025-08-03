@@ -42,8 +42,8 @@ const file_pkg_cache_proto_services_cache_service_proto_rawDesc = "" +
 	"\x04Keys\x12\x1d.gcommon.v1.cache.KeysRequest\x1a\x1e.gcommon.v1.cache.KeysResponse\x12Q\n" +
 	"\bGetStats\x12!.gcommon.v1.cache.GetStatsRequest\x1a\".gcommon.v1.cache.GetStatsResponse\x12H\n" +
 	"\x05Flush\x12\x1e.gcommon.v1.cache.FlushRequest\x1a\x1f.gcommon.v1.cache.FlushResponse\x12f\n" +
-	"\x0fTouchExpiration\x12(.gcommon.v1.cache.TouchExpirationRequest\x1a).gcommon.v1.cache.TouchExpirationResponseB\xb5\x01\n" +
-	"\x14com.gcommon.v1.cacheB\x11CacheServiceProtoP\x01Z ../../../../pkg/cache/pb;cachepb\xa2\x02\x03GVC\xaa\x02\x10Gcommon.V1.Cache\xca\x02\x10Gcommon\\V1\\Cache\xe2\x02\x1cGcommon\\V1\\Cache\\GPBMetadata\xea\x02\x12Gcommon::V1::Cache\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
+	"\x0fTouchExpiration\x12(.gcommon.v1.cache.TouchExpirationRequest\x1a).gcommon.v1.cache.TouchExpirationResponseB\xb8\x01\n" +
+	"\x14com.gcommon.v1.cacheB\x11CacheServiceProtoP\x01Z#../../../../pkg/cache/proto;cachepb\xa2\x02\x03GVC\xaa\x02\x10Gcommon.V1.Cache\xca\x02\x10Gcommon\\V1\\Cache\xe2\x02\x1cGcommon\\V1\\Cache\\GPBMetadata\xea\x02\x12Gcommon::V1::Cache\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
 
 var file_pkg_cache_proto_services_cache_service_proto_goTypes = []any{
 	(*GetRequest)(nil),              // 0: gcommon.v1.cache.GetRequest

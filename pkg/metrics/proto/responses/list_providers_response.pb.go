@@ -9,7 +9,7 @@
 package metricspb
 
 import (
-	pb "../../../../pkg/common/pb"
+	proto "../../../../pkg/common/proto"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
@@ -32,7 +32,7 @@ type ListProvidersResponse struct {
 	// Success status of the operation
 	Success *bool `protobuf:"varint,1,opt,name=success" json:"success,omitempty"`
 	// Error information if the operation failed
-	Error *pb.Error `protobuf:"bytes,2,opt,name=error" json:"error,omitempty"`
+	Error *proto.Error `protobuf:"bytes,2,opt,name=error" json:"error,omitempty"`
 	// List of providers
 	Providers []*ProviderInfo `protobuf:"bytes,3,rep,name=providers" json:"providers,omitempty"`
 	// Pagination information
@@ -77,7 +77,7 @@ func (x *ListProvidersResponse) GetSuccess() bool {
 	return false
 }
 
-func (x *ListProvidersResponse) GetError() *pb.Error {
+func (x *ListProvidersResponse) GetError() *proto.Error {
 	if x != nil {
 		return x.Error
 	}
@@ -116,7 +116,7 @@ func (x *ListProvidersResponse) SetSuccess(v bool) {
 	x.Success = &v
 }
 
-func (x *ListProvidersResponse) SetError(v *pb.Error) {
+func (x *ListProvidersResponse) SetError(v *proto.Error) {
 	x.Error = v
 }
 
@@ -197,7 +197,7 @@ type ListProvidersResponse_builder struct {
 	// Success status of the operation
 	Success *bool
 	// Error information if the operation failed
-	Error *pb.Error
+	Error *proto.Error
 	// List of providers
 	Providers []*ProviderInfo
 	// Pagination information
@@ -754,8 +754,8 @@ const file_pkg_metrics_proto_responses_list_providers_response_proto_rawDesc = "
 	"\x11memory_used_bytes\x18\x01 \x01(\x03R\x0fmemoryUsedBytes\x12(\n" +
 	"\x10cpu_used_percent\x18\x02 \x01(\x01R\x0ecpuUsedPercent\x12&\n" +
 	"\x0fdisk_used_bytes\x18\x03 \x01(\x03R\rdiskUsedBytes\x12D\n" +
-	"\x1fnetwork_bandwidth_bytes_per_sec\x18\x04 \x01(\x03R\x1bnetworkBandwidthBytesPerSecB\xcc\x01\n" +
-	"\x16com.gcommon.v1.metricsB\x1aListProvidersResponseProtoP\x01Z$../../../../pkg/metrics/pb;metricspb\xa2\x02\x03GVM\xaa\x02\x12Gcommon.V1.Metrics\xca\x02\x12Gcommon\\V1\\Metrics\xe2\x02\x1eGcommon\\V1\\Metrics\\GPBMetadata\xea\x02\x14Gcommon::V1::Metrics\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
+	"\x1fnetwork_bandwidth_bytes_per_sec\x18\x04 \x01(\x03R\x1bnetworkBandwidthBytesPerSecB\xcf\x01\n" +
+	"\x16com.gcommon.v1.metricsB\x1aListProvidersResponseProtoP\x01Z'../../../../pkg/metrics/proto;metricspb\xa2\x02\x03GVM\xaa\x02\x12Gcommon.V1.Metrics\xca\x02\x12Gcommon\\V1\\Metrics\xe2\x02\x1eGcommon\\V1\\Metrics\\GPBMetadata\xea\x02\x14Gcommon::V1::Metrics\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
 
 var file_pkg_metrics_proto_responses_list_providers_response_proto_msgTypes = make([]protoimpl.MessageInfo, 4)
 var file_pkg_metrics_proto_responses_list_providers_response_proto_goTypes = []any{
@@ -763,7 +763,7 @@ var file_pkg_metrics_proto_responses_list_providers_response_proto_goTypes = []a
 	(*ProviderConfigSummary)(nil), // 1: gcommon.v1.metrics.ProviderConfigSummary
 	(*ProviderStats)(nil),         // 2: gcommon.v1.metrics.ProviderStats
 	(*ResourceUsage)(nil),         // 3: gcommon.v1.metrics.ResourceUsage
-	(*pb.Error)(nil),              // 4: gcommon.v1.common.Error
+	(*proto.Error)(nil),           // 4: gcommon.v1.common.Error
 	(*ProviderInfo)(nil),          // 5: gcommon.v1.metrics.ProviderInfo
 	(*PaginationInfo)(nil),        // 6: gcommon.v1.metrics.PaginationInfo
 	(*ProviderSummary)(nil),       // 7: gcommon.v1.metrics.ProviderSummary

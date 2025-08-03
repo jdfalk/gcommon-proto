@@ -218,8 +218,8 @@ const file_pkg_web_proto_messages_route_config_proto_rawDesc = "" +
 	"\ahandler\x18\x03 \x01(\tR\ahandler\x12>\n" +
 	"\fhandler_type\x18\x04 \x01(\x0e2\x1b.gcommon.v1.web.HandlerTypeR\vhandlerType\x12%\n" +
 	"\x0emiddleware_ids\x18\x05 \x03(\tR\rmiddlewareIds\x12#\n" +
-	"\rauth_required\x18\x06 \x01(\bR\fauthRequiredB\xa6\x01\n" +
-	"\x12com.gcommon.v1.webB\x10RouteConfigProtoP\x01Z\x1c../../../../pkg/web/pb;webpb\xa2\x02\x03GVW\xaa\x02\x0eGcommon.V1.Web\xca\x02\x0eGcommon\\V1\\Web\xe2\x02\x1aGcommon\\V1\\Web\\GPBMetadata\xea\x02\x10Gcommon::V1::Web\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
+	"\rauth_required\x18\x06 \x01(\bR\fauthRequiredB\xa9\x01\n" +
+	"\x12com.gcommon.v1.webB\x10RouteConfigProtoP\x01Z\x1f../../../../pkg/web/proto;webpb\xa2\x02\x03GVW\xaa\x02\x0eGcommon.V1.Web\xca\x02\x0eGcommon\\V1\\Web\xe2\x02\x1aGcommon\\V1\\Web\\GPBMetadata\xea\x02\x10Gcommon::V1::Web\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
 
 var file_pkg_web_proto_messages_route_config_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_pkg_web_proto_messages_route_config_proto_goTypes = []any{

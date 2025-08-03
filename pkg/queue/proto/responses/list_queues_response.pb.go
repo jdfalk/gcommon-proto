@@ -9,7 +9,7 @@
 package queuepb
 
 import (
-	pb "../../../../pkg/common/pb"
+	proto "../../../../pkg/common/proto"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
@@ -31,7 +31,7 @@ type ListQueuesResponse struct {
 	// Token to retrieve the next page
 	NextPageToken *string `protobuf:"bytes,2,opt,name=next_page_token,json=nextPageToken" json:"next_page_token,omitempty"`
 	// Standard response metadata
-	Metadata      *pb.ResponseMetadata `protobuf:"bytes,3,opt,name=metadata" json:"metadata,omitempty"`
+	Metadata      *proto.ResponseMetadata `protobuf:"bytes,3,opt,name=metadata" json:"metadata,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -75,7 +75,7 @@ func (x *ListQueuesResponse) GetNextPageToken() string {
 	return ""
 }
 
-func (x *ListQueuesResponse) GetMetadata() *pb.ResponseMetadata {
+func (x *ListQueuesResponse) GetMetadata() *proto.ResponseMetadata {
 	if x != nil {
 		return x.Metadata
 	}
@@ -90,7 +90,7 @@ func (x *ListQueuesResponse) SetNextPageToken(v string) {
 	x.NextPageToken = &v
 }
 
-func (x *ListQueuesResponse) SetMetadata(v *pb.ResponseMetadata) {
+func (x *ListQueuesResponse) SetMetadata(v *proto.ResponseMetadata) {
 	x.Metadata = v
 }
 
@@ -124,7 +124,7 @@ type ListQueuesResponse_builder struct {
 	// Token to retrieve the next page
 	NextPageToken *string
 	// Standard response metadata
-	Metadata *pb.ResponseMetadata
+	Metadata *proto.ResponseMetadata
 }
 
 func (b0 ListQueuesResponse_builder) Build() *ListQueuesResponse {
@@ -145,14 +145,14 @@ const file_pkg_queue_proto_responses_list_queues_response_proto_rawDesc = "" +
 	"\x12ListQueuesResponse\x123\n" +
 	"\x06queues\x18\x01 \x03(\v2\x1b.gcommon.v1.queue.QueueInfoR\x06queues\x12&\n" +
 	"\x0fnext_page_token\x18\x02 \x01(\tR\rnextPageToken\x12?\n" +
-	"\bmetadata\x18\x03 \x01(\v2#.gcommon.v1.common.ResponseMetadataR\bmetadataB\xbb\x01\n" +
-	"\x14com.gcommon.v1.queueB\x17ListQueuesResponseProtoP\x01Z ../../../../pkg/queue/pb;queuepb\xa2\x02\x03GVQ\xaa\x02\x10Gcommon.V1.Queue\xca\x02\x10Gcommon\\V1\\Queue\xe2\x02\x1cGcommon\\V1\\Queue\\GPBMetadata\xea\x02\x12Gcommon::V1::Queue\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
+	"\bmetadata\x18\x03 \x01(\v2#.gcommon.v1.common.ResponseMetadataR\bmetadataB\xbe\x01\n" +
+	"\x14com.gcommon.v1.queueB\x17ListQueuesResponseProtoP\x01Z#../../../../pkg/queue/proto;queuepb\xa2\x02\x03GVQ\xaa\x02\x10Gcommon.V1.Queue\xca\x02\x10Gcommon\\V1\\Queue\xe2\x02\x1cGcommon\\V1\\Queue\\GPBMetadata\xea\x02\x12Gcommon::V1::Queue\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
 
 var file_pkg_queue_proto_responses_list_queues_response_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_pkg_queue_proto_responses_list_queues_response_proto_goTypes = []any{
-	(*ListQueuesResponse)(nil),  // 0: gcommon.v1.queue.ListQueuesResponse
-	(*QueueInfo)(nil),           // 1: gcommon.v1.queue.QueueInfo
-	(*pb.ResponseMetadata)(nil), // 2: gcommon.v1.common.ResponseMetadata
+	(*ListQueuesResponse)(nil),     // 0: gcommon.v1.queue.ListQueuesResponse
+	(*QueueInfo)(nil),              // 1: gcommon.v1.queue.QueueInfo
+	(*proto.ResponseMetadata)(nil), // 2: gcommon.v1.common.ResponseMetadata
 }
 var file_pkg_queue_proto_responses_list_queues_response_proto_depIdxs = []int32{
 	1, // 0: gcommon.v1.queue.ListQueuesResponse.queues:type_name -> gcommon.v1.queue.QueueInfo

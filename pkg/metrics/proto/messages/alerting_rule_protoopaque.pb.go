@@ -301,8 +301,8 @@ const file_pkg_metrics_proto_messages_alerting_rule_proto_rawDesc = "" +
 	"conditions\x18\x05 \x03(\v2%.gcommon.v1.metrics.AlertingConditionR\n" +
 	"conditions\x12\x18\n" +
 	"\aenabled\x18\x06 \x01(\bR\aenabled\x124\n" +
-	"\x05state\x18\a \x01(\x0e2\x1e.gcommon.v1.metrics.AlertStateR\x05stateB\xc3\x01\n" +
-	"\x16com.gcommon.v1.metricsB\x11AlertingRuleProtoP\x01Z$../../../../pkg/metrics/pb;metricspb\xa2\x02\x03GVM\xaa\x02\x12Gcommon.V1.Metrics\xca\x02\x12Gcommon\\V1\\Metrics\xe2\x02\x1eGcommon\\V1\\Metrics\\GPBMetadata\xea\x02\x14Gcommon::V1::Metrics\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
+	"\x05state\x18\a \x01(\x0e2\x1e.gcommon.v1.metrics.AlertStateR\x05stateB\xc6\x01\n" +
+	"\x16com.gcommon.v1.metricsB\x11AlertingRuleProtoP\x01Z'../../../../pkg/metrics/proto;metricspb\xa2\x02\x03GVM\xaa\x02\x12Gcommon.V1.Metrics\xca\x02\x12Gcommon\\V1\\Metrics\xe2\x02\x1eGcommon\\V1\\Metrics\\GPBMetadata\xea\x02\x14Gcommon::V1::Metrics\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
 
 var file_pkg_metrics_proto_messages_alerting_rule_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_pkg_metrics_proto_messages_alerting_rule_proto_goTypes = []any{

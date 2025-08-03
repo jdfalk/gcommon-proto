@@ -9,7 +9,7 @@
 package metricspb
 
 import (
-	pb "../../../../pkg/common/pb"
+	proto "../../../../pkg/common/proto"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
@@ -29,7 +29,7 @@ const (
 type StopScrapingRequest struct {
 	state protoimpl.MessageState `protogen:"hybrid.v1"`
 	// Standard request metadata
-	Metadata *pb.RequestMetadata `protobuf:"bytes,1,opt,name=metadata" json:"metadata,omitempty"`
+	Metadata *proto.RequestMetadata `protobuf:"bytes,1,opt,name=metadata" json:"metadata,omitempty"`
 	// Identifier of the job to stop
 	JobId         *string `protobuf:"bytes,2,opt,name=job_id,json=jobId" json:"job_id,omitempty"`
 	unknownFields protoimpl.UnknownFields
@@ -61,7 +61,7 @@ func (x *StopScrapingRequest) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-func (x *StopScrapingRequest) GetMetadata() *pb.RequestMetadata {
+func (x *StopScrapingRequest) GetMetadata() *proto.RequestMetadata {
 	if x != nil {
 		return x.Metadata
 	}
@@ -75,7 +75,7 @@ func (x *StopScrapingRequest) GetJobId() string {
 	return ""
 }
 
-func (x *StopScrapingRequest) SetMetadata(v *pb.RequestMetadata) {
+func (x *StopScrapingRequest) SetMetadata(v *proto.RequestMetadata) {
 	x.Metadata = v
 }
 
@@ -109,7 +109,7 @@ type StopScrapingRequest_builder struct {
 	_ [0]func() // Prevents comparability and use of unkeyed literals for the builder.
 
 	// Standard request metadata
-	Metadata *pb.RequestMetadata
+	Metadata *proto.RequestMetadata
 	// Identifier of the job to stop
 	JobId *string
 }
@@ -130,13 +130,13 @@ const file_pkg_metrics_proto_requests_stop_scraping_request_proto_rawDesc = "" +
 	"6pkg/metrics/proto/requests/stop_scraping_request.proto\x12\x12gcommon.v1.metrics\x1a!google/protobuf/go_features.proto\x1a0pkg/common/proto/messages/request_metadata.proto\"l\n" +
 	"\x13StopScrapingRequest\x12>\n" +
 	"\bmetadata\x18\x01 \x01(\v2\".gcommon.v1.common.RequestMetadataR\bmetadata\x12\x15\n" +
-	"\x06job_id\x18\x02 \x01(\tR\x05jobIdB\xca\x01\n" +
-	"\x16com.gcommon.v1.metricsB\x18StopScrapingRequestProtoP\x01Z$../../../../pkg/metrics/pb;metricspb\xa2\x02\x03GVM\xaa\x02\x12Gcommon.V1.Metrics\xca\x02\x12Gcommon\\V1\\Metrics\xe2\x02\x1eGcommon\\V1\\Metrics\\GPBMetadata\xea\x02\x14Gcommon::V1::Metrics\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
+	"\x06job_id\x18\x02 \x01(\tR\x05jobIdB\xcd\x01\n" +
+	"\x16com.gcommon.v1.metricsB\x18StopScrapingRequestProtoP\x01Z'../../../../pkg/metrics/proto;metricspb\xa2\x02\x03GVM\xaa\x02\x12Gcommon.V1.Metrics\xca\x02\x12Gcommon\\V1\\Metrics\xe2\x02\x1eGcommon\\V1\\Metrics\\GPBMetadata\xea\x02\x14Gcommon::V1::Metrics\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
 
 var file_pkg_metrics_proto_requests_stop_scraping_request_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_pkg_metrics_proto_requests_stop_scraping_request_proto_goTypes = []any{
-	(*StopScrapingRequest)(nil), // 0: gcommon.v1.metrics.StopScrapingRequest
-	(*pb.RequestMetadata)(nil),  // 1: gcommon.v1.common.RequestMetadata
+	(*StopScrapingRequest)(nil),   // 0: gcommon.v1.metrics.StopScrapingRequest
+	(*proto.RequestMetadata)(nil), // 1: gcommon.v1.common.RequestMetadata
 }
 var file_pkg_metrics_proto_requests_stop_scraping_request_proto_depIdxs = []int32{
 	1, // 0: gcommon.v1.metrics.StopScrapingRequest.metadata:type_name -> gcommon.v1.common.RequestMetadata

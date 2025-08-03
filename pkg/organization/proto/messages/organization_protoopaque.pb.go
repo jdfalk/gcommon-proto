@@ -9,7 +9,7 @@
 package organizationpb
 
 import (
-	pb "../../../../pkg/common/pb"
+	proto "../../../../pkg/common/proto"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
@@ -42,7 +42,7 @@ type Organization struct {
 	xxx_hidden_TaxId              *string                `protobuf:"bytes,9,opt,name=tax_id,json=taxId"`
 	xxx_hidden_Industry           *string                `protobuf:"bytes,10,opt,name=industry"`
 	xxx_hidden_Status             OrganizationStatus     `protobuf:"varint,11,opt,name=status,enum=gcommon.v1.organization.OrganizationStatus"`
-	xxx_hidden_Metadata           *[]*pb.KeyValue        `protobuf:"bytes,12,rep,name=metadata"`
+	xxx_hidden_Metadata           *[]*proto.KeyValue     `protobuf:"bytes,12,rep,name=metadata"`
 	xxx_hidden_CreatedAt          *timestamppb.Timestamp `protobuf:"bytes,13,opt,name=created_at,json=createdAt"`
 	xxx_hidden_UpdatedAt          *timestamppb.Timestamp `protobuf:"bytes,14,opt,name=updated_at,json=updatedAt"`
 	xxx_hidden_CreatedBy          *string                `protobuf:"bytes,15,opt,name=created_by,json=createdBy"`
@@ -195,13 +195,13 @@ func (x *Organization) GetStatus() OrganizationStatus {
 	return OrganizationStatus_ORGANIZATION_STATUS_UNSPECIFIED
 }
 
-func (x *Organization) GetMetadata() []*pb.KeyValue {
+func (x *Organization) GetMetadata() []*proto.KeyValue {
 	if x != nil {
 		if protoimpl.X.Present(&(x.XXX_presence[0]), 11) {
 			if protoimpl.X.AtomicCheckPointerIsNil(&x.xxx_hidden_Metadata) {
 				protoimpl.X.UnmarshalField(x, 12)
 			}
-			var rv *[]*pb.KeyValue
+			var rv *[]*proto.KeyValue
 			protoimpl.X.AtomicLoadPointer(protoimpl.Pointer(&x.xxx_hidden_Metadata), protoimpl.Pointer(&rv))
 			return *rv
 		}
@@ -366,11 +366,11 @@ func (x *Organization) SetStatus(v OrganizationStatus) {
 	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 10, 22)
 }
 
-func (x *Organization) SetMetadata(v []*pb.KeyValue) {
-	var sv *[]*pb.KeyValue
+func (x *Organization) SetMetadata(v []*proto.KeyValue) {
+	var sv *[]*proto.KeyValue
 	protoimpl.X.AtomicLoadPointer(protoimpl.Pointer(&x.xxx_hidden_Metadata), protoimpl.Pointer(&sv))
 	if sv == nil {
-		sv = &[]*pb.KeyValue{}
+		sv = &[]*proto.KeyValue{}
 		protoimpl.X.AtomicInitializePointer(protoimpl.Pointer(&x.xxx_hidden_Metadata), protoimpl.Pointer(&sv))
 	}
 	*sv = v
@@ -713,7 +713,7 @@ type Organization_builder struct {
 	// Current operational status of the organization
 	Status *OrganizationStatus
 	// Organization metadata and custom attributes
-	Metadata []*pb.KeyValue
+	Metadata []*proto.KeyValue
 	// Organization creation timestamp (immutable)
 	CreatedAt *timestamppb.Timestamp
 	// Last update timestamp
@@ -865,14 +865,14 @@ const file_pkg_organization_proto_messages_organization_proto_rawDesc = "" +
 	"\x14multi_tenant_enabled\x18\x14 \x01(\bR\x12multiTenantEnabled\x12\x1d\n" +
 	"\n" +
 	"avatar_url\x18\x15 \x01(\tR\tavatarUrl\x12#\n" +
-	"\rbilling_email\x18\x16 \x01(\tR\fbillingEmailB\xe6\x01\n" +
-	"\x1bcom.gcommon.v1.organizationB\x11OrganizationProtoP\x01Z.../../../../pkg/organization/pb;organizationpb\xa2\x02\x03GVO\xaa\x02\x17Gcommon.V1.Organization\xca\x02\x17Gcommon\\V1\\Organization\xe2\x02#Gcommon\\V1\\Organization\\GPBMetadata\xea\x02\x19Gcommon::V1::Organization\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
+	"\rbilling_email\x18\x16 \x01(\tR\fbillingEmailB\xe9\x01\n" +
+	"\x1bcom.gcommon.v1.organizationB\x11OrganizationProtoP\x01Z1../../../../pkg/organization/proto;organizationpb\xa2\x02\x03GVO\xaa\x02\x17Gcommon.V1.Organization\xca\x02\x17Gcommon\\V1\\Organization\xe2\x02#Gcommon\\V1\\Organization\\GPBMetadata\xea\x02\x19Gcommon::V1::Organization\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
 
 var file_pkg_organization_proto_messages_organization_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_pkg_organization_proto_messages_organization_proto_goTypes = []any{
 	(*Organization)(nil),          // 0: gcommon.v1.organization.Organization
 	(OrganizationStatus)(0),       // 1: gcommon.v1.organization.OrganizationStatus
-	(*pb.KeyValue)(nil),           // 2: gcommon.v1.common.KeyValue
+	(*proto.KeyValue)(nil),        // 2: gcommon.v1.common.KeyValue
 	(*timestamppb.Timestamp)(nil), // 3: google.protobuf.Timestamp
 }
 var file_pkg_organization_proto_messages_organization_proto_depIdxs = []int32{

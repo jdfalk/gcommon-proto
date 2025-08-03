@@ -9,7 +9,7 @@
 package webpb
 
 import (
-	pb "../../../../pkg/common/pb"
+	proto "../../../../pkg/common/proto"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
@@ -30,7 +30,7 @@ type StartServerResponse struct {
 	xxx_hidden_Success       bool                   `protobuf:"varint,1,opt,name=success"`
 	xxx_hidden_Status        ServerStatus           `protobuf:"varint,2,opt,name=status,enum=gcommon.v1.web.ServerStatus"`
 	xxx_hidden_ListenAddress *string                `protobuf:"bytes,3,opt,name=listen_address,json=listenAddress"`
-	xxx_hidden_Error         *pb.Error              `protobuf:"bytes,4,opt,name=error"`
+	xxx_hidden_Error         *proto.Error           `protobuf:"bytes,4,opt,name=error"`
 	XXX_raceDetectHookData   protoimpl.RaceDetectHookData
 	XXX_presence             [1]uint32
 	unknownFields            protoimpl.UnknownFields
@@ -88,7 +88,7 @@ func (x *StartServerResponse) GetListenAddress() string {
 	return ""
 }
 
-func (x *StartServerResponse) GetError() *pb.Error {
+func (x *StartServerResponse) GetError() *proto.Error {
 	if x != nil {
 		return x.xxx_hidden_Error
 	}
@@ -110,7 +110,7 @@ func (x *StartServerResponse) SetListenAddress(v string) {
 	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 2, 4)
 }
 
-func (x *StartServerResponse) SetError(v *pb.Error) {
+func (x *StartServerResponse) SetError(v *proto.Error) {
 	x.xxx_hidden_Error = v
 }
 
@@ -171,7 +171,7 @@ type StartServerResponse_builder struct {
 	// Listen address
 	ListenAddress *string
 	// Error information
-	Error *pb.Error
+	Error *proto.Error
 }
 
 func (b0 StartServerResponse_builder) Build() *StartServerResponse {
@@ -203,14 +203,14 @@ const file_pkg_web_proto_responses_start_server_response_proto_rawDesc = "" +
 	"\asuccess\x18\x01 \x01(\bR\asuccess\x124\n" +
 	"\x06status\x18\x02 \x01(\x0e2\x1c.gcommon.v1.web.ServerStatusR\x06status\x12%\n" +
 	"\x0elisten_address\x18\x03 \x01(\tR\rlistenAddress\x12.\n" +
-	"\x05error\x18\x04 \x01(\v2\x18.gcommon.v1.common.ErrorR\x05errorB\xae\x01\n" +
-	"\x12com.gcommon.v1.webB\x18StartServerResponseProtoP\x01Z\x1c../../../../pkg/web/pb;webpb\xa2\x02\x03GVW\xaa\x02\x0eGcommon.V1.Web\xca\x02\x0eGcommon\\V1\\Web\xe2\x02\x1aGcommon\\V1\\Web\\GPBMetadata\xea\x02\x10Gcommon::V1::Web\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
+	"\x05error\x18\x04 \x01(\v2\x18.gcommon.v1.common.ErrorR\x05errorB\xb1\x01\n" +
+	"\x12com.gcommon.v1.webB\x18StartServerResponseProtoP\x01Z\x1f../../../../pkg/web/proto;webpb\xa2\x02\x03GVW\xaa\x02\x0eGcommon.V1.Web\xca\x02\x0eGcommon\\V1\\Web\xe2\x02\x1aGcommon\\V1\\Web\\GPBMetadata\xea\x02\x10Gcommon::V1::Web\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
 
 var file_pkg_web_proto_responses_start_server_response_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_pkg_web_proto_responses_start_server_response_proto_goTypes = []any{
 	(*StartServerResponse)(nil), // 0: gcommon.v1.web.StartServerResponse
 	(ServerStatus)(0),           // 1: gcommon.v1.web.ServerStatus
-	(*pb.Error)(nil),            // 2: gcommon.v1.common.Error
+	(*proto.Error)(nil),         // 2: gcommon.v1.common.Error
 }
 var file_pkg_web_proto_responses_start_server_response_proto_depIdxs = []int32{
 	1, // 0: gcommon.v1.web.StartServerResponse.status:type_name -> gcommon.v1.web.ServerStatus

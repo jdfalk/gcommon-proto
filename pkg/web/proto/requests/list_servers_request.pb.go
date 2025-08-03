@@ -7,7 +7,7 @@
 package webpb
 
 import (
-	pb "../../../../pkg/common/pb"
+	proto "../../../../pkg/common/proto"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	timestamppb "google.golang.org/protobuf/types/known/timestamppb"
@@ -33,7 +33,7 @@ type ListServersRequest struct {
 	// *
 	// Request processing metadata including timing, request ID,
 	// and other observability information.
-	RequestMetadata *pb.RequestMetadata `protobuf:"bytes,11,opt,name=request_metadata,json=requestMetadata" json:"request_metadata,omitempty"`
+	RequestMetadata *proto.RequestMetadata `protobuf:"bytes,11,opt,name=request_metadata,json=requestMetadata" json:"request_metadata,omitempty"`
 	// *
 	// Timestamp when this request was created.
 	RequestedAt   *timestamppb.Timestamp `protobuf:"bytes,51,opt,name=requested_at,json=requestedAt" json:"requested_at,omitempty"`
@@ -71,7 +71,7 @@ func (*ListServersRequest) Descriptor() ([]byte, []int) {
 	return file_pkg_web_proto_requests_list_servers_request_proto_rawDescGZIP(), []int{0}
 }
 
-func (x *ListServersRequest) GetRequestMetadata() *pb.RequestMetadata {
+func (x *ListServersRequest) GetRequestMetadata() *proto.RequestMetadata {
 	if x != nil {
 		return x.RequestMetadata
 	}
@@ -92,8 +92,8 @@ const file_pkg_web_proto_requests_list_servers_request_proto_rawDesc = "" +
 	"1pkg/web/proto/requests/list_servers_request.proto\x12\x0egcommon.v1.web\x1a\x1fgoogle/protobuf/timestamp.proto\x1a0pkg/common/proto/messages/request_metadata.proto\"\xa2\x01\n" +
 	"\x12ListServersRequest\x12M\n" +
 	"\x10request_metadata\x18\v \x01(\v2\".gcommon.v1.common.RequestMetadataR\x0frequestMetadata\x12=\n" +
-	"\frequested_at\x183 \x01(\v2\x1a.google.protobuf.TimestampR\vrequestedAtB\xa5\x01\n" +
-	"\x12com.gcommon.v1.webB\x17ListServersRequestProtoP\x01Z\x1c../../../../pkg/web/pb;webpb\xa2\x02\x03GVW\xaa\x02\x0eGcommon.V1.Web\xca\x02\x0eGcommon\\V1\\Web\xe2\x02\x1aGcommon\\V1\\Web\\GPBMetadata\xea\x02\x10Gcommon::V1::Webb\beditionsp\xe8\a"
+	"\frequested_at\x183 \x01(\v2\x1a.google.protobuf.TimestampR\vrequestedAtB\xa8\x01\n" +
+	"\x12com.gcommon.v1.webB\x17ListServersRequestProtoP\x01Z\x1f../../../../pkg/web/proto;webpb\xa2\x02\x03GVW\xaa\x02\x0eGcommon.V1.Web\xca\x02\x0eGcommon\\V1\\Web\xe2\x02\x1aGcommon\\V1\\Web\\GPBMetadata\xea\x02\x10Gcommon::V1::Webb\beditionsp\xe8\a"
 
 var (
 	file_pkg_web_proto_requests_list_servers_request_proto_rawDescOnce sync.Once
@@ -110,7 +110,7 @@ func file_pkg_web_proto_requests_list_servers_request_proto_rawDescGZIP() []byte
 var file_pkg_web_proto_requests_list_servers_request_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_pkg_web_proto_requests_list_servers_request_proto_goTypes = []any{
 	(*ListServersRequest)(nil),    // 0: gcommon.v1.web.ListServersRequest
-	(*pb.RequestMetadata)(nil),    // 1: gcommon.v1.common.RequestMetadata
+	(*proto.RequestMetadata)(nil), // 1: gcommon.v1.common.RequestMetadata
 	(*timestamppb.Timestamp)(nil), // 2: google.protobuf.Timestamp
 }
 var file_pkg_web_proto_requests_list_servers_request_proto_depIdxs = []int32{

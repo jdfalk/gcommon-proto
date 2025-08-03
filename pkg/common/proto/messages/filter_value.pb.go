@@ -432,8 +432,8 @@ const file_pkg_common_proto_messages_filter_value_proto_rawDesc = "" +
 	"\fstring_array\x18\x05 \x01(\v2\x1e.gcommon.v1.common.StringArrayB\x02(\x01H\x00R\vstringArray\x12@\n" +
 	"\tint_array\x18\x06 \x01(\v2\x1d.gcommon.v1.common.Int64ArrayB\x02(\x01H\x00R\bintArray\x12@\n" +
 	"\toperation\x18\a \x01(\x0e2\".gcommon.v1.common.FilterOperationR\toperationB\a\n" +
-	"\x05valueB\xbb\x01\n" +
-	"\x15com.gcommon.v1.commonB\x10FilterValueProtoP\x01Z\"../../../../pkg/common/pb;commonpb\xa2\x02\x03GVC\xaa\x02\x11Gcommon.V1.Common\xca\x02\x11Gcommon\\V1\\Common\xe2\x02\x1dGcommon\\V1\\Common\\GPBMetadata\xea\x02\x13Gcommon::V1::Common\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
+	"\x05valueB\xbe\x01\n" +
+	"\x15com.gcommon.v1.commonB\x10FilterValueProtoP\x01Z%../../../../pkg/common/proto;commonpb\xa2\x02\x03GVC\xaa\x02\x11Gcommon.V1.Common\xca\x02\x11Gcommon\\V1\\Common\xe2\x02\x1dGcommon\\V1\\Common\\GPBMetadata\xea\x02\x13Gcommon::V1::Common\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
 
 var file_pkg_common_proto_messages_filter_value_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_pkg_common_proto_messages_filter_value_proto_goTypes = []any{

@@ -104,8 +104,8 @@ const file_pkg_auth_proto_enums_auth_method_proto_rawDesc = "" +
 	"\x12AUTH_METHOD_OAUTH2\x10\x03\x12\x14\n" +
 	"\x10AUTH_METHOD_SAML\x10\x04\x12\x14\n" +
 	"\x10AUTH_METHOD_LDAP\x10\x05\x12\x13\n" +
-	"\x0fAUTH_METHOD_MFA\x10\x06B\xa4\x01\n" +
-	"\x13com.gcommon.v1.authB\x0fAuthMethodProtoP\x01Z\x1e../../../../pkg/auth/pb;authpb\xa2\x02\x03GVA\xaa\x02\x0fGcommon.V1.Auth\xca\x02\x0fGcommon\\V1\\Auth\xe2\x02\x1bGcommon\\V1\\Auth\\GPBMetadata\xea\x02\x11Gcommon::V1::Authb\beditionsp\xe8\a"
+	"\x0fAUTH_METHOD_MFA\x10\x06B\xa7\x01\n" +
+	"\x13com.gcommon.v1.authB\x0fAuthMethodProtoP\x01Z!../../../../pkg/auth/proto;authpb\xa2\x02\x03GVA\xaa\x02\x0fGcommon.V1.Auth\xca\x02\x0fGcommon\\V1\\Auth\xe2\x02\x1bGcommon\\V1\\Auth\\GPBMetadata\xea\x02\x11Gcommon::V1::Authb\beditionsp\xe8\a"
 
 var (
 	file_pkg_auth_proto_enums_auth_method_proto_rawDescOnce sync.Once

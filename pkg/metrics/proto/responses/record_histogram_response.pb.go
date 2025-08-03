@@ -9,7 +9,7 @@
 package metricspb
 
 import (
-	pb "../../../../pkg/common/pb"
+	proto "../../../../pkg/common/proto"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
@@ -32,7 +32,7 @@ type RecordHistogramResponse struct {
 	// Whether the operation was successful
 	Success *bool `protobuf:"varint,1,opt,name=success" json:"success,omitempty"`
 	// Error information if the operation failed
-	Error *pb.Error `protobuf:"bytes,2,opt,name=error" json:"error,omitempty"`
+	Error *proto.Error `protobuf:"bytes,2,opt,name=error" json:"error,omitempty"`
 	// The histogram metric with updated bucket counts
 	Metric *HistogramMetric `protobuf:"bytes,3,opt,name=metric" json:"metric,omitempty"`
 	// Current histogram statistics
@@ -81,7 +81,7 @@ func (x *RecordHistogramResponse) GetSuccess() bool {
 	return false
 }
 
-func (x *RecordHistogramResponse) GetError() *pb.Error {
+func (x *RecordHistogramResponse) GetError() *proto.Error {
 	if x != nil {
 		return x.Error
 	}
@@ -134,7 +134,7 @@ func (x *RecordHistogramResponse) SetSuccess(v bool) {
 	x.Success = &v
 }
 
-func (x *RecordHistogramResponse) SetError(v *pb.Error) {
+func (x *RecordHistogramResponse) SetError(v *proto.Error) {
 	x.Error = v
 }
 
@@ -256,7 +256,7 @@ type RecordHistogramResponse_builder struct {
 	// Whether the operation was successful
 	Success *bool
 	// Error information if the operation failed
-	Error *pb.Error
+	Error *proto.Error
 	// The histogram metric with updated bucket counts
 	Metric *HistogramMetric
 	// Current histogram statistics
@@ -647,15 +647,15 @@ const file_pkg_metrics_proto_responses_record_histogram_response_proto_rawDesc =
 	"\x04mean\x18\x03 \x01(\x01R\x04mean\x12\x1b\n" +
 	"\tmin_value\x18\x04 \x01(\x01R\bminValue\x12\x1b\n" +
 	"\tmax_value\x18\x05 \x01(\x01R\bmaxValue\x12#\n" +
-	"\rstd_deviation\x18\x06 \x01(\x01R\fstdDeviationB\xce\x01\n" +
-	"\x16com.gcommon.v1.metricsB\x1cRecordHistogramResponseProtoP\x01Z$../../../../pkg/metrics/pb;metricspb\xa2\x02\x03GVM\xaa\x02\x12Gcommon.V1.Metrics\xca\x02\x12Gcommon\\V1\\Metrics\xe2\x02\x1eGcommon\\V1\\Metrics\\GPBMetadata\xea\x02\x14Gcommon::V1::Metrics\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
+	"\rstd_deviation\x18\x06 \x01(\x01R\fstdDeviationB\xd1\x01\n" +
+	"\x16com.gcommon.v1.metricsB\x1cRecordHistogramResponseProtoP\x01Z'../../../../pkg/metrics/proto;metricspb\xa2\x02\x03GVM\xaa\x02\x12Gcommon.V1.Metrics\xca\x02\x12Gcommon\\V1\\Metrics\xe2\x02\x1eGcommon\\V1\\Metrics\\GPBMetadata\xea\x02\x14Gcommon::V1::Metrics\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
 
 var file_pkg_metrics_proto_responses_record_histogram_response_proto_msgTypes = make([]protoimpl.MessageInfo, 3)
 var file_pkg_metrics_proto_responses_record_histogram_response_proto_goTypes = []any{
 	(*RecordHistogramResponse)(nil), // 0: gcommon.v1.metrics.RecordHistogramResponse
 	(*BucketInfo)(nil),              // 1: gcommon.v1.metrics.BucketInfo
 	(*HistogramStats)(nil),          // 2: gcommon.v1.metrics.HistogramStats
-	(*pb.Error)(nil),                // 3: gcommon.v1.common.Error
+	(*proto.Error)(nil),             // 3: gcommon.v1.common.Error
 	(*HistogramMetric)(nil),         // 4: gcommon.v1.metrics.HistogramMetric
 	(*timestamppb.Timestamp)(nil),   // 5: google.protobuf.Timestamp
 	(*RecordingStats)(nil),          // 6: gcommon.v1.metrics.RecordingStats

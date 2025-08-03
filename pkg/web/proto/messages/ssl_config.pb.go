@@ -212,8 +212,8 @@ const file_pkg_web_proto_messages_ssl_config_proto_rawDesc = "" +
 	"\tcert_file\x18\x02 \x01(\tR\bcertFile\x12\x19\n" +
 	"\bkey_file\x18\x03 \x01(\tR\akeyFile\x12\x17\n" +
 	"\aca_file\x18\x04 \x01(\tR\x06caFile\x12.\n" +
-	"\x13require_client_auth\x18\x05 \x01(\bR\x11requireClientAuthB\xa4\x01\n" +
-	"\x12com.gcommon.v1.webB\x0eSslConfigProtoP\x01Z\x1c../../../../pkg/web/pb;webpb\xa2\x02\x03GVW\xaa\x02\x0eGcommon.V1.Web\xca\x02\x0eGcommon\\V1\\Web\xe2\x02\x1aGcommon\\V1\\Web\\GPBMetadata\xea\x02\x10Gcommon::V1::Web\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
+	"\x13require_client_auth\x18\x05 \x01(\bR\x11requireClientAuthB\xa7\x01\n" +
+	"\x12com.gcommon.v1.webB\x0eSslConfigProtoP\x01Z\x1f../../../../pkg/web/proto;webpb\xa2\x02\x03GVW\xaa\x02\x0eGcommon.V1.Web\xca\x02\x0eGcommon\\V1\\Web\xe2\x02\x1aGcommon\\V1\\Web\\GPBMetadata\xea\x02\x10Gcommon::V1::Web\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
 
 var file_pkg_web_proto_messages_ssl_config_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_pkg_web_proto_messages_ssl_config_proto_goTypes = []any{

@@ -154,8 +154,8 @@ const file_pkg_common_proto_messages_filter_options_proto_rawDesc = "" +
 	"time_range\x18\x03 \x01(\v2\x1c.gcommon.v1.common.TimeRangeR\ttimeRange\x1aZ\n" +
 	"\fFiltersEntry\x12\x10\n" +
 	"\x03key\x18\x01 \x01(\tR\x03key\x124\n" +
-	"\x05value\x18\x02 \x01(\v2\x1e.gcommon.v1.common.FilterValueR\x05value:\x028\x01B\xbd\x01\n" +
-	"\x15com.gcommon.v1.commonB\x12FilterOptionsProtoP\x01Z\"../../../../pkg/common/pb;commonpb\xa2\x02\x03GVC\xaa\x02\x11Gcommon.V1.Common\xca\x02\x11Gcommon\\V1\\Common\xe2\x02\x1dGcommon\\V1\\Common\\GPBMetadata\xea\x02\x13Gcommon::V1::Common\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
+	"\x05value\x18\x02 \x01(\v2\x1e.gcommon.v1.common.FilterValueR\x05value:\x028\x01B\xc0\x01\n" +
+	"\x15com.gcommon.v1.commonB\x12FilterOptionsProtoP\x01Z%../../../../pkg/common/proto;commonpb\xa2\x02\x03GVC\xaa\x02\x11Gcommon.V1.Common\xca\x02\x11Gcommon\\V1\\Common\xe2\x02\x1dGcommon\\V1\\Common\\GPBMetadata\xea\x02\x13Gcommon::V1::Common\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
 
 var file_pkg_common_proto_messages_filter_options_proto_msgTypes = make([]protoimpl.MessageInfo, 2)
 var file_pkg_common_proto_messages_filter_options_proto_goTypes = []any{

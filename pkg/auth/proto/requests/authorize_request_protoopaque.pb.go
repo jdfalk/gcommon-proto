@@ -9,7 +9,7 @@
 package authpb
 
 import (
-	pb "../../../../pkg/common/pb"
+	proto "../../../../pkg/common/proto"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
@@ -34,7 +34,7 @@ type AuthorizeRequest struct {
 	xxx_hidden_Resource    *string                `protobuf:"bytes,2,opt,name=resource"`
 	xxx_hidden_Action      *string                `protobuf:"bytes,3,opt,name=action"`
 	xxx_hidden_Context     map[string]string      `protobuf:"bytes,4,rep,name=context" protobuf_key:"bytes,1,opt,name=key" protobuf_val:"bytes,2,opt,name=value"`
-	xxx_hidden_Metadata    *pb.RequestMetadata    `protobuf:"bytes,5,opt,name=metadata"`
+	xxx_hidden_Metadata    *proto.RequestMetadata `protobuf:"bytes,5,opt,name=metadata"`
 	XXX_raceDetectHookData protoimpl.RaceDetectHookData
 	XXX_presence           [1]uint32
 	unknownFields          protoimpl.UnknownFields
@@ -103,7 +103,7 @@ func (x *AuthorizeRequest) GetContext() map[string]string {
 	return nil
 }
 
-func (x *AuthorizeRequest) GetMetadata() *pb.RequestMetadata {
+func (x *AuthorizeRequest) GetMetadata() *proto.RequestMetadata {
 	if x != nil {
 		return x.xxx_hidden_Metadata
 	}
@@ -129,7 +129,7 @@ func (x *AuthorizeRequest) SetContext(v map[string]string) {
 	x.xxx_hidden_Context = v
 }
 
-func (x *AuthorizeRequest) SetMetadata(v *pb.RequestMetadata) {
+func (x *AuthorizeRequest) SetMetadata(v *proto.RequestMetadata) {
 	x.xxx_hidden_Metadata = v
 }
 
@@ -192,7 +192,7 @@ type AuthorizeRequest_builder struct {
 	// Additional context for authorization decision
 	Context map[string]string
 	// Request metadata for tracing and correlation
-	Metadata *pb.RequestMetadata
+	Metadata *proto.RequestMetadata
 }
 
 func (b0 AuthorizeRequest_builder) Build() *AuthorizeRequest {
@@ -229,14 +229,14 @@ const file_pkg_auth_proto_requests_authorize_request_proto_rawDesc = "" +
 	"\bmetadata\x18\x05 \x01(\v2\".gcommon.v1.common.RequestMetadataR\bmetadata\x1a:\n" +
 	"\fContextEntry\x12\x10\n" +
 	"\x03key\x18\x01 \x01(\tR\x03key\x12\x14\n" +
-	"\x05value\x18\x02 \x01(\tR\x05value:\x028\x01B\xb2\x01\n" +
-	"\x13com.gcommon.v1.authB\x15AuthorizeRequestProtoP\x01Z\x1e../../../../pkg/auth/pb;authpb\xa2\x02\x03GVA\xaa\x02\x0fGcommon.V1.Auth\xca\x02\x0fGcommon\\V1\\Auth\xe2\x02\x1bGcommon\\V1\\Auth\\GPBMetadata\xea\x02\x11Gcommon::V1::Auth\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
+	"\x05value\x18\x02 \x01(\tR\x05value:\x028\x01B\xb5\x01\n" +
+	"\x13com.gcommon.v1.authB\x15AuthorizeRequestProtoP\x01Z!../../../../pkg/auth/proto;authpb\xa2\x02\x03GVA\xaa\x02\x0fGcommon.V1.Auth\xca\x02\x0fGcommon\\V1\\Auth\xe2\x02\x1bGcommon\\V1\\Auth\\GPBMetadata\xea\x02\x11Gcommon::V1::Auth\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
 
 var file_pkg_auth_proto_requests_authorize_request_proto_msgTypes = make([]protoimpl.MessageInfo, 2)
 var file_pkg_auth_proto_requests_authorize_request_proto_goTypes = []any{
-	(*AuthorizeRequest)(nil),   // 0: gcommon.v1.auth.AuthorizeRequest
-	nil,                        // 1: gcommon.v1.auth.AuthorizeRequest.ContextEntry
-	(*pb.RequestMetadata)(nil), // 2: gcommon.v1.common.RequestMetadata
+	(*AuthorizeRequest)(nil),      // 0: gcommon.v1.auth.AuthorizeRequest
+	nil,                           // 1: gcommon.v1.auth.AuthorizeRequest.ContextEntry
+	(*proto.RequestMetadata)(nil), // 2: gcommon.v1.common.RequestMetadata
 }
 var file_pkg_auth_proto_requests_authorize_request_proto_depIdxs = []int32{
 	1, // 0: gcommon.v1.auth.AuthorizeRequest.context:type_name -> gcommon.v1.auth.AuthorizeRequest.ContextEntry

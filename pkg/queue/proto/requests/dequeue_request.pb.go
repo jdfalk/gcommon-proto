@@ -7,7 +7,7 @@
 package queuepb
 
 import (
-	pb "../../../../pkg/common/pb"
+	proto "../../../../pkg/common/proto"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	durationpb "google.golang.org/protobuf/types/known/durationpb"
@@ -38,7 +38,7 @@ type DequeueRequest struct {
 	// *
 	// Standard request metadata including authentication context,
 	// tracing information, and client details.
-	Metadata *pb.RequestMetadata `protobuf:"bytes,11,opt,name=metadata" json:"metadata,omitempty"`
+	Metadata *proto.RequestMetadata `protobuf:"bytes,11,opt,name=metadata" json:"metadata,omitempty"`
 	// *
 	// Maximum number of messages to receive in this request.
 	// Range: 1-100. Default: 1.
@@ -126,7 +126,7 @@ func (x *DequeueRequest) GetQueueName() string {
 	return ""
 }
 
-func (x *DequeueRequest) GetMetadata() *pb.RequestMetadata {
+func (x *DequeueRequest) GetMetadata() *proto.RequestMetadata {
 	if x != nil {
 		return x.Metadata
 	}
@@ -233,8 +233,8 @@ const file_pkg_queue_proto_requests_dequeue_request_proto_rawDesc = "" +
 	"\fmin_priority\x18\x16 \x01(\x05R\vminPriority\x1aC\n" +
 	"\x15AttributeFiltersEntry\x12\x10\n" +
 	"\x03key\x18\x01 \x01(\tR\x03key\x12\x14\n" +
-	"\x05value\x18\x02 \x01(\tR\x05value:\x028\x01B\xaf\x01\n" +
-	"\x14com.gcommon.v1.queueB\x13DequeueRequestProtoP\x01Z ../../../../pkg/queue/pb;queuepb\xa2\x02\x03GVQ\xaa\x02\x10Gcommon.V1.Queue\xca\x02\x10Gcommon\\V1\\Queue\xe2\x02\x1cGcommon\\V1\\Queue\\GPBMetadata\xea\x02\x12Gcommon::V1::Queueb\beditionsp\xe8\a"
+	"\x05value\x18\x02 \x01(\tR\x05value:\x028\x01B\xb2\x01\n" +
+	"\x14com.gcommon.v1.queueB\x13DequeueRequestProtoP\x01Z#../../../../pkg/queue/proto;queuepb\xa2\x02\x03GVQ\xaa\x02\x10Gcommon.V1.Queue\xca\x02\x10Gcommon\\V1\\Queue\xe2\x02\x1cGcommon\\V1\\Queue\\GPBMetadata\xea\x02\x12Gcommon::V1::Queueb\beditionsp\xe8\a"
 
 var (
 	file_pkg_queue_proto_requests_dequeue_request_proto_rawDescOnce sync.Once
@@ -250,10 +250,10 @@ func file_pkg_queue_proto_requests_dequeue_request_proto_rawDescGZIP() []byte {
 
 var file_pkg_queue_proto_requests_dequeue_request_proto_msgTypes = make([]protoimpl.MessageInfo, 2)
 var file_pkg_queue_proto_requests_dequeue_request_proto_goTypes = []any{
-	(*DequeueRequest)(nil),      // 0: gcommon.v1.queue.DequeueRequest
-	nil,                         // 1: gcommon.v1.queue.DequeueRequest.AttributeFiltersEntry
-	(*pb.RequestMetadata)(nil),  // 2: gcommon.v1.common.RequestMetadata
-	(*durationpb.Duration)(nil), // 3: google.protobuf.Duration
+	(*DequeueRequest)(nil),        // 0: gcommon.v1.queue.DequeueRequest
+	nil,                           // 1: gcommon.v1.queue.DequeueRequest.AttributeFiltersEntry
+	(*proto.RequestMetadata)(nil), // 2: gcommon.v1.common.RequestMetadata
+	(*durationpb.Duration)(nil),   // 3: google.protobuf.Duration
 }
 var file_pkg_queue_proto_requests_dequeue_request_proto_depIdxs = []int32{
 	2, // 0: gcommon.v1.queue.DequeueRequest.metadata:type_name -> gcommon.v1.common.RequestMetadata

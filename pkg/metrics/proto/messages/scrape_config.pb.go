@@ -146,8 +146,8 @@ const file_pkg_metrics_proto_messages_scrape_config_proto_rawDesc = "" +
 	"\fScrapeConfig\x12\x19\n" +
 	"\bjob_name\x18\x01 \x01(\tR\ajobName\x12:\n" +
 	"\atargets\x18\x02 \x03(\v2 .gcommon.v1.metrics.ScrapeTargetR\atargets\x126\n" +
-	"\x17scrape_interval_seconds\x18\x03 \x01(\x05R\x15scrapeIntervalSecondsB\xc3\x01\n" +
-	"\x16com.gcommon.v1.metricsB\x11ScrapeConfigProtoP\x01Z$../../../../pkg/metrics/pb;metricspb\xa2\x02\x03GVM\xaa\x02\x12Gcommon.V1.Metrics\xca\x02\x12Gcommon\\V1\\Metrics\xe2\x02\x1eGcommon\\V1\\Metrics\\GPBMetadata\xea\x02\x14Gcommon::V1::Metrics\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
+	"\x17scrape_interval_seconds\x18\x03 \x01(\x05R\x15scrapeIntervalSecondsB\xc6\x01\n" +
+	"\x16com.gcommon.v1.metricsB\x11ScrapeConfigProtoP\x01Z'../../../../pkg/metrics/proto;metricspb\xa2\x02\x03GVM\xaa\x02\x12Gcommon.V1.Metrics\xca\x02\x12Gcommon\\V1\\Metrics\xe2\x02\x1eGcommon\\V1\\Metrics\\GPBMetadata\xea\x02\x14Gcommon::V1::Metrics\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
 
 var file_pkg_metrics_proto_messages_scrape_config_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_pkg_metrics_proto_messages_scrape_config_proto_goTypes = []any{

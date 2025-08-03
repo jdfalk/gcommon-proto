@@ -9,7 +9,7 @@
 package authpb
 
 import (
-	pb "../../../../pkg/common/pb"
+	proto "../../../../pkg/common/proto"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
@@ -31,7 +31,7 @@ type ResetPasswordRequest struct {
 	xxx_hidden_UserId      *string                `protobuf:"bytes,1,opt,name=user_id,json=userId"`
 	xxx_hidden_Token       *string                `protobuf:"bytes,2,opt,name=token"`
 	xxx_hidden_NewPassword *string                `protobuf:"bytes,3,opt,name=new_password,json=newPassword"`
-	xxx_hidden_Metadata    *pb.RequestMetadata    `protobuf:"bytes,4,opt,name=metadata"`
+	xxx_hidden_Metadata    *proto.RequestMetadata `protobuf:"bytes,4,opt,name=metadata"`
 	XXX_raceDetectHookData protoimpl.RaceDetectHookData
 	XXX_presence           [1]uint32
 	unknownFields          protoimpl.UnknownFields
@@ -93,7 +93,7 @@ func (x *ResetPasswordRequest) GetNewPassword() string {
 	return ""
 }
 
-func (x *ResetPasswordRequest) GetMetadata() *pb.RequestMetadata {
+func (x *ResetPasswordRequest) GetMetadata() *proto.RequestMetadata {
 	if x != nil {
 		return x.xxx_hidden_Metadata
 	}
@@ -115,7 +115,7 @@ func (x *ResetPasswordRequest) SetNewPassword(v string) {
 	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 2, 4)
 }
 
-func (x *ResetPasswordRequest) SetMetadata(v *pb.RequestMetadata) {
+func (x *ResetPasswordRequest) SetMetadata(v *proto.RequestMetadata) {
 	x.xxx_hidden_Metadata = v
 }
 
@@ -176,7 +176,7 @@ type ResetPasswordRequest_builder struct {
 	// New password to set
 	NewPassword *string
 	// Metadata for tracing and correlation
-	Metadata *pb.RequestMetadata
+	Metadata *proto.RequestMetadata
 }
 
 func (b0 ResetPasswordRequest_builder) Build() *ResetPasswordRequest {
@@ -208,13 +208,13 @@ const file_pkg_auth_proto_requests_reset_password_request_proto_rawDesc = "" +
 	"\auser_id\x18\x01 \x01(\tR\x06userId\x12\x14\n" +
 	"\x05token\x18\x02 \x01(\tR\x05token\x12!\n" +
 	"\fnew_password\x18\x03 \x01(\tR\vnewPassword\x12>\n" +
-	"\bmetadata\x18\x04 \x01(\v2\".gcommon.v1.common.RequestMetadataR\bmetadataB\xb6\x01\n" +
-	"\x13com.gcommon.v1.authB\x19ResetPasswordRequestProtoP\x01Z\x1e../../../../pkg/auth/pb;authpb\xa2\x02\x03GVA\xaa\x02\x0fGcommon.V1.Auth\xca\x02\x0fGcommon\\V1\\Auth\xe2\x02\x1bGcommon\\V1\\Auth\\GPBMetadata\xea\x02\x11Gcommon::V1::Auth\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
+	"\bmetadata\x18\x04 \x01(\v2\".gcommon.v1.common.RequestMetadataR\bmetadataB\xb9\x01\n" +
+	"\x13com.gcommon.v1.authB\x19ResetPasswordRequestProtoP\x01Z!../../../../pkg/auth/proto;authpb\xa2\x02\x03GVA\xaa\x02\x0fGcommon.V1.Auth\xca\x02\x0fGcommon\\V1\\Auth\xe2\x02\x1bGcommon\\V1\\Auth\\GPBMetadata\xea\x02\x11Gcommon::V1::Auth\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
 
 var file_pkg_auth_proto_requests_reset_password_request_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_pkg_auth_proto_requests_reset_password_request_proto_goTypes = []any{
-	(*ResetPasswordRequest)(nil), // 0: gcommon.v1.auth.ResetPasswordRequest
-	(*pb.RequestMetadata)(nil),   // 1: gcommon.v1.common.RequestMetadata
+	(*ResetPasswordRequest)(nil),  // 0: gcommon.v1.auth.ResetPasswordRequest
+	(*proto.RequestMetadata)(nil), // 1: gcommon.v1.common.RequestMetadata
 }
 var file_pkg_auth_proto_requests_reset_password_request_proto_depIdxs = []int32{
 	1, // 0: gcommon.v1.auth.ResetPasswordRequest.metadata:type_name -> gcommon.v1.common.RequestMetadata

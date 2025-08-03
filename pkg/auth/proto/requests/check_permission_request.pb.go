@@ -7,7 +7,7 @@
 package authpb
 
 import (
-	pb "../../../../pkg/common/pb"
+	proto "../../../../pkg/common/proto"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	reflect "reflect"
@@ -27,7 +27,7 @@ const (
 type CheckPermissionRequest struct {
 	state protoimpl.MessageState `protogen:"open.v1"`
 	// Metadata for tracing and audit purposes
-	Metadata *pb.RequestMetadata `protobuf:"bytes,1,opt,name=metadata" json:"metadata,omitempty"`
+	Metadata *proto.RequestMetadata `protobuf:"bytes,1,opt,name=metadata" json:"metadata,omitempty"`
 	// User ID being verified
 	UserId *string `protobuf:"bytes,2,opt,name=user_id,json=userId" json:"user_id,omitempty"`
 	// Permission ID to check
@@ -66,7 +66,7 @@ func (*CheckPermissionRequest) Descriptor() ([]byte, []int) {
 	return file_pkg_auth_proto_requests_check_permission_request_proto_rawDescGZIP(), []int{0}
 }
 
-func (x *CheckPermissionRequest) GetMetadata() *pb.RequestMetadata {
+func (x *CheckPermissionRequest) GetMetadata() *proto.RequestMetadata {
 	if x != nil {
 		return x.Metadata
 	}
@@ -95,8 +95,8 @@ const file_pkg_auth_proto_requests_check_permission_request_proto_rawDesc = "" +
 	"\x16CheckPermissionRequest\x12B\n" +
 	"\bmetadata\x18\x01 \x01(\v2\".gcommon.v1.common.RequestMetadataB\x02(\x01R\bmetadata\x12\x17\n" +
 	"\auser_id\x18\x02 \x01(\tR\x06userId\x12#\n" +
-	"\rpermission_id\x18\x03 \x01(\tR\fpermissionIdB\xb0\x01\n" +
-	"\x13com.gcommon.v1.authB\x1bCheckPermissionRequestProtoP\x01Z\x1e../../../../pkg/auth/pb;authpb\xa2\x02\x03GVA\xaa\x02\x0fGcommon.V1.Auth\xca\x02\x0fGcommon\\V1\\Auth\xe2\x02\x1bGcommon\\V1\\Auth\\GPBMetadata\xea\x02\x11Gcommon::V1::Authb\beditionsp\xe8\a"
+	"\rpermission_id\x18\x03 \x01(\tR\fpermissionIdB\xb3\x01\n" +
+	"\x13com.gcommon.v1.authB\x1bCheckPermissionRequestProtoP\x01Z!../../../../pkg/auth/proto;authpb\xa2\x02\x03GVA\xaa\x02\x0fGcommon.V1.Auth\xca\x02\x0fGcommon\\V1\\Auth\xe2\x02\x1bGcommon\\V1\\Auth\\GPBMetadata\xea\x02\x11Gcommon::V1::Authb\beditionsp\xe8\a"
 
 var (
 	file_pkg_auth_proto_requests_check_permission_request_proto_rawDescOnce sync.Once
@@ -113,7 +113,7 @@ func file_pkg_auth_proto_requests_check_permission_request_proto_rawDescGZIP() [
 var file_pkg_auth_proto_requests_check_permission_request_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_pkg_auth_proto_requests_check_permission_request_proto_goTypes = []any{
 	(*CheckPermissionRequest)(nil), // 0: gcommon.v1.auth.CheckPermissionRequest
-	(*pb.RequestMetadata)(nil),     // 1: gcommon.v1.common.RequestMetadata
+	(*proto.RequestMetadata)(nil),  // 1: gcommon.v1.common.RequestMetadata
 }
 var file_pkg_auth_proto_requests_check_permission_request_proto_depIdxs = []int32{
 	1, // 0: gcommon.v1.auth.CheckPermissionRequest.metadata:type_name -> gcommon.v1.common.RequestMetadata

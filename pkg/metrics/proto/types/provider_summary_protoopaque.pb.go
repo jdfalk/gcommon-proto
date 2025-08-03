@@ -507,8 +507,8 @@ const file_pkg_metrics_proto_types_provider_summary_proto_rawDesc = "" +
 	"\x11performance_score\x18\v \x01(\x01R\x10performanceScore\x12!\n" +
 	"\fhealth_score\x18\f \x01(\x01R\vhealthScore\x12\x12\n" +
 	"\x04tags\x18\r \x03(\tR\x04tags\x12 \n" +
-	"\vdescription\x18\x0e \x01(\tR\vdescriptionB\xc6\x01\n" +
-	"\x16com.gcommon.v1.metricsB\x14ProviderSummaryProtoP\x01Z$../../../../pkg/metrics/pb;metricspb\xa2\x02\x03GVM\xaa\x02\x12Gcommon.V1.Metrics\xca\x02\x12Gcommon\\V1\\Metrics\xe2\x02\x1eGcommon\\V1\\Metrics\\GPBMetadata\xea\x02\x14Gcommon::V1::Metrics\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
+	"\vdescription\x18\x0e \x01(\tR\vdescriptionB\xc9\x01\n" +
+	"\x16com.gcommon.v1.metricsB\x14ProviderSummaryProtoP\x01Z'../../../../pkg/metrics/proto;metricspb\xa2\x02\x03GVM\xaa\x02\x12Gcommon.V1.Metrics\xca\x02\x12Gcommon\\V1\\Metrics\xe2\x02\x1eGcommon\\V1\\Metrics\\GPBMetadata\xea\x02\x14Gcommon::V1::Metrics\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
 
 var file_pkg_metrics_proto_types_provider_summary_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_pkg_metrics_proto_types_provider_summary_proto_goTypes = []any{

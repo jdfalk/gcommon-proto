@@ -9,7 +9,7 @@
 package dbpb
 
 import (
-	pb "../../../../pkg/common/pb"
+	proto "../../../../pkg/common/proto"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
@@ -31,7 +31,7 @@ type BeginTransactionRequest struct {
 	state               protoimpl.MessageState `protogen:"opaque.v1"`
 	xxx_hidden_Database *string                `protobuf:"bytes,1,opt,name=database"`
 	xxx_hidden_Options  *TransactionOptions    `protobuf:"bytes,2,opt,name=options"`
-	xxx_hidden_Metadata *pb.RequestMetadata    `protobuf:"bytes,3,opt,name=metadata"`
+	xxx_hidden_Metadata *proto.RequestMetadata `protobuf:"bytes,3,opt,name=metadata"`
 	// Deprecated: Do not use. This will be deleted in the near future.
 	XXX_lazyUnmarshalInfo  protoimpl.LazyUnmarshalInfo
 	XXX_raceDetectHookData protoimpl.RaceDetectHookData
@@ -89,13 +89,13 @@ func (x *BeginTransactionRequest) GetOptions() *TransactionOptions {
 	return nil
 }
 
-func (x *BeginTransactionRequest) GetMetadata() *pb.RequestMetadata {
+func (x *BeginTransactionRequest) GetMetadata() *proto.RequestMetadata {
 	if x != nil {
 		if protoimpl.X.Present(&(x.XXX_presence[0]), 2) {
 			if protoimpl.X.AtomicCheckPointerIsNil(&x.xxx_hidden_Metadata) {
 				protoimpl.X.UnmarshalField(x, 3)
 			}
-			var rv *pb.RequestMetadata
+			var rv *proto.RequestMetadata
 			protoimpl.X.AtomicLoadPointer(protoimpl.Pointer(&x.xxx_hidden_Metadata), protoimpl.Pointer(&rv))
 			return rv
 		}
@@ -117,7 +117,7 @@ func (x *BeginTransactionRequest) SetOptions(v *TransactionOptions) {
 	}
 }
 
-func (x *BeginTransactionRequest) SetMetadata(v *pb.RequestMetadata) {
+func (x *BeginTransactionRequest) SetMetadata(v *proto.RequestMetadata) {
 	protoimpl.X.AtomicSetPointer(&x.xxx_hidden_Metadata, v)
 	if v == nil {
 		protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 2)
@@ -159,7 +159,7 @@ func (x *BeginTransactionRequest) ClearOptions() {
 
 func (x *BeginTransactionRequest) ClearMetadata() {
 	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 2)
-	protoimpl.X.AtomicSetPointer(&x.xxx_hidden_Metadata, (*pb.RequestMetadata)(nil))
+	protoimpl.X.AtomicSetPointer(&x.xxx_hidden_Metadata, (*proto.RequestMetadata)(nil))
 }
 
 type BeginTransactionRequest_builder struct {
@@ -170,7 +170,7 @@ type BeginTransactionRequest_builder struct {
 	// Transaction configuration options
 	Options *TransactionOptions
 	// Request metadata for tracing and authentication
-	Metadata *pb.RequestMetadata
+	Metadata *proto.RequestMetadata
 }
 
 func (b0 BeginTransactionRequest_builder) Build() *BeginTransactionRequest {
@@ -200,14 +200,14 @@ const file_pkg_db_proto_requests_begin_transaction_request_proto_rawDesc = "" +
 	"\x17BeginTransactionRequest\x12\x1a\n" +
 	"\bdatabase\x18\x01 \x01(\tR\bdatabase\x12E\n" +
 	"\aoptions\x18\x02 \x01(\v2'.gcommon.v1.database.TransactionOptionsB\x02(\x01R\aoptions\x12B\n" +
-	"\bmetadata\x18\x03 \x01(\v2\".gcommon.v1.common.RequestMetadataB\x02(\x01R\bmetadataB\xc9\x01\n" +
-	"\x17com.gcommon.v1.databaseB\x1cBeginTransactionRequestProtoP\x01Z\x1a../../../../pkg/db/pb;dbpb\xa2\x02\x03GVD\xaa\x02\x13Gcommon.V1.Database\xca\x02\x13Gcommon\\V1\\Database\xe2\x02\x1fGcommon\\V1\\Database\\GPBMetadata\xea\x02\x15Gcommon::V1::Database\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
+	"\bmetadata\x18\x03 \x01(\v2\".gcommon.v1.common.RequestMetadataB\x02(\x01R\bmetadataB\xcc\x01\n" +
+	"\x17com.gcommon.v1.databaseB\x1cBeginTransactionRequestProtoP\x01Z\x1d../../../../pkg/db/proto;dbpb\xa2\x02\x03GVD\xaa\x02\x13Gcommon.V1.Database\xca\x02\x13Gcommon\\V1\\Database\xe2\x02\x1fGcommon\\V1\\Database\\GPBMetadata\xea\x02\x15Gcommon::V1::Database\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
 
 var file_pkg_db_proto_requests_begin_transaction_request_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_pkg_db_proto_requests_begin_transaction_request_proto_goTypes = []any{
 	(*BeginTransactionRequest)(nil), // 0: gcommon.v1.database.BeginTransactionRequest
 	(*TransactionOptions)(nil),      // 1: gcommon.v1.database.TransactionOptions
-	(*pb.RequestMetadata)(nil),      // 2: gcommon.v1.common.RequestMetadata
+	(*proto.RequestMetadata)(nil),   // 2: gcommon.v1.common.RequestMetadata
 }
 var file_pkg_db_proto_requests_begin_transaction_request_proto_depIdxs = []int32{
 	1, // 0: gcommon.v1.database.BeginTransactionRequest.options:type_name -> gcommon.v1.database.TransactionOptions

@@ -7,7 +7,7 @@
 package configpb
 
 import (
-	pb "../../../../pkg/common/pb"
+	proto "../../../../pkg/common/proto"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	anypb "google.golang.org/protobuf/types/known/anypb"
@@ -1216,7 +1216,7 @@ type ConfigValue struct {
 	// Value status
 	Status *ValueStatus `protobuf:"varint,30,opt,name=status,enum=gcommon.v1.config.ValueStatus" json:"status,omitempty"`
 	// Error information if status is ERROR
-	Error *pb.Error `protobuf:"bytes,31,opt,name=error" json:"error,omitempty"`
+	Error *proto.Error `protobuf:"bytes,31,opt,name=error" json:"error,omitempty"`
 	// Value validation results
 	ValidationResults []*ValueValidationResult `protobuf:"bytes,32,rep,name=validation_results,json=validationResults" json:"validation_results,omitempty"`
 	// Value usage statistics
@@ -1469,7 +1469,7 @@ func (x *ConfigValue) GetStatus() ValueStatus {
 	return ValueStatus_VALUE_STATUS_UNSPECIFIED
 }
 
-func (x *ConfigValue) GetError() *pb.Error {
+func (x *ConfigValue) GetError() *proto.Error {
 	if x != nil {
 		return x.Error
 	}
@@ -3332,8 +3332,8 @@ const file_pkg_config_proto_messages_config_value_proto_rawDesc = "" +
 	"\x16REFERENCE_TYPE_POINTER\x10\x02\x12\x18\n" +
 	"\x14REFERENCE_TYPE_ALIAS\x10\x03\x12\x1b\n" +
 	"\x17REFERENCE_TYPE_COMPUTED\x10\x04\x12\x1a\n" +
-	"\x16REFERENCE_TYPE_DERIVED\x10\x05B\xb3\x01\n" +
-	"\x15com.gcommon.v1.configB\x10ConfigValueProtoP\x01Z\"../../../../pkg/config/pb;configpb\xa2\x02\x03GVC\xaa\x02\x11Gcommon.V1.Config\xca\x02\x11Gcommon\\V1\\Config\xe2\x02\x1dGcommon\\V1\\Config\\GPBMetadata\xea\x02\x13Gcommon::V1::Configb\beditionsp\xe8\a"
+	"\x16REFERENCE_TYPE_DERIVED\x10\x05B\xb6\x01\n" +
+	"\x15com.gcommon.v1.configB\x10ConfigValueProtoP\x01Z%../../../../pkg/config/proto;configpb\xa2\x02\x03GVC\xaa\x02\x11Gcommon.V1.Config\xca\x02\x11Gcommon\\V1\\Config\xe2\x02\x1dGcommon\\V1\\Config\\GPBMetadata\xea\x02\x13Gcommon::V1::Configb\beditionsp\xe8\a"
 
 var (
 	file_pkg_config_proto_messages_config_value_proto_rawDescOnce sync.Once
@@ -3404,7 +3404,7 @@ var file_pkg_config_proto_messages_config_value_proto_goTypes = []any{
 	(*anypb.Any)(nil),                 // 51: google.protobuf.Any
 	(ConfigDataType)(0),               // 52: gcommon.v1.config.ConfigDataType
 	(*timestamppb.Timestamp)(nil),     // 53: google.protobuf.Timestamp
-	(*pb.Error)(nil),                  // 54: gcommon.v1.common.Error
+	(*proto.Error)(nil),               // 54: gcommon.v1.common.Error
 	(*ValidationRule)(nil),            // 55: gcommon.v1.config.ValidationRule
 	(ChangeType)(0),                   // 56: gcommon.v1.config.ChangeType
 }

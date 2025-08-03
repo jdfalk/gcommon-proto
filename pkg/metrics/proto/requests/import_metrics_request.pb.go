@@ -9,7 +9,7 @@
 package metricspb
 
 import (
-	pb "../../../../pkg/common/pb"
+	proto "../../../../pkg/common/proto"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
@@ -31,7 +31,7 @@ type ImportMetricsRequest struct {
 	// Metrics to import
 	Metrics []*MetricData `protobuf:"bytes,1,rep,name=metrics" json:"metrics,omitempty"`
 	// Request metadata
-	Metadata      *pb.RequestMetadata `protobuf:"bytes,2,opt,name=metadata" json:"metadata,omitempty"`
+	Metadata      *proto.RequestMetadata `protobuf:"bytes,2,opt,name=metadata" json:"metadata,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -68,7 +68,7 @@ func (x *ImportMetricsRequest) GetMetrics() []*MetricData {
 	return nil
 }
 
-func (x *ImportMetricsRequest) GetMetadata() *pb.RequestMetadata {
+func (x *ImportMetricsRequest) GetMetadata() *proto.RequestMetadata {
 	if x != nil {
 		return x.Metadata
 	}
@@ -79,7 +79,7 @@ func (x *ImportMetricsRequest) SetMetrics(v []*MetricData) {
 	x.Metrics = v
 }
 
-func (x *ImportMetricsRequest) SetMetadata(v *pb.RequestMetadata) {
+func (x *ImportMetricsRequest) SetMetadata(v *proto.RequestMetadata) {
 	x.Metadata = v
 }
 
@@ -100,7 +100,7 @@ type ImportMetricsRequest_builder struct {
 	// Metrics to import
 	Metrics []*MetricData
 	// Request metadata
-	Metadata *pb.RequestMetadata
+	Metadata *proto.RequestMetadata
 }
 
 func (b0 ImportMetricsRequest_builder) Build() *ImportMetricsRequest {
@@ -119,14 +119,14 @@ const file_pkg_metrics_proto_requests_import_metrics_request_proto_rawDesc = "" 
 	"7pkg/metrics/proto/requests/import_metrics_request.proto\x12\x12gcommon.v1.metrics\x1a!google/protobuf/go_features.proto\x1a0pkg/common/proto/messages/request_metadata.proto\x1a,pkg/metrics/proto/messages/metric_data.proto\"\x94\x01\n" +
 	"\x14ImportMetricsRequest\x128\n" +
 	"\ametrics\x18\x01 \x03(\v2\x1e.gcommon.v1.metrics.MetricDataR\ametrics\x12B\n" +
-	"\bmetadata\x18\x02 \x01(\v2\".gcommon.v1.common.RequestMetadataB\x02(\x01R\bmetadataB\xcb\x01\n" +
-	"\x16com.gcommon.v1.metricsB\x19ImportMetricsRequestProtoP\x01Z$../../../../pkg/metrics/pb;metricspb\xa2\x02\x03GVM\xaa\x02\x12Gcommon.V1.Metrics\xca\x02\x12Gcommon\\V1\\Metrics\xe2\x02\x1eGcommon\\V1\\Metrics\\GPBMetadata\xea\x02\x14Gcommon::V1::Metrics\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
+	"\bmetadata\x18\x02 \x01(\v2\".gcommon.v1.common.RequestMetadataB\x02(\x01R\bmetadataB\xce\x01\n" +
+	"\x16com.gcommon.v1.metricsB\x19ImportMetricsRequestProtoP\x01Z'../../../../pkg/metrics/proto;metricspb\xa2\x02\x03GVM\xaa\x02\x12Gcommon.V1.Metrics\xca\x02\x12Gcommon\\V1\\Metrics\xe2\x02\x1eGcommon\\V1\\Metrics\\GPBMetadata\xea\x02\x14Gcommon::V1::Metrics\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
 
 var file_pkg_metrics_proto_requests_import_metrics_request_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_pkg_metrics_proto_requests_import_metrics_request_proto_goTypes = []any{
-	(*ImportMetricsRequest)(nil), // 0: gcommon.v1.metrics.ImportMetricsRequest
-	(*MetricData)(nil),           // 1: gcommon.v1.metrics.MetricData
-	(*pb.RequestMetadata)(nil),   // 2: gcommon.v1.common.RequestMetadata
+	(*ImportMetricsRequest)(nil),  // 0: gcommon.v1.metrics.ImportMetricsRequest
+	(*MetricData)(nil),            // 1: gcommon.v1.metrics.MetricData
+	(*proto.RequestMetadata)(nil), // 2: gcommon.v1.common.RequestMetadata
 }
 var file_pkg_metrics_proto_requests_import_metrics_request_proto_depIdxs = []int32{
 	1, // 0: gcommon.v1.metrics.ImportMetricsRequest.metrics:type_name -> gcommon.v1.metrics.MetricData

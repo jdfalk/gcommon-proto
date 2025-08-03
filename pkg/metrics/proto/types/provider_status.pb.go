@@ -115,8 +115,8 @@ const file_pkg_metrics_proto_types_provider_status_proto_rawDesc = "" +
 	"\amessage\x18\x02 \x01(\tR\amessage\x12\x16\n" +
 	"\x06health\x18\x03 \x01(\tR\x06health\x12=\n" +
 	"\flast_updated\x18\x04 \x01(\v2\x1a.google.protobuf.TimestampR\vlastUpdated\x12\x18\n" +
-	"\aversion\x18\x05 \x01(\tR\aversionB\xbd\x01\n" +
-	"\x16com.gcommon.v1.metricsB\x13ProviderStatusProtoP\x01Z$../../../../pkg/metrics/pb;metricspb\xa2\x02\x03GVM\xaa\x02\x12Gcommon.V1.Metrics\xca\x02\x12Gcommon\\V1\\Metrics\xe2\x02\x1eGcommon\\V1\\Metrics\\GPBMetadata\xea\x02\x14Gcommon::V1::Metricsb\beditionsp\xe8\a"
+	"\aversion\x18\x05 \x01(\tR\aversionB\xc0\x01\n" +
+	"\x16com.gcommon.v1.metricsB\x13ProviderStatusProtoP\x01Z'../../../../pkg/metrics/proto;metricspb\xa2\x02\x03GVM\xaa\x02\x12Gcommon.V1.Metrics\xca\x02\x12Gcommon\\V1\\Metrics\xe2\x02\x1eGcommon\\V1\\Metrics\\GPBMetadata\xea\x02\x14Gcommon::V1::Metricsb\beditionsp\xe8\a"
 
 var (
 	file_pkg_metrics_proto_types_provider_status_proto_rawDescOnce sync.Once

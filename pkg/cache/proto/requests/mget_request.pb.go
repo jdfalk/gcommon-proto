@@ -9,7 +9,7 @@
 package cachepb
 
 import (
-	pb "../../../../pkg/common/pb"
+	proto "../../../../pkg/common/proto"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
@@ -38,7 +38,7 @@ type MGetRequest struct {
 	// Whether to update access time for retrieved entries
 	UpdateAccessTime *bool `protobuf:"varint,4,opt,name=update_access_time,json=updateAccessTime" json:"update_access_time,omitempty"`
 	// Request metadata for tracing and debugging
-	Metadata      *pb.RequestMetadata `protobuf:"bytes,5,opt,name=metadata" json:"metadata,omitempty"`
+	Metadata      *proto.RequestMetadata `protobuf:"bytes,5,opt,name=metadata" json:"metadata,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -96,7 +96,7 @@ func (x *MGetRequest) GetUpdateAccessTime() bool {
 	return false
 }
 
-func (x *MGetRequest) GetMetadata() *pb.RequestMetadata {
+func (x *MGetRequest) GetMetadata() *proto.RequestMetadata {
 	if x != nil {
 		return x.Metadata
 	}
@@ -119,7 +119,7 @@ func (x *MGetRequest) SetUpdateAccessTime(v bool) {
 	x.UpdateAccessTime = &v
 }
 
-func (x *MGetRequest) SetMetadata(v *pb.RequestMetadata) {
+func (x *MGetRequest) SetMetadata(v *proto.RequestMetadata) {
 	x.Metadata = v
 }
 
@@ -179,7 +179,7 @@ type MGetRequest_builder struct {
 	// Whether to update access time for retrieved entries
 	UpdateAccessTime *bool
 	// Request metadata for tracing and debugging
-	Metadata *pb.RequestMetadata
+	Metadata *proto.RequestMetadata
 }
 
 func (b0 MGetRequest_builder) Build() *MGetRequest {
@@ -204,13 +204,13 @@ const file_pkg_cache_proto_requests_mget_request_proto_rawDesc = "" +
 	"\tnamespace\x18\x02 \x01(\tR\tnamespace\x12'\n" +
 	"\x0finclude_expired\x18\x03 \x01(\bR\x0eincludeExpired\x12,\n" +
 	"\x12update_access_time\x18\x04 \x01(\bR\x10updateAccessTime\x12>\n" +
-	"\bmetadata\x18\x05 \x01(\v2\".gcommon.v1.common.RequestMetadataR\bmetadataB\xb4\x01\n" +
-	"\x14com.gcommon.v1.cacheB\x10MgetRequestProtoP\x01Z ../../../../pkg/cache/pb;cachepb\xa2\x02\x03GVC\xaa\x02\x10Gcommon.V1.Cache\xca\x02\x10Gcommon\\V1\\Cache\xe2\x02\x1cGcommon\\V1\\Cache\\GPBMetadata\xea\x02\x12Gcommon::V1::Cache\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
+	"\bmetadata\x18\x05 \x01(\v2\".gcommon.v1.common.RequestMetadataR\bmetadataB\xb7\x01\n" +
+	"\x14com.gcommon.v1.cacheB\x10MgetRequestProtoP\x01Z#../../../../pkg/cache/proto;cachepb\xa2\x02\x03GVC\xaa\x02\x10Gcommon.V1.Cache\xca\x02\x10Gcommon\\V1\\Cache\xe2\x02\x1cGcommon\\V1\\Cache\\GPBMetadata\xea\x02\x12Gcommon::V1::Cache\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
 
 var file_pkg_cache_proto_requests_mget_request_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_pkg_cache_proto_requests_mget_request_proto_goTypes = []any{
-	(*MGetRequest)(nil),        // 0: gcommon.v1.cache.MGetRequest
-	(*pb.RequestMetadata)(nil), // 1: gcommon.v1.common.RequestMetadata
+	(*MGetRequest)(nil),           // 0: gcommon.v1.cache.MGetRequest
+	(*proto.RequestMetadata)(nil), // 1: gcommon.v1.common.RequestMetadata
 }
 var file_pkg_cache_proto_requests_mget_request_proto_depIdxs = []int32{
 	1, // 0: gcommon.v1.cache.MGetRequest.metadata:type_name -> gcommon.v1.common.RequestMetadata

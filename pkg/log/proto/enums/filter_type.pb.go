@@ -85,8 +85,8 @@ const file_pkg_log_proto_enums_filter_type_proto_rawDesc = "" +
 	"\x11FILTER_TYPE_LEVEL\x10\x01\x12\x16\n" +
 	"\x12FILTER_TYPE_LOGGER\x10\x02\x12\x17\n" +
 	"\x13FILTER_TYPE_MESSAGE\x10\x03\x12\x15\n" +
-	"\x11FILTER_TYPE_FIELD\x10\x04B\xa5\x01\n" +
-	"\x12com.gcommon.v1.logB\x0fFilterTypeProtoP\x01Z\x1c../../../../pkg/log/pb;logpb\xa2\x02\x03GVL\xaa\x02\x0eGcommon.V1.Log\xca\x02\x0eGcommon\\V1\\Log\xe2\x02\x1aGcommon\\V1\\Log\\GPBMetadata\xea\x02\x10Gcommon::V1::Log\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
+	"\x11FILTER_TYPE_FIELD\x10\x04B\xa8\x01\n" +
+	"\x12com.gcommon.v1.logB\x0fFilterTypeProtoP\x01Z\x1f../../../../pkg/log/proto;logpb\xa2\x02\x03GVL\xaa\x02\x0eGcommon.V1.Log\xca\x02\x0eGcommon\\V1\\Log\xe2\x02\x1aGcommon\\V1\\Log\\GPBMetadata\xea\x02\x10Gcommon::V1::Log\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
 
 var file_pkg_log_proto_enums_filter_type_proto_enumTypes = make([]protoimpl.EnumInfo, 1)
 var file_pkg_log_proto_enums_filter_type_proto_goTypes = []any{

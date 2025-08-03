@@ -9,7 +9,7 @@
 package dbpb
 
 import (
-	pb "../../../../pkg/common/pb"
+	proto "../../../../pkg/common/proto"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
@@ -34,7 +34,7 @@ type DropSchemaRequest struct {
 	// Name of the schema to drop
 	Schema *string `protobuf:"bytes,2,opt,name=schema" json:"schema,omitempty"`
 	// Request metadata for tracing and authentication
-	Metadata      *pb.RequestMetadata `protobuf:"bytes,3,opt,name=metadata" json:"metadata,omitempty"`
+	Metadata      *proto.RequestMetadata `protobuf:"bytes,3,opt,name=metadata" json:"metadata,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -78,7 +78,7 @@ func (x *DropSchemaRequest) GetSchema() string {
 	return ""
 }
 
-func (x *DropSchemaRequest) GetMetadata() *pb.RequestMetadata {
+func (x *DropSchemaRequest) GetMetadata() *proto.RequestMetadata {
 	if x != nil {
 		return x.Metadata
 	}
@@ -93,7 +93,7 @@ func (x *DropSchemaRequest) SetSchema(v string) {
 	x.Schema = &v
 }
 
-func (x *DropSchemaRequest) SetMetadata(v *pb.RequestMetadata) {
+func (x *DropSchemaRequest) SetMetadata(v *proto.RequestMetadata) {
 	x.Metadata = v
 }
 
@@ -138,7 +138,7 @@ type DropSchemaRequest_builder struct {
 	// Name of the schema to drop
 	Schema *string
 	// Request metadata for tracing and authentication
-	Metadata *pb.RequestMetadata
+	Metadata *proto.RequestMetadata
 }
 
 func (b0 DropSchemaRequest_builder) Build() *DropSchemaRequest {
@@ -159,13 +159,13 @@ const file_pkg_db_proto_requests_drop_schema_request_proto_rawDesc = "" +
 	"\x11DropSchemaRequest\x12\x1a\n" +
 	"\bdatabase\x18\x01 \x01(\tR\bdatabase\x12\x16\n" +
 	"\x06schema\x18\x02 \x01(\tR\x06schema\x12B\n" +
-	"\bmetadata\x18\x03 \x01(\v2\".gcommon.v1.common.RequestMetadataB\x02(\x01R\bmetadataB\xc3\x01\n" +
-	"\x17com.gcommon.v1.databaseB\x16DropSchemaRequestProtoP\x01Z\x1a../../../../pkg/db/pb;dbpb\xa2\x02\x03GVD\xaa\x02\x13Gcommon.V1.Database\xca\x02\x13Gcommon\\V1\\Database\xe2\x02\x1fGcommon\\V1\\Database\\GPBMetadata\xea\x02\x15Gcommon::V1::Database\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
+	"\bmetadata\x18\x03 \x01(\v2\".gcommon.v1.common.RequestMetadataB\x02(\x01R\bmetadataB\xc6\x01\n" +
+	"\x17com.gcommon.v1.databaseB\x16DropSchemaRequestProtoP\x01Z\x1d../../../../pkg/db/proto;dbpb\xa2\x02\x03GVD\xaa\x02\x13Gcommon.V1.Database\xca\x02\x13Gcommon\\V1\\Database\xe2\x02\x1fGcommon\\V1\\Database\\GPBMetadata\xea\x02\x15Gcommon::V1::Database\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
 
 var file_pkg_db_proto_requests_drop_schema_request_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_pkg_db_proto_requests_drop_schema_request_proto_goTypes = []any{
-	(*DropSchemaRequest)(nil),  // 0: gcommon.v1.database.DropSchemaRequest
-	(*pb.RequestMetadata)(nil), // 1: gcommon.v1.common.RequestMetadata
+	(*DropSchemaRequest)(nil),     // 0: gcommon.v1.database.DropSchemaRequest
+	(*proto.RequestMetadata)(nil), // 1: gcommon.v1.common.RequestMetadata
 }
 var file_pkg_db_proto_requests_drop_schema_request_proto_depIdxs = []int32{
 	1, // 0: gcommon.v1.database.DropSchemaRequest.metadata:type_name -> gcommon.v1.common.RequestMetadata

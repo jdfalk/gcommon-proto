@@ -81,8 +81,8 @@ const file_pkg_db_proto_enums_database_status_code_proto_rawDesc = "" +
 	"\x12DatabaseStatusCode\x12$\n" +
 	" DATABASE_STATUS_CODE_UNSPECIFIED\x10\x00\x12\x1b\n" +
 	"\x17DATABASE_STATUS_CODE_OK\x10\x01\x12\x1e\n" +
-	"\x1aDATABASE_STATUS_CODE_ERROR\x10\x02B\xc4\x01\n" +
-	"\x17com.gcommon.v1.databaseB\x17DatabaseStatusCodeProtoP\x01Z\x1a../../../../pkg/db/pb;dbpb\xa2\x02\x03GVD\xaa\x02\x13Gcommon.V1.Database\xca\x02\x13Gcommon\\V1\\Database\xe2\x02\x1fGcommon\\V1\\Database\\GPBMetadata\xea\x02\x15Gcommon::V1::Database\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
+	"\x1aDATABASE_STATUS_CODE_ERROR\x10\x02B\xc7\x01\n" +
+	"\x17com.gcommon.v1.databaseB\x17DatabaseStatusCodeProtoP\x01Z\x1d../../../../pkg/db/proto;dbpb\xa2\x02\x03GVD\xaa\x02\x13Gcommon.V1.Database\xca\x02\x13Gcommon\\V1\\Database\xe2\x02\x1fGcommon\\V1\\Database\\GPBMetadata\xea\x02\x15Gcommon::V1::Database\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
 
 var file_pkg_db_proto_enums_database_status_code_proto_enumTypes = make([]protoimpl.EnumInfo, 1)
 var file_pkg_db_proto_enums_database_status_code_proto_goTypes = []any{

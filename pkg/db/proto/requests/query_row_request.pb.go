@@ -9,7 +9,7 @@
 package dbpb
 
 import (
-	pb "../../../../pkg/common/pb"
+	proto "../../../../pkg/common/proto"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
@@ -41,7 +41,7 @@ type QueryRowRequest struct {
 	// Transaction ID if this query should be executed within a transaction
 	TransactionId *string `protobuf:"bytes,5,opt,name=transaction_id,json=transactionId" json:"transaction_id,omitempty"`
 	// Request metadata for tracing and correlation
-	Metadata      *pb.RequestMetadata `protobuf:"bytes,6,opt,name=metadata" json:"metadata,omitempty"`
+	Metadata      *proto.RequestMetadata `protobuf:"bytes,6,opt,name=metadata" json:"metadata,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -106,7 +106,7 @@ func (x *QueryRowRequest) GetTransactionId() string {
 	return ""
 }
 
-func (x *QueryRowRequest) GetMetadata() *pb.RequestMetadata {
+func (x *QueryRowRequest) GetMetadata() *proto.RequestMetadata {
 	if x != nil {
 		return x.Metadata
 	}
@@ -133,7 +133,7 @@ func (x *QueryRowRequest) SetTransactionId(v string) {
 	x.TransactionId = &v
 }
 
-func (x *QueryRowRequest) SetMetadata(v *pb.RequestMetadata) {
+func (x *QueryRowRequest) SetMetadata(v *proto.RequestMetadata) {
 	x.Metadata = v
 }
 
@@ -206,7 +206,7 @@ type QueryRowRequest_builder struct {
 	// Transaction ID if this query should be executed within a transaction
 	TransactionId *string
 	// Request metadata for tracing and correlation
-	Metadata *pb.RequestMetadata
+	Metadata *proto.RequestMetadata
 }
 
 func (b0 QueryRowRequest_builder) Build() *QueryRowRequest {
@@ -235,15 +235,15 @@ const file_pkg_db_proto_requests_query_row_request_proto_rawDesc = "" +
 	"\bdatabase\x18\x03 \x01(\tR\bdatabase\x12?\n" +
 	"\aoptions\x18\x04 \x01(\v2!.gcommon.v1.database.QueryOptionsB\x02(\x01R\aoptions\x12%\n" +
 	"\x0etransaction_id\x18\x05 \x01(\tR\rtransactionId\x12>\n" +
-	"\bmetadata\x18\x06 \x01(\v2\".gcommon.v1.common.RequestMetadataR\bmetadataB\xc1\x01\n" +
-	"\x17com.gcommon.v1.databaseB\x14QueryRowRequestProtoP\x01Z\x1a../../../../pkg/db/pb;dbpb\xa2\x02\x03GVD\xaa\x02\x13Gcommon.V1.Database\xca\x02\x13Gcommon\\V1\\Database\xe2\x02\x1fGcommon\\V1\\Database\\GPBMetadata\xea\x02\x15Gcommon::V1::Database\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
+	"\bmetadata\x18\x06 \x01(\v2\".gcommon.v1.common.RequestMetadataR\bmetadataB\xc4\x01\n" +
+	"\x17com.gcommon.v1.databaseB\x14QueryRowRequestProtoP\x01Z\x1d../../../../pkg/db/proto;dbpb\xa2\x02\x03GVD\xaa\x02\x13Gcommon.V1.Database\xca\x02\x13Gcommon\\V1\\Database\xe2\x02\x1fGcommon\\V1\\Database\\GPBMetadata\xea\x02\x15Gcommon::V1::Database\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
 
 var file_pkg_db_proto_requests_query_row_request_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_pkg_db_proto_requests_query_row_request_proto_goTypes = []any{
-	(*QueryRowRequest)(nil),    // 0: gcommon.v1.database.QueryRowRequest
-	(*QueryParameter)(nil),     // 1: gcommon.v1.database.QueryParameter
-	(*QueryOptions)(nil),       // 2: gcommon.v1.database.QueryOptions
-	(*pb.RequestMetadata)(nil), // 3: gcommon.v1.common.RequestMetadata
+	(*QueryRowRequest)(nil),       // 0: gcommon.v1.database.QueryRowRequest
+	(*QueryParameter)(nil),        // 1: gcommon.v1.database.QueryParameter
+	(*QueryOptions)(nil),          // 2: gcommon.v1.database.QueryOptions
+	(*proto.RequestMetadata)(nil), // 3: gcommon.v1.common.RequestMetadata
 }
 var file_pkg_db_proto_requests_query_row_request_proto_depIdxs = []int32{
 	1, // 0: gcommon.v1.database.QueryRowRequest.parameters:type_name -> gcommon.v1.database.QueryParameter

@@ -9,7 +9,7 @@
 package authpb
 
 import (
-	pb "../../../../pkg/common/pb"
+	proto "../../../../pkg/common/proto"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
@@ -31,7 +31,7 @@ type HealthCheckRequest struct {
 	// Optional target auth provider.
 	Provider *string `protobuf:"bytes,1,opt,name=provider" json:"provider,omitempty"`
 	// Metadata for tracing.
-	Metadata      *pb.RequestMetadata `protobuf:"bytes,2,opt,name=metadata" json:"metadata,omitempty"`
+	Metadata      *proto.RequestMetadata `protobuf:"bytes,2,opt,name=metadata" json:"metadata,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -68,7 +68,7 @@ func (x *HealthCheckRequest) GetProvider() string {
 	return ""
 }
 
-func (x *HealthCheckRequest) GetMetadata() *pb.RequestMetadata {
+func (x *HealthCheckRequest) GetMetadata() *proto.RequestMetadata {
 	if x != nil {
 		return x.Metadata
 	}
@@ -79,7 +79,7 @@ func (x *HealthCheckRequest) SetProvider(v string) {
 	x.Provider = &v
 }
 
-func (x *HealthCheckRequest) SetMetadata(v *pb.RequestMetadata) {
+func (x *HealthCheckRequest) SetMetadata(v *proto.RequestMetadata) {
 	x.Metadata = v
 }
 
@@ -111,7 +111,7 @@ type HealthCheckRequest_builder struct {
 	// Optional target auth provider.
 	Provider *string
 	// Metadata for tracing.
-	Metadata *pb.RequestMetadata
+	Metadata *proto.RequestMetadata
 }
 
 func (b0 HealthCheckRequest_builder) Build() *HealthCheckRequest {
@@ -130,13 +130,13 @@ const file_pkg_auth_proto_requests_health_check_request_proto_rawDesc = "" +
 	"2pkg/auth/proto/requests/health_check_request.proto\x12\x0fgcommon.v1.auth\x1a!google/protobuf/go_features.proto\x1a0pkg/common/proto/messages/request_metadata.proto\"t\n" +
 	"\x12HealthCheckRequest\x12\x1a\n" +
 	"\bprovider\x18\x01 \x01(\tR\bprovider\x12B\n" +
-	"\bmetadata\x18\x02 \x01(\v2\".gcommon.v1.common.RequestMetadataB\x02(\x01R\bmetadataB\xb4\x01\n" +
-	"\x13com.gcommon.v1.authB\x17HealthCheckRequestProtoP\x01Z\x1e../../../../pkg/auth/pb;authpb\xa2\x02\x03GVA\xaa\x02\x0fGcommon.V1.Auth\xca\x02\x0fGcommon\\V1\\Auth\xe2\x02\x1bGcommon\\V1\\Auth\\GPBMetadata\xea\x02\x11Gcommon::V1::Auth\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
+	"\bmetadata\x18\x02 \x01(\v2\".gcommon.v1.common.RequestMetadataB\x02(\x01R\bmetadataB\xb7\x01\n" +
+	"\x13com.gcommon.v1.authB\x17HealthCheckRequestProtoP\x01Z!../../../../pkg/auth/proto;authpb\xa2\x02\x03GVA\xaa\x02\x0fGcommon.V1.Auth\xca\x02\x0fGcommon\\V1\\Auth\xe2\x02\x1bGcommon\\V1\\Auth\\GPBMetadata\xea\x02\x11Gcommon::V1::Auth\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
 
 var file_pkg_auth_proto_requests_health_check_request_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_pkg_auth_proto_requests_health_check_request_proto_goTypes = []any{
-	(*HealthCheckRequest)(nil), // 0: gcommon.v1.auth.HealthCheckRequest
-	(*pb.RequestMetadata)(nil), // 1: gcommon.v1.common.RequestMetadata
+	(*HealthCheckRequest)(nil),    // 0: gcommon.v1.auth.HealthCheckRequest
+	(*proto.RequestMetadata)(nil), // 1: gcommon.v1.common.RequestMetadata
 }
 var file_pkg_auth_proto_requests_health_check_request_proto_depIdxs = []int32{
 	1, // 0: gcommon.v1.auth.HealthCheckRequest.metadata:type_name -> gcommon.v1.common.RequestMetadata

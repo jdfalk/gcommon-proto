@@ -94,8 +94,8 @@ const file_pkg_cache_proto_requests_delete_namespace_request_proto_rawDesc = "" 
 	"\x16DeleteNamespaceRequest\x12!\n" +
 	"\fnamespace_id\x18\x01 \x01(\tR\vnamespaceId\x12\x14\n" +
 	"\x05force\x18\x02 \x01(\bR\x05force\x12\x16\n" +
-	"\x06backup\x18\x03 \x01(\bR\x06backupB\xb7\x01\n" +
-	"\x14com.gcommon.v1.cacheB\x1bDeleteNamespaceRequestProtoP\x01Z ../../../../pkg/cache/pb;cachepb\xa2\x02\x03GVC\xaa\x02\x10Gcommon.V1.Cache\xca\x02\x10Gcommon\\V1\\Cache\xe2\x02\x1cGcommon\\V1\\Cache\\GPBMetadata\xea\x02\x12Gcommon::V1::Cacheb\beditionsp\xe8\a"
+	"\x06backup\x18\x03 \x01(\bR\x06backupB\xba\x01\n" +
+	"\x14com.gcommon.v1.cacheB\x1bDeleteNamespaceRequestProtoP\x01Z#../../../../pkg/cache/proto;cachepb\xa2\x02\x03GVC\xaa\x02\x10Gcommon.V1.Cache\xca\x02\x10Gcommon\\V1\\Cache\xe2\x02\x1cGcommon\\V1\\Cache\\GPBMetadata\xea\x02\x12Gcommon::V1::Cacheb\beditionsp\xe8\a"
 
 var (
 	file_pkg_cache_proto_requests_delete_namespace_request_proto_rawDescOnce sync.Once

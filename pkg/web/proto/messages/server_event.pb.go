@@ -7,7 +7,7 @@
 package webpb
 
 import (
-	pb "../../../../pkg/common/pb"
+	proto "../../../../pkg/common/proto"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	anypb "google.golang.org/protobuf/types/known/anypb"
@@ -42,7 +42,7 @@ type ServerEvent struct {
 	ServerId *string `protobuf:"bytes,11,opt,name=server_id,json=serverId" json:"server_id,omitempty"`
 	// *
 	// Additional event metadata.
-	Metadata *pb.RequestMetadata `protobuf:"bytes,12,opt,name=metadata" json:"metadata,omitempty"`
+	Metadata *proto.RequestMetadata `protobuf:"bytes,12,opt,name=metadata" json:"metadata,omitempty"`
 	// *
 	// Timestamp when this event occurred.
 	EventTime     *timestamppb.Timestamp `protobuf:"bytes,51,opt,name=event_time,json=eventTime" json:"event_time,omitempty"`
@@ -101,7 +101,7 @@ func (x *ServerEvent) GetServerId() string {
 	return ""
 }
 
-func (x *ServerEvent) GetMetadata() *pb.RequestMetadata {
+func (x *ServerEvent) GetMetadata() *proto.RequestMetadata {
 	if x != nil {
 		return x.Metadata
 	}
@@ -128,8 +128,8 @@ const file_pkg_web_proto_messages_server_event_proto_rawDesc = "" +
 	"\tserver_id\x18\v \x01(\tR\bserverId\x12>\n" +
 	"\bmetadata\x18\f \x01(\v2\".gcommon.v1.common.RequestMetadataR\bmetadata\x129\n" +
 	"\n" +
-	"event_time\x183 \x01(\v2\x1a.google.protobuf.TimestampR\teventTimeB\x9e\x01\n" +
-	"\x12com.gcommon.v1.webB\x10ServerEventProtoP\x01Z\x1c../../../../pkg/web/pb;webpb\xa2\x02\x03GVW\xaa\x02\x0eGcommon.V1.Web\xca\x02\x0eGcommon\\V1\\Web\xe2\x02\x1aGcommon\\V1\\Web\\GPBMetadata\xea\x02\x10Gcommon::V1::Webb\beditionsp\xe8\a"
+	"event_time\x183 \x01(\v2\x1a.google.protobuf.TimestampR\teventTimeB\xa1\x01\n" +
+	"\x12com.gcommon.v1.webB\x10ServerEventProtoP\x01Z\x1f../../../../pkg/web/proto;webpb\xa2\x02\x03GVW\xaa\x02\x0eGcommon.V1.Web\xca\x02\x0eGcommon\\V1\\Web\xe2\x02\x1aGcommon\\V1\\Web\\GPBMetadata\xea\x02\x10Gcommon::V1::Webb\beditionsp\xe8\a"
 
 var (
 	file_pkg_web_proto_messages_server_event_proto_rawDescOnce sync.Once
@@ -147,7 +147,7 @@ var file_pkg_web_proto_messages_server_event_proto_msgTypes = make([]protoimpl.M
 var file_pkg_web_proto_messages_server_event_proto_goTypes = []any{
 	(*ServerEvent)(nil),           // 0: gcommon.v1.web.ServerEvent
 	(*anypb.Any)(nil),             // 1: google.protobuf.Any
-	(*pb.RequestMetadata)(nil),    // 2: gcommon.v1.common.RequestMetadata
+	(*proto.RequestMetadata)(nil), // 2: gcommon.v1.common.RequestMetadata
 	(*timestamppb.Timestamp)(nil), // 3: google.protobuf.Timestamp
 }
 var file_pkg_web_proto_messages_server_event_proto_depIdxs = []int32{

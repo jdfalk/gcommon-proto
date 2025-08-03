@@ -27,8 +27,8 @@ var File_pkg_metrics_proto_messages_metric_aggregation_result_proto protoreflect
 
 const file_pkg_metrics_proto_messages_metric_aggregation_result_proto_rawDesc = "" +
 	"\n" +
-	":pkg/metrics/proto/messages/metric_aggregation_result.proto\x12\x12gcommon.v1.metrics\x1a!google/protobuf/go_features.protoB\xce\x01\n" +
-	"\x16com.gcommon.v1.metricsB\x1cMetricAggregationResultProtoP\x01Z$../../../../pkg/metrics/pb;metricspb\xa2\x02\x03GVM\xaa\x02\x12Gcommon.V1.Metrics\xca\x02\x12Gcommon\\V1\\Metrics\xe2\x02\x1eGcommon\\V1\\Metrics\\GPBMetadata\xea\x02\x14Gcommon::V1::Metrics\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
+	":pkg/metrics/proto/messages/metric_aggregation_result.proto\x12\x12gcommon.v1.metrics\x1a!google/protobuf/go_features.protoB\xd1\x01\n" +
+	"\x16com.gcommon.v1.metricsB\x1cMetricAggregationResultProtoP\x01Z'../../../../pkg/metrics/proto;metricspb\xa2\x02\x03GVM\xaa\x02\x12Gcommon.V1.Metrics\xca\x02\x12Gcommon\\V1\\Metrics\xe2\x02\x1eGcommon\\V1\\Metrics\\GPBMetadata\xea\x02\x14Gcommon::V1::Metrics\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
 
 var file_pkg_metrics_proto_messages_metric_aggregation_result_proto_goTypes = []any{}
 var file_pkg_metrics_proto_messages_metric_aggregation_result_proto_depIdxs = []int32{

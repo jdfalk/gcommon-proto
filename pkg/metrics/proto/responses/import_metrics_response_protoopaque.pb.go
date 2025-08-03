@@ -9,7 +9,7 @@
 package metricspb
 
 import (
-	pb "../../../../pkg/common/pb"
+	proto "../../../../pkg/common/proto"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
@@ -29,7 +29,7 @@ const (
 type ImportMetricsResponse struct {
 	state                    protoimpl.MessageState `protogen:"opaque.v1"`
 	xxx_hidden_ImportedCount int32                  `protobuf:"varint,1,opt,name=imported_count,json=importedCount"`
-	xxx_hidden_Error         *pb.Error              `protobuf:"bytes,2,opt,name=error"`
+	xxx_hidden_Error         *proto.Error           `protobuf:"bytes,2,opt,name=error"`
 	XXX_raceDetectHookData   protoimpl.RaceDetectHookData
 	XXX_presence             [1]uint32
 	unknownFields            protoimpl.UnknownFields
@@ -68,7 +68,7 @@ func (x *ImportMetricsResponse) GetImportedCount() int32 {
 	return 0
 }
 
-func (x *ImportMetricsResponse) GetError() *pb.Error {
+func (x *ImportMetricsResponse) GetError() *proto.Error {
 	if x != nil {
 		return x.xxx_hidden_Error
 	}
@@ -80,7 +80,7 @@ func (x *ImportMetricsResponse) SetImportedCount(v int32) {
 	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 0, 2)
 }
 
-func (x *ImportMetricsResponse) SetError(v *pb.Error) {
+func (x *ImportMetricsResponse) SetError(v *proto.Error) {
 	x.xxx_hidden_Error = v
 }
 
@@ -113,7 +113,7 @@ type ImportMetricsResponse_builder struct {
 	// Number of metrics successfully imported
 	ImportedCount *int32
 	// Error information if the import failed
-	Error *pb.Error
+	Error *proto.Error
 }
 
 func (b0 ImportMetricsResponse_builder) Build() *ImportMetricsResponse {
@@ -135,13 +135,13 @@ const file_pkg_metrics_proto_responses_import_metrics_response_proto_rawDesc = "
 	"9pkg/metrics/proto/responses/import_metrics_response.proto\x12\x12gcommon.v1.metrics\x1a!google/protobuf/go_features.proto\x1a%pkg/common/proto/messages/error.proto\"n\n" +
 	"\x15ImportMetricsResponse\x12%\n" +
 	"\x0eimported_count\x18\x01 \x01(\x05R\rimportedCount\x12.\n" +
-	"\x05error\x18\x02 \x01(\v2\x18.gcommon.v1.common.ErrorR\x05errorB\xcc\x01\n" +
-	"\x16com.gcommon.v1.metricsB\x1aImportMetricsResponseProtoP\x01Z$../../../../pkg/metrics/pb;metricspb\xa2\x02\x03GVM\xaa\x02\x12Gcommon.V1.Metrics\xca\x02\x12Gcommon\\V1\\Metrics\xe2\x02\x1eGcommon\\V1\\Metrics\\GPBMetadata\xea\x02\x14Gcommon::V1::Metrics\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
+	"\x05error\x18\x02 \x01(\v2\x18.gcommon.v1.common.ErrorR\x05errorB\xcf\x01\n" +
+	"\x16com.gcommon.v1.metricsB\x1aImportMetricsResponseProtoP\x01Z'../../../../pkg/metrics/proto;metricspb\xa2\x02\x03GVM\xaa\x02\x12Gcommon.V1.Metrics\xca\x02\x12Gcommon\\V1\\Metrics\xe2\x02\x1eGcommon\\V1\\Metrics\\GPBMetadata\xea\x02\x14Gcommon::V1::Metrics\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
 
 var file_pkg_metrics_proto_responses_import_metrics_response_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_pkg_metrics_proto_responses_import_metrics_response_proto_goTypes = []any{
 	(*ImportMetricsResponse)(nil), // 0: gcommon.v1.metrics.ImportMetricsResponse
-	(*pb.Error)(nil),              // 1: gcommon.v1.common.Error
+	(*proto.Error)(nil),           // 1: gcommon.v1.common.Error
 }
 var file_pkg_metrics_proto_responses_import_metrics_response_proto_depIdxs = []int32{
 	1, // 0: gcommon.v1.metrics.ImportMetricsResponse.error:type_name -> gcommon.v1.common.Error

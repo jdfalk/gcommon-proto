@@ -9,7 +9,7 @@
 package authpb
 
 import (
-	pb "../../../../pkg/common/pb"
+	proto "../../../../pkg/common/proto"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
@@ -31,7 +31,7 @@ const (
 type GetUserInfoRequest struct {
 	state                  protoimpl.MessageState `protogen:"opaque.v1"`
 	xxx_hidden_Token       *string                `protobuf:"bytes,1,opt,name=token"`
-	xxx_hidden_Metadata    *pb.RequestMetadata    `protobuf:"bytes,2,opt,name=metadata"`
+	xxx_hidden_Metadata    *proto.RequestMetadata `protobuf:"bytes,2,opt,name=metadata"`
 	XXX_raceDetectHookData protoimpl.RaceDetectHookData
 	XXX_presence           [1]uint32
 	unknownFields          protoimpl.UnknownFields
@@ -73,7 +73,7 @@ func (x *GetUserInfoRequest) GetToken() string {
 	return ""
 }
 
-func (x *GetUserInfoRequest) GetMetadata() *pb.RequestMetadata {
+func (x *GetUserInfoRequest) GetMetadata() *proto.RequestMetadata {
 	if x != nil {
 		return x.xxx_hidden_Metadata
 	}
@@ -85,7 +85,7 @@ func (x *GetUserInfoRequest) SetToken(v string) {
 	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 0, 2)
 }
 
-func (x *GetUserInfoRequest) SetMetadata(v *pb.RequestMetadata) {
+func (x *GetUserInfoRequest) SetMetadata(v *proto.RequestMetadata) {
 	x.xxx_hidden_Metadata = v
 }
 
@@ -118,7 +118,7 @@ type GetUserInfoRequest_builder struct {
 	// Access token to extract user info from
 	Token *string
 	// Request metadata for tracing and correlation
-	Metadata *pb.RequestMetadata
+	Metadata *proto.RequestMetadata
 }
 
 func (b0 GetUserInfoRequest_builder) Build() *GetUserInfoRequest {
@@ -140,13 +140,13 @@ const file_pkg_auth_proto_requests_get_user_info_request_proto_rawDesc = "" +
 	"3pkg/auth/proto/requests/get_user_info_request.proto\x12\x0fgcommon.v1.auth\x1a!google/protobuf/go_features.proto\x1a0pkg/common/proto/messages/request_metadata.proto\"j\n" +
 	"\x12GetUserInfoRequest\x12\x14\n" +
 	"\x05token\x18\x01 \x01(\tR\x05token\x12>\n" +
-	"\bmetadata\x18\x02 \x01(\v2\".gcommon.v1.common.RequestMetadataR\bmetadataB\xb4\x01\n" +
-	"\x13com.gcommon.v1.authB\x17GetUserInfoRequestProtoP\x01Z\x1e../../../../pkg/auth/pb;authpb\xa2\x02\x03GVA\xaa\x02\x0fGcommon.V1.Auth\xca\x02\x0fGcommon\\V1\\Auth\xe2\x02\x1bGcommon\\V1\\Auth\\GPBMetadata\xea\x02\x11Gcommon::V1::Auth\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
+	"\bmetadata\x18\x02 \x01(\v2\".gcommon.v1.common.RequestMetadataR\bmetadataB\xb7\x01\n" +
+	"\x13com.gcommon.v1.authB\x17GetUserInfoRequestProtoP\x01Z!../../../../pkg/auth/proto;authpb\xa2\x02\x03GVA\xaa\x02\x0fGcommon.V1.Auth\xca\x02\x0fGcommon\\V1\\Auth\xe2\x02\x1bGcommon\\V1\\Auth\\GPBMetadata\xea\x02\x11Gcommon::V1::Auth\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
 
 var file_pkg_auth_proto_requests_get_user_info_request_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_pkg_auth_proto_requests_get_user_info_request_proto_goTypes = []any{
-	(*GetUserInfoRequest)(nil), // 0: gcommon.v1.auth.GetUserInfoRequest
-	(*pb.RequestMetadata)(nil), // 1: gcommon.v1.common.RequestMetadata
+	(*GetUserInfoRequest)(nil),    // 0: gcommon.v1.auth.GetUserInfoRequest
+	(*proto.RequestMetadata)(nil), // 1: gcommon.v1.common.RequestMetadata
 }
 var file_pkg_auth_proto_requests_get_user_info_request_proto_depIdxs = []int32{
 	1, // 0: gcommon.v1.auth.GetUserInfoRequest.metadata:type_name -> gcommon.v1.common.RequestMetadata

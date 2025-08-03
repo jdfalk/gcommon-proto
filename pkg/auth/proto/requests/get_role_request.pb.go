@@ -7,7 +7,7 @@
 package authpb
 
 import (
-	pb "../../../../pkg/common/pb"
+	proto "../../../../pkg/common/proto"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	reflect "reflect"
@@ -31,7 +31,7 @@ type GetRoleRequest struct {
 	// Include permissions in the response
 	IncludePermissions *bool `protobuf:"varint,2,opt,name=include_permissions,json=includePermissions" json:"include_permissions,omitempty"`
 	// Request metadata for tracing
-	Metadata      *pb.RequestMetadata `protobuf:"bytes,3,opt,name=metadata" json:"metadata,omitempty"`
+	Metadata      *proto.RequestMetadata `protobuf:"bytes,3,opt,name=metadata" json:"metadata,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -80,7 +80,7 @@ func (x *GetRoleRequest) GetIncludePermissions() bool {
 	return false
 }
 
-func (x *GetRoleRequest) GetMetadata() *pb.RequestMetadata {
+func (x *GetRoleRequest) GetMetadata() *proto.RequestMetadata {
 	if x != nil {
 		return x.Metadata
 	}
@@ -95,8 +95,8 @@ const file_pkg_auth_proto_requests_get_role_request_proto_rawDesc = "" +
 	"\x0eGetRoleRequest\x12\x17\n" +
 	"\arole_id\x18\x01 \x01(\tR\x06roleId\x12/\n" +
 	"\x13include_permissions\x18\x02 \x01(\bR\x12includePermissions\x12>\n" +
-	"\bmetadata\x18\x03 \x01(\v2\".gcommon.v1.common.RequestMetadataR\bmetadataB\xa8\x01\n" +
-	"\x13com.gcommon.v1.authB\x13GetRoleRequestProtoP\x01Z\x1e../../../../pkg/auth/pb;authpb\xa2\x02\x03GVA\xaa\x02\x0fGcommon.V1.Auth\xca\x02\x0fGcommon\\V1\\Auth\xe2\x02\x1bGcommon\\V1\\Auth\\GPBMetadata\xea\x02\x11Gcommon::V1::Authb\beditionsp\xe8\a"
+	"\bmetadata\x18\x03 \x01(\v2\".gcommon.v1.common.RequestMetadataR\bmetadataB\xab\x01\n" +
+	"\x13com.gcommon.v1.authB\x13GetRoleRequestProtoP\x01Z!../../../../pkg/auth/proto;authpb\xa2\x02\x03GVA\xaa\x02\x0fGcommon.V1.Auth\xca\x02\x0fGcommon\\V1\\Auth\xe2\x02\x1bGcommon\\V1\\Auth\\GPBMetadata\xea\x02\x11Gcommon::V1::Authb\beditionsp\xe8\a"
 
 var (
 	file_pkg_auth_proto_requests_get_role_request_proto_rawDescOnce sync.Once
@@ -112,8 +112,8 @@ func file_pkg_auth_proto_requests_get_role_request_proto_rawDescGZIP() []byte {
 
 var file_pkg_auth_proto_requests_get_role_request_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_pkg_auth_proto_requests_get_role_request_proto_goTypes = []any{
-	(*GetRoleRequest)(nil),     // 0: gcommon.v1.auth.GetRoleRequest
-	(*pb.RequestMetadata)(nil), // 1: gcommon.v1.common.RequestMetadata
+	(*GetRoleRequest)(nil),        // 0: gcommon.v1.auth.GetRoleRequest
+	(*proto.RequestMetadata)(nil), // 1: gcommon.v1.common.RequestMetadata
 }
 var file_pkg_auth_proto_requests_get_role_request_proto_depIdxs = []int32{
 	1, // 0: gcommon.v1.auth.GetRoleRequest.metadata:type_name -> gcommon.v1.common.RequestMetadata

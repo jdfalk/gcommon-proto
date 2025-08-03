@@ -90,8 +90,8 @@ const file_pkg_queue_proto_enums_acknowledgment_mode_proto_rawDesc = "" +
 	"\x1fACKNOWLEDGMENT_MODE_UNSPECIFIED\x10\x00\x12\x1c\n" +
 	"\x18ACKNOWLEDGMENT_MODE_AUTO\x10\x01\x12\x1e\n" +
 	"\x1aACKNOWLEDGMENT_MODE_MANUAL\x10\x02\x12\x1c\n" +
-	"\x18ACKNOWLEDGMENT_MODE_NONE\x10\x03B\xbb\x01\n" +
-	"\x14com.gcommon.v1.queueB\x17AcknowledgmentModeProtoP\x01Z ../../../../pkg/queue/pb;queuepb\xa2\x02\x03GVQ\xaa\x02\x10Gcommon.V1.Queue\xca\x02\x10Gcommon\\V1\\Queue\xe2\x02\x1cGcommon\\V1\\Queue\\GPBMetadata\xea\x02\x12Gcommon::V1::Queue\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
+	"\x18ACKNOWLEDGMENT_MODE_NONE\x10\x03B\xbe\x01\n" +
+	"\x14com.gcommon.v1.queueB\x17AcknowledgmentModeProtoP\x01Z#../../../../pkg/queue/proto;queuepb\xa2\x02\x03GVQ\xaa\x02\x10Gcommon.V1.Queue\xca\x02\x10Gcommon\\V1\\Queue\xe2\x02\x1cGcommon\\V1\\Queue\\GPBMetadata\xea\x02\x12Gcommon::V1::Queue\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
 
 var file_pkg_queue_proto_enums_acknowledgment_mode_proto_enumTypes = make([]protoimpl.EnumInfo, 1)
 var file_pkg_queue_proto_enums_acknowledgment_mode_proto_goTypes = []any{

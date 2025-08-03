@@ -9,7 +9,7 @@
 package queuepb
 
 import (
-	pb "../../../../pkg/common/pb"
+	proto "../../../../pkg/common/proto"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
@@ -31,7 +31,7 @@ type HealthCheckRequest struct {
 	// Name of the queue to check.
 	Queue *string `protobuf:"bytes,1,opt,name=queue" json:"queue,omitempty"`
 	// Request metadata for tracing.
-	Metadata      *pb.RequestMetadata `protobuf:"bytes,2,opt,name=metadata" json:"metadata,omitempty"`
+	Metadata      *proto.RequestMetadata `protobuf:"bytes,2,opt,name=metadata" json:"metadata,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -68,7 +68,7 @@ func (x *HealthCheckRequest) GetQueue() string {
 	return ""
 }
 
-func (x *HealthCheckRequest) GetMetadata() *pb.RequestMetadata {
+func (x *HealthCheckRequest) GetMetadata() *proto.RequestMetadata {
 	if x != nil {
 		return x.Metadata
 	}
@@ -79,7 +79,7 @@ func (x *HealthCheckRequest) SetQueue(v string) {
 	x.Queue = &v
 }
 
-func (x *HealthCheckRequest) SetMetadata(v *pb.RequestMetadata) {
+func (x *HealthCheckRequest) SetMetadata(v *proto.RequestMetadata) {
 	x.Metadata = v
 }
 
@@ -111,7 +111,7 @@ type HealthCheckRequest_builder struct {
 	// Name of the queue to check.
 	Queue *string
 	// Request metadata for tracing.
-	Metadata *pb.RequestMetadata
+	Metadata *proto.RequestMetadata
 }
 
 func (b0 HealthCheckRequest_builder) Build() *HealthCheckRequest {
@@ -130,13 +130,13 @@ const file_pkg_queue_proto_requests_health_check_request_proto_rawDesc = "" +
 	"3pkg/queue/proto/requests/health_check_request.proto\x12\x10gcommon.v1.queue\x1a!google/protobuf/go_features.proto\x1a0pkg/common/proto/messages/request_metadata.proto\"n\n" +
 	"\x12HealthCheckRequest\x12\x14\n" +
 	"\x05queue\x18\x01 \x01(\tR\x05queue\x12B\n" +
-	"\bmetadata\x18\x02 \x01(\v2\".gcommon.v1.common.RequestMetadataB\x02(\x01R\bmetadataB\xbb\x01\n" +
-	"\x14com.gcommon.v1.queueB\x17HealthCheckRequestProtoP\x01Z ../../../../pkg/queue/pb;queuepb\xa2\x02\x03GVQ\xaa\x02\x10Gcommon.V1.Queue\xca\x02\x10Gcommon\\V1\\Queue\xe2\x02\x1cGcommon\\V1\\Queue\\GPBMetadata\xea\x02\x12Gcommon::V1::Queue\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
+	"\bmetadata\x18\x02 \x01(\v2\".gcommon.v1.common.RequestMetadataB\x02(\x01R\bmetadataB\xbe\x01\n" +
+	"\x14com.gcommon.v1.queueB\x17HealthCheckRequestProtoP\x01Z#../../../../pkg/queue/proto;queuepb\xa2\x02\x03GVQ\xaa\x02\x10Gcommon.V1.Queue\xca\x02\x10Gcommon\\V1\\Queue\xe2\x02\x1cGcommon\\V1\\Queue\\GPBMetadata\xea\x02\x12Gcommon::V1::Queue\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
 
 var file_pkg_queue_proto_requests_health_check_request_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_pkg_queue_proto_requests_health_check_request_proto_goTypes = []any{
-	(*HealthCheckRequest)(nil), // 0: gcommon.v1.queue.HealthCheckRequest
-	(*pb.RequestMetadata)(nil), // 1: gcommon.v1.common.RequestMetadata
+	(*HealthCheckRequest)(nil),    // 0: gcommon.v1.queue.HealthCheckRequest
+	(*proto.RequestMetadata)(nil), // 1: gcommon.v1.common.RequestMetadata
 }
 var file_pkg_queue_proto_requests_health_check_request_proto_depIdxs = []int32{
 	1, // 0: gcommon.v1.queue.HealthCheckRequest.metadata:type_name -> gcommon.v1.common.RequestMetadata

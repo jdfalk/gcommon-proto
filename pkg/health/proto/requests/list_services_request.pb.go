@@ -9,7 +9,7 @@
 package healthpb
 
 import (
-	pb "../../../../pkg/common/pb"
+	proto "../../../../pkg/common/proto"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
@@ -35,7 +35,7 @@ const (
 type ListServicesRequest struct {
 	state protoimpl.MessageState `protogen:"hybrid.v1"`
 	// Request metadata
-	Metadata      *pb.RequestMetadata `protobuf:"bytes,1,opt,name=metadata" json:"metadata,omitempty"`
+	Metadata      *proto.RequestMetadata `protobuf:"bytes,1,opt,name=metadata" json:"metadata,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -65,14 +65,14 @@ func (x *ListServicesRequest) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-func (x *ListServicesRequest) GetMetadata() *pb.RequestMetadata {
+func (x *ListServicesRequest) GetMetadata() *proto.RequestMetadata {
 	if x != nil {
 		return x.Metadata
 	}
 	return nil
 }
 
-func (x *ListServicesRequest) SetMetadata(v *pb.RequestMetadata) {
+func (x *ListServicesRequest) SetMetadata(v *proto.RequestMetadata) {
 	x.Metadata = v
 }
 
@@ -91,7 +91,7 @@ type ListServicesRequest_builder struct {
 	_ [0]func() // Prevents comparability and use of unkeyed literals for the builder.
 
 	// Request metadata
-	Metadata *pb.RequestMetadata
+	Metadata *proto.RequestMetadata
 }
 
 func (b0 ListServicesRequest_builder) Build() *ListServicesRequest {
@@ -108,13 +108,13 @@ const file_pkg_health_proto_requests_list_services_request_proto_rawDesc = "" +
 	"\n" +
 	"5pkg/health/proto/requests/list_services_request.proto\x12\x11gcommon.v1.health\x1a0pkg/common/proto/messages/request_metadata.proto\x1a!google/protobuf/go_features.proto\"U\n" +
 	"\x13ListServicesRequest\x12>\n" +
-	"\bmetadata\x18\x01 \x01(\v2\".gcommon.v1.common.RequestMetadataR\bmetadataB\xc3\x01\n" +
-	"\x15com.gcommon.v1.healthB\x18ListServicesRequestProtoP\x01Z\"../../../../pkg/health/pb;healthpb\xa2\x02\x03GVH\xaa\x02\x11Gcommon.V1.Health\xca\x02\x11Gcommon\\V1\\Health\xe2\x02\x1dGcommon\\V1\\Health\\GPBMetadata\xea\x02\x13Gcommon::V1::Health\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
+	"\bmetadata\x18\x01 \x01(\v2\".gcommon.v1.common.RequestMetadataR\bmetadataB\xc6\x01\n" +
+	"\x15com.gcommon.v1.healthB\x18ListServicesRequestProtoP\x01Z%../../../../pkg/health/proto;healthpb\xa2\x02\x03GVH\xaa\x02\x11Gcommon.V1.Health\xca\x02\x11Gcommon\\V1\\Health\xe2\x02\x1dGcommon\\V1\\Health\\GPBMetadata\xea\x02\x13Gcommon::V1::Health\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
 
 var file_pkg_health_proto_requests_list_services_request_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_pkg_health_proto_requests_list_services_request_proto_goTypes = []any{
-	(*ListServicesRequest)(nil), // 0: gcommon.v1.health.ListServicesRequest
-	(*pb.RequestMetadata)(nil),  // 1: gcommon.v1.common.RequestMetadata
+	(*ListServicesRequest)(nil),   // 0: gcommon.v1.health.ListServicesRequest
+	(*proto.RequestMetadata)(nil), // 1: gcommon.v1.common.RequestMetadata
 }
 var file_pkg_health_proto_requests_list_services_request_proto_depIdxs = []int32{
 	1, // 0: gcommon.v1.health.ListServicesRequest.metadata:type_name -> gcommon.v1.common.RequestMetadata

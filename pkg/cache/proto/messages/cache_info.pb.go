@@ -9,7 +9,7 @@
 package cachepb
 
 import (
-	pb "../../../../pkg/common/pb"
+	proto "../../../../pkg/common/proto"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
@@ -37,7 +37,7 @@ type CacheInfo struct {
 	// Cache type (e.g., "memory", "redis", "memcached")
 	CacheType *string `protobuf:"bytes,3,opt,name=cache_type,json=cacheType" json:"cache_type,omitempty"`
 	// Current health status
-	HealthStatus *pb.HealthStatus `protobuf:"varint,4,opt,name=health_status,json=healthStatus,enum=gcommon.v1.common.HealthStatus" json:"health_status,omitempty"`
+	HealthStatus *proto.HealthStatus `protobuf:"varint,4,opt,name=health_status,json=healthStatus,enum=gcommon.v1.common.HealthStatus" json:"health_status,omitempty"`
 	// Cache creation timestamp
 	CreatedAt *timestamppb.Timestamp `protobuf:"bytes,5,opt,name=created_at,json=createdAt" json:"created_at,omitempty"`
 	// Last access timestamp
@@ -98,11 +98,11 @@ func (x *CacheInfo) GetCacheType() string {
 	return ""
 }
 
-func (x *CacheInfo) GetHealthStatus() pb.HealthStatus {
+func (x *CacheInfo) GetHealthStatus() proto.HealthStatus {
 	if x != nil && x.HealthStatus != nil {
 		return *x.HealthStatus
 	}
-	return pb.HealthStatus(0)
+	return proto.HealthStatus(0)
 }
 
 func (x *CacheInfo) GetCreatedAt() *timestamppb.Timestamp {
@@ -152,7 +152,7 @@ func (x *CacheInfo) SetCacheType(v string) {
 	x.CacheType = &v
 }
 
-func (x *CacheInfo) SetHealthStatus(v pb.HealthStatus) {
+func (x *CacheInfo) SetHealthStatus(v proto.HealthStatus) {
 	x.HealthStatus = &v
 }
 
@@ -274,7 +274,7 @@ type CacheInfo_builder struct {
 	// Cache type (e.g., "memory", "redis", "memcached")
 	CacheType *string
 	// Current health status
-	HealthStatus *pb.HealthStatus
+	HealthStatus *proto.HealthStatus
 	// Cache creation timestamp
 	CreatedAt *timestamppb.Timestamp
 	// Last access timestamp
@@ -323,14 +323,14 @@ const file_pkg_cache_proto_messages_cache_info_proto_rawDesc = "" +
 	"\bmetadata\x18\t \x03(\v2).gcommon.v1.cache.CacheInfo.MetadataEntryR\bmetadata\x1a;\n" +
 	"\rMetadataEntry\x12\x10\n" +
 	"\x03key\x18\x01 \x01(\tR\x03key\x12\x14\n" +
-	"\x05value\x18\x02 \x01(\tR\x05value:\x028\x01B\xb2\x01\n" +
-	"\x14com.gcommon.v1.cacheB\x0eCacheInfoProtoP\x01Z ../../../../pkg/cache/pb;cachepb\xa2\x02\x03GVC\xaa\x02\x10Gcommon.V1.Cache\xca\x02\x10Gcommon\\V1\\Cache\xe2\x02\x1cGcommon\\V1\\Cache\\GPBMetadata\xea\x02\x12Gcommon::V1::Cache\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
+	"\x05value\x18\x02 \x01(\tR\x05value:\x028\x01B\xb5\x01\n" +
+	"\x14com.gcommon.v1.cacheB\x0eCacheInfoProtoP\x01Z#../../../../pkg/cache/proto;cachepb\xa2\x02\x03GVC\xaa\x02\x10Gcommon.V1.Cache\xca\x02\x10Gcommon\\V1\\Cache\xe2\x02\x1cGcommon\\V1\\Cache\\GPBMetadata\xea\x02\x12Gcommon::V1::Cache\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
 
 var file_pkg_cache_proto_messages_cache_info_proto_msgTypes = make([]protoimpl.MessageInfo, 2)
 var file_pkg_cache_proto_messages_cache_info_proto_goTypes = []any{
 	(*CacheInfo)(nil),             // 0: gcommon.v1.cache.CacheInfo
 	nil,                           // 1: gcommon.v1.cache.CacheInfo.MetadataEntry
-	(pb.HealthStatus)(0),          // 2: gcommon.v1.common.HealthStatus
+	(proto.HealthStatus)(0),       // 2: gcommon.v1.common.HealthStatus
 	(*timestamppb.Timestamp)(nil), // 3: google.protobuf.Timestamp
 }
 var file_pkg_cache_proto_messages_cache_info_proto_depIdxs = []int32{

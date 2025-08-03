@@ -9,7 +9,7 @@
 package healthpb
 
 import (
-	pb "../../../../pkg/common/pb"
+	proto "../../../../pkg/common/proto"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
@@ -30,7 +30,7 @@ const (
 type ListServicesResponse struct {
 	state               protoimpl.MessageState `protogen:"opaque.v1"`
 	xxx_hidden_Services []string               `protobuf:"bytes,1,rep,name=services"`
-	xxx_hidden_Metadata *pb.RequestMetadata    `protobuf:"bytes,2,opt,name=metadata"`
+	xxx_hidden_Metadata *proto.RequestMetadata `protobuf:"bytes,2,opt,name=metadata"`
 	unknownFields       protoimpl.UnknownFields
 	sizeCache           protoimpl.SizeCache
 }
@@ -67,7 +67,7 @@ func (x *ListServicesResponse) GetServices() []string {
 	return nil
 }
 
-func (x *ListServicesResponse) GetMetadata() *pb.RequestMetadata {
+func (x *ListServicesResponse) GetMetadata() *proto.RequestMetadata {
 	if x != nil {
 		return x.xxx_hidden_Metadata
 	}
@@ -78,7 +78,7 @@ func (x *ListServicesResponse) SetServices(v []string) {
 	x.xxx_hidden_Services = v
 }
 
-func (x *ListServicesResponse) SetMetadata(v *pb.RequestMetadata) {
+func (x *ListServicesResponse) SetMetadata(v *proto.RequestMetadata) {
 	x.xxx_hidden_Metadata = v
 }
 
@@ -99,7 +99,7 @@ type ListServicesResponse_builder struct {
 	// List of service names
 	Services []string
 	// Request metadata
-	Metadata *pb.RequestMetadata
+	Metadata *proto.RequestMetadata
 }
 
 func (b0 ListServicesResponse_builder) Build() *ListServicesResponse {
@@ -118,13 +118,13 @@ const file_pkg_health_proto_responses_list_services_response_proto_rawDesc = "" 
 	"7pkg/health/proto/responses/list_services_response.proto\x12\x11gcommon.v1.health\x1a!google/protobuf/go_features.proto\x1a0pkg/common/proto/messages/request_metadata.proto\"r\n" +
 	"\x14ListServicesResponse\x12\x1a\n" +
 	"\bservices\x18\x01 \x03(\tR\bservices\x12>\n" +
-	"\bmetadata\x18\x02 \x01(\v2\".gcommon.v1.common.RequestMetadataR\bmetadataB\xc4\x01\n" +
-	"\x15com.gcommon.v1.healthB\x19ListServicesResponseProtoP\x01Z\"../../../../pkg/health/pb;healthpb\xa2\x02\x03GVH\xaa\x02\x11Gcommon.V1.Health\xca\x02\x11Gcommon\\V1\\Health\xe2\x02\x1dGcommon\\V1\\Health\\GPBMetadata\xea\x02\x13Gcommon::V1::Health\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
+	"\bmetadata\x18\x02 \x01(\v2\".gcommon.v1.common.RequestMetadataR\bmetadataB\xc7\x01\n" +
+	"\x15com.gcommon.v1.healthB\x19ListServicesResponseProtoP\x01Z%../../../../pkg/health/proto;healthpb\xa2\x02\x03GVH\xaa\x02\x11Gcommon.V1.Health\xca\x02\x11Gcommon\\V1\\Health\xe2\x02\x1dGcommon\\V1\\Health\\GPBMetadata\xea\x02\x13Gcommon::V1::Health\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
 
 var file_pkg_health_proto_responses_list_services_response_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_pkg_health_proto_responses_list_services_response_proto_goTypes = []any{
-	(*ListServicesResponse)(nil), // 0: gcommon.v1.health.ListServicesResponse
-	(*pb.RequestMetadata)(nil),   // 1: gcommon.v1.common.RequestMetadata
+	(*ListServicesResponse)(nil),  // 0: gcommon.v1.health.ListServicesResponse
+	(*proto.RequestMetadata)(nil), // 1: gcommon.v1.common.RequestMetadata
 }
 var file_pkg_health_proto_responses_list_services_response_proto_depIdxs = []int32{
 	1, // 0: gcommon.v1.health.ListServicesResponse.metadata:type_name -> gcommon.v1.common.RequestMetadata

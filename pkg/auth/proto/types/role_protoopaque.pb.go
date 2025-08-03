@@ -9,7 +9,7 @@
 package authpb
 
 import (
-	pb "../../../../pkg/common/pb"
+	proto "../../../../pkg/common/proto"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
@@ -37,7 +37,7 @@ type Role struct {
 	xxx_hidden_Permissions []string               `protobuf:"bytes,4,rep,name=permissions"`
 	xxx_hidden_Metadata    map[string]string      `protobuf:"bytes,5,rep,name=metadata" protobuf_key:"bytes,1,opt,name=key" protobuf_val:"bytes,2,opt,name=value"`
 	xxx_hidden_CreatedAt   *timestamppb.Timestamp `protobuf:"bytes,6,opt,name=created_at,json=createdAt"`
-	xxx_hidden_Status      pb.ResourceStatus      `protobuf:"varint,7,opt,name=status,enum=gcommon.v1.common.ResourceStatus"`
+	xxx_hidden_Status      proto.ResourceStatus   `protobuf:"varint,7,opt,name=status,enum=gcommon.v1.common.ResourceStatus"`
 	// Deprecated: Do not use. This will be deleted in the near future.
 	XXX_lazyUnmarshalInfo  protoimpl.LazyUnmarshalInfo
 	XXX_raceDetectHookData protoimpl.RaceDetectHookData
@@ -134,13 +134,13 @@ func (x *Role) GetCreatedAt() *timestamppb.Timestamp {
 	return nil
 }
 
-func (x *Role) GetStatus() pb.ResourceStatus {
+func (x *Role) GetStatus() proto.ResourceStatus {
 	if x != nil {
 		if protoimpl.X.Present(&(x.XXX_presence[0]), 6) {
 			return x.xxx_hidden_Status
 		}
 	}
-	return pb.ResourceStatus(0)
+	return proto.ResourceStatus(0)
 }
 
 func (x *Role) SetId(v string) {
@@ -180,7 +180,7 @@ func (x *Role) SetCreatedAt(v *timestamppb.Timestamp) {
 	}
 }
 
-func (x *Role) SetStatus(v pb.ResourceStatus) {
+func (x *Role) SetStatus(v proto.ResourceStatus) {
 	x.xxx_hidden_Status = v
 	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 6, 7)
 }
@@ -242,7 +242,7 @@ func (x *Role) ClearCreatedAt() {
 
 func (x *Role) ClearStatus() {
 	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 6)
-	x.xxx_hidden_Status = pb.ResourceStatus_RESOURCE_STATUS_UNSPECIFIED
+	x.xxx_hidden_Status = proto.ResourceStatus_RESOURCE_STATUS_UNSPECIFIED
 }
 
 type Role_builder struct {
@@ -261,7 +261,7 @@ type Role_builder struct {
 	// Role creation timestamp (immutable)
 	CreatedAt *timestamppb.Timestamp
 	// Role status (active, inactive, etc.)
-	Status *pb.ResourceStatus
+	Status *proto.ResourceStatus
 }
 
 func (b0 Role_builder) Build() *Role {
@@ -312,15 +312,15 @@ const file_pkg_auth_proto_types_role_proto_rawDesc = "" +
 	"\x06status\x18\a \x01(\x0e2!.gcommon.v1.common.ResourceStatusR\x06status\x1a;\n" +
 	"\rMetadataEntry\x12\x10\n" +
 	"\x03key\x18\x01 \x01(\tR\x03key\x12\x14\n" +
-	"\x05value\x18\x02 \x01(\tR\x05value:\x028\x01B\xa6\x01\n" +
-	"\x13com.gcommon.v1.authB\tRoleProtoP\x01Z\x1e../../../../pkg/auth/pb;authpb\xa2\x02\x03GVA\xaa\x02\x0fGcommon.V1.Auth\xca\x02\x0fGcommon\\V1\\Auth\xe2\x02\x1bGcommon\\V1\\Auth\\GPBMetadata\xea\x02\x11Gcommon::V1::Auth\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
+	"\x05value\x18\x02 \x01(\tR\x05value:\x028\x01B\xa9\x01\n" +
+	"\x13com.gcommon.v1.authB\tRoleProtoP\x01Z!../../../../pkg/auth/proto;authpb\xa2\x02\x03GVA\xaa\x02\x0fGcommon.V1.Auth\xca\x02\x0fGcommon\\V1\\Auth\xe2\x02\x1bGcommon\\V1\\Auth\\GPBMetadata\xea\x02\x11Gcommon::V1::Auth\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
 
 var file_pkg_auth_proto_types_role_proto_msgTypes = make([]protoimpl.MessageInfo, 2)
 var file_pkg_auth_proto_types_role_proto_goTypes = []any{
 	(*Role)(nil),                  // 0: gcommon.v1.auth.Role
 	nil,                           // 1: gcommon.v1.auth.Role.MetadataEntry
 	(*timestamppb.Timestamp)(nil), // 2: google.protobuf.Timestamp
-	(pb.ResourceStatus)(0),        // 3: gcommon.v1.common.ResourceStatus
+	(proto.ResourceStatus)(0),     // 3: gcommon.v1.common.ResourceStatus
 }
 var file_pkg_auth_proto_types_role_proto_depIdxs = []int32{
 	1, // 0: gcommon.v1.auth.Role.metadata:type_name -> gcommon.v1.auth.Role.MetadataEntry

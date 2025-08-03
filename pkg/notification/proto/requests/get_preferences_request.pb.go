@@ -9,7 +9,7 @@
 package notificationpb
 
 import (
-	pb "../../../../pkg/common/pb"
+	proto "../../../../pkg/common/proto"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
@@ -29,7 +29,7 @@ const (
 type GetPreferencesRequest struct {
 	state protoimpl.MessageState `protogen:"hybrid.v1"`
 	// Standard request metadata for tracing and auth.
-	Metadata *pb.RequestMetadata `protobuf:"bytes,1,opt,name=metadata" json:"metadata,omitempty"`
+	Metadata *proto.RequestMetadata `protobuf:"bytes,1,opt,name=metadata" json:"metadata,omitempty"`
 	// Identifier for the user whose preferences are being requested.
 	UserId        *string `protobuf:"bytes,2,opt,name=user_id,json=userId" json:"user_id,omitempty"`
 	unknownFields protoimpl.UnknownFields
@@ -61,7 +61,7 @@ func (x *GetPreferencesRequest) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-func (x *GetPreferencesRequest) GetMetadata() *pb.RequestMetadata {
+func (x *GetPreferencesRequest) GetMetadata() *proto.RequestMetadata {
 	if x != nil {
 		return x.Metadata
 	}
@@ -75,7 +75,7 @@ func (x *GetPreferencesRequest) GetUserId() string {
 	return ""
 }
 
-func (x *GetPreferencesRequest) SetMetadata(v *pb.RequestMetadata) {
+func (x *GetPreferencesRequest) SetMetadata(v *proto.RequestMetadata) {
 	x.Metadata = v
 }
 
@@ -109,7 +109,7 @@ type GetPreferencesRequest_builder struct {
 	_ [0]func() // Prevents comparability and use of unkeyed literals for the builder.
 
 	// Standard request metadata for tracing and auth.
-	Metadata *pb.RequestMetadata
+	Metadata *proto.RequestMetadata
 	// Identifier for the user whose preferences are being requested.
 	UserId *string
 }
@@ -130,13 +130,13 @@ const file_pkg_notification_proto_requests_get_preferences_request_proto_rawDesc
 	"=pkg/notification/proto/requests/get_preferences_request.proto\x12\x17gcommon.v1.notification\x1a!google/protobuf/go_features.proto\x1a0pkg/common/proto/messages/request_metadata.proto\"p\n" +
 	"\x15GetPreferencesRequest\x12>\n" +
 	"\bmetadata\x18\x01 \x01(\v2\".gcommon.v1.common.RequestMetadataR\bmetadata\x12\x17\n" +
-	"\auser_id\x18\x02 \x01(\tR\x06userIdB\xef\x01\n" +
-	"\x1bcom.gcommon.v1.notificationB\x1aGetPreferencesRequestProtoP\x01Z.../../../../pkg/notification/pb;notificationpb\xa2\x02\x03GVN\xaa\x02\x17Gcommon.V1.Notification\xca\x02\x17Gcommon\\V1\\Notification\xe2\x02#Gcommon\\V1\\Notification\\GPBMetadata\xea\x02\x19Gcommon::V1::Notification\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
+	"\auser_id\x18\x02 \x01(\tR\x06userIdB\xf2\x01\n" +
+	"\x1bcom.gcommon.v1.notificationB\x1aGetPreferencesRequestProtoP\x01Z1../../../../pkg/notification/proto;notificationpb\xa2\x02\x03GVN\xaa\x02\x17Gcommon.V1.Notification\xca\x02\x17Gcommon\\V1\\Notification\xe2\x02#Gcommon\\V1\\Notification\\GPBMetadata\xea\x02\x19Gcommon::V1::Notification\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
 
 var file_pkg_notification_proto_requests_get_preferences_request_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_pkg_notification_proto_requests_get_preferences_request_proto_goTypes = []any{
 	(*GetPreferencesRequest)(nil), // 0: gcommon.v1.notification.GetPreferencesRequest
-	(*pb.RequestMetadata)(nil),    // 1: gcommon.v1.common.RequestMetadata
+	(*proto.RequestMetadata)(nil), // 1: gcommon.v1.common.RequestMetadata
 }
 var file_pkg_notification_proto_requests_get_preferences_request_proto_depIdxs = []int32{
 	1, // 0: gcommon.v1.notification.GetPreferencesRequest.metadata:type_name -> gcommon.v1.common.RequestMetadata

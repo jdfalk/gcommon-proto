@@ -9,7 +9,7 @@
 package notificationpb
 
 import (
-	pb "../../../../pkg/common/pb"
+	proto "../../../../pkg/common/proto"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
@@ -29,7 +29,7 @@ const (
 type GetPreferencesResponse struct {
 	state                  protoimpl.MessageState   `protogen:"opaque.v1"`
 	xxx_hidden_Preferences *SubscriptionPreferences `protobuf:"bytes,1,opt,name=preferences"`
-	xxx_hidden_Metadata    *pb.ResponseMetadata     `protobuf:"bytes,2,opt,name=metadata"`
+	xxx_hidden_Metadata    *proto.ResponseMetadata  `protobuf:"bytes,2,opt,name=metadata"`
 	unknownFields          protoimpl.UnknownFields
 	sizeCache              protoimpl.SizeCache
 }
@@ -66,7 +66,7 @@ func (x *GetPreferencesResponse) GetPreferences() *SubscriptionPreferences {
 	return nil
 }
 
-func (x *GetPreferencesResponse) GetMetadata() *pb.ResponseMetadata {
+func (x *GetPreferencesResponse) GetMetadata() *proto.ResponseMetadata {
 	if x != nil {
 		return x.xxx_hidden_Metadata
 	}
@@ -77,7 +77,7 @@ func (x *GetPreferencesResponse) SetPreferences(v *SubscriptionPreferences) {
 	x.xxx_hidden_Preferences = v
 }
 
-func (x *GetPreferencesResponse) SetMetadata(v *pb.ResponseMetadata) {
+func (x *GetPreferencesResponse) SetMetadata(v *proto.ResponseMetadata) {
 	x.xxx_hidden_Metadata = v
 }
 
@@ -109,7 +109,7 @@ type GetPreferencesResponse_builder struct {
 	// Current subscription preferences.
 	Preferences *SubscriptionPreferences
 	// Response metadata for rate limiting and tracing.
-	Metadata *pb.ResponseMetadata
+	Metadata *proto.ResponseMetadata
 }
 
 func (b0 GetPreferencesResponse_builder) Build() *GetPreferencesResponse {
@@ -128,14 +128,14 @@ const file_pkg_notification_proto_responses_get_preferences_response_proto_rawDe
 	"?pkg/notification/proto/responses/get_preferences_response.proto\x12\x17gcommon.v1.notification\x1a!google/protobuf/go_features.proto\x1a1pkg/common/proto/messages/response_metadata.proto\x1a>pkg/notification/proto/messages/subscription_preferences.proto\"\xad\x01\n" +
 	"\x16GetPreferencesResponse\x12R\n" +
 	"\vpreferences\x18\x01 \x01(\v20.gcommon.v1.notification.SubscriptionPreferencesR\vpreferences\x12?\n" +
-	"\bmetadata\x18\x02 \x01(\v2#.gcommon.v1.common.ResponseMetadataR\bmetadataB\xf0\x01\n" +
-	"\x1bcom.gcommon.v1.notificationB\x1bGetPreferencesResponseProtoP\x01Z.../../../../pkg/notification/pb;notificationpb\xa2\x02\x03GVN\xaa\x02\x17Gcommon.V1.Notification\xca\x02\x17Gcommon\\V1\\Notification\xe2\x02#Gcommon\\V1\\Notification\\GPBMetadata\xea\x02\x19Gcommon::V1::Notification\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
+	"\bmetadata\x18\x02 \x01(\v2#.gcommon.v1.common.ResponseMetadataR\bmetadataB\xf3\x01\n" +
+	"\x1bcom.gcommon.v1.notificationB\x1bGetPreferencesResponseProtoP\x01Z1../../../../pkg/notification/proto;notificationpb\xa2\x02\x03GVN\xaa\x02\x17Gcommon.V1.Notification\xca\x02\x17Gcommon\\V1\\Notification\xe2\x02#Gcommon\\V1\\Notification\\GPBMetadata\xea\x02\x19Gcommon::V1::Notification\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
 
 var file_pkg_notification_proto_responses_get_preferences_response_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_pkg_notification_proto_responses_get_preferences_response_proto_goTypes = []any{
 	(*GetPreferencesResponse)(nil),  // 0: gcommon.v1.notification.GetPreferencesResponse
 	(*SubscriptionPreferences)(nil), // 1: gcommon.v1.notification.SubscriptionPreferences
-	(*pb.ResponseMetadata)(nil),     // 2: gcommon.v1.common.ResponseMetadata
+	(*proto.ResponseMetadata)(nil),  // 2: gcommon.v1.common.ResponseMetadata
 }
 var file_pkg_notification_proto_responses_get_preferences_response_proto_depIdxs = []int32{
 	1, // 0: gcommon.v1.notification.GetPreferencesResponse.preferences:type_name -> gcommon.v1.notification.SubscriptionPreferences

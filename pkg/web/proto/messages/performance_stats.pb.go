@@ -185,8 +185,8 @@ const file_pkg_web_proto_messages_performance_stats_proto_rawDesc = "" +
 	"\x12average_latency_ms\x18\x02 \x01(\x01R\x10averageLatencyMs\x12-\n" +
 	"\x12active_connections\x18\x03 \x01(\x05R\x11activeConnections\x12\x1d\n" +
 	"\n" +
-	"error_rate\x18\x04 \x01(\x01R\terrorRateB\xab\x01\n" +
-	"\x12com.gcommon.v1.webB\x15PerformanceStatsProtoP\x01Z\x1c../../../../pkg/web/pb;webpb\xa2\x02\x03GVW\xaa\x02\x0eGcommon.V1.Web\xca\x02\x0eGcommon\\V1\\Web\xe2\x02\x1aGcommon\\V1\\Web\\GPBMetadata\xea\x02\x10Gcommon::V1::Web\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
+	"error_rate\x18\x04 \x01(\x01R\terrorRateB\xae\x01\n" +
+	"\x12com.gcommon.v1.webB\x15PerformanceStatsProtoP\x01Z\x1f../../../../pkg/web/proto;webpb\xa2\x02\x03GVW\xaa\x02\x0eGcommon.V1.Web\xca\x02\x0eGcommon\\V1\\Web\xe2\x02\x1aGcommon\\V1\\Web\\GPBMetadata\xea\x02\x10Gcommon::V1::Web\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
 
 var file_pkg_web_proto_messages_performance_stats_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_pkg_web_proto_messages_performance_stats_proto_goTypes = []any{

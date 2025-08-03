@@ -9,7 +9,7 @@
 package configpb
 
 import (
-	pb "../../../../pkg/common/pb"
+	proto "../../../../pkg/common/proto"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
@@ -33,7 +33,7 @@ type GetMultipleConfigResponse struct {
 	// Keys that were not found
 	NotFound []string `protobuf:"bytes,2,rep,name=not_found,json=notFound" json:"not_found,omitempty"`
 	// Error information
-	Error         *pb.Error `protobuf:"bytes,3,opt,name=error" json:"error,omitempty"`
+	Error         *proto.Error `protobuf:"bytes,3,opt,name=error" json:"error,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -77,7 +77,7 @@ func (x *GetMultipleConfigResponse) GetNotFound() []string {
 	return nil
 }
 
-func (x *GetMultipleConfigResponse) GetError() *pb.Error {
+func (x *GetMultipleConfigResponse) GetError() *proto.Error {
 	if x != nil {
 		return x.Error
 	}
@@ -92,7 +92,7 @@ func (x *GetMultipleConfigResponse) SetNotFound(v []string) {
 	x.NotFound = v
 }
 
-func (x *GetMultipleConfigResponse) SetError(v *pb.Error) {
+func (x *GetMultipleConfigResponse) SetError(v *proto.Error) {
 	x.Error = v
 }
 
@@ -115,7 +115,7 @@ type GetMultipleConfigResponse_builder struct {
 	// Keys that were not found
 	NotFound []string
 	// Error information
-	Error *pb.Error
+	Error *proto.Error
 }
 
 func (b0 GetMultipleConfigResponse_builder) Build() *GetMultipleConfigResponse {
@@ -139,14 +139,14 @@ const file_pkg_config_proto_responses_get_multiple_config_response_proto_rawDesc
 	"\x05error\x18\x03 \x01(\v2\x18.gcommon.v1.common.ErrorR\x05error\x1aZ\n" +
 	"\fEntriesEntry\x12\x10\n" +
 	"\x03key\x18\x01 \x01(\tR\x03key\x124\n" +
-	"\x05value\x18\x02 \x01(\v2\x1e.gcommon.v1.config.ConfigEntryR\x05value:\x028\x01B\xc9\x01\n" +
-	"\x15com.gcommon.v1.configB\x1eGetMultipleConfigResponseProtoP\x01Z\"../../../../pkg/config/pb;configpb\xa2\x02\x03GVC\xaa\x02\x11Gcommon.V1.Config\xca\x02\x11Gcommon\\V1\\Config\xe2\x02\x1dGcommon\\V1\\Config\\GPBMetadata\xea\x02\x13Gcommon::V1::Config\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
+	"\x05value\x18\x02 \x01(\v2\x1e.gcommon.v1.config.ConfigEntryR\x05value:\x028\x01B\xcc\x01\n" +
+	"\x15com.gcommon.v1.configB\x1eGetMultipleConfigResponseProtoP\x01Z%../../../../pkg/config/proto;configpb\xa2\x02\x03GVC\xaa\x02\x11Gcommon.V1.Config\xca\x02\x11Gcommon\\V1\\Config\xe2\x02\x1dGcommon\\V1\\Config\\GPBMetadata\xea\x02\x13Gcommon::V1::Config\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
 
 var file_pkg_config_proto_responses_get_multiple_config_response_proto_msgTypes = make([]protoimpl.MessageInfo, 2)
 var file_pkg_config_proto_responses_get_multiple_config_response_proto_goTypes = []any{
 	(*GetMultipleConfigResponse)(nil), // 0: gcommon.v1.config.GetMultipleConfigResponse
 	nil,                               // 1: gcommon.v1.config.GetMultipleConfigResponse.EntriesEntry
-	(*pb.Error)(nil),                  // 2: gcommon.v1.common.Error
+	(*proto.Error)(nil),               // 2: gcommon.v1.common.Error
 	(*ConfigEntry)(nil),               // 3: gcommon.v1.config.ConfigEntry
 }
 var file_pkg_config_proto_responses_get_multiple_config_response_proto_depIdxs = []int32{

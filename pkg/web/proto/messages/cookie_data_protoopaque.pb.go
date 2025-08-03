@@ -341,8 +341,8 @@ const file_pkg_web_proto_messages_cookie_data_proto_rawDesc = "" +
 	"expires_at\x18\x05 \x01(\v2\x1a.google.protobuf.TimestampR\texpiresAt\x12\x1b\n" +
 	"\thttp_only\x18\x06 \x01(\bR\bhttpOnly\x12\x16\n" +
 	"\x06secure\x18\a \x01(\bR\x06secure\x12;\n" +
-	"\tsame_site\x18\b \x01(\x0e2\x1e.gcommon.v1.web.CookieSameSiteR\bsameSiteB\xa5\x01\n" +
-	"\x12com.gcommon.v1.webB\x0fCookieDataProtoP\x01Z\x1c../../../../pkg/web/pb;webpb\xa2\x02\x03GVW\xaa\x02\x0eGcommon.V1.Web\xca\x02\x0eGcommon\\V1\\Web\xe2\x02\x1aGcommon\\V1\\Web\\GPBMetadata\xea\x02\x10Gcommon::V1::Web\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
+	"\tsame_site\x18\b \x01(\x0e2\x1e.gcommon.v1.web.CookieSameSiteR\bsameSiteB\xa8\x01\n" +
+	"\x12com.gcommon.v1.webB\x0fCookieDataProtoP\x01Z\x1f../../../../pkg/web/proto;webpb\xa2\x02\x03GVW\xaa\x02\x0eGcommon.V1.Web\xca\x02\x0eGcommon\\V1\\Web\xe2\x02\x1aGcommon\\V1\\Web\\GPBMetadata\xea\x02\x10Gcommon::V1::Web\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
 
 var file_pkg_web_proto_messages_cookie_data_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_pkg_web_proto_messages_cookie_data_proto_goTypes = []any{

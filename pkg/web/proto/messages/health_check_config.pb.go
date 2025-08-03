@@ -232,8 +232,8 @@ const file_pkg_web_proto_messages_health_check_config_proto_rawDesc = "" +
 	"\aenabled\x18\x06 \x01(\bR\aenabled\x1a:\n" +
 	"\fHeadersEntry\x12\x10\n" +
 	"\x03key\x18\x01 \x01(\tR\x03key\x12\x14\n" +
-	"\x05value\x18\x02 \x01(\tR\x05value:\x028\x01B\xac\x01\n" +
-	"\x12com.gcommon.v1.webB\x16HealthCheckConfigProtoP\x01Z\x1c../../../../pkg/web/pb;webpb\xa2\x02\x03GVW\xaa\x02\x0eGcommon.V1.Web\xca\x02\x0eGcommon\\V1\\Web\xe2\x02\x1aGcommon\\V1\\Web\\GPBMetadata\xea\x02\x10Gcommon::V1::Web\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
+	"\x05value\x18\x02 \x01(\tR\x05value:\x028\x01B\xaf\x01\n" +
+	"\x12com.gcommon.v1.webB\x16HealthCheckConfigProtoP\x01Z\x1f../../../../pkg/web/proto;webpb\xa2\x02\x03GVW\xaa\x02\x0eGcommon.V1.Web\xca\x02\x0eGcommon\\V1\\Web\xe2\x02\x1aGcommon\\V1\\Web\\GPBMetadata\xea\x02\x10Gcommon::V1::Web\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
 
 var file_pkg_web_proto_messages_health_check_config_proto_msgTypes = make([]protoimpl.MessageInfo, 2)
 var file_pkg_web_proto_messages_health_check_config_proto_goTypes = []any{

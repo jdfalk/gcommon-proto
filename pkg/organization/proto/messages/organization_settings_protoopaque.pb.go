@@ -9,7 +9,7 @@
 package organizationpb
 
 import (
-	pb "../../../../pkg/common/pb"
+	proto "../../../../pkg/common/proto"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
@@ -39,7 +39,7 @@ type OrganizationSettings struct {
 	xxx_hidden_Billing        *BillingSettings       `protobuf:"bytes,6,opt,name=billing"`
 	xxx_hidden_Compliance     *ComplianceSettings    `protobuf:"bytes,7,opt,name=compliance"`
 	xxx_hidden_FeatureFlags   *[]*FeatureFlag        `protobuf:"bytes,8,rep,name=feature_flags,json=featureFlags"`
-	xxx_hidden_CustomSettings *[]*pb.KeyValue        `protobuf:"bytes,9,rep,name=custom_settings,json=customSettings"`
+	xxx_hidden_CustomSettings *[]*proto.KeyValue     `protobuf:"bytes,9,rep,name=custom_settings,json=customSettings"`
 	xxx_hidden_UpdatedAt      *timestamppb.Timestamp `protobuf:"bytes,10,opt,name=updated_at,json=updatedAt"`
 	xxx_hidden_UpdatedBy      *string                `protobuf:"bytes,11,opt,name=updated_by,json=updatedBy"`
 	// Deprecated: Do not use. This will be deleted in the near future.
@@ -136,13 +136,13 @@ func (x *OrganizationSettings) GetFeatureFlags() []*FeatureFlag {
 	return nil
 }
 
-func (x *OrganizationSettings) GetCustomSettings() []*pb.KeyValue {
+func (x *OrganizationSettings) GetCustomSettings() []*proto.KeyValue {
 	if x != nil {
 		if protoimpl.X.Present(&(x.XXX_presence[0]), 8) {
 			if protoimpl.X.AtomicCheckPointerIsNil(&x.xxx_hidden_CustomSettings) {
 				protoimpl.X.UnmarshalField(x, 9)
 			}
-			var rv *[]*pb.KeyValue
+			var rv *[]*proto.KeyValue
 			protoimpl.X.AtomicLoadPointer(protoimpl.Pointer(&x.xxx_hidden_CustomSettings), protoimpl.Pointer(&rv))
 			return *rv
 		}
@@ -207,11 +207,11 @@ func (x *OrganizationSettings) SetFeatureFlags(v []*FeatureFlag) {
 	x.xxx_hidden_FeatureFlags = &v
 }
 
-func (x *OrganizationSettings) SetCustomSettings(v []*pb.KeyValue) {
-	var sv *[]*pb.KeyValue
+func (x *OrganizationSettings) SetCustomSettings(v []*proto.KeyValue) {
+	var sv *[]*proto.KeyValue
 	protoimpl.X.AtomicLoadPointer(protoimpl.Pointer(&x.xxx_hidden_CustomSettings), protoimpl.Pointer(&sv))
 	if sv == nil {
-		sv = &[]*pb.KeyValue{}
+		sv = &[]*proto.KeyValue{}
 		protoimpl.X.AtomicInitializePointer(protoimpl.Pointer(&x.xxx_hidden_CustomSettings), protoimpl.Pointer(&sv))
 	}
 	*sv = v
@@ -354,7 +354,7 @@ type OrganizationSettings_builder struct {
 	// Feature flags and experimental features
 	FeatureFlags []*FeatureFlag
 	// Custom organization-specific settings
-	CustomSettings []*pb.KeyValue
+	CustomSettings []*proto.KeyValue
 	// Settings last update timestamp
 	UpdatedAt *timestamppb.Timestamp
 	// User ID who last updated these settings
@@ -1264,7 +1264,7 @@ type Integration struct {
 	state                   protoimpl.MessageState `protogen:"opaque.v1"`
 	xxx_hidden_Name         *string                `protobuf:"bytes,1,opt,name=name"`
 	xxx_hidden_Enabled      bool                   `protobuf:"varint,2,opt,name=enabled"`
-	xxx_hidden_Config       *[]*pb.KeyValue        `protobuf:"bytes,3,rep,name=config"`
+	xxx_hidden_Config       *[]*proto.KeyValue     `protobuf:"bytes,3,rep,name=config"`
 	xxx_hidden_CreatedAt    *timestamppb.Timestamp `protobuf:"bytes,4,opt,name=created_at,json=createdAt"`
 	xxx_hidden_ConfiguredBy *string                `protobuf:"bytes,5,opt,name=configured_by,json=configuredBy"`
 	// Deprecated: Do not use. This will be deleted in the near future.
@@ -1317,13 +1317,13 @@ func (x *Integration) GetEnabled() bool {
 	return false
 }
 
-func (x *Integration) GetConfig() []*pb.KeyValue {
+func (x *Integration) GetConfig() []*proto.KeyValue {
 	if x != nil {
 		if protoimpl.X.Present(&(x.XXX_presence[0]), 2) {
 			if protoimpl.X.AtomicCheckPointerIsNil(&x.xxx_hidden_Config) {
 				protoimpl.X.UnmarshalField(x, 3)
 			}
-			var rv *[]*pb.KeyValue
+			var rv *[]*proto.KeyValue
 			protoimpl.X.AtomicLoadPointer(protoimpl.Pointer(&x.xxx_hidden_Config), protoimpl.Pointer(&rv))
 			return *rv
 		}
@@ -1365,11 +1365,11 @@ func (x *Integration) SetEnabled(v bool) {
 	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 1, 5)
 }
 
-func (x *Integration) SetConfig(v []*pb.KeyValue) {
-	var sv *[]*pb.KeyValue
+func (x *Integration) SetConfig(v []*proto.KeyValue) {
+	var sv *[]*proto.KeyValue
 	protoimpl.X.AtomicLoadPointer(protoimpl.Pointer(&x.xxx_hidden_Config), protoimpl.Pointer(&sv))
 	if sv == nil {
-		sv = &[]*pb.KeyValue{}
+		sv = &[]*proto.KeyValue{}
 		protoimpl.X.AtomicInitializePointer(protoimpl.Pointer(&x.xxx_hidden_Config), protoimpl.Pointer(&sv))
 	}
 	*sv = v
@@ -1446,7 +1446,7 @@ type Integration_builder struct {
 	// Whether this integration is currently enabled
 	Enabled *bool
 	// Integration-specific configuration
-	Config []*pb.KeyValue
+	Config []*proto.KeyValue
 	// Integration creation timestamp
 	CreatedAt *timestamppb.Timestamp
 	// User ID who configured this integration
@@ -3431,8 +3431,8 @@ const file_pkg_organization_proto_messages_organization_settings_proto_rawDesc =
 	"\x0eweekly_summary\x18\x02 \x01(\bR\rweeklySummary\x123\n" +
 	"\x15instant_notifications\x18\x03 \x01(\bR\x14instantNotifications\x12*\n" +
 	"\x11quiet_hours_start\x18\x04 \x01(\tR\x0fquietHoursStart\x12&\n" +
-	"\x0fquiet_hours_end\x18\x05 \x01(\tR\rquietHoursEndB\xee\x01\n" +
-	"\x1bcom.gcommon.v1.organizationB\x19OrganizationSettingsProtoP\x01Z.../../../../pkg/organization/pb;organizationpb\xa2\x02\x03GVO\xaa\x02\x17Gcommon.V1.Organization\xca\x02\x17Gcommon\\V1\\Organization\xe2\x02#Gcommon\\V1\\Organization\\GPBMetadata\xea\x02\x19Gcommon::V1::Organization\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
+	"\x0fquiet_hours_end\x18\x05 \x01(\tR\rquietHoursEndB\xf1\x01\n" +
+	"\x1bcom.gcommon.v1.organizationB\x19OrganizationSettingsProtoP\x01Z1../../../../pkg/organization/proto;organizationpb\xa2\x02\x03GVO\xaa\x02\x17Gcommon.V1.Organization\xca\x02\x17Gcommon\\V1\\Organization\xe2\x02#Gcommon\\V1\\Organization\\GPBMetadata\xea\x02\x19Gcommon::V1::Organization\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
 
 var file_pkg_organization_proto_messages_organization_settings_proto_msgTypes = make([]protoimpl.MessageInfo, 15)
 var file_pkg_organization_proto_messages_organization_settings_proto_goTypes = []any{
@@ -3451,7 +3451,7 @@ var file_pkg_organization_proto_messages_organization_settings_proto_goTypes = [
 	(*FeatureFlag)(nil),           // 12: gcommon.v1.organization.FeatureFlag
 	(*EmailTemplate)(nil),         // 13: gcommon.v1.organization.EmailTemplate
 	(*NotificationFrequency)(nil), // 14: gcommon.v1.organization.NotificationFrequency
-	(*pb.KeyValue)(nil),           // 15: gcommon.v1.common.KeyValue
+	(*proto.KeyValue)(nil),        // 15: gcommon.v1.common.KeyValue
 	(*timestamppb.Timestamp)(nil), // 16: google.protobuf.Timestamp
 }
 var file_pkg_organization_proto_messages_organization_settings_proto_depIdxs = []int32{

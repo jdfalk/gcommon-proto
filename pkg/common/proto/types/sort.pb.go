@@ -138,8 +138,8 @@ const file_pkg_common_proto_types_sort_proto_rawDesc = "" +
 	"\rSortDirection\x12\x1e\n" +
 	"\x1aSORT_DIRECTION_UNSPECIFIED\x10\x00\x12\x16\n" +
 	"\x12SORT_DIRECTION_ASC\x10\x01\x12\x17\n" +
-	"\x13SORT_DIRECTION_DESC\x10\x02B\xac\x01\n" +
-	"\x15com.gcommon.v1.commonB\tSortProtoP\x01Z\"../../../../pkg/common/pb;commonpb\xa2\x02\x03GVC\xaa\x02\x11Gcommon.V1.Common\xca\x02\x11Gcommon\\V1\\Common\xe2\x02\x1dGcommon\\V1\\Common\\GPBMetadata\xea\x02\x13Gcommon::V1::Commonb\beditionsp\xe8\a"
+	"\x13SORT_DIRECTION_DESC\x10\x02B\xaf\x01\n" +
+	"\x15com.gcommon.v1.commonB\tSortProtoP\x01Z%../../../../pkg/common/proto;commonpb\xa2\x02\x03GVC\xaa\x02\x11Gcommon.V1.Common\xca\x02\x11Gcommon\\V1\\Common\xe2\x02\x1dGcommon\\V1\\Common\\GPBMetadata\xea\x02\x13Gcommon::V1::Commonb\beditionsp\xe8\a"
 
 var (
 	file_pkg_common_proto_types_sort_proto_rawDescOnce sync.Once

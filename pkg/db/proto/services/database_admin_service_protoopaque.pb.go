@@ -37,8 +37,8 @@ const file_pkg_db_proto_services_database_admin_service_proto_rawDesc = "" +
 	"\fCreateSchema\x12(.gcommon.v1.database.CreateSchemaRequest\x1a).gcommon.v1.database.CreateSchemaResponse\x12L\n" +
 	"\n" +
 	"DropSchema\x12&.gcommon.v1.database.DropSchemaRequest\x1a\x16.google.protobuf.Empty\x12`\n" +
-	"\vListSchemas\x12'.gcommon.v1.database.ListSchemasRequest\x1a(.gcommon.v1.database.ListSchemasResponseB\xc6\x01\n" +
-	"\x17com.gcommon.v1.databaseB\x19DatabaseAdminServiceProtoP\x01Z\x1a../../../../pkg/db/pb;dbpb\xa2\x02\x03GVD\xaa\x02\x13Gcommon.V1.Database\xca\x02\x13Gcommon\\V1\\Database\xe2\x02\x1fGcommon\\V1\\Database\\GPBMetadata\xea\x02\x15Gcommon::V1::Database\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
+	"\vListSchemas\x12'.gcommon.v1.database.ListSchemasRequest\x1a(.gcommon.v1.database.ListSchemasResponseB\xc9\x01\n" +
+	"\x17com.gcommon.v1.databaseB\x19DatabaseAdminServiceProtoP\x01Z\x1d../../../../pkg/db/proto;dbpb\xa2\x02\x03GVD\xaa\x02\x13Gcommon.V1.Database\xca\x02\x13Gcommon\\V1\\Database\xe2\x02\x1fGcommon\\V1\\Database\\GPBMetadata\xea\x02\x15Gcommon::V1::Database\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
 
 var file_pkg_db_proto_services_database_admin_service_proto_goTypes = []any{
 	(*CreateDatabaseRequest)(nil),   // 0: gcommon.v1.database.CreateDatabaseRequest

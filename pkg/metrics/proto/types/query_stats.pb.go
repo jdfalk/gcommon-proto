@@ -315,8 +315,8 @@ const file_pkg_metrics_proto_types_query_stats_proto_rawDesc = "" +
 	"\x11memory_used_bytes\x18\x06 \x01(\x03R\x0fmemoryUsedBytes\x12)\n" +
 	"\x10storage_backends\x18\a \x03(\tR\x0fstorageBackends\x12'\n" +
 	"\x0fquery_optimized\x18\b \x01(\bR\x0equeryOptimized\x121\n" +
-	"\x14optimization_details\x18\t \x01(\tR\x13optimizationDetailsB\xc1\x01\n" +
-	"\x16com.gcommon.v1.metricsB\x0fQueryStatsProtoP\x01Z$../../../../pkg/metrics/pb;metricspb\xa2\x02\x03GVM\xaa\x02\x12Gcommon.V1.Metrics\xca\x02\x12Gcommon\\V1\\Metrics\xe2\x02\x1eGcommon\\V1\\Metrics\\GPBMetadata\xea\x02\x14Gcommon::V1::Metrics\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
+	"\x14optimization_details\x18\t \x01(\tR\x13optimizationDetailsB\xc4\x01\n" +
+	"\x16com.gcommon.v1.metricsB\x0fQueryStatsProtoP\x01Z'../../../../pkg/metrics/proto;metricspb\xa2\x02\x03GVM\xaa\x02\x12Gcommon.V1.Metrics\xca\x02\x12Gcommon\\V1\\Metrics\xe2\x02\x1eGcommon\\V1\\Metrics\\GPBMetadata\xea\x02\x14Gcommon::V1::Metrics\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
 
 var file_pkg_metrics_proto_types_query_stats_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_pkg_metrics_proto_types_query_stats_proto_goTypes = []any{

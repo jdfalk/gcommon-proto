@@ -422,8 +422,8 @@ const file_pkg_log_proto_messages_log_entry_proto_rawDesc = "" +
 	"error_info\x18\r \x01(\v2\x19.gcommon.v1.log.ErrorInfoR\terrorInfo\x1aO\n" +
 	"\vFieldsEntry\x12\x10\n" +
 	"\x03key\x18\x01 \x01(\tR\x03key\x12*\n" +
-	"\x05value\x18\x02 \x01(\v2\x14.google.protobuf.AnyR\x05value:\x028\x01B\xa3\x01\n" +
-	"\x12com.gcommon.v1.logB\rLogEntryProtoP\x01Z\x1c../../../../pkg/log/pb;logpb\xa2\x02\x03GVL\xaa\x02\x0eGcommon.V1.Log\xca\x02\x0eGcommon\\V1\\Log\xe2\x02\x1aGcommon\\V1\\Log\\GPBMetadata\xea\x02\x10Gcommon::V1::Log\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
+	"\x05value\x18\x02 \x01(\v2\x14.google.protobuf.AnyR\x05value:\x028\x01B\xa6\x01\n" +
+	"\x12com.gcommon.v1.logB\rLogEntryProtoP\x01Z\x1f../../../../pkg/log/proto;logpb\xa2\x02\x03GVL\xaa\x02\x0eGcommon.V1.Log\xca\x02\x0eGcommon\\V1\\Log\xe2\x02\x1aGcommon\\V1\\Log\\GPBMetadata\xea\x02\x10Gcommon::V1::Log\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
 
 var file_pkg_log_proto_messages_log_entry_proto_msgTypes = make([]protoimpl.MessageInfo, 2)
 var file_pkg_log_proto_messages_log_entry_proto_goTypes = []any{

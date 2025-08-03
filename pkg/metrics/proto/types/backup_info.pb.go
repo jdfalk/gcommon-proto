@@ -116,8 +116,8 @@ const file_pkg_metrics_proto_types_backup_info_proto_rawDesc = "" +
 	"\x0fbackup_location\x18\x02 \x01(\tR\x0ebackupLocation\x12*\n" +
 	"\x11backup_size_bytes\x18\x03 \x01(\x03R\x0fbackupSizeBytes\x12F\n" +
 	"\x11backup_created_at\x18\x04 \x01(\v2\x1a.google.protobuf.TimestampR\x0fbackupCreatedAt\x12)\n" +
-	"\x10backup_retention\x18\x05 \x01(\tR\x0fbackupRetentionB\xb9\x01\n" +
-	"\x16com.gcommon.v1.metricsB\x0fBackupInfoProtoP\x01Z$../../../../pkg/metrics/pb;metricspb\xa2\x02\x03GVM\xaa\x02\x12Gcommon.V1.Metrics\xca\x02\x12Gcommon\\V1\\Metrics\xe2\x02\x1eGcommon\\V1\\Metrics\\GPBMetadata\xea\x02\x14Gcommon::V1::Metricsb\beditionsp\xe8\a"
+	"\x10backup_retention\x18\x05 \x01(\tR\x0fbackupRetentionB\xbc\x01\n" +
+	"\x16com.gcommon.v1.metricsB\x0fBackupInfoProtoP\x01Z'../../../../pkg/metrics/proto;metricspb\xa2\x02\x03GVM\xaa\x02\x12Gcommon.V1.Metrics\xca\x02\x12Gcommon\\V1\\Metrics\xe2\x02\x1eGcommon\\V1\\Metrics\\GPBMetadata\xea\x02\x14Gcommon::V1::Metricsb\beditionsp\xe8\a"
 
 var (
 	file_pkg_metrics_proto_types_backup_info_proto_rawDescOnce sync.Once

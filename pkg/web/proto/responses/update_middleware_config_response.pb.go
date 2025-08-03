@@ -9,7 +9,7 @@
 package webpb
 
 import (
-	pb "../../../../pkg/common/pb"
+	proto "../../../../pkg/common/proto"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
@@ -29,7 +29,7 @@ const (
 type UpdateMiddlewareConfigResponse struct {
 	state protoimpl.MessageState `protogen:"hybrid.v1"`
 	// Standard response metadata
-	Metadata *pb.ResponseMetadata `protobuf:"bytes,1,opt,name=metadata" json:"metadata,omitempty"`
+	Metadata *proto.ResponseMetadata `protobuf:"bytes,1,opt,name=metadata" json:"metadata,omitempty"`
 	// Whether the middleware was updated
 	Updated       *bool `protobuf:"varint,2,opt,name=updated" json:"updated,omitempty"`
 	unknownFields protoimpl.UnknownFields
@@ -61,7 +61,7 @@ func (x *UpdateMiddlewareConfigResponse) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-func (x *UpdateMiddlewareConfigResponse) GetMetadata() *pb.ResponseMetadata {
+func (x *UpdateMiddlewareConfigResponse) GetMetadata() *proto.ResponseMetadata {
 	if x != nil {
 		return x.Metadata
 	}
@@ -75,7 +75,7 @@ func (x *UpdateMiddlewareConfigResponse) GetUpdated() bool {
 	return false
 }
 
-func (x *UpdateMiddlewareConfigResponse) SetMetadata(v *pb.ResponseMetadata) {
+func (x *UpdateMiddlewareConfigResponse) SetMetadata(v *proto.ResponseMetadata) {
 	x.Metadata = v
 }
 
@@ -109,7 +109,7 @@ type UpdateMiddlewareConfigResponse_builder struct {
 	_ [0]func() // Prevents comparability and use of unkeyed literals for the builder.
 
 	// Standard response metadata
-	Metadata *pb.ResponseMetadata
+	Metadata *proto.ResponseMetadata
 	// Whether the middleware was updated
 	Updated *bool
 }
@@ -130,13 +130,13 @@ const file_pkg_web_proto_responses_update_middleware_config_response_proto_rawDe
 	"?pkg/web/proto/responses/update_middleware_config_response.proto\x12\x0egcommon.v1.web\x1a!google/protobuf/go_features.proto\x1a1pkg/common/proto/messages/response_metadata.proto\"{\n" +
 	"\x1eUpdateMiddlewareConfigResponse\x12?\n" +
 	"\bmetadata\x18\x01 \x01(\v2#.gcommon.v1.common.ResponseMetadataR\bmetadata\x12\x18\n" +
-	"\aupdated\x18\x02 \x01(\bR\aupdatedB\xb9\x01\n" +
-	"\x12com.gcommon.v1.webB#UpdateMiddlewareConfigResponseProtoP\x01Z\x1c../../../../pkg/web/pb;webpb\xa2\x02\x03GVW\xaa\x02\x0eGcommon.V1.Web\xca\x02\x0eGcommon\\V1\\Web\xe2\x02\x1aGcommon\\V1\\Web\\GPBMetadata\xea\x02\x10Gcommon::V1::Web\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
+	"\aupdated\x18\x02 \x01(\bR\aupdatedB\xbc\x01\n" +
+	"\x12com.gcommon.v1.webB#UpdateMiddlewareConfigResponseProtoP\x01Z\x1f../../../../pkg/web/proto;webpb\xa2\x02\x03GVW\xaa\x02\x0eGcommon.V1.Web\xca\x02\x0eGcommon\\V1\\Web\xe2\x02\x1aGcommon\\V1\\Web\\GPBMetadata\xea\x02\x10Gcommon::V1::Web\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
 
 var file_pkg_web_proto_responses_update_middleware_config_response_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_pkg_web_proto_responses_update_middleware_config_response_proto_goTypes = []any{
 	(*UpdateMiddlewareConfigResponse)(nil), // 0: gcommon.v1.web.UpdateMiddlewareConfigResponse
-	(*pb.ResponseMetadata)(nil),            // 1: gcommon.v1.common.ResponseMetadata
+	(*proto.ResponseMetadata)(nil),         // 1: gcommon.v1.common.ResponseMetadata
 }
 var file_pkg_web_proto_responses_update_middleware_config_response_proto_depIdxs = []int32{
 	1, // 0: gcommon.v1.web.UpdateMiddlewareConfigResponse.metadata:type_name -> gcommon.v1.common.ResponseMetadata

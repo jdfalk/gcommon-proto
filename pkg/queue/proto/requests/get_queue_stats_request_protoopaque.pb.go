@@ -9,7 +9,7 @@
 package queuepb
 
 import (
-	pb "../../../../pkg/common/pb"
+	proto "../../../../pkg/common/proto"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
@@ -155,7 +155,7 @@ func (x StatisticGrouping) Number() protoreflect.EnumNumber {
 // and performance metrics.
 type GetQueueStatsRequest struct {
 	state                              protoimpl.MessageState `protogen:"opaque.v1"`
-	xxx_hidden_Metadata                *pb.RequestMetadata    `protobuf:"bytes,1,opt,name=metadata"`
+	xxx_hidden_Metadata                *proto.RequestMetadata `protobuf:"bytes,1,opt,name=metadata"`
 	xxx_hidden_QueueName               *string                `protobuf:"bytes,2,opt,name=queue_name,json=queueName"`
 	xxx_hidden_IncludeDetailedStats    bool                   `protobuf:"varint,3,opt,name=include_detailed_stats,json=includeDetailedStats"`
 	xxx_hidden_IncludeHistoricalStats  bool                   `protobuf:"varint,4,opt,name=include_historical_stats,json=includeHistoricalStats"`
@@ -198,7 +198,7 @@ func (x *GetQueueStatsRequest) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-func (x *GetQueueStatsRequest) GetMetadata() *pb.RequestMetadata {
+func (x *GetQueueStatsRequest) GetMetadata() *proto.RequestMetadata {
 	if x != nil {
 		return x.xxx_hidden_Metadata
 	}
@@ -287,7 +287,7 @@ func (x *GetQueueStatsRequest) GetGrouping() StatisticGrouping {
 	return StatisticGrouping_STATISTIC_GROUPING_UNSPECIFIED
 }
 
-func (x *GetQueueStatsRequest) SetMetadata(v *pb.RequestMetadata) {
+func (x *GetQueueStatsRequest) SetMetadata(v *proto.RequestMetadata) {
 	x.xxx_hidden_Metadata = v
 }
 
@@ -476,7 +476,7 @@ type GetQueueStatsRequest_builder struct {
 	_ [0]func() // Prevents comparability and use of unkeyed literals for the builder.
 
 	// Standard request metadata for tracing and authentication
-	Metadata *pb.RequestMetadata
+	Metadata *proto.RequestMetadata
 	// Name of the queue to get statistics for
 	// If empty, returns statistics for all queues accessible to the requester
 	QueueName *string
@@ -584,8 +584,8 @@ const file_pkg_queue_proto_requests_get_queue_stats_request_proto_rawDesc = "" +
 	"\x1bSTATISTIC_GROUPING_BY_QUEUE\x10\x02\x12\"\n" +
 	"\x1eSTATISTIC_GROUPING_BY_CONSUMER\x10\x03\x12%\n" +
 	"!STATISTIC_GROUPING_BY_TIME_PERIOD\x10\x04\x12&\n" +
-	"\"STATISTIC_GROUPING_BY_MESSAGE_TYPE\x10\x05B\xbd\x01\n" +
-	"\x14com.gcommon.v1.queueB\x19GetQueueStatsRequestProtoP\x01Z ../../../../pkg/queue/pb;queuepb\xa2\x02\x03GVQ\xaa\x02\x10Gcommon.V1.Queue\xca\x02\x10Gcommon\\V1\\Queue\xe2\x02\x1cGcommon\\V1\\Queue\\GPBMetadata\xea\x02\x12Gcommon::V1::Queue\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
+	"\"STATISTIC_GROUPING_BY_MESSAGE_TYPE\x10\x05B\xc0\x01\n" +
+	"\x14com.gcommon.v1.queueB\x19GetQueueStatsRequestProtoP\x01Z#../../../../pkg/queue/proto;queuepb\xa2\x02\x03GVQ\xaa\x02\x10Gcommon.V1.Queue\xca\x02\x10Gcommon\\V1\\Queue\xe2\x02\x1cGcommon\\V1\\Queue\\GPBMetadata\xea\x02\x12Gcommon::V1::Queue\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
 
 var file_pkg_queue_proto_requests_get_queue_stats_request_proto_enumTypes = make([]protoimpl.EnumInfo, 2)
 var file_pkg_queue_proto_requests_get_queue_stats_request_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
@@ -593,7 +593,7 @@ var file_pkg_queue_proto_requests_get_queue_stats_request_proto_goTypes = []any{
 	(StatisticType)(0),            // 0: gcommon.v1.queue.StatisticType
 	(StatisticGrouping)(0),        // 1: gcommon.v1.queue.StatisticGrouping
 	(*GetQueueStatsRequest)(nil),  // 2: gcommon.v1.queue.GetQueueStatsRequest
-	(*pb.RequestMetadata)(nil),    // 3: gcommon.v1.common.RequestMetadata
+	(*proto.RequestMetadata)(nil), // 3: gcommon.v1.common.RequestMetadata
 	(*timestamppb.Timestamp)(nil), // 4: google.protobuf.Timestamp
 }
 var file_pkg_queue_proto_requests_get_queue_stats_request_proto_depIdxs = []int32{

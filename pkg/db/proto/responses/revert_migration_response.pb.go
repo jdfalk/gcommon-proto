@@ -9,7 +9,7 @@
 package dbpb
 
 import (
-	pb "../../../../pkg/common/pb"
+	proto "../../../../pkg/common/proto"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
@@ -33,7 +33,7 @@ type RevertMigrationResponse struct {
 	// Version that the database was reverted to
 	RevertedTo *string `protobuf:"bytes,2,opt,name=reverted_to,json=revertedTo" json:"reverted_to,omitempty"`
 	// Error information if the revert failed
-	Error         *pb.Error `protobuf:"bytes,3,opt,name=error" json:"error,omitempty"`
+	Error         *proto.Error `protobuf:"bytes,3,opt,name=error" json:"error,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -77,7 +77,7 @@ func (x *RevertMigrationResponse) GetRevertedTo() string {
 	return ""
 }
 
-func (x *RevertMigrationResponse) GetError() *pb.Error {
+func (x *RevertMigrationResponse) GetError() *proto.Error {
 	if x != nil {
 		return x.Error
 	}
@@ -92,7 +92,7 @@ func (x *RevertMigrationResponse) SetRevertedTo(v string) {
 	x.RevertedTo = &v
 }
 
-func (x *RevertMigrationResponse) SetError(v *pb.Error) {
+func (x *RevertMigrationResponse) SetError(v *proto.Error) {
 	x.Error = v
 }
 
@@ -137,7 +137,7 @@ type RevertMigrationResponse_builder struct {
 	// Version that the database was reverted to
 	RevertedTo *string
 	// Error information if the revert failed
-	Error *pb.Error
+	Error *proto.Error
 }
 
 func (b0 RevertMigrationResponse_builder) Build() *RevertMigrationResponse {
@@ -159,13 +159,13 @@ const file_pkg_db_proto_responses_revert_migration_response_proto_rawDesc = "" +
 	"\asuccess\x18\x01 \x01(\bR\asuccess\x12\x1f\n" +
 	"\vreverted_to\x18\x02 \x01(\tR\n" +
 	"revertedTo\x122\n" +
-	"\x05error\x18\x03 \x01(\v2\x18.gcommon.v1.common.ErrorB\x02(\x01R\x05errorB\xc9\x01\n" +
-	"\x17com.gcommon.v1.databaseB\x1cRevertMigrationResponseProtoP\x01Z\x1a../../../../pkg/db/pb;dbpb\xa2\x02\x03GVD\xaa\x02\x13Gcommon.V1.Database\xca\x02\x13Gcommon\\V1\\Database\xe2\x02\x1fGcommon\\V1\\Database\\GPBMetadata\xea\x02\x15Gcommon::V1::Database\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
+	"\x05error\x18\x03 \x01(\v2\x18.gcommon.v1.common.ErrorB\x02(\x01R\x05errorB\xcc\x01\n" +
+	"\x17com.gcommon.v1.databaseB\x1cRevertMigrationResponseProtoP\x01Z\x1d../../../../pkg/db/proto;dbpb\xa2\x02\x03GVD\xaa\x02\x13Gcommon.V1.Database\xca\x02\x13Gcommon\\V1\\Database\xe2\x02\x1fGcommon\\V1\\Database\\GPBMetadata\xea\x02\x15Gcommon::V1::Database\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
 
 var file_pkg_db_proto_responses_revert_migration_response_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_pkg_db_proto_responses_revert_migration_response_proto_goTypes = []any{
 	(*RevertMigrationResponse)(nil), // 0: gcommon.v1.database.RevertMigrationResponse
-	(*pb.Error)(nil),                // 1: gcommon.v1.common.Error
+	(*proto.Error)(nil),             // 1: gcommon.v1.common.Error
 }
 var file_pkg_db_proto_responses_revert_migration_response_proto_depIdxs = []int32{
 	1, // 0: gcommon.v1.database.RevertMigrationResponse.error:type_name -> gcommon.v1.common.Error

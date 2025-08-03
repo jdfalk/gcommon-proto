@@ -317,8 +317,8 @@ const file_pkg_auth_proto_responses_validate_token_response_proto_rawDesc = "" +
 	"\asubject\x18\x05 \x01(\tR\asubject\x12\x16\n" +
 	"\x06issuer\x18\x06 \x01(\tR\x06issuer\x12\x1d\n" +
 	"\n" +
-	"expires_in\x18\a \x01(\x05R\texpiresInB\xb7\x01\n" +
-	"\x13com.gcommon.v1.authB\x1aValidateTokenResponseProtoP\x01Z\x1e../../../../pkg/auth/pb;authpb\xa2\x02\x03GVA\xaa\x02\x0fGcommon.V1.Auth\xca\x02\x0fGcommon\\V1\\Auth\xe2\x02\x1bGcommon\\V1\\Auth\\GPBMetadata\xea\x02\x11Gcommon::V1::Auth\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
+	"expires_in\x18\a \x01(\x05R\texpiresInB\xba\x01\n" +
+	"\x13com.gcommon.v1.authB\x1aValidateTokenResponseProtoP\x01Z!../../../../pkg/auth/proto;authpb\xa2\x02\x03GVA\xaa\x02\x0fGcommon.V1.Auth\xca\x02\x0fGcommon\\V1\\Auth\xe2\x02\x1bGcommon\\V1\\Auth\\GPBMetadata\xea\x02\x11Gcommon::V1::Auth\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
 
 var file_pkg_auth_proto_responses_validate_token_response_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_pkg_auth_proto_responses_validate_token_response_proto_goTypes = []any{

@@ -9,7 +9,7 @@
 package configpb
 
 import (
-	pb "../../../../pkg/common/pb"
+	proto "../../../../pkg/common/proto"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
@@ -30,10 +30,10 @@ type ListConfigRequest struct {
 	state                  protoimpl.MessageState `protogen:"opaque.v1"`
 	xxx_hidden_Prefix      *string                `protobuf:"bytes,1,opt,name=prefix"`
 	xxx_hidden_Namespace   *string                `protobuf:"bytes,2,opt,name=namespace"`
-	xxx_hidden_Pagination  *pb.Pagination         `protobuf:"bytes,3,opt,name=pagination"`
-	xxx_hidden_Filter      *pb.FilterOptions      `protobuf:"bytes,4,opt,name=filter"`
-	xxx_hidden_Sort        *pb.SortOptions        `protobuf:"bytes,5,opt,name=sort"`
-	xxx_hidden_Metadata    *pb.RequestMetadata    `protobuf:"bytes,6,opt,name=metadata"`
+	xxx_hidden_Pagination  *proto.Pagination      `protobuf:"bytes,3,opt,name=pagination"`
+	xxx_hidden_Filter      *proto.FilterOptions   `protobuf:"bytes,4,opt,name=filter"`
+	xxx_hidden_Sort        *proto.SortOptions     `protobuf:"bytes,5,opt,name=sort"`
+	xxx_hidden_Metadata    *proto.RequestMetadata `protobuf:"bytes,6,opt,name=metadata"`
 	XXX_raceDetectHookData protoimpl.RaceDetectHookData
 	XXX_presence           [1]uint32
 	unknownFields          protoimpl.UnknownFields
@@ -85,28 +85,28 @@ func (x *ListConfigRequest) GetNamespace() string {
 	return ""
 }
 
-func (x *ListConfigRequest) GetPagination() *pb.Pagination {
+func (x *ListConfigRequest) GetPagination() *proto.Pagination {
 	if x != nil {
 		return x.xxx_hidden_Pagination
 	}
 	return nil
 }
 
-func (x *ListConfigRequest) GetFilter() *pb.FilterOptions {
+func (x *ListConfigRequest) GetFilter() *proto.FilterOptions {
 	if x != nil {
 		return x.xxx_hidden_Filter
 	}
 	return nil
 }
 
-func (x *ListConfigRequest) GetSort() *pb.SortOptions {
+func (x *ListConfigRequest) GetSort() *proto.SortOptions {
 	if x != nil {
 		return x.xxx_hidden_Sort
 	}
 	return nil
 }
 
-func (x *ListConfigRequest) GetMetadata() *pb.RequestMetadata {
+func (x *ListConfigRequest) GetMetadata() *proto.RequestMetadata {
 	if x != nil {
 		return x.xxx_hidden_Metadata
 	}
@@ -123,19 +123,19 @@ func (x *ListConfigRequest) SetNamespace(v string) {
 	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 1, 6)
 }
 
-func (x *ListConfigRequest) SetPagination(v *pb.Pagination) {
+func (x *ListConfigRequest) SetPagination(v *proto.Pagination) {
 	x.xxx_hidden_Pagination = v
 }
 
-func (x *ListConfigRequest) SetFilter(v *pb.FilterOptions) {
+func (x *ListConfigRequest) SetFilter(v *proto.FilterOptions) {
 	x.xxx_hidden_Filter = v
 }
 
-func (x *ListConfigRequest) SetSort(v *pb.SortOptions) {
+func (x *ListConfigRequest) SetSort(v *proto.SortOptions) {
 	x.xxx_hidden_Sort = v
 }
 
-func (x *ListConfigRequest) SetMetadata(v *pb.RequestMetadata) {
+func (x *ListConfigRequest) SetMetadata(v *proto.RequestMetadata) {
 	x.xxx_hidden_Metadata = v
 }
 
@@ -215,13 +215,13 @@ type ListConfigRequest_builder struct {
 	// Optional namespace/environment
 	Namespace *string
 	// Pagination options
-	Pagination *pb.Pagination
+	Pagination *proto.Pagination
 	// Filter options
-	Filter *pb.FilterOptions
+	Filter *proto.FilterOptions
 	// Sort options
-	Sort *pb.SortOptions
+	Sort *proto.SortOptions
 	// Request metadata
-	Metadata *pb.RequestMetadata
+	Metadata *proto.RequestMetadata
 }
 
 func (b0 ListConfigRequest_builder) Build() *ListConfigRequest {
@@ -256,16 +256,16 @@ const file_pkg_config_proto_requests_list_config_request_proto_rawDesc = "" +
 	"pagination\x128\n" +
 	"\x06filter\x18\x04 \x01(\v2 .gcommon.v1.common.FilterOptionsR\x06filter\x122\n" +
 	"\x04sort\x18\x05 \x01(\v2\x1e.gcommon.v1.common.SortOptionsR\x04sort\x12>\n" +
-	"\bmetadata\x18\x06 \x01(\v2\".gcommon.v1.common.RequestMetadataR\bmetadataB\xc1\x01\n" +
-	"\x15com.gcommon.v1.configB\x16ListConfigRequestProtoP\x01Z\"../../../../pkg/config/pb;configpb\xa2\x02\x03GVC\xaa\x02\x11Gcommon.V1.Config\xca\x02\x11Gcommon\\V1\\Config\xe2\x02\x1dGcommon\\V1\\Config\\GPBMetadata\xea\x02\x13Gcommon::V1::Config\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
+	"\bmetadata\x18\x06 \x01(\v2\".gcommon.v1.common.RequestMetadataR\bmetadataB\xc4\x01\n" +
+	"\x15com.gcommon.v1.configB\x16ListConfigRequestProtoP\x01Z%../../../../pkg/config/proto;configpb\xa2\x02\x03GVC\xaa\x02\x11Gcommon.V1.Config\xca\x02\x11Gcommon\\V1\\Config\xe2\x02\x1dGcommon\\V1\\Config\\GPBMetadata\xea\x02\x13Gcommon::V1::Config\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
 
 var file_pkg_config_proto_requests_list_config_request_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_pkg_config_proto_requests_list_config_request_proto_goTypes = []any{
-	(*ListConfigRequest)(nil),  // 0: gcommon.v1.config.ListConfigRequest
-	(*pb.Pagination)(nil),      // 1: gcommon.v1.common.Pagination
-	(*pb.FilterOptions)(nil),   // 2: gcommon.v1.common.FilterOptions
-	(*pb.SortOptions)(nil),     // 3: gcommon.v1.common.SortOptions
-	(*pb.RequestMetadata)(nil), // 4: gcommon.v1.common.RequestMetadata
+	(*ListConfigRequest)(nil),     // 0: gcommon.v1.config.ListConfigRequest
+	(*proto.Pagination)(nil),      // 1: gcommon.v1.common.Pagination
+	(*proto.FilterOptions)(nil),   // 2: gcommon.v1.common.FilterOptions
+	(*proto.SortOptions)(nil),     // 3: gcommon.v1.common.SortOptions
+	(*proto.RequestMetadata)(nil), // 4: gcommon.v1.common.RequestMetadata
 }
 var file_pkg_config_proto_requests_list_config_request_proto_depIdxs = []int32{
 	1, // 0: gcommon.v1.config.ListConfigRequest.pagination:type_name -> gcommon.v1.common.Pagination

@@ -9,7 +9,7 @@
 package metricspb
 
 import (
-	pb "../../../../pkg/common/pb"
+	proto "../../../../pkg/common/proto"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
@@ -31,7 +31,7 @@ type GetStatsResponse struct {
 	// Statistics for the query
 	Stats *QueryStats `protobuf:"bytes,1,opt,name=stats" json:"stats,omitempty"`
 	// Error information
-	Error         *pb.Error `protobuf:"bytes,2,opt,name=error" json:"error,omitempty"`
+	Error         *proto.Error `protobuf:"bytes,2,opt,name=error" json:"error,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -68,7 +68,7 @@ func (x *GetStatsResponse) GetStats() *QueryStats {
 	return nil
 }
 
-func (x *GetStatsResponse) GetError() *pb.Error {
+func (x *GetStatsResponse) GetError() *proto.Error {
 	if x != nil {
 		return x.Error
 	}
@@ -79,7 +79,7 @@ func (x *GetStatsResponse) SetStats(v *QueryStats) {
 	x.Stats = v
 }
 
-func (x *GetStatsResponse) SetError(v *pb.Error) {
+func (x *GetStatsResponse) SetError(v *proto.Error) {
 	x.Error = v
 }
 
@@ -111,7 +111,7 @@ type GetStatsResponse_builder struct {
 	// Statistics for the query
 	Stats *QueryStats
 	// Error information
-	Error *pb.Error
+	Error *proto.Error
 }
 
 func (b0 GetStatsResponse_builder) Build() *GetStatsResponse {
@@ -130,14 +130,14 @@ const file_pkg_metrics_proto_responses_get_stats_response_proto_rawDesc = "" +
 	"4pkg/metrics/proto/responses/get_stats_response.proto\x12\x12gcommon.v1.metrics\x1a!google/protobuf/go_features.proto\x1a%pkg/common/proto/messages/error.proto\x1a)pkg/metrics/proto/types/query_stats.proto\"x\n" +
 	"\x10GetStatsResponse\x124\n" +
 	"\x05stats\x18\x01 \x01(\v2\x1e.gcommon.v1.metrics.QueryStatsR\x05stats\x12.\n" +
-	"\x05error\x18\x02 \x01(\v2\x18.gcommon.v1.common.ErrorR\x05errorB\xc7\x01\n" +
-	"\x16com.gcommon.v1.metricsB\x15GetStatsResponseProtoP\x01Z$../../../../pkg/metrics/pb;metricspb\xa2\x02\x03GVM\xaa\x02\x12Gcommon.V1.Metrics\xca\x02\x12Gcommon\\V1\\Metrics\xe2\x02\x1eGcommon\\V1\\Metrics\\GPBMetadata\xea\x02\x14Gcommon::V1::Metrics\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
+	"\x05error\x18\x02 \x01(\v2\x18.gcommon.v1.common.ErrorR\x05errorB\xca\x01\n" +
+	"\x16com.gcommon.v1.metricsB\x15GetStatsResponseProtoP\x01Z'../../../../pkg/metrics/proto;metricspb\xa2\x02\x03GVM\xaa\x02\x12Gcommon.V1.Metrics\xca\x02\x12Gcommon\\V1\\Metrics\xe2\x02\x1eGcommon\\V1\\Metrics\\GPBMetadata\xea\x02\x14Gcommon::V1::Metrics\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
 
 var file_pkg_metrics_proto_responses_get_stats_response_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_pkg_metrics_proto_responses_get_stats_response_proto_goTypes = []any{
 	(*GetStatsResponse)(nil), // 0: gcommon.v1.metrics.GetStatsResponse
 	(*QueryStats)(nil),       // 1: gcommon.v1.metrics.QueryStats
-	(*pb.Error)(nil),         // 2: gcommon.v1.common.Error
+	(*proto.Error)(nil),      // 2: gcommon.v1.common.Error
 }
 var file_pkg_metrics_proto_responses_get_stats_response_proto_depIdxs = []int32{
 	1, // 0: gcommon.v1.metrics.GetStatsResponse.stats:type_name -> gcommon.v1.metrics.QueryStats

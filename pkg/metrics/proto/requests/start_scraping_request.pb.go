@@ -9,7 +9,7 @@
 package metricspb
 
 import (
-	pb "../../../../pkg/common/pb"
+	proto "../../../../pkg/common/proto"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
@@ -29,7 +29,7 @@ const (
 type StartScrapingRequest struct {
 	state protoimpl.MessageState `protogen:"hybrid.v1"`
 	// Standard request metadata
-	Metadata *pb.RequestMetadata `protobuf:"bytes,1,opt,name=metadata" json:"metadata,omitempty"`
+	Metadata *proto.RequestMetadata `protobuf:"bytes,1,opt,name=metadata" json:"metadata,omitempty"`
 	// Metrics provider identifier
 	ProviderId *string `protobuf:"bytes,2,opt,name=provider_id,json=providerId" json:"provider_id,omitempty"`
 	// Scrape configuration to use
@@ -63,7 +63,7 @@ func (x *StartScrapingRequest) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-func (x *StartScrapingRequest) GetMetadata() *pb.RequestMetadata {
+func (x *StartScrapingRequest) GetMetadata() *proto.RequestMetadata {
 	if x != nil {
 		return x.Metadata
 	}
@@ -84,7 +84,7 @@ func (x *StartScrapingRequest) GetConfig() *ScrapeConfig {
 	return nil
 }
 
-func (x *StartScrapingRequest) SetMetadata(v *pb.RequestMetadata) {
+func (x *StartScrapingRequest) SetMetadata(v *proto.RequestMetadata) {
 	x.Metadata = v
 }
 
@@ -133,7 +133,7 @@ type StartScrapingRequest_builder struct {
 	_ [0]func() // Prevents comparability and use of unkeyed literals for the builder.
 
 	// Standard request metadata
-	Metadata *pb.RequestMetadata
+	Metadata *proto.RequestMetadata
 	// Metrics provider identifier
 	ProviderId *string
 	// Scrape configuration to use
@@ -159,14 +159,14 @@ const file_pkg_metrics_proto_requests_start_scraping_request_proto_rawDesc = "" 
 	"\bmetadata\x18\x01 \x01(\v2\".gcommon.v1.common.RequestMetadataR\bmetadata\x12\x1f\n" +
 	"\vprovider_id\x18\x02 \x01(\tR\n" +
 	"providerId\x128\n" +
-	"\x06config\x18\x03 \x01(\v2 .gcommon.v1.metrics.ScrapeConfigR\x06configB\xcb\x01\n" +
-	"\x16com.gcommon.v1.metricsB\x19StartScrapingRequestProtoP\x01Z$../../../../pkg/metrics/pb;metricspb\xa2\x02\x03GVM\xaa\x02\x12Gcommon.V1.Metrics\xca\x02\x12Gcommon\\V1\\Metrics\xe2\x02\x1eGcommon\\V1\\Metrics\\GPBMetadata\xea\x02\x14Gcommon::V1::Metrics\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
+	"\x06config\x18\x03 \x01(\v2 .gcommon.v1.metrics.ScrapeConfigR\x06configB\xce\x01\n" +
+	"\x16com.gcommon.v1.metricsB\x19StartScrapingRequestProtoP\x01Z'../../../../pkg/metrics/proto;metricspb\xa2\x02\x03GVM\xaa\x02\x12Gcommon.V1.Metrics\xca\x02\x12Gcommon\\V1\\Metrics\xe2\x02\x1eGcommon\\V1\\Metrics\\GPBMetadata\xea\x02\x14Gcommon::V1::Metrics\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
 
 var file_pkg_metrics_proto_requests_start_scraping_request_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_pkg_metrics_proto_requests_start_scraping_request_proto_goTypes = []any{
-	(*StartScrapingRequest)(nil), // 0: gcommon.v1.metrics.StartScrapingRequest
-	(*pb.RequestMetadata)(nil),   // 1: gcommon.v1.common.RequestMetadata
-	(*ScrapeConfig)(nil),         // 2: gcommon.v1.metrics.ScrapeConfig
+	(*StartScrapingRequest)(nil),  // 0: gcommon.v1.metrics.StartScrapingRequest
+	(*proto.RequestMetadata)(nil), // 1: gcommon.v1.common.RequestMetadata
+	(*ScrapeConfig)(nil),          // 2: gcommon.v1.metrics.ScrapeConfig
 }
 var file_pkg_metrics_proto_requests_start_scraping_request_proto_depIdxs = []int32{
 	1, // 0: gcommon.v1.metrics.StartScrapingRequest.metadata:type_name -> gcommon.v1.common.RequestMetadata

@@ -188,8 +188,8 @@ const file_pkg_cache_proto_messages_set_options_proto_rawDesc = "" +
 	"\x0eonly_if_absent\x18\x01 \x01(\bR\fonlyIfAbsent\x12&\n" +
 	"\x0fonly_if_present\x18\x02 \x01(\bR\ronlyIfPresent\x12/\n" +
 	"\x03ttl\x18\x03 \x01(\v2\x19.google.protobuf.DurationB\x02(\x01R\x03ttl\x12'\n" +
-	"\x0freturn_previous\x18\x04 \x01(\bR\x0ereturnPreviousB\xb3\x01\n" +
-	"\x14com.gcommon.v1.cacheB\x0fSetOptionsProtoP\x01Z ../../../../pkg/cache/pb;cachepb\xa2\x02\x03GVC\xaa\x02\x10Gcommon.V1.Cache\xca\x02\x10Gcommon\\V1\\Cache\xe2\x02\x1cGcommon\\V1\\Cache\\GPBMetadata\xea\x02\x12Gcommon::V1::Cache\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
+	"\x0freturn_previous\x18\x04 \x01(\bR\x0ereturnPreviousB\xb6\x01\n" +
+	"\x14com.gcommon.v1.cacheB\x0fSetOptionsProtoP\x01Z#../../../../pkg/cache/proto;cachepb\xa2\x02\x03GVC\xaa\x02\x10Gcommon.V1.Cache\xca\x02\x10Gcommon\\V1\\Cache\xe2\x02\x1cGcommon\\V1\\Cache\\GPBMetadata\xea\x02\x12Gcommon::V1::Cache\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
 
 var file_pkg_cache_proto_messages_set_options_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_pkg_cache_proto_messages_set_options_proto_goTypes = []any{

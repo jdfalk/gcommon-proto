@@ -9,7 +9,7 @@
 package metricspb
 
 import (
-	pb "../../../../pkg/common/pb"
+	proto "../../../../pkg/common/proto"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
@@ -32,7 +32,7 @@ type CreateProviderResponse struct {
 	// Success status of the creation
 	Success *bool `protobuf:"varint,1,opt,name=success" json:"success,omitempty"`
 	// Error information if creation failed
-	Error *pb.Error `protobuf:"bytes,2,opt,name=error" json:"error,omitempty"`
+	Error *proto.Error `protobuf:"bytes,2,opt,name=error" json:"error,omitempty"`
 	// ID of the created provider
 	ProviderId *string `protobuf:"bytes,3,opt,name=provider_id,json=providerId" json:"provider_id,omitempty"`
 	// When the provider was created
@@ -83,7 +83,7 @@ func (x *CreateProviderResponse) GetSuccess() bool {
 	return false
 }
 
-func (x *CreateProviderResponse) GetError() *pb.Error {
+func (x *CreateProviderResponse) GetError() *proto.Error {
 	if x != nil {
 		return x.Error
 	}
@@ -143,7 +143,7 @@ func (x *CreateProviderResponse) SetSuccess(v bool) {
 	x.Success = &v
 }
 
-func (x *CreateProviderResponse) SetError(v *pb.Error) {
+func (x *CreateProviderResponse) SetError(v *proto.Error) {
 	x.Error = v
 }
 
@@ -269,7 +269,7 @@ type CreateProviderResponse_builder struct {
 	// Success status of the creation
 	Success *bool
 	// Error information if creation failed
-	Error *pb.Error
+	Error *proto.Error
 	// ID of the created provider
 	ProviderId *string
 	// When the provider was created
@@ -787,8 +787,8 @@ const file_pkg_metrics_proto_responses_create_provider_response_proto_rawDesc = 
 	"\x14additional_endpoints\x18\x05 \x03(\v2>.gcommon.v1.metrics.ProviderEndpoints.AdditionalEndpointsEntryR\x13additionalEndpoints\x1aF\n" +
 	"\x18AdditionalEndpointsEntry\x12\x10\n" +
 	"\x03key\x18\x01 \x01(\tR\x03key\x12\x14\n" +
-	"\x05value\x18\x02 \x01(\tR\x05value:\x028\x01B\xcd\x01\n" +
-	"\x16com.gcommon.v1.metricsB\x1bCreateProviderResponseProtoP\x01Z$../../../../pkg/metrics/pb;metricspb\xa2\x02\x03GVM\xaa\x02\x12Gcommon.V1.Metrics\xca\x02\x12Gcommon\\V1\\Metrics\xe2\x02\x1eGcommon\\V1\\Metrics\\GPBMetadata\xea\x02\x14Gcommon::V1::Metrics\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
+	"\x05value\x18\x02 \x01(\tR\x05value:\x028\x01B\xd0\x01\n" +
+	"\x16com.gcommon.v1.metricsB\x1bCreateProviderResponseProtoP\x01Z'../../../../pkg/metrics/proto;metricspb\xa2\x02\x03GVM\xaa\x02\x12Gcommon.V1.Metrics\xca\x02\x12Gcommon\\V1\\Metrics\xe2\x02\x1eGcommon\\V1\\Metrics\\GPBMetadata\xea\x02\x14Gcommon::V1::Metrics\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
 
 var file_pkg_metrics_proto_responses_create_provider_response_proto_msgTypes = make([]protoimpl.MessageInfo, 7)
 var file_pkg_metrics_proto_responses_create_provider_response_proto_goTypes = []any{
@@ -799,7 +799,7 @@ var file_pkg_metrics_proto_responses_create_provider_response_proto_goTypes = []
 	nil,                            // 4: gcommon.v1.metrics.AppliedConfig.AppliedDefaultsEntry
 	nil,                            // 5: gcommon.v1.metrics.AppliedConfig.AppliedOverridesEntry
 	nil,                            // 6: gcommon.v1.metrics.ProviderEndpoints.AdditionalEndpointsEntry
-	(*pb.Error)(nil),               // 7: gcommon.v1.common.Error
+	(*proto.Error)(nil),            // 7: gcommon.v1.common.Error
 	(*timestamppb.Timestamp)(nil),  // 8: google.protobuf.Timestamp
 	(*ProviderStatus)(nil),         // 9: gcommon.v1.metrics.ProviderStatus
 	(*ValidationResult)(nil),       // 10: gcommon.v1.metrics.ValidationResult

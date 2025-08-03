@@ -31,8 +31,8 @@ const file_pkg_auth_proto_services_authorization_service_proto_rawDesc = "" +
 	"\x14AuthorizationService\x12R\n" +
 	"\tAuthorize\x12!.gcommon.v1.auth.AuthorizeRequest\x1a\".gcommon.v1.auth.AuthorizeResponse\x12m\n" +
 	"\x12GetUserPermissions\x12*.gcommon.v1.auth.GetUserPermissionsRequest\x1a+.gcommon.v1.auth.GetUserPermissionsResponse\x12[\n" +
-	"\fGetUserRoles\x12$.gcommon.v1.auth.GetUserRolesRequest\x1a%.gcommon.v1.auth.GetUserRolesResponseB\xb6\x01\n" +
-	"\x13com.gcommon.v1.authB\x19AuthorizationServiceProtoP\x01Z\x1e../../../../pkg/auth/pb;authpb\xa2\x02\x03GVA\xaa\x02\x0fGcommon.V1.Auth\xca\x02\x0fGcommon\\V1\\Auth\xe2\x02\x1bGcommon\\V1\\Auth\\GPBMetadata\xea\x02\x11Gcommon::V1::Auth\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
+	"\fGetUserRoles\x12$.gcommon.v1.auth.GetUserRolesRequest\x1a%.gcommon.v1.auth.GetUserRolesResponseB\xb9\x01\n" +
+	"\x13com.gcommon.v1.authB\x19AuthorizationServiceProtoP\x01Z!../../../../pkg/auth/proto;authpb\xa2\x02\x03GVA\xaa\x02\x0fGcommon.V1.Auth\xca\x02\x0fGcommon\\V1\\Auth\xe2\x02\x1bGcommon\\V1\\Auth\\GPBMetadata\xea\x02\x11Gcommon::V1::Auth\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
 
 var file_pkg_auth_proto_services_authorization_service_proto_goTypes = []any{
 	(*AuthorizeRequest)(nil),           // 0: gcommon.v1.auth.AuthorizeRequest

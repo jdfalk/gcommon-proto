@@ -260,8 +260,8 @@ const file_pkg_health_proto_messages_health_metric_data_proto_rawDesc = "" +
 	"\vdescription\x18\x06 \x01(\tR\vdescription\x1a9\n" +
 	"\vLabelsEntry\x12\x10\n" +
 	"\x03key\x18\x01 \x01(\tR\x03key\x12\x14\n" +
-	"\x05value\x18\x02 \x01(\tR\x05value:\x028\x01B\xc0\x01\n" +
-	"\x15com.gcommon.v1.healthB\x15HealthMetricDataProtoP\x01Z\"../../../../pkg/health/pb;healthpb\xa2\x02\x03GVH\xaa\x02\x11Gcommon.V1.Health\xca\x02\x11Gcommon\\V1\\Health\xe2\x02\x1dGcommon\\V1\\Health\\GPBMetadata\xea\x02\x13Gcommon::V1::Health\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
+	"\x05value\x18\x02 \x01(\tR\x05value:\x028\x01B\xc3\x01\n" +
+	"\x15com.gcommon.v1.healthB\x15HealthMetricDataProtoP\x01Z%../../../../pkg/health/proto;healthpb\xa2\x02\x03GVH\xaa\x02\x11Gcommon.V1.Health\xca\x02\x11Gcommon\\V1\\Health\xe2\x02\x1dGcommon\\V1\\Health\\GPBMetadata\xea\x02\x13Gcommon::V1::Health\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
 
 var file_pkg_health_proto_messages_health_metric_data_proto_msgTypes = make([]protoimpl.MessageInfo, 2)
 var file_pkg_health_proto_messages_health_metric_data_proto_goTypes = []any{

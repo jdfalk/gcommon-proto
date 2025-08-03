@@ -305,8 +305,8 @@ const file_pkg_web_proto_messages_cookie_config_proto_rawDesc = "" +
 	"\x06secure\x18\x04 \x01(\bR\x06secure\x12\x1b\n" +
 	"\thttp_only\x18\x05 \x01(\bR\bhttpOnly\x12;\n" +
 	"\tsame_site\x18\x06 \x01(\x0e2\x1e.gcommon.v1.web.CookieSameSiteR\bsameSite\x122\n" +
-	"\amax_age\x18\a \x01(\v2\x19.google.protobuf.DurationR\x06maxAgeB\xa7\x01\n" +
-	"\x12com.gcommon.v1.webB\x11CookieConfigProtoP\x01Z\x1c../../../../pkg/web/pb;webpb\xa2\x02\x03GVW\xaa\x02\x0eGcommon.V1.Web\xca\x02\x0eGcommon\\V1\\Web\xe2\x02\x1aGcommon\\V1\\Web\\GPBMetadata\xea\x02\x10Gcommon::V1::Web\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
+	"\amax_age\x18\a \x01(\v2\x19.google.protobuf.DurationR\x06maxAgeB\xaa\x01\n" +
+	"\x12com.gcommon.v1.webB\x11CookieConfigProtoP\x01Z\x1f../../../../pkg/web/proto;webpb\xa2\x02\x03GVW\xaa\x02\x0eGcommon.V1.Web\xca\x02\x0eGcommon\\V1\\Web\xe2\x02\x1aGcommon\\V1\\Web\\GPBMetadata\xea\x02\x10Gcommon::V1::Web\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
 
 var file_pkg_web_proto_messages_cookie_config_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_pkg_web_proto_messages_cookie_config_proto_goTypes = []any{

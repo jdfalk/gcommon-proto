@@ -9,7 +9,7 @@
 package configpb
 
 import (
-	pb "../../../../pkg/common/pb"
+	proto "../../../../pkg/common/proto"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
@@ -30,7 +30,7 @@ type SetConfigSchemaRequest struct {
 	state                  protoimpl.MessageState `protogen:"opaque.v1"`
 	xxx_hidden_Namespace   *string                `protobuf:"bytes,1,opt,name=namespace"`
 	xxx_hidden_Schema      *ConfigSchema          `protobuf:"bytes,2,opt,name=schema"`
-	xxx_hidden_Metadata    *pb.RequestMetadata    `protobuf:"bytes,3,opt,name=metadata"`
+	xxx_hidden_Metadata    *proto.RequestMetadata `protobuf:"bytes,3,opt,name=metadata"`
 	XXX_raceDetectHookData protoimpl.RaceDetectHookData
 	XXX_presence           [1]uint32
 	unknownFields          protoimpl.UnknownFields
@@ -79,7 +79,7 @@ func (x *SetConfigSchemaRequest) GetSchema() *ConfigSchema {
 	return nil
 }
 
-func (x *SetConfigSchemaRequest) GetMetadata() *pb.RequestMetadata {
+func (x *SetConfigSchemaRequest) GetMetadata() *proto.RequestMetadata {
 	if x != nil {
 		return x.xxx_hidden_Metadata
 	}
@@ -95,7 +95,7 @@ func (x *SetConfigSchemaRequest) SetSchema(v *ConfigSchema) {
 	x.xxx_hidden_Schema = v
 }
 
-func (x *SetConfigSchemaRequest) SetMetadata(v *pb.RequestMetadata) {
+func (x *SetConfigSchemaRequest) SetMetadata(v *proto.RequestMetadata) {
 	x.xxx_hidden_Metadata = v
 }
 
@@ -141,7 +141,7 @@ type SetConfigSchemaRequest_builder struct {
 	// Schema definition
 	Schema *ConfigSchema
 	// Request metadata
-	Metadata *pb.RequestMetadata
+	Metadata *proto.RequestMetadata
 }
 
 func (b0 SetConfigSchemaRequest_builder) Build() *SetConfigSchemaRequest {
@@ -165,14 +165,14 @@ const file_pkg_config_proto_requests_set_config_schema_request_proto_rawDesc = "
 	"\x16SetConfigSchemaRequest\x12\x1c\n" +
 	"\tnamespace\x18\x01 \x01(\tR\tnamespace\x127\n" +
 	"\x06schema\x18\x02 \x01(\v2\x1f.gcommon.v1.config.ConfigSchemaR\x06schema\x12>\n" +
-	"\bmetadata\x18\x03 \x01(\v2\".gcommon.v1.common.RequestMetadataR\bmetadataB\xc6\x01\n" +
-	"\x15com.gcommon.v1.configB\x1bSetConfigSchemaRequestProtoP\x01Z\"../../../../pkg/config/pb;configpb\xa2\x02\x03GVC\xaa\x02\x11Gcommon.V1.Config\xca\x02\x11Gcommon\\V1\\Config\xe2\x02\x1dGcommon\\V1\\Config\\GPBMetadata\xea\x02\x13Gcommon::V1::Config\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
+	"\bmetadata\x18\x03 \x01(\v2\".gcommon.v1.common.RequestMetadataR\bmetadataB\xc9\x01\n" +
+	"\x15com.gcommon.v1.configB\x1bSetConfigSchemaRequestProtoP\x01Z%../../../../pkg/config/proto;configpb\xa2\x02\x03GVC\xaa\x02\x11Gcommon.V1.Config\xca\x02\x11Gcommon\\V1\\Config\xe2\x02\x1dGcommon\\V1\\Config\\GPBMetadata\xea\x02\x13Gcommon::V1::Config\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
 
 var file_pkg_config_proto_requests_set_config_schema_request_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_pkg_config_proto_requests_set_config_schema_request_proto_goTypes = []any{
 	(*SetConfigSchemaRequest)(nil), // 0: gcommon.v1.config.SetConfigSchemaRequest
 	(*ConfigSchema)(nil),           // 1: gcommon.v1.config.ConfigSchema
-	(*pb.RequestMetadata)(nil),     // 2: gcommon.v1.common.RequestMetadata
+	(*proto.RequestMetadata)(nil),  // 2: gcommon.v1.common.RequestMetadata
 }
 var file_pkg_config_proto_requests_set_config_schema_request_proto_depIdxs = []int32{
 	1, // 0: gcommon.v1.config.SetConfigSchemaRequest.schema:type_name -> gcommon.v1.config.ConfigSchema

@@ -135,8 +135,8 @@ const file_pkg_log_proto_messages_archive_criteria_proto_rawDesc = "" +
 	"\x0fArchiveCriteria\x128\n" +
 	"\n" +
 	"older_than\x18\x01 \x01(\v2\x19.google.protobuf.DurationR\tolderThan\x120\n" +
-	"\x14size_threshold_bytes\x18\x02 \x01(\x03R\x12sizeThresholdBytesB\xaa\x01\n" +
-	"\x12com.gcommon.v1.logB\x14ArchiveCriteriaProtoP\x01Z\x1c../../../../pkg/log/pb;logpb\xa2\x02\x03GVL\xaa\x02\x0eGcommon.V1.Log\xca\x02\x0eGcommon\\V1\\Log\xe2\x02\x1aGcommon\\V1\\Log\\GPBMetadata\xea\x02\x10Gcommon::V1::Log\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
+	"\x14size_threshold_bytes\x18\x02 \x01(\x03R\x12sizeThresholdBytesB\xad\x01\n" +
+	"\x12com.gcommon.v1.logB\x14ArchiveCriteriaProtoP\x01Z\x1f../../../../pkg/log/proto;logpb\xa2\x02\x03GVL\xaa\x02\x0eGcommon.V1.Log\xca\x02\x0eGcommon\\V1\\Log\xe2\x02\x1aGcommon\\V1\\Log\\GPBMetadata\xea\x02\x10Gcommon::V1::Log\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
 
 var file_pkg_log_proto_messages_archive_criteria_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_pkg_log_proto_messages_archive_criteria_proto_goTypes = []any{

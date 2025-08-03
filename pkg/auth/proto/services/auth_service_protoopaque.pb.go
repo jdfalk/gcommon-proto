@@ -37,8 +37,8 @@ const file_pkg_auth_proto_services_auth_service_proto_rawDesc = "" +
 	"\vGetUserInfo\x12#.gcommon.v1.auth.GetUserInfoRequest\x1a$.gcommon.v1.auth.GetUserInfoResponse\x12v\n" +
 	"\x15InitiatePasswordReset\x12-.gcommon.v1.auth.InitiatePasswordResetRequest\x1a..gcommon.v1.auth.InitiatePasswordResetResponse\x12v\n" +
 	"\x15CompletePasswordReset\x12-.gcommon.v1.auth.CompletePasswordResetRequest\x1a..gcommon.v1.auth.CompletePasswordResetResponse\x12a\n" +
-	"\x0eChangePassword\x12&.gcommon.v1.auth.ChangePasswordRequest\x1a'.gcommon.v1.auth.ChangePasswordResponseB\xad\x01\n" +
-	"\x13com.gcommon.v1.authB\x10AuthServiceProtoP\x01Z\x1e../../../../pkg/auth/pb;authpb\xa2\x02\x03GVA\xaa\x02\x0fGcommon.V1.Auth\xca\x02\x0fGcommon\\V1\\Auth\xe2\x02\x1bGcommon\\V1\\Auth\\GPBMetadata\xea\x02\x11Gcommon::V1::Auth\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
+	"\x0eChangePassword\x12&.gcommon.v1.auth.ChangePasswordRequest\x1a'.gcommon.v1.auth.ChangePasswordResponseB\xb0\x01\n" +
+	"\x13com.gcommon.v1.authB\x10AuthServiceProtoP\x01Z!../../../../pkg/auth/proto;authpb\xa2\x02\x03GVA\xaa\x02\x0fGcommon.V1.Auth\xca\x02\x0fGcommon\\V1\\Auth\xe2\x02\x1bGcommon\\V1\\Auth\\GPBMetadata\xea\x02\x11Gcommon::V1::Auth\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
 
 var file_pkg_auth_proto_services_auth_service_proto_goTypes = []any{
 	(*AuthenticateRequest)(nil),           // 0: gcommon.v1.auth.AuthenticateRequest

@@ -257,8 +257,8 @@ const file_pkg_queue_proto_messages_subscription_info_proto_rawDesc = "" +
 	"\x06labels\x18\x06 \x03(\v2..gcommon.v1.queue.SubscriptionInfo.LabelsEntryR\x06labels\x1a9\n" +
 	"\vLabelsEntry\x12\x10\n" +
 	"\x03key\x18\x01 \x01(\tR\x03key\x12\x14\n" +
-	"\x05value\x18\x02 \x01(\tR\x05value:\x028\x01B\xb9\x01\n" +
-	"\x14com.gcommon.v1.queueB\x15SubscriptionInfoProtoP\x01Z ../../../../pkg/queue/pb;queuepb\xa2\x02\x03GVQ\xaa\x02\x10Gcommon.V1.Queue\xca\x02\x10Gcommon\\V1\\Queue\xe2\x02\x1cGcommon\\V1\\Queue\\GPBMetadata\xea\x02\x12Gcommon::V1::Queue\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
+	"\x05value\x18\x02 \x01(\tR\x05value:\x028\x01B\xbc\x01\n" +
+	"\x14com.gcommon.v1.queueB\x15SubscriptionInfoProtoP\x01Z#../../../../pkg/queue/proto;queuepb\xa2\x02\x03GVQ\xaa\x02\x10Gcommon.V1.Queue\xca\x02\x10Gcommon\\V1\\Queue\xe2\x02\x1cGcommon\\V1\\Queue\\GPBMetadata\xea\x02\x12Gcommon::V1::Queue\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
 
 var file_pkg_queue_proto_messages_subscription_info_proto_msgTypes = make([]protoimpl.MessageInfo, 2)
 var file_pkg_queue_proto_messages_subscription_info_proto_goTypes = []any{

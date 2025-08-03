@@ -7,7 +7,7 @@
 package authpb
 
 import (
-	pb "../../../../pkg/common/pb"
+	proto "../../../../pkg/common/proto"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	timestamppb "google.golang.org/protobuf/types/known/timestamppb"
@@ -39,11 +39,11 @@ type ListUserSessionsRequest struct {
 	// *
 	// Standard request metadata including authentication context,
 	// tracing information, and client details.
-	Metadata *pb.RequestMetadata `protobuf:"bytes,11,opt,name=metadata" json:"metadata,omitempty"`
+	Metadata *proto.RequestMetadata `protobuf:"bytes,11,opt,name=metadata" json:"metadata,omitempty"`
 	// *
 	// Pagination options for large result sets.
 	// Defaults to first 50 sessions if not specified.
-	Pagination *pb.PaginationOptions `protobuf:"bytes,12,opt,name=pagination" json:"pagination,omitempty"`
+	Pagination *proto.PaginationOptions `protobuf:"bytes,12,opt,name=pagination" json:"pagination,omitempty"`
 	// *
 	// Filter sessions by status (active, expired, terminated).
 	// If not specified, returns all sessions.
@@ -109,14 +109,14 @@ func (x *ListUserSessionsRequest) GetUserId() string {
 	return ""
 }
 
-func (x *ListUserSessionsRequest) GetMetadata() *pb.RequestMetadata {
+func (x *ListUserSessionsRequest) GetMetadata() *proto.RequestMetadata {
 	if x != nil {
 		return x.Metadata
 	}
 	return nil
 }
 
-func (x *ListUserSessionsRequest) GetPagination() *pb.PaginationOptions {
+func (x *ListUserSessionsRequest) GetPagination() *proto.PaginationOptions {
 	if x != nil {
 		return x.Pagination
 	}
@@ -182,8 +182,8 @@ const file_pkg_auth_proto_requests_list_user_sessions_request_proto_rawDesc = ""
 	"\x0ecreated_before\x18\x10 \x01(\v2\x1a.google.protobuf.TimestampR\rcreatedBefore\x12'\n" +
 	"\x0finclude_details\x18\x11 \x01(\bR\x0eincludeDetails\x12\x1d\n" +
 	"\n" +
-	"sort_order\x18\x12 \x01(\tR\tsortOrderB\xb1\x01\n" +
-	"\x13com.gcommon.v1.authB\x1cListUserSessionsRequestProtoP\x01Z\x1e../../../../pkg/auth/pb;authpb\xa2\x02\x03GVA\xaa\x02\x0fGcommon.V1.Auth\xca\x02\x0fGcommon\\V1\\Auth\xe2\x02\x1bGcommon\\V1\\Auth\\GPBMetadata\xea\x02\x11Gcommon::V1::Authb\beditionsp\xe8\a"
+	"sort_order\x18\x12 \x01(\tR\tsortOrderB\xb4\x01\n" +
+	"\x13com.gcommon.v1.authB\x1cListUserSessionsRequestProtoP\x01Z!../../../../pkg/auth/proto;authpb\xa2\x02\x03GVA\xaa\x02\x0fGcommon.V1.Auth\xca\x02\x0fGcommon\\V1\\Auth\xe2\x02\x1bGcommon\\V1\\Auth\\GPBMetadata\xea\x02\x11Gcommon::V1::Authb\beditionsp\xe8\a"
 
 var (
 	file_pkg_auth_proto_requests_list_user_sessions_request_proto_rawDescOnce sync.Once
@@ -200,8 +200,8 @@ func file_pkg_auth_proto_requests_list_user_sessions_request_proto_rawDescGZIP()
 var file_pkg_auth_proto_requests_list_user_sessions_request_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_pkg_auth_proto_requests_list_user_sessions_request_proto_goTypes = []any{
 	(*ListUserSessionsRequest)(nil), // 0: gcommon.v1.auth.ListUserSessionsRequest
-	(*pb.RequestMetadata)(nil),      // 1: gcommon.v1.common.RequestMetadata
-	(*pb.PaginationOptions)(nil),    // 2: gcommon.v1.common.PaginationOptions
+	(*proto.RequestMetadata)(nil),   // 1: gcommon.v1.common.RequestMetadata
+	(*proto.PaginationOptions)(nil), // 2: gcommon.v1.common.PaginationOptions
 	(*timestamppb.Timestamp)(nil),   // 3: google.protobuf.Timestamp
 }
 var file_pkg_auth_proto_requests_list_user_sessions_request_proto_depIdxs = []int32{

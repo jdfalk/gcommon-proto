@@ -9,7 +9,7 @@
 package authpb
 
 import (
-	pb "../../../../pkg/common/pb"
+	proto "../../../../pkg/common/proto"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
@@ -31,7 +31,7 @@ const (
 type DeleteRoleRequest struct {
 	state                  protoimpl.MessageState `protogen:"opaque.v1"`
 	xxx_hidden_RoleId      *string                `protobuf:"bytes,1,opt,name=role_id,json=roleId"`
-	xxx_hidden_Metadata    *pb.RequestMetadata    `protobuf:"bytes,2,opt,name=metadata"`
+	xxx_hidden_Metadata    *proto.RequestMetadata `protobuf:"bytes,2,opt,name=metadata"`
 	XXX_raceDetectHookData protoimpl.RaceDetectHookData
 	XXX_presence           [1]uint32
 	unknownFields          protoimpl.UnknownFields
@@ -73,7 +73,7 @@ func (x *DeleteRoleRequest) GetRoleId() string {
 	return ""
 }
 
-func (x *DeleteRoleRequest) GetMetadata() *pb.RequestMetadata {
+func (x *DeleteRoleRequest) GetMetadata() *proto.RequestMetadata {
 	if x != nil {
 		return x.xxx_hidden_Metadata
 	}
@@ -85,7 +85,7 @@ func (x *DeleteRoleRequest) SetRoleId(v string) {
 	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 0, 2)
 }
 
-func (x *DeleteRoleRequest) SetMetadata(v *pb.RequestMetadata) {
+func (x *DeleteRoleRequest) SetMetadata(v *proto.RequestMetadata) {
 	x.xxx_hidden_Metadata = v
 }
 
@@ -118,7 +118,7 @@ type DeleteRoleRequest_builder struct {
 	// Role ID to delete
 	RoleId *string
 	// Request metadata for tracing and correlation
-	Metadata *pb.RequestMetadata
+	Metadata *proto.RequestMetadata
 }
 
 func (b0 DeleteRoleRequest_builder) Build() *DeleteRoleRequest {
@@ -140,13 +140,13 @@ const file_pkg_auth_proto_requests_delete_role_request_proto_rawDesc = "" +
 	"1pkg/auth/proto/requests/delete_role_request.proto\x12\x0fgcommon.v1.auth\x1a!google/protobuf/go_features.proto\x1a0pkg/common/proto/messages/request_metadata.proto\"l\n" +
 	"\x11DeleteRoleRequest\x12\x17\n" +
 	"\arole_id\x18\x01 \x01(\tR\x06roleId\x12>\n" +
-	"\bmetadata\x18\x02 \x01(\v2\".gcommon.v1.common.RequestMetadataR\bmetadataB\xb3\x01\n" +
-	"\x13com.gcommon.v1.authB\x16DeleteRoleRequestProtoP\x01Z\x1e../../../../pkg/auth/pb;authpb\xa2\x02\x03GVA\xaa\x02\x0fGcommon.V1.Auth\xca\x02\x0fGcommon\\V1\\Auth\xe2\x02\x1bGcommon\\V1\\Auth\\GPBMetadata\xea\x02\x11Gcommon::V1::Auth\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
+	"\bmetadata\x18\x02 \x01(\v2\".gcommon.v1.common.RequestMetadataR\bmetadataB\xb6\x01\n" +
+	"\x13com.gcommon.v1.authB\x16DeleteRoleRequestProtoP\x01Z!../../../../pkg/auth/proto;authpb\xa2\x02\x03GVA\xaa\x02\x0fGcommon.V1.Auth\xca\x02\x0fGcommon\\V1\\Auth\xe2\x02\x1bGcommon\\V1\\Auth\\GPBMetadata\xea\x02\x11Gcommon::V1::Auth\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
 
 var file_pkg_auth_proto_requests_delete_role_request_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_pkg_auth_proto_requests_delete_role_request_proto_goTypes = []any{
-	(*DeleteRoleRequest)(nil),  // 0: gcommon.v1.auth.DeleteRoleRequest
-	(*pb.RequestMetadata)(nil), // 1: gcommon.v1.common.RequestMetadata
+	(*DeleteRoleRequest)(nil),     // 0: gcommon.v1.auth.DeleteRoleRequest
+	(*proto.RequestMetadata)(nil), // 1: gcommon.v1.common.RequestMetadata
 }
 var file_pkg_auth_proto_requests_delete_role_request_proto_depIdxs = []int32{
 	1, // 0: gcommon.v1.auth.DeleteRoleRequest.metadata:type_name -> gcommon.v1.common.RequestMetadata

@@ -9,7 +9,7 @@
 package webpb
 
 import (
-	pb "../../../../pkg/common/pb"
+	proto "../../../../pkg/common/proto"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
@@ -29,7 +29,7 @@ const (
 type FlushCacheRequest struct {
 	state                  protoimpl.MessageState `protogen:"opaque.v1"`
 	xxx_hidden_Namespace   *string                `protobuf:"bytes,1,opt,name=namespace"`
-	xxx_hidden_Metadata    *pb.RequestMetadata    `protobuf:"bytes,2,opt,name=metadata"`
+	xxx_hidden_Metadata    *proto.RequestMetadata `protobuf:"bytes,2,opt,name=metadata"`
 	XXX_raceDetectHookData protoimpl.RaceDetectHookData
 	XXX_presence           [1]uint32
 	unknownFields          protoimpl.UnknownFields
@@ -71,7 +71,7 @@ func (x *FlushCacheRequest) GetNamespace() string {
 	return ""
 }
 
-func (x *FlushCacheRequest) GetMetadata() *pb.RequestMetadata {
+func (x *FlushCacheRequest) GetMetadata() *proto.RequestMetadata {
 	if x != nil {
 		return x.xxx_hidden_Metadata
 	}
@@ -83,7 +83,7 @@ func (x *FlushCacheRequest) SetNamespace(v string) {
 	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 0, 2)
 }
 
-func (x *FlushCacheRequest) SetMetadata(v *pb.RequestMetadata) {
+func (x *FlushCacheRequest) SetMetadata(v *proto.RequestMetadata) {
 	x.xxx_hidden_Metadata = v
 }
 
@@ -116,7 +116,7 @@ type FlushCacheRequest_builder struct {
 	// Optional namespace to flush (if empty, flushes all)
 	Namespace *string
 	// Request metadata for tracing
-	Metadata *pb.RequestMetadata
+	Metadata *proto.RequestMetadata
 }
 
 func (b0 FlushCacheRequest_builder) Build() *FlushCacheRequest {
@@ -138,13 +138,13 @@ const file_pkg_web_proto_requests_flush_cache_request_proto_rawDesc = "" +
 	"0pkg/web/proto/requests/flush_cache_request.proto\x12\x0egcommon.v1.web\x1a!google/protobuf/go_features.proto\x1a0pkg/common/proto/messages/request_metadata.proto\"q\n" +
 	"\x11FlushCacheRequest\x12\x1c\n" +
 	"\tnamespace\x18\x01 \x01(\tR\tnamespace\x12>\n" +
-	"\bmetadata\x18\x02 \x01(\v2\".gcommon.v1.common.RequestMetadataR\bmetadataB\xac\x01\n" +
-	"\x12com.gcommon.v1.webB\x16FlushCacheRequestProtoP\x01Z\x1c../../../../pkg/web/pb;webpb\xa2\x02\x03GVW\xaa\x02\x0eGcommon.V1.Web\xca\x02\x0eGcommon\\V1\\Web\xe2\x02\x1aGcommon\\V1\\Web\\GPBMetadata\xea\x02\x10Gcommon::V1::Web\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
+	"\bmetadata\x18\x02 \x01(\v2\".gcommon.v1.common.RequestMetadataR\bmetadataB\xaf\x01\n" +
+	"\x12com.gcommon.v1.webB\x16FlushCacheRequestProtoP\x01Z\x1f../../../../pkg/web/proto;webpb\xa2\x02\x03GVW\xaa\x02\x0eGcommon.V1.Web\xca\x02\x0eGcommon\\V1\\Web\xe2\x02\x1aGcommon\\V1\\Web\\GPBMetadata\xea\x02\x10Gcommon::V1::Web\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
 
 var file_pkg_web_proto_requests_flush_cache_request_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_pkg_web_proto_requests_flush_cache_request_proto_goTypes = []any{
-	(*FlushCacheRequest)(nil),  // 0: gcommon.v1.web.FlushCacheRequest
-	(*pb.RequestMetadata)(nil), // 1: gcommon.v1.common.RequestMetadata
+	(*FlushCacheRequest)(nil),     // 0: gcommon.v1.web.FlushCacheRequest
+	(*proto.RequestMetadata)(nil), // 1: gcommon.v1.common.RequestMetadata
 }
 var file_pkg_web_proto_requests_flush_cache_request_proto_depIdxs = []int32{
 	1, // 0: gcommon.v1.web.FlushCacheRequest.metadata:type_name -> gcommon.v1.common.RequestMetadata

@@ -35,8 +35,8 @@ const file_pkg_health_proto_services_health_service_proto_rawDesc = "" +
 	"\fListServices\x12&.gcommon.v1.health.ListServicesRequest\x1a'.gcommon.v1.health.ListServicesResponse\x12b\n" +
 	"\rRegisterCheck\x12'.gcommon.v1.health.RegisterCheckRequest\x1a(.gcommon.v1.health.RegisterCheckResponse\x12h\n" +
 	"\x0fUnregisterCheck\x12).gcommon.v1.health.UnregisterCheckRequest\x1a*.gcommon.v1.health.UnregisterCheckResponse\x12k\n" +
-	"\x10GetHealthMetrics\x12*.gcommon.v1.health.GetHealthMetricsRequest\x1a+.gcommon.v1.health.GetHealthMetricsResponseB\xbd\x01\n" +
-	"\x15com.gcommon.v1.healthB\x12HealthServiceProtoP\x01Z\"../../../../pkg/health/pb;healthpb\xa2\x02\x03GVH\xaa\x02\x11Gcommon.V1.Health\xca\x02\x11Gcommon\\V1\\Health\xe2\x02\x1dGcommon\\V1\\Health\\GPBMetadata\xea\x02\x13Gcommon::V1::Health\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
+	"\x10GetHealthMetrics\x12*.gcommon.v1.health.GetHealthMetricsRequest\x1a+.gcommon.v1.health.GetHealthMetricsResponseB\xc0\x01\n" +
+	"\x15com.gcommon.v1.healthB\x12HealthServiceProtoP\x01Z%../../../../pkg/health/proto;healthpb\xa2\x02\x03GVH\xaa\x02\x11Gcommon.V1.Health\xca\x02\x11Gcommon\\V1\\Health\xe2\x02\x1dGcommon\\V1\\Health\\GPBMetadata\xea\x02\x13Gcommon::V1::Health\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
 
 var file_pkg_health_proto_services_health_service_proto_goTypes = []any{
 	(*HealthCheckRequest)(nil),       // 0: gcommon.v1.health.HealthCheckRequest

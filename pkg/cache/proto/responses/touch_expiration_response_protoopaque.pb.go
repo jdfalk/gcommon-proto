@@ -9,7 +9,7 @@
 package cachepb
 
 import (
-	pb "../../../../pkg/common/pb"
+	proto "../../../../pkg/common/proto"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
@@ -31,7 +31,7 @@ type TouchExpirationResponse struct {
 	state                  protoimpl.MessageState `protogen:"opaque.v1"`
 	xxx_hidden_Success     bool                   `protobuf:"varint,1,opt,name=success"`
 	xxx_hidden_KeyExisted  bool                   `protobuf:"varint,2,opt,name=key_existed,json=keyExisted"`
-	xxx_hidden_Error       *pb.Error              `protobuf:"bytes,3,opt,name=error"`
+	xxx_hidden_Error       *proto.Error           `protobuf:"bytes,3,opt,name=error"`
 	XXX_raceDetectHookData protoimpl.RaceDetectHookData
 	XXX_presence           [1]uint32
 	unknownFields          protoimpl.UnknownFields
@@ -77,7 +77,7 @@ func (x *TouchExpirationResponse) GetKeyExisted() bool {
 	return false
 }
 
-func (x *TouchExpirationResponse) GetError() *pb.Error {
+func (x *TouchExpirationResponse) GetError() *proto.Error {
 	if x != nil {
 		return x.xxx_hidden_Error
 	}
@@ -94,7 +94,7 @@ func (x *TouchExpirationResponse) SetKeyExisted(v bool) {
 	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 1, 3)
 }
 
-func (x *TouchExpirationResponse) SetError(v *pb.Error) {
+func (x *TouchExpirationResponse) SetError(v *proto.Error) {
 	x.xxx_hidden_Error = v
 }
 
@@ -141,7 +141,7 @@ type TouchExpirationResponse_builder struct {
 	// Whether the key existed before the touch operation
 	KeyExisted *bool
 	// Error details if touch failed
-	Error *pb.Error
+	Error *proto.Error
 }
 
 func (b0 TouchExpirationResponse_builder) Build() *TouchExpirationResponse {
@@ -169,13 +169,13 @@ const file_pkg_cache_proto_responses_touch_expiration_response_proto_rawDesc = "
 	"\asuccess\x18\x01 \x01(\bR\asuccess\x12\x1f\n" +
 	"\vkey_existed\x18\x02 \x01(\bR\n" +
 	"keyExisted\x12.\n" +
-	"\x05error\x18\x03 \x01(\v2\x18.gcommon.v1.common.ErrorR\x05errorB\xc0\x01\n" +
-	"\x14com.gcommon.v1.cacheB\x1cTouchExpirationResponseProtoP\x01Z ../../../../pkg/cache/pb;cachepb\xa2\x02\x03GVC\xaa\x02\x10Gcommon.V1.Cache\xca\x02\x10Gcommon\\V1\\Cache\xe2\x02\x1cGcommon\\V1\\Cache\\GPBMetadata\xea\x02\x12Gcommon::V1::Cache\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
+	"\x05error\x18\x03 \x01(\v2\x18.gcommon.v1.common.ErrorR\x05errorB\xc3\x01\n" +
+	"\x14com.gcommon.v1.cacheB\x1cTouchExpirationResponseProtoP\x01Z#../../../../pkg/cache/proto;cachepb\xa2\x02\x03GVC\xaa\x02\x10Gcommon.V1.Cache\xca\x02\x10Gcommon\\V1\\Cache\xe2\x02\x1cGcommon\\V1\\Cache\\GPBMetadata\xea\x02\x12Gcommon::V1::Cache\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
 
 var file_pkg_cache_proto_responses_touch_expiration_response_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_pkg_cache_proto_responses_touch_expiration_response_proto_goTypes = []any{
 	(*TouchExpirationResponse)(nil), // 0: gcommon.v1.cache.TouchExpirationResponse
-	(*pb.Error)(nil),                // 1: gcommon.v1.common.Error
+	(*proto.Error)(nil),             // 1: gcommon.v1.common.Error
 }
 var file_pkg_cache_proto_responses_touch_expiration_response_proto_depIdxs = []int32{
 	1, // 0: gcommon.v1.cache.TouchExpirationResponse.error:type_name -> gcommon.v1.common.Error

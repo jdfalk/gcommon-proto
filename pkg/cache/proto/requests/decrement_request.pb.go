@@ -9,7 +9,7 @@
 package cachepb
 
 import (
-	pb "../../../../pkg/common/pb"
+	proto "../../../../pkg/common/proto"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
@@ -40,7 +40,7 @@ type DecrementRequest struct {
 	// Optional namespace
 	Namespace *string `protobuf:"bytes,5,opt,name=namespace" json:"namespace,omitempty"`
 	// Request metadata
-	Metadata      *pb.RequestMetadata `protobuf:"bytes,6,opt,name=metadata" json:"metadata,omitempty"`
+	Metadata      *proto.RequestMetadata `protobuf:"bytes,6,opt,name=metadata" json:"metadata,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -105,7 +105,7 @@ func (x *DecrementRequest) GetNamespace() string {
 	return ""
 }
 
-func (x *DecrementRequest) GetMetadata() *pb.RequestMetadata {
+func (x *DecrementRequest) GetMetadata() *proto.RequestMetadata {
 	if x != nil {
 		return x.Metadata
 	}
@@ -132,7 +132,7 @@ func (x *DecrementRequest) SetNamespace(v string) {
 	x.Namespace = &v
 }
 
-func (x *DecrementRequest) SetMetadata(v *pb.RequestMetadata) {
+func (x *DecrementRequest) SetMetadata(v *proto.RequestMetadata) {
 	x.Metadata = v
 }
 
@@ -216,7 +216,7 @@ type DecrementRequest_builder struct {
 	// Optional namespace
 	Namespace *string
 	// Request metadata
-	Metadata *pb.RequestMetadata
+	Metadata *proto.RequestMetadata
 }
 
 func (b0 DecrementRequest_builder) Build() *DecrementRequest {
@@ -243,14 +243,14 @@ const file_pkg_cache_proto_requests_decrement_request_proto_rawDesc = "" +
 	"\rinitial_value\x18\x03 \x01(\x03R\finitialValue\x12/\n" +
 	"\x03ttl\x18\x04 \x01(\v2\x19.google.protobuf.DurationB\x02(\x01R\x03ttl\x12\x1c\n" +
 	"\tnamespace\x18\x05 \x01(\tR\tnamespace\x12B\n" +
-	"\bmetadata\x18\x06 \x01(\v2\".gcommon.v1.common.RequestMetadataB\x02(\x01R\bmetadataB\xb9\x01\n" +
-	"\x14com.gcommon.v1.cacheB\x15DecrementRequestProtoP\x01Z ../../../../pkg/cache/pb;cachepb\xa2\x02\x03GVC\xaa\x02\x10Gcommon.V1.Cache\xca\x02\x10Gcommon\\V1\\Cache\xe2\x02\x1cGcommon\\V1\\Cache\\GPBMetadata\xea\x02\x12Gcommon::V1::Cache\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
+	"\bmetadata\x18\x06 \x01(\v2\".gcommon.v1.common.RequestMetadataB\x02(\x01R\bmetadataB\xbc\x01\n" +
+	"\x14com.gcommon.v1.cacheB\x15DecrementRequestProtoP\x01Z#../../../../pkg/cache/proto;cachepb\xa2\x02\x03GVC\xaa\x02\x10Gcommon.V1.Cache\xca\x02\x10Gcommon\\V1\\Cache\xe2\x02\x1cGcommon\\V1\\Cache\\GPBMetadata\xea\x02\x12Gcommon::V1::Cache\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
 
 var file_pkg_cache_proto_requests_decrement_request_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_pkg_cache_proto_requests_decrement_request_proto_goTypes = []any{
-	(*DecrementRequest)(nil),    // 0: gcommon.v1.cache.DecrementRequest
-	(*durationpb.Duration)(nil), // 1: google.protobuf.Duration
-	(*pb.RequestMetadata)(nil),  // 2: gcommon.v1.common.RequestMetadata
+	(*DecrementRequest)(nil),      // 0: gcommon.v1.cache.DecrementRequest
+	(*durationpb.Duration)(nil),   // 1: google.protobuf.Duration
+	(*proto.RequestMetadata)(nil), // 2: gcommon.v1.common.RequestMetadata
 }
 var file_pkg_cache_proto_requests_decrement_request_proto_depIdxs = []int32{
 	1, // 0: gcommon.v1.cache.DecrementRequest.ttl:type_name -> google.protobuf.Duration

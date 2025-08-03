@@ -35,8 +35,8 @@ const file_pkg_notification_proto_services_notification_service_proto_rawDesc = 
 	"\vGetTemplate\x12+.gcommon.v1.notification.GetTemplateRequest\x1a,.gcommon.v1.notification.GetTemplateResponse\x12e\n" +
 	"\n" +
 	"MarkAsRead\x12*.gcommon.v1.notification.MarkAsReadRequest\x1a+.gcommon.v1.notification.MarkAsReadResponse\x12q\n" +
-	"\x06Delete\x122.gcommon.v1.notification.DeleteNotificationRequest\x1a3.gcommon.v1.notification.DeleteNotificationResponseB\xed\x01\n" +
-	"\x1bcom.gcommon.v1.notificationB\x18NotificationServiceProtoP\x01Z.../../../../pkg/notification/pb;notificationpb\xa2\x02\x03GVN\xaa\x02\x17Gcommon.V1.Notification\xca\x02\x17Gcommon\\V1\\Notification\xe2\x02#Gcommon\\V1\\Notification\\GPBMetadata\xea\x02\x19Gcommon::V1::Notification\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
+	"\x06Delete\x122.gcommon.v1.notification.DeleteNotificationRequest\x1a3.gcommon.v1.notification.DeleteNotificationResponseB\xf0\x01\n" +
+	"\x1bcom.gcommon.v1.notificationB\x18NotificationServiceProtoP\x01Z1../../../../pkg/notification/proto;notificationpb\xa2\x02\x03GVN\xaa\x02\x17Gcommon.V1.Notification\xca\x02\x17Gcommon\\V1\\Notification\xe2\x02#Gcommon\\V1\\Notification\\GPBMetadata\xea\x02\x19Gcommon::V1::Notification\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
 
 var file_pkg_notification_proto_services_notification_service_proto_goTypes = []any{
 	(*SendNotificationRequest)(nil),    // 0: gcommon.v1.notification.SendNotificationRequest

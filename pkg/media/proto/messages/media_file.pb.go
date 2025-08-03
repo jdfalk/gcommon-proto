@@ -341,8 +341,8 @@ const file_pkg_media_proto_messages_media_file_proto_rawDesc = "" +
 	"\x0fsubtitle_tracks\x18\t \x03(\v2\x1f.gcommon.v1.media.SubtitleTrackR\x0esubtitleTracks\x12?\n" +
 	"\faudio_tracks\x18\n" +
 	" \x03(\v2\x1c.gcommon.v1.media.AudioTrackR\vaudioTracks\x128\n" +
-	"\aquality\x18\v \x01(\v2\x1e.gcommon.v1.media.MediaQualityR\aqualityB\xb2\x01\n" +
-	"\x14com.gcommon.v1.mediaB\x0eMediaFileProtoP\x01Z ../../../../pkg/media/pb;mediapb\xa2\x02\x03GVM\xaa\x02\x10Gcommon.V1.Media\xca\x02\x10Gcommon\\V1\\Media\xe2\x02\x1cGcommon\\V1\\Media\\GPBMetadata\xea\x02\x12Gcommon::V1::Media\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
+	"\aquality\x18\v \x01(\v2\x1e.gcommon.v1.media.MediaQualityR\aqualityB\xb5\x01\n" +
+	"\x14com.gcommon.v1.mediaB\x0eMediaFileProtoP\x01Z#../../../../pkg/media/proto;mediapb\xa2\x02\x03GVM\xaa\x02\x10Gcommon.V1.Media\xca\x02\x10Gcommon\\V1\\Media\xe2\x02\x1cGcommon\\V1\\Media\\GPBMetadata\xea\x02\x12Gcommon::V1::Media\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
 
 var file_pkg_media_proto_messages_media_file_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_pkg_media_proto_messages_media_file_proto_goTypes = []any{

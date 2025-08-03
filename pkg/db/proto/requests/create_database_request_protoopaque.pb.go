@@ -9,7 +9,7 @@
 package dbpb
 
 import (
-	pb "../../../../pkg/common/pb"
+	proto "../../../../pkg/common/proto"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
@@ -31,7 +31,7 @@ type CreateDatabaseRequest struct {
 	state               protoimpl.MessageState `protogen:"opaque.v1"`
 	xxx_hidden_Name     *string                `protobuf:"bytes,1,opt,name=name"`
 	xxx_hidden_Options  map[string]string      `protobuf:"bytes,2,rep,name=options" protobuf_key:"bytes,1,opt,name=key" protobuf_val:"bytes,2,opt,name=value"`
-	xxx_hidden_Metadata *pb.RequestMetadata    `protobuf:"bytes,3,opt,name=metadata"`
+	xxx_hidden_Metadata *proto.RequestMetadata `protobuf:"bytes,3,opt,name=metadata"`
 	// Deprecated: Do not use. This will be deleted in the near future.
 	XXX_lazyUnmarshalInfo  protoimpl.LazyUnmarshalInfo
 	XXX_raceDetectHookData protoimpl.RaceDetectHookData
@@ -87,13 +87,13 @@ func (x *CreateDatabaseRequest) GetOptions() map[string]string {
 	return nil
 }
 
-func (x *CreateDatabaseRequest) GetMetadata() *pb.RequestMetadata {
+func (x *CreateDatabaseRequest) GetMetadata() *proto.RequestMetadata {
 	if x != nil {
 		if protoimpl.X.Present(&(x.XXX_presence[0]), 2) {
 			if protoimpl.X.AtomicCheckPointerIsNil(&x.xxx_hidden_Metadata) {
 				protoimpl.X.UnmarshalField(x, 3)
 			}
-			var rv *pb.RequestMetadata
+			var rv *proto.RequestMetadata
 			protoimpl.X.AtomicLoadPointer(protoimpl.Pointer(&x.xxx_hidden_Metadata), protoimpl.Pointer(&rv))
 			return rv
 		}
@@ -115,7 +115,7 @@ func (x *CreateDatabaseRequest) SetOptions(v map[string]string) {
 	}
 }
 
-func (x *CreateDatabaseRequest) SetMetadata(v *pb.RequestMetadata) {
+func (x *CreateDatabaseRequest) SetMetadata(v *proto.RequestMetadata) {
 	protoimpl.X.AtomicSetPointer(&x.xxx_hidden_Metadata, v)
 	if v == nil {
 		protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 2)
@@ -145,7 +145,7 @@ func (x *CreateDatabaseRequest) ClearName() {
 
 func (x *CreateDatabaseRequest) ClearMetadata() {
 	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 2)
-	protoimpl.X.AtomicSetPointer(&x.xxx_hidden_Metadata, (*pb.RequestMetadata)(nil))
+	protoimpl.X.AtomicSetPointer(&x.xxx_hidden_Metadata, (*proto.RequestMetadata)(nil))
 }
 
 type CreateDatabaseRequest_builder struct {
@@ -156,7 +156,7 @@ type CreateDatabaseRequest_builder struct {
 	// Database creation options and configuration
 	Options map[string]string
 	// Request metadata for tracing and authentication
-	Metadata *pb.RequestMetadata
+	Metadata *proto.RequestMetadata
 }
 
 func (b0 CreateDatabaseRequest_builder) Build() *CreateDatabaseRequest {
@@ -189,14 +189,14 @@ const file_pkg_db_proto_requests_create_database_request_proto_rawDesc = "" +
 	"\bmetadata\x18\x03 \x01(\v2\".gcommon.v1.common.RequestMetadataB\x02(\x01R\bmetadata\x1a:\n" +
 	"\fOptionsEntry\x12\x10\n" +
 	"\x03key\x18\x01 \x01(\tR\x03key\x12\x14\n" +
-	"\x05value\x18\x02 \x01(\tR\x05value:\x028\x01B\xc7\x01\n" +
-	"\x17com.gcommon.v1.databaseB\x1aCreateDatabaseRequestProtoP\x01Z\x1a../../../../pkg/db/pb;dbpb\xa2\x02\x03GVD\xaa\x02\x13Gcommon.V1.Database\xca\x02\x13Gcommon\\V1\\Database\xe2\x02\x1fGcommon\\V1\\Database\\GPBMetadata\xea\x02\x15Gcommon::V1::Database\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
+	"\x05value\x18\x02 \x01(\tR\x05value:\x028\x01B\xca\x01\n" +
+	"\x17com.gcommon.v1.databaseB\x1aCreateDatabaseRequestProtoP\x01Z\x1d../../../../pkg/db/proto;dbpb\xa2\x02\x03GVD\xaa\x02\x13Gcommon.V1.Database\xca\x02\x13Gcommon\\V1\\Database\xe2\x02\x1fGcommon\\V1\\Database\\GPBMetadata\xea\x02\x15Gcommon::V1::Database\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
 
 var file_pkg_db_proto_requests_create_database_request_proto_msgTypes = make([]protoimpl.MessageInfo, 2)
 var file_pkg_db_proto_requests_create_database_request_proto_goTypes = []any{
 	(*CreateDatabaseRequest)(nil), // 0: gcommon.v1.database.CreateDatabaseRequest
 	nil,                           // 1: gcommon.v1.database.CreateDatabaseRequest.OptionsEntry
-	(*pb.RequestMetadata)(nil),    // 2: gcommon.v1.common.RequestMetadata
+	(*proto.RequestMetadata)(nil), // 2: gcommon.v1.common.RequestMetadata
 }
 var file_pkg_db_proto_requests_create_database_request_proto_depIdxs = []int32{
 	1, // 0: gcommon.v1.database.CreateDatabaseRequest.options:type_name -> gcommon.v1.database.CreateDatabaseRequest.OptionsEntry

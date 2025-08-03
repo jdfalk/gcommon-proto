@@ -7,7 +7,7 @@
 package webpb
 
 import (
-	pb "../../../../pkg/common/pb"
+	proto "../../../../pkg/common/proto"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	anypb "google.golang.org/protobuf/types/known/anypb"
@@ -45,7 +45,7 @@ type HttpRequest struct {
 	// *
 	// Standard request metadata including authentication context,
 	// tracing information, and client details.
-	Metadata *pb.RequestMetadata `protobuf:"bytes,11,opt,name=metadata" json:"metadata,omitempty"`
+	Metadata *proto.RequestMetadata `protobuf:"bytes,11,opt,name=metadata" json:"metadata,omitempty"`
 	// *
 	// HTTP headers as key-value pairs.
 	// Includes standard headers like Content-Type, Authorization, etc.
@@ -175,7 +175,7 @@ func (x *HttpRequest) GetProtocolVersion() string {
 	return ""
 }
 
-func (x *HttpRequest) GetMetadata() *pb.RequestMetadata {
+func (x *HttpRequest) GetMetadata() *proto.RequestMetadata {
 	if x != nil {
 		return x.Metadata
 	}
@@ -396,8 +396,8 @@ const file_pkg_web_proto_requests_http_request_per_proto_rawDesc = "" +
 	"\x05value\x18\x02 \x01(\tR\x05value:\x028\x01\x1a:\n" +
 	"\fCookiesEntry\x12\x10\n" +
 	"\x03key\x18\x01 \x01(\tR\x03key\x12\x14\n" +
-	"\x05value\x18\x02 \x01(\tR\x05value:\x028\x01B\xa1\x01\n" +
-	"\x12com.gcommon.v1.webB\x13HttpRequestPerProtoP\x01Z\x1c../../../../pkg/web/pb;webpb\xa2\x02\x03GVW\xaa\x02\x0eGcommon.V1.Web\xca\x02\x0eGcommon\\V1\\Web\xe2\x02\x1aGcommon\\V1\\Web\\GPBMetadata\xea\x02\x10Gcommon::V1::Webb\beditionsp\xe8\a"
+	"\x05value\x18\x02 \x01(\tR\x05value:\x028\x01B\xa4\x01\n" +
+	"\x12com.gcommon.v1.webB\x13HttpRequestPerProtoP\x01Z\x1f../../../../pkg/web/proto;webpb\xa2\x02\x03GVW\xaa\x02\x0eGcommon.V1.Web\xca\x02\x0eGcommon\\V1\\Web\xe2\x02\x1aGcommon\\V1\\Web\\GPBMetadata\xea\x02\x10Gcommon::V1::Webb\beditionsp\xe8\a"
 
 var (
 	file_pkg_web_proto_requests_http_request_per_proto_rawDescOnce sync.Once
@@ -418,7 +418,7 @@ var file_pkg_web_proto_requests_http_request_per_proto_goTypes = []any{
 	nil,                           // 2: gcommon.v1.web.HttpRequest.QueryParamsEntry
 	nil,                           // 3: gcommon.v1.web.HttpRequest.PathParamsEntry
 	nil,                           // 4: gcommon.v1.web.HttpRequest.CookiesEntry
-	(*pb.RequestMetadata)(nil),    // 5: gcommon.v1.common.RequestMetadata
+	(*proto.RequestMetadata)(nil), // 5: gcommon.v1.common.RequestMetadata
 	(*anypb.Any)(nil),             // 6: google.protobuf.Any
 	(*timestamppb.Timestamp)(nil), // 7: google.protobuf.Timestamp
 }

@@ -145,8 +145,8 @@ const file_pkg_db_proto_messages_database_status_proto_rawDesc = "" +
 	"+pkg/db/proto/messages/database_status.proto\x12\x13gcommon.v1.database\x1a!google/protobuf/go_features.proto\x1a-pkg/db/proto/enums/database_status_code.proto\"g\n" +
 	"\x0eDatabaseStatus\x12;\n" +
 	"\x04code\x18\x01 \x01(\x0e2'.gcommon.v1.database.DatabaseStatusCodeR\x04code\x12\x18\n" +
-	"\amessage\x18\x02 \x01(\tR\amessageB\xc0\x01\n" +
-	"\x17com.gcommon.v1.databaseB\x13DatabaseStatusProtoP\x01Z\x1a../../../../pkg/db/pb;dbpb\xa2\x02\x03GVD\xaa\x02\x13Gcommon.V1.Database\xca\x02\x13Gcommon\\V1\\Database\xe2\x02\x1fGcommon\\V1\\Database\\GPBMetadata\xea\x02\x15Gcommon::V1::Database\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
+	"\amessage\x18\x02 \x01(\tR\amessageB\xc3\x01\n" +
+	"\x17com.gcommon.v1.databaseB\x13DatabaseStatusProtoP\x01Z\x1d../../../../pkg/db/proto;dbpb\xa2\x02\x03GVD\xaa\x02\x13Gcommon.V1.Database\xca\x02\x13Gcommon\\V1\\Database\xe2\x02\x1fGcommon\\V1\\Database\\GPBMetadata\xea\x02\x15Gcommon::V1::Database\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
 
 var file_pkg_db_proto_messages_database_status_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_pkg_db_proto_messages_database_status_proto_goTypes = []any{

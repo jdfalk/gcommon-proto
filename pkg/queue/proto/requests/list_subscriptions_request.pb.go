@@ -9,7 +9,7 @@
 package queuepb
 
 import (
-	pb "../../../../pkg/common/pb"
+	proto "../../../../pkg/common/proto"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
@@ -27,7 +27,7 @@ const (
 type ListSubscriptionsRequest struct {
 	state protoimpl.MessageState `protogen:"hybrid.v1"`
 	// Request metadata
-	Metadata *pb.RequestMetadata `protobuf:"bytes,1,opt,name=metadata" json:"metadata,omitempty"`
+	Metadata *proto.RequestMetadata `protobuf:"bytes,1,opt,name=metadata" json:"metadata,omitempty"`
 	// Name of the topic or queue to list subscriptions for
 	Parent *string `protobuf:"bytes,2,opt,name=parent" json:"parent,omitempty"`
 	// Optional page size
@@ -63,7 +63,7 @@ func (x *ListSubscriptionsRequest) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-func (x *ListSubscriptionsRequest) GetMetadata() *pb.RequestMetadata {
+func (x *ListSubscriptionsRequest) GetMetadata() *proto.RequestMetadata {
 	if x != nil {
 		return x.Metadata
 	}
@@ -91,7 +91,7 @@ func (x *ListSubscriptionsRequest) GetPageToken() string {
 	return ""
 }
 
-func (x *ListSubscriptionsRequest) SetMetadata(v *pb.RequestMetadata) {
+func (x *ListSubscriptionsRequest) SetMetadata(v *proto.RequestMetadata) {
 	x.Metadata = v
 }
 
@@ -155,7 +155,7 @@ type ListSubscriptionsRequest_builder struct {
 	_ [0]func() // Prevents comparability and use of unkeyed literals for the builder.
 
 	// Request metadata
-	Metadata *pb.RequestMetadata
+	Metadata *proto.RequestMetadata
 	// Name of the topic or queue to list subscriptions for
 	Parent *string
 	// Optional page size
@@ -185,13 +185,13 @@ const file_pkg_queue_proto_requests_list_subscriptions_request_proto_rawDesc = "
 	"\x06parent\x18\x02 \x01(\tR\x06parent\x12\x1b\n" +
 	"\tpage_size\x18\x03 \x01(\x05R\bpageSize\x12\x1d\n" +
 	"\n" +
-	"page_token\x18\x04 \x01(\tR\tpageTokenB\xc1\x01\n" +
-	"\x14com.gcommon.v1.queueB\x1dListSubscriptionsRequestProtoP\x01Z ../../../../pkg/queue/pb;queuepb\xa2\x02\x03GVQ\xaa\x02\x10Gcommon.V1.Queue\xca\x02\x10Gcommon\\V1\\Queue\xe2\x02\x1cGcommon\\V1\\Queue\\GPBMetadata\xea\x02\x12Gcommon::V1::Queue\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
+	"page_token\x18\x04 \x01(\tR\tpageTokenB\xc4\x01\n" +
+	"\x14com.gcommon.v1.queueB\x1dListSubscriptionsRequestProtoP\x01Z#../../../../pkg/queue/proto;queuepb\xa2\x02\x03GVQ\xaa\x02\x10Gcommon.V1.Queue\xca\x02\x10Gcommon\\V1\\Queue\xe2\x02\x1cGcommon\\V1\\Queue\\GPBMetadata\xea\x02\x12Gcommon::V1::Queue\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
 
 var file_pkg_queue_proto_requests_list_subscriptions_request_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_pkg_queue_proto_requests_list_subscriptions_request_proto_goTypes = []any{
 	(*ListSubscriptionsRequest)(nil), // 0: gcommon.v1.queue.ListSubscriptionsRequest
-	(*pb.RequestMetadata)(nil),       // 1: gcommon.v1.common.RequestMetadata
+	(*proto.RequestMetadata)(nil),    // 1: gcommon.v1.common.RequestMetadata
 }
 var file_pkg_queue_proto_requests_list_subscriptions_request_proto_depIdxs = []int32{
 	1, // 0: gcommon.v1.queue.ListSubscriptionsRequest.metadata:type_name -> gcommon.v1.common.RequestMetadata

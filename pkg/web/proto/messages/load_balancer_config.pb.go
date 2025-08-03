@@ -174,8 +174,8 @@ const file_pkg_web_proto_messages_load_balancer_config_proto_rawDesc = "" +
 	"\bstrategy\x18\x01 \x01(\x0e2#.gcommon.v1.web.LoadBalanceStrategyR\bstrategy\x12\x1c\n" +
 	"\tupstreams\x18\x02 \x03(\tR\tupstreams\x12*\n" +
 	"\x11health_check_path\x18\x03 \x01(\tR\x0fhealthCheckPath\x123\n" +
-	"\atimeout\x18\x04 \x01(\v2\x19.google.protobuf.DurationR\atimeoutB\xad\x01\n" +
-	"\x12com.gcommon.v1.webB\x17LoadBalancerConfigProtoP\x01Z\x1c../../../../pkg/web/pb;webpb\xa2\x02\x03GVW\xaa\x02\x0eGcommon.V1.Web\xca\x02\x0eGcommon\\V1\\Web\xe2\x02\x1aGcommon\\V1\\Web\\GPBMetadata\xea\x02\x10Gcommon::V1::Web\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
+	"\atimeout\x18\x04 \x01(\v2\x19.google.protobuf.DurationR\atimeoutB\xb0\x01\n" +
+	"\x12com.gcommon.v1.webB\x17LoadBalancerConfigProtoP\x01Z\x1f../../../../pkg/web/proto;webpb\xa2\x02\x03GVW\xaa\x02\x0eGcommon.V1.Web\xca\x02\x0eGcommon\\V1\\Web\xe2\x02\x1aGcommon\\V1\\Web\\GPBMetadata\xea\x02\x10Gcommon::V1::Web\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
 
 var file_pkg_web_proto_messages_load_balancer_config_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_pkg_web_proto_messages_load_balancer_config_proto_goTypes = []any{

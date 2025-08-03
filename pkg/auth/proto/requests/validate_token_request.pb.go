@@ -9,7 +9,7 @@
 package authpb
 
 import (
-	pb "../../../../pkg/common/pb"
+	proto "../../../../pkg/common/proto"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
@@ -32,7 +32,7 @@ type ValidateTokenRequest struct {
 	// Access token to validate (Bearer token format)
 	AccessToken *string `protobuf:"bytes,1,opt,name=access_token,json=accessToken" json:"access_token,omitempty"`
 	// Request metadata for tracing and correlation
-	Metadata *pb.RequestMetadata `protobuf:"bytes,2,opt,name=metadata" json:"metadata,omitempty"`
+	Metadata *proto.RequestMetadata `protobuf:"bytes,2,opt,name=metadata" json:"metadata,omitempty"`
 	// Whether to include user information in response
 	IncludeUserInfo *bool `protobuf:"varint,3,opt,name=include_user_info,json=includeUserInfo" json:"include_user_info,omitempty"`
 	// Whether to include permissions in response
@@ -73,7 +73,7 @@ func (x *ValidateTokenRequest) GetAccessToken() string {
 	return ""
 }
 
-func (x *ValidateTokenRequest) GetMetadata() *pb.RequestMetadata {
+func (x *ValidateTokenRequest) GetMetadata() *proto.RequestMetadata {
 	if x != nil {
 		return x.Metadata
 	}
@@ -98,7 +98,7 @@ func (x *ValidateTokenRequest) SetAccessToken(v string) {
 	x.AccessToken = &v
 }
 
-func (x *ValidateTokenRequest) SetMetadata(v *pb.RequestMetadata) {
+func (x *ValidateTokenRequest) SetMetadata(v *proto.RequestMetadata) {
 	x.Metadata = v
 }
 
@@ -160,7 +160,7 @@ type ValidateTokenRequest_builder struct {
 	// Access token to validate (Bearer token format)
 	AccessToken *string
 	// Request metadata for tracing and correlation
-	Metadata *pb.RequestMetadata
+	Metadata *proto.RequestMetadata
 	// Whether to include user information in response
 	IncludeUserInfo *bool
 	// Whether to include permissions in response
@@ -187,13 +187,13 @@ const file_pkg_auth_proto_requests_validate_token_request_proto_rawDesc = "" +
 	"\faccess_token\x18\x01 \x01(\tR\vaccessToken\x12B\n" +
 	"\bmetadata\x18\x02 \x01(\v2\".gcommon.v1.common.RequestMetadataB\x02(\x01R\bmetadata\x12*\n" +
 	"\x11include_user_info\x18\x03 \x01(\bR\x0fincludeUserInfo\x12/\n" +
-	"\x13include_permissions\x18\x04 \x01(\bR\x12includePermissionsB\xb6\x01\n" +
-	"\x13com.gcommon.v1.authB\x19ValidateTokenRequestProtoP\x01Z\x1e../../../../pkg/auth/pb;authpb\xa2\x02\x03GVA\xaa\x02\x0fGcommon.V1.Auth\xca\x02\x0fGcommon\\V1\\Auth\xe2\x02\x1bGcommon\\V1\\Auth\\GPBMetadata\xea\x02\x11Gcommon::V1::Auth\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
+	"\x13include_permissions\x18\x04 \x01(\bR\x12includePermissionsB\xb9\x01\n" +
+	"\x13com.gcommon.v1.authB\x19ValidateTokenRequestProtoP\x01Z!../../../../pkg/auth/proto;authpb\xa2\x02\x03GVA\xaa\x02\x0fGcommon.V1.Auth\xca\x02\x0fGcommon\\V1\\Auth\xe2\x02\x1bGcommon\\V1\\Auth\\GPBMetadata\xea\x02\x11Gcommon::V1::Auth\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
 
 var file_pkg_auth_proto_requests_validate_token_request_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_pkg_auth_proto_requests_validate_token_request_proto_goTypes = []any{
-	(*ValidateTokenRequest)(nil), // 0: gcommon.v1.auth.ValidateTokenRequest
-	(*pb.RequestMetadata)(nil),   // 1: gcommon.v1.common.RequestMetadata
+	(*ValidateTokenRequest)(nil),  // 0: gcommon.v1.auth.ValidateTokenRequest
+	(*proto.RequestMetadata)(nil), // 1: gcommon.v1.common.RequestMetadata
 }
 var file_pkg_auth_proto_requests_validate_token_request_proto_depIdxs = []int32{
 	1, // 0: gcommon.v1.auth.ValidateTokenRequest.metadata:type_name -> gcommon.v1.common.RequestMetadata

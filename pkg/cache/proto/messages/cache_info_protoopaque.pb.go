@@ -9,7 +9,7 @@
 package cachepb
 
 import (
-	pb "../../../../pkg/common/pb"
+	proto "../../../../pkg/common/proto"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
@@ -33,7 +33,7 @@ type CacheInfo struct {
 	xxx_hidden_Name         *string                `protobuf:"bytes,1,opt,name=name"`
 	xxx_hidden_Version      *string                `protobuf:"bytes,2,opt,name=version"`
 	xxx_hidden_CacheType    *string                `protobuf:"bytes,3,opt,name=cache_type,json=cacheType"`
-	xxx_hidden_HealthStatus pb.HealthStatus        `protobuf:"varint,4,opt,name=health_status,json=healthStatus,enum=gcommon.v1.common.HealthStatus"`
+	xxx_hidden_HealthStatus proto.HealthStatus     `protobuf:"varint,4,opt,name=health_status,json=healthStatus,enum=gcommon.v1.common.HealthStatus"`
 	xxx_hidden_CreatedAt    *timestamppb.Timestamp `protobuf:"bytes,5,opt,name=created_at,json=createdAt"`
 	xxx_hidden_LastAccessed *timestamppb.Timestamp `protobuf:"bytes,6,opt,name=last_accessed,json=lastAccessed"`
 	xxx_hidden_InstanceId   *string                `protobuf:"bytes,7,opt,name=instance_id,json=instanceId"`
@@ -100,13 +100,13 @@ func (x *CacheInfo) GetCacheType() string {
 	return ""
 }
 
-func (x *CacheInfo) GetHealthStatus() pb.HealthStatus {
+func (x *CacheInfo) GetHealthStatus() proto.HealthStatus {
 	if x != nil {
 		if protoimpl.X.Present(&(x.XXX_presence[0]), 3) {
 			return x.xxx_hidden_HealthStatus
 		}
 	}
-	return pb.HealthStatus(0)
+	return proto.HealthStatus(0)
 }
 
 func (x *CacheInfo) GetCreatedAt() *timestamppb.Timestamp {
@@ -165,7 +165,7 @@ func (x *CacheInfo) SetCacheType(v string) {
 	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 2, 9)
 }
 
-func (x *CacheInfo) SetHealthStatus(v pb.HealthStatus) {
+func (x *CacheInfo) SetHealthStatus(v proto.HealthStatus) {
 	x.xxx_hidden_HealthStatus = v
 	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 3, 9)
 }
@@ -265,7 +265,7 @@ func (x *CacheInfo) ClearCacheType() {
 
 func (x *CacheInfo) ClearHealthStatus() {
 	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 3)
-	x.xxx_hidden_HealthStatus = pb.HealthStatus_HEALTH_STATUS_UNSPECIFIED
+	x.xxx_hidden_HealthStatus = proto.HealthStatus_HEALTH_STATUS_UNSPECIFIED
 }
 
 func (x *CacheInfo) ClearCreatedAt() {
@@ -296,7 +296,7 @@ type CacheInfo_builder struct {
 	// Cache type (e.g., "memory", "redis", "memcached")
 	CacheType *string
 	// Current health status
-	HealthStatus *pb.HealthStatus
+	HealthStatus *proto.HealthStatus
 	// Cache creation timestamp
 	CreatedAt *timestamppb.Timestamp
 	// Last access timestamp
@@ -363,14 +363,14 @@ const file_pkg_cache_proto_messages_cache_info_proto_rawDesc = "" +
 	"\bmetadata\x18\t \x03(\v2).gcommon.v1.cache.CacheInfo.MetadataEntryR\bmetadata\x1a;\n" +
 	"\rMetadataEntry\x12\x10\n" +
 	"\x03key\x18\x01 \x01(\tR\x03key\x12\x14\n" +
-	"\x05value\x18\x02 \x01(\tR\x05value:\x028\x01B\xb2\x01\n" +
-	"\x14com.gcommon.v1.cacheB\x0eCacheInfoProtoP\x01Z ../../../../pkg/cache/pb;cachepb\xa2\x02\x03GVC\xaa\x02\x10Gcommon.V1.Cache\xca\x02\x10Gcommon\\V1\\Cache\xe2\x02\x1cGcommon\\V1\\Cache\\GPBMetadata\xea\x02\x12Gcommon::V1::Cache\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
+	"\x05value\x18\x02 \x01(\tR\x05value:\x028\x01B\xb5\x01\n" +
+	"\x14com.gcommon.v1.cacheB\x0eCacheInfoProtoP\x01Z#../../../../pkg/cache/proto;cachepb\xa2\x02\x03GVC\xaa\x02\x10Gcommon.V1.Cache\xca\x02\x10Gcommon\\V1\\Cache\xe2\x02\x1cGcommon\\V1\\Cache\\GPBMetadata\xea\x02\x12Gcommon::V1::Cache\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
 
 var file_pkg_cache_proto_messages_cache_info_proto_msgTypes = make([]protoimpl.MessageInfo, 2)
 var file_pkg_cache_proto_messages_cache_info_proto_goTypes = []any{
 	(*CacheInfo)(nil),             // 0: gcommon.v1.cache.CacheInfo
 	nil,                           // 1: gcommon.v1.cache.CacheInfo.MetadataEntry
-	(pb.HealthStatus)(0),          // 2: gcommon.v1.common.HealthStatus
+	(proto.HealthStatus)(0),       // 2: gcommon.v1.common.HealthStatus
 	(*timestamppb.Timestamp)(nil), // 3: google.protobuf.Timestamp
 }
 var file_pkg_cache_proto_messages_cache_info_proto_depIdxs = []int32{

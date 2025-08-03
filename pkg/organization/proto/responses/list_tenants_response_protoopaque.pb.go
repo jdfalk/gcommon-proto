@@ -9,7 +9,7 @@
 package organizationpb
 
 import (
-	pb "../../../../pkg/common/pb"
+	proto "../../../../pkg/common/proto"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
@@ -25,11 +25,11 @@ const (
 )
 
 type ListTenantsResponse struct {
-	state                 protoimpl.MessageState `protogen:"opaque.v1"`
-	xxx_hidden_Errors     *[]*pb.Error           `protobuf:"bytes,1,rep,name=errors"`
-	xxx_hidden_Success    bool                   `protobuf:"varint,2,opt,name=success"`
-	xxx_hidden_Tenants    *[]*Tenant             `protobuf:"bytes,3,rep,name=tenants"`
-	xxx_hidden_Pagination *pb.PaginatedResponse  `protobuf:"bytes,4,opt,name=pagination"`
+	state                 protoimpl.MessageState   `protogen:"opaque.v1"`
+	xxx_hidden_Errors     *[]*proto.Error          `protobuf:"bytes,1,rep,name=errors"`
+	xxx_hidden_Success    bool                     `protobuf:"varint,2,opt,name=success"`
+	xxx_hidden_Tenants    *[]*Tenant               `protobuf:"bytes,3,rep,name=tenants"`
+	xxx_hidden_Pagination *proto.PaginatedResponse `protobuf:"bytes,4,opt,name=pagination"`
 	// Deprecated: Do not use. This will be deleted in the near future.
 	XXX_lazyUnmarshalInfo  protoimpl.LazyUnmarshalInfo
 	XXX_raceDetectHookData protoimpl.RaceDetectHookData
@@ -63,7 +63,7 @@ func (x *ListTenantsResponse) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-func (x *ListTenantsResponse) GetErrors() []*pb.Error {
+func (x *ListTenantsResponse) GetErrors() []*proto.Error {
 	if x != nil {
 		if x.xxx_hidden_Errors != nil {
 			return *x.xxx_hidden_Errors
@@ -93,14 +93,14 @@ func (x *ListTenantsResponse) GetTenants() []*Tenant {
 	return nil
 }
 
-func (x *ListTenantsResponse) GetPagination() *pb.PaginatedResponse {
+func (x *ListTenantsResponse) GetPagination() *proto.PaginatedResponse {
 	if x != nil {
 		return x.xxx_hidden_Pagination
 	}
 	return nil
 }
 
-func (x *ListTenantsResponse) SetErrors(v []*pb.Error) {
+func (x *ListTenantsResponse) SetErrors(v []*proto.Error) {
 	x.xxx_hidden_Errors = &v
 }
 
@@ -120,7 +120,7 @@ func (x *ListTenantsResponse) SetTenants(v []*Tenant) {
 	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 2, 4)
 }
 
-func (x *ListTenantsResponse) SetPagination(v *pb.PaginatedResponse) {
+func (x *ListTenantsResponse) SetPagination(v *proto.PaginatedResponse) {
 	x.xxx_hidden_Pagination = v
 }
 
@@ -151,13 +151,13 @@ type ListTenantsResponse_builder struct {
 	_ [0]func() // Prevents comparability and use of unkeyed literals for the builder.
 
 	// Any errors encountered
-	Errors []*pb.Error
+	Errors []*proto.Error
 	// Success status
 	Success *bool
 	// List of tenants returned
 	Tenants []*Tenant
 	// Pagination metadata
-	Pagination *pb.PaginatedResponse
+	Pagination *proto.PaginatedResponse
 }
 
 func (b0 ListTenantsResponse_builder) Build() *ListTenantsResponse {
@@ -188,15 +188,15 @@ const file_pkg_organization_proto_responses_list_tenants_response_proto_rawDesc 
 	"\atenants\x18\x03 \x03(\v2\x1f.gcommon.v1.organization.TenantB\x02(\x01R\atenants\x12D\n" +
 	"\n" +
 	"pagination\x18\x04 \x01(\v2$.gcommon.v1.common.PaginatedResponseR\n" +
-	"paginationB\xed\x01\n" +
-	"\x1bcom.gcommon.v1.organizationB\x18ListTenantsResponseProtoP\x01Z.../../../../pkg/organization/pb;organizationpb\xa2\x02\x03GVO\xaa\x02\x17Gcommon.V1.Organization\xca\x02\x17Gcommon\\V1\\Organization\xe2\x02#Gcommon\\V1\\Organization\\GPBMetadata\xea\x02\x19Gcommon::V1::Organization\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
+	"paginationB\xf0\x01\n" +
+	"\x1bcom.gcommon.v1.organizationB\x18ListTenantsResponseProtoP\x01Z1../../../../pkg/organization/proto;organizationpb\xa2\x02\x03GVO\xaa\x02\x17Gcommon.V1.Organization\xca\x02\x17Gcommon\\V1\\Organization\xe2\x02#Gcommon\\V1\\Organization\\GPBMetadata\xea\x02\x19Gcommon::V1::Organization\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
 
 var file_pkg_organization_proto_responses_list_tenants_response_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_pkg_organization_proto_responses_list_tenants_response_proto_goTypes = []any{
-	(*ListTenantsResponse)(nil),  // 0: gcommon.v1.organization.ListTenantsResponse
-	(*pb.Error)(nil),             // 1: gcommon.v1.common.Error
-	(*Tenant)(nil),               // 2: gcommon.v1.organization.Tenant
-	(*pb.PaginatedResponse)(nil), // 3: gcommon.v1.common.PaginatedResponse
+	(*ListTenantsResponse)(nil),     // 0: gcommon.v1.organization.ListTenantsResponse
+	(*proto.Error)(nil),             // 1: gcommon.v1.common.Error
+	(*Tenant)(nil),                  // 2: gcommon.v1.organization.Tenant
+	(*proto.PaginatedResponse)(nil), // 3: gcommon.v1.common.PaginatedResponse
 }
 var file_pkg_organization_proto_responses_list_tenants_response_proto_depIdxs = []int32{
 	1, // 0: gcommon.v1.organization.ListTenantsResponse.errors:type_name -> gcommon.v1.common.Error

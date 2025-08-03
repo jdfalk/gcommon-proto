@@ -9,7 +9,7 @@
 package authpb
 
 import (
-	pb "../../../../pkg/common/pb"
+	proto "../../../../pkg/common/proto"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
@@ -42,7 +42,7 @@ type Session struct {
 	// Session expiration timestamp
 	ExpiresAt *timestamppb.Timestamp `protobuf:"bytes,5,opt,name=expires_at,json=expiresAt" json:"expires_at,omitempty"`
 	// Client information from session creation
-	ClientInfo *pb.ClientInfo `protobuf:"bytes,6,opt,name=client_info,json=clientInfo" json:"client_info,omitempty"`
+	ClientInfo *proto.ClientInfo `protobuf:"bytes,6,opt,name=client_info,json=clientInfo" json:"client_info,omitempty"`
 	// Current session status
 	Status *SessionStatus `protobuf:"varint,7,opt,name=status,enum=gcommon.v1.auth.SessionStatus" json:"status,omitempty"`
 	// Session metadata for extensibility and tracking
@@ -115,7 +115,7 @@ func (x *Session) GetExpiresAt() *timestamppb.Timestamp {
 	return nil
 }
 
-func (x *Session) GetClientInfo() *pb.ClientInfo {
+func (x *Session) GetClientInfo() *proto.ClientInfo {
 	if x != nil {
 		return x.ClientInfo
 	}
@@ -170,7 +170,7 @@ func (x *Session) SetExpiresAt(v *timestamppb.Timestamp) {
 	x.ExpiresAt = v
 }
 
-func (x *Session) SetClientInfo(v *pb.ClientInfo) {
+func (x *Session) SetClientInfo(v *proto.ClientInfo) {
 	x.ClientInfo = v
 }
 
@@ -303,7 +303,7 @@ type Session_builder struct {
 	// Session expiration timestamp
 	ExpiresAt *timestamppb.Timestamp
 	// Client information from session creation
-	ClientInfo *pb.ClientInfo
+	ClientInfo *proto.ClientInfo
 	// Current session status
 	Status *SessionStatus
 	// Session metadata for extensibility and tracking
@@ -355,15 +355,15 @@ const file_pkg_auth_proto_messages_session_proto_rawDesc = "" +
 	" \x01(\tR\tuserAgent\x1a;\n" +
 	"\rMetadataEntry\x12\x10\n" +
 	"\x03key\x18\x01 \x01(\tR\x03key\x12\x14\n" +
-	"\x05value\x18\x02 \x01(\tR\x05value:\x028\x01B\xa9\x01\n" +
-	"\x13com.gcommon.v1.authB\fSessionProtoP\x01Z\x1e../../../../pkg/auth/pb;authpb\xa2\x02\x03GVA\xaa\x02\x0fGcommon.V1.Auth\xca\x02\x0fGcommon\\V1\\Auth\xe2\x02\x1bGcommon\\V1\\Auth\\GPBMetadata\xea\x02\x11Gcommon::V1::Auth\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
+	"\x05value\x18\x02 \x01(\tR\x05value:\x028\x01B\xac\x01\n" +
+	"\x13com.gcommon.v1.authB\fSessionProtoP\x01Z!../../../../pkg/auth/proto;authpb\xa2\x02\x03GVA\xaa\x02\x0fGcommon.V1.Auth\xca\x02\x0fGcommon\\V1\\Auth\xe2\x02\x1bGcommon\\V1\\Auth\\GPBMetadata\xea\x02\x11Gcommon::V1::Auth\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
 
 var file_pkg_auth_proto_messages_session_proto_msgTypes = make([]protoimpl.MessageInfo, 2)
 var file_pkg_auth_proto_messages_session_proto_goTypes = []any{
 	(*Session)(nil),               // 0: gcommon.v1.auth.Session
 	nil,                           // 1: gcommon.v1.auth.Session.MetadataEntry
 	(*timestamppb.Timestamp)(nil), // 2: google.protobuf.Timestamp
-	(*pb.ClientInfo)(nil),         // 3: gcommon.v1.common.ClientInfo
+	(*proto.ClientInfo)(nil),      // 3: gcommon.v1.common.ClientInfo
 	(SessionStatus)(0),            // 4: gcommon.v1.auth.SessionStatus
 }
 var file_pkg_auth_proto_messages_session_proto_depIdxs = []int32{

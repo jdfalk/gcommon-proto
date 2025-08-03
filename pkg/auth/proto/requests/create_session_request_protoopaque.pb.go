@@ -9,7 +9,7 @@
 package authpb
 
 import (
-	pb "../../../../pkg/common/pb"
+	proto "../../../../pkg/common/proto"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
@@ -30,9 +30,9 @@ const (
 // with specific duration and metadata tracking.
 type CreateSessionRequest struct {
 	state                      protoimpl.MessageState `protogen:"opaque.v1"`
-	xxx_hidden_Metadata        *pb.RequestMetadata    `protobuf:"bytes,1,opt,name=metadata"`
+	xxx_hidden_Metadata        *proto.RequestMetadata `protobuf:"bytes,1,opt,name=metadata"`
 	xxx_hidden_UserId          *string                `protobuf:"bytes,2,opt,name=user_id,json=userId"`
-	xxx_hidden_ClientInfo      *pb.ClientInfo         `protobuf:"bytes,3,opt,name=client_info,json=clientInfo"`
+	xxx_hidden_ClientInfo      *proto.ClientInfo      `protobuf:"bytes,3,opt,name=client_info,json=clientInfo"`
 	xxx_hidden_DurationSeconds int32                  `protobuf:"varint,4,opt,name=duration_seconds,json=durationSeconds"`
 	xxx_hidden_SessionMetadata map[string]string      `protobuf:"bytes,5,rep,name=session_metadata,json=sessionMetadata" protobuf_key:"bytes,1,opt,name=key" protobuf_val:"bytes,2,opt,name=value"`
 	// Deprecated: Do not use. This will be deleted in the near future.
@@ -68,13 +68,13 @@ func (x *CreateSessionRequest) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-func (x *CreateSessionRequest) GetMetadata() *pb.RequestMetadata {
+func (x *CreateSessionRequest) GetMetadata() *proto.RequestMetadata {
 	if x != nil {
 		if protoimpl.X.Present(&(x.XXX_presence[0]), 0) {
 			if protoimpl.X.AtomicCheckPointerIsNil(&x.xxx_hidden_Metadata) {
 				protoimpl.X.UnmarshalField(x, 1)
 			}
-			var rv *pb.RequestMetadata
+			var rv *proto.RequestMetadata
 			protoimpl.X.AtomicLoadPointer(protoimpl.Pointer(&x.xxx_hidden_Metadata), protoimpl.Pointer(&rv))
 			return rv
 		}
@@ -92,13 +92,13 @@ func (x *CreateSessionRequest) GetUserId() string {
 	return ""
 }
 
-func (x *CreateSessionRequest) GetClientInfo() *pb.ClientInfo {
+func (x *CreateSessionRequest) GetClientInfo() *proto.ClientInfo {
 	if x != nil {
 		if protoimpl.X.Present(&(x.XXX_presence[0]), 2) {
 			if protoimpl.X.AtomicCheckPointerIsNil(&x.xxx_hidden_ClientInfo) {
 				protoimpl.X.UnmarshalField(x, 3)
 			}
-			var rv *pb.ClientInfo
+			var rv *proto.ClientInfo
 			protoimpl.X.AtomicLoadPointer(protoimpl.Pointer(&x.xxx_hidden_ClientInfo), protoimpl.Pointer(&rv))
 			return rv
 		}
@@ -125,7 +125,7 @@ func (x *CreateSessionRequest) GetSessionMetadata() map[string]string {
 	return nil
 }
 
-func (x *CreateSessionRequest) SetMetadata(v *pb.RequestMetadata) {
+func (x *CreateSessionRequest) SetMetadata(v *proto.RequestMetadata) {
 	protoimpl.X.AtomicSetPointer(&x.xxx_hidden_Metadata, v)
 	if v == nil {
 		protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 0)
@@ -139,7 +139,7 @@ func (x *CreateSessionRequest) SetUserId(v string) {
 	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 1, 5)
 }
 
-func (x *CreateSessionRequest) SetClientInfo(v *pb.ClientInfo) {
+func (x *CreateSessionRequest) SetClientInfo(v *proto.ClientInfo) {
 	protoimpl.X.AtomicSetPointer(&x.xxx_hidden_ClientInfo, v)
 	if v == nil {
 		protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 2)
@@ -192,7 +192,7 @@ func (x *CreateSessionRequest) HasDurationSeconds() bool {
 
 func (x *CreateSessionRequest) ClearMetadata() {
 	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 0)
-	protoimpl.X.AtomicSetPointer(&x.xxx_hidden_Metadata, (*pb.RequestMetadata)(nil))
+	protoimpl.X.AtomicSetPointer(&x.xxx_hidden_Metadata, (*proto.RequestMetadata)(nil))
 }
 
 func (x *CreateSessionRequest) ClearUserId() {
@@ -202,7 +202,7 @@ func (x *CreateSessionRequest) ClearUserId() {
 
 func (x *CreateSessionRequest) ClearClientInfo() {
 	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 2)
-	protoimpl.X.AtomicSetPointer(&x.xxx_hidden_ClientInfo, (*pb.ClientInfo)(nil))
+	protoimpl.X.AtomicSetPointer(&x.xxx_hidden_ClientInfo, (*proto.ClientInfo)(nil))
 }
 
 func (x *CreateSessionRequest) ClearDurationSeconds() {
@@ -214,11 +214,11 @@ type CreateSessionRequest_builder struct {
 	_ [0]func() // Prevents comparability and use of unkeyed literals for the builder.
 
 	// Request metadata for tracing and correlation
-	Metadata *pb.RequestMetadata
+	Metadata *proto.RequestMetadata
 	// User ID for which to create the session
 	UserId *string
 	// Client information for session tracking
-	ClientInfo *pb.ClientInfo
+	ClientInfo *proto.ClientInfo
 	// Session duration in seconds (0 for system default)
 	DurationSeconds *int32
 	// Additional session metadata
@@ -266,15 +266,15 @@ const file_pkg_auth_proto_requests_create_session_request_proto_rawDesc = "" +
 	"\x10session_metadata\x18\x05 \x03(\v2:.gcommon.v1.auth.CreateSessionRequest.SessionMetadataEntryB\x02(\x01R\x0fsessionMetadata\x1aB\n" +
 	"\x14SessionMetadataEntry\x12\x10\n" +
 	"\x03key\x18\x01 \x01(\tR\x03key\x12\x14\n" +
-	"\x05value\x18\x02 \x01(\tR\x05value:\x028\x01B\xb6\x01\n" +
-	"\x13com.gcommon.v1.authB\x19CreateSessionRequestProtoP\x01Z\x1e../../../../pkg/auth/pb;authpb\xa2\x02\x03GVA\xaa\x02\x0fGcommon.V1.Auth\xca\x02\x0fGcommon\\V1\\Auth\xe2\x02\x1bGcommon\\V1\\Auth\\GPBMetadata\xea\x02\x11Gcommon::V1::Auth\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
+	"\x05value\x18\x02 \x01(\tR\x05value:\x028\x01B\xb9\x01\n" +
+	"\x13com.gcommon.v1.authB\x19CreateSessionRequestProtoP\x01Z!../../../../pkg/auth/proto;authpb\xa2\x02\x03GVA\xaa\x02\x0fGcommon.V1.Auth\xca\x02\x0fGcommon\\V1\\Auth\xe2\x02\x1bGcommon\\V1\\Auth\\GPBMetadata\xea\x02\x11Gcommon::V1::Auth\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
 
 var file_pkg_auth_proto_requests_create_session_request_proto_msgTypes = make([]protoimpl.MessageInfo, 2)
 var file_pkg_auth_proto_requests_create_session_request_proto_goTypes = []any{
-	(*CreateSessionRequest)(nil), // 0: gcommon.v1.auth.CreateSessionRequest
-	nil,                          // 1: gcommon.v1.auth.CreateSessionRequest.SessionMetadataEntry
-	(*pb.RequestMetadata)(nil),   // 2: gcommon.v1.common.RequestMetadata
-	(*pb.ClientInfo)(nil),        // 3: gcommon.v1.common.ClientInfo
+	(*CreateSessionRequest)(nil),  // 0: gcommon.v1.auth.CreateSessionRequest
+	nil,                           // 1: gcommon.v1.auth.CreateSessionRequest.SessionMetadataEntry
+	(*proto.RequestMetadata)(nil), // 2: gcommon.v1.common.RequestMetadata
+	(*proto.ClientInfo)(nil),      // 3: gcommon.v1.common.ClientInfo
 }
 var file_pkg_auth_proto_requests_create_session_request_proto_depIdxs = []int32{
 	2, // 0: gcommon.v1.auth.CreateSessionRequest.metadata:type_name -> gcommon.v1.common.RequestMetadata

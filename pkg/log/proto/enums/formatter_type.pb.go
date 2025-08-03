@@ -84,8 +84,8 @@ const file_pkg_log_proto_enums_formatter_type_proto_rawDesc = "" +
 	"\x13FORMATTER_TYPE_TEXT\x10\x01\x12\x17\n" +
 	"\x13FORMATTER_TYPE_JSON\x10\x02\x12\x16\n" +
 	"\x12FORMATTER_TYPE_XML\x10\x03\x12\x19\n" +
-	"\x15FORMATTER_TYPE_CUSTOM\x10\x04B\xa8\x01\n" +
-	"\x12com.gcommon.v1.logB\x12FormatterTypeProtoP\x01Z\x1c../../../../pkg/log/pb;logpb\xa2\x02\x03GVL\xaa\x02\x0eGcommon.V1.Log\xca\x02\x0eGcommon\\V1\\Log\xe2\x02\x1aGcommon\\V1\\Log\\GPBMetadata\xea\x02\x10Gcommon::V1::Log\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
+	"\x15FORMATTER_TYPE_CUSTOM\x10\x04B\xab\x01\n" +
+	"\x12com.gcommon.v1.logB\x12FormatterTypeProtoP\x01Z\x1f../../../../pkg/log/proto;logpb\xa2\x02\x03GVL\xaa\x02\x0eGcommon.V1.Log\xca\x02\x0eGcommon\\V1\\Log\xe2\x02\x1aGcommon\\V1\\Log\\GPBMetadata\xea\x02\x10Gcommon::V1::Log\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
 
 var file_pkg_log_proto_enums_formatter_type_proto_enumTypes = make([]protoimpl.EnumInfo, 1)
 var file_pkg_log_proto_enums_formatter_type_proto_goTypes = []any{

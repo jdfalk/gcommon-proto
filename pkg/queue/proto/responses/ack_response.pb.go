@@ -9,7 +9,7 @@
 package queuepb
 
 import (
-	pb "../../../../pkg/common/pb"
+	proto "../../../../pkg/common/proto"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
@@ -32,7 +32,7 @@ type AckResponse struct {
 	// True if the message was removed from the queue.
 	Success *bool `protobuf:"varint,1,opt,name=success" json:"success,omitempty"`
 	// Optional error information when success is false.
-	Error         *pb.Error `protobuf:"bytes,2,opt,name=error" json:"error,omitempty"`
+	Error         *proto.Error `protobuf:"bytes,2,opt,name=error" json:"error,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -69,7 +69,7 @@ func (x *AckResponse) GetSuccess() bool {
 	return false
 }
 
-func (x *AckResponse) GetError() *pb.Error {
+func (x *AckResponse) GetError() *proto.Error {
 	if x != nil {
 		return x.Error
 	}
@@ -80,7 +80,7 @@ func (x *AckResponse) SetSuccess(v bool) {
 	x.Success = &v
 }
 
-func (x *AckResponse) SetError(v *pb.Error) {
+func (x *AckResponse) SetError(v *proto.Error) {
 	x.Error = v
 }
 
@@ -112,7 +112,7 @@ type AckResponse_builder struct {
 	// True if the message was removed from the queue.
 	Success *bool
 	// Optional error information when success is false.
-	Error *pb.Error
+	Error *proto.Error
 }
 
 func (b0 AckResponse_builder) Build() *AckResponse {
@@ -131,13 +131,13 @@ const file_pkg_queue_proto_responses_ack_response_proto_rawDesc = "" +
 	",pkg/queue/proto/responses/ack_response.proto\x12\x10gcommon.v1.queue\x1a!google/protobuf/go_features.proto\x1a%pkg/common/proto/messages/error.proto\"W\n" +
 	"\vAckResponse\x12\x18\n" +
 	"\asuccess\x18\x01 \x01(\bR\asuccess\x12.\n" +
-	"\x05error\x18\x02 \x01(\v2\x18.gcommon.v1.common.ErrorR\x05errorB\xb4\x01\n" +
-	"\x14com.gcommon.v1.queueB\x10AckResponseProtoP\x01Z ../../../../pkg/queue/pb;queuepb\xa2\x02\x03GVQ\xaa\x02\x10Gcommon.V1.Queue\xca\x02\x10Gcommon\\V1\\Queue\xe2\x02\x1cGcommon\\V1\\Queue\\GPBMetadata\xea\x02\x12Gcommon::V1::Queue\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
+	"\x05error\x18\x02 \x01(\v2\x18.gcommon.v1.common.ErrorR\x05errorB\xb7\x01\n" +
+	"\x14com.gcommon.v1.queueB\x10AckResponseProtoP\x01Z#../../../../pkg/queue/proto;queuepb\xa2\x02\x03GVQ\xaa\x02\x10Gcommon.V1.Queue\xca\x02\x10Gcommon\\V1\\Queue\xe2\x02\x1cGcommon\\V1\\Queue\\GPBMetadata\xea\x02\x12Gcommon::V1::Queue\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
 
 var file_pkg_queue_proto_responses_ack_response_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_pkg_queue_proto_responses_ack_response_proto_goTypes = []any{
 	(*AckResponse)(nil), // 0: gcommon.v1.queue.AckResponse
-	(*pb.Error)(nil),    // 1: gcommon.v1.common.Error
+	(*proto.Error)(nil), // 1: gcommon.v1.common.Error
 }
 var file_pkg_queue_proto_responses_ack_response_proto_depIdxs = []int32{
 	1, // 0: gcommon.v1.queue.AckResponse.error:type_name -> gcommon.v1.common.Error

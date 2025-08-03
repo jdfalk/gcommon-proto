@@ -162,8 +162,8 @@ const file_pkg_auth_proto_responses_initiate_password_reset_response_proto_rawDe
 	"resetToken\x129\n" +
 	"\n" +
 	"expires_at\x18\x02 \x01(\v2\x1a.google.protobuf.TimestampR\texpiresAt\x12\x18\n" +
-	"\amessage\x18\x03 \x01(\tR\amessageB\xbf\x01\n" +
-	"\x13com.gcommon.v1.authB\"InitiatePasswordResetResponseProtoP\x01Z\x1e../../../../pkg/auth/pb;authpb\xa2\x02\x03GVA\xaa\x02\x0fGcommon.V1.Auth\xca\x02\x0fGcommon\\V1\\Auth\xe2\x02\x1bGcommon\\V1\\Auth\\GPBMetadata\xea\x02\x11Gcommon::V1::Auth\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
+	"\amessage\x18\x03 \x01(\tR\amessageB\xc2\x01\n" +
+	"\x13com.gcommon.v1.authB\"InitiatePasswordResetResponseProtoP\x01Z!../../../../pkg/auth/proto;authpb\xa2\x02\x03GVA\xaa\x02\x0fGcommon.V1.Auth\xca\x02\x0fGcommon\\V1\\Auth\xe2\x02\x1bGcommon\\V1\\Auth\\GPBMetadata\xea\x02\x11Gcommon::V1::Auth\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
 
 var file_pkg_auth_proto_responses_initiate_password_reset_response_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_pkg_auth_proto_responses_initiate_password_reset_response_proto_goTypes = []any{

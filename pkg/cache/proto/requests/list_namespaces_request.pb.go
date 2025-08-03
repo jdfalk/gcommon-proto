@@ -105,8 +105,8 @@ const file_pkg_cache_proto_requests_list_namespaces_request_proto_rawDesc = "" +
 	"\tpage_size\x18\x02 \x01(\x05R\bpageSize\x12\x1f\n" +
 	"\vname_filter\x18\x03 \x01(\tR\n" +
 	"nameFilter\x12#\n" +
-	"\rinclude_stats\x18\x04 \x01(\bR\fincludeStatsB\xb6\x01\n" +
-	"\x14com.gcommon.v1.cacheB\x1aListNamespacesRequestProtoP\x01Z ../../../../pkg/cache/pb;cachepb\xa2\x02\x03GVC\xaa\x02\x10Gcommon.V1.Cache\xca\x02\x10Gcommon\\V1\\Cache\xe2\x02\x1cGcommon\\V1\\Cache\\GPBMetadata\xea\x02\x12Gcommon::V1::Cacheb\beditionsp\xe8\a"
+	"\rinclude_stats\x18\x04 \x01(\bR\fincludeStatsB\xb9\x01\n" +
+	"\x14com.gcommon.v1.cacheB\x1aListNamespacesRequestProtoP\x01Z#../../../../pkg/cache/proto;cachepb\xa2\x02\x03GVC\xaa\x02\x10Gcommon.V1.Cache\xca\x02\x10Gcommon\\V1\\Cache\xe2\x02\x1cGcommon\\V1\\Cache\\GPBMetadata\xea\x02\x12Gcommon::V1::Cacheb\beditionsp\xe8\a"
 
 var (
 	file_pkg_cache_proto_requests_list_namespaces_request_proto_rawDescOnce sync.Once

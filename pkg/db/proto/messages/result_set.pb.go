@@ -165,8 +165,8 @@ const file_pkg_db_proto_messages_result_set_proto_rawDesc = "" +
 	"\x04rows\x18\x02 \x03(\v2\x18.gcommon.v1.database.RowB\x02(\x01R\x04rows\x12\x1f\n" +
 	"\vtotal_count\x18\x03 \x01(\x03R\n" +
 	"totalCount\x12\x19\n" +
-	"\bhas_more\x18\x04 \x01(\bR\ahasMoreB\xbb\x01\n" +
-	"\x17com.gcommon.v1.databaseB\x0eResultSetProtoP\x01Z\x1a../../../../pkg/db/pb;dbpb\xa2\x02\x03GVD\xaa\x02\x13Gcommon.V1.Database\xca\x02\x13Gcommon\\V1\\Database\xe2\x02\x1fGcommon\\V1\\Database\\GPBMetadata\xea\x02\x15Gcommon::V1::Database\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
+	"\bhas_more\x18\x04 \x01(\bR\ahasMoreB\xbe\x01\n" +
+	"\x17com.gcommon.v1.databaseB\x0eResultSetProtoP\x01Z\x1d../../../../pkg/db/proto;dbpb\xa2\x02\x03GVD\xaa\x02\x13Gcommon.V1.Database\xca\x02\x13Gcommon\\V1\\Database\xe2\x02\x1fGcommon\\V1\\Database\\GPBMetadata\xea\x02\x15Gcommon::V1::Database\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
 
 var file_pkg_db_proto_messages_result_set_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_pkg_db_proto_messages_result_set_proto_goTypes = []any{

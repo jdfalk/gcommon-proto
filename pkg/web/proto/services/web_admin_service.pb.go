@@ -32,8 +32,8 @@ const file_pkg_web_proto_services_web_admin_service_proto_rawDesc = "" +
 	"\x0eGetCacheConfig\x12%.gcommon.v1.web.GetCacheConfigRequest\x1a&.gcommon.v1.web.GetCacheConfigResponse\x12h\n" +
 	"\x11UpdateCacheConfig\x12(.gcommon.v1.web.UpdateCacheConfigRequest\x1a).gcommon.v1.web.UpdateCacheConfigResponse\x12S\n" +
 	"\n" +
-	"FlushCache\x12!.gcommon.v1.web.FlushCacheRequest\x1a\".gcommon.v1.web.FlushCacheResponseB\xaa\x01\n" +
-	"\x12com.gcommon.v1.webB\x14WebAdminServiceProtoP\x01Z\x1c../../../../pkg/web/pb;webpb\xa2\x02\x03GVW\xaa\x02\x0eGcommon.V1.Web\xca\x02\x0eGcommon\\V1\\Web\xe2\x02\x1aGcommon\\V1\\Web\\GPBMetadata\xea\x02\x10Gcommon::V1::Web\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
+	"FlushCache\x12!.gcommon.v1.web.FlushCacheRequest\x1a\".gcommon.v1.web.FlushCacheResponseB\xad\x01\n" +
+	"\x12com.gcommon.v1.webB\x14WebAdminServiceProtoP\x01Z\x1f../../../../pkg/web/proto;webpb\xa2\x02\x03GVW\xaa\x02\x0eGcommon.V1.Web\xca\x02\x0eGcommon\\V1\\Web\xe2\x02\x1aGcommon\\V1\\Web\\GPBMetadata\xea\x02\x10Gcommon::V1::Web\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
 
 var file_pkg_web_proto_services_web_admin_service_proto_goTypes = []any{
 	(*GetCacheConfigRequest)(nil),     // 0: gcommon.v1.web.GetCacheConfigRequest

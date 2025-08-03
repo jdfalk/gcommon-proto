@@ -34,8 +34,8 @@ const file_pkg_cache_proto_services_cache_admin_service_proto_rawDesc = "" +
 	"\x0fDeleteNamespace\x12(.gcommon.v1.cache.DeleteNamespaceRequest\x1a\x16.google.protobuf.Empty\x12c\n" +
 	"\x0eListNamespaces\x12'.gcommon.v1.cache.ListNamespacesRequest\x1a(.gcommon.v1.cache.ListNamespacesResponse\x12l\n" +
 	"\x11GetNamespaceStats\x12*.gcommon.v1.cache.GetNamespaceStatsRequest\x1a+.gcommon.v1.cache.GetNamespaceStatsResponse\x12f\n" +
-	"\x0fConfigurePolicy\x12(.gcommon.v1.cache.ConfigurePolicyRequest\x1a).gcommon.v1.cache.ConfigurePolicyResponseB\xba\x01\n" +
-	"\x14com.gcommon.v1.cacheB\x16CacheAdminServiceProtoP\x01Z ../../../../pkg/cache/pb;cachepb\xa2\x02\x03GVC\xaa\x02\x10Gcommon.V1.Cache\xca\x02\x10Gcommon\\V1\\Cache\xe2\x02\x1cGcommon\\V1\\Cache\\GPBMetadata\xea\x02\x12Gcommon::V1::Cache\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
+	"\x0fConfigurePolicy\x12(.gcommon.v1.cache.ConfigurePolicyRequest\x1a).gcommon.v1.cache.ConfigurePolicyResponseB\xbd\x01\n" +
+	"\x14com.gcommon.v1.cacheB\x16CacheAdminServiceProtoP\x01Z#../../../../pkg/cache/proto;cachepb\xa2\x02\x03GVC\xaa\x02\x10Gcommon.V1.Cache\xca\x02\x10Gcommon\\V1\\Cache\xe2\x02\x1cGcommon\\V1\\Cache\\GPBMetadata\xea\x02\x12Gcommon::V1::Cache\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
 
 var file_pkg_cache_proto_services_cache_admin_service_proto_goTypes = []any{
 	(*CreateNamespaceRequest)(nil),    // 0: gcommon.v1.cache.CreateNamespaceRequest

@@ -123,8 +123,8 @@ const file_pkg_metrics_proto_enums_retention_policy_retentionpolicy_proto_rawDes
 	"\x1bRETENTION_POLICY_COMPLIANCE\x10\b\x12\x1e\n" +
 	"\x1aRETENTION_POLICY_REAL_TIME\x10\t\x12\x1e\n" +
 	"\x1aRETENTION_POLICY_AGGREGATE\x10\n" +
-	"B\xcd\x01\n" +
-	"\x16com.gcommon.v1.metricsB#RetentionPolicyRetentionpolicyProtoP\x01Z$../../../../pkg/metrics/pb;metricspb\xa2\x02\x03GVM\xaa\x02\x12Gcommon.V1.Metrics\xca\x02\x12Gcommon\\V1\\Metrics\xe2\x02\x1eGcommon\\V1\\Metrics\\GPBMetadata\xea\x02\x14Gcommon::V1::Metricsb\beditionsp\xe8\a"
+	"B\xd0\x01\n" +
+	"\x16com.gcommon.v1.metricsB#RetentionPolicyRetentionpolicyProtoP\x01Z'../../../../pkg/metrics/proto;metricspb\xa2\x02\x03GVM\xaa\x02\x12Gcommon.V1.Metrics\xca\x02\x12Gcommon\\V1\\Metrics\xe2\x02\x1eGcommon\\V1\\Metrics\\GPBMetadata\xea\x02\x14Gcommon::V1::Metricsb\beditionsp\xe8\a"
 
 var (
 	file_pkg_metrics_proto_enums_retention_policy_retentionpolicy_proto_rawDescOnce sync.Once

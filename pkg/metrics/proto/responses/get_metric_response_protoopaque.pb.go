@@ -9,7 +9,7 @@
 package metricspb
 
 import (
-	pb "../../../../pkg/common/pb"
+	proto "../../../../pkg/common/proto"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
@@ -29,7 +29,7 @@ const (
 type GetMetricResponse struct {
 	state             protoimpl.MessageState `protogen:"opaque.v1"`
 	xxx_hidden_Metric *MetricData            `protobuf:"bytes,1,opt,name=metric"`
-	xxx_hidden_Error  *pb.Error              `protobuf:"bytes,2,opt,name=error"`
+	xxx_hidden_Error  *proto.Error           `protobuf:"bytes,2,opt,name=error"`
 	unknownFields     protoimpl.UnknownFields
 	sizeCache         protoimpl.SizeCache
 }
@@ -66,7 +66,7 @@ func (x *GetMetricResponse) GetMetric() *MetricData {
 	return nil
 }
 
-func (x *GetMetricResponse) GetError() *pb.Error {
+func (x *GetMetricResponse) GetError() *proto.Error {
 	if x != nil {
 		return x.xxx_hidden_Error
 	}
@@ -77,7 +77,7 @@ func (x *GetMetricResponse) SetMetric(v *MetricData) {
 	x.xxx_hidden_Metric = v
 }
 
-func (x *GetMetricResponse) SetError(v *pb.Error) {
+func (x *GetMetricResponse) SetError(v *proto.Error) {
 	x.xxx_hidden_Error = v
 }
 
@@ -109,7 +109,7 @@ type GetMetricResponse_builder struct {
 	// Metric data requested
 	Metric *MetricData
 	// Error information if retrieval failed
-	Error *pb.Error
+	Error *proto.Error
 }
 
 func (b0 GetMetricResponse_builder) Build() *GetMetricResponse {
@@ -128,14 +128,14 @@ const file_pkg_metrics_proto_responses_get_metric_response_proto_rawDesc = "" +
 	"5pkg/metrics/proto/responses/get_metric_response.proto\x12\x12gcommon.v1.metrics\x1a!google/protobuf/go_features.proto\x1a%pkg/common/proto/messages/error.proto\x1a,pkg/metrics/proto/messages/metric_data.proto\"{\n" +
 	"\x11GetMetricResponse\x126\n" +
 	"\x06metric\x18\x01 \x01(\v2\x1e.gcommon.v1.metrics.MetricDataR\x06metric\x12.\n" +
-	"\x05error\x18\x02 \x01(\v2\x18.gcommon.v1.common.ErrorR\x05errorB\xc8\x01\n" +
-	"\x16com.gcommon.v1.metricsB\x16GetMetricResponseProtoP\x01Z$../../../../pkg/metrics/pb;metricspb\xa2\x02\x03GVM\xaa\x02\x12Gcommon.V1.Metrics\xca\x02\x12Gcommon\\V1\\Metrics\xe2\x02\x1eGcommon\\V1\\Metrics\\GPBMetadata\xea\x02\x14Gcommon::V1::Metrics\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
+	"\x05error\x18\x02 \x01(\v2\x18.gcommon.v1.common.ErrorR\x05errorB\xcb\x01\n" +
+	"\x16com.gcommon.v1.metricsB\x16GetMetricResponseProtoP\x01Z'../../../../pkg/metrics/proto;metricspb\xa2\x02\x03GVM\xaa\x02\x12Gcommon.V1.Metrics\xca\x02\x12Gcommon\\V1\\Metrics\xe2\x02\x1eGcommon\\V1\\Metrics\\GPBMetadata\xea\x02\x14Gcommon::V1::Metrics\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
 
 var file_pkg_metrics_proto_responses_get_metric_response_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_pkg_metrics_proto_responses_get_metric_response_proto_goTypes = []any{
 	(*GetMetricResponse)(nil), // 0: gcommon.v1.metrics.GetMetricResponse
 	(*MetricData)(nil),        // 1: gcommon.v1.metrics.MetricData
-	(*pb.Error)(nil),          // 2: gcommon.v1.common.Error
+	(*proto.Error)(nil),       // 2: gcommon.v1.common.Error
 }
 var file_pkg_metrics_proto_responses_get_metric_response_proto_depIdxs = []int32{
 	1, // 0: gcommon.v1.metrics.GetMetricResponse.metric:type_name -> gcommon.v1.metrics.MetricData

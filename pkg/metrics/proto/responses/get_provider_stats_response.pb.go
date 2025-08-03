@@ -9,7 +9,7 @@
 package metricspb
 
 import (
-	pb "../../../../pkg/common/pb"
+	proto "../../../../pkg/common/proto"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
@@ -32,7 +32,7 @@ type GetProviderStatsResponse struct {
 	// Success status of the operation
 	Success *bool `protobuf:"varint,1,opt,name=success" json:"success,omitempty"`
 	// Error information if the operation failed
-	Error *pb.Error `protobuf:"bytes,2,opt,name=error" json:"error,omitempty"`
+	Error *proto.Error `protobuf:"bytes,2,opt,name=error" json:"error,omitempty"`
 	// Provider ID these stats are for
 	ProviderId *string `protobuf:"bytes,3,opt,name=provider_id,json=providerId" json:"provider_id,omitempty"`
 	// Comprehensive provider statistics
@@ -79,7 +79,7 @@ func (x *GetProviderStatsResponse) GetSuccess() bool {
 	return false
 }
 
-func (x *GetProviderStatsResponse) GetError() *pb.Error {
+func (x *GetProviderStatsResponse) GetError() *proto.Error {
 	if x != nil {
 		return x.Error
 	}
@@ -125,7 +125,7 @@ func (x *GetProviderStatsResponse) SetSuccess(v bool) {
 	x.Success = &v
 }
 
-func (x *GetProviderStatsResponse) SetError(v *pb.Error) {
+func (x *GetProviderStatsResponse) SetError(v *proto.Error) {
 	x.Error = v
 }
 
@@ -221,7 +221,7 @@ type GetProviderStatsResponse_builder struct {
 	// Success status of the operation
 	Success *bool
 	// Error information if the operation failed
-	Error *pb.Error
+	Error *proto.Error
 	// Provider ID these stats are for
 	ProviderId *string
 	// Comprehensive provider statistics
@@ -4240,8 +4240,8 @@ const file_pkg_metrics_proto_responses_get_provider_stats_response_proto_rawDesc
 	"\x0fDataVolumeTrend\x12!\n" +
 	"\fvolume_trend\x18\x01 \x01(\tR\vvolumeTrend\x12'\n" +
 	"\x0fingestion_trend\x18\x02 \x01(\tR\x0eingestionTrend\x12)\n" +
-	"\x10trend_confidence\x18\x03 \x01(\x01R\x0ftrendConfidenceB\xcf\x01\n" +
-	"\x16com.gcommon.v1.metricsB\x1dGetProviderStatsResponseProtoP\x01Z$../../../../pkg/metrics/pb;metricspb\xa2\x02\x03GVM\xaa\x02\x12Gcommon.V1.Metrics\xca\x02\x12Gcommon\\V1\\Metrics\xe2\x02\x1eGcommon\\V1\\Metrics\\GPBMetadata\xea\x02\x14Gcommon::V1::Metrics\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
+	"\x10trend_confidence\x18\x03 \x01(\x01R\x0ftrendConfidenceB\xd2\x01\n" +
+	"\x16com.gcommon.v1.metricsB\x1dGetProviderStatsResponseProtoP\x01Z'../../../../pkg/metrics/proto;metricspb\xa2\x02\x03GVM\xaa\x02\x12Gcommon.V1.Metrics\xca\x02\x12Gcommon\\V1\\Metrics\xe2\x02\x1eGcommon\\V1\\Metrics\\GPBMetadata\xea\x02\x14Gcommon::V1::Metrics\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
 
 var file_pkg_metrics_proto_responses_get_provider_stats_response_proto_msgTypes = make([]protoimpl.MessageInfo, 25)
 var file_pkg_metrics_proto_responses_get_provider_stats_response_proto_goTypes = []any{
@@ -4270,7 +4270,7 @@ var file_pkg_metrics_proto_responses_get_provider_stats_response_proto_goTypes =
 	(*ResourceUsageTrend)(nil),       // 22: gcommon.v1.metrics.ResourceUsageTrend
 	(*ErrorTrend)(nil),               // 23: gcommon.v1.metrics.ErrorTrend
 	(*DataVolumeTrend)(nil),          // 24: gcommon.v1.metrics.DataVolumeTrend
-	(*pb.Error)(nil),                 // 25: gcommon.v1.common.Error
+	(*proto.Error)(nil),              // 25: gcommon.v1.common.Error
 	(*timestamppb.Timestamp)(nil),    // 26: google.protobuf.Timestamp
 	(*TimeRange)(nil),                // 27: gcommon.v1.metrics.TimeRange
 	(*ProviderInfo)(nil),             // 28: gcommon.v1.metrics.ProviderInfo

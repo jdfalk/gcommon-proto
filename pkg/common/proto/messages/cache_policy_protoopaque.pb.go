@@ -305,8 +305,8 @@ const file_pkg_common_proto_messages_cache_policy_proto_rawDesc = "" +
 	"\vdefault_ttl\x18\x05 \x01(\v2\x19.google.protobuf.DurationR\n" +
 	"defaultTtl\x12#\n" +
 	"\rrefresh_ahead\x18\x06 \x01(\bR\frefreshAhead\x12!\n" +
-	"\fenable_stats\x18\a \x01(\bR\venableStatsB\xbb\x01\n" +
-	"\x15com.gcommon.v1.commonB\x10CachePolicyProtoP\x01Z\"../../../../pkg/common/pb;commonpb\xa2\x02\x03GVC\xaa\x02\x11Gcommon.V1.Common\xca\x02\x11Gcommon\\V1\\Common\xe2\x02\x1dGcommon\\V1\\Common\\GPBMetadata\xea\x02\x13Gcommon::V1::Common\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
+	"\fenable_stats\x18\a \x01(\bR\venableStatsB\xbe\x01\n" +
+	"\x15com.gcommon.v1.commonB\x10CachePolicyProtoP\x01Z%../../../../pkg/common/proto;commonpb\xa2\x02\x03GVC\xaa\x02\x11Gcommon.V1.Common\xca\x02\x11Gcommon\\V1\\Common\xe2\x02\x1dGcommon\\V1\\Common\\GPBMetadata\xea\x02\x13Gcommon::V1::Common\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
 
 var file_pkg_common_proto_messages_cache_policy_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_pkg_common_proto_messages_cache_policy_proto_goTypes = []any{

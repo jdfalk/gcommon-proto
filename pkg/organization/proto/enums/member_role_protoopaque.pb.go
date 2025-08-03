@@ -107,8 +107,8 @@ const file_pkg_organization_proto_enums_member_role_proto_rawDesc = "" +
 	"\x12MEMBER_ROLE_MEMBER\x10\x04\x12\x15\n" +
 	"\x11MEMBER_ROLE_GUEST\x10\x05\x12\x1a\n" +
 	"\x16MEMBER_ROLE_CONTRACTOR\x10\x06\x12\x16\n" +
-	"\x12MEMBER_ROLE_VIEWER\x10\aB\xe4\x01\n" +
-	"\x1bcom.gcommon.v1.organizationB\x0fMemberRoleProtoP\x01Z.../../../../pkg/organization/pb;organizationpb\xa2\x02\x03GVO\xaa\x02\x17Gcommon.V1.Organization\xca\x02\x17Gcommon\\V1\\Organization\xe2\x02#Gcommon\\V1\\Organization\\GPBMetadata\xea\x02\x19Gcommon::V1::Organization\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
+	"\x12MEMBER_ROLE_VIEWER\x10\aB\xe7\x01\n" +
+	"\x1bcom.gcommon.v1.organizationB\x0fMemberRoleProtoP\x01Z1../../../../pkg/organization/proto;organizationpb\xa2\x02\x03GVO\xaa\x02\x17Gcommon.V1.Organization\xca\x02\x17Gcommon\\V1\\Organization\xe2\x02#Gcommon\\V1\\Organization\\GPBMetadata\xea\x02\x19Gcommon::V1::Organization\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
 
 var file_pkg_organization_proto_enums_member_role_proto_enumTypes = make([]protoimpl.EnumInfo, 1)
 var file_pkg_organization_proto_enums_member_role_proto_goTypes = []any{

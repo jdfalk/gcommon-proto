@@ -102,8 +102,8 @@ const file_pkg_db_proto_responses_get_database_info_response_proto_rawDesc = "" 
 	"\n" +
 	"7pkg/db/proto/responses/get_database_info_response.proto\x12\x13gcommon.v1.database\x1a)pkg/db/proto/messages/database_info.proto\x1a!google/protobuf/go_features.proto\"T\n" +
 	"\x17GetDatabaseInfoResponse\x129\n" +
-	"\x04info\x18\x01 \x01(\v2!.gcommon.v1.database.DatabaseInfoB\x02(\x01R\x04infoB\xc9\x01\n" +
-	"\x17com.gcommon.v1.databaseB\x1cGetDatabaseInfoResponseProtoP\x01Z\x1a../../../../pkg/db/pb;dbpb\xa2\x02\x03GVD\xaa\x02\x13Gcommon.V1.Database\xca\x02\x13Gcommon\\V1\\Database\xe2\x02\x1fGcommon\\V1\\Database\\GPBMetadata\xea\x02\x15Gcommon::V1::Database\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
+	"\x04info\x18\x01 \x01(\v2!.gcommon.v1.database.DatabaseInfoB\x02(\x01R\x04infoB\xcc\x01\n" +
+	"\x17com.gcommon.v1.databaseB\x1cGetDatabaseInfoResponseProtoP\x01Z\x1d../../../../pkg/db/proto;dbpb\xa2\x02\x03GVD\xaa\x02\x13Gcommon.V1.Database\xca\x02\x13Gcommon\\V1\\Database\xe2\x02\x1fGcommon\\V1\\Database\\GPBMetadata\xea\x02\x15Gcommon::V1::Database\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
 
 var file_pkg_db_proto_responses_get_database_info_response_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_pkg_db_proto_responses_get_database_info_response_proto_goTypes = []any{

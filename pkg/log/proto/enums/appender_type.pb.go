@@ -92,8 +92,8 @@ const file_pkg_log_proto_enums_appender_type_proto_rawDesc = "" +
 	"\x1aAPPENDER_TYPE_ROLLING_FILE\x10\x03\x12\x18\n" +
 	"\x14APPENDER_TYPE_SYSLOG\x10\x04\x12\x19\n" +
 	"\x15APPENDER_TYPE_NETWORK\x10\x05\x12\x1a\n" +
-	"\x16APPENDER_TYPE_DATABASE\x10\x06B\xa7\x01\n" +
-	"\x12com.gcommon.v1.logB\x11AppenderTypeProtoP\x01Z\x1c../../../../pkg/log/pb;logpb\xa2\x02\x03GVL\xaa\x02\x0eGcommon.V1.Log\xca\x02\x0eGcommon\\V1\\Log\xe2\x02\x1aGcommon\\V1\\Log\\GPBMetadata\xea\x02\x10Gcommon::V1::Log\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
+	"\x16APPENDER_TYPE_DATABASE\x10\x06B\xaa\x01\n" +
+	"\x12com.gcommon.v1.logB\x11AppenderTypeProtoP\x01Z\x1f../../../../pkg/log/proto;logpb\xa2\x02\x03GVL\xaa\x02\x0eGcommon.V1.Log\xca\x02\x0eGcommon\\V1\\Log\xe2\x02\x1aGcommon\\V1\\Log\\GPBMetadata\xea\x02\x10Gcommon::V1::Log\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
 
 var file_pkg_log_proto_enums_appender_type_proto_enumTypes = make([]protoimpl.EnumInfo, 1)
 var file_pkg_log_proto_enums_appender_type_proto_goTypes = []any{

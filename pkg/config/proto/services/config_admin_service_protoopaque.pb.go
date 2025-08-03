@@ -40,8 +40,8 @@ const file_pkg_config_proto_services_config_admin_service_proto_rawDesc = "" +
 	"\x10GetConfigHistory\x12*.gcommon.v1.config.GetConfigHistoryRequest\x1a+.gcommon.v1.config.GetConfigHistoryResponse\x12e\n" +
 	"\x0eGetConfigStats\x12(.gcommon.v1.config.GetConfigStatsRequest\x1a).gcommon.v1.config.GetConfigStatsResponse\x12\\\n" +
 	"\vHealthCheck\x12%.gcommon.v1.config.HealthCheckRequest\x1a&.gcommon.v1.config.HealthCheckResponse\x12P\n" +
-	"\rUnwatchConfig\x12'.gcommon.v1.config.UnwatchConfigRequest\x1a\x16.google.protobuf.EmptyB\xc2\x01\n" +
-	"\x15com.gcommon.v1.configB\x17ConfigAdminServiceProtoP\x01Z\"../../../../pkg/config/pb;configpb\xa2\x02\x03GVC\xaa\x02\x11Gcommon.V1.Config\xca\x02\x11Gcommon\\V1\\Config\xe2\x02\x1dGcommon\\V1\\Config\\GPBMetadata\xea\x02\x13Gcommon::V1::Config\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
+	"\rUnwatchConfig\x12'.gcommon.v1.config.UnwatchConfigRequest\x1a\x16.google.protobuf.EmptyB\xc5\x01\n" +
+	"\x15com.gcommon.v1.configB\x17ConfigAdminServiceProtoP\x01Z%../../../../pkg/config/proto;configpb\xa2\x02\x03GVC\xaa\x02\x11Gcommon.V1.Config\xca\x02\x11Gcommon\\V1\\Config\xe2\x02\x1dGcommon\\V1\\Config\\GPBMetadata\xea\x02\x13Gcommon::V1::Config\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
 
 var file_pkg_config_proto_services_config_admin_service_proto_goTypes = []any{
 	(*BackupConfigRequest)(nil),      // 0: gcommon.v1.config.BackupConfigRequest

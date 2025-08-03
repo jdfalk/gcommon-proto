@@ -215,8 +215,8 @@ const file_pkg_auth_proto_messages_auth_provider_proto_rawDesc = "" +
 	"\x02id\x18\x01 \x01(\tR\x02id\x12\x12\n" +
 	"\x04name\x18\x02 \x01(\tR\x04name\x121\n" +
 	"\x04type\x18\x03 \x01(\x0e2\x1d.gcommon.v1.auth.ProviderTypeR\x04type\x12\x16\n" +
-	"\x06config\x18\x04 \x01(\tR\x06configB\xae\x01\n" +
-	"\x13com.gcommon.v1.authB\x11AuthProviderProtoP\x01Z\x1e../../../../pkg/auth/pb;authpb\xa2\x02\x03GVA\xaa\x02\x0fGcommon.V1.Auth\xca\x02\x0fGcommon\\V1\\Auth\xe2\x02\x1bGcommon\\V1\\Auth\\GPBMetadata\xea\x02\x11Gcommon::V1::Auth\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
+	"\x06config\x18\x04 \x01(\tR\x06configB\xb1\x01\n" +
+	"\x13com.gcommon.v1.authB\x11AuthProviderProtoP\x01Z!../../../../pkg/auth/proto;authpb\xa2\x02\x03GVA\xaa\x02\x0fGcommon.V1.Auth\xca\x02\x0fGcommon\\V1\\Auth\xe2\x02\x1bGcommon\\V1\\Auth\\GPBMetadata\xea\x02\x11Gcommon::V1::Auth\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
 
 var file_pkg_auth_proto_messages_auth_provider_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_pkg_auth_proto_messages_auth_provider_proto_goTypes = []any{

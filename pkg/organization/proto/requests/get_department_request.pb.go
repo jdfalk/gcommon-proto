@@ -9,7 +9,7 @@
 package organizationpb
 
 import (
-	pb "../../../../pkg/common/pb"
+	proto "../../../../pkg/common/proto"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
@@ -27,7 +27,7 @@ const (
 type GetDepartmentRequest struct {
 	state protoimpl.MessageState `protogen:"hybrid.v1"`
 	// Request metadata for tracing and context
-	Metadata *pb.RequestMetadata `protobuf:"bytes,1,opt,name=metadata" json:"metadata,omitempty"`
+	Metadata *proto.RequestMetadata `protobuf:"bytes,1,opt,name=metadata" json:"metadata,omitempty"`
 	// Department identifier
 	DepartmentId  *string `protobuf:"bytes,2,opt,name=department_id,json=departmentId" json:"department_id,omitempty"`
 	unknownFields protoimpl.UnknownFields
@@ -59,7 +59,7 @@ func (x *GetDepartmentRequest) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-func (x *GetDepartmentRequest) GetMetadata() *pb.RequestMetadata {
+func (x *GetDepartmentRequest) GetMetadata() *proto.RequestMetadata {
 	if x != nil {
 		return x.Metadata
 	}
@@ -73,7 +73,7 @@ func (x *GetDepartmentRequest) GetDepartmentId() string {
 	return ""
 }
 
-func (x *GetDepartmentRequest) SetMetadata(v *pb.RequestMetadata) {
+func (x *GetDepartmentRequest) SetMetadata(v *proto.RequestMetadata) {
 	x.Metadata = v
 }
 
@@ -107,7 +107,7 @@ type GetDepartmentRequest_builder struct {
 	_ [0]func() // Prevents comparability and use of unkeyed literals for the builder.
 
 	// Request metadata for tracing and context
-	Metadata *pb.RequestMetadata
+	Metadata *proto.RequestMetadata
 	// Department identifier
 	DepartmentId *string
 }
@@ -128,13 +128,13 @@ const file_pkg_organization_proto_requests_get_department_request_proto_rawDesc 
 	"<pkg/organization/proto/requests/get_department_request.proto\x12\x17gcommon.v1.organization\x1a!google/protobuf/go_features.proto\x1a0pkg/common/proto/messages/request_metadata.proto\"{\n" +
 	"\x14GetDepartmentRequest\x12>\n" +
 	"\bmetadata\x18\x01 \x01(\v2\".gcommon.v1.common.RequestMetadataR\bmetadata\x12#\n" +
-	"\rdepartment_id\x18\x02 \x01(\tR\fdepartmentIdB\xee\x01\n" +
-	"\x1bcom.gcommon.v1.organizationB\x19GetDepartmentRequestProtoP\x01Z.../../../../pkg/organization/pb;organizationpb\xa2\x02\x03GVO\xaa\x02\x17Gcommon.V1.Organization\xca\x02\x17Gcommon\\V1\\Organization\xe2\x02#Gcommon\\V1\\Organization\\GPBMetadata\xea\x02\x19Gcommon::V1::Organization\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
+	"\rdepartment_id\x18\x02 \x01(\tR\fdepartmentIdB\xf1\x01\n" +
+	"\x1bcom.gcommon.v1.organizationB\x19GetDepartmentRequestProtoP\x01Z1../../../../pkg/organization/proto;organizationpb\xa2\x02\x03GVO\xaa\x02\x17Gcommon.V1.Organization\xca\x02\x17Gcommon\\V1\\Organization\xe2\x02#Gcommon\\V1\\Organization\\GPBMetadata\xea\x02\x19Gcommon::V1::Organization\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
 
 var file_pkg_organization_proto_requests_get_department_request_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_pkg_organization_proto_requests_get_department_request_proto_goTypes = []any{
-	(*GetDepartmentRequest)(nil), // 0: gcommon.v1.organization.GetDepartmentRequest
-	(*pb.RequestMetadata)(nil),   // 1: gcommon.v1.common.RequestMetadata
+	(*GetDepartmentRequest)(nil),  // 0: gcommon.v1.organization.GetDepartmentRequest
+	(*proto.RequestMetadata)(nil), // 1: gcommon.v1.common.RequestMetadata
 }
 var file_pkg_organization_proto_requests_get_department_request_proto_depIdxs = []int32{
 	1, // 0: gcommon.v1.organization.GetDepartmentRequest.metadata:type_name -> gcommon.v1.common.RequestMetadata

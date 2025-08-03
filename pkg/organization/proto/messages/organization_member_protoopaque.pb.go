@@ -9,7 +9,7 @@
 package organizationpb
 
 import (
-	pb "../../../../pkg/common/pb"
+	proto "../../../../pkg/common/proto"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
@@ -41,7 +41,7 @@ type OrganizationMember struct {
 	xxx_hidden_DepartmentIds   []string               `protobuf:"bytes,9,rep,name=department_ids,json=departmentIds"`
 	xxx_hidden_TeamIds         []string               `protobuf:"bytes,10,rep,name=team_ids,json=teamIds"`
 	xxx_hidden_TenantIds       []string               `protobuf:"bytes,11,rep,name=tenant_ids,json=tenantIds"`
-	xxx_hidden_Metadata        *[]*pb.KeyValue        `protobuf:"bytes,12,rep,name=metadata"`
+	xxx_hidden_Metadata        *[]*proto.KeyValue     `protobuf:"bytes,12,rep,name=metadata"`
 	xxx_hidden_CreatedAt       *timestamppb.Timestamp `protobuf:"bytes,13,opt,name=created_at,json=createdAt"`
 	xxx_hidden_UpdatedAt       *timestamppb.Timestamp `protobuf:"bytes,14,opt,name=updated_at,json=updatedAt"`
 	xxx_hidden_LastActiveAt    *timestamppb.Timestamp `protobuf:"bytes,15,opt,name=last_active_at,json=lastActiveAt"`
@@ -181,13 +181,13 @@ func (x *OrganizationMember) GetTenantIds() []string {
 	return nil
 }
 
-func (x *OrganizationMember) GetMetadata() []*pb.KeyValue {
+func (x *OrganizationMember) GetMetadata() []*proto.KeyValue {
 	if x != nil {
 		if protoimpl.X.Present(&(x.XXX_presence[0]), 11) {
 			if protoimpl.X.AtomicCheckPointerIsNil(&x.xxx_hidden_Metadata) {
 				protoimpl.X.UnmarshalField(x, 12)
 			}
-			var rv *[]*pb.KeyValue
+			var rv *[]*proto.KeyValue
 			protoimpl.X.AtomicLoadPointer(protoimpl.Pointer(&x.xxx_hidden_Metadata), protoimpl.Pointer(&rv))
 			return *rv
 		}
@@ -371,11 +371,11 @@ func (x *OrganizationMember) SetTenantIds(v []string) {
 	x.xxx_hidden_TenantIds = v
 }
 
-func (x *OrganizationMember) SetMetadata(v []*pb.KeyValue) {
-	var sv *[]*pb.KeyValue
+func (x *OrganizationMember) SetMetadata(v []*proto.KeyValue) {
+	var sv *[]*proto.KeyValue
 	protoimpl.X.AtomicLoadPointer(protoimpl.Pointer(&x.xxx_hidden_Metadata), protoimpl.Pointer(&sv))
 	if sv == nil {
-		sv = &[]*pb.KeyValue{}
+		sv = &[]*proto.KeyValue{}
 		protoimpl.X.AtomicInitializePointer(protoimpl.Pointer(&x.xxx_hidden_Metadata), protoimpl.Pointer(&sv))
 	}
 	*sv = v
@@ -683,7 +683,7 @@ type OrganizationMember_builder struct {
 	// Tenant IDs this member has access to (for multi-tenant organizations)
 	TenantIds []string
 	// Member metadata and custom attributes
-	Metadata []*pb.KeyValue
+	Metadata []*proto.KeyValue
 	// Membership creation timestamp (when user joined organization)
 	CreatedAt *timestamppb.Timestamp
 	// Last update timestamp
@@ -832,14 +832,14 @@ const file_pkg_organization_proto_messages_organization_member_proto_rawDesc = "
 	"\n" +
 	"avatar_url\x18\x16 \x01(\tR\tavatarUrl\x12\x14\n" +
 	"\x05phone\x18\x17 \x01(\tR\x05phone\x12\x1a\n" +
-	"\blocation\x18\x18 \x01(\tR\blocationB\xec\x01\n" +
-	"\x1bcom.gcommon.v1.organizationB\x17OrganizationMemberProtoP\x01Z.../../../../pkg/organization/pb;organizationpb\xa2\x02\x03GVO\xaa\x02\x17Gcommon.V1.Organization\xca\x02\x17Gcommon\\V1\\Organization\xe2\x02#Gcommon\\V1\\Organization\\GPBMetadata\xea\x02\x19Gcommon::V1::Organization\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
+	"\blocation\x18\x18 \x01(\tR\blocationB\xef\x01\n" +
+	"\x1bcom.gcommon.v1.organizationB\x17OrganizationMemberProtoP\x01Z1../../../../pkg/organization/proto;organizationpb\xa2\x02\x03GVO\xaa\x02\x17Gcommon.V1.Organization\xca\x02\x17Gcommon\\V1\\Organization\xe2\x02#Gcommon\\V1\\Organization\\GPBMetadata\xea\x02\x19Gcommon::V1::Organization\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
 
 var file_pkg_organization_proto_messages_organization_member_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_pkg_organization_proto_messages_organization_member_proto_goTypes = []any{
 	(*OrganizationMember)(nil),    // 0: gcommon.v1.organization.OrganizationMember
 	(MemberRole)(0),               // 1: gcommon.v1.organization.MemberRole
-	(*pb.KeyValue)(nil),           // 2: gcommon.v1.common.KeyValue
+	(*proto.KeyValue)(nil),        // 2: gcommon.v1.common.KeyValue
 	(*timestamppb.Timestamp)(nil), // 3: google.protobuf.Timestamp
 }
 var file_pkg_organization_proto_messages_organization_member_proto_depIdxs = []int32{

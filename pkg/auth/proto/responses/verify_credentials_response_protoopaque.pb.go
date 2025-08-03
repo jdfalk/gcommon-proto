@@ -9,7 +9,7 @@
 package authpb
 
 import (
-	pb "../../../../pkg/common/pb"
+	proto "../../../../pkg/common/proto"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
@@ -32,7 +32,7 @@ type VerifyCredentialsResponse struct {
 	state               protoimpl.MessageState `protogen:"opaque.v1"`
 	xxx_hidden_Verified bool                   `protobuf:"varint,1,opt,name=verified"`
 	xxx_hidden_UserInfo *UserInfo              `protobuf:"bytes,2,opt,name=user_info,json=userInfo"`
-	xxx_hidden_Error    *pb.Error              `protobuf:"bytes,3,opt,name=error"`
+	xxx_hidden_Error    *proto.Error           `protobuf:"bytes,3,opt,name=error"`
 	// Deprecated: Do not use. This will be deleted in the near future.
 	XXX_lazyUnmarshalInfo  protoimpl.LazyUnmarshalInfo
 	XXX_raceDetectHookData protoimpl.RaceDetectHookData
@@ -87,13 +87,13 @@ func (x *VerifyCredentialsResponse) GetUserInfo() *UserInfo {
 	return nil
 }
 
-func (x *VerifyCredentialsResponse) GetError() *pb.Error {
+func (x *VerifyCredentialsResponse) GetError() *proto.Error {
 	if x != nil {
 		if protoimpl.X.Present(&(x.XXX_presence[0]), 2) {
 			if protoimpl.X.AtomicCheckPointerIsNil(&x.xxx_hidden_Error) {
 				protoimpl.X.UnmarshalField(x, 3)
 			}
-			var rv *pb.Error
+			var rv *proto.Error
 			protoimpl.X.AtomicLoadPointer(protoimpl.Pointer(&x.xxx_hidden_Error), protoimpl.Pointer(&rv))
 			return rv
 		}
@@ -115,7 +115,7 @@ func (x *VerifyCredentialsResponse) SetUserInfo(v *UserInfo) {
 	}
 }
 
-func (x *VerifyCredentialsResponse) SetError(v *pb.Error) {
+func (x *VerifyCredentialsResponse) SetError(v *proto.Error) {
 	protoimpl.X.AtomicSetPointer(&x.xxx_hidden_Error, v)
 	if v == nil {
 		protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 2)
@@ -157,7 +157,7 @@ func (x *VerifyCredentialsResponse) ClearUserInfo() {
 
 func (x *VerifyCredentialsResponse) ClearError() {
 	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 2)
-	protoimpl.X.AtomicSetPointer(&x.xxx_hidden_Error, (*pb.Error)(nil))
+	protoimpl.X.AtomicSetPointer(&x.xxx_hidden_Error, (*proto.Error)(nil))
 }
 
 type VerifyCredentialsResponse_builder struct {
@@ -168,7 +168,7 @@ type VerifyCredentialsResponse_builder struct {
 	// User information if credentials are verified
 	UserInfo *UserInfo
 	// Error information if verification fails
-	Error *pb.Error
+	Error *proto.Error
 }
 
 func (b0 VerifyCredentialsResponse_builder) Build() *VerifyCredentialsResponse {
@@ -198,14 +198,14 @@ const file_pkg_auth_proto_responses_verify_credentials_response_proto_rawDesc = 
 	"\x19VerifyCredentialsResponse\x12\x1a\n" +
 	"\bverified\x18\x01 \x01(\bR\bverified\x12:\n" +
 	"\tuser_info\x18\x02 \x01(\v2\x19.gcommon.v1.auth.UserInfoB\x02(\x01R\buserInfo\x122\n" +
-	"\x05error\x18\x03 \x01(\v2\x18.gcommon.v1.common.ErrorB\x02(\x01R\x05errorB\xbb\x01\n" +
-	"\x13com.gcommon.v1.authB\x1eVerifyCredentialsResponseProtoP\x01Z\x1e../../../../pkg/auth/pb;authpb\xa2\x02\x03GVA\xaa\x02\x0fGcommon.V1.Auth\xca\x02\x0fGcommon\\V1\\Auth\xe2\x02\x1bGcommon\\V1\\Auth\\GPBMetadata\xea\x02\x11Gcommon::V1::Auth\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
+	"\x05error\x18\x03 \x01(\v2\x18.gcommon.v1.common.ErrorB\x02(\x01R\x05errorB\xbe\x01\n" +
+	"\x13com.gcommon.v1.authB\x1eVerifyCredentialsResponseProtoP\x01Z!../../../../pkg/auth/proto;authpb\xa2\x02\x03GVA\xaa\x02\x0fGcommon.V1.Auth\xca\x02\x0fGcommon\\V1\\Auth\xe2\x02\x1bGcommon\\V1\\Auth\\GPBMetadata\xea\x02\x11Gcommon::V1::Auth\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
 
 var file_pkg_auth_proto_responses_verify_credentials_response_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_pkg_auth_proto_responses_verify_credentials_response_proto_goTypes = []any{
 	(*VerifyCredentialsResponse)(nil), // 0: gcommon.v1.auth.VerifyCredentialsResponse
 	(*UserInfo)(nil),                  // 1: gcommon.v1.auth.UserInfo
-	(*pb.Error)(nil),                  // 2: gcommon.v1.common.Error
+	(*proto.Error)(nil),               // 2: gcommon.v1.common.Error
 }
 var file_pkg_auth_proto_responses_verify_credentials_response_proto_depIdxs = []int32{
 	1, // 0: gcommon.v1.auth.VerifyCredentialsResponse.user_info:type_name -> gcommon.v1.auth.UserInfo

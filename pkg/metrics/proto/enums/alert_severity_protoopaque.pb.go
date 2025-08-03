@@ -96,8 +96,8 @@ const file_pkg_metrics_proto_enums_alert_severity_proto_rawDesc = "" +
 	"\x15ALERT_SEVERITY_MEDIUM\x10\x02\x12\x17\n" +
 	"\x13ALERT_SEVERITY_HIGH\x10\x03\x12\x1b\n" +
 	"\x17ALERT_SEVERITY_CRITICAL\x10\x04\x12\x1c\n" +
-	"\x18ALERT_SEVERITY_EMERGENCY\x10\x05B\xc4\x01\n" +
-	"\x16com.gcommon.v1.metricsB\x12AlertSeverityProtoP\x01Z$../../../../pkg/metrics/pb;metricspb\xa2\x02\x03GVM\xaa\x02\x12Gcommon.V1.Metrics\xca\x02\x12Gcommon\\V1\\Metrics\xe2\x02\x1eGcommon\\V1\\Metrics\\GPBMetadata\xea\x02\x14Gcommon::V1::Metrics\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
+	"\x18ALERT_SEVERITY_EMERGENCY\x10\x05B\xc7\x01\n" +
+	"\x16com.gcommon.v1.metricsB\x12AlertSeverityProtoP\x01Z'../../../../pkg/metrics/proto;metricspb\xa2\x02\x03GVM\xaa\x02\x12Gcommon.V1.Metrics\xca\x02\x12Gcommon\\V1\\Metrics\xe2\x02\x1eGcommon\\V1\\Metrics\\GPBMetadata\xea\x02\x14Gcommon::V1::Metrics\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
 
 var file_pkg_metrics_proto_enums_alert_severity_proto_enumTypes = make([]protoimpl.EnumInfo, 1)
 var file_pkg_metrics_proto_enums_alert_severity_proto_goTypes = []any{

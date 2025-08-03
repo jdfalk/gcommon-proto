@@ -89,8 +89,8 @@ const file_pkg_web_proto_responses_list_sessions_response_proto_rawDesc = "" +
 	"\n" +
 	"4pkg/web/proto/responses/list_sessions_response.proto\x12\x0egcommon.v1.web\x1a!google/protobuf/go_features.proto\x1a)pkg/web/proto/messages/session_data.proto\"O\n" +
 	"\x14ListSessionsResponse\x127\n" +
-	"\bsessions\x18\x01 \x03(\v2\x1b.gcommon.v1.web.SessionDataR\bsessionsB\xaf\x01\n" +
-	"\x12com.gcommon.v1.webB\x19ListSessionsResponseProtoP\x01Z\x1c../../../../pkg/web/pb;webpb\xa2\x02\x03GVW\xaa\x02\x0eGcommon.V1.Web\xca\x02\x0eGcommon\\V1\\Web\xe2\x02\x1aGcommon\\V1\\Web\\GPBMetadata\xea\x02\x10Gcommon::V1::Web\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
+	"\bsessions\x18\x01 \x03(\v2\x1b.gcommon.v1.web.SessionDataR\bsessionsB\xb2\x01\n" +
+	"\x12com.gcommon.v1.webB\x19ListSessionsResponseProtoP\x01Z\x1f../../../../pkg/web/proto;webpb\xa2\x02\x03GVW\xaa\x02\x0eGcommon.V1.Web\xca\x02\x0eGcommon\\V1\\Web\xe2\x02\x1aGcommon\\V1\\Web\\GPBMetadata\xea\x02\x10Gcommon::V1::Web\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
 
 var file_pkg_web_proto_responses_list_sessions_response_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_pkg_web_proto_responses_list_sessions_response_proto_goTypes = []any{

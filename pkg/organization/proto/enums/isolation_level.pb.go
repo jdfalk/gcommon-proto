@@ -96,8 +96,8 @@ const file_pkg_organization_proto_enums_isolation_level_proto_rawDesc = "" +
 	"\x18ISOLATION_LEVEL_DATABASE\x10\x02\x12\"\n" +
 	"\x1eISOLATION_LEVEL_INFRASTRUCTURE\x10\x03\x12\x1b\n" +
 	"\x17ISOLATION_LEVEL_NETWORK\x10\x04\x12\x1c\n" +
-	"\x18ISOLATION_LEVEL_PHYSICAL\x10\x05B\xe8\x01\n" +
-	"\x1bcom.gcommon.v1.organizationB\x13IsolationLevelProtoP\x01Z.../../../../pkg/organization/pb;organizationpb\xa2\x02\x03GVO\xaa\x02\x17Gcommon.V1.Organization\xca\x02\x17Gcommon\\V1\\Organization\xe2\x02#Gcommon\\V1\\Organization\\GPBMetadata\xea\x02\x19Gcommon::V1::Organization\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
+	"\x18ISOLATION_LEVEL_PHYSICAL\x10\x05B\xeb\x01\n" +
+	"\x1bcom.gcommon.v1.organizationB\x13IsolationLevelProtoP\x01Z1../../../../pkg/organization/proto;organizationpb\xa2\x02\x03GVO\xaa\x02\x17Gcommon.V1.Organization\xca\x02\x17Gcommon\\V1\\Organization\xe2\x02#Gcommon\\V1\\Organization\\GPBMetadata\xea\x02\x19Gcommon::V1::Organization\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
 
 var file_pkg_organization_proto_enums_isolation_level_proto_enumTypes = make([]protoimpl.EnumInfo, 1)
 var file_pkg_organization_proto_enums_isolation_level_proto_goTypes = []any{

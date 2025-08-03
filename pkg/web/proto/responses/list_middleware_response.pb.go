@@ -9,7 +9,7 @@
 package webpb
 
 import (
-	pb "../../../../pkg/common/pb"
+	proto "../../../../pkg/common/proto"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
@@ -30,9 +30,9 @@ type ListMiddlewareResponse struct {
 	// Middleware information
 	Middleware []*MiddlewareInfo `protobuf:"bytes,1,rep,name=middleware" json:"middleware,omitempty"`
 	// Pagination details
-	Pagination *pb.Pagination `protobuf:"bytes,2,opt,name=pagination" json:"pagination,omitempty"`
+	Pagination *proto.Pagination `protobuf:"bytes,2,opt,name=pagination" json:"pagination,omitempty"`
 	// Error information if the operation failed
-	Error         *pb.Error `protobuf:"bytes,3,opt,name=error" json:"error,omitempty"`
+	Error         *proto.Error `protobuf:"bytes,3,opt,name=error" json:"error,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -69,14 +69,14 @@ func (x *ListMiddlewareResponse) GetMiddleware() []*MiddlewareInfo {
 	return nil
 }
 
-func (x *ListMiddlewareResponse) GetPagination() *pb.Pagination {
+func (x *ListMiddlewareResponse) GetPagination() *proto.Pagination {
 	if x != nil {
 		return x.Pagination
 	}
 	return nil
 }
 
-func (x *ListMiddlewareResponse) GetError() *pb.Error {
+func (x *ListMiddlewareResponse) GetError() *proto.Error {
 	if x != nil {
 		return x.Error
 	}
@@ -87,11 +87,11 @@ func (x *ListMiddlewareResponse) SetMiddleware(v []*MiddlewareInfo) {
 	x.Middleware = v
 }
 
-func (x *ListMiddlewareResponse) SetPagination(v *pb.Pagination) {
+func (x *ListMiddlewareResponse) SetPagination(v *proto.Pagination) {
 	x.Pagination = v
 }
 
-func (x *ListMiddlewareResponse) SetError(v *pb.Error) {
+func (x *ListMiddlewareResponse) SetError(v *proto.Error) {
 	x.Error = v
 }
 
@@ -123,9 +123,9 @@ type ListMiddlewareResponse_builder struct {
 	// Middleware information
 	Middleware []*MiddlewareInfo
 	// Pagination details
-	Pagination *pb.Pagination
+	Pagination *proto.Pagination
 	// Error information if the operation failed
-	Error *pb.Error
+	Error *proto.Error
 }
 
 func (b0 ListMiddlewareResponse_builder) Build() *ListMiddlewareResponse {
@@ -150,15 +150,15 @@ const file_pkg_web_proto_responses_list_middleware_response_proto_rawDesc = "" +
 	"\n" +
 	"pagination\x18\x02 \x01(\v2\x1d.gcommon.v1.common.PaginationR\n" +
 	"pagination\x12.\n" +
-	"\x05error\x18\x03 \x01(\v2\x18.gcommon.v1.common.ErrorR\x05errorB\xb1\x01\n" +
-	"\x12com.gcommon.v1.webB\x1bListMiddlewareResponseProtoP\x01Z\x1c../../../../pkg/web/pb;webpb\xa2\x02\x03GVW\xaa\x02\x0eGcommon.V1.Web\xca\x02\x0eGcommon\\V1\\Web\xe2\x02\x1aGcommon\\V1\\Web\\GPBMetadata\xea\x02\x10Gcommon::V1::Web\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
+	"\x05error\x18\x03 \x01(\v2\x18.gcommon.v1.common.ErrorR\x05errorB\xb4\x01\n" +
+	"\x12com.gcommon.v1.webB\x1bListMiddlewareResponseProtoP\x01Z\x1f../../../../pkg/web/proto;webpb\xa2\x02\x03GVW\xaa\x02\x0eGcommon.V1.Web\xca\x02\x0eGcommon\\V1\\Web\xe2\x02\x1aGcommon\\V1\\Web\\GPBMetadata\xea\x02\x10Gcommon::V1::Web\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
 
 var file_pkg_web_proto_responses_list_middleware_response_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_pkg_web_proto_responses_list_middleware_response_proto_goTypes = []any{
 	(*ListMiddlewareResponse)(nil), // 0: gcommon.v1.web.ListMiddlewareResponse
 	(*MiddlewareInfo)(nil),         // 1: gcommon.v1.web.MiddlewareInfo
-	(*pb.Pagination)(nil),          // 2: gcommon.v1.common.Pagination
-	(*pb.Error)(nil),               // 3: gcommon.v1.common.Error
+	(*proto.Pagination)(nil),       // 2: gcommon.v1.common.Pagination
+	(*proto.Error)(nil),            // 3: gcommon.v1.common.Error
 }
 var file_pkg_web_proto_responses_list_middleware_response_proto_depIdxs = []int32{
 	1, // 0: gcommon.v1.web.ListMiddlewareResponse.middleware:type_name -> gcommon.v1.web.MiddlewareInfo

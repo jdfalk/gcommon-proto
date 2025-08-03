@@ -143,8 +143,8 @@ const file_pkg_metrics_proto_enums_visualization_type_proto_rawDesc = "" +
 	"\x18VISUALIZATION_TYPE_GRAPH\x10\v\x12\x1f\n" +
 	"\x1bVISUALIZATION_TYPE_WORLDMAP\x10\f\x12\x1b\n" +
 	"\x17VISUALIZATION_TYPE_TEXT\x10\r\x12\x1d\n" +
-	"\x19VISUALIZATION_TYPE_CUSTOM\x10\x0eB\xc0\x01\n" +
-	"\x16com.gcommon.v1.metricsB\x16VisualizationTypeProtoP\x01Z$../../../../pkg/metrics/pb;metricspb\xa2\x02\x03GVM\xaa\x02\x12Gcommon.V1.Metrics\xca\x02\x12Gcommon\\V1\\Metrics\xe2\x02\x1eGcommon\\V1\\Metrics\\GPBMetadata\xea\x02\x14Gcommon::V1::Metricsb\beditionsp\xe8\a"
+	"\x19VISUALIZATION_TYPE_CUSTOM\x10\x0eB\xc3\x01\n" +
+	"\x16com.gcommon.v1.metricsB\x16VisualizationTypeProtoP\x01Z'../../../../pkg/metrics/proto;metricspb\xa2\x02\x03GVM\xaa\x02\x12Gcommon.V1.Metrics\xca\x02\x12Gcommon\\V1\\Metrics\xe2\x02\x1eGcommon\\V1\\Metrics\\GPBMetadata\xea\x02\x14Gcommon::V1::Metricsb\beditionsp\xe8\a"
 
 var (
 	file_pkg_metrics_proto_enums_visualization_type_proto_rawDescOnce sync.Once

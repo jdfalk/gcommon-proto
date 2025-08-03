@@ -9,7 +9,7 @@
 package metricspb
 
 import (
-	pb "../../../../pkg/common/pb"
+	proto "../../../../pkg/common/proto"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
@@ -32,7 +32,7 @@ type StartScrapingResponse struct {
 	// Whether the job was started successfully
 	Success *bool `protobuf:"varint,1,opt,name=success" json:"success,omitempty"`
 	// Error information if unsuccessful
-	Error *pb.Error `protobuf:"bytes,2,opt,name=error" json:"error,omitempty"`
+	Error *proto.Error `protobuf:"bytes,2,opt,name=error" json:"error,omitempty"`
 	// Details of the started scrape job
 	Job *ScrapeJob `protobuf:"bytes,3,opt,name=job" json:"job,omitempty"`
 	// Timestamp when the job started
@@ -73,7 +73,7 @@ func (x *StartScrapingResponse) GetSuccess() bool {
 	return false
 }
 
-func (x *StartScrapingResponse) GetError() *pb.Error {
+func (x *StartScrapingResponse) GetError() *proto.Error {
 	if x != nil {
 		return x.Error
 	}
@@ -98,7 +98,7 @@ func (x *StartScrapingResponse) SetSuccess(v bool) {
 	x.Success = &v
 }
 
-func (x *StartScrapingResponse) SetError(v *pb.Error) {
+func (x *StartScrapingResponse) SetError(v *proto.Error) {
 	x.Error = v
 }
 
@@ -160,7 +160,7 @@ type StartScrapingResponse_builder struct {
 	// Whether the job was started successfully
 	Success *bool
 	// Error information if unsuccessful
-	Error *pb.Error
+	Error *proto.Error
 	// Details of the started scrape job
 	Job *ScrapeJob
 	// Timestamp when the job started
@@ -188,13 +188,13 @@ const file_pkg_metrics_proto_responses_start_scraping_response_proto_rawDesc = "
 	"\x05error\x18\x02 \x01(\v2\x18.gcommon.v1.common.ErrorR\x05error\x12/\n" +
 	"\x03job\x18\x03 \x01(\v2\x1d.gcommon.v1.metrics.ScrapeJobR\x03job\x129\n" +
 	"\n" +
-	"started_at\x18\x04 \x01(\v2\x1a.google.protobuf.TimestampR\tstartedAtB\xcc\x01\n" +
-	"\x16com.gcommon.v1.metricsB\x1aStartScrapingResponseProtoP\x01Z$../../../../pkg/metrics/pb;metricspb\xa2\x02\x03GVM\xaa\x02\x12Gcommon.V1.Metrics\xca\x02\x12Gcommon\\V1\\Metrics\xe2\x02\x1eGcommon\\V1\\Metrics\\GPBMetadata\xea\x02\x14Gcommon::V1::Metrics\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
+	"started_at\x18\x04 \x01(\v2\x1a.google.protobuf.TimestampR\tstartedAtB\xcf\x01\n" +
+	"\x16com.gcommon.v1.metricsB\x1aStartScrapingResponseProtoP\x01Z'../../../../pkg/metrics/proto;metricspb\xa2\x02\x03GVM\xaa\x02\x12Gcommon.V1.Metrics\xca\x02\x12Gcommon\\V1\\Metrics\xe2\x02\x1eGcommon\\V1\\Metrics\\GPBMetadata\xea\x02\x14Gcommon::V1::Metrics\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
 
 var file_pkg_metrics_proto_responses_start_scraping_response_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_pkg_metrics_proto_responses_start_scraping_response_proto_goTypes = []any{
 	(*StartScrapingResponse)(nil), // 0: gcommon.v1.metrics.StartScrapingResponse
-	(*pb.Error)(nil),              // 1: gcommon.v1.common.Error
+	(*proto.Error)(nil),           // 1: gcommon.v1.common.Error
 	(*ScrapeJob)(nil),             // 2: gcommon.v1.metrics.ScrapeJob
 	(*timestamppb.Timestamp)(nil), // 3: google.protobuf.Timestamp
 }

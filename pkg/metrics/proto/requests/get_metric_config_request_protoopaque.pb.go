@@ -9,7 +9,7 @@
 package metricspb
 
 import (
-	pb "../../../../pkg/common/pb"
+	proto "../../../../pkg/common/proto"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
@@ -29,7 +29,7 @@ const (
 type GetMetricConfigRequest struct {
 	state               protoimpl.MessageState `protogen:"opaque.v1"`
 	xxx_hidden_MetricId *string                `protobuf:"bytes,1,opt,name=metric_id,json=metricId"`
-	xxx_hidden_Metadata *pb.RequestMetadata    `protobuf:"bytes,2,opt,name=metadata"`
+	xxx_hidden_Metadata *proto.RequestMetadata `protobuf:"bytes,2,opt,name=metadata"`
 	// Deprecated: Do not use. This will be deleted in the near future.
 	XXX_lazyUnmarshalInfo  protoimpl.LazyUnmarshalInfo
 	XXX_raceDetectHookData protoimpl.RaceDetectHookData
@@ -73,13 +73,13 @@ func (x *GetMetricConfigRequest) GetMetricId() string {
 	return ""
 }
 
-func (x *GetMetricConfigRequest) GetMetadata() *pb.RequestMetadata {
+func (x *GetMetricConfigRequest) GetMetadata() *proto.RequestMetadata {
 	if x != nil {
 		if protoimpl.X.Present(&(x.XXX_presence[0]), 1) {
 			if protoimpl.X.AtomicCheckPointerIsNil(&x.xxx_hidden_Metadata) {
 				protoimpl.X.UnmarshalField(x, 2)
 			}
-			var rv *pb.RequestMetadata
+			var rv *proto.RequestMetadata
 			protoimpl.X.AtomicLoadPointer(protoimpl.Pointer(&x.xxx_hidden_Metadata), protoimpl.Pointer(&rv))
 			return rv
 		}
@@ -92,7 +92,7 @@ func (x *GetMetricConfigRequest) SetMetricId(v string) {
 	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 0, 2)
 }
 
-func (x *GetMetricConfigRequest) SetMetadata(v *pb.RequestMetadata) {
+func (x *GetMetricConfigRequest) SetMetadata(v *proto.RequestMetadata) {
 	protoimpl.X.AtomicSetPointer(&x.xxx_hidden_Metadata, v)
 	if v == nil {
 		protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 1)
@@ -122,7 +122,7 @@ func (x *GetMetricConfigRequest) ClearMetricId() {
 
 func (x *GetMetricConfigRequest) ClearMetadata() {
 	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 1)
-	protoimpl.X.AtomicSetPointer(&x.xxx_hidden_Metadata, (*pb.RequestMetadata)(nil))
+	protoimpl.X.AtomicSetPointer(&x.xxx_hidden_Metadata, (*proto.RequestMetadata)(nil))
 }
 
 type GetMetricConfigRequest_builder struct {
@@ -131,7 +131,7 @@ type GetMetricConfigRequest_builder struct {
 	// Metric identifier
 	MetricId *string
 	// Request metadata
-	Metadata *pb.RequestMetadata
+	Metadata *proto.RequestMetadata
 }
 
 func (b0 GetMetricConfigRequest_builder) Build() *GetMetricConfigRequest {
@@ -156,13 +156,13 @@ const file_pkg_metrics_proto_requests_get_metric_config_request_proto_rawDesc = 
 	":pkg/metrics/proto/requests/get_metric_config_request.proto\x12\x12gcommon.v1.metrics\x1a!google/protobuf/go_features.proto\x1a0pkg/common/proto/messages/request_metadata.proto\"y\n" +
 	"\x16GetMetricConfigRequest\x12\x1b\n" +
 	"\tmetric_id\x18\x01 \x01(\tR\bmetricId\x12B\n" +
-	"\bmetadata\x18\x02 \x01(\v2\".gcommon.v1.common.RequestMetadataB\x02(\x01R\bmetadataB\xcd\x01\n" +
-	"\x16com.gcommon.v1.metricsB\x1bGetMetricConfigRequestProtoP\x01Z$../../../../pkg/metrics/pb;metricspb\xa2\x02\x03GVM\xaa\x02\x12Gcommon.V1.Metrics\xca\x02\x12Gcommon\\V1\\Metrics\xe2\x02\x1eGcommon\\V1\\Metrics\\GPBMetadata\xea\x02\x14Gcommon::V1::Metrics\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
+	"\bmetadata\x18\x02 \x01(\v2\".gcommon.v1.common.RequestMetadataB\x02(\x01R\bmetadataB\xd0\x01\n" +
+	"\x16com.gcommon.v1.metricsB\x1bGetMetricConfigRequestProtoP\x01Z'../../../../pkg/metrics/proto;metricspb\xa2\x02\x03GVM\xaa\x02\x12Gcommon.V1.Metrics\xca\x02\x12Gcommon\\V1\\Metrics\xe2\x02\x1eGcommon\\V1\\Metrics\\GPBMetadata\xea\x02\x14Gcommon::V1::Metrics\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
 
 var file_pkg_metrics_proto_requests_get_metric_config_request_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_pkg_metrics_proto_requests_get_metric_config_request_proto_goTypes = []any{
 	(*GetMetricConfigRequest)(nil), // 0: gcommon.v1.metrics.GetMetricConfigRequest
-	(*pb.RequestMetadata)(nil),     // 1: gcommon.v1.common.RequestMetadata
+	(*proto.RequestMetadata)(nil),  // 1: gcommon.v1.common.RequestMetadata
 }
 var file_pkg_metrics_proto_requests_get_metric_config_request_proto_depIdxs = []int32{
 	1, // 0: gcommon.v1.metrics.GetMetricConfigRequest.metadata:type_name -> gcommon.v1.common.RequestMetadata

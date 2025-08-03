@@ -9,7 +9,7 @@
 package metricspb
 
 import (
-	pb "../../../../pkg/common/pb"
+	proto "../../../../pkg/common/proto"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
@@ -32,7 +32,7 @@ type RecordMetricResponse struct {
 	// Success status of the operation
 	Success *bool `protobuf:"varint,1,opt,name=success" json:"success,omitempty"`
 	// Error information if the operation failed
-	Error *pb.Error `protobuf:"bytes,2,opt,name=error" json:"error,omitempty"`
+	Error *proto.Error `protobuf:"bytes,2,opt,name=error" json:"error,omitempty"`
 	// Unique ID assigned to the recorded metric (if applicable)
 	MetricId *string `protobuf:"bytes,3,opt,name=metric_id,json=metricId" json:"metric_id,omitempty"`
 	// Timestamp when the metric was actually recorded
@@ -81,7 +81,7 @@ func (x *RecordMetricResponse) GetSuccess() bool {
 	return false
 }
 
-func (x *RecordMetricResponse) GetError() *pb.Error {
+func (x *RecordMetricResponse) GetError() *proto.Error {
 	if x != nil {
 		return x.Error
 	}
@@ -134,7 +134,7 @@ func (x *RecordMetricResponse) SetSuccess(v bool) {
 	x.Success = &v
 }
 
-func (x *RecordMetricResponse) SetError(v *pb.Error) {
+func (x *RecordMetricResponse) SetError(v *proto.Error) {
 	x.Error = v
 }
 
@@ -245,7 +245,7 @@ type RecordMetricResponse_builder struct {
 	// Success status of the operation
 	Success *bool
 	// Error information if the operation failed
-	Error *pb.Error
+	Error *proto.Error
 	// Unique ID assigned to the recorded metric (if applicable)
 	MetricId *string
 	// Timestamp when the metric was actually recorded
@@ -292,13 +292,13 @@ const file_pkg_metrics_proto_responses_record_metric_response_proto_rawDesc = ""
 	"validation\x18\x06 \x01(\v2$.gcommon.v1.metrics.ValidationResultR\n" +
 	"validation\x128\n" +
 	"\x05stats\x18\a \x01(\v2\".gcommon.v1.metrics.RecordingStatsR\x05stats\x12\x1a\n" +
-	"\bwarnings\x18\b \x03(\tR\bwarningsB\xcb\x01\n" +
-	"\x16com.gcommon.v1.metricsB\x19RecordMetricResponseProtoP\x01Z$../../../../pkg/metrics/pb;metricspb\xa2\x02\x03GVM\xaa\x02\x12Gcommon.V1.Metrics\xca\x02\x12Gcommon\\V1\\Metrics\xe2\x02\x1eGcommon\\V1\\Metrics\\GPBMetadata\xea\x02\x14Gcommon::V1::Metrics\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
+	"\bwarnings\x18\b \x03(\tR\bwarningsB\xce\x01\n" +
+	"\x16com.gcommon.v1.metricsB\x19RecordMetricResponseProtoP\x01Z'../../../../pkg/metrics/proto;metricspb\xa2\x02\x03GVM\xaa\x02\x12Gcommon.V1.Metrics\xca\x02\x12Gcommon\\V1\\Metrics\xe2\x02\x1eGcommon\\V1\\Metrics\\GPBMetadata\xea\x02\x14Gcommon::V1::Metrics\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
 
 var file_pkg_metrics_proto_responses_record_metric_response_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_pkg_metrics_proto_responses_record_metric_response_proto_goTypes = []any{
 	(*RecordMetricResponse)(nil),  // 0: gcommon.v1.metrics.RecordMetricResponse
-	(*pb.Error)(nil),              // 1: gcommon.v1.common.Error
+	(*proto.Error)(nil),           // 1: gcommon.v1.common.Error
 	(*timestamppb.Timestamp)(nil), // 2: google.protobuf.Timestamp
 	(*ValidationResult)(nil),      // 3: gcommon.v1.metrics.ValidationResult
 	(*RecordingStats)(nil),        // 4: gcommon.v1.metrics.RecordingStats

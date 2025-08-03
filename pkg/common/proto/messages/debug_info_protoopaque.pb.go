@@ -211,8 +211,8 @@ const file_pkg_common_proto_messages_debug_info_proto_rawDesc = "" +
 	"\x04tags\x18\x05 \x03(\tR\x04tags\x1a:\n" +
 	"\fDetailsEntry\x12\x10\n" +
 	"\x03key\x18\x01 \x01(\tR\x03key\x12\x14\n" +
-	"\x05value\x18\x02 \x01(\tR\x05value:\x028\x01B\xb9\x01\n" +
-	"\x15com.gcommon.v1.commonB\x0eDebugInfoProtoP\x01Z\"../../../../pkg/common/pb;commonpb\xa2\x02\x03GVC\xaa\x02\x11Gcommon.V1.Common\xca\x02\x11Gcommon\\V1\\Common\xe2\x02\x1dGcommon\\V1\\Common\\GPBMetadata\xea\x02\x13Gcommon::V1::Common\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
+	"\x05value\x18\x02 \x01(\tR\x05value:\x028\x01B\xbc\x01\n" +
+	"\x15com.gcommon.v1.commonB\x0eDebugInfoProtoP\x01Z%../../../../pkg/common/proto;commonpb\xa2\x02\x03GVC\xaa\x02\x11Gcommon.V1.Common\xca\x02\x11Gcommon\\V1\\Common\xe2\x02\x1dGcommon\\V1\\Common\\GPBMetadata\xea\x02\x13Gcommon::V1::Common\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
 
 var file_pkg_common_proto_messages_debug_info_proto_msgTypes = make([]protoimpl.MessageInfo, 2)
 var file_pkg_common_proto_messages_debug_info_proto_goTypes = []any{

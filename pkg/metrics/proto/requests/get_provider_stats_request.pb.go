@@ -9,7 +9,7 @@
 package metricspb
 
 import (
-	pb "../../../../pkg/common/pb"
+	proto "../../../../pkg/common/proto"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
@@ -29,7 +29,7 @@ const (
 type GetProviderStatsRequest struct {
 	state protoimpl.MessageState `protogen:"hybrid.v1"`
 	// Standard request metadata (tracing, auth, etc.)
-	Metadata *pb.RequestMetadata `protobuf:"bytes,1,opt,name=metadata" json:"metadata,omitempty"`
+	Metadata *proto.RequestMetadata `protobuf:"bytes,1,opt,name=metadata" json:"metadata,omitempty"`
 	// Provider ID to get stats for
 	ProviderId *string `protobuf:"bytes,2,opt,name=provider_id,json=providerId" json:"provider_id,omitempty"`
 	// Time range for statistics
@@ -69,7 +69,7 @@ func (x *GetProviderStatsRequest) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-func (x *GetProviderStatsRequest) GetMetadata() *pb.RequestMetadata {
+func (x *GetProviderStatsRequest) GetMetadata() *proto.RequestMetadata {
 	if x != nil {
 		return x.Metadata
 	}
@@ -111,7 +111,7 @@ func (x *GetProviderStatsRequest) GetIncludeRealtime() bool {
 	return false
 }
 
-func (x *GetProviderStatsRequest) SetMetadata(v *pb.RequestMetadata) {
+func (x *GetProviderStatsRequest) SetMetadata(v *proto.RequestMetadata) {
 	x.Metadata = v
 }
 
@@ -205,7 +205,7 @@ type GetProviderStatsRequest_builder struct {
 	_ [0]func() // Prevents comparability and use of unkeyed literals for the builder.
 
 	// Standard request metadata (tracing, auth, etc.)
-	Metadata *pb.RequestMetadata
+	Metadata *proto.RequestMetadata
 	// Provider ID to get stats for
 	ProviderId *string
 	// Time range for statistics
@@ -571,14 +571,14 @@ const file_pkg_metrics_proto_requests_get_provider_stats_request_proto_rawDesc =
 	"\x13include_top_metrics\x18\b \x01(\bR\x11includeTopMetrics\x12*\n" +
 	"\x11top_metrics_limit\x18\t \x01(\x05R\x0ftopMetricsLimit\x12%\n" +
 	"\x0einclude_trends\x18\n" +
-	" \x01(\bR\rincludeTrendsB\xce\x01\n" +
-	"\x16com.gcommon.v1.metricsB\x1cGetProviderStatsRequestProtoP\x01Z$../../../../pkg/metrics/pb;metricspb\xa2\x02\x03GVM\xaa\x02\x12Gcommon.V1.Metrics\xca\x02\x12Gcommon\\V1\\Metrics\xe2\x02\x1eGcommon\\V1\\Metrics\\GPBMetadata\xea\x02\x14Gcommon::V1::Metrics\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
+	" \x01(\bR\rincludeTrendsB\xd1\x01\n" +
+	"\x16com.gcommon.v1.metricsB\x1cGetProviderStatsRequestProtoP\x01Z'../../../../pkg/metrics/proto;metricspb\xa2\x02\x03GVM\xaa\x02\x12Gcommon.V1.Metrics\xca\x02\x12Gcommon\\V1\\Metrics\xe2\x02\x1eGcommon\\V1\\Metrics\\GPBMetadata\xea\x02\x14Gcommon::V1::Metrics\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
 
 var file_pkg_metrics_proto_requests_get_provider_stats_request_proto_msgTypes = make([]protoimpl.MessageInfo, 2)
 var file_pkg_metrics_proto_requests_get_provider_stats_request_proto_goTypes = []any{
 	(*GetProviderStatsRequest)(nil), // 0: gcommon.v1.metrics.GetProviderStatsRequest
 	(*StatsOptions)(nil),            // 1: gcommon.v1.metrics.StatsOptions
-	(*pb.RequestMetadata)(nil),      // 2: gcommon.v1.common.RequestMetadata
+	(*proto.RequestMetadata)(nil),   // 2: gcommon.v1.common.RequestMetadata
 	(*TimeRange)(nil),               // 3: gcommon.v1.metrics.TimeRange
 }
 var file_pkg_metrics_proto_requests_get_provider_stats_request_proto_depIdxs = []int32{

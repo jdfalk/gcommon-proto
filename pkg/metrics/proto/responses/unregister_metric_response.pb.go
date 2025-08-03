@@ -9,7 +9,7 @@
 package metricspb
 
 import (
-	pb "../../../../pkg/common/pb"
+	proto "../../../../pkg/common/proto"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
@@ -32,7 +32,7 @@ type UnregisterMetricResponse struct {
 	// Success status of the unregistration
 	Success *bool `protobuf:"varint,1,opt,name=success" json:"success,omitempty"`
 	// Error information if unregistration failed
-	Error *pb.Error `protobuf:"bytes,2,opt,name=error" json:"error,omitempty"`
+	Error *proto.Error `protobuf:"bytes,2,opt,name=error" json:"error,omitempty"`
 	// ID of the metric that was unregistered
 	MetricId *string `protobuf:"bytes,3,opt,name=metric_id,json=metricId" json:"metric_id,omitempty"`
 	// Name of the metric that was unregistered
@@ -83,7 +83,7 @@ func (x *UnregisterMetricResponse) GetSuccess() bool {
 	return false
 }
 
-func (x *UnregisterMetricResponse) GetError() *pb.Error {
+func (x *UnregisterMetricResponse) GetError() *proto.Error {
 	if x != nil {
 		return x.Error
 	}
@@ -143,7 +143,7 @@ func (x *UnregisterMetricResponse) SetSuccess(v bool) {
 	x.Success = &v
 }
 
-func (x *UnregisterMetricResponse) SetError(v *pb.Error) {
+func (x *UnregisterMetricResponse) SetError(v *proto.Error) {
 	x.Error = v
 }
 
@@ -269,7 +269,7 @@ type UnregisterMetricResponse_builder struct {
 	// Success status of the unregistration
 	Success *bool
 	// Error information if unregistration failed
-	Error *pb.Error
+	Error *proto.Error
 	// ID of the metric that was unregistered
 	MetricId *string
 	// Name of the metric that was unregistered
@@ -556,14 +556,14 @@ const file_pkg_metrics_proto_responses_unregister_metric_response_proto_rawDesc 
 	"\x0eremoved_alerts\x18\x05 \x03(\tR\rremovedAlerts\x12'\n" +
 	"\x0fstopped_exports\x18\x06 \x03(\tR\x0estoppedExports\x12I\n" +
 	"\x12scheduled_deletion\x18\a \x01(\v2\x1a.google.protobuf.TimestampR\x11scheduledDeletion\x12F\n" +
-	"\x0edry_run_result\x18\b \x01(\v2 .gcommon.v1.metrics.DryRunResultR\fdryRunResultB\xcf\x01\n" +
-	"\x16com.gcommon.v1.metricsB\x1dUnregisterMetricResponseProtoP\x01Z$../../../../pkg/metrics/pb;metricspb\xa2\x02\x03GVM\xaa\x02\x12Gcommon.V1.Metrics\xca\x02\x12Gcommon\\V1\\Metrics\xe2\x02\x1eGcommon\\V1\\Metrics\\GPBMetadata\xea\x02\x14Gcommon::V1::Metrics\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
+	"\x0edry_run_result\x18\b \x01(\v2 .gcommon.v1.metrics.DryRunResultR\fdryRunResultB\xd2\x01\n" +
+	"\x16com.gcommon.v1.metricsB\x1dUnregisterMetricResponseProtoP\x01Z'../../../../pkg/metrics/proto;metricspb\xa2\x02\x03GVM\xaa\x02\x12Gcommon.V1.Metrics\xca\x02\x12Gcommon\\V1\\Metrics\xe2\x02\x1eGcommon\\V1\\Metrics\\GPBMetadata\xea\x02\x14Gcommon::V1::Metrics\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
 
 var file_pkg_metrics_proto_responses_unregister_metric_response_proto_msgTypes = make([]protoimpl.MessageInfo, 2)
 var file_pkg_metrics_proto_responses_unregister_metric_response_proto_goTypes = []any{
 	(*UnregisterMetricResponse)(nil), // 0: gcommon.v1.metrics.UnregisterMetricResponse
 	(*UnregistrationResult)(nil),     // 1: gcommon.v1.metrics.UnregistrationResult
-	(*pb.Error)(nil),                 // 2: gcommon.v1.common.Error
+	(*proto.Error)(nil),              // 2: gcommon.v1.common.Error
 	(*timestamppb.Timestamp)(nil),    // 3: google.protobuf.Timestamp
 	(*BackupInfo)(nil),               // 4: gcommon.v1.metrics.BackupInfo
 	(*DryRunResult)(nil),             // 5: gcommon.v1.metrics.DryRunResult

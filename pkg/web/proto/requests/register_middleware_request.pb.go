@@ -9,7 +9,7 @@
 package webpb
 
 import (
-	pb "../../../../pkg/common/pb"
+	proto "../../../../pkg/common/proto"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
@@ -32,7 +32,7 @@ type RegisterMiddlewareRequest struct {
 	// Middleware configuration
 	Middleware *MiddlewareConfig `protobuf:"bytes,2,opt,name=middleware" json:"middleware,omitempty"`
 	// Standard request metadata
-	Metadata      *pb.RequestMetadata `protobuf:"bytes,3,opt,name=metadata" json:"metadata,omitempty"`
+	Metadata      *proto.RequestMetadata `protobuf:"bytes,3,opt,name=metadata" json:"metadata,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -76,7 +76,7 @@ func (x *RegisterMiddlewareRequest) GetMiddleware() *MiddlewareConfig {
 	return nil
 }
 
-func (x *RegisterMiddlewareRequest) GetMetadata() *pb.RequestMetadata {
+func (x *RegisterMiddlewareRequest) GetMetadata() *proto.RequestMetadata {
 	if x != nil {
 		return x.Metadata
 	}
@@ -91,7 +91,7 @@ func (x *RegisterMiddlewareRequest) SetMiddleware(v *MiddlewareConfig) {
 	x.Middleware = v
 }
 
-func (x *RegisterMiddlewareRequest) SetMetadata(v *pb.RequestMetadata) {
+func (x *RegisterMiddlewareRequest) SetMetadata(v *proto.RequestMetadata) {
 	x.Metadata = v
 }
 
@@ -136,7 +136,7 @@ type RegisterMiddlewareRequest_builder struct {
 	// Middleware configuration
 	Middleware *MiddlewareConfig
 	// Standard request metadata
-	Metadata *pb.RequestMetadata
+	Metadata *proto.RequestMetadata
 }
 
 func (b0 RegisterMiddlewareRequest_builder) Build() *RegisterMiddlewareRequest {
@@ -159,14 +159,14 @@ const file_pkg_web_proto_requests_register_middleware_request_proto_rawDesc = ""
 	"\n" +
 	"middleware\x18\x02 \x01(\v2 .gcommon.v1.web.MiddlewareConfigR\n" +
 	"middleware\x12>\n" +
-	"\bmetadata\x18\x03 \x01(\v2\".gcommon.v1.common.RequestMetadataR\bmetadataB\xb4\x01\n" +
-	"\x12com.gcommon.v1.webB\x1eRegisterMiddlewareRequestProtoP\x01Z\x1c../../../../pkg/web/pb;webpb\xa2\x02\x03GVW\xaa\x02\x0eGcommon.V1.Web\xca\x02\x0eGcommon\\V1\\Web\xe2\x02\x1aGcommon\\V1\\Web\\GPBMetadata\xea\x02\x10Gcommon::V1::Web\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
+	"\bmetadata\x18\x03 \x01(\v2\".gcommon.v1.common.RequestMetadataR\bmetadataB\xb7\x01\n" +
+	"\x12com.gcommon.v1.webB\x1eRegisterMiddlewareRequestProtoP\x01Z\x1f../../../../pkg/web/proto;webpb\xa2\x02\x03GVW\xaa\x02\x0eGcommon.V1.Web\xca\x02\x0eGcommon\\V1\\Web\xe2\x02\x1aGcommon\\V1\\Web\\GPBMetadata\xea\x02\x10Gcommon::V1::Web\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
 
 var file_pkg_web_proto_requests_register_middleware_request_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_pkg_web_proto_requests_register_middleware_request_proto_goTypes = []any{
 	(*RegisterMiddlewareRequest)(nil), // 0: gcommon.v1.web.RegisterMiddlewareRequest
 	(*MiddlewareConfig)(nil),          // 1: gcommon.v1.web.MiddlewareConfig
-	(*pb.RequestMetadata)(nil),        // 2: gcommon.v1.common.RequestMetadata
+	(*proto.RequestMetadata)(nil),     // 2: gcommon.v1.common.RequestMetadata
 }
 var file_pkg_web_proto_requests_register_middleware_request_proto_depIdxs = []int32{
 	1, // 0: gcommon.v1.web.RegisterMiddlewareRequest.middleware:type_name -> gcommon.v1.web.MiddlewareConfig

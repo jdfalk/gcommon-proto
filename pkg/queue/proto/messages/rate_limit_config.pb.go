@@ -156,8 +156,8 @@ const file_pkg_queue_proto_messages_rate_limit_config_proto_rawDesc = "" +
 	"\x0fRateLimitConfig\x12$\n" +
 	"\x0emax_per_second\x18\x01 \x01(\x05R\fmaxPerSecond\x12\x14\n" +
 	"\x05burst\x18\x02 \x01(\x05R\x05burst\x12\x18\n" +
-	"\aenabled\x18\x03 \x01(\bR\aenabledB\xb8\x01\n" +
-	"\x14com.gcommon.v1.queueB\x14RateLimitConfigProtoP\x01Z ../../../../pkg/queue/pb;queuepb\xa2\x02\x03GVQ\xaa\x02\x10Gcommon.V1.Queue\xca\x02\x10Gcommon\\V1\\Queue\xe2\x02\x1cGcommon\\V1\\Queue\\GPBMetadata\xea\x02\x12Gcommon::V1::Queue\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
+	"\aenabled\x18\x03 \x01(\bR\aenabledB\xbb\x01\n" +
+	"\x14com.gcommon.v1.queueB\x14RateLimitConfigProtoP\x01Z#../../../../pkg/queue/proto;queuepb\xa2\x02\x03GVQ\xaa\x02\x10Gcommon.V1.Queue\xca\x02\x10Gcommon\\V1\\Queue\xe2\x02\x1cGcommon\\V1\\Queue\\GPBMetadata\xea\x02\x12Gcommon::V1::Queue\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
 
 var file_pkg_queue_proto_messages_rate_limit_config_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_pkg_queue_proto_messages_rate_limit_config_proto_goTypes = []any{

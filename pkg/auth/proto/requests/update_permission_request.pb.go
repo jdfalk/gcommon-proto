@@ -27,8 +27,8 @@ var File_pkg_auth_proto_requests_update_permission_request_proto protoreflect.Fi
 
 const file_pkg_auth_proto_requests_update_permission_request_proto_rawDesc = "" +
 	"\n" +
-	"7pkg/auth/proto/requests/update_permission_request.proto\x12\x0fgcommon.v1.auth\x1a!google/protobuf/go_features.protoB\xb9\x01\n" +
-	"\x13com.gcommon.v1.authB\x1cUpdatePermissionRequestProtoP\x01Z\x1e../../../../pkg/auth/pb;authpb\xa2\x02\x03GVA\xaa\x02\x0fGcommon.V1.Auth\xca\x02\x0fGcommon\\V1\\Auth\xe2\x02\x1bGcommon\\V1\\Auth\\GPBMetadata\xea\x02\x11Gcommon::V1::Auth\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
+	"7pkg/auth/proto/requests/update_permission_request.proto\x12\x0fgcommon.v1.auth\x1a!google/protobuf/go_features.protoB\xbc\x01\n" +
+	"\x13com.gcommon.v1.authB\x1cUpdatePermissionRequestProtoP\x01Z!../../../../pkg/auth/proto;authpb\xa2\x02\x03GVA\xaa\x02\x0fGcommon.V1.Auth\xca\x02\x0fGcommon\\V1\\Auth\xe2\x02\x1bGcommon\\V1\\Auth\\GPBMetadata\xea\x02\x11Gcommon::V1::Auth\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
 
 var file_pkg_auth_proto_requests_update_permission_request_proto_goTypes = []any{}
 var file_pkg_auth_proto_requests_update_permission_request_proto_depIdxs = []int32{

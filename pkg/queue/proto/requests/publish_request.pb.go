@@ -9,7 +9,7 @@
 package queuepb
 
 import (
-	pb "../../../../pkg/common/pb"
+	proto "../../../../pkg/common/proto"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
@@ -35,7 +35,7 @@ type PublishRequest struct {
 	// Optional delivery parameters controlling retries and delays.
 	DeliveryOptions *DeliveryOptions `protobuf:"bytes,3,opt,name=delivery_options,json=deliveryOptions" json:"delivery_options,omitempty"`
 	// Standard request metadata for tracing and auth.
-	Metadata      *pb.RequestMetadata `protobuf:"bytes,4,opt,name=metadata" json:"metadata,omitempty"`
+	Metadata      *proto.RequestMetadata `protobuf:"bytes,4,opt,name=metadata" json:"metadata,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -86,7 +86,7 @@ func (x *PublishRequest) GetDeliveryOptions() *DeliveryOptions {
 	return nil
 }
 
-func (x *PublishRequest) GetMetadata() *pb.RequestMetadata {
+func (x *PublishRequest) GetMetadata() *proto.RequestMetadata {
 	if x != nil {
 		return x.Metadata
 	}
@@ -105,7 +105,7 @@ func (x *PublishRequest) SetDeliveryOptions(v *DeliveryOptions) {
 	x.DeliveryOptions = v
 }
 
-func (x *PublishRequest) SetMetadata(v *pb.RequestMetadata) {
+func (x *PublishRequest) SetMetadata(v *proto.RequestMetadata) {
 	x.Metadata = v
 }
 
@@ -163,7 +163,7 @@ type PublishRequest_builder struct {
 	// Optional delivery parameters controlling retries and delays.
 	DeliveryOptions *DeliveryOptions
 	// Standard request metadata for tracing and auth.
-	Metadata *pb.RequestMetadata
+	Metadata *proto.RequestMetadata
 }
 
 func (b0 PublishRequest_builder) Build() *PublishRequest {
@@ -187,15 +187,15 @@ const file_pkg_queue_proto_requests_publish_request_proto_rawDesc = "" +
 	"topic_name\x18\x01 \x01(\tR\ttopicName\x128\n" +
 	"\amessage\x18\x02 \x01(\v2\x1e.gcommon.v1.queue.QueueMessageR\amessage\x12L\n" +
 	"\x10delivery_options\x18\x03 \x01(\v2!.gcommon.v1.queue.DeliveryOptionsR\x0fdeliveryOptions\x12>\n" +
-	"\bmetadata\x18\x04 \x01(\v2\".gcommon.v1.common.RequestMetadataR\bmetadataB\xb7\x01\n" +
-	"\x14com.gcommon.v1.queueB\x13PublishRequestProtoP\x01Z ../../../../pkg/queue/pb;queuepb\xa2\x02\x03GVQ\xaa\x02\x10Gcommon.V1.Queue\xca\x02\x10Gcommon\\V1\\Queue\xe2\x02\x1cGcommon\\V1\\Queue\\GPBMetadata\xea\x02\x12Gcommon::V1::Queue\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
+	"\bmetadata\x18\x04 \x01(\v2\".gcommon.v1.common.RequestMetadataR\bmetadataB\xba\x01\n" +
+	"\x14com.gcommon.v1.queueB\x13PublishRequestProtoP\x01Z#../../../../pkg/queue/proto;queuepb\xa2\x02\x03GVQ\xaa\x02\x10Gcommon.V1.Queue\xca\x02\x10Gcommon\\V1\\Queue\xe2\x02\x1cGcommon\\V1\\Queue\\GPBMetadata\xea\x02\x12Gcommon::V1::Queue\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
 
 var file_pkg_queue_proto_requests_publish_request_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_pkg_queue_proto_requests_publish_request_proto_goTypes = []any{
-	(*PublishRequest)(nil),     // 0: gcommon.v1.queue.PublishRequest
-	(*QueueMessage)(nil),       // 1: gcommon.v1.queue.QueueMessage
-	(*DeliveryOptions)(nil),    // 2: gcommon.v1.queue.DeliveryOptions
-	(*pb.RequestMetadata)(nil), // 3: gcommon.v1.common.RequestMetadata
+	(*PublishRequest)(nil),        // 0: gcommon.v1.queue.PublishRequest
+	(*QueueMessage)(nil),          // 1: gcommon.v1.queue.QueueMessage
+	(*DeliveryOptions)(nil),       // 2: gcommon.v1.queue.DeliveryOptions
+	(*proto.RequestMetadata)(nil), // 3: gcommon.v1.common.RequestMetadata
 }
 var file_pkg_queue_proto_requests_publish_request_proto_depIdxs = []int32{
 	1, // 0: gcommon.v1.queue.PublishRequest.message:type_name -> gcommon.v1.queue.QueueMessage

@@ -9,7 +9,7 @@
 package authpb
 
 import (
-	pb "../../../../pkg/common/pb"
+	proto "../../../../pkg/common/proto"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
@@ -37,7 +37,7 @@ type AuthorizeResponse struct {
 	// Reason for denial if authorization failed
 	DenialReason *string `protobuf:"bytes,3,opt,name=denial_reason,json=denialReason" json:"denial_reason,omitempty"`
 	// Error information if authorization check failed
-	Error         *pb.Error `protobuf:"bytes,4,opt,name=error" json:"error,omitempty"`
+	Error         *proto.Error `protobuf:"bytes,4,opt,name=error" json:"error,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -88,7 +88,7 @@ func (x *AuthorizeResponse) GetDenialReason() string {
 	return ""
 }
 
-func (x *AuthorizeResponse) GetError() *pb.Error {
+func (x *AuthorizeResponse) GetError() *proto.Error {
 	if x != nil {
 		return x.Error
 	}
@@ -107,7 +107,7 @@ func (x *AuthorizeResponse) SetDenialReason(v string) {
 	x.DenialReason = &v
 }
 
-func (x *AuthorizeResponse) SetError(v *pb.Error) {
+func (x *AuthorizeResponse) SetError(v *proto.Error) {
 	x.Error = v
 }
 
@@ -154,7 +154,7 @@ type AuthorizeResponse_builder struct {
 	// Reason for denial if authorization failed
 	DenialReason *string
 	// Error information if authorization check failed
-	Error *pb.Error
+	Error *proto.Error
 }
 
 func (b0 AuthorizeResponse_builder) Build() *AuthorizeResponse {
@@ -179,13 +179,13 @@ const file_pkg_auth_proto_responses_authorize_response_proto_rawDesc = "" +
 	"authorized\x12 \n" +
 	"\vpermissions\x18\x02 \x03(\tR\vpermissions\x12#\n" +
 	"\rdenial_reason\x18\x03 \x01(\tR\fdenialReason\x122\n" +
-	"\x05error\x18\x04 \x01(\v2\x18.gcommon.v1.common.ErrorB\x02(\x01R\x05errorB\xb3\x01\n" +
-	"\x13com.gcommon.v1.authB\x16AuthorizeResponseProtoP\x01Z\x1e../../../../pkg/auth/pb;authpb\xa2\x02\x03GVA\xaa\x02\x0fGcommon.V1.Auth\xca\x02\x0fGcommon\\V1\\Auth\xe2\x02\x1bGcommon\\V1\\Auth\\GPBMetadata\xea\x02\x11Gcommon::V1::Auth\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
+	"\x05error\x18\x04 \x01(\v2\x18.gcommon.v1.common.ErrorB\x02(\x01R\x05errorB\xb6\x01\n" +
+	"\x13com.gcommon.v1.authB\x16AuthorizeResponseProtoP\x01Z!../../../../pkg/auth/proto;authpb\xa2\x02\x03GVA\xaa\x02\x0fGcommon.V1.Auth\xca\x02\x0fGcommon\\V1\\Auth\xe2\x02\x1bGcommon\\V1\\Auth\\GPBMetadata\xea\x02\x11Gcommon::V1::Auth\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
 
 var file_pkg_auth_proto_responses_authorize_response_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_pkg_auth_proto_responses_authorize_response_proto_goTypes = []any{
 	(*AuthorizeResponse)(nil), // 0: gcommon.v1.auth.AuthorizeResponse
-	(*pb.Error)(nil),          // 1: gcommon.v1.common.Error
+	(*proto.Error)(nil),       // 1: gcommon.v1.common.Error
 }
 var file_pkg_auth_proto_responses_authorize_response_proto_depIdxs = []int32{
 	1, // 0: gcommon.v1.auth.AuthorizeResponse.error:type_name -> gcommon.v1.common.Error

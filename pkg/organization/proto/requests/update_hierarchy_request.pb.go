@@ -9,7 +9,7 @@
 package organizationpb
 
 import (
-	pb "../../../../pkg/common/pb"
+	proto "../../../../pkg/common/proto"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
@@ -28,7 +28,7 @@ const (
 type UpdateHierarchyRequest struct {
 	state protoimpl.MessageState `protogen:"hybrid.v1"`
 	// Request metadata for tracing and context
-	Metadata *pb.RequestMetadata `protobuf:"bytes,1,opt,name=metadata" json:"metadata,omitempty"`
+	Metadata *proto.RequestMetadata `protobuf:"bytes,1,opt,name=metadata" json:"metadata,omitempty"`
 	// Organization identifier
 	OrganizationId *string `protobuf:"bytes,2,opt,name=organization_id,json=organizationId" json:"organization_id,omitempty"`
 	// Updated hierarchy data
@@ -66,7 +66,7 @@ func (x *UpdateHierarchyRequest) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-func (x *UpdateHierarchyRequest) GetMetadata() *pb.RequestMetadata {
+func (x *UpdateHierarchyRequest) GetMetadata() *proto.RequestMetadata {
 	if x != nil {
 		return x.Metadata
 	}
@@ -101,7 +101,7 @@ func (x *UpdateHierarchyRequest) GetValidateOnly() bool {
 	return false
 }
 
-func (x *UpdateHierarchyRequest) SetMetadata(v *pb.RequestMetadata) {
+func (x *UpdateHierarchyRequest) SetMetadata(v *proto.RequestMetadata) {
 	x.Metadata = v
 }
 
@@ -180,7 +180,7 @@ type UpdateHierarchyRequest_builder struct {
 	_ [0]func() // Prevents comparability and use of unkeyed literals for the builder.
 
 	// Request metadata for tracing and context
-	Metadata *pb.RequestMetadata
+	Metadata *proto.RequestMetadata
 	// Organization identifier
 	OrganizationId *string
 	// Updated hierarchy data
@@ -214,13 +214,13 @@ const file_pkg_organization_proto_requests_update_hierarchy_request_proto_rawDes
 	"\thierarchy\x18\x03 \x01(\v2..gcommon.v1.organization.OrganizationHierarchyR\thierarchy\x12;\n" +
 	"\vupdate_mask\x18\x04 \x01(\v2\x1a.google.protobuf.FieldMaskR\n" +
 	"updateMask\x12#\n" +
-	"\rvalidate_only\x18\x05 \x01(\bR\fvalidateOnlyB\xf0\x01\n" +
-	"\x1bcom.gcommon.v1.organizationB\x1bUpdateHierarchyRequestProtoP\x01Z.../../../../pkg/organization/pb;organizationpb\xa2\x02\x03GVO\xaa\x02\x17Gcommon.V1.Organization\xca\x02\x17Gcommon\\V1\\Organization\xe2\x02#Gcommon\\V1\\Organization\\GPBMetadata\xea\x02\x19Gcommon::V1::Organization\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
+	"\rvalidate_only\x18\x05 \x01(\bR\fvalidateOnlyB\xf3\x01\n" +
+	"\x1bcom.gcommon.v1.organizationB\x1bUpdateHierarchyRequestProtoP\x01Z1../../../../pkg/organization/proto;organizationpb\xa2\x02\x03GVO\xaa\x02\x17Gcommon.V1.Organization\xca\x02\x17Gcommon\\V1\\Organization\xe2\x02#Gcommon\\V1\\Organization\\GPBMetadata\xea\x02\x19Gcommon::V1::Organization\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
 
 var file_pkg_organization_proto_requests_update_hierarchy_request_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_pkg_organization_proto_requests_update_hierarchy_request_proto_goTypes = []any{
 	(*UpdateHierarchyRequest)(nil), // 0: gcommon.v1.organization.UpdateHierarchyRequest
-	(*pb.RequestMetadata)(nil),     // 1: gcommon.v1.common.RequestMetadata
+	(*proto.RequestMetadata)(nil),  // 1: gcommon.v1.common.RequestMetadata
 	(*OrganizationHierarchy)(nil),  // 2: gcommon.v1.organization.OrganizationHierarchy
 	(*fieldmaskpb.FieldMask)(nil),  // 3: google.protobuf.FieldMask
 }

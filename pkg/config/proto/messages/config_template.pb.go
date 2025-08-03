@@ -1620,8 +1620,8 @@ const file_pkg_config_proto_messages_config_template_proto_rawDesc = "" +
 	"\x16TEMPLATE_STATUS_ACTIVE\x10\x02\x12\x1e\n" +
 	"\x1aTEMPLATE_STATUS_DEPRECATED\x10\x03\x12\x1c\n" +
 	"\x18TEMPLATE_STATUS_ARCHIVED\x10\x04\x12\x1b\n" +
-	"\x17TEMPLATE_STATUS_DELETED\x10\x05B\xb6\x01\n" +
-	"\x15com.gcommon.v1.configB\x13ConfigTemplateProtoP\x01Z\"../../../../pkg/config/pb;configpb\xa2\x02\x03GVC\xaa\x02\x11Gcommon.V1.Config\xca\x02\x11Gcommon\\V1\\Config\xe2\x02\x1dGcommon\\V1\\Config\\GPBMetadata\xea\x02\x13Gcommon::V1::Configb\beditionsp\xe8\a"
+	"\x17TEMPLATE_STATUS_DELETED\x10\x05B\xb9\x01\n" +
+	"\x15com.gcommon.v1.configB\x13ConfigTemplateProtoP\x01Z%../../../../pkg/config/proto;configpb\xa2\x02\x03GVC\xaa\x02\x11Gcommon.V1.Config\xca\x02\x11Gcommon\\V1\\Config\xe2\x02\x1dGcommon\\V1\\Config\\GPBMetadata\xea\x02\x13Gcommon::V1::Configb\beditionsp\xe8\a"
 
 var (
 	file_pkg_config_proto_messages_config_template_proto_rawDescOnce sync.Once

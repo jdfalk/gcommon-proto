@@ -9,7 +9,7 @@
 package cachepb
 
 import (
-	pb "../../../../pkg/common/pb"
+	proto "../../../../pkg/common/proto"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
@@ -30,7 +30,7 @@ const (
 type ExistsResponse struct {
 	state                  protoimpl.MessageState `protogen:"opaque.v1"`
 	xxx_hidden_Exists      bool                   `protobuf:"varint,1,opt,name=exists"`
-	xxx_hidden_Error       *pb.Error              `protobuf:"bytes,2,opt,name=error"`
+	xxx_hidden_Error       *proto.Error           `protobuf:"bytes,2,opt,name=error"`
 	XXX_raceDetectHookData protoimpl.RaceDetectHookData
 	XXX_presence           [1]uint32
 	unknownFields          protoimpl.UnknownFields
@@ -69,7 +69,7 @@ func (x *ExistsResponse) GetExists() bool {
 	return false
 }
 
-func (x *ExistsResponse) GetError() *pb.Error {
+func (x *ExistsResponse) GetError() *proto.Error {
 	if x != nil {
 		return x.xxx_hidden_Error
 	}
@@ -81,7 +81,7 @@ func (x *ExistsResponse) SetExists(v bool) {
 	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 0, 2)
 }
 
-func (x *ExistsResponse) SetError(v *pb.Error) {
+func (x *ExistsResponse) SetError(v *proto.Error) {
 	x.xxx_hidden_Error = v
 }
 
@@ -114,7 +114,7 @@ type ExistsResponse_builder struct {
 	// Whether the key exists in the cache
 	Exists *bool
 	// Error details if check failed
-	Error *pb.Error
+	Error *proto.Error
 }
 
 func (b0 ExistsResponse_builder) Build() *ExistsResponse {
@@ -136,13 +136,13 @@ const file_pkg_cache_proto_responses_exists_response_proto_rawDesc = "" +
 	"/pkg/cache/proto/responses/exists_response.proto\x12\x10gcommon.v1.cache\x1a!google/protobuf/go_features.proto\x1a%pkg/common/proto/messages/error.proto\"X\n" +
 	"\x0eExistsResponse\x12\x16\n" +
 	"\x06exists\x18\x01 \x01(\bR\x06exists\x12.\n" +
-	"\x05error\x18\x02 \x01(\v2\x18.gcommon.v1.common.ErrorR\x05errorB\xb7\x01\n" +
-	"\x14com.gcommon.v1.cacheB\x13ExistsResponseProtoP\x01Z ../../../../pkg/cache/pb;cachepb\xa2\x02\x03GVC\xaa\x02\x10Gcommon.V1.Cache\xca\x02\x10Gcommon\\V1\\Cache\xe2\x02\x1cGcommon\\V1\\Cache\\GPBMetadata\xea\x02\x12Gcommon::V1::Cache\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
+	"\x05error\x18\x02 \x01(\v2\x18.gcommon.v1.common.ErrorR\x05errorB\xba\x01\n" +
+	"\x14com.gcommon.v1.cacheB\x13ExistsResponseProtoP\x01Z#../../../../pkg/cache/proto;cachepb\xa2\x02\x03GVC\xaa\x02\x10Gcommon.V1.Cache\xca\x02\x10Gcommon\\V1\\Cache\xe2\x02\x1cGcommon\\V1\\Cache\\GPBMetadata\xea\x02\x12Gcommon::V1::Cache\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
 
 var file_pkg_cache_proto_responses_exists_response_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_pkg_cache_proto_responses_exists_response_proto_goTypes = []any{
 	(*ExistsResponse)(nil), // 0: gcommon.v1.cache.ExistsResponse
-	(*pb.Error)(nil),       // 1: gcommon.v1.common.Error
+	(*proto.Error)(nil),    // 1: gcommon.v1.common.Error
 }
 var file_pkg_cache_proto_responses_exists_response_proto_depIdxs = []int32{
 	1, // 0: gcommon.v1.cache.ExistsResponse.error:type_name -> gcommon.v1.common.Error

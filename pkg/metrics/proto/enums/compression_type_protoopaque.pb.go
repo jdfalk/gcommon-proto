@@ -95,8 +95,8 @@ const file_pkg_metrics_proto_enums_compression_type_proto_rawDesc = "" +
 	"\x15COMPRESSION_TYPE_GZIP\x10\x02\x12\x1b\n" +
 	"\x17COMPRESSION_TYPE_SNAPPY\x10\x03\x12\x19\n" +
 	"\x15COMPRESSION_TYPE_ZSTD\x10\x04\x12\x18\n" +
-	"\x14COMPRESSION_TYPE_LZ4\x10\x05B\xc6\x01\n" +
-	"\x16com.gcommon.v1.metricsB\x14CompressionTypeProtoP\x01Z$../../../../pkg/metrics/pb;metricspb\xa2\x02\x03GVM\xaa\x02\x12Gcommon.V1.Metrics\xca\x02\x12Gcommon\\V1\\Metrics\xe2\x02\x1eGcommon\\V1\\Metrics\\GPBMetadata\xea\x02\x14Gcommon::V1::Metrics\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
+	"\x14COMPRESSION_TYPE_LZ4\x10\x05B\xc9\x01\n" +
+	"\x16com.gcommon.v1.metricsB\x14CompressionTypeProtoP\x01Z'../../../../pkg/metrics/proto;metricspb\xa2\x02\x03GVM\xaa\x02\x12Gcommon.V1.Metrics\xca\x02\x12Gcommon\\V1\\Metrics\xe2\x02\x1eGcommon\\V1\\Metrics\\GPBMetadata\xea\x02\x14Gcommon::V1::Metrics\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
 
 var file_pkg_metrics_proto_enums_compression_type_proto_enumTypes = make([]protoimpl.EnumInfo, 1)
 var file_pkg_metrics_proto_enums_compression_type_proto_goTypes = []any{

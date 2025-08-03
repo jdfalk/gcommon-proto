@@ -9,7 +9,7 @@
 package organizationpb
 
 import (
-	pb "../../../../pkg/common/pb"
+	proto "../../../../pkg/common/proto"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
@@ -28,7 +28,7 @@ const (
 // UpdateOrganizationRequest message for updating an existing organization.
 type UpdateOrganizationRequest struct {
 	state                     protoimpl.MessageState `protogen:"opaque.v1"`
-	xxx_hidden_Metadata       *pb.RequestMetadata    `protobuf:"bytes,1,opt,name=metadata"`
+	xxx_hidden_Metadata       *proto.RequestMetadata `protobuf:"bytes,1,opt,name=metadata"`
 	xxx_hidden_OrganizationId *string                `protobuf:"bytes,2,opt,name=organization_id,json=organizationId"`
 	xxx_hidden_Organization   *Organization          `protobuf:"bytes,3,opt,name=organization"`
 	xxx_hidden_UpdateFields   []string               `protobuf:"bytes,4,rep,name=update_fields,json=updateFields"`
@@ -63,7 +63,7 @@ func (x *UpdateOrganizationRequest) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-func (x *UpdateOrganizationRequest) GetMetadata() *pb.RequestMetadata {
+func (x *UpdateOrganizationRequest) GetMetadata() *proto.RequestMetadata {
 	if x != nil {
 		return x.xxx_hidden_Metadata
 	}
@@ -94,7 +94,7 @@ func (x *UpdateOrganizationRequest) GetUpdateFields() []string {
 	return nil
 }
 
-func (x *UpdateOrganizationRequest) SetMetadata(v *pb.RequestMetadata) {
+func (x *UpdateOrganizationRequest) SetMetadata(v *proto.RequestMetadata) {
 	x.xxx_hidden_Metadata = v
 }
 
@@ -149,7 +149,7 @@ type UpdateOrganizationRequest_builder struct {
 	_ [0]func() // Prevents comparability and use of unkeyed literals for the builder.
 
 	// Request metadata for tracing and context
-	Metadata *pb.RequestMetadata
+	Metadata *proto.RequestMetadata
 	// Organization ID to update
 	OrganizationId *string
 	// Updated organization information
@@ -181,13 +181,13 @@ const file_pkg_organization_proto_requests_update_organization_request_proto_raw
 	"\bmetadata\x18\x01 \x01(\v2\".gcommon.v1.common.RequestMetadataR\bmetadata\x12'\n" +
 	"\x0forganization_id\x18\x02 \x01(\tR\x0eorganizationId\x12I\n" +
 	"\forganization\x18\x03 \x01(\v2%.gcommon.v1.organization.OrganizationR\forganization\x12#\n" +
-	"\rupdate_fields\x18\x04 \x03(\tR\fupdateFieldsB\xf3\x01\n" +
-	"\x1bcom.gcommon.v1.organizationB\x1eUpdateOrganizationRequestProtoP\x01Z.../../../../pkg/organization/pb;organizationpb\xa2\x02\x03GVO\xaa\x02\x17Gcommon.V1.Organization\xca\x02\x17Gcommon\\V1\\Organization\xe2\x02#Gcommon\\V1\\Organization\\GPBMetadata\xea\x02\x19Gcommon::V1::Organization\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
+	"\rupdate_fields\x18\x04 \x03(\tR\fupdateFieldsB\xf6\x01\n" +
+	"\x1bcom.gcommon.v1.organizationB\x1eUpdateOrganizationRequestProtoP\x01Z1../../../../pkg/organization/proto;organizationpb\xa2\x02\x03GVO\xaa\x02\x17Gcommon.V1.Organization\xca\x02\x17Gcommon\\V1\\Organization\xe2\x02#Gcommon\\V1\\Organization\\GPBMetadata\xea\x02\x19Gcommon::V1::Organization\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
 
 var file_pkg_organization_proto_requests_update_organization_request_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_pkg_organization_proto_requests_update_organization_request_proto_goTypes = []any{
 	(*UpdateOrganizationRequest)(nil), // 0: gcommon.v1.organization.UpdateOrganizationRequest
-	(*pb.RequestMetadata)(nil),        // 1: gcommon.v1.common.RequestMetadata
+	(*proto.RequestMetadata)(nil),     // 1: gcommon.v1.common.RequestMetadata
 	(*Organization)(nil),              // 2: gcommon.v1.organization.Organization
 }
 var file_pkg_organization_proto_requests_update_organization_request_proto_depIdxs = []int32{

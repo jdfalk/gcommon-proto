@@ -80,8 +80,8 @@ const file_pkg_log_proto_enums_logger_status_proto_rawDesc = "" +
 	"\x19LOGGER_STATUS_UNSPECIFIED\x10\x00\x12\x18\n" +
 	"\x14LOGGER_STATUS_ACTIVE\x10\x01\x12\x1a\n" +
 	"\x16LOGGER_STATUS_INACTIVE\x10\x02\x12\x17\n" +
-	"\x13LOGGER_STATUS_ERROR\x10\x03B\xa7\x01\n" +
-	"\x12com.gcommon.v1.logB\x11LoggerStatusProtoP\x01Z\x1c../../../../pkg/log/pb;logpb\xa2\x02\x03GVL\xaa\x02\x0eGcommon.V1.Log\xca\x02\x0eGcommon\\V1\\Log\xe2\x02\x1aGcommon\\V1\\Log\\GPBMetadata\xea\x02\x10Gcommon::V1::Log\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
+	"\x13LOGGER_STATUS_ERROR\x10\x03B\xaa\x01\n" +
+	"\x12com.gcommon.v1.logB\x11LoggerStatusProtoP\x01Z\x1f../../../../pkg/log/proto;logpb\xa2\x02\x03GVL\xaa\x02\x0eGcommon.V1.Log\xca\x02\x0eGcommon\\V1\\Log\xe2\x02\x1aGcommon\\V1\\Log\\GPBMetadata\xea\x02\x10Gcommon::V1::Log\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
 
 var file_pkg_log_proto_enums_logger_status_proto_enumTypes = make([]protoimpl.EnumInfo, 1)
 var file_pkg_log_proto_enums_logger_status_proto_goTypes = []any{

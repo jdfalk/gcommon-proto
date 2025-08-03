@@ -9,7 +9,7 @@
 package authpb
 
 import (
-	pb "../../../../pkg/common/pb"
+	proto "../../../../pkg/common/proto"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
@@ -52,7 +52,7 @@ type OAuthClient struct {
 	// Client creation timestamp
 	CreatedAt *timestamppb.Timestamp `protobuf:"bytes,10,opt,name=created_at,json=createdAt" json:"created_at,omitempty"`
 	// Client status
-	Status *pb.ResourceStatus `protobuf:"varint,11,opt,name=status,enum=gcommon.v1.common.ResourceStatus" json:"status,omitempty"`
+	Status *proto.ResourceStatus `protobuf:"varint,11,opt,name=status,enum=gcommon.v1.common.ResourceStatus" json:"status,omitempty"`
 	// Client metadata
 	Metadata map[string]string `protobuf:"bytes,12,rep,name=metadata" json:"metadata,omitempty" protobuf_key:"bytes,1,opt,name=key" protobuf_val:"bytes,2,opt,name=value"`
 	// Client logo URL
@@ -160,11 +160,11 @@ func (x *OAuthClient) GetCreatedAt() *timestamppb.Timestamp {
 	return nil
 }
 
-func (x *OAuthClient) GetStatus() pb.ResourceStatus {
+func (x *OAuthClient) GetStatus() proto.ResourceStatus {
 	if x != nil && x.Status != nil {
 		return *x.Status
 	}
-	return pb.ResourceStatus(0)
+	return proto.ResourceStatus(0)
 }
 
 func (x *OAuthClient) GetMetadata() map[string]string {
@@ -235,7 +235,7 @@ func (x *OAuthClient) SetCreatedAt(v *timestamppb.Timestamp) {
 	x.CreatedAt = v
 }
 
-func (x *OAuthClient) SetStatus(v pb.ResourceStatus) {
+func (x *OAuthClient) SetStatus(v proto.ResourceStatus) {
 	x.Status = &v
 }
 
@@ -389,7 +389,7 @@ type OAuthClient_builder struct {
 	// Client creation timestamp
 	CreatedAt *timestamppb.Timestamp
 	// Client status
-	Status *pb.ResourceStatus
+	Status *proto.ResourceStatus
 	// Client metadata
 	Metadata map[string]string
 	// Client logo URL
@@ -450,15 +450,15 @@ const file_pkg_auth_proto_messages_oauth_client_proto_rawDesc = "" +
 	"\rowner_user_id\x18\x0f \x01(\tR\vownerUserId\x1a;\n" +
 	"\rMetadataEntry\x12\x10\n" +
 	"\x03key\x18\x01 \x01(\tR\x03key\x12\x14\n" +
-	"\x05value\x18\x02 \x01(\tR\x05value:\x028\x01B\xad\x01\n" +
-	"\x13com.gcommon.v1.authB\x10OauthClientProtoP\x01Z\x1e../../../../pkg/auth/pb;authpb\xa2\x02\x03GVA\xaa\x02\x0fGcommon.V1.Auth\xca\x02\x0fGcommon\\V1\\Auth\xe2\x02\x1bGcommon\\V1\\Auth\\GPBMetadata\xea\x02\x11Gcommon::V1::Auth\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
+	"\x05value\x18\x02 \x01(\tR\x05value:\x028\x01B\xb0\x01\n" +
+	"\x13com.gcommon.v1.authB\x10OauthClientProtoP\x01Z!../../../../pkg/auth/proto;authpb\xa2\x02\x03GVA\xaa\x02\x0fGcommon.V1.Auth\xca\x02\x0fGcommon\\V1\\Auth\xe2\x02\x1bGcommon\\V1\\Auth\\GPBMetadata\xea\x02\x11Gcommon::V1::Auth\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
 
 var file_pkg_auth_proto_messages_oauth_client_proto_msgTypes = make([]protoimpl.MessageInfo, 2)
 var file_pkg_auth_proto_messages_oauth_client_proto_goTypes = []any{
 	(*OAuthClient)(nil),           // 0: gcommon.v1.auth.OAuthClient
 	nil,                           // 1: gcommon.v1.auth.OAuthClient.MetadataEntry
 	(*timestamppb.Timestamp)(nil), // 2: google.protobuf.Timestamp
-	(pb.ResourceStatus)(0),        // 3: gcommon.v1.common.ResourceStatus
+	(proto.ResourceStatus)(0),     // 3: gcommon.v1.common.ResourceStatus
 }
 var file_pkg_auth_proto_messages_oauth_client_proto_depIdxs = []int32{
 	2, // 0: gcommon.v1.auth.OAuthClient.created_at:type_name -> google.protobuf.Timestamp

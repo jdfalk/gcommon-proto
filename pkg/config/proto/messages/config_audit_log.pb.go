@@ -7,7 +7,7 @@
 package configpb
 
 import (
-	pb "../../../../pkg/common/pb"
+	proto "../../../../pkg/common/proto"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	timestamppb "google.golang.org/protobuf/types/known/timestamppb"
@@ -381,7 +381,7 @@ type ConfigAuditLog struct {
 	// Success status of the operation
 	Success *bool `protobuf:"varint,22,opt,name=success" json:"success,omitempty"`
 	// Error information if operation failed
-	Error *pb.Error `protobuf:"bytes,23,opt,name=error" json:"error,omitempty"`
+	Error *proto.Error `protobuf:"bytes,23,opt,name=error" json:"error,omitempty"`
 	// Duration of the operation
 	DurationMs *int64 `protobuf:"varint,24,opt,name=duration_ms,json=durationMs" json:"duration_ms,omitempty"`
 	// Size of the change in bytes
@@ -584,7 +584,7 @@ func (x *ConfigAuditLog) GetSuccess() bool {
 	return false
 }
 
-func (x *ConfigAuditLog) GetError() *pb.Error {
+func (x *ConfigAuditLog) GetError() *proto.Error {
 	if x != nil {
 		return x.Error
 	}
@@ -1026,8 +1026,8 @@ const file_pkg_config_proto_messages_config_audit_log_proto_rawDesc = "" +
 	"\x1dROLLBACK_METHOD_VALUE_RESTORE\x10\x01\x12#\n" +
 	"\x1fROLLBACK_METHOD_VERSION_RESTORE\x10\x02\x12$\n" +
 	" ROLLBACK_METHOD_SNAPSHOT_RESTORE\x10\x03\x12\x1a\n" +
-	"\x16ROLLBACK_METHOD_MANUAL\x10\x04B\xb6\x01\n" +
-	"\x15com.gcommon.v1.configB\x13ConfigAuditLogProtoP\x01Z\"../../../../pkg/config/pb;configpb\xa2\x02\x03GVC\xaa\x02\x11Gcommon.V1.Config\xca\x02\x11Gcommon\\V1\\Config\xe2\x02\x1dGcommon\\V1\\Config\\GPBMetadata\xea\x02\x13Gcommon::V1::Configb\beditionsp\xe8\a"
+	"\x16ROLLBACK_METHOD_MANUAL\x10\x04B\xb9\x01\n" +
+	"\x15com.gcommon.v1.configB\x13ConfigAuditLogProtoP\x01Z%../../../../pkg/config/proto;configpb\xa2\x02\x03GVC\xaa\x02\x11Gcommon.V1.Config\xca\x02\x11Gcommon\\V1\\Config\xe2\x02\x1dGcommon\\V1\\Config\\GPBMetadata\xea\x02\x13Gcommon::V1::Configb\beditionsp\xe8\a"
 
 var (
 	file_pkg_config_proto_messages_config_audit_log_proto_rawDescOnce sync.Once
@@ -1056,7 +1056,7 @@ var file_pkg_config_proto_messages_config_audit_log_proto_goTypes = []any{
 	nil,                           // 9: gcommon.v1.config.ConfigAuditLog.MetadataEntry
 	nil,                           // 10: gcommon.v1.config.ValidationResult.ContextEntry
 	(*timestamppb.Timestamp)(nil), // 11: google.protobuf.Timestamp
-	(*pb.Error)(nil),              // 12: gcommon.v1.common.Error
+	(*proto.Error)(nil),           // 12: gcommon.v1.common.Error
 }
 var file_pkg_config_proto_messages_config_audit_log_proto_depIdxs = []int32{
 	11, // 0: gcommon.v1.config.ConfigAuditLog.timestamp:type_name -> google.protobuf.Timestamp

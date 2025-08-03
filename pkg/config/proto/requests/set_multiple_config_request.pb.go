@@ -9,7 +9,7 @@
 package configpb
 
 import (
-	pb "../../../../pkg/common/pb"
+	proto "../../../../pkg/common/proto"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
@@ -29,7 +29,7 @@ const (
 type SetMultipleConfigRequest struct {
 	state protoimpl.MessageState `protogen:"hybrid.v1"`
 	// Configuration entries to set
-	Entries map[string]*pb.ConfigValue `protobuf:"bytes,1,rep,name=entries" json:"entries,omitempty" protobuf_key:"bytes,1,opt,name=key" protobuf_val:"bytes,2,opt,name=value"`
+	Entries map[string]*proto.ConfigValue `protobuf:"bytes,1,rep,name=entries" json:"entries,omitempty" protobuf_key:"bytes,1,opt,name=key" protobuf_val:"bytes,2,opt,name=value"`
 	// Optional namespace/environment
 	Namespace *string `protobuf:"bytes,2,opt,name=namespace" json:"namespace,omitempty"`
 	// Common metadata for all entries
@@ -37,7 +37,7 @@ type SetMultipleConfigRequest struct {
 	// Whether to encrypt values
 	Encrypt *bool `protobuf:"varint,4,opt,name=encrypt" json:"encrypt,omitempty"`
 	// Request metadata
-	RequestMetadata *pb.RequestMetadata `protobuf:"bytes,5,opt,name=request_metadata,json=requestMetadata" json:"request_metadata,omitempty"`
+	RequestMetadata *proto.RequestMetadata `protobuf:"bytes,5,opt,name=request_metadata,json=requestMetadata" json:"request_metadata,omitempty"`
 	unknownFields   protoimpl.UnknownFields
 	sizeCache       protoimpl.SizeCache
 }
@@ -67,7 +67,7 @@ func (x *SetMultipleConfigRequest) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-func (x *SetMultipleConfigRequest) GetEntries() map[string]*pb.ConfigValue {
+func (x *SetMultipleConfigRequest) GetEntries() map[string]*proto.ConfigValue {
 	if x != nil {
 		return x.Entries
 	}
@@ -95,14 +95,14 @@ func (x *SetMultipleConfigRequest) GetEncrypt() bool {
 	return false
 }
 
-func (x *SetMultipleConfigRequest) GetRequestMetadata() *pb.RequestMetadata {
+func (x *SetMultipleConfigRequest) GetRequestMetadata() *proto.RequestMetadata {
 	if x != nil {
 		return x.RequestMetadata
 	}
 	return nil
 }
 
-func (x *SetMultipleConfigRequest) SetEntries(v map[string]*pb.ConfigValue) {
+func (x *SetMultipleConfigRequest) SetEntries(v map[string]*proto.ConfigValue) {
 	x.Entries = v
 }
 
@@ -118,7 +118,7 @@ func (x *SetMultipleConfigRequest) SetEncrypt(v bool) {
 	x.Encrypt = &v
 }
 
-func (x *SetMultipleConfigRequest) SetRequestMetadata(v *pb.RequestMetadata) {
+func (x *SetMultipleConfigRequest) SetRequestMetadata(v *proto.RequestMetadata) {
 	x.RequestMetadata = v
 }
 
@@ -159,7 +159,7 @@ type SetMultipleConfigRequest_builder struct {
 	_ [0]func() // Prevents comparability and use of unkeyed literals for the builder.
 
 	// Configuration entries to set
-	Entries map[string]*pb.ConfigValue
+	Entries map[string]*proto.ConfigValue
 	// Optional namespace/environment
 	Namespace *string
 	// Common metadata for all entries
@@ -167,7 +167,7 @@ type SetMultipleConfigRequest_builder struct {
 	// Whether to encrypt values
 	Encrypt *bool
 	// Request metadata
-	RequestMetadata *pb.RequestMetadata
+	RequestMetadata *proto.RequestMetadata
 }
 
 func (b0 SetMultipleConfigRequest_builder) Build() *SetMultipleConfigRequest {
@@ -198,16 +198,16 @@ const file_pkg_config_proto_requests_set_multiple_config_request_proto_rawDesc =
 	"\x05value\x18\x02 \x01(\v2\x1e.gcommon.v1.common.ConfigValueR\x05value:\x028\x01\x1a;\n" +
 	"\rMetadataEntry\x12\x10\n" +
 	"\x03key\x18\x01 \x01(\tR\x03key\x12\x14\n" +
-	"\x05value\x18\x02 \x01(\tR\x05value:\x028\x01B\xc8\x01\n" +
-	"\x15com.gcommon.v1.configB\x1dSetMultipleConfigRequestProtoP\x01Z\"../../../../pkg/config/pb;configpb\xa2\x02\x03GVC\xaa\x02\x11Gcommon.V1.Config\xca\x02\x11Gcommon\\V1\\Config\xe2\x02\x1dGcommon\\V1\\Config\\GPBMetadata\xea\x02\x13Gcommon::V1::Config\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
+	"\x05value\x18\x02 \x01(\tR\x05value:\x028\x01B\xcb\x01\n" +
+	"\x15com.gcommon.v1.configB\x1dSetMultipleConfigRequestProtoP\x01Z%../../../../pkg/config/proto;configpb\xa2\x02\x03GVC\xaa\x02\x11Gcommon.V1.Config\xca\x02\x11Gcommon\\V1\\Config\xe2\x02\x1dGcommon\\V1\\Config\\GPBMetadata\xea\x02\x13Gcommon::V1::Config\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
 
 var file_pkg_config_proto_requests_set_multiple_config_request_proto_msgTypes = make([]protoimpl.MessageInfo, 3)
 var file_pkg_config_proto_requests_set_multiple_config_request_proto_goTypes = []any{
 	(*SetMultipleConfigRequest)(nil), // 0: gcommon.v1.config.SetMultipleConfigRequest
 	nil,                              // 1: gcommon.v1.config.SetMultipleConfigRequest.EntriesEntry
 	nil,                              // 2: gcommon.v1.config.SetMultipleConfigRequest.MetadataEntry
-	(*pb.RequestMetadata)(nil),       // 3: gcommon.v1.common.RequestMetadata
-	(*pb.ConfigValue)(nil),           // 4: gcommon.v1.common.ConfigValue
+	(*proto.RequestMetadata)(nil),    // 3: gcommon.v1.common.RequestMetadata
+	(*proto.ConfigValue)(nil),        // 4: gcommon.v1.common.ConfigValue
 }
 var file_pkg_config_proto_requests_set_multiple_config_request_proto_depIdxs = []int32{
 	1, // 0: gcommon.v1.config.SetMultipleConfigRequest.entries:type_name -> gcommon.v1.config.SetMultipleConfigRequest.EntriesEntry

@@ -9,7 +9,7 @@
 package metricspb
 
 import (
-	pb "../../../../pkg/common/pb"
+	proto "../../../../pkg/common/proto"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
@@ -32,7 +32,7 @@ type DeleteProviderResponse struct {
 	// Success status of the deletion
 	Success *bool `protobuf:"varint,1,opt,name=success" json:"success,omitempty"`
 	// Error information if deletion failed
-	Error *pb.Error `protobuf:"bytes,2,opt,name=error" json:"error,omitempty"`
+	Error *proto.Error `protobuf:"bytes,2,opt,name=error" json:"error,omitempty"`
 	// Provider ID that was deleted
 	ProviderId *string `protobuf:"bytes,3,opt,name=provider_id,json=providerId" json:"provider_id,omitempty"`
 	// When the deletion was completed
@@ -81,7 +81,7 @@ func (x *DeleteProviderResponse) GetSuccess() bool {
 	return false
 }
 
-func (x *DeleteProviderResponse) GetError() *pb.Error {
+func (x *DeleteProviderResponse) GetError() *proto.Error {
 	if x != nil {
 		return x.Error
 	}
@@ -134,7 +134,7 @@ func (x *DeleteProviderResponse) SetSuccess(v bool) {
 	x.Success = &v
 }
 
-func (x *DeleteProviderResponse) SetError(v *pb.Error) {
+func (x *DeleteProviderResponse) SetError(v *proto.Error) {
 	x.Error = v
 }
 
@@ -245,7 +245,7 @@ type DeleteProviderResponse_builder struct {
 	// Success status of the deletion
 	Success *bool
 	// Error information if deletion failed
-	Error *pb.Error
+	Error *proto.Error
 	// Provider ID that was deleted
 	ProviderId *string
 	// When the deletion was completed
@@ -585,14 +585,14 @@ const file_pkg_metrics_proto_responses_delete_provider_response_proto_rawDesc = 
 	"\x15cleanup_strategy_used\x18\b \x01(\tR\x13cleanupStrategyUsed\x12+\n" +
 	"\x11deletion_duration\x18\t \x01(\tR\x10deletionDuration\x12F\n" +
 	"\x0edry_run_result\x18\n" +
-	" \x01(\v2 .gcommon.v1.metrics.DryRunResultR\fdryRunResultB\xcd\x01\n" +
-	"\x16com.gcommon.v1.metricsB\x1bDeleteProviderResponseProtoP\x01Z$../../../../pkg/metrics/pb;metricspb\xa2\x02\x03GVM\xaa\x02\x12Gcommon.V1.Metrics\xca\x02\x12Gcommon\\V1\\Metrics\xe2\x02\x1eGcommon\\V1\\Metrics\\GPBMetadata\xea\x02\x14Gcommon::V1::Metrics\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
+	" \x01(\v2 .gcommon.v1.metrics.DryRunResultR\fdryRunResultB\xd0\x01\n" +
+	"\x16com.gcommon.v1.metricsB\x1bDeleteProviderResponseProtoP\x01Z'../../../../pkg/metrics/proto;metricspb\xa2\x02\x03GVM\xaa\x02\x12Gcommon.V1.Metrics\xca\x02\x12Gcommon\\V1\\Metrics\xe2\x02\x1eGcommon\\V1\\Metrics\\GPBMetadata\xea\x02\x14Gcommon::V1::Metrics\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
 
 var file_pkg_metrics_proto_responses_delete_provider_response_proto_msgTypes = make([]protoimpl.MessageInfo, 2)
 var file_pkg_metrics_proto_responses_delete_provider_response_proto_goTypes = []any{
 	(*DeleteProviderResponse)(nil), // 0: gcommon.v1.metrics.DeleteProviderResponse
 	(*DeletionResult)(nil),         // 1: gcommon.v1.metrics.DeletionResult
-	(*pb.Error)(nil),               // 2: gcommon.v1.common.Error
+	(*proto.Error)(nil),            // 2: gcommon.v1.common.Error
 	(*timestamppb.Timestamp)(nil),  // 3: google.protobuf.Timestamp
 	(*BackupInfo)(nil),             // 4: gcommon.v1.metrics.BackupInfo
 	(*DryRunResult)(nil),           // 5: gcommon.v1.metrics.DryRunResult

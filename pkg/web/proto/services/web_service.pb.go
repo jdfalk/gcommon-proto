@@ -27,8 +27,8 @@ var File_pkg_web_proto_services_web_service_proto protoreflect.FileDescriptor
 
 const file_pkg_web_proto_services_web_service_proto_rawDesc = "" +
 	"\n" +
-	"(pkg/web/proto/services/web_service.proto\x12\x0egcommon.v1.web\x1a!google/protobuf/go_features.protoB\xa5\x01\n" +
-	"\x12com.gcommon.v1.webB\x0fWebServiceProtoP\x01Z\x1c../../../../pkg/web/pb;webpb\xa2\x02\x03GVW\xaa\x02\x0eGcommon.V1.Web\xca\x02\x0eGcommon\\V1\\Web\xe2\x02\x1aGcommon\\V1\\Web\\GPBMetadata\xea\x02\x10Gcommon::V1::Web\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
+	"(pkg/web/proto/services/web_service.proto\x12\x0egcommon.v1.web\x1a!google/protobuf/go_features.protoB\xa8\x01\n" +
+	"\x12com.gcommon.v1.webB\x0fWebServiceProtoP\x01Z\x1f../../../../pkg/web/proto;webpb\xa2\x02\x03GVW\xaa\x02\x0eGcommon.V1.Web\xca\x02\x0eGcommon\\V1\\Web\xe2\x02\x1aGcommon\\V1\\Web\\GPBMetadata\xea\x02\x10Gcommon::V1::Web\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
 
 var file_pkg_web_proto_services_web_service_proto_goTypes = []any{}
 var file_pkg_web_proto_services_web_service_proto_depIdxs = []int32{

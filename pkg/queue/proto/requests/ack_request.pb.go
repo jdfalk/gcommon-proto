@@ -9,7 +9,7 @@
 package queuepb
 
 import (
-	pb "../../../../pkg/common/pb"
+	proto "../../../../pkg/common/proto"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
@@ -34,7 +34,7 @@ type AckRequest struct {
 	// Receipt handle identifying the message instance.
 	ReceiptHandle *string `protobuf:"bytes,2,opt,name=receipt_handle,json=receiptHandle" json:"receipt_handle,omitempty"`
 	// Standard request metadata including authentication and tracing.
-	Metadata      *pb.RequestMetadata `protobuf:"bytes,3,opt,name=metadata" json:"metadata,omitempty"`
+	Metadata      *proto.RequestMetadata `protobuf:"bytes,3,opt,name=metadata" json:"metadata,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -78,7 +78,7 @@ func (x *AckRequest) GetReceiptHandle() string {
 	return ""
 }
 
-func (x *AckRequest) GetMetadata() *pb.RequestMetadata {
+func (x *AckRequest) GetMetadata() *proto.RequestMetadata {
 	if x != nil {
 		return x.Metadata
 	}
@@ -93,7 +93,7 @@ func (x *AckRequest) SetReceiptHandle(v string) {
 	x.ReceiptHandle = &v
 }
 
-func (x *AckRequest) SetMetadata(v *pb.RequestMetadata) {
+func (x *AckRequest) SetMetadata(v *proto.RequestMetadata) {
 	x.Metadata = v
 }
 
@@ -138,7 +138,7 @@ type AckRequest_builder struct {
 	// Receipt handle identifying the message instance.
 	ReceiptHandle *string
 	// Standard request metadata including authentication and tracing.
-	Metadata *pb.RequestMetadata
+	Metadata *proto.RequestMetadata
 }
 
 func (b0 AckRequest_builder) Build() *AckRequest {
@@ -161,13 +161,13 @@ const file_pkg_queue_proto_requests_ack_request_proto_rawDesc = "" +
 	"\n" +
 	"queue_name\x18\x01 \x01(\tR\tqueueName\x12%\n" +
 	"\x0ereceipt_handle\x18\x02 \x01(\tR\rreceiptHandle\x12>\n" +
-	"\bmetadata\x18\x03 \x01(\v2\".gcommon.v1.common.RequestMetadataR\bmetadataB\xb3\x01\n" +
-	"\x14com.gcommon.v1.queueB\x0fAckRequestProtoP\x01Z ../../../../pkg/queue/pb;queuepb\xa2\x02\x03GVQ\xaa\x02\x10Gcommon.V1.Queue\xca\x02\x10Gcommon\\V1\\Queue\xe2\x02\x1cGcommon\\V1\\Queue\\GPBMetadata\xea\x02\x12Gcommon::V1::Queue\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
+	"\bmetadata\x18\x03 \x01(\v2\".gcommon.v1.common.RequestMetadataR\bmetadataB\xb6\x01\n" +
+	"\x14com.gcommon.v1.queueB\x0fAckRequestProtoP\x01Z#../../../../pkg/queue/proto;queuepb\xa2\x02\x03GVQ\xaa\x02\x10Gcommon.V1.Queue\xca\x02\x10Gcommon\\V1\\Queue\xe2\x02\x1cGcommon\\V1\\Queue\\GPBMetadata\xea\x02\x12Gcommon::V1::Queue\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
 
 var file_pkg_queue_proto_requests_ack_request_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_pkg_queue_proto_requests_ack_request_proto_goTypes = []any{
-	(*AckRequest)(nil),         // 0: gcommon.v1.queue.AckRequest
-	(*pb.RequestMetadata)(nil), // 1: gcommon.v1.common.RequestMetadata
+	(*AckRequest)(nil),            // 0: gcommon.v1.queue.AckRequest
+	(*proto.RequestMetadata)(nil), // 1: gcommon.v1.common.RequestMetadata
 }
 var file_pkg_queue_proto_requests_ack_request_proto_depIdxs = []int32{
 	1, // 0: gcommon.v1.queue.AckRequest.metadata:type_name -> gcommon.v1.common.RequestMetadata

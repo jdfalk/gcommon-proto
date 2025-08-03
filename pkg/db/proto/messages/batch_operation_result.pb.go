@@ -9,7 +9,7 @@
 package dbpb
 
 import (
-	pb "../../../../pkg/common/pb"
+	proto "../../../../pkg/common/proto"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
@@ -37,7 +37,7 @@ type BatchOperationResult struct {
 	// Generated keys for INSERT operations
 	GeneratedKeys []*anypb.Any `protobuf:"bytes,3,rep,name=generated_keys,json=generatedKeys" json:"generated_keys,omitempty"`
 	// Error information if the operation failed
-	Error         *pb.Error `protobuf:"bytes,4,opt,name=error" json:"error,omitempty"`
+	Error         *proto.Error `protobuf:"bytes,4,opt,name=error" json:"error,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -88,7 +88,7 @@ func (x *BatchOperationResult) GetGeneratedKeys() []*anypb.Any {
 	return nil
 }
 
-func (x *BatchOperationResult) GetError() *pb.Error {
+func (x *BatchOperationResult) GetError() *proto.Error {
 	if x != nil {
 		return x.Error
 	}
@@ -107,7 +107,7 @@ func (x *BatchOperationResult) SetGeneratedKeys(v []*anypb.Any) {
 	x.GeneratedKeys = v
 }
 
-func (x *BatchOperationResult) SetError(v *pb.Error) {
+func (x *BatchOperationResult) SetError(v *proto.Error) {
 	x.Error = v
 }
 
@@ -154,7 +154,7 @@ type BatchOperationResult_builder struct {
 	// Generated keys for INSERT operations
 	GeneratedKeys []*anypb.Any
 	// Error information if the operation failed
-	Error *pb.Error
+	Error *proto.Error
 }
 
 func (b0 BatchOperationResult_builder) Build() *BatchOperationResult {
@@ -177,14 +177,14 @@ const file_pkg_db_proto_messages_batch_operation_result_proto_rawDesc = "" +
 	"\asuccess\x18\x01 \x01(\bR\asuccess\x12#\n" +
 	"\raffected_rows\x18\x02 \x01(\x03R\faffectedRows\x12?\n" +
 	"\x0egenerated_keys\x18\x03 \x03(\v2\x14.google.protobuf.AnyB\x02(\x01R\rgeneratedKeys\x122\n" +
-	"\x05error\x18\x04 \x01(\v2\x18.gcommon.v1.common.ErrorB\x02(\x01R\x05errorB\xc6\x01\n" +
-	"\x17com.gcommon.v1.databaseB\x19BatchOperationResultProtoP\x01Z\x1a../../../../pkg/db/pb;dbpb\xa2\x02\x03GVD\xaa\x02\x13Gcommon.V1.Database\xca\x02\x13Gcommon\\V1\\Database\xe2\x02\x1fGcommon\\V1\\Database\\GPBMetadata\xea\x02\x15Gcommon::V1::Database\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
+	"\x05error\x18\x04 \x01(\v2\x18.gcommon.v1.common.ErrorB\x02(\x01R\x05errorB\xc9\x01\n" +
+	"\x17com.gcommon.v1.databaseB\x19BatchOperationResultProtoP\x01Z\x1d../../../../pkg/db/proto;dbpb\xa2\x02\x03GVD\xaa\x02\x13Gcommon.V1.Database\xca\x02\x13Gcommon\\V1\\Database\xe2\x02\x1fGcommon\\V1\\Database\\GPBMetadata\xea\x02\x15Gcommon::V1::Database\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
 
 var file_pkg_db_proto_messages_batch_operation_result_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_pkg_db_proto_messages_batch_operation_result_proto_goTypes = []any{
 	(*BatchOperationResult)(nil), // 0: gcommon.v1.database.BatchOperationResult
 	(*anypb.Any)(nil),            // 1: google.protobuf.Any
-	(*pb.Error)(nil),             // 2: gcommon.v1.common.Error
+	(*proto.Error)(nil),          // 2: gcommon.v1.common.Error
 }
 var file_pkg_db_proto_messages_batch_operation_result_proto_depIdxs = []int32{
 	1, // 0: gcommon.v1.database.BatchOperationResult.generated_keys:type_name -> google.protobuf.Any

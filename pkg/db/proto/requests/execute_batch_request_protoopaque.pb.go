@@ -9,7 +9,7 @@
 package dbpb
 
 import (
-	pb "../../../../pkg/common/pb"
+	proto "../../../../pkg/common/proto"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
@@ -32,7 +32,7 @@ type ExecuteBatchRequest struct {
 	xxx_hidden_Operations    *[]*BatchOperation     `protobuf:"bytes,1,rep,name=operations"`
 	xxx_hidden_Database      *string                `protobuf:"bytes,2,opt,name=database"`
 	xxx_hidden_Options       *BatchExecuteOptions   `protobuf:"bytes,3,opt,name=options"`
-	xxx_hidden_Metadata      *pb.RequestMetadata    `protobuf:"bytes,4,opt,name=metadata"`
+	xxx_hidden_Metadata      *proto.RequestMetadata `protobuf:"bytes,4,opt,name=metadata"`
 	xxx_hidden_TransactionId *string                `protobuf:"bytes,5,opt,name=transaction_id,json=transactionId"`
 	// Deprecated: Do not use. This will be deleted in the near future.
 	XXX_lazyUnmarshalInfo  protoimpl.LazyUnmarshalInfo
@@ -105,13 +105,13 @@ func (x *ExecuteBatchRequest) GetOptions() *BatchExecuteOptions {
 	return nil
 }
 
-func (x *ExecuteBatchRequest) GetMetadata() *pb.RequestMetadata {
+func (x *ExecuteBatchRequest) GetMetadata() *proto.RequestMetadata {
 	if x != nil {
 		if protoimpl.X.Present(&(x.XXX_presence[0]), 3) {
 			if protoimpl.X.AtomicCheckPointerIsNil(&x.xxx_hidden_Metadata) {
 				protoimpl.X.UnmarshalField(x, 4)
 			}
-			var rv *pb.RequestMetadata
+			var rv *proto.RequestMetadata
 			protoimpl.X.AtomicLoadPointer(protoimpl.Pointer(&x.xxx_hidden_Metadata), protoimpl.Pointer(&rv))
 			return rv
 		}
@@ -154,7 +154,7 @@ func (x *ExecuteBatchRequest) SetOptions(v *BatchExecuteOptions) {
 	}
 }
 
-func (x *ExecuteBatchRequest) SetMetadata(v *pb.RequestMetadata) {
+func (x *ExecuteBatchRequest) SetMetadata(v *proto.RequestMetadata) {
 	protoimpl.X.AtomicSetPointer(&x.xxx_hidden_Metadata, v)
 	if v == nil {
 		protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 3)
@@ -208,7 +208,7 @@ func (x *ExecuteBatchRequest) ClearOptions() {
 
 func (x *ExecuteBatchRequest) ClearMetadata() {
 	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 3)
-	protoimpl.X.AtomicSetPointer(&x.xxx_hidden_Metadata, (*pb.RequestMetadata)(nil))
+	protoimpl.X.AtomicSetPointer(&x.xxx_hidden_Metadata, (*proto.RequestMetadata)(nil))
 }
 
 func (x *ExecuteBatchRequest) ClearTransactionId() {
@@ -226,7 +226,7 @@ type ExecuteBatchRequest_builder struct {
 	// Batch execution options and configuration
 	Options *BatchExecuteOptions
 	// Request metadata for tracing and authentication
-	Metadata *pb.RequestMetadata
+	Metadata *proto.RequestMetadata
 	// Transaction ID if this batch is part of a transaction
 	TransactionId *string
 }
@@ -270,15 +270,15 @@ const file_pkg_db_proto_requests_execute_batch_request_proto_rawDesc = "" +
 	"\bdatabase\x18\x02 \x01(\tR\bdatabase\x12F\n" +
 	"\aoptions\x18\x03 \x01(\v2(.gcommon.v1.database.BatchExecuteOptionsB\x02(\x01R\aoptions\x12B\n" +
 	"\bmetadata\x18\x04 \x01(\v2\".gcommon.v1.common.RequestMetadataB\x02(\x01R\bmetadata\x12%\n" +
-	"\x0etransaction_id\x18\x05 \x01(\tR\rtransactionIdB\xc5\x01\n" +
-	"\x17com.gcommon.v1.databaseB\x18ExecuteBatchRequestProtoP\x01Z\x1a../../../../pkg/db/pb;dbpb\xa2\x02\x03GVD\xaa\x02\x13Gcommon.V1.Database\xca\x02\x13Gcommon\\V1\\Database\xe2\x02\x1fGcommon\\V1\\Database\\GPBMetadata\xea\x02\x15Gcommon::V1::Database\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
+	"\x0etransaction_id\x18\x05 \x01(\tR\rtransactionIdB\xc8\x01\n" +
+	"\x17com.gcommon.v1.databaseB\x18ExecuteBatchRequestProtoP\x01Z\x1d../../../../pkg/db/proto;dbpb\xa2\x02\x03GVD\xaa\x02\x13Gcommon.V1.Database\xca\x02\x13Gcommon\\V1\\Database\xe2\x02\x1fGcommon\\V1\\Database\\GPBMetadata\xea\x02\x15Gcommon::V1::Database\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
 
 var file_pkg_db_proto_requests_execute_batch_request_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_pkg_db_proto_requests_execute_batch_request_proto_goTypes = []any{
-	(*ExecuteBatchRequest)(nil), // 0: gcommon.v1.database.ExecuteBatchRequest
-	(*BatchOperation)(nil),      // 1: gcommon.v1.database.BatchOperation
-	(*BatchExecuteOptions)(nil), // 2: gcommon.v1.database.BatchExecuteOptions
-	(*pb.RequestMetadata)(nil),  // 3: gcommon.v1.common.RequestMetadata
+	(*ExecuteBatchRequest)(nil),   // 0: gcommon.v1.database.ExecuteBatchRequest
+	(*BatchOperation)(nil),        // 1: gcommon.v1.database.BatchOperation
+	(*BatchExecuteOptions)(nil),   // 2: gcommon.v1.database.BatchExecuteOptions
+	(*proto.RequestMetadata)(nil), // 3: gcommon.v1.common.RequestMetadata
 }
 var file_pkg_db_proto_requests_execute_batch_request_proto_depIdxs = []int32{
 	1, // 0: gcommon.v1.database.ExecuteBatchRequest.operations:type_name -> gcommon.v1.database.BatchOperation

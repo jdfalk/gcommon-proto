@@ -9,7 +9,7 @@
 package authpb
 
 import (
-	pb "../../../../pkg/common/pb"
+	proto "../../../../pkg/common/proto"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
@@ -29,7 +29,7 @@ const (
 type GetSystemStatsRequest struct {
 	state protoimpl.MessageState `protogen:"hybrid.v1"`
 	// Request metadata
-	Metadata      *pb.RequestMetadata `protobuf:"bytes,1,opt,name=metadata" json:"metadata,omitempty"`
+	Metadata      *proto.RequestMetadata `protobuf:"bytes,1,opt,name=metadata" json:"metadata,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -59,14 +59,14 @@ func (x *GetSystemStatsRequest) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-func (x *GetSystemStatsRequest) GetMetadata() *pb.RequestMetadata {
+func (x *GetSystemStatsRequest) GetMetadata() *proto.RequestMetadata {
 	if x != nil {
 		return x.Metadata
 	}
 	return nil
 }
 
-func (x *GetSystemStatsRequest) SetMetadata(v *pb.RequestMetadata) {
+func (x *GetSystemStatsRequest) SetMetadata(v *proto.RequestMetadata) {
 	x.Metadata = v
 }
 
@@ -85,7 +85,7 @@ type GetSystemStatsRequest_builder struct {
 	_ [0]func() // Prevents comparability and use of unkeyed literals for the builder.
 
 	// Request metadata
-	Metadata *pb.RequestMetadata
+	Metadata *proto.RequestMetadata
 }
 
 func (b0 GetSystemStatsRequest_builder) Build() *GetSystemStatsRequest {
@@ -102,13 +102,13 @@ const file_pkg_auth_proto_requests_get_system_stats_request_proto_rawDesc = "" +
 	"\n" +
 	"6pkg/auth/proto/requests/get_system_stats_request.proto\x12\x0fgcommon.v1.auth\x1a!google/protobuf/go_features.proto\x1a0pkg/common/proto/messages/request_metadata.proto\"[\n" +
 	"\x15GetSystemStatsRequest\x12B\n" +
-	"\bmetadata\x18\x01 \x01(\v2\".gcommon.v1.common.RequestMetadataB\x02(\x01R\bmetadataB\xb7\x01\n" +
-	"\x13com.gcommon.v1.authB\x1aGetSystemStatsRequestProtoP\x01Z\x1e../../../../pkg/auth/pb;authpb\xa2\x02\x03GVA\xaa\x02\x0fGcommon.V1.Auth\xca\x02\x0fGcommon\\V1\\Auth\xe2\x02\x1bGcommon\\V1\\Auth\\GPBMetadata\xea\x02\x11Gcommon::V1::Auth\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
+	"\bmetadata\x18\x01 \x01(\v2\".gcommon.v1.common.RequestMetadataB\x02(\x01R\bmetadataB\xba\x01\n" +
+	"\x13com.gcommon.v1.authB\x1aGetSystemStatsRequestProtoP\x01Z!../../../../pkg/auth/proto;authpb\xa2\x02\x03GVA\xaa\x02\x0fGcommon.V1.Auth\xca\x02\x0fGcommon\\V1\\Auth\xe2\x02\x1bGcommon\\V1\\Auth\\GPBMetadata\xea\x02\x11Gcommon::V1::Auth\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
 
 var file_pkg_auth_proto_requests_get_system_stats_request_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_pkg_auth_proto_requests_get_system_stats_request_proto_goTypes = []any{
 	(*GetSystemStatsRequest)(nil), // 0: gcommon.v1.auth.GetSystemStatsRequest
-	(*pb.RequestMetadata)(nil),    // 1: gcommon.v1.common.RequestMetadata
+	(*proto.RequestMetadata)(nil), // 1: gcommon.v1.common.RequestMetadata
 }
 var file_pkg_auth_proto_requests_get_system_stats_request_proto_depIdxs = []int32{
 	1, // 0: gcommon.v1.auth.GetSystemStatsRequest.metadata:type_name -> gcommon.v1.common.RequestMetadata

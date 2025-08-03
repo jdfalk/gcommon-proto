@@ -89,8 +89,8 @@ const file_pkg_queue_proto_enums_queue_type_proto_rawDesc = "" +
 	"\x11QUEUE_TYPE_MEMORY\x10\x01\x12\x14\n" +
 	"\x10QUEUE_TYPE_REDIS\x10\x02\x12\x13\n" +
 	"\x0fQUEUE_TYPE_NATS\x10\x03\x12\x14\n" +
-	"\x10QUEUE_TYPE_CLOUD\x10\x04B\xb2\x01\n" +
-	"\x14com.gcommon.v1.queueB\x0eQueueTypeProtoP\x01Z ../../../../pkg/queue/pb;queuepb\xa2\x02\x03GVQ\xaa\x02\x10Gcommon.V1.Queue\xca\x02\x10Gcommon\\V1\\Queue\xe2\x02\x1cGcommon\\V1\\Queue\\GPBMetadata\xea\x02\x12Gcommon::V1::Queue\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
+	"\x10QUEUE_TYPE_CLOUD\x10\x04B\xb5\x01\n" +
+	"\x14com.gcommon.v1.queueB\x0eQueueTypeProtoP\x01Z#../../../../pkg/queue/proto;queuepb\xa2\x02\x03GVQ\xaa\x02\x10Gcommon.V1.Queue\xca\x02\x10Gcommon\\V1\\Queue\xe2\x02\x1cGcommon\\V1\\Queue\\GPBMetadata\xea\x02\x12Gcommon::V1::Queue\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
 
 var file_pkg_queue_proto_enums_queue_type_proto_enumTypes = make([]protoimpl.EnumInfo, 1)
 var file_pkg_queue_proto_enums_queue_type_proto_goTypes = []any{

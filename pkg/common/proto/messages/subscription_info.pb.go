@@ -275,8 +275,8 @@ const file_pkg_common_proto_messages_subscription_info_proto_rawDesc = "" +
 	"subscriber\x18\x05 \x01(\v2\x1d.gcommon.v1.common.ClientInfoR\n" +
 	"subscriber\x12@\n" +
 	"\aoptions\x18\x06 \x01(\v2&.gcommon.v1.common.SubscriptionOptionsR\aoptions\x12=\n" +
-	"\x06status\x18\a \x01(\x0e2%.gcommon.v1.common.SubscriptionStatusR\x06statusB\xc0\x01\n" +
-	"\x15com.gcommon.v1.commonB\x15SubscriptionInfoProtoP\x01Z\"../../../../pkg/common/pb;commonpb\xa2\x02\x03GVC\xaa\x02\x11Gcommon.V1.Common\xca\x02\x11Gcommon\\V1\\Common\xe2\x02\x1dGcommon\\V1\\Common\\GPBMetadata\xea\x02\x13Gcommon::V1::Common\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
+	"\x06status\x18\a \x01(\x0e2%.gcommon.v1.common.SubscriptionStatusR\x06statusB\xc3\x01\n" +
+	"\x15com.gcommon.v1.commonB\x15SubscriptionInfoProtoP\x01Z%../../../../pkg/common/proto;commonpb\xa2\x02\x03GVC\xaa\x02\x11Gcommon.V1.Common\xca\x02\x11Gcommon\\V1\\Common\xe2\x02\x1dGcommon\\V1\\Common\\GPBMetadata\xea\x02\x13Gcommon::V1::Common\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
 
 var file_pkg_common_proto_messages_subscription_info_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_pkg_common_proto_messages_subscription_info_proto_goTypes = []any{

@@ -159,8 +159,8 @@ const file_pkg_db_proto_types_query_parameter_proto_rawDesc = "" +
 	"\x0eQueryParameter\x12\x12\n" +
 	"\x04name\x18\x01 \x01(\tR\x04name\x12.\n" +
 	"\x05value\x18\x02 \x01(\v2\x14.google.protobuf.AnyB\x02(\x01R\x05value\x12\x12\n" +
-	"\x04type\x18\x03 \x01(\tR\x04typeB\xc0\x01\n" +
-	"\x17com.gcommon.v1.databaseB\x13QueryParameterProtoP\x01Z\x1a../../../../pkg/db/pb;dbpb\xa2\x02\x03GVD\xaa\x02\x13Gcommon.V1.Database\xca\x02\x13Gcommon\\V1\\Database\xe2\x02\x1fGcommon\\V1\\Database\\GPBMetadata\xea\x02\x15Gcommon::V1::Database\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
+	"\x04type\x18\x03 \x01(\tR\x04typeB\xc3\x01\n" +
+	"\x17com.gcommon.v1.databaseB\x13QueryParameterProtoP\x01Z\x1d../../../../pkg/db/proto;dbpb\xa2\x02\x03GVD\xaa\x02\x13Gcommon.V1.Database\xca\x02\x13Gcommon\\V1\\Database\xe2\x02\x1fGcommon\\V1\\Database\\GPBMetadata\xea\x02\x15Gcommon::V1::Database\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
 
 var file_pkg_db_proto_types_query_parameter_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_pkg_db_proto_types_query_parameter_proto_goTypes = []any{

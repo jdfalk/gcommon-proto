@@ -118,8 +118,8 @@ const file_pkg_auth_proto_messages_permission_proto_rawDesc = "" +
 	"\vdescription\x18\x03 \x01(\tR\vdescription\x120\n" +
 	"\x05scope\x18\x04 \x01(\x0e2\x1a.gcommon.v1.auth.ScopeTypeR\x05scope\x12=\n" +
 	"\n" +
-	"created_at\x18\x05 \x01(\v2\x1a.google.protobuf.TimestampB\x02(\x01R\tcreatedAtB\xa4\x01\n" +
-	"\x13com.gcommon.v1.authB\x0fPermissionProtoP\x01Z\x1e../../../../pkg/auth/pb;authpb\xa2\x02\x03GVA\xaa\x02\x0fGcommon.V1.Auth\xca\x02\x0fGcommon\\V1\\Auth\xe2\x02\x1bGcommon\\V1\\Auth\\GPBMetadata\xea\x02\x11Gcommon::V1::Authb\beditionsp\xe8\a"
+	"created_at\x18\x05 \x01(\v2\x1a.google.protobuf.TimestampB\x02(\x01R\tcreatedAtB\xa7\x01\n" +
+	"\x13com.gcommon.v1.authB\x0fPermissionProtoP\x01Z!../../../../pkg/auth/proto;authpb\xa2\x02\x03GVA\xaa\x02\x0fGcommon.V1.Auth\xca\x02\x0fGcommon\\V1\\Auth\xe2\x02\x1bGcommon\\V1\\Auth\\GPBMetadata\xea\x02\x11Gcommon::V1::Authb\beditionsp\xe8\a"
 
 var (
 	file_pkg_auth_proto_messages_permission_proto_rawDescOnce sync.Once

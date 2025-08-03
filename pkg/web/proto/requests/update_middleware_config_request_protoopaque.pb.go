@@ -9,7 +9,7 @@
 package webpb
 
 import (
-	pb "../../../../pkg/common/pb"
+	proto "../../../../pkg/common/proto"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
@@ -28,7 +28,7 @@ const (
 // UpdateMiddlewareConfigRequest updates an existing middleware configuration.
 type UpdateMiddlewareConfigRequest struct {
 	state               protoimpl.MessageState `protogen:"opaque.v1"`
-	xxx_hidden_Metadata *pb.RequestMetadata    `protobuf:"bytes,1,opt,name=metadata"`
+	xxx_hidden_Metadata *proto.RequestMetadata `protobuf:"bytes,1,opt,name=metadata"`
 	xxx_hidden_Config   *MiddlewareConfig      `protobuf:"bytes,2,opt,name=config"`
 	unknownFields       protoimpl.UnknownFields
 	sizeCache           protoimpl.SizeCache
@@ -59,7 +59,7 @@ func (x *UpdateMiddlewareConfigRequest) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-func (x *UpdateMiddlewareConfigRequest) GetMetadata() *pb.RequestMetadata {
+func (x *UpdateMiddlewareConfigRequest) GetMetadata() *proto.RequestMetadata {
 	if x != nil {
 		return x.xxx_hidden_Metadata
 	}
@@ -73,7 +73,7 @@ func (x *UpdateMiddlewareConfigRequest) GetConfig() *MiddlewareConfig {
 	return nil
 }
 
-func (x *UpdateMiddlewareConfigRequest) SetMetadata(v *pb.RequestMetadata) {
+func (x *UpdateMiddlewareConfigRequest) SetMetadata(v *proto.RequestMetadata) {
 	x.xxx_hidden_Metadata = v
 }
 
@@ -107,7 +107,7 @@ type UpdateMiddlewareConfigRequest_builder struct {
 	_ [0]func() // Prevents comparability and use of unkeyed literals for the builder.
 
 	// Request metadata for tracing and auth
-	Metadata *pb.RequestMetadata
+	Metadata *proto.RequestMetadata
 	// Updated middleware configuration
 	Config *MiddlewareConfig
 }
@@ -128,13 +128,13 @@ const file_pkg_web_proto_requests_update_middleware_config_request_proto_rawDesc
 	"=pkg/web/proto/requests/update_middleware_config_request.proto\x12\x0egcommon.v1.web\x1a!google/protobuf/go_features.proto\x1a0pkg/common/proto/messages/request_metadata.proto\x1a.pkg/web/proto/messages/middleware_config.proto\"\x99\x01\n" +
 	"\x1dUpdateMiddlewareConfigRequest\x12>\n" +
 	"\bmetadata\x18\x01 \x01(\v2\".gcommon.v1.common.RequestMetadataR\bmetadata\x128\n" +
-	"\x06config\x18\x02 \x01(\v2 .gcommon.v1.web.MiddlewareConfigR\x06configB\xb8\x01\n" +
-	"\x12com.gcommon.v1.webB\"UpdateMiddlewareConfigRequestProtoP\x01Z\x1c../../../../pkg/web/pb;webpb\xa2\x02\x03GVW\xaa\x02\x0eGcommon.V1.Web\xca\x02\x0eGcommon\\V1\\Web\xe2\x02\x1aGcommon\\V1\\Web\\GPBMetadata\xea\x02\x10Gcommon::V1::Web\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
+	"\x06config\x18\x02 \x01(\v2 .gcommon.v1.web.MiddlewareConfigR\x06configB\xbb\x01\n" +
+	"\x12com.gcommon.v1.webB\"UpdateMiddlewareConfigRequestProtoP\x01Z\x1f../../../../pkg/web/proto;webpb\xa2\x02\x03GVW\xaa\x02\x0eGcommon.V1.Web\xca\x02\x0eGcommon\\V1\\Web\xe2\x02\x1aGcommon\\V1\\Web\\GPBMetadata\xea\x02\x10Gcommon::V1::Web\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
 
 var file_pkg_web_proto_requests_update_middleware_config_request_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_pkg_web_proto_requests_update_middleware_config_request_proto_goTypes = []any{
 	(*UpdateMiddlewareConfigRequest)(nil), // 0: gcommon.v1.web.UpdateMiddlewareConfigRequest
-	(*pb.RequestMetadata)(nil),            // 1: gcommon.v1.common.RequestMetadata
+	(*proto.RequestMetadata)(nil),         // 1: gcommon.v1.common.RequestMetadata
 	(*MiddlewareConfig)(nil),              // 2: gcommon.v1.web.MiddlewareConfig
 }
 var file_pkg_web_proto_requests_update_middleware_config_request_proto_depIdxs = []int32{

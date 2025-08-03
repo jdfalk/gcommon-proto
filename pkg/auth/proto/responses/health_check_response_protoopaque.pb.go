@@ -9,7 +9,7 @@
 package authpb
 
 import (
-	pb "../../../../pkg/common/pb"
+	proto "../../../../pkg/common/proto"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
@@ -29,9 +29,9 @@ const (
 // HealthCheckResponse conveys the authentication service health status.
 type HealthCheckResponse struct {
 	state                   protoimpl.MessageState `protogen:"opaque.v1"`
-	xxx_hidden_Status       pb.HealthStatus        `protobuf:"varint,1,opt,name=status,enum=gcommon.v1.common.HealthStatus"`
+	xxx_hidden_Status       proto.HealthStatus     `protobuf:"varint,1,opt,name=status,enum=gcommon.v1.common.HealthStatus"`
 	xxx_hidden_ResponseTime *durationpb.Duration   `protobuf:"bytes,2,opt,name=response_time,json=responseTime"`
-	xxx_hidden_Error        *pb.Error              `protobuf:"bytes,3,opt,name=error"`
+	xxx_hidden_Error        *proto.Error           `protobuf:"bytes,3,opt,name=error"`
 	// Deprecated: Do not use. This will be deleted in the near future.
 	XXX_lazyUnmarshalInfo  protoimpl.LazyUnmarshalInfo
 	XXX_raceDetectHookData protoimpl.RaceDetectHookData
@@ -65,13 +65,13 @@ func (x *HealthCheckResponse) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-func (x *HealthCheckResponse) GetStatus() pb.HealthStatus {
+func (x *HealthCheckResponse) GetStatus() proto.HealthStatus {
 	if x != nil {
 		if protoimpl.X.Present(&(x.XXX_presence[0]), 0) {
 			return x.xxx_hidden_Status
 		}
 	}
-	return pb.HealthStatus(0)
+	return proto.HealthStatus(0)
 }
 
 func (x *HealthCheckResponse) GetResponseTime() *durationpb.Duration {
@@ -88,13 +88,13 @@ func (x *HealthCheckResponse) GetResponseTime() *durationpb.Duration {
 	return nil
 }
 
-func (x *HealthCheckResponse) GetError() *pb.Error {
+func (x *HealthCheckResponse) GetError() *proto.Error {
 	if x != nil {
 		if protoimpl.X.Present(&(x.XXX_presence[0]), 2) {
 			if protoimpl.X.AtomicCheckPointerIsNil(&x.xxx_hidden_Error) {
 				protoimpl.X.UnmarshalField(x, 3)
 			}
-			var rv *pb.Error
+			var rv *proto.Error
 			protoimpl.X.AtomicLoadPointer(protoimpl.Pointer(&x.xxx_hidden_Error), protoimpl.Pointer(&rv))
 			return rv
 		}
@@ -102,7 +102,7 @@ func (x *HealthCheckResponse) GetError() *pb.Error {
 	return nil
 }
 
-func (x *HealthCheckResponse) SetStatus(v pb.HealthStatus) {
+func (x *HealthCheckResponse) SetStatus(v proto.HealthStatus) {
 	x.xxx_hidden_Status = v
 	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 0, 3)
 }
@@ -116,7 +116,7 @@ func (x *HealthCheckResponse) SetResponseTime(v *durationpb.Duration) {
 	}
 }
 
-func (x *HealthCheckResponse) SetError(v *pb.Error) {
+func (x *HealthCheckResponse) SetError(v *proto.Error) {
 	protoimpl.X.AtomicSetPointer(&x.xxx_hidden_Error, v)
 	if v == nil {
 		protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 2)
@@ -148,7 +148,7 @@ func (x *HealthCheckResponse) HasError() bool {
 
 func (x *HealthCheckResponse) ClearStatus() {
 	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 0)
-	x.xxx_hidden_Status = pb.HealthStatus_HEALTH_STATUS_UNSPECIFIED
+	x.xxx_hidden_Status = proto.HealthStatus_HEALTH_STATUS_UNSPECIFIED
 }
 
 func (x *HealthCheckResponse) ClearResponseTime() {
@@ -158,18 +158,18 @@ func (x *HealthCheckResponse) ClearResponseTime() {
 
 func (x *HealthCheckResponse) ClearError() {
 	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 2)
-	protoimpl.X.AtomicSetPointer(&x.xxx_hidden_Error, (*pb.Error)(nil))
+	protoimpl.X.AtomicSetPointer(&x.xxx_hidden_Error, (*proto.Error)(nil))
 }
 
 type HealthCheckResponse_builder struct {
 	_ [0]func() // Prevents comparability and use of unkeyed literals for the builder.
 
 	// Overall health status.
-	Status *pb.HealthStatus
+	Status *proto.HealthStatus
 	// Response time for the health check.
 	ResponseTime *durationpb.Duration
 	// Error information if unhealthy.
-	Error *pb.Error
+	Error *proto.Error
 }
 
 func (b0 HealthCheckResponse_builder) Build() *HealthCheckResponse {
@@ -199,15 +199,15 @@ const file_pkg_auth_proto_responses_health_check_response_proto_rawDesc = "" +
 	"\x13HealthCheckResponse\x127\n" +
 	"\x06status\x18\x01 \x01(\x0e2\x1f.gcommon.v1.common.HealthStatusR\x06status\x12B\n" +
 	"\rresponse_time\x18\x02 \x01(\v2\x19.google.protobuf.DurationB\x02(\x01R\fresponseTime\x122\n" +
-	"\x05error\x18\x03 \x01(\v2\x18.gcommon.v1.common.ErrorB\x02(\x01R\x05errorB\xb5\x01\n" +
-	"\x13com.gcommon.v1.authB\x18HealthCheckResponseProtoP\x01Z\x1e../../../../pkg/auth/pb;authpb\xa2\x02\x03GVA\xaa\x02\x0fGcommon.V1.Auth\xca\x02\x0fGcommon\\V1\\Auth\xe2\x02\x1bGcommon\\V1\\Auth\\GPBMetadata\xea\x02\x11Gcommon::V1::Auth\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
+	"\x05error\x18\x03 \x01(\v2\x18.gcommon.v1.common.ErrorB\x02(\x01R\x05errorB\xb8\x01\n" +
+	"\x13com.gcommon.v1.authB\x18HealthCheckResponseProtoP\x01Z!../../../../pkg/auth/proto;authpb\xa2\x02\x03GVA\xaa\x02\x0fGcommon.V1.Auth\xca\x02\x0fGcommon\\V1\\Auth\xe2\x02\x1bGcommon\\V1\\Auth\\GPBMetadata\xea\x02\x11Gcommon::V1::Auth\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
 
 var file_pkg_auth_proto_responses_health_check_response_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_pkg_auth_proto_responses_health_check_response_proto_goTypes = []any{
 	(*HealthCheckResponse)(nil), // 0: gcommon.v1.auth.HealthCheckResponse
-	(pb.HealthStatus)(0),        // 1: gcommon.v1.common.HealthStatus
+	(proto.HealthStatus)(0),     // 1: gcommon.v1.common.HealthStatus
 	(*durationpb.Duration)(nil), // 2: google.protobuf.Duration
-	(*pb.Error)(nil),            // 3: gcommon.v1.common.Error
+	(*proto.Error)(nil),         // 3: gcommon.v1.common.Error
 }
 var file_pkg_auth_proto_responses_health_check_response_proto_depIdxs = []int32{
 	1, // 0: gcommon.v1.auth.HealthCheckResponse.status:type_name -> gcommon.v1.common.HealthStatus

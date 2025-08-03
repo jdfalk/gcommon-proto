@@ -98,8 +98,8 @@ const file_pkg_web_proto_responses_get_file_info_response_proto_rawDesc = "" +
 	"\n" +
 	"4pkg/web/proto/responses/get_file_info_response.proto\x12\x0egcommon.v1.web\x1a!google/protobuf/go_features.proto\"7\n" +
 	"\x13GetFileInfoResponse\x12 \n" +
-	"\vplaceholder\x18\x01 \x01(\tR\vplaceholderB\xae\x01\n" +
-	"\x12com.gcommon.v1.webB\x18GetFileInfoResponseProtoP\x01Z\x1c../../../../pkg/web/pb;webpb\xa2\x02\x03GVW\xaa\x02\x0eGcommon.V1.Web\xca\x02\x0eGcommon\\V1\\Web\xe2\x02\x1aGcommon\\V1\\Web\\GPBMetadata\xea\x02\x10Gcommon::V1::Web\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
+	"\vplaceholder\x18\x01 \x01(\tR\vplaceholderB\xb1\x01\n" +
+	"\x12com.gcommon.v1.webB\x18GetFileInfoResponseProtoP\x01Z\x1f../../../../pkg/web/proto;webpb\xa2\x02\x03GVW\xaa\x02\x0eGcommon.V1.Web\xca\x02\x0eGcommon\\V1\\Web\xe2\x02\x1aGcommon\\V1\\Web\\GPBMetadata\xea\x02\x10Gcommon::V1::Web\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
 
 var file_pkg_web_proto_responses_get_file_info_response_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_pkg_web_proto_responses_get_file_info_response_proto_goTypes = []any{

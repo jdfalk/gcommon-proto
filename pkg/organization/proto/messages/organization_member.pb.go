@@ -9,7 +9,7 @@
 package organizationpb
 
 import (
-	pb "../../../../pkg/common/pb"
+	proto "../../../../pkg/common/proto"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
@@ -53,7 +53,7 @@ type OrganizationMember struct {
 	// Tenant IDs this member has access to (for multi-tenant organizations)
 	TenantIds []string `protobuf:"bytes,11,rep,name=tenant_ids,json=tenantIds" json:"tenant_ids,omitempty"`
 	// Member metadata and custom attributes
-	Metadata []*pb.KeyValue `protobuf:"bytes,12,rep,name=metadata" json:"metadata,omitempty"`
+	Metadata []*proto.KeyValue `protobuf:"bytes,12,rep,name=metadata" json:"metadata,omitempty"`
 	// Membership creation timestamp (when user joined organization)
 	CreatedAt *timestamppb.Timestamp `protobuf:"bytes,13,opt,name=created_at,json=createdAt" json:"created_at,omitempty"`
 	// Last update timestamp
@@ -184,7 +184,7 @@ func (x *OrganizationMember) GetTenantIds() []string {
 	return nil
 }
 
-func (x *OrganizationMember) GetMetadata() []*pb.KeyValue {
+func (x *OrganizationMember) GetMetadata() []*proto.KeyValue {
 	if x != nil {
 		return x.Metadata
 	}
@@ -319,7 +319,7 @@ func (x *OrganizationMember) SetTenantIds(v []string) {
 	x.TenantIds = v
 }
 
-func (x *OrganizationMember) SetMetadata(v []*pb.KeyValue) {
+func (x *OrganizationMember) SetMetadata(v []*proto.KeyValue) {
 	x.Metadata = v
 }
 
@@ -584,7 +584,7 @@ type OrganizationMember_builder struct {
 	// Tenant IDs this member has access to (for multi-tenant organizations)
 	TenantIds []string
 	// Member metadata and custom attributes
-	Metadata []*pb.KeyValue
+	Metadata []*proto.KeyValue
 	// Membership creation timestamp (when user joined organization)
 	CreatedAt *timestamppb.Timestamp
 	// Last update timestamp
@@ -679,14 +679,14 @@ const file_pkg_organization_proto_messages_organization_member_proto_rawDesc = "
 	"\n" +
 	"avatar_url\x18\x16 \x01(\tR\tavatarUrl\x12\x14\n" +
 	"\x05phone\x18\x17 \x01(\tR\x05phone\x12\x1a\n" +
-	"\blocation\x18\x18 \x01(\tR\blocationB\xec\x01\n" +
-	"\x1bcom.gcommon.v1.organizationB\x17OrganizationMemberProtoP\x01Z.../../../../pkg/organization/pb;organizationpb\xa2\x02\x03GVO\xaa\x02\x17Gcommon.V1.Organization\xca\x02\x17Gcommon\\V1\\Organization\xe2\x02#Gcommon\\V1\\Organization\\GPBMetadata\xea\x02\x19Gcommon::V1::Organization\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
+	"\blocation\x18\x18 \x01(\tR\blocationB\xef\x01\n" +
+	"\x1bcom.gcommon.v1.organizationB\x17OrganizationMemberProtoP\x01Z1../../../../pkg/organization/proto;organizationpb\xa2\x02\x03GVO\xaa\x02\x17Gcommon.V1.Organization\xca\x02\x17Gcommon\\V1\\Organization\xe2\x02#Gcommon\\V1\\Organization\\GPBMetadata\xea\x02\x19Gcommon::V1::Organization\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
 
 var file_pkg_organization_proto_messages_organization_member_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_pkg_organization_proto_messages_organization_member_proto_goTypes = []any{
 	(*OrganizationMember)(nil),    // 0: gcommon.v1.organization.OrganizationMember
 	(MemberRole)(0),               // 1: gcommon.v1.organization.MemberRole
-	(*pb.KeyValue)(nil),           // 2: gcommon.v1.common.KeyValue
+	(*proto.KeyValue)(nil),        // 2: gcommon.v1.common.KeyValue
 	(*timestamppb.Timestamp)(nil), // 3: google.protobuf.Timestamp
 }
 var file_pkg_organization_proto_messages_organization_member_proto_depIdxs = []int32{

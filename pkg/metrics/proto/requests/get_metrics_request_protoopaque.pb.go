@@ -9,7 +9,7 @@
 package metricspb
 
 import (
-	pb "../../../../pkg/common/pb"
+	proto "../../../../pkg/common/proto"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
@@ -129,16 +129,16 @@ func (x ResponseCompression) Number() protoreflect.EnumNumber {
 // GetMetricsRequest represents a request to retrieve metrics data.
 // Provides filtering, aggregation, and pagination capabilities.
 type GetMetricsRequest struct {
-	state                      protoimpl.MessageState `protogen:"opaque.v1"`
-	xxx_hidden_Metadata        *pb.RequestMetadata    `protobuf:"bytes,1,opt,name=metadata"`
-	xxx_hidden_Filter          *MetricFilter          `protobuf:"bytes,2,opt,name=filter"`
-	xxx_hidden_TimeRange       *TimeRange             `protobuf:"bytes,3,opt,name=time_range,json=timeRange"`
-	xxx_hidden_Aggregation     MetricAggregation      `protobuf:"varint,4,opt,name=aggregation,enum=gcommon.v1.metrics.MetricAggregation"`
-	xxx_hidden_Pagination      *pb.PaginationOptions  `protobuf:"bytes,5,opt,name=pagination"`
-	xxx_hidden_ProviderId      *string                `protobuf:"bytes,6,opt,name=provider_id,json=providerId"`
-	xxx_hidden_OutputOptions   *OutputOptions         `protobuf:"bytes,7,opt,name=output_options,json=outputOptions"`
-	xxx_hidden_IncludeMetadata bool                   `protobuf:"varint,8,opt,name=include_metadata,json=includeMetadata"`
-	xxx_hidden_Limit           int32                  `protobuf:"varint,9,opt,name=limit"`
+	state                      protoimpl.MessageState   `protogen:"opaque.v1"`
+	xxx_hidden_Metadata        *proto.RequestMetadata   `protobuf:"bytes,1,opt,name=metadata"`
+	xxx_hidden_Filter          *MetricFilter            `protobuf:"bytes,2,opt,name=filter"`
+	xxx_hidden_TimeRange       *TimeRange               `protobuf:"bytes,3,opt,name=time_range,json=timeRange"`
+	xxx_hidden_Aggregation     MetricAggregation        `protobuf:"varint,4,opt,name=aggregation,enum=gcommon.v1.metrics.MetricAggregation"`
+	xxx_hidden_Pagination      *proto.PaginationOptions `protobuf:"bytes,5,opt,name=pagination"`
+	xxx_hidden_ProviderId      *string                  `protobuf:"bytes,6,opt,name=provider_id,json=providerId"`
+	xxx_hidden_OutputOptions   *OutputOptions           `protobuf:"bytes,7,opt,name=output_options,json=outputOptions"`
+	xxx_hidden_IncludeMetadata bool                     `protobuf:"varint,8,opt,name=include_metadata,json=includeMetadata"`
+	xxx_hidden_Limit           int32                    `protobuf:"varint,9,opt,name=limit"`
 	XXX_raceDetectHookData     protoimpl.RaceDetectHookData
 	XXX_presence               [1]uint32
 	unknownFields              protoimpl.UnknownFields
@@ -170,7 +170,7 @@ func (x *GetMetricsRequest) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-func (x *GetMetricsRequest) GetMetadata() *pb.RequestMetadata {
+func (x *GetMetricsRequest) GetMetadata() *proto.RequestMetadata {
 	if x != nil {
 		return x.xxx_hidden_Metadata
 	}
@@ -200,7 +200,7 @@ func (x *GetMetricsRequest) GetAggregation() MetricAggregation {
 	return MetricAggregation_METRIC_AGGREGATION_UNSPECIFIED
 }
 
-func (x *GetMetricsRequest) GetPagination() *pb.PaginationOptions {
+func (x *GetMetricsRequest) GetPagination() *proto.PaginationOptions {
 	if x != nil {
 		return x.xxx_hidden_Pagination
 	}
@@ -238,7 +238,7 @@ func (x *GetMetricsRequest) GetLimit() int32 {
 	return 0
 }
 
-func (x *GetMetricsRequest) SetMetadata(v *pb.RequestMetadata) {
+func (x *GetMetricsRequest) SetMetadata(v *proto.RequestMetadata) {
 	x.xxx_hidden_Metadata = v
 }
 
@@ -255,7 +255,7 @@ func (x *GetMetricsRequest) SetAggregation(v MetricAggregation) {
 	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 3, 9)
 }
 
-func (x *GetMetricsRequest) SetPagination(v *pb.PaginationOptions) {
+func (x *GetMetricsRequest) SetPagination(v *proto.PaginationOptions) {
 	x.xxx_hidden_Pagination = v
 }
 
@@ -385,7 +385,7 @@ type GetMetricsRequest_builder struct {
 	_ [0]func() // Prevents comparability and use of unkeyed literals for the builder.
 
 	// Standard request metadata (tracing, auth, etc.)
-	Metadata *pb.RequestMetadata
+	Metadata *proto.RequestMetadata
 	// Filter to determine which metrics to retrieve
 	Filter *MetricFilter
 	// Time range for the request
@@ -393,7 +393,7 @@ type GetMetricsRequest_builder struct {
 	// Aggregation options for the metrics
 	Aggregation *MetricAggregation
 	// Pagination options
-	Pagination *pb.PaginationOptions
+	Pagination *proto.PaginationOptions
 	// Optional provider ID to query
 	ProviderId *string
 	// Output format options
@@ -437,7 +437,7 @@ func (b0 GetMetricsRequest_builder) Build() *GetMetricsRequest {
 type SecondarySortField struct {
 	state                  protoimpl.MessageState `protogen:"opaque.v1"`
 	xxx_hidden_Field       *string                `protobuf:"bytes,1,opt,name=field"`
-	xxx_hidden_Direction   pb.SortDirection       `protobuf:"varint,2,opt,name=direction,enum=gcommon.v1.common.SortDirection"`
+	xxx_hidden_Direction   proto.SortDirection    `protobuf:"varint,2,opt,name=direction,enum=gcommon.v1.common.SortDirection"`
 	XXX_raceDetectHookData protoimpl.RaceDetectHookData
 	XXX_presence           [1]uint32
 	unknownFields          protoimpl.UnknownFields
@@ -479,13 +479,13 @@ func (x *SecondarySortField) GetField() string {
 	return ""
 }
 
-func (x *SecondarySortField) GetDirection() pb.SortDirection {
+func (x *SecondarySortField) GetDirection() proto.SortDirection {
 	if x != nil {
 		if protoimpl.X.Present(&(x.XXX_presence[0]), 1) {
 			return x.xxx_hidden_Direction
 		}
 	}
-	return pb.SortDirection(0)
+	return proto.SortDirection(0)
 }
 
 func (x *SecondarySortField) SetField(v string) {
@@ -493,7 +493,7 @@ func (x *SecondarySortField) SetField(v string) {
 	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 0, 2)
 }
 
-func (x *SecondarySortField) SetDirection(v pb.SortDirection) {
+func (x *SecondarySortField) SetDirection(v proto.SortDirection) {
 	x.xxx_hidden_Direction = v
 	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 1, 2)
 }
@@ -519,14 +519,14 @@ func (x *SecondarySortField) ClearField() {
 
 func (x *SecondarySortField) ClearDirection() {
 	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 1)
-	x.xxx_hidden_Direction = pb.SortDirection_SORT_DIRECTION_UNSPECIFIED
+	x.xxx_hidden_Direction = proto.SortDirection_SORT_DIRECTION_UNSPECIFIED
 }
 
 type SecondarySortField_builder struct {
 	_ [0]func() // Prevents comparability and use of unkeyed literals for the builder.
 
 	Field     *string
-	Direction *pb.SortDirection
+	Direction *proto.SortDirection
 }
 
 func (b0 SecondarySortField_builder) Build() *SecondarySortField {
@@ -823,23 +823,23 @@ const file_pkg_metrics_proto_requests_get_metrics_request_proto_rawDesc = "" +
 	" RESPONSE_COMPRESSION_UNSPECIFIED\x10\x00\x12\x1d\n" +
 	"\x19RESPONSE_COMPRESSION_NONE\x10\x01\x12\x1d\n" +
 	"\x19RESPONSE_COMPRESSION_GZIP\x10\x02\x12\x1f\n" +
-	"\x1bRESPONSE_COMPRESSION_SNAPPY\x10\x03B\xc8\x01\n" +
-	"\x16com.gcommon.v1.metricsB\x16GetMetricsRequestProtoP\x01Z$../../../../pkg/metrics/pb;metricspb\xa2\x02\x03GVM\xaa\x02\x12Gcommon.V1.Metrics\xca\x02\x12Gcommon\\V1\\Metrics\xe2\x02\x1eGcommon\\V1\\Metrics\\GPBMetadata\xea\x02\x14Gcommon::V1::Metrics\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
+	"\x1bRESPONSE_COMPRESSION_SNAPPY\x10\x03B\xcb\x01\n" +
+	"\x16com.gcommon.v1.metricsB\x16GetMetricsRequestProtoP\x01Z'../../../../pkg/metrics/proto;metricspb\xa2\x02\x03GVM\xaa\x02\x12Gcommon.V1.Metrics\xca\x02\x12Gcommon\\V1\\Metrics\xe2\x02\x1eGcommon\\V1\\Metrics\\GPBMetadata\xea\x02\x14Gcommon::V1::Metrics\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
 
 var file_pkg_metrics_proto_requests_get_metrics_request_proto_enumTypes = make([]protoimpl.EnumInfo, 2)
 var file_pkg_metrics_proto_requests_get_metrics_request_proto_msgTypes = make([]protoimpl.MessageInfo, 3)
 var file_pkg_metrics_proto_requests_get_metrics_request_proto_goTypes = []any{
-	(NumericFormat)(0),           // 0: gcommon.v1.metrics.NumericFormat
-	(ResponseCompression)(0),     // 1: gcommon.v1.metrics.ResponseCompression
-	(*GetMetricsRequest)(nil),    // 2: gcommon.v1.metrics.GetMetricsRequest
-	(*SecondarySortField)(nil),   // 3: gcommon.v1.metrics.SecondarySortField
-	(*OutputOptions)(nil),        // 4: gcommon.v1.metrics.OutputOptions
-	(*pb.RequestMetadata)(nil),   // 5: gcommon.v1.common.RequestMetadata
-	(*MetricFilter)(nil),         // 6: gcommon.v1.metrics.MetricFilter
-	(*TimeRange)(nil),            // 7: gcommon.v1.metrics.TimeRange
-	(MetricAggregation)(0),       // 8: gcommon.v1.metrics.MetricAggregation
-	(*pb.PaginationOptions)(nil), // 9: gcommon.v1.common.PaginationOptions
-	(pb.SortDirection)(0),        // 10: gcommon.v1.common.SortDirection
+	(NumericFormat)(0),              // 0: gcommon.v1.metrics.NumericFormat
+	(ResponseCompression)(0),        // 1: gcommon.v1.metrics.ResponseCompression
+	(*GetMetricsRequest)(nil),       // 2: gcommon.v1.metrics.GetMetricsRequest
+	(*SecondarySortField)(nil),      // 3: gcommon.v1.metrics.SecondarySortField
+	(*OutputOptions)(nil),           // 4: gcommon.v1.metrics.OutputOptions
+	(*proto.RequestMetadata)(nil),   // 5: gcommon.v1.common.RequestMetadata
+	(*MetricFilter)(nil),            // 6: gcommon.v1.metrics.MetricFilter
+	(*TimeRange)(nil),               // 7: gcommon.v1.metrics.TimeRange
+	(MetricAggregation)(0),          // 8: gcommon.v1.metrics.MetricAggregation
+	(*proto.PaginationOptions)(nil), // 9: gcommon.v1.common.PaginationOptions
+	(proto.SortDirection)(0),        // 10: gcommon.v1.common.SortDirection
 }
 var file_pkg_metrics_proto_requests_get_metrics_request_proto_depIdxs = []int32{
 	5,  // 0: gcommon.v1.metrics.GetMetricsRequest.metadata:type_name -> gcommon.v1.common.RequestMetadata

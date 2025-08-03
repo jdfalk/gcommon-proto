@@ -9,7 +9,7 @@
 package metricspb
 
 import (
-	pb "../../../../pkg/common/pb"
+	proto "../../../../pkg/common/proto"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
@@ -29,7 +29,7 @@ const (
 type ListMetricsRequest struct {
 	state protoimpl.MessageState `protogen:"hybrid.v1"`
 	// Pagination information
-	Pagination *pb.Pagination `protobuf:"bytes,1,opt,name=pagination" json:"pagination,omitempty"`
+	Pagination *proto.Pagination `protobuf:"bytes,1,opt,name=pagination" json:"pagination,omitempty"`
 	// Optional name filter
 	NameFilter    *string `protobuf:"bytes,2,opt,name=name_filter,json=nameFilter" json:"name_filter,omitempty"`
 	unknownFields protoimpl.UnknownFields
@@ -61,7 +61,7 @@ func (x *ListMetricsRequest) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-func (x *ListMetricsRequest) GetPagination() *pb.Pagination {
+func (x *ListMetricsRequest) GetPagination() *proto.Pagination {
 	if x != nil {
 		return x.Pagination
 	}
@@ -75,7 +75,7 @@ func (x *ListMetricsRequest) GetNameFilter() string {
 	return ""
 }
 
-func (x *ListMetricsRequest) SetPagination(v *pb.Pagination) {
+func (x *ListMetricsRequest) SetPagination(v *proto.Pagination) {
 	x.Pagination = v
 }
 
@@ -109,7 +109,7 @@ type ListMetricsRequest_builder struct {
 	_ [0]func() // Prevents comparability and use of unkeyed literals for the builder.
 
 	// Pagination information
-	Pagination *pb.Pagination
+	Pagination *proto.Pagination
 	// Optional name filter
 	NameFilter *string
 }
@@ -133,13 +133,13 @@ const file_pkg_metrics_proto_requests_list_metrics_request_proto_rawDesc = "" +
 	"pagination\x18\x01 \x01(\v2\x1d.gcommon.v1.common.PaginationR\n" +
 	"pagination\x12\x1f\n" +
 	"\vname_filter\x18\x02 \x01(\tR\n" +
-	"nameFilterB\xc9\x01\n" +
-	"\x16com.gcommon.v1.metricsB\x17ListMetricsRequestProtoP\x01Z$../../../../pkg/metrics/pb;metricspb\xa2\x02\x03GVM\xaa\x02\x12Gcommon.V1.Metrics\xca\x02\x12Gcommon\\V1\\Metrics\xe2\x02\x1eGcommon\\V1\\Metrics\\GPBMetadata\xea\x02\x14Gcommon::V1::Metrics\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
+	"nameFilterB\xcc\x01\n" +
+	"\x16com.gcommon.v1.metricsB\x17ListMetricsRequestProtoP\x01Z'../../../../pkg/metrics/proto;metricspb\xa2\x02\x03GVM\xaa\x02\x12Gcommon.V1.Metrics\xca\x02\x12Gcommon\\V1\\Metrics\xe2\x02\x1eGcommon\\V1\\Metrics\\GPBMetadata\xea\x02\x14Gcommon::V1::Metrics\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
 
 var file_pkg_metrics_proto_requests_list_metrics_request_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_pkg_metrics_proto_requests_list_metrics_request_proto_goTypes = []any{
 	(*ListMetricsRequest)(nil), // 0: gcommon.v1.metrics.ListMetricsRequest
-	(*pb.Pagination)(nil),      // 1: gcommon.v1.common.Pagination
+	(*proto.Pagination)(nil),   // 1: gcommon.v1.common.Pagination
 }
 var file_pkg_metrics_proto_requests_list_metrics_request_proto_depIdxs = []int32{
 	1, // 0: gcommon.v1.metrics.ListMetricsRequest.pagination:type_name -> gcommon.v1.common.Pagination

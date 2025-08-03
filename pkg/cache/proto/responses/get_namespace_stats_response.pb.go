@@ -226,8 +226,8 @@ const file_pkg_cache_proto_responses_get_namespace_stats_response_proto_rawDesc 
 	"\x19GetNamespaceStatsResponse\x12!\n" +
 	"\fnamespace_id\x18\x01 \x01(\tR\vnamespaceId\x126\n" +
 	"\x05stats\x18\x02 \x01(\v2 .gcommon.v1.cache.NamespaceStatsR\x05stats\x12=\n" +
-	"\fcollected_at\x18\x03 \x01(\v2\x1a.google.protobuf.TimestampR\vcollectedAtB\xba\x01\n" +
-	"\x14com.gcommon.v1.cacheB\x1eGetNamespaceStatsResponseProtoP\x01Z ../../../../pkg/cache/pb;cachepb\xa2\x02\x03GVC\xaa\x02\x10Gcommon.V1.Cache\xca\x02\x10Gcommon\\V1\\Cache\xe2\x02\x1cGcommon\\V1\\Cache\\GPBMetadata\xea\x02\x12Gcommon::V1::Cacheb\beditionsp\xe8\a"
+	"\fcollected_at\x18\x03 \x01(\v2\x1a.google.protobuf.TimestampR\vcollectedAtB\xbd\x01\n" +
+	"\x14com.gcommon.v1.cacheB\x1eGetNamespaceStatsResponseProtoP\x01Z#../../../../pkg/cache/proto;cachepb\xa2\x02\x03GVC\xaa\x02\x10Gcommon.V1.Cache\xca\x02\x10Gcommon\\V1\\Cache\xe2\x02\x1cGcommon\\V1\\Cache\\GPBMetadata\xea\x02\x12Gcommon::V1::Cacheb\beditionsp\xe8\a"
 
 var (
 	file_pkg_cache_proto_responses_get_namespace_stats_response_proto_rawDescOnce sync.Once

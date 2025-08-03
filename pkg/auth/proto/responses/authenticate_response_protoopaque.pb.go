@@ -9,7 +9,7 @@
 package authpb
 
 import (
-	pb "../../../../pkg/common/pb"
+	proto "../../../../pkg/common/proto"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
@@ -37,7 +37,7 @@ type AuthenticateResponse struct {
 	xxx_hidden_Scopes       []string               `protobuf:"bytes,5,rep,name=scopes"`
 	xxx_hidden_UserInfo     *UserInfo              `protobuf:"bytes,6,opt,name=user_info,json=userInfo"`
 	xxx_hidden_Session      *Session               `protobuf:"bytes,7,opt,name=session"`
-	xxx_hidden_RateLimit    *pb.RateLimit          `protobuf:"bytes,8,opt,name=rate_limit,json=rateLimit"`
+	xxx_hidden_RateLimit    *proto.RateLimit       `protobuf:"bytes,8,opt,name=rate_limit,json=rateLimit"`
 	// Deprecated: Do not use. This will be deleted in the near future.
 	XXX_lazyUnmarshalInfo  protoimpl.LazyUnmarshalInfo
 	XXX_raceDetectHookData protoimpl.RaceDetectHookData
@@ -143,13 +143,13 @@ func (x *AuthenticateResponse) GetSession() *Session {
 	return nil
 }
 
-func (x *AuthenticateResponse) GetRateLimit() *pb.RateLimit {
+func (x *AuthenticateResponse) GetRateLimit() *proto.RateLimit {
 	if x != nil {
 		if protoimpl.X.Present(&(x.XXX_presence[0]), 7) {
 			if protoimpl.X.AtomicCheckPointerIsNil(&x.xxx_hidden_RateLimit) {
 				protoimpl.X.UnmarshalField(x, 8)
 			}
-			var rv *pb.RateLimit
+			var rv *proto.RateLimit
 			protoimpl.X.AtomicLoadPointer(protoimpl.Pointer(&x.xxx_hidden_RateLimit), protoimpl.Pointer(&rv))
 			return rv
 		}
@@ -199,7 +199,7 @@ func (x *AuthenticateResponse) SetSession(v *Session) {
 	}
 }
 
-func (x *AuthenticateResponse) SetRateLimit(v *pb.RateLimit) {
+func (x *AuthenticateResponse) SetRateLimit(v *proto.RateLimit) {
 	protoimpl.X.AtomicSetPointer(&x.xxx_hidden_RateLimit, v)
 	if v == nil {
 		protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 7)
@@ -289,7 +289,7 @@ func (x *AuthenticateResponse) ClearSession() {
 
 func (x *AuthenticateResponse) ClearRateLimit() {
 	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 7)
-	protoimpl.X.AtomicSetPointer(&x.xxx_hidden_RateLimit, (*pb.RateLimit)(nil))
+	protoimpl.X.AtomicSetPointer(&x.xxx_hidden_RateLimit, (*proto.RateLimit)(nil))
 }
 
 type AuthenticateResponse_builder struct {
@@ -310,7 +310,7 @@ type AuthenticateResponse_builder struct {
 	// Session information for session management
 	Session *Session
 	// Rate limiting information for client throttling
-	RateLimit *pb.RateLimit
+	RateLimit *proto.RateLimit
 }
 
 func (b0 AuthenticateResponse_builder) Build() *AuthenticateResponse {
@@ -365,15 +365,15 @@ const file_pkg_auth_proto_responses_authenticate_response_proto_rawDesc = "" +
 	"\tuser_info\x18\x06 \x01(\v2\x19.gcommon.v1.auth.UserInfoB\x02(\x01R\buserInfo\x126\n" +
 	"\asession\x18\a \x01(\v2\x18.gcommon.v1.auth.SessionB\x02(\x01R\asession\x12?\n" +
 	"\n" +
-	"rate_limit\x18\b \x01(\v2\x1c.gcommon.v1.common.RateLimitB\x02(\x01R\trateLimitB\xb6\x01\n" +
-	"\x13com.gcommon.v1.authB\x19AuthenticateResponseProtoP\x01Z\x1e../../../../pkg/auth/pb;authpb\xa2\x02\x03GVA\xaa\x02\x0fGcommon.V1.Auth\xca\x02\x0fGcommon\\V1\\Auth\xe2\x02\x1bGcommon\\V1\\Auth\\GPBMetadata\xea\x02\x11Gcommon::V1::Auth\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
+	"rate_limit\x18\b \x01(\v2\x1c.gcommon.v1.common.RateLimitB\x02(\x01R\trateLimitB\xb9\x01\n" +
+	"\x13com.gcommon.v1.authB\x19AuthenticateResponseProtoP\x01Z!../../../../pkg/auth/proto;authpb\xa2\x02\x03GVA\xaa\x02\x0fGcommon.V1.Auth\xca\x02\x0fGcommon\\V1\\Auth\xe2\x02\x1bGcommon\\V1\\Auth\\GPBMetadata\xea\x02\x11Gcommon::V1::Auth\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
 
 var file_pkg_auth_proto_responses_authenticate_response_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_pkg_auth_proto_responses_authenticate_response_proto_goTypes = []any{
 	(*AuthenticateResponse)(nil), // 0: gcommon.v1.auth.AuthenticateResponse
 	(*UserInfo)(nil),             // 1: gcommon.v1.auth.UserInfo
 	(*Session)(nil),              // 2: gcommon.v1.auth.Session
-	(*pb.RateLimit)(nil),         // 3: gcommon.v1.common.RateLimit
+	(*proto.RateLimit)(nil),      // 3: gcommon.v1.common.RateLimit
 }
 var file_pkg_auth_proto_responses_authenticate_response_proto_depIdxs = []int32{
 	1, // 0: gcommon.v1.auth.AuthenticateResponse.user_info:type_name -> gcommon.v1.auth.UserInfo

@@ -186,8 +186,8 @@ const file_pkg_db_proto_messages_execute_stats_proto_rawDesc = "" +
 	"\fExecuteStats\x12D\n" +
 	"\x0eexecution_time\x18\x01 \x01(\v2\x19.google.protobuf.DurationB\x02(\x01R\rexecutionTime\x12#\n" +
 	"\raffected_rows\x18\x02 \x01(\x03R\faffectedRows\x12#\n" +
-	"\rcost_estimate\x18\x03 \x01(\x01R\fcostEstimateB\xbe\x01\n" +
-	"\x17com.gcommon.v1.databaseB\x11ExecuteStatsProtoP\x01Z\x1a../../../../pkg/db/pb;dbpb\xa2\x02\x03GVD\xaa\x02\x13Gcommon.V1.Database\xca\x02\x13Gcommon\\V1\\Database\xe2\x02\x1fGcommon\\V1\\Database\\GPBMetadata\xea\x02\x15Gcommon::V1::Database\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
+	"\rcost_estimate\x18\x03 \x01(\x01R\fcostEstimateB\xc1\x01\n" +
+	"\x17com.gcommon.v1.databaseB\x11ExecuteStatsProtoP\x01Z\x1d../../../../pkg/db/proto;dbpb\xa2\x02\x03GVD\xaa\x02\x13Gcommon.V1.Database\xca\x02\x13Gcommon\\V1\\Database\xe2\x02\x1fGcommon\\V1\\Database\\GPBMetadata\xea\x02\x15Gcommon::V1::Database\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
 
 var file_pkg_db_proto_messages_execute_stats_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_pkg_db_proto_messages_execute_stats_proto_goTypes = []any{

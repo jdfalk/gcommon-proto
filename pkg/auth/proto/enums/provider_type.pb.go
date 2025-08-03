@@ -93,8 +93,8 @@ const file_pkg_auth_proto_enums_provider_type_proto_rawDesc = "" +
 	"\x13PROVIDER_TYPE_LOCAL\x10\x01\x12\x16\n" +
 	"\x12PROVIDER_TYPE_LDAP\x10\x02\x12\x16\n" +
 	"\x12PROVIDER_TYPE_SAML\x10\x03\x12\x18\n" +
-	"\x14PROVIDER_TYPE_OAUTH2\x10\x04B\xa6\x01\n" +
-	"\x13com.gcommon.v1.authB\x11ProviderTypeProtoP\x01Z\x1e../../../../pkg/auth/pb;authpb\xa2\x02\x03GVA\xaa\x02\x0fGcommon.V1.Auth\xca\x02\x0fGcommon\\V1\\Auth\xe2\x02\x1bGcommon\\V1\\Auth\\GPBMetadata\xea\x02\x11Gcommon::V1::Authb\beditionsp\xe8\a"
+	"\x14PROVIDER_TYPE_OAUTH2\x10\x04B\xa9\x01\n" +
+	"\x13com.gcommon.v1.authB\x11ProviderTypeProtoP\x01Z!../../../../pkg/auth/proto;authpb\xa2\x02\x03GVA\xaa\x02\x0fGcommon.V1.Auth\xca\x02\x0fGcommon\\V1\\Auth\xe2\x02\x1bGcommon\\V1\\Auth\\GPBMetadata\xea\x02\x11Gcommon::V1::Authb\beditionsp\xe8\a"
 
 var (
 	file_pkg_auth_proto_enums_provider_type_proto_rawDescOnce sync.Once

@@ -9,7 +9,7 @@
 package cachepb
 
 import (
-	pb "../../../../pkg/common/pb"
+	proto "../../../../pkg/common/proto"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
@@ -31,7 +31,7 @@ type SetMultipleResponse struct {
 	state                  protoimpl.MessageState `protogen:"opaque.v1"`
 	xxx_hidden_Success     bool                   `protobuf:"varint,1,opt,name=success"`
 	xxx_hidden_FailedKeys  []string               `protobuf:"bytes,2,rep,name=failed_keys,json=failedKeys"`
-	xxx_hidden_Error       *pb.Error              `protobuf:"bytes,3,opt,name=error"`
+	xxx_hidden_Error       *proto.Error           `protobuf:"bytes,3,opt,name=error"`
 	xxx_hidden_SetCount    int32                  `protobuf:"varint,4,opt,name=set_count,json=setCount"`
 	XXX_raceDetectHookData protoimpl.RaceDetectHookData
 	XXX_presence           [1]uint32
@@ -78,7 +78,7 @@ func (x *SetMultipleResponse) GetFailedKeys() []string {
 	return nil
 }
 
-func (x *SetMultipleResponse) GetError() *pb.Error {
+func (x *SetMultipleResponse) GetError() *proto.Error {
 	if x != nil {
 		return x.xxx_hidden_Error
 	}
@@ -101,7 +101,7 @@ func (x *SetMultipleResponse) SetFailedKeys(v []string) {
 	x.xxx_hidden_FailedKeys = v
 }
 
-func (x *SetMultipleResponse) SetError(v *pb.Error) {
+func (x *SetMultipleResponse) SetError(v *proto.Error) {
 	x.xxx_hidden_Error = v
 }
 
@@ -153,7 +153,7 @@ type SetMultipleResponse_builder struct {
 	// List of keys that failed to be set
 	FailedKeys []string
 	// Error details if operation failed
-	Error *pb.Error
+	Error *proto.Error
 	// Number of keys that were successfully set
 	SetCount *int32
 }
@@ -185,13 +185,13 @@ const file_pkg_cache_proto_responses_set_multiple_response_proto_rawDesc = "" +
 	"\vfailed_keys\x18\x02 \x03(\tR\n" +
 	"failedKeys\x12.\n" +
 	"\x05error\x18\x03 \x01(\v2\x18.gcommon.v1.common.ErrorR\x05error\x12\x1b\n" +
-	"\tset_count\x18\x04 \x01(\x05R\bsetCountB\xbc\x01\n" +
-	"\x14com.gcommon.v1.cacheB\x18SetMultipleResponseProtoP\x01Z ../../../../pkg/cache/pb;cachepb\xa2\x02\x03GVC\xaa\x02\x10Gcommon.V1.Cache\xca\x02\x10Gcommon\\V1\\Cache\xe2\x02\x1cGcommon\\V1\\Cache\\GPBMetadata\xea\x02\x12Gcommon::V1::Cache\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
+	"\tset_count\x18\x04 \x01(\x05R\bsetCountB\xbf\x01\n" +
+	"\x14com.gcommon.v1.cacheB\x18SetMultipleResponseProtoP\x01Z#../../../../pkg/cache/proto;cachepb\xa2\x02\x03GVC\xaa\x02\x10Gcommon.V1.Cache\xca\x02\x10Gcommon\\V1\\Cache\xe2\x02\x1cGcommon\\V1\\Cache\\GPBMetadata\xea\x02\x12Gcommon::V1::Cache\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
 
 var file_pkg_cache_proto_responses_set_multiple_response_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_pkg_cache_proto_responses_set_multiple_response_proto_goTypes = []any{
 	(*SetMultipleResponse)(nil), // 0: gcommon.v1.cache.SetMultipleResponse
-	(*pb.Error)(nil),            // 1: gcommon.v1.common.Error
+	(*proto.Error)(nil),         // 1: gcommon.v1.common.Error
 }
 var file_pkg_cache_proto_responses_set_multiple_response_proto_depIdxs = []int32{
 	1, // 0: gcommon.v1.cache.SetMultipleResponse.error:type_name -> gcommon.v1.common.Error

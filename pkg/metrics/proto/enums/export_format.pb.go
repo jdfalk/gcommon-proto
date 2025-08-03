@@ -127,8 +127,8 @@ const file_pkg_metrics_proto_enums_export_format_proto_rawDesc = "" +
 	"\x1bEXPORT_FORMAT_OPENTELEMETRY\x10\t\x12\x16\n" +
 	"\x12EXPORT_FORMAT_YAML\x10\n" +
 	"\x12\x15\n" +
-	"\x11EXPORT_FORMAT_XML\x10\vB\xc3\x01\n" +
-	"\x16com.gcommon.v1.metricsB\x11ExportFormatProtoP\x01Z$../../../../pkg/metrics/pb;metricspb\xa2\x02\x03GVM\xaa\x02\x12Gcommon.V1.Metrics\xca\x02\x12Gcommon\\V1\\Metrics\xe2\x02\x1eGcommon\\V1\\Metrics\\GPBMetadata\xea\x02\x14Gcommon::V1::Metrics\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
+	"\x11EXPORT_FORMAT_XML\x10\vB\xc6\x01\n" +
+	"\x16com.gcommon.v1.metricsB\x11ExportFormatProtoP\x01Z'../../../../pkg/metrics/proto;metricspb\xa2\x02\x03GVM\xaa\x02\x12Gcommon.V1.Metrics\xca\x02\x12Gcommon\\V1\\Metrics\xe2\x02\x1eGcommon\\V1\\Metrics\\GPBMetadata\xea\x02\x14Gcommon::V1::Metrics\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
 
 var file_pkg_metrics_proto_enums_export_format_proto_enumTypes = make([]protoimpl.EnumInfo, 1)
 var file_pkg_metrics_proto_enums_export_format_proto_goTypes = []any{

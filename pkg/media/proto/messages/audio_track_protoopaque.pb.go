@@ -302,8 +302,8 @@ const file_pkg_media_proto_messages_audio_track_proto_rawDesc = "" +
 	"\bchannels\x18\x05 \x01(\x05R\bchannels\x12\x1f\n" +
 	"\vsample_rate\x18\x06 \x01(\x05R\n" +
 	"sampleRate\x12#\n" +
-	"\rdefault_track\x18\a \x01(\bR\fdefaultTrackB\xb3\x01\n" +
-	"\x14com.gcommon.v1.mediaB\x0fAudioTrackProtoP\x01Z ../../../../pkg/media/pb;mediapb\xa2\x02\x03GVM\xaa\x02\x10Gcommon.V1.Media\xca\x02\x10Gcommon\\V1\\Media\xe2\x02\x1cGcommon\\V1\\Media\\GPBMetadata\xea\x02\x12Gcommon::V1::Media\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
+	"\rdefault_track\x18\a \x01(\bR\fdefaultTrackB\xb6\x01\n" +
+	"\x14com.gcommon.v1.mediaB\x0fAudioTrackProtoP\x01Z#../../../../pkg/media/proto;mediapb\xa2\x02\x03GVM\xaa\x02\x10Gcommon.V1.Media\xca\x02\x10Gcommon\\V1\\Media\xe2\x02\x1cGcommon\\V1\\Media\\GPBMetadata\xea\x02\x12Gcommon::V1::Media\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
 
 var file_pkg_media_proto_messages_audio_track_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_pkg_media_proto_messages_audio_track_proto_goTypes = []any{

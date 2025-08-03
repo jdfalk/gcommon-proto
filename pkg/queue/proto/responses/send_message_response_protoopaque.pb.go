@@ -9,7 +9,7 @@
 package queuepb
 
 import (
-	pb "../../../../pkg/common/pb"
+	proto "../../../../pkg/common/proto"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
@@ -30,7 +30,7 @@ type SendMessageResponse struct {
 	xxx_hidden_MessageId     *string                `protobuf:"bytes,1,opt,name=message_id,json=messageId"`
 	xxx_hidden_Success       bool                   `protobuf:"varint,2,opt,name=success"`
 	xxx_hidden_QueuePosition int64                  `protobuf:"varint,3,opt,name=queue_position,json=queuePosition"`
-	xxx_hidden_Error         *pb.Error              `protobuf:"bytes,4,opt,name=error"`
+	xxx_hidden_Error         *proto.Error           `protobuf:"bytes,4,opt,name=error"`
 	XXX_raceDetectHookData   protoimpl.RaceDetectHookData
 	XXX_presence             [1]uint32
 	unknownFields            protoimpl.UnknownFields
@@ -86,7 +86,7 @@ func (x *SendMessageResponse) GetQueuePosition() int64 {
 	return 0
 }
 
-func (x *SendMessageResponse) GetError() *pb.Error {
+func (x *SendMessageResponse) GetError() *proto.Error {
 	if x != nil {
 		return x.xxx_hidden_Error
 	}
@@ -108,7 +108,7 @@ func (x *SendMessageResponse) SetQueuePosition(v int64) {
 	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 2, 4)
 }
 
-func (x *SendMessageResponse) SetError(v *pb.Error) {
+func (x *SendMessageResponse) SetError(v *proto.Error) {
 	x.xxx_hidden_Error = v
 }
 
@@ -169,7 +169,7 @@ type SendMessageResponse_builder struct {
 	// Position in the queue if known.
 	QueuePosition *int64
 	// Error information when `success` is false.
-	Error *pb.Error
+	Error *proto.Error
 }
 
 func (b0 SendMessageResponse_builder) Build() *SendMessageResponse {
@@ -202,13 +202,13 @@ const file_pkg_queue_proto_responses_send_message_response_proto_rawDesc = "" +
 	"message_id\x18\x01 \x01(\tR\tmessageId\x12\x18\n" +
 	"\asuccess\x18\x02 \x01(\bR\asuccess\x12%\n" +
 	"\x0equeue_position\x18\x03 \x01(\x03R\rqueuePosition\x12.\n" +
-	"\x05error\x18\x04 \x01(\v2\x18.gcommon.v1.common.ErrorR\x05errorB\xbc\x01\n" +
-	"\x14com.gcommon.v1.queueB\x18SendMessageResponseProtoP\x01Z ../../../../pkg/queue/pb;queuepb\xa2\x02\x03GVQ\xaa\x02\x10Gcommon.V1.Queue\xca\x02\x10Gcommon\\V1\\Queue\xe2\x02\x1cGcommon\\V1\\Queue\\GPBMetadata\xea\x02\x12Gcommon::V1::Queue\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
+	"\x05error\x18\x04 \x01(\v2\x18.gcommon.v1.common.ErrorR\x05errorB\xbf\x01\n" +
+	"\x14com.gcommon.v1.queueB\x18SendMessageResponseProtoP\x01Z#../../../../pkg/queue/proto;queuepb\xa2\x02\x03GVQ\xaa\x02\x10Gcommon.V1.Queue\xca\x02\x10Gcommon\\V1\\Queue\xe2\x02\x1cGcommon\\V1\\Queue\\GPBMetadata\xea\x02\x12Gcommon::V1::Queue\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
 
 var file_pkg_queue_proto_responses_send_message_response_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_pkg_queue_proto_responses_send_message_response_proto_goTypes = []any{
 	(*SendMessageResponse)(nil), // 0: gcommon.v1.queue.SendMessageResponse
-	(*pb.Error)(nil),            // 1: gcommon.v1.common.Error
+	(*proto.Error)(nil),         // 1: gcommon.v1.common.Error
 }
 var file_pkg_queue_proto_responses_send_message_response_proto_depIdxs = []int32{
 	1, // 0: gcommon.v1.queue.SendMessageResponse.error:type_name -> gcommon.v1.common.Error

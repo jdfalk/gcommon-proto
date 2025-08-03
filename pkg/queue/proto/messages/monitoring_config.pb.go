@@ -128,8 +128,8 @@ const file_pkg_queue_proto_messages_monitoring_config_proto_rawDesc = "" +
 	"0pkg/queue/proto/messages/monitoring_config.proto\x12\x10gcommon.v1.queue\x1a!google/protobuf/go_features.proto\"W\n" +
 	"\x10MonitoringConfig\x12\x18\n" +
 	"\aenabled\x18\x01 \x01(\bR\aenabled\x12)\n" +
-	"\x10metrics_endpoint\x18\x02 \x01(\tR\x0fmetricsEndpointB\xb9\x01\n" +
-	"\x14com.gcommon.v1.queueB\x15MonitoringConfigProtoP\x01Z ../../../../pkg/queue/pb;queuepb\xa2\x02\x03GVQ\xaa\x02\x10Gcommon.V1.Queue\xca\x02\x10Gcommon\\V1\\Queue\xe2\x02\x1cGcommon\\V1\\Queue\\GPBMetadata\xea\x02\x12Gcommon::V1::Queue\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
+	"\x10metrics_endpoint\x18\x02 \x01(\tR\x0fmetricsEndpointB\xbc\x01\n" +
+	"\x14com.gcommon.v1.queueB\x15MonitoringConfigProtoP\x01Z#../../../../pkg/queue/proto;queuepb\xa2\x02\x03GVQ\xaa\x02\x10Gcommon.V1.Queue\xca\x02\x10Gcommon\\V1\\Queue\xe2\x02\x1cGcommon\\V1\\Queue\\GPBMetadata\xea\x02\x12Gcommon::V1::Queue\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
 
 var file_pkg_queue_proto_messages_monitoring_config_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_pkg_queue_proto_messages_monitoring_config_proto_goTypes = []any{

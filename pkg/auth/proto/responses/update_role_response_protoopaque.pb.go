@@ -9,7 +9,7 @@
 package authpb
 
 import (
-	pb "../../../../pkg/common/pb"
+	proto "../../../../pkg/common/proto"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
@@ -30,7 +30,7 @@ const (
 type UpdateRoleResponse struct {
 	state            protoimpl.MessageState `protogen:"opaque.v1"`
 	xxx_hidden_Role  *Role                  `protobuf:"bytes,1,opt,name=role"`
-	xxx_hidden_Error *pb.Error              `protobuf:"bytes,2,opt,name=error"`
+	xxx_hidden_Error *proto.Error           `protobuf:"bytes,2,opt,name=error"`
 	unknownFields    protoimpl.UnknownFields
 	sizeCache        protoimpl.SizeCache
 }
@@ -67,7 +67,7 @@ func (x *UpdateRoleResponse) GetRole() *Role {
 	return nil
 }
 
-func (x *UpdateRoleResponse) GetError() *pb.Error {
+func (x *UpdateRoleResponse) GetError() *proto.Error {
 	if x != nil {
 		return x.xxx_hidden_Error
 	}
@@ -78,7 +78,7 @@ func (x *UpdateRoleResponse) SetRole(v *Role) {
 	x.xxx_hidden_Role = v
 }
 
-func (x *UpdateRoleResponse) SetError(v *pb.Error) {
+func (x *UpdateRoleResponse) SetError(v *proto.Error) {
 	x.xxx_hidden_Error = v
 }
 
@@ -110,7 +110,7 @@ type UpdateRoleResponse_builder struct {
 	// The updated role
 	Role *Role
 	// Error information if update failed
-	Error *pb.Error
+	Error *proto.Error
 }
 
 func (b0 UpdateRoleResponse_builder) Build() *UpdateRoleResponse {
@@ -129,14 +129,14 @@ const file_pkg_auth_proto_responses_update_role_response_proto_rawDesc = "" +
 	"3pkg/auth/proto/responses/update_role_response.proto\x12\x0fgcommon.v1.auth\x1a!google/protobuf/go_features.proto\x1a%pkg/common/proto/messages/error.proto\x1a\x1fpkg/auth/proto/types/role.proto\"o\n" +
 	"\x12UpdateRoleResponse\x12)\n" +
 	"\x04role\x18\x01 \x01(\v2\x15.gcommon.v1.auth.RoleR\x04role\x12.\n" +
-	"\x05error\x18\x02 \x01(\v2\x18.gcommon.v1.common.ErrorR\x05errorB\xb4\x01\n" +
-	"\x13com.gcommon.v1.authB\x17UpdateRoleResponseProtoP\x01Z\x1e../../../../pkg/auth/pb;authpb\xa2\x02\x03GVA\xaa\x02\x0fGcommon.V1.Auth\xca\x02\x0fGcommon\\V1\\Auth\xe2\x02\x1bGcommon\\V1\\Auth\\GPBMetadata\xea\x02\x11Gcommon::V1::Auth\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
+	"\x05error\x18\x02 \x01(\v2\x18.gcommon.v1.common.ErrorR\x05errorB\xb7\x01\n" +
+	"\x13com.gcommon.v1.authB\x17UpdateRoleResponseProtoP\x01Z!../../../../pkg/auth/proto;authpb\xa2\x02\x03GVA\xaa\x02\x0fGcommon.V1.Auth\xca\x02\x0fGcommon\\V1\\Auth\xe2\x02\x1bGcommon\\V1\\Auth\\GPBMetadata\xea\x02\x11Gcommon::V1::Auth\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
 
 var file_pkg_auth_proto_responses_update_role_response_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_pkg_auth_proto_responses_update_role_response_proto_goTypes = []any{
 	(*UpdateRoleResponse)(nil), // 0: gcommon.v1.auth.UpdateRoleResponse
 	(*Role)(nil),               // 1: gcommon.v1.auth.Role
-	(*pb.Error)(nil),           // 2: gcommon.v1.common.Error
+	(*proto.Error)(nil),        // 2: gcommon.v1.common.Error
 }
 var file_pkg_auth_proto_responses_update_role_response_proto_depIdxs = []int32{
 	1, // 0: gcommon.v1.auth.UpdateRoleResponse.role:type_name -> gcommon.v1.auth.Role

@@ -9,7 +9,7 @@
 package cachepb
 
 import (
-	pb "../../../../pkg/common/pb"
+	proto "../../../../pkg/common/proto"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
@@ -46,7 +46,7 @@ type GetStatsResponse struct {
 	// Whether the operation was successful
 	Success *bool `protobuf:"varint,8,opt,name=success" json:"success,omitempty"`
 	// Error details if stats retrieval failed
-	Error         *pb.Error `protobuf:"bytes,9,opt,name=error" json:"error,omitempty"`
+	Error         *proto.Error `protobuf:"bytes,9,opt,name=error" json:"error,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -132,7 +132,7 @@ func (x *GetStatsResponse) GetSuccess() bool {
 	return false
 }
 
-func (x *GetStatsResponse) GetError() *pb.Error {
+func (x *GetStatsResponse) GetError() *proto.Error {
 	if x != nil {
 		return x.Error
 	}
@@ -171,7 +171,7 @@ func (x *GetStatsResponse) SetSuccess(v bool) {
 	x.Success = &v
 }
 
-func (x *GetStatsResponse) SetError(v *pb.Error) {
+func (x *GetStatsResponse) SetError(v *proto.Error) {
 	x.Error = v
 }
 
@@ -294,7 +294,7 @@ type GetStatsResponse_builder struct {
 	// Whether the operation was successful
 	Success *bool
 	// Error details if stats retrieval failed
-	Error *pb.Error
+	Error *proto.Error
 }
 
 func (b0 GetStatsResponse_builder) Build() *GetStatsResponse {
@@ -329,13 +329,13 @@ const file_pkg_cache_proto_responses_get_stats_response_proto_rawDesc = "" +
 	"\fmemory_limit\x18\x06 \x01(\x03R\vmemoryLimit\x12#\n" +
 	"\revicted_items\x18\a \x01(\x03R\fevictedItems\x12\x18\n" +
 	"\asuccess\x18\b \x01(\bR\asuccess\x12.\n" +
-	"\x05error\x18\t \x01(\v2\x18.gcommon.v1.common.ErrorR\x05errorB\xb9\x01\n" +
-	"\x14com.gcommon.v1.cacheB\x15GetStatsResponseProtoP\x01Z ../../../../pkg/cache/pb;cachepb\xa2\x02\x03GVC\xaa\x02\x10Gcommon.V1.Cache\xca\x02\x10Gcommon\\V1\\Cache\xe2\x02\x1cGcommon\\V1\\Cache\\GPBMetadata\xea\x02\x12Gcommon::V1::Cache\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
+	"\x05error\x18\t \x01(\v2\x18.gcommon.v1.common.ErrorR\x05errorB\xbc\x01\n" +
+	"\x14com.gcommon.v1.cacheB\x15GetStatsResponseProtoP\x01Z#../../../../pkg/cache/proto;cachepb\xa2\x02\x03GVC\xaa\x02\x10Gcommon.V1.Cache\xca\x02\x10Gcommon\\V1\\Cache\xe2\x02\x1cGcommon\\V1\\Cache\\GPBMetadata\xea\x02\x12Gcommon::V1::Cache\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
 
 var file_pkg_cache_proto_responses_get_stats_response_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_pkg_cache_proto_responses_get_stats_response_proto_goTypes = []any{
 	(*GetStatsResponse)(nil), // 0: gcommon.v1.cache.GetStatsResponse
-	(*pb.Error)(nil),         // 1: gcommon.v1.common.Error
+	(*proto.Error)(nil),      // 1: gcommon.v1.common.Error
 }
 var file_pkg_cache_proto_responses_get_stats_response_proto_depIdxs = []int32{
 	1, // 0: gcommon.v1.cache.GetStatsResponse.error:type_name -> gcommon.v1.common.Error

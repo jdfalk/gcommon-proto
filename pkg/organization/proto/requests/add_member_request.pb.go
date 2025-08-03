@@ -9,7 +9,7 @@
 package organizationpb
 
 import (
-	pb "../../../../pkg/common/pb"
+	proto "../../../../pkg/common/proto"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
@@ -27,7 +27,7 @@ const (
 type AddMemberRequest struct {
 	state protoimpl.MessageState `protogen:"hybrid.v1"`
 	// Request metadata for tracing and context
-	Metadata *pb.RequestMetadata `protobuf:"bytes,1,opt,name=metadata" json:"metadata,omitempty"`
+	Metadata *proto.RequestMetadata `protobuf:"bytes,1,opt,name=metadata" json:"metadata,omitempty"`
 	// Organization identifier
 	OrganizationId *string `protobuf:"bytes,2,opt,name=organization_id,json=organizationId" json:"organization_id,omitempty"`
 	// Member information to add
@@ -63,7 +63,7 @@ func (x *AddMemberRequest) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-func (x *AddMemberRequest) GetMetadata() *pb.RequestMetadata {
+func (x *AddMemberRequest) GetMetadata() *proto.RequestMetadata {
 	if x != nil {
 		return x.Metadata
 	}
@@ -91,7 +91,7 @@ func (x *AddMemberRequest) GetSendInvite() bool {
 	return false
 }
 
-func (x *AddMemberRequest) SetMetadata(v *pb.RequestMetadata) {
+func (x *AddMemberRequest) SetMetadata(v *proto.RequestMetadata) {
 	x.Metadata = v
 }
 
@@ -155,7 +155,7 @@ type AddMemberRequest_builder struct {
 	_ [0]func() // Prevents comparability and use of unkeyed literals for the builder.
 
 	// Request metadata for tracing and context
-	Metadata *pb.RequestMetadata
+	Metadata *proto.RequestMetadata
 	// Organization identifier
 	OrganizationId *string
 	// Member information to add
@@ -185,14 +185,14 @@ const file_pkg_organization_proto_requests_add_member_request_proto_rawDesc = ""
 	"\x0forganization_id\x18\x02 \x01(\tR\x0eorganizationId\x12C\n" +
 	"\x06member\x18\x03 \x01(\v2+.gcommon.v1.organization.OrganizationMemberR\x06member\x12\x1f\n" +
 	"\vsend_invite\x18\x04 \x01(\bR\n" +
-	"sendInviteB\xea\x01\n" +
-	"\x1bcom.gcommon.v1.organizationB\x15AddMemberRequestProtoP\x01Z.../../../../pkg/organization/pb;organizationpb\xa2\x02\x03GVO\xaa\x02\x17Gcommon.V1.Organization\xca\x02\x17Gcommon\\V1\\Organization\xe2\x02#Gcommon\\V1\\Organization\\GPBMetadata\xea\x02\x19Gcommon::V1::Organization\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
+	"sendInviteB\xed\x01\n" +
+	"\x1bcom.gcommon.v1.organizationB\x15AddMemberRequestProtoP\x01Z1../../../../pkg/organization/proto;organizationpb\xa2\x02\x03GVO\xaa\x02\x17Gcommon.V1.Organization\xca\x02\x17Gcommon\\V1\\Organization\xe2\x02#Gcommon\\V1\\Organization\\GPBMetadata\xea\x02\x19Gcommon::V1::Organization\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
 
 var file_pkg_organization_proto_requests_add_member_request_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_pkg_organization_proto_requests_add_member_request_proto_goTypes = []any{
-	(*AddMemberRequest)(nil),   // 0: gcommon.v1.organization.AddMemberRequest
-	(*pb.RequestMetadata)(nil), // 1: gcommon.v1.common.RequestMetadata
-	(*OrganizationMember)(nil), // 2: gcommon.v1.organization.OrganizationMember
+	(*AddMemberRequest)(nil),      // 0: gcommon.v1.organization.AddMemberRequest
+	(*proto.RequestMetadata)(nil), // 1: gcommon.v1.common.RequestMetadata
+	(*OrganizationMember)(nil),    // 2: gcommon.v1.organization.OrganizationMember
 }
 var file_pkg_organization_proto_requests_add_member_request_proto_depIdxs = []int32{
 	1, // 0: gcommon.v1.organization.AddMemberRequest.metadata:type_name -> gcommon.v1.common.RequestMetadata

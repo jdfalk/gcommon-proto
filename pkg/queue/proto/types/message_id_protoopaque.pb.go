@@ -110,8 +110,8 @@ const file_pkg_queue_proto_types_message_id_proto_rawDesc = "" +
 	"\n" +
 	"&pkg/queue/proto/types/message_id.proto\x12\x10gcommon.v1.queue\x1a!google/protobuf/go_features.proto\"!\n" +
 	"\tMessageId\x12\x14\n" +
-	"\x05value\x18\x01 \x01(\tR\x05valueB\xb2\x01\n" +
-	"\x14com.gcommon.v1.queueB\x0eMessageIdProtoP\x01Z ../../../../pkg/queue/pb;queuepb\xa2\x02\x03GVQ\xaa\x02\x10Gcommon.V1.Queue\xca\x02\x10Gcommon\\V1\\Queue\xe2\x02\x1cGcommon\\V1\\Queue\\GPBMetadata\xea\x02\x12Gcommon::V1::Queue\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
+	"\x05value\x18\x01 \x01(\tR\x05valueB\xb5\x01\n" +
+	"\x14com.gcommon.v1.queueB\x0eMessageIdProtoP\x01Z#../../../../pkg/queue/proto;queuepb\xa2\x02\x03GVQ\xaa\x02\x10Gcommon.V1.Queue\xca\x02\x10Gcommon\\V1\\Queue\xe2\x02\x1cGcommon\\V1\\Queue\\GPBMetadata\xea\x02\x12Gcommon::V1::Queue\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
 
 var file_pkg_queue_proto_types_message_id_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_pkg_queue_proto_types_message_id_proto_goTypes = []any{

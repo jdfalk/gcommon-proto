@@ -9,7 +9,7 @@
 package queuepb
 
 import (
-	pb "../../../../pkg/common/pb"
+	proto "../../../../pkg/common/proto"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
@@ -27,7 +27,7 @@ const (
 type ListQueuesRequest struct {
 	state protoimpl.MessageState `protogen:"hybrid.v1"`
 	// Standard request metadata used across all services
-	Metadata *pb.RequestMetadata `protobuf:"bytes,1,opt,name=metadata" json:"metadata,omitempty"`
+	Metadata *proto.RequestMetadata `protobuf:"bytes,1,opt,name=metadata" json:"metadata,omitempty"`
 	// Optional page size for results
 	PageSize *int32 `protobuf:"varint,2,opt,name=page_size,json=pageSize" json:"page_size,omitempty"`
 	// Optional token for fetching the next page
@@ -61,7 +61,7 @@ func (x *ListQueuesRequest) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-func (x *ListQueuesRequest) GetMetadata() *pb.RequestMetadata {
+func (x *ListQueuesRequest) GetMetadata() *proto.RequestMetadata {
 	if x != nil {
 		return x.Metadata
 	}
@@ -82,7 +82,7 @@ func (x *ListQueuesRequest) GetPageToken() string {
 	return ""
 }
 
-func (x *ListQueuesRequest) SetMetadata(v *pb.RequestMetadata) {
+func (x *ListQueuesRequest) SetMetadata(v *proto.RequestMetadata) {
 	x.Metadata = v
 }
 
@@ -131,7 +131,7 @@ type ListQueuesRequest_builder struct {
 	_ [0]func() // Prevents comparability and use of unkeyed literals for the builder.
 
 	// Standard request metadata used across all services
-	Metadata *pb.RequestMetadata
+	Metadata *proto.RequestMetadata
 	// Optional page size for results
 	PageSize *int32
 	// Optional token for fetching the next page
@@ -157,13 +157,13 @@ const file_pkg_queue_proto_requests_list_queues_request_proto_rawDesc = "" +
 	"\bmetadata\x18\x01 \x01(\v2\".gcommon.v1.common.RequestMetadataR\bmetadata\x12\x1b\n" +
 	"\tpage_size\x18\x02 \x01(\x05R\bpageSize\x12\x1d\n" +
 	"\n" +
-	"page_token\x18\x03 \x01(\tR\tpageTokenB\xba\x01\n" +
-	"\x14com.gcommon.v1.queueB\x16ListQueuesRequestProtoP\x01Z ../../../../pkg/queue/pb;queuepb\xa2\x02\x03GVQ\xaa\x02\x10Gcommon.V1.Queue\xca\x02\x10Gcommon\\V1\\Queue\xe2\x02\x1cGcommon\\V1\\Queue\\GPBMetadata\xea\x02\x12Gcommon::V1::Queue\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
+	"page_token\x18\x03 \x01(\tR\tpageTokenB\xbd\x01\n" +
+	"\x14com.gcommon.v1.queueB\x16ListQueuesRequestProtoP\x01Z#../../../../pkg/queue/proto;queuepb\xa2\x02\x03GVQ\xaa\x02\x10Gcommon.V1.Queue\xca\x02\x10Gcommon\\V1\\Queue\xe2\x02\x1cGcommon\\V1\\Queue\\GPBMetadata\xea\x02\x12Gcommon::V1::Queue\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
 
 var file_pkg_queue_proto_requests_list_queues_request_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_pkg_queue_proto_requests_list_queues_request_proto_goTypes = []any{
-	(*ListQueuesRequest)(nil),  // 0: gcommon.v1.queue.ListQueuesRequest
-	(*pb.RequestMetadata)(nil), // 1: gcommon.v1.common.RequestMetadata
+	(*ListQueuesRequest)(nil),     // 0: gcommon.v1.queue.ListQueuesRequest
+	(*proto.RequestMetadata)(nil), // 1: gcommon.v1.common.RequestMetadata
 }
 var file_pkg_queue_proto_requests_list_queues_request_proto_depIdxs = []int32{
 	1, // 0: gcommon.v1.queue.ListQueuesRequest.metadata:type_name -> gcommon.v1.common.RequestMetadata

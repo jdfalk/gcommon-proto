@@ -74,8 +74,8 @@ const file_pkg_auth_proto_responses_check_permission_response_proto_rawDesc = ""
 	"\n" +
 	"8pkg/auth/proto/responses/check_permission_response.proto\x12\x0fgcommon.v1.auth\"3\n" +
 	"\x17CheckPermissionResponse\x12\x18\n" +
-	"\aallowed\x18\x01 \x01(\bR\aallowedB\xb1\x01\n" +
-	"\x13com.gcommon.v1.authB\x1cCheckPermissionResponseProtoP\x01Z\x1e../../../../pkg/auth/pb;authpb\xa2\x02\x03GVA\xaa\x02\x0fGcommon.V1.Auth\xca\x02\x0fGcommon\\V1\\Auth\xe2\x02\x1bGcommon\\V1\\Auth\\GPBMetadata\xea\x02\x11Gcommon::V1::Authb\beditionsp\xe8\a"
+	"\aallowed\x18\x01 \x01(\bR\aallowedB\xb4\x01\n" +
+	"\x13com.gcommon.v1.authB\x1cCheckPermissionResponseProtoP\x01Z!../../../../pkg/auth/proto;authpb\xa2\x02\x03GVA\xaa\x02\x0fGcommon.V1.Auth\xca\x02\x0fGcommon\\V1\\Auth\xe2\x02\x1bGcommon\\V1\\Auth\\GPBMetadata\xea\x02\x11Gcommon::V1::Authb\beditionsp\xe8\a"
 
 var (
 	file_pkg_auth_proto_responses_check_permission_response_proto_rawDescOnce sync.Once

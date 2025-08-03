@@ -115,8 +115,8 @@ const file_pkg_auth_proto_requests_delete_user_request_proto_rawDesc = "" +
 	"softDelete\x12\x16\n" +
 	"\x06reason\x18\x03 \x01(\tR\x06reason\x12-\n" +
 	"\x13transfer_to_user_id\x18\x04 \x01(\tR\x10transferToUserId\x12'\n" +
-	"\x0frevoke_sessions\x18\x05 \x01(\bR\x0erevokeSessionsB\xab\x01\n" +
-	"\x13com.gcommon.v1.authB\x16DeleteUserRequestProtoP\x01Z\x1e../../../../pkg/auth/pb;authpb\xa2\x02\x03GVA\xaa\x02\x0fGcommon.V1.Auth\xca\x02\x0fGcommon\\V1\\Auth\xe2\x02\x1bGcommon\\V1\\Auth\\GPBMetadata\xea\x02\x11Gcommon::V1::Authb\beditionsp\xe8\a"
+	"\x0frevoke_sessions\x18\x05 \x01(\bR\x0erevokeSessionsB\xae\x01\n" +
+	"\x13com.gcommon.v1.authB\x16DeleteUserRequestProtoP\x01Z!../../../../pkg/auth/proto;authpb\xa2\x02\x03GVA\xaa\x02\x0fGcommon.V1.Auth\xca\x02\x0fGcommon\\V1\\Auth\xe2\x02\x1bGcommon\\V1\\Auth\\GPBMetadata\xea\x02\x11Gcommon::V1::Authb\beditionsp\xe8\a"
 
 var (
 	file_pkg_auth_proto_requests_delete_user_request_proto_rawDescOnce sync.Once

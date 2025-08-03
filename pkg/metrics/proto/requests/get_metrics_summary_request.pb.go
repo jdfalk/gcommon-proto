@@ -9,7 +9,7 @@
 package metricspb
 
 import (
-	pb "../../../../pkg/common/pb"
+	proto "../../../../pkg/common/proto"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
@@ -30,7 +30,7 @@ const (
 type GetMetricsSummaryRequest struct {
 	state protoimpl.MessageState `protogen:"hybrid.v1"`
 	// Standard request metadata (tracing, auth, etc.)
-	Metadata *pb.RequestMetadata `protobuf:"bytes,1,opt,name=metadata" json:"metadata,omitempty"`
+	Metadata *proto.RequestMetadata `protobuf:"bytes,1,opt,name=metadata" json:"metadata,omitempty"`
 	// Optional filter to limit which metrics to include in summary
 	Filter *MetricFilter `protobuf:"bytes,2,opt,name=filter" json:"filter,omitempty"`
 	// Time range for the summary
@@ -72,7 +72,7 @@ func (x *GetMetricsSummaryRequest) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-func (x *GetMetricsSummaryRequest) GetMetadata() *pb.RequestMetadata {
+func (x *GetMetricsSummaryRequest) GetMetadata() *proto.RequestMetadata {
 	if x != nil {
 		return x.Metadata
 	}
@@ -121,7 +121,7 @@ func (x *GetMetricsSummaryRequest) GetIncludeHealthStatus() bool {
 	return false
 }
 
-func (x *GetMetricsSummaryRequest) SetMetadata(v *pb.RequestMetadata) {
+func (x *GetMetricsSummaryRequest) SetMetadata(v *proto.RequestMetadata) {
 	x.Metadata = v
 }
 
@@ -230,7 +230,7 @@ type GetMetricsSummaryRequest_builder struct {
 	_ [0]func() // Prevents comparability and use of unkeyed literals for the builder.
 
 	// Standard request metadata (tracing, auth, etc.)
-	Metadata *pb.RequestMetadata
+	Metadata *proto.RequestMetadata
 	// Optional filter to limit which metrics to include in summary
 	Filter *MetricFilter
 	// Time range for the summary
@@ -543,14 +543,14 @@ const file_pkg_metrics_proto_requests_get_metrics_summary_request_proto_rawDesc 
 	"\x13include_top_metrics\x18\x05 \x01(\bR\x11includeTopMetrics\x12+\n" +
 	"\x11include_retention\x18\x06 \x01(\bR\x10includeRetention\x122\n" +
 	"\x15include_export_status\x18\a \x01(\bR\x13includeExportStatus\x12*\n" +
-	"\x11top_metrics_limit\x18\b \x01(\x05R\x0ftopMetricsLimitB\xcf\x01\n" +
-	"\x16com.gcommon.v1.metricsB\x1dGetMetricsSummaryRequestProtoP\x01Z$../../../../pkg/metrics/pb;metricspb\xa2\x02\x03GVM\xaa\x02\x12Gcommon.V1.Metrics\xca\x02\x12Gcommon\\V1\\Metrics\xe2\x02\x1eGcommon\\V1\\Metrics\\GPBMetadata\xea\x02\x14Gcommon::V1::Metrics\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
+	"\x11top_metrics_limit\x18\b \x01(\x05R\x0ftopMetricsLimitB\xd2\x01\n" +
+	"\x16com.gcommon.v1.metricsB\x1dGetMetricsSummaryRequestProtoP\x01Z'../../../../pkg/metrics/proto;metricspb\xa2\x02\x03GVM\xaa\x02\x12Gcommon.V1.Metrics\xca\x02\x12Gcommon\\V1\\Metrics\xe2\x02\x1eGcommon\\V1\\Metrics\\GPBMetadata\xea\x02\x14Gcommon::V1::Metrics\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
 
 var file_pkg_metrics_proto_requests_get_metrics_summary_request_proto_msgTypes = make([]protoimpl.MessageInfo, 2)
 var file_pkg_metrics_proto_requests_get_metrics_summary_request_proto_goTypes = []any{
 	(*GetMetricsSummaryRequest)(nil), // 0: gcommon.v1.metrics.GetMetricsSummaryRequest
 	(*SummaryOptions)(nil),           // 1: gcommon.v1.metrics.SummaryOptions
-	(*pb.RequestMetadata)(nil),       // 2: gcommon.v1.common.RequestMetadata
+	(*proto.RequestMetadata)(nil),    // 2: gcommon.v1.common.RequestMetadata
 	(*MetricFilter)(nil),             // 3: gcommon.v1.metrics.MetricFilter
 	(*TimeRange)(nil),                // 4: gcommon.v1.metrics.TimeRange
 }

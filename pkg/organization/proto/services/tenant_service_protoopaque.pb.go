@@ -37,8 +37,8 @@ const file_pkg_organization_proto_services_tenant_service_proto_rawDesc = "" +
 	"\x18ConfigureTenantIsolation\x128.gcommon.v1.organization.ConfigureTenantIsolationRequest\x1a9.gcommon.v1.organization.ConfigureTenantIsolationResponse\x12}\n" +
 	"\x12GetTenantIsolation\x122.gcommon.v1.organization.GetTenantIsolationRequest\x1a3.gcommon.v1.organization.GetTenantIsolationResponse\x12z\n" +
 	"\x11UpdateTenantQuota\x121.gcommon.v1.organization.UpdateTenantQuotaRequest\x1a2.gcommon.v1.organization.UpdateTenantQuotaResponse\x12q\n" +
-	"\x0eGetTenantUsage\x12..gcommon.v1.organization.GetTenantUsageRequest\x1a/.gcommon.v1.organization.GetTenantUsageResponseB\xe7\x01\n" +
-	"\x1bcom.gcommon.v1.organizationB\x12TenantServiceProtoP\x01Z.../../../../pkg/organization/pb;organizationpb\xa2\x02\x03GVO\xaa\x02\x17Gcommon.V1.Organization\xca\x02\x17Gcommon\\V1\\Organization\xe2\x02#Gcommon\\V1\\Organization\\GPBMetadata\xea\x02\x19Gcommon::V1::Organization\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
+	"\x0eGetTenantUsage\x12..gcommon.v1.organization.GetTenantUsageRequest\x1a/.gcommon.v1.organization.GetTenantUsageResponseB\xea\x01\n" +
+	"\x1bcom.gcommon.v1.organizationB\x12TenantServiceProtoP\x01Z1../../../../pkg/organization/proto;organizationpb\xa2\x02\x03GVO\xaa\x02\x17Gcommon.V1.Organization\xca\x02\x17Gcommon\\V1\\Organization\xe2\x02#Gcommon\\V1\\Organization\\GPBMetadata\xea\x02\x19Gcommon::V1::Organization\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
 
 var file_pkg_organization_proto_services_tenant_service_proto_goTypes = []any{
 	(*CreateTenantRequest)(nil),              // 0: gcommon.v1.organization.CreateTenantRequest

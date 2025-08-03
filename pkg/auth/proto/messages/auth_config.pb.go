@@ -98,8 +98,8 @@ const file_pkg_auth_proto_messages_auth_config_proto_rawDesc = "" +
 	"\x10access_token_ttl\x18\x01 \x01(\v2\x1a.google.protobuf.TimestampR\x0eaccessTokenTtl\x12F\n" +
 	"\x11refresh_token_ttl\x18\x02 \x01(\v2\x1a.google.protobuf.TimestampR\x0frefreshTokenTtl\x12\x1f\n" +
 	"\vrequire_mfa\x18\x03 \x01(\bR\n" +
-	"requireMfaB\xa4\x01\n" +
-	"\x13com.gcommon.v1.authB\x0fAuthConfigProtoP\x01Z\x1e../../../../pkg/auth/pb;authpb\xa2\x02\x03GVA\xaa\x02\x0fGcommon.V1.Auth\xca\x02\x0fGcommon\\V1\\Auth\xe2\x02\x1bGcommon\\V1\\Auth\\GPBMetadata\xea\x02\x11Gcommon::V1::Authb\beditionsp\xe8\a"
+	"requireMfaB\xa7\x01\n" +
+	"\x13com.gcommon.v1.authB\x0fAuthConfigProtoP\x01Z!../../../../pkg/auth/proto;authpb\xa2\x02\x03GVA\xaa\x02\x0fGcommon.V1.Auth\xca\x02\x0fGcommon\\V1\\Auth\xe2\x02\x1bGcommon\\V1\\Auth\\GPBMetadata\xea\x02\x11Gcommon::V1::Authb\beditionsp\xe8\a"
 
 var (
 	file_pkg_auth_proto_messages_auth_config_proto_rawDescOnce sync.Once

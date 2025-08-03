@@ -369,8 +369,8 @@ const file_pkg_media_proto_messages_media_metadata_proto_rawDesc = "" +
 	"\vseries_info\x18\f \x01(\v2\x1c.gcommon.v1.media.SeriesInfoR\n" +
 	"seriesInfo\x12:\n" +
 	"\n" +
-	"movie_info\x18\r \x01(\v2\x1b.gcommon.v1.media.MovieInfoR\tmovieInfoB\xb6\x01\n" +
-	"\x14com.gcommon.v1.mediaB\x12MediaMetadataProtoP\x01Z ../../../../pkg/media/pb;mediapb\xa2\x02\x03GVM\xaa\x02\x10Gcommon.V1.Media\xca\x02\x10Gcommon\\V1\\Media\xe2\x02\x1cGcommon\\V1\\Media\\GPBMetadata\xea\x02\x12Gcommon::V1::Media\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
+	"movie_info\x18\r \x01(\v2\x1b.gcommon.v1.media.MovieInfoR\tmovieInfoB\xb9\x01\n" +
+	"\x14com.gcommon.v1.mediaB\x12MediaMetadataProtoP\x01Z#../../../../pkg/media/proto;mediapb\xa2\x02\x03GVM\xaa\x02\x10Gcommon.V1.Media\xca\x02\x10Gcommon\\V1\\Media\xe2\x02\x1cGcommon\\V1\\Media\\GPBMetadata\xea\x02\x12Gcommon::V1::Media\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
 
 var file_pkg_media_proto_messages_media_metadata_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_pkg_media_proto_messages_media_metadata_proto_goTypes = []any{

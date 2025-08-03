@@ -239,8 +239,8 @@ const file_pkg_media_proto_messages_media_quality_proto_rawDesc = "" +
 	"videoCodec\x12!\n" +
 	"\fbitrate_kbps\x18\x03 \x01(\x05R\vbitrateKbps\x12)\n" +
 	"\x10duration_seconds\x18\x04 \x01(\x02R\x0fdurationSeconds\x12C\n" +
-	"\rquality_score\x18\x05 \x01(\x0e2\x1e.gcommon.v1.media.QualityScoreR\fqualityScoreB\xb5\x01\n" +
-	"\x14com.gcommon.v1.mediaB\x11MediaQualityProtoP\x01Z ../../../../pkg/media/pb;mediapb\xa2\x02\x03GVM\xaa\x02\x10Gcommon.V1.Media\xca\x02\x10Gcommon\\V1\\Media\xe2\x02\x1cGcommon\\V1\\Media\\GPBMetadata\xea\x02\x12Gcommon::V1::Media\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
+	"\rquality_score\x18\x05 \x01(\x0e2\x1e.gcommon.v1.media.QualityScoreR\fqualityScoreB\xb8\x01\n" +
+	"\x14com.gcommon.v1.mediaB\x11MediaQualityProtoP\x01Z#../../../../pkg/media/proto;mediapb\xa2\x02\x03GVM\xaa\x02\x10Gcommon.V1.Media\xca\x02\x10Gcommon\\V1\\Media\xe2\x02\x1cGcommon\\V1\\Media\\GPBMetadata\xea\x02\x12Gcommon::V1::Media\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
 
 var file_pkg_media_proto_messages_media_quality_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_pkg_media_proto_messages_media_quality_proto_goTypes = []any{

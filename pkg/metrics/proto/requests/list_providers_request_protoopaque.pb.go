@@ -9,7 +9,7 @@
 package metricspb
 
 import (
-	pb "../../../../pkg/common/pb"
+	proto "../../../../pkg/common/proto"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
@@ -82,13 +82,13 @@ func (x SortField) Number() protoreflect.EnumNumber {
 // *
 // ListProvidersRequest represents a request to list metrics providers.
 type ListProvidersRequest struct {
-	state                    protoimpl.MessageState `protogen:"opaque.v1"`
-	xxx_hidden_Metadata      *pb.RequestMetadata    `protobuf:"bytes,1,opt,name=metadata"`
-	xxx_hidden_Filter        *ProviderFilter        `protobuf:"bytes,2,opt,name=filter"`
-	xxx_hidden_Pagination    *pb.PaginationOptions  `protobuf:"bytes,3,opt,name=pagination"`
-	xxx_hidden_IncludeStatus bool                   `protobuf:"varint,4,opt,name=include_status,json=includeStatus"`
-	xxx_hidden_IncludeConfig bool                   `protobuf:"varint,5,opt,name=include_config,json=includeConfig"`
-	xxx_hidden_IncludeStats  bool                   `protobuf:"varint,6,opt,name=include_stats,json=includeStats"`
+	state                    protoimpl.MessageState   `protogen:"opaque.v1"`
+	xxx_hidden_Metadata      *proto.RequestMetadata   `protobuf:"bytes,1,opt,name=metadata"`
+	xxx_hidden_Filter        *ProviderFilter          `protobuf:"bytes,2,opt,name=filter"`
+	xxx_hidden_Pagination    *proto.PaginationOptions `protobuf:"bytes,3,opt,name=pagination"`
+	xxx_hidden_IncludeStatus bool                     `protobuf:"varint,4,opt,name=include_status,json=includeStatus"`
+	xxx_hidden_IncludeConfig bool                     `protobuf:"varint,5,opt,name=include_config,json=includeConfig"`
+	xxx_hidden_IncludeStats  bool                     `protobuf:"varint,6,opt,name=include_stats,json=includeStats"`
 	XXX_raceDetectHookData   protoimpl.RaceDetectHookData
 	XXX_presence             [1]uint32
 	unknownFields            protoimpl.UnknownFields
@@ -120,7 +120,7 @@ func (x *ListProvidersRequest) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-func (x *ListProvidersRequest) GetMetadata() *pb.RequestMetadata {
+func (x *ListProvidersRequest) GetMetadata() *proto.RequestMetadata {
 	if x != nil {
 		return x.xxx_hidden_Metadata
 	}
@@ -134,7 +134,7 @@ func (x *ListProvidersRequest) GetFilter() *ProviderFilter {
 	return nil
 }
 
-func (x *ListProvidersRequest) GetPagination() *pb.PaginationOptions {
+func (x *ListProvidersRequest) GetPagination() *proto.PaginationOptions {
 	if x != nil {
 		return x.xxx_hidden_Pagination
 	}
@@ -162,7 +162,7 @@ func (x *ListProvidersRequest) GetIncludeStats() bool {
 	return false
 }
 
-func (x *ListProvidersRequest) SetMetadata(v *pb.RequestMetadata) {
+func (x *ListProvidersRequest) SetMetadata(v *proto.RequestMetadata) {
 	x.xxx_hidden_Metadata = v
 }
 
@@ -170,7 +170,7 @@ func (x *ListProvidersRequest) SetFilter(v *ProviderFilter) {
 	x.xxx_hidden_Filter = v
 }
 
-func (x *ListProvidersRequest) SetPagination(v *pb.PaginationOptions) {
+func (x *ListProvidersRequest) SetPagination(v *proto.PaginationOptions) {
 	x.xxx_hidden_Pagination = v
 }
 
@@ -262,11 +262,11 @@ type ListProvidersRequest_builder struct {
 	_ [0]func() // Prevents comparability and use of unkeyed literals for the builder.
 
 	// Standard request metadata (tracing, auth, etc.)
-	Metadata *pb.RequestMetadata
+	Metadata *proto.RequestMetadata
 	// Filter options for the list
 	Filter *ProviderFilter
 	// Pagination options
-	Pagination *pb.PaginationOptions
+	Pagination *proto.PaginationOptions
 	// Whether to include detailed status information
 	IncludeStatus *bool
 	// Whether to include configuration details
@@ -537,18 +537,18 @@ const file_pkg_metrics_proto_requests_list_providers_request_proto_rawDesc = "" 
 	"\x0fSORT_FIELD_TYPE\x10\x02\x12\x19\n" +
 	"\x15SORT_FIELD_CREATED_AT\x10\x03\x12\x14\n" +
 	"\x10SORT_FIELD_STATE\x10\x04\x12\x15\n" +
-	"\x11SORT_FIELD_HEALTH\x10\x05B\xcb\x01\n" +
-	"\x16com.gcommon.v1.metricsB\x19ListProvidersRequestProtoP\x01Z$../../../../pkg/metrics/pb;metricspb\xa2\x02\x03GVM\xaa\x02\x12Gcommon.V1.Metrics\xca\x02\x12Gcommon\\V1\\Metrics\xe2\x02\x1eGcommon\\V1\\Metrics\\GPBMetadata\xea\x02\x14Gcommon::V1::Metrics\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
+	"\x11SORT_FIELD_HEALTH\x10\x05B\xce\x01\n" +
+	"\x16com.gcommon.v1.metricsB\x19ListProvidersRequestProtoP\x01Z'../../../../pkg/metrics/proto;metricspb\xa2\x02\x03GVM\xaa\x02\x12Gcommon.V1.Metrics\xca\x02\x12Gcommon\\V1\\Metrics\xe2\x02\x1eGcommon\\V1\\Metrics\\GPBMetadata\xea\x02\x14Gcommon::V1::Metrics\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
 
 var file_pkg_metrics_proto_requests_list_providers_request_proto_enumTypes = make([]protoimpl.EnumInfo, 1)
 var file_pkg_metrics_proto_requests_list_providers_request_proto_msgTypes = make([]protoimpl.MessageInfo, 3)
 var file_pkg_metrics_proto_requests_list_providers_request_proto_goTypes = []any{
-	(SortField)(0),               // 0: gcommon.v1.metrics.SortField
-	(*ListProvidersRequest)(nil), // 1: gcommon.v1.metrics.ListProvidersRequest
-	(*ProviderFilter)(nil),       // 2: gcommon.v1.metrics.ProviderFilter
-	nil,                          // 3: gcommon.v1.metrics.ProviderFilter.TagsEntry
-	(*pb.RequestMetadata)(nil),   // 4: gcommon.v1.common.RequestMetadata
-	(*pb.PaginationOptions)(nil), // 5: gcommon.v1.common.PaginationOptions
+	(SortField)(0),                  // 0: gcommon.v1.metrics.SortField
+	(*ListProvidersRequest)(nil),    // 1: gcommon.v1.metrics.ListProvidersRequest
+	(*ProviderFilter)(nil),          // 2: gcommon.v1.metrics.ProviderFilter
+	nil,                             // 3: gcommon.v1.metrics.ProviderFilter.TagsEntry
+	(*proto.RequestMetadata)(nil),   // 4: gcommon.v1.common.RequestMetadata
+	(*proto.PaginationOptions)(nil), // 5: gcommon.v1.common.PaginationOptions
 }
 var file_pkg_metrics_proto_requests_list_providers_request_proto_depIdxs = []int32{
 	4, // 0: gcommon.v1.metrics.ListProvidersRequest.metadata:type_name -> gcommon.v1.common.RequestMetadata

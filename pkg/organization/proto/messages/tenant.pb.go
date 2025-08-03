@@ -9,7 +9,7 @@
 package organizationpb
 
 import (
-	pb "../../../../pkg/common/pb"
+	proto "../../../../pkg/common/proto"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
@@ -46,7 +46,7 @@ type Tenant struct {
 	// Isolation level for this tenant
 	IsolationLevel *IsolationLevel `protobuf:"varint,7,opt,name=isolation_level,json=isolationLevel,enum=gcommon.v1.organization.IsolationLevel" json:"isolation_level,omitempty"`
 	// Tenant metadata and custom attributes
-	Metadata []*pb.KeyValue `protobuf:"bytes,8,rep,name=metadata" json:"metadata,omitempty"`
+	Metadata []*proto.KeyValue `protobuf:"bytes,8,rep,name=metadata" json:"metadata,omitempty"`
 	// Tenant creation timestamp (immutable)
 	CreatedAt *timestamppb.Timestamp `protobuf:"bytes,9,opt,name=created_at,json=createdAt" json:"created_at,omitempty"`
 	// Last update timestamp
@@ -149,7 +149,7 @@ func (x *Tenant) GetIsolationLevel() IsolationLevel {
 	return IsolationLevel_ISOLATION_LEVEL_UNSPECIFIED
 }
 
-func (x *Tenant) GetMetadata() []*pb.KeyValue {
+func (x *Tenant) GetMetadata() []*proto.KeyValue {
 	if x != nil {
 		return x.Metadata
 	}
@@ -268,7 +268,7 @@ func (x *Tenant) SetIsolationLevel(v IsolationLevel) {
 	x.IsolationLevel = &v
 }
 
-func (x *Tenant) SetMetadata(v []*pb.KeyValue) {
+func (x *Tenant) SetMetadata(v []*proto.KeyValue) {
 	x.Metadata = v
 }
 
@@ -547,7 +547,7 @@ type Tenant_builder struct {
 	// Isolation level for this tenant
 	IsolationLevel *IsolationLevel
 	// Tenant metadata and custom attributes
-	Metadata []*pb.KeyValue
+	Metadata []*proto.KeyValue
 	// Tenant creation timestamp (immutable)
 	CreatedAt *timestamppb.Timestamp
 	// Last update timestamp
@@ -619,7 +619,7 @@ type TenantQuota struct {
 	// Maximum number of custom domains
 	MaxCustomDomains *int32 `protobuf:"varint,6,opt,name=max_custom_domains,json=maxCustomDomains" json:"max_custom_domains,omitempty"`
 	// Custom quota limits (key-value pairs for extensibility)
-	CustomLimits  []*pb.KeyValue `protobuf:"bytes,7,rep,name=custom_limits,json=customLimits" json:"custom_limits,omitempty"`
+	CustomLimits  []*proto.KeyValue `protobuf:"bytes,7,rep,name=custom_limits,json=customLimits" json:"custom_limits,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -691,7 +691,7 @@ func (x *TenantQuota) GetMaxCustomDomains() int32 {
 	return 0
 }
 
-func (x *TenantQuota) GetCustomLimits() []*pb.KeyValue {
+func (x *TenantQuota) GetCustomLimits() []*proto.KeyValue {
 	if x != nil {
 		return x.CustomLimits
 	}
@@ -722,7 +722,7 @@ func (x *TenantQuota) SetMaxCustomDomains(v int32) {
 	x.MaxCustomDomains = &v
 }
 
-func (x *TenantQuota) SetCustomLimits(v []*pb.KeyValue) {
+func (x *TenantQuota) SetCustomLimits(v []*proto.KeyValue) {
 	x.CustomLimits = v
 }
 
@@ -808,7 +808,7 @@ type TenantQuota_builder struct {
 	// Maximum number of custom domains
 	MaxCustomDomains *int32
 	// Custom quota limits (key-value pairs for extensibility)
-	CustomLimits []*pb.KeyValue
+	CustomLimits []*proto.KeyValue
 }
 
 func (b0 TenantQuota_builder) Build() *TenantQuota {
@@ -864,8 +864,8 @@ const file_pkg_organization_proto_messages_tenant_proto_rawDesc = "" +
 	"\x1amax_concurrent_connections\x18\x04 \x01(\x05R\x18maxConcurrentConnections\x12#\n" +
 	"\rmax_databases\x18\x05 \x01(\x05R\fmaxDatabases\x12,\n" +
 	"\x12max_custom_domains\x18\x06 \x01(\x05R\x10maxCustomDomains\x12D\n" +
-	"\rcustom_limits\x18\a \x03(\v2\x1b.gcommon.v1.common.KeyValueB\x02(\x01R\fcustomLimitsB\xe0\x01\n" +
-	"\x1bcom.gcommon.v1.organizationB\vTenantProtoP\x01Z.../../../../pkg/organization/pb;organizationpb\xa2\x02\x03GVO\xaa\x02\x17Gcommon.V1.Organization\xca\x02\x17Gcommon\\V1\\Organization\xe2\x02#Gcommon\\V1\\Organization\\GPBMetadata\xea\x02\x19Gcommon::V1::Organization\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
+	"\rcustom_limits\x18\a \x03(\v2\x1b.gcommon.v1.common.KeyValueB\x02(\x01R\fcustomLimitsB\xe3\x01\n" +
+	"\x1bcom.gcommon.v1.organizationB\vTenantProtoP\x01Z1../../../../pkg/organization/proto;organizationpb\xa2\x02\x03GVO\xaa\x02\x17Gcommon.V1.Organization\xca\x02\x17Gcommon\\V1\\Organization\xe2\x02#Gcommon\\V1\\Organization\\GPBMetadata\xea\x02\x19Gcommon::V1::Organization\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
 
 var file_pkg_organization_proto_messages_tenant_proto_msgTypes = make([]protoimpl.MessageInfo, 2)
 var file_pkg_organization_proto_messages_tenant_proto_goTypes = []any{
@@ -873,7 +873,7 @@ var file_pkg_organization_proto_messages_tenant_proto_goTypes = []any{
 	(*TenantQuota)(nil),           // 1: gcommon.v1.organization.TenantQuota
 	(TenantStatus)(0),             // 2: gcommon.v1.organization.TenantStatus
 	(IsolationLevel)(0),           // 3: gcommon.v1.organization.IsolationLevel
-	(*pb.KeyValue)(nil),           // 4: gcommon.v1.common.KeyValue
+	(*proto.KeyValue)(nil),        // 4: gcommon.v1.common.KeyValue
 	(*timestamppb.Timestamp)(nil), // 5: google.protobuf.Timestamp
 }
 var file_pkg_organization_proto_messages_tenant_proto_depIdxs = []int32{

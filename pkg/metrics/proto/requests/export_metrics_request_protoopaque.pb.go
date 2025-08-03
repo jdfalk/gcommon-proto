@@ -9,7 +9,7 @@
 package metricspb
 
 import (
-	pb "../../../../pkg/common/pb"
+	proto "../../../../pkg/common/proto"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
@@ -28,7 +28,7 @@ const (
 // ExportMetricsRequest requests export of collected metrics.
 type ExportMetricsRequest struct {
 	state                      protoimpl.MessageState `protogen:"opaque.v1"`
-	xxx_hidden_Metadata        *pb.RequestMetadata    `protobuf:"bytes,1,opt,name=metadata"`
+	xxx_hidden_Metadata        *proto.RequestMetadata `protobuf:"bytes,1,opt,name=metadata"`
 	xxx_hidden_ProviderId      *string                `protobuf:"bytes,2,opt,name=provider_id,json=providerId"`
 	xxx_hidden_Format          ExportFormat           `protobuf:"varint,3,opt,name=format,enum=gcommon.v1.metrics.ExportFormat"`
 	xxx_hidden_Destination     *string                `protobuf:"bytes,4,opt,name=destination"`
@@ -65,7 +65,7 @@ func (x *ExportMetricsRequest) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-func (x *ExportMetricsRequest) GetMetadata() *pb.RequestMetadata {
+func (x *ExportMetricsRequest) GetMetadata() *proto.RequestMetadata {
 	if x != nil {
 		return x.xxx_hidden_Metadata
 	}
@@ -115,7 +115,7 @@ func (x *ExportMetricsRequest) GetIncludeMetadata() bool {
 	return false
 }
 
-func (x *ExportMetricsRequest) SetMetadata(v *pb.RequestMetadata) {
+func (x *ExportMetricsRequest) SetMetadata(v *proto.RequestMetadata) {
 	x.xxx_hidden_Metadata = v
 }
 
@@ -206,7 +206,7 @@ type ExportMetricsRequest_builder struct {
 	_ [0]func() // Prevents comparability and use of unkeyed literals for the builder.
 
 	// Standard request metadata
-	Metadata *pb.RequestMetadata
+	Metadata *proto.RequestMetadata
 	// Metrics provider to export from
 	ProviderId *string
 	// Desired export format
@@ -256,14 +256,14 @@ const file_pkg_metrics_proto_requests_export_metrics_request_proto_rawDesc = "" 
 	"\x06format\x18\x03 \x01(\x0e2 .gcommon.v1.metrics.ExportFormatR\x06format\x12 \n" +
 	"\vdestination\x18\x04 \x01(\tR\vdestination\x12!\n" +
 	"\fmetric_names\x18\x05 \x03(\tR\vmetricNames\x12)\n" +
-	"\x10include_metadata\x18\x06 \x01(\bR\x0fincludeMetadataB\xcb\x01\n" +
-	"\x16com.gcommon.v1.metricsB\x19ExportMetricsRequestProtoP\x01Z$../../../../pkg/metrics/pb;metricspb\xa2\x02\x03GVM\xaa\x02\x12Gcommon.V1.Metrics\xca\x02\x12Gcommon\\V1\\Metrics\xe2\x02\x1eGcommon\\V1\\Metrics\\GPBMetadata\xea\x02\x14Gcommon::V1::Metrics\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
+	"\x10include_metadata\x18\x06 \x01(\bR\x0fincludeMetadataB\xce\x01\n" +
+	"\x16com.gcommon.v1.metricsB\x19ExportMetricsRequestProtoP\x01Z'../../../../pkg/metrics/proto;metricspb\xa2\x02\x03GVM\xaa\x02\x12Gcommon.V1.Metrics\xca\x02\x12Gcommon\\V1\\Metrics\xe2\x02\x1eGcommon\\V1\\Metrics\\GPBMetadata\xea\x02\x14Gcommon::V1::Metrics\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
 
 var file_pkg_metrics_proto_requests_export_metrics_request_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_pkg_metrics_proto_requests_export_metrics_request_proto_goTypes = []any{
-	(*ExportMetricsRequest)(nil), // 0: gcommon.v1.metrics.ExportMetricsRequest
-	(*pb.RequestMetadata)(nil),   // 1: gcommon.v1.common.RequestMetadata
-	(ExportFormat)(0),            // 2: gcommon.v1.metrics.ExportFormat
+	(*ExportMetricsRequest)(nil),  // 0: gcommon.v1.metrics.ExportMetricsRequest
+	(*proto.RequestMetadata)(nil), // 1: gcommon.v1.common.RequestMetadata
+	(ExportFormat)(0),             // 2: gcommon.v1.metrics.ExportFormat
 }
 var file_pkg_metrics_proto_requests_export_metrics_request_proto_depIdxs = []int32{
 	1, // 0: gcommon.v1.metrics.ExportMetricsRequest.metadata:type_name -> gcommon.v1.common.RequestMetadata

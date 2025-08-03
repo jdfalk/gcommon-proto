@@ -9,7 +9,7 @@
 package metricspb
 
 import (
-	pb "../../../../pkg/common/pb"
+	proto "../../../../pkg/common/proto"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
@@ -29,7 +29,7 @@ const (
 type SetAlertingRulesResponse struct {
 	state                  protoimpl.MessageState `protogen:"opaque.v1"`
 	xxx_hidden_Success     bool                   `protobuf:"varint,1,opt,name=success"`
-	xxx_hidden_Error       *pb.Error              `protobuf:"bytes,2,opt,name=error"`
+	xxx_hidden_Error       *proto.Error           `protobuf:"bytes,2,opt,name=error"`
 	XXX_raceDetectHookData protoimpl.RaceDetectHookData
 	XXX_presence           [1]uint32
 	unknownFields          protoimpl.UnknownFields
@@ -68,7 +68,7 @@ func (x *SetAlertingRulesResponse) GetSuccess() bool {
 	return false
 }
 
-func (x *SetAlertingRulesResponse) GetError() *pb.Error {
+func (x *SetAlertingRulesResponse) GetError() *proto.Error {
 	if x != nil {
 		return x.xxx_hidden_Error
 	}
@@ -80,7 +80,7 @@ func (x *SetAlertingRulesResponse) SetSuccess(v bool) {
 	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 0, 2)
 }
 
-func (x *SetAlertingRulesResponse) SetError(v *pb.Error) {
+func (x *SetAlertingRulesResponse) SetError(v *proto.Error) {
 	x.xxx_hidden_Error = v
 }
 
@@ -113,7 +113,7 @@ type SetAlertingRulesResponse_builder struct {
 	// Whether the operation succeeded
 	Success *bool
 	// Error information
-	Error *pb.Error
+	Error *proto.Error
 }
 
 func (b0 SetAlertingRulesResponse_builder) Build() *SetAlertingRulesResponse {
@@ -135,13 +135,13 @@ const file_pkg_metrics_proto_responses_set_alerting_rules_response_proto_rawDesc
 	"=pkg/metrics/proto/responses/set_alerting_rules_response.proto\x12\x12gcommon.v1.metrics\x1a!google/protobuf/go_features.proto\x1a%pkg/common/proto/messages/error.proto\"d\n" +
 	"\x18SetAlertingRulesResponse\x12\x18\n" +
 	"\asuccess\x18\x01 \x01(\bR\asuccess\x12.\n" +
-	"\x05error\x18\x02 \x01(\v2\x18.gcommon.v1.common.ErrorR\x05errorB\xcf\x01\n" +
-	"\x16com.gcommon.v1.metricsB\x1dSetAlertingRulesResponseProtoP\x01Z$../../../../pkg/metrics/pb;metricspb\xa2\x02\x03GVM\xaa\x02\x12Gcommon.V1.Metrics\xca\x02\x12Gcommon\\V1\\Metrics\xe2\x02\x1eGcommon\\V1\\Metrics\\GPBMetadata\xea\x02\x14Gcommon::V1::Metrics\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
+	"\x05error\x18\x02 \x01(\v2\x18.gcommon.v1.common.ErrorR\x05errorB\xd2\x01\n" +
+	"\x16com.gcommon.v1.metricsB\x1dSetAlertingRulesResponseProtoP\x01Z'../../../../pkg/metrics/proto;metricspb\xa2\x02\x03GVM\xaa\x02\x12Gcommon.V1.Metrics\xca\x02\x12Gcommon\\V1\\Metrics\xe2\x02\x1eGcommon\\V1\\Metrics\\GPBMetadata\xea\x02\x14Gcommon::V1::Metrics\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
 
 var file_pkg_metrics_proto_responses_set_alerting_rules_response_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_pkg_metrics_proto_responses_set_alerting_rules_response_proto_goTypes = []any{
 	(*SetAlertingRulesResponse)(nil), // 0: gcommon.v1.metrics.SetAlertingRulesResponse
-	(*pb.Error)(nil),                 // 1: gcommon.v1.common.Error
+	(*proto.Error)(nil),              // 1: gcommon.v1.common.Error
 }
 var file_pkg_metrics_proto_responses_set_alerting_rules_response_proto_depIdxs = []int32{
 	1, // 0: gcommon.v1.metrics.SetAlertingRulesResponse.error:type_name -> gcommon.v1.common.Error

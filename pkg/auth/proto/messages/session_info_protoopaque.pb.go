@@ -336,8 +336,8 @@ const file_pkg_auth_proto_messages_session_info_proto_rawDesc = "" +
 	"ip_address\x18\x06 \x01(\tR\tipAddress\x12\x1d\n" +
 	"\n" +
 	"user_agent\x18\a \x01(\tR\tuserAgent\x12\x16\n" +
-	"\x06active\x18\b \x01(\bR\x06activeB\xad\x01\n" +
-	"\x13com.gcommon.v1.authB\x10SessionInfoProtoP\x01Z\x1e../../../../pkg/auth/pb;authpb\xa2\x02\x03GVA\xaa\x02\x0fGcommon.V1.Auth\xca\x02\x0fGcommon\\V1\\Auth\xe2\x02\x1bGcommon\\V1\\Auth\\GPBMetadata\xea\x02\x11Gcommon::V1::Auth\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
+	"\x06active\x18\b \x01(\bR\x06activeB\xb0\x01\n" +
+	"\x13com.gcommon.v1.authB\x10SessionInfoProtoP\x01Z!../../../../pkg/auth/proto;authpb\xa2\x02\x03GVA\xaa\x02\x0fGcommon.V1.Auth\xca\x02\x0fGcommon\\V1\\Auth\xe2\x02\x1bGcommon\\V1\\Auth\\GPBMetadata\xea\x02\x11Gcommon::V1::Auth\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
 
 var file_pkg_auth_proto_messages_session_info_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_pkg_auth_proto_messages_session_info_proto_goTypes = []any{

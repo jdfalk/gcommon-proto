@@ -9,7 +9,7 @@
 package metricspb
 
 import (
-	pb "../../../../pkg/common/pb"
+	proto "../../../../pkg/common/proto"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
@@ -84,7 +84,7 @@ type RegisterMetricResponse struct {
 	// Success status of the registration
 	Success *bool `protobuf:"varint,1,opt,name=success" json:"success,omitempty"`
 	// Error information if registration failed
-	Error *pb.Error `protobuf:"bytes,2,opt,name=error" json:"error,omitempty"`
+	Error *proto.Error `protobuf:"bytes,2,opt,name=error" json:"error,omitempty"`
 	// Unique ID assigned to the registered metric
 	MetricId *string `protobuf:"bytes,3,opt,name=metric_id,json=metricId" json:"metric_id,omitempty"`
 	// Name of the registered metric
@@ -137,7 +137,7 @@ func (x *RegisterMetricResponse) GetSuccess() bool {
 	return false
 }
 
-func (x *RegisterMetricResponse) GetError() *pb.Error {
+func (x *RegisterMetricResponse) GetError() *proto.Error {
 	if x != nil {
 		return x.Error
 	}
@@ -204,7 +204,7 @@ func (x *RegisterMetricResponse) SetSuccess(v bool) {
 	x.Success = &v
 }
 
-func (x *RegisterMetricResponse) SetError(v *pb.Error) {
+func (x *RegisterMetricResponse) SetError(v *proto.Error) {
 	x.Error = v
 }
 
@@ -345,7 +345,7 @@ type RegisterMetricResponse_builder struct {
 	// Success status of the registration
 	Success *bool
 	// Error information if registration failed
-	Error *pb.Error
+	Error *proto.Error
 	// Unique ID assigned to the registered metric
 	MetricId *string
 	// Name of the registered metric
@@ -867,8 +867,8 @@ const file_pkg_metrics_proto_responses_register_metric_response_proto_rawDesc = 
 	"\x1bREGISTRATION_ACTION_CREATED\x10\x01\x12\x1f\n" +
 	"\x1bREGISTRATION_ACTION_UPDATED\x10\x02\x12 \n" +
 	"\x1cREGISTRATION_ACTION_REPLACED\x10\x03\x12!\n" +
-	"\x1dREGISTRATION_ACTION_NO_CHANGE\x10\x04B\xcd\x01\n" +
-	"\x16com.gcommon.v1.metricsB\x1bRegisterMetricResponseProtoP\x01Z$../../../../pkg/metrics/pb;metricspb\xa2\x02\x03GVM\xaa\x02\x12Gcommon.V1.Metrics\xca\x02\x12Gcommon\\V1\\Metrics\xe2\x02\x1eGcommon\\V1\\Metrics\\GPBMetadata\xea\x02\x14Gcommon::V1::Metrics\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
+	"\x1dREGISTRATION_ACTION_NO_CHANGE\x10\x04B\xd0\x01\n" +
+	"\x16com.gcommon.v1.metricsB\x1bRegisterMetricResponseProtoP\x01Z'../../../../pkg/metrics/proto;metricspb\xa2\x02\x03GVM\xaa\x02\x12Gcommon.V1.Metrics\xca\x02\x12Gcommon\\V1\\Metrics\xe2\x02\x1eGcommon\\V1\\Metrics\\GPBMetadata\xea\x02\x14Gcommon::V1::Metrics\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
 
 var file_pkg_metrics_proto_responses_register_metric_response_proto_enumTypes = make([]protoimpl.EnumInfo, 1)
 var file_pkg_metrics_proto_responses_register_metric_response_proto_msgTypes = make([]protoimpl.MessageInfo, 4)
@@ -878,7 +878,7 @@ var file_pkg_metrics_proto_responses_register_metric_response_proto_goTypes = []
 	(*RegistrationValidation)(nil), // 2: gcommon.v1.metrics.RegistrationValidation
 	(*RegistrationResult)(nil),     // 3: gcommon.v1.metrics.RegistrationResult
 	(*SchemaChange)(nil),           // 4: gcommon.v1.metrics.SchemaChange
-	(*pb.Error)(nil),               // 5: gcommon.v1.common.Error
+	(*proto.Error)(nil),            // 5: gcommon.v1.common.Error
 	(*timestamppb.Timestamp)(nil),  // 6: google.protobuf.Timestamp
 }
 var file_pkg_metrics_proto_responses_register_metric_response_proto_depIdxs = []int32{

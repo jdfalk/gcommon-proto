@@ -108,8 +108,8 @@ const file_pkg_web_proto_requests_serve_static_request_proto_rawDesc = "" +
 	"\n" +
 	"1pkg/web/proto/requests/serve_static_request.proto\x12\x0egcommon.v1.web\x1a!google/protobuf/go_features.proto\"6\n" +
 	"\x12ServeStaticRequest\x12 \n" +
-	"\vplaceholder\x18\x01 \x01(\tR\vplaceholderB\xad\x01\n" +
-	"\x12com.gcommon.v1.webB\x17ServeStaticRequestProtoP\x01Z\x1c../../../../pkg/web/pb;webpb\xa2\x02\x03GVW\xaa\x02\x0eGcommon.V1.Web\xca\x02\x0eGcommon\\V1\\Web\xe2\x02\x1aGcommon\\V1\\Web\\GPBMetadata\xea\x02\x10Gcommon::V1::Web\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
+	"\vplaceholder\x18\x01 \x01(\tR\vplaceholderB\xb0\x01\n" +
+	"\x12com.gcommon.v1.webB\x17ServeStaticRequestProtoP\x01Z\x1f../../../../pkg/web/proto;webpb\xa2\x02\x03GVW\xaa\x02\x0eGcommon.V1.Web\xca\x02\x0eGcommon\\V1\\Web\xe2\x02\x1aGcommon\\V1\\Web\\GPBMetadata\xea\x02\x10Gcommon::V1::Web\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
 
 var file_pkg_web_proto_requests_serve_static_request_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_pkg_web_proto_requests_serve_static_request_proto_goTypes = []any{
