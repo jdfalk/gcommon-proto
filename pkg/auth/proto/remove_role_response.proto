@@ -1,0 +1,46 @@
+// file: pkg/auth/proto/responses/remove_role_response.proto
+edition = "2023";
+
+package gcommon.v1.auth;
+
+import "google/protobuf/go_features.proto";
+import "google/protobuf/timestamp.proto";
+import "pkg/auth/proto/jdfalk/gcommon/pkg/auth/proto;authpb";
+option features.(pb.go).api_level = API_HYBRID;
+
+/**
+ * RemoveRoleResponse confirms successful role removal from a user.
+ * Provides information about the removal operation including
+ * the removed role and removal metadata for audit purposes.
+ */
+message RemoveRoleResponse {
+    // User ID from whom the role was removed
+    string user_id = 1;
+
+    // Username of the user
+    string username = 2;
+
+    // Role that was removed from the user
+    Role role = 3;
+
+    // Timestamp when the role was removed
+    google.protobuf.Timestamp removed_at = 4;
+
+    // ID of the admin user who performed the removal
+    string removed_by_user_id = 5;
+
+    // Username of the admin who performed the removal
+    string removed_by_username = 6;
+
+    // Whether this removal was effective immediately
+    bool effective_immediately = 7;
+
+    // Whether the user still has other roles assigned
+    bool has_remaining_roles = 8;
+
+    // Count of remaining roles for the user
+    int32 remaining_role_count = 9;
+
+    // Success message describing the removal
+    string message = 10;
+}

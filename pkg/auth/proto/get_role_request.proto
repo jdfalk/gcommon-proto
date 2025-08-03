@@ -1,0 +1,25 @@
+// file: pkg/auth/proto/requests/get_role_request.proto
+// version: 1.0.0
+// guid: 554e7499-0070-40fe-a99c-3428bec2651f
+
+edition = "2023";
+
+package gcommon.v1.auth;
+
+import "pkg/common/proto/request_metadata.proto";
+
+option go_package = "github.com/jdfalk/gcommon/pkg/auth/proto;authpb";
+
+/**
+ * Request to retrieve details about a specific role.
+ */
+message GetRoleRequest {
+  // Unique identifier of the role
+  string role_id = 1;
+
+  // Include permissions in the response
+  bool include_permissions = 2;
+
+  // Request metadata for tracing
+  gcommon.v1.common.RequestMetadata metadata = 3;
+}

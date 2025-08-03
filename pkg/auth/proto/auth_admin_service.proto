@@ -1,0 +1,64 @@
+// file: pkg/auth/proto/services/auth_admin_service.proto
+edition = "2023";
+
+package gcommon.v1.auth;
+
+import "google/protobuf/empty.proto";
+import "google/protobuf/go_features.proto";
+import "pkg/auth/proto/auth/proto/create_user_response.proto";
+import "pkg/auth/proto/auth/proto/delete_user_request.proto";
+import "pkg/auth/proto/auth/proto/get_user_request.proto";
+import "pkg/auth/proto/auth/proto/remove_role_request.proto";
+import "pkg/auth/proto/auth/proto/update_role_request.proto";
+import "pkg/auth/proto/auth/proto/list_roles_request.proto";
+import "pkg/auth/proto/auth/proto/list_users_response.proto";
+import "pkg/auth/proto/auth/proto/create_role_response.proto";
+import "pkg/auth/proto/auth/proto/list_roles_response.proto";
+import "pkg/auth/proto/auth/proto/get_system_stats_request.proto";
+import "pkg/auth/proto/jdfalk/gcommon/pkg/auth/proto;authpb";
+option features.(pb.go).api_level = API_HYBRID;
+
+/**
+ * Administrative authentication management operations.
+ * Provides user management, role assignment, and system configuration.
+ */
+service AuthAdminService {
+  // CreateUser creates a new user account
+  rpc CreateUser(CreateUserRequest) returns (CreateUserResponse);
+
+  // UpdateUser updates an existing user account
+  rpc UpdateUser(UpdateUserRequest) returns (UpdateUserResponse);
+
+  // DeleteUser removes a user account
+  rpc DeleteUser(DeleteUserRequest) returns (google.protobuf.Empty);
+
+  // ListUsers returns paginated list of users
+  rpc ListUsers(ListUsersRequest) returns (ListUsersResponse);
+
+  // GetUserDetails returns detailed user information
+  rpc GetUser(GetUserRequest) returns (GetUserResponse);
+
+  // AssignRole assigns a role to a user
+  rpc AssignRole(AssignRoleRequest) returns (google.protobuf.Empty);
+
+  // RemoveRole removes a role from a user
+  rpc RemoveRole(RemoveRoleRequest) returns (google.protobuf.Empty);
+
+  // CreateRole creates a new role
+  rpc CreateRole(CreateRoleRequest) returns (CreateRoleResponse);
+
+  // UpdateRole updates an existing role
+  rpc UpdateRole(UpdateRoleRequest) returns (UpdateRoleResponse);
+
+  // DeleteRole removes a role
+  rpc DeleteRole(DeleteRoleRequest) returns (google.protobuf.Empty);
+
+  // ListRoles returns all available roles
+  rpc ListRoles(ListRolesRequest) returns (ListRolesResponse);
+
+  // InvalidateUserSessions invalidates all sessions for a user
+  rpc InvalidateUserSessions(InvalidateUserSessionsRequest) returns (google.protobuf.Empty);
+
+  // GetSystemStats returns authentication system statistics
+  rpc GetSystemStats(GetSystemStatsRequest) returns (GetSystemStatsResponse);
+}

@@ -1,0 +1,25 @@
+// file: pkg/auth/proto/requests/health_check_request.proto
+// version: 1.0.0
+// guid: 6fb9b4a2-72b2-4e24-8f41-5611a6f6217b
+//
+// HealthCheckRequest for the auth module
+edition = "2023";
+
+package gcommon.v1.auth;
+
+import "google/protobuf/go_features.proto";
+import "pkg/common/proto/request_metadata.proto";
+
+option go_package = "github.com/jdfalk/gcommon/pkg/auth/proto;authpb";
+option features.(pb.go).api_level = API_HYBRID;
+
+/**
+ * HealthCheckRequest verifies the health of the authentication subsystem.
+ */
+message HealthCheckRequest {
+  // Optional target auth provider.
+  string provider = 1;
+
+  // Metadata for tracing.
+  gcommon.v1.common.RequestMetadata metadata = 2 [lazy = true];
+}

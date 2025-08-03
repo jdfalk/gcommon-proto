@@ -1,0 +1,23 @@
+// file: pkg/auth/proto/requests/get_user_permissions_request.proto
+edition = "2023";
+
+package gcommon.v1.auth;
+
+import "google/protobuf/go_features.proto";
+import "pkg/common/proto/request_metadata.proto";
+
+option go_package = "github.com/jdfalk/gcommon/pkg/auth/proto;authpb";
+option features.(pb.go).api_level = API_HYBRID;
+
+/**
+ * Request to get all permissions for a user.
+ * Returns direct permissions and role-based permissions.
+ * Used for user permission auditing and UI authorization.
+ */
+message GetUserPermissionsRequest {
+  // User ID to get permissions for
+  string user_id = 1;
+
+  // Request metadata for tracing and correlation
+  gcommon.v1.common.RequestMetadata metadata = 2;
+}

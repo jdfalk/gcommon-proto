@@ -1,0 +1,42 @@
+// file: pkg/auth/proto/responses/authenticate_response.proto
+edition = "2023";
+
+package gcommon.v1.auth;
+
+import "google/protobuf/go_features.proto";
+import "pkg/common/proto/rate_limit.proto";
+import "pkg/auth/proto/auth/proto/session.proto";
+
+option go_package = "github.com/jdfalk/gcommon/pkg/auth/proto;authpb";
+option features.(pb.go).api_level = API_HYBRID;
+
+/**
+ * Authentication response containing access tokens and user information.
+ * Follows OAuth2 token response format with additional session and user data.
+ * Includes rate limiting information for client throttling.
+ */
+message AuthenticateResponse {
+  // Access token for API authentication (JWT format)
+  string access_token = 1;
+
+  // Refresh token for token renewal (opaque format)
+  string refresh_token = 2;
+
+  // Token type (always "Bearer" for OAuth2 compliance)
+  string token_type = 3;
+
+  // Access token expiration time in seconds
+  int32 expires_in = 4;
+
+  // Granted authorization scopes
+  repeated string scopes = 5;
+
+  // Complete user information
+  UserInfo user_info = 6 [lazy = true];
+
+  // Session information for session management
+  Session session = 7 [lazy = true];
+
+  // Rate limiting information for client throttling
+  gcommon.v1.common.RateLimit rate_limit = 8 [lazy = true];
+}

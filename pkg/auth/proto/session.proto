@@ -1,0 +1,47 @@
+// file: pkg/auth/proto/messages/session.proto
+edition = "2023";
+
+package gcommon.v1.auth;
+
+import "google/protobuf/go_features.proto";
+import "google/protobuf/timestamp.proto";
+import "pkg/common/proto/client_info.proto";
+import "pkg/auth/proto/jdfalk/gcommon/pkg/auth/proto;authpb";
+option features.(pb.go).api_level = API_HYBRID;
+
+/**
+ * Session information representing an authenticated user session.
+ * Contains session lifecycle data, client information, and metadata
+ * for session management and security tracking.
+ */
+message Session {
+  // Unique session identifier (immutable)
+  string id = 1;
+
+  // User ID associated with this session
+  string user_id = 2;
+
+  // Session creation timestamp (immutable)
+  google.protobuf.Timestamp created_at = 3 [lazy = true];
+
+  // Last activity timestamp (updated on each request)
+  google.protobuf.Timestamp last_activity_at = 4 [lazy = true];
+
+  // Session expiration timestamp
+  google.protobuf.Timestamp expires_at = 5 [lazy = true];
+
+  // Client information from session creation
+  gcommon.v1.common.ClientInfo client_info = 6 [lazy = true];
+
+  // Current session status
+  SessionStatus status = 7;
+
+  // Session metadata for extensibility and tracking
+  map<string, string> metadata = 8 [lazy = true];
+
+  // IP address when session was created
+  string ip_address = 9;
+
+  // User agent when session was created
+  string user_agent = 10;
+}

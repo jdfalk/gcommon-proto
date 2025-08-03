@@ -1,0 +1,70 @@
+// file: pkg/auth/proto/messages/user.proto
+edition = "2023";
+
+package gcommon.v1.auth;
+
+import "google/protobuf/go_features.proto";
+import "google/protobuf/timestamp.proto";
+import "pkg/auth/proto/jdfalk/gcommon/pkg/auth/proto;authpb";
+option features.(pb.go).api_level = API_HYBRID;
+
+/**
+ * User entity representing a complete user account.
+ * Contains comprehensive user data for account management.
+ * Includes profile, security, and administrative information.
+ */
+message User {
+  // Unique user identifier (immutable)
+  string id = 1;
+
+  // Username (may be mutable depending on system policy)
+  string username = 2;
+
+  // Primary email address
+  string email = 3;
+
+  // Display name
+  string display_name = 4;
+
+  // First name
+  string first_name = 5;
+
+  // Last name
+  string last_name = 6;
+
+  // User account status
+  UserStatus status = 7;
+
+  // Account creation timestamp (immutable)
+  google.protobuf.Timestamp created_at = 8 [lazy = true];
+
+  // Last account update timestamp
+  google.protobuf.Timestamp updated_at = 9 [lazy = true];
+
+  // Last successful login timestamp
+  google.protobuf.Timestamp last_login_at = 10 [lazy = true];
+
+  // Email verification status
+  bool email_verified = 11;
+
+  // Phone number (optional)
+  string phone_number = 12;
+
+  // Phone verification status
+  bool phone_verified = 13;
+
+  // User preferences and settings
+  map<string, string> preferences = 14 [lazy = true];
+
+  // User metadata for extensibility
+  map<string, string> metadata = 15 [lazy = true];
+
+  // Avatar/profile image URL
+  string avatar_url = 16;
+
+  // User timezone
+  string timezone = 17;
+
+  // User locale/language preference
+  string locale = 18;
+}
