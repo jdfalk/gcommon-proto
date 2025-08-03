@@ -1,4 +1,7 @@
-// file: pkg/auth/proto/requests/assign_role_request.proto
+// file: pkg/auth/proto/assign_role_request.proto
+// version: 1.1.0
+// guid: a1b2c3d4-e5f6-7a8b-9c0d-1e2f3a4b5c6d
+
 edition = "2023";
 
 package gcommon.v1.auth;
@@ -12,16 +15,37 @@ option features.(pb.go).api_level = API_OPAQUE;
  * Request to assign a role to a user.
  * Used for role-based access control management.
  * Grants the specified role permissions to the user.
+ *
+ * Example usage:
+ * - Assigning admin role to a user
+ * - Granting specific permissions through role assignment
+ * - Managing user access control in the system
  */
 message AssignRoleRequest {
-  // User ID to assign role to
+  // User ID to assign role to (required)
+  // Must be a valid user identifier in the system
   string user_id = 1;
 
-  // Role ID to assign
+  // Role ID to assign (required)
+  // Must be a valid role identifier in the system
   string role_id = 2;
 
+  // Optional organization context for scoped role assignment
+  // If not provided, role is assigned globally
+  string organization_id = 3;
+
   // Request metadata for tracing and correlation
-  gcommon.v1.common.RequestMetadata metadata = 3;
+  gcommon.v1.common.RequestMetadata metadata = 4;
+
+  // Audit information for tracking who made the assignment
+  string assigned_by = 5;
+
+  // Reason for role assignment (optional)
+  string reason = 6;
+
+  // Whether the assignment should be temporary
+  bool temporary = 7;
+
+  // Expiration time for temporary assignments
+  int64 expires_at = 8;
 }
-// This is a placeholder file created during 1-1-1 migration
-// Implement the actual protobuf definitions according to the auth module requirements

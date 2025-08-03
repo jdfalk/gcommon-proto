@@ -1,12 +1,16 @@
-// file: pkg/auth/proto/requests/get_session_request.proto
+// file: pkg/auth/proto/get_session_request.proto
+// version: 1.1.0
+// guid: d3e4f5a6-b7c8-9d0e-1f2a-3b4c5d6e7f8a
+
 edition = "2023";
 
 package gcommon.v1.auth;
 
 import "google/protobuf/go_features.proto";
-import "pkg/common/proto/jdfalk/gcommon/pkg/auth/proto;authpb";
+import "pkg/common/proto/request_metadata.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/jdfalk/gcommon/pkg/auth/proto;authpb";
 
 /**
  * Request to get session information.
@@ -14,11 +18,12 @@ option features.(pb.go).api_level = API_OPAQUE;
  * Provides session status, metadata, and activity information.
  */
 message GetSessionRequest {
-  // Session ID to retrieve
+  // Session ID to retrieve (required)
   string session_id = 1;
 
+  // Whether to include detailed session activity
+  bool include_activity = 2;
+
   // Request metadata for tracing and correlation
-  gcommon.v1.common.RequestMetadata metadata = 2;
+  gcommon.v1.common.RequestMetadata metadata = 3;
 }
-// This is a placeholder file created during 1-1-1 migration
-// Implement the actual protobuf definitions according to the auth module requirements

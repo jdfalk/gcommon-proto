@@ -1,20 +1,32 @@
-// filepath: pkg/auth/proto/responses/update_session_response.proto
-// file: auth/proto/responses/update_session_response.proto
-//
-// Response definitions for auth module
-// TODO: Implement actual protobuf definitions
-//
+// file: pkg/auth/proto/update_session_response.proto
+// version: 1.0.0
+// guid: f9a0b1c2-d3e4-5f6a-7b8c-9d0e1f2a3b4c
+
 edition = "2023";
 
 package gcommon.v1.auth;
 
 import "google/protobuf/go_features.proto";
+import "pkg/common/proto/response_metadata.proto";
+import "pkg/auth/proto/session_info.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
 option go_package = "github.com/jdfalk/gcommon/pkg/auth/proto;authpb";
 
-// TODO: Add response definitions here
-// This is a placeholder file created during 1-1-1 migration
-// Implement the actual protobuf definitions according to the auth module requirements
-// SKELETON_FILE: Compilation temporarily disabled
-// This file needs proper implementation
+/**
+ * Response for session update operations.
+ * Contains the updated session information.
+ */
+message UpdateSessionResponse {
+  // Whether the update was successful
+  bool success = 1;
+
+  // Updated session information
+  gcommon.v1.auth.SessionInfo session = 2;
+
+  // Error message if update failed
+  string error_message = 3;
+
+  // Response metadata
+  gcommon.v1.common.ResponseMetadata metadata = 4;
+}
