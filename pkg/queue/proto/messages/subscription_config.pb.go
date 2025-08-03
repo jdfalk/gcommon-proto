@@ -23,20 +23,244 @@ const (
 	_ = protoimpl.EnforceVersion(protoimpl.MaxVersion - 20)
 )
 
+// SubscriptionConfig describes how a consumer subscribes to a queue.
+type SubscriptionConfig struct {
+	state protoimpl.MessageState `protogen:"hybrid.v1"`
+	// Name of the subscription.
+	Name *string `protobuf:"bytes,1,opt,name=name" json:"name,omitempty"`
+	// Current state of the subscription.
+	State *SubscriptionState `protobuf:"varint,2,opt,name=state,enum=gcommon.v1.queue.SubscriptionState" json:"state,omitempty"`
+	// Message routing strategy for this subscription.
+	RoutingStrategy *RoutingStrategy `protobuf:"varint,3,opt,name=routing_strategy,json=routingStrategy,enum=gcommon.v1.queue.RoutingStrategy" json:"routing_strategy,omitempty"`
+	// Default priority applied to published messages if unspecified.
+	DefaultPriority *PriorityLevel `protobuf:"varint,4,opt,name=default_priority,json=defaultPriority,enum=gcommon.v1.queue.PriorityLevel" json:"default_priority,omitempty"`
+	// Delivery options controlling retries and dead letter handling.
+	DeliveryOptions *DeliveryOptions `protobuf:"bytes,5,opt,name=delivery_options,json=deliveryOptions" json:"delivery_options,omitempty"`
+	// Maximum number of unacknowledged messages allowed.
+	MaxInflight   *int32 `protobuf:"varint,6,opt,name=max_inflight,json=maxInflight" json:"max_inflight,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SubscriptionConfig) Reset() {
+	*x = SubscriptionConfig{}
+	mi := &file_pkg_queue_proto_messages_subscription_config_proto_msgTypes[0]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SubscriptionConfig) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SubscriptionConfig) ProtoMessage() {}
+
+func (x *SubscriptionConfig) ProtoReflect() protoreflect.Message {
+	mi := &file_pkg_queue_proto_messages_subscription_config_proto_msgTypes[0]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+func (x *SubscriptionConfig) GetName() string {
+	if x != nil && x.Name != nil {
+		return *x.Name
+	}
+	return ""
+}
+
+func (x *SubscriptionConfig) GetState() SubscriptionState {
+	if x != nil && x.State != nil {
+		return *x.State
+	}
+	return SubscriptionState_SUBSCRIPTION_STATE_UNSPECIFIED
+}
+
+func (x *SubscriptionConfig) GetRoutingStrategy() RoutingStrategy {
+	if x != nil && x.RoutingStrategy != nil {
+		return *x.RoutingStrategy
+	}
+	return RoutingStrategy_ROUTING_STRATEGY_UNSPECIFIED
+}
+
+func (x *SubscriptionConfig) GetDefaultPriority() PriorityLevel {
+	if x != nil && x.DefaultPriority != nil {
+		return *x.DefaultPriority
+	}
+	return PriorityLevel_PRIORITY_LEVEL_UNSPECIFIED
+}
+
+func (x *SubscriptionConfig) GetDeliveryOptions() *DeliveryOptions {
+	if x != nil {
+		return x.DeliveryOptions
+	}
+	return nil
+}
+
+func (x *SubscriptionConfig) GetMaxInflight() int32 {
+	if x != nil && x.MaxInflight != nil {
+		return *x.MaxInflight
+	}
+	return 0
+}
+
+func (x *SubscriptionConfig) SetName(v string) {
+	x.Name = &v
+}
+
+func (x *SubscriptionConfig) SetState(v SubscriptionState) {
+	x.State = &v
+}
+
+func (x *SubscriptionConfig) SetRoutingStrategy(v RoutingStrategy) {
+	x.RoutingStrategy = &v
+}
+
+func (x *SubscriptionConfig) SetDefaultPriority(v PriorityLevel) {
+	x.DefaultPriority = &v
+}
+
+func (x *SubscriptionConfig) SetDeliveryOptions(v *DeliveryOptions) {
+	x.DeliveryOptions = v
+}
+
+func (x *SubscriptionConfig) SetMaxInflight(v int32) {
+	x.MaxInflight = &v
+}
+
+func (x *SubscriptionConfig) HasName() bool {
+	if x == nil {
+		return false
+	}
+	return x.Name != nil
+}
+
+func (x *SubscriptionConfig) HasState() bool {
+	if x == nil {
+		return false
+	}
+	return x.State != nil
+}
+
+func (x *SubscriptionConfig) HasRoutingStrategy() bool {
+	if x == nil {
+		return false
+	}
+	return x.RoutingStrategy != nil
+}
+
+func (x *SubscriptionConfig) HasDefaultPriority() bool {
+	if x == nil {
+		return false
+	}
+	return x.DefaultPriority != nil
+}
+
+func (x *SubscriptionConfig) HasDeliveryOptions() bool {
+	if x == nil {
+		return false
+	}
+	return x.DeliveryOptions != nil
+}
+
+func (x *SubscriptionConfig) HasMaxInflight() bool {
+	if x == nil {
+		return false
+	}
+	return x.MaxInflight != nil
+}
+
+func (x *SubscriptionConfig) ClearName() {
+	x.Name = nil
+}
+
+func (x *SubscriptionConfig) ClearState() {
+	x.State = nil
+}
+
+func (x *SubscriptionConfig) ClearRoutingStrategy() {
+	x.RoutingStrategy = nil
+}
+
+func (x *SubscriptionConfig) ClearDefaultPriority() {
+	x.DefaultPriority = nil
+}
+
+func (x *SubscriptionConfig) ClearDeliveryOptions() {
+	x.DeliveryOptions = nil
+}
+
+func (x *SubscriptionConfig) ClearMaxInflight() {
+	x.MaxInflight = nil
+}
+
+type SubscriptionConfig_builder struct {
+	_ [0]func() // Prevents comparability and use of unkeyed literals for the builder.
+
+	// Name of the subscription.
+	Name *string
+	// Current state of the subscription.
+	State *SubscriptionState
+	// Message routing strategy for this subscription.
+	RoutingStrategy *RoutingStrategy
+	// Default priority applied to published messages if unspecified.
+	DefaultPriority *PriorityLevel
+	// Delivery options controlling retries and dead letter handling.
+	DeliveryOptions *DeliveryOptions
+	// Maximum number of unacknowledged messages allowed.
+	MaxInflight *int32
+}
+
+func (b0 SubscriptionConfig_builder) Build() *SubscriptionConfig {
+	m0 := &SubscriptionConfig{}
+	b, x := &b0, m0
+	_, _ = b, x
+	x.Name = b.Name
+	x.State = b.State
+	x.RoutingStrategy = b.RoutingStrategy
+	x.DefaultPriority = b.DefaultPriority
+	x.DeliveryOptions = b.DeliveryOptions
+	x.MaxInflight = b.MaxInflight
+	return m0
+}
+
 var File_pkg_queue_proto_messages_subscription_config_proto protoreflect.FileDescriptor
 
 const file_pkg_queue_proto_messages_subscription_config_proto_rawDesc = "" +
 	"\n" +
-	"2pkg/queue/proto/messages/subscription_config.proto\x12\x10gcommon.v1.queue\x1a!google/protobuf/go_features.protoB\xcc\x01\n" +
+	"2pkg/queue/proto/messages/subscription_config.proto\x12\x10gcommon.v1.queue\x1a!google/protobuf/go_features.proto\x1a.pkg/queue/proto/enums/subscription_state.proto\x1a,pkg/queue/proto/enums/routing_strategy.proto\x1a*pkg/queue/proto/enums/priority_level.proto\x1a/pkg/queue/proto/messages/delivery_options.proto\"\xee\x02\n" +
+	"\x12SubscriptionConfig\x12\x12\n" +
+	"\x04name\x18\x01 \x01(\tR\x04name\x129\n" +
+	"\x05state\x18\x02 \x01(\x0e2#.gcommon.v1.queue.SubscriptionStateR\x05state\x12L\n" +
+	"\x10routing_strategy\x18\x03 \x01(\x0e2!.gcommon.v1.queue.RoutingStrategyR\x0froutingStrategy\x12J\n" +
+	"\x10default_priority\x18\x04 \x01(\x0e2\x1f.gcommon.v1.queue.PriorityLevelR\x0fdefaultPriority\x12L\n" +
+	"\x10delivery_options\x18\x05 \x01(\v2!.gcommon.v1.queue.DeliveryOptionsR\x0fdeliveryOptions\x12!\n" +
+	"\fmax_inflight\x18\x06 \x01(\x05R\vmaxInflightB\xcc\x01\n" +
 	"\x14com.gcommon.v1.queueB\x17SubscriptionConfigProtoP\x01Z1github.com/jdfalk/gcommon/pkg/queue/proto;queuepb\xa2\x02\x03GVQ\xaa\x02\x10Gcommon.V1.Queue\xca\x02\x10Gcommon\\V1\\Queue\xe2\x02\x1cGcommon\\V1\\Queue\\GPBMetadata\xea\x02\x12Gcommon::V1::Queue\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
 
-var file_pkg_queue_proto_messages_subscription_config_proto_goTypes = []any{}
+var file_pkg_queue_proto_messages_subscription_config_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
+var file_pkg_queue_proto_messages_subscription_config_proto_goTypes = []any{
+	(*SubscriptionConfig)(nil), // 0: gcommon.v1.queue.SubscriptionConfig
+	(SubscriptionState)(0),     // 1: gcommon.v1.queue.SubscriptionState
+	(RoutingStrategy)(0),       // 2: gcommon.v1.queue.RoutingStrategy
+	(PriorityLevel)(0),         // 3: gcommon.v1.queue.PriorityLevel
+	(*DeliveryOptions)(nil),    // 4: gcommon.v1.queue.DeliveryOptions
+}
 var file_pkg_queue_proto_messages_subscription_config_proto_depIdxs = []int32{
-	0, // [0:0] is the sub-list for method output_type
-	0, // [0:0] is the sub-list for method input_type
-	0, // [0:0] is the sub-list for extension type_name
-	0, // [0:0] is the sub-list for extension extendee
-	0, // [0:0] is the sub-list for field type_name
+	1, // 0: gcommon.v1.queue.SubscriptionConfig.state:type_name -> gcommon.v1.queue.SubscriptionState
+	2, // 1: gcommon.v1.queue.SubscriptionConfig.routing_strategy:type_name -> gcommon.v1.queue.RoutingStrategy
+	3, // 2: gcommon.v1.queue.SubscriptionConfig.default_priority:type_name -> gcommon.v1.queue.PriorityLevel
+	4, // 3: gcommon.v1.queue.SubscriptionConfig.delivery_options:type_name -> gcommon.v1.queue.DeliveryOptions
+	4, // [4:4] is the sub-list for method output_type
+	4, // [4:4] is the sub-list for method input_type
+	4, // [4:4] is the sub-list for extension type_name
+	4, // [4:4] is the sub-list for extension extendee
+	0, // [0:4] is the sub-list for field type_name
 }
 
 func init() { file_pkg_queue_proto_messages_subscription_config_proto_init() }
@@ -44,18 +268,23 @@ func file_pkg_queue_proto_messages_subscription_config_proto_init() {
 	if File_pkg_queue_proto_messages_subscription_config_proto != nil {
 		return
 	}
+	file_pkg_queue_proto_enums_subscription_state_proto_init()
+	file_pkg_queue_proto_enums_routing_strategy_proto_init()
+	file_pkg_queue_proto_enums_priority_level_proto_init()
+	file_pkg_queue_proto_messages_delivery_options_proto_init()
 	type x struct{}
 	out := protoimpl.TypeBuilder{
 		File: protoimpl.DescBuilder{
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: unsafe.Slice(unsafe.StringData(file_pkg_queue_proto_messages_subscription_config_proto_rawDesc), len(file_pkg_queue_proto_messages_subscription_config_proto_rawDesc)),
 			NumEnums:      0,
-			NumMessages:   0,
+			NumMessages:   1,
 			NumExtensions: 0,
 			NumServices:   0,
 		},
 		GoTypes:           file_pkg_queue_proto_messages_subscription_config_proto_goTypes,
 		DependencyIndexes: file_pkg_queue_proto_messages_subscription_config_proto_depIdxs,
+		MessageInfos:      file_pkg_queue_proto_messages_subscription_config_proto_msgTypes,
 	}.Build()
 	File_pkg_queue_proto_messages_subscription_config_proto = out.File
 	file_pkg_queue_proto_messages_subscription_config_proto_goTypes = nil

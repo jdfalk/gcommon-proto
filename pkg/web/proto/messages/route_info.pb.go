@@ -12,6 +12,7 @@ import (
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
+	timestamppb "google.golang.org/protobuf/types/known/timestamppb"
 	reflect "reflect"
 	unsafe "unsafe"
 )
@@ -25,8 +26,15 @@ const (
 
 // RouteInfo message definition.
 type RouteInfo struct {
-	state         protoimpl.MessageState `protogen:"hybrid.v1"`
-	Placeholder   *string                `protobuf:"bytes,1,opt,name=placeholder" json:"placeholder,omitempty"`
+	state protoimpl.MessageState `protogen:"hybrid.v1"`
+	// Route configuration
+	Config *RouteConfig `protobuf:"bytes,1,opt,name=config" json:"config,omitempty"`
+	// Type of route
+	RouteType *RouteType `protobuf:"varint,2,opt,name=route_type,json=routeType,enum=gcommon.v1.web.RouteType" json:"route_type,omitempty"`
+	// Creation timestamp
+	CreatedAt *timestamppb.Timestamp `protobuf:"bytes,3,opt,name=created_at,json=createdAt" json:"created_at,omitempty"`
+	// Last update timestamp
+	UpdatedAt     *timestamppb.Timestamp `protobuf:"bytes,4,opt,name=updated_at,json=updatedAt" json:"updated_at,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -56,39 +64,115 @@ func (x *RouteInfo) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-func (x *RouteInfo) GetPlaceholder() string {
-	if x != nil && x.Placeholder != nil {
-		return *x.Placeholder
+func (x *RouteInfo) GetConfig() *RouteConfig {
+	if x != nil {
+		return x.Config
 	}
-	return ""
+	return nil
 }
 
-func (x *RouteInfo) SetPlaceholder(v string) {
-	x.Placeholder = &v
+func (x *RouteInfo) GetRouteType() RouteType {
+	if x != nil && x.RouteType != nil {
+		return *x.RouteType
+	}
+	return RouteType_ROUTE_TYPE_UNSPECIFIED
 }
 
-func (x *RouteInfo) HasPlaceholder() bool {
+func (x *RouteInfo) GetCreatedAt() *timestamppb.Timestamp {
+	if x != nil {
+		return x.CreatedAt
+	}
+	return nil
+}
+
+func (x *RouteInfo) GetUpdatedAt() *timestamppb.Timestamp {
+	if x != nil {
+		return x.UpdatedAt
+	}
+	return nil
+}
+
+func (x *RouteInfo) SetConfig(v *RouteConfig) {
+	x.Config = v
+}
+
+func (x *RouteInfo) SetRouteType(v RouteType) {
+	x.RouteType = &v
+}
+
+func (x *RouteInfo) SetCreatedAt(v *timestamppb.Timestamp) {
+	x.CreatedAt = v
+}
+
+func (x *RouteInfo) SetUpdatedAt(v *timestamppb.Timestamp) {
+	x.UpdatedAt = v
+}
+
+func (x *RouteInfo) HasConfig() bool {
 	if x == nil {
 		return false
 	}
-	return x.Placeholder != nil
+	return x.Config != nil
 }
 
-func (x *RouteInfo) ClearPlaceholder() {
-	x.Placeholder = nil
+func (x *RouteInfo) HasRouteType() bool {
+	if x == nil {
+		return false
+	}
+	return x.RouteType != nil
+}
+
+func (x *RouteInfo) HasCreatedAt() bool {
+	if x == nil {
+		return false
+	}
+	return x.CreatedAt != nil
+}
+
+func (x *RouteInfo) HasUpdatedAt() bool {
+	if x == nil {
+		return false
+	}
+	return x.UpdatedAt != nil
+}
+
+func (x *RouteInfo) ClearConfig() {
+	x.Config = nil
+}
+
+func (x *RouteInfo) ClearRouteType() {
+	x.RouteType = nil
+}
+
+func (x *RouteInfo) ClearCreatedAt() {
+	x.CreatedAt = nil
+}
+
+func (x *RouteInfo) ClearUpdatedAt() {
+	x.UpdatedAt = nil
 }
 
 type RouteInfo_builder struct {
 	_ [0]func() // Prevents comparability and use of unkeyed literals for the builder.
 
-	Placeholder *string
+	// Route configuration
+	Config *RouteConfig
+	// Type of route
+	RouteType *RouteType
+	// Creation timestamp
+	CreatedAt *timestamppb.Timestamp
+	// Last update timestamp
+	UpdatedAt *timestamppb.Timestamp
 }
 
 func (b0 RouteInfo_builder) Build() *RouteInfo {
 	m0 := &RouteInfo{}
 	b, x := &b0, m0
 	_, _ = b, x
-	x.Placeholder = b.Placeholder
+	x.Config = b.Config
+	x.RouteType = b.RouteType
+	x.CreatedAt = b.CreatedAt
+	x.UpdatedAt = b.UpdatedAt
 	return m0
 }
 
@@ -96,21 +180,34 @@ var File_pkg_web_proto_messages_route_info_proto protoreflect.FileDescriptor
 
 const file_pkg_web_proto_messages_route_info_proto_rawDesc = "" +
 	"\n" +
-	"'pkg/web/proto/messages/route_info.proto\x12\x0egcommon.v1.web\x1a!google/protobuf/go_features.proto\"-\n" +
-	"\tRouteInfo\x12 \n" +
-	"\vplaceholder\x18\x01 \x01(\tR\vplaceholderB\xb5\x01\n" +
+	"'pkg/web/proto/messages/route_info.proto\x12\x0egcommon.v1.web\x1a!google/protobuf/go_features.proto\x1a\x1fgoogle/protobuf/timestamp.proto\x1a$pkg/web/proto/enums/route_type.proto\x1a)pkg/web/proto/messages/route_config.proto\"\xf0\x01\n" +
+	"\tRouteInfo\x123\n" +
+	"\x06config\x18\x01 \x01(\v2\x1b.gcommon.v1.web.RouteConfigR\x06config\x128\n" +
+	"\n" +
+	"route_type\x18\x02 \x01(\x0e2\x19.gcommon.v1.web.RouteTypeR\trouteType\x129\n" +
+	"\n" +
+	"created_at\x18\x03 \x01(\v2\x1a.google.protobuf.TimestampR\tcreatedAt\x129\n" +
+	"\n" +
+	"updated_at\x18\x04 \x01(\v2\x1a.google.protobuf.TimestampR\tupdatedAtB\xb5\x01\n" +
 	"\x12com.gcommon.v1.webB\x0eRouteInfoProtoP\x01Z-github.com/jdfalk/gcommon/pkg/web/proto;webpb\xa2\x02\x03GVW\xaa\x02\x0eGcommon.V1.Web\xca\x02\x0eGcommon\\V1\\Web\xe2\x02\x1aGcommon\\V1\\Web\\GPBMetadata\xea\x02\x10Gcommon::V1::Web\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
 
 var file_pkg_web_proto_messages_route_info_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_pkg_web_proto_messages_route_info_proto_goTypes = []any{
-	(*RouteInfo)(nil), // 0: gcommon.v1.web.RouteInfo
+	(*RouteInfo)(nil),             // 0: gcommon.v1.web.RouteInfo
+	(*RouteConfig)(nil),           // 1: gcommon.v1.web.RouteConfig
+	(RouteType)(0),                // 2: gcommon.v1.web.RouteType
+	(*timestamppb.Timestamp)(nil), // 3: google.protobuf.Timestamp
 }
 var file_pkg_web_proto_messages_route_info_proto_depIdxs = []int32{
-	0, // [0:0] is the sub-list for method output_type
-	0, // [0:0] is the sub-list for method input_type
-	0, // [0:0] is the sub-list for extension type_name
-	0, // [0:0] is the sub-list for extension extendee
-	0, // [0:0] is the sub-list for field type_name
+	1, // 0: gcommon.v1.web.RouteInfo.config:type_name -> gcommon.v1.web.RouteConfig
+	2, // 1: gcommon.v1.web.RouteInfo.route_type:type_name -> gcommon.v1.web.RouteType
+	3, // 2: gcommon.v1.web.RouteInfo.created_at:type_name -> google.protobuf.Timestamp
+	3, // 3: gcommon.v1.web.RouteInfo.updated_at:type_name -> google.protobuf.Timestamp
+	4, // [4:4] is the sub-list for method output_type
+	4, // [4:4] is the sub-list for method input_type
+	4, // [4:4] is the sub-list for extension type_name
+	4, // [4:4] is the sub-list for extension extendee
+	0, // [0:4] is the sub-list for field type_name
 }
 
 func init() { file_pkg_web_proto_messages_route_info_proto_init() }
@@ -118,6 +215,8 @@ func file_pkg_web_proto_messages_route_info_proto_init() {
 	if File_pkg_web_proto_messages_route_info_proto != nil {
 		return
 	}
+	file_pkg_web_proto_enums_route_type_proto_init()
+	file_pkg_web_proto_messages_route_config_proto_init()
 	type x struct{}
 	out := protoimpl.TypeBuilder{
 		File: protoimpl.DescBuilder{

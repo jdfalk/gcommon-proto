@@ -24,13 +24,14 @@ const (
 	_ = protoimpl.EnforceVersion(protoimpl.MaxVersion - 20)
 )
 
-// TODO: Implement add_member_response message
 type AddMemberResponse struct {
 	state protoimpl.MessageState `protogen:"hybrid.v1"`
 	// Any errors encountered
 	Errors []*proto.Error `protobuf:"bytes,1,rep,name=errors" json:"errors,omitempty"`
 	// Success status
-	Success       *bool `protobuf:"varint,2,opt,name=success" json:"success,omitempty"`
+	Success *bool `protobuf:"varint,2,opt,name=success" json:"success,omitempty"`
+	// Newly added member information
+	Member        *OrganizationMember `protobuf:"bytes,3,opt,name=member" json:"member,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -74,12 +75,23 @@ func (x *AddMemberResponse) GetSuccess() bool {
 	return false
 }
 
+func (x *AddMemberResponse) GetMember() *OrganizationMember {
+	if x != nil {
+		return x.Member
+	}
+	return nil
+}
+
 func (x *AddMemberResponse) SetErrors(v []*proto.Error) {
 	x.Errors = v
 }
 
 func (x *AddMemberResponse) SetSuccess(v bool) {
 	x.Success = &v
+}
+
+func (x *AddMemberResponse) SetMember(v *OrganizationMember) {
+	x.Member = v
 }
 
 func (x *AddMemberResponse) HasSuccess() bool {
@@ -89,8 +101,19 @@ func (x *AddMemberResponse) HasSuccess() bool {
 	return x.Success != nil
 }
 
+func (x *AddMemberResponse) HasMember() bool {
+	if x == nil {
+		return false
+	}
+	return x.Member != nil
+}
+
 func (x *AddMemberResponse) ClearSuccess() {
 	x.Success = nil
+}
+
+func (x *AddMemberResponse) ClearMember() {
+	x.Member = nil
 }
 
 type AddMemberResponse_builder struct {
@@ -100,6 +123,8 @@ type AddMemberResponse_builder struct {
 	Errors []*proto.Error
 	// Success status
 	Success *bool
+	// Newly added member information
+	Member *OrganizationMember
 }
 
 func (b0 AddMemberResponse_builder) Build() *AddMemberResponse {
@@ -108,6 +133,7 @@ func (b0 AddMemberResponse_builder) Build() *AddMemberResponse {
 	_, _ = b, x
 	x.Errors = b.Errors
 	x.Success = b.Success
+	x.Member = b.Member
 	return m0
 }
 
@@ -115,24 +141,27 @@ var File_pkg_organization_proto_responses_add_member_response_proto protoreflect
 
 const file_pkg_organization_proto_responses_add_member_response_proto_rawDesc = "" +
 	"\n" +
-	":pkg/organization/proto/responses/add_member_response.proto\x12\x17gcommon.v1.organization\x1a!google/protobuf/go_features.proto\x1a%pkg/common/proto/messages/error.proto\"_\n" +
+	":pkg/organization/proto/responses/add_member_response.proto\x12\x17gcommon.v1.organization\x1a!google/protobuf/go_features.proto\x1a%pkg/common/proto/messages/error.proto\x1a9pkg/organization/proto/messages/organization_member.proto\"\xa4\x01\n" +
 	"\x11AddMemberResponse\x120\n" +
 	"\x06errors\x18\x01 \x03(\v2\x18.gcommon.v1.common.ErrorR\x06errors\x12\x18\n" +
-	"\asuccess\x18\x02 \x01(\bR\asuccessB\xfc\x01\n" +
+	"\asuccess\x18\x02 \x01(\bR\asuccess\x12C\n" +
+	"\x06member\x18\x03 \x01(\v2+.gcommon.v1.organization.OrganizationMemberR\x06memberB\xfc\x01\n" +
 	"\x1bcom.gcommon.v1.organizationB\x16AddMemberResponseProtoP\x01Z?github.com/jdfalk/gcommon/pkg/organization/proto;organizationpb\xa2\x02\x03GVO\xaa\x02\x17Gcommon.V1.Organization\xca\x02\x17Gcommon\\V1\\Organization\xe2\x02#Gcommon\\V1\\Organization\\GPBMetadata\xea\x02\x19Gcommon::V1::Organization\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
 
 var file_pkg_organization_proto_responses_add_member_response_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_pkg_organization_proto_responses_add_member_response_proto_goTypes = []any{
-	(*AddMemberResponse)(nil), // 0: gcommon.v1.organization.AddMemberResponse
-	(*proto.Error)(nil),       // 1: gcommon.v1.common.Error
+	(*AddMemberResponse)(nil),  // 0: gcommon.v1.organization.AddMemberResponse
+	(*proto.Error)(nil),        // 1: gcommon.v1.common.Error
+	(*OrganizationMember)(nil), // 2: gcommon.v1.organization.OrganizationMember
 }
 var file_pkg_organization_proto_responses_add_member_response_proto_depIdxs = []int32{
 	1, // 0: gcommon.v1.organization.AddMemberResponse.errors:type_name -> gcommon.v1.common.Error
-	1, // [1:1] is the sub-list for method output_type
-	1, // [1:1] is the sub-list for method input_type
-	1, // [1:1] is the sub-list for extension type_name
-	1, // [1:1] is the sub-list for extension extendee
-	0, // [0:1] is the sub-list for field type_name
+	2, // 1: gcommon.v1.organization.AddMemberResponse.member:type_name -> gcommon.v1.organization.OrganizationMember
+	2, // [2:2] is the sub-list for method output_type
+	2, // [2:2] is the sub-list for method input_type
+	2, // [2:2] is the sub-list for extension type_name
+	2, // [2:2] is the sub-list for extension extendee
+	0, // [0:2] is the sub-list for field type_name
 }
 
 func init() { file_pkg_organization_proto_responses_add_member_response_proto_init() }
@@ -140,6 +169,7 @@ func file_pkg_organization_proto_responses_add_member_response_proto_init() {
 	if File_pkg_organization_proto_responses_add_member_response_proto != nil {
 		return
 	}
+	file_pkg_organization_proto_messages_organization_member_proto_init()
 	type x struct{}
 	out := protoimpl.TypeBuilder{
 		File: protoimpl.DescBuilder{

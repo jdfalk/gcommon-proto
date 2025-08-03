@@ -46,71 +46,40 @@ const file_pkg_web_proto_web_proto_rawDesc = "" +
 	"\x10GetServerMetrics\x12'.gcommon.v1.web.GetServerMetricsRequest\x1a(.gcommon.v1.web.GetServerMetricsResponse\x12b\n" +
 	"\x0fGetRouteMetrics\x12&.gcommon.v1.web.GetRouteMetricsRequest\x1a'.gcommon.v1.web.GetRouteMetricsResponse\x12\\\n" +
 	"\rHandleRequest\x12$.gcommon.v1.web.HandleRequestRequest\x1a%.gcommon.v1.web.HandleRequestResponse\x12^\n" +
-	"\x12StreamServerEvents\x12).gcommon.v1.web.StreamServerEventsRequest\x1a\x1b.gcommon.v1.web.ServerEvent0\x012\xb2\b\n" +
-	"\x0fWebAdminService\x12b\n" +
-	"\x0fConfigureGlobal\x12&.gcommon.v1.web.ConfigureGlobalRequest\x1a'.gcommon.v1.web.ConfigureGlobalResponse\x12k\n" +
-	"\x12UpdateServerConfig\x12).gcommon.v1.web.UpdateServerConfigRequest\x1a*.gcommon.v1.web.UpdateServerConfigResponse\x12\\\n" +
-	"\rGetServerLogs\x12$.gcommon.v1.web.GetServerLogsRequest\x1a%.gcommon.v1.web.GetServerLogsResponse\x12\\\n" +
-	"\rGetAccessLogs\x12$.gcommon.v1.web.GetAccessLogsRequest\x1a%.gcommon.v1.web.GetAccessLogsResponse\x12k\n" +
-	"\x12ReloadServerConfig\x12).gcommon.v1.web.ReloadServerConfigRequest\x1a*.gcommon.v1.web.ReloadServerConfigResponse\x12t\n" +
-	"\x15GetSSLCertificateInfo\x12,.gcommon.v1.web.GetSSLCertificateInfoRequest\x1a-.gcommon.v1.web.GetSSLCertificateInfoResponse\x12q\n" +
-	"\x14UpdateSSLCertificate\x12+.gcommon.v1.web.UpdateSSLCertificateRequest\x1a,.gcommon.v1.web.UpdateSSLCertificateResponse\x12b\n" +
-	"\x0fGetServerHealth\x12&.gcommon.v1.web.GetServerHealthRequest\x1a'.gcommon.v1.web.GetServerHealthResponse\x12k\n" +
-	"\x12ExportServerConfig\x12).gcommon.v1.web.ExportServerConfigRequest\x1a*.gcommon.v1.web.ExportServerConfigResponse\x12k\n" +
-	"\x12ImportServerConfig\x12).gcommon.v1.web.ImportServerConfigRequest\x1a*.gcommon.v1.web.ImportServerConfigResponseB\xaf\x01\n" +
+	"\x12StreamServerEvents\x12).gcommon.v1.web.StreamServerEventsRequest\x1a\x1b.gcommon.v1.web.ServerEvent0\x01B\xaf\x01\n" +
 	"\x12com.gcommon.v1.webB\bWebProtoP\x01Z-github.com/jdfalk/gcommon/pkg/web/proto;webpb\xa2\x02\x03GVW\xaa\x02\x0eGcommon.V1.Web\xca\x02\x0eGcommon\\V1\\Web\xe2\x02\x1aGcommon\\V1\\Web\\GPBMetadata\xea\x02\x10Gcommon::V1::Web\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
 
 var file_pkg_web_proto_web_proto_goTypes = []any{
-	(*CreateServerRequest)(nil),           // 0: gcommon.v1.web.CreateServerRequest
-	(*StartServerRequest)(nil),            // 1: gcommon.v1.web.StartServerRequest
-	(*StopServerRequest)(nil),             // 2: gcommon.v1.web.StopServerRequest
-	(*GetServerStatusRequest)(nil),        // 3: gcommon.v1.web.GetServerStatusRequest
-	(*ListServersRequest)(nil),            // 4: gcommon.v1.web.ListServersRequest
-	(*RegisterRouteRequest)(nil),          // 5: gcommon.v1.web.RegisterRouteRequest
-	(*UnregisterRouteRequest)(nil),        // 6: gcommon.v1.web.UnregisterRouteRequest
-	(*ListRoutesRequest)(nil),             // 7: gcommon.v1.web.ListRoutesRequest
-	(*AddMiddlewareRequest)(nil),          // 8: gcommon.v1.web.AddMiddlewareRequest
-	(*RemoveMiddlewareRequest)(nil),       // 9: gcommon.v1.web.RemoveMiddlewareRequest
-	(*ListMiddlewareRequest)(nil),         // 10: gcommon.v1.web.ListMiddlewareRequest
-	(*GetServerMetricsRequest)(nil),       // 11: gcommon.v1.web.GetServerMetricsRequest
-	(*GetRouteMetricsRequest)(nil),        // 12: gcommon.v1.web.GetRouteMetricsRequest
-	(*HandleRequestRequest)(nil),          // 13: gcommon.v1.web.HandleRequestRequest
-	(*StreamServerEventsRequest)(nil),     // 14: gcommon.v1.web.StreamServerEventsRequest
-	(*ConfigureGlobalRequest)(nil),        // 15: gcommon.v1.web.ConfigureGlobalRequest
-	(*UpdateServerConfigRequest)(nil),     // 16: gcommon.v1.web.UpdateServerConfigRequest
-	(*GetServerLogsRequest)(nil),          // 17: gcommon.v1.web.GetServerLogsRequest
-	(*GetAccessLogsRequest)(nil),          // 18: gcommon.v1.web.GetAccessLogsRequest
-	(*ReloadServerConfigRequest)(nil),     // 19: gcommon.v1.web.ReloadServerConfigRequest
-	(*GetSSLCertificateInfoRequest)(nil),  // 20: gcommon.v1.web.GetSSLCertificateInfoRequest
-	(*UpdateSSLCertificateRequest)(nil),   // 21: gcommon.v1.web.UpdateSSLCertificateRequest
-	(*GetServerHealthRequest)(nil),        // 22: gcommon.v1.web.GetServerHealthRequest
-	(*ExportServerConfigRequest)(nil),     // 23: gcommon.v1.web.ExportServerConfigRequest
-	(*ImportServerConfigRequest)(nil),     // 24: gcommon.v1.web.ImportServerConfigRequest
-	(*CreateServerResponse)(nil),          // 25: gcommon.v1.web.CreateServerResponse
-	(*StartServerResponse)(nil),           // 26: gcommon.v1.web.StartServerResponse
-	(*StopServerResponse)(nil),            // 27: gcommon.v1.web.StopServerResponse
-	(*GetServerStatusResponse)(nil),       // 28: gcommon.v1.web.GetServerStatusResponse
-	(*ListServersResponse)(nil),           // 29: gcommon.v1.web.ListServersResponse
-	(*RegisterRouteResponse)(nil),         // 30: gcommon.v1.web.RegisterRouteResponse
-	(*UnregisterRouteResponse)(nil),       // 31: gcommon.v1.web.UnregisterRouteResponse
-	(*ListRoutesResponse)(nil),            // 32: gcommon.v1.web.ListRoutesResponse
-	(*AddMiddlewareResponse)(nil),         // 33: gcommon.v1.web.AddMiddlewareResponse
-	(*RemoveMiddlewareResponse)(nil),      // 34: gcommon.v1.web.RemoveMiddlewareResponse
-	(*ListMiddlewareResponse)(nil),        // 35: gcommon.v1.web.ListMiddlewareResponse
-	(*GetServerMetricsResponse)(nil),      // 36: gcommon.v1.web.GetServerMetricsResponse
-	(*GetRouteMetricsResponse)(nil),       // 37: gcommon.v1.web.GetRouteMetricsResponse
-	(*HandleRequestResponse)(nil),         // 38: gcommon.v1.web.HandleRequestResponse
-	(*ServerEvent)(nil),                   // 39: gcommon.v1.web.ServerEvent
-	(*ConfigureGlobalResponse)(nil),       // 40: gcommon.v1.web.ConfigureGlobalResponse
-	(*UpdateServerConfigResponse)(nil),    // 41: gcommon.v1.web.UpdateServerConfigResponse
-	(*GetServerLogsResponse)(nil),         // 42: gcommon.v1.web.GetServerLogsResponse
-	(*GetAccessLogsResponse)(nil),         // 43: gcommon.v1.web.GetAccessLogsResponse
-	(*ReloadServerConfigResponse)(nil),    // 44: gcommon.v1.web.ReloadServerConfigResponse
-	(*GetSSLCertificateInfoResponse)(nil), // 45: gcommon.v1.web.GetSSLCertificateInfoResponse
-	(*UpdateSSLCertificateResponse)(nil),  // 46: gcommon.v1.web.UpdateSSLCertificateResponse
-	(*GetServerHealthResponse)(nil),       // 47: gcommon.v1.web.GetServerHealthResponse
-	(*ExportServerConfigResponse)(nil),    // 48: gcommon.v1.web.ExportServerConfigResponse
-	(*ImportServerConfigResponse)(nil),    // 49: gcommon.v1.web.ImportServerConfigResponse
+	(*CreateServerRequest)(nil),       // 0: gcommon.v1.web.CreateServerRequest
+	(*StartServerRequest)(nil),        // 1: gcommon.v1.web.StartServerRequest
+	(*StopServerRequest)(nil),         // 2: gcommon.v1.web.StopServerRequest
+	(*GetServerStatusRequest)(nil),    // 3: gcommon.v1.web.GetServerStatusRequest
+	(*ListServersRequest)(nil),        // 4: gcommon.v1.web.ListServersRequest
+	(*RegisterRouteRequest)(nil),      // 5: gcommon.v1.web.RegisterRouteRequest
+	(*UnregisterRouteRequest)(nil),    // 6: gcommon.v1.web.UnregisterRouteRequest
+	(*ListRoutesRequest)(nil),         // 7: gcommon.v1.web.ListRoutesRequest
+	(*AddMiddlewareRequest)(nil),      // 8: gcommon.v1.web.AddMiddlewareRequest
+	(*RemoveMiddlewareRequest)(nil),   // 9: gcommon.v1.web.RemoveMiddlewareRequest
+	(*ListMiddlewareRequest)(nil),     // 10: gcommon.v1.web.ListMiddlewareRequest
+	(*GetServerMetricsRequest)(nil),   // 11: gcommon.v1.web.GetServerMetricsRequest
+	(*GetRouteMetricsRequest)(nil),    // 12: gcommon.v1.web.GetRouteMetricsRequest
+	(*HandleRequestRequest)(nil),      // 13: gcommon.v1.web.HandleRequestRequest
+	(*StreamServerEventsRequest)(nil), // 14: gcommon.v1.web.StreamServerEventsRequest
+	(*CreateServerResponse)(nil),      // 15: gcommon.v1.web.CreateServerResponse
+	(*StartServerResponse)(nil),       // 16: gcommon.v1.web.StartServerResponse
+	(*StopServerResponse)(nil),        // 17: gcommon.v1.web.StopServerResponse
+	(*GetServerStatusResponse)(nil),   // 18: gcommon.v1.web.GetServerStatusResponse
+	(*ListServersResponse)(nil),       // 19: gcommon.v1.web.ListServersResponse
+	(*RegisterRouteResponse)(nil),     // 20: gcommon.v1.web.RegisterRouteResponse
+	(*UnregisterRouteResponse)(nil),   // 21: gcommon.v1.web.UnregisterRouteResponse
+	(*ListRoutesResponse)(nil),        // 22: gcommon.v1.web.ListRoutesResponse
+	(*AddMiddlewareResponse)(nil),     // 23: gcommon.v1.web.AddMiddlewareResponse
+	(*RemoveMiddlewareResponse)(nil),  // 24: gcommon.v1.web.RemoveMiddlewareResponse
+	(*ListMiddlewareResponse)(nil),    // 25: gcommon.v1.web.ListMiddlewareResponse
+	(*GetServerMetricsResponse)(nil),  // 26: gcommon.v1.web.GetServerMetricsResponse
+	(*GetRouteMetricsResponse)(nil),   // 27: gcommon.v1.web.GetRouteMetricsResponse
+	(*HandleRequestResponse)(nil),     // 28: gcommon.v1.web.HandleRequestResponse
+	(*ServerEvent)(nil),               // 29: gcommon.v1.web.ServerEvent
 }
 var file_pkg_web_proto_web_proto_depIdxs = []int32{
 	0,  // 0: gcommon.v1.web.WebService.CreateServer:input_type -> gcommon.v1.web.CreateServerRequest
@@ -128,43 +97,23 @@ var file_pkg_web_proto_web_proto_depIdxs = []int32{
 	12, // 12: gcommon.v1.web.WebService.GetRouteMetrics:input_type -> gcommon.v1.web.GetRouteMetricsRequest
 	13, // 13: gcommon.v1.web.WebService.HandleRequest:input_type -> gcommon.v1.web.HandleRequestRequest
 	14, // 14: gcommon.v1.web.WebService.StreamServerEvents:input_type -> gcommon.v1.web.StreamServerEventsRequest
-	15, // 15: gcommon.v1.web.WebAdminService.ConfigureGlobal:input_type -> gcommon.v1.web.ConfigureGlobalRequest
-	16, // 16: gcommon.v1.web.WebAdminService.UpdateServerConfig:input_type -> gcommon.v1.web.UpdateServerConfigRequest
-	17, // 17: gcommon.v1.web.WebAdminService.GetServerLogs:input_type -> gcommon.v1.web.GetServerLogsRequest
-	18, // 18: gcommon.v1.web.WebAdminService.GetAccessLogs:input_type -> gcommon.v1.web.GetAccessLogsRequest
-	19, // 19: gcommon.v1.web.WebAdminService.ReloadServerConfig:input_type -> gcommon.v1.web.ReloadServerConfigRequest
-	20, // 20: gcommon.v1.web.WebAdminService.GetSSLCertificateInfo:input_type -> gcommon.v1.web.GetSSLCertificateInfoRequest
-	21, // 21: gcommon.v1.web.WebAdminService.UpdateSSLCertificate:input_type -> gcommon.v1.web.UpdateSSLCertificateRequest
-	22, // 22: gcommon.v1.web.WebAdminService.GetServerHealth:input_type -> gcommon.v1.web.GetServerHealthRequest
-	23, // 23: gcommon.v1.web.WebAdminService.ExportServerConfig:input_type -> gcommon.v1.web.ExportServerConfigRequest
-	24, // 24: gcommon.v1.web.WebAdminService.ImportServerConfig:input_type -> gcommon.v1.web.ImportServerConfigRequest
-	25, // 25: gcommon.v1.web.WebService.CreateServer:output_type -> gcommon.v1.web.CreateServerResponse
-	26, // 26: gcommon.v1.web.WebService.StartServer:output_type -> gcommon.v1.web.StartServerResponse
-	27, // 27: gcommon.v1.web.WebService.StopServer:output_type -> gcommon.v1.web.StopServerResponse
-	28, // 28: gcommon.v1.web.WebService.GetServerStatus:output_type -> gcommon.v1.web.GetServerStatusResponse
-	29, // 29: gcommon.v1.web.WebService.ListServers:output_type -> gcommon.v1.web.ListServersResponse
-	30, // 30: gcommon.v1.web.WebService.RegisterRoute:output_type -> gcommon.v1.web.RegisterRouteResponse
-	31, // 31: gcommon.v1.web.WebService.UnregisterRoute:output_type -> gcommon.v1.web.UnregisterRouteResponse
-	32, // 32: gcommon.v1.web.WebService.ListRoutes:output_type -> gcommon.v1.web.ListRoutesResponse
-	33, // 33: gcommon.v1.web.WebService.AddMiddleware:output_type -> gcommon.v1.web.AddMiddlewareResponse
-	34, // 34: gcommon.v1.web.WebService.RemoveMiddleware:output_type -> gcommon.v1.web.RemoveMiddlewareResponse
-	35, // 35: gcommon.v1.web.WebService.ListMiddleware:output_type -> gcommon.v1.web.ListMiddlewareResponse
-	36, // 36: gcommon.v1.web.WebService.GetServerMetrics:output_type -> gcommon.v1.web.GetServerMetricsResponse
-	37, // 37: gcommon.v1.web.WebService.GetRouteMetrics:output_type -> gcommon.v1.web.GetRouteMetricsResponse
-	38, // 38: gcommon.v1.web.WebService.HandleRequest:output_type -> gcommon.v1.web.HandleRequestResponse
-	39, // 39: gcommon.v1.web.WebService.StreamServerEvents:output_type -> gcommon.v1.web.ServerEvent
-	40, // 40: gcommon.v1.web.WebAdminService.ConfigureGlobal:output_type -> gcommon.v1.web.ConfigureGlobalResponse
-	41, // 41: gcommon.v1.web.WebAdminService.UpdateServerConfig:output_type -> gcommon.v1.web.UpdateServerConfigResponse
-	42, // 42: gcommon.v1.web.WebAdminService.GetServerLogs:output_type -> gcommon.v1.web.GetServerLogsResponse
-	43, // 43: gcommon.v1.web.WebAdminService.GetAccessLogs:output_type -> gcommon.v1.web.GetAccessLogsResponse
-	44, // 44: gcommon.v1.web.WebAdminService.ReloadServerConfig:output_type -> gcommon.v1.web.ReloadServerConfigResponse
-	45, // 45: gcommon.v1.web.WebAdminService.GetSSLCertificateInfo:output_type -> gcommon.v1.web.GetSSLCertificateInfoResponse
-	46, // 46: gcommon.v1.web.WebAdminService.UpdateSSLCertificate:output_type -> gcommon.v1.web.UpdateSSLCertificateResponse
-	47, // 47: gcommon.v1.web.WebAdminService.GetServerHealth:output_type -> gcommon.v1.web.GetServerHealthResponse
-	48, // 48: gcommon.v1.web.WebAdminService.ExportServerConfig:output_type -> gcommon.v1.web.ExportServerConfigResponse
-	49, // 49: gcommon.v1.web.WebAdminService.ImportServerConfig:output_type -> gcommon.v1.web.ImportServerConfigResponse
-	25, // [25:50] is the sub-list for method output_type
-	0,  // [0:25] is the sub-list for method input_type
+	15, // 15: gcommon.v1.web.WebService.CreateServer:output_type -> gcommon.v1.web.CreateServerResponse
+	16, // 16: gcommon.v1.web.WebService.StartServer:output_type -> gcommon.v1.web.StartServerResponse
+	17, // 17: gcommon.v1.web.WebService.StopServer:output_type -> gcommon.v1.web.StopServerResponse
+	18, // 18: gcommon.v1.web.WebService.GetServerStatus:output_type -> gcommon.v1.web.GetServerStatusResponse
+	19, // 19: gcommon.v1.web.WebService.ListServers:output_type -> gcommon.v1.web.ListServersResponse
+	20, // 20: gcommon.v1.web.WebService.RegisterRoute:output_type -> gcommon.v1.web.RegisterRouteResponse
+	21, // 21: gcommon.v1.web.WebService.UnregisterRoute:output_type -> gcommon.v1.web.UnregisterRouteResponse
+	22, // 22: gcommon.v1.web.WebService.ListRoutes:output_type -> gcommon.v1.web.ListRoutesResponse
+	23, // 23: gcommon.v1.web.WebService.AddMiddleware:output_type -> gcommon.v1.web.AddMiddlewareResponse
+	24, // 24: gcommon.v1.web.WebService.RemoveMiddleware:output_type -> gcommon.v1.web.RemoveMiddlewareResponse
+	25, // 25: gcommon.v1.web.WebService.ListMiddleware:output_type -> gcommon.v1.web.ListMiddlewareResponse
+	26, // 26: gcommon.v1.web.WebService.GetServerMetrics:output_type -> gcommon.v1.web.GetServerMetricsResponse
+	27, // 27: gcommon.v1.web.WebService.GetRouteMetrics:output_type -> gcommon.v1.web.GetRouteMetricsResponse
+	28, // 28: gcommon.v1.web.WebService.HandleRequest:output_type -> gcommon.v1.web.HandleRequestResponse
+	29, // 29: gcommon.v1.web.WebService.StreamServerEvents:output_type -> gcommon.v1.web.ServerEvent
+	15, // [15:30] is the sub-list for method output_type
+	0,  // [0:15] is the sub-list for method input_type
 	0,  // [0:0] is the sub-list for extension type_name
 	0,  // [0:0] is the sub-list for extension extendee
 	0,  // [0:0] is the sub-list for field type_name
@@ -233,7 +182,7 @@ func file_pkg_web_proto_web_proto_init() {
 			NumEnums:      0,
 			NumMessages:   0,
 			NumExtensions: 0,
-			NumServices:   2,
+			NumServices:   1,
 		},
 		GoTypes:           file_pkg_web_proto_web_proto_goTypes,
 		DependencyIndexes: file_pkg_web_proto_web_proto_depIdxs,

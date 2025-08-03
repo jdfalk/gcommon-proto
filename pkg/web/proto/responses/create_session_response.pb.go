@@ -25,8 +25,9 @@ const (
 
 // CreateSessionResponse response definition.
 type CreateSessionResponse struct {
-	state         protoimpl.MessageState `protogen:"hybrid.v1"`
-	Placeholder   *string                `protobuf:"bytes,1,opt,name=placeholder" json:"placeholder,omitempty"`
+	state protoimpl.MessageState `protogen:"hybrid.v1"`
+	// Newly created session details
+	Session       *SessionData `protobuf:"bytes,1,opt,name=session" json:"session,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -56,39 +57,40 @@ func (x *CreateSessionResponse) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-func (x *CreateSessionResponse) GetPlaceholder() string {
-	if x != nil && x.Placeholder != nil {
-		return *x.Placeholder
+func (x *CreateSessionResponse) GetSession() *SessionData {
+	if x != nil {
+		return x.Session
 	}
-	return ""
+	return nil
 }
 
-func (x *CreateSessionResponse) SetPlaceholder(v string) {
-	x.Placeholder = &v
+func (x *CreateSessionResponse) SetSession(v *SessionData) {
+	x.Session = v
 }
 
-func (x *CreateSessionResponse) HasPlaceholder() bool {
+func (x *CreateSessionResponse) HasSession() bool {
 	if x == nil {
 		return false
 	}
-	return x.Placeholder != nil
+	return x.Session != nil
 }
 
-func (x *CreateSessionResponse) ClearPlaceholder() {
-	x.Placeholder = nil
+func (x *CreateSessionResponse) ClearSession() {
+	x.Session = nil
 }
 
 type CreateSessionResponse_builder struct {
 	_ [0]func() // Prevents comparability and use of unkeyed literals for the builder.
 
-	Placeholder *string
+	// Newly created session details
+	Session *SessionData
 }
 
 func (b0 CreateSessionResponse_builder) Build() *CreateSessionResponse {
 	m0 := &CreateSessionResponse{}
 	b, x := &b0, m0
 	_, _ = b, x
-	x.Placeholder = b.Placeholder
+	x.Session = b.Session
 	return m0
 }
 
@@ -96,21 +98,23 @@ var File_pkg_web_proto_responses_create_session_response_proto protoreflect.File
 
 const file_pkg_web_proto_responses_create_session_response_proto_rawDesc = "" +
 	"\n" +
-	"5pkg/web/proto/responses/create_session_response.proto\x12\x0egcommon.v1.web\x1a!google/protobuf/go_features.proto\"9\n" +
-	"\x15CreateSessionResponse\x12 \n" +
-	"\vplaceholder\x18\x01 \x01(\tR\vplaceholderB\xc1\x01\n" +
+	"5pkg/web/proto/responses/create_session_response.proto\x12\x0egcommon.v1.web\x1a!google/protobuf/go_features.proto\x1a)pkg/web/proto/messages/session_data.proto\"N\n" +
+	"\x15CreateSessionResponse\x125\n" +
+	"\asession\x18\x01 \x01(\v2\x1b.gcommon.v1.web.SessionDataR\asessionB\xc1\x01\n" +
 	"\x12com.gcommon.v1.webB\x1aCreateSessionResponseProtoP\x01Z-github.com/jdfalk/gcommon/pkg/web/proto;webpb\xa2\x02\x03GVW\xaa\x02\x0eGcommon.V1.Web\xca\x02\x0eGcommon\\V1\\Web\xe2\x02\x1aGcommon\\V1\\Web\\GPBMetadata\xea\x02\x10Gcommon::V1::Web\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
 
 var file_pkg_web_proto_responses_create_session_response_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_pkg_web_proto_responses_create_session_response_proto_goTypes = []any{
 	(*CreateSessionResponse)(nil), // 0: gcommon.v1.web.CreateSessionResponse
+	(*SessionData)(nil),           // 1: gcommon.v1.web.SessionData
 }
 var file_pkg_web_proto_responses_create_session_response_proto_depIdxs = []int32{
-	0, // [0:0] is the sub-list for method output_type
-	0, // [0:0] is the sub-list for method input_type
-	0, // [0:0] is the sub-list for extension type_name
-	0, // [0:0] is the sub-list for extension extendee
-	0, // [0:0] is the sub-list for field type_name
+	1, // 0: gcommon.v1.web.CreateSessionResponse.session:type_name -> gcommon.v1.web.SessionData
+	1, // [1:1] is the sub-list for method output_type
+	1, // [1:1] is the sub-list for method input_type
+	1, // [1:1] is the sub-list for extension type_name
+	1, // [1:1] is the sub-list for extension extendee
+	0, // [0:1] is the sub-list for field type_name
 }
 
 func init() { file_pkg_web_proto_responses_create_session_response_proto_init() }
@@ -118,6 +122,7 @@ func file_pkg_web_proto_responses_create_session_response_proto_init() {
 	if File_pkg_web_proto_responses_create_session_response_proto != nil {
 		return
 	}
+	file_pkg_web_proto_messages_session_data_proto_init()
 	type x struct{}
 	out := protoimpl.TypeBuilder{
 		File: protoimpl.DescBuilder{

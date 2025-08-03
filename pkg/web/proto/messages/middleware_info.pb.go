@@ -25,8 +25,15 @@ const (
 
 // MiddlewareInfo message definition.
 type MiddlewareInfo struct {
-	state         protoimpl.MessageState `protogen:"hybrid.v1"`
-	Placeholder   *string                `protobuf:"bytes,1,opt,name=placeholder" json:"placeholder,omitempty"`
+	state protoimpl.MessageState `protogen:"hybrid.v1"`
+	// Middleware identifier
+	Id *string `protobuf:"bytes,1,opt,name=id" json:"id,omitempty"`
+	// Middleware type
+	Type *MiddlewareType `protobuf:"varint,2,opt,name=type,enum=gcommon.v1.web.MiddlewareType" json:"type,omitempty"`
+	// Execution order priority
+	Order *int32 `protobuf:"varint,3,opt,name=order" json:"order,omitempty"`
+	// Arbitrary metadata for middleware
+	Metadata      map[string]string `protobuf:"bytes,4,rep,name=metadata" json:"metadata,omitempty" protobuf_key:"bytes,1,opt,name=key" protobuf_val:"bytes,2,opt,name=value"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -56,39 +63,104 @@ func (x *MiddlewareInfo) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-func (x *MiddlewareInfo) GetPlaceholder() string {
-	if x != nil && x.Placeholder != nil {
-		return *x.Placeholder
+func (x *MiddlewareInfo) GetId() string {
+	if x != nil && x.Id != nil {
+		return *x.Id
 	}
 	return ""
 }
 
-func (x *MiddlewareInfo) SetPlaceholder(v string) {
-	x.Placeholder = &v
+func (x *MiddlewareInfo) GetType() MiddlewareType {
+	if x != nil && x.Type != nil {
+		return *x.Type
+	}
+	return MiddlewareType_MIDDLEWARE_TYPE_UNSPECIFIED
 }
 
-func (x *MiddlewareInfo) HasPlaceholder() bool {
+func (x *MiddlewareInfo) GetOrder() int32 {
+	if x != nil && x.Order != nil {
+		return *x.Order
+	}
+	return 0
+}
+
+func (x *MiddlewareInfo) GetMetadata() map[string]string {
+	if x != nil {
+		return x.Metadata
+	}
+	return nil
+}
+
+func (x *MiddlewareInfo) SetId(v string) {
+	x.Id = &v
+}
+
+func (x *MiddlewareInfo) SetType(v MiddlewareType) {
+	x.Type = &v
+}
+
+func (x *MiddlewareInfo) SetOrder(v int32) {
+	x.Order = &v
+}
+
+func (x *MiddlewareInfo) SetMetadata(v map[string]string) {
+	x.Metadata = v
+}
+
+func (x *MiddlewareInfo) HasId() bool {
 	if x == nil {
 		return false
 	}
-	return x.Placeholder != nil
+	return x.Id != nil
 }
 
-func (x *MiddlewareInfo) ClearPlaceholder() {
-	x.Placeholder = nil
+func (x *MiddlewareInfo) HasType() bool {
+	if x == nil {
+		return false
+	}
+	return x.Type != nil
+}
+
+func (x *MiddlewareInfo) HasOrder() bool {
+	if x == nil {
+		return false
+	}
+	return x.Order != nil
+}
+
+func (x *MiddlewareInfo) ClearId() {
+	x.Id = nil
+}
+
+func (x *MiddlewareInfo) ClearType() {
+	x.Type = nil
+}
+
+func (x *MiddlewareInfo) ClearOrder() {
+	x.Order = nil
 }
 
 type MiddlewareInfo_builder struct {
 	_ [0]func() // Prevents comparability and use of unkeyed literals for the builder.
 
-	Placeholder *string
+	// Middleware identifier
+	Id *string
+	// Middleware type
+	Type *MiddlewareType
+	// Execution order priority
+	Order *int32
+	// Arbitrary metadata for middleware
+	Metadata map[string]string
 }
 
 func (b0 MiddlewareInfo_builder) Build() *MiddlewareInfo {
 	m0 := &MiddlewareInfo{}
 	b, x := &b0, m0
 	_, _ = b, x
-	x.Placeholder = b.Placeholder
+	x.Id = b.Id
+	x.Type = b.Type
+	x.Order = b.Order
+	x.Metadata = b.Metadata
 	return m0
 }
 
@@ -96,21 +168,31 @@ var File_pkg_web_proto_messages_middleware_info_proto protoreflect.FileDescripto
 
 const file_pkg_web_proto_messages_middleware_info_proto_rawDesc = "" +
 	"\n" +
-	",pkg/web/proto/messages/middleware_info.proto\x12\x0egcommon.v1.web\x1a!google/protobuf/go_features.proto\"2\n" +
-	"\x0eMiddlewareInfo\x12 \n" +
-	"\vplaceholder\x18\x01 \x01(\tR\vplaceholderB\xba\x01\n" +
+	",pkg/web/proto/messages/middleware_info.proto\x12\x0egcommon.v1.web\x1a!google/protobuf/go_features.proto\x1a)pkg/web/proto/enums/middleware_type.proto\"\xf1\x01\n" +
+	"\x0eMiddlewareInfo\x12\x0e\n" +
+	"\x02id\x18\x01 \x01(\tR\x02id\x122\n" +
+	"\x04type\x18\x02 \x01(\x0e2\x1e.gcommon.v1.web.MiddlewareTypeR\x04type\x12\x14\n" +
+	"\x05order\x18\x03 \x01(\x05R\x05order\x12H\n" +
+	"\bmetadata\x18\x04 \x03(\v2,.gcommon.v1.web.MiddlewareInfo.MetadataEntryR\bmetadata\x1a;\n" +
+	"\rMetadataEntry\x12\x10\n" +
+	"\x03key\x18\x01 \x01(\tR\x03key\x12\x14\n" +
+	"\x05value\x18\x02 \x01(\tR\x05value:\x028\x01B\xba\x01\n" +
 	"\x12com.gcommon.v1.webB\x13MiddlewareInfoProtoP\x01Z-github.com/jdfalk/gcommon/pkg/web/proto;webpb\xa2\x02\x03GVW\xaa\x02\x0eGcommon.V1.Web\xca\x02\x0eGcommon\\V1\\Web\xe2\x02\x1aGcommon\\V1\\Web\\GPBMetadata\xea\x02\x10Gcommon::V1::Web\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
 
-var file_pkg_web_proto_messages_middleware_info_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
+var file_pkg_web_proto_messages_middleware_info_proto_msgTypes = make([]protoimpl.MessageInfo, 2)
 var file_pkg_web_proto_messages_middleware_info_proto_goTypes = []any{
 	(*MiddlewareInfo)(nil), // 0: gcommon.v1.web.MiddlewareInfo
+	nil,                    // 1: gcommon.v1.web.MiddlewareInfo.MetadataEntry
+	(MiddlewareType)(0),    // 2: gcommon.v1.web.MiddlewareType
 }
 var file_pkg_web_proto_messages_middleware_info_proto_depIdxs = []int32{
-	0, // [0:0] is the sub-list for method output_type
-	0, // [0:0] is the sub-list for method input_type
-	0, // [0:0] is the sub-list for extension type_name
-	0, // [0:0] is the sub-list for extension extendee
-	0, // [0:0] is the sub-list for field type_name
+	2, // 0: gcommon.v1.web.MiddlewareInfo.type:type_name -> gcommon.v1.web.MiddlewareType
+	1, // 1: gcommon.v1.web.MiddlewareInfo.metadata:type_name -> gcommon.v1.web.MiddlewareInfo.MetadataEntry
+	2, // [2:2] is the sub-list for method output_type
+	2, // [2:2] is the sub-list for method input_type
+	2, // [2:2] is the sub-list for extension type_name
+	2, // [2:2] is the sub-list for extension extendee
+	0, // [0:2] is the sub-list for field type_name
 }
 
 func init() { file_pkg_web_proto_messages_middleware_info_proto_init() }
@@ -118,13 +200,14 @@ func file_pkg_web_proto_messages_middleware_info_proto_init() {
 	if File_pkg_web_proto_messages_middleware_info_proto != nil {
 		return
 	}
+	file_pkg_web_proto_enums_middleware_type_proto_init()
 	type x struct{}
 	out := protoimpl.TypeBuilder{
 		File: protoimpl.DescBuilder{
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: unsafe.Slice(unsafe.StringData(file_pkg_web_proto_messages_middleware_info_proto_rawDesc), len(file_pkg_web_proto_messages_middleware_info_proto_rawDesc)),
 			NumEnums:      0,
-			NumMessages:   1,
+			NumMessages:   2,
 			NumExtensions: 0,
 			NumServices:   0,
 		},

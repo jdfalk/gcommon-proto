@@ -9,6 +9,7 @@
 package metricspb
 
 import (
+	proto "github.com/jdfalk/gcommon/pkg/common/proto"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
@@ -23,20 +24,159 @@ const (
 	_ = protoimpl.EnforceVersion(protoimpl.MaxVersion - 20)
 )
 
+// *
+// RecordSummaryResponse returns updated summary stats.
+type RecordSummaryResponse struct {
+	state protoimpl.MessageState `protogen:"hybrid.v1"`
+	// Updated summary metric
+	Metric *SummaryMetric `protobuf:"bytes,1,opt,name=metric" json:"metric,omitempty"`
+	// Processing stats
+	Stats *RecordingStats `protobuf:"bytes,2,opt,name=stats" json:"stats,omitempty"`
+	// Error information
+	Error         *proto.Error `protobuf:"bytes,3,opt,name=error" json:"error,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *RecordSummaryResponse) Reset() {
+	*x = RecordSummaryResponse{}
+	mi := &file_pkg_metrics_proto_responses_record_summary_response_proto_msgTypes[0]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *RecordSummaryResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*RecordSummaryResponse) ProtoMessage() {}
+
+func (x *RecordSummaryResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_pkg_metrics_proto_responses_record_summary_response_proto_msgTypes[0]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+func (x *RecordSummaryResponse) GetMetric() *SummaryMetric {
+	if x != nil {
+		return x.Metric
+	}
+	return nil
+}
+
+func (x *RecordSummaryResponse) GetStats() *RecordingStats {
+	if x != nil {
+		return x.Stats
+	}
+	return nil
+}
+
+func (x *RecordSummaryResponse) GetError() *proto.Error {
+	if x != nil {
+		return x.Error
+	}
+	return nil
+}
+
+func (x *RecordSummaryResponse) SetMetric(v *SummaryMetric) {
+	x.Metric = v
+}
+
+func (x *RecordSummaryResponse) SetStats(v *RecordingStats) {
+	x.Stats = v
+}
+
+func (x *RecordSummaryResponse) SetError(v *proto.Error) {
+	x.Error = v
+}
+
+func (x *RecordSummaryResponse) HasMetric() bool {
+	if x == nil {
+		return false
+	}
+	return x.Metric != nil
+}
+
+func (x *RecordSummaryResponse) HasStats() bool {
+	if x == nil {
+		return false
+	}
+	return x.Stats != nil
+}
+
+func (x *RecordSummaryResponse) HasError() bool {
+	if x == nil {
+		return false
+	}
+	return x.Error != nil
+}
+
+func (x *RecordSummaryResponse) ClearMetric() {
+	x.Metric = nil
+}
+
+func (x *RecordSummaryResponse) ClearStats() {
+	x.Stats = nil
+}
+
+func (x *RecordSummaryResponse) ClearError() {
+	x.Error = nil
+}
+
+type RecordSummaryResponse_builder struct {
+	_ [0]func() // Prevents comparability and use of unkeyed literals for the builder.
+
+	// Updated summary metric
+	Metric *SummaryMetric
+	// Processing stats
+	Stats *RecordingStats
+	// Error information
+	Error *proto.Error
+}
+
+func (b0 RecordSummaryResponse_builder) Build() *RecordSummaryResponse {
+	m0 := &RecordSummaryResponse{}
+	b, x := &b0, m0
+	_, _ = b, x
+	x.Metric = b.Metric
+	x.Stats = b.Stats
+	x.Error = b.Error
+	return m0
+}
+
 var File_pkg_metrics_proto_responses_record_summary_response_proto protoreflect.FileDescriptor
 
 const file_pkg_metrics_proto_responses_record_summary_response_proto_rawDesc = "" +
 	"\n" +
-	"9pkg/metrics/proto/responses/record_summary_response.proto\x12\x12gcommon.v1.metrics\x1a!google/protobuf/go_features.protoB\xdd\x01\n" +
+	"9pkg/metrics/proto/responses/record_summary_response.proto\x12\x12gcommon.v1.metrics\x1a!google/protobuf/go_features.proto\x1a%pkg/common/proto/messages/error.proto\x1a/pkg/metrics/proto/messages/summary_metric.proto\x1a-pkg/metrics/proto/types/recording_stats.proto\"\xbc\x01\n" +
+	"\x15RecordSummaryResponse\x129\n" +
+	"\x06metric\x18\x01 \x01(\v2!.gcommon.v1.metrics.SummaryMetricR\x06metric\x128\n" +
+	"\x05stats\x18\x02 \x01(\v2\".gcommon.v1.metrics.RecordingStatsR\x05stats\x12.\n" +
+	"\x05error\x18\x03 \x01(\v2\x18.gcommon.v1.common.ErrorR\x05errorB\xdd\x01\n" +
 	"\x16com.gcommon.v1.metricsB\x1aRecordSummaryResponseProtoP\x01Z5github.com/jdfalk/gcommon/pkg/metrics/proto;metricspb\xa2\x02\x03GVM\xaa\x02\x12Gcommon.V1.Metrics\xca\x02\x12Gcommon\\V1\\Metrics\xe2\x02\x1eGcommon\\V1\\Metrics\\GPBMetadata\xea\x02\x14Gcommon::V1::Metrics\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
 
-var file_pkg_metrics_proto_responses_record_summary_response_proto_goTypes = []any{}
+var file_pkg_metrics_proto_responses_record_summary_response_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
+var file_pkg_metrics_proto_responses_record_summary_response_proto_goTypes = []any{
+	(*RecordSummaryResponse)(nil), // 0: gcommon.v1.metrics.RecordSummaryResponse
+	(*SummaryMetric)(nil),         // 1: gcommon.v1.metrics.SummaryMetric
+	(*RecordingStats)(nil),        // 2: gcommon.v1.metrics.RecordingStats
+	(*proto.Error)(nil),           // 3: gcommon.v1.common.Error
+}
 var file_pkg_metrics_proto_responses_record_summary_response_proto_depIdxs = []int32{
-	0, // [0:0] is the sub-list for method output_type
-	0, // [0:0] is the sub-list for method input_type
-	0, // [0:0] is the sub-list for extension type_name
-	0, // [0:0] is the sub-list for extension extendee
-	0, // [0:0] is the sub-list for field type_name
+	1, // 0: gcommon.v1.metrics.RecordSummaryResponse.metric:type_name -> gcommon.v1.metrics.SummaryMetric
+	2, // 1: gcommon.v1.metrics.RecordSummaryResponse.stats:type_name -> gcommon.v1.metrics.RecordingStats
+	3, // 2: gcommon.v1.metrics.RecordSummaryResponse.error:type_name -> gcommon.v1.common.Error
+	3, // [3:3] is the sub-list for method output_type
+	3, // [3:3] is the sub-list for method input_type
+	3, // [3:3] is the sub-list for extension type_name
+	3, // [3:3] is the sub-list for extension extendee
+	0, // [0:3] is the sub-list for field type_name
 }
 
 func init() { file_pkg_metrics_proto_responses_record_summary_response_proto_init() }
@@ -44,18 +184,21 @@ func file_pkg_metrics_proto_responses_record_summary_response_proto_init() {
 	if File_pkg_metrics_proto_responses_record_summary_response_proto != nil {
 		return
 	}
+	file_pkg_metrics_proto_messages_summary_metric_proto_init()
+	file_pkg_metrics_proto_types_recording_stats_proto_init()
 	type x struct{}
 	out := protoimpl.TypeBuilder{
 		File: protoimpl.DescBuilder{
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: unsafe.Slice(unsafe.StringData(file_pkg_metrics_proto_responses_record_summary_response_proto_rawDesc), len(file_pkg_metrics_proto_responses_record_summary_response_proto_rawDesc)),
 			NumEnums:      0,
-			NumMessages:   0,
+			NumMessages:   1,
 			NumExtensions: 0,
 			NumServices:   0,
 		},
 		GoTypes:           file_pkg_metrics_proto_responses_record_summary_response_proto_goTypes,
 		DependencyIndexes: file_pkg_metrics_proto_responses_record_summary_response_proto_depIdxs,
+		MessageInfos:      file_pkg_metrics_proto_responses_record_summary_response_proto_msgTypes,
 	}.Build()
 	File_pkg_metrics_proto_responses_record_summary_response_proto = out.File
 	file_pkg_metrics_proto_responses_record_summary_response_proto_goTypes = nil

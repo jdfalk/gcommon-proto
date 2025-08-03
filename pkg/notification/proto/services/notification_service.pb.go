@@ -27,38 +27,49 @@ var File_pkg_notification_proto_services_notification_service_proto protoreflect
 
 const file_pkg_notification_proto_services_notification_service_proto_rawDesc = "" +
 	"\n" +
-	":pkg/notification/proto/services/notification_service.proto\x12\x17gcommon.v1.notification\x1a!google/protobuf/go_features.proto\x1a?pkg/notification/proto/requests/send_notification_request.proto\x1aApkg/notification/proto/responses/send_notification_response.proto\x1a@pkg/notification/proto/requests/list_notifications_request.proto\x1aBpkg/notification/proto/responses/list_notifications_response.proto\x1a@pkg/notification/proto/requests/update_preferences_request.proto\x1aBpkg/notification/proto/responses/update_preferences_response.proto\x1a:pkg/notification/proto/requests/get_template_request.proto\x1a<pkg/notification/proto/responses/get_template_response.proto2\xd7\x03\n" +
+	":pkg/notification/proto/services/notification_service.proto\x12\x17gcommon.v1.notification\x1a!google/protobuf/go_features.proto\x1a?pkg/notification/proto/requests/send_notification_request.proto\x1aApkg/notification/proto/responses/send_notification_response.proto\x1a@pkg/notification/proto/requests/list_notifications_request.proto\x1aBpkg/notification/proto/responses/list_notifications_response.proto\x1a@pkg/notification/proto/requests/update_preferences_request.proto\x1aBpkg/notification/proto/responses/update_preferences_response.proto\x1a:pkg/notification/proto/requests/get_template_request.proto\x1a<pkg/notification/proto/responses/get_template_response.proto\x1a:pkg/notification/proto/requests/mark_as_read_request.proto\x1a<pkg/notification/proto/responses/mark_as_read_response.proto\x1aApkg/notification/proto/requests/delete_notification_request.proto\x1aCpkg/notification/proto/responses/delete_notification_response.proto2\xb1\x05\n" +
 	"\x13NotificationService\x12k\n" +
 	"\x04Send\x120.gcommon.v1.notification.SendNotificationRequest\x1a1.gcommon.v1.notification.SendNotificationResponse\x12m\n" +
 	"\x04List\x121.gcommon.v1.notification.ListNotificationsRequest\x1a2.gcommon.v1.notification.ListNotificationsResponse\x12z\n" +
 	"\x11UpdatePreferences\x121.gcommon.v1.notification.UpdatePreferencesRequest\x1a2.gcommon.v1.notification.UpdatePreferencesResponse\x12h\n" +
-	"\vGetTemplate\x12+.gcommon.v1.notification.GetTemplateRequest\x1a,.gcommon.v1.notification.GetTemplateResponseB\xfe\x01\n" +
+	"\vGetTemplate\x12+.gcommon.v1.notification.GetTemplateRequest\x1a,.gcommon.v1.notification.GetTemplateResponse\x12e\n" +
+	"\n" +
+	"MarkAsRead\x12*.gcommon.v1.notification.MarkAsReadRequest\x1a+.gcommon.v1.notification.MarkAsReadResponse\x12q\n" +
+	"\x06Delete\x122.gcommon.v1.notification.DeleteNotificationRequest\x1a3.gcommon.v1.notification.DeleteNotificationResponseB\xfe\x01\n" +
 	"\x1bcom.gcommon.v1.notificationB\x18NotificationServiceProtoP\x01Z?github.com/jdfalk/gcommon/pkg/notification/proto;notificationpb\xa2\x02\x03GVN\xaa\x02\x17Gcommon.V1.Notification\xca\x02\x17Gcommon\\V1\\Notification\xe2\x02#Gcommon\\V1\\Notification\\GPBMetadata\xea\x02\x19Gcommon::V1::Notification\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
 
 var file_pkg_notification_proto_services_notification_service_proto_goTypes = []any{
-	(*SendNotificationRequest)(nil),   // 0: gcommon.v1.notification.SendNotificationRequest
-	(*ListNotificationsRequest)(nil),  // 1: gcommon.v1.notification.ListNotificationsRequest
-	(*UpdatePreferencesRequest)(nil),  // 2: gcommon.v1.notification.UpdatePreferencesRequest
-	(*GetTemplateRequest)(nil),        // 3: gcommon.v1.notification.GetTemplateRequest
-	(*SendNotificationResponse)(nil),  // 4: gcommon.v1.notification.SendNotificationResponse
-	(*ListNotificationsResponse)(nil), // 5: gcommon.v1.notification.ListNotificationsResponse
-	(*UpdatePreferencesResponse)(nil), // 6: gcommon.v1.notification.UpdatePreferencesResponse
-	(*GetTemplateResponse)(nil),       // 7: gcommon.v1.notification.GetTemplateResponse
+	(*SendNotificationRequest)(nil),    // 0: gcommon.v1.notification.SendNotificationRequest
+	(*ListNotificationsRequest)(nil),   // 1: gcommon.v1.notification.ListNotificationsRequest
+	(*UpdatePreferencesRequest)(nil),   // 2: gcommon.v1.notification.UpdatePreferencesRequest
+	(*GetTemplateRequest)(nil),         // 3: gcommon.v1.notification.GetTemplateRequest
+	(*MarkAsReadRequest)(nil),          // 4: gcommon.v1.notification.MarkAsReadRequest
+	(*DeleteNotificationRequest)(nil),  // 5: gcommon.v1.notification.DeleteNotificationRequest
+	(*SendNotificationResponse)(nil),   // 6: gcommon.v1.notification.SendNotificationResponse
+	(*ListNotificationsResponse)(nil),  // 7: gcommon.v1.notification.ListNotificationsResponse
+	(*UpdatePreferencesResponse)(nil),  // 8: gcommon.v1.notification.UpdatePreferencesResponse
+	(*GetTemplateResponse)(nil),        // 9: gcommon.v1.notification.GetTemplateResponse
+	(*MarkAsReadResponse)(nil),         // 10: gcommon.v1.notification.MarkAsReadResponse
+	(*DeleteNotificationResponse)(nil), // 11: gcommon.v1.notification.DeleteNotificationResponse
 }
 var file_pkg_notification_proto_services_notification_service_proto_depIdxs = []int32{
-	0, // 0: gcommon.v1.notification.NotificationService.Send:input_type -> gcommon.v1.notification.SendNotificationRequest
-	1, // 1: gcommon.v1.notification.NotificationService.List:input_type -> gcommon.v1.notification.ListNotificationsRequest
-	2, // 2: gcommon.v1.notification.NotificationService.UpdatePreferences:input_type -> gcommon.v1.notification.UpdatePreferencesRequest
-	3, // 3: gcommon.v1.notification.NotificationService.GetTemplate:input_type -> gcommon.v1.notification.GetTemplateRequest
-	4, // 4: gcommon.v1.notification.NotificationService.Send:output_type -> gcommon.v1.notification.SendNotificationResponse
-	5, // 5: gcommon.v1.notification.NotificationService.List:output_type -> gcommon.v1.notification.ListNotificationsResponse
-	6, // 6: gcommon.v1.notification.NotificationService.UpdatePreferences:output_type -> gcommon.v1.notification.UpdatePreferencesResponse
-	7, // 7: gcommon.v1.notification.NotificationService.GetTemplate:output_type -> gcommon.v1.notification.GetTemplateResponse
-	4, // [4:8] is the sub-list for method output_type
-	0, // [0:4] is the sub-list for method input_type
-	0, // [0:0] is the sub-list for extension type_name
-	0, // [0:0] is the sub-list for extension extendee
-	0, // [0:0] is the sub-list for field type_name
+	0,  // 0: gcommon.v1.notification.NotificationService.Send:input_type -> gcommon.v1.notification.SendNotificationRequest
+	1,  // 1: gcommon.v1.notification.NotificationService.List:input_type -> gcommon.v1.notification.ListNotificationsRequest
+	2,  // 2: gcommon.v1.notification.NotificationService.UpdatePreferences:input_type -> gcommon.v1.notification.UpdatePreferencesRequest
+	3,  // 3: gcommon.v1.notification.NotificationService.GetTemplate:input_type -> gcommon.v1.notification.GetTemplateRequest
+	4,  // 4: gcommon.v1.notification.NotificationService.MarkAsRead:input_type -> gcommon.v1.notification.MarkAsReadRequest
+	5,  // 5: gcommon.v1.notification.NotificationService.Delete:input_type -> gcommon.v1.notification.DeleteNotificationRequest
+	6,  // 6: gcommon.v1.notification.NotificationService.Send:output_type -> gcommon.v1.notification.SendNotificationResponse
+	7,  // 7: gcommon.v1.notification.NotificationService.List:output_type -> gcommon.v1.notification.ListNotificationsResponse
+	8,  // 8: gcommon.v1.notification.NotificationService.UpdatePreferences:output_type -> gcommon.v1.notification.UpdatePreferencesResponse
+	9,  // 9: gcommon.v1.notification.NotificationService.GetTemplate:output_type -> gcommon.v1.notification.GetTemplateResponse
+	10, // 10: gcommon.v1.notification.NotificationService.MarkAsRead:output_type -> gcommon.v1.notification.MarkAsReadResponse
+	11, // 11: gcommon.v1.notification.NotificationService.Delete:output_type -> gcommon.v1.notification.DeleteNotificationResponse
+	6,  // [6:12] is the sub-list for method output_type
+	0,  // [0:6] is the sub-list for method input_type
+	0,  // [0:0] is the sub-list for extension type_name
+	0,  // [0:0] is the sub-list for extension extendee
+	0,  // [0:0] is the sub-list for field type_name
 }
 
 func init() { file_pkg_notification_proto_services_notification_service_proto_init() }
@@ -74,6 +85,10 @@ func file_pkg_notification_proto_services_notification_service_proto_init() {
 	file_pkg_notification_proto_responses_update_preferences_response_proto_init()
 	file_pkg_notification_proto_requests_get_template_request_proto_init()
 	file_pkg_notification_proto_responses_get_template_response_proto_init()
+	file_pkg_notification_proto_requests_mark_as_read_request_proto_init()
+	file_pkg_notification_proto_responses_mark_as_read_response_proto_init()
+	file_pkg_notification_proto_requests_delete_notification_request_proto_init()
+	file_pkg_notification_proto_responses_delete_notification_response_proto_init()
 	type x struct{}
 	out := protoimpl.TypeBuilder{
 		File: protoimpl.DescBuilder{

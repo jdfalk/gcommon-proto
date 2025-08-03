@@ -25,8 +25,9 @@ const (
 
 // ListSessionsResponse response definition.
 type ListSessionsResponse struct {
-	state         protoimpl.MessageState `protogen:"hybrid.v1"`
-	Placeholder   *string                `protobuf:"bytes,1,opt,name=placeholder" json:"placeholder,omitempty"`
+	state protoimpl.MessageState `protogen:"hybrid.v1"`
+	// List of active sessions
+	Sessions      []*SessionData `protobuf:"bytes,1,rep,name=sessions" json:"sessions,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -56,39 +57,29 @@ func (x *ListSessionsResponse) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-func (x *ListSessionsResponse) GetPlaceholder() string {
-	if x != nil && x.Placeholder != nil {
-		return *x.Placeholder
+func (x *ListSessionsResponse) GetSessions() []*SessionData {
+	if x != nil {
+		return x.Sessions
 	}
-	return ""
+	return nil
 }
 
-func (x *ListSessionsResponse) SetPlaceholder(v string) {
-	x.Placeholder = &v
-}
-
-func (x *ListSessionsResponse) HasPlaceholder() bool {
-	if x == nil {
-		return false
-	}
-	return x.Placeholder != nil
-}
-
-func (x *ListSessionsResponse) ClearPlaceholder() {
-	x.Placeholder = nil
+func (x *ListSessionsResponse) SetSessions(v []*SessionData) {
+	x.Sessions = v
 }
 
 type ListSessionsResponse_builder struct {
 	_ [0]func() // Prevents comparability and use of unkeyed literals for the builder.
 
-	Placeholder *string
+	// List of active sessions
+	Sessions []*SessionData
 }
 
 func (b0 ListSessionsResponse_builder) Build() *ListSessionsResponse {
 	m0 := &ListSessionsResponse{}
 	b, x := &b0, m0
 	_, _ = b, x
-	x.Placeholder = b.Placeholder
+	x.Sessions = b.Sessions
 	return m0
 }
 
@@ -96,21 +87,23 @@ var File_pkg_web_proto_responses_list_sessions_response_proto protoreflect.FileD
 
 const file_pkg_web_proto_responses_list_sessions_response_proto_rawDesc = "" +
 	"\n" +
-	"4pkg/web/proto/responses/list_sessions_response.proto\x12\x0egcommon.v1.web\x1a!google/protobuf/go_features.proto\"8\n" +
-	"\x14ListSessionsResponse\x12 \n" +
-	"\vplaceholder\x18\x01 \x01(\tR\vplaceholderB\xc0\x01\n" +
+	"4pkg/web/proto/responses/list_sessions_response.proto\x12\x0egcommon.v1.web\x1a!google/protobuf/go_features.proto\x1a)pkg/web/proto/messages/session_data.proto\"O\n" +
+	"\x14ListSessionsResponse\x127\n" +
+	"\bsessions\x18\x01 \x03(\v2\x1b.gcommon.v1.web.SessionDataR\bsessionsB\xc0\x01\n" +
 	"\x12com.gcommon.v1.webB\x19ListSessionsResponseProtoP\x01Z-github.com/jdfalk/gcommon/pkg/web/proto;webpb\xa2\x02\x03GVW\xaa\x02\x0eGcommon.V1.Web\xca\x02\x0eGcommon\\V1\\Web\xe2\x02\x1aGcommon\\V1\\Web\\GPBMetadata\xea\x02\x10Gcommon::V1::Web\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
 
 var file_pkg_web_proto_responses_list_sessions_response_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_pkg_web_proto_responses_list_sessions_response_proto_goTypes = []any{
 	(*ListSessionsResponse)(nil), // 0: gcommon.v1.web.ListSessionsResponse
+	(*SessionData)(nil),          // 1: gcommon.v1.web.SessionData
 }
 var file_pkg_web_proto_responses_list_sessions_response_proto_depIdxs = []int32{
-	0, // [0:0] is the sub-list for method output_type
-	0, // [0:0] is the sub-list for method input_type
-	0, // [0:0] is the sub-list for extension type_name
-	0, // [0:0] is the sub-list for extension extendee
-	0, // [0:0] is the sub-list for field type_name
+	1, // 0: gcommon.v1.web.ListSessionsResponse.sessions:type_name -> gcommon.v1.web.SessionData
+	1, // [1:1] is the sub-list for method output_type
+	1, // [1:1] is the sub-list for method input_type
+	1, // [1:1] is the sub-list for extension type_name
+	1, // [1:1] is the sub-list for extension extendee
+	0, // [0:1] is the sub-list for field type_name
 }
 
 func init() { file_pkg_web_proto_responses_list_sessions_response_proto_init() }
@@ -118,6 +111,7 @@ func file_pkg_web_proto_responses_list_sessions_response_proto_init() {
 	if File_pkg_web_proto_responses_list_sessions_response_proto != nil {
 		return
 	}
+	file_pkg_web_proto_messages_session_data_proto_init()
 	type x struct{}
 	out := protoimpl.TypeBuilder{
 		File: protoimpl.DescBuilder{

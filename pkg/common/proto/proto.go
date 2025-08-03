@@ -15,6 +15,7 @@ type (
 	RateLimit        = commonpb_messages.RateLimit
 	RequestMetadata  = commonpb_messages.RequestMetadata
 	ResponseMetadata = commonpb_messages.ResponseMetadata
+	Error            = commonpb_messages.Error
 	ErrorInfo        = commonpb_messages.ErrorInfo
 	AuditLog         = commonpb_messages.AuditLog
 	ServiceInfo      = commonpb_messages.ServiceInfo

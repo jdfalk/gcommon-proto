@@ -13,6 +13,7 @@ import (
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
+	fieldmaskpb "google.golang.org/protobuf/types/known/fieldmaskpb"
 	reflect "reflect"
 	unsafe "unsafe"
 )
@@ -24,11 +25,18 @@ const (
 	_ = protoimpl.EnforceVersion(protoimpl.MaxVersion - 20)
 )
 
-// TODO: Implement update_department_request message
 type UpdateDepartmentRequest struct {
 	state protoimpl.MessageState `protogen:"hybrid.v1"`
 	// Request metadata for tracing and context
-	Metadata      *proto.RequestMetadata `protobuf:"bytes,1,opt,name=metadata" json:"metadata,omitempty"`
+	Metadata *proto.RequestMetadata `protobuf:"bytes,1,opt,name=metadata" json:"metadata,omitempty"`
+	// Department identifier to update
+	DepartmentId *string `protobuf:"bytes,2,opt,name=department_id,json=departmentId" json:"department_id,omitempty"`
+	// Updated department information
+	Department *Department `protobuf:"bytes,3,opt,name=department" json:"department,omitempty"`
+	// Fields to update in partial mode
+	UpdateMask *fieldmaskpb.FieldMask `protobuf:"bytes,4,opt,name=update_mask,json=updateMask" json:"update_mask,omitempty"`
+	// Validate only without persisting if true
+	ValidateOnly  *bool `protobuf:"varint,5,opt,name=validate_only,json=validateOnly" json:"validate_only,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -65,8 +73,52 @@ func (x *UpdateDepartmentRequest) GetMetadata() *proto.RequestMetadata {
 	return nil
 }
 
+func (x *UpdateDepartmentRequest) GetDepartmentId() string {
+	if x != nil && x.DepartmentId != nil {
+		return *x.DepartmentId
+	}
+	return ""
+}
+
+func (x *UpdateDepartmentRequest) GetDepartment() *Department {
+	if x != nil {
+		return x.Department
+	}
+	return nil
+}
+
+func (x *UpdateDepartmentRequest) GetUpdateMask() *fieldmaskpb.FieldMask {
+	if x != nil {
+		return x.UpdateMask
+	}
+	return nil
+}
+
+func (x *UpdateDepartmentRequest) GetValidateOnly() bool {
+	if x != nil && x.ValidateOnly != nil {
+		return *x.ValidateOnly
+	}
+	return false
+}
+
 func (x *UpdateDepartmentRequest) SetMetadata(v *proto.RequestMetadata) {
 	x.Metadata = v
+}
+
+func (x *UpdateDepartmentRequest) SetDepartmentId(v string) {
+	x.DepartmentId = &v
+}
+
+func (x *UpdateDepartmentRequest) SetDepartment(v *Department) {
+	x.Department = v
+}
+
+func (x *UpdateDepartmentRequest) SetUpdateMask(v *fieldmaskpb.FieldMask) {
+	x.UpdateMask = v
+}
+
+func (x *UpdateDepartmentRequest) SetValidateOnly(v bool) {
+	x.ValidateOnly = &v
 }
 
 func (x *UpdateDepartmentRequest) HasMetadata() bool {
@@ -76,8 +128,52 @@ func (x *UpdateDepartmentRequest) HasMetadata() bool {
 	return x.Metadata != nil
 }
 
+func (x *UpdateDepartmentRequest) HasDepartmentId() bool {
+	if x == nil {
+		return false
+	}
+	return x.DepartmentId != nil
+}
+
+func (x *UpdateDepartmentRequest) HasDepartment() bool {
+	if x == nil {
+		return false
+	}
+	return x.Department != nil
+}
+
+func (x *UpdateDepartmentRequest) HasUpdateMask() bool {
+	if x == nil {
+		return false
+	}
+	return x.UpdateMask != nil
+}
+
+func (x *UpdateDepartmentRequest) HasValidateOnly() bool {
+	if x == nil {
+		return false
+	}
+	return x.ValidateOnly != nil
+}
+
 func (x *UpdateDepartmentRequest) ClearMetadata() {
 	x.Metadata = nil
+}
+
+func (x *UpdateDepartmentRequest) ClearDepartmentId() {
+	x.DepartmentId = nil
+}
+
+func (x *UpdateDepartmentRequest) ClearDepartment() {
+	x.Department = nil
+}
+
+func (x *UpdateDepartmentRequest) ClearUpdateMask() {
+	x.UpdateMask = nil
+}
+
+func (x *UpdateDepartmentRequest) ClearValidateOnly() {
+	x.ValidateOnly = nil
 }
 
 type UpdateDepartmentRequest_builder struct {
@@ -85,6 +181,14 @@ type UpdateDepartmentRequest_builder struct {
 
 	// Request metadata for tracing and context
 	Metadata *proto.RequestMetadata
+	// Department identifier to update
+	DepartmentId *string
+	// Updated department information
+	Department *Department
+	// Fields to update in partial mode
+	UpdateMask *fieldmaskpb.FieldMask
+	// Validate only without persisting if true
+	ValidateOnly *bool
 }
 
 func (b0 UpdateDepartmentRequest_builder) Build() *UpdateDepartmentRequest {
@@ -92,6 +196,10 @@ func (b0 UpdateDepartmentRequest_builder) Build() *UpdateDepartmentRequest {
 	b, x := &b0, m0
 	_, _ = b, x
 	x.Metadata = b.Metadata
+	x.DepartmentId = b.DepartmentId
+	x.Department = b.Department
+	x.UpdateMask = b.UpdateMask
+	x.ValidateOnly = b.ValidateOnly
 	return m0
 }
 
@@ -99,23 +207,34 @@ var File_pkg_organization_proto_requests_update_department_request_proto protore
 
 const file_pkg_organization_proto_requests_update_department_request_proto_rawDesc = "" +
 	"\n" +
-	"?pkg/organization/proto/requests/update_department_request.proto\x12\x17gcommon.v1.organization\x1a!google/protobuf/go_features.proto\x1a0pkg/common/proto/messages/request_metadata.proto\"Y\n" +
+	"?pkg/organization/proto/requests/update_department_request.proto\x12\x17gcommon.v1.organization\x1a!google/protobuf/go_features.proto\x1a0pkg/common/proto/messages/request_metadata.proto\x1a google/protobuf/field_mask.proto\x1a0pkg/organization/proto/messages/department.proto\"\xa5\x02\n" +
 	"\x17UpdateDepartmentRequest\x12>\n" +
-	"\bmetadata\x18\x01 \x01(\v2\".gcommon.v1.common.RequestMetadataR\bmetadataB\x82\x02\n" +
+	"\bmetadata\x18\x01 \x01(\v2\".gcommon.v1.common.RequestMetadataR\bmetadata\x12#\n" +
+	"\rdepartment_id\x18\x02 \x01(\tR\fdepartmentId\x12C\n" +
+	"\n" +
+	"department\x18\x03 \x01(\v2#.gcommon.v1.organization.DepartmentR\n" +
+	"department\x12;\n" +
+	"\vupdate_mask\x18\x04 \x01(\v2\x1a.google.protobuf.FieldMaskR\n" +
+	"updateMask\x12#\n" +
+	"\rvalidate_only\x18\x05 \x01(\bR\fvalidateOnlyB\x82\x02\n" +
 	"\x1bcom.gcommon.v1.organizationB\x1cUpdateDepartmentRequestProtoP\x01Z?github.com/jdfalk/gcommon/pkg/organization/proto;organizationpb\xa2\x02\x03GVO\xaa\x02\x17Gcommon.V1.Organization\xca\x02\x17Gcommon\\V1\\Organization\xe2\x02#Gcommon\\V1\\Organization\\GPBMetadata\xea\x02\x19Gcommon::V1::Organization\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
 
 var file_pkg_organization_proto_requests_update_department_request_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_pkg_organization_proto_requests_update_department_request_proto_goTypes = []any{
 	(*UpdateDepartmentRequest)(nil), // 0: gcommon.v1.organization.UpdateDepartmentRequest
 	(*proto.RequestMetadata)(nil),   // 1: gcommon.v1.common.RequestMetadata
+	(*Department)(nil),              // 2: gcommon.v1.organization.Department
+	(*fieldmaskpb.FieldMask)(nil),   // 3: google.protobuf.FieldMask
 }
 var file_pkg_organization_proto_requests_update_department_request_proto_depIdxs = []int32{
 	1, // 0: gcommon.v1.organization.UpdateDepartmentRequest.metadata:type_name -> gcommon.v1.common.RequestMetadata
-	1, // [1:1] is the sub-list for method output_type
-	1, // [1:1] is the sub-list for method input_type
-	1, // [1:1] is the sub-list for extension type_name
-	1, // [1:1] is the sub-list for extension extendee
-	0, // [0:1] is the sub-list for field type_name
+	2, // 1: gcommon.v1.organization.UpdateDepartmentRequest.department:type_name -> gcommon.v1.organization.Department
+	3, // 2: gcommon.v1.organization.UpdateDepartmentRequest.update_mask:type_name -> google.protobuf.FieldMask
+	3, // [3:3] is the sub-list for method output_type
+	3, // [3:3] is the sub-list for method input_type
+	3, // [3:3] is the sub-list for extension type_name
+	3, // [3:3] is the sub-list for extension extendee
+	0, // [0:3] is the sub-list for field type_name
 }
 
 func init() { file_pkg_organization_proto_requests_update_department_request_proto_init() }
@@ -123,6 +242,7 @@ func file_pkg_organization_proto_requests_update_department_request_proto_init()
 	if File_pkg_organization_proto_requests_update_department_request_proto != nil {
 		return
 	}
+	file_pkg_organization_proto_messages_department_proto_init()
 	type x struct{}
 	out := protoimpl.TypeBuilder{
 		File: protoimpl.DescBuilder{

@@ -24,13 +24,14 @@ const (
 	_ = protoimpl.EnforceVersion(protoimpl.MaxVersion - 20)
 )
 
-// TODO: Implement update_tenant_quota_response message
 type UpdateTenantQuotaResponse struct {
 	state protoimpl.MessageState `protogen:"hybrid.v1"`
 	// Any errors encountered
 	Errors []*proto.Error `protobuf:"bytes,1,rep,name=errors" json:"errors,omitempty"`
 	// Success status
-	Success       *bool `protobuf:"varint,2,opt,name=success" json:"success,omitempty"`
+	Success *bool `protobuf:"varint,2,opt,name=success" json:"success,omitempty"`
+	// Updated quota configuration
+	Quota         *TenantQuota `protobuf:"bytes,3,opt,name=quota" json:"quota,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -74,12 +75,23 @@ func (x *UpdateTenantQuotaResponse) GetSuccess() bool {
 	return false
 }
 
+func (x *UpdateTenantQuotaResponse) GetQuota() *TenantQuota {
+	if x != nil {
+		return x.Quota
+	}
+	return nil
+}
+
 func (x *UpdateTenantQuotaResponse) SetErrors(v []*proto.Error) {
 	x.Errors = v
 }
 
 func (x *UpdateTenantQuotaResponse) SetSuccess(v bool) {
 	x.Success = &v
+}
+
+func (x *UpdateTenantQuotaResponse) SetQuota(v *TenantQuota) {
+	x.Quota = v
 }
 
 func (x *UpdateTenantQuotaResponse) HasSuccess() bool {
@@ -89,8 +101,19 @@ func (x *UpdateTenantQuotaResponse) HasSuccess() bool {
 	return x.Success != nil
 }
 
+func (x *UpdateTenantQuotaResponse) HasQuota() bool {
+	if x == nil {
+		return false
+	}
+	return x.Quota != nil
+}
+
 func (x *UpdateTenantQuotaResponse) ClearSuccess() {
 	x.Success = nil
+}
+
+func (x *UpdateTenantQuotaResponse) ClearQuota() {
+	x.Quota = nil
 }
 
 type UpdateTenantQuotaResponse_builder struct {
@@ -100,6 +123,8 @@ type UpdateTenantQuotaResponse_builder struct {
 	Errors []*proto.Error
 	// Success status
 	Success *bool
+	// Updated quota configuration
+	Quota *TenantQuota
 }
 
 func (b0 UpdateTenantQuotaResponse_builder) Build() *UpdateTenantQuotaResponse {
@@ -108,6 +133,7 @@ func (b0 UpdateTenantQuotaResponse_builder) Build() *UpdateTenantQuotaResponse {
 	_, _ = b, x
 	x.Errors = b.Errors
 	x.Success = b.Success
+	x.Quota = b.Quota
 	return m0
 }
 
@@ -115,24 +141,27 @@ var File_pkg_organization_proto_responses_update_tenant_quota_response_proto pro
 
 const file_pkg_organization_proto_responses_update_tenant_quota_response_proto_rawDesc = "" +
 	"\n" +
-	"Cpkg/organization/proto/responses/update_tenant_quota_response.proto\x12\x17gcommon.v1.organization\x1a!google/protobuf/go_features.proto\x1a%pkg/common/proto/messages/error.proto\"g\n" +
+	"Cpkg/organization/proto/responses/update_tenant_quota_response.proto\x12\x17gcommon.v1.organization\x1a!google/protobuf/go_features.proto\x1a%pkg/common/proto/messages/error.proto\x1a,pkg/organization/proto/messages/tenant.proto\"\xa3\x01\n" +
 	"\x19UpdateTenantQuotaResponse\x120\n" +
 	"\x06errors\x18\x01 \x03(\v2\x18.gcommon.v1.common.ErrorR\x06errors\x12\x18\n" +
-	"\asuccess\x18\x02 \x01(\bR\asuccessB\x84\x02\n" +
+	"\asuccess\x18\x02 \x01(\bR\asuccess\x12:\n" +
+	"\x05quota\x18\x03 \x01(\v2$.gcommon.v1.organization.TenantQuotaR\x05quotaB\x84\x02\n" +
 	"\x1bcom.gcommon.v1.organizationB\x1eUpdateTenantQuotaResponseProtoP\x01Z?github.com/jdfalk/gcommon/pkg/organization/proto;organizationpb\xa2\x02\x03GVO\xaa\x02\x17Gcommon.V1.Organization\xca\x02\x17Gcommon\\V1\\Organization\xe2\x02#Gcommon\\V1\\Organization\\GPBMetadata\xea\x02\x19Gcommon::V1::Organization\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
 
 var file_pkg_organization_proto_responses_update_tenant_quota_response_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_pkg_organization_proto_responses_update_tenant_quota_response_proto_goTypes = []any{
 	(*UpdateTenantQuotaResponse)(nil), // 0: gcommon.v1.organization.UpdateTenantQuotaResponse
 	(*proto.Error)(nil),               // 1: gcommon.v1.common.Error
+	(*TenantQuota)(nil),               // 2: gcommon.v1.organization.TenantQuota
 }
 var file_pkg_organization_proto_responses_update_tenant_quota_response_proto_depIdxs = []int32{
 	1, // 0: gcommon.v1.organization.UpdateTenantQuotaResponse.errors:type_name -> gcommon.v1.common.Error
-	1, // [1:1] is the sub-list for method output_type
-	1, // [1:1] is the sub-list for method input_type
-	1, // [1:1] is the sub-list for extension type_name
-	1, // [1:1] is the sub-list for extension extendee
-	0, // [0:1] is the sub-list for field type_name
+	2, // 1: gcommon.v1.organization.UpdateTenantQuotaResponse.quota:type_name -> gcommon.v1.organization.TenantQuota
+	2, // [2:2] is the sub-list for method output_type
+	2, // [2:2] is the sub-list for method input_type
+	2, // [2:2] is the sub-list for extension type_name
+	2, // [2:2] is the sub-list for extension extendee
+	0, // [0:2] is the sub-list for field type_name
 }
 
 func init() { file_pkg_organization_proto_responses_update_tenant_quota_response_proto_init() }
@@ -140,6 +169,7 @@ func file_pkg_organization_proto_responses_update_tenant_quota_response_proto_in
 	if File_pkg_organization_proto_responses_update_tenant_quota_response_proto != nil {
 		return
 	}
+	file_pkg_organization_proto_messages_tenant_proto_init()
 	type x struct{}
 	out := protoimpl.TypeBuilder{
 		File: protoimpl.DescBuilder{

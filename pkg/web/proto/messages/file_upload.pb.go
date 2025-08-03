@@ -25,8 +25,15 @@ const (
 
 // FileUpload message definition.
 type FileUpload struct {
-	state         protoimpl.MessageState `protogen:"hybrid.v1"`
-	Placeholder   *string                `protobuf:"bytes,1,opt,name=placeholder" json:"placeholder,omitempty"`
+	state protoimpl.MessageState `protogen:"hybrid.v1"`
+	// Name of the uploaded file
+	FileName *string `protobuf:"bytes,1,opt,name=file_name,json=fileName" json:"file_name,omitempty"`
+	// MIME type of the file
+	ContentType *MimeType `protobuf:"bytes,2,opt,name=content_type,json=contentType" json:"content_type,omitempty"`
+	// Raw file bytes
+	Data []byte `protobuf:"bytes,3,opt,name=data" json:"data,omitempty"`
+	// Destination path on server
+	Destination   *string `protobuf:"bytes,4,opt,name=destination" json:"destination,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -56,39 +63,118 @@ func (x *FileUpload) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-func (x *FileUpload) GetPlaceholder() string {
-	if x != nil && x.Placeholder != nil {
-		return *x.Placeholder
+func (x *FileUpload) GetFileName() string {
+	if x != nil && x.FileName != nil {
+		return *x.FileName
 	}
 	return ""
 }
 
-func (x *FileUpload) SetPlaceholder(v string) {
-	x.Placeholder = &v
+func (x *FileUpload) GetContentType() *MimeType {
+	if x != nil {
+		return x.ContentType
+	}
+	return nil
 }
 
-func (x *FileUpload) HasPlaceholder() bool {
+func (x *FileUpload) GetData() []byte {
+	if x != nil {
+		return x.Data
+	}
+	return nil
+}
+
+func (x *FileUpload) GetDestination() string {
+	if x != nil && x.Destination != nil {
+		return *x.Destination
+	}
+	return ""
+}
+
+func (x *FileUpload) SetFileName(v string) {
+	x.FileName = &v
+}
+
+func (x *FileUpload) SetContentType(v *MimeType) {
+	x.ContentType = v
+}
+
+func (x *FileUpload) SetData(v []byte) {
+	if v == nil {
+		v = []byte{}
+	}
+	x.Data = v
+}
+
+func (x *FileUpload) SetDestination(v string) {
+	x.Destination = &v
+}
+
+func (x *FileUpload) HasFileName() bool {
 	if x == nil {
 		return false
 	}
-	return x.Placeholder != nil
+	return x.FileName != nil
 }
 
-func (x *FileUpload) ClearPlaceholder() {
-	x.Placeholder = nil
+func (x *FileUpload) HasContentType() bool {
+	if x == nil {
+		return false
+	}
+	return x.ContentType != nil
+}
+
+func (x *FileUpload) HasData() bool {
+	if x == nil {
+		return false
+	}
+	return x.Data != nil
+}
+
+func (x *FileUpload) HasDestination() bool {
+	if x == nil {
+		return false
+	}
+	return x.Destination != nil
+}
+
+func (x *FileUpload) ClearFileName() {
+	x.FileName = nil
+}
+
+func (x *FileUpload) ClearContentType() {
+	x.ContentType = nil
+}
+
+func (x *FileUpload) ClearData() {
+	x.Data = nil
+}
+
+func (x *FileUpload) ClearDestination() {
+	x.Destination = nil
 }
 
 type FileUpload_builder struct {
 	_ [0]func() // Prevents comparability and use of unkeyed literals for the builder.
 
-	Placeholder *string
+	// Name of the uploaded file
+	FileName *string
+	// MIME type of the file
+	ContentType *MimeType
+	// Raw file bytes
+	Data []byte
+	// Destination path on server
+	Destination *string
 }
 
 func (b0 FileUpload_builder) Build() *FileUpload {
 	m0 := &FileUpload{}
 	b, x := &b0, m0
 	_, _ = b, x
-	x.Placeholder = b.Placeholder
+	x.FileName = b.FileName
+	x.ContentType = b.ContentType
+	x.Data = b.Data
+	x.Destination = b.Destination
 	return m0
 }
 
@@ -96,22 +182,27 @@ var File_pkg_web_proto_messages_file_upload_proto protoreflect.FileDescriptor
 
 const file_pkg_web_proto_messages_file_upload_proto_rawDesc = "" +
 	"\n" +
-	"(pkg/web/proto/messages/file_upload.proto\x12\x0egcommon.v1.web\x1a!google/protobuf/go_features.proto\".\n" +
+	"(pkg/web/proto/messages/file_upload.proto\x12\x0egcommon.v1.web\x1a!google/protobuf/go_features.proto\x1a#pkg/web/proto/types/mime_type.proto\"\x9c\x01\n" +
 	"\n" +
-	"FileUpload\x12 \n" +
-	"\vplaceholder\x18\x01 \x01(\tR\vplaceholderB\xb6\x01\n" +
+	"FileUpload\x12\x1b\n" +
+	"\tfile_name\x18\x01 \x01(\tR\bfileName\x12;\n" +
+	"\fcontent_type\x18\x02 \x01(\v2\x18.gcommon.v1.web.MimeTypeR\vcontentType\x12\x12\n" +
+	"\x04data\x18\x03 \x01(\fR\x04data\x12 \n" +
+	"\vdestination\x18\x04 \x01(\tR\vdestinationB\xb6\x01\n" +
 	"\x12com.gcommon.v1.webB\x0fFileUploadProtoP\x01Z-github.com/jdfalk/gcommon/pkg/web/proto;webpb\xa2\x02\x03GVW\xaa\x02\x0eGcommon.V1.Web\xca\x02\x0eGcommon\\V1\\Web\xe2\x02\x1aGcommon\\V1\\Web\\GPBMetadata\xea\x02\x10Gcommon::V1::Web\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
 
 var file_pkg_web_proto_messages_file_upload_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_pkg_web_proto_messages_file_upload_proto_goTypes = []any{
 	(*FileUpload)(nil), // 0: gcommon.v1.web.FileUpload
+	(*MimeType)(nil),   // 1: gcommon.v1.web.MimeType
 }
 var file_pkg_web_proto_messages_file_upload_proto_depIdxs = []int32{
-	0, // [0:0] is the sub-list for method output_type
-	0, // [0:0] is the sub-list for method input_type
-	0, // [0:0] is the sub-list for extension type_name
-	0, // [0:0] is the sub-list for extension extendee
-	0, // [0:0] is the sub-list for field type_name
+	1, // 0: gcommon.v1.web.FileUpload.content_type:type_name -> gcommon.v1.web.MimeType
+	1, // [1:1] is the sub-list for method output_type
+	1, // [1:1] is the sub-list for method input_type
+	1, // [1:1] is the sub-list for extension type_name
+	1, // [1:1] is the sub-list for extension extendee
+	0, // [0:1] is the sub-list for field type_name
 }
 
 func init() { file_pkg_web_proto_messages_file_upload_proto_init() }
@@ -119,6 +210,7 @@ func file_pkg_web_proto_messages_file_upload_proto_init() {
 	if File_pkg_web_proto_messages_file_upload_proto != nil {
 		return
 	}
+	file_pkg_web_proto_types_mime_type_proto_init()
 	type x struct{}
 	out := protoimpl.TypeBuilder{
 		File: protoimpl.DescBuilder{

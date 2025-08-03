@@ -24,13 +24,14 @@ const (
 	_ = protoimpl.EnforceVersion(protoimpl.MaxVersion - 20)
 )
 
-// TODO: Implement get_tenant_response message
 type GetTenantResponse struct {
 	state protoimpl.MessageState `protogen:"hybrid.v1"`
 	// Any errors encountered
 	Errors []*proto.Error `protobuf:"bytes,1,rep,name=errors" json:"errors,omitempty"`
 	// Success status
-	Success       *bool `protobuf:"varint,2,opt,name=success" json:"success,omitempty"`
+	Success *bool `protobuf:"varint,2,opt,name=success" json:"success,omitempty"`
+	// Tenant information
+	Tenant        *Tenant `protobuf:"bytes,3,opt,name=tenant" json:"tenant,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -74,12 +75,23 @@ func (x *GetTenantResponse) GetSuccess() bool {
 	return false
 }
 
+func (x *GetTenantResponse) GetTenant() *Tenant {
+	if x != nil {
+		return x.Tenant
+	}
+	return nil
+}
+
 func (x *GetTenantResponse) SetErrors(v []*proto.Error) {
 	x.Errors = v
 }
 
 func (x *GetTenantResponse) SetSuccess(v bool) {
 	x.Success = &v
+}
+
+func (x *GetTenantResponse) SetTenant(v *Tenant) {
+	x.Tenant = v
 }
 
 func (x *GetTenantResponse) HasSuccess() bool {
@@ -89,8 +101,19 @@ func (x *GetTenantResponse) HasSuccess() bool {
 	return x.Success != nil
 }
 
+func (x *GetTenantResponse) HasTenant() bool {
+	if x == nil {
+		return false
+	}
+	return x.Tenant != nil
+}
+
 func (x *GetTenantResponse) ClearSuccess() {
 	x.Success = nil
+}
+
+func (x *GetTenantResponse) ClearTenant() {
+	x.Tenant = nil
 }
 
 type GetTenantResponse_builder struct {
@@ -100,6 +123,8 @@ type GetTenantResponse_builder struct {
 	Errors []*proto.Error
 	// Success status
 	Success *bool
+	// Tenant information
+	Tenant *Tenant
 }
 
 func (b0 GetTenantResponse_builder) Build() *GetTenantResponse {
@@ -108,6 +133,7 @@ func (b0 GetTenantResponse_builder) Build() *GetTenantResponse {
 	_, _ = b, x
 	x.Errors = b.Errors
 	x.Success = b.Success
+	x.Tenant = b.Tenant
 	return m0
 }
 
@@ -115,24 +141,27 @@ var File_pkg_organization_proto_responses_get_tenant_response_proto protoreflect
 
 const file_pkg_organization_proto_responses_get_tenant_response_proto_rawDesc = "" +
 	"\n" +
-	":pkg/organization/proto/responses/get_tenant_response.proto\x12\x17gcommon.v1.organization\x1a!google/protobuf/go_features.proto\x1a%pkg/common/proto/messages/error.proto\"_\n" +
+	":pkg/organization/proto/responses/get_tenant_response.proto\x12\x17gcommon.v1.organization\x1a!google/protobuf/go_features.proto\x1a%pkg/common/proto/messages/error.proto\x1a,pkg/organization/proto/messages/tenant.proto\"\x98\x01\n" +
 	"\x11GetTenantResponse\x120\n" +
 	"\x06errors\x18\x01 \x03(\v2\x18.gcommon.v1.common.ErrorR\x06errors\x12\x18\n" +
-	"\asuccess\x18\x02 \x01(\bR\asuccessB\xfc\x01\n" +
+	"\asuccess\x18\x02 \x01(\bR\asuccess\x127\n" +
+	"\x06tenant\x18\x03 \x01(\v2\x1f.gcommon.v1.organization.TenantR\x06tenantB\xfc\x01\n" +
 	"\x1bcom.gcommon.v1.organizationB\x16GetTenantResponseProtoP\x01Z?github.com/jdfalk/gcommon/pkg/organization/proto;organizationpb\xa2\x02\x03GVO\xaa\x02\x17Gcommon.V1.Organization\xca\x02\x17Gcommon\\V1\\Organization\xe2\x02#Gcommon\\V1\\Organization\\GPBMetadata\xea\x02\x19Gcommon::V1::Organization\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
 
 var file_pkg_organization_proto_responses_get_tenant_response_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_pkg_organization_proto_responses_get_tenant_response_proto_goTypes = []any{
 	(*GetTenantResponse)(nil), // 0: gcommon.v1.organization.GetTenantResponse
 	(*proto.Error)(nil),       // 1: gcommon.v1.common.Error
+	(*Tenant)(nil),            // 2: gcommon.v1.organization.Tenant
 }
 var file_pkg_organization_proto_responses_get_tenant_response_proto_depIdxs = []int32{
 	1, // 0: gcommon.v1.organization.GetTenantResponse.errors:type_name -> gcommon.v1.common.Error
-	1, // [1:1] is the sub-list for method output_type
-	1, // [1:1] is the sub-list for method input_type
-	1, // [1:1] is the sub-list for extension type_name
-	1, // [1:1] is the sub-list for extension extendee
-	0, // [0:1] is the sub-list for field type_name
+	2, // 1: gcommon.v1.organization.GetTenantResponse.tenant:type_name -> gcommon.v1.organization.Tenant
+	2, // [2:2] is the sub-list for method output_type
+	2, // [2:2] is the sub-list for method input_type
+	2, // [2:2] is the sub-list for extension type_name
+	2, // [2:2] is the sub-list for extension extendee
+	0, // [0:2] is the sub-list for field type_name
 }
 
 func init() { file_pkg_organization_proto_responses_get_tenant_response_proto_init() }
@@ -140,6 +169,7 @@ func file_pkg_organization_proto_responses_get_tenant_response_proto_init() {
 	if File_pkg_organization_proto_responses_get_tenant_response_proto != nil {
 		return
 	}
+	file_pkg_organization_proto_messages_tenant_proto_init()
 	type x struct{}
 	out := protoimpl.TypeBuilder{
 		File: protoimpl.DescBuilder{

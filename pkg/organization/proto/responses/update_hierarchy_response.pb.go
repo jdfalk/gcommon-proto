@@ -24,13 +24,14 @@ const (
 	_ = protoimpl.EnforceVersion(protoimpl.MaxVersion - 20)
 )
 
-// TODO: Implement update_hierarchy_response message
 type UpdateHierarchyResponse struct {
 	state protoimpl.MessageState `protogen:"hybrid.v1"`
 	// Any errors encountered
 	Errors []*proto.Error `protobuf:"bytes,1,rep,name=errors" json:"errors,omitempty"`
 	// Success status
-	Success       *bool `protobuf:"varint,2,opt,name=success" json:"success,omitempty"`
+	Success *bool `protobuf:"varint,2,opt,name=success" json:"success,omitempty"`
+	// Updated hierarchy data
+	Hierarchy     *OrganizationHierarchy `protobuf:"bytes,3,opt,name=hierarchy" json:"hierarchy,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -74,12 +75,23 @@ func (x *UpdateHierarchyResponse) GetSuccess() bool {
 	return false
 }
 
+func (x *UpdateHierarchyResponse) GetHierarchy() *OrganizationHierarchy {
+	if x != nil {
+		return x.Hierarchy
+	}
+	return nil
+}
+
 func (x *UpdateHierarchyResponse) SetErrors(v []*proto.Error) {
 	x.Errors = v
 }
 
 func (x *UpdateHierarchyResponse) SetSuccess(v bool) {
 	x.Success = &v
+}
+
+func (x *UpdateHierarchyResponse) SetHierarchy(v *OrganizationHierarchy) {
+	x.Hierarchy = v
 }
 
 func (x *UpdateHierarchyResponse) HasSuccess() bool {
@@ -89,8 +101,19 @@ func (x *UpdateHierarchyResponse) HasSuccess() bool {
 	return x.Success != nil
 }
 
+func (x *UpdateHierarchyResponse) HasHierarchy() bool {
+	if x == nil {
+		return false
+	}
+	return x.Hierarchy != nil
+}
+
 func (x *UpdateHierarchyResponse) ClearSuccess() {
 	x.Success = nil
+}
+
+func (x *UpdateHierarchyResponse) ClearHierarchy() {
+	x.Hierarchy = nil
 }
 
 type UpdateHierarchyResponse_builder struct {
@@ -100,6 +123,8 @@ type UpdateHierarchyResponse_builder struct {
 	Errors []*proto.Error
 	// Success status
 	Success *bool
+	// Updated hierarchy data
+	Hierarchy *OrganizationHierarchy
 }
 
 func (b0 UpdateHierarchyResponse_builder) Build() *UpdateHierarchyResponse {
@@ -108,6 +133,7 @@ func (b0 UpdateHierarchyResponse_builder) Build() *UpdateHierarchyResponse {
 	_, _ = b, x
 	x.Errors = b.Errors
 	x.Success = b.Success
+	x.Hierarchy = b.Hierarchy
 	return m0
 }
 
@@ -115,24 +141,27 @@ var File_pkg_organization_proto_responses_update_hierarchy_response_proto protor
 
 const file_pkg_organization_proto_responses_update_hierarchy_response_proto_rawDesc = "" +
 	"\n" +
-	"@pkg/organization/proto/responses/update_hierarchy_response.proto\x12\x17gcommon.v1.organization\x1a!google/protobuf/go_features.proto\x1a%pkg/common/proto/messages/error.proto\"e\n" +
+	"@pkg/organization/proto/responses/update_hierarchy_response.proto\x12\x17gcommon.v1.organization\x1a!google/protobuf/go_features.proto\x1a%pkg/common/proto/messages/error.proto\x1a<pkg/organization/proto/messages/organization_hierarchy.proto\"\xb7\x01\n" +
 	"\x17UpdateHierarchyResponse\x120\n" +
 	"\x06errors\x18\x01 \x03(\v2\x18.gcommon.v1.common.ErrorR\x06errors\x12\x18\n" +
-	"\asuccess\x18\x02 \x01(\bR\asuccessB\x82\x02\n" +
+	"\asuccess\x18\x02 \x01(\bR\asuccess\x12P\n" +
+	"\thierarchy\x18\x03 \x01(\v2..gcommon.v1.organization.OrganizationHierarchyB\x02(\x01R\thierarchyB\x82\x02\n" +
 	"\x1bcom.gcommon.v1.organizationB\x1cUpdateHierarchyResponseProtoP\x01Z?github.com/jdfalk/gcommon/pkg/organization/proto;organizationpb\xa2\x02\x03GVO\xaa\x02\x17Gcommon.V1.Organization\xca\x02\x17Gcommon\\V1\\Organization\xe2\x02#Gcommon\\V1\\Organization\\GPBMetadata\xea\x02\x19Gcommon::V1::Organization\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
 
 var file_pkg_organization_proto_responses_update_hierarchy_response_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_pkg_organization_proto_responses_update_hierarchy_response_proto_goTypes = []any{
 	(*UpdateHierarchyResponse)(nil), // 0: gcommon.v1.organization.UpdateHierarchyResponse
 	(*proto.Error)(nil),             // 1: gcommon.v1.common.Error
+	(*OrganizationHierarchy)(nil),   // 2: gcommon.v1.organization.OrganizationHierarchy
 }
 var file_pkg_organization_proto_responses_update_hierarchy_response_proto_depIdxs = []int32{
 	1, // 0: gcommon.v1.organization.UpdateHierarchyResponse.errors:type_name -> gcommon.v1.common.Error
-	1, // [1:1] is the sub-list for method output_type
-	1, // [1:1] is the sub-list for method input_type
-	1, // [1:1] is the sub-list for extension type_name
-	1, // [1:1] is the sub-list for extension extendee
-	0, // [0:1] is the sub-list for field type_name
+	2, // 1: gcommon.v1.organization.UpdateHierarchyResponse.hierarchy:type_name -> gcommon.v1.organization.OrganizationHierarchy
+	2, // [2:2] is the sub-list for method output_type
+	2, // [2:2] is the sub-list for method input_type
+	2, // [2:2] is the sub-list for extension type_name
+	2, // [2:2] is the sub-list for extension extendee
+	0, // [0:2] is the sub-list for field type_name
 }
 
 func init() { file_pkg_organization_proto_responses_update_hierarchy_response_proto_init() }
@@ -140,6 +169,7 @@ func file_pkg_organization_proto_responses_update_hierarchy_response_proto_init(
 	if File_pkg_organization_proto_responses_update_hierarchy_response_proto != nil {
 		return
 	}
+	file_pkg_organization_proto_messages_organization_hierarchy_proto_init()
 	type x struct{}
 	out := protoimpl.TypeBuilder{
 		File: protoimpl.DescBuilder{

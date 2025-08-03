@@ -9,6 +9,7 @@
 package metricspb
 
 import (
+	proto "github.com/jdfalk/gcommon/pkg/common/proto"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
@@ -23,20 +24,129 @@ const (
 	_ = protoimpl.EnforceVersion(protoimpl.MaxVersion - 20)
 )
 
+// *
+// GetStatsResponse returns statistics for a metric.
+type GetStatsResponse struct {
+	state protoimpl.MessageState `protogen:"hybrid.v1"`
+	// Statistics for the query
+	Stats *QueryStats `protobuf:"bytes,1,opt,name=stats" json:"stats,omitempty"`
+	// Error information
+	Error         *proto.Error `protobuf:"bytes,2,opt,name=error" json:"error,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetStatsResponse) Reset() {
+	*x = GetStatsResponse{}
+	mi := &file_pkg_metrics_proto_responses_get_stats_response_proto_msgTypes[0]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetStatsResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetStatsResponse) ProtoMessage() {}
+
+func (x *GetStatsResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_pkg_metrics_proto_responses_get_stats_response_proto_msgTypes[0]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+func (x *GetStatsResponse) GetStats() *QueryStats {
+	if x != nil {
+		return x.Stats
+	}
+	return nil
+}
+
+func (x *GetStatsResponse) GetError() *proto.Error {
+	if x != nil {
+		return x.Error
+	}
+	return nil
+}
+
+func (x *GetStatsResponse) SetStats(v *QueryStats) {
+	x.Stats = v
+}
+
+func (x *GetStatsResponse) SetError(v *proto.Error) {
+	x.Error = v
+}
+
+func (x *GetStatsResponse) HasStats() bool {
+	if x == nil {
+		return false
+	}
+	return x.Stats != nil
+}
+
+func (x *GetStatsResponse) HasError() bool {
+	if x == nil {
+		return false
+	}
+	return x.Error != nil
+}
+
+func (x *GetStatsResponse) ClearStats() {
+	x.Stats = nil
+}
+
+func (x *GetStatsResponse) ClearError() {
+	x.Error = nil
+}
+
+type GetStatsResponse_builder struct {
+	_ [0]func() // Prevents comparability and use of unkeyed literals for the builder.
+
+	// Statistics for the query
+	Stats *QueryStats
+	// Error information
+	Error *proto.Error
+}
+
+func (b0 GetStatsResponse_builder) Build() *GetStatsResponse {
+	m0 := &GetStatsResponse{}
+	b, x := &b0, m0
+	_, _ = b, x
+	x.Stats = b.Stats
+	x.Error = b.Error
+	return m0
+}
+
 var File_pkg_metrics_proto_responses_get_stats_response_proto protoreflect.FileDescriptor
 
 const file_pkg_metrics_proto_responses_get_stats_response_proto_rawDesc = "" +
 	"\n" +
-	"4pkg/metrics/proto/responses/get_stats_response.proto\x12\x12gcommon.v1.metrics\x1a!google/protobuf/go_features.protoB\xd8\x01\n" +
+	"4pkg/metrics/proto/responses/get_stats_response.proto\x12\x12gcommon.v1.metrics\x1a!google/protobuf/go_features.proto\x1a%pkg/common/proto/messages/error.proto\x1a)pkg/metrics/proto/types/query_stats.proto\"x\n" +
+	"\x10GetStatsResponse\x124\n" +
+	"\x05stats\x18\x01 \x01(\v2\x1e.gcommon.v1.metrics.QueryStatsR\x05stats\x12.\n" +
+	"\x05error\x18\x02 \x01(\v2\x18.gcommon.v1.common.ErrorR\x05errorB\xd8\x01\n" +
 	"\x16com.gcommon.v1.metricsB\x15GetStatsResponseProtoP\x01Z5github.com/jdfalk/gcommon/pkg/metrics/proto;metricspb\xa2\x02\x03GVM\xaa\x02\x12Gcommon.V1.Metrics\xca\x02\x12Gcommon\\V1\\Metrics\xe2\x02\x1eGcommon\\V1\\Metrics\\GPBMetadata\xea\x02\x14Gcommon::V1::Metrics\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
 
-var file_pkg_metrics_proto_responses_get_stats_response_proto_goTypes = []any{}
+var file_pkg_metrics_proto_responses_get_stats_response_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
+var file_pkg_metrics_proto_responses_get_stats_response_proto_goTypes = []any{
+	(*GetStatsResponse)(nil), // 0: gcommon.v1.metrics.GetStatsResponse
+	(*QueryStats)(nil),       // 1: gcommon.v1.metrics.QueryStats
+	(*proto.Error)(nil),      // 2: gcommon.v1.common.Error
+}
 var file_pkg_metrics_proto_responses_get_stats_response_proto_depIdxs = []int32{
-	0, // [0:0] is the sub-list for method output_type
-	0, // [0:0] is the sub-list for method input_type
-	0, // [0:0] is the sub-list for extension type_name
-	0, // [0:0] is the sub-list for extension extendee
-	0, // [0:0] is the sub-list for field type_name
+	1, // 0: gcommon.v1.metrics.GetStatsResponse.stats:type_name -> gcommon.v1.metrics.QueryStats
+	2, // 1: gcommon.v1.metrics.GetStatsResponse.error:type_name -> gcommon.v1.common.Error
+	2, // [2:2] is the sub-list for method output_type
+	2, // [2:2] is the sub-list for method input_type
+	2, // [2:2] is the sub-list for extension type_name
+	2, // [2:2] is the sub-list for extension extendee
+	0, // [0:2] is the sub-list for field type_name
 }
 
 func init() { file_pkg_metrics_proto_responses_get_stats_response_proto_init() }
@@ -44,18 +154,20 @@ func file_pkg_metrics_proto_responses_get_stats_response_proto_init() {
 	if File_pkg_metrics_proto_responses_get_stats_response_proto != nil {
 		return
 	}
+	file_pkg_metrics_proto_types_query_stats_proto_init()
 	type x struct{}
 	out := protoimpl.TypeBuilder{
 		File: protoimpl.DescBuilder{
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: unsafe.Slice(unsafe.StringData(file_pkg_metrics_proto_responses_get_stats_response_proto_rawDesc), len(file_pkg_metrics_proto_responses_get_stats_response_proto_rawDesc)),
 			NumEnums:      0,
-			NumMessages:   0,
+			NumMessages:   1,
 			NumExtensions: 0,
 			NumServices:   0,
 		},
 		GoTypes:           file_pkg_metrics_proto_responses_get_stats_response_proto_goTypes,
 		DependencyIndexes: file_pkg_metrics_proto_responses_get_stats_response_proto_depIdxs,
+		MessageInfos:      file_pkg_metrics_proto_responses_get_stats_response_proto_msgTypes,
 	}.Build()
 	File_pkg_metrics_proto_responses_get_stats_response_proto = out.File
 	file_pkg_metrics_proto_responses_get_stats_response_proto_goTypes = nil

@@ -9,9 +9,11 @@
 package webpb
 
 import (
+	proto "github.com/jdfalk/gcommon/pkg/cache/proto"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
+	emptypb "google.golang.org/protobuf/types/known/emptypb"
 	reflect "reflect"
 	unsafe "unsafe"
 )
@@ -27,13 +29,29 @@ var File_pkg_web_proto_services_web_admin_service_proto protoreflect.FileDescrip
 
 const file_pkg_web_proto_services_web_admin_service_proto_rawDesc = "" +
 	"\n" +
-	".pkg/web/proto/services/web_admin_service.proto\x12\x0egcommon.v1.web\x1a!google/protobuf/go_features.protoB\xbb\x01\n" +
+	".pkg/web/proto/services/web_admin_service.proto\x12\x0egcommon.v1.web\x1a!google/protobuf/go_features.proto\x1a\x1bgoogle/protobuf/empty.proto\x1a)pkg/web/proto/messages/cache_config.proto\x1a,pkg/cache/proto/requests/flush_request.proto\x1a.pkg/cache/proto/responses/flush_response.proto2\xf1\x01\n" +
+	"\x0fWebAdminService\x12E\n" +
+	"\x0eGetCacheConfig\x12\x16.google.protobuf.Empty\x1a\x1b.gcommon.v1.web.CacheConfig\x12H\n" +
+	"\x11UpdateCacheConfig\x12\x1b.gcommon.v1.web.CacheConfig\x1a\x16.google.protobuf.Empty\x12M\n" +
+	"\n" +
+	"FlushCache\x12\x1e.gcommon.v1.cache.FlushRequest\x1a\x1f.gcommon.v1.cache.FlushResponseB\xbb\x01\n" +
 	"\x12com.gcommon.v1.webB\x14WebAdminServiceProtoP\x01Z-github.com/jdfalk/gcommon/pkg/web/proto;webpb\xa2\x02\x03GVW\xaa\x02\x0eGcommon.V1.Web\xca\x02\x0eGcommon\\V1\\Web\xe2\x02\x1aGcommon\\V1\\Web\\GPBMetadata\xea\x02\x10Gcommon::V1::Web\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
 
-var file_pkg_web_proto_services_web_admin_service_proto_goTypes = []any{}
+var file_pkg_web_proto_services_web_admin_service_proto_goTypes = []any{
+	(*emptypb.Empty)(nil),       // 0: google.protobuf.Empty
+	(*CacheConfig)(nil),         // 1: gcommon.v1.web.CacheConfig
+	(*proto.FlushRequest)(nil),  // 2: gcommon.v1.cache.FlushRequest
+	(*proto.FlushResponse)(nil), // 3: gcommon.v1.cache.FlushResponse
+}
 var file_pkg_web_proto_services_web_admin_service_proto_depIdxs = []int32{
-	0, // [0:0] is the sub-list for method output_type
-	0, // [0:0] is the sub-list for method input_type
+	0, // 0: gcommon.v1.web.WebAdminService.GetCacheConfig:input_type -> google.protobuf.Empty
+	1, // 1: gcommon.v1.web.WebAdminService.UpdateCacheConfig:input_type -> gcommon.v1.web.CacheConfig
+	2, // 2: gcommon.v1.web.WebAdminService.FlushCache:input_type -> gcommon.v1.cache.FlushRequest
+	1, // 3: gcommon.v1.web.WebAdminService.GetCacheConfig:output_type -> gcommon.v1.web.CacheConfig
+	0, // 4: gcommon.v1.web.WebAdminService.UpdateCacheConfig:output_type -> google.protobuf.Empty
+	3, // 5: gcommon.v1.web.WebAdminService.FlushCache:output_type -> gcommon.v1.cache.FlushResponse
+	3, // [3:6] is the sub-list for method output_type
+	0, // [0:3] is the sub-list for method input_type
 	0, // [0:0] is the sub-list for extension type_name
 	0, // [0:0] is the sub-list for extension extendee
 	0, // [0:0] is the sub-list for field type_name
@@ -44,6 +62,7 @@ func file_pkg_web_proto_services_web_admin_service_proto_init() {
 	if File_pkg_web_proto_services_web_admin_service_proto != nil {
 		return
 	}
+	file_pkg_web_proto_messages_cache_config_proto_init()
 	type x struct{}
 	out := protoimpl.TypeBuilder{
 		File: protoimpl.DescBuilder{
@@ -52,7 +71,7 @@ func file_pkg_web_proto_services_web_admin_service_proto_init() {
 			NumEnums:      0,
 			NumMessages:   0,
 			NumExtensions: 0,
-			NumServices:   0,
+			NumServices:   1,
 		},
 		GoTypes:           file_pkg_web_proto_services_web_admin_service_proto_goTypes,
 		DependencyIndexes: file_pkg_web_proto_services_web_admin_service_proto_depIdxs,

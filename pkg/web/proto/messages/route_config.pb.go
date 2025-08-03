@@ -25,8 +25,19 @@ const (
 
 // RouteConfig message definition.
 type RouteConfig struct {
-	state         protoimpl.MessageState `protogen:"hybrid.v1"`
-	Placeholder   *string                `protobuf:"bytes,1,opt,name=placeholder" json:"placeholder,omitempty"`
+	state protoimpl.MessageState `protogen:"hybrid.v1"`
+	// URL path pattern
+	Path *string `protobuf:"bytes,1,opt,name=path" json:"path,omitempty"`
+	// Allowed HTTP methods
+	Methods []HTTPMethod `protobuf:"varint,2,rep,packed,name=methods,enum=gcommon.v1.web.HTTPMethod" json:"methods,omitempty"`
+	// Handler name or identifier
+	Handler *string `protobuf:"bytes,3,opt,name=handler" json:"handler,omitempty"`
+	// Handler type implementation
+	HandlerType *HandlerType `protobuf:"varint,4,opt,name=handler_type,json=handlerType,enum=gcommon.v1.web.HandlerType" json:"handler_type,omitempty"`
+	// Middleware IDs applied to this route
+	MiddlewareIds []string `protobuf:"bytes,5,rep,name=middleware_ids,json=middlewareIds" json:"middleware_ids,omitempty"`
+	// Require authentication for route
+	AuthRequired  *bool `protobuf:"varint,6,opt,name=auth_required,json=authRequired" json:"auth_required,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -56,39 +67,143 @@ func (x *RouteConfig) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-func (x *RouteConfig) GetPlaceholder() string {
-	if x != nil && x.Placeholder != nil {
-		return *x.Placeholder
+func (x *RouteConfig) GetPath() string {
+	if x != nil && x.Path != nil {
+		return *x.Path
 	}
 	return ""
 }
 
-func (x *RouteConfig) SetPlaceholder(v string) {
-	x.Placeholder = &v
+func (x *RouteConfig) GetMethods() []HTTPMethod {
+	if x != nil {
+		return x.Methods
+	}
+	return nil
 }
 
-func (x *RouteConfig) HasPlaceholder() bool {
+func (x *RouteConfig) GetHandler() string {
+	if x != nil && x.Handler != nil {
+		return *x.Handler
+	}
+	return ""
+}
+
+func (x *RouteConfig) GetHandlerType() HandlerType {
+	if x != nil && x.HandlerType != nil {
+		return *x.HandlerType
+	}
+	return HandlerType_HANDLER_TYPE_UNSPECIFIED
+}
+
+func (x *RouteConfig) GetMiddlewareIds() []string {
+	if x != nil {
+		return x.MiddlewareIds
+	}
+	return nil
+}
+
+func (x *RouteConfig) GetAuthRequired() bool {
+	if x != nil && x.AuthRequired != nil {
+		return *x.AuthRequired
+	}
+	return false
+}
+
+func (x *RouteConfig) SetPath(v string) {
+	x.Path = &v
+}
+
+func (x *RouteConfig) SetMethods(v []HTTPMethod) {
+	x.Methods = v
+}
+
+func (x *RouteConfig) SetHandler(v string) {
+	x.Handler = &v
+}
+
+func (x *RouteConfig) SetHandlerType(v HandlerType) {
+	x.HandlerType = &v
+}
+
+func (x *RouteConfig) SetMiddlewareIds(v []string) {
+	x.MiddlewareIds = v
+}
+
+func (x *RouteConfig) SetAuthRequired(v bool) {
+	x.AuthRequired = &v
+}
+
+func (x *RouteConfig) HasPath() bool {
 	if x == nil {
 		return false
 	}
-	return x.Placeholder != nil
+	return x.Path != nil
 }
 
-func (x *RouteConfig) ClearPlaceholder() {
-	x.Placeholder = nil
+func (x *RouteConfig) HasHandler() bool {
+	if x == nil {
+		return false
+	}
+	return x.Handler != nil
+}
+
+func (x *RouteConfig) HasHandlerType() bool {
+	if x == nil {
+		return false
+	}
+	return x.HandlerType != nil
+}
+
+func (x *RouteConfig) HasAuthRequired() bool {
+	if x == nil {
+		return false
+	}
+	return x.AuthRequired != nil
+}
+
+func (x *RouteConfig) ClearPath() {
+	x.Path = nil
+}
+
+func (x *RouteConfig) ClearHandler() {
+	x.Handler = nil
+}
+
+func (x *RouteConfig) ClearHandlerType() {
+	x.HandlerType = nil
+}
+
+func (x *RouteConfig) ClearAuthRequired() {
+	x.AuthRequired = nil
 }
 
 type RouteConfig_builder struct {
 	_ [0]func() // Prevents comparability and use of unkeyed literals for the builder.
 
-	Placeholder *string
+	// URL path pattern
+	Path *string
+	// Allowed HTTP methods
+	Methods []HTTPMethod
+	// Handler name or identifier
+	Handler *string
+	// Handler type implementation
+	HandlerType *HandlerType
+	// Middleware IDs applied to this route
+	MiddlewareIds []string
+	// Require authentication for route
+	AuthRequired *bool
 }
 
 func (b0 RouteConfig_builder) Build() *RouteConfig {
 	m0 := &RouteConfig{}
 	b, x := &b0, m0
 	_, _ = b, x
-	x.Placeholder = b.Placeholder
+	x.Path = b.Path
+	x.Methods = b.Methods
+	x.Handler = b.Handler
+	x.HandlerType = b.HandlerType
+	x.MiddlewareIds = b.MiddlewareIds
+	x.AuthRequired = b.AuthRequired
 	return m0
 }
 
@@ -96,21 +211,30 @@ var File_pkg_web_proto_messages_route_config_proto protoreflect.FileDescriptor
 
 const file_pkg_web_proto_messages_route_config_proto_rawDesc = "" +
 	"\n" +
-	")pkg/web/proto/messages/route_config.proto\x12\x0egcommon.v1.web\x1a!google/protobuf/go_features.proto\"/\n" +
-	"\vRouteConfig\x12 \n" +
-	"\vplaceholder\x18\x01 \x01(\tR\vplaceholderB\xb7\x01\n" +
+	")pkg/web/proto/messages/route_config.proto\x12\x0egcommon.v1.web\x1a!google/protobuf/go_features.proto\x1a%pkg/web/proto/enums/http_method.proto\x1a&pkg/web/proto/enums/handler_type.proto\"\xfd\x01\n" +
+	"\vRouteConfig\x12\x12\n" +
+	"\x04path\x18\x01 \x01(\tR\x04path\x124\n" +
+	"\amethods\x18\x02 \x03(\x0e2\x1a.gcommon.v1.web.HTTPMethodR\amethods\x12\x18\n" +
+	"\ahandler\x18\x03 \x01(\tR\ahandler\x12>\n" +
+	"\fhandler_type\x18\x04 \x01(\x0e2\x1b.gcommon.v1.web.HandlerTypeR\vhandlerType\x12%\n" +
+	"\x0emiddleware_ids\x18\x05 \x03(\tR\rmiddlewareIds\x12#\n" +
+	"\rauth_required\x18\x06 \x01(\bR\fauthRequiredB\xb7\x01\n" +
 	"\x12com.gcommon.v1.webB\x10RouteConfigProtoP\x01Z-github.com/jdfalk/gcommon/pkg/web/proto;webpb\xa2\x02\x03GVW\xaa\x02\x0eGcommon.V1.Web\xca\x02\x0eGcommon\\V1\\Web\xe2\x02\x1aGcommon\\V1\\Web\\GPBMetadata\xea\x02\x10Gcommon::V1::Web\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
 
 var file_pkg_web_proto_messages_route_config_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_pkg_web_proto_messages_route_config_proto_goTypes = []any{
 	(*RouteConfig)(nil), // 0: gcommon.v1.web.RouteConfig
+	(HTTPMethod)(0),     // 1: gcommon.v1.web.HTTPMethod
+	(HandlerType)(0),    // 2: gcommon.v1.web.HandlerType
 }
 var file_pkg_web_proto_messages_route_config_proto_depIdxs = []int32{
-	0, // [0:0] is the sub-list for method output_type
-	0, // [0:0] is the sub-list for method input_type
-	0, // [0:0] is the sub-list for extension type_name
-	0, // [0:0] is the sub-list for extension extendee
-	0, // [0:0] is the sub-list for field type_name
+	1, // 0: gcommon.v1.web.RouteConfig.methods:type_name -> gcommon.v1.web.HTTPMethod
+	2, // 1: gcommon.v1.web.RouteConfig.handler_type:type_name -> gcommon.v1.web.HandlerType
+	2, // [2:2] is the sub-list for method output_type
+	2, // [2:2] is the sub-list for method input_type
+	2, // [2:2] is the sub-list for extension type_name
+	2, // [2:2] is the sub-list for extension extendee
+	0, // [0:2] is the sub-list for field type_name
 }
 
 func init() { file_pkg_web_proto_messages_route_config_proto_init() }
@@ -118,6 +242,8 @@ func file_pkg_web_proto_messages_route_config_proto_init() {
 	if File_pkg_web_proto_messages_route_config_proto != nil {
 		return
 	}
+	file_pkg_web_proto_enums_http_method_proto_init()
+	file_pkg_web_proto_enums_handler_type_proto_init()
 	type x struct{}
 	out := protoimpl.TypeBuilder{
 		File: protoimpl.DescBuilder{

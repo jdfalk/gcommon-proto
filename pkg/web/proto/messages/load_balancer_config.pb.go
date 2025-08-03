@@ -12,6 +12,7 @@ import (
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
+	durationpb "google.golang.org/protobuf/types/known/durationpb"
 	reflect "reflect"
 	unsafe "unsafe"
 )
@@ -25,8 +26,15 @@ const (
 
 // LoadBalancerConfig message definition.
 type LoadBalancerConfig struct {
-	state         protoimpl.MessageState `protogen:"hybrid.v1"`
-	Placeholder   *string                `protobuf:"bytes,1,opt,name=placeholder" json:"placeholder,omitempty"`
+	state protoimpl.MessageState `protogen:"hybrid.v1"`
+	// Load balancing strategy
+	Strategy *LoadBalanceStrategy `protobuf:"varint,1,opt,name=strategy,enum=gcommon.v1.web.LoadBalanceStrategy" json:"strategy,omitempty"`
+	// Upstream server addresses
+	Upstreams []string `protobuf:"bytes,2,rep,name=upstreams" json:"upstreams,omitempty"`
+	// Health check path
+	HealthCheckPath *string `protobuf:"bytes,3,opt,name=health_check_path,json=healthCheckPath" json:"health_check_path,omitempty"`
+	// Timeout for proxy requests
+	Timeout       *durationpb.Duration `protobuf:"bytes,4,opt,name=timeout" json:"timeout,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -56,39 +64,104 @@ func (x *LoadBalancerConfig) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-func (x *LoadBalancerConfig) GetPlaceholder() string {
-	if x != nil && x.Placeholder != nil {
-		return *x.Placeholder
+func (x *LoadBalancerConfig) GetStrategy() LoadBalanceStrategy {
+	if x != nil && x.Strategy != nil {
+		return *x.Strategy
+	}
+	return LoadBalanceStrategy_LOAD_BALANCE_STRATEGY_UNSPECIFIED
+}
+
+func (x *LoadBalancerConfig) GetUpstreams() []string {
+	if x != nil {
+		return x.Upstreams
+	}
+	return nil
+}
+
+func (x *LoadBalancerConfig) GetHealthCheckPath() string {
+	if x != nil && x.HealthCheckPath != nil {
+		return *x.HealthCheckPath
 	}
 	return ""
 }
 
-func (x *LoadBalancerConfig) SetPlaceholder(v string) {
-	x.Placeholder = &v
+func (x *LoadBalancerConfig) GetTimeout() *durationpb.Duration {
+	if x != nil {
+		return x.Timeout
+	}
+	return nil
 }
 
-func (x *LoadBalancerConfig) HasPlaceholder() bool {
+func (x *LoadBalancerConfig) SetStrategy(v LoadBalanceStrategy) {
+	x.Strategy = &v
+}
+
+func (x *LoadBalancerConfig) SetUpstreams(v []string) {
+	x.Upstreams = v
+}
+
+func (x *LoadBalancerConfig) SetHealthCheckPath(v string) {
+	x.HealthCheckPath = &v
+}
+
+func (x *LoadBalancerConfig) SetTimeout(v *durationpb.Duration) {
+	x.Timeout = v
+}
+
+func (x *LoadBalancerConfig) HasStrategy() bool {
 	if x == nil {
 		return false
 	}
-	return x.Placeholder != nil
+	return x.Strategy != nil
 }
 
-func (x *LoadBalancerConfig) ClearPlaceholder() {
-	x.Placeholder = nil
+func (x *LoadBalancerConfig) HasHealthCheckPath() bool {
+	if x == nil {
+		return false
+	}
+	return x.HealthCheckPath != nil
+}
+
+func (x *LoadBalancerConfig) HasTimeout() bool {
+	if x == nil {
+		return false
+	}
+	return x.Timeout != nil
+}
+
+func (x *LoadBalancerConfig) ClearStrategy() {
+	x.Strategy = nil
+}
+
+func (x *LoadBalancerConfig) ClearHealthCheckPath() {
+	x.HealthCheckPath = nil
+}
+
+func (x *LoadBalancerConfig) ClearTimeout() {
+	x.Timeout = nil
 }
 
 type LoadBalancerConfig_builder struct {
 	_ [0]func() // Prevents comparability and use of unkeyed literals for the builder.
 
-	Placeholder *string
+	// Load balancing strategy
+	Strategy *LoadBalanceStrategy
+	// Upstream server addresses
+	Upstreams []string
+	// Health check path
+	HealthCheckPath *string
+	// Timeout for proxy requests
+	Timeout *durationpb.Duration
 }
 
 func (b0 LoadBalancerConfig_builder) Build() *LoadBalancerConfig {
 	m0 := &LoadBalancerConfig{}
 	b, x := &b0, m0
 	_, _ = b, x
-	x.Placeholder = b.Placeholder
+	x.Strategy = b.Strategy
+	x.Upstreams = b.Upstreams
+	x.HealthCheckPath = b.HealthCheckPath
+	x.Timeout = b.Timeout
 	return m0
 }
 
@@ -96,21 +169,28 @@ var File_pkg_web_proto_messages_load_balancer_config_proto protoreflect.FileDesc
 
 const file_pkg_web_proto_messages_load_balancer_config_proto_rawDesc = "" +
 	"\n" +
-	"1pkg/web/proto/messages/load_balancer_config.proto\x12\x0egcommon.v1.web\x1a!google/protobuf/go_features.proto\"6\n" +
-	"\x12LoadBalancerConfig\x12 \n" +
-	"\vplaceholder\x18\x01 \x01(\tR\vplaceholderB\xbe\x01\n" +
+	"1pkg/web/proto/messages/load_balancer_config.proto\x12\x0egcommon.v1.web\x1a!google/protobuf/go_features.proto\x1a\x1egoogle/protobuf/duration.proto\x1a/pkg/web/proto/enums/load_balance_strategy.proto\"\xd4\x01\n" +
+	"\x12LoadBalancerConfig\x12?\n" +
+	"\bstrategy\x18\x01 \x01(\x0e2#.gcommon.v1.web.LoadBalanceStrategyR\bstrategy\x12\x1c\n" +
+	"\tupstreams\x18\x02 \x03(\tR\tupstreams\x12*\n" +
+	"\x11health_check_path\x18\x03 \x01(\tR\x0fhealthCheckPath\x123\n" +
+	"\atimeout\x18\x04 \x01(\v2\x19.google.protobuf.DurationR\atimeoutB\xbe\x01\n" +
 	"\x12com.gcommon.v1.webB\x17LoadBalancerConfigProtoP\x01Z-github.com/jdfalk/gcommon/pkg/web/proto;webpb\xa2\x02\x03GVW\xaa\x02\x0eGcommon.V1.Web\xca\x02\x0eGcommon\\V1\\Web\xe2\x02\x1aGcommon\\V1\\Web\\GPBMetadata\xea\x02\x10Gcommon::V1::Web\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
 
 var file_pkg_web_proto_messages_load_balancer_config_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_pkg_web_proto_messages_load_balancer_config_proto_goTypes = []any{
-	(*LoadBalancerConfig)(nil), // 0: gcommon.v1.web.LoadBalancerConfig
+	(*LoadBalancerConfig)(nil),  // 0: gcommon.v1.web.LoadBalancerConfig
+	(LoadBalanceStrategy)(0),    // 1: gcommon.v1.web.LoadBalanceStrategy
+	(*durationpb.Duration)(nil), // 2: google.protobuf.Duration
 }
 var file_pkg_web_proto_messages_load_balancer_config_proto_depIdxs = []int32{
-	0, // [0:0] is the sub-list for method output_type
-	0, // [0:0] is the sub-list for method input_type
-	0, // [0:0] is the sub-list for extension type_name
-	0, // [0:0] is the sub-list for extension extendee
-	0, // [0:0] is the sub-list for field type_name
+	1, // 0: gcommon.v1.web.LoadBalancerConfig.strategy:type_name -> gcommon.v1.web.LoadBalanceStrategy
+	2, // 1: gcommon.v1.web.LoadBalancerConfig.timeout:type_name -> google.protobuf.Duration
+	2, // [2:2] is the sub-list for method output_type
+	2, // [2:2] is the sub-list for method input_type
+	2, // [2:2] is the sub-list for extension type_name
+	2, // [2:2] is the sub-list for extension extendee
+	0, // [0:2] is the sub-list for field type_name
 }
 
 func init() { file_pkg_web_proto_messages_load_balancer_config_proto_init() }
@@ -118,6 +198,7 @@ func file_pkg_web_proto_messages_load_balancer_config_proto_init() {
 	if File_pkg_web_proto_messages_load_balancer_config_proto != nil {
 		return
 	}
+	file_pkg_web_proto_enums_load_balance_strategy_proto_init()
 	type x struct{}
 	out := protoimpl.TypeBuilder{
 		File: protoimpl.DescBuilder{
