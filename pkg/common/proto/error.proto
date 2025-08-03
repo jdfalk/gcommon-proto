@@ -3,8 +3,7 @@ edition = "2023";
 
 package gcommon.v1.common;
 
-import "pkg/common/proto/enums/error_code.proto";
-import "google/protobuf/timestamp.proto";
+import "pkg/common/proto/timestamp.proto";
 import "google/protobuf/go_features.proto";
 
 option go_package = "github.com/jdfalk/gcommon/pkg/common/proto;commonpb";
