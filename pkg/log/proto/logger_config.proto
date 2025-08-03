@@ -7,8 +7,7 @@ edition = "2023";
 package gcommon.v1.log;
 
 import "google/protobuf/go_features.proto";
-import "pkg/log/proto/enums/log_level.proto";
-import "pkg/log/proto/messages/appender_config.proto";
+import "pkg/log/proto/proto/appender_config.proto";
 
 option features.(pb.go).api_level = API_HYBRID;
 option go_package = "github.com/jdfalk/gcommon/pkg/log/proto;logpb";
