@@ -8,7 +8,7 @@ package gcommon.v1.auth;
 
 import "pkg/auth/proto/messages/user_info.proto";
 
-option go_package = "../../../../pb;authpb";
+option go_package = "../../../../pkg/auth/pb;authpb";
 
 /**
  * Response for listing users.

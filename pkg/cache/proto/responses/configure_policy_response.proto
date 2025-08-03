@@ -8,7 +8,7 @@ package gcommon.v1.cache;
 
 import "google/protobuf/timestamp.proto";
 
-option go_package = "../../../../pb;cachepb";
+option go_package = "../../../../pkg/cache/pb;cachepb";
 
 /**
  * Response for configuring cache policies.

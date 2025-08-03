@@ -10,7 +10,7 @@ import "google/protobuf/duration.proto";
 import "google/protobuf/go_features.proto";
 
 option features.(pb.go).api_level = API_HYBRID;
-option go_package = "../../../../pb;logpb";
+option go_package = "../../../../pkg/log/pb;logpb";
 
 // ArchiveCriteria defines rules for selecting log files to archive
 message ArchiveCriteria {

@@ -23,7 +23,7 @@ import "pkg/organization/proto/responses/update_tenant_quota_response.proto";
 import "pkg/organization/proto/requests/get_tenant_usage_request.proto";
 import "pkg/organization/proto/responses/get_tenant_usage_response.proto";
 
-option go_package = "../../../../pb;organizationpb";
+option go_package = "../../../../pkg/organization/pb;organizationpb";
 option features.(pb.go).api_level = API_HYBRID;
 
 /**

@@ -9,7 +9,7 @@ package gcommon.v1.web;
 import "google/protobuf/go_features.proto";
 import "pkg/web/proto/messages/session_data.proto";
 
-option go_package = "../../../../pb;webpb";
+option go_package = "../../../../pkg/web/pb;webpb";
 option features.(pb.go).api_level = API_HYBRID;
 
 // GetSessionResponse response definition.

@@ -6,7 +6,7 @@ package gcommon.v1.common;
 import "google/protobuf/timestamp.proto";
 import "google/protobuf/go_features.proto";
 
-option go_package = "../../../../pb;commonpb";
+option go_package = "../../../../pkg/common/pb;commonpb";
 option features.(pb.go).api_level = API_HYBRID;
 
 /**

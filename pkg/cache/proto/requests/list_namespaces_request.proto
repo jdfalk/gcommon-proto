@@ -6,7 +6,7 @@ edition = "2023";
 
 package gcommon.v1.cache;
 
-option go_package = "../../../../pb;cachepb";
+option go_package = "../../../../pkg/cache/pb;cachepb";
 
 /**
  * Request to list cache namespaces.

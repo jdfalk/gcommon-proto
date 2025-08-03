@@ -5,7 +5,7 @@ package gcommon.v1.config;
 
 import "google/protobuf/go_features.proto";
 
-option go_package = "../../../../pb;configpb";
+option go_package = "../../../../pkg/config/pb;configpb";
 option features.(pb.go).api_level = API_HYBRID;
 
 /**

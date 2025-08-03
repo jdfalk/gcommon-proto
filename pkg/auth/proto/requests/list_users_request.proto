@@ -6,7 +6,7 @@ edition = "2023";
 
 package gcommon.v1.auth;
 
-option go_package = "../../../../pb;authpb";
+option go_package = "../../../../pkg/auth/pb;authpb";
 
 /**
  * Request to list users with pagination and filtering.

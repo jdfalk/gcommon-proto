@@ -10,7 +10,7 @@ import "google/protobuf/go_features.proto";
 import "google/protobuf/duration.proto";
 import "pkg/common/proto/messages/request_metadata.proto";
 
-option go_package = "../../../../pb;cachepb";
+option go_package = "../../../../pkg/cache/pb;cachepb";
 option features.(pb.go).api_level = API_HYBRID;
 
 /**

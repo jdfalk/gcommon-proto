@@ -8,7 +8,7 @@ package gcommon.v1.metrics;
 
 import "google/protobuf/duration.proto";
 
-option go_package = "../../../../pb;metricspb";
+option go_package = "../../../../pkg/metrics/pb;metricspb";
 
 /**
  * Retention policy configuration for metric data.

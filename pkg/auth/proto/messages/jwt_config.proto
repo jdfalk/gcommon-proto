@@ -8,7 +8,7 @@ package gcommon.v1.auth;
 
 import "google/protobuf/duration.proto";
 
-option go_package = "../../../../pb;authpb";
+option go_package = "../../../../pkg/auth/pb;authpb";
 
 /**
  * JWTConfig defines parameters for JWT token generation and validation.

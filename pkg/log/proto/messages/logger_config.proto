@@ -11,7 +11,7 @@ import "pkg/log/proto/enums/log_level.proto";
 import "pkg/log/proto/messages/appender_config.proto";
 
 option features.(pb.go).api_level = API_HYBRID;
-option go_package = "../../../../pb;logpb";
+option go_package = "../../../../pkg/log/pb;logpb";
 
 // LoggerConfig defines configuration for a logger instance
 message LoggerConfig {

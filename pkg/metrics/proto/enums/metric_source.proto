@@ -6,7 +6,7 @@ edition = "2023";
 
 package gcommon.v1.metrics;
 
-option go_package = "../../../../pb;metricspb";
+option go_package = "../../../../pkg/metrics/pb;metricspb";
 
 // MetricSource represents different sources of metrics data
 enum MetricSource {

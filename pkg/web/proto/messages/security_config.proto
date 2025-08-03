@@ -11,7 +11,7 @@ import "google/protobuf/go_features.proto";
 // Import TLS config
 import "pkg/web/proto/messages/tls_config.proto";
 
-option go_package = "../../../../pb;webpb";
+option go_package = "../../../../pkg/web/pb;webpb";
 option features.(pb.go).api_level = API_HYBRID;
 
 // SecurityConfig message definition.

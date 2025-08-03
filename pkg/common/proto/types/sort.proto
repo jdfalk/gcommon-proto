@@ -6,7 +6,7 @@ edition = "2023";
 
 package gcommon.v1.common;
 
-option go_package = "../../../../pb;commonpb";
+option go_package = "../../../../pkg/common/pb;commonpb";
 
 // SortDirection defines ascending or descending order.
 enum SortDirection {

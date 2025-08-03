@@ -16,7 +16,7 @@ import "pkg/metrics/proto/types/pagination_info.proto";
 import "pkg/metrics/proto/types/time_range.proto";
 import "pkg/metrics/proto/types/query_stats.proto";
 
-option go_package = "../../../../pb;metricspb";
+option go_package = "../../../../pkg/metrics/pb;metricspb";
 option features.(pb.go).api_level = API_HYBRID;
 
 /**

@@ -9,7 +9,7 @@ package gcommon.v1.metrics;
 import "google/protobuf/timestamp.proto";
 import "pkg/metrics/proto/enums/provider_state.proto";
 
-option go_package = "../../../../pb;metricspb";
+option go_package = "../../../../pkg/metrics/pb;metricspb";
 
 /**
  * Status of a metrics provider.

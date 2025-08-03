@@ -12,7 +12,7 @@ import "pkg/db/proto/messages/query_options.proto";
 import "pkg/db/proto/types/query_parameter.proto";
 
 option features.(pb.go).api_level = API_HYBRID;
-option go_package = "../../../../pb;dbpb";
+option go_package = "../../../../pkg/db/pb;dbpb";
 
 /**
  * QueryRowRequest represents a request to execute a database query that returns a single row.

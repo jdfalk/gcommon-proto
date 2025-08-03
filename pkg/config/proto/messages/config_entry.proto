@@ -8,7 +8,7 @@ import "google/protobuf/go_features.proto";
 import "pkg/common/proto/messages/config_value.proto";
 import "pkg/common/proto/enums/resource_status.proto";
 
-option go_package = "../../../../pb;configpb";
+option go_package = "../../../../pkg/config/pb;configpb";
 option features.(pb.go).api_level = API_HYBRID;
 
 /**

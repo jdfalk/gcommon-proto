@@ -8,7 +8,7 @@ package gcommon.v1.auth;
 
 import "google/protobuf/timestamp.proto";
 
-option go_package = "../../../../pb;authpb";
+option go_package = "../../../../pkg/auth/pb;authpb";
 
 /**
  * APIKey represents a user-issued API key used for authenticating

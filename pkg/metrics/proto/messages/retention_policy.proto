@@ -10,7 +10,7 @@ import "google/protobuf/go_features.proto";
 import "pkg/metrics/proto/enums/retention_policy_retentionpolicy.proto";
 import "pkg/metrics/proto/types/retention_policy_retentionpolicyconfig.proto";
 
-option go_package = "../../../../pb;metricspb";
+option go_package = "../../../../pkg/metrics/pb;metricspb";
 option features.(pb.go).api_level = API_HYBRID;
 
 /**

@@ -7,7 +7,7 @@ import "google/protobuf/go_features.proto";
 import "google/protobuf/duration.proto";
 import "pkg/common/proto/enums/error_code.proto";
 
-option go_package = "../../../../pb;commonpb";
+option go_package = "../../../../pkg/common/pb;commonpb";
 option features.(pb.go).api_level = API_HYBRID;
 
 /**
