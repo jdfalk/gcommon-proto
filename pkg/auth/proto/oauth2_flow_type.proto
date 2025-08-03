@@ -1,0 +1,33 @@
+// file: pkg/auth/proto/oauth2_flow_type.proto
+// version: 1.0.0
+// guid: b1c2d3e4-f5a6-7b8c-9d0e-1f2a3b4c5d6e
+
+edition = "2023";
+
+package gcommon.v1.auth;
+
+import "google/protobuf/go_features.proto";
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/jdfalk/gcommon/pkg/auth/proto;authpb";
+
+/**
+ * OAuth2 flow types.
+ * Defines the different OAuth2 authentication flows supported.
+ */
+enum OAuth2FlowType {
+  // Unspecified flow type
+  OAUTH2_FLOW_TYPE_UNSPECIFIED = 0;
+
+  // Authorization code flow
+  OAUTH2_FLOW_TYPE_AUTHORIZATION_CODE = 1;
+
+  // Implicit flow
+  OAUTH2_FLOW_TYPE_IMPLICIT = 2;
+
+  // Client credentials flow
+  OAUTH2_FLOW_TYPE_CLIENT_CREDENTIALS = 3;
+
+  // Device code flow
+  OAUTH2_FLOW_TYPE_DEVICE_CODE = 4;
+}
