@@ -1,0 +1,22 @@
+// file: pkg/db/proto/responses/get_connection_info_response.proto
+edition = "2023";
+
+package gcommon.v1.database;
+
+import "pkg/db/proto/proto/database_info.proto";
+import "google/protobuf/go_features.proto";
+
+option go_package = "github.com/jdfalk/gcommon/pkg/db/proto;dbpb";
+option features.(pb.go).api_level = API_HYBRID;
+
+/**
+ * GetConnectionInfoResponse contains database connection and pool information.
+ * Provides details about connection health and database capabilities.
+ */
+message GetConnectionInfoResponse {
+  // Database connection pool information and statistics
+  ConnectionPoolInfo pool_info = 1 [lazy = true];
+
+  // Database instance information and metadata
+  DatabaseInfo database_info = 2 [lazy = true];
+}

@@ -1,0 +1,21 @@
+// file: pkg/db/proto/requests/drop_database_request.proto
+edition = "2023";
+
+package gcommon.v1.database;
+
+import "pkg/common/proto/protobuf/go_features.proto";
+
+option go_package = "github.com/jdfalk/gcommon/pkg/db/proto;dbpb";
+option features.(pb.go).api_level = API_HYBRID;
+
+/**
+ * DropDatabaseRequest represents a request to remove an existing database.
+ * This operation is destructive and will permanently delete all data.
+ */
+message DropDatabaseRequest {
+  // Name of the database to drop
+  string name = 1;
+
+  // Request metadata for tracing and authentication
+  gcommon.v1.common.RequestMetadata metadata = 2 [lazy = true];
+}

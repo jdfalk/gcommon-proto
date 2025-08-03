@@ -1,0 +1,35 @@
+// file: pkg/db/proto/responses/query_row_response.proto
+// version: 1.0.0
+// guid: dff9c212-0d7d-4f0a-bcca-8a0a641a29f9
+
+edition = "2023";
+
+package gcommon.v1.database;
+
+import "pkg/db/proto/proto/messages/error.proto";
+import "google/protobuf/any.proto";
+import "google/protobuf/go_features.proto";
+
+option go_package = "github.com/jdfalk/gcommon/pkg/db/proto;dbpb";
+option features.(pb.go).api_level = API_HYBRID;
+
+/**
+ * QueryRowResponse contains the result of a single-row query.
+ * If no row was found, `found` will be false and `values` will be empty.
+ */
+message QueryRowResponse {
+  // Indicates whether a row was found
+  bool found = 1;
+
+  // Column names matching the returned values
+  repeated string columns = 2;
+
+  // Row values encoded as generic Any values
+  repeated google.protobuf.Any values = 3 [lazy = true];
+
+  // Query execution statistics
+  QueryStats stats = 4 [lazy = true];
+
+  // Error information if the query failed
+  gcommon.v1.common.Error error = 5 [lazy = true];
+}
