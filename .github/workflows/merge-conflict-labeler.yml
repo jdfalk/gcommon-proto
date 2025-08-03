@@ -6,7 +6,7 @@ name: Merge Conflict Labeler
 
 on:
   schedule:
-    - cron: '0 * * * *'
+    - cron: "0 * * * *"
   push:
   pull_request:
     types: [opened, synchronize, reopened, edited]
@@ -52,4 +52,3 @@ jobs:
                 await github.rest.issues.removeLabel({ owner, repo, issue_number: pr.number, name: label }).catch(e => { if (e.status !== 404) throw e; });
               }
             }
-
