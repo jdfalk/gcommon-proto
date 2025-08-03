@@ -11,7 +11,7 @@ import "google/protobuf/timestamp.proto";
 import "pkg/web/proto/enums/route_type.proto";
 import "pkg/web/proto/messages/route_config.proto";
 
-option go_package = "../../../../pkg/web/pb;webpb";
+option go_package = "../../../../pkg/web/proto;webpb";
 option features.(pb.go).api_level = API_HYBRID;
 
 // RouteInfo message definition.

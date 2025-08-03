@@ -10,7 +10,7 @@ import "google/protobuf/go_features.proto";
 import "pkg/common/proto/messages/request_metadata.proto";
 import "pkg/web/proto/messages/middleware_config.proto";
 
-option go_package = "../../../../pkg/web/pb;webpb";
+option go_package = "../../../../pkg/web/proto;webpb";
 option features.(pb.go).api_level = API_HYBRID;
 
 // UpdateMiddlewareConfigRequest request definition.

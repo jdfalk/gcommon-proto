@@ -11,7 +11,7 @@ import "pkg/log/proto/enums/appender_type.proto";
 import "pkg/log/proto/enums/formatter_type.proto";
 
 option features.(pb.go).api_level = API_HYBRID;
-option go_package = "../../../../pkg/log/pb;logpb";
+option go_package = "../../../../pkg/log/proto;logpb";
 
 // AppenderConfig describes how logs are output
 message AppenderConfig {

@@ -7,7 +7,7 @@ import "pkg/db/proto/messages/connection_pool_info.proto";
 import "pkg/db/proto/messages/database_info.proto";
 import "google/protobuf/go_features.proto";
 
-option go_package = "../../../../pkg/db/pb;dbpb";
+option go_package = "../../../../pkg/db/proto;dbpb";
 option features.(pb.go).api_level = API_HYBRID;
 
 /**

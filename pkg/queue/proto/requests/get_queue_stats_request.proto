@@ -15,7 +15,7 @@ import "google/protobuf/go_features.proto";
 import "google/protobuf/timestamp.proto";
 import "pkg/common/proto/messages/request_metadata.proto";
 
-option go_package = "../../../../pkg/queue/pb;queuepb";
+option go_package = "../../../../pkg/queue/proto;queuepb";
 option features.(pb.go).api_level = API_HYBRID;
 
 // GetQueueStatsRequest represents a request to retrieve queue statistics

@@ -6,7 +6,7 @@ package gcommon.v1.database;
 import "pkg/common/proto/messages/request_metadata.proto";
 import "google/protobuf/go_features.proto";
 
-option go_package = "../../../../pkg/db/pb;dbpb";
+option go_package = "../../../../pkg/db/proto;dbpb";
 option features.(pb.go).api_level = API_HYBRID;
 
 /**

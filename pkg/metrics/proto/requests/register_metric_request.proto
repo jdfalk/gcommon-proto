@@ -13,7 +13,7 @@ import "pkg/metrics/proto/enums/metric_type.proto";
 import "pkg/metrics/proto/types/export_config.proto";
 import "pkg/metrics/proto/types/retention_policy_retentionpolicyconfig.proto";
 
-option go_package = "../../../../pkg/metrics/pb;metricspb";
+option go_package = "../../../../pkg/metrics/proto;metricspb";
 option features.(pb.go).api_level = API_HYBRID;
 
 /**

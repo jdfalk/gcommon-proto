@@ -29,7 +29,7 @@ import "pkg/organization/proto/responses/get_hierarchy_response.proto";
 import "pkg/organization/proto/requests/update_hierarchy_request.proto";
 import "pkg/organization/proto/responses/update_hierarchy_response.proto";
 
-option go_package = "../../../../pkg/organization/pb;organizationpb";
+option go_package = "../../../../pkg/organization/proto;organizationpb";
 option features.(pb.go).api_level = API_HYBRID;
 
 /**

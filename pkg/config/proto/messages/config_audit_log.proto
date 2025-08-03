@@ -10,7 +10,7 @@ import "google/protobuf/timestamp.proto";
 
 import "pkg/common/proto/messages/error.proto";
 
-option go_package = "../../../../pkg/config/pb;configpb";
+option go_package = "../../../../pkg/config/proto;configpb";
 
 // ConfigAuditLog represents a configuration change audit entry
 message ConfigAuditLog {

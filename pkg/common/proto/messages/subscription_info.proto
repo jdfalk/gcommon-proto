@@ -10,7 +10,7 @@ import "pkg/common/proto/types/client_info.proto";
 import "pkg/common/proto/messages/subscription_options.proto";
 import "pkg/common/proto/enums/subscription_status.proto";
 
-option go_package = "../../../../pkg/common/pb;commonpb";
+option go_package = "../../../../pkg/common/proto;commonpb";
 option features.(pb.go).api_level = API_HYBRID;
 
 /**

@@ -10,7 +10,7 @@ import "google/protobuf/go_features.proto";
 import "google/protobuf/timestamp.proto";
 
 option features.(pb.go).api_level = API_HYBRID;
-option go_package = "../../../../pkg/common/pb;commonpb";
+option go_package = "../../../../pkg/common/proto;commonpb";
 
 /**
  * DebugInfo provides supplemental debugging information

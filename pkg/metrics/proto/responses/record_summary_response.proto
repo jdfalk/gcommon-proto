@@ -12,7 +12,7 @@ import "pkg/common/proto/messages/error.proto";
 import "pkg/metrics/proto/messages/summary_metric.proto";
 import "pkg/metrics/proto/types/recording_stats.proto";
 
-option go_package = "../../../../pkg/metrics/pb;metricspb";
+option go_package = "../../../../pkg/metrics/proto;metricspb";
 option features.(pb.go).api_level = API_HYBRID;
 
 /**

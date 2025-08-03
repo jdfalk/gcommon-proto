@@ -6,7 +6,7 @@ edition = "2023";
 
 package gcommon.v1.metrics;
 
-option go_package = "../../../../pkg/metrics/pb;metricspb";
+option go_package = "../../../../pkg/metrics/proto;metricspb";
 
 // RetentionPolicy represents different retention policies for metrics data
 enum RetentionPolicy {

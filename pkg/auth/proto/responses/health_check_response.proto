@@ -12,7 +12,7 @@ import "google/protobuf/duration.proto";
 import "pkg/common/proto/enums/health_status.proto";
 import "pkg/common/proto/messages/error.proto";
 
-option go_package = "../../../../pkg/auth/pb;authpb";
+option go_package = "../../../../pkg/auth/proto;authpb";
 option features.(pb.go).api_level = API_HYBRID;
 
 /**

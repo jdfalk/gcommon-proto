@@ -15,7 +15,7 @@ import "pkg/common/proto/messages/request_metadata.proto";
 import "pkg/queue/proto/messages/queue_message.proto";
 import "pkg/queue/proto/messages/delivery_options.proto";
 
-option go_package = "../../../../pkg/queue/pb;queuepb";
+option go_package = "../../../../pkg/queue/proto;queuepb";
 option features.(pb.go).api_level = API_HYBRID;
 
 // PublishRequest contains all information required to publish a

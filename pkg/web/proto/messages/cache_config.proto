@@ -11,7 +11,7 @@ import "google/protobuf/duration.proto";
 import "pkg/common/proto/messages/cache_policy.proto";
 import "pkg/web/proto/enums/cache_strategy.proto";
 
-option go_package = "../../../../pkg/web/pb;webpb";
+option go_package = "../../../../pkg/web/proto;webpb";
 option features.(pb.go).api_level = API_HYBRID;
 
 // CacheConfig defines caching behavior for web responses.

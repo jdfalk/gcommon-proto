@@ -21,7 +21,7 @@ import "pkg/health/proto/responses/reset_health_stats_response.proto";
 import "pkg/health/proto/responses/set_health_response.proto";
 import "pkg/health/proto/responses/run_check_response.proto";
 
-option go_package = "../../../../pkg/health/pb;healthpb";
+option go_package = "../../../../pkg/health/proto;healthpb";
 option features.(pb.go).api_level = API_HYBRID;
 
 /**

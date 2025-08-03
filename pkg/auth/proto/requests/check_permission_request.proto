@@ -8,7 +8,7 @@ package gcommon.v1.auth;
 
 import "pkg/common/proto/messages/request_metadata.proto";
 
-option go_package = "../../../../pkg/auth/pb;authpb";
+option go_package = "../../../../pkg/auth/proto;authpb";
 
 /**
  * Request to verify that a user possesses a specific permission.

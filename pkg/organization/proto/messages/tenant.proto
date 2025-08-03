@@ -9,7 +9,7 @@ import "pkg/organization/proto/enums/tenant_status.proto";
 import "pkg/organization/proto/enums/isolation_level.proto";
 import "pkg/common/proto/types/key_value.proto";
 
-option go_package = "../../../../pkg/organization/pb;organizationpb";
+option go_package = "../../../../pkg/organization/proto;organizationpb";
 option features.(pb.go).api_level = API_HYBRID;
 
 /**

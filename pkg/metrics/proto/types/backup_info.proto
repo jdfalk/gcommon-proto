@@ -8,7 +8,7 @@ package gcommon.v1.metrics;
 
 import "google/protobuf/timestamp.proto";
 
-option go_package = "../../../../pkg/metrics/pb;metricspb";
+option go_package = "../../../../pkg/metrics/proto;metricspb";
 
 /**
  * BackupInfo contains information about backup operations.
