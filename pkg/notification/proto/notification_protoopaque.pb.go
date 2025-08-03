@@ -27,9 +27,9 @@ var File_pkg_notification_proto_notification_proto protoreflect.FileDescriptor
 
 const file_pkg_notification_proto_notification_proto_rawDesc = "" +
 	"\n" +
-	")pkg/notification/proto/notification.proto\x12\x17gcommon.v1.notification\x1a:pkg/notification/proto/messages/notification_message.proto\x1a6pkg/notification/proto/messages/delivery_channel.proto\x1a.pkg/notification/proto/messages/template.proto\x1a>pkg/notification/proto/messages/subscription_preferences.proto\x1a8pkg/notification/proto/messages/event_notification.proto\x1a2pkg/notification/proto/enums/delivery_status.proto\x1a?pkg/notification/proto/requests/send_notification_request.proto\x1aApkg/notification/proto/responses/send_notification_response.proto\x1a@pkg/notification/proto/requests/list_notifications_request.proto\x1aBpkg/notification/proto/responses/list_notifications_response.proto\x1a@pkg/notification/proto/requests/update_preferences_request.proto\x1aBpkg/notification/proto/responses/update_preferences_response.proto\x1a:pkg/notification/proto/requests/get_template_request.proto\x1a<pkg/notification/proto/responses/get_template_response.proto\x1a:pkg/notification/proto/services/notification_service.proto\x1a!google/protobuf/go_features.protoB\xf7\x01\n" +
+	")pkg/notification/proto/notification.proto\x12\x17gcommon.v1.notification\x1a:pkg/notification/proto/messages/notification_message.proto\x1a6pkg/notification/proto/messages/delivery_channel.proto\x1a.pkg/notification/proto/messages/template.proto\x1a>pkg/notification/proto/messages/subscription_preferences.proto\x1a8pkg/notification/proto/messages/event_notification.proto\x1a2pkg/notification/proto/enums/delivery_status.proto\x1a?pkg/notification/proto/requests/send_notification_request.proto\x1aApkg/notification/proto/responses/send_notification_response.proto\x1a@pkg/notification/proto/requests/list_notifications_request.proto\x1aBpkg/notification/proto/responses/list_notifications_response.proto\x1a@pkg/notification/proto/requests/update_preferences_request.proto\x1aBpkg/notification/proto/responses/update_preferences_response.proto\x1a:pkg/notification/proto/requests/get_template_request.proto\x1a<pkg/notification/proto/responses/get_template_response.proto\x1a:pkg/notification/proto/requests/mark_as_read_request.proto\x1a<pkg/notification/proto/responses/mark_as_read_response.proto\x1aApkg/notification/proto/requests/delete_notification_request.proto\x1aCpkg/notification/proto/responses/delete_notification_response.proto\x1a:pkg/notification/proto/services/notification_service.proto\x1a!google/protobuf/go_features.protoB\xf7\x01\n" +
 	"\x1bcom.gcommon.v1.notificationB\x11NotificationProtoP\x01Z?github.com/jdfalk/gcommon/pkg/notification/proto;notificationpb\xa2\x02\x03GVN\xaa\x02\x17Gcommon.V1.Notification\xca\x02\x17Gcommon\\V1\\Notification\xe2\x02#Gcommon\\V1\\Notification\\GPBMetadata\xea\x02\x19Gcommon::V1::Notification\x92\x03\x05\xd2>\x02\x10\x02P\x00P\x01P\x02P\x03P\x04P\x05P\x06P\aP\bP\tP\n" +
-	"P\vP\fP\rP\x0eb\beditionsp\xe8\a"
+	"P\vP\fP\rP\x0eP\x0fP\x10P\x11P\x12b\beditionsp\xe8\a"
 
 var file_pkg_notification_proto_notification_proto_goTypes = []any{}
 var file_pkg_notification_proto_notification_proto_depIdxs = []int32{
@@ -59,6 +59,10 @@ func file_pkg_notification_proto_notification_proto_init() {
 	file_pkg_notification_proto_responses_update_preferences_response_proto_init()
 	file_pkg_notification_proto_requests_get_template_request_proto_init()
 	file_pkg_notification_proto_responses_get_template_response_proto_init()
+	file_pkg_notification_proto_requests_mark_as_read_request_proto_init()
+	file_pkg_notification_proto_responses_mark_as_read_response_proto_init()
+	file_pkg_notification_proto_requests_delete_notification_request_proto_init()
+	file_pkg_notification_proto_responses_delete_notification_response_proto_init()
 	file_pkg_notification_proto_services_notification_service_proto_init()
 	type x struct{}
 	out := protoimpl.TypeBuilder{
