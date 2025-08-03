@@ -1,0 +1,22 @@
+// file: pkg/config/proto/responses/get_config_response.proto
+edition = "2023";
+
+package gcommon.v1.config;
+
+import "google/protobuf/go_features.proto";
+import "pkg/common/proto/config/proto/jdfalk/gcommon/pkg/config/proto;configpb";
+option features.(pb.go).api_level = API_HYBRID;
+
+/**
+ * GetConfigResponse contains a configuration entry or error information.
+ */
+message GetConfigResponse {
+  // Configuration entry
+  ConfigEntry entry = 1;
+
+  // Whether the key was found
+  bool found = 2;
+
+  // Error information
+  gcommon.v1.common.Error error = 3;
+}

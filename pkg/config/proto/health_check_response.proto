@@ -1,0 +1,22 @@
+// file: pkg/config/proto/responses/health_check_response.proto
+// version: 1.0.0
+// guid: 4f491273-ecd5-4d3c-b13d-b7ef6219a25d
+
+edition = "2023";
+
+package gcommon.v1.config;
+
+import "google/protobuf/go_features.proto";
+import "pkg/common/proto/jdfalk/gcommon/pkg/config/proto;configpb";
+option features.(pb.go).api_level = API_HYBRID;
+
+/**
+ * HealthCheckResponse provides health status for the config service.
+ */
+message HealthCheckResponse {
+  // Overall health status
+  gcommon.v1.common.HealthStatus status = 1;
+
+  // Optional human-readable message
+  string message = 2;
+}

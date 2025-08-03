@@ -1,0 +1,22 @@
+// file: pkg/config/proto/responses/get_multiple_config_response.proto
+edition = "2023";
+
+package gcommon.v1.config;
+
+import "google/protobuf/go_features.proto";
+import "pkg/common/proto/config/proto/jdfalk/gcommon/pkg/config/proto;configpb";
+option features.(pb.go).api_level = API_HYBRID;
+
+/**
+ * GetMultipleConfigResponse returns multiple configuration entries.
+ */
+message GetMultipleConfigResponse {
+  // Retrieved entries mapped by key
+  map<string, ConfigEntry> entries = 1;
+
+  // Keys that were not found
+  repeated string not_found = 2;
+
+  // Error information
+  gcommon.v1.common.Error error = 3;
+}

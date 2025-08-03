@@ -1,0 +1,23 @@
+// file: pkg/config/proto/responses/list_config_response.proto
+edition = "2023";
+
+package gcommon.v1.config;
+
+import "google/protobuf/go_features.proto";
+import "pkg/common/proto/common/proto/paginated_response.proto";
+import "pkg/config/proto/gcommon/pkg/config/proto;configpb";
+option features.(pb.go).api_level = API_HYBRID;
+
+/**
+ * ListConfigResponse returns configuration entries for a list operation.
+ */
+message ListConfigResponse {
+  // Configuration entries
+  repeated ConfigEntry entries = 1;
+
+  // Pagination information
+  gcommon.v1.common.PaginatedResponse pagination = 2;
+
+  // Error information
+  gcommon.v1.common.Error error = 3;
+}

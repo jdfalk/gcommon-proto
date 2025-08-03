@@ -1,0 +1,52 @@
+// file: config/proto/services/config_service.proto
+edition = "2023";
+
+package gcommon.v1.config;
+
+import "google/protobuf/go_features.proto";
+
+option go_package = "github.com/jdfalk/gcommon/pkg/config/proto;configpb";
+option features.(pb.go).api_level = API_HYBRID;
+
+import "pkg/config/proto/proto/get_config_response.proto";
+import "pkg/config/proto/proto/set_config_response.proto";
+import "pkg/config/proto/proto/list_config_request.proto";
+import "pkg/config/proto/proto/watch_config_request.proto";
+import "pkg/config/proto/proto/get_multiple_config_request.proto";
+import "pkg/config/proto/proto/set_multiple_config_request.proto";
+import "pkg/config/proto/proto/validate_config_request.proto";
+import "pkg/config/proto/proto/get_schema_request.proto";
+import "pkg/config/proto/empty.proto";
+
+/**
+ * ConfigService provides configuration management capabilities.
+ * Supports hierarchical configuration, validation, and real-time updates.
+ */
+service ConfigService {
+  // Get retrieves a configuration value
+  rpc Get(GetConfigRequest) returns (GetConfigResponse);
+
+  // Set stores a configuration value
+  rpc Set(SetConfigRequest) returns (SetConfigResponse);
+
+  // Delete removes a configuration value
+  rpc Delete(DeleteConfigRequest) returns (google.protobuf.Empty);
+
+  // List configuration keys with optional filtering
+  rpc List(ListConfigRequest) returns (ListConfigResponse);
+
+  // Watch for configuration changes
+  rpc Watch(WatchConfigRequest) returns (stream WatchConfigResponse);
+
+  // GetMultiple retrieves multiple configuration values
+  rpc GetMultiple(GetMultipleConfigRequest) returns (GetMultipleConfigResponse);
+
+  // SetMultiple stores multiple configuration values
+  rpc SetMultiple(SetMultipleConfigRequest) returns (SetMultipleConfigResponse);
+
+  // Validate configuration values
+  rpc Validate(ValidateConfigRequest) returns (ValidateConfigResponse);
+
+  // GetSchema retrieves configuration schema
+  rpc GetSchema(GetSchemaRequest) returns (GetSchemaResponse);
+}
