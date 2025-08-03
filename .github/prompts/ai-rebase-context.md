@@ -1,127 +1,90 @@
 <!-- file: .github/prompts/ai-rebase-context.md -->
-<!-- version: 1.0.0 -->
-<!-- guid: 8f9e0d1c-6b5a-4c3d-2e1f-7a6b5c4d3e2f -->
+<!-- version: 1.0.1 -->
+<!-- guid: 5f8e7d6c-9b8a-7c6d-5e4f-3a2b1c0d9e8f -->
 
 # Repository Context for AI Rebase
 
 ## Project Overview
 
-This is the **GCommon** repository, a comprehensive Go library collection and Protocol Buffer definitions for distributed systems. The project focuses on:
+This is the **ghcommon** repository, which contains shared GitHub workflows,
+automation scripts, and common utilities for managing multiple repositories in
+the organization. It focuses on:
 
-- Common Go utilities and libraries for microservices
-- Extensive Protocol Buffer definitions for gRPC services
-- Modular architecture with separate packages for different concerns
-- Integration libraries for databases, messaging, and web services
-- Performance-optimized data structures and algorithms
+- Reusable GitHub Actions workflows
+- Documentation management automation
+- Issue and project management tools
+- Code quality and standardization tools
 
 ## Coding Standards
 
-- Follow Go conventions: exported functions use PascalCase, unexported use camelCase
-- Use standard file header format with path, version, and GUID
-- Protocol Buffer files follow Google's style guide
-- All Go packages include comprehensive package documentation
-- Use conventional commit message format: `type(scope): description`
-- gRPC services follow consistent naming and error handling patterns
-- Include extensive unit tests with table-driven test patterns
+- Follow conventional commit message format: `type(scope): description`
+- Use proper file headers with path, version, and GUID
+- Maintain documentation with every code change
+- Use semantic versioning for all files
+- Follow the centralized coding instructions system in `.github/instructions/`
 
 ## Key Files to Reference
 
 ### README.md
 
-Project overview explaining the modular architecture and package organization for the common Go libraries.
+The main project documentation explaining the repository's purpose and
+structure.
 
 ### .github/instructions/general-coding.instructions.md
 
-Standard coding guidelines including file headers, version management, and documentation requirements.
+Contains the canonical coding standards and file header requirements that apply
+to all files.
 
-### go.mod
+### .github/commit-messages.md
 
-Go module definition showing dependencies on gRPC, protobuf, database drivers, and other core libraries.
+Defines the conventional commit message format used across all repositories.
 
-### buf.yaml and buf.gen.yaml
+### .github/workflows/
 
-Protocol Buffer configuration files defining linting rules, breaking change detection, and code generation settings.
+Contains reusable GitHub Actions workflows that can be used by other
+repositories.
 
 ## Common Conflict Patterns
 
-### Protocol Buffer Conflicts
+### File Headers
 
-When resolving `.proto` file conflicts:
+When resolving conflicts in file headers, always:
 
-- Preserve both message field additions (ensure no field number conflicts)
-- Combine service method additions from both branches
-- Merge enum value additions while maintaining consistent numbering
-- Keep both package imports when they serve different purposes
-- Preserve breaking change annotations and deprecation comments
+- Keep the correct file path relative to repository root
+- Increment the version number appropriately (patch/minor/major)
+- Preserve the GUID (never change it)
+- Use the correct comment format for the file type
 
-### Go Library Conflicts
+### Workflow Files
 
-For Go package conflicts:
+For GitHub Actions workflow conflicts:
 
-- Combine interface method additions from both branches
-- Merge struct field additions while maintaining backward compatibility
-- Preserve both constructor function variations when they serve different use cases
-- Keep both test cases when they test different scenarios
-- Combine error handling improvements and validation logic
+- Preserve both workflow logic when possible
+- Maintain proper YAML indentation
+- Keep input/output definitions consistent
+- Ensure environment variables are properly quoted
 
-### Module Organization Conflicts
+### Documentation Updates
 
-For package structure conflicts:
+When resolving documentation conflicts:
 
-- Preserve both new package additions when they serve different domains
-- Merge go.mod dependency additions from both branches
-- Combine Makefile target additions for different build scenarios
-- Keep both documentation additions in different areas
+- Combine content additions rather than choosing one side
+- Maintain consistent formatting and structure
+- Preserve both sets of new information when relevant
+- Keep version history in changelogs
 
 ## Dependencies and Imports
 
-- **Core gRPC**: `google.golang.org/grpc`, `google.golang.org/protobuf`
-- **Database libraries**: PostgreSQL, Redis, and other data store clients
-- **Monitoring**: Prometheus metrics, structured logging libraries
-- **Networking**: HTTP/2, WebSocket, and connection pooling utilities
-- **Serialization**: Protocol Buffers, JSON, and binary encoding
-- **Testing**: Testify, mock generation, and integration test helpers
-- **Build tools**: Buf for protobuf management, golangci-lint for code quality
+- Python scripts use standard library when possible
+- Shell scripts should be POSIX-compatible
+- GitHub Actions use official actions with pinned versions
+- Templates and prompts should be self-contained
 
 ## Project Structure
 
-- `pkg/` - Core Go library packages organized by domain
-- `proto/` - Protocol Buffer definitions organized by service area
-- `cmd/examples/` - Example applications demonstrating library usage
-- `internal/` - Internal packages not exposed to external consumers
-- `docs/` - Documentation including architecture decisions and API guides
-- `scripts/` - Build and development automation scripts
-- `config/` - Configuration templates and examples
-
-## Protocol Buffer Organization
-
-### Module Structure
-
-The protobuf definitions are organized into logical modules:
-
-- **Auth Module**: 109 files for authentication and authorization
-- **Cache Module**: 36 files for caching and data storage
-- **Config Module**: 20 files for configuration management
-- **Metrics Module**: 95 files for monitoring and observability
-- **Queue Module**: 175 files for message queuing and async processing
-- **Web Module**: 176 files for web services and HTTP handling
-
-### Implementation Status
-
-Currently **626 protobuf files are empty** and need implementation. When resolving conflicts:
-
-- Preserve both message definition attempts when they don't conflict
-- Combine field definitions from different branches intelligently
-- Maintain consistent service patterns across modules
-- Keep both documentation improvements for better API understanding
-
-### Code Generation
-
-The project uses `buf` for:
-
-- **Linting**: Ensuring consistent protobuf style
-- **Breaking Change Detection**: Preventing API compatibility issues
-- **Code Generation**: Creating Go bindings for all protobuf definitions
-- **Documentation**: Generating API documentation from protobuf comments
-
-When resolving conflicts in generated code, prefer regenerating from the merged `.proto` files rather than manually merging generated Go code.
+- `.github/workflows/` - Reusable GitHub Actions workflows
+- `.github/instructions/` - Coding standards and guidelines
+- `.github/prompts/` - AI prompt templates
+- `scripts/` - Automation and utility scripts
+- `templates/` - File and project templates
+- `docs/` - Additional documentation
