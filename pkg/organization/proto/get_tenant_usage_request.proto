@@ -1,0 +1,16 @@
+// file: pkg/organization/proto/requests/get_tenant_usage_request.proto
+edition = "2023";
+
+package gcommon.v1.organization;
+
+import "google/protobuf/go_features.proto";
+import "pkg/common/proto/jdfalk/gcommon/pkg/organization/proto;organizationpb";
+option features.(pb.go).api_level = API_HYBRID;
+
+message GetTenantUsageRequest {
+  // Request metadata for tracing and context
+  gcommon.v1.common.RequestMetadata metadata = 1;
+  
+  // Tenant identifier
+  string tenant_id = 2;
+}

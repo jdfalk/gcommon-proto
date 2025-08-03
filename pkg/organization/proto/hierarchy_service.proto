@@ -1,0 +1,64 @@
+// file: pkg/organization/proto/services/hierarchy_service.proto
+edition = "2023";
+
+package gcommon.v1.organization;
+
+import "google/protobuf/go_features.proto";
+import "pkg/organization/proto/proto/create_department_response.proto";
+import "pkg/organization/proto/proto/get_department_response.proto";
+import "pkg/organization/proto/proto/update_department_response.proto";
+import "pkg/organization/proto/proto/delete_department_response.proto";
+import "pkg/organization/proto/proto/list_departments_response.proto";
+import "pkg/organization/proto/proto/create_team_response.proto";
+import "pkg/organization/proto/proto/get_team_response.proto";
+import "pkg/organization/proto/proto/update_team_response.proto";
+import "pkg/organization/proto/proto/delete_team_response.proto";
+import "pkg/organization/proto/proto/list_teams_response.proto";
+import "pkg/organization/proto/proto/get_hierarchy_response.proto";
+import "pkg/organization/proto/proto/update_hierarchy_response.proto";
+
+option go_package = "github.com/jdfalk/gcommon/pkg/organization/proto;organizationpb";
+option features.(pb.go).api_level = API_HYBRID;
+
+/**
+ * HierarchyService provides comprehensive organizational hierarchy management.
+ * Handles department and team operations, hierarchical relationships,
+ * and organizational structure administration.
+ */
+service HierarchyService {
+  // Create a new department
+  rpc CreateDepartment(CreateDepartmentRequest) returns (CreateDepartmentResponse);
+
+  // Get a department by ID
+  rpc GetDepartment(GetDepartmentRequest) returns (GetDepartmentResponse);
+
+  // Update an existing department
+  rpc UpdateDepartment(UpdateDepartmentRequest) returns (UpdateDepartmentResponse);
+
+  // Delete a department (soft delete)
+  rpc DeleteDepartment(DeleteDepartmentRequest) returns (DeleteDepartmentResponse);
+
+  // List departments within an organization (with pagination and filtering)
+  rpc ListDepartments(ListDepartmentsRequest) returns (ListDepartmentsResponse);
+
+  // Create a new team
+  rpc CreateTeam(CreateTeamRequest) returns (CreateTeamResponse);
+
+  // Get a team by ID
+  rpc GetTeam(GetTeamRequest) returns (GetTeamResponse);
+
+  // Update an existing team
+  rpc UpdateTeam(UpdateTeamRequest) returns (UpdateTeamResponse);
+
+  // Delete a team (soft delete)
+  rpc DeleteTeam(DeleteTeamRequest) returns (DeleteTeamResponse);
+
+  // List teams within an organization or department (with pagination and filtering)
+  rpc ListTeams(ListTeamsRequest) returns (ListTeamsResponse);
+
+  // Get organizational hierarchy structure
+  rpc GetHierarchy(GetHierarchyRequest) returns (GetHierarchyResponse);
+
+  // Update organizational hierarchy structure
+  rpc UpdateHierarchy(UpdateHierarchyRequest) returns (UpdateHierarchyResponse);
+}

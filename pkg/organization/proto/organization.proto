@@ -1,0 +1,84 @@
+// file: pkg/organization/proto/messages/organization.proto
+edition = "2023";
+
+package gcommon.v1.organization;
+
+import "google/protobuf/go_features.proto";
+import "google/protobuf/timestamp.proto";
+import "pkg/organization/proto/proto/types/key_value.proto";
+
+option go_package = "github.com/jdfalk/gcommon/pkg/organization/proto;organizationpb";
+option features.(pb.go).api_level = API_HYBRID;
+
+/**
+ * Organization message representing a complete organizational entity.
+ * Contains all core information needed for organization management,
+ * including metadata, settings, and administrative information.
+ */
+message Organization {
+  // Unique organization identifier (immutable)
+  string id = 1;
+
+  // Organization name (human-readable identifier)
+  string name = 2;
+
+  // URL-friendly slug for the organization (e.g., for subdomains)
+  string slug = 3;
+
+  // Organization description or mission statement
+  string description = 4;
+
+  // Primary website URL for the organization
+  string website = 5;
+
+  // Primary contact email for the organization
+  string contact_email = 6;
+
+  // Organization's physical address or headquarters location
+  string address = 7;
+
+  // Phone number for organization contact
+  string phone = 8;
+
+  // Tax identifier or business registration number
+  string tax_id = 9;
+
+  // Organization's industry or business sector
+  string industry = 10;
+
+  // Current operational status of the organization
+  OrganizationStatus status = 11;
+
+  // Organization metadata and custom attributes
+  repeated gcommon.v1.common.KeyValue metadata = 12 [lazy = true];
+
+  // Organization creation timestamp (immutable)
+  google.protobuf.Timestamp created_at = 13 [lazy = true];
+
+  // Last update timestamp
+  google.protobuf.Timestamp updated_at = 14 [lazy = true];
+
+  // User ID who created this organization
+  string created_by = 15;
+
+  // User ID who last updated this organization
+  string updated_by = 16;
+
+  // Organization's timezone (IANA timezone identifier)
+  string timezone = 17;
+
+  // Organization's primary language/locale
+  string locale = 18;
+
+  // Maximum number of members allowed in this organization
+  int32 max_members = 19;
+
+  // Whether this organization supports multi-tenancy
+  bool multi_tenant_enabled = 20;
+
+  // Organization's logo or avatar URL
+  string avatar_url = 21;
+
+  // Organization's billing contact email (if different from contact_email)
+  string billing_email = 22;
+}

@@ -1,0 +1,19 @@
+// file: pkg/organization/proto/requests/create_department_request.proto
+edition = "2023";
+
+package gcommon.v1.organization;
+
+import "google/protobuf/go_features.proto";
+import "pkg/common/proto/organization/proto/jdfalk/gcommon/pkg/organization/proto;organizationpb";
+option features.(pb.go).api_level = API_HYBRID;
+
+message CreateDepartmentRequest {
+  // Request metadata for tracing and context
+  gcommon.v1.common.RequestMetadata metadata = 1;
+
+  // Department information to create
+  gcommon.v1.organization.Department department = 2;
+
+  // Validate only without persisting if true
+  bool validate_only = 3;
+}
