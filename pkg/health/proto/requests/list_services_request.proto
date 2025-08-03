@@ -6,7 +6,8 @@ edition = "2023";
 
 package gcommon.v1.health;
 
-import "pkg/common/proto/common.proto";
+import "pkg/common/proto/messages/request_metadata.proto";
+import "pkg/common/proto/messages/error.proto";
 import "google/protobuf/go_features.proto";
 
 option go_package = "github.com/jdfalk/gcommon/pkg/health/proto;healthpb";
