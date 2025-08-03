@@ -8,7 +8,7 @@ package gcommon.v1.auth;
 
 // Standard imports
 import "google/protobuf/timestamp.proto";
-import "pkg/common/proto/messages/error.proto";
+
 // Common types
 import "pkg/common/proto/messages/request_metadata.proto";
 import "pkg/common/proto/types/pagination_options.proto";
