@@ -9,7 +9,9 @@ package gcommon.v1.queue;
 option go_package = "github.com/jdfalk/gcommon/pkg/queue/proto;queuepb";
 
 // Common types
-import "pkg/common/proto/**
+import "pkg/common/proto/request_metadata.proto";
+
+/**
  * AcknowledgeRequest confirms successful processing of one or more messages.
  * Once acknowledged, messages are permanently removed from the queue
  * and will not be redelivered.
