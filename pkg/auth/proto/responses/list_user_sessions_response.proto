@@ -12,7 +12,9 @@ option go_package = "github.com/jdfalk/gcommon/pkg/auth/proto;authpb";
 import "google/protobuf/timestamp.proto";
 
 // Common types
-import "pkg/common/proto/common.proto";
+import "pkg/common/proto/messages/request_metadata.proto";
+import "pkg/common/proto/messages/paginated_response.proto";
+import "pkg/common/proto/messages/error.proto";
 
 // Auth module types
 import "pkg/auth/proto/messages/session_info.proto";
