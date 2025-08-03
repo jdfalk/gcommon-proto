@@ -1,20 +1,37 @@
-// filepath: pkg/queue/proto/responses/seek_response.proto
-// file: queue/proto/responses/seek_response.proto
-//
-// Response definitions for queue module
-// TODO: Implement actual protobuf definitions
-//
+// file: pkg/queue/proto/seek_response.proto
+// version: 1.0.0
+// guid: d1e2f3a4-b5c6-7d8e-9f0a-1b2c3d4e5f6a
+
 edition = "2023";
 
 package gcommon.v1.queue;
 
 import "google/protobuf/go_features.proto";
+import "pkg/common/proto/response_metadata.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
 option go_package = "github.com/jdfalk/gcommon/pkg/queue/proto;queuepb";
 
-// TODO: Add response definitions here
-// This is a placeholder file created during 1-1-1 migration
-// Implement the actual protobuf definitions according to the queue module requirements
-// SKELETON_FILE: Compilation temporarily disabled
-// This file needs proper implementation
+/**
+ * Response for seek operations on a queue.
+ * Contains the result of attempting to seek to a specific position.
+ */
+message SeekResponse {
+  // Whether the seek operation was successful
+  bool success = 1;
+
+  // The actual position seeked to
+  int64 position = 2;
+
+  // The offset within the partition (for partitioned queues)
+  int64 offset = 3;
+
+  // The partition ID (for partitioned queues)
+  int32 partition_id = 4;
+
+  // Error message if seek failed
+  string error_message = 5;
+
+  // Response metadata
+  gcommon.v1.common.ResponseMetadata metadata = 6;
+}
