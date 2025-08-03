@@ -9,9 +9,11 @@
 package webpb
 
 import (
+	proto "github.com/jdfalk/gcommon/pkg/common/proto"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
+	durationpb "google.golang.org/protobuf/types/known/durationpb"
 	reflect "reflect"
 	unsafe "unsafe"
 )
@@ -23,10 +25,16 @@ const (
 	_ = protoimpl.EnforceVersion(protoimpl.MaxVersion - 20)
 )
 
-// CacheConfig message definition.
+// CacheConfig defines caching behavior for web responses.
 type CacheConfig struct {
-	state                  protoimpl.MessageState `protogen:"opaque.v1"`
-	xxx_hidden_Placeholder *string                `protobuf:"bytes,1,opt,name=placeholder"`
+	state                protoimpl.MessageState `protogen:"opaque.v1"`
+	xxx_hidden_Strategy  CacheStrategy          `protobuf:"varint,1,opt,name=strategy,enum=gcommon.v1.web.CacheStrategy"`
+	xxx_hidden_Policy    *proto.CachePolicy     `protobuf:"bytes,2,opt,name=policy"`
+	xxx_hidden_Ttl       *durationpb.Duration   `protobuf:"bytes,3,opt,name=ttl"`
+	xxx_hidden_Enabled   bool                   `protobuf:"varint,4,opt,name=enabled"`
+	xxx_hidden_CacheName *string                `protobuf:"bytes,5,opt,name=cache_name,json=cacheName"`
+	// Deprecated: Do not use. This will be deleted in the near future.
+	XXX_lazyUnmarshalInfo  protoimpl.LazyUnmarshalInfo
 	XXX_raceDetectHookData protoimpl.RaceDetectHookData
 	XXX_presence           [1]uint32
 	unknownFields          protoimpl.UnknownFields
@@ -58,46 +66,175 @@ func (x *CacheConfig) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-func (x *CacheConfig) GetPlaceholder() string {
+func (x *CacheConfig) GetStrategy() CacheStrategy {
 	if x != nil {
-		if x.xxx_hidden_Placeholder != nil {
-			return *x.xxx_hidden_Placeholder
+		if protoimpl.X.Present(&(x.XXX_presence[0]), 0) {
+			return x.xxx_hidden_Strategy
+		}
+	}
+	return CacheStrategy_CACHE_STRATEGY_UNSPECIFIED
+}
+
+func (x *CacheConfig) GetPolicy() *proto.CachePolicy {
+	if x != nil {
+		if protoimpl.X.Present(&(x.XXX_presence[0]), 1) {
+			if protoimpl.X.AtomicCheckPointerIsNil(&x.xxx_hidden_Policy) {
+				protoimpl.X.UnmarshalField(x, 2)
+			}
+			var rv *proto.CachePolicy
+			protoimpl.X.AtomicLoadPointer(protoimpl.Pointer(&x.xxx_hidden_Policy), protoimpl.Pointer(&rv))
+			return rv
+		}
+	}
+	return nil
+}
+
+func (x *CacheConfig) GetTtl() *durationpb.Duration {
+	if x != nil {
+		return x.xxx_hidden_Ttl
+	}
+	return nil
+}
+
+func (x *CacheConfig) GetEnabled() bool {
+	if x != nil {
+		return x.xxx_hidden_Enabled
+	}
+	return false
+}
+
+func (x *CacheConfig) GetCacheName() string {
+	if x != nil {
+		if x.xxx_hidden_CacheName != nil {
+			return *x.xxx_hidden_CacheName
 		}
 		return ""
 	}
 	return ""
 }
 
-func (x *CacheConfig) SetPlaceholder(v string) {
-	x.xxx_hidden_Placeholder = &v
-	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 0, 1)
+func (x *CacheConfig) SetStrategy(v CacheStrategy) {
+	x.xxx_hidden_Strategy = v
+	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 0, 5)
 }
 
-func (x *CacheConfig) HasPlaceholder() bool {
+func (x *CacheConfig) SetPolicy(v *proto.CachePolicy) {
+	protoimpl.X.AtomicSetPointer(&x.xxx_hidden_Policy, v)
+	if v == nil {
+		protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 1)
+	} else {
+		protoimpl.X.SetPresent(&(x.XXX_presence[0]), 1, 5)
+	}
+}
+
+func (x *CacheConfig) SetTtl(v *durationpb.Duration) {
+	x.xxx_hidden_Ttl = v
+}
+
+func (x *CacheConfig) SetEnabled(v bool) {
+	x.xxx_hidden_Enabled = v
+	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 3, 5)
+}
+
+func (x *CacheConfig) SetCacheName(v string) {
+	x.xxx_hidden_CacheName = &v
+	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 4, 5)
+}
+
+func (x *CacheConfig) HasStrategy() bool {
 	if x == nil {
 		return false
 	}
 	return protoimpl.X.Present(&(x.XXX_presence[0]), 0)
 }
 
-func (x *CacheConfig) ClearPlaceholder() {
+func (x *CacheConfig) HasPolicy() bool {
+	if x == nil {
+		return false
+	}
+	return protoimpl.X.Present(&(x.XXX_presence[0]), 1)
+}
+
+func (x *CacheConfig) HasTtl() bool {
+	if x == nil {
+		return false
+	}
+	return x.xxx_hidden_Ttl != nil
+}
+
+func (x *CacheConfig) HasEnabled() bool {
+	if x == nil {
+		return false
+	}
+	return protoimpl.X.Present(&(x.XXX_presence[0]), 3)
+}
+
+func (x *CacheConfig) HasCacheName() bool {
+	if x == nil {
+		return false
+	}
+	return protoimpl.X.Present(&(x.XXX_presence[0]), 4)
+}
+
+func (x *CacheConfig) ClearStrategy() {
 	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 0)
-	x.xxx_hidden_Placeholder = nil
+	x.xxx_hidden_Strategy = CacheStrategy_CACHE_STRATEGY_UNSPECIFIED
+}
+
+func (x *CacheConfig) ClearPolicy() {
+	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 1)
+	protoimpl.X.AtomicSetPointer(&x.xxx_hidden_Policy, (*proto.CachePolicy)(nil))
+}
+
+func (x *CacheConfig) ClearTtl() {
+	x.xxx_hidden_Ttl = nil
+}
+
+func (x *CacheConfig) ClearEnabled() {
+	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 3)
+	x.xxx_hidden_Enabled = false
+}
+
+func (x *CacheConfig) ClearCacheName() {
+	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 4)
+	x.xxx_hidden_CacheName = nil
 }
 
 type CacheConfig_builder struct {
 	_ [0]func() // Prevents comparability and use of unkeyed literals for the builder.
 
-	Placeholder *string
+	// Selected cache strategy for responses
+	Strategy *CacheStrategy
+	// Detailed cache policy settings
+	Policy *proto.CachePolicy
+	// Override time to live for web resources
+	Ttl *durationpb.Duration
+	// Whether caching is enabled for this server
+	Enabled *bool
+	// Optional namespace or cache name
+	CacheName *string
 }
 
 func (b0 CacheConfig_builder) Build() *CacheConfig {
 	m0 := &CacheConfig{}
 	b, x := &b0, m0
 	_, _ = b, x
-	if b.Placeholder != nil {
-		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 0, 1)
-		x.xxx_hidden_Placeholder = b.Placeholder
+	if b.Strategy != nil {
+		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 0, 5)
+		x.xxx_hidden_Strategy = *b.Strategy
+	}
+	if b.Policy != nil {
+		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 1, 5)
+		x.xxx_hidden_Policy = b.Policy
+	}
+	x.xxx_hidden_Ttl = b.Ttl
+	if b.Enabled != nil {
+		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 3, 5)
+		x.xxx_hidden_Enabled = *b.Enabled
+	}
+	if b.CacheName != nil {
+		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 4, 5)
+		x.xxx_hidden_CacheName = b.CacheName
 	}
 	return m0
 }
@@ -106,21 +243,32 @@ var File_pkg_web_proto_messages_cache_config_proto protoreflect.FileDescriptor
 
 const file_pkg_web_proto_messages_cache_config_proto_rawDesc = "" +
 	"\n" +
-	")pkg/web/proto/messages/cache_config.proto\x12\x0egcommon.v1.web\x1a!google/protobuf/go_features.proto\"/\n" +
-	"\vCacheConfig\x12 \n" +
-	"\vplaceholder\x18\x01 \x01(\tR\vplaceholderB\xb7\x01\n" +
+	")pkg/web/proto/messages/cache_config.proto\x12\x0egcommon.v1.web\x1a!google/protobuf/go_features.proto\x1a\x1egoogle/protobuf/duration.proto\x1a,pkg/common/proto/messages/cache_policy.proto\x1a(pkg/web/proto/enums/cache_strategy.proto\"\xea\x01\n" +
+	"\vCacheConfig\x129\n" +
+	"\bstrategy\x18\x01 \x01(\x0e2\x1d.gcommon.v1.web.CacheStrategyR\bstrategy\x12:\n" +
+	"\x06policy\x18\x02 \x01(\v2\x1e.gcommon.v1.common.CachePolicyB\x02(\x01R\x06policy\x12+\n" +
+	"\x03ttl\x18\x03 \x01(\v2\x19.google.protobuf.DurationR\x03ttl\x12\x18\n" +
+	"\aenabled\x18\x04 \x01(\bR\aenabled\x12\x1d\n" +
+	"\n" +
+	"cache_name\x18\x05 \x01(\tR\tcacheNameB\xb7\x01\n" +
 	"\x12com.gcommon.v1.webB\x10CacheConfigProtoP\x01Z-github.com/jdfalk/gcommon/pkg/web/proto;webpb\xa2\x02\x03GVW\xaa\x02\x0eGcommon.V1.Web\xca\x02\x0eGcommon\\V1\\Web\xe2\x02\x1aGcommon\\V1\\Web\\GPBMetadata\xea\x02\x10Gcommon::V1::Web\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
 
 var file_pkg_web_proto_messages_cache_config_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_pkg_web_proto_messages_cache_config_proto_goTypes = []any{
-	(*CacheConfig)(nil), // 0: gcommon.v1.web.CacheConfig
+	(*CacheConfig)(nil),         // 0: gcommon.v1.web.CacheConfig
+	(CacheStrategy)(0),          // 1: gcommon.v1.web.CacheStrategy
+	(*proto.CachePolicy)(nil),   // 2: gcommon.v1.common.CachePolicy
+	(*durationpb.Duration)(nil), // 3: google.protobuf.Duration
 }
 var file_pkg_web_proto_messages_cache_config_proto_depIdxs = []int32{
-	0, // [0:0] is the sub-list for method output_type
-	0, // [0:0] is the sub-list for method input_type
-	0, // [0:0] is the sub-list for extension type_name
-	0, // [0:0] is the sub-list for extension extendee
-	0, // [0:0] is the sub-list for field type_name
+	1, // 0: gcommon.v1.web.CacheConfig.strategy:type_name -> gcommon.v1.web.CacheStrategy
+	2, // 1: gcommon.v1.web.CacheConfig.policy:type_name -> gcommon.v1.common.CachePolicy
+	3, // 2: gcommon.v1.web.CacheConfig.ttl:type_name -> google.protobuf.Duration
+	3, // [3:3] is the sub-list for method output_type
+	3, // [3:3] is the sub-list for method input_type
+	3, // [3:3] is the sub-list for extension type_name
+	3, // [3:3] is the sub-list for extension extendee
+	0, // [0:3] is the sub-list for field type_name
 }
 
 func init() { file_pkg_web_proto_messages_cache_config_proto_init() }
@@ -128,6 +276,7 @@ func file_pkg_web_proto_messages_cache_config_proto_init() {
 	if File_pkg_web_proto_messages_cache_config_proto != nil {
 		return
 	}
+	file_pkg_web_proto_enums_cache_strategy_proto_init()
 	type x struct{}
 	out := protoimpl.TypeBuilder{
 		File: protoimpl.DescBuilder{

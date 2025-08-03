@@ -13,6 +13,7 @@ import (
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
+	fieldmaskpb "google.golang.org/protobuf/types/known/fieldmaskpb"
 	reflect "reflect"
 	unsafe "unsafe"
 )
@@ -24,12 +25,17 @@ const (
 	_ = protoimpl.EnforceVersion(protoimpl.MaxVersion - 20)
 )
 
-// TODO: Implement update_hierarchy_request message
 type UpdateHierarchyRequest struct {
-	state               protoimpl.MessageState `protogen:"opaque.v1"`
-	xxx_hidden_Metadata *proto.RequestMetadata `protobuf:"bytes,1,opt,name=metadata"`
-	unknownFields       protoimpl.UnknownFields
-	sizeCache           protoimpl.SizeCache
+	state                     protoimpl.MessageState `protogen:"opaque.v1"`
+	xxx_hidden_Metadata       *proto.RequestMetadata `protobuf:"bytes,1,opt,name=metadata"`
+	xxx_hidden_OrganizationId *string                `protobuf:"bytes,2,opt,name=organization_id,json=organizationId"`
+	xxx_hidden_Hierarchy      *OrganizationHierarchy `protobuf:"bytes,3,opt,name=hierarchy"`
+	xxx_hidden_UpdateMask     *fieldmaskpb.FieldMask `protobuf:"bytes,4,opt,name=update_mask,json=updateMask"`
+	xxx_hidden_ValidateOnly   bool                   `protobuf:"varint,5,opt,name=validate_only,json=validateOnly"`
+	XXX_raceDetectHookData    protoimpl.RaceDetectHookData
+	XXX_presence              [1]uint32
+	unknownFields             protoimpl.UnknownFields
+	sizeCache                 protoimpl.SizeCache
 }
 
 func (x *UpdateHierarchyRequest) Reset() {
@@ -64,8 +70,57 @@ func (x *UpdateHierarchyRequest) GetMetadata() *proto.RequestMetadata {
 	return nil
 }
 
+func (x *UpdateHierarchyRequest) GetOrganizationId() string {
+	if x != nil {
+		if x.xxx_hidden_OrganizationId != nil {
+			return *x.xxx_hidden_OrganizationId
+		}
+		return ""
+	}
+	return ""
+}
+
+func (x *UpdateHierarchyRequest) GetHierarchy() *OrganizationHierarchy {
+	if x != nil {
+		return x.xxx_hidden_Hierarchy
+	}
+	return nil
+}
+
+func (x *UpdateHierarchyRequest) GetUpdateMask() *fieldmaskpb.FieldMask {
+	if x != nil {
+		return x.xxx_hidden_UpdateMask
+	}
+	return nil
+}
+
+func (x *UpdateHierarchyRequest) GetValidateOnly() bool {
+	if x != nil {
+		return x.xxx_hidden_ValidateOnly
+	}
+	return false
+}
+
 func (x *UpdateHierarchyRequest) SetMetadata(v *proto.RequestMetadata) {
 	x.xxx_hidden_Metadata = v
+}
+
+func (x *UpdateHierarchyRequest) SetOrganizationId(v string) {
+	x.xxx_hidden_OrganizationId = &v
+	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 1, 5)
+}
+
+func (x *UpdateHierarchyRequest) SetHierarchy(v *OrganizationHierarchy) {
+	x.xxx_hidden_Hierarchy = v
+}
+
+func (x *UpdateHierarchyRequest) SetUpdateMask(v *fieldmaskpb.FieldMask) {
+	x.xxx_hidden_UpdateMask = v
+}
+
+func (x *UpdateHierarchyRequest) SetValidateOnly(v bool) {
+	x.xxx_hidden_ValidateOnly = v
+	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 4, 5)
 }
 
 func (x *UpdateHierarchyRequest) HasMetadata() bool {
@@ -75,8 +130,54 @@ func (x *UpdateHierarchyRequest) HasMetadata() bool {
 	return x.xxx_hidden_Metadata != nil
 }
 
+func (x *UpdateHierarchyRequest) HasOrganizationId() bool {
+	if x == nil {
+		return false
+	}
+	return protoimpl.X.Present(&(x.XXX_presence[0]), 1)
+}
+
+func (x *UpdateHierarchyRequest) HasHierarchy() bool {
+	if x == nil {
+		return false
+	}
+	return x.xxx_hidden_Hierarchy != nil
+}
+
+func (x *UpdateHierarchyRequest) HasUpdateMask() bool {
+	if x == nil {
+		return false
+	}
+	return x.xxx_hidden_UpdateMask != nil
+}
+
+func (x *UpdateHierarchyRequest) HasValidateOnly() bool {
+	if x == nil {
+		return false
+	}
+	return protoimpl.X.Present(&(x.XXX_presence[0]), 4)
+}
+
 func (x *UpdateHierarchyRequest) ClearMetadata() {
 	x.xxx_hidden_Metadata = nil
+}
+
+func (x *UpdateHierarchyRequest) ClearOrganizationId() {
+	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 1)
+	x.xxx_hidden_OrganizationId = nil
+}
+
+func (x *UpdateHierarchyRequest) ClearHierarchy() {
+	x.xxx_hidden_Hierarchy = nil
+}
+
+func (x *UpdateHierarchyRequest) ClearUpdateMask() {
+	x.xxx_hidden_UpdateMask = nil
+}
+
+func (x *UpdateHierarchyRequest) ClearValidateOnly() {
+	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 4)
+	x.xxx_hidden_ValidateOnly = false
 }
 
 type UpdateHierarchyRequest_builder struct {
@@ -84,6 +185,14 @@ type UpdateHierarchyRequest_builder struct {
 
 	// Request metadata for tracing and context
 	Metadata *proto.RequestMetadata
+	// Organization identifier
+	OrganizationId *string
+	// Updated hierarchy data
+	Hierarchy *OrganizationHierarchy
+	// Fields to update
+	UpdateMask *fieldmaskpb.FieldMask
+	// Validate only without persisting if true
+	ValidateOnly *bool
 }
 
 func (b0 UpdateHierarchyRequest_builder) Build() *UpdateHierarchyRequest {
@@ -91,6 +200,16 @@ func (b0 UpdateHierarchyRequest_builder) Build() *UpdateHierarchyRequest {
 	b, x := &b0, m0
 	_, _ = b, x
 	x.xxx_hidden_Metadata = b.Metadata
+	if b.OrganizationId != nil {
+		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 1, 5)
+		x.xxx_hidden_OrganizationId = b.OrganizationId
+	}
+	x.xxx_hidden_Hierarchy = b.Hierarchy
+	x.xxx_hidden_UpdateMask = b.UpdateMask
+	if b.ValidateOnly != nil {
+		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 4, 5)
+		x.xxx_hidden_ValidateOnly = *b.ValidateOnly
+	}
 	return m0
 }
 
@@ -98,23 +217,32 @@ var File_pkg_organization_proto_requests_update_hierarchy_request_proto protoref
 
 const file_pkg_organization_proto_requests_update_hierarchy_request_proto_rawDesc = "" +
 	"\n" +
-	">pkg/organization/proto/requests/update_hierarchy_request.proto\x12\x17gcommon.v1.organization\x1a!google/protobuf/go_features.proto\x1a0pkg/common/proto/messages/request_metadata.proto\"X\n" +
+	">pkg/organization/proto/requests/update_hierarchy_request.proto\x12\x17gcommon.v1.organization\x1a!google/protobuf/go_features.proto\x1a0pkg/common/proto/messages/request_metadata.proto\x1a google/protobuf/field_mask.proto\x1a<pkg/organization/proto/messages/organization_hierarchy.proto\"\xb1\x02\n" +
 	"\x16UpdateHierarchyRequest\x12>\n" +
-	"\bmetadata\x18\x01 \x01(\v2\".gcommon.v1.common.RequestMetadataR\bmetadataB\x81\x02\n" +
+	"\bmetadata\x18\x01 \x01(\v2\".gcommon.v1.common.RequestMetadataR\bmetadata\x12'\n" +
+	"\x0forganization_id\x18\x02 \x01(\tR\x0eorganizationId\x12L\n" +
+	"\thierarchy\x18\x03 \x01(\v2..gcommon.v1.organization.OrganizationHierarchyR\thierarchy\x12;\n" +
+	"\vupdate_mask\x18\x04 \x01(\v2\x1a.google.protobuf.FieldMaskR\n" +
+	"updateMask\x12#\n" +
+	"\rvalidate_only\x18\x05 \x01(\bR\fvalidateOnlyB\x81\x02\n" +
 	"\x1bcom.gcommon.v1.organizationB\x1bUpdateHierarchyRequestProtoP\x01Z?github.com/jdfalk/gcommon/pkg/organization/proto;organizationpb\xa2\x02\x03GVO\xaa\x02\x17Gcommon.V1.Organization\xca\x02\x17Gcommon\\V1\\Organization\xe2\x02#Gcommon\\V1\\Organization\\GPBMetadata\xea\x02\x19Gcommon::V1::Organization\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
 
 var file_pkg_organization_proto_requests_update_hierarchy_request_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_pkg_organization_proto_requests_update_hierarchy_request_proto_goTypes = []any{
 	(*UpdateHierarchyRequest)(nil), // 0: gcommon.v1.organization.UpdateHierarchyRequest
 	(*proto.RequestMetadata)(nil),  // 1: gcommon.v1.common.RequestMetadata
+	(*OrganizationHierarchy)(nil),  // 2: gcommon.v1.organization.OrganizationHierarchy
+	(*fieldmaskpb.FieldMask)(nil),  // 3: google.protobuf.FieldMask
 }
 var file_pkg_organization_proto_requests_update_hierarchy_request_proto_depIdxs = []int32{
 	1, // 0: gcommon.v1.organization.UpdateHierarchyRequest.metadata:type_name -> gcommon.v1.common.RequestMetadata
-	1, // [1:1] is the sub-list for method output_type
-	1, // [1:1] is the sub-list for method input_type
-	1, // [1:1] is the sub-list for extension type_name
-	1, // [1:1] is the sub-list for extension extendee
-	0, // [0:1] is the sub-list for field type_name
+	2, // 1: gcommon.v1.organization.UpdateHierarchyRequest.hierarchy:type_name -> gcommon.v1.organization.OrganizationHierarchy
+	3, // 2: gcommon.v1.organization.UpdateHierarchyRequest.update_mask:type_name -> google.protobuf.FieldMask
+	3, // [3:3] is the sub-list for method output_type
+	3, // [3:3] is the sub-list for method input_type
+	3, // [3:3] is the sub-list for extension type_name
+	3, // [3:3] is the sub-list for extension extendee
+	0, // [0:3] is the sub-list for field type_name
 }
 
 func init() { file_pkg_organization_proto_requests_update_hierarchy_request_proto_init() }
@@ -122,6 +250,7 @@ func file_pkg_organization_proto_requests_update_hierarchy_request_proto_init() 
 	if File_pkg_organization_proto_requests_update_hierarchy_request_proto != nil {
 		return
 	}
+	file_pkg_organization_proto_messages_organization_hierarchy_proto_init()
 	type x struct{}
 	out := protoimpl.TypeBuilder{
 		File: protoimpl.DescBuilder{

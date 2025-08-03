@@ -25,8 +25,15 @@ const (
 
 // PerformanceStats message definition.
 type PerformanceStats struct {
-	state         protoimpl.MessageState `protogen:"hybrid.v1"`
-	Placeholder   *string                `protobuf:"bytes,1,opt,name=placeholder" json:"placeholder,omitempty"`
+	state protoimpl.MessageState `protogen:"hybrid.v1"`
+	// Total number of requests handled
+	RequestCount *int64 `protobuf:"varint,1,opt,name=request_count,json=requestCount" json:"request_count,omitempty"`
+	// Average latency in milliseconds
+	AverageLatencyMs *float64 `protobuf:"fixed64,2,opt,name=average_latency_ms,json=averageLatencyMs" json:"average_latency_ms,omitempty"`
+	// Current active connections
+	ActiveConnections *int32 `protobuf:"varint,3,opt,name=active_connections,json=activeConnections" json:"active_connections,omitempty"`
+	// Error rate percentage (0-100)
+	ErrorRate     *float64 `protobuf:"fixed64,4,opt,name=error_rate,json=errorRate" json:"error_rate,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -56,39 +63,115 @@ func (x *PerformanceStats) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-func (x *PerformanceStats) GetPlaceholder() string {
-	if x != nil && x.Placeholder != nil {
-		return *x.Placeholder
+func (x *PerformanceStats) GetRequestCount() int64 {
+	if x != nil && x.RequestCount != nil {
+		return *x.RequestCount
 	}
-	return ""
+	return 0
 }
 
-func (x *PerformanceStats) SetPlaceholder(v string) {
-	x.Placeholder = &v
+func (x *PerformanceStats) GetAverageLatencyMs() float64 {
+	if x != nil && x.AverageLatencyMs != nil {
+		return *x.AverageLatencyMs
+	}
+	return 0
 }
 
-func (x *PerformanceStats) HasPlaceholder() bool {
+func (x *PerformanceStats) GetActiveConnections() int32 {
+	if x != nil && x.ActiveConnections != nil {
+		return *x.ActiveConnections
+	}
+	return 0
+}
+
+func (x *PerformanceStats) GetErrorRate() float64 {
+	if x != nil && x.ErrorRate != nil {
+		return *x.ErrorRate
+	}
+	return 0
+}
+
+func (x *PerformanceStats) SetRequestCount(v int64) {
+	x.RequestCount = &v
+}
+
+func (x *PerformanceStats) SetAverageLatencyMs(v float64) {
+	x.AverageLatencyMs = &v
+}
+
+func (x *PerformanceStats) SetActiveConnections(v int32) {
+	x.ActiveConnections = &v
+}
+
+func (x *PerformanceStats) SetErrorRate(v float64) {
+	x.ErrorRate = &v
+}
+
+func (x *PerformanceStats) HasRequestCount() bool {
 	if x == nil {
 		return false
 	}
-	return x.Placeholder != nil
+	return x.RequestCount != nil
 }
 
-func (x *PerformanceStats) ClearPlaceholder() {
-	x.Placeholder = nil
+func (x *PerformanceStats) HasAverageLatencyMs() bool {
+	if x == nil {
+		return false
+	}
+	return x.AverageLatencyMs != nil
+}
+
+func (x *PerformanceStats) HasActiveConnections() bool {
+	if x == nil {
+		return false
+	}
+	return x.ActiveConnections != nil
+}
+
+func (x *PerformanceStats) HasErrorRate() bool {
+	if x == nil {
+		return false
+	}
+	return x.ErrorRate != nil
+}
+
+func (x *PerformanceStats) ClearRequestCount() {
+	x.RequestCount = nil
+}
+
+func (x *PerformanceStats) ClearAverageLatencyMs() {
+	x.AverageLatencyMs = nil
+}
+
+func (x *PerformanceStats) ClearActiveConnections() {
+	x.ActiveConnections = nil
+}
+
+func (x *PerformanceStats) ClearErrorRate() {
+	x.ErrorRate = nil
 }
 
 type PerformanceStats_builder struct {
 	_ [0]func() // Prevents comparability and use of unkeyed literals for the builder.
 
-	Placeholder *string
+	// Total number of requests handled
+	RequestCount *int64
+	// Average latency in milliseconds
+	AverageLatencyMs *float64
+	// Current active connections
+	ActiveConnections *int32
+	// Error rate percentage (0-100)
+	ErrorRate *float64
 }
 
 func (b0 PerformanceStats_builder) Build() *PerformanceStats {
 	m0 := &PerformanceStats{}
 	b, x := &b0, m0
 	_, _ = b, x
-	x.Placeholder = b.Placeholder
+	x.RequestCount = b.RequestCount
+	x.AverageLatencyMs = b.AverageLatencyMs
+	x.ActiveConnections = b.ActiveConnections
+	x.ErrorRate = b.ErrorRate
 	return m0
 }
 
@@ -96,9 +179,13 @@ var File_pkg_web_proto_messages_performance_stats_proto protoreflect.FileDescrip
 
 const file_pkg_web_proto_messages_performance_stats_proto_rawDesc = "" +
 	"\n" +
-	".pkg/web/proto/messages/performance_stats.proto\x12\x0egcommon.v1.web\x1a!google/protobuf/go_features.proto\"4\n" +
-	"\x10PerformanceStats\x12 \n" +
-	"\vplaceholder\x18\x01 \x01(\tR\vplaceholderB\xbc\x01\n" +
+	".pkg/web/proto/messages/performance_stats.proto\x12\x0egcommon.v1.web\x1a!google/protobuf/go_features.proto\"\xb3\x01\n" +
+	"\x10PerformanceStats\x12#\n" +
+	"\rrequest_count\x18\x01 \x01(\x03R\frequestCount\x12,\n" +
+	"\x12average_latency_ms\x18\x02 \x01(\x01R\x10averageLatencyMs\x12-\n" +
+	"\x12active_connections\x18\x03 \x01(\x05R\x11activeConnections\x12\x1d\n" +
+	"\n" +
+	"error_rate\x18\x04 \x01(\x01R\terrorRateB\xbc\x01\n" +
 	"\x12com.gcommon.v1.webB\x15PerformanceStatsProtoP\x01Z-github.com/jdfalk/gcommon/pkg/web/proto;webpb\xa2\x02\x03GVW\xaa\x02\x0eGcommon.V1.Web\xca\x02\x0eGcommon\\V1\\Web\xe2\x02\x1aGcommon\\V1\\Web\\GPBMetadata\xea\x02\x10Gcommon::V1::Web\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
 
 var file_pkg_web_proto_messages_performance_stats_proto_msgTypes = make([]protoimpl.MessageInfo, 1)

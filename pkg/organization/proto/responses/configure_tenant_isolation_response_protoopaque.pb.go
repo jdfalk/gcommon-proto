@@ -24,11 +24,13 @@ const (
 	_ = protoimpl.EnforceVersion(protoimpl.MaxVersion - 20)
 )
 
-// TODO: Implement configure_tenant_isolation_response message
 type ConfigureTenantIsolationResponse struct {
-	state                  protoimpl.MessageState `protogen:"opaque.v1"`
-	xxx_hidden_Errors      *[]*proto.Error        `protobuf:"bytes,1,rep,name=errors"`
-	xxx_hidden_Success     bool                   `protobuf:"varint,2,opt,name=success"`
+	state                protoimpl.MessageState `protogen:"opaque.v1"`
+	xxx_hidden_Errors    *[]*proto.Error        `protobuf:"bytes,1,rep,name=errors"`
+	xxx_hidden_Success   bool                   `protobuf:"varint,2,opt,name=success"`
+	xxx_hidden_Isolation *TenantIsolation       `protobuf:"bytes,3,opt,name=isolation"`
+	// Deprecated: Do not use. This will be deleted in the near future.
+	XXX_lazyUnmarshalInfo  protoimpl.LazyUnmarshalInfo
 	XXX_raceDetectHookData protoimpl.RaceDetectHookData
 	XXX_presence           [1]uint32
 	unknownFields          protoimpl.UnknownFields
@@ -76,13 +78,36 @@ func (x *ConfigureTenantIsolationResponse) GetSuccess() bool {
 	return false
 }
 
+func (x *ConfigureTenantIsolationResponse) GetIsolation() *TenantIsolation {
+	if x != nil {
+		if protoimpl.X.Present(&(x.XXX_presence[0]), 2) {
+			if protoimpl.X.AtomicCheckPointerIsNil(&x.xxx_hidden_Isolation) {
+				protoimpl.X.UnmarshalField(x, 3)
+			}
+			var rv *TenantIsolation
+			protoimpl.X.AtomicLoadPointer(protoimpl.Pointer(&x.xxx_hidden_Isolation), protoimpl.Pointer(&rv))
+			return rv
+		}
+	}
+	return nil
+}
+
 func (x *ConfigureTenantIsolationResponse) SetErrors(v []*proto.Error) {
 	x.xxx_hidden_Errors = &v
 }
 
 func (x *ConfigureTenantIsolationResponse) SetSuccess(v bool) {
 	x.xxx_hidden_Success = v
-	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 1, 2)
+	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 1, 3)
+}
+
+func (x *ConfigureTenantIsolationResponse) SetIsolation(v *TenantIsolation) {
+	protoimpl.X.AtomicSetPointer(&x.xxx_hidden_Isolation, v)
+	if v == nil {
+		protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 2)
+	} else {
+		protoimpl.X.SetPresent(&(x.XXX_presence[0]), 2, 3)
+	}
 }
 
 func (x *ConfigureTenantIsolationResponse) HasSuccess() bool {
@@ -92,9 +117,21 @@ func (x *ConfigureTenantIsolationResponse) HasSuccess() bool {
 	return protoimpl.X.Present(&(x.XXX_presence[0]), 1)
 }
 
+func (x *ConfigureTenantIsolationResponse) HasIsolation() bool {
+	if x == nil {
+		return false
+	}
+	return protoimpl.X.Present(&(x.XXX_presence[0]), 2)
+}
+
 func (x *ConfigureTenantIsolationResponse) ClearSuccess() {
 	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 1)
 	x.xxx_hidden_Success = false
+}
+
+func (x *ConfigureTenantIsolationResponse) ClearIsolation() {
+	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 2)
+	protoimpl.X.AtomicSetPointer(&x.xxx_hidden_Isolation, (*TenantIsolation)(nil))
 }
 
 type ConfigureTenantIsolationResponse_builder struct {
@@ -104,6 +141,8 @@ type ConfigureTenantIsolationResponse_builder struct {
 	Errors []*proto.Error
 	// Success status
 	Success *bool
+	// Applied isolation configuration
+	Isolation *TenantIsolation
 }
 
 func (b0 ConfigureTenantIsolationResponse_builder) Build() *ConfigureTenantIsolationResponse {
@@ -112,8 +151,12 @@ func (b0 ConfigureTenantIsolationResponse_builder) Build() *ConfigureTenantIsola
 	_, _ = b, x
 	x.xxx_hidden_Errors = &b.Errors
 	if b.Success != nil {
-		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 1, 2)
+		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 1, 3)
 		x.xxx_hidden_Success = *b.Success
+	}
+	if b.Isolation != nil {
+		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 2, 3)
+		x.xxx_hidden_Isolation = b.Isolation
 	}
 	return m0
 }
@@ -122,24 +165,27 @@ var File_pkg_organization_proto_responses_configure_tenant_isolation_response_pr
 
 const file_pkg_organization_proto_responses_configure_tenant_isolation_response_proto_rawDesc = "" +
 	"\n" +
-	"Jpkg/organization/proto/responses/configure_tenant_isolation_response.proto\x12\x17gcommon.v1.organization\x1a!google/protobuf/go_features.proto\x1a%pkg/common/proto/messages/error.proto\"n\n" +
+	"Jpkg/organization/proto/responses/configure_tenant_isolation_response.proto\x12\x17gcommon.v1.organization\x1a!google/protobuf/go_features.proto\x1a%pkg/common/proto/messages/error.proto\x1a3pkg/organization/proto/types/tenant_isolation.proto\"\xba\x01\n" +
 	" ConfigureTenantIsolationResponse\x120\n" +
 	"\x06errors\x18\x01 \x03(\v2\x18.gcommon.v1.common.ErrorR\x06errors\x12\x18\n" +
-	"\asuccess\x18\x02 \x01(\bR\asuccessB\x8b\x02\n" +
+	"\asuccess\x18\x02 \x01(\bR\asuccess\x12J\n" +
+	"\tisolation\x18\x03 \x01(\v2(.gcommon.v1.organization.TenantIsolationB\x02(\x01R\tisolationB\x8b\x02\n" +
 	"\x1bcom.gcommon.v1.organizationB%ConfigureTenantIsolationResponseProtoP\x01Z?github.com/jdfalk/gcommon/pkg/organization/proto;organizationpb\xa2\x02\x03GVO\xaa\x02\x17Gcommon.V1.Organization\xca\x02\x17Gcommon\\V1\\Organization\xe2\x02#Gcommon\\V1\\Organization\\GPBMetadata\xea\x02\x19Gcommon::V1::Organization\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
 
 var file_pkg_organization_proto_responses_configure_tenant_isolation_response_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_pkg_organization_proto_responses_configure_tenant_isolation_response_proto_goTypes = []any{
 	(*ConfigureTenantIsolationResponse)(nil), // 0: gcommon.v1.organization.ConfigureTenantIsolationResponse
 	(*proto.Error)(nil),                      // 1: gcommon.v1.common.Error
+	(*TenantIsolation)(nil),                  // 2: gcommon.v1.organization.TenantIsolation
 }
 var file_pkg_organization_proto_responses_configure_tenant_isolation_response_proto_depIdxs = []int32{
 	1, // 0: gcommon.v1.organization.ConfigureTenantIsolationResponse.errors:type_name -> gcommon.v1.common.Error
-	1, // [1:1] is the sub-list for method output_type
-	1, // [1:1] is the sub-list for method input_type
-	1, // [1:1] is the sub-list for extension type_name
-	1, // [1:1] is the sub-list for extension extendee
-	0, // [0:1] is the sub-list for field type_name
+	2, // 1: gcommon.v1.organization.ConfigureTenantIsolationResponse.isolation:type_name -> gcommon.v1.organization.TenantIsolation
+	2, // [2:2] is the sub-list for method output_type
+	2, // [2:2] is the sub-list for method input_type
+	2, // [2:2] is the sub-list for extension type_name
+	2, // [2:2] is the sub-list for extension extendee
+	0, // [0:2] is the sub-list for field type_name
 }
 
 func init() { file_pkg_organization_proto_responses_configure_tenant_isolation_response_proto_init() }
@@ -147,6 +193,7 @@ func file_pkg_organization_proto_responses_configure_tenant_isolation_response_p
 	if File_pkg_organization_proto_responses_configure_tenant_isolation_response_proto != nil {
 		return
 	}
+	file_pkg_organization_proto_types_tenant_isolation_proto_init()
 	type x struct{}
 	out := protoimpl.TypeBuilder{
 		File: protoimpl.DescBuilder{

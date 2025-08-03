@@ -25,12 +25,14 @@ const (
 
 // CompressionConfig message definition.
 type CompressionConfig struct {
-	state                  protoimpl.MessageState `protogen:"opaque.v1"`
-	xxx_hidden_Placeholder *string                `protobuf:"bytes,1,opt,name=placeholder"`
-	XXX_raceDetectHookData protoimpl.RaceDetectHookData
-	XXX_presence           [1]uint32
-	unknownFields          protoimpl.UnknownFields
-	sizeCache              protoimpl.SizeCache
+	state                      protoimpl.MessageState `protogen:"opaque.v1"`
+	xxx_hidden_CompressionType CompressionType        `protobuf:"varint,1,opt,name=compression_type,json=compressionType,enum=gcommon.v1.web.CompressionType"`
+	xxx_hidden_MinLength       int32                  `protobuf:"varint,2,opt,name=min_length,json=minLength"`
+	xxx_hidden_Level           int32                  `protobuf:"varint,3,opt,name=level"`
+	XXX_raceDetectHookData     protoimpl.RaceDetectHookData
+	XXX_presence               [1]uint32
+	unknownFields              protoimpl.UnknownFields
+	sizeCache                  protoimpl.SizeCache
 }
 
 func (x *CompressionConfig) Reset() {
@@ -58,46 +60,106 @@ func (x *CompressionConfig) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-func (x *CompressionConfig) GetPlaceholder() string {
+func (x *CompressionConfig) GetCompressionType() CompressionType {
 	if x != nil {
-		if x.xxx_hidden_Placeholder != nil {
-			return *x.xxx_hidden_Placeholder
+		if protoimpl.X.Present(&(x.XXX_presence[0]), 0) {
+			return x.xxx_hidden_CompressionType
 		}
-		return ""
 	}
-	return ""
+	return CompressionType_COMPRESSION_TYPE_UNSPECIFIED
 }
 
-func (x *CompressionConfig) SetPlaceholder(v string) {
-	x.xxx_hidden_Placeholder = &v
-	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 0, 1)
+func (x *CompressionConfig) GetMinLength() int32 {
+	if x != nil {
+		return x.xxx_hidden_MinLength
+	}
+	return 0
 }
 
-func (x *CompressionConfig) HasPlaceholder() bool {
+func (x *CompressionConfig) GetLevel() int32 {
+	if x != nil {
+		return x.xxx_hidden_Level
+	}
+	return 0
+}
+
+func (x *CompressionConfig) SetCompressionType(v CompressionType) {
+	x.xxx_hidden_CompressionType = v
+	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 0, 3)
+}
+
+func (x *CompressionConfig) SetMinLength(v int32) {
+	x.xxx_hidden_MinLength = v
+	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 1, 3)
+}
+
+func (x *CompressionConfig) SetLevel(v int32) {
+	x.xxx_hidden_Level = v
+	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 2, 3)
+}
+
+func (x *CompressionConfig) HasCompressionType() bool {
 	if x == nil {
 		return false
 	}
 	return protoimpl.X.Present(&(x.XXX_presence[0]), 0)
 }
 
-func (x *CompressionConfig) ClearPlaceholder() {
+func (x *CompressionConfig) HasMinLength() bool {
+	if x == nil {
+		return false
+	}
+	return protoimpl.X.Present(&(x.XXX_presence[0]), 1)
+}
+
+func (x *CompressionConfig) HasLevel() bool {
+	if x == nil {
+		return false
+	}
+	return protoimpl.X.Present(&(x.XXX_presence[0]), 2)
+}
+
+func (x *CompressionConfig) ClearCompressionType() {
 	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 0)
-	x.xxx_hidden_Placeholder = nil
+	x.xxx_hidden_CompressionType = CompressionType_COMPRESSION_TYPE_UNSPECIFIED
+}
+
+func (x *CompressionConfig) ClearMinLength() {
+	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 1)
+	x.xxx_hidden_MinLength = 0
+}
+
+func (x *CompressionConfig) ClearLevel() {
+	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 2)
+	x.xxx_hidden_Level = 0
 }
 
 type CompressionConfig_builder struct {
 	_ [0]func() // Prevents comparability and use of unkeyed literals for the builder.
 
-	Placeholder *string
+	// Compression algorithm to use for HTTP responses
+	CompressionType *CompressionType
+	// Minimum content length in bytes before compression is applied
+	MinLength *int32
+	// Compression level (implementation specific)
+	Level *int32
 }
 
 func (b0 CompressionConfig_builder) Build() *CompressionConfig {
 	m0 := &CompressionConfig{}
 	b, x := &b0, m0
 	_, _ = b, x
-	if b.Placeholder != nil {
-		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 0, 1)
-		x.xxx_hidden_Placeholder = b.Placeholder
+	if b.CompressionType != nil {
+		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 0, 3)
+		x.xxx_hidden_CompressionType = *b.CompressionType
+	}
+	if b.MinLength != nil {
+		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 1, 3)
+		x.xxx_hidden_MinLength = *b.MinLength
+	}
+	if b.Level != nil {
+		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 2, 3)
+		x.xxx_hidden_Level = *b.Level
 	}
 	return m0
 }
@@ -106,21 +168,26 @@ var File_pkg_web_proto_messages_compression_config_proto protoreflect.FileDescri
 
 const file_pkg_web_proto_messages_compression_config_proto_rawDesc = "" +
 	"\n" +
-	"/pkg/web/proto/messages/compression_config.proto\x12\x0egcommon.v1.web\x1a!google/protobuf/go_features.proto\"5\n" +
-	"\x11CompressionConfig\x12 \n" +
-	"\vplaceholder\x18\x01 \x01(\tR\vplaceholderB\xbd\x01\n" +
+	"/pkg/web/proto/messages/compression_config.proto\x12\x0egcommon.v1.web\x1a!google/protobuf/go_features.proto\x1a*pkg/web/proto/enums/compression_type.proto\"\x94\x01\n" +
+	"\x11CompressionConfig\x12J\n" +
+	"\x10compression_type\x18\x01 \x01(\x0e2\x1f.gcommon.v1.web.CompressionTypeR\x0fcompressionType\x12\x1d\n" +
+	"\n" +
+	"min_length\x18\x02 \x01(\x05R\tminLength\x12\x14\n" +
+	"\x05level\x18\x03 \x01(\x05R\x05levelB\xbd\x01\n" +
 	"\x12com.gcommon.v1.webB\x16CompressionConfigProtoP\x01Z-github.com/jdfalk/gcommon/pkg/web/proto;webpb\xa2\x02\x03GVW\xaa\x02\x0eGcommon.V1.Web\xca\x02\x0eGcommon\\V1\\Web\xe2\x02\x1aGcommon\\V1\\Web\\GPBMetadata\xea\x02\x10Gcommon::V1::Web\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
 
 var file_pkg_web_proto_messages_compression_config_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_pkg_web_proto_messages_compression_config_proto_goTypes = []any{
 	(*CompressionConfig)(nil), // 0: gcommon.v1.web.CompressionConfig
+	(CompressionType)(0),      // 1: gcommon.v1.web.CompressionType
 }
 var file_pkg_web_proto_messages_compression_config_proto_depIdxs = []int32{
-	0, // [0:0] is the sub-list for method output_type
-	0, // [0:0] is the sub-list for method input_type
-	0, // [0:0] is the sub-list for extension type_name
-	0, // [0:0] is the sub-list for extension extendee
-	0, // [0:0] is the sub-list for field type_name
+	1, // 0: gcommon.v1.web.CompressionConfig.compression_type:type_name -> gcommon.v1.web.CompressionType
+	1, // [1:1] is the sub-list for method output_type
+	1, // [1:1] is the sub-list for method input_type
+	1, // [1:1] is the sub-list for extension type_name
+	1, // [1:1] is the sub-list for extension extendee
+	0, // [0:1] is the sub-list for field type_name
 }
 
 func init() { file_pkg_web_proto_messages_compression_config_proto_init() }
@@ -128,6 +195,7 @@ func file_pkg_web_proto_messages_compression_config_proto_init() {
 	if File_pkg_web_proto_messages_compression_config_proto != nil {
 		return
 	}
+	file_pkg_web_proto_enums_compression_type_proto_init()
 	type x struct{}
 	out := protoimpl.TypeBuilder{
 		File: protoimpl.DescBuilder{

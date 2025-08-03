@@ -24,7 +24,6 @@ const (
 	_ = protoimpl.EnforceVersion(protoimpl.MaxVersion - 20)
 )
 
-// TODO: Implement delete_tenant_response message
 type DeleteTenantResponse struct {
 	state                  protoimpl.MessageState `protogen:"opaque.v1"`
 	xxx_hidden_Errors      *[]*proto.Error        `protobuf:"bytes,1,rep,name=errors"`

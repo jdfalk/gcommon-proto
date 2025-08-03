@@ -12,6 +12,7 @@ import (
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
+	durationpb "google.golang.org/protobuf/types/known/durationpb"
 	reflect "reflect"
 	unsafe "unsafe"
 )
@@ -25,12 +26,17 @@ const (
 
 // SessionConfig message definition.
 type SessionConfig struct {
-	state                  protoimpl.MessageState `protogen:"opaque.v1"`
-	xxx_hidden_Placeholder *string                `protobuf:"bytes,1,opt,name=placeholder"`
-	XXX_raceDetectHookData protoimpl.RaceDetectHookData
-	XXX_presence           [1]uint32
-	unknownFields          protoimpl.UnknownFields
-	sizeCache              protoimpl.SizeCache
+	state                      protoimpl.MessageState `protogen:"opaque.v1"`
+	xxx_hidden_IdleTimeout     *durationpb.Duration   `protobuf:"bytes,1,opt,name=idle_timeout,json=idleTimeout"`
+	xxx_hidden_AbsoluteTimeout *durationpb.Duration   `protobuf:"bytes,2,opt,name=absolute_timeout,json=absoluteTimeout"`
+	xxx_hidden_CookieName      *string                `protobuf:"bytes,3,opt,name=cookie_name,json=cookieName"`
+	xxx_hidden_SecureCookies   bool                   `protobuf:"varint,4,opt,name=secure_cookies,json=secureCookies"`
+	xxx_hidden_HttpOnly        bool                   `protobuf:"varint,5,opt,name=http_only,json=httpOnly"`
+	xxx_hidden_SameSite        CookieSameSite         `protobuf:"varint,6,opt,name=same_site,json=sameSite,enum=gcommon.v1.web.CookieSameSite"`
+	XXX_raceDetectHookData     protoimpl.RaceDetectHookData
+	XXX_presence               [1]uint32
+	unknownFields              protoimpl.UnknownFields
+	sizeCache                  protoimpl.SizeCache
 }
 
 func (x *SessionConfig) Reset() {
@@ -58,46 +64,189 @@ func (x *SessionConfig) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-func (x *SessionConfig) GetPlaceholder() string {
+func (x *SessionConfig) GetIdleTimeout() *durationpb.Duration {
 	if x != nil {
-		if x.xxx_hidden_Placeholder != nil {
-			return *x.xxx_hidden_Placeholder
+		return x.xxx_hidden_IdleTimeout
+	}
+	return nil
+}
+
+func (x *SessionConfig) GetAbsoluteTimeout() *durationpb.Duration {
+	if x != nil {
+		return x.xxx_hidden_AbsoluteTimeout
+	}
+	return nil
+}
+
+func (x *SessionConfig) GetCookieName() string {
+	if x != nil {
+		if x.xxx_hidden_CookieName != nil {
+			return *x.xxx_hidden_CookieName
 		}
 		return ""
 	}
 	return ""
 }
 
-func (x *SessionConfig) SetPlaceholder(v string) {
-	x.xxx_hidden_Placeholder = &v
-	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 0, 1)
+func (x *SessionConfig) GetSecureCookies() bool {
+	if x != nil {
+		return x.xxx_hidden_SecureCookies
+	}
+	return false
 }
 
-func (x *SessionConfig) HasPlaceholder() bool {
+func (x *SessionConfig) GetHttpOnly() bool {
+	if x != nil {
+		return x.xxx_hidden_HttpOnly
+	}
+	return false
+}
+
+func (x *SessionConfig) GetSameSite() CookieSameSite {
+	if x != nil {
+		if protoimpl.X.Present(&(x.XXX_presence[0]), 5) {
+			return x.xxx_hidden_SameSite
+		}
+	}
+	return CookieSameSite_COOKIE_SAME_SITE_UNSPECIFIED
+}
+
+func (x *SessionConfig) SetIdleTimeout(v *durationpb.Duration) {
+	x.xxx_hidden_IdleTimeout = v
+}
+
+func (x *SessionConfig) SetAbsoluteTimeout(v *durationpb.Duration) {
+	x.xxx_hidden_AbsoluteTimeout = v
+}
+
+func (x *SessionConfig) SetCookieName(v string) {
+	x.xxx_hidden_CookieName = &v
+	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 2, 6)
+}
+
+func (x *SessionConfig) SetSecureCookies(v bool) {
+	x.xxx_hidden_SecureCookies = v
+	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 3, 6)
+}
+
+func (x *SessionConfig) SetHttpOnly(v bool) {
+	x.xxx_hidden_HttpOnly = v
+	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 4, 6)
+}
+
+func (x *SessionConfig) SetSameSite(v CookieSameSite) {
+	x.xxx_hidden_SameSite = v
+	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 5, 6)
+}
+
+func (x *SessionConfig) HasIdleTimeout() bool {
 	if x == nil {
 		return false
 	}
-	return protoimpl.X.Present(&(x.XXX_presence[0]), 0)
+	return x.xxx_hidden_IdleTimeout != nil
 }
 
-func (x *SessionConfig) ClearPlaceholder() {
-	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 0)
-	x.xxx_hidden_Placeholder = nil
+func (x *SessionConfig) HasAbsoluteTimeout() bool {
+	if x == nil {
+		return false
+	}
+	return x.xxx_hidden_AbsoluteTimeout != nil
+}
+
+func (x *SessionConfig) HasCookieName() bool {
+	if x == nil {
+		return false
+	}
+	return protoimpl.X.Present(&(x.XXX_presence[0]), 2)
+}
+
+func (x *SessionConfig) HasSecureCookies() bool {
+	if x == nil {
+		return false
+	}
+	return protoimpl.X.Present(&(x.XXX_presence[0]), 3)
+}
+
+func (x *SessionConfig) HasHttpOnly() bool {
+	if x == nil {
+		return false
+	}
+	return protoimpl.X.Present(&(x.XXX_presence[0]), 4)
+}
+
+func (x *SessionConfig) HasSameSite() bool {
+	if x == nil {
+		return false
+	}
+	return protoimpl.X.Present(&(x.XXX_presence[0]), 5)
+}
+
+func (x *SessionConfig) ClearIdleTimeout() {
+	x.xxx_hidden_IdleTimeout = nil
+}
+
+func (x *SessionConfig) ClearAbsoluteTimeout() {
+	x.xxx_hidden_AbsoluteTimeout = nil
+}
+
+func (x *SessionConfig) ClearCookieName() {
+	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 2)
+	x.xxx_hidden_CookieName = nil
+}
+
+func (x *SessionConfig) ClearSecureCookies() {
+	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 3)
+	x.xxx_hidden_SecureCookies = false
+}
+
+func (x *SessionConfig) ClearHttpOnly() {
+	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 4)
+	x.xxx_hidden_HttpOnly = false
+}
+
+func (x *SessionConfig) ClearSameSite() {
+	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 5)
+	x.xxx_hidden_SameSite = CookieSameSite_COOKIE_SAME_SITE_UNSPECIFIED
 }
 
 type SessionConfig_builder struct {
 	_ [0]func() // Prevents comparability and use of unkeyed literals for the builder.
 
-	Placeholder *string
+	// Session idle timeout before automatic expiration
+	IdleTimeout *durationpb.Duration
+	// Absolute session lifetime regardless of activity
+	AbsoluteTimeout *durationpb.Duration
+	// Name of the session cookie
+	CookieName *string
+	// Use secure cookies (HTTPS only)
+	SecureCookies *bool
+	// Restrict cookie to HTTP only
+	HttpOnly *bool
+	// Cookie SameSite policy
+	SameSite *CookieSameSite
 }
 
 func (b0 SessionConfig_builder) Build() *SessionConfig {
 	m0 := &SessionConfig{}
 	b, x := &b0, m0
 	_, _ = b, x
-	if b.Placeholder != nil {
-		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 0, 1)
-		x.xxx_hidden_Placeholder = b.Placeholder
+	x.xxx_hidden_IdleTimeout = b.IdleTimeout
+	x.xxx_hidden_AbsoluteTimeout = b.AbsoluteTimeout
+	if b.CookieName != nil {
+		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 2, 6)
+		x.xxx_hidden_CookieName = b.CookieName
+	}
+	if b.SecureCookies != nil {
+		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 3, 6)
+		x.xxx_hidden_SecureCookies = *b.SecureCookies
+	}
+	if b.HttpOnly != nil {
+		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 4, 6)
+		x.xxx_hidden_HttpOnly = *b.HttpOnly
+	}
+	if b.SameSite != nil {
+		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 5, 6)
+		x.xxx_hidden_SameSite = *b.SameSite
 	}
 	return m0
 }
@@ -106,21 +255,32 @@ var File_pkg_web_proto_messages_session_config_proto protoreflect.FileDescriptor
 
 const file_pkg_web_proto_messages_session_config_proto_rawDesc = "" +
 	"\n" +
-	"+pkg/web/proto/messages/session_config.proto\x12\x0egcommon.v1.web\x1a!google/protobuf/go_features.proto\"1\n" +
-	"\rSessionConfig\x12 \n" +
-	"\vplaceholder\x18\x01 \x01(\tR\vplaceholderB\xb9\x01\n" +
+	"+pkg/web/proto/messages/session_config.proto\x12\x0egcommon.v1.web\x1a!google/protobuf/go_features.proto\x1a\x1egoogle/protobuf/duration.proto\x1a*pkg/web/proto/enums/cookie_same_site.proto\"\xb5\x02\n" +
+	"\rSessionConfig\x12<\n" +
+	"\fidle_timeout\x18\x01 \x01(\v2\x19.google.protobuf.DurationR\vidleTimeout\x12D\n" +
+	"\x10absolute_timeout\x18\x02 \x01(\v2\x19.google.protobuf.DurationR\x0fabsoluteTimeout\x12\x1f\n" +
+	"\vcookie_name\x18\x03 \x01(\tR\n" +
+	"cookieName\x12%\n" +
+	"\x0esecure_cookies\x18\x04 \x01(\bR\rsecureCookies\x12\x1b\n" +
+	"\thttp_only\x18\x05 \x01(\bR\bhttpOnly\x12;\n" +
+	"\tsame_site\x18\x06 \x01(\x0e2\x1e.gcommon.v1.web.CookieSameSiteR\bsameSiteB\xb9\x01\n" +
 	"\x12com.gcommon.v1.webB\x12SessionConfigProtoP\x01Z-github.com/jdfalk/gcommon/pkg/web/proto;webpb\xa2\x02\x03GVW\xaa\x02\x0eGcommon.V1.Web\xca\x02\x0eGcommon\\V1\\Web\xe2\x02\x1aGcommon\\V1\\Web\\GPBMetadata\xea\x02\x10Gcommon::V1::Web\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
 
 var file_pkg_web_proto_messages_session_config_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_pkg_web_proto_messages_session_config_proto_goTypes = []any{
-	(*SessionConfig)(nil), // 0: gcommon.v1.web.SessionConfig
+	(*SessionConfig)(nil),       // 0: gcommon.v1.web.SessionConfig
+	(*durationpb.Duration)(nil), // 1: google.protobuf.Duration
+	(CookieSameSite)(0),         // 2: gcommon.v1.web.CookieSameSite
 }
 var file_pkg_web_proto_messages_session_config_proto_depIdxs = []int32{
-	0, // [0:0] is the sub-list for method output_type
-	0, // [0:0] is the sub-list for method input_type
-	0, // [0:0] is the sub-list for extension type_name
-	0, // [0:0] is the sub-list for extension extendee
-	0, // [0:0] is the sub-list for field type_name
+	1, // 0: gcommon.v1.web.SessionConfig.idle_timeout:type_name -> google.protobuf.Duration
+	1, // 1: gcommon.v1.web.SessionConfig.absolute_timeout:type_name -> google.protobuf.Duration
+	2, // 2: gcommon.v1.web.SessionConfig.same_site:type_name -> gcommon.v1.web.CookieSameSite
+	3, // [3:3] is the sub-list for method output_type
+	3, // [3:3] is the sub-list for method input_type
+	3, // [3:3] is the sub-list for extension type_name
+	3, // [3:3] is the sub-list for extension extendee
+	0, // [0:3] is the sub-list for field type_name
 }
 
 func init() { file_pkg_web_proto_messages_session_config_proto_init() }
@@ -128,6 +288,7 @@ func file_pkg_web_proto_messages_session_config_proto_init() {
 	if File_pkg_web_proto_messages_session_config_proto != nil {
 		return
 	}
+	file_pkg_web_proto_enums_cookie_same_site_proto_init()
 	type x struct{}
 	out := protoimpl.TypeBuilder{
 		File: protoimpl.DescBuilder{

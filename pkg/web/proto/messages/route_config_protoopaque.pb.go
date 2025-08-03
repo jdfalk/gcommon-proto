@@ -25,12 +25,17 @@ const (
 
 // RouteConfig message definition.
 type RouteConfig struct {
-	state                  protoimpl.MessageState `protogen:"opaque.v1"`
-	xxx_hidden_Placeholder *string                `protobuf:"bytes,1,opt,name=placeholder"`
-	XXX_raceDetectHookData protoimpl.RaceDetectHookData
-	XXX_presence           [1]uint32
-	unknownFields          protoimpl.UnknownFields
-	sizeCache              protoimpl.SizeCache
+	state                    protoimpl.MessageState `protogen:"opaque.v1"`
+	xxx_hidden_Path          *string                `protobuf:"bytes,1,opt,name=path"`
+	xxx_hidden_Methods       []HTTPMethod           `protobuf:"varint,2,rep,packed,name=methods,enum=gcommon.v1.web.HTTPMethod"`
+	xxx_hidden_Handler       *string                `protobuf:"bytes,3,opt,name=handler"`
+	xxx_hidden_HandlerType   HandlerType            `protobuf:"varint,4,opt,name=handler_type,json=handlerType,enum=gcommon.v1.web.HandlerType"`
+	xxx_hidden_MiddlewareIds []string               `protobuf:"bytes,5,rep,name=middleware_ids,json=middlewareIds"`
+	xxx_hidden_AuthRequired  bool                   `protobuf:"varint,6,opt,name=auth_required,json=authRequired"`
+	XXX_raceDetectHookData   protoimpl.RaceDetectHookData
+	XXX_presence             [1]uint32
+	unknownFields            protoimpl.UnknownFields
+	sizeCache                protoimpl.SizeCache
 }
 
 func (x *RouteConfig) Reset() {
@@ -58,46 +63,170 @@ func (x *RouteConfig) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-func (x *RouteConfig) GetPlaceholder() string {
+func (x *RouteConfig) GetPath() string {
 	if x != nil {
-		if x.xxx_hidden_Placeholder != nil {
-			return *x.xxx_hidden_Placeholder
+		if x.xxx_hidden_Path != nil {
+			return *x.xxx_hidden_Path
 		}
 		return ""
 	}
 	return ""
 }
 
-func (x *RouteConfig) SetPlaceholder(v string) {
-	x.xxx_hidden_Placeholder = &v
-	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 0, 1)
+func (x *RouteConfig) GetMethods() []HTTPMethod {
+	if x != nil {
+		return x.xxx_hidden_Methods
+	}
+	return nil
 }
 
-func (x *RouteConfig) HasPlaceholder() bool {
+func (x *RouteConfig) GetHandler() string {
+	if x != nil {
+		if x.xxx_hidden_Handler != nil {
+			return *x.xxx_hidden_Handler
+		}
+		return ""
+	}
+	return ""
+}
+
+func (x *RouteConfig) GetHandlerType() HandlerType {
+	if x != nil {
+		if protoimpl.X.Present(&(x.XXX_presence[0]), 3) {
+			return x.xxx_hidden_HandlerType
+		}
+	}
+	return HandlerType_HANDLER_TYPE_UNSPECIFIED
+}
+
+func (x *RouteConfig) GetMiddlewareIds() []string {
+	if x != nil {
+		return x.xxx_hidden_MiddlewareIds
+	}
+	return nil
+}
+
+func (x *RouteConfig) GetAuthRequired() bool {
+	if x != nil {
+		return x.xxx_hidden_AuthRequired
+	}
+	return false
+}
+
+func (x *RouteConfig) SetPath(v string) {
+	x.xxx_hidden_Path = &v
+	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 0, 6)
+}
+
+func (x *RouteConfig) SetMethods(v []HTTPMethod) {
+	x.xxx_hidden_Methods = v
+}
+
+func (x *RouteConfig) SetHandler(v string) {
+	x.xxx_hidden_Handler = &v
+	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 2, 6)
+}
+
+func (x *RouteConfig) SetHandlerType(v HandlerType) {
+	x.xxx_hidden_HandlerType = v
+	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 3, 6)
+}
+
+func (x *RouteConfig) SetMiddlewareIds(v []string) {
+	x.xxx_hidden_MiddlewareIds = v
+}
+
+func (x *RouteConfig) SetAuthRequired(v bool) {
+	x.xxx_hidden_AuthRequired = v
+	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 5, 6)
+}
+
+func (x *RouteConfig) HasPath() bool {
 	if x == nil {
 		return false
 	}
 	return protoimpl.X.Present(&(x.XXX_presence[0]), 0)
 }
 
-func (x *RouteConfig) ClearPlaceholder() {
+func (x *RouteConfig) HasHandler() bool {
+	if x == nil {
+		return false
+	}
+	return protoimpl.X.Present(&(x.XXX_presence[0]), 2)
+}
+
+func (x *RouteConfig) HasHandlerType() bool {
+	if x == nil {
+		return false
+	}
+	return protoimpl.X.Present(&(x.XXX_presence[0]), 3)
+}
+
+func (x *RouteConfig) HasAuthRequired() bool {
+	if x == nil {
+		return false
+	}
+	return protoimpl.X.Present(&(x.XXX_presence[0]), 5)
+}
+
+func (x *RouteConfig) ClearPath() {
 	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 0)
-	x.xxx_hidden_Placeholder = nil
+	x.xxx_hidden_Path = nil
+}
+
+func (x *RouteConfig) ClearHandler() {
+	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 2)
+	x.xxx_hidden_Handler = nil
+}
+
+func (x *RouteConfig) ClearHandlerType() {
+	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 3)
+	x.xxx_hidden_HandlerType = HandlerType_HANDLER_TYPE_UNSPECIFIED
+}
+
+func (x *RouteConfig) ClearAuthRequired() {
+	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 5)
+	x.xxx_hidden_AuthRequired = false
 }
 
 type RouteConfig_builder struct {
 	_ [0]func() // Prevents comparability and use of unkeyed literals for the builder.
 
-	Placeholder *string
+	// URL path pattern
+	Path *string
+	// Allowed HTTP methods
+	Methods []HTTPMethod
+	// Handler name or identifier
+	Handler *string
+	// Handler type implementation
+	HandlerType *HandlerType
+	// Middleware IDs applied to this route
+	MiddlewareIds []string
+	// Require authentication for route
+	AuthRequired *bool
 }
 
 func (b0 RouteConfig_builder) Build() *RouteConfig {
 	m0 := &RouteConfig{}
 	b, x := &b0, m0
 	_, _ = b, x
-	if b.Placeholder != nil {
-		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 0, 1)
-		x.xxx_hidden_Placeholder = b.Placeholder
+	if b.Path != nil {
+		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 0, 6)
+		x.xxx_hidden_Path = b.Path
+	}
+	x.xxx_hidden_Methods = b.Methods
+	if b.Handler != nil {
+		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 2, 6)
+		x.xxx_hidden_Handler = b.Handler
+	}
+	if b.HandlerType != nil {
+		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 3, 6)
+		x.xxx_hidden_HandlerType = *b.HandlerType
+	}
+	x.xxx_hidden_MiddlewareIds = b.MiddlewareIds
+	if b.AuthRequired != nil {
+		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 5, 6)
+		x.xxx_hidden_AuthRequired = *b.AuthRequired
 	}
 	return m0
 }
@@ -106,21 +235,30 @@ var File_pkg_web_proto_messages_route_config_proto protoreflect.FileDescriptor
 
 const file_pkg_web_proto_messages_route_config_proto_rawDesc = "" +
 	"\n" +
-	")pkg/web/proto/messages/route_config.proto\x12\x0egcommon.v1.web\x1a!google/protobuf/go_features.proto\"/\n" +
-	"\vRouteConfig\x12 \n" +
-	"\vplaceholder\x18\x01 \x01(\tR\vplaceholderB\xb7\x01\n" +
+	")pkg/web/proto/messages/route_config.proto\x12\x0egcommon.v1.web\x1a!google/protobuf/go_features.proto\x1a%pkg/web/proto/enums/http_method.proto\x1a&pkg/web/proto/enums/handler_type.proto\"\xfd\x01\n" +
+	"\vRouteConfig\x12\x12\n" +
+	"\x04path\x18\x01 \x01(\tR\x04path\x124\n" +
+	"\amethods\x18\x02 \x03(\x0e2\x1a.gcommon.v1.web.HTTPMethodR\amethods\x12\x18\n" +
+	"\ahandler\x18\x03 \x01(\tR\ahandler\x12>\n" +
+	"\fhandler_type\x18\x04 \x01(\x0e2\x1b.gcommon.v1.web.HandlerTypeR\vhandlerType\x12%\n" +
+	"\x0emiddleware_ids\x18\x05 \x03(\tR\rmiddlewareIds\x12#\n" +
+	"\rauth_required\x18\x06 \x01(\bR\fauthRequiredB\xb7\x01\n" +
 	"\x12com.gcommon.v1.webB\x10RouteConfigProtoP\x01Z-github.com/jdfalk/gcommon/pkg/web/proto;webpb\xa2\x02\x03GVW\xaa\x02\x0eGcommon.V1.Web\xca\x02\x0eGcommon\\V1\\Web\xe2\x02\x1aGcommon\\V1\\Web\\GPBMetadata\xea\x02\x10Gcommon::V1::Web\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
 
 var file_pkg_web_proto_messages_route_config_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_pkg_web_proto_messages_route_config_proto_goTypes = []any{
 	(*RouteConfig)(nil), // 0: gcommon.v1.web.RouteConfig
+	(HTTPMethod)(0),     // 1: gcommon.v1.web.HTTPMethod
+	(HandlerType)(0),    // 2: gcommon.v1.web.HandlerType
 }
 var file_pkg_web_proto_messages_route_config_proto_depIdxs = []int32{
-	0, // [0:0] is the sub-list for method output_type
-	0, // [0:0] is the sub-list for method input_type
-	0, // [0:0] is the sub-list for extension type_name
-	0, // [0:0] is the sub-list for extension extendee
-	0, // [0:0] is the sub-list for field type_name
+	1, // 0: gcommon.v1.web.RouteConfig.methods:type_name -> gcommon.v1.web.HTTPMethod
+	2, // 1: gcommon.v1.web.RouteConfig.handler_type:type_name -> gcommon.v1.web.HandlerType
+	2, // [2:2] is the sub-list for method output_type
+	2, // [2:2] is the sub-list for method input_type
+	2, // [2:2] is the sub-list for extension type_name
+	2, // [2:2] is the sub-list for extension extendee
+	0, // [0:2] is the sub-list for field type_name
 }
 
 func init() { file_pkg_web_proto_messages_route_config_proto_init() }
@@ -128,6 +266,8 @@ func file_pkg_web_proto_messages_route_config_proto_init() {
 	if File_pkg_web_proto_messages_route_config_proto != nil {
 		return
 	}
+	file_pkg_web_proto_enums_http_method_proto_init()
+	file_pkg_web_proto_enums_handler_type_proto_init()
 	type x struct{}
 	out := protoimpl.TypeBuilder{
 		File: protoimpl.DescBuilder{

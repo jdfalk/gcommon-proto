@@ -23,10 +23,21 @@ const (
 	_ = protoimpl.EnforceVersion(protoimpl.MaxVersion - 20)
 )
 
-// HealthCheckConfig message definition.
+// HealthCheckConfig defines parameters for performing HTTP health checks.
 type HealthCheckConfig struct {
-	state         protoimpl.MessageState `protogen:"hybrid.v1"`
-	Placeholder   *string                `protobuf:"bytes,1,opt,name=placeholder" json:"placeholder,omitempty"`
+	state protoimpl.MessageState `protogen:"hybrid.v1"`
+	// HTTP path used for the health check request.
+	Path *string `protobuf:"bytes,1,opt,name=path" json:"path,omitempty"`
+	// Interval between health checks in seconds.
+	IntervalSeconds *float64 `protobuf:"fixed64,2,opt,name=interval_seconds,json=intervalSeconds" json:"interval_seconds,omitempty"`
+	// Timeout for a single health check in seconds.
+	TimeoutSeconds *float64 `protobuf:"fixed64,3,opt,name=timeout_seconds,json=timeoutSeconds" json:"timeout_seconds,omitempty"`
+	// Expected HTTP status code indicating a healthy response.
+	ExpectedStatus *int32 `protobuf:"varint,4,opt,name=expected_status,json=expectedStatus" json:"expected_status,omitempty"`
+	// Additional headers to include with the request.
+	Headers map[string]string `protobuf:"bytes,5,rep,name=headers" json:"headers,omitempty" protobuf_key:"bytes,1,opt,name=key" protobuf_val:"bytes,2,opt,name=value"`
+	// Whether the health check is enabled.
+	Enabled       *bool `protobuf:"varint,6,opt,name=enabled" json:"enabled,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -56,39 +67,154 @@ func (x *HealthCheckConfig) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-func (x *HealthCheckConfig) GetPlaceholder() string {
-	if x != nil && x.Placeholder != nil {
-		return *x.Placeholder
+func (x *HealthCheckConfig) GetPath() string {
+	if x != nil && x.Path != nil {
+		return *x.Path
 	}
 	return ""
 }
 
-func (x *HealthCheckConfig) SetPlaceholder(v string) {
-	x.Placeholder = &v
+func (x *HealthCheckConfig) GetIntervalSeconds() float64 {
+	if x != nil && x.IntervalSeconds != nil {
+		return *x.IntervalSeconds
+	}
+	return 0
 }
 
-func (x *HealthCheckConfig) HasPlaceholder() bool {
+func (x *HealthCheckConfig) GetTimeoutSeconds() float64 {
+	if x != nil && x.TimeoutSeconds != nil {
+		return *x.TimeoutSeconds
+	}
+	return 0
+}
+
+func (x *HealthCheckConfig) GetExpectedStatus() int32 {
+	if x != nil && x.ExpectedStatus != nil {
+		return *x.ExpectedStatus
+	}
+	return 0
+}
+
+func (x *HealthCheckConfig) GetHeaders() map[string]string {
+	if x != nil {
+		return x.Headers
+	}
+	return nil
+}
+
+func (x *HealthCheckConfig) GetEnabled() bool {
+	if x != nil && x.Enabled != nil {
+		return *x.Enabled
+	}
+	return false
+}
+
+func (x *HealthCheckConfig) SetPath(v string) {
+	x.Path = &v
+}
+
+func (x *HealthCheckConfig) SetIntervalSeconds(v float64) {
+	x.IntervalSeconds = &v
+}
+
+func (x *HealthCheckConfig) SetTimeoutSeconds(v float64) {
+	x.TimeoutSeconds = &v
+}
+
+func (x *HealthCheckConfig) SetExpectedStatus(v int32) {
+	x.ExpectedStatus = &v
+}
+
+func (x *HealthCheckConfig) SetHeaders(v map[string]string) {
+	x.Headers = v
+}
+
+func (x *HealthCheckConfig) SetEnabled(v bool) {
+	x.Enabled = &v
+}
+
+func (x *HealthCheckConfig) HasPath() bool {
 	if x == nil {
 		return false
 	}
-	return x.Placeholder != nil
+	return x.Path != nil
 }
 
-func (x *HealthCheckConfig) ClearPlaceholder() {
-	x.Placeholder = nil
+func (x *HealthCheckConfig) HasIntervalSeconds() bool {
+	if x == nil {
+		return false
+	}
+	return x.IntervalSeconds != nil
+}
+
+func (x *HealthCheckConfig) HasTimeoutSeconds() bool {
+	if x == nil {
+		return false
+	}
+	return x.TimeoutSeconds != nil
+}
+
+func (x *HealthCheckConfig) HasExpectedStatus() bool {
+	if x == nil {
+		return false
+	}
+	return x.ExpectedStatus != nil
+}
+
+func (x *HealthCheckConfig) HasEnabled() bool {
+	if x == nil {
+		return false
+	}
+	return x.Enabled != nil
+}
+
+func (x *HealthCheckConfig) ClearPath() {
+	x.Path = nil
+}
+
+func (x *HealthCheckConfig) ClearIntervalSeconds() {
+	x.IntervalSeconds = nil
+}
+
+func (x *HealthCheckConfig) ClearTimeoutSeconds() {
+	x.TimeoutSeconds = nil
+}
+
+func (x *HealthCheckConfig) ClearExpectedStatus() {
+	x.ExpectedStatus = nil
+}
+
+func (x *HealthCheckConfig) ClearEnabled() {
+	x.Enabled = nil
 }
 
 type HealthCheckConfig_builder struct {
 	_ [0]func() // Prevents comparability and use of unkeyed literals for the builder.
 
-	Placeholder *string
+	// HTTP path used for the health check request.
+	Path *string
+	// Interval between health checks in seconds.
+	IntervalSeconds *float64
+	// Timeout for a single health check in seconds.
+	TimeoutSeconds *float64
+	// Expected HTTP status code indicating a healthy response.
+	ExpectedStatus *int32
+	// Additional headers to include with the request.
+	Headers map[string]string
+	// Whether the health check is enabled.
+	Enabled *bool
 }
 
 func (b0 HealthCheckConfig_builder) Build() *HealthCheckConfig {
 	m0 := &HealthCheckConfig{}
 	b, x := &b0, m0
 	_, _ = b, x
-	x.Placeholder = b.Placeholder
+	x.Path = b.Path
+	x.IntervalSeconds = b.IntervalSeconds
+	x.TimeoutSeconds = b.TimeoutSeconds
+	x.ExpectedStatus = b.ExpectedStatus
+	x.Headers = b.Headers
+	x.Enabled = b.Enabled
 	return m0
 }
 
@@ -96,21 +222,31 @@ var File_pkg_web_proto_messages_health_check_config_proto protoreflect.FileDescr
 
 const file_pkg_web_proto_messages_health_check_config_proto_rawDesc = "" +
 	"\n" +
-	"0pkg/web/proto/messages/health_check_config.proto\x12\x0egcommon.v1.web\x1a!google/protobuf/go_features.proto\"5\n" +
-	"\x11HealthCheckConfig\x12 \n" +
-	"\vplaceholder\x18\x01 \x01(\tR\vplaceholderB\xbd\x01\n" +
+	"0pkg/web/proto/messages/health_check_config.proto\x12\x0egcommon.v1.web\x1a!google/protobuf/go_features.proto\"\xc4\x02\n" +
+	"\x11HealthCheckConfig\x12\x12\n" +
+	"\x04path\x18\x01 \x01(\tR\x04path\x12)\n" +
+	"\x10interval_seconds\x18\x02 \x01(\x01R\x0fintervalSeconds\x12'\n" +
+	"\x0ftimeout_seconds\x18\x03 \x01(\x01R\x0etimeoutSeconds\x12'\n" +
+	"\x0fexpected_status\x18\x04 \x01(\x05R\x0eexpectedStatus\x12H\n" +
+	"\aheaders\x18\x05 \x03(\v2..gcommon.v1.web.HealthCheckConfig.HeadersEntryR\aheaders\x12\x18\n" +
+	"\aenabled\x18\x06 \x01(\bR\aenabled\x1a:\n" +
+	"\fHeadersEntry\x12\x10\n" +
+	"\x03key\x18\x01 \x01(\tR\x03key\x12\x14\n" +
+	"\x05value\x18\x02 \x01(\tR\x05value:\x028\x01B\xbd\x01\n" +
 	"\x12com.gcommon.v1.webB\x16HealthCheckConfigProtoP\x01Z-github.com/jdfalk/gcommon/pkg/web/proto;webpb\xa2\x02\x03GVW\xaa\x02\x0eGcommon.V1.Web\xca\x02\x0eGcommon\\V1\\Web\xe2\x02\x1aGcommon\\V1\\Web\\GPBMetadata\xea\x02\x10Gcommon::V1::Web\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
 
-var file_pkg_web_proto_messages_health_check_config_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
+var file_pkg_web_proto_messages_health_check_config_proto_msgTypes = make([]protoimpl.MessageInfo, 2)
 var file_pkg_web_proto_messages_health_check_config_proto_goTypes = []any{
 	(*HealthCheckConfig)(nil), // 0: gcommon.v1.web.HealthCheckConfig
+	nil,                       // 1: gcommon.v1.web.HealthCheckConfig.HeadersEntry
 }
 var file_pkg_web_proto_messages_health_check_config_proto_depIdxs = []int32{
-	0, // [0:0] is the sub-list for method output_type
-	0, // [0:0] is the sub-list for method input_type
-	0, // [0:0] is the sub-list for extension type_name
-	0, // [0:0] is the sub-list for extension extendee
-	0, // [0:0] is the sub-list for field type_name
+	1, // 0: gcommon.v1.web.HealthCheckConfig.headers:type_name -> gcommon.v1.web.HealthCheckConfig.HeadersEntry
+	1, // [1:1] is the sub-list for method output_type
+	1, // [1:1] is the sub-list for method input_type
+	1, // [1:1] is the sub-list for extension type_name
+	1, // [1:1] is the sub-list for extension extendee
+	0, // [0:1] is the sub-list for field type_name
 }
 
 func init() { file_pkg_web_proto_messages_health_check_config_proto_init() }
@@ -124,7 +260,7 @@ func file_pkg_web_proto_messages_health_check_config_proto_init() {
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: unsafe.Slice(unsafe.StringData(file_pkg_web_proto_messages_health_check_config_proto_rawDesc), len(file_pkg_web_proto_messages_health_check_config_proto_rawDesc)),
 			NumEnums:      0,
-			NumMessages:   1,
+			NumMessages:   2,
 			NumExtensions: 0,
 			NumServices:   0,
 		},

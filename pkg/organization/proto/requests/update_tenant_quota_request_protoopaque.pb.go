@@ -24,12 +24,15 @@ const (
 	_ = protoimpl.EnforceVersion(protoimpl.MaxVersion - 20)
 )
 
-// TODO: Implement update_tenant_quota_request message
 type UpdateTenantQuotaRequest struct {
-	state               protoimpl.MessageState `protogen:"opaque.v1"`
-	xxx_hidden_Metadata *proto.RequestMetadata `protobuf:"bytes,1,opt,name=metadata"`
-	unknownFields       protoimpl.UnknownFields
-	sizeCache           protoimpl.SizeCache
+	state                  protoimpl.MessageState `protogen:"opaque.v1"`
+	xxx_hidden_Metadata    *proto.RequestMetadata `protobuf:"bytes,1,opt,name=metadata"`
+	xxx_hidden_TenantId    *string                `protobuf:"bytes,2,opt,name=tenant_id,json=tenantId"`
+	xxx_hidden_Quota       *TenantQuota           `protobuf:"bytes,3,opt,name=quota"`
+	XXX_raceDetectHookData protoimpl.RaceDetectHookData
+	XXX_presence           [1]uint32
+	unknownFields          protoimpl.UnknownFields
+	sizeCache              protoimpl.SizeCache
 }
 
 func (x *UpdateTenantQuotaRequest) Reset() {
@@ -64,8 +67,34 @@ func (x *UpdateTenantQuotaRequest) GetMetadata() *proto.RequestMetadata {
 	return nil
 }
 
+func (x *UpdateTenantQuotaRequest) GetTenantId() string {
+	if x != nil {
+		if x.xxx_hidden_TenantId != nil {
+			return *x.xxx_hidden_TenantId
+		}
+		return ""
+	}
+	return ""
+}
+
+func (x *UpdateTenantQuotaRequest) GetQuota() *TenantQuota {
+	if x != nil {
+		return x.xxx_hidden_Quota
+	}
+	return nil
+}
+
 func (x *UpdateTenantQuotaRequest) SetMetadata(v *proto.RequestMetadata) {
 	x.xxx_hidden_Metadata = v
+}
+
+func (x *UpdateTenantQuotaRequest) SetTenantId(v string) {
+	x.xxx_hidden_TenantId = &v
+	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 1, 3)
+}
+
+func (x *UpdateTenantQuotaRequest) SetQuota(v *TenantQuota) {
+	x.xxx_hidden_Quota = v
 }
 
 func (x *UpdateTenantQuotaRequest) HasMetadata() bool {
@@ -75,8 +104,31 @@ func (x *UpdateTenantQuotaRequest) HasMetadata() bool {
 	return x.xxx_hidden_Metadata != nil
 }
 
+func (x *UpdateTenantQuotaRequest) HasTenantId() bool {
+	if x == nil {
+		return false
+	}
+	return protoimpl.X.Present(&(x.XXX_presence[0]), 1)
+}
+
+func (x *UpdateTenantQuotaRequest) HasQuota() bool {
+	if x == nil {
+		return false
+	}
+	return x.xxx_hidden_Quota != nil
+}
+
 func (x *UpdateTenantQuotaRequest) ClearMetadata() {
 	x.xxx_hidden_Metadata = nil
+}
+
+func (x *UpdateTenantQuotaRequest) ClearTenantId() {
+	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 1)
+	x.xxx_hidden_TenantId = nil
+}
+
+func (x *UpdateTenantQuotaRequest) ClearQuota() {
+	x.xxx_hidden_Quota = nil
 }
 
 type UpdateTenantQuotaRequest_builder struct {
@@ -84,6 +136,10 @@ type UpdateTenantQuotaRequest_builder struct {
 
 	// Request metadata for tracing and context
 	Metadata *proto.RequestMetadata
+	// Tenant identifier
+	TenantId *string
+	// Updated quota configuration
+	Quota *TenantQuota
 }
 
 func (b0 UpdateTenantQuotaRequest_builder) Build() *UpdateTenantQuotaRequest {
@@ -91,6 +147,11 @@ func (b0 UpdateTenantQuotaRequest_builder) Build() *UpdateTenantQuotaRequest {
 	b, x := &b0, m0
 	_, _ = b, x
 	x.xxx_hidden_Metadata = b.Metadata
+	if b.TenantId != nil {
+		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 1, 3)
+		x.xxx_hidden_TenantId = b.TenantId
+	}
+	x.xxx_hidden_Quota = b.Quota
 	return m0
 }
 
@@ -98,23 +159,27 @@ var File_pkg_organization_proto_requests_update_tenant_quota_request_proto proto
 
 const file_pkg_organization_proto_requests_update_tenant_quota_request_proto_rawDesc = "" +
 	"\n" +
-	"Apkg/organization/proto/requests/update_tenant_quota_request.proto\x12\x17gcommon.v1.organization\x1a!google/protobuf/go_features.proto\x1a0pkg/common/proto/messages/request_metadata.proto\"Z\n" +
+	"Apkg/organization/proto/requests/update_tenant_quota_request.proto\x12\x17gcommon.v1.organization\x1a!google/protobuf/go_features.proto\x1a0pkg/common/proto/messages/request_metadata.proto\x1a,pkg/organization/proto/messages/tenant.proto\"\xb3\x01\n" +
 	"\x18UpdateTenantQuotaRequest\x12>\n" +
-	"\bmetadata\x18\x01 \x01(\v2\".gcommon.v1.common.RequestMetadataR\bmetadataB\x83\x02\n" +
+	"\bmetadata\x18\x01 \x01(\v2\".gcommon.v1.common.RequestMetadataR\bmetadata\x12\x1b\n" +
+	"\ttenant_id\x18\x02 \x01(\tR\btenantId\x12:\n" +
+	"\x05quota\x18\x03 \x01(\v2$.gcommon.v1.organization.TenantQuotaR\x05quotaB\x83\x02\n" +
 	"\x1bcom.gcommon.v1.organizationB\x1dUpdateTenantQuotaRequestProtoP\x01Z?github.com/jdfalk/gcommon/pkg/organization/proto;organizationpb\xa2\x02\x03GVO\xaa\x02\x17Gcommon.V1.Organization\xca\x02\x17Gcommon\\V1\\Organization\xe2\x02#Gcommon\\V1\\Organization\\GPBMetadata\xea\x02\x19Gcommon::V1::Organization\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
 
 var file_pkg_organization_proto_requests_update_tenant_quota_request_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_pkg_organization_proto_requests_update_tenant_quota_request_proto_goTypes = []any{
 	(*UpdateTenantQuotaRequest)(nil), // 0: gcommon.v1.organization.UpdateTenantQuotaRequest
 	(*proto.RequestMetadata)(nil),    // 1: gcommon.v1.common.RequestMetadata
+	(*TenantQuota)(nil),              // 2: gcommon.v1.organization.TenantQuota
 }
 var file_pkg_organization_proto_requests_update_tenant_quota_request_proto_depIdxs = []int32{
 	1, // 0: gcommon.v1.organization.UpdateTenantQuotaRequest.metadata:type_name -> gcommon.v1.common.RequestMetadata
-	1, // [1:1] is the sub-list for method output_type
-	1, // [1:1] is the sub-list for method input_type
-	1, // [1:1] is the sub-list for extension type_name
-	1, // [1:1] is the sub-list for extension extendee
-	0, // [0:1] is the sub-list for field type_name
+	2, // 1: gcommon.v1.organization.UpdateTenantQuotaRequest.quota:type_name -> gcommon.v1.organization.TenantQuota
+	2, // [2:2] is the sub-list for method output_type
+	2, // [2:2] is the sub-list for method input_type
+	2, // [2:2] is the sub-list for extension type_name
+	2, // [2:2] is the sub-list for extension extendee
+	0, // [0:2] is the sub-list for field type_name
 }
 
 func init() { file_pkg_organization_proto_requests_update_tenant_quota_request_proto_init() }
@@ -122,6 +187,7 @@ func file_pkg_organization_proto_requests_update_tenant_quota_request_proto_init
 	if File_pkg_organization_proto_requests_update_tenant_quota_request_proto != nil {
 		return
 	}
+	file_pkg_organization_proto_messages_tenant_proto_init()
 	type x struct{}
 	out := protoimpl.TypeBuilder{
 		File: protoimpl.DescBuilder{

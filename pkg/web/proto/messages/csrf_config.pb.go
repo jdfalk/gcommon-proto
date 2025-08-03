@@ -12,6 +12,7 @@ import (
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
+	durationpb "google.golang.org/protobuf/types/known/durationpb"
 	reflect "reflect"
 	unsafe "unsafe"
 )
@@ -25,8 +26,17 @@ const (
 
 // CsrfConfig message definition.
 type CsrfConfig struct {
-	state         protoimpl.MessageState `protogen:"hybrid.v1"`
-	Placeholder   *string                `protobuf:"bytes,1,opt,name=placeholder" json:"placeholder,omitempty"`
+	state protoimpl.MessageState `protogen:"hybrid.v1"`
+	// Name of the HTTP header containing the CSRF token
+	HeaderName *string `protobuf:"bytes,1,opt,name=header_name,json=headerName" json:"header_name,omitempty"`
+	// Name of the cookie used to store the token
+	CookieName *string `protobuf:"bytes,2,opt,name=cookie_name,json=cookieName" json:"cookie_name,omitempty"`
+	// Length of generated tokens
+	TokenLength *int32 `protobuf:"varint,3,opt,name=token_length,json=tokenLength" json:"token_length,omitempty"`
+	// Token expiration duration
+	TokenTtl *durationpb.Duration `protobuf:"bytes,4,opt,name=token_ttl,json=tokenTtl" json:"token_ttl,omitempty"`
+	// Require secure cookies
+	Secure        *bool `protobuf:"varint,5,opt,name=secure" json:"secure,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -56,39 +66,140 @@ func (x *CsrfConfig) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-func (x *CsrfConfig) GetPlaceholder() string {
-	if x != nil && x.Placeholder != nil {
-		return *x.Placeholder
+func (x *CsrfConfig) GetHeaderName() string {
+	if x != nil && x.HeaderName != nil {
+		return *x.HeaderName
 	}
 	return ""
 }
 
-func (x *CsrfConfig) SetPlaceholder(v string) {
-	x.Placeholder = &v
+func (x *CsrfConfig) GetCookieName() string {
+	if x != nil && x.CookieName != nil {
+		return *x.CookieName
+	}
+	return ""
 }
 
-func (x *CsrfConfig) HasPlaceholder() bool {
+func (x *CsrfConfig) GetTokenLength() int32 {
+	if x != nil && x.TokenLength != nil {
+		return *x.TokenLength
+	}
+	return 0
+}
+
+func (x *CsrfConfig) GetTokenTtl() *durationpb.Duration {
+	if x != nil {
+		return x.TokenTtl
+	}
+	return nil
+}
+
+func (x *CsrfConfig) GetSecure() bool {
+	if x != nil && x.Secure != nil {
+		return *x.Secure
+	}
+	return false
+}
+
+func (x *CsrfConfig) SetHeaderName(v string) {
+	x.HeaderName = &v
+}
+
+func (x *CsrfConfig) SetCookieName(v string) {
+	x.CookieName = &v
+}
+
+func (x *CsrfConfig) SetTokenLength(v int32) {
+	x.TokenLength = &v
+}
+
+func (x *CsrfConfig) SetTokenTtl(v *durationpb.Duration) {
+	x.TokenTtl = v
+}
+
+func (x *CsrfConfig) SetSecure(v bool) {
+	x.Secure = &v
+}
+
+func (x *CsrfConfig) HasHeaderName() bool {
 	if x == nil {
 		return false
 	}
-	return x.Placeholder != nil
+	return x.HeaderName != nil
 }
 
-func (x *CsrfConfig) ClearPlaceholder() {
-	x.Placeholder = nil
+func (x *CsrfConfig) HasCookieName() bool {
+	if x == nil {
+		return false
+	}
+	return x.CookieName != nil
+}
+
+func (x *CsrfConfig) HasTokenLength() bool {
+	if x == nil {
+		return false
+	}
+	return x.TokenLength != nil
+}
+
+func (x *CsrfConfig) HasTokenTtl() bool {
+	if x == nil {
+		return false
+	}
+	return x.TokenTtl != nil
+}
+
+func (x *CsrfConfig) HasSecure() bool {
+	if x == nil {
+		return false
+	}
+	return x.Secure != nil
+}
+
+func (x *CsrfConfig) ClearHeaderName() {
+	x.HeaderName = nil
+}
+
+func (x *CsrfConfig) ClearCookieName() {
+	x.CookieName = nil
+}
+
+func (x *CsrfConfig) ClearTokenLength() {
+	x.TokenLength = nil
+}
+
+func (x *CsrfConfig) ClearTokenTtl() {
+	x.TokenTtl = nil
+}
+
+func (x *CsrfConfig) ClearSecure() {
+	x.Secure = nil
 }
 
 type CsrfConfig_builder struct {
 	_ [0]func() // Prevents comparability and use of unkeyed literals for the builder.
 
-	Placeholder *string
+	// Name of the HTTP header containing the CSRF token
+	HeaderName *string
+	// Name of the cookie used to store the token
+	CookieName *string
+	// Length of generated tokens
+	TokenLength *int32
+	// Token expiration duration
+	TokenTtl *durationpb.Duration
+	// Require secure cookies
+	Secure *bool
 }
 
 func (b0 CsrfConfig_builder) Build() *CsrfConfig {
 	m0 := &CsrfConfig{}
 	b, x := &b0, m0
 	_, _ = b, x
-	x.Placeholder = b.Placeholder
+	x.HeaderName = b.HeaderName
+	x.CookieName = b.CookieName
+	x.TokenLength = b.TokenLength
+	x.TokenTtl = b.TokenTtl
+	x.Secure = b.Secure
 	return m0
 }
 
@@ -96,22 +207,30 @@ var File_pkg_web_proto_messages_csrf_config_proto protoreflect.FileDescriptor
 
 const file_pkg_web_proto_messages_csrf_config_proto_rawDesc = "" +
 	"\n" +
-	"(pkg/web/proto/messages/csrf_config.proto\x12\x0egcommon.v1.web\x1a!google/protobuf/go_features.proto\".\n" +
+	"(pkg/web/proto/messages/csrf_config.proto\x12\x0egcommon.v1.web\x1a!google/protobuf/go_features.proto\x1a\x1egoogle/protobuf/duration.proto\"\xc1\x01\n" +
 	"\n" +
-	"CsrfConfig\x12 \n" +
-	"\vplaceholder\x18\x01 \x01(\tR\vplaceholderB\xb6\x01\n" +
+	"CsrfConfig\x12\x1f\n" +
+	"\vheader_name\x18\x01 \x01(\tR\n" +
+	"headerName\x12\x1f\n" +
+	"\vcookie_name\x18\x02 \x01(\tR\n" +
+	"cookieName\x12!\n" +
+	"\ftoken_length\x18\x03 \x01(\x05R\vtokenLength\x126\n" +
+	"\ttoken_ttl\x18\x04 \x01(\v2\x19.google.protobuf.DurationR\btokenTtl\x12\x16\n" +
+	"\x06secure\x18\x05 \x01(\bR\x06secureB\xb6\x01\n" +
 	"\x12com.gcommon.v1.webB\x0fCsrfConfigProtoP\x01Z-github.com/jdfalk/gcommon/pkg/web/proto;webpb\xa2\x02\x03GVW\xaa\x02\x0eGcommon.V1.Web\xca\x02\x0eGcommon\\V1\\Web\xe2\x02\x1aGcommon\\V1\\Web\\GPBMetadata\xea\x02\x10Gcommon::V1::Web\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
 
 var file_pkg_web_proto_messages_csrf_config_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_pkg_web_proto_messages_csrf_config_proto_goTypes = []any{
-	(*CsrfConfig)(nil), // 0: gcommon.v1.web.CsrfConfig
+	(*CsrfConfig)(nil),          // 0: gcommon.v1.web.CsrfConfig
+	(*durationpb.Duration)(nil), // 1: google.protobuf.Duration
 }
 var file_pkg_web_proto_messages_csrf_config_proto_depIdxs = []int32{
-	0, // [0:0] is the sub-list for method output_type
-	0, // [0:0] is the sub-list for method input_type
-	0, // [0:0] is the sub-list for extension type_name
-	0, // [0:0] is the sub-list for extension extendee
-	0, // [0:0] is the sub-list for field type_name
+	1, // 0: gcommon.v1.web.CsrfConfig.token_ttl:type_name -> google.protobuf.Duration
+	1, // [1:1] is the sub-list for method output_type
+	1, // [1:1] is the sub-list for method input_type
+	1, // [1:1] is the sub-list for extension type_name
+	1, // [1:1] is the sub-list for extension extendee
+	0, // [0:1] is the sub-list for field type_name
 }
 
 func init() { file_pkg_web_proto_messages_csrf_config_proto_init() }

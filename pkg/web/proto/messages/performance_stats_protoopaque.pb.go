@@ -25,12 +25,15 @@ const (
 
 // PerformanceStats message definition.
 type PerformanceStats struct {
-	state                  protoimpl.MessageState `protogen:"opaque.v1"`
-	xxx_hidden_Placeholder *string                `protobuf:"bytes,1,opt,name=placeholder"`
-	XXX_raceDetectHookData protoimpl.RaceDetectHookData
-	XXX_presence           [1]uint32
-	unknownFields          protoimpl.UnknownFields
-	sizeCache              protoimpl.SizeCache
+	state                        protoimpl.MessageState `protogen:"opaque.v1"`
+	xxx_hidden_RequestCount      int64                  `protobuf:"varint,1,opt,name=request_count,json=requestCount"`
+	xxx_hidden_AverageLatencyMs  float64                `protobuf:"fixed64,2,opt,name=average_latency_ms,json=averageLatencyMs"`
+	xxx_hidden_ActiveConnections int32                  `protobuf:"varint,3,opt,name=active_connections,json=activeConnections"`
+	xxx_hidden_ErrorRate         float64                `protobuf:"fixed64,4,opt,name=error_rate,json=errorRate"`
+	XXX_raceDetectHookData       protoimpl.RaceDetectHookData
+	XXX_presence                 [1]uint32
+	unknownFields                protoimpl.UnknownFields
+	sizeCache                    protoimpl.SizeCache
 }
 
 func (x *PerformanceStats) Reset() {
@@ -58,46 +61,134 @@ func (x *PerformanceStats) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-func (x *PerformanceStats) GetPlaceholder() string {
+func (x *PerformanceStats) GetRequestCount() int64 {
 	if x != nil {
-		if x.xxx_hidden_Placeholder != nil {
-			return *x.xxx_hidden_Placeholder
-		}
-		return ""
+		return x.xxx_hidden_RequestCount
 	}
-	return ""
+	return 0
 }
 
-func (x *PerformanceStats) SetPlaceholder(v string) {
-	x.xxx_hidden_Placeholder = &v
-	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 0, 1)
+func (x *PerformanceStats) GetAverageLatencyMs() float64 {
+	if x != nil {
+		return x.xxx_hidden_AverageLatencyMs
+	}
+	return 0
 }
 
-func (x *PerformanceStats) HasPlaceholder() bool {
+func (x *PerformanceStats) GetActiveConnections() int32 {
+	if x != nil {
+		return x.xxx_hidden_ActiveConnections
+	}
+	return 0
+}
+
+func (x *PerformanceStats) GetErrorRate() float64 {
+	if x != nil {
+		return x.xxx_hidden_ErrorRate
+	}
+	return 0
+}
+
+func (x *PerformanceStats) SetRequestCount(v int64) {
+	x.xxx_hidden_RequestCount = v
+	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 0, 4)
+}
+
+func (x *PerformanceStats) SetAverageLatencyMs(v float64) {
+	x.xxx_hidden_AverageLatencyMs = v
+	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 1, 4)
+}
+
+func (x *PerformanceStats) SetActiveConnections(v int32) {
+	x.xxx_hidden_ActiveConnections = v
+	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 2, 4)
+}
+
+func (x *PerformanceStats) SetErrorRate(v float64) {
+	x.xxx_hidden_ErrorRate = v
+	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 3, 4)
+}
+
+func (x *PerformanceStats) HasRequestCount() bool {
 	if x == nil {
 		return false
 	}
 	return protoimpl.X.Present(&(x.XXX_presence[0]), 0)
 }
 
-func (x *PerformanceStats) ClearPlaceholder() {
+func (x *PerformanceStats) HasAverageLatencyMs() bool {
+	if x == nil {
+		return false
+	}
+	return protoimpl.X.Present(&(x.XXX_presence[0]), 1)
+}
+
+func (x *PerformanceStats) HasActiveConnections() bool {
+	if x == nil {
+		return false
+	}
+	return protoimpl.X.Present(&(x.XXX_presence[0]), 2)
+}
+
+func (x *PerformanceStats) HasErrorRate() bool {
+	if x == nil {
+		return false
+	}
+	return protoimpl.X.Present(&(x.XXX_presence[0]), 3)
+}
+
+func (x *PerformanceStats) ClearRequestCount() {
 	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 0)
-	x.xxx_hidden_Placeholder = nil
+	x.xxx_hidden_RequestCount = 0
+}
+
+func (x *PerformanceStats) ClearAverageLatencyMs() {
+	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 1)
+	x.xxx_hidden_AverageLatencyMs = 0
+}
+
+func (x *PerformanceStats) ClearActiveConnections() {
+	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 2)
+	x.xxx_hidden_ActiveConnections = 0
+}
+
+func (x *PerformanceStats) ClearErrorRate() {
+	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 3)
+	x.xxx_hidden_ErrorRate = 0
 }
 
 type PerformanceStats_builder struct {
 	_ [0]func() // Prevents comparability and use of unkeyed literals for the builder.
 
-	Placeholder *string
+	// Total number of requests handled
+	RequestCount *int64
+	// Average latency in milliseconds
+	AverageLatencyMs *float64
+	// Current active connections
+	ActiveConnections *int32
+	// Error rate percentage (0-100)
+	ErrorRate *float64
 }
 
 func (b0 PerformanceStats_builder) Build() *PerformanceStats {
 	m0 := &PerformanceStats{}
 	b, x := &b0, m0
 	_, _ = b, x
-	if b.Placeholder != nil {
-		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 0, 1)
-		x.xxx_hidden_Placeholder = b.Placeholder
+	if b.RequestCount != nil {
+		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 0, 4)
+		x.xxx_hidden_RequestCount = *b.RequestCount
+	}
+	if b.AverageLatencyMs != nil {
+		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 1, 4)
+		x.xxx_hidden_AverageLatencyMs = *b.AverageLatencyMs
+	}
+	if b.ActiveConnections != nil {
+		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 2, 4)
+		x.xxx_hidden_ActiveConnections = *b.ActiveConnections
+	}
+	if b.ErrorRate != nil {
+		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 3, 4)
+		x.xxx_hidden_ErrorRate = *b.ErrorRate
 	}
 	return m0
 }
@@ -106,9 +197,13 @@ var File_pkg_web_proto_messages_performance_stats_proto protoreflect.FileDescrip
 
 const file_pkg_web_proto_messages_performance_stats_proto_rawDesc = "" +
 	"\n" +
-	".pkg/web/proto/messages/performance_stats.proto\x12\x0egcommon.v1.web\x1a!google/protobuf/go_features.proto\"4\n" +
-	"\x10PerformanceStats\x12 \n" +
-	"\vplaceholder\x18\x01 \x01(\tR\vplaceholderB\xbc\x01\n" +
+	".pkg/web/proto/messages/performance_stats.proto\x12\x0egcommon.v1.web\x1a!google/protobuf/go_features.proto\"\xb3\x01\n" +
+	"\x10PerformanceStats\x12#\n" +
+	"\rrequest_count\x18\x01 \x01(\x03R\frequestCount\x12,\n" +
+	"\x12average_latency_ms\x18\x02 \x01(\x01R\x10averageLatencyMs\x12-\n" +
+	"\x12active_connections\x18\x03 \x01(\x05R\x11activeConnections\x12\x1d\n" +
+	"\n" +
+	"error_rate\x18\x04 \x01(\x01R\terrorRateB\xbc\x01\n" +
 	"\x12com.gcommon.v1.webB\x15PerformanceStatsProtoP\x01Z-github.com/jdfalk/gcommon/pkg/web/proto;webpb\xa2\x02\x03GVW\xaa\x02\x0eGcommon.V1.Web\xca\x02\x0eGcommon\\V1\\Web\xe2\x02\x1aGcommon\\V1\\Web\\GPBMetadata\xea\x02\x10Gcommon::V1::Web\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
 
 var file_pkg_web_proto_messages_performance_stats_proto_msgTypes = make([]protoimpl.MessageInfo, 1)

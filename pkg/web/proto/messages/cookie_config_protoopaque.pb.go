@@ -12,6 +12,7 @@ import (
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
+	durationpb "google.golang.org/protobuf/types/known/durationpb"
 	reflect "reflect"
 	unsafe "unsafe"
 )
@@ -26,7 +27,13 @@ const (
 // CookieConfig message definition.
 type CookieConfig struct {
 	state                  protoimpl.MessageState `protogen:"opaque.v1"`
-	xxx_hidden_Placeholder *string                `protobuf:"bytes,1,opt,name=placeholder"`
+	xxx_hidden_Name        *string                `protobuf:"bytes,1,opt,name=name"`
+	xxx_hidden_Domain      *string                `protobuf:"bytes,2,opt,name=domain"`
+	xxx_hidden_Path        *string                `protobuf:"bytes,3,opt,name=path"`
+	xxx_hidden_Secure      bool                   `protobuf:"varint,4,opt,name=secure"`
+	xxx_hidden_HttpOnly    bool                   `protobuf:"varint,5,opt,name=http_only,json=httpOnly"`
+	xxx_hidden_SameSite    CookieSameSite         `protobuf:"varint,6,opt,name=same_site,json=sameSite,enum=gcommon.v1.web.CookieSameSite"`
+	xxx_hidden_MaxAge      *durationpb.Duration   `protobuf:"bytes,7,opt,name=max_age,json=maxAge"`
 	XXX_raceDetectHookData protoimpl.RaceDetectHookData
 	XXX_presence           [1]uint32
 	unknownFields          protoimpl.UnknownFields
@@ -58,47 +65,231 @@ func (x *CookieConfig) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-func (x *CookieConfig) GetPlaceholder() string {
+func (x *CookieConfig) GetName() string {
 	if x != nil {
-		if x.xxx_hidden_Placeholder != nil {
-			return *x.xxx_hidden_Placeholder
+		if x.xxx_hidden_Name != nil {
+			return *x.xxx_hidden_Name
 		}
 		return ""
 	}
 	return ""
 }
 
-func (x *CookieConfig) SetPlaceholder(v string) {
-	x.xxx_hidden_Placeholder = &v
-	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 0, 1)
+func (x *CookieConfig) GetDomain() string {
+	if x != nil {
+		if x.xxx_hidden_Domain != nil {
+			return *x.xxx_hidden_Domain
+		}
+		return ""
+	}
+	return ""
 }
 
-func (x *CookieConfig) HasPlaceholder() bool {
+func (x *CookieConfig) GetPath() string {
+	if x != nil {
+		if x.xxx_hidden_Path != nil {
+			return *x.xxx_hidden_Path
+		}
+		return ""
+	}
+	return ""
+}
+
+func (x *CookieConfig) GetSecure() bool {
+	if x != nil {
+		return x.xxx_hidden_Secure
+	}
+	return false
+}
+
+func (x *CookieConfig) GetHttpOnly() bool {
+	if x != nil {
+		return x.xxx_hidden_HttpOnly
+	}
+	return false
+}
+
+func (x *CookieConfig) GetSameSite() CookieSameSite {
+	if x != nil {
+		if protoimpl.X.Present(&(x.XXX_presence[0]), 5) {
+			return x.xxx_hidden_SameSite
+		}
+	}
+	return CookieSameSite_COOKIE_SAME_SITE_UNSPECIFIED
+}
+
+func (x *CookieConfig) GetMaxAge() *durationpb.Duration {
+	if x != nil {
+		return x.xxx_hidden_MaxAge
+	}
+	return nil
+}
+
+func (x *CookieConfig) SetName(v string) {
+	x.xxx_hidden_Name = &v
+	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 0, 7)
+}
+
+func (x *CookieConfig) SetDomain(v string) {
+	x.xxx_hidden_Domain = &v
+	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 1, 7)
+}
+
+func (x *CookieConfig) SetPath(v string) {
+	x.xxx_hidden_Path = &v
+	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 2, 7)
+}
+
+func (x *CookieConfig) SetSecure(v bool) {
+	x.xxx_hidden_Secure = v
+	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 3, 7)
+}
+
+func (x *CookieConfig) SetHttpOnly(v bool) {
+	x.xxx_hidden_HttpOnly = v
+	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 4, 7)
+}
+
+func (x *CookieConfig) SetSameSite(v CookieSameSite) {
+	x.xxx_hidden_SameSite = v
+	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 5, 7)
+}
+
+func (x *CookieConfig) SetMaxAge(v *durationpb.Duration) {
+	x.xxx_hidden_MaxAge = v
+}
+
+func (x *CookieConfig) HasName() bool {
 	if x == nil {
 		return false
 	}
 	return protoimpl.X.Present(&(x.XXX_presence[0]), 0)
 }
 
-func (x *CookieConfig) ClearPlaceholder() {
+func (x *CookieConfig) HasDomain() bool {
+	if x == nil {
+		return false
+	}
+	return protoimpl.X.Present(&(x.XXX_presence[0]), 1)
+}
+
+func (x *CookieConfig) HasPath() bool {
+	if x == nil {
+		return false
+	}
+	return protoimpl.X.Present(&(x.XXX_presence[0]), 2)
+}
+
+func (x *CookieConfig) HasSecure() bool {
+	if x == nil {
+		return false
+	}
+	return protoimpl.X.Present(&(x.XXX_presence[0]), 3)
+}
+
+func (x *CookieConfig) HasHttpOnly() bool {
+	if x == nil {
+		return false
+	}
+	return protoimpl.X.Present(&(x.XXX_presence[0]), 4)
+}
+
+func (x *CookieConfig) HasSameSite() bool {
+	if x == nil {
+		return false
+	}
+	return protoimpl.X.Present(&(x.XXX_presence[0]), 5)
+}
+
+func (x *CookieConfig) HasMaxAge() bool {
+	if x == nil {
+		return false
+	}
+	return x.xxx_hidden_MaxAge != nil
+}
+
+func (x *CookieConfig) ClearName() {
 	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 0)
-	x.xxx_hidden_Placeholder = nil
+	x.xxx_hidden_Name = nil
+}
+
+func (x *CookieConfig) ClearDomain() {
+	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 1)
+	x.xxx_hidden_Domain = nil
+}
+
+func (x *CookieConfig) ClearPath() {
+	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 2)
+	x.xxx_hidden_Path = nil
+}
+
+func (x *CookieConfig) ClearSecure() {
+	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 3)
+	x.xxx_hidden_Secure = false
+}
+
+func (x *CookieConfig) ClearHttpOnly() {
+	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 4)
+	x.xxx_hidden_HttpOnly = false
+}
+
+func (x *CookieConfig) ClearSameSite() {
+	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 5)
+	x.xxx_hidden_SameSite = CookieSameSite_COOKIE_SAME_SITE_UNSPECIFIED
+}
+
+func (x *CookieConfig) ClearMaxAge() {
+	x.xxx_hidden_MaxAge = nil
 }
 
 type CookieConfig_builder struct {
 	_ [0]func() // Prevents comparability and use of unkeyed literals for the builder.
 
-	Placeholder *string
+	// Cookie name
+	Name *string
+	// Cookie domain
+	Domain *string
+	// Cookie path
+	Path *string
+	// Set Secure flag
+	Secure *bool
+	// Set HttpOnly flag
+	HttpOnly *bool
+	// SameSite policy
+	SameSite *CookieSameSite
+	// Max age of the cookie
+	MaxAge *durationpb.Duration
 }
 
 func (b0 CookieConfig_builder) Build() *CookieConfig {
 	m0 := &CookieConfig{}
 	b, x := &b0, m0
 	_, _ = b, x
-	if b.Placeholder != nil {
-		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 0, 1)
-		x.xxx_hidden_Placeholder = b.Placeholder
+	if b.Name != nil {
+		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 0, 7)
+		x.xxx_hidden_Name = b.Name
 	}
+	if b.Domain != nil {
+		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 1, 7)
+		x.xxx_hidden_Domain = b.Domain
+	}
+	if b.Path != nil {
+		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 2, 7)
+		x.xxx_hidden_Path = b.Path
+	}
+	if b.Secure != nil {
+		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 3, 7)
+		x.xxx_hidden_Secure = *b.Secure
+	}
+	if b.HttpOnly != nil {
+		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 4, 7)
+		x.xxx_hidden_HttpOnly = *b.HttpOnly
+	}
+	if b.SameSite != nil {
+		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 5, 7)
+		x.xxx_hidden_SameSite = *b.SameSite
+	}
+	x.xxx_hidden_MaxAge = b.MaxAge
 	return m0
 }
 
@@ -106,21 +297,31 @@ var File_pkg_web_proto_messages_cookie_config_proto protoreflect.FileDescriptor
 
 const file_pkg_web_proto_messages_cookie_config_proto_rawDesc = "" +
 	"\n" +
-	"*pkg/web/proto/messages/cookie_config.proto\x12\x0egcommon.v1.web\x1a!google/protobuf/go_features.proto\"0\n" +
-	"\fCookieConfig\x12 \n" +
-	"\vplaceholder\x18\x01 \x01(\tR\vplaceholderB\xb8\x01\n" +
+	"*pkg/web/proto/messages/cookie_config.proto\x12\x0egcommon.v1.web\x1a!google/protobuf/go_features.proto\x1a\x1egoogle/protobuf/duration.proto\x1a*pkg/web/proto/enums/cookie_same_site.proto\"\xf4\x01\n" +
+	"\fCookieConfig\x12\x12\n" +
+	"\x04name\x18\x01 \x01(\tR\x04name\x12\x16\n" +
+	"\x06domain\x18\x02 \x01(\tR\x06domain\x12\x12\n" +
+	"\x04path\x18\x03 \x01(\tR\x04path\x12\x16\n" +
+	"\x06secure\x18\x04 \x01(\bR\x06secure\x12\x1b\n" +
+	"\thttp_only\x18\x05 \x01(\bR\bhttpOnly\x12;\n" +
+	"\tsame_site\x18\x06 \x01(\x0e2\x1e.gcommon.v1.web.CookieSameSiteR\bsameSite\x122\n" +
+	"\amax_age\x18\a \x01(\v2\x19.google.protobuf.DurationR\x06maxAgeB\xb8\x01\n" +
 	"\x12com.gcommon.v1.webB\x11CookieConfigProtoP\x01Z-github.com/jdfalk/gcommon/pkg/web/proto;webpb\xa2\x02\x03GVW\xaa\x02\x0eGcommon.V1.Web\xca\x02\x0eGcommon\\V1\\Web\xe2\x02\x1aGcommon\\V1\\Web\\GPBMetadata\xea\x02\x10Gcommon::V1::Web\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
 
 var file_pkg_web_proto_messages_cookie_config_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_pkg_web_proto_messages_cookie_config_proto_goTypes = []any{
-	(*CookieConfig)(nil), // 0: gcommon.v1.web.CookieConfig
+	(*CookieConfig)(nil),        // 0: gcommon.v1.web.CookieConfig
+	(CookieSameSite)(0),         // 1: gcommon.v1.web.CookieSameSite
+	(*durationpb.Duration)(nil), // 2: google.protobuf.Duration
 }
 var file_pkg_web_proto_messages_cookie_config_proto_depIdxs = []int32{
-	0, // [0:0] is the sub-list for method output_type
-	0, // [0:0] is the sub-list for method input_type
-	0, // [0:0] is the sub-list for extension type_name
-	0, // [0:0] is the sub-list for extension extendee
-	0, // [0:0] is the sub-list for field type_name
+	1, // 0: gcommon.v1.web.CookieConfig.same_site:type_name -> gcommon.v1.web.CookieSameSite
+	2, // 1: gcommon.v1.web.CookieConfig.max_age:type_name -> google.protobuf.Duration
+	2, // [2:2] is the sub-list for method output_type
+	2, // [2:2] is the sub-list for method input_type
+	2, // [2:2] is the sub-list for extension type_name
+	2, // [2:2] is the sub-list for extension extendee
+	0, // [0:2] is the sub-list for field type_name
 }
 
 func init() { file_pkg_web_proto_messages_cookie_config_proto_init() }
@@ -128,6 +329,7 @@ func file_pkg_web_proto_messages_cookie_config_proto_init() {
 	if File_pkg_web_proto_messages_cookie_config_proto != nil {
 		return
 	}
+	file_pkg_web_proto_enums_cookie_same_site_proto_init()
 	type x struct{}
 	out := protoimpl.TypeBuilder{
 		File: protoimpl.DescBuilder{
