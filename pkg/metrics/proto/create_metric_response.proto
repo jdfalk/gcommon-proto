@@ -1,0 +1,23 @@
+// filepath: pkg/metrics/proto/responses/create_metric_response.proto
+// file: metrics/proto/responses/create_metric_response.proto
+//
+// Response returned after creating a metric.
+//
+edition = "2023";
+
+package gcommon.v1.metrics;
+
+import "google/protobuf/go_features.proto";
+import "pkg/common/proto/metrics/proto/jdfalk/gcommon/pkg/metrics/proto;metricspb";
+option features.(pb.go).api_level = API_HYBRID;
+
+/**
+ * CreateMetricResponse contains the result of a metric creation.
+ */
+message CreateMetricResponse {
+  // Created metric metadata
+  MetricMetadata metadata = 1;
+
+  // Operation error details if any
+  gcommon.v1.common.Error error = 2;
+}

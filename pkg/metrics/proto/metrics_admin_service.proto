@@ -1,0 +1,41 @@
+// filepath: pkg/metrics/proto/services/metrics_admin_service.proto
+// file: metrics/proto/services/metrics_admin_service.proto
+//
+// Administrative service definitions for metrics module
+//
+edition = "2023";
+
+package gcommon.v1.metrics;
+
+import "google/protobuf/go_features.proto";
+
+option go_package = "github.com/jdfalk/gcommon/pkg/metrics/proto;metricspb";
+option features.(pb.go).api_level = API_HYBRID;
+
+// Import all required request and response messages
+import "pkg/metrics/proto/proto/create_provider_response.proto";
+import "pkg/metrics/proto/proto/update_provider_response.proto";
+import "pkg/metrics/proto/proto/delete_provider_response.proto";
+import "pkg/metrics/proto/proto/list_providers_response.proto";
+import "pkg/metrics/proto/proto/get_provider_stats_response.proto";
+
+/**
+ * MetricsManagementService provides administrative capabilities for metrics providers.
+ * This service handles provider lifecycle, configuration, and monitoring.
+ */
+service MetricsManagementService {
+  // Create a new metrics provider
+  rpc CreateMetricsProvider(CreateProviderRequest) returns (CreateProviderResponse);
+
+  // Update an existing metrics provider configuration
+  rpc UpdateMetricsProvider(UpdateProviderRequest) returns (UpdateProviderResponse);
+
+  // Delete a metrics provider and optionally its data
+  rpc DeleteMetricsProvider(DeleteProviderRequest) returns (DeleteProviderResponse);
+
+  // List all configured metrics providers
+  rpc ListMetricsProviders(ListProvidersRequest) returns (ListProvidersResponse);
+
+  // Get statistics and status for a specific provider
+  rpc GetProviderStats(GetProviderStatsRequest) returns (GetProviderStatsResponse);
+}

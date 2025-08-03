@@ -1,0 +1,25 @@
+// file: pkg/metrics/proto/messages/time_series.proto
+// version: 1.0.0
+// guid: 0f1e1fe8-f8db-4e8f-8220-628a1b9c02bf
+
+edition = "2023";
+
+package gcommon.v1.metrics;
+
+import "google/protobuf/go_features.proto";
+import "pkg/metrics/proto/gcommon/pkg/metrics/proto;metricspb";
+option features.(pb.go).api_level = API_HYBRID;
+
+/**
+ * TimeSeries represents a collection of metric samples over time.
+ */
+message TimeSeries {
+  // Identifier of the metric this series belongs to
+  string metric_id = 1;
+
+  // Ordered list of samples
+  repeated MetricSample samples = 2;
+
+  // Labels associated with the series
+  map<string, string> labels = 3;
+}

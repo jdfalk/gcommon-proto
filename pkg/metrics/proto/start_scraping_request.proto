@@ -1,0 +1,25 @@
+// file: pkg/metrics/proto/requests/start_scraping_request.proto
+// version: 1.1.0
+// guid: 3bf09215-7dbf-4f23-97b5-911aeb40f125
+
+edition = "2023";
+
+package gcommon.v1.metrics;
+
+import "google/protobuf/go_features.proto";
+import "pkg/common/proto/metrics/proto/jdfalk/gcommon/pkg/metrics/proto;metricspb";
+option features.(pb.go).api_level = API_HYBRID;
+
+/**
+ * StartScrapingRequest initiates a new scrape job for the given provider.
+ */
+message StartScrapingRequest {
+  // Standard request metadata
+  gcommon.v1.common.RequestMetadata metadata = 1;
+
+  // Metrics provider identifier
+  string provider_id = 2;
+
+  // Scrape configuration to use
+  ScrapeConfig config = 3;
+}

@@ -1,0 +1,93 @@
+// filepath: pkg/metrics/proto/messages/metric_data.proto
+// file: metrics/proto/messages/metric_data.proto
+//
+// Message definitions for metrics module
+// TODO: Implement actual protobuf definitions
+//
+edition = "2023";
+
+package gcommon.v1.metrics;
+
+import "google/protobuf/go_features.proto";
+import "google/protobuf/timestamp.proto";
+import "pkg/metrics/proto/proto/metric_value.proto";
+
+option go_package = "github.com/jdfalk/gcommon/pkg/metrics/proto;metricspb";
+option features.(pb.go).api_level = API_HYBRID;
+
+/**
+ * MetricData represents a complete metric with metadata and values.
+ * This is the primary data structure for transmitting metric information.
+ */
+message MetricData {
+  // Unique identifier for this metric
+  string metric_id = 1;
+
+  // Metric name (e.g., "http_requests_total", "cpu_usage_percent")
+  string name = 2;
+
+  // Type of metric (counter, gauge, histogram, etc.)
+  MetricType type = 3;
+
+  // Human-readable description of the metric
+  string description = 4;
+
+  // Unit of measurement (e.g., "bytes", "seconds", "requests")
+  string unit = 5;
+
+  // Base labels/tags that apply to all values in this metric
+  map<string, string> labels = 6;
+
+  // The metric values (can be multiple for time series)
+  repeated MetricValue values = 7;
+
+  // When this metric data was collected/created
+  google.protobuf.Timestamp created_at = 8;
+
+  // Source system or component that generated this metric
+  string source = 9;
+
+  // Namespace or service this metric belongs to
+  string namespace = 10;
+
+  // Version of the metric schema/definition
+  string schema_version = 11;
+}
+
+/**
+ * MetricSeries represents a time series of metric values.
+ * Used for queries that return multiple data points over time.
+ */
+message MetricSeries {
+  // Metric metadata
+  string name = 1;
+  MetricType type = 2;
+  map<string, string> labels = 3;
+
+  // Time-ordered series of values
+  repeated MetricValue values = 4;
+
+  // Resolution/step between data points
+  int64 step_seconds = 5;
+}
+
+/**
+ * MetricFamily groups related metrics together.
+ * Similar to Prometheus metric families.
+ */
+message MetricFamily {
+  // Family name (e.g., "http_requests")
+  string name = 1;
+
+  // Family description
+  string description = 2;
+
+  // Type of metrics in this family
+  MetricType type = 3;
+
+  // Unit of measurement for all metrics in this family
+  string unit = 4;
+
+  // All metrics in this family
+  repeated MetricData metrics = 5;
+}

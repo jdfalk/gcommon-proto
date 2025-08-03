@@ -1,0 +1,25 @@
+// file: pkg/metrics/proto/messages/retention_policy.proto
+// version: 1.0.0
+// guid: 9b18ea2c-8470-4b90-93e1-437821fdd7f8
+
+edition = "2023";
+
+package gcommon.v1.metrics;
+
+import "google/protobuf/go_features.proto";
+import "pkg/metrics/proto/proto/retention_policy_retentionpolicyconfig.proto";
+
+option go_package = "github.com/jdfalk/gcommon/pkg/metrics/proto;metricspb";
+option features.(pb.go).api_level = API_HYBRID;
+
+/**
+ * RetentionPolicyInfo combines a retention policy enum with
+ * optional configuration details.
+ */
+message RetentionPolicyInfo {
+  // Predefined policy selection
+  RetentionPolicy policy = 1;
+
+  // Detailed configuration for custom policies
+  RetentionPolicyConfig config = 2;
+}

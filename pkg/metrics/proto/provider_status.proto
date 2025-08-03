@@ -1,0 +1,30 @@
+// file: pkg/metrics/proto/types/provider_status.proto
+// version: 1.0.0
+// guid: 123e4567-e89b-12d3-a456-426614174023
+
+edition = "2023";
+
+package gcommon.v1.metrics;
+
+import "google/protobuf/timestamp.proto";
+import "pkg/metrics/proto/gcommon/pkg/metrics/proto;metricspb";
+
+/**
+ * Status of a metrics provider.
+ */
+message ProviderStatus {
+  // Current state
+  ProviderState state = 1;
+
+  // Status message
+  string message = 2;
+
+  // Health check status
+  string health = 3;
+
+  // Last update time
+  google.protobuf.Timestamp last_updated = 4;
+
+  // Provider version
+  string version = 5;
+}

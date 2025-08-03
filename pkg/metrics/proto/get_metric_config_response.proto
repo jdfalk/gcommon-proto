@@ -1,0 +1,27 @@
+// file: pkg/metrics/proto/responses/get_metric_config_response.proto
+// version: 1.0.0
+// guid: 1d1401a7-7986-407f-9b51-d77ceae3b42b
+
+edition = "2023";
+
+package gcommon.v1.metrics;
+
+import "google/protobuf/go_features.proto";
+import "pkg/metrics/proto/proto/messages/error.proto";
+
+option go_package = "github.com/jdfalk/gcommon/pkg/metrics/proto;metricspb";
+option features.(pb.go).api_level = API_HYBRID;
+
+/**
+ * GetMetricConfigResponse contains metric configuration information.
+ */
+message GetMetricConfigResponse {
+  // Operation success flag
+  bool success = 1;
+
+  // Error details if any
+  gcommon.v1.common.Error error = 2;
+
+  // Retrieved configuration
+  MetricConfig config = 3;
+}

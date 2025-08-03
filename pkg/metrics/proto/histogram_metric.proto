@@ -1,0 +1,34 @@
+// file: pkg/metrics/proto/messages/histogram_metric.proto
+// version: 1.0.0
+// guid: 1b2c3d4e-5f6a-7b8c-9d0e-1f2a3b4c5d6e
+
+edition = "2023";
+
+package gcommon.v1.metrics;
+
+import "google/protobuf/timestamp.proto";
+import "pkg/metrics/proto/gcommon/pkg/metrics/proto;metricspb";
+
+// HistogramMetric represents a histogram metric with buckets
+message HistogramMetric {
+  // Metric name
+  string name = 1;
+
+  // Metric labels
+  map<string, string> labels = 2;
+
+  // Histogram buckets
+  repeated HistogramBucket buckets = 3;
+
+  // Sample count
+  uint64 sample_count = 4;
+
+  // Sample sum
+  double sample_sum = 5;
+
+  // Timestamp when the metric was recorded
+  google.protobuf.Timestamp timestamp = 6;
+
+  // Help text for the metric
+  string help = 7;
+}

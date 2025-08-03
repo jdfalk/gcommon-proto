@@ -1,0 +1,59 @@
+// filepath: pkg/metrics/proto/requests/query_metrics_request.proto
+// file: metrics/proto/requests/query_metrics_request.proto
+//
+// Request definitions for metrics module
+// TODO: Implement actual protobuf definitions
+//
+edition = "2023";
+
+package gcommon.v1.metrics;
+
+import "google/protobuf/go_features.proto";
+import "pkg/metrics/proto/proto/messages/request_metadata.proto";
+
+option go_package = "github.com/jdfalk/gcommon/pkg/metrics/proto;metricspb";
+option features.(pb.go).api_level = API_HYBRID;
+
+/**
+ * QueryMetricsRequest represents a request to query metric data.
+ * Supports complex queries with filtering, aggregation, and grouping.
+ */
+message QueryMetricsRequest {
+  // Standard request metadata (tracing, auth, etc.)
+  gcommon.v1.common.RequestMetadata metadata = 1;
+
+  // The metric query to execute
+  MetricQuery query = 2;
+
+  // Optional query timeout in seconds
+  int32 timeout_seconds = 3;
+
+  // Whether to return query execution plan (for debugging)
+  bool include_query_plan = 4;
+
+  // Whether to return only metadata without actual values (for schema discovery)
+  bool metadata_only = 5;
+
+  // Output format preferences
+  QueryOutputOptions output_options = 6;
+}
+
+/**
+ * QueryOutputOptions specifies how query results should be formatted.
+ */
+message QueryOutputOptions {
+  // Whether to include timestamps in results
+  bool include_timestamps = 1;
+
+  // Whether to include label information
+  bool include_labels = 2;
+
+  // Whether to compress/optimize output for network transfer
+  bool compress_output = 3;
+
+  // Maximum precision for numeric values (decimal places)
+  int32 numeric_precision = 4;
+
+  // Whether to include statistics about the query execution
+  bool include_statistics = 5;
+}

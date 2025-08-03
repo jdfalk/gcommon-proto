@@ -1,0 +1,30 @@
+// file: pkg/metrics/proto/messages/alert_notification.proto
+// version: 1.0.0
+// guid: 91304a90-5966-4b20-af06-2668e7d2a958
+
+edition = "2023";
+
+package gcommon.v1.metrics;
+
+import "google/protobuf/go_features.proto";
+import "google/protobuf/timestamp.proto";
+import "pkg/metrics/proto/gcommon/pkg/metrics/proto;metricspb";
+option features.(pb.go).api_level = API_HYBRID;
+
+/**
+ * AlertNotification represents a notification event generated when an
+ * alerting rule is triggered.
+ */
+message AlertNotification {
+  // Identifier of the alerting rule that triggered.
+  string rule_id = 1;
+
+  // Timestamp when the notification was generated.
+  google.protobuf.Timestamp time = 2;
+
+  // Severity level of the alert.
+  AlertSeverity severity = 3;
+
+  // Human readable message describing the alert.
+  string message = 4;
+}
