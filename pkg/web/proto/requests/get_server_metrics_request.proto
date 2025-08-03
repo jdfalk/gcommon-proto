@@ -13,7 +13,6 @@ import "google/protobuf/timestamp.proto";
 
 // Common types
 import "pkg/common/proto/messages/request_metadata.proto";
-import "pkg/common/proto/messages/error.proto";
 
 /**
  * GetServerMetricsRequest message for web service operations.

@@ -14,7 +14,6 @@ import "google/protobuf/any.proto";
 
 // Common types
 import "pkg/common/proto/messages/request_metadata.proto";
-import "pkg/common/proto/messages/error.proto";
 
 /**
  * HttpRequest represents an HTTP request for processing by web services.
