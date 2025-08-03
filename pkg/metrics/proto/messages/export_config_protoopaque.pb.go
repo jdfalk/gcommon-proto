@@ -27,7 +27,7 @@ var File_pkg_metrics_proto_messages_export_config_proto protoreflect.FileDescrip
 
 const file_pkg_metrics_proto_messages_export_config_proto_rawDesc = "" +
 	"\n" +
-	".pkg/metrics/proto/messages/export_config.proto\x12\x12gcommon.v1.metrics\x1a!google/protobuf/go_features.protoB\xd4\x01\n" +
+	".pkg/metrics/proto/messages/export_config.proto\x12\x12gcommon.v1.metrics\x1a!google/protobuf/go_features.proto\x1a+pkg/metrics/proto/enums/export_format.proto\x1a.pkg/metrics/proto/enums/compression_type.protoB\xd4\x01\n" +
 	"\x16com.gcommon.v1.metricsB\x11ExportConfigProtoP\x01Z5github.com/jdfalk/gcommon/pkg/metrics/proto;metricspb\xa2\x02\x03GVM\xaa\x02\x12Gcommon.V1.Metrics\xca\x02\x12Gcommon\\V1\\Metrics\xe2\x02\x1eGcommon\\V1\\Metrics\\GPBMetadata\xea\x02\x14Gcommon::V1::Metrics\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
 
 var file_pkg_metrics_proto_messages_export_config_proto_goTypes = []any{}
@@ -44,6 +44,8 @@ func file_pkg_metrics_proto_messages_export_config_proto_init() {
 	if File_pkg_metrics_proto_messages_export_config_proto != nil {
 		return
 	}
+	file_pkg_metrics_proto_enums_export_format_proto_init()
+	file_pkg_metrics_proto_enums_compression_type_proto_init()
 	type x struct{}
 	out := protoimpl.TypeBuilder{
 		File: protoimpl.DescBuilder{

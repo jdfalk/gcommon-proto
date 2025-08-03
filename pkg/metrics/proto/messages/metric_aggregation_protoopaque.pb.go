@@ -27,7 +27,7 @@ var File_pkg_metrics_proto_messages_metric_aggregation_proto protoreflect.FileDe
 
 const file_pkg_metrics_proto_messages_metric_aggregation_proto_rawDesc = "" +
 	"\n" +
-	"3pkg/metrics/proto/messages/metric_aggregation.proto\x12\x12gcommon.v1.metrics\x1a!google/protobuf/go_features.protoB\xd9\x01\n" +
+	"3pkg/metrics/proto/messages/metric_aggregation.proto\x12\x12gcommon.v1.metrics\x1a!google/protobuf/go_features.proto\x1a.pkg/metrics/proto/enums/aggregation_type.protoB\xd9\x01\n" +
 	"\x16com.gcommon.v1.metricsB\x16MetricAggregationProtoP\x01Z5github.com/jdfalk/gcommon/pkg/metrics/proto;metricspb\xa2\x02\x03GVM\xaa\x02\x12Gcommon.V1.Metrics\xca\x02\x12Gcommon\\V1\\Metrics\xe2\x02\x1eGcommon\\V1\\Metrics\\GPBMetadata\xea\x02\x14Gcommon::V1::Metrics\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
 
 var file_pkg_metrics_proto_messages_metric_aggregation_proto_goTypes = []any{}
@@ -44,6 +44,7 @@ func file_pkg_metrics_proto_messages_metric_aggregation_proto_init() {
 	if File_pkg_metrics_proto_messages_metric_aggregation_proto != nil {
 		return
 	}
+	file_pkg_metrics_proto_enums_aggregation_type_proto_init()
 	type x struct{}
 	out := protoimpl.TypeBuilder{
 		File: protoimpl.DescBuilder{
