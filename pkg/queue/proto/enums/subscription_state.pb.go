@@ -23,14 +23,74 @@ const (
 	_ = protoimpl.EnforceVersion(protoimpl.MaxVersion - 20)
 )
 
+// SubscriptionState describes the lifecycle state of a subscription.
+type SubscriptionState int32
+
+const (
+	// Default state. Server decides behavior.
+	SubscriptionState_SUBSCRIPTION_STATE_UNSPECIFIED SubscriptionState = 0
+	// Actively receiving messages.
+	SubscriptionState_SUBSCRIPTION_STATE_ACTIVE SubscriptionState = 1
+	// Temporarily paused from delivering messages.
+	SubscriptionState_SUBSCRIPTION_STATE_PAUSED SubscriptionState = 2
+	// Permanently closed and cannot be resumed.
+	SubscriptionState_SUBSCRIPTION_STATE_CLOSED SubscriptionState = 3
+)
+
+// Enum value maps for SubscriptionState.
+var (
+	SubscriptionState_name = map[int32]string{
+		0: "SUBSCRIPTION_STATE_UNSPECIFIED",
+		1: "SUBSCRIPTION_STATE_ACTIVE",
+		2: "SUBSCRIPTION_STATE_PAUSED",
+		3: "SUBSCRIPTION_STATE_CLOSED",
+	}
+	SubscriptionState_value = map[string]int32{
+		"SUBSCRIPTION_STATE_UNSPECIFIED": 0,
+		"SUBSCRIPTION_STATE_ACTIVE":      1,
+		"SUBSCRIPTION_STATE_PAUSED":      2,
+		"SUBSCRIPTION_STATE_CLOSED":      3,
+	}
+)
+
+func (x SubscriptionState) Enum() *SubscriptionState {
+	p := new(SubscriptionState)
+	*p = x
+	return p
+}
+
+func (x SubscriptionState) String() string {
+	return protoimpl.X.EnumStringOf(x.Descriptor(), protoreflect.EnumNumber(x))
+}
+
+func (SubscriptionState) Descriptor() protoreflect.EnumDescriptor {
+	return file_pkg_queue_proto_enums_subscription_state_proto_enumTypes[0].Descriptor()
+}
+
+func (SubscriptionState) Type() protoreflect.EnumType {
+	return &file_pkg_queue_proto_enums_subscription_state_proto_enumTypes[0]
+}
+
+func (x SubscriptionState) Number() protoreflect.EnumNumber {
+	return protoreflect.EnumNumber(x)
+}
+
 var File_pkg_queue_proto_enums_subscription_state_proto protoreflect.FileDescriptor
 
 const file_pkg_queue_proto_enums_subscription_state_proto_rawDesc = "" +
 	"\n" +
-	".pkg/queue/proto/enums/subscription_state.proto\x12\x10gcommon.v1.queue\x1a!google/protobuf/go_features.protoB\xcb\x01\n" +
+	".pkg/queue/proto/enums/subscription_state.proto\x12\x10gcommon.v1.queue\x1a!google/protobuf/go_features.proto*\x94\x01\n" +
+	"\x11SubscriptionState\x12\"\n" +
+	"\x1eSUBSCRIPTION_STATE_UNSPECIFIED\x10\x00\x12\x1d\n" +
+	"\x19SUBSCRIPTION_STATE_ACTIVE\x10\x01\x12\x1d\n" +
+	"\x19SUBSCRIPTION_STATE_PAUSED\x10\x02\x12\x1d\n" +
+	"\x19SUBSCRIPTION_STATE_CLOSED\x10\x03B\xcb\x01\n" +
 	"\x14com.gcommon.v1.queueB\x16SubscriptionStateProtoP\x01Z1github.com/jdfalk/gcommon/pkg/queue/proto;queuepb\xa2\x02\x03GVQ\xaa\x02\x10Gcommon.V1.Queue\xca\x02\x10Gcommon\\V1\\Queue\xe2\x02\x1cGcommon\\V1\\Queue\\GPBMetadata\xea\x02\x12Gcommon::V1::Queue\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
 
-var file_pkg_queue_proto_enums_subscription_state_proto_goTypes = []any{}
+var file_pkg_queue_proto_enums_subscription_state_proto_enumTypes = make([]protoimpl.EnumInfo, 1)
+var file_pkg_queue_proto_enums_subscription_state_proto_goTypes = []any{
+	(SubscriptionState)(0), // 0: gcommon.v1.queue.SubscriptionState
+}
 var file_pkg_queue_proto_enums_subscription_state_proto_depIdxs = []int32{
 	0, // [0:0] is the sub-list for method output_type
 	0, // [0:0] is the sub-list for method input_type
@@ -49,13 +109,14 @@ func file_pkg_queue_proto_enums_subscription_state_proto_init() {
 		File: protoimpl.DescBuilder{
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: unsafe.Slice(unsafe.StringData(file_pkg_queue_proto_enums_subscription_state_proto_rawDesc), len(file_pkg_queue_proto_enums_subscription_state_proto_rawDesc)),
-			NumEnums:      0,
+			NumEnums:      1,
 			NumMessages:   0,
 			NumExtensions: 0,
 			NumServices:   0,
 		},
 		GoTypes:           file_pkg_queue_proto_enums_subscription_state_proto_goTypes,
 		DependencyIndexes: file_pkg_queue_proto_enums_subscription_state_proto_depIdxs,
+		EnumInfos:         file_pkg_queue_proto_enums_subscription_state_proto_enumTypes,
 	}.Build()
 	File_pkg_queue_proto_enums_subscription_state_proto = out.File
 	file_pkg_queue_proto_enums_subscription_state_proto_goTypes = nil

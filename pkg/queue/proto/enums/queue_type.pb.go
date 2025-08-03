@@ -23,14 +23,79 @@ const (
 	_ = protoimpl.EnforceVersion(protoimpl.MaxVersion - 20)
 )
 
+// QueueType enumerates supported queue implementations.
+type QueueType int32
+
+const (
+	// Default unspecified implementation.
+	QueueType_QUEUE_TYPE_UNSPECIFIED QueueType = 0
+	// In-memory queue for testing or lightweight workloads.
+	QueueType_QUEUE_TYPE_MEMORY QueueType = 1
+	// Redis-backed queue.
+	QueueType_QUEUE_TYPE_REDIS QueueType = 2
+	// NATS-based streaming queue.
+	QueueType_QUEUE_TYPE_NATS QueueType = 3
+	// Cloud provider queue (e.g., AWS SQS).
+	QueueType_QUEUE_TYPE_CLOUD QueueType = 4
+)
+
+// Enum value maps for QueueType.
+var (
+	QueueType_name = map[int32]string{
+		0: "QUEUE_TYPE_UNSPECIFIED",
+		1: "QUEUE_TYPE_MEMORY",
+		2: "QUEUE_TYPE_REDIS",
+		3: "QUEUE_TYPE_NATS",
+		4: "QUEUE_TYPE_CLOUD",
+	}
+	QueueType_value = map[string]int32{
+		"QUEUE_TYPE_UNSPECIFIED": 0,
+		"QUEUE_TYPE_MEMORY":      1,
+		"QUEUE_TYPE_REDIS":       2,
+		"QUEUE_TYPE_NATS":        3,
+		"QUEUE_TYPE_CLOUD":       4,
+	}
+)
+
+func (x QueueType) Enum() *QueueType {
+	p := new(QueueType)
+	*p = x
+	return p
+}
+
+func (x QueueType) String() string {
+	return protoimpl.X.EnumStringOf(x.Descriptor(), protoreflect.EnumNumber(x))
+}
+
+func (QueueType) Descriptor() protoreflect.EnumDescriptor {
+	return file_pkg_queue_proto_enums_queue_type_proto_enumTypes[0].Descriptor()
+}
+
+func (QueueType) Type() protoreflect.EnumType {
+	return &file_pkg_queue_proto_enums_queue_type_proto_enumTypes[0]
+}
+
+func (x QueueType) Number() protoreflect.EnumNumber {
+	return protoreflect.EnumNumber(x)
+}
+
 var File_pkg_queue_proto_enums_queue_type_proto protoreflect.FileDescriptor
 
 const file_pkg_queue_proto_enums_queue_type_proto_rawDesc = "" +
 	"\n" +
-	"&pkg/queue/proto/enums/queue_type.proto\x12\x10gcommon.v1.queue\x1a!google/protobuf/go_features.protoB\xc3\x01\n" +
+	"&pkg/queue/proto/enums/queue_type.proto\x12\x10gcommon.v1.queue\x1a!google/protobuf/go_features.proto*\x7f\n" +
+	"\tQueueType\x12\x1a\n" +
+	"\x16QUEUE_TYPE_UNSPECIFIED\x10\x00\x12\x15\n" +
+	"\x11QUEUE_TYPE_MEMORY\x10\x01\x12\x14\n" +
+	"\x10QUEUE_TYPE_REDIS\x10\x02\x12\x13\n" +
+	"\x0fQUEUE_TYPE_NATS\x10\x03\x12\x14\n" +
+	"\x10QUEUE_TYPE_CLOUD\x10\x04B\xc3\x01\n" +
 	"\x14com.gcommon.v1.queueB\x0eQueueTypeProtoP\x01Z1github.com/jdfalk/gcommon/pkg/queue/proto;queuepb\xa2\x02\x03GVQ\xaa\x02\x10Gcommon.V1.Queue\xca\x02\x10Gcommon\\V1\\Queue\xe2\x02\x1cGcommon\\V1\\Queue\\GPBMetadata\xea\x02\x12Gcommon::V1::Queue\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
 
-var file_pkg_queue_proto_enums_queue_type_proto_goTypes = []any{}
+var file_pkg_queue_proto_enums_queue_type_proto_enumTypes = make([]protoimpl.EnumInfo, 1)
+var file_pkg_queue_proto_enums_queue_type_proto_goTypes = []any{
+	(QueueType)(0), // 0: gcommon.v1.queue.QueueType
+}
 var file_pkg_queue_proto_enums_queue_type_proto_depIdxs = []int32{
 	0, // [0:0] is the sub-list for method output_type
 	0, // [0:0] is the sub-list for method input_type
@@ -49,13 +114,14 @@ func file_pkg_queue_proto_enums_queue_type_proto_init() {
 		File: protoimpl.DescBuilder{
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: unsafe.Slice(unsafe.StringData(file_pkg_queue_proto_enums_queue_type_proto_rawDesc), len(file_pkg_queue_proto_enums_queue_type_proto_rawDesc)),
-			NumEnums:      0,
+			NumEnums:      1,
 			NumMessages:   0,
 			NumExtensions: 0,
 			NumServices:   0,
 		},
 		GoTypes:           file_pkg_queue_proto_enums_queue_type_proto_goTypes,
 		DependencyIndexes: file_pkg_queue_proto_enums_queue_type_proto_depIdxs,
+		EnumInfos:         file_pkg_queue_proto_enums_queue_type_proto_enumTypes,
 	}.Build()
 	File_pkg_queue_proto_enums_queue_type_proto = out.File
 	file_pkg_queue_proto_enums_queue_type_proto_goTypes = nil

@@ -23,14 +23,79 @@ const (
 	_ = protoimpl.EnforceVersion(protoimpl.MaxVersion - 20)
 )
 
+// RoutingStrategy defines how messages are distributed to consumers.
+type RoutingStrategy int32
+
+const (
+	// Implementation-defined default strategy.
+	RoutingStrategy_ROUTING_STRATEGY_UNSPECIFIED RoutingStrategy = 0
+	// Distribute messages evenly across consumers.
+	RoutingStrategy_ROUTING_STRATEGY_ROUND_ROBIN RoutingStrategy = 1
+	// Select consumers randomly.
+	RoutingStrategy_ROUTING_STRATEGY_RANDOM RoutingStrategy = 2
+	// Route based on a hash of message attributes.
+	RoutingStrategy_ROUTING_STRATEGY_HASH RoutingStrategy = 3
+	// Send to all available consumers.
+	RoutingStrategy_ROUTING_STRATEGY_BROADCAST RoutingStrategy = 4
+)
+
+// Enum value maps for RoutingStrategy.
+var (
+	RoutingStrategy_name = map[int32]string{
+		0: "ROUTING_STRATEGY_UNSPECIFIED",
+		1: "ROUTING_STRATEGY_ROUND_ROBIN",
+		2: "ROUTING_STRATEGY_RANDOM",
+		3: "ROUTING_STRATEGY_HASH",
+		4: "ROUTING_STRATEGY_BROADCAST",
+	}
+	RoutingStrategy_value = map[string]int32{
+		"ROUTING_STRATEGY_UNSPECIFIED": 0,
+		"ROUTING_STRATEGY_ROUND_ROBIN": 1,
+		"ROUTING_STRATEGY_RANDOM":      2,
+		"ROUTING_STRATEGY_HASH":        3,
+		"ROUTING_STRATEGY_BROADCAST":   4,
+	}
+)
+
+func (x RoutingStrategy) Enum() *RoutingStrategy {
+	p := new(RoutingStrategy)
+	*p = x
+	return p
+}
+
+func (x RoutingStrategy) String() string {
+	return protoimpl.X.EnumStringOf(x.Descriptor(), protoreflect.EnumNumber(x))
+}
+
+func (RoutingStrategy) Descriptor() protoreflect.EnumDescriptor {
+	return file_pkg_queue_proto_enums_routing_strategy_proto_enumTypes[0].Descriptor()
+}
+
+func (RoutingStrategy) Type() protoreflect.EnumType {
+	return &file_pkg_queue_proto_enums_routing_strategy_proto_enumTypes[0]
+}
+
+func (x RoutingStrategy) Number() protoreflect.EnumNumber {
+	return protoreflect.EnumNumber(x)
+}
+
 var File_pkg_queue_proto_enums_routing_strategy_proto protoreflect.FileDescriptor
 
 const file_pkg_queue_proto_enums_routing_strategy_proto_rawDesc = "" +
 	"\n" +
-	",pkg/queue/proto/enums/routing_strategy.proto\x12\x10gcommon.v1.queue\x1a!google/protobuf/go_features.protoB\xc9\x01\n" +
+	",pkg/queue/proto/enums/routing_strategy.proto\x12\x10gcommon.v1.queue\x1a!google/protobuf/go_features.proto*\xad\x01\n" +
+	"\x0fRoutingStrategy\x12 \n" +
+	"\x1cROUTING_STRATEGY_UNSPECIFIED\x10\x00\x12 \n" +
+	"\x1cROUTING_STRATEGY_ROUND_ROBIN\x10\x01\x12\x1b\n" +
+	"\x17ROUTING_STRATEGY_RANDOM\x10\x02\x12\x19\n" +
+	"\x15ROUTING_STRATEGY_HASH\x10\x03\x12\x1e\n" +
+	"\x1aROUTING_STRATEGY_BROADCAST\x10\x04B\xc9\x01\n" +
 	"\x14com.gcommon.v1.queueB\x14RoutingStrategyProtoP\x01Z1github.com/jdfalk/gcommon/pkg/queue/proto;queuepb\xa2\x02\x03GVQ\xaa\x02\x10Gcommon.V1.Queue\xca\x02\x10Gcommon\\V1\\Queue\xe2\x02\x1cGcommon\\V1\\Queue\\GPBMetadata\xea\x02\x12Gcommon::V1::Queue\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
 
-var file_pkg_queue_proto_enums_routing_strategy_proto_goTypes = []any{}
+var file_pkg_queue_proto_enums_routing_strategy_proto_enumTypes = make([]protoimpl.EnumInfo, 1)
+var file_pkg_queue_proto_enums_routing_strategy_proto_goTypes = []any{
+	(RoutingStrategy)(0), // 0: gcommon.v1.queue.RoutingStrategy
+}
 var file_pkg_queue_proto_enums_routing_strategy_proto_depIdxs = []int32{
 	0, // [0:0] is the sub-list for method output_type
 	0, // [0:0] is the sub-list for method input_type
@@ -49,13 +114,14 @@ func file_pkg_queue_proto_enums_routing_strategy_proto_init() {
 		File: protoimpl.DescBuilder{
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: unsafe.Slice(unsafe.StringData(file_pkg_queue_proto_enums_routing_strategy_proto_rawDesc), len(file_pkg_queue_proto_enums_routing_strategy_proto_rawDesc)),
-			NumEnums:      0,
+			NumEnums:      1,
 			NumMessages:   0,
 			NumExtensions: 0,
 			NumServices:   0,
 		},
 		GoTypes:           file_pkg_queue_proto_enums_routing_strategy_proto_goTypes,
 		DependencyIndexes: file_pkg_queue_proto_enums_routing_strategy_proto_depIdxs,
+		EnumInfos:         file_pkg_queue_proto_enums_routing_strategy_proto_enumTypes,
 	}.Build()
 	File_pkg_queue_proto_enums_routing_strategy_proto = out.File
 	file_pkg_queue_proto_enums_routing_strategy_proto_goTypes = nil
