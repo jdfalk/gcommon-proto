@@ -8,6 +8,7 @@ package gcommon.v1.health;
 
 import "pkg/common/proto/messages/request_metadata.proto";
 import "pkg/common/proto/messages/error.proto";
+import "pkg/common/proto/enums/health_status.proto";
 import "pkg/health/proto/messages/check_result.proto";
 import "pkg/health/proto/messages/health_metrics.proto";
 import "google/protobuf/timestamp.proto";

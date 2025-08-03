@@ -15,6 +15,7 @@ import "google/protobuf/go_features.proto";
 import "google/protobuf/timestamp.proto";
 import "google/protobuf/duration.proto";
 import "pkg/common/proto/messages/request_metadata.proto";
+import "pkg/common/proto/messages/response_metadata.proto";
 import "pkg/common/proto/messages/error.proto";
 
 option go_package = "github.com/jdfalk/gcommon/pkg/queue/proto;queuepb";

@@ -12,7 +12,7 @@ option go_package = "github.com/jdfalk/gcommon/pkg/queue/proto;queuepb";
 import "google/protobuf/duration.proto";
 
 // Common types
-import "pkg/common/proto/common.proto";
+import "pkg/common/proto/messages/request_metadata.proto";
 
 /**
  * DequeueRequest retrieves one or more messages from a queue.

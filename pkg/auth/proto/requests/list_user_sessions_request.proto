@@ -44,7 +44,7 @@ message ListUserSessionsRequest {
    * Pagination options for large result sets.
    * Defaults to first 50 sessions if not specified.
    */
-  gcommon.v1.common.Pagination pagination = 12;
+  gcommon.v1.common.PaginationOptions pagination = 12;
 
   /**
    * Filter sessions by status (active, expired, terminated).
