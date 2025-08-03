@@ -24,11 +24,16 @@ const (
 	_ = protoimpl.EnforceVersion(protoimpl.MaxVersion - 20)
 )
 
-// TODO: Implement list_organizations_request message
 type ListOrganizationsRequest struct {
 	state protoimpl.MessageState `protogen:"hybrid.v1"`
 	// Request metadata for tracing and context
-	Metadata      *proto.RequestMetadata `protobuf:"bytes,1,opt,name=metadata" json:"metadata,omitempty"`
+	Metadata *proto.RequestMetadata `protobuf:"bytes,1,opt,name=metadata" json:"metadata,omitempty"`
+	// Pagination size
+	PageSize *int32 `protobuf:"varint,2,opt,name=page_size,json=pageSize" json:"page_size,omitempty"`
+	// Pagination token from previous response
+	PageToken *string `protobuf:"bytes,3,opt,name=page_token,json=pageToken" json:"page_token,omitempty"`
+	// Optional filter expression
+	Filter        *string `protobuf:"bytes,4,opt,name=filter" json:"filter,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -65,8 +70,41 @@ func (x *ListOrganizationsRequest) GetMetadata() *proto.RequestMetadata {
 	return nil
 }
 
+func (x *ListOrganizationsRequest) GetPageSize() int32 {
+	if x != nil && x.PageSize != nil {
+		return *x.PageSize
+	}
+	return 0
+}
+
+func (x *ListOrganizationsRequest) GetPageToken() string {
+	if x != nil && x.PageToken != nil {
+		return *x.PageToken
+	}
+	return ""
+}
+
+func (x *ListOrganizationsRequest) GetFilter() string {
+	if x != nil && x.Filter != nil {
+		return *x.Filter
+	}
+	return ""
+}
+
 func (x *ListOrganizationsRequest) SetMetadata(v *proto.RequestMetadata) {
 	x.Metadata = v
+}
+
+func (x *ListOrganizationsRequest) SetPageSize(v int32) {
+	x.PageSize = &v
+}
+
+func (x *ListOrganizationsRequest) SetPageToken(v string) {
+	x.PageToken = &v
+}
+
+func (x *ListOrganizationsRequest) SetFilter(v string) {
+	x.Filter = &v
 }
 
 func (x *ListOrganizationsRequest) HasMetadata() bool {
@@ -76,8 +114,41 @@ func (x *ListOrganizationsRequest) HasMetadata() bool {
 	return x.Metadata != nil
 }
 
+func (x *ListOrganizationsRequest) HasPageSize() bool {
+	if x == nil {
+		return false
+	}
+	return x.PageSize != nil
+}
+
+func (x *ListOrganizationsRequest) HasPageToken() bool {
+	if x == nil {
+		return false
+	}
+	return x.PageToken != nil
+}
+
+func (x *ListOrganizationsRequest) HasFilter() bool {
+	if x == nil {
+		return false
+	}
+	return x.Filter != nil
+}
+
 func (x *ListOrganizationsRequest) ClearMetadata() {
 	x.Metadata = nil
+}
+
+func (x *ListOrganizationsRequest) ClearPageSize() {
+	x.PageSize = nil
+}
+
+func (x *ListOrganizationsRequest) ClearPageToken() {
+	x.PageToken = nil
+}
+
+func (x *ListOrganizationsRequest) ClearFilter() {
+	x.Filter = nil
 }
 
 type ListOrganizationsRequest_builder struct {
@@ -85,6 +156,12 @@ type ListOrganizationsRequest_builder struct {
 
 	// Request metadata for tracing and context
 	Metadata *proto.RequestMetadata
+	// Pagination size
+	PageSize *int32
+	// Pagination token from previous response
+	PageToken *string
+	// Optional filter expression
+	Filter *string
 }
 
 func (b0 ListOrganizationsRequest_builder) Build() *ListOrganizationsRequest {
@@ -92,6 +169,9 @@ func (b0 ListOrganizationsRequest_builder) Build() *ListOrganizationsRequest {
 	b, x := &b0, m0
 	_, _ = b, x
 	x.Metadata = b.Metadata
+	x.PageSize = b.PageSize
+	x.PageToken = b.PageToken
+	x.Filter = b.Filter
 	return m0
 }
 
@@ -99,9 +179,13 @@ var File_pkg_organization_proto_requests_list_organizations_request_proto protor
 
 const file_pkg_organization_proto_requests_list_organizations_request_proto_rawDesc = "" +
 	"\n" +
-	"@pkg/organization/proto/requests/list_organizations_request.proto\x12\x17gcommon.v1.organization\x1a!google/protobuf/go_features.proto\x1a0pkg/common/proto/messages/request_metadata.proto\"Z\n" +
+	"@pkg/organization/proto/requests/list_organizations_request.proto\x12\x17gcommon.v1.organization\x1a!google/protobuf/go_features.proto\x1a0pkg/common/proto/messages/request_metadata.proto\"\xae\x01\n" +
 	"\x18ListOrganizationsRequest\x12>\n" +
-	"\bmetadata\x18\x01 \x01(\v2\".gcommon.v1.common.RequestMetadataR\bmetadataB\x83\x02\n" +
+	"\bmetadata\x18\x01 \x01(\v2\".gcommon.v1.common.RequestMetadataR\bmetadata\x12\x1b\n" +
+	"\tpage_size\x18\x02 \x01(\x05R\bpageSize\x12\x1d\n" +
+	"\n" +
+	"page_token\x18\x03 \x01(\tR\tpageToken\x12\x16\n" +
+	"\x06filter\x18\x04 \x01(\tR\x06filterB\x83\x02\n" +
 	"\x1bcom.gcommon.v1.organizationB\x1dListOrganizationsRequestProtoP\x01Z?github.com/jdfalk/gcommon/pkg/organization/proto;organizationpb\xa2\x02\x03GVO\xaa\x02\x17Gcommon.V1.Organization\xca\x02\x17Gcommon\\V1\\Organization\xe2\x02#Gcommon\\V1\\Organization\\GPBMetadata\xea\x02\x19Gcommon::V1::Organization\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
 
 var file_pkg_organization_proto_requests_list_organizations_request_proto_msgTypes = make([]protoimpl.MessageInfo, 1)

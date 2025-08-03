@@ -24,12 +24,14 @@ const (
 	_ = protoimpl.EnforceVersion(protoimpl.MaxVersion - 20)
 )
 
-// TODO: Implement delete_department_request message
 type DeleteDepartmentRequest struct {
-	state               protoimpl.MessageState `protogen:"opaque.v1"`
-	xxx_hidden_Metadata *proto.RequestMetadata `protobuf:"bytes,1,opt,name=metadata"`
-	unknownFields       protoimpl.UnknownFields
-	sizeCache           protoimpl.SizeCache
+	state                   protoimpl.MessageState `protogen:"opaque.v1"`
+	xxx_hidden_Metadata     *proto.RequestMetadata `protobuf:"bytes,1,opt,name=metadata"`
+	xxx_hidden_DepartmentId *string                `protobuf:"bytes,2,opt,name=department_id,json=departmentId"`
+	XXX_raceDetectHookData  protoimpl.RaceDetectHookData
+	XXX_presence            [1]uint32
+	unknownFields           protoimpl.UnknownFields
+	sizeCache               protoimpl.SizeCache
 }
 
 func (x *DeleteDepartmentRequest) Reset() {
@@ -64,8 +66,23 @@ func (x *DeleteDepartmentRequest) GetMetadata() *proto.RequestMetadata {
 	return nil
 }
 
+func (x *DeleteDepartmentRequest) GetDepartmentId() string {
+	if x != nil {
+		if x.xxx_hidden_DepartmentId != nil {
+			return *x.xxx_hidden_DepartmentId
+		}
+		return ""
+	}
+	return ""
+}
+
 func (x *DeleteDepartmentRequest) SetMetadata(v *proto.RequestMetadata) {
 	x.xxx_hidden_Metadata = v
+}
+
+func (x *DeleteDepartmentRequest) SetDepartmentId(v string) {
+	x.xxx_hidden_DepartmentId = &v
+	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 1, 2)
 }
 
 func (x *DeleteDepartmentRequest) HasMetadata() bool {
@@ -75,8 +92,20 @@ func (x *DeleteDepartmentRequest) HasMetadata() bool {
 	return x.xxx_hidden_Metadata != nil
 }
 
+func (x *DeleteDepartmentRequest) HasDepartmentId() bool {
+	if x == nil {
+		return false
+	}
+	return protoimpl.X.Present(&(x.XXX_presence[0]), 1)
+}
+
 func (x *DeleteDepartmentRequest) ClearMetadata() {
 	x.xxx_hidden_Metadata = nil
+}
+
+func (x *DeleteDepartmentRequest) ClearDepartmentId() {
+	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 1)
+	x.xxx_hidden_DepartmentId = nil
 }
 
 type DeleteDepartmentRequest_builder struct {
@@ -84,6 +113,8 @@ type DeleteDepartmentRequest_builder struct {
 
 	// Request metadata for tracing and context
 	Metadata *proto.RequestMetadata
+	// Department identifier to delete
+	DepartmentId *string
 }
 
 func (b0 DeleteDepartmentRequest_builder) Build() *DeleteDepartmentRequest {
@@ -91,6 +122,10 @@ func (b0 DeleteDepartmentRequest_builder) Build() *DeleteDepartmentRequest {
 	b, x := &b0, m0
 	_, _ = b, x
 	x.xxx_hidden_Metadata = b.Metadata
+	if b.DepartmentId != nil {
+		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 1, 2)
+		x.xxx_hidden_DepartmentId = b.DepartmentId
+	}
 	return m0
 }
 
@@ -98,9 +133,10 @@ var File_pkg_organization_proto_requests_delete_department_request_proto protore
 
 const file_pkg_organization_proto_requests_delete_department_request_proto_rawDesc = "" +
 	"\n" +
-	"?pkg/organization/proto/requests/delete_department_request.proto\x12\x17gcommon.v1.organization\x1a!google/protobuf/go_features.proto\x1a0pkg/common/proto/messages/request_metadata.proto\"Y\n" +
+	"?pkg/organization/proto/requests/delete_department_request.proto\x12\x17gcommon.v1.organization\x1a!google/protobuf/go_features.proto\x1a0pkg/common/proto/messages/request_metadata.proto\"~\n" +
 	"\x17DeleteDepartmentRequest\x12>\n" +
-	"\bmetadata\x18\x01 \x01(\v2\".gcommon.v1.common.RequestMetadataR\bmetadataB\x82\x02\n" +
+	"\bmetadata\x18\x01 \x01(\v2\".gcommon.v1.common.RequestMetadataR\bmetadata\x12#\n" +
+	"\rdepartment_id\x18\x02 \x01(\tR\fdepartmentIdB\x82\x02\n" +
 	"\x1bcom.gcommon.v1.organizationB\x1cDeleteDepartmentRequestProtoP\x01Z?github.com/jdfalk/gcommon/pkg/organization/proto;organizationpb\xa2\x02\x03GVO\xaa\x02\x17Gcommon.V1.Organization\xca\x02\x17Gcommon\\V1\\Organization\xe2\x02#Gcommon\\V1\\Organization\\GPBMetadata\xea\x02\x19Gcommon::V1::Organization\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
 
 var file_pkg_organization_proto_requests_delete_department_request_proto_msgTypes = make([]protoimpl.MessageInfo, 1)

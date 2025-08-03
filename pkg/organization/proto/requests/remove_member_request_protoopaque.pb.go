@@ -24,12 +24,15 @@ const (
 	_ = protoimpl.EnforceVersion(protoimpl.MaxVersion - 20)
 )
 
-// TODO: Implement remove_member_request message
 type RemoveMemberRequest struct {
-	state               protoimpl.MessageState `protogen:"opaque.v1"`
-	xxx_hidden_Metadata *proto.RequestMetadata `protobuf:"bytes,1,opt,name=metadata"`
-	unknownFields       protoimpl.UnknownFields
-	sizeCache           protoimpl.SizeCache
+	state                     protoimpl.MessageState `protogen:"opaque.v1"`
+	xxx_hidden_Metadata       *proto.RequestMetadata `protobuf:"bytes,1,opt,name=metadata"`
+	xxx_hidden_OrganizationId *string                `protobuf:"bytes,2,opt,name=organization_id,json=organizationId"`
+	xxx_hidden_MemberId       *string                `protobuf:"bytes,3,opt,name=member_id,json=memberId"`
+	XXX_raceDetectHookData    protoimpl.RaceDetectHookData
+	XXX_presence              [1]uint32
+	unknownFields             protoimpl.UnknownFields
+	sizeCache                 protoimpl.SizeCache
 }
 
 func (x *RemoveMemberRequest) Reset() {
@@ -64,8 +67,38 @@ func (x *RemoveMemberRequest) GetMetadata() *proto.RequestMetadata {
 	return nil
 }
 
+func (x *RemoveMemberRequest) GetOrganizationId() string {
+	if x != nil {
+		if x.xxx_hidden_OrganizationId != nil {
+			return *x.xxx_hidden_OrganizationId
+		}
+		return ""
+	}
+	return ""
+}
+
+func (x *RemoveMemberRequest) GetMemberId() string {
+	if x != nil {
+		if x.xxx_hidden_MemberId != nil {
+			return *x.xxx_hidden_MemberId
+		}
+		return ""
+	}
+	return ""
+}
+
 func (x *RemoveMemberRequest) SetMetadata(v *proto.RequestMetadata) {
 	x.xxx_hidden_Metadata = v
+}
+
+func (x *RemoveMemberRequest) SetOrganizationId(v string) {
+	x.xxx_hidden_OrganizationId = &v
+	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 1, 3)
+}
+
+func (x *RemoveMemberRequest) SetMemberId(v string) {
+	x.xxx_hidden_MemberId = &v
+	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 2, 3)
 }
 
 func (x *RemoveMemberRequest) HasMetadata() bool {
@@ -75,8 +108,32 @@ func (x *RemoveMemberRequest) HasMetadata() bool {
 	return x.xxx_hidden_Metadata != nil
 }
 
+func (x *RemoveMemberRequest) HasOrganizationId() bool {
+	if x == nil {
+		return false
+	}
+	return protoimpl.X.Present(&(x.XXX_presence[0]), 1)
+}
+
+func (x *RemoveMemberRequest) HasMemberId() bool {
+	if x == nil {
+		return false
+	}
+	return protoimpl.X.Present(&(x.XXX_presence[0]), 2)
+}
+
 func (x *RemoveMemberRequest) ClearMetadata() {
 	x.xxx_hidden_Metadata = nil
+}
+
+func (x *RemoveMemberRequest) ClearOrganizationId() {
+	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 1)
+	x.xxx_hidden_OrganizationId = nil
+}
+
+func (x *RemoveMemberRequest) ClearMemberId() {
+	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 2)
+	x.xxx_hidden_MemberId = nil
 }
 
 type RemoveMemberRequest_builder struct {
@@ -84,6 +141,10 @@ type RemoveMemberRequest_builder struct {
 
 	// Request metadata for tracing and context
 	Metadata *proto.RequestMetadata
+	// Organization identifier
+	OrganizationId *string
+	// Member identifier to remove
+	MemberId *string
 }
 
 func (b0 RemoveMemberRequest_builder) Build() *RemoveMemberRequest {
@@ -91,6 +152,14 @@ func (b0 RemoveMemberRequest_builder) Build() *RemoveMemberRequest {
 	b, x := &b0, m0
 	_, _ = b, x
 	x.xxx_hidden_Metadata = b.Metadata
+	if b.OrganizationId != nil {
+		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 1, 3)
+		x.xxx_hidden_OrganizationId = b.OrganizationId
+	}
+	if b.MemberId != nil {
+		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 2, 3)
+		x.xxx_hidden_MemberId = b.MemberId
+	}
 	return m0
 }
 
@@ -98,9 +167,11 @@ var File_pkg_organization_proto_requests_remove_member_request_proto protoreflec
 
 const file_pkg_organization_proto_requests_remove_member_request_proto_rawDesc = "" +
 	"\n" +
-	";pkg/organization/proto/requests/remove_member_request.proto\x12\x17gcommon.v1.organization\x1a!google/protobuf/go_features.proto\x1a0pkg/common/proto/messages/request_metadata.proto\"U\n" +
+	";pkg/organization/proto/requests/remove_member_request.proto\x12\x17gcommon.v1.organization\x1a!google/protobuf/go_features.proto\x1a0pkg/common/proto/messages/request_metadata.proto\"\x9b\x01\n" +
 	"\x13RemoveMemberRequest\x12>\n" +
-	"\bmetadata\x18\x01 \x01(\v2\".gcommon.v1.common.RequestMetadataR\bmetadataB\xfe\x01\n" +
+	"\bmetadata\x18\x01 \x01(\v2\".gcommon.v1.common.RequestMetadataR\bmetadata\x12'\n" +
+	"\x0forganization_id\x18\x02 \x01(\tR\x0eorganizationId\x12\x1b\n" +
+	"\tmember_id\x18\x03 \x01(\tR\bmemberIdB\xfe\x01\n" +
 	"\x1bcom.gcommon.v1.organizationB\x18RemoveMemberRequestProtoP\x01Z?github.com/jdfalk/gcommon/pkg/organization/proto;organizationpb\xa2\x02\x03GVO\xaa\x02\x17Gcommon.V1.Organization\xca\x02\x17Gcommon\\V1\\Organization\xe2\x02#Gcommon\\V1\\Organization\\GPBMetadata\xea\x02\x19Gcommon::V1::Organization\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
 
 var file_pkg_organization_proto_requests_remove_member_request_proto_msgTypes = make([]protoimpl.MessageInfo, 1)

@@ -24,13 +24,14 @@ const (
 	_ = protoimpl.EnforceVersion(protoimpl.MaxVersion - 20)
 )
 
-// TODO: Implement delete_organization_request message
 type DeleteOrganizationRequest struct {
 	state protoimpl.MessageState `protogen:"hybrid.v1"`
 	// Request metadata for tracing and context
-	Metadata      *proto.RequestMetadata `protobuf:"bytes,1,opt,name=metadata" json:"metadata,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
+	Metadata *proto.RequestMetadata `protobuf:"bytes,1,opt,name=metadata" json:"metadata,omitempty"`
+	// Organization identifier to delete
+	OrganizationId *string `protobuf:"bytes,2,opt,name=organization_id,json=organizationId" json:"organization_id,omitempty"`
+	unknownFields  protoimpl.UnknownFields
+	sizeCache      protoimpl.SizeCache
 }
 
 func (x *DeleteOrganizationRequest) Reset() {
@@ -65,8 +66,19 @@ func (x *DeleteOrganizationRequest) GetMetadata() *proto.RequestMetadata {
 	return nil
 }
 
+func (x *DeleteOrganizationRequest) GetOrganizationId() string {
+	if x != nil && x.OrganizationId != nil {
+		return *x.OrganizationId
+	}
+	return ""
+}
+
 func (x *DeleteOrganizationRequest) SetMetadata(v *proto.RequestMetadata) {
 	x.Metadata = v
+}
+
+func (x *DeleteOrganizationRequest) SetOrganizationId(v string) {
+	x.OrganizationId = &v
 }
 
 func (x *DeleteOrganizationRequest) HasMetadata() bool {
@@ -76,8 +88,19 @@ func (x *DeleteOrganizationRequest) HasMetadata() bool {
 	return x.Metadata != nil
 }
 
+func (x *DeleteOrganizationRequest) HasOrganizationId() bool {
+	if x == nil {
+		return false
+	}
+	return x.OrganizationId != nil
+}
+
 func (x *DeleteOrganizationRequest) ClearMetadata() {
 	x.Metadata = nil
+}
+
+func (x *DeleteOrganizationRequest) ClearOrganizationId() {
+	x.OrganizationId = nil
 }
 
 type DeleteOrganizationRequest_builder struct {
@@ -85,6 +108,8 @@ type DeleteOrganizationRequest_builder struct {
 
 	// Request metadata for tracing and context
 	Metadata *proto.RequestMetadata
+	// Organization identifier to delete
+	OrganizationId *string
 }
 
 func (b0 DeleteOrganizationRequest_builder) Build() *DeleteOrganizationRequest {
@@ -92,6 +117,7 @@ func (b0 DeleteOrganizationRequest_builder) Build() *DeleteOrganizationRequest {
 	b, x := &b0, m0
 	_, _ = b, x
 	x.Metadata = b.Metadata
+	x.OrganizationId = b.OrganizationId
 	return m0
 }
 
@@ -99,9 +125,10 @@ var File_pkg_organization_proto_requests_delete_organization_request_proto proto
 
 const file_pkg_organization_proto_requests_delete_organization_request_proto_rawDesc = "" +
 	"\n" +
-	"Apkg/organization/proto/requests/delete_organization_request.proto\x12\x17gcommon.v1.organization\x1a!google/protobuf/go_features.proto\x1a0pkg/common/proto/messages/request_metadata.proto\"[\n" +
+	"Apkg/organization/proto/requests/delete_organization_request.proto\x12\x17gcommon.v1.organization\x1a!google/protobuf/go_features.proto\x1a0pkg/common/proto/messages/request_metadata.proto\"\x84\x01\n" +
 	"\x19DeleteOrganizationRequest\x12>\n" +
-	"\bmetadata\x18\x01 \x01(\v2\".gcommon.v1.common.RequestMetadataR\bmetadataB\x84\x02\n" +
+	"\bmetadata\x18\x01 \x01(\v2\".gcommon.v1.common.RequestMetadataR\bmetadata\x12'\n" +
+	"\x0forganization_id\x18\x02 \x01(\tR\x0eorganizationIdB\x84\x02\n" +
 	"\x1bcom.gcommon.v1.organizationB\x1eDeleteOrganizationRequestProtoP\x01Z?github.com/jdfalk/gcommon/pkg/organization/proto;organizationpb\xa2\x02\x03GVO\xaa\x02\x17Gcommon.V1.Organization\xca\x02\x17Gcommon\\V1\\Organization\xe2\x02#Gcommon\\V1\\Organization\\GPBMetadata\xea\x02\x19Gcommon::V1::Organization\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
 
 var file_pkg_organization_proto_requests_delete_organization_request_proto_msgTypes = make([]protoimpl.MessageInfo, 1)

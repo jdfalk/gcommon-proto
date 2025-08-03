@@ -24,11 +24,20 @@ const (
 	_ = protoimpl.EnforceVersion(protoimpl.MaxVersion - 20)
 )
 
-// TODO: Implement list_teams_request message
 type ListTeamsRequest struct {
 	state protoimpl.MessageState `protogen:"hybrid.v1"`
 	// Request metadata for tracing and context
-	Metadata      *proto.RequestMetadata `protobuf:"bytes,1,opt,name=metadata" json:"metadata,omitempty"`
+	Metadata *proto.RequestMetadata `protobuf:"bytes,1,opt,name=metadata" json:"metadata,omitempty"`
+	// Organization identifier
+	OrganizationId *string `protobuf:"bytes,2,opt,name=organization_id,json=organizationId" json:"organization_id,omitempty"`
+	// Optional department identifier to scope teams
+	DepartmentId *string `protobuf:"bytes,3,opt,name=department_id,json=departmentId" json:"department_id,omitempty"`
+	// Maximum number of teams to return
+	PageSize *int32 `protobuf:"varint,4,opt,name=page_size,json=pageSize" json:"page_size,omitempty"`
+	// Pagination token from previous response
+	PageToken *string `protobuf:"bytes,5,opt,name=page_token,json=pageToken" json:"page_token,omitempty"`
+	// Optional filter expression
+	Filter        *string `protobuf:"bytes,6,opt,name=filter" json:"filter,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -65,8 +74,63 @@ func (x *ListTeamsRequest) GetMetadata() *proto.RequestMetadata {
 	return nil
 }
 
+func (x *ListTeamsRequest) GetOrganizationId() string {
+	if x != nil && x.OrganizationId != nil {
+		return *x.OrganizationId
+	}
+	return ""
+}
+
+func (x *ListTeamsRequest) GetDepartmentId() string {
+	if x != nil && x.DepartmentId != nil {
+		return *x.DepartmentId
+	}
+	return ""
+}
+
+func (x *ListTeamsRequest) GetPageSize() int32 {
+	if x != nil && x.PageSize != nil {
+		return *x.PageSize
+	}
+	return 0
+}
+
+func (x *ListTeamsRequest) GetPageToken() string {
+	if x != nil && x.PageToken != nil {
+		return *x.PageToken
+	}
+	return ""
+}
+
+func (x *ListTeamsRequest) GetFilter() string {
+	if x != nil && x.Filter != nil {
+		return *x.Filter
+	}
+	return ""
+}
+
 func (x *ListTeamsRequest) SetMetadata(v *proto.RequestMetadata) {
 	x.Metadata = v
+}
+
+func (x *ListTeamsRequest) SetOrganizationId(v string) {
+	x.OrganizationId = &v
+}
+
+func (x *ListTeamsRequest) SetDepartmentId(v string) {
+	x.DepartmentId = &v
+}
+
+func (x *ListTeamsRequest) SetPageSize(v int32) {
+	x.PageSize = &v
+}
+
+func (x *ListTeamsRequest) SetPageToken(v string) {
+	x.PageToken = &v
+}
+
+func (x *ListTeamsRequest) SetFilter(v string) {
+	x.Filter = &v
 }
 
 func (x *ListTeamsRequest) HasMetadata() bool {
@@ -76,8 +140,63 @@ func (x *ListTeamsRequest) HasMetadata() bool {
 	return x.Metadata != nil
 }
 
+func (x *ListTeamsRequest) HasOrganizationId() bool {
+	if x == nil {
+		return false
+	}
+	return x.OrganizationId != nil
+}
+
+func (x *ListTeamsRequest) HasDepartmentId() bool {
+	if x == nil {
+		return false
+	}
+	return x.DepartmentId != nil
+}
+
+func (x *ListTeamsRequest) HasPageSize() bool {
+	if x == nil {
+		return false
+	}
+	return x.PageSize != nil
+}
+
+func (x *ListTeamsRequest) HasPageToken() bool {
+	if x == nil {
+		return false
+	}
+	return x.PageToken != nil
+}
+
+func (x *ListTeamsRequest) HasFilter() bool {
+	if x == nil {
+		return false
+	}
+	return x.Filter != nil
+}
+
 func (x *ListTeamsRequest) ClearMetadata() {
 	x.Metadata = nil
+}
+
+func (x *ListTeamsRequest) ClearOrganizationId() {
+	x.OrganizationId = nil
+}
+
+func (x *ListTeamsRequest) ClearDepartmentId() {
+	x.DepartmentId = nil
+}
+
+func (x *ListTeamsRequest) ClearPageSize() {
+	x.PageSize = nil
+}
+
+func (x *ListTeamsRequest) ClearPageToken() {
+	x.PageToken = nil
+}
+
+func (x *ListTeamsRequest) ClearFilter() {
+	x.Filter = nil
 }
 
 type ListTeamsRequest_builder struct {
@@ -85,6 +204,16 @@ type ListTeamsRequest_builder struct {
 
 	// Request metadata for tracing and context
 	Metadata *proto.RequestMetadata
+	// Organization identifier
+	OrganizationId *string
+	// Optional department identifier to scope teams
+	DepartmentId *string
+	// Maximum number of teams to return
+	PageSize *int32
+	// Pagination token from previous response
+	PageToken *string
+	// Optional filter expression
+	Filter *string
 }
 
 func (b0 ListTeamsRequest_builder) Build() *ListTeamsRequest {
@@ -92,6 +221,11 @@ func (b0 ListTeamsRequest_builder) Build() *ListTeamsRequest {
 	b, x := &b0, m0
 	_, _ = b, x
 	x.Metadata = b.Metadata
+	x.OrganizationId = b.OrganizationId
+	x.DepartmentId = b.DepartmentId
+	x.PageSize = b.PageSize
+	x.PageToken = b.PageToken
+	x.Filter = b.Filter
 	return m0
 }
 
@@ -99,9 +233,15 @@ var File_pkg_organization_proto_requests_list_teams_request_proto protoreflect.F
 
 const file_pkg_organization_proto_requests_list_teams_request_proto_rawDesc = "" +
 	"\n" +
-	"8pkg/organization/proto/requests/list_teams_request.proto\x12\x17gcommon.v1.organization\x1a!google/protobuf/go_features.proto\x1a0pkg/common/proto/messages/request_metadata.proto\"R\n" +
+	"8pkg/organization/proto/requests/list_teams_request.proto\x12\x17gcommon.v1.organization\x1a!google/protobuf/go_features.proto\x1a0pkg/common/proto/messages/request_metadata.proto\"\xf4\x01\n" +
 	"\x10ListTeamsRequest\x12>\n" +
-	"\bmetadata\x18\x01 \x01(\v2\".gcommon.v1.common.RequestMetadataR\bmetadataB\xfb\x01\n" +
+	"\bmetadata\x18\x01 \x01(\v2\".gcommon.v1.common.RequestMetadataR\bmetadata\x12'\n" +
+	"\x0forganization_id\x18\x02 \x01(\tR\x0eorganizationId\x12#\n" +
+	"\rdepartment_id\x18\x03 \x01(\tR\fdepartmentId\x12\x1b\n" +
+	"\tpage_size\x18\x04 \x01(\x05R\bpageSize\x12\x1d\n" +
+	"\n" +
+	"page_token\x18\x05 \x01(\tR\tpageToken\x12\x16\n" +
+	"\x06filter\x18\x06 \x01(\tR\x06filterB\xfb\x01\n" +
 	"\x1bcom.gcommon.v1.organizationB\x15ListTeamsRequestProtoP\x01Z?github.com/jdfalk/gcommon/pkg/organization/proto;organizationpb\xa2\x02\x03GVO\xaa\x02\x17Gcommon.V1.Organization\xca\x02\x17Gcommon\\V1\\Organization\xe2\x02#Gcommon\\V1\\Organization\\GPBMetadata\xea\x02\x19Gcommon::V1::Organization\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
 
 var file_pkg_organization_proto_requests_list_teams_request_proto_msgTypes = make([]protoimpl.MessageInfo, 1)

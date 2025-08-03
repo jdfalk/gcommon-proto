@@ -24,11 +24,18 @@ const (
 	_ = protoimpl.EnforceVersion(protoimpl.MaxVersion - 20)
 )
 
-// TODO: Implement list_departments_request message
 type ListDepartmentsRequest struct {
 	state protoimpl.MessageState `protogen:"hybrid.v1"`
 	// Request metadata for tracing and context
-	Metadata      *proto.RequestMetadata `protobuf:"bytes,1,opt,name=metadata" json:"metadata,omitempty"`
+	Metadata *proto.RequestMetadata `protobuf:"bytes,1,opt,name=metadata" json:"metadata,omitempty"`
+	// Organization identifier to list departments for
+	OrganizationId *string `protobuf:"bytes,2,opt,name=organization_id,json=organizationId" json:"organization_id,omitempty"`
+	// Pagination size (max results per page)
+	PageSize *int32 `protobuf:"varint,3,opt,name=page_size,json=pageSize" json:"page_size,omitempty"`
+	// Pagination token from previous response
+	PageToken *string `protobuf:"bytes,4,opt,name=page_token,json=pageToken" json:"page_token,omitempty"`
+	// Optional filter expression
+	Filter        *string `protobuf:"bytes,5,opt,name=filter" json:"filter,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -65,8 +72,52 @@ func (x *ListDepartmentsRequest) GetMetadata() *proto.RequestMetadata {
 	return nil
 }
 
+func (x *ListDepartmentsRequest) GetOrganizationId() string {
+	if x != nil && x.OrganizationId != nil {
+		return *x.OrganizationId
+	}
+	return ""
+}
+
+func (x *ListDepartmentsRequest) GetPageSize() int32 {
+	if x != nil && x.PageSize != nil {
+		return *x.PageSize
+	}
+	return 0
+}
+
+func (x *ListDepartmentsRequest) GetPageToken() string {
+	if x != nil && x.PageToken != nil {
+		return *x.PageToken
+	}
+	return ""
+}
+
+func (x *ListDepartmentsRequest) GetFilter() string {
+	if x != nil && x.Filter != nil {
+		return *x.Filter
+	}
+	return ""
+}
+
 func (x *ListDepartmentsRequest) SetMetadata(v *proto.RequestMetadata) {
 	x.Metadata = v
+}
+
+func (x *ListDepartmentsRequest) SetOrganizationId(v string) {
+	x.OrganizationId = &v
+}
+
+func (x *ListDepartmentsRequest) SetPageSize(v int32) {
+	x.PageSize = &v
+}
+
+func (x *ListDepartmentsRequest) SetPageToken(v string) {
+	x.PageToken = &v
+}
+
+func (x *ListDepartmentsRequest) SetFilter(v string) {
+	x.Filter = &v
 }
 
 func (x *ListDepartmentsRequest) HasMetadata() bool {
@@ -76,8 +127,52 @@ func (x *ListDepartmentsRequest) HasMetadata() bool {
 	return x.Metadata != nil
 }
 
+func (x *ListDepartmentsRequest) HasOrganizationId() bool {
+	if x == nil {
+		return false
+	}
+	return x.OrganizationId != nil
+}
+
+func (x *ListDepartmentsRequest) HasPageSize() bool {
+	if x == nil {
+		return false
+	}
+	return x.PageSize != nil
+}
+
+func (x *ListDepartmentsRequest) HasPageToken() bool {
+	if x == nil {
+		return false
+	}
+	return x.PageToken != nil
+}
+
+func (x *ListDepartmentsRequest) HasFilter() bool {
+	if x == nil {
+		return false
+	}
+	return x.Filter != nil
+}
+
 func (x *ListDepartmentsRequest) ClearMetadata() {
 	x.Metadata = nil
+}
+
+func (x *ListDepartmentsRequest) ClearOrganizationId() {
+	x.OrganizationId = nil
+}
+
+func (x *ListDepartmentsRequest) ClearPageSize() {
+	x.PageSize = nil
+}
+
+func (x *ListDepartmentsRequest) ClearPageToken() {
+	x.PageToken = nil
+}
+
+func (x *ListDepartmentsRequest) ClearFilter() {
+	x.Filter = nil
 }
 
 type ListDepartmentsRequest_builder struct {
@@ -85,6 +180,14 @@ type ListDepartmentsRequest_builder struct {
 
 	// Request metadata for tracing and context
 	Metadata *proto.RequestMetadata
+	// Organization identifier to list departments for
+	OrganizationId *string
+	// Pagination size (max results per page)
+	PageSize *int32
+	// Pagination token from previous response
+	PageToken *string
+	// Optional filter expression
+	Filter *string
 }
 
 func (b0 ListDepartmentsRequest_builder) Build() *ListDepartmentsRequest {
@@ -92,6 +195,10 @@ func (b0 ListDepartmentsRequest_builder) Build() *ListDepartmentsRequest {
 	b, x := &b0, m0
 	_, _ = b, x
 	x.Metadata = b.Metadata
+	x.OrganizationId = b.OrganizationId
+	x.PageSize = b.PageSize
+	x.PageToken = b.PageToken
+	x.Filter = b.Filter
 	return m0
 }
 
@@ -99,9 +206,14 @@ var File_pkg_organization_proto_requests_list_departments_request_proto protoref
 
 const file_pkg_organization_proto_requests_list_departments_request_proto_rawDesc = "" +
 	"\n" +
-	">pkg/organization/proto/requests/list_departments_request.proto\x12\x17gcommon.v1.organization\x1a!google/protobuf/go_features.proto\x1a0pkg/common/proto/messages/request_metadata.proto\"X\n" +
+	">pkg/organization/proto/requests/list_departments_request.proto\x12\x17gcommon.v1.organization\x1a!google/protobuf/go_features.proto\x1a0pkg/common/proto/messages/request_metadata.proto\"\xd5\x01\n" +
 	"\x16ListDepartmentsRequest\x12>\n" +
-	"\bmetadata\x18\x01 \x01(\v2\".gcommon.v1.common.RequestMetadataR\bmetadataB\x81\x02\n" +
+	"\bmetadata\x18\x01 \x01(\v2\".gcommon.v1.common.RequestMetadataR\bmetadata\x12'\n" +
+	"\x0forganization_id\x18\x02 \x01(\tR\x0eorganizationId\x12\x1b\n" +
+	"\tpage_size\x18\x03 \x01(\x05R\bpageSize\x12\x1d\n" +
+	"\n" +
+	"page_token\x18\x04 \x01(\tR\tpageToken\x12\x16\n" +
+	"\x06filter\x18\x05 \x01(\tR\x06filterB\x81\x02\n" +
 	"\x1bcom.gcommon.v1.organizationB\x1bListDepartmentsRequestProtoP\x01Z?github.com/jdfalk/gcommon/pkg/organization/proto;organizationpb\xa2\x02\x03GVO\xaa\x02\x17Gcommon.V1.Organization\xca\x02\x17Gcommon\\V1\\Organization\xe2\x02#Gcommon\\V1\\Organization\\GPBMetadata\xea\x02\x19Gcommon::V1::Organization\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
 
 var file_pkg_organization_proto_requests_list_departments_request_proto_msgTypes = make([]protoimpl.MessageInfo, 1)

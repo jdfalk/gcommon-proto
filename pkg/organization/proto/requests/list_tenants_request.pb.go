@@ -24,11 +24,18 @@ const (
 	_ = protoimpl.EnforceVersion(protoimpl.MaxVersion - 20)
 )
 
-// TODO: Implement list_tenants_request message
 type ListTenantsRequest struct {
 	state protoimpl.MessageState `protogen:"hybrid.v1"`
 	// Request metadata for tracing and context
-	Metadata      *proto.RequestMetadata `protobuf:"bytes,1,opt,name=metadata" json:"metadata,omitempty"`
+	Metadata *proto.RequestMetadata `protobuf:"bytes,1,opt,name=metadata" json:"metadata,omitempty"`
+	// Organization identifier
+	OrganizationId *string `protobuf:"bytes,2,opt,name=organization_id,json=organizationId" json:"organization_id,omitempty"`
+	// Pagination size
+	PageSize *int32 `protobuf:"varint,3,opt,name=page_size,json=pageSize" json:"page_size,omitempty"`
+	// Pagination token from previous response
+	PageToken *string `protobuf:"bytes,4,opt,name=page_token,json=pageToken" json:"page_token,omitempty"`
+	// Optional filter expression
+	Filter        *string `protobuf:"bytes,5,opt,name=filter" json:"filter,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -65,8 +72,52 @@ func (x *ListTenantsRequest) GetMetadata() *proto.RequestMetadata {
 	return nil
 }
 
+func (x *ListTenantsRequest) GetOrganizationId() string {
+	if x != nil && x.OrganizationId != nil {
+		return *x.OrganizationId
+	}
+	return ""
+}
+
+func (x *ListTenantsRequest) GetPageSize() int32 {
+	if x != nil && x.PageSize != nil {
+		return *x.PageSize
+	}
+	return 0
+}
+
+func (x *ListTenantsRequest) GetPageToken() string {
+	if x != nil && x.PageToken != nil {
+		return *x.PageToken
+	}
+	return ""
+}
+
+func (x *ListTenantsRequest) GetFilter() string {
+	if x != nil && x.Filter != nil {
+		return *x.Filter
+	}
+	return ""
+}
+
 func (x *ListTenantsRequest) SetMetadata(v *proto.RequestMetadata) {
 	x.Metadata = v
+}
+
+func (x *ListTenantsRequest) SetOrganizationId(v string) {
+	x.OrganizationId = &v
+}
+
+func (x *ListTenantsRequest) SetPageSize(v int32) {
+	x.PageSize = &v
+}
+
+func (x *ListTenantsRequest) SetPageToken(v string) {
+	x.PageToken = &v
+}
+
+func (x *ListTenantsRequest) SetFilter(v string) {
+	x.Filter = &v
 }
 
 func (x *ListTenantsRequest) HasMetadata() bool {
@@ -76,8 +127,52 @@ func (x *ListTenantsRequest) HasMetadata() bool {
 	return x.Metadata != nil
 }
 
+func (x *ListTenantsRequest) HasOrganizationId() bool {
+	if x == nil {
+		return false
+	}
+	return x.OrganizationId != nil
+}
+
+func (x *ListTenantsRequest) HasPageSize() bool {
+	if x == nil {
+		return false
+	}
+	return x.PageSize != nil
+}
+
+func (x *ListTenantsRequest) HasPageToken() bool {
+	if x == nil {
+		return false
+	}
+	return x.PageToken != nil
+}
+
+func (x *ListTenantsRequest) HasFilter() bool {
+	if x == nil {
+		return false
+	}
+	return x.Filter != nil
+}
+
 func (x *ListTenantsRequest) ClearMetadata() {
 	x.Metadata = nil
+}
+
+func (x *ListTenantsRequest) ClearOrganizationId() {
+	x.OrganizationId = nil
+}
+
+func (x *ListTenantsRequest) ClearPageSize() {
+	x.PageSize = nil
+}
+
+func (x *ListTenantsRequest) ClearPageToken() {
+	x.PageToken = nil
+}
+
+func (x *ListTenantsRequest) ClearFilter() {
+	x.Filter = nil
 }
 
 type ListTenantsRequest_builder struct {
@@ -85,6 +180,14 @@ type ListTenantsRequest_builder struct {
 
 	// Request metadata for tracing and context
 	Metadata *proto.RequestMetadata
+	// Organization identifier
+	OrganizationId *string
+	// Pagination size
+	PageSize *int32
+	// Pagination token from previous response
+	PageToken *string
+	// Optional filter expression
+	Filter *string
 }
 
 func (b0 ListTenantsRequest_builder) Build() *ListTenantsRequest {
@@ -92,6 +195,10 @@ func (b0 ListTenantsRequest_builder) Build() *ListTenantsRequest {
 	b, x := &b0, m0
 	_, _ = b, x
 	x.Metadata = b.Metadata
+	x.OrganizationId = b.OrganizationId
+	x.PageSize = b.PageSize
+	x.PageToken = b.PageToken
+	x.Filter = b.Filter
 	return m0
 }
 
@@ -99,9 +206,14 @@ var File_pkg_organization_proto_requests_list_tenants_request_proto protoreflect
 
 const file_pkg_organization_proto_requests_list_tenants_request_proto_rawDesc = "" +
 	"\n" +
-	":pkg/organization/proto/requests/list_tenants_request.proto\x12\x17gcommon.v1.organization\x1a!google/protobuf/go_features.proto\x1a0pkg/common/proto/messages/request_metadata.proto\"T\n" +
+	":pkg/organization/proto/requests/list_tenants_request.proto\x12\x17gcommon.v1.organization\x1a!google/protobuf/go_features.proto\x1a0pkg/common/proto/messages/request_metadata.proto\"\xd1\x01\n" +
 	"\x12ListTenantsRequest\x12>\n" +
-	"\bmetadata\x18\x01 \x01(\v2\".gcommon.v1.common.RequestMetadataR\bmetadataB\xfd\x01\n" +
+	"\bmetadata\x18\x01 \x01(\v2\".gcommon.v1.common.RequestMetadataR\bmetadata\x12'\n" +
+	"\x0forganization_id\x18\x02 \x01(\tR\x0eorganizationId\x12\x1b\n" +
+	"\tpage_size\x18\x03 \x01(\x05R\bpageSize\x12\x1d\n" +
+	"\n" +
+	"page_token\x18\x04 \x01(\tR\tpageToken\x12\x16\n" +
+	"\x06filter\x18\x05 \x01(\tR\x06filterB\xfd\x01\n" +
 	"\x1bcom.gcommon.v1.organizationB\x17ListTenantsRequestProtoP\x01Z?github.com/jdfalk/gcommon/pkg/organization/proto;organizationpb\xa2\x02\x03GVO\xaa\x02\x17Gcommon.V1.Organization\xca\x02\x17Gcommon\\V1\\Organization\xe2\x02#Gcommon\\V1\\Organization\\GPBMetadata\xea\x02\x19Gcommon::V1::Organization\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
 
 var file_pkg_organization_proto_requests_list_tenants_request_proto_msgTypes = make([]protoimpl.MessageInfo, 1)

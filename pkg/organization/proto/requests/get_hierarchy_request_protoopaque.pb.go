@@ -24,12 +24,15 @@ const (
 	_ = protoimpl.EnforceVersion(protoimpl.MaxVersion - 20)
 )
 
-// TODO: Implement get_hierarchy_request message
 type GetHierarchyRequest struct {
-	state               protoimpl.MessageState `protogen:"opaque.v1"`
-	xxx_hidden_Metadata *proto.RequestMetadata `protobuf:"bytes,1,opt,name=metadata"`
-	unknownFields       protoimpl.UnknownFields
-	sizeCache           protoimpl.SizeCache
+	state                     protoimpl.MessageState `protogen:"opaque.v1"`
+	xxx_hidden_Metadata       *proto.RequestMetadata `protobuf:"bytes,1,opt,name=metadata"`
+	xxx_hidden_OrganizationId *string                `protobuf:"bytes,2,opt,name=organization_id,json=organizationId"`
+	xxx_hidden_HierarchyId    *string                `protobuf:"bytes,3,opt,name=hierarchy_id,json=hierarchyId"`
+	XXX_raceDetectHookData    protoimpl.RaceDetectHookData
+	XXX_presence              [1]uint32
+	unknownFields             protoimpl.UnknownFields
+	sizeCache                 protoimpl.SizeCache
 }
 
 func (x *GetHierarchyRequest) Reset() {
@@ -64,8 +67,38 @@ func (x *GetHierarchyRequest) GetMetadata() *proto.RequestMetadata {
 	return nil
 }
 
+func (x *GetHierarchyRequest) GetOrganizationId() string {
+	if x != nil {
+		if x.xxx_hidden_OrganizationId != nil {
+			return *x.xxx_hidden_OrganizationId
+		}
+		return ""
+	}
+	return ""
+}
+
+func (x *GetHierarchyRequest) GetHierarchyId() string {
+	if x != nil {
+		if x.xxx_hidden_HierarchyId != nil {
+			return *x.xxx_hidden_HierarchyId
+		}
+		return ""
+	}
+	return ""
+}
+
 func (x *GetHierarchyRequest) SetMetadata(v *proto.RequestMetadata) {
 	x.xxx_hidden_Metadata = v
+}
+
+func (x *GetHierarchyRequest) SetOrganizationId(v string) {
+	x.xxx_hidden_OrganizationId = &v
+	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 1, 3)
+}
+
+func (x *GetHierarchyRequest) SetHierarchyId(v string) {
+	x.xxx_hidden_HierarchyId = &v
+	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 2, 3)
 }
 
 func (x *GetHierarchyRequest) HasMetadata() bool {
@@ -75,8 +108,32 @@ func (x *GetHierarchyRequest) HasMetadata() bool {
 	return x.xxx_hidden_Metadata != nil
 }
 
+func (x *GetHierarchyRequest) HasOrganizationId() bool {
+	if x == nil {
+		return false
+	}
+	return protoimpl.X.Present(&(x.XXX_presence[0]), 1)
+}
+
+func (x *GetHierarchyRequest) HasHierarchyId() bool {
+	if x == nil {
+		return false
+	}
+	return protoimpl.X.Present(&(x.XXX_presence[0]), 2)
+}
+
 func (x *GetHierarchyRequest) ClearMetadata() {
 	x.xxx_hidden_Metadata = nil
+}
+
+func (x *GetHierarchyRequest) ClearOrganizationId() {
+	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 1)
+	x.xxx_hidden_OrganizationId = nil
+}
+
+func (x *GetHierarchyRequest) ClearHierarchyId() {
+	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 2)
+	x.xxx_hidden_HierarchyId = nil
 }
 
 type GetHierarchyRequest_builder struct {
@@ -84,6 +141,10 @@ type GetHierarchyRequest_builder struct {
 
 	// Request metadata for tracing and context
 	Metadata *proto.RequestMetadata
+	// Organization identifier
+	OrganizationId *string
+	// Hierarchy identifier
+	HierarchyId *string
 }
 
 func (b0 GetHierarchyRequest_builder) Build() *GetHierarchyRequest {
@@ -91,6 +152,14 @@ func (b0 GetHierarchyRequest_builder) Build() *GetHierarchyRequest {
 	b, x := &b0, m0
 	_, _ = b, x
 	x.xxx_hidden_Metadata = b.Metadata
+	if b.OrganizationId != nil {
+		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 1, 3)
+		x.xxx_hidden_OrganizationId = b.OrganizationId
+	}
+	if b.HierarchyId != nil {
+		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 2, 3)
+		x.xxx_hidden_HierarchyId = b.HierarchyId
+	}
 	return m0
 }
 
@@ -98,9 +167,11 @@ var File_pkg_organization_proto_requests_get_hierarchy_request_proto protoreflec
 
 const file_pkg_organization_proto_requests_get_hierarchy_request_proto_rawDesc = "" +
 	"\n" +
-	";pkg/organization/proto/requests/get_hierarchy_request.proto\x12\x17gcommon.v1.organization\x1a!google/protobuf/go_features.proto\x1a0pkg/common/proto/messages/request_metadata.proto\"U\n" +
+	";pkg/organization/proto/requests/get_hierarchy_request.proto\x12\x17gcommon.v1.organization\x1a!google/protobuf/go_features.proto\x1a0pkg/common/proto/messages/request_metadata.proto\"\xa1\x01\n" +
 	"\x13GetHierarchyRequest\x12>\n" +
-	"\bmetadata\x18\x01 \x01(\v2\".gcommon.v1.common.RequestMetadataR\bmetadataB\xfe\x01\n" +
+	"\bmetadata\x18\x01 \x01(\v2\".gcommon.v1.common.RequestMetadataR\bmetadata\x12'\n" +
+	"\x0forganization_id\x18\x02 \x01(\tR\x0eorganizationId\x12!\n" +
+	"\fhierarchy_id\x18\x03 \x01(\tR\vhierarchyIdB\xfe\x01\n" +
 	"\x1bcom.gcommon.v1.organizationB\x18GetHierarchyRequestProtoP\x01Z?github.com/jdfalk/gcommon/pkg/organization/proto;organizationpb\xa2\x02\x03GVO\xaa\x02\x17Gcommon.V1.Organization\xca\x02\x17Gcommon\\V1\\Organization\xe2\x02#Gcommon\\V1\\Organization\\GPBMetadata\xea\x02\x19Gcommon::V1::Organization\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
 
 var file_pkg_organization_proto_requests_get_hierarchy_request_proto_msgTypes = make([]protoimpl.MessageInfo, 1)

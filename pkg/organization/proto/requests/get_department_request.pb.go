@@ -24,11 +24,12 @@ const (
 	_ = protoimpl.EnforceVersion(protoimpl.MaxVersion - 20)
 )
 
-// TODO: Implement get_department_request message
 type GetDepartmentRequest struct {
 	state protoimpl.MessageState `protogen:"hybrid.v1"`
 	// Request metadata for tracing and context
-	Metadata      *proto.RequestMetadata `protobuf:"bytes,1,opt,name=metadata" json:"metadata,omitempty"`
+	Metadata *proto.RequestMetadata `protobuf:"bytes,1,opt,name=metadata" json:"metadata,omitempty"`
+	// Department identifier
+	DepartmentId  *string `protobuf:"bytes,2,opt,name=department_id,json=departmentId" json:"department_id,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -65,8 +66,19 @@ func (x *GetDepartmentRequest) GetMetadata() *proto.RequestMetadata {
 	return nil
 }
 
+func (x *GetDepartmentRequest) GetDepartmentId() string {
+	if x != nil && x.DepartmentId != nil {
+		return *x.DepartmentId
+	}
+	return ""
+}
+
 func (x *GetDepartmentRequest) SetMetadata(v *proto.RequestMetadata) {
 	x.Metadata = v
+}
+
+func (x *GetDepartmentRequest) SetDepartmentId(v string) {
+	x.DepartmentId = &v
 }
 
 func (x *GetDepartmentRequest) HasMetadata() bool {
@@ -76,8 +88,19 @@ func (x *GetDepartmentRequest) HasMetadata() bool {
 	return x.Metadata != nil
 }
 
+func (x *GetDepartmentRequest) HasDepartmentId() bool {
+	if x == nil {
+		return false
+	}
+	return x.DepartmentId != nil
+}
+
 func (x *GetDepartmentRequest) ClearMetadata() {
 	x.Metadata = nil
+}
+
+func (x *GetDepartmentRequest) ClearDepartmentId() {
+	x.DepartmentId = nil
 }
 
 type GetDepartmentRequest_builder struct {
@@ -85,6 +108,8 @@ type GetDepartmentRequest_builder struct {
 
 	// Request metadata for tracing and context
 	Metadata *proto.RequestMetadata
+	// Department identifier
+	DepartmentId *string
 }
 
 func (b0 GetDepartmentRequest_builder) Build() *GetDepartmentRequest {
@@ -92,6 +117,7 @@ func (b0 GetDepartmentRequest_builder) Build() *GetDepartmentRequest {
 	b, x := &b0, m0
 	_, _ = b, x
 	x.Metadata = b.Metadata
+	x.DepartmentId = b.DepartmentId
 	return m0
 }
 
@@ -99,9 +125,10 @@ var File_pkg_organization_proto_requests_get_department_request_proto protorefle
 
 const file_pkg_organization_proto_requests_get_department_request_proto_rawDesc = "" +
 	"\n" +
-	"<pkg/organization/proto/requests/get_department_request.proto\x12\x17gcommon.v1.organization\x1a!google/protobuf/go_features.proto\x1a0pkg/common/proto/messages/request_metadata.proto\"V\n" +
+	"<pkg/organization/proto/requests/get_department_request.proto\x12\x17gcommon.v1.organization\x1a!google/protobuf/go_features.proto\x1a0pkg/common/proto/messages/request_metadata.proto\"{\n" +
 	"\x14GetDepartmentRequest\x12>\n" +
-	"\bmetadata\x18\x01 \x01(\v2\".gcommon.v1.common.RequestMetadataR\bmetadataB\xff\x01\n" +
+	"\bmetadata\x18\x01 \x01(\v2\".gcommon.v1.common.RequestMetadataR\bmetadata\x12#\n" +
+	"\rdepartment_id\x18\x02 \x01(\tR\fdepartmentIdB\xff\x01\n" +
 	"\x1bcom.gcommon.v1.organizationB\x19GetDepartmentRequestProtoP\x01Z?github.com/jdfalk/gcommon/pkg/organization/proto;organizationpb\xa2\x02\x03GVO\xaa\x02\x17Gcommon.V1.Organization\xca\x02\x17Gcommon\\V1\\Organization\xe2\x02#Gcommon\\V1\\Organization\\GPBMetadata\xea\x02\x19Gcommon::V1::Organization\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
 
 var file_pkg_organization_proto_requests_get_department_request_proto_msgTypes = make([]protoimpl.MessageInfo, 1)

@@ -24,11 +24,14 @@ const (
 	_ = protoimpl.EnforceVersion(protoimpl.MaxVersion - 20)
 )
 
-// TODO: Implement remove_member_request message
 type RemoveMemberRequest struct {
 	state protoimpl.MessageState `protogen:"hybrid.v1"`
 	// Request metadata for tracing and context
-	Metadata      *proto.RequestMetadata `protobuf:"bytes,1,opt,name=metadata" json:"metadata,omitempty"`
+	Metadata *proto.RequestMetadata `protobuf:"bytes,1,opt,name=metadata" json:"metadata,omitempty"`
+	// Organization identifier
+	OrganizationId *string `protobuf:"bytes,2,opt,name=organization_id,json=organizationId" json:"organization_id,omitempty"`
+	// Member identifier to remove
+	MemberId      *string `protobuf:"bytes,3,opt,name=member_id,json=memberId" json:"member_id,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -65,8 +68,30 @@ func (x *RemoveMemberRequest) GetMetadata() *proto.RequestMetadata {
 	return nil
 }
 
+func (x *RemoveMemberRequest) GetOrganizationId() string {
+	if x != nil && x.OrganizationId != nil {
+		return *x.OrganizationId
+	}
+	return ""
+}
+
+func (x *RemoveMemberRequest) GetMemberId() string {
+	if x != nil && x.MemberId != nil {
+		return *x.MemberId
+	}
+	return ""
+}
+
 func (x *RemoveMemberRequest) SetMetadata(v *proto.RequestMetadata) {
 	x.Metadata = v
+}
+
+func (x *RemoveMemberRequest) SetOrganizationId(v string) {
+	x.OrganizationId = &v
+}
+
+func (x *RemoveMemberRequest) SetMemberId(v string) {
+	x.MemberId = &v
 }
 
 func (x *RemoveMemberRequest) HasMetadata() bool {
@@ -76,8 +101,30 @@ func (x *RemoveMemberRequest) HasMetadata() bool {
 	return x.Metadata != nil
 }
 
+func (x *RemoveMemberRequest) HasOrganizationId() bool {
+	if x == nil {
+		return false
+	}
+	return x.OrganizationId != nil
+}
+
+func (x *RemoveMemberRequest) HasMemberId() bool {
+	if x == nil {
+		return false
+	}
+	return x.MemberId != nil
+}
+
 func (x *RemoveMemberRequest) ClearMetadata() {
 	x.Metadata = nil
+}
+
+func (x *RemoveMemberRequest) ClearOrganizationId() {
+	x.OrganizationId = nil
+}
+
+func (x *RemoveMemberRequest) ClearMemberId() {
+	x.MemberId = nil
 }
 
 type RemoveMemberRequest_builder struct {
@@ -85,6 +132,10 @@ type RemoveMemberRequest_builder struct {
 
 	// Request metadata for tracing and context
 	Metadata *proto.RequestMetadata
+	// Organization identifier
+	OrganizationId *string
+	// Member identifier to remove
+	MemberId *string
 }
 
 func (b0 RemoveMemberRequest_builder) Build() *RemoveMemberRequest {
@@ -92,6 +143,8 @@ func (b0 RemoveMemberRequest_builder) Build() *RemoveMemberRequest {
 	b, x := &b0, m0
 	_, _ = b, x
 	x.Metadata = b.Metadata
+	x.OrganizationId = b.OrganizationId
+	x.MemberId = b.MemberId
 	return m0
 }
 
@@ -99,9 +152,11 @@ var File_pkg_organization_proto_requests_remove_member_request_proto protoreflec
 
 const file_pkg_organization_proto_requests_remove_member_request_proto_rawDesc = "" +
 	"\n" +
-	";pkg/organization/proto/requests/remove_member_request.proto\x12\x17gcommon.v1.organization\x1a!google/protobuf/go_features.proto\x1a0pkg/common/proto/messages/request_metadata.proto\"U\n" +
+	";pkg/organization/proto/requests/remove_member_request.proto\x12\x17gcommon.v1.organization\x1a!google/protobuf/go_features.proto\x1a0pkg/common/proto/messages/request_metadata.proto\"\x9b\x01\n" +
 	"\x13RemoveMemberRequest\x12>\n" +
-	"\bmetadata\x18\x01 \x01(\v2\".gcommon.v1.common.RequestMetadataR\bmetadataB\xfe\x01\n" +
+	"\bmetadata\x18\x01 \x01(\v2\".gcommon.v1.common.RequestMetadataR\bmetadata\x12'\n" +
+	"\x0forganization_id\x18\x02 \x01(\tR\x0eorganizationId\x12\x1b\n" +
+	"\tmember_id\x18\x03 \x01(\tR\bmemberIdB\xfe\x01\n" +
 	"\x1bcom.gcommon.v1.organizationB\x18RemoveMemberRequestProtoP\x01Z?github.com/jdfalk/gcommon/pkg/organization/proto;organizationpb\xa2\x02\x03GVO\xaa\x02\x17Gcommon.V1.Organization\xca\x02\x17Gcommon\\V1\\Organization\xe2\x02#Gcommon\\V1\\Organization\\GPBMetadata\xea\x02\x19Gcommon::V1::Organization\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
 
 var file_pkg_organization_proto_requests_remove_member_request_proto_msgTypes = make([]protoimpl.MessageInfo, 1)

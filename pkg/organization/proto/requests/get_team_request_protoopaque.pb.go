@@ -24,12 +24,14 @@ const (
 	_ = protoimpl.EnforceVersion(protoimpl.MaxVersion - 20)
 )
 
-// TODO: Implement get_team_request message
 type GetTeamRequest struct {
-	state               protoimpl.MessageState `protogen:"opaque.v1"`
-	xxx_hidden_Metadata *proto.RequestMetadata `protobuf:"bytes,1,opt,name=metadata"`
-	unknownFields       protoimpl.UnknownFields
-	sizeCache           protoimpl.SizeCache
+	state                  protoimpl.MessageState `protogen:"opaque.v1"`
+	xxx_hidden_Metadata    *proto.RequestMetadata `protobuf:"bytes,1,opt,name=metadata"`
+	xxx_hidden_TeamId      *string                `protobuf:"bytes,2,opt,name=team_id,json=teamId"`
+	XXX_raceDetectHookData protoimpl.RaceDetectHookData
+	XXX_presence           [1]uint32
+	unknownFields          protoimpl.UnknownFields
+	sizeCache              protoimpl.SizeCache
 }
 
 func (x *GetTeamRequest) Reset() {
@@ -64,8 +66,23 @@ func (x *GetTeamRequest) GetMetadata() *proto.RequestMetadata {
 	return nil
 }
 
+func (x *GetTeamRequest) GetTeamId() string {
+	if x != nil {
+		if x.xxx_hidden_TeamId != nil {
+			return *x.xxx_hidden_TeamId
+		}
+		return ""
+	}
+	return ""
+}
+
 func (x *GetTeamRequest) SetMetadata(v *proto.RequestMetadata) {
 	x.xxx_hidden_Metadata = v
+}
+
+func (x *GetTeamRequest) SetTeamId(v string) {
+	x.xxx_hidden_TeamId = &v
+	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 1, 2)
 }
 
 func (x *GetTeamRequest) HasMetadata() bool {
@@ -75,8 +92,20 @@ func (x *GetTeamRequest) HasMetadata() bool {
 	return x.xxx_hidden_Metadata != nil
 }
 
+func (x *GetTeamRequest) HasTeamId() bool {
+	if x == nil {
+		return false
+	}
+	return protoimpl.X.Present(&(x.XXX_presence[0]), 1)
+}
+
 func (x *GetTeamRequest) ClearMetadata() {
 	x.xxx_hidden_Metadata = nil
+}
+
+func (x *GetTeamRequest) ClearTeamId() {
+	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 1)
+	x.xxx_hidden_TeamId = nil
 }
 
 type GetTeamRequest_builder struct {
@@ -84,6 +113,8 @@ type GetTeamRequest_builder struct {
 
 	// Request metadata for tracing and context
 	Metadata *proto.RequestMetadata
+	// Team identifier
+	TeamId *string
 }
 
 func (b0 GetTeamRequest_builder) Build() *GetTeamRequest {
@@ -91,6 +122,10 @@ func (b0 GetTeamRequest_builder) Build() *GetTeamRequest {
 	b, x := &b0, m0
 	_, _ = b, x
 	x.xxx_hidden_Metadata = b.Metadata
+	if b.TeamId != nil {
+		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 1, 2)
+		x.xxx_hidden_TeamId = b.TeamId
+	}
 	return m0
 }
 
@@ -98,9 +133,10 @@ var File_pkg_organization_proto_requests_get_team_request_proto protoreflect.Fil
 
 const file_pkg_organization_proto_requests_get_team_request_proto_rawDesc = "" +
 	"\n" +
-	"6pkg/organization/proto/requests/get_team_request.proto\x12\x17gcommon.v1.organization\x1a!google/protobuf/go_features.proto\x1a0pkg/common/proto/messages/request_metadata.proto\"P\n" +
+	"6pkg/organization/proto/requests/get_team_request.proto\x12\x17gcommon.v1.organization\x1a!google/protobuf/go_features.proto\x1a0pkg/common/proto/messages/request_metadata.proto\"i\n" +
 	"\x0eGetTeamRequest\x12>\n" +
-	"\bmetadata\x18\x01 \x01(\v2\".gcommon.v1.common.RequestMetadataR\bmetadataB\xf9\x01\n" +
+	"\bmetadata\x18\x01 \x01(\v2\".gcommon.v1.common.RequestMetadataR\bmetadata\x12\x17\n" +
+	"\ateam_id\x18\x02 \x01(\tR\x06teamIdB\xf9\x01\n" +
 	"\x1bcom.gcommon.v1.organizationB\x13GetTeamRequestProtoP\x01Z?github.com/jdfalk/gcommon/pkg/organization/proto;organizationpb\xa2\x02\x03GVO\xaa\x02\x17Gcommon.V1.Organization\xca\x02\x17Gcommon\\V1\\Organization\xe2\x02#Gcommon\\V1\\Organization\\GPBMetadata\xea\x02\x19Gcommon::V1::Organization\x92\x03\x05\xd2>\x02\x10\x02b\beditionsp\xe8\a"
 
 var file_pkg_organization_proto_requests_get_team_request_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
