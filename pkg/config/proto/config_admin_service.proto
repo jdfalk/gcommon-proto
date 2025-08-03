@@ -18,7 +18,7 @@ import "pkg/config/proto/proto/health_check_request.proto";
 import "pkg/config/proto/proto/unwatch_config_request.proto";
 
 option go_package = "github.com/jdfalk/gcommon/pkg/config/proto;configpb";
-option features.(pb.go).api_level = API_HYBRID;
+option features.(pb.go).api_level = API_OPAQUE;
 
 /**
  * ConfigAdminService provides administrative configuration operations.

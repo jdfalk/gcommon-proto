@@ -9,7 +9,7 @@ package gcommon.v1.notification;
 import "google/protobuf/go_features.proto";
 
 option go_package = "github.com/jdfalk/gcommon/pkg/notification/proto;notificationpb";
-option features.(pb.go).api_level = API_HYBRID;
+option features.(pb.go).api_level = API_OPAQUE;
 
 /**
  * Response for marking a notification as read.

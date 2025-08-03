@@ -9,7 +9,7 @@ import "google/protobuf/timestamp.proto";
 import "pkg/common/proto/common/proto/health_status.proto";
 
 option go_package = "github.com/jdfalk/gcommon/pkg/health/proto;healthpb";
-option features.(pb.go).api_level = API_HYBRID;
+option features.(pb.go).api_level = API_OPAQUE;
 
 /**
  * Response message for manually setting health status.

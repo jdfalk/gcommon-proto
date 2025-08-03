@@ -9,7 +9,7 @@ import "pkg/auth/proto/proto/api_key_credentials.proto";
 import "pkg/auth/proto/proto/jwt_credentials.proto";
 
 option go_package = "github.com/jdfalk/gcommon/pkg/auth/proto;authpb";
-option features.(pb.go).api_level = API_HYBRID;
+option features.(pb.go).api_level = API_OPAQUE;
 
 /**
  * Authentication request supporting multiple credential types.

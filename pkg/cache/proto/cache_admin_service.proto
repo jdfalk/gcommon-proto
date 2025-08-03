@@ -12,7 +12,7 @@ import "pkg/cache/proto/proto/list_namespaces_request.proto";
 import "pkg/cache/proto/proto/get_namespace_stats_request.proto";
 import "pkg/cache/proto/proto/configure_policy_request.proto";
 import "pkg/cache/proto/gcommon/pkg/cache/proto;cachepb";
-option features.(pb.go).api_level = API_HYBRID;
+option features.(pb.go).api_level = API_OPAQUE;
 
 /**
  * Administrative cache management operations.

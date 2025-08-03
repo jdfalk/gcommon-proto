@@ -13,7 +13,7 @@ import "google/protobuf/go_features.proto";
 import "pkg/common/proto/common/proto/pagination_options.proto";
 import "pkg/common/proto/metrics/proto/metrics/proto/metric_aggregation.proto";
 import "pkg/metrics/proto/gcommon/pkg/metrics/proto;metricspb";
-option features.(pb.go).api_level = API_HYBRID;
+option features.(pb.go).api_level = API_OPAQUE;
 
 /**
  * GetMetricsRequest represents a request to retrieve metrics data.

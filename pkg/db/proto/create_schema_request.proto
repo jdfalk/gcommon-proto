@@ -6,7 +6,7 @@ package gcommon.v1.database;
 import "pkg/common/proto/protobuf/go_features.proto";
 
 option go_package = "github.com/jdfalk/gcommon/pkg/db/proto;dbpb";
-option features.(pb.go).api_level = API_HYBRID;
+option features.(pb.go).api_level = API_OPAQUE;
 
 /**
  * CreateSchemaRequest represents a request to create a new schema within a database.

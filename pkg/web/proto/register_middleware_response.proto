@@ -10,7 +10,7 @@ import "google/protobuf/go_features.proto";
 import "pkg/web/proto/proto/messages/error.proto";
 
 option go_package = "github.com/jdfalk/gcommon/pkg/web/proto;webpb";
-option features.(pb.go).api_level = API_HYBRID;
+option features.(pb.go).api_level = API_OPAQUE;
 
 // RegisterMiddlewareResponse response definition.
 message RegisterMiddlewareResponse {

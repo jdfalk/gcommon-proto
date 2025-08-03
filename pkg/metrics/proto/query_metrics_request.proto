@@ -12,7 +12,7 @@ import "google/protobuf/go_features.proto";
 import "pkg/metrics/proto/proto/messages/request_metadata.proto";
 
 option go_package = "github.com/jdfalk/gcommon/pkg/metrics/proto;metricspb";
-option features.(pb.go).api_level = API_HYBRID;
+option features.(pb.go).api_level = API_OPAQUE;
 
 /**
  * QueryMetricsRequest represents a request to query metric data.

@@ -10,7 +10,7 @@ import "pkg/common/proto/common/proto/filter_options.proto";
 import "pkg/common/proto/common/proto/request_metadata.proto";
 
 option go_package = "github.com/jdfalk/gcommon/pkg/config/proto;configpb";
-option features.(pb.go).api_level = API_HYBRID;
+option features.(pb.go).api_level = API_OPAQUE;
 
 /**
  * ListConfigRequest lists configuration entries with optional filtering.

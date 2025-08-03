@@ -10,7 +10,7 @@ package gcommon.v1.queue;
 import "google/protobuf/go_features.proto";
 import "google/protobuf/timestamp.proto";
 import "pkg/queue/proto/gcommon/pkg/queue/proto;queuepb";
-option features.(pb.go).api_level = API_HYBRID;
+option features.(pb.go).api_level = API_OPAQUE;
 
 /**
  * ReceivedMessage represents a message that has been received from a queue,

@@ -13,7 +13,7 @@ import "pkg/health/proto/proto/register_check_response.proto";
 import "pkg/health/proto/proto/get_health_metrics_response.proto";
 
 option go_package = "github.com/jdfalk/gcommon/pkg/health/proto;healthpb";
-option features.(pb.go).api_level = API_HYBRID;
+option features.(pb.go).api_level = API_OPAQUE;
 
 /**
  * HealthService provides comprehensive health checking capabilities.

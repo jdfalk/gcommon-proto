@@ -11,7 +11,7 @@ import "google/protobuf/timestamp.proto";
 import "google/protobuf/any.proto";
 import "pkg/log/proto/proto/source_location.proto";
 import "pkg/log/proto/gcommon/pkg/log/proto;logpb";
-option features.(pb.go).api_level = API_HYBRID;
+option features.(pb.go).api_level = API_OPAQUE;
 
 // LogEntry represents a single structured log event
 message LogEntry {

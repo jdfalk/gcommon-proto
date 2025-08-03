@@ -6,7 +6,7 @@ package gcommon.v1.config;
 import "google/protobuf/go_features.proto";
 
 option go_package = "github.com/jdfalk/gcommon/pkg/config/proto;configpb";
-option features.(pb.go).api_level = API_HYBRID;
+option features.(pb.go).api_level = API_OPAQUE;
 
 import "pkg/config/proto/proto/get_config_response.proto";
 import "pkg/config/proto/proto/set_config_response.proto";

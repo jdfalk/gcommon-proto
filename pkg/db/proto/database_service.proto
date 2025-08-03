@@ -12,7 +12,7 @@ import "pkg/db/proto/proto/health_check_response.proto";
 import "google/protobuf/go_features.proto";
 
 option go_package = "github.com/jdfalk/gcommon/pkg/db/proto;dbpb";
-option features.(pb.go).api_level = API_HYBRID;
+option features.(pb.go).api_level = API_OPAQUE;
 
 /**
  * DatabaseService provides comprehensive database operations including

@@ -9,7 +9,7 @@ import "pkg/auth/proto/proto/get_user_permissions_response.proto";
 import "pkg/auth/proto/proto/get_user_roles_response.proto";
 
 option go_package = "github.com/jdfalk/gcommon/pkg/auth/proto;authpb";
-option features.(pb.go).api_level = API_HYBRID;
+option features.(pb.go).api_level = API_OPAQUE;
 
 /**
  * AuthorizationService provides authorization and permission management.

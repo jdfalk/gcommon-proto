@@ -8,7 +8,7 @@ import "google/protobuf/go_features.proto";
 import "pkg/common/proto/client_info.proto";
 
 option go_package = "github.com/jdfalk/gcommon/pkg/common/proto;commonpb";
-option features.(pb.go).api_level = API_HYBRID;
+option features.(pb.go).api_level = API_OPAQUE;
 
 /**
  * Common request metadata for observability and security.

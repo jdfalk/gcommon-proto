@@ -20,7 +20,7 @@ import "pkg/cache/proto/proto/flush_response.proto";
 import "pkg/cache/proto/proto/touch_expiration_response.proto";
 
 option go_package = "github.com/jdfalk/gcommon/pkg/cache/proto;cachepb";
-option features.(pb.go).api_level = API_HYBRID;
+option features.(pb.go).api_level = API_OPAQUE;
 
 /**
  * CacheService provides comprehensive caching capabilities.

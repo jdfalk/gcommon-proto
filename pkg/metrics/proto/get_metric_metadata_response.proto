@@ -13,7 +13,7 @@ import "google/protobuf/timestamp.proto";
 import "pkg/common/proto/metrics/proto/metrics/proto/pagination_info.proto";
 
 option go_package = "github.com/jdfalk/gcommon/pkg/metrics/proto;metricspb";
-option features.(pb.go).api_level = API_HYBRID;
+option features.(pb.go).api_level = API_OPAQUE;
 
 /**
  * GetMetricMetadataResponse contains metadata for requested metrics.

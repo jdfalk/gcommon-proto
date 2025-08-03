@@ -9,7 +9,7 @@ package gcommon.v1.metrics;
 import "google/protobuf/go_features.proto";
 
 option go_package = "github.com/jdfalk/gcommon/pkg/metrics/proto;metricspb";
-option features.(pb.go).api_level = API_HYBRID;
+option features.(pb.go).api_level = API_OPAQUE;
 
 /**
  * MetricBucket represents a histogram bucket with bounds and count.

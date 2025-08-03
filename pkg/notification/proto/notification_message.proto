@@ -12,7 +12,7 @@ import "google/protobuf/go_features.proto";
 import "pkg/notification/proto/proto/delivery_status.proto";
 
 option go_package = "github.com/jdfalk/gcommon/pkg/notification/proto;notificationpb";
-option features.(pb.go).api_level = API_HYBRID;
+option features.(pb.go).api_level = API_OPAQUE;
 
 /**
  * Notification message containing content and delivery details.

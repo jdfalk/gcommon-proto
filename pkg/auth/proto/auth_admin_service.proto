@@ -5,24 +5,26 @@ package gcommon.v1.auth;
 
 import "google/protobuf/empty.proto";
 import "google/protobuf/go_features.proto";
-import "pkg/auth/proto/proto/create_user_response.proto";
-import "pkg/auth/proto/proto/delete_user_request.proto";
-import "pkg/auth/proto/proto/get_user_request.proto";
-import "pkg/auth/proto/proto/remove_role_request.proto";
-import "pkg/auth/proto/proto/update_role_request.proto";
-import "pkg/auth/proto/proto/list_roles_request.proto";
-import "pkg/auth/proto/proto/list_users_response.proto";
-import "pkg/auth/proto/proto/create_role_response.proto";
-import "pkg/auth/proto/proto/list_roles_response.proto";
-import "pkg/auth/proto/proto/get_system_stats_request.proto";
-import "pkg/auth/proto/gcommon/pkg/auth/proto;authpb";
-option features.(pb.go).api_level = API_HYBRID;
+// TODO: Add imports when files are created
+// import "pkg/auth/proto/create_user_response.proto";
+// import "pkg/auth/proto/delete_user_request.proto";
+// import "pkg/auth/proto/get_user_request.proto";
+// import "pkg/auth/proto/remove_role_request.proto";
+// import "pkg/auth/proto/update_role_request.proto";
+// import "pkg/auth/proto/list_roles_request.proto";
+// import "pkg/auth/proto/list_users_response.proto";
+// import "pkg/auth/proto/create_role_response.proto";
+// import "pkg/auth/proto/list_roles_response.proto";
+// import "pkg/auth/proto/get_system_stats_request.proto";
+option features.(pb.go).api_level = API_OPAQUE;
 
 /**
  * Administrative authentication management operations.
  * Provides user management, role assignment, and system configuration.
  */
 service AuthAdminService {
+  // TODO: All methods commented out until message types are created
+  /*
   // CreateUser creates a new user account
   rpc CreateUser(CreateUserRequest) returns (CreateUserResponse);
 
@@ -61,4 +63,5 @@ service AuthAdminService {
 
   // GetSystemStats returns authentication system statistics
   rpc GetSystemStats(GetSystemStatsRequest) returns (GetSystemStatsResponse);
+  */
 }

@@ -7,7 +7,7 @@ import "google/protobuf/go_features.proto";
 import "pkg/common/proto/common/proto/client_info.proto";
 
 option go_package = "github.com/jdfalk/gcommon/pkg/auth/proto;authpb";
-option features.(pb.go).api_level = API_HYBRID;
+option features.(pb.go).api_level = API_OPAQUE;
 
 /**
  * Request to create a new user session.

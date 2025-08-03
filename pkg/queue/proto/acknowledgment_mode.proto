@@ -12,7 +12,7 @@ package gcommon.v1.queue;
 import "google/protobuf/go_features.proto";
 
 option go_package = "github.com/jdfalk/gcommon/pkg/queue/proto;queuepb";
-option features.(pb.go).api_level = API_HYBRID;
+option features.(pb.go).api_level = API_OPAQUE;
 
 // AcknowledgmentMode specifies how a message should be acknowledged
 // by the consumer. It provides flexibility for different delivery
