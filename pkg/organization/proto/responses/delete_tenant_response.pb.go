@@ -24,7 +24,6 @@ const (
 	_ = protoimpl.EnforceVersion(protoimpl.MaxVersion - 20)
 )
 
-// TODO: Implement delete_tenant_response message
 type DeleteTenantResponse struct {
 	state protoimpl.MessageState `protogen:"hybrid.v1"`
 	// Any errors encountered

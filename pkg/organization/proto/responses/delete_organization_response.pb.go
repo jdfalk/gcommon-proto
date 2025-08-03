@@ -24,7 +24,6 @@ const (
 	_ = protoimpl.EnforceVersion(protoimpl.MaxVersion - 20)
 )
 
-// TODO: Implement delete_organization_response message
 type DeleteOrganizationResponse struct {
 	state protoimpl.MessageState `protogen:"hybrid.v1"`
 	// Any errors encountered
