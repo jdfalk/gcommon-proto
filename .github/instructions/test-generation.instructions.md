@@ -5,8 +5,10 @@
 <!-- To update: Create an issue/PR in jdfalk/ghcommon -->
 
 applyTo: "**/\*\_test.{go,js,ts,py} **/_test_.{go,js,ts,py} **/tests/**"
-description: |
-Test generation and structure rules for all Copilot/AI agents and VS Code Copilot customization. These rules apply to all test files and follow the project's testing standards. For details, see the main documentation in `.github/copilot-instructions.md`.
+description: | Test generation and structure rules for all Copilot/AI agents and
+VS Code Copilot customization. These rules apply to all test files and follow
+the project's testing standards. For details, see the main documentation in
+`.github/copilot-instructions.md`.
 
 ---
 
