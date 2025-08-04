@@ -1,18 +1,153 @@
-// filepath: pkg/queue/proto/requests/update_message_request.proto
-// file: queue/proto/requests/update_message_request.proto
-//
-// Request definitions for queue module
-// TODO: Implement actual protobuf definitions
-//
+// file: pkg/queue/proto/update_message_request.proto
+// version: 1.1.0
+// Request to update message properties or metadata
+
 edition = "2023";
 
 package gcommon.v1.queue;
 
-import "google/protobuf/go_features.proto";
+import "google/protobuf/any.proto";
+import "google/protobuf/timestamp.proto";
 
-option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/pkg/queue/proto;queuepb";
+option go_package = "github.com/jdfalk/gcommon/pkg/queue/queuepb";
 
-// TODO: Add request definitions here
-// This is a placeholder file created during 1-1-1 migration
-// Implement the actual protobuf definitions according to the queue module requirements
+// UpdateMessageRequest modifies properties of an existing message
+message UpdateMessageRequest {
+  // Message identifier to update
+  string message_id = 1;
+
+  // Topic or queue containing the message
+  string topic = 2;
+
+  // Partition ID (if applicable)
+  int32 partition_id = 3;
+
+  // Message offset (for precise identification)
+  int64 message_offset = 4;
+
+  // Updated message properties
+  MessageUpdateProperties properties = 5;
+
+  // Update visibility timeout for the message
+  VisibilityUpdate visibility_update = 6;
+
+  // Update message priority
+  PriorityUpdate priority_update = 7;
+
+  // Update message metadata
+  MetadataUpdate metadata_update = 8;
+
+  // Update message content (if allowed)
+  ContentUpdate content_update = 9;
+
+  // Specify which fields to update
+  repeated string update_fields = 10;
+
+  // Conditional update based on current state
+  UpdateCondition condition = 11;
+
+  // Update operation metadata
+  map<string, string> operation_metadata = 12;
+}
+
+// Properties to update for the message
+message MessageUpdateProperties {
+  // New expiration time
+  google.protobuf.Timestamp expiration_time = 1;
+
+  // New delivery delay
+  int64 delivery_delay_ms = 2;
+
+  // New retry count
+  int32 retry_count = 3;
+
+  // New routing key
+  string routing_key = 4;
+
+  // New correlation ID
+  string correlation_id = 5;
+
+  // New reply-to address
+  string reply_to = 6;
+
+  // Updated message headers
+  map<string, string> headers = 7;
+}
+
+// Visibility timeout update
+message VisibilityUpdate {
+  // New visibility timeout duration (milliseconds)
+  int64 visibility_timeout_ms = 1;
+
+  // Extend current timeout (if true) or set absolute timeout
+  bool extend_current = 2;
+
+  // Maximum visibility timeout allowed
+  int64 max_visibility_ms = 3;
+}
+
+// Priority update for the message
+message PriorityUpdate {
+  // New priority level
+  int32 priority_level = 1;
+
+  // Priority change reason
+  string priority_reason = 2;
+
+  // Maintain relative priority ordering
+  bool maintain_order = 3;
+}
+
+// Metadata update for the message
+message MetadataUpdate {
+  // Metadata fields to add or update
+  map<string, string> add_metadata = 1;
+
+  // Metadata fields to remove
+  repeated string remove_metadata = 2;
+
+  // Replace all metadata with new values
+  map<string, string> replace_metadata = 3;
+
+  // Update operation (add, remove, replace)
+  string operation_type = 4;
+}
+
+// Content update for the message (if supported)
+message ContentUpdate {
+  // New message payload
+  google.protobuf.Any new_payload = 1;
+
+  // Content encoding
+  string content_encoding = 2;
+
+  // Content type
+  string content_type = 3;
+
+  // Compression applied to content
+  string compression = 4;
+
+  // Checksum of new content
+  string content_checksum = 5;
+}
+
+// Conditional update criteria
+message UpdateCondition {
+  // Expected current version/etag
+  string expected_version = 1;
+
+  // Expected current state
+  string expected_state = 2;
+
+  // Maximum age for update (seconds)
+  int64 max_age_seconds = 3;
+
+  // Update only if message hasn't been delivered
+  bool only_if_not_delivered = 4;
+
+  // Update only if message is visible
+  bool only_if_visible = 5;
+
+  // Custom condition expression
+  string condition_expression = 6;
+}

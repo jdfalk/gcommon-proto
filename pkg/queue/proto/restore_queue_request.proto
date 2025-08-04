@@ -1,20 +1,178 @@
-// filepath: pkg/queue/proto/requests/restore_queue_request.proto
-// file: queue/proto/requests/restore_queue_request.proto
-//
-// Request definitions for queue module
-// TODO: Implement actual protobuf definitions
-//
+// file: pkg/queue/proto/restore_queue_request.proto
+// version: 1.1.0
+// Request to restore queue from backup
+
 edition = "2023";
 
 package gcommon.v1.queue;
 
-import "google/protobuf/go_features.proto";
+import "google/protobuf/timestamp.proto";
+import "pkg/queue/proto/restore_config.proto";
+import "pkg/queue/proto/time_range.proto";
 
-option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/pkg/queue/proto;queuepb";
+option go_package = "github.com/jdfalk/gcommon/pkg/queue/queuepb";
 
-// TODO: Add request definitions here
-// This is a placeholder file created during 1-1-1 migration
-// Implement the actual protobuf definitions according to the queue module requirements
-// SKELETON_FILE: Compilation temporarily disabled
-// This file needs proper implementation
+// RestoreQueueRequest initiates restoration of a queue from backup
+message RestoreQueueRequest {
+  // Target queue identifier for restoration
+  string target_queue_id = 1;
+
+  // Backup source information
+  BackupSource backup_source = 2;
+
+  // Restoration configuration
+  RestoreConfig restore_config = 3;
+
+  // Restore to specific point in time
+  google.protobuf.Timestamp restore_point = 4;
+
+  // Overwrite existing queue if it exists
+  bool overwrite_existing = 5;
+
+  // Validate backup integrity before restore
+  bool validate_backup = 6;
+
+  // Restore only specific partitions (empty = all partitions)
+  repeated int32 partition_ids = 7;
+
+  // Restore options
+  RestoreOptions options = 8;
+
+  // Operation metadata
+  map<string, string> metadata = 9;
+}
+
+// Backup source configuration
+message BackupSource {
+  // Backup identifier
+  string backup_id = 1;
+
+  // Backup location/path
+  string backup_path = 2;
+
+  // Backup storage type (s3, gcs, local, etc.)
+  string storage_type = 3;
+
+  // Storage credentials
+  map<string, string> credentials = 4;
+
+  // Backup creation timestamp
+  google.protobuf.Timestamp backup_timestamp = 5;
+
+  // Original queue information
+  OriginalQueueInfo original_queue = 6;
+
+  // Backup format version
+  string backup_version = 7;
+
+  // Backup compression format
+  string compression_format = 8;
+
+  // Backup encryption details
+  EncryptionInfo encryption = 9;
+}
+
+// Original queue information from backup
+message OriginalQueueInfo {
+  // Original queue ID
+  string queue_id = 1;
+
+  // Original queue name
+  string queue_name = 2;
+
+  // Original partition count
+  int32 partition_count = 3;
+
+  // Original configuration snapshot
+  map<string, string> config_snapshot = 4;
+
+  // Backup creation point
+  google.protobuf.Timestamp backup_point = 5;
+}
+
+// Backup encryption information
+message EncryptionInfo {
+  // Encryption enabled
+  bool enabled = 1;
+
+  // Encryption algorithm
+  string algorithm = 2;
+
+  // Key management service
+  string kms_provider = 3;
+
+  // Key identifier
+  string key_id = 4;
+}
+
+// Restore operation options
+message RestoreOptions {
+  // Skip message content (restore structure only)
+  bool skip_message_content = 1;
+
+  // Restore message metadata only
+  bool metadata_only = 2;
+
+  // Maximum number of messages to restore
+  int64 max_messages = 3;
+
+  // Restore messages from specific offset range
+  OffsetRange offset_range = 4;
+
+  // Restore messages within time range
+  TimeRange time_range = 5;
+
+  // Restore specific message priorities
+  repeated int32 priority_levels = 6;
+
+  // Include/exclude patterns for message filtering
+  FilterCriteria filter_criteria = 7;
+
+  // Performance tuning options
+  PerformanceOptions performance = 8;
+}
+
+// Offset range for selective restore
+message OffsetRange {
+  // Starting offset (inclusive)
+  int64 start_offset = 1;
+
+  // Ending offset (inclusive)
+  int64 end_offset = 2;
+
+  // Apply to specific partitions only
+  repeated int32 partition_ids = 3;
+}
+
+// Message filtering criteria
+message FilterCriteria {
+  // Include message patterns
+  repeated string include_patterns = 1;
+
+  // Exclude message patterns
+  repeated string exclude_patterns = 2;
+
+  // Header-based filters
+  map<string, string> header_filters = 3;
+
+  // Content-type filters
+  repeated string content_types = 4;
+}
+
+// Performance tuning options
+message PerformanceOptions {
+  // Parallel restore workers
+  int32 worker_count = 1;
+
+  // Batch size for restore operations
+  int32 batch_size = 2;
+
+  // Buffer size for reading backup data
+  int32 buffer_size_mb = 3;
+
+  // Compression during restore
+  bool enable_compression = 4;
+
+  // Throttle restore rate (messages/second)
+  int32 throttle_rate = 5;
+}
