@@ -1,20 +1,30 @@
-// filepath: pkg/queue/proto/responses/pause_queue_response.proto
-// file: queue/proto/responses/pause_queue_response.proto
-//
-// Response definitions for queue module
-// TODO: Implement actual protobuf definitions
-//
+// file: pkg/queue/proto/pause_queue_response.proto
+// version: 1.0.0
+// Response for queue pause operations
+
 edition = "2023";
 
 package gcommon.v1.queue;
 
-import "google/protobuf/go_features.proto";
+option go_package = "github.com/jdfalk/gcommon/pkg/queue/queuepb";
 
-option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/pkg/queue/proto;queuepb";
+// Response for queue pause operations
+message PauseQueueResponse {
+  // Whether the pause was successful
+  bool success = 1;
 
-// TODO: Add response definitions here
-// This is a placeholder file created during 1-1-1 migration
-// Implement the actual protobuf definitions according to the queue module requirements
-// SKELETON_FILE: Compilation temporarily disabled
-// This file needs proper implementation
+  // Queue name that was paused
+  string queue_name = 2;
+
+  // Current pause status
+  string pause_status = 3;
+
+  // Number of active consumers affected
+  int32 affected_consumers = 4;
+
+  // Timestamp when pause took effect
+  int64 pause_timestamp = 5;
+
+  // Error message if pause failed
+  string error = 6;
+}

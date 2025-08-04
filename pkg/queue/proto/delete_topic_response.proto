@@ -1,22 +1,14 @@
-// filepath: pkg/queue/proto/responses/delete_topic_response.proto
-// file: queue/proto/responses/delete_topic_response.proto
-//
-// Response definitions for queue module
-// TODO: Implement actual protobuf definitions
-//
+// file: pkg/queue/proto/delete_topic_response.proto
+// version: 1.0.0
+// Response for topic deletion operations
+
 edition = "2023";
 
 package gcommon.v1.queue;
 
-import "google/protobuf/go_features.proto";
+option go_package = "github.com/jdfalk/gcommon/pkg/queue/queuepb";
 
-option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/pkg/queue/proto;queuepb";
-
-/**
- * Response for deleting a topic.
- * Confirms successful deletion and provides cleanup information.
- */
+// Response for deleting a topic
 message DeleteTopicResponse {
   // Whether the topic was successfully deleted
   bool success = 1;
@@ -29,4 +21,7 @@ message DeleteTopicResponse {
 
   // Human-readable message describing the deletion result
   string message = 4;
+
+  // Error message if deletion failed
+  string error = 5;
 }
