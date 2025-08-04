@@ -2,7 +2,9 @@
 
 ## Overview
 
-This document describes the completed gRPC service implementation for the metrics module, providing comprehensive metrics collection, querying, streaming, and provider management capabilities.
+This document describes the completed gRPC service implementation for the
+metrics module, providing comprehensive metrics collection, querying, streaming,
+and provider management capabilities.
 
 ## Services Implemented
 
@@ -226,4 +228,6 @@ resp, err := mgmtService.CreateMetricsProvider(ctx, req)
 - Configuration-driven feature enabling
 - Version compatibility and migration support
 
-This implementation provides a production-ready gRPC service for metrics collection and management, with comprehensive feature coverage and enterprise-grade reliability.
+This implementation provides a production-ready gRPC service for metrics
+collection and management, with comprehensive feature coverage and
+enterprise-grade reliability.
