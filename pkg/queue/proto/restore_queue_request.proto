@@ -8,6 +8,7 @@ package gcommon.v1.queue;
 
 import "google/protobuf/timestamp.proto";
 import "pkg/queue/proto/restore_config.proto";
+import "pkg/queue/proto/restore_queue_response.proto";
 import "pkg/queue/proto/time_range.proto";
 
 option go_package = "github.com/jdfalk/gcommon/pkg/queue/queuepb";
@@ -130,18 +131,6 @@ message RestoreOptions {
 
   // Performance tuning options
   PerformanceOptions performance = 8;
-}
-
-// Offset range for selective restore
-message OffsetRange {
-  // Starting offset (inclusive)
-  int64 start_offset = 1;
-
-  // Ending offset (inclusive)
-  int64 end_offset = 2;
-
-  // Apply to specific partitions only
-  repeated int32 partition_ids = 3;
 }
 
 // Message filtering criteria

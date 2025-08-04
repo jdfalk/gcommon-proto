@@ -6,9 +6,9 @@ edition = "2023";
 
 package gcommon.v1.queue;
 
-option go_package = "github.com/jdfalk/gcommon/pkg/queue/queuepb";
-
 import "pkg/queue/proto/subscription_config.proto";
+
+option go_package = "github.com/jdfalk/gcommon/pkg/queue/queuepb";
 
 // Request to create a new subscription
 message CreateSubscriptionRequest {

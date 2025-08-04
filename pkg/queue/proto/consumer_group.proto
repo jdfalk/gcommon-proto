@@ -8,6 +8,7 @@ package gcommon.v1.queue;
 
 import "google/protobuf/timestamp.proto";
 import "pkg/queue/proto/load_balancing_strategy.proto";
+import "pkg/queue/proto/subscribe_request.proto";
 import "pkg/queue/proto/consumer_state.proto";
 
 option go_package = "github.com/jdfalk/gcommon/pkg/queue/queuepb";
@@ -114,21 +115,6 @@ enum OffsetResetStrategy {
   OFFSET_RESET_STRATEGY_LATEST = 2;           // Start from latest offset
   OFFSET_RESET_STRATEGY_NONE = 3;             // Fail if no committed offset
   OFFSET_RESET_STRATEGY_TIMESTAMP = 4;        // Start from specific timestamp
-}
-
-// Dead letter queue configuration
-message DeadLetterQueueConfig {
-  // Enable dead letter queue
-  bool enabled = 1;
-
-  // Dead letter queue topic name
-  string dlq_topic = 2;
-
-  // Maximum retry attempts before sending to DLQ
-  int32 max_retries = 3;
-
-  // Retry delay configuration
-  RetryDelayConfig retry_delay = 4;
 }
 
 // Retry delay configuration

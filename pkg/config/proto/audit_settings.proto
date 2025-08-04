@@ -9,13 +9,6 @@ package gcommon.v1.config;
 import "google/protobuf/go_features.proto";
 import "pkg/config/proto/audit_level.proto";
 import "google/protobuf/timestamp.proto";
-import "pkg/config/proto/config_data_type.proto";
-import "pkg/config/proto/deprecation_level.proto";
-import "pkg/config/proto/audit_level.proto";
-import "pkg/config/proto/channel_type.proto";
-import "pkg/config/proto/notification_trigger.proto";
-import "pkg/config/proto/backup_frequency.proto";
-import "pkg/config/proto/metadata_status.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
 option go_package = "github.com/jdfalk/gcommon/pkg/config/proto;configpb";
