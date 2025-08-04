@@ -1,18 +1,16 @@
-// filepath: pkg/metrics/proto/requests/list_providers_request.proto
-// file: metrics/proto/requests/list_providers_request.proto
-// version: 1.0.1
+// file: pkg/metrics/proto/list_providers_request.proto
+// version: 1.1.0
 // guid: 8f89d21d-fa76-4c1a-b6c7-d10ee9c708a7
-//
-// List providers request definitions for metrics module
-//
+
 edition = "2023";
 
 package gcommon.v1.metrics;
 
 import "google/protobuf/go_features.proto";
-import "pkg/common/proto/common/proto/pagination_options.proto";
+import "pkg/metrics/proto/provider_sort_field.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/jdfalk/gcommon/pkg/metrics/proto;metricspb";
 option go_package = "github.com/jdfalk/gcommon/pkg/metrics/proto;metricspb";
 
 /**
@@ -62,16 +60,4 @@ message ProviderFilter {
 
   // Filter providers created before this time
   string created_before = 7;
-}
-
-/**
- * SortField defines fields that can be used for sorting.
- */
-enum SortField {
-  SORT_FIELD_UNSPECIFIED = 0;
-  SORT_FIELD_NAME = 1;
-  SORT_FIELD_TYPE = 2;
-  SORT_FIELD_CREATED_AT = 3;
-  SORT_FIELD_STATE = 4;
-  SORT_FIELD_HEALTH = 5;
 }

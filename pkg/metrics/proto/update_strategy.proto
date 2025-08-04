@@ -1,0 +1,33 @@
+// file: pkg/metrics/proto/update_strategy.proto
+// version: 1.0.0
+// guid: a7b8c9d0-e1f2-3a4b-5c6d-7e8f9a0b1c2d
+
+edition = "2023";
+
+package gcommon.v1.metrics;
+
+import "google/protobuf/go_features.proto";
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/jdfalk/gcommon/pkg/metrics/proto;metricspb";
+
+/**
+ * UpdateStrategy defines how updates should be applied.
+ * Specifies the deployment strategy for provider updates.
+ */
+enum UpdateStrategy {
+  // Unspecified strategy
+  UPDATE_STRATEGY_UNSPECIFIED = 0;
+
+  // Rolling update strategy
+  UPDATE_STRATEGY_ROLLING = 1;
+
+  // Blue-green deployment strategy
+  UPDATE_STRATEGY_BLUE_GREEN = 2;
+
+  // Immediate update strategy
+  UPDATE_STRATEGY_IMMEDIATE = 3;
+
+  // Scheduled update strategy
+  UPDATE_STRATEGY_SCHEDULED = 4;
+}

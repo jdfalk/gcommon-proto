@@ -1,0 +1,33 @@
+// file: pkg/metrics/proto/update_action.proto
+// version: 1.0.0
+// guid: b8c9d0e1-f2a3-4b5c-6d7e-8f9a0b1c2d3e
+
+edition = "2023";
+
+package gcommon.v1.metrics;
+
+import "google/protobuf/go_features.proto";
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/jdfalk/gcommon/pkg/metrics/proto;metricspb";
+
+/**
+ * UpdateAction indicates what action was taken during the update.
+ * Specifies the type of operation performed during provider updates.
+ */
+enum UpdateAction {
+  // Unspecified action
+  UPDATE_ACTION_UNSPECIFIED = 0;
+
+  // Provider was updated
+  UPDATE_ACTION_UPDATED = 1;
+
+  // No changes were necessary
+  UPDATE_ACTION_NO_CHANGE = 2;
+
+  // Provider was restarted
+  UPDATE_ACTION_RESTARTED = 3;
+
+  // Provider was recreated
+  UPDATE_ACTION_RECREATED = 4;
+}

@@ -1,0 +1,33 @@
+// file: pkg/metrics/proto/change_type.proto
+// version: 1.0.0
+// guid: c9d0e1f2-a3b4-5c6d-7e8f-9a0b1c2d3e4f
+
+edition = "2023";
+
+package gcommon.v1.metrics;
+
+import "google/protobuf/go_features.proto";
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/jdfalk/gcommon/pkg/metrics/proto;metricspb";
+
+/**
+ * ChangeType defines the type of configuration change.
+ * Specifies the nature of changes made to configuration settings.
+ */
+enum ChangeType {
+  // Unspecified change type
+  CHANGE_TYPE_UNSPECIFIED = 0;
+
+  // Configuration setting was added
+  CHANGE_TYPE_ADDED = 1;
+
+  // Configuration setting was updated
+  CHANGE_TYPE_UPDATED = 2;
+
+  // Configuration setting was removed
+  CHANGE_TYPE_REMOVED = 3;
+
+  // Configuration setting was replaced
+  CHANGE_TYPE_REPLACED = 4;
+}

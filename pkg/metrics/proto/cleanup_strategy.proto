@@ -1,0 +1,33 @@
+// file: pkg/metrics/proto/cleanup_strategy.proto
+// version: 1.0.0
+// guid: d0e1f2a3-b4c5-6d7e-8f9a-0b1c2d3e4f5a
+
+edition = "2023";
+
+package gcommon.v1.metrics;
+
+import "google/protobuf/go_features.proto";
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/jdfalk/gcommon/pkg/metrics/proto;metricspb";
+
+/**
+ * CleanupStrategy defines how cleanup should be performed.
+ * Specifies the approach for cleaning up provider resources.
+ */
+enum CleanupStrategy {
+  // Unspecified cleanup strategy
+  CLEANUP_STRATEGY_UNSPECIFIED = 0;
+
+  // Immediate cleanup
+  CLEANUP_STRATEGY_IMMEDIATE = 1;
+
+  // Graceful cleanup with proper shutdown
+  CLEANUP_STRATEGY_GRACEFUL = 2;
+
+  // Background cleanup
+  CLEANUP_STRATEGY_BACKGROUND = 3;
+
+  // Scheduled cleanup
+  CLEANUP_STRATEGY_SCHEDULED = 4;
+}
