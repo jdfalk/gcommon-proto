@@ -1,20 +1,60 @@
-// filepath: pkg/queue/proto/requests/get_queue_info_request.proto
-// file: queue/proto/requests/get_queue_info_request.proto
-//
-// Request definitions for queue module
-// TODO: Implement actual protobuf definitions
-//
+// file: pkg/queue/proto/get_queue_info_request.proto
+// version: 1.1.0
+// Request to get detailed information about a queue
+
 edition = "2023";
 
 package gcommon.v1.queue;
 
-import "google/protobuf/go_features.proto";
+option go_package = "github.com/jdfalk/gcommon/pkg/queue/queuepb";
 
-option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/pkg/queue/proto;queuepb";
+// GetQueueInfoRequest retrieves detailed information about a specific queue
+message GetQueueInfoRequest {
+  // Queue identifier
+  string queue_id = 1;
 
-// TODO: Add request definitions here
-// This is a placeholder file created during 1-1-1 migration
-// Implement the actual protobuf definitions according to the queue module requirements
-// SKELETON_FILE: Compilation temporarily disabled
-// This file needs proper implementation
+  // Include queue statistics in response
+  bool include_stats = 2;
+
+  // Include queue configuration in response
+  bool include_config = 3;
+
+  // Include partition information
+  bool include_partitions = 4;
+
+  // Include consumer group information
+  bool include_consumer_groups = 5;
+
+  // Include current subscriptions
+  bool include_subscriptions = 6;
+
+  // Include topic binding information
+  bool include_bindings = 7;
+
+  // Include recent error information
+  bool include_errors = 8;
+
+  // Time range for statistics (if not specified, returns current state)
+  TimeRangeFilter time_range = 9;
+
+  // Specific information sections to retrieve
+  repeated string info_sections = 10;
+
+  // Access control context
+  string access_token = 11;
+}
+
+// Time range filter for historical data
+message TimeRangeFilter {
+  // Start time for the range (ISO 8601)
+  string start_time = 1;
+
+  // End time for the range (ISO 8601)
+  string end_time = 2;
+
+  // Granularity for aggregated data (minute, hour, day)
+  string granularity = 3;
+
+  // Maximum number of data points to return
+  int32 max_data_points = 4;
+}

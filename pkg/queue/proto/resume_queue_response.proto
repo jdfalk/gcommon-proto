@@ -1,20 +1,75 @@
-// filepath: pkg/queue/proto/responses/resume_queue_response.proto
-// file: queue/proto/responses/resume_queue_response.proto
-//
-// Response definitions for queue module
-// TODO: Implement actual protobuf definitions
-//
+// file: pkg/queue/proto/resume_queue_response.proto
+// version: 1.1.0
+// Response to queue resume operations
+
 edition = "2023";
 
 package gcommon.v1.queue;
 
-import "google/protobuf/go_features.proto";
+import "google/protobuf/timestamp.proto";
+import "pkg/queue/proto/queue_state.proto";
 
-option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/pkg/queue/proto;queuepb";
+option go_package = "github.com/jdfalk/gcommon/pkg/queue/queuepb";
 
-// TODO: Add response definitions here
-// This is a placeholder file created during 1-1-1 migration
-// Implement the actual protobuf definitions according to the queue module requirements
-// SKELETON_FILE: Compilation temporarily disabled
-// This file needs proper implementation
+// ResumeQueueResponse returns the result of resuming a paused queue
+message ResumeQueueResponse {
+  // Success status of the resume operation
+  bool success = 1;
+
+  // Queue identifier that was resumed
+  string queue_id = 2;
+
+  // Previous queue state before resume
+  QueueState previous_state = 3;
+
+  // Current queue state after resume
+  QueueState current_state = 4;
+
+  // Timestamp when resume operation completed
+  google.protobuf.Timestamp resumed_at = 5;
+
+  // Duration the queue was paused (milliseconds)
+  int64 pause_duration_ms = 6;
+
+  // Messages that were queued during pause
+  int64 messages_queued_during_pause = 7;
+
+  // Consumer groups affected by resume
+  repeated string affected_consumer_groups = 8;
+
+  // Error message if resume failed
+  string error_message = 9;
+
+  // Error code for programmatic handling
+  string error_code = 10;
+
+  // Warning messages about resume operation
+  repeated string warnings = 11;
+
+  // Resume operation statistics
+  ResumeStats resume_stats = 12;
+
+  // Operation metadata
+  map<string, string> metadata = 13;
+}
+
+// Statistics about the resume operation
+message ResumeStats {
+  // Number of partitions resumed
+  int32 partitions_resumed = 1;
+
+  // Number of subscriptions reactivated
+  int32 subscriptions_reactivated = 2;
+
+  // Number of consumers reconnected
+  int32 consumers_reconnected = 3;
+
+  // Time taken to complete resume (milliseconds)
+  int64 resume_time_ms = 4;
+
+  // Messages processed immediately after resume
+  int64 immediate_messages_processed = 5;
+
+  // Throughput after resume (messages/second)
+  double post_resume_throughput = 6;
+}

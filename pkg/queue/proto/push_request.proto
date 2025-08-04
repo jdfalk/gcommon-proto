@@ -1,20 +1,151 @@
-// filepath: pkg/queue/proto/requests/push_request.proto
-// file: queue/proto/requests/push_request.proto
-//
-// Request definitions for queue module
-// TODO: Implement actual protobuf definitions
-//
+// file: pkg/queue/proto/push_request.proto
+// version: 1.1.0
+// Request to push/publish messages to a queue or topic
+
 edition = "2023";
 
 package gcommon.v1.queue;
 
-import "google/protobuf/go_features.proto";
+import "google/protobuf/any.proto";
+import "google/protobuf/timestamp.proto";
+import "pkg/queue/proto/priority_level.proto";
+import "pkg/queue/proto/delivery_mode.proto";
+import "pkg/queue/proto/message_metadata.proto";
+import "pkg/queue/proto/retry_config.proto";
 
-option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/pkg/queue/proto;queuepb";
+option go_package = "github.com/jdfalk/gcommon/pkg/queue/queuepb";
 
-// TODO: Add request definitions here
-// This is a placeholder file created during 1-1-1 migration
-// Implement the actual protobuf definitions according to the queue module requirements
-// SKELETON_FILE: Compilation temporarily disabled
-// This file needs proper implementation
+// PushRequest publishes one or more messages to a queue or topic
+message PushRequest {
+  // Target topic or queue identifier
+  string topic = 1;
+
+  // Messages to publish
+  repeated Message messages = 2;
+
+  // Publishing configuration
+  PublishConfig publish_config = 3;
+
+  // Batch publishing settings
+  BatchSettings batch_settings = 4;
+
+  // Transaction ID for transactional publishing
+  string transaction_id = 5;
+
+  // Producer ID for message tracking
+  string producer_id = 6;
+
+  // Publishing metadata
+  map<string, string> metadata = 7;
+}
+
+// Individual message to be published
+message Message {
+  // Message payload
+  google.protobuf.Any payload = 1;
+
+  // Message headers
+  map<string, string> headers = 2;
+
+  // Message properties
+  MessageProperties properties = 3;
+
+  // Routing information
+  RoutingInfo routing_info = 4;
+
+  // Message metadata - references existing MessageMetadata
+  MessageMetadata message_metadata = 5;
+}
+
+// Message properties and configuration
+message MessageProperties {
+  // Message priority level
+  PriorityLevel priority = 1;
+
+  // Delivery mode for the message
+  DeliveryMode delivery_mode = 2;
+
+  // Message expiration time
+  google.protobuf.Timestamp expiration_time = 3;
+
+  // Correlation ID for request-response patterns
+  string correlation_id = 4;
+
+  // Reply-to address/topic
+  string reply_to = 5;
+
+  // Content type of the payload
+  string content_type = 6;
+
+  // Content encoding
+  string content_encoding = 7;
+
+  // Compression applied to payload
+  string compression = 8;
+
+  // Message deduplication ID
+  string deduplication_id = 9;
+
+  // Delay before message becomes available (milliseconds)
+  int64 delivery_delay_ms = 10;
+}
+
+// Message routing information
+message RoutingInfo {
+  // Routing key for topic-based routing
+  string routing_key = 1;
+
+  // Specific partition ID (if applicable)
+  int32 partition_id = 2;
+
+  // Partition key for automatic partitioning
+  string partition_key = 3;
+
+  // Exchange name (for exchange-based routing)
+  string exchange_name = 4;
+
+  // Routing tags for advanced routing
+  repeated string routing_tags = 5;
+}
+
+// Publishing configuration
+message PublishConfig {
+  // Wait for acknowledgment before returning
+  bool wait_for_ack = 1;
+
+  // Acknowledgment timeout (milliseconds)
+  int32 ack_timeout_ms = 2;
+
+  // Enable duplicate detection
+  bool duplicate_detection = 3;
+
+  // Compression for message batch
+  bool enable_compression = 4;
+
+  // Enable message ordering
+  bool enable_ordering = 5;
+
+    // Retry configuration for failed publishes - references existing RetryConfig
+  RetryConfig retry_config = 6;
+
+  // Persistence level required
+  string persistence_level = 7;
+}
+
+// Batch publishing settings
+message BatchSettings {
+  // Enable batch publishing
+  bool enabled = 1;
+
+  // Maximum messages per batch
+  int32 max_batch_size = 2;
+
+  // Maximum batch size in bytes
+  int64 max_batch_bytes = 3;
+
+  // Maximum time to wait for batch completion (milliseconds)
+  int32 batch_timeout_ms = 4;
+
+  // Flush batch on publish request completion
+  bool flush_on_complete = 5;
+}
