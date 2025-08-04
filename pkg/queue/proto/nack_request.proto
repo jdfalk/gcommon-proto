@@ -1,20 +1,91 @@
 // filepath: pkg/queue/proto/requests/nack_request.proto
 // file: queue/proto/requests/nack_request.proto
+// version: 1.0.0
+// guid: 5b6c7d8e-9f0a-1b2c-3d4e-5f6a7b8c9d0e
 //
 // Request definitions for queue module
-// TODO: Implement actual protobuf definitions
 //
 edition = "2023";
 
 package gcommon.v1.queue;
 
 import "google/protobuf/go_features.proto";
+import "pkg/common/proto/request_metadata.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
 option go_package = "github.com/jdfalk/gcommon/pkg/queue/proto;queuepb";
 
-// TODO: Add request definitions here
-// This is a placeholder file created during 1-1-1 migration
-// Implement the actual protobuf definitions according to the queue module requirements
+/**
+ * Request to negatively acknowledge (NACK) a message.
+ * This indicates that the message could not be processed and may need to be requeued.
+ */
+message NackRequest {
+  // Acknowledgment token received with the message
+  string ack_token = 1;
+  
+  // Whether the message should be requeued for retry
+  bool requeue = 2;
+  
+  // Reason for the negative acknowledgment
+  string reason = 3;
+  
+  // Error details if processing failed
+  NackError error = 4;
+  
+  // Delay before requeuing (if requeue is true)
+  int64 requeue_delay_seconds = 5;
+  
+  // Maximum number of retry attempts for this message
+  int32 max_retries = 6;
+  
+  // Request metadata for tracing and correlation
+  gcommon.v1.common.RequestMetadata metadata = 100;
+}
+
+/**
+ * Error information for NACK operations.
+ */
+message NackError {
+  // Error code
+  string code = 1;
+  
+  // Error message
+  string message = 2;
+  
+  // Error category
+  NackErrorCategory category = 3;
+  
+  // Whether the error is retryable
+  bool retryable = 4;
+  
+  // Stack trace or additional details
+  string details = 5;
+}
+
+/**
+ * Categories of NACK errors.
+ */
+enum NackErrorCategory {
+  // Default unspecified category
+  NACK_ERROR_CATEGORY_UNSPECIFIED = 0;
+  
+  // Temporary/transient error
+  NACK_ERROR_CATEGORY_TEMPORARY = 1;
+  
+  // Permanent error (should not retry)
+  NACK_ERROR_CATEGORY_PERMANENT = 2;
+  
+  // Configuration error
+  NACK_ERROR_CATEGORY_CONFIGURATION = 3;
+  
+  // Network error
+  NACK_ERROR_CATEGORY_NETWORK = 4;
+  
+  // Authentication/authorization error
+  NACK_ERROR_CATEGORY_AUTH = 5;
+  
+  // Rate limiting error
+  NACK_ERROR_CATEGORY_RATE_LIMIT = 6;
+}
 // SKELETON_FILE: Compilation temporarily disabled
 // This file needs proper implementation
