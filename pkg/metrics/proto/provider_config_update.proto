@@ -1,0 +1,39 @@
+// file: pkg/metrics/proto/provider_config_update.proto
+// version: 1.0.0
+// guid: 175e030e-5a4a-4d94-9f2a-6d8bb006602a
+
+edition = "2023";
+
+package gcommon.v1.metrics;
+
+import "google/protobuf/go_features.proto";
+import "pkg/common/proto/jdfalk/gcommon/pkg/metrics/proto;metricspb";
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/jdfalk/gcommon/pkg/metrics/proto;metricspb";
+
+/**
+ * ProviderConfigUpdate contains the configuration updates to apply.
+ */
+message ProviderConfigUpdate {
+  // Updated name (if changing)
+  string name = 1;
+
+  // Updated description (if changing)
+  string description = 2;
+
+  // Provider settings updates
+  ProviderSettingsUpdate settings_update = 3;
+
+  // Export configuration updates
+  ExportConfigUpdate export_config_update = 4;
+
+  // Resource limits updates
+  ResourceLimitsUpdate resource_limits_update = 5;
+
+  // Security configuration updates
+  SecurityConfigUpdate security_config_update = 6;
+
+  // Tag updates
+  TagUpdates tag_updates = 7;
+}
