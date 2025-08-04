@@ -1,18 +1,17 @@
-// filepath: pkg/metrics/proto/requests/record_gauge_request.proto
-// file: metrics/proto/requests/record_gauge_request.proto
-//
-// Request definitions for metrics module
-// TODO: Implement actual protobuf definitions
-//
+// file: pkg/metrics/proto/record_gauge_request.proto
+// version: 1.1.0
+// guid: d4e5f6a7-b8c9-0d1e-2f3a-4b5c6d7e8f9a
+
 edition = "2023";
 
 package gcommon.v1.metrics;
 
 import "google/protobuf/go_features.proto";
 import "google/protobuf/timestamp.proto";
-import "pkg/common/proto/jdfalk/gcommon/pkg/metrics/proto;metricspb";
+import "pkg/metrics/proto/gauge_operation.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/jdfalk/gcommon/pkg/metrics/proto;metricspb";
 
 /**
  * RecordGaugeRequest is used to set or update a gauge metric value.
@@ -42,27 +41,4 @@ message RecordGaugeRequest {
 
   // Operation type for the gauge
   GaugeOperation operation = 8;
-}
-
-/**
- * GaugeOperation defines how to update the gauge value.
- */
-enum GaugeOperation {
-  // Unspecified operation (defaults to SET)
-  GAUGE_OPERATION_UNSPECIFIED = 0;
-
-  // Set the gauge to the specified value
-  GAUGE_OPERATION_SET = 1;
-
-  // Add the value to the current gauge value
-  GAUGE_OPERATION_ADD = 2;
-
-  // Subtract the value from the current gauge value
-  GAUGE_OPERATION_SUBTRACT = 3;
-
-  // Increment the gauge by 1
-  GAUGE_OPERATION_INCREMENT = 4;
-
-  // Decrement the gauge by 1
-  GAUGE_OPERATION_DECREMENT = 5;
 }

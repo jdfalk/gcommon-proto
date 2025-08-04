@@ -1,20 +1,17 @@
-// filepath: pkg/metrics/proto/requests/get_metrics_request.proto
-// file: metrics/proto/requests/get_metrics_request.proto
-// version: 1.0.1
+// file: pkg/metrics/proto/get_metrics_request.proto
+// version: 1.1.0
 // guid: f58f7623-0d53-495a-b959-3ed3770d0b39
-//
-// Get metrics request definitions for metrics module
-//
+
 edition = "2023";
 
 package gcommon.v1.metrics;
 
 import "google/protobuf/go_features.proto";
-import "pkg/common/proto/common/proto/pagination_options.proto";
-import "pkg/common/proto/metrics/proto/metrics/proto/metric_aggregation.proto";
-import "pkg/metrics/proto/gcommon/pkg/metrics/proto;metricspb";
+import "pkg/metrics/proto/numeric_format.proto";
+import "pkg/metrics/proto/response_compression.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/jdfalk/gcommon/pkg/metrics/proto;metricspb";
 
 /**
  * GetMetricsRequest represents a request to retrieve metrics data.
@@ -78,25 +75,4 @@ message OutputOptions {
 
   // Time zone for timestamp formatting
   string timezone = 6;
-}
-
-/**
- * NumericFormat defines how numeric values should be formatted.
- */
-enum NumericFormat {
-  NUMERIC_FORMAT_UNSPECIFIED = 0;
-  NUMERIC_FORMAT_DEFAULT = 1;
-  NUMERIC_FORMAT_SCIENTIFIC = 2;
-  NUMERIC_FORMAT_ENGINEERING = 3;
-  NUMERIC_FORMAT_PERCENTAGE = 4;
-}
-
-/**
- * ResponseCompression defines compression options for responses.
- */
-enum ResponseCompression {
-  RESPONSE_COMPRESSION_UNSPECIFIED = 0;
-  RESPONSE_COMPRESSION_NONE = 1;
-  RESPONSE_COMPRESSION_GZIP = 2;
-  RESPONSE_COMPRESSION_SNAPPY = 3;
 }
