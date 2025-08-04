@@ -1,0 +1,25 @@
+// file: pkg/config/proto/change_type.proto
+// version: 1.0.0
+// guid: f6a7b8c9-d0e1-2f3a-4b5c-6d7e8f9a0b1c
+
+edition = "2023";
+
+package gcommon.v1.config;
+
+import "google/protobuf/go_features.proto";
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/jdfalk/gcommon/pkg/config/proto;configpb";
+
+/**
+ * ChangeType represents the type of template change.
+ */
+enum ChangeType {
+  CHANGE_TYPE_UNSPECIFIED = 0;
+  CHANGE_TYPE_FEATURE = 1;
+  CHANGE_TYPE_BUGFIX = 2;
+  CHANGE_TYPE_ENHANCEMENT = 3;
+  CHANGE_TYPE_DEPRECATED = 4;
+  CHANGE_TYPE_SECURITY = 5;
+  CHANGE_TYPE_BREAKING = 6;
+}

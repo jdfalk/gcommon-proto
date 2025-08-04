@@ -1,0 +1,33 @@
+// file: pkg/config/proto/parameter_type.proto
+// version: 1.0.0
+// guid: c3d4e5f6-a7b8-9c0d-1e2f-3a4b5c6d7e8f
+
+edition = "2023";
+
+package gcommon.v1.config;
+
+import "google/protobuf/go_features.proto";
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/jdfalk/gcommon/pkg/config/proto;configpb";
+
+/**
+ * ParameterType represents the type of a template parameter.
+ */
+enum ParameterType {
+  PARAMETER_TYPE_UNSPECIFIED = 0;
+  PARAMETER_TYPE_STRING = 1;
+  PARAMETER_TYPE_INTEGER = 2;
+  PARAMETER_TYPE_FLOAT = 3;
+  PARAMETER_TYPE_BOOLEAN = 4;
+  PARAMETER_TYPE_ENUM = 5;
+  PARAMETER_TYPE_ARRAY = 6;
+  PARAMETER_TYPE_OBJECT = 7;
+  PARAMETER_TYPE_FILE = 8;
+  PARAMETER_TYPE_URL = 9;
+  PARAMETER_TYPE_EMAIL = 10;
+  PARAMETER_TYPE_PASSWORD = 11;
+  PARAMETER_TYPE_DATE = 12;
+  PARAMETER_TYPE_TIME = 13;
+  PARAMETER_TYPE_DATETIME = 14;
+}
