@@ -1,18 +1,47 @@
 // filepath: pkg/queue/proto/messages/durability_config.proto
 // file: queue/proto/messages/durability_config.proto
+// version: 1.0.0
+// guid: 1a0b9c8d-7e6f-5a4b-3c2d-1e0f9a8b7c6d
 //
 // Message definitions for queue module
-// TODO: Implement actual protobuf definitions
 //
 edition = "2023";
 
 package gcommon.v1.queue;
 
+import "google/protobuf/duration.proto";
 import "google/protobuf/go_features.proto";
+import "pkg/queue/proto/ack_level.proto";
+import "pkg/queue/proto/flush_policy.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
 option go_package = "github.com/jdfalk/gcommon/pkg/queue/proto;queuepb";
 
-// TODO: Add message definitions here
-// This is a placeholder file created during 1-1-1 migration
-// Implement the actual protobuf definitions according to the queue module requirements
+/**
+ * Configuration for message durability and persistence.
+ */
+message DurabilityConfig {
+  // Whether messages are persisted to disk
+  bool persistent = 1;
+
+  // Flush policy for writing messages to storage
+  gcommon.v1.queue.FlushPolicy flush_policy = 2;
+
+  // Number of replicas for each message
+  int32 replication_factor = 3;
+
+  // Acknowledgment level required before considering message durable
+  gcommon.v1.queue.AckLevel ack_level = 4;
+
+  // Timeout for durability operations
+  google.protobuf.Duration durability_timeout = 5;
+
+  // Whether to use write-ahead logging
+  bool write_ahead_log = 6;
+
+  // Sync frequency for flushing to disk
+  google.protobuf.Duration sync_interval = 7;
+
+  // Whether to verify checksums on read
+  bool verify_checksums = 8;
+}
