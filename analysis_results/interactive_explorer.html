@@ -9380,7 +9380,7 @@
           const fileItems = document.querySelectorAll(".file-item");
           const moduleHeaders = document.querySelectorAll(".module-header");
 
-          fileItems.forEach((item) => {
+          fileItems.forEach(item => {
             const text = item.textContent.toLowerCase();
             if (text.includes(searchTerm)) {
               item.style.display = "flex";
@@ -9390,9 +9390,9 @@
           });
 
           // Hide empty modules
-          document.querySelectorAll(".module-section").forEach((module) => {
+          document.querySelectorAll(".module-section").forEach(module => {
             const visibleFiles = module.querySelectorAll(
-              '.file-item[style*="flex"]',
+              '.file-item[style*="flex"]'
             );
             if (visibleFiles.length === 0 && searchTerm) {
               module.style.display = "none";
@@ -9403,11 +9403,11 @@
         });
 
       // Add click handlers for file items
-      document.querySelectorAll(".file-item").forEach((item) => {
+      document.querySelectorAll(".file-item").forEach(item => {
         item.addEventListener("click", function () {
           const fileName = this.querySelector(".file-name").textContent;
           alert(
-            `File: ${fileName}\n\nThis would normally open file details or navigate to the file in your editor.`,
+            `File: ${fileName}\n\nThis would normally open file details or navigate to the file in your editor.`
           );
         });
         item.style.cursor = "pointer";

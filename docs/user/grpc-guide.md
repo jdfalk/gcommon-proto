@@ -2,21 +2,32 @@
 
 ## Introduction
 
-This guide explains how gcommon uses Protocol Buffers (protobuf) and gRPC to provide powerful, language-agnostic APIs for microservices. Whether you're building a new microservice or integrating with existing systems, this guide will help you leverage these technologies effectively.
+This guide explains how gcommon uses Protocol Buffers (protobuf) and gRPC to
+provide powerful, language-agnostic APIs for microservices. Whether you're
+building a new microservice or integrating with existing systems, this guide
+will help you leverage these technologies effectively.
 
 ## What Are Protocol Buffers and gRPC?
 
-**Protocol Buffers** are Google's language-neutral, platform-neutral, extensible mechanism for serializing structured data. They're smaller, faster, and simpler than formats like JSON or XML.
+**Protocol Buffers** are Google's language-neutral, platform-neutral, extensible
+mechanism for serializing structured data. They're smaller, faster, and simpler
+than formats like JSON or XML.
 
-**gRPC** is a modern, high-performance RPC framework that works across languages and platforms. It uses Protocol Buffers for service definitions and message serialization.
+**gRPC** is a modern, high-performance RPC framework that works across languages
+and platforms. It uses Protocol Buffers for service definitions and message
+serialization.
 
 ## Benefits for Microservices
 
-Using Protocol Buffers and gRPC in your microservices provides numerous advantages:
+Using Protocol Buffers and gRPC in your microservices provides numerous
+advantages:
 
-1. **Strong Typing**: Service contracts are explicit and enforced at compile time
-2. **High Performance**: Faster serialization/deserialization and HTTP/2-based transport
-3. **Language Agnostic**: Services can be implemented and consumed in different languages
+1. **Strong Typing**: Service contracts are explicit and enforced at compile
+   time
+2. **High Performance**: Faster serialization/deserialization and HTTP/2-based
+   transport
+3. **Language Agnostic**: Services can be implemented and consumed in different
+   languages
 4. **Streaming Support**: Built-in support for bidirectional streaming
 5. **Code Generation**: Automatic client and server code generation
 6. **Schema Evolution**: Backward compatible schema updates
@@ -25,9 +36,12 @@ Using Protocol Buffers and gRPC in your microservices provides numerous advantag
 
 gcommon provides:
 
-1. **Dual Interfaces**: Every module supports both traditional Go methods and gRPC services
-2. **Consistent Patterns**: Standard patterns for all modules make learning and usage easier
-3. **Configuration Options**: Flexible configuration for both server and client components
+1. **Dual Interfaces**: Every module supports both traditional Go methods and
+   gRPC services
+2. **Consistent Patterns**: Standard patterns for all modules make learning and
+   usage easier
+3. **Configuration Options**: Flexible configuration for both server and client
+   components
 4. **Ready-to-Use Examples**: Complete examples showing gRPC integration
 
 ## Getting Started
@@ -145,7 +159,8 @@ resp, err := client.Execute(ctx, &dbpb.ExecuteRequest{
 
 ### Other Modules
 
-Each module in gcommon provides similar gRPC integration. Refer to module-specific documentation for details.
+Each module in gcommon provides similar gRPC integration. Refer to
+module-specific documentation for details.
 
 ## Advanced Usage
 
@@ -233,7 +248,8 @@ grpcServer := grpc.NewServer(
 
 ## Compatibility with REST APIs
 
-For environments that require REST APIs, you can use gRPC Gateway to expose your gRPC services as RESTful JSON APIs:
+For environments that require REST APIs, you can use gRPC Gateway to expose your
+gRPC services as RESTful JSON APIs:
 
 1. Add gateway annotations to your proto files:
 
@@ -299,15 +315,24 @@ resp, err := client.Check(ctx, &healthpb.CheckRequest{Name: "test"})
 
 ## Best Practices
 
-1. **Define Service Boundaries Carefully**: Each service should represent a cohesive capability
-2. **Version Your APIs**: Use protobuf versioning to maintain backward compatibility
-3. **Handle Errors Consistently**: Use standard error codes and include detailed error messages
+1. **Define Service Boundaries Carefully**: Each service should represent a
+   cohesive capability
+2. **Version Your APIs**: Use protobuf versioning to maintain backward
+   compatibility
+3. **Handle Errors Consistently**: Use standard error codes and include detailed
+   error messages
 4. **Document Your Services**: Add detailed comments to your proto files
-5. **Monitor Your Services**: Track metrics like request count, error rate, and latency
+5. **Monitor Your Services**: Track metrics like request count, error rate, and
+   latency
 6. **Test Thoroughly**: Test both happy path and error conditions
 
 ## Conclusion
 
-By integrating Protocol Buffers and gRPC, gcommon provides a powerful foundation for building robust, high-performance microservices. This integration enables language-agnostic communication, strong typing, and high efficiency while maintaining compatibility with traditional development patterns.
+By integrating Protocol Buffers and gRPC, gcommon provides a powerful foundation
+for building robust, high-performance microservices. This integration enables
+language-agnostic communication, strong typing, and high efficiency while
+maintaining compatibility with traditional development patterns.
 
-For detailed protocol definitions and implementation specifics, refer to the [Protocol Buffers and gRPC Technical Design](../technical/protobuf-grpc-design.md) document.
+For detailed protocol definitions and implementation specifics, refer to the
+[Protocol Buffers and gRPC Technical Design](../technical/protobuf-grpc-design.md)
+document.

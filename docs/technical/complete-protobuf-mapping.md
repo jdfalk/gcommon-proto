@@ -2,12 +2,13 @@
 
 ## Overview
 
-This document provides a 100% complete mapping of all protobuf messages and services required for the GCommon project. Each module is analyzed based on the technical design documents and project goals to ensure comprehensive coverage.
+This document provides a 100% complete mapping of all protobuf messages and
+services required for the GCommon project. Each module is analyzed based on the
+technical design documents and project goals to ensure comprehensive coverage.
 
 ## Common Types Module
 
-**File**: `pkg/common/proto/common.proto`
-**Package**: `gcommon.common.v1`
+**File**: `pkg/common/proto/common.proto` **Package**: `gcommon.common.v1`
 
 ### Core Messages
 
@@ -49,8 +50,7 @@ This document provides a 100% complete mapping of all protobuf messages and serv
 
 ## 1. Health Module
 
-**File**: `pkg/health/proto/health.proto`
-**Package**: `gcommon.health.v1`
+**File**: `pkg/health/proto/health.proto` **Package**: `gcommon.health.v1`
 
 ### Services Required
 
@@ -109,8 +109,7 @@ This document provides a 100% complete mapping of all protobuf messages and serv
 
 ## 2. Authentication Module
 
-**File**: `pkg/auth/proto/auth.proto`
-**Package**: `gcommon.auth.v1`
+**File**: `pkg/auth/proto/auth.proto` **Package**: `gcommon.auth.v1`
 
 ### Services Required
 
@@ -225,8 +224,7 @@ This document provides a 100% complete mapping of all protobuf messages and serv
 
 ## 3. Database Module
 
-**File**: `pkg/db/proto/database.proto`
-**Package**: `gcommon.database.v1`
+**File**: `pkg/db/proto/database.proto` **Package**: `gcommon.database.v1`
 
 ### Services Required
 
@@ -339,8 +337,7 @@ This document provides a 100% complete mapping of all protobuf messages and serv
 
 ## 4. Cache Module
 
-**File**: `pkg/cache/proto/cache.proto`
-**Package**: `gcommon.cache.v1`
+**File**: `pkg/cache/proto/cache.proto` **Package**: `gcommon.cache.v1`
 
 ### Services Required
 
@@ -429,8 +426,7 @@ This document provides a 100% complete mapping of all protobuf messages and serv
 
 ## 5. Configuration Module
 
-**File**: `pkg/config/proto/config.proto`
-**Package**: `gcommon.config.v1`
+**File**: `pkg/config/proto/config.proto` **Package**: `gcommon.config.v1`
 
 ### Services Required
 
@@ -504,8 +500,7 @@ This document provides a 100% complete mapping of all protobuf messages and serv
 
 ## 6. Logging Module
 
-**File**: `pkg/log/proto/log.proto`
-**Package**: `gcommon.log.v1`
+**File**: `pkg/log/proto/log.proto` **Package**: `gcommon.log.v1`
 
 ### Services Required
 
@@ -577,8 +572,7 @@ This document provides a 100% complete mapping of all protobuf messages and serv
 
 ## 7. Metrics Module
 
-**File**: `pkg/metrics/proto/metrics.proto`
-**Package**: `gcommon.metrics.v1`
+**File**: `pkg/metrics/proto/metrics.proto` **Package**: `gcommon.metrics.v1`
 
 ### Services Required
 
@@ -651,8 +645,7 @@ This document provides a 100% complete mapping of all protobuf messages and serv
 
 ## 8. Queue Module
 
-**File**: `pkg/queue/proto/queue.proto`
-**Package**: `gcommon.queue.v1`
+**File**: `pkg/queue/proto/queue.proto` **Package**: `gcommon.queue.v1`
 
 ### Services Required
 
@@ -731,8 +724,7 @@ This document provides a 100% complete mapping of all protobuf messages and serv
 
 ## 9. Web Module
 
-**File**: `pkg/web/proto/web.proto`
-**Package**: `gcommon.web.v1`
+**File**: `pkg/web/proto/web.proto` **Package**: `gcommon.web.v1`
 
 ### Services Required
 
@@ -862,4 +854,5 @@ This document provides a 100% complete mapping of all protobuf messages and serv
 3. **Phase 3** (Advanced): Metrics, Queue, Web services
 4. **Phase 4** (Management): All management services and advanced features
 
-This represents a **complete mapping** of all protobuf services and messages needed to achieve 100% functionality across all GCommon modules.
+This represents a **complete mapping** of all protobuf services and messages
+needed to achieve 100% functionality across all GCommon modules.

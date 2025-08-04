@@ -1,22 +1,29 @@
 # Subtitle Manager - GCommon Protobuf Requirements Analysis
 
-**Report Date**: July 27, 2025
-**Report Author**: GitHub Copilot
-**Project**: [subtitle-manager](https://github.com/jdfalk/subtitle-manager)
-**Target Repo**: [gcommon](https://github.com/jdfalk/gcommon)
+**Report Date**: July 27, 2025 **Report Author**: GitHub Copilot **Project**:
+[subtitle-manager](https://github.com/jdfalk/subtitle-manager) **Target Repo**:
+[gcommon](https://github.com/jdfalk/gcommon)
 
 ---
 
 ## Executive Summary
 
-This comprehensive analysis examines the subtitle-manager project to identify missing protobuf services and message types that need to be implemented in the gcommon repository. Based on the analysis of subtitle-manager's architecture, existing protobuf usage, and business domain requirements, this report provides a detailed roadmap for extending gcommon to fully support subtitle management operations.
+This comprehensive analysis examines the subtitle-manager project to identify
+missing protobuf services and message types that need to be implemented in the
+gcommon repository. Based on the analysis of subtitle-manager's architecture,
+existing protobuf usage, and business domain requirements, this report provides
+a detailed roadmap for extending gcommon to fully support subtitle management
+operations.
 
 **Key Findings:**
 
-- **Current Integration**: Subtitle-manager already uses gcommon for basic types (RequestMetadata, Error)
-- **Missing Services**: 8 major service categories need implementation in gcommon
+- **Current Integration**: Subtitle-manager already uses gcommon for basic types
+  (RequestMetadata, Error)
+- **Missing Services**: 8 major service categories need implementation in
+  gcommon
 - **Required Messages**: ~150+ new message types across multiple domains
-- **Priority Level**: High - subtitle-manager represents a real-world production use case for gcommon
+- **Priority Level**: High - subtitle-manager represents a real-world production
+  use case for gcommon
 
 ---
 
@@ -39,7 +46,8 @@ This comprehensive analysis examines the subtitle-manager project to identify mi
 
 ### Core Domain Areas
 
-Subtitle Manager is a comprehensive subtitle management system with the following key domains:
+Subtitle Manager is a comprehensive subtitle management system with the
+following key domains:
 
 **1. Core Business Functions:**
 
@@ -126,13 +134,13 @@ github.com/jdfalk/gcommon v0.1.0
 
 ## Missing Protobuf Services in GCommon
 
-Based on subtitle-manager's architecture, the following services are needed in gcommon:
+Based on subtitle-manager's architecture, the following services are needed in
+gcommon:
 
 ### 1. Media Management Service ⭐ **HIGH PRIORITY**
 
-**Purpose**: Core media file and metadata management
-**Current Status in GCommon**: ❌ **Missing**
-**Subtitle Manager Usage**: Core business domain
+**Purpose**: Core media file and metadata management **Current Status in
+GCommon**: ❌ **Missing** **Subtitle Manager Usage**: Core business domain
 
 **Required Services:**
 
@@ -164,9 +172,8 @@ service MediaLibraryService {
 
 ### 2. Subtitle Management Service ⭐ **HIGH PRIORITY**
 
-**Purpose**: Subtitle-specific operations and processing
-**Current Status in GCommon**: ❌ **Missing**
-**Subtitle Manager Usage**: Primary business function
+**Purpose**: Subtitle-specific operations and processing **Current Status in
+GCommon**: ❌ **Missing** **Subtitle Manager Usage**: Primary business function
 
 **Required Services:**
 
@@ -199,9 +206,9 @@ service SubtitleProviderService {
 
 ### 3. Translation and Transcription Services ⭐ **HIGH PRIORITY**
 
-**Purpose**: Language processing and AI integration
-**Current Status in GCommon**: ❌ **Missing**
-**Subtitle Manager Usage**: Core feature differentiator
+**Purpose**: Language processing and AI integration **Current Status in
+GCommon**: ❌ **Missing** **Subtitle Manager Usage**: Core feature
+differentiator
 
 **Required Services:**
 
@@ -232,9 +239,9 @@ service TranscriptionService {
 
 ### 4. Provider Integration Service 🔶 **MEDIUM PRIORITY**
 
-**Purpose**: External service integrations (Sonarr, Radarr, Plex)
-**Current Status in GCommon**: ❌ **Missing**
-**Subtitle Manager Usage**: Enterprise features
+**Purpose**: External service integrations (Sonarr, Radarr, Plex) **Current
+Status in GCommon**: ❌ **Missing** **Subtitle Manager Usage**: Enterprise
+features
 
 **Required Services:**
 
@@ -261,9 +268,9 @@ service ExternalAPIService {
 
 ### 5. Task and Job Management Service 🔶 **MEDIUM PRIORITY**
 
-**Purpose**: Background job processing and scheduling
-**Current Status in GCommon**: 🔶 **Partial** (basic queue module exists)
-**Subtitle Manager Usage**: Async operations
+**Purpose**: Background job processing and scheduling **Current Status in
+GCommon**: 🔶 **Partial** (basic queue module exists) **Subtitle Manager
+Usage**: Async operations
 
 **Required Enhancements to Existing Queue Module:**
 
@@ -291,9 +298,9 @@ service SchedulerService {
 
 ### 6. User Profile and Preference Service 🔶 **MEDIUM PRIORITY**
 
-**Purpose**: User-specific settings and language profiles
-**Current Status in GCommon**: 🔶 **Partial** (basic auth exists)
-**Subtitle Manager Usage**: User customization
+**Purpose**: User-specific settings and language profiles **Current Status in
+GCommon**: 🔶 **Partial** (basic auth exists) **Subtitle Manager Usage**: User
+customization
 
 **Required Enhancements to Existing Auth Module:**
 
@@ -314,9 +321,8 @@ service UserProfileService {
 
 ### 7. Notification and Alert Service 🔴 **LOW PRIORITY**
 
-**Purpose**: Multi-channel notifications
-**Current Status in GCommon**: ❌ **Missing**
-**Subtitle Manager Usage**: Enterprise alerting
+**Purpose**: Multi-channel notifications **Current Status in GCommon**: ❌
+**Missing** **Subtitle Manager Usage**: Enterprise alerting
 
 **Required Services:**
 
@@ -337,9 +343,9 @@ service NotificationService {
 
 ### 8. Analytics and Monitoring Service 🔴 **LOW PRIORITY**
 
-**Purpose**: Usage analytics and system monitoring
-**Current Status in GCommon**: 🔶 **Partial** (basic metrics exists)
-**Subtitle Manager Usage**: Operational insights
+**Purpose**: Usage analytics and system monitoring **Current Status in
+GCommon**: 🔶 **Partial** (basic metrics exists) **Subtitle Manager Usage**:
+Operational insights
 
 **Required Enhancements to Existing Metrics Module:**
 
@@ -1472,15 +1478,26 @@ func BenchmarkSubtitleConversion(b *testing.B) {
 
 ## Conclusion
 
-This analysis reveals that subtitle-manager represents an ideal real-world use case for expanding gCommon's capabilities into the media processing domain. The implementation of the required services will not only benefit subtitle-manager by reducing complexity and improving reliability, but will also significantly enhance gCommon's value proposition as a comprehensive microservices framework.
+This analysis reveals that subtitle-manager represents an ideal real-world use
+case for expanding gCommon's capabilities into the media processing domain. The
+implementation of the required services will not only benefit subtitle-manager
+by reducing complexity and improving reliability, but will also significantly
+enhance gCommon's value proposition as a comprehensive microservices framework.
 
-The proposed 12-week implementation plan provides a structured approach to developing ~175 new message types and 11 new services, with clear phases that allow for gradual migration and validation. The combination of subtitle-manager's production requirements and gCommon's infrastructure foundation creates an opportunity to build a robust, reusable media processing platform.
+The proposed 12-week implementation plan provides a structured approach to
+developing ~175 new message types and 11 new services, with clear phases that
+allow for gradual migration and validation. The combination of
+subtitle-manager's production requirements and gCommon's infrastructure
+foundation creates an opportunity to build a robust, reusable media processing
+platform.
 
-The investment in these services will pay dividends through improved maintainability, enhanced reliability, and the creation of a reference architecture for other media management applications. This represents a strategic opportunity to demonstrate gCommon's potential while solving real-world problems in the media processing domain.
+The investment in these services will pay dividends through improved
+maintainability, enhanced reliability, and the creation of a reference
+architecture for other media management applications. This represents a
+strategic opportunity to demonstrate gCommon's potential while solving
+real-world problems in the media processing domain.
 
 ---
 
-**Document Version**: 1.0
-**Last Updated**: July 27, 2025
-**Next Review**: August 10, 2025
-**Status**: Ready for Implementation Planning
+**Document Version**: 1.0 **Last Updated**: July 27, 2025 **Next Review**:
+August 10, 2025 **Status**: Ready for Implementation Planning

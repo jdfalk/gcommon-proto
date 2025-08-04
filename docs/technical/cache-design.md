@@ -2,7 +2,10 @@
 
 ## Overview
 
-The cache module provides a unified interface for caching with support for multiple backends, expiration policies, and eviction strategies. This design document outlines the architecture, interfaces, and implementation details for the cache module.
+The cache module provides a unified interface for caching with support for
+multiple backends, expiration policies, and eviction strategies. This design
+document outlines the architecture, interfaces, and implementation details for
+the cache module.
 
 ## Goals
 
@@ -43,7 +46,8 @@ The cache module provides a unified interface for caching with support for multi
 
 #### Provider Interface
 
-The core of the module is the `Provider` interface, which defines the common operations for cache management.
+The core of the module is the `Provider` interface, which defines the common
+operations for cache management.
 
 #### Storage Backends
 
@@ -305,23 +309,29 @@ type MemoryConfig struct {
 
 ### Memory Cache Implementation
 
-The memory cache implementation uses a sharded map with read-write locks for concurrent access, supporting LRU/LFU eviction policies.
+The memory cache implementation uses a sharded map with read-write locks for
+concurrent access, supporting LRU/LFU eviction policies.
 
 ### Redis Cache Implementation
 
-The Redis cache implementation uses the go-redis client with support for both standalone Redis and Redis Cluster.
+The Redis cache implementation uses the go-redis client with support for both
+standalone Redis and Redis Cluster.
 
 ### File Cache Implementation
 
-The file cache implementation stores cached items on disk with configurable serialization formats.
+The file cache implementation stores cached items on disk with configurable
+serialization formats.
 
 ### Cache Management
 
-The cache management component handles expiration, eviction, and statistics collection. It includes a background goroutine for periodic cleanup of expired items.
+The cache management component handles expiration, eviction, and statistics
+collection. It includes a background goroutine for periodic cleanup of expired
+items.
 
 ### Serialization
 
-The serialization component handles conversion between Go types and cache storage formats using registered encoders/decoders.
+The serialization component handles conversion between Go types and cache
+storage formats using registered encoders/decoders.
 
 ## Usage Examples
 

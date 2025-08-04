@@ -2,7 +2,11 @@
 
 ## Overview
 
-This guide provides step-by-step instructions for implementing the recommendations from the [Protobuf Comprehensive Breakdown](./protobuf-comprehensive-breakdown.md). It focuses on practical implementation steps to standardize and improve the existing protobuf definitions.
+This guide provides step-by-step instructions for implementing the
+recommendations from the
+[Protobuf Comprehensive Breakdown](./protobuf-comprehensive-breakdown.md). It
+focuses on practical implementation steps to standardize and improve the
+existing protobuf definitions.
 
 ## Phase 1: Foundation Implementation
 
@@ -388,6 +392,11 @@ enum CrossModuleOperationType {
 
 ## Conclusion
 
-This implementation guide provides a structured approach to modernizing the GCommon protobuf definitions. By following these steps in phases, the project can achieve better consistency, improved observability, and enhanced developer experience while minimizing disruption to existing clients.
+This implementation guide provides a structured approach to modernizing the
+GCommon protobuf definitions. By following these steps in phases, the project
+can achieve better consistency, improved observability, and enhanced developer
+experience while minimizing disruption to existing clients.
 
-The key to success is incremental implementation with thorough testing at each phase, ensuring that improvements don't break existing functionality while adding valuable new capabilities.
+The key to success is incremental implementation with thorough testing at each
+phase, ensuring that improvements don't break existing functionality while
+adding valuable new capabilities.

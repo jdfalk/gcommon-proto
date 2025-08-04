@@ -4,7 +4,10 @@ This guide explains how to use the metrics module in your applications.
 
 ## Introduction
 
-The metrics module provides a flexible and extensible way to collect and expose metrics from your application. It supports multiple backend providers, including Prometheus and OpenTelemetry, and offers a consistent API regardless of the backend used.
+The metrics module provides a flexible and extensible way to collect and expose
+metrics from your application. It supports multiple backend providers, including
+Prometheus and OpenTelemetry, and offers a consistent API regardless of the
+backend used.
 
 ## Features
 
@@ -20,7 +23,8 @@ The metrics module provides a flexible and extensible way to collect and expose 
 
 ### Basic Setup
 
-To start using metrics in your application, you need to initialize a metrics provider and then create metrics using that provider.
+To start using metrics in your application, you need to initialize a metrics
+provider and then create metrics using that provider.
 
 ```go
 package main
@@ -79,7 +83,8 @@ func main() {
 
 ### Using with HTTP
 
-To automatically collect metrics for HTTP requests, you can use the middleware provided:
+To automatically collect metrics for HTTP requests, you can use the middleware
+provided:
 
 ```go
 package main
@@ -244,7 +249,8 @@ counter.WithTags(metrics.Tag{Key: "instance", Value: "i-12345"}).Inc()
 
 ### Provider with Default Tags
 
-If you want to add the same tags to all metrics, you can create a provider with default tags:
+If you want to add the same tags to all metrics, you can create a provider with
+default tags:
 
 ```go
 taggedProvider := provider.WithTags(
@@ -299,7 +305,8 @@ timer.Record(func() {
 
 ## Implementing a Custom Provider
 
-If you need to implement a custom metrics provider, you need to implement the `Provider` interface:
+If you need to implement a custom metrics provider, you need to implement the
+`Provider` interface:
 
 ```go
 type Provider interface {
@@ -345,21 +352,30 @@ metrics.RegisterProvider("myprovider", func(config metrics.Config) (metrics.Prov
 
 ## Best Practices
 
-1. **Use descriptive names**: Choose clear, descriptive metric names that follow a consistent naming pattern.
+1. **Use descriptive names**: Choose clear, descriptive metric names that follow
+   a consistent naming pattern.
 
-2. **Add descriptions**: Always add descriptions to your metrics to help others understand what they measure.
+2. **Add descriptions**: Always add descriptions to your metrics to help others
+   understand what they measure.
 
-3. **Use tags wisely**: Tags are powerful but can lead to high cardinality. Use them for dimensions that have a bounded set of values.
+3. **Use tags wisely**: Tags are powerful but can lead to high cardinality. Use
+   them for dimensions that have a bounded set of values.
 
-4. **Don't overuse histograms**: Histograms and summaries are expensive. Use them only when needed.
+4. **Don't overuse histograms**: Histograms and summaries are expensive. Use
+   them only when needed.
 
-5. **Start early**: Initialize your metrics at startup, not when they're first used. This ensures they appear in your metrics endpoint even if they haven't been used yet.
+5. **Start early**: Initialize your metrics at startup, not when they're first
+   used. This ensures they appear in your metrics endpoint even if they haven't
+   been used yet.
 
-6. **Use the same buckets for similar metrics**: This makes it easier to compare metrics.
+6. **Use the same buckets for similar metrics**: This makes it easier to compare
+   metrics.
 
-7. **Make metrics optional**: Always check if metrics are enabled before performing expensive operations.
+7. **Make metrics optional**: Always check if metrics are enabled before
+   performing expensive operations.
 
-8. **Use middleware for HTTP metrics**: Let the middleware handle the common metrics for you.
+8. **Use middleware for HTTP metrics**: Let the middleware handle the common
+   metrics for you.
 
 ## Troubleshooting
 
@@ -385,4 +401,6 @@ metrics.RegisterProvider("myprovider", func(config metrics.Config) (metrics.Prov
 
 ## Conclusion
 
-The metrics module provides a flexible and powerful way to instrument your applications. By following the guidelines in this documentation, you can effectively monitor your application's performance and behavior in production.
+The metrics module provides a flexible and powerful way to instrument your
+applications. By following the guidelines in this documentation, you can
+effectively monitor your application's performance and behavior in production.

@@ -1,16 +1,24 @@
 # Using the Health Module with Kubernetes
 
-This guide explains how to integrate the GCommon health module with Kubernetes health probes and enable metrics collection for health checks.
+This guide explains how to integrate the GCommon health module with Kubernetes
+health probes and enable metrics collection for health checks.
 
 ## Overview
 
-Kubernetes uses [probes](https://kubernetes.io/docs/tasks/configure-pod-container/configure-liveness-readiness-startup-probes/) to determine the health of containers in a pod:
+Kubernetes uses
+[probes](https://kubernetes.io/docs/tasks/configure-pod-container/configure-liveness-readiness-startup-probes/)
+to determine the health of containers in a pod:
 
-- **Liveness Probes**: Determine if an application is running. If a liveness probe fails, Kubernetes will restart the container.
-- **Readiness Probes**: Determine if an application is ready to receive traffic. If a readiness probe fails, Kubernetes will remove the pod from service endpoints.
-- **Startup Probes**: Determine if an application has started successfully. Startup probes are useful for applications with slow startup times.
+- **Liveness Probes**: Determine if an application is running. If a liveness
+  probe fails, Kubernetes will restart the container.
+- **Readiness Probes**: Determine if an application is ready to receive traffic.
+  If a readiness probe fails, Kubernetes will remove the pod from service
+  endpoints.
+- **Startup Probes**: Determine if an application has started successfully.
+  Startup probes are useful for applications with slow startup times.
 
-The health module in GCommon supports all these probe types through a dedicated Kubernetes integration.
+The health module in GCommon supports all these probe types through a dedicated
+Kubernetes integration.
 
 ## Setting Up Kubernetes Probes
 
@@ -141,7 +149,8 @@ spec:
 
 ## Collecting Health Check Metrics
 
-The health module can collect metrics about health check execution and status. These metrics can be used to monitor the health of your application over time.
+The health module can collect metrics about health check execution and status.
+These metrics can be used to monitor the health of your application over time.
 
 ### Step 1: Create a Metrics Provider
 
@@ -196,25 +205,28 @@ mux.Handle("/metrics", metricsProvider.Handler())
 
 ### Step 5: Configure Prometheus Scraping
 
-Configure Prometheus to scrape the metrics endpoint by adding a scrape configuration:
+Configure Prometheus to scrape the metrics endpoint by adding a scrape
+configuration:
 
 ```yaml
 scrape_configs:
-  - job_name: "myapp"
+  - job_name: 'myapp'
     scrape_interval: 15s
     static_configs:
-      - targets: ["myapp:8080"]
+      - targets: ['myapp:8080']
 ```
 
 ## Available Metrics
 
 The health module collects the following metrics:
 
-- `health.status`: Gauge showing the current status of each health check (0=down, 1=degraded, 2=up, 3=unknown)
+- `health.status`: Gauge showing the current status of each health check
+  (0=down, 1=degraded, 2=up, 3=unknown)
 - `health.executions_total`: Counter of total health check executions
 - `health.success_total`: Counter of successful health check executions
 - `health.failure_total`: Counter of failed health check executions
-- `health.duration_seconds`: Histogram of health check execution duration in seconds
+- `health.duration_seconds`: Histogram of health check execution duration in
+  seconds
 
 These metrics include labels such as:
 
@@ -224,7 +236,8 @@ These metrics include labels such as:
 
 ## Auto-Remediation for Failed Health Checks
 
-The health module supports automatic remediation for failed health checks. This can be useful for services that can self-heal when certain issues are detected.
+The health module supports automatic remediation for failed health checks. This
+can be useful for services that can self-heal when certain issues are detected.
 
 ### Step 1: Create a Remediable Check
 
@@ -281,18 +294,28 @@ if err := remediationManager.Start(ctx); err != nil {
 
 ## Complete Example
 
-A complete example demonstrating Kubernetes integration, metrics collection, and auto-remediation is available in the `examples/health/kubernetes_integration.go` file.
+A complete example demonstrating Kubernetes integration, metrics collection, and
+auto-remediation is available in the `examples/health/kubernetes_integration.go`
+file.
 
 ## Best Practices
 
-1. **Separate Liveness and Readiness Checks**: Use liveness checks for detecting issues that require container restarts, and readiness checks for detecting issues that require temporary removal from load balancing.
+1. **Separate Liveness and Readiness Checks**: Use liveness checks for detecting
+   issues that require container restarts, and readiness checks for detecting
+   issues that require temporary removal from load balancing.
 
-2. **Choose Appropriate Timeouts**: Set timeouts that are short enough to detect failures quickly but long enough to avoid false positives.
+2. **Choose Appropriate Timeouts**: Set timeouts that are short enough to detect
+   failures quickly but long enough to avoid false positives.
 
-3. **Monitor Metrics**: Use the collected metrics to identify patterns in health check failures and set up alerts for recurring issues.
+3. **Monitor Metrics**: Use the collected metrics to identify patterns in health
+   check failures and set up alerts for recurring issues.
 
-4. **Use Auto-Remediation Carefully**: Auto-remediation is useful for known, recoverable issues, but shouldn't mask deeper problems. Always log remediation attempts for later analysis.
+4. **Use Auto-Remediation Carefully**: Auto-remediation is useful for known,
+   recoverable issues, but shouldn't mask deeper problems. Always log
+   remediation attempts for later analysis.
 
-5. **Graceful Shutdown**: Implement graceful shutdown to ensure health checks are properly stopped when the application is shutting down.
+5. **Graceful Shutdown**: Implement graceful shutdown to ensure health checks
+   are properly stopped when the application is shutting down.
 
-6. **Test Failure Scenarios**: Regularly test how your application behaves when health checks fail to ensure the desired Kubernetes behaviors occur.
+6. **Test Failure Scenarios**: Regularly test how your application behaves when
+   health checks fail to ensure the desired Kubernetes behaviors occur.

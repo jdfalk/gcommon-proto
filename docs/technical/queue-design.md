@@ -2,7 +2,10 @@
 
 ## Overview
 
-The queue module provides a unified interface for message queuing and processing with support for multiple queue backends, delivery guarantees, and processing patterns. This design document outlines the architecture, interfaces, and implementation details for the queue module.
+The queue module provides a unified interface for message queuing and processing
+with support for multiple queue backends, delivery guarantees, and processing
+patterns. This design document outlines the architecture, interfaces, and
+implementation details for the queue module.
 
 ## Goals
 
@@ -40,7 +43,8 @@ The queue module provides a unified interface for message queuing and processing
 
 #### Queue Interface
 
-The core of the module is the `Queue` interface, which defines the common operations for queue management.
+The core of the module is the `Queue` interface, which defines the common
+operations for queue management.
 
 ```go
 type Queue interface {
@@ -123,31 +127,31 @@ Different queue backends implement the `Provider` interface:
 
 ```yaml
 queue:
-  provider: "redis"
-  connection: "redis://localhost:6379"
+  provider: 'redis'
+  connection: 'redis://localhost:6379'
   queues:
-    - name: "tasks"
+    - name: 'tasks'
       durable: true
       max_length: 10000
-      dead_letter_queue: "tasks_dlq"
-    - name: "events"
+      dead_letter_queue: 'tasks_dlq'
+    - name: 'events'
       durable: false
-      ttl: "1h"
+      ttl: '1h'
 ```
 
 ### Consumer Configuration
 
 ```yaml
 consumers:
-  - name: "task_processor"
-    queue: "tasks"
+  - name: 'task_processor'
+    queue: 'tasks'
     concurrency: 5
-    ack_mode: "manual"
+    ack_mode: 'manual'
     retry_policy:
       max_attempts: 3
-      backoff: "exponential"
-      initial_delay: "1s"
-      max_delay: "5m"
+      backoff: 'exponential'
+      initial_delay: '1s'
+      max_delay: '5m'
 ```
 
 ## Error Handling
@@ -160,7 +164,8 @@ consumers:
 
 ### Dead Letter Queues
 
-Failed messages are sent to dead letter queues after exhausting retries, allowing for:
+Failed messages are sent to dead letter queues after exhausting retries,
+allowing for:
 
 - Manual inspection and reprocessing
 - Alerting on failed messages
@@ -318,4 +323,6 @@ for message := range messages {
 - Message format evolution
 - Dead letter queue cleanup
 
-This queue module design provides a robust foundation for message queuing across diverse applications while maintaining consistency with the overall GCommon architecture.
+This queue module design provides a robust foundation for message queuing across
+diverse applications while maintaining consistency with the overall GCommon
+architecture.
