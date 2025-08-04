@@ -1,18 +1,325 @@
-// filepath: pkg/queue/proto/messages/consistency_config.proto
-// file: queue/proto/messages/consistency_config.proto
-//
-// Message definitions for queue module
-// TODO: Implement actual protobuf definitions
-//
+// file: pkg/queue/proto/consistency_config.proto
+// version: 1.1.0
+// Consistency configuration for queue data and messaging guarantees
+
 edition = "2023";
 
 package gcommon.v1.queue;
 
-import "google/protobuf/go_features.proto";
+import "pkg/queue/proto/durability_level.proto";
+import "pkg/queue/proto/ack_level.proto";
 
-option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/pkg/queue/proto;queuepb";
+option go_package = "github.com/jdfalk/gcommon/pkg/queue/queuepb";
 
-// TODO: Add message definitions here
-// This is a placeholder file created during 1-1-1 migration
-// Implement the actual protobuf definitions according to the queue module requirements
+// ConsistencyConfig configures data consistency and messaging guarantees
+message ConsistencyConfig {
+  // Durability level for message persistence
+  DurabilityLevel durability_level = 1;
+
+  // Acknowledgment level required for message delivery
+  AckLevel ack_level = 2;
+
+  // Replication configuration
+  ReplicationConsistency replication = 3;
+
+  // Read consistency settings
+  ReadConsistency read_consistency = 4;
+
+  // Write consistency settings
+  WriteConsistency write_consistency = 5;
+
+  // Ordering guarantees
+  OrderingConfig ordering = 6;
+
+  // Conflict resolution settings
+  ConflictResolution conflict_resolution = 7;
+
+  // Consistency validation settings
+  ConsistencyValidation validation = 8;
+}
+
+// Replication consistency configuration
+message ReplicationConsistency {
+  // Minimum number of replicas that must acknowledge writes
+  int32 min_write_replicas = 1;
+
+  // Minimum number of replicas that must be available for reads
+  int32 min_read_replicas = 2;
+
+  // Replication factor (total number of replicas)
+  int32 replication_factor = 3;
+
+  // Consistency level for replication
+  ReplicationLevel replication_level = 4;
+
+  // Enable anti-entropy repair
+  bool anti_entropy_enabled = 5;
+
+  // Anti-entropy repair interval (seconds)
+  int32 repair_interval_seconds = 6;
+}
+
+// Replication consistency level
+enum ReplicationLevel {
+  REPLICATION_LEVEL_UNSPECIFIED = 0;
+  REPLICATION_LEVEL_ONE = 1;         // At least one replica
+  REPLICATION_LEVEL_QUORUM = 2;      // Majority of replicas
+  REPLICATION_LEVEL_ALL = 3;         // All replicas
+}
+
+// Read consistency configuration
+message ReadConsistency {
+  // Read consistency level
+  ReadLevel level = 1;
+
+  // Maximum staleness allowed for reads (milliseconds)
+  int64 max_staleness_ms = 2;
+
+  // Enable read-your-writes consistency
+  bool read_your_writes = 3;
+
+  // Enable monotonic read consistency
+  bool monotonic_reads = 4;
+
+  // Timeout for read operations (milliseconds)
+  int32 timeout_ms = 5;
+
+  // Retry configuration for read failures
+  ReadRetryConfig retry_config = 6;
+}
+
+// Read consistency level
+enum ReadLevel {
+  READ_LEVEL_UNSPECIFIED = 0;
+  READ_LEVEL_EVENTUAL = 1;           // Eventually consistent reads
+  READ_LEVEL_STRONG = 2;             // Strongly consistent reads
+  READ_LEVEL_BOUNDED_STALENESS = 3;  // Bounded staleness reads
+  READ_LEVEL_SESSION = 4;            // Session consistency
+}
+
+// Write consistency configuration
+message WriteConsistency {
+  // Write consistency level
+  WriteLevel level = 1;
+
+  // Synchronous replication requirements
+  SyncReplication sync_replication = 2;
+
+  // Write conflict detection
+  ConflictDetection conflict_detection = 3;
+
+  // Timeout for write operations (milliseconds)
+  int32 timeout_ms = 4;
+
+  // Retry configuration for write failures
+  WriteRetryConfig retry_config = 5;
+}
+
+// Write consistency level
+enum WriteLevel {
+  WRITE_LEVEL_UNSPECIFIED = 0;
+  WRITE_LEVEL_ASYNC = 1;             // Asynchronous writes
+  WRITE_LEVEL_SYNC_ONE = 2;          // Synchronous to one replica
+  WRITE_LEVEL_SYNC_QUORUM = 3;       // Synchronous to quorum
+  WRITE_LEVEL_SYNC_ALL = 4;          // Synchronous to all replicas
+}
+
+// Synchronous replication configuration
+message SyncReplication {
+  // Enable synchronous replication
+  bool enabled = 1;
+
+  // Minimum synchronous replicas
+  int32 min_sync_replicas = 2;
+
+  // Timeout for synchronous replication (milliseconds)
+  int32 sync_timeout_ms = 3;
+
+  // Fallback to async on timeout
+  bool fallback_to_async = 4;
+}
+
+// Conflict detection configuration
+message ConflictDetection {
+  // Enable conflict detection
+  bool enabled = 1;
+
+  // Conflict detection strategy
+  ConflictStrategy strategy = 2;
+
+  // Vector clock configuration
+  VectorClockConfig vector_clock = 3;
+
+  // Timestamp-based detection settings
+  TimestampConfig timestamp_config = 4;
+}
+
+// Conflict detection strategy
+enum ConflictStrategy {
+  CONFLICT_STRATEGY_UNSPECIFIED = 0;
+  CONFLICT_STRATEGY_TIMESTAMP = 1;    // Timestamp-based detection
+  CONFLICT_STRATEGY_VECTOR_CLOCK = 2; // Vector clock-based detection
+  CONFLICT_STRATEGY_CAUSAL = 3;       // Causal consistency detection
+}
+
+// Vector clock configuration
+message VectorClockConfig {
+  // Enable vector clocks
+  bool enabled = 1;
+
+  // Clock precision (nanoseconds, microseconds, milliseconds)
+  string precision = 2;
+
+  // Maximum clock drift tolerance (milliseconds)
+  int64 max_drift_ms = 3;
+}
+
+// Timestamp configuration
+message TimestampConfig {
+  // Timestamp source (system, ntp, atomic)
+  string source = 1;
+
+  // Clock synchronization interval (seconds)
+  int32 sync_interval_seconds = 2;
+
+  // Maximum timestamp skew tolerance (milliseconds)
+  int64 max_skew_ms = 3;
+}
+
+// Message ordering configuration
+message OrderingConfig {
+  // Global ordering guarantee level
+  OrderingLevel global_ordering = 1;
+
+  // Per-partition ordering guarantee
+  OrderingLevel partition_ordering = 2;
+
+  // Per-producer ordering guarantee
+  OrderingLevel producer_ordering = 3;
+
+  // Enable causal ordering
+  bool causal_ordering = 4;
+
+  // Ordering timeout (milliseconds)
+  int32 ordering_timeout_ms = 5;
+}
+
+// Ordering guarantee level
+enum OrderingLevel {
+  ORDERING_LEVEL_UNSPECIFIED = 0;
+  ORDERING_LEVEL_NONE = 1;           // No ordering guarantees
+  ORDERING_LEVEL_PARTIAL = 2;        // Partial ordering
+  ORDERING_LEVEL_TOTAL = 3;          // Total ordering
+}
+
+// Conflict resolution configuration
+message ConflictResolution {
+  // Conflict resolution strategy
+  ResolutionStrategy strategy = 1;
+
+  // Custom resolution function settings
+  CustomResolution custom_resolution = 2;
+
+  // Last-writer-wins settings
+  LastWriterWins lww_config = 3;
+
+  // Multi-value conflict handling
+  MultiValueConfig multi_value = 4;
+}
+
+// Conflict resolution strategy
+enum ResolutionStrategy {
+  RESOLUTION_STRATEGY_UNSPECIFIED = 0;
+  RESOLUTION_STRATEGY_LAST_WRITER_WINS = 1;  // Last writer wins
+  RESOLUTION_STRATEGY_FIRST_WRITER_WINS = 2; // First writer wins
+  RESOLUTION_STRATEGY_MERGE = 3;             // Automatic merge
+  RESOLUTION_STRATEGY_CUSTOM = 4;            // Custom resolution function
+  RESOLUTION_STRATEGY_MULTI_VALUE = 5;       // Keep all conflicting values
+}
+
+// Custom conflict resolution configuration
+message CustomResolution {
+  // Resolution function name or identifier
+  string function_name = 1;
+
+  // Function parameters
+  map<string, string> parameters = 2;
+
+  // Timeout for resolution function (milliseconds)
+  int32 timeout_ms = 3;
+}
+
+// Last-writer-wins configuration
+message LastWriterWins {
+  // Use server timestamp instead of client timestamp
+  bool use_server_timestamp = 1;
+
+  // Timestamp precision for comparison
+  string timestamp_precision = 2;
+}
+
+// Multi-value conflict configuration
+message MultiValueConfig {
+  // Maximum number of concurrent values to keep
+  int32 max_values = 1;
+
+  // Value expiration time (seconds)
+  int32 value_ttl_seconds = 2;
+
+  // Conflict value cleanup strategy
+  string cleanup_strategy = 3;
+}
+
+// Consistency validation configuration
+message ConsistencyValidation {
+  // Enable consistency validation
+  bool enabled = 1;
+
+  // Validation interval (seconds)
+  int32 validation_interval_seconds = 2;
+
+  // Validation scope (local, cluster, global)
+  string validation_scope = 3;
+
+  // Actions to take on validation failure
+  repeated string failure_actions = 4;
+
+  // Validation timeout (milliseconds)
+  int32 timeout_ms = 5;
+}
+
+// Read retry configuration
+message ReadRetryConfig {
+  // Maximum retry attempts
+  int32 max_retries = 1;
+
+  // Initial retry delay (milliseconds)
+  int32 initial_delay_ms = 2;
+
+  // Maximum retry delay (milliseconds)
+  int32 max_delay_ms = 3;
+
+  // Backoff multiplier
+  double backoff_multiplier = 4;
+
+  // Retry on different replica
+  bool retry_different_replica = 5;
+}
+
+// Write retry configuration
+message WriteRetryConfig {
+  // Maximum retry attempts
+  int32 max_retries = 1;
+
+  // Initial retry delay (milliseconds)
+  int32 initial_delay_ms = 2;
+
+  // Maximum retry delay (milliseconds)
+  int32 max_delay_ms = 3;
+
+  // Backoff multiplier
+  double backoff_multiplier = 4;
+
+  // Retry idempotent operations only
+  bool idempotent_only = 5;
+}
