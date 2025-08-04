@@ -1,0 +1,33 @@
+// file: pkg/queue/proto/stats_granularity.proto
+// version: 1.0.0
+// guid: 9a8b7c6d-5e4f-3a2b-1c0d-9e8f7a6b5c4d
+
+edition = "2023";
+
+package gcommon.v1.queue;
+
+import "google/protobuf/go_features.proto";
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/jdfalk/gcommon/pkg/queue/proto;queuepb";
+
+/**
+ * StatsGranularity represents the granularity for statistics.
+ * Specifies the time interval granularity for statistical data collection and aggregation.
+ */
+enum StatsGranularity {
+  // Default unspecified granularity
+  STATS_GRANULARITY_UNSPECIFIED = 0;
+
+  // Minute-level granularity
+  STATS_GRANULARITY_MINUTE = 1;
+
+  // Hour-level granularity
+  STATS_GRANULARITY_HOUR = 2;
+
+  // Day-level granularity
+  STATS_GRANULARITY_DAY = 3;
+
+  // Week-level granularity
+  STATS_GRANULARITY_WEEK = 4;
+}

@@ -1,0 +1,39 @@
+// file: pkg/queue/proto/metric_type.proto
+// version: 1.0.0
+// guid: 8b7a6c5d-4e3f-2a1b-0c9d-8e7f6a5b4c3d
+
+edition = "2023";
+
+package gcommon.v1.queue;
+
+import "google/protobuf/go_features.proto";
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/jdfalk/gcommon/pkg/queue/proto;queuepb";
+
+/**
+ * MetricType represents the types of metrics that can be monitored.
+ * Specifies different types of queue metrics for monitoring and analysis.
+ */
+enum MetricType {
+  // Default unspecified type
+  METRIC_TYPE_UNSPECIFIED = 0;
+
+  // Message count
+  METRIC_TYPE_MESSAGE_COUNT = 1;
+
+  // Message rate (per second)
+  METRIC_TYPE_MESSAGE_RATE = 2;
+
+  // Processing time
+  METRIC_TYPE_PROCESSING_TIME = 3;
+
+  // Error rate
+  METRIC_TYPE_ERROR_RATE = 4;
+
+  // Consumer count
+  METRIC_TYPE_CONSUMER_COUNT = 5;
+
+  // Queue depth
+  METRIC_TYPE_QUEUE_DEPTH = 6;
+}
