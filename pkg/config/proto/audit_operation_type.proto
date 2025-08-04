@@ -1,0 +1,60 @@
+// file: pkg/config/proto/audit_operation_type.proto
+// version: 1.0.0
+// guid: d6e7f8a9-b0c1-2d3e-4f5a-6b7c8d9e0f1a
+
+edition = "2023";
+
+package gcommon.v1.config;
+
+import "google/protobuf/go_features.proto";
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/jdfalk/gcommon/pkg/config/proto;configpb";
+
+/**
+ * AuditOperationType represents the type of configuration operation.
+ * Specifies the category of configuration change being audited.
+ */
+enum AuditOperationType {
+  // Unspecified operation type
+  AUDIT_OPERATION_TYPE_UNSPECIFIED = 0;
+
+  // Create new configuration
+  AUDIT_OPERATION_TYPE_CREATE = 1;
+
+  // Update existing configuration
+  AUDIT_OPERATION_TYPE_UPDATE = 2;
+
+  // Delete configuration
+  AUDIT_OPERATION_TYPE_DELETE = 3;
+
+  // Bulk create multiple configurations
+  AUDIT_OPERATION_TYPE_BULK_CREATE = 4;
+
+  // Bulk update multiple configurations
+  AUDIT_OPERATION_TYPE_BULK_UPDATE = 5;
+
+  // Bulk delete multiple configurations
+  AUDIT_OPERATION_TYPE_BULK_DELETE = 6;
+
+  // Import configuration data
+  AUDIT_OPERATION_TYPE_IMPORT = 7;
+
+  // Export configuration data
+  AUDIT_OPERATION_TYPE_EXPORT = 8;
+
+  // Backup configuration
+  AUDIT_OPERATION_TYPE_BACKUP = 9;
+
+  // Restore configuration from backup
+  AUDIT_OPERATION_TYPE_RESTORE = 10;
+
+  // Rollback configuration changes
+  AUDIT_OPERATION_TYPE_ROLLBACK = 11;
+
+  // Validate configuration
+  AUDIT_OPERATION_TYPE_VALIDATE = 12;
+
+  // Synchronize configuration
+  AUDIT_OPERATION_TYPE_SYNC = 13;
+}
