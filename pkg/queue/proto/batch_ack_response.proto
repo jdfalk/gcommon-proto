@@ -1,20 +1,51 @@
-// filepath: pkg/queue/proto/responses/batch_ack_response.proto
-// file: queue/proto/responses/batch_ack_response.proto
-//
-// Response definitions for queue module
-// TODO: Implement actual protobuf definitions
-//
+// file: pkg/queue/proto/batch_ack_response.proto
+// version: 1.0.0
+// guid: b1c2d3e4-f5a6-7b8c-9d0e-1f2a3b4c5d6e
+
 edition = "2023";
 
 package gcommon.v1.queue;
 
 import "google/protobuf/go_features.proto";
+import "pkg/common/proto/response_metadata.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
 option go_package = "github.com/jdfalk/gcommon/pkg/queue/proto;queuepb";
 
-// TODO: Add response definitions here
-// This is a placeholder file created during 1-1-1 migration
-// Implement the actual protobuf definitions according to the queue module requirements
-// SKELETON_FILE: Compilation temporarily disabled
-// This file needs proper implementation
+/**
+ * Response for batch acknowledgment operations.
+ * Contains results of acknowledging multiple messages.
+ */
+message BatchAckResponse {
+  // Overall success status
+  bool success = 1;
+
+  // Number of messages successfully acknowledged
+  int32 acknowledged_count = 2;
+
+  // Number of messages that failed to acknowledge
+  int32 failed_count = 3;
+
+  // Failed message IDs and their error reasons
+  repeated FailedAck failed_acks = 4;
+
+  // Response metadata
+  gcommon.v1.common.ResponseMetadata metadata = 5;
+
+  // Batch ID for tracking
+  string batch_id = 6;
+}
+
+/**
+ * Information about a failed acknowledgment.
+ */
+message FailedAck {
+  // Message ID that failed to acknowledge
+  string message_id = 1;
+
+  // Reason for acknowledgment failure
+  string error_reason = 2;
+
+  // Error code
+  string error_code = 3;
+}

@@ -1,20 +1,37 @@
-// filepath: pkg/queue/proto/requests/pause_queue_request.proto
-// file: queue/proto/requests/pause_queue_request.proto
-//
-// Request definitions for queue module
-// TODO: Implement actual protobuf definitions
-//
+// file: pkg/queue/proto/pause_queue_request.proto
+// version: 1.0.0
+// guid: a0b1c2d3-e4f5-6a7b-8c9d-0e1f2a3b4c5d
+
 edition = "2023";
 
 package gcommon.v1.queue;
 
 import "google/protobuf/go_features.proto";
+import "pkg/common/proto/request_metadata.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
 option go_package = "github.com/jdfalk/gcommon/pkg/queue/proto;queuepb";
 
-// TODO: Add request definitions here
-// This is a placeholder file created during 1-1-1 migration
-// Implement the actual protobuf definitions according to the queue module requirements
-// SKELETON_FILE: Compilation temporarily disabled
-// This file needs proper implementation
+/**
+ * Request to pause a queue.
+ * Stops message processing while keeping messages in the queue.
+ */
+message PauseQueueRequest {
+  // Name of the queue to pause
+  string queue_name = 1;
+
+  // Reason for pausing the queue
+  string reason = 2;
+
+  // Whether to wait for current messages to finish processing
+  bool graceful = 3;
+
+  // Timeout for graceful pause (milliseconds)
+  int32 timeout_ms = 4;
+
+  // Request metadata for tracing and correlation
+  gcommon.v1.common.RequestMetadata metadata = 5;
+
+  // Whether to pause specific partitions only
+  repeated int32 partition_ids = 6;
+}
