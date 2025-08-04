@@ -14,7 +14,7 @@ package gcommon.v1.common;
 import "google/protobuf/duration.proto";
 import "google/protobuf/go_features.proto";
 import "google/protobuf/timestamp.proto";
-import "pkg/common/proto/gcommon/pkg/common/proto;commonpb";
+import "pkg/common/proto/error.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
 
