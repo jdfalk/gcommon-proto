@@ -1,22 +1,14 @@
-// filepath: pkg/queue/proto/responses/delete_subscription_response.proto
-// file: queue/proto/responses/delete_subscription_response.proto
-//
-// Response definitions for queue module
-// TODO: Implement actual protobuf definitions
-//
+// file: pkg/queue/proto/delete_subscription_response.proto
+// version: 1.0.0
+// Response for delete subscription operations
+
 edition = "2023";
 
 package gcommon.v1.queue;
 
-import "google/protobuf/go_features.proto";
+option go_package = "github.com/jdfalk/gcommon/pkg/queue/queuepb";
 
-option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/pkg/queue/proto;queuepb";
-
-/**
- * Response for deleting a subscription.
- * Confirms successful deletion and provides cleanup information.
- */
+// Response for deleting a subscription
 message DeleteSubscriptionResponse {
   // Whether the subscription was successfully deleted
   bool success = 1;
@@ -26,4 +18,7 @@ message DeleteSubscriptionResponse {
 
   // Human-readable message describing the deletion result
   string message = 3;
+
+  // Error message if deletion failed
+  string error = 4;
 }
