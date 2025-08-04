@@ -1,5 +1,5 @@
-// file: pkg/web/proto/requests/list_files_request.proto
-// version: 1.0.0
+// file: pkg/web/proto/list_files_request.proto
+// version: 1.1.0
 // guid: 69d44c54-6e03-4313-a56c-2df3041206f8
 
 edition = "2023";
@@ -7,11 +7,63 @@ edition = "2023";
 package gcommon.v1.web;
 
 import "google/protobuf/go_features.proto";
+import "pkg/common/proto/request_metadata.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
 option go_package = "github.com/jdfalk/gcommon/pkg/web/proto;webpb";
 
-// ListFilesRequest request definition.
+/**
+ * Request to list files in a directory.
+ * Used for static file serving and directory browsing.
+ */
 message ListFilesRequest {
-  string placeholder = 1;
+  // Directory path to list files from
+  string directory_path = 1;
+
+  // Whether to include subdirectories recursively
+  bool recursive = 2;
+
+  // File pattern filter (glob-style)
+  string pattern = 3;
+
+  // Maximum number of files to return
+  int32 limit = 4;
+
+  // Pagination offset
+  int32 offset = 5;
+
+  // Whether to include hidden files (starting with .)
+  bool include_hidden = 6;
+
+  // Sort order for the files
+  FileSortOrder sort_order = 7;
+
+  // Request metadata for tracing and correlation
+  gcommon.v1.common.RequestMetadata metadata = 8;
+}
+
+/**
+ * File sorting options.
+ */
+enum FileSortOrder {
+  // Default sorting (name ascending)
+  FILE_SORT_ORDER_UNSPECIFIED = 0;
+
+  // Sort by name ascending
+  FILE_SORT_ORDER_NAME_ASC = 1;
+
+  // Sort by name descending
+  FILE_SORT_ORDER_NAME_DESC = 2;
+
+  // Sort by size ascending
+  FILE_SORT_ORDER_SIZE_ASC = 3;
+
+  // Sort by size descending
+  FILE_SORT_ORDER_SIZE_DESC = 4;
+
+  // Sort by modification time ascending
+  FILE_SORT_ORDER_MODIFIED_ASC = 5;
+
+  // Sort by modification time descending
+  FILE_SORT_ORDER_MODIFIED_DESC = 6;
 }
