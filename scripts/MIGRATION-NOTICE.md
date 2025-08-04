@@ -6,7 +6,8 @@
 
 ## 🚨 IMPORTANT: Scripts have been migrated
 
-The GitHub project management scripts previously located in this repository have been **migrated to the unified project manager** in the `ghcommon` repository.
+The GitHub project management scripts previously located in this repository have
+been **migrated to the unified project manager** in the `ghcommon` repository.
 
 ### Old Scripts (REMOVED)
 
