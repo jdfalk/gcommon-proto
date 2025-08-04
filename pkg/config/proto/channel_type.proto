@@ -18,25 +18,25 @@ option go_package = "github.com/jdfalk/gcommon/pkg/config/proto;configpb";
 enum ChannelType {
   // Unspecified channel type
   CHANNEL_TYPE_UNSPECIFIED = 0;
-  
+
   // Email notification channel
   CHANNEL_TYPE_EMAIL = 1;
-  
+
   // SMS notification channel
   CHANNEL_TYPE_SMS = 2;
-  
+
   // Slack notification channel
   CHANNEL_TYPE_SLACK = 3;
-  
+
   // Microsoft Teams notification channel
   CHANNEL_TYPE_TEAMS = 4;
-  
+
   // Discord notification channel
   CHANNEL_TYPE_DISCORD = 5;
-  
+
   // Webhook notification channel
   CHANNEL_TYPE_WEBHOOK = 6;
-  
+
   // Push notification channel
   CHANNEL_TYPE_PUSH = 7;
 }

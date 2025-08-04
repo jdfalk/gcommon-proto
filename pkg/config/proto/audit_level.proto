@@ -18,19 +18,19 @@ option go_package = "github.com/jdfalk/gcommon/pkg/config/proto;configpb";
 enum AuditLevel {
   // Unspecified audit level
   AUDIT_LEVEL_UNSPECIFIED = 0;
-  
+
   // No audit logging
   AUDIT_LEVEL_NONE = 1;
-  
+
   // Minimal audit logging
   AUDIT_LEVEL_MINIMAL = 2;
-  
+
   // Standard audit logging
   AUDIT_LEVEL_STANDARD = 3;
-  
+
   // Detailed audit logging
   AUDIT_LEVEL_DETAILED = 4;
-  
+
   // Verbose audit logging
   AUDIT_LEVEL_VERBOSE = 5;
 }

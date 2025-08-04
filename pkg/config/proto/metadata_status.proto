@@ -18,16 +18,16 @@ option go_package = "github.com/jdfalk/gcommon/pkg/config/proto;configpb";
 enum MetadataStatus {
   // Unspecified metadata status
   METADATA_STATUS_UNSPECIFIED = 0;
-  
+
   // Metadata is active and current
   METADATA_STATUS_ACTIVE = 1;
-  
+
   // Metadata is deprecated
   METADATA_STATUS_DEPRECATED = 2;
-  
+
   // Metadata is archived
   METADATA_STATUS_ARCHIVED = 3;
-  
+
   // Metadata is being migrated
   METADATA_STATUS_MIGRATING = 4;
 }
