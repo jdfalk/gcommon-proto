@@ -1,0 +1,36 @@
+// file: pkg/queue/proto/cluster_state.proto
+// version: 1.0.0
+// guid: f68fdc5e-d25f-4790-9362-9bf09eb27f4d
+
+edition = "2023";
+
+package gcommon.v1.queue;
+
+import "google/protobuf/go_features.proto";
+import "google/protobuf/timestamp.proto";
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/jdfalk/gcommon/pkg/queue/proto;queuepb";
+
+/**
+ * State of the cluster.
+ */
+enum ClusterState {
+  // Default unspecified state
+  CLUSTER_STATE_UNSPECIFIED = 0;
+
+  // Cluster is healthy and operational
+  CLUSTER_STATE_HEALTHY = 1;
+
+  // Cluster is degraded but operational
+  CLUSTER_STATE_DEGRADED = 2;
+
+  // Cluster is in recovery mode
+  CLUSTER_STATE_RECOVERING = 3;
+
+  // Cluster is down
+  CLUSTER_STATE_DOWN = 4;
+
+  // Cluster is in maintenance mode
+  CLUSTER_STATE_MAINTENANCE = 5;
+}

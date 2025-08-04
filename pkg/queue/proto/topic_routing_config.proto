@@ -1,0 +1,26 @@
+// file: pkg/queue/proto/topic_routing_config.proto
+// version: 1.0.0
+// guid: 502467f7-3d79-4329-8e44-4e499071092b
+
+edition = "2023";
+
+package gcommon.v1.queue;
+
+import "google/protobuf/go_features.proto";
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/jdfalk/gcommon/pkg/queue/proto;queuepb";
+
+/**
+ * Topic-based routing configuration.
+ */
+message TopicRoutingConfig {
+  // Topic exchange name
+  string exchange_name = 1;
+
+  // Default routing key
+  string default_routing_key = 2;
+
+  // Whether to use wildcard matching
+  bool wildcard_matching = 3;
+}

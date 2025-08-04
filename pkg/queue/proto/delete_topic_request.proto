@@ -1,20 +1,38 @@
-// filepath: pkg/queue/proto/requests/delete_topic_request.proto
-// file: queue/proto/requests/delete_topic_request.proto
-//
-// Request definitions for queue module
-// TODO: Implement actual protobuf definitions
-//
+// file: pkg/queue/proto/delete_topic_request.proto
+// version: 1.1.0
+// Request to delete a topic
+
 edition = "2023";
 
 package gcommon.v1.queue;
 
-import "google/protobuf/go_features.proto";
+option go_package = "github.com/jdfalk/gcommon/pkg/queue/queuepb";
 
-option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/pkg/queue/proto;queuepb";
+// DeleteTopicRequest removes a topic and its associated resources
+message DeleteTopicRequest {
+  // Topic identifier to delete
+  string topic_id = 1;
 
-// TODO: Add request definitions here
-// This is a placeholder file created during 1-1-1 migration
-// Implement the actual protobuf definitions according to the queue module requirements
+  // Force deletion even if topic has active subscriptions
+  bool force_delete = 2;
+
+  // Delete associated data (messages, metadata)
+  bool delete_data = 3;
+
+  // Timeout for deletion operation (milliseconds)
+  int32 timeout_ms = 4;
+
+  // Reason for deletion
+  string deletion_reason = 5;
+
+  // Backup data before deletion
+  bool backup_before_delete = 6;
+
+  // Backup destination (if backing up)
+  string backup_destination = 7;
+
+  // Operation metadata
+  map<string, string> metadata = 8;
+}
 // SKELETON_FILE: Compilation temporarily disabled
 // This file needs proper implementation

@@ -1,20 +1,68 @@
-// filepath: pkg/queue/proto/responses/list_topics_response.proto
-// file: queue/proto/responses/list_topics_response.proto
-//
-// Response definitions for queue module
-// TODO: Implement actual protobuf definitions
-//
+// file: pkg/queue/proto/list_topics_response.proto
+// version: 1.1.0
+// Response containing list of available topics
+
 edition = "2023";
 
 package gcommon.v1.queue;
 
-import "google/protobuf/go_features.proto";
+import "google/protobuf/timestamp.proto";
+import "pkg/queue/proto/topic_stats.proto";
 
-option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/pkg/queue/proto;queuepb";
+option go_package = "github.com/jdfalk/gcommon/pkg/queue/queuepb";
 
-// TODO: Add response definitions here
-// This is a placeholder file created during 1-1-1 migration
-// Implement the actual protobuf definitions according to the queue module requirements
+// ListTopicsResponse returns a list of available topics
+message ListTopicsResponse {
+  // List of topics
+  repeated TopicInfo topics = 1;
+
+  // Total number of topics available
+  int32 total_count = 2;
+
+  // Pagination token for next page
+  string next_page_token = 3;
+
+  // Whether there are more topics available
+  bool has_more = 4;
+
+  // Response metadata
+  map<string, string> metadata = 5;
+}
+
+// Information about a single topic
+message TopicInfo {
+  // Topic identifier
+  string topic_id = 1;
+
+  // Topic name
+  string topic_name = 2;
+
+  // Topic namespace/category
+  string namespace = 3;
+
+  // Topic state (active, paused, deleted)
+  string state = 4;
+
+  // Topic creation timestamp
+  google.protobuf.Timestamp created_at = 5;
+
+  // Last updated timestamp
+  google.protobuf.Timestamp updated_at = 6;
+
+  // Topic statistics (if requested)
+  TopicStats stats = 7;
+
+  // Topic metadata (if requested)
+  map<string, string> topic_metadata = 8;
+
+  // Number of partitions
+  int32 partition_count = 9;
+
+  // Number of active subscriptions
+  int32 subscription_count = 10;
+
+  // Topic description
+  string description = 11;
+}
 // SKELETON_FILE: Compilation temporarily disabled
 // This file needs proper implementation

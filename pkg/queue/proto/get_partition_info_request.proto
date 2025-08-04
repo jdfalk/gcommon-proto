@@ -1,20 +1,46 @@
-// filepath: pkg/queue/proto/requests/get_partition_info_request.proto
-// file: queue/proto/requests/get_partition_info_request.proto
-//
-// Request definitions for queue module
-// TODO: Implement actual protobuf definitions
-//
+// file: pkg/queue/proto/get_partition_info_request.proto
+// version: 1.1.0
+// Request to get partition information
+
 edition = "2023";
 
 package gcommon.v1.queue;
 
-import "google/protobuf/go_features.proto";
+import "pkg/queue/proto/get_queue_info_request.proto";
 
-option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/pkg/queue/proto;queuepb";
+option go_package = "github.com/jdfalk/gcommon/pkg/queue/queuepb";
 
-// TODO: Add request definitions here
-// This is a placeholder file created during 1-1-1 migration
-// Implement the actual protobuf definitions according to the queue module requirements
+// GetPartitionInfoRequest retrieves information about topic partitions
+message GetPartitionInfoRequest {
+  // Topic identifier
+  string topic_id = 1;
+
+  // Specific partition IDs (empty = all partitions)
+  repeated int32 partition_ids = 2;
+
+  // Include partition statistics
+  bool include_stats = 3;
+
+  // Include consumer information
+  bool include_consumers = 4;
+
+  // Include offset information
+  bool include_offsets = 5;
+
+  // Include partition health status
+  bool include_health_status = 6;
+
+  // Include leader/replica information
+  bool include_leader_info = 7;
+
+  // Include partition configuration
+  bool include_config = 8;
+
+  // Time range for historical statistics - references existing TimeRangeFilter from get_queue_info_request.proto
+  TimeRangeFilter time_range = 9;
+
+  // Access control context
+  string access_token = 10;
+}
 // SKELETON_FILE: Compilation temporarily disabled
 // This file needs proper implementation

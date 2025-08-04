@@ -1,58 +1,40 @@
 // file: pkg/queue/proto/node_info.proto
 // version: 1.0.0
-// guid: a4b5c6d7-e8f9-0a1b-2c3d-4e5f6a7b8c9d
+// guid: d73ea780-8ed0-4b73-8aae-ab5c4fc1a48f
 
 edition = "2023";
 
 package gcommon.v1.queue;
 
 import "google/protobuf/go_features.proto";
-import "pkg/common/proto/timestamp.proto";
+import "pkg/queue/proto/node_state.proto";
+import "google/protobuf/timestamp.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
 option go_package = "github.com/jdfalk/gcommon/pkg/queue/proto;queuepb";
 
 /**
- * Information about a queue broker node.
- * Contains node status, capacity, and health information.
+ * Information about a single node in the cluster.
  */
 message NodeInfo {
-  // Unique node identifier
+  // Unique identifier for the node
   string node_id = 1;
 
-  // Node hostname or IP address
-  string host = 2;
+  // Hostname or address of the node
+  string hostname = 2;
 
-  // Node port
+  // Port number for the node
   int32 port = 3;
 
-  // Whether the node is currently active
-  bool active = 4;
+  // Current state of the node
+  NodeState state = 4;
 
-  // Node role (broker, coordinator, replica, etc.)
-  string role = 5;
+  // Node roles (leader, follower, etc.)
+  repeated string roles = 5;
 
-  // Current load percentage (0-100)
-  float load_percentage = 6;
+  // Timestamp when node was last seen
+  google.protobuf.Timestamp last_heartbeat = 6;
 
-  // Total memory available (bytes)
-  int64 total_memory = 7;
-
-  // Used memory (bytes)
-  int64 used_memory = 8;
-
-  // Number of partitions hosted by this node
-  int32 partition_count = 9;
-
-  // Number of active connections
-  int32 connection_count = 10;
-
-  // Last heartbeat timestamp
-  gcommon.v1.common.Timestamp last_heartbeat = 11;
-
-  // Node version information
-  string version = 12;
-
-  // Additional metadata
-  map<string, string> metadata = 13;
+  // Node-specific statistics
+  NodeStats stats = 7;
 }
