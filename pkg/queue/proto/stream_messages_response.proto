@@ -21,19 +21,19 @@ option go_package = "github.com/jdfalk/gcommon/pkg/queue/proto;queuepb";
 message StreamMessagesResponse {
   // List of messages in the stream
   repeated gcommon.v1.queue.QueueMessage messages = 1;
-  
+
   // Whether there are more messages available
   bool has_more = 2;
-  
+
   // Continuation token for next batch
   string continuation_token = 3;
-  
+
   // Total number of messages available
   uint64 total_messages = 4;
-  
+
   // Current stream position
   uint64 stream_position = 5;
-  
+
   // Whether the stream has ended
   bool stream_ended = 6;
 }

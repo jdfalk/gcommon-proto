@@ -1,20 +1,32 @@
 // filepath: pkg/queue/proto/responses/get_cluster_info_response.proto
 // file: queue/proto/responses/get_cluster_info_response.proto
+// version: 1.0.0
+// guid: 3a4b5c6d-7e8f-9a0b-1c2d-3e4f5a6b7c8d
 //
 // Response definitions for queue module
-// TODO: Implement actual protobuf definitions
 //
 edition = "2023";
 
 package gcommon.v1.queue;
 
 import "google/protobuf/go_features.proto";
+import "pkg/queue/proto/cluster_info.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
 option go_package = "github.com/jdfalk/gcommon/pkg/queue/proto;queuepb";
 
-// TODO: Add response definitions here
-// This is a placeholder file created during 1-1-1 migration
-// Implement the actual protobuf definitions according to the queue module requirements
+/**
+ * Response containing cluster information.
+ */
+message GetClusterInfoResponse {
+  // Detailed cluster information
+  gcommon.v1.queue.ClusterInfo cluster_info = 1;
+
+  // Whether the cluster is currently healthy
+  bool is_healthy = 2;
+
+  // Any warnings or issues with the cluster
+  repeated string warnings = 3;
+}
 // SKELETON_FILE: Compilation temporarily disabled
 // This file needs proper implementation

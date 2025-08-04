@@ -23,31 +23,31 @@ option go_package = "github.com/jdfalk/gcommon/pkg/queue/proto;queuepb";
 message ReplicationConfig {
   // Replication mode
   gcommon.v1.queue.ReplicationMode mode = 1;
-  
+
   // Number of replicas to maintain
   int32 replica_count = 2;
-  
+
   // Minimum number of replicas required for writes
   int32 min_replicas_for_write = 3;
-  
+
   // Minimum number of replicas required for reads
   int32 min_replicas_for_read = 4;
-  
+
   // Consistency level for read operations
   gcommon.v1.queue.ConsistencyLevel read_consistency = 5;
-  
+
   // Consistency level for write operations
   gcommon.v1.queue.ConsistencyLevel write_consistency = 6;
-  
+
   // Replication timeout
   google.protobuf.Duration replication_timeout = 7;
-  
+
   // Whether to enable cross-datacenter replication
   bool cross_datacenter = 8;
-  
+
   // Preferred replica locations
   repeated string preferred_locations = 9;
-  
+
   // Anti-affinity rules for replica placement
   repeated AntiAffinityRule anti_affinity_rules = 10;
 }
@@ -58,10 +58,10 @@ message ReplicationConfig {
 message AntiAffinityRule {
   // Label key to check for anti-affinity
   string label_key = 1;
-  
+
   // Label values that should not be co-located
   repeated string label_values = 2;
-  
+
   // Scope of the anti-affinity rule
   AntiAffinityScope scope = 3;
 }
@@ -72,16 +72,16 @@ message AntiAffinityRule {
 enum AntiAffinityScope {
   // Default unspecified scope
   ANTI_AFFINITY_SCOPE_UNSPECIFIED = 0;
-  
+
   // Same node
   ANTI_AFFINITY_SCOPE_NODE = 1;
-  
+
   // Same rack
   ANTI_AFFINITY_SCOPE_RACK = 2;
-  
+
   // Same datacenter
   ANTI_AFFINITY_SCOPE_DATACENTER = 3;
-  
+
   // Same region
   ANTI_AFFINITY_SCOPE_REGION = 4;
 }
