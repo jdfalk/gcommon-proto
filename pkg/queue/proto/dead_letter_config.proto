@@ -1,18 +1,40 @@
 // filepath: pkg/queue/proto/messages/dead_letter_config.proto
 // file: queue/proto/messages/dead_letter_config.proto
+// version: 1.0.0
+// guid: 8a7b6c5d-4e3f-2a1b-0c9d-8e7f6a5b4c3d
 //
 // Message definitions for queue module
-// TODO: Implement actual protobuf definitions
 //
 edition = "2023";
 
 package gcommon.v1.queue;
 
 import "google/protobuf/go_features.proto";
+import "google/protobuf/duration.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
 option go_package = "github.com/jdfalk/gcommon/pkg/queue/proto;queuepb";
 
-// TODO: Add message definitions here
-// This is a placeholder file created during 1-1-1 migration
-// Implement the actual protobuf definitions according to the queue module requirements
+/**
+ * Configuration for dead letter queue behavior.
+ * Defines how messages that cannot be processed are handled.
+ */
+message DeadLetterConfig {
+  // Whether dead letter queue functionality is enabled
+  bool enabled = 1;
+
+  // Name of the dead letter queue
+  string dead_letter_queue_name = 2;
+
+  // Maximum number of delivery attempts before sending to DLQ
+  int32 max_delivery_attempts = 3;
+
+  // Time to live for messages in the dead letter queue
+  google.protobuf.Duration ttl = 4;
+
+  // Whether to preserve the original message headers
+  bool preserve_headers = 5;
+
+  // Additional metadata to attach to dead letter messages
+  map<string, string> additional_metadata = 6;
+}

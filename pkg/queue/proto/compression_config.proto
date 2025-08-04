@@ -1,18 +1,51 @@
 // filepath: pkg/queue/proto/messages/compression_config.proto
 // file: queue/proto/messages/compression_config.proto
+// version: 1.0.0
+// guid: 1a2b3c4d-5e6f-7a8b-9c0d-1e2f3a4b5c6d
 //
 // Message definitions for queue module
-// TODO: Implement actual protobuf definitions
 //
 edition = "2023";
 
 package gcommon.v1.queue;
 
 import "google/protobuf/go_features.proto";
+import "pkg/queue/proto/compression_algorithm.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
 option go_package = "github.com/jdfalk/gcommon/pkg/queue/proto;queuepb";
 
-// TODO: Add message definitions here
-// This is a placeholder file created during 1-1-1 migration
-// Implement the actual protobuf definitions according to the queue module requirements
+/**
+ * Configuration for message compression.
+ */
+message CompressionConfig {
+  // Whether compression is enabled
+  bool enabled = 1;
+
+  // Compression algorithm to use
+  gcommon.v1.queue.CompressionAlgorithm algorithm = 2;
+
+  // Compression level (algorithm-specific)
+  int32 compression_level = 3;
+
+  // Minimum message size to trigger compression
+  int64 min_size_threshold = 4;
+
+  // Maximum message size for compression
+  int64 max_size_threshold = 5;
+
+  // Compression ratio threshold for enabling compression
+  double min_compression_ratio = 6;
+
+  // Content types that should be compressed
+  repeated string compressible_content_types = 7;
+
+  // Content types that should not be compressed
+  repeated string non_compressible_content_types = 8;
+
+  // Whether to preserve original size information
+  bool preserve_original_size = 9;
+
+  // Custom compression settings
+  map<string, string> custom_settings = 10;
+}

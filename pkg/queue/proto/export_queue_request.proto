@@ -1,20 +1,48 @@
 // filepath: pkg/queue/proto/requests/export_queue_request.proto
 // file: queue/proto/requests/export_queue_request.proto
+// version: 1.0.0
+// guid: 4a3b2c1d-0e9f-8a7b-6c5d-4e3f2a1b0c9d
 //
 // Request definitions for queue module
-// TODO: Implement actual protobuf definitions
 //
 edition = "2023";
 
 package gcommon.v1.queue;
 
 import "google/protobuf/go_features.proto";
+import "pkg/queue/proto/export_format.proto";
+import "pkg/queue/proto/time_range.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
 option go_package = "github.com/jdfalk/gcommon/pkg/queue/proto;queuepb";
 
-// TODO: Add request definitions here
-// This is a placeholder file created during 1-1-1 migration
-// Implement the actual protobuf definitions according to the queue module requirements
+/**
+ * Request to export queue data for backup or migration purposes.
+ */
+message ExportQueueRequest {
+  // Name of the queue to export
+  string queue_name = 1;
+
+  // Export destination (file path, cloud storage URI, etc.)
+  string destination = 2;
+
+  // Export format
+  gcommon.v1.queue.ExportFormat format = 3;
+
+  // Whether to include message data or just metadata
+  bool include_message_data = 4;
+
+  // Time range for export (optional)
+  gcommon.v1.queue.TimeRange time_range = 5;
+
+  // Whether to compress the export
+  bool compress = 6;
+
+  // Maximum number of messages to export (0 = no limit)
+  int64 max_messages = 7;
+
+  // Export configuration options
+  map<string, string> options = 8;
+}
 // SKELETON_FILE: Compilation temporarily disabled
 // This file needs proper implementation

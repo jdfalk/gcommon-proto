@@ -1,18 +1,49 @@
 // filepath: pkg/queue/proto/messages/stream_config.proto
 // file: queue/proto/messages/stream_config.proto
+// version: 1.0.0
+// guid: 7a6b5c4d-3e2f-1a0b-9c8d-7e6f5a4b3c2d
 //
 // Message definitions for queue module
-// TODO: Implement actual protobuf definitions
 //
 edition = "2023";
 
 package gcommon.v1.queue;
 
 import "google/protobuf/go_features.proto";
+import "google/protobuf/duration.proto";
+import "pkg/queue/proto/stream_restart_policy.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
 option go_package = "github.com/jdfalk/gcommon/pkg/queue/proto;queuepb";
 
-// TODO: Add message definitions here
-// This is a placeholder file created during 1-1-1 migration
-// Implement the actual protobuf definitions according to the queue module requirements
+/**
+ * Configuration for streaming message consumption.
+ */
+message StreamConfig {
+  // Maximum number of messages to buffer
+  int32 buffer_size = 1;
+
+  // Timeout for stream read operations
+  google.protobuf.Duration read_timeout = 2;
+
+  // Whether to enable flow control
+  bool flow_control_enabled = 3;
+
+  // Maximum outstanding messages before flow control kicks in
+  int32 max_outstanding_messages = 4;
+
+  // Maximum outstanding bytes before flow control kicks in
+  int64 max_outstanding_bytes = 5;
+
+  // Whether to automatically acknowledge messages
+  bool auto_ack = 6;
+
+  // Acknowledgment deadline for manually acknowledged messages
+  google.protobuf.Duration ack_deadline = 7;
+
+  // Whether to enable message ordering
+  bool enable_message_ordering = 8;
+
+  // Stream restart policy on failure
+  gcommon.v1.queue.StreamRestartPolicy restart_policy = 9;
+}

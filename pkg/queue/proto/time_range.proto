@@ -1,0 +1,27 @@
+// filepath: pkg/queue/proto/messages/time_range.proto
+// file: queue/proto/messages/time_range.proto
+// version: 1.0.0
+// guid: 2a1b0c9d-8e7f-6a5b-4c3d-2e1f0a9b8c7d
+//
+// Message definitions for queue module
+//
+edition = "2023";
+
+package gcommon.v1.queue;
+
+import "google/protobuf/go_features.proto";
+import "google/protobuf/timestamp.proto";
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/jdfalk/gcommon/pkg/queue/proto;queuepb";
+
+/**
+ * Time range for filtering messages.
+ */
+message TimeRange {
+  // Start time (inclusive)
+  google.protobuf.Timestamp start_time = 1;
+
+  // End time (exclusive)
+  google.protobuf.Timestamp end_time = 2;
+}
