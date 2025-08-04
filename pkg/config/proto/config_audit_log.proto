@@ -7,7 +7,13 @@ edition = "2023";
 package gcommon.v1.config;
 
 import "google/protobuf/timestamp.proto";
-import "pkg/common/proto/jdfalk/gcommon/pkg/config/proto;configpb";
+import "pkg/config/proto/audit_operation_type.proto";
+import "pkg/config/proto/validation_result_type.proto";
+import "pkg/config/proto/validation_severity.proto";
+import "pkg/config/proto/approval_status.proto";
+import "pkg/config/proto/rollback_method.proto";
+
+option go_package = "github.com/jdfalk/gcommon/pkg/config/proto;configpb";
 
 // ConfigAuditLog represents a configuration change audit entry
 message ConfigAuditLog {
@@ -102,24 +108,6 @@ message ConfigAuditLog {
   string checksum = 30;
 }
 
-// AuditOperationType represents the type of configuration operation
-enum AuditOperationType {
-  AUDIT_OPERATION_TYPE_UNSPECIFIED = 0;
-  AUDIT_OPERATION_TYPE_CREATE = 1;
-  AUDIT_OPERATION_TYPE_UPDATE = 2;
-  AUDIT_OPERATION_TYPE_DELETE = 3;
-  AUDIT_OPERATION_TYPE_BULK_CREATE = 4;
-  AUDIT_OPERATION_TYPE_BULK_UPDATE = 5;
-  AUDIT_OPERATION_TYPE_BULK_DELETE = 6;
-  AUDIT_OPERATION_TYPE_IMPORT = 7;
-  AUDIT_OPERATION_TYPE_EXPORT = 8;
-  AUDIT_OPERATION_TYPE_BACKUP = 9;
-  AUDIT_OPERATION_TYPE_RESTORE = 10;
-  AUDIT_OPERATION_TYPE_ROLLBACK = 11;
-  AUDIT_OPERATION_TYPE_VALIDATE = 12;
-  AUDIT_OPERATION_TYPE_SYNC = 13;
-}
-
 // ValidationResult represents the result of a validation check
 message ValidationResult {
   // Validation rule name
@@ -139,24 +127,6 @@ message ValidationResult {
 
   // Additional context
   map<string, string> context = 6;
-}
-
-// ValidationResultType represents the result of validation
-enum ValidationResultType {
-  VALIDATION_RESULT_TYPE_UNSPECIFIED = 0;
-  VALIDATION_RESULT_TYPE_PASS = 1;
-  VALIDATION_RESULT_TYPE_FAIL = 2;
-  VALIDATION_RESULT_TYPE_WARNING = 3;
-  VALIDATION_RESULT_TYPE_SKIP = 4;
-}
-
-// ValidationSeverity represents the severity of validation issues
-enum ValidationSeverity {
-  VALIDATION_SEVERITY_UNSPECIFIED = 0;
-  VALIDATION_SEVERITY_INFO = 1;
-  VALIDATION_SEVERITY_WARNING = 2;
-  VALIDATION_SEVERITY_ERROR = 3;
-  VALIDATION_SEVERITY_CRITICAL = 4;
 }
 
 // ApprovalInfo represents approval information for gated changes
@@ -183,16 +153,6 @@ message ApprovalInfo {
   string policy_name = 7;
 }
 
-// ApprovalStatus represents the approval status
-enum ApprovalStatus {
-  APPROVAL_STATUS_UNSPECIFIED = 0;
-  APPROVAL_STATUS_PENDING = 1;
-  APPROVAL_STATUS_APPROVED = 2;
-  APPROVAL_STATUS_REJECTED = 3;
-  APPROVAL_STATUS_CANCELLED = 4;
-  APPROVAL_STATUS_EXPIRED = 5;
-}
-
 // RollbackInfo represents rollback information
 message RollbackInfo {
   // Original audit entry being rolled back
@@ -209,13 +169,4 @@ message RollbackInfo {
 
   // Whether rollback was automatic
   bool automatic = 5;
-}
-
-// RollbackMethod represents how the rollback was performed
-enum RollbackMethod {
-  ROLLBACK_METHOD_UNSPECIFIED = 0;
-  ROLLBACK_METHOD_VALUE_RESTORE = 1;
-  ROLLBACK_METHOD_VERSION_RESTORE = 2;
-  ROLLBACK_METHOD_SNAPSHOT_RESTORE = 3;
-  ROLLBACK_METHOD_MANUAL = 4;
 }
