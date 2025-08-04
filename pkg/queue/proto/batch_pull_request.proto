@@ -21,22 +21,22 @@ option go_package = "github.com/jdfalk/gcommon/pkg/queue/proto;queuepb";
 message BatchPullRequest {
   // Name of the queue to pull from
   string queue_name = 1;
-  
+
   // Maximum number of messages to pull
   uint32 max_messages = 2;
-  
+
   // Maximum time to wait for messages
   google.protobuf.Duration wait_timeout = 3;
-  
+
   // Whether to acknowledge messages automatically
   bool auto_acknowledge = 4;
-  
+
   // Consumer group ID (optional)
   string consumer_group = 5;
-  
+
   // Subscription name (optional)
   string subscription = 6;
-  
+
   // Maximum payload size in bytes
   uint64 max_payload_size = 7;
 }

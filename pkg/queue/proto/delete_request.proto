@@ -22,22 +22,22 @@ option go_package = "github.com/jdfalk/gcommon/pkg/queue/proto;queuepb";
 message DeleteRequest {
   // Name of the queue containing the message
   string queue_name = 1;
-  
+
   // Unique identifier of the message to delete
   string message_id = 2;
-  
+
   // Acknowledgment token (if message was previously consumed)
   string ack_token = 3;
-  
+
   // Whether to force deletion even if message is locked
   bool force = 4;
-  
+
   // Reason for deletion
   string reason = 5;
-  
+
   // Delete criteria (alternative to message_id)
   DeleteCriteria criteria = 6;
-  
+
   // Request metadata for tracing and correlation
   gcommon.v1.common.RequestMetadata metadata = 100;
 }
@@ -48,19 +48,19 @@ message DeleteRequest {
 message DeleteCriteria {
   // Delete messages older than this timestamp
   int64 older_than_timestamp = 1;
-  
+
   // Delete messages with specific headers
   map<string, string> header_filters = 2;
-  
+
   // Delete messages with specific priority
   int32 priority = 3;
-  
+
   // Delete messages with specific correlation ID
   string correlation_id = 4;
-  
+
   // Maximum number of messages to delete
   int32 max_messages = 5;
-  
+
   // Delete messages in specific state
   gcommon.v1.queue.MessageState state = 6;
 }

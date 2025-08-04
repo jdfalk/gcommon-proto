@@ -20,19 +20,19 @@ option go_package = "github.com/jdfalk/gcommon/pkg/queue/proto;queuepb";
 message CreateSubscriptionResponse {
   // Whether the subscription was created successfully
   bool success = 1;
-  
+
   // Error message if creation failed
   string error_message = 2;
-  
+
   // ID of the created subscription
   string subscription_id = 3;
-  
+
   // Name of the created subscription
   string subscription_name = 4;
-  
+
   // Timestamp when subscription was created
   uint64 created_at = 5;
-  
+
   // Initial position in the queue
   uint64 initial_position = 6;
 }

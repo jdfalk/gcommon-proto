@@ -21,22 +21,22 @@ option go_package = "github.com/jdfalk/gcommon/pkg/queue/proto;queuepb";
 message ImportQueueRequest {
   // Name of the queue to import into
   string queue_name = 1;
-  
+
   // Source location for import data
   string source_path = 2;
-  
+
   // Format of the import data
   gcommon.v1.queue.ExportFormat format = 3;
-  
+
   // Whether to overwrite existing data
   bool overwrite = 4;
-  
+
   // Whether to validate data before import
   bool validate = 5;
-  
+
   // Maximum number of messages to import
   uint64 max_messages = 6;
-  
+
   // Import timeout in milliseconds
   uint64 timeout_ms = 7;
 }

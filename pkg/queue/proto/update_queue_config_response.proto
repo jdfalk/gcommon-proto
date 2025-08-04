@@ -20,16 +20,16 @@ option go_package = "github.com/jdfalk/gcommon/pkg/queue/proto;queuepb";
 message UpdateQueueConfigResponse {
   // Whether the update was successful
   bool success = 1;
-  
+
   // Error message if update failed
   string error_message = 2;
-  
+
   // Updated configuration version
   uint64 config_version = 3;
-  
+
   // Timestamp of the update
   uint64 updated_at = 4;
-  
+
   // List of configuration fields that were updated
   repeated string updated_fields = 5;
 }
