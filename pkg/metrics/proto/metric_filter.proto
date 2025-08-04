@@ -1,109 +1,33 @@
-// filepath: pkg/metrics/proto/messages/metric_filter.proto
-// file: metrics/proto/messages/metric_filter.proto
-//
-// Message definitions for metrics module
-// TODO: Implement actual protobuf definitions
-//
+// file: pkg/metrics/proto/metric_filter.proto
+// version: 1.0.0
+// Filter for metrics queries
+
 edition = "2023";
 
 package gcommon.v1.metrics;
 
-import "google/protobuf/go_features.proto";
-import "pkg/metrics/proto/gcommon/pkg/metrics/proto;metricspb";
-import "pkg/metrics/proto/proto/comparison_operator.proto";
+option go_package = "github.com/jdfalk/gcommon/pkg/metrics/proto;metricspb";
 
-option features.(pb.go).api_level = API_OPAQUE;
-
-/**
- * MetricFilter defines criteria for filtering metrics in queries.
- * Used to specify which metrics to include/exclude from operations.
- */
+// Filter for metrics queries
 message MetricFilter {
-  // Filter by metric name (supports wildcards and regex)
+  // Metric name patterns to include
   repeated string metric_names = 1;
 
-  // Filter by metric type
-  repeated MetricType metric_types = 2;
+  // Label filters
+  map<string, string> labels = 2;
 
-  // Filter by labels/tags
-  repeated LabelFilter label_filters = 3;
-
-  // Filter by namespace
-  repeated string namespaces = 4;
-
-  // Filter by source system
-  repeated string sources = 5;
+  // Namespace filter
+  string namespace = 3;
 
   // Time range filter
-  TimeFilter time_filter = 6;
+  int64 start_timestamp = 4;
+  int64 end_timestamp = 5;
 
-  // Filter by value range
-  repeated ValueFilter value_filters = 7;
+  // Value threshold filters
+  double min_value = 6;
+  double max_value = 7;
 
-  // Limit number of results
-  int32 limit = 8;
-
-  // Skip/offset for pagination
-  int32 offset = 9;
-}
-
-/**
- * LabelFilter filters metrics based on label values.
- */
-message LabelFilter {
-  // Label key to filter on
-  string key = 1;
-
-  // Comparison operator for the filter
-  ComparisonOperator operator = 2;
-
-  // Value(s) to compare against
-  repeated string values = 3;
-
-  // Whether this filter should be negated (NOT condition)
-  bool negated = 4;
-}
-
-/**
- * ValueFilter filters metrics based on their actual values.
- */
-message ValueFilter {
-  // Comparison operator
-  ComparisonOperator operator = 1;
-
-  // Value to compare against
-  oneof threshold {
-    double double_value = 2;
-    int64 int_value = 3;
-    string string_value = 4;
-    bool bool_value = 5;
-  }
-
-  // Whether this filter should be negated
-  bool negated = 6;
-}
-
-/**
- * SortCriteria defines how to sort metric results.
- */
-message SortCriteria {
-  // Field to sort by
-  enum SortField {
-    SORT_FIELD_UNSPECIFIED = 0;
-    SORT_FIELD_NAME = 1;
-    SORT_FIELD_TIMESTAMP = 2;
-    SORT_FIELD_VALUE = 3;
-    SORT_FIELD_CREATED_AT = 4;
-  }
-
-  SortField field = 1;
-
-  // Sort direction
-  enum SortOrder {
-    SORT_ORDER_UNSPECIFIED = 0;
-    SORT_ORDER_ASCENDING = 1;
-    SORT_ORDER_DESCENDING = 2;
-  }
-
-  SortOrder order = 2;
+  // Include/exclude patterns
+  repeated string include_patterns = 8;
+  repeated string exclude_patterns = 9;
 }
