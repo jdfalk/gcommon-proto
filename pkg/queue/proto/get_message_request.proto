@@ -1,18 +1,30 @@
-// filepath: pkg/queue/proto/requests/get_message_request.proto
-// file: queue/proto/requests/get_message_request.proto
-//
-// Request definitions for queue module
-// TODO: Implement actual protobuf definitions
-//
+// file: pkg/queue/proto/get_message_request.proto
+// version: 1.0.0
+// Request to get a specific message
+
 edition = "2023";
 
 package gcommon.v1.queue;
 
-import "google/protobuf/go_features.proto";
+option go_package = "github.com/jdfalk/gcommon/pkg/queue/queuepb";
 
-option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/pkg/queue/proto;queuepb";
+// Request to get a specific message
+message GetMessageRequest {
+  // Topic name
+  string topic = 1;
 
-// TODO: Add request definitions here
-// This is a placeholder file created during 1-1-1 migration
-// Implement the actual protobuf definitions according to the queue module requirements
+  // Message ID to retrieve
+  string message_id = 2;
+
+  // Partition ID (optional)
+  int32 partition_id = 3;
+
+  // Offset within partition (optional)
+  int64 offset = 4;
+
+  // Include message metadata
+  bool include_metadata = 5;
+
+  // Timeout for the operation (milliseconds)
+  int32 timeout_ms = 6;
+}

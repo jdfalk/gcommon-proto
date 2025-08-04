@@ -1,0 +1,30 @@
+// file: pkg/queue/proto/publish_result.proto
+// version: 1.0.0
+// Result information for individual message publish operations
+
+edition = "2023";
+
+package gcommon.v1.queue;
+
+option go_package = "github.com/jdfalk/gcommon/pkg/queue/queuepb";
+
+// Result for an individual message publish
+message PublishResult {
+  // Message ID assigned by the queue
+  string message_id = 1;
+
+  // Whether the publish was successful
+  bool success = 2;
+
+  // Error message if publish failed
+  string error = 3;
+
+  // Partition ID where message was published
+  int32 partition_id = 4;
+
+  // Offset within the partition
+  int64 offset = 5;
+
+  // Timestamp when message was published
+  int64 timestamp = 6;
+}
