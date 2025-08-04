@@ -4,6 +4,7 @@ edition = "2023";
 package gcommon.v1.auth;
 
 import "google/protobuf/empty.proto";
+import "pkg/auth/proto/role.proto";
 import "google/protobuf/go_features.proto";
 
 // TODO: Add imports when files are created
