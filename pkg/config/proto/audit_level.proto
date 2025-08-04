@@ -1,0 +1,36 @@
+// file: pkg/config/proto/audit_level.proto
+// version: 1.0.0
+// guid: d3e4f5c6-b7a8-9c0d-1e2f-7a6b5c4d3e2f
+
+edition = "2023";
+
+package gcommon.v1.config;
+
+import "google/protobuf/go_features.proto";
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/jdfalk/gcommon/pkg/config/proto;configpb";
+
+/**
+ * AuditLevel represents the level of audit logging.
+ * Specifies the detail level for configuration audit trail recording.
+ */
+enum AuditLevel {
+  // Unspecified audit level
+  AUDIT_LEVEL_UNSPECIFIED = 0;
+  
+  // No audit logging
+  AUDIT_LEVEL_NONE = 1;
+  
+  // Minimal audit logging
+  AUDIT_LEVEL_MINIMAL = 2;
+  
+  // Standard audit logging
+  AUDIT_LEVEL_STANDARD = 3;
+  
+  // Detailed audit logging
+  AUDIT_LEVEL_DETAILED = 4;
+  
+  // Verbose audit logging
+  AUDIT_LEVEL_VERBOSE = 5;
+}

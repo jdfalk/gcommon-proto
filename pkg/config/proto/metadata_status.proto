@@ -1,0 +1,33 @@
+// file: pkg/config/proto/metadata_status.proto
+// version: 1.0.0
+// guid: 96a7b8c9-d0e1-f2a3-b4c5-d1a0b9c8d7e6
+
+edition = "2023";
+
+package gcommon.v1.config;
+
+import "google/protobuf/go_features.proto";
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/jdfalk/gcommon/pkg/config/proto;configpb";
+
+/**
+ * MetadataStatus represents the status of configuration metadata.
+ * Specifies the current state and availability of configuration metadata information.
+ */
+enum MetadataStatus {
+  // Unspecified metadata status
+  METADATA_STATUS_UNSPECIFIED = 0;
+  
+  // Metadata is active and current
+  METADATA_STATUS_ACTIVE = 1;
+  
+  // Metadata is deprecated
+  METADATA_STATUS_DEPRECATED = 2;
+  
+  // Metadata is archived
+  METADATA_STATUS_ARCHIVED = 3;
+  
+  // Metadata is being migrated
+  METADATA_STATUS_MIGRATING = 4;
+}

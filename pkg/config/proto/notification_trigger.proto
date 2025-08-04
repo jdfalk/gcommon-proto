@@ -1,0 +1,51 @@
+// file: pkg/config/proto/notification_trigger.proto
+// version: 1.0.0
+// guid: b5c6d7e8-f9a0-1b2c-3d4e-9a8b7c6d5e4f
+
+edition = "2023";
+
+package gcommon.v1.config;
+
+import "google/protobuf/go_features.proto";
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/jdfalk/gcommon/pkg/config/proto;configpb";
+
+/**
+ * NotificationTrigger represents what triggers notifications.
+ * Specifies the events that should trigger configuration change notifications.
+ */
+enum NotificationTrigger {
+  // Unspecified notification trigger
+  NOTIFICATION_TRIGGER_UNSPECIFIED = 0;
+  
+  // Configuration value change
+  NOTIFICATION_TRIGGER_VALUE_CHANGE = 1;
+  
+  // Configuration creation
+  NOTIFICATION_TRIGGER_CREATE = 2;
+  
+  // Configuration deletion
+  NOTIFICATION_TRIGGER_DELETE = 3;
+  
+  // Configuration validation failure
+  NOTIFICATION_TRIGGER_VALIDATION_FAILURE = 4;
+  
+  // Approval requirement
+  NOTIFICATION_TRIGGER_APPROVAL_REQUIRED = 5;
+  
+  // Approval completion
+  NOTIFICATION_TRIGGER_APPROVAL_COMPLETED = 6;
+  
+  // Configuration deployment
+  NOTIFICATION_TRIGGER_DEPLOYMENT = 7;
+  
+  // Configuration rollback
+  NOTIFICATION_TRIGGER_ROLLBACK = 8;
+  
+  // Configuration deprecation
+  NOTIFICATION_TRIGGER_DEPRECATION = 9;
+  
+  // Configuration expiration
+  NOTIFICATION_TRIGGER_EXPIRATION = 10;
+}

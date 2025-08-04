@@ -1,0 +1,39 @@
+// file: pkg/config/proto/backup_frequency.proto
+// version: 1.0.0
+// guid: a6b7c8d9-e0f1-2a3b-4c5d-0a9b8c7d6e5f
+
+edition = "2023";
+
+package gcommon.v1.config;
+
+import "google/protobuf/go_features.proto";
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/jdfalk/gcommon/pkg/config/proto;configpb";
+
+/**
+ * BackupFrequency represents the frequency of configuration backups.
+ * Specifies how often configuration data should be backed up for recovery purposes.
+ */
+enum BackupFrequency {
+  // Unspecified backup frequency
+  BACKUP_FREQUENCY_UNSPECIFIED = 0;
+  
+  // No automatic backups
+  BACKUP_FREQUENCY_NONE = 1;
+  
+  // Backup on every change
+  BACKUP_FREQUENCY_ON_CHANGE = 2;
+  
+  // Hourly backups
+  BACKUP_FREQUENCY_HOURLY = 3;
+  
+  // Daily backups
+  BACKUP_FREQUENCY_DAILY = 4;
+  
+  // Weekly backups
+  BACKUP_FREQUENCY_WEEKLY = 5;
+  
+  // Monthly backups
+  BACKUP_FREQUENCY_MONTHLY = 6;
+}
