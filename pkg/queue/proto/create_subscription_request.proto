@@ -1,20 +1,35 @@
-// filepath: pkg/queue/proto/requests/create_subscription_request.proto
-// file: queue/proto/requests/create_subscription_request.proto
-//
-// Request definitions for queue module
-// TODO: Implement actual protobuf definitions
-//
+// file: pkg/queue/proto/create_subscription_request.proto
+// version: 1.0.0
+// Request to create a new subscription
+
 edition = "2023";
 
 package gcommon.v1.queue;
 
-import "google/protobuf/go_features.proto";
+option go_package = "github.com/jdfalk/gcommon/pkg/queue/queuepb";
 
-option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/pkg/queue/proto;queuepb";
+import "pkg/queue/proto/subscription_config.proto";
 
-// TODO: Add request definitions here
-// This is a placeholder file created during 1-1-1 migration
-// Implement the actual protobuf definitions according to the queue module requirements
-// SKELETON_FILE: Compilation temporarily disabled
-// This file needs proper implementation
+// Request to create a new subscription
+message CreateSubscriptionRequest {
+  // Subscription name
+  string subscription_name = 1;
+
+  // Topic to subscribe to
+  string topic = 2;
+
+  // Consumer group ID
+  string consumer_group_id = 3;
+
+  // Subscription configuration
+  SubscriptionConfig config = 4;
+
+  // Starting position (earliest, latest, or specific offset)
+  string start_position = 5;
+
+  // Specific offset (if start_position is "offset")
+  int64 start_offset = 6;
+
+  // Timeout for the operation (milliseconds)
+  int32 timeout_ms = 7;
+}

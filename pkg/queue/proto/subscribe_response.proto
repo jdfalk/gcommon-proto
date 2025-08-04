@@ -1,20 +1,31 @@
-// filepath: pkg/queue/proto/responses/subscribe_response.proto
-// file: queue/proto/responses/subscribe_response.proto
-//
-// Response definitions for queue module
-// TODO: Implement actual protobuf definitions
-//
+// file: pkg/queue/proto/subscribe_response.proto
+// version: 1.0.0
+// Response for queue subscription with messages
+
 edition = "2023";
 
 package gcommon.v1.queue;
 
-import "google/protobuf/go_features.proto";
+option go_package = "github.com/jdfalk/gcommon/pkg/queue/queuepb";
 
-option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/pkg/queue/proto;queuepb";
+import "pkg/queue/proto/message.proto";
+import "pkg/queue/proto/partition_offset.proto";
+import "pkg/queue/proto/connection_details.proto";
 
-// TODO: Add response definitions here
-// This is a placeholder file created during 1-1-1 migration
-// Implement the actual protobuf definitions according to the queue module requirements
-// SKELETON_FILE: Compilation temporarily disabled
-// This file needs proper implementation
+// Response for subscription requests
+message SubscribeResponse {
+  // Message data
+  Message message = 1;
+
+  // Partition assignment info
+  PartitionOffset partition_offset = 2;
+
+  // Connection details for streaming
+  ConnectionDetails connection_details = 3;
+
+  // Subscription ID
+  string subscription_id = 4;
+
+  // Error message if any
+  string error = 5;
+}

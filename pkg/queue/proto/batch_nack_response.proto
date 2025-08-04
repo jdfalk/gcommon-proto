@@ -1,20 +1,30 @@
-// filepath: pkg/queue/proto/responses/batch_nack_response.proto
-// file: queue/proto/responses/batch_nack_response.proto
-//
-// Response definitions for queue module
-// TODO: Implement actual protobuf definitions
-//
+// file: pkg/queue/proto/batch_nack_response.proto
+// version: 1.0.0
+// Response for batch negative acknowledgment operations
+
 edition = "2023";
 
 package gcommon.v1.queue;
 
-import "google/protobuf/go_features.proto";
+option go_package = "github.com/jdfalk/gcommon/pkg/queue/queuepb";
 
-option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/pkg/queue/proto;queuepb";
+// Response for batch negative acknowledgment operations
+message BatchNackResponse {
+  // Number of messages successfully nacked
+  int32 successful_count = 1;
 
-// TODO: Add response definitions here
-// This is a placeholder file created during 1-1-1 migration
-// Implement the actual protobuf definitions according to the queue module requirements
-// SKELETON_FILE: Compilation temporarily disabled
-// This file needs proper implementation
+  // Number of messages that failed to nack
+  int32 failed_count = 2;
+
+  // List of message IDs that were successfully nacked
+  repeated string successful_message_ids = 3;
+
+  // List of message IDs that failed to nack
+  repeated string failed_message_ids = 4;
+
+  // Error messages for failed nacks (indexed by failed_message_ids)
+  repeated string error_messages = 5;
+
+  // Overall operation error if any
+  string error = 6;
+}
