@@ -1,42 +1,32 @@
 // file: pkg/config/proto/channel_type.proto
 // version: 1.0.0
-// guid: c4d5e6f7-a8b9-0c1d-2e3f-8a7b6c5d4e3f
+// guid: 6f6a3985-1560-40b0-b6d5-b2985349b649
 
 edition = "2023";
 
 package gcommon.v1.config;
 
 import "google/protobuf/go_features.proto";
+import "google/protobuf/timestamp.proto";
+import "pkg/config/proto/config_data_type.proto";
+import "pkg/config/proto/deprecation_level.proto";
+import "pkg/config/proto/audit_level.proto";
+import "pkg/config/proto/channel_type.proto";
+import "pkg/config/proto/notification_trigger.proto";
+import "pkg/config/proto/backup_frequency.proto";
+import "pkg/config/proto/metadata_status.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
 option go_package = "github.com/jdfalk/gcommon/pkg/config/proto;configpb";
 
-/**
- * ChannelType represents the type of notification channel.
- * Specifies the communication channel for configuration change notifications.
- */
 enum ChannelType {
-  // Unspecified channel type
   CHANNEL_TYPE_UNSPECIFIED = 0;
-
-  // Email notification channel
   CHANNEL_TYPE_EMAIL = 1;
-
-  // SMS notification channel
-  CHANNEL_TYPE_SMS = 2;
-
-  // Slack notification channel
-  CHANNEL_TYPE_SLACK = 3;
-
-  // Microsoft Teams notification channel
-  CHANNEL_TYPE_TEAMS = 4;
-
-  // Discord notification channel
-  CHANNEL_TYPE_DISCORD = 5;
-
-  // Webhook notification channel
-  CHANNEL_TYPE_WEBHOOK = 6;
-
-  // Push notification channel
-  CHANNEL_TYPE_PUSH = 7;
+  CHANNEL_TYPE_SLACK = 2;
+  CHANNEL_TYPE_WEBHOOK = 3;
+  CHANNEL_TYPE_SMS = 4;
+  CHANNEL_TYPE_PAGERDUTY = 5;
+  CHANNEL_TYPE_TEAMS = 6;
+  CHANNEL_TYPE_DISCORD = 7;
+  CHANNEL_TYPE_JIRA = 8;
 }

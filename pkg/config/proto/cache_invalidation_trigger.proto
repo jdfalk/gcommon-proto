@@ -1,0 +1,24 @@
+// file: pkg/config/proto/cache_invalidation_trigger.proto
+// version: 1.0.0
+// guid: b09e744e-1475-4fcb-a8cc-0d121530e6b7
+
+edition = "2023";
+
+package gcommon.v1.config;
+
+import "google/protobuf/go_features.proto";
+import "google/protobuf/any.proto";
+import "google/protobuf/timestamp.proto";
+import "pkg/common/proto/config/proto/config/proto/config_template.proto";
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/jdfalk/gcommon/pkg/config/proto;configpb";
+
+enum CacheInvalidationTrigger {
+  CACHE_INVALIDATION_TRIGGER_UNSPECIFIED = 0;
+  CACHE_INVALIDATION_TRIGGER_CHANGE = 1;
+  CACHE_INVALIDATION_TRIGGER_DELETE = 2;
+  CACHE_INVALIDATION_TRIGGER_EXPIRE = 3;
+  CACHE_INVALIDATION_TRIGGER_MANUAL = 4;
+  CACHE_INVALIDATION_TRIGGER_SCHEDULE = 5;
+}

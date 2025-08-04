@@ -1,0 +1,26 @@
+// file: pkg/config/proto/merge_strategy.proto
+// version: 1.0.0
+// guid: 559ca0d7-17d4-49ab-861d-febdc5862a47
+
+edition = "2023";
+
+package gcommon.v1.config;
+
+import "google/protobuf/go_features.proto";
+import "google/protobuf/any.proto";
+import "google/protobuf/timestamp.proto";
+import "pkg/common/proto/config/proto/config/proto/config_template.proto";
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/jdfalk/gcommon/pkg/config/proto;configpb";
+
+enum MergeStrategy {
+  MERGE_STRATEGY_UNSPECIFIED = 0;
+  MERGE_STRATEGY_REPLACE = 1;
+  MERGE_STRATEGY_MERGE_DEEP = 2;
+  MERGE_STRATEGY_MERGE_SHALLOW = 3;
+  MERGE_STRATEGY_ARRAY_CONCAT = 4;
+  MERGE_STRATEGY_ARRAY_REPLACE = 5;
+  MERGE_STRATEGY_ARRAY_MERGE = 6;
+  MERGE_STRATEGY_CUSTOM = 7;
+}

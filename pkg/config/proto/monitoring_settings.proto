@@ -1,0 +1,31 @@
+// file: pkg/config/proto/monitoring_settings.proto
+// version: 1.0.0
+// guid: 1df1c6fa-7f81-4982-9c0e-040b1f0ad10f
+
+edition = "2023";
+
+package gcommon.v1.config;
+
+import "google/protobuf/go_features.proto";
+import "google/protobuf/timestamp.proto";
+import "pkg/common/proto/jdfalk/gcommon/pkg/config/proto;configpb";
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/jdfalk/gcommon/pkg/config/proto;configpb";
+
+message MonitoringSettings {
+  // Whether monitoring is enabled
+  bool enabled = 1;
+
+  // Monitoring alerts
+  repeated MonitoringAlert alerts = 2;
+
+  // Monitoring metrics
+  repeated string metrics = 3;
+
+  // Monitoring dashboard
+  string dashboard = 4;
+
+  // Monitoring retention period in days
+  int32 retention_days = 5;
+}

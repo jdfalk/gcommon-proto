@@ -1,19 +1,18 @@
 // file: pkg/config/proto/hook_error_handling.proto
 // version: 1.0.0
-// guid: e5f6a7b8-c9d0-1e2f-3a4b-5c6d7e8f9a0b
+// guid: f5c075fd-6a9f-4072-bea8-ee82bb35c1b5
 
 edition = "2023";
 
 package gcommon.v1.config;
 
 import "google/protobuf/go_features.proto";
+import "google/protobuf/timestamp.proto";
+import "pkg/config/proto/gcommon/pkg/config/proto;configpb";
 
 option features.(pb.go).api_level = API_OPAQUE;
 option go_package = "github.com/jdfalk/gcommon/pkg/config/proto;configpb";
 
-/**
- * HookErrorHandling represents how to handle hook errors.
- */
 enum HookErrorHandling {
   HOOK_ERROR_HANDLING_UNSPECIFIED = 0;
   HOOK_ERROR_HANDLING_IGNORE = 1;

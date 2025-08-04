@@ -1,0 +1,26 @@
+// file: pkg/config/proto/filter_type.proto
+// version: 1.0.0
+// guid: b6d065a7-715d-45d0-baa4-b09e53b470b5
+
+edition = "2023";
+
+package gcommon.v1.config;
+
+import "google/protobuf/go_features.proto";
+import "google/protobuf/any.proto";
+import "google/protobuf/timestamp.proto";
+import "pkg/common/proto/config/proto/config/proto/config_template.proto";
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/jdfalk/gcommon/pkg/config/proto;configpb";
+
+enum FilterType {
+  FILTER_TYPE_UNSPECIFIED = 0;
+  FILTER_TYPE_KEY_PATTERN = 1;
+  FILTER_TYPE_VALUE_PATTERN = 2;
+  FILTER_TYPE_ENVIRONMENT = 3;
+  FILTER_TYPE_SERVICE = 4;
+  FILTER_TYPE_COMPONENT = 5;
+  FILTER_TYPE_TAG = 6;
+  FILTER_TYPE_CUSTOM = 7;
+}

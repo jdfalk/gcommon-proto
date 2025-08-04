@@ -1,0 +1,38 @@
+// file: pkg/config/proto/validation_settings.proto
+// version: 1.0.0
+// guid: b6a8294f-3f5c-4bcc-95ad-9369bd1addd5
+
+edition = "2023";
+
+package gcommon.v1.config;
+
+import "google/protobuf/go_features.proto";
+import "google/protobuf/any.proto";
+import "google/protobuf/timestamp.proto";
+import "pkg/common/proto/config/proto/config/proto/config_template.proto";
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/jdfalk/gcommon/pkg/config/proto;configpb";
+
+message ValidationSettings {
+  // Whether validation is enabled
+  bool enabled = 1;
+
+  // Validation rules (using ValidationRule from config_template.proto)
+  repeated ValidationRule rules = 2;
+
+  // Validation on change
+  bool validate_on_change = 3;
+
+  // Validation on access
+  bool validate_on_access = 4;
+
+  // Validation timeout in seconds
+  int32 timeout_seconds = 5;
+
+  // Validation retry settings
+  RetrySettings retry = 6;
+
+  // Validation metadata
+  map<string, string> metadata = 7;
+}

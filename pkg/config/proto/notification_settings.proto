@@ -1,0 +1,44 @@
+// file: pkg/config/proto/notification_settings.proto
+// version: 1.0.0
+// guid: 4694674c-55fc-4ee7-8874-efe3ad5f1250
+
+edition = "2023";
+
+package gcommon.v1.config;
+
+import "google/protobuf/go_features.proto";
+import "pkg/config/proto/notification_trigger.proto";
+import "google/protobuf/timestamp.proto";
+import "pkg/config/proto/config_data_type.proto";
+import "pkg/config/proto/deprecation_level.proto";
+import "pkg/config/proto/audit_level.proto";
+import "pkg/config/proto/channel_type.proto";
+import "pkg/config/proto/notification_trigger.proto";
+import "pkg/config/proto/backup_frequency.proto";
+import "pkg/config/proto/metadata_status.proto";
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/jdfalk/gcommon/pkg/config/proto;configpb";
+
+message NotificationSettings {
+  // Whether notifications are enabled
+  bool enabled = 1;
+
+  // Notification channels
+  repeated NotificationChannel channels = 2;
+
+  // Notification triggers
+  repeated NotificationTrigger triggers = 3;
+
+  // Notification template
+  string template = 4;
+
+  // Notification recipients
+  repeated string recipients = 5;
+
+  // Notification delay in minutes
+  int32 delay_minutes = 6;
+
+  // Notification batching settings
+  BatchingSettings batching = 7;
+}

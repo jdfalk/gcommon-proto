@@ -1,0 +1,32 @@
+// file: pkg/config/proto/synchronization_target.proto
+// version: 1.0.0
+// guid: cefe82ce-a5cb-44d8-a069-e773d0b9658d
+
+edition = "2023";
+
+package gcommon.v1.config;
+
+import "google/protobuf/go_features.proto";
+import "google/protobuf/any.proto";
+import "google/protobuf/timestamp.proto";
+import "pkg/common/proto/config/proto/config/proto/config_template.proto";
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/jdfalk/gcommon/pkg/config/proto;configpb";
+
+message SynchronizationTarget {
+  // Target name
+  string name = 1;
+
+  // Target type
+  string type = 2;
+
+  // Target configuration
+  map<string, string> config = 3;
+
+  // Target enabled
+  bool enabled = 4;
+
+  // Target priority
+  int32 priority = 5;
+}

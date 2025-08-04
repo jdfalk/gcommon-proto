@@ -1,0 +1,46 @@
+// file: pkg/config/proto/usage_statistics.proto
+// version: 1.0.0
+// guid: cc21dcd3-5d5b-42a8-9602-b3b08c2ff649
+
+edition = "2023";
+
+package gcommon.v1.config;
+
+import "google/protobuf/go_features.proto";
+import "google/protobuf/timestamp.proto";
+import "pkg/common/proto/jdfalk/gcommon/pkg/config/proto;configpb";
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/jdfalk/gcommon/pkg/config/proto;configpb";
+
+message UsageStatistics {
+  // Total access count
+  int64 total_access_count = 1;
+
+  // Access count in last 24 hours
+  int64 access_count_24h = 2;
+
+  // Access count in last 7 days
+  int64 access_count_7d = 3;
+
+  // Access count in last 30 days
+  int64 access_count_30d = 4;
+
+  // Unique users count
+  int64 unique_users_count = 5;
+
+  // Unique services count
+  int64 unique_services_count = 6;
+
+  // Average access frequency per day
+  double avg_access_frequency = 7;
+
+  // Peak access timestamp
+  google.protobuf.Timestamp peak_access_at = 8;
+
+  // Peak access count
+  int64 peak_access_count = 9;
+
+  // Usage trends
+  repeated UsageTrend trends = 10;
+}

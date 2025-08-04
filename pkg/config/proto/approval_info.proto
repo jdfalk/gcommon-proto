@@ -1,0 +1,41 @@
+// file: pkg/config/proto/approval_info.proto
+// version: 1.0.0
+// guid: 28dbf45a-ffed-40b5-8bad-30879b48ddcd
+
+edition = "2023";
+
+package gcommon.v1.config;
+
+import "google/protobuf/go_features.proto";
+import "google/protobuf/timestamp.proto";
+import "pkg/config/proto/audit_operation_type.proto";
+import "pkg/config/proto/validation_result_type.proto";
+import "pkg/config/proto/validation_severity.proto";
+import "pkg/config/proto/approval_status.proto";
+import "pkg/config/proto/rollback_method.proto";
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/jdfalk/gcommon/pkg/config/proto;configpb";
+
+message ApprovalInfo {
+  // Whether approval was required
+  bool required = 1;
+
+  // Approval status
+  ApprovalStatus status = 2;
+
+  // User who approved
+  string approved_by = 3;
+
+  // Approval timestamp
+  google.protobuf.Timestamp approved_at = 4;
+
+  // Approval comments
+  string comments = 5;
+
+  // Approval workflow ID
+  string workflow_id = 6;
+
+  // Approval policy applied
+  string policy_name = 7;
+}

@@ -1,0 +1,31 @@
+// file: pkg/config/proto/rate_limits.proto
+// version: 1.0.0
+// guid: c507c2fe-0865-4fb3-abb4-6e4a1b9e1d23
+
+edition = "2023";
+
+package gcommon.v1.config;
+
+import "google/protobuf/go_features.proto";
+import "google/protobuf/timestamp.proto";
+import "pkg/common/proto/jdfalk/gcommon/pkg/config/proto;configpb";
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/jdfalk/gcommon/pkg/config/proto;configpb";
+
+message RateLimits {
+  // Requests per minute
+  int32 requests_per_minute = 1;
+
+  // Requests per hour
+  int32 requests_per_hour = 2;
+
+  // Requests per day
+  int32 requests_per_day = 3;
+
+  // Burst allowance
+  int32 burst_allowance = 4;
+
+  // Rate limit window in seconds
+  int32 window_seconds = 5;
+}

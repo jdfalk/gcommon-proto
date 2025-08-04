@@ -1,0 +1,44 @@
+// file: pkg/config/proto/deprecation_info.proto
+// version: 1.0.0
+// guid: 8431c848-ce8a-41cf-9848-ee052647463a
+
+edition = "2023";
+
+package gcommon.v1.config;
+
+import "google/protobuf/go_features.proto";
+import "pkg/config/proto/deprecation_level.proto";
+import "google/protobuf/timestamp.proto";
+import "pkg/config/proto/config_data_type.proto";
+import "pkg/config/proto/deprecation_level.proto";
+import "pkg/config/proto/audit_level.proto";
+import "pkg/config/proto/channel_type.proto";
+import "pkg/config/proto/notification_trigger.proto";
+import "pkg/config/proto/backup_frequency.proto";
+import "pkg/config/proto/metadata_status.proto";
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/jdfalk/gcommon/pkg/config/proto;configpb";
+
+message DeprecationInfo {
+  // Whether the configuration is deprecated
+  bool deprecated = 1;
+
+  // Deprecation reason
+  string reason = 2;
+
+  // Deprecation date
+  google.protobuf.Timestamp deprecated_at = 3;
+
+  // Replacement configuration key
+  string replacement_key = 4;
+
+  // Removal date
+  google.protobuf.Timestamp removal_date = 5;
+
+  // Migration guide
+  string migration_guide = 6;
+
+  // Deprecation level
+  DeprecationLevel level = 7;
+}

@@ -1,0 +1,43 @@
+// file: pkg/config/proto/rotation_event.proto
+// version: 1.0.0
+// guid: e9052065-fcd1-4e05-ba03-77774f238d8b
+
+edition = "2023";
+
+package gcommon.v1.config;
+
+import "google/protobuf/go_features.proto";
+import "google/protobuf/timestamp.proto";
+import "pkg/common/proto/jdfalk/gcommon/pkg/config/proto;configpb";
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/jdfalk/gcommon/pkg/config/proto;configpb";
+
+message RotationEvent {
+  // Rotation timestamp
+  google.protobuf.Timestamp timestamp = 1;
+
+  // User who initiated the rotation
+  string initiated_by = 2;
+
+  // Rotation reason
+  string reason = 3;
+
+  // Rotation method
+  string method = 4;
+
+  // Rotation success
+  bool success = 5;
+
+  // Rotation error
+  string error = 6;
+
+  // Old secret version
+  string old_version = 7;
+
+  // New secret version
+  string new_version = 8;
+
+  // Rotation metadata
+  map<string, string> metadata = 9;
+}

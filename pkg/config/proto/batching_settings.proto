@@ -1,0 +1,34 @@
+// file: pkg/config/proto/batching_settings.proto
+// version: 1.0.0
+// guid: 2814da2b-956d-4e34-b87c-7bf8c1bceb5e
+
+edition = "2023";
+
+package gcommon.v1.config;
+
+import "google/protobuf/go_features.proto";
+import "google/protobuf/timestamp.proto";
+import "pkg/config/proto/config_data_type.proto";
+import "pkg/config/proto/deprecation_level.proto";
+import "pkg/config/proto/audit_level.proto";
+import "pkg/config/proto/channel_type.proto";
+import "pkg/config/proto/notification_trigger.proto";
+import "pkg/config/proto/backup_frequency.proto";
+import "pkg/config/proto/metadata_status.proto";
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/jdfalk/gcommon/pkg/config/proto;configpb";
+
+message BatchingSettings {
+  // Whether batching is enabled
+  bool enabled = 1;
+
+  // Batch size
+  int32 batch_size = 2;
+
+  // Batch timeout in minutes
+  int32 timeout_minutes = 3;
+
+  // Batch grouping key
+  string grouping_key = 4;
+}

@@ -1,0 +1,43 @@
+// file: pkg/config/proto/value_validation_result.proto
+// version: 1.0.0
+// guid: 01a83346-1423-44d3-a9c9-c97dc0cb3f4f
+
+edition = "2023";
+
+package gcommon.v1.config;
+
+import "google/protobuf/go_features.proto";
+import "pkg/config/proto/value_validation_result_type.proto";
+import "pkg/config/proto/value_validation_severity.proto";
+import "google/protobuf/any.proto";
+import "google/protobuf/timestamp.proto";
+import "pkg/common/proto/config/proto/config/proto/config_template.proto";
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/jdfalk/gcommon/pkg/config/proto;configpb";
+
+message ValueValidationResult {
+  // Validation name
+  string name = 1;
+
+  // Validation result
+  ValueValidationResultType result = 2;
+
+  // Validation message
+  string message = 3;
+
+  // Validation severity
+  ValueValidationSeverity severity = 4;
+
+  // Validation timestamp
+  google.protobuf.Timestamp timestamp = 5;
+
+  // Validation details
+  map<string, string> details = 6;
+
+  // Validation rule
+  string rule = 7;
+
+  // Validation context
+  string context = 8;
+}

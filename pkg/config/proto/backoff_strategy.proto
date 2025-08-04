@@ -1,0 +1,23 @@
+// file: pkg/config/proto/backoff_strategy.proto
+// version: 1.0.0
+// guid: 5aec3abd-38af-4436-a59a-c4140f44a461
+
+edition = "2023";
+
+package gcommon.v1.config;
+
+import "google/protobuf/go_features.proto";
+import "google/protobuf/any.proto";
+import "google/protobuf/timestamp.proto";
+import "pkg/common/proto/config/proto/config/proto/config_template.proto";
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/jdfalk/gcommon/pkg/config/proto;configpb";
+
+enum BackoffStrategy {
+  BACKOFF_STRATEGY_UNSPECIFIED = 0;
+  BACKOFF_STRATEGY_FIXED = 1;
+  BACKOFF_STRATEGY_LINEAR = 2;
+  BACKOFF_STRATEGY_EXPONENTIAL = 3;
+  BACKOFF_STRATEGY_CUSTOM = 4;
+}

@@ -1,90 +1,49 @@
 // file: pkg/config/proto/config_data_type.proto
 // version: 1.0.0
-// guid: f1e2d3c4-b5a6-9c8d-7e6f-5a4b3c2d1e0f
+// guid: f619e4df-f067-46db-a813-30458f7fd517
 
 edition = "2023";
 
 package gcommon.v1.config;
 
 import "google/protobuf/go_features.proto";
+import "google/protobuf/timestamp.proto";
+import "pkg/config/proto/config_data_type.proto";
+import "pkg/config/proto/deprecation_level.proto";
+import "pkg/config/proto/audit_level.proto";
+import "pkg/config/proto/channel_type.proto";
+import "pkg/config/proto/notification_trigger.proto";
+import "pkg/config/proto/backup_frequency.proto";
+import "pkg/config/proto/metadata_status.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
 option go_package = "github.com/jdfalk/gcommon/pkg/config/proto;configpb";
 
-/**
- * ConfigDataType represents the data type of a configuration value.
- * Specifies the type and format of configuration data for validation and processing.
- */
 enum ConfigDataType {
-  // Unspecified configuration data type
   CONFIG_DATA_TYPE_UNSPECIFIED = 0;
-
-  // String data type
   CONFIG_DATA_TYPE_STRING = 1;
-
-  // Integer data type
   CONFIG_DATA_TYPE_INTEGER = 2;
-
-  // Float data type
   CONFIG_DATA_TYPE_FLOAT = 3;
-
-  // Boolean data type
   CONFIG_DATA_TYPE_BOOLEAN = 4;
-
-  // Enum data type
   CONFIG_DATA_TYPE_ENUM = 5;
-
-  // List data type
   CONFIG_DATA_TYPE_LIST = 6;
-
-  // Map data type
   CONFIG_DATA_TYPE_MAP = 7;
-
-  // JSON data type
   CONFIG_DATA_TYPE_JSON = 8;
-
-  // YAML data type
   CONFIG_DATA_TYPE_YAML = 9;
-
-  // URL data type
   CONFIG_DATA_TYPE_URL = 10;
-
-  // Email data type
   CONFIG_DATA_TYPE_EMAIL = 11;
-
-  // Password data type
   CONFIG_DATA_TYPE_PASSWORD = 12;
-
-  // Certificate data type
   CONFIG_DATA_TYPE_CERTIFICATE = 13;
-
-  // Private key data type
   CONFIG_DATA_TYPE_PRIVATE_KEY = 14;
-
-  // Public key data type
   CONFIG_DATA_TYPE_PUBLIC_KEY = 15;
-
-  // Duration data type
   CONFIG_DATA_TYPE_DURATION = 16;
-
-  // Timestamp data type
   CONFIG_DATA_TYPE_TIMESTAMP = 17;
-
-  // Regular expression data type
   CONFIG_DATA_TYPE_REGEX = 18;
-
-  // IPv4 address data type
   CONFIG_DATA_TYPE_IPV4 = 19;
-
-  // IPv6 address data type
   CONFIG_DATA_TYPE_IPV6 = 20;
-
-  // CIDR notation data type
   CONFIG_DATA_TYPE_CIDR = 21;
-
-  // File path data type
-  CONFIG_DATA_TYPE_FILE_PATH = 22;
-
-  // Binary data type
-  CONFIG_DATA_TYPE_BINARY = 23;
+  CONFIG_DATA_TYPE_PORT = 22;
+  CONFIG_DATA_TYPE_UUID = 23;
+  CONFIG_DATA_TYPE_BASE64 = 24;
+  CONFIG_DATA_TYPE_HEX = 25;
 }

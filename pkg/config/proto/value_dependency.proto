@@ -1,0 +1,33 @@
+// file: pkg/config/proto/value_dependency.proto
+// version: 1.0.0
+// guid: ceefe5a4-8fbf-4555-9535-c57437357bef
+
+edition = "2023";
+
+package gcommon.v1.config;
+
+import "google/protobuf/go_features.proto";
+import "pkg/config/proto/dependency_type.proto";
+import "google/protobuf/any.proto";
+import "google/protobuf/timestamp.proto";
+import "pkg/common/proto/config/proto/config/proto/config_template.proto";
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/jdfalk/gcommon/pkg/config/proto;configpb";
+
+message ValueDependency {
+  // Dependency type
+  DependencyType type = 1;
+
+  // Dependent value key
+  string dependent_key = 2;
+
+  // Dependency key
+  string dependency_key = 3;
+
+  // Dependency condition
+  string condition = 4;
+
+  // Dependency metadata
+  map<string, string> metadata = 5;
+}

@@ -1,0 +1,24 @@
+// file: pkg/config/proto/conflict_resolution.proto
+// version: 1.0.0
+// guid: 8535d30e-d232-4d73-9362-10e717955b66
+
+edition = "2023";
+
+package gcommon.v1.config;
+
+import "google/protobuf/go_features.proto";
+import "google/protobuf/any.proto";
+import "google/protobuf/timestamp.proto";
+import "pkg/common/proto/config/proto/config/proto/config_template.proto";
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/jdfalk/gcommon/pkg/config/proto;configpb";
+
+enum ConflictResolution {
+  CONFLICT_RESOLUTION_UNSPECIFIED = 0;
+  CONFLICT_RESOLUTION_SOURCE_WINS = 1;
+  CONFLICT_RESOLUTION_TARGET_WINS = 2;
+  CONFLICT_RESOLUTION_MERGE = 3;
+  CONFLICT_RESOLUTION_MANUAL = 4;
+  CONFLICT_RESOLUTION_TIMESTAMP = 5;
+}

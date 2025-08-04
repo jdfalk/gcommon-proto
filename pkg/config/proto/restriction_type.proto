@@ -1,0 +1,23 @@
+// file: pkg/config/proto/restriction_type.proto
+// version: 1.0.0
+// guid: 7444b7aa-6693-418e-ae6b-aa854f8c5400
+
+edition = "2023";
+
+package gcommon.v1.config;
+
+import "google/protobuf/go_features.proto";
+import "google/protobuf/timestamp.proto";
+import "pkg/common/proto/jdfalk/gcommon/pkg/config/proto;configpb";
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/jdfalk/gcommon/pkg/config/proto;configpb";
+
+enum RestrictionType {
+  RESTRICTION_TYPE_UNSPECIFIED = 0;
+  RESTRICTION_TYPE_IP_ADDRESS = 1;
+  RESTRICTION_TYPE_TIME_RANGE = 2;
+  RESTRICTION_TYPE_LOCATION = 3;
+  RESTRICTION_TYPE_USER_AGENT = 4;
+  RESTRICTION_TYPE_CUSTOM = 5;
+}

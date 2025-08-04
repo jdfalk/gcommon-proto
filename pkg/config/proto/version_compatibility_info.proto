@@ -1,0 +1,40 @@
+// file: pkg/config/proto/version_compatibility_info.proto
+// version: 1.0.0
+// guid: bdb10c96-0338-4ab3-877b-f10ea821efe9
+
+edition = "2023";
+
+package gcommon.v1.config;
+
+import "google/protobuf/go_features.proto";
+import "google/protobuf/timestamp.proto";
+import "pkg/config/proto/proto/config_audit_log.proto";
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/jdfalk/gcommon/pkg/config/proto;configpb";
+
+message VersionCompatibilityInfo {
+  // Backward compatible
+  bool backward_compatible = 1;
+
+  // Forward compatible
+  bool forward_compatible = 2;
+
+  // Breaking changes
+  repeated string breaking_changes = 3;
+
+  // Compatibility notes
+  string notes = 4;
+
+  // Minimum version
+  string min_version = 5;
+
+  // Maximum version
+  string max_version = 6;
+
+  // Deprecated features
+  repeated string deprecated_features = 7;
+
+  // Migration guide
+  string migration_guide = 8;
+}

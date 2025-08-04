@@ -1,0 +1,43 @@
+// file: pkg/config/proto/parameter_constraints.proto
+// version: 1.0.0
+// guid: 0d2bd928-be43-493f-bd1c-a98f22041254
+
+edition = "2023";
+
+package gcommon.v1.config;
+
+import "google/protobuf/go_features.proto";
+import "google/protobuf/timestamp.proto";
+import "pkg/config/proto/gcommon/pkg/config/proto;configpb";
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/jdfalk/gcommon/pkg/config/proto;configpb";
+
+message ParameterConstraints {
+  // Minimum length (for strings)
+  int32 min_length = 1;
+
+  // Maximum length (for strings)
+  int32 max_length = 2;
+
+  // Minimum value (for numbers)
+  double min_value = 3;
+
+  // Maximum value (for numbers)
+  double max_value = 4;
+
+  // Regular expression pattern
+  string pattern = 5;
+
+  // Minimum array size
+  int32 min_items = 6;
+
+  // Maximum array size
+  int32 max_items = 7;
+
+  // Unique items in array
+  bool unique_items = 8;
+
+  // Custom validation function
+  string validation_function = 9;
+}

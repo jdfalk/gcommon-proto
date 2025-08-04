@@ -1,0 +1,46 @@
+// file: pkg/config/proto/access_control.proto
+// version: 1.0.0
+// guid: 5707e31a-b72e-4cc1-b3ba-87269e99e05b
+
+edition = "2023";
+
+package gcommon.v1.config;
+
+import "google/protobuf/go_features.proto";
+import "google/protobuf/timestamp.proto";
+import "pkg/common/proto/jdfalk/gcommon/pkg/config/proto;configpb";
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/jdfalk/gcommon/pkg/config/proto;configpb";
+
+message AccessControl {
+  // Access policy
+  string policy = 1;
+
+  // Allowed users
+  repeated string allowed_users = 2;
+
+  // Allowed roles
+  repeated string allowed_roles = 3;
+
+  // Allowed services
+  repeated string allowed_services = 4;
+
+  // Allowed environments
+  repeated string allowed_environments = 5;
+
+  // Access restrictions
+  repeated AccessRestriction restrictions = 6;
+
+  // Maximum access count
+  int32 max_access_count = 7;
+
+  // Access rate limits
+  RateLimits rate_limits = 8;
+
+  // Access approval required
+  bool approval_required = 9;
+
+  // Access audit enabled
+  bool audit_enabled = 10;
+}

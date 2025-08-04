@@ -1,0 +1,42 @@
+// file: pkg/config/proto/template_hook.proto
+// version: 1.0.0
+// guid: 48a58147-b1e9-4c28-ad50-58952adc0ffe
+
+edition = "2023";
+
+package gcommon.v1.config;
+
+import "google/protobuf/go_features.proto";
+import "pkg/config/proto/hook_error_handling.proto";
+import "pkg/config/proto/hook_type.proto";
+import "google/protobuf/timestamp.proto";
+import "pkg/config/proto/gcommon/pkg/config/proto;configpb";
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/jdfalk/gcommon/pkg/config/proto;configpb";
+
+message TemplateHook {
+  // Hook name
+  string name = 1;
+
+  // Hook type
+  HookType type = 2;
+
+  // Hook command or script
+  string command = 3;
+
+  // Hook timeout
+  int32 timeout_seconds = 4;
+
+  // Hook working directory
+  string working_directory = 5;
+
+  // Hook environment variables
+  map<string, string> environment = 6;
+
+  // Hook conditions
+  map<string, string> conditions = 7;
+
+  // Hook error handling
+  HookErrorHandling error_handling = 8;
+}
