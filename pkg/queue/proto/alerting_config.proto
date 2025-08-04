@@ -1,18 +1,36 @@
-// filepath: pkg/queue/proto/messages/alerting_config.proto
-// file: queue/proto/messages/alerting_config.proto
-//
-// Message definitions for queue module
-// TODO: Implement actual protobuf definitions
-//
+// file: pkg/queue/proto/alerting_config.proto
+// version: 1.1.0
+// guid: 4d5e6f7a-8b9c-0d1e-2f3a-4b5c6d7e8f9a
+
 edition = "2023";
 
 package gcommon.v1.queue;
 
 import "google/protobuf/go_features.proto";
+import "google/protobuf/duration.proto";
+import "pkg/queue/proto/alert_rule.proto";
+import "pkg/queue/proto/notification_channel.proto";
+import "pkg/queue/proto/alert_severity.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
 option go_package = "github.com/jdfalk/gcommon/pkg/queue/proto;queuepb";
 
-// TODO: Add message definitions here
-// This is a placeholder file created during 1-1-1 migration
-// Implement the actual protobuf definitions according to the queue module requirements
+/**
+ * Configuration for queue alerting and notifications.
+ */
+message AlertingConfig {
+  // Whether alerting is enabled
+  bool enabled = 1;
+
+  // List of alert rules
+  repeated AlertRule rules = 2;
+
+  // Notification channels for alerts
+  repeated NotificationChannel channels = 3;
+
+  // Default alert severity level
+  AlertSeverity default_severity = 4;
+
+  // Alert aggregation window
+  google.protobuf.Duration aggregation_window = 5;
+}
