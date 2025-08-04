@@ -1,8 +1,9 @@
 // filepath: pkg/queue/proto/messages/transformation_config.proto
 // file: queue/proto/messages/transformation_config.proto
+// version: 1.0.0
+// guid: 2c3d4e5f-6a7b-8c9d-0e1f-2a3b4c5d6e7f
 //
 // Message definitions for queue module
-// TODO: Implement actual protobuf definitions
 //
 edition = "2023";
 
@@ -13,6 +14,31 @@ import "google/protobuf/go_features.proto";
 option features.(pb.go).api_level = API_OPAQUE;
 option go_package = "github.com/jdfalk/gcommon/pkg/queue/proto;queuepb";
 
-// TODO: Add message definitions here
-// This is a placeholder file created during 1-1-1 migration
-// Implement the actual protobuf definitions according to the queue module requirements
+/**
+ * Configuration for message transformation operations.
+ */
+message TransformationConfig {
+  // Whether transformation is enabled
+  bool enabled = 1;
+
+  // Transformation script or function name
+  string transformation_script = 2;
+
+  // Script language (javascript, python, lua, etc.)
+  string script_language = 3;
+
+  // Whether to transform on ingress
+  bool transform_on_ingress = 4;
+
+  // Whether to transform on egress
+  bool transform_on_egress = 5;
+
+  // Transformation timeout in milliseconds
+  uint64 timeout_ms = 6;
+
+  // Maximum script execution memory in MB
+  uint32 max_memory_mb = 7;
+
+  // Custom transformation parameters
+  map<string, string> parameters = 8;
+}
