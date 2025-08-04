@@ -10,9 +10,12 @@
 
 ### 📊 Final Analysis Results
 
-- **GitHub Project**: [gCommon Development](https://github.com/users/jdfalk/projects/3) ✅
-- **Total Issues Created**: 60 (58 currently open) comprehensive development tickets ✅
-- **Protobuf Coverage**: 39 issues covering all 625 empty protobuf files (100% coverage) ✅
+- **GitHub Project**:
+  [gCommon Development](https://github.com/users/jdfalk/projects/3) ✅
+- **Total Issues Created**: 60 (58 currently open) comprehensive development
+  tickets ✅
+- **Protobuf Coverage**: 39 issues covering all 625 empty protobuf files (100%
+  coverage) ✅
 - **Implementation Plan**: Detailed priority order and workflow established ✅
 - **Validation Framework**: Comprehensive coverage analysis completed ✅
 
@@ -47,7 +50,8 @@
 
 ## 🚨 NEW: Protobuf Strategy Migration (July 2025)
 
-**BREAKING CHANGE**: Migrating from `import public` aggregator pattern to direct proto imports.
+**BREAKING CHANGE**: Migrating from `import public` aggregator pattern to direct
+proto imports.
 
 **Current Problem**:
 
@@ -107,7 +111,8 @@
 
 ## 🤖 Issue Management Workflow
 
-**CRITICAL**: Always update GitHub issue status when working on tasks to maintain accurate project tracking.
+**CRITICAL**: Always update GitHub issue status when working on tasks to
+maintain accurate project tracking.
 
 ### Required Steps for Every Task
 
@@ -133,7 +138,8 @@
 
 ### Automated Issue Updates
 
-The repository uses GitHub Actions for programmatic issue management. Create `issue_updates.json` in the root with:
+The repository uses GitHub Actions for programmatic issue management. Create
+`issue_updates.json` in the root with:
 
 ```json
 [
@@ -154,13 +160,18 @@ The repository uses GitHub Actions for programmatic issue management. Create `is
 
 ## Project Vision & Goals
 
-GCommon aims to be the most comprehensive, well-designed Go library for common application services. Our mission is to provide consistent, high-performance, production-ready modules that work seamlessly together while remaining modular and flexible for diverse use cases.
+GCommon aims to be the most comprehensive, well-designed Go library for common
+application services. Our mission is to provide consistent, high-performance,
+production-ready modules that work seamlessly together while remaining modular
+and flexible for diverse use cases.
 
 ### Success Criteria
 
 - **Developer Experience**: Intuitive APIs with sensible defaults
-- **Production Ready**: Enterprise-grade performance, reliability, and observability
-- **Ecosystem Integration**: Works with existing Go ecosystem tools and frameworks
+- **Production Ready**: Enterprise-grade performance, reliability, and
+  observability
+- **Ecosystem Integration**: Works with existing Go ecosystem tools and
+  frameworks
 - **Cross-Language Support**: gRPC services enable multi-language environments
 - **Maintainability**: Clean architecture with clear separation of concerns
 
@@ -170,27 +181,35 @@ GCommon aims to be the most comprehensive, well-designed Go library for common a
 
 1. **Interface-First Design**
    - **Rationale**: Enables testability, modularity, and provider swapping
-   - **Implementation**: Every module starts with clean Go interfaces before implementation
+   - **Implementation**: Every module starts with clean Go interfaces before
+     implementation
    - **Benefits**: Clear contracts, easier testing, multiple backend support
 
 2. **Protocol Buffers as Foundation**
-   - **Rationale**: Ensures consistency, enables cross-language support, future-proofs APIs
-   - **Implementation**: All services defined using protobuf with shared common types
-   - **Benefits**: Strong typing, backward compatibility, automatic code generation
+   - **Rationale**: Ensures consistency, enables cross-language support,
+     future-proofs APIs
+   - **Implementation**: All services defined using protobuf with shared common
+     types
+   - **Benefits**: Strong typing, backward compatibility, automatic code
+     generation
 
 3. **Dual API Strategy**
    - **Rationale**: Maximizes flexibility for different deployment scenarios
-   - **Implementation**: Both native Go interfaces and gRPC services for every module
+   - **Implementation**: Both native Go interfaces and gRPC services for every
+     module
    - **Benefits**: In-process efficiency + network service capabilities
 
 4. **Common Types Pattern**
-   - **Rationale**: Prevents inconsistencies and reduces duplication across modules
-   - **Implementation**: Shared protobuf definitions for pagination, errors, metadata, etc.
+   - **Rationale**: Prevents inconsistencies and reduces duplication across
+     modules
+   - **Implementation**: Shared protobuf definitions for pagination, errors,
+     metadata, etc.
    - **Benefits**: Consistent developer experience, easier integration
 
 5. **Observability Built-In**
    - **Rationale**: Production systems require monitoring, logging, and tracing
-   - **Implementation**: Every module integrates with metrics, logging, and health checking
+   - **Implementation**: Every module integrates with metrics, logging, and
+     health checking
    - **Benefits**: Production-ready out of the box, operational visibility
 
 ### Technology Stack Decisions
@@ -251,13 +270,16 @@ GCommon aims to be the most comprehensive, well-designed Go library for common a
 
 **Completed Tasks:**
 
-- **Import Path Standardization**: Fixed 8+ protobuf files with incorrect import paths
-  - Changed from `gcommon/v1/auth/` format to correct `pkg/auth/proto/` relative paths
+- **Import Path Standardization**: Fixed 8+ protobuf files with incorrect import
+  paths
+  - Changed from `gcommon/v1/auth/` format to correct `pkg/auth/proto/` relative
+    paths
   - Updated all `gcommon/v1/common/` paths to `pkg/common/proto/` format
   - Ensured consistency across all module proto files
 
 - **Field Option Corrections**: Fixed invalid protobuf field options
-  - Removed `[lazy = true]` from primitive field types (strings, repeated strings)
+  - Removed `[lazy = true]` from primitive field types (strings, repeated
+    strings)
   - Preserved valid lazy loading options only on submessage fields
   - Corrected protobuf syntax compliance across all files
 
@@ -271,17 +293,23 @@ GCommon aims to be the most comprehensive, well-designed Go library for common a
   - Eliminated unused `google/protobuf/duration.proto` imports
   - Cleaned up unnecessary `google/protobuf/empty.proto` imports
   - Added TODO comments for imports to be added when files are created
-- **Database gRPC Services**: Exposed `GRPCService()` on SQLite and CockroachDB drivers
+- **Database gRPC Services**: Exposed `GRPCService()` on SQLite and CockroachDB
+  drivers
 
-**Impact**: All protobuf files now compile successfully, establishing a stable foundation for implementing gRPC services across all modules.
+**Impact**: All protobuf files now compile successfully, establishing a stable
+foundation for implementing gRPC services across all modules.
 
-**Next Steps**: Begin implementing the missing message types and completing the commented service methods in the auth module.
+**Next Steps**: Begin implementing the missing message types and completing the
+commented service methods in the auth module.
 
 ## Protobuf Migration Status: Monolithic → 1-1-1 Structure
 
 ### Overview
 
-This section tracks the migration from monolithic protobuf files (one large file per module) to the 1-1-1 structure (one proto file per message/service/enum). The goal is to ensure all types from monolithic files are properly migrated and the monolithic files can be converted to import-only aggregators.
+This section tracks the migration from monolithic protobuf files (one large file
+per module) to the 1-1-1 structure (one proto file per message/service/enum).
+The goal is to ensure all types from monolithic files are properly migrated and
+the monolithic files can be converted to import-only aggregators.
 
 ### Migration Status Summary (DATA-DRIVEN COMPREHENSIVE ANALYSIS)
 
@@ -303,31 +331,41 @@ This section tracks the migration from monolithic protobuf files (one large file
 
 **REALITY CHECK**: 481 files (44.1%) are placeholders needing implementation
 
-**Legend**: ✅ Complete (90%+) | 🔄 Partial (25-89%) | ⚠️ Minimal (5-24%) | ❌ Blocked (0-4%)
+**Legend**: ✅ Complete (90%+) | 🔄 Partial (25-89%) | ⚠️ Minimal (5-24%) | ❌
+Blocked (0-4%)
 
 ### Key Findings (DATA-DRIVEN ANALYSIS - July 24, 2025)
 
-**COMPREHENSIVE VALIDATION COMPLETE**: Deep content analysis reveals true implementation status!
+**COMPREHENSIVE VALIDATION COMPLETE**: Deep content analysis reveals true
+implementation status!
 
 1. **Total Protobuf Files**: **1,091 files** across 12 modules
    - **481 files (44.1%) are placeholders** requiring implementation
-   - **610 files (55.9%) have actual content** but varying levels of completeness
+   - **610 files (55.9%) have actual content** but varying levels of
+     completeness
    - **605 TODO comments** scattered across 316 files indicate ongoing work
 
 2. **Critical Modules Needing Major Work**:
-   - **Queue Module**: 155 of 185 files (84%) are placeholders - CRITICAL PRIORITY
+   - **Queue Module**: 155 of 185 files (84%) are placeholders - CRITICAL
+     PRIORITY
    - **Web Module**: 182 of 217 files (84%) are placeholders - CRITICAL PRIORITY
    - **Auth Module**: 77 of 169 files (46%) are placeholders + 139 TODOs
    - **Metrics Module**: 56 of 147 files (38%) are placeholders + 86 TODOs
    - **Log Module**: 7 of 11 files (64%) are placeholders
 
 3. **Well-Implemented Modules** (Ready for production use):
-   - **Cache Module**: 0 placeholders, 3.4 avg fields/message, comprehensive service definitions
-   - **Common Module**: 0 placeholders, 7.4 avg fields/message, solid shared types
-   - **Config Module**: Only 2 placeholders, 11.1 avg fields/message, extensive configuration support
-   - **Database Module**: 0 placeholders, good service coverage for DB operations
-   - **Health Module**: 0 placeholders, complete health monitoring implementation
-   - **Notification Module**: Only 2 placeholders, functional notification system
+   - **Cache Module**: 0 placeholders, 3.4 avg fields/message, comprehensive
+     service definitions
+   - **Common Module**: 0 placeholders, 7.4 avg fields/message, solid shared
+     types
+   - **Config Module**: Only 2 placeholders, 11.1 avg fields/message, extensive
+     configuration support
+   - **Database Module**: 0 placeholders, good service coverage for DB
+     operations
+   - **Health Module**: 0 placeholders, complete health monitoring
+     implementation
+   - **Notification Module**: Only 2 placeholders, functional notification
+     system
 
 4. **Implementation Quality Metrics**:
    - **Average 4.5 fields per message** across all modules
@@ -336,12 +374,17 @@ This section tracks the migration from monolithic protobuf files (one large file
    - **Only 1 module is mostly placeholder**: Queue (23% files done, 282 TODOs)
 
 5. **Major Documentation Discrepancies**:
-   - **Web module**: Documented as 1% complete, actually 99.5% complete (only 1 file with TODOs)
-   - **Metrics module**: Documented as 1% complete, actually 63% complete (55 of 147 files need work)
-   - **Auth module**: Documented as 33% complete, actually 59% complete (70 of 169 files need work)
-   - **Queue module**: Actually exists with 185 files but 76% are placeholders (142 files with TODOs)
+   - **Web module**: Documented as 1% complete, actually 99.5% complete (only 1
+     file with TODOs)
+   - **Metrics module**: Documented as 1% complete, actually 63% complete (55 of
+     147 files need work)
+   - **Auth module**: Documented as 33% complete, actually 59% complete (70 of
+     169 files need work)
+   - **Queue module**: Actually exists with 185 files but 76% are placeholders
+     (142 files with TODOs)
 
-6. **New Priority**: Update documentation and focus on Queue module placeholder completion
+6. **New Priority**: Update documentation and focus on Queue module placeholder
+   completion
 
 ---
 
@@ -368,14 +411,18 @@ This section tracks the migration from monolithic protobuf files (one large file
 #### Services (3 total - 3 complete = 100%)
 
 - ✅ `AuthService` → `pkg/auth/proto/services/auth_service.proto`
-- ✅ `AuthorizationService` → `pkg/auth/proto/services/authorization_service.proto`
+- ✅ `AuthorizationService` →
+  `pkg/auth/proto/services/authorization_service.proto`
 - ✅ `SessionService` → `pkg/auth/proto/services/session_service.proto`
 
 #### Requests (15 total - 3 complete = 20%)
 
-- ✅ `AuthenticateRequest` → `pkg/auth/proto/requests/authenticate_request.proto`
-- ✅ `CreateSessionRequest` → `pkg/auth/proto/requests/create_session_request.proto`
-- ✅ `ValidateTokenRequest` → `pkg/auth/proto/requests/validate_token_request.proto`
+- ✅ `AuthenticateRequest` →
+  `pkg/auth/proto/requests/authenticate_request.proto`
+- ✅ `CreateSessionRequest` →
+  `pkg/auth/proto/requests/create_session_request.proto`
+- ✅ `ValidateTokenRequest` →
+  `pkg/auth/proto/requests/validate_token_request.proto`
 - ❌ `VerifyCredentialsRequest`
 - ❌ `RefreshTokenRequest`
 - ❌ `LogoutRequest`
@@ -391,8 +438,10 @@ This section tracks the migration from monolithic protobuf files (one large file
 
 #### Responses (15 total - 2 complete = 13%)
 
-- ✅ `AuthenticateResponse` → `pkg/auth/proto/responses/authenticate_response.proto`
-- ✅ `ValidateTokenResponse` → `pkg/auth/proto/responses/validate_token_response.proto`
+- ✅ `AuthenticateResponse` →
+  `pkg/auth/proto/responses/authenticate_response.proto`
+- ✅ `ValidateTokenResponse` →
+  `pkg/auth/proto/responses/validate_token_response.proto`
 - ❌ `VerifyCredentialsResponse`
 - ❌ `RefreshTokenResponse`
 - ❌ `LogoutResponse`
@@ -556,12 +605,18 @@ _No enums in cache module_
 - ✅ `DisconnectRequest` → `pkg/db/proto/requests/disconnect_request.proto`
 - ✅ `ExecuteRequest` → `pkg/db/proto/requests/execute_request.proto`
 - ✅ `QueryRequest` → `pkg/db/proto/requests/query_request.proto`
-- ✅ `BeginTransactionRequest` → `pkg/db/proto/requests/begin_transaction_request.proto`
-- ✅ `CommitTransactionRequest` → `pkg/db/proto/requests/commit_transaction_request.proto`
-- ✅ `RollbackTransactionRequest` → `pkg/db/proto/requests/rollback_transaction_request.proto`
-- ✅ `PrepareStatementRequest` → `pkg/db/proto/requests/prepare_statement_request.proto`
-- ✅ `ExecutePreparedRequest` → `pkg/db/proto/requests/execute_prepared_request.proto`
-- ✅ `ClosePreparedRequest` → `pkg/db/proto/requests/close_prepared_request.proto`
+- ✅ `BeginTransactionRequest` →
+  `pkg/db/proto/requests/begin_transaction_request.proto`
+- ✅ `CommitTransactionRequest` →
+  `pkg/db/proto/requests/commit_transaction_request.proto`
+- ✅ `RollbackTransactionRequest` →
+  `pkg/db/proto/requests/rollback_transaction_request.proto`
+- ✅ `PrepareStatementRequest` →
+  `pkg/db/proto/requests/prepare_statement_request.proto`
+- ✅ `ExecutePreparedRequest` →
+  `pkg/db/proto/requests/execute_prepared_request.proto`
+- ✅ `ClosePreparedRequest` →
+  `pkg/db/proto/requests/close_prepared_request.proto`
 - ✅ `BatchExecuteRequest` → `pkg/db/proto/requests/batch_execute_request.proto`
 - ✅ `GetSchemaRequest` → `pkg/db/proto/requests/get_schema_request.proto`
 - ✅ `CreateTableRequest` → `pkg/db/proto/requests/create_table_request.proto`
@@ -570,27 +625,40 @@ _No enums in cache module_
 - ✅ `CreateIndexRequest` → `pkg/db/proto/requests/create_index_request.proto`
 - ✅ `DropIndexRequest` → `pkg/db/proto/requests/drop_index_request.proto`
 - ✅ `RunMigrationRequest` → `pkg/db/proto/requests/run_migration_request.proto`
-- ✅ `GetMigrationStatusRequest` → `pkg/db/proto/requests/get_migration_status_request.proto`
-- ✅ `CreateMigrationRequest` → `pkg/db/proto/requests/create_migration_request.proto`
-- ✅ `RollbackMigrationRequest` → `pkg/db/proto/requests/rollback_migration_request.proto`
+- ✅ `GetMigrationStatusRequest` →
+  `pkg/db/proto/requests/get_migration_status_request.proto`
+- ✅ `CreateMigrationRequest` →
+  `pkg/db/proto/requests/create_migration_request.proto`
+- ✅ `RollbackMigrationRequest` →
+  `pkg/db/proto/requests/rollback_migration_request.proto`
 
 #### Responses (17 total - 17 complete = 100%)
 
 - ✅ `ConnectResponse` → `pkg/db/proto/responses/connect_response.proto`
 - ✅ `ExecuteResponse` → `pkg/db/proto/responses/execute_response.proto`
 - ✅ `QueryResponse` → `pkg/db/proto/responses/query_response.proto`
-- ✅ `BeginTransactionResponse` → `pkg/db/proto/responses/begin_transaction_response.proto`
-- ✅ `PrepareStatementResponse` → `pkg/db/proto/responses/prepare_statement_response.proto`
-- ✅ `ExecutePreparedResponse` → `pkg/db/proto/responses/execute_prepared_response.proto`
-- ✅ `BatchExecuteResponse` → `pkg/db/proto/responses/batch_execute_response.proto`
+- ✅ `BeginTransactionResponse` →
+  `pkg/db/proto/responses/begin_transaction_response.proto`
+- ✅ `PrepareStatementResponse` →
+  `pkg/db/proto/responses/prepare_statement_response.proto`
+- ✅ `ExecutePreparedResponse` →
+  `pkg/db/proto/responses/execute_prepared_response.proto`
+- ✅ `BatchExecuteResponse` →
+  `pkg/db/proto/responses/batch_execute_response.proto`
 - ✅ `GetSchemaResponse` → `pkg/db/proto/responses/get_schema_response.proto`
-- ✅ `CreateTableResponse` → `pkg/db/proto/responses/create_table_response.proto`
+- ✅ `CreateTableResponse` →
+  `pkg/db/proto/responses/create_table_response.proto`
 - ✅ `AlterTableResponse` → `pkg/db/proto/responses/alter_table_response.proto`
-- ✅ `CreateIndexResponse` → `pkg/db/proto/responses/create_index_response.proto`
-- ✅ `RunMigrationResponse` → `pkg/db/proto/responses/run_migration_response.proto`
-- ✅ `GetMigrationStatusResponse` → `pkg/db/proto/responses/get_migration_status_response.proto`
-- ✅ `CreateMigrationResponse` → `pkg/db/proto/responses/create_migration_response.proto`
-- ✅ `RollbackMigrationResponse` → `pkg/db/proto/responses/rollback_migration_response.proto`
+- ✅ `CreateIndexResponse` →
+  `pkg/db/proto/responses/create_index_response.proto`
+- ✅ `RunMigrationResponse` →
+  `pkg/db/proto/responses/run_migration_response.proto`
+- ✅ `GetMigrationStatusResponse` →
+  `pkg/db/proto/responses/get_migration_status_response.proto`
+- ✅ `CreateMigrationResponse` →
+  `pkg/db/proto/responses/create_migration_response.proto`
+- ✅ `RollbackMigrationResponse` →
+  `pkg/db/proto/responses/rollback_migration_response.proto`
 - ✅ `TransactionResponse` → `pkg/db/proto/responses/transaction_response.proto`
 - ✅ `StatementResponse` → `pkg/db/proto/responses/statement_response.proto`
 
@@ -619,29 +687,45 @@ _No enums in cache module_
 #### Services (2 total - 2 complete = 100%)
 
 - ✅ `HealthService` → `pkg/health/proto/services/health_service.proto`
-- ✅ `HealthCheckService` → `pkg/health/proto/services/health_check_service.proto`
+- ✅ `HealthCheckService` →
+  `pkg/health/proto/services/health_check_service.proto`
 
 #### Requests (8 total - 8 complete = 100%)
 
-- ✅ `HealthCheckRequest` → `pkg/health/proto/requests/health_check_request.proto`
-- ✅ `ReadinessCheckRequest` → `pkg/health/proto/requests/readiness_check_request.proto`
-- ✅ `LivenessCheckRequest` → `pkg/health/proto/requests/liveness_check_request.proto`
-- ✅ `DependencyCheckRequest` → `pkg/health/proto/requests/dependency_check_request.proto`
-- ✅ `RegisterCheckRequest` → `pkg/health/proto/requests/register_check_request.proto`
-- ✅ `UnregisterCheckRequest` → `pkg/health/proto/requests/unregister_check_request.proto`
+- ✅ `HealthCheckRequest` →
+  `pkg/health/proto/requests/health_check_request.proto`
+- ✅ `ReadinessCheckRequest` →
+  `pkg/health/proto/requests/readiness_check_request.proto`
+- ✅ `LivenessCheckRequest` →
+  `pkg/health/proto/requests/liveness_check_request.proto`
+- ✅ `DependencyCheckRequest` →
+  `pkg/health/proto/requests/dependency_check_request.proto`
+- ✅ `RegisterCheckRequest` →
+  `pkg/health/proto/requests/register_check_request.proto`
+- ✅ `UnregisterCheckRequest` →
+  `pkg/health/proto/requests/unregister_check_request.proto`
 - ✅ `ListChecksRequest` → `pkg/health/proto/requests/list_checks_request.proto`
-- ✅ `WatchHealthRequest` → `pkg/health/proto/requests/watch_health_request.proto`
+- ✅ `WatchHealthRequest` →
+  `pkg/health/proto/requests/watch_health_request.proto`
 
 #### Responses (8 total - 8 complete = 100%)
 
-- ✅ `HealthCheckResponse` → `pkg/health/proto/responses/health_check_response.proto`
-- ✅ `ReadinessCheckResponse` → `pkg/health/proto/responses/readiness_check_response.proto`
-- ✅ `LivenessCheckResponse` → `pkg/health/proto/responses/liveness_check_response.proto`
-- ✅ `DependencyCheckResponse` → `pkg/health/proto/responses/dependency_check_response.proto`
-- ✅ `RegisterCheckResponse` → `pkg/health/proto/responses/register_check_response.proto`
-- ✅ `UnregisterCheckResponse` → `pkg/health/proto/responses/unregister_check_response.proto`
-- ✅ `ListChecksResponse` → `pkg/health/proto/responses/list_checks_response.proto`
-- ✅ `WatchHealthResponse` → `pkg/health/proto/responses/watch_health_response.proto`
+- ✅ `HealthCheckResponse` →
+  `pkg/health/proto/responses/health_check_response.proto`
+- ✅ `ReadinessCheckResponse` →
+  `pkg/health/proto/responses/readiness_check_response.proto`
+- ✅ `LivenessCheckResponse` →
+  `pkg/health/proto/responses/liveness_check_response.proto`
+- ✅ `DependencyCheckResponse` →
+  `pkg/health/proto/responses/dependency_check_response.proto`
+- ✅ `RegisterCheckResponse` →
+  `pkg/health/proto/responses/register_check_response.proto`
+- ✅ `UnregisterCheckResponse` →
+  `pkg/health/proto/responses/unregister_check_response.proto`
+- ✅ `ListChecksResponse` →
+  `pkg/health/proto/responses/list_checks_response.proto`
+- ✅ `WatchHealthResponse` →
+  `pkg/health/proto/responses/watch_health_response.proto`
 
 #### Messages (16 total - 16 complete = 100%)
 
@@ -1224,11 +1308,13 @@ _No responses in common module - provides shared types only_
 
 **GOOD NEWS**: Most modules are actually complete or nearly complete!
 
-1. **🔥 Queue Module Placeholder Completion** - Critical blocker (142 files with TODOs, 282 TODO comments)
+1. **🔥 Queue Module Placeholder Completion** - Critical blocker (142 files with
+   TODOs, 282 TODO comments)
    - Complete placeholder implementations in Queue services
    - Finish Queue request/response message definitions
 
-2. **� Organization Module Documentation** - Missing from docs (81 files, 48 with TODOs)
+2. **� Organization Module Documentation** - Missing from docs (81 files, 48
+   with TODOs)
    - Add Organization module to documentation
    - Complete remaining placeholder implementations
 
@@ -1289,10 +1375,14 @@ _No responses in common module - provides shared types only_
 - `UserInfo` → `pkg/auth/proto/messages/user_info.proto`
 - `Session` → `pkg/auth/proto/messages/session.proto`
 - `AuthenticateRequest` → `pkg/auth/proto/requests/authenticate_request.proto`
-- `CreateSessionRequest` → `pkg/auth/proto/requests/create_session_request.proto`
-- `ValidateTokenRequest` → `pkg/auth/proto/requests/validate_token_request.proto`
-- `AuthenticateResponse` → `pkg/auth/proto/responses/authenticate_response.proto`
-- `ValidateTokenResponse` → `pkg/auth/proto/responses/validate_token_response.proto`
+- `CreateSessionRequest` →
+  `pkg/auth/proto/requests/create_session_request.proto`
+- `ValidateTokenRequest` →
+  `pkg/auth/proto/requests/validate_token_request.proto`
+- `AuthenticateResponse` →
+  `pkg/auth/proto/responses/authenticate_response.proto`
+- `ValidateTokenResponse` →
+  `pkg/auth/proto/responses/validate_token_response.proto`
 - `AuthService` → `pkg/auth/proto/services/auth_service.proto`
 - `AuthorizationService` → `pkg/auth/proto/services/authorization_service.proto`
 - `SessionService` → `pkg/auth/proto/services/session_service.proto`
@@ -1499,7 +1589,9 @@ _No responses in common module - provides shared types only_
 
 **Monolithic File**: `pkg/common/proto/common.proto`
 
-**Status**: This is the **base module** that provides shared types for all other modules. All types are in the monolithic file by design, as this serves as the central type repository.
+**Status**: This is the **base module** that provides shared types for all other
+modules. All types are in the monolithic file by design, as this serves as the
+central type repository.
 
 **Key Types** (20+ types):
 
@@ -1513,7 +1605,8 @@ _No responses in common module - provides shared types only_
 
 #### **URGENT Priority** (Critical Blockers - 631 Total Types)
 
-1. **Fix generate.sh script** - Update to handle dual protobuf structure during transition
+1. **Fix generate.sh script** - Update to handle dual protobuf structure during
+   transition
 2. **Metrics Module** - Complete migration of 94 remaining types (1/95 migrated)
 3. **Queue Module** - Complete migration of 142 remaining types (1/143 migrated)
 4. **Web Module** - Complete migration of 122 remaining types (1/123 migrated)
@@ -1527,7 +1620,8 @@ _No responses in common module - provides shared types only_
 
 #### **Medium Priority** (Phase 2 - Good Foundation)
 
-1. **Auth Module** - Complete migration of 32 remaining types (16/48 migrated - 33% done)
+1. **Auth Module** - Complete migration of 32 remaining types (16/48 migrated -
+   33% done)
 
 #### **Low Priority** (Phase 3 - Already Complete)
 
@@ -1555,7 +1649,9 @@ Once all types are migrated to 1-1-1 structure:
 
 ## Critical Next Step: Fix generate.sh Script
 
-**BLOCKER**: The current `generate.sh` script cannot handle the dual protobuf structure (monolithic + 1-1-1) during the migration transition. This is preventing:
+**BLOCKER**: The current `generate.sh` script cannot handle the dual protobuf
+structure (monolithic + 1-1-1) during the migration transition. This is
+preventing:
 
 - Successful protobuf compilation across all modules
 - Testing of existing functionality during migration
@@ -1563,13 +1659,15 @@ Once all types are migrated to 1-1-1 structure:
 
 **Required Changes to generate.sh**:
 
-1. **Detect dual structure**: Check for both monolithic files and 1-1-1 directories
+1. **Detect dual structure**: Check for both monolithic files and 1-1-1
+   directories
 2. **Conditional generation**:
    - Generate from monolithic files when 1-1-1 migration is incomplete
    - Generate from 1-1-1 files when migration is complete
    - Handle mixed scenarios during transition
 3. **Import resolution**: Ensure imports work correctly between structures
-4. **Error handling**: Graceful fallback when proto files are missing or malformed
+4. **Error handling**: Graceful fallback when proto files are missing or
+   malformed
 
 **Implementation Priority**: **IMMEDIATE** - This blocks all other protobuf work
 
@@ -1582,7 +1680,8 @@ Once all types are migrated to 1-1-1 structure:
 **Critical Path Items:**
 
 1. **Week 1-2: Common Types Enhancement**
-   - Add missing common types to `pkg/common/proto/common.proto` (6 additional types needed)
+   - Add missing common types to `pkg/common/proto/common.proto` (6 additional
+     types needed)
    - Update all existing proto files to use standardized common types
    - Validate protobuf generation pipeline
 
@@ -1670,7 +1769,8 @@ Once all types are migrated to 1-1-1 structure:
 - Common types package provides shared foundations
 - Interface-based design enables loose coupling
 - Dependency injection pattern for module composition
-- Clear module hierarchy: Common → Health → Auth/Metrics → Database/Cache → Queue/Web
+- Clear module hierarchy: Common → Health → Auth/Metrics → Database/Cache →
+  Queue/Web
 
 ### Challenge 2: Performance with gRPC Overhead
 
@@ -1684,8 +1784,7 @@ Once all types are migrated to 1-1-1 structure:
 
 ### Challenge 3: Backward Compatibility
 
-**Problem**: Evolving APIs while maintaining compatibility
-**Solution**:
+**Problem**: Evolving APIs while maintaining compatibility **Solution**:
 
 - Protobuf versioning strategy (v1, v2, etc.)
 - Careful field addition patterns (optional fields, defaults)
@@ -1714,7 +1813,8 @@ Once all types are migrated to 1-1-1 structure:
 ### Success Gates
 
 - **Phase 1 Gate**: All protobuf standardized, Metrics module production-ready
-- **Phase 2 Gate**: Core data services (DB, Cache, Config) complete and integrated
+- **Phase 2 Gate**: Core data services (DB, Cache, Config) complete and
+  integrated
 - **Phase 3 Gate**: All modules implemented with gRPC services
 - **Phase 4 Gate**: Production deployment examples, security audit complete
 
@@ -1739,7 +1839,8 @@ Once all types are migrated to 1-1-1 structure:
 
 ---
 
-_This roadmap is a living document, updated quarterly based on development progress and community feedback._
+_This roadmap is a living document, updated quarterly based on development
+progress and community feedback._
 
 - [ ] QueueService: 9 methods
 - [ ] QueueManagementService: 6 methods
@@ -1877,7 +1978,9 @@ _This roadmap is a living document, updated quarterly based on development progr
 - **API Gateway**: Built-in API management
 - **Monitoring**: Integration with Grafana, Jaeger, etc.
 
-This roadmap represents our commitment to building the most comprehensive and well-designed Go library for common application services, with a focus on production readiness, performance, and developer experience.
+This roadmap represents our commitment to building the most comprehensive and
+well-designed Go library for common application services, with a focus on
+production readiness, performance, and developer experience.
 
 - [x] Write comprehensive tests
 - [x] Complete documentation with examples
@@ -1958,7 +2061,8 @@ This roadmap represents our commitment to building the most comprehensive and we
   - [ ] Iterator support
 - [ ] Implement mock driver for testing
 - [ ] Add query builder functionality
-  - [x] Implement gRPC service for database operations (SQLite & CockroachDB drivers)
+  - [x] Implement gRPC service for database operations (SQLite & CockroachDB
+        drivers)
 - [ ] Add connection monitoring and health checks
 - [ ] Add metrics collection for database operations
 - [ ] Write comprehensive tests and benchmarks
@@ -2062,12 +2166,14 @@ This roadmap represents our commitment to building the most comprehensive and we
 
 **GOAL: Complete all modules by August 2025**
 
-Based on the current state, here are the implementation priorities for rapid completion:
+Based on the current state, here are the implementation priorities for rapid
+completion:
 
 ### Phase 1: Complete Core Infrastructure (Week 1-2)
 
 1. **Complete Metrics Module Implementation** (3 days)
-   - Finish Prometheus provider (Gauge implementation (this week), Histogram implementation (this week), Summary and Timer implementations (next week))
+   - Finish Prometheus provider (Gauge implementation (this week), Histogram
+     implementation (this week), Summary and Timer implementations (next week))
    - Implement OpenTelemetry provider
    - Add gRPC middleware ✅
    - Complete comprehensive tests
@@ -2173,7 +2279,8 @@ The modules should prioritize performance and observability:
    - Priority: Finish Gauge implementation (this week)
    - Priority: Complete Histogram implementation (this week)
    - Priority: Implement Summary and Timer implementations (next week)
-   - Priority: Finalize Registry implementation with snapshot support (next week)
+   - Priority: Finalize Registry implementation with snapshot support (next
+     week)
 
 2. Begin OpenTelemetry provider implementation
    - Priority: Counter implementation (after Prometheus provider completion)
@@ -2190,11 +2297,13 @@ The modules should prioritize performance and observability:
 
 5. Continue improving health module documentation and examples
    - Priority: Add more detailed Kubernetes integration documentation
-   - Priority: Create additional examples showing custom health check implementations
+   - Priority: Create additional examples showing custom health check
+     implementations
 
 ## Long-term Vision
 
-The goal of GCommon is to provide a comprehensive, modular toolkit for building Go applications with enterprise-ready features. The library should be:
+The goal of GCommon is to provide a comprehensive, modular toolkit for building
+Go applications with enterprise-ready features. The library should be:
 
 - Easy to use with sensible defaults
 - Highly configurable for specific needs
@@ -2219,7 +2328,9 @@ The goal of GCommon is to provide a comprehensive, modular toolkit for building 
 
 ### Proto File Implementation Status
 
-A comprehensive analysis was performed on June 6, 2025, revealing **626 empty proto files** that need implementation. These files were created as placeholders during the 1-1-1 migration but require actual protobuf definitions.
+A comprehensive analysis was performed on June 6, 2025, revealing **626 empty
+proto files** that need implementation. These files were created as placeholders
+during the 1-1-1 migration but require actual protobuf definitions.
 
 ### Statistics
 
@@ -2306,9 +2417,12 @@ Health checking system:
 
 #### Immediate Priority (High Impact)
 
-1. **Services**: Implement all empty service definitions (log_service, queue_service, etc.)
-2. **Core Messages**: Focus on fundamental message types (log_entry, queue_message, http_request)
-3. **Essential Enums**: Implement critical enumerations (log_level, http_method, queue_type)
+1. **Services**: Implement all empty service definitions (log_service,
+   queue_service, etc.)
+2. **Core Messages**: Focus on fundamental message types (log_entry,
+   queue_message, http_request)
+3. **Essential Enums**: Implement critical enumerations (log_level, http_method,
+   queue_type)
 
 #### Medium Priority (Framework Support)
 
@@ -2318,16 +2432,19 @@ Health checking system:
 
 #### Long-term (Advanced Features)
 
-1. **Advanced Features**: Complex aggregation, advanced routing, sophisticated auth
+1. **Advanced Features**: Complex aggregation, advanced routing, sophisticated
+   auth
 2. **Performance Types**: Metrics, profiling, optimization-related messages
 3. **Integration Types**: Cross-module communication structures
 
 ### Next Steps
 
 1. **Add Basic Headers**: Add package and syntax declarations to all empty files
-2. **Implement Core Services**: Start with log_service, queue_service, config_service
+2. **Implement Core Services**: Start with log_service, queue_service,
+   config_service
 3. **Define Base Messages**: Implement fundamental message types for each module
-4. **Complete Request/Response Pairs**: Ensure matching request/response definitions
+4. **Complete Request/Response Pairs**: Ensure matching request/response
+   definitions
 5. **Validate Compilation**: Ensure all proto files compile successfully
 
 ---
@@ -2359,7 +2476,8 @@ Implement core Auth configuration messages
 
 #### Cache Module (✅ Complete)
 
-Caching layer protobufs fully implemented (44 files). Includes comprehensive request/response types and administrative services.
+Caching layer protobufs fully implemented (44 files). Includes comprehensive
+request/response types and administrative services.
 
 2. **Weeks 9-10: Cache Module (Complete)**
    - Redis and multi-tier cache providers implemented
@@ -2372,8 +2490,10 @@ Caching layer protobufs fully implemented (44 files). Includes comprehensive req
 The cache module has been fully migrated to the 1-1-1 protobuf structure.
 
 - **Services**: `CacheService` and `CacheAdminService` implemented
-- **Messages**: All cache data types including `CacheEntry`, `CacheConfig`, `CacheStats`, `CacheInfo`, `SetOptions`, and more
-- **Requests/Responses**: Complete coverage for CRUD, batch, and administrative operations
+- **Messages**: All cache data types including `CacheEntry`, `CacheConfig`,
+  `CacheStats`, `CacheInfo`, `SetOptions`, and more
+- **Requests/Responses**: Complete coverage for CRUD, batch, and administrative
+  operations
 
 All 44 protobuf files compile successfully and are ready for production use.
 
@@ -2383,7 +2503,8 @@ All 44 protobuf files compile successfully and are ready for production use.
 2. **Config Module** - Complete migration of 21 remaining types (2/23 migrated)
 3. **Cache Module** - ✅ Migration complete (44/44 types implemented)
 
-Implemented health check request and response messages for metrics, auth, queue, and web modules
+Implemented health check request and response messages for metrics, auth, queue,
+and web modules
 
 - [x] 📋 Organize Project Board
 
@@ -2409,7 +2530,8 @@ Implement publish and offset queue protobufs
 
 Cache module protobuf implementation complete. All 74 files implemented.
 
-- Web module progress: implemented AuthConfig, ServerConfig, MiddlewareConfig messages and UpdateMiddlewareConfig request/response
+- Web module progress: implemented AuthConfig, ServerConfig, MiddlewareConfig
+  messages and UpdateMiddlewareConfig request/response
 
 Implement Web HealthCheckConfig protobuf
 
@@ -2417,28 +2539,32 @@ Verify database module protobufs complete
 
 Implemented web cache config and admin service
 
-- Metrics module progress now at 34% with request and response messages implemented
+- Metrics module progress now at 34% with request and response messages
+  implemented
 - [ ] 🟡 **General**: Finish remaining auth protobuf implementations
 
 - [ ] 🟡 **General**: Web: implement session management protobufs
 
-Completed remaining organization protobuf implementations
-Implement remaining organization protobufs
+Completed remaining organization protobuf implementations Implement remaining
+organization protobufs
 
 Implement basic queue configuration messages and enums
 
 Implement initial log protobuf refactor
 
-- Metrics module progress now at 34% with request and response messages implemented
-  Cache module protobufs verified 100% complete. No remaining placeholder files.
-  Completed remaining organization protobuf implementations
+- Metrics module progress now at 34% with request and response messages
+  implemented Cache module protobufs verified 100% complete. No remaining
+  placeholder files. Completed remaining organization protobuf implementations
   Implement remaining organization protobufs
 
-- [ ] 🟡 **General**: Create MediaService messages for subtitle-manager integration
+- [ ] 🟡 **General**: Create MediaService messages for subtitle-manager
+      integration
 
-Implemented core web message definitions for session, cookie, route, and websocket functionality
+Implemented core web message definitions for session, cookie, route, and
+websocket functionality
 
 Implemented metrics request and response protobufs
 
 Verified common module protobufs are fully implemented; no empty files remaining
-Implemented DatabaseStatusCode enum and DatabaseStatus message for database module
+Implemented DatabaseStatusCode enum and DatabaseStatus message for database
+module

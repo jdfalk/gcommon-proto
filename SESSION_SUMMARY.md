@@ -1,3 +1,2 @@
-Added MySQL proto messages
-Implemented initial web configuration protobufs
+Added MySQL proto messages Implemented initial web configuration protobufs
 Implemented CockroachConfig protobuf

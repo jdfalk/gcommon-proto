@@ -5,7 +5,8 @@
 All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
-and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
+and this project adheres to
+[Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
 
@@ -93,7 +94,8 @@ Added MySQLConfig and MySQLStatus protobuf messages
 
 ### Added
 
-- Implemented initial web configuration messages and middleware update request/response
+- Implemented initial web configuration messages and middleware update
+  request/response
 
 ### Added
 
@@ -101,7 +103,8 @@ Added MySQLConfig and MySQLStatus protobuf messages
 
 ### Added
 
-- Implemented additional Queue protobuf definitions for publish and offset operations
+- Implemented additional Queue protobuf definitions for publish and offset
+  operations
 
 ### Added\n- Marked Cache module protobufs complete and updated tracking lists
 
@@ -113,20 +116,25 @@ Added more queue configuration messages and enum
 
 ### BREAKING: Protobuf Strategy Migration
 
-**🚨 CRITICAL ARCHITECTURAL CHANGE**: Based on Go best practices research, we are migrating away from `import public` aggregator files to direct imports of specific proto files.
+**🚨 CRITICAL ARCHITECTURAL CHANGE**: Based on Go best practices research, we
+are migrating away from `import public` aggregator files to direct imports of
+specific proto files.
 
 **Why This Change Is Necessary**:
 
 - `import public` is a C++-centric feature that creates complexity in Go
-- Go protobuf compiler must generate type aliases (e.g., `type Foo = foopb.Foo`) for backward compatibility
+- Go protobuf compiler must generate type aliases (e.g., `type Foo = foopb.Foo`)
+  for backward compatibility
 - This feature is obscure and not well-supported across all protobuf backends
 - Direct imports make dependencies explicit and easier to understand
 - Follows Go's philosophy of explicit over implicit
 
 **Migration Plan**:
 
-1. **Phase 1**: Deprecate aggregator files (auth.proto, cache.proto, etc.) as import-only
-2. **Phase 2**: Update all consuming code to import specific proto files directly
+1. **Phase 1**: Deprecate aggregator files (auth.proto, cache.proto, etc.) as
+   import-only
+2. **Phase 2**: Update all consuming code to import specific proto files
+   directly
 3. **Phase 3**: Remove aggregator files entirely in v0.3.0
 4. **Phase 4**: Update buf.yaml to restore IMPORT_NO_PUBLIC lint rule
 
@@ -161,35 +169,49 @@ import "pkg/auth/proto/responses/login_response.proto";
 - Added 10 log protobuf files and migrated log.proto to aggregator
 
 - Implemented initial auth configuration and API key messages
-- Implemented initial Queue protobufs (QueueMessage, DeliveryOptions, SendMessageRequest, SendMessageResponse, MessageState)
+- Implemented initial Queue protobufs (QueueMessage, DeliveryOptions,
+  SendMessageRequest, SendMessageResponse, MessageState)
 - Implemented initial metrics protobuf definitions (alerts, stats)
 - Organized GitHub project board with standard columns
-- Added improved GitHub project setup script with automatic authentication and issue linking
+- Added improved GitHub project setup script with automatic authentication and
+  issue linking
 - Add shared pagination and sort proto types
 - Removed custom add-to-project workflow in favor of built-in GitHub automation
 - Added protobuf validation workflow
 - Marked Health and Organization protobuf modules complete
 - Implemented Web module enumerations
-- **Protobuf Foundation**: Complete mapping for all 9 modules with 29 services and 754 protobuf files
-- **Common Types Module**: 39 shared message types implemented for consistency across modules
-- **Database Module**: Complete 1-1-1 migration (51/51 types) serving as gold standard
-- **Health Module**: Complete 1-1-1 migration (36/36 types) with full protobuf implementation
-- **Auth Module**: Partial implementation (16/48 types) with core authentication services functional
-- **Documentation**: Comprehensive technical design documents and implementation guides
-- **Automated Issue Management**: GitHub Actions workflow for programmatic issue updates via JSON files
-- **gRPC Metrics Middleware**: Unary and streaming interceptors for metrics collection
-- **Database gRPC Services**: SQLite and CockroachDB drivers expose `GRPCService()`
+- **Protobuf Foundation**: Complete mapping for all 9 modules with 29 services
+  and 754 protobuf files
+- **Common Types Module**: 39 shared message types implemented for consistency
+  across modules
+- **Database Module**: Complete 1-1-1 migration (51/51 types) serving as gold
+  standard
+- **Health Module**: Complete 1-1-1 migration (36/36 types) with full protobuf
+  implementation
+- **Auth Module**: Partial implementation (16/48 types) with core authentication
+  services functional
+- **Documentation**: Comprehensive technical design documents and implementation
+  guides
+- **Automated Issue Management**: GitHub Actions workflow for programmatic issue
+  updates via JSON files
+- **gRPC Metrics Middleware**: Unary and streaming interceptors for metrics
+  collection
+- **Database gRPC Services**: SQLite and CockroachDB drivers expose
+  `GRPCService()`
 
 ### Changed
 
-- **Issue Management Process**: Now supports automated issue creation, updates, and closure via `issue_updates.json`
-- **Development Workflow**: Enhanced with automated issue tracking requiring status updates for all work
+- **Issue Management Process**: Now supports automated issue creation, updates,
+  and closure via `issue_updates.json`
+- **Development Workflow**: Enhanced with automated issue tracking requiring
+  status updates for all work
 
 ### Current Implementation Status (June 2025)
 
 #### Completed Modules
 
-- **✅ Database Module**: 100% complete - All 51 types migrated to 1-1-1 structure
+- **✅ Database Module**: 100% complete - All 51 types migrated to 1-1-1
+  structure
 - **✅ Common Module**: 100% complete - 39 shared types implemented
 - **✅ Health Module**: 100% complete - All 36 types migrated to 1-1-1 structure
 - **✅ Log Module**: 100% complete - Minimal logging implementation
@@ -210,7 +232,9 @@ import "pkg/auth/proto/responses/login_response.proto";
 
 ### Critical Discovery (June 2025)
 
-**⚠️ Major Implementation Gap Identified**: Analysis revealed **626 empty protobuf files** (83% of 754 total files) requiring immediate implementation. This represents a significantly larger scope than initially estimated.
+**⚠️ Major Implementation Gap Identified**: Analysis revealed **626 empty
+protobuf files** (83% of 754 total files) requiring immediate implementation.
+This represents a significantly larger scope than initially estimated.
 
 **Immediate Priorities**:
 
@@ -221,7 +245,8 @@ import "pkg/auth/proto/responses/login_response.proto";
 
 ### Developer Workflow (June 2025)
 
-**🤖 Automated Issue Management**: All work now requires proper issue status tracking using the automated GitHub Actions workflow.
+**🤖 Automated Issue Management**: All work now requires proper issue status
+tracking using the automated GitHub Actions workflow.
 
 **Required Process for All Development Work**:
 
@@ -229,7 +254,8 @@ import "pkg/auth/proto/responses/login_response.proto";
 2. **During Work**: Reference issue numbers in commits, update progress
 3. **Complete Task**: Close issue with completion summary, mark "completed"
 
-**Issue Updates via JSON**: Create `issue_updates.json` with actions (create, update, delete) and push to main branch for automatic processing.
+**Issue Updates via JSON**: Create `issue_updates.json` with actions (create,
+update, delete) and push to main branch for automatic processing.
 
 **Example Workflow**:
 
@@ -245,16 +271,22 @@ git add . && git commit -m "Complete issue #68: Implemented all metrics message 
 
 ### Fixed
 
-- **Protobuf Compilation Issues**: Resolved all import path and syntax errors across auth and common packages
-  - Fixed 8+ protobuf files with import path errors (`gcommon/v1/` → `pkg/` relative paths)
-  - Corrected invalid `[lazy = true]` field options on primitive types (strings, repeated strings)
-  - Removed unused imports (`google/protobuf/duration.proto`, `google/protobuf/empty.proto`)
+- **Protobuf Compilation Issues**: Resolved all import path and syntax errors
+  across auth and common packages
+  - Fixed 8+ protobuf files with import path errors (`gcommon/v1/` → `pkg/`
+    relative paths)
+  - Corrected invalid `[lazy = true]` field options on primitive types (strings,
+    repeated strings)
+  - Removed unused imports (`google/protobuf/duration.proto`,
+    `google/protobuf/empty.proto`)
   - Standardized import paths across all auth and common package protobuf files
-- **Service Definition Cleanup**: Systematically commented out incomplete service methods while preserving working functionality
+- **Service Definition Cleanup**: Systematically commented out incomplete
+  service methods while preserving working functionality
   - AuthService: 2 working methods (`Authenticate`, `ValidateToken`)
   - SessionService: 1 working method (`CreateSession`)
   - AuthorizationService: Temporarily disabled (awaiting missing message types)
-- **Protobuf Import Consistency**: All proto files now use consistent relative import paths for cross-module dependencies
+- **Protobuf Import Consistency**: All proto files now use consistent relative
+  import paths for cross-module dependencies
 
 ### Technical Documentation
 
@@ -263,7 +295,8 @@ git add . && git commit -m "Complete issue #68: Implemented all metrics message 
 - **Common Types**: 25+ shared message types for consistency across all modules
 - **Service Definitions**: 21 total services distributed across 9 modules
 - **Message Catalog**: 400+ message definitions covering all functionality
-- **Implementation Phases**: 4-phase rollout strategy for systematic implementation
+- **Implementation Phases**: 4-phase rollout strategy for systematic
+  implementation
 
 #### Module Architecture Details
 
@@ -276,15 +309,18 @@ git add . && git commit -m "Complete issue #68: Implemented all metrics message 
 
 ##### Authentication Module (45% Complete)
 
-- **Services**: AuthService, AuthorizationService, SessionService (23 methods total)
+- **Services**: AuthService, AuthorizationService, SessionService (23 methods
+  total)
 - **Messages**: 60+ message definitions (most complex module)
 - **Features**: Multi-factor auth, RBAC, session management, token lifecycle
 - **Security**: Built-in rate limiting, audit logging, secure defaults
-- **Status**: Protobuf definitions complete, compilation issues resolved, core service methods functional (Authenticate, ValidateToken, CreateSession)
+- **Status**: Protobuf definitions complete, compilation issues resolved, core
+  service methods functional (Authenticate, ValidateToken, CreateSession)
 
 ##### Database Module (30% Complete)
 
-- **Services**: DatabaseService, TransactionService, SchemaService, MigrationService (22 methods)
+- **Services**: DatabaseService, TransactionService, SchemaService,
+  MigrationService (22 methods)
 - **Messages**: 50+ message definitions
 - **Backends**: SQLite, PostgreSQL, CockroachDB, Pebble support
 - **Features**: ACID transactions, schema migrations, connection pooling
@@ -336,8 +372,10 @@ git add . && git commit -m "Complete issue #68: Implemented all metrics message 
 #### Phase 1: Foundation (Weeks 1-4)
 
 1. **Common Types Enhancement**: Add remaining 6 message types to common.proto
-2. **Protobuf Standardization**: Update all existing proto files to use common types
-3. **Health Module Optimization**: Performance improvements and additional checks
+2. **Protobuf Standardization**: Update all existing proto files to use common
+   types
+3. **Health Module Optimization**: Performance improvements and additional
+   checks
 4. **Metrics Module Completion**: Finish OpenTelemetry integration
 
 #### Phase 2: Core Services (Weeks 5-12)
@@ -355,7 +393,8 @@ git add . && git commit -m "Complete issue #68: Implemented all metrics message 
 
 #### Phase 4: Production Readiness (Weeks 21-24)
 
-1. **Performance Optimization**: Benchmarking and optimization across all modules
+1. **Performance Optimization**: Benchmarking and optimization across all
+   modules
 2. **Integration Testing**: End-to-end testing with real-world scenarios
 3. **Documentation**: Complete API documentation and examples
 4. **Security Audit**: Security review and penetration testing
@@ -415,9 +454,12 @@ git add . && git commit -m "Complete issue #68: Implemented all metrics message 
 
 ---
 
-_This changelog consolidates technical documentation that would otherwise be scattered across multiple files, following the GCommon documentation organization policy._
+_This changelog consolidates technical documentation that would otherwise be
+scattered across multiple files, following the GCommon documentation
+organization policy._
 
 ## Changelog
 
 - **Feature**: Added DebugInfo message for enhanced debugging metadata
-- **Feature**: Added TransactionService and MigrationService with new request/response messages
+- **Feature**: Added TransactionService and MigrationService with new
+  request/response messages
