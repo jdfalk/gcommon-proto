@@ -6,7 +6,7 @@ edition = "2023";
 
 package gcommon.v1.auth;
 
-import "pkg/common/proto/jdfalk/gcommon/pkg/auth/proto;authpb";
+import "pkg/common/proto/request_metadata.proto";
 
 /**
  * Request to verify that a user possesses a specific permission.
