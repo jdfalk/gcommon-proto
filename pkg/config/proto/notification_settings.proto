@@ -8,6 +8,8 @@ package gcommon.v1.config;
 
 import "google/protobuf/go_features.proto";
 import "pkg/config/proto/notification_trigger.proto";
+import "pkg/config/proto/notification_channel.proto";
+import "pkg/config/proto/batching_settings.proto";
 import "google/protobuf/timestamp.proto";
 import "pkg/config/proto/config_data_type.proto";
 import "pkg/config/proto/deprecation_level.proto";
