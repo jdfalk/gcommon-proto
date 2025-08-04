@@ -1,10 +1,7 @@
-// filepath: pkg/queue/proto/enums/compression_algorithm.proto
-// file: queue/proto/enums/compression_algorithm.proto
+// file: pkg/queue/proto/compression_algorithm.proto
 // version: 1.0.0
-// guid: 9a8b7c6d-5e4f-3a2b-1c9d-8e7f6a5b4c3d
-//
-// Enum definitions for queue module
-//
+// guid: 845d1d48-b86e-4dd0-a63a-fc5997b97a69
+
 edition = "2023";
 
 package gcommon.v1.queue;
@@ -15,7 +12,7 @@ option features.(pb.go).api_level = API_OPAQUE;
 option go_package = "github.com/jdfalk/gcommon/pkg/queue/proto;queuepb";
 
 /**
- * Compression algorithms.
+ * Compression algorithms for serialization.
  */
 enum CompressionAlgorithm {
   // Default unspecified algorithm
@@ -27,27 +24,15 @@ enum CompressionAlgorithm {
   // GZIP compression
   COMPRESSION_ALGORITHM_GZIP = 2;
 
-  // DEFLATE compression
-  COMPRESSION_ALGORITHM_DEFLATE = 3;
-
-  // LZ4 compression (fast)
-  COMPRESSION_ALGORITHM_LZ4 = 4;
-
-  // LZ4 High Compression
-  COMPRESSION_ALGORITHM_LZ4HC = 5;
+  // LZ4 compression
+  COMPRESSION_ALGORITHM_LZ4 = 3;
 
   // Snappy compression
-  COMPRESSION_ALGORITHM_SNAPPY = 6;
+  COMPRESSION_ALGORITHM_SNAPPY = 4;
 
   // ZSTD compression
-  COMPRESSION_ALGORITHM_ZSTD = 7;
+  COMPRESSION_ALGORITHM_ZSTD = 5;
 
   // Brotli compression
-  COMPRESSION_ALGORITHM_BROTLI = 8;
-
-  // LZMA compression
-  COMPRESSION_ALGORITHM_LZMA = 9;
-
-  // Custom compression algorithm
-  COMPRESSION_ALGORITHM_CUSTOM = 10;
+  COMPRESSION_ALGORITHM_BROTLI = 6;
 }
