@@ -7,6 +7,11 @@ edition = "2023";
 package gcommon.v1.config;
 
 import "google/protobuf/timestamp.proto";
+import "pkg/config/proto/deployment_status.proto";
+import "pkg/config/proto/environment_status.proto";
+import "pkg/config/proto/environment_type.proto";
+import "pkg/config/proto/health_check_type.proto";
+import "pkg/config/proto/health_state.proto";
 import "pkg/config/proto/proto/config_secret.proto";
 
 option go_package = "github.com/jdfalk/gcommon/pkg/config/proto;configpb";
@@ -104,32 +109,6 @@ message ConfigEnvironment {
   string version = 30;
 }
 
-// EnvironmentType represents the type of environment
-enum EnvironmentType {
-  ENVIRONMENT_TYPE_UNSPECIFIED = 0;
-  ENVIRONMENT_TYPE_DEVELOPMENT = 1;
-  ENVIRONMENT_TYPE_TESTING = 2;
-  ENVIRONMENT_TYPE_STAGING = 3;
-  ENVIRONMENT_TYPE_PRODUCTION = 4;
-  ENVIRONMENT_TYPE_SANDBOX = 5;
-  ENVIRONMENT_TYPE_CANARY = 6;
-  ENVIRONMENT_TYPE_DISASTER_RECOVERY = 7;
-  ENVIRONMENT_TYPE_INTEGRATION = 8;
-  ENVIRONMENT_TYPE_PERFORMANCE = 9;
-  ENVIRONMENT_TYPE_SECURITY = 10;
-}
-
-// EnvironmentStatus represents the status of an environment
-enum EnvironmentStatus {
-  ENVIRONMENT_STATUS_UNSPECIFIED = 0;
-  ENVIRONMENT_STATUS_ACTIVE = 1;
-  ENVIRONMENT_STATUS_INACTIVE = 2;
-  ENVIRONMENT_STATUS_MAINTENANCE = 3;
-  ENVIRONMENT_STATUS_DEPRECATED = 4;
-  ENVIRONMENT_STATUS_ARCHIVED = 5;
-  ENVIRONMENT_STATUS_ERROR = 6;
-}
-
 // PromotionRule represents rules for promoting configurations between environments
 message PromotionRule {
   // Rule name
@@ -190,17 +169,6 @@ message DeploymentInfo {
   DeploymentRollbackInfo rollback_info = 8;
 }
 
-// DeploymentStatus represents the status of a deployment
-enum DeploymentStatus {
-  DEPLOYMENT_STATUS_UNSPECIFIED = 0;
-  DEPLOYMENT_STATUS_PENDING = 1;
-  DEPLOYMENT_STATUS_IN_PROGRESS = 2;
-  DEPLOYMENT_STATUS_SUCCESS = 3;
-  DEPLOYMENT_STATUS_FAILED = 4;
-  DEPLOYMENT_STATUS_ROLLED_BACK = 5;
-  DEPLOYMENT_STATUS_CANCELLED = 6;
-}
-
 // HealthCheck represents a health check for an environment
 message HealthCheck {
   // Health check name
@@ -223,18 +191,6 @@ message HealthCheck {
 
   // Health check conditions
   repeated string conditions = 7;
-}
-
-// HealthCheckType represents the type of health check
-enum HealthCheckType {
-  HEALTH_CHECK_TYPE_UNSPECIFIED = 0;
-  HEALTH_CHECK_TYPE_HTTP = 1;
-  HEALTH_CHECK_TYPE_HTTPS = 2;
-  HEALTH_CHECK_TYPE_TCP = 3;
-  HEALTH_CHECK_TYPE_UDP = 4;
-  HEALTH_CHECK_TYPE_GRPC = 5;
-  HEALTH_CHECK_TYPE_DATABASE = 6;
-  HEALTH_CHECK_TYPE_CUSTOM = 7;
 }
 
 // DeploymentRollbackInfo represents rollback information for deployments
@@ -271,15 +227,6 @@ message HealthStatus {
 
   // Health metrics
   map<string, double> metrics = 5;
-}
-
-// HealthState represents the state of health
-enum HealthState {
-  HEALTH_STATE_UNSPECIFIED = 0;
-  HEALTH_STATE_HEALTHY = 1;
-  HEALTH_STATE_DEGRADED = 2;
-  HEALTH_STATE_UNHEALTHY = 3;
-  HEALTH_STATE_UNKNOWN = 4;
 }
 
 // HealthCheckResult represents the result of a health check
