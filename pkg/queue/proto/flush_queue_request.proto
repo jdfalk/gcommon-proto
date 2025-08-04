@@ -1,20 +1,39 @@
-// filepath: pkg/queue/proto/requests/flush_queue_request.proto
-// file: queue/proto/requests/flush_queue_request.proto
-//
-// Request definitions for queue module
-// TODO: Implement actual protobuf definitions
-//
+// file: pkg/queue/proto/flush_queue_request.proto
+// version: 1.1.0
+// Request to flush queue messages to persistent storage
+
 edition = "2023";
 
 package gcommon.v1.queue;
 
-import "google/protobuf/go_features.proto";
+import "google/protobuf/timestamp.proto";
+import "pkg/queue/proto/flush_policy.proto";
 
-option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/pkg/queue/proto;queuepb";
+option go_package = "github.com/jdfalk/gcommon/pkg/queue/queuepb";
 
-// TODO: Add request definitions here
-// This is a placeholder file created during 1-1-1 migration
-// Implement the actual protobuf definitions according to the queue module requirements
-// SKELETON_FILE: Compilation temporarily disabled
-// This file needs proper implementation
+// FlushQueueRequest forces queue messages to be flushed to persistent storage
+message FlushQueueRequest {
+  // Queue identifier to flush
+  string queue_id = 1;
+
+  // Flush policy to apply
+  FlushPolicy flush_policy = 2;
+
+  // Wait for flush completion before returning
+  bool wait_for_completion = 3;
+
+  // Maximum time to wait for flush completion (milliseconds)
+  int32 timeout_ms = 4;
+
+  // Flush only messages up to this timestamp
+  google.protobuf.Timestamp flush_until = 5;
+
+  // Include specific partitions only (empty = all partitions)
+  repeated int32 partition_ids = 6;
+
+  // Force flush even if not needed
+  bool force_flush = 7;
+
+  // Optional metadata for the flush operation
+  map<string, string> metadata = 8;
+}

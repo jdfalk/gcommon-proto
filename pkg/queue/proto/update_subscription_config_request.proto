@@ -1,20 +1,120 @@
-// filepath: pkg/queue/proto/requests/update_subscription_config_request.proto
-// file: queue/proto/requests/update_subscription_config_request.proto
-//
-// Request definitions for queue module
-// TODO: Implement actual protobuf definitions
-//
+// file: pkg/queue/proto/update_subscription_config_request.proto
+// version: 1.1.0
+// Request to update subscription configuration
+
 edition = "2023";
 
 package gcommon.v1.queue;
 
-import "google/protobuf/go_features.proto";
+option go_package = "github.com/jdfalk/gcommon/pkg/queue/queuepb";
 
-option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/pkg/queue/proto;queuepb";
+// UpdateSubscriptionConfigRequest modifies subscription configuration settings
+message UpdateSubscriptionConfigRequest {
+  // Subscription identifier
+  string subscription_id = 1;
 
-// TODO: Add request definitions here
-// This is a placeholder file created during 1-1-1 migration
-// Implement the actual protobuf definitions according to the queue module requirements
-// SKELETON_FILE: Compilation temporarily disabled
-// This file needs proper implementation
+  // Configuration updates to apply
+  SubscriptionConfigUpdate config_update = 2;
+
+  // Specify which fields to update (empty = update all)
+  repeated string update_fields = 3;
+
+  // Validate configuration without applying changes
+  bool validate_only = 4;
+
+  // Force update even if subscription is active
+  bool force_update = 5;
+
+  // Apply changes immediately or schedule for later
+  bool immediate_apply = 6;
+
+  // Optional reason for the configuration change
+  string change_reason = 7;
+
+  // Metadata for the update operation
+  map<string, string> metadata = 8;
+}
+
+// Configuration updates for a subscription
+message SubscriptionConfigUpdate {
+  // Updated subscription name
+  string name = 1;
+
+  // Updated delivery settings
+  DeliverySettings delivery_settings = 2;
+
+  // Updated retry configuration
+  RetrySettings retry_settings = 3;
+
+  // Updated filtering rules
+  FilterSettings filter_settings = 4;
+
+  // Updated routing configuration
+  RoutingSettings routing_settings = 5;
+
+  // Maximum inflight messages
+  int32 max_inflight_messages = 6;
+
+  // Acknowledgment timeout (milliseconds)
+  int32 ack_timeout_ms = 7;
+
+  // Priority level for messages
+  int32 priority_level = 8;
+}
+
+// Delivery settings for subscription
+message DeliverySettings {
+  // Delivery mode (push, pull, streaming)
+  string delivery_mode = 1;
+
+  // Endpoint for push delivery
+  string push_endpoint = 2;
+
+  // Delivery timeout (milliseconds)
+  int32 delivery_timeout_ms = 3;
+
+  // Enable ordered delivery
+  bool ordered_delivery = 4;
+}
+
+// Retry settings for failed deliveries
+message RetrySettings {
+  // Maximum retry attempts
+  int32 max_retries = 1;
+
+  // Initial retry delay (milliseconds)
+  int32 initial_delay_ms = 2;
+
+  // Maximum retry delay (milliseconds)
+  int32 max_delay_ms = 3;
+
+  // Backoff multiplier
+  double backoff_multiplier = 4;
+
+  // Dead letter queue topic
+  string dead_letter_topic = 5;
+}
+
+// Message filtering settings
+message FilterSettings {
+  // Content-based filters
+  map<string, string> content_filters = 1;
+
+  // Header-based filters
+  map<string, string> header_filters = 2;
+
+  // Filter expression
+  string filter_expression = 3;
+}
+
+// Message routing settings
+message RoutingSettings {
+  // Routing key pattern
+  string routing_key_pattern = 1;
+
+  // Target partitions
+  repeated int32 target_partitions = 2;
+
+  // Routing strategy
+  string routing_strategy = 3;
+}
