@@ -1,20 +1,27 @@
-// filepath: pkg/queue/proto/requests/reset_queue_stats_request.proto
-// file: queue/proto/requests/reset_queue_stats_request.proto
-//
-// Request definitions for queue module
-// TODO: Implement actual protobuf definitions
-//
+// file: pkg/queue/proto/reset_queue_stats_request.proto
+// version: 1.0.0
+// Request to reset queue statistics
+
 edition = "2023";
 
 package gcommon.v1.queue;
 
-import "google/protobuf/go_features.proto";
+option go_package = "github.com/jdfalk/gcommon/pkg/queue/queuepb";
 
-option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/pkg/queue/proto;queuepb";
+// Request to reset queue statistics
+message ResetQueueStatsRequest {
+  // Queue name to reset stats for
+  string queue_name = 1;
 
-// TODO: Add request definitions here
-// This is a placeholder file created during 1-1-1 migration
-// Implement the actual protobuf definitions according to the queue module requirements
-// SKELETON_FILE: Compilation temporarily disabled
-// This file needs proper implementation
+  // Reset specific stat types (empty means reset all)
+  repeated string stat_types = 2;
+
+  // Reset stats for specific partitions only
+  repeated int32 partition_ids = 3;
+
+  // Preserve historical data before this timestamp
+  int64 preserve_before_timestamp = 4;
+
+  // Timeout for the operation (milliseconds)
+  int32 timeout_ms = 5;
+}

@@ -1,20 +1,29 @@
-// filepath: pkg/queue/proto/requests/update_topic_config_request.proto
-// file: queue/proto/requests/update_topic_config_request.proto
-//
-// Request definitions for queue module
-// TODO: Implement actual protobuf definitions
-//
+// file: pkg/queue/proto/update_topic_config_request.proto
+// version: 1.0.0
+// Request to update topic configuration
+
 edition = "2023";
 
 package gcommon.v1.queue;
 
-import "google/protobuf/go_features.proto";
+option go_package = "github.com/jdfalk/gcommon/pkg/queue/queuepb";
 
-option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/pkg/queue/proto;queuepb";
+import "pkg/queue/proto/topic_config.proto";
 
-// TODO: Add request definitions here
-// This is a placeholder file created during 1-1-1 migration
-// Implement the actual protobuf definitions according to the queue module requirements
-// SKELETON_FILE: Compilation temporarily disabled
-// This file needs proper implementation
+// Request to update topic configuration
+message UpdateTopicConfigRequest {
+  // Topic name to update
+  string topic_name = 1;
+
+  // New topic configuration
+  TopicConfig config = 2;
+
+  // Whether to validate config before applying
+  bool validate_only = 3;
+
+  // Apply changes incrementally if possible
+  bool incremental_update = 4;
+
+  // Timeout for the operation (milliseconds)
+  int32 timeout_ms = 5;
+}

@@ -1,20 +1,30 @@
-// filepath: pkg/queue/proto/responses/purge_response.proto
-// file: queue/proto/responses/purge_response.proto
-//
-// Response definitions for queue module
-// TODO: Implement actual protobuf definitions
-//
+// file: pkg/queue/proto/purge_response.proto
+// version: 1.0.0
+// Response for queue purge operations
+
 edition = "2023";
 
 package gcommon.v1.queue;
 
-import "google/protobuf/go_features.proto";
+option go_package = "github.com/jdfalk/gcommon/pkg/queue/queuepb";
 
-option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/pkg/queue/proto;queuepb";
+// Response for queue purge operations
+message PurgeResponse {
+  // Whether the purge was successful
+  bool success = 1;
 
-// TODO: Add response definitions here
-// This is a placeholder file created during 1-1-1 migration
-// Implement the actual protobuf definitions according to the queue module requirements
-// SKELETON_FILE: Compilation temporarily disabled
-// This file needs proper implementation
+  // Number of messages purged
+  int64 messages_purged = 2;
+
+  // Number of bytes freed
+  int64 bytes_freed = 3;
+
+  // Purge duration (milliseconds)
+  int32 purge_duration_ms = 4;
+
+  // Partitions that were purged
+  repeated int32 purged_partitions = 5;
+
+  // Error message if purge failed
+  string error = 6;
+}
