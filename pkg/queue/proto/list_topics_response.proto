@@ -9,7 +9,7 @@ package gcommon.v1.queue;
 import "google/protobuf/timestamp.proto";
 import "pkg/queue/proto/topic_stats.proto";
 
-option go_package = "github.com/jdfalk/gcommon/pkg/queue/queuepb";
+option go_package = "github.com/jdfalk/gcommon/pkg/queue/proto;queuepb";
 
 // ListTopicsResponse returns a list of available topics
 message ListTopicsResponse {

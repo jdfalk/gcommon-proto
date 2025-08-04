@@ -9,7 +9,7 @@ package gcommon.v1.queue;
 import "google/protobuf/timestamp.proto";
 import "google/protobuf/duration.proto";
 
-option go_package = "github.com/jdfalk/gcommon/pkg/queue/queuepb";
+option go_package = "github.com/jdfalk/gcommon/pkg/queue/proto;queuepb";
 
 // RestoreQueueResponse returns the result of a queue restoration operation
 message RestoreQueueResponse {

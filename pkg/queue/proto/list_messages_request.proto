@@ -6,7 +6,7 @@ edition = "2023";
 
 package gcommon.v1.queue;
 
-option go_package = "github.com/jdfalk/gcommon/pkg/queue/queuepb";
+option go_package = "github.com/jdfalk/gcommon/pkg/queue/proto;queuepb";
 
 // Request to list messages in a queue
 message ListMessagesRequest {

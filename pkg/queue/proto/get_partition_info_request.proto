@@ -8,7 +8,7 @@ package gcommon.v1.queue;
 
 import "pkg/queue/proto/get_queue_info_request.proto";
 
-option go_package = "github.com/jdfalk/gcommon/pkg/queue/queuepb";
+option go_package = "github.com/jdfalk/gcommon/pkg/queue/proto;queuepb";
 
 // GetPartitionInfoRequest retrieves information about topic partitions
 message GetPartitionInfoRequest {
