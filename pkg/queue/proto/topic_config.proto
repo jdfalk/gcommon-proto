@@ -1,18 +1,47 @@
 // filepath: pkg/queue/proto/messages/topic_config.proto
 // file: queue/proto/messages/topic_config.proto
+// version: 1.0.0
+// guid: 9f0a1b2c-3d4e-5f6a-7b8c-9d0e1f2a3b4c
 //
 // Message definitions for queue module
-// TODO: Implement actual protobuf definitions
 //
 edition = "2023";
 
 package gcommon.v1.queue;
 
 import "google/protobuf/go_features.proto";
+import "google/protobuf/duration.proto";
+import "pkg/queue/proto/retention_policy.proto";
+import "pkg/queue/proto/partition_config.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
 option go_package = "github.com/jdfalk/gcommon/pkg/queue/proto;queuepb";
 
-// TODO: Add message definitions here
-// This is a placeholder file created during 1-1-1 migration
-// Implement the actual protobuf definitions according to the queue module requirements
+/**
+ * Configuration settings for a topic.
+ */
+message TopicConfig {
+  // Maximum number of messages in the topic
+  uint64 max_messages = 1;
+
+  // Maximum size of the topic in bytes
+  uint64 max_size_bytes = 2;
+
+  // Message retention policy
+  gcommon.v1.queue.RetentionPolicy retention_policy = 3;
+
+  // Partitioning configuration
+  gcommon.v1.queue.PartitionConfig partition_config = 4;
+
+  // Whether messages are persistent
+  bool persistent = 5;
+
+  // Whether topic is replicated
+  bool replicated = 6;
+
+  // Replication factor
+  uint32 replication_factor = 7;
+
+  // Whether to compact duplicate messages
+  bool enable_compaction = 8;
+}
