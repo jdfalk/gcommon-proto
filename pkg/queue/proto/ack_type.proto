@@ -1,0 +1,33 @@
+// file: pkg/queue/proto/ack_type.proto
+// version: 1.0.0
+// guid: d3e4f5a6-b7c8-9d0e-1f2a-3b4c5d6e7f8a
+
+edition = "2023";
+
+package gcommon.v1.queue;
+
+import "google/protobuf/go_features.proto";
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/jdfalk/gcommon/pkg/queue/proto;queuepb";
+
+/**
+ * Types of acknowledgments.
+ * Defines how a consumed message was processed.
+ */
+enum AckType {
+  // Unspecified acknowledgment type
+  ACK_TYPE_UNSPECIFIED = 0;
+
+  // Successful processing acknowledgment
+  ACK_TYPE_SUCCESS = 1;
+
+  // Failed processing - retry message
+  ACK_TYPE_RETRY = 2;
+
+  // Failed processing - reject message (dead letter)
+  ACK_TYPE_REJECT = 3;
+
+  // Processing timeout
+  ACK_TYPE_TIMEOUT = 4;
+}
