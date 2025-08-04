@@ -18,19 +18,19 @@ option go_package = "github.com/jdfalk/gcommon/pkg/queue/proto;queuepb";
 enum StatisticGrouping {
   // Unspecified grouping
   STATISTIC_GROUPING_UNSPECIFIED = 0;
-  
+
   // No grouping, flat statistics
   STATISTIC_GROUPING_NONE = 1;
-  
+
   // Group by queue name
   STATISTIC_GROUPING_BY_QUEUE = 2;
-  
+
   // Group by consumer
   STATISTIC_GROUPING_BY_CONSUMER = 3;
-  
+
   // Group by time periods
   STATISTIC_GROUPING_BY_TIME_PERIOD = 4;
-  
+
   // Group by message type
   STATISTIC_GROUPING_BY_MESSAGE_TYPE = 5;
 }

@@ -1,18 +1,174 @@
 // filepath: pkg/queue/proto/messages/cluster_info.proto
 // file: queue/proto/messages/cluster_info.proto
+// version: 1.0.0
+// guid: 5a6b7c8d-9e0f-1a2b-3c4d-5e6f7a8b9c0d
 //
 // Message definitions for queue module
-// TODO: Implement actual protobuf definitions
 //
 edition = "2023";
 
 package gcommon.v1.queue;
 
 import "google/protobuf/go_features.proto";
+import "google/protobuf/timestamp.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
 option go_package = "github.com/jdfalk/gcommon/pkg/queue/proto;queuepb";
 
-// TODO: Add message definitions here
-// This is a placeholder file created during 1-1-1 migration
-// Implement the actual protobuf definitions according to the queue module requirements
+/**
+ * Information about the queue cluster and its nodes.
+ */
+message ClusterInfo {
+  // Unique identifier for the cluster
+  string cluster_id = 1;
+
+  // Name of the cluster
+  string cluster_name = 2;
+
+  // Current cluster state
+  ClusterState state = 3;
+
+  // List of nodes in the cluster
+  repeated NodeInfo nodes = 4;
+
+  // Leader node information
+  NodeInfo leader = 5;
+
+  // Cluster configuration
+  ClusterConfig config = 6;
+
+  // Cluster-wide statistics
+  ClusterStats stats = 7;
+
+  // Timestamp when cluster info was last updated
+  google.protobuf.Timestamp last_updated = 8;
+}
+
+/**
+ * State of the cluster.
+ */
+enum ClusterState {
+  // Default unspecified state
+  CLUSTER_STATE_UNSPECIFIED = 0;
+
+  // Cluster is healthy and operational
+  CLUSTER_STATE_HEALTHY = 1;
+
+  // Cluster is degraded but operational
+  CLUSTER_STATE_DEGRADED = 2;
+
+  // Cluster is in recovery mode
+  CLUSTER_STATE_RECOVERING = 3;
+
+  // Cluster is down
+  CLUSTER_STATE_DOWN = 4;
+
+  // Cluster is in maintenance mode
+  CLUSTER_STATE_MAINTENANCE = 5;
+}
+
+/**
+ * Information about a single node in the cluster.
+ */
+message NodeInfo {
+  // Unique identifier for the node
+  string node_id = 1;
+
+  // Hostname or address of the node
+  string hostname = 2;
+
+  // Port number for the node
+  int32 port = 3;
+
+  // Current state of the node
+  NodeState state = 4;
+
+  // Node roles (leader, follower, etc.)
+  repeated string roles = 5;
+
+  // Timestamp when node was last seen
+  google.protobuf.Timestamp last_heartbeat = 6;
+
+  // Node-specific statistics
+  NodeStats stats = 7;
+}
+
+/**
+ * State of a cluster node.
+ */
+enum NodeState {
+  // Default unspecified state
+  NODE_STATE_UNSPECIFIED = 0;
+
+  // Node is active and healthy
+  NODE_STATE_ACTIVE = 1;
+
+  // Node is inactive but reachable
+  NODE_STATE_INACTIVE = 2;
+
+  // Node is unreachable
+  NODE_STATE_UNREACHABLE = 3;
+
+  // Node is joining the cluster
+  NODE_STATE_JOINING = 4;
+
+  // Node is leaving the cluster
+  NODE_STATE_LEAVING = 5;
+}
+
+/**
+ * Configuration for the cluster.
+ */
+message ClusterConfig {
+  // Minimum number of nodes for quorum
+  int32 quorum_size = 1;
+
+  // Replication factor
+  int32 replication_factor = 2;
+
+  // Heartbeat interval in seconds
+  int32 heartbeat_interval = 3;
+
+  // Election timeout in seconds
+  int32 election_timeout = 4;
+}
+
+/**
+ * Statistics for the entire cluster.
+ */
+message ClusterStats {
+  // Total number of queues across all nodes
+  int64 total_queues = 1;
+
+  // Total number of messages across all queues
+  int64 total_messages = 2;
+
+  // Total throughput (messages per second)
+  double total_throughput = 3;
+
+  // Number of active connections
+  int64 active_connections = 4;
+}
+
+/**
+ * Statistics for a single node.
+ */
+message NodeStats {
+  // Number of queues hosted on this node
+  int32 queue_count = 1;
+
+  // Number of messages on this node
+  int64 message_count = 2;
+
+  // CPU usage percentage
+  double cpu_usage = 3;
+
+  // Memory usage in bytes
+  int64 memory_usage = 4;
+
+  // Disk usage in bytes
+  int64 disk_usage = 5;
+
+  // Network throughput in bytes per second
+  double network_throughput = 6;
+}

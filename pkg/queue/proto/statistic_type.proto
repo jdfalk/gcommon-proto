@@ -18,34 +18,34 @@ option go_package = "github.com/jdfalk/gcommon/pkg/queue/proto;queuepb";
 enum StatisticType {
   // Unspecified statistic type
   STATISTIC_TYPE_UNSPECIFIED = 0;
-  
+
   // Total message count
   STATISTIC_TYPE_MESSAGE_COUNT = 1;
-  
+
   // Message throughput rate
   STATISTIC_TYPE_THROUGHPUT = 2;
-  
+
   // Processing latency
   STATISTIC_TYPE_LATENCY = 3;
-  
+
   // Error rate percentage
   STATISTIC_TYPE_ERROR_RATE = 4;
-  
+
   // Current queue depth
   STATISTIC_TYPE_QUEUE_DEPTH = 5;
-  
+
   // Average processing time
   STATISTIC_TYPE_PROCESSING_TIME = 6;
-  
+
   // Active consumer count
   STATISTIC_TYPE_CONSUMER_COUNT = 7;
-  
+
   // Average message size
   STATISTIC_TYPE_MESSAGE_SIZE = 8;
-  
+
   // Message age distribution
   STATISTIC_TYPE_AGE_DISTRIBUTION = 9;
-  
+
   // Success rate percentage
   STATISTIC_TYPE_SUCCESS_RATE = 10;
 }
