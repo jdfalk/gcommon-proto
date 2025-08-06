@@ -1,4 +1,4 @@
-// filepath: pkg/metrics/proto/responses/record_metric_response.proto
+// file: pkg/metrics/proto/responses/record_metric_response.proto
 // file: metrics/proto/responses/record_metric_response.proto
 //
 // Record metric response definitions for metrics module

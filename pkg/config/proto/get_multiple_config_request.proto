@@ -1,16 +1,14 @@
 // file: pkg/config/proto/requests/get_multiple_config_request.proto
-import "pkg/common/proto/request_metadata.proto";
+
 edition = "2023";
 
 package gcommon.v1.config;
 
 import "google/protobuf/go_features.proto";
+import "pkg/common/proto/request_metadata.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
 
-/**
- * GetMultipleConfigRequest retrieves multiple configuration values.
- */
 message GetMultipleConfigRequest {
   // Configuration keys to retrieve
   repeated string keys = 1;

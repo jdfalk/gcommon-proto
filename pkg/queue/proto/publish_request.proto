@@ -1,22 +1,22 @@
 // file: pkg/queue/proto/requests/publish_request.proto
-import "pkg/common/proto/request_metadata.proto";
 // version: 1.0.0
 // guid: 59dc8120-bc2f-4d56-a9f1-f0957cb9bafb
-
 // PublishRequest publishes a single message to a named topic. It is
 // used for pub/sub style messaging where consumers subscribe to
 // topics rather than specific queues.
+// PublishRequest contains all information required to publish a
+// message to a topic.
+
 edition = "2023";
 
 package gcommon.v1.queue;
 
 import "google/protobuf/go_features.proto";
 import "pkg/common/proto/queue/proto/queue/proto/delivery_options.proto";
+import "pkg/common/proto/request_metadata.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
 
-// PublishRequest contains all information required to publish a
-// message to a topic.
 message PublishRequest {
   // Name of the topic to publish to.
   string topic_name = 1;

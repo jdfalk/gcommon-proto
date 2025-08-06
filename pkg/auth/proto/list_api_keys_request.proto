@@ -1,4 +1,4 @@
-// filepath: pkg/auth/proto/requests/list_api_keys_request.proto
+// file: pkg/auth/proto/requests/list_api_keys_request.proto
 // file: auth/proto/requests/list_api_keys_request.proto
 //
 // Request definitions for auth module

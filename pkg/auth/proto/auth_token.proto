@@ -1,4 +1,4 @@
-// filepath: pkg/auth/proto/messages/auth_token.proto
+// file: pkg/auth/proto/messages/auth_token.proto
 // file: auth/proto/messages/auth_token.proto
 //
 // Message definitions for auth module

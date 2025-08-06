@@ -1,4 +1,4 @@
-// filepath: pkg/metrics/proto/requests/get_metric_metadata_request.proto
+// file: pkg/metrics/proto/requests/get_metric_metadata_request.proto
 // file: metrics/proto/requests/get_metric_metadata_request.proto
 //
 // Request definitions for metrics module

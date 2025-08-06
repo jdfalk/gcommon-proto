@@ -1,20 +1,18 @@
-// filepath: pkg/metrics/proto/requests/import_metrics_request.proto
-import "pkg/common/proto/request_metadata.proto";
+// file: pkg/metrics/proto/requests/import_metrics_request.proto
 // file: metrics/proto/requests/import_metrics_request.proto
 //
 // Request message for importing multiple metrics.
 //
+
 edition = "2023";
 
 package gcommon.v1.metrics;
 
 import "google/protobuf/go_features.proto";
+import "pkg/common/proto/request_metadata.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
 
-/**
- * ImportMetricsRequest uploads a batch of metrics.
- */
 message ImportMetricsRequest {
   // Metrics to import
   repeated MetricData metrics = 1;

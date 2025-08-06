@@ -1,4 +1,4 @@
-// filepath: pkg/metrics/proto/messages/export_config_options.proto
+// file: pkg/metrics/proto/messages/export_config_options.proto
 // file: metrics/proto/messages/export_config_options.proto
 //
 // Configuration options for exporting metrics to external systems.

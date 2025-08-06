@@ -1,4 +1,4 @@
-// filepath: pkg/metrics/proto/services/metrics_admin_service.proto
+// file: pkg/metrics/proto/services/metrics_admin_service.proto
 // file: metrics/proto/services/metrics_admin_service.proto
 //
 // Administrative service definitions for metrics module

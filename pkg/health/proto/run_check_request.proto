@@ -1,20 +1,18 @@
-// filepath: pkg/health/proto/requests/run_check_request.proto
-import "pkg/common/proto/request_metadata.proto";
+// file: pkg/health/proto/requests/run_check_request.proto
 // file: health/proto/requests/run_check_request.proto
 //
 // Request definitions for health module
 //
+
 edition = "2023";
 
 package gcommon.v1.health;
 
 import "google/protobuf/go_features.proto";
+import "pkg/common/proto/request_metadata.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
 
-/**
- * RunCheckRequest triggers execution of a specific health check.
- */
 message RunCheckRequest {
   // Name or ID of the check to run
   string name = 1;

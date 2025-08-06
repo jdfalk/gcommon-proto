@@ -1,21 +1,19 @@
-// filepath: pkg/health/proto/requests/set_health_request.proto
-import "pkg/common/proto/request_metadata.proto";
+// file: pkg/health/proto/requests/set_health_request.proto
 // file: health/proto/requests/set_health_request.proto
 //
 // Request definitions for health module
 //
+
 edition = "2023";
 
 package gcommon.v1.health;
 
 import "google/protobuf/go_features.proto";
 import "pkg/common/proto/common/proto/health_status.proto";
+import "pkg/common/proto/request_metadata.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
 
-/**
- * SetHealthRequest allows manually overriding the health status of a service.
- */
 message SetHealthRequest {
   // Service name to update
   string service = 1;

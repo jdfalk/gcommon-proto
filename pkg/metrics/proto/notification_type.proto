@@ -1,4 +1,4 @@
-// filepath: pkg/metrics/proto/enums/notification_type.proto
+// file: pkg/metrics/proto/enums/notification_type.proto
 // file: metrics/proto/enums/notification_type.proto
 //
 // Enum definitions for metrics module

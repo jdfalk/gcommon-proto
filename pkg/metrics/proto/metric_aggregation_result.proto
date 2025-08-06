@@ -1,4 +1,4 @@
-// filepath: pkg/metrics/proto/messages/metric_aggregation_result.proto
+// file: pkg/metrics/proto/messages/metric_aggregation_result.proto
 // file: metrics/proto/messages/metric_aggregation_result.proto
 //
 // Definition of aggregation results for metrics queries.

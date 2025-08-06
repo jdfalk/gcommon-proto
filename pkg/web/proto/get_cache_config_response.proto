@@ -1,5 +1,4 @@
 // file: pkg/web/proto/responses/get_cache_config_response.proto
-import "pkg/common/proto/request_metadata.proto";
 // version: 1.0.0
 // guid: def67890-abcd-1234-5678-90abcdef1234
 
@@ -8,13 +7,11 @@ edition = "2023";
 package gcommon.v1.web;
 
 import "google/protobuf/go_features.proto";
+import "pkg/common/proto/request_metadata.proto";
 import "pkg/web/proto/proto/messages/request_metadata.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
 
-/**
- * Response containing current cache configuration.
- */
 message GetCacheConfigResponse {
   // The current cache configuration
   CacheConfig config = 1;

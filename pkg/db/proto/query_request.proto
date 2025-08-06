@@ -1,18 +1,15 @@
 // file: pkg/db/proto/requests/query_request.proto
-import "pkg/common/proto/request_metadata.proto";
+
 edition = "2023";
 
 package gcommon.v1.database;
 
 import "pkg/common/proto/protobuf/go_features.proto";
+import "pkg/common/proto/request_metadata.proto";
 import "pkg/db/proto/proto/query_options.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
 
-/**
- * QueryRequest represents a request to execute a database query.
- * Supports parameterized queries with options and transaction context.
- */
 message QueryRequest {
   // SQL query or NoSQL query string
   string query = 1;

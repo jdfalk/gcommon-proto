@@ -1,4 +1,4 @@
-// filepath: pkg/queue/proto/messages/message.proto
+// file: pkg/queue/proto/messages/message.proto
 // file: queue/proto/messages/message.proto
 //
 // Message definitions for queue module

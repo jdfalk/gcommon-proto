@@ -1,4 +1,4 @@
-// file: pkg/web/proto/requests/list_middleware_request.proto
+// file: pkg/web/proto/list_middleware_request.proto
 // version: 1.1.0
 // guid: 0717a6fd-6194-47c2-a17e-4cb18eac5bba
 
@@ -7,11 +7,9 @@ edition = "2023";
 package gcommon.v1.web;
 
 import "google/protobuf/go_features.proto";
+import "pkg/common/proto/pagination.proto";
 import "pkg/common/proto/request_metadata.proto";
-import "pkg/common/proto/common/proto/request_metadata.proto";
-import "pkg/common/proto/request_metadata.proto";
-// Import middleware type enum
-import "pkg/web/proto/gcommon/pkg/web/proto;webpb";
+import "pkg/web/proto/middleware_type.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
 

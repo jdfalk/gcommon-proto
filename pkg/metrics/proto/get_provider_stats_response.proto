@@ -1,4 +1,4 @@
-// filepath: pkg/metrics/proto/responses/get_provider_stats_response.proto
+// file: pkg/metrics/proto/responses/get_provider_stats_response.proto
 // file: metrics/proto/responses/get_provider_stats_response.proto
 //
 // Get provider stats response definitions for metrics module

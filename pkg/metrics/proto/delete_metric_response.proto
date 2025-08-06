@@ -1,4 +1,4 @@
-// filepath: pkg/metrics/proto/responses/delete_metric_response.proto
+// file: pkg/metrics/proto/responses/delete_metric_response.proto
 // file: metrics/proto/responses/delete_metric_response.proto
 //
 // Response returned after deleting a metric.

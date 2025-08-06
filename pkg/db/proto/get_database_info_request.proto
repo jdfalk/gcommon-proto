@@ -1,17 +1,14 @@
 // file: pkg/db/proto/requests/get_database_info_request.proto
-import "pkg/common/proto/request_metadata.proto";
+
 edition = "2023";
 
 package gcommon.v1.database;
 
 import "pkg/common/proto/protobuf/go_features.proto";
+import "pkg/common/proto/request_metadata.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
 
-/**
- * GetDatabaseInfoRequest represents a request to retrieve metadata about
- * a specific database including version, type, and capabilities.
- */
 message GetDatabaseInfoRequest {
   // Name of the database to get information about
   string name = 1;

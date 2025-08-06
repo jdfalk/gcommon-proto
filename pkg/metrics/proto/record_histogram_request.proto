@@ -1,23 +1,20 @@
-// filepath: pkg/metrics/proto/requests/record_histogram_request.proto
-import "pkg/common/proto/request_metadata.proto";
+// file: pkg/metrics/proto/requests/record_histogram_request.proto
 // file: metrics/proto/requests/record_histogram_request.proto
 //
 // Request definitions for metrics module
 // TODO: Implement actual protobuf definitions
 //
+
 edition = "2023";
 
 package gcommon.v1.metrics;
 
 import "google/protobuf/go_features.proto";
 import "google/protobuf/timestamp.proto";
+import "pkg/common/proto/request_metadata.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
 
-/**
- * RecordHistogramRequest is used to record an observation in a histogram metric.
- * Histograms track the distribution of values in configurable buckets.
- */
 message RecordHistogramRequest {
   // Metric name (e.g., "request_duration_seconds", "response_size_bytes")
   string name = 1;

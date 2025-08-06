@@ -1,20 +1,18 @@
-// filepath: pkg/metrics/proto/requests/set_metric_metadata_request.proto
-import "pkg/common/proto/request_metadata.proto";
+// file: pkg/metrics/proto/requests/set_metric_metadata_request.proto
 // file: metrics/proto/requests/set_metric_metadata_request.proto
 //
 // Request message for updating metric metadata.
 //
+
 edition = "2023";
 
 package gcommon.v1.metrics;
 
 import "google/protobuf/go_features.proto";
+import "pkg/common/proto/request_metadata.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
 
-/**
- * SetMetricMetadataRequest updates metadata for a metric.
- */
 message SetMetricMetadataRequest {
   // Metric metadata to apply
   MetricMetadata metadata = 1;

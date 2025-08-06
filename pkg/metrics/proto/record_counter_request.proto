@@ -1,4 +1,4 @@
-// filepath: pkg/metrics/proto/requests/record_counter_request.proto
+// file: pkg/metrics/proto/requests/record_counter_request.proto
 // file: metrics/proto/requests/record_counter_request.proto
 //
 // Record counter request definitions for metrics module

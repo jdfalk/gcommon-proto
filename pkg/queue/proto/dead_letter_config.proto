@@ -1,4 +1,4 @@
-// filepath: pkg/queue/proto/messages/dead_letter_config.proto
+// file: pkg/queue/proto/messages/dead_letter_config.proto
 // file: queue/proto/messages/dead_letter_config.proto
 // version: 1.0.0
 // guid: 8a7b6c5d-4e3f-2a1b-0c9d-8e7f6a5b4c3d

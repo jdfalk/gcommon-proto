@@ -1,4 +1,4 @@
-// filepath: pkg/notification/proto/messages/event_notification.proto
+// file: pkg/notification/proto/messages/event_notification.proto
 // file: notification/proto/messages/event_notification.proto
 //
 // Event based notification payload linking an event to a notification message.

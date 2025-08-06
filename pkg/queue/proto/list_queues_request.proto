@@ -1,16 +1,16 @@
 // file: pkg/queue/proto/requests/list_queues_request.proto
-import "pkg/common/proto/request_metadata.proto";
 // version: 1.0.0
 // guid: 10aa0104-6a4e-4092-98f4-8eabba61ea69
-
 // ListQueuesRequest retrieves available queues for the current
 // user or service account. This file was a placeholder and now
 // implements the request following the 1-1-1 pattern.
+
 edition = "2023";
 
 package gcommon.v1.queue;
 
 import "google/protobuf/go_features.proto";
+import "pkg/common/proto/request_metadata.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
 

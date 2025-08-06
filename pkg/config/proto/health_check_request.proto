@@ -1,21 +1,18 @@
-// filepath: pkg/config/proto/requests/health_check_request.proto
-import "pkg/common/proto/request_metadata.proto";
-// file: config/proto/requests/health_check_request.proto
+// file: pkg/config/proto/health_check_request.proto
 //
 // Request definitions for config module
 // Generated as part of protobuf implementation
 //
+
 edition = "2023";
 
 package gcommon.v1.config;
 
 import "google/protobuf/go_features.proto";
+import "pkg/common/proto/request_metadata.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
 
-/**
- * HealthCheckRequest verifies the health of the configuration service.
- */
 message HealthCheckRequest {
   // Target namespace to check
   string namespace = 1;

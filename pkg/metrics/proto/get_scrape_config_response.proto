@@ -1,4 +1,4 @@
-// filepath: pkg/metrics/proto/responses/get_scrape_config_response.proto
+// file: pkg/metrics/proto/responses/get_scrape_config_response.proto
 // file: metrics/proto/responses/get_scrape_config_response.proto
 //
 // Response containing scraping configuration for a provider.

@@ -1,4 +1,4 @@
-// filepath: pkg/metrics/proto/responses/unregister_metric_response.proto
+// file: pkg/metrics/proto/responses/unregister_metric_response.proto
 // file: metrics/proto/responses/unregister_metric_response.proto
 //
 // Unregister metric response definitions for metrics module

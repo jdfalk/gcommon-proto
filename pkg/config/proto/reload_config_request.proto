@@ -1,21 +1,19 @@
-// filepath: pkg/config/proto/requests/reload_config_request.proto
-import "pkg/common/proto/request_metadata.proto";
+// file: pkg/config/proto/requests/reload_config_request.proto
 // file: config/proto/requests/reload_config_request.proto
 //
 // Request definitions for config module
 // Generated as part of protobuf implementation
 //
+
 edition = "2023";
 
 package gcommon.v1.config;
 
 import "google/protobuf/go_features.proto";
+import "pkg/common/proto/request_metadata.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
 
-/**
- * ReloadConfigRequest forces the service to reload configuration from storage.
- */
 message ReloadConfigRequest {
   // Namespace to reload
   string namespace = 1;

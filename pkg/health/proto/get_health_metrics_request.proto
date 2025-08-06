@@ -1,21 +1,18 @@
-// filepath: pkg/health/proto/requests/get_health_metrics_request.proto
-import "pkg/common/proto/request_metadata.proto";
+// file: pkg/health/proto/requests/get_health_metrics_request.proto
 // file: health/proto/requests/get_health_metrics_request.proto
 //
 // Request definitions for health module
 //
+
 edition = "2023";
 
 package gcommon.v1.health;
 
 import "google/protobuf/go_features.proto";
+import "pkg/common/proto/request_metadata.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
 
-/**
- * GetHealthMetricsRequest retrieves metrics collected for a service's
- * health checks.
- */
 message GetHealthMetricsRequest {
   // Service name (optional)
   string service = 1;

@@ -1,4 +1,4 @@
-// filepath: pkg/metrics/proto/enums/export_format.proto
+// file: pkg/metrics/proto/enums/export_format.proto
 // file: metrics/proto/enums/export_format.proto
 //
 // Enum definitions for metrics module

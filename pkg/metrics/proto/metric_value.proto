@@ -1,4 +1,4 @@
-// filepath: pkg/metrics/proto/types/metric_value.proto
+// file: pkg/metrics/proto/types/metric_value.proto
 // file: metrics/proto/types/metric_value.proto
 //
 // Type definitions for metrics module

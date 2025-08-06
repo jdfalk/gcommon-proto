@@ -1,18 +1,16 @@
-// filepath: pkg/config/proto/requests/watch_config_request.proto
-import "pkg/common/proto/request_metadata.proto";
+// file: pkg/config/proto/requests/watch_config_request.proto
 // file: config/proto/requests/watch_config_request.proto
 //
+
 edition = "2023";
 
 package gcommon.v1.config;
 
 import "google/protobuf/go_features.proto";
+import "pkg/common/proto/request_metadata.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
 
-/**
- * WatchConfigRequest starts watching configuration changes.
- */
 message WatchConfigRequest {
   // Key or key pattern to watch
   string key_pattern = 1;

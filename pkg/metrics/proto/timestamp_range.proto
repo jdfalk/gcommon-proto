@@ -1,4 +1,4 @@
-// filepath: pkg/metrics/proto/types/timestamp_range.proto
+// file: pkg/metrics/proto/types/timestamp_range.proto
 // file: metrics/proto/types/timestamp_range.proto
 //
 // Type definitions for metrics module

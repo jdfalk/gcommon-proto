@@ -1,9 +1,9 @@
-// filepath: pkg/metrics/proto/responses/record_counter_response.proto
-import "pkg/common/proto/request_metadata.proto";
+// file: pkg/metrics/proto/responses/record_counter_response.proto
 // file: metrics/proto/responses/record_counter_response.proto
 //
 // Record counter response definitions for metrics module
 //
+
 edition = "2023";
 
 package gcommon.v1.metrics;
@@ -11,12 +11,10 @@ package gcommon.v1.metrics;
 import "google/protobuf/go_features.proto";
 import "google/protobuf/timestamp.proto";
 import "pkg/common/proto/error.proto";
+import "pkg/common/proto/request_metadata.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
 
-/**
- * RecordCounterResponse is returned after recording a counter metric.
- */
 message RecordCounterResponse {
   // Whether the operation was successful
   bool success = 1;

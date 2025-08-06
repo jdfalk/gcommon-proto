@@ -1,5 +1,4 @@
 // file: pkg/notification/proto/requests/send_notification_request.proto
-import "pkg/common/proto/request_metadata.proto";
 // version: 1.0.0
 // guid: 42b9620e-9388-4ee6-be25-e4a3a0928211
 
@@ -8,12 +7,10 @@ edition = "2023";
 package gcommon.v1.notification;
 
 import "google/protobuf/go_features.proto";
+import "pkg/common/proto/request_metadata.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
 
-/**
- * Request to send a notification to one or more delivery channels.
- */
 message SendNotificationRequest {
   // Standard request metadata for tracing and auth.
   gcommon.v1.common.RequestMetadata metadata = 1;

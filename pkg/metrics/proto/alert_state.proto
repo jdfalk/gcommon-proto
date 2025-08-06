@@ -1,4 +1,4 @@
-// filepath: pkg/metrics/proto/enums/alert_state.proto
+// file: pkg/metrics/proto/enums/alert_state.proto
 // file: metrics/proto/enums/alert_state.proto
 //
 // Enum definitions for metrics module

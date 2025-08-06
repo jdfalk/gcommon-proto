@@ -1,5 +1,4 @@
 // file: pkg/metrics/proto/requests/export_metrics_request.proto
-import "pkg/common/proto/request_metadata.proto";
 // version: 1.1.0
 // guid: 2c9c223d-523d-4b0c-aa30-6249240e59d6
 
@@ -8,12 +7,10 @@ edition = "2023";
 package gcommon.v1.metrics;
 
 import "google/protobuf/go_features.proto";
+import "pkg/common/proto/request_metadata.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
 
-/**
- * ExportMetricsRequest requests export of collected metrics.
- */
 message ExportMetricsRequest {
   // Standard request metadata
   gcommon.v1.common.RequestMetadata metadata = 1;

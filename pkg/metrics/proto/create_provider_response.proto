@@ -1,4 +1,4 @@
-// filepath: pkg/metrics/proto/responses/create_provider_response.proto
+// file: pkg/metrics/proto/responses/create_provider_response.proto
 // file: metrics/proto/responses/create_provider_response.proto
 //
 // Create provider response definitions for metrics module

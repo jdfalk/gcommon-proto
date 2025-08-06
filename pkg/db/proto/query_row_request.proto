@@ -1,5 +1,4 @@
 // file: pkg/db/proto/requests/query_row_request.proto
-import "pkg/common/proto/request_metadata.proto";
 // version: 1.0.0
 // guid: 7a8b9c0d-1e2f-3a4b-5c6d-7e8f9a0b1c2d
 
@@ -9,14 +8,10 @@ package gcommon.v1.database;
 
 import "google/protobuf/go_features.proto";
 import "pkg/common/proto/db/proto/db/proto/query_parameter.proto";
+import "pkg/common/proto/request_metadata.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
 
-/**
- * QueryRowRequest represents a request to execute a database query that returns a single row.
- * Used for queries expected to return exactly one row or null.
- * Supports parameterized queries with options and transaction context.
- */
 message QueryRowRequest {
   // SQL query or NoSQL query string (should return at most one row)
   string query = 1;

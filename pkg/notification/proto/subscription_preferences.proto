@@ -1,4 +1,4 @@
-// filepath: pkg/notification/proto/messages/subscription_preferences.proto
+// file: pkg/notification/proto/messages/subscription_preferences.proto
 // file: notification/proto/messages/subscription_preferences.proto
 //
 // Subscription preferences for receiving notifications.

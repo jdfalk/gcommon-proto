@@ -1,4 +1,4 @@
-// filepath: pkg/metrics/proto/enums/comparison_operator.proto
+// file: pkg/metrics/proto/enums/comparison_operator.proto
 // file: metrics/proto/enums/comparison_operator.proto
 //
 // Enum definitions for metrics module

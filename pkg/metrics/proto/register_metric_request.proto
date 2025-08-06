@@ -1,22 +1,19 @@
-// filepath: pkg/metrics/proto/requests/register_metric_request.proto
-import "pkg/common/proto/request_metadata.proto";
+// file: pkg/metrics/proto/requests/register_metric_request.proto
 // file: metrics/proto/requests/register_metric_request.proto
 //
 // Register metric request definitions for metrics module
 //
+
 edition = "2023";
 
 package gcommon.v1.metrics;
 
 import "google/protobuf/go_features.proto";
 import "pkg/common/proto/metrics/proto/metrics/proto/export_config.proto";
+import "pkg/common/proto/request_metadata.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
 
-/**
- * RegisterMetricRequest represents a request to register a new metric definition.
- * This creates a metric schema that can be used for validation and metadata.
- */
 message RegisterMetricRequest {
   // Standard request metadata (tracing, auth, etc.)
   gcommon.v1.common.RequestMetadata metadata = 1;

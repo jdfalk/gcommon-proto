@@ -1,5 +1,4 @@
-// filepath: pkg/config/proto/requests/set_config_request.proto
-// file: config/proto/requests/set_config_request.proto
+// file: pkg/config/proto/set_config_request.proto
 //
 // Request definitions for config module
 // Generated as part of 1-1-1 migration
@@ -8,8 +7,7 @@ edition = "2023";
 package gcommon.v1.config;
 
 import "google/protobuf/go_features.proto";
-import "pkg/common/proto/request_metadata.proto";
-import "pkg/common/proto/common/proto/request_metadata.proto";
+import "pkg/common/proto/config_value.proto";
 import "pkg/common/proto/request_metadata.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;

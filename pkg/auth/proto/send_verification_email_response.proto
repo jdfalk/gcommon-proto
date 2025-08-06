@@ -1,4 +1,4 @@
-// filepath: pkg/auth/proto/responses/send_verification_email_response.proto
+// file: pkg/auth/proto/responses/send_verification_email_response.proto
 // file: auth/proto/responses/send_verification_email_response.proto
 //
 // Response definitions for auth module

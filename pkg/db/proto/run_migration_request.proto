@@ -1,18 +1,15 @@
 // file: pkg/db/proto/requests/run_migration_request.proto
-import "pkg/common/proto/request_metadata.proto";
+
 edition = "2023";
 
 package gcommon.v1.database;
 
 import "google/protobuf/go_features.proto";
+import "pkg/common/proto/request_metadata.proto";
 import "pkg/db/proto/proto/messages/request_metadata.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
 
-/**
- * RunMigrationRequest represents a request to execute database migration scripts.
- * Supports multiple scripts for complex migration scenarios.
- */
 message RunMigrationRequest {
   // Database name to run migrations against
   string database = 1;

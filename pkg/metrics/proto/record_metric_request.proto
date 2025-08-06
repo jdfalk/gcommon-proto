@@ -1,22 +1,19 @@
-// filepath: pkg/metrics/proto/requests/record_metric_request.proto
-import "pkg/common/proto/request_metadata.proto";
+// file: pkg/metrics/proto/requests/record_metric_request.proto
 // file: metrics/proto/requests/record_metric_request.proto
 //
 // Record metric request definitions for metrics module
 //
+
 edition = "2023";
 
 package gcommon.v1.metrics;
 
 import "google/protobuf/go_features.proto";
 import "google/protobuf/timestamp.proto";
+import "pkg/common/proto/request_metadata.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
 
-/**
- * RecordMetricRequest represents a request to record a single metric data point.
- * This is the unified interface for recording any type of metric.
- */
 message RecordMetricRequest {
   // Standard request metadata (tracing, auth, etc.)
   gcommon.v1.common.RequestMetadata metadata = 1;

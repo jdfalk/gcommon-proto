@@ -1,4 +1,4 @@
-// filepath: pkg/auth/proto/requests/get_auth_config_request.proto
+// file: pkg/auth/proto/requests/get_auth_config_request.proto
 // file: auth/proto/requests/get_auth_config_request.proto
 //
 // Request definitions for auth module

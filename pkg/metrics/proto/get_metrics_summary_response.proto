@@ -1,4 +1,4 @@
-// filepath: pkg/metrics/proto/responses/get_metrics_summary_response.proto
+// file: pkg/metrics/proto/responses/get_metrics_summary_response.proto
 // file: metrics/proto/responses/get_metrics_summary_response.proto
 //
 // Get metrics summary response definitions for metrics module

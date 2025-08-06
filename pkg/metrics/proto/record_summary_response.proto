@@ -1,4 +1,4 @@
-// filepath: pkg/metrics/proto/responses/record_summary_response.proto
+// file: pkg/metrics/proto/responses/record_summary_response.proto
 // file: metrics/proto/responses/record_summary_response.proto
 //
 // Response after recording a summary metric.

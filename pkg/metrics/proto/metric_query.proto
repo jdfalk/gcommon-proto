@@ -1,4 +1,4 @@
-// filepath: pkg/metrics/proto/messages/metric_query.proto
+// file: pkg/metrics/proto/messages/metric_query.proto
 // file: metrics/proto/messages/metric_query.proto
 //
 // Message definitions for metrics module

@@ -1,4 +1,4 @@
-// filepath: pkg/metrics/proto/responses/get_stats_response.proto
+// file: pkg/metrics/proto/responses/get_stats_response.proto
 // file: metrics/proto/responses/get_stats_response.proto
 //
 // Response containing metric statistics over a time range.

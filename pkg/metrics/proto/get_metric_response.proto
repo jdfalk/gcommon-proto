@@ -1,4 +1,4 @@
-// filepath: pkg/metrics/proto/responses/get_metric_response.proto
+// file: pkg/metrics/proto/responses/get_metric_response.proto
 // file: metrics/proto/responses/get_metric_response.proto
 //
 // Response containing a metric definition and data.

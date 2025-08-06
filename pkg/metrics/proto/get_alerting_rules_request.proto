@@ -1,20 +1,18 @@
-// filepath: pkg/metrics/proto/requests/get_alerting_rules_request.proto
-import "pkg/common/proto/request_metadata.proto";
+// file: pkg/metrics/proto/requests/get_alerting_rules_request.proto
 // file: metrics/proto/requests/get_alerting_rules_request.proto
 //
 // Request message for retrieving alerting rules associated with a metric.
 //
+
 edition = "2023";
 
 package gcommon.v1.metrics;
 
 import "google/protobuf/go_features.proto";
+import "pkg/common/proto/request_metadata.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
 
-/**
- * GetAlertingRulesRequest fetches alerting rules for a metric.
- */
 message GetAlertingRulesRequest {
   // Metric identifier
   string metric_id = 1;

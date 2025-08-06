@@ -1,4 +1,4 @@
-// filepath: pkg/health/proto/services/health_admin_service.proto
+// file: pkg/health/proto/services/health_admin_service.proto
 // file: health/proto/services/health_admin_service.proto
 //
 // Administrative service definitions for health module

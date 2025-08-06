@@ -1,4 +1,4 @@
-// filepath: pkg/auth/proto/requests/send_verification_email_request.proto
+// file: pkg/auth/proto/requests/send_verification_email_request.proto
 // file: auth/proto/requests/send_verification_email_request.proto
 //
 // Request definitions for auth module

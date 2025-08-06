@@ -1,4 +1,4 @@
-// filepath: pkg/notification/proto/enums/delivery_status.proto
+// file: pkg/notification/proto/enums/delivery_status.proto
 // file: notification/proto/enums/delivery_status.proto
 //
 // Delivery status enumeration for tracking notification outcomes.

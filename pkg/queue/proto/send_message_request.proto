@@ -1,7 +1,7 @@
 // file: queue/proto/requests/send_message_request.proto
-import "pkg/common/proto/request_metadata.proto";
 // version: 1.0.0
 // guid: 0acd1eb1-8464-4f9c-8fd2-0562acde190f
+// SendMessageRequest sends a single message to a queue.
 
 edition = "2023";
 
@@ -9,10 +9,10 @@ package gcommon.v1.queue;
 
 import "google/protobuf/go_features.proto";
 import "pkg/common/proto/queue/proto/queue/proto/delivery_options.proto";
+import "pkg/common/proto/request_metadata.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
 
-// SendMessageRequest sends a single message to a queue.
 message SendMessageRequest {
   // Name of the target queue.
   string queue_name = 1;

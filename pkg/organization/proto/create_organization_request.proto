@@ -1,18 +1,15 @@
 // file: pkg/organization/proto/requests/create_organization_request.proto
-import "pkg/common/proto/request_metadata.proto";
+
 edition = "2023";
 
 package gcommon.v1.organization;
 
 import "google/protobuf/go_features.proto";
+import "pkg/common/proto/request_metadata.proto";
 import "pkg/organization/proto/proto/messages/request_metadata.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
 
-/**
- * CreateOrganizationRequest message for creating a new organization.
- * Contains all required information to establish a new organizational entity.
- */
 message CreateOrganizationRequest {
   // Request metadata for tracing and context
   gcommon.v1.common.RequestMetadata metadata = 1;

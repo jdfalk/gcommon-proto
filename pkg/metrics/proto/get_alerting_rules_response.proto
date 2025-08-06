@@ -1,4 +1,4 @@
-// filepath: pkg/metrics/proto/responses/get_alerting_rules_response.proto
+// file: pkg/metrics/proto/responses/get_alerting_rules_response.proto
 // file: metrics/proto/responses/get_alerting_rules_response.proto
 //
 // Response message containing alerting rules for a metric.

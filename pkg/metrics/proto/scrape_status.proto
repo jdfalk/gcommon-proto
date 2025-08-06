@@ -1,4 +1,4 @@
-// filepath: pkg/metrics/proto/enums/scrape_status.proto
+// file: pkg/metrics/proto/enums/scrape_status.proto
 // file: metrics/proto/enums/scrape_status.proto
 //
 // Enum definitions for metrics module

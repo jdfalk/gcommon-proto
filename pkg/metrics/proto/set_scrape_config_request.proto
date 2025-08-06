@@ -1,20 +1,18 @@
-// filepath: pkg/metrics/proto/requests/set_scrape_config_request.proto
-import "pkg/common/proto/request_metadata.proto";
+// file: pkg/metrics/proto/requests/set_scrape_config_request.proto
 // file: metrics/proto/requests/set_scrape_config_request.proto
 //
 // Request message to set scraping configuration for a provider.
 //
+
 edition = "2023";
 
 package gcommon.v1.metrics;
 
 import "google/protobuf/go_features.proto";
+import "pkg/common/proto/request_metadata.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
 
-/**
- * SetScrapeConfigRequest updates scrape configuration.
- */
 message SetScrapeConfigRequest {
   // Provider identifier
   string provider_id = 1;

@@ -1,5 +1,4 @@
 // file: pkg/db/proto/requests/transaction_status_request.proto
-import "pkg/common/proto/request_metadata.proto";
 // version: 1.0.0
 // guid: 8934c096-ef4b-455b-b318-20395a6b4962
 
@@ -8,12 +7,10 @@ edition = "2023";
 package gcommon.v1.database;
 
 import "pkg/common/proto/protobuf/go_features.proto";
+import "pkg/common/proto/request_metadata.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
 
-/**
- * TransactionStatusRequest queries the status of an active transaction.
- */
 message TransactionStatusRequest {
   // Identifier of the transaction
   string transaction_id = 1;

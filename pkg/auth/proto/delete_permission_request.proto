@@ -1,4 +1,4 @@
-// filepath: pkg/auth/proto/requests/delete_permission_request.proto
+// file: pkg/auth/proto/requests/delete_permission_request.proto
 // file: auth/proto/requests/delete_permission_request.proto
 //
 // Request definitions for auth module

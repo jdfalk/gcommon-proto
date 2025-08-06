@@ -1,20 +1,18 @@
 // file: pkg/metrics/proto/requests/health_check_request.proto
-import "pkg/common/proto/request_metadata.proto";
 // version: 1.0.0
 // guid: ffa1c922-b413-4b2d-a7fd-0d58fcd0b048
 //
 // HealthCheckRequest for the metrics module
+
 edition = "2023";
 
 package gcommon.v1.metrics;
 
 import "google/protobuf/go_features.proto";
+import "pkg/common/proto/request_metadata.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
 
-/**
- * HealthCheckRequest verifies the health of the metrics subsystem.
- */
 message HealthCheckRequest {
   // Metrics subsystem name (e.g., "prometheus").
   string subsystem = 1;

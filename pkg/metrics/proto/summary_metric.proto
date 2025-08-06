@@ -1,9 +1,9 @@
-// filepath: pkg/metrics/proto/messages/summary_metric.proto
-import "pkg/common/proto/request_metadata.proto";
+// file: pkg/metrics/proto/messages/summary_metric.proto
 // file: metrics/proto/messages/summary_metric.proto
 //
 // Summary metric message definition for metrics module
 //
+
 edition = "2023";
 
 package gcommon.v1.metrics;
@@ -11,12 +11,10 @@ package gcommon.v1.metrics;
 import "google/protobuf/duration.proto";
 import "google/protobuf/go_features.proto";
 import "google/protobuf/timestamp.proto";
+import "pkg/common/proto/request_metadata.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
 
-/**
- * SummaryQuantile represents a single quantile in a summary.
- */
 message SummaryQuantile {
   // Quantile value (0.0-1.0, e.g., 0.5 for median, 0.95 for 95th percentile)
   double quantile = 1;

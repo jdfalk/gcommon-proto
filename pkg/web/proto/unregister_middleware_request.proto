@@ -1,17 +1,17 @@
 // file: pkg/web/proto/requests/unregister_middleware_request.proto
-import "pkg/common/proto/request_metadata.proto";
 // version: 1.1.0
 // guid: 9123fb9b-ced5-4251-adb0-dcb9b453b8b5
+// UnregisterMiddlewareRequest request definition.
 
 edition = "2023";
 
 package gcommon.v1.web;
 
 import "google/protobuf/go_features.proto";
+import "pkg/common/proto/request_metadata.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
 
-// UnregisterMiddlewareRequest request definition.
 message UnregisterMiddlewareRequest {
   // Server identifier
   string server_id = 1;

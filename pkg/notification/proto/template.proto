@@ -1,4 +1,4 @@
-// filepath: pkg/notification/proto/messages/template.proto
+// file: pkg/notification/proto/messages/template.proto
 // file: notification/proto/messages/template.proto
 //
 // Notification template definition for reusable messages.

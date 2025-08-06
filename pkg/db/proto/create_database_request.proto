@@ -1,17 +1,14 @@
 // file: pkg/db/proto/requests/create_database_request.proto
-import "pkg/common/proto/request_metadata.proto";
+
 edition = "2023";
 
 package gcommon.v1.database;
 
 import "pkg/common/proto/protobuf/go_features.proto";
+import "pkg/common/proto/request_metadata.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
 
-/**
- * CreateDatabaseRequest represents a request to create a new database.
- * Allows specification of database name and configuration options.
- */
 message CreateDatabaseRequest {
   // Name of the database to create
   string name = 1;

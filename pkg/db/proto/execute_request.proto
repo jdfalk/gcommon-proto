@@ -1,18 +1,15 @@
 // file: pkg/db/proto/requests/execute_request.proto
-import "pkg/common/proto/request_metadata.proto";
+
 edition = "2023";
 
 package gcommon.v1.database;
 
 import "pkg/common/proto/protobuf/go_features.proto";
+import "pkg/common/proto/request_metadata.proto";
 import "pkg/db/proto/proto/execute_options.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
 
-/**
- * ExecuteRequest represents a request to execute a database write operation.
- * Supports INSERT, UPDATE, DELETE statements with parameters and options.
- */
 message ExecuteRequest {
   // SQL statement or NoSQL operation
   string statement = 1;

@@ -1,4 +1,4 @@
-// filepath: pkg/cache/proto/requests/mget_request.proto
+// file: pkg/cache/proto/requests/mget_request.proto
 // file: cache/proto/requests/mget_request.proto
 //
 // Multi-get request definitions for cache module

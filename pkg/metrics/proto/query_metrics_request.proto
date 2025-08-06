@@ -1,23 +1,20 @@
-// filepath: pkg/metrics/proto/requests/query_metrics_request.proto
-import "pkg/common/proto/request_metadata.proto";
+// file: pkg/metrics/proto/requests/query_metrics_request.proto
 // file: metrics/proto/requests/query_metrics_request.proto
 //
 // Request definitions for metrics module
 // TODO: Implement actual protobuf definitions
 //
+
 edition = "2023";
 
 package gcommon.v1.metrics;
 
 import "google/protobuf/go_features.proto";
+import "pkg/common/proto/request_metadata.proto";
 import "pkg/metrics/proto/proto/messages/request_metadata.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
 
-/**
- * QueryMetricsRequest represents a request to query metric data.
- * Supports complex queries with filtering, aggregation, and grouping.
- */
 message QueryMetricsRequest {
   // Standard request metadata (tracing, auth, etc.)
   gcommon.v1.common.RequestMetadata metadata = 1;

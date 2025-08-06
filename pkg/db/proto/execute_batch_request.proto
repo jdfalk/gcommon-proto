@@ -1,18 +1,15 @@
 // file: pkg/db/proto/requests/execute_batch_request.proto
-import "pkg/common/proto/request_metadata.proto";
+
 edition = "2023";
 
 package gcommon.v1.database;
 
 import "pkg/common/proto/protobuf/go_features.proto";
+import "pkg/common/proto/request_metadata.proto";
 import "pkg/db/proto/proto/batch_execute_options.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
 
-/**
- * ExecuteBatchRequest represents a request to execute multiple database operations
- * in a single batch for improved performance and atomicity.
- */
 message ExecuteBatchRequest {
   // List of operations to execute in the batch
   repeated BatchOperation operations = 1 [lazy = true];

@@ -1,4 +1,4 @@
-// filepath: pkg/metrics/proto/enums/aggregation_type.proto
+// file: pkg/metrics/proto/enums/aggregation_type.proto
 // file: metrics/proto/enums/aggregation_type.proto
 //
 // Aggregation type enum definitions for metrics module

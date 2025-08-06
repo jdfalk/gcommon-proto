@@ -1,4 +1,4 @@
-// filepath: pkg/metrics/proto/responses/set_scrape_config_response.proto
+// file: pkg/metrics/proto/responses/set_scrape_config_response.proto
 // file: metrics/proto/responses/set_scrape_config_response.proto
 //
 // Response after updating scrape configuration.

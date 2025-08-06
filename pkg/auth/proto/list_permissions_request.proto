@@ -1,4 +1,4 @@
-// filepath: pkg/auth/proto/requests/list_permissions_request.proto
+// file: pkg/auth/proto/requests/list_permissions_request.proto
 // file: auth/proto/requests/list_permissions_request.proto
 //
 // Request definitions for auth module

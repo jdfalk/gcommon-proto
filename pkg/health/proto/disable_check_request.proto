@@ -1,20 +1,18 @@
-// filepath: pkg/health/proto/requests/disable_check_request.proto
-import "pkg/common/proto/request_metadata.proto";
+// file: pkg/health/proto/requests/disable_check_request.proto
 // file: health/proto/requests/disable_check_request.proto
 //
 // Request definitions for health module
 //
+
 edition = "2023";
 
 package gcommon.v1.health;
 
 import "google/protobuf/go_features.proto";
+import "pkg/common/proto/request_metadata.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
 
-/**
- * DisableCheckRequest disables a registered health check.
- */
 message DisableCheckRequest {
   // Name or ID of the check to disable
   string name = 1;

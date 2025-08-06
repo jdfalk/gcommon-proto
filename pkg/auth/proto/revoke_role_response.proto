@@ -1,4 +1,4 @@
-// filepath: pkg/auth/proto/responses/revoke_role_response.proto
+// file: pkg/auth/proto/responses/revoke_role_response.proto
 // file: auth/proto/responses/revoke_role_response.proto
 //
 // Response definitions for auth module

@@ -1,4 +1,4 @@
-// filepath: pkg/web/proto/services/web_admin_service.proto
+// file: pkg/web/proto/services/web_admin_service.proto
 // file: pkg/web/proto/services/web_admin_service.proto
 //
 // Administrative service for managing web server cache settings.

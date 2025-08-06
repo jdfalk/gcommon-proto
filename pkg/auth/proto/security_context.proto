@@ -1,4 +1,4 @@
-// filepath: pkg/auth/proto/types/security_context.proto
+// file: pkg/auth/proto/types/security_context.proto
 // file: auth/proto/types/security_context.proto
 //
 // Type definitions for auth module

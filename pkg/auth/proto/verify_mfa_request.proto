@@ -1,4 +1,4 @@
-// filepath: pkg/auth/proto/requests/verify_mfa_request.proto
+// file: pkg/auth/proto/requests/verify_mfa_request.proto
 // file: auth/proto/requests/verify_mfa_request.proto
 //
 // Request definitions for auth module

@@ -1,5 +1,4 @@
 // file: pkg/db/proto/requests/revert_migration_request.proto
-import "pkg/common/proto/request_metadata.proto";
 // version: 1.0.0
 // guid: 02d407f4-a362-4009-b8be-dc47f6588d24
 
@@ -8,12 +7,10 @@ edition = "2023";
 package gcommon.v1.database;
 
 import "pkg/common/proto/protobuf/go_features.proto";
+import "pkg/common/proto/request_metadata.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
 
-/**
- * RevertMigrationRequest reverts the database to a previous migration version.
- */
 message RevertMigrationRequest {
   // Database name to apply the reversion to
   string database = 1;

@@ -1,4 +1,4 @@
-// filepath: pkg/metrics/proto/enums/retention_unit.proto
+// file: pkg/metrics/proto/enums/retention_unit.proto
 // file: metrics/proto/enums/retention_unit.proto
 //
 // Enum definitions for metrics module

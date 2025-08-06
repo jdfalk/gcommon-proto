@@ -1,4 +1,4 @@
-// filepath: pkg/config/proto/requests/backup_config_request.proto
+// file: pkg/config/proto/requests/backup_config_request.proto
 // file: config/proto/requests/backup_config_request.proto
 //
 // Request definitions for config module

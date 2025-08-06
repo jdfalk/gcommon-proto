@@ -1,4 +1,4 @@
-// filepath: pkg/metrics/proto/responses/delete_provider_response.proto
+// file: pkg/metrics/proto/responses/delete_provider_response.proto
 // file: metrics/proto/responses/delete_provider_response.proto
 //
 // Delete provider response definitions for metrics module

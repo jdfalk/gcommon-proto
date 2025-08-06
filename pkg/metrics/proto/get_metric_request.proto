@@ -1,20 +1,18 @@
-// filepath: pkg/metrics/proto/requests/get_metric_request.proto
-import "pkg/common/proto/request_metadata.proto";
+// file: pkg/metrics/proto/requests/get_metric_request.proto
 // file: metrics/proto/requests/get_metric_request.proto
 //
 // Request message for retrieving a metric by ID.
 //
+
 edition = "2023";
 
 package gcommon.v1.metrics;
 
 import "google/protobuf/go_features.proto";
+import "pkg/common/proto/request_metadata.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
 
-/**
- * GetMetricRequest fetches a metric definition and data.
- */
 message GetMetricRequest {
   // Unique metric identifier
   string metric_id = 1;

@@ -1,5 +1,4 @@
 // file: pkg/notification/proto/requests/get_preferences_request.proto
-import "pkg/common/proto/request_metadata.proto";
 // version: 1.0.0
 // guid: fb16c45a-545c-4d05-b3fd-34dbc4a9d0c1
 
@@ -8,12 +7,10 @@ edition = "2023";
 package gcommon.v1.notification;
 
 import "google/protobuf/go_features.proto";
+import "pkg/common/proto/request_metadata.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
 
-/**
- * GetPreferencesRequest retrieves a user's current notification preferences.
- */
 message GetPreferencesRequest {
   // Standard request metadata for tracing and auth.
   gcommon.v1.common.RequestMetadata metadata = 1;

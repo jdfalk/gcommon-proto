@@ -1,4 +1,4 @@
-// filepath: pkg/auth/proto/messages/mfa_config.proto
+// file: pkg/auth/proto/messages/mfa_config.proto
 // file: auth/proto/messages/mfa_config.proto
 //
 // Message definitions for auth module

@@ -1,16 +1,14 @@
 // file: pkg/organization/proto/requests/get_organization_request.proto
-import "pkg/common/proto/request_metadata.proto";
+
 edition = "2023";
 
 package gcommon.v1.organization;
 
 import "google/protobuf/go_features.proto";
+import "pkg/common/proto/request_metadata.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
 
-/**
- * GetOrganizationRequest message for retrieving an organization by ID.
- */
 message GetOrganizationRequest {
   // Request metadata for tracing and context
   gcommon.v1.common.RequestMetadata metadata = 1;

@@ -1,16 +1,16 @@
 // file: pkg/queue/proto/requests/pull_request.proto
-import "pkg/common/proto/request_metadata.proto";
 // version: 1.0.0
 // guid: dae5ea8a-77c7-4b90-ab25-d2981ba423df
-
 // PullRequest retrieves a single message from the specified queue
 // without establishing a subscription. This file replaces the
 // placeholder generated during migration.
+
 edition = "2023";
 
 package gcommon.v1.queue;
 
 import "google/protobuf/go_features.proto";
+import "pkg/common/proto/request_metadata.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
 

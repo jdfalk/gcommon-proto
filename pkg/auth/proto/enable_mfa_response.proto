@@ -1,4 +1,4 @@
-// filepath: pkg/auth/proto/responses/enable_mfa_response.proto
+// file: pkg/auth/proto/responses/enable_mfa_response.proto
 // file: auth/proto/responses/enable_mfa_response.proto
 //
 // Response definitions for auth module

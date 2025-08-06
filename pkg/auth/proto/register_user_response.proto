@@ -1,4 +1,4 @@
-// filepath: pkg/auth/proto/responses/register_user_response.proto
+// file: pkg/auth/proto/responses/register_user_response.proto
 // file: auth/proto/responses/register_user_response.proto
 //
 // Response definitions for auth module

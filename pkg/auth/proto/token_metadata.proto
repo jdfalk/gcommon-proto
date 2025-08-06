@@ -1,4 +1,4 @@
-// filepath: pkg/auth/proto/types/token_metadata.proto
+// file: pkg/auth/proto/types/token_metadata.proto
 // file: auth/proto/types/token_metadata.proto
 //
 // Type definitions for auth module

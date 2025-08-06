@@ -1,4 +1,4 @@
-// filepath: pkg/auth/proto/messages/user_profile.proto
+// file: pkg/auth/proto/messages/user_profile.proto
 // file: auth/proto/messages/user_profile.proto
 //
 // Message definitions for auth module

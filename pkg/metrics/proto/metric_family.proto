@@ -1,4 +1,4 @@
-// filepath: pkg/metrics/proto/messages/metric_family.proto
+// file: pkg/metrics/proto/messages/metric_family.proto
 // file: metrics/proto/messages/metric_family.proto
 //
 // MetricFamily groups related metrics together.

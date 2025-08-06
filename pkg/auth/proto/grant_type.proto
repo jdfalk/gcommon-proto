@@ -1,4 +1,4 @@
-// filepath: pkg/auth/proto/enums/grant_type.proto
+// file: pkg/auth/proto/enums/grant_type.proto
 // file: auth/proto/enums/grant_type.proto
 //
 // Enum definitions for auth module
