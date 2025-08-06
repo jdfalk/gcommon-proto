@@ -4,6 +4,7 @@ edition = "2023";
 package gcommon.v1.config;
 
 import "google/protobuf/go_features.proto";
+import "pkg/common/proto/error.proto";
 import "pkg/common/proto/common/proto/paginated_response.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
