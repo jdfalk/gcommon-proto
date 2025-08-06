@@ -9,10 +9,8 @@ package gcommon.v1.config;
 import "google/protobuf/go_features.proto";
 import "pkg/config/proto/parameter_type.proto";
 import "google/protobuf/timestamp.proto";
-import "pkg/config/proto/gcommon/pkg/config/proto;configpb";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/pkg/config/proto;configpb";
 
 message TemplateParameter {
   // Parameter name

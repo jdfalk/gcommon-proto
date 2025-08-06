@@ -1,4 +1,5 @@
 // file: pkg/db/proto/requests/list_migrations_request.proto
+import "pkg/common/proto/request_metadata.proto";
 // version: 1.0.0
 // guid: e09ee131-1388-41e5-973c-3c7eb4308349
 
@@ -9,7 +10,6 @@ package gcommon.v1.database;
 import "pkg/common/proto/protobuf/go_features.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/pkg/db/proto;dbpb";
 
 /**
  * ListMigrationsRequest lists migrations for a database with optional filtering.

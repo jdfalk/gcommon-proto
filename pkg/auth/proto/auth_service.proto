@@ -16,7 +16,6 @@ option features.(pb.go).api_level = API_OPAQUE;
 // import "pkg/auth/proto/initiate_password_reset_response.proto";
 // import "pkg/auth/proto/complete_password_reset_response.proto";
 // import "pkg/auth/proto/change_password_response.proto";
-option go_package = "github.com/jdfalk/gcommon/pkg/auth/proto;authpb";
 
 /**
  * AuthService provides comprehensive authentication capabilities.

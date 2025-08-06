@@ -1,4 +1,5 @@
 // file: pkg/web/proto/requests/register_middleware_request.proto
+import "pkg/common/proto/request_metadata.proto";
 // version: 1.1.0
 // guid: c136f229-3eee-476f-87b9-6417ec8bb8b0
 
@@ -10,7 +11,6 @@ import "google/protobuf/go_features.proto";
 import "pkg/web/proto/proto/messages/request_metadata.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/pkg/web/proto;webpb";
 
 // RegisterMiddlewareRequest request definition.
 message RegisterMiddlewareRequest {

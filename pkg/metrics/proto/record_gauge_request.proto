@@ -12,7 +12,6 @@ import "pkg/metrics/proto/gauge_operation.proto";
 import "pkg/common/proto/request_metadata.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/pkg/metrics/proto;metricspb";
 
 /**
  * RecordGaugeRequest is used to set or update a gauge metric value.

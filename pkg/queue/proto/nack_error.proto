@@ -10,7 +10,6 @@ import "google/protobuf/go_features.proto";
 import "pkg/queue/proto/nack_error_category.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/pkg/queue/proto;queuepb";
 
 /**
  * Error information for NACK operations.

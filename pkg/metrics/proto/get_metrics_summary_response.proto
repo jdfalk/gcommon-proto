@@ -10,7 +10,6 @@ package gcommon.v1.metrics;
 import "google/protobuf/go_features.proto";
 import "google/protobuf/timestamp.proto";
 import "pkg/common/proto/metrics/proto/metrics/proto/retention_policy_retentionpolicyconfig.proto";
-import "pkg/metrics/proto/gcommon/pkg/metrics/proto;metricspb";
 import "pkg/metrics/proto/proto/error_stats.proto";
 import "pkg/metrics/proto/proto/top_metrics.proto";
 

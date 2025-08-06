@@ -1,4 +1,5 @@
 // filepath: pkg/config/proto/requests/unwatch_config_request.proto
+import "pkg/common/proto/request_metadata.proto";
 // file: config/proto/requests/unwatch_config_request.proto
 //
 // Request definitions for config module
@@ -9,7 +10,6 @@ edition = "2023";
 package gcommon.v1.config;
 
 import "google/protobuf/go_features.proto";
-import "pkg/common/proto/jdfalk/gcommon/pkg/config/proto;configpb";
 
 option features.(pb.go).api_level = API_OPAQUE;
 

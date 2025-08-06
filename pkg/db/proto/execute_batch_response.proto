@@ -7,7 +7,6 @@ import "pkg/common/proto/protobuf/go_features.proto";
 import "pkg/db/proto/proto/batch_stats.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/pkg/db/proto;dbpb";
 
 /**
  * ExecuteBatchResponse contains the results of a batch database operation.

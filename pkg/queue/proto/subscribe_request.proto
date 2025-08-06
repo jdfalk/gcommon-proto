@@ -9,7 +9,6 @@ package gcommon.v1.queue;
 import "pkg/queue/proto/ack_level.proto";
 import "pkg/queue/proto/delivery_mode.proto";
 
-option go_package = "github.com/jdfalk/gcommon/pkg/queue/proto;queuepb";
 
 // SubscribeRequest creates a new subscription to a queue or topic
 message SubscribeRequest {

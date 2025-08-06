@@ -1,4 +1,5 @@
 // file: pkg/db/proto/requests/rollback_transaction_request.proto
+import "pkg/common/proto/request_metadata.proto";
 edition = "2023";
 
 package gcommon.v1.database;
@@ -6,7 +7,6 @@ package gcommon.v1.database;
 import "pkg/common/proto/protobuf/go_features.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/pkg/db/proto;dbpb";
 
 /**
  * RollbackTransactionRequest represents a request to rollback an active transaction.

@@ -12,7 +12,6 @@ import "pkg/common/proto/client_info.proto";
 import "pkg/common/proto/request_metadata.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/pkg/auth/proto;authpb";
 
 /**
  * Authentication request supporting multiple credential types.

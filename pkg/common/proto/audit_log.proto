@@ -5,10 +5,10 @@ package gcommon.v1.common;
 
 import "google/protobuf/go_features.proto";
 import "google/protobuf/timestamp.proto";
-import "pkg/common/proto/proto/audit_result.proto";
+import "pkg/common/proto/audit_result.proto";
+import "pkg/common/proto/resource_reference.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/pkg/common/proto;commonpb";
 
 /**
  * Audit log entry for tracking operations and security events.

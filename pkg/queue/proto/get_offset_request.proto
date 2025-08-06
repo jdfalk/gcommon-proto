@@ -11,7 +11,6 @@ import "pkg/common/proto/request_metadata.proto";
 import "pkg/queue/proto/offset_type.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/pkg/queue/proto;queuepb";
 
 /**
  * Request to get the current offset for a consumer or partition.

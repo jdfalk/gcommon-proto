@@ -13,7 +13,6 @@ import "pkg/web/proto/proto/get_cache_config_response.proto";
 import "pkg/web/proto/proto/update_cache_config_response.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/pkg/web/proto;webpb";
 
 /**
  * WebAdminService provides cache administration endpoints

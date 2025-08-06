@@ -4,23 +4,36 @@ edition = "2023";
 package gcommon.v1.cache;
 
 import "google/protobuf/go_features.proto";
-import "pkg/cache/proto/proto/clear_response.proto";
-import "pkg/cache/proto/proto/decrement_response.proto";
-import "pkg/cache/proto/proto/delete_multiple_response.proto";
-import "pkg/cache/proto/proto/delete_response.proto";
-import "pkg/cache/proto/proto/exists_response.proto";
-import "pkg/cache/proto/proto/flush_response.proto";
-import "pkg/cache/proto/proto/get_multiple_response.proto";
-import "pkg/cache/proto/proto/get_response.proto";
-import "pkg/cache/proto/proto/get_stats_response.proto";
-import "pkg/cache/proto/proto/increment_response.proto";
-import "pkg/cache/proto/proto/keys_response.proto";
-import "pkg/cache/proto/proto/set_multiple_response.proto";
-import "pkg/cache/proto/proto/set_response.proto";
-import "pkg/cache/proto/proto/touch_expiration_response.proto";
+import "pkg/cache/proto/clear_request.proto";
+import "pkg/cache/proto/clear_response.proto";
+import "pkg/cache/proto/decrement_request.proto";
+import "pkg/cache/proto/decrement_response.proto";
+import "pkg/cache/proto/delete_multiple_request.proto";
+import "pkg/cache/proto/delete_multiple_response.proto";
+import "pkg/cache/proto/delete_request.proto";
+import "pkg/cache/proto/delete_response.proto";
+import "pkg/cache/proto/exists_request.proto";
+import "pkg/cache/proto/exists_response.proto";
+import "pkg/cache/proto/flush_request.proto";
+import "pkg/cache/proto/flush_response.proto";
+import "pkg/cache/proto/get_multiple_request.proto";
+import "pkg/cache/proto/get_multiple_response.proto";
+import "pkg/cache/proto/get_request.proto";
+import "pkg/cache/proto/get_response.proto";
+import "pkg/cache/proto/increment_request.proto";
+import "pkg/cache/proto/increment_response.proto";
+import "pkg/cache/proto/keys_request.proto";
+import "pkg/cache/proto/keys_response.proto";
+import "pkg/cache/proto/set_multiple_request.proto";
+import "pkg/cache/proto/set_multiple_response.proto";
+import "pkg/cache/proto/set_request.proto";
+import "pkg/cache/proto/set_response.proto";
+import "pkg/cache/proto/stats_request.proto";
+import "pkg/cache/proto/get_stats_response.proto";
+import "pkg/cache/proto/ttl_request.proto";
+import "pkg/cache/proto/touch_expiration_response.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/pkg/cache/proto;cachepb";
 
 /**
  * CacheService provides comprehensive caching capabilities.

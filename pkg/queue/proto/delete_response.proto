@@ -8,7 +8,6 @@ package gcommon.v1.queue;
 
 import "google/protobuf/timestamp.proto";
 
-option go_package = "github.com/jdfalk/gcommon/pkg/queue/proto;queuepb";
 
 // DeleteResponse returns the result of a delete operation
 message DeleteResponse {

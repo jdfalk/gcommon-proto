@@ -1,4 +1,5 @@
 // file: pkg/queue/proto/responses/get_offset_response.proto
+import "pkg/common/proto/request_metadata.proto";
 // version: 1.0.0
 // guid: 28ce7fa9-da40-4119-8167-285e4ff6179a
 
@@ -9,7 +10,6 @@ edition = "2023";
 package gcommon.v1.queue;
 
 import "google/protobuf/go_features.proto";
-import "pkg/common/proto/jdfalk/gcommon/pkg/queue/proto;queuepb";
 
 option features.(pb.go).api_level = API_OPAQUE;
 

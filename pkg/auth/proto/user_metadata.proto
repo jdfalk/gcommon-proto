@@ -7,10 +7,9 @@ edition = "2023";
 package gcommon.v1.auth;
 
 import "google/protobuf/go_features.proto";
-import "pkg/common/proto/timestamp.proto";
+import "google/protobuf/timestamp.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/pkg/auth/proto;authpb";
 
 /**
  * User metadata containing profile and preference information.
@@ -41,8 +40,8 @@ message UserMetadata {
   // User's location/address
   string location = 8;
 
-  // User's birth date
-  gcommon.v1.common.Timestamp birth_date = 9;
+  // Date of birth for age verification purposes
+  google.protobuf.Timestamp birth_date = 9;
 
   // User's gender
   string gender = 10;
@@ -103,11 +102,11 @@ message VerificationStatus {
   bool identity_verified = 3;
 
   // When email was verified
-  gcommon.v1.common.Timestamp email_verified_at = 4;
+  google.protobuf.Timestamp email_verified_at = 4;
 
   // When phone was verified
-  gcommon.v1.common.Timestamp phone_verified_at = 5;
+  google.protobuf.Timestamp phone_verified_at = 5;
 
   // When identity was verified
-  gcommon.v1.common.Timestamp identity_verified_at = 6;
+  google.protobuf.Timestamp identity_verified_at = 6;
 }

@@ -13,7 +13,6 @@ import "pkg/queue/proto/delivery_mode.proto";
 import "pkg/queue/proto/message_metadata.proto";
 import "pkg/queue/proto/retry_config.proto";
 
-option go_package = "github.com/jdfalk/gcommon/pkg/queue/proto;queuepb";
 
 // PushRequest publishes one or more messages to a queue or topic
 message PushRequest {

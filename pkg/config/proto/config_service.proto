@@ -15,7 +15,6 @@ import "pkg/config/proto/proto/validate_config_request.proto";
 import "pkg/config/proto/proto/watch_config_request.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/pkg/config/proto;configpb";
 
 /**
  * ConfigService provides configuration management capabilities.

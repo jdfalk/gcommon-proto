@@ -5,10 +5,10 @@ package gcommon.v1.auth;
 
 import "google/protobuf/go_features.proto";
 import "google/protobuf/timestamp.proto";
-import "pkg/auth/proto/proto/token_status.proto";
+import "pkg/auth/proto/token_status.proto";
+import "pkg/auth/proto/token_type.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/pkg/auth/proto;authpb";
 
 /**
  * Token entity representing authentication and authorization tokens.

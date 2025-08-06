@@ -7,11 +7,15 @@ package gcommon.v1.cache;
 
 import "google/protobuf/empty.proto";
 import "google/protobuf/go_features.proto";
-import "pkg/cache/proto/gcommon/pkg/cache/proto;cachepb";
-import "pkg/cache/proto/proto/configure_policy_request.proto";
-import "pkg/cache/proto/proto/create_namespace_response.proto";
-import "pkg/cache/proto/proto/get_namespace_stats_request.proto";
-import "pkg/cache/proto/proto/list_namespaces_request.proto";
+import "pkg/cache/proto/configure_policy_request.proto";
+import "pkg/cache/proto/configure_policy_response.proto";
+import "pkg/cache/proto/create_namespace_request.proto";
+import "pkg/cache/proto/create_namespace_response.proto";
+import "pkg/cache/proto/delete_namespace_request.proto";
+import "pkg/cache/proto/get_namespace_stats_request.proto";
+import "pkg/cache/proto/get_namespace_stats_response.proto";
+import "pkg/cache/proto/list_namespaces_request.proto";
+import "pkg/cache/proto/list_namespaces_response.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
 

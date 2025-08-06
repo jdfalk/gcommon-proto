@@ -13,7 +13,6 @@ import "pkg/common/proto/common/proto/health_status.proto";
 import "pkg/health/proto/proto/health_metrics.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/pkg/health/proto;healthpb";
 
 /**
  * WatchResponse represents a streaming health status update

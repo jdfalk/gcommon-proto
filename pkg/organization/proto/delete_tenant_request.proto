@@ -1,10 +1,10 @@
 // file: pkg/organization/proto/requests/delete_tenant_request.proto
+import "pkg/common/proto/request_metadata.proto";
 edition = "2023";
 
 package gcommon.v1.organization;
 
 import "google/protobuf/go_features.proto";
-import "pkg/common/proto/jdfalk/gcommon/pkg/organization/proto;organizationpb";
 
 option features.(pb.go).api_level = API_OPAQUE;
 

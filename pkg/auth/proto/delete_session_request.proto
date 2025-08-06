@@ -2,8 +2,6 @@
 // file: auth/proto/requests/delete_session_request.proto
 //
 // Request definitions for auth module
-// TODO: Implement actual protobuf definitions
-//
 edition = "2023";
 
 package gcommon.v1.auth;
@@ -11,10 +9,15 @@ package gcommon.v1.auth;
 import "google/protobuf/go_features.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/pkg/auth/proto;authpb";
 
-// TODO: Add request definitions here
-// This is a placeholder file created during 1-1-1 migration
-// Implement the actual protobuf definitions according to the auth module requirements
-// SKELETON_FILE: Compilation temporarily disabled
-// This file needs proper implementation
+/**
+ * Request to delete a session.
+ * Used for session cleanup and administrative purposes.
+ */
+message DeleteSessionRequest {
+  // Session ID to delete
+  string session_id = 1;
+
+  // Force delete even if session is active (admin only)
+  bool force = 2;
+}

@@ -13,7 +13,6 @@ import "pkg/queue/proto/notification_channel.proto";
 import "pkg/queue/proto/alert_severity.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/pkg/queue/proto;queuepb";
 
 /**
  * Configuration for queue alerting and notifications.

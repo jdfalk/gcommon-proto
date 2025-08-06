@@ -1,4 +1,5 @@
 // file: pkg/queue/proto/requests/ack_request.proto
+import "pkg/common/proto/request_metadata.proto";
 // version: 1.0.0
 // guid: 3a91b3b5-86fd-443c-876b-5b7b4da2fa73
 
@@ -11,7 +12,6 @@ edition = "2023";
 package gcommon.v1.queue;
 
 import "google/protobuf/go_features.proto";
-import "pkg/common/proto/jdfalk/gcommon/pkg/queue/proto;queuepb";
 
 option features.(pb.go).api_level = API_OPAQUE;
 

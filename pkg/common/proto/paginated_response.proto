@@ -6,7 +6,6 @@ package gcommon.v1.common;
 import "google/protobuf/go_features.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/pkg/common/proto;commonpb";
 
 /**
  * Standard pagination response metadata for list operations.

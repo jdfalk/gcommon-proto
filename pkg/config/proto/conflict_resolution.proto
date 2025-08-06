@@ -12,7 +12,6 @@ import "google/protobuf/timestamp.proto";
 import "pkg/common/proto/config/proto/config/proto/config_template.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/pkg/config/proto;configpb";
 
 enum ConflictResolution {
   CONFLICT_RESOLUTION_UNSPECIFIED = 0;

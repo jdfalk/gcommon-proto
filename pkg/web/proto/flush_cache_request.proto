@@ -1,4 +1,5 @@
 // file: pkg/web/proto/requests/flush_cache_request.proto
+import "pkg/common/proto/request_metadata.proto";
 // version: 1.0.0
 // guid: mno78901-2345-6789-abcd-ef1234567890
 
@@ -7,7 +8,6 @@ edition = "2023";
 package gcommon.v1.web;
 
 import "google/protobuf/go_features.proto";
-import "pkg/common/proto/jdfalk/gcommon/pkg/web/proto;webpb";
 
 option features.(pb.go).api_level = API_OPAQUE;
 

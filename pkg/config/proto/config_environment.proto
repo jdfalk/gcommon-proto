@@ -14,7 +14,6 @@ import "pkg/config/proto/health_check_type.proto";
 import "pkg/config/proto/health_state.proto";
 import "pkg/config/proto/proto/config_secret.proto";
 
-option go_package = "github.com/jdfalk/gcommon/pkg/config/proto;configpb";
 
 // ConfigEnvironment represents a configuration environment
 message ConfigEnvironment {

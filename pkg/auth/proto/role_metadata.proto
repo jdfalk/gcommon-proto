@@ -11,7 +11,6 @@ import "pkg/auth/proto/role.proto";
 import "google/protobuf/timestamp.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/pkg/auth/proto;authpb";
 
 /**
  * RoleMetadata provides metadata about role creation and updates.

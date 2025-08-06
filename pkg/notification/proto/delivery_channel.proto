@@ -10,7 +10,6 @@ import "google/protobuf/go_features.proto";
 import "pkg/notification/proto/delivery_channel_type.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/pkg/notification/proto;notificationpb";
 
 /**
  * Delivery channel specifying how a notification is sent.

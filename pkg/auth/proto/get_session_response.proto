@@ -2,19 +2,24 @@
 // file: auth/proto/responses/get_session_response.proto
 //
 // Response definitions for auth module
-// TODO: Implement actual protobuf definitions
-//
 edition = "2023";
 
 package gcommon.v1.auth;
 
 import "google/protobuf/go_features.proto";
+import "pkg/auth/proto/session.proto";
+import "pkg/common/proto/error.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/pkg/auth/proto;authpb";
 
-// TODO: Add response definitions here
-// This is a placeholder file created during 1-1-1 migration
-// Implement the actual protobuf definitions according to the auth module requirements
-// SKELETON_FILE: Compilation temporarily disabled
-// This file needs proper implementation
+/**
+ * Response for getting session information.
+ * Contains session details if found, or error information if not found.
+ */
+message GetSessionResponse {
+  // Session information if found
+  Session session = 1;
+
+  // Error information if session not found or access denied
+  gcommon.v1.common.Error error = 2;
+}

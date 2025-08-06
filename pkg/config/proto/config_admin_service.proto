@@ -18,7 +18,6 @@ import "pkg/config/proto/proto/rollback_config_request.proto";
 import "pkg/config/proto/proto/unwatch_config_request.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/pkg/config/proto;configpb";
 
 /**
  * ConfigAdminService provides administrative configuration operations.

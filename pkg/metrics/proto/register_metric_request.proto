@@ -1,4 +1,5 @@
 // filepath: pkg/metrics/proto/requests/register_metric_request.proto
+import "pkg/common/proto/request_metadata.proto";
 // file: metrics/proto/requests/register_metric_request.proto
 //
 // Register metric request definitions for metrics module
@@ -9,7 +10,6 @@ package gcommon.v1.metrics;
 
 import "google/protobuf/go_features.proto";
 import "pkg/common/proto/metrics/proto/metrics/proto/export_config.proto";
-import "pkg/metrics/proto/gcommon/pkg/metrics/proto;metricspb";
 
 option features.(pb.go).api_level = API_OPAQUE;
 

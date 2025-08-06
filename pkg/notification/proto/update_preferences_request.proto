@@ -1,4 +1,5 @@
 // file: pkg/notification/proto/requests/update_preferences_request.proto
+import "pkg/common/proto/request_metadata.proto";
 // version: 1.0.0
 // guid: c74c733f-1a03-4b74-b5f1-cfa062e66475
 edition = "2023";
@@ -6,7 +7,6 @@ edition = "2023";
 package gcommon.v1.notification;
 
 import "google/protobuf/go_features.proto";
-import "pkg/common/proto/notification/proto/jdfalk/gcommon/pkg/notification/proto;notificationpb";
 
 option features.(pb.go).api_level = API_OPAQUE;
 

@@ -10,7 +10,6 @@ import "google/protobuf/go_features.proto";
 import "pkg/log/proto/proto/appender_config.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package = "github.com/jdfalk/gcommon/pkg/log/proto;logpb";
 
 // LoggerConfig defines configuration for a logger instance
 message LoggerConfig {
