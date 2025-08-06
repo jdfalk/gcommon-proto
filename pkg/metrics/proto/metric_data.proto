@@ -9,9 +9,8 @@ edition = "2023";
 package gcommon.v1.metrics;
 
 import "google/protobuf/go_features.proto";
-import "pkg/metrics/proto/metric_data.proto";
 import "google/protobuf/timestamp.proto";
-import "pkg/metrics/proto/proto/metric_value.proto";
+import "pkg/metrics/proto/metric_value.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
 
