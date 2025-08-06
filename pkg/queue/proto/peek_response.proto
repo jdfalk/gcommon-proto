@@ -9,7 +9,8 @@ package gcommon.v1.queue;
 // Standard imports
 import "google/protobuf/timestamp.proto";
 // Common types
-import "pkg/common/proto/common/proto/error.proto";
+import "pkg/common/proto/error.proto";
+import "pkg/common/proto/request_metadata.proto";
 // Queue message types
 import "pkg/queue/proto/queue_message.proto";
 

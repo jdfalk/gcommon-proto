@@ -13,7 +13,10 @@ import "google/protobuf/go_features.proto";
 import "google/protobuf/timestamp.proto";
 import "pkg/queue/proto/cluster_info.proto";
 import "pkg/queue/proto/topic_info.proto";
+import "pkg/queue/proto/get_cluster_info_request.proto";
 import "pkg/queue/proto/get_cluster_info_response.proto";
+import "pkg/queue/proto/time_range.proto";
+import "pkg/queue/proto/queue_stats.proto";
 import "pkg/queue/proto/health_status.proto";
 import "pkg/queue/proto/stats_granularity.proto";
 import "pkg/queue/proto/metric_type.proto";
@@ -37,17 +40,6 @@ service QueueMonitoringService {
 
   // Get real-time metrics stream
   rpc StreamMetrics(StreamMetricsRequest) returns (stream MetricsEvent);
-}
-
-/**
- * Request to get cluster information.
- */
-message GetClusterInfoRequest {
-  // Whether to include detailed node statistics
-  bool include_node_stats = 1;
-
-  // Whether to include historical data
-  bool include_history = 2;
 }
 
 /**
@@ -132,40 +124,6 @@ message GetQueueStatsResponse {
 
   // Time series data
   repeated QueueStatsPoint time_series = 2;
-}
-
-/**
- * Time range for statistics queries.
- */
-message TimeRange {
-  // Start time
-  google.protobuf.Timestamp start_time = 1;
-
-  // End time
-  google.protobuf.Timestamp end_time = 2;
-}
-
-/**
- * Queue statistics.
- */
-message QueueStats {
-  // Number of messages in queue
-  int64 message_count = 1;
-
-  // Messages per second
-  double message_rate = 2;
-
-  // Average message size
-  double avg_message_size = 3;
-
-  // Total bytes in queue
-  int64 total_bytes = 4;
-
-  // Number of active consumers
-  int32 consumer_count = 5;
-
-  // Average processing time
-  double avg_processing_time = 6;
 }
 
 /**

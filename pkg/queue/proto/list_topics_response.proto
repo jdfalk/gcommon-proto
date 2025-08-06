@@ -8,6 +8,7 @@ package gcommon.v1.queue;
 
 import "google/protobuf/timestamp.proto";
 import "pkg/queue/proto/topic_stats.proto";
+import "pkg/queue/proto/topic_info.proto";
 
 option go_package = "github.com/jdfalk/gcommon/pkg/queue/proto;queuepb";
 
@@ -27,42 +28,6 @@ message ListTopicsResponse {
 
   // Response metadata
   map<string, string> metadata = 5;
-}
-
-// Information about a single topic
-message TopicInfo {
-  // Topic identifier
-  string topic_id = 1;
-
-  // Topic name
-  string topic_name = 2;
-
-  // Topic namespace/category
-  string namespace = 3;
-
-  // Topic state (active, paused, deleted)
-  string state = 4;
-
-  // Topic creation timestamp
-  google.protobuf.Timestamp created_at = 5;
-
-  // Last updated timestamp
-  google.protobuf.Timestamp updated_at = 6;
-
-  // Topic statistics (if requested)
-  TopicStats stats = 7;
-
-  // Topic metadata (if requested)
-  map<string, string> topic_metadata = 8;
-
-  // Number of partitions
-  int32 partition_count = 9;
-
-  // Number of active subscriptions
-  int32 subscription_count = 10;
-
-  // Topic description
-  string description = 11;
 }
 // SKELETON_FILE: Compilation temporarily disabled
 // This file needs proper implementation

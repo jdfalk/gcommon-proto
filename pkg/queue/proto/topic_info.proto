@@ -1,0 +1,49 @@
+// file: pkg/queue/proto/topic_info.proto
+// version: 1.0.0
+// guid: 2b3c4d5e-6f7a-8b9c-0d1e-2f3a4b5c6d7e
+
+edition = "2023";
+
+package gcommon.v1.queue;
+
+import "google/protobuf/go_features.proto";
+import "google/protobuf/timestamp.proto";
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/jdfalk/gcommon/pkg/queue/proto;queuepb";
+
+/**
+ * Topic information for queue management.
+ * Contains metadata and status about a message queue topic.
+ */
+message TopicInfo {
+  // Topic name/identifier
+  string name = 1;
+
+  // Topic description
+  string description = 2;
+
+  // Topic creation timestamp
+  google.protobuf.Timestamp created_at = 3 [lazy = true];
+
+  // Topic last update timestamp
+  google.protobuf.Timestamp updated_at = 4 [lazy = true];
+
+  // Number of partitions
+  int32 partition_count = 5;
+
+  // Replication factor
+  int32 replication_factor = 6;
+
+  // Total message count
+  int64 message_count = 7;
+
+  // Topic size in bytes
+  int64 size_bytes = 8;
+
+  // Topic status (active, paused, etc.)
+  string status = 9;
+
+  // Topic metadata
+  map<string, string> metadata = 10 [lazy = true];
+}
