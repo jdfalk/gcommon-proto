@@ -5,6 +5,7 @@ edition = "2023";
 package gcommon.v1.organization;
 
 import "google/protobuf/go_features.proto";
+import "pkg/organization/proto/department.proto";
 import "pkg/common/proto/protobuf/field_mask.proto";
 import "pkg/common/proto/request_metadata.proto";
 
