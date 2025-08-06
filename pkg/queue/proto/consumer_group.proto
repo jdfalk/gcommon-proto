@@ -11,7 +11,6 @@ import "pkg/queue/proto/load_balancing_strategy.proto";
 import "pkg/queue/proto/subscribe_request.proto";
 import "pkg/queue/proto/consumer_state.proto";
 
-option go_package = "github.com/jdfalk/gcommon/pkg/queue/proto;queuepb";
 
 // ConsumerGroup represents a group of consumers that coordinate message consumption
 message ConsumerGroup {
@@ -302,8 +301,8 @@ message ConsumerGroupStats {
   // Rebalance statistics
   RebalanceStats rebalance_stats = 7;
 
-  // Error statistics
-  ErrorStats error_stats = 8;
+  // Error statistics for the consumer group
+  ConsumerErrorStats error_stats = 8;
 }
 
 // Rebalance statistics
@@ -321,8 +320,8 @@ message RebalanceStats {
   int64 failed_rebalances = 4;
 }
 
-// Error statistics
-message ErrorStats {
+// Consumer group error statistics
+message ConsumerErrorStats {
   // Total processing errors
   int64 total_errors = 1;
 

@@ -14,7 +14,6 @@ package gcommon.v1.queue;
 import "google/protobuf/duration.proto";
 import "google/protobuf/go_features.proto";
 import "google/protobuf/timestamp.proto";
-import "pkg/common/proto/jdfalk/gcommon/pkg/queue/proto;queuepb";
 
 option features.(pb.go).api_level = API_OPAQUE;
 
@@ -195,8 +194,8 @@ message QueueConfiguration {
   bool dead_letter_queue_enabled = 5;
 }
 
-// Statistics for individual consumers
-message ConsumerStats {
+// Statistics for individual consumers in queue stats
+message QueueConsumerStats {
   string consumer_id = 1;
   string queue_name = 2;
   int64 messages_processed = 3;
