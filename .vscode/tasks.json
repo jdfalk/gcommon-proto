@@ -4,7 +4,7 @@
 		{
 			"label": "Buf Generate with Output",
 			"type": "shell",
-			"command": "buf generate > buf_generate_output.log 2>&1 && echo 'SUCCESS: buf generate completed' >> buf_generate_output.log || echo 'FAILED: buf generate failed' >> buf_generate_output.log",
+			"command": "mkdir -p logs && buf generate > logs/buf_generate_output.log 2>&1 && echo 'SUCCESS: buf generate completed' >> logs/buf_generate_output.log || echo 'FAILED: buf generate failed' >> logs/buf_generate_output.log",
 			"group": "build",
 			"isBackground": false,
 			"problemMatcher": []
@@ -12,7 +12,7 @@
 		{
 			"label": "Buf Generate Module",
 			"type": "shell",
-			"command": "MODULE=${input:module}; buf generate --path pkg/${MODULE}/proto > buf_generate_${MODULE}.log 2>&1 && echo 'SUCCESS: buf generate completed for ${MODULE}' >> buf_generate_${MODULE}.log || echo 'FAILED: buf generate failed for ${MODULE}' >> buf_generate_${MODULE}.log",
+			"command": "mkdir -p logs && MODULE=${input:module}; buf generate --path pkg/${MODULE}/proto > logs/buf_generate_${MODULE}.log 2>&1 && echo 'SUCCESS: buf generate completed for ${MODULE}' >> logs/buf_generate_${MODULE}.log || echo 'FAILED: buf generate failed for ${MODULE}' >> logs/buf_generate_${MODULE}.log",
 			"group": "build",
 			"isBackground": false,
 			"problemMatcher": []
@@ -20,7 +20,7 @@
 		{
 			"label": "Git Add All",
 			"type": "shell",
-			"command": "git add . > git_add.log 2>&1 && echo 'SUCCESS: git add completed' >> git_add.log || echo 'FAILED: git add failed' >> git_add.log",
+			"command": "mkdir -p logs && git add . > logs/git_add.log 2>&1 && echo 'SUCCESS: git add completed' >> logs/git_add.log || echo 'FAILED: git add failed' >> logs/git_add.log",
 			"group": "build",
 			"isBackground": false,
 			"problemMatcher": []
@@ -28,7 +28,7 @@
 		{
 			"label": "Git Add Selective",
 			"type": "shell",
-			"command": "PATTERN='${input:filePattern}'; git add $PATTERN > git_add_selective.log 2>&1 && echo \"SUCCESS: git add completed for pattern: $PATTERN\" >> git_add_selective.log || echo \"FAILED: git add failed for pattern: $PATTERN\" >> git_add_selective.log",
+			"command": "mkdir -p logs && PATTERN='${input:filePattern}'; git add $PATTERN > logs/git_add_selective.log 2>&1 && echo \"SUCCESS: git add completed for pattern: $PATTERN\" >> logs/git_add_selective.log || echo \"FAILED: git add failed for pattern: $PATTERN\" >> logs/git_add_selective.log",
 			"group": "build",
 			"isBackground": false,
 			"problemMatcher": []
@@ -36,7 +36,7 @@
 		{
 			"label": "Git Commit",
 			"type": "shell",
-			"command": "MESSAGE='${input:commitMessage}'; git commit -m \"$MESSAGE\" > git_commit.log 2>&1 && echo 'SUCCESS: git commit completed' >> git_commit.log || echo 'FAILED: git commit failed' >> git_commit.log",
+			"command": "mkdir -p logs && MESSAGE='${input:commitMessage}'; git commit -m \"$MESSAGE\" > logs/git_commit.log 2>&1 && echo 'SUCCESS: git commit completed' >> logs/git_commit.log || echo 'FAILED: git commit failed' >> logs/git_commit.log",
 			"group": "build",
 			"isBackground": false,
 			"problemMatcher": []
@@ -44,7 +44,7 @@
 		{
 			"label": "Git Push",
 			"type": "shell",
-			"command": "git push > git_push.log 2>&1 && echo 'SUCCESS: git push completed' >> git_push.log || echo 'FAILED: git push failed' >> git_push.log",
+			"command": "mkdir -p logs && git push > logs/git_push.log 2>&1 && echo 'SUCCESS: git push completed' >> logs/git_push.log || echo 'FAILED: git push failed' >> logs/git_push.log",
 			"group": "build",
 			"isBackground": false,
 			"problemMatcher": []
@@ -52,7 +52,7 @@
 		{
 			"label": "Git Status",
 			"type": "shell",
-			"command": "git status --porcelain > git_status.log 2>&1 && echo '--- Git Status Summary ---' >> git_status.log && git status >> git_status.log",
+			"command": "mkdir -p logs && git status --porcelain > logs/git_status.log 2>&1 && echo '--- Git Status Summary ---' >> logs/git_status.log && git status >> logs/git_status.log",
 			"group": "build",
 			"isBackground": false,
 			"problemMatcher": []
