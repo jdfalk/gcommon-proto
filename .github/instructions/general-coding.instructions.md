@@ -34,6 +34,7 @@ Copilot customization.
 - Do not duplicate rules; reference this file from more specific instructions.
 - For VS Code Copilot customization, this file is included via symlink in
   `.vscode/copilot/`.
+- **ALWAYS check before doing:** Before creating files, running operations, or executing scripts, always check current state first. Make all scripts and operations idempotent by checking if the desired state already exists before making changes.
 
 For more details and the full system, see
 [copilot-instructions.md](../copilot-instructions.md).
