@@ -9,6 +9,8 @@ package gcommon.v1.queue;
 import "google/protobuf/timestamp.proto";
 import "pkg/queue/proto/topic_stats.proto";
 import "pkg/queue/proto/partition_info.proto";
+option go_package = "github.com/jdfalk/gcommon/pkg/queue/proto";
+
 
 
 // GetTopicInfoResponse returns detailed information about a topic

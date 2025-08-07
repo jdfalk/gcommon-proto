@@ -8,6 +8,8 @@ package gcommon.v1.queue;
 
 
 import "pkg/queue/proto/queue_info.proto";
+option go_package = "github.com/jdfalk/gcommon/pkg/queue/proto";
+
 
 // Response with queue information
 message GetQueueInfoResponse {

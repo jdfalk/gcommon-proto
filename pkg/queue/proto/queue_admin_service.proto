@@ -21,6 +21,8 @@ import "pkg/queue/proto/purge_request.proto";
 import "pkg/queue/proto/purge_response.proto";
 import "pkg/queue/proto/reset_queue_stats_request.proto";
 import "pkg/queue/proto/reset_queue_stats_response.proto";
+option go_package = "github.com/jdfalk/gcommon/pkg/queue/proto";
+
 
 // Administrative service for queue management operations
 service QueueAdminService {

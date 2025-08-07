@@ -9,6 +9,8 @@ import "pkg/common/proto/health_status.proto";
 import "pkg/common/proto/error.proto";
 import "google/protobuf/timestamp.proto";
 import "pkg/common/proto/common/proto/health_status.proto";
+option go_package = "github.com/jdfalk/gcommon/pkg/health/proto";
+
 
 option features.(pb.go).api_level = API_OPAQUE;
 

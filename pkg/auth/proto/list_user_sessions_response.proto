@@ -14,6 +14,8 @@ import "pkg/common/proto/error.proto";
 // Common types
 import "pkg/common/proto/paginated_response.proto";
 import "pkg/common/proto/request_metadata.proto";
+option go_package = "github.com/jdfalk/gcommon/pkg/auth/proto";
+
 
 
 /**

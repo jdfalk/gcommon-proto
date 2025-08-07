@@ -11,6 +11,8 @@ import "pkg/health/proto/proto/list_services_request.proto";
 import "pkg/health/proto/proto/register_check_response.proto";
 import "pkg/health/proto/proto/unregister_check_request.proto";
 import "pkg/health/proto/proto/watch_request.proto";
+option go_package = "github.com/jdfalk/gcommon/pkg/health/proto";
+
 
 option features.(pb.go).api_level = API_OPAQUE;
 

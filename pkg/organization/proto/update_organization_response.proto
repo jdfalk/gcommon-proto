@@ -6,6 +6,8 @@ package gcommon.v1.organization;
 import "google/protobuf/go_features.proto";
 import "pkg/common/proto/error.proto";
 import "pkg/organization/proto/proto/messages/error.proto";
+option go_package = "github.com/jdfalk/gcommon/pkg/organization/proto";
+
 
 option features.(pb.go).api_level = API_OPAQUE;
 

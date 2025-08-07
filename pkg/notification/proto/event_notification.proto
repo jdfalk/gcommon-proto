@@ -10,6 +10,8 @@ import "google/protobuf/any.proto";
 import "google/protobuf/go_features.proto";
 import "google/protobuf/timestamp.proto";
 import "pkg/notification/proto/gcommon/pkg/notification/proto;notificationpb";
+option go_package = "github.com/jdfalk/gcommon/pkg/notification/proto";
+
 
 option features.(pb.go).api_level = API_OPAQUE;
 

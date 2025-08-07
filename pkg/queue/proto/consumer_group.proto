@@ -10,6 +10,8 @@ import "google/protobuf/timestamp.proto";
 import "pkg/queue/proto/load_balancing_strategy.proto";
 import "pkg/queue/proto/subscribe_request.proto";
 import "pkg/queue/proto/consumer_state.proto";
+option go_package = "github.com/jdfalk/gcommon/pkg/queue/proto";
+
 
 
 // ConsumerGroup represents a group of consumers that coordinate message consumption

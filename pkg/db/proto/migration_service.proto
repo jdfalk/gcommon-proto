@@ -11,6 +11,8 @@ import "pkg/db/proto/proto/get_migration_status_response.proto";
 import "pkg/db/proto/proto/list_migrations_response.proto";
 import "pkg/db/proto/proto/revert_migration_response.proto";
 import "pkg/db/proto/proto/run_migration_response.proto";
+option go_package = "github.com/jdfalk/gcommon/pkg/db/proto";
+
 
 option features.(pb.go).api_level = API_OPAQUE;
 

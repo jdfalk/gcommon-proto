@@ -7,6 +7,8 @@ edition = "2023";
 package gcommon.v1.queue;
 
 
+
+option go_package = "github.com/jdfalk/gcommon/pkg/queue/proto";
 // Response for subscription configuration updates
 message UpdateSubscriptionConfigResponse {
   // Whether the update was successful

@@ -9,6 +9,8 @@ package gcommon.v1.queue;
 import "google/protobuf/go_features.proto";
 import "pkg/queue/proto/gcommon/pkg/queue/proto;queuepb";
 import "pkg/queue/proto/proto/priority_level.proto";
+option go_package = "github.com/jdfalk/gcommon/pkg/queue/proto";
+
 
 option features.(pb.go).api_level = API_OPAQUE;
 

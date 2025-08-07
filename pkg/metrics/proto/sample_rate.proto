@@ -7,6 +7,8 @@ edition = "2023";
 package gcommon.v1.metrics;
 
 
+
+option go_package = "github.com/jdfalk/gcommon/pkg/metrics/proto";
 // SampleRate represents different sampling rates for metrics collection
 enum SampleRate {
   // Unspecified sample rate

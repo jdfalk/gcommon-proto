@@ -8,6 +8,8 @@ package gcommon.v1.queue;
 
 
 import "pkg/queue/proto/partition_info.proto";
+option go_package = "github.com/jdfalk/gcommon/pkg/queue/proto";
+
 
 // Response with partition information
 message GetPartitionInfoResponse {

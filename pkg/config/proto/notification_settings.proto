@@ -17,6 +17,8 @@ import "pkg/config/proto/audit_level.proto";
 import "pkg/config/proto/channel_type.proto";
 import "pkg/config/proto/backup_frequency.proto";
 import "pkg/config/proto/metadata_status.proto";
+option go_package = "github.com/jdfalk/gcommon/pkg/config/proto";
+
 
 option features.(pb.go).api_level = API_OPAQUE;
 

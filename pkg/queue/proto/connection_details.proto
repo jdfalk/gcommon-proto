@@ -7,6 +7,8 @@ edition = "2023";
 package gcommon.v1.queue;
 
 
+
+option go_package = "github.com/jdfalk/gcommon/pkg/queue/proto";
 // ConnectionDetails contains information for establishing message delivery connections
 message ConnectionDetails {
   // Delivery endpoint (for push mode)

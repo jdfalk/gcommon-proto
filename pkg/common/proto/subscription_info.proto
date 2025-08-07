@@ -10,6 +10,8 @@ import "pkg/common/proto/filter_options.proto";
 import "pkg/common/proto/subscription_options.proto";
 import "pkg/common/proto/subscription_status.proto";
 
+
+option go_package = "github.com/jdfalk/gcommon/pkg/common/proto";
 option features.(pb.go).api_level = API_OPAQUE;
 
 /**

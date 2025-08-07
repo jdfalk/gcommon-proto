@@ -14,6 +14,8 @@ import "pkg/metrics/proto/proto/delete_provider_response.proto";
 import "pkg/metrics/proto/proto/get_provider_stats_response.proto";
 import "pkg/metrics/proto/proto/list_providers_response.proto";
 import "pkg/metrics/proto/proto/update_provider_response.proto";
+option go_package = "github.com/jdfalk/gcommon/pkg/metrics/proto";
+
 
 option features.(pb.go).api_level = API_OPAQUE;
 

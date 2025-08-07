@@ -6,6 +6,8 @@ package gcommon.v1.common;
 import "google/protobuf/go_features.proto";
 import "google/protobuf/timestamp.proto";
 
+
+option go_package = "github.com/jdfalk/gcommon/pkg/common/proto";
 option features.(pb.go).api_level = API_OPAQUE;
 
 /**

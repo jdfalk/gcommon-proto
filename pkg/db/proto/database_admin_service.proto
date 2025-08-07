@@ -11,6 +11,8 @@ import "pkg/db/proto/proto/drop_schema_request.proto";
 import "pkg/db/proto/proto/get_database_info_request.proto";
 import "pkg/db/proto/proto/list_databases_request.proto";
 import "pkg/db/proto/proto/list_schemas_response.proto";
+option go_package = "github.com/jdfalk/gcommon/pkg/db/proto";
+
 
 option features.(pb.go).api_level = API_OPAQUE;
 

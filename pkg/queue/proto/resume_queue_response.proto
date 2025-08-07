@@ -8,6 +8,8 @@ package gcommon.v1.queue;
 
 import "google/protobuf/timestamp.proto";
 import "pkg/queue/proto/queue_state.proto";
+option go_package = "github.com/jdfalk/gcommon/pkg/queue/proto";
+
 
 
 // ResumeQueueResponse returns the result of resuming a paused queue

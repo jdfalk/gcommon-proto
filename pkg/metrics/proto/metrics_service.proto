@@ -15,6 +15,8 @@ import "pkg/metrics/proto/proto/record_metric_response.proto";
 import "pkg/metrics/proto/proto/record_metrics_response.proto";
 import "pkg/metrics/proto/proto/register_metric_response.proto";
 import "pkg/metrics/proto/proto/unregister_metric_response.proto";
+option go_package = "github.com/jdfalk/gcommon/pkg/metrics/proto";
+
 
 option features.(pb.go).api_level = API_OPAQUE;
 

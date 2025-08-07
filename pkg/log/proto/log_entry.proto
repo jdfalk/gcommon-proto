@@ -11,6 +11,8 @@ import "google/protobuf/go_features.proto";
 import "google/protobuf/timestamp.proto";
 import "pkg/log/proto/gcommon/pkg/log/proto;logpb";
 import "pkg/log/proto/proto/source_location.proto";
+option go_package = "github.com/jdfalk/gcommon/pkg/log/proto";
+
 
 option features.(pb.go).api_level = API_OPAQUE;
 
