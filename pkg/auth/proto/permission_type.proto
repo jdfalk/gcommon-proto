@@ -8,11 +8,7 @@ edition = "2023";
 
 package gcommon.v1.auth;
 
-import "google/protobuf/go_features.proto";
 option go_package = "github.com/jdfalk/gcommon/pkg/auth/proto";
-
-
-option features.(pb.go).api_level = API_OPAQUE;
 
 // TODO: Add enum definitions here
 // This is a placeholder file created during 1-1-1 migration
