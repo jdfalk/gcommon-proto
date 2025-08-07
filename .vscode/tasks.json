@@ -4,8 +4,11 @@
 		{
 			"label": "Buf Generate with Output",
 			"type": "shell",
-			"command": "/Users/jdfalk/repos/github.com/jdfalk/copilot-agent-util/bin/copilot-agent-util",
-			"args": ["buf", "generate"],
+			"command": "copilot-agent-util",
+			"args": [
+				"buf",
+				"generate"
+			],
 			"options": {
 				"cwd": "${workspaceFolder}"
 			},
@@ -16,8 +19,13 @@
 		{
 			"label": "Buf Generate Module",
 			"type": "shell",
-			"command": "/Users/jdfalk/repos/github.com/jdfalk/copilot-agent-util/bin/copilot-agent-util",
-			"args": ["buf", "generate", "--module", "${input:module}"],
+			"command": "copilot-agent-util",
+			"args": [
+				"buf",
+				"generate",
+				"--module",
+				"${input:module}"
+			],
 			"options": {
 				"cwd": "${workspaceFolder}"
 			},
@@ -28,8 +36,11 @@
 		{
 			"label": "Git Add All",
 			"type": "shell",
-			"command": "/Users/jdfalk/repos/github.com/jdfalk/copilot-agent-util/bin/copilot-agent-util",
-			"args": ["git", "add"],
+			"command": "copilot-agent-util",
+			"args": [
+				"git",
+				"add"
+			],
 			"options": {
 				"cwd": "${workspaceFolder}"
 			},
@@ -40,8 +51,12 @@
 		{
 			"label": "Git Add Selective",
 			"type": "shell",
-			"command": "/Users/jdfalk/repos/github.com/jdfalk/copilot-agent-util/bin/copilot-agent-util",
-			"args": ["git", "add", "${input:filePattern}"],
+			"command": "copilot-agent-util",
+			"args": [
+				"git",
+				"add",
+				"${input:filePattern}"
+			],
 			"options": {
 				"cwd": "${workspaceFolder}"
 			},
@@ -52,8 +67,13 @@
 		{
 			"label": "Git Commit",
 			"type": "shell",
-			"command": "/Users/jdfalk/repos/github.com/jdfalk/copilot-agent-util/bin/copilot-agent-util",
-			"args": ["git", "commit", "--message", "${input:commitMessage}"],
+			"command": "copilot-agent-util",
+			"args": [
+				"git",
+				"commit",
+				"--message",
+				"${input:commitMessage}"
+			],
 			"options": {
 				"cwd": "${workspaceFolder}"
 			},
@@ -64,8 +84,11 @@
 		{
 			"label": "Git Push",
 			"type": "shell",
-			"command": "/Users/jdfalk/repos/github.com/jdfalk/copilot-agent-util/bin/copilot-agent-util",
-			"args": ["git", "push"],
+			"command": "copilot-agent-util",
+			"args": [
+				"git",
+				"push"
+			],
 			"options": {
 				"cwd": "${workspaceFolder}"
 			},
@@ -76,8 +99,11 @@
 		{
 			"label": "Git Status",
 			"type": "shell",
-			"command": "/Users/jdfalk/repos/github.com/jdfalk/copilot-agent-util/bin/copilot-agent-util",
-			"args": ["git", "status"],
+			"command": "copilot-agent-util",
+			"args": [
+				"git",
+				"status"
+			],
 			"options": {
 				"cwd": "${workspaceFolder}"
 			},
