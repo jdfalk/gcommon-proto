@@ -10,7 +10,7 @@ import "pkg/config/proto/cache_invalidation_trigger.proto";
 import "pkg/config/proto/cache_refresh_strategy.proto";
 import "google/protobuf/any.proto";
 import "google/protobuf/timestamp.proto";
-import "pkg/common/proto/config/proto/config/proto/config_template.proto";
+
 option go_package = "github.com/jdfalk/gcommon/pkg/config/proto";
 
 message CachingSettings {

@@ -7,14 +7,22 @@ edition = "2023";
 package gcommon.v1.config;
 
 import "google/protobuf/empty.proto";
-import "pkg/config/proto/proto/config_backup.proto";
-import "pkg/config/proto/proto/config_snapshot.proto";
-import "pkg/config/proto/proto/get_config_history_request.proto";
-import "pkg/config/proto/proto/get_config_stats_request.proto";
-import "pkg/config/proto/proto/health_check_request.proto";
-import "pkg/config/proto/proto/import_config_request.proto";
-import "pkg/config/proto/proto/rollback_config_request.proto";
-import "pkg/config/proto/proto/unwatch_config_request.proto";
+import "pkg/config/proto/config_backup.proto";
+import "pkg/config/proto/config_snapshot.proto";
+import "pkg/config/proto/backup_config_request.proto";
+import "pkg/config/proto/restore_config_request.proto";
+import "pkg/config/proto/export_config_request.proto";
+import "pkg/config/proto/reload_config_request.proto";
+import "pkg/config/proto/set_config_schema_request.proto";
+import "pkg/config/proto/get_config_history_request.proto";
+import "pkg/config/proto/get_config_history_response.proto";
+import "pkg/config/proto/get_config_stats_request.proto";
+import "pkg/config/proto/get_config_stats_response.proto";
+import "pkg/config/proto/health_check_request.proto";
+import "pkg/config/proto/health_check_response.proto";
+import "pkg/config/proto/import_config_request.proto";
+import "pkg/config/proto/rollback_config_request.proto";
+import "pkg/config/proto/unwatch_config_request.proto";
 option go_package = "github.com/jdfalk/gcommon/pkg/config/proto";
 
 /**
