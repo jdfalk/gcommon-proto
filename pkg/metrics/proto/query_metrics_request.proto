@@ -9,13 +9,9 @@ edition = "2023";
 
 package gcommon.v1.metrics;
 
-import "google/protobuf/go_features.proto";
 import "pkg/common/proto/request_metadata.proto";
 import "pkg/metrics/proto/proto/messages/request_metadata.proto";
 option go_package = "github.com/jdfalk/gcommon/pkg/metrics/proto";
-
-
-option features.(pb.go).api_level = API_OPAQUE;
 
 message QueryMetricsRequest {
   // Standard request metadata (tracing, auth, etc.)

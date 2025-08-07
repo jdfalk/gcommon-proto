@@ -1,27 +1,22 @@
-// file: pkg/metrics/proto/types/time_range.proto
+// file: pkg/metrics/proto/time_range.proto
 // version: 1.0.0
-// guid: 123e4567-e89b-12d3-a456-426614174010
+// guid: d6e7f8a9-012d-467c-1234-789012345678
 
 edition = "2023";
 
 package gcommon.v1.metrics;
 
-import "google/protobuf/duration.proto";
 import "google/protobuf/timestamp.proto";
+
 option go_package = "github.com/jdfalk/gcommon/pkg/metrics/proto";
 
-
-
-/**
- * Time range specification for metrics queries.
- */
 message TimeRange {
-  // Start time for the range
-  google.protobuf.Timestamp start_time = 1;
-
-  // End time for the range
-  google.protobuf.Timestamp end_time = 2;
-
-  // Duration of the time range (alternative to end_time)
-  google.protobuf.Duration duration = 3;
+  // Start timestamp
+  google.protobuf.Timestamp start = 1;
+  
+  // End timestamp
+  google.protobuf.Timestamp end = 2;
+  
+  // Duration in seconds
+  int64 duration_seconds = 3;
 }

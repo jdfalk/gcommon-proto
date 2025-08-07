@@ -6,14 +6,10 @@ edition = "2023";
 
 package gcommon.v1.metrics;
 
-import "google/protobuf/go_features.proto";
 import "pkg/metrics/proto/update_action.proto";
 import "google/protobuf/timestamp.proto";
 import "pkg/common/proto/metrics/proto/metrics/proto/validation_result.proto";
 option go_package = "github.com/jdfalk/gcommon/pkg/metrics/proto";
-
-
-option features.(pb.go).api_level = API_OPAQUE;
 
 /**
  * UpdateResult contains information about what was changed.

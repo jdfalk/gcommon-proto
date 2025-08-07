@@ -1,39 +1,17 @@
-// file: pkg/metrics/proto/enums/alert_severity.proto
-// file: metrics/proto/enums/alert_severity.proto
-//
-// Enum definitions for metrics module
-// TODO: Implement actual protobuf definitions
-//
+// file: pkg/metrics/proto/alert_severity.proto
+// version: 1.0.0
+// guid: f1a2b3c4-5678-901c-5678-123456789012
+
 edition = "2023";
 
 package gcommon.v1.metrics;
 
-import "google/protobuf/go_features.proto";
 option go_package = "github.com/jdfalk/gcommon/pkg/metrics/proto";
 
-
-option features.(pb.go).api_level = API_OPAQUE;
-
-/**
- * AlertSeverity defines the severity levels for metric alerts.
- * Used to classify the urgency and impact of metric-based alerts.
- */
 enum AlertSeverity {
-  // Unspecified severity (default)
   ALERT_SEVERITY_UNSPECIFIED = 0;
-
-  // Low severity - informational alerts
   ALERT_SEVERITY_LOW = 1;
-
-  // Medium severity - warnings that need attention
   ALERT_SEVERITY_MEDIUM = 2;
-
-  // High severity - serious issues requiring immediate attention
   ALERT_SEVERITY_HIGH = 3;
-
-  // Critical severity - service-affecting issues requiring urgent response
   ALERT_SEVERITY_CRITICAL = 4;
-
-  // Emergency severity - complete system failure or security incident
-  ALERT_SEVERITY_EMERGENCY = 5;
 }

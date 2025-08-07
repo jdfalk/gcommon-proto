@@ -5,12 +5,12 @@
 edition = "2023";
 
 package gcommon.v1.metrics;
+import "pkg/metrics/proto/apikey_config_update.proto";
 
-import "google/protobuf/go_features.proto";
+import "pkg/metrics/proto/tlsconfig_update.proto";
+
+
 option go_package = "github.com/jdfalk/gcommon/pkg/metrics/proto";
-
-
-option features.(pb.go).api_level = API_OPAQUE;
 
 /**
  * SecurityConfigUpdate contains updates to security configuration.

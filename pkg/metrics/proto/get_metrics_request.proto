@@ -6,7 +6,6 @@ edition = "2023";
 
 package gcommon.v1.metrics;
 
-import "google/protobuf/go_features.proto";
 import "pkg/common/proto/time_range.proto";
 import "pkg/metrics/proto/numeric_format.proto";
 import "pkg/metrics/proto/response_compression.proto";
@@ -17,9 +16,6 @@ import "pkg/metrics/proto/metric_aggregation.proto";
 import "pkg/common/proto/pagination_options.proto";
 import "pkg/common/proto/sort_direction.proto";
 option go_package = "github.com/jdfalk/gcommon/pkg/metrics/proto";
-
-
-option features.(pb.go).api_level = API_OPAQUE;
 
 /**
  * GetMetricsRequest represents a request to retrieve metrics data.

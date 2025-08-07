@@ -1,30 +1,23 @@
 // file: pkg/metrics/proto/export_destination_update.proto
 // version: 1.0.0
-// guid: 414ed4d8-7992-4930-a448-4d4d1fbf66a8
+// guid: a3b4c5d6-789a-134f-8901-456789012345
 
 edition = "2023";
 
 package gcommon.v1.metrics;
 
-import "google/protobuf/go_features.proto";
 option go_package = "github.com/jdfalk/gcommon/pkg/metrics/proto";
 
-
-option features.(pb.go).api_level = API_OPAQUE;
-
-/**
- * ExportDestinationUpdate contains updates to an export destination.
- */
 message ExportDestinationUpdate {
-  // Destination identifier
+  // Destination ID
   string destination_id = 1;
-
-  // Updated configuration
-  map<string, string> config_updates = 2;
-
-  // Configuration keys to remove
-  repeated string config_removes = 3;
-
-  // Updated enabled status
+  
+  // Destination URL
+  string url = 2;
+  
+  // Authentication token
+  string auth_token = 3;
+  
+  // Enabled status
   bool enabled = 4;
 }

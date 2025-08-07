@@ -5,12 +5,10 @@
 edition = "2023";
 
 package gcommon.v1.metrics;
+import "pkg/metrics/proto/comparison_operator.proto";
 
-import "google/protobuf/go_features.proto";
+
 option go_package = "github.com/jdfalk/gcommon/pkg/metrics/proto";
-
-
-option features.(pb.go).api_level = API_OPAQUE;
 
 /**
  * AlertingCondition specifies a single metric threshold comparison

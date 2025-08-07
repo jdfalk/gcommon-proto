@@ -1,29 +1,23 @@
-// file: pkg/metrics/proto/types/export_config.proto
+// file: pkg/metrics/proto/export_config.proto
 // version: 1.0.0
-// guid: 123e4567-e89b-12d3-a456-426614174022
+// guid: b0c1d2e3-456b-801a-5678-123456789012
 
 edition = "2023";
 
 package gcommon.v1.metrics;
 
-import "google/protobuf/duration.proto";
 option go_package = "github.com/jdfalk/gcommon/pkg/metrics/proto";
 
-
-
-/**
- * Configuration for metric export.
- */
 message ExportConfig {
-  // Whether export is enabled
+  // Export enabled status
   bool enabled = 1;
-
-  // Export formats supported
-  repeated string formats = 2;
-
-  // Destination configurations
+  
+  // Export interval in seconds
+  int32 interval_seconds = 2;
+  
+  // Export destinations
   repeated string destinations = 3;
-
-  // Export frequency
-  google.protobuf.Duration frequency = 4;
+  
+  // Export format
+  string format = 4;
 }

@@ -1,60 +1,19 @@
-// file: pkg/metrics/proto/types/timestamp_range.proto
-// file: metrics/proto/types/timestamp_range.proto
-//
-// Type definitions for metrics module
-// TODO: Implement actual protobuf definitions
-//
+// file: pkg/metrics/proto/timestamp_range.proto
+// version: 1.0.0
+// guid: e7f8a9b0-123e-578d-2345-890123456789
+
 edition = "2023";
 
 package gcommon.v1.metrics;
 
-import "google/protobuf/duration.proto";
-import "google/protobuf/go_features.proto";
 import "google/protobuf/timestamp.proto";
+
 option go_package = "github.com/jdfalk/gcommon/pkg/metrics/proto";
 
-
-option features.(pb.go).api_level = API_OPAQUE;
-
-/**
- * TimestampRange represents a time range for querying metrics.
- * Used to specify the time window for metric queries and operations.
- */
 message TimestampRange {
-  // Start time of the range (inclusive)
-  google.protobuf.Timestamp start_time = 1;
-
-  // End time of the range (exclusive)
-  google.protobuf.Timestamp end_time = 2;
-
-  // Optional step/resolution for time series data
-  google.protobuf.Duration step = 3;
-}
-
-/**
- * RelativeTimeRange represents a time range relative to current time.
- * Used for queries like "last 24 hours" or "past week".
- */
-message RelativeTimeRange {
-  // Duration looking back from current time
-  google.protobuf.Duration lookback_duration = 1;
-
-  // Optional step/resolution for time series data
-  google.protobuf.Duration step = 2;
-
-  // Optional offset from current time (useful for queries like "1 hour ago to 2 hours ago")
-  google.protobuf.Duration offset = 3;
-}
-
-/**
- * TimeFilter combines absolute and relative time filtering options.
- */
-message TimeFilter {
-  oneof time_range {
-    // Absolute time range with specific start/end times
-    TimestampRange absolute_range = 1;
-
-    // Relative time range from current time
-    RelativeTimeRange relative_range = 2;
-  }
+  // Start timestamp
+  google.protobuf.Timestamp start = 1;
+  
+  // End timestamp
+  google.protobuf.Timestamp end = 2;
 }

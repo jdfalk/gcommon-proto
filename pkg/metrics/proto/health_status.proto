@@ -1,34 +1,17 @@
-// file: pkg/metrics/proto/enums/health_status.proto
+// file: pkg/metrics/proto/health_status.proto
 // version: 1.0.0
-// guid: 9df935b1-79eb-45d8-a720-1569d1fdf238
+// guid: c1d2e3f4-567c-912b-6789-234567890123
 
 edition = "2023";
 
 package gcommon.v1.metrics;
 
-import "google/protobuf/go_features.proto";
 option go_package = "github.com/jdfalk/gcommon/pkg/metrics/proto";
 
-
-option features.(pb.go).api_level = API_OPAQUE;
-
-/**
- * HealthStatus provides a simple status enumeration for metrics providers
- * and scraping jobs.
- */
 enum HealthStatus {
-  // Unknown or undefined status.
   HEALTH_STATUS_UNSPECIFIED = 0;
-
-  // Service or component is operating normally.
   HEALTH_STATUS_HEALTHY = 1;
-
-  // Minor issues detected but still functional.
-  HEALTH_STATUS_WARNING = 2;
-
-  // Major problems impacting metrics collection.
-  HEALTH_STATUS_CRITICAL = 3;
-
-  // Status cannot be determined.
+  HEALTH_STATUS_DEGRADED = 2;
+  HEALTH_STATUS_UNHEALTHY = 3;
   HEALTH_STATUS_UNKNOWN = 4;
 }

@@ -1,33 +1,29 @@
 // file: pkg/metrics/proto/provider_settings_update.proto
 // version: 1.0.0
-// guid: afc97203-822b-4567-be7e-25a74eec1172
+// guid: d2e3f4a5-678d-023c-7890-345678901234
 
 edition = "2023";
 
 package gcommon.v1.metrics;
+import "pkg/metrics/proto/open_telemetry_settings_update.proto";
 
-import "google/protobuf/go_features.proto";
+import "pkg/metrics/proto/prometheus_settings_update.proto";
+
+import "pkg/metrics/proto/stats_dsettings_update.proto";
+
+
 option go_package = "github.com/jdfalk/gcommon/pkg/metrics/proto";
 
-
-option features.(pb.go).api_level = API_OPAQUE;
-
-/**
- * ProviderSettingsUpdate contains updates to provider-specific settings.
- */
 message ProviderSettingsUpdate {
-  // Updates for Prometheus settings
+  // Prometheus settings update
   PrometheusSettingsUpdate prometheus = 1;
-
-  // Updates for OpenTelemetry settings
+  
+  // OpenTelemetry settings update
   OpenTelemetrySettingsUpdate opentelemetry = 2;
-
-  // Updates for StatsD settings
+  
+  // StatsD settings update
   StatsDSettingsUpdate statsd = 3;
-
-  // Updates for custom settings
-  map<string, string> custom_updates = 4;
-
-  // Custom settings to remove
-  repeated string custom_removes = 5;
 }
+
+
+

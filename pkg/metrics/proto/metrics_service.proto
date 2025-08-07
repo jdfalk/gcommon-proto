@@ -3,7 +3,6 @@ edition = "2023";
 
 package gcommon.v1.metrics;
 
-import "google/protobuf/go_features.proto";
 import "pkg/metrics/proto/metric_data.proto";
 import "pkg/metrics/proto/proto/get_metric_metadata_response.proto";
 import "pkg/metrics/proto/proto/get_metrics_response.proto";
@@ -16,9 +15,6 @@ import "pkg/metrics/proto/proto/record_metrics_response.proto";
 import "pkg/metrics/proto/proto/register_metric_response.proto";
 import "pkg/metrics/proto/proto/unregister_metric_response.proto";
 option go_package = "github.com/jdfalk/gcommon/pkg/metrics/proto";
-
-
-option features.(pb.go).api_level = API_OPAQUE;
 
 /**
  * MetricsService provides comprehensive metrics collection and querying capabilities.

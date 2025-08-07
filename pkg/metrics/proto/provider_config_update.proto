@@ -5,12 +5,18 @@
 edition = "2023";
 
 package gcommon.v1.metrics;
+import "pkg/metrics/proto/tag_updates.proto";
 
-import "google/protobuf/go_features.proto";
+import "pkg/metrics/proto/security_config_update.proto";
+
+import "pkg/metrics/proto/resource_limits_update.proto";
+
+import "pkg/metrics/proto/export_config_update.proto";
+
+import "pkg/metrics/proto/provider_settings_update.proto";
+
+
 option go_package = "github.com/jdfalk/gcommon/pkg/metrics/proto";
-
-
-option features.(pb.go).api_level = API_OPAQUE;
 
 /**
  * ProviderConfigUpdate contains the configuration updates to apply.
