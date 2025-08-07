@@ -9,13 +9,9 @@ edition = "2023";
 
 package gcommon.v1.queue;
 
-import "google/protobuf/go_features.proto";
 import "google/protobuf/timestamp.proto";
 import "pkg/common/proto/request_metadata.proto";
 option go_package = "github.com/jdfalk/gcommon/pkg/queue/proto";
-
-
-option features.(pb.go).api_level = API_OPAQUE;
 
 /**
  * Request to seek to a specific position in a queue or topic.

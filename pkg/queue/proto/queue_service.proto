@@ -12,11 +12,7 @@ edition = "2023";
 
 package gcommon.v1.queue;
 
-import "google/protobuf/go_features.proto";
 option go_package = "github.com/jdfalk/gcommon/pkg/queue/proto";
-
-
-option features.(pb.go).api_level = API_OPAQUE;
 
 // Future queue service extensions can be defined here
 // The main QueueService is defined in queue.proto to avoid duplication

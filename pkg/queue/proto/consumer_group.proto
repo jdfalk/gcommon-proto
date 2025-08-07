@@ -5,6 +5,8 @@
 edition = "2023";
 
 package gcommon.v1.queue;
+import "pkg/queue/proto/consumer_stats.proto";
+
 
 import "google/protobuf/timestamp.proto";
 import "pkg/queue/proto/load_balancing_strategy.proto";
@@ -210,25 +212,6 @@ message ConsumerConfig {
 }
 
 // Consumer statistics
-message ConsumerStats {
-  // Messages consumed
-  int64 messages_consumed = 1;
-
-  // Bytes consumed
-  int64 bytes_consumed = 2;
-
-  // Average consumption rate (messages/second)
-  double consumption_rate = 3;
-
-  // Lag behind latest offset
-  int64 lag = 4;
-
-  // Processing errors
-  int64 processing_errors = 5;
-
-  // Last consumption timestamp
-  google.protobuf.Timestamp last_consumption = 6;
-}
 
 // Partition assignment for the group
 message PartitionAssignment {

@@ -8,13 +8,11 @@
 edition = "2023";
 
 package gcommon.v1.queue;
+import "pkg/queue/proto/subscription_info.proto";
 
-import "google/protobuf/go_features.proto";
+
 import "pkg/common/proto/response_metadata.proto";
 option go_package = "github.com/jdfalk/gcommon/pkg/queue/proto";
-
-
-option features.(pb.go).api_level = API_OPAQUE;
 
 message ListSubscriptionsResponse {
   // Subscriptions returned

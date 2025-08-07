@@ -6,15 +6,11 @@ edition = "2023";
 
 package gcommon.v1.queue;
 
-import "google/protobuf/go_features.proto";
 import "google/protobuf/duration.proto";
 import "pkg/queue/proto/alert_rule.proto";
 import "pkg/queue/proto/notification_channel.proto";
 import "pkg/queue/proto/alert_severity.proto";
 option go_package = "github.com/jdfalk/gcommon/pkg/queue/proto";
-
-
-option features.(pb.go).api_level = API_OPAQUE;
 
 /**
  * Configuration for queue alerting and notifications.
