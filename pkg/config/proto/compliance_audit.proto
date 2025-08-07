@@ -1,34 +1,23 @@
 // file: pkg/config/proto/compliance_audit.proto
 // version: 1.0.0
-// guid: 23ccb620-1f0a-4509-a14a-6d9e3f066491
+// guid: d3e4f5a6-7b8c-9012-def0-345678901234
 
 edition = "2023";
 
 package gcommon.v1.config;
 
-import "google/protobuf/go_features.proto";
-import "google/protobuf/timestamp.proto";
 option go_package = "github.com/jdfalk/gcommon/pkg/config/proto";
 
-
-option features.(pb.go).api_level = API_OPAQUE;
-
 message ComplianceAudit {
+  // Audit ID
+  string id = 1;
+
   // Audit name
-  string name = 1;
+  string name = 2;
 
-  // Audit framework
-  string framework = 2;
+  // Audit type
+  string type = 3;
 
-  // Audit frequency
-  string frequency = 3;
-
-  // Audit enabled
+  // Audit enabled status
   bool enabled = 4;
-
-  // Last audit timestamp
-  google.protobuf.Timestamp last_audit_at = 5;
-
-  // Next audit timestamp
-  google.protobuf.Timestamp next_audit_at = 6;
 }

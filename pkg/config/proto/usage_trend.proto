@@ -1,28 +1,22 @@
 // file: pkg/config/proto/usage_trend.proto
 // version: 1.0.0
-// guid: 0b301817-07c0-45d6-bd39-e5f3e5eb9bfb
+// guid: d9e0f1a2-3456-789a-3456-901234567890
 
 edition = "2023";
 
 package gcommon.v1.config;
 
-import "google/protobuf/go_features.proto";
 import "google/protobuf/timestamp.proto";
+
 option go_package = "github.com/jdfalk/gcommon/pkg/config/proto";
 
-
-option features.(pb.go).api_level = API_OPAQUE;
-
 message UsageTrend {
-  // Trend period
-  string period = 1;
+  // Timestamp
+  google.protobuf.Timestamp timestamp = 1;
 
-  // Trend value
-  double value = 2;
+  // Usage count
+  int64 usage_count = 2;
 
-  // Trend change
-  double change = 3;
-
-  // Trend timestamp
-  google.protobuf.Timestamp timestamp = 4;
+  // Trend direction
+  string direction = 3;
 }

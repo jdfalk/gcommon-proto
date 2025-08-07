@@ -3,7 +3,6 @@ edition = "2023";
 
 package gcommon.v1.config;
 
-import "google/protobuf/go_features.proto";
 import "pkg/config/proto/empty.proto";
 import "pkg/config/proto/proto/get_config_response.proto";
 import "pkg/config/proto/proto/get_multiple_config_request.proto";
@@ -14,9 +13,6 @@ import "pkg/config/proto/proto/set_multiple_config_request.proto";
 import "pkg/config/proto/proto/validate_config_request.proto";
 import "pkg/config/proto/proto/watch_config_request.proto";
 option go_package = "github.com/jdfalk/gcommon/pkg/config/proto";
-
-
-option features.(pb.go).api_level = API_OPAQUE;
 
 /**
  * ConfigService provides configuration management capabilities.

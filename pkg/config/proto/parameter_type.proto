@@ -6,12 +6,8 @@ edition = "2023";
 
 package gcommon.v1.config;
 
-import "google/protobuf/go_features.proto";
 import "google/protobuf/timestamp.proto";
 option go_package = "github.com/jdfalk/gcommon/pkg/config/proto";
-
-
-option features.(pb.go).api_level = API_OPAQUE;
 
 enum ParameterType {
   PARAMETER_TYPE_UNSPECIFIED = 0;

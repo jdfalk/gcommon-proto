@@ -1,31 +1,20 @@
 // file: pkg/config/proto/compliance_reporting.proto
 // version: 1.0.0
-// guid: 913755ff-bdc0-4994-bb15-8ade5bbf3764
+// guid: e4f5a6b7-8c9d-0123-ef01-456789012345
 
 edition = "2023";
 
 package gcommon.v1.config;
 
-import "google/protobuf/go_features.proto";
-import "google/protobuf/timestamp.proto";
 option go_package = "github.com/jdfalk/gcommon/pkg/config/proto";
 
-
-option features.(pb.go).api_level = API_OPAQUE;
-
 message ComplianceReporting {
-  // Reporting enabled
+  // Reporting enabled status
   bool enabled = 1;
 
-  // Reporting frequency
-  string frequency = 2;
+  // Report frequency in hours
+  int32 frequency_hours = 2;
 
-  // Reporting recipients
+  // Report recipients
   repeated string recipients = 3;
-
-  // Reporting format
-  string format = 4;
-
-  // Reporting template
-  string template = 5;
 }
