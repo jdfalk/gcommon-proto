@@ -3,12 +3,8 @@ edition = "2023";
 
 package gcommon.v1.database;
 
-import "google/protobuf/go_features.proto";
 import "pkg/db/proto/duration.proto";
 option go_package = "github.com/jdfalk/gcommon/pkg/db/proto";
-
-
-option features.(pb.go).api_level = API_OPAQUE;
 
 /**
  * ConnectionPoolInfo provides information about database connection pool status.

@@ -4,7 +4,6 @@ edition = "2023";
 package gcommon.v1.database;
 
 import "google/protobuf/empty.proto";
-import "google/protobuf/go_features.proto";
 import "pkg/db/proto/proto/create_database_response.proto";
 import "pkg/db/proto/proto/create_schema_request.proto";
 import "pkg/db/proto/proto/drop_schema_request.proto";
@@ -12,9 +11,6 @@ import "pkg/db/proto/proto/get_database_info_request.proto";
 import "pkg/db/proto/proto/list_databases_request.proto";
 import "pkg/db/proto/proto/list_schemas_response.proto";
 option go_package = "github.com/jdfalk/gcommon/pkg/db/proto";
-
-
-option features.(pb.go).api_level = API_OPAQUE;
 
 /**
  * DatabaseAdminService provides administrative operations for database

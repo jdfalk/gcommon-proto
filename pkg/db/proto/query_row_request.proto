@@ -6,13 +6,9 @@ edition = "2023";
 
 package gcommon.v1.database;
 
-import "google/protobuf/go_features.proto";
 import "pkg/common/proto/db/proto/db/proto/query_parameter.proto";
 import "pkg/common/proto/request_metadata.proto";
 option go_package = "github.com/jdfalk/gcommon/pkg/db/proto";
-
-
-option features.(pb.go).api_level = API_OPAQUE;
 
 message QueryRowRequest {
   // SQL query or NoSQL query string (should return at most one row)

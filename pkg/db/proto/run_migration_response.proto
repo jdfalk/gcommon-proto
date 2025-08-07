@@ -3,11 +3,9 @@ edition = "2023";
 
 package gcommon.v1.database;
 
-import "pkg/common/proto/protobuf/go_features.proto";
+import "pkg/common/proto/error.proto";
+
 option go_package = "github.com/jdfalk/gcommon/pkg/db/proto";
-
-
-option features.(pb.go).api_level = API_OPAQUE;
 
 /**
  * RunMigrationResponse contains the result of executing database migrations.

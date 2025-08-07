@@ -8,13 +8,9 @@ edition = "2023";
 
 package gcommon.v1.health;
 
-import "google/protobuf/go_features.proto";
 import "google/protobuf/timestamp.proto";
 import "pkg/common/proto/request_metadata.proto";
 option go_package = "github.com/jdfalk/gcommon/pkg/health/proto";
-
-
-option features.(pb.go).api_level = API_OPAQUE;
 
 message GetHealthHistoryRequest {
   // Service name to query

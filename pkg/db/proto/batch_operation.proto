@@ -6,9 +6,6 @@ package gcommon.v1.database;
 import "pkg/db/proto/go_features.proto";
 option go_package = "github.com/jdfalk/gcommon/pkg/db/proto";
 
-
-option features.(pb.go).api_level = API_OPAQUE;
-
 /**
  * BatchOperation represents a single operation within a batch execution.
  * Contains the SQL statement and its parameters for batch processing.
