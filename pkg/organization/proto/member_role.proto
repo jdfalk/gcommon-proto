@@ -1,40 +1,18 @@
-// file: pkg/organization/proto/enums/member_role.proto
+// file: pkg/organization/proto/member_role.proto
+// version: 1.0.0
+// guid: b6c7d8e9-012b-467a-1234-789012345678
+
 edition = "2023";
 
 package gcommon.v1.organization;
 
-import "google/protobuf/go_features.proto";
 option go_package = "github.com/jdfalk/gcommon/pkg/organization/proto";
 
-
-option features.(pb.go).api_level = API_OPAQUE;
-
-/**
- * Member role enumeration defining the role of a user within an organization.
- * Used for role-based access control and permission management.
- */
 enum MemberRole {
-  // Default value indicating no role was specified
   MEMBER_ROLE_UNSPECIFIED = 0;
-
-  // Organization owner with full administrative access
   MEMBER_ROLE_OWNER = 1;
-
-  // Organization administrator with most administrative privileges
   MEMBER_ROLE_ADMIN = 2;
-
-  // Department or team manager with limited administrative access
-  MEMBER_ROLE_MANAGER = 3;
-
-  // Regular organization member with standard access
-  MEMBER_ROLE_MEMBER = 4;
-
-  // Guest user with limited read-only access
+  MEMBER_ROLE_MEMBER = 3;
+  MEMBER_ROLE_VIEWER = 4;
   MEMBER_ROLE_GUEST = 5;
-
-  // Contractor or temporary user with restricted access
-  MEMBER_ROLE_CONTRACTOR = 6;
-
-  // Viewer with read-only access to organization resources
-  MEMBER_ROLE_VIEWER = 7;
 }

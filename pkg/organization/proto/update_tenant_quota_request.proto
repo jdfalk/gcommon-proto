@@ -4,13 +4,9 @@ edition = "2023";
 
 package gcommon.v1.organization;
 
-import "google/protobuf/go_features.proto";
 import "pkg/organization/proto/tenant_quota.proto";
 import "pkg/common/proto/request_metadata.proto";
 option go_package = "github.com/jdfalk/gcommon/pkg/organization/proto";
-
-
-option features.(pb.go).api_level = API_OPAQUE;
 
 message UpdateTenantQuotaRequest {
   // Request metadata for tracing and context

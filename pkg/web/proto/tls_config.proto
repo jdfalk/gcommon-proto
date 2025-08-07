@@ -7,11 +7,7 @@ edition = "2023";
 package gcommon.v1.web;
 
 // Standard imports
-import "google/protobuf/go_features.proto";
 option go_package = "github.com/jdfalk/gcommon/pkg/web/proto";
-
-
-option features.(pb.go).api_level = API_OPAQUE;
 
 /**
  * TLSConfig defines TLS/SSL configuration for web servers.

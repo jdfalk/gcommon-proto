@@ -6,14 +6,10 @@ edition = "2023";
 
 package gcommon.v1.web;
 
-import "google/protobuf/go_features.proto";
 import "pkg/common/proto/request_metadata.proto";
 import "pkg/common/proto/timestamp.proto";
 import "pkg/web/proto/same_site_policy.proto";
 option go_package = "github.com/jdfalk/gcommon/pkg/web/proto";
-
-
-option features.(pb.go).api_level = API_OPAQUE;
 
 /**
  * Request to create an HTTP cookie.
