@@ -5,7 +5,7 @@ package gcommon.v1.organization;
 
 import "pkg/common/proto/key_value.proto";
 import "google/protobuf/timestamp.proto";
-import "pkg/organization/proto/proto/isolation_level.proto";
+import "pkg/organization/proto/isolation_level.proto";
 option go_package = "github.com/jdfalk/gcommon/pkg/organization/proto";
 
 /**

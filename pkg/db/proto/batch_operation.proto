@@ -3,7 +3,7 @@ edition = "2023";
 
 package gcommon.v1.database;
 
-import "pkg/db/proto/go_features.proto";
+import "pkg/db/proto/query_parameter.proto";
 option go_package = "github.com/jdfalk/gcommon/pkg/db/proto";
 
 /**

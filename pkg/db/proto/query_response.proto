@@ -5,7 +5,7 @@ package gcommon.v1.database;
 
 import "pkg/common/proto/error.proto";
 
-import "pkg/db/proto/proto/query_stats.proto";
+import "pkg/db/proto/query_stats.proto";
 option go_package = "github.com/jdfalk/gcommon/pkg/db/proto";
 
 /**

@@ -5,7 +5,7 @@ edition = "2023";
 package gcommon.v1.organization;
 
 import "pkg/common/proto/request_metadata.proto";
-import "pkg/organization/proto/proto/messages/request_metadata.proto";
+import "pkg/organization/proto/messages/request_metadata.proto";
 option go_package = "github.com/jdfalk/gcommon/pkg/organization/proto";
 
 message CreateOrganizationRequest {

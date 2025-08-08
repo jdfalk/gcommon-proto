@@ -8,7 +8,7 @@ package gcommon.v1.web;
 
 import "pkg/common/proto/pagination.proto";
 import "pkg/common/proto/error.proto";
-import "pkg/web/proto/proto/messages/pagination.proto";
+import "pkg/web/proto/messages/pagination.proto";
 option go_package = "github.com/jdfalk/gcommon/pkg/web/proto";
 
 // ListMiddlewareResponse response definition.

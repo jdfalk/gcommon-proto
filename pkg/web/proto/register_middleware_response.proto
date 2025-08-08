@@ -7,7 +7,7 @@ edition = "2023";
 package gcommon.v1.web;
 
 import "pkg/common/proto/error.proto";
-import "pkg/web/proto/proto/messages/error.proto";
+import "pkg/web/proto/messages/error.proto";
 option go_package = "github.com/jdfalk/gcommon/pkg/web/proto";
 
 // RegisterMiddlewareResponse response definition.

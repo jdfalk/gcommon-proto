@@ -8,7 +8,7 @@ edition = "2023";
 package gcommon.v1.web;
 
 import "pkg/common/proto/request_metadata.proto";
-import "pkg/web/proto/proto/messages/request_metadata.proto";
+import "pkg/web/proto/messages/request_metadata.proto";
 option go_package = "github.com/jdfalk/gcommon/pkg/web/proto";
 
 message RegisterMiddlewareRequest {

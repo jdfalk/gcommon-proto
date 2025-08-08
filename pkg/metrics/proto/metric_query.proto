@@ -9,8 +9,8 @@ edition = "2023";
 package gcommon.v1.metrics;
 
 import "google/protobuf/duration.proto";
-import "pkg/metrics/proto/proto/aggregation_type.proto";
-import "pkg/metrics/proto/proto/timestamp_range.proto";
+import "pkg/metrics/proto/aggregation_type.proto";
+import "pkg/metrics/proto/timestamp_range.proto";
 option go_package = "github.com/jdfalk/gcommon/pkg/metrics/proto";
 
 /**

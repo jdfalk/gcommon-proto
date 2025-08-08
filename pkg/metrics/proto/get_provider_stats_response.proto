@@ -11,8 +11,8 @@ import "pkg/common/proto/time_range.proto";
 import "pkg/common/proto/error.proto";
 import "google/protobuf/timestamp.proto";
 import "pkg/common/proto/metrics/proto/metrics/proto/time_range.proto";
-import "pkg/metrics/proto/proto/resource_limits_summary.proto";
-import "pkg/metrics/proto/proto/top_metrics.proto";
+import "pkg/metrics/proto/resource_limits_summary.proto";
+import "pkg/metrics/proto/top_metrics.proto";
 option go_package = "github.com/jdfalk/gcommon/pkg/metrics/proto";
 
 /**

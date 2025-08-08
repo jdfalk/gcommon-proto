@@ -7,7 +7,7 @@ import "google/protobuf/duration.proto";
 import "pkg/common/proto/health_status.proto";
 import "google/protobuf/timestamp.proto";
 import "pkg/common/proto/error.proto";
-import "pkg/health/proto/proto/health_metrics.proto";
+import "pkg/health/proto/health_metrics.proto";
 option go_package = "github.com/jdfalk/gcommon/pkg/health/proto";
 
 /**

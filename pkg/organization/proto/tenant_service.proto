@@ -3,15 +3,15 @@ edition = "2023";
 
 package gcommon.v1.organization;
 
-import "pkg/organization/proto/proto/configure_tenant_isolation_response.proto";
-import "pkg/organization/proto/proto/create_tenant_response.proto";
-import "pkg/organization/proto/proto/delete_tenant_response.proto";
-import "pkg/organization/proto/proto/get_tenant_isolation_response.proto";
-import "pkg/organization/proto/proto/get_tenant_response.proto";
-import "pkg/organization/proto/proto/get_tenant_usage_response.proto";
-import "pkg/organization/proto/proto/list_tenants_response.proto";
-import "pkg/organization/proto/proto/update_tenant_quota_response.proto";
-import "pkg/organization/proto/proto/update_tenant_response.proto";
+import "pkg/organization/proto/configure_tenant_isolation_response.proto";
+import "pkg/organization/proto/create_tenant_response.proto";
+import "pkg/organization/proto/delete_tenant_response.proto";
+import "pkg/organization/proto/get_tenant_isolation_response.proto";
+import "pkg/organization/proto/get_tenant_response.proto";
+import "pkg/organization/proto/get_tenant_usage_response.proto";
+import "pkg/organization/proto/list_tenants_response.proto";
+import "pkg/organization/proto/update_tenant_quota_response.proto";
+import "pkg/organization/proto/update_tenant_response.proto";
 option go_package = "github.com/jdfalk/gcommon/pkg/organization/proto";
 
 /**

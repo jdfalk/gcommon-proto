@@ -6,12 +6,12 @@ edition = "2023";
 
 package gcommon.v1.notification;
 
-import "pkg/notification/proto/proto/delete_notification_response.proto";
-import "pkg/notification/proto/proto/get_template_response.proto";
-import "pkg/notification/proto/proto/list_notifications_response.proto";
-import "pkg/notification/proto/proto/mark_as_read_response.proto";
-import "pkg/notification/proto/proto/send_notification_response.proto";
-import "pkg/notification/proto/proto/update_preferences_response.proto";
+import "pkg/notification/proto/delete_notification_response.proto";
+import "pkg/notification/proto/get_template_response.proto";
+import "pkg/notification/proto/list_notifications_response.proto";
+import "pkg/notification/proto/mark_as_read_response.proto";
+import "pkg/notification/proto/send_notification_response.proto";
+import "pkg/notification/proto/update_preferences_response.proto";
 option go_package = "github.com/jdfalk/gcommon/pkg/notification/proto";
 
 /**

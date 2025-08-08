@@ -8,8 +8,8 @@ package gcommon.v1.media;
 
 import "google/protobuf/timestamp.proto";
 import "pkg/media/proto/gcommon/pkg/media/proto;mediapb";
-import "pkg/media/proto/proto/audio_track.proto";
-import "pkg/media/proto/proto/media_type.proto";
+import "pkg/media/proto/audio_track.proto";
+import "pkg/media/proto/media_type.proto";
 option go_package = "github.com/jdfalk/gcommon/pkg/media/proto";
 
 // Media file representation with associated metadata and tracks.

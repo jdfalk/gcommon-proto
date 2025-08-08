@@ -4,7 +4,7 @@ edition = "2023";
 package gcommon.v1.organization;
 
 import "pkg/common/proto/error.proto";
-import "pkg/organization/proto/proto/messages/error.proto";
+import "pkg/organization/proto/messages/error.proto";
 option go_package = "github.com/jdfalk/gcommon/pkg/organization/proto";
 
 /**
