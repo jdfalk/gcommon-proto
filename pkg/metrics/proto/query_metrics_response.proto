@@ -1,10 +1,8 @@
-// file: pkg/metrics/proto/responses/query_metrics_response.proto
-// file: metrics/proto/responses/query_metrics_response.proto
-//
-// Response definitions for metrics module
-// TODO: Implement actual protobuf definitions
-//
-edition = "2023";
+// file: pkg/metrics/proto/query_metrics_response.proto
+// version: 1.1.0
+// guid: a1b2c3d4-e5f6-7890-1234-567890abcdef
+
+syntax = "proto3";
 
 package gcommon.v1.metrics;
 
@@ -12,7 +10,7 @@ import "google/protobuf/duration.proto";
 import "pkg/common/proto/error.proto";
 import "google/protobuf/timestamp.proto";
 import "pkg/metrics/proto/metric_query.proto";
-import "pkg/metrics/proto/metric_series.proto";
+import "pkg/metrics/proto/metric_data.proto";
 option go_package = "github.com/jdfalk/gcommon/pkg/metrics/proto";
 
 /**

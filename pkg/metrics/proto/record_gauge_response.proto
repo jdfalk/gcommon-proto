@@ -1,16 +1,14 @@
-// file: pkg/metrics/proto/responses/record_gauge_response.proto
-// file: metrics/proto/responses/record_gauge_response.proto
-//
-// Response definitions for metrics module
-// TODO: Implement actual protobuf definitions
-//
-edition = "2023";
+// file: pkg/metrics/proto/record_gauge_response.proto
+// version: 1.1.0
+// guid: c1d2e3f4-g5h6-7890-i1j2-k3l4m5n6o7p8
+
+syntax = "proto3";
 
 package gcommon.v1.metrics;
 
 import "pkg/common/proto/error.proto";
 import "google/protobuf/timestamp.proto";
-import "pkg/common/proto/metrics/proto/metrics/proto/gauge_metric.proto";
+import "pkg/metrics/proto/gauge_metric.proto";
 option go_package = "github.com/jdfalk/gcommon/pkg/metrics/proto";
 
 /**
