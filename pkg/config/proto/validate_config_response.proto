@@ -3,7 +3,8 @@ edition = "2023";
 
 package gcommon.v1.config;
 
-import "pkg/config/proto/proto/config_validation_warning.proto";
+import "pkg/config/proto/config_validation_error.proto";
+import "pkg/config/proto/config_validation_warning.proto";
 option go_package = "github.com/jdfalk/gcommon/pkg/config/proto";
 
 /**

@@ -5,7 +5,7 @@ package gcommon.v1.config;
 
 import "pkg/config/proto/config_entry.proto";
 import "pkg/common/proto/error.proto";
-import "pkg/common/proto/common/proto/paginated_response.proto";
+import "pkg/common/proto/paginated_response.proto";
 option go_package = "github.com/jdfalk/gcommon/pkg/config/proto";
 
 /**

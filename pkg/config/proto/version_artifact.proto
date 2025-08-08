@@ -7,7 +7,7 @@ edition = "2023";
 package gcommon.v1.config;
 
 import "google/protobuf/timestamp.proto";
-import "pkg/config/proto/proto/config_audit_log.proto";
+import "pkg/common/proto/audit_log.proto";
 option go_package = "github.com/jdfalk/gcommon/pkg/config/proto";
 
 message VersionArtifact {
