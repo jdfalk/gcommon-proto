@@ -1,8 +1,8 @@
 // file: pkg/metrics/proto/list_providers_request.proto
-// version: 1.1.0
+// version: 1.2.0
 // guid: 8f89d21d-fa76-4c1a-b6c7-d10ee9c708a7
 
-edition = "2023";
+syntax = "proto3";
 
 package gcommon.v1.metrics;
 

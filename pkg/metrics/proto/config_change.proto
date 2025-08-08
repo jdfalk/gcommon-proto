@@ -1,8 +1,8 @@
 // file: pkg/metrics/proto/config_change.proto
-// version: 1.0.0
+// version: 1.1.0
 // guid: 29bbb593-9903-43ef-a25e-1c3c7c0a4e64
 
-edition = "2023";
+syntax = "proto3";
 
 package gcommon.v1.metrics;
 

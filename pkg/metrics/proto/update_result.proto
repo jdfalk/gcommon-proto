@@ -1,11 +1,12 @@
 // file: pkg/metrics/proto/update_result.proto
-// version: 1.0.0
+// version: 1.1.0
 // guid: cd6fac61-b122-455b-a74b-34935efa71b0
 
-edition = "2023";
+syntax = "proto3";
 
 package gcommon.v1.metrics;
 
+import "pkg/metrics/proto/config_change.proto";
 import "pkg/metrics/proto/update_action.proto";
 import "google/protobuf/timestamp.proto";
 import "pkg/metrics/proto/validation_result.proto";

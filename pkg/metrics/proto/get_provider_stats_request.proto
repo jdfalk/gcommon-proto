@@ -1,17 +1,13 @@
-// file: pkg/metrics/proto/requests/get_provider_stats_request.proto
-// file: metrics/proto/requests/get_provider_stats_request.proto
-//
-// Get provider stats request definitions for metrics module
-//
+// file: pkg/metrics/proto/get_provider_stats_request.proto
+// version: 1.1.0
+// guid: e5f6a7b8-c9d0-1234-5678-9abcdef01234
 
-edition = "2023";
+syntax = "proto3";
 
 package gcommon.v1.metrics;
-import "pkg/metrics/proto/time_range.proto";
 
-
-import "pkg/common/proto/time_range.proto";
 import "pkg/common/proto/request_metadata.proto";
+import "pkg/metrics/proto/time_range.proto";
 option go_package = "github.com/jdfalk/gcommon/pkg/metrics/proto";
 
 message GetProviderStatsRequest {
