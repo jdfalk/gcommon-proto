@@ -6,9 +6,13 @@ edition = "2023";
 
 package gcommon.v1.database;
 
+import "pkg/db/proto/get_migration_status_request.proto";
 import "pkg/db/proto/get_migration_status_response.proto";
+import "pkg/db/proto/list_migrations_request.proto";
 import "pkg/db/proto/list_migrations_response.proto";
+import "pkg/db/proto/revert_migration_request.proto";
 import "pkg/db/proto/revert_migration_response.proto";
+import "pkg/db/proto/run_migration_request.proto";
 import "pkg/db/proto/run_migration_response.proto";
 option go_package = "github.com/jdfalk/gcommon/pkg/db/proto";
 
