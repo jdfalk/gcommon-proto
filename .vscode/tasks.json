@@ -34,6 +34,38 @@
 			"problemMatcher": []
 		},
 		{
+			"label": "Buf Lint with Output",
+			"type": "shell",
+			"command": "copilot-agent-util",
+			"args": [
+				"buf",
+				"lint"
+			],
+			"options": {
+				"cwd": "${workspaceFolder}"
+			},
+			"group": "build",
+			"isBackground": false,
+			"problemMatcher": []
+		},
+		{
+			"label": "Buf Lint Module",
+			"type": "shell",
+			"command": "copilot-agent-util",
+			"args": [
+				"buf",
+				"lint",
+				"--module",
+				"${input:module}"
+			],
+			"options": {
+				"cwd": "${workspaceFolder}"
+			},
+			"group": "build",
+			"isBackground": false,
+			"problemMatcher": []
+		},
+		{
 			"label": "Git Add All",
 			"type": "shell",
 			"command": "copilot-agent-util",
