@@ -6,8 +6,9 @@ edition = "2023";
 
 package gcommon.v1.database;
 
-import "pkg/common/proto/db/proto/db/proto/query_parameter.proto";
+import "pkg/db/proto/query_parameter.proto";
 import "pkg/common/proto/request_metadata.proto";
+import "pkg/db/proto/query_options.proto";
 option go_package = "github.com/jdfalk/gcommon/pkg/db/proto";
 
 message QueryRowRequest {
