@@ -7,6 +7,7 @@ edition = "2023";
 package gcommon.v1.media;
 
 import "pkg/media/proto/movie_info.proto";
+import "pkg/media/proto/series_info.proto";
 option go_package = "github.com/jdfalk/gcommon/pkg/media/proto";
 
 // Metadata information for a media file from external sources.

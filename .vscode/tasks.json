@@ -142,6 +142,39 @@
 			"group": "build",
 			"isBackground": false,
 			"problemMatcher": []
+		},
+		{
+			"label": "Git Add All Auto",
+			"type": "shell",
+			"command": "copilot-agent-util",
+			"args": [
+				"git",
+				"add",
+				"."
+			],
+			"options": {
+				"cwd": "${workspaceFolder}"
+			},
+			"group": "build",
+			"isBackground": false,
+			"problemMatcher": []
+		},
+		{
+			"label": "Git Commit Auto",
+			"type": "shell",
+			"command": "copilot-agent-util",
+			"args": [
+				"git",
+				"commit",
+				"-m",
+				"fix: systematic protobuf import fixes"
+			],
+			"options": {
+				"cwd": "${workspaceFolder}"
+			},
+			"group": "build",
+			"isBackground": false,
+			"problemMatcher": []
 		}
 	],
 	"inputs": [
