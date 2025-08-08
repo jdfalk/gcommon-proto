@@ -7,7 +7,9 @@ edition = "2023";
 package gcommon.v1.queue;
 
 import "pkg/queue/proto/delivery_options.proto";
+import "pkg/queue/proto/priority_level.proto";
 import "pkg/queue/proto/routing_strategy.proto";
+import "pkg/queue/proto/subscription_state.proto";
 option go_package = "github.com/jdfalk/gcommon/pkg/queue/proto";
 
 // SubscriptionConfig describes how a consumer subscribes to a queue.

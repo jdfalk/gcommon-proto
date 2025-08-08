@@ -6,6 +6,7 @@ edition = "2023";
 
 package gcommon.v1.metrics;
 
+import "pkg/metrics/proto/retention_policy_retentionpolicy.proto";
 import "pkg/metrics/proto/retention_policy_retentionpolicyconfig.proto";
 option go_package = "github.com/jdfalk/gcommon/pkg/metrics/proto";
 

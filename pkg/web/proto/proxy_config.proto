@@ -8,6 +8,7 @@ package gcommon.v1.web;
 
 import "google/protobuf/duration.proto";
 import "pkg/web/proto/http_header.proto";
+import "pkg/web/proto/proxy_type.proto";
 option go_package = "github.com/jdfalk/gcommon/pkg/web/proto";
 
 // ProxyConfig message definition.

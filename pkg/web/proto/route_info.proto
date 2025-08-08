@@ -8,6 +8,7 @@ package gcommon.v1.web;
 
 import "google/protobuf/timestamp.proto";
 import "pkg/web/proto/route_config.proto";
+import "pkg/web/proto/route_type.proto";
 option go_package = "github.com/jdfalk/gcommon/pkg/web/proto";
 
 // RouteInfo message definition.
