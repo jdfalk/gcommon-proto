@@ -11,6 +11,7 @@ import "google/protobuf/timestamp.proto";
 import "pkg/log/proto/source_location.proto";
 import "pkg/log/proto/log_level.proto";
 import "pkg/common/proto/error.proto";
+import "pkg/log/proto/error_info.proto";
 option go_package = "github.com/jdfalk/gcommon/pkg/log/proto";
 
 // LogEntry represents a single structured log event

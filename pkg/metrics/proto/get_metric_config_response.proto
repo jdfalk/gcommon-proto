@@ -7,7 +7,7 @@ edition = "2023";
 package gcommon.v1.metrics;
 
 import "pkg/common/proto/error.proto";
-import "pkg/metrics/proto/messages/error.proto";
+import "pkg/metrics/proto/metric_config.proto";
 option go_package = "github.com/jdfalk/gcommon/pkg/metrics/proto";
 
 /**

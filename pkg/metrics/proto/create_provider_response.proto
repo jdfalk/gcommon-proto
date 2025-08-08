@@ -9,7 +9,8 @@ package gcommon.v1.metrics;
 
 import "pkg/common/proto/error.proto";
 import "google/protobuf/timestamp.proto";
-import "pkg/common/proto/metrics/proto/metrics/proto/validation_result.proto";
+import "pkg/metrics/proto/validation_result.proto";
+import "pkg/metrics/proto/provider_status.proto";
 option go_package = "github.com/jdfalk/gcommon/pkg/metrics/proto";
 
 /**
