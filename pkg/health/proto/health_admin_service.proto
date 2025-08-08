@@ -7,12 +7,18 @@ edition = "2023";
 
 package gcommon.v1.health;
 
+import "pkg/health/proto/configure_alerting_request.proto";
+import "pkg/health/proto/configure_alerting_response.proto";
+import "pkg/health/proto/disable_check_request.proto";
+import "pkg/health/proto/disable_check_response.proto";
 import "pkg/health/proto/enable_check_request.proto";
 import "pkg/health/proto/enable_check_response.proto";
 import "pkg/health/proto/reset_health_stats_request.proto";
 import "pkg/health/proto/reset_health_stats_response.proto";
 import "pkg/health/proto/run_check_request.proto";
 import "pkg/health/proto/run_check_response.proto";
+import "pkg/health/proto/set_health_request.proto";
+import "pkg/health/proto/set_health_response.proto";
 option go_package = "github.com/jdfalk/gcommon/pkg/health/proto";
 
 /**
