@@ -12,8 +12,9 @@ import "pkg/metrics/proto/metric_data.proto";
 import "pkg/metrics/proto/metric_metadata.proto";
 import "pkg/common/proto/error.proto";
 import "google/protobuf/timestamp.proto";
-import "pkg/common/proto/metrics/proto/metrics/proto/metric_metadata.proto";
 import "pkg/metrics/proto/time_range.proto";
+import "pkg/metrics/proto/pagination_info.proto";
+import "pkg/metrics/proto/query_stats.proto";
 option go_package = "github.com/jdfalk/gcommon/pkg/metrics/proto";
 
 /**
