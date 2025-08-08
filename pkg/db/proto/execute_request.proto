@@ -6,6 +6,7 @@ package gcommon.v1.database;
 
 import "pkg/common/proto/request_metadata.proto";
 import "pkg/db/proto/execute_options.proto";
+import "pkg/db/proto/query_parameter.proto";
 option go_package = "github.com/jdfalk/gcommon/pkg/db/proto";
 
 message ExecuteRequest {
