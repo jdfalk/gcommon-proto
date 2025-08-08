@@ -8,8 +8,10 @@ edition = "2023";
 
 package gcommon.v1.metrics;
 
-import "pkg/common/proto/metrics/proto/metrics/proto/export_config.proto";
+import "pkg/metrics/proto/export_config.proto";
 import "pkg/common/proto/request_metadata.proto";
+import "pkg/metrics/proto/metric_type.proto";
+import "pkg/metrics/proto/retention_policy_retentionpolicyconfig.proto";
 option go_package = "github.com/jdfalk/gcommon/pkg/metrics/proto";
 
 message RegisterMetricRequest {

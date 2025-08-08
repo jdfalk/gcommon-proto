@@ -11,7 +11,8 @@ package gcommon.v1.metrics;
 import "google/protobuf/duration.proto";
 import "pkg/common/proto/error.proto";
 import "google/protobuf/timestamp.proto";
-import "pkg/common/proto/metrics/proto/metrics/proto/metric_query.proto";
+import "pkg/metrics/proto/metric_query.proto";
+import "pkg/metrics/proto/metric_series.proto";
 option go_package = "github.com/jdfalk/gcommon/pkg/metrics/proto";
 
 /**

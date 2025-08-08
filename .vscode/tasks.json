@@ -175,6 +175,21 @@
 			"group": "build",
 			"isBackground": false,
 			"problemMatcher": []
+		},
+		{
+			"label": "Buf Check All Proto Files",
+			"type": "shell",
+			"command": "sh",
+			"args": [
+				"-c",
+				"find pkg -name '*.proto' -type f | while read file; do echo \"=== $file ===\"; buf lint --path \"$file\" 2>&1 | grep -E '(error|Error|file does not exist)' || echo 'OK'; done"
+			],
+			"options": {
+				"cwd": "${workspaceFolder}"
+			},
+			"group": "build",
+			"isBackground": false,
+			"problemMatcher": []
 		}
 	],
 	"inputs": [
