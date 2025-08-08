@@ -6,6 +6,8 @@ package gcommon.v1.organization;
 import "pkg/common/proto/key_value.proto";
 import "google/protobuf/timestamp.proto";
 import "pkg/organization/proto/isolation_level.proto";
+import "pkg/organization/proto/tenant_quota.proto";
+import "pkg/organization/proto/tenant_status.proto";
 option go_package = "github.com/jdfalk/gcommon/pkg/organization/proto";
 
 /**
@@ -75,29 +77,4 @@ message Tenant {
   google.protobuf.Timestamp trial_expires_at = 20 [lazy = true];
 }
 
-/**
- * TenantQuota message defining resource limits and quotas for a tenant.
- * Used to enforce resource constraints in multi-tenant environments.
- */
-message TenantQuota {
-  // Maximum number of users in this tenant
-  int32 max_users = 1;
 
-  // Maximum storage size in bytes
-  int64 max_storage_bytes = 2;
-
-  // Maximum number of API requests per hour
-  int32 max_api_requests_per_hour = 3;
-
-  // Maximum number of concurrent connections
-  int32 max_concurrent_connections = 4;
-
-  // Maximum number of databases/schemas
-  int32 max_databases = 5;
-
-  // Maximum number of custom domains
-  int32 max_custom_domains = 6;
-
-  // Custom quota limits (key-value pairs for extensibility)
-  repeated gcommon.v1.common.KeyValue custom_limits = 7 [lazy = true];
-}
