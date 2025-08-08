@@ -2,19 +2,19 @@
 // version: 1.0.0
 // Response for listing messages
 
-edition = "2023";
+syntax = "proto3";
 
 package gcommon.v1.queue;
 
 
-import "pkg/queue/proto/message.proto";
+import "pkg/queue/proto/queue_message.proto";
 option go_package = "github.com/jdfalk/gcommon/pkg/queue/proto";
 
 
 // Response for listing messages
 message ListMessagesResponse {
   // List of messages
-  repeated Message messages = 1;
+  repeated QueueMessage messages = 1;
 
   // Total number of messages available
   int64 total_count = 2;

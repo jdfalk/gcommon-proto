@@ -1,5 +1,5 @@
 // file: pkg/organization/proto/services/tenant_service.proto
-edition = "2023";
+syntax = "proto3";
 
 package gcommon.v1.organization;
 
@@ -12,6 +12,15 @@ import "pkg/organization/proto/get_tenant_usage_response.proto";
 import "pkg/organization/proto/list_tenants_response.proto";
 import "pkg/organization/proto/update_tenant_quota_response.proto";
 import "pkg/organization/proto/update_tenant_response.proto";
+import "pkg/organization/proto/create_tenant_request.proto";
+import "pkg/organization/proto/get_tenant_request.proto";
+import "pkg/organization/proto/update_tenant_request.proto";
+import "pkg/organization/proto/delete_tenant_request.proto";
+import "pkg/organization/proto/list_tenants_request.proto";
+import "pkg/organization/proto/configure_tenant_isolation_request.proto";
+import "pkg/organization/proto/get_tenant_isolation_request.proto";
+import "pkg/organization/proto/update_tenant_quota_request.proto";
+import "pkg/organization/proto/get_tenant_usage_request.proto";
 option go_package = "github.com/jdfalk/gcommon/pkg/organization/proto";
 
 /**

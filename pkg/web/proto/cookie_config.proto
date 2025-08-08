@@ -2,12 +2,12 @@
 // version: 1.1.0
 // guid: 57c9187b-fa13-46bb-9840-d7a2515e7ff1
 
-edition = "2023";
+syntax = "proto3";
 
 package gcommon.v1.web;
 
 import "google/protobuf/duration.proto";
-import "pkg/web/proto/gcommon/pkg/web/proto;webpb";
+import "pkg/web/proto/cookie_same_site.proto";
 option go_package = "github.com/jdfalk/gcommon/pkg/web/proto";
 
 // CookieConfig message definition.

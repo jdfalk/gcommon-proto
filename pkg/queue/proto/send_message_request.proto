@@ -3,11 +3,12 @@
 // guid: 0acd1eb1-8464-4f9c-8fd2-0562acde190f
 // SendMessageRequest sends a single message to a queue.
 
-edition = "2023";
+syntax = "proto3";
 
 package gcommon.v1.queue;
 
-import "pkg/common/proto/queue/proto/queue/proto/delivery_options.proto";
+import "pkg/queue/proto/delivery_options.proto";
+import "pkg/queue/proto/queue_message.proto";
 import "pkg/common/proto/request_metadata.proto";
 option go_package = "github.com/jdfalk/gcommon/pkg/queue/proto";
 

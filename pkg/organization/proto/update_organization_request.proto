@@ -1,11 +1,11 @@
 // file: pkg/organization/proto/requests/update_organization_request.proto
 
-edition = "2023";
+syntax = "proto3";
 
 package gcommon.v1.organization;
 
 import "pkg/common/proto/request_metadata.proto";
-import "pkg/organization/proto/messages/request_metadata.proto";
+import "pkg/organization/proto/organization.proto";
 option go_package = "github.com/jdfalk/gcommon/pkg/organization/proto";
 
 message UpdateOrganizationRequest {

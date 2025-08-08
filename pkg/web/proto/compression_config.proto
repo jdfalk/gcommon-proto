@@ -2,11 +2,11 @@
 // version: 1.1.0
 // guid: e4d9d1fd-7180-432c-a64b-5b6f24858928
 
-edition = "2023";
+syntax = "proto3";
 
 package gcommon.v1.web;
 
-import "pkg/web/proto/gcommon/pkg/web/proto;webpb";
+import "pkg/web/proto/compression_type.proto";
 option go_package = "github.com/jdfalk/gcommon/pkg/web/proto";
 
 // CompressionConfig message definition.

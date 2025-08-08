@@ -2,12 +2,12 @@
 // version: 1.2.0
 // guid: 44838568-f1f6-44f1-b4a5-2299a815ccad
 
-edition = "2023";
+syntax = "proto3";
 
 package gcommon.v1.web;
 
 import "pkg/common/proto/request_metadata.proto";
-import "pkg/common/proto/timestamp.proto";
+import "google/protobuf/timestamp.proto";
 import "pkg/web/proto/same_site_policy.proto";
 option go_package = "github.com/jdfalk/gcommon/pkg/web/proto";
 
@@ -29,7 +29,7 @@ message CreateCookieRequest {
   string path = 4;
 
   // Cookie expiration time
-  gcommon.v1.common.Timestamp expires = 5;
+  google.protobuf.Timestamp expires = 5;
 
   // Maximum age in seconds
   int32 max_age = 6;

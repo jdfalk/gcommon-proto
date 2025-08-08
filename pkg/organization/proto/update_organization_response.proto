@@ -1,10 +1,10 @@
 // file: pkg/organization/proto/responses/update_organization_response.proto
-edition = "2023";
+syntax = "proto3";
 
 package gcommon.v1.organization;
 
 import "pkg/common/proto/error.proto";
-import "pkg/organization/proto/messages/error.proto";
+import "pkg/organization/proto/organization.proto";
 option go_package = "github.com/jdfalk/gcommon/pkg/organization/proto";
 
 /**
