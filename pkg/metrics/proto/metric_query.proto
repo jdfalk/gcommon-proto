@@ -12,8 +12,8 @@ import "google/protobuf/duration.proto";
 import "pkg/metrics/proto/aggregation_type.proto";
 import "pkg/metrics/proto/metric_filter.proto";
 import "pkg/metrics/proto/query_operation.proto";
-import "pkg/metrics/proto/sort_criteria.proto";
-import "pkg/metrics/proto/time_filter.proto";
+import "pkg/common/proto/sort.proto";
+import "pkg/metrics/proto/time_range.proto";
 import "pkg/metrics/proto/timestamp_range.proto";
 option go_package = "github.com/jdfalk/gcommon/pkg/metrics/proto";
 
@@ -35,7 +35,7 @@ message MetricQuery {
   MetricFilter filter = 4;
 
   // Time range for the query
-  TimeFilter time_filter = 5;
+  TimeRange time_filter = 5;
 
   // Aggregation operations to apply
   repeated AggregationSpec aggregations = 6;
@@ -44,7 +44,7 @@ message MetricQuery {
   repeated GroupBySpec group_by = 7;
 
   // Sort criteria
-  repeated SortCriteria sort_criteria = 8;
+  repeated gcommon.v1.common.SortOptions sort_criteria = 8;
 
   // Maximum number of results to return
   int32 limit = 9;

@@ -1,5 +1,5 @@
 <!-- file: README.md -->
-<!-- version: 1.0.1 -->
+<!-- version: 1.1.0 -->
 <!-- guid: a1b2c3d4-e5f6-7890-abcd-ef0123456789 -->
 
 # GCommon - Common Go Modules
@@ -44,6 +44,46 @@ logging, metrics, message queuing, and web services.
 ```bash
 go get github.com/jdfalk/gcommon
 ```
+
+### Build Tools
+
+This project uses the **Copilot Agent Utility** for reliable build operations and VS Code task integration.
+
+#### Rust Version (Recommended)
+
+The preferred build tool is the Rust implementation, which provides memory safety, robust error handling, and comprehensive logging:
+
+```bash
+# Install the Rust version
+cargo install copilot-agent-util
+
+# Create symlink for easy access (copilot-agent-utilr)
+sudo ln -s ~/.cargo/bin/copilot-agent-util /usr/local/bin/copilot-agent-utilr
+
+# Verify installation
+copilot-agent-utilr --version
+```
+
+The Rust version supports all operations including:
+
+- Protocol buffer generation: `copilot-agent-utilr buf generate`
+- Git operations: `copilot-agent-utilr git add .`
+- Linting: `copilot-agent-utilr linter clippy`
+- Formatting: `copilot-agent-utilr prettier rustfmt`
+
+#### Go Version (Fallback)
+
+If the Rust version is unavailable, you can use the Go implementation:
+
+```bash
+# Install the Go version
+go install github.com/jdfalk/copilot-agent-util/cmd/copilot-agent-util@latest
+
+# Verify installation
+copilot-agent-util --version
+```
+
+VS Code tasks are configured to use the Rust version (`copilot-agent-utilr`) by default, with automatic fallback to the Go version if needed.
 
 ### Basic Health Check Example
 
