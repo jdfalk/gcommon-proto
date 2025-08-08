@@ -1,11 +1,15 @@
-// file: pkg/organization/proto/responses/get_organization_response.proto
-edition = "2023";
+// file: pkg/organization/proto/get_organization_response.proto
+// version: 1.0.0
+// guid: 89012bcd-3456-789a-bcde-f01234567890
+
+syntax = "proto3";
 
 package gcommon.v1.organization;
 
 import "pkg/common/proto/error.proto";
-import "pkg/organization/proto/messages/error.proto";
 import "pkg/organization/proto/organization_settings.proto";
+import "pkg/organization/proto/organization.proto";
+import "pkg/organization/proto/tenant.proto";
 option go_package = "github.com/jdfalk/gcommon/pkg/organization/proto";
 
 /**

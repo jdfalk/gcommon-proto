@@ -2,15 +2,21 @@
 // version: 1.0.0
 // guid: e9327023-1377-4f3c-8fed-77a4c7e40b1b
 
-edition = "2023";
+syntax = "proto3";
 
 package gcommon.v1.notification;
 
+import "pkg/notification/proto/delete_notification_request.proto";
 import "pkg/notification/proto/delete_notification_response.proto";
+import "pkg/notification/proto/get_template_request.proto";
 import "pkg/notification/proto/get_template_response.proto";
+import "pkg/notification/proto/list_notifications_request.proto";
 import "pkg/notification/proto/list_notifications_response.proto";
+import "pkg/notification/proto/mark_as_read_request.proto";
 import "pkg/notification/proto/mark_as_read_response.proto";
+import "pkg/notification/proto/send_notification_request.proto";
 import "pkg/notification/proto/send_notification_response.proto";
+import "pkg/notification/proto/update_preferences_request.proto";
 import "pkg/notification/proto/update_preferences_response.proto";
 option go_package = "github.com/jdfalk/gcommon/pkg/notification/proto";
 

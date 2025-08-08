@@ -1,14 +1,14 @@
-// file: pkg/notification/proto/messages/event_notification.proto
-// file: notification/proto/messages/event_notification.proto
-//
-// Event based notification payload linking an event to a notification message.
-edition = "2023";
+// file: pkg/notification/proto/event_notification.proto
+// version: 1.2.0
+// guid: d1e2f3g4-h5i6-7890-j1k2-l3m4n5o6p7q8
+
+syntax = "proto3";
 
 package gcommon.v1.notification;
 
 import "google/protobuf/any.proto";
 import "google/protobuf/timestamp.proto";
-import "pkg/notification/proto/gcommon/pkg/notification/proto;notificationpb";
+import "pkg/notification/proto/notification_message.proto";
 option go_package = "github.com/jdfalk/gcommon/pkg/notification/proto";
 
 /**

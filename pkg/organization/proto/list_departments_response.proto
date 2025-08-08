@@ -1,11 +1,11 @@
 // file: pkg/organization/proto/responses/list_departments_response.proto
-edition = "2023";
+syntax = "proto3";
 
 package gcommon.v1.organization;
 
 import "pkg/organization/proto/department.proto";
 import "pkg/common/proto/error.proto";
-import "pkg/common/proto/common/proto/paginated_response.proto";
+import "pkg/common/proto/paginated_response.proto";
 option go_package = "github.com/jdfalk/gcommon/pkg/organization/proto";
 
 message ListDepartmentsResponse {
