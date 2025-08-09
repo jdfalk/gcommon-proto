@@ -2,22 +2,21 @@
 // version: 1.1.0
 // guid: a1b2c3d4-e5f6-7890-abcd-1234567890ab
 
-syntax = "proto3";
+edition = "2023";
 
 package gcommon.v1.metrics;
 
 // Import all required request and response messages
 import "pkg/metrics/proto/create_provider_request.proto";
 import "pkg/metrics/proto/create_provider_response.proto";
-import "pkg/metrics/proto/delete_provider_request.proto";
-import "pkg/metrics/proto/delete_provider_response.proto";
-import "pkg/metrics/proto/get_provider_stats_request.proto";
-import "pkg/metrics/proto/get_provider_stats_response.proto";
-import "pkg/metrics/proto/list_providers_request.proto";
-import "pkg/metrics/proto/list_providers_response.proto";
 import "pkg/metrics/proto/update_provider_request.proto";
 import "pkg/metrics/proto/update_provider_response.proto";
-
+import "pkg/metrics/proto/delete_provider_request.proto";
+import "pkg/metrics/proto/delete_provider_response.proto";
+import "pkg/metrics/proto/list_providers_request.proto";
+import "pkg/metrics/proto/list_providers_response.proto";
+import "pkg/metrics/proto/get_provider_stats_request.proto";
+import "pkg/metrics/proto/get_provider_stats_response.proto";
 option go_package = "github.com/jdfalk/gcommon/pkg/metrics/proto";
 
 /**
