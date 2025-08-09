@@ -21,20 +21,465 @@ const (
 	_ = protoimpl.EnforceVersion(protoimpl.MaxVersion - 20)
 )
 
+type GetApiKeyResponse struct {
+	state                   protoimpl.MessageState `protogen:"opaque.v1"`
+	xxx_hidden_ApiKey       *APIKey                `protobuf:"bytes,1,opt,name=api_key,json=apiKey"`
+	xxx_hidden_Stats        *ApiKeyStats           `protobuf:"bytes,2,opt,name=stats"`
+	xxx_hidden_ErrorMessage *string                `protobuf:"bytes,3,opt,name=error_message,json=errorMessage"`
+	XXX_raceDetectHookData  protoimpl.RaceDetectHookData
+	XXX_presence            [1]uint32
+	unknownFields           protoimpl.UnknownFields
+	sizeCache               protoimpl.SizeCache
+}
+
+func (x *GetApiKeyResponse) Reset() {
+	*x = GetApiKeyResponse{}
+	mi := &file_pkg_auth_proto_get_api_key_response_proto_msgTypes[0]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetApiKeyResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetApiKeyResponse) ProtoMessage() {}
+
+func (x *GetApiKeyResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_pkg_auth_proto_get_api_key_response_proto_msgTypes[0]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+func (x *GetApiKeyResponse) GetApiKey() *APIKey {
+	if x != nil {
+		return x.xxx_hidden_ApiKey
+	}
+	return nil
+}
+
+func (x *GetApiKeyResponse) GetStats() *ApiKeyStats {
+	if x != nil {
+		return x.xxx_hidden_Stats
+	}
+	return nil
+}
+
+func (x *GetApiKeyResponse) GetErrorMessage() string {
+	if x != nil {
+		if x.xxx_hidden_ErrorMessage != nil {
+			return *x.xxx_hidden_ErrorMessage
+		}
+		return ""
+	}
+	return ""
+}
+
+func (x *GetApiKeyResponse) SetApiKey(v *APIKey) {
+	x.xxx_hidden_ApiKey = v
+}
+
+func (x *GetApiKeyResponse) SetStats(v *ApiKeyStats) {
+	x.xxx_hidden_Stats = v
+}
+
+func (x *GetApiKeyResponse) SetErrorMessage(v string) {
+	x.xxx_hidden_ErrorMessage = &v
+	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 2, 3)
+}
+
+func (x *GetApiKeyResponse) HasApiKey() bool {
+	if x == nil {
+		return false
+	}
+	return x.xxx_hidden_ApiKey != nil
+}
+
+func (x *GetApiKeyResponse) HasStats() bool {
+	if x == nil {
+		return false
+	}
+	return x.xxx_hidden_Stats != nil
+}
+
+func (x *GetApiKeyResponse) HasErrorMessage() bool {
+	if x == nil {
+		return false
+	}
+	return protoimpl.X.Present(&(x.XXX_presence[0]), 2)
+}
+
+func (x *GetApiKeyResponse) ClearApiKey() {
+	x.xxx_hidden_ApiKey = nil
+}
+
+func (x *GetApiKeyResponse) ClearStats() {
+	x.xxx_hidden_Stats = nil
+}
+
+func (x *GetApiKeyResponse) ClearErrorMessage() {
+	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 2)
+	x.xxx_hidden_ErrorMessage = nil
+}
+
+type GetApiKeyResponse_builder struct {
+	_ [0]func() // Prevents comparability and use of unkeyed literals for the builder.
+
+	// API key details
+	ApiKey *APIKey
+	// Usage statistics if requested
+	Stats *ApiKeyStats
+	// Error message if not found
+	ErrorMessage *string
+}
+
+func (b0 GetApiKeyResponse_builder) Build() *GetApiKeyResponse {
+	m0 := &GetApiKeyResponse{}
+	b, x := &b0, m0
+	_, _ = b, x
+	x.xxx_hidden_ApiKey = b.ApiKey
+	x.xxx_hidden_Stats = b.Stats
+	if b.ErrorMessage != nil {
+		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 2, 3)
+		x.xxx_hidden_ErrorMessage = b.ErrorMessage
+	}
+	return m0
+}
+
+type ApiKeyStats struct {
+	state                         protoimpl.MessageState `protogen:"opaque.v1"`
+	xxx_hidden_TotalRequests      int32                  `protobuf:"varint,1,opt,name=total_requests,json=totalRequests"`
+	xxx_hidden_SuccessfulRequests int32                  `protobuf:"varint,2,opt,name=successful_requests,json=successfulRequests"`
+	xxx_hidden_FailedRequests     int32                  `protobuf:"varint,3,opt,name=failed_requests,json=failedRequests"`
+	xxx_hidden_LastUsedAt         int64                  `protobuf:"varint,4,opt,name=last_used_at,json=lastUsedAt"`
+	xxx_hidden_DailyUsage         *[]*DailyUsage         `protobuf:"bytes,5,rep,name=daily_usage,json=dailyUsage"`
+	XXX_raceDetectHookData        protoimpl.RaceDetectHookData
+	XXX_presence                  [1]uint32
+	unknownFields                 protoimpl.UnknownFields
+	sizeCache                     protoimpl.SizeCache
+}
+
+func (x *ApiKeyStats) Reset() {
+	*x = ApiKeyStats{}
+	mi := &file_pkg_auth_proto_get_api_key_response_proto_msgTypes[1]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *ApiKeyStats) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*ApiKeyStats) ProtoMessage() {}
+
+func (x *ApiKeyStats) ProtoReflect() protoreflect.Message {
+	mi := &file_pkg_auth_proto_get_api_key_response_proto_msgTypes[1]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+func (x *ApiKeyStats) GetTotalRequests() int32 {
+	if x != nil {
+		return x.xxx_hidden_TotalRequests
+	}
+	return 0
+}
+
+func (x *ApiKeyStats) GetSuccessfulRequests() int32 {
+	if x != nil {
+		return x.xxx_hidden_SuccessfulRequests
+	}
+	return 0
+}
+
+func (x *ApiKeyStats) GetFailedRequests() int32 {
+	if x != nil {
+		return x.xxx_hidden_FailedRequests
+	}
+	return 0
+}
+
+func (x *ApiKeyStats) GetLastUsedAt() int64 {
+	if x != nil {
+		return x.xxx_hidden_LastUsedAt
+	}
+	return 0
+}
+
+func (x *ApiKeyStats) GetDailyUsage() []*DailyUsage {
+	if x != nil {
+		if x.xxx_hidden_DailyUsage != nil {
+			return *x.xxx_hidden_DailyUsage
+		}
+	}
+	return nil
+}
+
+func (x *ApiKeyStats) SetTotalRequests(v int32) {
+	x.xxx_hidden_TotalRequests = v
+	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 0, 5)
+}
+
+func (x *ApiKeyStats) SetSuccessfulRequests(v int32) {
+	x.xxx_hidden_SuccessfulRequests = v
+	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 1, 5)
+}
+
+func (x *ApiKeyStats) SetFailedRequests(v int32) {
+	x.xxx_hidden_FailedRequests = v
+	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 2, 5)
+}
+
+func (x *ApiKeyStats) SetLastUsedAt(v int64) {
+	x.xxx_hidden_LastUsedAt = v
+	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 3, 5)
+}
+
+func (x *ApiKeyStats) SetDailyUsage(v []*DailyUsage) {
+	x.xxx_hidden_DailyUsage = &v
+}
+
+func (x *ApiKeyStats) HasTotalRequests() bool {
+	if x == nil {
+		return false
+	}
+	return protoimpl.X.Present(&(x.XXX_presence[0]), 0)
+}
+
+func (x *ApiKeyStats) HasSuccessfulRequests() bool {
+	if x == nil {
+		return false
+	}
+	return protoimpl.X.Present(&(x.XXX_presence[0]), 1)
+}
+
+func (x *ApiKeyStats) HasFailedRequests() bool {
+	if x == nil {
+		return false
+	}
+	return protoimpl.X.Present(&(x.XXX_presence[0]), 2)
+}
+
+func (x *ApiKeyStats) HasLastUsedAt() bool {
+	if x == nil {
+		return false
+	}
+	return protoimpl.X.Present(&(x.XXX_presence[0]), 3)
+}
+
+func (x *ApiKeyStats) ClearTotalRequests() {
+	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 0)
+	x.xxx_hidden_TotalRequests = 0
+}
+
+func (x *ApiKeyStats) ClearSuccessfulRequests() {
+	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 1)
+	x.xxx_hidden_SuccessfulRequests = 0
+}
+
+func (x *ApiKeyStats) ClearFailedRequests() {
+	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 2)
+	x.xxx_hidden_FailedRequests = 0
+}
+
+func (x *ApiKeyStats) ClearLastUsedAt() {
+	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 3)
+	x.xxx_hidden_LastUsedAt = 0
+}
+
+type ApiKeyStats_builder struct {
+	_ [0]func() // Prevents comparability and use of unkeyed literals for the builder.
+
+	TotalRequests      *int32
+	SuccessfulRequests *int32
+	FailedRequests     *int32
+	LastUsedAt         *int64
+	DailyUsage         []*DailyUsage
+}
+
+func (b0 ApiKeyStats_builder) Build() *ApiKeyStats {
+	m0 := &ApiKeyStats{}
+	b, x := &b0, m0
+	_, _ = b, x
+	if b.TotalRequests != nil {
+		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 0, 5)
+		x.xxx_hidden_TotalRequests = *b.TotalRequests
+	}
+	if b.SuccessfulRequests != nil {
+		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 1, 5)
+		x.xxx_hidden_SuccessfulRequests = *b.SuccessfulRequests
+	}
+	if b.FailedRequests != nil {
+		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 2, 5)
+		x.xxx_hidden_FailedRequests = *b.FailedRequests
+	}
+	if b.LastUsedAt != nil {
+		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 3, 5)
+		x.xxx_hidden_LastUsedAt = *b.LastUsedAt
+	}
+	x.xxx_hidden_DailyUsage = &b.DailyUsage
+	return m0
+}
+
+type DailyUsage struct {
+	state                   protoimpl.MessageState `protogen:"opaque.v1"`
+	xxx_hidden_Date         *string                `protobuf:"bytes,1,opt,name=date"`
+	xxx_hidden_RequestCount int32                  `protobuf:"varint,2,opt,name=request_count,json=requestCount"`
+	XXX_raceDetectHookData  protoimpl.RaceDetectHookData
+	XXX_presence            [1]uint32
+	unknownFields           protoimpl.UnknownFields
+	sizeCache               protoimpl.SizeCache
+}
+
+func (x *DailyUsage) Reset() {
+	*x = DailyUsage{}
+	mi := &file_pkg_auth_proto_get_api_key_response_proto_msgTypes[2]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *DailyUsage) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*DailyUsage) ProtoMessage() {}
+
+func (x *DailyUsage) ProtoReflect() protoreflect.Message {
+	mi := &file_pkg_auth_proto_get_api_key_response_proto_msgTypes[2]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+func (x *DailyUsage) GetDate() string {
+	if x != nil {
+		if x.xxx_hidden_Date != nil {
+			return *x.xxx_hidden_Date
+		}
+		return ""
+	}
+	return ""
+}
+
+func (x *DailyUsage) GetRequestCount() int32 {
+	if x != nil {
+		return x.xxx_hidden_RequestCount
+	}
+	return 0
+}
+
+func (x *DailyUsage) SetDate(v string) {
+	x.xxx_hidden_Date = &v
+	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 0, 2)
+}
+
+func (x *DailyUsage) SetRequestCount(v int32) {
+	x.xxx_hidden_RequestCount = v
+	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 1, 2)
+}
+
+func (x *DailyUsage) HasDate() bool {
+	if x == nil {
+		return false
+	}
+	return protoimpl.X.Present(&(x.XXX_presence[0]), 0)
+}
+
+func (x *DailyUsage) HasRequestCount() bool {
+	if x == nil {
+		return false
+	}
+	return protoimpl.X.Present(&(x.XXX_presence[0]), 1)
+}
+
+func (x *DailyUsage) ClearDate() {
+	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 0)
+	x.xxx_hidden_Date = nil
+}
+
+func (x *DailyUsage) ClearRequestCount() {
+	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 1)
+	x.xxx_hidden_RequestCount = 0
+}
+
+type DailyUsage_builder struct {
+	_ [0]func() // Prevents comparability and use of unkeyed literals for the builder.
+
+	Date         *string
+	RequestCount *int32
+}
+
+func (b0 DailyUsage_builder) Build() *DailyUsage {
+	m0 := &DailyUsage{}
+	b, x := &b0, m0
+	_, _ = b, x
+	if b.Date != nil {
+		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 0, 2)
+		x.xxx_hidden_Date = b.Date
+	}
+	if b.RequestCount != nil {
+		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 1, 2)
+		x.xxx_hidden_RequestCount = *b.RequestCount
+	}
+	return m0
+}
+
 var File_pkg_auth_proto_get_api_key_response_proto protoreflect.FileDescriptor
 
 const file_pkg_auth_proto_get_api_key_response_proto_rawDesc = "" +
 	"\n" +
-	")pkg/auth/proto/get_api_key_response.proto\x12\x0fgcommon.v1.auth\x1a!google/protobuf/go_features.protoB\xbd\x01\n" +
+	")pkg/auth/proto/get_api_key_response.proto\x12\x0fgcommon.v1.auth\x1a!google/protobuf/go_features.proto\x1a\x1cpkg/auth/proto/api_key.proto\"\x9e\x01\n" +
+	"\x11GetApiKeyResponse\x120\n" +
+	"\aapi_key\x18\x01 \x01(\v2\x17.gcommon.v1.auth.APIKeyR\x06apiKey\x122\n" +
+	"\x05stats\x18\x02 \x01(\v2\x1c.gcommon.v1.auth.ApiKeyStatsR\x05stats\x12#\n" +
+	"\rerror_message\x18\x03 \x01(\tR\ferrorMessage\"\xee\x01\n" +
+	"\vApiKeyStats\x12%\n" +
+	"\x0etotal_requests\x18\x01 \x01(\x05R\rtotalRequests\x12/\n" +
+	"\x13successful_requests\x18\x02 \x01(\x05R\x12successfulRequests\x12'\n" +
+	"\x0ffailed_requests\x18\x03 \x01(\x05R\x0efailedRequests\x12 \n" +
+	"\flast_used_at\x18\x04 \x01(\x03R\n" +
+	"lastUsedAt\x12<\n" +
+	"\vdaily_usage\x18\x05 \x03(\v2\x1b.gcommon.v1.auth.DailyUsageR\n" +
+	"dailyUsage\"E\n" +
+	"\n" +
+	"DailyUsage\x12\x12\n" +
+	"\x04date\x18\x01 \x01(\tR\x04date\x12#\n" +
+	"\rrequest_count\x18\x02 \x01(\x05R\frequestCountB\xbd\x01\n" +
 	"\x13com.gcommon.v1.authB\x16GetApiKeyResponseProtoP\x01Z(github.com/jdfalk/gcommon/pkg/auth/proto\xa2\x02\x03GVA\xaa\x02\x0fGcommon.V1.Auth\xca\x02\x0fGcommon\\V1\\Auth\xe2\x02\x1bGcommon\\V1\\Auth\\GPBMetadata\xea\x02\x11Gcommon::V1::Auth\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
-var file_pkg_auth_proto_get_api_key_response_proto_goTypes = []any{}
+var file_pkg_auth_proto_get_api_key_response_proto_msgTypes = make([]protoimpl.MessageInfo, 3)
+var file_pkg_auth_proto_get_api_key_response_proto_goTypes = []any{
+	(*GetApiKeyResponse)(nil), // 0: gcommon.v1.auth.GetApiKeyResponse
+	(*ApiKeyStats)(nil),       // 1: gcommon.v1.auth.ApiKeyStats
+	(*DailyUsage)(nil),        // 2: gcommon.v1.auth.DailyUsage
+	(*APIKey)(nil),            // 3: gcommon.v1.auth.APIKey
+}
 var file_pkg_auth_proto_get_api_key_response_proto_depIdxs = []int32{
-	0, // [0:0] is the sub-list for method output_type
-	0, // [0:0] is the sub-list for method input_type
-	0, // [0:0] is the sub-list for extension type_name
-	0, // [0:0] is the sub-list for extension extendee
-	0, // [0:0] is the sub-list for field type_name
+	3, // 0: gcommon.v1.auth.GetApiKeyResponse.api_key:type_name -> gcommon.v1.auth.APIKey
+	1, // 1: gcommon.v1.auth.GetApiKeyResponse.stats:type_name -> gcommon.v1.auth.ApiKeyStats
+	2, // 2: gcommon.v1.auth.ApiKeyStats.daily_usage:type_name -> gcommon.v1.auth.DailyUsage
+	3, // [3:3] is the sub-list for method output_type
+	3, // [3:3] is the sub-list for method input_type
+	3, // [3:3] is the sub-list for extension type_name
+	3, // [3:3] is the sub-list for extension extendee
+	0, // [0:3] is the sub-list for field type_name
 }
 
 func init() { file_pkg_auth_proto_get_api_key_response_proto_init() }
@@ -42,18 +487,20 @@ func file_pkg_auth_proto_get_api_key_response_proto_init() {
 	if File_pkg_auth_proto_get_api_key_response_proto != nil {
 		return
 	}
+	file_pkg_auth_proto_api_key_proto_init()
 	type x struct{}
 	out := protoimpl.TypeBuilder{
 		File: protoimpl.DescBuilder{
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: unsafe.Slice(unsafe.StringData(file_pkg_auth_proto_get_api_key_response_proto_rawDesc), len(file_pkg_auth_proto_get_api_key_response_proto_rawDesc)),
 			NumEnums:      0,
-			NumMessages:   0,
+			NumMessages:   3,
 			NumExtensions: 0,
 			NumServices:   0,
 		},
 		GoTypes:           file_pkg_auth_proto_get_api_key_response_proto_goTypes,
 		DependencyIndexes: file_pkg_auth_proto_get_api_key_response_proto_depIdxs,
+		MessageInfos:      file_pkg_auth_proto_get_api_key_response_proto_msgTypes,
 	}.Build()
 	File_pkg_auth_proto_get_api_key_response_proto = out.File
 	file_pkg_auth_proto_get_api_key_response_proto_goTypes = nil

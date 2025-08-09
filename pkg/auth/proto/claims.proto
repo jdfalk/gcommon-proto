@@ -43,4 +43,3 @@ message Claims {
   // Additional metadata
   map<string, string> metadata = 19;
 }
-

@@ -21,14 +21,163 @@ const (
 	_ = protoimpl.EnforceVersion(protoimpl.MaxVersion - 20)
 )
 
+type RevokeApiKeyResponse struct {
+	state                   protoimpl.MessageState `protogen:"opaque.v1"`
+	xxx_hidden_Success      bool                   `protobuf:"varint,1,opt,name=success"`
+	xxx_hidden_ErrorMessage *string                `protobuf:"bytes,2,opt,name=error_message,json=errorMessage"`
+	xxx_hidden_RevokedAt    int64                  `protobuf:"varint,3,opt,name=revoked_at,json=revokedAt"`
+	XXX_raceDetectHookData  protoimpl.RaceDetectHookData
+	XXX_presence            [1]uint32
+	unknownFields           protoimpl.UnknownFields
+	sizeCache               protoimpl.SizeCache
+}
+
+func (x *RevokeApiKeyResponse) Reset() {
+	*x = RevokeApiKeyResponse{}
+	mi := &file_pkg_auth_proto_revoke_api_key_response_proto_msgTypes[0]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *RevokeApiKeyResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*RevokeApiKeyResponse) ProtoMessage() {}
+
+func (x *RevokeApiKeyResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_pkg_auth_proto_revoke_api_key_response_proto_msgTypes[0]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+func (x *RevokeApiKeyResponse) GetSuccess() bool {
+	if x != nil {
+		return x.xxx_hidden_Success
+	}
+	return false
+}
+
+func (x *RevokeApiKeyResponse) GetErrorMessage() string {
+	if x != nil {
+		if x.xxx_hidden_ErrorMessage != nil {
+			return *x.xxx_hidden_ErrorMessage
+		}
+		return ""
+	}
+	return ""
+}
+
+func (x *RevokeApiKeyResponse) GetRevokedAt() int64 {
+	if x != nil {
+		return x.xxx_hidden_RevokedAt
+	}
+	return 0
+}
+
+func (x *RevokeApiKeyResponse) SetSuccess(v bool) {
+	x.xxx_hidden_Success = v
+	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 0, 3)
+}
+
+func (x *RevokeApiKeyResponse) SetErrorMessage(v string) {
+	x.xxx_hidden_ErrorMessage = &v
+	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 1, 3)
+}
+
+func (x *RevokeApiKeyResponse) SetRevokedAt(v int64) {
+	x.xxx_hidden_RevokedAt = v
+	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 2, 3)
+}
+
+func (x *RevokeApiKeyResponse) HasSuccess() bool {
+	if x == nil {
+		return false
+	}
+	return protoimpl.X.Present(&(x.XXX_presence[0]), 0)
+}
+
+func (x *RevokeApiKeyResponse) HasErrorMessage() bool {
+	if x == nil {
+		return false
+	}
+	return protoimpl.X.Present(&(x.XXX_presence[0]), 1)
+}
+
+func (x *RevokeApiKeyResponse) HasRevokedAt() bool {
+	if x == nil {
+		return false
+	}
+	return protoimpl.X.Present(&(x.XXX_presence[0]), 2)
+}
+
+func (x *RevokeApiKeyResponse) ClearSuccess() {
+	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 0)
+	x.xxx_hidden_Success = false
+}
+
+func (x *RevokeApiKeyResponse) ClearErrorMessage() {
+	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 1)
+	x.xxx_hidden_ErrorMessage = nil
+}
+
+func (x *RevokeApiKeyResponse) ClearRevokedAt() {
+	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 2)
+	x.xxx_hidden_RevokedAt = 0
+}
+
+type RevokeApiKeyResponse_builder struct {
+	_ [0]func() // Prevents comparability and use of unkeyed literals for the builder.
+
+	// Revocation success
+	Success *bool
+	// Error message if revocation failed
+	ErrorMessage *string
+	// Revocation timestamp
+	RevokedAt *int64
+}
+
+func (b0 RevokeApiKeyResponse_builder) Build() *RevokeApiKeyResponse {
+	m0 := &RevokeApiKeyResponse{}
+	b, x := &b0, m0
+	_, _ = b, x
+	if b.Success != nil {
+		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 0, 3)
+		x.xxx_hidden_Success = *b.Success
+	}
+	if b.ErrorMessage != nil {
+		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 1, 3)
+		x.xxx_hidden_ErrorMessage = b.ErrorMessage
+	}
+	if b.RevokedAt != nil {
+		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 2, 3)
+		x.xxx_hidden_RevokedAt = *b.RevokedAt
+	}
+	return m0
+}
+
 var File_pkg_auth_proto_revoke_api_key_response_proto protoreflect.FileDescriptor
 
 const file_pkg_auth_proto_revoke_api_key_response_proto_rawDesc = "" +
 	"\n" +
-	",pkg/auth/proto/revoke_api_key_response.proto\x12\x0fgcommon.v1.auth\x1a!google/protobuf/go_features.protoB\xc0\x01\n" +
+	",pkg/auth/proto/revoke_api_key_response.proto\x12\x0fgcommon.v1.auth\x1a!google/protobuf/go_features.proto\"t\n" +
+	"\x14RevokeApiKeyResponse\x12\x18\n" +
+	"\asuccess\x18\x01 \x01(\bR\asuccess\x12#\n" +
+	"\rerror_message\x18\x02 \x01(\tR\ferrorMessage\x12\x1d\n" +
+	"\n" +
+	"revoked_at\x18\x03 \x01(\x03R\trevokedAtB\xc0\x01\n" +
 	"\x13com.gcommon.v1.authB\x19RevokeApiKeyResponseProtoP\x01Z(github.com/jdfalk/gcommon/pkg/auth/proto\xa2\x02\x03GVA\xaa\x02\x0fGcommon.V1.Auth\xca\x02\x0fGcommon\\V1\\Auth\xe2\x02\x1bGcommon\\V1\\Auth\\GPBMetadata\xea\x02\x11Gcommon::V1::Auth\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
-var file_pkg_auth_proto_revoke_api_key_response_proto_goTypes = []any{}
+var file_pkg_auth_proto_revoke_api_key_response_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
+var file_pkg_auth_proto_revoke_api_key_response_proto_goTypes = []any{
+	(*RevokeApiKeyResponse)(nil), // 0: gcommon.v1.auth.RevokeApiKeyResponse
+}
 var file_pkg_auth_proto_revoke_api_key_response_proto_depIdxs = []int32{
 	0, // [0:0] is the sub-list for method output_type
 	0, // [0:0] is the sub-list for method input_type
@@ -48,12 +197,13 @@ func file_pkg_auth_proto_revoke_api_key_response_proto_init() {
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: unsafe.Slice(unsafe.StringData(file_pkg_auth_proto_revoke_api_key_response_proto_rawDesc), len(file_pkg_auth_proto_revoke_api_key_response_proto_rawDesc)),
 			NumEnums:      0,
-			NumMessages:   0,
+			NumMessages:   1,
 			NumExtensions: 0,
 			NumServices:   0,
 		},
 		GoTypes:           file_pkg_auth_proto_revoke_api_key_response_proto_goTypes,
 		DependencyIndexes: file_pkg_auth_proto_revoke_api_key_response_proto_depIdxs,
+		MessageInfos:      file_pkg_auth_proto_revoke_api_key_response_proto_msgTypes,
 	}.Build()
 	File_pkg_auth_proto_revoke_api_key_response_proto = out.File
 	file_pkg_auth_proto_revoke_api_key_response_proto_goTypes = nil

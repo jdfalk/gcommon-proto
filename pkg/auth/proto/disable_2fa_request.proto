@@ -23,4 +23,3 @@ message Disable2FaRequest {
   // 2FA code for verification
   string verification_code = 3;
 }
-

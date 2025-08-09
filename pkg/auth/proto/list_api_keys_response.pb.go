@@ -21,20 +21,448 @@ const (
 	_ = protoimpl.EnforceVersion(protoimpl.MaxVersion - 20)
 )
 
+type ListApiKeysResponse struct {
+	state                    protoimpl.MessageState `protogen:"opaque.v1"`
+	xxx_hidden_ApiKeys       *[]*ApiKey             `protobuf:"bytes,1,rep,name=api_keys,json=apiKeys"`
+	xxx_hidden_NextPageToken *string                `protobuf:"bytes,2,opt,name=next_page_token,json=nextPageToken"`
+	xxx_hidden_TotalCount    int32                  `protobuf:"varint,3,opt,name=total_count,json=totalCount"`
+	XXX_raceDetectHookData   protoimpl.RaceDetectHookData
+	XXX_presence             [1]uint32
+	unknownFields            protoimpl.UnknownFields
+	sizeCache                protoimpl.SizeCache
+}
+
+func (x *ListApiKeysResponse) Reset() {
+	*x = ListApiKeysResponse{}
+	mi := &file_pkg_auth_proto_list_api_keys_response_proto_msgTypes[0]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *ListApiKeysResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*ListApiKeysResponse) ProtoMessage() {}
+
+func (x *ListApiKeysResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_pkg_auth_proto_list_api_keys_response_proto_msgTypes[0]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+func (x *ListApiKeysResponse) GetApiKeys() []*ApiKey {
+	if x != nil {
+		if x.xxx_hidden_ApiKeys != nil {
+			return *x.xxx_hidden_ApiKeys
+		}
+	}
+	return nil
+}
+
+func (x *ListApiKeysResponse) GetNextPageToken() string {
+	if x != nil {
+		if x.xxx_hidden_NextPageToken != nil {
+			return *x.xxx_hidden_NextPageToken
+		}
+		return ""
+	}
+	return ""
+}
+
+func (x *ListApiKeysResponse) GetTotalCount() int32 {
+	if x != nil {
+		return x.xxx_hidden_TotalCount
+	}
+	return 0
+}
+
+func (x *ListApiKeysResponse) SetApiKeys(v []*ApiKey) {
+	x.xxx_hidden_ApiKeys = &v
+}
+
+func (x *ListApiKeysResponse) SetNextPageToken(v string) {
+	x.xxx_hidden_NextPageToken = &v
+	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 1, 3)
+}
+
+func (x *ListApiKeysResponse) SetTotalCount(v int32) {
+	x.xxx_hidden_TotalCount = v
+	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 2, 3)
+}
+
+func (x *ListApiKeysResponse) HasNextPageToken() bool {
+	if x == nil {
+		return false
+	}
+	return protoimpl.X.Present(&(x.XXX_presence[0]), 1)
+}
+
+func (x *ListApiKeysResponse) HasTotalCount() bool {
+	if x == nil {
+		return false
+	}
+	return protoimpl.X.Present(&(x.XXX_presence[0]), 2)
+}
+
+func (x *ListApiKeysResponse) ClearNextPageToken() {
+	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 1)
+	x.xxx_hidden_NextPageToken = nil
+}
+
+func (x *ListApiKeysResponse) ClearTotalCount() {
+	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 2)
+	x.xxx_hidden_TotalCount = 0
+}
+
+type ListApiKeysResponse_builder struct {
+	_ [0]func() // Prevents comparability and use of unkeyed literals for the builder.
+
+	// List of API keys
+	ApiKeys []*ApiKey
+	// Next page token
+	NextPageToken *string
+	// Total count
+	TotalCount *int32
+}
+
+func (b0 ListApiKeysResponse_builder) Build() *ListApiKeysResponse {
+	m0 := &ListApiKeysResponse{}
+	b, x := &b0, m0
+	_, _ = b, x
+	x.xxx_hidden_ApiKeys = &b.ApiKeys
+	if b.NextPageToken != nil {
+		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 1, 3)
+		x.xxx_hidden_NextPageToken = b.NextPageToken
+	}
+	if b.TotalCount != nil {
+		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 2, 3)
+		x.xxx_hidden_TotalCount = *b.TotalCount
+	}
+	return m0
+}
+
+type ApiKey struct {
+	state                  protoimpl.MessageState `protogen:"opaque.v1"`
+	xxx_hidden_Id          *string                `protobuf:"bytes,1,opt,name=id"`
+	xxx_hidden_Name        *string                `protobuf:"bytes,2,opt,name=name"`
+	xxx_hidden_KeyPrefix   *string                `protobuf:"bytes,3,opt,name=key_prefix,json=keyPrefix"`
+	xxx_hidden_Scopes      []string               `protobuf:"bytes,4,rep,name=scopes"`
+	xxx_hidden_CreatedAt   int64                  `protobuf:"varint,5,opt,name=created_at,json=createdAt"`
+	xxx_hidden_ExpiresAt   int64                  `protobuf:"varint,6,opt,name=expires_at,json=expiresAt"`
+	xxx_hidden_LastUsedAt  int64                  `protobuf:"varint,7,opt,name=last_used_at,json=lastUsedAt"`
+	xxx_hidden_IsActive    bool                   `protobuf:"varint,8,opt,name=is_active,json=isActive"`
+	XXX_raceDetectHookData protoimpl.RaceDetectHookData
+	XXX_presence           [1]uint32
+	unknownFields          protoimpl.UnknownFields
+	sizeCache              protoimpl.SizeCache
+}
+
+func (x *ApiKey) Reset() {
+	*x = ApiKey{}
+	mi := &file_pkg_auth_proto_list_api_keys_response_proto_msgTypes[1]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *ApiKey) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*ApiKey) ProtoMessage() {}
+
+func (x *ApiKey) ProtoReflect() protoreflect.Message {
+	mi := &file_pkg_auth_proto_list_api_keys_response_proto_msgTypes[1]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+func (x *ApiKey) GetId() string {
+	if x != nil {
+		if x.xxx_hidden_Id != nil {
+			return *x.xxx_hidden_Id
+		}
+		return ""
+	}
+	return ""
+}
+
+func (x *ApiKey) GetName() string {
+	if x != nil {
+		if x.xxx_hidden_Name != nil {
+			return *x.xxx_hidden_Name
+		}
+		return ""
+	}
+	return ""
+}
+
+func (x *ApiKey) GetKeyPrefix() string {
+	if x != nil {
+		if x.xxx_hidden_KeyPrefix != nil {
+			return *x.xxx_hidden_KeyPrefix
+		}
+		return ""
+	}
+	return ""
+}
+
+func (x *ApiKey) GetScopes() []string {
+	if x != nil {
+		return x.xxx_hidden_Scopes
+	}
+	return nil
+}
+
+func (x *ApiKey) GetCreatedAt() int64 {
+	if x != nil {
+		return x.xxx_hidden_CreatedAt
+	}
+	return 0
+}
+
+func (x *ApiKey) GetExpiresAt() int64 {
+	if x != nil {
+		return x.xxx_hidden_ExpiresAt
+	}
+	return 0
+}
+
+func (x *ApiKey) GetLastUsedAt() int64 {
+	if x != nil {
+		return x.xxx_hidden_LastUsedAt
+	}
+	return 0
+}
+
+func (x *ApiKey) GetIsActive() bool {
+	if x != nil {
+		return x.xxx_hidden_IsActive
+	}
+	return false
+}
+
+func (x *ApiKey) SetId(v string) {
+	x.xxx_hidden_Id = &v
+	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 0, 8)
+}
+
+func (x *ApiKey) SetName(v string) {
+	x.xxx_hidden_Name = &v
+	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 1, 8)
+}
+
+func (x *ApiKey) SetKeyPrefix(v string) {
+	x.xxx_hidden_KeyPrefix = &v
+	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 2, 8)
+}
+
+func (x *ApiKey) SetScopes(v []string) {
+	x.xxx_hidden_Scopes = v
+}
+
+func (x *ApiKey) SetCreatedAt(v int64) {
+	x.xxx_hidden_CreatedAt = v
+	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 4, 8)
+}
+
+func (x *ApiKey) SetExpiresAt(v int64) {
+	x.xxx_hidden_ExpiresAt = v
+	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 5, 8)
+}
+
+func (x *ApiKey) SetLastUsedAt(v int64) {
+	x.xxx_hidden_LastUsedAt = v
+	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 6, 8)
+}
+
+func (x *ApiKey) SetIsActive(v bool) {
+	x.xxx_hidden_IsActive = v
+	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 7, 8)
+}
+
+func (x *ApiKey) HasId() bool {
+	if x == nil {
+		return false
+	}
+	return protoimpl.X.Present(&(x.XXX_presence[0]), 0)
+}
+
+func (x *ApiKey) HasName() bool {
+	if x == nil {
+		return false
+	}
+	return protoimpl.X.Present(&(x.XXX_presence[0]), 1)
+}
+
+func (x *ApiKey) HasKeyPrefix() bool {
+	if x == nil {
+		return false
+	}
+	return protoimpl.X.Present(&(x.XXX_presence[0]), 2)
+}
+
+func (x *ApiKey) HasCreatedAt() bool {
+	if x == nil {
+		return false
+	}
+	return protoimpl.X.Present(&(x.XXX_presence[0]), 4)
+}
+
+func (x *ApiKey) HasExpiresAt() bool {
+	if x == nil {
+		return false
+	}
+	return protoimpl.X.Present(&(x.XXX_presence[0]), 5)
+}
+
+func (x *ApiKey) HasLastUsedAt() bool {
+	if x == nil {
+		return false
+	}
+	return protoimpl.X.Present(&(x.XXX_presence[0]), 6)
+}
+
+func (x *ApiKey) HasIsActive() bool {
+	if x == nil {
+		return false
+	}
+	return protoimpl.X.Present(&(x.XXX_presence[0]), 7)
+}
+
+func (x *ApiKey) ClearId() {
+	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 0)
+	x.xxx_hidden_Id = nil
+}
+
+func (x *ApiKey) ClearName() {
+	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 1)
+	x.xxx_hidden_Name = nil
+}
+
+func (x *ApiKey) ClearKeyPrefix() {
+	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 2)
+	x.xxx_hidden_KeyPrefix = nil
+}
+
+func (x *ApiKey) ClearCreatedAt() {
+	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 4)
+	x.xxx_hidden_CreatedAt = 0
+}
+
+func (x *ApiKey) ClearExpiresAt() {
+	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 5)
+	x.xxx_hidden_ExpiresAt = 0
+}
+
+func (x *ApiKey) ClearLastUsedAt() {
+	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 6)
+	x.xxx_hidden_LastUsedAt = 0
+}
+
+func (x *ApiKey) ClearIsActive() {
+	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 7)
+	x.xxx_hidden_IsActive = false
+}
+
+type ApiKey_builder struct {
+	_ [0]func() // Prevents comparability and use of unkeyed literals for the builder.
+
+	Id         *string
+	Name       *string
+	KeyPrefix  *string
+	Scopes     []string
+	CreatedAt  *int64
+	ExpiresAt  *int64
+	LastUsedAt *int64
+	IsActive   *bool
+}
+
+func (b0 ApiKey_builder) Build() *ApiKey {
+	m0 := &ApiKey{}
+	b, x := &b0, m0
+	_, _ = b, x
+	if b.Id != nil {
+		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 0, 8)
+		x.xxx_hidden_Id = b.Id
+	}
+	if b.Name != nil {
+		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 1, 8)
+		x.xxx_hidden_Name = b.Name
+	}
+	if b.KeyPrefix != nil {
+		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 2, 8)
+		x.xxx_hidden_KeyPrefix = b.KeyPrefix
+	}
+	x.xxx_hidden_Scopes = b.Scopes
+	if b.CreatedAt != nil {
+		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 4, 8)
+		x.xxx_hidden_CreatedAt = *b.CreatedAt
+	}
+	if b.ExpiresAt != nil {
+		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 5, 8)
+		x.xxx_hidden_ExpiresAt = *b.ExpiresAt
+	}
+	if b.LastUsedAt != nil {
+		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 6, 8)
+		x.xxx_hidden_LastUsedAt = *b.LastUsedAt
+	}
+	if b.IsActive != nil {
+		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 7, 8)
+		x.xxx_hidden_IsActive = *b.IsActive
+	}
+	return m0
+}
+
 var File_pkg_auth_proto_list_api_keys_response_proto protoreflect.FileDescriptor
 
 const file_pkg_auth_proto_list_api_keys_response_proto_rawDesc = "" +
 	"\n" +
-	"+pkg/auth/proto/list_api_keys_response.proto\x12\x0fgcommon.v1.auth\x1a!google/protobuf/go_features.protoB\xbf\x01\n" +
+	"+pkg/auth/proto/list_api_keys_response.proto\x12\x0fgcommon.v1.auth\x1a!google/protobuf/go_features.proto\"\x92\x01\n" +
+	"\x13ListApiKeysResponse\x122\n" +
+	"\bapi_keys\x18\x01 \x03(\v2\x17.gcommon.v1.auth.ApiKeyR\aapiKeys\x12&\n" +
+	"\x0fnext_page_token\x18\x02 \x01(\tR\rnextPageToken\x12\x1f\n" +
+	"\vtotal_count\x18\x03 \x01(\x05R\n" +
+	"totalCount\"\xe0\x01\n" +
+	"\x06ApiKey\x12\x0e\n" +
+	"\x02id\x18\x01 \x01(\tR\x02id\x12\x12\n" +
+	"\x04name\x18\x02 \x01(\tR\x04name\x12\x1d\n" +
+	"\n" +
+	"key_prefix\x18\x03 \x01(\tR\tkeyPrefix\x12\x16\n" +
+	"\x06scopes\x18\x04 \x03(\tR\x06scopes\x12\x1d\n" +
+	"\n" +
+	"created_at\x18\x05 \x01(\x03R\tcreatedAt\x12\x1d\n" +
+	"\n" +
+	"expires_at\x18\x06 \x01(\x03R\texpiresAt\x12 \n" +
+	"\flast_used_at\x18\a \x01(\x03R\n" +
+	"lastUsedAt\x12\x1b\n" +
+	"\tis_active\x18\b \x01(\bR\bisActiveB\xbf\x01\n" +
 	"\x13com.gcommon.v1.authB\x18ListApiKeysResponseProtoP\x01Z(github.com/jdfalk/gcommon/pkg/auth/proto\xa2\x02\x03GVA\xaa\x02\x0fGcommon.V1.Auth\xca\x02\x0fGcommon\\V1\\Auth\xe2\x02\x1bGcommon\\V1\\Auth\\GPBMetadata\xea\x02\x11Gcommon::V1::Auth\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
-var file_pkg_auth_proto_list_api_keys_response_proto_goTypes = []any{}
+var file_pkg_auth_proto_list_api_keys_response_proto_msgTypes = make([]protoimpl.MessageInfo, 2)
+var file_pkg_auth_proto_list_api_keys_response_proto_goTypes = []any{
+	(*ListApiKeysResponse)(nil), // 0: gcommon.v1.auth.ListApiKeysResponse
+	(*ApiKey)(nil),              // 1: gcommon.v1.auth.ApiKey
+}
 var file_pkg_auth_proto_list_api_keys_response_proto_depIdxs = []int32{
-	0, // [0:0] is the sub-list for method output_type
-	0, // [0:0] is the sub-list for method input_type
-	0, // [0:0] is the sub-list for extension type_name
-	0, // [0:0] is the sub-list for extension extendee
-	0, // [0:0] is the sub-list for field type_name
+	1, // 0: gcommon.v1.auth.ListApiKeysResponse.api_keys:type_name -> gcommon.v1.auth.ApiKey
+	1, // [1:1] is the sub-list for method output_type
+	1, // [1:1] is the sub-list for method input_type
+	1, // [1:1] is the sub-list for extension type_name
+	1, // [1:1] is the sub-list for extension extendee
+	0, // [0:1] is the sub-list for field type_name
 }
 
 func init() { file_pkg_auth_proto_list_api_keys_response_proto_init() }
@@ -48,12 +476,13 @@ func file_pkg_auth_proto_list_api_keys_response_proto_init() {
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: unsafe.Slice(unsafe.StringData(file_pkg_auth_proto_list_api_keys_response_proto_rawDesc), len(file_pkg_auth_proto_list_api_keys_response_proto_rawDesc)),
 			NumEnums:      0,
-			NumMessages:   0,
+			NumMessages:   2,
 			NumExtensions: 0,
 			NumServices:   0,
 		},
 		GoTypes:           file_pkg_auth_proto_list_api_keys_response_proto_goTypes,
 		DependencyIndexes: file_pkg_auth_proto_list_api_keys_response_proto_depIdxs,
+		MessageInfos:      file_pkg_auth_proto_list_api_keys_response_proto_msgTypes,
 	}.Build()
 	File_pkg_auth_proto_list_api_keys_response_proto = out.File
 	file_pkg_auth_proto_list_api_keys_response_proto_goTypes = nil

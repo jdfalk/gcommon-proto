@@ -5,17 +5,28 @@ package gcommon.v1.auth;
 
 import "google/protobuf/empty.proto";
 import "google/protobuf/go_features.proto";
+import "pkg/auth/proto/assign_role_request.proto";
+import "pkg/auth/proto/create_role_request.proto";
 import "pkg/auth/proto/create_role_response.proto";
+import "pkg/auth/proto/create_user_request.proto";
 import "pkg/auth/proto/create_user_response.proto";
+import "pkg/auth/proto/delete_role_request.proto";
 import "pkg/auth/proto/delete_user_request.proto";
 import "pkg/auth/proto/get_system_stats_request.proto";
+import "pkg/auth/proto/get_system_stats_response.proto";
 import "pkg/auth/proto/get_user_request.proto";
+import "pkg/auth/proto/get_user_response.proto";
+import "pkg/auth/proto/invalidate_user_sessions_request.proto";
 import "pkg/auth/proto/list_roles_request.proto";
 import "pkg/auth/proto/list_roles_response.proto";
+import "pkg/auth/proto/list_users_request.proto";
 import "pkg/auth/proto/list_users_response.proto";
 import "pkg/auth/proto/remove_role_request.proto";
 import "pkg/auth/proto/role.proto";
 import "pkg/auth/proto/update_role_request.proto";
+import "pkg/auth/proto/update_role_response.proto";
+import "pkg/auth/proto/update_user_request.proto";
+import "pkg/auth/proto/update_user_response.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
 option go_package = "github.com/jdfalk/gcommon/pkg/auth/proto";

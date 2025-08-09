@@ -21,14 +21,146 @@ const (
 	_ = protoimpl.EnforceVersion(protoimpl.MaxVersion - 20)
 )
 
+type RevokeRoleResponse struct {
+	state                           protoimpl.MessageState `protogen:"opaque.v1"`
+	xxx_hidden_Success              bool                   `protobuf:"varint,1,opt,name=success"`
+	xxx_hidden_ErrorMessage         *string                `protobuf:"bytes,2,opt,name=error_message,json=errorMessage"`
+	xxx_hidden_RemainingPermissions []string               `protobuf:"bytes,3,rep,name=remaining_permissions,json=remainingPermissions"`
+	XXX_raceDetectHookData          protoimpl.RaceDetectHookData
+	XXX_presence                    [1]uint32
+	unknownFields                   protoimpl.UnknownFields
+	sizeCache                       protoimpl.SizeCache
+}
+
+func (x *RevokeRoleResponse) Reset() {
+	*x = RevokeRoleResponse{}
+	mi := &file_pkg_auth_proto_revoke_role_response_proto_msgTypes[0]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *RevokeRoleResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*RevokeRoleResponse) ProtoMessage() {}
+
+func (x *RevokeRoleResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_pkg_auth_proto_revoke_role_response_proto_msgTypes[0]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+func (x *RevokeRoleResponse) GetSuccess() bool {
+	if x != nil {
+		return x.xxx_hidden_Success
+	}
+	return false
+}
+
+func (x *RevokeRoleResponse) GetErrorMessage() string {
+	if x != nil {
+		if x.xxx_hidden_ErrorMessage != nil {
+			return *x.xxx_hidden_ErrorMessage
+		}
+		return ""
+	}
+	return ""
+}
+
+func (x *RevokeRoleResponse) GetRemainingPermissions() []string {
+	if x != nil {
+		return x.xxx_hidden_RemainingPermissions
+	}
+	return nil
+}
+
+func (x *RevokeRoleResponse) SetSuccess(v bool) {
+	x.xxx_hidden_Success = v
+	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 0, 3)
+}
+
+func (x *RevokeRoleResponse) SetErrorMessage(v string) {
+	x.xxx_hidden_ErrorMessage = &v
+	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 1, 3)
+}
+
+func (x *RevokeRoleResponse) SetRemainingPermissions(v []string) {
+	x.xxx_hidden_RemainingPermissions = v
+}
+
+func (x *RevokeRoleResponse) HasSuccess() bool {
+	if x == nil {
+		return false
+	}
+	return protoimpl.X.Present(&(x.XXX_presence[0]), 0)
+}
+
+func (x *RevokeRoleResponse) HasErrorMessage() bool {
+	if x == nil {
+		return false
+	}
+	return protoimpl.X.Present(&(x.XXX_presence[0]), 1)
+}
+
+func (x *RevokeRoleResponse) ClearSuccess() {
+	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 0)
+	x.xxx_hidden_Success = false
+}
+
+func (x *RevokeRoleResponse) ClearErrorMessage() {
+	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 1)
+	x.xxx_hidden_ErrorMessage = nil
+}
+
+type RevokeRoleResponse_builder struct {
+	_ [0]func() // Prevents comparability and use of unkeyed literals for the builder.
+
+	// Revocation success
+	Success *bool
+	// Error message if revocation failed
+	ErrorMessage *string
+	// Remaining permissions after revocation
+	RemainingPermissions []string
+}
+
+func (b0 RevokeRoleResponse_builder) Build() *RevokeRoleResponse {
+	m0 := &RevokeRoleResponse{}
+	b, x := &b0, m0
+	_, _ = b, x
+	if b.Success != nil {
+		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 0, 3)
+		x.xxx_hidden_Success = *b.Success
+	}
+	if b.ErrorMessage != nil {
+		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 1, 3)
+		x.xxx_hidden_ErrorMessage = b.ErrorMessage
+	}
+	x.xxx_hidden_RemainingPermissions = b.RemainingPermissions
+	return m0
+}
+
 var File_pkg_auth_proto_revoke_role_response_proto protoreflect.FileDescriptor
 
 const file_pkg_auth_proto_revoke_role_response_proto_rawDesc = "" +
 	"\n" +
-	")pkg/auth/proto/revoke_role_response.proto\x12\x0fgcommon.v1.auth\x1a!google/protobuf/go_features.protoB\xbe\x01\n" +
+	")pkg/auth/proto/revoke_role_response.proto\x12\x0fgcommon.v1.auth\x1a!google/protobuf/go_features.proto\"\x88\x01\n" +
+	"\x12RevokeRoleResponse\x12\x18\n" +
+	"\asuccess\x18\x01 \x01(\bR\asuccess\x12#\n" +
+	"\rerror_message\x18\x02 \x01(\tR\ferrorMessage\x123\n" +
+	"\x15remaining_permissions\x18\x03 \x03(\tR\x14remainingPermissionsB\xbe\x01\n" +
 	"\x13com.gcommon.v1.authB\x17RevokeRoleResponseProtoP\x01Z(github.com/jdfalk/gcommon/pkg/auth/proto\xa2\x02\x03GVA\xaa\x02\x0fGcommon.V1.Auth\xca\x02\x0fGcommon\\V1\\Auth\xe2\x02\x1bGcommon\\V1\\Auth\\GPBMetadata\xea\x02\x11Gcommon::V1::Auth\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
-var file_pkg_auth_proto_revoke_role_response_proto_goTypes = []any{}
+var file_pkg_auth_proto_revoke_role_response_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
+var file_pkg_auth_proto_revoke_role_response_proto_goTypes = []any{
+	(*RevokeRoleResponse)(nil), // 0: gcommon.v1.auth.RevokeRoleResponse
+}
 var file_pkg_auth_proto_revoke_role_response_proto_depIdxs = []int32{
 	0, // [0:0] is the sub-list for method output_type
 	0, // [0:0] is the sub-list for method input_type
@@ -48,12 +180,13 @@ func file_pkg_auth_proto_revoke_role_response_proto_init() {
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: unsafe.Slice(unsafe.StringData(file_pkg_auth_proto_revoke_role_response_proto_rawDesc), len(file_pkg_auth_proto_revoke_role_response_proto_rawDesc)),
 			NumEnums:      0,
-			NumMessages:   0,
+			NumMessages:   1,
 			NumExtensions: 0,
 			NumServices:   0,
 		},
 		GoTypes:           file_pkg_auth_proto_revoke_role_response_proto_goTypes,
 		DependencyIndexes: file_pkg_auth_proto_revoke_role_response_proto_depIdxs,
+		MessageInfos:      file_pkg_auth_proto_revoke_role_response_proto_msgTypes,
 	}.Build()
 	File_pkg_auth_proto_revoke_role_response_proto = out.File
 	file_pkg_auth_proto_revoke_role_response_proto_goTypes = nil

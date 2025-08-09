@@ -21,20 +21,257 @@ const (
 	_ = protoimpl.EnforceVersion(protoimpl.MaxVersion - 20)
 )
 
+// Subject type
+type ListPermissionsRequest_SubjectType int32
+
+const (
+	ListPermissionsRequest_SUBJECT_TYPE_UNSPECIFIED ListPermissionsRequest_SubjectType = 0
+	ListPermissionsRequest_SUBJECT_TYPE_USER        ListPermissionsRequest_SubjectType = 1
+	ListPermissionsRequest_SUBJECT_TYPE_ROLE        ListPermissionsRequest_SubjectType = 2
+)
+
+// Enum value maps for ListPermissionsRequest_SubjectType.
+var (
+	ListPermissionsRequest_SubjectType_name = map[int32]string{
+		0: "SUBJECT_TYPE_UNSPECIFIED",
+		1: "SUBJECT_TYPE_USER",
+		2: "SUBJECT_TYPE_ROLE",
+	}
+	ListPermissionsRequest_SubjectType_value = map[string]int32{
+		"SUBJECT_TYPE_UNSPECIFIED": 0,
+		"SUBJECT_TYPE_USER":        1,
+		"SUBJECT_TYPE_ROLE":        2,
+	}
+)
+
+func (x ListPermissionsRequest_SubjectType) Enum() *ListPermissionsRequest_SubjectType {
+	p := new(ListPermissionsRequest_SubjectType)
+	*p = x
+	return p
+}
+
+func (x ListPermissionsRequest_SubjectType) String() string {
+	return protoimpl.X.EnumStringOf(x.Descriptor(), protoreflect.EnumNumber(x))
+}
+
+func (ListPermissionsRequest_SubjectType) Descriptor() protoreflect.EnumDescriptor {
+	return file_pkg_auth_proto_list_permissions_request_proto_enumTypes[0].Descriptor()
+}
+
+func (ListPermissionsRequest_SubjectType) Type() protoreflect.EnumType {
+	return &file_pkg_auth_proto_list_permissions_request_proto_enumTypes[0]
+}
+
+func (x ListPermissionsRequest_SubjectType) Number() protoreflect.EnumNumber {
+	return protoreflect.EnumNumber(x)
+}
+
+type ListPermissionsRequest struct {
+	state                  protoimpl.MessageState             `protogen:"opaque.v1"`
+	xxx_hidden_SubjectId   *string                            `protobuf:"bytes,1,opt,name=subject_id,json=subjectId"`
+	xxx_hidden_SubjectType ListPermissionsRequest_SubjectType `protobuf:"varint,2,opt,name=subject_type,json=subjectType,enum=gcommon.v1.auth.ListPermissionsRequest_SubjectType"`
+	xxx_hidden_PageSize    int32                              `protobuf:"varint,3,opt,name=page_size,json=pageSize"`
+	xxx_hidden_PageToken   *string                            `protobuf:"bytes,4,opt,name=page_token,json=pageToken"`
+	XXX_raceDetectHookData protoimpl.RaceDetectHookData
+	XXX_presence           [1]uint32
+	unknownFields          protoimpl.UnknownFields
+	sizeCache              protoimpl.SizeCache
+}
+
+func (x *ListPermissionsRequest) Reset() {
+	*x = ListPermissionsRequest{}
+	mi := &file_pkg_auth_proto_list_permissions_request_proto_msgTypes[0]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *ListPermissionsRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*ListPermissionsRequest) ProtoMessage() {}
+
+func (x *ListPermissionsRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_pkg_auth_proto_list_permissions_request_proto_msgTypes[0]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+func (x *ListPermissionsRequest) GetSubjectId() string {
+	if x != nil {
+		if x.xxx_hidden_SubjectId != nil {
+			return *x.xxx_hidden_SubjectId
+		}
+		return ""
+	}
+	return ""
+}
+
+func (x *ListPermissionsRequest) GetSubjectType() ListPermissionsRequest_SubjectType {
+	if x != nil {
+		if protoimpl.X.Present(&(x.XXX_presence[0]), 1) {
+			return x.xxx_hidden_SubjectType
+		}
+	}
+	return ListPermissionsRequest_SUBJECT_TYPE_UNSPECIFIED
+}
+
+func (x *ListPermissionsRequest) GetPageSize() int32 {
+	if x != nil {
+		return x.xxx_hidden_PageSize
+	}
+	return 0
+}
+
+func (x *ListPermissionsRequest) GetPageToken() string {
+	if x != nil {
+		if x.xxx_hidden_PageToken != nil {
+			return *x.xxx_hidden_PageToken
+		}
+		return ""
+	}
+	return ""
+}
+
+func (x *ListPermissionsRequest) SetSubjectId(v string) {
+	x.xxx_hidden_SubjectId = &v
+	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 0, 4)
+}
+
+func (x *ListPermissionsRequest) SetSubjectType(v ListPermissionsRequest_SubjectType) {
+	x.xxx_hidden_SubjectType = v
+	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 1, 4)
+}
+
+func (x *ListPermissionsRequest) SetPageSize(v int32) {
+	x.xxx_hidden_PageSize = v
+	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 2, 4)
+}
+
+func (x *ListPermissionsRequest) SetPageToken(v string) {
+	x.xxx_hidden_PageToken = &v
+	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 3, 4)
+}
+
+func (x *ListPermissionsRequest) HasSubjectId() bool {
+	if x == nil {
+		return false
+	}
+	return protoimpl.X.Present(&(x.XXX_presence[0]), 0)
+}
+
+func (x *ListPermissionsRequest) HasSubjectType() bool {
+	if x == nil {
+		return false
+	}
+	return protoimpl.X.Present(&(x.XXX_presence[0]), 1)
+}
+
+func (x *ListPermissionsRequest) HasPageSize() bool {
+	if x == nil {
+		return false
+	}
+	return protoimpl.X.Present(&(x.XXX_presence[0]), 2)
+}
+
+func (x *ListPermissionsRequest) HasPageToken() bool {
+	if x == nil {
+		return false
+	}
+	return protoimpl.X.Present(&(x.XXX_presence[0]), 3)
+}
+
+func (x *ListPermissionsRequest) ClearSubjectId() {
+	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 0)
+	x.xxx_hidden_SubjectId = nil
+}
+
+func (x *ListPermissionsRequest) ClearSubjectType() {
+	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 1)
+	x.xxx_hidden_SubjectType = ListPermissionsRequest_SUBJECT_TYPE_UNSPECIFIED
+}
+
+func (x *ListPermissionsRequest) ClearPageSize() {
+	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 2)
+	x.xxx_hidden_PageSize = 0
+}
+
+func (x *ListPermissionsRequest) ClearPageToken() {
+	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 3)
+	x.xxx_hidden_PageToken = nil
+}
+
+type ListPermissionsRequest_builder struct {
+	_ [0]func() // Prevents comparability and use of unkeyed literals for the builder.
+
+	// User or role ID to list permissions for
+	SubjectId   *string
+	SubjectType *ListPermissionsRequest_SubjectType
+	// Pagination
+	PageSize  *int32
+	PageToken *string
+}
+
+func (b0 ListPermissionsRequest_builder) Build() *ListPermissionsRequest {
+	m0 := &ListPermissionsRequest{}
+	b, x := &b0, m0
+	_, _ = b, x
+	if b.SubjectId != nil {
+		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 0, 4)
+		x.xxx_hidden_SubjectId = b.SubjectId
+	}
+	if b.SubjectType != nil {
+		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 1, 4)
+		x.xxx_hidden_SubjectType = *b.SubjectType
+	}
+	if b.PageSize != nil {
+		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 2, 4)
+		x.xxx_hidden_PageSize = *b.PageSize
+	}
+	if b.PageToken != nil {
+		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 3, 4)
+		x.xxx_hidden_PageToken = b.PageToken
+	}
+	return m0
+}
+
 var File_pkg_auth_proto_list_permissions_request_proto protoreflect.FileDescriptor
 
 const file_pkg_auth_proto_list_permissions_request_proto_rawDesc = "" +
 	"\n" +
-	"-pkg/auth/proto/list_permissions_request.proto\x12\x0fgcommon.v1.auth\x1a!google/protobuf/go_features.protoB\xc2\x01\n" +
+	"-pkg/auth/proto/list_permissions_request.proto\x12\x0fgcommon.v1.auth\x1a!google/protobuf/go_features.proto\"\xa6\x02\n" +
+	"\x16ListPermissionsRequest\x12\x1d\n" +
+	"\n" +
+	"subject_id\x18\x01 \x01(\tR\tsubjectId\x12V\n" +
+	"\fsubject_type\x18\x02 \x01(\x0e23.gcommon.v1.auth.ListPermissionsRequest.SubjectTypeR\vsubjectType\x12\x1b\n" +
+	"\tpage_size\x18\x03 \x01(\x05R\bpageSize\x12\x1d\n" +
+	"\n" +
+	"page_token\x18\x04 \x01(\tR\tpageToken\"Y\n" +
+	"\vSubjectType\x12\x1c\n" +
+	"\x18SUBJECT_TYPE_UNSPECIFIED\x10\x00\x12\x15\n" +
+	"\x11SUBJECT_TYPE_USER\x10\x01\x12\x15\n" +
+	"\x11SUBJECT_TYPE_ROLE\x10\x02B\xc2\x01\n" +
 	"\x13com.gcommon.v1.authB\x1bListPermissionsRequestProtoP\x01Z(github.com/jdfalk/gcommon/pkg/auth/proto\xa2\x02\x03GVA\xaa\x02\x0fGcommon.V1.Auth\xca\x02\x0fGcommon\\V1\\Auth\xe2\x02\x1bGcommon\\V1\\Auth\\GPBMetadata\xea\x02\x11Gcommon::V1::Auth\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
-var file_pkg_auth_proto_list_permissions_request_proto_goTypes = []any{}
+var file_pkg_auth_proto_list_permissions_request_proto_enumTypes = make([]protoimpl.EnumInfo, 1)
+var file_pkg_auth_proto_list_permissions_request_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
+var file_pkg_auth_proto_list_permissions_request_proto_goTypes = []any{
+	(ListPermissionsRequest_SubjectType)(0), // 0: gcommon.v1.auth.ListPermissionsRequest.SubjectType
+	(*ListPermissionsRequest)(nil),          // 1: gcommon.v1.auth.ListPermissionsRequest
+}
 var file_pkg_auth_proto_list_permissions_request_proto_depIdxs = []int32{
-	0, // [0:0] is the sub-list for method output_type
-	0, // [0:0] is the sub-list for method input_type
-	0, // [0:0] is the sub-list for extension type_name
-	0, // [0:0] is the sub-list for extension extendee
-	0, // [0:0] is the sub-list for field type_name
+	0, // 0: gcommon.v1.auth.ListPermissionsRequest.subject_type:type_name -> gcommon.v1.auth.ListPermissionsRequest.SubjectType
+	1, // [1:1] is the sub-list for method output_type
+	1, // [1:1] is the sub-list for method input_type
+	1, // [1:1] is the sub-list for extension type_name
+	1, // [1:1] is the sub-list for extension extendee
+	0, // [0:1] is the sub-list for field type_name
 }
 
 func init() { file_pkg_auth_proto_list_permissions_request_proto_init() }
@@ -47,13 +284,15 @@ func file_pkg_auth_proto_list_permissions_request_proto_init() {
 		File: protoimpl.DescBuilder{
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: unsafe.Slice(unsafe.StringData(file_pkg_auth_proto_list_permissions_request_proto_rawDesc), len(file_pkg_auth_proto_list_permissions_request_proto_rawDesc)),
-			NumEnums:      0,
-			NumMessages:   0,
+			NumEnums:      1,
+			NumMessages:   1,
 			NumExtensions: 0,
 			NumServices:   0,
 		},
 		GoTypes:           file_pkg_auth_proto_list_permissions_request_proto_goTypes,
 		DependencyIndexes: file_pkg_auth_proto_list_permissions_request_proto_depIdxs,
+		EnumInfos:         file_pkg_auth_proto_list_permissions_request_proto_enumTypes,
+		MessageInfos:      file_pkg_auth_proto_list_permissions_request_proto_msgTypes,
 	}.Build()
 	File_pkg_auth_proto_list_permissions_request_proto = out.File
 	file_pkg_auth_proto_list_permissions_request_proto_goTypes = nil

@@ -20,4 +20,3 @@ message DeletePermissionRequest {
   // Force deletion even if assigned
   bool force = 2;
 }
-

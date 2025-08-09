@@ -23,4 +23,3 @@ message DeleteUserResponse {
   // Data retention information
   string data_retention_info = 3;
 }
-

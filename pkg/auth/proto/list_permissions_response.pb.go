@@ -21,20 +21,157 @@ const (
 	_ = protoimpl.EnforceVersion(protoimpl.MaxVersion - 20)
 )
 
+type ListPermissionsResponse struct {
+	state                    protoimpl.MessageState `protogen:"opaque.v1"`
+	xxx_hidden_Permissions   *[]*Permission         `protobuf:"bytes,1,rep,name=permissions"`
+	xxx_hidden_NextPageToken *string                `protobuf:"bytes,2,opt,name=next_page_token,json=nextPageToken"`
+	xxx_hidden_TotalCount    int32                  `protobuf:"varint,3,opt,name=total_count,json=totalCount"`
+	XXX_raceDetectHookData   protoimpl.RaceDetectHookData
+	XXX_presence             [1]uint32
+	unknownFields            protoimpl.UnknownFields
+	sizeCache                protoimpl.SizeCache
+}
+
+func (x *ListPermissionsResponse) Reset() {
+	*x = ListPermissionsResponse{}
+	mi := &file_pkg_auth_proto_list_permissions_response_proto_msgTypes[0]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *ListPermissionsResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*ListPermissionsResponse) ProtoMessage() {}
+
+func (x *ListPermissionsResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_pkg_auth_proto_list_permissions_response_proto_msgTypes[0]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+func (x *ListPermissionsResponse) GetPermissions() []*Permission {
+	if x != nil {
+		if x.xxx_hidden_Permissions != nil {
+			return *x.xxx_hidden_Permissions
+		}
+	}
+	return nil
+}
+
+func (x *ListPermissionsResponse) GetNextPageToken() string {
+	if x != nil {
+		if x.xxx_hidden_NextPageToken != nil {
+			return *x.xxx_hidden_NextPageToken
+		}
+		return ""
+	}
+	return ""
+}
+
+func (x *ListPermissionsResponse) GetTotalCount() int32 {
+	if x != nil {
+		return x.xxx_hidden_TotalCount
+	}
+	return 0
+}
+
+func (x *ListPermissionsResponse) SetPermissions(v []*Permission) {
+	x.xxx_hidden_Permissions = &v
+}
+
+func (x *ListPermissionsResponse) SetNextPageToken(v string) {
+	x.xxx_hidden_NextPageToken = &v
+	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 1, 3)
+}
+
+func (x *ListPermissionsResponse) SetTotalCount(v int32) {
+	x.xxx_hidden_TotalCount = v
+	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 2, 3)
+}
+
+func (x *ListPermissionsResponse) HasNextPageToken() bool {
+	if x == nil {
+		return false
+	}
+	return protoimpl.X.Present(&(x.XXX_presence[0]), 1)
+}
+
+func (x *ListPermissionsResponse) HasTotalCount() bool {
+	if x == nil {
+		return false
+	}
+	return protoimpl.X.Present(&(x.XXX_presence[0]), 2)
+}
+
+func (x *ListPermissionsResponse) ClearNextPageToken() {
+	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 1)
+	x.xxx_hidden_NextPageToken = nil
+}
+
+func (x *ListPermissionsResponse) ClearTotalCount() {
+	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 2)
+	x.xxx_hidden_TotalCount = 0
+}
+
+type ListPermissionsResponse_builder struct {
+	_ [0]func() // Prevents comparability and use of unkeyed literals for the builder.
+
+	// List of permissions
+	Permissions []*Permission
+	// Next page token
+	NextPageToken *string
+	// Total count
+	TotalCount *int32
+}
+
+func (b0 ListPermissionsResponse_builder) Build() *ListPermissionsResponse {
+	m0 := &ListPermissionsResponse{}
+	b, x := &b0, m0
+	_, _ = b, x
+	x.xxx_hidden_Permissions = &b.Permissions
+	if b.NextPageToken != nil {
+		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 1, 3)
+		x.xxx_hidden_NextPageToken = b.NextPageToken
+	}
+	if b.TotalCount != nil {
+		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 2, 3)
+		x.xxx_hidden_TotalCount = *b.TotalCount
+	}
+	return m0
+}
+
 var File_pkg_auth_proto_list_permissions_response_proto protoreflect.FileDescriptor
 
 const file_pkg_auth_proto_list_permissions_response_proto_rawDesc = "" +
 	"\n" +
-	".pkg/auth/proto/list_permissions_response.proto\x12\x0fgcommon.v1.auth\x1a!google/protobuf/go_features.protoB\xc3\x01\n" +
+	".pkg/auth/proto/list_permissions_response.proto\x12\x0fgcommon.v1.auth\x1a!google/protobuf/go_features.proto\x1a\x1fpkg/auth/proto/permission.proto\"\xa1\x01\n" +
+	"\x17ListPermissionsResponse\x12=\n" +
+	"\vpermissions\x18\x01 \x03(\v2\x1b.gcommon.v1.auth.PermissionR\vpermissions\x12&\n" +
+	"\x0fnext_page_token\x18\x02 \x01(\tR\rnextPageToken\x12\x1f\n" +
+	"\vtotal_count\x18\x03 \x01(\x05R\n" +
+	"totalCountB\xc3\x01\n" +
 	"\x13com.gcommon.v1.authB\x1cListPermissionsResponseProtoP\x01Z(github.com/jdfalk/gcommon/pkg/auth/proto\xa2\x02\x03GVA\xaa\x02\x0fGcommon.V1.Auth\xca\x02\x0fGcommon\\V1\\Auth\xe2\x02\x1bGcommon\\V1\\Auth\\GPBMetadata\xea\x02\x11Gcommon::V1::Auth\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
-var file_pkg_auth_proto_list_permissions_response_proto_goTypes = []any{}
+var file_pkg_auth_proto_list_permissions_response_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
+var file_pkg_auth_proto_list_permissions_response_proto_goTypes = []any{
+	(*ListPermissionsResponse)(nil), // 0: gcommon.v1.auth.ListPermissionsResponse
+	(*Permission)(nil),              // 1: gcommon.v1.auth.Permission
+}
 var file_pkg_auth_proto_list_permissions_response_proto_depIdxs = []int32{
-	0, // [0:0] is the sub-list for method output_type
-	0, // [0:0] is the sub-list for method input_type
-	0, // [0:0] is the sub-list for extension type_name
-	0, // [0:0] is the sub-list for extension extendee
-	0, // [0:0] is the sub-list for field type_name
+	1, // 0: gcommon.v1.auth.ListPermissionsResponse.permissions:type_name -> gcommon.v1.auth.Permission
+	1, // [1:1] is the sub-list for method output_type
+	1, // [1:1] is the sub-list for method input_type
+	1, // [1:1] is the sub-list for extension type_name
+	1, // [1:1] is the sub-list for extension extendee
+	0, // [0:1] is the sub-list for field type_name
 }
 
 func init() { file_pkg_auth_proto_list_permissions_response_proto_init() }
@@ -42,18 +179,20 @@ func file_pkg_auth_proto_list_permissions_response_proto_init() {
 	if File_pkg_auth_proto_list_permissions_response_proto != nil {
 		return
 	}
+	file_pkg_auth_proto_permission_proto_init()
 	type x struct{}
 	out := protoimpl.TypeBuilder{
 		File: protoimpl.DescBuilder{
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: unsafe.Slice(unsafe.StringData(file_pkg_auth_proto_list_permissions_response_proto_rawDesc), len(file_pkg_auth_proto_list_permissions_response_proto_rawDesc)),
 			NumEnums:      0,
-			NumMessages:   0,
+			NumMessages:   1,
 			NumExtensions: 0,
 			NumServices:   0,
 		},
 		GoTypes:           file_pkg_auth_proto_list_permissions_response_proto_goTypes,
 		DependencyIndexes: file_pkg_auth_proto_list_permissions_response_proto_depIdxs,
+		MessageInfos:      file_pkg_auth_proto_list_permissions_response_proto_msgTypes,
 	}.Build()
 	File_pkg_auth_proto_list_permissions_response_proto = out.File
 	file_pkg_auth_proto_list_permissions_response_proto_goTypes = nil

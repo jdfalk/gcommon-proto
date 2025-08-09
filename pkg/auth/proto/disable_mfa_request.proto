@@ -27,4 +27,3 @@ message DisableMfaRequest {
   // Specific methods to disable (empty = all)
   repeated MfaMethod methods = 4;
 }
-

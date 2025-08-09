@@ -21,14 +21,197 @@ const (
 	_ = protoimpl.EnforceVersion(protoimpl.MaxVersion - 20)
 )
 
+type Enable2FaRequest struct {
+	state                          protoimpl.MessageState `protogen:"opaque.v1"`
+	xxx_hidden_UserId              *string                `protobuf:"bytes,1,opt,name=user_id,json=userId"`
+	xxx_hidden_PhoneNumber         *string                `protobuf:"bytes,2,opt,name=phone_number,json=phoneNumber"`
+	xxx_hidden_UseAuthenticator    bool                   `protobuf:"varint,3,opt,name=use_authenticator,json=useAuthenticator"`
+	xxx_hidden_GenerateBackupCodes bool                   `protobuf:"varint,4,opt,name=generate_backup_codes,json=generateBackupCodes"`
+	XXX_raceDetectHookData         protoimpl.RaceDetectHookData
+	XXX_presence                   [1]uint32
+	unknownFields                  protoimpl.UnknownFields
+	sizeCache                      protoimpl.SizeCache
+}
+
+func (x *Enable2FaRequest) Reset() {
+	*x = Enable2FaRequest{}
+	mi := &file_pkg_auth_proto_enable_2fa_request_proto_msgTypes[0]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *Enable2FaRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*Enable2FaRequest) ProtoMessage() {}
+
+func (x *Enable2FaRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_pkg_auth_proto_enable_2fa_request_proto_msgTypes[0]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+func (x *Enable2FaRequest) GetUserId() string {
+	if x != nil {
+		if x.xxx_hidden_UserId != nil {
+			return *x.xxx_hidden_UserId
+		}
+		return ""
+	}
+	return ""
+}
+
+func (x *Enable2FaRequest) GetPhoneNumber() string {
+	if x != nil {
+		if x.xxx_hidden_PhoneNumber != nil {
+			return *x.xxx_hidden_PhoneNumber
+		}
+		return ""
+	}
+	return ""
+}
+
+func (x *Enable2FaRequest) GetUseAuthenticator() bool {
+	if x != nil {
+		return x.xxx_hidden_UseAuthenticator
+	}
+	return false
+}
+
+func (x *Enable2FaRequest) GetGenerateBackupCodes() bool {
+	if x != nil {
+		return x.xxx_hidden_GenerateBackupCodes
+	}
+	return false
+}
+
+func (x *Enable2FaRequest) SetUserId(v string) {
+	x.xxx_hidden_UserId = &v
+	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 0, 4)
+}
+
+func (x *Enable2FaRequest) SetPhoneNumber(v string) {
+	x.xxx_hidden_PhoneNumber = &v
+	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 1, 4)
+}
+
+func (x *Enable2FaRequest) SetUseAuthenticator(v bool) {
+	x.xxx_hidden_UseAuthenticator = v
+	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 2, 4)
+}
+
+func (x *Enable2FaRequest) SetGenerateBackupCodes(v bool) {
+	x.xxx_hidden_GenerateBackupCodes = v
+	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 3, 4)
+}
+
+func (x *Enable2FaRequest) HasUserId() bool {
+	if x == nil {
+		return false
+	}
+	return protoimpl.X.Present(&(x.XXX_presence[0]), 0)
+}
+
+func (x *Enable2FaRequest) HasPhoneNumber() bool {
+	if x == nil {
+		return false
+	}
+	return protoimpl.X.Present(&(x.XXX_presence[0]), 1)
+}
+
+func (x *Enable2FaRequest) HasUseAuthenticator() bool {
+	if x == nil {
+		return false
+	}
+	return protoimpl.X.Present(&(x.XXX_presence[0]), 2)
+}
+
+func (x *Enable2FaRequest) HasGenerateBackupCodes() bool {
+	if x == nil {
+		return false
+	}
+	return protoimpl.X.Present(&(x.XXX_presence[0]), 3)
+}
+
+func (x *Enable2FaRequest) ClearUserId() {
+	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 0)
+	x.xxx_hidden_UserId = nil
+}
+
+func (x *Enable2FaRequest) ClearPhoneNumber() {
+	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 1)
+	x.xxx_hidden_PhoneNumber = nil
+}
+
+func (x *Enable2FaRequest) ClearUseAuthenticator() {
+	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 2)
+	x.xxx_hidden_UseAuthenticator = false
+}
+
+func (x *Enable2FaRequest) ClearGenerateBackupCodes() {
+	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 3)
+	x.xxx_hidden_GenerateBackupCodes = false
+}
+
+type Enable2FaRequest_builder struct {
+	_ [0]func() // Prevents comparability and use of unkeyed literals for the builder.
+
+	// User ID requesting 2FA enablement
+	UserId *string
+	// Phone number for SMS-based 2FA
+	PhoneNumber *string
+	// Whether to use authenticator app
+	UseAuthenticator *bool
+	// Backup codes preference
+	GenerateBackupCodes *bool
+}
+
+func (b0 Enable2FaRequest_builder) Build() *Enable2FaRequest {
+	m0 := &Enable2FaRequest{}
+	b, x := &b0, m0
+	_, _ = b, x
+	if b.UserId != nil {
+		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 0, 4)
+		x.xxx_hidden_UserId = b.UserId
+	}
+	if b.PhoneNumber != nil {
+		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 1, 4)
+		x.xxx_hidden_PhoneNumber = b.PhoneNumber
+	}
+	if b.UseAuthenticator != nil {
+		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 2, 4)
+		x.xxx_hidden_UseAuthenticator = *b.UseAuthenticator
+	}
+	if b.GenerateBackupCodes != nil {
+		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 3, 4)
+		x.xxx_hidden_GenerateBackupCodes = *b.GenerateBackupCodes
+	}
+	return m0
+}
+
 var File_pkg_auth_proto_enable_2fa_request_proto protoreflect.FileDescriptor
 
 const file_pkg_auth_proto_enable_2fa_request_proto_rawDesc = "" +
 	"\n" +
-	"'pkg/auth/proto/enable_2fa_request.proto\x12\x0fgcommon.v1.auth\x1a!google/protobuf/go_features.protoB\xbc\x01\n" +
+	"'pkg/auth/proto/enable_2fa_request.proto\x12\x0fgcommon.v1.auth\x1a!google/protobuf/go_features.proto\"\xaf\x01\n" +
+	"\x10Enable2FaRequest\x12\x17\n" +
+	"\auser_id\x18\x01 \x01(\tR\x06userId\x12!\n" +
+	"\fphone_number\x18\x02 \x01(\tR\vphoneNumber\x12+\n" +
+	"\x11use_authenticator\x18\x03 \x01(\bR\x10useAuthenticator\x122\n" +
+	"\x15generate_backup_codes\x18\x04 \x01(\bR\x13generateBackupCodesB\xbc\x01\n" +
 	"\x13com.gcommon.v1.authB\x15Enable2faRequestProtoP\x01Z(github.com/jdfalk/gcommon/pkg/auth/proto\xa2\x02\x03GVA\xaa\x02\x0fGcommon.V1.Auth\xca\x02\x0fGcommon\\V1\\Auth\xe2\x02\x1bGcommon\\V1\\Auth\\GPBMetadata\xea\x02\x11Gcommon::V1::Auth\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
-var file_pkg_auth_proto_enable_2fa_request_proto_goTypes = []any{}
+var file_pkg_auth_proto_enable_2fa_request_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
+var file_pkg_auth_proto_enable_2fa_request_proto_goTypes = []any{
+	(*Enable2FaRequest)(nil), // 0: gcommon.v1.auth.Enable2FaRequest
+}
 var file_pkg_auth_proto_enable_2fa_request_proto_depIdxs = []int32{
 	0, // [0:0] is the sub-list for method output_type
 	0, // [0:0] is the sub-list for method input_type
@@ -48,12 +231,13 @@ func file_pkg_auth_proto_enable_2fa_request_proto_init() {
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: unsafe.Slice(unsafe.StringData(file_pkg_auth_proto_enable_2fa_request_proto_rawDesc), len(file_pkg_auth_proto_enable_2fa_request_proto_rawDesc)),
 			NumEnums:      0,
-			NumMessages:   0,
+			NumMessages:   1,
 			NumExtensions: 0,
 			NumServices:   0,
 		},
 		GoTypes:           file_pkg_auth_proto_enable_2fa_request_proto_goTypes,
 		DependencyIndexes: file_pkg_auth_proto_enable_2fa_request_proto_depIdxs,
+		MessageInfos:      file_pkg_auth_proto_enable_2fa_request_proto_msgTypes,
 	}.Build()
 	File_pkg_auth_proto_enable_2fa_request_proto = out.File
 	file_pkg_auth_proto_enable_2fa_request_proto_goTypes = nil
