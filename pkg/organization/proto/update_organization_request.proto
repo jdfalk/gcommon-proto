@@ -1,6 +1,6 @@
 // file: pkg/organization/proto/requests/update_organization_request.proto
 
-syntax = "proto3";
+edition = "2023";
 
 package gcommon.v1.organization;
 

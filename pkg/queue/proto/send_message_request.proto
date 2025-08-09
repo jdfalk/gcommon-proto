@@ -3,7 +3,7 @@
 // guid: 0acd1eb1-8464-4f9c-8fd2-0562acde190f
 // SendMessageRequest sends a single message to a queue.
 
-syntax = "proto3";
+edition = "2023";
 
 package gcommon.v1.queue;
 

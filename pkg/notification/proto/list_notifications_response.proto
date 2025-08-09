@@ -2,11 +2,12 @@
 // version: 1.0.0
 // guid: 7986e6b9-6a3e-4b7e-b093-5a87133742a3
 
-syntax = "proto3";
+edition = "2023";
 
 package gcommon.v1.notification;
 
 import "pkg/notification/proto/notification_message.proto";
+
 option go_package = "github.com/jdfalk/gcommon/pkg/notification/proto";
 
 /**

@@ -2,7 +2,7 @@
 // version: 1.0.0
 // guid: 4c4e1ac6-1393-496b-80b5-cb0bd7ef41f1
 
-syntax = "proto3";
+edition = "2023";
 
 package gcommon.v1.notification;
 

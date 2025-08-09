@@ -2,7 +2,7 @@
 // version: 1.0.0
 // Response for queue subscription with messages
 
-syntax = "proto3";
+edition = "2023";
 
 package gcommon.v1.queue;
 

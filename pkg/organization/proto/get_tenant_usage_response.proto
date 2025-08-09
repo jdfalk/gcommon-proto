@@ -1,10 +1,11 @@
 // file: pkg/organization/proto/responses/get_tenant_usage_response.proto
-syntax = "proto3";
+edition = "2023";
 
 package gcommon.v1.organization;
 
-import "pkg/common/proto/key_value.proto";
 import "pkg/common/proto/error.proto";
+import "pkg/common/proto/key_value.proto";
+
 option go_package = "github.com/jdfalk/gcommon/pkg/organization/proto";
 
 message GetTenantUsageResponse {

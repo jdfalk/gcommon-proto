@@ -2,11 +2,12 @@
 // version: 1.2.0
 // guid: e1f2g3h4-i5j6-7890-k1l2-m3n4o5p6q7r8
 
-syntax = "proto3";
+edition = "2023";
 
 package gcommon.v1.notification;
 
 import "pkg/notification/proto/delivery_channel_type.proto";
+
 option go_package = "github.com/jdfalk/gcommon/pkg/notification/proto";
 
 /**

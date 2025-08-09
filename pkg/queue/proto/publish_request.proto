@@ -7,7 +7,7 @@
 // PublishRequest contains all information required to publish a
 // message to a topic.
 
-syntax = "proto3";
+edition = "2023";
 
 package gcommon.v1.queue;
 

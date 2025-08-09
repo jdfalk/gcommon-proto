@@ -1,5 +1,5 @@
 // file: pkg/organization/proto/services/hierarchy_service.proto
-syntax = "proto3";
+edition = "2023";
 
 package gcommon.v1.organization;
 
@@ -27,6 +27,7 @@ import "pkg/organization/proto/update_hierarchy_request.proto";
 import "pkg/organization/proto/update_hierarchy_response.proto";
 import "pkg/organization/proto/update_team_request.proto";
 import "pkg/organization/proto/update_team_response.proto";
+
 option go_package = "github.com/jdfalk/gcommon/pkg/organization/proto";
 
 /**

@@ -6,9 +6,10 @@ edition = "2023";
 
 package gcommon.v1.web;
 
-import "pkg/common/proto/pagination.proto";
 import "pkg/common/proto/error.proto";
-import "pkg/web/proto/messages/pagination.proto";
+import "pkg/common/proto/pagination.proto";
+import "pkg/web/proto/middleware_info.proto";
+
 option go_package = "github.com/jdfalk/gcommon/pkg/web/proto";
 
 // ListMiddlewareResponse response definition.

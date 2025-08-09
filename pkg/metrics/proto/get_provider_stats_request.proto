@@ -2,12 +2,13 @@
 // version: 1.1.0
 // guid: e5f6a7b8-c9d0-1234-5678-9abcdef01234
 
-syntax = "proto3";
+edition = "2023";
 
 package gcommon.v1.metrics;
 
 import "pkg/common/proto/request_metadata.proto";
 import "pkg/metrics/proto/time_range.proto";
+
 option go_package = "github.com/jdfalk/gcommon/pkg/metrics/proto";
 
 message GetProviderStatsRequest {

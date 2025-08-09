@@ -1,11 +1,12 @@
 // file: pkg/organization/proto/responses/list_teams_response.proto
-syntax = "proto3";
+edition = "2023";
 
 package gcommon.v1.organization;
 
-import "pkg/organization/proto/team.proto";
 import "pkg/common/proto/error.proto";
 import "pkg/common/proto/paginated_response.proto";
+import "pkg/organization/proto/team.proto";
+
 option go_package = "github.com/jdfalk/gcommon/pkg/organization/proto";
 
 message ListTeamsResponse {

@@ -2,7 +2,7 @@
 // version: 1.2.0
 // guid: c1d2e3f4-g5h6-7890-i1j2-k3l4m5n6o7p8
 
-syntax = "proto3";
+edition = "2023";
 
 package gcommon.v1.metrics;
 

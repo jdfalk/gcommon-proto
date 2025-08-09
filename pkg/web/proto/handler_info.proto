@@ -7,8 +7,7 @@ edition = "2023";
 package gcommon.v1.web;
 
 import "google/protobuf/timestamp.proto";
-// Import handler config
-import "pkg/web/proto/gcommon/pkg/web/proto;webpb";
+import "pkg/web/proto/handler_config.proto";
 option go_package = "github.com/jdfalk/gcommon/pkg/web/proto";
 
 // HandlerInfo message definition.

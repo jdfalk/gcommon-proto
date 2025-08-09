@@ -3,7 +3,7 @@
 //
 // Message definitions for queue module
 //
-syntax = "proto3";
+edition = "2023";
 
 package gcommon.v1.queue;
 

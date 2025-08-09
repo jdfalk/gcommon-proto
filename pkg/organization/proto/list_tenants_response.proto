@@ -1,11 +1,12 @@
 // file: pkg/organization/proto/responses/list_tenants_response.proto
-syntax = "proto3";
+edition = "2023";
 
 package gcommon.v1.organization;
 
-import "pkg/organization/proto/tenant.proto";
 import "pkg/common/proto/error.proto";
 import "pkg/common/proto/paginated_response.proto";
+import "pkg/organization/proto/tenant.proto";
+
 option go_package = "github.com/jdfalk/gcommon/pkg/organization/proto";
 
 message ListTenantsResponse {

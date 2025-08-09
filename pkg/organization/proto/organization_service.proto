@@ -1,5 +1,5 @@
 // file: pkg/organization/proto/services/organization_service.proto
-syntax = "proto3";
+edition = "2023";
 
 package gcommon.v1.organization;
 
@@ -25,6 +25,7 @@ import "pkg/organization/proto/update_organization_request.proto";
 import "pkg/organization/proto/update_organization_response.proto";
 import "pkg/organization/proto/update_organization_settings_request.proto";
 import "pkg/organization/proto/update_organization_settings_response.proto";
+
 option go_package = "github.com/jdfalk/gcommon/pkg/organization/proto";
 
 /**

@@ -7,8 +7,7 @@ edition = "2023";
 package gcommon.v1.web;
 
 import "google/protobuf/any.proto";
-// Import handler type enum
-import "pkg/web/proto/gcommon/pkg/web/proto;webpb";
+import "pkg/web/proto/handler_type.proto";
 option go_package = "github.com/jdfalk/gcommon/pkg/web/proto";
 
 // HandlerConfig message definition.

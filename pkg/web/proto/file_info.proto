@@ -7,7 +7,8 @@ edition = "2023";
 package gcommon.v1.web;
 
 import "google/protobuf/timestamp.proto";
-import "pkg/web/proto/gcommon/pkg/web/proto;webpb";
+import "pkg/web/proto/mime_type.proto";
+
 option go_package = "github.com/jdfalk/gcommon/pkg/web/proto";
 
 // FileInfo message definition.

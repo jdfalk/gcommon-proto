@@ -2,13 +2,14 @@
 // version: 1.0.0
 // guid: 78901abc-2345-6789-abcd-ef0123456789
 
-syntax = "proto3";
+edition = "2023";
 
 package gcommon.v1.organization;
 
-import "pkg/common/proto/key_value.proto";
 import "google/protobuf/timestamp.proto";
+import "pkg/common/proto/key_value.proto";
 import "pkg/organization/proto/hierarchy_type.proto";
+
 option go_package = "github.com/jdfalk/gcommon/pkg/organization/proto";
 
 /**

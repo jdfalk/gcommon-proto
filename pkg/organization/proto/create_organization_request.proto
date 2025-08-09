@@ -2,12 +2,13 @@
 // version: 1.0.0
 // guid: 56789abc-def0-1234-5678-9abcdef01234
 
-syntax = "proto3";
+edition = "2023";
 
 package gcommon.v1.organization;
 
 import "pkg/common/proto/request_metadata.proto";
 import "pkg/organization/proto/organization.proto";
+
 option go_package = "github.com/jdfalk/gcommon/pkg/organization/proto";
 
 message CreateOrganizationRequest {
