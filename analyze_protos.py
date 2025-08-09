@@ -220,35 +220,149 @@ def sanitize_filename(name):
     return sanitized.strip("_")
 
 
+def extract_module_name(proto):
+    """Extract a meaningful module name from proto file information."""
+    # Try multiple strategies to get a good module name
+    
+    # Strategy 1: Use directory structure (pkg/domain/proto/...)
+    path_parts = proto["path"].split(os.sep)
+    if len(path_parts) >= 3 and path_parts[0] == "pkg":
+        domain = path_parts[1]
+        # Handle common domain names
+        if domain in ["media", "log", "auth", "user", "admin", "api", "storage", "config", "monitoring", "network", "database", "cache", "search", "notification", "payment", "security", "workflow", "reporting", "analytics"]:
+            return domain
+    
+    # Strategy 2: Use package name structure
+    pkg = proto["package"]
+    if pkg and pkg != "Unknown":
+        parts = pkg.split(".")
+        if len(parts) >= 3:
+            # For packages like "gcommon.v1.media", use "media"
+            if parts[0] in ["gcommon", "common"] and parts[1].startswith("v"):
+                return parts[2] if len(parts) > 2 else parts[1]
+            # For other multi-part packages, use the last meaningful part
+            return parts[-1]
+        elif len(parts) == 2:
+            return parts[1]
+        elif len(parts) == 1:
+            return parts[0]
+    
+    # Strategy 3: Fallback to directory name
+    if len(path_parts) >= 2:
+        return path_parts[1]
+    
+    # Strategy 4: Ultimate fallback
+    return "misc"
+
+
+def should_split_large_module(module_protos, max_files_per_module=50):
+    """Determine if a large module should be split into sub-modules."""
+    return len(module_protos) > max_files_per_module
+
+
+def split_large_module(module_name, module_protos, max_files_per_module=50):
+    """Split a large module into smaller sub-modules based on subdirectories or patterns."""
+    if not should_split_large_module(module_protos, max_files_per_module):
+        return {module_name: module_protos}
+    
+    # Group by subdirectory within the module
+    sub_modules = {}
+    
+    for proto in module_protos:
+        path_parts = proto["path"].split(os.sep)
+        
+        # Try to find a sub-category
+        sub_category = None
+        
+        # Look for subdirectories after the main domain
+        if len(path_parts) >= 4 and path_parts[0] == "pkg":
+            # pkg/domain/proto/subcategory/file.proto
+            if len(path_parts) >= 5:
+                sub_category = path_parts[3]
+            # pkg/domain/subcategory/file.proto (no proto dir)
+            elif path_parts[2] != "proto":
+                sub_category = path_parts[2]
+        
+        # If no clear subcategory, group by service vs message patterns
+        if not sub_category:
+            filename = os.path.basename(proto["path"]).lower()
+            if "service" in filename:
+                sub_category = "services"
+            elif any(keyword in filename for keyword in ["config", "settings"]):
+                sub_category = "config"
+            elif any(keyword in filename for keyword in ["request", "response", "api"]):
+                sub_category = "api"
+            elif any(keyword in filename for keyword in ["event", "log", "audit"]):
+                sub_category = "events"
+            else:
+                sub_category = "core"
+        
+        # Create sub-module name
+        sub_module_name = f"{module_name}_{sub_category}" if sub_category != "core" else module_name
+        
+        if sub_module_name not in sub_modules:
+            sub_modules[sub_module_name] = []
+        sub_modules[sub_module_name].append(proto)
+    
+    # If we still have modules that are too large, split them alphabetically
+    final_modules = {}
+    for sub_name, sub_protos in sub_modules.items():
+        if should_split_large_module(sub_protos, max_files_per_module):
+            # Sort and split alphabetically
+            sorted_protos = sorted(sub_protos, key=lambda x: os.path.basename(x["path"]))
+            chunk_size = max_files_per_module
+            for i in range(0, len(sorted_protos), chunk_size):
+                chunk = sorted_protos[i:i + chunk_size]
+                if len(sub_modules) == 1:
+                    # Only one sub-module, use alphabet ranges
+                    first_file = os.path.basename(chunk[0]["path"])[0].upper()
+                    last_file = os.path.basename(chunk[-1]["path"])[0].upper()
+                    chunk_name = f"{sub_name}_{first_file}-{last_file}" if first_file != last_file else f"{sub_name}_{first_file}"
+                else:
+                    # Multiple sub-modules, use numbers
+                    chunk_num = i // chunk_size + 1
+                    chunk_name = f"{sub_name}_{chunk_num}"
+                final_modules[chunk_name] = chunk
+        else:
+            final_modules[sub_name] = sub_protos
+    
+    return final_modules
+
+
 def generate_module_docs(proto_files, output_dir):
     """Generate modular documentation with interconnected markdown files."""
     os.makedirs(output_dir, exist_ok=True)
-
-    # Group by package/module
-    modules = {}
+    
+    # Group by module using improved logic
+    initial_modules = {}
     for proto in proto_files:
         if "error" in proto:
             continue
-
-        # Extract module name (first part of package)
-        pkg = proto["package"]
-        module_name = pkg.split(".")[0] if "." in pkg else pkg
-        if not module_name or module_name == "Unknown":
-            module_name = "misc"
-
-        if module_name not in modules:
-            modules[module_name] = []
-        modules[module_name].append(proto)
-
+        
+        module_name = extract_module_name(proto)
+        if module_name not in initial_modules:
+            initial_modules[module_name] = []
+        initial_modules[module_name].append(proto)
+    
+    # Split large modules if necessary
+    final_modules = {}
+    for module_name, module_protos in initial_modules.items():
+        split_result = split_large_module(module_name, module_protos)
+        final_modules.update(split_result)
+    
+    print(f"📊 Organized {len(proto_files)} files into {len(final_modules)} modules:")
+    for module_name, module_protos in sorted(final_modules.items()):
+        print(f"  - {module_name}: {len(module_protos)} files")
+    
     # Generate index file
-    generate_index_file(modules, output_dir)
-
+    generate_index_file(final_modules, output_dir)
+    
     # Generate module-specific files
-    for module_name, module_protos in modules.items():
-        generate_module_file(module_name, module_protos, modules, output_dir)
-
+    for module_name, module_protos in final_modules.items():
+        generate_module_file(module_name, module_protos, final_modules, output_dir)
+    
     print(f"✅ Modular documentation generated in: {output_dir}")
-    print(f"📁 Generated {len(modules)} module documents plus index")
+    print(f"📁 Generated {len(final_modules)} module documents plus index")
 
 
 def generate_index_file(modules, output_dir):
