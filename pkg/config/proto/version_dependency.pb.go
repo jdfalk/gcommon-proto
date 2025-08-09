@@ -29,7 +29,6 @@ type VersionDependency struct {
 	xxx_hidden_Version     *string                `protobuf:"bytes,2,opt,name=version"`
 	xxx_hidden_Type        VersionDependencyType  `protobuf:"varint,3,opt,name=type,enum=gcommon.v1.config.VersionDependencyType"`
 	xxx_hidden_Scope       *string                `protobuf:"bytes,4,opt,name=scope"`
-	xxx_hidden_Optional    bool                   `protobuf:"varint,5,opt,name=optional"`
 	xxx_hidden_Constraints []string               `protobuf:"bytes,6,rep,name=constraints"`
 	xxx_hidden_Metadata    map[string]string      `protobuf:"bytes,7,rep,name=metadata" protobuf_key:"bytes,1,opt,name=key" protobuf_val:"bytes,2,opt,name=value"`
 	XXX_raceDetectHookData protoimpl.RaceDetectHookData
@@ -102,13 +101,6 @@ func (x *VersionDependency) GetScope() string {
 	return ""
 }
 
-func (x *VersionDependency) GetOptional() bool {
-	if x != nil {
-		return x.xxx_hidden_Optional
-	}
-	return false
-}
-
 func (x *VersionDependency) GetConstraints() []string {
 	if x != nil {
 		return x.xxx_hidden_Constraints
@@ -125,27 +117,22 @@ func (x *VersionDependency) GetMetadata() map[string]string {
 
 func (x *VersionDependency) SetName(v string) {
 	x.xxx_hidden_Name = &v
-	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 0, 7)
+	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 0, 6)
 }
 
 func (x *VersionDependency) SetVersion(v string) {
 	x.xxx_hidden_Version = &v
-	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 1, 7)
+	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 1, 6)
 }
 
 func (x *VersionDependency) SetType(v VersionDependencyType) {
 	x.xxx_hidden_Type = v
-	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 2, 7)
+	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 2, 6)
 }
 
 func (x *VersionDependency) SetScope(v string) {
 	x.xxx_hidden_Scope = &v
-	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 3, 7)
-}
-
-func (x *VersionDependency) SetOptional(v bool) {
-	x.xxx_hidden_Optional = v
-	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 4, 7)
+	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 3, 6)
 }
 
 func (x *VersionDependency) SetConstraints(v []string) {
@@ -184,13 +171,6 @@ func (x *VersionDependency) HasScope() bool {
 	return protoimpl.X.Present(&(x.XXX_presence[0]), 3)
 }
 
-func (x *VersionDependency) HasOptional() bool {
-	if x == nil {
-		return false
-	}
-	return protoimpl.X.Present(&(x.XXX_presence[0]), 4)
-}
-
 func (x *VersionDependency) ClearName() {
 	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 0)
 	x.xxx_hidden_Name = nil
@@ -211,11 +191,6 @@ func (x *VersionDependency) ClearScope() {
 	x.xxx_hidden_Scope = nil
 }
 
-func (x *VersionDependency) ClearOptional() {
-	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 4)
-	x.xxx_hidden_Optional = false
-}
-
 type VersionDependency_builder struct {
 	_ [0]func() // Prevents comparability and use of unkeyed literals for the builder.
 
@@ -227,8 +202,6 @@ type VersionDependency_builder struct {
 	Type *VersionDependencyType
 	// Dependency scope
 	Scope *string
-	// Dependency optional
-	Optional *bool
 	// Dependency constraints
 	Constraints []string
 	// Dependency metadata
@@ -240,24 +213,20 @@ func (b0 VersionDependency_builder) Build() *VersionDependency {
 	b, x := &b0, m0
 	_, _ = b, x
 	if b.Name != nil {
-		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 0, 7)
+		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 0, 6)
 		x.xxx_hidden_Name = b.Name
 	}
 	if b.Version != nil {
-		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 1, 7)
+		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 1, 6)
 		x.xxx_hidden_Version = b.Version
 	}
 	if b.Type != nil {
-		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 2, 7)
+		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 2, 6)
 		x.xxx_hidden_Type = *b.Type
 	}
 	if b.Scope != nil {
-		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 3, 7)
+		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 3, 6)
 		x.xxx_hidden_Scope = b.Scope
-	}
-	if b.Optional != nil {
-		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 4, 7)
-		x.xxx_hidden_Optional = *b.Optional
 	}
 	x.xxx_hidden_Constraints = b.Constraints
 	x.xxx_hidden_Metadata = b.Metadata
@@ -268,13 +237,12 @@ var File_pkg_config_proto_version_dependency_proto protoreflect.FileDescriptor
 
 const file_pkg_config_proto_version_dependency_proto_rawDesc = "" +
 	"\n" +
-	")pkg/config/proto/version_dependency.proto\x12\x11gcommon.v1.config\x1a!google/protobuf/go_features.proto\x1a\x1fgoogle/protobuf/timestamp.proto\x1a pkg/common/proto/audit_log.proto\x1a.pkg/config/proto/version_dependency_type.proto\"\xe0\x02\n" +
+	")pkg/config/proto/version_dependency.proto\x12\x11gcommon.v1.config\x1a!google/protobuf/go_features.proto\x1a\x1fgoogle/protobuf/timestamp.proto\x1a pkg/common/proto/audit_log.proto\x1a.pkg/config/proto/version_dependency_type.proto\"\xc4\x02\n" +
 	"\x11VersionDependency\x12\x12\n" +
 	"\x04name\x18\x01 \x01(\tR\x04name\x12\x18\n" +
 	"\aversion\x18\x02 \x01(\tR\aversion\x12<\n" +
 	"\x04type\x18\x03 \x01(\x0e2(.gcommon.v1.config.VersionDependencyTypeR\x04type\x12\x14\n" +
-	"\x05scope\x18\x04 \x01(\tR\x05scope\x12\x1a\n" +
-	"\boptional\x18\x05 \x01(\bR\boptional\x12 \n" +
+	"\x05scope\x18\x04 \x01(\tR\x05scope\x12 \n" +
 	"\vconstraints\x18\x06 \x03(\tR\vconstraints\x12N\n" +
 	"\bmetadata\x18\a \x03(\v22.gcommon.v1.config.VersionDependency.MetadataEntryR\bmetadata\x1a;\n" +
 	"\rMetadataEntry\x12\x10\n" +
