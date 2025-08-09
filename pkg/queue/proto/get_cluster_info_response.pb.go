@@ -24,14 +24,16 @@ const (
 // *
 // Response containing cluster information.
 type GetClusterInfoResponse struct {
-	state                  protoimpl.MessageState `protogen:"opaque.v1"`
-	xxx_hidden_ClusterInfo *ClusterInfo           `protobuf:"bytes,1,opt,name=cluster_info,json=clusterInfo"`
-	xxx_hidden_IsHealthy   bool                   `protobuf:"varint,2,opt,name=is_healthy,json=isHealthy"`
-	xxx_hidden_Warnings    []string               `protobuf:"bytes,3,rep,name=warnings"`
-	XXX_raceDetectHookData protoimpl.RaceDetectHookData
-	XXX_presence           [1]uint32
-	unknownFields          protoimpl.UnknownFields
-	sizeCache              protoimpl.SizeCache
+	state                   protoimpl.MessageState `protogen:"opaque.v1"`
+	xxx_hidden_ClusterInfo  *ClusterInfo           `protobuf:"bytes,1,opt,name=cluster_info,json=clusterInfo"`
+	xxx_hidden_Nodes        *[]*NodeInfo           `protobuf:"bytes,2,rep,name=nodes"`
+	xxx_hidden_IsHealthy    bool                   `protobuf:"varint,3,opt,name=is_healthy,json=isHealthy"`
+	xxx_hidden_Warnings     []string               `protobuf:"bytes,4,rep,name=warnings"`
+	xxx_hidden_ErrorMessage *string                `protobuf:"bytes,5,opt,name=error_message,json=errorMessage"`
+	XXX_raceDetectHookData  protoimpl.RaceDetectHookData
+	XXX_presence            [1]uint32
+	unknownFields           protoimpl.UnknownFields
+	sizeCache               protoimpl.SizeCache
 }
 
 func (x *GetClusterInfoResponse) Reset() {
@@ -66,6 +68,15 @@ func (x *GetClusterInfoResponse) GetClusterInfo() *ClusterInfo {
 	return nil
 }
 
+func (x *GetClusterInfoResponse) GetNodes() []*NodeInfo {
+	if x != nil {
+		if x.xxx_hidden_Nodes != nil {
+			return *x.xxx_hidden_Nodes
+		}
+	}
+	return nil
+}
+
 func (x *GetClusterInfoResponse) GetIsHealthy() bool {
 	if x != nil {
 		return x.xxx_hidden_IsHealthy
@@ -80,17 +91,36 @@ func (x *GetClusterInfoResponse) GetWarnings() []string {
 	return nil
 }
 
+func (x *GetClusterInfoResponse) GetErrorMessage() string {
+	if x != nil {
+		if x.xxx_hidden_ErrorMessage != nil {
+			return *x.xxx_hidden_ErrorMessage
+		}
+		return ""
+	}
+	return ""
+}
+
 func (x *GetClusterInfoResponse) SetClusterInfo(v *ClusterInfo) {
 	x.xxx_hidden_ClusterInfo = v
 }
 
+func (x *GetClusterInfoResponse) SetNodes(v []*NodeInfo) {
+	x.xxx_hidden_Nodes = &v
+}
+
 func (x *GetClusterInfoResponse) SetIsHealthy(v bool) {
 	x.xxx_hidden_IsHealthy = v
-	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 1, 3)
+	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 2, 5)
 }
 
 func (x *GetClusterInfoResponse) SetWarnings(v []string) {
 	x.xxx_hidden_Warnings = v
+}
+
+func (x *GetClusterInfoResponse) SetErrorMessage(v string) {
+	x.xxx_hidden_ErrorMessage = &v
+	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 4, 5)
 }
 
 func (x *GetClusterInfoResponse) HasClusterInfo() bool {
@@ -104,7 +134,14 @@ func (x *GetClusterInfoResponse) HasIsHealthy() bool {
 	if x == nil {
 		return false
 	}
-	return protoimpl.X.Present(&(x.XXX_presence[0]), 1)
+	return protoimpl.X.Present(&(x.XXX_presence[0]), 2)
+}
+
+func (x *GetClusterInfoResponse) HasErrorMessage() bool {
+	if x == nil {
+		return false
+	}
+	return protoimpl.X.Present(&(x.XXX_presence[0]), 4)
 }
 
 func (x *GetClusterInfoResponse) ClearClusterInfo() {
@@ -112,8 +149,13 @@ func (x *GetClusterInfoResponse) ClearClusterInfo() {
 }
 
 func (x *GetClusterInfoResponse) ClearIsHealthy() {
-	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 1)
+	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 2)
 	x.xxx_hidden_IsHealthy = false
+}
+
+func (x *GetClusterInfoResponse) ClearErrorMessage() {
+	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 4)
+	x.xxx_hidden_ErrorMessage = nil
 }
 
 type GetClusterInfoResponse_builder struct {
@@ -121,10 +163,14 @@ type GetClusterInfoResponse_builder struct {
 
 	// Detailed cluster information
 	ClusterInfo *ClusterInfo
+	// Node information
+	Nodes []*NodeInfo
 	// Whether the cluster is currently healthy
 	IsHealthy *bool
 	// Any warnings or issues with the cluster
 	Warnings []string
+	// Error message if failed to get info
+	ErrorMessage *string
 }
 
 func (b0 GetClusterInfoResponse_builder) Build() *GetClusterInfoResponse {
@@ -132,11 +178,16 @@ func (b0 GetClusterInfoResponse_builder) Build() *GetClusterInfoResponse {
 	b, x := &b0, m0
 	_, _ = b, x
 	x.xxx_hidden_ClusterInfo = b.ClusterInfo
+	x.xxx_hidden_Nodes = &b.Nodes
 	if b.IsHealthy != nil {
-		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 1, 3)
+		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 2, 5)
 		x.xxx_hidden_IsHealthy = *b.IsHealthy
 	}
 	x.xxx_hidden_Warnings = b.Warnings
+	if b.ErrorMessage != nil {
+		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 4, 5)
+		x.xxx_hidden_ErrorMessage = b.ErrorMessage
+	}
 	return m0
 }
 
@@ -144,26 +195,30 @@ var File_pkg_queue_proto_get_cluster_info_response_proto protoreflect.FileDescri
 
 const file_pkg_queue_proto_get_cluster_info_response_proto_rawDesc = "" +
 	"\n" +
-	"/pkg/queue/proto/get_cluster_info_response.proto\x12\x10gcommon.v1.queue\x1a!google/protobuf/go_features.proto\x1a\"pkg/queue/proto/cluster_info.proto\"\x95\x01\n" +
+	"/pkg/queue/proto/get_cluster_info_response.proto\x12\x10gcommon.v1.queue\x1a!google/protobuf/go_features.proto\x1a\"pkg/queue/proto/cluster_info.proto\x1a\x1fpkg/queue/proto/node_info.proto\"\xec\x01\n" +
 	"\x16GetClusterInfoResponse\x12@\n" +
-	"\fcluster_info\x18\x01 \x01(\v2\x1d.gcommon.v1.queue.ClusterInfoR\vclusterInfo\x12\x1d\n" +
+	"\fcluster_info\x18\x01 \x01(\v2\x1d.gcommon.v1.queue.ClusterInfoR\vclusterInfo\x120\n" +
+	"\x05nodes\x18\x02 \x03(\v2\x1a.gcommon.v1.queue.NodeInfoR\x05nodes\x12\x1d\n" +
 	"\n" +
-	"is_healthy\x18\x02 \x01(\bR\tisHealthy\x12\x1a\n" +
-	"\bwarnings\x18\x03 \x03(\tR\bwarningsB\xc8\x01\n" +
+	"is_healthy\x18\x03 \x01(\bR\tisHealthy\x12\x1a\n" +
+	"\bwarnings\x18\x04 \x03(\tR\bwarnings\x12#\n" +
+	"\rerror_message\x18\x05 \x01(\tR\ferrorMessageB\xc8\x01\n" +
 	"\x14com.gcommon.v1.queueB\x1bGetClusterInfoResponseProtoP\x01Z)github.com/jdfalk/gcommon/pkg/queue/proto\xa2\x02\x03GVQ\xaa\x02\x10Gcommon.V1.Queue\xca\x02\x10Gcommon\\V1\\Queue\xe2\x02\x1cGcommon\\V1\\Queue\\GPBMetadata\xea\x02\x12Gcommon::V1::Queue\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_pkg_queue_proto_get_cluster_info_response_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_pkg_queue_proto_get_cluster_info_response_proto_goTypes = []any{
 	(*GetClusterInfoResponse)(nil), // 0: gcommon.v1.queue.GetClusterInfoResponse
 	(*ClusterInfo)(nil),            // 1: gcommon.v1.queue.ClusterInfo
+	(*NodeInfo)(nil),               // 2: gcommon.v1.queue.NodeInfo
 }
 var file_pkg_queue_proto_get_cluster_info_response_proto_depIdxs = []int32{
 	1, // 0: gcommon.v1.queue.GetClusterInfoResponse.cluster_info:type_name -> gcommon.v1.queue.ClusterInfo
-	1, // [1:1] is the sub-list for method output_type
-	1, // [1:1] is the sub-list for method input_type
-	1, // [1:1] is the sub-list for extension type_name
-	1, // [1:1] is the sub-list for extension extendee
-	0, // [0:1] is the sub-list for field type_name
+	2, // 1: gcommon.v1.queue.GetClusterInfoResponse.nodes:type_name -> gcommon.v1.queue.NodeInfo
+	2, // [2:2] is the sub-list for method output_type
+	2, // [2:2] is the sub-list for method input_type
+	2, // [2:2] is the sub-list for extension type_name
+	2, // [2:2] is the sub-list for extension extendee
+	0, // [0:2] is the sub-list for field type_name
 }
 
 func init() { file_pkg_queue_proto_get_cluster_info_response_proto_init() }
@@ -172,6 +227,7 @@ func file_pkg_queue_proto_get_cluster_info_response_proto_init() {
 		return
 	}
 	file_pkg_queue_proto_cluster_info_proto_init()
+	file_pkg_queue_proto_node_info_proto_init()
 	type x struct{}
 	out := protoimpl.TypeBuilder{
 		File: protoimpl.DescBuilder{

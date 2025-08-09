@@ -7,7 +7,7 @@
 package proto
 
 import (
-	proto "github.com/jdfalk/gcommon/pkg/common/proto"
+	_ "github.com/jdfalk/gcommon/pkg/common/proto"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
@@ -22,21 +22,15 @@ const (
 	_ = protoimpl.EnforceVersion(protoimpl.MaxVersion - 20)
 )
 
-// *
-// Request to delete a queue and all its messages.
-// This is a destructive operation that cannot be undone.
 type DeleteQueueRequest struct {
-	state                        protoimpl.MessageState `protogen:"opaque.v1"`
-	xxx_hidden_QueueName         *string                `protobuf:"bytes,1,opt,name=queue_name,json=queueName"`
-	xxx_hidden_Force             bool                   `protobuf:"varint,2,opt,name=force"`
-	xxx_hidden_IfExists          bool                   `protobuf:"varint,3,opt,name=if_exists,json=ifExists"`
-	xxx_hidden_PurgeMessages     bool                   `protobuf:"varint,4,opt,name=purge_messages,json=purgeMessages"`
-	xxx_hidden_ConfirmationToken *string                `protobuf:"bytes,5,opt,name=confirmation_token,json=confirmationToken"`
-	xxx_hidden_Metadata          *proto.RequestMetadata `protobuf:"bytes,100,opt,name=metadata"`
-	XXX_raceDetectHookData       protoimpl.RaceDetectHookData
-	XXX_presence                 [1]uint32
-	unknownFields                protoimpl.UnknownFields
-	sizeCache                    protoimpl.SizeCache
+	state                  protoimpl.MessageState `protogen:"opaque.v1"`
+	xxx_hidden_Queue       *string                `protobuf:"bytes,1,opt,name=queue"`
+	xxx_hidden_Force       bool                   `protobuf:"varint,2,opt,name=force"`
+	xxx_hidden_PurgeFirst  bool                   `protobuf:"varint,3,opt,name=purge_first,json=purgeFirst"`
+	XXX_raceDetectHookData protoimpl.RaceDetectHookData
+	XXX_presence           [1]uint32
+	unknownFields          protoimpl.UnknownFields
+	sizeCache              protoimpl.SizeCache
 }
 
 func (x *DeleteQueueRequest) Reset() {
@@ -64,10 +58,10 @@ func (x *DeleteQueueRequest) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-func (x *DeleteQueueRequest) GetQueueName() string {
+func (x *DeleteQueueRequest) GetQueue() string {
 	if x != nil {
-		if x.xxx_hidden_QueueName != nil {
-			return *x.xxx_hidden_QueueName
+		if x.xxx_hidden_Queue != nil {
+			return *x.xxx_hidden_Queue
 		}
 		return ""
 	}
@@ -81,67 +75,29 @@ func (x *DeleteQueueRequest) GetForce() bool {
 	return false
 }
 
-func (x *DeleteQueueRequest) GetIfExists() bool {
+func (x *DeleteQueueRequest) GetPurgeFirst() bool {
 	if x != nil {
-		return x.xxx_hidden_IfExists
+		return x.xxx_hidden_PurgeFirst
 	}
 	return false
 }
 
-func (x *DeleteQueueRequest) GetPurgeMessages() bool {
-	if x != nil {
-		return x.xxx_hidden_PurgeMessages
-	}
-	return false
-}
-
-func (x *DeleteQueueRequest) GetConfirmationToken() string {
-	if x != nil {
-		if x.xxx_hidden_ConfirmationToken != nil {
-			return *x.xxx_hidden_ConfirmationToken
-		}
-		return ""
-	}
-	return ""
-}
-
-func (x *DeleteQueueRequest) GetMetadata() *proto.RequestMetadata {
-	if x != nil {
-		return x.xxx_hidden_Metadata
-	}
-	return nil
-}
-
-func (x *DeleteQueueRequest) SetQueueName(v string) {
-	x.xxx_hidden_QueueName = &v
-	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 0, 6)
+func (x *DeleteQueueRequest) SetQueue(v string) {
+	x.xxx_hidden_Queue = &v
+	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 0, 3)
 }
 
 func (x *DeleteQueueRequest) SetForce(v bool) {
 	x.xxx_hidden_Force = v
-	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 1, 6)
+	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 1, 3)
 }
 
-func (x *DeleteQueueRequest) SetIfExists(v bool) {
-	x.xxx_hidden_IfExists = v
-	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 2, 6)
+func (x *DeleteQueueRequest) SetPurgeFirst(v bool) {
+	x.xxx_hidden_PurgeFirst = v
+	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 2, 3)
 }
 
-func (x *DeleteQueueRequest) SetPurgeMessages(v bool) {
-	x.xxx_hidden_PurgeMessages = v
-	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 3, 6)
-}
-
-func (x *DeleteQueueRequest) SetConfirmationToken(v string) {
-	x.xxx_hidden_ConfirmationToken = &v
-	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 4, 6)
-}
-
-func (x *DeleteQueueRequest) SetMetadata(v *proto.RequestMetadata) {
-	x.xxx_hidden_Metadata = v
-}
-
-func (x *DeleteQueueRequest) HasQueueName() bool {
+func (x *DeleteQueueRequest) HasQueue() bool {
 	if x == nil {
 		return false
 	}
@@ -155,37 +111,16 @@ func (x *DeleteQueueRequest) HasForce() bool {
 	return protoimpl.X.Present(&(x.XXX_presence[0]), 1)
 }
 
-func (x *DeleteQueueRequest) HasIfExists() bool {
+func (x *DeleteQueueRequest) HasPurgeFirst() bool {
 	if x == nil {
 		return false
 	}
 	return protoimpl.X.Present(&(x.XXX_presence[0]), 2)
 }
 
-func (x *DeleteQueueRequest) HasPurgeMessages() bool {
-	if x == nil {
-		return false
-	}
-	return protoimpl.X.Present(&(x.XXX_presence[0]), 3)
-}
-
-func (x *DeleteQueueRequest) HasConfirmationToken() bool {
-	if x == nil {
-		return false
-	}
-	return protoimpl.X.Present(&(x.XXX_presence[0]), 4)
-}
-
-func (x *DeleteQueueRequest) HasMetadata() bool {
-	if x == nil {
-		return false
-	}
-	return x.xxx_hidden_Metadata != nil
-}
-
-func (x *DeleteQueueRequest) ClearQueueName() {
+func (x *DeleteQueueRequest) ClearQueue() {
 	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 0)
-	x.xxx_hidden_QueueName = nil
+	x.xxx_hidden_Queue = nil
 }
 
 func (x *DeleteQueueRequest) ClearForce() {
@@ -193,67 +128,38 @@ func (x *DeleteQueueRequest) ClearForce() {
 	x.xxx_hidden_Force = false
 }
 
-func (x *DeleteQueueRequest) ClearIfExists() {
+func (x *DeleteQueueRequest) ClearPurgeFirst() {
 	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 2)
-	x.xxx_hidden_IfExists = false
-}
-
-func (x *DeleteQueueRequest) ClearPurgeMessages() {
-	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 3)
-	x.xxx_hidden_PurgeMessages = false
-}
-
-func (x *DeleteQueueRequest) ClearConfirmationToken() {
-	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 4)
-	x.xxx_hidden_ConfirmationToken = nil
-}
-
-func (x *DeleteQueueRequest) ClearMetadata() {
-	x.xxx_hidden_Metadata = nil
+	x.xxx_hidden_PurgeFirst = false
 }
 
 type DeleteQueueRequest_builder struct {
 	_ [0]func() // Prevents comparability and use of unkeyed literals for the builder.
 
-	// Name of the queue to delete (required)
-	QueueName *string
-	// Whether to force deletion even if queue has active consumers
+	// Queue ID or name to delete
+	Queue *string
+	// Force deletion even if not empty
 	Force *bool
-	// Whether to ignore if queue doesn't exist (no error if missing)
-	IfExists *bool
-	// Whether to purge all messages before deletion
-	PurgeMessages *bool
-	// Confirmation token to prevent accidental deletion
-	ConfirmationToken *string
-	// Request metadata for tracing and correlation
-	Metadata *proto.RequestMetadata
+	// Purge messages before deletion
+	PurgeFirst *bool
 }
 
 func (b0 DeleteQueueRequest_builder) Build() *DeleteQueueRequest {
 	m0 := &DeleteQueueRequest{}
 	b, x := &b0, m0
 	_, _ = b, x
-	if b.QueueName != nil {
-		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 0, 6)
-		x.xxx_hidden_QueueName = b.QueueName
+	if b.Queue != nil {
+		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 0, 3)
+		x.xxx_hidden_Queue = b.Queue
 	}
 	if b.Force != nil {
-		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 1, 6)
+		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 1, 3)
 		x.xxx_hidden_Force = *b.Force
 	}
-	if b.IfExists != nil {
-		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 2, 6)
-		x.xxx_hidden_IfExists = *b.IfExists
+	if b.PurgeFirst != nil {
+		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 2, 3)
+		x.xxx_hidden_PurgeFirst = *b.PurgeFirst
 	}
-	if b.PurgeMessages != nil {
-		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 3, 6)
-		x.xxx_hidden_PurgeMessages = *b.PurgeMessages
-	}
-	if b.ConfirmationToken != nil {
-		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 4, 6)
-		x.xxx_hidden_ConfirmationToken = b.ConfirmationToken
-	}
-	x.xxx_hidden_Metadata = b.Metadata
 	return m0
 }
 
@@ -261,29 +167,24 @@ var File_pkg_queue_proto_delete_queue_request_proto protoreflect.FileDescriptor
 
 const file_pkg_queue_proto_delete_queue_request_proto_rawDesc = "" +
 	"\n" +
-	"*pkg/queue/proto/delete_queue_request.proto\x12\x10gcommon.v1.queue\x1a!google/protobuf/go_features.proto\x1a'pkg/common/proto/request_metadata.proto\"\xfc\x01\n" +
-	"\x12DeleteQueueRequest\x12\x1d\n" +
-	"\n" +
-	"queue_name\x18\x01 \x01(\tR\tqueueName\x12\x14\n" +
-	"\x05force\x18\x02 \x01(\bR\x05force\x12\x1b\n" +
-	"\tif_exists\x18\x03 \x01(\bR\bifExists\x12%\n" +
-	"\x0epurge_messages\x18\x04 \x01(\bR\rpurgeMessages\x12-\n" +
-	"\x12confirmation_token\x18\x05 \x01(\tR\x11confirmationToken\x12>\n" +
-	"\bmetadata\x18d \x01(\v2\".gcommon.v1.common.RequestMetadataR\bmetadataB\xc4\x01\n" +
+	"*pkg/queue/proto/delete_queue_request.proto\x12\x10gcommon.v1.queue\x1a!google/protobuf/go_features.proto\x1a'pkg/common/proto/request_metadata.proto\"a\n" +
+	"\x12DeleteQueueRequest\x12\x14\n" +
+	"\x05queue\x18\x01 \x01(\tR\x05queue\x12\x14\n" +
+	"\x05force\x18\x02 \x01(\bR\x05force\x12\x1f\n" +
+	"\vpurge_first\x18\x03 \x01(\bR\n" +
+	"purgeFirstB\xc4\x01\n" +
 	"\x14com.gcommon.v1.queueB\x17DeleteQueueRequestProtoP\x01Z)github.com/jdfalk/gcommon/pkg/queue/proto\xa2\x02\x03GVQ\xaa\x02\x10Gcommon.V1.Queue\xca\x02\x10Gcommon\\V1\\Queue\xe2\x02\x1cGcommon\\V1\\Queue\\GPBMetadata\xea\x02\x12Gcommon::V1::Queue\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
 var file_pkg_queue_proto_delete_queue_request_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_pkg_queue_proto_delete_queue_request_proto_goTypes = []any{
-	(*DeleteQueueRequest)(nil),    // 0: gcommon.v1.queue.DeleteQueueRequest
-	(*proto.RequestMetadata)(nil), // 1: gcommon.v1.common.RequestMetadata
+	(*DeleteQueueRequest)(nil), // 0: gcommon.v1.queue.DeleteQueueRequest
 }
 var file_pkg_queue_proto_delete_queue_request_proto_depIdxs = []int32{
-	1, // 0: gcommon.v1.queue.DeleteQueueRequest.metadata:type_name -> gcommon.v1.common.RequestMetadata
-	1, // [1:1] is the sub-list for method output_type
-	1, // [1:1] is the sub-list for method input_type
-	1, // [1:1] is the sub-list for extension type_name
-	1, // [1:1] is the sub-list for extension extendee
-	0, // [0:1] is the sub-list for field type_name
+	0, // [0:0] is the sub-list for method output_type
+	0, // [0:0] is the sub-list for method input_type
+	0, // [0:0] is the sub-list for extension type_name
+	0, // [0:0] is the sub-list for extension extendee
+	0, // [0:0] is the sub-list for field type_name
 }
 
 func init() { file_pkg_queue_proto_delete_queue_request_proto_init() }

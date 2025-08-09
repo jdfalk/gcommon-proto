@@ -15,17 +15,6 @@ import "google/protobuf/timestamp.proto";
 option features.(pb.go).api_level = API_OPAQUE;
 option go_package = "github.com/jdfalk/gcommon/pkg/queue/proto";
 
-message UnsubscribeResponse {
-  // Unsubscribe success
-  bool success = 1;
-
-  // Error message if unsubscribe failed
-  string error_message = 2;
-
-  // Final offset position
-  int64 final_offset = 3;
-}
-
 /**
  * Response for unsubscription operations.
  */

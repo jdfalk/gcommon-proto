@@ -21,21 +21,14 @@ const (
 	_ = protoimpl.EnforceVersion(protoimpl.MaxVersion - 20)
 )
 
-// DeleteTopicRequest removes a topic and its associated resources
 type DeleteTopicRequest struct {
-	state                         protoimpl.MessageState `protogen:"opaque.v1"`
-	xxx_hidden_TopicId            *string                `protobuf:"bytes,1,opt,name=topic_id,json=topicId"`
-	xxx_hidden_ForceDelete        bool                   `protobuf:"varint,2,opt,name=force_delete,json=forceDelete"`
-	xxx_hidden_DeleteData         bool                   `protobuf:"varint,3,opt,name=delete_data,json=deleteData"`
-	xxx_hidden_TimeoutMs          int32                  `protobuf:"varint,4,opt,name=timeout_ms,json=timeoutMs"`
-	xxx_hidden_DeletionReason     *string                `protobuf:"bytes,5,opt,name=deletion_reason,json=deletionReason"`
-	xxx_hidden_BackupBeforeDelete bool                   `protobuf:"varint,6,opt,name=backup_before_delete,json=backupBeforeDelete"`
-	xxx_hidden_BackupDestination  *string                `protobuf:"bytes,7,opt,name=backup_destination,json=backupDestination"`
-	xxx_hidden_Metadata           map[string]string      `protobuf:"bytes,8,rep,name=metadata" protobuf_key:"bytes,1,opt,name=key" protobuf_val:"bytes,2,opt,name=value"`
-	XXX_raceDetectHookData        protoimpl.RaceDetectHookData
-	XXX_presence                  [1]uint32
-	unknownFields                 protoimpl.UnknownFields
-	sizeCache                     protoimpl.SizeCache
+	state                  protoimpl.MessageState `protogen:"opaque.v1"`
+	xxx_hidden_Topic       *string                `protobuf:"bytes,1,opt,name=topic"`
+	xxx_hidden_Force       bool                   `protobuf:"varint,2,opt,name=force"`
+	XXX_raceDetectHookData protoimpl.RaceDetectHookData
+	XXX_presence           [1]uint32
+	unknownFields          protoimpl.UnknownFields
+	sizeCache              protoimpl.SizeCache
 }
 
 func (x *DeleteTopicRequest) Reset() {
@@ -63,248 +56,78 @@ func (x *DeleteTopicRequest) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-func (x *DeleteTopicRequest) GetTopicId() string {
+func (x *DeleteTopicRequest) GetTopic() string {
 	if x != nil {
-		if x.xxx_hidden_TopicId != nil {
-			return *x.xxx_hidden_TopicId
+		if x.xxx_hidden_Topic != nil {
+			return *x.xxx_hidden_Topic
 		}
 		return ""
 	}
 	return ""
 }
 
-func (x *DeleteTopicRequest) GetForceDelete() bool {
+func (x *DeleteTopicRequest) GetForce() bool {
 	if x != nil {
-		return x.xxx_hidden_ForceDelete
+		return x.xxx_hidden_Force
 	}
 	return false
 }
 
-func (x *DeleteTopicRequest) GetDeleteData() bool {
-	if x != nil {
-		return x.xxx_hidden_DeleteData
-	}
-	return false
+func (x *DeleteTopicRequest) SetTopic(v string) {
+	x.xxx_hidden_Topic = &v
+	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 0, 2)
 }
 
-func (x *DeleteTopicRequest) GetTimeoutMs() int32 {
-	if x != nil {
-		return x.xxx_hidden_TimeoutMs
-	}
-	return 0
+func (x *DeleteTopicRequest) SetForce(v bool) {
+	x.xxx_hidden_Force = v
+	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 1, 2)
 }
 
-func (x *DeleteTopicRequest) GetDeletionReason() string {
-	if x != nil {
-		if x.xxx_hidden_DeletionReason != nil {
-			return *x.xxx_hidden_DeletionReason
-		}
-		return ""
-	}
-	return ""
-}
-
-func (x *DeleteTopicRequest) GetBackupBeforeDelete() bool {
-	if x != nil {
-		return x.xxx_hidden_BackupBeforeDelete
-	}
-	return false
-}
-
-func (x *DeleteTopicRequest) GetBackupDestination() string {
-	if x != nil {
-		if x.xxx_hidden_BackupDestination != nil {
-			return *x.xxx_hidden_BackupDestination
-		}
-		return ""
-	}
-	return ""
-}
-
-func (x *DeleteTopicRequest) GetMetadata() map[string]string {
-	if x != nil {
-		return x.xxx_hidden_Metadata
-	}
-	return nil
-}
-
-func (x *DeleteTopicRequest) SetTopicId(v string) {
-	x.xxx_hidden_TopicId = &v
-	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 0, 8)
-}
-
-func (x *DeleteTopicRequest) SetForceDelete(v bool) {
-	x.xxx_hidden_ForceDelete = v
-	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 1, 8)
-}
-
-func (x *DeleteTopicRequest) SetDeleteData(v bool) {
-	x.xxx_hidden_DeleteData = v
-	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 2, 8)
-}
-
-func (x *DeleteTopicRequest) SetTimeoutMs(v int32) {
-	x.xxx_hidden_TimeoutMs = v
-	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 3, 8)
-}
-
-func (x *DeleteTopicRequest) SetDeletionReason(v string) {
-	x.xxx_hidden_DeletionReason = &v
-	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 4, 8)
-}
-
-func (x *DeleteTopicRequest) SetBackupBeforeDelete(v bool) {
-	x.xxx_hidden_BackupBeforeDelete = v
-	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 5, 8)
-}
-
-func (x *DeleteTopicRequest) SetBackupDestination(v string) {
-	x.xxx_hidden_BackupDestination = &v
-	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 6, 8)
-}
-
-func (x *DeleteTopicRequest) SetMetadata(v map[string]string) {
-	x.xxx_hidden_Metadata = v
-}
-
-func (x *DeleteTopicRequest) HasTopicId() bool {
+func (x *DeleteTopicRequest) HasTopic() bool {
 	if x == nil {
 		return false
 	}
 	return protoimpl.X.Present(&(x.XXX_presence[0]), 0)
 }
 
-func (x *DeleteTopicRequest) HasForceDelete() bool {
+func (x *DeleteTopicRequest) HasForce() bool {
 	if x == nil {
 		return false
 	}
 	return protoimpl.X.Present(&(x.XXX_presence[0]), 1)
 }
 
-func (x *DeleteTopicRequest) HasDeleteData() bool {
-	if x == nil {
-		return false
-	}
-	return protoimpl.X.Present(&(x.XXX_presence[0]), 2)
-}
-
-func (x *DeleteTopicRequest) HasTimeoutMs() bool {
-	if x == nil {
-		return false
-	}
-	return protoimpl.X.Present(&(x.XXX_presence[0]), 3)
-}
-
-func (x *DeleteTopicRequest) HasDeletionReason() bool {
-	if x == nil {
-		return false
-	}
-	return protoimpl.X.Present(&(x.XXX_presence[0]), 4)
-}
-
-func (x *DeleteTopicRequest) HasBackupBeforeDelete() bool {
-	if x == nil {
-		return false
-	}
-	return protoimpl.X.Present(&(x.XXX_presence[0]), 5)
-}
-
-func (x *DeleteTopicRequest) HasBackupDestination() bool {
-	if x == nil {
-		return false
-	}
-	return protoimpl.X.Present(&(x.XXX_presence[0]), 6)
-}
-
-func (x *DeleteTopicRequest) ClearTopicId() {
+func (x *DeleteTopicRequest) ClearTopic() {
 	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 0)
-	x.xxx_hidden_TopicId = nil
+	x.xxx_hidden_Topic = nil
 }
 
-func (x *DeleteTopicRequest) ClearForceDelete() {
+func (x *DeleteTopicRequest) ClearForce() {
 	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 1)
-	x.xxx_hidden_ForceDelete = false
-}
-
-func (x *DeleteTopicRequest) ClearDeleteData() {
-	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 2)
-	x.xxx_hidden_DeleteData = false
-}
-
-func (x *DeleteTopicRequest) ClearTimeoutMs() {
-	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 3)
-	x.xxx_hidden_TimeoutMs = 0
-}
-
-func (x *DeleteTopicRequest) ClearDeletionReason() {
-	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 4)
-	x.xxx_hidden_DeletionReason = nil
-}
-
-func (x *DeleteTopicRequest) ClearBackupBeforeDelete() {
-	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 5)
-	x.xxx_hidden_BackupBeforeDelete = false
-}
-
-func (x *DeleteTopicRequest) ClearBackupDestination() {
-	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 6)
-	x.xxx_hidden_BackupDestination = nil
+	x.xxx_hidden_Force = false
 }
 
 type DeleteTopicRequest_builder struct {
 	_ [0]func() // Prevents comparability and use of unkeyed literals for the builder.
 
-	// Topic identifier to delete
-	TopicId *string
-	// Force deletion even if topic has active subscriptions
-	ForceDelete *bool
-	// Delete associated data (messages, metadata)
-	DeleteData *bool
-	// Timeout for deletion operation (milliseconds)
-	TimeoutMs *int32
-	// Reason for deletion
-	DeletionReason *string
-	// Backup data before deletion
-	BackupBeforeDelete *bool
-	// Backup destination (if backing up)
-	BackupDestination *string
-	// Operation metadata
-	Metadata map[string]string
+	// Topic ID or name to delete
+	Topic *string
+	// Force deletion even if not empty
+	Force *bool
 }
 
 func (b0 DeleteTopicRequest_builder) Build() *DeleteTopicRequest {
 	m0 := &DeleteTopicRequest{}
 	b, x := &b0, m0
 	_, _ = b, x
-	if b.TopicId != nil {
-		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 0, 8)
-		x.xxx_hidden_TopicId = b.TopicId
+	if b.Topic != nil {
+		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 0, 2)
+		x.xxx_hidden_Topic = b.Topic
 	}
-	if b.ForceDelete != nil {
-		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 1, 8)
-		x.xxx_hidden_ForceDelete = *b.ForceDelete
+	if b.Force != nil {
+		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 1, 2)
+		x.xxx_hidden_Force = *b.Force
 	}
-	if b.DeleteData != nil {
-		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 2, 8)
-		x.xxx_hidden_DeleteData = *b.DeleteData
-	}
-	if b.TimeoutMs != nil {
-		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 3, 8)
-		x.xxx_hidden_TimeoutMs = *b.TimeoutMs
-	}
-	if b.DeletionReason != nil {
-		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 4, 8)
-		x.xxx_hidden_DeletionReason = b.DeletionReason
-	}
-	if b.BackupBeforeDelete != nil {
-		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 5, 8)
-		x.xxx_hidden_BackupBeforeDelete = *b.BackupBeforeDelete
-	}
-	if b.BackupDestination != nil {
-		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 6, 8)
-		x.xxx_hidden_BackupDestination = b.BackupDestination
-	}
-	x.xxx_hidden_Metadata = b.Metadata
 	return m0
 }
 
@@ -312,35 +135,22 @@ var File_pkg_queue_proto_delete_topic_request_proto protoreflect.FileDescriptor
 
 const file_pkg_queue_proto_delete_topic_request_proto_rawDesc = "" +
 	"\n" +
-	"*pkg/queue/proto/delete_topic_request.proto\x12\x10gcommon.v1.queue\x1a!google/protobuf/go_features.proto\"\xa9\x03\n" +
-	"\x12DeleteTopicRequest\x12\x19\n" +
-	"\btopic_id\x18\x01 \x01(\tR\atopicId\x12!\n" +
-	"\fforce_delete\x18\x02 \x01(\bR\vforceDelete\x12\x1f\n" +
-	"\vdelete_data\x18\x03 \x01(\bR\n" +
-	"deleteData\x12\x1d\n" +
-	"\n" +
-	"timeout_ms\x18\x04 \x01(\x05R\ttimeoutMs\x12'\n" +
-	"\x0fdeletion_reason\x18\x05 \x01(\tR\x0edeletionReason\x120\n" +
-	"\x14backup_before_delete\x18\x06 \x01(\bR\x12backupBeforeDelete\x12-\n" +
-	"\x12backup_destination\x18\a \x01(\tR\x11backupDestination\x12N\n" +
-	"\bmetadata\x18\b \x03(\v22.gcommon.v1.queue.DeleteTopicRequest.MetadataEntryR\bmetadata\x1a;\n" +
-	"\rMetadataEntry\x12\x10\n" +
-	"\x03key\x18\x01 \x01(\tR\x03key\x12\x14\n" +
-	"\x05value\x18\x02 \x01(\tR\x05value:\x028\x01B\xc4\x01\n" +
+	"*pkg/queue/proto/delete_topic_request.proto\x12\x10gcommon.v1.queue\x1a!google/protobuf/go_features.proto\"@\n" +
+	"\x12DeleteTopicRequest\x12\x14\n" +
+	"\x05topic\x18\x01 \x01(\tR\x05topic\x12\x14\n" +
+	"\x05force\x18\x02 \x01(\bR\x05forceB\xc4\x01\n" +
 	"\x14com.gcommon.v1.queueB\x17DeleteTopicRequestProtoP\x01Z)github.com/jdfalk/gcommon/pkg/queue/proto\xa2\x02\x03GVQ\xaa\x02\x10Gcommon.V1.Queue\xca\x02\x10Gcommon\\V1\\Queue\xe2\x02\x1cGcommon\\V1\\Queue\\GPBMetadata\xea\x02\x12Gcommon::V1::Queue\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
-var file_pkg_queue_proto_delete_topic_request_proto_msgTypes = make([]protoimpl.MessageInfo, 2)
+var file_pkg_queue_proto_delete_topic_request_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_pkg_queue_proto_delete_topic_request_proto_goTypes = []any{
 	(*DeleteTopicRequest)(nil), // 0: gcommon.v1.queue.DeleteTopicRequest
-	nil,                        // 1: gcommon.v1.queue.DeleteTopicRequest.MetadataEntry
 }
 var file_pkg_queue_proto_delete_topic_request_proto_depIdxs = []int32{
-	1, // 0: gcommon.v1.queue.DeleteTopicRequest.metadata:type_name -> gcommon.v1.queue.DeleteTopicRequest.MetadataEntry
-	1, // [1:1] is the sub-list for method output_type
-	1, // [1:1] is the sub-list for method input_type
-	1, // [1:1] is the sub-list for extension type_name
-	1, // [1:1] is the sub-list for extension extendee
-	0, // [0:1] is the sub-list for field type_name
+	0, // [0:0] is the sub-list for method output_type
+	0, // [0:0] is the sub-list for method input_type
+	0, // [0:0] is the sub-list for extension type_name
+	0, // [0:0] is the sub-list for extension extendee
+	0, // [0:0] is the sub-list for field type_name
 }
 
 func init() { file_pkg_queue_proto_delete_topic_request_proto_init() }
@@ -354,7 +164,7 @@ func file_pkg_queue_proto_delete_topic_request_proto_init() {
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: unsafe.Slice(unsafe.StringData(file_pkg_queue_proto_delete_topic_request_proto_rawDesc), len(file_pkg_queue_proto_delete_topic_request_proto_rawDesc)),
 			NumEnums:      0,
-			NumMessages:   2,
+			NumMessages:   1,
 			NumExtensions: 0,
 			NumServices:   0,
 		},

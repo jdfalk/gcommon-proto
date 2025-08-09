@@ -10,7 +10,6 @@ import (
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
-	_ "google.golang.org/protobuf/types/known/timestamppb"
 	reflect "reflect"
 	unsafe "unsafe"
 )
@@ -22,14 +21,11 @@ const (
 	_ = protoimpl.EnforceVersion(protoimpl.MaxVersion - 20)
 )
 
-// ListTopicsResponse returns a list of available topics
 type ListTopicsResponse struct {
 	state                    protoimpl.MessageState `protogen:"opaque.v1"`
 	xxx_hidden_Topics        *[]*TopicInfo          `protobuf:"bytes,1,rep,name=topics"`
-	xxx_hidden_TotalCount    int32                  `protobuf:"varint,2,opt,name=total_count,json=totalCount"`
-	xxx_hidden_NextPageToken *string                `protobuf:"bytes,3,opt,name=next_page_token,json=nextPageToken"`
-	xxx_hidden_HasMore       bool                   `protobuf:"varint,4,opt,name=has_more,json=hasMore"`
-	xxx_hidden_Metadata      map[string]string      `protobuf:"bytes,5,rep,name=metadata" protobuf_key:"bytes,1,opt,name=key" protobuf_val:"bytes,2,opt,name=value"`
+	xxx_hidden_NextPageToken *string                `protobuf:"bytes,2,opt,name=next_page_token,json=nextPageToken"`
+	xxx_hidden_TotalCount    int32                  `protobuf:"varint,3,opt,name=total_count,json=totalCount"`
 	XXX_raceDetectHookData   protoimpl.RaceDetectHookData
 	XXX_presence             [1]uint32
 	unknownFields            protoimpl.UnknownFields
@@ -70,13 +66,6 @@ func (x *ListTopicsResponse) GetTopics() []*TopicInfo {
 	return nil
 }
 
-func (x *ListTopicsResponse) GetTotalCount() int32 {
-	if x != nil {
-		return x.xxx_hidden_TotalCount
-	}
-	return 0
-}
-
 func (x *ListTopicsResponse) GetNextPageToken() string {
 	if x != nil {
 		if x.xxx_hidden_NextPageToken != nil {
@@ -87,77 +76,49 @@ func (x *ListTopicsResponse) GetNextPageToken() string {
 	return ""
 }
 
-func (x *ListTopicsResponse) GetHasMore() bool {
+func (x *ListTopicsResponse) GetTotalCount() int32 {
 	if x != nil {
-		return x.xxx_hidden_HasMore
+		return x.xxx_hidden_TotalCount
 	}
-	return false
-}
-
-func (x *ListTopicsResponse) GetMetadata() map[string]string {
-	if x != nil {
-		return x.xxx_hidden_Metadata
-	}
-	return nil
+	return 0
 }
 
 func (x *ListTopicsResponse) SetTopics(v []*TopicInfo) {
 	x.xxx_hidden_Topics = &v
 }
 
-func (x *ListTopicsResponse) SetTotalCount(v int32) {
-	x.xxx_hidden_TotalCount = v
-	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 1, 5)
-}
-
 func (x *ListTopicsResponse) SetNextPageToken(v string) {
 	x.xxx_hidden_NextPageToken = &v
-	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 2, 5)
+	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 1, 3)
 }
 
-func (x *ListTopicsResponse) SetHasMore(v bool) {
-	x.xxx_hidden_HasMore = v
-	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 3, 5)
-}
-
-func (x *ListTopicsResponse) SetMetadata(v map[string]string) {
-	x.xxx_hidden_Metadata = v
-}
-
-func (x *ListTopicsResponse) HasTotalCount() bool {
-	if x == nil {
-		return false
-	}
-	return protoimpl.X.Present(&(x.XXX_presence[0]), 1)
+func (x *ListTopicsResponse) SetTotalCount(v int32) {
+	x.xxx_hidden_TotalCount = v
+	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 2, 3)
 }
 
 func (x *ListTopicsResponse) HasNextPageToken() bool {
 	if x == nil {
 		return false
 	}
-	return protoimpl.X.Present(&(x.XXX_presence[0]), 2)
+	return protoimpl.X.Present(&(x.XXX_presence[0]), 1)
 }
 
-func (x *ListTopicsResponse) HasHasMore() bool {
+func (x *ListTopicsResponse) HasTotalCount() bool {
 	if x == nil {
 		return false
 	}
-	return protoimpl.X.Present(&(x.XXX_presence[0]), 3)
-}
-
-func (x *ListTopicsResponse) ClearTotalCount() {
-	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 1)
-	x.xxx_hidden_TotalCount = 0
+	return protoimpl.X.Present(&(x.XXX_presence[0]), 2)
 }
 
 func (x *ListTopicsResponse) ClearNextPageToken() {
-	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 2)
+	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 1)
 	x.xxx_hidden_NextPageToken = nil
 }
 
-func (x *ListTopicsResponse) ClearHasMore() {
-	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 3)
-	x.xxx_hidden_HasMore = false
+func (x *ListTopicsResponse) ClearTotalCount() {
+	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 2)
+	x.xxx_hidden_TotalCount = 0
 }
 
 type ListTopicsResponse_builder struct {
@@ -165,14 +126,10 @@ type ListTopicsResponse_builder struct {
 
 	// List of topics
 	Topics []*TopicInfo
-	// Total number of topics available
-	TotalCount *int32
-	// Pagination token for next page
+	// Next page token
 	NextPageToken *string
-	// Whether there are more topics available
-	HasMore *bool
-	// Response metadata
-	Metadata map[string]string
+	// Total count
+	TotalCount *int32
 }
 
 func (b0 ListTopicsResponse_builder) Build() *ListTopicsResponse {
@@ -180,19 +137,14 @@ func (b0 ListTopicsResponse_builder) Build() *ListTopicsResponse {
 	b, x := &b0, m0
 	_, _ = b, x
 	x.xxx_hidden_Topics = &b.Topics
-	if b.TotalCount != nil {
-		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 1, 5)
-		x.xxx_hidden_TotalCount = *b.TotalCount
-	}
 	if b.NextPageToken != nil {
-		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 2, 5)
+		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 1, 3)
 		x.xxx_hidden_NextPageToken = b.NextPageToken
 	}
-	if b.HasMore != nil {
-		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 3, 5)
-		x.xxx_hidden_HasMore = *b.HasMore
+	if b.TotalCount != nil {
+		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 2, 3)
+		x.xxx_hidden_TotalCount = *b.TotalCount
 	}
-	x.xxx_hidden_Metadata = b.Metadata
 	return m0
 }
 
@@ -200,33 +152,26 @@ var File_pkg_queue_proto_list_topics_response_proto protoreflect.FileDescriptor
 
 const file_pkg_queue_proto_list_topics_response_proto_rawDesc = "" +
 	"\n" +
-	"*pkg/queue/proto/list_topics_response.proto\x12\x10gcommon.v1.queue\x1a!google/protobuf/go_features.proto\x1a\x1fgoogle/protobuf/timestamp.proto\x1a pkg/queue/proto/topic_info.proto\x1a!pkg/queue/proto/topic_stats.proto\"\xba\x02\n" +
+	"*pkg/queue/proto/list_topics_response.proto\x12\x10gcommon.v1.queue\x1a!google/protobuf/go_features.proto\x1a pkg/queue/proto/topic_info.proto\"\x92\x01\n" +
 	"\x12ListTopicsResponse\x123\n" +
-	"\x06topics\x18\x01 \x03(\v2\x1b.gcommon.v1.queue.TopicInfoR\x06topics\x12\x1f\n" +
-	"\vtotal_count\x18\x02 \x01(\x05R\n" +
-	"totalCount\x12&\n" +
-	"\x0fnext_page_token\x18\x03 \x01(\tR\rnextPageToken\x12\x19\n" +
-	"\bhas_more\x18\x04 \x01(\bR\ahasMore\x12N\n" +
-	"\bmetadata\x18\x05 \x03(\v22.gcommon.v1.queue.ListTopicsResponse.MetadataEntryR\bmetadata\x1a;\n" +
-	"\rMetadataEntry\x12\x10\n" +
-	"\x03key\x18\x01 \x01(\tR\x03key\x12\x14\n" +
-	"\x05value\x18\x02 \x01(\tR\x05value:\x028\x01B\xc4\x01\n" +
+	"\x06topics\x18\x01 \x03(\v2\x1b.gcommon.v1.queue.TopicInfoR\x06topics\x12&\n" +
+	"\x0fnext_page_token\x18\x02 \x01(\tR\rnextPageToken\x12\x1f\n" +
+	"\vtotal_count\x18\x03 \x01(\x05R\n" +
+	"totalCountB\xc4\x01\n" +
 	"\x14com.gcommon.v1.queueB\x17ListTopicsResponseProtoP\x01Z)github.com/jdfalk/gcommon/pkg/queue/proto\xa2\x02\x03GVQ\xaa\x02\x10Gcommon.V1.Queue\xca\x02\x10Gcommon\\V1\\Queue\xe2\x02\x1cGcommon\\V1\\Queue\\GPBMetadata\xea\x02\x12Gcommon::V1::Queue\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
-var file_pkg_queue_proto_list_topics_response_proto_msgTypes = make([]protoimpl.MessageInfo, 2)
+var file_pkg_queue_proto_list_topics_response_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_pkg_queue_proto_list_topics_response_proto_goTypes = []any{
 	(*ListTopicsResponse)(nil), // 0: gcommon.v1.queue.ListTopicsResponse
-	nil,                        // 1: gcommon.v1.queue.ListTopicsResponse.MetadataEntry
-	(*TopicInfo)(nil),          // 2: gcommon.v1.queue.TopicInfo
+	(*TopicInfo)(nil),          // 1: gcommon.v1.queue.TopicInfo
 }
 var file_pkg_queue_proto_list_topics_response_proto_depIdxs = []int32{
-	2, // 0: gcommon.v1.queue.ListTopicsResponse.topics:type_name -> gcommon.v1.queue.TopicInfo
-	1, // 1: gcommon.v1.queue.ListTopicsResponse.metadata:type_name -> gcommon.v1.queue.ListTopicsResponse.MetadataEntry
-	2, // [2:2] is the sub-list for method output_type
-	2, // [2:2] is the sub-list for method input_type
-	2, // [2:2] is the sub-list for extension type_name
-	2, // [2:2] is the sub-list for extension extendee
-	0, // [0:2] is the sub-list for field type_name
+	1, // 0: gcommon.v1.queue.ListTopicsResponse.topics:type_name -> gcommon.v1.queue.TopicInfo
+	1, // [1:1] is the sub-list for method output_type
+	1, // [1:1] is the sub-list for method input_type
+	1, // [1:1] is the sub-list for extension type_name
+	1, // [1:1] is the sub-list for extension extendee
+	0, // [0:1] is the sub-list for field type_name
 }
 
 func init() { file_pkg_queue_proto_list_topics_response_proto_init() }
@@ -235,14 +180,13 @@ func file_pkg_queue_proto_list_topics_response_proto_init() {
 		return
 	}
 	file_pkg_queue_proto_topic_info_proto_init()
-	file_pkg_queue_proto_topic_stats_proto_init()
 	type x struct{}
 	out := protoimpl.TypeBuilder{
 		File: protoimpl.DescBuilder{
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: unsafe.Slice(unsafe.StringData(file_pkg_queue_proto_list_topics_response_proto_rawDesc), len(file_pkg_queue_proto_list_topics_response_proto_rawDesc)),
 			NumEnums:      0,
-			NumMessages:   2,
+			NumMessages:   1,
 			NumExtensions: 0,
 			NumServices:   0,
 		},

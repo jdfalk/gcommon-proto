@@ -7,7 +7,6 @@
 package proto
 
 import (
-	_ "github.com/jdfalk/gcommon/pkg/common/proto"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/gofeaturespb"
@@ -308,7 +307,7 @@ var File_pkg_queue_proto_export_queue_request_proto protoreflect.FileDescriptor
 
 const file_pkg_queue_proto_export_queue_request_proto_rawDesc = "" +
 	"\n" +
-	"*pkg/queue/proto/export_queue_request.proto\x12\x10gcommon.v1.queue\x1a!google/protobuf/go_features.proto\x1a!pkg/common/proto/time_range.proto\x1a#pkg/queue/proto/export_format.proto\x1a pkg/queue/proto/time_range.proto\"\xc3\x03\n" +
+	"*pkg/queue/proto/export_queue_request.proto\x12\x10gcommon.v1.queue\x1a!google/protobuf/go_features.proto\x1a#pkg/queue/proto/export_format.proto\x1a pkg/queue/proto/time_range.proto\"\xc3\x03\n" +
 	"\x12ExportQueueRequest\x12\x1d\n" +
 	"\n" +
 	"queue_name\x18\x01 \x01(\tR\tqueueName\x12 \n" +
