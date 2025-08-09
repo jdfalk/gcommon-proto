@@ -12,9 +12,8 @@ import "google/protobuf/duration.proto";
 import "google/protobuf/timestamp.proto";
 // Common types
 import "pkg/common/proto/request_metadata.proto";
+
 option go_package = "github.com/jdfalk/gcommon/pkg/queue/proto";
-
-
 
 /**
  * EnqueueRequest adds a message to a queue.

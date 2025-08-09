@@ -9,6 +9,7 @@ package gcommon.v1.queue;
 import "google/protobuf/duration.proto";
 import "pkg/queue/proto/alert_condition.proto";
 import "pkg/queue/proto/alert_severity.proto";
+
 option go_package = "github.com/jdfalk/gcommon/pkg/queue/proto";
 
 /**

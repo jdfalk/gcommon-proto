@@ -15,6 +15,7 @@ import "pkg/db/proto/query_request.proto";
 import "pkg/db/proto/query_response.proto";
 import "pkg/db/proto/query_row_request.proto";
 import "pkg/db/proto/query_row_response.proto";
+
 option go_package = "github.com/jdfalk/gcommon/pkg/db/proto";
 
 /**

@@ -13,6 +13,7 @@ import "pkg/db/proto/commit_transaction_request.proto";
 import "pkg/db/proto/rollback_transaction_request.proto";
 import "pkg/db/proto/transaction_status_request.proto";
 import "pkg/db/proto/transaction_status_response.proto";
+
 option go_package = "github.com/jdfalk/gcommon/pkg/db/proto";
 
 /**

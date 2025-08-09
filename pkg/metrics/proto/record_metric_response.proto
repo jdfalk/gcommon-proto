@@ -7,10 +7,11 @@ edition = "2023";
 
 package gcommon.v1.metrics;
 
-import "pkg/common/proto/error.proto";
 import "google/protobuf/timestamp.proto";
+import "pkg/common/proto/error.proto";
 import "pkg/metrics/proto/recording_stats.proto";
 import "pkg/metrics/proto/validation_result.proto";
+
 option go_package = "github.com/jdfalk/gcommon/pkg/metrics/proto";
 
 /**

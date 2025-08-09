@@ -10,9 +10,8 @@ package gcommon.v1.queue;
 import "google/protobuf/duration.proto";
 // Common types
 import "pkg/common/proto/request_metadata.proto";
+
 option go_package = "github.com/jdfalk/gcommon/pkg/queue/proto";
-
-
 
 /**
  * DequeueRequest retrieves one or more messages from a queue.

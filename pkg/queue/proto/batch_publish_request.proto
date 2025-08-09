@@ -8,6 +8,7 @@ package gcommon.v1.queue;
 
 import "pkg/common/proto/request_metadata.proto";
 import "pkg/queue/proto/queue_message.proto";
+
 option go_package = "github.com/jdfalk/gcommon/pkg/queue/proto";
 
 /**

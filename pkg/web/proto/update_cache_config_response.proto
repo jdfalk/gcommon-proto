@@ -8,10 +8,8 @@ package gcommon.v1.web;
 
 import "google/protobuf/go_features.proto";
 import "pkg/common/proto/request_metadata.proto";
+
 option go_package = "github.com/jdfalk/gcommon/pkg/web/proto";
-
-
-
 
 message UpdateCacheConfigResponse {
   // Whether the update was successful

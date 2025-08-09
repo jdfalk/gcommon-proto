@@ -14,6 +14,7 @@ import "pkg/db/proto/revert_migration_request.proto";
 import "pkg/db/proto/revert_migration_response.proto";
 import "pkg/db/proto/run_migration_request.proto";
 import "pkg/db/proto/run_migration_response.proto";
+
 option go_package = "github.com/jdfalk/gcommon/pkg/db/proto";
 
 /**

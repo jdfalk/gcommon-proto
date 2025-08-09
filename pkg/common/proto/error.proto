@@ -5,6 +5,7 @@ package gcommon.v1.common;
 
 import "google/protobuf/timestamp.proto";
 import "pkg/common/proto/error_code.proto";
+
 option go_package = "github.com/jdfalk/gcommon/pkg/common/proto";
 
 /**

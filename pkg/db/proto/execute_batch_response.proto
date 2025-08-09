@@ -6,6 +6,7 @@ package gcommon.v1.database;
 import "pkg/common/proto/error.proto";
 import "pkg/db/proto/batch_operation_result.proto";
 import "pkg/db/proto/batch_stats.proto";
+
 option go_package = "github.com/jdfalk/gcommon/pkg/db/proto";
 
 /**

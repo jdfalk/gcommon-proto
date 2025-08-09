@@ -9,6 +9,7 @@ package gcommon.v1.config;
 import "google/protobuf/timestamp.proto";
 import "pkg/common/proto/audit_log.proto";
 import "pkg/config/proto/version_quality_issue.proto";
+
 option go_package = "github.com/jdfalk/gcommon/pkg/config/proto";
 
 message VersionQualityMetrics {

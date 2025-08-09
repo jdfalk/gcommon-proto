@@ -8,8 +8,8 @@ package gcommon.v1.auth;
 
 import "google/protobuf/timestamp.proto";
 import "pkg/auth/proto/scope_type.proto";
-option go_package = "github.com/jdfalk/gcommon/pkg/auth/proto";
 
+option go_package = "github.com/jdfalk/gcommon/pkg/auth/proto";
 
 /**
  * Permission represents a specific action that can be granted

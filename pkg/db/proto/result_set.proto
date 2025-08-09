@@ -5,6 +5,7 @@ package gcommon.v1.database;
 
 import "pkg/db/proto/column_metadata.proto";
 import "pkg/db/proto/row.proto";
+
 option go_package = "github.com/jdfalk/gcommon/pkg/db/proto";
 
 /**

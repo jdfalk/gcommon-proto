@@ -7,6 +7,7 @@ edition = "2023";
 package gcommon.v1.queue;
 
 import "pkg/common/proto/error.proto";
+
 option go_package = "github.com/jdfalk/gcommon/pkg/queue/proto";
 
 // SendMessageResponse contains the result of a send operation.

@@ -5,6 +5,7 @@ package gcommon.v1.cache;
 
 import "pkg/common/proto/pagination.proto";
 import "pkg/common/proto/request_metadata.proto";
+
 option go_package = "github.com/jdfalk/gcommon/pkg/cache/proto";
 
 /**

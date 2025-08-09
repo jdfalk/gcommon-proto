@@ -5,6 +5,7 @@ package gcommon.v1.database;
 
 import "google/protobuf/duration.proto";
 import "pkg/db/proto/pool_stats.proto";
+
 option go_package = "github.com/jdfalk/gcommon/pkg/db/proto";
 
 /**

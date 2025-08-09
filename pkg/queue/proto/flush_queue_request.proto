@@ -8,9 +8,8 @@ package gcommon.v1.queue;
 
 import "google/protobuf/timestamp.proto";
 import "pkg/queue/proto/flush_policy.proto";
+
 option go_package = "github.com/jdfalk/gcommon/pkg/queue/proto";
-
-
 
 // FlushQueueRequest forces queue messages to be flushed to persistent storage
 message FlushQueueRequest {

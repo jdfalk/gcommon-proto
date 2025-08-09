@@ -11,6 +11,7 @@ package gcommon.v1.queue;
 
 import "google/protobuf/duration.proto";
 import "pkg/queue/proto/stream_restart_policy.proto";
+
 option go_package = "github.com/jdfalk/gcommon/pkg/queue/proto";
 
 /**

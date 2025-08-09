@@ -8,10 +8,11 @@ edition = "2023";
 
 package gcommon.v1.metrics;
 
-import "pkg/common/proto/time_range.proto";
 import "pkg/common/proto/request_metadata.proto";
+import "pkg/common/proto/time_range.proto";
 import "pkg/metrics/proto/metric_filter.proto";
 import "pkg/metrics/proto/time_range.proto";
+
 option go_package = "github.com/jdfalk/gcommon/pkg/metrics/proto";
 
 message GetMetricsSummaryRequest {

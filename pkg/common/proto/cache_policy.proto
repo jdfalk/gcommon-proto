@@ -6,6 +6,7 @@ package gcommon.v1.common;
 import "google/protobuf/duration.proto";
 import "pkg/common/proto/eviction_policy.proto";
 import "pkg/common/proto/expiration_policy.proto";
+
 option go_package = "github.com/jdfalk/gcommon/pkg/common/proto";
 
 /**

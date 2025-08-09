@@ -8,6 +8,7 @@ package gcommon.v1.metrics;
 
 import "pkg/common/proto/request_metadata.proto";
 import "pkg/metrics/proto/metric_query.proto";
+
 option go_package = "github.com/jdfalk/gcommon/pkg/metrics/proto";
 
 message QueryMetricsRequest {

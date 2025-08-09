@@ -5,6 +5,7 @@ package gcommon.v1.common;
 
 import "pkg/common/proto/filter_value.proto";
 import "pkg/common/proto/time_range.proto";
+
 option go_package = "github.com/jdfalk/gcommon/pkg/common/proto";
 
 /**

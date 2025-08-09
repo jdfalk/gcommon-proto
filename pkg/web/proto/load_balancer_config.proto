@@ -8,6 +8,7 @@ package gcommon.v1.web;
 
 import "google/protobuf/duration.proto";
 import "pkg/web/proto/load_balance_strategy.proto";
+
 option go_package = "github.com/jdfalk/gcommon/pkg/web/proto";
 
 // LoadBalancerConfig message definition.

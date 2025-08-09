@@ -5,25 +5,20 @@
 edition = "2023";
 
 package gcommon.v1.metrics;
+
 import "pkg/metrics/proto/open_telemetry_settings_update.proto";
-
 import "pkg/metrics/proto/prometheus_settings_update.proto";
-
 import "pkg/metrics/proto/stats_dsettings_update.proto";
-
 
 option go_package = "github.com/jdfalk/gcommon/pkg/metrics/proto";
 
 message ProviderSettingsUpdate {
   // Prometheus settings update
   PrometheusSettingsUpdate prometheus = 1;
-  
+
   // OpenTelemetry settings update
   OpenTelemetrySettingsUpdate opentelemetry = 2;
-  
+
   // StatsD settings update
   StatsDSettingsUpdate statsd = 3;
 }
-
-
-

@@ -5,6 +5,7 @@ package gcommon.v1.common;
 
 import "google/protobuf/duration.proto";
 import "pkg/common/proto/ack_mode.proto";
+
 option go_package = "github.com/jdfalk/gcommon/pkg/common/proto";
 
 /**

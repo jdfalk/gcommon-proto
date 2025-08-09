@@ -17,6 +17,7 @@ import "pkg/health/proto/unregister_check_request.proto";
 import "pkg/health/proto/unregister_check_response.proto";
 import "pkg/health/proto/watch_request.proto";
 import "pkg/health/proto/watch_response.proto";
+
 option go_package = "github.com/jdfalk/gcommon/pkg/health/proto";
 
 /**

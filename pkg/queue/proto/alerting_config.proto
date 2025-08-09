@@ -8,8 +8,9 @@ package gcommon.v1.queue;
 
 import "google/protobuf/duration.proto";
 import "pkg/queue/proto/alert_rule.proto";
-import "pkg/queue/proto/notification_channel.proto";
 import "pkg/queue/proto/alert_severity.proto";
+import "pkg/queue/proto/notification_channel.proto";
+
 option go_package = "github.com/jdfalk/gcommon/pkg/queue/proto";
 
 /**

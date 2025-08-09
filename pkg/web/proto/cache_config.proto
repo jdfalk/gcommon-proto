@@ -5,11 +5,11 @@
 edition = "2023";
 
 package gcommon.v1.web;
-import "pkg/web/proto/cache_strategy.proto";
-
 
 import "google/protobuf/duration.proto";
 import "pkg/common/proto/cache_policy.proto";
+import "pkg/web/proto/cache_strategy.proto";
+
 option go_package = "github.com/jdfalk/gcommon/pkg/web/proto";
 
 // CacheConfig defines caching behavior for web responses.

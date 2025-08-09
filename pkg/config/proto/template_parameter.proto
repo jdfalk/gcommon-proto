@@ -5,11 +5,11 @@
 edition = "2023";
 
 package gcommon.v1.config;
-import "pkg/config/proto/parameter_constraints.proto";
 
-
-import "pkg/config/proto/parameter_type.proto";
 import "google/protobuf/timestamp.proto";
+import "pkg/config/proto/parameter_constraints.proto";
+import "pkg/config/proto/parameter_type.proto";
+
 option go_package = "github.com/jdfalk/gcommon/pkg/config/proto";
 
 message TemplateParameter {

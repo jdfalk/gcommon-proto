@@ -7,10 +7,10 @@
 edition = "2023";
 
 package gcommon.v1.web;
-import "pkg/web/proto/middleware_config.proto";
-
 
 import "pkg/common/proto/request_metadata.proto";
+import "pkg/web/proto/middleware_config.proto";
+
 option go_package = "github.com/jdfalk/gcommon/pkg/web/proto";
 
 message UpdateMiddlewareConfigRequest {

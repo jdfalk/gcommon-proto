@@ -11,9 +11,10 @@ edition = "2023";
 
 package gcommon.v1.queue;
 
+import "pkg/common/proto/request_metadata.proto";
 import "pkg/queue/proto/delivery_options.proto";
 import "pkg/queue/proto/queue_message.proto";
-import "pkg/common/proto/request_metadata.proto";
+
 option go_package = "github.com/jdfalk/gcommon/pkg/queue/proto";
 
 message PublishRequest {

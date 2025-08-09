@@ -6,9 +6,10 @@ edition = "2023";
 
 package gcommon.v1.queue;
 
-import "pkg/queue/proto/queue_message.proto";
-import "pkg/queue/proto/partition_offset.proto";
 import "pkg/queue/proto/connection_details.proto";
+import "pkg/queue/proto/partition_offset.proto";
+import "pkg/queue/proto/queue_message.proto";
+
 option go_package = "github.com/jdfalk/gcommon/pkg/queue/proto";
 
 // Response for subscription requests

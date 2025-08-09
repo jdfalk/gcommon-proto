@@ -18,6 +18,7 @@ import "pkg/notification/proto/send_notification_request.proto";
 import "pkg/notification/proto/send_notification_response.proto";
 import "pkg/notification/proto/update_preferences_request.proto";
 import "pkg/notification/proto/update_preferences_response.proto";
+
 option go_package = "github.com/jdfalk/gcommon/pkg/notification/proto";
 
 /**

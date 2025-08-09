@@ -5,10 +5,10 @@
 edition = "2023";
 
 package gcommon.v1.notification;
-import "pkg/notification/proto/notification_message.proto";
-
 
 import "pkg/common/proto/request_metadata.proto";
+import "pkg/notification/proto/notification_message.proto";
+
 option go_package = "github.com/jdfalk/gcommon/pkg/notification/proto";
 
 message SendNotificationRequest {

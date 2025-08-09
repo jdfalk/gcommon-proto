@@ -6,11 +6,10 @@ edition = "2023";
 
 package gcommon.v1.queue;
 
-import "pkg/queue/proto/durability_level.proto";
 import "pkg/queue/proto/ack_level.proto";
+import "pkg/queue/proto/durability_level.proto";
+
 option go_package = "github.com/jdfalk/gcommon/pkg/queue/proto";
-
-
 
 // ConsistencyConfig configures data consistency and messaging guarantees
 message ConsistencyConfig {
@@ -63,9 +62,9 @@ message ReplicationConsistency {
 // Replication consistency level
 enum ReplicationLevel {
   REPLICATION_LEVEL_UNSPECIFIED = 0;
-  REPLICATION_LEVEL_ONE = 1;         // At least one replica
-  REPLICATION_LEVEL_QUORUM = 2;      // Majority of replicas
-  REPLICATION_LEVEL_ALL = 3;         // All replicas
+  REPLICATION_LEVEL_ONE = 1; // At least one replica
+  REPLICATION_LEVEL_QUORUM = 2; // Majority of replicas
+  REPLICATION_LEVEL_ALL = 3; // All replicas
 }
 
 // Read consistency configuration
@@ -92,10 +91,10 @@ message ReadConsistency {
 // Read consistency level
 enum ReadLevel {
   READ_LEVEL_UNSPECIFIED = 0;
-  READ_LEVEL_EVENTUAL = 1;           // Eventually consistent reads
-  READ_LEVEL_STRONG = 2;             // Strongly consistent reads
-  READ_LEVEL_BOUNDED_STALENESS = 3;  // Bounded staleness reads
-  READ_LEVEL_SESSION = 4;            // Session consistency
+  READ_LEVEL_EVENTUAL = 1; // Eventually consistent reads
+  READ_LEVEL_STRONG = 2; // Strongly consistent reads
+  READ_LEVEL_BOUNDED_STALENESS = 3; // Bounded staleness reads
+  READ_LEVEL_SESSION = 4; // Session consistency
 }
 
 // Write consistency configuration
@@ -119,10 +118,10 @@ message WriteConsistency {
 // Write consistency level
 enum WriteLevel {
   WRITE_LEVEL_UNSPECIFIED = 0;
-  WRITE_LEVEL_ASYNC = 1;             // Asynchronous writes
-  WRITE_LEVEL_SYNC_ONE = 2;          // Synchronous to one replica
-  WRITE_LEVEL_SYNC_QUORUM = 3;       // Synchronous to quorum
-  WRITE_LEVEL_SYNC_ALL = 4;          // Synchronous to all replicas
+  WRITE_LEVEL_ASYNC = 1; // Asynchronous writes
+  WRITE_LEVEL_SYNC_ONE = 2; // Synchronous to one replica
+  WRITE_LEVEL_SYNC_QUORUM = 3; // Synchronous to quorum
+  WRITE_LEVEL_SYNC_ALL = 4; // Synchronous to all replicas
 }
 
 // Synchronous replication configuration
@@ -158,9 +157,9 @@ message ConflictDetection {
 // Conflict detection strategy
 enum ConflictStrategy {
   CONFLICT_STRATEGY_UNSPECIFIED = 0;
-  CONFLICT_STRATEGY_TIMESTAMP = 1;    // Timestamp-based detection
+  CONFLICT_STRATEGY_TIMESTAMP = 1; // Timestamp-based detection
   CONFLICT_STRATEGY_VECTOR_CLOCK = 2; // Vector clock-based detection
-  CONFLICT_STRATEGY_CAUSAL = 3;       // Causal consistency detection
+  CONFLICT_STRATEGY_CAUSAL = 3; // Causal consistency detection
 }
 
 // Vector clock configuration
@@ -208,9 +207,9 @@ message OrderingConfig {
 // Ordering guarantee level
 enum OrderingLevel {
   ORDERING_LEVEL_UNSPECIFIED = 0;
-  ORDERING_LEVEL_NONE = 1;           // No ordering guarantees
-  ORDERING_LEVEL_PARTIAL = 2;        // Partial ordering
-  ORDERING_LEVEL_TOTAL = 3;          // Total ordering
+  ORDERING_LEVEL_NONE = 1; // No ordering guarantees
+  ORDERING_LEVEL_PARTIAL = 2; // Partial ordering
+  ORDERING_LEVEL_TOTAL = 3; // Total ordering
 }
 
 // Conflict resolution configuration
@@ -231,11 +230,11 @@ message ConflictResolution {
 // Conflict resolution strategy
 enum ResolutionStrategy {
   RESOLUTION_STRATEGY_UNSPECIFIED = 0;
-  RESOLUTION_STRATEGY_LAST_WRITER_WINS = 1;  // Last writer wins
+  RESOLUTION_STRATEGY_LAST_WRITER_WINS = 1; // Last writer wins
   RESOLUTION_STRATEGY_FIRST_WRITER_WINS = 2; // First writer wins
-  RESOLUTION_STRATEGY_MERGE = 3;             // Automatic merge
-  RESOLUTION_STRATEGY_CUSTOM = 4;            // Custom resolution function
-  RESOLUTION_STRATEGY_MULTI_VALUE = 5;       // Keep all conflicting values
+  RESOLUTION_STRATEGY_MERGE = 3; // Automatic merge
+  RESOLUTION_STRATEGY_CUSTOM = 4; // Custom resolution function
+  RESOLUTION_STRATEGY_MULTI_VALUE = 5; // Keep all conflicting values
 }
 
 // Custom conflict resolution configuration

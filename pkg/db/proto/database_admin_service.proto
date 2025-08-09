@@ -16,6 +16,7 @@ import "pkg/db/proto/list_databases_request.proto";
 import "pkg/db/proto/list_databases_response.proto";
 import "pkg/db/proto/list_schemas_request.proto";
 import "pkg/db/proto/list_schemas_response.proto";
+
 option go_package = "github.com/jdfalk/gcommon/pkg/db/proto";
 
 /**

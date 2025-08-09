@@ -9,6 +9,7 @@ package gcommon.v1.auth;
 import "google/protobuf/timestamp.proto";
 import "pkg/common/proto/request_metadata.proto";
 import "pkg/common/proto/response_metadata.proto";
+
 option go_package = "github.com/jdfalk/gcommon/pkg/auth/proto";
 
 /**

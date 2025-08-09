@@ -6,9 +6,10 @@ edition = "2023";
 
 package gcommon.v1.organization;
 
-import "pkg/common/proto/key_value.proto";
 import "google/protobuf/timestamp.proto";
+import "pkg/common/proto/key_value.proto";
 import "pkg/organization/proto/organization_status.proto";
+
 option go_package = "github.com/jdfalk/gcommon/pkg/organization/proto";
 
 /**

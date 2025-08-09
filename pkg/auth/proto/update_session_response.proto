@@ -6,8 +6,9 @@ edition = "2023";
 
 package gcommon.v1.auth;
 
-import "pkg/common/proto/response_metadata.proto";
 import "pkg/auth/proto/session_info.proto";
+import "pkg/common/proto/response_metadata.proto";
+
 option go_package = "github.com/jdfalk/gcommon/pkg/auth/proto";
 
 /**

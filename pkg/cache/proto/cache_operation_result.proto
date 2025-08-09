@@ -6,8 +6,9 @@ edition = "2023";
 
 package gcommon.v1.cache;
 
-import "pkg/common/proto/error.proto";
 import "google/protobuf/timestamp.proto";
+import "pkg/common/proto/error.proto";
+
 option go_package = "github.com/jdfalk/gcommon/pkg/cache/proto";
 
 /**

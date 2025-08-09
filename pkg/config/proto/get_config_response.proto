@@ -5,6 +5,7 @@ package gcommon.v1.config;
 
 import "pkg/common/proto/error.proto";
 import "pkg/config/proto/config_entry.proto";
+
 option go_package = "github.com/jdfalk/gcommon/pkg/config/proto";
 
 /**

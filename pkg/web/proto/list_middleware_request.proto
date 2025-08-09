@@ -9,6 +9,7 @@ package gcommon.v1.web;
 import "pkg/common/proto/pagination.proto";
 import "pkg/common/proto/request_metadata.proto";
 import "pkg/web/proto/middleware_type.proto";
+
 option go_package = "github.com/jdfalk/gcommon/pkg/web/proto";
 
 // ListMiddlewareRequest request definition.

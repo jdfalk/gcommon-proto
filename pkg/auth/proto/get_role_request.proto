@@ -6,10 +6,10 @@ edition = "2023";
 
 package gcommon.v1.auth;
 
-import "pkg/common/proto/request_metadata.proto";
 import "pkg/auth/proto/role.proto";
-option go_package = "github.com/jdfalk/gcommon/pkg/auth/proto";
+import "pkg/common/proto/request_metadata.proto";
 
+option go_package = "github.com/jdfalk/gcommon/pkg/auth/proto";
 
 /**
  * Request to retrieve details about a specific role.

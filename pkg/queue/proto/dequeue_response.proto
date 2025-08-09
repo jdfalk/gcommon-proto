@@ -13,9 +13,8 @@ import "pkg/common/proto/error.proto";
 import "pkg/common/proto/request_metadata.proto";
 // Queue message types
 import "pkg/queue/proto/queue_message.proto";
+
 option go_package = "github.com/jdfalk/gcommon/pkg/queue/proto";
-
-
 
 /**
  * DequeueResponse returns messages retrieved from a queue.

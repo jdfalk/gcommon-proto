@@ -3,7 +3,6 @@ edition = "2023";
 
 package gcommon.v1.auth;
 
-import "pkg/auth/proto/session.proto";
 import "pkg/auth/proto/create_session_request.proto";
 import "pkg/auth/proto/create_session_response.proto";
 import "pkg/auth/proto/delete_session_request.proto";
@@ -14,13 +13,16 @@ import "pkg/auth/proto/list_sessions_request.proto";
 import "pkg/auth/proto/list_sessions_response.proto";
 import "pkg/auth/proto/list_user_sessions_request.proto";
 import "pkg/auth/proto/list_user_sessions_response.proto";
+import "pkg/auth/proto/session.proto";
 import "pkg/auth/proto/terminate_session_request.proto";
 import "pkg/auth/proto/terminate_session_response.proto";
 import "pkg/auth/proto/update_session_request.proto";
 import "pkg/auth/proto/update_session_response.proto";
 import "pkg/auth/proto/validate_session_request.proto";
 import "pkg/auth/proto/validate_session_response.proto";
+
 option go_package = "github.com/jdfalk/gcommon/pkg/auth/proto";
+
 /**
  * SessionService manages user sessions and session lifecycle.
  * Provides session creation, validation, tracking, and termination

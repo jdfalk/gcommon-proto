@@ -10,9 +10,8 @@ import "google/protobuf/timestamp.proto";
 import "pkg/queue/proto/restore_config.proto";
 import "pkg/queue/proto/restore_queue_response.proto";
 import "pkg/queue/proto/time_range.proto";
+
 option go_package = "github.com/jdfalk/gcommon/pkg/queue/proto";
-
-
 
 // RestoreQueueRequest initiates restoration of a queue from backup
 message RestoreQueueRequest {

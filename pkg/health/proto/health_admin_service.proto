@@ -19,6 +19,7 @@ import "pkg/health/proto/run_check_request.proto";
 import "pkg/health/proto/run_check_response.proto";
 import "pkg/health/proto/set_health_request.proto";
 import "pkg/health/proto/set_health_response.proto";
+
 option go_package = "github.com/jdfalk/gcommon/pkg/health/proto";
 
 /**

@@ -10,8 +10,9 @@ edition = "2023";
 package gcommon.v1.queue;
 
 import "google/protobuf/duration.proto";
-import "pkg/queue/proto/retention_policy.proto";
 import "pkg/queue/proto/partition_config.proto";
+import "pkg/queue/proto/retention_policy.proto";
+
 option go_package = "github.com/jdfalk/gcommon/pkg/queue/proto";
 
 /**

@@ -7,9 +7,8 @@ edition = "2023";
 package gcommon.v1.common;
 
 import "pkg/common/proto/sort_direction.proto";
+
 option go_package = "github.com/jdfalk/gcommon/pkg/common/proto";
-
-
 
 /**
  * Sort options for configuring list sorting.

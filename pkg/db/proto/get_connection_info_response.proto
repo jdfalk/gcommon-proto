@@ -5,6 +5,7 @@ package gcommon.v1.database;
 
 import "pkg/db/proto/connection_pool_info.proto";
 import "pkg/db/proto/database_info.proto";
+
 option go_package = "github.com/jdfalk/gcommon/pkg/db/proto";
 
 /**

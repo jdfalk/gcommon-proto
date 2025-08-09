@@ -6,8 +6,9 @@ edition = "2023";
 
 package gcommon.v1.metrics;
 
-import "pkg/metrics/proto/batch_priority.proto";
 import "google/protobuf/timestamp.proto";
+import "pkg/metrics/proto/batch_priority.proto";
+
 option go_package = "github.com/jdfalk/gcommon/pkg/metrics/proto";
 
 /**

@@ -5,10 +5,10 @@
 edition = "2023";
 
 package gcommon.v1.notification;
-import "pkg/notification/proto/subscription_preferences.proto";
-
 
 import "pkg/common/proto/response_metadata.proto";
+import "pkg/notification/proto/subscription_preferences.proto";
+
 option go_package = "github.com/jdfalk/gcommon/pkg/notification/proto";
 
 /**

@@ -8,10 +8,10 @@
 edition = "2023";
 
 package gcommon.v1.queue;
-import "pkg/queue/proto/queue_info.proto";
-
 
 import "pkg/common/proto/response_metadata.proto";
+import "pkg/queue/proto/queue_info.proto";
+
 option go_package = "github.com/jdfalk/gcommon/pkg/queue/proto";
 
 message ListQueuesResponse {

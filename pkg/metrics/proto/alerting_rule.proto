@@ -11,19 +11,19 @@ option go_package = "github.com/jdfalk/gcommon/pkg/metrics/proto";
 message AlertingRule {
   // Rule ID
   string id = 1;
-  
+
   // Rule name
   string name = 2;
-  
+
   // Query expression
   string query = 3;
-  
+
   // Alert condition
   string condition = 4;
-  
+
   // Threshold value
   double threshold = 5;
-  
+
   // Rule enabled status
   bool enabled = 6;
 }

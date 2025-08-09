@@ -8,6 +8,7 @@ package gcommon.v1.media;
 
 import "pkg/media/proto/quality_score.proto";
 import "pkg/media/proto/resolution.proto";
+
 option go_package = "github.com/jdfalk/gcommon/pkg/media/proto";
 
 // Media quality assessment.

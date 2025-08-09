@@ -6,6 +6,7 @@ package gcommon.v1.config;
 import "google/protobuf/timestamp.proto";
 import "pkg/common/proto/config_value.proto";
 import "pkg/common/proto/resource_status.proto";
+
 option go_package = "github.com/jdfalk/gcommon/pkg/config/proto";
 
 /**

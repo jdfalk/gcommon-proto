@@ -11,13 +11,13 @@ option go_package = "github.com/jdfalk/gcommon/pkg/metrics/proto";
 message ExportConfig {
   // Export enabled status
   bool enabled = 1;
-  
+
   // Export interval in seconds
   int32 interval_seconds = 2;
-  
+
   // Export destinations
   repeated string destinations = 3;
-  
+
   // Export format
   string format = 4;
 }

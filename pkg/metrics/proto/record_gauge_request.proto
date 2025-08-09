@@ -7,8 +7,9 @@ edition = "2023";
 package gcommon.v1.metrics;
 
 import "google/protobuf/timestamp.proto";
-import "pkg/metrics/proto/gauge_operation.proto";
 import "pkg/common/proto/request_metadata.proto";
+import "pkg/metrics/proto/gauge_operation.proto";
+
 option go_package = "github.com/jdfalk/gcommon/pkg/metrics/proto";
 
 /**

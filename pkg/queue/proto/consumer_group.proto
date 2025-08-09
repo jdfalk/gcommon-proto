@@ -5,16 +5,14 @@
 edition = "2023";
 
 package gcommon.v1.queue;
-import "pkg/queue/proto/consumer_stats.proto";
-
 
 import "google/protobuf/timestamp.proto";
+import "pkg/queue/proto/consumer_state.proto";
+import "pkg/queue/proto/consumer_stats.proto";
 import "pkg/queue/proto/load_balancing_strategy.proto";
 import "pkg/queue/proto/subscribe_request.proto";
-import "pkg/queue/proto/consumer_state.proto";
+
 option go_package = "github.com/jdfalk/gcommon/pkg/queue/proto";
-
-
 
 // ConsumerGroup represents a group of consumers that coordinate message consumption
 message ConsumerGroup {
@@ -91,9 +89,9 @@ message ConsumerGroupConfig {
 // Rebalance strategy for consumer group changes
 enum RebalanceStrategy {
   REBALANCE_STRATEGY_UNSPECIFIED = 0;
-  REBALANCE_STRATEGY_EAGER = 1;               // Stop all consumers, then reassign
-  REBALANCE_STRATEGY_COOPERATIVE = 2;         // Incremental cooperative rebalancing
-  REBALANCE_STRATEGY_STATIC = 3;              // Static assignment (no rebalancing)
+  REBALANCE_STRATEGY_EAGER = 1; // Stop all consumers, then reassign
+  REBALANCE_STRATEGY_COOPERATIVE = 2; // Incremental cooperative rebalancing
+  REBALANCE_STRATEGY_STATIC = 3; // Static assignment (no rebalancing)
 }
 
 // Auto-commit configuration
@@ -114,10 +112,10 @@ message AutoCommitConfig {
 // Offset reset strategy for new consumers
 enum OffsetResetStrategy {
   OFFSET_RESET_STRATEGY_UNSPECIFIED = 0;
-  OFFSET_RESET_STRATEGY_EARLIEST = 1;         // Start from earliest available offset
-  OFFSET_RESET_STRATEGY_LATEST = 2;           // Start from latest offset
-  OFFSET_RESET_STRATEGY_NONE = 3;             // Fail if no committed offset
-  OFFSET_RESET_STRATEGY_TIMESTAMP = 4;        // Start from specific timestamp
+  OFFSET_RESET_STRATEGY_EARLIEST = 1; // Start from earliest available offset
+  OFFSET_RESET_STRATEGY_LATEST = 2; // Start from latest offset
+  OFFSET_RESET_STRATEGY_NONE = 3; // Fail if no committed offset
+  OFFSET_RESET_STRATEGY_TIMESTAMP = 4; // Start from specific timestamp
 }
 
 // Retry delay configuration
@@ -138,11 +136,11 @@ message RetryDelayConfig {
 // Consumer group state
 enum ConsumerGroupState {
   CONSUMER_GROUP_STATE_UNSPECIFIED = 0;
-  CONSUMER_GROUP_STATE_STABLE = 1;            // Group is stable with assigned partitions
+  CONSUMER_GROUP_STATE_STABLE = 1; // Group is stable with assigned partitions
   CONSUMER_GROUP_STATE_PREPARING_REBALANCE = 2; // Preparing for rebalance
   CONSUMER_GROUP_STATE_COMPLETING_REBALANCE = 3; // Completing rebalance operation
-  CONSUMER_GROUP_STATE_DEAD = 4;              // Group has no active consumers
-  CONSUMER_GROUP_STATE_EMPTY = 5;             // Group exists but no consumers
+  CONSUMER_GROUP_STATE_DEAD = 4; // Group has no active consumers
+  CONSUMER_GROUP_STATE_EMPTY = 5; // Group exists but no consumers
 }
 
 // Individual consumer in the group
@@ -258,9 +256,9 @@ message GroupCoordinator {
 // Coordinator state
 enum CoordinatorState {
   COORDINATOR_STATE_UNSPECIFIED = 0;
-  COORDINATOR_STATE_ACTIVE = 1;               // Coordinator is active
-  COORDINATOR_STATE_LOADING = 2;              // Coordinator is loading metadata
-  COORDINATOR_STATE_NOT_COORDINATOR = 3;      // Node is not the coordinator
+  COORDINATOR_STATE_ACTIVE = 1; // Coordinator is active
+  COORDINATOR_STATE_LOADING = 2; // Coordinator is loading metadata
+  COORDINATOR_STATE_NOT_COORDINATOR = 3; // Node is not the coordinator
 }
 
 // Consumer group statistics

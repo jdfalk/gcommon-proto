@@ -12,6 +12,7 @@ package gcommon.v1.queue;
 import "pkg/common/proto/time_range.proto";
 import "pkg/queue/proto/export_format.proto";
 import "pkg/queue/proto/time_range.proto";
+
 option go_package = "github.com/jdfalk/gcommon/pkg/queue/proto";
 
 /**

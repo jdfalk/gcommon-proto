@@ -6,10 +6,9 @@ edition = "2023";
 
 package gcommon.v1.queue;
 
-
 import "pkg/queue/proto/topic_config.proto";
-option go_package = "github.com/jdfalk/gcommon/pkg/queue/proto";
 
+option go_package = "github.com/jdfalk/gcommon/pkg/queue/proto";
 
 // Request to update topic configuration
 message UpdateTopicConfigRequest {

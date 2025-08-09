@@ -7,6 +7,7 @@ edition = "2023";
 package gcommon.v1.queue;
 
 import "google/protobuf/duration.proto";
+
 option go_package = "github.com/jdfalk/gcommon/pkg/queue/proto";
 
 // BackupConfig defines how queued messages should be backed up

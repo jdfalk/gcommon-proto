@@ -5,6 +5,7 @@ package gcommon.v1.cache;
 
 import "google/protobuf/duration.proto";
 import "pkg/common/proto/request_metadata.proto";
+
 option go_package = "github.com/jdfalk/gcommon/pkg/cache/proto";
 
 /**

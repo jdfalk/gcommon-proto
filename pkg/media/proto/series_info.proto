@@ -7,6 +7,7 @@ edition = "2023";
 package gcommon.v1.media;
 
 import "google/protobuf/timestamp.proto";
+
 option go_package = "github.com/jdfalk/gcommon/pkg/media/proto";
 
 // TV series specific information.

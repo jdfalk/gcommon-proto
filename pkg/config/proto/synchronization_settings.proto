@@ -6,11 +6,12 @@ edition = "2023";
 
 package gcommon.v1.config;
 
+import "google/protobuf/any.proto";
+import "google/protobuf/timestamp.proto";
 import "pkg/config/proto/conflict_resolution.proto";
 import "pkg/config/proto/synchronization_frequency.proto";
 import "pkg/config/proto/synchronization_target.proto";
-import "google/protobuf/any.proto";
-import "google/protobuf/timestamp.proto";
+
 option go_package = "github.com/jdfalk/gcommon/pkg/config/proto";
 
 message SynchronizationSettings {

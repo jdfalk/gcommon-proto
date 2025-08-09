@@ -13,7 +13,7 @@ option go_package = "github.com/jdfalk/gcommon/pkg/metrics/proto";
 message TimestampRange {
   // Start timestamp
   google.protobuf.Timestamp start = 1;
-  
+
   // End timestamp
   google.protobuf.Timestamp end = 2;
 }

@@ -8,6 +8,7 @@ package gcommon.v1.auth;
 
 import "pkg/auth/proto/role.proto";
 import "pkg/common/proto/request_metadata.proto";
+
 option go_package = "github.com/jdfalk/gcommon/pkg/auth/proto";
 
 /**

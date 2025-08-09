@@ -8,6 +8,7 @@ package gcommon.v1.log;
 
 import "pkg/log/proto/appender_type.proto";
 import "pkg/log/proto/formatter_type.proto";
+
 option go_package = "github.com/jdfalk/gcommon/pkg/log/proto";
 
 // AppenderConfig describes how logs are output

@@ -8,6 +8,7 @@ import "pkg/common/proto/filter_options.proto";
 import "pkg/common/proto/pagination.proto";
 import "pkg/common/proto/request_metadata.proto";
 import "pkg/common/proto/sort.proto";
+
 option go_package = "github.com/jdfalk/gcommon/pkg/auth/proto";
 
 /**

@@ -6,9 +6,8 @@ edition = "2023";
 
 package gcommon.v1.metrics;
 
-
-
 option go_package = "github.com/jdfalk/gcommon/pkg/metrics/proto";
+
 // AlertChannelType represents different types of alert channels
 enum AlertChannelType {
   // Unspecified alert channel type

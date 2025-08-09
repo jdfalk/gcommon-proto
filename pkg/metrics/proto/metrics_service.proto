@@ -6,25 +6,26 @@ edition = "2023";
 
 package gcommon.v1.metrics;
 
-import "pkg/metrics/proto/metric_data.proto";
-import "pkg/metrics/proto/record_metric_request.proto";
-import "pkg/metrics/proto/record_metrics_request.proto";
-import "pkg/metrics/proto/get_metrics_request.proto";
-import "pkg/metrics/proto/stream_metrics_request.proto";
-import "pkg/metrics/proto/register_metric_request.proto";
-import "pkg/metrics/proto/unregister_metric_request.proto";
 import "pkg/metrics/proto/get_metric_metadata_request.proto";
-import "pkg/metrics/proto/query_metrics_request.proto";
+import "pkg/metrics/proto/get_metric_metadata_response.proto";
+import "pkg/metrics/proto/get_metrics_request.proto";
+import "pkg/metrics/proto/get_metrics_response.proto";
 import "pkg/metrics/proto/get_metrics_summary_request.proto";
+import "pkg/metrics/proto/get_metrics_summary_response.proto";
+import "pkg/metrics/proto/metric_data.proto";
+import "pkg/metrics/proto/query_metrics_request.proto";
+import "pkg/metrics/proto/query_metrics_response.proto";
+import "pkg/metrics/proto/record_metric_request.proto";
 // Import response messages
 import "pkg/metrics/proto/record_metric_response.proto";
+import "pkg/metrics/proto/record_metrics_request.proto";
 import "pkg/metrics/proto/record_metrics_response.proto";
-import "pkg/metrics/proto/get_metric_metadata_response.proto";
-import "pkg/metrics/proto/get_metrics_response.proto";
-import "pkg/metrics/proto/get_metrics_summary_response.proto";
-import "pkg/metrics/proto/query_metrics_response.proto";
+import "pkg/metrics/proto/register_metric_request.proto";
 import "pkg/metrics/proto/register_metric_response.proto";
+import "pkg/metrics/proto/stream_metrics_request.proto";
+import "pkg/metrics/proto/unregister_metric_request.proto";
 import "pkg/metrics/proto/unregister_metric_response.proto";
+
 option go_package = "github.com/jdfalk/gcommon/pkg/metrics/proto";
 
 /**

@@ -8,6 +8,7 @@ package gcommon.v1.queue;
 
 import "google/protobuf/duration.proto";
 import "pkg/queue/proto/retry_delay_strategy.proto";
+
 option go_package = "github.com/jdfalk/gcommon/pkg/queue/proto";
 
 /**

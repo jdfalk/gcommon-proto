@@ -18,6 +18,7 @@ import "pkg/auth/proto/role.proto";
 // import "pkg/auth/proto/list_roles_response.proto";
 // import "pkg/auth/proto/get_system_stats_request.proto";
 option go_package = "github.com/jdfalk/gcommon/pkg/auth/proto";
+
 /**
  * Administrative authentication management operations.
  * Provides user management, role assignment, and system configuration.

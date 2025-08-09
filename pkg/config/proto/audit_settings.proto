@@ -6,8 +6,9 @@ edition = "2023";
 
 package gcommon.v1.config;
 
-import "pkg/config/proto/audit_level.proto";
 import "google/protobuf/timestamp.proto";
+import "pkg/config/proto/audit_level.proto";
+
 option go_package = "github.com/jdfalk/gcommon/pkg/config/proto";
 
 message AuditSettings {

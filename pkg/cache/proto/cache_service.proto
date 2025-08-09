@@ -19,6 +19,7 @@ import "pkg/cache/proto/get_multiple_request.proto";
 import "pkg/cache/proto/get_multiple_response.proto";
 import "pkg/cache/proto/get_request.proto";
 import "pkg/cache/proto/get_response.proto";
+import "pkg/cache/proto/get_stats_response.proto";
 import "pkg/cache/proto/increment_request.proto";
 import "pkg/cache/proto/increment_response.proto";
 import "pkg/cache/proto/keys_request.proto";
@@ -28,9 +29,9 @@ import "pkg/cache/proto/set_multiple_response.proto";
 import "pkg/cache/proto/set_request.proto";
 import "pkg/cache/proto/set_response.proto";
 import "pkg/cache/proto/stats_request.proto";
-import "pkg/cache/proto/get_stats_response.proto";
-import "pkg/cache/proto/ttl_request.proto";
 import "pkg/cache/proto/touch_expiration_response.proto";
+import "pkg/cache/proto/ttl_request.proto";
+
 option go_package = "github.com/jdfalk/gcommon/pkg/cache/proto";
 
 /**

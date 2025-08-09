@@ -3,8 +3,9 @@ edition = "2023";
 
 package gcommon.v1.health;
 
-import "pkg/common/proto/error.proto";
 import "google/protobuf/timestamp.proto";
+import "pkg/common/proto/error.proto";
+
 option go_package = "github.com/jdfalk/gcommon/pkg/health/proto";
 
 /**

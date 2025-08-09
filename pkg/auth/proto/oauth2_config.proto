@@ -8,6 +8,7 @@ package gcommon.v1.auth;
 
 import "pkg/auth/proto/jwt_config.proto";
 import "pkg/auth/proto/oauth2_flow_type.proto";
+
 option go_package = "github.com/jdfalk/gcommon/pkg/auth/proto";
 
 /**

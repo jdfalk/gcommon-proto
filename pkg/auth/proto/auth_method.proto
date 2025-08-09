@@ -6,9 +6,8 @@ edition = "2023";
 
 package gcommon.v1.auth;
 
-
-
 option go_package = "github.com/jdfalk/gcommon/pkg/auth/proto";
+
 /**
  * AuthMethod enumerates the supported authentication mechanisms.
  */

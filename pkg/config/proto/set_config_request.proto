@@ -8,6 +8,7 @@ package gcommon.v1.config;
 
 import "pkg/common/proto/config_value.proto";
 import "pkg/common/proto/request_metadata.proto";
+
 option go_package = "github.com/jdfalk/gcommon/pkg/config/proto";
 
 // Set configuration request

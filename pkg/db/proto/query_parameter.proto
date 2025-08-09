@@ -4,6 +4,7 @@ edition = "2023";
 package gcommon.v1.database;
 
 import "google/protobuf/any.proto";
+
 option go_package = "github.com/jdfalk/gcommon/pkg/db/proto";
 
 /**

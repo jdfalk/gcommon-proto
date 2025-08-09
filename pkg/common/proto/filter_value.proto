@@ -6,6 +6,7 @@ package gcommon.v1.common;
 import "pkg/common/proto/filter_operation.proto";
 import "pkg/common/proto/int64_array.proto";
 import "pkg/common/proto/string_array.proto";
+
 option go_package = "github.com/jdfalk/gcommon/pkg/common/proto";
 
 /**

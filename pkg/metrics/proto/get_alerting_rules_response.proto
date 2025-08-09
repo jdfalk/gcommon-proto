@@ -6,10 +6,10 @@
 edition = "2023";
 
 package gcommon.v1.metrics;
-import "pkg/metrics/proto/alerting_rule.proto";
-
 
 import "pkg/common/proto/error.proto";
+import "pkg/metrics/proto/alerting_rule.proto";
+
 option go_package = "github.com/jdfalk/gcommon/pkg/metrics/proto";
 
 /**

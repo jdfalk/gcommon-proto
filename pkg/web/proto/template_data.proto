@@ -8,6 +8,7 @@ package gcommon.v1.web;
 
 import "google/protobuf/any.proto";
 import "google/protobuf/timestamp.proto";
+
 option go_package = "github.com/jdfalk/gcommon/pkg/web/proto";
 
 // TemplateData message definition.

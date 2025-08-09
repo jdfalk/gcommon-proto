@@ -13,6 +13,7 @@ import "pkg/web/proto/get_cache_config_request.proto";
 import "pkg/web/proto/get_cache_config_response.proto";
 import "pkg/web/proto/update_cache_config_request.proto";
 import "pkg/web/proto/update_cache_config_response.proto";
+
 option go_package = "github.com/jdfalk/gcommon/pkg/web/proto";
 
 /**

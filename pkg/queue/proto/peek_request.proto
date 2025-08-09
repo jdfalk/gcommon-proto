@@ -10,9 +10,8 @@ package gcommon.v1.queue;
 
 // Common types
 import "pkg/common/proto/request_metadata.proto";
+
 option go_package = "github.com/jdfalk/gcommon/pkg/queue/proto";
-
-
 
 /**
  * PeekRequest allows viewing messages in a queue without removing them.

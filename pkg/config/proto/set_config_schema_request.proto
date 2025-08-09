@@ -9,8 +9,9 @@ edition = "2023";
 
 package gcommon.v1.config;
 
-import "pkg/config/proto/config_schema.proto";
 import "pkg/common/proto/request_metadata.proto";
+import "pkg/config/proto/config_schema.proto";
+
 option go_package = "github.com/jdfalk/gcommon/pkg/config/proto";
 
 message SetConfigSchemaRequest {

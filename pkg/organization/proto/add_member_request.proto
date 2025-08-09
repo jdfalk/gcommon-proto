@@ -4,8 +4,9 @@ edition = "2023";
 
 package gcommon.v1.organization;
 
-import "pkg/organization/proto/organization_member.proto";
 import "pkg/common/proto/request_metadata.proto";
+import "pkg/organization/proto/organization_member.proto";
+
 option go_package = "github.com/jdfalk/gcommon/pkg/organization/proto";
 
 message AddMemberRequest {

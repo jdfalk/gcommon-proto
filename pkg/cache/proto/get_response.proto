@@ -4,6 +4,7 @@ edition = "2023";
 package gcommon.v1.cache;
 
 import "pkg/cache/proto/cache_entry.proto";
+
 option go_package = "github.com/jdfalk/gcommon/pkg/cache/proto";
 
 /**

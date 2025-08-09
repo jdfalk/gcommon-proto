@@ -5,10 +5,10 @@
 edition = "2023";
 
 package gcommon.v1.web;
-import "pkg/web/proto/server_status.proto";
-
 
 import "pkg/common/proto/error.proto";
+import "pkg/web/proto/server_status.proto";
+
 option go_package = "github.com/jdfalk/gcommon/pkg/web/proto";
 
 // StartServerResponse response definition.

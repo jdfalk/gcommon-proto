@@ -13,10 +13,10 @@ option go_package = "github.com/jdfalk/gcommon/pkg/metrics/proto";
 message TimeRange {
   // Start timestamp
   google.protobuf.Timestamp start = 1;
-  
+
   // End timestamp
   google.protobuf.Timestamp end = 2;
-  
+
   // Duration in seconds
   int64 duration_seconds = 3;
 }

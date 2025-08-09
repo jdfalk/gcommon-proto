@@ -6,6 +6,7 @@ package gcommon.v1.organization;
 
 import "pkg/common/proto/request_metadata.proto";
 import "pkg/organization/proto/organization.proto";
+
 option go_package = "github.com/jdfalk/gcommon/pkg/organization/proto";
 
 message UpdateOrganizationRequest {

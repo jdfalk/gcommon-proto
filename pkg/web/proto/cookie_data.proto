@@ -9,6 +9,7 @@ package gcommon.v1.web;
 // CookieData message definition.
 import "google/protobuf/timestamp.proto";
 import "pkg/web/proto/cookie_same_site.proto";
+
 option go_package = "github.com/jdfalk/gcommon/pkg/web/proto";
 
 message CookieData {

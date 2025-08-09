@@ -7,9 +7,8 @@ edition = "2023";
 package gcommon.v1.cache;
 
 import "google/protobuf/timestamp.proto";
+
 option go_package = "github.com/jdfalk/gcommon/pkg/cache/proto";
-
-
 
 /**
  * Namespace information.

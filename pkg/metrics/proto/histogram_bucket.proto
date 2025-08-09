@@ -11,10 +11,10 @@ option go_package = "github.com/jdfalk/gcommon/pkg/metrics/proto";
 message HistogramBucket {
   // Upper bound for the bucket
   double upper_bound = 1;
-  
+
   // Count of observations in this bucket
   int64 count = 2;
-  
+
   // Cumulative count
   int64 cumulative_count = 3;
 }

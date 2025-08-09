@@ -6,9 +6,8 @@ edition = "2023";
 
 package gcommon.v1.queue;
 
-
-
 option go_package = "github.com/jdfalk/gcommon/pkg/queue/proto";
+
 // Response for deleting a subscription
 message DeleteSubscriptionResponse {
   // Whether the subscription was successfully deleted

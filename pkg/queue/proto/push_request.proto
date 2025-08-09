@@ -8,13 +8,12 @@ package gcommon.v1.queue;
 
 import "google/protobuf/any.proto";
 import "google/protobuf/timestamp.proto";
-import "pkg/queue/proto/priority_level.proto";
 import "pkg/queue/proto/delivery_mode.proto";
 import "pkg/queue/proto/message_metadata.proto";
+import "pkg/queue/proto/priority_level.proto";
 import "pkg/queue/proto/retry_config.proto";
+
 option go_package = "github.com/jdfalk/gcommon/pkg/queue/proto";
-
-
 
 // PushRequest publishes one or more messages to a queue or topic
 message PushRequest {
@@ -126,7 +125,7 @@ message PublishConfig {
   // Enable message ordering
   bool enable_ordering = 5;
 
-    // Retry configuration for failed publishes - references existing RetryConfig
+  // Retry configuration for failed publishes - references existing RetryConfig
   RetryConfig retry_config = 6;
 
   // Persistence level required

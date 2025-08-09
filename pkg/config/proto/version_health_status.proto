@@ -8,6 +8,7 @@ package gcommon.v1.config;
 
 import "google/protobuf/timestamp.proto";
 import "pkg/common/proto/audit_log.proto";
+
 option go_package = "github.com/jdfalk/gcommon/pkg/config/proto";
 
 enum VersionHealthStatus {

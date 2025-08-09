@@ -11,13 +11,13 @@ option go_package = "github.com/jdfalk/gcommon/pkg/metrics/proto";
 message ExportDestinationUpdate {
   // Destination ID
   string destination_id = 1;
-  
+
   // Destination URL
   string url = 2;
-  
+
   // Authentication token
   string auth_token = 3;
-  
+
   // Enabled status
   bool enabled = 4;
 }
