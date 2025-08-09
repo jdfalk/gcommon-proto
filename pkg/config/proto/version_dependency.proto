@@ -27,8 +27,7 @@ message VersionDependency {
   // Dependency scope
   string scope = 4;
 
-  // Dependency optional
-  bool optional = 5;
+  // Dependency bool optional = 5;
 
   // Dependency constraints
   repeated string constraints = 6;

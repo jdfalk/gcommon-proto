@@ -21,14 +21,63 @@ const (
 	_ = protoimpl.EnforceVersion(protoimpl.MaxVersion - 20)
 )
 
+// *
+// Message representing password policy.
+type PasswordPolicy struct {
+	state         protoimpl.MessageState `protogen:"opaque.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *PasswordPolicy) Reset() {
+	*x = PasswordPolicy{}
+	mi := &file_pkg_auth_proto_password_policy_proto_msgTypes[0]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *PasswordPolicy) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*PasswordPolicy) ProtoMessage() {}
+
+func (x *PasswordPolicy) ProtoReflect() protoreflect.Message {
+	mi := &file_pkg_auth_proto_password_policy_proto_msgTypes[0]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+type PasswordPolicy_builder struct {
+	_ [0]func() // Prevents comparability and use of unkeyed literals for the builder.
+
+}
+
+func (b0 PasswordPolicy_builder) Build() *PasswordPolicy {
+	m0 := &PasswordPolicy{}
+	b, x := &b0, m0
+	_, _ = b, x
+	return m0
+}
+
 var File_pkg_auth_proto_password_policy_proto protoreflect.FileDescriptor
 
 const file_pkg_auth_proto_password_policy_proto_rawDesc = "" +
 	"\n" +
-	"$pkg/auth/proto/password_policy.proto\x12\x0fgcommon.v1.auth\x1a!google/protobuf/go_features.protoB\xba\x01\n" +
+	"$pkg/auth/proto/password_policy.proto\x12\x0fgcommon.v1.auth\x1a!google/protobuf/go_features.proto\"\x10\n" +
+	"\x0ePasswordPolicyB\xba\x01\n" +
 	"\x13com.gcommon.v1.authB\x13PasswordPolicyProtoP\x01Z(github.com/jdfalk/gcommon/pkg/auth/proto\xa2\x02\x03GVA\xaa\x02\x0fGcommon.V1.Auth\xca\x02\x0fGcommon\\V1\\Auth\xe2\x02\x1bGcommon\\V1\\Auth\\GPBMetadata\xea\x02\x11Gcommon::V1::Auth\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
-var file_pkg_auth_proto_password_policy_proto_goTypes = []any{}
+var file_pkg_auth_proto_password_policy_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
+var file_pkg_auth_proto_password_policy_proto_goTypes = []any{
+	(*PasswordPolicy)(nil), // 0: gcommon.v1.auth.PasswordPolicy
+}
 var file_pkg_auth_proto_password_policy_proto_depIdxs = []int32{
 	0, // [0:0] is the sub-list for method output_type
 	0, // [0:0] is the sub-list for method input_type
@@ -48,12 +97,13 @@ func file_pkg_auth_proto_password_policy_proto_init() {
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: unsafe.Slice(unsafe.StringData(file_pkg_auth_proto_password_policy_proto_rawDesc), len(file_pkg_auth_proto_password_policy_proto_rawDesc)),
 			NumEnums:      0,
-			NumMessages:   0,
+			NumMessages:   1,
 			NumExtensions: 0,
 			NumServices:   0,
 		},
 		GoTypes:           file_pkg_auth_proto_password_policy_proto_goTypes,
 		DependencyIndexes: file_pkg_auth_proto_password_policy_proto_depIdxs,
+		MessageInfos:      file_pkg_auth_proto_password_policy_proto_msgTypes,
 	}.Build()
 	File_pkg_auth_proto_password_policy_proto = out.File
 	file_pkg_auth_proto_password_policy_proto_goTypes = nil

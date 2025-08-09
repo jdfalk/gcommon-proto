@@ -16,6 +16,20 @@ import "pkg/common/proto/request_metadata.proto";
 option features.(pb.go).api_level = API_OPAQUE;
 option go_package = "github.com/jdfalk/gcommon/pkg/queue/proto";
 
+message PurgeRequest {
+  // Queue or topic to purge
+  string target = 1;
+
+  // Purge messages older than timestamp
+  int64 older_than = 2;
+
+  // Purge specific partition (for topics)
+  int32 partition = 3;
+
+  // Maximum number of messages to purge
+  int64 max_count = 4;
+}
+
 /**
  * Request to purge (delete) messages from a queue.
  * Can purge all messages or selectively based on criteria.
@@ -59,5 +73,4 @@ message PurgeOptions {
   // Whether to purge only expired messages
   bool only_expired = 8;
 }
-// SKELETON_FILE: Compilation temporarily disabled
 // This file needs proper implementation

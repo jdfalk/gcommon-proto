@@ -2,7 +2,7 @@
 // file: metrics/proto/responses/record_histogram_response.proto
 //
 // Response definitions for metrics module
-// TODO: Implement actual protobuf definitions
+
 //
 edition = "2023";
 

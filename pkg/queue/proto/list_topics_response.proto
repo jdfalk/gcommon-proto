@@ -14,22 +14,16 @@ import "pkg/queue/proto/topic_stats.proto";
 option features.(pb.go).api_level = API_OPAQUE;
 option go_package = "github.com/jdfalk/gcommon/pkg/queue/proto";
 
-// ListTopicsResponse returns a list of available topics
 message ListTopicsResponse {
   // List of topics
-  repeated TopicInfo topics = 1;
+  repeated Topic topics = 1;
 
-  // Total number of topics available
-  int32 total_count = 2;
+  // Next page token
+  string next_page_token = 2;
 
-  // Pagination token for next page
-  string next_page_token = 3;
-
-  // Whether there are more topics available
-  bool has_more = 4;
-
-  // Response metadata
-  map<string, string> metadata = 5;
+  // Total count
+  int32 total_count = 3;
 }
-// SKELETON_FILE: Compilation temporarily disabled
+
+// ListTopicsResponse returns a list of available topics
 // This file needs proper implementation

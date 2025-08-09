@@ -5,20 +5,19 @@ package gcommon.v1.auth;
 
 import "google/protobuf/empty.proto";
 import "google/protobuf/go_features.proto";
+import "pkg/auth/proto/create_role_response.proto";
+import "pkg/auth/proto/create_user_response.proto";
+import "pkg/auth/proto/delete_user_request.proto";
+import "pkg/auth/proto/get_system_stats_request.proto";
+import "pkg/auth/proto/get_user_request.proto";
+import "pkg/auth/proto/list_roles_request.proto";
+import "pkg/auth/proto/list_roles_response.proto";
+import "pkg/auth/proto/list_users_response.proto";
+import "pkg/auth/proto/remove_role_request.proto";
 import "pkg/auth/proto/role.proto";
+import "pkg/auth/proto/update_role_request.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-// TODO: Add imports when files are created
-// import "pkg/auth/proto/create_user_response.proto";
-// import "pkg/auth/proto/delete_user_request.proto";
-// import "pkg/auth/proto/get_user_request.proto";
-// import "pkg/auth/proto/remove_role_request.proto";
-// import "pkg/auth/proto/update_role_request.proto";
-// import "pkg/auth/proto/list_roles_request.proto";
-// import "pkg/auth/proto/list_users_response.proto";
-// import "pkg/auth/proto/create_role_response.proto";
-// import "pkg/auth/proto/list_roles_response.proto";
-// import "pkg/auth/proto/get_system_stats_request.proto";
 option go_package = "github.com/jdfalk/gcommon/pkg/auth/proto";
 
 /**
@@ -26,45 +25,42 @@ option go_package = "github.com/jdfalk/gcommon/pkg/auth/proto";
  * Provides user management, role assignment, and system configuration.
  */
 service AuthAdminService {
-  // TODO: All methods commented out until message types are created
-  /*
-     // CreateUser creates a new user account
-     rpc CreateUser(CreateUserRequest) returns (CreateUserResponse);
+  // CreateUser creates a new user account
+  rpc CreateUser(CreateUserRequest) returns (CreateUserResponse);
 
-     // UpdateUser updates an existing user account
-     rpc UpdateUser(UpdateUserRequest) returns (UpdateUserResponse);
+  // UpdateUser updates an existing user account
+  rpc UpdateUser(UpdateUserRequest) returns (UpdateUserResponse);
 
-     // DeleteUser removes a user account
-     rpc DeleteUser(DeleteUserRequest) returns (google.protobuf.Empty);
+  // DeleteUser removes a user account
+  rpc DeleteUser(DeleteUserRequest) returns (google.protobuf.Empty);
 
-     // ListUsers returns paginated list of users
-     rpc ListUsers(ListUsersRequest) returns (ListUsersResponse);
+  // ListUsers returns paginated list of users
+  rpc ListUsers(ListUsersRequest) returns (ListUsersResponse);
 
-     // GetUserDetails returns detailed user information
-     rpc GetUser(GetUserRequest) returns (GetUserResponse);
+  // GetUserDetails returns detailed user information
+  rpc GetUser(GetUserRequest) returns (GetUserResponse);
 
-     // AssignRole assigns a role to a user
-     rpc AssignRole(AssignRoleRequest) returns (google.protobuf.Empty);
+  // AssignRole assigns a role to a user
+  rpc AssignRole(AssignRoleRequest) returns (google.protobuf.Empty);
 
-     // RemoveRole removes a role from a user
-     rpc RemoveRole(RemoveRoleRequest) returns (google.protobuf.Empty);
+  // RemoveRole removes a role from a user
+  rpc RemoveRole(RemoveRoleRequest) returns (google.protobuf.Empty);
 
-     // CreateRole creates a new role
-     rpc CreateRole(CreateRoleRequest) returns (CreateRoleResponse);
+  // CreateRole creates a new role
+  rpc CreateRole(CreateRoleRequest) returns (CreateRoleResponse);
 
-     // UpdateRole updates an existing role
-     rpc UpdateRole(UpdateRoleRequest) returns (UpdateRoleResponse);
+  // UpdateRole updates an existing role
+  rpc UpdateRole(UpdateRoleRequest) returns (UpdateRoleResponse);
 
-     // DeleteRole removes a role
-     rpc DeleteRole(DeleteRoleRequest) returns (google.protobuf.Empty);
+  // DeleteRole removes a role
+  rpc DeleteRole(DeleteRoleRequest) returns (google.protobuf.Empty);
 
-     // ListRoles returns all available roles
-     rpc ListRoles(ListRolesRequest) returns (ListRolesResponse);
+  // ListRoles returns all available roles
+  rpc ListRoles(ListRolesRequest) returns (ListRolesResponse);
 
-     // InvalidateUserSessions invalidates all sessions for a user
-     rpc InvalidateUserSessions(InvalidateUserSessionsRequest) returns (google.protobuf.Empty);
+  // InvalidateUserSessions invalidates all sessions for a user
+  rpc InvalidateUserSessions(InvalidateUserSessionsRequest) returns (google.protobuf.Empty);
 
-     // GetSystemStats returns authentication system statistics
-     rpc GetSystemStats(GetSystemStatsRequest) returns (GetSystemStatsResponse);
-  */
+  // GetSystemStats returns authentication system statistics
+  rpc GetSystemStats(GetSystemStatsRequest) returns (GetSystemStatsResponse);
 }

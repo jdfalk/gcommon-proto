@@ -15,6 +15,26 @@ import "google/protobuf/timestamp.proto";
 option features.(pb.go).api_level = API_OPAQUE;
 option go_package = "github.com/jdfalk/gcommon/pkg/queue/proto";
 
+message PushResponse {
+  // Push success
+  bool success = 1;
+
+  // Message ID assigned
+  string message_id = 2;
+
+  // Partition where message was stored
+  int32 partition = 3;
+
+  // Offset within partition
+  int64 offset = 4;
+
+  // Error message if push failed
+  string error_message = 5;
+
+  // Timestamp when message was stored
+  int64 timestamp = 6;
+}
+
 /**
  * Response for message publishing operations.
  */
@@ -37,5 +57,4 @@ message PushResponse {
   // Estimated delivery time (for delayed messages)
   google.protobuf.Timestamp estimated_delivery_time = 6;
 }
-// SKELETON_FILE: Compilation temporarily disabled
 // This file needs proper implementation

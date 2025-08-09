@@ -1,9 +1,7 @@
-// file: pkg/auth/proto/messages/session_config.proto
-// file: auth/proto/messages/session_config.proto
-//
-// Message definitions for auth module
-// TODO: Implement actual protobuf definitions
-//
+// file: pkg/auth/proto/session_config.proto
+// version: 1.0.0
+// guid: cf31dcbd-ba1f-402c-a37c-c1a2afe2dba8
+
 edition = "2023";
 
 package gcommon.v1.auth;
@@ -13,6 +11,9 @@ import "google/protobuf/go_features.proto";
 option features.(pb.go).api_level = API_OPAQUE;
 option go_package = "github.com/jdfalk/gcommon/pkg/auth/proto";
 
-// TODO: Add message definitions here
-// This is a placeholder file created during 1-1-1 migration
-// Implement the actual protobuf definitions according to the auth module requirements
+/**
+ * Message representing session config.
+ */
+message SessionConfig {
+  // TODO: Add message fields
+}

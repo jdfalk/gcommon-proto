@@ -36,5 +36,4 @@ message CreateTopicResponse {
   // Topic configuration that was applied
   gcommon.v1.queue.TopicConfig applied_config = 5;
 }
-// SKELETON_FILE: Compilation temporarily disabled
 // This file needs proper implementation

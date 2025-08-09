@@ -2,7 +2,7 @@
 // file: auth/proto/types/security_context.proto
 //
 // Type definitions for auth module
-// TODO: Implement actual protobuf definitions
+
 //
 edition = "2023";
 
@@ -13,8 +13,45 @@ import "google/protobuf/go_features.proto";
 option features.(pb.go).api_level = API_OPAQUE;
 option go_package = "github.com/jdfalk/gcommon/pkg/auth/proto";
 
-// TODO: Add type definitions here
-// This is a placeholder file created during 1-1-1 migration
+message SecurityContext {
+  // User ID
+  string user_id = 1;
+
+  // Session ID
+  string session_id = 2;
+
+  // User roles
+  repeated string roles = 3;
+
+  // User permissions
+  repeated string permissions = 4;
+
+  // Authentication method used
+  enum AuthMethod {
+    AUTH_METHOD_UNSPECIFIED = 0;
+    AUTH_METHOD_PASSWORD = 1;
+    AUTH_METHOD_MFA = 2;
+    AUTH_METHOD_API_KEY = 3;
+    AUTH_METHOD_OAUTH = 4;
+    AUTH_METHOD_SSO = 5;
+  }
+  AuthMethod auth_method = 5;
+
+  // MFA verified
+  bool mfa_verified = 6;
+
+  // IP address
+  string ip_address = 7;
+
+  // User agent
+  string user_agent = 8;
+
+  // Authentication timestamp
+  int64 auth_timestamp = 9;
+
+  // Context metadata
+  map<string, string> metadata = 10;
+}
+
 // Implement the actual protobuf definitions according to the auth module requirements
-// SKELETON_FILE: Compilation temporarily disabled
 // This file needs proper implementation

@@ -11,6 +11,7 @@ package gcommon.v1.queue;
 
 import "google/protobuf/go_features.proto";
 import "pkg/queue/proto/cluster_info.proto";
+import "pkg/queue/proto/node_info.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
 option go_package = "github.com/jdfalk/gcommon/pkg/queue/proto";
@@ -22,11 +23,16 @@ message GetClusterInfoResponse {
   // Detailed cluster information
   gcommon.v1.queue.ClusterInfo cluster_info = 1;
 
+  // Node information
+  repeated gcommon.v1.queue.NodeInfo nodes = 2;
+
   // Whether the cluster is currently healthy
-  bool is_healthy = 2;
+  bool is_healthy = 3;
 
   // Any warnings or issues with the cluster
-  repeated string warnings = 3;
+  repeated string warnings = 4;
+
+  // Error message if failed to get info
+  string error_message = 5;
 }
-// SKELETON_FILE: Compilation temporarily disabled
 // This file needs proper implementation

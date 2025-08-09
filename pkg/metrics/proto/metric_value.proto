@@ -2,7 +2,7 @@
 // file: metrics/proto/types/metric_value.proto
 //
 // Type definitions for metrics module
-// TODO: Implement actual protobuf definitions
+
 //
 edition = "2023";
 

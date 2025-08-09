@@ -2,7 +2,7 @@
 // file: metrics/proto/enums/storage_backend.proto
 //
 // Enum definitions for metrics module
-// TODO: Implement actual protobuf definitions
+
 //
 edition = "2023";
 

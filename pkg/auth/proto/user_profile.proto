@@ -1,9 +1,7 @@
-// file: pkg/auth/proto/messages/user_profile.proto
-// file: auth/proto/messages/user_profile.proto
-//
-// Message definitions for auth module
-// TODO: Implement actual protobuf definitions
-//
+// file: pkg/auth/proto/user_profile.proto
+// version: 1.0.0
+// guid: 9554454d-6823-42b3-aac9-341f375031ea
+
 edition = "2023";
 
 package gcommon.v1.auth;
@@ -13,6 +11,9 @@ import "google/protobuf/go_features.proto";
 option features.(pb.go).api_level = API_OPAQUE;
 option go_package = "github.com/jdfalk/gcommon/pkg/auth/proto";
 
-// TODO: Add message definitions here
-// This is a placeholder file created during 1-1-1 migration
-// Implement the actual protobuf definitions according to the auth module requirements
+/**
+ * Message representing user profile.
+ */
+message UserProfile {
+  // TODO: Add message fields
+}

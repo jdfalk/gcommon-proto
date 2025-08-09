@@ -15,28 +15,19 @@ import "pkg/common/proto/request_metadata.proto";
 option features.(pb.go).api_level = API_OPAQUE;
 option go_package = "github.com/jdfalk/gcommon/pkg/queue/proto";
 
+message DeleteQueueRequest {
+  // Queue ID or name to delete
+  string queue = 1;
+
+  // Force deletion even if not empty
+  bool force = 2;
+
+  // Purge messages before deletion
+  bool purge_first = 3;
+}
+
 /**
  * Request to delete a queue and all its messages.
  * This is a destructive operation that cannot be undone.
  */
-message DeleteQueueRequest {
-  // Name of the queue to delete (required)
-  string queue_name = 1;
-
-  // Whether to force deletion even if queue has active consumers
-  bool force = 2;
-
-  // Whether to ignore if queue doesn't exist (no error if missing)
-  bool if_exists = 3;
-
-  // Whether to purge all messages before deletion
-  bool purge_messages = 4;
-
-  // Confirmation token to prevent accidental deletion
-  string confirmation_token = 5;
-
-  // Request metadata for tracing and correlation
-  gcommon.v1.common.RequestMetadata metadata = 100;
-}
-// SKELETON_FILE: Compilation temporarily disabled
 // This file needs proper implementation

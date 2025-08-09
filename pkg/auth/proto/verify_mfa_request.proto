@@ -2,19 +2,31 @@
 // file: auth/proto/requests/verify_mfa_request.proto
 //
 // Request definitions for auth module
-// TODO: Implement actual protobuf definitions
+
 //
 edition = "2023";
 
 package gcommon.v1.auth;
 
 import "google/protobuf/go_features.proto";
+import "pkg/auth/proto/mfa_method.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
 option go_package = "github.com/jdfalk/gcommon/pkg/auth/proto";
 
-// TODO: Add request definitions here
-// This is a placeholder file created during 1-1-1 migration
+message VerifyMfaRequest {
+  // User ID
+  string user_id = 1;
+
+  // MFA verification code
+  string code = 2;
+
+  // Method being verified
+  MfaMethod method = 3;
+
+  // Context for the verification (login, transaction, etc.)
+  string context = 4;
+}
+
 // Implement the actual protobuf definitions according to the auth module requirements
-// SKELETON_FILE: Compilation temporarily disabled
 // This file needs proper implementation

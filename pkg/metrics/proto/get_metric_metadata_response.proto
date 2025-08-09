@@ -2,7 +2,7 @@
 // file: metrics/proto/responses/get_metric_metadata_response.proto
 //
 // Response definitions for metrics module
-// TODO: Implement actual protobuf definitions
+
 //
 edition = "2023";
 

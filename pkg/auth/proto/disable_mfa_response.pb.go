@@ -21,20 +21,154 @@ const (
 	_ = protoimpl.EnforceVersion(protoimpl.MaxVersion - 20)
 )
 
+type DisableMfaResponse struct {
+	state                      protoimpl.MessageState `protogen:"opaque.v1"`
+	xxx_hidden_Success         bool                   `protobuf:"varint,1,opt,name=success"`
+	xxx_hidden_DisabledMethods []MfaMethod            `protobuf:"varint,2,rep,packed,name=disabled_methods,json=disabledMethods,enum=gcommon.v1.auth.MfaMethod"`
+	xxx_hidden_ErrorMessage    *string                `protobuf:"bytes,3,opt,name=error_message,json=errorMessage"`
+	XXX_raceDetectHookData     protoimpl.RaceDetectHookData
+	XXX_presence               [1]uint32
+	unknownFields              protoimpl.UnknownFields
+	sizeCache                  protoimpl.SizeCache
+}
+
+func (x *DisableMfaResponse) Reset() {
+	*x = DisableMfaResponse{}
+	mi := &file_pkg_auth_proto_disable_mfa_response_proto_msgTypes[0]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *DisableMfaResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*DisableMfaResponse) ProtoMessage() {}
+
+func (x *DisableMfaResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_pkg_auth_proto_disable_mfa_response_proto_msgTypes[0]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+func (x *DisableMfaResponse) GetSuccess() bool {
+	if x != nil {
+		return x.xxx_hidden_Success
+	}
+	return false
+}
+
+func (x *DisableMfaResponse) GetDisabledMethods() []MfaMethod {
+	if x != nil {
+		return x.xxx_hidden_DisabledMethods
+	}
+	return nil
+}
+
+func (x *DisableMfaResponse) GetErrorMessage() string {
+	if x != nil {
+		if x.xxx_hidden_ErrorMessage != nil {
+			return *x.xxx_hidden_ErrorMessage
+		}
+		return ""
+	}
+	return ""
+}
+
+func (x *DisableMfaResponse) SetSuccess(v bool) {
+	x.xxx_hidden_Success = v
+	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 0, 3)
+}
+
+func (x *DisableMfaResponse) SetDisabledMethods(v []MfaMethod) {
+	x.xxx_hidden_DisabledMethods = v
+}
+
+func (x *DisableMfaResponse) SetErrorMessage(v string) {
+	x.xxx_hidden_ErrorMessage = &v
+	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 2, 3)
+}
+
+func (x *DisableMfaResponse) HasSuccess() bool {
+	if x == nil {
+		return false
+	}
+	return protoimpl.X.Present(&(x.XXX_presence[0]), 0)
+}
+
+func (x *DisableMfaResponse) HasErrorMessage() bool {
+	if x == nil {
+		return false
+	}
+	return protoimpl.X.Present(&(x.XXX_presence[0]), 2)
+}
+
+func (x *DisableMfaResponse) ClearSuccess() {
+	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 0)
+	x.xxx_hidden_Success = false
+}
+
+func (x *DisableMfaResponse) ClearErrorMessage() {
+	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 2)
+	x.xxx_hidden_ErrorMessage = nil
+}
+
+type DisableMfaResponse_builder struct {
+	_ [0]func() // Prevents comparability and use of unkeyed literals for the builder.
+
+	// Success status
+	Success *bool
+	// Methods that were disabled
+	DisabledMethods []MfaMethod
+	// Error message if operation failed
+	ErrorMessage *string
+}
+
+func (b0 DisableMfaResponse_builder) Build() *DisableMfaResponse {
+	m0 := &DisableMfaResponse{}
+	b, x := &b0, m0
+	_, _ = b, x
+	if b.Success != nil {
+		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 0, 3)
+		x.xxx_hidden_Success = *b.Success
+	}
+	x.xxx_hidden_DisabledMethods = b.DisabledMethods
+	if b.ErrorMessage != nil {
+		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 2, 3)
+		x.xxx_hidden_ErrorMessage = b.ErrorMessage
+	}
+	return m0
+}
+
 var File_pkg_auth_proto_disable_mfa_response_proto protoreflect.FileDescriptor
 
 const file_pkg_auth_proto_disable_mfa_response_proto_rawDesc = "" +
 	"\n" +
-	")pkg/auth/proto/disable_mfa_response.proto\x12\x0fgcommon.v1.auth\x1a!google/protobuf/go_features.protoB\xbe\x01\n" +
+	")pkg/auth/proto/disable_mfa_response.proto\x12\x0fgcommon.v1.auth\x1a!google/protobuf/go_features.proto\x1a\x1fpkg/auth/proto/mfa_method.proto\"\x9a\x01\n" +
+	"\x12DisableMfaResponse\x12\x18\n" +
+	"\asuccess\x18\x01 \x01(\bR\asuccess\x12E\n" +
+	"\x10disabled_methods\x18\x02 \x03(\x0e2\x1a.gcommon.v1.auth.MfaMethodR\x0fdisabledMethods\x12#\n" +
+	"\rerror_message\x18\x03 \x01(\tR\ferrorMessageB\xbe\x01\n" +
 	"\x13com.gcommon.v1.authB\x17DisableMfaResponseProtoP\x01Z(github.com/jdfalk/gcommon/pkg/auth/proto\xa2\x02\x03GVA\xaa\x02\x0fGcommon.V1.Auth\xca\x02\x0fGcommon\\V1\\Auth\xe2\x02\x1bGcommon\\V1\\Auth\\GPBMetadata\xea\x02\x11Gcommon::V1::Auth\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
-var file_pkg_auth_proto_disable_mfa_response_proto_goTypes = []any{}
+var file_pkg_auth_proto_disable_mfa_response_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
+var file_pkg_auth_proto_disable_mfa_response_proto_goTypes = []any{
+	(*DisableMfaResponse)(nil), // 0: gcommon.v1.auth.DisableMfaResponse
+	(MfaMethod)(0),             // 1: gcommon.v1.auth.MfaMethod
+}
 var file_pkg_auth_proto_disable_mfa_response_proto_depIdxs = []int32{
-	0, // [0:0] is the sub-list for method output_type
-	0, // [0:0] is the sub-list for method input_type
-	0, // [0:0] is the sub-list for extension type_name
-	0, // [0:0] is the sub-list for extension extendee
-	0, // [0:0] is the sub-list for field type_name
+	1, // 0: gcommon.v1.auth.DisableMfaResponse.disabled_methods:type_name -> gcommon.v1.auth.MfaMethod
+	1, // [1:1] is the sub-list for method output_type
+	1, // [1:1] is the sub-list for method input_type
+	1, // [1:1] is the sub-list for extension type_name
+	1, // [1:1] is the sub-list for extension extendee
+	0, // [0:1] is the sub-list for field type_name
 }
 
 func init() { file_pkg_auth_proto_disable_mfa_response_proto_init() }
@@ -42,18 +176,20 @@ func file_pkg_auth_proto_disable_mfa_response_proto_init() {
 	if File_pkg_auth_proto_disable_mfa_response_proto != nil {
 		return
 	}
+	file_pkg_auth_proto_mfa_method_proto_init()
 	type x struct{}
 	out := protoimpl.TypeBuilder{
 		File: protoimpl.DescBuilder{
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: unsafe.Slice(unsafe.StringData(file_pkg_auth_proto_disable_mfa_response_proto_rawDesc), len(file_pkg_auth_proto_disable_mfa_response_proto_rawDesc)),
 			NumEnums:      0,
-			NumMessages:   0,
+			NumMessages:   1,
 			NumExtensions: 0,
 			NumServices:   0,
 		},
 		GoTypes:           file_pkg_auth_proto_disable_mfa_response_proto_goTypes,
 		DependencyIndexes: file_pkg_auth_proto_disable_mfa_response_proto_depIdxs,
+		MessageInfos:      file_pkg_auth_proto_disable_mfa_response_proto_msgTypes,
 	}.Build()
 	File_pkg_auth_proto_disable_mfa_response_proto = out.File
 	file_pkg_auth_proto_disable_mfa_response_proto_goTypes = nil

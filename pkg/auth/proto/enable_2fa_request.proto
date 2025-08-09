@@ -2,7 +2,7 @@
 // file: auth/proto/requests/enable_2fa_request.proto
 //
 // Request definitions for auth module
-// TODO: Implement actual protobuf definitions
+
 //
 edition = "2023";
 
@@ -13,8 +13,19 @@ import "google/protobuf/go_features.proto";
 option features.(pb.go).api_level = API_OPAQUE;
 option go_package = "github.com/jdfalk/gcommon/pkg/auth/proto";
 
-// TODO: Add request definitions here
-// This is a placeholder file created during 1-1-1 migration
+message Enable2FaRequest {
+  // User ID requesting 2FA enablement
+  string user_id = 1;
+
+  // Phone number for SMS-based 2FA
+  string phone_number = 2;
+
+  // Whether to use authenticator app
+  bool use_authenticator = 3;
+
+  // Backup codes preference
+  bool generate_backup_codes = 4;
+}
+
 // Implement the actual protobuf definitions according to the auth module requirements
-// SKELETON_FILE: Compilation temporarily disabled
 // This file needs proper implementation

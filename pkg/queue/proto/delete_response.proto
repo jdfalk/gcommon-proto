@@ -80,5 +80,4 @@ message BackupInfo {
   // Backup expiration time
   google.protobuf.Timestamp backup_expires_at = 5;
 }
-// SKELETON_FILE: Compilation temporarily disabled
 // This file needs proper implementation

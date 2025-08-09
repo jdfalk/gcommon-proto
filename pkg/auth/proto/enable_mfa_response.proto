@@ -2,19 +2,35 @@
 // file: auth/proto/responses/enable_mfa_response.proto
 //
 // Response definitions for auth module
-// TODO: Implement actual protobuf definitions
+
 //
 edition = "2023";
 
 package gcommon.v1.auth;
 
 import "google/protobuf/go_features.proto";
+import "pkg/auth/proto/mfa_method.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
 option go_package = "github.com/jdfalk/gcommon/pkg/auth/proto";
 
-// TODO: Add response definitions here
-// This is a placeholder file created during 1-1-1 migration
+message EnableMfaResponse {
+  // Success status
+  bool success = 1;
+
+  // Setup instructions for each method
+  repeated MfaSetupInstruction setup_instructions = 2;
+
+  // Error message if operation failed
+  string error_message = 3;
+}
+
+message MfaSetupInstruction {
+  MfaMethod method = 1;
+  string instruction = 2;
+  string qr_code = 3;
+  string secret_key = 4;
+}
+
 // Implement the actual protobuf definitions according to the auth module requirements
-// SKELETON_FILE: Compilation temporarily disabled
 // This file needs proper implementation

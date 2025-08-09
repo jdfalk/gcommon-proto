@@ -2,7 +2,7 @@
 // file: metrics/proto/messages/metric_metadata.proto
 //
 // Message definitions for metrics module
-// TODO: Implement actual protobuf definitions
+
 //
 edition = "2023";
 

@@ -2,7 +2,7 @@
 // file: metrics/proto/enums/scrape_status.proto
 //
 // Enum definitions for metrics module
-// TODO: Implement actual protobuf definitions
+
 //
 edition = "2023";
 

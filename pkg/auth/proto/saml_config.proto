@@ -1,9 +1,7 @@
-// file: pkg/auth/proto/messages/saml_config.proto
-// file: auth/proto/messages/saml_config.proto
-//
-// Message definitions for auth module
-// TODO: Implement actual protobuf definitions
-//
+// file: pkg/auth/proto/saml_config.proto
+// version: 1.0.0
+// guid: b1088674-0c17-45db-8c6d-3022ce0a629b
+
 edition = "2023";
 
 package gcommon.v1.auth;
@@ -13,6 +11,9 @@ import "google/protobuf/go_features.proto";
 option features.(pb.go).api_level = API_OPAQUE;
 option go_package = "github.com/jdfalk/gcommon/pkg/auth/proto";
 
-// TODO: Add message definitions here
-// This is a placeholder file created during 1-1-1 migration
-// Implement the actual protobuf definitions according to the auth module requirements
+/**
+ * Message representing saml config.
+ */
+message SamlConfig {
+  // TODO: Add message fields
+}

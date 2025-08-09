@@ -10,7 +10,6 @@ edition = "2023";
 package gcommon.v1.queue;
 
 import "google/protobuf/go_features.proto";
-import "pkg/common/proto/time_range.proto";
 import "pkg/queue/proto/export_format.proto";
 import "pkg/queue/proto/time_range.proto";
 
@@ -45,5 +44,4 @@ message ExportQueueRequest {
   // Export configuration options
   map<string, string> options = 8;
 }
-// SKELETON_FILE: Compilation temporarily disabled
 // This file needs proper implementation

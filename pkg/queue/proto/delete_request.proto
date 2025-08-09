@@ -64,5 +64,4 @@ message DeleteCriteria {
   // Delete messages in specific state
   gcommon.v1.queue.MessageState state = 6;
 }
-// SKELETON_FILE: Compilation temporarily disabled
 // This file needs proper implementation

@@ -44,5 +44,4 @@ message GetPartitionInfoRequest {
   // Access control context
   string access_token = 10;
 }
-// SKELETON_FILE: Compilation temporarily disabled
 // This file needs proper implementation

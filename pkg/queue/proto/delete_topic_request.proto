@@ -11,31 +11,13 @@ import "google/protobuf/go_features.proto";
 option features.(pb.go).api_level = API_OPAQUE;
 option go_package = "github.com/jdfalk/gcommon/pkg/queue/proto";
 
-// DeleteTopicRequest removes a topic and its associated resources
 message DeleteTopicRequest {
-  // Topic identifier to delete
-  string topic_id = 1;
+  // Topic ID or name to delete
+  string topic = 1;
 
-  // Force deletion even if topic has active subscriptions
-  bool force_delete = 2;
-
-  // Delete associated data (messages, metadata)
-  bool delete_data = 3;
-
-  // Timeout for deletion operation (milliseconds)
-  int32 timeout_ms = 4;
-
-  // Reason for deletion
-  string deletion_reason = 5;
-
-  // Backup data before deletion
-  bool backup_before_delete = 6;
-
-  // Backup destination (if backing up)
-  string backup_destination = 7;
-
-  // Operation metadata
-  map<string, string> metadata = 8;
+  // Force deletion even if not empty
+  bool force = 2;
 }
-// SKELETON_FILE: Compilation temporarily disabled
+
+// DeleteTopicRequest removes a topic and its associated resources
 // This file needs proper implementation

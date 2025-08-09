@@ -21,20 +21,157 @@ const (
 	_ = protoimpl.EnforceVersion(protoimpl.MaxVersion - 20)
 )
 
+type EnableMfaRequest struct {
+	state                     protoimpl.MessageState `protogen:"opaque.v1"`
+	xxx_hidden_UserId         *string                `protobuf:"bytes,1,opt,name=user_id,json=userId"`
+	xxx_hidden_Methods        []MfaMethod            `protobuf:"varint,2,rep,packed,name=methods,enum=gcommon.v1.auth.MfaMethod"`
+	xxx_hidden_PrimaryContact *string                `protobuf:"bytes,3,opt,name=primary_contact,json=primaryContact"`
+	XXX_raceDetectHookData    protoimpl.RaceDetectHookData
+	XXX_presence              [1]uint32
+	unknownFields             protoimpl.UnknownFields
+	sizeCache                 protoimpl.SizeCache
+}
+
+func (x *EnableMfaRequest) Reset() {
+	*x = EnableMfaRequest{}
+	mi := &file_pkg_auth_proto_enable_mfa_request_proto_msgTypes[0]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *EnableMfaRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*EnableMfaRequest) ProtoMessage() {}
+
+func (x *EnableMfaRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_pkg_auth_proto_enable_mfa_request_proto_msgTypes[0]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+func (x *EnableMfaRequest) GetUserId() string {
+	if x != nil {
+		if x.xxx_hidden_UserId != nil {
+			return *x.xxx_hidden_UserId
+		}
+		return ""
+	}
+	return ""
+}
+
+func (x *EnableMfaRequest) GetMethods() []MfaMethod {
+	if x != nil {
+		return x.xxx_hidden_Methods
+	}
+	return nil
+}
+
+func (x *EnableMfaRequest) GetPrimaryContact() string {
+	if x != nil {
+		if x.xxx_hidden_PrimaryContact != nil {
+			return *x.xxx_hidden_PrimaryContact
+		}
+		return ""
+	}
+	return ""
+}
+
+func (x *EnableMfaRequest) SetUserId(v string) {
+	x.xxx_hidden_UserId = &v
+	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 0, 3)
+}
+
+func (x *EnableMfaRequest) SetMethods(v []MfaMethod) {
+	x.xxx_hidden_Methods = v
+}
+
+func (x *EnableMfaRequest) SetPrimaryContact(v string) {
+	x.xxx_hidden_PrimaryContact = &v
+	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 2, 3)
+}
+
+func (x *EnableMfaRequest) HasUserId() bool {
+	if x == nil {
+		return false
+	}
+	return protoimpl.X.Present(&(x.XXX_presence[0]), 0)
+}
+
+func (x *EnableMfaRequest) HasPrimaryContact() bool {
+	if x == nil {
+		return false
+	}
+	return protoimpl.X.Present(&(x.XXX_presence[0]), 2)
+}
+
+func (x *EnableMfaRequest) ClearUserId() {
+	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 0)
+	x.xxx_hidden_UserId = nil
+}
+
+func (x *EnableMfaRequest) ClearPrimaryContact() {
+	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 2)
+	x.xxx_hidden_PrimaryContact = nil
+}
+
+type EnableMfaRequest_builder struct {
+	_ [0]func() // Prevents comparability and use of unkeyed literals for the builder.
+
+	// User ID requesting MFA enablement
+	UserId *string
+	// MFA methods to enable
+	Methods []MfaMethod
+	// Primary contact method
+	PrimaryContact *string
+}
+
+func (b0 EnableMfaRequest_builder) Build() *EnableMfaRequest {
+	m0 := &EnableMfaRequest{}
+	b, x := &b0, m0
+	_, _ = b, x
+	if b.UserId != nil {
+		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 0, 3)
+		x.xxx_hidden_UserId = b.UserId
+	}
+	x.xxx_hidden_Methods = b.Methods
+	if b.PrimaryContact != nil {
+		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 2, 3)
+		x.xxx_hidden_PrimaryContact = b.PrimaryContact
+	}
+	return m0
+}
+
 var File_pkg_auth_proto_enable_mfa_request_proto protoreflect.FileDescriptor
 
 const file_pkg_auth_proto_enable_mfa_request_proto_rawDesc = "" +
 	"\n" +
-	"'pkg/auth/proto/enable_mfa_request.proto\x12\x0fgcommon.v1.auth\x1a!google/protobuf/go_features.protoB\xbc\x01\n" +
+	"'pkg/auth/proto/enable_mfa_request.proto\x12\x0fgcommon.v1.auth\x1a!google/protobuf/go_features.proto\x1a\x1fpkg/auth/proto/mfa_method.proto\"\x8a\x01\n" +
+	"\x10EnableMfaRequest\x12\x17\n" +
+	"\auser_id\x18\x01 \x01(\tR\x06userId\x124\n" +
+	"\amethods\x18\x02 \x03(\x0e2\x1a.gcommon.v1.auth.MfaMethodR\amethods\x12'\n" +
+	"\x0fprimary_contact\x18\x03 \x01(\tR\x0eprimaryContactB\xbc\x01\n" +
 	"\x13com.gcommon.v1.authB\x15EnableMfaRequestProtoP\x01Z(github.com/jdfalk/gcommon/pkg/auth/proto\xa2\x02\x03GVA\xaa\x02\x0fGcommon.V1.Auth\xca\x02\x0fGcommon\\V1\\Auth\xe2\x02\x1bGcommon\\V1\\Auth\\GPBMetadata\xea\x02\x11Gcommon::V1::Auth\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
 
-var file_pkg_auth_proto_enable_mfa_request_proto_goTypes = []any{}
+var file_pkg_auth_proto_enable_mfa_request_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
+var file_pkg_auth_proto_enable_mfa_request_proto_goTypes = []any{
+	(*EnableMfaRequest)(nil), // 0: gcommon.v1.auth.EnableMfaRequest
+	(MfaMethod)(0),           // 1: gcommon.v1.auth.MfaMethod
+}
 var file_pkg_auth_proto_enable_mfa_request_proto_depIdxs = []int32{
-	0, // [0:0] is the sub-list for method output_type
-	0, // [0:0] is the sub-list for method input_type
-	0, // [0:0] is the sub-list for extension type_name
-	0, // [0:0] is the sub-list for extension extendee
-	0, // [0:0] is the sub-list for field type_name
+	1, // 0: gcommon.v1.auth.EnableMfaRequest.methods:type_name -> gcommon.v1.auth.MfaMethod
+	1, // [1:1] is the sub-list for method output_type
+	1, // [1:1] is the sub-list for method input_type
+	1, // [1:1] is the sub-list for extension type_name
+	1, // [1:1] is the sub-list for extension extendee
+	0, // [0:1] is the sub-list for field type_name
 }
 
 func init() { file_pkg_auth_proto_enable_mfa_request_proto_init() }
@@ -42,18 +179,20 @@ func file_pkg_auth_proto_enable_mfa_request_proto_init() {
 	if File_pkg_auth_proto_enable_mfa_request_proto != nil {
 		return
 	}
+	file_pkg_auth_proto_mfa_method_proto_init()
 	type x struct{}
 	out := protoimpl.TypeBuilder{
 		File: protoimpl.DescBuilder{
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: unsafe.Slice(unsafe.StringData(file_pkg_auth_proto_enable_mfa_request_proto_rawDesc), len(file_pkg_auth_proto_enable_mfa_request_proto_rawDesc)),
 			NumEnums:      0,
-			NumMessages:   0,
+			NumMessages:   1,
 			NumExtensions: 0,
 			NumServices:   0,
 		},
 		GoTypes:           file_pkg_auth_proto_enable_mfa_request_proto_goTypes,
 		DependencyIndexes: file_pkg_auth_proto_enable_mfa_request_proto_depIdxs,
+		MessageInfos:      file_pkg_auth_proto_enable_mfa_request_proto_msgTypes,
 	}.Build()
 	File_pkg_auth_proto_enable_mfa_request_proto = out.File
 	file_pkg_auth_proto_enable_mfa_request_proto_goTypes = nil

@@ -2,7 +2,7 @@
 // file: auth/proto/types/token_metadata.proto
 //
 // Type definitions for auth module
-// TODO: Implement actual protobuf definitions
+
 //
 edition = "2023";
 
@@ -13,8 +13,41 @@ import "google/protobuf/go_features.proto";
 option features.(pb.go).api_level = API_OPAQUE;
 option go_package = "github.com/jdfalk/gcommon/pkg/auth/proto";
 
-// TODO: Add type definitions here
-// This is a placeholder file created during 1-1-1 migration
+message TokenMetadata {
+  // Token ID
+  string token_id = 1;
+
+  // Token type
+  enum TokenType {
+    TOKEN_TYPE_UNSPECIFIED = 0;
+    TOKEN_TYPE_ACCESS = 1;
+    TOKEN_TYPE_REFRESH = 2;
+    TOKEN_TYPE_ID = 3;
+    TOKEN_TYPE_API_KEY = 4;
+  }
+  TokenType type = 2;
+
+  // Subject (user ID)
+  string subject = 3;
+
+  // Audience
+  repeated string audience = 4;
+
+  // Scopes
+  repeated string scopes = 5;
+
+  // Issued at timestamp
+  int64 issued_at = 6;
+
+  // Expires at timestamp
+  int64 expires_at = 7;
+
+  // Not before timestamp
+  int64 not_before = 8;
+
+  // Issuer
+  string issuer = 9;
+}
+
 // Implement the actual protobuf definitions according to the auth module requirements
-// SKELETON_FILE: Compilation temporarily disabled
 // This file needs proper implementation

@@ -2,7 +2,7 @@
 // file: metrics/proto/requests/record_histogram_request.proto
 //
 // Request definitions for metrics module
-// TODO: Implement actual protobuf definitions
+
 //
 
 edition = "2023";

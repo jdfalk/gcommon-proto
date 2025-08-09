@@ -16,6 +16,30 @@ import "pkg/common/proto/request_metadata.proto";
 option features.(pb.go).api_level = API_OPAQUE;
 option go_package = "github.com/jdfalk/gcommon/pkg/queue/proto";
 
+message SeekRequest {
+  // Queue or topic to seek in
+  string target = 1;
+
+  // Consumer ID or subscription ID
+  string consumer_id = 2;
+
+  // Seek position
+  oneof position {
+    int64 offset = 3; // Specific offset
+    int64 timestamp = 4; // Timestamp to seek to
+    SeekType type = 5; // Beginning or end
+  }
+
+  // Partition to seek (for topics)
+  int32 partition = 6;
+}
+
+enum SeekType {
+  SEEK_TYPE_UNSPECIFIED = 0;
+  SEEK_TYPE_BEGINNING = 1;
+  SEEK_TYPE_END = 2;
+}
+
 /**
  * Request to seek to a specific position in a queue or topic.
  * Used for replaying messages from a particular point in time or offset.
@@ -48,5 +72,4 @@ message SeekRequest {
   // Request metadata for tracing and correlation
   gcommon.v1.common.RequestMetadata metadata = 100;
 }
-// SKELETON_FILE: Compilation temporarily disabled
 // This file needs proper implementation

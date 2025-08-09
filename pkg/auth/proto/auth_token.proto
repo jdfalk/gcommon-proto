@@ -1,9 +1,7 @@
-// file: pkg/auth/proto/messages/auth_token.proto
-// file: auth/proto/messages/auth_token.proto
-//
-// Message definitions for auth module
-// TODO: Implement actual protobuf definitions
-//
+// file: pkg/auth/proto/auth_token.proto
+// version: 1.0.0
+// guid: 61671511-e4c8-4e25-a0a6-5f82f7e45002
+
 edition = "2023";
 
 package gcommon.v1.auth;
@@ -13,6 +11,9 @@ import "google/protobuf/go_features.proto";
 option features.(pb.go).api_level = API_OPAQUE;
 option go_package = "github.com/jdfalk/gcommon/pkg/auth/proto";
 
-// TODO: Add message definitions here
-// This is a placeholder file created during 1-1-1 migration
-// Implement the actual protobuf definitions according to the auth module requirements
+/**
+ * Message representing auth token.
+ */
+message AuthToken {
+  // TODO: Add message fields
+}
