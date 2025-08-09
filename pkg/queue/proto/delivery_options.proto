@@ -7,7 +7,9 @@ edition = "2023";
 package gcommon.v1.queue;
 
 import "google/protobuf/duration.proto";
+import "google/protobuf/go_features.proto";
 
+option features.(pb.go).api_level = API_OPAQUE;
 option go_package = "github.com/jdfalk/gcommon/pkg/queue/proto";
 
 // DeliveryOptions control message routing and retries.

@@ -6,6 +6,9 @@ edition = "2023";
 
 package gcommon.v1.web;
 
+import "google/protobuf/go_features.proto";
+
+option features.(pb.go).api_level = API_OPAQUE;
 option go_package = "github.com/jdfalk/gcommon/pkg/web/proto";
 
 // UnregisterRouteResponse response definition.

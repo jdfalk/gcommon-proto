@@ -6,6 +6,7 @@ edition = "2023";
 
 package gcommon.v1.notification;
 
+import "google/protobuf/go_features.proto";
 import "pkg/notification/proto/delete_notification_request.proto";
 import "pkg/notification/proto/delete_notification_response.proto";
 import "pkg/notification/proto/get_template_request.proto";
@@ -19,6 +20,7 @@ import "pkg/notification/proto/send_notification_response.proto";
 import "pkg/notification/proto/update_preferences_request.proto";
 import "pkg/notification/proto/update_preferences_response.proto";
 
+option features.(pb.go).api_level = API_OPAQUE;
 option go_package = "github.com/jdfalk/gcommon/pkg/notification/proto";
 
 /**

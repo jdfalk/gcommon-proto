@@ -3,6 +3,9 @@ edition = "2023";
 
 package gcommon.v1.auth;
 
+import "google/protobuf/go_features.proto";
+
+option features.(pb.go).api_level = API_OPAQUE;
 // TODO: Add imports when message types are created
 // import "pkg/auth/proto/authenticate_response.proto";
 // import "pkg/auth/proto/validate_token_response.proto";

@@ -3,6 +3,7 @@ edition = "2023";
 
 package gcommon.v1.auth;
 
+import "google/protobuf/go_features.proto";
 import "pkg/auth/proto/create_session_request.proto";
 import "pkg/auth/proto/create_session_response.proto";
 import "pkg/auth/proto/delete_session_request.proto";
@@ -21,6 +22,7 @@ import "pkg/auth/proto/update_session_response.proto";
 import "pkg/auth/proto/validate_session_request.proto";
 import "pkg/auth/proto/validate_session_response.proto";
 
+option features.(pb.go).api_level = API_OPAQUE;
 option go_package = "github.com/jdfalk/gcommon/pkg/auth/proto";
 
 /**

@@ -7,6 +7,7 @@ edition = "2023";
 package gcommon.v1.config;
 
 import "google/protobuf/empty.proto";
+import "google/protobuf/go_features.proto";
 import "pkg/config/proto/backup_config_request.proto";
 import "pkg/config/proto/config_backup.proto";
 import "pkg/config/proto/config_snapshot.proto";
@@ -24,6 +25,7 @@ import "pkg/config/proto/rollback_config_request.proto";
 import "pkg/config/proto/set_config_schema_request.proto";
 import "pkg/config/proto/unwatch_config_request.proto";
 
+option features.(pb.go).api_level = API_OPAQUE;
 option go_package = "github.com/jdfalk/gcommon/pkg/config/proto";
 
 /**

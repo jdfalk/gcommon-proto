@@ -3,6 +3,7 @@ edition = "2023";
 
 package gcommon.v1.cache;
 
+import "google/protobuf/go_features.proto";
 import "pkg/cache/proto/clear_request.proto";
 import "pkg/cache/proto/clear_response.proto";
 import "pkg/cache/proto/decrement_request.proto";
@@ -32,6 +33,7 @@ import "pkg/cache/proto/stats_request.proto";
 import "pkg/cache/proto/touch_expiration_response.proto";
 import "pkg/cache/proto/ttl_request.proto";
 
+option features.(pb.go).api_level = API_OPAQUE;
 option go_package = "github.com/jdfalk/gcommon/pkg/cache/proto";
 
 /**

@@ -4,10 +4,12 @@ edition = "2023";
 package gcommon.v1.health;
 
 import "google/protobuf/duration.proto";
+import "google/protobuf/go_features.proto";
 import "google/protobuf/timestamp.proto";
 import "pkg/common/proto/error.proto";
 import "pkg/common/proto/health_status.proto";
 
+option features.(pb.go).api_level = API_OPAQUE;
 option go_package = "github.com/jdfalk/gcommon/pkg/health/proto";
 
 /**

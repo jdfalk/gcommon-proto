@@ -6,6 +6,7 @@ edition = "2023";
 
 package gcommon.v1.config;
 
+import "google/protobuf/go_features.proto";
 import "google/protobuf/timestamp.proto";
 import "pkg/config/proto/approval_status.proto";
 import "pkg/config/proto/audit_operation_type.proto";
@@ -13,6 +14,7 @@ import "pkg/config/proto/rollback_method.proto";
 import "pkg/config/proto/validation_result_type.proto";
 import "pkg/config/proto/validation_severity.proto";
 
+option features.(pb.go).api_level = API_OPAQUE;
 option go_package = "github.com/jdfalk/gcommon/pkg/config/proto";
 
 message RollbackInfo {

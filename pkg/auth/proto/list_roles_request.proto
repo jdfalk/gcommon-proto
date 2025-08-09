@@ -3,12 +3,14 @@ edition = "2023";
 
 package gcommon.v1.auth;
 
+import "google/protobuf/go_features.proto";
 import "pkg/auth/proto/role.proto";
 import "pkg/common/proto/filter_options.proto";
 import "pkg/common/proto/pagination.proto";
 import "pkg/common/proto/request_metadata.proto";
 import "pkg/common/proto/sort.proto";
 
+option features.(pb.go).api_level = API_OPAQUE;
 option go_package = "github.com/jdfalk/gcommon/pkg/auth/proto";
 
 /**

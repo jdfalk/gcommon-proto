@@ -3,6 +3,7 @@ edition = "2023";
 
 package gcommon.v1.health;
 
+import "google/protobuf/go_features.proto";
 import "pkg/health/proto/get_health_metrics_request.proto";
 import "pkg/health/proto/get_health_metrics_response.proto";
 import "pkg/health/proto/get_service_health_request.proto";
@@ -18,6 +19,7 @@ import "pkg/health/proto/unregister_check_response.proto";
 import "pkg/health/proto/watch_request.proto";
 import "pkg/health/proto/watch_response.proto";
 
+option features.(pb.go).api_level = API_OPAQUE;
 option go_package = "github.com/jdfalk/gcommon/pkg/health/proto";
 
 /**
