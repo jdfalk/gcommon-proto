@@ -10,8 +10,8 @@ import (
 	proto "github.com/jdfalk/gcommon/pkg/common/proto"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
-	_ "google.golang.org/protobuf/types/gofeaturespb"
 	reflect "reflect"
+	sync "sync"
 	unsafe "unsafe"
 )
 
@@ -27,17 +27,17 @@ const (
 // Contains session validity status and associated user/session information.
 // Includes error information if validation fails.
 type ValidateSessionResponse struct {
-	state               protoimpl.MessageState `protogen:"opaque.v1"`
-	xxx_hidden_Valid    bool                   `protobuf:"varint,1,opt,name=valid"`
-	xxx_hidden_Session  *Session               `protobuf:"bytes,2,opt,name=session"`
-	xxx_hidden_UserInfo *UserInfo              `protobuf:"bytes,3,opt,name=user_info,json=userInfo"`
-	xxx_hidden_Error    *proto.Error           `protobuf:"bytes,4,opt,name=error"`
-	// Deprecated: Do not use. This will be deleted in the near future.
-	XXX_lazyUnmarshalInfo  protoimpl.LazyUnmarshalInfo
-	XXX_raceDetectHookData protoimpl.RaceDetectHookData
-	XXX_presence           [1]uint32
-	unknownFields          protoimpl.UnknownFields
-	sizeCache              protoimpl.SizeCache
+	state protoimpl.MessageState `protogen:"open.v1"`
+	// Whether the session is valid
+	Valid *bool `protobuf:"varint,1,opt,name=valid" json:"valid,omitempty"`
+	// Session information if valid
+	Session *Session `protobuf:"bytes,2,opt,name=session" json:"session,omitempty"`
+	// User information associated with the session
+	UserInfo *UserInfo `protobuf:"bytes,3,opt,name=user_info,json=userInfo" json:"user_info,omitempty"`
+	// Error information if validation fails
+	Error         *proto.Error `protobuf:"bytes,4,opt,name=error" json:"error,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
 }
 
 func (x *ValidateSessionResponse) Reset() {
@@ -65,182 +65,62 @@ func (x *ValidateSessionResponse) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
+// Deprecated: Use ValidateSessionResponse.ProtoReflect.Descriptor instead.
+func (*ValidateSessionResponse) Descriptor() ([]byte, []int) {
+	return file_pkg_auth_proto_validate_session_response_proto_rawDescGZIP(), []int{0}
+}
+
 func (x *ValidateSessionResponse) GetValid() bool {
-	if x != nil {
-		return x.xxx_hidden_Valid
+	if x != nil && x.Valid != nil {
+		return *x.Valid
 	}
 	return false
 }
 
 func (x *ValidateSessionResponse) GetSession() *Session {
 	if x != nil {
-		if protoimpl.X.Present(&(x.XXX_presence[0]), 1) {
-			if protoimpl.X.AtomicCheckPointerIsNil(&x.xxx_hidden_Session) {
-				protoimpl.X.UnmarshalField(x, 2)
-			}
-			var rv *Session
-			protoimpl.X.AtomicLoadPointer(protoimpl.Pointer(&x.xxx_hidden_Session), protoimpl.Pointer(&rv))
-			return rv
-		}
+		return x.Session
 	}
 	return nil
 }
 
 func (x *ValidateSessionResponse) GetUserInfo() *UserInfo {
 	if x != nil {
-		if protoimpl.X.Present(&(x.XXX_presence[0]), 2) {
-			if protoimpl.X.AtomicCheckPointerIsNil(&x.xxx_hidden_UserInfo) {
-				protoimpl.X.UnmarshalField(x, 3)
-			}
-			var rv *UserInfo
-			protoimpl.X.AtomicLoadPointer(protoimpl.Pointer(&x.xxx_hidden_UserInfo), protoimpl.Pointer(&rv))
-			return rv
-		}
+		return x.UserInfo
 	}
 	return nil
 }
 
 func (x *ValidateSessionResponse) GetError() *proto.Error {
 	if x != nil {
-		if protoimpl.X.Present(&(x.XXX_presence[0]), 3) {
-			if protoimpl.X.AtomicCheckPointerIsNil(&x.xxx_hidden_Error) {
-				protoimpl.X.UnmarshalField(x, 4)
-			}
-			var rv *proto.Error
-			protoimpl.X.AtomicLoadPointer(protoimpl.Pointer(&x.xxx_hidden_Error), protoimpl.Pointer(&rv))
-			return rv
-		}
+		return x.Error
 	}
 	return nil
-}
-
-func (x *ValidateSessionResponse) SetValid(v bool) {
-	x.xxx_hidden_Valid = v
-	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 0, 4)
-}
-
-func (x *ValidateSessionResponse) SetSession(v *Session) {
-	protoimpl.X.AtomicSetPointer(&x.xxx_hidden_Session, v)
-	if v == nil {
-		protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 1)
-	} else {
-		protoimpl.X.SetPresent(&(x.XXX_presence[0]), 1, 4)
-	}
-}
-
-func (x *ValidateSessionResponse) SetUserInfo(v *UserInfo) {
-	protoimpl.X.AtomicSetPointer(&x.xxx_hidden_UserInfo, v)
-	if v == nil {
-		protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 2)
-	} else {
-		protoimpl.X.SetPresent(&(x.XXX_presence[0]), 2, 4)
-	}
-}
-
-func (x *ValidateSessionResponse) SetError(v *proto.Error) {
-	protoimpl.X.AtomicSetPointer(&x.xxx_hidden_Error, v)
-	if v == nil {
-		protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 3)
-	} else {
-		protoimpl.X.SetPresent(&(x.XXX_presence[0]), 3, 4)
-	}
-}
-
-func (x *ValidateSessionResponse) HasValid() bool {
-	if x == nil {
-		return false
-	}
-	return protoimpl.X.Present(&(x.XXX_presence[0]), 0)
-}
-
-func (x *ValidateSessionResponse) HasSession() bool {
-	if x == nil {
-		return false
-	}
-	return protoimpl.X.Present(&(x.XXX_presence[0]), 1)
-}
-
-func (x *ValidateSessionResponse) HasUserInfo() bool {
-	if x == nil {
-		return false
-	}
-	return protoimpl.X.Present(&(x.XXX_presence[0]), 2)
-}
-
-func (x *ValidateSessionResponse) HasError() bool {
-	if x == nil {
-		return false
-	}
-	return protoimpl.X.Present(&(x.XXX_presence[0]), 3)
-}
-
-func (x *ValidateSessionResponse) ClearValid() {
-	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 0)
-	x.xxx_hidden_Valid = false
-}
-
-func (x *ValidateSessionResponse) ClearSession() {
-	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 1)
-	protoimpl.X.AtomicSetPointer(&x.xxx_hidden_Session, (*Session)(nil))
-}
-
-func (x *ValidateSessionResponse) ClearUserInfo() {
-	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 2)
-	protoimpl.X.AtomicSetPointer(&x.xxx_hidden_UserInfo, (*UserInfo)(nil))
-}
-
-func (x *ValidateSessionResponse) ClearError() {
-	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 3)
-	protoimpl.X.AtomicSetPointer(&x.xxx_hidden_Error, (*proto.Error)(nil))
-}
-
-type ValidateSessionResponse_builder struct {
-	_ [0]func() // Prevents comparability and use of unkeyed literals for the builder.
-
-	// Whether the session is valid
-	Valid *bool
-	// Session information if valid
-	Session *Session
-	// User information associated with the session
-	UserInfo *UserInfo
-	// Error information if validation fails
-	Error *proto.Error
-}
-
-func (b0 ValidateSessionResponse_builder) Build() *ValidateSessionResponse {
-	m0 := &ValidateSessionResponse{}
-	b, x := &b0, m0
-	_, _ = b, x
-	if b.Valid != nil {
-		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 0, 4)
-		x.xxx_hidden_Valid = *b.Valid
-	}
-	if b.Session != nil {
-		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 1, 4)
-		x.xxx_hidden_Session = b.Session
-	}
-	if b.UserInfo != nil {
-		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 2, 4)
-		x.xxx_hidden_UserInfo = b.UserInfo
-	}
-	if b.Error != nil {
-		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 3, 4)
-		x.xxx_hidden_Error = b.Error
-	}
-	return m0
 }
 
 var File_pkg_auth_proto_validate_session_response_proto protoreflect.FileDescriptor
 
 const file_pkg_auth_proto_validate_session_response_proto_rawDesc = "" +
 	"\n" +
-	".pkg/auth/proto/validate_session_response.proto\x12\x0fgcommon.v1.auth\x1a!google/protobuf/go_features.proto\x1a\x1cpkg/auth/proto/session.proto\x1a\x1epkg/auth/proto/user_info.proto\x1a\x1cpkg/common/proto/error.proto\"\xd7\x01\n" +
+	".pkg/auth/proto/validate_session_response.proto\x12\x0fgcommon.v1.auth\x1a\x1cpkg/auth/proto/session.proto\x1a\x1epkg/auth/proto/user_info.proto\x1a\x1cpkg/common/proto/error.proto\"\xd7\x01\n" +
 	"\x17ValidateSessionResponse\x12\x14\n" +
 	"\x05valid\x18\x01 \x01(\bR\x05valid\x126\n" +
 	"\asession\x18\x02 \x01(\v2\x18.gcommon.v1.auth.SessionB\x02(\x01R\asession\x12:\n" +
 	"\tuser_info\x18\x03 \x01(\v2\x19.gcommon.v1.auth.UserInfoB\x02(\x01R\buserInfo\x122\n" +
-	"\x05error\x18\x04 \x01(\v2\x18.gcommon.v1.common.ErrorB\x02(\x01R\x05errorB\xc3\x01\n" +
-	"\x13com.gcommon.v1.authB\x1cValidateSessionResponseProtoP\x01Z(github.com/jdfalk/gcommon/pkg/auth/proto\xa2\x02\x03GVA\xaa\x02\x0fGcommon.V1.Auth\xca\x02\x0fGcommon\\V1\\Auth\xe2\x02\x1bGcommon\\V1\\Auth\\GPBMetadata\xea\x02\x11Gcommon::V1::Auth\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"\x05error\x18\x04 \x01(\v2\x18.gcommon.v1.common.ErrorB\x02(\x01R\x05errorB\xbb\x01\n" +
+	"\x13com.gcommon.v1.authB\x1cValidateSessionResponseProtoP\x01Z(github.com/jdfalk/gcommon/pkg/auth/proto\xa2\x02\x03GVA\xaa\x02\x0fGcommon.V1.Auth\xca\x02\x0fGcommon\\V1\\Auth\xe2\x02\x1bGcommon\\V1\\Auth\\GPBMetadata\xea\x02\x11Gcommon::V1::Authb\beditionsp\xe8\a"
+
+var (
+	file_pkg_auth_proto_validate_session_response_proto_rawDescOnce sync.Once
+	file_pkg_auth_proto_validate_session_response_proto_rawDescData []byte
+)
+
+func file_pkg_auth_proto_validate_session_response_proto_rawDescGZIP() []byte {
+	file_pkg_auth_proto_validate_session_response_proto_rawDescOnce.Do(func() {
+		file_pkg_auth_proto_validate_session_response_proto_rawDescData = protoimpl.X.CompressGZIP(unsafe.Slice(unsafe.StringData(file_pkg_auth_proto_validate_session_response_proto_rawDesc), len(file_pkg_auth_proto_validate_session_response_proto_rawDesc)))
+	})
+	return file_pkg_auth_proto_validate_session_response_proto_rawDescData
+}
 
 var file_pkg_auth_proto_validate_session_response_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_pkg_auth_proto_validate_session_response_proto_goTypes = []any{

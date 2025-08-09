@@ -9,8 +9,8 @@ package proto
 import (
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
-	_ "google.golang.org/protobuf/types/gofeaturespb"
 	reflect "reflect"
+	sync "sync"
 	unsafe "unsafe"
 )
 
@@ -25,15 +25,17 @@ const (
 // AuthProvider represents an external authentication provider configuration.
 // It defines the provider type and connection details used for authentication.
 type AuthProvider struct {
-	state                  protoimpl.MessageState `protogen:"opaque.v1"`
-	xxx_hidden_Id          *string                `protobuf:"bytes,1,opt,name=id"`
-	xxx_hidden_Name        *string                `protobuf:"bytes,2,opt,name=name"`
-	xxx_hidden_Type        ProviderType           `protobuf:"varint,3,opt,name=type,enum=gcommon.v1.auth.ProviderType"`
-	xxx_hidden_Config      *string                `protobuf:"bytes,4,opt,name=config"`
-	XXX_raceDetectHookData protoimpl.RaceDetectHookData
-	XXX_presence           [1]uint32
-	unknownFields          protoimpl.UnknownFields
-	sizeCache              protoimpl.SizeCache
+	state protoimpl.MessageState `protogen:"open.v1"`
+	// Unique provider identifier
+	Id *string `protobuf:"bytes,1,opt,name=id" json:"id,omitempty"`
+	// Human readable provider name
+	Name *string `protobuf:"bytes,2,opt,name=name" json:"name,omitempty"`
+	// Provider type (e.g., LDAP, OAUTH2, SAML)
+	Type *ProviderType `protobuf:"varint,3,opt,name=type,enum=gcommon.v1.auth.ProviderType" json:"type,omitempty"`
+	// Provider-specific configuration reference or JSON blob
+	Config        *string `protobuf:"bytes,4,opt,name=config" json:"config,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
 }
 
 func (x *AuthProvider) Reset() {
@@ -61,160 +63,62 @@ func (x *AuthProvider) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
+// Deprecated: Use AuthProvider.ProtoReflect.Descriptor instead.
+func (*AuthProvider) Descriptor() ([]byte, []int) {
+	return file_pkg_auth_proto_auth_provider_proto_rawDescGZIP(), []int{0}
+}
+
 func (x *AuthProvider) GetId() string {
-	if x != nil {
-		if x.xxx_hidden_Id != nil {
-			return *x.xxx_hidden_Id
-		}
-		return ""
+	if x != nil && x.Id != nil {
+		return *x.Id
 	}
 	return ""
 }
 
 func (x *AuthProvider) GetName() string {
-	if x != nil {
-		if x.xxx_hidden_Name != nil {
-			return *x.xxx_hidden_Name
-		}
-		return ""
+	if x != nil && x.Name != nil {
+		return *x.Name
 	}
 	return ""
 }
 
 func (x *AuthProvider) GetType() ProviderType {
-	if x != nil {
-		if protoimpl.X.Present(&(x.XXX_presence[0]), 2) {
-			return x.xxx_hidden_Type
-		}
+	if x != nil && x.Type != nil {
+		return *x.Type
 	}
 	return ProviderType_PROVIDER_TYPE_UNSPECIFIED
 }
 
 func (x *AuthProvider) GetConfig() string {
-	if x != nil {
-		if x.xxx_hidden_Config != nil {
-			return *x.xxx_hidden_Config
-		}
-		return ""
+	if x != nil && x.Config != nil {
+		return *x.Config
 	}
 	return ""
-}
-
-func (x *AuthProvider) SetId(v string) {
-	x.xxx_hidden_Id = &v
-	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 0, 4)
-}
-
-func (x *AuthProvider) SetName(v string) {
-	x.xxx_hidden_Name = &v
-	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 1, 4)
-}
-
-func (x *AuthProvider) SetType(v ProviderType) {
-	x.xxx_hidden_Type = v
-	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 2, 4)
-}
-
-func (x *AuthProvider) SetConfig(v string) {
-	x.xxx_hidden_Config = &v
-	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 3, 4)
-}
-
-func (x *AuthProvider) HasId() bool {
-	if x == nil {
-		return false
-	}
-	return protoimpl.X.Present(&(x.XXX_presence[0]), 0)
-}
-
-func (x *AuthProvider) HasName() bool {
-	if x == nil {
-		return false
-	}
-	return protoimpl.X.Present(&(x.XXX_presence[0]), 1)
-}
-
-func (x *AuthProvider) HasType() bool {
-	if x == nil {
-		return false
-	}
-	return protoimpl.X.Present(&(x.XXX_presence[0]), 2)
-}
-
-func (x *AuthProvider) HasConfig() bool {
-	if x == nil {
-		return false
-	}
-	return protoimpl.X.Present(&(x.XXX_presence[0]), 3)
-}
-
-func (x *AuthProvider) ClearId() {
-	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 0)
-	x.xxx_hidden_Id = nil
-}
-
-func (x *AuthProvider) ClearName() {
-	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 1)
-	x.xxx_hidden_Name = nil
-}
-
-func (x *AuthProvider) ClearType() {
-	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 2)
-	x.xxx_hidden_Type = ProviderType_PROVIDER_TYPE_UNSPECIFIED
-}
-
-func (x *AuthProvider) ClearConfig() {
-	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 3)
-	x.xxx_hidden_Config = nil
-}
-
-type AuthProvider_builder struct {
-	_ [0]func() // Prevents comparability and use of unkeyed literals for the builder.
-
-	// Unique provider identifier
-	Id *string
-	// Human readable provider name
-	Name *string
-	// Provider type (e.g., LDAP, OAUTH2, SAML)
-	Type *ProviderType
-	// Provider-specific configuration reference or JSON blob
-	Config *string
-}
-
-func (b0 AuthProvider_builder) Build() *AuthProvider {
-	m0 := &AuthProvider{}
-	b, x := &b0, m0
-	_, _ = b, x
-	if b.Id != nil {
-		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 0, 4)
-		x.xxx_hidden_Id = b.Id
-	}
-	if b.Name != nil {
-		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 1, 4)
-		x.xxx_hidden_Name = b.Name
-	}
-	if b.Type != nil {
-		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 2, 4)
-		x.xxx_hidden_Type = *b.Type
-	}
-	if b.Config != nil {
-		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 3, 4)
-		x.xxx_hidden_Config = b.Config
-	}
-	return m0
 }
 
 var File_pkg_auth_proto_auth_provider_proto protoreflect.FileDescriptor
 
 const file_pkg_auth_proto_auth_provider_proto_rawDesc = "" +
 	"\n" +
-	"\"pkg/auth/proto/auth_provider.proto\x12\x0fgcommon.v1.auth\x1a!google/protobuf/go_features.proto\x1a\"pkg/auth/proto/provider_type.proto\"}\n" +
+	"\"pkg/auth/proto/auth_provider.proto\x12\x0fgcommon.v1.auth\x1a\"pkg/auth/proto/provider_type.proto\"}\n" +
 	"\fAuthProvider\x12\x0e\n" +
 	"\x02id\x18\x01 \x01(\tR\x02id\x12\x12\n" +
 	"\x04name\x18\x02 \x01(\tR\x04name\x121\n" +
 	"\x04type\x18\x03 \x01(\x0e2\x1d.gcommon.v1.auth.ProviderTypeR\x04type\x12\x16\n" +
-	"\x06config\x18\x04 \x01(\tR\x06configB\xb8\x01\n" +
-	"\x13com.gcommon.v1.authB\x11AuthProviderProtoP\x01Z(github.com/jdfalk/gcommon/pkg/auth/proto\xa2\x02\x03GVA\xaa\x02\x0fGcommon.V1.Auth\xca\x02\x0fGcommon\\V1\\Auth\xe2\x02\x1bGcommon\\V1\\Auth\\GPBMetadata\xea\x02\x11Gcommon::V1::Auth\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"\x06config\x18\x04 \x01(\tR\x06configB\xb0\x01\n" +
+	"\x13com.gcommon.v1.authB\x11AuthProviderProtoP\x01Z(github.com/jdfalk/gcommon/pkg/auth/proto\xa2\x02\x03GVA\xaa\x02\x0fGcommon.V1.Auth\xca\x02\x0fGcommon\\V1\\Auth\xe2\x02\x1bGcommon\\V1\\Auth\\GPBMetadata\xea\x02\x11Gcommon::V1::Authb\beditionsp\xe8\a"
+
+var (
+	file_pkg_auth_proto_auth_provider_proto_rawDescOnce sync.Once
+	file_pkg_auth_proto_auth_provider_proto_rawDescData []byte
+)
+
+func file_pkg_auth_proto_auth_provider_proto_rawDescGZIP() []byte {
+	file_pkg_auth_proto_auth_provider_proto_rawDescOnce.Do(func() {
+		file_pkg_auth_proto_auth_provider_proto_rawDescData = protoimpl.X.CompressGZIP(unsafe.Slice(unsafe.StringData(file_pkg_auth_proto_auth_provider_proto_rawDesc), len(file_pkg_auth_proto_auth_provider_proto_rawDesc)))
+	})
+	return file_pkg_auth_proto_auth_provider_proto_rawDescData
+}
 
 var file_pkg_auth_proto_auth_provider_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_pkg_auth_proto_auth_provider_proto_goTypes = []any{

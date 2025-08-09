@@ -10,8 +10,8 @@ import (
 	proto "github.com/jdfalk/gcommon/pkg/common/proto"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
-	_ "google.golang.org/protobuf/types/gofeaturespb"
 	reflect "reflect"
+	sync "sync"
 	unsafe "unsafe"
 )
 
@@ -24,13 +24,13 @@ const (
 
 // LogoutResponse provides the result of a logout request
 type LogoutResponse struct {
-	state                  protoimpl.MessageState `protogen:"opaque.v1"`
-	xxx_hidden_Success     bool                   `protobuf:"varint,1,opt,name=success"`
-	xxx_hidden_Error       *proto.Error           `protobuf:"bytes,2,opt,name=error"`
-	XXX_raceDetectHookData protoimpl.RaceDetectHookData
-	XXX_presence           [1]uint32
-	unknownFields          protoimpl.UnknownFields
-	sizeCache              protoimpl.SizeCache
+	state protoimpl.MessageState `protogen:"open.v1"`
+	// Whether the logout was successful
+	Success *bool `protobuf:"varint,1,opt,name=success" json:"success,omitempty"`
+	// Optional error information if logout failed
+	Error         *proto.Error `protobuf:"bytes,2,opt,name=error" json:"error,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
 }
 
 func (x *LogoutResponse) Reset() {
@@ -58,82 +58,46 @@ func (x *LogoutResponse) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
+// Deprecated: Use LogoutResponse.ProtoReflect.Descriptor instead.
+func (*LogoutResponse) Descriptor() ([]byte, []int) {
+	return file_pkg_auth_proto_logout_response_proto_rawDescGZIP(), []int{0}
+}
+
 func (x *LogoutResponse) GetSuccess() bool {
-	if x != nil {
-		return x.xxx_hidden_Success
+	if x != nil && x.Success != nil {
+		return *x.Success
 	}
 	return false
 }
 
 func (x *LogoutResponse) GetError() *proto.Error {
 	if x != nil {
-		return x.xxx_hidden_Error
+		return x.Error
 	}
 	return nil
-}
-
-func (x *LogoutResponse) SetSuccess(v bool) {
-	x.xxx_hidden_Success = v
-	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 0, 2)
-}
-
-func (x *LogoutResponse) SetError(v *proto.Error) {
-	x.xxx_hidden_Error = v
-}
-
-func (x *LogoutResponse) HasSuccess() bool {
-	if x == nil {
-		return false
-	}
-	return protoimpl.X.Present(&(x.XXX_presence[0]), 0)
-}
-
-func (x *LogoutResponse) HasError() bool {
-	if x == nil {
-		return false
-	}
-	return x.xxx_hidden_Error != nil
-}
-
-func (x *LogoutResponse) ClearSuccess() {
-	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 0)
-	x.xxx_hidden_Success = false
-}
-
-func (x *LogoutResponse) ClearError() {
-	x.xxx_hidden_Error = nil
-}
-
-type LogoutResponse_builder struct {
-	_ [0]func() // Prevents comparability and use of unkeyed literals for the builder.
-
-	// Whether the logout was successful
-	Success *bool
-	// Optional error information if logout failed
-	Error *proto.Error
-}
-
-func (b0 LogoutResponse_builder) Build() *LogoutResponse {
-	m0 := &LogoutResponse{}
-	b, x := &b0, m0
-	_, _ = b, x
-	if b.Success != nil {
-		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 0, 2)
-		x.xxx_hidden_Success = *b.Success
-	}
-	x.xxx_hidden_Error = b.Error
-	return m0
 }
 
 var File_pkg_auth_proto_logout_response_proto protoreflect.FileDescriptor
 
 const file_pkg_auth_proto_logout_response_proto_rawDesc = "" +
 	"\n" +
-	"$pkg/auth/proto/logout_response.proto\x12\x0fgcommon.v1.auth\x1a!google/protobuf/go_features.proto\x1a'pkg/common/proto/request_metadata.proto\x1a\x1cpkg/common/proto/error.proto\"Z\n" +
+	"$pkg/auth/proto/logout_response.proto\x12\x0fgcommon.v1.auth\x1a'pkg/common/proto/request_metadata.proto\x1a\x1cpkg/common/proto/error.proto\"Z\n" +
 	"\x0eLogoutResponse\x12\x18\n" +
 	"\asuccess\x18\x01 \x01(\bR\asuccess\x12.\n" +
-	"\x05error\x18\x02 \x01(\v2\x18.gcommon.v1.common.ErrorR\x05errorB\xba\x01\n" +
-	"\x13com.gcommon.v1.authB\x13LogoutResponseProtoP\x01Z(github.com/jdfalk/gcommon/pkg/auth/proto\xa2\x02\x03GVA\xaa\x02\x0fGcommon.V1.Auth\xca\x02\x0fGcommon\\V1\\Auth\xe2\x02\x1bGcommon\\V1\\Auth\\GPBMetadata\xea\x02\x11Gcommon::V1::Auth\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"\x05error\x18\x02 \x01(\v2\x18.gcommon.v1.common.ErrorR\x05errorB\xb2\x01\n" +
+	"\x13com.gcommon.v1.authB\x13LogoutResponseProtoP\x01Z(github.com/jdfalk/gcommon/pkg/auth/proto\xa2\x02\x03GVA\xaa\x02\x0fGcommon.V1.Auth\xca\x02\x0fGcommon\\V1\\Auth\xe2\x02\x1bGcommon\\V1\\Auth\\GPBMetadata\xea\x02\x11Gcommon::V1::Authb\beditionsp\xe8\a"
+
+var (
+	file_pkg_auth_proto_logout_response_proto_rawDescOnce sync.Once
+	file_pkg_auth_proto_logout_response_proto_rawDescData []byte
+)
+
+func file_pkg_auth_proto_logout_response_proto_rawDescGZIP() []byte {
+	file_pkg_auth_proto_logout_response_proto_rawDescOnce.Do(func() {
+		file_pkg_auth_proto_logout_response_proto_rawDescData = protoimpl.X.CompressGZIP(unsafe.Slice(unsafe.StringData(file_pkg_auth_proto_logout_response_proto_rawDesc), len(file_pkg_auth_proto_logout_response_proto_rawDesc)))
+	})
+	return file_pkg_auth_proto_logout_response_proto_rawDescData
+}
 
 var file_pkg_auth_proto_logout_response_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_pkg_auth_proto_logout_response_proto_goTypes = []any{

@@ -9,9 +9,9 @@ package proto
 import (
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
-	_ "google.golang.org/protobuf/types/gofeaturespb"
 	timestamppb "google.golang.org/protobuf/types/known/timestamppb"
 	reflect "reflect"
+	sync "sync"
 	unsafe "unsafe"
 )
 
@@ -25,17 +25,17 @@ const (
 // *
 // AuditEvent records authentication-related actions for auditing.
 type AuditEvent struct {
-	state                protoimpl.MessageState `protogen:"opaque.v1"`
-	xxx_hidden_EventType *string                `protobuf:"bytes,1,opt,name=event_type,json=eventType"`
-	xxx_hidden_UserId    *string                `protobuf:"bytes,2,opt,name=user_id,json=userId"`
-	xxx_hidden_Timestamp *timestamppb.Timestamp `protobuf:"bytes,3,opt,name=timestamp"`
-	xxx_hidden_Metadata  map[string]string      `protobuf:"bytes,4,rep,name=metadata" protobuf_key:"bytes,1,opt,name=key" protobuf_val:"bytes,2,opt,name=value"`
-	// Deprecated: Do not use. This will be deleted in the near future.
-	XXX_lazyUnmarshalInfo  protoimpl.LazyUnmarshalInfo
-	XXX_raceDetectHookData protoimpl.RaceDetectHookData
-	XXX_presence           [1]uint32
-	unknownFields          protoimpl.UnknownFields
-	sizeCache              protoimpl.SizeCache
+	state protoimpl.MessageState `protogen:"open.v1"`
+	// Type of event (e.g., LOGIN, LOGOUT)
+	EventType *string `protobuf:"bytes,1,opt,name=event_type,json=eventType" json:"event_type,omitempty"`
+	// User ID associated with the event
+	UserId *string `protobuf:"bytes,2,opt,name=user_id,json=userId" json:"user_id,omitempty"`
+	// Time event occurred
+	Timestamp *timestamppb.Timestamp `protobuf:"bytes,3,opt,name=timestamp" json:"timestamp,omitempty"`
+	// Additional metadata about the event
+	Metadata      map[string]string `protobuf:"bytes,4,rep,name=metadata" json:"metadata,omitempty" protobuf_key:"bytes,1,opt,name=key" protobuf_val:"bytes,2,opt,name=value"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
 }
 
 func (x *AuditEvent) Reset() {
@@ -63,144 +63,44 @@ func (x *AuditEvent) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
+// Deprecated: Use AuditEvent.ProtoReflect.Descriptor instead.
+func (*AuditEvent) Descriptor() ([]byte, []int) {
+	return file_pkg_auth_proto_audit_event_proto_rawDescGZIP(), []int{0}
+}
+
 func (x *AuditEvent) GetEventType() string {
-	if x != nil {
-		if x.xxx_hidden_EventType != nil {
-			return *x.xxx_hidden_EventType
-		}
-		return ""
+	if x != nil && x.EventType != nil {
+		return *x.EventType
 	}
 	return ""
 }
 
 func (x *AuditEvent) GetUserId() string {
-	if x != nil {
-		if x.xxx_hidden_UserId != nil {
-			return *x.xxx_hidden_UserId
-		}
-		return ""
+	if x != nil && x.UserId != nil {
+		return *x.UserId
 	}
 	return ""
 }
 
 func (x *AuditEvent) GetTimestamp() *timestamppb.Timestamp {
 	if x != nil {
-		if protoimpl.X.Present(&(x.XXX_presence[0]), 2) {
-			if protoimpl.X.AtomicCheckPointerIsNil(&x.xxx_hidden_Timestamp) {
-				protoimpl.X.UnmarshalField(x, 3)
-			}
-			var rv *timestamppb.Timestamp
-			protoimpl.X.AtomicLoadPointer(protoimpl.Pointer(&x.xxx_hidden_Timestamp), protoimpl.Pointer(&rv))
-			return rv
-		}
+		return x.Timestamp
 	}
 	return nil
 }
 
 func (x *AuditEvent) GetMetadata() map[string]string {
 	if x != nil {
-		return x.xxx_hidden_Metadata
+		return x.Metadata
 	}
 	return nil
-}
-
-func (x *AuditEvent) SetEventType(v string) {
-	x.xxx_hidden_EventType = &v
-	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 0, 4)
-}
-
-func (x *AuditEvent) SetUserId(v string) {
-	x.xxx_hidden_UserId = &v
-	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 1, 4)
-}
-
-func (x *AuditEvent) SetTimestamp(v *timestamppb.Timestamp) {
-	protoimpl.X.AtomicSetPointer(&x.xxx_hidden_Timestamp, v)
-	if v == nil {
-		protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 2)
-	} else {
-		protoimpl.X.SetPresent(&(x.XXX_presence[0]), 2, 4)
-	}
-}
-
-func (x *AuditEvent) SetMetadata(v map[string]string) {
-	x.xxx_hidden_Metadata = v
-}
-
-func (x *AuditEvent) HasEventType() bool {
-	if x == nil {
-		return false
-	}
-	return protoimpl.X.Present(&(x.XXX_presence[0]), 0)
-}
-
-func (x *AuditEvent) HasUserId() bool {
-	if x == nil {
-		return false
-	}
-	return protoimpl.X.Present(&(x.XXX_presence[0]), 1)
-}
-
-func (x *AuditEvent) HasTimestamp() bool {
-	if x == nil {
-		return false
-	}
-	return protoimpl.X.Present(&(x.XXX_presence[0]), 2)
-}
-
-func (x *AuditEvent) ClearEventType() {
-	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 0)
-	x.xxx_hidden_EventType = nil
-}
-
-func (x *AuditEvent) ClearUserId() {
-	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 1)
-	x.xxx_hidden_UserId = nil
-}
-
-func (x *AuditEvent) ClearTimestamp() {
-	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 2)
-	protoimpl.X.AtomicSetPointer(&x.xxx_hidden_Timestamp, (*timestamppb.Timestamp)(nil))
-}
-
-type AuditEvent_builder struct {
-	_ [0]func() // Prevents comparability and use of unkeyed literals for the builder.
-
-	// Type of event (e.g., LOGIN, LOGOUT)
-	EventType *string
-	// User ID associated with the event
-	UserId *string
-	// Time event occurred
-	Timestamp *timestamppb.Timestamp
-	// Additional metadata about the event
-	Metadata map[string]string
-}
-
-func (b0 AuditEvent_builder) Build() *AuditEvent {
-	m0 := &AuditEvent{}
-	b, x := &b0, m0
-	_, _ = b, x
-	if b.EventType != nil {
-		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 0, 4)
-		x.xxx_hidden_EventType = b.EventType
-	}
-	if b.UserId != nil {
-		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 1, 4)
-		x.xxx_hidden_UserId = b.UserId
-	}
-	if b.Timestamp != nil {
-		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 2, 4)
-		x.xxx_hidden_Timestamp = b.Timestamp
-	}
-	x.xxx_hidden_Metadata = b.Metadata
-	return m0
 }
 
 var File_pkg_auth_proto_audit_event_proto protoreflect.FileDescriptor
 
 const file_pkg_auth_proto_audit_event_proto_rawDesc = "" +
 	"\n" +
-	" pkg/auth/proto/audit_event.proto\x12\x0fgcommon.v1.auth\x1a!google/protobuf/go_features.proto\x1a\x1fgoogle/protobuf/timestamp.proto\"\x86\x02\n" +
+	" pkg/auth/proto/audit_event.proto\x12\x0fgcommon.v1.auth\x1a\x1fgoogle/protobuf/timestamp.proto\"\x86\x02\n" +
 	"\n" +
 	"AuditEvent\x12\x1d\n" +
 	"\n" +
@@ -210,8 +110,20 @@ const file_pkg_auth_proto_audit_event_proto_rawDesc = "" +
 	"\bmetadata\x18\x04 \x03(\v2).gcommon.v1.auth.AuditEvent.MetadataEntryR\bmetadata\x1a;\n" +
 	"\rMetadataEntry\x12\x10\n" +
 	"\x03key\x18\x01 \x01(\tR\x03key\x12\x14\n" +
-	"\x05value\x18\x02 \x01(\tR\x05value:\x028\x01B\xb6\x01\n" +
-	"\x13com.gcommon.v1.authB\x0fAuditEventProtoP\x01Z(github.com/jdfalk/gcommon/pkg/auth/proto\xa2\x02\x03GVA\xaa\x02\x0fGcommon.V1.Auth\xca\x02\x0fGcommon\\V1\\Auth\xe2\x02\x1bGcommon\\V1\\Auth\\GPBMetadata\xea\x02\x11Gcommon::V1::Auth\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"\x05value\x18\x02 \x01(\tR\x05value:\x028\x01B\xae\x01\n" +
+	"\x13com.gcommon.v1.authB\x0fAuditEventProtoP\x01Z(github.com/jdfalk/gcommon/pkg/auth/proto\xa2\x02\x03GVA\xaa\x02\x0fGcommon.V1.Auth\xca\x02\x0fGcommon\\V1\\Auth\xe2\x02\x1bGcommon\\V1\\Auth\\GPBMetadata\xea\x02\x11Gcommon::V1::Authb\beditionsp\xe8\a"
+
+var (
+	file_pkg_auth_proto_audit_event_proto_rawDescOnce sync.Once
+	file_pkg_auth_proto_audit_event_proto_rawDescData []byte
+)
+
+func file_pkg_auth_proto_audit_event_proto_rawDescGZIP() []byte {
+	file_pkg_auth_proto_audit_event_proto_rawDescOnce.Do(func() {
+		file_pkg_auth_proto_audit_event_proto_rawDescData = protoimpl.X.CompressGZIP(unsafe.Slice(unsafe.StringData(file_pkg_auth_proto_audit_event_proto_rawDesc), len(file_pkg_auth_proto_audit_event_proto_rawDesc)))
+	})
+	return file_pkg_auth_proto_audit_event_proto_rawDescData
+}
 
 var file_pkg_auth_proto_audit_event_proto_msgTypes = make([]protoimpl.MessageInfo, 2)
 var file_pkg_auth_proto_audit_event_proto_goTypes = []any{

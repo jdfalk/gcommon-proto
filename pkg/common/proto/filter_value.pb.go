@@ -9,8 +9,8 @@ package proto
 import (
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
-	_ "google.golang.org/protobuf/types/gofeaturespb"
 	reflect "reflect"
+	sync "sync"
 	unsafe "unsafe"
 )
 
@@ -28,15 +28,22 @@ const (
 // Supports scalar values (string, int, double, bool) and array values
 // for IN/NOT_IN operations, with explicit operation specification.
 type FilterValue struct {
-	state                protoimpl.MessageState `protogen:"opaque.v1"`
-	xxx_hidden_Value     isFilterValue_Value    `protobuf_oneof:"value"`
-	xxx_hidden_Operation FilterOperation        `protobuf:"varint,7,opt,name=operation,enum=gcommon.v1.common.FilterOperation"`
-	// Deprecated: Do not use. This will be deleted in the near future.
-	XXX_lazyUnmarshalInfo  protoimpl.LazyUnmarshalInfo
-	XXX_raceDetectHookData protoimpl.RaceDetectHookData
-	XXX_presence           [1]uint32
-	unknownFields          protoimpl.UnknownFields
-	sizeCache              protoimpl.SizeCache
+	state protoimpl.MessageState `protogen:"open.v1"`
+	// The value to filter by (one of the supported types)
+	//
+	// Types that are valid to be assigned to Value:
+	//
+	//	*FilterValue_StringValue
+	//	*FilterValue_IntValue
+	//	*FilterValue_DoubleValue
+	//	*FilterValue_BoolValue
+	//	*FilterValue_StringArray
+	//	*FilterValue_IntArray
+	Value isFilterValue_Value `protobuf_oneof:"value"`
+	// Filter operation type (equals, contains, greater than, etc.)
+	Operation     *FilterOperation `protobuf:"varint,7,opt,name=operation,enum=gcommon.v1.common.FilterOperation" json:"operation,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
 }
 
 func (x *FilterValue) Reset() {
@@ -64,9 +71,21 @@ func (x *FilterValue) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
+// Deprecated: Use FilterValue.ProtoReflect.Descriptor instead.
+func (*FilterValue) Descriptor() ([]byte, []int) {
+	return file_pkg_common_proto_filter_value_proto_rawDescGZIP(), []int{0}
+}
+
+func (x *FilterValue) GetValue() isFilterValue_Value {
+	if x != nil {
+		return x.Value
+	}
+	return nil
+}
+
 func (x *FilterValue) GetStringValue() string {
 	if x != nil {
-		if x, ok := x.xxx_hidden_Value.(*filterValue_StringValue); ok {
+		if x, ok := x.Value.(*FilterValue_StringValue); ok {
 			return x.StringValue
 		}
 	}
@@ -75,7 +94,7 @@ func (x *FilterValue) GetStringValue() string {
 
 func (x *FilterValue) GetIntValue() int64 {
 	if x != nil {
-		if x, ok := x.xxx_hidden_Value.(*filterValue_IntValue); ok {
+		if x, ok := x.Value.(*FilterValue_IntValue); ok {
 			return x.IntValue
 		}
 	}
@@ -84,7 +103,7 @@ func (x *FilterValue) GetIntValue() int64 {
 
 func (x *FilterValue) GetDoubleValue() float64 {
 	if x != nil {
-		if x, ok := x.xxx_hidden_Value.(*filterValue_DoubleValue); ok {
+		if x, ok := x.Value.(*FilterValue_DoubleValue); ok {
 			return x.DoubleValue
 		}
 	}
@@ -93,7 +112,7 @@ func (x *FilterValue) GetDoubleValue() float64 {
 
 func (x *FilterValue) GetBoolValue() bool {
 	if x != nil {
-		if x, ok := x.xxx_hidden_Value.(*filterValue_BoolValue); ok {
+		if x, ok := x.Value.(*FilterValue_BoolValue); ok {
 			return x.BoolValue
 		}
 	}
@@ -102,7 +121,7 @@ func (x *FilterValue) GetBoolValue() bool {
 
 func (x *FilterValue) GetStringArray() *StringArray {
 	if x != nil {
-		if x, ok := x.xxx_hidden_Value.(*filterValue_StringArray); ok {
+		if x, ok := x.Value.(*FilterValue_StringArray); ok {
 			return x.StringArray
 		}
 	}
@@ -111,7 +130,7 @@ func (x *FilterValue) GetStringArray() *StringArray {
 
 func (x *FilterValue) GetIntArray() *Int64Array {
 	if x != nil {
-		if x, ok := x.xxx_hidden_Value.(*filterValue_IntArray); ok {
+		if x, ok := x.Value.(*FilterValue_IntArray); ok {
 			return x.IntArray
 		}
 	}
@@ -119,301 +138,63 @@ func (x *FilterValue) GetIntArray() *Int64Array {
 }
 
 func (x *FilterValue) GetOperation() FilterOperation {
-	if x != nil {
-		if protoimpl.X.Present(&(x.XXX_presence[0]), 1) {
-			return x.xxx_hidden_Operation
-		}
+	if x != nil && x.Operation != nil {
+		return *x.Operation
 	}
 	return FilterOperation_FILTER_OPERATION_UNSPECIFIED
-}
-
-func (x *FilterValue) SetStringValue(v string) {
-	x.xxx_hidden_Value = &filterValue_StringValue{v}
-}
-
-func (x *FilterValue) SetIntValue(v int64) {
-	x.xxx_hidden_Value = &filterValue_IntValue{v}
-}
-
-func (x *FilterValue) SetDoubleValue(v float64) {
-	x.xxx_hidden_Value = &filterValue_DoubleValue{v}
-}
-
-func (x *FilterValue) SetBoolValue(v bool) {
-	x.xxx_hidden_Value = &filterValue_BoolValue{v}
-}
-
-func (x *FilterValue) SetStringArray(v *StringArray) {
-	if v == nil {
-		x.xxx_hidden_Value = nil
-		return
-	}
-	x.xxx_hidden_Value = &filterValue_StringArray{v}
-}
-
-func (x *FilterValue) SetIntArray(v *Int64Array) {
-	if v == nil {
-		x.xxx_hidden_Value = nil
-		return
-	}
-	x.xxx_hidden_Value = &filterValue_IntArray{v}
-}
-
-func (x *FilterValue) SetOperation(v FilterOperation) {
-	x.xxx_hidden_Operation = v
-	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 1, 2)
-}
-
-func (x *FilterValue) HasValue() bool {
-	if x == nil {
-		return false
-	}
-	return x.xxx_hidden_Value != nil
-}
-
-func (x *FilterValue) HasStringValue() bool {
-	if x == nil {
-		return false
-	}
-	_, ok := x.xxx_hidden_Value.(*filterValue_StringValue)
-	return ok
-}
-
-func (x *FilterValue) HasIntValue() bool {
-	if x == nil {
-		return false
-	}
-	_, ok := x.xxx_hidden_Value.(*filterValue_IntValue)
-	return ok
-}
-
-func (x *FilterValue) HasDoubleValue() bool {
-	if x == nil {
-		return false
-	}
-	_, ok := x.xxx_hidden_Value.(*filterValue_DoubleValue)
-	return ok
-}
-
-func (x *FilterValue) HasBoolValue() bool {
-	if x == nil {
-		return false
-	}
-	_, ok := x.xxx_hidden_Value.(*filterValue_BoolValue)
-	return ok
-}
-
-func (x *FilterValue) HasStringArray() bool {
-	if x == nil {
-		return false
-	}
-	_, ok := x.xxx_hidden_Value.(*filterValue_StringArray)
-	return ok
-}
-
-func (x *FilterValue) HasIntArray() bool {
-	if x == nil {
-		return false
-	}
-	_, ok := x.xxx_hidden_Value.(*filterValue_IntArray)
-	return ok
-}
-
-func (x *FilterValue) HasOperation() bool {
-	if x == nil {
-		return false
-	}
-	return protoimpl.X.Present(&(x.XXX_presence[0]), 1)
-}
-
-func (x *FilterValue) ClearValue() {
-	x.xxx_hidden_Value = nil
-}
-
-func (x *FilterValue) ClearStringValue() {
-	if _, ok := x.xxx_hidden_Value.(*filterValue_StringValue); ok {
-		x.xxx_hidden_Value = nil
-	}
-}
-
-func (x *FilterValue) ClearIntValue() {
-	if _, ok := x.xxx_hidden_Value.(*filterValue_IntValue); ok {
-		x.xxx_hidden_Value = nil
-	}
-}
-
-func (x *FilterValue) ClearDoubleValue() {
-	if _, ok := x.xxx_hidden_Value.(*filterValue_DoubleValue); ok {
-		x.xxx_hidden_Value = nil
-	}
-}
-
-func (x *FilterValue) ClearBoolValue() {
-	if _, ok := x.xxx_hidden_Value.(*filterValue_BoolValue); ok {
-		x.xxx_hidden_Value = nil
-	}
-}
-
-func (x *FilterValue) ClearStringArray() {
-	if _, ok := x.xxx_hidden_Value.(*filterValue_StringArray); ok {
-		x.xxx_hidden_Value = nil
-	}
-}
-
-func (x *FilterValue) ClearIntArray() {
-	if _, ok := x.xxx_hidden_Value.(*filterValue_IntArray); ok {
-		x.xxx_hidden_Value = nil
-	}
-}
-
-func (x *FilterValue) ClearOperation() {
-	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 1)
-	x.xxx_hidden_Operation = FilterOperation_FILTER_OPERATION_UNSPECIFIED
-}
-
-const FilterValue_Value_not_set_case case_FilterValue_Value = 0
-const FilterValue_StringValue_case case_FilterValue_Value = 1
-const FilterValue_IntValue_case case_FilterValue_Value = 2
-const FilterValue_DoubleValue_case case_FilterValue_Value = 3
-const FilterValue_BoolValue_case case_FilterValue_Value = 4
-const FilterValue_StringArray_case case_FilterValue_Value = 5
-const FilterValue_IntArray_case case_FilterValue_Value = 6
-
-func (x *FilterValue) WhichValue() case_FilterValue_Value {
-	if x == nil {
-		return FilterValue_Value_not_set_case
-	}
-	switch x.xxx_hidden_Value.(type) {
-	case *filterValue_StringValue:
-		return FilterValue_StringValue_case
-	case *filterValue_IntValue:
-		return FilterValue_IntValue_case
-	case *filterValue_DoubleValue:
-		return FilterValue_DoubleValue_case
-	case *filterValue_BoolValue:
-		return FilterValue_BoolValue_case
-	case *filterValue_StringArray:
-		return FilterValue_StringArray_case
-	case *filterValue_IntArray:
-		return FilterValue_IntArray_case
-	default:
-		return FilterValue_Value_not_set_case
-	}
-}
-
-type FilterValue_builder struct {
-	_ [0]func() // Prevents comparability and use of unkeyed literals for the builder.
-
-	// The value to filter by (one of the supported types)
-
-	// Fields of oneof xxx_hidden_Value:
-	// String value for text-based filtering
-	StringValue *string
-	// Integer value for numeric filtering
-	IntValue *int64
-	// Double value for floating-point filtering
-	DoubleValue *float64
-	// Boolean value for true/false filtering
-	BoolValue *bool
-	// Array of strings for multi-value filtering
-	StringArray *StringArray
-	// Array of integers for multi-value filtering
-	IntArray *Int64Array
-	// -- end of xxx_hidden_Value
-	// Filter operation type (equals, contains, greater than, etc.)
-	Operation *FilterOperation
-}
-
-func (b0 FilterValue_builder) Build() *FilterValue {
-	m0 := &FilterValue{}
-	b, x := &b0, m0
-	_, _ = b, x
-	if b.StringValue != nil {
-		x.xxx_hidden_Value = &filterValue_StringValue{*b.StringValue}
-	}
-	if b.IntValue != nil {
-		x.xxx_hidden_Value = &filterValue_IntValue{*b.IntValue}
-	}
-	if b.DoubleValue != nil {
-		x.xxx_hidden_Value = &filterValue_DoubleValue{*b.DoubleValue}
-	}
-	if b.BoolValue != nil {
-		x.xxx_hidden_Value = &filterValue_BoolValue{*b.BoolValue}
-	}
-	if b.StringArray != nil {
-		x.xxx_hidden_Value = &filterValue_StringArray{b.StringArray}
-	}
-	if b.IntArray != nil {
-		x.xxx_hidden_Value = &filterValue_IntArray{b.IntArray}
-	}
-	if b.Operation != nil {
-		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 1, 2)
-		x.xxx_hidden_Operation = *b.Operation
-	}
-	return m0
-}
-
-type case_FilterValue_Value protoreflect.FieldNumber
-
-func (x case_FilterValue_Value) String() string {
-	md := file_pkg_common_proto_filter_value_proto_msgTypes[0].Descriptor()
-	if x == 0 {
-		return "not set"
-	}
-	return protoimpl.X.MessageFieldStringOf(md, protoreflect.FieldNumber(x))
 }
 
 type isFilterValue_Value interface {
 	isFilterValue_Value()
 }
 
-type filterValue_StringValue struct {
+type FilterValue_StringValue struct {
 	// String value for text-based filtering
 	StringValue string `protobuf:"bytes,1,opt,name=string_value,json=stringValue,oneof"`
 }
 
-type filterValue_IntValue struct {
+type FilterValue_IntValue struct {
 	// Integer value for numeric filtering
 	IntValue int64 `protobuf:"varint,2,opt,name=int_value,json=intValue,oneof"`
 }
 
-type filterValue_DoubleValue struct {
+type FilterValue_DoubleValue struct {
 	// Double value for floating-point filtering
 	DoubleValue float64 `protobuf:"fixed64,3,opt,name=double_value,json=doubleValue,oneof"`
 }
 
-type filterValue_BoolValue struct {
+type FilterValue_BoolValue struct {
 	// Boolean value for true/false filtering
 	BoolValue bool `protobuf:"varint,4,opt,name=bool_value,json=boolValue,oneof"`
 }
 
-type filterValue_StringArray struct {
+type FilterValue_StringArray struct {
 	// Array of strings for multi-value filtering
 	StringArray *StringArray `protobuf:"bytes,5,opt,name=string_array,json=stringArray,oneof"`
 }
 
-type filterValue_IntArray struct {
+type FilterValue_IntArray struct {
 	// Array of integers for multi-value filtering
 	IntArray *Int64Array `protobuf:"bytes,6,opt,name=int_array,json=intArray,oneof"`
 }
 
-func (*filterValue_StringValue) isFilterValue_Value() {}
+func (*FilterValue_StringValue) isFilterValue_Value() {}
 
-func (*filterValue_IntValue) isFilterValue_Value() {}
+func (*FilterValue_IntValue) isFilterValue_Value() {}
 
-func (*filterValue_DoubleValue) isFilterValue_Value() {}
+func (*FilterValue_DoubleValue) isFilterValue_Value() {}
 
-func (*filterValue_BoolValue) isFilterValue_Value() {}
+func (*FilterValue_BoolValue) isFilterValue_Value() {}
 
-func (*filterValue_StringArray) isFilterValue_Value() {}
+func (*FilterValue_StringArray) isFilterValue_Value() {}
 
-func (*filterValue_IntArray) isFilterValue_Value() {}
+func (*FilterValue_IntArray) isFilterValue_Value() {}
 
 var File_pkg_common_proto_filter_value_proto protoreflect.FileDescriptor
 
 const file_pkg_common_proto_filter_value_proto_rawDesc = "" +
 	"\n" +
-	"#pkg/common/proto/filter_value.proto\x12\x11gcommon.v1.common\x1a!google/protobuf/go_features.proto\x1a'pkg/common/proto/filter_operation.proto\x1a\"pkg/common/proto/int64_array.proto\x1a#pkg/common/proto/string_array.proto\"\xed\x02\n" +
+	"#pkg/common/proto/filter_value.proto\x12\x11gcommon.v1.common\x1a'pkg/common/proto/filter_operation.proto\x1a\"pkg/common/proto/int64_array.proto\x1a#pkg/common/proto/string_array.proto\"\xed\x02\n" +
 	"\vFilterValue\x12#\n" +
 	"\fstring_value\x18\x01 \x01(\tH\x00R\vstringValue\x12\x1d\n" +
 	"\tint_value\x18\x02 \x01(\x03H\x00R\bintValue\x12#\n" +
@@ -423,8 +204,20 @@ const file_pkg_common_proto_filter_value_proto_rawDesc = "" +
 	"\fstring_array\x18\x05 \x01(\v2\x1e.gcommon.v1.common.StringArrayB\x02(\x01H\x00R\vstringArray\x12@\n" +
 	"\tint_array\x18\x06 \x01(\v2\x1d.gcommon.v1.common.Int64ArrayB\x02(\x01H\x00R\bintArray\x12@\n" +
 	"\toperation\x18\a \x01(\x0e2\".gcommon.v1.common.FilterOperationR\toperationB\a\n" +
-	"\x05valueB\xc3\x01\n" +
-	"\x15com.gcommon.v1.commonB\x10FilterValueProtoP\x01Z*github.com/jdfalk/gcommon/pkg/common/proto\xa2\x02\x03GVC\xaa\x02\x11Gcommon.V1.Common\xca\x02\x11Gcommon\\V1\\Common\xe2\x02\x1dGcommon\\V1\\Common\\GPBMetadata\xea\x02\x13Gcommon::V1::Common\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"\x05valueB\xbb\x01\n" +
+	"\x15com.gcommon.v1.commonB\x10FilterValueProtoP\x01Z*github.com/jdfalk/gcommon/pkg/common/proto\xa2\x02\x03GVC\xaa\x02\x11Gcommon.V1.Common\xca\x02\x11Gcommon\\V1\\Common\xe2\x02\x1dGcommon\\V1\\Common\\GPBMetadata\xea\x02\x13Gcommon::V1::Commonb\beditionsp\xe8\a"
+
+var (
+	file_pkg_common_proto_filter_value_proto_rawDescOnce sync.Once
+	file_pkg_common_proto_filter_value_proto_rawDescData []byte
+)
+
+func file_pkg_common_proto_filter_value_proto_rawDescGZIP() []byte {
+	file_pkg_common_proto_filter_value_proto_rawDescOnce.Do(func() {
+		file_pkg_common_proto_filter_value_proto_rawDescData = protoimpl.X.CompressGZIP(unsafe.Slice(unsafe.StringData(file_pkg_common_proto_filter_value_proto_rawDesc), len(file_pkg_common_proto_filter_value_proto_rawDesc)))
+	})
+	return file_pkg_common_proto_filter_value_proto_rawDescData
+}
 
 var file_pkg_common_proto_filter_value_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_pkg_common_proto_filter_value_proto_goTypes = []any{
@@ -453,12 +246,12 @@ func file_pkg_common_proto_filter_value_proto_init() {
 	file_pkg_common_proto_int64_array_proto_init()
 	file_pkg_common_proto_string_array_proto_init()
 	file_pkg_common_proto_filter_value_proto_msgTypes[0].OneofWrappers = []any{
-		(*filterValue_StringValue)(nil),
-		(*filterValue_IntValue)(nil),
-		(*filterValue_DoubleValue)(nil),
-		(*filterValue_BoolValue)(nil),
-		(*filterValue_StringArray)(nil),
-		(*filterValue_IntArray)(nil),
+		(*FilterValue_StringValue)(nil),
+		(*FilterValue_IntValue)(nil),
+		(*FilterValue_DoubleValue)(nil),
+		(*FilterValue_BoolValue)(nil),
+		(*FilterValue_StringArray)(nil),
+		(*FilterValue_IntArray)(nil),
 	}
 	type x struct{}
 	out := protoimpl.TypeBuilder{

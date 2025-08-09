@@ -9,9 +9,9 @@ package proto
 import (
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
-	_ "google.golang.org/protobuf/types/gofeaturespb"
 	durationpb "google.golang.org/protobuf/types/known/durationpb"
 	reflect "reflect"
+	sync "sync"
 	unsafe "unsafe"
 )
 
@@ -27,18 +27,23 @@ const (
 // Defines expiration, eviction, sizing, and operational policies
 // for consistent cache management across GCommon modules.
 type CachePolicy struct {
-	state                   protoimpl.MessageState `protogen:"opaque.v1"`
-	xxx_hidden_Expiration   ExpirationPolicy       `protobuf:"varint,1,opt,name=expiration,enum=gcommon.v1.common.ExpirationPolicy"`
-	xxx_hidden_Eviction     EvictionPolicy         `protobuf:"varint,2,opt,name=eviction,enum=gcommon.v1.common.EvictionPolicy"`
-	xxx_hidden_MaxSizeBytes int64                  `protobuf:"varint,3,opt,name=max_size_bytes,json=maxSizeBytes"`
-	xxx_hidden_MaxEntries   int64                  `protobuf:"varint,4,opt,name=max_entries,json=maxEntries"`
-	xxx_hidden_DefaultTtl   *durationpb.Duration   `protobuf:"bytes,5,opt,name=default_ttl,json=defaultTtl"`
-	xxx_hidden_RefreshAhead bool                   `protobuf:"varint,6,opt,name=refresh_ahead,json=refreshAhead"`
-	xxx_hidden_EnableStats  bool                   `protobuf:"varint,7,opt,name=enable_stats,json=enableStats"`
-	XXX_raceDetectHookData  protoimpl.RaceDetectHookData
-	XXX_presence            [1]uint32
-	unknownFields           protoimpl.UnknownFields
-	sizeCache               protoimpl.SizeCache
+	state protoimpl.MessageState `protogen:"open.v1"`
+	// Cache expiration policy strategy
+	Expiration *ExpirationPolicy `protobuf:"varint,1,opt,name=expiration,enum=gcommon.v1.common.ExpirationPolicy" json:"expiration,omitempty"`
+	// Eviction policy when cache reaches capacity
+	Eviction *EvictionPolicy `protobuf:"varint,2,opt,name=eviction,enum=gcommon.v1.common.EvictionPolicy" json:"eviction,omitempty"`
+	// Maximum cache size in bytes (0 for unlimited)
+	MaxSizeBytes *int64 `protobuf:"varint,3,opt,name=max_size_bytes,json=maxSizeBytes" json:"max_size_bytes,omitempty"`
+	// Maximum number of cache entries (0 for unlimited)
+	MaxEntries *int64 `protobuf:"varint,4,opt,name=max_entries,json=maxEntries" json:"max_entries,omitempty"`
+	// Default time-to-live for cache entries
+	DefaultTtl *durationpb.Duration `protobuf:"bytes,5,opt,name=default_ttl,json=defaultTtl" json:"default_ttl,omitempty"`
+	// Whether to refresh entries before they expire
+	RefreshAhead *bool `protobuf:"varint,6,opt,name=refresh_ahead,json=refreshAhead" json:"refresh_ahead,omitempty"`
+	// Whether to collect and expose cache statistics
+	EnableStats   *bool `protobuf:"varint,7,opt,name=enable_stats,json=enableStats" json:"enable_stats,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
 }
 
 func (x *CachePolicy) Reset() {
@@ -66,232 +71,65 @@ func (x *CachePolicy) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
+// Deprecated: Use CachePolicy.ProtoReflect.Descriptor instead.
+func (*CachePolicy) Descriptor() ([]byte, []int) {
+	return file_pkg_common_proto_cache_policy_proto_rawDescGZIP(), []int{0}
+}
+
 func (x *CachePolicy) GetExpiration() ExpirationPolicy {
-	if x != nil {
-		if protoimpl.X.Present(&(x.XXX_presence[0]), 0) {
-			return x.xxx_hidden_Expiration
-		}
+	if x != nil && x.Expiration != nil {
+		return *x.Expiration
 	}
 	return ExpirationPolicy_EXPIRATION_POLICY_UNSPECIFIED
 }
 
 func (x *CachePolicy) GetEviction() EvictionPolicy {
-	if x != nil {
-		if protoimpl.X.Present(&(x.XXX_presence[0]), 1) {
-			return x.xxx_hidden_Eviction
-		}
+	if x != nil && x.Eviction != nil {
+		return *x.Eviction
 	}
 	return EvictionPolicy_EVICTION_POLICY_UNSPECIFIED
 }
 
 func (x *CachePolicy) GetMaxSizeBytes() int64 {
-	if x != nil {
-		return x.xxx_hidden_MaxSizeBytes
+	if x != nil && x.MaxSizeBytes != nil {
+		return *x.MaxSizeBytes
 	}
 	return 0
 }
 
 func (x *CachePolicy) GetMaxEntries() int64 {
-	if x != nil {
-		return x.xxx_hidden_MaxEntries
+	if x != nil && x.MaxEntries != nil {
+		return *x.MaxEntries
 	}
 	return 0
 }
 
 func (x *CachePolicy) GetDefaultTtl() *durationpb.Duration {
 	if x != nil {
-		return x.xxx_hidden_DefaultTtl
+		return x.DefaultTtl
 	}
 	return nil
 }
 
 func (x *CachePolicy) GetRefreshAhead() bool {
-	if x != nil {
-		return x.xxx_hidden_RefreshAhead
+	if x != nil && x.RefreshAhead != nil {
+		return *x.RefreshAhead
 	}
 	return false
 }
 
 func (x *CachePolicy) GetEnableStats() bool {
-	if x != nil {
-		return x.xxx_hidden_EnableStats
+	if x != nil && x.EnableStats != nil {
+		return *x.EnableStats
 	}
 	return false
-}
-
-func (x *CachePolicy) SetExpiration(v ExpirationPolicy) {
-	x.xxx_hidden_Expiration = v
-	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 0, 7)
-}
-
-func (x *CachePolicy) SetEviction(v EvictionPolicy) {
-	x.xxx_hidden_Eviction = v
-	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 1, 7)
-}
-
-func (x *CachePolicy) SetMaxSizeBytes(v int64) {
-	x.xxx_hidden_MaxSizeBytes = v
-	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 2, 7)
-}
-
-func (x *CachePolicy) SetMaxEntries(v int64) {
-	x.xxx_hidden_MaxEntries = v
-	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 3, 7)
-}
-
-func (x *CachePolicy) SetDefaultTtl(v *durationpb.Duration) {
-	x.xxx_hidden_DefaultTtl = v
-}
-
-func (x *CachePolicy) SetRefreshAhead(v bool) {
-	x.xxx_hidden_RefreshAhead = v
-	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 5, 7)
-}
-
-func (x *CachePolicy) SetEnableStats(v bool) {
-	x.xxx_hidden_EnableStats = v
-	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 6, 7)
-}
-
-func (x *CachePolicy) HasExpiration() bool {
-	if x == nil {
-		return false
-	}
-	return protoimpl.X.Present(&(x.XXX_presence[0]), 0)
-}
-
-func (x *CachePolicy) HasEviction() bool {
-	if x == nil {
-		return false
-	}
-	return protoimpl.X.Present(&(x.XXX_presence[0]), 1)
-}
-
-func (x *CachePolicy) HasMaxSizeBytes() bool {
-	if x == nil {
-		return false
-	}
-	return protoimpl.X.Present(&(x.XXX_presence[0]), 2)
-}
-
-func (x *CachePolicy) HasMaxEntries() bool {
-	if x == nil {
-		return false
-	}
-	return protoimpl.X.Present(&(x.XXX_presence[0]), 3)
-}
-
-func (x *CachePolicy) HasDefaultTtl() bool {
-	if x == nil {
-		return false
-	}
-	return x.xxx_hidden_DefaultTtl != nil
-}
-
-func (x *CachePolicy) HasRefreshAhead() bool {
-	if x == nil {
-		return false
-	}
-	return protoimpl.X.Present(&(x.XXX_presence[0]), 5)
-}
-
-func (x *CachePolicy) HasEnableStats() bool {
-	if x == nil {
-		return false
-	}
-	return protoimpl.X.Present(&(x.XXX_presence[0]), 6)
-}
-
-func (x *CachePolicy) ClearExpiration() {
-	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 0)
-	x.xxx_hidden_Expiration = ExpirationPolicy_EXPIRATION_POLICY_UNSPECIFIED
-}
-
-func (x *CachePolicy) ClearEviction() {
-	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 1)
-	x.xxx_hidden_Eviction = EvictionPolicy_EVICTION_POLICY_UNSPECIFIED
-}
-
-func (x *CachePolicy) ClearMaxSizeBytes() {
-	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 2)
-	x.xxx_hidden_MaxSizeBytes = 0
-}
-
-func (x *CachePolicy) ClearMaxEntries() {
-	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 3)
-	x.xxx_hidden_MaxEntries = 0
-}
-
-func (x *CachePolicy) ClearDefaultTtl() {
-	x.xxx_hidden_DefaultTtl = nil
-}
-
-func (x *CachePolicy) ClearRefreshAhead() {
-	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 5)
-	x.xxx_hidden_RefreshAhead = false
-}
-
-func (x *CachePolicy) ClearEnableStats() {
-	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 6)
-	x.xxx_hidden_EnableStats = false
-}
-
-type CachePolicy_builder struct {
-	_ [0]func() // Prevents comparability and use of unkeyed literals for the builder.
-
-	// Cache expiration policy strategy
-	Expiration *ExpirationPolicy
-	// Eviction policy when cache reaches capacity
-	Eviction *EvictionPolicy
-	// Maximum cache size in bytes (0 for unlimited)
-	MaxSizeBytes *int64
-	// Maximum number of cache entries (0 for unlimited)
-	MaxEntries *int64
-	// Default time-to-live for cache entries
-	DefaultTtl *durationpb.Duration
-	// Whether to refresh entries before they expire
-	RefreshAhead *bool
-	// Whether to collect and expose cache statistics
-	EnableStats *bool
-}
-
-func (b0 CachePolicy_builder) Build() *CachePolicy {
-	m0 := &CachePolicy{}
-	b, x := &b0, m0
-	_, _ = b, x
-	if b.Expiration != nil {
-		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 0, 7)
-		x.xxx_hidden_Expiration = *b.Expiration
-	}
-	if b.Eviction != nil {
-		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 1, 7)
-		x.xxx_hidden_Eviction = *b.Eviction
-	}
-	if b.MaxSizeBytes != nil {
-		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 2, 7)
-		x.xxx_hidden_MaxSizeBytes = *b.MaxSizeBytes
-	}
-	if b.MaxEntries != nil {
-		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 3, 7)
-		x.xxx_hidden_MaxEntries = *b.MaxEntries
-	}
-	x.xxx_hidden_DefaultTtl = b.DefaultTtl
-	if b.RefreshAhead != nil {
-		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 5, 7)
-		x.xxx_hidden_RefreshAhead = *b.RefreshAhead
-	}
-	if b.EnableStats != nil {
-		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 6, 7)
-		x.xxx_hidden_EnableStats = *b.EnableStats
-	}
-	return m0
 }
 
 var File_pkg_common_proto_cache_policy_proto protoreflect.FileDescriptor
 
 const file_pkg_common_proto_cache_policy_proto_rawDesc = "" +
 	"\n" +
-	"#pkg/common/proto/cache_policy.proto\x12\x11gcommon.v1.common\x1a\x1egoogle/protobuf/duration.proto\x1a!google/protobuf/go_features.proto\x1a&pkg/common/proto/eviction_policy.proto\x1a(pkg/common/proto/expiration_policy.proto\"\xdc\x02\n" +
+	"#pkg/common/proto/cache_policy.proto\x12\x11gcommon.v1.common\x1a\x1egoogle/protobuf/duration.proto\x1a&pkg/common/proto/eviction_policy.proto\x1a(pkg/common/proto/expiration_policy.proto\"\xdc\x02\n" +
 	"\vCachePolicy\x12C\n" +
 	"\n" +
 	"expiration\x18\x01 \x01(\x0e2#.gcommon.v1.common.ExpirationPolicyR\n" +
@@ -303,8 +141,20 @@ const file_pkg_common_proto_cache_policy_proto_rawDesc = "" +
 	"\vdefault_ttl\x18\x05 \x01(\v2\x19.google.protobuf.DurationR\n" +
 	"defaultTtl\x12#\n" +
 	"\rrefresh_ahead\x18\x06 \x01(\bR\frefreshAhead\x12!\n" +
-	"\fenable_stats\x18\a \x01(\bR\venableStatsB\xc3\x01\n" +
-	"\x15com.gcommon.v1.commonB\x10CachePolicyProtoP\x01Z*github.com/jdfalk/gcommon/pkg/common/proto\xa2\x02\x03GVC\xaa\x02\x11Gcommon.V1.Common\xca\x02\x11Gcommon\\V1\\Common\xe2\x02\x1dGcommon\\V1\\Common\\GPBMetadata\xea\x02\x13Gcommon::V1::Common\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"\fenable_stats\x18\a \x01(\bR\venableStatsB\xbb\x01\n" +
+	"\x15com.gcommon.v1.commonB\x10CachePolicyProtoP\x01Z*github.com/jdfalk/gcommon/pkg/common/proto\xa2\x02\x03GVC\xaa\x02\x11Gcommon.V1.Common\xca\x02\x11Gcommon\\V1\\Common\xe2\x02\x1dGcommon\\V1\\Common\\GPBMetadata\xea\x02\x13Gcommon::V1::Commonb\beditionsp\xe8\a"
+
+var (
+	file_pkg_common_proto_cache_policy_proto_rawDescOnce sync.Once
+	file_pkg_common_proto_cache_policy_proto_rawDescData []byte
+)
+
+func file_pkg_common_proto_cache_policy_proto_rawDescGZIP() []byte {
+	file_pkg_common_proto_cache_policy_proto_rawDescOnce.Do(func() {
+		file_pkg_common_proto_cache_policy_proto_rawDescData = protoimpl.X.CompressGZIP(unsafe.Slice(unsafe.StringData(file_pkg_common_proto_cache_policy_proto_rawDesc), len(file_pkg_common_proto_cache_policy_proto_rawDesc)))
+	})
+	return file_pkg_common_proto_cache_policy_proto_rawDescData
+}
 
 var file_pkg_common_proto_cache_policy_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_pkg_common_proto_cache_policy_proto_goTypes = []any{

@@ -10,8 +10,8 @@ import (
 	proto "github.com/jdfalk/gcommon/pkg/common/proto"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
-	_ "google.golang.org/protobuf/types/gofeaturespb"
 	reflect "reflect"
+	sync "sync"
 	unsafe "unsafe"
 )
 
@@ -25,15 +25,13 @@ const (
 // *
 // Response containing role information or an error.
 type GetRoleResponse struct {
-	state            protoimpl.MessageState `protogen:"opaque.v1"`
-	xxx_hidden_Role  *Role                  `protobuf:"bytes,1,opt,name=role"`
-	xxx_hidden_Error *proto.Error           `protobuf:"bytes,2,opt,name=error"`
-	// Deprecated: Do not use. This will be deleted in the near future.
-	XXX_lazyUnmarshalInfo  protoimpl.LazyUnmarshalInfo
-	XXX_raceDetectHookData protoimpl.RaceDetectHookData
-	XXX_presence           [1]uint32
-	unknownFields          protoimpl.UnknownFields
-	sizeCache              protoimpl.SizeCache
+	state protoimpl.MessageState `protogen:"open.v1"`
+	// Role details if found
+	Role *Role `protobuf:"bytes,1,opt,name=role" json:"role,omitempty"`
+	// Error information if retrieval failed
+	Error         *proto.Error `protobuf:"bytes,2,opt,name=error" json:"error,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
 }
 
 func (x *GetRoleResponse) Reset() {
@@ -61,109 +59,46 @@ func (x *GetRoleResponse) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
+// Deprecated: Use GetRoleResponse.ProtoReflect.Descriptor instead.
+func (*GetRoleResponse) Descriptor() ([]byte, []int) {
+	return file_pkg_auth_proto_get_role_response_proto_rawDescGZIP(), []int{0}
+}
+
 func (x *GetRoleResponse) GetRole() *Role {
 	if x != nil {
-		if protoimpl.X.Present(&(x.XXX_presence[0]), 0) {
-			if protoimpl.X.AtomicCheckPointerIsNil(&x.xxx_hidden_Role) {
-				protoimpl.X.UnmarshalField(x, 1)
-			}
-			var rv *Role
-			protoimpl.X.AtomicLoadPointer(protoimpl.Pointer(&x.xxx_hidden_Role), protoimpl.Pointer(&rv))
-			return rv
-		}
+		return x.Role
 	}
 	return nil
 }
 
 func (x *GetRoleResponse) GetError() *proto.Error {
 	if x != nil {
-		if protoimpl.X.Present(&(x.XXX_presence[0]), 1) {
-			if protoimpl.X.AtomicCheckPointerIsNil(&x.xxx_hidden_Error) {
-				protoimpl.X.UnmarshalField(x, 2)
-			}
-			var rv *proto.Error
-			protoimpl.X.AtomicLoadPointer(protoimpl.Pointer(&x.xxx_hidden_Error), protoimpl.Pointer(&rv))
-			return rv
-		}
+		return x.Error
 	}
 	return nil
-}
-
-func (x *GetRoleResponse) SetRole(v *Role) {
-	protoimpl.X.AtomicSetPointer(&x.xxx_hidden_Role, v)
-	if v == nil {
-		protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 0)
-	} else {
-		protoimpl.X.SetPresent(&(x.XXX_presence[0]), 0, 2)
-	}
-}
-
-func (x *GetRoleResponse) SetError(v *proto.Error) {
-	protoimpl.X.AtomicSetPointer(&x.xxx_hidden_Error, v)
-	if v == nil {
-		protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 1)
-	} else {
-		protoimpl.X.SetPresent(&(x.XXX_presence[0]), 1, 2)
-	}
-}
-
-func (x *GetRoleResponse) HasRole() bool {
-	if x == nil {
-		return false
-	}
-	return protoimpl.X.Present(&(x.XXX_presence[0]), 0)
-}
-
-func (x *GetRoleResponse) HasError() bool {
-	if x == nil {
-		return false
-	}
-	return protoimpl.X.Present(&(x.XXX_presence[0]), 1)
-}
-
-func (x *GetRoleResponse) ClearRole() {
-	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 0)
-	protoimpl.X.AtomicSetPointer(&x.xxx_hidden_Role, (*Role)(nil))
-}
-
-func (x *GetRoleResponse) ClearError() {
-	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 1)
-	protoimpl.X.AtomicSetPointer(&x.xxx_hidden_Error, (*proto.Error)(nil))
-}
-
-type GetRoleResponse_builder struct {
-	_ [0]func() // Prevents comparability and use of unkeyed literals for the builder.
-
-	// Role details if found
-	Role *Role
-	// Error information if retrieval failed
-	Error *proto.Error
-}
-
-func (b0 GetRoleResponse_builder) Build() *GetRoleResponse {
-	m0 := &GetRoleResponse{}
-	b, x := &b0, m0
-	_, _ = b, x
-	if b.Role != nil {
-		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 0, 2)
-		x.xxx_hidden_Role = b.Role
-	}
-	if b.Error != nil {
-		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 1, 2)
-		x.xxx_hidden_Error = b.Error
-	}
-	return m0
 }
 
 var File_pkg_auth_proto_get_role_response_proto protoreflect.FileDescriptor
 
 const file_pkg_auth_proto_get_role_response_proto_rawDesc = "" +
 	"\n" +
-	"&pkg/auth/proto/get_role_response.proto\x12\x0fgcommon.v1.auth\x1a!google/protobuf/go_features.proto\x1a\x19pkg/auth/proto/role.proto\x1a\x1cpkg/common/proto/error.proto\"t\n" +
+	"&pkg/auth/proto/get_role_response.proto\x12\x0fgcommon.v1.auth\x1a\x19pkg/auth/proto/role.proto\x1a\x1cpkg/common/proto/error.proto\"t\n" +
 	"\x0fGetRoleResponse\x12-\n" +
 	"\x04role\x18\x01 \x01(\v2\x15.gcommon.v1.auth.RoleB\x02(\x01R\x04role\x122\n" +
-	"\x05error\x18\x02 \x01(\v2\x18.gcommon.v1.common.ErrorB\x02(\x01R\x05errorB\xbb\x01\n" +
-	"\x13com.gcommon.v1.authB\x14GetRoleResponseProtoP\x01Z(github.com/jdfalk/gcommon/pkg/auth/proto\xa2\x02\x03GVA\xaa\x02\x0fGcommon.V1.Auth\xca\x02\x0fGcommon\\V1\\Auth\xe2\x02\x1bGcommon\\V1\\Auth\\GPBMetadata\xea\x02\x11Gcommon::V1::Auth\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"\x05error\x18\x02 \x01(\v2\x18.gcommon.v1.common.ErrorB\x02(\x01R\x05errorB\xb3\x01\n" +
+	"\x13com.gcommon.v1.authB\x14GetRoleResponseProtoP\x01Z(github.com/jdfalk/gcommon/pkg/auth/proto\xa2\x02\x03GVA\xaa\x02\x0fGcommon.V1.Auth\xca\x02\x0fGcommon\\V1\\Auth\xe2\x02\x1bGcommon\\V1\\Auth\\GPBMetadata\xea\x02\x11Gcommon::V1::Authb\beditionsp\xe8\a"
+
+var (
+	file_pkg_auth_proto_get_role_response_proto_rawDescOnce sync.Once
+	file_pkg_auth_proto_get_role_response_proto_rawDescData []byte
+)
+
+func file_pkg_auth_proto_get_role_response_proto_rawDescGZIP() []byte {
+	file_pkg_auth_proto_get_role_response_proto_rawDescOnce.Do(func() {
+		file_pkg_auth_proto_get_role_response_proto_rawDescData = protoimpl.X.CompressGZIP(unsafe.Slice(unsafe.StringData(file_pkg_auth_proto_get_role_response_proto_rawDesc), len(file_pkg_auth_proto_get_role_response_proto_rawDesc)))
+	})
+	return file_pkg_auth_proto_get_role_response_proto_rawDescData
+}
 
 var file_pkg_auth_proto_get_role_response_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_pkg_auth_proto_get_role_response_proto_goTypes = []any{

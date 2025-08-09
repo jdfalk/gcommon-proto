@@ -10,8 +10,8 @@ import (
 	proto "github.com/jdfalk/gcommon/pkg/common/proto"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
-	_ "google.golang.org/protobuf/types/gofeaturespb"
 	reflect "reflect"
+	sync "sync"
 	unsafe "unsafe"
 )
 
@@ -27,14 +27,15 @@ const (
 // Exchanges a valid refresh token for a new access token.
 // Optionally requests new scopes for the refreshed token.
 type RefreshTokenRequest struct {
-	state                   protoimpl.MessageState `protogen:"opaque.v1"`
-	xxx_hidden_RefreshToken *string                `protobuf:"bytes,1,opt,name=refresh_token,json=refreshToken"`
-	xxx_hidden_Scopes       []string               `protobuf:"bytes,2,rep,name=scopes"`
-	xxx_hidden_Metadata     *proto.RequestMetadata `protobuf:"bytes,3,opt,name=metadata"`
-	XXX_raceDetectHookData  protoimpl.RaceDetectHookData
-	XXX_presence            [1]uint32
-	unknownFields           protoimpl.UnknownFields
-	sizeCache               protoimpl.SizeCache
+	state protoimpl.MessageState `protogen:"open.v1"`
+	// Refresh token to exchange for new access token
+	RefreshToken *string `protobuf:"bytes,1,opt,name=refresh_token,json=refreshToken" json:"refresh_token,omitempty"`
+	// Requested scopes for the new access token
+	Scopes []string `protobuf:"bytes,2,rep,name=scopes" json:"scopes,omitempty"`
+	// Request metadata for tracing and correlation
+	Metadata      *proto.RequestMetadata `protobuf:"bytes,3,opt,name=metadata" json:"metadata,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
 }
 
 func (x *RefreshTokenRequest) Reset() {
@@ -62,100 +63,54 @@ func (x *RefreshTokenRequest) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
+// Deprecated: Use RefreshTokenRequest.ProtoReflect.Descriptor instead.
+func (*RefreshTokenRequest) Descriptor() ([]byte, []int) {
+	return file_pkg_auth_proto_refresh_token_request_proto_rawDescGZIP(), []int{0}
+}
+
 func (x *RefreshTokenRequest) GetRefreshToken() string {
-	if x != nil {
-		if x.xxx_hidden_RefreshToken != nil {
-			return *x.xxx_hidden_RefreshToken
-		}
-		return ""
+	if x != nil && x.RefreshToken != nil {
+		return *x.RefreshToken
 	}
 	return ""
 }
 
 func (x *RefreshTokenRequest) GetScopes() []string {
 	if x != nil {
-		return x.xxx_hidden_Scopes
+		return x.Scopes
 	}
 	return nil
 }
 
 func (x *RefreshTokenRequest) GetMetadata() *proto.RequestMetadata {
 	if x != nil {
-		return x.xxx_hidden_Metadata
+		return x.Metadata
 	}
 	return nil
-}
-
-func (x *RefreshTokenRequest) SetRefreshToken(v string) {
-	x.xxx_hidden_RefreshToken = &v
-	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 0, 3)
-}
-
-func (x *RefreshTokenRequest) SetScopes(v []string) {
-	x.xxx_hidden_Scopes = v
-}
-
-func (x *RefreshTokenRequest) SetMetadata(v *proto.RequestMetadata) {
-	x.xxx_hidden_Metadata = v
-}
-
-func (x *RefreshTokenRequest) HasRefreshToken() bool {
-	if x == nil {
-		return false
-	}
-	return protoimpl.X.Present(&(x.XXX_presence[0]), 0)
-}
-
-func (x *RefreshTokenRequest) HasMetadata() bool {
-	if x == nil {
-		return false
-	}
-	return x.xxx_hidden_Metadata != nil
-}
-
-func (x *RefreshTokenRequest) ClearRefreshToken() {
-	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 0)
-	x.xxx_hidden_RefreshToken = nil
-}
-
-func (x *RefreshTokenRequest) ClearMetadata() {
-	x.xxx_hidden_Metadata = nil
-}
-
-type RefreshTokenRequest_builder struct {
-	_ [0]func() // Prevents comparability and use of unkeyed literals for the builder.
-
-	// Refresh token to exchange for new access token
-	RefreshToken *string
-	// Requested scopes for the new access token
-	Scopes []string
-	// Request metadata for tracing and correlation
-	Metadata *proto.RequestMetadata
-}
-
-func (b0 RefreshTokenRequest_builder) Build() *RefreshTokenRequest {
-	m0 := &RefreshTokenRequest{}
-	b, x := &b0, m0
-	_, _ = b, x
-	if b.RefreshToken != nil {
-		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 0, 3)
-		x.xxx_hidden_RefreshToken = b.RefreshToken
-	}
-	x.xxx_hidden_Scopes = b.Scopes
-	x.xxx_hidden_Metadata = b.Metadata
-	return m0
 }
 
 var File_pkg_auth_proto_refresh_token_request_proto protoreflect.FileDescriptor
 
 const file_pkg_auth_proto_refresh_token_request_proto_rawDesc = "" +
 	"\n" +
-	"*pkg/auth/proto/refresh_token_request.proto\x12\x0fgcommon.v1.auth\x1a!google/protobuf/go_features.proto\x1a'pkg/common/proto/request_metadata.proto\"\x92\x01\n" +
+	"*pkg/auth/proto/refresh_token_request.proto\x12\x0fgcommon.v1.auth\x1a'pkg/common/proto/request_metadata.proto\"\x92\x01\n" +
 	"\x13RefreshTokenRequest\x12#\n" +
 	"\rrefresh_token\x18\x01 \x01(\tR\frefreshToken\x12\x16\n" +
 	"\x06scopes\x18\x02 \x03(\tR\x06scopes\x12>\n" +
-	"\bmetadata\x18\x03 \x01(\v2\".gcommon.v1.common.RequestMetadataR\bmetadataB\xbf\x01\n" +
-	"\x13com.gcommon.v1.authB\x18RefreshTokenRequestProtoP\x01Z(github.com/jdfalk/gcommon/pkg/auth/proto\xa2\x02\x03GVA\xaa\x02\x0fGcommon.V1.Auth\xca\x02\x0fGcommon\\V1\\Auth\xe2\x02\x1bGcommon\\V1\\Auth\\GPBMetadata\xea\x02\x11Gcommon::V1::Auth\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"\bmetadata\x18\x03 \x01(\v2\".gcommon.v1.common.RequestMetadataR\bmetadataB\xb7\x01\n" +
+	"\x13com.gcommon.v1.authB\x18RefreshTokenRequestProtoP\x01Z(github.com/jdfalk/gcommon/pkg/auth/proto\xa2\x02\x03GVA\xaa\x02\x0fGcommon.V1.Auth\xca\x02\x0fGcommon\\V1\\Auth\xe2\x02\x1bGcommon\\V1\\Auth\\GPBMetadata\xea\x02\x11Gcommon::V1::Authb\beditionsp\xe8\a"
+
+var (
+	file_pkg_auth_proto_refresh_token_request_proto_rawDescOnce sync.Once
+	file_pkg_auth_proto_refresh_token_request_proto_rawDescData []byte
+)
+
+func file_pkg_auth_proto_refresh_token_request_proto_rawDescGZIP() []byte {
+	file_pkg_auth_proto_refresh_token_request_proto_rawDescOnce.Do(func() {
+		file_pkg_auth_proto_refresh_token_request_proto_rawDescData = protoimpl.X.CompressGZIP(unsafe.Slice(unsafe.StringData(file_pkg_auth_proto_refresh_token_request_proto_rawDesc), len(file_pkg_auth_proto_refresh_token_request_proto_rawDesc)))
+	})
+	return file_pkg_auth_proto_refresh_token_request_proto_rawDescData
+}
 
 var file_pkg_auth_proto_refresh_token_request_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_pkg_auth_proto_refresh_token_request_proto_goTypes = []any{

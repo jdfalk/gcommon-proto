@@ -10,9 +10,9 @@ import (
 	proto "github.com/jdfalk/gcommon/pkg/common/proto"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
-	_ "google.golang.org/protobuf/types/gofeaturespb"
 	timestamppb "google.golang.org/protobuf/types/known/timestamppb"
 	reflect "reflect"
+	sync "sync"
 	unsafe "unsafe"
 )
 
@@ -28,20 +28,23 @@ const (
 // Represents a collection of permissions that can be assigned to users.
 // Supports hierarchical roles and metadata for extensibility.
 type Role struct {
-	state                  protoimpl.MessageState `protogen:"opaque.v1"`
-	xxx_hidden_Id          *string                `protobuf:"bytes,1,opt,name=id"`
-	xxx_hidden_Name        *string                `protobuf:"bytes,2,opt,name=name"`
-	xxx_hidden_Description *string                `protobuf:"bytes,3,opt,name=description"`
-	xxx_hidden_Permissions []string               `protobuf:"bytes,4,rep,name=permissions"`
-	xxx_hidden_Metadata    map[string]string      `protobuf:"bytes,5,rep,name=metadata" protobuf_key:"bytes,1,opt,name=key" protobuf_val:"bytes,2,opt,name=value"`
-	xxx_hidden_CreatedAt   *timestamppb.Timestamp `protobuf:"bytes,6,opt,name=created_at,json=createdAt"`
-	xxx_hidden_Status      proto.ResourceStatus   `protobuf:"varint,7,opt,name=status,enum=gcommon.v1.common.ResourceStatus"`
-	// Deprecated: Do not use. This will be deleted in the near future.
-	XXX_lazyUnmarshalInfo  protoimpl.LazyUnmarshalInfo
-	XXX_raceDetectHookData protoimpl.RaceDetectHookData
-	XXX_presence           [1]uint32
-	unknownFields          protoimpl.UnknownFields
-	sizeCache              protoimpl.SizeCache
+	state protoimpl.MessageState `protogen:"open.v1"`
+	// Unique role identifier (immutable)
+	Id *string `protobuf:"bytes,1,opt,name=id" json:"id,omitempty"`
+	// Human-readable role name
+	Name *string `protobuf:"bytes,2,opt,name=name" json:"name,omitempty"`
+	// Role description explaining its purpose
+	Description *string `protobuf:"bytes,3,opt,name=description" json:"description,omitempty"`
+	// Permissions granted by this role
+	Permissions []string `protobuf:"bytes,4,rep,name=permissions" json:"permissions,omitempty"`
+	// Role metadata for extensibility
+	Metadata map[string]string `protobuf:"bytes,5,rep,name=metadata" json:"metadata,omitempty" protobuf_key:"bytes,1,opt,name=key" protobuf_val:"bytes,2,opt,name=value"`
+	// Role creation timestamp (immutable)
+	CreatedAt *timestamppb.Timestamp `protobuf:"bytes,6,opt,name=created_at,json=createdAt" json:"created_at,omitempty"`
+	// Role status (active, inactive, etc.)
+	Status        *proto.ResourceStatus `protobuf:"varint,7,opt,name=status,enum=gcommon.v1.common.ResourceStatus" json:"status,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
 }
 
 func (x *Role) Reset() {
@@ -69,236 +72,65 @@ func (x *Role) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
+// Deprecated: Use Role.ProtoReflect.Descriptor instead.
+func (*Role) Descriptor() ([]byte, []int) {
+	return file_pkg_auth_proto_role_proto_rawDescGZIP(), []int{0}
+}
+
 func (x *Role) GetId() string {
-	if x != nil {
-		if x.xxx_hidden_Id != nil {
-			return *x.xxx_hidden_Id
-		}
-		return ""
+	if x != nil && x.Id != nil {
+		return *x.Id
 	}
 	return ""
 }
 
 func (x *Role) GetName() string {
-	if x != nil {
-		if x.xxx_hidden_Name != nil {
-			return *x.xxx_hidden_Name
-		}
-		return ""
+	if x != nil && x.Name != nil {
+		return *x.Name
 	}
 	return ""
 }
 
 func (x *Role) GetDescription() string {
-	if x != nil {
-		if x.xxx_hidden_Description != nil {
-			return *x.xxx_hidden_Description
-		}
-		return ""
+	if x != nil && x.Description != nil {
+		return *x.Description
 	}
 	return ""
 }
 
 func (x *Role) GetPermissions() []string {
 	if x != nil {
-		return x.xxx_hidden_Permissions
+		return x.Permissions
 	}
 	return nil
 }
 
 func (x *Role) GetMetadata() map[string]string {
 	if x != nil {
-		if protoimpl.X.Present(&(x.XXX_presence[0]), 4) {
-			if protoimpl.X.AtomicCheckPointerIsNil(&x.xxx_hidden_Metadata) {
-				protoimpl.X.UnmarshalField(x, 5)
-			}
-			return x.xxx_hidden_Metadata
-		}
+		return x.Metadata
 	}
 	return nil
 }
 
 func (x *Role) GetCreatedAt() *timestamppb.Timestamp {
 	if x != nil {
-		if protoimpl.X.Present(&(x.XXX_presence[0]), 5) {
-			if protoimpl.X.AtomicCheckPointerIsNil(&x.xxx_hidden_CreatedAt) {
-				protoimpl.X.UnmarshalField(x, 6)
-			}
-			var rv *timestamppb.Timestamp
-			protoimpl.X.AtomicLoadPointer(protoimpl.Pointer(&x.xxx_hidden_CreatedAt), protoimpl.Pointer(&rv))
-			return rv
-		}
+		return x.CreatedAt
 	}
 	return nil
 }
 
 func (x *Role) GetStatus() proto.ResourceStatus {
-	if x != nil {
-		if protoimpl.X.Present(&(x.XXX_presence[0]), 6) {
-			return x.xxx_hidden_Status
-		}
+	if x != nil && x.Status != nil {
+		return *x.Status
 	}
 	return proto.ResourceStatus(0)
-}
-
-func (x *Role) SetId(v string) {
-	x.xxx_hidden_Id = &v
-	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 0, 7)
-}
-
-func (x *Role) SetName(v string) {
-	x.xxx_hidden_Name = &v
-	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 1, 7)
-}
-
-func (x *Role) SetDescription(v string) {
-	x.xxx_hidden_Description = &v
-	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 2, 7)
-}
-
-func (x *Role) SetPermissions(v []string) {
-	x.xxx_hidden_Permissions = v
-}
-
-func (x *Role) SetMetadata(v map[string]string) {
-	x.xxx_hidden_Metadata = v
-	if v == nil {
-		protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 4)
-	} else {
-		protoimpl.X.SetPresent(&(x.XXX_presence[0]), 4, 7)
-	}
-}
-
-func (x *Role) SetCreatedAt(v *timestamppb.Timestamp) {
-	protoimpl.X.AtomicSetPointer(&x.xxx_hidden_CreatedAt, v)
-	if v == nil {
-		protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 5)
-	} else {
-		protoimpl.X.SetPresent(&(x.XXX_presence[0]), 5, 7)
-	}
-}
-
-func (x *Role) SetStatus(v proto.ResourceStatus) {
-	x.xxx_hidden_Status = v
-	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 6, 7)
-}
-
-func (x *Role) HasId() bool {
-	if x == nil {
-		return false
-	}
-	return protoimpl.X.Present(&(x.XXX_presence[0]), 0)
-}
-
-func (x *Role) HasName() bool {
-	if x == nil {
-		return false
-	}
-	return protoimpl.X.Present(&(x.XXX_presence[0]), 1)
-}
-
-func (x *Role) HasDescription() bool {
-	if x == nil {
-		return false
-	}
-	return protoimpl.X.Present(&(x.XXX_presence[0]), 2)
-}
-
-func (x *Role) HasCreatedAt() bool {
-	if x == nil {
-		return false
-	}
-	return protoimpl.X.Present(&(x.XXX_presence[0]), 5)
-}
-
-func (x *Role) HasStatus() bool {
-	if x == nil {
-		return false
-	}
-	return protoimpl.X.Present(&(x.XXX_presence[0]), 6)
-}
-
-func (x *Role) ClearId() {
-	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 0)
-	x.xxx_hidden_Id = nil
-}
-
-func (x *Role) ClearName() {
-	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 1)
-	x.xxx_hidden_Name = nil
-}
-
-func (x *Role) ClearDescription() {
-	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 2)
-	x.xxx_hidden_Description = nil
-}
-
-func (x *Role) ClearCreatedAt() {
-	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 5)
-	protoimpl.X.AtomicSetPointer(&x.xxx_hidden_CreatedAt, (*timestamppb.Timestamp)(nil))
-}
-
-func (x *Role) ClearStatus() {
-	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 6)
-	x.xxx_hidden_Status = proto.ResourceStatus_RESOURCE_STATUS_UNSPECIFIED
-}
-
-type Role_builder struct {
-	_ [0]func() // Prevents comparability and use of unkeyed literals for the builder.
-
-	// Unique role identifier (immutable)
-	Id *string
-	// Human-readable role name
-	Name *string
-	// Role description explaining its purpose
-	Description *string
-	// Permissions granted by this role
-	Permissions []string
-	// Role metadata for extensibility
-	Metadata map[string]string
-	// Role creation timestamp (immutable)
-	CreatedAt *timestamppb.Timestamp
-	// Role status (active, inactive, etc.)
-	Status *proto.ResourceStatus
-}
-
-func (b0 Role_builder) Build() *Role {
-	m0 := &Role{}
-	b, x := &b0, m0
-	_, _ = b, x
-	if b.Id != nil {
-		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 0, 7)
-		x.xxx_hidden_Id = b.Id
-	}
-	if b.Name != nil {
-		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 1, 7)
-		x.xxx_hidden_Name = b.Name
-	}
-	if b.Description != nil {
-		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 2, 7)
-		x.xxx_hidden_Description = b.Description
-	}
-	x.xxx_hidden_Permissions = b.Permissions
-	if b.Metadata != nil {
-		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 4, 7)
-		x.xxx_hidden_Metadata = b.Metadata
-	}
-	if b.CreatedAt != nil {
-		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 5, 7)
-		x.xxx_hidden_CreatedAt = b.CreatedAt
-	}
-	if b.Status != nil {
-		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 6, 7)
-		x.xxx_hidden_Status = *b.Status
-	}
-	return m0
 }
 
 var File_pkg_auth_proto_role_proto protoreflect.FileDescriptor
 
 const file_pkg_auth_proto_role_proto_rawDesc = "" +
 	"\n" +
-	"\x19pkg/auth/proto/role.proto\x12\x0fgcommon.v1.auth\x1a!google/protobuf/go_features.proto\x1a\x1fgoogle/protobuf/timestamp.proto\x1a&pkg/common/proto/resource_status.proto\"\xea\x02\n" +
+	"\x19pkg/auth/proto/role.proto\x12\x0fgcommon.v1.auth\x1a\x1fgoogle/protobuf/timestamp.proto\x1a&pkg/common/proto/resource_status.proto\"\xea\x02\n" +
 	"\x04Role\x12\x0e\n" +
 	"\x02id\x18\x01 \x01(\tR\x02id\x12\x12\n" +
 	"\x04name\x18\x02 \x01(\tR\x04name\x12 \n" +
@@ -310,8 +142,20 @@ const file_pkg_auth_proto_role_proto_rawDesc = "" +
 	"\x06status\x18\a \x01(\x0e2!.gcommon.v1.common.ResourceStatusR\x06status\x1a;\n" +
 	"\rMetadataEntry\x12\x10\n" +
 	"\x03key\x18\x01 \x01(\tR\x03key\x12\x14\n" +
-	"\x05value\x18\x02 \x01(\tR\x05value:\x028\x01B\xb0\x01\n" +
-	"\x13com.gcommon.v1.authB\tRoleProtoP\x01Z(github.com/jdfalk/gcommon/pkg/auth/proto\xa2\x02\x03GVA\xaa\x02\x0fGcommon.V1.Auth\xca\x02\x0fGcommon\\V1\\Auth\xe2\x02\x1bGcommon\\V1\\Auth\\GPBMetadata\xea\x02\x11Gcommon::V1::Auth\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"\x05value\x18\x02 \x01(\tR\x05value:\x028\x01B\xa8\x01\n" +
+	"\x13com.gcommon.v1.authB\tRoleProtoP\x01Z(github.com/jdfalk/gcommon/pkg/auth/proto\xa2\x02\x03GVA\xaa\x02\x0fGcommon.V1.Auth\xca\x02\x0fGcommon\\V1\\Auth\xe2\x02\x1bGcommon\\V1\\Auth\\GPBMetadata\xea\x02\x11Gcommon::V1::Authb\beditionsp\xe8\a"
+
+var (
+	file_pkg_auth_proto_role_proto_rawDescOnce sync.Once
+	file_pkg_auth_proto_role_proto_rawDescData []byte
+)
+
+func file_pkg_auth_proto_role_proto_rawDescGZIP() []byte {
+	file_pkg_auth_proto_role_proto_rawDescOnce.Do(func() {
+		file_pkg_auth_proto_role_proto_rawDescData = protoimpl.X.CompressGZIP(unsafe.Slice(unsafe.StringData(file_pkg_auth_proto_role_proto_rawDesc), len(file_pkg_auth_proto_role_proto_rawDesc)))
+	})
+	return file_pkg_auth_proto_role_proto_rawDescData
+}
 
 var file_pkg_auth_proto_role_proto_msgTypes = make([]protoimpl.MessageInfo, 2)
 var file_pkg_auth_proto_role_proto_goTypes = []any{

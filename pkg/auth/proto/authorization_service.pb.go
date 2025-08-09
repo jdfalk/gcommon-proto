@@ -9,7 +9,6 @@ package proto
 import (
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
-	_ "google.golang.org/protobuf/types/gofeaturespb"
 	reflect "reflect"
 	unsafe "unsafe"
 )
@@ -25,12 +24,12 @@ var File_pkg_auth_proto_authorization_service_proto protoreflect.FileDescriptor
 
 const file_pkg_auth_proto_authorization_service_proto_rawDesc = "" +
 	"\n" +
-	"*pkg/auth/proto/authorization_service.proto\x12\x0fgcommon.v1.auth\x1a!google/protobuf/go_features.proto\x1a\x19pkg/auth/proto/role.proto\x1a&pkg/auth/proto/authorize_request.proto\x1a'pkg/auth/proto/authorize_response.proto\x1a1pkg/auth/proto/get_user_permissions_request.proto\x1a2pkg/auth/proto/get_user_permissions_response.proto\x1a+pkg/auth/proto/get_user_roles_request.proto\x1a,pkg/auth/proto/get_user_roles_response.proto2\xb6\x02\n" +
+	"*pkg/auth/proto/authorization_service.proto\x12\x0fgcommon.v1.auth\x1a\x19pkg/auth/proto/role.proto\x1a&pkg/auth/proto/authorize_request.proto\x1a'pkg/auth/proto/authorize_response.proto\x1a1pkg/auth/proto/get_user_permissions_request.proto\x1a2pkg/auth/proto/get_user_permissions_response.proto\x1a+pkg/auth/proto/get_user_roles_request.proto\x1a,pkg/auth/proto/get_user_roles_response.proto2\xb6\x02\n" +
 	"\x14AuthorizationService\x12R\n" +
 	"\tAuthorize\x12!.gcommon.v1.auth.AuthorizeRequest\x1a\".gcommon.v1.auth.AuthorizeResponse\x12m\n" +
 	"\x12GetUserPermissions\x12*.gcommon.v1.auth.GetUserPermissionsRequest\x1a+.gcommon.v1.auth.GetUserPermissionsResponse\x12[\n" +
-	"\fGetUserRoles\x12$.gcommon.v1.auth.GetUserRolesRequest\x1a%.gcommon.v1.auth.GetUserRolesResponseB\xc0\x01\n" +
-	"\x13com.gcommon.v1.authB\x19AuthorizationServiceProtoP\x01Z(github.com/jdfalk/gcommon/pkg/auth/proto\xa2\x02\x03GVA\xaa\x02\x0fGcommon.V1.Auth\xca\x02\x0fGcommon\\V1\\Auth\xe2\x02\x1bGcommon\\V1\\Auth\\GPBMetadata\xea\x02\x11Gcommon::V1::Auth\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"\fGetUserRoles\x12$.gcommon.v1.auth.GetUserRolesRequest\x1a%.gcommon.v1.auth.GetUserRolesResponseB\xb8\x01\n" +
+	"\x13com.gcommon.v1.authB\x19AuthorizationServiceProtoP\x01Z(github.com/jdfalk/gcommon/pkg/auth/proto\xa2\x02\x03GVA\xaa\x02\x0fGcommon.V1.Auth\xca\x02\x0fGcommon\\V1\\Auth\xe2\x02\x1bGcommon\\V1\\Auth\\GPBMetadata\xea\x02\x11Gcommon::V1::Authb\beditionsp\xe8\a"
 
 var file_pkg_auth_proto_authorization_service_proto_goTypes = []any{
 	(*AuthorizeRequest)(nil),           // 0: gcommon.v1.auth.AuthorizeRequest

@@ -10,9 +10,9 @@ import (
 	proto "github.com/jdfalk/gcommon/pkg/common/proto"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
-	_ "google.golang.org/protobuf/types/gofeaturespb"
 	timestamppb "google.golang.org/protobuf/types/known/timestamppb"
 	reflect "reflect"
+	sync "sync"
 	unsafe "unsafe"
 )
 
@@ -28,23 +28,29 @@ const (
 // Used for bulk permission management and organizational structure.
 // Supports hierarchical group relationships.
 type Group struct {
-	state                    protoimpl.MessageState `protogen:"opaque.v1"`
-	xxx_hidden_Id            *string                `protobuf:"bytes,1,opt,name=id"`
-	xxx_hidden_Name          *string                `protobuf:"bytes,2,opt,name=name"`
-	xxx_hidden_Description   *string                `protobuf:"bytes,3,opt,name=description"`
-	xxx_hidden_ParentGroupId *string                `protobuf:"bytes,4,opt,name=parent_group_id,json=parentGroupId"`
-	xxx_hidden_Permissions   []string               `protobuf:"bytes,5,rep,name=permissions"`
-	xxx_hidden_Metadata      map[string]string      `protobuf:"bytes,6,rep,name=metadata" protobuf_key:"bytes,1,opt,name=key" protobuf_val:"bytes,2,opt,name=value"`
-	xxx_hidden_CreatedAt     *timestamppb.Timestamp `protobuf:"bytes,7,opt,name=created_at,json=createdAt"`
-	xxx_hidden_Status        proto.ResourceStatus   `protobuf:"varint,8,opt,name=status,enum=gcommon.v1.common.ResourceStatus"`
-	xxx_hidden_MemberCount   int32                  `protobuf:"varint,9,opt,name=member_count,json=memberCount"`
-	xxx_hidden_AdminUserIds  []string               `protobuf:"bytes,10,rep,name=admin_user_ids,json=adminUserIds"`
-	// Deprecated: Do not use. This will be deleted in the near future.
-	XXX_lazyUnmarshalInfo  protoimpl.LazyUnmarshalInfo
-	XXX_raceDetectHookData protoimpl.RaceDetectHookData
-	XXX_presence           [1]uint32
-	unknownFields          protoimpl.UnknownFields
-	sizeCache              protoimpl.SizeCache
+	state protoimpl.MessageState `protogen:"open.v1"`
+	// Unique group identifier
+	Id *string `protobuf:"bytes,1,opt,name=id" json:"id,omitempty"`
+	// Group name
+	Name *string `protobuf:"bytes,2,opt,name=name" json:"name,omitempty"`
+	// Group description
+	Description *string `protobuf:"bytes,3,opt,name=description" json:"description,omitempty"`
+	// Parent group ID (for hierarchical groups)
+	ParentGroupId *string `protobuf:"bytes,4,opt,name=parent_group_id,json=parentGroupId" json:"parent_group_id,omitempty"`
+	// Group permissions
+	Permissions []string `protobuf:"bytes,5,rep,name=permissions" json:"permissions,omitempty"`
+	// Group metadata for extensibility
+	Metadata map[string]string `protobuf:"bytes,6,rep,name=metadata" json:"metadata,omitempty" protobuf_key:"bytes,1,opt,name=key" protobuf_val:"bytes,2,opt,name=value"`
+	// Group creation timestamp
+	CreatedAt *timestamppb.Timestamp `protobuf:"bytes,7,opt,name=created_at,json=createdAt" json:"created_at,omitempty"`
+	// Group status
+	Status *proto.ResourceStatus `protobuf:"varint,8,opt,name=status,enum=gcommon.v1.common.ResourceStatus" json:"status,omitempty"`
+	// Group member count
+	MemberCount *int32 `protobuf:"varint,9,opt,name=member_count,json=memberCount" json:"member_count,omitempty"`
+	// Group administrator user IDs
+	AdminUserIds  []string `protobuf:"bytes,10,rep,name=admin_user_ids,json=adminUserIds" json:"admin_user_ids,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
 }
 
 func (x *Group) Reset() {
@@ -72,313 +78,86 @@ func (x *Group) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
+// Deprecated: Use Group.ProtoReflect.Descriptor instead.
+func (*Group) Descriptor() ([]byte, []int) {
+	return file_pkg_auth_proto_group_proto_rawDescGZIP(), []int{0}
+}
+
 func (x *Group) GetId() string {
-	if x != nil {
-		if x.xxx_hidden_Id != nil {
-			return *x.xxx_hidden_Id
-		}
-		return ""
+	if x != nil && x.Id != nil {
+		return *x.Id
 	}
 	return ""
 }
 
 func (x *Group) GetName() string {
-	if x != nil {
-		if x.xxx_hidden_Name != nil {
-			return *x.xxx_hidden_Name
-		}
-		return ""
+	if x != nil && x.Name != nil {
+		return *x.Name
 	}
 	return ""
 }
 
 func (x *Group) GetDescription() string {
-	if x != nil {
-		if x.xxx_hidden_Description != nil {
-			return *x.xxx_hidden_Description
-		}
-		return ""
+	if x != nil && x.Description != nil {
+		return *x.Description
 	}
 	return ""
 }
 
 func (x *Group) GetParentGroupId() string {
-	if x != nil {
-		if x.xxx_hidden_ParentGroupId != nil {
-			return *x.xxx_hidden_ParentGroupId
-		}
-		return ""
+	if x != nil && x.ParentGroupId != nil {
+		return *x.ParentGroupId
 	}
 	return ""
 }
 
 func (x *Group) GetPermissions() []string {
 	if x != nil {
-		return x.xxx_hidden_Permissions
+		return x.Permissions
 	}
 	return nil
 }
 
 func (x *Group) GetMetadata() map[string]string {
 	if x != nil {
-		if protoimpl.X.Present(&(x.XXX_presence[0]), 5) {
-			if protoimpl.X.AtomicCheckPointerIsNil(&x.xxx_hidden_Metadata) {
-				protoimpl.X.UnmarshalField(x, 6)
-			}
-			return x.xxx_hidden_Metadata
-		}
+		return x.Metadata
 	}
 	return nil
 }
 
 func (x *Group) GetCreatedAt() *timestamppb.Timestamp {
 	if x != nil {
-		if protoimpl.X.Present(&(x.XXX_presence[0]), 6) {
-			if protoimpl.X.AtomicCheckPointerIsNil(&x.xxx_hidden_CreatedAt) {
-				protoimpl.X.UnmarshalField(x, 7)
-			}
-			var rv *timestamppb.Timestamp
-			protoimpl.X.AtomicLoadPointer(protoimpl.Pointer(&x.xxx_hidden_CreatedAt), protoimpl.Pointer(&rv))
-			return rv
-		}
+		return x.CreatedAt
 	}
 	return nil
 }
 
 func (x *Group) GetStatus() proto.ResourceStatus {
-	if x != nil {
-		if protoimpl.X.Present(&(x.XXX_presence[0]), 7) {
-			return x.xxx_hidden_Status
-		}
+	if x != nil && x.Status != nil {
+		return *x.Status
 	}
 	return proto.ResourceStatus(0)
 }
 
 func (x *Group) GetMemberCount() int32 {
-	if x != nil {
-		return x.xxx_hidden_MemberCount
+	if x != nil && x.MemberCount != nil {
+		return *x.MemberCount
 	}
 	return 0
 }
 
 func (x *Group) GetAdminUserIds() []string {
 	if x != nil {
-		return x.xxx_hidden_AdminUserIds
+		return x.AdminUserIds
 	}
 	return nil
-}
-
-func (x *Group) SetId(v string) {
-	x.xxx_hidden_Id = &v
-	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 0, 10)
-}
-
-func (x *Group) SetName(v string) {
-	x.xxx_hidden_Name = &v
-	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 1, 10)
-}
-
-func (x *Group) SetDescription(v string) {
-	x.xxx_hidden_Description = &v
-	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 2, 10)
-}
-
-func (x *Group) SetParentGroupId(v string) {
-	x.xxx_hidden_ParentGroupId = &v
-	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 3, 10)
-}
-
-func (x *Group) SetPermissions(v []string) {
-	x.xxx_hidden_Permissions = v
-}
-
-func (x *Group) SetMetadata(v map[string]string) {
-	x.xxx_hidden_Metadata = v
-	if v == nil {
-		protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 5)
-	} else {
-		protoimpl.X.SetPresent(&(x.XXX_presence[0]), 5, 10)
-	}
-}
-
-func (x *Group) SetCreatedAt(v *timestamppb.Timestamp) {
-	protoimpl.X.AtomicSetPointer(&x.xxx_hidden_CreatedAt, v)
-	if v == nil {
-		protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 6)
-	} else {
-		protoimpl.X.SetPresent(&(x.XXX_presence[0]), 6, 10)
-	}
-}
-
-func (x *Group) SetStatus(v proto.ResourceStatus) {
-	x.xxx_hidden_Status = v
-	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 7, 10)
-}
-
-func (x *Group) SetMemberCount(v int32) {
-	x.xxx_hidden_MemberCount = v
-	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 8, 10)
-}
-
-func (x *Group) SetAdminUserIds(v []string) {
-	x.xxx_hidden_AdminUserIds = v
-}
-
-func (x *Group) HasId() bool {
-	if x == nil {
-		return false
-	}
-	return protoimpl.X.Present(&(x.XXX_presence[0]), 0)
-}
-
-func (x *Group) HasName() bool {
-	if x == nil {
-		return false
-	}
-	return protoimpl.X.Present(&(x.XXX_presence[0]), 1)
-}
-
-func (x *Group) HasDescription() bool {
-	if x == nil {
-		return false
-	}
-	return protoimpl.X.Present(&(x.XXX_presence[0]), 2)
-}
-
-func (x *Group) HasParentGroupId() bool {
-	if x == nil {
-		return false
-	}
-	return protoimpl.X.Present(&(x.XXX_presence[0]), 3)
-}
-
-func (x *Group) HasCreatedAt() bool {
-	if x == nil {
-		return false
-	}
-	return protoimpl.X.Present(&(x.XXX_presence[0]), 6)
-}
-
-func (x *Group) HasStatus() bool {
-	if x == nil {
-		return false
-	}
-	return protoimpl.X.Present(&(x.XXX_presence[0]), 7)
-}
-
-func (x *Group) HasMemberCount() bool {
-	if x == nil {
-		return false
-	}
-	return protoimpl.X.Present(&(x.XXX_presence[0]), 8)
-}
-
-func (x *Group) ClearId() {
-	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 0)
-	x.xxx_hidden_Id = nil
-}
-
-func (x *Group) ClearName() {
-	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 1)
-	x.xxx_hidden_Name = nil
-}
-
-func (x *Group) ClearDescription() {
-	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 2)
-	x.xxx_hidden_Description = nil
-}
-
-func (x *Group) ClearParentGroupId() {
-	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 3)
-	x.xxx_hidden_ParentGroupId = nil
-}
-
-func (x *Group) ClearCreatedAt() {
-	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 6)
-	protoimpl.X.AtomicSetPointer(&x.xxx_hidden_CreatedAt, (*timestamppb.Timestamp)(nil))
-}
-
-func (x *Group) ClearStatus() {
-	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 7)
-	x.xxx_hidden_Status = proto.ResourceStatus_RESOURCE_STATUS_UNSPECIFIED
-}
-
-func (x *Group) ClearMemberCount() {
-	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 8)
-	x.xxx_hidden_MemberCount = 0
-}
-
-type Group_builder struct {
-	_ [0]func() // Prevents comparability and use of unkeyed literals for the builder.
-
-	// Unique group identifier
-	Id *string
-	// Group name
-	Name *string
-	// Group description
-	Description *string
-	// Parent group ID (for hierarchical groups)
-	ParentGroupId *string
-	// Group permissions
-	Permissions []string
-	// Group metadata for extensibility
-	Metadata map[string]string
-	// Group creation timestamp
-	CreatedAt *timestamppb.Timestamp
-	// Group status
-	Status *proto.ResourceStatus
-	// Group member count
-	MemberCount *int32
-	// Group administrator user IDs
-	AdminUserIds []string
-}
-
-func (b0 Group_builder) Build() *Group {
-	m0 := &Group{}
-	b, x := &b0, m0
-	_, _ = b, x
-	if b.Id != nil {
-		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 0, 10)
-		x.xxx_hidden_Id = b.Id
-	}
-	if b.Name != nil {
-		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 1, 10)
-		x.xxx_hidden_Name = b.Name
-	}
-	if b.Description != nil {
-		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 2, 10)
-		x.xxx_hidden_Description = b.Description
-	}
-	if b.ParentGroupId != nil {
-		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 3, 10)
-		x.xxx_hidden_ParentGroupId = b.ParentGroupId
-	}
-	x.xxx_hidden_Permissions = b.Permissions
-	if b.Metadata != nil {
-		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 5, 10)
-		x.xxx_hidden_Metadata = b.Metadata
-	}
-	if b.CreatedAt != nil {
-		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 6, 10)
-		x.xxx_hidden_CreatedAt = b.CreatedAt
-	}
-	if b.Status != nil {
-		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 7, 10)
-		x.xxx_hidden_Status = *b.Status
-	}
-	if b.MemberCount != nil {
-		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 8, 10)
-		x.xxx_hidden_MemberCount = *b.MemberCount
-	}
-	x.xxx_hidden_AdminUserIds = b.AdminUserIds
-	return m0
 }
 
 var File_pkg_auth_proto_group_proto protoreflect.FileDescriptor
 
 const file_pkg_auth_proto_group_proto_rawDesc = "" +
 	"\n" +
-	"\x1apkg/auth/proto/group.proto\x12\x0fgcommon.v1.auth\x1a!google/protobuf/go_features.proto\x1a\x1fgoogle/protobuf/timestamp.proto\x1a'pkg/common/proto/request_metadata.proto\x1a&pkg/common/proto/resource_status.proto\"\xdd\x03\n" +
+	"\x1apkg/auth/proto/group.proto\x12\x0fgcommon.v1.auth\x1a\x1fgoogle/protobuf/timestamp.proto\x1a'pkg/common/proto/request_metadata.proto\x1a&pkg/common/proto/resource_status.proto\"\xdd\x03\n" +
 	"\x05Group\x12\x0e\n" +
 	"\x02id\x18\x01 \x01(\tR\x02id\x12\x12\n" +
 	"\x04name\x18\x02 \x01(\tR\x04name\x12 \n" +
@@ -394,9 +173,21 @@ const file_pkg_auth_proto_group_proto_rawDesc = "" +
 	" \x03(\tR\fadminUserIds\x1a;\n" +
 	"\rMetadataEntry\x12\x10\n" +
 	"\x03key\x18\x01 \x01(\tR\x03key\x12\x14\n" +
-	"\x05value\x18\x02 \x01(\tR\x05value:\x028\x01B\xb1\x01\n" +
+	"\x05value\x18\x02 \x01(\tR\x05value:\x028\x01B\xa9\x01\n" +
 	"\x13com.gcommon.v1.authB\n" +
-	"GroupProtoP\x01Z(github.com/jdfalk/gcommon/pkg/auth/proto\xa2\x02\x03GVA\xaa\x02\x0fGcommon.V1.Auth\xca\x02\x0fGcommon\\V1\\Auth\xe2\x02\x1bGcommon\\V1\\Auth\\GPBMetadata\xea\x02\x11Gcommon::V1::Auth\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"GroupProtoP\x01Z(github.com/jdfalk/gcommon/pkg/auth/proto\xa2\x02\x03GVA\xaa\x02\x0fGcommon.V1.Auth\xca\x02\x0fGcommon\\V1\\Auth\xe2\x02\x1bGcommon\\V1\\Auth\\GPBMetadata\xea\x02\x11Gcommon::V1::Authb\beditionsp\xe8\a"
+
+var (
+	file_pkg_auth_proto_group_proto_rawDescOnce sync.Once
+	file_pkg_auth_proto_group_proto_rawDescData []byte
+)
+
+func file_pkg_auth_proto_group_proto_rawDescGZIP() []byte {
+	file_pkg_auth_proto_group_proto_rawDescOnce.Do(func() {
+		file_pkg_auth_proto_group_proto_rawDescData = protoimpl.X.CompressGZIP(unsafe.Slice(unsafe.StringData(file_pkg_auth_proto_group_proto_rawDesc), len(file_pkg_auth_proto_group_proto_rawDesc)))
+	})
+	return file_pkg_auth_proto_group_proto_rawDescData
+}
 
 var file_pkg_auth_proto_group_proto_msgTypes = make([]protoimpl.MessageInfo, 2)
 var file_pkg_auth_proto_group_proto_goTypes = []any{

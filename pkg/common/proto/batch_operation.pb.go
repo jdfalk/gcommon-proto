@@ -9,9 +9,9 @@ package proto
 import (
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
-	_ "google.golang.org/protobuf/types/gofeaturespb"
 	anypb "google.golang.org/protobuf/types/known/anypb"
 	reflect "reflect"
+	sync "sync"
 	unsafe "unsafe"
 )
 
@@ -27,18 +27,19 @@ const (
 // Enables efficient processing of multiple operations with
 // configurable parallelism, error handling, and timeout policies.
 type BatchOperation struct {
-	state                    protoimpl.MessageState `protogen:"opaque.v1"`
-	xxx_hidden_BatchId       *string                `protobuf:"bytes,1,opt,name=batch_id,json=batchId"`
-	xxx_hidden_OperationType *string                `protobuf:"bytes,2,opt,name=operation_type,json=operationType"`
-	xxx_hidden_Operations    *[]*anypb.Any          `protobuf:"bytes,3,rep,name=operations"`
-	xxx_hidden_Options       *BatchOptions          `protobuf:"bytes,4,opt,name=options"`
-	xxx_hidden_Metadata      *RequestMetadata       `protobuf:"bytes,5,opt,name=metadata"`
-	// Deprecated: Do not use. This will be deleted in the near future.
-	XXX_lazyUnmarshalInfo  protoimpl.LazyUnmarshalInfo
-	XXX_raceDetectHookData protoimpl.RaceDetectHookData
-	XXX_presence           [1]uint32
-	unknownFields          protoimpl.UnknownFields
-	sizeCache              protoimpl.SizeCache
+	state protoimpl.MessageState `protogen:"open.v1"`
+	// Unique identifier for this batch operation
+	BatchId *string `protobuf:"bytes,1,opt,name=batch_id,json=batchId" json:"batch_id,omitempty"`
+	// Type of operation being performed in batch
+	OperationType *string `protobuf:"bytes,2,opt,name=operation_type,json=operationType" json:"operation_type,omitempty"`
+	// Individual operations within the batch (type-specific)
+	Operations []*anypb.Any `protobuf:"bytes,3,rep,name=operations" json:"operations,omitempty"`
+	// Batch processing configuration options
+	Options *BatchOptions `protobuf:"bytes,4,opt,name=options" json:"options,omitempty"`
+	// Request metadata for tracing and correlation
+	Metadata      *RequestMetadata `protobuf:"bytes,5,opt,name=metadata" json:"metadata,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
 }
 
 func (x *BatchOperation) Reset() {
@@ -66,202 +67,51 @@ func (x *BatchOperation) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
+// Deprecated: Use BatchOperation.ProtoReflect.Descriptor instead.
+func (*BatchOperation) Descriptor() ([]byte, []int) {
+	return file_pkg_common_proto_batch_operation_proto_rawDescGZIP(), []int{0}
+}
+
 func (x *BatchOperation) GetBatchId() string {
-	if x != nil {
-		if x.xxx_hidden_BatchId != nil {
-			return *x.xxx_hidden_BatchId
-		}
-		return ""
+	if x != nil && x.BatchId != nil {
+		return *x.BatchId
 	}
 	return ""
 }
 
 func (x *BatchOperation) GetOperationType() string {
-	if x != nil {
-		if x.xxx_hidden_OperationType != nil {
-			return *x.xxx_hidden_OperationType
-		}
-		return ""
+	if x != nil && x.OperationType != nil {
+		return *x.OperationType
 	}
 	return ""
 }
 
 func (x *BatchOperation) GetOperations() []*anypb.Any {
 	if x != nil {
-		if protoimpl.X.Present(&(x.XXX_presence[0]), 2) {
-			if protoimpl.X.AtomicCheckPointerIsNil(&x.xxx_hidden_Operations) {
-				protoimpl.X.UnmarshalField(x, 3)
-			}
-			var rv *[]*anypb.Any
-			protoimpl.X.AtomicLoadPointer(protoimpl.Pointer(&x.xxx_hidden_Operations), protoimpl.Pointer(&rv))
-			return *rv
-		}
+		return x.Operations
 	}
 	return nil
 }
 
 func (x *BatchOperation) GetOptions() *BatchOptions {
 	if x != nil {
-		if protoimpl.X.Present(&(x.XXX_presence[0]), 3) {
-			if protoimpl.X.AtomicCheckPointerIsNil(&x.xxx_hidden_Options) {
-				protoimpl.X.UnmarshalField(x, 4)
-			}
-			var rv *BatchOptions
-			protoimpl.X.AtomicLoadPointer(protoimpl.Pointer(&x.xxx_hidden_Options), protoimpl.Pointer(&rv))
-			return rv
-		}
+		return x.Options
 	}
 	return nil
 }
 
 func (x *BatchOperation) GetMetadata() *RequestMetadata {
 	if x != nil {
-		if protoimpl.X.Present(&(x.XXX_presence[0]), 4) {
-			if protoimpl.X.AtomicCheckPointerIsNil(&x.xxx_hidden_Metadata) {
-				protoimpl.X.UnmarshalField(x, 5)
-			}
-			var rv *RequestMetadata
-			protoimpl.X.AtomicLoadPointer(protoimpl.Pointer(&x.xxx_hidden_Metadata), protoimpl.Pointer(&rv))
-			return rv
-		}
+		return x.Metadata
 	}
 	return nil
-}
-
-func (x *BatchOperation) SetBatchId(v string) {
-	x.xxx_hidden_BatchId = &v
-	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 0, 5)
-}
-
-func (x *BatchOperation) SetOperationType(v string) {
-	x.xxx_hidden_OperationType = &v
-	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 1, 5)
-}
-
-func (x *BatchOperation) SetOperations(v []*anypb.Any) {
-	var sv *[]*anypb.Any
-	protoimpl.X.AtomicLoadPointer(protoimpl.Pointer(&x.xxx_hidden_Operations), protoimpl.Pointer(&sv))
-	if sv == nil {
-		sv = &[]*anypb.Any{}
-		protoimpl.X.AtomicInitializePointer(protoimpl.Pointer(&x.xxx_hidden_Operations), protoimpl.Pointer(&sv))
-	}
-	*sv = v
-	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 2, 5)
-}
-
-func (x *BatchOperation) SetOptions(v *BatchOptions) {
-	protoimpl.X.AtomicSetPointer(&x.xxx_hidden_Options, v)
-	if v == nil {
-		protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 3)
-	} else {
-		protoimpl.X.SetPresent(&(x.XXX_presence[0]), 3, 5)
-	}
-}
-
-func (x *BatchOperation) SetMetadata(v *RequestMetadata) {
-	protoimpl.X.AtomicSetPointer(&x.xxx_hidden_Metadata, v)
-	if v == nil {
-		protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 4)
-	} else {
-		protoimpl.X.SetPresent(&(x.XXX_presence[0]), 4, 5)
-	}
-}
-
-func (x *BatchOperation) HasBatchId() bool {
-	if x == nil {
-		return false
-	}
-	return protoimpl.X.Present(&(x.XXX_presence[0]), 0)
-}
-
-func (x *BatchOperation) HasOperationType() bool {
-	if x == nil {
-		return false
-	}
-	return protoimpl.X.Present(&(x.XXX_presence[0]), 1)
-}
-
-func (x *BatchOperation) HasOptions() bool {
-	if x == nil {
-		return false
-	}
-	return protoimpl.X.Present(&(x.XXX_presence[0]), 3)
-}
-
-func (x *BatchOperation) HasMetadata() bool {
-	if x == nil {
-		return false
-	}
-	return protoimpl.X.Present(&(x.XXX_presence[0]), 4)
-}
-
-func (x *BatchOperation) ClearBatchId() {
-	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 0)
-	x.xxx_hidden_BatchId = nil
-}
-
-func (x *BatchOperation) ClearOperationType() {
-	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 1)
-	x.xxx_hidden_OperationType = nil
-}
-
-func (x *BatchOperation) ClearOptions() {
-	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 3)
-	protoimpl.X.AtomicSetPointer(&x.xxx_hidden_Options, (*BatchOptions)(nil))
-}
-
-func (x *BatchOperation) ClearMetadata() {
-	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 4)
-	protoimpl.X.AtomicSetPointer(&x.xxx_hidden_Metadata, (*RequestMetadata)(nil))
-}
-
-type BatchOperation_builder struct {
-	_ [0]func() // Prevents comparability and use of unkeyed literals for the builder.
-
-	// Unique identifier for this batch operation
-	BatchId *string
-	// Type of operation being performed in batch
-	OperationType *string
-	// Individual operations within the batch (type-specific)
-	Operations []*anypb.Any
-	// Batch processing configuration options
-	Options *BatchOptions
-	// Request metadata for tracing and correlation
-	Metadata *RequestMetadata
-}
-
-func (b0 BatchOperation_builder) Build() *BatchOperation {
-	m0 := &BatchOperation{}
-	b, x := &b0, m0
-	_, _ = b, x
-	if b.BatchId != nil {
-		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 0, 5)
-		x.xxx_hidden_BatchId = b.BatchId
-	}
-	if b.OperationType != nil {
-		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 1, 5)
-		x.xxx_hidden_OperationType = b.OperationType
-	}
-	if b.Operations != nil {
-		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 2, 5)
-		x.xxx_hidden_Operations = &b.Operations
-	}
-	if b.Options != nil {
-		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 3, 5)
-		x.xxx_hidden_Options = b.Options
-	}
-	if b.Metadata != nil {
-		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 4, 5)
-		x.xxx_hidden_Metadata = b.Metadata
-	}
-	return m0
 }
 
 var File_pkg_common_proto_batch_operation_proto protoreflect.FileDescriptor
 
 const file_pkg_common_proto_batch_operation_proto_rawDesc = "" +
 	"\n" +
-	"&pkg/common/proto/batch_operation.proto\x12\x11gcommon.v1.common\x1a\x19google/protobuf/any.proto\x1a!google/protobuf/go_features.proto\x1a$pkg/common/proto/batch_options.proto\x1a'pkg/common/proto/request_metadata.proto\"\x8f\x02\n" +
+	"&pkg/common/proto/batch_operation.proto\x12\x11gcommon.v1.common\x1a\x19google/protobuf/any.proto\x1a$pkg/common/proto/batch_options.proto\x1a'pkg/common/proto/request_metadata.proto\"\x8f\x02\n" +
 	"\x0eBatchOperation\x12\x19\n" +
 	"\bbatch_id\x18\x01 \x01(\tR\abatchId\x12%\n" +
 	"\x0eoperation_type\x18\x02 \x01(\tR\roperationType\x128\n" +
@@ -269,8 +119,20 @@ const file_pkg_common_proto_batch_operation_proto_rawDesc = "" +
 	"operations\x18\x03 \x03(\v2\x14.google.protobuf.AnyB\x02(\x01R\n" +
 	"operations\x12=\n" +
 	"\aoptions\x18\x04 \x01(\v2\x1f.gcommon.v1.common.BatchOptionsB\x02(\x01R\aoptions\x12B\n" +
-	"\bmetadata\x18\x05 \x01(\v2\".gcommon.v1.common.RequestMetadataB\x02(\x01R\bmetadataB\xc6\x01\n" +
-	"\x15com.gcommon.v1.commonB\x13BatchOperationProtoP\x01Z*github.com/jdfalk/gcommon/pkg/common/proto\xa2\x02\x03GVC\xaa\x02\x11Gcommon.V1.Common\xca\x02\x11Gcommon\\V1\\Common\xe2\x02\x1dGcommon\\V1\\Common\\GPBMetadata\xea\x02\x13Gcommon::V1::Common\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"\bmetadata\x18\x05 \x01(\v2\".gcommon.v1.common.RequestMetadataB\x02(\x01R\bmetadataB\xbe\x01\n" +
+	"\x15com.gcommon.v1.commonB\x13BatchOperationProtoP\x01Z*github.com/jdfalk/gcommon/pkg/common/proto\xa2\x02\x03GVC\xaa\x02\x11Gcommon.V1.Common\xca\x02\x11Gcommon\\V1\\Common\xe2\x02\x1dGcommon\\V1\\Common\\GPBMetadata\xea\x02\x13Gcommon::V1::Commonb\beditionsp\xe8\a"
+
+var (
+	file_pkg_common_proto_batch_operation_proto_rawDescOnce sync.Once
+	file_pkg_common_proto_batch_operation_proto_rawDescData []byte
+)
+
+func file_pkg_common_proto_batch_operation_proto_rawDescGZIP() []byte {
+	file_pkg_common_proto_batch_operation_proto_rawDescOnce.Do(func() {
+		file_pkg_common_proto_batch_operation_proto_rawDescData = protoimpl.X.CompressGZIP(unsafe.Slice(unsafe.StringData(file_pkg_common_proto_batch_operation_proto_rawDesc), len(file_pkg_common_proto_batch_operation_proto_rawDesc)))
+	})
+	return file_pkg_common_proto_batch_operation_proto_rawDescData
+}
 
 var file_pkg_common_proto_batch_operation_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_pkg_common_proto_batch_operation_proto_goTypes = []any{

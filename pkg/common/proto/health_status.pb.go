@@ -9,8 +9,8 @@ package proto
 import (
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
-	_ "google.golang.org/protobuf/types/gofeaturespb"
 	reflect "reflect"
+	sync "sync"
 	unsafe "unsafe"
 )
 
@@ -83,19 +83,36 @@ func (x HealthStatus) Number() protoreflect.EnumNumber {
 	return protoreflect.EnumNumber(x)
 }
 
+// Deprecated: Use HealthStatus.Descriptor instead.
+func (HealthStatus) EnumDescriptor() ([]byte, []int) {
+	return file_pkg_common_proto_health_status_proto_rawDescGZIP(), []int{0}
+}
+
 var File_pkg_common_proto_health_status_proto protoreflect.FileDescriptor
 
 const file_pkg_common_proto_health_status_proto_rawDesc = "" +
 	"\n" +
-	"$pkg/common/proto/health_status.proto\x12\x11gcommon.v1.common\x1a!google/protobuf/go_features.proto*\xb9\x01\n" +
+	"$pkg/common/proto/health_status.proto\x12\x11gcommon.v1.common*\xb9\x01\n" +
 	"\fHealthStatus\x12\x1d\n" +
 	"\x19HEALTH_STATUS_UNSPECIFIED\x10\x00\x12\x19\n" +
 	"\x15HEALTH_STATUS_HEALTHY\x10\x01\x12\x1b\n" +
 	"\x17HEALTH_STATUS_UNHEALTHY\x10\x02\x12\x1a\n" +
 	"\x16HEALTH_STATUS_DEGRADED\x10\x03\x12\x1a\n" +
 	"\x16HEALTH_STATUS_STARTING\x10\x04\x12\x1a\n" +
-	"\x16HEALTH_STATUS_STOPPING\x10\x05B\xc4\x01\n" +
-	"\x15com.gcommon.v1.commonB\x11HealthStatusProtoP\x01Z*github.com/jdfalk/gcommon/pkg/common/proto\xa2\x02\x03GVC\xaa\x02\x11Gcommon.V1.Common\xca\x02\x11Gcommon\\V1\\Common\xe2\x02\x1dGcommon\\V1\\Common\\GPBMetadata\xea\x02\x13Gcommon::V1::Common\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"\x16HEALTH_STATUS_STOPPING\x10\x05B\xbc\x01\n" +
+	"\x15com.gcommon.v1.commonB\x11HealthStatusProtoP\x01Z*github.com/jdfalk/gcommon/pkg/common/proto\xa2\x02\x03GVC\xaa\x02\x11Gcommon.V1.Common\xca\x02\x11Gcommon\\V1\\Common\xe2\x02\x1dGcommon\\V1\\Common\\GPBMetadata\xea\x02\x13Gcommon::V1::Commonb\beditionsp\xe8\a"
+
+var (
+	file_pkg_common_proto_health_status_proto_rawDescOnce sync.Once
+	file_pkg_common_proto_health_status_proto_rawDescData []byte
+)
+
+func file_pkg_common_proto_health_status_proto_rawDescGZIP() []byte {
+	file_pkg_common_proto_health_status_proto_rawDescOnce.Do(func() {
+		file_pkg_common_proto_health_status_proto_rawDescData = protoimpl.X.CompressGZIP(unsafe.Slice(unsafe.StringData(file_pkg_common_proto_health_status_proto_rawDesc), len(file_pkg_common_proto_health_status_proto_rawDesc)))
+	})
+	return file_pkg_common_proto_health_status_proto_rawDescData
+}
 
 var file_pkg_common_proto_health_status_proto_enumTypes = make([]protoimpl.EnumInfo, 1)
 var file_pkg_common_proto_health_status_proto_goTypes = []any{

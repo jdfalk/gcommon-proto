@@ -9,8 +9,8 @@ package proto
 import (
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
-	_ "google.golang.org/protobuf/types/gofeaturespb"
 	reflect "reflect"
+	sync "sync"
 	unsafe "unsafe"
 )
 
@@ -28,14 +28,15 @@ const (
 // Supports field-based filters, text search, and time range filtering,
 // enabling flexible and powerful query capabilities.
 type FilterOptions struct {
-	state                  protoimpl.MessageState  `protogen:"opaque.v1"`
-	xxx_hidden_Filters     map[string]*FilterValue `protobuf:"bytes,1,rep,name=filters" protobuf_key:"bytes,1,opt,name=key" protobuf_val:"bytes,2,opt,name=value"`
-	xxx_hidden_SearchQuery *string                 `protobuf:"bytes,2,opt,name=search_query,json=searchQuery"`
-	xxx_hidden_TimeRange   *TimeRange              `protobuf:"bytes,3,opt,name=time_range,json=timeRange"`
-	XXX_raceDetectHookData protoimpl.RaceDetectHookData
-	XXX_presence           [1]uint32
-	unknownFields          protoimpl.UnknownFields
-	sizeCache              protoimpl.SizeCache
+	state protoimpl.MessageState `protogen:"open.v1"`
+	// Field-based filters with typed values and operations
+	Filters map[string]*FilterValue `protobuf:"bytes,1,rep,name=filters" json:"filters,omitempty" protobuf_key:"bytes,1,opt,name=key" protobuf_val:"bytes,2,opt,name=value"`
+	// Full-text search query for text-based filtering
+	SearchQuery *string `protobuf:"bytes,2,opt,name=search_query,json=searchQuery" json:"search_query,omitempty"`
+	// Time range filter for temporal data
+	TimeRange     *TimeRange `protobuf:"bytes,3,opt,name=time_range,json=timeRange" json:"time_range,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
 }
 
 func (x *FilterOptions) Reset() {
@@ -63,95 +64,37 @@ func (x *FilterOptions) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
+// Deprecated: Use FilterOptions.ProtoReflect.Descriptor instead.
+func (*FilterOptions) Descriptor() ([]byte, []int) {
+	return file_pkg_common_proto_filter_options_proto_rawDescGZIP(), []int{0}
+}
+
 func (x *FilterOptions) GetFilters() map[string]*FilterValue {
 	if x != nil {
-		return x.xxx_hidden_Filters
+		return x.Filters
 	}
 	return nil
 }
 
 func (x *FilterOptions) GetSearchQuery() string {
-	if x != nil {
-		if x.xxx_hidden_SearchQuery != nil {
-			return *x.xxx_hidden_SearchQuery
-		}
-		return ""
+	if x != nil && x.SearchQuery != nil {
+		return *x.SearchQuery
 	}
 	return ""
 }
 
 func (x *FilterOptions) GetTimeRange() *TimeRange {
 	if x != nil {
-		return x.xxx_hidden_TimeRange
+		return x.TimeRange
 	}
 	return nil
-}
-
-func (x *FilterOptions) SetFilters(v map[string]*FilterValue) {
-	x.xxx_hidden_Filters = v
-}
-
-func (x *FilterOptions) SetSearchQuery(v string) {
-	x.xxx_hidden_SearchQuery = &v
-	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 1, 3)
-}
-
-func (x *FilterOptions) SetTimeRange(v *TimeRange) {
-	x.xxx_hidden_TimeRange = v
-}
-
-func (x *FilterOptions) HasSearchQuery() bool {
-	if x == nil {
-		return false
-	}
-	return protoimpl.X.Present(&(x.XXX_presence[0]), 1)
-}
-
-func (x *FilterOptions) HasTimeRange() bool {
-	if x == nil {
-		return false
-	}
-	return x.xxx_hidden_TimeRange != nil
-}
-
-func (x *FilterOptions) ClearSearchQuery() {
-	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 1)
-	x.xxx_hidden_SearchQuery = nil
-}
-
-func (x *FilterOptions) ClearTimeRange() {
-	x.xxx_hidden_TimeRange = nil
-}
-
-type FilterOptions_builder struct {
-	_ [0]func() // Prevents comparability and use of unkeyed literals for the builder.
-
-	// Field-based filters with typed values and operations
-	Filters map[string]*FilterValue
-	// Full-text search query for text-based filtering
-	SearchQuery *string
-	// Time range filter for temporal data
-	TimeRange *TimeRange
-}
-
-func (b0 FilterOptions_builder) Build() *FilterOptions {
-	m0 := &FilterOptions{}
-	b, x := &b0, m0
-	_, _ = b, x
-	x.xxx_hidden_Filters = b.Filters
-	if b.SearchQuery != nil {
-		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 1, 3)
-		x.xxx_hidden_SearchQuery = b.SearchQuery
-	}
-	x.xxx_hidden_TimeRange = b.TimeRange
-	return m0
 }
 
 var File_pkg_common_proto_filter_options_proto protoreflect.FileDescriptor
 
 const file_pkg_common_proto_filter_options_proto_rawDesc = "" +
 	"\n" +
-	"%pkg/common/proto/filter_options.proto\x12\x11gcommon.v1.common\x1a!google/protobuf/go_features.proto\x1a#pkg/common/proto/filter_value.proto\x1a!pkg/common/proto/time_range.proto\"\x94\x02\n" +
+	"%pkg/common/proto/filter_options.proto\x12\x11gcommon.v1.common\x1a#pkg/common/proto/filter_value.proto\x1a!pkg/common/proto/time_range.proto\"\x94\x02\n" +
 	"\rFilterOptions\x12G\n" +
 	"\afilters\x18\x01 \x03(\v2-.gcommon.v1.common.FilterOptions.FiltersEntryR\afilters\x12!\n" +
 	"\fsearch_query\x18\x02 \x01(\tR\vsearchQuery\x12;\n" +
@@ -159,8 +102,20 @@ const file_pkg_common_proto_filter_options_proto_rawDesc = "" +
 	"time_range\x18\x03 \x01(\v2\x1c.gcommon.v1.common.TimeRangeR\ttimeRange\x1aZ\n" +
 	"\fFiltersEntry\x12\x10\n" +
 	"\x03key\x18\x01 \x01(\tR\x03key\x124\n" +
-	"\x05value\x18\x02 \x01(\v2\x1e.gcommon.v1.common.FilterValueR\x05value:\x028\x01B\xc5\x01\n" +
-	"\x15com.gcommon.v1.commonB\x12FilterOptionsProtoP\x01Z*github.com/jdfalk/gcommon/pkg/common/proto\xa2\x02\x03GVC\xaa\x02\x11Gcommon.V1.Common\xca\x02\x11Gcommon\\V1\\Common\xe2\x02\x1dGcommon\\V1\\Common\\GPBMetadata\xea\x02\x13Gcommon::V1::Common\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"\x05value\x18\x02 \x01(\v2\x1e.gcommon.v1.common.FilterValueR\x05value:\x028\x01B\xbd\x01\n" +
+	"\x15com.gcommon.v1.commonB\x12FilterOptionsProtoP\x01Z*github.com/jdfalk/gcommon/pkg/common/proto\xa2\x02\x03GVC\xaa\x02\x11Gcommon.V1.Common\xca\x02\x11Gcommon\\V1\\Common\xe2\x02\x1dGcommon\\V1\\Common\\GPBMetadata\xea\x02\x13Gcommon::V1::Commonb\beditionsp\xe8\a"
+
+var (
+	file_pkg_common_proto_filter_options_proto_rawDescOnce sync.Once
+	file_pkg_common_proto_filter_options_proto_rawDescData []byte
+)
+
+func file_pkg_common_proto_filter_options_proto_rawDescGZIP() []byte {
+	file_pkg_common_proto_filter_options_proto_rawDescOnce.Do(func() {
+		file_pkg_common_proto_filter_options_proto_rawDescData = protoimpl.X.CompressGZIP(unsafe.Slice(unsafe.StringData(file_pkg_common_proto_filter_options_proto_rawDesc), len(file_pkg_common_proto_filter_options_proto_rawDesc)))
+	})
+	return file_pkg_common_proto_filter_options_proto_rawDescData
+}
 
 var file_pkg_common_proto_filter_options_proto_msgTypes = make([]protoimpl.MessageInfo, 2)
 var file_pkg_common_proto_filter_options_proto_goTypes = []any{

@@ -9,8 +9,8 @@ package proto
 import (
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
-	_ "google.golang.org/protobuf/types/gofeaturespb"
 	reflect "reflect"
+	sync "sync"
 	unsafe "unsafe"
 )
 
@@ -26,16 +26,19 @@ const (
 // Provides standardized client metadata for logging, analytics,
 // and security purposes across all GCommon modules.
 type ClientInfo struct {
-	state                  protoimpl.MessageState `protogen:"opaque.v1"`
-	xxx_hidden_Name        *string                `protobuf:"bytes,1,opt,name=name"`
-	xxx_hidden_Version     *string                `protobuf:"bytes,2,opt,name=version"`
-	xxx_hidden_IpAddress   *string                `protobuf:"bytes,3,opt,name=ip_address,json=ipAddress"`
-	xxx_hidden_UserAgent   *string                `protobuf:"bytes,4,opt,name=user_agent,json=userAgent"`
-	xxx_hidden_Platform    *string                `protobuf:"bytes,5,opt,name=platform"`
-	XXX_raceDetectHookData protoimpl.RaceDetectHookData
-	XXX_presence           [1]uint32
-	unknownFields          protoimpl.UnknownFields
-	sizeCache              protoimpl.SizeCache
+	state protoimpl.MessageState `protogen:"open.v1"`
+	// Client application name (e.g., "mobile-app", "web-frontend")
+	Name *string `protobuf:"bytes,1,opt,name=name" json:"name,omitempty"`
+	// Client version using semantic versioning (e.g., "1.2.3")
+	Version *string `protobuf:"bytes,2,opt,name=version" json:"version,omitempty"`
+	// Client IP address (IPv4 or IPv6)
+	IpAddress *string `protobuf:"bytes,3,opt,name=ip_address,json=ipAddress" json:"ip_address,omitempty"`
+	// User agent string for web clients or application identifier
+	UserAgent *string `protobuf:"bytes,4,opt,name=user_agent,json=userAgent" json:"user_agent,omitempty"`
+	// Platform information (e.g., "iOS 15.0", "Chrome 95", "Go 1.19")
+	Platform      *string `protobuf:"bytes,5,opt,name=platform" json:"platform,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
 }
 
 func (x *ClientInfo) Reset() {
@@ -63,188 +66,51 @@ func (x *ClientInfo) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
+// Deprecated: Use ClientInfo.ProtoReflect.Descriptor instead.
+func (*ClientInfo) Descriptor() ([]byte, []int) {
+	return file_pkg_common_proto_client_info_proto_rawDescGZIP(), []int{0}
+}
+
 func (x *ClientInfo) GetName() string {
-	if x != nil {
-		if x.xxx_hidden_Name != nil {
-			return *x.xxx_hidden_Name
-		}
-		return ""
+	if x != nil && x.Name != nil {
+		return *x.Name
 	}
 	return ""
 }
 
 func (x *ClientInfo) GetVersion() string {
-	if x != nil {
-		if x.xxx_hidden_Version != nil {
-			return *x.xxx_hidden_Version
-		}
-		return ""
+	if x != nil && x.Version != nil {
+		return *x.Version
 	}
 	return ""
 }
 
 func (x *ClientInfo) GetIpAddress() string {
-	if x != nil {
-		if x.xxx_hidden_IpAddress != nil {
-			return *x.xxx_hidden_IpAddress
-		}
-		return ""
+	if x != nil && x.IpAddress != nil {
+		return *x.IpAddress
 	}
 	return ""
 }
 
 func (x *ClientInfo) GetUserAgent() string {
-	if x != nil {
-		if x.xxx_hidden_UserAgent != nil {
-			return *x.xxx_hidden_UserAgent
-		}
-		return ""
+	if x != nil && x.UserAgent != nil {
+		return *x.UserAgent
 	}
 	return ""
 }
 
 func (x *ClientInfo) GetPlatform() string {
-	if x != nil {
-		if x.xxx_hidden_Platform != nil {
-			return *x.xxx_hidden_Platform
-		}
-		return ""
+	if x != nil && x.Platform != nil {
+		return *x.Platform
 	}
 	return ""
-}
-
-func (x *ClientInfo) SetName(v string) {
-	x.xxx_hidden_Name = &v
-	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 0, 5)
-}
-
-func (x *ClientInfo) SetVersion(v string) {
-	x.xxx_hidden_Version = &v
-	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 1, 5)
-}
-
-func (x *ClientInfo) SetIpAddress(v string) {
-	x.xxx_hidden_IpAddress = &v
-	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 2, 5)
-}
-
-func (x *ClientInfo) SetUserAgent(v string) {
-	x.xxx_hidden_UserAgent = &v
-	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 3, 5)
-}
-
-func (x *ClientInfo) SetPlatform(v string) {
-	x.xxx_hidden_Platform = &v
-	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 4, 5)
-}
-
-func (x *ClientInfo) HasName() bool {
-	if x == nil {
-		return false
-	}
-	return protoimpl.X.Present(&(x.XXX_presence[0]), 0)
-}
-
-func (x *ClientInfo) HasVersion() bool {
-	if x == nil {
-		return false
-	}
-	return protoimpl.X.Present(&(x.XXX_presence[0]), 1)
-}
-
-func (x *ClientInfo) HasIpAddress() bool {
-	if x == nil {
-		return false
-	}
-	return protoimpl.X.Present(&(x.XXX_presence[0]), 2)
-}
-
-func (x *ClientInfo) HasUserAgent() bool {
-	if x == nil {
-		return false
-	}
-	return protoimpl.X.Present(&(x.XXX_presence[0]), 3)
-}
-
-func (x *ClientInfo) HasPlatform() bool {
-	if x == nil {
-		return false
-	}
-	return protoimpl.X.Present(&(x.XXX_presence[0]), 4)
-}
-
-func (x *ClientInfo) ClearName() {
-	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 0)
-	x.xxx_hidden_Name = nil
-}
-
-func (x *ClientInfo) ClearVersion() {
-	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 1)
-	x.xxx_hidden_Version = nil
-}
-
-func (x *ClientInfo) ClearIpAddress() {
-	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 2)
-	x.xxx_hidden_IpAddress = nil
-}
-
-func (x *ClientInfo) ClearUserAgent() {
-	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 3)
-	x.xxx_hidden_UserAgent = nil
-}
-
-func (x *ClientInfo) ClearPlatform() {
-	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 4)
-	x.xxx_hidden_Platform = nil
-}
-
-type ClientInfo_builder struct {
-	_ [0]func() // Prevents comparability and use of unkeyed literals for the builder.
-
-	// Client application name (e.g., "mobile-app", "web-frontend")
-	Name *string
-	// Client version using semantic versioning (e.g., "1.2.3")
-	Version *string
-	// Client IP address (IPv4 or IPv6)
-	IpAddress *string
-	// User agent string for web clients or application identifier
-	UserAgent *string
-	// Platform information (e.g., "iOS 15.0", "Chrome 95", "Go 1.19")
-	Platform *string
-}
-
-func (b0 ClientInfo_builder) Build() *ClientInfo {
-	m0 := &ClientInfo{}
-	b, x := &b0, m0
-	_, _ = b, x
-	if b.Name != nil {
-		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 0, 5)
-		x.xxx_hidden_Name = b.Name
-	}
-	if b.Version != nil {
-		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 1, 5)
-		x.xxx_hidden_Version = b.Version
-	}
-	if b.IpAddress != nil {
-		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 2, 5)
-		x.xxx_hidden_IpAddress = b.IpAddress
-	}
-	if b.UserAgent != nil {
-		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 3, 5)
-		x.xxx_hidden_UserAgent = b.UserAgent
-	}
-	if b.Platform != nil {
-		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 4, 5)
-		x.xxx_hidden_Platform = b.Platform
-	}
-	return m0
 }
 
 var File_pkg_common_proto_client_info_proto protoreflect.FileDescriptor
 
 const file_pkg_common_proto_client_info_proto_rawDesc = "" +
 	"\n" +
-	"\"pkg/common/proto/client_info.proto\x12\x11gcommon.v1.common\x1a!google/protobuf/go_features.proto\"\x94\x01\n" +
+	"\"pkg/common/proto/client_info.proto\x12\x11gcommon.v1.common\"\x94\x01\n" +
 	"\n" +
 	"ClientInfo\x12\x12\n" +
 	"\x04name\x18\x01 \x01(\tR\x04name\x12\x18\n" +
@@ -253,8 +119,20 @@ const file_pkg_common_proto_client_info_proto_rawDesc = "" +
 	"ip_address\x18\x03 \x01(\tR\tipAddress\x12\x1d\n" +
 	"\n" +
 	"user_agent\x18\x04 \x01(\tR\tuserAgent\x12\x1a\n" +
-	"\bplatform\x18\x05 \x01(\tR\bplatformB\xc2\x01\n" +
-	"\x15com.gcommon.v1.commonB\x0fClientInfoProtoP\x01Z*github.com/jdfalk/gcommon/pkg/common/proto\xa2\x02\x03GVC\xaa\x02\x11Gcommon.V1.Common\xca\x02\x11Gcommon\\V1\\Common\xe2\x02\x1dGcommon\\V1\\Common\\GPBMetadata\xea\x02\x13Gcommon::V1::Common\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"\bplatform\x18\x05 \x01(\tR\bplatformB\xba\x01\n" +
+	"\x15com.gcommon.v1.commonB\x0fClientInfoProtoP\x01Z*github.com/jdfalk/gcommon/pkg/common/proto\xa2\x02\x03GVC\xaa\x02\x11Gcommon.V1.Common\xca\x02\x11Gcommon\\V1\\Common\xe2\x02\x1dGcommon\\V1\\Common\\GPBMetadata\xea\x02\x13Gcommon::V1::Commonb\beditionsp\xe8\a"
+
+var (
+	file_pkg_common_proto_client_info_proto_rawDescOnce sync.Once
+	file_pkg_common_proto_client_info_proto_rawDescData []byte
+)
+
+func file_pkg_common_proto_client_info_proto_rawDescGZIP() []byte {
+	file_pkg_common_proto_client_info_proto_rawDescOnce.Do(func() {
+		file_pkg_common_proto_client_info_proto_rawDescData = protoimpl.X.CompressGZIP(unsafe.Slice(unsafe.StringData(file_pkg_common_proto_client_info_proto_rawDesc), len(file_pkg_common_proto_client_info_proto_rawDesc)))
+	})
+	return file_pkg_common_proto_client_info_proto_rawDescData
+}
 
 var file_pkg_common_proto_client_info_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_pkg_common_proto_client_info_proto_goTypes = []any{

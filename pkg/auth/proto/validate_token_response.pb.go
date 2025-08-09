@@ -10,9 +10,9 @@ import (
 	_ "github.com/jdfalk/gcommon/pkg/common/proto"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
-	_ "google.golang.org/protobuf/types/gofeaturespb"
 	timestamppb "google.golang.org/protobuf/types/known/timestamppb"
 	reflect "reflect"
+	sync "sync"
 	unsafe "unsafe"
 )
 
@@ -27,20 +27,23 @@ const (
 // Response for token validation requests.
 // Contains token validity status and associated user information.
 type ValidateTokenResponse struct {
-	state                protoimpl.MessageState `protogen:"opaque.v1"`
-	xxx_hidden_Valid     bool                   `protobuf:"varint,1,opt,name=valid"`
-	xxx_hidden_ExpiresAt *timestamppb.Timestamp `protobuf:"bytes,2,opt,name=expires_at,json=expiresAt"`
-	xxx_hidden_UserInfo  *UserInfo              `protobuf:"bytes,3,opt,name=user_info,json=userInfo"`
-	xxx_hidden_Scopes    []string               `protobuf:"bytes,4,rep,name=scopes"`
-	xxx_hidden_Subject   *string                `protobuf:"bytes,5,opt,name=subject"`
-	xxx_hidden_Issuer    *string                `protobuf:"bytes,6,opt,name=issuer"`
-	xxx_hidden_ExpiresIn int32                  `protobuf:"varint,7,opt,name=expires_in,json=expiresIn"`
-	// Deprecated: Do not use. This will be deleted in the near future.
-	XXX_lazyUnmarshalInfo  protoimpl.LazyUnmarshalInfo
-	XXX_raceDetectHookData protoimpl.RaceDetectHookData
-	XXX_presence           [1]uint32
-	unknownFields          protoimpl.UnknownFields
-	sizeCache              protoimpl.SizeCache
+	state protoimpl.MessageState `protogen:"open.v1"`
+	// Whether the token is valid
+	Valid *bool `protobuf:"varint,1,opt,name=valid" json:"valid,omitempty"`
+	// Token expiration timestamp
+	ExpiresAt *timestamppb.Timestamp `protobuf:"bytes,2,opt,name=expires_at,json=expiresAt" json:"expires_at,omitempty"`
+	// User information associated with the token
+	UserInfo *UserInfo `protobuf:"bytes,3,opt,name=user_info,json=userInfo" json:"user_info,omitempty"`
+	// Token scopes/permissions
+	Scopes []string `protobuf:"bytes,4,rep,name=scopes" json:"scopes,omitempty"`
+	// Token subject (user ID)
+	Subject *string `protobuf:"bytes,5,opt,name=subject" json:"subject,omitempty"`
+	// Token issuer
+	Issuer *string `protobuf:"bytes,6,opt,name=issuer" json:"issuer,omitempty"`
+	// Time until token expires (in seconds)
+	ExpiresIn     *int32 `protobuf:"varint,7,opt,name=expires_in,json=expiresIn" json:"expires_in,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
 }
 
 func (x *ValidateTokenResponse) Reset() {
@@ -68,245 +71,65 @@ func (x *ValidateTokenResponse) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
+// Deprecated: Use ValidateTokenResponse.ProtoReflect.Descriptor instead.
+func (*ValidateTokenResponse) Descriptor() ([]byte, []int) {
+	return file_pkg_auth_proto_validate_token_response_proto_rawDescGZIP(), []int{0}
+}
+
 func (x *ValidateTokenResponse) GetValid() bool {
-	if x != nil {
-		return x.xxx_hidden_Valid
+	if x != nil && x.Valid != nil {
+		return *x.Valid
 	}
 	return false
 }
 
 func (x *ValidateTokenResponse) GetExpiresAt() *timestamppb.Timestamp {
 	if x != nil {
-		if protoimpl.X.Present(&(x.XXX_presence[0]), 1) {
-			if protoimpl.X.AtomicCheckPointerIsNil(&x.xxx_hidden_ExpiresAt) {
-				protoimpl.X.UnmarshalField(x, 2)
-			}
-			var rv *timestamppb.Timestamp
-			protoimpl.X.AtomicLoadPointer(protoimpl.Pointer(&x.xxx_hidden_ExpiresAt), protoimpl.Pointer(&rv))
-			return rv
-		}
+		return x.ExpiresAt
 	}
 	return nil
 }
 
 func (x *ValidateTokenResponse) GetUserInfo() *UserInfo {
 	if x != nil {
-		if protoimpl.X.Present(&(x.XXX_presence[0]), 2) {
-			if protoimpl.X.AtomicCheckPointerIsNil(&x.xxx_hidden_UserInfo) {
-				protoimpl.X.UnmarshalField(x, 3)
-			}
-			var rv *UserInfo
-			protoimpl.X.AtomicLoadPointer(protoimpl.Pointer(&x.xxx_hidden_UserInfo), protoimpl.Pointer(&rv))
-			return rv
-		}
+		return x.UserInfo
 	}
 	return nil
 }
 
 func (x *ValidateTokenResponse) GetScopes() []string {
 	if x != nil {
-		return x.xxx_hidden_Scopes
+		return x.Scopes
 	}
 	return nil
 }
 
 func (x *ValidateTokenResponse) GetSubject() string {
-	if x != nil {
-		if x.xxx_hidden_Subject != nil {
-			return *x.xxx_hidden_Subject
-		}
-		return ""
+	if x != nil && x.Subject != nil {
+		return *x.Subject
 	}
 	return ""
 }
 
 func (x *ValidateTokenResponse) GetIssuer() string {
-	if x != nil {
-		if x.xxx_hidden_Issuer != nil {
-			return *x.xxx_hidden_Issuer
-		}
-		return ""
+	if x != nil && x.Issuer != nil {
+		return *x.Issuer
 	}
 	return ""
 }
 
 func (x *ValidateTokenResponse) GetExpiresIn() int32 {
-	if x != nil {
-		return x.xxx_hidden_ExpiresIn
+	if x != nil && x.ExpiresIn != nil {
+		return *x.ExpiresIn
 	}
 	return 0
-}
-
-func (x *ValidateTokenResponse) SetValid(v bool) {
-	x.xxx_hidden_Valid = v
-	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 0, 7)
-}
-
-func (x *ValidateTokenResponse) SetExpiresAt(v *timestamppb.Timestamp) {
-	protoimpl.X.AtomicSetPointer(&x.xxx_hidden_ExpiresAt, v)
-	if v == nil {
-		protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 1)
-	} else {
-		protoimpl.X.SetPresent(&(x.XXX_presence[0]), 1, 7)
-	}
-}
-
-func (x *ValidateTokenResponse) SetUserInfo(v *UserInfo) {
-	protoimpl.X.AtomicSetPointer(&x.xxx_hidden_UserInfo, v)
-	if v == nil {
-		protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 2)
-	} else {
-		protoimpl.X.SetPresent(&(x.XXX_presence[0]), 2, 7)
-	}
-}
-
-func (x *ValidateTokenResponse) SetScopes(v []string) {
-	x.xxx_hidden_Scopes = v
-}
-
-func (x *ValidateTokenResponse) SetSubject(v string) {
-	x.xxx_hidden_Subject = &v
-	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 4, 7)
-}
-
-func (x *ValidateTokenResponse) SetIssuer(v string) {
-	x.xxx_hidden_Issuer = &v
-	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 5, 7)
-}
-
-func (x *ValidateTokenResponse) SetExpiresIn(v int32) {
-	x.xxx_hidden_ExpiresIn = v
-	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 6, 7)
-}
-
-func (x *ValidateTokenResponse) HasValid() bool {
-	if x == nil {
-		return false
-	}
-	return protoimpl.X.Present(&(x.XXX_presence[0]), 0)
-}
-
-func (x *ValidateTokenResponse) HasExpiresAt() bool {
-	if x == nil {
-		return false
-	}
-	return protoimpl.X.Present(&(x.XXX_presence[0]), 1)
-}
-
-func (x *ValidateTokenResponse) HasUserInfo() bool {
-	if x == nil {
-		return false
-	}
-	return protoimpl.X.Present(&(x.XXX_presence[0]), 2)
-}
-
-func (x *ValidateTokenResponse) HasSubject() bool {
-	if x == nil {
-		return false
-	}
-	return protoimpl.X.Present(&(x.XXX_presence[0]), 4)
-}
-
-func (x *ValidateTokenResponse) HasIssuer() bool {
-	if x == nil {
-		return false
-	}
-	return protoimpl.X.Present(&(x.XXX_presence[0]), 5)
-}
-
-func (x *ValidateTokenResponse) HasExpiresIn() bool {
-	if x == nil {
-		return false
-	}
-	return protoimpl.X.Present(&(x.XXX_presence[0]), 6)
-}
-
-func (x *ValidateTokenResponse) ClearValid() {
-	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 0)
-	x.xxx_hidden_Valid = false
-}
-
-func (x *ValidateTokenResponse) ClearExpiresAt() {
-	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 1)
-	protoimpl.X.AtomicSetPointer(&x.xxx_hidden_ExpiresAt, (*timestamppb.Timestamp)(nil))
-}
-
-func (x *ValidateTokenResponse) ClearUserInfo() {
-	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 2)
-	protoimpl.X.AtomicSetPointer(&x.xxx_hidden_UserInfo, (*UserInfo)(nil))
-}
-
-func (x *ValidateTokenResponse) ClearSubject() {
-	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 4)
-	x.xxx_hidden_Subject = nil
-}
-
-func (x *ValidateTokenResponse) ClearIssuer() {
-	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 5)
-	x.xxx_hidden_Issuer = nil
-}
-
-func (x *ValidateTokenResponse) ClearExpiresIn() {
-	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 6)
-	x.xxx_hidden_ExpiresIn = 0
-}
-
-type ValidateTokenResponse_builder struct {
-	_ [0]func() // Prevents comparability and use of unkeyed literals for the builder.
-
-	// Whether the token is valid
-	Valid *bool
-	// Token expiration timestamp
-	ExpiresAt *timestamppb.Timestamp
-	// User information associated with the token
-	UserInfo *UserInfo
-	// Token scopes/permissions
-	Scopes []string
-	// Token subject (user ID)
-	Subject *string
-	// Token issuer
-	Issuer *string
-	// Time until token expires (in seconds)
-	ExpiresIn *int32
-}
-
-func (b0 ValidateTokenResponse_builder) Build() *ValidateTokenResponse {
-	m0 := &ValidateTokenResponse{}
-	b, x := &b0, m0
-	_, _ = b, x
-	if b.Valid != nil {
-		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 0, 7)
-		x.xxx_hidden_Valid = *b.Valid
-	}
-	if b.ExpiresAt != nil {
-		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 1, 7)
-		x.xxx_hidden_ExpiresAt = b.ExpiresAt
-	}
-	if b.UserInfo != nil {
-		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 2, 7)
-		x.xxx_hidden_UserInfo = b.UserInfo
-	}
-	x.xxx_hidden_Scopes = b.Scopes
-	if b.Subject != nil {
-		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 4, 7)
-		x.xxx_hidden_Subject = b.Subject
-	}
-	if b.Issuer != nil {
-		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 5, 7)
-		x.xxx_hidden_Issuer = b.Issuer
-	}
-	if b.ExpiresIn != nil {
-		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 6, 7)
-		x.xxx_hidden_ExpiresIn = *b.ExpiresIn
-	}
-	return m0
 }
 
 var File_pkg_auth_proto_validate_token_response_proto protoreflect.FileDescriptor
 
 const file_pkg_auth_proto_validate_token_response_proto_rawDesc = "" +
 	"\n" +
-	",pkg/auth/proto/validate_token_response.proto\x12\x0fgcommon.v1.auth\x1a!google/protobuf/go_features.proto\x1a\x1fgoogle/protobuf/timestamp.proto\x1a\x1epkg/auth/proto/user_info.proto\x1a'pkg/common/proto/request_metadata.proto\"\x91\x02\n" +
+	",pkg/auth/proto/validate_token_response.proto\x12\x0fgcommon.v1.auth\x1a\x1fgoogle/protobuf/timestamp.proto\x1a\x1epkg/auth/proto/user_info.proto\x1a'pkg/common/proto/request_metadata.proto\"\x91\x02\n" +
 	"\x15ValidateTokenResponse\x12\x14\n" +
 	"\x05valid\x18\x01 \x01(\bR\x05valid\x12=\n" +
 	"\n" +
@@ -316,8 +139,20 @@ const file_pkg_auth_proto_validate_token_response_proto_rawDesc = "" +
 	"\asubject\x18\x05 \x01(\tR\asubject\x12\x16\n" +
 	"\x06issuer\x18\x06 \x01(\tR\x06issuer\x12\x1d\n" +
 	"\n" +
-	"expires_in\x18\a \x01(\x05R\texpiresInB\xc1\x01\n" +
-	"\x13com.gcommon.v1.authB\x1aValidateTokenResponseProtoP\x01Z(github.com/jdfalk/gcommon/pkg/auth/proto\xa2\x02\x03GVA\xaa\x02\x0fGcommon.V1.Auth\xca\x02\x0fGcommon\\V1\\Auth\xe2\x02\x1bGcommon\\V1\\Auth\\GPBMetadata\xea\x02\x11Gcommon::V1::Auth\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"expires_in\x18\a \x01(\x05R\texpiresInB\xb9\x01\n" +
+	"\x13com.gcommon.v1.authB\x1aValidateTokenResponseProtoP\x01Z(github.com/jdfalk/gcommon/pkg/auth/proto\xa2\x02\x03GVA\xaa\x02\x0fGcommon.V1.Auth\xca\x02\x0fGcommon\\V1\\Auth\xe2\x02\x1bGcommon\\V1\\Auth\\GPBMetadata\xea\x02\x11Gcommon::V1::Authb\beditionsp\xe8\a"
+
+var (
+	file_pkg_auth_proto_validate_token_response_proto_rawDescOnce sync.Once
+	file_pkg_auth_proto_validate_token_response_proto_rawDescData []byte
+)
+
+func file_pkg_auth_proto_validate_token_response_proto_rawDescGZIP() []byte {
+	file_pkg_auth_proto_validate_token_response_proto_rawDescOnce.Do(func() {
+		file_pkg_auth_proto_validate_token_response_proto_rawDescData = protoimpl.X.CompressGZIP(unsafe.Slice(unsafe.StringData(file_pkg_auth_proto_validate_token_response_proto_rawDesc), len(file_pkg_auth_proto_validate_token_response_proto_rawDesc)))
+	})
+	return file_pkg_auth_proto_validate_token_response_proto_rawDescData
+}
 
 var file_pkg_auth_proto_validate_token_response_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_pkg_auth_proto_validate_token_response_proto_goTypes = []any{

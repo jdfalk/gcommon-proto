@@ -9,8 +9,8 @@ package proto
 import (
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
-	_ "google.golang.org/protobuf/types/gofeaturespb"
 	reflect "reflect"
+	sync "sync"
 	unsafe "unsafe"
 )
 
@@ -79,18 +79,35 @@ func (x SessionStatus) Number() protoreflect.EnumNumber {
 	return protoreflect.EnumNumber(x)
 }
 
+// Deprecated: Use SessionStatus.Descriptor instead.
+func (SessionStatus) EnumDescriptor() ([]byte, []int) {
+	return file_pkg_auth_proto_session_status_proto_rawDescGZIP(), []int{0}
+}
+
 var File_pkg_auth_proto_session_status_proto protoreflect.FileDescriptor
 
 const file_pkg_auth_proto_session_status_proto_rawDesc = "" +
 	"\n" +
-	"#pkg/auth/proto/session_status.proto\x12\x0fgcommon.v1.auth\x1a!google/protobuf/go_features.proto*\xa1\x01\n" +
+	"#pkg/auth/proto/session_status.proto\x12\x0fgcommon.v1.auth*\xa1\x01\n" +
 	"\rSessionStatus\x12\x1e\n" +
 	"\x1aSESSION_STATUS_UNSPECIFIED\x10\x00\x12\x19\n" +
 	"\x15SESSION_STATUS_ACTIVE\x10\x01\x12\x1a\n" +
 	"\x16SESSION_STATUS_EXPIRED\x10\x02\x12\x1d\n" +
 	"\x19SESSION_STATUS_TERMINATED\x10\x03\x12\x1a\n" +
-	"\x16SESSION_STATUS_INVALID\x10\x04B\xb9\x01\n" +
-	"\x13com.gcommon.v1.authB\x12SessionStatusProtoP\x01Z(github.com/jdfalk/gcommon/pkg/auth/proto\xa2\x02\x03GVA\xaa\x02\x0fGcommon.V1.Auth\xca\x02\x0fGcommon\\V1\\Auth\xe2\x02\x1bGcommon\\V1\\Auth\\GPBMetadata\xea\x02\x11Gcommon::V1::Auth\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"\x16SESSION_STATUS_INVALID\x10\x04B\xb1\x01\n" +
+	"\x13com.gcommon.v1.authB\x12SessionStatusProtoP\x01Z(github.com/jdfalk/gcommon/pkg/auth/proto\xa2\x02\x03GVA\xaa\x02\x0fGcommon.V1.Auth\xca\x02\x0fGcommon\\V1\\Auth\xe2\x02\x1bGcommon\\V1\\Auth\\GPBMetadata\xea\x02\x11Gcommon::V1::Authb\beditionsp\xe8\a"
+
+var (
+	file_pkg_auth_proto_session_status_proto_rawDescOnce sync.Once
+	file_pkg_auth_proto_session_status_proto_rawDescData []byte
+)
+
+func file_pkg_auth_proto_session_status_proto_rawDescGZIP() []byte {
+	file_pkg_auth_proto_session_status_proto_rawDescOnce.Do(func() {
+		file_pkg_auth_proto_session_status_proto_rawDescData = protoimpl.X.CompressGZIP(unsafe.Slice(unsafe.StringData(file_pkg_auth_proto_session_status_proto_rawDesc), len(file_pkg_auth_proto_session_status_proto_rawDesc)))
+	})
+	return file_pkg_auth_proto_session_status_proto_rawDescData
+}
 
 var file_pkg_auth_proto_session_status_proto_enumTypes = make([]protoimpl.EnumInfo, 1)
 var file_pkg_auth_proto_session_status_proto_goTypes = []any{

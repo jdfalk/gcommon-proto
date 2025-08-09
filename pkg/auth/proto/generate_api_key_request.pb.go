@@ -10,8 +10,8 @@ import (
 	proto "github.com/jdfalk/gcommon/pkg/common/proto"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
-	_ "google.golang.org/protobuf/types/gofeaturespb"
 	reflect "reflect"
+	sync "sync"
 	unsafe "unsafe"
 )
 
@@ -25,15 +25,17 @@ const (
 // *
 // GenerateAPIKeyRequest requests creation of a new API key for a user.
 type GenerateAPIKeyRequest struct {
-	state                  protoimpl.MessageState `protogen:"opaque.v1"`
-	xxx_hidden_UserId      *string                `protobuf:"bytes,1,opt,name=user_id,json=userId"`
-	xxx_hidden_Name        *string                `protobuf:"bytes,2,opt,name=name"`
-	xxx_hidden_ExpiresIn   int32                  `protobuf:"varint,3,opt,name=expires_in,json=expiresIn"`
-	xxx_hidden_Metadata    *proto.RequestMetadata `protobuf:"bytes,4,opt,name=metadata"`
-	XXX_raceDetectHookData protoimpl.RaceDetectHookData
-	XXX_presence           [1]uint32
-	unknownFields          protoimpl.UnknownFields
-	sizeCache              protoimpl.SizeCache
+	state protoimpl.MessageState `protogen:"open.v1"`
+	// User ID for whom to generate the key
+	UserId *string `protobuf:"bytes,1,opt,name=user_id,json=userId" json:"user_id,omitempty"`
+	// Optional name/description for the key
+	Name *string `protobuf:"bytes,2,opt,name=name" json:"name,omitempty"`
+	// Optional expiration in seconds
+	ExpiresIn *int32 `protobuf:"varint,3,opt,name=expires_in,json=expiresIn" json:"expires_in,omitempty"`
+	// Metadata for tracing and correlation
+	Metadata      *proto.RequestMetadata `protobuf:"bytes,4,opt,name=metadata" json:"metadata,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
 }
 
 func (x *GenerateAPIKeyRequest) Reset() {
@@ -61,151 +63,63 @@ func (x *GenerateAPIKeyRequest) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
+// Deprecated: Use GenerateAPIKeyRequest.ProtoReflect.Descriptor instead.
+func (*GenerateAPIKeyRequest) Descriptor() ([]byte, []int) {
+	return file_pkg_auth_proto_generate_api_key_request_proto_rawDescGZIP(), []int{0}
+}
+
 func (x *GenerateAPIKeyRequest) GetUserId() string {
-	if x != nil {
-		if x.xxx_hidden_UserId != nil {
-			return *x.xxx_hidden_UserId
-		}
-		return ""
+	if x != nil && x.UserId != nil {
+		return *x.UserId
 	}
 	return ""
 }
 
 func (x *GenerateAPIKeyRequest) GetName() string {
-	if x != nil {
-		if x.xxx_hidden_Name != nil {
-			return *x.xxx_hidden_Name
-		}
-		return ""
+	if x != nil && x.Name != nil {
+		return *x.Name
 	}
 	return ""
 }
 
 func (x *GenerateAPIKeyRequest) GetExpiresIn() int32 {
-	if x != nil {
-		return x.xxx_hidden_ExpiresIn
+	if x != nil && x.ExpiresIn != nil {
+		return *x.ExpiresIn
 	}
 	return 0
 }
 
 func (x *GenerateAPIKeyRequest) GetMetadata() *proto.RequestMetadata {
 	if x != nil {
-		return x.xxx_hidden_Metadata
+		return x.Metadata
 	}
 	return nil
-}
-
-func (x *GenerateAPIKeyRequest) SetUserId(v string) {
-	x.xxx_hidden_UserId = &v
-	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 0, 4)
-}
-
-func (x *GenerateAPIKeyRequest) SetName(v string) {
-	x.xxx_hidden_Name = &v
-	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 1, 4)
-}
-
-func (x *GenerateAPIKeyRequest) SetExpiresIn(v int32) {
-	x.xxx_hidden_ExpiresIn = v
-	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 2, 4)
-}
-
-func (x *GenerateAPIKeyRequest) SetMetadata(v *proto.RequestMetadata) {
-	x.xxx_hidden_Metadata = v
-}
-
-func (x *GenerateAPIKeyRequest) HasUserId() bool {
-	if x == nil {
-		return false
-	}
-	return protoimpl.X.Present(&(x.XXX_presence[0]), 0)
-}
-
-func (x *GenerateAPIKeyRequest) HasName() bool {
-	if x == nil {
-		return false
-	}
-	return protoimpl.X.Present(&(x.XXX_presence[0]), 1)
-}
-
-func (x *GenerateAPIKeyRequest) HasExpiresIn() bool {
-	if x == nil {
-		return false
-	}
-	return protoimpl.X.Present(&(x.XXX_presence[0]), 2)
-}
-
-func (x *GenerateAPIKeyRequest) HasMetadata() bool {
-	if x == nil {
-		return false
-	}
-	return x.xxx_hidden_Metadata != nil
-}
-
-func (x *GenerateAPIKeyRequest) ClearUserId() {
-	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 0)
-	x.xxx_hidden_UserId = nil
-}
-
-func (x *GenerateAPIKeyRequest) ClearName() {
-	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 1)
-	x.xxx_hidden_Name = nil
-}
-
-func (x *GenerateAPIKeyRequest) ClearExpiresIn() {
-	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 2)
-	x.xxx_hidden_ExpiresIn = 0
-}
-
-func (x *GenerateAPIKeyRequest) ClearMetadata() {
-	x.xxx_hidden_Metadata = nil
-}
-
-type GenerateAPIKeyRequest_builder struct {
-	_ [0]func() // Prevents comparability and use of unkeyed literals for the builder.
-
-	// User ID for whom to generate the key
-	UserId *string
-	// Optional name/description for the key
-	Name *string
-	// Optional expiration in seconds
-	ExpiresIn *int32
-	// Metadata for tracing and correlation
-	Metadata *proto.RequestMetadata
-}
-
-func (b0 GenerateAPIKeyRequest_builder) Build() *GenerateAPIKeyRequest {
-	m0 := &GenerateAPIKeyRequest{}
-	b, x := &b0, m0
-	_, _ = b, x
-	if b.UserId != nil {
-		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 0, 4)
-		x.xxx_hidden_UserId = b.UserId
-	}
-	if b.Name != nil {
-		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 1, 4)
-		x.xxx_hidden_Name = b.Name
-	}
-	if b.ExpiresIn != nil {
-		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 2, 4)
-		x.xxx_hidden_ExpiresIn = *b.ExpiresIn
-	}
-	x.xxx_hidden_Metadata = b.Metadata
-	return m0
 }
 
 var File_pkg_auth_proto_generate_api_key_request_proto protoreflect.FileDescriptor
 
 const file_pkg_auth_proto_generate_api_key_request_proto_rawDesc = "" +
 	"\n" +
-	"-pkg/auth/proto/generate_api_key_request.proto\x12\x0fgcommon.v1.auth\x1a!google/protobuf/go_features.proto\x1a'pkg/common/proto/request_metadata.proto\"\xa3\x01\n" +
+	"-pkg/auth/proto/generate_api_key_request.proto\x12\x0fgcommon.v1.auth\x1a'pkg/common/proto/request_metadata.proto\"\xa3\x01\n" +
 	"\x15GenerateAPIKeyRequest\x12\x17\n" +
 	"\auser_id\x18\x01 \x01(\tR\x06userId\x12\x12\n" +
 	"\x04name\x18\x02 \x01(\tR\x04name\x12\x1d\n" +
 	"\n" +
 	"expires_in\x18\x03 \x01(\x05R\texpiresIn\x12>\n" +
-	"\bmetadata\x18\x04 \x01(\v2\".gcommon.v1.common.RequestMetadataR\bmetadataB\xc1\x01\n" +
-	"\x13com.gcommon.v1.authB\x1aGenerateApiKeyRequestProtoP\x01Z(github.com/jdfalk/gcommon/pkg/auth/proto\xa2\x02\x03GVA\xaa\x02\x0fGcommon.V1.Auth\xca\x02\x0fGcommon\\V1\\Auth\xe2\x02\x1bGcommon\\V1\\Auth\\GPBMetadata\xea\x02\x11Gcommon::V1::Auth\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"\bmetadata\x18\x04 \x01(\v2\".gcommon.v1.common.RequestMetadataR\bmetadataB\xb9\x01\n" +
+	"\x13com.gcommon.v1.authB\x1aGenerateApiKeyRequestProtoP\x01Z(github.com/jdfalk/gcommon/pkg/auth/proto\xa2\x02\x03GVA\xaa\x02\x0fGcommon.V1.Auth\xca\x02\x0fGcommon\\V1\\Auth\xe2\x02\x1bGcommon\\V1\\Auth\\GPBMetadata\xea\x02\x11Gcommon::V1::Authb\beditionsp\xe8\a"
+
+var (
+	file_pkg_auth_proto_generate_api_key_request_proto_rawDescOnce sync.Once
+	file_pkg_auth_proto_generate_api_key_request_proto_rawDescData []byte
+)
+
+func file_pkg_auth_proto_generate_api_key_request_proto_rawDescGZIP() []byte {
+	file_pkg_auth_proto_generate_api_key_request_proto_rawDescOnce.Do(func() {
+		file_pkg_auth_proto_generate_api_key_request_proto_rawDescData = protoimpl.X.CompressGZIP(unsafe.Slice(unsafe.StringData(file_pkg_auth_proto_generate_api_key_request_proto_rawDesc), len(file_pkg_auth_proto_generate_api_key_request_proto_rawDesc)))
+	})
+	return file_pkg_auth_proto_generate_api_key_request_proto_rawDescData
+}
 
 var file_pkg_auth_proto_generate_api_key_request_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_pkg_auth_proto_generate_api_key_request_proto_goTypes = []any{

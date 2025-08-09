@@ -7,7 +7,7 @@ edition = "2023";
 package gcommon.v1.web;
 
 // Import TLS config
-import "pkg/web/proto/gcommon/pkg/web/proto;webpb";
+import "pkg/web/proto/tls_config.proto";
 option go_package = "github.com/jdfalk/gcommon/pkg/web/proto";
 
 // SecurityConfig message definition.

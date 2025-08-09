@@ -9,8 +9,8 @@ package proto
 import (
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
-	_ "google.golang.org/protobuf/types/gofeaturespb"
 	reflect "reflect"
+	sync "sync"
 	unsafe "unsafe"
 )
 
@@ -26,10 +26,11 @@ const (
 // Required because oneof fields cannot directly contain repeated types,
 // so arrays must be wrapped in a message.
 type Int64Array struct {
-	state             protoimpl.MessageState `protogen:"opaque.v1"`
-	xxx_hidden_Values []int64                `protobuf:"varint,1,rep,packed,name=values"`
-	unknownFields     protoimpl.UnknownFields
-	sizeCache         protoimpl.SizeCache
+	state protoimpl.MessageState `protogen:"open.v1"`
+	// Array of 64-bit signed integer values
+	Values        []int64 `protobuf:"varint,1,rep,packed,name=values" json:"values,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
 }
 
 func (x *Int64Array) Reset() {
@@ -57,41 +58,39 @@ func (x *Int64Array) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
+// Deprecated: Use Int64Array.ProtoReflect.Descriptor instead.
+func (*Int64Array) Descriptor() ([]byte, []int) {
+	return file_pkg_common_proto_int64_array_proto_rawDescGZIP(), []int{0}
+}
+
 func (x *Int64Array) GetValues() []int64 {
 	if x != nil {
-		return x.xxx_hidden_Values
+		return x.Values
 	}
 	return nil
-}
-
-func (x *Int64Array) SetValues(v []int64) {
-	x.xxx_hidden_Values = v
-}
-
-type Int64Array_builder struct {
-	_ [0]func() // Prevents comparability and use of unkeyed literals for the builder.
-
-	// Array of 64-bit signed integer values
-	Values []int64
-}
-
-func (b0 Int64Array_builder) Build() *Int64Array {
-	m0 := &Int64Array{}
-	b, x := &b0, m0
-	_, _ = b, x
-	x.xxx_hidden_Values = b.Values
-	return m0
 }
 
 var File_pkg_common_proto_int64_array_proto protoreflect.FileDescriptor
 
 const file_pkg_common_proto_int64_array_proto_rawDesc = "" +
 	"\n" +
-	"\"pkg/common/proto/int64_array.proto\x12\x11gcommon.v1.common\x1a!google/protobuf/go_features.proto\"$\n" +
+	"\"pkg/common/proto/int64_array.proto\x12\x11gcommon.v1.common\"$\n" +
 	"\n" +
 	"Int64Array\x12\x16\n" +
-	"\x06values\x18\x01 \x03(\x03R\x06valuesB\xc2\x01\n" +
-	"\x15com.gcommon.v1.commonB\x0fInt64ArrayProtoP\x01Z*github.com/jdfalk/gcommon/pkg/common/proto\xa2\x02\x03GVC\xaa\x02\x11Gcommon.V1.Common\xca\x02\x11Gcommon\\V1\\Common\xe2\x02\x1dGcommon\\V1\\Common\\GPBMetadata\xea\x02\x13Gcommon::V1::Common\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"\x06values\x18\x01 \x03(\x03R\x06valuesB\xba\x01\n" +
+	"\x15com.gcommon.v1.commonB\x0fInt64ArrayProtoP\x01Z*github.com/jdfalk/gcommon/pkg/common/proto\xa2\x02\x03GVC\xaa\x02\x11Gcommon.V1.Common\xca\x02\x11Gcommon\\V1\\Common\xe2\x02\x1dGcommon\\V1\\Common\\GPBMetadata\xea\x02\x13Gcommon::V1::Commonb\beditionsp\xe8\a"
+
+var (
+	file_pkg_common_proto_int64_array_proto_rawDescOnce sync.Once
+	file_pkg_common_proto_int64_array_proto_rawDescData []byte
+)
+
+func file_pkg_common_proto_int64_array_proto_rawDescGZIP() []byte {
+	file_pkg_common_proto_int64_array_proto_rawDescOnce.Do(func() {
+		file_pkg_common_proto_int64_array_proto_rawDescData = protoimpl.X.CompressGZIP(unsafe.Slice(unsafe.StringData(file_pkg_common_proto_int64_array_proto_rawDesc), len(file_pkg_common_proto_int64_array_proto_rawDesc)))
+	})
+	return file_pkg_common_proto_int64_array_proto_rawDescData
+}
 
 var file_pkg_common_proto_int64_array_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_pkg_common_proto_int64_array_proto_goTypes = []any{

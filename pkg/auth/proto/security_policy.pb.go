@@ -9,9 +9,9 @@ package proto
 import (
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
-	_ "google.golang.org/protobuf/types/gofeaturespb"
 	durationpb "google.golang.org/protobuf/types/known/durationpb"
 	reflect "reflect"
+	sync "sync"
 	unsafe "unsafe"
 )
 
@@ -25,14 +25,15 @@ const (
 // *
 // SecurityPolicy defines account and token security requirements.
 type SecurityPolicy struct {
-	state                        protoimpl.MessageState `protogen:"opaque.v1"`
-	xxx_hidden_MinPasswordLength uint32                 `protobuf:"varint,1,opt,name=min_password_length,json=minPasswordLength"`
-	xxx_hidden_PasswordTtl       *durationpb.Duration   `protobuf:"bytes,2,opt,name=password_ttl,json=passwordTtl"`
-	xxx_hidden_MaxFailedAttempts uint32                 `protobuf:"varint,3,opt,name=max_failed_attempts,json=maxFailedAttempts"`
-	XXX_raceDetectHookData       protoimpl.RaceDetectHookData
-	XXX_presence                 [1]uint32
-	unknownFields                protoimpl.UnknownFields
-	sizeCache                    protoimpl.SizeCache
+	state protoimpl.MessageState `protogen:"open.v1"`
+	// Minimum password length requirement
+	MinPasswordLength *uint32 `protobuf:"varint,1,opt,name=min_password_length,json=minPasswordLength" json:"min_password_length,omitempty"`
+	// Password expiration duration
+	PasswordTtl *durationpb.Duration `protobuf:"bytes,2,opt,name=password_ttl,json=passwordTtl" json:"password_ttl,omitempty"`
+	// Maximum failed login attempts before lockout
+	MaxFailedAttempts *uint32 `protobuf:"varint,3,opt,name=max_failed_attempts,json=maxFailedAttempts" json:"max_failed_attempts,omitempty"`
+	unknownFields     protoimpl.UnknownFields
+	sizeCache         protoimpl.SizeCache
 }
 
 func (x *SecurityPolicy) Reset() {
@@ -60,113 +61,54 @@ func (x *SecurityPolicy) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
+// Deprecated: Use SecurityPolicy.ProtoReflect.Descriptor instead.
+func (*SecurityPolicy) Descriptor() ([]byte, []int) {
+	return file_pkg_auth_proto_security_policy_proto_rawDescGZIP(), []int{0}
+}
+
 func (x *SecurityPolicy) GetMinPasswordLength() uint32 {
-	if x != nil {
-		return x.xxx_hidden_MinPasswordLength
+	if x != nil && x.MinPasswordLength != nil {
+		return *x.MinPasswordLength
 	}
 	return 0
 }
 
 func (x *SecurityPolicy) GetPasswordTtl() *durationpb.Duration {
 	if x != nil {
-		return x.xxx_hidden_PasswordTtl
+		return x.PasswordTtl
 	}
 	return nil
 }
 
 func (x *SecurityPolicy) GetMaxFailedAttempts() uint32 {
-	if x != nil {
-		return x.xxx_hidden_MaxFailedAttempts
+	if x != nil && x.MaxFailedAttempts != nil {
+		return *x.MaxFailedAttempts
 	}
 	return 0
-}
-
-func (x *SecurityPolicy) SetMinPasswordLength(v uint32) {
-	x.xxx_hidden_MinPasswordLength = v
-	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 0, 3)
-}
-
-func (x *SecurityPolicy) SetPasswordTtl(v *durationpb.Duration) {
-	x.xxx_hidden_PasswordTtl = v
-}
-
-func (x *SecurityPolicy) SetMaxFailedAttempts(v uint32) {
-	x.xxx_hidden_MaxFailedAttempts = v
-	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 2, 3)
-}
-
-func (x *SecurityPolicy) HasMinPasswordLength() bool {
-	if x == nil {
-		return false
-	}
-	return protoimpl.X.Present(&(x.XXX_presence[0]), 0)
-}
-
-func (x *SecurityPolicy) HasPasswordTtl() bool {
-	if x == nil {
-		return false
-	}
-	return x.xxx_hidden_PasswordTtl != nil
-}
-
-func (x *SecurityPolicy) HasMaxFailedAttempts() bool {
-	if x == nil {
-		return false
-	}
-	return protoimpl.X.Present(&(x.XXX_presence[0]), 2)
-}
-
-func (x *SecurityPolicy) ClearMinPasswordLength() {
-	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 0)
-	x.xxx_hidden_MinPasswordLength = 0
-}
-
-func (x *SecurityPolicy) ClearPasswordTtl() {
-	x.xxx_hidden_PasswordTtl = nil
-}
-
-func (x *SecurityPolicy) ClearMaxFailedAttempts() {
-	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 2)
-	x.xxx_hidden_MaxFailedAttempts = 0
-}
-
-type SecurityPolicy_builder struct {
-	_ [0]func() // Prevents comparability and use of unkeyed literals for the builder.
-
-	// Minimum password length requirement
-	MinPasswordLength *uint32
-	// Password expiration duration
-	PasswordTtl *durationpb.Duration
-	// Maximum failed login attempts before lockout
-	MaxFailedAttempts *uint32
-}
-
-func (b0 SecurityPolicy_builder) Build() *SecurityPolicy {
-	m0 := &SecurityPolicy{}
-	b, x := &b0, m0
-	_, _ = b, x
-	if b.MinPasswordLength != nil {
-		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 0, 3)
-		x.xxx_hidden_MinPasswordLength = *b.MinPasswordLength
-	}
-	x.xxx_hidden_PasswordTtl = b.PasswordTtl
-	if b.MaxFailedAttempts != nil {
-		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 2, 3)
-		x.xxx_hidden_MaxFailedAttempts = *b.MaxFailedAttempts
-	}
-	return m0
 }
 
 var File_pkg_auth_proto_security_policy_proto protoreflect.FileDescriptor
 
 const file_pkg_auth_proto_security_policy_proto_rawDesc = "" +
 	"\n" +
-	"$pkg/auth/proto/security_policy.proto\x12\x0fgcommon.v1.auth\x1a\x1egoogle/protobuf/duration.proto\x1a!google/protobuf/go_features.proto\"\xae\x01\n" +
+	"$pkg/auth/proto/security_policy.proto\x12\x0fgcommon.v1.auth\x1a\x1egoogle/protobuf/duration.proto\"\xae\x01\n" +
 	"\x0eSecurityPolicy\x12.\n" +
 	"\x13min_password_length\x18\x01 \x01(\rR\x11minPasswordLength\x12<\n" +
 	"\fpassword_ttl\x18\x02 \x01(\v2\x19.google.protobuf.DurationR\vpasswordTtl\x12.\n" +
-	"\x13max_failed_attempts\x18\x03 \x01(\rR\x11maxFailedAttemptsB\xba\x01\n" +
-	"\x13com.gcommon.v1.authB\x13SecurityPolicyProtoP\x01Z(github.com/jdfalk/gcommon/pkg/auth/proto\xa2\x02\x03GVA\xaa\x02\x0fGcommon.V1.Auth\xca\x02\x0fGcommon\\V1\\Auth\xe2\x02\x1bGcommon\\V1\\Auth\\GPBMetadata\xea\x02\x11Gcommon::V1::Auth\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"\x13max_failed_attempts\x18\x03 \x01(\rR\x11maxFailedAttemptsB\xb2\x01\n" +
+	"\x13com.gcommon.v1.authB\x13SecurityPolicyProtoP\x01Z(github.com/jdfalk/gcommon/pkg/auth/proto\xa2\x02\x03GVA\xaa\x02\x0fGcommon.V1.Auth\xca\x02\x0fGcommon\\V1\\Auth\xe2\x02\x1bGcommon\\V1\\Auth\\GPBMetadata\xea\x02\x11Gcommon::V1::Authb\beditionsp\xe8\a"
+
+var (
+	file_pkg_auth_proto_security_policy_proto_rawDescOnce sync.Once
+	file_pkg_auth_proto_security_policy_proto_rawDescData []byte
+)
+
+func file_pkg_auth_proto_security_policy_proto_rawDescGZIP() []byte {
+	file_pkg_auth_proto_security_policy_proto_rawDescOnce.Do(func() {
+		file_pkg_auth_proto_security_policy_proto_rawDescData = protoimpl.X.CompressGZIP(unsafe.Slice(unsafe.StringData(file_pkg_auth_proto_security_policy_proto_rawDesc), len(file_pkg_auth_proto_security_policy_proto_rawDesc)))
+	})
+	return file_pkg_auth_proto_security_policy_proto_rawDescData
+}
 
 var file_pkg_auth_proto_security_policy_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_pkg_auth_proto_security_policy_proto_goTypes = []any{

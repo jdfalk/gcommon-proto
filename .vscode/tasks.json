@@ -97,23 +97,6 @@
 			"problemMatcher": []
 		},
 		{
-			"label": "Git Commit",
-			"type": "shell",
-			"command": "copilot-agent-utilr",
-			"args": [
-				"git",
-				"commit",
-				"--message",
-				"${input:commitMessage}"
-			],
-			"options": {
-				"cwd": "${workspaceFolder}"
-			},
-			"group": "build",
-			"isBackground": false,
-			"problemMatcher": []
-		},
-		{
 			"label": "Git Push",
 			"type": "shell",
 			"command": "copilot-agent-utilr",
@@ -197,12 +180,6 @@
 			"id": "module",
 			"description": "Module to generate (e.g., auth, config, metrics)",
 			"default": "auth",
-			"type": "promptString"
-		},
-		{
-			"id": "commitMessage",
-			"description": "Commit message",
-			"default": "fix: update protobuf definitions",
 			"type": "promptString"
 		},
 		{

@@ -9,9 +9,9 @@ package proto
 import (
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
-	_ "google.golang.org/protobuf/types/gofeaturespb"
 	anypb "google.golang.org/protobuf/types/known/anypb"
 	reflect "reflect"
+	sync "sync"
 	unsafe "unsafe"
 )
 
@@ -27,17 +27,26 @@ const (
 // Supports multiple value types with encryption and validation capabilities
 // for secure and type-safe configuration management.
 type ConfigValue struct {
-	state                protoimpl.MessageState `protogen:"opaque.v1"`
-	xxx_hidden_Value     isConfigValue_Value    `protobuf_oneof:"value"`
-	xxx_hidden_Type      ValueType              `protobuf:"varint,7,opt,name=type,enum=gcommon.v1.common.ValueType"`
-	xxx_hidden_Encrypted bool                   `protobuf:"varint,8,opt,name=encrypted"`
-	xxx_hidden_Metadata  map[string]string      `protobuf:"bytes,9,rep,name=metadata" protobuf_key:"bytes,1,opt,name=key" protobuf_val:"bytes,2,opt,name=value"`
-	// Deprecated: Do not use. This will be deleted in the near future.
-	XXX_lazyUnmarshalInfo  protoimpl.LazyUnmarshalInfo
-	XXX_raceDetectHookData protoimpl.RaceDetectHookData
-	XXX_presence           [1]uint32
-	unknownFields          protoimpl.UnknownFields
-	sizeCache              protoimpl.SizeCache
+	state protoimpl.MessageState `protogen:"open.v1"`
+	// The configuration value (one of the supported types)
+	//
+	// Types that are valid to be assigned to Value:
+	//
+	//	*ConfigValue_StringValue
+	//	*ConfigValue_IntValue
+	//	*ConfigValue_DoubleValue
+	//	*ConfigValue_BoolValue
+	//	*ConfigValue_BytesValue
+	//	*ConfigValue_AnyValue
+	Value isConfigValue_Value `protobuf_oneof:"value"`
+	// Value type for validation and serialization
+	Type *ValueType `protobuf:"varint,7,opt,name=type,enum=gcommon.v1.common.ValueType" json:"type,omitempty"`
+	// Whether the value is encrypted at rest
+	Encrypted *bool `protobuf:"varint,8,opt,name=encrypted" json:"encrypted,omitempty"`
+	// Additional metadata about the configuration value
+	Metadata      map[string]string `protobuf:"bytes,9,rep,name=metadata" json:"metadata,omitempty" protobuf_key:"bytes,1,opt,name=key" protobuf_val:"bytes,2,opt,name=value"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
 }
 
 func (x *ConfigValue) Reset() {
@@ -65,9 +74,21 @@ func (x *ConfigValue) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
+// Deprecated: Use ConfigValue.ProtoReflect.Descriptor instead.
+func (*ConfigValue) Descriptor() ([]byte, []int) {
+	return file_pkg_common_proto_config_value_proto_rawDescGZIP(), []int{0}
+}
+
+func (x *ConfigValue) GetValue() isConfigValue_Value {
+	if x != nil {
+		return x.Value
+	}
+	return nil
+}
+
 func (x *ConfigValue) GetStringValue() string {
 	if x != nil {
-		if x, ok := x.xxx_hidden_Value.(*configValue_StringValue); ok {
+		if x, ok := x.Value.(*ConfigValue_StringValue); ok {
 			return x.StringValue
 		}
 	}
@@ -76,7 +97,7 @@ func (x *ConfigValue) GetStringValue() string {
 
 func (x *ConfigValue) GetIntValue() int64 {
 	if x != nil {
-		if x, ok := x.xxx_hidden_Value.(*configValue_IntValue); ok {
+		if x, ok := x.Value.(*ConfigValue_IntValue); ok {
 			return x.IntValue
 		}
 	}
@@ -85,7 +106,7 @@ func (x *ConfigValue) GetIntValue() int64 {
 
 func (x *ConfigValue) GetDoubleValue() float64 {
 	if x != nil {
-		if x, ok := x.xxx_hidden_Value.(*configValue_DoubleValue); ok {
+		if x, ok := x.Value.(*ConfigValue_DoubleValue); ok {
 			return x.DoubleValue
 		}
 	}
@@ -94,7 +115,7 @@ func (x *ConfigValue) GetDoubleValue() float64 {
 
 func (x *ConfigValue) GetBoolValue() bool {
 	if x != nil {
-		if x, ok := x.xxx_hidden_Value.(*configValue_BoolValue); ok {
+		if x, ok := x.Value.(*ConfigValue_BoolValue); ok {
 			return x.BoolValue
 		}
 	}
@@ -103,7 +124,7 @@ func (x *ConfigValue) GetBoolValue() bool {
 
 func (x *ConfigValue) GetBytesValue() []byte {
 	if x != nil {
-		if x, ok := x.xxx_hidden_Value.(*configValue_BytesValue); ok {
+		if x, ok := x.Value.(*ConfigValue_BytesValue); ok {
 			return x.BytesValue
 		}
 	}
@@ -112,7 +133,7 @@ func (x *ConfigValue) GetBytesValue() []byte {
 
 func (x *ConfigValue) GetAnyValue() *anypb.Any {
 	if x != nil {
-		if x, ok := x.xxx_hidden_Value.(*configValue_AnyValue); ok {
+		if x, ok := x.Value.(*ConfigValue_AnyValue); ok {
 			return x.AnyValue
 		}
 	}
@@ -120,357 +141,77 @@ func (x *ConfigValue) GetAnyValue() *anypb.Any {
 }
 
 func (x *ConfigValue) GetType() ValueType {
-	if x != nil {
-		if protoimpl.X.Present(&(x.XXX_presence[0]), 1) {
-			return x.xxx_hidden_Type
-		}
+	if x != nil && x.Type != nil {
+		return *x.Type
 	}
 	return ValueType_VALUE_TYPE_UNSPECIFIED
 }
 
 func (x *ConfigValue) GetEncrypted() bool {
-	if x != nil {
-		return x.xxx_hidden_Encrypted
+	if x != nil && x.Encrypted != nil {
+		return *x.Encrypted
 	}
 	return false
 }
 
 func (x *ConfigValue) GetMetadata() map[string]string {
 	if x != nil {
-		if protoimpl.X.Present(&(x.XXX_presence[0]), 3) {
-			if protoimpl.X.AtomicCheckPointerIsNil(&x.xxx_hidden_Metadata) {
-				protoimpl.X.UnmarshalField(x, 9)
-			}
-			return x.xxx_hidden_Metadata
-		}
+		return x.Metadata
 	}
 	return nil
-}
-
-func (x *ConfigValue) SetStringValue(v string) {
-	x.xxx_hidden_Value = &configValue_StringValue{v}
-}
-
-func (x *ConfigValue) SetIntValue(v int64) {
-	x.xxx_hidden_Value = &configValue_IntValue{v}
-}
-
-func (x *ConfigValue) SetDoubleValue(v float64) {
-	x.xxx_hidden_Value = &configValue_DoubleValue{v}
-}
-
-func (x *ConfigValue) SetBoolValue(v bool) {
-	x.xxx_hidden_Value = &configValue_BoolValue{v}
-}
-
-func (x *ConfigValue) SetBytesValue(v []byte) {
-	if v == nil {
-		v = []byte{}
-	}
-	x.xxx_hidden_Value = &configValue_BytesValue{v}
-}
-
-func (x *ConfigValue) SetAnyValue(v *anypb.Any) {
-	if v == nil {
-		x.xxx_hidden_Value = nil
-		return
-	}
-	x.xxx_hidden_Value = &configValue_AnyValue{v}
-}
-
-func (x *ConfigValue) SetType(v ValueType) {
-	x.xxx_hidden_Type = v
-	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 1, 4)
-}
-
-func (x *ConfigValue) SetEncrypted(v bool) {
-	x.xxx_hidden_Encrypted = v
-	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 2, 4)
-}
-
-func (x *ConfigValue) SetMetadata(v map[string]string) {
-	x.xxx_hidden_Metadata = v
-	if v == nil {
-		protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 3)
-	} else {
-		protoimpl.X.SetPresent(&(x.XXX_presence[0]), 3, 4)
-	}
-}
-
-func (x *ConfigValue) HasValue() bool {
-	if x == nil {
-		return false
-	}
-	return x.xxx_hidden_Value != nil
-}
-
-func (x *ConfigValue) HasStringValue() bool {
-	if x == nil {
-		return false
-	}
-	_, ok := x.xxx_hidden_Value.(*configValue_StringValue)
-	return ok
-}
-
-func (x *ConfigValue) HasIntValue() bool {
-	if x == nil {
-		return false
-	}
-	_, ok := x.xxx_hidden_Value.(*configValue_IntValue)
-	return ok
-}
-
-func (x *ConfigValue) HasDoubleValue() bool {
-	if x == nil {
-		return false
-	}
-	_, ok := x.xxx_hidden_Value.(*configValue_DoubleValue)
-	return ok
-}
-
-func (x *ConfigValue) HasBoolValue() bool {
-	if x == nil {
-		return false
-	}
-	_, ok := x.xxx_hidden_Value.(*configValue_BoolValue)
-	return ok
-}
-
-func (x *ConfigValue) HasBytesValue() bool {
-	if x == nil {
-		return false
-	}
-	_, ok := x.xxx_hidden_Value.(*configValue_BytesValue)
-	return ok
-}
-
-func (x *ConfigValue) HasAnyValue() bool {
-	if x == nil {
-		return false
-	}
-	_, ok := x.xxx_hidden_Value.(*configValue_AnyValue)
-	return ok
-}
-
-func (x *ConfigValue) HasType() bool {
-	if x == nil {
-		return false
-	}
-	return protoimpl.X.Present(&(x.XXX_presence[0]), 1)
-}
-
-func (x *ConfigValue) HasEncrypted() bool {
-	if x == nil {
-		return false
-	}
-	return protoimpl.X.Present(&(x.XXX_presence[0]), 2)
-}
-
-func (x *ConfigValue) ClearValue() {
-	x.xxx_hidden_Value = nil
-}
-
-func (x *ConfigValue) ClearStringValue() {
-	if _, ok := x.xxx_hidden_Value.(*configValue_StringValue); ok {
-		x.xxx_hidden_Value = nil
-	}
-}
-
-func (x *ConfigValue) ClearIntValue() {
-	if _, ok := x.xxx_hidden_Value.(*configValue_IntValue); ok {
-		x.xxx_hidden_Value = nil
-	}
-}
-
-func (x *ConfigValue) ClearDoubleValue() {
-	if _, ok := x.xxx_hidden_Value.(*configValue_DoubleValue); ok {
-		x.xxx_hidden_Value = nil
-	}
-}
-
-func (x *ConfigValue) ClearBoolValue() {
-	if _, ok := x.xxx_hidden_Value.(*configValue_BoolValue); ok {
-		x.xxx_hidden_Value = nil
-	}
-}
-
-func (x *ConfigValue) ClearBytesValue() {
-	if _, ok := x.xxx_hidden_Value.(*configValue_BytesValue); ok {
-		x.xxx_hidden_Value = nil
-	}
-}
-
-func (x *ConfigValue) ClearAnyValue() {
-	if _, ok := x.xxx_hidden_Value.(*configValue_AnyValue); ok {
-		x.xxx_hidden_Value = nil
-	}
-}
-
-func (x *ConfigValue) ClearType() {
-	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 1)
-	x.xxx_hidden_Type = ValueType_VALUE_TYPE_UNSPECIFIED
-}
-
-func (x *ConfigValue) ClearEncrypted() {
-	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 2)
-	x.xxx_hidden_Encrypted = false
-}
-
-const ConfigValue_Value_not_set_case case_ConfigValue_Value = 0
-const ConfigValue_StringValue_case case_ConfigValue_Value = 1
-const ConfigValue_IntValue_case case_ConfigValue_Value = 2
-const ConfigValue_DoubleValue_case case_ConfigValue_Value = 3
-const ConfigValue_BoolValue_case case_ConfigValue_Value = 4
-const ConfigValue_BytesValue_case case_ConfigValue_Value = 5
-const ConfigValue_AnyValue_case case_ConfigValue_Value = 6
-
-func (x *ConfigValue) WhichValue() case_ConfigValue_Value {
-	if x == nil {
-		return ConfigValue_Value_not_set_case
-	}
-	switch x.xxx_hidden_Value.(type) {
-	case *configValue_StringValue:
-		return ConfigValue_StringValue_case
-	case *configValue_IntValue:
-		return ConfigValue_IntValue_case
-	case *configValue_DoubleValue:
-		return ConfigValue_DoubleValue_case
-	case *configValue_BoolValue:
-		return ConfigValue_BoolValue_case
-	case *configValue_BytesValue:
-		return ConfigValue_BytesValue_case
-	case *configValue_AnyValue:
-		return ConfigValue_AnyValue_case
-	default:
-		return ConfigValue_Value_not_set_case
-	}
-}
-
-type ConfigValue_builder struct {
-	_ [0]func() // Prevents comparability and use of unkeyed literals for the builder.
-
-	// The configuration value (one of the supported types)
-
-	// Fields of oneof xxx_hidden_Value:
-	// String value for text configuration
-	StringValue *string
-	// Integer value for numeric configuration
-	IntValue *int64
-	// Double value for floating-point configuration
-	DoubleValue *float64
-	// Boolean value for true/false configuration
-	BoolValue *bool
-	// Binary data for complex configuration
-	BytesValue []byte
-	// Any protobuf message for structured configuration
-	AnyValue *anypb.Any
-	// -- end of xxx_hidden_Value
-	// Value type for validation and serialization
-	Type *ValueType
-	// Whether the value is encrypted at rest
-	Encrypted *bool
-	// Additional metadata about the configuration value
-	Metadata map[string]string
-}
-
-func (b0 ConfigValue_builder) Build() *ConfigValue {
-	m0 := &ConfigValue{}
-	b, x := &b0, m0
-	_, _ = b, x
-	if b.StringValue != nil {
-		x.xxx_hidden_Value = &configValue_StringValue{*b.StringValue}
-	}
-	if b.IntValue != nil {
-		x.xxx_hidden_Value = &configValue_IntValue{*b.IntValue}
-	}
-	if b.DoubleValue != nil {
-		x.xxx_hidden_Value = &configValue_DoubleValue{*b.DoubleValue}
-	}
-	if b.BoolValue != nil {
-		x.xxx_hidden_Value = &configValue_BoolValue{*b.BoolValue}
-	}
-	if b.BytesValue != nil {
-		x.xxx_hidden_Value = &configValue_BytesValue{b.BytesValue}
-	}
-	if b.AnyValue != nil {
-		x.xxx_hidden_Value = &configValue_AnyValue{b.AnyValue}
-	}
-	if b.Type != nil {
-		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 1, 4)
-		x.xxx_hidden_Type = *b.Type
-	}
-	if b.Encrypted != nil {
-		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 2, 4)
-		x.xxx_hidden_Encrypted = *b.Encrypted
-	}
-	if b.Metadata != nil {
-		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 3, 4)
-		x.xxx_hidden_Metadata = b.Metadata
-	}
-	return m0
-}
-
-type case_ConfigValue_Value protoreflect.FieldNumber
-
-func (x case_ConfigValue_Value) String() string {
-	md := file_pkg_common_proto_config_value_proto_msgTypes[0].Descriptor()
-	if x == 0 {
-		return "not set"
-	}
-	return protoimpl.X.MessageFieldStringOf(md, protoreflect.FieldNumber(x))
 }
 
 type isConfigValue_Value interface {
 	isConfigValue_Value()
 }
 
-type configValue_StringValue struct {
+type ConfigValue_StringValue struct {
 	// String value for text configuration
 	StringValue string `protobuf:"bytes,1,opt,name=string_value,json=stringValue,oneof"`
 }
 
-type configValue_IntValue struct {
+type ConfigValue_IntValue struct {
 	// Integer value for numeric configuration
 	IntValue int64 `protobuf:"varint,2,opt,name=int_value,json=intValue,oneof"`
 }
 
-type configValue_DoubleValue struct {
+type ConfigValue_DoubleValue struct {
 	// Double value for floating-point configuration
 	DoubleValue float64 `protobuf:"fixed64,3,opt,name=double_value,json=doubleValue,oneof"`
 }
 
-type configValue_BoolValue struct {
+type ConfigValue_BoolValue struct {
 	// Boolean value for true/false configuration
 	BoolValue bool `protobuf:"varint,4,opt,name=bool_value,json=boolValue,oneof"`
 }
 
-type configValue_BytesValue struct {
+type ConfigValue_BytesValue struct {
 	// Binary data for complex configuration
 	BytesValue []byte `protobuf:"bytes,5,opt,name=bytes_value,json=bytesValue,oneof"`
 }
 
-type configValue_AnyValue struct {
+type ConfigValue_AnyValue struct {
 	// Any protobuf message for structured configuration
 	AnyValue *anypb.Any `protobuf:"bytes,6,opt,name=any_value,json=anyValue,oneof"`
 }
 
-func (*configValue_StringValue) isConfigValue_Value() {}
+func (*ConfigValue_StringValue) isConfigValue_Value() {}
 
-func (*configValue_IntValue) isConfigValue_Value() {}
+func (*ConfigValue_IntValue) isConfigValue_Value() {}
 
-func (*configValue_DoubleValue) isConfigValue_Value() {}
+func (*ConfigValue_DoubleValue) isConfigValue_Value() {}
 
-func (*configValue_BoolValue) isConfigValue_Value() {}
+func (*ConfigValue_BoolValue) isConfigValue_Value() {}
 
-func (*configValue_BytesValue) isConfigValue_Value() {}
+func (*ConfigValue_BytesValue) isConfigValue_Value() {}
 
-func (*configValue_AnyValue) isConfigValue_Value() {}
+func (*ConfigValue_AnyValue) isConfigValue_Value() {}
 
 var File_pkg_common_proto_config_value_proto protoreflect.FileDescriptor
 
 const file_pkg_common_proto_config_value_proto_rawDesc = "" +
 	"\n" +
-	"#pkg/common/proto/config_value.proto\x12\x11gcommon.v1.common\x1a\x19google/protobuf/any.proto\x1a!google/protobuf/go_features.proto\x1a!pkg/common/proto/value_type.proto\"\xd7\x03\n" +
+	"#pkg/common/proto/config_value.proto\x12\x11gcommon.v1.common\x1a\x19google/protobuf/any.proto\x1a!pkg/common/proto/value_type.proto\"\xd7\x03\n" +
 	"\vConfigValue\x12#\n" +
 	"\fstring_value\x18\x01 \x01(\tH\x00R\vstringValue\x12\x1d\n" +
 	"\tint_value\x18\x02 \x01(\x03H\x00R\bintValue\x12#\n" +
@@ -486,8 +227,20 @@ const file_pkg_common_proto_config_value_proto_rawDesc = "" +
 	"\rMetadataEntry\x12\x10\n" +
 	"\x03key\x18\x01 \x01(\tR\x03key\x12\x14\n" +
 	"\x05value\x18\x02 \x01(\tR\x05value:\x028\x01B\a\n" +
-	"\x05valueB\xc3\x01\n" +
-	"\x15com.gcommon.v1.commonB\x10ConfigValueProtoP\x01Z*github.com/jdfalk/gcommon/pkg/common/proto\xa2\x02\x03GVC\xaa\x02\x11Gcommon.V1.Common\xca\x02\x11Gcommon\\V1\\Common\xe2\x02\x1dGcommon\\V1\\Common\\GPBMetadata\xea\x02\x13Gcommon::V1::Common\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"\x05valueB\xbb\x01\n" +
+	"\x15com.gcommon.v1.commonB\x10ConfigValueProtoP\x01Z*github.com/jdfalk/gcommon/pkg/common/proto\xa2\x02\x03GVC\xaa\x02\x11Gcommon.V1.Common\xca\x02\x11Gcommon\\V1\\Common\xe2\x02\x1dGcommon\\V1\\Common\\GPBMetadata\xea\x02\x13Gcommon::V1::Commonb\beditionsp\xe8\a"
+
+var (
+	file_pkg_common_proto_config_value_proto_rawDescOnce sync.Once
+	file_pkg_common_proto_config_value_proto_rawDescData []byte
+)
+
+func file_pkg_common_proto_config_value_proto_rawDescGZIP() []byte {
+	file_pkg_common_proto_config_value_proto_rawDescOnce.Do(func() {
+		file_pkg_common_proto_config_value_proto_rawDescData = protoimpl.X.CompressGZIP(unsafe.Slice(unsafe.StringData(file_pkg_common_proto_config_value_proto_rawDesc), len(file_pkg_common_proto_config_value_proto_rawDesc)))
+	})
+	return file_pkg_common_proto_config_value_proto_rawDescData
+}
 
 var file_pkg_common_proto_config_value_proto_msgTypes = make([]protoimpl.MessageInfo, 2)
 var file_pkg_common_proto_config_value_proto_goTypes = []any{
@@ -514,12 +267,12 @@ func file_pkg_common_proto_config_value_proto_init() {
 	}
 	file_pkg_common_proto_value_type_proto_init()
 	file_pkg_common_proto_config_value_proto_msgTypes[0].OneofWrappers = []any{
-		(*configValue_StringValue)(nil),
-		(*configValue_IntValue)(nil),
-		(*configValue_DoubleValue)(nil),
-		(*configValue_BoolValue)(nil),
-		(*configValue_BytesValue)(nil),
-		(*configValue_AnyValue)(nil),
+		(*ConfigValue_StringValue)(nil),
+		(*ConfigValue_IntValue)(nil),
+		(*ConfigValue_DoubleValue)(nil),
+		(*ConfigValue_BoolValue)(nil),
+		(*ConfigValue_BytesValue)(nil),
+		(*ConfigValue_AnyValue)(nil),
 	}
 	type x struct{}
 	out := protoimpl.TypeBuilder{

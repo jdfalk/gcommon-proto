@@ -9,10 +9,10 @@ package proto
 import (
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
-	_ "google.golang.org/protobuf/types/gofeaturespb"
 	durationpb "google.golang.org/protobuf/types/known/durationpb"
 	timestamppb "google.golang.org/protobuf/types/known/timestamppb"
 	reflect "reflect"
+	sync "sync"
 	unsafe "unsafe"
 )
 
@@ -28,21 +28,29 @@ const (
 // This message contains common fields that should be included in response
 // messages for observability, tracing, and error handling.
 type ResponseMetadata struct {
-	state                     protoimpl.MessageState `protogen:"opaque.v1"`
-	xxx_hidden_TraceId        *string                `protobuf:"bytes,1,opt,name=trace_id,json=traceId"`
-	xxx_hidden_RequestId      *string                `protobuf:"bytes,2,opt,name=request_id,json=requestId"`
-	xxx_hidden_Timestamp      *timestamppb.Timestamp `protobuf:"bytes,3,opt,name=timestamp"`
-	xxx_hidden_ProcessingTime *durationpb.Duration   `protobuf:"bytes,4,opt,name=processing_time,json=processingTime"`
-	xxx_hidden_ServiceVersion *string                `protobuf:"bytes,5,opt,name=service_version,json=serviceVersion"`
-	xxx_hidden_Success        bool                   `protobuf:"varint,6,opt,name=success"`
-	xxx_hidden_Error          *Error                 `protobuf:"bytes,7,opt,name=error"`
-	xxx_hidden_Metadata       map[string]string      `protobuf:"bytes,8,rep,name=metadata" protobuf_key:"bytes,1,opt,name=key" protobuf_val:"bytes,2,opt,name=value"`
-	xxx_hidden_RateLimit      *RateLimitInfo         `protobuf:"bytes,9,opt,name=rate_limit,json=rateLimit"`
-	xxx_hidden_Pagination     *PaginationInfo        `protobuf:"bytes,10,opt,name=pagination"`
-	XXX_raceDetectHookData    protoimpl.RaceDetectHookData
-	XXX_presence              [1]uint32
-	unknownFields             protoimpl.UnknownFields
-	sizeCache                 protoimpl.SizeCache
+	state protoimpl.MessageState `protogen:"open.v1"`
+	// Trace ID from the corresponding request for correlation
+	TraceId *string `protobuf:"bytes,1,opt,name=trace_id,json=traceId" json:"trace_id,omitempty"`
+	// Request ID for unique identification of this specific request
+	RequestId *string `protobuf:"bytes,2,opt,name=request_id,json=requestId" json:"request_id,omitempty"`
+	// Timestamp when the response was generated
+	Timestamp *timestamppb.Timestamp `protobuf:"bytes,3,opt,name=timestamp" json:"timestamp,omitempty"`
+	// Total processing time for the request
+	ProcessingTime *durationpb.Duration `protobuf:"bytes,4,opt,name=processing_time,json=processingTime" json:"processing_time,omitempty"`
+	// Service version that processed the request
+	ServiceVersion *string `protobuf:"bytes,5,opt,name=service_version,json=serviceVersion" json:"service_version,omitempty"`
+	// Success indicator (true if operation succeeded)
+	Success *bool `protobuf:"varint,6,opt,name=success" json:"success,omitempty"`
+	// Error information if the operation failed
+	Error *Error `protobuf:"bytes,7,opt,name=error" json:"error,omitempty"`
+	// Additional metadata specific to the response
+	Metadata map[string]string `protobuf:"bytes,8,rep,name=metadata" json:"metadata,omitempty" protobuf_key:"bytes,1,opt,name=key" protobuf_val:"bytes,2,opt,name=value"`
+	// Rate limiting information
+	RateLimit *RateLimitInfo `protobuf:"bytes,9,opt,name=rate_limit,json=rateLimit" json:"rate_limit,omitempty"`
+	// Pagination information for list responses
+	Pagination    *PaginationInfo `protobuf:"bytes,10,opt,name=pagination" json:"pagination,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
 }
 
 func (x *ResponseMetadata) Reset() {
@@ -70,297 +78,94 @@ func (x *ResponseMetadata) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
+// Deprecated: Use ResponseMetadata.ProtoReflect.Descriptor instead.
+func (*ResponseMetadata) Descriptor() ([]byte, []int) {
+	return file_pkg_common_proto_response_metadata_proto_rawDescGZIP(), []int{0}
+}
+
 func (x *ResponseMetadata) GetTraceId() string {
-	if x != nil {
-		if x.xxx_hidden_TraceId != nil {
-			return *x.xxx_hidden_TraceId
-		}
-		return ""
+	if x != nil && x.TraceId != nil {
+		return *x.TraceId
 	}
 	return ""
 }
 
 func (x *ResponseMetadata) GetRequestId() string {
-	if x != nil {
-		if x.xxx_hidden_RequestId != nil {
-			return *x.xxx_hidden_RequestId
-		}
-		return ""
+	if x != nil && x.RequestId != nil {
+		return *x.RequestId
 	}
 	return ""
 }
 
 func (x *ResponseMetadata) GetTimestamp() *timestamppb.Timestamp {
 	if x != nil {
-		return x.xxx_hidden_Timestamp
+		return x.Timestamp
 	}
 	return nil
 }
 
 func (x *ResponseMetadata) GetProcessingTime() *durationpb.Duration {
 	if x != nil {
-		return x.xxx_hidden_ProcessingTime
+		return x.ProcessingTime
 	}
 	return nil
 }
 
 func (x *ResponseMetadata) GetServiceVersion() string {
-	if x != nil {
-		if x.xxx_hidden_ServiceVersion != nil {
-			return *x.xxx_hidden_ServiceVersion
-		}
-		return ""
+	if x != nil && x.ServiceVersion != nil {
+		return *x.ServiceVersion
 	}
 	return ""
 }
 
 func (x *ResponseMetadata) GetSuccess() bool {
-	if x != nil {
-		return x.xxx_hidden_Success
+	if x != nil && x.Success != nil {
+		return *x.Success
 	}
 	return false
 }
 
 func (x *ResponseMetadata) GetError() *Error {
 	if x != nil {
-		return x.xxx_hidden_Error
+		return x.Error
 	}
 	return nil
 }
 
 func (x *ResponseMetadata) GetMetadata() map[string]string {
 	if x != nil {
-		return x.xxx_hidden_Metadata
+		return x.Metadata
 	}
 	return nil
 }
 
 func (x *ResponseMetadata) GetRateLimit() *RateLimitInfo {
 	if x != nil {
-		return x.xxx_hidden_RateLimit
+		return x.RateLimit
 	}
 	return nil
 }
 
 func (x *ResponseMetadata) GetPagination() *PaginationInfo {
 	if x != nil {
-		return x.xxx_hidden_Pagination
+		return x.Pagination
 	}
 	return nil
 }
 
-func (x *ResponseMetadata) SetTraceId(v string) {
-	x.xxx_hidden_TraceId = &v
-	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 0, 10)
-}
-
-func (x *ResponseMetadata) SetRequestId(v string) {
-	x.xxx_hidden_RequestId = &v
-	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 1, 10)
-}
-
-func (x *ResponseMetadata) SetTimestamp(v *timestamppb.Timestamp) {
-	x.xxx_hidden_Timestamp = v
-}
-
-func (x *ResponseMetadata) SetProcessingTime(v *durationpb.Duration) {
-	x.xxx_hidden_ProcessingTime = v
-}
-
-func (x *ResponseMetadata) SetServiceVersion(v string) {
-	x.xxx_hidden_ServiceVersion = &v
-	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 4, 10)
-}
-
-func (x *ResponseMetadata) SetSuccess(v bool) {
-	x.xxx_hidden_Success = v
-	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 5, 10)
-}
-
-func (x *ResponseMetadata) SetError(v *Error) {
-	x.xxx_hidden_Error = v
-}
-
-func (x *ResponseMetadata) SetMetadata(v map[string]string) {
-	x.xxx_hidden_Metadata = v
-}
-
-func (x *ResponseMetadata) SetRateLimit(v *RateLimitInfo) {
-	x.xxx_hidden_RateLimit = v
-}
-
-func (x *ResponseMetadata) SetPagination(v *PaginationInfo) {
-	x.xxx_hidden_Pagination = v
-}
-
-func (x *ResponseMetadata) HasTraceId() bool {
-	if x == nil {
-		return false
-	}
-	return protoimpl.X.Present(&(x.XXX_presence[0]), 0)
-}
-
-func (x *ResponseMetadata) HasRequestId() bool {
-	if x == nil {
-		return false
-	}
-	return protoimpl.X.Present(&(x.XXX_presence[0]), 1)
-}
-
-func (x *ResponseMetadata) HasTimestamp() bool {
-	if x == nil {
-		return false
-	}
-	return x.xxx_hidden_Timestamp != nil
-}
-
-func (x *ResponseMetadata) HasProcessingTime() bool {
-	if x == nil {
-		return false
-	}
-	return x.xxx_hidden_ProcessingTime != nil
-}
-
-func (x *ResponseMetadata) HasServiceVersion() bool {
-	if x == nil {
-		return false
-	}
-	return protoimpl.X.Present(&(x.XXX_presence[0]), 4)
-}
-
-func (x *ResponseMetadata) HasSuccess() bool {
-	if x == nil {
-		return false
-	}
-	return protoimpl.X.Present(&(x.XXX_presence[0]), 5)
-}
-
-func (x *ResponseMetadata) HasError() bool {
-	if x == nil {
-		return false
-	}
-	return x.xxx_hidden_Error != nil
-}
-
-func (x *ResponseMetadata) HasRateLimit() bool {
-	if x == nil {
-		return false
-	}
-	return x.xxx_hidden_RateLimit != nil
-}
-
-func (x *ResponseMetadata) HasPagination() bool {
-	if x == nil {
-		return false
-	}
-	return x.xxx_hidden_Pagination != nil
-}
-
-func (x *ResponseMetadata) ClearTraceId() {
-	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 0)
-	x.xxx_hidden_TraceId = nil
-}
-
-func (x *ResponseMetadata) ClearRequestId() {
-	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 1)
-	x.xxx_hidden_RequestId = nil
-}
-
-func (x *ResponseMetadata) ClearTimestamp() {
-	x.xxx_hidden_Timestamp = nil
-}
-
-func (x *ResponseMetadata) ClearProcessingTime() {
-	x.xxx_hidden_ProcessingTime = nil
-}
-
-func (x *ResponseMetadata) ClearServiceVersion() {
-	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 4)
-	x.xxx_hidden_ServiceVersion = nil
-}
-
-func (x *ResponseMetadata) ClearSuccess() {
-	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 5)
-	x.xxx_hidden_Success = false
-}
-
-func (x *ResponseMetadata) ClearError() {
-	x.xxx_hidden_Error = nil
-}
-
-func (x *ResponseMetadata) ClearRateLimit() {
-	x.xxx_hidden_RateLimit = nil
-}
-
-func (x *ResponseMetadata) ClearPagination() {
-	x.xxx_hidden_Pagination = nil
-}
-
-type ResponseMetadata_builder struct {
-	_ [0]func() // Prevents comparability and use of unkeyed literals for the builder.
-
-	// Trace ID from the corresponding request for correlation
-	TraceId *string
-	// Request ID for unique identification of this specific request
-	RequestId *string
-	// Timestamp when the response was generated
-	Timestamp *timestamppb.Timestamp
-	// Total processing time for the request
-	ProcessingTime *durationpb.Duration
-	// Service version that processed the request
-	ServiceVersion *string
-	// Success indicator (true if operation succeeded)
-	Success *bool
-	// Error information if the operation failed
-	Error *Error
-	// Additional metadata specific to the response
-	Metadata map[string]string
-	// Rate limiting information
-	RateLimit *RateLimitInfo
-	// Pagination information for list responses
-	Pagination *PaginationInfo
-}
-
-func (b0 ResponseMetadata_builder) Build() *ResponseMetadata {
-	m0 := &ResponseMetadata{}
-	b, x := &b0, m0
-	_, _ = b, x
-	if b.TraceId != nil {
-		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 0, 10)
-		x.xxx_hidden_TraceId = b.TraceId
-	}
-	if b.RequestId != nil {
-		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 1, 10)
-		x.xxx_hidden_RequestId = b.RequestId
-	}
-	x.xxx_hidden_Timestamp = b.Timestamp
-	x.xxx_hidden_ProcessingTime = b.ProcessingTime
-	if b.ServiceVersion != nil {
-		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 4, 10)
-		x.xxx_hidden_ServiceVersion = b.ServiceVersion
-	}
-	if b.Success != nil {
-		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 5, 10)
-		x.xxx_hidden_Success = *b.Success
-	}
-	x.xxx_hidden_Error = b.Error
-	x.xxx_hidden_Metadata = b.Metadata
-	x.xxx_hidden_RateLimit = b.RateLimit
-	x.xxx_hidden_Pagination = b.Pagination
-	return m0
-}
-
 // Rate limiting information in response metadata
 type RateLimitInfo struct {
-	state                  protoimpl.MessageState `protogen:"opaque.v1"`
-	xxx_hidden_Remaining   int64                  `protobuf:"varint,1,opt,name=remaining"`
-	xxx_hidden_Limit       int64                  `protobuf:"varint,2,opt,name=limit"`
-	xxx_hidden_ResetTime   *timestamppb.Timestamp `protobuf:"bytes,3,opt,name=reset_time,json=resetTime"`
-	xxx_hidden_RetryAfter  *durationpb.Duration   `protobuf:"bytes,4,opt,name=retry_after,json=retryAfter"`
-	XXX_raceDetectHookData protoimpl.RaceDetectHookData
-	XXX_presence           [1]uint32
-	unknownFields          protoimpl.UnknownFields
-	sizeCache              protoimpl.SizeCache
+	state protoimpl.MessageState `protogen:"open.v1"`
+	// Number of requests remaining in the current window
+	Remaining *int64 `protobuf:"varint,1,opt,name=remaining" json:"remaining,omitempty"`
+	// Total requests allowed in the current window
+	Limit *int64 `protobuf:"varint,2,opt,name=limit" json:"limit,omitempty"`
+	// Time when the current rate limit window resets
+	ResetTime *timestamppb.Timestamp `protobuf:"bytes,3,opt,name=reset_time,json=resetTime" json:"reset_time,omitempty"`
+	// Duration until the rate limit resets
+	RetryAfter    *durationpb.Duration `protobuf:"bytes,4,opt,name=retry_after,json=retryAfter" json:"retry_after,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
 }
 
 func (x *RateLimitInfo) Reset() {
@@ -388,143 +193,60 @@ func (x *RateLimitInfo) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
+// Deprecated: Use RateLimitInfo.ProtoReflect.Descriptor instead.
+func (*RateLimitInfo) Descriptor() ([]byte, []int) {
+	return file_pkg_common_proto_response_metadata_proto_rawDescGZIP(), []int{1}
+}
+
 func (x *RateLimitInfo) GetRemaining() int64 {
-	if x != nil {
-		return x.xxx_hidden_Remaining
+	if x != nil && x.Remaining != nil {
+		return *x.Remaining
 	}
 	return 0
 }
 
 func (x *RateLimitInfo) GetLimit() int64 {
-	if x != nil {
-		return x.xxx_hidden_Limit
+	if x != nil && x.Limit != nil {
+		return *x.Limit
 	}
 	return 0
 }
 
 func (x *RateLimitInfo) GetResetTime() *timestamppb.Timestamp {
 	if x != nil {
-		return x.xxx_hidden_ResetTime
+		return x.ResetTime
 	}
 	return nil
 }
 
 func (x *RateLimitInfo) GetRetryAfter() *durationpb.Duration {
 	if x != nil {
-		return x.xxx_hidden_RetryAfter
+		return x.RetryAfter
 	}
 	return nil
 }
 
-func (x *RateLimitInfo) SetRemaining(v int64) {
-	x.xxx_hidden_Remaining = v
-	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 0, 4)
-}
-
-func (x *RateLimitInfo) SetLimit(v int64) {
-	x.xxx_hidden_Limit = v
-	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 1, 4)
-}
-
-func (x *RateLimitInfo) SetResetTime(v *timestamppb.Timestamp) {
-	x.xxx_hidden_ResetTime = v
-}
-
-func (x *RateLimitInfo) SetRetryAfter(v *durationpb.Duration) {
-	x.xxx_hidden_RetryAfter = v
-}
-
-func (x *RateLimitInfo) HasRemaining() bool {
-	if x == nil {
-		return false
-	}
-	return protoimpl.X.Present(&(x.XXX_presence[0]), 0)
-}
-
-func (x *RateLimitInfo) HasLimit() bool {
-	if x == nil {
-		return false
-	}
-	return protoimpl.X.Present(&(x.XXX_presence[0]), 1)
-}
-
-func (x *RateLimitInfo) HasResetTime() bool {
-	if x == nil {
-		return false
-	}
-	return x.xxx_hidden_ResetTime != nil
-}
-
-func (x *RateLimitInfo) HasRetryAfter() bool {
-	if x == nil {
-		return false
-	}
-	return x.xxx_hidden_RetryAfter != nil
-}
-
-func (x *RateLimitInfo) ClearRemaining() {
-	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 0)
-	x.xxx_hidden_Remaining = 0
-}
-
-func (x *RateLimitInfo) ClearLimit() {
-	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 1)
-	x.xxx_hidden_Limit = 0
-}
-
-func (x *RateLimitInfo) ClearResetTime() {
-	x.xxx_hidden_ResetTime = nil
-}
-
-func (x *RateLimitInfo) ClearRetryAfter() {
-	x.xxx_hidden_RetryAfter = nil
-}
-
-type RateLimitInfo_builder struct {
-	_ [0]func() // Prevents comparability and use of unkeyed literals for the builder.
-
-	// Number of requests remaining in the current window
-	Remaining *int64
-	// Total requests allowed in the current window
-	Limit *int64
-	// Time when the current rate limit window resets
-	ResetTime *timestamppb.Timestamp
-	// Duration until the rate limit resets
-	RetryAfter *durationpb.Duration
-}
-
-func (b0 RateLimitInfo_builder) Build() *RateLimitInfo {
-	m0 := &RateLimitInfo{}
-	b, x := &b0, m0
-	_, _ = b, x
-	if b.Remaining != nil {
-		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 0, 4)
-		x.xxx_hidden_Remaining = *b.Remaining
-	}
-	if b.Limit != nil {
-		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 1, 4)
-		x.xxx_hidden_Limit = *b.Limit
-	}
-	x.xxx_hidden_ResetTime = b.ResetTime
-	x.xxx_hidden_RetryAfter = b.RetryAfter
-	return m0
-}
-
 // Pagination information for list responses
 type PaginationInfo struct {
-	state                        protoimpl.MessageState `protogen:"opaque.v1"`
-	xxx_hidden_CurrentPage       int32                  `protobuf:"varint,1,opt,name=current_page,json=currentPage"`
-	xxx_hidden_PageSize          int32                  `protobuf:"varint,2,opt,name=page_size,json=pageSize"`
-	xxx_hidden_TotalItems        int64                  `protobuf:"varint,3,opt,name=total_items,json=totalItems"`
-	xxx_hidden_TotalPages        int32                  `protobuf:"varint,4,opt,name=total_pages,json=totalPages"`
-	xxx_hidden_HasNext           bool                   `protobuf:"varint,5,opt,name=has_next,json=hasNext"`
-	xxx_hidden_HasPrevious       bool                   `protobuf:"varint,6,opt,name=has_previous,json=hasPrevious"`
-	xxx_hidden_NextPageToken     *string                `protobuf:"bytes,7,opt,name=next_page_token,json=nextPageToken"`
-	xxx_hidden_PreviousPageToken *string                `protobuf:"bytes,8,opt,name=previous_page_token,json=previousPageToken"`
-	XXX_raceDetectHookData       protoimpl.RaceDetectHookData
-	XXX_presence                 [1]uint32
-	unknownFields                protoimpl.UnknownFields
-	sizeCache                    protoimpl.SizeCache
+	state protoimpl.MessageState `protogen:"open.v1"`
+	// Current page number (1-based)
+	CurrentPage *int32 `protobuf:"varint,1,opt,name=current_page,json=currentPage" json:"current_page,omitempty"`
+	// Number of items per page
+	PageSize *int32 `protobuf:"varint,2,opt,name=page_size,json=pageSize" json:"page_size,omitempty"`
+	// Total number of items available
+	TotalItems *int64 `protobuf:"varint,3,opt,name=total_items,json=totalItems" json:"total_items,omitempty"`
+	// Total number of pages available
+	TotalPages *int32 `protobuf:"varint,4,opt,name=total_pages,json=totalPages" json:"total_pages,omitempty"`
+	// Whether there is a next page
+	HasNext *bool `protobuf:"varint,5,opt,name=has_next,json=hasNext" json:"has_next,omitempty"`
+	// Whether there is a previous page
+	HasPrevious *bool `protobuf:"varint,6,opt,name=has_previous,json=hasPrevious" json:"has_previous,omitempty"`
+	// Token for retrieving the next page
+	NextPageToken *string `protobuf:"bytes,7,opt,name=next_page_token,json=nextPageToken" json:"next_page_token,omitempty"`
+	// Token for retrieving the previous page
+	PreviousPageToken *string `protobuf:"bytes,8,opt,name=previous_page_token,json=previousPageToken" json:"previous_page_token,omitempty"`
+	unknownFields     protoimpl.UnknownFields
+	sizeCache         protoimpl.SizeCache
 }
 
 func (x *PaginationInfo) Reset() {
@@ -552,269 +274,72 @@ func (x *PaginationInfo) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
+// Deprecated: Use PaginationInfo.ProtoReflect.Descriptor instead.
+func (*PaginationInfo) Descriptor() ([]byte, []int) {
+	return file_pkg_common_proto_response_metadata_proto_rawDescGZIP(), []int{2}
+}
+
 func (x *PaginationInfo) GetCurrentPage() int32 {
-	if x != nil {
-		return x.xxx_hidden_CurrentPage
+	if x != nil && x.CurrentPage != nil {
+		return *x.CurrentPage
 	}
 	return 0
 }
 
 func (x *PaginationInfo) GetPageSize() int32 {
-	if x != nil {
-		return x.xxx_hidden_PageSize
+	if x != nil && x.PageSize != nil {
+		return *x.PageSize
 	}
 	return 0
 }
 
 func (x *PaginationInfo) GetTotalItems() int64 {
-	if x != nil {
-		return x.xxx_hidden_TotalItems
+	if x != nil && x.TotalItems != nil {
+		return *x.TotalItems
 	}
 	return 0
 }
 
 func (x *PaginationInfo) GetTotalPages() int32 {
-	if x != nil {
-		return x.xxx_hidden_TotalPages
+	if x != nil && x.TotalPages != nil {
+		return *x.TotalPages
 	}
 	return 0
 }
 
 func (x *PaginationInfo) GetHasNext() bool {
-	if x != nil {
-		return x.xxx_hidden_HasNext
+	if x != nil && x.HasNext != nil {
+		return *x.HasNext
 	}
 	return false
 }
 
 func (x *PaginationInfo) GetHasPrevious() bool {
-	if x != nil {
-		return x.xxx_hidden_HasPrevious
+	if x != nil && x.HasPrevious != nil {
+		return *x.HasPrevious
 	}
 	return false
 }
 
 func (x *PaginationInfo) GetNextPageToken() string {
-	if x != nil {
-		if x.xxx_hidden_NextPageToken != nil {
-			return *x.xxx_hidden_NextPageToken
-		}
-		return ""
+	if x != nil && x.NextPageToken != nil {
+		return *x.NextPageToken
 	}
 	return ""
 }
 
 func (x *PaginationInfo) GetPreviousPageToken() string {
-	if x != nil {
-		if x.xxx_hidden_PreviousPageToken != nil {
-			return *x.xxx_hidden_PreviousPageToken
-		}
-		return ""
+	if x != nil && x.PreviousPageToken != nil {
+		return *x.PreviousPageToken
 	}
 	return ""
-}
-
-func (x *PaginationInfo) SetCurrentPage(v int32) {
-	x.xxx_hidden_CurrentPage = v
-	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 0, 8)
-}
-
-func (x *PaginationInfo) SetPageSize(v int32) {
-	x.xxx_hidden_PageSize = v
-	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 1, 8)
-}
-
-func (x *PaginationInfo) SetTotalItems(v int64) {
-	x.xxx_hidden_TotalItems = v
-	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 2, 8)
-}
-
-func (x *PaginationInfo) SetTotalPages(v int32) {
-	x.xxx_hidden_TotalPages = v
-	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 3, 8)
-}
-
-func (x *PaginationInfo) SetHasNext(v bool) {
-	x.xxx_hidden_HasNext = v
-	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 4, 8)
-}
-
-func (x *PaginationInfo) SetHasPrevious(v bool) {
-	x.xxx_hidden_HasPrevious = v
-	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 5, 8)
-}
-
-func (x *PaginationInfo) SetNextPageToken(v string) {
-	x.xxx_hidden_NextPageToken = &v
-	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 6, 8)
-}
-
-func (x *PaginationInfo) SetPreviousPageToken(v string) {
-	x.xxx_hidden_PreviousPageToken = &v
-	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 7, 8)
-}
-
-func (x *PaginationInfo) HasCurrentPage() bool {
-	if x == nil {
-		return false
-	}
-	return protoimpl.X.Present(&(x.XXX_presence[0]), 0)
-}
-
-func (x *PaginationInfo) HasPageSize() bool {
-	if x == nil {
-		return false
-	}
-	return protoimpl.X.Present(&(x.XXX_presence[0]), 1)
-}
-
-func (x *PaginationInfo) HasTotalItems() bool {
-	if x == nil {
-		return false
-	}
-	return protoimpl.X.Present(&(x.XXX_presence[0]), 2)
-}
-
-func (x *PaginationInfo) HasTotalPages() bool {
-	if x == nil {
-		return false
-	}
-	return protoimpl.X.Present(&(x.XXX_presence[0]), 3)
-}
-
-func (x *PaginationInfo) HasHasNext() bool {
-	if x == nil {
-		return false
-	}
-	return protoimpl.X.Present(&(x.XXX_presence[0]), 4)
-}
-
-func (x *PaginationInfo) HasHasPrevious() bool {
-	if x == nil {
-		return false
-	}
-	return protoimpl.X.Present(&(x.XXX_presence[0]), 5)
-}
-
-func (x *PaginationInfo) HasNextPageToken() bool {
-	if x == nil {
-		return false
-	}
-	return protoimpl.X.Present(&(x.XXX_presence[0]), 6)
-}
-
-func (x *PaginationInfo) HasPreviousPageToken() bool {
-	if x == nil {
-		return false
-	}
-	return protoimpl.X.Present(&(x.XXX_presence[0]), 7)
-}
-
-func (x *PaginationInfo) ClearCurrentPage() {
-	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 0)
-	x.xxx_hidden_CurrentPage = 0
-}
-
-func (x *PaginationInfo) ClearPageSize() {
-	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 1)
-	x.xxx_hidden_PageSize = 0
-}
-
-func (x *PaginationInfo) ClearTotalItems() {
-	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 2)
-	x.xxx_hidden_TotalItems = 0
-}
-
-func (x *PaginationInfo) ClearTotalPages() {
-	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 3)
-	x.xxx_hidden_TotalPages = 0
-}
-
-func (x *PaginationInfo) ClearHasNext() {
-	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 4)
-	x.xxx_hidden_HasNext = false
-}
-
-func (x *PaginationInfo) ClearHasPrevious() {
-	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 5)
-	x.xxx_hidden_HasPrevious = false
-}
-
-func (x *PaginationInfo) ClearNextPageToken() {
-	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 6)
-	x.xxx_hidden_NextPageToken = nil
-}
-
-func (x *PaginationInfo) ClearPreviousPageToken() {
-	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 7)
-	x.xxx_hidden_PreviousPageToken = nil
-}
-
-type PaginationInfo_builder struct {
-	_ [0]func() // Prevents comparability and use of unkeyed literals for the builder.
-
-	// Current page number (1-based)
-	CurrentPage *int32
-	// Number of items per page
-	PageSize *int32
-	// Total number of items available
-	TotalItems *int64
-	// Total number of pages available
-	TotalPages *int32
-	// Whether there is a next page
-	HasNext *bool
-	// Whether there is a previous page
-	HasPrevious *bool
-	// Token for retrieving the next page
-	NextPageToken *string
-	// Token for retrieving the previous page
-	PreviousPageToken *string
-}
-
-func (b0 PaginationInfo_builder) Build() *PaginationInfo {
-	m0 := &PaginationInfo{}
-	b, x := &b0, m0
-	_, _ = b, x
-	if b.CurrentPage != nil {
-		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 0, 8)
-		x.xxx_hidden_CurrentPage = *b.CurrentPage
-	}
-	if b.PageSize != nil {
-		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 1, 8)
-		x.xxx_hidden_PageSize = *b.PageSize
-	}
-	if b.TotalItems != nil {
-		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 2, 8)
-		x.xxx_hidden_TotalItems = *b.TotalItems
-	}
-	if b.TotalPages != nil {
-		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 3, 8)
-		x.xxx_hidden_TotalPages = *b.TotalPages
-	}
-	if b.HasNext != nil {
-		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 4, 8)
-		x.xxx_hidden_HasNext = *b.HasNext
-	}
-	if b.HasPrevious != nil {
-		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 5, 8)
-		x.xxx_hidden_HasPrevious = *b.HasPrevious
-	}
-	if b.NextPageToken != nil {
-		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 6, 8)
-		x.xxx_hidden_NextPageToken = b.NextPageToken
-	}
-	if b.PreviousPageToken != nil {
-		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 7, 8)
-		x.xxx_hidden_PreviousPageToken = b.PreviousPageToken
-	}
-	return m0
 }
 
 var File_pkg_common_proto_response_metadata_proto protoreflect.FileDescriptor
 
 const file_pkg_common_proto_response_metadata_proto_rawDesc = "" +
 	"\n" +
-	"(pkg/common/proto/response_metadata.proto\x12\x11gcommon.v1.common\x1a\x1egoogle/protobuf/duration.proto\x1a!google/protobuf/go_features.proto\x1a\x1fgoogle/protobuf/timestamp.proto\x1a\x1cpkg/common/proto/error.proto\"\xcd\x04\n" +
+	"(pkg/common/proto/response_metadata.proto\x12\x11gcommon.v1.common\x1a\x1egoogle/protobuf/duration.proto\x1a\x1fgoogle/protobuf/timestamp.proto\x1a\x1cpkg/common/proto/error.proto\"\xcd\x04\n" +
 	"\x10ResponseMetadata\x12\x19\n" +
 	"\btrace_id\x18\x01 \x01(\tR\atraceId\x12\x1d\n" +
 	"\n" +
@@ -851,8 +376,20 @@ const file_pkg_common_proto_response_metadata_proto_rawDesc = "" +
 	"\bhas_next\x18\x05 \x01(\bR\ahasNext\x12!\n" +
 	"\fhas_previous\x18\x06 \x01(\bR\vhasPrevious\x12&\n" +
 	"\x0fnext_page_token\x18\a \x01(\tR\rnextPageToken\x12.\n" +
-	"\x13previous_page_token\x18\b \x01(\tR\x11previousPageTokenB\xc8\x01\n" +
-	"\x15com.gcommon.v1.commonB\x15ResponseMetadataProtoP\x01Z*github.com/jdfalk/gcommon/pkg/common/proto\xa2\x02\x03GVC\xaa\x02\x11Gcommon.V1.Common\xca\x02\x11Gcommon\\V1\\Common\xe2\x02\x1dGcommon\\V1\\Common\\GPBMetadata\xea\x02\x13Gcommon::V1::Common\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"\x13previous_page_token\x18\b \x01(\tR\x11previousPageTokenB\xc0\x01\n" +
+	"\x15com.gcommon.v1.commonB\x15ResponseMetadataProtoP\x01Z*github.com/jdfalk/gcommon/pkg/common/proto\xa2\x02\x03GVC\xaa\x02\x11Gcommon.V1.Common\xca\x02\x11Gcommon\\V1\\Common\xe2\x02\x1dGcommon\\V1\\Common\\GPBMetadata\xea\x02\x13Gcommon::V1::Commonb\beditionsp\xe8\a"
+
+var (
+	file_pkg_common_proto_response_metadata_proto_rawDescOnce sync.Once
+	file_pkg_common_proto_response_metadata_proto_rawDescData []byte
+)
+
+func file_pkg_common_proto_response_metadata_proto_rawDescGZIP() []byte {
+	file_pkg_common_proto_response_metadata_proto_rawDescOnce.Do(func() {
+		file_pkg_common_proto_response_metadata_proto_rawDescData = protoimpl.X.CompressGZIP(unsafe.Slice(unsafe.StringData(file_pkg_common_proto_response_metadata_proto_rawDesc), len(file_pkg_common_proto_response_metadata_proto_rawDesc)))
+	})
+	return file_pkg_common_proto_response_metadata_proto_rawDescData
+}
 
 var file_pkg_common_proto_response_metadata_proto_msgTypes = make([]protoimpl.MessageInfo, 4)
 var file_pkg_common_proto_response_metadata_proto_goTypes = []any{

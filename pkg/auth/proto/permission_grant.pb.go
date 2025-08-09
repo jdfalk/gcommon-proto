@@ -10,9 +10,9 @@ import (
 	_ "github.com/jdfalk/gcommon/pkg/common/proto"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
-	_ "google.golang.org/protobuf/types/gofeaturespb"
 	timestamppb "google.golang.org/protobuf/types/known/timestamppb"
 	reflect "reflect"
+	sync "sync"
 	unsafe "unsafe"
 )
 
@@ -28,23 +28,29 @@ const (
 // Used for tracking direct permission assignments to users.
 // Supports scoped permissions and expiration.
 type PermissionGrant struct {
-	state                      protoimpl.MessageState `protogen:"opaque.v1"`
-	xxx_hidden_Id              *string                `protobuf:"bytes,1,opt,name=id"`
-	xxx_hidden_UserId          *string                `protobuf:"bytes,2,opt,name=user_id,json=userId"`
-	xxx_hidden_Permission      *string                `protobuf:"bytes,3,opt,name=permission"`
-	xxx_hidden_Resource        *string                `protobuf:"bytes,4,opt,name=resource"`
-	xxx_hidden_Scope           PermissionScope        `protobuf:"varint,5,opt,name=scope,enum=gcommon.v1.auth.PermissionScope"`
-	xxx_hidden_CreatedAt       *timestamppb.Timestamp `protobuf:"bytes,6,opt,name=created_at,json=createdAt"`
-	xxx_hidden_ExpiresAt       *timestamppb.Timestamp `protobuf:"bytes,7,opt,name=expires_at,json=expiresAt"`
-	xxx_hidden_GrantedByUserId *string                `protobuf:"bytes,8,opt,name=granted_by_user_id,json=grantedByUserId"`
-	xxx_hidden_Metadata        map[string]string      `protobuf:"bytes,9,rep,name=metadata" protobuf_key:"bytes,1,opt,name=key" protobuf_val:"bytes,2,opt,name=value"`
-	xxx_hidden_Active          bool                   `protobuf:"varint,10,opt,name=active"`
-	// Deprecated: Do not use. This will be deleted in the near future.
-	XXX_lazyUnmarshalInfo  protoimpl.LazyUnmarshalInfo
-	XXX_raceDetectHookData protoimpl.RaceDetectHookData
-	XXX_presence           [1]uint32
-	unknownFields          protoimpl.UnknownFields
-	sizeCache              protoimpl.SizeCache
+	state protoimpl.MessageState `protogen:"open.v1"`
+	// Unique grant identifier
+	Id *string `protobuf:"bytes,1,opt,name=id" json:"id,omitempty"`
+	// User ID receiving the permission
+	UserId *string `protobuf:"bytes,2,opt,name=user_id,json=userId" json:"user_id,omitempty"`
+	// Permission being granted
+	Permission *string `protobuf:"bytes,3,opt,name=permission" json:"permission,omitempty"`
+	// Resource the permission applies to (optional)
+	Resource *string `protobuf:"bytes,4,opt,name=resource" json:"resource,omitempty"`
+	// Permission scope
+	Scope *PermissionScope `protobuf:"varint,5,opt,name=scope,enum=gcommon.v1.auth.PermissionScope" json:"scope,omitempty"`
+	// Grant creation timestamp
+	CreatedAt *timestamppb.Timestamp `protobuf:"bytes,6,opt,name=created_at,json=createdAt" json:"created_at,omitempty"`
+	// Grant expiration timestamp (optional)
+	ExpiresAt *timestamppb.Timestamp `protobuf:"bytes,7,opt,name=expires_at,json=expiresAt" json:"expires_at,omitempty"`
+	// User who granted the permission
+	GrantedByUserId *string `protobuf:"bytes,8,opt,name=granted_by_user_id,json=grantedByUserId" json:"granted_by_user_id,omitempty"`
+	// Grant metadata
+	Metadata map[string]string `protobuf:"bytes,9,rep,name=metadata" json:"metadata,omitempty" protobuf_key:"bytes,1,opt,name=key" protobuf_val:"bytes,2,opt,name=value"`
+	// Grant active flag
+	Active        *bool `protobuf:"varint,10,opt,name=active" json:"active,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
 }
 
 func (x *PermissionGrant) Reset() {
@@ -72,359 +78,86 @@ func (x *PermissionGrant) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
+// Deprecated: Use PermissionGrant.ProtoReflect.Descriptor instead.
+func (*PermissionGrant) Descriptor() ([]byte, []int) {
+	return file_pkg_auth_proto_permission_grant_proto_rawDescGZIP(), []int{0}
+}
+
 func (x *PermissionGrant) GetId() string {
-	if x != nil {
-		if x.xxx_hidden_Id != nil {
-			return *x.xxx_hidden_Id
-		}
-		return ""
+	if x != nil && x.Id != nil {
+		return *x.Id
 	}
 	return ""
 }
 
 func (x *PermissionGrant) GetUserId() string {
-	if x != nil {
-		if x.xxx_hidden_UserId != nil {
-			return *x.xxx_hidden_UserId
-		}
-		return ""
+	if x != nil && x.UserId != nil {
+		return *x.UserId
 	}
 	return ""
 }
 
 func (x *PermissionGrant) GetPermission() string {
-	if x != nil {
-		if x.xxx_hidden_Permission != nil {
-			return *x.xxx_hidden_Permission
-		}
-		return ""
+	if x != nil && x.Permission != nil {
+		return *x.Permission
 	}
 	return ""
 }
 
 func (x *PermissionGrant) GetResource() string {
-	if x != nil {
-		if x.xxx_hidden_Resource != nil {
-			return *x.xxx_hidden_Resource
-		}
-		return ""
+	if x != nil && x.Resource != nil {
+		return *x.Resource
 	}
 	return ""
 }
 
 func (x *PermissionGrant) GetScope() PermissionScope {
-	if x != nil {
-		if protoimpl.X.Present(&(x.XXX_presence[0]), 4) {
-			return x.xxx_hidden_Scope
-		}
+	if x != nil && x.Scope != nil {
+		return *x.Scope
 	}
 	return PermissionScope_PERMISSION_SCOPE_UNSPECIFIED
 }
 
 func (x *PermissionGrant) GetCreatedAt() *timestamppb.Timestamp {
 	if x != nil {
-		if protoimpl.X.Present(&(x.XXX_presence[0]), 5) {
-			if protoimpl.X.AtomicCheckPointerIsNil(&x.xxx_hidden_CreatedAt) {
-				protoimpl.X.UnmarshalField(x, 6)
-			}
-			var rv *timestamppb.Timestamp
-			protoimpl.X.AtomicLoadPointer(protoimpl.Pointer(&x.xxx_hidden_CreatedAt), protoimpl.Pointer(&rv))
-			return rv
-		}
+		return x.CreatedAt
 	}
 	return nil
 }
 
 func (x *PermissionGrant) GetExpiresAt() *timestamppb.Timestamp {
 	if x != nil {
-		if protoimpl.X.Present(&(x.XXX_presence[0]), 6) {
-			if protoimpl.X.AtomicCheckPointerIsNil(&x.xxx_hidden_ExpiresAt) {
-				protoimpl.X.UnmarshalField(x, 7)
-			}
-			var rv *timestamppb.Timestamp
-			protoimpl.X.AtomicLoadPointer(protoimpl.Pointer(&x.xxx_hidden_ExpiresAt), protoimpl.Pointer(&rv))
-			return rv
-		}
+		return x.ExpiresAt
 	}
 	return nil
 }
 
 func (x *PermissionGrant) GetGrantedByUserId() string {
-	if x != nil {
-		if x.xxx_hidden_GrantedByUserId != nil {
-			return *x.xxx_hidden_GrantedByUserId
-		}
-		return ""
+	if x != nil && x.GrantedByUserId != nil {
+		return *x.GrantedByUserId
 	}
 	return ""
 }
 
 func (x *PermissionGrant) GetMetadata() map[string]string {
 	if x != nil {
-		if protoimpl.X.Present(&(x.XXX_presence[0]), 8) {
-			if protoimpl.X.AtomicCheckPointerIsNil(&x.xxx_hidden_Metadata) {
-				protoimpl.X.UnmarshalField(x, 9)
-			}
-			return x.xxx_hidden_Metadata
-		}
+		return x.Metadata
 	}
 	return nil
 }
 
 func (x *PermissionGrant) GetActive() bool {
-	if x != nil {
-		return x.xxx_hidden_Active
+	if x != nil && x.Active != nil {
+		return *x.Active
 	}
 	return false
-}
-
-func (x *PermissionGrant) SetId(v string) {
-	x.xxx_hidden_Id = &v
-	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 0, 10)
-}
-
-func (x *PermissionGrant) SetUserId(v string) {
-	x.xxx_hidden_UserId = &v
-	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 1, 10)
-}
-
-func (x *PermissionGrant) SetPermission(v string) {
-	x.xxx_hidden_Permission = &v
-	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 2, 10)
-}
-
-func (x *PermissionGrant) SetResource(v string) {
-	x.xxx_hidden_Resource = &v
-	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 3, 10)
-}
-
-func (x *PermissionGrant) SetScope(v PermissionScope) {
-	x.xxx_hidden_Scope = v
-	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 4, 10)
-}
-
-func (x *PermissionGrant) SetCreatedAt(v *timestamppb.Timestamp) {
-	protoimpl.X.AtomicSetPointer(&x.xxx_hidden_CreatedAt, v)
-	if v == nil {
-		protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 5)
-	} else {
-		protoimpl.X.SetPresent(&(x.XXX_presence[0]), 5, 10)
-	}
-}
-
-func (x *PermissionGrant) SetExpiresAt(v *timestamppb.Timestamp) {
-	protoimpl.X.AtomicSetPointer(&x.xxx_hidden_ExpiresAt, v)
-	if v == nil {
-		protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 6)
-	} else {
-		protoimpl.X.SetPresent(&(x.XXX_presence[0]), 6, 10)
-	}
-}
-
-func (x *PermissionGrant) SetGrantedByUserId(v string) {
-	x.xxx_hidden_GrantedByUserId = &v
-	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 7, 10)
-}
-
-func (x *PermissionGrant) SetMetadata(v map[string]string) {
-	x.xxx_hidden_Metadata = v
-	if v == nil {
-		protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 8)
-	} else {
-		protoimpl.X.SetPresent(&(x.XXX_presence[0]), 8, 10)
-	}
-}
-
-func (x *PermissionGrant) SetActive(v bool) {
-	x.xxx_hidden_Active = v
-	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 9, 10)
-}
-
-func (x *PermissionGrant) HasId() bool {
-	if x == nil {
-		return false
-	}
-	return protoimpl.X.Present(&(x.XXX_presence[0]), 0)
-}
-
-func (x *PermissionGrant) HasUserId() bool {
-	if x == nil {
-		return false
-	}
-	return protoimpl.X.Present(&(x.XXX_presence[0]), 1)
-}
-
-func (x *PermissionGrant) HasPermission() bool {
-	if x == nil {
-		return false
-	}
-	return protoimpl.X.Present(&(x.XXX_presence[0]), 2)
-}
-
-func (x *PermissionGrant) HasResource() bool {
-	if x == nil {
-		return false
-	}
-	return protoimpl.X.Present(&(x.XXX_presence[0]), 3)
-}
-
-func (x *PermissionGrant) HasScope() bool {
-	if x == nil {
-		return false
-	}
-	return protoimpl.X.Present(&(x.XXX_presence[0]), 4)
-}
-
-func (x *PermissionGrant) HasCreatedAt() bool {
-	if x == nil {
-		return false
-	}
-	return protoimpl.X.Present(&(x.XXX_presence[0]), 5)
-}
-
-func (x *PermissionGrant) HasExpiresAt() bool {
-	if x == nil {
-		return false
-	}
-	return protoimpl.X.Present(&(x.XXX_presence[0]), 6)
-}
-
-func (x *PermissionGrant) HasGrantedByUserId() bool {
-	if x == nil {
-		return false
-	}
-	return protoimpl.X.Present(&(x.XXX_presence[0]), 7)
-}
-
-func (x *PermissionGrant) HasActive() bool {
-	if x == nil {
-		return false
-	}
-	return protoimpl.X.Present(&(x.XXX_presence[0]), 9)
-}
-
-func (x *PermissionGrant) ClearId() {
-	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 0)
-	x.xxx_hidden_Id = nil
-}
-
-func (x *PermissionGrant) ClearUserId() {
-	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 1)
-	x.xxx_hidden_UserId = nil
-}
-
-func (x *PermissionGrant) ClearPermission() {
-	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 2)
-	x.xxx_hidden_Permission = nil
-}
-
-func (x *PermissionGrant) ClearResource() {
-	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 3)
-	x.xxx_hidden_Resource = nil
-}
-
-func (x *PermissionGrant) ClearScope() {
-	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 4)
-	x.xxx_hidden_Scope = PermissionScope_PERMISSION_SCOPE_UNSPECIFIED
-}
-
-func (x *PermissionGrant) ClearCreatedAt() {
-	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 5)
-	protoimpl.X.AtomicSetPointer(&x.xxx_hidden_CreatedAt, (*timestamppb.Timestamp)(nil))
-}
-
-func (x *PermissionGrant) ClearExpiresAt() {
-	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 6)
-	protoimpl.X.AtomicSetPointer(&x.xxx_hidden_ExpiresAt, (*timestamppb.Timestamp)(nil))
-}
-
-func (x *PermissionGrant) ClearGrantedByUserId() {
-	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 7)
-	x.xxx_hidden_GrantedByUserId = nil
-}
-
-func (x *PermissionGrant) ClearActive() {
-	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 9)
-	x.xxx_hidden_Active = false
-}
-
-type PermissionGrant_builder struct {
-	_ [0]func() // Prevents comparability and use of unkeyed literals for the builder.
-
-	// Unique grant identifier
-	Id *string
-	// User ID receiving the permission
-	UserId *string
-	// Permission being granted
-	Permission *string
-	// Resource the permission applies to (optional)
-	Resource *string
-	// Permission scope
-	Scope *PermissionScope
-	// Grant creation timestamp
-	CreatedAt *timestamppb.Timestamp
-	// Grant expiration timestamp (optional)
-	ExpiresAt *timestamppb.Timestamp
-	// User who granted the permission
-	GrantedByUserId *string
-	// Grant metadata
-	Metadata map[string]string
-	// Grant active flag
-	Active *bool
-}
-
-func (b0 PermissionGrant_builder) Build() *PermissionGrant {
-	m0 := &PermissionGrant{}
-	b, x := &b0, m0
-	_, _ = b, x
-	if b.Id != nil {
-		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 0, 10)
-		x.xxx_hidden_Id = b.Id
-	}
-	if b.UserId != nil {
-		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 1, 10)
-		x.xxx_hidden_UserId = b.UserId
-	}
-	if b.Permission != nil {
-		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 2, 10)
-		x.xxx_hidden_Permission = b.Permission
-	}
-	if b.Resource != nil {
-		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 3, 10)
-		x.xxx_hidden_Resource = b.Resource
-	}
-	if b.Scope != nil {
-		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 4, 10)
-		x.xxx_hidden_Scope = *b.Scope
-	}
-	if b.CreatedAt != nil {
-		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 5, 10)
-		x.xxx_hidden_CreatedAt = b.CreatedAt
-	}
-	if b.ExpiresAt != nil {
-		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 6, 10)
-		x.xxx_hidden_ExpiresAt = b.ExpiresAt
-	}
-	if b.GrantedByUserId != nil {
-		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 7, 10)
-		x.xxx_hidden_GrantedByUserId = b.GrantedByUserId
-	}
-	if b.Metadata != nil {
-		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 8, 10)
-		x.xxx_hidden_Metadata = b.Metadata
-	}
-	if b.Active != nil {
-		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 9, 10)
-		x.xxx_hidden_Active = *b.Active
-	}
-	return m0
 }
 
 var File_pkg_auth_proto_permission_grant_proto protoreflect.FileDescriptor
 
 const file_pkg_auth_proto_permission_grant_proto_rawDesc = "" +
 	"\n" +
-	"%pkg/auth/proto/permission_grant.proto\x12\x0fgcommon.v1.auth\x1a!google/protobuf/go_features.proto\x1a\x1fgoogle/protobuf/timestamp.proto\x1a%pkg/auth/proto/permission_scope.proto\x1a'pkg/common/proto/request_metadata.proto\"\xfe\x03\n" +
+	"%pkg/auth/proto/permission_grant.proto\x12\x0fgcommon.v1.auth\x1a\x1fgoogle/protobuf/timestamp.proto\x1a%pkg/auth/proto/permission_scope.proto\x1a'pkg/common/proto/request_metadata.proto\"\xfe\x03\n" +
 	"\x0fPermissionGrant\x12\x0e\n" +
 	"\x02id\x18\x01 \x01(\tR\x02id\x12\x17\n" +
 	"\auser_id\x18\x02 \x01(\tR\x06userId\x12\x1e\n" +
@@ -443,8 +176,20 @@ const file_pkg_auth_proto_permission_grant_proto_rawDesc = "" +
 	" \x01(\bR\x06active\x1a;\n" +
 	"\rMetadataEntry\x12\x10\n" +
 	"\x03key\x18\x01 \x01(\tR\x03key\x12\x14\n" +
-	"\x05value\x18\x02 \x01(\tR\x05value:\x028\x01B\xbb\x01\n" +
-	"\x13com.gcommon.v1.authB\x14PermissionGrantProtoP\x01Z(github.com/jdfalk/gcommon/pkg/auth/proto\xa2\x02\x03GVA\xaa\x02\x0fGcommon.V1.Auth\xca\x02\x0fGcommon\\V1\\Auth\xe2\x02\x1bGcommon\\V1\\Auth\\GPBMetadata\xea\x02\x11Gcommon::V1::Auth\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"\x05value\x18\x02 \x01(\tR\x05value:\x028\x01B\xb3\x01\n" +
+	"\x13com.gcommon.v1.authB\x14PermissionGrantProtoP\x01Z(github.com/jdfalk/gcommon/pkg/auth/proto\xa2\x02\x03GVA\xaa\x02\x0fGcommon.V1.Auth\xca\x02\x0fGcommon\\V1\\Auth\xe2\x02\x1bGcommon\\V1\\Auth\\GPBMetadata\xea\x02\x11Gcommon::V1::Authb\beditionsp\xe8\a"
+
+var (
+	file_pkg_auth_proto_permission_grant_proto_rawDescOnce sync.Once
+	file_pkg_auth_proto_permission_grant_proto_rawDescData []byte
+)
+
+func file_pkg_auth_proto_permission_grant_proto_rawDescGZIP() []byte {
+	file_pkg_auth_proto_permission_grant_proto_rawDescOnce.Do(func() {
+		file_pkg_auth_proto_permission_grant_proto_rawDescData = protoimpl.X.CompressGZIP(unsafe.Slice(unsafe.StringData(file_pkg_auth_proto_permission_grant_proto_rawDesc), len(file_pkg_auth_proto_permission_grant_proto_rawDesc)))
+	})
+	return file_pkg_auth_proto_permission_grant_proto_rawDescData
+}
 
 var file_pkg_auth_proto_permission_grant_proto_msgTypes = make([]protoimpl.MessageInfo, 2)
 var file_pkg_auth_proto_permission_grant_proto_goTypes = []any{

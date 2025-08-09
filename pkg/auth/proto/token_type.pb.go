@@ -9,8 +9,8 @@ package proto
 import (
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
-	_ "google.golang.org/protobuf/types/gofeaturespb"
 	reflect "reflect"
+	sync "sync"
 	unsafe "unsafe"
 )
 
@@ -103,11 +103,16 @@ func (x TokenType) Number() protoreflect.EnumNumber {
 	return protoreflect.EnumNumber(x)
 }
 
+// Deprecated: Use TokenType.Descriptor instead.
+func (TokenType) EnumDescriptor() ([]byte, []int) {
+	return file_pkg_auth_proto_token_type_proto_rawDescGZIP(), []int{0}
+}
+
 var File_pkg_auth_proto_token_type_proto protoreflect.FileDescriptor
 
 const file_pkg_auth_proto_token_type_proto_rawDesc = "" +
 	"\n" +
-	"\x1fpkg/auth/proto/token_type.proto\x12\x0fgcommon.v1.auth\x1a!google/protobuf/go_features.proto*\xbc\x02\n" +
+	"\x1fpkg/auth/proto/token_type.proto\x12\x0fgcommon.v1.auth*\xbc\x02\n" +
 	"\tTokenType\x12\x1a\n" +
 	"\x16TOKEN_TYPE_UNSPECIFIED\x10\x00\x12\x15\n" +
 	"\x11TOKEN_TYPE_ACCESS\x10\x01\x12\x16\n" +
@@ -120,8 +125,20 @@ const file_pkg_auth_proto_token_type_proto_rawDesc = "" +
 	"\x1dTOKEN_TYPE_EMAIL_VERIFICATION\x10\b\x12!\n" +
 	"\x1dTOKEN_TYPE_PHONE_VERIFICATION\x10\t\x12\x19\n" +
 	"\x15TOKEN_TYPE_INVITATION\x10\n" +
-	"B\xb5\x01\n" +
-	"\x13com.gcommon.v1.authB\x0eTokenTypeProtoP\x01Z(github.com/jdfalk/gcommon/pkg/auth/proto\xa2\x02\x03GVA\xaa\x02\x0fGcommon.V1.Auth\xca\x02\x0fGcommon\\V1\\Auth\xe2\x02\x1bGcommon\\V1\\Auth\\GPBMetadata\xea\x02\x11Gcommon::V1::Auth\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"B\xad\x01\n" +
+	"\x13com.gcommon.v1.authB\x0eTokenTypeProtoP\x01Z(github.com/jdfalk/gcommon/pkg/auth/proto\xa2\x02\x03GVA\xaa\x02\x0fGcommon.V1.Auth\xca\x02\x0fGcommon\\V1\\Auth\xe2\x02\x1bGcommon\\V1\\Auth\\GPBMetadata\xea\x02\x11Gcommon::V1::Authb\beditionsp\xe8\a"
+
+var (
+	file_pkg_auth_proto_token_type_proto_rawDescOnce sync.Once
+	file_pkg_auth_proto_token_type_proto_rawDescData []byte
+)
+
+func file_pkg_auth_proto_token_type_proto_rawDescGZIP() []byte {
+	file_pkg_auth_proto_token_type_proto_rawDescOnce.Do(func() {
+		file_pkg_auth_proto_token_type_proto_rawDescData = protoimpl.X.CompressGZIP(unsafe.Slice(unsafe.StringData(file_pkg_auth_proto_token_type_proto_rawDesc), len(file_pkg_auth_proto_token_type_proto_rawDesc)))
+	})
+	return file_pkg_auth_proto_token_type_proto_rawDescData
+}
 
 var file_pkg_auth_proto_token_type_proto_enumTypes = make([]protoimpl.EnumInfo, 1)
 var file_pkg_auth_proto_token_type_proto_goTypes = []any{

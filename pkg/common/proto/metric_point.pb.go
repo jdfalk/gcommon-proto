@@ -9,9 +9,9 @@ package proto
 import (
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
-	_ "google.golang.org/protobuf/types/gofeaturespb"
 	timestamppb "google.golang.org/protobuf/types/known/timestamppb"
 	reflect "reflect"
+	sync "sync"
 	unsafe "unsafe"
 )
 
@@ -27,16 +27,19 @@ const (
 // Provides a unified structure for metrics across all GCommon modules
 // with timestamp, labels, and unit information for observability.
 type MetricPoint struct {
-	state                  protoimpl.MessageState `protogen:"opaque.v1"`
-	xxx_hidden_Name        *string                `protobuf:"bytes,1,opt,name=name"`
-	xxx_hidden_Value       float64                `protobuf:"fixed64,2,opt,name=value"`
-	xxx_hidden_Timestamp   *timestamppb.Timestamp `protobuf:"bytes,3,opt,name=timestamp"`
-	xxx_hidden_Labels      map[string]string      `protobuf:"bytes,4,rep,name=labels" protobuf_key:"bytes,1,opt,name=key" protobuf_val:"bytes,2,opt,name=value"`
-	xxx_hidden_Unit        *string                `protobuf:"bytes,5,opt,name=unit"`
-	XXX_raceDetectHookData protoimpl.RaceDetectHookData
-	XXX_presence           [1]uint32
-	unknownFields          protoimpl.UnknownFields
-	sizeCache              protoimpl.SizeCache
+	state protoimpl.MessageState `protogen:"open.v1"`
+	// Metric name identifier (e.g., "request_count", "response_time")
+	Name *string `protobuf:"bytes,1,opt,name=name" json:"name,omitempty"`
+	// Numeric value of the metric
+	Value *float64 `protobuf:"fixed64,2,opt,name=value" json:"value,omitempty"`
+	// Timestamp when the metric was recorded
+	Timestamp *timestamppb.Timestamp `protobuf:"bytes,3,opt,name=timestamp" json:"timestamp,omitempty"`
+	// Key-value labels for metric dimensions and filtering
+	Labels map[string]string `protobuf:"bytes,4,rep,name=labels" json:"labels,omitempty" protobuf_key:"bytes,1,opt,name=key" protobuf_val:"bytes,2,opt,name=value"`
+	// Unit of measurement (e.g., "seconds", "bytes", "requests")
+	Unit          *string `protobuf:"bytes,5,opt,name=unit" json:"unit,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
 }
 
 func (x *MetricPoint) Reset() {
@@ -64,158 +67,51 @@ func (x *MetricPoint) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
+// Deprecated: Use MetricPoint.ProtoReflect.Descriptor instead.
+func (*MetricPoint) Descriptor() ([]byte, []int) {
+	return file_pkg_common_proto_metric_point_proto_rawDescGZIP(), []int{0}
+}
+
 func (x *MetricPoint) GetName() string {
-	if x != nil {
-		if x.xxx_hidden_Name != nil {
-			return *x.xxx_hidden_Name
-		}
-		return ""
+	if x != nil && x.Name != nil {
+		return *x.Name
 	}
 	return ""
 }
 
 func (x *MetricPoint) GetValue() float64 {
-	if x != nil {
-		return x.xxx_hidden_Value
+	if x != nil && x.Value != nil {
+		return *x.Value
 	}
 	return 0
 }
 
 func (x *MetricPoint) GetTimestamp() *timestamppb.Timestamp {
 	if x != nil {
-		return x.xxx_hidden_Timestamp
+		return x.Timestamp
 	}
 	return nil
 }
 
 func (x *MetricPoint) GetLabels() map[string]string {
 	if x != nil {
-		return x.xxx_hidden_Labels
+		return x.Labels
 	}
 	return nil
 }
 
 func (x *MetricPoint) GetUnit() string {
-	if x != nil {
-		if x.xxx_hidden_Unit != nil {
-			return *x.xxx_hidden_Unit
-		}
-		return ""
+	if x != nil && x.Unit != nil {
+		return *x.Unit
 	}
 	return ""
-}
-
-func (x *MetricPoint) SetName(v string) {
-	x.xxx_hidden_Name = &v
-	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 0, 5)
-}
-
-func (x *MetricPoint) SetValue(v float64) {
-	x.xxx_hidden_Value = v
-	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 1, 5)
-}
-
-func (x *MetricPoint) SetTimestamp(v *timestamppb.Timestamp) {
-	x.xxx_hidden_Timestamp = v
-}
-
-func (x *MetricPoint) SetLabels(v map[string]string) {
-	x.xxx_hidden_Labels = v
-}
-
-func (x *MetricPoint) SetUnit(v string) {
-	x.xxx_hidden_Unit = &v
-	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 4, 5)
-}
-
-func (x *MetricPoint) HasName() bool {
-	if x == nil {
-		return false
-	}
-	return protoimpl.X.Present(&(x.XXX_presence[0]), 0)
-}
-
-func (x *MetricPoint) HasValue() bool {
-	if x == nil {
-		return false
-	}
-	return protoimpl.X.Present(&(x.XXX_presence[0]), 1)
-}
-
-func (x *MetricPoint) HasTimestamp() bool {
-	if x == nil {
-		return false
-	}
-	return x.xxx_hidden_Timestamp != nil
-}
-
-func (x *MetricPoint) HasUnit() bool {
-	if x == nil {
-		return false
-	}
-	return protoimpl.X.Present(&(x.XXX_presence[0]), 4)
-}
-
-func (x *MetricPoint) ClearName() {
-	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 0)
-	x.xxx_hidden_Name = nil
-}
-
-func (x *MetricPoint) ClearValue() {
-	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 1)
-	x.xxx_hidden_Value = 0
-}
-
-func (x *MetricPoint) ClearTimestamp() {
-	x.xxx_hidden_Timestamp = nil
-}
-
-func (x *MetricPoint) ClearUnit() {
-	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 4)
-	x.xxx_hidden_Unit = nil
-}
-
-type MetricPoint_builder struct {
-	_ [0]func() // Prevents comparability and use of unkeyed literals for the builder.
-
-	// Metric name identifier (e.g., "request_count", "response_time")
-	Name *string
-	// Numeric value of the metric
-	Value *float64
-	// Timestamp when the metric was recorded
-	Timestamp *timestamppb.Timestamp
-	// Key-value labels for metric dimensions and filtering
-	Labels map[string]string
-	// Unit of measurement (e.g., "seconds", "bytes", "requests")
-	Unit *string
-}
-
-func (b0 MetricPoint_builder) Build() *MetricPoint {
-	m0 := &MetricPoint{}
-	b, x := &b0, m0
-	_, _ = b, x
-	if b.Name != nil {
-		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 0, 5)
-		x.xxx_hidden_Name = b.Name
-	}
-	if b.Value != nil {
-		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 1, 5)
-		x.xxx_hidden_Value = *b.Value
-	}
-	x.xxx_hidden_Timestamp = b.Timestamp
-	x.xxx_hidden_Labels = b.Labels
-	if b.Unit != nil {
-		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 4, 5)
-		x.xxx_hidden_Unit = b.Unit
-	}
-	return m0
 }
 
 var File_pkg_common_proto_metric_point_proto protoreflect.FileDescriptor
 
 const file_pkg_common_proto_metric_point_proto_rawDesc = "" +
 	"\n" +
-	"#pkg/common/proto/metric_point.proto\x12\x11gcommon.v1.common\x1a!google/protobuf/go_features.proto\x1a\x1fgoogle/protobuf/timestamp.proto\"\x84\x02\n" +
+	"#pkg/common/proto/metric_point.proto\x12\x11gcommon.v1.common\x1a\x1fgoogle/protobuf/timestamp.proto\"\x84\x02\n" +
 	"\vMetricPoint\x12\x12\n" +
 	"\x04name\x18\x01 \x01(\tR\x04name\x12\x14\n" +
 	"\x05value\x18\x02 \x01(\x01R\x05value\x128\n" +
@@ -224,8 +120,20 @@ const file_pkg_common_proto_metric_point_proto_rawDesc = "" +
 	"\x04unit\x18\x05 \x01(\tR\x04unit\x1a9\n" +
 	"\vLabelsEntry\x12\x10\n" +
 	"\x03key\x18\x01 \x01(\tR\x03key\x12\x14\n" +
-	"\x05value\x18\x02 \x01(\tR\x05value:\x028\x01B\xc3\x01\n" +
-	"\x15com.gcommon.v1.commonB\x10MetricPointProtoP\x01Z*github.com/jdfalk/gcommon/pkg/common/proto\xa2\x02\x03GVC\xaa\x02\x11Gcommon.V1.Common\xca\x02\x11Gcommon\\V1\\Common\xe2\x02\x1dGcommon\\V1\\Common\\GPBMetadata\xea\x02\x13Gcommon::V1::Common\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"\x05value\x18\x02 \x01(\tR\x05value:\x028\x01B\xbb\x01\n" +
+	"\x15com.gcommon.v1.commonB\x10MetricPointProtoP\x01Z*github.com/jdfalk/gcommon/pkg/common/proto\xa2\x02\x03GVC\xaa\x02\x11Gcommon.V1.Common\xca\x02\x11Gcommon\\V1\\Common\xe2\x02\x1dGcommon\\V1\\Common\\GPBMetadata\xea\x02\x13Gcommon::V1::Commonb\beditionsp\xe8\a"
+
+var (
+	file_pkg_common_proto_metric_point_proto_rawDescOnce sync.Once
+	file_pkg_common_proto_metric_point_proto_rawDescData []byte
+)
+
+func file_pkg_common_proto_metric_point_proto_rawDescGZIP() []byte {
+	file_pkg_common_proto_metric_point_proto_rawDescOnce.Do(func() {
+		file_pkg_common_proto_metric_point_proto_rawDescData = protoimpl.X.CompressGZIP(unsafe.Slice(unsafe.StringData(file_pkg_common_proto_metric_point_proto_rawDesc), len(file_pkg_common_proto_metric_point_proto_rawDesc)))
+	})
+	return file_pkg_common_proto_metric_point_proto_rawDescData
+}
 
 var file_pkg_common_proto_metric_point_proto_msgTypes = make([]protoimpl.MessageInfo, 2)
 var file_pkg_common_proto_metric_point_proto_goTypes = []any{

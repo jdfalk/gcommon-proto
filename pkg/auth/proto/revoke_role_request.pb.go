@@ -10,8 +10,8 @@ import (
 	proto "github.com/jdfalk/gcommon/pkg/common/proto"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
-	_ "google.golang.org/protobuf/types/gofeaturespb"
 	reflect "reflect"
+	sync "sync"
 	unsafe "unsafe"
 )
 
@@ -27,18 +27,23 @@ const (
 // Used for role-based access control management.
 // Removes the specified role permissions from the user.
 type RevokeRoleRequest struct {
-	state                     protoimpl.MessageState `protogen:"opaque.v1"`
-	xxx_hidden_UserId         *string                `protobuf:"bytes,1,opt,name=user_id,json=userId"`
-	xxx_hidden_RoleId         *string                `protobuf:"bytes,2,opt,name=role_id,json=roleId"`
-	xxx_hidden_OrganizationId *string                `protobuf:"bytes,3,opt,name=organization_id,json=organizationId"`
-	xxx_hidden_Metadata       *proto.RequestMetadata `protobuf:"bytes,4,opt,name=metadata"`
-	xxx_hidden_RevokedBy      *string                `protobuf:"bytes,5,opt,name=revoked_by,json=revokedBy"`
-	xxx_hidden_Reason         *string                `protobuf:"bytes,6,opt,name=reason"`
-	xxx_hidden_Force          bool                   `protobuf:"varint,7,opt,name=force"`
-	XXX_raceDetectHookData    protoimpl.RaceDetectHookData
-	XXX_presence              [1]uint32
-	unknownFields             protoimpl.UnknownFields
-	sizeCache                 protoimpl.SizeCache
+	state protoimpl.MessageState `protogen:"open.v1"`
+	// User ID to revoke role from (required)
+	UserId *string `protobuf:"bytes,1,opt,name=user_id,json=userId" json:"user_id,omitempty"`
+	// Role ID to revoke (required)
+	RoleId *string `protobuf:"bytes,2,opt,name=role_id,json=roleId" json:"role_id,omitempty"`
+	// Optional organization context for scoped role revocation
+	OrganizationId *string `protobuf:"bytes,3,opt,name=organization_id,json=organizationId" json:"organization_id,omitempty"`
+	// Request metadata for tracing and correlation
+	Metadata *proto.RequestMetadata `protobuf:"bytes,4,opt,name=metadata" json:"metadata,omitempty"`
+	// Audit information for tracking who made the revocation
+	RevokedBy *string `protobuf:"bytes,5,opt,name=revoked_by,json=revokedBy" json:"revoked_by,omitempty"`
+	// Reason for role revocation (optional)
+	Reason *string `protobuf:"bytes,6,opt,name=reason" json:"reason,omitempty"`
+	// Whether to force revocation even if user has dependencies
+	Force         *bool `protobuf:"varint,7,opt,name=force" json:"force,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
 }
 
 func (x *RevokeRoleRequest) Reset() {
@@ -66,243 +71,65 @@ func (x *RevokeRoleRequest) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
+// Deprecated: Use RevokeRoleRequest.ProtoReflect.Descriptor instead.
+func (*RevokeRoleRequest) Descriptor() ([]byte, []int) {
+	return file_pkg_auth_proto_revoke_role_request_proto_rawDescGZIP(), []int{0}
+}
+
 func (x *RevokeRoleRequest) GetUserId() string {
-	if x != nil {
-		if x.xxx_hidden_UserId != nil {
-			return *x.xxx_hidden_UserId
-		}
-		return ""
+	if x != nil && x.UserId != nil {
+		return *x.UserId
 	}
 	return ""
 }
 
 func (x *RevokeRoleRequest) GetRoleId() string {
-	if x != nil {
-		if x.xxx_hidden_RoleId != nil {
-			return *x.xxx_hidden_RoleId
-		}
-		return ""
+	if x != nil && x.RoleId != nil {
+		return *x.RoleId
 	}
 	return ""
 }
 
 func (x *RevokeRoleRequest) GetOrganizationId() string {
-	if x != nil {
-		if x.xxx_hidden_OrganizationId != nil {
-			return *x.xxx_hidden_OrganizationId
-		}
-		return ""
+	if x != nil && x.OrganizationId != nil {
+		return *x.OrganizationId
 	}
 	return ""
 }
 
 func (x *RevokeRoleRequest) GetMetadata() *proto.RequestMetadata {
 	if x != nil {
-		return x.xxx_hidden_Metadata
+		return x.Metadata
 	}
 	return nil
 }
 
 func (x *RevokeRoleRequest) GetRevokedBy() string {
-	if x != nil {
-		if x.xxx_hidden_RevokedBy != nil {
-			return *x.xxx_hidden_RevokedBy
-		}
-		return ""
+	if x != nil && x.RevokedBy != nil {
+		return *x.RevokedBy
 	}
 	return ""
 }
 
 func (x *RevokeRoleRequest) GetReason() string {
-	if x != nil {
-		if x.xxx_hidden_Reason != nil {
-			return *x.xxx_hidden_Reason
-		}
-		return ""
+	if x != nil && x.Reason != nil {
+		return *x.Reason
 	}
 	return ""
 }
 
 func (x *RevokeRoleRequest) GetForce() bool {
-	if x != nil {
-		return x.xxx_hidden_Force
+	if x != nil && x.Force != nil {
+		return *x.Force
 	}
 	return false
-}
-
-func (x *RevokeRoleRequest) SetUserId(v string) {
-	x.xxx_hidden_UserId = &v
-	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 0, 7)
-}
-
-func (x *RevokeRoleRequest) SetRoleId(v string) {
-	x.xxx_hidden_RoleId = &v
-	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 1, 7)
-}
-
-func (x *RevokeRoleRequest) SetOrganizationId(v string) {
-	x.xxx_hidden_OrganizationId = &v
-	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 2, 7)
-}
-
-func (x *RevokeRoleRequest) SetMetadata(v *proto.RequestMetadata) {
-	x.xxx_hidden_Metadata = v
-}
-
-func (x *RevokeRoleRequest) SetRevokedBy(v string) {
-	x.xxx_hidden_RevokedBy = &v
-	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 4, 7)
-}
-
-func (x *RevokeRoleRequest) SetReason(v string) {
-	x.xxx_hidden_Reason = &v
-	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 5, 7)
-}
-
-func (x *RevokeRoleRequest) SetForce(v bool) {
-	x.xxx_hidden_Force = v
-	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 6, 7)
-}
-
-func (x *RevokeRoleRequest) HasUserId() bool {
-	if x == nil {
-		return false
-	}
-	return protoimpl.X.Present(&(x.XXX_presence[0]), 0)
-}
-
-func (x *RevokeRoleRequest) HasRoleId() bool {
-	if x == nil {
-		return false
-	}
-	return protoimpl.X.Present(&(x.XXX_presence[0]), 1)
-}
-
-func (x *RevokeRoleRequest) HasOrganizationId() bool {
-	if x == nil {
-		return false
-	}
-	return protoimpl.X.Present(&(x.XXX_presence[0]), 2)
-}
-
-func (x *RevokeRoleRequest) HasMetadata() bool {
-	if x == nil {
-		return false
-	}
-	return x.xxx_hidden_Metadata != nil
-}
-
-func (x *RevokeRoleRequest) HasRevokedBy() bool {
-	if x == nil {
-		return false
-	}
-	return protoimpl.X.Present(&(x.XXX_presence[0]), 4)
-}
-
-func (x *RevokeRoleRequest) HasReason() bool {
-	if x == nil {
-		return false
-	}
-	return protoimpl.X.Present(&(x.XXX_presence[0]), 5)
-}
-
-func (x *RevokeRoleRequest) HasForce() bool {
-	if x == nil {
-		return false
-	}
-	return protoimpl.X.Present(&(x.XXX_presence[0]), 6)
-}
-
-func (x *RevokeRoleRequest) ClearUserId() {
-	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 0)
-	x.xxx_hidden_UserId = nil
-}
-
-func (x *RevokeRoleRequest) ClearRoleId() {
-	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 1)
-	x.xxx_hidden_RoleId = nil
-}
-
-func (x *RevokeRoleRequest) ClearOrganizationId() {
-	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 2)
-	x.xxx_hidden_OrganizationId = nil
-}
-
-func (x *RevokeRoleRequest) ClearMetadata() {
-	x.xxx_hidden_Metadata = nil
-}
-
-func (x *RevokeRoleRequest) ClearRevokedBy() {
-	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 4)
-	x.xxx_hidden_RevokedBy = nil
-}
-
-func (x *RevokeRoleRequest) ClearReason() {
-	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 5)
-	x.xxx_hidden_Reason = nil
-}
-
-func (x *RevokeRoleRequest) ClearForce() {
-	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 6)
-	x.xxx_hidden_Force = false
-}
-
-type RevokeRoleRequest_builder struct {
-	_ [0]func() // Prevents comparability and use of unkeyed literals for the builder.
-
-	// User ID to revoke role from (required)
-	UserId *string
-	// Role ID to revoke (required)
-	RoleId *string
-	// Optional organization context for scoped role revocation
-	OrganizationId *string
-	// Request metadata for tracing and correlation
-	Metadata *proto.RequestMetadata
-	// Audit information for tracking who made the revocation
-	RevokedBy *string
-	// Reason for role revocation (optional)
-	Reason *string
-	// Whether to force revocation even if user has dependencies
-	Force *bool
-}
-
-func (b0 RevokeRoleRequest_builder) Build() *RevokeRoleRequest {
-	m0 := &RevokeRoleRequest{}
-	b, x := &b0, m0
-	_, _ = b, x
-	if b.UserId != nil {
-		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 0, 7)
-		x.xxx_hidden_UserId = b.UserId
-	}
-	if b.RoleId != nil {
-		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 1, 7)
-		x.xxx_hidden_RoleId = b.RoleId
-	}
-	if b.OrganizationId != nil {
-		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 2, 7)
-		x.xxx_hidden_OrganizationId = b.OrganizationId
-	}
-	x.xxx_hidden_Metadata = b.Metadata
-	if b.RevokedBy != nil {
-		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 4, 7)
-		x.xxx_hidden_RevokedBy = b.RevokedBy
-	}
-	if b.Reason != nil {
-		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 5, 7)
-		x.xxx_hidden_Reason = b.Reason
-	}
-	if b.Force != nil {
-		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 6, 7)
-		x.xxx_hidden_Force = *b.Force
-	}
-	return m0
 }
 
 var File_pkg_auth_proto_revoke_role_request_proto protoreflect.FileDescriptor
 
 const file_pkg_auth_proto_revoke_role_request_proto_rawDesc = "" +
 	"\n" +
-	"(pkg/auth/proto/revoke_role_request.proto\x12\x0fgcommon.v1.auth\x1a!google/protobuf/go_features.proto\x1a\x19pkg/auth/proto/role.proto\x1a'pkg/common/proto/request_metadata.proto\"\xfb\x01\n" +
+	"(pkg/auth/proto/revoke_role_request.proto\x12\x0fgcommon.v1.auth\x1a\x19pkg/auth/proto/role.proto\x1a'pkg/common/proto/request_metadata.proto\"\xfb\x01\n" +
 	"\x11RevokeRoleRequest\x12\x17\n" +
 	"\auser_id\x18\x01 \x01(\tR\x06userId\x12\x17\n" +
 	"\arole_id\x18\x02 \x01(\tR\x06roleId\x12'\n" +
@@ -311,8 +138,20 @@ const file_pkg_auth_proto_revoke_role_request_proto_rawDesc = "" +
 	"\n" +
 	"revoked_by\x18\x05 \x01(\tR\trevokedBy\x12\x16\n" +
 	"\x06reason\x18\x06 \x01(\tR\x06reason\x12\x14\n" +
-	"\x05force\x18\a \x01(\bR\x05forceB\xbd\x01\n" +
-	"\x13com.gcommon.v1.authB\x16RevokeRoleRequestProtoP\x01Z(github.com/jdfalk/gcommon/pkg/auth/proto\xa2\x02\x03GVA\xaa\x02\x0fGcommon.V1.Auth\xca\x02\x0fGcommon\\V1\\Auth\xe2\x02\x1bGcommon\\V1\\Auth\\GPBMetadata\xea\x02\x11Gcommon::V1::Auth\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"\x05force\x18\a \x01(\bR\x05forceB\xb5\x01\n" +
+	"\x13com.gcommon.v1.authB\x16RevokeRoleRequestProtoP\x01Z(github.com/jdfalk/gcommon/pkg/auth/proto\xa2\x02\x03GVA\xaa\x02\x0fGcommon.V1.Auth\xca\x02\x0fGcommon\\V1\\Auth\xe2\x02\x1bGcommon\\V1\\Auth\\GPBMetadata\xea\x02\x11Gcommon::V1::Authb\beditionsp\xe8\a"
+
+var (
+	file_pkg_auth_proto_revoke_role_request_proto_rawDescOnce sync.Once
+	file_pkg_auth_proto_revoke_role_request_proto_rawDescData []byte
+)
+
+func file_pkg_auth_proto_revoke_role_request_proto_rawDescGZIP() []byte {
+	file_pkg_auth_proto_revoke_role_request_proto_rawDescOnce.Do(func() {
+		file_pkg_auth_proto_revoke_role_request_proto_rawDescData = protoimpl.X.CompressGZIP(unsafe.Slice(unsafe.StringData(file_pkg_auth_proto_revoke_role_request_proto_rawDesc), len(file_pkg_auth_proto_revoke_role_request_proto_rawDesc)))
+	})
+	return file_pkg_auth_proto_revoke_role_request_proto_rawDescData
+}
 
 var file_pkg_auth_proto_revoke_role_request_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_pkg_auth_proto_revoke_role_request_proto_goTypes = []any{

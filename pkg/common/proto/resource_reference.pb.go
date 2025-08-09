@@ -9,8 +9,8 @@ package proto
 import (
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
-	_ "google.golang.org/protobuf/types/gofeaturespb"
 	reflect "reflect"
+	sync "sync"
 	unsafe "unsafe"
 )
 
@@ -26,15 +26,17 @@ const (
 // Provides a standardized way to reference resources across different
 // GCommon modules with consistent identification and ownership tracking.
 type ResourceReference struct {
-	state                  protoimpl.MessageState `protogen:"opaque.v1"`
-	xxx_hidden_Type        *string                `protobuf:"bytes,1,opt,name=type"`
-	xxx_hidden_Id          *string                `protobuf:"bytes,2,opt,name=id"`
-	xxx_hidden_Name        *string                `protobuf:"bytes,3,opt,name=name"`
-	xxx_hidden_Module      *string                `protobuf:"bytes,4,opt,name=module"`
-	XXX_raceDetectHookData protoimpl.RaceDetectHookData
-	XXX_presence           [1]uint32
-	unknownFields          protoimpl.UnknownFields
-	sizeCache              protoimpl.SizeCache
+	state protoimpl.MessageState `protogen:"open.v1"`
+	// Resource type identifier (e.g., "user", "config", "queue", "metric")
+	Type *string `protobuf:"bytes,1,opt,name=type" json:"type,omitempty"`
+	// Unique resource identifier within the module
+	Id *string `protobuf:"bytes,2,opt,name=id" json:"id,omitempty"`
+	// Human-readable resource name for display purposes
+	Name *string `protobuf:"bytes,3,opt,name=name" json:"name,omitempty"`
+	// Module that owns and manages this resource
+	Module        *string `protobuf:"bytes,4,opt,name=module" json:"module,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
 }
 
 func (x *ResourceReference) Reset() {
@@ -62,161 +64,62 @@ func (x *ResourceReference) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
+// Deprecated: Use ResourceReference.ProtoReflect.Descriptor instead.
+func (*ResourceReference) Descriptor() ([]byte, []int) {
+	return file_pkg_common_proto_resource_reference_proto_rawDescGZIP(), []int{0}
+}
+
 func (x *ResourceReference) GetType() string {
-	if x != nil {
-		if x.xxx_hidden_Type != nil {
-			return *x.xxx_hidden_Type
-		}
-		return ""
+	if x != nil && x.Type != nil {
+		return *x.Type
 	}
 	return ""
 }
 
 func (x *ResourceReference) GetId() string {
-	if x != nil {
-		if x.xxx_hidden_Id != nil {
-			return *x.xxx_hidden_Id
-		}
-		return ""
+	if x != nil && x.Id != nil {
+		return *x.Id
 	}
 	return ""
 }
 
 func (x *ResourceReference) GetName() string {
-	if x != nil {
-		if x.xxx_hidden_Name != nil {
-			return *x.xxx_hidden_Name
-		}
-		return ""
+	if x != nil && x.Name != nil {
+		return *x.Name
 	}
 	return ""
 }
 
 func (x *ResourceReference) GetModule() string {
-	if x != nil {
-		if x.xxx_hidden_Module != nil {
-			return *x.xxx_hidden_Module
-		}
-		return ""
+	if x != nil && x.Module != nil {
+		return *x.Module
 	}
 	return ""
-}
-
-func (x *ResourceReference) SetType(v string) {
-	x.xxx_hidden_Type = &v
-	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 0, 4)
-}
-
-func (x *ResourceReference) SetId(v string) {
-	x.xxx_hidden_Id = &v
-	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 1, 4)
-}
-
-func (x *ResourceReference) SetName(v string) {
-	x.xxx_hidden_Name = &v
-	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 2, 4)
-}
-
-func (x *ResourceReference) SetModule(v string) {
-	x.xxx_hidden_Module = &v
-	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 3, 4)
-}
-
-func (x *ResourceReference) HasType() bool {
-	if x == nil {
-		return false
-	}
-	return protoimpl.X.Present(&(x.XXX_presence[0]), 0)
-}
-
-func (x *ResourceReference) HasId() bool {
-	if x == nil {
-		return false
-	}
-	return protoimpl.X.Present(&(x.XXX_presence[0]), 1)
-}
-
-func (x *ResourceReference) HasName() bool {
-	if x == nil {
-		return false
-	}
-	return protoimpl.X.Present(&(x.XXX_presence[0]), 2)
-}
-
-func (x *ResourceReference) HasModule() bool {
-	if x == nil {
-		return false
-	}
-	return protoimpl.X.Present(&(x.XXX_presence[0]), 3)
-}
-
-func (x *ResourceReference) ClearType() {
-	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 0)
-	x.xxx_hidden_Type = nil
-}
-
-func (x *ResourceReference) ClearId() {
-	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 1)
-	x.xxx_hidden_Id = nil
-}
-
-func (x *ResourceReference) ClearName() {
-	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 2)
-	x.xxx_hidden_Name = nil
-}
-
-func (x *ResourceReference) ClearModule() {
-	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 3)
-	x.xxx_hidden_Module = nil
-}
-
-type ResourceReference_builder struct {
-	_ [0]func() // Prevents comparability and use of unkeyed literals for the builder.
-
-	// Resource type identifier (e.g., "user", "config", "queue", "metric")
-	Type *string
-	// Unique resource identifier within the module
-	Id *string
-	// Human-readable resource name for display purposes
-	Name *string
-	// Module that owns and manages this resource
-	Module *string
-}
-
-func (b0 ResourceReference_builder) Build() *ResourceReference {
-	m0 := &ResourceReference{}
-	b, x := &b0, m0
-	_, _ = b, x
-	if b.Type != nil {
-		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 0, 4)
-		x.xxx_hidden_Type = b.Type
-	}
-	if b.Id != nil {
-		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 1, 4)
-		x.xxx_hidden_Id = b.Id
-	}
-	if b.Name != nil {
-		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 2, 4)
-		x.xxx_hidden_Name = b.Name
-	}
-	if b.Module != nil {
-		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 3, 4)
-		x.xxx_hidden_Module = b.Module
-	}
-	return m0
 }
 
 var File_pkg_common_proto_resource_reference_proto protoreflect.FileDescriptor
 
 const file_pkg_common_proto_resource_reference_proto_rawDesc = "" +
 	"\n" +
-	")pkg/common/proto/resource_reference.proto\x12\x11gcommon.v1.common\x1a!google/protobuf/go_features.proto\"c\n" +
+	")pkg/common/proto/resource_reference.proto\x12\x11gcommon.v1.common\"c\n" +
 	"\x11ResourceReference\x12\x12\n" +
 	"\x04type\x18\x01 \x01(\tR\x04type\x12\x0e\n" +
 	"\x02id\x18\x02 \x01(\tR\x02id\x12\x12\n" +
 	"\x04name\x18\x03 \x01(\tR\x04name\x12\x16\n" +
-	"\x06module\x18\x04 \x01(\tR\x06moduleB\xc9\x01\n" +
-	"\x15com.gcommon.v1.commonB\x16ResourceReferenceProtoP\x01Z*github.com/jdfalk/gcommon/pkg/common/proto\xa2\x02\x03GVC\xaa\x02\x11Gcommon.V1.Common\xca\x02\x11Gcommon\\V1\\Common\xe2\x02\x1dGcommon\\V1\\Common\\GPBMetadata\xea\x02\x13Gcommon::V1::Common\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"\x06module\x18\x04 \x01(\tR\x06moduleB\xc1\x01\n" +
+	"\x15com.gcommon.v1.commonB\x16ResourceReferenceProtoP\x01Z*github.com/jdfalk/gcommon/pkg/common/proto\xa2\x02\x03GVC\xaa\x02\x11Gcommon.V1.Common\xca\x02\x11Gcommon\\V1\\Common\xe2\x02\x1dGcommon\\V1\\Common\\GPBMetadata\xea\x02\x13Gcommon::V1::Commonb\beditionsp\xe8\a"
+
+var (
+	file_pkg_common_proto_resource_reference_proto_rawDescOnce sync.Once
+	file_pkg_common_proto_resource_reference_proto_rawDescData []byte
+)
+
+func file_pkg_common_proto_resource_reference_proto_rawDescGZIP() []byte {
+	file_pkg_common_proto_resource_reference_proto_rawDescOnce.Do(func() {
+		file_pkg_common_proto_resource_reference_proto_rawDescData = protoimpl.X.CompressGZIP(unsafe.Slice(unsafe.StringData(file_pkg_common_proto_resource_reference_proto_rawDesc), len(file_pkg_common_proto_resource_reference_proto_rawDesc)))
+	})
+	return file_pkg_common_proto_resource_reference_proto_rawDescData
+}
 
 var file_pkg_common_proto_resource_reference_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_pkg_common_proto_resource_reference_proto_goTypes = []any{

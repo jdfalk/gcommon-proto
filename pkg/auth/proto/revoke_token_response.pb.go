@@ -9,9 +9,9 @@ package proto
 import (
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
-	_ "google.golang.org/protobuf/types/gofeaturespb"
 	timestamppb "google.golang.org/protobuf/types/known/timestamppb"
 	reflect "reflect"
+	sync "sync"
 	unsafe "unsafe"
 )
 
@@ -27,17 +27,21 @@ const (
 // Provides information about the revoked token and revocation timestamp
 // for audit logging and confirmation purposes.
 type RevokeTokenResponse struct {
-	state                         protoimpl.MessageState `protogen:"opaque.v1"`
-	xxx_hidden_TokenId            *string                `protobuf:"bytes,1,opt,name=token_id,json=tokenId"`
-	xxx_hidden_TokenType          *string                `protobuf:"bytes,2,opt,name=token_type,json=tokenType"`
-	xxx_hidden_RevokedAt          *timestamppb.Timestamp `protobuf:"bytes,3,opt,name=revoked_at,json=revokedAt"`
-	xxx_hidden_UserId             *string                `protobuf:"bytes,4,opt,name=user_id,json=userId"`
-	xxx_hidden_RevocationReason   *string                `protobuf:"bytes,5,opt,name=revocation_reason,json=revocationReason"`
-	xxx_hidden_LastTokenInSession bool                   `protobuf:"varint,6,opt,name=last_token_in_session,json=lastTokenInSession"`
-	XXX_raceDetectHookData        protoimpl.RaceDetectHookData
-	XXX_presence                  [1]uint32
-	unknownFields                 protoimpl.UnknownFields
-	sizeCache                     protoimpl.SizeCache
+	state protoimpl.MessageState `protogen:"open.v1"`
+	// Token ID that was revoked
+	TokenId *string `protobuf:"bytes,1,opt,name=token_id,json=tokenId" json:"token_id,omitempty"`
+	// Type of token that was revoked (access, refresh, etc.)
+	TokenType *string `protobuf:"bytes,2,opt,name=token_type,json=tokenType" json:"token_type,omitempty"`
+	// Timestamp when the token was revoked
+	RevokedAt *timestamppb.Timestamp `protobuf:"bytes,3,opt,name=revoked_at,json=revokedAt" json:"revoked_at,omitempty"`
+	// User ID associated with the revoked token
+	UserId *string `protobuf:"bytes,4,opt,name=user_id,json=userId" json:"user_id,omitempty"`
+	// Reason for revocation (logout, security, expiry, etc.)
+	RevocationReason *string `protobuf:"bytes,5,opt,name=revocation_reason,json=revocationReason" json:"revocation_reason,omitempty"`
+	// Whether this was the last token for the user session
+	LastTokenInSession *bool `protobuf:"varint,6,opt,name=last_token_in_session,json=lastTokenInSession" json:"last_token_in_session,omitempty"`
+	unknownFields      protoimpl.UnknownFields
+	sizeCache          protoimpl.SizeCache
 }
 
 func (x *RevokeTokenResponse) Reset() {
@@ -65,210 +69,58 @@ func (x *RevokeTokenResponse) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
+// Deprecated: Use RevokeTokenResponse.ProtoReflect.Descriptor instead.
+func (*RevokeTokenResponse) Descriptor() ([]byte, []int) {
+	return file_pkg_auth_proto_revoke_token_response_proto_rawDescGZIP(), []int{0}
+}
+
 func (x *RevokeTokenResponse) GetTokenId() string {
-	if x != nil {
-		if x.xxx_hidden_TokenId != nil {
-			return *x.xxx_hidden_TokenId
-		}
-		return ""
+	if x != nil && x.TokenId != nil {
+		return *x.TokenId
 	}
 	return ""
 }
 
 func (x *RevokeTokenResponse) GetTokenType() string {
-	if x != nil {
-		if x.xxx_hidden_TokenType != nil {
-			return *x.xxx_hidden_TokenType
-		}
-		return ""
+	if x != nil && x.TokenType != nil {
+		return *x.TokenType
 	}
 	return ""
 }
 
 func (x *RevokeTokenResponse) GetRevokedAt() *timestamppb.Timestamp {
 	if x != nil {
-		return x.xxx_hidden_RevokedAt
+		return x.RevokedAt
 	}
 	return nil
 }
 
 func (x *RevokeTokenResponse) GetUserId() string {
-	if x != nil {
-		if x.xxx_hidden_UserId != nil {
-			return *x.xxx_hidden_UserId
-		}
-		return ""
+	if x != nil && x.UserId != nil {
+		return *x.UserId
 	}
 	return ""
 }
 
 func (x *RevokeTokenResponse) GetRevocationReason() string {
-	if x != nil {
-		if x.xxx_hidden_RevocationReason != nil {
-			return *x.xxx_hidden_RevocationReason
-		}
-		return ""
+	if x != nil && x.RevocationReason != nil {
+		return *x.RevocationReason
 	}
 	return ""
 }
 
 func (x *RevokeTokenResponse) GetLastTokenInSession() bool {
-	if x != nil {
-		return x.xxx_hidden_LastTokenInSession
+	if x != nil && x.LastTokenInSession != nil {
+		return *x.LastTokenInSession
 	}
 	return false
-}
-
-func (x *RevokeTokenResponse) SetTokenId(v string) {
-	x.xxx_hidden_TokenId = &v
-	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 0, 6)
-}
-
-func (x *RevokeTokenResponse) SetTokenType(v string) {
-	x.xxx_hidden_TokenType = &v
-	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 1, 6)
-}
-
-func (x *RevokeTokenResponse) SetRevokedAt(v *timestamppb.Timestamp) {
-	x.xxx_hidden_RevokedAt = v
-}
-
-func (x *RevokeTokenResponse) SetUserId(v string) {
-	x.xxx_hidden_UserId = &v
-	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 3, 6)
-}
-
-func (x *RevokeTokenResponse) SetRevocationReason(v string) {
-	x.xxx_hidden_RevocationReason = &v
-	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 4, 6)
-}
-
-func (x *RevokeTokenResponse) SetLastTokenInSession(v bool) {
-	x.xxx_hidden_LastTokenInSession = v
-	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 5, 6)
-}
-
-func (x *RevokeTokenResponse) HasTokenId() bool {
-	if x == nil {
-		return false
-	}
-	return protoimpl.X.Present(&(x.XXX_presence[0]), 0)
-}
-
-func (x *RevokeTokenResponse) HasTokenType() bool {
-	if x == nil {
-		return false
-	}
-	return protoimpl.X.Present(&(x.XXX_presence[0]), 1)
-}
-
-func (x *RevokeTokenResponse) HasRevokedAt() bool {
-	if x == nil {
-		return false
-	}
-	return x.xxx_hidden_RevokedAt != nil
-}
-
-func (x *RevokeTokenResponse) HasUserId() bool {
-	if x == nil {
-		return false
-	}
-	return protoimpl.X.Present(&(x.XXX_presence[0]), 3)
-}
-
-func (x *RevokeTokenResponse) HasRevocationReason() bool {
-	if x == nil {
-		return false
-	}
-	return protoimpl.X.Present(&(x.XXX_presence[0]), 4)
-}
-
-func (x *RevokeTokenResponse) HasLastTokenInSession() bool {
-	if x == nil {
-		return false
-	}
-	return protoimpl.X.Present(&(x.XXX_presence[0]), 5)
-}
-
-func (x *RevokeTokenResponse) ClearTokenId() {
-	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 0)
-	x.xxx_hidden_TokenId = nil
-}
-
-func (x *RevokeTokenResponse) ClearTokenType() {
-	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 1)
-	x.xxx_hidden_TokenType = nil
-}
-
-func (x *RevokeTokenResponse) ClearRevokedAt() {
-	x.xxx_hidden_RevokedAt = nil
-}
-
-func (x *RevokeTokenResponse) ClearUserId() {
-	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 3)
-	x.xxx_hidden_UserId = nil
-}
-
-func (x *RevokeTokenResponse) ClearRevocationReason() {
-	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 4)
-	x.xxx_hidden_RevocationReason = nil
-}
-
-func (x *RevokeTokenResponse) ClearLastTokenInSession() {
-	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 5)
-	x.xxx_hidden_LastTokenInSession = false
-}
-
-type RevokeTokenResponse_builder struct {
-	_ [0]func() // Prevents comparability and use of unkeyed literals for the builder.
-
-	// Token ID that was revoked
-	TokenId *string
-	// Type of token that was revoked (access, refresh, etc.)
-	TokenType *string
-	// Timestamp when the token was revoked
-	RevokedAt *timestamppb.Timestamp
-	// User ID associated with the revoked token
-	UserId *string
-	// Reason for revocation (logout, security, expiry, etc.)
-	RevocationReason *string
-	// Whether this was the last token for the user session
-	LastTokenInSession *bool
-}
-
-func (b0 RevokeTokenResponse_builder) Build() *RevokeTokenResponse {
-	m0 := &RevokeTokenResponse{}
-	b, x := &b0, m0
-	_, _ = b, x
-	if b.TokenId != nil {
-		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 0, 6)
-		x.xxx_hidden_TokenId = b.TokenId
-	}
-	if b.TokenType != nil {
-		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 1, 6)
-		x.xxx_hidden_TokenType = b.TokenType
-	}
-	x.xxx_hidden_RevokedAt = b.RevokedAt
-	if b.UserId != nil {
-		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 3, 6)
-		x.xxx_hidden_UserId = b.UserId
-	}
-	if b.RevocationReason != nil {
-		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 4, 6)
-		x.xxx_hidden_RevocationReason = b.RevocationReason
-	}
-	if b.LastTokenInSession != nil {
-		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 5, 6)
-		x.xxx_hidden_LastTokenInSession = *b.LastTokenInSession
-	}
-	return m0
 }
 
 var File_pkg_auth_proto_revoke_token_response_proto protoreflect.FileDescriptor
 
 const file_pkg_auth_proto_revoke_token_response_proto_rawDesc = "" +
 	"\n" +
-	"*pkg/auth/proto/revoke_token_response.proto\x12\x0fgcommon.v1.auth\x1a!google/protobuf/go_features.proto\x1a\x1fgoogle/protobuf/timestamp.proto\"\x83\x02\n" +
+	"*pkg/auth/proto/revoke_token_response.proto\x12\x0fgcommon.v1.auth\x1a\x1fgoogle/protobuf/timestamp.proto\"\x83\x02\n" +
 	"\x13RevokeTokenResponse\x12\x19\n" +
 	"\btoken_id\x18\x01 \x01(\tR\atokenId\x12\x1d\n" +
 	"\n" +
@@ -277,8 +129,20 @@ const file_pkg_auth_proto_revoke_token_response_proto_rawDesc = "" +
 	"revoked_at\x18\x03 \x01(\v2\x1a.google.protobuf.TimestampR\trevokedAt\x12\x17\n" +
 	"\auser_id\x18\x04 \x01(\tR\x06userId\x12+\n" +
 	"\x11revocation_reason\x18\x05 \x01(\tR\x10revocationReason\x121\n" +
-	"\x15last_token_in_session\x18\x06 \x01(\bR\x12lastTokenInSessionB\xbf\x01\n" +
-	"\x13com.gcommon.v1.authB\x18RevokeTokenResponseProtoP\x01Z(github.com/jdfalk/gcommon/pkg/auth/proto\xa2\x02\x03GVA\xaa\x02\x0fGcommon.V1.Auth\xca\x02\x0fGcommon\\V1\\Auth\xe2\x02\x1bGcommon\\V1\\Auth\\GPBMetadata\xea\x02\x11Gcommon::V1::Auth\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"\x15last_token_in_session\x18\x06 \x01(\bR\x12lastTokenInSessionB\xb7\x01\n" +
+	"\x13com.gcommon.v1.authB\x18RevokeTokenResponseProtoP\x01Z(github.com/jdfalk/gcommon/pkg/auth/proto\xa2\x02\x03GVA\xaa\x02\x0fGcommon.V1.Auth\xca\x02\x0fGcommon\\V1\\Auth\xe2\x02\x1bGcommon\\V1\\Auth\\GPBMetadata\xea\x02\x11Gcommon::V1::Authb\beditionsp\xe8\a"
+
+var (
+	file_pkg_auth_proto_revoke_token_response_proto_rawDescOnce sync.Once
+	file_pkg_auth_proto_revoke_token_response_proto_rawDescData []byte
+)
+
+func file_pkg_auth_proto_revoke_token_response_proto_rawDescGZIP() []byte {
+	file_pkg_auth_proto_revoke_token_response_proto_rawDescOnce.Do(func() {
+		file_pkg_auth_proto_revoke_token_response_proto_rawDescData = protoimpl.X.CompressGZIP(unsafe.Slice(unsafe.StringData(file_pkg_auth_proto_revoke_token_response_proto_rawDesc), len(file_pkg_auth_proto_revoke_token_response_proto_rawDesc)))
+	})
+	return file_pkg_auth_proto_revoke_token_response_proto_rawDescData
+}
 
 var file_pkg_auth_proto_revoke_token_response_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_pkg_auth_proto_revoke_token_response_proto_goTypes = []any{

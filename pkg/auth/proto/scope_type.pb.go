@@ -9,8 +9,8 @@ package proto
 import (
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
-	_ "google.golang.org/protobuf/types/gofeaturespb"
 	reflect "reflect"
+	sync "sync"
 	unsafe "unsafe"
 )
 
@@ -78,18 +78,35 @@ func (x ScopeType) Number() protoreflect.EnumNumber {
 	return protoreflect.EnumNumber(x)
 }
 
+// Deprecated: Use ScopeType.Descriptor instead.
+func (ScopeType) EnumDescriptor() ([]byte, []int) {
+	return file_pkg_auth_proto_scope_type_proto_rawDescGZIP(), []int{0}
+}
+
 var File_pkg_auth_proto_scope_type_proto protoreflect.FileDescriptor
 
 const file_pkg_auth_proto_scope_type_proto_rawDesc = "" +
 	"\n" +
-	"\x1fpkg/auth/proto/scope_type.proto\x12\x0fgcommon.v1.auth\x1a!google/protobuf/go_features.proto*\x8c\x01\n" +
+	"\x1fpkg/auth/proto/scope_type.proto\x12\x0fgcommon.v1.auth*\x8c\x01\n" +
 	"\tScopeType\x12\x1a\n" +
 	"\x16SCOPE_TYPE_UNSPECIFIED\x10\x00\x12\x15\n" +
 	"\x11SCOPE_TYPE_GLOBAL\x10\x01\x12\x1b\n" +
 	"\x17SCOPE_TYPE_ORGANIZATION\x10\x02\x12\x16\n" +
 	"\x12SCOPE_TYPE_PROJECT\x10\x03\x12\x17\n" +
-	"\x13SCOPE_TYPE_RESOURCE\x10\x04B\xb5\x01\n" +
-	"\x13com.gcommon.v1.authB\x0eScopeTypeProtoP\x01Z(github.com/jdfalk/gcommon/pkg/auth/proto\xa2\x02\x03GVA\xaa\x02\x0fGcommon.V1.Auth\xca\x02\x0fGcommon\\V1\\Auth\xe2\x02\x1bGcommon\\V1\\Auth\\GPBMetadata\xea\x02\x11Gcommon::V1::Auth\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"\x13SCOPE_TYPE_RESOURCE\x10\x04B\xad\x01\n" +
+	"\x13com.gcommon.v1.authB\x0eScopeTypeProtoP\x01Z(github.com/jdfalk/gcommon/pkg/auth/proto\xa2\x02\x03GVA\xaa\x02\x0fGcommon.V1.Auth\xca\x02\x0fGcommon\\V1\\Auth\xe2\x02\x1bGcommon\\V1\\Auth\\GPBMetadata\xea\x02\x11Gcommon::V1::Authb\beditionsp\xe8\a"
+
+var (
+	file_pkg_auth_proto_scope_type_proto_rawDescOnce sync.Once
+	file_pkg_auth_proto_scope_type_proto_rawDescData []byte
+)
+
+func file_pkg_auth_proto_scope_type_proto_rawDescGZIP() []byte {
+	file_pkg_auth_proto_scope_type_proto_rawDescOnce.Do(func() {
+		file_pkg_auth_proto_scope_type_proto_rawDescData = protoimpl.X.CompressGZIP(unsafe.Slice(unsafe.StringData(file_pkg_auth_proto_scope_type_proto_rawDesc), len(file_pkg_auth_proto_scope_type_proto_rawDesc)))
+	})
+	return file_pkg_auth_proto_scope_type_proto_rawDescData
+}
 
 var file_pkg_auth_proto_scope_type_proto_enumTypes = make([]protoimpl.EnumInfo, 1)
 var file_pkg_auth_proto_scope_type_proto_goTypes = []any{

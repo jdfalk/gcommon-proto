@@ -10,8 +10,8 @@ import (
 	proto "github.com/jdfalk/gcommon/pkg/common/proto"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
-	_ "google.golang.org/protobuf/types/gofeaturespb"
 	reflect "reflect"
+	sync "sync"
 	unsafe "unsafe"
 )
 
@@ -25,15 +25,13 @@ const (
 // *
 // Request to invalidate all sessions for a user.
 type InvalidateUserSessionsRequest struct {
-	state               protoimpl.MessageState `protogen:"opaque.v1"`
-	xxx_hidden_UserId   *string                `protobuf:"bytes,1,opt,name=user_id,json=userId"`
-	xxx_hidden_Metadata *proto.RequestMetadata `protobuf:"bytes,2,opt,name=metadata"`
-	// Deprecated: Do not use. This will be deleted in the near future.
-	XXX_lazyUnmarshalInfo  protoimpl.LazyUnmarshalInfo
-	XXX_raceDetectHookData protoimpl.RaceDetectHookData
-	XXX_presence           [1]uint32
-	unknownFields          protoimpl.UnknownFields
-	sizeCache              protoimpl.SizeCache
+	state protoimpl.MessageState `protogen:"open.v1"`
+	// User ID whose sessions should be invalidated
+	UserId *string `protobuf:"bytes,1,opt,name=user_id,json=userId" json:"user_id,omitempty"`
+	// Request metadata
+	Metadata      *proto.RequestMetadata `protobuf:"bytes,2,opt,name=metadata" json:"metadata,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
 }
 
 func (x *InvalidateUserSessionsRequest) Reset() {
@@ -61,101 +59,46 @@ func (x *InvalidateUserSessionsRequest) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
+// Deprecated: Use InvalidateUserSessionsRequest.ProtoReflect.Descriptor instead.
+func (*InvalidateUserSessionsRequest) Descriptor() ([]byte, []int) {
+	return file_pkg_auth_proto_invalidate_user_sessions_request_proto_rawDescGZIP(), []int{0}
+}
+
 func (x *InvalidateUserSessionsRequest) GetUserId() string {
-	if x != nil {
-		if x.xxx_hidden_UserId != nil {
-			return *x.xxx_hidden_UserId
-		}
-		return ""
+	if x != nil && x.UserId != nil {
+		return *x.UserId
 	}
 	return ""
 }
 
 func (x *InvalidateUserSessionsRequest) GetMetadata() *proto.RequestMetadata {
 	if x != nil {
-		if protoimpl.X.Present(&(x.XXX_presence[0]), 1) {
-			if protoimpl.X.AtomicCheckPointerIsNil(&x.xxx_hidden_Metadata) {
-				protoimpl.X.UnmarshalField(x, 2)
-			}
-			var rv *proto.RequestMetadata
-			protoimpl.X.AtomicLoadPointer(protoimpl.Pointer(&x.xxx_hidden_Metadata), protoimpl.Pointer(&rv))
-			return rv
-		}
+		return x.Metadata
 	}
 	return nil
-}
-
-func (x *InvalidateUserSessionsRequest) SetUserId(v string) {
-	x.xxx_hidden_UserId = &v
-	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 0, 2)
-}
-
-func (x *InvalidateUserSessionsRequest) SetMetadata(v *proto.RequestMetadata) {
-	protoimpl.X.AtomicSetPointer(&x.xxx_hidden_Metadata, v)
-	if v == nil {
-		protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 1)
-	} else {
-		protoimpl.X.SetPresent(&(x.XXX_presence[0]), 1, 2)
-	}
-}
-
-func (x *InvalidateUserSessionsRequest) HasUserId() bool {
-	if x == nil {
-		return false
-	}
-	return protoimpl.X.Present(&(x.XXX_presence[0]), 0)
-}
-
-func (x *InvalidateUserSessionsRequest) HasMetadata() bool {
-	if x == nil {
-		return false
-	}
-	return protoimpl.X.Present(&(x.XXX_presence[0]), 1)
-}
-
-func (x *InvalidateUserSessionsRequest) ClearUserId() {
-	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 0)
-	x.xxx_hidden_UserId = nil
-}
-
-func (x *InvalidateUserSessionsRequest) ClearMetadata() {
-	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 1)
-	protoimpl.X.AtomicSetPointer(&x.xxx_hidden_Metadata, (*proto.RequestMetadata)(nil))
-}
-
-type InvalidateUserSessionsRequest_builder struct {
-	_ [0]func() // Prevents comparability and use of unkeyed literals for the builder.
-
-	// User ID whose sessions should be invalidated
-	UserId *string
-	// Request metadata
-	Metadata *proto.RequestMetadata
-}
-
-func (b0 InvalidateUserSessionsRequest_builder) Build() *InvalidateUserSessionsRequest {
-	m0 := &InvalidateUserSessionsRequest{}
-	b, x := &b0, m0
-	_, _ = b, x
-	if b.UserId != nil {
-		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 0, 2)
-		x.xxx_hidden_UserId = b.UserId
-	}
-	if b.Metadata != nil {
-		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 1, 2)
-		x.xxx_hidden_Metadata = b.Metadata
-	}
-	return m0
 }
 
 var File_pkg_auth_proto_invalidate_user_sessions_request_proto protoreflect.FileDescriptor
 
 const file_pkg_auth_proto_invalidate_user_sessions_request_proto_rawDesc = "" +
 	"\n" +
-	"5pkg/auth/proto/invalidate_user_sessions_request.proto\x12\x0fgcommon.v1.auth\x1a!google/protobuf/go_features.proto\x1a'pkg/common/proto/request_metadata.proto\"|\n" +
+	"5pkg/auth/proto/invalidate_user_sessions_request.proto\x12\x0fgcommon.v1.auth\x1a'pkg/common/proto/request_metadata.proto\"|\n" +
 	"\x1dInvalidateUserSessionsRequest\x12\x17\n" +
 	"\auser_id\x18\x01 \x01(\tR\x06userId\x12B\n" +
-	"\bmetadata\x18\x02 \x01(\v2\".gcommon.v1.common.RequestMetadataB\x02(\x01R\bmetadataB\xc9\x01\n" +
-	"\x13com.gcommon.v1.authB\"InvalidateUserSessionsRequestProtoP\x01Z(github.com/jdfalk/gcommon/pkg/auth/proto\xa2\x02\x03GVA\xaa\x02\x0fGcommon.V1.Auth\xca\x02\x0fGcommon\\V1\\Auth\xe2\x02\x1bGcommon\\V1\\Auth\\GPBMetadata\xea\x02\x11Gcommon::V1::Auth\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"\bmetadata\x18\x02 \x01(\v2\".gcommon.v1.common.RequestMetadataB\x02(\x01R\bmetadataB\xc1\x01\n" +
+	"\x13com.gcommon.v1.authB\"InvalidateUserSessionsRequestProtoP\x01Z(github.com/jdfalk/gcommon/pkg/auth/proto\xa2\x02\x03GVA\xaa\x02\x0fGcommon.V1.Auth\xca\x02\x0fGcommon\\V1\\Auth\xe2\x02\x1bGcommon\\V1\\Auth\\GPBMetadata\xea\x02\x11Gcommon::V1::Authb\beditionsp\xe8\a"
+
+var (
+	file_pkg_auth_proto_invalidate_user_sessions_request_proto_rawDescOnce sync.Once
+	file_pkg_auth_proto_invalidate_user_sessions_request_proto_rawDescData []byte
+)
+
+func file_pkg_auth_proto_invalidate_user_sessions_request_proto_rawDescGZIP() []byte {
+	file_pkg_auth_proto_invalidate_user_sessions_request_proto_rawDescOnce.Do(func() {
+		file_pkg_auth_proto_invalidate_user_sessions_request_proto_rawDescData = protoimpl.X.CompressGZIP(unsafe.Slice(unsafe.StringData(file_pkg_auth_proto_invalidate_user_sessions_request_proto_rawDesc), len(file_pkg_auth_proto_invalidate_user_sessions_request_proto_rawDesc)))
+	})
+	return file_pkg_auth_proto_invalidate_user_sessions_request_proto_rawDescData
+}
 
 var file_pkg_auth_proto_invalidate_user_sessions_request_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_pkg_auth_proto_invalidate_user_sessions_request_proto_goTypes = []any{

@@ -9,8 +9,8 @@ package proto
 import (
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
-	_ "google.golang.org/protobuf/types/gofeaturespb"
 	reflect "reflect"
+	sync "sync"
 	unsafe "unsafe"
 )
 
@@ -26,17 +26,17 @@ const (
 // Includes direct permissions, role-based permissions, and effective permissions.
 // Provides comprehensive permission information for authorization decisions.
 type GetUserPermissionsResponse struct {
-	state                           protoimpl.MessageState `protogen:"opaque.v1"`
-	xxx_hidden_Permissions          []string               `protobuf:"bytes,1,rep,name=permissions"`
-	xxx_hidden_RolePermissions      []string               `protobuf:"bytes,2,rep,name=role_permissions,json=rolePermissions"`
-	xxx_hidden_EffectivePermissions []string               `protobuf:"bytes,3,rep,name=effective_permissions,json=effectivePermissions"`
-	xxx_hidden_Roles                *[]*Role               `protobuf:"bytes,4,rep,name=roles"`
-	// Deprecated: Do not use. This will be deleted in the near future.
-	XXX_lazyUnmarshalInfo  protoimpl.LazyUnmarshalInfo
-	XXX_raceDetectHookData protoimpl.RaceDetectHookData
-	XXX_presence           [1]uint32
-	unknownFields          protoimpl.UnknownFields
-	sizeCache              protoimpl.SizeCache
+	state protoimpl.MessageState `protogen:"open.v1"`
+	// Direct permissions assigned to the user
+	Permissions []string `protobuf:"bytes,1,rep,name=permissions" json:"permissions,omitempty"`
+	// Permissions inherited from roles
+	RolePermissions []string `protobuf:"bytes,2,rep,name=role_permissions,json=rolePermissions" json:"role_permissions,omitempty"`
+	// All effective permissions (union of direct and role permissions)
+	EffectivePermissions []string `protobuf:"bytes,3,rep,name=effective_permissions,json=effectivePermissions" json:"effective_permissions,omitempty"`
+	// User's roles (includes permission details)
+	Roles         []*Role `protobuf:"bytes,4,rep,name=roles" json:"roles,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
 }
 
 func (x *GetUserPermissionsResponse) Reset() {
@@ -64,102 +64,62 @@ func (x *GetUserPermissionsResponse) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
+// Deprecated: Use GetUserPermissionsResponse.ProtoReflect.Descriptor instead.
+func (*GetUserPermissionsResponse) Descriptor() ([]byte, []int) {
+	return file_pkg_auth_proto_get_user_permissions_response_proto_rawDescGZIP(), []int{0}
+}
+
 func (x *GetUserPermissionsResponse) GetPermissions() []string {
 	if x != nil {
-		return x.xxx_hidden_Permissions
+		return x.Permissions
 	}
 	return nil
 }
 
 func (x *GetUserPermissionsResponse) GetRolePermissions() []string {
 	if x != nil {
-		return x.xxx_hidden_RolePermissions
+		return x.RolePermissions
 	}
 	return nil
 }
 
 func (x *GetUserPermissionsResponse) GetEffectivePermissions() []string {
 	if x != nil {
-		return x.xxx_hidden_EffectivePermissions
+		return x.EffectivePermissions
 	}
 	return nil
 }
 
 func (x *GetUserPermissionsResponse) GetRoles() []*Role {
 	if x != nil {
-		if protoimpl.X.Present(&(x.XXX_presence[0]), 3) {
-			if protoimpl.X.AtomicCheckPointerIsNil(&x.xxx_hidden_Roles) {
-				protoimpl.X.UnmarshalField(x, 4)
-			}
-			var rv *[]*Role
-			protoimpl.X.AtomicLoadPointer(protoimpl.Pointer(&x.xxx_hidden_Roles), protoimpl.Pointer(&rv))
-			return *rv
-		}
+		return x.Roles
 	}
 	return nil
-}
-
-func (x *GetUserPermissionsResponse) SetPermissions(v []string) {
-	x.xxx_hidden_Permissions = v
-}
-
-func (x *GetUserPermissionsResponse) SetRolePermissions(v []string) {
-	x.xxx_hidden_RolePermissions = v
-}
-
-func (x *GetUserPermissionsResponse) SetEffectivePermissions(v []string) {
-	x.xxx_hidden_EffectivePermissions = v
-}
-
-func (x *GetUserPermissionsResponse) SetRoles(v []*Role) {
-	var sv *[]*Role
-	protoimpl.X.AtomicLoadPointer(protoimpl.Pointer(&x.xxx_hidden_Roles), protoimpl.Pointer(&sv))
-	if sv == nil {
-		sv = &[]*Role{}
-		protoimpl.X.AtomicInitializePointer(protoimpl.Pointer(&x.xxx_hidden_Roles), protoimpl.Pointer(&sv))
-	}
-	*sv = v
-	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 3, 4)
-}
-
-type GetUserPermissionsResponse_builder struct {
-	_ [0]func() // Prevents comparability and use of unkeyed literals for the builder.
-
-	// Direct permissions assigned to the user
-	Permissions []string
-	// Permissions inherited from roles
-	RolePermissions []string
-	// All effective permissions (union of direct and role permissions)
-	EffectivePermissions []string
-	// User's roles (includes permission details)
-	Roles []*Role
-}
-
-func (b0 GetUserPermissionsResponse_builder) Build() *GetUserPermissionsResponse {
-	m0 := &GetUserPermissionsResponse{}
-	b, x := &b0, m0
-	_, _ = b, x
-	x.xxx_hidden_Permissions = b.Permissions
-	x.xxx_hidden_RolePermissions = b.RolePermissions
-	x.xxx_hidden_EffectivePermissions = b.EffectivePermissions
-	if b.Roles != nil {
-		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 3, 4)
-		x.xxx_hidden_Roles = &b.Roles
-	}
-	return m0
 }
 
 var File_pkg_auth_proto_get_user_permissions_response_proto protoreflect.FileDescriptor
 
 const file_pkg_auth_proto_get_user_permissions_response_proto_rawDesc = "" +
 	"\n" +
-	"2pkg/auth/proto/get_user_permissions_response.proto\x12\x0fgcommon.v1.auth\x1a!google/protobuf/go_features.proto\x1a\x19pkg/auth/proto/role.proto\"\xcf\x01\n" +
+	"2pkg/auth/proto/get_user_permissions_response.proto\x12\x0fgcommon.v1.auth\x1a\x19pkg/auth/proto/role.proto\"\xcf\x01\n" +
 	"\x1aGetUserPermissionsResponse\x12 \n" +
 	"\vpermissions\x18\x01 \x03(\tR\vpermissions\x12)\n" +
 	"\x10role_permissions\x18\x02 \x03(\tR\x0frolePermissions\x123\n" +
 	"\x15effective_permissions\x18\x03 \x03(\tR\x14effectivePermissions\x12/\n" +
-	"\x05roles\x18\x04 \x03(\v2\x15.gcommon.v1.auth.RoleB\x02(\x01R\x05rolesB\xc6\x01\n" +
-	"\x13com.gcommon.v1.authB\x1fGetUserPermissionsResponseProtoP\x01Z(github.com/jdfalk/gcommon/pkg/auth/proto\xa2\x02\x03GVA\xaa\x02\x0fGcommon.V1.Auth\xca\x02\x0fGcommon\\V1\\Auth\xe2\x02\x1bGcommon\\V1\\Auth\\GPBMetadata\xea\x02\x11Gcommon::V1::Auth\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"\x05roles\x18\x04 \x03(\v2\x15.gcommon.v1.auth.RoleB\x02(\x01R\x05rolesB\xbe\x01\n" +
+	"\x13com.gcommon.v1.authB\x1fGetUserPermissionsResponseProtoP\x01Z(github.com/jdfalk/gcommon/pkg/auth/proto\xa2\x02\x03GVA\xaa\x02\x0fGcommon.V1.Auth\xca\x02\x0fGcommon\\V1\\Auth\xe2\x02\x1bGcommon\\V1\\Auth\\GPBMetadata\xea\x02\x11Gcommon::V1::Authb\beditionsp\xe8\a"
+
+var (
+	file_pkg_auth_proto_get_user_permissions_response_proto_rawDescOnce sync.Once
+	file_pkg_auth_proto_get_user_permissions_response_proto_rawDescData []byte
+)
+
+func file_pkg_auth_proto_get_user_permissions_response_proto_rawDescGZIP() []byte {
+	file_pkg_auth_proto_get_user_permissions_response_proto_rawDescOnce.Do(func() {
+		file_pkg_auth_proto_get_user_permissions_response_proto_rawDescData = protoimpl.X.CompressGZIP(unsafe.Slice(unsafe.StringData(file_pkg_auth_proto_get_user_permissions_response_proto_rawDesc), len(file_pkg_auth_proto_get_user_permissions_response_proto_rawDesc)))
+	})
+	return file_pkg_auth_proto_get_user_permissions_response_proto_rawDescData
+}
 
 var file_pkg_auth_proto_get_user_permissions_response_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_pkg_auth_proto_get_user_permissions_response_proto_goTypes = []any{

@@ -9,8 +9,8 @@ package proto
 import (
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
-	_ "google.golang.org/protobuf/types/gofeaturespb"
 	reflect "reflect"
+	sync "sync"
 	unsafe "unsafe"
 )
 
@@ -25,13 +25,14 @@ const (
 // JWT (JSON Web Token) credentials for token-based authentication.
 // Supports validation of externally issued JWTs with optional issuer verification.
 type JWTCredentials struct {
-	state                  protoimpl.MessageState `protogen:"opaque.v1"`
-	xxx_hidden_Token       *string                `protobuf:"bytes,1,opt,name=token"`
-	xxx_hidden_Issuer      *string                `protobuf:"bytes,2,opt,name=issuer"`
-	XXX_raceDetectHookData protoimpl.RaceDetectHookData
-	XXX_presence           [1]uint32
-	unknownFields          protoimpl.UnknownFields
-	sizeCache              protoimpl.SizeCache
+	state protoimpl.MessageState `protogen:"open.v1"`
+	// JWT token string (header.payload.signature format)
+	Token *string `protobuf:"bytes,1,opt,name=token" json:"token,omitempty"`
+	// Expected issuer for JWT validation (optional)
+	// When provided, the JWT's 'iss' claim must match this value
+	Issuer        *string `protobuf:"bytes,2,opt,name=issuer" json:"issuer,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
 }
 
 func (x *JWTCredentials) Reset() {
@@ -59,94 +60,46 @@ func (x *JWTCredentials) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
+// Deprecated: Use JWTCredentials.ProtoReflect.Descriptor instead.
+func (*JWTCredentials) Descriptor() ([]byte, []int) {
+	return file_pkg_auth_proto_jwt_credentials_proto_rawDescGZIP(), []int{0}
+}
+
 func (x *JWTCredentials) GetToken() string {
-	if x != nil {
-		if x.xxx_hidden_Token != nil {
-			return *x.xxx_hidden_Token
-		}
-		return ""
+	if x != nil && x.Token != nil {
+		return *x.Token
 	}
 	return ""
 }
 
 func (x *JWTCredentials) GetIssuer() string {
-	if x != nil {
-		if x.xxx_hidden_Issuer != nil {
-			return *x.xxx_hidden_Issuer
-		}
-		return ""
+	if x != nil && x.Issuer != nil {
+		return *x.Issuer
 	}
 	return ""
-}
-
-func (x *JWTCredentials) SetToken(v string) {
-	x.xxx_hidden_Token = &v
-	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 0, 2)
-}
-
-func (x *JWTCredentials) SetIssuer(v string) {
-	x.xxx_hidden_Issuer = &v
-	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 1, 2)
-}
-
-func (x *JWTCredentials) HasToken() bool {
-	if x == nil {
-		return false
-	}
-	return protoimpl.X.Present(&(x.XXX_presence[0]), 0)
-}
-
-func (x *JWTCredentials) HasIssuer() bool {
-	if x == nil {
-		return false
-	}
-	return protoimpl.X.Present(&(x.XXX_presence[0]), 1)
-}
-
-func (x *JWTCredentials) ClearToken() {
-	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 0)
-	x.xxx_hidden_Token = nil
-}
-
-func (x *JWTCredentials) ClearIssuer() {
-	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 1)
-	x.xxx_hidden_Issuer = nil
-}
-
-type JWTCredentials_builder struct {
-	_ [0]func() // Prevents comparability and use of unkeyed literals for the builder.
-
-	// JWT token string (header.payload.signature format)
-	Token *string
-	// Expected issuer for JWT validation (optional)
-	// When provided, the JWT's 'iss' claim must match this value
-	Issuer *string
-}
-
-func (b0 JWTCredentials_builder) Build() *JWTCredentials {
-	m0 := &JWTCredentials{}
-	b, x := &b0, m0
-	_, _ = b, x
-	if b.Token != nil {
-		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 0, 2)
-		x.xxx_hidden_Token = b.Token
-	}
-	if b.Issuer != nil {
-		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 1, 2)
-		x.xxx_hidden_Issuer = b.Issuer
-	}
-	return m0
 }
 
 var File_pkg_auth_proto_jwt_credentials_proto protoreflect.FileDescriptor
 
 const file_pkg_auth_proto_jwt_credentials_proto_rawDesc = "" +
 	"\n" +
-	"$pkg/auth/proto/jwt_credentials.proto\x12\x0fgcommon.v1.auth\x1a!google/protobuf/go_features.proto\">\n" +
+	"$pkg/auth/proto/jwt_credentials.proto\x12\x0fgcommon.v1.auth\">\n" +
 	"\x0eJWTCredentials\x12\x14\n" +
 	"\x05token\x18\x01 \x01(\tR\x05token\x12\x16\n" +
-	"\x06issuer\x18\x02 \x01(\tR\x06issuerB\xba\x01\n" +
-	"\x13com.gcommon.v1.authB\x13JwtCredentialsProtoP\x01Z(github.com/jdfalk/gcommon/pkg/auth/proto\xa2\x02\x03GVA\xaa\x02\x0fGcommon.V1.Auth\xca\x02\x0fGcommon\\V1\\Auth\xe2\x02\x1bGcommon\\V1\\Auth\\GPBMetadata\xea\x02\x11Gcommon::V1::Auth\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"\x06issuer\x18\x02 \x01(\tR\x06issuerB\xb2\x01\n" +
+	"\x13com.gcommon.v1.authB\x13JwtCredentialsProtoP\x01Z(github.com/jdfalk/gcommon/pkg/auth/proto\xa2\x02\x03GVA\xaa\x02\x0fGcommon.V1.Auth\xca\x02\x0fGcommon\\V1\\Auth\xe2\x02\x1bGcommon\\V1\\Auth\\GPBMetadata\xea\x02\x11Gcommon::V1::Authb\beditionsp\xe8\a"
+
+var (
+	file_pkg_auth_proto_jwt_credentials_proto_rawDescOnce sync.Once
+	file_pkg_auth_proto_jwt_credentials_proto_rawDescData []byte
+)
+
+func file_pkg_auth_proto_jwt_credentials_proto_rawDescGZIP() []byte {
+	file_pkg_auth_proto_jwt_credentials_proto_rawDescOnce.Do(func() {
+		file_pkg_auth_proto_jwt_credentials_proto_rawDescData = protoimpl.X.CompressGZIP(unsafe.Slice(unsafe.StringData(file_pkg_auth_proto_jwt_credentials_proto_rawDesc), len(file_pkg_auth_proto_jwt_credentials_proto_rawDesc)))
+	})
+	return file_pkg_auth_proto_jwt_credentials_proto_rawDescData
+}
 
 var file_pkg_auth_proto_jwt_credentials_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_pkg_auth_proto_jwt_credentials_proto_goTypes = []any{

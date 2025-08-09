@@ -10,8 +10,8 @@ import (
 	proto "github.com/jdfalk/gcommon/pkg/common/proto"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
-	_ "google.golang.org/protobuf/types/gofeaturespb"
 	reflect "reflect"
+	sync "sync"
 	unsafe "unsafe"
 )
 
@@ -26,15 +26,17 @@ const (
 // Response for session update operations.
 // Contains the updated session information.
 type UpdateSessionResponse struct {
-	state                   protoimpl.MessageState  `protogen:"opaque.v1"`
-	xxx_hidden_Success      bool                    `protobuf:"varint,1,opt,name=success"`
-	xxx_hidden_Session      *SessionInfo            `protobuf:"bytes,2,opt,name=session"`
-	xxx_hidden_ErrorMessage *string                 `protobuf:"bytes,3,opt,name=error_message,json=errorMessage"`
-	xxx_hidden_Metadata     *proto.ResponseMetadata `protobuf:"bytes,4,opt,name=metadata"`
-	XXX_raceDetectHookData  protoimpl.RaceDetectHookData
-	XXX_presence            [1]uint32
-	unknownFields           protoimpl.UnknownFields
-	sizeCache               protoimpl.SizeCache
+	state protoimpl.MessageState `protogen:"open.v1"`
+	// Whether the update was successful
+	Success *bool `protobuf:"varint,1,opt,name=success" json:"success,omitempty"`
+	// Updated session information
+	Session *SessionInfo `protobuf:"bytes,2,opt,name=session" json:"session,omitempty"`
+	// Error message if update failed
+	ErrorMessage *string `protobuf:"bytes,3,opt,name=error_message,json=errorMessage" json:"error_message,omitempty"`
+	// Response metadata
+	Metadata      *proto.ResponseMetadata `protobuf:"bytes,4,opt,name=metadata" json:"metadata,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
 }
 
 func (x *UpdateSessionResponse) Reset() {
@@ -62,142 +64,62 @@ func (x *UpdateSessionResponse) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
+// Deprecated: Use UpdateSessionResponse.ProtoReflect.Descriptor instead.
+func (*UpdateSessionResponse) Descriptor() ([]byte, []int) {
+	return file_pkg_auth_proto_update_session_response_proto_rawDescGZIP(), []int{0}
+}
+
 func (x *UpdateSessionResponse) GetSuccess() bool {
-	if x != nil {
-		return x.xxx_hidden_Success
+	if x != nil && x.Success != nil {
+		return *x.Success
 	}
 	return false
 }
 
 func (x *UpdateSessionResponse) GetSession() *SessionInfo {
 	if x != nil {
-		return x.xxx_hidden_Session
+		return x.Session
 	}
 	return nil
 }
 
 func (x *UpdateSessionResponse) GetErrorMessage() string {
-	if x != nil {
-		if x.xxx_hidden_ErrorMessage != nil {
-			return *x.xxx_hidden_ErrorMessage
-		}
-		return ""
+	if x != nil && x.ErrorMessage != nil {
+		return *x.ErrorMessage
 	}
 	return ""
 }
 
 func (x *UpdateSessionResponse) GetMetadata() *proto.ResponseMetadata {
 	if x != nil {
-		return x.xxx_hidden_Metadata
+		return x.Metadata
 	}
 	return nil
-}
-
-func (x *UpdateSessionResponse) SetSuccess(v bool) {
-	x.xxx_hidden_Success = v
-	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 0, 4)
-}
-
-func (x *UpdateSessionResponse) SetSession(v *SessionInfo) {
-	x.xxx_hidden_Session = v
-}
-
-func (x *UpdateSessionResponse) SetErrorMessage(v string) {
-	x.xxx_hidden_ErrorMessage = &v
-	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 2, 4)
-}
-
-func (x *UpdateSessionResponse) SetMetadata(v *proto.ResponseMetadata) {
-	x.xxx_hidden_Metadata = v
-}
-
-func (x *UpdateSessionResponse) HasSuccess() bool {
-	if x == nil {
-		return false
-	}
-	return protoimpl.X.Present(&(x.XXX_presence[0]), 0)
-}
-
-func (x *UpdateSessionResponse) HasSession() bool {
-	if x == nil {
-		return false
-	}
-	return x.xxx_hidden_Session != nil
-}
-
-func (x *UpdateSessionResponse) HasErrorMessage() bool {
-	if x == nil {
-		return false
-	}
-	return protoimpl.X.Present(&(x.XXX_presence[0]), 2)
-}
-
-func (x *UpdateSessionResponse) HasMetadata() bool {
-	if x == nil {
-		return false
-	}
-	return x.xxx_hidden_Metadata != nil
-}
-
-func (x *UpdateSessionResponse) ClearSuccess() {
-	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 0)
-	x.xxx_hidden_Success = false
-}
-
-func (x *UpdateSessionResponse) ClearSession() {
-	x.xxx_hidden_Session = nil
-}
-
-func (x *UpdateSessionResponse) ClearErrorMessage() {
-	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 2)
-	x.xxx_hidden_ErrorMessage = nil
-}
-
-func (x *UpdateSessionResponse) ClearMetadata() {
-	x.xxx_hidden_Metadata = nil
-}
-
-type UpdateSessionResponse_builder struct {
-	_ [0]func() // Prevents comparability and use of unkeyed literals for the builder.
-
-	// Whether the update was successful
-	Success *bool
-	// Updated session information
-	Session *SessionInfo
-	// Error message if update failed
-	ErrorMessage *string
-	// Response metadata
-	Metadata *proto.ResponseMetadata
-}
-
-func (b0 UpdateSessionResponse_builder) Build() *UpdateSessionResponse {
-	m0 := &UpdateSessionResponse{}
-	b, x := &b0, m0
-	_, _ = b, x
-	if b.Success != nil {
-		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 0, 4)
-		x.xxx_hidden_Success = *b.Success
-	}
-	x.xxx_hidden_Session = b.Session
-	if b.ErrorMessage != nil {
-		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 2, 4)
-		x.xxx_hidden_ErrorMessage = b.ErrorMessage
-	}
-	x.xxx_hidden_Metadata = b.Metadata
-	return m0
 }
 
 var File_pkg_auth_proto_update_session_response_proto protoreflect.FileDescriptor
 
 const file_pkg_auth_proto_update_session_response_proto_rawDesc = "" +
 	"\n" +
-	",pkg/auth/proto/update_session_response.proto\x12\x0fgcommon.v1.auth\x1a!google/protobuf/go_features.proto\x1a(pkg/common/proto/response_metadata.proto\x1a!pkg/auth/proto/session_info.proto\"\xcf\x01\n" +
+	",pkg/auth/proto/update_session_response.proto\x12\x0fgcommon.v1.auth\x1a(pkg/common/proto/response_metadata.proto\x1a!pkg/auth/proto/session_info.proto\"\xcf\x01\n" +
 	"\x15UpdateSessionResponse\x12\x18\n" +
 	"\asuccess\x18\x01 \x01(\bR\asuccess\x126\n" +
 	"\asession\x18\x02 \x01(\v2\x1c.gcommon.v1.auth.SessionInfoR\asession\x12#\n" +
 	"\rerror_message\x18\x03 \x01(\tR\ferrorMessage\x12?\n" +
-	"\bmetadata\x18\x04 \x01(\v2#.gcommon.v1.common.ResponseMetadataR\bmetadataB\xc1\x01\n" +
-	"\x13com.gcommon.v1.authB\x1aUpdateSessionResponseProtoP\x01Z(github.com/jdfalk/gcommon/pkg/auth/proto\xa2\x02\x03GVA\xaa\x02\x0fGcommon.V1.Auth\xca\x02\x0fGcommon\\V1\\Auth\xe2\x02\x1bGcommon\\V1\\Auth\\GPBMetadata\xea\x02\x11Gcommon::V1::Auth\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"\bmetadata\x18\x04 \x01(\v2#.gcommon.v1.common.ResponseMetadataR\bmetadataB\xb9\x01\n" +
+	"\x13com.gcommon.v1.authB\x1aUpdateSessionResponseProtoP\x01Z(github.com/jdfalk/gcommon/pkg/auth/proto\xa2\x02\x03GVA\xaa\x02\x0fGcommon.V1.Auth\xca\x02\x0fGcommon\\V1\\Auth\xe2\x02\x1bGcommon\\V1\\Auth\\GPBMetadata\xea\x02\x11Gcommon::V1::Authb\beditionsp\xe8\a"
+
+var (
+	file_pkg_auth_proto_update_session_response_proto_rawDescOnce sync.Once
+	file_pkg_auth_proto_update_session_response_proto_rawDescData []byte
+)
+
+func file_pkg_auth_proto_update_session_response_proto_rawDescGZIP() []byte {
+	file_pkg_auth_proto_update_session_response_proto_rawDescOnce.Do(func() {
+		file_pkg_auth_proto_update_session_response_proto_rawDescData = protoimpl.X.CompressGZIP(unsafe.Slice(unsafe.StringData(file_pkg_auth_proto_update_session_response_proto_rawDesc), len(file_pkg_auth_proto_update_session_response_proto_rawDesc)))
+	})
+	return file_pkg_auth_proto_update_session_response_proto_rawDescData
+}
 
 var file_pkg_auth_proto_update_session_response_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_pkg_auth_proto_update_session_response_proto_goTypes = []any{

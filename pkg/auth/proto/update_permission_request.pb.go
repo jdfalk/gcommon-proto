@@ -10,8 +10,8 @@ import (
 	proto "github.com/jdfalk/gcommon/pkg/common/proto"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
-	_ "google.golang.org/protobuf/types/gofeaturespb"
 	reflect "reflect"
+	sync "sync"
 	unsafe "unsafe"
 )
 
@@ -26,21 +26,29 @@ const (
 // Request to update an existing permission.
 // Allows modification of permission properties and constraints.
 type UpdatePermissionRequest struct {
-	state                   protoimpl.MessageState `protogen:"opaque.v1"`
-	xxx_hidden_PermissionId *string                `protobuf:"bytes,1,opt,name=permission_id,json=permissionId"`
-	xxx_hidden_Name         *string                `protobuf:"bytes,2,opt,name=name"`
-	xxx_hidden_Description  *string                `protobuf:"bytes,3,opt,name=description"`
-	xxx_hidden_Resource     *string                `protobuf:"bytes,4,opt,name=resource"`
-	xxx_hidden_Action       *string                `protobuf:"bytes,5,opt,name=action"`
-	xxx_hidden_Conditions   []string               `protobuf:"bytes,6,rep,name=conditions"`
-	xxx_hidden_Active       bool                   `protobuf:"varint,7,opt,name=active"`
-	xxx_hidden_UpdateMask   []string               `protobuf:"bytes,8,rep,name=update_mask,json=updateMask"`
-	xxx_hidden_Metadata     *proto.RequestMetadata `protobuf:"bytes,9,opt,name=metadata"`
-	xxx_hidden_Reason       *string                `protobuf:"bytes,10,opt,name=reason"`
-	XXX_raceDetectHookData  protoimpl.RaceDetectHookData
-	XXX_presence            [1]uint32
-	unknownFields           protoimpl.UnknownFields
-	sizeCache               protoimpl.SizeCache
+	state protoimpl.MessageState `protogen:"open.v1"`
+	// Permission ID to update (required)
+	PermissionId *string `protobuf:"bytes,1,opt,name=permission_id,json=permissionId" json:"permission_id,omitempty"`
+	// New permission name (optional)
+	Name *string `protobuf:"bytes,2,opt,name=name" json:"name,omitempty"`
+	// New permission description (optional)
+	Description *string `protobuf:"bytes,3,opt,name=description" json:"description,omitempty"`
+	// New resource this permission applies to (optional)
+	Resource *string `protobuf:"bytes,4,opt,name=resource" json:"resource,omitempty"`
+	// New action this permission allows (optional)
+	Action *string `protobuf:"bytes,5,opt,name=action" json:"action,omitempty"`
+	// New conditions for the permission (optional)
+	Conditions []string `protobuf:"bytes,6,rep,name=conditions" json:"conditions,omitempty"`
+	// Whether the permission should be active (optional)
+	Active *bool `protobuf:"varint,7,opt,name=active" json:"active,omitempty"`
+	// Fields to update (field mask)
+	UpdateMask []string `protobuf:"bytes,8,rep,name=update_mask,json=updateMask" json:"update_mask,omitempty"`
+	// Request metadata for tracing and correlation
+	Metadata *proto.RequestMetadata `protobuf:"bytes,9,opt,name=metadata" json:"metadata,omitempty"`
+	// Reason for the update
+	Reason        *string `protobuf:"bytes,10,opt,name=reason" json:"reason,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
 }
 
 func (x *UpdatePermissionRequest) Reset() {
@@ -68,304 +76,86 @@ func (x *UpdatePermissionRequest) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
+// Deprecated: Use UpdatePermissionRequest.ProtoReflect.Descriptor instead.
+func (*UpdatePermissionRequest) Descriptor() ([]byte, []int) {
+	return file_pkg_auth_proto_update_permission_request_proto_rawDescGZIP(), []int{0}
+}
+
 func (x *UpdatePermissionRequest) GetPermissionId() string {
-	if x != nil {
-		if x.xxx_hidden_PermissionId != nil {
-			return *x.xxx_hidden_PermissionId
-		}
-		return ""
+	if x != nil && x.PermissionId != nil {
+		return *x.PermissionId
 	}
 	return ""
 }
 
 func (x *UpdatePermissionRequest) GetName() string {
-	if x != nil {
-		if x.xxx_hidden_Name != nil {
-			return *x.xxx_hidden_Name
-		}
-		return ""
+	if x != nil && x.Name != nil {
+		return *x.Name
 	}
 	return ""
 }
 
 func (x *UpdatePermissionRequest) GetDescription() string {
-	if x != nil {
-		if x.xxx_hidden_Description != nil {
-			return *x.xxx_hidden_Description
-		}
-		return ""
+	if x != nil && x.Description != nil {
+		return *x.Description
 	}
 	return ""
 }
 
 func (x *UpdatePermissionRequest) GetResource() string {
-	if x != nil {
-		if x.xxx_hidden_Resource != nil {
-			return *x.xxx_hidden_Resource
-		}
-		return ""
+	if x != nil && x.Resource != nil {
+		return *x.Resource
 	}
 	return ""
 }
 
 func (x *UpdatePermissionRequest) GetAction() string {
-	if x != nil {
-		if x.xxx_hidden_Action != nil {
-			return *x.xxx_hidden_Action
-		}
-		return ""
+	if x != nil && x.Action != nil {
+		return *x.Action
 	}
 	return ""
 }
 
 func (x *UpdatePermissionRequest) GetConditions() []string {
 	if x != nil {
-		return x.xxx_hidden_Conditions
+		return x.Conditions
 	}
 	return nil
 }
 
 func (x *UpdatePermissionRequest) GetActive() bool {
-	if x != nil {
-		return x.xxx_hidden_Active
+	if x != nil && x.Active != nil {
+		return *x.Active
 	}
 	return false
 }
 
 func (x *UpdatePermissionRequest) GetUpdateMask() []string {
 	if x != nil {
-		return x.xxx_hidden_UpdateMask
+		return x.UpdateMask
 	}
 	return nil
 }
 
 func (x *UpdatePermissionRequest) GetMetadata() *proto.RequestMetadata {
 	if x != nil {
-		return x.xxx_hidden_Metadata
+		return x.Metadata
 	}
 	return nil
 }
 
 func (x *UpdatePermissionRequest) GetReason() string {
-	if x != nil {
-		if x.xxx_hidden_Reason != nil {
-			return *x.xxx_hidden_Reason
-		}
-		return ""
+	if x != nil && x.Reason != nil {
+		return *x.Reason
 	}
 	return ""
-}
-
-func (x *UpdatePermissionRequest) SetPermissionId(v string) {
-	x.xxx_hidden_PermissionId = &v
-	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 0, 10)
-}
-
-func (x *UpdatePermissionRequest) SetName(v string) {
-	x.xxx_hidden_Name = &v
-	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 1, 10)
-}
-
-func (x *UpdatePermissionRequest) SetDescription(v string) {
-	x.xxx_hidden_Description = &v
-	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 2, 10)
-}
-
-func (x *UpdatePermissionRequest) SetResource(v string) {
-	x.xxx_hidden_Resource = &v
-	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 3, 10)
-}
-
-func (x *UpdatePermissionRequest) SetAction(v string) {
-	x.xxx_hidden_Action = &v
-	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 4, 10)
-}
-
-func (x *UpdatePermissionRequest) SetConditions(v []string) {
-	x.xxx_hidden_Conditions = v
-}
-
-func (x *UpdatePermissionRequest) SetActive(v bool) {
-	x.xxx_hidden_Active = v
-	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 6, 10)
-}
-
-func (x *UpdatePermissionRequest) SetUpdateMask(v []string) {
-	x.xxx_hidden_UpdateMask = v
-}
-
-func (x *UpdatePermissionRequest) SetMetadata(v *proto.RequestMetadata) {
-	x.xxx_hidden_Metadata = v
-}
-
-func (x *UpdatePermissionRequest) SetReason(v string) {
-	x.xxx_hidden_Reason = &v
-	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 9, 10)
-}
-
-func (x *UpdatePermissionRequest) HasPermissionId() bool {
-	if x == nil {
-		return false
-	}
-	return protoimpl.X.Present(&(x.XXX_presence[0]), 0)
-}
-
-func (x *UpdatePermissionRequest) HasName() bool {
-	if x == nil {
-		return false
-	}
-	return protoimpl.X.Present(&(x.XXX_presence[0]), 1)
-}
-
-func (x *UpdatePermissionRequest) HasDescription() bool {
-	if x == nil {
-		return false
-	}
-	return protoimpl.X.Present(&(x.XXX_presence[0]), 2)
-}
-
-func (x *UpdatePermissionRequest) HasResource() bool {
-	if x == nil {
-		return false
-	}
-	return protoimpl.X.Present(&(x.XXX_presence[0]), 3)
-}
-
-func (x *UpdatePermissionRequest) HasAction() bool {
-	if x == nil {
-		return false
-	}
-	return protoimpl.X.Present(&(x.XXX_presence[0]), 4)
-}
-
-func (x *UpdatePermissionRequest) HasActive() bool {
-	if x == nil {
-		return false
-	}
-	return protoimpl.X.Present(&(x.XXX_presence[0]), 6)
-}
-
-func (x *UpdatePermissionRequest) HasMetadata() bool {
-	if x == nil {
-		return false
-	}
-	return x.xxx_hidden_Metadata != nil
-}
-
-func (x *UpdatePermissionRequest) HasReason() bool {
-	if x == nil {
-		return false
-	}
-	return protoimpl.X.Present(&(x.XXX_presence[0]), 9)
-}
-
-func (x *UpdatePermissionRequest) ClearPermissionId() {
-	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 0)
-	x.xxx_hidden_PermissionId = nil
-}
-
-func (x *UpdatePermissionRequest) ClearName() {
-	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 1)
-	x.xxx_hidden_Name = nil
-}
-
-func (x *UpdatePermissionRequest) ClearDescription() {
-	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 2)
-	x.xxx_hidden_Description = nil
-}
-
-func (x *UpdatePermissionRequest) ClearResource() {
-	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 3)
-	x.xxx_hidden_Resource = nil
-}
-
-func (x *UpdatePermissionRequest) ClearAction() {
-	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 4)
-	x.xxx_hidden_Action = nil
-}
-
-func (x *UpdatePermissionRequest) ClearActive() {
-	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 6)
-	x.xxx_hidden_Active = false
-}
-
-func (x *UpdatePermissionRequest) ClearMetadata() {
-	x.xxx_hidden_Metadata = nil
-}
-
-func (x *UpdatePermissionRequest) ClearReason() {
-	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 9)
-	x.xxx_hidden_Reason = nil
-}
-
-type UpdatePermissionRequest_builder struct {
-	_ [0]func() // Prevents comparability and use of unkeyed literals for the builder.
-
-	// Permission ID to update (required)
-	PermissionId *string
-	// New permission name (optional)
-	Name *string
-	// New permission description (optional)
-	Description *string
-	// New resource this permission applies to (optional)
-	Resource *string
-	// New action this permission allows (optional)
-	Action *string
-	// New conditions for the permission (optional)
-	Conditions []string
-	// Whether the permission should be active (optional)
-	Active *bool
-	// Fields to update (field mask)
-	UpdateMask []string
-	// Request metadata for tracing and correlation
-	Metadata *proto.RequestMetadata
-	// Reason for the update
-	Reason *string
-}
-
-func (b0 UpdatePermissionRequest_builder) Build() *UpdatePermissionRequest {
-	m0 := &UpdatePermissionRequest{}
-	b, x := &b0, m0
-	_, _ = b, x
-	if b.PermissionId != nil {
-		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 0, 10)
-		x.xxx_hidden_PermissionId = b.PermissionId
-	}
-	if b.Name != nil {
-		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 1, 10)
-		x.xxx_hidden_Name = b.Name
-	}
-	if b.Description != nil {
-		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 2, 10)
-		x.xxx_hidden_Description = b.Description
-	}
-	if b.Resource != nil {
-		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 3, 10)
-		x.xxx_hidden_Resource = b.Resource
-	}
-	if b.Action != nil {
-		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 4, 10)
-		x.xxx_hidden_Action = b.Action
-	}
-	x.xxx_hidden_Conditions = b.Conditions
-	if b.Active != nil {
-		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 6, 10)
-		x.xxx_hidden_Active = *b.Active
-	}
-	x.xxx_hidden_UpdateMask = b.UpdateMask
-	x.xxx_hidden_Metadata = b.Metadata
-	if b.Reason != nil {
-		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 9, 10)
-		x.xxx_hidden_Reason = b.Reason
-	}
-	return m0
 }
 
 var File_pkg_auth_proto_update_permission_request_proto protoreflect.FileDescriptor
 
 const file_pkg_auth_proto_update_permission_request_proto_rawDesc = "" +
 	"\n" +
-	".pkg/auth/proto/update_permission_request.proto\x12\x0fgcommon.v1.auth\x1a!google/protobuf/go_features.proto\x1a'pkg/common/proto/request_metadata.proto\"\xd9\x02\n" +
+	".pkg/auth/proto/update_permission_request.proto\x12\x0fgcommon.v1.auth\x1a'pkg/common/proto/request_metadata.proto\"\xd9\x02\n" +
 	"\x17UpdatePermissionRequest\x12#\n" +
 	"\rpermission_id\x18\x01 \x01(\tR\fpermissionId\x12\x12\n" +
 	"\x04name\x18\x02 \x01(\tR\x04name\x12 \n" +
@@ -380,8 +170,20 @@ const file_pkg_auth_proto_update_permission_request_proto_rawDesc = "" +
 	"updateMask\x12>\n" +
 	"\bmetadata\x18\t \x01(\v2\".gcommon.v1.common.RequestMetadataR\bmetadata\x12\x16\n" +
 	"\x06reason\x18\n" +
-	" \x01(\tR\x06reasonB\xc3\x01\n" +
-	"\x13com.gcommon.v1.authB\x1cUpdatePermissionRequestProtoP\x01Z(github.com/jdfalk/gcommon/pkg/auth/proto\xa2\x02\x03GVA\xaa\x02\x0fGcommon.V1.Auth\xca\x02\x0fGcommon\\V1\\Auth\xe2\x02\x1bGcommon\\V1\\Auth\\GPBMetadata\xea\x02\x11Gcommon::V1::Auth\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	" \x01(\tR\x06reasonB\xbb\x01\n" +
+	"\x13com.gcommon.v1.authB\x1cUpdatePermissionRequestProtoP\x01Z(github.com/jdfalk/gcommon/pkg/auth/proto\xa2\x02\x03GVA\xaa\x02\x0fGcommon.V1.Auth\xca\x02\x0fGcommon\\V1\\Auth\xe2\x02\x1bGcommon\\V1\\Auth\\GPBMetadata\xea\x02\x11Gcommon::V1::Authb\beditionsp\xe8\a"
+
+var (
+	file_pkg_auth_proto_update_permission_request_proto_rawDescOnce sync.Once
+	file_pkg_auth_proto_update_permission_request_proto_rawDescData []byte
+)
+
+func file_pkg_auth_proto_update_permission_request_proto_rawDescGZIP() []byte {
+	file_pkg_auth_proto_update_permission_request_proto_rawDescOnce.Do(func() {
+		file_pkg_auth_proto_update_permission_request_proto_rawDescData = protoimpl.X.CompressGZIP(unsafe.Slice(unsafe.StringData(file_pkg_auth_proto_update_permission_request_proto_rawDesc), len(file_pkg_auth_proto_update_permission_request_proto_rawDesc)))
+	})
+	return file_pkg_auth_proto_update_permission_request_proto_rawDescData
+}
 
 var file_pkg_auth_proto_update_permission_request_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_pkg_auth_proto_update_permission_request_proto_goTypes = []any{

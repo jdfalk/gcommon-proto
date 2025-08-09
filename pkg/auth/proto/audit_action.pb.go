@@ -9,8 +9,8 @@ package proto
 import (
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
-	_ "google.golang.org/protobuf/types/gofeaturespb"
 	reflect "reflect"
+	sync "sync"
 	unsafe "unsafe"
 )
 
@@ -134,11 +134,16 @@ func (x AuditAction) Number() protoreflect.EnumNumber {
 	return protoreflect.EnumNumber(x)
 }
 
+// Deprecated: Use AuditAction.Descriptor instead.
+func (AuditAction) EnumDescriptor() ([]byte, []int) {
+	return file_pkg_auth_proto_audit_action_proto_rawDescGZIP(), []int{0}
+}
+
 var File_pkg_auth_proto_audit_action_proto protoreflect.FileDescriptor
 
 const file_pkg_auth_proto_audit_action_proto_rawDesc = "" +
 	"\n" +
-	"!pkg/auth/proto/audit_action.proto\x12\x0fgcommon.v1.auth\x1a!google/protobuf/go_features.proto\x1a\x19pkg/auth/proto/role.proto*\xc9\x05\n" +
+	"!pkg/auth/proto/audit_action.proto\x12\x0fgcommon.v1.auth\x1a\x19pkg/auth/proto/role.proto*\xc9\x05\n" +
 	"\vAuditAction\x12\x1c\n" +
 	"\x18AUDIT_ACTION_UNSPECIFIED\x10\x00\x12\x16\n" +
 	"\x12AUDIT_ACTION_LOGIN\x10\x01\x12\x17\n" +
@@ -162,8 +167,20 @@ const file_pkg_auth_proto_audit_action_proto_rawDesc = "" +
 	"\x1fAUDIT_ACTION_SESSION_TERMINATED\x10\x12\x12\x1f\n" +
 	"\x1bAUDIT_ACTION_CONFIG_UPDATED\x10\x13\x12\x1e\n" +
 	"\x1aAUDIT_ACTION_SYSTEM_BACKUP\x10\x14\x12\x1f\n" +
-	"\x1bAUDIT_ACTION_SYSTEM_RESTORE\x10\x15B\xb7\x01\n" +
-	"\x13com.gcommon.v1.authB\x10AuditActionProtoP\x01Z(github.com/jdfalk/gcommon/pkg/auth/proto\xa2\x02\x03GVA\xaa\x02\x0fGcommon.V1.Auth\xca\x02\x0fGcommon\\V1\\Auth\xe2\x02\x1bGcommon\\V1\\Auth\\GPBMetadata\xea\x02\x11Gcommon::V1::Auth\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"\x1bAUDIT_ACTION_SYSTEM_RESTORE\x10\x15B\xaf\x01\n" +
+	"\x13com.gcommon.v1.authB\x10AuditActionProtoP\x01Z(github.com/jdfalk/gcommon/pkg/auth/proto\xa2\x02\x03GVA\xaa\x02\x0fGcommon.V1.Auth\xca\x02\x0fGcommon\\V1\\Auth\xe2\x02\x1bGcommon\\V1\\Auth\\GPBMetadata\xea\x02\x11Gcommon::V1::Authb\beditionsp\xe8\a"
+
+var (
+	file_pkg_auth_proto_audit_action_proto_rawDescOnce sync.Once
+	file_pkg_auth_proto_audit_action_proto_rawDescData []byte
+)
+
+func file_pkg_auth_proto_audit_action_proto_rawDescGZIP() []byte {
+	file_pkg_auth_proto_audit_action_proto_rawDescOnce.Do(func() {
+		file_pkg_auth_proto_audit_action_proto_rawDescData = protoimpl.X.CompressGZIP(unsafe.Slice(unsafe.StringData(file_pkg_auth_proto_audit_action_proto_rawDesc), len(file_pkg_auth_proto_audit_action_proto_rawDesc)))
+	})
+	return file_pkg_auth_proto_audit_action_proto_rawDescData
+}
 
 var file_pkg_auth_proto_audit_action_proto_enumTypes = make([]protoimpl.EnumInfo, 1)
 var file_pkg_auth_proto_audit_action_proto_goTypes = []any{

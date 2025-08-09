@@ -9,9 +9,9 @@ package proto
 import (
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
-	_ "google.golang.org/protobuf/types/gofeaturespb"
 	timestamppb "google.golang.org/protobuf/types/known/timestamppb"
 	reflect "reflect"
+	sync "sync"
 	unsafe "unsafe"
 )
 
@@ -26,14 +26,15 @@ const (
 // Request to update session information.
 // Used to refresh session activity or update session metadata.
 type UpdateSessionRequest struct {
-	state                  protoimpl.MessageState `protogen:"opaque.v1"`
-	xxx_hidden_SessionId   *string                `protobuf:"bytes,1,opt,name=session_id,json=sessionId"`
-	xxx_hidden_Metadata    map[string]string      `protobuf:"bytes,2,rep,name=metadata" protobuf_key:"bytes,1,opt,name=key" protobuf_val:"bytes,2,opt,name=value"`
-	xxx_hidden_ExpiresAt   *timestamppb.Timestamp `protobuf:"bytes,3,opt,name=expires_at,json=expiresAt"`
-	XXX_raceDetectHookData protoimpl.RaceDetectHookData
-	XXX_presence           [1]uint32
-	unknownFields          protoimpl.UnknownFields
-	sizeCache              protoimpl.SizeCache
+	state protoimpl.MessageState `protogen:"open.v1"`
+	// Session ID to update
+	SessionId *string `protobuf:"bytes,1,opt,name=session_id,json=sessionId" json:"session_id,omitempty"`
+	// Updated session metadata
+	Metadata map[string]string `protobuf:"bytes,2,rep,name=metadata" json:"metadata,omitempty" protobuf_key:"bytes,1,opt,name=key" protobuf_val:"bytes,2,opt,name=value"`
+	// New expiration time (optional)
+	ExpiresAt     *timestamppb.Timestamp `protobuf:"bytes,3,opt,name=expires_at,json=expiresAt" json:"expires_at,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
 }
 
 func (x *UpdateSessionRequest) Reset() {
@@ -61,95 +62,37 @@ func (x *UpdateSessionRequest) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
+// Deprecated: Use UpdateSessionRequest.ProtoReflect.Descriptor instead.
+func (*UpdateSessionRequest) Descriptor() ([]byte, []int) {
+	return file_pkg_auth_proto_update_session_request_proto_rawDescGZIP(), []int{0}
+}
+
 func (x *UpdateSessionRequest) GetSessionId() string {
-	if x != nil {
-		if x.xxx_hidden_SessionId != nil {
-			return *x.xxx_hidden_SessionId
-		}
-		return ""
+	if x != nil && x.SessionId != nil {
+		return *x.SessionId
 	}
 	return ""
 }
 
 func (x *UpdateSessionRequest) GetMetadata() map[string]string {
 	if x != nil {
-		return x.xxx_hidden_Metadata
+		return x.Metadata
 	}
 	return nil
 }
 
 func (x *UpdateSessionRequest) GetExpiresAt() *timestamppb.Timestamp {
 	if x != nil {
-		return x.xxx_hidden_ExpiresAt
+		return x.ExpiresAt
 	}
 	return nil
-}
-
-func (x *UpdateSessionRequest) SetSessionId(v string) {
-	x.xxx_hidden_SessionId = &v
-	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 0, 3)
-}
-
-func (x *UpdateSessionRequest) SetMetadata(v map[string]string) {
-	x.xxx_hidden_Metadata = v
-}
-
-func (x *UpdateSessionRequest) SetExpiresAt(v *timestamppb.Timestamp) {
-	x.xxx_hidden_ExpiresAt = v
-}
-
-func (x *UpdateSessionRequest) HasSessionId() bool {
-	if x == nil {
-		return false
-	}
-	return protoimpl.X.Present(&(x.XXX_presence[0]), 0)
-}
-
-func (x *UpdateSessionRequest) HasExpiresAt() bool {
-	if x == nil {
-		return false
-	}
-	return x.xxx_hidden_ExpiresAt != nil
-}
-
-func (x *UpdateSessionRequest) ClearSessionId() {
-	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 0)
-	x.xxx_hidden_SessionId = nil
-}
-
-func (x *UpdateSessionRequest) ClearExpiresAt() {
-	x.xxx_hidden_ExpiresAt = nil
-}
-
-type UpdateSessionRequest_builder struct {
-	_ [0]func() // Prevents comparability and use of unkeyed literals for the builder.
-
-	// Session ID to update
-	SessionId *string
-	// Updated session metadata
-	Metadata map[string]string
-	// New expiration time (optional)
-	ExpiresAt *timestamppb.Timestamp
-}
-
-func (b0 UpdateSessionRequest_builder) Build() *UpdateSessionRequest {
-	m0 := &UpdateSessionRequest{}
-	b, x := &b0, m0
-	_, _ = b, x
-	if b.SessionId != nil {
-		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 0, 3)
-		x.xxx_hidden_SessionId = b.SessionId
-	}
-	x.xxx_hidden_Metadata = b.Metadata
-	x.xxx_hidden_ExpiresAt = b.ExpiresAt
-	return m0
 }
 
 var File_pkg_auth_proto_update_session_request_proto protoreflect.FileDescriptor
 
 const file_pkg_auth_proto_update_session_request_proto_rawDesc = "" +
 	"\n" +
-	"+pkg/auth/proto/update_session_request.proto\x12\x0fgcommon.v1.auth\x1a!google/protobuf/go_features.proto\x1a\x1fgoogle/protobuf/timestamp.proto\"\xfe\x01\n" +
+	"+pkg/auth/proto/update_session_request.proto\x12\x0fgcommon.v1.auth\x1a\x1fgoogle/protobuf/timestamp.proto\"\xfe\x01\n" +
 	"\x14UpdateSessionRequest\x12\x1d\n" +
 	"\n" +
 	"session_id\x18\x01 \x01(\tR\tsessionId\x12O\n" +
@@ -158,8 +101,20 @@ const file_pkg_auth_proto_update_session_request_proto_rawDesc = "" +
 	"expires_at\x18\x03 \x01(\v2\x1a.google.protobuf.TimestampR\texpiresAt\x1a;\n" +
 	"\rMetadataEntry\x12\x10\n" +
 	"\x03key\x18\x01 \x01(\tR\x03key\x12\x14\n" +
-	"\x05value\x18\x02 \x01(\tR\x05value:\x028\x01B\xc0\x01\n" +
-	"\x13com.gcommon.v1.authB\x19UpdateSessionRequestProtoP\x01Z(github.com/jdfalk/gcommon/pkg/auth/proto\xa2\x02\x03GVA\xaa\x02\x0fGcommon.V1.Auth\xca\x02\x0fGcommon\\V1\\Auth\xe2\x02\x1bGcommon\\V1\\Auth\\GPBMetadata\xea\x02\x11Gcommon::V1::Auth\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"\x05value\x18\x02 \x01(\tR\x05value:\x028\x01B\xb8\x01\n" +
+	"\x13com.gcommon.v1.authB\x19UpdateSessionRequestProtoP\x01Z(github.com/jdfalk/gcommon/pkg/auth/proto\xa2\x02\x03GVA\xaa\x02\x0fGcommon.V1.Auth\xca\x02\x0fGcommon\\V1\\Auth\xe2\x02\x1bGcommon\\V1\\Auth\\GPBMetadata\xea\x02\x11Gcommon::V1::Authb\beditionsp\xe8\a"
+
+var (
+	file_pkg_auth_proto_update_session_request_proto_rawDescOnce sync.Once
+	file_pkg_auth_proto_update_session_request_proto_rawDescData []byte
+)
+
+func file_pkg_auth_proto_update_session_request_proto_rawDescGZIP() []byte {
+	file_pkg_auth_proto_update_session_request_proto_rawDescOnce.Do(func() {
+		file_pkg_auth_proto_update_session_request_proto_rawDescData = protoimpl.X.CompressGZIP(unsafe.Slice(unsafe.StringData(file_pkg_auth_proto_update_session_request_proto_rawDesc), len(file_pkg_auth_proto_update_session_request_proto_rawDesc)))
+	})
+	return file_pkg_auth_proto_update_session_request_proto_rawDescData
+}
 
 var file_pkg_auth_proto_update_session_request_proto_msgTypes = make([]protoimpl.MessageInfo, 2)
 var file_pkg_auth_proto_update_session_request_proto_goTypes = []any{

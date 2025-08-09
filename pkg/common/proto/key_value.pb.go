@@ -9,8 +9,8 @@ package proto
 import (
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
-	_ "google.golang.org/protobuf/types/gofeaturespb"
 	reflect "reflect"
+	sync "sync"
 	unsafe "unsafe"
 )
 
@@ -26,13 +26,13 @@ const (
 // Provides a simple, reusable structure for storing arbitrary
 // string-based key-value data across all GCommon modules.
 type KeyValue struct {
-	state                  protoimpl.MessageState `protogen:"opaque.v1"`
-	xxx_hidden_Key         *string                `protobuf:"bytes,1,opt,name=key"`
-	xxx_hidden_Value       *string                `protobuf:"bytes,2,opt,name=value"`
-	XXX_raceDetectHookData protoimpl.RaceDetectHookData
-	XXX_presence           [1]uint32
-	unknownFields          protoimpl.UnknownFields
-	sizeCache              protoimpl.SizeCache
+	state protoimpl.MessageState `protogen:"open.v1"`
+	// The key identifier for this pair
+	Key *string `protobuf:"bytes,1,opt,name=key" json:"key,omitempty"`
+	// The value associated with the key
+	Value         *string `protobuf:"bytes,2,opt,name=value" json:"value,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
 }
 
 func (x *KeyValue) Reset() {
@@ -60,93 +60,46 @@ func (x *KeyValue) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
+// Deprecated: Use KeyValue.ProtoReflect.Descriptor instead.
+func (*KeyValue) Descriptor() ([]byte, []int) {
+	return file_pkg_common_proto_key_value_proto_rawDescGZIP(), []int{0}
+}
+
 func (x *KeyValue) GetKey() string {
-	if x != nil {
-		if x.xxx_hidden_Key != nil {
-			return *x.xxx_hidden_Key
-		}
-		return ""
+	if x != nil && x.Key != nil {
+		return *x.Key
 	}
 	return ""
 }
 
 func (x *KeyValue) GetValue() string {
-	if x != nil {
-		if x.xxx_hidden_Value != nil {
-			return *x.xxx_hidden_Value
-		}
-		return ""
+	if x != nil && x.Value != nil {
+		return *x.Value
 	}
 	return ""
-}
-
-func (x *KeyValue) SetKey(v string) {
-	x.xxx_hidden_Key = &v
-	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 0, 2)
-}
-
-func (x *KeyValue) SetValue(v string) {
-	x.xxx_hidden_Value = &v
-	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 1, 2)
-}
-
-func (x *KeyValue) HasKey() bool {
-	if x == nil {
-		return false
-	}
-	return protoimpl.X.Present(&(x.XXX_presence[0]), 0)
-}
-
-func (x *KeyValue) HasValue() bool {
-	if x == nil {
-		return false
-	}
-	return protoimpl.X.Present(&(x.XXX_presence[0]), 1)
-}
-
-func (x *KeyValue) ClearKey() {
-	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 0)
-	x.xxx_hidden_Key = nil
-}
-
-func (x *KeyValue) ClearValue() {
-	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 1)
-	x.xxx_hidden_Value = nil
-}
-
-type KeyValue_builder struct {
-	_ [0]func() // Prevents comparability and use of unkeyed literals for the builder.
-
-	// The key identifier for this pair
-	Key *string
-	// The value associated with the key
-	Value *string
-}
-
-func (b0 KeyValue_builder) Build() *KeyValue {
-	m0 := &KeyValue{}
-	b, x := &b0, m0
-	_, _ = b, x
-	if b.Key != nil {
-		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 0, 2)
-		x.xxx_hidden_Key = b.Key
-	}
-	if b.Value != nil {
-		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 1, 2)
-		x.xxx_hidden_Value = b.Value
-	}
-	return m0
 }
 
 var File_pkg_common_proto_key_value_proto protoreflect.FileDescriptor
 
 const file_pkg_common_proto_key_value_proto_rawDesc = "" +
 	"\n" +
-	" pkg/common/proto/key_value.proto\x12\x11gcommon.v1.common\x1a!google/protobuf/go_features.proto\"2\n" +
+	" pkg/common/proto/key_value.proto\x12\x11gcommon.v1.common\"2\n" +
 	"\bKeyValue\x12\x10\n" +
 	"\x03key\x18\x01 \x01(\tR\x03key\x12\x14\n" +
-	"\x05value\x18\x02 \x01(\tR\x05valueB\xc0\x01\n" +
-	"\x15com.gcommon.v1.commonB\rKeyValueProtoP\x01Z*github.com/jdfalk/gcommon/pkg/common/proto\xa2\x02\x03GVC\xaa\x02\x11Gcommon.V1.Common\xca\x02\x11Gcommon\\V1\\Common\xe2\x02\x1dGcommon\\V1\\Common\\GPBMetadata\xea\x02\x13Gcommon::V1::Common\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"\x05value\x18\x02 \x01(\tR\x05valueB\xb8\x01\n" +
+	"\x15com.gcommon.v1.commonB\rKeyValueProtoP\x01Z*github.com/jdfalk/gcommon/pkg/common/proto\xa2\x02\x03GVC\xaa\x02\x11Gcommon.V1.Common\xca\x02\x11Gcommon\\V1\\Common\xe2\x02\x1dGcommon\\V1\\Common\\GPBMetadata\xea\x02\x13Gcommon::V1::Commonb\beditionsp\xe8\a"
+
+var (
+	file_pkg_common_proto_key_value_proto_rawDescOnce sync.Once
+	file_pkg_common_proto_key_value_proto_rawDescData []byte
+)
+
+func file_pkg_common_proto_key_value_proto_rawDescGZIP() []byte {
+	file_pkg_common_proto_key_value_proto_rawDescOnce.Do(func() {
+		file_pkg_common_proto_key_value_proto_rawDescData = protoimpl.X.CompressGZIP(unsafe.Slice(unsafe.StringData(file_pkg_common_proto_key_value_proto_rawDesc), len(file_pkg_common_proto_key_value_proto_rawDesc)))
+	})
+	return file_pkg_common_proto_key_value_proto_rawDescData
+}
 
 var file_pkg_common_proto_key_value_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_pkg_common_proto_key_value_proto_goTypes = []any{

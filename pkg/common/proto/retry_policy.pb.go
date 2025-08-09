@@ -9,9 +9,9 @@ package proto
 import (
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
-	_ "google.golang.org/protobuf/types/gofeaturespb"
 	durationpb "google.golang.org/protobuf/types/known/durationpb"
 	reflect "reflect"
+	sync "sync"
 	unsafe "unsafe"
 )
 
@@ -27,18 +27,23 @@ const (
 // Defines retry behavior with exponential backoff, jitter,
 // and configurable error handling for robust service interactions.
 type RetryPolicy struct {
-	state                        protoimpl.MessageState `protogen:"opaque.v1"`
-	xxx_hidden_MaxAttempts       int32                  `protobuf:"varint,1,opt,name=max_attempts,json=maxAttempts"`
-	xxx_hidden_InitialDelay      *durationpb.Duration   `protobuf:"bytes,2,opt,name=initial_delay,json=initialDelay"`
-	xxx_hidden_MaxDelay          *durationpb.Duration   `protobuf:"bytes,3,opt,name=max_delay,json=maxDelay"`
-	xxx_hidden_BackoffMultiplier float64                `protobuf:"fixed64,4,opt,name=backoff_multiplier,json=backoffMultiplier"`
-	xxx_hidden_EnableJitter      bool                   `protobuf:"varint,5,opt,name=enable_jitter,json=enableJitter"`
-	xxx_hidden_RetryableErrors   []ErrorCode            `protobuf:"varint,6,rep,packed,name=retryable_errors,json=retryableErrors,enum=gcommon.v1.common.ErrorCode"`
-	xxx_hidden_TotalTimeout      *durationpb.Duration   `protobuf:"bytes,7,opt,name=total_timeout,json=totalTimeout"`
-	XXX_raceDetectHookData       protoimpl.RaceDetectHookData
-	XXX_presence                 [1]uint32
-	unknownFields                protoimpl.UnknownFields
-	sizeCache                    protoimpl.SizeCache
+	state protoimpl.MessageState `protogen:"open.v1"`
+	// Maximum number of retry attempts (including initial attempt)
+	MaxAttempts *int32 `protobuf:"varint,1,opt,name=max_attempts,json=maxAttempts" json:"max_attempts,omitempty"`
+	// Initial delay before first retry
+	InitialDelay *durationpb.Duration `protobuf:"bytes,2,opt,name=initial_delay,json=initialDelay" json:"initial_delay,omitempty"`
+	// Maximum delay between retry attempts
+	MaxDelay *durationpb.Duration `protobuf:"bytes,3,opt,name=max_delay,json=maxDelay" json:"max_delay,omitempty"`
+	// Multiplier for exponential backoff (e.g., 2.0 for doubling)
+	BackoffMultiplier *float64 `protobuf:"fixed64,4,opt,name=backoff_multiplier,json=backoffMultiplier" json:"backoff_multiplier,omitempty"`
+	// Whether to add random jitter to retry timing
+	EnableJitter *bool `protobuf:"varint,5,opt,name=enable_jitter,json=enableJitter" json:"enable_jitter,omitempty"`
+	// List of error codes that should trigger retries
+	RetryableErrors []ErrorCode `protobuf:"varint,6,rep,packed,name=retryable_errors,json=retryableErrors,enum=gcommon.v1.common.ErrorCode" json:"retryable_errors,omitempty"`
+	// Total timeout for all retry attempts combined
+	TotalTimeout  *durationpb.Duration `protobuf:"bytes,7,opt,name=total_timeout,json=totalTimeout" json:"total_timeout,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
 }
 
 func (x *RetryPolicy) Reset() {
@@ -66,202 +71,65 @@ func (x *RetryPolicy) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
+// Deprecated: Use RetryPolicy.ProtoReflect.Descriptor instead.
+func (*RetryPolicy) Descriptor() ([]byte, []int) {
+	return file_pkg_common_proto_retry_policy_proto_rawDescGZIP(), []int{0}
+}
+
 func (x *RetryPolicy) GetMaxAttempts() int32 {
-	if x != nil {
-		return x.xxx_hidden_MaxAttempts
+	if x != nil && x.MaxAttempts != nil {
+		return *x.MaxAttempts
 	}
 	return 0
 }
 
 func (x *RetryPolicy) GetInitialDelay() *durationpb.Duration {
 	if x != nil {
-		return x.xxx_hidden_InitialDelay
+		return x.InitialDelay
 	}
 	return nil
 }
 
 func (x *RetryPolicy) GetMaxDelay() *durationpb.Duration {
 	if x != nil {
-		return x.xxx_hidden_MaxDelay
+		return x.MaxDelay
 	}
 	return nil
 }
 
 func (x *RetryPolicy) GetBackoffMultiplier() float64 {
-	if x != nil {
-		return x.xxx_hidden_BackoffMultiplier
+	if x != nil && x.BackoffMultiplier != nil {
+		return *x.BackoffMultiplier
 	}
 	return 0
 }
 
 func (x *RetryPolicy) GetEnableJitter() bool {
-	if x != nil {
-		return x.xxx_hidden_EnableJitter
+	if x != nil && x.EnableJitter != nil {
+		return *x.EnableJitter
 	}
 	return false
 }
 
 func (x *RetryPolicy) GetRetryableErrors() []ErrorCode {
 	if x != nil {
-		return x.xxx_hidden_RetryableErrors
+		return x.RetryableErrors
 	}
 	return nil
 }
 
 func (x *RetryPolicy) GetTotalTimeout() *durationpb.Duration {
 	if x != nil {
-		return x.xxx_hidden_TotalTimeout
+		return x.TotalTimeout
 	}
 	return nil
-}
-
-func (x *RetryPolicy) SetMaxAttempts(v int32) {
-	x.xxx_hidden_MaxAttempts = v
-	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 0, 7)
-}
-
-func (x *RetryPolicy) SetInitialDelay(v *durationpb.Duration) {
-	x.xxx_hidden_InitialDelay = v
-}
-
-func (x *RetryPolicy) SetMaxDelay(v *durationpb.Duration) {
-	x.xxx_hidden_MaxDelay = v
-}
-
-func (x *RetryPolicy) SetBackoffMultiplier(v float64) {
-	x.xxx_hidden_BackoffMultiplier = v
-	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 3, 7)
-}
-
-func (x *RetryPolicy) SetEnableJitter(v bool) {
-	x.xxx_hidden_EnableJitter = v
-	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 4, 7)
-}
-
-func (x *RetryPolicy) SetRetryableErrors(v []ErrorCode) {
-	x.xxx_hidden_RetryableErrors = v
-}
-
-func (x *RetryPolicy) SetTotalTimeout(v *durationpb.Duration) {
-	x.xxx_hidden_TotalTimeout = v
-}
-
-func (x *RetryPolicy) HasMaxAttempts() bool {
-	if x == nil {
-		return false
-	}
-	return protoimpl.X.Present(&(x.XXX_presence[0]), 0)
-}
-
-func (x *RetryPolicy) HasInitialDelay() bool {
-	if x == nil {
-		return false
-	}
-	return x.xxx_hidden_InitialDelay != nil
-}
-
-func (x *RetryPolicy) HasMaxDelay() bool {
-	if x == nil {
-		return false
-	}
-	return x.xxx_hidden_MaxDelay != nil
-}
-
-func (x *RetryPolicy) HasBackoffMultiplier() bool {
-	if x == nil {
-		return false
-	}
-	return protoimpl.X.Present(&(x.XXX_presence[0]), 3)
-}
-
-func (x *RetryPolicy) HasEnableJitter() bool {
-	if x == nil {
-		return false
-	}
-	return protoimpl.X.Present(&(x.XXX_presence[0]), 4)
-}
-
-func (x *RetryPolicy) HasTotalTimeout() bool {
-	if x == nil {
-		return false
-	}
-	return x.xxx_hidden_TotalTimeout != nil
-}
-
-func (x *RetryPolicy) ClearMaxAttempts() {
-	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 0)
-	x.xxx_hidden_MaxAttempts = 0
-}
-
-func (x *RetryPolicy) ClearInitialDelay() {
-	x.xxx_hidden_InitialDelay = nil
-}
-
-func (x *RetryPolicy) ClearMaxDelay() {
-	x.xxx_hidden_MaxDelay = nil
-}
-
-func (x *RetryPolicy) ClearBackoffMultiplier() {
-	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 3)
-	x.xxx_hidden_BackoffMultiplier = 0
-}
-
-func (x *RetryPolicy) ClearEnableJitter() {
-	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 4)
-	x.xxx_hidden_EnableJitter = false
-}
-
-func (x *RetryPolicy) ClearTotalTimeout() {
-	x.xxx_hidden_TotalTimeout = nil
-}
-
-type RetryPolicy_builder struct {
-	_ [0]func() // Prevents comparability and use of unkeyed literals for the builder.
-
-	// Maximum number of retry attempts (including initial attempt)
-	MaxAttempts *int32
-	// Initial delay before first retry
-	InitialDelay *durationpb.Duration
-	// Maximum delay between retry attempts
-	MaxDelay *durationpb.Duration
-	// Multiplier for exponential backoff (e.g., 2.0 for doubling)
-	BackoffMultiplier *float64
-	// Whether to add random jitter to retry timing
-	EnableJitter *bool
-	// List of error codes that should trigger retries
-	RetryableErrors []ErrorCode
-	// Total timeout for all retry attempts combined
-	TotalTimeout *durationpb.Duration
-}
-
-func (b0 RetryPolicy_builder) Build() *RetryPolicy {
-	m0 := &RetryPolicy{}
-	b, x := &b0, m0
-	_, _ = b, x
-	if b.MaxAttempts != nil {
-		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 0, 7)
-		x.xxx_hidden_MaxAttempts = *b.MaxAttempts
-	}
-	x.xxx_hidden_InitialDelay = b.InitialDelay
-	x.xxx_hidden_MaxDelay = b.MaxDelay
-	if b.BackoffMultiplier != nil {
-		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 3, 7)
-		x.xxx_hidden_BackoffMultiplier = *b.BackoffMultiplier
-	}
-	if b.EnableJitter != nil {
-		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 4, 7)
-		x.xxx_hidden_EnableJitter = *b.EnableJitter
-	}
-	x.xxx_hidden_RetryableErrors = b.RetryableErrors
-	x.xxx_hidden_TotalTimeout = b.TotalTimeout
-	return m0
 }
 
 var File_pkg_common_proto_retry_policy_proto protoreflect.FileDescriptor
 
 const file_pkg_common_proto_retry_policy_proto_rawDesc = "" +
 	"\n" +
-	"#pkg/common/proto/retry_policy.proto\x12\x11gcommon.v1.common\x1a\x1egoogle/protobuf/duration.proto\x1a!google/protobuf/go_features.proto\x1a!pkg/common/proto/error_code.proto\"\x85\x03\n" +
+	"#pkg/common/proto/retry_policy.proto\x12\x11gcommon.v1.common\x1a\x1egoogle/protobuf/duration.proto\x1a!pkg/common/proto/error_code.proto\"\x85\x03\n" +
 	"\vRetryPolicy\x12!\n" +
 	"\fmax_attempts\x18\x01 \x01(\x05R\vmaxAttempts\x12>\n" +
 	"\rinitial_delay\x18\x02 \x01(\v2\x19.google.protobuf.DurationR\finitialDelay\x126\n" +
@@ -269,8 +137,20 @@ const file_pkg_common_proto_retry_policy_proto_rawDesc = "" +
 	"\x12backoff_multiplier\x18\x04 \x01(\x01R\x11backoffMultiplier\x12#\n" +
 	"\renable_jitter\x18\x05 \x01(\bR\fenableJitter\x12G\n" +
 	"\x10retryable_errors\x18\x06 \x03(\x0e2\x1c.gcommon.v1.common.ErrorCodeR\x0fretryableErrors\x12>\n" +
-	"\rtotal_timeout\x18\a \x01(\v2\x19.google.protobuf.DurationR\ftotalTimeoutB\xc3\x01\n" +
-	"\x15com.gcommon.v1.commonB\x10RetryPolicyProtoP\x01Z*github.com/jdfalk/gcommon/pkg/common/proto\xa2\x02\x03GVC\xaa\x02\x11Gcommon.V1.Common\xca\x02\x11Gcommon\\V1\\Common\xe2\x02\x1dGcommon\\V1\\Common\\GPBMetadata\xea\x02\x13Gcommon::V1::Common\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"\rtotal_timeout\x18\a \x01(\v2\x19.google.protobuf.DurationR\ftotalTimeoutB\xbb\x01\n" +
+	"\x15com.gcommon.v1.commonB\x10RetryPolicyProtoP\x01Z*github.com/jdfalk/gcommon/pkg/common/proto\xa2\x02\x03GVC\xaa\x02\x11Gcommon.V1.Common\xca\x02\x11Gcommon\\V1\\Common\xe2\x02\x1dGcommon\\V1\\Common\\GPBMetadata\xea\x02\x13Gcommon::V1::Commonb\beditionsp\xe8\a"
+
+var (
+	file_pkg_common_proto_retry_policy_proto_rawDescOnce sync.Once
+	file_pkg_common_proto_retry_policy_proto_rawDescData []byte
+)
+
+func file_pkg_common_proto_retry_policy_proto_rawDescGZIP() []byte {
+	file_pkg_common_proto_retry_policy_proto_rawDescOnce.Do(func() {
+		file_pkg_common_proto_retry_policy_proto_rawDescData = protoimpl.X.CompressGZIP(unsafe.Slice(unsafe.StringData(file_pkg_common_proto_retry_policy_proto_rawDesc), len(file_pkg_common_proto_retry_policy_proto_rawDesc)))
+	})
+	return file_pkg_common_proto_retry_policy_proto_rawDescData
+}
 
 var file_pkg_common_proto_retry_policy_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_pkg_common_proto_retry_policy_proto_goTypes = []any{

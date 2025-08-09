@@ -9,8 +9,8 @@ package proto
 import (
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
-	_ "google.golang.org/protobuf/types/gofeaturespb"
 	reflect "reflect"
+	sync "sync"
 	unsafe "unsafe"
 )
 
@@ -26,10 +26,11 @@ const (
 // Required because oneof fields cannot directly contain repeated types,
 // so arrays must be wrapped in a message.
 type StringArray struct {
-	state             protoimpl.MessageState `protogen:"opaque.v1"`
-	xxx_hidden_Values []string               `protobuf:"bytes,1,rep,name=values"`
-	unknownFields     protoimpl.UnknownFields
-	sizeCache         protoimpl.SizeCache
+	state protoimpl.MessageState `protogen:"open.v1"`
+	// Array of string values
+	Values        []string `protobuf:"bytes,1,rep,name=values" json:"values,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
 }
 
 func (x *StringArray) Reset() {
@@ -57,40 +58,38 @@ func (x *StringArray) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
+// Deprecated: Use StringArray.ProtoReflect.Descriptor instead.
+func (*StringArray) Descriptor() ([]byte, []int) {
+	return file_pkg_common_proto_string_array_proto_rawDescGZIP(), []int{0}
+}
+
 func (x *StringArray) GetValues() []string {
 	if x != nil {
-		return x.xxx_hidden_Values
+		return x.Values
 	}
 	return nil
-}
-
-func (x *StringArray) SetValues(v []string) {
-	x.xxx_hidden_Values = v
-}
-
-type StringArray_builder struct {
-	_ [0]func() // Prevents comparability and use of unkeyed literals for the builder.
-
-	// Array of string values
-	Values []string
-}
-
-func (b0 StringArray_builder) Build() *StringArray {
-	m0 := &StringArray{}
-	b, x := &b0, m0
-	_, _ = b, x
-	x.xxx_hidden_Values = b.Values
-	return m0
 }
 
 var File_pkg_common_proto_string_array_proto protoreflect.FileDescriptor
 
 const file_pkg_common_proto_string_array_proto_rawDesc = "" +
 	"\n" +
-	"#pkg/common/proto/string_array.proto\x12\x11gcommon.v1.common\x1a!google/protobuf/go_features.proto\"%\n" +
+	"#pkg/common/proto/string_array.proto\x12\x11gcommon.v1.common\"%\n" +
 	"\vStringArray\x12\x16\n" +
-	"\x06values\x18\x01 \x03(\tR\x06valuesB\xc3\x01\n" +
-	"\x15com.gcommon.v1.commonB\x10StringArrayProtoP\x01Z*github.com/jdfalk/gcommon/pkg/common/proto\xa2\x02\x03GVC\xaa\x02\x11Gcommon.V1.Common\xca\x02\x11Gcommon\\V1\\Common\xe2\x02\x1dGcommon\\V1\\Common\\GPBMetadata\xea\x02\x13Gcommon::V1::Common\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"\x06values\x18\x01 \x03(\tR\x06valuesB\xbb\x01\n" +
+	"\x15com.gcommon.v1.commonB\x10StringArrayProtoP\x01Z*github.com/jdfalk/gcommon/pkg/common/proto\xa2\x02\x03GVC\xaa\x02\x11Gcommon.V1.Common\xca\x02\x11Gcommon\\V1\\Common\xe2\x02\x1dGcommon\\V1\\Common\\GPBMetadata\xea\x02\x13Gcommon::V1::Commonb\beditionsp\xe8\a"
+
+var (
+	file_pkg_common_proto_string_array_proto_rawDescOnce sync.Once
+	file_pkg_common_proto_string_array_proto_rawDescData []byte
+)
+
+func file_pkg_common_proto_string_array_proto_rawDescGZIP() []byte {
+	file_pkg_common_proto_string_array_proto_rawDescOnce.Do(func() {
+		file_pkg_common_proto_string_array_proto_rawDescData = protoimpl.X.CompressGZIP(unsafe.Slice(unsafe.StringData(file_pkg_common_proto_string_array_proto_rawDesc), len(file_pkg_common_proto_string_array_proto_rawDesc)))
+	})
+	return file_pkg_common_proto_string_array_proto_rawDescData
+}
 
 var file_pkg_common_proto_string_array_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_pkg_common_proto_string_array_proto_goTypes = []any{

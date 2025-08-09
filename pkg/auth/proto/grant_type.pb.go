@@ -9,7 +9,6 @@ package proto
 import (
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
-	_ "google.golang.org/protobuf/types/gofeaturespb"
 	reflect "reflect"
 	unsafe "unsafe"
 )
@@ -25,8 +24,8 @@ var File_pkg_auth_proto_grant_type_proto protoreflect.FileDescriptor
 
 const file_pkg_auth_proto_grant_type_proto_rawDesc = "" +
 	"\n" +
-	"\x1fpkg/auth/proto/grant_type.proto\x12\x0fgcommon.v1.auth\x1a!google/protobuf/go_features.protoB\xb5\x01\n" +
-	"\x13com.gcommon.v1.authB\x0eGrantTypeProtoP\x01Z(github.com/jdfalk/gcommon/pkg/auth/proto\xa2\x02\x03GVA\xaa\x02\x0fGcommon.V1.Auth\xca\x02\x0fGcommon\\V1\\Auth\xe2\x02\x1bGcommon\\V1\\Auth\\GPBMetadata\xea\x02\x11Gcommon::V1::Auth\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"\x1fpkg/auth/proto/grant_type.proto\x12\x0fgcommon.v1.authB\xad\x01\n" +
+	"\x13com.gcommon.v1.authB\x0eGrantTypeProtoP\x01Z(github.com/jdfalk/gcommon/pkg/auth/proto\xa2\x02\x03GVA\xaa\x02\x0fGcommon.V1.Auth\xca\x02\x0fGcommon\\V1\\Auth\xe2\x02\x1bGcommon\\V1\\Auth\\GPBMetadata\xea\x02\x11Gcommon::V1::Authb\beditionsp\xe8\a"
 
 var file_pkg_auth_proto_grant_type_proto_goTypes = []any{}
 var file_pkg_auth_proto_grant_type_proto_depIdxs = []int32{

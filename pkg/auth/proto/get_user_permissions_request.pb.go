@@ -10,8 +10,8 @@ import (
 	proto "github.com/jdfalk/gcommon/pkg/common/proto"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
-	_ "google.golang.org/protobuf/types/gofeaturespb"
 	reflect "reflect"
+	sync "sync"
 	unsafe "unsafe"
 )
 
@@ -27,13 +27,13 @@ const (
 // Returns direct permissions and role-based permissions.
 // Used for user permission auditing and UI authorization.
 type GetUserPermissionsRequest struct {
-	state                  protoimpl.MessageState `protogen:"opaque.v1"`
-	xxx_hidden_UserId      *string                `protobuf:"bytes,1,opt,name=user_id,json=userId"`
-	xxx_hidden_Metadata    *proto.RequestMetadata `protobuf:"bytes,2,opt,name=metadata"`
-	XXX_raceDetectHookData protoimpl.RaceDetectHookData
-	XXX_presence           [1]uint32
-	unknownFields          protoimpl.UnknownFields
-	sizeCache              protoimpl.SizeCache
+	state protoimpl.MessageState `protogen:"open.v1"`
+	// User ID to get permissions for
+	UserId *string `protobuf:"bytes,1,opt,name=user_id,json=userId" json:"user_id,omitempty"`
+	// Request metadata for tracing and correlation
+	Metadata      *proto.RequestMetadata `protobuf:"bytes,2,opt,name=metadata" json:"metadata,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
 }
 
 func (x *GetUserPermissionsRequest) Reset() {
@@ -61,85 +61,46 @@ func (x *GetUserPermissionsRequest) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
+// Deprecated: Use GetUserPermissionsRequest.ProtoReflect.Descriptor instead.
+func (*GetUserPermissionsRequest) Descriptor() ([]byte, []int) {
+	return file_pkg_auth_proto_get_user_permissions_request_proto_rawDescGZIP(), []int{0}
+}
+
 func (x *GetUserPermissionsRequest) GetUserId() string {
-	if x != nil {
-		if x.xxx_hidden_UserId != nil {
-			return *x.xxx_hidden_UserId
-		}
-		return ""
+	if x != nil && x.UserId != nil {
+		return *x.UserId
 	}
 	return ""
 }
 
 func (x *GetUserPermissionsRequest) GetMetadata() *proto.RequestMetadata {
 	if x != nil {
-		return x.xxx_hidden_Metadata
+		return x.Metadata
 	}
 	return nil
-}
-
-func (x *GetUserPermissionsRequest) SetUserId(v string) {
-	x.xxx_hidden_UserId = &v
-	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 0, 2)
-}
-
-func (x *GetUserPermissionsRequest) SetMetadata(v *proto.RequestMetadata) {
-	x.xxx_hidden_Metadata = v
-}
-
-func (x *GetUserPermissionsRequest) HasUserId() bool {
-	if x == nil {
-		return false
-	}
-	return protoimpl.X.Present(&(x.XXX_presence[0]), 0)
-}
-
-func (x *GetUserPermissionsRequest) HasMetadata() bool {
-	if x == nil {
-		return false
-	}
-	return x.xxx_hidden_Metadata != nil
-}
-
-func (x *GetUserPermissionsRequest) ClearUserId() {
-	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 0)
-	x.xxx_hidden_UserId = nil
-}
-
-func (x *GetUserPermissionsRequest) ClearMetadata() {
-	x.xxx_hidden_Metadata = nil
-}
-
-type GetUserPermissionsRequest_builder struct {
-	_ [0]func() // Prevents comparability and use of unkeyed literals for the builder.
-
-	// User ID to get permissions for
-	UserId *string
-	// Request metadata for tracing and correlation
-	Metadata *proto.RequestMetadata
-}
-
-func (b0 GetUserPermissionsRequest_builder) Build() *GetUserPermissionsRequest {
-	m0 := &GetUserPermissionsRequest{}
-	b, x := &b0, m0
-	_, _ = b, x
-	if b.UserId != nil {
-		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 0, 2)
-		x.xxx_hidden_UserId = b.UserId
-	}
-	x.xxx_hidden_Metadata = b.Metadata
-	return m0
 }
 
 var File_pkg_auth_proto_get_user_permissions_request_proto protoreflect.FileDescriptor
 
 const file_pkg_auth_proto_get_user_permissions_request_proto_rawDesc = "" +
 	"\n" +
-	"1pkg/auth/proto/get_user_permissions_request.proto\x12\x0fgcommon.v1.auth\x1a!google/protobuf/go_features.proto\x1a'pkg/common/proto/request_metadata.proto\"t\n" +
+	"1pkg/auth/proto/get_user_permissions_request.proto\x12\x0fgcommon.v1.auth\x1a'pkg/common/proto/request_metadata.proto\"t\n" +
 	"\x19GetUserPermissionsRequest\x12\x17\n" +
 	"\auser_id\x18\x01 \x01(\tR\x06userId\x12>\n" +
-	"\bmetadata\x18\x02 \x01(\v2\".gcommon.v1.common.RequestMetadataR\bmetadataB\xc5\x01\n" +
-	"\x13com.gcommon.v1.authB\x1eGetUserPermissionsRequestProtoP\x01Z(github.com/jdfalk/gcommon/pkg/auth/proto\xa2\x02\x03GVA\xaa\x02\x0fGcommon.V1.Auth\xca\x02\x0fGcommon\\V1\\Auth\xe2\x02\x1bGcommon\\V1\\Auth\\GPBMetadata\xea\x02\x11Gcommon::V1::Auth\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"\bmetadata\x18\x02 \x01(\v2\".gcommon.v1.common.RequestMetadataR\bmetadataB\xbd\x01\n" +
+	"\x13com.gcommon.v1.authB\x1eGetUserPermissionsRequestProtoP\x01Z(github.com/jdfalk/gcommon/pkg/auth/proto\xa2\x02\x03GVA\xaa\x02\x0fGcommon.V1.Auth\xca\x02\x0fGcommon\\V1\\Auth\xe2\x02\x1bGcommon\\V1\\Auth\\GPBMetadata\xea\x02\x11Gcommon::V1::Authb\beditionsp\xe8\a"
+
+var (
+	file_pkg_auth_proto_get_user_permissions_request_proto_rawDescOnce sync.Once
+	file_pkg_auth_proto_get_user_permissions_request_proto_rawDescData []byte
+)
+
+func file_pkg_auth_proto_get_user_permissions_request_proto_rawDescGZIP() []byte {
+	file_pkg_auth_proto_get_user_permissions_request_proto_rawDescOnce.Do(func() {
+		file_pkg_auth_proto_get_user_permissions_request_proto_rawDescData = protoimpl.X.CompressGZIP(unsafe.Slice(unsafe.StringData(file_pkg_auth_proto_get_user_permissions_request_proto_rawDesc), len(file_pkg_auth_proto_get_user_permissions_request_proto_rawDesc)))
+	})
+	return file_pkg_auth_proto_get_user_permissions_request_proto_rawDescData
+}
 
 var file_pkg_auth_proto_get_user_permissions_request_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_pkg_auth_proto_get_user_permissions_request_proto_goTypes = []any{

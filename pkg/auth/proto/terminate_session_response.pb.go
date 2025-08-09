@@ -9,9 +9,9 @@ package proto
 import (
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
-	_ "google.golang.org/protobuf/types/gofeaturespb"
 	timestamppb "google.golang.org/protobuf/types/known/timestamppb"
 	reflect "reflect"
+	sync "sync"
 	unsafe "unsafe"
 )
 
@@ -27,21 +27,29 @@ const (
 // Provides information about the terminated session and cleanup operations
 // for audit logging and confirmation purposes.
 type TerminateSessionResponse struct {
-	state                            protoimpl.MessageState `protogen:"opaque.v1"`
-	xxx_hidden_SessionId             *string                `protobuf:"bytes,1,opt,name=session_id,json=sessionId"`
-	xxx_hidden_UserId                *string                `protobuf:"bytes,2,opt,name=user_id,json=userId"`
-	xxx_hidden_Username              *string                `protobuf:"bytes,3,opt,name=username"`
-	xxx_hidden_TerminatedAt          *timestamppb.Timestamp `protobuf:"bytes,4,opt,name=terminated_at,json=terminatedAt"`
-	xxx_hidden_TerminationReason     *string                `protobuf:"bytes,5,opt,name=termination_reason,json=terminationReason"`
-	xxx_hidden_TokensRevoked         bool                   `protobuf:"varint,6,opt,name=tokens_revoked,json=tokensRevoked"`
-	xxx_hidden_RevokedTokenCount     int32                  `protobuf:"varint,7,opt,name=revoked_token_count,json=revokedTokenCount"`
-	xxx_hidden_ForcedTermination     bool                   `protobuf:"varint,8,opt,name=forced_termination,json=forcedTermination"`
-	xxx_hidden_RemainingSessionCount int32                  `protobuf:"varint,9,opt,name=remaining_session_count,json=remainingSessionCount"`
-	xxx_hidden_Message               *string                `protobuf:"bytes,10,opt,name=message"`
-	XXX_raceDetectHookData           protoimpl.RaceDetectHookData
-	XXX_presence                     [1]uint32
-	unknownFields                    protoimpl.UnknownFields
-	sizeCache                        protoimpl.SizeCache
+	state protoimpl.MessageState `protogen:"open.v1"`
+	// Session ID that was terminated
+	SessionId *string `protobuf:"bytes,1,opt,name=session_id,json=sessionId" json:"session_id,omitempty"`
+	// User ID whose session was terminated
+	UserId *string `protobuf:"bytes,2,opt,name=user_id,json=userId" json:"user_id,omitempty"`
+	// Username of the user
+	Username *string `protobuf:"bytes,3,opt,name=username" json:"username,omitempty"`
+	// Timestamp when the session was terminated
+	TerminatedAt *timestamppb.Timestamp `protobuf:"bytes,4,opt,name=terminated_at,json=terminatedAt" json:"terminated_at,omitempty"`
+	// Reason for termination (logout, timeout, security, admin, etc.)
+	TerminationReason *string `protobuf:"bytes,5,opt,name=termination_reason,json=terminationReason" json:"termination_reason,omitempty"`
+	// Whether any associated tokens were revoked
+	TokensRevoked *bool `protobuf:"varint,6,opt,name=tokens_revoked,json=tokensRevoked" json:"tokens_revoked,omitempty"`
+	// Number of tokens that were revoked
+	RevokedTokenCount *int32 `protobuf:"varint,7,opt,name=revoked_token_count,json=revokedTokenCount" json:"revoked_token_count,omitempty"`
+	// Whether this was a forced termination (by admin or security)
+	ForcedTermination *bool `protobuf:"varint,8,opt,name=forced_termination,json=forcedTermination" json:"forced_termination,omitempty"`
+	// Number of remaining active sessions for this user
+	RemainingSessionCount *int32 `protobuf:"varint,9,opt,name=remaining_session_count,json=remainingSessionCount" json:"remaining_session_count,omitempty"`
+	// Success message describing the termination
+	Message       *string `protobuf:"bytes,10,opt,name=message" json:"message,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
 }
 
 func (x *TerminateSessionResponse) Reset() {
@@ -69,333 +77,86 @@ func (x *TerminateSessionResponse) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
+// Deprecated: Use TerminateSessionResponse.ProtoReflect.Descriptor instead.
+func (*TerminateSessionResponse) Descriptor() ([]byte, []int) {
+	return file_pkg_auth_proto_terminate_session_response_proto_rawDescGZIP(), []int{0}
+}
+
 func (x *TerminateSessionResponse) GetSessionId() string {
-	if x != nil {
-		if x.xxx_hidden_SessionId != nil {
-			return *x.xxx_hidden_SessionId
-		}
-		return ""
+	if x != nil && x.SessionId != nil {
+		return *x.SessionId
 	}
 	return ""
 }
 
 func (x *TerminateSessionResponse) GetUserId() string {
-	if x != nil {
-		if x.xxx_hidden_UserId != nil {
-			return *x.xxx_hidden_UserId
-		}
-		return ""
+	if x != nil && x.UserId != nil {
+		return *x.UserId
 	}
 	return ""
 }
 
 func (x *TerminateSessionResponse) GetUsername() string {
-	if x != nil {
-		if x.xxx_hidden_Username != nil {
-			return *x.xxx_hidden_Username
-		}
-		return ""
+	if x != nil && x.Username != nil {
+		return *x.Username
 	}
 	return ""
 }
 
 func (x *TerminateSessionResponse) GetTerminatedAt() *timestamppb.Timestamp {
 	if x != nil {
-		return x.xxx_hidden_TerminatedAt
+		return x.TerminatedAt
 	}
 	return nil
 }
 
 func (x *TerminateSessionResponse) GetTerminationReason() string {
-	if x != nil {
-		if x.xxx_hidden_TerminationReason != nil {
-			return *x.xxx_hidden_TerminationReason
-		}
-		return ""
+	if x != nil && x.TerminationReason != nil {
+		return *x.TerminationReason
 	}
 	return ""
 }
 
 func (x *TerminateSessionResponse) GetTokensRevoked() bool {
-	if x != nil {
-		return x.xxx_hidden_TokensRevoked
+	if x != nil && x.TokensRevoked != nil {
+		return *x.TokensRevoked
 	}
 	return false
 }
 
 func (x *TerminateSessionResponse) GetRevokedTokenCount() int32 {
-	if x != nil {
-		return x.xxx_hidden_RevokedTokenCount
+	if x != nil && x.RevokedTokenCount != nil {
+		return *x.RevokedTokenCount
 	}
 	return 0
 }
 
 func (x *TerminateSessionResponse) GetForcedTermination() bool {
-	if x != nil {
-		return x.xxx_hidden_ForcedTermination
+	if x != nil && x.ForcedTermination != nil {
+		return *x.ForcedTermination
 	}
 	return false
 }
 
 func (x *TerminateSessionResponse) GetRemainingSessionCount() int32 {
-	if x != nil {
-		return x.xxx_hidden_RemainingSessionCount
+	if x != nil && x.RemainingSessionCount != nil {
+		return *x.RemainingSessionCount
 	}
 	return 0
 }
 
 func (x *TerminateSessionResponse) GetMessage() string {
-	if x != nil {
-		if x.xxx_hidden_Message != nil {
-			return *x.xxx_hidden_Message
-		}
-		return ""
+	if x != nil && x.Message != nil {
+		return *x.Message
 	}
 	return ""
-}
-
-func (x *TerminateSessionResponse) SetSessionId(v string) {
-	x.xxx_hidden_SessionId = &v
-	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 0, 10)
-}
-
-func (x *TerminateSessionResponse) SetUserId(v string) {
-	x.xxx_hidden_UserId = &v
-	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 1, 10)
-}
-
-func (x *TerminateSessionResponse) SetUsername(v string) {
-	x.xxx_hidden_Username = &v
-	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 2, 10)
-}
-
-func (x *TerminateSessionResponse) SetTerminatedAt(v *timestamppb.Timestamp) {
-	x.xxx_hidden_TerminatedAt = v
-}
-
-func (x *TerminateSessionResponse) SetTerminationReason(v string) {
-	x.xxx_hidden_TerminationReason = &v
-	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 4, 10)
-}
-
-func (x *TerminateSessionResponse) SetTokensRevoked(v bool) {
-	x.xxx_hidden_TokensRevoked = v
-	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 5, 10)
-}
-
-func (x *TerminateSessionResponse) SetRevokedTokenCount(v int32) {
-	x.xxx_hidden_RevokedTokenCount = v
-	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 6, 10)
-}
-
-func (x *TerminateSessionResponse) SetForcedTermination(v bool) {
-	x.xxx_hidden_ForcedTermination = v
-	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 7, 10)
-}
-
-func (x *TerminateSessionResponse) SetRemainingSessionCount(v int32) {
-	x.xxx_hidden_RemainingSessionCount = v
-	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 8, 10)
-}
-
-func (x *TerminateSessionResponse) SetMessage(v string) {
-	x.xxx_hidden_Message = &v
-	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 9, 10)
-}
-
-func (x *TerminateSessionResponse) HasSessionId() bool {
-	if x == nil {
-		return false
-	}
-	return protoimpl.X.Present(&(x.XXX_presence[0]), 0)
-}
-
-func (x *TerminateSessionResponse) HasUserId() bool {
-	if x == nil {
-		return false
-	}
-	return protoimpl.X.Present(&(x.XXX_presence[0]), 1)
-}
-
-func (x *TerminateSessionResponse) HasUsername() bool {
-	if x == nil {
-		return false
-	}
-	return protoimpl.X.Present(&(x.XXX_presence[0]), 2)
-}
-
-func (x *TerminateSessionResponse) HasTerminatedAt() bool {
-	if x == nil {
-		return false
-	}
-	return x.xxx_hidden_TerminatedAt != nil
-}
-
-func (x *TerminateSessionResponse) HasTerminationReason() bool {
-	if x == nil {
-		return false
-	}
-	return protoimpl.X.Present(&(x.XXX_presence[0]), 4)
-}
-
-func (x *TerminateSessionResponse) HasTokensRevoked() bool {
-	if x == nil {
-		return false
-	}
-	return protoimpl.X.Present(&(x.XXX_presence[0]), 5)
-}
-
-func (x *TerminateSessionResponse) HasRevokedTokenCount() bool {
-	if x == nil {
-		return false
-	}
-	return protoimpl.X.Present(&(x.XXX_presence[0]), 6)
-}
-
-func (x *TerminateSessionResponse) HasForcedTermination() bool {
-	if x == nil {
-		return false
-	}
-	return protoimpl.X.Present(&(x.XXX_presence[0]), 7)
-}
-
-func (x *TerminateSessionResponse) HasRemainingSessionCount() bool {
-	if x == nil {
-		return false
-	}
-	return protoimpl.X.Present(&(x.XXX_presence[0]), 8)
-}
-
-func (x *TerminateSessionResponse) HasMessage() bool {
-	if x == nil {
-		return false
-	}
-	return protoimpl.X.Present(&(x.XXX_presence[0]), 9)
-}
-
-func (x *TerminateSessionResponse) ClearSessionId() {
-	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 0)
-	x.xxx_hidden_SessionId = nil
-}
-
-func (x *TerminateSessionResponse) ClearUserId() {
-	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 1)
-	x.xxx_hidden_UserId = nil
-}
-
-func (x *TerminateSessionResponse) ClearUsername() {
-	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 2)
-	x.xxx_hidden_Username = nil
-}
-
-func (x *TerminateSessionResponse) ClearTerminatedAt() {
-	x.xxx_hidden_TerminatedAt = nil
-}
-
-func (x *TerminateSessionResponse) ClearTerminationReason() {
-	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 4)
-	x.xxx_hidden_TerminationReason = nil
-}
-
-func (x *TerminateSessionResponse) ClearTokensRevoked() {
-	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 5)
-	x.xxx_hidden_TokensRevoked = false
-}
-
-func (x *TerminateSessionResponse) ClearRevokedTokenCount() {
-	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 6)
-	x.xxx_hidden_RevokedTokenCount = 0
-}
-
-func (x *TerminateSessionResponse) ClearForcedTermination() {
-	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 7)
-	x.xxx_hidden_ForcedTermination = false
-}
-
-func (x *TerminateSessionResponse) ClearRemainingSessionCount() {
-	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 8)
-	x.xxx_hidden_RemainingSessionCount = 0
-}
-
-func (x *TerminateSessionResponse) ClearMessage() {
-	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 9)
-	x.xxx_hidden_Message = nil
-}
-
-type TerminateSessionResponse_builder struct {
-	_ [0]func() // Prevents comparability and use of unkeyed literals for the builder.
-
-	// Session ID that was terminated
-	SessionId *string
-	// User ID whose session was terminated
-	UserId *string
-	// Username of the user
-	Username *string
-	// Timestamp when the session was terminated
-	TerminatedAt *timestamppb.Timestamp
-	// Reason for termination (logout, timeout, security, admin, etc.)
-	TerminationReason *string
-	// Whether any associated tokens were revoked
-	TokensRevoked *bool
-	// Number of tokens that were revoked
-	RevokedTokenCount *int32
-	// Whether this was a forced termination (by admin or security)
-	ForcedTermination *bool
-	// Number of remaining active sessions for this user
-	RemainingSessionCount *int32
-	// Success message describing the termination
-	Message *string
-}
-
-func (b0 TerminateSessionResponse_builder) Build() *TerminateSessionResponse {
-	m0 := &TerminateSessionResponse{}
-	b, x := &b0, m0
-	_, _ = b, x
-	if b.SessionId != nil {
-		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 0, 10)
-		x.xxx_hidden_SessionId = b.SessionId
-	}
-	if b.UserId != nil {
-		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 1, 10)
-		x.xxx_hidden_UserId = b.UserId
-	}
-	if b.Username != nil {
-		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 2, 10)
-		x.xxx_hidden_Username = b.Username
-	}
-	x.xxx_hidden_TerminatedAt = b.TerminatedAt
-	if b.TerminationReason != nil {
-		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 4, 10)
-		x.xxx_hidden_TerminationReason = b.TerminationReason
-	}
-	if b.TokensRevoked != nil {
-		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 5, 10)
-		x.xxx_hidden_TokensRevoked = *b.TokensRevoked
-	}
-	if b.RevokedTokenCount != nil {
-		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 6, 10)
-		x.xxx_hidden_RevokedTokenCount = *b.RevokedTokenCount
-	}
-	if b.ForcedTermination != nil {
-		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 7, 10)
-		x.xxx_hidden_ForcedTermination = *b.ForcedTermination
-	}
-	if b.RemainingSessionCount != nil {
-		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 8, 10)
-		x.xxx_hidden_RemainingSessionCount = *b.RemainingSessionCount
-	}
-	if b.Message != nil {
-		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 9, 10)
-		x.xxx_hidden_Message = b.Message
-	}
-	return m0
 }
 
 var File_pkg_auth_proto_terminate_session_response_proto protoreflect.FileDescriptor
 
 const file_pkg_auth_proto_terminate_session_response_proto_rawDesc = "" +
 	"\n" +
-	"/pkg/auth/proto/terminate_session_response.proto\x12\x0fgcommon.v1.auth\x1a!google/protobuf/go_features.proto\x1a\x1fgoogle/protobuf/timestamp.proto\"\xb6\x03\n" +
+	"/pkg/auth/proto/terminate_session_response.proto\x12\x0fgcommon.v1.auth\x1a\x1fgoogle/protobuf/timestamp.proto\"\xb6\x03\n" +
 	"\x18TerminateSessionResponse\x12\x1d\n" +
 	"\n" +
 	"session_id\x18\x01 \x01(\tR\tsessionId\x12\x17\n" +
@@ -408,8 +169,20 @@ const file_pkg_auth_proto_terminate_session_response_proto_rawDesc = "" +
 	"\x12forced_termination\x18\b \x01(\bR\x11forcedTermination\x126\n" +
 	"\x17remaining_session_count\x18\t \x01(\x05R\x15remainingSessionCount\x12\x18\n" +
 	"\amessage\x18\n" +
-	" \x01(\tR\amessageB\xc4\x01\n" +
-	"\x13com.gcommon.v1.authB\x1dTerminateSessionResponseProtoP\x01Z(github.com/jdfalk/gcommon/pkg/auth/proto\xa2\x02\x03GVA\xaa\x02\x0fGcommon.V1.Auth\xca\x02\x0fGcommon\\V1\\Auth\xe2\x02\x1bGcommon\\V1\\Auth\\GPBMetadata\xea\x02\x11Gcommon::V1::Auth\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	" \x01(\tR\amessageB\xbc\x01\n" +
+	"\x13com.gcommon.v1.authB\x1dTerminateSessionResponseProtoP\x01Z(github.com/jdfalk/gcommon/pkg/auth/proto\xa2\x02\x03GVA\xaa\x02\x0fGcommon.V1.Auth\xca\x02\x0fGcommon\\V1\\Auth\xe2\x02\x1bGcommon\\V1\\Auth\\GPBMetadata\xea\x02\x11Gcommon::V1::Authb\beditionsp\xe8\a"
+
+var (
+	file_pkg_auth_proto_terminate_session_response_proto_rawDescOnce sync.Once
+	file_pkg_auth_proto_terminate_session_response_proto_rawDescData []byte
+)
+
+func file_pkg_auth_proto_terminate_session_response_proto_rawDescGZIP() []byte {
+	file_pkg_auth_proto_terminate_session_response_proto_rawDescOnce.Do(func() {
+		file_pkg_auth_proto_terminate_session_response_proto_rawDescData = protoimpl.X.CompressGZIP(unsafe.Slice(unsafe.StringData(file_pkg_auth_proto_terminate_session_response_proto_rawDesc), len(file_pkg_auth_proto_terminate_session_response_proto_rawDesc)))
+	})
+	return file_pkg_auth_proto_terminate_session_response_proto_rawDescData
+}
 
 var file_pkg_auth_proto_terminate_session_response_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_pkg_auth_proto_terminate_session_response_proto_goTypes = []any{

@@ -10,9 +10,9 @@ import (
 	proto "github.com/jdfalk/gcommon/pkg/common/proto"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
-	_ "google.golang.org/protobuf/types/gofeaturespb"
 	timestamppb "google.golang.org/protobuf/types/known/timestamppb"
 	reflect "reflect"
+	sync "sync"
 	unsafe "unsafe"
 )
 
@@ -28,23 +28,29 @@ const (
 // Contains session lifecycle data, client information, and metadata
 // for session management and security tracking.
 type Session struct {
-	state                     protoimpl.MessageState `protogen:"opaque.v1"`
-	xxx_hidden_Id             *string                `protobuf:"bytes,1,opt,name=id"`
-	xxx_hidden_UserId         *string                `protobuf:"bytes,2,opt,name=user_id,json=userId"`
-	xxx_hidden_CreatedAt      *timestamppb.Timestamp `protobuf:"bytes,3,opt,name=created_at,json=createdAt"`
-	xxx_hidden_LastActivityAt *timestamppb.Timestamp `protobuf:"bytes,4,opt,name=last_activity_at,json=lastActivityAt"`
-	xxx_hidden_ExpiresAt      *timestamppb.Timestamp `protobuf:"bytes,5,opt,name=expires_at,json=expiresAt"`
-	xxx_hidden_ClientInfo     *proto.ClientInfo      `protobuf:"bytes,6,opt,name=client_info,json=clientInfo"`
-	xxx_hidden_Status         SessionStatus          `protobuf:"varint,7,opt,name=status,enum=gcommon.v1.auth.SessionStatus"`
-	xxx_hidden_Metadata       map[string]string      `protobuf:"bytes,8,rep,name=metadata" protobuf_key:"bytes,1,opt,name=key" protobuf_val:"bytes,2,opt,name=value"`
-	xxx_hidden_IpAddress      *string                `protobuf:"bytes,9,opt,name=ip_address,json=ipAddress"`
-	xxx_hidden_UserAgent      *string                `protobuf:"bytes,10,opt,name=user_agent,json=userAgent"`
-	// Deprecated: Do not use. This will be deleted in the near future.
-	XXX_lazyUnmarshalInfo  protoimpl.LazyUnmarshalInfo
-	XXX_raceDetectHookData protoimpl.RaceDetectHookData
-	XXX_presence           [1]uint32
-	unknownFields          protoimpl.UnknownFields
-	sizeCache              protoimpl.SizeCache
+	state protoimpl.MessageState `protogen:"open.v1"`
+	// Unique session identifier (immutable)
+	Id *string `protobuf:"bytes,1,opt,name=id" json:"id,omitempty"`
+	// User ID associated with this session
+	UserId *string `protobuf:"bytes,2,opt,name=user_id,json=userId" json:"user_id,omitempty"`
+	// Session creation timestamp (immutable)
+	CreatedAt *timestamppb.Timestamp `protobuf:"bytes,3,opt,name=created_at,json=createdAt" json:"created_at,omitempty"`
+	// Last activity timestamp (updated on each request)
+	LastActivityAt *timestamppb.Timestamp `protobuf:"bytes,4,opt,name=last_activity_at,json=lastActivityAt" json:"last_activity_at,omitempty"`
+	// Session expiration timestamp
+	ExpiresAt *timestamppb.Timestamp `protobuf:"bytes,5,opt,name=expires_at,json=expiresAt" json:"expires_at,omitempty"`
+	// Client information from session creation
+	ClientInfo *proto.ClientInfo `protobuf:"bytes,6,opt,name=client_info,json=clientInfo" json:"client_info,omitempty"`
+	// Current session status
+	Status *SessionStatus `protobuf:"varint,7,opt,name=status,enum=gcommon.v1.auth.SessionStatus" json:"status,omitempty"`
+	// Session metadata for extensibility and tracking
+	Metadata map[string]string `protobuf:"bytes,8,rep,name=metadata" json:"metadata,omitempty" protobuf_key:"bytes,1,opt,name=key" protobuf_val:"bytes,2,opt,name=value"`
+	// IP address when session was created
+	IpAddress *string `protobuf:"bytes,9,opt,name=ip_address,json=ipAddress" json:"ip_address,omitempty"`
+	// User agent when session was created
+	UserAgent     *string `protobuf:"bytes,10,opt,name=user_agent,json=userAgent" json:"user_agent,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
 }
 
 func (x *Session) Reset() {
@@ -72,378 +78,86 @@ func (x *Session) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
+// Deprecated: Use Session.ProtoReflect.Descriptor instead.
+func (*Session) Descriptor() ([]byte, []int) {
+	return file_pkg_auth_proto_session_proto_rawDescGZIP(), []int{0}
+}
+
 func (x *Session) GetId() string {
-	if x != nil {
-		if x.xxx_hidden_Id != nil {
-			return *x.xxx_hidden_Id
-		}
-		return ""
+	if x != nil && x.Id != nil {
+		return *x.Id
 	}
 	return ""
 }
 
 func (x *Session) GetUserId() string {
-	if x != nil {
-		if x.xxx_hidden_UserId != nil {
-			return *x.xxx_hidden_UserId
-		}
-		return ""
+	if x != nil && x.UserId != nil {
+		return *x.UserId
 	}
 	return ""
 }
 
 func (x *Session) GetCreatedAt() *timestamppb.Timestamp {
 	if x != nil {
-		if protoimpl.X.Present(&(x.XXX_presence[0]), 2) {
-			if protoimpl.X.AtomicCheckPointerIsNil(&x.xxx_hidden_CreatedAt) {
-				protoimpl.X.UnmarshalField(x, 3)
-			}
-			var rv *timestamppb.Timestamp
-			protoimpl.X.AtomicLoadPointer(protoimpl.Pointer(&x.xxx_hidden_CreatedAt), protoimpl.Pointer(&rv))
-			return rv
-		}
+		return x.CreatedAt
 	}
 	return nil
 }
 
 func (x *Session) GetLastActivityAt() *timestamppb.Timestamp {
 	if x != nil {
-		if protoimpl.X.Present(&(x.XXX_presence[0]), 3) {
-			if protoimpl.X.AtomicCheckPointerIsNil(&x.xxx_hidden_LastActivityAt) {
-				protoimpl.X.UnmarshalField(x, 4)
-			}
-			var rv *timestamppb.Timestamp
-			protoimpl.X.AtomicLoadPointer(protoimpl.Pointer(&x.xxx_hidden_LastActivityAt), protoimpl.Pointer(&rv))
-			return rv
-		}
+		return x.LastActivityAt
 	}
 	return nil
 }
 
 func (x *Session) GetExpiresAt() *timestamppb.Timestamp {
 	if x != nil {
-		if protoimpl.X.Present(&(x.XXX_presence[0]), 4) {
-			if protoimpl.X.AtomicCheckPointerIsNil(&x.xxx_hidden_ExpiresAt) {
-				protoimpl.X.UnmarshalField(x, 5)
-			}
-			var rv *timestamppb.Timestamp
-			protoimpl.X.AtomicLoadPointer(protoimpl.Pointer(&x.xxx_hidden_ExpiresAt), protoimpl.Pointer(&rv))
-			return rv
-		}
+		return x.ExpiresAt
 	}
 	return nil
 }
 
 func (x *Session) GetClientInfo() *proto.ClientInfo {
 	if x != nil {
-		if protoimpl.X.Present(&(x.XXX_presence[0]), 5) {
-			if protoimpl.X.AtomicCheckPointerIsNil(&x.xxx_hidden_ClientInfo) {
-				protoimpl.X.UnmarshalField(x, 6)
-			}
-			var rv *proto.ClientInfo
-			protoimpl.X.AtomicLoadPointer(protoimpl.Pointer(&x.xxx_hidden_ClientInfo), protoimpl.Pointer(&rv))
-			return rv
-		}
+		return x.ClientInfo
 	}
 	return nil
 }
 
 func (x *Session) GetStatus() SessionStatus {
-	if x != nil {
-		if protoimpl.X.Present(&(x.XXX_presence[0]), 6) {
-			return x.xxx_hidden_Status
-		}
+	if x != nil && x.Status != nil {
+		return *x.Status
 	}
 	return SessionStatus_SESSION_STATUS_UNSPECIFIED
 }
 
 func (x *Session) GetMetadata() map[string]string {
 	if x != nil {
-		if protoimpl.X.Present(&(x.XXX_presence[0]), 7) {
-			if protoimpl.X.AtomicCheckPointerIsNil(&x.xxx_hidden_Metadata) {
-				protoimpl.X.UnmarshalField(x, 8)
-			}
-			return x.xxx_hidden_Metadata
-		}
+		return x.Metadata
 	}
 	return nil
 }
 
 func (x *Session) GetIpAddress() string {
-	if x != nil {
-		if x.xxx_hidden_IpAddress != nil {
-			return *x.xxx_hidden_IpAddress
-		}
-		return ""
+	if x != nil && x.IpAddress != nil {
+		return *x.IpAddress
 	}
 	return ""
 }
 
 func (x *Session) GetUserAgent() string {
-	if x != nil {
-		if x.xxx_hidden_UserAgent != nil {
-			return *x.xxx_hidden_UserAgent
-		}
-		return ""
+	if x != nil && x.UserAgent != nil {
+		return *x.UserAgent
 	}
 	return ""
-}
-
-func (x *Session) SetId(v string) {
-	x.xxx_hidden_Id = &v
-	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 0, 10)
-}
-
-func (x *Session) SetUserId(v string) {
-	x.xxx_hidden_UserId = &v
-	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 1, 10)
-}
-
-func (x *Session) SetCreatedAt(v *timestamppb.Timestamp) {
-	protoimpl.X.AtomicSetPointer(&x.xxx_hidden_CreatedAt, v)
-	if v == nil {
-		protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 2)
-	} else {
-		protoimpl.X.SetPresent(&(x.XXX_presence[0]), 2, 10)
-	}
-}
-
-func (x *Session) SetLastActivityAt(v *timestamppb.Timestamp) {
-	protoimpl.X.AtomicSetPointer(&x.xxx_hidden_LastActivityAt, v)
-	if v == nil {
-		protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 3)
-	} else {
-		protoimpl.X.SetPresent(&(x.XXX_presence[0]), 3, 10)
-	}
-}
-
-func (x *Session) SetExpiresAt(v *timestamppb.Timestamp) {
-	protoimpl.X.AtomicSetPointer(&x.xxx_hidden_ExpiresAt, v)
-	if v == nil {
-		protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 4)
-	} else {
-		protoimpl.X.SetPresent(&(x.XXX_presence[0]), 4, 10)
-	}
-}
-
-func (x *Session) SetClientInfo(v *proto.ClientInfo) {
-	protoimpl.X.AtomicSetPointer(&x.xxx_hidden_ClientInfo, v)
-	if v == nil {
-		protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 5)
-	} else {
-		protoimpl.X.SetPresent(&(x.XXX_presence[0]), 5, 10)
-	}
-}
-
-func (x *Session) SetStatus(v SessionStatus) {
-	x.xxx_hidden_Status = v
-	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 6, 10)
-}
-
-func (x *Session) SetMetadata(v map[string]string) {
-	x.xxx_hidden_Metadata = v
-	if v == nil {
-		protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 7)
-	} else {
-		protoimpl.X.SetPresent(&(x.XXX_presence[0]), 7, 10)
-	}
-}
-
-func (x *Session) SetIpAddress(v string) {
-	x.xxx_hidden_IpAddress = &v
-	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 8, 10)
-}
-
-func (x *Session) SetUserAgent(v string) {
-	x.xxx_hidden_UserAgent = &v
-	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 9, 10)
-}
-
-func (x *Session) HasId() bool {
-	if x == nil {
-		return false
-	}
-	return protoimpl.X.Present(&(x.XXX_presence[0]), 0)
-}
-
-func (x *Session) HasUserId() bool {
-	if x == nil {
-		return false
-	}
-	return protoimpl.X.Present(&(x.XXX_presence[0]), 1)
-}
-
-func (x *Session) HasCreatedAt() bool {
-	if x == nil {
-		return false
-	}
-	return protoimpl.X.Present(&(x.XXX_presence[0]), 2)
-}
-
-func (x *Session) HasLastActivityAt() bool {
-	if x == nil {
-		return false
-	}
-	return protoimpl.X.Present(&(x.XXX_presence[0]), 3)
-}
-
-func (x *Session) HasExpiresAt() bool {
-	if x == nil {
-		return false
-	}
-	return protoimpl.X.Present(&(x.XXX_presence[0]), 4)
-}
-
-func (x *Session) HasClientInfo() bool {
-	if x == nil {
-		return false
-	}
-	return protoimpl.X.Present(&(x.XXX_presence[0]), 5)
-}
-
-func (x *Session) HasStatus() bool {
-	if x == nil {
-		return false
-	}
-	return protoimpl.X.Present(&(x.XXX_presence[0]), 6)
-}
-
-func (x *Session) HasIpAddress() bool {
-	if x == nil {
-		return false
-	}
-	return protoimpl.X.Present(&(x.XXX_presence[0]), 8)
-}
-
-func (x *Session) HasUserAgent() bool {
-	if x == nil {
-		return false
-	}
-	return protoimpl.X.Present(&(x.XXX_presence[0]), 9)
-}
-
-func (x *Session) ClearId() {
-	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 0)
-	x.xxx_hidden_Id = nil
-}
-
-func (x *Session) ClearUserId() {
-	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 1)
-	x.xxx_hidden_UserId = nil
-}
-
-func (x *Session) ClearCreatedAt() {
-	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 2)
-	protoimpl.X.AtomicSetPointer(&x.xxx_hidden_CreatedAt, (*timestamppb.Timestamp)(nil))
-}
-
-func (x *Session) ClearLastActivityAt() {
-	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 3)
-	protoimpl.X.AtomicSetPointer(&x.xxx_hidden_LastActivityAt, (*timestamppb.Timestamp)(nil))
-}
-
-func (x *Session) ClearExpiresAt() {
-	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 4)
-	protoimpl.X.AtomicSetPointer(&x.xxx_hidden_ExpiresAt, (*timestamppb.Timestamp)(nil))
-}
-
-func (x *Session) ClearClientInfo() {
-	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 5)
-	protoimpl.X.AtomicSetPointer(&x.xxx_hidden_ClientInfo, (*proto.ClientInfo)(nil))
-}
-
-func (x *Session) ClearStatus() {
-	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 6)
-	x.xxx_hidden_Status = SessionStatus_SESSION_STATUS_UNSPECIFIED
-}
-
-func (x *Session) ClearIpAddress() {
-	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 8)
-	x.xxx_hidden_IpAddress = nil
-}
-
-func (x *Session) ClearUserAgent() {
-	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 9)
-	x.xxx_hidden_UserAgent = nil
-}
-
-type Session_builder struct {
-	_ [0]func() // Prevents comparability and use of unkeyed literals for the builder.
-
-	// Unique session identifier (immutable)
-	Id *string
-	// User ID associated with this session
-	UserId *string
-	// Session creation timestamp (immutable)
-	CreatedAt *timestamppb.Timestamp
-	// Last activity timestamp (updated on each request)
-	LastActivityAt *timestamppb.Timestamp
-	// Session expiration timestamp
-	ExpiresAt *timestamppb.Timestamp
-	// Client information from session creation
-	ClientInfo *proto.ClientInfo
-	// Current session status
-	Status *SessionStatus
-	// Session metadata for extensibility and tracking
-	Metadata map[string]string
-	// IP address when session was created
-	IpAddress *string
-	// User agent when session was created
-	UserAgent *string
-}
-
-func (b0 Session_builder) Build() *Session {
-	m0 := &Session{}
-	b, x := &b0, m0
-	_, _ = b, x
-	if b.Id != nil {
-		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 0, 10)
-		x.xxx_hidden_Id = b.Id
-	}
-	if b.UserId != nil {
-		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 1, 10)
-		x.xxx_hidden_UserId = b.UserId
-	}
-	if b.CreatedAt != nil {
-		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 2, 10)
-		x.xxx_hidden_CreatedAt = b.CreatedAt
-	}
-	if b.LastActivityAt != nil {
-		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 3, 10)
-		x.xxx_hidden_LastActivityAt = b.LastActivityAt
-	}
-	if b.ExpiresAt != nil {
-		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 4, 10)
-		x.xxx_hidden_ExpiresAt = b.ExpiresAt
-	}
-	if b.ClientInfo != nil {
-		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 5, 10)
-		x.xxx_hidden_ClientInfo = b.ClientInfo
-	}
-	if b.Status != nil {
-		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 6, 10)
-		x.xxx_hidden_Status = *b.Status
-	}
-	if b.Metadata != nil {
-		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 7, 10)
-		x.xxx_hidden_Metadata = b.Metadata
-	}
-	if b.IpAddress != nil {
-		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 8, 10)
-		x.xxx_hidden_IpAddress = b.IpAddress
-	}
-	if b.UserAgent != nil {
-		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 9, 10)
-		x.xxx_hidden_UserAgent = b.UserAgent
-	}
-	return m0
 }
 
 var File_pkg_auth_proto_session_proto protoreflect.FileDescriptor
 
 const file_pkg_auth_proto_session_proto_rawDesc = "" +
 	"\n" +
-	"\x1cpkg/auth/proto/session.proto\x12\x0fgcommon.v1.auth\x1a!google/protobuf/go_features.proto\x1a\x1fgoogle/protobuf/timestamp.proto\x1a\"pkg/common/proto/client_info.proto\x1a#pkg/auth/proto/session_status.proto\"\xb9\x04\n" +
+	"\x1cpkg/auth/proto/session.proto\x12\x0fgcommon.v1.auth\x1a\x1fgoogle/protobuf/timestamp.proto\x1a\"pkg/common/proto/client_info.proto\x1a#pkg/auth/proto/session_status.proto\"\xb9\x04\n" +
 	"\aSession\x12\x0e\n" +
 	"\x02id\x18\x01 \x01(\tR\x02id\x12\x17\n" +
 	"\auser_id\x18\x02 \x01(\tR\x06userId\x12=\n" +
@@ -463,8 +177,20 @@ const file_pkg_auth_proto_session_proto_rawDesc = "" +
 	" \x01(\tR\tuserAgent\x1a;\n" +
 	"\rMetadataEntry\x12\x10\n" +
 	"\x03key\x18\x01 \x01(\tR\x03key\x12\x14\n" +
-	"\x05value\x18\x02 \x01(\tR\x05value:\x028\x01B\xb3\x01\n" +
-	"\x13com.gcommon.v1.authB\fSessionProtoP\x01Z(github.com/jdfalk/gcommon/pkg/auth/proto\xa2\x02\x03GVA\xaa\x02\x0fGcommon.V1.Auth\xca\x02\x0fGcommon\\V1\\Auth\xe2\x02\x1bGcommon\\V1\\Auth\\GPBMetadata\xea\x02\x11Gcommon::V1::Auth\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"\x05value\x18\x02 \x01(\tR\x05value:\x028\x01B\xab\x01\n" +
+	"\x13com.gcommon.v1.authB\fSessionProtoP\x01Z(github.com/jdfalk/gcommon/pkg/auth/proto\xa2\x02\x03GVA\xaa\x02\x0fGcommon.V1.Auth\xca\x02\x0fGcommon\\V1\\Auth\xe2\x02\x1bGcommon\\V1\\Auth\\GPBMetadata\xea\x02\x11Gcommon::V1::Authb\beditionsp\xe8\a"
+
+var (
+	file_pkg_auth_proto_session_proto_rawDescOnce sync.Once
+	file_pkg_auth_proto_session_proto_rawDescData []byte
+)
+
+func file_pkg_auth_proto_session_proto_rawDescGZIP() []byte {
+	file_pkg_auth_proto_session_proto_rawDescOnce.Do(func() {
+		file_pkg_auth_proto_session_proto_rawDescData = protoimpl.X.CompressGZIP(unsafe.Slice(unsafe.StringData(file_pkg_auth_proto_session_proto_rawDesc), len(file_pkg_auth_proto_session_proto_rawDesc)))
+	})
+	return file_pkg_auth_proto_session_proto_rawDescData
+}
 
 var file_pkg_auth_proto_session_proto_msgTypes = make([]protoimpl.MessageInfo, 2)
 var file_pkg_auth_proto_session_proto_goTypes = []any{

@@ -9,9 +9,9 @@ package proto
 import (
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
-	_ "google.golang.org/protobuf/types/gofeaturespb"
 	timestamppb "google.golang.org/protobuf/types/known/timestamppb"
 	reflect "reflect"
+	sync "sync"
 	unsafe "unsafe"
 )
 
@@ -25,16 +25,15 @@ const (
 // *
 // RoleMetadata provides metadata about role creation and updates.
 type RoleMetadata struct {
-	state                protoimpl.MessageState `protogen:"opaque.v1"`
-	xxx_hidden_CreatedAt *timestamppb.Timestamp `protobuf:"bytes,1,opt,name=created_at,json=createdAt"`
-	xxx_hidden_UpdatedAt *timestamppb.Timestamp `protobuf:"bytes,2,opt,name=updated_at,json=updatedAt"`
-	xxx_hidden_CreatedBy *string                `protobuf:"bytes,3,opt,name=created_by,json=createdBy"`
-	// Deprecated: Do not use. This will be deleted in the near future.
-	XXX_lazyUnmarshalInfo  protoimpl.LazyUnmarshalInfo
-	XXX_raceDetectHookData protoimpl.RaceDetectHookData
-	XXX_presence           [1]uint32
-	unknownFields          protoimpl.UnknownFields
-	sizeCache              protoimpl.SizeCache
+	state protoimpl.MessageState `protogen:"open.v1"`
+	// Timestamp when the role was created
+	CreatedAt *timestamppb.Timestamp `protobuf:"bytes,1,opt,name=created_at,json=createdAt" json:"created_at,omitempty"`
+	// Timestamp of the last update to the role
+	UpdatedAt *timestamppb.Timestamp `protobuf:"bytes,2,opt,name=updated_at,json=updatedAt" json:"updated_at,omitempty"`
+	// User ID that created the role
+	CreatedBy     *string `protobuf:"bytes,3,opt,name=created_by,json=createdBy" json:"created_by,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
 }
 
 func (x *RoleMetadata) Reset() {
@@ -62,146 +61,57 @@ func (x *RoleMetadata) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
+// Deprecated: Use RoleMetadata.ProtoReflect.Descriptor instead.
+func (*RoleMetadata) Descriptor() ([]byte, []int) {
+	return file_pkg_auth_proto_role_metadata_proto_rawDescGZIP(), []int{0}
+}
+
 func (x *RoleMetadata) GetCreatedAt() *timestamppb.Timestamp {
 	if x != nil {
-		if protoimpl.X.Present(&(x.XXX_presence[0]), 0) {
-			if protoimpl.X.AtomicCheckPointerIsNil(&x.xxx_hidden_CreatedAt) {
-				protoimpl.X.UnmarshalField(x, 1)
-			}
-			var rv *timestamppb.Timestamp
-			protoimpl.X.AtomicLoadPointer(protoimpl.Pointer(&x.xxx_hidden_CreatedAt), protoimpl.Pointer(&rv))
-			return rv
-		}
+		return x.CreatedAt
 	}
 	return nil
 }
 
 func (x *RoleMetadata) GetUpdatedAt() *timestamppb.Timestamp {
 	if x != nil {
-		if protoimpl.X.Present(&(x.XXX_presence[0]), 1) {
-			if protoimpl.X.AtomicCheckPointerIsNil(&x.xxx_hidden_UpdatedAt) {
-				protoimpl.X.UnmarshalField(x, 2)
-			}
-			var rv *timestamppb.Timestamp
-			protoimpl.X.AtomicLoadPointer(protoimpl.Pointer(&x.xxx_hidden_UpdatedAt), protoimpl.Pointer(&rv))
-			return rv
-		}
+		return x.UpdatedAt
 	}
 	return nil
 }
 
 func (x *RoleMetadata) GetCreatedBy() string {
-	if x != nil {
-		if x.xxx_hidden_CreatedBy != nil {
-			return *x.xxx_hidden_CreatedBy
-		}
-		return ""
+	if x != nil && x.CreatedBy != nil {
+		return *x.CreatedBy
 	}
 	return ""
-}
-
-func (x *RoleMetadata) SetCreatedAt(v *timestamppb.Timestamp) {
-	protoimpl.X.AtomicSetPointer(&x.xxx_hidden_CreatedAt, v)
-	if v == nil {
-		protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 0)
-	} else {
-		protoimpl.X.SetPresent(&(x.XXX_presence[0]), 0, 3)
-	}
-}
-
-func (x *RoleMetadata) SetUpdatedAt(v *timestamppb.Timestamp) {
-	protoimpl.X.AtomicSetPointer(&x.xxx_hidden_UpdatedAt, v)
-	if v == nil {
-		protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 1)
-	} else {
-		protoimpl.X.SetPresent(&(x.XXX_presence[0]), 1, 3)
-	}
-}
-
-func (x *RoleMetadata) SetCreatedBy(v string) {
-	x.xxx_hidden_CreatedBy = &v
-	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 2, 3)
-}
-
-func (x *RoleMetadata) HasCreatedAt() bool {
-	if x == nil {
-		return false
-	}
-	return protoimpl.X.Present(&(x.XXX_presence[0]), 0)
-}
-
-func (x *RoleMetadata) HasUpdatedAt() bool {
-	if x == nil {
-		return false
-	}
-	return protoimpl.X.Present(&(x.XXX_presence[0]), 1)
-}
-
-func (x *RoleMetadata) HasCreatedBy() bool {
-	if x == nil {
-		return false
-	}
-	return protoimpl.X.Present(&(x.XXX_presence[0]), 2)
-}
-
-func (x *RoleMetadata) ClearCreatedAt() {
-	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 0)
-	protoimpl.X.AtomicSetPointer(&x.xxx_hidden_CreatedAt, (*timestamppb.Timestamp)(nil))
-}
-
-func (x *RoleMetadata) ClearUpdatedAt() {
-	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 1)
-	protoimpl.X.AtomicSetPointer(&x.xxx_hidden_UpdatedAt, (*timestamppb.Timestamp)(nil))
-}
-
-func (x *RoleMetadata) ClearCreatedBy() {
-	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 2)
-	x.xxx_hidden_CreatedBy = nil
-}
-
-type RoleMetadata_builder struct {
-	_ [0]func() // Prevents comparability and use of unkeyed literals for the builder.
-
-	// Timestamp when the role was created
-	CreatedAt *timestamppb.Timestamp
-	// Timestamp of the last update to the role
-	UpdatedAt *timestamppb.Timestamp
-	// User ID that created the role
-	CreatedBy *string
-}
-
-func (b0 RoleMetadata_builder) Build() *RoleMetadata {
-	m0 := &RoleMetadata{}
-	b, x := &b0, m0
-	_, _ = b, x
-	if b.CreatedAt != nil {
-		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 0, 3)
-		x.xxx_hidden_CreatedAt = b.CreatedAt
-	}
-	if b.UpdatedAt != nil {
-		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 1, 3)
-		x.xxx_hidden_UpdatedAt = b.UpdatedAt
-	}
-	if b.CreatedBy != nil {
-		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 2, 3)
-		x.xxx_hidden_CreatedBy = b.CreatedBy
-	}
-	return m0
 }
 
 var File_pkg_auth_proto_role_metadata_proto protoreflect.FileDescriptor
 
 const file_pkg_auth_proto_role_metadata_proto_rawDesc = "" +
 	"\n" +
-	"\"pkg/auth/proto/role_metadata.proto\x12\x0fgcommon.v1.auth\x1a!google/protobuf/go_features.proto\x1a\x19pkg/auth/proto/role.proto\x1a\x1fgoogle/protobuf/timestamp.proto\"\xab\x01\n" +
+	"\"pkg/auth/proto/role_metadata.proto\x12\x0fgcommon.v1.auth\x1a\x19pkg/auth/proto/role.proto\x1a\x1fgoogle/protobuf/timestamp.proto\"\xab\x01\n" +
 	"\fRoleMetadata\x12=\n" +
 	"\n" +
 	"created_at\x18\x01 \x01(\v2\x1a.google.protobuf.TimestampB\x02(\x01R\tcreatedAt\x12=\n" +
 	"\n" +
 	"updated_at\x18\x02 \x01(\v2\x1a.google.protobuf.TimestampB\x02(\x01R\tupdatedAt\x12\x1d\n" +
 	"\n" +
-	"created_by\x18\x03 \x01(\tR\tcreatedByB\xb8\x01\n" +
-	"\x13com.gcommon.v1.authB\x11RoleMetadataProtoP\x01Z(github.com/jdfalk/gcommon/pkg/auth/proto\xa2\x02\x03GVA\xaa\x02\x0fGcommon.V1.Auth\xca\x02\x0fGcommon\\V1\\Auth\xe2\x02\x1bGcommon\\V1\\Auth\\GPBMetadata\xea\x02\x11Gcommon::V1::Auth\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"created_by\x18\x03 \x01(\tR\tcreatedByB\xb0\x01\n" +
+	"\x13com.gcommon.v1.authB\x11RoleMetadataProtoP\x01Z(github.com/jdfalk/gcommon/pkg/auth/proto\xa2\x02\x03GVA\xaa\x02\x0fGcommon.V1.Auth\xca\x02\x0fGcommon\\V1\\Auth\xe2\x02\x1bGcommon\\V1\\Auth\\GPBMetadata\xea\x02\x11Gcommon::V1::Authb\beditionsp\xe8\a"
+
+var (
+	file_pkg_auth_proto_role_metadata_proto_rawDescOnce sync.Once
+	file_pkg_auth_proto_role_metadata_proto_rawDescData []byte
+)
+
+func file_pkg_auth_proto_role_metadata_proto_rawDescGZIP() []byte {
+	file_pkg_auth_proto_role_metadata_proto_rawDescOnce.Do(func() {
+		file_pkg_auth_proto_role_metadata_proto_rawDescData = protoimpl.X.CompressGZIP(unsafe.Slice(unsafe.StringData(file_pkg_auth_proto_role_metadata_proto_rawDesc), len(file_pkg_auth_proto_role_metadata_proto_rawDesc)))
+	})
+	return file_pkg_auth_proto_role_metadata_proto_rawDescData
+}
 
 var file_pkg_auth_proto_role_metadata_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_pkg_auth_proto_role_metadata_proto_goTypes = []any{

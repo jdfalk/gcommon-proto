@@ -10,8 +10,8 @@ import (
 	proto "github.com/jdfalk/gcommon/pkg/common/proto"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
-	_ "google.golang.org/protobuf/types/gofeaturespb"
 	reflect "reflect"
+	sync "sync"
 	unsafe "unsafe"
 )
 
@@ -27,18 +27,19 @@ const (
 // Used after successful authentication to establish a session
 // with specific duration and metadata tracking.
 type CreateSessionRequest struct {
-	state                      protoimpl.MessageState `protogen:"opaque.v1"`
-	xxx_hidden_Metadata        *proto.RequestMetadata `protobuf:"bytes,1,opt,name=metadata"`
-	xxx_hidden_UserId          *string                `protobuf:"bytes,2,opt,name=user_id,json=userId"`
-	xxx_hidden_ClientInfo      *proto.ClientInfo      `protobuf:"bytes,3,opt,name=client_info,json=clientInfo"`
-	xxx_hidden_DurationSeconds int32                  `protobuf:"varint,4,opt,name=duration_seconds,json=durationSeconds"`
-	xxx_hidden_SessionMetadata map[string]string      `protobuf:"bytes,5,rep,name=session_metadata,json=sessionMetadata" protobuf_key:"bytes,1,opt,name=key" protobuf_val:"bytes,2,opt,name=value"`
-	// Deprecated: Do not use. This will be deleted in the near future.
-	XXX_lazyUnmarshalInfo  protoimpl.LazyUnmarshalInfo
-	XXX_raceDetectHookData protoimpl.RaceDetectHookData
-	XXX_presence           [1]uint32
-	unknownFields          protoimpl.UnknownFields
-	sizeCache              protoimpl.SizeCache
+	state protoimpl.MessageState `protogen:"open.v1"`
+	// Request metadata for tracing and correlation
+	Metadata *proto.RequestMetadata `protobuf:"bytes,1,opt,name=metadata" json:"metadata,omitempty"`
+	// User ID for which to create the session
+	UserId *string `protobuf:"bytes,2,opt,name=user_id,json=userId" json:"user_id,omitempty"`
+	// Client information for session tracking
+	ClientInfo *proto.ClientInfo `protobuf:"bytes,3,opt,name=client_info,json=clientInfo" json:"client_info,omitempty"`
+	// Session duration in seconds (0 for system default)
+	DurationSeconds *int32 `protobuf:"varint,4,opt,name=duration_seconds,json=durationSeconds" json:"duration_seconds,omitempty"`
+	// Additional session metadata
+	SessionMetadata map[string]string `protobuf:"bytes,5,rep,name=session_metadata,json=sessionMetadata" json:"session_metadata,omitempty" protobuf_key:"bytes,1,opt,name=key" protobuf_val:"bytes,2,opt,name=value"`
+	unknownFields   protoimpl.UnknownFields
+	sizeCache       protoimpl.SizeCache
 }
 
 func (x *CreateSessionRequest) Reset() {
@@ -66,195 +67,51 @@ func (x *CreateSessionRequest) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
+// Deprecated: Use CreateSessionRequest.ProtoReflect.Descriptor instead.
+func (*CreateSessionRequest) Descriptor() ([]byte, []int) {
+	return file_pkg_auth_proto_create_session_request_proto_rawDescGZIP(), []int{0}
+}
+
 func (x *CreateSessionRequest) GetMetadata() *proto.RequestMetadata {
 	if x != nil {
-		if protoimpl.X.Present(&(x.XXX_presence[0]), 0) {
-			if protoimpl.X.AtomicCheckPointerIsNil(&x.xxx_hidden_Metadata) {
-				protoimpl.X.UnmarshalField(x, 1)
-			}
-			var rv *proto.RequestMetadata
-			protoimpl.X.AtomicLoadPointer(protoimpl.Pointer(&x.xxx_hidden_Metadata), protoimpl.Pointer(&rv))
-			return rv
-		}
+		return x.Metadata
 	}
 	return nil
 }
 
 func (x *CreateSessionRequest) GetUserId() string {
-	if x != nil {
-		if x.xxx_hidden_UserId != nil {
-			return *x.xxx_hidden_UserId
-		}
-		return ""
+	if x != nil && x.UserId != nil {
+		return *x.UserId
 	}
 	return ""
 }
 
 func (x *CreateSessionRequest) GetClientInfo() *proto.ClientInfo {
 	if x != nil {
-		if protoimpl.X.Present(&(x.XXX_presence[0]), 2) {
-			if protoimpl.X.AtomicCheckPointerIsNil(&x.xxx_hidden_ClientInfo) {
-				protoimpl.X.UnmarshalField(x, 3)
-			}
-			var rv *proto.ClientInfo
-			protoimpl.X.AtomicLoadPointer(protoimpl.Pointer(&x.xxx_hidden_ClientInfo), protoimpl.Pointer(&rv))
-			return rv
-		}
+		return x.ClientInfo
 	}
 	return nil
 }
 
 func (x *CreateSessionRequest) GetDurationSeconds() int32 {
-	if x != nil {
-		return x.xxx_hidden_DurationSeconds
+	if x != nil && x.DurationSeconds != nil {
+		return *x.DurationSeconds
 	}
 	return 0
 }
 
 func (x *CreateSessionRequest) GetSessionMetadata() map[string]string {
 	if x != nil {
-		if protoimpl.X.Present(&(x.XXX_presence[0]), 4) {
-			if protoimpl.X.AtomicCheckPointerIsNil(&x.xxx_hidden_SessionMetadata) {
-				protoimpl.X.UnmarshalField(x, 5)
-			}
-			return x.xxx_hidden_SessionMetadata
-		}
+		return x.SessionMetadata
 	}
 	return nil
-}
-
-func (x *CreateSessionRequest) SetMetadata(v *proto.RequestMetadata) {
-	protoimpl.X.AtomicSetPointer(&x.xxx_hidden_Metadata, v)
-	if v == nil {
-		protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 0)
-	} else {
-		protoimpl.X.SetPresent(&(x.XXX_presence[0]), 0, 5)
-	}
-}
-
-func (x *CreateSessionRequest) SetUserId(v string) {
-	x.xxx_hidden_UserId = &v
-	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 1, 5)
-}
-
-func (x *CreateSessionRequest) SetClientInfo(v *proto.ClientInfo) {
-	protoimpl.X.AtomicSetPointer(&x.xxx_hidden_ClientInfo, v)
-	if v == nil {
-		protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 2)
-	} else {
-		protoimpl.X.SetPresent(&(x.XXX_presence[0]), 2, 5)
-	}
-}
-
-func (x *CreateSessionRequest) SetDurationSeconds(v int32) {
-	x.xxx_hidden_DurationSeconds = v
-	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 3, 5)
-}
-
-func (x *CreateSessionRequest) SetSessionMetadata(v map[string]string) {
-	x.xxx_hidden_SessionMetadata = v
-	if v == nil {
-		protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 4)
-	} else {
-		protoimpl.X.SetPresent(&(x.XXX_presence[0]), 4, 5)
-	}
-}
-
-func (x *CreateSessionRequest) HasMetadata() bool {
-	if x == nil {
-		return false
-	}
-	return protoimpl.X.Present(&(x.XXX_presence[0]), 0)
-}
-
-func (x *CreateSessionRequest) HasUserId() bool {
-	if x == nil {
-		return false
-	}
-	return protoimpl.X.Present(&(x.XXX_presence[0]), 1)
-}
-
-func (x *CreateSessionRequest) HasClientInfo() bool {
-	if x == nil {
-		return false
-	}
-	return protoimpl.X.Present(&(x.XXX_presence[0]), 2)
-}
-
-func (x *CreateSessionRequest) HasDurationSeconds() bool {
-	if x == nil {
-		return false
-	}
-	return protoimpl.X.Present(&(x.XXX_presence[0]), 3)
-}
-
-func (x *CreateSessionRequest) ClearMetadata() {
-	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 0)
-	protoimpl.X.AtomicSetPointer(&x.xxx_hidden_Metadata, (*proto.RequestMetadata)(nil))
-}
-
-func (x *CreateSessionRequest) ClearUserId() {
-	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 1)
-	x.xxx_hidden_UserId = nil
-}
-
-func (x *CreateSessionRequest) ClearClientInfo() {
-	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 2)
-	protoimpl.X.AtomicSetPointer(&x.xxx_hidden_ClientInfo, (*proto.ClientInfo)(nil))
-}
-
-func (x *CreateSessionRequest) ClearDurationSeconds() {
-	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 3)
-	x.xxx_hidden_DurationSeconds = 0
-}
-
-type CreateSessionRequest_builder struct {
-	_ [0]func() // Prevents comparability and use of unkeyed literals for the builder.
-
-	// Request metadata for tracing and correlation
-	Metadata *proto.RequestMetadata
-	// User ID for which to create the session
-	UserId *string
-	// Client information for session tracking
-	ClientInfo *proto.ClientInfo
-	// Session duration in seconds (0 for system default)
-	DurationSeconds *int32
-	// Additional session metadata
-	SessionMetadata map[string]string
-}
-
-func (b0 CreateSessionRequest_builder) Build() *CreateSessionRequest {
-	m0 := &CreateSessionRequest{}
-	b, x := &b0, m0
-	_, _ = b, x
-	if b.Metadata != nil {
-		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 0, 5)
-		x.xxx_hidden_Metadata = b.Metadata
-	}
-	if b.UserId != nil {
-		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 1, 5)
-		x.xxx_hidden_UserId = b.UserId
-	}
-	if b.ClientInfo != nil {
-		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 2, 5)
-		x.xxx_hidden_ClientInfo = b.ClientInfo
-	}
-	if b.DurationSeconds != nil {
-		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 3, 5)
-		x.xxx_hidden_DurationSeconds = *b.DurationSeconds
-	}
-	if b.SessionMetadata != nil {
-		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 4, 5)
-		x.xxx_hidden_SessionMetadata = b.SessionMetadata
-	}
-	return m0
 }
 
 var File_pkg_auth_proto_create_session_request_proto protoreflect.FileDescriptor
 
 const file_pkg_auth_proto_create_session_request_proto_rawDesc = "" +
 	"\n" +
-	"+pkg/auth/proto/create_session_request.proto\x12\x0fgcommon.v1.auth\x1a!google/protobuf/go_features.proto\x1a'pkg/common/proto/request_metadata.proto\x1a\"pkg/common/proto/client_info.proto\"\x91\x03\n" +
+	"+pkg/auth/proto/create_session_request.proto\x12\x0fgcommon.v1.auth\x1a'pkg/common/proto/request_metadata.proto\x1a\"pkg/common/proto/client_info.proto\"\x91\x03\n" +
 	"\x14CreateSessionRequest\x12B\n" +
 	"\bmetadata\x18\x01 \x01(\v2\".gcommon.v1.common.RequestMetadataB\x02(\x01R\bmetadata\x12\x17\n" +
 	"\auser_id\x18\x02 \x01(\tR\x06userId\x12B\n" +
@@ -264,8 +121,20 @@ const file_pkg_auth_proto_create_session_request_proto_rawDesc = "" +
 	"\x10session_metadata\x18\x05 \x03(\v2:.gcommon.v1.auth.CreateSessionRequest.SessionMetadataEntryB\x02(\x01R\x0fsessionMetadata\x1aB\n" +
 	"\x14SessionMetadataEntry\x12\x10\n" +
 	"\x03key\x18\x01 \x01(\tR\x03key\x12\x14\n" +
-	"\x05value\x18\x02 \x01(\tR\x05value:\x028\x01B\xc0\x01\n" +
-	"\x13com.gcommon.v1.authB\x19CreateSessionRequestProtoP\x01Z(github.com/jdfalk/gcommon/pkg/auth/proto\xa2\x02\x03GVA\xaa\x02\x0fGcommon.V1.Auth\xca\x02\x0fGcommon\\V1\\Auth\xe2\x02\x1bGcommon\\V1\\Auth\\GPBMetadata\xea\x02\x11Gcommon::V1::Auth\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"\x05value\x18\x02 \x01(\tR\x05value:\x028\x01B\xb8\x01\n" +
+	"\x13com.gcommon.v1.authB\x19CreateSessionRequestProtoP\x01Z(github.com/jdfalk/gcommon/pkg/auth/proto\xa2\x02\x03GVA\xaa\x02\x0fGcommon.V1.Auth\xca\x02\x0fGcommon\\V1\\Auth\xe2\x02\x1bGcommon\\V1\\Auth\\GPBMetadata\xea\x02\x11Gcommon::V1::Authb\beditionsp\xe8\a"
+
+var (
+	file_pkg_auth_proto_create_session_request_proto_rawDescOnce sync.Once
+	file_pkg_auth_proto_create_session_request_proto_rawDescData []byte
+)
+
+func file_pkg_auth_proto_create_session_request_proto_rawDescGZIP() []byte {
+	file_pkg_auth_proto_create_session_request_proto_rawDescOnce.Do(func() {
+		file_pkg_auth_proto_create_session_request_proto_rawDescData = protoimpl.X.CompressGZIP(unsafe.Slice(unsafe.StringData(file_pkg_auth_proto_create_session_request_proto_rawDesc), len(file_pkg_auth_proto_create_session_request_proto_rawDesc)))
+	})
+	return file_pkg_auth_proto_create_session_request_proto_rawDescData
+}
 
 var file_pkg_auth_proto_create_session_request_proto_msgTypes = make([]protoimpl.MessageInfo, 2)
 var file_pkg_auth_proto_create_session_request_proto_goTypes = []any{

@@ -10,8 +10,8 @@ import (
 	proto "github.com/jdfalk/gcommon/pkg/common/proto"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
-	_ "google.golang.org/protobuf/types/gofeaturespb"
 	reflect "reflect"
+	sync "sync"
 	unsafe "unsafe"
 )
 
@@ -26,11 +26,13 @@ const (
 // Response for getting session information.
 // Contains session details if found, or error information if not found.
 type GetSessionResponse struct {
-	state              protoimpl.MessageState `protogen:"opaque.v1"`
-	xxx_hidden_Session *Session               `protobuf:"bytes,1,opt,name=session"`
-	xxx_hidden_Error   *proto.Error           `protobuf:"bytes,2,opt,name=error"`
-	unknownFields      protoimpl.UnknownFields
-	sizeCache          protoimpl.SizeCache
+	state protoimpl.MessageState `protogen:"open.v1"`
+	// Session information if found
+	Session *Session `protobuf:"bytes,1,opt,name=session" json:"session,omitempty"`
+	// Error information if session not found or access denied
+	Error         *proto.Error `protobuf:"bytes,2,opt,name=error" json:"error,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
 }
 
 func (x *GetSessionResponse) Reset() {
@@ -58,77 +60,46 @@ func (x *GetSessionResponse) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
+// Deprecated: Use GetSessionResponse.ProtoReflect.Descriptor instead.
+func (*GetSessionResponse) Descriptor() ([]byte, []int) {
+	return file_pkg_auth_proto_get_session_response_proto_rawDescGZIP(), []int{0}
+}
+
 func (x *GetSessionResponse) GetSession() *Session {
 	if x != nil {
-		return x.xxx_hidden_Session
+		return x.Session
 	}
 	return nil
 }
 
 func (x *GetSessionResponse) GetError() *proto.Error {
 	if x != nil {
-		return x.xxx_hidden_Error
+		return x.Error
 	}
 	return nil
-}
-
-func (x *GetSessionResponse) SetSession(v *Session) {
-	x.xxx_hidden_Session = v
-}
-
-func (x *GetSessionResponse) SetError(v *proto.Error) {
-	x.xxx_hidden_Error = v
-}
-
-func (x *GetSessionResponse) HasSession() bool {
-	if x == nil {
-		return false
-	}
-	return x.xxx_hidden_Session != nil
-}
-
-func (x *GetSessionResponse) HasError() bool {
-	if x == nil {
-		return false
-	}
-	return x.xxx_hidden_Error != nil
-}
-
-func (x *GetSessionResponse) ClearSession() {
-	x.xxx_hidden_Session = nil
-}
-
-func (x *GetSessionResponse) ClearError() {
-	x.xxx_hidden_Error = nil
-}
-
-type GetSessionResponse_builder struct {
-	_ [0]func() // Prevents comparability and use of unkeyed literals for the builder.
-
-	// Session information if found
-	Session *Session
-	// Error information if session not found or access denied
-	Error *proto.Error
-}
-
-func (b0 GetSessionResponse_builder) Build() *GetSessionResponse {
-	m0 := &GetSessionResponse{}
-	b, x := &b0, m0
-	_, _ = b, x
-	x.xxx_hidden_Session = b.Session
-	x.xxx_hidden_Error = b.Error
-	return m0
 }
 
 var File_pkg_auth_proto_get_session_response_proto protoreflect.FileDescriptor
 
 const file_pkg_auth_proto_get_session_response_proto_rawDesc = "" +
 	"\n" +
-	")pkg/auth/proto/get_session_response.proto\x12\x0fgcommon.v1.auth\x1a!google/protobuf/go_features.proto\x1a\x1cpkg/auth/proto/session.proto\x1a\x1cpkg/common/proto/error.proto\"x\n" +
+	")pkg/auth/proto/get_session_response.proto\x12\x0fgcommon.v1.auth\x1a\x1cpkg/auth/proto/session.proto\x1a\x1cpkg/common/proto/error.proto\"x\n" +
 	"\x12GetSessionResponse\x122\n" +
 	"\asession\x18\x01 \x01(\v2\x18.gcommon.v1.auth.SessionR\asession\x12.\n" +
-	"\x05error\x18\x02 \x01(\v2\x18.gcommon.v1.common.ErrorR\x05errorB\xbe\x01\n" +
-	"\x13com.gcommon.v1.authB\x17GetSessionResponseProtoP\x01Z(github.com/jdfalk/gcommon/pkg/auth/proto\xa2\x02\x03GVA\xaa\x02\x0fGcommon.V1.Auth\xca\x02\x0fGcommon\\V1\\Auth\xe2\x02\x1bGcommon\\V1\\Auth\\GPBMetadata\xea\x02\x11Gcommon::V1::Auth\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"\x05error\x18\x02 \x01(\v2\x18.gcommon.v1.common.ErrorR\x05errorB\xb6\x01\n" +
+	"\x13com.gcommon.v1.authB\x17GetSessionResponseProtoP\x01Z(github.com/jdfalk/gcommon/pkg/auth/proto\xa2\x02\x03GVA\xaa\x02\x0fGcommon.V1.Auth\xca\x02\x0fGcommon\\V1\\Auth\xe2\x02\x1bGcommon\\V1\\Auth\\GPBMetadata\xea\x02\x11Gcommon::V1::Authb\beditionsp\xe8\a"
+
+var (
+	file_pkg_auth_proto_get_session_response_proto_rawDescOnce sync.Once
+	file_pkg_auth_proto_get_session_response_proto_rawDescData []byte
+)
+
+func file_pkg_auth_proto_get_session_response_proto_rawDescGZIP() []byte {
+	file_pkg_auth_proto_get_session_response_proto_rawDescOnce.Do(func() {
+		file_pkg_auth_proto_get_session_response_proto_rawDescData = protoimpl.X.CompressGZIP(unsafe.Slice(unsafe.StringData(file_pkg_auth_proto_get_session_response_proto_rawDesc), len(file_pkg_auth_proto_get_session_response_proto_rawDesc)))
+	})
+	return file_pkg_auth_proto_get_session_response_proto_rawDescData
+}
 
 var file_pkg_auth_proto_get_session_response_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_pkg_auth_proto_get_session_response_proto_goTypes = []any{

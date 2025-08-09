@@ -9,9 +9,9 @@ package proto
 import (
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
-	_ "google.golang.org/protobuf/types/gofeaturespb"
 	timestamppb "google.golang.org/protobuf/types/known/timestamppb"
 	reflect "reflect"
+	sync "sync"
 	unsafe "unsafe"
 )
 
@@ -27,16 +27,19 @@ const (
 // Provides comprehensive build and version metadata for service
 // identification, debugging, and compatibility checking.
 type ServiceVersion struct {
-	state                  protoimpl.MessageState `protogen:"opaque.v1"`
-	xxx_hidden_Name        *string                `protobuf:"bytes,1,opt,name=name"`
-	xxx_hidden_Version     *string                `protobuf:"bytes,2,opt,name=version"`
-	xxx_hidden_Commit      *string                `protobuf:"bytes,3,opt,name=commit"`
-	xxx_hidden_BuildTime   *timestamppb.Timestamp `protobuf:"bytes,4,opt,name=build_time,json=buildTime"`
-	xxx_hidden_GoVersion   *string                `protobuf:"bytes,5,opt,name=go_version,json=goVersion"`
-	XXX_raceDetectHookData protoimpl.RaceDetectHookData
-	XXX_presence           [1]uint32
-	unknownFields          protoimpl.UnknownFields
-	sizeCache              protoimpl.SizeCache
+	state protoimpl.MessageState `protogen:"open.v1"`
+	// Service name identifier
+	Name *string `protobuf:"bytes,1,opt,name=name" json:"name,omitempty"`
+	// Semantic version string (e.g., "1.2.3")
+	Version *string `protobuf:"bytes,2,opt,name=version" json:"version,omitempty"`
+	// Git commit hash used for the build
+	Commit *string `protobuf:"bytes,3,opt,name=commit" json:"commit,omitempty"`
+	// Timestamp when the service was built
+	BuildTime *timestamppb.Timestamp `protobuf:"bytes,4,opt,name=build_time,json=buildTime" json:"build_time,omitempty"`
+	// Go version used for compilation
+	GoVersion     *string `protobuf:"bytes,5,opt,name=go_version,json=goVersion" json:"go_version,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
 }
 
 func (x *ServiceVersion) Reset() {
@@ -64,180 +67,51 @@ func (x *ServiceVersion) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
+// Deprecated: Use ServiceVersion.ProtoReflect.Descriptor instead.
+func (*ServiceVersion) Descriptor() ([]byte, []int) {
+	return file_pkg_common_proto_service_version_proto_rawDescGZIP(), []int{0}
+}
+
 func (x *ServiceVersion) GetName() string {
-	if x != nil {
-		if x.xxx_hidden_Name != nil {
-			return *x.xxx_hidden_Name
-		}
-		return ""
+	if x != nil && x.Name != nil {
+		return *x.Name
 	}
 	return ""
 }
 
 func (x *ServiceVersion) GetVersion() string {
-	if x != nil {
-		if x.xxx_hidden_Version != nil {
-			return *x.xxx_hidden_Version
-		}
-		return ""
+	if x != nil && x.Version != nil {
+		return *x.Version
 	}
 	return ""
 }
 
 func (x *ServiceVersion) GetCommit() string {
-	if x != nil {
-		if x.xxx_hidden_Commit != nil {
-			return *x.xxx_hidden_Commit
-		}
-		return ""
+	if x != nil && x.Commit != nil {
+		return *x.Commit
 	}
 	return ""
 }
 
 func (x *ServiceVersion) GetBuildTime() *timestamppb.Timestamp {
 	if x != nil {
-		return x.xxx_hidden_BuildTime
+		return x.BuildTime
 	}
 	return nil
 }
 
 func (x *ServiceVersion) GetGoVersion() string {
-	if x != nil {
-		if x.xxx_hidden_GoVersion != nil {
-			return *x.xxx_hidden_GoVersion
-		}
-		return ""
+	if x != nil && x.GoVersion != nil {
+		return *x.GoVersion
 	}
 	return ""
-}
-
-func (x *ServiceVersion) SetName(v string) {
-	x.xxx_hidden_Name = &v
-	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 0, 5)
-}
-
-func (x *ServiceVersion) SetVersion(v string) {
-	x.xxx_hidden_Version = &v
-	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 1, 5)
-}
-
-func (x *ServiceVersion) SetCommit(v string) {
-	x.xxx_hidden_Commit = &v
-	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 2, 5)
-}
-
-func (x *ServiceVersion) SetBuildTime(v *timestamppb.Timestamp) {
-	x.xxx_hidden_BuildTime = v
-}
-
-func (x *ServiceVersion) SetGoVersion(v string) {
-	x.xxx_hidden_GoVersion = &v
-	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 4, 5)
-}
-
-func (x *ServiceVersion) HasName() bool {
-	if x == nil {
-		return false
-	}
-	return protoimpl.X.Present(&(x.XXX_presence[0]), 0)
-}
-
-func (x *ServiceVersion) HasVersion() bool {
-	if x == nil {
-		return false
-	}
-	return protoimpl.X.Present(&(x.XXX_presence[0]), 1)
-}
-
-func (x *ServiceVersion) HasCommit() bool {
-	if x == nil {
-		return false
-	}
-	return protoimpl.X.Present(&(x.XXX_presence[0]), 2)
-}
-
-func (x *ServiceVersion) HasBuildTime() bool {
-	if x == nil {
-		return false
-	}
-	return x.xxx_hidden_BuildTime != nil
-}
-
-func (x *ServiceVersion) HasGoVersion() bool {
-	if x == nil {
-		return false
-	}
-	return protoimpl.X.Present(&(x.XXX_presence[0]), 4)
-}
-
-func (x *ServiceVersion) ClearName() {
-	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 0)
-	x.xxx_hidden_Name = nil
-}
-
-func (x *ServiceVersion) ClearVersion() {
-	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 1)
-	x.xxx_hidden_Version = nil
-}
-
-func (x *ServiceVersion) ClearCommit() {
-	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 2)
-	x.xxx_hidden_Commit = nil
-}
-
-func (x *ServiceVersion) ClearBuildTime() {
-	x.xxx_hidden_BuildTime = nil
-}
-
-func (x *ServiceVersion) ClearGoVersion() {
-	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 4)
-	x.xxx_hidden_GoVersion = nil
-}
-
-type ServiceVersion_builder struct {
-	_ [0]func() // Prevents comparability and use of unkeyed literals for the builder.
-
-	// Service name identifier
-	Name *string
-	// Semantic version string (e.g., "1.2.3")
-	Version *string
-	// Git commit hash used for the build
-	Commit *string
-	// Timestamp when the service was built
-	BuildTime *timestamppb.Timestamp
-	// Go version used for compilation
-	GoVersion *string
-}
-
-func (b0 ServiceVersion_builder) Build() *ServiceVersion {
-	m0 := &ServiceVersion{}
-	b, x := &b0, m0
-	_, _ = b, x
-	if b.Name != nil {
-		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 0, 5)
-		x.xxx_hidden_Name = b.Name
-	}
-	if b.Version != nil {
-		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 1, 5)
-		x.xxx_hidden_Version = b.Version
-	}
-	if b.Commit != nil {
-		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 2, 5)
-		x.xxx_hidden_Commit = b.Commit
-	}
-	x.xxx_hidden_BuildTime = b.BuildTime
-	if b.GoVersion != nil {
-		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 4, 5)
-		x.xxx_hidden_GoVersion = b.GoVersion
-	}
-	return m0
 }
 
 var File_pkg_common_proto_service_version_proto protoreflect.FileDescriptor
 
 const file_pkg_common_proto_service_version_proto_rawDesc = "" +
 	"\n" +
-	"&pkg/common/proto/service_version.proto\x12\x11gcommon.v1.common\x1a!google/protobuf/go_features.proto\x1a\x1fgoogle/protobuf/timestamp.proto\"\xb0\x01\n" +
+	"&pkg/common/proto/service_version.proto\x12\x11gcommon.v1.common\x1a\x1fgoogle/protobuf/timestamp.proto\"\xb0\x01\n" +
 	"\x0eServiceVersion\x12\x12\n" +
 	"\x04name\x18\x01 \x01(\tR\x04name\x12\x18\n" +
 	"\aversion\x18\x02 \x01(\tR\aversion\x12\x16\n" +
@@ -245,8 +119,20 @@ const file_pkg_common_proto_service_version_proto_rawDesc = "" +
 	"\n" +
 	"build_time\x18\x04 \x01(\v2\x1a.google.protobuf.TimestampR\tbuildTime\x12\x1d\n" +
 	"\n" +
-	"go_version\x18\x05 \x01(\tR\tgoVersionB\xc6\x01\n" +
-	"\x15com.gcommon.v1.commonB\x13ServiceVersionProtoP\x01Z*github.com/jdfalk/gcommon/pkg/common/proto\xa2\x02\x03GVC\xaa\x02\x11Gcommon.V1.Common\xca\x02\x11Gcommon\\V1\\Common\xe2\x02\x1dGcommon\\V1\\Common\\GPBMetadata\xea\x02\x13Gcommon::V1::Common\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"go_version\x18\x05 \x01(\tR\tgoVersionB\xbe\x01\n" +
+	"\x15com.gcommon.v1.commonB\x13ServiceVersionProtoP\x01Z*github.com/jdfalk/gcommon/pkg/common/proto\xa2\x02\x03GVC\xaa\x02\x11Gcommon.V1.Common\xca\x02\x11Gcommon\\V1\\Common\xe2\x02\x1dGcommon\\V1\\Common\\GPBMetadata\xea\x02\x13Gcommon::V1::Commonb\beditionsp\xe8\a"
+
+var (
+	file_pkg_common_proto_service_version_proto_rawDescOnce sync.Once
+	file_pkg_common_proto_service_version_proto_rawDescData []byte
+)
+
+func file_pkg_common_proto_service_version_proto_rawDescGZIP() []byte {
+	file_pkg_common_proto_service_version_proto_rawDescOnce.Do(func() {
+		file_pkg_common_proto_service_version_proto_rawDescData = protoimpl.X.CompressGZIP(unsafe.Slice(unsafe.StringData(file_pkg_common_proto_service_version_proto_rawDesc), len(file_pkg_common_proto_service_version_proto_rawDesc)))
+	})
+	return file_pkg_common_proto_service_version_proto_rawDescData
+}
 
 var file_pkg_common_proto_service_version_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_pkg_common_proto_service_version_proto_goTypes = []any{

@@ -10,8 +10,8 @@ import (
 	proto "github.com/jdfalk/gcommon/pkg/common/proto"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
-	_ "google.golang.org/protobuf/types/gofeaturespb"
 	reflect "reflect"
+	sync "sync"
 	unsafe "unsafe"
 )
 
@@ -27,13 +27,13 @@ const (
 // Extracts user profile data from an authenticated session.
 // Used for user profile display and authorization decisions.
 type GetUserInfoRequest struct {
-	state                  protoimpl.MessageState `protogen:"opaque.v1"`
-	xxx_hidden_Token       *string                `protobuf:"bytes,1,opt,name=token"`
-	xxx_hidden_Metadata    *proto.RequestMetadata `protobuf:"bytes,2,opt,name=metadata"`
-	XXX_raceDetectHookData protoimpl.RaceDetectHookData
-	XXX_presence           [1]uint32
-	unknownFields          protoimpl.UnknownFields
-	sizeCache              protoimpl.SizeCache
+	state protoimpl.MessageState `protogen:"open.v1"`
+	// Access token to extract user info from
+	Token *string `protobuf:"bytes,1,opt,name=token" json:"token,omitempty"`
+	// Request metadata for tracing and correlation
+	Metadata      *proto.RequestMetadata `protobuf:"bytes,2,opt,name=metadata" json:"metadata,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
 }
 
 func (x *GetUserInfoRequest) Reset() {
@@ -61,85 +61,46 @@ func (x *GetUserInfoRequest) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
+// Deprecated: Use GetUserInfoRequest.ProtoReflect.Descriptor instead.
+func (*GetUserInfoRequest) Descriptor() ([]byte, []int) {
+	return file_pkg_auth_proto_get_user_info_request_proto_rawDescGZIP(), []int{0}
+}
+
 func (x *GetUserInfoRequest) GetToken() string {
-	if x != nil {
-		if x.xxx_hidden_Token != nil {
-			return *x.xxx_hidden_Token
-		}
-		return ""
+	if x != nil && x.Token != nil {
+		return *x.Token
 	}
 	return ""
 }
 
 func (x *GetUserInfoRequest) GetMetadata() *proto.RequestMetadata {
 	if x != nil {
-		return x.xxx_hidden_Metadata
+		return x.Metadata
 	}
 	return nil
-}
-
-func (x *GetUserInfoRequest) SetToken(v string) {
-	x.xxx_hidden_Token = &v
-	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 0, 2)
-}
-
-func (x *GetUserInfoRequest) SetMetadata(v *proto.RequestMetadata) {
-	x.xxx_hidden_Metadata = v
-}
-
-func (x *GetUserInfoRequest) HasToken() bool {
-	if x == nil {
-		return false
-	}
-	return protoimpl.X.Present(&(x.XXX_presence[0]), 0)
-}
-
-func (x *GetUserInfoRequest) HasMetadata() bool {
-	if x == nil {
-		return false
-	}
-	return x.xxx_hidden_Metadata != nil
-}
-
-func (x *GetUserInfoRequest) ClearToken() {
-	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 0)
-	x.xxx_hidden_Token = nil
-}
-
-func (x *GetUserInfoRequest) ClearMetadata() {
-	x.xxx_hidden_Metadata = nil
-}
-
-type GetUserInfoRequest_builder struct {
-	_ [0]func() // Prevents comparability and use of unkeyed literals for the builder.
-
-	// Access token to extract user info from
-	Token *string
-	// Request metadata for tracing and correlation
-	Metadata *proto.RequestMetadata
-}
-
-func (b0 GetUserInfoRequest_builder) Build() *GetUserInfoRequest {
-	m0 := &GetUserInfoRequest{}
-	b, x := &b0, m0
-	_, _ = b, x
-	if b.Token != nil {
-		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 0, 2)
-		x.xxx_hidden_Token = b.Token
-	}
-	x.xxx_hidden_Metadata = b.Metadata
-	return m0
 }
 
 var File_pkg_auth_proto_get_user_info_request_proto protoreflect.FileDescriptor
 
 const file_pkg_auth_proto_get_user_info_request_proto_rawDesc = "" +
 	"\n" +
-	"*pkg/auth/proto/get_user_info_request.proto\x12\x0fgcommon.v1.auth\x1a!google/protobuf/go_features.proto\x1a'pkg/common/proto/request_metadata.proto\"j\n" +
+	"*pkg/auth/proto/get_user_info_request.proto\x12\x0fgcommon.v1.auth\x1a'pkg/common/proto/request_metadata.proto\"j\n" +
 	"\x12GetUserInfoRequest\x12\x14\n" +
 	"\x05token\x18\x01 \x01(\tR\x05token\x12>\n" +
-	"\bmetadata\x18\x02 \x01(\v2\".gcommon.v1.common.RequestMetadataR\bmetadataB\xbe\x01\n" +
-	"\x13com.gcommon.v1.authB\x17GetUserInfoRequestProtoP\x01Z(github.com/jdfalk/gcommon/pkg/auth/proto\xa2\x02\x03GVA\xaa\x02\x0fGcommon.V1.Auth\xca\x02\x0fGcommon\\V1\\Auth\xe2\x02\x1bGcommon\\V1\\Auth\\GPBMetadata\xea\x02\x11Gcommon::V1::Auth\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"\bmetadata\x18\x02 \x01(\v2\".gcommon.v1.common.RequestMetadataR\bmetadataB\xb6\x01\n" +
+	"\x13com.gcommon.v1.authB\x17GetUserInfoRequestProtoP\x01Z(github.com/jdfalk/gcommon/pkg/auth/proto\xa2\x02\x03GVA\xaa\x02\x0fGcommon.V1.Auth\xca\x02\x0fGcommon\\V1\\Auth\xe2\x02\x1bGcommon\\V1\\Auth\\GPBMetadata\xea\x02\x11Gcommon::V1::Authb\beditionsp\xe8\a"
+
+var (
+	file_pkg_auth_proto_get_user_info_request_proto_rawDescOnce sync.Once
+	file_pkg_auth_proto_get_user_info_request_proto_rawDescData []byte
+)
+
+func file_pkg_auth_proto_get_user_info_request_proto_rawDescGZIP() []byte {
+	file_pkg_auth_proto_get_user_info_request_proto_rawDescOnce.Do(func() {
+		file_pkg_auth_proto_get_user_info_request_proto_rawDescData = protoimpl.X.CompressGZIP(unsafe.Slice(unsafe.StringData(file_pkg_auth_proto_get_user_info_request_proto_rawDesc), len(file_pkg_auth_proto_get_user_info_request_proto_rawDesc)))
+	})
+	return file_pkg_auth_proto_get_user_info_request_proto_rawDescData
+}
 
 var file_pkg_auth_proto_get_user_info_request_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_pkg_auth_proto_get_user_info_request_proto_goTypes = []any{

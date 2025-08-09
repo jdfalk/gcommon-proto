@@ -10,8 +10,8 @@ import (
 	proto "github.com/jdfalk/gcommon/pkg/common/proto"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
-	_ "google.golang.org/protobuf/types/gofeaturespb"
 	reflect "reflect"
+	sync "sync"
 	unsafe "unsafe"
 )
 
@@ -25,15 +25,13 @@ const (
 // *
 // HealthCheckRequest verifies the health of the authentication subsystem.
 type HealthCheckRequest struct {
-	state               protoimpl.MessageState `protogen:"opaque.v1"`
-	xxx_hidden_Provider *string                `protobuf:"bytes,1,opt,name=provider"`
-	xxx_hidden_Metadata *proto.RequestMetadata `protobuf:"bytes,2,opt,name=metadata"`
-	// Deprecated: Do not use. This will be deleted in the near future.
-	XXX_lazyUnmarshalInfo  protoimpl.LazyUnmarshalInfo
-	XXX_raceDetectHookData protoimpl.RaceDetectHookData
-	XXX_presence           [1]uint32
-	unknownFields          protoimpl.UnknownFields
-	sizeCache              protoimpl.SizeCache
+	state protoimpl.MessageState `protogen:"open.v1"`
+	// Optional target auth provider.
+	Provider *string `protobuf:"bytes,1,opt,name=provider" json:"provider,omitempty"`
+	// Metadata for tracing.
+	Metadata      *proto.RequestMetadata `protobuf:"bytes,2,opt,name=metadata" json:"metadata,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
 }
 
 func (x *HealthCheckRequest) Reset() {
@@ -61,101 +59,46 @@ func (x *HealthCheckRequest) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
+// Deprecated: Use HealthCheckRequest.ProtoReflect.Descriptor instead.
+func (*HealthCheckRequest) Descriptor() ([]byte, []int) {
+	return file_pkg_auth_proto_health_check_request_proto_rawDescGZIP(), []int{0}
+}
+
 func (x *HealthCheckRequest) GetProvider() string {
-	if x != nil {
-		if x.xxx_hidden_Provider != nil {
-			return *x.xxx_hidden_Provider
-		}
-		return ""
+	if x != nil && x.Provider != nil {
+		return *x.Provider
 	}
 	return ""
 }
 
 func (x *HealthCheckRequest) GetMetadata() *proto.RequestMetadata {
 	if x != nil {
-		if protoimpl.X.Present(&(x.XXX_presence[0]), 1) {
-			if protoimpl.X.AtomicCheckPointerIsNil(&x.xxx_hidden_Metadata) {
-				protoimpl.X.UnmarshalField(x, 2)
-			}
-			var rv *proto.RequestMetadata
-			protoimpl.X.AtomicLoadPointer(protoimpl.Pointer(&x.xxx_hidden_Metadata), protoimpl.Pointer(&rv))
-			return rv
-		}
+		return x.Metadata
 	}
 	return nil
-}
-
-func (x *HealthCheckRequest) SetProvider(v string) {
-	x.xxx_hidden_Provider = &v
-	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 0, 2)
-}
-
-func (x *HealthCheckRequest) SetMetadata(v *proto.RequestMetadata) {
-	protoimpl.X.AtomicSetPointer(&x.xxx_hidden_Metadata, v)
-	if v == nil {
-		protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 1)
-	} else {
-		protoimpl.X.SetPresent(&(x.XXX_presence[0]), 1, 2)
-	}
-}
-
-func (x *HealthCheckRequest) HasProvider() bool {
-	if x == nil {
-		return false
-	}
-	return protoimpl.X.Present(&(x.XXX_presence[0]), 0)
-}
-
-func (x *HealthCheckRequest) HasMetadata() bool {
-	if x == nil {
-		return false
-	}
-	return protoimpl.X.Present(&(x.XXX_presence[0]), 1)
-}
-
-func (x *HealthCheckRequest) ClearProvider() {
-	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 0)
-	x.xxx_hidden_Provider = nil
-}
-
-func (x *HealthCheckRequest) ClearMetadata() {
-	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 1)
-	protoimpl.X.AtomicSetPointer(&x.xxx_hidden_Metadata, (*proto.RequestMetadata)(nil))
-}
-
-type HealthCheckRequest_builder struct {
-	_ [0]func() // Prevents comparability and use of unkeyed literals for the builder.
-
-	// Optional target auth provider.
-	Provider *string
-	// Metadata for tracing.
-	Metadata *proto.RequestMetadata
-}
-
-func (b0 HealthCheckRequest_builder) Build() *HealthCheckRequest {
-	m0 := &HealthCheckRequest{}
-	b, x := &b0, m0
-	_, _ = b, x
-	if b.Provider != nil {
-		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 0, 2)
-		x.xxx_hidden_Provider = b.Provider
-	}
-	if b.Metadata != nil {
-		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 1, 2)
-		x.xxx_hidden_Metadata = b.Metadata
-	}
-	return m0
 }
 
 var File_pkg_auth_proto_health_check_request_proto protoreflect.FileDescriptor
 
 const file_pkg_auth_proto_health_check_request_proto_rawDesc = "" +
 	"\n" +
-	")pkg/auth/proto/health_check_request.proto\x12\x0fgcommon.v1.auth\x1a!google/protobuf/go_features.proto\x1a'pkg/common/proto/request_metadata.proto\"t\n" +
+	")pkg/auth/proto/health_check_request.proto\x12\x0fgcommon.v1.auth\x1a'pkg/common/proto/request_metadata.proto\"t\n" +
 	"\x12HealthCheckRequest\x12\x1a\n" +
 	"\bprovider\x18\x01 \x01(\tR\bprovider\x12B\n" +
-	"\bmetadata\x18\x02 \x01(\v2\".gcommon.v1.common.RequestMetadataB\x02(\x01R\bmetadataB\xbe\x01\n" +
-	"\x13com.gcommon.v1.authB\x17HealthCheckRequestProtoP\x01Z(github.com/jdfalk/gcommon/pkg/auth/proto\xa2\x02\x03GVA\xaa\x02\x0fGcommon.V1.Auth\xca\x02\x0fGcommon\\V1\\Auth\xe2\x02\x1bGcommon\\V1\\Auth\\GPBMetadata\xea\x02\x11Gcommon::V1::Auth\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"\bmetadata\x18\x02 \x01(\v2\".gcommon.v1.common.RequestMetadataB\x02(\x01R\bmetadataB\xb6\x01\n" +
+	"\x13com.gcommon.v1.authB\x17HealthCheckRequestProtoP\x01Z(github.com/jdfalk/gcommon/pkg/auth/proto\xa2\x02\x03GVA\xaa\x02\x0fGcommon.V1.Auth\xca\x02\x0fGcommon\\V1\\Auth\xe2\x02\x1bGcommon\\V1\\Auth\\GPBMetadata\xea\x02\x11Gcommon::V1::Authb\beditionsp\xe8\a"
+
+var (
+	file_pkg_auth_proto_health_check_request_proto_rawDescOnce sync.Once
+	file_pkg_auth_proto_health_check_request_proto_rawDescData []byte
+)
+
+func file_pkg_auth_proto_health_check_request_proto_rawDescGZIP() []byte {
+	file_pkg_auth_proto_health_check_request_proto_rawDescOnce.Do(func() {
+		file_pkg_auth_proto_health_check_request_proto_rawDescData = protoimpl.X.CompressGZIP(unsafe.Slice(unsafe.StringData(file_pkg_auth_proto_health_check_request_proto_rawDesc), len(file_pkg_auth_proto_health_check_request_proto_rawDesc)))
+	})
+	return file_pkg_auth_proto_health_check_request_proto_rawDescData
+}
 
 var file_pkg_auth_proto_health_check_request_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_pkg_auth_proto_health_check_request_proto_goTypes = []any{

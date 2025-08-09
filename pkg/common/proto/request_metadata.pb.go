@@ -9,9 +9,9 @@ package proto
 import (
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
-	_ "google.golang.org/protobuf/types/gofeaturespb"
 	timestamppb "google.golang.org/protobuf/types/known/timestamppb"
 	reflect "reflect"
+	sync "sync"
 	unsafe "unsafe"
 )
 
@@ -27,18 +27,23 @@ const (
 // Provides standardized metadata that should be included with all
 // requests for distributed tracing, monitoring, and security auditing.
 type RequestMetadata struct {
-	state                    protoimpl.MessageState `protogen:"opaque.v1"`
-	xxx_hidden_TraceId       *string                `protobuf:"bytes,1,opt,name=trace_id,json=traceId"`
-	xxx_hidden_UserId        *string                `protobuf:"bytes,2,opt,name=user_id,json=userId"`
-	xxx_hidden_CorrelationId *string                `protobuf:"bytes,3,opt,name=correlation_id,json=correlationId"`
-	xxx_hidden_Headers       map[string]string      `protobuf:"bytes,4,rep,name=headers" protobuf_key:"bytes,1,opt,name=key" protobuf_val:"bytes,2,opt,name=value"`
-	xxx_hidden_Client        *ClientInfo            `protobuf:"bytes,5,opt,name=client"`
-	xxx_hidden_Timestamp     *timestamppb.Timestamp `protobuf:"bytes,6,opt,name=timestamp"`
-	xxx_hidden_SessionId     *string                `protobuf:"bytes,7,opt,name=session_id,json=sessionId"`
-	XXX_raceDetectHookData   protoimpl.RaceDetectHookData
-	XXX_presence             [1]uint32
-	unknownFields            protoimpl.UnknownFields
-	sizeCache                protoimpl.SizeCache
+	state protoimpl.MessageState `protogen:"open.v1"`
+	// Distributed tracing ID for correlating requests across services
+	TraceId *string `protobuf:"bytes,1,opt,name=trace_id,json=traceId" json:"trace_id,omitempty"`
+	// User ID of the authenticated user making the request
+	UserId *string `protobuf:"bytes,2,opt,name=user_id,json=userId" json:"user_id,omitempty"`
+	// Correlation ID for grouping related requests in a workflow
+	CorrelationId *string `protobuf:"bytes,3,opt,name=correlation_id,json=correlationId" json:"correlation_id,omitempty"`
+	// HTTP headers or gRPC metadata from the original request
+	Headers map[string]string `protobuf:"bytes,4,rep,name=headers" json:"headers,omitempty" protobuf_key:"bytes,1,opt,name=key" protobuf_val:"bytes,2,opt,name=value"`
+	// Client application information
+	Client *ClientInfo `protobuf:"bytes,5,opt,name=client" json:"client,omitempty"`
+	// Timestamp when the request was initiated
+	Timestamp *timestamppb.Timestamp `protobuf:"bytes,6,opt,name=timestamp" json:"timestamp,omitempty"`
+	// Session ID if the request is part of a user session
+	SessionId     *string `protobuf:"bytes,7,opt,name=session_id,json=sessionId" json:"session_id,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
 }
 
 func (x *RequestMetadata) Reset() {
@@ -66,219 +71,65 @@ func (x *RequestMetadata) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
+// Deprecated: Use RequestMetadata.ProtoReflect.Descriptor instead.
+func (*RequestMetadata) Descriptor() ([]byte, []int) {
+	return file_pkg_common_proto_request_metadata_proto_rawDescGZIP(), []int{0}
+}
+
 func (x *RequestMetadata) GetTraceId() string {
-	if x != nil {
-		if x.xxx_hidden_TraceId != nil {
-			return *x.xxx_hidden_TraceId
-		}
-		return ""
+	if x != nil && x.TraceId != nil {
+		return *x.TraceId
 	}
 	return ""
 }
 
 func (x *RequestMetadata) GetUserId() string {
-	if x != nil {
-		if x.xxx_hidden_UserId != nil {
-			return *x.xxx_hidden_UserId
-		}
-		return ""
+	if x != nil && x.UserId != nil {
+		return *x.UserId
 	}
 	return ""
 }
 
 func (x *RequestMetadata) GetCorrelationId() string {
-	if x != nil {
-		if x.xxx_hidden_CorrelationId != nil {
-			return *x.xxx_hidden_CorrelationId
-		}
-		return ""
+	if x != nil && x.CorrelationId != nil {
+		return *x.CorrelationId
 	}
 	return ""
 }
 
 func (x *RequestMetadata) GetHeaders() map[string]string {
 	if x != nil {
-		return x.xxx_hidden_Headers
+		return x.Headers
 	}
 	return nil
 }
 
 func (x *RequestMetadata) GetClient() *ClientInfo {
 	if x != nil {
-		return x.xxx_hidden_Client
+		return x.Client
 	}
 	return nil
 }
 
 func (x *RequestMetadata) GetTimestamp() *timestamppb.Timestamp {
 	if x != nil {
-		return x.xxx_hidden_Timestamp
+		return x.Timestamp
 	}
 	return nil
 }
 
 func (x *RequestMetadata) GetSessionId() string {
-	if x != nil {
-		if x.xxx_hidden_SessionId != nil {
-			return *x.xxx_hidden_SessionId
-		}
-		return ""
+	if x != nil && x.SessionId != nil {
+		return *x.SessionId
 	}
 	return ""
-}
-
-func (x *RequestMetadata) SetTraceId(v string) {
-	x.xxx_hidden_TraceId = &v
-	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 0, 7)
-}
-
-func (x *RequestMetadata) SetUserId(v string) {
-	x.xxx_hidden_UserId = &v
-	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 1, 7)
-}
-
-func (x *RequestMetadata) SetCorrelationId(v string) {
-	x.xxx_hidden_CorrelationId = &v
-	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 2, 7)
-}
-
-func (x *RequestMetadata) SetHeaders(v map[string]string) {
-	x.xxx_hidden_Headers = v
-}
-
-func (x *RequestMetadata) SetClient(v *ClientInfo) {
-	x.xxx_hidden_Client = v
-}
-
-func (x *RequestMetadata) SetTimestamp(v *timestamppb.Timestamp) {
-	x.xxx_hidden_Timestamp = v
-}
-
-func (x *RequestMetadata) SetSessionId(v string) {
-	x.xxx_hidden_SessionId = &v
-	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 6, 7)
-}
-
-func (x *RequestMetadata) HasTraceId() bool {
-	if x == nil {
-		return false
-	}
-	return protoimpl.X.Present(&(x.XXX_presence[0]), 0)
-}
-
-func (x *RequestMetadata) HasUserId() bool {
-	if x == nil {
-		return false
-	}
-	return protoimpl.X.Present(&(x.XXX_presence[0]), 1)
-}
-
-func (x *RequestMetadata) HasCorrelationId() bool {
-	if x == nil {
-		return false
-	}
-	return protoimpl.X.Present(&(x.XXX_presence[0]), 2)
-}
-
-func (x *RequestMetadata) HasClient() bool {
-	if x == nil {
-		return false
-	}
-	return x.xxx_hidden_Client != nil
-}
-
-func (x *RequestMetadata) HasTimestamp() bool {
-	if x == nil {
-		return false
-	}
-	return x.xxx_hidden_Timestamp != nil
-}
-
-func (x *RequestMetadata) HasSessionId() bool {
-	if x == nil {
-		return false
-	}
-	return protoimpl.X.Present(&(x.XXX_presence[0]), 6)
-}
-
-func (x *RequestMetadata) ClearTraceId() {
-	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 0)
-	x.xxx_hidden_TraceId = nil
-}
-
-func (x *RequestMetadata) ClearUserId() {
-	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 1)
-	x.xxx_hidden_UserId = nil
-}
-
-func (x *RequestMetadata) ClearCorrelationId() {
-	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 2)
-	x.xxx_hidden_CorrelationId = nil
-}
-
-func (x *RequestMetadata) ClearClient() {
-	x.xxx_hidden_Client = nil
-}
-
-func (x *RequestMetadata) ClearTimestamp() {
-	x.xxx_hidden_Timestamp = nil
-}
-
-func (x *RequestMetadata) ClearSessionId() {
-	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 6)
-	x.xxx_hidden_SessionId = nil
-}
-
-type RequestMetadata_builder struct {
-	_ [0]func() // Prevents comparability and use of unkeyed literals for the builder.
-
-	// Distributed tracing ID for correlating requests across services
-	TraceId *string
-	// User ID of the authenticated user making the request
-	UserId *string
-	// Correlation ID for grouping related requests in a workflow
-	CorrelationId *string
-	// HTTP headers or gRPC metadata from the original request
-	Headers map[string]string
-	// Client application information
-	Client *ClientInfo
-	// Timestamp when the request was initiated
-	Timestamp *timestamppb.Timestamp
-	// Session ID if the request is part of a user session
-	SessionId *string
-}
-
-func (b0 RequestMetadata_builder) Build() *RequestMetadata {
-	m0 := &RequestMetadata{}
-	b, x := &b0, m0
-	_, _ = b, x
-	if b.TraceId != nil {
-		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 0, 7)
-		x.xxx_hidden_TraceId = b.TraceId
-	}
-	if b.UserId != nil {
-		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 1, 7)
-		x.xxx_hidden_UserId = b.UserId
-	}
-	if b.CorrelationId != nil {
-		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 2, 7)
-		x.xxx_hidden_CorrelationId = b.CorrelationId
-	}
-	x.xxx_hidden_Headers = b.Headers
-	x.xxx_hidden_Client = b.Client
-	x.xxx_hidden_Timestamp = b.Timestamp
-	if b.SessionId != nil {
-		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 6, 7)
-		x.xxx_hidden_SessionId = b.SessionId
-	}
-	return m0
 }
 
 var File_pkg_common_proto_request_metadata_proto protoreflect.FileDescriptor
 
 const file_pkg_common_proto_request_metadata_proto_rawDesc = "" +
 	"\n" +
-	"'pkg/common/proto/request_metadata.proto\x12\x11gcommon.v1.common\x1a!google/protobuf/go_features.proto\x1a\x1fgoogle/protobuf/timestamp.proto\x1a\"pkg/common/proto/client_info.proto\"\x83\x03\n" +
+	"'pkg/common/proto/request_metadata.proto\x12\x11gcommon.v1.common\x1a\x1fgoogle/protobuf/timestamp.proto\x1a\"pkg/common/proto/client_info.proto\"\x83\x03\n" +
 	"\x0fRequestMetadata\x12\x19\n" +
 	"\btrace_id\x18\x01 \x01(\tR\atraceId\x12\x17\n" +
 	"\auser_id\x18\x02 \x01(\tR\x06userId\x12%\n" +
@@ -290,8 +141,20 @@ const file_pkg_common_proto_request_metadata_proto_rawDesc = "" +
 	"session_id\x18\a \x01(\tR\tsessionId\x1a:\n" +
 	"\fHeadersEntry\x12\x10\n" +
 	"\x03key\x18\x01 \x01(\tR\x03key\x12\x14\n" +
-	"\x05value\x18\x02 \x01(\tR\x05value:\x028\x01B\xc7\x01\n" +
-	"\x15com.gcommon.v1.commonB\x14RequestMetadataProtoP\x01Z*github.com/jdfalk/gcommon/pkg/common/proto\xa2\x02\x03GVC\xaa\x02\x11Gcommon.V1.Common\xca\x02\x11Gcommon\\V1\\Common\xe2\x02\x1dGcommon\\V1\\Common\\GPBMetadata\xea\x02\x13Gcommon::V1::Common\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"\x05value\x18\x02 \x01(\tR\x05value:\x028\x01B\xbf\x01\n" +
+	"\x15com.gcommon.v1.commonB\x14RequestMetadataProtoP\x01Z*github.com/jdfalk/gcommon/pkg/common/proto\xa2\x02\x03GVC\xaa\x02\x11Gcommon.V1.Common\xca\x02\x11Gcommon\\V1\\Common\xe2\x02\x1dGcommon\\V1\\Common\\GPBMetadata\xea\x02\x13Gcommon::V1::Commonb\beditionsp\xe8\a"
+
+var (
+	file_pkg_common_proto_request_metadata_proto_rawDescOnce sync.Once
+	file_pkg_common_proto_request_metadata_proto_rawDescData []byte
+)
+
+func file_pkg_common_proto_request_metadata_proto_rawDescGZIP() []byte {
+	file_pkg_common_proto_request_metadata_proto_rawDescOnce.Do(func() {
+		file_pkg_common_proto_request_metadata_proto_rawDescData = protoimpl.X.CompressGZIP(unsafe.Slice(unsafe.StringData(file_pkg_common_proto_request_metadata_proto_rawDesc), len(file_pkg_common_proto_request_metadata_proto_rawDesc)))
+	})
+	return file_pkg_common_proto_request_metadata_proto_rawDescData
+}
 
 var file_pkg_common_proto_request_metadata_proto_msgTypes = make([]protoimpl.MessageInfo, 2)
 var file_pkg_common_proto_request_metadata_proto_goTypes = []any{

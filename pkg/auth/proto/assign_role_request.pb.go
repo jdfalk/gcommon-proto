@@ -10,8 +10,8 @@ import (
 	proto "github.com/jdfalk/gcommon/pkg/common/proto"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
-	_ "google.golang.org/protobuf/types/gofeaturespb"
 	reflect "reflect"
+	sync "sync"
 	unsafe "unsafe"
 )
 
@@ -32,19 +32,28 @@ const (
 // - Granting specific permissions through role assignment
 // - Managing user access control in the system
 type AssignRoleRequest struct {
-	state                     protoimpl.MessageState `protogen:"opaque.v1"`
-	xxx_hidden_UserId         *string                `protobuf:"bytes,1,opt,name=user_id,json=userId"`
-	xxx_hidden_RoleId         *string                `protobuf:"bytes,2,opt,name=role_id,json=roleId"`
-	xxx_hidden_OrganizationId *string                `protobuf:"bytes,3,opt,name=organization_id,json=organizationId"`
-	xxx_hidden_Metadata       *proto.RequestMetadata `protobuf:"bytes,4,opt,name=metadata"`
-	xxx_hidden_AssignedBy     *string                `protobuf:"bytes,5,opt,name=assigned_by,json=assignedBy"`
-	xxx_hidden_Reason         *string                `protobuf:"bytes,6,opt,name=reason"`
-	xxx_hidden_Temporary      bool                   `protobuf:"varint,7,opt,name=temporary"`
-	xxx_hidden_ExpiresAt      int64                  `protobuf:"varint,8,opt,name=expires_at,json=expiresAt"`
-	XXX_raceDetectHookData    protoimpl.RaceDetectHookData
-	XXX_presence              [1]uint32
-	unknownFields             protoimpl.UnknownFields
-	sizeCache                 protoimpl.SizeCache
+	state protoimpl.MessageState `protogen:"open.v1"`
+	// User ID to assign role to (required)
+	// Must be a valid user identifier in the system
+	UserId *string `protobuf:"bytes,1,opt,name=user_id,json=userId" json:"user_id,omitempty"`
+	// Role ID to assign (required)
+	// Must be a valid role identifier in the system
+	RoleId *string `protobuf:"bytes,2,opt,name=role_id,json=roleId" json:"role_id,omitempty"`
+	// Optional organization context for scoped role assignment
+	// If not provided, role is assigned globally
+	OrganizationId *string `protobuf:"bytes,3,opt,name=organization_id,json=organizationId" json:"organization_id,omitempty"`
+	// Request metadata for tracing and correlation
+	Metadata *proto.RequestMetadata `protobuf:"bytes,4,opt,name=metadata" json:"metadata,omitempty"`
+	// Audit information for tracking who made the assignment
+	AssignedBy *string `protobuf:"bytes,5,opt,name=assigned_by,json=assignedBy" json:"assigned_by,omitempty"`
+	// Reason for role assignment (optional)
+	Reason *string `protobuf:"bytes,6,opt,name=reason" json:"reason,omitempty"`
+	// Whether the assignment should be temporary
+	Temporary *bool `protobuf:"varint,7,opt,name=temporary" json:"temporary,omitempty"`
+	// Expiration time for temporary assignments
+	ExpiresAt     *int64 `protobuf:"varint,8,opt,name=expires_at,json=expiresAt" json:"expires_at,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
 }
 
 func (x *AssignRoleRequest) Reset() {
@@ -72,276 +81,72 @@ func (x *AssignRoleRequest) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
+// Deprecated: Use AssignRoleRequest.ProtoReflect.Descriptor instead.
+func (*AssignRoleRequest) Descriptor() ([]byte, []int) {
+	return file_pkg_auth_proto_assign_role_request_proto_rawDescGZIP(), []int{0}
+}
+
 func (x *AssignRoleRequest) GetUserId() string {
-	if x != nil {
-		if x.xxx_hidden_UserId != nil {
-			return *x.xxx_hidden_UserId
-		}
-		return ""
+	if x != nil && x.UserId != nil {
+		return *x.UserId
 	}
 	return ""
 }
 
 func (x *AssignRoleRequest) GetRoleId() string {
-	if x != nil {
-		if x.xxx_hidden_RoleId != nil {
-			return *x.xxx_hidden_RoleId
-		}
-		return ""
+	if x != nil && x.RoleId != nil {
+		return *x.RoleId
 	}
 	return ""
 }
 
 func (x *AssignRoleRequest) GetOrganizationId() string {
-	if x != nil {
-		if x.xxx_hidden_OrganizationId != nil {
-			return *x.xxx_hidden_OrganizationId
-		}
-		return ""
+	if x != nil && x.OrganizationId != nil {
+		return *x.OrganizationId
 	}
 	return ""
 }
 
 func (x *AssignRoleRequest) GetMetadata() *proto.RequestMetadata {
 	if x != nil {
-		return x.xxx_hidden_Metadata
+		return x.Metadata
 	}
 	return nil
 }
 
 func (x *AssignRoleRequest) GetAssignedBy() string {
-	if x != nil {
-		if x.xxx_hidden_AssignedBy != nil {
-			return *x.xxx_hidden_AssignedBy
-		}
-		return ""
+	if x != nil && x.AssignedBy != nil {
+		return *x.AssignedBy
 	}
 	return ""
 }
 
 func (x *AssignRoleRequest) GetReason() string {
-	if x != nil {
-		if x.xxx_hidden_Reason != nil {
-			return *x.xxx_hidden_Reason
-		}
-		return ""
+	if x != nil && x.Reason != nil {
+		return *x.Reason
 	}
 	return ""
 }
 
 func (x *AssignRoleRequest) GetTemporary() bool {
-	if x != nil {
-		return x.xxx_hidden_Temporary
+	if x != nil && x.Temporary != nil {
+		return *x.Temporary
 	}
 	return false
 }
 
 func (x *AssignRoleRequest) GetExpiresAt() int64 {
-	if x != nil {
-		return x.xxx_hidden_ExpiresAt
+	if x != nil && x.ExpiresAt != nil {
+		return *x.ExpiresAt
 	}
 	return 0
-}
-
-func (x *AssignRoleRequest) SetUserId(v string) {
-	x.xxx_hidden_UserId = &v
-	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 0, 8)
-}
-
-func (x *AssignRoleRequest) SetRoleId(v string) {
-	x.xxx_hidden_RoleId = &v
-	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 1, 8)
-}
-
-func (x *AssignRoleRequest) SetOrganizationId(v string) {
-	x.xxx_hidden_OrganizationId = &v
-	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 2, 8)
-}
-
-func (x *AssignRoleRequest) SetMetadata(v *proto.RequestMetadata) {
-	x.xxx_hidden_Metadata = v
-}
-
-func (x *AssignRoleRequest) SetAssignedBy(v string) {
-	x.xxx_hidden_AssignedBy = &v
-	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 4, 8)
-}
-
-func (x *AssignRoleRequest) SetReason(v string) {
-	x.xxx_hidden_Reason = &v
-	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 5, 8)
-}
-
-func (x *AssignRoleRequest) SetTemporary(v bool) {
-	x.xxx_hidden_Temporary = v
-	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 6, 8)
-}
-
-func (x *AssignRoleRequest) SetExpiresAt(v int64) {
-	x.xxx_hidden_ExpiresAt = v
-	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 7, 8)
-}
-
-func (x *AssignRoleRequest) HasUserId() bool {
-	if x == nil {
-		return false
-	}
-	return protoimpl.X.Present(&(x.XXX_presence[0]), 0)
-}
-
-func (x *AssignRoleRequest) HasRoleId() bool {
-	if x == nil {
-		return false
-	}
-	return protoimpl.X.Present(&(x.XXX_presence[0]), 1)
-}
-
-func (x *AssignRoleRequest) HasOrganizationId() bool {
-	if x == nil {
-		return false
-	}
-	return protoimpl.X.Present(&(x.XXX_presence[0]), 2)
-}
-
-func (x *AssignRoleRequest) HasMetadata() bool {
-	if x == nil {
-		return false
-	}
-	return x.xxx_hidden_Metadata != nil
-}
-
-func (x *AssignRoleRequest) HasAssignedBy() bool {
-	if x == nil {
-		return false
-	}
-	return protoimpl.X.Present(&(x.XXX_presence[0]), 4)
-}
-
-func (x *AssignRoleRequest) HasReason() bool {
-	if x == nil {
-		return false
-	}
-	return protoimpl.X.Present(&(x.XXX_presence[0]), 5)
-}
-
-func (x *AssignRoleRequest) HasTemporary() bool {
-	if x == nil {
-		return false
-	}
-	return protoimpl.X.Present(&(x.XXX_presence[0]), 6)
-}
-
-func (x *AssignRoleRequest) HasExpiresAt() bool {
-	if x == nil {
-		return false
-	}
-	return protoimpl.X.Present(&(x.XXX_presence[0]), 7)
-}
-
-func (x *AssignRoleRequest) ClearUserId() {
-	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 0)
-	x.xxx_hidden_UserId = nil
-}
-
-func (x *AssignRoleRequest) ClearRoleId() {
-	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 1)
-	x.xxx_hidden_RoleId = nil
-}
-
-func (x *AssignRoleRequest) ClearOrganizationId() {
-	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 2)
-	x.xxx_hidden_OrganizationId = nil
-}
-
-func (x *AssignRoleRequest) ClearMetadata() {
-	x.xxx_hidden_Metadata = nil
-}
-
-func (x *AssignRoleRequest) ClearAssignedBy() {
-	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 4)
-	x.xxx_hidden_AssignedBy = nil
-}
-
-func (x *AssignRoleRequest) ClearReason() {
-	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 5)
-	x.xxx_hidden_Reason = nil
-}
-
-func (x *AssignRoleRequest) ClearTemporary() {
-	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 6)
-	x.xxx_hidden_Temporary = false
-}
-
-func (x *AssignRoleRequest) ClearExpiresAt() {
-	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 7)
-	x.xxx_hidden_ExpiresAt = 0
-}
-
-type AssignRoleRequest_builder struct {
-	_ [0]func() // Prevents comparability and use of unkeyed literals for the builder.
-
-	// User ID to assign role to (required)
-	// Must be a valid user identifier in the system
-	UserId *string
-	// Role ID to assign (required)
-	// Must be a valid role identifier in the system
-	RoleId *string
-	// Optional organization context for scoped role assignment
-	// If not provided, role is assigned globally
-	OrganizationId *string
-	// Request metadata for tracing and correlation
-	Metadata *proto.RequestMetadata
-	// Audit information for tracking who made the assignment
-	AssignedBy *string
-	// Reason for role assignment (optional)
-	Reason *string
-	// Whether the assignment should be temporary
-	Temporary *bool
-	// Expiration time for temporary assignments
-	ExpiresAt *int64
-}
-
-func (b0 AssignRoleRequest_builder) Build() *AssignRoleRequest {
-	m0 := &AssignRoleRequest{}
-	b, x := &b0, m0
-	_, _ = b, x
-	if b.UserId != nil {
-		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 0, 8)
-		x.xxx_hidden_UserId = b.UserId
-	}
-	if b.RoleId != nil {
-		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 1, 8)
-		x.xxx_hidden_RoleId = b.RoleId
-	}
-	if b.OrganizationId != nil {
-		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 2, 8)
-		x.xxx_hidden_OrganizationId = b.OrganizationId
-	}
-	x.xxx_hidden_Metadata = b.Metadata
-	if b.AssignedBy != nil {
-		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 4, 8)
-		x.xxx_hidden_AssignedBy = b.AssignedBy
-	}
-	if b.Reason != nil {
-		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 5, 8)
-		x.xxx_hidden_Reason = b.Reason
-	}
-	if b.Temporary != nil {
-		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 6, 8)
-		x.xxx_hidden_Temporary = *b.Temporary
-	}
-	if b.ExpiresAt != nil {
-		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 7, 8)
-		x.xxx_hidden_ExpiresAt = *b.ExpiresAt
-	}
-	return m0
 }
 
 var File_pkg_auth_proto_assign_role_request_proto protoreflect.FileDescriptor
 
 const file_pkg_auth_proto_assign_role_request_proto_rawDesc = "" +
 	"\n" +
-	"(pkg/auth/proto/assign_role_request.proto\x12\x0fgcommon.v1.auth\x1a!google/protobuf/go_features.proto\x1a\x19pkg/auth/proto/role.proto\x1a'pkg/common/proto/request_metadata.proto\"\xa4\x02\n" +
+	"(pkg/auth/proto/assign_role_request.proto\x12\x0fgcommon.v1.auth\x1a\x19pkg/auth/proto/role.proto\x1a'pkg/common/proto/request_metadata.proto\"\xa4\x02\n" +
 	"\x11AssignRoleRequest\x12\x17\n" +
 	"\auser_id\x18\x01 \x01(\tR\x06userId\x12\x17\n" +
 	"\arole_id\x18\x02 \x01(\tR\x06roleId\x12'\n" +
@@ -352,8 +157,20 @@ const file_pkg_auth_proto_assign_role_request_proto_rawDesc = "" +
 	"\x06reason\x18\x06 \x01(\tR\x06reason\x12\x1c\n" +
 	"\ttemporary\x18\a \x01(\bR\ttemporary\x12\x1d\n" +
 	"\n" +
-	"expires_at\x18\b \x01(\x03R\texpiresAtB\xbd\x01\n" +
-	"\x13com.gcommon.v1.authB\x16AssignRoleRequestProtoP\x01Z(github.com/jdfalk/gcommon/pkg/auth/proto\xa2\x02\x03GVA\xaa\x02\x0fGcommon.V1.Auth\xca\x02\x0fGcommon\\V1\\Auth\xe2\x02\x1bGcommon\\V1\\Auth\\GPBMetadata\xea\x02\x11Gcommon::V1::Auth\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"expires_at\x18\b \x01(\x03R\texpiresAtB\xb5\x01\n" +
+	"\x13com.gcommon.v1.authB\x16AssignRoleRequestProtoP\x01Z(github.com/jdfalk/gcommon/pkg/auth/proto\xa2\x02\x03GVA\xaa\x02\x0fGcommon.V1.Auth\xca\x02\x0fGcommon\\V1\\Auth\xe2\x02\x1bGcommon\\V1\\Auth\\GPBMetadata\xea\x02\x11Gcommon::V1::Authb\beditionsp\xe8\a"
+
+var (
+	file_pkg_auth_proto_assign_role_request_proto_rawDescOnce sync.Once
+	file_pkg_auth_proto_assign_role_request_proto_rawDescData []byte
+)
+
+func file_pkg_auth_proto_assign_role_request_proto_rawDescGZIP() []byte {
+	file_pkg_auth_proto_assign_role_request_proto_rawDescOnce.Do(func() {
+		file_pkg_auth_proto_assign_role_request_proto_rawDescData = protoimpl.X.CompressGZIP(unsafe.Slice(unsafe.StringData(file_pkg_auth_proto_assign_role_request_proto_rawDesc), len(file_pkg_auth_proto_assign_role_request_proto_rawDesc)))
+	})
+	return file_pkg_auth_proto_assign_role_request_proto_rawDescData
+}
 
 var file_pkg_auth_proto_assign_role_request_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_pkg_auth_proto_assign_role_request_proto_goTypes = []any{

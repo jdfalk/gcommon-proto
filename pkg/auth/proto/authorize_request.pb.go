@@ -10,8 +10,8 @@ import (
 	proto "github.com/jdfalk/gcommon/pkg/common/proto"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
-	_ "google.golang.org/protobuf/types/gofeaturespb"
 	reflect "reflect"
+	sync "sync"
 	unsafe "unsafe"
 )
 
@@ -27,16 +27,19 @@ const (
 // Used for fine-grained access control and permission validation.
 // Supports contextual authorization with additional metadata.
 type AuthorizeRequest struct {
-	state                  protoimpl.MessageState `protogen:"opaque.v1"`
-	xxx_hidden_Token       *string                `protobuf:"bytes,1,opt,name=token"`
-	xxx_hidden_Resource    *string                `protobuf:"bytes,2,opt,name=resource"`
-	xxx_hidden_Action      *string                `protobuf:"bytes,3,opt,name=action"`
-	xxx_hidden_Context     map[string]string      `protobuf:"bytes,4,rep,name=context" protobuf_key:"bytes,1,opt,name=key" protobuf_val:"bytes,2,opt,name=value"`
-	xxx_hidden_Metadata    *proto.RequestMetadata `protobuf:"bytes,5,opt,name=metadata"`
-	XXX_raceDetectHookData protoimpl.RaceDetectHookData
-	XXX_presence           [1]uint32
-	unknownFields          protoimpl.UnknownFields
-	sizeCache              protoimpl.SizeCache
+	state protoimpl.MessageState `protogen:"open.v1"`
+	// Access token for the user being authorized
+	Token *string `protobuf:"bytes,1,opt,name=token" json:"token,omitempty"`
+	// Resource being accessed (e.g., "user:123", "project:456")
+	Resource *string `protobuf:"bytes,2,opt,name=resource" json:"resource,omitempty"`
+	// Action being performed (e.g., "read", "write", "delete")
+	Action *string `protobuf:"bytes,3,opt,name=action" json:"action,omitempty"`
+	// Additional context for authorization decision
+	Context map[string]string `protobuf:"bytes,4,rep,name=context" json:"context,omitempty" protobuf_key:"bytes,1,opt,name=key" protobuf_val:"bytes,2,opt,name=value"`
+	// Request metadata for tracing and correlation
+	Metadata      *proto.RequestMetadata `protobuf:"bytes,5,opt,name=metadata" json:"metadata,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
 }
 
 func (x *AuthorizeRequest) Reset() {
@@ -64,161 +67,51 @@ func (x *AuthorizeRequest) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
+// Deprecated: Use AuthorizeRequest.ProtoReflect.Descriptor instead.
+func (*AuthorizeRequest) Descriptor() ([]byte, []int) {
+	return file_pkg_auth_proto_authorize_request_proto_rawDescGZIP(), []int{0}
+}
+
 func (x *AuthorizeRequest) GetToken() string {
-	if x != nil {
-		if x.xxx_hidden_Token != nil {
-			return *x.xxx_hidden_Token
-		}
-		return ""
+	if x != nil && x.Token != nil {
+		return *x.Token
 	}
 	return ""
 }
 
 func (x *AuthorizeRequest) GetResource() string {
-	if x != nil {
-		if x.xxx_hidden_Resource != nil {
-			return *x.xxx_hidden_Resource
-		}
-		return ""
+	if x != nil && x.Resource != nil {
+		return *x.Resource
 	}
 	return ""
 }
 
 func (x *AuthorizeRequest) GetAction() string {
-	if x != nil {
-		if x.xxx_hidden_Action != nil {
-			return *x.xxx_hidden_Action
-		}
-		return ""
+	if x != nil && x.Action != nil {
+		return *x.Action
 	}
 	return ""
 }
 
 func (x *AuthorizeRequest) GetContext() map[string]string {
 	if x != nil {
-		return x.xxx_hidden_Context
+		return x.Context
 	}
 	return nil
 }
 
 func (x *AuthorizeRequest) GetMetadata() *proto.RequestMetadata {
 	if x != nil {
-		return x.xxx_hidden_Metadata
+		return x.Metadata
 	}
 	return nil
-}
-
-func (x *AuthorizeRequest) SetToken(v string) {
-	x.xxx_hidden_Token = &v
-	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 0, 5)
-}
-
-func (x *AuthorizeRequest) SetResource(v string) {
-	x.xxx_hidden_Resource = &v
-	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 1, 5)
-}
-
-func (x *AuthorizeRequest) SetAction(v string) {
-	x.xxx_hidden_Action = &v
-	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 2, 5)
-}
-
-func (x *AuthorizeRequest) SetContext(v map[string]string) {
-	x.xxx_hidden_Context = v
-}
-
-func (x *AuthorizeRequest) SetMetadata(v *proto.RequestMetadata) {
-	x.xxx_hidden_Metadata = v
-}
-
-func (x *AuthorizeRequest) HasToken() bool {
-	if x == nil {
-		return false
-	}
-	return protoimpl.X.Present(&(x.XXX_presence[0]), 0)
-}
-
-func (x *AuthorizeRequest) HasResource() bool {
-	if x == nil {
-		return false
-	}
-	return protoimpl.X.Present(&(x.XXX_presence[0]), 1)
-}
-
-func (x *AuthorizeRequest) HasAction() bool {
-	if x == nil {
-		return false
-	}
-	return protoimpl.X.Present(&(x.XXX_presence[0]), 2)
-}
-
-func (x *AuthorizeRequest) HasMetadata() bool {
-	if x == nil {
-		return false
-	}
-	return x.xxx_hidden_Metadata != nil
-}
-
-func (x *AuthorizeRequest) ClearToken() {
-	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 0)
-	x.xxx_hidden_Token = nil
-}
-
-func (x *AuthorizeRequest) ClearResource() {
-	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 1)
-	x.xxx_hidden_Resource = nil
-}
-
-func (x *AuthorizeRequest) ClearAction() {
-	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 2)
-	x.xxx_hidden_Action = nil
-}
-
-func (x *AuthorizeRequest) ClearMetadata() {
-	x.xxx_hidden_Metadata = nil
-}
-
-type AuthorizeRequest_builder struct {
-	_ [0]func() // Prevents comparability and use of unkeyed literals for the builder.
-
-	// Access token for the user being authorized
-	Token *string
-	// Resource being accessed (e.g., "user:123", "project:456")
-	Resource *string
-	// Action being performed (e.g., "read", "write", "delete")
-	Action *string
-	// Additional context for authorization decision
-	Context map[string]string
-	// Request metadata for tracing and correlation
-	Metadata *proto.RequestMetadata
-}
-
-func (b0 AuthorizeRequest_builder) Build() *AuthorizeRequest {
-	m0 := &AuthorizeRequest{}
-	b, x := &b0, m0
-	_, _ = b, x
-	if b.Token != nil {
-		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 0, 5)
-		x.xxx_hidden_Token = b.Token
-	}
-	if b.Resource != nil {
-		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 1, 5)
-		x.xxx_hidden_Resource = b.Resource
-	}
-	if b.Action != nil {
-		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 2, 5)
-		x.xxx_hidden_Action = b.Action
-	}
-	x.xxx_hidden_Context = b.Context
-	x.xxx_hidden_Metadata = b.Metadata
-	return m0
 }
 
 var File_pkg_auth_proto_authorize_request_proto protoreflect.FileDescriptor
 
 const file_pkg_auth_proto_authorize_request_proto_rawDesc = "" +
 	"\n" +
-	"&pkg/auth/proto/authorize_request.proto\x12\x0fgcommon.v1.auth\x1a!google/protobuf/go_features.proto\x1a'pkg/common/proto/request_metadata.proto\"\xa2\x02\n" +
+	"&pkg/auth/proto/authorize_request.proto\x12\x0fgcommon.v1.auth\x1a'pkg/common/proto/request_metadata.proto\"\xa2\x02\n" +
 	"\x10AuthorizeRequest\x12\x14\n" +
 	"\x05token\x18\x01 \x01(\tR\x05token\x12\x1a\n" +
 	"\bresource\x18\x02 \x01(\tR\bresource\x12\x16\n" +
@@ -227,8 +120,20 @@ const file_pkg_auth_proto_authorize_request_proto_rawDesc = "" +
 	"\bmetadata\x18\x05 \x01(\v2\".gcommon.v1.common.RequestMetadataR\bmetadata\x1a:\n" +
 	"\fContextEntry\x12\x10\n" +
 	"\x03key\x18\x01 \x01(\tR\x03key\x12\x14\n" +
-	"\x05value\x18\x02 \x01(\tR\x05value:\x028\x01B\xbc\x01\n" +
-	"\x13com.gcommon.v1.authB\x15AuthorizeRequestProtoP\x01Z(github.com/jdfalk/gcommon/pkg/auth/proto\xa2\x02\x03GVA\xaa\x02\x0fGcommon.V1.Auth\xca\x02\x0fGcommon\\V1\\Auth\xe2\x02\x1bGcommon\\V1\\Auth\\GPBMetadata\xea\x02\x11Gcommon::V1::Auth\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"\x05value\x18\x02 \x01(\tR\x05value:\x028\x01B\xb4\x01\n" +
+	"\x13com.gcommon.v1.authB\x15AuthorizeRequestProtoP\x01Z(github.com/jdfalk/gcommon/pkg/auth/proto\xa2\x02\x03GVA\xaa\x02\x0fGcommon.V1.Auth\xca\x02\x0fGcommon\\V1\\Auth\xe2\x02\x1bGcommon\\V1\\Auth\\GPBMetadata\xea\x02\x11Gcommon::V1::Authb\beditionsp\xe8\a"
+
+var (
+	file_pkg_auth_proto_authorize_request_proto_rawDescOnce sync.Once
+	file_pkg_auth_proto_authorize_request_proto_rawDescData []byte
+)
+
+func file_pkg_auth_proto_authorize_request_proto_rawDescGZIP() []byte {
+	file_pkg_auth_proto_authorize_request_proto_rawDescOnce.Do(func() {
+		file_pkg_auth_proto_authorize_request_proto_rawDescData = protoimpl.X.CompressGZIP(unsafe.Slice(unsafe.StringData(file_pkg_auth_proto_authorize_request_proto_rawDesc), len(file_pkg_auth_proto_authorize_request_proto_rawDesc)))
+	})
+	return file_pkg_auth_proto_authorize_request_proto_rawDescData
+}
 
 var file_pkg_auth_proto_authorize_request_proto_msgTypes = make([]protoimpl.MessageInfo, 2)
 var file_pkg_auth_proto_authorize_request_proto_goTypes = []any{

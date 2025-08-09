@@ -9,9 +9,9 @@ package proto
 import (
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
-	_ "google.golang.org/protobuf/types/gofeaturespb"
 	durationpb "google.golang.org/protobuf/types/known/durationpb"
 	reflect "reflect"
+	sync "sync"
 	unsafe "unsafe"
 )
 
@@ -27,15 +27,17 @@ const (
 // Controls historical data inclusion, batching, acknowledgment,
 // and keep-alive settings for optimal streaming performance.
 type SubscriptionOptions struct {
-	state                     protoimpl.MessageState `protogen:"opaque.v1"`
-	xxx_hidden_IncludeHistory bool                   `protobuf:"varint,1,opt,name=include_history,json=includeHistory"`
-	xxx_hidden_MaxBatchSize   int32                  `protobuf:"varint,2,opt,name=max_batch_size,json=maxBatchSize"`
-	xxx_hidden_AckMode        AckMode                `protobuf:"varint,3,opt,name=ack_mode,json=ackMode,enum=gcommon.v1.common.AckMode"`
-	xxx_hidden_KeepAlive      *durationpb.Duration   `protobuf:"bytes,4,opt,name=keep_alive,json=keepAlive"`
-	XXX_raceDetectHookData    protoimpl.RaceDetectHookData
-	XXX_presence              [1]uint32
-	unknownFields             protoimpl.UnknownFields
-	sizeCache                 protoimpl.SizeCache
+	state protoimpl.MessageState `protogen:"open.v1"`
+	// Whether to include historical data in the subscription
+	IncludeHistory *bool `protobuf:"varint,1,opt,name=include_history,json=includeHistory" json:"include_history,omitempty"`
+	// Maximum number of events to batch together
+	MaxBatchSize *int32 `protobuf:"varint,2,opt,name=max_batch_size,json=maxBatchSize" json:"max_batch_size,omitempty"`
+	// Acknowledgment mode for message delivery
+	AckMode *AckMode `protobuf:"varint,3,opt,name=ack_mode,json=ackMode,enum=gcommon.v1.common.AckMode" json:"ack_mode,omitempty"`
+	// Keep-alive interval to maintain connection
+	KeepAlive     *durationpb.Duration `protobuf:"bytes,4,opt,name=keep_alive,json=keepAlive" json:"keep_alive,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
 }
 
 func (x *SubscriptionOptions) Reset() {
@@ -63,147 +65,63 @@ func (x *SubscriptionOptions) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
+// Deprecated: Use SubscriptionOptions.ProtoReflect.Descriptor instead.
+func (*SubscriptionOptions) Descriptor() ([]byte, []int) {
+	return file_pkg_common_proto_subscription_options_proto_rawDescGZIP(), []int{0}
+}
+
 func (x *SubscriptionOptions) GetIncludeHistory() bool {
-	if x != nil {
-		return x.xxx_hidden_IncludeHistory
+	if x != nil && x.IncludeHistory != nil {
+		return *x.IncludeHistory
 	}
 	return false
 }
 
 func (x *SubscriptionOptions) GetMaxBatchSize() int32 {
-	if x != nil {
-		return x.xxx_hidden_MaxBatchSize
+	if x != nil && x.MaxBatchSize != nil {
+		return *x.MaxBatchSize
 	}
 	return 0
 }
 
 func (x *SubscriptionOptions) GetAckMode() AckMode {
-	if x != nil {
-		if protoimpl.X.Present(&(x.XXX_presence[0]), 2) {
-			return x.xxx_hidden_AckMode
-		}
+	if x != nil && x.AckMode != nil {
+		return *x.AckMode
 	}
 	return AckMode_ACK_MODE_UNSPECIFIED
 }
 
 func (x *SubscriptionOptions) GetKeepAlive() *durationpb.Duration {
 	if x != nil {
-		return x.xxx_hidden_KeepAlive
+		return x.KeepAlive
 	}
 	return nil
-}
-
-func (x *SubscriptionOptions) SetIncludeHistory(v bool) {
-	x.xxx_hidden_IncludeHistory = v
-	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 0, 4)
-}
-
-func (x *SubscriptionOptions) SetMaxBatchSize(v int32) {
-	x.xxx_hidden_MaxBatchSize = v
-	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 1, 4)
-}
-
-func (x *SubscriptionOptions) SetAckMode(v AckMode) {
-	x.xxx_hidden_AckMode = v
-	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 2, 4)
-}
-
-func (x *SubscriptionOptions) SetKeepAlive(v *durationpb.Duration) {
-	x.xxx_hidden_KeepAlive = v
-}
-
-func (x *SubscriptionOptions) HasIncludeHistory() bool {
-	if x == nil {
-		return false
-	}
-	return protoimpl.X.Present(&(x.XXX_presence[0]), 0)
-}
-
-func (x *SubscriptionOptions) HasMaxBatchSize() bool {
-	if x == nil {
-		return false
-	}
-	return protoimpl.X.Present(&(x.XXX_presence[0]), 1)
-}
-
-func (x *SubscriptionOptions) HasAckMode() bool {
-	if x == nil {
-		return false
-	}
-	return protoimpl.X.Present(&(x.XXX_presence[0]), 2)
-}
-
-func (x *SubscriptionOptions) HasKeepAlive() bool {
-	if x == nil {
-		return false
-	}
-	return x.xxx_hidden_KeepAlive != nil
-}
-
-func (x *SubscriptionOptions) ClearIncludeHistory() {
-	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 0)
-	x.xxx_hidden_IncludeHistory = false
-}
-
-func (x *SubscriptionOptions) ClearMaxBatchSize() {
-	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 1)
-	x.xxx_hidden_MaxBatchSize = 0
-}
-
-func (x *SubscriptionOptions) ClearAckMode() {
-	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 2)
-	x.xxx_hidden_AckMode = AckMode_ACK_MODE_UNSPECIFIED
-}
-
-func (x *SubscriptionOptions) ClearKeepAlive() {
-	x.xxx_hidden_KeepAlive = nil
-}
-
-type SubscriptionOptions_builder struct {
-	_ [0]func() // Prevents comparability and use of unkeyed literals for the builder.
-
-	// Whether to include historical data in the subscription
-	IncludeHistory *bool
-	// Maximum number of events to batch together
-	MaxBatchSize *int32
-	// Acknowledgment mode for message delivery
-	AckMode *AckMode
-	// Keep-alive interval to maintain connection
-	KeepAlive *durationpb.Duration
-}
-
-func (b0 SubscriptionOptions_builder) Build() *SubscriptionOptions {
-	m0 := &SubscriptionOptions{}
-	b, x := &b0, m0
-	_, _ = b, x
-	if b.IncludeHistory != nil {
-		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 0, 4)
-		x.xxx_hidden_IncludeHistory = *b.IncludeHistory
-	}
-	if b.MaxBatchSize != nil {
-		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 1, 4)
-		x.xxx_hidden_MaxBatchSize = *b.MaxBatchSize
-	}
-	if b.AckMode != nil {
-		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 2, 4)
-		x.xxx_hidden_AckMode = *b.AckMode
-	}
-	x.xxx_hidden_KeepAlive = b.KeepAlive
-	return m0
 }
 
 var File_pkg_common_proto_subscription_options_proto protoreflect.FileDescriptor
 
 const file_pkg_common_proto_subscription_options_proto_rawDesc = "" +
 	"\n" +
-	"+pkg/common/proto/subscription_options.proto\x12\x11gcommon.v1.common\x1a\x1egoogle/protobuf/duration.proto\x1a!google/protobuf/go_features.proto\x1a\x1fpkg/common/proto/ack_mode.proto\"\xd5\x01\n" +
+	"+pkg/common/proto/subscription_options.proto\x12\x11gcommon.v1.common\x1a\x1egoogle/protobuf/duration.proto\x1a\x1fpkg/common/proto/ack_mode.proto\"\xd5\x01\n" +
 	"\x13SubscriptionOptions\x12'\n" +
 	"\x0finclude_history\x18\x01 \x01(\bR\x0eincludeHistory\x12$\n" +
 	"\x0emax_batch_size\x18\x02 \x01(\x05R\fmaxBatchSize\x125\n" +
 	"\back_mode\x18\x03 \x01(\x0e2\x1a.gcommon.v1.common.AckModeR\aackMode\x128\n" +
 	"\n" +
-	"keep_alive\x18\x04 \x01(\v2\x19.google.protobuf.DurationR\tkeepAliveB\xcb\x01\n" +
-	"\x15com.gcommon.v1.commonB\x18SubscriptionOptionsProtoP\x01Z*github.com/jdfalk/gcommon/pkg/common/proto\xa2\x02\x03GVC\xaa\x02\x11Gcommon.V1.Common\xca\x02\x11Gcommon\\V1\\Common\xe2\x02\x1dGcommon\\V1\\Common\\GPBMetadata\xea\x02\x13Gcommon::V1::Common\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"keep_alive\x18\x04 \x01(\v2\x19.google.protobuf.DurationR\tkeepAliveB\xc3\x01\n" +
+	"\x15com.gcommon.v1.commonB\x18SubscriptionOptionsProtoP\x01Z*github.com/jdfalk/gcommon/pkg/common/proto\xa2\x02\x03GVC\xaa\x02\x11Gcommon.V1.Common\xca\x02\x11Gcommon\\V1\\Common\xe2\x02\x1dGcommon\\V1\\Common\\GPBMetadata\xea\x02\x13Gcommon::V1::Commonb\beditionsp\xe8\a"
+
+var (
+	file_pkg_common_proto_subscription_options_proto_rawDescOnce sync.Once
+	file_pkg_common_proto_subscription_options_proto_rawDescData []byte
+)
+
+func file_pkg_common_proto_subscription_options_proto_rawDescGZIP() []byte {
+	file_pkg_common_proto_subscription_options_proto_rawDescOnce.Do(func() {
+		file_pkg_common_proto_subscription_options_proto_rawDescData = protoimpl.X.CompressGZIP(unsafe.Slice(unsafe.StringData(file_pkg_common_proto_subscription_options_proto_rawDesc), len(file_pkg_common_proto_subscription_options_proto_rawDesc)))
+	})
+	return file_pkg_common_proto_subscription_options_proto_rawDescData
+}
 
 var file_pkg_common_proto_subscription_options_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_pkg_common_proto_subscription_options_proto_goTypes = []any{

@@ -9,8 +9,8 @@ package proto
 import (
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
-	_ "google.golang.org/protobuf/types/gofeaturespb"
 	reflect "reflect"
+	sync "sync"
 	unsafe "unsafe"
 )
 
@@ -26,17 +26,21 @@ const (
 // Provides comprehensive pagination information to clients for
 // implementing pagination controls and navigation.
 type PaginatedResponse struct {
-	state                    protoimpl.MessageState `protogen:"opaque.v1"`
-	xxx_hidden_NextPageToken *string                `protobuf:"bytes,1,opt,name=next_page_token,json=nextPageToken"`
-	xxx_hidden_PrevPageToken *string                `protobuf:"bytes,2,opt,name=prev_page_token,json=prevPageToken"`
-	xxx_hidden_TotalCount    int32                  `protobuf:"varint,3,opt,name=total_count,json=totalCount"`
-	xxx_hidden_CurrentPage   int32                  `protobuf:"varint,4,opt,name=current_page,json=currentPage"`
-	xxx_hidden_TotalPages    int32                  `protobuf:"varint,5,opt,name=total_pages,json=totalPages"`
-	xxx_hidden_PageSize      int32                  `protobuf:"varint,6,opt,name=page_size,json=pageSize"`
-	XXX_raceDetectHookData   protoimpl.RaceDetectHookData
-	XXX_presence             [1]uint32
-	unknownFields            protoimpl.UnknownFields
-	sizeCache                protoimpl.SizeCache
+	state protoimpl.MessageState `protogen:"open.v1"`
+	// Opaque token for retrieving the next page (empty if no more pages)
+	NextPageToken *string `protobuf:"bytes,1,opt,name=next_page_token,json=nextPageToken" json:"next_page_token,omitempty"`
+	// Opaque token for retrieving the previous page (empty if first page)
+	PrevPageToken *string `protobuf:"bytes,2,opt,name=prev_page_token,json=prevPageToken" json:"prev_page_token,omitempty"`
+	// Total number of items across all pages (may be expensive to compute)
+	TotalCount *int32 `protobuf:"varint,3,opt,name=total_count,json=totalCount" json:"total_count,omitempty"`
+	// Current page number (starts from 1)
+	CurrentPage *int32 `protobuf:"varint,4,opt,name=current_page,json=currentPage" json:"current_page,omitempty"`
+	// Total number of pages available
+	TotalPages *int32 `protobuf:"varint,5,opt,name=total_pages,json=totalPages" json:"total_pages,omitempty"`
+	// Number of items in the current page
+	PageSize      *int32 `protobuf:"varint,6,opt,name=page_size,json=pageSize" json:"page_size,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
 }
 
 func (x *PaginatedResponse) Reset() {
@@ -64,209 +68,58 @@ func (x *PaginatedResponse) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
+// Deprecated: Use PaginatedResponse.ProtoReflect.Descriptor instead.
+func (*PaginatedResponse) Descriptor() ([]byte, []int) {
+	return file_pkg_common_proto_paginated_response_proto_rawDescGZIP(), []int{0}
+}
+
 func (x *PaginatedResponse) GetNextPageToken() string {
-	if x != nil {
-		if x.xxx_hidden_NextPageToken != nil {
-			return *x.xxx_hidden_NextPageToken
-		}
-		return ""
+	if x != nil && x.NextPageToken != nil {
+		return *x.NextPageToken
 	}
 	return ""
 }
 
 func (x *PaginatedResponse) GetPrevPageToken() string {
-	if x != nil {
-		if x.xxx_hidden_PrevPageToken != nil {
-			return *x.xxx_hidden_PrevPageToken
-		}
-		return ""
+	if x != nil && x.PrevPageToken != nil {
+		return *x.PrevPageToken
 	}
 	return ""
 }
 
 func (x *PaginatedResponse) GetTotalCount() int32 {
-	if x != nil {
-		return x.xxx_hidden_TotalCount
+	if x != nil && x.TotalCount != nil {
+		return *x.TotalCount
 	}
 	return 0
 }
 
 func (x *PaginatedResponse) GetCurrentPage() int32 {
-	if x != nil {
-		return x.xxx_hidden_CurrentPage
+	if x != nil && x.CurrentPage != nil {
+		return *x.CurrentPage
 	}
 	return 0
 }
 
 func (x *PaginatedResponse) GetTotalPages() int32 {
-	if x != nil {
-		return x.xxx_hidden_TotalPages
+	if x != nil && x.TotalPages != nil {
+		return *x.TotalPages
 	}
 	return 0
 }
 
 func (x *PaginatedResponse) GetPageSize() int32 {
-	if x != nil {
-		return x.xxx_hidden_PageSize
+	if x != nil && x.PageSize != nil {
+		return *x.PageSize
 	}
 	return 0
-}
-
-func (x *PaginatedResponse) SetNextPageToken(v string) {
-	x.xxx_hidden_NextPageToken = &v
-	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 0, 6)
-}
-
-func (x *PaginatedResponse) SetPrevPageToken(v string) {
-	x.xxx_hidden_PrevPageToken = &v
-	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 1, 6)
-}
-
-func (x *PaginatedResponse) SetTotalCount(v int32) {
-	x.xxx_hidden_TotalCount = v
-	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 2, 6)
-}
-
-func (x *PaginatedResponse) SetCurrentPage(v int32) {
-	x.xxx_hidden_CurrentPage = v
-	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 3, 6)
-}
-
-func (x *PaginatedResponse) SetTotalPages(v int32) {
-	x.xxx_hidden_TotalPages = v
-	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 4, 6)
-}
-
-func (x *PaginatedResponse) SetPageSize(v int32) {
-	x.xxx_hidden_PageSize = v
-	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 5, 6)
-}
-
-func (x *PaginatedResponse) HasNextPageToken() bool {
-	if x == nil {
-		return false
-	}
-	return protoimpl.X.Present(&(x.XXX_presence[0]), 0)
-}
-
-func (x *PaginatedResponse) HasPrevPageToken() bool {
-	if x == nil {
-		return false
-	}
-	return protoimpl.X.Present(&(x.XXX_presence[0]), 1)
-}
-
-func (x *PaginatedResponse) HasTotalCount() bool {
-	if x == nil {
-		return false
-	}
-	return protoimpl.X.Present(&(x.XXX_presence[0]), 2)
-}
-
-func (x *PaginatedResponse) HasCurrentPage() bool {
-	if x == nil {
-		return false
-	}
-	return protoimpl.X.Present(&(x.XXX_presence[0]), 3)
-}
-
-func (x *PaginatedResponse) HasTotalPages() bool {
-	if x == nil {
-		return false
-	}
-	return protoimpl.X.Present(&(x.XXX_presence[0]), 4)
-}
-
-func (x *PaginatedResponse) HasPageSize() bool {
-	if x == nil {
-		return false
-	}
-	return protoimpl.X.Present(&(x.XXX_presence[0]), 5)
-}
-
-func (x *PaginatedResponse) ClearNextPageToken() {
-	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 0)
-	x.xxx_hidden_NextPageToken = nil
-}
-
-func (x *PaginatedResponse) ClearPrevPageToken() {
-	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 1)
-	x.xxx_hidden_PrevPageToken = nil
-}
-
-func (x *PaginatedResponse) ClearTotalCount() {
-	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 2)
-	x.xxx_hidden_TotalCount = 0
-}
-
-func (x *PaginatedResponse) ClearCurrentPage() {
-	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 3)
-	x.xxx_hidden_CurrentPage = 0
-}
-
-func (x *PaginatedResponse) ClearTotalPages() {
-	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 4)
-	x.xxx_hidden_TotalPages = 0
-}
-
-func (x *PaginatedResponse) ClearPageSize() {
-	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 5)
-	x.xxx_hidden_PageSize = 0
-}
-
-type PaginatedResponse_builder struct {
-	_ [0]func() // Prevents comparability and use of unkeyed literals for the builder.
-
-	// Opaque token for retrieving the next page (empty if no more pages)
-	NextPageToken *string
-	// Opaque token for retrieving the previous page (empty if first page)
-	PrevPageToken *string
-	// Total number of items across all pages (may be expensive to compute)
-	TotalCount *int32
-	// Current page number (starts from 1)
-	CurrentPage *int32
-	// Total number of pages available
-	TotalPages *int32
-	// Number of items in the current page
-	PageSize *int32
-}
-
-func (b0 PaginatedResponse_builder) Build() *PaginatedResponse {
-	m0 := &PaginatedResponse{}
-	b, x := &b0, m0
-	_, _ = b, x
-	if b.NextPageToken != nil {
-		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 0, 6)
-		x.xxx_hidden_NextPageToken = b.NextPageToken
-	}
-	if b.PrevPageToken != nil {
-		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 1, 6)
-		x.xxx_hidden_PrevPageToken = b.PrevPageToken
-	}
-	if b.TotalCount != nil {
-		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 2, 6)
-		x.xxx_hidden_TotalCount = *b.TotalCount
-	}
-	if b.CurrentPage != nil {
-		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 3, 6)
-		x.xxx_hidden_CurrentPage = *b.CurrentPage
-	}
-	if b.TotalPages != nil {
-		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 4, 6)
-		x.xxx_hidden_TotalPages = *b.TotalPages
-	}
-	if b.PageSize != nil {
-		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 5, 6)
-		x.xxx_hidden_PageSize = *b.PageSize
-	}
-	return m0
 }
 
 var File_pkg_common_proto_paginated_response_proto protoreflect.FileDescriptor
 
 const file_pkg_common_proto_paginated_response_proto_rawDesc = "" +
 	"\n" +
-	")pkg/common/proto/paginated_response.proto\x12\x11gcommon.v1.common\x1a!google/protobuf/go_features.proto\"\xe5\x01\n" +
+	")pkg/common/proto/paginated_response.proto\x12\x11gcommon.v1.common\"\xe5\x01\n" +
 	"\x11PaginatedResponse\x12&\n" +
 	"\x0fnext_page_token\x18\x01 \x01(\tR\rnextPageToken\x12&\n" +
 	"\x0fprev_page_token\x18\x02 \x01(\tR\rprevPageToken\x12\x1f\n" +
@@ -275,8 +128,20 @@ const file_pkg_common_proto_paginated_response_proto_rawDesc = "" +
 	"\fcurrent_page\x18\x04 \x01(\x05R\vcurrentPage\x12\x1f\n" +
 	"\vtotal_pages\x18\x05 \x01(\x05R\n" +
 	"totalPages\x12\x1b\n" +
-	"\tpage_size\x18\x06 \x01(\x05R\bpageSizeB\xc9\x01\n" +
-	"\x15com.gcommon.v1.commonB\x16PaginatedResponseProtoP\x01Z*github.com/jdfalk/gcommon/pkg/common/proto\xa2\x02\x03GVC\xaa\x02\x11Gcommon.V1.Common\xca\x02\x11Gcommon\\V1\\Common\xe2\x02\x1dGcommon\\V1\\Common\\GPBMetadata\xea\x02\x13Gcommon::V1::Common\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"\tpage_size\x18\x06 \x01(\x05R\bpageSizeB\xc1\x01\n" +
+	"\x15com.gcommon.v1.commonB\x16PaginatedResponseProtoP\x01Z*github.com/jdfalk/gcommon/pkg/common/proto\xa2\x02\x03GVC\xaa\x02\x11Gcommon.V1.Common\xca\x02\x11Gcommon\\V1\\Common\xe2\x02\x1dGcommon\\V1\\Common\\GPBMetadata\xea\x02\x13Gcommon::V1::Commonb\beditionsp\xe8\a"
+
+var (
+	file_pkg_common_proto_paginated_response_proto_rawDescOnce sync.Once
+	file_pkg_common_proto_paginated_response_proto_rawDescData []byte
+)
+
+func file_pkg_common_proto_paginated_response_proto_rawDescGZIP() []byte {
+	file_pkg_common_proto_paginated_response_proto_rawDescOnce.Do(func() {
+		file_pkg_common_proto_paginated_response_proto_rawDescData = protoimpl.X.CompressGZIP(unsafe.Slice(unsafe.StringData(file_pkg_common_proto_paginated_response_proto_rawDesc), len(file_pkg_common_proto_paginated_response_proto_rawDesc)))
+	})
+	return file_pkg_common_proto_paginated_response_proto_rawDescData
+}
 
 var file_pkg_common_proto_paginated_response_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_pkg_common_proto_paginated_response_proto_goTypes = []any{

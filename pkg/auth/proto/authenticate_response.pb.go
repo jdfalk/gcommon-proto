@@ -10,8 +10,8 @@ import (
 	proto "github.com/jdfalk/gcommon/pkg/common/proto"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
-	_ "google.golang.org/protobuf/types/gofeaturespb"
 	reflect "reflect"
+	sync "sync"
 	unsafe "unsafe"
 )
 
@@ -27,21 +27,25 @@ const (
 // Follows OAuth2 token response format with additional session and user data.
 // Includes rate limiting information for client throttling.
 type AuthenticateResponse struct {
-	state                   protoimpl.MessageState `protogen:"opaque.v1"`
-	xxx_hidden_AccessToken  *string                `protobuf:"bytes,1,opt,name=access_token,json=accessToken"`
-	xxx_hidden_RefreshToken *string                `protobuf:"bytes,2,opt,name=refresh_token,json=refreshToken"`
-	xxx_hidden_TokenType    *string                `protobuf:"bytes,3,opt,name=token_type,json=tokenType"`
-	xxx_hidden_ExpiresIn    int32                  `protobuf:"varint,4,opt,name=expires_in,json=expiresIn"`
-	xxx_hidden_Scopes       []string               `protobuf:"bytes,5,rep,name=scopes"`
-	xxx_hidden_UserInfo     *UserInfo              `protobuf:"bytes,6,opt,name=user_info,json=userInfo"`
-	xxx_hidden_Session      *Session               `protobuf:"bytes,7,opt,name=session"`
-	xxx_hidden_RateLimit    *proto.RateLimit       `protobuf:"bytes,8,opt,name=rate_limit,json=rateLimit"`
-	// Deprecated: Do not use. This will be deleted in the near future.
-	XXX_lazyUnmarshalInfo  protoimpl.LazyUnmarshalInfo
-	XXX_raceDetectHookData protoimpl.RaceDetectHookData
-	XXX_presence           [1]uint32
-	unknownFields          protoimpl.UnknownFields
-	sizeCache              protoimpl.SizeCache
+	state protoimpl.MessageState `protogen:"open.v1"`
+	// Access token for API authentication (JWT format)
+	AccessToken *string `protobuf:"bytes,1,opt,name=access_token,json=accessToken" json:"access_token,omitempty"`
+	// Refresh token for token renewal (opaque format)
+	RefreshToken *string `protobuf:"bytes,2,opt,name=refresh_token,json=refreshToken" json:"refresh_token,omitempty"`
+	// Token type (always "Bearer" for OAuth2 compliance)
+	TokenType *string `protobuf:"bytes,3,opt,name=token_type,json=tokenType" json:"token_type,omitempty"`
+	// Access token expiration time in seconds
+	ExpiresIn *int32 `protobuf:"varint,4,opt,name=expires_in,json=expiresIn" json:"expires_in,omitempty"`
+	// Granted authorization scopes
+	Scopes []string `protobuf:"bytes,5,rep,name=scopes" json:"scopes,omitempty"`
+	// Complete user information
+	UserInfo *UserInfo `protobuf:"bytes,6,opt,name=user_info,json=userInfo" json:"user_info,omitempty"`
+	// Session information for session management
+	Session *Session `protobuf:"bytes,7,opt,name=session" json:"session,omitempty"`
+	// Rate limiting information for client throttling
+	RateLimit     *proto.RateLimit `protobuf:"bytes,8,opt,name=rate_limit,json=rateLimit" json:"rate_limit,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
 }
 
 func (x *AuthenticateResponse) Reset() {
@@ -69,289 +73,72 @@ func (x *AuthenticateResponse) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
+// Deprecated: Use AuthenticateResponse.ProtoReflect.Descriptor instead.
+func (*AuthenticateResponse) Descriptor() ([]byte, []int) {
+	return file_pkg_auth_proto_authenticate_response_proto_rawDescGZIP(), []int{0}
+}
+
 func (x *AuthenticateResponse) GetAccessToken() string {
-	if x != nil {
-		if x.xxx_hidden_AccessToken != nil {
-			return *x.xxx_hidden_AccessToken
-		}
-		return ""
+	if x != nil && x.AccessToken != nil {
+		return *x.AccessToken
 	}
 	return ""
 }
 
 func (x *AuthenticateResponse) GetRefreshToken() string {
-	if x != nil {
-		if x.xxx_hidden_RefreshToken != nil {
-			return *x.xxx_hidden_RefreshToken
-		}
-		return ""
+	if x != nil && x.RefreshToken != nil {
+		return *x.RefreshToken
 	}
 	return ""
 }
 
 func (x *AuthenticateResponse) GetTokenType() string {
-	if x != nil {
-		if x.xxx_hidden_TokenType != nil {
-			return *x.xxx_hidden_TokenType
-		}
-		return ""
+	if x != nil && x.TokenType != nil {
+		return *x.TokenType
 	}
 	return ""
 }
 
 func (x *AuthenticateResponse) GetExpiresIn() int32 {
-	if x != nil {
-		return x.xxx_hidden_ExpiresIn
+	if x != nil && x.ExpiresIn != nil {
+		return *x.ExpiresIn
 	}
 	return 0
 }
 
 func (x *AuthenticateResponse) GetScopes() []string {
 	if x != nil {
-		return x.xxx_hidden_Scopes
+		return x.Scopes
 	}
 	return nil
 }
 
 func (x *AuthenticateResponse) GetUserInfo() *UserInfo {
 	if x != nil {
-		if protoimpl.X.Present(&(x.XXX_presence[0]), 5) {
-			if protoimpl.X.AtomicCheckPointerIsNil(&x.xxx_hidden_UserInfo) {
-				protoimpl.X.UnmarshalField(x, 6)
-			}
-			var rv *UserInfo
-			protoimpl.X.AtomicLoadPointer(protoimpl.Pointer(&x.xxx_hidden_UserInfo), protoimpl.Pointer(&rv))
-			return rv
-		}
+		return x.UserInfo
 	}
 	return nil
 }
 
 func (x *AuthenticateResponse) GetSession() *Session {
 	if x != nil {
-		if protoimpl.X.Present(&(x.XXX_presence[0]), 6) {
-			if protoimpl.X.AtomicCheckPointerIsNil(&x.xxx_hidden_Session) {
-				protoimpl.X.UnmarshalField(x, 7)
-			}
-			var rv *Session
-			protoimpl.X.AtomicLoadPointer(protoimpl.Pointer(&x.xxx_hidden_Session), protoimpl.Pointer(&rv))
-			return rv
-		}
+		return x.Session
 	}
 	return nil
 }
 
 func (x *AuthenticateResponse) GetRateLimit() *proto.RateLimit {
 	if x != nil {
-		if protoimpl.X.Present(&(x.XXX_presence[0]), 7) {
-			if protoimpl.X.AtomicCheckPointerIsNil(&x.xxx_hidden_RateLimit) {
-				protoimpl.X.UnmarshalField(x, 8)
-			}
-			var rv *proto.RateLimit
-			protoimpl.X.AtomicLoadPointer(protoimpl.Pointer(&x.xxx_hidden_RateLimit), protoimpl.Pointer(&rv))
-			return rv
-		}
+		return x.RateLimit
 	}
 	return nil
-}
-
-func (x *AuthenticateResponse) SetAccessToken(v string) {
-	x.xxx_hidden_AccessToken = &v
-	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 0, 8)
-}
-
-func (x *AuthenticateResponse) SetRefreshToken(v string) {
-	x.xxx_hidden_RefreshToken = &v
-	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 1, 8)
-}
-
-func (x *AuthenticateResponse) SetTokenType(v string) {
-	x.xxx_hidden_TokenType = &v
-	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 2, 8)
-}
-
-func (x *AuthenticateResponse) SetExpiresIn(v int32) {
-	x.xxx_hidden_ExpiresIn = v
-	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 3, 8)
-}
-
-func (x *AuthenticateResponse) SetScopes(v []string) {
-	x.xxx_hidden_Scopes = v
-}
-
-func (x *AuthenticateResponse) SetUserInfo(v *UserInfo) {
-	protoimpl.X.AtomicSetPointer(&x.xxx_hidden_UserInfo, v)
-	if v == nil {
-		protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 5)
-	} else {
-		protoimpl.X.SetPresent(&(x.XXX_presence[0]), 5, 8)
-	}
-}
-
-func (x *AuthenticateResponse) SetSession(v *Session) {
-	protoimpl.X.AtomicSetPointer(&x.xxx_hidden_Session, v)
-	if v == nil {
-		protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 6)
-	} else {
-		protoimpl.X.SetPresent(&(x.XXX_presence[0]), 6, 8)
-	}
-}
-
-func (x *AuthenticateResponse) SetRateLimit(v *proto.RateLimit) {
-	protoimpl.X.AtomicSetPointer(&x.xxx_hidden_RateLimit, v)
-	if v == nil {
-		protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 7)
-	} else {
-		protoimpl.X.SetPresent(&(x.XXX_presence[0]), 7, 8)
-	}
-}
-
-func (x *AuthenticateResponse) HasAccessToken() bool {
-	if x == nil {
-		return false
-	}
-	return protoimpl.X.Present(&(x.XXX_presence[0]), 0)
-}
-
-func (x *AuthenticateResponse) HasRefreshToken() bool {
-	if x == nil {
-		return false
-	}
-	return protoimpl.X.Present(&(x.XXX_presence[0]), 1)
-}
-
-func (x *AuthenticateResponse) HasTokenType() bool {
-	if x == nil {
-		return false
-	}
-	return protoimpl.X.Present(&(x.XXX_presence[0]), 2)
-}
-
-func (x *AuthenticateResponse) HasExpiresIn() bool {
-	if x == nil {
-		return false
-	}
-	return protoimpl.X.Present(&(x.XXX_presence[0]), 3)
-}
-
-func (x *AuthenticateResponse) HasUserInfo() bool {
-	if x == nil {
-		return false
-	}
-	return protoimpl.X.Present(&(x.XXX_presence[0]), 5)
-}
-
-func (x *AuthenticateResponse) HasSession() bool {
-	if x == nil {
-		return false
-	}
-	return protoimpl.X.Present(&(x.XXX_presence[0]), 6)
-}
-
-func (x *AuthenticateResponse) HasRateLimit() bool {
-	if x == nil {
-		return false
-	}
-	return protoimpl.X.Present(&(x.XXX_presence[0]), 7)
-}
-
-func (x *AuthenticateResponse) ClearAccessToken() {
-	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 0)
-	x.xxx_hidden_AccessToken = nil
-}
-
-func (x *AuthenticateResponse) ClearRefreshToken() {
-	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 1)
-	x.xxx_hidden_RefreshToken = nil
-}
-
-func (x *AuthenticateResponse) ClearTokenType() {
-	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 2)
-	x.xxx_hidden_TokenType = nil
-}
-
-func (x *AuthenticateResponse) ClearExpiresIn() {
-	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 3)
-	x.xxx_hidden_ExpiresIn = 0
-}
-
-func (x *AuthenticateResponse) ClearUserInfo() {
-	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 5)
-	protoimpl.X.AtomicSetPointer(&x.xxx_hidden_UserInfo, (*UserInfo)(nil))
-}
-
-func (x *AuthenticateResponse) ClearSession() {
-	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 6)
-	protoimpl.X.AtomicSetPointer(&x.xxx_hidden_Session, (*Session)(nil))
-}
-
-func (x *AuthenticateResponse) ClearRateLimit() {
-	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 7)
-	protoimpl.X.AtomicSetPointer(&x.xxx_hidden_RateLimit, (*proto.RateLimit)(nil))
-}
-
-type AuthenticateResponse_builder struct {
-	_ [0]func() // Prevents comparability and use of unkeyed literals for the builder.
-
-	// Access token for API authentication (JWT format)
-	AccessToken *string
-	// Refresh token for token renewal (opaque format)
-	RefreshToken *string
-	// Token type (always "Bearer" for OAuth2 compliance)
-	TokenType *string
-	// Access token expiration time in seconds
-	ExpiresIn *int32
-	// Granted authorization scopes
-	Scopes []string
-	// Complete user information
-	UserInfo *UserInfo
-	// Session information for session management
-	Session *Session
-	// Rate limiting information for client throttling
-	RateLimit *proto.RateLimit
-}
-
-func (b0 AuthenticateResponse_builder) Build() *AuthenticateResponse {
-	m0 := &AuthenticateResponse{}
-	b, x := &b0, m0
-	_, _ = b, x
-	if b.AccessToken != nil {
-		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 0, 8)
-		x.xxx_hidden_AccessToken = b.AccessToken
-	}
-	if b.RefreshToken != nil {
-		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 1, 8)
-		x.xxx_hidden_RefreshToken = b.RefreshToken
-	}
-	if b.TokenType != nil {
-		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 2, 8)
-		x.xxx_hidden_TokenType = b.TokenType
-	}
-	if b.ExpiresIn != nil {
-		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 3, 8)
-		x.xxx_hidden_ExpiresIn = *b.ExpiresIn
-	}
-	x.xxx_hidden_Scopes = b.Scopes
-	if b.UserInfo != nil {
-		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 5, 8)
-		x.xxx_hidden_UserInfo = b.UserInfo
-	}
-	if b.Session != nil {
-		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 6, 8)
-		x.xxx_hidden_Session = b.Session
-	}
-	if b.RateLimit != nil {
-		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 7, 8)
-		x.xxx_hidden_RateLimit = b.RateLimit
-	}
-	return m0
 }
 
 var File_pkg_auth_proto_authenticate_response_proto protoreflect.FileDescriptor
 
 const file_pkg_auth_proto_authenticate_response_proto_rawDesc = "" +
 	"\n" +
-	"*pkg/auth/proto/authenticate_response.proto\x12\x0fgcommon.v1.auth\x1a!google/protobuf/go_features.proto\x1a\x1cpkg/auth/proto/session.proto\x1a\x1epkg/auth/proto/user_info.proto\x1a!pkg/common/proto/rate_limit.proto\x1a(pkg/common/proto/response_metadata.proto\"\xe9\x02\n" +
+	"*pkg/auth/proto/authenticate_response.proto\x12\x0fgcommon.v1.auth\x1a\x1cpkg/auth/proto/session.proto\x1a\x1epkg/auth/proto/user_info.proto\x1a!pkg/common/proto/rate_limit.proto\x1a(pkg/common/proto/response_metadata.proto\"\xe9\x02\n" +
 	"\x14AuthenticateResponse\x12!\n" +
 	"\faccess_token\x18\x01 \x01(\tR\vaccessToken\x12#\n" +
 	"\rrefresh_token\x18\x02 \x01(\tR\frefreshToken\x12\x1d\n" +
@@ -363,8 +150,20 @@ const file_pkg_auth_proto_authenticate_response_proto_rawDesc = "" +
 	"\tuser_info\x18\x06 \x01(\v2\x19.gcommon.v1.auth.UserInfoB\x02(\x01R\buserInfo\x126\n" +
 	"\asession\x18\a \x01(\v2\x18.gcommon.v1.auth.SessionB\x02(\x01R\asession\x12?\n" +
 	"\n" +
-	"rate_limit\x18\b \x01(\v2\x1c.gcommon.v1.common.RateLimitB\x02(\x01R\trateLimitB\xc0\x01\n" +
-	"\x13com.gcommon.v1.authB\x19AuthenticateResponseProtoP\x01Z(github.com/jdfalk/gcommon/pkg/auth/proto\xa2\x02\x03GVA\xaa\x02\x0fGcommon.V1.Auth\xca\x02\x0fGcommon\\V1\\Auth\xe2\x02\x1bGcommon\\V1\\Auth\\GPBMetadata\xea\x02\x11Gcommon::V1::Auth\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"rate_limit\x18\b \x01(\v2\x1c.gcommon.v1.common.RateLimitB\x02(\x01R\trateLimitB\xb8\x01\n" +
+	"\x13com.gcommon.v1.authB\x19AuthenticateResponseProtoP\x01Z(github.com/jdfalk/gcommon/pkg/auth/proto\xa2\x02\x03GVA\xaa\x02\x0fGcommon.V1.Auth\xca\x02\x0fGcommon\\V1\\Auth\xe2\x02\x1bGcommon\\V1\\Auth\\GPBMetadata\xea\x02\x11Gcommon::V1::Authb\beditionsp\xe8\a"
+
+var (
+	file_pkg_auth_proto_authenticate_response_proto_rawDescOnce sync.Once
+	file_pkg_auth_proto_authenticate_response_proto_rawDescData []byte
+)
+
+func file_pkg_auth_proto_authenticate_response_proto_rawDescGZIP() []byte {
+	file_pkg_auth_proto_authenticate_response_proto_rawDescOnce.Do(func() {
+		file_pkg_auth_proto_authenticate_response_proto_rawDescData = protoimpl.X.CompressGZIP(unsafe.Slice(unsafe.StringData(file_pkg_auth_proto_authenticate_response_proto_rawDesc), len(file_pkg_auth_proto_authenticate_response_proto_rawDesc)))
+	})
+	return file_pkg_auth_proto_authenticate_response_proto_rawDescData
+}
 
 var file_pkg_auth_proto_authenticate_response_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_pkg_auth_proto_authenticate_response_proto_goTypes = []any{

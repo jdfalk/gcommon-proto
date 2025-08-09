@@ -9,8 +9,8 @@ package proto
 import (
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
-	_ "google.golang.org/protobuf/types/gofeaturespb"
 	reflect "reflect"
+	sync "sync"
 	unsafe "unsafe"
 )
 
@@ -26,16 +26,19 @@ const (
 // Contains new access token and potentially new refresh token.
 // Follows OAuth2 token response format.
 type RefreshTokenResponse struct {
-	state                   protoimpl.MessageState `protogen:"opaque.v1"`
-	xxx_hidden_AccessToken  *string                `protobuf:"bytes,1,opt,name=access_token,json=accessToken"`
-	xxx_hidden_RefreshToken *string                `protobuf:"bytes,2,opt,name=refresh_token,json=refreshToken"`
-	xxx_hidden_TokenType    *string                `protobuf:"bytes,3,opt,name=token_type,json=tokenType"`
-	xxx_hidden_ExpiresIn    int32                  `protobuf:"varint,4,opt,name=expires_in,json=expiresIn"`
-	xxx_hidden_Scopes       []string               `protobuf:"bytes,5,rep,name=scopes"`
-	XXX_raceDetectHookData  protoimpl.RaceDetectHookData
-	XXX_presence            [1]uint32
-	unknownFields           protoimpl.UnknownFields
-	sizeCache               protoimpl.SizeCache
+	state protoimpl.MessageState `protogen:"open.v1"`
+	// New access token for API authentication
+	AccessToken *string `protobuf:"bytes,1,opt,name=access_token,json=accessToken" json:"access_token,omitempty"`
+	// New refresh token (may be the same as input)
+	RefreshToken *string `protobuf:"bytes,2,opt,name=refresh_token,json=refreshToken" json:"refresh_token,omitempty"`
+	// Token type (always "Bearer")
+	TokenType *string `protobuf:"bytes,3,opt,name=token_type,json=tokenType" json:"token_type,omitempty"`
+	// Access token expiration time in seconds
+	ExpiresIn *int32 `protobuf:"varint,4,opt,name=expires_in,json=expiresIn" json:"expires_in,omitempty"`
+	// Granted scopes for the new access token
+	Scopes        []string `protobuf:"bytes,5,rep,name=scopes" json:"scopes,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
 }
 
 func (x *RefreshTokenResponse) Reset() {
@@ -63,166 +66,51 @@ func (x *RefreshTokenResponse) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
+// Deprecated: Use RefreshTokenResponse.ProtoReflect.Descriptor instead.
+func (*RefreshTokenResponse) Descriptor() ([]byte, []int) {
+	return file_pkg_auth_proto_refresh_token_response_proto_rawDescGZIP(), []int{0}
+}
+
 func (x *RefreshTokenResponse) GetAccessToken() string {
-	if x != nil {
-		if x.xxx_hidden_AccessToken != nil {
-			return *x.xxx_hidden_AccessToken
-		}
-		return ""
+	if x != nil && x.AccessToken != nil {
+		return *x.AccessToken
 	}
 	return ""
 }
 
 func (x *RefreshTokenResponse) GetRefreshToken() string {
-	if x != nil {
-		if x.xxx_hidden_RefreshToken != nil {
-			return *x.xxx_hidden_RefreshToken
-		}
-		return ""
+	if x != nil && x.RefreshToken != nil {
+		return *x.RefreshToken
 	}
 	return ""
 }
 
 func (x *RefreshTokenResponse) GetTokenType() string {
-	if x != nil {
-		if x.xxx_hidden_TokenType != nil {
-			return *x.xxx_hidden_TokenType
-		}
-		return ""
+	if x != nil && x.TokenType != nil {
+		return *x.TokenType
 	}
 	return ""
 }
 
 func (x *RefreshTokenResponse) GetExpiresIn() int32 {
-	if x != nil {
-		return x.xxx_hidden_ExpiresIn
+	if x != nil && x.ExpiresIn != nil {
+		return *x.ExpiresIn
 	}
 	return 0
 }
 
 func (x *RefreshTokenResponse) GetScopes() []string {
 	if x != nil {
-		return x.xxx_hidden_Scopes
+		return x.Scopes
 	}
 	return nil
-}
-
-func (x *RefreshTokenResponse) SetAccessToken(v string) {
-	x.xxx_hidden_AccessToken = &v
-	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 0, 5)
-}
-
-func (x *RefreshTokenResponse) SetRefreshToken(v string) {
-	x.xxx_hidden_RefreshToken = &v
-	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 1, 5)
-}
-
-func (x *RefreshTokenResponse) SetTokenType(v string) {
-	x.xxx_hidden_TokenType = &v
-	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 2, 5)
-}
-
-func (x *RefreshTokenResponse) SetExpiresIn(v int32) {
-	x.xxx_hidden_ExpiresIn = v
-	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 3, 5)
-}
-
-func (x *RefreshTokenResponse) SetScopes(v []string) {
-	x.xxx_hidden_Scopes = v
-}
-
-func (x *RefreshTokenResponse) HasAccessToken() bool {
-	if x == nil {
-		return false
-	}
-	return protoimpl.X.Present(&(x.XXX_presence[0]), 0)
-}
-
-func (x *RefreshTokenResponse) HasRefreshToken() bool {
-	if x == nil {
-		return false
-	}
-	return protoimpl.X.Present(&(x.XXX_presence[0]), 1)
-}
-
-func (x *RefreshTokenResponse) HasTokenType() bool {
-	if x == nil {
-		return false
-	}
-	return protoimpl.X.Present(&(x.XXX_presence[0]), 2)
-}
-
-func (x *RefreshTokenResponse) HasExpiresIn() bool {
-	if x == nil {
-		return false
-	}
-	return protoimpl.X.Present(&(x.XXX_presence[0]), 3)
-}
-
-func (x *RefreshTokenResponse) ClearAccessToken() {
-	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 0)
-	x.xxx_hidden_AccessToken = nil
-}
-
-func (x *RefreshTokenResponse) ClearRefreshToken() {
-	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 1)
-	x.xxx_hidden_RefreshToken = nil
-}
-
-func (x *RefreshTokenResponse) ClearTokenType() {
-	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 2)
-	x.xxx_hidden_TokenType = nil
-}
-
-func (x *RefreshTokenResponse) ClearExpiresIn() {
-	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 3)
-	x.xxx_hidden_ExpiresIn = 0
-}
-
-type RefreshTokenResponse_builder struct {
-	_ [0]func() // Prevents comparability and use of unkeyed literals for the builder.
-
-	// New access token for API authentication
-	AccessToken *string
-	// New refresh token (may be the same as input)
-	RefreshToken *string
-	// Token type (always "Bearer")
-	TokenType *string
-	// Access token expiration time in seconds
-	ExpiresIn *int32
-	// Granted scopes for the new access token
-	Scopes []string
-}
-
-func (b0 RefreshTokenResponse_builder) Build() *RefreshTokenResponse {
-	m0 := &RefreshTokenResponse{}
-	b, x := &b0, m0
-	_, _ = b, x
-	if b.AccessToken != nil {
-		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 0, 5)
-		x.xxx_hidden_AccessToken = b.AccessToken
-	}
-	if b.RefreshToken != nil {
-		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 1, 5)
-		x.xxx_hidden_RefreshToken = b.RefreshToken
-	}
-	if b.TokenType != nil {
-		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 2, 5)
-		x.xxx_hidden_TokenType = b.TokenType
-	}
-	if b.ExpiresIn != nil {
-		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 3, 5)
-		x.xxx_hidden_ExpiresIn = *b.ExpiresIn
-	}
-	x.xxx_hidden_Scopes = b.Scopes
-	return m0
 }
 
 var File_pkg_auth_proto_refresh_token_response_proto protoreflect.FileDescriptor
 
 const file_pkg_auth_proto_refresh_token_response_proto_rawDesc = "" +
 	"\n" +
-	"+pkg/auth/proto/refresh_token_response.proto\x12\x0fgcommon.v1.auth\x1a!google/protobuf/go_features.proto\"\xb4\x01\n" +
+	"+pkg/auth/proto/refresh_token_response.proto\x12\x0fgcommon.v1.auth\"\xb4\x01\n" +
 	"\x14RefreshTokenResponse\x12!\n" +
 	"\faccess_token\x18\x01 \x01(\tR\vaccessToken\x12#\n" +
 	"\rrefresh_token\x18\x02 \x01(\tR\frefreshToken\x12\x1d\n" +
@@ -230,8 +118,20 @@ const file_pkg_auth_proto_refresh_token_response_proto_rawDesc = "" +
 	"token_type\x18\x03 \x01(\tR\ttokenType\x12\x1d\n" +
 	"\n" +
 	"expires_in\x18\x04 \x01(\x05R\texpiresIn\x12\x16\n" +
-	"\x06scopes\x18\x05 \x03(\tR\x06scopesB\xc0\x01\n" +
-	"\x13com.gcommon.v1.authB\x19RefreshTokenResponseProtoP\x01Z(github.com/jdfalk/gcommon/pkg/auth/proto\xa2\x02\x03GVA\xaa\x02\x0fGcommon.V1.Auth\xca\x02\x0fGcommon\\V1\\Auth\xe2\x02\x1bGcommon\\V1\\Auth\\GPBMetadata\xea\x02\x11Gcommon::V1::Auth\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"\x06scopes\x18\x05 \x03(\tR\x06scopesB\xb8\x01\n" +
+	"\x13com.gcommon.v1.authB\x19RefreshTokenResponseProtoP\x01Z(github.com/jdfalk/gcommon/pkg/auth/proto\xa2\x02\x03GVA\xaa\x02\x0fGcommon.V1.Auth\xca\x02\x0fGcommon\\V1\\Auth\xe2\x02\x1bGcommon\\V1\\Auth\\GPBMetadata\xea\x02\x11Gcommon::V1::Authb\beditionsp\xe8\a"
+
+var (
+	file_pkg_auth_proto_refresh_token_response_proto_rawDescOnce sync.Once
+	file_pkg_auth_proto_refresh_token_response_proto_rawDescData []byte
+)
+
+func file_pkg_auth_proto_refresh_token_response_proto_rawDescGZIP() []byte {
+	file_pkg_auth_proto_refresh_token_response_proto_rawDescOnce.Do(func() {
+		file_pkg_auth_proto_refresh_token_response_proto_rawDescData = protoimpl.X.CompressGZIP(unsafe.Slice(unsafe.StringData(file_pkg_auth_proto_refresh_token_response_proto_rawDesc), len(file_pkg_auth_proto_refresh_token_response_proto_rawDesc)))
+	})
+	return file_pkg_auth_proto_refresh_token_response_proto_rawDescData
+}
 
 var file_pkg_auth_proto_refresh_token_response_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_pkg_auth_proto_refresh_token_response_proto_goTypes = []any{

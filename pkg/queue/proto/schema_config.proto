@@ -1,0 +1,24 @@
+// file: pkg/queue/proto/schema_config.proto
+// version: 1.0.0
+// guid: 123e4567-e89b-12d3-a456-426614174003
+
+edition = "2023";
+
+package gcommon.v1.queue;
+
+option go_package = "github.com/jdfalk/gcommon/pkg/queue/proto";
+
+// SchemaConfig message definition.
+message SchemaConfig {
+  // Schema version
+  int32 version = 1;
+
+  // Schema definition
+  string definition = 2;
+
+  // Schema type
+  string type = 3;
+
+  // Enable schema validation
+  bool validate = 4;
+}

@@ -10,8 +10,8 @@ import (
 	proto "github.com/jdfalk/gcommon/pkg/common/proto"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
-	_ "google.golang.org/protobuf/types/gofeaturespb"
 	reflect "reflect"
+	sync "sync"
 	unsafe "unsafe"
 )
 
@@ -27,17 +27,24 @@ const (
 // Uses oneof to ensure only one authentication method is provided per request.
 // Supports comprehensive metadata and client information for security and auditing.
 type AuthenticateRequest struct {
-	state                  protoimpl.MessageState            `protogen:"opaque.v1"`
-	xxx_hidden_Metadata    *proto.RequestMetadata            `protobuf:"bytes,1,opt,name=metadata"`
-	xxx_hidden_Credentials isAuthenticateRequest_Credentials `protobuf_oneof:"credentials"`
-	xxx_hidden_Scopes      []string                          `protobuf:"bytes,6,rep,name=scopes"`
-	xxx_hidden_ClientInfo  *proto.ClientInfo                 `protobuf:"bytes,7,opt,name=client_info,json=clientInfo"`
-	// Deprecated: Do not use. This will be deleted in the near future.
-	XXX_lazyUnmarshalInfo  protoimpl.LazyUnmarshalInfo
-	XXX_raceDetectHookData protoimpl.RaceDetectHookData
-	XXX_presence           [1]uint32
-	unknownFields          protoimpl.UnknownFields
-	sizeCache              protoimpl.SizeCache
+	state protoimpl.MessageState `protogen:"open.v1"`
+	// Request metadata for tracing, correlation, and auditing
+	Metadata *proto.RequestMetadata `protobuf:"bytes,1,opt,name=metadata" json:"metadata,omitempty"`
+	// Authentication credentials (oneof ensures only one type is used)
+	//
+	// Types that are valid to be assigned to Credentials:
+	//
+	//	*AuthenticateRequest_Password
+	//	*AuthenticateRequest_ApiKey
+	//	*AuthenticateRequest_Oauth2
+	//	*AuthenticateRequest_Jwt
+	Credentials isAuthenticateRequest_Credentials `protobuf_oneof:"credentials"`
+	// Requested authorization scopes
+	Scopes []string `protobuf:"bytes,6,rep,name=scopes" json:"scopes,omitempty"`
+	// Client information for security and session management
+	ClientInfo    *proto.ClientInfo `protobuf:"bytes,7,opt,name=client_info,json=clientInfo" json:"client_info,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
 }
 
 func (x *AuthenticateRequest) Reset() {
@@ -65,23 +72,28 @@ func (x *AuthenticateRequest) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
+// Deprecated: Use AuthenticateRequest.ProtoReflect.Descriptor instead.
+func (*AuthenticateRequest) Descriptor() ([]byte, []int) {
+	return file_pkg_auth_proto_authenticate_request_proto_rawDescGZIP(), []int{0}
+}
+
 func (x *AuthenticateRequest) GetMetadata() *proto.RequestMetadata {
 	if x != nil {
-		if protoimpl.X.Present(&(x.XXX_presence[0]), 0) {
-			if protoimpl.X.AtomicCheckPointerIsNil(&x.xxx_hidden_Metadata) {
-				protoimpl.X.UnmarshalField(x, 1)
-			}
-			var rv *proto.RequestMetadata
-			protoimpl.X.AtomicLoadPointer(protoimpl.Pointer(&x.xxx_hidden_Metadata), protoimpl.Pointer(&rv))
-			return rv
-		}
+		return x.Metadata
+	}
+	return nil
+}
+
+func (x *AuthenticateRequest) GetCredentials() isAuthenticateRequest_Credentials {
+	if x != nil {
+		return x.Credentials
 	}
 	return nil
 }
 
 func (x *AuthenticateRequest) GetPassword() *PasswordCredentials {
 	if x != nil {
-		if x, ok := x.xxx_hidden_Credentials.(*authenticateRequest_Password); ok {
+		if x, ok := x.Credentials.(*AuthenticateRequest_Password); ok {
 			return x.Password
 		}
 	}
@@ -90,7 +102,7 @@ func (x *AuthenticateRequest) GetPassword() *PasswordCredentials {
 
 func (x *AuthenticateRequest) GetApiKey() *APIKeyCredentials {
 	if x != nil {
-		if x, ok := x.xxx_hidden_Credentials.(*authenticateRequest_ApiKey); ok {
+		if x, ok := x.Credentials.(*AuthenticateRequest_ApiKey); ok {
 			return x.ApiKey
 		}
 	}
@@ -99,7 +111,7 @@ func (x *AuthenticateRequest) GetApiKey() *APIKeyCredentials {
 
 func (x *AuthenticateRequest) GetOauth2() *OAuth2Credentials {
 	if x != nil {
-		if x, ok := x.xxx_hidden_Credentials.(*authenticateRequest_Oauth2); ok {
+		if x, ok := x.Credentials.(*AuthenticateRequest_Oauth2); ok {
 			return x.Oauth2
 		}
 	}
@@ -108,7 +120,7 @@ func (x *AuthenticateRequest) GetOauth2() *OAuth2Credentials {
 
 func (x *AuthenticateRequest) GetJwt() *JWTCredentials {
 	if x != nil {
-		if x, ok := x.xxx_hidden_Credentials.(*authenticateRequest_Jwt); ok {
+		if x, ok := x.Credentials.(*AuthenticateRequest_Jwt); ok {
 			return x.Jwt
 		}
 	}
@@ -117,292 +129,55 @@ func (x *AuthenticateRequest) GetJwt() *JWTCredentials {
 
 func (x *AuthenticateRequest) GetScopes() []string {
 	if x != nil {
-		return x.xxx_hidden_Scopes
+		return x.Scopes
 	}
 	return nil
 }
 
 func (x *AuthenticateRequest) GetClientInfo() *proto.ClientInfo {
 	if x != nil {
-		if protoimpl.X.Present(&(x.XXX_presence[0]), 3) {
-			if protoimpl.X.AtomicCheckPointerIsNil(&x.xxx_hidden_ClientInfo) {
-				protoimpl.X.UnmarshalField(x, 7)
-			}
-			var rv *proto.ClientInfo
-			protoimpl.X.AtomicLoadPointer(protoimpl.Pointer(&x.xxx_hidden_ClientInfo), protoimpl.Pointer(&rv))
-			return rv
-		}
+		return x.ClientInfo
 	}
 	return nil
-}
-
-func (x *AuthenticateRequest) SetMetadata(v *proto.RequestMetadata) {
-	protoimpl.X.AtomicSetPointer(&x.xxx_hidden_Metadata, v)
-	if v == nil {
-		protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 0)
-	} else {
-		protoimpl.X.SetPresent(&(x.XXX_presence[0]), 0, 4)
-	}
-}
-
-func (x *AuthenticateRequest) SetPassword(v *PasswordCredentials) {
-	if v == nil {
-		x.xxx_hidden_Credentials = nil
-		return
-	}
-	x.xxx_hidden_Credentials = &authenticateRequest_Password{v}
-}
-
-func (x *AuthenticateRequest) SetApiKey(v *APIKeyCredentials) {
-	if v == nil {
-		x.xxx_hidden_Credentials = nil
-		return
-	}
-	x.xxx_hidden_Credentials = &authenticateRequest_ApiKey{v}
-}
-
-func (x *AuthenticateRequest) SetOauth2(v *OAuth2Credentials) {
-	if v == nil {
-		x.xxx_hidden_Credentials = nil
-		return
-	}
-	x.xxx_hidden_Credentials = &authenticateRequest_Oauth2{v}
-}
-
-func (x *AuthenticateRequest) SetJwt(v *JWTCredentials) {
-	if v == nil {
-		x.xxx_hidden_Credentials = nil
-		return
-	}
-	x.xxx_hidden_Credentials = &authenticateRequest_Jwt{v}
-}
-
-func (x *AuthenticateRequest) SetScopes(v []string) {
-	x.xxx_hidden_Scopes = v
-}
-
-func (x *AuthenticateRequest) SetClientInfo(v *proto.ClientInfo) {
-	protoimpl.X.AtomicSetPointer(&x.xxx_hidden_ClientInfo, v)
-	if v == nil {
-		protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 3)
-	} else {
-		protoimpl.X.SetPresent(&(x.XXX_presence[0]), 3, 4)
-	}
-}
-
-func (x *AuthenticateRequest) HasMetadata() bool {
-	if x == nil {
-		return false
-	}
-	return protoimpl.X.Present(&(x.XXX_presence[0]), 0)
-}
-
-func (x *AuthenticateRequest) HasCredentials() bool {
-	if x == nil {
-		return false
-	}
-	return x.xxx_hidden_Credentials != nil
-}
-
-func (x *AuthenticateRequest) HasPassword() bool {
-	if x == nil {
-		return false
-	}
-	_, ok := x.xxx_hidden_Credentials.(*authenticateRequest_Password)
-	return ok
-}
-
-func (x *AuthenticateRequest) HasApiKey() bool {
-	if x == nil {
-		return false
-	}
-	_, ok := x.xxx_hidden_Credentials.(*authenticateRequest_ApiKey)
-	return ok
-}
-
-func (x *AuthenticateRequest) HasOauth2() bool {
-	if x == nil {
-		return false
-	}
-	_, ok := x.xxx_hidden_Credentials.(*authenticateRequest_Oauth2)
-	return ok
-}
-
-func (x *AuthenticateRequest) HasJwt() bool {
-	if x == nil {
-		return false
-	}
-	_, ok := x.xxx_hidden_Credentials.(*authenticateRequest_Jwt)
-	return ok
-}
-
-func (x *AuthenticateRequest) HasClientInfo() bool {
-	if x == nil {
-		return false
-	}
-	return protoimpl.X.Present(&(x.XXX_presence[0]), 3)
-}
-
-func (x *AuthenticateRequest) ClearMetadata() {
-	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 0)
-	protoimpl.X.AtomicSetPointer(&x.xxx_hidden_Metadata, (*proto.RequestMetadata)(nil))
-}
-
-func (x *AuthenticateRequest) ClearCredentials() {
-	x.xxx_hidden_Credentials = nil
-}
-
-func (x *AuthenticateRequest) ClearPassword() {
-	if _, ok := x.xxx_hidden_Credentials.(*authenticateRequest_Password); ok {
-		x.xxx_hidden_Credentials = nil
-	}
-}
-
-func (x *AuthenticateRequest) ClearApiKey() {
-	if _, ok := x.xxx_hidden_Credentials.(*authenticateRequest_ApiKey); ok {
-		x.xxx_hidden_Credentials = nil
-	}
-}
-
-func (x *AuthenticateRequest) ClearOauth2() {
-	if _, ok := x.xxx_hidden_Credentials.(*authenticateRequest_Oauth2); ok {
-		x.xxx_hidden_Credentials = nil
-	}
-}
-
-func (x *AuthenticateRequest) ClearJwt() {
-	if _, ok := x.xxx_hidden_Credentials.(*authenticateRequest_Jwt); ok {
-		x.xxx_hidden_Credentials = nil
-	}
-}
-
-func (x *AuthenticateRequest) ClearClientInfo() {
-	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 3)
-	protoimpl.X.AtomicSetPointer(&x.xxx_hidden_ClientInfo, (*proto.ClientInfo)(nil))
-}
-
-const AuthenticateRequest_Credentials_not_set_case case_AuthenticateRequest_Credentials = 0
-const AuthenticateRequest_Password_case case_AuthenticateRequest_Credentials = 2
-const AuthenticateRequest_ApiKey_case case_AuthenticateRequest_Credentials = 3
-const AuthenticateRequest_Oauth2_case case_AuthenticateRequest_Credentials = 4
-const AuthenticateRequest_Jwt_case case_AuthenticateRequest_Credentials = 5
-
-func (x *AuthenticateRequest) WhichCredentials() case_AuthenticateRequest_Credentials {
-	if x == nil {
-		return AuthenticateRequest_Credentials_not_set_case
-	}
-	switch x.xxx_hidden_Credentials.(type) {
-	case *authenticateRequest_Password:
-		return AuthenticateRequest_Password_case
-	case *authenticateRequest_ApiKey:
-		return AuthenticateRequest_ApiKey_case
-	case *authenticateRequest_Oauth2:
-		return AuthenticateRequest_Oauth2_case
-	case *authenticateRequest_Jwt:
-		return AuthenticateRequest_Jwt_case
-	default:
-		return AuthenticateRequest_Credentials_not_set_case
-	}
-}
-
-type AuthenticateRequest_builder struct {
-	_ [0]func() // Prevents comparability and use of unkeyed literals for the builder.
-
-	// Request metadata for tracing, correlation, and auditing
-	Metadata *proto.RequestMetadata
-	// Authentication credentials (oneof ensures only one type is used)
-
-	// Fields of oneof xxx_hidden_Credentials:
-	// Username/password authentication
-	Password *PasswordCredentials
-	// API key authentication
-	ApiKey *APIKeyCredentials
-	// OAuth2 authorization code flow
-	Oauth2 *OAuth2Credentials
-	// JWT bearer token authentication
-	Jwt *JWTCredentials
-	// -- end of xxx_hidden_Credentials
-	// Requested authorization scopes
-	Scopes []string
-	// Client information for security and session management
-	ClientInfo *proto.ClientInfo
-}
-
-func (b0 AuthenticateRequest_builder) Build() *AuthenticateRequest {
-	m0 := &AuthenticateRequest{}
-	b, x := &b0, m0
-	_, _ = b, x
-	if b.Metadata != nil {
-		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 0, 4)
-		x.xxx_hidden_Metadata = b.Metadata
-	}
-	if b.Password != nil {
-		x.xxx_hidden_Credentials = &authenticateRequest_Password{b.Password}
-	}
-	if b.ApiKey != nil {
-		x.xxx_hidden_Credentials = &authenticateRequest_ApiKey{b.ApiKey}
-	}
-	if b.Oauth2 != nil {
-		x.xxx_hidden_Credentials = &authenticateRequest_Oauth2{b.Oauth2}
-	}
-	if b.Jwt != nil {
-		x.xxx_hidden_Credentials = &authenticateRequest_Jwt{b.Jwt}
-	}
-	x.xxx_hidden_Scopes = b.Scopes
-	if b.ClientInfo != nil {
-		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 3, 4)
-		x.xxx_hidden_ClientInfo = b.ClientInfo
-	}
-	return m0
-}
-
-type case_AuthenticateRequest_Credentials protoreflect.FieldNumber
-
-func (x case_AuthenticateRequest_Credentials) String() string {
-	md := file_pkg_auth_proto_authenticate_request_proto_msgTypes[0].Descriptor()
-	if x == 0 {
-		return "not set"
-	}
-	return protoimpl.X.MessageFieldStringOf(md, protoreflect.FieldNumber(x))
 }
 
 type isAuthenticateRequest_Credentials interface {
 	isAuthenticateRequest_Credentials()
 }
 
-type authenticateRequest_Password struct {
+type AuthenticateRequest_Password struct {
 	// Username/password authentication
 	Password *PasswordCredentials `protobuf:"bytes,2,opt,name=password,oneof"`
 }
 
-type authenticateRequest_ApiKey struct {
+type AuthenticateRequest_ApiKey struct {
 	// API key authentication
 	ApiKey *APIKeyCredentials `protobuf:"bytes,3,opt,name=api_key,json=apiKey,oneof"`
 }
 
-type authenticateRequest_Oauth2 struct {
+type AuthenticateRequest_Oauth2 struct {
 	// OAuth2 authorization code flow
 	Oauth2 *OAuth2Credentials `protobuf:"bytes,4,opt,name=oauth2,oneof"`
 }
 
-type authenticateRequest_Jwt struct {
+type AuthenticateRequest_Jwt struct {
 	// JWT bearer token authentication
 	Jwt *JWTCredentials `protobuf:"bytes,5,opt,name=jwt,oneof"`
 }
 
-func (*authenticateRequest_Password) isAuthenticateRequest_Credentials() {}
+func (*AuthenticateRequest_Password) isAuthenticateRequest_Credentials() {}
 
-func (*authenticateRequest_ApiKey) isAuthenticateRequest_Credentials() {}
+func (*AuthenticateRequest_ApiKey) isAuthenticateRequest_Credentials() {}
 
-func (*authenticateRequest_Oauth2) isAuthenticateRequest_Credentials() {}
+func (*AuthenticateRequest_Oauth2) isAuthenticateRequest_Credentials() {}
 
-func (*authenticateRequest_Jwt) isAuthenticateRequest_Credentials() {}
+func (*AuthenticateRequest_Jwt) isAuthenticateRequest_Credentials() {}
 
 var File_pkg_auth_proto_authenticate_request_proto protoreflect.FileDescriptor
 
 const file_pkg_auth_proto_authenticate_request_proto_rawDesc = "" +
 	"\n" +
-	")pkg/auth/proto/authenticate_request.proto\x12\x0fgcommon.v1.auth\x1a!google/protobuf/go_features.proto\x1a(pkg/auth/proto/api_key_credentials.proto\x1a$pkg/auth/proto/jwt_credentials.proto\x1a'pkg/auth/proto/oauth2_credentials.proto\x1a)pkg/auth/proto/password_credentials.proto\x1a\"pkg/common/proto/client_info.proto\x1a'pkg/common/proto/request_metadata.proto\"\xba\x03\n" +
+	")pkg/auth/proto/authenticate_request.proto\x12\x0fgcommon.v1.auth\x1a(pkg/auth/proto/api_key_credentials.proto\x1a$pkg/auth/proto/jwt_credentials.proto\x1a'pkg/auth/proto/oauth2_credentials.proto\x1a)pkg/auth/proto/password_credentials.proto\x1a\"pkg/common/proto/client_info.proto\x1a'pkg/common/proto/request_metadata.proto\"\xba\x03\n" +
 	"\x13AuthenticateRequest\x12B\n" +
 	"\bmetadata\x18\x01 \x01(\v2\".gcommon.v1.common.RequestMetadataB\x02(\x01R\bmetadata\x12B\n" +
 	"\bpassword\x18\x02 \x01(\v2$.gcommon.v1.auth.PasswordCredentialsH\x00R\bpassword\x12=\n" +
@@ -412,8 +187,20 @@ const file_pkg_auth_proto_authenticate_request_proto_rawDesc = "" +
 	"\x06scopes\x18\x06 \x03(\tR\x06scopes\x12B\n" +
 	"\vclient_info\x18\a \x01(\v2\x1d.gcommon.v1.common.ClientInfoB\x02(\x01R\n" +
 	"clientInfoB\r\n" +
-	"\vcredentialsB\xbf\x01\n" +
-	"\x13com.gcommon.v1.authB\x18AuthenticateRequestProtoP\x01Z(github.com/jdfalk/gcommon/pkg/auth/proto\xa2\x02\x03GVA\xaa\x02\x0fGcommon.V1.Auth\xca\x02\x0fGcommon\\V1\\Auth\xe2\x02\x1bGcommon\\V1\\Auth\\GPBMetadata\xea\x02\x11Gcommon::V1::Auth\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"\vcredentialsB\xb7\x01\n" +
+	"\x13com.gcommon.v1.authB\x18AuthenticateRequestProtoP\x01Z(github.com/jdfalk/gcommon/pkg/auth/proto\xa2\x02\x03GVA\xaa\x02\x0fGcommon.V1.Auth\xca\x02\x0fGcommon\\V1\\Auth\xe2\x02\x1bGcommon\\V1\\Auth\\GPBMetadata\xea\x02\x11Gcommon::V1::Authb\beditionsp\xe8\a"
+
+var (
+	file_pkg_auth_proto_authenticate_request_proto_rawDescOnce sync.Once
+	file_pkg_auth_proto_authenticate_request_proto_rawDescData []byte
+)
+
+func file_pkg_auth_proto_authenticate_request_proto_rawDescGZIP() []byte {
+	file_pkg_auth_proto_authenticate_request_proto_rawDescOnce.Do(func() {
+		file_pkg_auth_proto_authenticate_request_proto_rawDescData = protoimpl.X.CompressGZIP(unsafe.Slice(unsafe.StringData(file_pkg_auth_proto_authenticate_request_proto_rawDesc), len(file_pkg_auth_proto_authenticate_request_proto_rawDesc)))
+	})
+	return file_pkg_auth_proto_authenticate_request_proto_rawDescData
+}
 
 var file_pkg_auth_proto_authenticate_request_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_pkg_auth_proto_authenticate_request_proto_goTypes = []any{
@@ -449,10 +236,10 @@ func file_pkg_auth_proto_authenticate_request_proto_init() {
 	file_pkg_auth_proto_oauth2_credentials_proto_init()
 	file_pkg_auth_proto_password_credentials_proto_init()
 	file_pkg_auth_proto_authenticate_request_proto_msgTypes[0].OneofWrappers = []any{
-		(*authenticateRequest_Password)(nil),
-		(*authenticateRequest_ApiKey)(nil),
-		(*authenticateRequest_Oauth2)(nil),
-		(*authenticateRequest_Jwt)(nil),
+		(*AuthenticateRequest_Password)(nil),
+		(*AuthenticateRequest_ApiKey)(nil),
+		(*AuthenticateRequest_Oauth2)(nil),
+		(*AuthenticateRequest_Jwt)(nil),
 	}
 	type x struct{}
 	out := protoimpl.TypeBuilder{

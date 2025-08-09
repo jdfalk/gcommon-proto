@@ -10,9 +10,9 @@ import (
 	proto "github.com/jdfalk/gcommon/pkg/common/proto"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
-	_ "google.golang.org/protobuf/types/gofeaturespb"
 	fieldmaskpb "google.golang.org/protobuf/types/known/fieldmaskpb"
 	reflect "reflect"
+	sync "sync"
 	unsafe "unsafe"
 )
 
@@ -28,12 +28,15 @@ const (
 // Used for role management and permission modification.
 // Supports partial updates using field mask.
 type UpdateRoleRequest struct {
-	state                 protoimpl.MessageState `protogen:"opaque.v1"`
-	xxx_hidden_Role       *Role                  `protobuf:"bytes,1,opt,name=role"`
-	xxx_hidden_UpdateMask *fieldmaskpb.FieldMask `protobuf:"bytes,2,opt,name=update_mask,json=updateMask"`
-	xxx_hidden_Metadata   *proto.RequestMetadata `protobuf:"bytes,3,opt,name=metadata"`
-	unknownFields         protoimpl.UnknownFields
-	sizeCache             protoimpl.SizeCache
+	state protoimpl.MessageState `protogen:"open.v1"`
+	// Role data with updates
+	Role *Role `protobuf:"bytes,1,opt,name=role" json:"role,omitempty"`
+	// Field mask specifying which fields to update
+	UpdateMask *fieldmaskpb.FieldMask `protobuf:"bytes,2,opt,name=update_mask,json=updateMask" json:"update_mask,omitempty"`
+	// Request metadata for tracing and correlation
+	Metadata      *proto.RequestMetadata `protobuf:"bytes,3,opt,name=metadata" json:"metadata,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
 }
 
 func (x *UpdateRoleRequest) Reset() {
@@ -61,104 +64,55 @@ func (x *UpdateRoleRequest) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
+// Deprecated: Use UpdateRoleRequest.ProtoReflect.Descriptor instead.
+func (*UpdateRoleRequest) Descriptor() ([]byte, []int) {
+	return file_pkg_auth_proto_update_role_request_proto_rawDescGZIP(), []int{0}
+}
+
 func (x *UpdateRoleRequest) GetRole() *Role {
 	if x != nil {
-		return x.xxx_hidden_Role
+		return x.Role
 	}
 	return nil
 }
 
 func (x *UpdateRoleRequest) GetUpdateMask() *fieldmaskpb.FieldMask {
 	if x != nil {
-		return x.xxx_hidden_UpdateMask
+		return x.UpdateMask
 	}
 	return nil
 }
 
 func (x *UpdateRoleRequest) GetMetadata() *proto.RequestMetadata {
 	if x != nil {
-		return x.xxx_hidden_Metadata
+		return x.Metadata
 	}
 	return nil
-}
-
-func (x *UpdateRoleRequest) SetRole(v *Role) {
-	x.xxx_hidden_Role = v
-}
-
-func (x *UpdateRoleRequest) SetUpdateMask(v *fieldmaskpb.FieldMask) {
-	x.xxx_hidden_UpdateMask = v
-}
-
-func (x *UpdateRoleRequest) SetMetadata(v *proto.RequestMetadata) {
-	x.xxx_hidden_Metadata = v
-}
-
-func (x *UpdateRoleRequest) HasRole() bool {
-	if x == nil {
-		return false
-	}
-	return x.xxx_hidden_Role != nil
-}
-
-func (x *UpdateRoleRequest) HasUpdateMask() bool {
-	if x == nil {
-		return false
-	}
-	return x.xxx_hidden_UpdateMask != nil
-}
-
-func (x *UpdateRoleRequest) HasMetadata() bool {
-	if x == nil {
-		return false
-	}
-	return x.xxx_hidden_Metadata != nil
-}
-
-func (x *UpdateRoleRequest) ClearRole() {
-	x.xxx_hidden_Role = nil
-}
-
-func (x *UpdateRoleRequest) ClearUpdateMask() {
-	x.xxx_hidden_UpdateMask = nil
-}
-
-func (x *UpdateRoleRequest) ClearMetadata() {
-	x.xxx_hidden_Metadata = nil
-}
-
-type UpdateRoleRequest_builder struct {
-	_ [0]func() // Prevents comparability and use of unkeyed literals for the builder.
-
-	// Role data with updates
-	Role *Role
-	// Field mask specifying which fields to update
-	UpdateMask *fieldmaskpb.FieldMask
-	// Request metadata for tracing and correlation
-	Metadata *proto.RequestMetadata
-}
-
-func (b0 UpdateRoleRequest_builder) Build() *UpdateRoleRequest {
-	m0 := &UpdateRoleRequest{}
-	b, x := &b0, m0
-	_, _ = b, x
-	x.xxx_hidden_Role = b.Role
-	x.xxx_hidden_UpdateMask = b.UpdateMask
-	x.xxx_hidden_Metadata = b.Metadata
-	return m0
 }
 
 var File_pkg_auth_proto_update_role_request_proto protoreflect.FileDescriptor
 
 const file_pkg_auth_proto_update_role_request_proto_rawDesc = "" +
 	"\n" +
-	"(pkg/auth/proto/update_role_request.proto\x12\x0fgcommon.v1.auth\x1a google/protobuf/field_mask.proto\x1a\x19pkg/auth/proto/role.proto\x1a!google/protobuf/go_features.proto\x1a'pkg/common/proto/request_metadata.proto\"\xbb\x01\n" +
+	"(pkg/auth/proto/update_role_request.proto\x12\x0fgcommon.v1.auth\x1a google/protobuf/field_mask.proto\x1a\x19pkg/auth/proto/role.proto\x1a'pkg/common/proto/request_metadata.proto\"\xbb\x01\n" +
 	"\x11UpdateRoleRequest\x12)\n" +
 	"\x04role\x18\x01 \x01(\v2\x15.gcommon.v1.auth.RoleR\x04role\x12;\n" +
 	"\vupdate_mask\x18\x02 \x01(\v2\x1a.google.protobuf.FieldMaskR\n" +
 	"updateMask\x12>\n" +
-	"\bmetadata\x18\x03 \x01(\v2\".gcommon.v1.common.RequestMetadataR\bmetadataB\xbd\x01\n" +
-	"\x13com.gcommon.v1.authB\x16UpdateRoleRequestProtoP\x01Z(github.com/jdfalk/gcommon/pkg/auth/proto\xa2\x02\x03GVA\xaa\x02\x0fGcommon.V1.Auth\xca\x02\x0fGcommon\\V1\\Auth\xe2\x02\x1bGcommon\\V1\\Auth\\GPBMetadata\xea\x02\x11Gcommon::V1::Auth\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"\bmetadata\x18\x03 \x01(\v2\".gcommon.v1.common.RequestMetadataR\bmetadataB\xb5\x01\n" +
+	"\x13com.gcommon.v1.authB\x16UpdateRoleRequestProtoP\x01Z(github.com/jdfalk/gcommon/pkg/auth/proto\xa2\x02\x03GVA\xaa\x02\x0fGcommon.V1.Auth\xca\x02\x0fGcommon\\V1\\Auth\xe2\x02\x1bGcommon\\V1\\Auth\\GPBMetadata\xea\x02\x11Gcommon::V1::Authb\beditionsp\xe8\a"
+
+var (
+	file_pkg_auth_proto_update_role_request_proto_rawDescOnce sync.Once
+	file_pkg_auth_proto_update_role_request_proto_rawDescData []byte
+)
+
+func file_pkg_auth_proto_update_role_request_proto_rawDescGZIP() []byte {
+	file_pkg_auth_proto_update_role_request_proto_rawDescOnce.Do(func() {
+		file_pkg_auth_proto_update_role_request_proto_rawDescData = protoimpl.X.CompressGZIP(unsafe.Slice(unsafe.StringData(file_pkg_auth_proto_update_role_request_proto_rawDesc), len(file_pkg_auth_proto_update_role_request_proto_rawDesc)))
+	})
+	return file_pkg_auth_proto_update_role_request_proto_rawDescData
+}
 
 var file_pkg_auth_proto_update_role_request_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_pkg_auth_proto_update_role_request_proto_goTypes = []any{

@@ -10,9 +10,9 @@ import (
 	_ "github.com/jdfalk/gcommon/pkg/common/proto"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
-	_ "google.golang.org/protobuf/types/gofeaturespb"
 	timestamppb "google.golang.org/protobuf/types/known/timestamppb"
 	reflect "reflect"
+	sync "sync"
 	unsafe "unsafe"
 )
 
@@ -28,21 +28,29 @@ const (
 // Provides information about the removal operation including
 // the removed role and removal metadata for audit purposes.
 type RemoveRoleResponse struct {
-	state                           protoimpl.MessageState `protogen:"opaque.v1"`
-	xxx_hidden_UserId               *string                `protobuf:"bytes,1,opt,name=user_id,json=userId"`
-	xxx_hidden_Username             *string                `protobuf:"bytes,2,opt,name=username"`
-	xxx_hidden_Role                 *Role                  `protobuf:"bytes,3,opt,name=role"`
-	xxx_hidden_RemovedAt            *timestamppb.Timestamp `protobuf:"bytes,4,opt,name=removed_at,json=removedAt"`
-	xxx_hidden_RemovedByUserId      *string                `protobuf:"bytes,5,opt,name=removed_by_user_id,json=removedByUserId"`
-	xxx_hidden_RemovedByUsername    *string                `protobuf:"bytes,6,opt,name=removed_by_username,json=removedByUsername"`
-	xxx_hidden_EffectiveImmediately bool                   `protobuf:"varint,7,opt,name=effective_immediately,json=effectiveImmediately"`
-	xxx_hidden_HasRemainingRoles    bool                   `protobuf:"varint,8,opt,name=has_remaining_roles,json=hasRemainingRoles"`
-	xxx_hidden_RemainingRoleCount   int32                  `protobuf:"varint,9,opt,name=remaining_role_count,json=remainingRoleCount"`
-	xxx_hidden_Message              *string                `protobuf:"bytes,10,opt,name=message"`
-	XXX_raceDetectHookData          protoimpl.RaceDetectHookData
-	XXX_presence                    [1]uint32
-	unknownFields                   protoimpl.UnknownFields
-	sizeCache                       protoimpl.SizeCache
+	state protoimpl.MessageState `protogen:"open.v1"`
+	// User ID from whom the role was removed
+	UserId *string `protobuf:"bytes,1,opt,name=user_id,json=userId" json:"user_id,omitempty"`
+	// Username of the user
+	Username *string `protobuf:"bytes,2,opt,name=username" json:"username,omitempty"`
+	// Role that was removed from the user
+	Role *Role `protobuf:"bytes,3,opt,name=role" json:"role,omitempty"`
+	// Timestamp when the role was removed
+	RemovedAt *timestamppb.Timestamp `protobuf:"bytes,4,opt,name=removed_at,json=removedAt" json:"removed_at,omitempty"`
+	// ID of the admin user who performed the removal
+	RemovedByUserId *string `protobuf:"bytes,5,opt,name=removed_by_user_id,json=removedByUserId" json:"removed_by_user_id,omitempty"`
+	// Username of the admin who performed the removal
+	RemovedByUsername *string `protobuf:"bytes,6,opt,name=removed_by_username,json=removedByUsername" json:"removed_by_username,omitempty"`
+	// Whether this removal was effective immediately
+	EffectiveImmediately *bool `protobuf:"varint,7,opt,name=effective_immediately,json=effectiveImmediately" json:"effective_immediately,omitempty"`
+	// Whether the user still has other roles assigned
+	HasRemainingRoles *bool `protobuf:"varint,8,opt,name=has_remaining_roles,json=hasRemainingRoles" json:"has_remaining_roles,omitempty"`
+	// Count of remaining roles for the user
+	RemainingRoleCount *int32 `protobuf:"varint,9,opt,name=remaining_role_count,json=remainingRoleCount" json:"remaining_role_count,omitempty"`
+	// Success message describing the removal
+	Message       *string `protobuf:"bytes,10,opt,name=message" json:"message,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
 }
 
 func (x *RemoveRoleResponse) Reset() {
@@ -70,328 +78,86 @@ func (x *RemoveRoleResponse) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
+// Deprecated: Use RemoveRoleResponse.ProtoReflect.Descriptor instead.
+func (*RemoveRoleResponse) Descriptor() ([]byte, []int) {
+	return file_pkg_auth_proto_remove_role_response_proto_rawDescGZIP(), []int{0}
+}
+
 func (x *RemoveRoleResponse) GetUserId() string {
-	if x != nil {
-		if x.xxx_hidden_UserId != nil {
-			return *x.xxx_hidden_UserId
-		}
-		return ""
+	if x != nil && x.UserId != nil {
+		return *x.UserId
 	}
 	return ""
 }
 
 func (x *RemoveRoleResponse) GetUsername() string {
-	if x != nil {
-		if x.xxx_hidden_Username != nil {
-			return *x.xxx_hidden_Username
-		}
-		return ""
+	if x != nil && x.Username != nil {
+		return *x.Username
 	}
 	return ""
 }
 
 func (x *RemoveRoleResponse) GetRole() *Role {
 	if x != nil {
-		return x.xxx_hidden_Role
+		return x.Role
 	}
 	return nil
 }
 
 func (x *RemoveRoleResponse) GetRemovedAt() *timestamppb.Timestamp {
 	if x != nil {
-		return x.xxx_hidden_RemovedAt
+		return x.RemovedAt
 	}
 	return nil
 }
 
 func (x *RemoveRoleResponse) GetRemovedByUserId() string {
-	if x != nil {
-		if x.xxx_hidden_RemovedByUserId != nil {
-			return *x.xxx_hidden_RemovedByUserId
-		}
-		return ""
+	if x != nil && x.RemovedByUserId != nil {
+		return *x.RemovedByUserId
 	}
 	return ""
 }
 
 func (x *RemoveRoleResponse) GetRemovedByUsername() string {
-	if x != nil {
-		if x.xxx_hidden_RemovedByUsername != nil {
-			return *x.xxx_hidden_RemovedByUsername
-		}
-		return ""
+	if x != nil && x.RemovedByUsername != nil {
+		return *x.RemovedByUsername
 	}
 	return ""
 }
 
 func (x *RemoveRoleResponse) GetEffectiveImmediately() bool {
-	if x != nil {
-		return x.xxx_hidden_EffectiveImmediately
+	if x != nil && x.EffectiveImmediately != nil {
+		return *x.EffectiveImmediately
 	}
 	return false
 }
 
 func (x *RemoveRoleResponse) GetHasRemainingRoles() bool {
-	if x != nil {
-		return x.xxx_hidden_HasRemainingRoles
+	if x != nil && x.HasRemainingRoles != nil {
+		return *x.HasRemainingRoles
 	}
 	return false
 }
 
 func (x *RemoveRoleResponse) GetRemainingRoleCount() int32 {
-	if x != nil {
-		return x.xxx_hidden_RemainingRoleCount
+	if x != nil && x.RemainingRoleCount != nil {
+		return *x.RemainingRoleCount
 	}
 	return 0
 }
 
 func (x *RemoveRoleResponse) GetMessage() string {
-	if x != nil {
-		if x.xxx_hidden_Message != nil {
-			return *x.xxx_hidden_Message
-		}
-		return ""
+	if x != nil && x.Message != nil {
+		return *x.Message
 	}
 	return ""
-}
-
-func (x *RemoveRoleResponse) SetUserId(v string) {
-	x.xxx_hidden_UserId = &v
-	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 0, 10)
-}
-
-func (x *RemoveRoleResponse) SetUsername(v string) {
-	x.xxx_hidden_Username = &v
-	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 1, 10)
-}
-
-func (x *RemoveRoleResponse) SetRole(v *Role) {
-	x.xxx_hidden_Role = v
-}
-
-func (x *RemoveRoleResponse) SetRemovedAt(v *timestamppb.Timestamp) {
-	x.xxx_hidden_RemovedAt = v
-}
-
-func (x *RemoveRoleResponse) SetRemovedByUserId(v string) {
-	x.xxx_hidden_RemovedByUserId = &v
-	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 4, 10)
-}
-
-func (x *RemoveRoleResponse) SetRemovedByUsername(v string) {
-	x.xxx_hidden_RemovedByUsername = &v
-	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 5, 10)
-}
-
-func (x *RemoveRoleResponse) SetEffectiveImmediately(v bool) {
-	x.xxx_hidden_EffectiveImmediately = v
-	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 6, 10)
-}
-
-func (x *RemoveRoleResponse) SetHasRemainingRoles(v bool) {
-	x.xxx_hidden_HasRemainingRoles = v
-	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 7, 10)
-}
-
-func (x *RemoveRoleResponse) SetRemainingRoleCount(v int32) {
-	x.xxx_hidden_RemainingRoleCount = v
-	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 8, 10)
-}
-
-func (x *RemoveRoleResponse) SetMessage(v string) {
-	x.xxx_hidden_Message = &v
-	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 9, 10)
-}
-
-func (x *RemoveRoleResponse) HasUserId() bool {
-	if x == nil {
-		return false
-	}
-	return protoimpl.X.Present(&(x.XXX_presence[0]), 0)
-}
-
-func (x *RemoveRoleResponse) HasUsername() bool {
-	if x == nil {
-		return false
-	}
-	return protoimpl.X.Present(&(x.XXX_presence[0]), 1)
-}
-
-func (x *RemoveRoleResponse) HasRole() bool {
-	if x == nil {
-		return false
-	}
-	return x.xxx_hidden_Role != nil
-}
-
-func (x *RemoveRoleResponse) HasRemovedAt() bool {
-	if x == nil {
-		return false
-	}
-	return x.xxx_hidden_RemovedAt != nil
-}
-
-func (x *RemoveRoleResponse) HasRemovedByUserId() bool {
-	if x == nil {
-		return false
-	}
-	return protoimpl.X.Present(&(x.XXX_presence[0]), 4)
-}
-
-func (x *RemoveRoleResponse) HasRemovedByUsername() bool {
-	if x == nil {
-		return false
-	}
-	return protoimpl.X.Present(&(x.XXX_presence[0]), 5)
-}
-
-func (x *RemoveRoleResponse) HasEffectiveImmediately() bool {
-	if x == nil {
-		return false
-	}
-	return protoimpl.X.Present(&(x.XXX_presence[0]), 6)
-}
-
-func (x *RemoveRoleResponse) HasHasRemainingRoles() bool {
-	if x == nil {
-		return false
-	}
-	return protoimpl.X.Present(&(x.XXX_presence[0]), 7)
-}
-
-func (x *RemoveRoleResponse) HasRemainingRoleCount() bool {
-	if x == nil {
-		return false
-	}
-	return protoimpl.X.Present(&(x.XXX_presence[0]), 8)
-}
-
-func (x *RemoveRoleResponse) HasMessage() bool {
-	if x == nil {
-		return false
-	}
-	return protoimpl.X.Present(&(x.XXX_presence[0]), 9)
-}
-
-func (x *RemoveRoleResponse) ClearUserId() {
-	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 0)
-	x.xxx_hidden_UserId = nil
-}
-
-func (x *RemoveRoleResponse) ClearUsername() {
-	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 1)
-	x.xxx_hidden_Username = nil
-}
-
-func (x *RemoveRoleResponse) ClearRole() {
-	x.xxx_hidden_Role = nil
-}
-
-func (x *RemoveRoleResponse) ClearRemovedAt() {
-	x.xxx_hidden_RemovedAt = nil
-}
-
-func (x *RemoveRoleResponse) ClearRemovedByUserId() {
-	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 4)
-	x.xxx_hidden_RemovedByUserId = nil
-}
-
-func (x *RemoveRoleResponse) ClearRemovedByUsername() {
-	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 5)
-	x.xxx_hidden_RemovedByUsername = nil
-}
-
-func (x *RemoveRoleResponse) ClearEffectiveImmediately() {
-	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 6)
-	x.xxx_hidden_EffectiveImmediately = false
-}
-
-func (x *RemoveRoleResponse) ClearHasRemainingRoles() {
-	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 7)
-	x.xxx_hidden_HasRemainingRoles = false
-}
-
-func (x *RemoveRoleResponse) ClearRemainingRoleCount() {
-	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 8)
-	x.xxx_hidden_RemainingRoleCount = 0
-}
-
-func (x *RemoveRoleResponse) ClearMessage() {
-	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 9)
-	x.xxx_hidden_Message = nil
-}
-
-type RemoveRoleResponse_builder struct {
-	_ [0]func() // Prevents comparability and use of unkeyed literals for the builder.
-
-	// User ID from whom the role was removed
-	UserId *string
-	// Username of the user
-	Username *string
-	// Role that was removed from the user
-	Role *Role
-	// Timestamp when the role was removed
-	RemovedAt *timestamppb.Timestamp
-	// ID of the admin user who performed the removal
-	RemovedByUserId *string
-	// Username of the admin who performed the removal
-	RemovedByUsername *string
-	// Whether this removal was effective immediately
-	EffectiveImmediately *bool
-	// Whether the user still has other roles assigned
-	HasRemainingRoles *bool
-	// Count of remaining roles for the user
-	RemainingRoleCount *int32
-	// Success message describing the removal
-	Message *string
-}
-
-func (b0 RemoveRoleResponse_builder) Build() *RemoveRoleResponse {
-	m0 := &RemoveRoleResponse{}
-	b, x := &b0, m0
-	_, _ = b, x
-	if b.UserId != nil {
-		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 0, 10)
-		x.xxx_hidden_UserId = b.UserId
-	}
-	if b.Username != nil {
-		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 1, 10)
-		x.xxx_hidden_Username = b.Username
-	}
-	x.xxx_hidden_Role = b.Role
-	x.xxx_hidden_RemovedAt = b.RemovedAt
-	if b.RemovedByUserId != nil {
-		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 4, 10)
-		x.xxx_hidden_RemovedByUserId = b.RemovedByUserId
-	}
-	if b.RemovedByUsername != nil {
-		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 5, 10)
-		x.xxx_hidden_RemovedByUsername = b.RemovedByUsername
-	}
-	if b.EffectiveImmediately != nil {
-		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 6, 10)
-		x.xxx_hidden_EffectiveImmediately = *b.EffectiveImmediately
-	}
-	if b.HasRemainingRoles != nil {
-		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 7, 10)
-		x.xxx_hidden_HasRemainingRoles = *b.HasRemainingRoles
-	}
-	if b.RemainingRoleCount != nil {
-		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 8, 10)
-		x.xxx_hidden_RemainingRoleCount = *b.RemainingRoleCount
-	}
-	if b.Message != nil {
-		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 9, 10)
-		x.xxx_hidden_Message = b.Message
-	}
-	return m0
 }
 
 var File_pkg_auth_proto_remove_role_response_proto protoreflect.FileDescriptor
 
 const file_pkg_auth_proto_remove_role_response_proto_rawDesc = "" +
 	"\n" +
-	")pkg/auth/proto/remove_role_response.proto\x12\x0fgcommon.v1.auth\x1a!google/protobuf/go_features.proto\x1a\x19pkg/auth/proto/role.proto\x1a\x1fgoogle/protobuf/timestamp.proto\x1a'pkg/common/proto/request_metadata.proto\"\xbd\x03\n" +
+	")pkg/auth/proto/remove_role_response.proto\x12\x0fgcommon.v1.auth\x1a\x19pkg/auth/proto/role.proto\x1a\x1fgoogle/protobuf/timestamp.proto\x1a'pkg/common/proto/request_metadata.proto\"\xbd\x03\n" +
 	"\x12RemoveRoleResponse\x12\x17\n" +
 	"\auser_id\x18\x01 \x01(\tR\x06userId\x12\x1a\n" +
 	"\busername\x18\x02 \x01(\tR\busername\x12)\n" +
@@ -404,8 +170,20 @@ const file_pkg_auth_proto_remove_role_response_proto_rawDesc = "" +
 	"\x13has_remaining_roles\x18\b \x01(\bR\x11hasRemainingRoles\x120\n" +
 	"\x14remaining_role_count\x18\t \x01(\x05R\x12remainingRoleCount\x12\x18\n" +
 	"\amessage\x18\n" +
-	" \x01(\tR\amessageB\xbe\x01\n" +
-	"\x13com.gcommon.v1.authB\x17RemoveRoleResponseProtoP\x01Z(github.com/jdfalk/gcommon/pkg/auth/proto\xa2\x02\x03GVA\xaa\x02\x0fGcommon.V1.Auth\xca\x02\x0fGcommon\\V1\\Auth\xe2\x02\x1bGcommon\\V1\\Auth\\GPBMetadata\xea\x02\x11Gcommon::V1::Auth\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	" \x01(\tR\amessageB\xb6\x01\n" +
+	"\x13com.gcommon.v1.authB\x17RemoveRoleResponseProtoP\x01Z(github.com/jdfalk/gcommon/pkg/auth/proto\xa2\x02\x03GVA\xaa\x02\x0fGcommon.V1.Auth\xca\x02\x0fGcommon\\V1\\Auth\xe2\x02\x1bGcommon\\V1\\Auth\\GPBMetadata\xea\x02\x11Gcommon::V1::Authb\beditionsp\xe8\a"
+
+var (
+	file_pkg_auth_proto_remove_role_response_proto_rawDescOnce sync.Once
+	file_pkg_auth_proto_remove_role_response_proto_rawDescData []byte
+)
+
+func file_pkg_auth_proto_remove_role_response_proto_rawDescGZIP() []byte {
+	file_pkg_auth_proto_remove_role_response_proto_rawDescOnce.Do(func() {
+		file_pkg_auth_proto_remove_role_response_proto_rawDescData = protoimpl.X.CompressGZIP(unsafe.Slice(unsafe.StringData(file_pkg_auth_proto_remove_role_response_proto_rawDesc), len(file_pkg_auth_proto_remove_role_response_proto_rawDesc)))
+	})
+	return file_pkg_auth_proto_remove_role_response_proto_rawDescData
+}
 
 var file_pkg_auth_proto_remove_role_response_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_pkg_auth_proto_remove_role_response_proto_goTypes = []any{

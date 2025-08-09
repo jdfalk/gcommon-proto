@@ -9,9 +9,9 @@ package proto
 import (
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
-	_ "google.golang.org/protobuf/types/gofeaturespb"
 	timestamppb "google.golang.org/protobuf/types/known/timestamppb"
 	reflect "reflect"
+	sync "sync"
 	unsafe "unsafe"
 )
 
@@ -28,16 +28,19 @@ const (
 // It captures contextual details useful for tracing and
 // troubleshooting complex issues.
 type DebugInfo struct {
-	state                  protoimpl.MessageState `protogen:"opaque.v1"`
-	xxx_hidden_Service     *string                `protobuf:"bytes,1,opt,name=service"`
-	xxx_hidden_Method      *string                `protobuf:"bytes,2,opt,name=method"`
-	xxx_hidden_Timestamp   *timestamppb.Timestamp `protobuf:"bytes,3,opt,name=timestamp"`
-	xxx_hidden_Details     map[string]string      `protobuf:"bytes,4,rep,name=details" protobuf_key:"bytes,1,opt,name=key" protobuf_val:"bytes,2,opt,name=value"`
-	xxx_hidden_Tags        []string               `protobuf:"bytes,5,rep,name=tags"`
-	XXX_raceDetectHookData protoimpl.RaceDetectHookData
-	XXX_presence           [1]uint32
-	unknownFields          protoimpl.UnknownFields
-	sizeCache              protoimpl.SizeCache
+	state protoimpl.MessageState `protogen:"open.v1"`
+	// Service or component name emitting this debug info
+	Service *string `protobuf:"bytes,1,opt,name=service" json:"service,omitempty"`
+	// Optional method or operation identifier
+	Method *string `protobuf:"bytes,2,opt,name=method" json:"method,omitempty"`
+	// Time when this debug info was generated
+	Timestamp *timestamppb.Timestamp `protobuf:"bytes,3,opt,name=timestamp" json:"timestamp,omitempty"`
+	// Arbitrary key/value details for debugging
+	Details map[string]string `protobuf:"bytes,4,rep,name=details" json:"details,omitempty" protobuf_key:"bytes,1,opt,name=key" protobuf_val:"bytes,2,opt,name=value"`
+	// Additional tags to categorize or filter debug entries
+	Tags          []string `protobuf:"bytes,5,rep,name=tags" json:"tags,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
 }
 
 func (x *DebugInfo) Reset() {
@@ -65,142 +68,51 @@ func (x *DebugInfo) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
+// Deprecated: Use DebugInfo.ProtoReflect.Descriptor instead.
+func (*DebugInfo) Descriptor() ([]byte, []int) {
+	return file_pkg_common_proto_debug_info_proto_rawDescGZIP(), []int{0}
+}
+
 func (x *DebugInfo) GetService() string {
-	if x != nil {
-		if x.xxx_hidden_Service != nil {
-			return *x.xxx_hidden_Service
-		}
-		return ""
+	if x != nil && x.Service != nil {
+		return *x.Service
 	}
 	return ""
 }
 
 func (x *DebugInfo) GetMethod() string {
-	if x != nil {
-		if x.xxx_hidden_Method != nil {
-			return *x.xxx_hidden_Method
-		}
-		return ""
+	if x != nil && x.Method != nil {
+		return *x.Method
 	}
 	return ""
 }
 
 func (x *DebugInfo) GetTimestamp() *timestamppb.Timestamp {
 	if x != nil {
-		return x.xxx_hidden_Timestamp
+		return x.Timestamp
 	}
 	return nil
 }
 
 func (x *DebugInfo) GetDetails() map[string]string {
 	if x != nil {
-		return x.xxx_hidden_Details
+		return x.Details
 	}
 	return nil
 }
 
 func (x *DebugInfo) GetTags() []string {
 	if x != nil {
-		return x.xxx_hidden_Tags
+		return x.Tags
 	}
 	return nil
-}
-
-func (x *DebugInfo) SetService(v string) {
-	x.xxx_hidden_Service = &v
-	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 0, 5)
-}
-
-func (x *DebugInfo) SetMethod(v string) {
-	x.xxx_hidden_Method = &v
-	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 1, 5)
-}
-
-func (x *DebugInfo) SetTimestamp(v *timestamppb.Timestamp) {
-	x.xxx_hidden_Timestamp = v
-}
-
-func (x *DebugInfo) SetDetails(v map[string]string) {
-	x.xxx_hidden_Details = v
-}
-
-func (x *DebugInfo) SetTags(v []string) {
-	x.xxx_hidden_Tags = v
-}
-
-func (x *DebugInfo) HasService() bool {
-	if x == nil {
-		return false
-	}
-	return protoimpl.X.Present(&(x.XXX_presence[0]), 0)
-}
-
-func (x *DebugInfo) HasMethod() bool {
-	if x == nil {
-		return false
-	}
-	return protoimpl.X.Present(&(x.XXX_presence[0]), 1)
-}
-
-func (x *DebugInfo) HasTimestamp() bool {
-	if x == nil {
-		return false
-	}
-	return x.xxx_hidden_Timestamp != nil
-}
-
-func (x *DebugInfo) ClearService() {
-	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 0)
-	x.xxx_hidden_Service = nil
-}
-
-func (x *DebugInfo) ClearMethod() {
-	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 1)
-	x.xxx_hidden_Method = nil
-}
-
-func (x *DebugInfo) ClearTimestamp() {
-	x.xxx_hidden_Timestamp = nil
-}
-
-type DebugInfo_builder struct {
-	_ [0]func() // Prevents comparability and use of unkeyed literals for the builder.
-
-	// Service or component name emitting this debug info
-	Service *string
-	// Optional method or operation identifier
-	Method *string
-	// Time when this debug info was generated
-	Timestamp *timestamppb.Timestamp
-	// Arbitrary key/value details for debugging
-	Details map[string]string
-	// Additional tags to categorize or filter debug entries
-	Tags []string
-}
-
-func (b0 DebugInfo_builder) Build() *DebugInfo {
-	m0 := &DebugInfo{}
-	b, x := &b0, m0
-	_, _ = b, x
-	if b.Service != nil {
-		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 0, 5)
-		x.xxx_hidden_Service = b.Service
-	}
-	if b.Method != nil {
-		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 1, 5)
-		x.xxx_hidden_Method = b.Method
-	}
-	x.xxx_hidden_Timestamp = b.Timestamp
-	x.xxx_hidden_Details = b.Details
-	x.xxx_hidden_Tags = b.Tags
-	return m0
 }
 
 var File_pkg_common_proto_debug_info_proto protoreflect.FileDescriptor
 
 const file_pkg_common_proto_debug_info_proto_rawDesc = "" +
 	"\n" +
-	"!pkg/common/proto/debug_info.proto\x12\x11gcommon.v1.common\x1a!google/protobuf/go_features.proto\x1a\x1fgoogle/protobuf/timestamp.proto\"\x8c\x02\n" +
+	"!pkg/common/proto/debug_info.proto\x12\x11gcommon.v1.common\x1a\x1fgoogle/protobuf/timestamp.proto\"\x8c\x02\n" +
 	"\tDebugInfo\x12\x18\n" +
 	"\aservice\x18\x01 \x01(\tR\aservice\x12\x16\n" +
 	"\x06method\x18\x02 \x01(\tR\x06method\x128\n" +
@@ -209,8 +121,20 @@ const file_pkg_common_proto_debug_info_proto_rawDesc = "" +
 	"\x04tags\x18\x05 \x03(\tR\x04tags\x1a:\n" +
 	"\fDetailsEntry\x12\x10\n" +
 	"\x03key\x18\x01 \x01(\tR\x03key\x12\x14\n" +
-	"\x05value\x18\x02 \x01(\tR\x05value:\x028\x01B\xc1\x01\n" +
-	"\x15com.gcommon.v1.commonB\x0eDebugInfoProtoP\x01Z*github.com/jdfalk/gcommon/pkg/common/proto\xa2\x02\x03GVC\xaa\x02\x11Gcommon.V1.Common\xca\x02\x11Gcommon\\V1\\Common\xe2\x02\x1dGcommon\\V1\\Common\\GPBMetadata\xea\x02\x13Gcommon::V1::Common\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"\x05value\x18\x02 \x01(\tR\x05value:\x028\x01B\xb9\x01\n" +
+	"\x15com.gcommon.v1.commonB\x0eDebugInfoProtoP\x01Z*github.com/jdfalk/gcommon/pkg/common/proto\xa2\x02\x03GVC\xaa\x02\x11Gcommon.V1.Common\xca\x02\x11Gcommon\\V1\\Common\xe2\x02\x1dGcommon\\V1\\Common\\GPBMetadata\xea\x02\x13Gcommon::V1::Commonb\beditionsp\xe8\a"
+
+var (
+	file_pkg_common_proto_debug_info_proto_rawDescOnce sync.Once
+	file_pkg_common_proto_debug_info_proto_rawDescData []byte
+)
+
+func file_pkg_common_proto_debug_info_proto_rawDescGZIP() []byte {
+	file_pkg_common_proto_debug_info_proto_rawDescOnce.Do(func() {
+		file_pkg_common_proto_debug_info_proto_rawDescData = protoimpl.X.CompressGZIP(unsafe.Slice(unsafe.StringData(file_pkg_common_proto_debug_info_proto_rawDesc), len(file_pkg_common_proto_debug_info_proto_rawDesc)))
+	})
+	return file_pkg_common_proto_debug_info_proto_rawDescData
+}
 
 var file_pkg_common_proto_debug_info_proto_msgTypes = make([]protoimpl.MessageInfo, 2)
 var file_pkg_common_proto_debug_info_proto_goTypes = []any{

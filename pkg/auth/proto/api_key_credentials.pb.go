@@ -9,8 +9,8 @@ package proto
 import (
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
-	_ "google.golang.org/protobuf/types/gofeaturespb"
 	reflect "reflect"
+	sync "sync"
 	unsafe "unsafe"
 )
 
@@ -25,13 +25,14 @@ const (
 // API key credentials for programmatic authentication.
 // Supports both simple API key and key-pair authentication schemes.
 type APIKeyCredentials struct {
-	state                  protoimpl.MessageState `protogen:"opaque.v1"`
-	xxx_hidden_Key         *string                `protobuf:"bytes,1,opt,name=key"`
-	xxx_hidden_KeyId       *string                `protobuf:"bytes,2,opt,name=key_id,json=keyId"`
-	XXX_raceDetectHookData protoimpl.RaceDetectHookData
-	XXX_presence           [1]uint32
-	unknownFields          protoimpl.UnknownFields
-	sizeCache              protoimpl.SizeCache
+	state protoimpl.MessageState `protogen:"open.v1"`
+	// API key value used for authentication
+	Key *string `protobuf:"bytes,1,opt,name=key" json:"key,omitempty"`
+	// Optional API key ID for key-pair authentication schemes
+	// Used when the API key is associated with a specific key identifier
+	KeyId         *string `protobuf:"bytes,2,opt,name=key_id,json=keyId" json:"key_id,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
 }
 
 func (x *APIKeyCredentials) Reset() {
@@ -59,94 +60,46 @@ func (x *APIKeyCredentials) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
+// Deprecated: Use APIKeyCredentials.ProtoReflect.Descriptor instead.
+func (*APIKeyCredentials) Descriptor() ([]byte, []int) {
+	return file_pkg_auth_proto_api_key_credentials_proto_rawDescGZIP(), []int{0}
+}
+
 func (x *APIKeyCredentials) GetKey() string {
-	if x != nil {
-		if x.xxx_hidden_Key != nil {
-			return *x.xxx_hidden_Key
-		}
-		return ""
+	if x != nil && x.Key != nil {
+		return *x.Key
 	}
 	return ""
 }
 
 func (x *APIKeyCredentials) GetKeyId() string {
-	if x != nil {
-		if x.xxx_hidden_KeyId != nil {
-			return *x.xxx_hidden_KeyId
-		}
-		return ""
+	if x != nil && x.KeyId != nil {
+		return *x.KeyId
 	}
 	return ""
-}
-
-func (x *APIKeyCredentials) SetKey(v string) {
-	x.xxx_hidden_Key = &v
-	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 0, 2)
-}
-
-func (x *APIKeyCredentials) SetKeyId(v string) {
-	x.xxx_hidden_KeyId = &v
-	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 1, 2)
-}
-
-func (x *APIKeyCredentials) HasKey() bool {
-	if x == nil {
-		return false
-	}
-	return protoimpl.X.Present(&(x.XXX_presence[0]), 0)
-}
-
-func (x *APIKeyCredentials) HasKeyId() bool {
-	if x == nil {
-		return false
-	}
-	return protoimpl.X.Present(&(x.XXX_presence[0]), 1)
-}
-
-func (x *APIKeyCredentials) ClearKey() {
-	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 0)
-	x.xxx_hidden_Key = nil
-}
-
-func (x *APIKeyCredentials) ClearKeyId() {
-	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 1)
-	x.xxx_hidden_KeyId = nil
-}
-
-type APIKeyCredentials_builder struct {
-	_ [0]func() // Prevents comparability and use of unkeyed literals for the builder.
-
-	// API key value used for authentication
-	Key *string
-	// Optional API key ID for key-pair authentication schemes
-	// Used when the API key is associated with a specific key identifier
-	KeyId *string
-}
-
-func (b0 APIKeyCredentials_builder) Build() *APIKeyCredentials {
-	m0 := &APIKeyCredentials{}
-	b, x := &b0, m0
-	_, _ = b, x
-	if b.Key != nil {
-		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 0, 2)
-		x.xxx_hidden_Key = b.Key
-	}
-	if b.KeyId != nil {
-		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 1, 2)
-		x.xxx_hidden_KeyId = b.KeyId
-	}
-	return m0
 }
 
 var File_pkg_auth_proto_api_key_credentials_proto protoreflect.FileDescriptor
 
 const file_pkg_auth_proto_api_key_credentials_proto_rawDesc = "" +
 	"\n" +
-	"(pkg/auth/proto/api_key_credentials.proto\x12\x0fgcommon.v1.auth\x1a!google/protobuf/go_features.proto\"<\n" +
+	"(pkg/auth/proto/api_key_credentials.proto\x12\x0fgcommon.v1.auth\"<\n" +
 	"\x11APIKeyCredentials\x12\x10\n" +
 	"\x03key\x18\x01 \x01(\tR\x03key\x12\x15\n" +
-	"\x06key_id\x18\x02 \x01(\tR\x05keyIdB\xbd\x01\n" +
-	"\x13com.gcommon.v1.authB\x16ApiKeyCredentialsProtoP\x01Z(github.com/jdfalk/gcommon/pkg/auth/proto\xa2\x02\x03GVA\xaa\x02\x0fGcommon.V1.Auth\xca\x02\x0fGcommon\\V1\\Auth\xe2\x02\x1bGcommon\\V1\\Auth\\GPBMetadata\xea\x02\x11Gcommon::V1::Auth\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"\x06key_id\x18\x02 \x01(\tR\x05keyIdB\xb5\x01\n" +
+	"\x13com.gcommon.v1.authB\x16ApiKeyCredentialsProtoP\x01Z(github.com/jdfalk/gcommon/pkg/auth/proto\xa2\x02\x03GVA\xaa\x02\x0fGcommon.V1.Auth\xca\x02\x0fGcommon\\V1\\Auth\xe2\x02\x1bGcommon\\V1\\Auth\\GPBMetadata\xea\x02\x11Gcommon::V1::Authb\beditionsp\xe8\a"
+
+var (
+	file_pkg_auth_proto_api_key_credentials_proto_rawDescOnce sync.Once
+	file_pkg_auth_proto_api_key_credentials_proto_rawDescData []byte
+)
+
+func file_pkg_auth_proto_api_key_credentials_proto_rawDescGZIP() []byte {
+	file_pkg_auth_proto_api_key_credentials_proto_rawDescOnce.Do(func() {
+		file_pkg_auth_proto_api_key_credentials_proto_rawDescData = protoimpl.X.CompressGZIP(unsafe.Slice(unsafe.StringData(file_pkg_auth_proto_api_key_credentials_proto_rawDesc), len(file_pkg_auth_proto_api_key_credentials_proto_rawDesc)))
+	})
+	return file_pkg_auth_proto_api_key_credentials_proto_rawDescData
+}
 
 var file_pkg_auth_proto_api_key_credentials_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_pkg_auth_proto_api_key_credentials_proto_goTypes = []any{

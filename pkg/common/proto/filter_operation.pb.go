@@ -9,8 +9,8 @@ package proto
 import (
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
-	_ "google.golang.org/protobuf/types/gofeaturespb"
 	reflect "reflect"
+	sync "sync"
 	unsafe "unsafe"
 )
 
@@ -108,11 +108,16 @@ func (x FilterOperation) Number() protoreflect.EnumNumber {
 	return protoreflect.EnumNumber(x)
 }
 
+// Deprecated: Use FilterOperation.Descriptor instead.
+func (FilterOperation) EnumDescriptor() ([]byte, []int) {
+	return file_pkg_common_proto_filter_operation_proto_rawDescGZIP(), []int{0}
+}
+
 var File_pkg_common_proto_filter_operation_proto protoreflect.FileDescriptor
 
 const file_pkg_common_proto_filter_operation_proto_rawDesc = "" +
 	"\n" +
-	"'pkg/common/proto/filter_operation.proto\x12\x11gcommon.v1.common\x1a!google/protobuf/go_features.proto*\xa0\x03\n" +
+	"'pkg/common/proto/filter_operation.proto\x12\x11gcommon.v1.common*\xa0\x03\n" +
 	"\x0fFilterOperation\x12 \n" +
 	"\x1cFILTER_OPERATION_UNSPECIFIED\x10\x00\x12\x1b\n" +
 	"\x17FILTER_OPERATION_EQUALS\x10\x01\x12\x1f\n" +
@@ -126,8 +131,20 @@ const file_pkg_common_proto_filter_operation_proto_rawDesc = "" +
 	"\x1aFILTER_OPERATION_ENDS_WITH\x10\t\x12\x17\n" +
 	"\x13FILTER_OPERATION_IN\x10\n" +
 	"\x12\x1b\n" +
-	"\x17FILTER_OPERATION_NOT_IN\x10\vB\xc7\x01\n" +
-	"\x15com.gcommon.v1.commonB\x14FilterOperationProtoP\x01Z*github.com/jdfalk/gcommon/pkg/common/proto\xa2\x02\x03GVC\xaa\x02\x11Gcommon.V1.Common\xca\x02\x11Gcommon\\V1\\Common\xe2\x02\x1dGcommon\\V1\\Common\\GPBMetadata\xea\x02\x13Gcommon::V1::Common\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"\x17FILTER_OPERATION_NOT_IN\x10\vB\xbf\x01\n" +
+	"\x15com.gcommon.v1.commonB\x14FilterOperationProtoP\x01Z*github.com/jdfalk/gcommon/pkg/common/proto\xa2\x02\x03GVC\xaa\x02\x11Gcommon.V1.Common\xca\x02\x11Gcommon\\V1\\Common\xe2\x02\x1dGcommon\\V1\\Common\\GPBMetadata\xea\x02\x13Gcommon::V1::Commonb\beditionsp\xe8\a"
+
+var (
+	file_pkg_common_proto_filter_operation_proto_rawDescOnce sync.Once
+	file_pkg_common_proto_filter_operation_proto_rawDescData []byte
+)
+
+func file_pkg_common_proto_filter_operation_proto_rawDescGZIP() []byte {
+	file_pkg_common_proto_filter_operation_proto_rawDescOnce.Do(func() {
+		file_pkg_common_proto_filter_operation_proto_rawDescData = protoimpl.X.CompressGZIP(unsafe.Slice(unsafe.StringData(file_pkg_common_proto_filter_operation_proto_rawDesc), len(file_pkg_common_proto_filter_operation_proto_rawDesc)))
+	})
+	return file_pkg_common_proto_filter_operation_proto_rawDescData
+}
 
 var file_pkg_common_proto_filter_operation_proto_enumTypes = make([]protoimpl.EnumInfo, 1)
 var file_pkg_common_proto_filter_operation_proto_goTypes = []any{

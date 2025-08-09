@@ -9,8 +9,8 @@ package proto
 import (
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
-	_ "google.golang.org/protobuf/types/gofeaturespb"
 	reflect "reflect"
+	sync "sync"
 	unsafe "unsafe"
 )
 
@@ -76,17 +76,34 @@ func (x CircuitBreakerState) Number() protoreflect.EnumNumber {
 	return protoreflect.EnumNumber(x)
 }
 
+// Deprecated: Use CircuitBreakerState.Descriptor instead.
+func (CircuitBreakerState) EnumDescriptor() ([]byte, []int) {
+	return file_pkg_common_proto_circuit_breaker_state_proto_rawDescGZIP(), []int{0}
+}
+
 var File_pkg_common_proto_circuit_breaker_state_proto protoreflect.FileDescriptor
 
 const file_pkg_common_proto_circuit_breaker_state_proto_rawDesc = "" +
 	"\n" +
-	",pkg/common/proto/circuit_breaker_state.proto\x12\x11gcommon.v1.common\x1a!google/protobuf/go_features.proto*\xa3\x01\n" +
+	",pkg/common/proto/circuit_breaker_state.proto\x12\x11gcommon.v1.common*\xa3\x01\n" +
 	"\x13CircuitBreakerState\x12%\n" +
 	"!CIRCUIT_BREAKER_STATE_UNSPECIFIED\x10\x00\x12 \n" +
 	"\x1cCIRCUIT_BREAKER_STATE_CLOSED\x10\x01\x12\x1e\n" +
 	"\x1aCIRCUIT_BREAKER_STATE_OPEN\x10\x02\x12#\n" +
-	"\x1fCIRCUIT_BREAKER_STATE_HALF_OPEN\x10\x03B\xcb\x01\n" +
-	"\x15com.gcommon.v1.commonB\x18CircuitBreakerStateProtoP\x01Z*github.com/jdfalk/gcommon/pkg/common/proto\xa2\x02\x03GVC\xaa\x02\x11Gcommon.V1.Common\xca\x02\x11Gcommon\\V1\\Common\xe2\x02\x1dGcommon\\V1\\Common\\GPBMetadata\xea\x02\x13Gcommon::V1::Common\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"\x1fCIRCUIT_BREAKER_STATE_HALF_OPEN\x10\x03B\xc3\x01\n" +
+	"\x15com.gcommon.v1.commonB\x18CircuitBreakerStateProtoP\x01Z*github.com/jdfalk/gcommon/pkg/common/proto\xa2\x02\x03GVC\xaa\x02\x11Gcommon.V1.Common\xca\x02\x11Gcommon\\V1\\Common\xe2\x02\x1dGcommon\\V1\\Common\\GPBMetadata\xea\x02\x13Gcommon::V1::Commonb\beditionsp\xe8\a"
+
+var (
+	file_pkg_common_proto_circuit_breaker_state_proto_rawDescOnce sync.Once
+	file_pkg_common_proto_circuit_breaker_state_proto_rawDescData []byte
+)
+
+func file_pkg_common_proto_circuit_breaker_state_proto_rawDescGZIP() []byte {
+	file_pkg_common_proto_circuit_breaker_state_proto_rawDescOnce.Do(func() {
+		file_pkg_common_proto_circuit_breaker_state_proto_rawDescData = protoimpl.X.CompressGZIP(unsafe.Slice(unsafe.StringData(file_pkg_common_proto_circuit_breaker_state_proto_rawDesc), len(file_pkg_common_proto_circuit_breaker_state_proto_rawDesc)))
+	})
+	return file_pkg_common_proto_circuit_breaker_state_proto_rawDescData
+}
 
 var file_pkg_common_proto_circuit_breaker_state_proto_enumTypes = make([]protoimpl.EnumInfo, 1)
 var file_pkg_common_proto_circuit_breaker_state_proto_goTypes = []any{

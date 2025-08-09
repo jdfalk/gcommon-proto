@@ -9,9 +9,9 @@ package proto
 import (
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
-	_ "google.golang.org/protobuf/types/gofeaturespb"
 	durationpb "google.golang.org/protobuf/types/known/durationpb"
 	reflect "reflect"
+	sync "sync"
 	unsafe "unsafe"
 )
 
@@ -27,15 +27,17 @@ const (
 // Provides current rate limit status and reset timing information
 // for client-side rate limit handling and backoff strategies.
 type RateLimit struct {
-	state                  protoimpl.MessageState `protogen:"opaque.v1"`
-	xxx_hidden_Limit       int32                  `protobuf:"varint,1,opt,name=limit"`
-	xxx_hidden_Window      *durationpb.Duration   `protobuf:"bytes,2,opt,name=window"`
-	xxx_hidden_Remaining   int32                  `protobuf:"varint,3,opt,name=remaining"`
-	xxx_hidden_ResetTime   *durationpb.Duration   `protobuf:"bytes,4,opt,name=reset_time,json=resetTime"`
-	XXX_raceDetectHookData protoimpl.RaceDetectHookData
-	XXX_presence           [1]uint32
-	unknownFields          protoimpl.UnknownFields
-	sizeCache              protoimpl.SizeCache
+	state protoimpl.MessageState `protogen:"open.v1"`
+	// Maximum number of requests allowed per time window
+	Limit *int32 `protobuf:"varint,1,opt,name=limit" json:"limit,omitempty"`
+	// Duration of the time window for rate limiting
+	Window *durationpb.Duration `protobuf:"bytes,2,opt,name=window" json:"window,omitempty"`
+	// Number of requests remaining in the current window
+	Remaining *int32 `protobuf:"varint,3,opt,name=remaining" json:"remaining,omitempty"`
+	// Time until the rate limit window resets
+	ResetTime     *durationpb.Duration `protobuf:"bytes,4,opt,name=reset_time,json=resetTime" json:"reset_time,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
 }
 
 func (x *RateLimit) Reset() {
@@ -63,140 +65,63 @@ func (x *RateLimit) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
+// Deprecated: Use RateLimit.ProtoReflect.Descriptor instead.
+func (*RateLimit) Descriptor() ([]byte, []int) {
+	return file_pkg_common_proto_rate_limit_proto_rawDescGZIP(), []int{0}
+}
+
 func (x *RateLimit) GetLimit() int32 {
-	if x != nil {
-		return x.xxx_hidden_Limit
+	if x != nil && x.Limit != nil {
+		return *x.Limit
 	}
 	return 0
 }
 
 func (x *RateLimit) GetWindow() *durationpb.Duration {
 	if x != nil {
-		return x.xxx_hidden_Window
+		return x.Window
 	}
 	return nil
 }
 
 func (x *RateLimit) GetRemaining() int32 {
-	if x != nil {
-		return x.xxx_hidden_Remaining
+	if x != nil && x.Remaining != nil {
+		return *x.Remaining
 	}
 	return 0
 }
 
 func (x *RateLimit) GetResetTime() *durationpb.Duration {
 	if x != nil {
-		return x.xxx_hidden_ResetTime
+		return x.ResetTime
 	}
 	return nil
-}
-
-func (x *RateLimit) SetLimit(v int32) {
-	x.xxx_hidden_Limit = v
-	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 0, 4)
-}
-
-func (x *RateLimit) SetWindow(v *durationpb.Duration) {
-	x.xxx_hidden_Window = v
-}
-
-func (x *RateLimit) SetRemaining(v int32) {
-	x.xxx_hidden_Remaining = v
-	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 2, 4)
-}
-
-func (x *RateLimit) SetResetTime(v *durationpb.Duration) {
-	x.xxx_hidden_ResetTime = v
-}
-
-func (x *RateLimit) HasLimit() bool {
-	if x == nil {
-		return false
-	}
-	return protoimpl.X.Present(&(x.XXX_presence[0]), 0)
-}
-
-func (x *RateLimit) HasWindow() bool {
-	if x == nil {
-		return false
-	}
-	return x.xxx_hidden_Window != nil
-}
-
-func (x *RateLimit) HasRemaining() bool {
-	if x == nil {
-		return false
-	}
-	return protoimpl.X.Present(&(x.XXX_presence[0]), 2)
-}
-
-func (x *RateLimit) HasResetTime() bool {
-	if x == nil {
-		return false
-	}
-	return x.xxx_hidden_ResetTime != nil
-}
-
-func (x *RateLimit) ClearLimit() {
-	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 0)
-	x.xxx_hidden_Limit = 0
-}
-
-func (x *RateLimit) ClearWindow() {
-	x.xxx_hidden_Window = nil
-}
-
-func (x *RateLimit) ClearRemaining() {
-	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 2)
-	x.xxx_hidden_Remaining = 0
-}
-
-func (x *RateLimit) ClearResetTime() {
-	x.xxx_hidden_ResetTime = nil
-}
-
-type RateLimit_builder struct {
-	_ [0]func() // Prevents comparability and use of unkeyed literals for the builder.
-
-	// Maximum number of requests allowed per time window
-	Limit *int32
-	// Duration of the time window for rate limiting
-	Window *durationpb.Duration
-	// Number of requests remaining in the current window
-	Remaining *int32
-	// Time until the rate limit window resets
-	ResetTime *durationpb.Duration
-}
-
-func (b0 RateLimit_builder) Build() *RateLimit {
-	m0 := &RateLimit{}
-	b, x := &b0, m0
-	_, _ = b, x
-	if b.Limit != nil {
-		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 0, 4)
-		x.xxx_hidden_Limit = *b.Limit
-	}
-	x.xxx_hidden_Window = b.Window
-	if b.Remaining != nil {
-		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 2, 4)
-		x.xxx_hidden_Remaining = *b.Remaining
-	}
-	x.xxx_hidden_ResetTime = b.ResetTime
-	return m0
 }
 
 var File_pkg_common_proto_rate_limit_proto protoreflect.FileDescriptor
 
 const file_pkg_common_proto_rate_limit_proto_rawDesc = "" +
 	"\n" +
-	"!pkg/common/proto/rate_limit.proto\x12\x11gcommon.v1.common\x1a\x1egoogle/protobuf/duration.proto\x1a!google/protobuf/go_features.proto\"\xac\x01\n" +
+	"!pkg/common/proto/rate_limit.proto\x12\x11gcommon.v1.common\x1a\x1egoogle/protobuf/duration.proto\"\xac\x01\n" +
 	"\tRateLimit\x12\x14\n" +
 	"\x05limit\x18\x01 \x01(\x05R\x05limit\x121\n" +
 	"\x06window\x18\x02 \x01(\v2\x19.google.protobuf.DurationR\x06window\x12\x1c\n" +
 	"\tremaining\x18\x03 \x01(\x05R\tremaining\x128\n" +
 	"\n" +
-	"reset_time\x18\x04 \x01(\v2\x19.google.protobuf.DurationR\tresetTimeB\xc1\x01\n" +
-	"\x15com.gcommon.v1.commonB\x0eRateLimitProtoP\x01Z*github.com/jdfalk/gcommon/pkg/common/proto\xa2\x02\x03GVC\xaa\x02\x11Gcommon.V1.Common\xca\x02\x11Gcommon\\V1\\Common\xe2\x02\x1dGcommon\\V1\\Common\\GPBMetadata\xea\x02\x13Gcommon::V1::Common\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"reset_time\x18\x04 \x01(\v2\x19.google.protobuf.DurationR\tresetTimeB\xb9\x01\n" +
+	"\x15com.gcommon.v1.commonB\x0eRateLimitProtoP\x01Z*github.com/jdfalk/gcommon/pkg/common/proto\xa2\x02\x03GVC\xaa\x02\x11Gcommon.V1.Common\xca\x02\x11Gcommon\\V1\\Common\xe2\x02\x1dGcommon\\V1\\Common\\GPBMetadata\xea\x02\x13Gcommon::V1::Commonb\beditionsp\xe8\a"
+
+var (
+	file_pkg_common_proto_rate_limit_proto_rawDescOnce sync.Once
+	file_pkg_common_proto_rate_limit_proto_rawDescData []byte
+)
+
+func file_pkg_common_proto_rate_limit_proto_rawDescGZIP() []byte {
+	file_pkg_common_proto_rate_limit_proto_rawDescOnce.Do(func() {
+		file_pkg_common_proto_rate_limit_proto_rawDescData = protoimpl.X.CompressGZIP(unsafe.Slice(unsafe.StringData(file_pkg_common_proto_rate_limit_proto_rawDesc), len(file_pkg_common_proto_rate_limit_proto_rawDesc)))
+	})
+	return file_pkg_common_proto_rate_limit_proto_rawDescData
+}
 
 var file_pkg_common_proto_rate_limit_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_pkg_common_proto_rate_limit_proto_goTypes = []any{

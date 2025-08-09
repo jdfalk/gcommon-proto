@@ -9,9 +9,9 @@ package proto
 import (
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
-	_ "google.golang.org/protobuf/types/gofeaturespb"
 	durationpb "google.golang.org/protobuf/types/known/durationpb"
 	reflect "reflect"
+	sync "sync"
 	unsafe "unsafe"
 )
 
@@ -27,20 +27,23 @@ const (
 // Used to prevent abuse and enforce security policies.
 // Supports various rate limiting strategies.
 type RateLimitConfig struct {
-	state                     protoimpl.MessageState `protogen:"opaque.v1"`
-	xxx_hidden_MaxRequests    int32                  `protobuf:"varint,1,opt,name=max_requests,json=maxRequests"`
-	xxx_hidden_TimeWindow     *durationpb.Duration   `protobuf:"bytes,2,opt,name=time_window,json=timeWindow"`
-	xxx_hidden_BurstAllowance int32                  `protobuf:"varint,3,opt,name=burst_allowance,json=burstAllowance"`
-	xxx_hidden_Scope          *string                `protobuf:"bytes,4,opt,name=scope"`
-	xxx_hidden_Action         *string                `protobuf:"bytes,5,opt,name=action"`
-	xxx_hidden_Enabled        bool                   `protobuf:"varint,6,opt,name=enabled"`
-	xxx_hidden_Metadata       map[string]string      `protobuf:"bytes,7,rep,name=metadata" protobuf_key:"bytes,1,opt,name=key" protobuf_val:"bytes,2,opt,name=value"`
-	// Deprecated: Do not use. This will be deleted in the near future.
-	XXX_lazyUnmarshalInfo  protoimpl.LazyUnmarshalInfo
-	XXX_raceDetectHookData protoimpl.RaceDetectHookData
-	XXX_presence           [1]uint32
-	unknownFields          protoimpl.UnknownFields
-	sizeCache              protoimpl.SizeCache
+	state protoimpl.MessageState `protogen:"open.v1"`
+	// Maximum number of requests allowed
+	MaxRequests *int32 `protobuf:"varint,1,opt,name=max_requests,json=maxRequests" json:"max_requests,omitempty"`
+	// Time window for rate limiting
+	TimeWindow *durationpb.Duration `protobuf:"bytes,2,opt,name=time_window,json=timeWindow" json:"time_window,omitempty"`
+	// Burst allowance (max requests in short burst)
+	BurstAllowance *int32 `protobuf:"varint,3,opt,name=burst_allowance,json=burstAllowance" json:"burst_allowance,omitempty"`
+	// Rate limit scope (per user, per IP, etc.)
+	Scope *string `protobuf:"bytes,4,opt,name=scope" json:"scope,omitempty"`
+	// Action to take when rate limit is exceeded
+	Action *string `protobuf:"bytes,5,opt,name=action" json:"action,omitempty"` // "block", "delay", "throttle"
+	// Rate limit enabled flag
+	Enabled *bool `protobuf:"varint,6,opt,name=enabled" json:"enabled,omitempty"`
+	// Rate limit metadata
+	Metadata      map[string]string `protobuf:"bytes,7,rep,name=metadata" json:"metadata,omitempty" protobuf_key:"bytes,1,opt,name=key" protobuf_val:"bytes,2,opt,name=value"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
 }
 
 func (x *RateLimitConfig) Reset() {
@@ -68,231 +71,65 @@ func (x *RateLimitConfig) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
+// Deprecated: Use RateLimitConfig.ProtoReflect.Descriptor instead.
+func (*RateLimitConfig) Descriptor() ([]byte, []int) {
+	return file_pkg_auth_proto_rate_limit_config_proto_rawDescGZIP(), []int{0}
+}
+
 func (x *RateLimitConfig) GetMaxRequests() int32 {
-	if x != nil {
-		return x.xxx_hidden_MaxRequests
+	if x != nil && x.MaxRequests != nil {
+		return *x.MaxRequests
 	}
 	return 0
 }
 
 func (x *RateLimitConfig) GetTimeWindow() *durationpb.Duration {
 	if x != nil {
-		return x.xxx_hidden_TimeWindow
+		return x.TimeWindow
 	}
 	return nil
 }
 
 func (x *RateLimitConfig) GetBurstAllowance() int32 {
-	if x != nil {
-		return x.xxx_hidden_BurstAllowance
+	if x != nil && x.BurstAllowance != nil {
+		return *x.BurstAllowance
 	}
 	return 0
 }
 
 func (x *RateLimitConfig) GetScope() string {
-	if x != nil {
-		if x.xxx_hidden_Scope != nil {
-			return *x.xxx_hidden_Scope
-		}
-		return ""
+	if x != nil && x.Scope != nil {
+		return *x.Scope
 	}
 	return ""
 }
 
 func (x *RateLimitConfig) GetAction() string {
-	if x != nil {
-		if x.xxx_hidden_Action != nil {
-			return *x.xxx_hidden_Action
-		}
-		return ""
+	if x != nil && x.Action != nil {
+		return *x.Action
 	}
 	return ""
 }
 
 func (x *RateLimitConfig) GetEnabled() bool {
-	if x != nil {
-		return x.xxx_hidden_Enabled
+	if x != nil && x.Enabled != nil {
+		return *x.Enabled
 	}
 	return false
 }
 
 func (x *RateLimitConfig) GetMetadata() map[string]string {
 	if x != nil {
-		if protoimpl.X.Present(&(x.XXX_presence[0]), 6) {
-			if protoimpl.X.AtomicCheckPointerIsNil(&x.xxx_hidden_Metadata) {
-				protoimpl.X.UnmarshalField(x, 7)
-			}
-			return x.xxx_hidden_Metadata
-		}
+		return x.Metadata
 	}
 	return nil
-}
-
-func (x *RateLimitConfig) SetMaxRequests(v int32) {
-	x.xxx_hidden_MaxRequests = v
-	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 0, 7)
-}
-
-func (x *RateLimitConfig) SetTimeWindow(v *durationpb.Duration) {
-	x.xxx_hidden_TimeWindow = v
-}
-
-func (x *RateLimitConfig) SetBurstAllowance(v int32) {
-	x.xxx_hidden_BurstAllowance = v
-	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 2, 7)
-}
-
-func (x *RateLimitConfig) SetScope(v string) {
-	x.xxx_hidden_Scope = &v
-	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 3, 7)
-}
-
-func (x *RateLimitConfig) SetAction(v string) {
-	x.xxx_hidden_Action = &v
-	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 4, 7)
-}
-
-func (x *RateLimitConfig) SetEnabled(v bool) {
-	x.xxx_hidden_Enabled = v
-	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 5, 7)
-}
-
-func (x *RateLimitConfig) SetMetadata(v map[string]string) {
-	x.xxx_hidden_Metadata = v
-	if v == nil {
-		protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 6)
-	} else {
-		protoimpl.X.SetPresent(&(x.XXX_presence[0]), 6, 7)
-	}
-}
-
-func (x *RateLimitConfig) HasMaxRequests() bool {
-	if x == nil {
-		return false
-	}
-	return protoimpl.X.Present(&(x.XXX_presence[0]), 0)
-}
-
-func (x *RateLimitConfig) HasTimeWindow() bool {
-	if x == nil {
-		return false
-	}
-	return x.xxx_hidden_TimeWindow != nil
-}
-
-func (x *RateLimitConfig) HasBurstAllowance() bool {
-	if x == nil {
-		return false
-	}
-	return protoimpl.X.Present(&(x.XXX_presence[0]), 2)
-}
-
-func (x *RateLimitConfig) HasScope() bool {
-	if x == nil {
-		return false
-	}
-	return protoimpl.X.Present(&(x.XXX_presence[0]), 3)
-}
-
-func (x *RateLimitConfig) HasAction() bool {
-	if x == nil {
-		return false
-	}
-	return protoimpl.X.Present(&(x.XXX_presence[0]), 4)
-}
-
-func (x *RateLimitConfig) HasEnabled() bool {
-	if x == nil {
-		return false
-	}
-	return protoimpl.X.Present(&(x.XXX_presence[0]), 5)
-}
-
-func (x *RateLimitConfig) ClearMaxRequests() {
-	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 0)
-	x.xxx_hidden_MaxRequests = 0
-}
-
-func (x *RateLimitConfig) ClearTimeWindow() {
-	x.xxx_hidden_TimeWindow = nil
-}
-
-func (x *RateLimitConfig) ClearBurstAllowance() {
-	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 2)
-	x.xxx_hidden_BurstAllowance = 0
-}
-
-func (x *RateLimitConfig) ClearScope() {
-	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 3)
-	x.xxx_hidden_Scope = nil
-}
-
-func (x *RateLimitConfig) ClearAction() {
-	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 4)
-	x.xxx_hidden_Action = nil
-}
-
-func (x *RateLimitConfig) ClearEnabled() {
-	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 5)
-	x.xxx_hidden_Enabled = false
-}
-
-type RateLimitConfig_builder struct {
-	_ [0]func() // Prevents comparability and use of unkeyed literals for the builder.
-
-	// Maximum number of requests allowed
-	MaxRequests *int32
-	// Time window for rate limiting
-	TimeWindow *durationpb.Duration
-	// Burst allowance (max requests in short burst)
-	BurstAllowance *int32
-	// Rate limit scope (per user, per IP, etc.)
-	Scope *string
-	// Action to take when rate limit is exceeded
-	Action *string
-	// Rate limit enabled flag
-	Enabled *bool
-	// Rate limit metadata
-	Metadata map[string]string
-}
-
-func (b0 RateLimitConfig_builder) Build() *RateLimitConfig {
-	m0 := &RateLimitConfig{}
-	b, x := &b0, m0
-	_, _ = b, x
-	if b.MaxRequests != nil {
-		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 0, 7)
-		x.xxx_hidden_MaxRequests = *b.MaxRequests
-	}
-	x.xxx_hidden_TimeWindow = b.TimeWindow
-	if b.BurstAllowance != nil {
-		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 2, 7)
-		x.xxx_hidden_BurstAllowance = *b.BurstAllowance
-	}
-	if b.Scope != nil {
-		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 3, 7)
-		x.xxx_hidden_Scope = b.Scope
-	}
-	if b.Action != nil {
-		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 4, 7)
-		x.xxx_hidden_Action = b.Action
-	}
-	if b.Enabled != nil {
-		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 5, 7)
-		x.xxx_hidden_Enabled = *b.Enabled
-	}
-	if b.Metadata != nil {
-		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 6, 7)
-		x.xxx_hidden_Metadata = b.Metadata
-	}
-	return m0
 }
 
 var File_pkg_auth_proto_rate_limit_config_proto protoreflect.FileDescriptor
 
 const file_pkg_auth_proto_rate_limit_config_proto_rawDesc = "" +
 	"\n" +
-	"&pkg/auth/proto/rate_limit_config.proto\x12\x0fgcommon.v1.auth\x1a\x1egoogle/protobuf/duration.proto\x1a!google/protobuf/go_features.proto\"\xee\x02\n" +
+	"&pkg/auth/proto/rate_limit_config.proto\x12\x0fgcommon.v1.auth\x1a\x1egoogle/protobuf/duration.proto\"\xee\x02\n" +
 	"\x0fRateLimitConfig\x12!\n" +
 	"\fmax_requests\x18\x01 \x01(\x05R\vmaxRequests\x12:\n" +
 	"\vtime_window\x18\x02 \x01(\v2\x19.google.protobuf.DurationR\n" +
@@ -304,8 +141,20 @@ const file_pkg_auth_proto_rate_limit_config_proto_rawDesc = "" +
 	"\bmetadata\x18\a \x03(\v2..gcommon.v1.auth.RateLimitConfig.MetadataEntryB\x02(\x01R\bmetadata\x1a;\n" +
 	"\rMetadataEntry\x12\x10\n" +
 	"\x03key\x18\x01 \x01(\tR\x03key\x12\x14\n" +
-	"\x05value\x18\x02 \x01(\tR\x05value:\x028\x01B\xbb\x01\n" +
-	"\x13com.gcommon.v1.authB\x14RateLimitConfigProtoP\x01Z(github.com/jdfalk/gcommon/pkg/auth/proto\xa2\x02\x03GVA\xaa\x02\x0fGcommon.V1.Auth\xca\x02\x0fGcommon\\V1\\Auth\xe2\x02\x1bGcommon\\V1\\Auth\\GPBMetadata\xea\x02\x11Gcommon::V1::Auth\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"\x05value\x18\x02 \x01(\tR\x05value:\x028\x01B\xb3\x01\n" +
+	"\x13com.gcommon.v1.authB\x14RateLimitConfigProtoP\x01Z(github.com/jdfalk/gcommon/pkg/auth/proto\xa2\x02\x03GVA\xaa\x02\x0fGcommon.V1.Auth\xca\x02\x0fGcommon\\V1\\Auth\xe2\x02\x1bGcommon\\V1\\Auth\\GPBMetadata\xea\x02\x11Gcommon::V1::Authb\beditionsp\xe8\a"
+
+var (
+	file_pkg_auth_proto_rate_limit_config_proto_rawDescOnce sync.Once
+	file_pkg_auth_proto_rate_limit_config_proto_rawDescData []byte
+)
+
+func file_pkg_auth_proto_rate_limit_config_proto_rawDescGZIP() []byte {
+	file_pkg_auth_proto_rate_limit_config_proto_rawDescOnce.Do(func() {
+		file_pkg_auth_proto_rate_limit_config_proto_rawDescData = protoimpl.X.CompressGZIP(unsafe.Slice(unsafe.StringData(file_pkg_auth_proto_rate_limit_config_proto_rawDesc), len(file_pkg_auth_proto_rate_limit_config_proto_rawDesc)))
+	})
+	return file_pkg_auth_proto_rate_limit_config_proto_rawDescData
+}
 
 var file_pkg_auth_proto_rate_limit_config_proto_msgTypes = make([]protoimpl.MessageInfo, 2)
 var file_pkg_auth_proto_rate_limit_config_proto_goTypes = []any{

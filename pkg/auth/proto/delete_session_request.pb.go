@@ -9,8 +9,8 @@ package proto
 import (
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
-	_ "google.golang.org/protobuf/types/gofeaturespb"
 	reflect "reflect"
+	sync "sync"
 	unsafe "unsafe"
 )
 
@@ -25,13 +25,13 @@ const (
 // Request to delete a session.
 // Used for session cleanup and administrative purposes.
 type DeleteSessionRequest struct {
-	state                  protoimpl.MessageState `protogen:"opaque.v1"`
-	xxx_hidden_SessionId   *string                `protobuf:"bytes,1,opt,name=session_id,json=sessionId"`
-	xxx_hidden_Force       bool                   `protobuf:"varint,2,opt,name=force"`
-	XXX_raceDetectHookData protoimpl.RaceDetectHookData
-	XXX_presence           [1]uint32
-	unknownFields          protoimpl.UnknownFields
-	sizeCache              protoimpl.SizeCache
+	state protoimpl.MessageState `protogen:"open.v1"`
+	// Session ID to delete
+	SessionId *string `protobuf:"bytes,1,opt,name=session_id,json=sessionId" json:"session_id,omitempty"`
+	// Force delete even if session is active (admin only)
+	Force         *bool `protobuf:"varint,2,opt,name=force" json:"force,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
 }
 
 func (x *DeleteSessionRequest) Reset() {
@@ -59,91 +59,47 @@ func (x *DeleteSessionRequest) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
+// Deprecated: Use DeleteSessionRequest.ProtoReflect.Descriptor instead.
+func (*DeleteSessionRequest) Descriptor() ([]byte, []int) {
+	return file_pkg_auth_proto_delete_session_request_proto_rawDescGZIP(), []int{0}
+}
+
 func (x *DeleteSessionRequest) GetSessionId() string {
-	if x != nil {
-		if x.xxx_hidden_SessionId != nil {
-			return *x.xxx_hidden_SessionId
-		}
-		return ""
+	if x != nil && x.SessionId != nil {
+		return *x.SessionId
 	}
 	return ""
 }
 
 func (x *DeleteSessionRequest) GetForce() bool {
-	if x != nil {
-		return x.xxx_hidden_Force
+	if x != nil && x.Force != nil {
+		return *x.Force
 	}
 	return false
-}
-
-func (x *DeleteSessionRequest) SetSessionId(v string) {
-	x.xxx_hidden_SessionId = &v
-	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 0, 2)
-}
-
-func (x *DeleteSessionRequest) SetForce(v bool) {
-	x.xxx_hidden_Force = v
-	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 1, 2)
-}
-
-func (x *DeleteSessionRequest) HasSessionId() bool {
-	if x == nil {
-		return false
-	}
-	return protoimpl.X.Present(&(x.XXX_presence[0]), 0)
-}
-
-func (x *DeleteSessionRequest) HasForce() bool {
-	if x == nil {
-		return false
-	}
-	return protoimpl.X.Present(&(x.XXX_presence[0]), 1)
-}
-
-func (x *DeleteSessionRequest) ClearSessionId() {
-	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 0)
-	x.xxx_hidden_SessionId = nil
-}
-
-func (x *DeleteSessionRequest) ClearForce() {
-	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 1)
-	x.xxx_hidden_Force = false
-}
-
-type DeleteSessionRequest_builder struct {
-	_ [0]func() // Prevents comparability and use of unkeyed literals for the builder.
-
-	// Session ID to delete
-	SessionId *string
-	// Force delete even if session is active (admin only)
-	Force *bool
-}
-
-func (b0 DeleteSessionRequest_builder) Build() *DeleteSessionRequest {
-	m0 := &DeleteSessionRequest{}
-	b, x := &b0, m0
-	_, _ = b, x
-	if b.SessionId != nil {
-		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 0, 2)
-		x.xxx_hidden_SessionId = b.SessionId
-	}
-	if b.Force != nil {
-		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 1, 2)
-		x.xxx_hidden_Force = *b.Force
-	}
-	return m0
 }
 
 var File_pkg_auth_proto_delete_session_request_proto protoreflect.FileDescriptor
 
 const file_pkg_auth_proto_delete_session_request_proto_rawDesc = "" +
 	"\n" +
-	"+pkg/auth/proto/delete_session_request.proto\x12\x0fgcommon.v1.auth\x1a!google/protobuf/go_features.proto\"K\n" +
+	"+pkg/auth/proto/delete_session_request.proto\x12\x0fgcommon.v1.auth\"K\n" +
 	"\x14DeleteSessionRequest\x12\x1d\n" +
 	"\n" +
 	"session_id\x18\x01 \x01(\tR\tsessionId\x12\x14\n" +
-	"\x05force\x18\x02 \x01(\bR\x05forceB\xc0\x01\n" +
-	"\x13com.gcommon.v1.authB\x19DeleteSessionRequestProtoP\x01Z(github.com/jdfalk/gcommon/pkg/auth/proto\xa2\x02\x03GVA\xaa\x02\x0fGcommon.V1.Auth\xca\x02\x0fGcommon\\V1\\Auth\xe2\x02\x1bGcommon\\V1\\Auth\\GPBMetadata\xea\x02\x11Gcommon::V1::Auth\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"\x05force\x18\x02 \x01(\bR\x05forceB\xb8\x01\n" +
+	"\x13com.gcommon.v1.authB\x19DeleteSessionRequestProtoP\x01Z(github.com/jdfalk/gcommon/pkg/auth/proto\xa2\x02\x03GVA\xaa\x02\x0fGcommon.V1.Auth\xca\x02\x0fGcommon\\V1\\Auth\xe2\x02\x1bGcommon\\V1\\Auth\\GPBMetadata\xea\x02\x11Gcommon::V1::Authb\beditionsp\xe8\a"
+
+var (
+	file_pkg_auth_proto_delete_session_request_proto_rawDescOnce sync.Once
+	file_pkg_auth_proto_delete_session_request_proto_rawDescData []byte
+)
+
+func file_pkg_auth_proto_delete_session_request_proto_rawDescGZIP() []byte {
+	file_pkg_auth_proto_delete_session_request_proto_rawDescOnce.Do(func() {
+		file_pkg_auth_proto_delete_session_request_proto_rawDescData = protoimpl.X.CompressGZIP(unsafe.Slice(unsafe.StringData(file_pkg_auth_proto_delete_session_request_proto_rawDesc), len(file_pkg_auth_proto_delete_session_request_proto_rawDesc)))
+	})
+	return file_pkg_auth_proto_delete_session_request_proto_rawDescData
+}
 
 var file_pkg_auth_proto_delete_session_request_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_pkg_auth_proto_delete_session_request_proto_goTypes = []any{

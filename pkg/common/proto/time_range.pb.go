@@ -9,9 +9,9 @@ package proto
 import (
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
-	_ "google.golang.org/protobuf/types/gofeaturespb"
 	timestamppb "google.golang.org/protobuf/types/known/timestamppb"
 	reflect "reflect"
+	sync "sync"
 	unsafe "unsafe"
 )
 
@@ -27,11 +27,13 @@ const (
 // Provides standardized time-based filtering across all GCommon modules
 // for queries, reports, and data analysis.
 type TimeRange struct {
-	state                protoimpl.MessageState `protogen:"opaque.v1"`
-	xxx_hidden_StartTime *timestamppb.Timestamp `protobuf:"bytes,1,opt,name=start_time,json=startTime"`
-	xxx_hidden_EndTime   *timestamppb.Timestamp `protobuf:"bytes,2,opt,name=end_time,json=endTime"`
-	unknownFields        protoimpl.UnknownFields
-	sizeCache            protoimpl.SizeCache
+	state protoimpl.MessageState `protogen:"open.v1"`
+	// Start time (inclusive) - operations at or after this time are included
+	StartTime *timestamppb.Timestamp `protobuf:"bytes,1,opt,name=start_time,json=startTime" json:"start_time,omitempty"`
+	// End time (exclusive) - operations before this time are included
+	EndTime       *timestamppb.Timestamp `protobuf:"bytes,2,opt,name=end_time,json=endTime" json:"end_time,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
 }
 
 func (x *TimeRange) Reset() {
@@ -59,78 +61,47 @@ func (x *TimeRange) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
+// Deprecated: Use TimeRange.ProtoReflect.Descriptor instead.
+func (*TimeRange) Descriptor() ([]byte, []int) {
+	return file_pkg_common_proto_time_range_proto_rawDescGZIP(), []int{0}
+}
+
 func (x *TimeRange) GetStartTime() *timestamppb.Timestamp {
 	if x != nil {
-		return x.xxx_hidden_StartTime
+		return x.StartTime
 	}
 	return nil
 }
 
 func (x *TimeRange) GetEndTime() *timestamppb.Timestamp {
 	if x != nil {
-		return x.xxx_hidden_EndTime
+		return x.EndTime
 	}
 	return nil
-}
-
-func (x *TimeRange) SetStartTime(v *timestamppb.Timestamp) {
-	x.xxx_hidden_StartTime = v
-}
-
-func (x *TimeRange) SetEndTime(v *timestamppb.Timestamp) {
-	x.xxx_hidden_EndTime = v
-}
-
-func (x *TimeRange) HasStartTime() bool {
-	if x == nil {
-		return false
-	}
-	return x.xxx_hidden_StartTime != nil
-}
-
-func (x *TimeRange) HasEndTime() bool {
-	if x == nil {
-		return false
-	}
-	return x.xxx_hidden_EndTime != nil
-}
-
-func (x *TimeRange) ClearStartTime() {
-	x.xxx_hidden_StartTime = nil
-}
-
-func (x *TimeRange) ClearEndTime() {
-	x.xxx_hidden_EndTime = nil
-}
-
-type TimeRange_builder struct {
-	_ [0]func() // Prevents comparability and use of unkeyed literals for the builder.
-
-	// Start time (inclusive) - operations at or after this time are included
-	StartTime *timestamppb.Timestamp
-	// End time (exclusive) - operations before this time are included
-	EndTime *timestamppb.Timestamp
-}
-
-func (b0 TimeRange_builder) Build() *TimeRange {
-	m0 := &TimeRange{}
-	b, x := &b0, m0
-	_, _ = b, x
-	x.xxx_hidden_StartTime = b.StartTime
-	x.xxx_hidden_EndTime = b.EndTime
-	return m0
 }
 
 var File_pkg_common_proto_time_range_proto protoreflect.FileDescriptor
 
 const file_pkg_common_proto_time_range_proto_rawDesc = "" +
 	"\n" +
-	"!pkg/common/proto/time_range.proto\x12\x11gcommon.v1.common\x1a!google/protobuf/go_features.proto\x1a\x1fgoogle/protobuf/timestamp.proto\"}\n" +
+	"!pkg/common/proto/time_range.proto\x12\x11gcommon.v1.common\x1a\x1fgoogle/protobuf/timestamp.proto\"}\n" +
 	"\tTimeRange\x129\n" +
 	"\n" +
 	"start_time\x18\x01 \x01(\v2\x1a.google.protobuf.TimestampR\tstartTime\x125\n" +
-	"\bend_time\x18\x02 \x01(\v2\x1a.google.protobuf.TimestampR\aendTimeB\xc1\x01\n" +
-	"\x15com.gcommon.v1.commonB\x0eTimeRangeProtoP\x01Z*github.com/jdfalk/gcommon/pkg/common/proto\xa2\x02\x03GVC\xaa\x02\x11Gcommon.V1.Common\xca\x02\x11Gcommon\\V1\\Common\xe2\x02\x1dGcommon\\V1\\Common\\GPBMetadata\xea\x02\x13Gcommon::V1::Common\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"\bend_time\x18\x02 \x01(\v2\x1a.google.protobuf.TimestampR\aendTimeB\xb9\x01\n" +
+	"\x15com.gcommon.v1.commonB\x0eTimeRangeProtoP\x01Z*github.com/jdfalk/gcommon/pkg/common/proto\xa2\x02\x03GVC\xaa\x02\x11Gcommon.V1.Common\xca\x02\x11Gcommon\\V1\\Common\xe2\x02\x1dGcommon\\V1\\Common\\GPBMetadata\xea\x02\x13Gcommon::V1::Commonb\beditionsp\xe8\a"
+
+var (
+	file_pkg_common_proto_time_range_proto_rawDescOnce sync.Once
+	file_pkg_common_proto_time_range_proto_rawDescData []byte
+)
+
+func file_pkg_common_proto_time_range_proto_rawDescGZIP() []byte {
+	file_pkg_common_proto_time_range_proto_rawDescOnce.Do(func() {
+		file_pkg_common_proto_time_range_proto_rawDescData = protoimpl.X.CompressGZIP(unsafe.Slice(unsafe.StringData(file_pkg_common_proto_time_range_proto_rawDesc), len(file_pkg_common_proto_time_range_proto_rawDesc)))
+	})
+	return file_pkg_common_proto_time_range_proto_rawDescData
+}
 
 var file_pkg_common_proto_time_range_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_pkg_common_proto_time_range_proto_goTypes = []any{

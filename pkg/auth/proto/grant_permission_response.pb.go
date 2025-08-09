@@ -10,8 +10,8 @@ import (
 	proto "github.com/jdfalk/gcommon/pkg/common/proto"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
-	_ "google.golang.org/protobuf/types/gofeaturespb"
 	reflect "reflect"
+	sync "sync"
 	unsafe "unsafe"
 )
 
@@ -26,16 +26,19 @@ const (
 // Response for permission grant operations.
 // Indicates whether the permission was successfully granted.
 type GrantPermissionResponse struct {
-	state                   protoimpl.MessageState  `protogen:"opaque.v1"`
-	xxx_hidden_Success      bool                    `protobuf:"varint,1,opt,name=success"`
-	xxx_hidden_ErrorMessage *string                 `protobuf:"bytes,2,opt,name=error_message,json=errorMessage"`
-	xxx_hidden_PermissionId *string                 `protobuf:"bytes,3,opt,name=permission_id,json=permissionId"`
-	xxx_hidden_GranteeId    *string                 `protobuf:"bytes,4,opt,name=grantee_id,json=granteeId"`
-	xxx_hidden_Metadata     *proto.ResponseMetadata `protobuf:"bytes,5,opt,name=metadata"`
-	XXX_raceDetectHookData  protoimpl.RaceDetectHookData
-	XXX_presence            [1]uint32
-	unknownFields           protoimpl.UnknownFields
-	sizeCache               protoimpl.SizeCache
+	state protoimpl.MessageState `protogen:"open.v1"`
+	// Whether the permission grant was successful
+	Success *bool `protobuf:"varint,1,opt,name=success" json:"success,omitempty"`
+	// Error message if grant failed
+	ErrorMessage *string `protobuf:"bytes,2,opt,name=error_message,json=errorMessage" json:"error_message,omitempty"`
+	// The granted permission ID
+	PermissionId *string `protobuf:"bytes,3,opt,name=permission_id,json=permissionId" json:"permission_id,omitempty"`
+	// User or entity the permission was granted to
+	GranteeId *string `protobuf:"bytes,4,opt,name=grantee_id,json=granteeId" json:"grantee_id,omitempty"`
+	// Response metadata
+	Metadata      *proto.ResponseMetadata `protobuf:"bytes,5,opt,name=metadata" json:"metadata,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
 }
 
 func (x *GrantPermissionResponse) Reset() {
@@ -63,185 +66,71 @@ func (x *GrantPermissionResponse) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
+// Deprecated: Use GrantPermissionResponse.ProtoReflect.Descriptor instead.
+func (*GrantPermissionResponse) Descriptor() ([]byte, []int) {
+	return file_pkg_auth_proto_grant_permission_response_proto_rawDescGZIP(), []int{0}
+}
+
 func (x *GrantPermissionResponse) GetSuccess() bool {
-	if x != nil {
-		return x.xxx_hidden_Success
+	if x != nil && x.Success != nil {
+		return *x.Success
 	}
 	return false
 }
 
 func (x *GrantPermissionResponse) GetErrorMessage() string {
-	if x != nil {
-		if x.xxx_hidden_ErrorMessage != nil {
-			return *x.xxx_hidden_ErrorMessage
-		}
-		return ""
+	if x != nil && x.ErrorMessage != nil {
+		return *x.ErrorMessage
 	}
 	return ""
 }
 
 func (x *GrantPermissionResponse) GetPermissionId() string {
-	if x != nil {
-		if x.xxx_hidden_PermissionId != nil {
-			return *x.xxx_hidden_PermissionId
-		}
-		return ""
+	if x != nil && x.PermissionId != nil {
+		return *x.PermissionId
 	}
 	return ""
 }
 
 func (x *GrantPermissionResponse) GetGranteeId() string {
-	if x != nil {
-		if x.xxx_hidden_GranteeId != nil {
-			return *x.xxx_hidden_GranteeId
-		}
-		return ""
+	if x != nil && x.GranteeId != nil {
+		return *x.GranteeId
 	}
 	return ""
 }
 
 func (x *GrantPermissionResponse) GetMetadata() *proto.ResponseMetadata {
 	if x != nil {
-		return x.xxx_hidden_Metadata
+		return x.Metadata
 	}
 	return nil
-}
-
-func (x *GrantPermissionResponse) SetSuccess(v bool) {
-	x.xxx_hidden_Success = v
-	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 0, 5)
-}
-
-func (x *GrantPermissionResponse) SetErrorMessage(v string) {
-	x.xxx_hidden_ErrorMessage = &v
-	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 1, 5)
-}
-
-func (x *GrantPermissionResponse) SetPermissionId(v string) {
-	x.xxx_hidden_PermissionId = &v
-	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 2, 5)
-}
-
-func (x *GrantPermissionResponse) SetGranteeId(v string) {
-	x.xxx_hidden_GranteeId = &v
-	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 3, 5)
-}
-
-func (x *GrantPermissionResponse) SetMetadata(v *proto.ResponseMetadata) {
-	x.xxx_hidden_Metadata = v
-}
-
-func (x *GrantPermissionResponse) HasSuccess() bool {
-	if x == nil {
-		return false
-	}
-	return protoimpl.X.Present(&(x.XXX_presence[0]), 0)
-}
-
-func (x *GrantPermissionResponse) HasErrorMessage() bool {
-	if x == nil {
-		return false
-	}
-	return protoimpl.X.Present(&(x.XXX_presence[0]), 1)
-}
-
-func (x *GrantPermissionResponse) HasPermissionId() bool {
-	if x == nil {
-		return false
-	}
-	return protoimpl.X.Present(&(x.XXX_presence[0]), 2)
-}
-
-func (x *GrantPermissionResponse) HasGranteeId() bool {
-	if x == nil {
-		return false
-	}
-	return protoimpl.X.Present(&(x.XXX_presence[0]), 3)
-}
-
-func (x *GrantPermissionResponse) HasMetadata() bool {
-	if x == nil {
-		return false
-	}
-	return x.xxx_hidden_Metadata != nil
-}
-
-func (x *GrantPermissionResponse) ClearSuccess() {
-	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 0)
-	x.xxx_hidden_Success = false
-}
-
-func (x *GrantPermissionResponse) ClearErrorMessage() {
-	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 1)
-	x.xxx_hidden_ErrorMessage = nil
-}
-
-func (x *GrantPermissionResponse) ClearPermissionId() {
-	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 2)
-	x.xxx_hidden_PermissionId = nil
-}
-
-func (x *GrantPermissionResponse) ClearGranteeId() {
-	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 3)
-	x.xxx_hidden_GranteeId = nil
-}
-
-func (x *GrantPermissionResponse) ClearMetadata() {
-	x.xxx_hidden_Metadata = nil
-}
-
-type GrantPermissionResponse_builder struct {
-	_ [0]func() // Prevents comparability and use of unkeyed literals for the builder.
-
-	// Whether the permission grant was successful
-	Success *bool
-	// Error message if grant failed
-	ErrorMessage *string
-	// The granted permission ID
-	PermissionId *string
-	// User or entity the permission was granted to
-	GranteeId *string
-	// Response metadata
-	Metadata *proto.ResponseMetadata
-}
-
-func (b0 GrantPermissionResponse_builder) Build() *GrantPermissionResponse {
-	m0 := &GrantPermissionResponse{}
-	b, x := &b0, m0
-	_, _ = b, x
-	if b.Success != nil {
-		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 0, 5)
-		x.xxx_hidden_Success = *b.Success
-	}
-	if b.ErrorMessage != nil {
-		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 1, 5)
-		x.xxx_hidden_ErrorMessage = b.ErrorMessage
-	}
-	if b.PermissionId != nil {
-		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 2, 5)
-		x.xxx_hidden_PermissionId = b.PermissionId
-	}
-	if b.GranteeId != nil {
-		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 3, 5)
-		x.xxx_hidden_GranteeId = b.GranteeId
-	}
-	x.xxx_hidden_Metadata = b.Metadata
-	return m0
 }
 
 var File_pkg_auth_proto_grant_permission_response_proto protoreflect.FileDescriptor
 
 const file_pkg_auth_proto_grant_permission_response_proto_rawDesc = "" +
 	"\n" +
-	".pkg/auth/proto/grant_permission_response.proto\x12\x0fgcommon.v1.auth\x1a!google/protobuf/go_features.proto\x1a(pkg/common/proto/response_metadata.proto\"\xdd\x01\n" +
+	".pkg/auth/proto/grant_permission_response.proto\x12\x0fgcommon.v1.auth\x1a(pkg/common/proto/response_metadata.proto\"\xdd\x01\n" +
 	"\x17GrantPermissionResponse\x12\x18\n" +
 	"\asuccess\x18\x01 \x01(\bR\asuccess\x12#\n" +
 	"\rerror_message\x18\x02 \x01(\tR\ferrorMessage\x12#\n" +
 	"\rpermission_id\x18\x03 \x01(\tR\fpermissionId\x12\x1d\n" +
 	"\n" +
 	"grantee_id\x18\x04 \x01(\tR\tgranteeId\x12?\n" +
-	"\bmetadata\x18\x05 \x01(\v2#.gcommon.v1.common.ResponseMetadataR\bmetadataB\xc3\x01\n" +
-	"\x13com.gcommon.v1.authB\x1cGrantPermissionResponseProtoP\x01Z(github.com/jdfalk/gcommon/pkg/auth/proto\xa2\x02\x03GVA\xaa\x02\x0fGcommon.V1.Auth\xca\x02\x0fGcommon\\V1\\Auth\xe2\x02\x1bGcommon\\V1\\Auth\\GPBMetadata\xea\x02\x11Gcommon::V1::Auth\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"\bmetadata\x18\x05 \x01(\v2#.gcommon.v1.common.ResponseMetadataR\bmetadataB\xbb\x01\n" +
+	"\x13com.gcommon.v1.authB\x1cGrantPermissionResponseProtoP\x01Z(github.com/jdfalk/gcommon/pkg/auth/proto\xa2\x02\x03GVA\xaa\x02\x0fGcommon.V1.Auth\xca\x02\x0fGcommon\\V1\\Auth\xe2\x02\x1bGcommon\\V1\\Auth\\GPBMetadata\xea\x02\x11Gcommon::V1::Authb\beditionsp\xe8\a"
+
+var (
+	file_pkg_auth_proto_grant_permission_response_proto_rawDescOnce sync.Once
+	file_pkg_auth_proto_grant_permission_response_proto_rawDescData []byte
+)
+
+func file_pkg_auth_proto_grant_permission_response_proto_rawDescGZIP() []byte {
+	file_pkg_auth_proto_grant_permission_response_proto_rawDescOnce.Do(func() {
+		file_pkg_auth_proto_grant_permission_response_proto_rawDescData = protoimpl.X.CompressGZIP(unsafe.Slice(unsafe.StringData(file_pkg_auth_proto_grant_permission_response_proto_rawDesc), len(file_pkg_auth_proto_grant_permission_response_proto_rawDesc)))
+	})
+	return file_pkg_auth_proto_grant_permission_response_proto_rawDescData
+}
 
 var file_pkg_auth_proto_grant_permission_response_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_pkg_auth_proto_grant_permission_response_proto_goTypes = []any{

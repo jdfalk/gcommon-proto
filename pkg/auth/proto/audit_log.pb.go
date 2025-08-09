@@ -9,9 +9,9 @@ package proto
 import (
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
-	_ "google.golang.org/protobuf/types/gofeaturespb"
 	timestamppb "google.golang.org/protobuf/types/known/timestamppb"
 	reflect "reflect"
+	sync "sync"
 	unsafe "unsafe"
 )
 
@@ -24,16 +24,19 @@ const (
 
 // AuditLog captures security-relevant user actions for auditing purposes
 type AuditLog struct {
-	state                  protoimpl.MessageState `protogen:"opaque.v1"`
-	xxx_hidden_UserId      *string                `protobuf:"bytes,1,opt,name=user_id,json=userId"`
-	xxx_hidden_Action      *string                `protobuf:"bytes,2,opt,name=action"`
-	xxx_hidden_Timestamp   *timestamppb.Timestamp `protobuf:"bytes,3,opt,name=timestamp"`
-	xxx_hidden_IpAddress   *string                `protobuf:"bytes,4,opt,name=ip_address,json=ipAddress"`
-	xxx_hidden_Metadata    map[string]string      `protobuf:"bytes,5,rep,name=metadata" protobuf_key:"bytes,1,opt,name=key" protobuf_val:"bytes,2,opt,name=value"`
-	XXX_raceDetectHookData protoimpl.RaceDetectHookData
-	XXX_presence           [1]uint32
-	unknownFields          protoimpl.UnknownFields
-	sizeCache              protoimpl.SizeCache
+	state protoimpl.MessageState `protogen:"open.v1"`
+	// Unique identifier of the user performing the action
+	UserId *string `protobuf:"bytes,1,opt,name=user_id,json=userId" json:"user_id,omitempty"`
+	// Action performed (e.g., LOGIN, LOGOUT, UPDATE_PROFILE)
+	Action *string `protobuf:"bytes,2,opt,name=action" json:"action,omitempty"`
+	// Time the action occurred
+	Timestamp *timestamppb.Timestamp `protobuf:"bytes,3,opt,name=timestamp" json:"timestamp,omitempty"`
+	// IP address of the client
+	IpAddress *string `protobuf:"bytes,4,opt,name=ip_address,json=ipAddress" json:"ip_address,omitempty"`
+	// Additional metadata for the audit entry
+	Metadata      map[string]string `protobuf:"bytes,5,rep,name=metadata" json:"metadata,omitempty" protobuf_key:"bytes,1,opt,name=key" protobuf_val:"bytes,2,opt,name=value"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
 }
 
 func (x *AuditLog) Reset() {
@@ -61,161 +64,51 @@ func (x *AuditLog) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
+// Deprecated: Use AuditLog.ProtoReflect.Descriptor instead.
+func (*AuditLog) Descriptor() ([]byte, []int) {
+	return file_pkg_auth_proto_audit_log_proto_rawDescGZIP(), []int{0}
+}
+
 func (x *AuditLog) GetUserId() string {
-	if x != nil {
-		if x.xxx_hidden_UserId != nil {
-			return *x.xxx_hidden_UserId
-		}
-		return ""
+	if x != nil && x.UserId != nil {
+		return *x.UserId
 	}
 	return ""
 }
 
 func (x *AuditLog) GetAction() string {
-	if x != nil {
-		if x.xxx_hidden_Action != nil {
-			return *x.xxx_hidden_Action
-		}
-		return ""
+	if x != nil && x.Action != nil {
+		return *x.Action
 	}
 	return ""
 }
 
 func (x *AuditLog) GetTimestamp() *timestamppb.Timestamp {
 	if x != nil {
-		return x.xxx_hidden_Timestamp
+		return x.Timestamp
 	}
 	return nil
 }
 
 func (x *AuditLog) GetIpAddress() string {
-	if x != nil {
-		if x.xxx_hidden_IpAddress != nil {
-			return *x.xxx_hidden_IpAddress
-		}
-		return ""
+	if x != nil && x.IpAddress != nil {
+		return *x.IpAddress
 	}
 	return ""
 }
 
 func (x *AuditLog) GetMetadata() map[string]string {
 	if x != nil {
-		return x.xxx_hidden_Metadata
+		return x.Metadata
 	}
 	return nil
-}
-
-func (x *AuditLog) SetUserId(v string) {
-	x.xxx_hidden_UserId = &v
-	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 0, 5)
-}
-
-func (x *AuditLog) SetAction(v string) {
-	x.xxx_hidden_Action = &v
-	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 1, 5)
-}
-
-func (x *AuditLog) SetTimestamp(v *timestamppb.Timestamp) {
-	x.xxx_hidden_Timestamp = v
-}
-
-func (x *AuditLog) SetIpAddress(v string) {
-	x.xxx_hidden_IpAddress = &v
-	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 3, 5)
-}
-
-func (x *AuditLog) SetMetadata(v map[string]string) {
-	x.xxx_hidden_Metadata = v
-}
-
-func (x *AuditLog) HasUserId() bool {
-	if x == nil {
-		return false
-	}
-	return protoimpl.X.Present(&(x.XXX_presence[0]), 0)
-}
-
-func (x *AuditLog) HasAction() bool {
-	if x == nil {
-		return false
-	}
-	return protoimpl.X.Present(&(x.XXX_presence[0]), 1)
-}
-
-func (x *AuditLog) HasTimestamp() bool {
-	if x == nil {
-		return false
-	}
-	return x.xxx_hidden_Timestamp != nil
-}
-
-func (x *AuditLog) HasIpAddress() bool {
-	if x == nil {
-		return false
-	}
-	return protoimpl.X.Present(&(x.XXX_presence[0]), 3)
-}
-
-func (x *AuditLog) ClearUserId() {
-	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 0)
-	x.xxx_hidden_UserId = nil
-}
-
-func (x *AuditLog) ClearAction() {
-	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 1)
-	x.xxx_hidden_Action = nil
-}
-
-func (x *AuditLog) ClearTimestamp() {
-	x.xxx_hidden_Timestamp = nil
-}
-
-func (x *AuditLog) ClearIpAddress() {
-	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 3)
-	x.xxx_hidden_IpAddress = nil
-}
-
-type AuditLog_builder struct {
-	_ [0]func() // Prevents comparability and use of unkeyed literals for the builder.
-
-	// Unique identifier of the user performing the action
-	UserId *string
-	// Action performed (e.g., LOGIN, LOGOUT, UPDATE_PROFILE)
-	Action *string
-	// Time the action occurred
-	Timestamp *timestamppb.Timestamp
-	// IP address of the client
-	IpAddress *string
-	// Additional metadata for the audit entry
-	Metadata map[string]string
-}
-
-func (b0 AuditLog_builder) Build() *AuditLog {
-	m0 := &AuditLog{}
-	b, x := &b0, m0
-	_, _ = b, x
-	if b.UserId != nil {
-		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 0, 5)
-		x.xxx_hidden_UserId = b.UserId
-	}
-	if b.Action != nil {
-		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 1, 5)
-		x.xxx_hidden_Action = b.Action
-	}
-	x.xxx_hidden_Timestamp = b.Timestamp
-	if b.IpAddress != nil {
-		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 3, 5)
-		x.xxx_hidden_IpAddress = b.IpAddress
-	}
-	x.xxx_hidden_Metadata = b.Metadata
-	return m0
 }
 
 var File_pkg_auth_proto_audit_log_proto protoreflect.FileDescriptor
 
 const file_pkg_auth_proto_audit_log_proto_rawDesc = "" +
 	"\n" +
-	"\x1epkg/auth/proto/audit_log.proto\x12\x0fgcommon.v1.auth\x1a!google/protobuf/go_features.proto\x1a\x1fgoogle/protobuf/timestamp.proto\"\x96\x02\n" +
+	"\x1epkg/auth/proto/audit_log.proto\x12\x0fgcommon.v1.auth\x1a\x1fgoogle/protobuf/timestamp.proto\"\x96\x02\n" +
 	"\bAuditLog\x12\x17\n" +
 	"\auser_id\x18\x01 \x01(\tR\x06userId\x12\x16\n" +
 	"\x06action\x18\x02 \x01(\tR\x06action\x128\n" +
@@ -225,8 +118,20 @@ const file_pkg_auth_proto_audit_log_proto_rawDesc = "" +
 	"\bmetadata\x18\x05 \x03(\v2'.gcommon.v1.auth.AuditLog.MetadataEntryR\bmetadata\x1a;\n" +
 	"\rMetadataEntry\x12\x10\n" +
 	"\x03key\x18\x01 \x01(\tR\x03key\x12\x14\n" +
-	"\x05value\x18\x02 \x01(\tR\x05value:\x028\x01B\xb4\x01\n" +
-	"\x13com.gcommon.v1.authB\rAuditLogProtoP\x01Z(github.com/jdfalk/gcommon/pkg/auth/proto\xa2\x02\x03GVA\xaa\x02\x0fGcommon.V1.Auth\xca\x02\x0fGcommon\\V1\\Auth\xe2\x02\x1bGcommon\\V1\\Auth\\GPBMetadata\xea\x02\x11Gcommon::V1::Auth\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"\x05value\x18\x02 \x01(\tR\x05value:\x028\x01B\xac\x01\n" +
+	"\x13com.gcommon.v1.authB\rAuditLogProtoP\x01Z(github.com/jdfalk/gcommon/pkg/auth/proto\xa2\x02\x03GVA\xaa\x02\x0fGcommon.V1.Auth\xca\x02\x0fGcommon\\V1\\Auth\xe2\x02\x1bGcommon\\V1\\Auth\\GPBMetadata\xea\x02\x11Gcommon::V1::Authb\beditionsp\xe8\a"
+
+var (
+	file_pkg_auth_proto_audit_log_proto_rawDescOnce sync.Once
+	file_pkg_auth_proto_audit_log_proto_rawDescData []byte
+)
+
+func file_pkg_auth_proto_audit_log_proto_rawDescGZIP() []byte {
+	file_pkg_auth_proto_audit_log_proto_rawDescOnce.Do(func() {
+		file_pkg_auth_proto_audit_log_proto_rawDescData = protoimpl.X.CompressGZIP(unsafe.Slice(unsafe.StringData(file_pkg_auth_proto_audit_log_proto_rawDesc), len(file_pkg_auth_proto_audit_log_proto_rawDesc)))
+	})
+	return file_pkg_auth_proto_audit_log_proto_rawDescData
+}
 
 var file_pkg_auth_proto_audit_log_proto_msgTypes = make([]protoimpl.MessageInfo, 2)
 var file_pkg_auth_proto_audit_log_proto_goTypes = []any{

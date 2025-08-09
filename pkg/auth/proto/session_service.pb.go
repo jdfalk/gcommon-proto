@@ -9,7 +9,6 @@ package proto
 import (
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
-	_ "google.golang.org/protobuf/types/gofeaturespb"
 	reflect "reflect"
 	unsafe "unsafe"
 )
@@ -25,7 +24,7 @@ var File_pkg_auth_proto_session_service_proto protoreflect.FileDescriptor
 
 const file_pkg_auth_proto_session_service_proto_rawDesc = "" +
 	"\n" +
-	"$pkg/auth/proto/session_service.proto\x12\x0fgcommon.v1.auth\x1a!google/protobuf/go_features.proto\x1a\x1cpkg/auth/proto/session.proto\x1a+pkg/auth/proto/create_session_request.proto\x1a,pkg/auth/proto/create_session_response.proto\x1a+pkg/auth/proto/delete_session_request.proto\x1a,pkg/auth/proto/delete_session_response.proto\x1a(pkg/auth/proto/get_session_request.proto\x1a)pkg/auth/proto/get_session_response.proto\x1a*pkg/auth/proto/list_sessions_request.proto\x1a+pkg/auth/proto/list_sessions_response.proto\x1a/pkg/auth/proto/list_user_sessions_request.proto\x1a0pkg/auth/proto/list_user_sessions_response.proto\x1a.pkg/auth/proto/terminate_session_request.proto\x1a/pkg/auth/proto/terminate_session_response.proto\x1a+pkg/auth/proto/update_session_request.proto\x1a,pkg/auth/proto/update_session_response.proto\x1a-pkg/auth/proto/validate_session_request.proto\x1a.pkg/auth/proto/validate_session_response.proto2\x9c\x06\n" +
+	"$pkg/auth/proto/session_service.proto\x12\x0fgcommon.v1.auth\x1a\x1cpkg/auth/proto/session.proto\x1a+pkg/auth/proto/create_session_request.proto\x1a,pkg/auth/proto/create_session_response.proto\x1a+pkg/auth/proto/delete_session_request.proto\x1a,pkg/auth/proto/delete_session_response.proto\x1a(pkg/auth/proto/get_session_request.proto\x1a)pkg/auth/proto/get_session_response.proto\x1a*pkg/auth/proto/list_sessions_request.proto\x1a+pkg/auth/proto/list_sessions_response.proto\x1a/pkg/auth/proto/list_user_sessions_request.proto\x1a0pkg/auth/proto/list_user_sessions_response.proto\x1a.pkg/auth/proto/terminate_session_request.proto\x1a/pkg/auth/proto/terminate_session_response.proto\x1a+pkg/auth/proto/update_session_request.proto\x1a,pkg/auth/proto/update_session_response.proto\x1a-pkg/auth/proto/validate_session_request.proto\x1a.pkg/auth/proto/validate_session_response.proto2\x9c\x06\n" +
 	"\x0eSessionService\x12^\n" +
 	"\rCreateSession\x12%.gcommon.v1.auth.CreateSessionRequest\x1a&.gcommon.v1.auth.CreateSessionResponse\x12U\n" +
 	"\n" +
@@ -35,8 +34,8 @@ const file_pkg_auth_proto_session_service_proto_rawDesc = "" +
 	"\x10TerminateSession\x12(.gcommon.v1.auth.TerminateSessionRequest\x1a).gcommon.v1.auth.TerminateSessionResponse\x12^\n" +
 	"\rDeleteSession\x12%.gcommon.v1.auth.DeleteSessionRequest\x1a&.gcommon.v1.auth.DeleteSessionResponse\x12g\n" +
 	"\x10ListUserSessions\x12(.gcommon.v1.auth.ListUserSessionsRequest\x1a).gcommon.v1.auth.ListUserSessionsResponse\x12[\n" +
-	"\fListSessions\x12$.gcommon.v1.auth.ListSessionsRequest\x1a%.gcommon.v1.auth.ListSessionsResponseB\xba\x01\n" +
-	"\x13com.gcommon.v1.authB\x13SessionServiceProtoP\x01Z(github.com/jdfalk/gcommon/pkg/auth/proto\xa2\x02\x03GVA\xaa\x02\x0fGcommon.V1.Auth\xca\x02\x0fGcommon\\V1\\Auth\xe2\x02\x1bGcommon\\V1\\Auth\\GPBMetadata\xea\x02\x11Gcommon::V1::Auth\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"\fListSessions\x12$.gcommon.v1.auth.ListSessionsRequest\x1a%.gcommon.v1.auth.ListSessionsResponseB\xb2\x01\n" +
+	"\x13com.gcommon.v1.authB\x13SessionServiceProtoP\x01Z(github.com/jdfalk/gcommon/pkg/auth/proto\xa2\x02\x03GVA\xaa\x02\x0fGcommon.V1.Auth\xca\x02\x0fGcommon\\V1\\Auth\xe2\x02\x1bGcommon\\V1\\Auth\\GPBMetadata\xea\x02\x11Gcommon::V1::Authb\beditionsp\xe8\a"
 
 var file_pkg_auth_proto_session_service_proto_goTypes = []any{
 	(*CreateSessionRequest)(nil),     // 0: gcommon.v1.auth.CreateSessionRequest

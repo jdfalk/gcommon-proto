@@ -9,8 +9,8 @@ package proto
 import (
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
-	_ "google.golang.org/protobuf/types/gofeaturespb"
 	reflect "reflect"
+	sync "sync"
 	unsafe "unsafe"
 )
 
@@ -26,14 +26,15 @@ const (
 // Provides standardized pagination controls for queries and lists
 // across all GCommon modules to ensure consistent behavior.
 type Pagination struct {
-	state                  protoimpl.MessageState `protogen:"opaque.v1"`
-	xxx_hidden_PageSize    int32                  `protobuf:"varint,1,opt,name=page_size,json=pageSize"`
-	xxx_hidden_PageToken   *string                `protobuf:"bytes,2,opt,name=page_token,json=pageToken"`
-	xxx_hidden_PageNumber  int32                  `protobuf:"varint,3,opt,name=page_number,json=pageNumber"`
-	XXX_raceDetectHookData protoimpl.RaceDetectHookData
-	XXX_presence           [1]uint32
-	unknownFields          protoimpl.UnknownFields
-	sizeCache              protoimpl.SizeCache
+	state protoimpl.MessageState `protogen:"open.v1"`
+	// Maximum number of items to return in a single page (0 means use server default)
+	PageSize *int32 `protobuf:"varint,1,opt,name=page_size,json=pageSize" json:"page_size,omitempty"`
+	// Opaque token for retrieving the next page (empty for first page)
+	PageToken *string `protobuf:"bytes,2,opt,name=page_token,json=pageToken" json:"page_token,omitempty"`
+	// Optional: specific page number (alternative to page_token for simple pagination)
+	PageNumber    *int32 `protobuf:"varint,3,opt,name=page_number,json=pageNumber" json:"page_number,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
 }
 
 func (x *Pagination) Reset() {
@@ -61,124 +62,57 @@ func (x *Pagination) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
+// Deprecated: Use Pagination.ProtoReflect.Descriptor instead.
+func (*Pagination) Descriptor() ([]byte, []int) {
+	return file_pkg_common_proto_pagination_proto_rawDescGZIP(), []int{0}
+}
+
 func (x *Pagination) GetPageSize() int32 {
-	if x != nil {
-		return x.xxx_hidden_PageSize
+	if x != nil && x.PageSize != nil {
+		return *x.PageSize
 	}
 	return 0
 }
 
 func (x *Pagination) GetPageToken() string {
-	if x != nil {
-		if x.xxx_hidden_PageToken != nil {
-			return *x.xxx_hidden_PageToken
-		}
-		return ""
+	if x != nil && x.PageToken != nil {
+		return *x.PageToken
 	}
 	return ""
 }
 
 func (x *Pagination) GetPageNumber() int32 {
-	if x != nil {
-		return x.xxx_hidden_PageNumber
+	if x != nil && x.PageNumber != nil {
+		return *x.PageNumber
 	}
 	return 0
-}
-
-func (x *Pagination) SetPageSize(v int32) {
-	x.xxx_hidden_PageSize = v
-	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 0, 3)
-}
-
-func (x *Pagination) SetPageToken(v string) {
-	x.xxx_hidden_PageToken = &v
-	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 1, 3)
-}
-
-func (x *Pagination) SetPageNumber(v int32) {
-	x.xxx_hidden_PageNumber = v
-	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 2, 3)
-}
-
-func (x *Pagination) HasPageSize() bool {
-	if x == nil {
-		return false
-	}
-	return protoimpl.X.Present(&(x.XXX_presence[0]), 0)
-}
-
-func (x *Pagination) HasPageToken() bool {
-	if x == nil {
-		return false
-	}
-	return protoimpl.X.Present(&(x.XXX_presence[0]), 1)
-}
-
-func (x *Pagination) HasPageNumber() bool {
-	if x == nil {
-		return false
-	}
-	return protoimpl.X.Present(&(x.XXX_presence[0]), 2)
-}
-
-func (x *Pagination) ClearPageSize() {
-	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 0)
-	x.xxx_hidden_PageSize = 0
-}
-
-func (x *Pagination) ClearPageToken() {
-	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 1)
-	x.xxx_hidden_PageToken = nil
-}
-
-func (x *Pagination) ClearPageNumber() {
-	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 2)
-	x.xxx_hidden_PageNumber = 0
-}
-
-type Pagination_builder struct {
-	_ [0]func() // Prevents comparability and use of unkeyed literals for the builder.
-
-	// Maximum number of items to return in a single page (0 means use server default)
-	PageSize *int32
-	// Opaque token for retrieving the next page (empty for first page)
-	PageToken *string
-	// Optional: specific page number (alternative to page_token for simple pagination)
-	PageNumber *int32
-}
-
-func (b0 Pagination_builder) Build() *Pagination {
-	m0 := &Pagination{}
-	b, x := &b0, m0
-	_, _ = b, x
-	if b.PageSize != nil {
-		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 0, 3)
-		x.xxx_hidden_PageSize = *b.PageSize
-	}
-	if b.PageToken != nil {
-		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 1, 3)
-		x.xxx_hidden_PageToken = b.PageToken
-	}
-	if b.PageNumber != nil {
-		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 2, 3)
-		x.xxx_hidden_PageNumber = *b.PageNumber
-	}
-	return m0
 }
 
 var File_pkg_common_proto_pagination_proto protoreflect.FileDescriptor
 
 const file_pkg_common_proto_pagination_proto_rawDesc = "" +
 	"\n" +
-	"!pkg/common/proto/pagination.proto\x12\x11gcommon.v1.common\x1a!google/protobuf/go_features.proto\"i\n" +
+	"!pkg/common/proto/pagination.proto\x12\x11gcommon.v1.common\"i\n" +
 	"\n" +
 	"Pagination\x12\x1b\n" +
 	"\tpage_size\x18\x01 \x01(\x05R\bpageSize\x12\x1d\n" +
 	"\n" +
 	"page_token\x18\x02 \x01(\tR\tpageToken\x12\x1f\n" +
 	"\vpage_number\x18\x03 \x01(\x05R\n" +
-	"pageNumberB\xc2\x01\n" +
-	"\x15com.gcommon.v1.commonB\x0fPaginationProtoP\x01Z*github.com/jdfalk/gcommon/pkg/common/proto\xa2\x02\x03GVC\xaa\x02\x11Gcommon.V1.Common\xca\x02\x11Gcommon\\V1\\Common\xe2\x02\x1dGcommon\\V1\\Common\\GPBMetadata\xea\x02\x13Gcommon::V1::Common\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"pageNumberB\xba\x01\n" +
+	"\x15com.gcommon.v1.commonB\x0fPaginationProtoP\x01Z*github.com/jdfalk/gcommon/pkg/common/proto\xa2\x02\x03GVC\xaa\x02\x11Gcommon.V1.Common\xca\x02\x11Gcommon\\V1\\Common\xe2\x02\x1dGcommon\\V1\\Common\\GPBMetadata\xea\x02\x13Gcommon::V1::Commonb\beditionsp\xe8\a"
+
+var (
+	file_pkg_common_proto_pagination_proto_rawDescOnce sync.Once
+	file_pkg_common_proto_pagination_proto_rawDescData []byte
+)
+
+func file_pkg_common_proto_pagination_proto_rawDescGZIP() []byte {
+	file_pkg_common_proto_pagination_proto_rawDescOnce.Do(func() {
+		file_pkg_common_proto_pagination_proto_rawDescData = protoimpl.X.CompressGZIP(unsafe.Slice(unsafe.StringData(file_pkg_common_proto_pagination_proto_rawDesc), len(file_pkg_common_proto_pagination_proto_rawDesc)))
+	})
+	return file_pkg_common_proto_pagination_proto_rawDescData
+}
 
 var file_pkg_common_proto_pagination_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_pkg_common_proto_pagination_proto_goTypes = []any{

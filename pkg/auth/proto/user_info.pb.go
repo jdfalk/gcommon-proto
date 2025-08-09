@@ -9,9 +9,9 @@ package proto
 import (
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
-	_ "google.golang.org/protobuf/types/gofeaturespb"
 	timestamppb "google.golang.org/protobuf/types/known/timestamppb"
 	reflect "reflect"
+	sync "sync"
 	unsafe "unsafe"
 )
 
@@ -25,25 +25,37 @@ const (
 // *
 // UserInfo contains information about a user.
 type UserInfo struct {
-	state                    protoimpl.MessageState `protogen:"opaque.v1"`
-	xxx_hidden_UserId        *string                `protobuf:"bytes,1,opt,name=user_id,json=userId"`
-	xxx_hidden_Username      *string                `protobuf:"bytes,2,opt,name=username"`
-	xxx_hidden_Email         *string                `protobuf:"bytes,3,opt,name=email"`
-	xxx_hidden_DisplayName   *string                `protobuf:"bytes,4,opt,name=display_name,json=displayName"`
-	xxx_hidden_Roles         []string               `protobuf:"bytes,5,rep,name=roles"`
-	xxx_hidden_Permissions   []string               `protobuf:"bytes,6,rep,name=permissions"`
-	xxx_hidden_Groups        []string               `protobuf:"bytes,7,rep,name=groups"`
-	xxx_hidden_Metadata      map[string]string      `protobuf:"bytes,8,rep,name=metadata" protobuf_key:"bytes,1,opt,name=key" protobuf_val:"bytes,2,opt,name=value"`
-	xxx_hidden_CreatedAt     *timestamppb.Timestamp `protobuf:"bytes,9,opt,name=created_at,json=createdAt"`
-	xxx_hidden_UpdatedAt     *timestamppb.Timestamp `protobuf:"bytes,10,opt,name=updated_at,json=updatedAt"`
-	xxx_hidden_LastLoginAt   *timestamppb.Timestamp `protobuf:"bytes,11,opt,name=last_login_at,json=lastLoginAt"`
-	xxx_hidden_Active        bool                   `protobuf:"varint,12,opt,name=active"`
-	xxx_hidden_EmailVerified bool                   `protobuf:"varint,13,opt,name=email_verified,json=emailVerified"`
-	xxx_hidden_AvatarUrl     *string                `protobuf:"bytes,14,opt,name=avatar_url,json=avatarUrl"`
-	XXX_raceDetectHookData   protoimpl.RaceDetectHookData
-	XXX_presence             [1]uint32
-	unknownFields            protoimpl.UnknownFields
-	sizeCache                protoimpl.SizeCache
+	state protoimpl.MessageState `protogen:"open.v1"`
+	// Unique user identifier
+	UserId *string `protobuf:"bytes,1,opt,name=user_id,json=userId" json:"user_id,omitempty"`
+	// Username
+	Username *string `protobuf:"bytes,2,opt,name=username" json:"username,omitempty"`
+	// User's email address
+	Email *string `protobuf:"bytes,3,opt,name=email" json:"email,omitempty"`
+	// User's display name
+	DisplayName *string `protobuf:"bytes,4,opt,name=display_name,json=displayName" json:"display_name,omitempty"`
+	// User roles
+	Roles []string `protobuf:"bytes,5,rep,name=roles" json:"roles,omitempty"`
+	// User permissions
+	Permissions []string `protobuf:"bytes,6,rep,name=permissions" json:"permissions,omitempty"`
+	// User groups
+	Groups []string `protobuf:"bytes,7,rep,name=groups" json:"groups,omitempty"`
+	// User metadata
+	Metadata map[string]string `protobuf:"bytes,8,rep,name=metadata" json:"metadata,omitempty" protobuf_key:"bytes,1,opt,name=key" protobuf_val:"bytes,2,opt,name=value"`
+	// When the user was created
+	CreatedAt *timestamppb.Timestamp `protobuf:"bytes,9,opt,name=created_at,json=createdAt" json:"created_at,omitempty"`
+	// When the user was last updated
+	UpdatedAt *timestamppb.Timestamp `protobuf:"bytes,10,opt,name=updated_at,json=updatedAt" json:"updated_at,omitempty"`
+	// When the user last logged in
+	LastLoginAt *timestamppb.Timestamp `protobuf:"bytes,11,opt,name=last_login_at,json=lastLoginAt" json:"last_login_at,omitempty"`
+	// Whether the user account is active
+	Active *bool `protobuf:"varint,12,opt,name=active" json:"active,omitempty"`
+	// Whether the user's email is verified
+	EmailVerified *bool `protobuf:"varint,13,opt,name=email_verified,json=emailVerified" json:"email_verified,omitempty"`
+	// User's profile picture URL
+	AvatarUrl     *string `protobuf:"bytes,14,opt,name=avatar_url,json=avatarUrl" json:"avatar_url,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
 }
 
 func (x *UserInfo) Reset() {
@@ -71,379 +83,114 @@ func (x *UserInfo) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
+// Deprecated: Use UserInfo.ProtoReflect.Descriptor instead.
+func (*UserInfo) Descriptor() ([]byte, []int) {
+	return file_pkg_auth_proto_user_info_proto_rawDescGZIP(), []int{0}
+}
+
 func (x *UserInfo) GetUserId() string {
-	if x != nil {
-		if x.xxx_hidden_UserId != nil {
-			return *x.xxx_hidden_UserId
-		}
-		return ""
+	if x != nil && x.UserId != nil {
+		return *x.UserId
 	}
 	return ""
 }
 
 func (x *UserInfo) GetUsername() string {
-	if x != nil {
-		if x.xxx_hidden_Username != nil {
-			return *x.xxx_hidden_Username
-		}
-		return ""
+	if x != nil && x.Username != nil {
+		return *x.Username
 	}
 	return ""
 }
 
 func (x *UserInfo) GetEmail() string {
-	if x != nil {
-		if x.xxx_hidden_Email != nil {
-			return *x.xxx_hidden_Email
-		}
-		return ""
+	if x != nil && x.Email != nil {
+		return *x.Email
 	}
 	return ""
 }
 
 func (x *UserInfo) GetDisplayName() string {
-	if x != nil {
-		if x.xxx_hidden_DisplayName != nil {
-			return *x.xxx_hidden_DisplayName
-		}
-		return ""
+	if x != nil && x.DisplayName != nil {
+		return *x.DisplayName
 	}
 	return ""
 }
 
 func (x *UserInfo) GetRoles() []string {
 	if x != nil {
-		return x.xxx_hidden_Roles
+		return x.Roles
 	}
 	return nil
 }
 
 func (x *UserInfo) GetPermissions() []string {
 	if x != nil {
-		return x.xxx_hidden_Permissions
+		return x.Permissions
 	}
 	return nil
 }
 
 func (x *UserInfo) GetGroups() []string {
 	if x != nil {
-		return x.xxx_hidden_Groups
+		return x.Groups
 	}
 	return nil
 }
 
 func (x *UserInfo) GetMetadata() map[string]string {
 	if x != nil {
-		return x.xxx_hidden_Metadata
+		return x.Metadata
 	}
 	return nil
 }
 
 func (x *UserInfo) GetCreatedAt() *timestamppb.Timestamp {
 	if x != nil {
-		return x.xxx_hidden_CreatedAt
+		return x.CreatedAt
 	}
 	return nil
 }
 
 func (x *UserInfo) GetUpdatedAt() *timestamppb.Timestamp {
 	if x != nil {
-		return x.xxx_hidden_UpdatedAt
+		return x.UpdatedAt
 	}
 	return nil
 }
 
 func (x *UserInfo) GetLastLoginAt() *timestamppb.Timestamp {
 	if x != nil {
-		return x.xxx_hidden_LastLoginAt
+		return x.LastLoginAt
 	}
 	return nil
 }
 
 func (x *UserInfo) GetActive() bool {
-	if x != nil {
-		return x.xxx_hidden_Active
+	if x != nil && x.Active != nil {
+		return *x.Active
 	}
 	return false
 }
 
 func (x *UserInfo) GetEmailVerified() bool {
-	if x != nil {
-		return x.xxx_hidden_EmailVerified
+	if x != nil && x.EmailVerified != nil {
+		return *x.EmailVerified
 	}
 	return false
 }
 
 func (x *UserInfo) GetAvatarUrl() string {
-	if x != nil {
-		if x.xxx_hidden_AvatarUrl != nil {
-			return *x.xxx_hidden_AvatarUrl
-		}
-		return ""
+	if x != nil && x.AvatarUrl != nil {
+		return *x.AvatarUrl
 	}
 	return ""
-}
-
-func (x *UserInfo) SetUserId(v string) {
-	x.xxx_hidden_UserId = &v
-	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 0, 14)
-}
-
-func (x *UserInfo) SetUsername(v string) {
-	x.xxx_hidden_Username = &v
-	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 1, 14)
-}
-
-func (x *UserInfo) SetEmail(v string) {
-	x.xxx_hidden_Email = &v
-	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 2, 14)
-}
-
-func (x *UserInfo) SetDisplayName(v string) {
-	x.xxx_hidden_DisplayName = &v
-	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 3, 14)
-}
-
-func (x *UserInfo) SetRoles(v []string) {
-	x.xxx_hidden_Roles = v
-}
-
-func (x *UserInfo) SetPermissions(v []string) {
-	x.xxx_hidden_Permissions = v
-}
-
-func (x *UserInfo) SetGroups(v []string) {
-	x.xxx_hidden_Groups = v
-}
-
-func (x *UserInfo) SetMetadata(v map[string]string) {
-	x.xxx_hidden_Metadata = v
-}
-
-func (x *UserInfo) SetCreatedAt(v *timestamppb.Timestamp) {
-	x.xxx_hidden_CreatedAt = v
-}
-
-func (x *UserInfo) SetUpdatedAt(v *timestamppb.Timestamp) {
-	x.xxx_hidden_UpdatedAt = v
-}
-
-func (x *UserInfo) SetLastLoginAt(v *timestamppb.Timestamp) {
-	x.xxx_hidden_LastLoginAt = v
-}
-
-func (x *UserInfo) SetActive(v bool) {
-	x.xxx_hidden_Active = v
-	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 11, 14)
-}
-
-func (x *UserInfo) SetEmailVerified(v bool) {
-	x.xxx_hidden_EmailVerified = v
-	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 12, 14)
-}
-
-func (x *UserInfo) SetAvatarUrl(v string) {
-	x.xxx_hidden_AvatarUrl = &v
-	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 13, 14)
-}
-
-func (x *UserInfo) HasUserId() bool {
-	if x == nil {
-		return false
-	}
-	return protoimpl.X.Present(&(x.XXX_presence[0]), 0)
-}
-
-func (x *UserInfo) HasUsername() bool {
-	if x == nil {
-		return false
-	}
-	return protoimpl.X.Present(&(x.XXX_presence[0]), 1)
-}
-
-func (x *UserInfo) HasEmail() bool {
-	if x == nil {
-		return false
-	}
-	return protoimpl.X.Present(&(x.XXX_presence[0]), 2)
-}
-
-func (x *UserInfo) HasDisplayName() bool {
-	if x == nil {
-		return false
-	}
-	return protoimpl.X.Present(&(x.XXX_presence[0]), 3)
-}
-
-func (x *UserInfo) HasCreatedAt() bool {
-	if x == nil {
-		return false
-	}
-	return x.xxx_hidden_CreatedAt != nil
-}
-
-func (x *UserInfo) HasUpdatedAt() bool {
-	if x == nil {
-		return false
-	}
-	return x.xxx_hidden_UpdatedAt != nil
-}
-
-func (x *UserInfo) HasLastLoginAt() bool {
-	if x == nil {
-		return false
-	}
-	return x.xxx_hidden_LastLoginAt != nil
-}
-
-func (x *UserInfo) HasActive() bool {
-	if x == nil {
-		return false
-	}
-	return protoimpl.X.Present(&(x.XXX_presence[0]), 11)
-}
-
-func (x *UserInfo) HasEmailVerified() bool {
-	if x == nil {
-		return false
-	}
-	return protoimpl.X.Present(&(x.XXX_presence[0]), 12)
-}
-
-func (x *UserInfo) HasAvatarUrl() bool {
-	if x == nil {
-		return false
-	}
-	return protoimpl.X.Present(&(x.XXX_presence[0]), 13)
-}
-
-func (x *UserInfo) ClearUserId() {
-	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 0)
-	x.xxx_hidden_UserId = nil
-}
-
-func (x *UserInfo) ClearUsername() {
-	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 1)
-	x.xxx_hidden_Username = nil
-}
-
-func (x *UserInfo) ClearEmail() {
-	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 2)
-	x.xxx_hidden_Email = nil
-}
-
-func (x *UserInfo) ClearDisplayName() {
-	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 3)
-	x.xxx_hidden_DisplayName = nil
-}
-
-func (x *UserInfo) ClearCreatedAt() {
-	x.xxx_hidden_CreatedAt = nil
-}
-
-func (x *UserInfo) ClearUpdatedAt() {
-	x.xxx_hidden_UpdatedAt = nil
-}
-
-func (x *UserInfo) ClearLastLoginAt() {
-	x.xxx_hidden_LastLoginAt = nil
-}
-
-func (x *UserInfo) ClearActive() {
-	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 11)
-	x.xxx_hidden_Active = false
-}
-
-func (x *UserInfo) ClearEmailVerified() {
-	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 12)
-	x.xxx_hidden_EmailVerified = false
-}
-
-func (x *UserInfo) ClearAvatarUrl() {
-	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 13)
-	x.xxx_hidden_AvatarUrl = nil
-}
-
-type UserInfo_builder struct {
-	_ [0]func() // Prevents comparability and use of unkeyed literals for the builder.
-
-	// Unique user identifier
-	UserId *string
-	// Username
-	Username *string
-	// User's email address
-	Email *string
-	// User's display name
-	DisplayName *string
-	// User roles
-	Roles []string
-	// User permissions
-	Permissions []string
-	// User groups
-	Groups []string
-	// User metadata
-	Metadata map[string]string
-	// When the user was created
-	CreatedAt *timestamppb.Timestamp
-	// When the user was last updated
-	UpdatedAt *timestamppb.Timestamp
-	// When the user last logged in
-	LastLoginAt *timestamppb.Timestamp
-	// Whether the user account is active
-	Active *bool
-	// Whether the user's email is verified
-	EmailVerified *bool
-	// User's profile picture URL
-	AvatarUrl *string
-}
-
-func (b0 UserInfo_builder) Build() *UserInfo {
-	m0 := &UserInfo{}
-	b, x := &b0, m0
-	_, _ = b, x
-	if b.UserId != nil {
-		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 0, 14)
-		x.xxx_hidden_UserId = b.UserId
-	}
-	if b.Username != nil {
-		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 1, 14)
-		x.xxx_hidden_Username = b.Username
-	}
-	if b.Email != nil {
-		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 2, 14)
-		x.xxx_hidden_Email = b.Email
-	}
-	if b.DisplayName != nil {
-		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 3, 14)
-		x.xxx_hidden_DisplayName = b.DisplayName
-	}
-	x.xxx_hidden_Roles = b.Roles
-	x.xxx_hidden_Permissions = b.Permissions
-	x.xxx_hidden_Groups = b.Groups
-	x.xxx_hidden_Metadata = b.Metadata
-	x.xxx_hidden_CreatedAt = b.CreatedAt
-	x.xxx_hidden_UpdatedAt = b.UpdatedAt
-	x.xxx_hidden_LastLoginAt = b.LastLoginAt
-	if b.Active != nil {
-		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 11, 14)
-		x.xxx_hidden_Active = *b.Active
-	}
-	if b.EmailVerified != nil {
-		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 12, 14)
-		x.xxx_hidden_EmailVerified = *b.EmailVerified
-	}
-	if b.AvatarUrl != nil {
-		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 13, 14)
-		x.xxx_hidden_AvatarUrl = b.AvatarUrl
-	}
-	return m0
 }
 
 var File_pkg_auth_proto_user_info_proto protoreflect.FileDescriptor
 
 const file_pkg_auth_proto_user_info_proto_rawDesc = "" +
 	"\n" +
-	"\x1epkg/auth/proto/user_info.proto\x12\x0fgcommon.v1.auth\x1a!google/protobuf/go_features.proto\x1a\x1fgoogle/protobuf/timestamp.proto\"\xde\x04\n" +
+	"\x1epkg/auth/proto/user_info.proto\x12\x0fgcommon.v1.auth\x1a\x1fgoogle/protobuf/timestamp.proto\"\xde\x04\n" +
 	"\bUserInfo\x12\x17\n" +
 	"\auser_id\x18\x01 \x01(\tR\x06userId\x12\x1a\n" +
 	"\busername\x18\x02 \x01(\tR\busername\x12\x14\n" +
@@ -465,8 +212,20 @@ const file_pkg_auth_proto_user_info_proto_rawDesc = "" +
 	"avatar_url\x18\x0e \x01(\tR\tavatarUrl\x1a;\n" +
 	"\rMetadataEntry\x12\x10\n" +
 	"\x03key\x18\x01 \x01(\tR\x03key\x12\x14\n" +
-	"\x05value\x18\x02 \x01(\tR\x05value:\x028\x01B\xb4\x01\n" +
-	"\x13com.gcommon.v1.authB\rUserInfoProtoP\x01Z(github.com/jdfalk/gcommon/pkg/auth/proto\xa2\x02\x03GVA\xaa\x02\x0fGcommon.V1.Auth\xca\x02\x0fGcommon\\V1\\Auth\xe2\x02\x1bGcommon\\V1\\Auth\\GPBMetadata\xea\x02\x11Gcommon::V1::Auth\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"\x05value\x18\x02 \x01(\tR\x05value:\x028\x01B\xac\x01\n" +
+	"\x13com.gcommon.v1.authB\rUserInfoProtoP\x01Z(github.com/jdfalk/gcommon/pkg/auth/proto\xa2\x02\x03GVA\xaa\x02\x0fGcommon.V1.Auth\xca\x02\x0fGcommon\\V1\\Auth\xe2\x02\x1bGcommon\\V1\\Auth\\GPBMetadata\xea\x02\x11Gcommon::V1::Authb\beditionsp\xe8\a"
+
+var (
+	file_pkg_auth_proto_user_info_proto_rawDescOnce sync.Once
+	file_pkg_auth_proto_user_info_proto_rawDescData []byte
+)
+
+func file_pkg_auth_proto_user_info_proto_rawDescGZIP() []byte {
+	file_pkg_auth_proto_user_info_proto_rawDescOnce.Do(func() {
+		file_pkg_auth_proto_user_info_proto_rawDescData = protoimpl.X.CompressGZIP(unsafe.Slice(unsafe.StringData(file_pkg_auth_proto_user_info_proto_rawDesc), len(file_pkg_auth_proto_user_info_proto_rawDesc)))
+	})
+	return file_pkg_auth_proto_user_info_proto_rawDescData
+}
 
 var file_pkg_auth_proto_user_info_proto_msgTypes = make([]protoimpl.MessageInfo, 2)
 var file_pkg_auth_proto_user_info_proto_goTypes = []any{

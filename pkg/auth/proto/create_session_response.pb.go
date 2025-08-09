@@ -10,9 +10,9 @@ import (
 	proto "github.com/jdfalk/gcommon/pkg/common/proto"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
-	_ "google.golang.org/protobuf/types/gofeaturespb"
 	timestamppb "google.golang.org/protobuf/types/known/timestamppb"
 	reflect "reflect"
+	sync "sync"
 	unsafe "unsafe"
 )
 
@@ -27,20 +27,21 @@ const (
 // Response for session creation operations.
 // Contains session token, expiration details, and user context.
 type CreateSessionResponse struct {
-	state                       protoimpl.MessageState  `protogen:"opaque.v1"`
-	xxx_hidden_Metadata         *proto.ResponseMetadata `protobuf:"bytes,1,opt,name=metadata"`
-	xxx_hidden_SessionId        *string                 `protobuf:"bytes,2,opt,name=session_id,json=sessionId"`
-	xxx_hidden_AccessToken      *string                 `protobuf:"bytes,3,opt,name=access_token,json=accessToken"`
-	xxx_hidden_RefreshToken     *string                 `protobuf:"bytes,4,opt,name=refresh_token,json=refreshToken"`
-	xxx_hidden_ExpiresAt        *timestamppb.Timestamp  `protobuf:"bytes,5,opt,name=expires_at,json=expiresAt"`
-	xxx_hidden_RefreshExpiresAt *timestamppb.Timestamp  `protobuf:"bytes,6,opt,name=refresh_expires_at,json=refreshExpiresAt"`
-	xxx_hidden_UserId           *string                 `protobuf:"bytes,7,opt,name=user_id,json=userId"`
-	xxx_hidden_Roles            []string                `protobuf:"bytes,8,rep,name=roles"`
-	xxx_hidden_Permissions      []string                `protobuf:"bytes,9,rep,name=permissions"`
-	XXX_raceDetectHookData      protoimpl.RaceDetectHookData
-	XXX_presence                [1]uint32
-	unknownFields               protoimpl.UnknownFields
-	sizeCache                   protoimpl.SizeCache
+	state protoimpl.MessageState `protogen:"open.v1"`
+	// Standard response metadata
+	Metadata *proto.ResponseMetadata `protobuf:"bytes,1,opt,name=metadata" json:"metadata,omitempty"`
+	// Created session details
+	SessionId        *string                `protobuf:"bytes,2,opt,name=session_id,json=sessionId" json:"session_id,omitempty"`
+	AccessToken      *string                `protobuf:"bytes,3,opt,name=access_token,json=accessToken" json:"access_token,omitempty"`
+	RefreshToken     *string                `protobuf:"bytes,4,opt,name=refresh_token,json=refreshToken" json:"refresh_token,omitempty"`
+	ExpiresAt        *timestamppb.Timestamp `protobuf:"bytes,5,opt,name=expires_at,json=expiresAt" json:"expires_at,omitempty"`
+	RefreshExpiresAt *timestamppb.Timestamp `protobuf:"bytes,6,opt,name=refresh_expires_at,json=refreshExpiresAt" json:"refresh_expires_at,omitempty"`
+	// User context
+	UserId        *string  `protobuf:"bytes,7,opt,name=user_id,json=userId" json:"user_id,omitempty"`
+	Roles         []string `protobuf:"bytes,8,rep,name=roles" json:"roles,omitempty"`
+	Permissions   []string `protobuf:"bytes,9,rep,name=permissions" json:"permissions,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
 }
 
 func (x *CreateSessionResponse) Reset() {
@@ -68,252 +69,79 @@ func (x *CreateSessionResponse) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
+// Deprecated: Use CreateSessionResponse.ProtoReflect.Descriptor instead.
+func (*CreateSessionResponse) Descriptor() ([]byte, []int) {
+	return file_pkg_auth_proto_create_session_response_proto_rawDescGZIP(), []int{0}
+}
+
 func (x *CreateSessionResponse) GetMetadata() *proto.ResponseMetadata {
 	if x != nil {
-		return x.xxx_hidden_Metadata
+		return x.Metadata
 	}
 	return nil
 }
 
 func (x *CreateSessionResponse) GetSessionId() string {
-	if x != nil {
-		if x.xxx_hidden_SessionId != nil {
-			return *x.xxx_hidden_SessionId
-		}
-		return ""
+	if x != nil && x.SessionId != nil {
+		return *x.SessionId
 	}
 	return ""
 }
 
 func (x *CreateSessionResponse) GetAccessToken() string {
-	if x != nil {
-		if x.xxx_hidden_AccessToken != nil {
-			return *x.xxx_hidden_AccessToken
-		}
-		return ""
+	if x != nil && x.AccessToken != nil {
+		return *x.AccessToken
 	}
 	return ""
 }
 
 func (x *CreateSessionResponse) GetRefreshToken() string {
-	if x != nil {
-		if x.xxx_hidden_RefreshToken != nil {
-			return *x.xxx_hidden_RefreshToken
-		}
-		return ""
+	if x != nil && x.RefreshToken != nil {
+		return *x.RefreshToken
 	}
 	return ""
 }
 
 func (x *CreateSessionResponse) GetExpiresAt() *timestamppb.Timestamp {
 	if x != nil {
-		return x.xxx_hidden_ExpiresAt
+		return x.ExpiresAt
 	}
 	return nil
 }
 
 func (x *CreateSessionResponse) GetRefreshExpiresAt() *timestamppb.Timestamp {
 	if x != nil {
-		return x.xxx_hidden_RefreshExpiresAt
+		return x.RefreshExpiresAt
 	}
 	return nil
 }
 
 func (x *CreateSessionResponse) GetUserId() string {
-	if x != nil {
-		if x.xxx_hidden_UserId != nil {
-			return *x.xxx_hidden_UserId
-		}
-		return ""
+	if x != nil && x.UserId != nil {
+		return *x.UserId
 	}
 	return ""
 }
 
 func (x *CreateSessionResponse) GetRoles() []string {
 	if x != nil {
-		return x.xxx_hidden_Roles
+		return x.Roles
 	}
 	return nil
 }
 
 func (x *CreateSessionResponse) GetPermissions() []string {
 	if x != nil {
-		return x.xxx_hidden_Permissions
+		return x.Permissions
 	}
 	return nil
-}
-
-func (x *CreateSessionResponse) SetMetadata(v *proto.ResponseMetadata) {
-	x.xxx_hidden_Metadata = v
-}
-
-func (x *CreateSessionResponse) SetSessionId(v string) {
-	x.xxx_hidden_SessionId = &v
-	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 1, 9)
-}
-
-func (x *CreateSessionResponse) SetAccessToken(v string) {
-	x.xxx_hidden_AccessToken = &v
-	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 2, 9)
-}
-
-func (x *CreateSessionResponse) SetRefreshToken(v string) {
-	x.xxx_hidden_RefreshToken = &v
-	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 3, 9)
-}
-
-func (x *CreateSessionResponse) SetExpiresAt(v *timestamppb.Timestamp) {
-	x.xxx_hidden_ExpiresAt = v
-}
-
-func (x *CreateSessionResponse) SetRefreshExpiresAt(v *timestamppb.Timestamp) {
-	x.xxx_hidden_RefreshExpiresAt = v
-}
-
-func (x *CreateSessionResponse) SetUserId(v string) {
-	x.xxx_hidden_UserId = &v
-	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 6, 9)
-}
-
-func (x *CreateSessionResponse) SetRoles(v []string) {
-	x.xxx_hidden_Roles = v
-}
-
-func (x *CreateSessionResponse) SetPermissions(v []string) {
-	x.xxx_hidden_Permissions = v
-}
-
-func (x *CreateSessionResponse) HasMetadata() bool {
-	if x == nil {
-		return false
-	}
-	return x.xxx_hidden_Metadata != nil
-}
-
-func (x *CreateSessionResponse) HasSessionId() bool {
-	if x == nil {
-		return false
-	}
-	return protoimpl.X.Present(&(x.XXX_presence[0]), 1)
-}
-
-func (x *CreateSessionResponse) HasAccessToken() bool {
-	if x == nil {
-		return false
-	}
-	return protoimpl.X.Present(&(x.XXX_presence[0]), 2)
-}
-
-func (x *CreateSessionResponse) HasRefreshToken() bool {
-	if x == nil {
-		return false
-	}
-	return protoimpl.X.Present(&(x.XXX_presence[0]), 3)
-}
-
-func (x *CreateSessionResponse) HasExpiresAt() bool {
-	if x == nil {
-		return false
-	}
-	return x.xxx_hidden_ExpiresAt != nil
-}
-
-func (x *CreateSessionResponse) HasRefreshExpiresAt() bool {
-	if x == nil {
-		return false
-	}
-	return x.xxx_hidden_RefreshExpiresAt != nil
-}
-
-func (x *CreateSessionResponse) HasUserId() bool {
-	if x == nil {
-		return false
-	}
-	return protoimpl.X.Present(&(x.XXX_presence[0]), 6)
-}
-
-func (x *CreateSessionResponse) ClearMetadata() {
-	x.xxx_hidden_Metadata = nil
-}
-
-func (x *CreateSessionResponse) ClearSessionId() {
-	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 1)
-	x.xxx_hidden_SessionId = nil
-}
-
-func (x *CreateSessionResponse) ClearAccessToken() {
-	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 2)
-	x.xxx_hidden_AccessToken = nil
-}
-
-func (x *CreateSessionResponse) ClearRefreshToken() {
-	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 3)
-	x.xxx_hidden_RefreshToken = nil
-}
-
-func (x *CreateSessionResponse) ClearExpiresAt() {
-	x.xxx_hidden_ExpiresAt = nil
-}
-
-func (x *CreateSessionResponse) ClearRefreshExpiresAt() {
-	x.xxx_hidden_RefreshExpiresAt = nil
-}
-
-func (x *CreateSessionResponse) ClearUserId() {
-	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 6)
-	x.xxx_hidden_UserId = nil
-}
-
-type CreateSessionResponse_builder struct {
-	_ [0]func() // Prevents comparability and use of unkeyed literals for the builder.
-
-	// Standard response metadata
-	Metadata *proto.ResponseMetadata
-	// Created session details
-	SessionId        *string
-	AccessToken      *string
-	RefreshToken     *string
-	ExpiresAt        *timestamppb.Timestamp
-	RefreshExpiresAt *timestamppb.Timestamp
-	// User context
-	UserId      *string
-	Roles       []string
-	Permissions []string
-}
-
-func (b0 CreateSessionResponse_builder) Build() *CreateSessionResponse {
-	m0 := &CreateSessionResponse{}
-	b, x := &b0, m0
-	_, _ = b, x
-	x.xxx_hidden_Metadata = b.Metadata
-	if b.SessionId != nil {
-		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 1, 9)
-		x.xxx_hidden_SessionId = b.SessionId
-	}
-	if b.AccessToken != nil {
-		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 2, 9)
-		x.xxx_hidden_AccessToken = b.AccessToken
-	}
-	if b.RefreshToken != nil {
-		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 3, 9)
-		x.xxx_hidden_RefreshToken = b.RefreshToken
-	}
-	x.xxx_hidden_ExpiresAt = b.ExpiresAt
-	x.xxx_hidden_RefreshExpiresAt = b.RefreshExpiresAt
-	if b.UserId != nil {
-		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 6, 9)
-		x.xxx_hidden_UserId = b.UserId
-	}
-	x.xxx_hidden_Roles = b.Roles
-	x.xxx_hidden_Permissions = b.Permissions
-	return m0
 }
 
 var File_pkg_auth_proto_create_session_response_proto protoreflect.FileDescriptor
 
 const file_pkg_auth_proto_create_session_response_proto_rawDesc = "" +
 	"\n" +
-	",pkg/auth/proto/create_session_response.proto\x12\x0fgcommon.v1.auth\x1a!google/protobuf/go_features.proto\x1a\x1fgoogle/protobuf/timestamp.proto\x1a'pkg/common/proto/request_metadata.proto\x1a(pkg/common/proto/response_metadata.proto\"\x95\x03\n" +
+	",pkg/auth/proto/create_session_response.proto\x12\x0fgcommon.v1.auth\x1a\x1fgoogle/protobuf/timestamp.proto\x1a'pkg/common/proto/request_metadata.proto\x1a(pkg/common/proto/response_metadata.proto\"\x95\x03\n" +
 	"\x15CreateSessionResponse\x12?\n" +
 	"\bmetadata\x18\x01 \x01(\v2#.gcommon.v1.common.ResponseMetadataR\bmetadata\x12\x1d\n" +
 	"\n" +
@@ -325,8 +153,20 @@ const file_pkg_auth_proto_create_session_response_proto_rawDesc = "" +
 	"\x12refresh_expires_at\x18\x06 \x01(\v2\x1a.google.protobuf.TimestampR\x10refreshExpiresAt\x12\x17\n" +
 	"\auser_id\x18\a \x01(\tR\x06userId\x12\x14\n" +
 	"\x05roles\x18\b \x03(\tR\x05roles\x12 \n" +
-	"\vpermissions\x18\t \x03(\tR\vpermissionsB\xc1\x01\n" +
-	"\x13com.gcommon.v1.authB\x1aCreateSessionResponseProtoP\x01Z(github.com/jdfalk/gcommon/pkg/auth/proto\xa2\x02\x03GVA\xaa\x02\x0fGcommon.V1.Auth\xca\x02\x0fGcommon\\V1\\Auth\xe2\x02\x1bGcommon\\V1\\Auth\\GPBMetadata\xea\x02\x11Gcommon::V1::Auth\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"\vpermissions\x18\t \x03(\tR\vpermissionsB\xb9\x01\n" +
+	"\x13com.gcommon.v1.authB\x1aCreateSessionResponseProtoP\x01Z(github.com/jdfalk/gcommon/pkg/auth/proto\xa2\x02\x03GVA\xaa\x02\x0fGcommon.V1.Auth\xca\x02\x0fGcommon\\V1\\Auth\xe2\x02\x1bGcommon\\V1\\Auth\\GPBMetadata\xea\x02\x11Gcommon::V1::Authb\beditionsp\xe8\a"
+
+var (
+	file_pkg_auth_proto_create_session_response_proto_rawDescOnce sync.Once
+	file_pkg_auth_proto_create_session_response_proto_rawDescData []byte
+)
+
+func file_pkg_auth_proto_create_session_response_proto_rawDescGZIP() []byte {
+	file_pkg_auth_proto_create_session_response_proto_rawDescOnce.Do(func() {
+		file_pkg_auth_proto_create_session_response_proto_rawDescData = protoimpl.X.CompressGZIP(unsafe.Slice(unsafe.StringData(file_pkg_auth_proto_create_session_response_proto_rawDesc), len(file_pkg_auth_proto_create_session_response_proto_rawDesc)))
+	})
+	return file_pkg_auth_proto_create_session_response_proto_rawDescData
+}
 
 var file_pkg_auth_proto_create_session_response_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_pkg_auth_proto_create_session_response_proto_goTypes = []any{

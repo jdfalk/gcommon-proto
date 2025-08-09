@@ -6,7 +6,7 @@ edition = "2023";
 
 package gcommon.v1.web;
 
-import "pkg/web/proto/gcommon/pkg/web/proto;webpb";
+import "pkg/web/proto/session_data.proto";
 option go_package = "github.com/jdfalk/gcommon/pkg/web/proto";
 
 // UpdateSessionResponse response definition.

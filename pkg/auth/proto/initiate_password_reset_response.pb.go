@@ -9,9 +9,9 @@ package proto
 import (
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
-	_ "google.golang.org/protobuf/types/gofeaturespb"
 	timestamppb "google.golang.org/protobuf/types/known/timestamppb"
 	reflect "reflect"
+	sync "sync"
 	unsafe "unsafe"
 )
 
@@ -27,14 +27,15 @@ const (
 // Contains reset token and expiration information.
 // May include additional instructions for the user.
 type InitiatePasswordResetResponse struct {
-	state                  protoimpl.MessageState `protogen:"opaque.v1"`
-	xxx_hidden_ResetToken  *string                `protobuf:"bytes,1,opt,name=reset_token,json=resetToken"`
-	xxx_hidden_ExpiresAt   *timestamppb.Timestamp `protobuf:"bytes,2,opt,name=expires_at,json=expiresAt"`
-	xxx_hidden_Message     *string                `protobuf:"bytes,3,opt,name=message"`
-	XXX_raceDetectHookData protoimpl.RaceDetectHookData
-	XXX_presence           [1]uint32
-	unknownFields          protoimpl.UnknownFields
-	sizeCache              protoimpl.SizeCache
+	state protoimpl.MessageState `protogen:"open.v1"`
+	// Password reset token (may be sent via email instead)
+	ResetToken *string `protobuf:"bytes,1,opt,name=reset_token,json=resetToken" json:"reset_token,omitempty"`
+	// Token expiration timestamp
+	ExpiresAt *timestamppb.Timestamp `protobuf:"bytes,2,opt,name=expires_at,json=expiresAt" json:"expires_at,omitempty"`
+	// Message to display to user (e.g., "Check your email")
+	Message       *string `protobuf:"bytes,3,opt,name=message" json:"message,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
 }
 
 func (x *InitiatePasswordResetResponse) Reset() {
@@ -62,121 +63,56 @@ func (x *InitiatePasswordResetResponse) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
+// Deprecated: Use InitiatePasswordResetResponse.ProtoReflect.Descriptor instead.
+func (*InitiatePasswordResetResponse) Descriptor() ([]byte, []int) {
+	return file_pkg_auth_proto_initiate_password_reset_response_proto_rawDescGZIP(), []int{0}
+}
+
 func (x *InitiatePasswordResetResponse) GetResetToken() string {
-	if x != nil {
-		if x.xxx_hidden_ResetToken != nil {
-			return *x.xxx_hidden_ResetToken
-		}
-		return ""
+	if x != nil && x.ResetToken != nil {
+		return *x.ResetToken
 	}
 	return ""
 }
 
 func (x *InitiatePasswordResetResponse) GetExpiresAt() *timestamppb.Timestamp {
 	if x != nil {
-		return x.xxx_hidden_ExpiresAt
+		return x.ExpiresAt
 	}
 	return nil
 }
 
 func (x *InitiatePasswordResetResponse) GetMessage() string {
-	if x != nil {
-		if x.xxx_hidden_Message != nil {
-			return *x.xxx_hidden_Message
-		}
-		return ""
+	if x != nil && x.Message != nil {
+		return *x.Message
 	}
 	return ""
-}
-
-func (x *InitiatePasswordResetResponse) SetResetToken(v string) {
-	x.xxx_hidden_ResetToken = &v
-	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 0, 3)
-}
-
-func (x *InitiatePasswordResetResponse) SetExpiresAt(v *timestamppb.Timestamp) {
-	x.xxx_hidden_ExpiresAt = v
-}
-
-func (x *InitiatePasswordResetResponse) SetMessage(v string) {
-	x.xxx_hidden_Message = &v
-	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 2, 3)
-}
-
-func (x *InitiatePasswordResetResponse) HasResetToken() bool {
-	if x == nil {
-		return false
-	}
-	return protoimpl.X.Present(&(x.XXX_presence[0]), 0)
-}
-
-func (x *InitiatePasswordResetResponse) HasExpiresAt() bool {
-	if x == nil {
-		return false
-	}
-	return x.xxx_hidden_ExpiresAt != nil
-}
-
-func (x *InitiatePasswordResetResponse) HasMessage() bool {
-	if x == nil {
-		return false
-	}
-	return protoimpl.X.Present(&(x.XXX_presence[0]), 2)
-}
-
-func (x *InitiatePasswordResetResponse) ClearResetToken() {
-	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 0)
-	x.xxx_hidden_ResetToken = nil
-}
-
-func (x *InitiatePasswordResetResponse) ClearExpiresAt() {
-	x.xxx_hidden_ExpiresAt = nil
-}
-
-func (x *InitiatePasswordResetResponse) ClearMessage() {
-	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 2)
-	x.xxx_hidden_Message = nil
-}
-
-type InitiatePasswordResetResponse_builder struct {
-	_ [0]func() // Prevents comparability and use of unkeyed literals for the builder.
-
-	// Password reset token (may be sent via email instead)
-	ResetToken *string
-	// Token expiration timestamp
-	ExpiresAt *timestamppb.Timestamp
-	// Message to display to user (e.g., "Check your email")
-	Message *string
-}
-
-func (b0 InitiatePasswordResetResponse_builder) Build() *InitiatePasswordResetResponse {
-	m0 := &InitiatePasswordResetResponse{}
-	b, x := &b0, m0
-	_, _ = b, x
-	if b.ResetToken != nil {
-		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 0, 3)
-		x.xxx_hidden_ResetToken = b.ResetToken
-	}
-	x.xxx_hidden_ExpiresAt = b.ExpiresAt
-	if b.Message != nil {
-		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 2, 3)
-		x.xxx_hidden_Message = b.Message
-	}
-	return m0
 }
 
 var File_pkg_auth_proto_initiate_password_reset_response_proto protoreflect.FileDescriptor
 
 const file_pkg_auth_proto_initiate_password_reset_response_proto_rawDesc = "" +
 	"\n" +
-	"5pkg/auth/proto/initiate_password_reset_response.proto\x12\x0fgcommon.v1.auth\x1a!google/protobuf/go_features.proto\x1a\x1fgoogle/protobuf/timestamp.proto\"\x95\x01\n" +
+	"5pkg/auth/proto/initiate_password_reset_response.proto\x12\x0fgcommon.v1.auth\x1a\x1fgoogle/protobuf/timestamp.proto\"\x95\x01\n" +
 	"\x1dInitiatePasswordResetResponse\x12\x1f\n" +
 	"\vreset_token\x18\x01 \x01(\tR\n" +
 	"resetToken\x129\n" +
 	"\n" +
 	"expires_at\x18\x02 \x01(\v2\x1a.google.protobuf.TimestampR\texpiresAt\x12\x18\n" +
-	"\amessage\x18\x03 \x01(\tR\amessageB\xc9\x01\n" +
-	"\x13com.gcommon.v1.authB\"InitiatePasswordResetResponseProtoP\x01Z(github.com/jdfalk/gcommon/pkg/auth/proto\xa2\x02\x03GVA\xaa\x02\x0fGcommon.V1.Auth\xca\x02\x0fGcommon\\V1\\Auth\xe2\x02\x1bGcommon\\V1\\Auth\\GPBMetadata\xea\x02\x11Gcommon::V1::Auth\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"\amessage\x18\x03 \x01(\tR\amessageB\xc1\x01\n" +
+	"\x13com.gcommon.v1.authB\"InitiatePasswordResetResponseProtoP\x01Z(github.com/jdfalk/gcommon/pkg/auth/proto\xa2\x02\x03GVA\xaa\x02\x0fGcommon.V1.Auth\xca\x02\x0fGcommon\\V1\\Auth\xe2\x02\x1bGcommon\\V1\\Auth\\GPBMetadata\xea\x02\x11Gcommon::V1::Authb\beditionsp\xe8\a"
+
+var (
+	file_pkg_auth_proto_initiate_password_reset_response_proto_rawDescOnce sync.Once
+	file_pkg_auth_proto_initiate_password_reset_response_proto_rawDescData []byte
+)
+
+func file_pkg_auth_proto_initiate_password_reset_response_proto_rawDescGZIP() []byte {
+	file_pkg_auth_proto_initiate_password_reset_response_proto_rawDescOnce.Do(func() {
+		file_pkg_auth_proto_initiate_password_reset_response_proto_rawDescData = protoimpl.X.CompressGZIP(unsafe.Slice(unsafe.StringData(file_pkg_auth_proto_initiate_password_reset_response_proto_rawDesc), len(file_pkg_auth_proto_initiate_password_reset_response_proto_rawDesc)))
+	})
+	return file_pkg_auth_proto_initiate_password_reset_response_proto_rawDescData
+}
 
 var file_pkg_auth_proto_initiate_password_reset_response_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_pkg_auth_proto_initiate_password_reset_response_proto_goTypes = []any{

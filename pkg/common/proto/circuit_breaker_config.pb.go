@@ -9,9 +9,9 @@ package proto
 import (
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
-	_ "google.golang.org/protobuf/types/gofeaturespb"
 	durationpb "google.golang.org/protobuf/types/known/durationpb"
 	reflect "reflect"
+	sync "sync"
 	unsafe "unsafe"
 )
 
@@ -27,17 +27,21 @@ const (
 // Implements the circuit breaker pattern with configurable thresholds,
 // timeouts, and state management for preventing cascade failures.
 type CircuitBreakerConfig struct {
-	state                       protoimpl.MessageState `protogen:"opaque.v1"`
-	xxx_hidden_FailureThreshold int32                  `protobuf:"varint,1,opt,name=failure_threshold,json=failureThreshold"`
-	xxx_hidden_SuccessThreshold int32                  `protobuf:"varint,2,opt,name=success_threshold,json=successThreshold"`
-	xxx_hidden_Timeout          *durationpb.Duration   `protobuf:"bytes,3,opt,name=timeout"`
-	xxx_hidden_MaxRequests      int32                  `protobuf:"varint,4,opt,name=max_requests,json=maxRequests"`
-	xxx_hidden_WindowSize       *durationpb.Duration   `protobuf:"bytes,5,opt,name=window_size,json=windowSize"`
-	xxx_hidden_State            CircuitBreakerState    `protobuf:"varint,6,opt,name=state,enum=gcommon.v1.common.CircuitBreakerState"`
-	XXX_raceDetectHookData      protoimpl.RaceDetectHookData
-	XXX_presence                [1]uint32
-	unknownFields               protoimpl.UnknownFields
-	sizeCache                   protoimpl.SizeCache
+	state protoimpl.MessageState `protogen:"open.v1"`
+	// Number of consecutive failures to trigger circuit opening
+	FailureThreshold *int32 `protobuf:"varint,1,opt,name=failure_threshold,json=failureThreshold" json:"failure_threshold,omitempty"`
+	// Number of consecutive successes to close the circuit
+	SuccessThreshold *int32 `protobuf:"varint,2,opt,name=success_threshold,json=successThreshold" json:"success_threshold,omitempty"`
+	// Duration to keep circuit open before attempting half-open
+	Timeout *durationpb.Duration `protobuf:"bytes,3,opt,name=timeout" json:"timeout,omitempty"`
+	// Maximum concurrent requests allowed in half-open state
+	MaxRequests *int32 `protobuf:"varint,4,opt,name=max_requests,json=maxRequests" json:"max_requests,omitempty"`
+	// Time window for counting failures and successes
+	WindowSize *durationpb.Duration `protobuf:"bytes,5,opt,name=window_size,json=windowSize" json:"window_size,omitempty"`
+	// Current state of the circuit breaker
+	State         *CircuitBreakerState `protobuf:"varint,6,opt,name=state,enum=gcommon.v1.common.CircuitBreakerState" json:"state,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
 }
 
 func (x *CircuitBreakerConfig) Reset() {
@@ -65,195 +69,58 @@ func (x *CircuitBreakerConfig) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
+// Deprecated: Use CircuitBreakerConfig.ProtoReflect.Descriptor instead.
+func (*CircuitBreakerConfig) Descriptor() ([]byte, []int) {
+	return file_pkg_common_proto_circuit_breaker_config_proto_rawDescGZIP(), []int{0}
+}
+
 func (x *CircuitBreakerConfig) GetFailureThreshold() int32 {
-	if x != nil {
-		return x.xxx_hidden_FailureThreshold
+	if x != nil && x.FailureThreshold != nil {
+		return *x.FailureThreshold
 	}
 	return 0
 }
 
 func (x *CircuitBreakerConfig) GetSuccessThreshold() int32 {
-	if x != nil {
-		return x.xxx_hidden_SuccessThreshold
+	if x != nil && x.SuccessThreshold != nil {
+		return *x.SuccessThreshold
 	}
 	return 0
 }
 
 func (x *CircuitBreakerConfig) GetTimeout() *durationpb.Duration {
 	if x != nil {
-		return x.xxx_hidden_Timeout
+		return x.Timeout
 	}
 	return nil
 }
 
 func (x *CircuitBreakerConfig) GetMaxRequests() int32 {
-	if x != nil {
-		return x.xxx_hidden_MaxRequests
+	if x != nil && x.MaxRequests != nil {
+		return *x.MaxRequests
 	}
 	return 0
 }
 
 func (x *CircuitBreakerConfig) GetWindowSize() *durationpb.Duration {
 	if x != nil {
-		return x.xxx_hidden_WindowSize
+		return x.WindowSize
 	}
 	return nil
 }
 
 func (x *CircuitBreakerConfig) GetState() CircuitBreakerState {
-	if x != nil {
-		if protoimpl.X.Present(&(x.XXX_presence[0]), 5) {
-			return x.xxx_hidden_State
-		}
+	if x != nil && x.State != nil {
+		return *x.State
 	}
 	return CircuitBreakerState_CIRCUIT_BREAKER_STATE_UNSPECIFIED
-}
-
-func (x *CircuitBreakerConfig) SetFailureThreshold(v int32) {
-	x.xxx_hidden_FailureThreshold = v
-	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 0, 6)
-}
-
-func (x *CircuitBreakerConfig) SetSuccessThreshold(v int32) {
-	x.xxx_hidden_SuccessThreshold = v
-	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 1, 6)
-}
-
-func (x *CircuitBreakerConfig) SetTimeout(v *durationpb.Duration) {
-	x.xxx_hidden_Timeout = v
-}
-
-func (x *CircuitBreakerConfig) SetMaxRequests(v int32) {
-	x.xxx_hidden_MaxRequests = v
-	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 3, 6)
-}
-
-func (x *CircuitBreakerConfig) SetWindowSize(v *durationpb.Duration) {
-	x.xxx_hidden_WindowSize = v
-}
-
-func (x *CircuitBreakerConfig) SetState(v CircuitBreakerState) {
-	x.xxx_hidden_State = v
-	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 5, 6)
-}
-
-func (x *CircuitBreakerConfig) HasFailureThreshold() bool {
-	if x == nil {
-		return false
-	}
-	return protoimpl.X.Present(&(x.XXX_presence[0]), 0)
-}
-
-func (x *CircuitBreakerConfig) HasSuccessThreshold() bool {
-	if x == nil {
-		return false
-	}
-	return protoimpl.X.Present(&(x.XXX_presence[0]), 1)
-}
-
-func (x *CircuitBreakerConfig) HasTimeout() bool {
-	if x == nil {
-		return false
-	}
-	return x.xxx_hidden_Timeout != nil
-}
-
-func (x *CircuitBreakerConfig) HasMaxRequests() bool {
-	if x == nil {
-		return false
-	}
-	return protoimpl.X.Present(&(x.XXX_presence[0]), 3)
-}
-
-func (x *CircuitBreakerConfig) HasWindowSize() bool {
-	if x == nil {
-		return false
-	}
-	return x.xxx_hidden_WindowSize != nil
-}
-
-func (x *CircuitBreakerConfig) HasState() bool {
-	if x == nil {
-		return false
-	}
-	return protoimpl.X.Present(&(x.XXX_presence[0]), 5)
-}
-
-func (x *CircuitBreakerConfig) ClearFailureThreshold() {
-	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 0)
-	x.xxx_hidden_FailureThreshold = 0
-}
-
-func (x *CircuitBreakerConfig) ClearSuccessThreshold() {
-	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 1)
-	x.xxx_hidden_SuccessThreshold = 0
-}
-
-func (x *CircuitBreakerConfig) ClearTimeout() {
-	x.xxx_hidden_Timeout = nil
-}
-
-func (x *CircuitBreakerConfig) ClearMaxRequests() {
-	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 3)
-	x.xxx_hidden_MaxRequests = 0
-}
-
-func (x *CircuitBreakerConfig) ClearWindowSize() {
-	x.xxx_hidden_WindowSize = nil
-}
-
-func (x *CircuitBreakerConfig) ClearState() {
-	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 5)
-	x.xxx_hidden_State = CircuitBreakerState_CIRCUIT_BREAKER_STATE_UNSPECIFIED
-}
-
-type CircuitBreakerConfig_builder struct {
-	_ [0]func() // Prevents comparability and use of unkeyed literals for the builder.
-
-	// Number of consecutive failures to trigger circuit opening
-	FailureThreshold *int32
-	// Number of consecutive successes to close the circuit
-	SuccessThreshold *int32
-	// Duration to keep circuit open before attempting half-open
-	Timeout *durationpb.Duration
-	// Maximum concurrent requests allowed in half-open state
-	MaxRequests *int32
-	// Time window for counting failures and successes
-	WindowSize *durationpb.Duration
-	// Current state of the circuit breaker
-	State *CircuitBreakerState
-}
-
-func (b0 CircuitBreakerConfig_builder) Build() *CircuitBreakerConfig {
-	m0 := &CircuitBreakerConfig{}
-	b, x := &b0, m0
-	_, _ = b, x
-	if b.FailureThreshold != nil {
-		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 0, 6)
-		x.xxx_hidden_FailureThreshold = *b.FailureThreshold
-	}
-	if b.SuccessThreshold != nil {
-		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 1, 6)
-		x.xxx_hidden_SuccessThreshold = *b.SuccessThreshold
-	}
-	x.xxx_hidden_Timeout = b.Timeout
-	if b.MaxRequests != nil {
-		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 3, 6)
-		x.xxx_hidden_MaxRequests = *b.MaxRequests
-	}
-	x.xxx_hidden_WindowSize = b.WindowSize
-	if b.State != nil {
-		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 5, 6)
-		x.xxx_hidden_State = *b.State
-	}
-	return m0
 }
 
 var File_pkg_common_proto_circuit_breaker_config_proto protoreflect.FileDescriptor
 
 const file_pkg_common_proto_circuit_breaker_config_proto_rawDesc = "" +
 	"\n" +
-	"-pkg/common/proto/circuit_breaker_config.proto\x12\x11gcommon.v1.common\x1a\x1egoogle/protobuf/duration.proto\x1a!google/protobuf/go_features.proto\x1a,pkg/common/proto/circuit_breaker_state.proto\"\xc2\x02\n" +
+	"-pkg/common/proto/circuit_breaker_config.proto\x12\x11gcommon.v1.common\x1a\x1egoogle/protobuf/duration.proto\x1a,pkg/common/proto/circuit_breaker_state.proto\"\xc2\x02\n" +
 	"\x14CircuitBreakerConfig\x12+\n" +
 	"\x11failure_threshold\x18\x01 \x01(\x05R\x10failureThreshold\x12+\n" +
 	"\x11success_threshold\x18\x02 \x01(\x05R\x10successThreshold\x123\n" +
@@ -261,8 +128,20 @@ const file_pkg_common_proto_circuit_breaker_config_proto_rawDesc = "" +
 	"\fmax_requests\x18\x04 \x01(\x05R\vmaxRequests\x12:\n" +
 	"\vwindow_size\x18\x05 \x01(\v2\x19.google.protobuf.DurationR\n" +
 	"windowSize\x12<\n" +
-	"\x05state\x18\x06 \x01(\x0e2&.gcommon.v1.common.CircuitBreakerStateR\x05stateB\xcc\x01\n" +
-	"\x15com.gcommon.v1.commonB\x19CircuitBreakerConfigProtoP\x01Z*github.com/jdfalk/gcommon/pkg/common/proto\xa2\x02\x03GVC\xaa\x02\x11Gcommon.V1.Common\xca\x02\x11Gcommon\\V1\\Common\xe2\x02\x1dGcommon\\V1\\Common\\GPBMetadata\xea\x02\x13Gcommon::V1::Common\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"\x05state\x18\x06 \x01(\x0e2&.gcommon.v1.common.CircuitBreakerStateR\x05stateB\xc4\x01\n" +
+	"\x15com.gcommon.v1.commonB\x19CircuitBreakerConfigProtoP\x01Z*github.com/jdfalk/gcommon/pkg/common/proto\xa2\x02\x03GVC\xaa\x02\x11Gcommon.V1.Common\xca\x02\x11Gcommon\\V1\\Common\xe2\x02\x1dGcommon\\V1\\Common\\GPBMetadata\xea\x02\x13Gcommon::V1::Commonb\beditionsp\xe8\a"
+
+var (
+	file_pkg_common_proto_circuit_breaker_config_proto_rawDescOnce sync.Once
+	file_pkg_common_proto_circuit_breaker_config_proto_rawDescData []byte
+)
+
+func file_pkg_common_proto_circuit_breaker_config_proto_rawDescGZIP() []byte {
+	file_pkg_common_proto_circuit_breaker_config_proto_rawDescOnce.Do(func() {
+		file_pkg_common_proto_circuit_breaker_config_proto_rawDescData = protoimpl.X.CompressGZIP(unsafe.Slice(unsafe.StringData(file_pkg_common_proto_circuit_breaker_config_proto_rawDesc), len(file_pkg_common_proto_circuit_breaker_config_proto_rawDesc)))
+	})
+	return file_pkg_common_proto_circuit_breaker_config_proto_rawDescData
+}
 
 var file_pkg_common_proto_circuit_breaker_config_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_pkg_common_proto_circuit_breaker_config_proto_goTypes = []any{

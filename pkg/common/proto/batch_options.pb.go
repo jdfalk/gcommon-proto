@@ -9,9 +9,9 @@ package proto
 import (
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
-	_ "google.golang.org/protobuf/types/gofeaturespb"
 	durationpb "google.golang.org/protobuf/types/known/durationpb"
 	reflect "reflect"
+	sync "sync"
 	unsafe "unsafe"
 )
 
@@ -27,15 +27,17 @@ const (
 // Controls parallelism, error handling, timeout policies, and
 // result handling for efficient batch processing.
 type BatchOptions struct {
-	state                    protoimpl.MessageState `protogen:"opaque.v1"`
-	xxx_hidden_MaxParallel   int32                  `protobuf:"varint,1,opt,name=max_parallel,json=maxParallel"`
-	xxx_hidden_FailFast      bool                   `protobuf:"varint,2,opt,name=fail_fast,json=failFast"`
-	xxx_hidden_Timeout       *durationpb.Duration   `protobuf:"bytes,3,opt,name=timeout"`
-	xxx_hidden_ReturnPartial bool                   `protobuf:"varint,4,opt,name=return_partial,json=returnPartial"`
-	XXX_raceDetectHookData   protoimpl.RaceDetectHookData
-	XXX_presence             [1]uint32
-	unknownFields            protoimpl.UnknownFields
-	sizeCache                protoimpl.SizeCache
+	state protoimpl.MessageState `protogen:"open.v1"`
+	// Maximum number of operations to process in parallel
+	MaxParallel *int32 `protobuf:"varint,1,opt,name=max_parallel,json=maxParallel" json:"max_parallel,omitempty"`
+	// Whether to stop processing on the first error encountered
+	FailFast *bool `protobuf:"varint,2,opt,name=fail_fast,json=failFast" json:"fail_fast,omitempty"`
+	// Total timeout for the entire batch operation
+	Timeout *durationpb.Duration `protobuf:"bytes,3,opt,name=timeout" json:"timeout,omitempty"`
+	// Whether to return partial results if timeout is reached
+	ReturnPartial *bool `protobuf:"varint,4,opt,name=return_partial,json=returnPartial" json:"return_partial,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
 }
 
 func (x *BatchOptions) Reset() {
@@ -63,144 +65,62 @@ func (x *BatchOptions) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
+// Deprecated: Use BatchOptions.ProtoReflect.Descriptor instead.
+func (*BatchOptions) Descriptor() ([]byte, []int) {
+	return file_pkg_common_proto_batch_options_proto_rawDescGZIP(), []int{0}
+}
+
 func (x *BatchOptions) GetMaxParallel() int32 {
-	if x != nil {
-		return x.xxx_hidden_MaxParallel
+	if x != nil && x.MaxParallel != nil {
+		return *x.MaxParallel
 	}
 	return 0
 }
 
 func (x *BatchOptions) GetFailFast() bool {
-	if x != nil {
-		return x.xxx_hidden_FailFast
+	if x != nil && x.FailFast != nil {
+		return *x.FailFast
 	}
 	return false
 }
 
 func (x *BatchOptions) GetTimeout() *durationpb.Duration {
 	if x != nil {
-		return x.xxx_hidden_Timeout
+		return x.Timeout
 	}
 	return nil
 }
 
 func (x *BatchOptions) GetReturnPartial() bool {
-	if x != nil {
-		return x.xxx_hidden_ReturnPartial
+	if x != nil && x.ReturnPartial != nil {
+		return *x.ReturnPartial
 	}
 	return false
-}
-
-func (x *BatchOptions) SetMaxParallel(v int32) {
-	x.xxx_hidden_MaxParallel = v
-	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 0, 4)
-}
-
-func (x *BatchOptions) SetFailFast(v bool) {
-	x.xxx_hidden_FailFast = v
-	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 1, 4)
-}
-
-func (x *BatchOptions) SetTimeout(v *durationpb.Duration) {
-	x.xxx_hidden_Timeout = v
-}
-
-func (x *BatchOptions) SetReturnPartial(v bool) {
-	x.xxx_hidden_ReturnPartial = v
-	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 3, 4)
-}
-
-func (x *BatchOptions) HasMaxParallel() bool {
-	if x == nil {
-		return false
-	}
-	return protoimpl.X.Present(&(x.XXX_presence[0]), 0)
-}
-
-func (x *BatchOptions) HasFailFast() bool {
-	if x == nil {
-		return false
-	}
-	return protoimpl.X.Present(&(x.XXX_presence[0]), 1)
-}
-
-func (x *BatchOptions) HasTimeout() bool {
-	if x == nil {
-		return false
-	}
-	return x.xxx_hidden_Timeout != nil
-}
-
-func (x *BatchOptions) HasReturnPartial() bool {
-	if x == nil {
-		return false
-	}
-	return protoimpl.X.Present(&(x.XXX_presence[0]), 3)
-}
-
-func (x *BatchOptions) ClearMaxParallel() {
-	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 0)
-	x.xxx_hidden_MaxParallel = 0
-}
-
-func (x *BatchOptions) ClearFailFast() {
-	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 1)
-	x.xxx_hidden_FailFast = false
-}
-
-func (x *BatchOptions) ClearTimeout() {
-	x.xxx_hidden_Timeout = nil
-}
-
-func (x *BatchOptions) ClearReturnPartial() {
-	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 3)
-	x.xxx_hidden_ReturnPartial = false
-}
-
-type BatchOptions_builder struct {
-	_ [0]func() // Prevents comparability and use of unkeyed literals for the builder.
-
-	// Maximum number of operations to process in parallel
-	MaxParallel *int32
-	// Whether to stop processing on the first error encountered
-	FailFast *bool
-	// Total timeout for the entire batch operation
-	Timeout *durationpb.Duration
-	// Whether to return partial results if timeout is reached
-	ReturnPartial *bool
-}
-
-func (b0 BatchOptions_builder) Build() *BatchOptions {
-	m0 := &BatchOptions{}
-	b, x := &b0, m0
-	_, _ = b, x
-	if b.MaxParallel != nil {
-		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 0, 4)
-		x.xxx_hidden_MaxParallel = *b.MaxParallel
-	}
-	if b.FailFast != nil {
-		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 1, 4)
-		x.xxx_hidden_FailFast = *b.FailFast
-	}
-	x.xxx_hidden_Timeout = b.Timeout
-	if b.ReturnPartial != nil {
-		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 3, 4)
-		x.xxx_hidden_ReturnPartial = *b.ReturnPartial
-	}
-	return m0
 }
 
 var File_pkg_common_proto_batch_options_proto protoreflect.FileDescriptor
 
 const file_pkg_common_proto_batch_options_proto_rawDesc = "" +
 	"\n" +
-	"$pkg/common/proto/batch_options.proto\x12\x11gcommon.v1.common\x1a\x1egoogle/protobuf/duration.proto\x1a!google/protobuf/go_features.proto\"\xaa\x01\n" +
+	"$pkg/common/proto/batch_options.proto\x12\x11gcommon.v1.common\x1a\x1egoogle/protobuf/duration.proto\"\xaa\x01\n" +
 	"\fBatchOptions\x12!\n" +
 	"\fmax_parallel\x18\x01 \x01(\x05R\vmaxParallel\x12\x1b\n" +
 	"\tfail_fast\x18\x02 \x01(\bR\bfailFast\x123\n" +
 	"\atimeout\x18\x03 \x01(\v2\x19.google.protobuf.DurationR\atimeout\x12%\n" +
-	"\x0ereturn_partial\x18\x04 \x01(\bR\rreturnPartialB\xc4\x01\n" +
-	"\x15com.gcommon.v1.commonB\x11BatchOptionsProtoP\x01Z*github.com/jdfalk/gcommon/pkg/common/proto\xa2\x02\x03GVC\xaa\x02\x11Gcommon.V1.Common\xca\x02\x11Gcommon\\V1\\Common\xe2\x02\x1dGcommon\\V1\\Common\\GPBMetadata\xea\x02\x13Gcommon::V1::Common\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"\x0ereturn_partial\x18\x04 \x01(\bR\rreturnPartialB\xbc\x01\n" +
+	"\x15com.gcommon.v1.commonB\x11BatchOptionsProtoP\x01Z*github.com/jdfalk/gcommon/pkg/common/proto\xa2\x02\x03GVC\xaa\x02\x11Gcommon.V1.Common\xca\x02\x11Gcommon\\V1\\Common\xe2\x02\x1dGcommon\\V1\\Common\\GPBMetadata\xea\x02\x13Gcommon::V1::Commonb\beditionsp\xe8\a"
+
+var (
+	file_pkg_common_proto_batch_options_proto_rawDescOnce sync.Once
+	file_pkg_common_proto_batch_options_proto_rawDescData []byte
+)
+
+func file_pkg_common_proto_batch_options_proto_rawDescGZIP() []byte {
+	file_pkg_common_proto_batch_options_proto_rawDescOnce.Do(func() {
+		file_pkg_common_proto_batch_options_proto_rawDescData = protoimpl.X.CompressGZIP(unsafe.Slice(unsafe.StringData(file_pkg_common_proto_batch_options_proto_rawDesc), len(file_pkg_common_proto_batch_options_proto_rawDesc)))
+	})
+	return file_pkg_common_proto_batch_options_proto_rawDescData
+}
 
 var file_pkg_common_proto_batch_options_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_pkg_common_proto_batch_options_proto_goTypes = []any{

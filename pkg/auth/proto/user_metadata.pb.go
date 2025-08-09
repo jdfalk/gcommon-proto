@@ -9,9 +9,9 @@ package proto
 import (
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
-	_ "google.golang.org/protobuf/types/gofeaturespb"
 	timestamppb "google.golang.org/protobuf/types/known/timestamppb"
 	reflect "reflect"
+	sync "sync"
 	unsafe "unsafe"
 )
 
@@ -26,26 +26,39 @@ const (
 // User metadata containing profile and preference information.
 // Stores additional user data beyond basic authentication credentials.
 type UserMetadata struct {
-	state                   protoimpl.MessageState `protogen:"opaque.v1"`
-	xxx_hidden_DisplayName  *string                `protobuf:"bytes,1,opt,name=display_name,json=displayName"`
-	xxx_hidden_AvatarUrl    *string                `protobuf:"bytes,2,opt,name=avatar_url,json=avatarUrl"`
-	xxx_hidden_Timezone     *string                `protobuf:"bytes,3,opt,name=timezone"`
-	xxx_hidden_Language     *string                `protobuf:"bytes,4,opt,name=language"`
-	xxx_hidden_Locale       *string                `protobuf:"bytes,5,opt,name=locale"`
-	xxx_hidden_Bio          *string                `protobuf:"bytes,6,opt,name=bio"`
-	xxx_hidden_Website      *string                `protobuf:"bytes,7,opt,name=website"`
-	xxx_hidden_Location     *string                `protobuf:"bytes,8,opt,name=location"`
-	xxx_hidden_BirthDate    *timestamppb.Timestamp `protobuf:"bytes,9,opt,name=birth_date,json=birthDate"`
-	xxx_hidden_Gender       *string                `protobuf:"bytes,10,opt,name=gender"`
-	xxx_hidden_Occupation   *string                `protobuf:"bytes,11,opt,name=occupation"`
-	xxx_hidden_Company      *string                `protobuf:"bytes,12,opt,name=company"`
-	xxx_hidden_CustomFields map[string]string      `protobuf:"bytes,13,rep,name=custom_fields,json=customFields" protobuf_key:"bytes,1,opt,name=key" protobuf_val:"bytes,2,opt,name=value"`
-	xxx_hidden_Preferences  *UserPreferences       `protobuf:"bytes,14,opt,name=preferences"`
-	xxx_hidden_Verification *VerificationStatus    `protobuf:"bytes,15,opt,name=verification"`
-	XXX_raceDetectHookData  protoimpl.RaceDetectHookData
-	XXX_presence            [1]uint32
-	unknownFields           protoimpl.UnknownFields
-	sizeCache               protoimpl.SizeCache
+	state protoimpl.MessageState `protogen:"open.v1"`
+	// User's preferred display name
+	DisplayName *string `protobuf:"bytes,1,opt,name=display_name,json=displayName" json:"display_name,omitempty"`
+	// User's profile picture URL
+	AvatarUrl *string `protobuf:"bytes,2,opt,name=avatar_url,json=avatarUrl" json:"avatar_url,omitempty"`
+	// User's timezone
+	Timezone *string `protobuf:"bytes,3,opt,name=timezone" json:"timezone,omitempty"`
+	// User's preferred language
+	Language *string `protobuf:"bytes,4,opt,name=language" json:"language,omitempty"`
+	// User's locale
+	Locale *string `protobuf:"bytes,5,opt,name=locale" json:"locale,omitempty"`
+	// User's profile bio/description
+	Bio *string `protobuf:"bytes,6,opt,name=bio" json:"bio,omitempty"`
+	// User's website URL
+	Website *string `protobuf:"bytes,7,opt,name=website" json:"website,omitempty"`
+	// User's location/address
+	Location *string `protobuf:"bytes,8,opt,name=location" json:"location,omitempty"`
+	// Date of birth for age verification purposes
+	BirthDate *timestamppb.Timestamp `protobuf:"bytes,9,opt,name=birth_date,json=birthDate" json:"birth_date,omitempty"`
+	// User's gender
+	Gender *string `protobuf:"bytes,10,opt,name=gender" json:"gender,omitempty"`
+	// User's occupation/job title
+	Occupation *string `protobuf:"bytes,11,opt,name=occupation" json:"occupation,omitempty"`
+	// User's company/organization
+	Company *string `protobuf:"bytes,12,opt,name=company" json:"company,omitempty"`
+	// Additional custom metadata
+	CustomFields map[string]string `protobuf:"bytes,13,rep,name=custom_fields,json=customFields" json:"custom_fields,omitempty" protobuf_key:"bytes,1,opt,name=key" protobuf_val:"bytes,2,opt,name=value"`
+	// User preferences
+	Preferences *UserPreferences `protobuf:"bytes,14,opt,name=preferences" json:"preferences,omitempty"`
+	// Account verification status
+	Verification  *VerificationStatus `protobuf:"bytes,15,opt,name=verification" json:"verification,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
 }
 
 func (x *UserMetadata) Reset() {
@@ -73,485 +86,136 @@ func (x *UserMetadata) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
+// Deprecated: Use UserMetadata.ProtoReflect.Descriptor instead.
+func (*UserMetadata) Descriptor() ([]byte, []int) {
+	return file_pkg_auth_proto_user_metadata_proto_rawDescGZIP(), []int{0}
+}
+
 func (x *UserMetadata) GetDisplayName() string {
-	if x != nil {
-		if x.xxx_hidden_DisplayName != nil {
-			return *x.xxx_hidden_DisplayName
-		}
-		return ""
+	if x != nil && x.DisplayName != nil {
+		return *x.DisplayName
 	}
 	return ""
 }
 
 func (x *UserMetadata) GetAvatarUrl() string {
-	if x != nil {
-		if x.xxx_hidden_AvatarUrl != nil {
-			return *x.xxx_hidden_AvatarUrl
-		}
-		return ""
+	if x != nil && x.AvatarUrl != nil {
+		return *x.AvatarUrl
 	}
 	return ""
 }
 
 func (x *UserMetadata) GetTimezone() string {
-	if x != nil {
-		if x.xxx_hidden_Timezone != nil {
-			return *x.xxx_hidden_Timezone
-		}
-		return ""
+	if x != nil && x.Timezone != nil {
+		return *x.Timezone
 	}
 	return ""
 }
 
 func (x *UserMetadata) GetLanguage() string {
-	if x != nil {
-		if x.xxx_hidden_Language != nil {
-			return *x.xxx_hidden_Language
-		}
-		return ""
+	if x != nil && x.Language != nil {
+		return *x.Language
 	}
 	return ""
 }
 
 func (x *UserMetadata) GetLocale() string {
-	if x != nil {
-		if x.xxx_hidden_Locale != nil {
-			return *x.xxx_hidden_Locale
-		}
-		return ""
+	if x != nil && x.Locale != nil {
+		return *x.Locale
 	}
 	return ""
 }
 
 func (x *UserMetadata) GetBio() string {
-	if x != nil {
-		if x.xxx_hidden_Bio != nil {
-			return *x.xxx_hidden_Bio
-		}
-		return ""
+	if x != nil && x.Bio != nil {
+		return *x.Bio
 	}
 	return ""
 }
 
 func (x *UserMetadata) GetWebsite() string {
-	if x != nil {
-		if x.xxx_hidden_Website != nil {
-			return *x.xxx_hidden_Website
-		}
-		return ""
+	if x != nil && x.Website != nil {
+		return *x.Website
 	}
 	return ""
 }
 
 func (x *UserMetadata) GetLocation() string {
-	if x != nil {
-		if x.xxx_hidden_Location != nil {
-			return *x.xxx_hidden_Location
-		}
-		return ""
+	if x != nil && x.Location != nil {
+		return *x.Location
 	}
 	return ""
 }
 
 func (x *UserMetadata) GetBirthDate() *timestamppb.Timestamp {
 	if x != nil {
-		return x.xxx_hidden_BirthDate
+		return x.BirthDate
 	}
 	return nil
 }
 
 func (x *UserMetadata) GetGender() string {
-	if x != nil {
-		if x.xxx_hidden_Gender != nil {
-			return *x.xxx_hidden_Gender
-		}
-		return ""
+	if x != nil && x.Gender != nil {
+		return *x.Gender
 	}
 	return ""
 }
 
 func (x *UserMetadata) GetOccupation() string {
-	if x != nil {
-		if x.xxx_hidden_Occupation != nil {
-			return *x.xxx_hidden_Occupation
-		}
-		return ""
+	if x != nil && x.Occupation != nil {
+		return *x.Occupation
 	}
 	return ""
 }
 
 func (x *UserMetadata) GetCompany() string {
-	if x != nil {
-		if x.xxx_hidden_Company != nil {
-			return *x.xxx_hidden_Company
-		}
-		return ""
+	if x != nil && x.Company != nil {
+		return *x.Company
 	}
 	return ""
 }
 
 func (x *UserMetadata) GetCustomFields() map[string]string {
 	if x != nil {
-		return x.xxx_hidden_CustomFields
+		return x.CustomFields
 	}
 	return nil
 }
 
 func (x *UserMetadata) GetPreferences() *UserPreferences {
 	if x != nil {
-		return x.xxx_hidden_Preferences
+		return x.Preferences
 	}
 	return nil
 }
 
 func (x *UserMetadata) GetVerification() *VerificationStatus {
 	if x != nil {
-		return x.xxx_hidden_Verification
+		return x.Verification
 	}
 	return nil
-}
-
-func (x *UserMetadata) SetDisplayName(v string) {
-	x.xxx_hidden_DisplayName = &v
-	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 0, 15)
-}
-
-func (x *UserMetadata) SetAvatarUrl(v string) {
-	x.xxx_hidden_AvatarUrl = &v
-	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 1, 15)
-}
-
-func (x *UserMetadata) SetTimezone(v string) {
-	x.xxx_hidden_Timezone = &v
-	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 2, 15)
-}
-
-func (x *UserMetadata) SetLanguage(v string) {
-	x.xxx_hidden_Language = &v
-	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 3, 15)
-}
-
-func (x *UserMetadata) SetLocale(v string) {
-	x.xxx_hidden_Locale = &v
-	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 4, 15)
-}
-
-func (x *UserMetadata) SetBio(v string) {
-	x.xxx_hidden_Bio = &v
-	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 5, 15)
-}
-
-func (x *UserMetadata) SetWebsite(v string) {
-	x.xxx_hidden_Website = &v
-	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 6, 15)
-}
-
-func (x *UserMetadata) SetLocation(v string) {
-	x.xxx_hidden_Location = &v
-	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 7, 15)
-}
-
-func (x *UserMetadata) SetBirthDate(v *timestamppb.Timestamp) {
-	x.xxx_hidden_BirthDate = v
-}
-
-func (x *UserMetadata) SetGender(v string) {
-	x.xxx_hidden_Gender = &v
-	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 9, 15)
-}
-
-func (x *UserMetadata) SetOccupation(v string) {
-	x.xxx_hidden_Occupation = &v
-	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 10, 15)
-}
-
-func (x *UserMetadata) SetCompany(v string) {
-	x.xxx_hidden_Company = &v
-	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 11, 15)
-}
-
-func (x *UserMetadata) SetCustomFields(v map[string]string) {
-	x.xxx_hidden_CustomFields = v
-}
-
-func (x *UserMetadata) SetPreferences(v *UserPreferences) {
-	x.xxx_hidden_Preferences = v
-}
-
-func (x *UserMetadata) SetVerification(v *VerificationStatus) {
-	x.xxx_hidden_Verification = v
-}
-
-func (x *UserMetadata) HasDisplayName() bool {
-	if x == nil {
-		return false
-	}
-	return protoimpl.X.Present(&(x.XXX_presence[0]), 0)
-}
-
-func (x *UserMetadata) HasAvatarUrl() bool {
-	if x == nil {
-		return false
-	}
-	return protoimpl.X.Present(&(x.XXX_presence[0]), 1)
-}
-
-func (x *UserMetadata) HasTimezone() bool {
-	if x == nil {
-		return false
-	}
-	return protoimpl.X.Present(&(x.XXX_presence[0]), 2)
-}
-
-func (x *UserMetadata) HasLanguage() bool {
-	if x == nil {
-		return false
-	}
-	return protoimpl.X.Present(&(x.XXX_presence[0]), 3)
-}
-
-func (x *UserMetadata) HasLocale() bool {
-	if x == nil {
-		return false
-	}
-	return protoimpl.X.Present(&(x.XXX_presence[0]), 4)
-}
-
-func (x *UserMetadata) HasBio() bool {
-	if x == nil {
-		return false
-	}
-	return protoimpl.X.Present(&(x.XXX_presence[0]), 5)
-}
-
-func (x *UserMetadata) HasWebsite() bool {
-	if x == nil {
-		return false
-	}
-	return protoimpl.X.Present(&(x.XXX_presence[0]), 6)
-}
-
-func (x *UserMetadata) HasLocation() bool {
-	if x == nil {
-		return false
-	}
-	return protoimpl.X.Present(&(x.XXX_presence[0]), 7)
-}
-
-func (x *UserMetadata) HasBirthDate() bool {
-	if x == nil {
-		return false
-	}
-	return x.xxx_hidden_BirthDate != nil
-}
-
-func (x *UserMetadata) HasGender() bool {
-	if x == nil {
-		return false
-	}
-	return protoimpl.X.Present(&(x.XXX_presence[0]), 9)
-}
-
-func (x *UserMetadata) HasOccupation() bool {
-	if x == nil {
-		return false
-	}
-	return protoimpl.X.Present(&(x.XXX_presence[0]), 10)
-}
-
-func (x *UserMetadata) HasCompany() bool {
-	if x == nil {
-		return false
-	}
-	return protoimpl.X.Present(&(x.XXX_presence[0]), 11)
-}
-
-func (x *UserMetadata) HasPreferences() bool {
-	if x == nil {
-		return false
-	}
-	return x.xxx_hidden_Preferences != nil
-}
-
-func (x *UserMetadata) HasVerification() bool {
-	if x == nil {
-		return false
-	}
-	return x.xxx_hidden_Verification != nil
-}
-
-func (x *UserMetadata) ClearDisplayName() {
-	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 0)
-	x.xxx_hidden_DisplayName = nil
-}
-
-func (x *UserMetadata) ClearAvatarUrl() {
-	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 1)
-	x.xxx_hidden_AvatarUrl = nil
-}
-
-func (x *UserMetadata) ClearTimezone() {
-	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 2)
-	x.xxx_hidden_Timezone = nil
-}
-
-func (x *UserMetadata) ClearLanguage() {
-	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 3)
-	x.xxx_hidden_Language = nil
-}
-
-func (x *UserMetadata) ClearLocale() {
-	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 4)
-	x.xxx_hidden_Locale = nil
-}
-
-func (x *UserMetadata) ClearBio() {
-	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 5)
-	x.xxx_hidden_Bio = nil
-}
-
-func (x *UserMetadata) ClearWebsite() {
-	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 6)
-	x.xxx_hidden_Website = nil
-}
-
-func (x *UserMetadata) ClearLocation() {
-	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 7)
-	x.xxx_hidden_Location = nil
-}
-
-func (x *UserMetadata) ClearBirthDate() {
-	x.xxx_hidden_BirthDate = nil
-}
-
-func (x *UserMetadata) ClearGender() {
-	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 9)
-	x.xxx_hidden_Gender = nil
-}
-
-func (x *UserMetadata) ClearOccupation() {
-	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 10)
-	x.xxx_hidden_Occupation = nil
-}
-
-func (x *UserMetadata) ClearCompany() {
-	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 11)
-	x.xxx_hidden_Company = nil
-}
-
-func (x *UserMetadata) ClearPreferences() {
-	x.xxx_hidden_Preferences = nil
-}
-
-func (x *UserMetadata) ClearVerification() {
-	x.xxx_hidden_Verification = nil
-}
-
-type UserMetadata_builder struct {
-	_ [0]func() // Prevents comparability and use of unkeyed literals for the builder.
-
-	// User's preferred display name
-	DisplayName *string
-	// User's profile picture URL
-	AvatarUrl *string
-	// User's timezone
-	Timezone *string
-	// User's preferred language
-	Language *string
-	// User's locale
-	Locale *string
-	// User's profile bio/description
-	Bio *string
-	// User's website URL
-	Website *string
-	// User's location/address
-	Location *string
-	// Date of birth for age verification purposes
-	BirthDate *timestamppb.Timestamp
-	// User's gender
-	Gender *string
-	// User's occupation/job title
-	Occupation *string
-	// User's company/organization
-	Company *string
-	// Additional custom metadata
-	CustomFields map[string]string
-	// User preferences
-	Preferences *UserPreferences
-	// Account verification status
-	Verification *VerificationStatus
-}
-
-func (b0 UserMetadata_builder) Build() *UserMetadata {
-	m0 := &UserMetadata{}
-	b, x := &b0, m0
-	_, _ = b, x
-	if b.DisplayName != nil {
-		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 0, 15)
-		x.xxx_hidden_DisplayName = b.DisplayName
-	}
-	if b.AvatarUrl != nil {
-		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 1, 15)
-		x.xxx_hidden_AvatarUrl = b.AvatarUrl
-	}
-	if b.Timezone != nil {
-		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 2, 15)
-		x.xxx_hidden_Timezone = b.Timezone
-	}
-	if b.Language != nil {
-		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 3, 15)
-		x.xxx_hidden_Language = b.Language
-	}
-	if b.Locale != nil {
-		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 4, 15)
-		x.xxx_hidden_Locale = b.Locale
-	}
-	if b.Bio != nil {
-		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 5, 15)
-		x.xxx_hidden_Bio = b.Bio
-	}
-	if b.Website != nil {
-		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 6, 15)
-		x.xxx_hidden_Website = b.Website
-	}
-	if b.Location != nil {
-		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 7, 15)
-		x.xxx_hidden_Location = b.Location
-	}
-	x.xxx_hidden_BirthDate = b.BirthDate
-	if b.Gender != nil {
-		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 9, 15)
-		x.xxx_hidden_Gender = b.Gender
-	}
-	if b.Occupation != nil {
-		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 10, 15)
-		x.xxx_hidden_Occupation = b.Occupation
-	}
-	if b.Company != nil {
-		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 11, 15)
-		x.xxx_hidden_Company = b.Company
-	}
-	x.xxx_hidden_CustomFields = b.CustomFields
-	x.xxx_hidden_Preferences = b.Preferences
-	x.xxx_hidden_Verification = b.Verification
-	return m0
 }
 
 // *
 // User preferences and settings.
 type UserPreferences struct {
-	state                            protoimpl.MessageState `protogen:"opaque.v1"`
-	xxx_hidden_EmailNotifications    bool                   `protobuf:"varint,1,opt,name=email_notifications,json=emailNotifications"`
-	xxx_hidden_SmsNotifications      bool                   `protobuf:"varint,2,opt,name=sms_notifications,json=smsNotifications"`
-	xxx_hidden_PushNotifications     bool                   `protobuf:"varint,3,opt,name=push_notifications,json=pushNotifications"`
-	xxx_hidden_MarketingEmails       bool                   `protobuf:"varint,4,opt,name=marketing_emails,json=marketingEmails"`
-	xxx_hidden_TwoFactorEnabled      bool                   `protobuf:"varint,5,opt,name=two_factor_enabled,json=twoFactorEnabled"`
-	xxx_hidden_SessionTimeoutMinutes int32                  `protobuf:"varint,6,opt,name=session_timeout_minutes,json=sessionTimeoutMinutes"`
-	xxx_hidden_Theme                 *string                `protobuf:"bytes,7,opt,name=theme"`
-	XXX_raceDetectHookData           protoimpl.RaceDetectHookData
-	XXX_presence                     [1]uint32
-	unknownFields                    protoimpl.UnknownFields
-	sizeCache                        protoimpl.SizeCache
+	state protoimpl.MessageState `protogen:"open.v1"`
+	// Email notification preferences
+	EmailNotifications *bool `protobuf:"varint,1,opt,name=email_notifications,json=emailNotifications" json:"email_notifications,omitempty"`
+	// SMS notification preferences
+	SmsNotifications *bool `protobuf:"varint,2,opt,name=sms_notifications,json=smsNotifications" json:"sms_notifications,omitempty"`
+	// Push notification preferences
+	PushNotifications *bool `protobuf:"varint,3,opt,name=push_notifications,json=pushNotifications" json:"push_notifications,omitempty"`
+	// Marketing email preferences
+	MarketingEmails *bool `protobuf:"varint,4,opt,name=marketing_emails,json=marketingEmails" json:"marketing_emails,omitempty"`
+	// Two-factor authentication enabled
+	TwoFactorEnabled *bool `protobuf:"varint,5,opt,name=two_factor_enabled,json=twoFactorEnabled" json:"two_factor_enabled,omitempty"`
+	// Session timeout preference (minutes)
+	SessionTimeoutMinutes *int32 `protobuf:"varint,6,opt,name=session_timeout_minutes,json=sessionTimeoutMinutes" json:"session_timeout_minutes,omitempty"`
+	// Theme preference (light, dark, auto)
+	Theme         *string `protobuf:"bytes,7,opt,name=theme" json:"theme,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
 }
 
 func (x *UserPreferences) Reset() {
@@ -579,245 +243,78 @@ func (x *UserPreferences) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
+// Deprecated: Use UserPreferences.ProtoReflect.Descriptor instead.
+func (*UserPreferences) Descriptor() ([]byte, []int) {
+	return file_pkg_auth_proto_user_metadata_proto_rawDescGZIP(), []int{1}
+}
+
 func (x *UserPreferences) GetEmailNotifications() bool {
-	if x != nil {
-		return x.xxx_hidden_EmailNotifications
+	if x != nil && x.EmailNotifications != nil {
+		return *x.EmailNotifications
 	}
 	return false
 }
 
 func (x *UserPreferences) GetSmsNotifications() bool {
-	if x != nil {
-		return x.xxx_hidden_SmsNotifications
+	if x != nil && x.SmsNotifications != nil {
+		return *x.SmsNotifications
 	}
 	return false
 }
 
 func (x *UserPreferences) GetPushNotifications() bool {
-	if x != nil {
-		return x.xxx_hidden_PushNotifications
+	if x != nil && x.PushNotifications != nil {
+		return *x.PushNotifications
 	}
 	return false
 }
 
 func (x *UserPreferences) GetMarketingEmails() bool {
-	if x != nil {
-		return x.xxx_hidden_MarketingEmails
+	if x != nil && x.MarketingEmails != nil {
+		return *x.MarketingEmails
 	}
 	return false
 }
 
 func (x *UserPreferences) GetTwoFactorEnabled() bool {
-	if x != nil {
-		return x.xxx_hidden_TwoFactorEnabled
+	if x != nil && x.TwoFactorEnabled != nil {
+		return *x.TwoFactorEnabled
 	}
 	return false
 }
 
 func (x *UserPreferences) GetSessionTimeoutMinutes() int32 {
-	if x != nil {
-		return x.xxx_hidden_SessionTimeoutMinutes
+	if x != nil && x.SessionTimeoutMinutes != nil {
+		return *x.SessionTimeoutMinutes
 	}
 	return 0
 }
 
 func (x *UserPreferences) GetTheme() string {
-	if x != nil {
-		if x.xxx_hidden_Theme != nil {
-			return *x.xxx_hidden_Theme
-		}
-		return ""
+	if x != nil && x.Theme != nil {
+		return *x.Theme
 	}
 	return ""
-}
-
-func (x *UserPreferences) SetEmailNotifications(v bool) {
-	x.xxx_hidden_EmailNotifications = v
-	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 0, 7)
-}
-
-func (x *UserPreferences) SetSmsNotifications(v bool) {
-	x.xxx_hidden_SmsNotifications = v
-	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 1, 7)
-}
-
-func (x *UserPreferences) SetPushNotifications(v bool) {
-	x.xxx_hidden_PushNotifications = v
-	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 2, 7)
-}
-
-func (x *UserPreferences) SetMarketingEmails(v bool) {
-	x.xxx_hidden_MarketingEmails = v
-	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 3, 7)
-}
-
-func (x *UserPreferences) SetTwoFactorEnabled(v bool) {
-	x.xxx_hidden_TwoFactorEnabled = v
-	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 4, 7)
-}
-
-func (x *UserPreferences) SetSessionTimeoutMinutes(v int32) {
-	x.xxx_hidden_SessionTimeoutMinutes = v
-	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 5, 7)
-}
-
-func (x *UserPreferences) SetTheme(v string) {
-	x.xxx_hidden_Theme = &v
-	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 6, 7)
-}
-
-func (x *UserPreferences) HasEmailNotifications() bool {
-	if x == nil {
-		return false
-	}
-	return protoimpl.X.Present(&(x.XXX_presence[0]), 0)
-}
-
-func (x *UserPreferences) HasSmsNotifications() bool {
-	if x == nil {
-		return false
-	}
-	return protoimpl.X.Present(&(x.XXX_presence[0]), 1)
-}
-
-func (x *UserPreferences) HasPushNotifications() bool {
-	if x == nil {
-		return false
-	}
-	return protoimpl.X.Present(&(x.XXX_presence[0]), 2)
-}
-
-func (x *UserPreferences) HasMarketingEmails() bool {
-	if x == nil {
-		return false
-	}
-	return protoimpl.X.Present(&(x.XXX_presence[0]), 3)
-}
-
-func (x *UserPreferences) HasTwoFactorEnabled() bool {
-	if x == nil {
-		return false
-	}
-	return protoimpl.X.Present(&(x.XXX_presence[0]), 4)
-}
-
-func (x *UserPreferences) HasSessionTimeoutMinutes() bool {
-	if x == nil {
-		return false
-	}
-	return protoimpl.X.Present(&(x.XXX_presence[0]), 5)
-}
-
-func (x *UserPreferences) HasTheme() bool {
-	if x == nil {
-		return false
-	}
-	return protoimpl.X.Present(&(x.XXX_presence[0]), 6)
-}
-
-func (x *UserPreferences) ClearEmailNotifications() {
-	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 0)
-	x.xxx_hidden_EmailNotifications = false
-}
-
-func (x *UserPreferences) ClearSmsNotifications() {
-	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 1)
-	x.xxx_hidden_SmsNotifications = false
-}
-
-func (x *UserPreferences) ClearPushNotifications() {
-	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 2)
-	x.xxx_hidden_PushNotifications = false
-}
-
-func (x *UserPreferences) ClearMarketingEmails() {
-	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 3)
-	x.xxx_hidden_MarketingEmails = false
-}
-
-func (x *UserPreferences) ClearTwoFactorEnabled() {
-	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 4)
-	x.xxx_hidden_TwoFactorEnabled = false
-}
-
-func (x *UserPreferences) ClearSessionTimeoutMinutes() {
-	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 5)
-	x.xxx_hidden_SessionTimeoutMinutes = 0
-}
-
-func (x *UserPreferences) ClearTheme() {
-	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 6)
-	x.xxx_hidden_Theme = nil
-}
-
-type UserPreferences_builder struct {
-	_ [0]func() // Prevents comparability and use of unkeyed literals for the builder.
-
-	// Email notification preferences
-	EmailNotifications *bool
-	// SMS notification preferences
-	SmsNotifications *bool
-	// Push notification preferences
-	PushNotifications *bool
-	// Marketing email preferences
-	MarketingEmails *bool
-	// Two-factor authentication enabled
-	TwoFactorEnabled *bool
-	// Session timeout preference (minutes)
-	SessionTimeoutMinutes *int32
-	// Theme preference (light, dark, auto)
-	Theme *string
-}
-
-func (b0 UserPreferences_builder) Build() *UserPreferences {
-	m0 := &UserPreferences{}
-	b, x := &b0, m0
-	_, _ = b, x
-	if b.EmailNotifications != nil {
-		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 0, 7)
-		x.xxx_hidden_EmailNotifications = *b.EmailNotifications
-	}
-	if b.SmsNotifications != nil {
-		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 1, 7)
-		x.xxx_hidden_SmsNotifications = *b.SmsNotifications
-	}
-	if b.PushNotifications != nil {
-		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 2, 7)
-		x.xxx_hidden_PushNotifications = *b.PushNotifications
-	}
-	if b.MarketingEmails != nil {
-		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 3, 7)
-		x.xxx_hidden_MarketingEmails = *b.MarketingEmails
-	}
-	if b.TwoFactorEnabled != nil {
-		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 4, 7)
-		x.xxx_hidden_TwoFactorEnabled = *b.TwoFactorEnabled
-	}
-	if b.SessionTimeoutMinutes != nil {
-		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 5, 7)
-		x.xxx_hidden_SessionTimeoutMinutes = *b.SessionTimeoutMinutes
-	}
-	if b.Theme != nil {
-		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 6, 7)
-		x.xxx_hidden_Theme = b.Theme
-	}
-	return m0
 }
 
 // *
 // Account verification status information.
 type VerificationStatus struct {
-	state                         protoimpl.MessageState `protogen:"opaque.v1"`
-	xxx_hidden_EmailVerified      bool                   `protobuf:"varint,1,opt,name=email_verified,json=emailVerified"`
-	xxx_hidden_PhoneVerified      bool                   `protobuf:"varint,2,opt,name=phone_verified,json=phoneVerified"`
-	xxx_hidden_IdentityVerified   bool                   `protobuf:"varint,3,opt,name=identity_verified,json=identityVerified"`
-	xxx_hidden_EmailVerifiedAt    *timestamppb.Timestamp `protobuf:"bytes,4,opt,name=email_verified_at,json=emailVerifiedAt"`
-	xxx_hidden_PhoneVerifiedAt    *timestamppb.Timestamp `protobuf:"bytes,5,opt,name=phone_verified_at,json=phoneVerifiedAt"`
-	xxx_hidden_IdentityVerifiedAt *timestamppb.Timestamp `protobuf:"bytes,6,opt,name=identity_verified_at,json=identityVerifiedAt"`
-	XXX_raceDetectHookData        protoimpl.RaceDetectHookData
-	XXX_presence                  [1]uint32
-	unknownFields                 protoimpl.UnknownFields
-	sizeCache                     protoimpl.SizeCache
+	state protoimpl.MessageState `protogen:"open.v1"`
+	// Email verification status
+	EmailVerified *bool `protobuf:"varint,1,opt,name=email_verified,json=emailVerified" json:"email_verified,omitempty"`
+	// Phone number verification status
+	PhoneVerified *bool `protobuf:"varint,2,opt,name=phone_verified,json=phoneVerified" json:"phone_verified,omitempty"`
+	// Identity verification status
+	IdentityVerified *bool `protobuf:"varint,3,opt,name=identity_verified,json=identityVerified" json:"identity_verified,omitempty"`
+	// When email was verified
+	EmailVerifiedAt *timestamppb.Timestamp `protobuf:"bytes,4,opt,name=email_verified_at,json=emailVerifiedAt" json:"email_verified_at,omitempty"`
+	// When phone was verified
+	PhoneVerifiedAt *timestamppb.Timestamp `protobuf:"bytes,5,opt,name=phone_verified_at,json=phoneVerifiedAt" json:"phone_verified_at,omitempty"`
+	// When identity was verified
+	IdentityVerifiedAt *timestamppb.Timestamp `protobuf:"bytes,6,opt,name=identity_verified_at,json=identityVerifiedAt" json:"identity_verified_at,omitempty"`
+	unknownFields      protoimpl.UnknownFields
+	sizeCache          protoimpl.SizeCache
 }
 
 func (x *VerificationStatus) Reset() {
@@ -845,188 +342,58 @@ func (x *VerificationStatus) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
+// Deprecated: Use VerificationStatus.ProtoReflect.Descriptor instead.
+func (*VerificationStatus) Descriptor() ([]byte, []int) {
+	return file_pkg_auth_proto_user_metadata_proto_rawDescGZIP(), []int{2}
+}
+
 func (x *VerificationStatus) GetEmailVerified() bool {
-	if x != nil {
-		return x.xxx_hidden_EmailVerified
+	if x != nil && x.EmailVerified != nil {
+		return *x.EmailVerified
 	}
 	return false
 }
 
 func (x *VerificationStatus) GetPhoneVerified() bool {
-	if x != nil {
-		return x.xxx_hidden_PhoneVerified
+	if x != nil && x.PhoneVerified != nil {
+		return *x.PhoneVerified
 	}
 	return false
 }
 
 func (x *VerificationStatus) GetIdentityVerified() bool {
-	if x != nil {
-		return x.xxx_hidden_IdentityVerified
+	if x != nil && x.IdentityVerified != nil {
+		return *x.IdentityVerified
 	}
 	return false
 }
 
 func (x *VerificationStatus) GetEmailVerifiedAt() *timestamppb.Timestamp {
 	if x != nil {
-		return x.xxx_hidden_EmailVerifiedAt
+		return x.EmailVerifiedAt
 	}
 	return nil
 }
 
 func (x *VerificationStatus) GetPhoneVerifiedAt() *timestamppb.Timestamp {
 	if x != nil {
-		return x.xxx_hidden_PhoneVerifiedAt
+		return x.PhoneVerifiedAt
 	}
 	return nil
 }
 
 func (x *VerificationStatus) GetIdentityVerifiedAt() *timestamppb.Timestamp {
 	if x != nil {
-		return x.xxx_hidden_IdentityVerifiedAt
+		return x.IdentityVerifiedAt
 	}
 	return nil
-}
-
-func (x *VerificationStatus) SetEmailVerified(v bool) {
-	x.xxx_hidden_EmailVerified = v
-	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 0, 6)
-}
-
-func (x *VerificationStatus) SetPhoneVerified(v bool) {
-	x.xxx_hidden_PhoneVerified = v
-	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 1, 6)
-}
-
-func (x *VerificationStatus) SetIdentityVerified(v bool) {
-	x.xxx_hidden_IdentityVerified = v
-	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 2, 6)
-}
-
-func (x *VerificationStatus) SetEmailVerifiedAt(v *timestamppb.Timestamp) {
-	x.xxx_hidden_EmailVerifiedAt = v
-}
-
-func (x *VerificationStatus) SetPhoneVerifiedAt(v *timestamppb.Timestamp) {
-	x.xxx_hidden_PhoneVerifiedAt = v
-}
-
-func (x *VerificationStatus) SetIdentityVerifiedAt(v *timestamppb.Timestamp) {
-	x.xxx_hidden_IdentityVerifiedAt = v
-}
-
-func (x *VerificationStatus) HasEmailVerified() bool {
-	if x == nil {
-		return false
-	}
-	return protoimpl.X.Present(&(x.XXX_presence[0]), 0)
-}
-
-func (x *VerificationStatus) HasPhoneVerified() bool {
-	if x == nil {
-		return false
-	}
-	return protoimpl.X.Present(&(x.XXX_presence[0]), 1)
-}
-
-func (x *VerificationStatus) HasIdentityVerified() bool {
-	if x == nil {
-		return false
-	}
-	return protoimpl.X.Present(&(x.XXX_presence[0]), 2)
-}
-
-func (x *VerificationStatus) HasEmailVerifiedAt() bool {
-	if x == nil {
-		return false
-	}
-	return x.xxx_hidden_EmailVerifiedAt != nil
-}
-
-func (x *VerificationStatus) HasPhoneVerifiedAt() bool {
-	if x == nil {
-		return false
-	}
-	return x.xxx_hidden_PhoneVerifiedAt != nil
-}
-
-func (x *VerificationStatus) HasIdentityVerifiedAt() bool {
-	if x == nil {
-		return false
-	}
-	return x.xxx_hidden_IdentityVerifiedAt != nil
-}
-
-func (x *VerificationStatus) ClearEmailVerified() {
-	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 0)
-	x.xxx_hidden_EmailVerified = false
-}
-
-func (x *VerificationStatus) ClearPhoneVerified() {
-	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 1)
-	x.xxx_hidden_PhoneVerified = false
-}
-
-func (x *VerificationStatus) ClearIdentityVerified() {
-	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 2)
-	x.xxx_hidden_IdentityVerified = false
-}
-
-func (x *VerificationStatus) ClearEmailVerifiedAt() {
-	x.xxx_hidden_EmailVerifiedAt = nil
-}
-
-func (x *VerificationStatus) ClearPhoneVerifiedAt() {
-	x.xxx_hidden_PhoneVerifiedAt = nil
-}
-
-func (x *VerificationStatus) ClearIdentityVerifiedAt() {
-	x.xxx_hidden_IdentityVerifiedAt = nil
-}
-
-type VerificationStatus_builder struct {
-	_ [0]func() // Prevents comparability and use of unkeyed literals for the builder.
-
-	// Email verification status
-	EmailVerified *bool
-	// Phone number verification status
-	PhoneVerified *bool
-	// Identity verification status
-	IdentityVerified *bool
-	// When email was verified
-	EmailVerifiedAt *timestamppb.Timestamp
-	// When phone was verified
-	PhoneVerifiedAt *timestamppb.Timestamp
-	// When identity was verified
-	IdentityVerifiedAt *timestamppb.Timestamp
-}
-
-func (b0 VerificationStatus_builder) Build() *VerificationStatus {
-	m0 := &VerificationStatus{}
-	b, x := &b0, m0
-	_, _ = b, x
-	if b.EmailVerified != nil {
-		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 0, 6)
-		x.xxx_hidden_EmailVerified = *b.EmailVerified
-	}
-	if b.PhoneVerified != nil {
-		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 1, 6)
-		x.xxx_hidden_PhoneVerified = *b.PhoneVerified
-	}
-	if b.IdentityVerified != nil {
-		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 2, 6)
-		x.xxx_hidden_IdentityVerified = *b.IdentityVerified
-	}
-	x.xxx_hidden_EmailVerifiedAt = b.EmailVerifiedAt
-	x.xxx_hidden_PhoneVerifiedAt = b.PhoneVerifiedAt
-	x.xxx_hidden_IdentityVerifiedAt = b.IdentityVerifiedAt
-	return m0
 }
 
 var File_pkg_auth_proto_user_metadata_proto protoreflect.FileDescriptor
 
 const file_pkg_auth_proto_user_metadata_proto_rawDesc = "" +
 	"\n" +
-	"\"pkg/auth/proto/user_metadata.proto\x12\x0fgcommon.v1.auth\x1a!google/protobuf/go_features.proto\x1a\x1fgoogle/protobuf/timestamp.proto\"\x99\x05\n" +
+	"\"pkg/auth/proto/user_metadata.proto\x12\x0fgcommon.v1.auth\x1a\x1fgoogle/protobuf/timestamp.proto\"\x99\x05\n" +
 	"\fUserMetadata\x12!\n" +
 	"\fdisplay_name\x18\x01 \x01(\tR\vdisplayName\x12\x1d\n" +
 	"\n" +
@@ -1065,8 +432,20 @@ const file_pkg_auth_proto_user_metadata_proto_rawDesc = "" +
 	"\x11identity_verified\x18\x03 \x01(\bR\x10identityVerified\x12F\n" +
 	"\x11email_verified_at\x18\x04 \x01(\v2\x1a.google.protobuf.TimestampR\x0femailVerifiedAt\x12F\n" +
 	"\x11phone_verified_at\x18\x05 \x01(\v2\x1a.google.protobuf.TimestampR\x0fphoneVerifiedAt\x12L\n" +
-	"\x14identity_verified_at\x18\x06 \x01(\v2\x1a.google.protobuf.TimestampR\x12identityVerifiedAtB\xb8\x01\n" +
-	"\x13com.gcommon.v1.authB\x11UserMetadataProtoP\x01Z(github.com/jdfalk/gcommon/pkg/auth/proto\xa2\x02\x03GVA\xaa\x02\x0fGcommon.V1.Auth\xca\x02\x0fGcommon\\V1\\Auth\xe2\x02\x1bGcommon\\V1\\Auth\\GPBMetadata\xea\x02\x11Gcommon::V1::Auth\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"\x14identity_verified_at\x18\x06 \x01(\v2\x1a.google.protobuf.TimestampR\x12identityVerifiedAtB\xb0\x01\n" +
+	"\x13com.gcommon.v1.authB\x11UserMetadataProtoP\x01Z(github.com/jdfalk/gcommon/pkg/auth/proto\xa2\x02\x03GVA\xaa\x02\x0fGcommon.V1.Auth\xca\x02\x0fGcommon\\V1\\Auth\xe2\x02\x1bGcommon\\V1\\Auth\\GPBMetadata\xea\x02\x11Gcommon::V1::Authb\beditionsp\xe8\a"
+
+var (
+	file_pkg_auth_proto_user_metadata_proto_rawDescOnce sync.Once
+	file_pkg_auth_proto_user_metadata_proto_rawDescData []byte
+)
+
+func file_pkg_auth_proto_user_metadata_proto_rawDescGZIP() []byte {
+	file_pkg_auth_proto_user_metadata_proto_rawDescOnce.Do(func() {
+		file_pkg_auth_proto_user_metadata_proto_rawDescData = protoimpl.X.CompressGZIP(unsafe.Slice(unsafe.StringData(file_pkg_auth_proto_user_metadata_proto_rawDesc), len(file_pkg_auth_proto_user_metadata_proto_rawDesc)))
+	})
+	return file_pkg_auth_proto_user_metadata_proto_rawDescData
+}
 
 var file_pkg_auth_proto_user_metadata_proto_msgTypes = make([]protoimpl.MessageInfo, 4)
 var file_pkg_auth_proto_user_metadata_proto_goTypes = []any{

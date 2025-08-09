@@ -10,8 +10,8 @@ import (
 	proto "github.com/jdfalk/gcommon/pkg/common/proto"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
-	_ "google.golang.org/protobuf/types/gofeaturespb"
 	reflect "reflect"
+	sync "sync"
 	unsafe "unsafe"
 )
 
@@ -26,24 +26,35 @@ const (
 // Request to register a new user account.
 // Creates a new user with the provided credentials and profile information.
 type RegisterUserRequest struct {
-	state                               protoimpl.MessageState `protogen:"opaque.v1"`
-	xxx_hidden_Username                 *string                `protobuf:"bytes,1,opt,name=username"`
-	xxx_hidden_Email                    *string                `protobuf:"bytes,2,opt,name=email"`
-	xxx_hidden_Password                 *string                `protobuf:"bytes,3,opt,name=password"`
-	xxx_hidden_FirstName                *string                `protobuf:"bytes,4,opt,name=first_name,json=firstName"`
-	xxx_hidden_LastName                 *string                `protobuf:"bytes,5,opt,name=last_name,json=lastName"`
-	xxx_hidden_PhoneNumber              *string                `protobuf:"bytes,6,opt,name=phone_number,json=phoneNumber"`
-	xxx_hidden_OrganizationId           *string                `protobuf:"bytes,7,opt,name=organization_id,json=organizationId"`
-	xxx_hidden_RequireEmailVerification bool                   `protobuf:"varint,8,opt,name=require_email_verification,json=requireEmailVerification"`
-	xxx_hidden_InvitationToken          *string                `protobuf:"bytes,9,opt,name=invitation_token,json=invitationToken"`
-	xxx_hidden_Metadata                 map[string]string      `protobuf:"bytes,10,rep,name=metadata" protobuf_key:"bytes,1,opt,name=key" protobuf_val:"bytes,2,opt,name=value"`
-	xxx_hidden_RequestMetadata          *proto.RequestMetadata `protobuf:"bytes,11,opt,name=request_metadata,json=requestMetadata"`
-	xxx_hidden_TosAcceptedAt            int64                  `protobuf:"varint,12,opt,name=tos_accepted_at,json=tosAcceptedAt"`
-	xxx_hidden_PrivacyAcceptedAt        int64                  `protobuf:"varint,13,opt,name=privacy_accepted_at,json=privacyAcceptedAt"`
-	XXX_raceDetectHookData              protoimpl.RaceDetectHookData
-	XXX_presence                        [1]uint32
-	unknownFields                       protoimpl.UnknownFields
-	sizeCache                           protoimpl.SizeCache
+	state protoimpl.MessageState `protogen:"open.v1"`
+	// Username for the new account (required)
+	Username *string `protobuf:"bytes,1,opt,name=username" json:"username,omitempty"`
+	// Email address for the new account (required)
+	Email *string `protobuf:"bytes,2,opt,name=email" json:"email,omitempty"`
+	// Password for the new account (required)
+	Password *string `protobuf:"bytes,3,opt,name=password" json:"password,omitempty"`
+	// First name of the user
+	FirstName *string `protobuf:"bytes,4,opt,name=first_name,json=firstName" json:"first_name,omitempty"`
+	// Last name of the user
+	LastName *string `protobuf:"bytes,5,opt,name=last_name,json=lastName" json:"last_name,omitempty"`
+	// Phone number (optional)
+	PhoneNumber *string `protobuf:"bytes,6,opt,name=phone_number,json=phoneNumber" json:"phone_number,omitempty"`
+	// Initial organization to associate user with (optional)
+	OrganizationId *string `protobuf:"bytes,7,opt,name=organization_id,json=organizationId" json:"organization_id,omitempty"`
+	// Whether email verification is required
+	RequireEmailVerification *bool `protobuf:"varint,8,opt,name=require_email_verification,json=requireEmailVerification" json:"require_email_verification,omitempty"`
+	// Invitation token (if registering via invitation)
+	InvitationToken *string `protobuf:"bytes,9,opt,name=invitation_token,json=invitationToken" json:"invitation_token,omitempty"`
+	// Additional user metadata
+	Metadata map[string]string `protobuf:"bytes,10,rep,name=metadata" json:"metadata,omitempty" protobuf_key:"bytes,1,opt,name=key" protobuf_val:"bytes,2,opt,name=value"`
+	// Request metadata for tracing and correlation
+	RequestMetadata *proto.RequestMetadata `protobuf:"bytes,11,opt,name=request_metadata,json=requestMetadata" json:"request_metadata,omitempty"`
+	// Terms of service acceptance timestamp
+	TosAcceptedAt *int64 `protobuf:"varint,12,opt,name=tos_accepted_at,json=tosAcceptedAt" json:"tos_accepted_at,omitempty"`
+	// Privacy policy acceptance timestamp
+	PrivacyAcceptedAt *int64 `protobuf:"varint,13,opt,name=privacy_accepted_at,json=privacyAcceptedAt" json:"privacy_accepted_at,omitempty"`
+	unknownFields     protoimpl.UnknownFields
+	sizeCache         protoimpl.SizeCache
 }
 
 func (x *RegisterUserRequest) Reset() {
@@ -71,416 +82,107 @@ func (x *RegisterUserRequest) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
+// Deprecated: Use RegisterUserRequest.ProtoReflect.Descriptor instead.
+func (*RegisterUserRequest) Descriptor() ([]byte, []int) {
+	return file_pkg_auth_proto_register_user_request_proto_rawDescGZIP(), []int{0}
+}
+
 func (x *RegisterUserRequest) GetUsername() string {
-	if x != nil {
-		if x.xxx_hidden_Username != nil {
-			return *x.xxx_hidden_Username
-		}
-		return ""
+	if x != nil && x.Username != nil {
+		return *x.Username
 	}
 	return ""
 }
 
 func (x *RegisterUserRequest) GetEmail() string {
-	if x != nil {
-		if x.xxx_hidden_Email != nil {
-			return *x.xxx_hidden_Email
-		}
-		return ""
+	if x != nil && x.Email != nil {
+		return *x.Email
 	}
 	return ""
 }
 
 func (x *RegisterUserRequest) GetPassword() string {
-	if x != nil {
-		if x.xxx_hidden_Password != nil {
-			return *x.xxx_hidden_Password
-		}
-		return ""
+	if x != nil && x.Password != nil {
+		return *x.Password
 	}
 	return ""
 }
 
 func (x *RegisterUserRequest) GetFirstName() string {
-	if x != nil {
-		if x.xxx_hidden_FirstName != nil {
-			return *x.xxx_hidden_FirstName
-		}
-		return ""
+	if x != nil && x.FirstName != nil {
+		return *x.FirstName
 	}
 	return ""
 }
 
 func (x *RegisterUserRequest) GetLastName() string {
-	if x != nil {
-		if x.xxx_hidden_LastName != nil {
-			return *x.xxx_hidden_LastName
-		}
-		return ""
+	if x != nil && x.LastName != nil {
+		return *x.LastName
 	}
 	return ""
 }
 
 func (x *RegisterUserRequest) GetPhoneNumber() string {
-	if x != nil {
-		if x.xxx_hidden_PhoneNumber != nil {
-			return *x.xxx_hidden_PhoneNumber
-		}
-		return ""
+	if x != nil && x.PhoneNumber != nil {
+		return *x.PhoneNumber
 	}
 	return ""
 }
 
 func (x *RegisterUserRequest) GetOrganizationId() string {
-	if x != nil {
-		if x.xxx_hidden_OrganizationId != nil {
-			return *x.xxx_hidden_OrganizationId
-		}
-		return ""
+	if x != nil && x.OrganizationId != nil {
+		return *x.OrganizationId
 	}
 	return ""
 }
 
 func (x *RegisterUserRequest) GetRequireEmailVerification() bool {
-	if x != nil {
-		return x.xxx_hidden_RequireEmailVerification
+	if x != nil && x.RequireEmailVerification != nil {
+		return *x.RequireEmailVerification
 	}
 	return false
 }
 
 func (x *RegisterUserRequest) GetInvitationToken() string {
-	if x != nil {
-		if x.xxx_hidden_InvitationToken != nil {
-			return *x.xxx_hidden_InvitationToken
-		}
-		return ""
+	if x != nil && x.InvitationToken != nil {
+		return *x.InvitationToken
 	}
 	return ""
 }
 
 func (x *RegisterUserRequest) GetMetadata() map[string]string {
 	if x != nil {
-		return x.xxx_hidden_Metadata
+		return x.Metadata
 	}
 	return nil
 }
 
 func (x *RegisterUserRequest) GetRequestMetadata() *proto.RequestMetadata {
 	if x != nil {
-		return x.xxx_hidden_RequestMetadata
+		return x.RequestMetadata
 	}
 	return nil
 }
 
 func (x *RegisterUserRequest) GetTosAcceptedAt() int64 {
-	if x != nil {
-		return x.xxx_hidden_TosAcceptedAt
+	if x != nil && x.TosAcceptedAt != nil {
+		return *x.TosAcceptedAt
 	}
 	return 0
 }
 
 func (x *RegisterUserRequest) GetPrivacyAcceptedAt() int64 {
-	if x != nil {
-		return x.xxx_hidden_PrivacyAcceptedAt
+	if x != nil && x.PrivacyAcceptedAt != nil {
+		return *x.PrivacyAcceptedAt
 	}
 	return 0
-}
-
-func (x *RegisterUserRequest) SetUsername(v string) {
-	x.xxx_hidden_Username = &v
-	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 0, 13)
-}
-
-func (x *RegisterUserRequest) SetEmail(v string) {
-	x.xxx_hidden_Email = &v
-	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 1, 13)
-}
-
-func (x *RegisterUserRequest) SetPassword(v string) {
-	x.xxx_hidden_Password = &v
-	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 2, 13)
-}
-
-func (x *RegisterUserRequest) SetFirstName(v string) {
-	x.xxx_hidden_FirstName = &v
-	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 3, 13)
-}
-
-func (x *RegisterUserRequest) SetLastName(v string) {
-	x.xxx_hidden_LastName = &v
-	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 4, 13)
-}
-
-func (x *RegisterUserRequest) SetPhoneNumber(v string) {
-	x.xxx_hidden_PhoneNumber = &v
-	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 5, 13)
-}
-
-func (x *RegisterUserRequest) SetOrganizationId(v string) {
-	x.xxx_hidden_OrganizationId = &v
-	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 6, 13)
-}
-
-func (x *RegisterUserRequest) SetRequireEmailVerification(v bool) {
-	x.xxx_hidden_RequireEmailVerification = v
-	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 7, 13)
-}
-
-func (x *RegisterUserRequest) SetInvitationToken(v string) {
-	x.xxx_hidden_InvitationToken = &v
-	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 8, 13)
-}
-
-func (x *RegisterUserRequest) SetMetadata(v map[string]string) {
-	x.xxx_hidden_Metadata = v
-}
-
-func (x *RegisterUserRequest) SetRequestMetadata(v *proto.RequestMetadata) {
-	x.xxx_hidden_RequestMetadata = v
-}
-
-func (x *RegisterUserRequest) SetTosAcceptedAt(v int64) {
-	x.xxx_hidden_TosAcceptedAt = v
-	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 11, 13)
-}
-
-func (x *RegisterUserRequest) SetPrivacyAcceptedAt(v int64) {
-	x.xxx_hidden_PrivacyAcceptedAt = v
-	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 12, 13)
-}
-
-func (x *RegisterUserRequest) HasUsername() bool {
-	if x == nil {
-		return false
-	}
-	return protoimpl.X.Present(&(x.XXX_presence[0]), 0)
-}
-
-func (x *RegisterUserRequest) HasEmail() bool {
-	if x == nil {
-		return false
-	}
-	return protoimpl.X.Present(&(x.XXX_presence[0]), 1)
-}
-
-func (x *RegisterUserRequest) HasPassword() bool {
-	if x == nil {
-		return false
-	}
-	return protoimpl.X.Present(&(x.XXX_presence[0]), 2)
-}
-
-func (x *RegisterUserRequest) HasFirstName() bool {
-	if x == nil {
-		return false
-	}
-	return protoimpl.X.Present(&(x.XXX_presence[0]), 3)
-}
-
-func (x *RegisterUserRequest) HasLastName() bool {
-	if x == nil {
-		return false
-	}
-	return protoimpl.X.Present(&(x.XXX_presence[0]), 4)
-}
-
-func (x *RegisterUserRequest) HasPhoneNumber() bool {
-	if x == nil {
-		return false
-	}
-	return protoimpl.X.Present(&(x.XXX_presence[0]), 5)
-}
-
-func (x *RegisterUserRequest) HasOrganizationId() bool {
-	if x == nil {
-		return false
-	}
-	return protoimpl.X.Present(&(x.XXX_presence[0]), 6)
-}
-
-func (x *RegisterUserRequest) HasRequireEmailVerification() bool {
-	if x == nil {
-		return false
-	}
-	return protoimpl.X.Present(&(x.XXX_presence[0]), 7)
-}
-
-func (x *RegisterUserRequest) HasInvitationToken() bool {
-	if x == nil {
-		return false
-	}
-	return protoimpl.X.Present(&(x.XXX_presence[0]), 8)
-}
-
-func (x *RegisterUserRequest) HasRequestMetadata() bool {
-	if x == nil {
-		return false
-	}
-	return x.xxx_hidden_RequestMetadata != nil
-}
-
-func (x *RegisterUserRequest) HasTosAcceptedAt() bool {
-	if x == nil {
-		return false
-	}
-	return protoimpl.X.Present(&(x.XXX_presence[0]), 11)
-}
-
-func (x *RegisterUserRequest) HasPrivacyAcceptedAt() bool {
-	if x == nil {
-		return false
-	}
-	return protoimpl.X.Present(&(x.XXX_presence[0]), 12)
-}
-
-func (x *RegisterUserRequest) ClearUsername() {
-	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 0)
-	x.xxx_hidden_Username = nil
-}
-
-func (x *RegisterUserRequest) ClearEmail() {
-	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 1)
-	x.xxx_hidden_Email = nil
-}
-
-func (x *RegisterUserRequest) ClearPassword() {
-	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 2)
-	x.xxx_hidden_Password = nil
-}
-
-func (x *RegisterUserRequest) ClearFirstName() {
-	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 3)
-	x.xxx_hidden_FirstName = nil
-}
-
-func (x *RegisterUserRequest) ClearLastName() {
-	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 4)
-	x.xxx_hidden_LastName = nil
-}
-
-func (x *RegisterUserRequest) ClearPhoneNumber() {
-	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 5)
-	x.xxx_hidden_PhoneNumber = nil
-}
-
-func (x *RegisterUserRequest) ClearOrganizationId() {
-	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 6)
-	x.xxx_hidden_OrganizationId = nil
-}
-
-func (x *RegisterUserRequest) ClearRequireEmailVerification() {
-	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 7)
-	x.xxx_hidden_RequireEmailVerification = false
-}
-
-func (x *RegisterUserRequest) ClearInvitationToken() {
-	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 8)
-	x.xxx_hidden_InvitationToken = nil
-}
-
-func (x *RegisterUserRequest) ClearRequestMetadata() {
-	x.xxx_hidden_RequestMetadata = nil
-}
-
-func (x *RegisterUserRequest) ClearTosAcceptedAt() {
-	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 11)
-	x.xxx_hidden_TosAcceptedAt = 0
-}
-
-func (x *RegisterUserRequest) ClearPrivacyAcceptedAt() {
-	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 12)
-	x.xxx_hidden_PrivacyAcceptedAt = 0
-}
-
-type RegisterUserRequest_builder struct {
-	_ [0]func() // Prevents comparability and use of unkeyed literals for the builder.
-
-	// Username for the new account (required)
-	Username *string
-	// Email address for the new account (required)
-	Email *string
-	// Password for the new account (required)
-	Password *string
-	// First name of the user
-	FirstName *string
-	// Last name of the user
-	LastName *string
-	// Phone number (optional)
-	PhoneNumber *string
-	// Initial organization to associate user with (optional)
-	OrganizationId *string
-	// Whether email verification is required
-	RequireEmailVerification *bool
-	// Invitation token (if registering via invitation)
-	InvitationToken *string
-	// Additional user metadata
-	Metadata map[string]string
-	// Request metadata for tracing and correlation
-	RequestMetadata *proto.RequestMetadata
-	// Terms of service acceptance timestamp
-	TosAcceptedAt *int64
-	// Privacy policy acceptance timestamp
-	PrivacyAcceptedAt *int64
-}
-
-func (b0 RegisterUserRequest_builder) Build() *RegisterUserRequest {
-	m0 := &RegisterUserRequest{}
-	b, x := &b0, m0
-	_, _ = b, x
-	if b.Username != nil {
-		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 0, 13)
-		x.xxx_hidden_Username = b.Username
-	}
-	if b.Email != nil {
-		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 1, 13)
-		x.xxx_hidden_Email = b.Email
-	}
-	if b.Password != nil {
-		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 2, 13)
-		x.xxx_hidden_Password = b.Password
-	}
-	if b.FirstName != nil {
-		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 3, 13)
-		x.xxx_hidden_FirstName = b.FirstName
-	}
-	if b.LastName != nil {
-		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 4, 13)
-		x.xxx_hidden_LastName = b.LastName
-	}
-	if b.PhoneNumber != nil {
-		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 5, 13)
-		x.xxx_hidden_PhoneNumber = b.PhoneNumber
-	}
-	if b.OrganizationId != nil {
-		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 6, 13)
-		x.xxx_hidden_OrganizationId = b.OrganizationId
-	}
-	if b.RequireEmailVerification != nil {
-		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 7, 13)
-		x.xxx_hidden_RequireEmailVerification = *b.RequireEmailVerification
-	}
-	if b.InvitationToken != nil {
-		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 8, 13)
-		x.xxx_hidden_InvitationToken = b.InvitationToken
-	}
-	x.xxx_hidden_Metadata = b.Metadata
-	x.xxx_hidden_RequestMetadata = b.RequestMetadata
-	if b.TosAcceptedAt != nil {
-		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 11, 13)
-		x.xxx_hidden_TosAcceptedAt = *b.TosAcceptedAt
-	}
-	if b.PrivacyAcceptedAt != nil {
-		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 12, 13)
-		x.xxx_hidden_PrivacyAcceptedAt = *b.PrivacyAcceptedAt
-	}
-	return m0
 }
 
 var File_pkg_auth_proto_register_user_request_proto protoreflect.FileDescriptor
 
 const file_pkg_auth_proto_register_user_request_proto_rawDesc = "" +
 	"\n" +
-	"*pkg/auth/proto/register_user_request.proto\x12\x0fgcommon.v1.auth\x1a!google/protobuf/go_features.proto\x1a'pkg/common/proto/request_metadata.proto\"\x88\x05\n" +
+	"*pkg/auth/proto/register_user_request.proto\x12\x0fgcommon.v1.auth\x1a'pkg/common/proto/request_metadata.proto\"\x88\x05\n" +
 	"\x13RegisterUserRequest\x12\x1a\n" +
 	"\busername\x18\x01 \x01(\tR\busername\x12\x14\n" +
 	"\x05email\x18\x02 \x01(\tR\x05email\x12\x1a\n" +
@@ -499,8 +201,20 @@ const file_pkg_auth_proto_register_user_request_proto_rawDesc = "" +
 	"\x13privacy_accepted_at\x18\r \x01(\x03R\x11privacyAcceptedAt\x1a;\n" +
 	"\rMetadataEntry\x12\x10\n" +
 	"\x03key\x18\x01 \x01(\tR\x03key\x12\x14\n" +
-	"\x05value\x18\x02 \x01(\tR\x05value:\x028\x01B\xbf\x01\n" +
-	"\x13com.gcommon.v1.authB\x18RegisterUserRequestProtoP\x01Z(github.com/jdfalk/gcommon/pkg/auth/proto\xa2\x02\x03GVA\xaa\x02\x0fGcommon.V1.Auth\xca\x02\x0fGcommon\\V1\\Auth\xe2\x02\x1bGcommon\\V1\\Auth\\GPBMetadata\xea\x02\x11Gcommon::V1::Auth\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"\x05value\x18\x02 \x01(\tR\x05value:\x028\x01B\xb7\x01\n" +
+	"\x13com.gcommon.v1.authB\x18RegisterUserRequestProtoP\x01Z(github.com/jdfalk/gcommon/pkg/auth/proto\xa2\x02\x03GVA\xaa\x02\x0fGcommon.V1.Auth\xca\x02\x0fGcommon\\V1\\Auth\xe2\x02\x1bGcommon\\V1\\Auth\\GPBMetadata\xea\x02\x11Gcommon::V1::Authb\beditionsp\xe8\a"
+
+var (
+	file_pkg_auth_proto_register_user_request_proto_rawDescOnce sync.Once
+	file_pkg_auth_proto_register_user_request_proto_rawDescData []byte
+)
+
+func file_pkg_auth_proto_register_user_request_proto_rawDescGZIP() []byte {
+	file_pkg_auth_proto_register_user_request_proto_rawDescOnce.Do(func() {
+		file_pkg_auth_proto_register_user_request_proto_rawDescData = protoimpl.X.CompressGZIP(unsafe.Slice(unsafe.StringData(file_pkg_auth_proto_register_user_request_proto_rawDesc), len(file_pkg_auth_proto_register_user_request_proto_rawDesc)))
+	})
+	return file_pkg_auth_proto_register_user_request_proto_rawDescData
+}
 
 var file_pkg_auth_proto_register_user_request_proto_msgTypes = make([]protoimpl.MessageInfo, 2)
 var file_pkg_auth_proto_register_user_request_proto_goTypes = []any{

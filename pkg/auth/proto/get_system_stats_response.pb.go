@@ -10,8 +10,8 @@ import (
 	proto "github.com/jdfalk/gcommon/pkg/common/proto"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
-	_ "google.golang.org/protobuf/types/gofeaturespb"
 	reflect "reflect"
+	sync "sync"
 	unsafe "unsafe"
 )
 
@@ -25,17 +25,21 @@ const (
 // *
 // Response containing authentication system statistics.
 type GetSystemStatsResponse struct {
-	state                     protoimpl.MessageState `protogen:"opaque.v1"`
-	xxx_hidden_ActiveUsers    int64                  `protobuf:"varint,1,opt,name=active_users,json=activeUsers"`
-	xxx_hidden_TotalRoles     int64                  `protobuf:"varint,2,opt,name=total_roles,json=totalRoles"`
-	xxx_hidden_ActiveSessions int64                  `protobuf:"varint,3,opt,name=active_sessions,json=activeSessions"`
-	xxx_hidden_FailedLogins   int64                  `protobuf:"varint,4,opt,name=failed_logins,json=failedLogins"`
-	xxx_hidden_UptimeSeconds  int64                  `protobuf:"varint,5,opt,name=uptime_seconds,json=uptimeSeconds"`
-	xxx_hidden_Error          *proto.Error           `protobuf:"bytes,6,opt,name=error"`
-	XXX_raceDetectHookData    protoimpl.RaceDetectHookData
-	XXX_presence              [1]uint32
-	unknownFields             protoimpl.UnknownFields
-	sizeCache                 protoimpl.SizeCache
+	state protoimpl.MessageState `protogen:"open.v1"`
+	// Total number of active users
+	ActiveUsers *int64 `protobuf:"varint,1,opt,name=active_users,json=activeUsers" json:"active_users,omitempty"`
+	// Total number of roles
+	TotalRoles *int64 `protobuf:"varint,2,opt,name=total_roles,json=totalRoles" json:"total_roles,omitempty"`
+	// Total number of active sessions
+	ActiveSessions *int64 `protobuf:"varint,3,opt,name=active_sessions,json=activeSessions" json:"active_sessions,omitempty"`
+	// Total number of failed login attempts (last 24h)
+	FailedLogins *int64 `protobuf:"varint,4,opt,name=failed_logins,json=failedLogins" json:"failed_logins,omitempty"`
+	// Authentication system uptime in seconds
+	UptimeSeconds *int64 `protobuf:"varint,5,opt,name=uptime_seconds,json=uptimeSeconds" json:"uptime_seconds,omitempty"`
+	// Error information if stats retrieval failed
+	Error         *proto.Error `protobuf:"bytes,6,opt,name=error" json:"error,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
 }
 
 func (x *GetSystemStatsResponse) Reset() {
@@ -63,198 +67,58 @@ func (x *GetSystemStatsResponse) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
+// Deprecated: Use GetSystemStatsResponse.ProtoReflect.Descriptor instead.
+func (*GetSystemStatsResponse) Descriptor() ([]byte, []int) {
+	return file_pkg_auth_proto_get_system_stats_response_proto_rawDescGZIP(), []int{0}
+}
+
 func (x *GetSystemStatsResponse) GetActiveUsers() int64 {
-	if x != nil {
-		return x.xxx_hidden_ActiveUsers
+	if x != nil && x.ActiveUsers != nil {
+		return *x.ActiveUsers
 	}
 	return 0
 }
 
 func (x *GetSystemStatsResponse) GetTotalRoles() int64 {
-	if x != nil {
-		return x.xxx_hidden_TotalRoles
+	if x != nil && x.TotalRoles != nil {
+		return *x.TotalRoles
 	}
 	return 0
 }
 
 func (x *GetSystemStatsResponse) GetActiveSessions() int64 {
-	if x != nil {
-		return x.xxx_hidden_ActiveSessions
+	if x != nil && x.ActiveSessions != nil {
+		return *x.ActiveSessions
 	}
 	return 0
 }
 
 func (x *GetSystemStatsResponse) GetFailedLogins() int64 {
-	if x != nil {
-		return x.xxx_hidden_FailedLogins
+	if x != nil && x.FailedLogins != nil {
+		return *x.FailedLogins
 	}
 	return 0
 }
 
 func (x *GetSystemStatsResponse) GetUptimeSeconds() int64 {
-	if x != nil {
-		return x.xxx_hidden_UptimeSeconds
+	if x != nil && x.UptimeSeconds != nil {
+		return *x.UptimeSeconds
 	}
 	return 0
 }
 
 func (x *GetSystemStatsResponse) GetError() *proto.Error {
 	if x != nil {
-		return x.xxx_hidden_Error
+		return x.Error
 	}
 	return nil
-}
-
-func (x *GetSystemStatsResponse) SetActiveUsers(v int64) {
-	x.xxx_hidden_ActiveUsers = v
-	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 0, 6)
-}
-
-func (x *GetSystemStatsResponse) SetTotalRoles(v int64) {
-	x.xxx_hidden_TotalRoles = v
-	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 1, 6)
-}
-
-func (x *GetSystemStatsResponse) SetActiveSessions(v int64) {
-	x.xxx_hidden_ActiveSessions = v
-	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 2, 6)
-}
-
-func (x *GetSystemStatsResponse) SetFailedLogins(v int64) {
-	x.xxx_hidden_FailedLogins = v
-	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 3, 6)
-}
-
-func (x *GetSystemStatsResponse) SetUptimeSeconds(v int64) {
-	x.xxx_hidden_UptimeSeconds = v
-	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 4, 6)
-}
-
-func (x *GetSystemStatsResponse) SetError(v *proto.Error) {
-	x.xxx_hidden_Error = v
-}
-
-func (x *GetSystemStatsResponse) HasActiveUsers() bool {
-	if x == nil {
-		return false
-	}
-	return protoimpl.X.Present(&(x.XXX_presence[0]), 0)
-}
-
-func (x *GetSystemStatsResponse) HasTotalRoles() bool {
-	if x == nil {
-		return false
-	}
-	return protoimpl.X.Present(&(x.XXX_presence[0]), 1)
-}
-
-func (x *GetSystemStatsResponse) HasActiveSessions() bool {
-	if x == nil {
-		return false
-	}
-	return protoimpl.X.Present(&(x.XXX_presence[0]), 2)
-}
-
-func (x *GetSystemStatsResponse) HasFailedLogins() bool {
-	if x == nil {
-		return false
-	}
-	return protoimpl.X.Present(&(x.XXX_presence[0]), 3)
-}
-
-func (x *GetSystemStatsResponse) HasUptimeSeconds() bool {
-	if x == nil {
-		return false
-	}
-	return protoimpl.X.Present(&(x.XXX_presence[0]), 4)
-}
-
-func (x *GetSystemStatsResponse) HasError() bool {
-	if x == nil {
-		return false
-	}
-	return x.xxx_hidden_Error != nil
-}
-
-func (x *GetSystemStatsResponse) ClearActiveUsers() {
-	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 0)
-	x.xxx_hidden_ActiveUsers = 0
-}
-
-func (x *GetSystemStatsResponse) ClearTotalRoles() {
-	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 1)
-	x.xxx_hidden_TotalRoles = 0
-}
-
-func (x *GetSystemStatsResponse) ClearActiveSessions() {
-	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 2)
-	x.xxx_hidden_ActiveSessions = 0
-}
-
-func (x *GetSystemStatsResponse) ClearFailedLogins() {
-	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 3)
-	x.xxx_hidden_FailedLogins = 0
-}
-
-func (x *GetSystemStatsResponse) ClearUptimeSeconds() {
-	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 4)
-	x.xxx_hidden_UptimeSeconds = 0
-}
-
-func (x *GetSystemStatsResponse) ClearError() {
-	x.xxx_hidden_Error = nil
-}
-
-type GetSystemStatsResponse_builder struct {
-	_ [0]func() // Prevents comparability and use of unkeyed literals for the builder.
-
-	// Total number of active users
-	ActiveUsers *int64
-	// Total number of roles
-	TotalRoles *int64
-	// Total number of active sessions
-	ActiveSessions *int64
-	// Total number of failed login attempts (last 24h)
-	FailedLogins *int64
-	// Authentication system uptime in seconds
-	UptimeSeconds *int64
-	// Error information if stats retrieval failed
-	Error *proto.Error
-}
-
-func (b0 GetSystemStatsResponse_builder) Build() *GetSystemStatsResponse {
-	m0 := &GetSystemStatsResponse{}
-	b, x := &b0, m0
-	_, _ = b, x
-	if b.ActiveUsers != nil {
-		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 0, 6)
-		x.xxx_hidden_ActiveUsers = *b.ActiveUsers
-	}
-	if b.TotalRoles != nil {
-		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 1, 6)
-		x.xxx_hidden_TotalRoles = *b.TotalRoles
-	}
-	if b.ActiveSessions != nil {
-		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 2, 6)
-		x.xxx_hidden_ActiveSessions = *b.ActiveSessions
-	}
-	if b.FailedLogins != nil {
-		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 3, 6)
-		x.xxx_hidden_FailedLogins = *b.FailedLogins
-	}
-	if b.UptimeSeconds != nil {
-		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 4, 6)
-		x.xxx_hidden_UptimeSeconds = *b.UptimeSeconds
-	}
-	x.xxx_hidden_Error = b.Error
-	return m0
 }
 
 var File_pkg_auth_proto_get_system_stats_response_proto protoreflect.FileDescriptor
 
 const file_pkg_auth_proto_get_system_stats_response_proto_rawDesc = "" +
 	"\n" +
-	".pkg/auth/proto/get_system_stats_response.proto\x12\x0fgcommon.v1.auth\x1a!google/protobuf/go_features.proto\x1a'pkg/common/proto/request_metadata.proto\x1a\x1cpkg/common/proto/error.proto\"\x81\x02\n" +
+	".pkg/auth/proto/get_system_stats_response.proto\x12\x0fgcommon.v1.auth\x1a'pkg/common/proto/request_metadata.proto\x1a\x1cpkg/common/proto/error.proto\"\x81\x02\n" +
 	"\x16GetSystemStatsResponse\x12!\n" +
 	"\factive_users\x18\x01 \x01(\x03R\vactiveUsers\x12\x1f\n" +
 	"\vtotal_roles\x18\x02 \x01(\x03R\n" +
@@ -262,8 +126,20 @@ const file_pkg_auth_proto_get_system_stats_response_proto_rawDesc = "" +
 	"\x0factive_sessions\x18\x03 \x01(\x03R\x0eactiveSessions\x12#\n" +
 	"\rfailed_logins\x18\x04 \x01(\x03R\ffailedLogins\x12%\n" +
 	"\x0euptime_seconds\x18\x05 \x01(\x03R\ruptimeSeconds\x12.\n" +
-	"\x05error\x18\x06 \x01(\v2\x18.gcommon.v1.common.ErrorR\x05errorB\xc2\x01\n" +
-	"\x13com.gcommon.v1.authB\x1bGetSystemStatsResponseProtoP\x01Z(github.com/jdfalk/gcommon/pkg/auth/proto\xa2\x02\x03GVA\xaa\x02\x0fGcommon.V1.Auth\xca\x02\x0fGcommon\\V1\\Auth\xe2\x02\x1bGcommon\\V1\\Auth\\GPBMetadata\xea\x02\x11Gcommon::V1::Auth\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"\x05error\x18\x06 \x01(\v2\x18.gcommon.v1.common.ErrorR\x05errorB\xba\x01\n" +
+	"\x13com.gcommon.v1.authB\x1bGetSystemStatsResponseProtoP\x01Z(github.com/jdfalk/gcommon/pkg/auth/proto\xa2\x02\x03GVA\xaa\x02\x0fGcommon.V1.Auth\xca\x02\x0fGcommon\\V1\\Auth\xe2\x02\x1bGcommon\\V1\\Auth\\GPBMetadata\xea\x02\x11Gcommon::V1::Authb\beditionsp\xe8\a"
+
+var (
+	file_pkg_auth_proto_get_system_stats_response_proto_rawDescOnce sync.Once
+	file_pkg_auth_proto_get_system_stats_response_proto_rawDescData []byte
+)
+
+func file_pkg_auth_proto_get_system_stats_response_proto_rawDescGZIP() []byte {
+	file_pkg_auth_proto_get_system_stats_response_proto_rawDescOnce.Do(func() {
+		file_pkg_auth_proto_get_system_stats_response_proto_rawDescData = protoimpl.X.CompressGZIP(unsafe.Slice(unsafe.StringData(file_pkg_auth_proto_get_system_stats_response_proto_rawDesc), len(file_pkg_auth_proto_get_system_stats_response_proto_rawDesc)))
+	})
+	return file_pkg_auth_proto_get_system_stats_response_proto_rawDescData
+}
 
 var file_pkg_auth_proto_get_system_stats_response_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_pkg_auth_proto_get_system_stats_response_proto_goTypes = []any{

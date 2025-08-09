@@ -9,9 +9,9 @@ package proto
 import (
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
-	_ "google.golang.org/protobuf/types/gofeaturespb"
 	timestamppb "google.golang.org/protobuf/types/known/timestamppb"
 	reflect "reflect"
+	sync "sync"
 	unsafe "unsafe"
 )
 
@@ -27,18 +27,23 @@ const (
 // Manages long-lived subscriptions with filtering, time ranges,
 // and client-specific configuration for real-time data streaming.
 type SubscriptionInfo struct {
-	state                     protoimpl.MessageState `protogen:"opaque.v1"`
-	xxx_hidden_SubscriptionId *string                `protobuf:"bytes,1,opt,name=subscription_id,json=subscriptionId"`
-	xxx_hidden_Filter         *FilterOptions         `protobuf:"bytes,2,opt,name=filter"`
-	xxx_hidden_StartTime      *timestamppb.Timestamp `protobuf:"bytes,3,opt,name=start_time,json=startTime"`
-	xxx_hidden_EndTime        *timestamppb.Timestamp `protobuf:"bytes,4,opt,name=end_time,json=endTime"`
-	xxx_hidden_Subscriber     *ClientInfo            `protobuf:"bytes,5,opt,name=subscriber"`
-	xxx_hidden_Options        *SubscriptionOptions   `protobuf:"bytes,6,opt,name=options"`
-	xxx_hidden_Status         SubscriptionStatus     `protobuf:"varint,7,opt,name=status,enum=gcommon.v1.common.SubscriptionStatus"`
-	XXX_raceDetectHookData    protoimpl.RaceDetectHookData
-	XXX_presence              [1]uint32
-	unknownFields             protoimpl.UnknownFields
-	sizeCache                 protoimpl.SizeCache
+	state protoimpl.MessageState `protogen:"open.v1"`
+	// Unique identifier for this subscription
+	SubscriptionId *string `protobuf:"bytes,1,opt,name=subscription_id,json=subscriptionId" json:"subscription_id,omitempty"`
+	// Filter criteria for subscription events
+	Filter *FilterOptions `protobuf:"bytes,2,opt,name=filter" json:"filter,omitempty"`
+	// When the subscription started
+	StartTime *timestamppb.Timestamp `protobuf:"bytes,3,opt,name=start_time,json=startTime" json:"start_time,omitempty"`
+	// Optional end time for the subscription (null for indefinite)
+	EndTime *timestamppb.Timestamp `protobuf:"bytes,4,opt,name=end_time,json=endTime" json:"end_time,omitempty"`
+	// Information about the subscribing client
+	Subscriber *ClientInfo `protobuf:"bytes,5,opt,name=subscriber" json:"subscriber,omitempty"`
+	// Subscription configuration options
+	Options *SubscriptionOptions `protobuf:"bytes,6,opt,name=options" json:"options,omitempty"`
+	// Current status of the subscription
+	Status        *SubscriptionStatus `protobuf:"varint,7,opt,name=status,enum=gcommon.v1.common.SubscriptionStatus" json:"status,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
 }
 
 func (x *SubscriptionInfo) Reset() {
@@ -66,213 +71,65 @@ func (x *SubscriptionInfo) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
+// Deprecated: Use SubscriptionInfo.ProtoReflect.Descriptor instead.
+func (*SubscriptionInfo) Descriptor() ([]byte, []int) {
+	return file_pkg_common_proto_subscription_info_proto_rawDescGZIP(), []int{0}
+}
+
 func (x *SubscriptionInfo) GetSubscriptionId() string {
-	if x != nil {
-		if x.xxx_hidden_SubscriptionId != nil {
-			return *x.xxx_hidden_SubscriptionId
-		}
-		return ""
+	if x != nil && x.SubscriptionId != nil {
+		return *x.SubscriptionId
 	}
 	return ""
 }
 
 func (x *SubscriptionInfo) GetFilter() *FilterOptions {
 	if x != nil {
-		return x.xxx_hidden_Filter
+		return x.Filter
 	}
 	return nil
 }
 
 func (x *SubscriptionInfo) GetStartTime() *timestamppb.Timestamp {
 	if x != nil {
-		return x.xxx_hidden_StartTime
+		return x.StartTime
 	}
 	return nil
 }
 
 func (x *SubscriptionInfo) GetEndTime() *timestamppb.Timestamp {
 	if x != nil {
-		return x.xxx_hidden_EndTime
+		return x.EndTime
 	}
 	return nil
 }
 
 func (x *SubscriptionInfo) GetSubscriber() *ClientInfo {
 	if x != nil {
-		return x.xxx_hidden_Subscriber
+		return x.Subscriber
 	}
 	return nil
 }
 
 func (x *SubscriptionInfo) GetOptions() *SubscriptionOptions {
 	if x != nil {
-		return x.xxx_hidden_Options
+		return x.Options
 	}
 	return nil
 }
 
 func (x *SubscriptionInfo) GetStatus() SubscriptionStatus {
-	if x != nil {
-		if protoimpl.X.Present(&(x.XXX_presence[0]), 6) {
-			return x.xxx_hidden_Status
-		}
+	if x != nil && x.Status != nil {
+		return *x.Status
 	}
 	return SubscriptionStatus_SUBSCRIPTION_STATUS_UNSPECIFIED
-}
-
-func (x *SubscriptionInfo) SetSubscriptionId(v string) {
-	x.xxx_hidden_SubscriptionId = &v
-	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 0, 7)
-}
-
-func (x *SubscriptionInfo) SetFilter(v *FilterOptions) {
-	x.xxx_hidden_Filter = v
-}
-
-func (x *SubscriptionInfo) SetStartTime(v *timestamppb.Timestamp) {
-	x.xxx_hidden_StartTime = v
-}
-
-func (x *SubscriptionInfo) SetEndTime(v *timestamppb.Timestamp) {
-	x.xxx_hidden_EndTime = v
-}
-
-func (x *SubscriptionInfo) SetSubscriber(v *ClientInfo) {
-	x.xxx_hidden_Subscriber = v
-}
-
-func (x *SubscriptionInfo) SetOptions(v *SubscriptionOptions) {
-	x.xxx_hidden_Options = v
-}
-
-func (x *SubscriptionInfo) SetStatus(v SubscriptionStatus) {
-	x.xxx_hidden_Status = v
-	protoimpl.X.SetPresent(&(x.XXX_presence[0]), 6, 7)
-}
-
-func (x *SubscriptionInfo) HasSubscriptionId() bool {
-	if x == nil {
-		return false
-	}
-	return protoimpl.X.Present(&(x.XXX_presence[0]), 0)
-}
-
-func (x *SubscriptionInfo) HasFilter() bool {
-	if x == nil {
-		return false
-	}
-	return x.xxx_hidden_Filter != nil
-}
-
-func (x *SubscriptionInfo) HasStartTime() bool {
-	if x == nil {
-		return false
-	}
-	return x.xxx_hidden_StartTime != nil
-}
-
-func (x *SubscriptionInfo) HasEndTime() bool {
-	if x == nil {
-		return false
-	}
-	return x.xxx_hidden_EndTime != nil
-}
-
-func (x *SubscriptionInfo) HasSubscriber() bool {
-	if x == nil {
-		return false
-	}
-	return x.xxx_hidden_Subscriber != nil
-}
-
-func (x *SubscriptionInfo) HasOptions() bool {
-	if x == nil {
-		return false
-	}
-	return x.xxx_hidden_Options != nil
-}
-
-func (x *SubscriptionInfo) HasStatus() bool {
-	if x == nil {
-		return false
-	}
-	return protoimpl.X.Present(&(x.XXX_presence[0]), 6)
-}
-
-func (x *SubscriptionInfo) ClearSubscriptionId() {
-	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 0)
-	x.xxx_hidden_SubscriptionId = nil
-}
-
-func (x *SubscriptionInfo) ClearFilter() {
-	x.xxx_hidden_Filter = nil
-}
-
-func (x *SubscriptionInfo) ClearStartTime() {
-	x.xxx_hidden_StartTime = nil
-}
-
-func (x *SubscriptionInfo) ClearEndTime() {
-	x.xxx_hidden_EndTime = nil
-}
-
-func (x *SubscriptionInfo) ClearSubscriber() {
-	x.xxx_hidden_Subscriber = nil
-}
-
-func (x *SubscriptionInfo) ClearOptions() {
-	x.xxx_hidden_Options = nil
-}
-
-func (x *SubscriptionInfo) ClearStatus() {
-	protoimpl.X.ClearPresent(&(x.XXX_presence[0]), 6)
-	x.xxx_hidden_Status = SubscriptionStatus_SUBSCRIPTION_STATUS_UNSPECIFIED
-}
-
-type SubscriptionInfo_builder struct {
-	_ [0]func() // Prevents comparability and use of unkeyed literals for the builder.
-
-	// Unique identifier for this subscription
-	SubscriptionId *string
-	// Filter criteria for subscription events
-	Filter *FilterOptions
-	// When the subscription started
-	StartTime *timestamppb.Timestamp
-	// Optional end time for the subscription (null for indefinite)
-	EndTime *timestamppb.Timestamp
-	// Information about the subscribing client
-	Subscriber *ClientInfo
-	// Subscription configuration options
-	Options *SubscriptionOptions
-	// Current status of the subscription
-	Status *SubscriptionStatus
-}
-
-func (b0 SubscriptionInfo_builder) Build() *SubscriptionInfo {
-	m0 := &SubscriptionInfo{}
-	b, x := &b0, m0
-	_, _ = b, x
-	if b.SubscriptionId != nil {
-		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 0, 7)
-		x.xxx_hidden_SubscriptionId = b.SubscriptionId
-	}
-	x.xxx_hidden_Filter = b.Filter
-	x.xxx_hidden_StartTime = b.StartTime
-	x.xxx_hidden_EndTime = b.EndTime
-	x.xxx_hidden_Subscriber = b.Subscriber
-	x.xxx_hidden_Options = b.Options
-	if b.Status != nil {
-		protoimpl.X.SetPresentNonAtomic(&(x.XXX_presence[0]), 6, 7)
-		x.xxx_hidden_Status = *b.Status
-	}
-	return m0
 }
 
 var File_pkg_common_proto_subscription_info_proto protoreflect.FileDescriptor
 
 const file_pkg_common_proto_subscription_info_proto_rawDesc = "" +
 	"\n" +
-	"(pkg/common/proto/subscription_info.proto\x12\x11gcommon.v1.common\x1a!google/protobuf/go_features.proto\x1a\x1fgoogle/protobuf/timestamp.proto\x1a\"pkg/common/proto/client_info.proto\x1a%pkg/common/proto/filter_options.proto\x1a+pkg/common/proto/subscription_options.proto\x1a*pkg/common/proto/subscription_status.proto\"\xa7\x03\n" +
+	"(pkg/common/proto/subscription_info.proto\x12\x11gcommon.v1.common\x1a\x1fgoogle/protobuf/timestamp.proto\x1a\"pkg/common/proto/client_info.proto\x1a%pkg/common/proto/filter_options.proto\x1a+pkg/common/proto/subscription_options.proto\x1a*pkg/common/proto/subscription_status.proto\"\xa7\x03\n" +
 	"\x10SubscriptionInfo\x12'\n" +
 	"\x0fsubscription_id\x18\x01 \x01(\tR\x0esubscriptionId\x128\n" +
 	"\x06filter\x18\x02 \x01(\v2 .gcommon.v1.common.FilterOptionsR\x06filter\x129\n" +
@@ -283,8 +140,20 @@ const file_pkg_common_proto_subscription_info_proto_rawDesc = "" +
 	"subscriber\x18\x05 \x01(\v2\x1d.gcommon.v1.common.ClientInfoR\n" +
 	"subscriber\x12@\n" +
 	"\aoptions\x18\x06 \x01(\v2&.gcommon.v1.common.SubscriptionOptionsR\aoptions\x12=\n" +
-	"\x06status\x18\a \x01(\x0e2%.gcommon.v1.common.SubscriptionStatusR\x06statusB\xc8\x01\n" +
-	"\x15com.gcommon.v1.commonB\x15SubscriptionInfoProtoP\x01Z*github.com/jdfalk/gcommon/pkg/common/proto\xa2\x02\x03GVC\xaa\x02\x11Gcommon.V1.Common\xca\x02\x11Gcommon\\V1\\Common\xe2\x02\x1dGcommon\\V1\\Common\\GPBMetadata\xea\x02\x13Gcommon::V1::Common\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"\x06status\x18\a \x01(\x0e2%.gcommon.v1.common.SubscriptionStatusR\x06statusB\xc0\x01\n" +
+	"\x15com.gcommon.v1.commonB\x15SubscriptionInfoProtoP\x01Z*github.com/jdfalk/gcommon/pkg/common/proto\xa2\x02\x03GVC\xaa\x02\x11Gcommon.V1.Common\xca\x02\x11Gcommon\\V1\\Common\xe2\x02\x1dGcommon\\V1\\Common\\GPBMetadata\xea\x02\x13Gcommon::V1::Commonb\beditionsp\xe8\a"
+
+var (
+	file_pkg_common_proto_subscription_info_proto_rawDescOnce sync.Once
+	file_pkg_common_proto_subscription_info_proto_rawDescData []byte
+)
+
+func file_pkg_common_proto_subscription_info_proto_rawDescGZIP() []byte {
+	file_pkg_common_proto_subscription_info_proto_rawDescOnce.Do(func() {
+		file_pkg_common_proto_subscription_info_proto_rawDescData = protoimpl.X.CompressGZIP(unsafe.Slice(unsafe.StringData(file_pkg_common_proto_subscription_info_proto_rawDesc), len(file_pkg_common_proto_subscription_info_proto_rawDesc)))
+	})
+	return file_pkg_common_proto_subscription_info_proto_rawDescData
+}
 
 var file_pkg_common_proto_subscription_info_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_pkg_common_proto_subscription_info_proto_goTypes = []any{

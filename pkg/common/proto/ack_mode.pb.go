@@ -9,8 +9,8 @@ package proto
 import (
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
-	_ "google.golang.org/protobuf/types/gofeaturespb"
 	reflect "reflect"
+	sync "sync"
 	unsafe "unsafe"
 )
 
@@ -76,17 +76,34 @@ func (x AckMode) Number() protoreflect.EnumNumber {
 	return protoreflect.EnumNumber(x)
 }
 
+// Deprecated: Use AckMode.Descriptor instead.
+func (AckMode) EnumDescriptor() ([]byte, []int) {
+	return file_pkg_common_proto_ack_mode_proto_rawDescGZIP(), []int{0}
+}
+
 var File_pkg_common_proto_ack_mode_proto protoreflect.FileDescriptor
 
 const file_pkg_common_proto_ack_mode_proto_rawDesc = "" +
 	"\n" +
-	"\x1fpkg/common/proto/ack_mode.proto\x12\x11gcommon.v1.common\x1a!google/protobuf/go_features.proto*`\n" +
+	"\x1fpkg/common/proto/ack_mode.proto\x12\x11gcommon.v1.common*`\n" +
 	"\aAckMode\x12\x18\n" +
 	"\x14ACK_MODE_UNSPECIFIED\x10\x00\x12\x13\n" +
 	"\x0fACK_MODE_MANUAL\x10\x01\x12\x11\n" +
 	"\rACK_MODE_AUTO\x10\x02\x12\x13\n" +
-	"\x0fACK_MODE_CLIENT\x10\x03B\xbf\x01\n" +
-	"\x15com.gcommon.v1.commonB\fAckModeProtoP\x01Z*github.com/jdfalk/gcommon/pkg/common/proto\xa2\x02\x03GVC\xaa\x02\x11Gcommon.V1.Common\xca\x02\x11Gcommon\\V1\\Common\xe2\x02\x1dGcommon\\V1\\Common\\GPBMetadata\xea\x02\x13Gcommon::V1::Common\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"\x0fACK_MODE_CLIENT\x10\x03B\xb7\x01\n" +
+	"\x15com.gcommon.v1.commonB\fAckModeProtoP\x01Z*github.com/jdfalk/gcommon/pkg/common/proto\xa2\x02\x03GVC\xaa\x02\x11Gcommon.V1.Common\xca\x02\x11Gcommon\\V1\\Common\xe2\x02\x1dGcommon\\V1\\Common\\GPBMetadata\xea\x02\x13Gcommon::V1::Commonb\beditionsp\xe8\a"
+
+var (
+	file_pkg_common_proto_ack_mode_proto_rawDescOnce sync.Once
+	file_pkg_common_proto_ack_mode_proto_rawDescData []byte
+)
+
+func file_pkg_common_proto_ack_mode_proto_rawDescGZIP() []byte {
+	file_pkg_common_proto_ack_mode_proto_rawDescOnce.Do(func() {
+		file_pkg_common_proto_ack_mode_proto_rawDescData = protoimpl.X.CompressGZIP(unsafe.Slice(unsafe.StringData(file_pkg_common_proto_ack_mode_proto_rawDesc), len(file_pkg_common_proto_ack_mode_proto_rawDesc)))
+	})
+	return file_pkg_common_proto_ack_mode_proto_rawDescData
+}
 
 var file_pkg_common_proto_ack_mode_proto_enumTypes = make([]protoimpl.EnumInfo, 1)
 var file_pkg_common_proto_ack_mode_proto_goTypes = []any{

@@ -9,8 +9,8 @@ package proto
 import (
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
-	_ "google.golang.org/protobuf/types/gofeaturespb"
 	reflect "reflect"
+	sync "sync"
 	unsafe "unsafe"
 )
 
@@ -80,18 +80,35 @@ func (x ExpirationPolicy) Number() protoreflect.EnumNumber {
 	return protoreflect.EnumNumber(x)
 }
 
+// Deprecated: Use ExpirationPolicy.Descriptor instead.
+func (ExpirationPolicy) EnumDescriptor() ([]byte, []int) {
+	return file_pkg_common_proto_expiration_policy_proto_rawDescGZIP(), []int{0}
+}
+
 var File_pkg_common_proto_expiration_policy_proto protoreflect.FileDescriptor
 
 const file_pkg_common_proto_expiration_policy_proto_rawDesc = "" +
 	"\n" +
-	"(pkg/common/proto/expiration_policy.proto\x12\x11gcommon.v1.common\x1a!google/protobuf/go_features.proto*\xa6\x01\n" +
+	"(pkg/common/proto/expiration_policy.proto\x12\x11gcommon.v1.common*\xa6\x01\n" +
 	"\x10ExpirationPolicy\x12!\n" +
 	"\x1dEXPIRATION_POLICY_UNSPECIFIED\x10\x00\x12\x19\n" +
 	"\x15EXPIRATION_POLICY_TTL\x10\x01\x12\x1a\n" +
 	"\x16EXPIRATION_POLICY_IDLE\x10\x02\x12\x1b\n" +
 	"\x17EXPIRATION_POLICY_WRITE\x10\x03\x12\x1b\n" +
-	"\x17EXPIRATION_POLICY_NEVER\x10\x04B\xc8\x01\n" +
-	"\x15com.gcommon.v1.commonB\x15ExpirationPolicyProtoP\x01Z*github.com/jdfalk/gcommon/pkg/common/proto\xa2\x02\x03GVC\xaa\x02\x11Gcommon.V1.Common\xca\x02\x11Gcommon\\V1\\Common\xe2\x02\x1dGcommon\\V1\\Common\\GPBMetadata\xea\x02\x13Gcommon::V1::Common\x92\x03\x05\xd2>\x02\x10\x03b\beditionsp\xe8\a"
+	"\x17EXPIRATION_POLICY_NEVER\x10\x04B\xc0\x01\n" +
+	"\x15com.gcommon.v1.commonB\x15ExpirationPolicyProtoP\x01Z*github.com/jdfalk/gcommon/pkg/common/proto\xa2\x02\x03GVC\xaa\x02\x11Gcommon.V1.Common\xca\x02\x11Gcommon\\V1\\Common\xe2\x02\x1dGcommon\\V1\\Common\\GPBMetadata\xea\x02\x13Gcommon::V1::Commonb\beditionsp\xe8\a"
+
+var (
+	file_pkg_common_proto_expiration_policy_proto_rawDescOnce sync.Once
+	file_pkg_common_proto_expiration_policy_proto_rawDescData []byte
+)
+
+func file_pkg_common_proto_expiration_policy_proto_rawDescGZIP() []byte {
+	file_pkg_common_proto_expiration_policy_proto_rawDescOnce.Do(func() {
+		file_pkg_common_proto_expiration_policy_proto_rawDescData = protoimpl.X.CompressGZIP(unsafe.Slice(unsafe.StringData(file_pkg_common_proto_expiration_policy_proto_rawDesc), len(file_pkg_common_proto_expiration_policy_proto_rawDesc)))
+	})
+	return file_pkg_common_proto_expiration_policy_proto_rawDescData
+}
 
 var file_pkg_common_proto_expiration_policy_proto_enumTypes = make([]protoimpl.EnumInfo, 1)
 var file_pkg_common_proto_expiration_policy_proto_goTypes = []any{
