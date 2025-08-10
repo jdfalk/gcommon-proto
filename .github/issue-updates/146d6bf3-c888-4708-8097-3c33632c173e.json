@@ -1,0 +1,13 @@
+{
+  "action": "create",
+  "title": "Database: implement migration system",
+  "body": "Implement full migration system with versioning, rollback, multi-db support.",
+  "labels": ["module:db", "type:feature"],
+  "guid": "146d6bf3-c888-4708-8097-3c33632c173e",
+  "legacy_guid": "create-database-implement-migration-system-2025-08-10",
+  "created_at": "2025-08-10T12:34:40.000Z",
+  "processed_at": null,
+  "failed_at": null,
+  "sequence": 0,
+  "parent_guid": null
+}
