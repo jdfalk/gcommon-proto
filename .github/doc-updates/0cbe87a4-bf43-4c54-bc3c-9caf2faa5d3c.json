@@ -1,0 +1,16 @@
+{
+  "file": "CHANGELOG.md",
+  "mode": "changelog-entry",
+  "content": "### Added\\n\\n- Complete notification module with providers, templates, delivery tracking, and gRPC services",
+  "guid": "0cbe87a4-bf43-4c54-bc3c-9caf2faa5d3c",
+  "created_at": "2025-08-10T12:34:38Z",
+  "options": {
+    "section": null,
+    "after": null,
+    "before": null,
+    "task_id": null,
+    "badge_name": null,
+    "priority": null,
+    "category": null
+  }
+}

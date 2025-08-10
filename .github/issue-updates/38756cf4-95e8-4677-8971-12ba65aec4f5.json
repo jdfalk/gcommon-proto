@@ -1,0 +1,13 @@
+{
+  "action": "create",
+  "title": "Notification module: complete implementation",
+  "body": "Add providers, templates, delivery tracking, and gRPC services",
+  "labels": ["module:notification", "type:feature"],
+  "guid": "38756cf4-95e8-4677-8971-12ba65aec4f5",
+  "legacy_guid": "create-notification-module-complete-implementation-2025-08-10",
+  "created_at": "2025-08-10T12:34:23.000Z",
+  "processed_at": null,
+  "failed_at": null,
+  "sequence": 0,
+  "parent_guid": null
+}
