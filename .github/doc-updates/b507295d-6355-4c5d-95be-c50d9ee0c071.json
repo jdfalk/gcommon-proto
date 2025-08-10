@@ -1,0 +1,16 @@
+{
+  "file": "TODO.md",
+  "mode": "task-add",
+  "content": "Add content to example skeleton directories",
+  "guid": "b507295d-6355-4c5d-95be-c50d9ee0c071",
+  "created_at": "2025-08-10T12:34:07Z",
+  "options": {
+    "section": null,
+    "after": null,
+    "before": null,
+    "task_id": null,
+    "badge_name": null,
+    "priority": null,
+    "category": null
+  }
+}

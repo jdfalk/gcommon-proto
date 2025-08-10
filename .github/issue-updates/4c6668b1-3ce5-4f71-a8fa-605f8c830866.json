@@ -1,0 +1,13 @@
+{
+  "action": "create",
+  "title": "Populate example code skeletons",
+  "body": "Add Go skeletons for all example directories",
+  "labels": ["documentation", "examples"],
+  "guid": "4c6668b1-3ce5-4f71-a8fa-605f8c830866",
+  "legacy_guid": "create-populate-example-code-skeletons-2025-08-10",
+  "created_at": "2025-08-10T14:38:16.000Z",
+  "processed_at": null,
+  "failed_at": null,
+  "sequence": 0,
+  "parent_guid": null
+}
