@@ -26,16 +26,16 @@ from typing import Dict, List
 
 class CopilotWorkflowHelper:
     """Helper class for GitHub Copilot workflow integration."""
-    
+
     def __init__(self, repo: str = None):
         """Initialize the helper.
-        
+
         Args:
             repo: Repository in format owner/repo (auto-detected if None)
         """
         self.repo = repo or self._get_current_repo()
         self.copilot_available = self._check_copilot_availability()
-    
+
     def _get_current_repo(self) -> str:
         """Get the current repository from git remote."""
         try:
@@ -43,10 +43,10 @@ class CopilotWorkflowHelper:
                 ["git", "remote", "get-url", "origin"],
                 capture_output=True,
                 text=True,
-                check=True
+                check=True,
             )
             remote_url = result.stdout.strip()
-            
+
             # Parse different URL formats
             if "github.com" in remote_url:
                 if remote_url.startswith("git@"):
@@ -55,46 +55,40 @@ class CopilotWorkflowHelper:
                 else:
                     # https://github.com/owner/repo.git
                     repo_part = remote_url.split("github.com/")[-1]
-                
+
                 return repo_part.replace(".git", "")
-            
+
             raise ValueError("Not a GitHub repository")
-            
+
         except subprocess.CalledProcessError:
             raise ValueError("Could not determine repository from git remote")
-    
+
     def _check_copilot_availability(self) -> bool:
         """Check if GitHub Copilot CLI is available."""
         try:
             result = subprocess.run(
-                ["gh", "copilot", "--help"],
-                capture_output=True,
-                text=True
+                ["gh", "copilot", "--help"], capture_output=True, text=True
             )
             return result.returncode == 0
         except (subprocess.CalledProcessError, FileNotFoundError):
             return False
-    
+
     def _run_gh_command(self, args: List[str]) -> tuple[int, str, str]:
         """Run a GitHub CLI command and return result."""
         cmd = ["gh"] + args
         print(f"🔧 Running: {' '.join(cmd)}")
-        
-        result = subprocess.run(
-            cmd,
-            capture_output=True,
-            text=True
-        )
-        
+
+        result = subprocess.run(cmd, capture_output=True, text=True)
+
         return result.returncode, result.stdout, result.stderr
-    
+
     def process_fix_request(self, fix_file: str) -> Dict:
         """Process a fix request file and extract key information."""
         print(f"📖 Processing fix request: {fix_file}")
-        
-        with open(fix_file, 'r', encoding='utf-8') as f:
+
+        with open(fix_file, "r", encoding="utf-8") as f:
             content = f.read()
-        
+
         # Extract metadata from the markdown file
         metadata = {
             "file_path": fix_file,
@@ -105,12 +99,12 @@ class CopilotWorkflowHelper:
             "url": "",
             "errors": [],
             "files": [],
-            "content": content
+            "content": content,
         }
-        
-        lines = content.split('\n')
+
+        lines = content.split("\n")
         in_error_section = False
-        
+
         for line in lines:
             if "**Workflow**:" in line:
                 metadata["workflow_name"] = line.split("**Workflow**:")[-1].strip()
@@ -131,29 +125,29 @@ class CopilotWorkflowHelper:
                 file_ref = line.split("`")[1] if "`" in line else ""
                 if file_ref and file_ref not in metadata["files"]:
                     metadata["files"].append(file_ref)
-        
+
         return metadata
-    
+
     def submit_to_copilot_chat(self, metadata: Dict) -> bool:
         """Submit the fix request to GitHub Copilot Chat."""
         if not self.copilot_available:
             print("❌ GitHub Copilot CLI not available")
             return False
-        
+
         print("🤖 Submitting to GitHub Copilot Chat...")
-        
+
         # Create a focused prompt for Copilot
         prompt = f"""Help me fix a failing GitHub Actions workflow:
 
-Workflow: {metadata['workflow_name']}
-Branch: {metadata['branch']}
+Workflow: {metadata["workflow_name"]}
+Branch: {metadata["branch"]}
 Repository: {self.repo}
 
 Main errors found:
-{chr(10).join(f"- {error}" for error in metadata['errors'][:5])}
+{chr(10).join(f"- {error}" for error in metadata["errors"][:5])}
 
 Files that may need attention:
-{chr(10).join(f"- {file}" for file in metadata['files'][:10])}
+{chr(10).join(f"- {file}" for file in metadata["files"][:10])}
 
 Please provide specific fixes for this workflow failure, including:
 1. Root cause analysis
@@ -161,66 +155,68 @@ Please provide specific fixes for this workflow failure, including:
 3. Updated workflow YAML if necessary
 4. Any dependency or configuration changes required
 
-The full analysis is in: {metadata['file_path']}
+The full analysis is in: {metadata["file_path"]}
 """
-        
+
         # Try different Copilot commands based on what's available
         commands_to_try = [
             ["gh", "copilot", "explain", prompt],
             ["gh", "copilot", "suggest", "-t", "gh", prompt],
-            ["gh", "copilot", "suggest", prompt]
+            ["gh", "copilot", "suggest", prompt],
         ]
-        
+
         for cmd_args in commands_to_try:
             try:
                 result = subprocess.run(
-                    cmd_args,
-                    input=prompt,
-                    capture_output=True,
-                    text=True,
-                    timeout=60
+                    cmd_args, input=prompt, capture_output=True, text=True, timeout=60
                 )
-                
+
                 if result.returncode == 0:
                     print("✅ Copilot response received:")
                     print(result.stdout)
-                    
+
                     # Save the response
-                    response_file = metadata['file_path'].replace('.md', '_copilot_response.md')
-                    with open(response_file, 'w', encoding='utf-8') as f:
-                        f.write(f"# Copilot Response for {metadata['workflow_name']}\n\n")
+                    response_file = metadata["file_path"].replace(
+                        ".md", "_copilot_response.md"
+                    )
+                    with open(response_file, "w", encoding="utf-8") as f:
+                        f.write(
+                            f"# Copilot Response for {metadata['workflow_name']}\n\n"
+                        )
                         f.write(f"Generated: {datetime.now().isoformat()}\n\n")
                         f.write(result.stdout)
-                    
+
                     print(f"📝 Response saved to: {response_file}")
                     return True
-                
+
             except (subprocess.TimeoutExpired, subprocess.CalledProcessError) as e:
                 print(f"⚠️ Command failed: {e}")
                 continue
-        
+
         print("❌ All Copilot commands failed")
         return False
-    
+
     def create_github_issue(self, metadata: Dict) -> bool:
         """Create a detailed GitHub issue for the workflow failure."""
         print("📋 Creating GitHub issue...")
-        
-        issue_title = f"🔧 Workflow Fix: {metadata['workflow_name']} (Run {metadata['run_id']})"
-        
+
+        issue_title = (
+            f"🔧 Workflow Fix: {metadata['workflow_name']} (Run {metadata['run_id']})"
+        )
+
         issue_body = f"""## Workflow Failure Analysis
 
-**Workflow**: {metadata['workflow_name']}
-**Run ID**: {metadata['run_id']}
-**Branch**: {metadata['branch']}
-**SHA**: {metadata['sha']}
-**URL**: {metadata['url']}
+**Workflow**: {metadata["workflow_name"]}
+**Run ID**: {metadata["run_id"]}
+**Branch**: {metadata["branch"]}
+**SHA**: {metadata["sha"]}
+**URL**: {metadata["url"]}
 
 ### Main Errors
-{chr(10).join(f"- {error}" for error in metadata['errors'])}
+{chr(10).join(f"- {error}" for error in metadata["errors"])}
 
 ### Files Requiring Attention
-{chr(10).join(f"- `{file}`" for file in metadata['files'])}
+{chr(10).join(f"- `{file}`" for file in metadata["files"])}
 
 ### Next Steps
 - [ ] Analyze the full logs in the attached file
@@ -230,37 +226,44 @@ The full analysis is in: {metadata['file_path']}
 - [ ] Create PR with the fixes
 
 ### Full Analysis
-The complete failure analysis is available in: `{os.path.basename(metadata['file_path'])}`
+The complete failure analysis is available in: `{os.path.basename(metadata["file_path"])}`
 
 ---
 *This issue was automatically generated by the workflow fix tool.*
 """
-        
-        returncode, stdout, stderr = self._run_gh_command([
-            "issue", "create",
-            "--repo", self.repo,
-            "--title", issue_title,
-            "--body", issue_body,
-            "--label", "bug,workflow,automated-fix-request,priority-high"
-        ])
-        
+
+        returncode, stdout, stderr = self._run_gh_command(
+            [
+                "issue",
+                "create",
+                "--repo",
+                self.repo,
+                "--title",
+                issue_title,
+                "--body",
+                issue_body,
+                "--label",
+                "bug,workflow,automated-fix-request,priority-high",
+            ]
+        )
+
         if returncode == 0:
             issue_url = stdout.strip()
             print(f"✅ Created GitHub issue: {issue_url}")
-            
+
             # Try to upload the fix file as a comment
-            self._add_issue_comment(issue_url, metadata['file_path'])
+            self._add_issue_comment(issue_url, metadata["file_path"])
             return True
         else:
             print(f"❌ Error creating GitHub issue: {stderr}")
             return False
-    
+
     def _add_issue_comment(self, issue_url: str, fix_file: str) -> bool:
         """Add the fix file content as a comment to the issue."""
         try:
             # Extract issue number from URL
-            issue_number = issue_url.split('/')[-1]
-            
+            issue_number = issue_url.split("/")[-1]
+
             comment_body = """## Detailed Analysis
 
 <details>
@@ -268,52 +271,66 @@ The complete failure analysis is available in: `{os.path.basename(metadata['file
 
 ```markdown
 """
-            
-            with open(fix_file, 'r', encoding='utf-8') as f:
+
+            with open(fix_file, "r", encoding="utf-8") as f:
                 content = f.read()
                 # Truncate if too long (GitHub has limits)
                 if len(content) > 60000:
-                    content = content[:30000] + "\n\n... (truncated for size) ...\n\n" + content[-30000:]
+                    content = (
+                        content[:30000]
+                        + "\n\n... (truncated for size) ...\n\n"
+                        + content[-30000:]
+                    )
                 comment_body += content
-            
+
             comment_body += """
 ```
 
 </details>
 """
-            
-            returncode, stdout, stderr = self._run_gh_command([
-                "issue", "comment", issue_number,
-                "--repo", self.repo,
-                "--body", comment_body
-            ])
-            
+
+            returncode, stdout, stderr = self._run_gh_command(
+                [
+                    "issue",
+                    "comment",
+                    issue_number,
+                    "--repo",
+                    self.repo,
+                    "--body",
+                    comment_body,
+                ]
+            )
+
             if returncode == 0:
                 print("📎 Added detailed analysis as comment")
                 return True
             else:
                 print(f"⚠️ Could not add comment: {stderr}")
                 return False
-                
+
         except Exception as e:
             print(f"⚠️ Error adding comment: {e}")
             return False
-    
-    def generate_pr_template(self, metadata: Dict, output_dir: str = "pr_templates") -> str:
+
+    def generate_pr_template(
+        self, metadata: Dict, output_dir: str = "pr_templates"
+    ) -> str:
         """Generate a pull request template for manual fixes."""
         os.makedirs(output_dir, exist_ok=True)
-        
-        safe_name = metadata['workflow_name'].replace(' ', '_').replace('/', '_')
-        template_file = os.path.join(output_dir, f"fix_{safe_name}_{metadata['run_id']}.md")
-        
-        template_content = f"""# Fix for {metadata['workflow_name']} Workflow Failure
+
+        safe_name = metadata["workflow_name"].replace(" ", "_").replace("/", "_")
+        template_file = os.path.join(
+            output_dir, f"fix_{safe_name}_{metadata['run_id']}.md"
+        )
+
+        template_content = f"""# Fix for {metadata["workflow_name"]} Workflow Failure
 
 ## Issue Description
-This PR fixes the failing workflow: {metadata['workflow_name']} (Run #{metadata['run_id']})
+This PR fixes the failing workflow: {metadata["workflow_name"]} (Run #{metadata["run_id"]})
 
-**Branch**: {metadata['branch']}
-**SHA**: {metadata['sha']}
-**Run URL**: {metadata['url']}
+**Branch**: {metadata["branch"]}
+**SHA**: {metadata["sha"]}
+**Run URL**: {metadata["url"]}
 
 ## Root Cause
 <!-- Describe what caused the workflow to fail -->
@@ -330,7 +347,7 @@ This PR fixes the failing workflow: {metadata['workflow_name']} (Run #{metadata[
 ## Files Changed
 <!-- List the files modified to fix the issue -->
 
-{chr(10).join(f"- `{file}`" for file in metadata['files'])}
+{chr(10).join(f"- `{file}`" for file in metadata["files"])}
 
 ## Testing
 <!-- Describe how the fix was tested -->
@@ -353,63 +370,69 @@ This PR fixes the failing workflow: {metadata['workflow_name']} (Run #{metadata[
 ---
 
 ### Original Error Summary
-{chr(10).join(f"- {error}" for error in metadata['errors'])}
+{chr(10).join(f"- {error}" for error in metadata["errors"])}
 
 ### Related Issues
 - Closes #[issue-number]
 
 ---
-*Generated by workflow fix tool on {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}*
+*Generated by workflow fix tool on {datetime.now().strftime("%Y-%m-%d %H:%M:%S")}*
 """
-        
-        with open(template_file, 'w', encoding='utf-8') as f:
+
+        with open(template_file, "w", encoding="utf-8") as f:
             f.write(template_content)
-        
+
         print(f"📝 PR template created: {template_file}")
         return template_file
-    
+
     def process_directory(self, fix_dir: str) -> bool:
         """Process all fix request files in a directory."""
         print(f"📁 Processing fix requests in: {fix_dir}")
-        
+
         if not os.path.exists(fix_dir):
             print(f"❌ Directory not found: {fix_dir}")
             return False
-        
-        fix_files = [f for f in os.listdir(fix_dir) if f.endswith('.md') and not f.endswith('_copilot_response.md')]
-        
+
+        fix_files = [
+            f
+            for f in os.listdir(fix_dir)
+            if f.endswith(".md") and not f.endswith("_copilot_response.md")
+        ]
+
         if not fix_files:
             print("📭 No fix request files found")
             return True
-        
+
         success_count = 0
-        
+
         for fix_file in fix_files:
             file_path = os.path.join(fix_dir, fix_file)
-            print(f"\n{'='*60}")
+            print(f"\n{'=' * 60}")
             print(f"Processing: {fix_file}")
-            print(f"{'='*60}")
-            
+            print(f"{'=' * 60}")
+
             try:
                 metadata = self.process_fix_request(file_path)
-                
+
                 # Try Copilot first if available
                 if self.copilot_available:
                     if self.submit_to_copilot_chat(metadata):
                         success_count += 1
                         continue
-                
+
                 # Fallback to GitHub issue
                 if self.create_github_issue(metadata):
                     success_count += 1
-                
+
                 # Always generate PR template
                 self.generate_pr_template(metadata)
-                
+
             except Exception as e:
                 print(f"❌ Error processing {fix_file}: {e}")
-        
-        print(f"\n🎉 Processed {success_count}/{len(fix_files)} fix requests successfully")
+
+        print(
+            f"\n🎉 Processed {success_count}/{len(fix_files)} fix requests successfully"
+        )
         return success_count > 0
 
 
@@ -423,43 +446,42 @@ Examples:
   python copilot_workflow_helper.py workflow_fixes/            # Process all files in directory
   python copilot_workflow_helper.py workflow_fixes/fix.md      # Process single file
   python copilot_workflow_helper.py --create-issues-only       # Only create GitHub issues
-        """
+        """,
     )
-    
+
     parser.add_argument(
-        "input_path",
-        help="Path to fix request file or directory containing fix files"
+        "input_path", help="Path to fix request file or directory containing fix files"
     )
-    
+
     parser.add_argument(
         "--repo",
-        help="Repository in format owner/repo (auto-detected if not specified)"
+        help="Repository in format owner/repo (auto-detected if not specified)",
     )
-    
+
     parser.add_argument(
         "--create-issues-only",
         action="store_true",
-        help="Only create GitHub issues, skip Copilot submission"
+        help="Only create GitHub issues, skip Copilot submission",
     )
-    
+
     parser.add_argument(
         "--pr-templates-only",
         action="store_true",
-        help="Only generate PR templates, skip other actions"
+        help="Only generate PR templates, skip other actions",
     )
-    
+
     args = parser.parse_args()
-    
+
     try:
         helper = CopilotWorkflowHelper(repo=args.repo)
-        
+
         if args.create_issues_only:
             helper.copilot_available = False
-        
+
         if os.path.isfile(args.input_path):
             # Process single file
             metadata = helper.process_fix_request(args.input_path)
-            
+
             if args.pr_templates_only:
                 helper.generate_pr_template(metadata)
             elif args.create_issues_only or not helper.copilot_available:
@@ -470,25 +492,27 @@ Examples:
                 if not helper.submit_to_copilot_chat(metadata):
                     helper.create_github_issue(metadata)
                 helper.generate_pr_template(metadata)
-        
+
         elif os.path.isdir(args.input_path):
             # Process directory
             if args.pr_templates_only:
                 # Only generate PR templates for all files
-                fix_files = [f for f in os.listdir(args.input_path) if f.endswith('.md')]
+                fix_files = [
+                    f for f in os.listdir(args.input_path) if f.endswith(".md")
+                ]
                 for fix_file in fix_files:
                     file_path = os.path.join(args.input_path, fix_file)
                     metadata = helper.process_fix_request(file_path)
                     helper.generate_pr_template(metadata)
             else:
                 helper.process_directory(args.input_path)
-        
+
         else:
             print(f"❌ Path not found: {args.input_path}")
             return 1
-        
+
         return 0
-        
+
     except KeyboardInterrupt:
         print("\n⚠️ Interrupted by user")
         return 1
