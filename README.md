@@ -537,3 +537,6 @@ protobuf messages added
 ### July 28, 2025 - Metrics module progress updated: 33 of 97 protobufs implemented
 
 Common module protobufs verified complete (July 28, 2025).
+
+It now supports a plugin architecture for custom integrations.
+Provides SDK, security features, and example plugins for extensibility.

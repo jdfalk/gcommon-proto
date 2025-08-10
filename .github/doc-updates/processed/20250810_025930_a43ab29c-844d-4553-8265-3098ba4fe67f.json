@@ -1,0 +1,16 @@
+{
+  "file": "CHANGELOG.md",
+  "mode": "changelog-entry",
+  "content": "### Added\n\n- Introduce plugin framework skeleton",
+  "guid": "a43ab29c-844d-4553-8265-3098ba4fe67f",
+  "created_at": "2025-08-10T02:58:23Z",
+  "options": {
+    "section": null,
+    "after": null,
+    "before": null,
+    "task_id": null,
+    "badge_name": null,
+    "priority": null,
+    "category": null
+  }
+}

@@ -1,0 +1,13 @@
+{
+  "action": "create",
+  "title": "Complete plugin architecture",
+  "body": "Implement full plugin framework with types, security, sdk, examples",
+  "labels": ["module:plugins", "enhancement"],
+  "guid": "fde9d9c6-b935-4670-912a-2187d92203a4",
+  "legacy_guid": "create-complete-plugin-architecture-2025-08-10",
+  "created_at": "2025-08-10T12:39:37.000Z",
+  "processed_at": null,
+  "failed_at": null,
+  "sequence": 0,
+  "parent_guid": null
+}

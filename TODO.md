@@ -2638,3 +2638,7 @@ Implemented metrics request and response protobufs
 Verified common module protobufs are fully implemented; no empty files remaining
 Implemented DatabaseStatusCode enum and DatabaseStatus message for database
 module
+
+Build out plugin SDK and security features
+
+Add more plugin examples and security audits
