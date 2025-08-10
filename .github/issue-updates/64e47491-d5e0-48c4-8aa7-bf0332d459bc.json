@@ -1,0 +1,13 @@
+{
+  "action": "create",
+  "title": "Performance testing framework skeleton",
+  "body": "Add initial performance testing framework with metrics structures",
+  "labels": ["type:feature", "performance", "testing"],
+  "guid": "64e47491-d5e0-48c4-8aa7-bf0332d459bc",
+  "legacy_guid": "create-performance-testing-framework-skeleton-2025-08-10",
+  "created_at": "2025-08-10T02:54:02.000Z",
+  "processed_at": null,
+  "failed_at": null,
+  "sequence": 0,
+  "parent_guid": null
+}
