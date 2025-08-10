@@ -1,0 +1,13 @@
+{
+  "action": "create",
+  "title": "Security: add audit framework",
+  "body": "Introduce security module with audit, policies, monitoring, and tools packages",
+  "labels": ["module:security", "type:feature"],
+  "guid": "8d5bfc65-03f3-4719-973c-564a13f69db8",
+  "legacy_guid": "create-security-add-audit-framework-2025-08-10",
+  "created_at": "2025-08-10T02:55:06.000Z",
+  "processed_at": null,
+  "failed_at": null,
+  "sequence": 0,
+  "parent_guid": null
+}

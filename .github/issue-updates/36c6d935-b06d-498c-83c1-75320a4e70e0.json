@@ -1,0 +1,13 @@
+{
+  "action": "create",
+  "title": "Security: implement comprehensive module",
+  "body": "Complete security module with audit, policies, monitoring, tools, and module integrations",
+  "labels": ["module:security", "type:feature"],
+  "guid": "36c6d935-b06d-498c-83c1-75320a4e70e0",
+  "legacy_guid": "create-security-implement-comprehensive-module-2025-08-10",
+  "created_at": "2025-08-10T12:39:51.000Z",
+  "processed_at": null,
+  "failed_at": null,
+  "sequence": 0,
+  "parent_guid": null
+}
