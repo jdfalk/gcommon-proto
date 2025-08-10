@@ -1,0 +1,13 @@
+{
+  "action": "create",
+  "title": "Implement queue service layer",
+  "body": "Add queue interfaces and providers, scheduler, and docs",
+  "labels": ["module:queue", "type:feature"],
+  "guid": "8427dc18-3992-4203-a28e-f109a0fe0b3e",
+  "legacy_guid": "create-implement-queue-service-layer-2025-08-10",
+  "created_at": "2025-08-10T02:52:52.000Z",
+  "processed_at": null,
+  "failed_at": null,
+  "sequence": 0,
+  "parent_guid": null
+}
