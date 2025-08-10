@@ -1,0 +1,13 @@
+{
+  "action": "create",
+  "title": "Integration testing framework scaffolding",
+  "body": "Add scaffolding for integration test environment and structure.",
+  "labels": ["type:testing", "enhancement"],
+  "guid": "00b0f9cc-656c-4439-8be5-1ef44f5473ec",
+  "legacy_guid": "create-integration-testing-framework-scaffolding-2025-08-10",
+  "created_at": "2025-08-10T02:54:25.000Z",
+  "processed_at": null,
+  "failed_at": null,
+  "sequence": 0,
+  "parent_guid": null
+}

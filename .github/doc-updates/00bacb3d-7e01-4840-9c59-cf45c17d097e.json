@@ -1,0 +1,16 @@
+{
+  "file": "CHANGELOG.md",
+  "mode": "changelog-entry",
+  "content": "### Added\n\n- Added integration test environment scaffolding.",
+  "guid": "00bacb3d-7e01-4840-9c59-cf45c17d097e",
+  "created_at": "2025-08-10T02:54:29Z",
+  "options": {
+    "section": null,
+    "after": null,
+    "before": null,
+    "task_id": null,
+    "badge_name": null,
+    "priority": null,
+    "category": null
+  }
+}
