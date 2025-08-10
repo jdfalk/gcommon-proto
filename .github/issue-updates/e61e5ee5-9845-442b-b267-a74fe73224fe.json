@@ -1,0 +1,12 @@
+{
+  "action": "comment",
+  "number": 101,
+  "body": "Expanded monitoring infrastructure with collectors, exporters, alerts, and dashboards",
+  "guid": "e61e5ee5-9845-442b-b267-a74fe73224fe",
+  "legacy_guid": "comment-issue-101-2025-08-10",
+  "created_at": "2025-08-10T12:54:35.000Z",
+  "processed_at": null,
+  "failed_at": null,
+  "sequence": 0,
+  "parent_guid": null
+}

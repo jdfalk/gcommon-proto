@@ -1,0 +1,12 @@
+// file: monitoring/dashboards/kibana/logs_dashboard.json
+// version: 1.0.0
+// guid: f1e2d3c4-b5a6-7890-1234-56789abcdef0
+{
+  "attributes": {
+    "title": "Logs Overview",
+    "description": "Visualization of collected logs",
+    "panelsJSON": "[\n      {\\"type\\":\\"visualization\\",\\"id\\":\\"1\\",\\"panelIndex\\":\\"1\\",\\"gridData\\":{\\"x\\":0,\\"y\\":0,\\"w\\":24,\\"h\\":15},\\"embeddableConfig\\":{}}\n    ]",
+    "optionsJSON": "{\"useMargins\":true,\"hidePanelTitles\":false}",
+    "version": 1
+  }
+}
