@@ -538,5 +538,5 @@ protobuf messages added
 
 Common module protobufs verified complete (July 28, 2025).
 
-It now supports a plugin architecture for custom integrations.
-Provides SDK, security features, and example plugins for extensibility.
+It now supports a plugin architecture for custom integrations. Provides SDK,
+security features, and example plugins for extensibility.

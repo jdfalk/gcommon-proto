@@ -2,10 +2,7 @@
   "action": "create",
   "title": "Plugin system framework",
   "body": "Implement plugin management skeleton",
-  "labels": [
-    "module:plugins",
-    "enhancement"
-  ],
+  "labels": ["module:plugins", "enhancement"],
   "guid": "81c59d05-0167-40c8-8da2-fa28093f4e35",
   "legacy_guid": "create-plugin-system-framework-2025-08-10",
   "created_at": "2025-08-10T02:55:40.000Z",

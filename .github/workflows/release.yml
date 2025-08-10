@@ -8,7 +8,7 @@ on:
   workflow_dispatch:
     inputs:
       release-type:
-        description: 'Type of release'
+        description: "Type of release"
         required: true
         type: choice
         options:
@@ -18,14 +18,14 @@ on:
           - prerelease
         default: patch
       dry-run:
-        description: 'Run in dry-run mode'
+        description: "Run in dry-run mode"
         required: false
         type: boolean
         default: false
 
 env:
-  GO_VERSION: '1.22'
-  NODE_VERSION: '22'
+  GO_VERSION: "1.22"
+  NODE_VERSION: "22"
 
 jobs:
   prepare:
@@ -46,7 +46,7 @@ jobs:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           release_branches: main
           custom_release_rules: prerelease:prerelease
-          tag_prefix: ''
+          tag_prefix: ""
           default_bump: ${{ github.event.inputs.release-type }}
 
       - name: Generate changelog

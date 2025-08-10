@@ -12,7 +12,7 @@ on:
   workflow_dispatch:
 
 env:
-  GO_VERSION: '1.22'
+  GO_VERSION: "1.22"
 
 jobs:
   setup-services:
@@ -69,7 +69,7 @@ jobs:
     needs: integration-tests
     strategy:
       matrix:
-        go: ['1.21', '1.22', '1.23']
+        go: ["1.21", "1.22", "1.23"]
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4

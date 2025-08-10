@@ -12,7 +12,8 @@ and this project adheres to
 
 ### Added
 
-- Added extensible plugin architecture with security, communication bus, SDK, and examples
+- Added extensible plugin architecture with security, communication bus, SDK,
+  and examples
 
 ### Added
 

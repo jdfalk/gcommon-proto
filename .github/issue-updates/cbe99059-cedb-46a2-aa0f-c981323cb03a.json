@@ -8,6 +8,6 @@
   "processed_at": null,
   "failed_at": null,
   "sequence": 0,
-  "parent_guid": null ,
+  "parent_guid": null,
   "parent": "module:cache,language:go"
 }

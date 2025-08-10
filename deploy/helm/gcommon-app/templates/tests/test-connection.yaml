@@ -5,13 +5,12 @@
 apiVersion: v1
 kind: Pod
 metadata:
-  name: "{{ include \"gcommon-app.fullname\" . }}-test"
-  labels:
-    {{- include "gcommon-app.labels" . | nindent 4 }}
+  name: '{{ include "gcommon-app.fullname" . }}-test'
+  labels: { { - include "gcommon-app.labels" . | nindent 4 } }
 spec:
   containers:
     - name: wget
       image: busybox
-      command: ['wget']
+      command: ["wget"]
       args: ['{{ include "gcommon-app.fullname" . }}:{{ .Values.service.port }}']
   restartPolicy: Never

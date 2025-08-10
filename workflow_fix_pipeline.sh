@@ -3,12 +3,10 @@
 # version: 1.0.0
 # guid: c3d4e5f6-a7b8-9012-cdef-345678901234
 
-"""
-Workflow Fix Pipeline
-
-Complete automation pipeline for discovering and fixing failing GitHub workflows.
-This script orchestrates both the analysis and fixing phases.
-"""
+# Workflow Fix Pipeline
+#
+# Complete automation pipeline for discovering and fixing failing GitHub workflows.
+# This script orchestrates both the analysis and fixing phases.
 
 set -e
 
@@ -123,108 +121,108 @@ done
 # Check prerequisites
 check_prerequisites() {
     print_status "Checking prerequisites..."
-    
+
     # Check if gh is installed
     if ! command -v gh &> /dev/null; then
         print_error "GitHub CLI (gh) is not installed. Please install it first."
         print_status "Visit: https://cli.github.com/"
         exit 1
     fi
-    
+
     # Check if gh is authenticated
     if ! gh auth status &> /dev/null; then
         print_error "GitHub CLI is not authenticated. Please run 'gh auth login' first."
         exit 1
     fi
-    
+
     # Check if python is available
     if ! command -v python3 &> /dev/null && ! command -v python &> /dev/null; then
         print_error "Python is not installed or not in PATH."
         exit 1
     fi
-    
+
     # Use python3 if available, otherwise python
     if command -v python3 &> /dev/null; then
         PYTHON_CMD="python3"
     else
         PYTHON_CMD="python"
     fi
-    
+
     # Check if scripts exist
     if [[ ! -f "fix_failing_workflows.py" ]]; then
         print_error "fix_failing_workflows.py not found in current directory."
         exit 1
     fi
-    
+
     if [[ ! -f "copilot_workflow_helper.py" ]]; then
         print_error "copilot_workflow_helper.py not found in current directory."
         exit 1
     fi
-    
+
     print_success "All prerequisites met"
 }
 
 # Main pipeline execution
 run_pipeline() {
     print_status "Starting GitHub Workflow Fix Pipeline"
-    
+
     # Build arguments for the analysis script
     ANALYSIS_ARGS=""
     if [[ -n "$REPO" ]]; then
         ANALYSIS_ARGS="$ANALYSIS_ARGS --repo $REPO"
     fi
     ANALYSIS_ARGS="$ANALYSIS_ARGS --max-runs $MAX_RUNS --days $DAYS_BACK"
-    
+
     if [[ "$DRY_RUN" == true ]]; then
         ANALYSIS_ARGS="$ANALYSIS_ARGS --dry-run"
     fi
-    
+
     # Step 1: Run workflow analysis
     print_status "Step 1: Analyzing failing workflows..."
     if ! $PYTHON_CMD fix_failing_workflows.py $ANALYSIS_ARGS; then
         print_error "Workflow analysis failed"
         exit 1
     fi
-    
+
     # Step 2: Process fix requests (only if not dry run)
     if [[ "$DRY_RUN" == false ]]; then
         print_status "Step 2: Processing fix requests with Copilot..."
-        
+
         if [[ ! -d "workflow_fixes" ]]; then
             print_warning "No workflow_fixes directory found. No fixes to process."
             exit 0
         fi
-        
+
         # Count fix files
         FIX_COUNT=$(find workflow_fixes -name "*.md" ! -name "*_copilot_response.md" | wc -l)
         if [[ $FIX_COUNT -eq 0 ]]; then
             print_warning "No fix request files found."
             exit 0
         fi
-        
+
         print_status "Found $FIX_COUNT fix request(s) to process"
-        
+
         # Build arguments for the helper script
         HELPER_ARGS="workflow_fixes"
         if [[ -n "$REPO" ]]; then
             HELPER_ARGS="$HELPER_ARGS --repo $REPO"
         fi
-        
+
         if [[ "$ISSUES_ONLY" == true ]]; then
             HELPER_ARGS="$HELPER_ARGS --create-issues-only"
         fi
-        
+
         # Run the helper script
         if ! $PYTHON_CMD copilot_workflow_helper.py $HELPER_ARGS; then
             print_error "Fix request processing failed"
             exit 1
         fi
-        
+
         print_success "Fix requests processed successfully"
     else
         print_success "Dry run completed. Check workflow_fixes/ directory for analysis results."
     fi
-    
+
     # Step 3: Summary
     print_status "Pipeline Summary:"
     if [[ -d "workflow_fixes" ]]; then
@@ -235,16 +233,16 @@ run_pipeline() {
             print_status "- Copilot responses received: $RESPONSE_FILES"
         fi
     fi
-    
+
     if [[ -d "pr_templates" ]]; then
         PR_TEMPLATES=$(find pr_templates -name "*.md" | wc -l)
         if [[ $PR_TEMPLATES -gt 0 ]]; then
             print_status "- PR templates created: $PR_TEMPLATES"
         fi
     fi
-    
+
     print_success "Workflow fix pipeline completed successfully!"
-    
+
     # Provide next steps
     print_status "Next Steps:"
     print_status "1. Review the generated fix requests in workflow_fixes/"

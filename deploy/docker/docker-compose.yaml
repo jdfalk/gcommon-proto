@@ -2,7 +2,7 @@
 # version: 1.0.0
 # guid: 7f83576f-4c6b-41fa-ba0c-e853a07c9674
 
-version: '3.8'
+version: "3.8"
 
 services:
   app:

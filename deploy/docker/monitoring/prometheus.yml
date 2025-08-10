@@ -7,9 +7,9 @@ global:
   evaluation_interval: 15s
 
 scrape_configs:
-  - job_name: 'gcommon-app'
+  - job_name: "gcommon-app"
     static_configs:
-      - targets: ['app:8080']
-  - job_name: 'prometheus'
+      - targets: ["app:8080"]
+  - job_name: "prometheus"
     static_configs:
-      - targets: ['prometheus:9090']
+      - targets: ["prometheus:9090"]
