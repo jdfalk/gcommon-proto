@@ -1,0 +1,13 @@
+{
+  "action": "update",
+  "number": null,
+  "body": "Expanded performance testing framework with runner, benchmarks, load, stress, and regression components",
+  "labels": ["type:feature", "performance", "testing"],
+  "guid": "e9c4b4a9-a380-4c9d-b045-932d397f69fd",
+  "legacy_guid": "update-issue-null-2025-08-10",
+  "created_at": "2025-08-10T12:34:38.000Z",
+  "processed_at": null,
+  "failed_at": null,
+  "sequence": 0,
+  "parent_guid": null
+}
