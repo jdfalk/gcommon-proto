@@ -352,8 +352,8 @@ def deploy_to_repositories(sections):
 
 
 def main():
-    # Read the current markdown file
-    with open("repository_labels.md", "r") as f:
+    # Read the JSON markdown file
+    with open("repository_labels_json.md", "r") as f:
         content = f.read()
 
     # Extract JSON data
