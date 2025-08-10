@@ -10,6 +10,14 @@ and this project adheres to
 
 ## [Unreleased]
 
+### Added
+
+- Added extensible plugin architecture with security, communication bus, SDK, and examples
+
+### Added
+
+- Introduce plugin framework skeleton
+
 ### Added - MAJOR PROTOBUF IMPLEMENTATION MILESTONE (August 2025)
 
 **🚀 MASSIVE PROTOBUF EXPANSION**: Completed comprehensive 1-1-1 pattern

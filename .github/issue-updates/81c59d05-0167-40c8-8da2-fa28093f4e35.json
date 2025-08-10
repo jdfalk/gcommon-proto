@@ -1,0 +1,24 @@
+{
+  "action": "create",
+  "title": "Plugin system framework",
+  "body": "Implement plugin management skeleton",
+  "labels": [
+    "module:plugins",
+    "enhancement"
+  ],
+  "guid": "81c59d05-0167-40c8-8da2-fa28093f4e35",
+  "legacy_guid": "create-plugin-system-framework-2025-08-10",
+  "created_at": "2025-08-10T02:55:40.000Z",
+  "processed_at": null,
+  "failed_at": null,
+  "sequence": 0,
+  "parent_guid": null,
+  "file_modified_at": "2025-08-10T02:55:40.161615+00:00",
+  "timestamp_extracted_at": "2025-08-10T03:00:14.052928+00:00",
+  "processing_metadata": {
+    "enhanced_at": "2025-08-10T03:00:14.052944+00:00",
+    "source_file": ".github/issue-updates/81c59d05-0167-40c8-8da2-fa28093f4e35.json",
+    "version": "2.0.0"
+  },
+  "has_dependencies": true
+}

@@ -1,0 +1,16 @@
+{
+  "file": "TODO.md",
+  "mode": "task-add",
+  "content": "Add more plugin examples and security audits",
+  "guid": "9404edb3-facf-44a1-aa8f-ee955f3ad4b7",
+  "created_at": "2025-08-10T12:39:51Z",
+  "options": {
+    "section": null,
+    "after": null,
+    "before": null,
+    "task_id": null,
+    "badge_name": null,
+    "priority": null,
+    "category": null
+  }
+}
