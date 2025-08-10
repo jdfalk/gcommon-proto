@@ -1,0 +1,13 @@
+{
+  "action": "create",
+  "title": "Database: add migration framework",
+  "body": "Introduce skeleton database migration system for managing schema changes.",
+  "labels": ["module:db", "type:feature"],
+  "guid": "865418e6-3577-44dc-bad1-820d447952d9",
+  "legacy_guid": "create-database-add-migration-framework-2025-08-10",
+  "created_at": "2025-08-10T02:56:03.000Z",
+  "processed_at": null,
+  "failed_at": null,
+  "sequence": 0,
+  "parent_guid": null
+}
