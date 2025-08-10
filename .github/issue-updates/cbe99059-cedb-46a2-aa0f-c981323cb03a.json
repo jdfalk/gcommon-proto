@@ -1,0 +1,13 @@
+{
+  "action": "comment",
+  "number": 0,
+  "body": "Added redis and distributed providers, policies, serialization, metrics",
+  "guid": "cbe99059-cedb-46a2-aa0f-c981323cb03a",
+  "legacy_guid": "comment-issue-0-2025-08-10",
+  "created_at": "2025-08-10T12:36:37.000Z",
+  "processed_at": null,
+  "failed_at": null,
+  "sequence": 0,
+  "parent_guid": null ,
+  "parent": "module:cache,language:go"
+}

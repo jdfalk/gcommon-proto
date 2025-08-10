@@ -1,0 +1,13 @@
+{
+  "action": "create",
+  "title": "Implement Cache Service Layer",
+  "body": "Add Go cache interfaces, memory provider, and gRPC service implementation.",
+  "labels": ["module:cache", "language:go"],
+  "guid": "ee02e842-7020-4abd-a989-354c095a9900",
+  "legacy_guid": "create-implement-cache-service-layer-2025-08-10",
+  "created_at": "2025-08-10T02:53:01.000Z",
+  "processed_at": null,
+  "failed_at": null,
+  "sequence": 0,
+  "parent_guid": null
+}
