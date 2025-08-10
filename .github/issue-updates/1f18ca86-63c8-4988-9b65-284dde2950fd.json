@@ -1,0 +1,13 @@
+{
+  "action": "create",
+  "title": "Add standardized log entry structure",
+  "body": "Implement LogEntry struct with correlation fields for consistent logging.",
+  "labels": ["enhancement", "module:log"],
+  "guid": "1f18ca86-63c8-4988-9b65-284dde2950fd",
+  "legacy_guid": "create-add-standardized-log-entry-structure-2025-08-10",
+  "created_at": "2025-08-10T02:55:04.000Z",
+  "processed_at": null,
+  "failed_at": null,
+  "sequence": 0,
+  "parent_guid": null
+}
