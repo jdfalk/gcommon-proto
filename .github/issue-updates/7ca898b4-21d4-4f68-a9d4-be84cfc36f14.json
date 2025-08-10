@@ -1,0 +1,13 @@
+{
+  "action": "create",
+  "title": "Metrics: implement memory provider",
+  "body": "Add an in-memory metrics provider to complement Prometheus for lightweight usage and testing.",
+  "labels": ["module:metrics", "type:enhancement"],
+  "guid": "7ca898b4-21d4-4f68-a9d4-be84cfc36f14",
+  "legacy_guid": "create-metrics-implement-memory-provider-2025-08-10",
+  "created_at": "2025-08-10T02:54:08.000Z",
+  "processed_at": null,
+  "failed_at": null,
+  "sequence": 0,
+  "parent_guid": null
+}

@@ -1,4 +1,8 @@
+//go:build ignore
+
 // file: pkg/metrics/grpc_management_service.go
+// version: 1.0.0
+// guid: a3b50dcd-1d6e-4313-8a9a-8a42129b3922
 // Package metrics provides gRPC management service implementations for metrics provider administration.
 package metrics
 
@@ -242,9 +246,9 @@ func (s *MetricsManagementGRPCService) UpdateMetricsProvider(ctx context.Context
 		Status:     providerInfo.Status,
 		Validation: validation,
 		UpdateResult: &pb.UpdateResult{
-			Action:        pb.UpdateAction_UPDATE_ACTION_UPDATED,
+			Action:          pb.UpdateAction_UPDATE_ACTION_UPDATED,
 			UpdatedSettings: []string{"name", "description"},
-			UpdateDuration: time.Since(start).String(),
+			UpdateDuration:  time.Since(start).String(),
 		},
 	}
 
@@ -276,8 +280,8 @@ func (s *MetricsManagementGRPCService) DeleteMetricsProvider(ctx context.Context
 			DeletedAt:  timestamppb.New(start),
 			DeletionResult: &pb.DeletionResult{
 				DryRunResult: &pb.DryRunResult{
-					WouldDeleteMetrics: 100, // Example data
-					WouldDeletePoints:  10000,
+					WouldDeleteMetrics:    100, // Example data
+					WouldDeletePoints:     10000,
 					EstimatedDeletionTime: "30s",
 				},
 			},
@@ -306,11 +310,11 @@ func (s *MetricsManagementGRPCService) DeleteMetricsProvider(ctx context.Context
 		ProviderId: req.ProviderId,
 		DeletedAt:  timestamppb.New(start),
 		DeletionResult: &pb.DeletionResult{
-			ProviderDeleted:       true,
-			MetricsDeleted:        100,  // Example data
-			DataPointsDeleted:     10000,
-			CleanupStrategyUsed:   "immediate",
-			DeletionDuration:      time.Since(start).String(),
+			ProviderDeleted:     true,
+			MetricsDeleted:      100, // Example data
+			DataPointsDeleted:   10000,
+			CleanupStrategyUsed: "immediate",
+			DeletionDuration:    time.Since(start).String(),
 		},
 	}
 
@@ -358,10 +362,10 @@ func (s *MetricsManagementGRPCService) ListMetricsProviders(ctx context.Context,
 
 		if req.IncludeStats {
 			pbInfo.Stats = &pb.ProviderStats{
-				MetricsCount:       100,
-				DataPointsCount:    10000,
+				MetricsCount:        100,
+				DataPointsCount:     10000,
 				OperationsPerSecond: 50.5,
-				ErrorRate:          0.01,
+				ErrorRate:           0.01,
 			}
 		}
 
@@ -380,9 +384,9 @@ func (s *MetricsManagementGRPCService) ListMetricsProviders(ctx context.Context,
 		Success:   true,
 		Providers: providers,
 		Pagination: &pb.PaginationInfo{
-			PageSize:    pageSize,
-			TotalCount:  totalCount,
-			HasMore:     false,
+			PageSize:   pageSize,
+			TotalCount: totalCount,
+			HasMore:    false,
 		},
 		Summary: &pb.ProviderSummary{
 			TotalProviders: int32(len(s.providers)),
@@ -418,13 +422,13 @@ func (s *MetricsManagementGRPCService) GetProviderStats(ctx context.Context, req
 	// Build comprehensive statistics
 	statistics := &pb.ProviderStatistics{
 		ProviderInfo: &pb.ProviderInfo{
-			ProviderId: providerInfo.ID,
-			Name:       providerInfo.Name,
-			Type:       providerInfo.Type,
-			Status:     providerInfo.Status.State,
-			Health:     providerInfo.Status.Health,
-			Uptime:     time.Since(providerInfo.CreatedAt).String(),
-			CreatedAt:  timestamppb.New(providerInfo.CreatedAt),
+			ProviderId:  providerInfo.ID,
+			Name:        providerInfo.Name,
+			Type:        providerInfo.Type,
+			Status:      providerInfo.Status.State,
+			Health:      providerInfo.Status.Health,
+			Uptime:      time.Since(providerInfo.CreatedAt).String(),
+			CreatedAt:   timestamppb.New(providerInfo.CreatedAt),
 			LastUpdated: timestamppb.New(providerInfo.UpdatedAt),
 		},
 		Performance: &pb.PerformanceStats{
@@ -437,9 +441,9 @@ func (s *MetricsManagementGRPCService) GetProviderStats(ctx context.Context, req
 		},
 		ResourceUsage: &pb.ResourceUsageStats{
 			Memory: &pb.MemoryUsage{
-				UsedBytes:     512 * 1024 * 1024, // 512MB
-				LimitBytes:    1024 * 1024 * 1024, // 1GB
-				UsagePercent:  50.0,
+				UsedBytes:    512 * 1024 * 1024,  // 512MB
+				LimitBytes:   1024 * 1024 * 1024, // 1GB
+				UsagePercent: 50.0,
 			},
 			Cpu: &pb.CPUUsage{
 				CurrentPercent: 25.5,
@@ -448,18 +452,18 @@ func (s *MetricsManagementGRPCService) GetProviderStats(ctx context.Context, req
 			},
 		},
 		Errors: &pb.ErrorStats{
-			TotalErrors:       10,
-			CurrentErrorRate:  0.1,
-			AvgErrorRate:      0.05,
-			ErrorRatePercent:  0.2,
+			TotalErrors:      10,
+			CurrentErrorRate: 0.1,
+			AvgErrorRate:     0.05,
+			ErrorRatePercent: 0.2,
 		},
 		DataVolume: &pb.DataVolumeStats{
-			TotalBytes:                    10 * 1024 * 1024, // 10MB
-			TotalMetrics:                  100,
-			TotalDataPoints:               10000,
-			IngestionRateBytesPerSecond:   1024,
-			IngestionRatePointsPerSecond:  10,
-			CompressionRatio:              0.7,
+			TotalBytes:                   10 * 1024 * 1024, // 10MB
+			TotalMetrics:                 100,
+			TotalDataPoints:              10000,
+			IngestionRateBytesPerSecond:  1024,
+			IngestionRatePointsPerSecond: 10,
+			CompressionRatio:             0.7,
 		},
 	}
 
