@@ -1,0 +1,16 @@
+{
+  "file": "CHANGELOG.md",
+  "mode": "changelog-entry",
+  "content": "### Added\n\n- Initial queue service layer with memory and redis providers",
+  "guid": "92c6031e-5b49-445c-b49d-47d31aa3ff74",
+  "created_at": "2025-08-10T03:02:50Z",
+  "options": {
+    "section": null,
+    "after": null,
+    "before": null,
+    "task_id": null,
+    "badge_name": null,
+    "priority": null,
+    "category": null
+  }
+}
