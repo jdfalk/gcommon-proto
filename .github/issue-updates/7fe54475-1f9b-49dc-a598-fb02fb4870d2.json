@@ -1,0 +1,13 @@
+{
+  "action": "create",
+  "title": "Add multi-language SDK generation",
+  "body": "Add protobuf generation plugins for Python, TypeScript, Java, and C# in buf.gen.yaml",
+  "labels": ["enhancement"],
+  "guid": "7fe54475-1f9b-49dc-a598-fb02fb4870d2",
+  "legacy_guid": "create-add-multi-language-sdk-generation-2025-08-10",
+  "created_at": "2025-08-10T02:55:18.000Z",
+  "processed_at": null,
+  "failed_at": null,
+  "sequence": 0,
+  "parent_guid": null
+}
