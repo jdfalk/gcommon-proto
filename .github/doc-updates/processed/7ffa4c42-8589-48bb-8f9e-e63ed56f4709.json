@@ -1,0 +1,16 @@
+{
+  "file": "docs/modules/organization/README.md",
+  "mode": "replace",
+  "content": "<!-- file: docs/modules/organization/README.md -->\n<!-- version: 1.0.0 -->\n<!-- guid: 694a0eae-8cdc-43d6-abf3-0cef84addfdf -->\n\n# Organization Module\n\n## Module Overview\n\n### Purpose and Key Features\n- TODO: Manage users, teams, and permissions\n- TODO: Support multi-tenant hierarchies\n- TODO: Provide role-based access control\n- TODO: Enable audit logging for changes\n- TODO: Integrate with other modules for scoping\n\n### Architecture Overview\n- TODO: Describe entities and relationships\n- TODO: Explain organizational graph structure\n- TODO: Outline synchronization mechanisms\n- TODO: Highlight extensible policy hooks\n- TODO: Detail security boundaries\n\n## API Reference\n\n### Interfaces\n- TODO: Organization service interface\n- TODO: Membership interface\n- TODO: Role assignment interface\n\n### Common Methods\n- TODO: Create and delete organizations\n- TODO: Add and remove members\n- TODO: Assign roles to users\n- TODO: List organizations and members\n\n## Usage Guides\n\n### Common Use Cases\n- TODO: Set up new tenant with default roles\n- TODO: Delegate admin rights to team leads\n- TODO: Synchronize users from external directory\n- TODO: Generate organization reports\n\n### Troubleshooting\n- TODO: Resolve missing permissions\n- TODO: Handle circular dependencies\n- TODO: Audit unexpected changes\n\n## Interactive Documentation\n- TODO: Provide role assignment simulator\n- TODO: Offer hierarchy visualization tool\n\n## Documentation Automation\n- TODO: Generate API docs from protobuf\n- TODO: Validate examples against schema\n- TODO: Deploy updates with versioning",
+  "guid": "7ffa4c42-8589-48bb-8f9e-e63ed56f4709",
+  "created_at": "2025-08-10T14:41:41Z",
+  "options": {
+    "section": null,
+    "after": null,
+    "before": null,
+    "task_id": null,
+    "badge_name": null,
+    "priority": null,
+    "category": null
+  }
+}

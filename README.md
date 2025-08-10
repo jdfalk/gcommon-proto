@@ -544,3 +544,7 @@ Provides SDK, security features, and example plugins for extensibility.
 ## Dependency Management
 
 This project includes automated dependency auditing and optimization scripts.
+
+## Documentation
+
+Comprehensive documentation for all modules is available under the docs/ directory, featuring module overviews, API references, guides, examples, tutorials, and reference materials.

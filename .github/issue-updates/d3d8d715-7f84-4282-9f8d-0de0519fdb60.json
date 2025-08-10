@@ -1,0 +1,13 @@
+{
+  "action": "create",
+  "title": "Establish module documentation skeleton",
+  "body": "Set up docs/ structure and placeholders for module docs.",
+  "labels": ["documentation"],
+  "guid": "d3d8d715-7f84-4282-9f8d-0de0519fdb60",
+  "legacy_guid": "create-establish-module-documentation-skeleton-2025-08-10",
+  "created_at": "2025-08-10T02:56:22.000Z",
+  "processed_at": null,
+  "failed_at": null,
+  "sequence": 0,
+  "parent_guid": null
+}

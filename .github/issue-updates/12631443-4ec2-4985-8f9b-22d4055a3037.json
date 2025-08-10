@@ -1,0 +1,12 @@
+{
+  "action": "comment",
+  "number": 2,
+  "body": "Expanded module documentation with detailed skeletons and API references",
+  "guid": "12631443-4ec2-4985-8f9b-22d4055a3037",
+  "legacy_guid": "comment-issue-2-2025-08-10",
+  "created_at": "2025-08-10T14:44:40.000Z",
+  "processed_at": null,
+  "failed_at": null,
+  "sequence": 0,
+  "parent_guid": null
+}
