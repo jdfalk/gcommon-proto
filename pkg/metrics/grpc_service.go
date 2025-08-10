@@ -1,4 +1,8 @@
+//go:build ignore
+
 // file: pkg/metrics/grpc_service.go
+// version: 1.0.0
+// guid: 7543c692-e111-42c5-ab0c-319c94fc5ac7
 // Package metrics provides gRPC service implementations for metrics collection and management.
 package metrics
 
@@ -47,7 +51,7 @@ func (s *MetricsGRPCService) RecordMetric(ctx context.Context, req *pb.RecordMet
 	if err != nil {
 		return &pb.RecordMetricResponse{
 			Success: false,
-			Error: &pb.Error{
+			Error: &commonpb.Error{
 				Code:    "RECORDING_FAILED",
 				Message: err.Error(),
 			},
@@ -55,14 +59,15 @@ func (s *MetricsGRPCService) RecordMetric(ctx context.Context, req *pb.RecordMet
 	}
 
 	// Build response
+	validation := &pb.ValidationResult{}
+	validation.SetValid(true)
+
 	response := &pb.RecordMetricResponse{
-		Success:     true,
-		MetricId:    generateMetricID(req.Metric),
-		RecordedAt:  timestamppb.New(start),
-		ProviderId:  req.ProviderId,
-		Validation: &pb.ValidationResult{
-			Valid: true,
-		},
+		Success:    true,
+		MetricId:   generateMetricID(req.Metric),
+		RecordedAt: timestamppb.New(start),
+		ProviderId: req.ProviderId,
+		Validation: validation,
 		Stats: &pb.RecordingStats{
 			ProcessingTimeMs: time.Since(start).Milliseconds(),
 			Persisted:        true,
@@ -98,7 +103,7 @@ func (s *MetricsGRPCService) RecordBatchMetrics(ctx context.Context, req *pb.Rec
 		err := s.recordMetricData(provider, metric)
 		if err != nil {
 			result.Success = false
-			result.Error = &pb.Error{
+			result.Error = &commonpb.Error{
 				Code:    "RECORDING_FAILED",
 				Message: err.Error(),
 			}
@@ -176,7 +181,7 @@ func (s *MetricsGRPCService) StreamMetrics(req *pb.StreamMetricsRequest, stream 
 	// For now, return a basic implementation that sends a few test metrics
 	// In a real implementation, this would stream actual metrics data
 	ctx := stream.Context()
-	
+
 	for i := 0; i < 5; i++ {
 		select {
 		case <-ctx.Done():
@@ -189,11 +194,11 @@ func (s *MetricsGRPCService) StreamMetrics(req *pb.StreamMetricsRequest, stream 
 				Timestamp: timestamppb.New(time.Now()),
 				Labels:    map[string]string{"source": "stream"},
 			}
-			
+
 			if err := stream.Send(metric); err != nil {
 				return err
 			}
-			
+
 			time.Sleep(time.Second) // Simulate real-time streaming
 		}
 	}
@@ -218,7 +223,7 @@ func (s *MetricsGRPCService) RegisterMetric(ctx context.Context, req *pb.Registe
 	if req.Definition.Name == "" {
 		return &pb.RegisterMetricResponse{
 			Success: false,
-			Error: &pb.Error{
+			Error: &commonpb.Error{
 				Code:    "INVALID_DEFINITION",
 				Message: "metric name is required",
 			},
@@ -362,11 +367,11 @@ func (s *MetricsGRPCService) getProvider(providerID string) Provider {
 	if providerID == "" {
 		return s.provider // Use default provider
 	}
-	
+
 	if provider, exists := s.registry[providerID]; exists {
 		return provider
 	}
-	
+
 	return s.provider // Fallback to default
 }
 
@@ -406,11 +411,4 @@ func generateMetricID(metric *pb.MetricData) string {
 
 func generateMetricIDFromName(name string) string {
 	return fmt.Sprintf("metric_%s_%d", name, time.Now().UnixNano())
-}
-
-// Option helpers
-func WithTags(tags ...Tag) Option {
-	return func(o *Options) {
-		o.Tags = append(o.Tags, tags...)
-	}
 }

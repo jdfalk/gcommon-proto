@@ -1,0 +1,16 @@
+{
+  "file": "CHANGELOG.md",
+  "mode": "changelog-entry",
+  "content": "### Added\n\n- Added in-memory metrics provider",
+  "guid": "f9f64831-73d6-433a-b3a3-415165268fd0",
+  "created_at": "2025-08-10T02:55:10Z",
+  "options": {
+    "section": null,
+    "after": null,
+    "before": null,
+    "task_id": null,
+    "badge_name": null,
+    "priority": null,
+    "category": null
+  }
+}
