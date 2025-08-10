@@ -1,0 +1,16 @@
+{
+  "file": "CHANGELOG.md",
+  "mode": "changelog-entry",
+  "content": "Add organization service layer with in-memory tenant management",
+  "guid": "54d8cc84-2b78-4622-9a02-d829b5814c72",
+  "created_at": "2025-08-10T02:58:48Z",
+  "options": {
+    "section": null,
+    "after": null,
+    "before": null,
+    "task_id": null,
+    "badge_name": null,
+    "priority": null,
+    "category": null
+  }
+}
