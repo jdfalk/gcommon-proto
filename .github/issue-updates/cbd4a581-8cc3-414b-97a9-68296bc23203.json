@@ -1,0 +1,13 @@
+{
+  "action": "create",
+  "title": "Config: implement provider factory and basic providers",
+  "body": "Implement initial Config module service layer with provider factory, file and env providers",
+  "labels": ["module:config", "enhancement"],
+  "guid": "cbd4a581-8cc3-414b-97a9-68296bc23203",
+  "legacy_guid": "create-config-implement-provider-factory-and-basic-providers-2025-08-10",
+  "created_at": "2025-08-10T02:50:43.000Z",
+  "processed_at": null,
+  "failed_at": null,
+  "sequence": 0,
+  "parent_guid": null
+}

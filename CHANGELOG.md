@@ -1,6 +1,8 @@
 # GCommon Changelog
 
 <!-- file: CHANGELOG.md -->
+<!-- version: 1.1.1 -->
+<!-- guid: a1b2c3d4-e5f6-7a8b-9c0d-1e2f3a4b5c6d -->
 
 All notable changes to this project will be documented in this file.
 
@@ -14,10 +16,8 @@ and this project adheres to
 
 - Added extensible plugin architecture with security, communication bus, SDK,
   and examples
-
-### Added
-
 - Introduce plugin framework skeleton
+- Add initial config provider factory with file and env providers
 
 ### Added - MAJOR PROTOBUF IMPLEMENTATION MILESTONE (August 2025)
 

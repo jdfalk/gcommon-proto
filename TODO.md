@@ -1,5 +1,5 @@
 <!-- file: TODO.md -->
-<!-- version: 1.2.0 -->
+<!-- version: 1.2.1 -->
 <!-- guid: b2c3d4e5-f6a7-8b9c-def0-1234567890ab -->
 
 # GCommon Project Roadmap & Implementation Plan
@@ -2642,3 +2642,5 @@ module
 Build out plugin SDK and security features
 
 Add more plugin examples and security audits
+
+Implement remaining components of config module
