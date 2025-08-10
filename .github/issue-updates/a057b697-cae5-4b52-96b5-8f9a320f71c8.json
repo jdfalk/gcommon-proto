@@ -1,0 +1,13 @@
+{
+  "action": "create",
+  "title": "Notification module: implement service layer skeleton",
+  "body": "Initial implementation of notification providers, interfaces, and factory",
+  "labels": ["module:notification", "type:feature"],
+  "guid": "a057b697-cae5-4b52-96b5-8f9a320f71c8",
+  "legacy_guid": "create-notification-module-implement-service-layer-skeleton-2025-08-10",
+  "created_at": "2025-08-10T02:53:03.000Z",
+  "processed_at": null,
+  "failed_at": null,
+  "sequence": 0,
+  "parent_guid": null
+}
