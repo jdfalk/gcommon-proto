@@ -1,0 +1,12 @@
+{
+  "action": "comment",
+  "number": 24,
+  "body": "Expand configuration management system with loaders, sources, validation, and dynamic updates skeletons",
+  "guid": "3365e651-1c02-44a4-aeb7-e28905915e25",
+  "legacy_guid": "comment-issue-24-2025-08-10",
+  "created_at": "2025-08-10T14:40:36.000Z",
+  "processed_at": null,
+  "failed_at": null,
+  "sequence": 0,
+  "parent_guid": null
+}
