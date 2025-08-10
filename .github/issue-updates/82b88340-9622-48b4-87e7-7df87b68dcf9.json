@@ -1,0 +1,13 @@
+{
+  "action": "create",
+  "title": "Implement dependency audit and security scanning",
+  "body": "Add Go vulnerability scanning workflow and tidy Go module dependencies to remove unused packages.",
+  "labels": ["type:ci", "security"],
+  "guid": "82b88340-9622-48b4-87e7-7df87b68dcf9",
+  "legacy_guid": "create-implement-dependency-audit-and-security-scanning-2025-08-10",
+  "created_at": "2025-08-10T02:55:26.000Z",
+  "processed_at": null,
+  "failed_at": null,
+  "sequence": 0,
+  "parent_guid": null
+}

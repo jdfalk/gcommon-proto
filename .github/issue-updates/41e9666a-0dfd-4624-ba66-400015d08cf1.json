@@ -1,0 +1,14 @@
+{
+  "action": "create",
+  "title": "Implement dependency management",
+  "body": "Implement comprehensive dependency audit and management per Task 18",
+  "labels": ["--labels"],
+  "guid": "41e9666a-0dfd-4624-ba66-400015d08cf1",
+  "legacy_guid": "create-implement-dependency-management-2025-08-10",
+  "created_at": "2025-08-10T12:32:53.000Z",
+  "processed_at": null,
+  "failed_at": null,
+  "sequence": 0,
+  "parent_guid": null,
+  "parent_issue": dependencies,security
+}

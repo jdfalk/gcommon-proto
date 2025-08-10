@@ -1,0 +1,13 @@
+{
+  "action": "create",
+  "title": "Dependency management enhancement",
+  "body": "Expand dependency audit tooling with optimization, security scanning, and version policy skeletons.",
+  "labels": ["dependencies", "security", "type:ci"],
+  "guid": "cb81199b-28f4-4a29-be74-4aefcd64775d",
+  "legacy_guid": "create-dependency-management-enhancement-2025-08-10",
+  "created_at": "2025-08-10T14:39:55.000Z",
+  "processed_at": null,
+  "failed_at": null,
+  "sequence": 0,
+  "parent_guid": null
+}
