@@ -1,0 +1,13 @@
+{
+  "action": "create",
+  "title": "Implement auth service skeleton",
+  "body": "Add interfaces, local provider, JWT handling, and RBAC engine",
+  "labels": ["module:auth", "enhancement"],
+  "guid": "8436e9d3-495a-4fe2-8d1c-5e6fe797e964",
+  "legacy_guid": "create-implement-auth-service-skeleton-2025-08-10",
+  "created_at": "2025-08-10T02:57:41.000Z",
+  "processed_at": null,
+  "failed_at": null,
+  "sequence": 0,
+  "parent_guid": null
+}

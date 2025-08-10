@@ -4,6 +4,7 @@ go 1.23.0
 
 require (
 	github.com/cockroachdb/pebble v1.1.5
+	github.com/golang-jwt/jwt/v5 v5.3.0
 	github.com/jackc/pgx/v4 v4.18.3
 	github.com/mattn/go-sqlite3 v1.14.30
 	github.com/prometheus/client_golang v1.22.0
