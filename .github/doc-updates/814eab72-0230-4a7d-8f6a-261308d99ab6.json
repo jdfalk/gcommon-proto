@@ -1,0 +1,16 @@
+{
+  "file": "TODO.md",
+  "mode": "task-add",
+  "content": "- [ ] 🟡 **General**: Expand microservice templates with Dockerfiles and manifests",
+  "guid": "814eab72-0230-4a7d-8f6a-261308d99ab6",
+  "created_at": "2025-08-10T03:01:10Z",
+  "options": {
+    "section": null,
+    "after": null,
+    "before": null,
+    "task_id": null,
+    "badge_name": null,
+    "priority": null,
+    "category": null
+  }
+}
