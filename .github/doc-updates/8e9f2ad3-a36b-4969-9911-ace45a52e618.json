@@ -1,0 +1,16 @@
+{
+  "file": "TODO.md",
+  "mode": "task-add",
+  "content": "- [ ] 🟢 **Documentation**: Integrate api_doc_generator.py into the CI pipeline for automatic updates",
+  "guid": "8e9f2ad3-a36b-4969-9911-ace45a52e618",
+  "created_at": "2025-08-10T12:38:03Z",
+  "options": {
+    "section": null,
+    "after": null,
+    "before": null,
+    "task_id": null,
+    "badge_name": null,
+    "priority": null,
+    "category": null
+  }
+}
