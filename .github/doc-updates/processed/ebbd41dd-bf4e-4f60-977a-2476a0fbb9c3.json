@@ -1,0 +1,16 @@
+{
+  "file": "docs/reference/README.md",
+  "mode": "replace",
+  "content": "<!-- file: docs/reference/README.md -->\n<!-- version: 1.0.0 -->\n<!-- guid: 78dd6363-2d7b-4ea5-a1f6-80a6b077cb48 -->\n\n# Reference\n\nReference materials provide precise technical details that supplement guides and\ntutorials. Use this section when you need authoritative information about\nconfiguration keys, error codes, or performance characteristics.\n\n## Directory Structure\n\n```\ndocs/reference/\n├── configuration/   # Configuration options and formats\n├── error-codes/     # Standardized error definitions\n└── performance/     # Benchmarks and tuning tips\n```\n\n## Configuration\n\nComprehensive configuration reference covering:\n\n- Supported keys and data types\n- Default values and overrides\n- Environment variable mapping\n- Security implications\n\n## Error Codes\n\nA catalog of error codes produced by gcommon modules with:\n\n- Code identifiers and descriptions\n- Severity levels\n- Common causes and remedies\n- Links to relevant troubleshooting guides\n\n## Performance\n\nGuidance for achieving optimal performance:\n\n- Benchmark results and methodology\n- Resource usage considerations\n- Tuning parameters for heavy workloads\n- Profiling tools and techniques\n\nThis section will grow alongside the project. Contributions are welcome via the\ndocumentation update workflow.",
+  "guid": "ebbd41dd-bf4e-4f60-977a-2476a0fbb9c3",
+  "created_at": "2025-08-10T14:44:02Z",
+  "options": {
+    "section": null,
+    "after": null,
+    "before": null,
+    "task_id": null,
+    "badge_name": null,
+    "priority": null,
+    "category": null
+  }
+}

@@ -1,0 +1,16 @@
+{
+  "file": "docs/modules/cache/README.md",
+  "mode": "replace",
+  "content": "<!-- file: docs/modules/cache/README.md -->\n<!-- version: 1.0.0 -->\n<!-- guid: 0a7e84f3-d258-4a7e-aa8a-291946041005 -->\n\n# Cache Module\n\n## Module Overview\n\n### Purpose and Key Features\n- TODO: Provide in-memory and distributed caching\n- TODO: Support expiration and eviction policies\n- TODO: Enable namespaced caches\n- TODO: Offer metrics for cache performance\n- TODO: Integrate with config for backend selection\n\n### Architecture Overview\n- TODO: Document cache layers and adapters\n- TODO: Describe eviction strategies\n- TODO: Explain replication mechanisms\n- TODO: Outline sharding and partitioning\n- TODO: Highlight security for cached data\n\n## API Reference\n\n### Interfaces\n- TODO: Cache interface for basic operations\n- TODO: Admin interface for maintenance tasks\n- TODO: Metrics interface for monitoring\n\n### Common Methods\n- TODO: Get retrieves values\n- TODO: Set stores values with TTL\n- TODO: Delete removes entries\n- TODO: Flush clears cache\n\n## Usage Guides\n\n### Common Use Cases\n- TODO: Cache database query results\n- TODO: Store session data\n- TODO: Implement rate limiting\n- TODO: Share state across services\n\n### Troubleshooting\n- TODO: Handle cache stampede\n- TODO: Diagnose memory leaks\n- TODO: Resolve stale data issues\n- TODO: Monitor hit ratios\n\n## Interactive Documentation\n- TODO: Provide cache configuration playground\n- TODO: Include example eviction scenarios\n\n## Documentation Automation\n- TODO: Generate API docs from protobuf\n- TODO: Validate example correctness\n- TODO: Deploy updated docs automatically",
+  "guid": "79b380d2-e075-4b2e-88ef-614d33aa8555",
+  "created_at": "2025-08-10T14:41:20Z",
+  "options": {
+    "section": null,
+    "after": null,
+    "before": null,
+    "task_id": null,
+    "badge_name": null,
+    "priority": null,
+    "category": null
+  }
+}

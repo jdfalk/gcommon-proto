@@ -19,6 +19,7 @@ and this project adheres to
 - Add Go vulnerability scanning workflow
 - Introduce plugin framework skeleton
 - Add initial config provider factory with file and env providers
+- Expanded module documentation skeletons for all modules
 
 **🚀 MAJOR PROTOBUF IMPLEMENTATION MILESTONE (August 2025)**
 
