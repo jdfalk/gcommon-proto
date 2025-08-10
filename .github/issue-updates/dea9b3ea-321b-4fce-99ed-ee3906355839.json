@@ -1,0 +1,13 @@
+{
+  "action": "create",
+  "title": "Add integration testing framework structure",
+  "body": "Add test framework skeleton with module, cross-module, and performance test placeholders",
+  "labels": ["testing", "type:feature", "module:common", "priority:low"],
+  "guid": "dea9b3ea-321b-4fce-99ed-ee3906355839",
+  "legacy_guid": "create-add-integration-testing-framework-structure-2025-08-10",
+  "created_at": "2025-08-10T12:36:18.000Z",
+  "processed_at": null,
+  "failed_at": null,
+  "sequence": 0,
+  "parent_guid": null
+}
