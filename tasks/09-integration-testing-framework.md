@@ -6,11 +6,15 @@
 
 ## 🎯 Objective
 
-Create a comprehensive integration testing framework for all gcommon modules. This includes test infrastructure, cross-module testing, performance testing, and automated test execution.
+Create a comprehensive integration testing framework for all gcommon modules.
+This includes test infrastructure, cross-module testing, performance testing,
+and automated test execution.
 
 ## 📋 Context
 
-With 8 modules requiring implementation, a robust integration testing framework is essential to ensure modules work correctly together and meet performance requirements.
+With 8 modules requiring implementation, a robust integration testing framework
+is essential to ensure modules work correctly together and meet performance
+requirements.
 
 ### Current State
 

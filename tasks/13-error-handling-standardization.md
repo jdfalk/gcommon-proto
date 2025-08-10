@@ -6,11 +6,14 @@
 
 ## 🎯 Objective
 
-Implement comprehensive and standardized error handling across all gcommon modules. Create error types, error wrapping, error codes, and error reporting infrastructure.
+Implement comprehensive and standardized error handling across all gcommon
+modules. Create error types, error wrapping, error codes, and error reporting
+infrastructure.
 
 ## 📋 Context
 
-Consistent error handling is critical for a library used across multiple services. We need standardized error types, codes, and handling patterns.
+Consistent error handling is critical for a library used across multiple
+services. We need standardized error types, codes, and handling patterns.
 
 ## 🔧 Implementation Requirements
 
@@ -140,24 +143,28 @@ func ErrorHandlingStreamInterceptor() grpc.StreamServerInterceptor
 For each module, implement specific error patterns:
 
 #### Config Module
+
 - Configuration parsing errors
 - Missing configuration errors
 - Configuration validation errors
 - Configuration source errors
 
 #### Queue Module
+
 - Queue operation errors
 - Message processing errors
 - Dead letter queue errors
 - Job scheduling errors
 
 #### Metrics Module
+
 - Metric collection errors
 - Export errors
 - Provider errors
 - Aggregation errors
 
 #### Auth Module
+
 - Authentication errors
 - Authorization errors
 - Token errors

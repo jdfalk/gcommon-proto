@@ -6,11 +6,14 @@
 
 ## 🎯 Objective
 
-Implement the complete Go service layer for the Notification module (22 protobuf files). This includes notification providers, delivery systems, templates, and comprehensive notification management.
+Implement the complete Go service layer for the Notification module (22 protobuf
+files). This includes notification providers, delivery systems, templates, and
+comprehensive notification management.
 
 ## 📋 Context
 
-The Notification module provides comprehensive notification delivery across multiple channels with template support and delivery tracking.
+The Notification module provides comprehensive notification delivery across
+multiple channels with template support and delivery tracking.
 
 ### Current State
 

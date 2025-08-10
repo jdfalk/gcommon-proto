@@ -6,11 +6,15 @@
 
 ## 🎯 Objective
 
-Implement the complete Go service layer for the Web module (224 protobuf files). This includes HTTP server management, middleware chains, session handling, and web service orchestration.
+Implement the complete Go service layer for the Web module (224 protobuf files).
+This includes HTTP server management, middleware chains, session handling, and
+web service orchestration.
 
 ## 📋 Context
 
-The Web module is the largest module with 224 protobuf files covering comprehensive web server functionality, middleware management, and HTTP service orchestration.
+The Web module is the largest module with 224 protobuf files covering
+comprehensive web server functionality, middleware management, and HTTP service
+orchestration.
 
 ### Current State
 

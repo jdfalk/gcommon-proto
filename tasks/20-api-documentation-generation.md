@@ -6,11 +6,14 @@
 
 ## 🎯 Objective
 
-Implement automated API documentation generation for all gRPC services and protobuf definitions. Create comprehensive, searchable, and interactive API documentation.
+Implement automated API documentation generation for all gRPC services and
+protobuf definitions. Create comprehensive, searchable, and interactive API
+documentation.
 
 ## 📋 Context
 
-With comprehensive gRPC services across 8 modules, automated API documentation generation is essential for developer experience and adoption.
+With comprehensive gRPC services across 8 modules, automated API documentation
+generation is essential for developer experience and adoption.
 
 ## 🔧 Implementation Requirements
 

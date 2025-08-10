@@ -6,11 +6,13 @@
 
 ## 🎯 Objective
 
-Optimize and manage dependencies across all gcommon modules. Minimize dependency footprint, resolve conflicts, and ensure security of dependencies.
+Optimize and manage dependencies across all gcommon modules. Minimize dependency
+footprint, resolve conflicts, and ensure security of dependencies.
 
 ## 📋 Context
 
-With 8 modules and numerous external dependencies, proper dependency management is crucial for security, performance, and maintainability.
+With 8 modules and numerous external dependencies, proper dependency management
+is crucial for security, performance, and maintainability.
 
 ## 🔧 Implementation Requirements
 

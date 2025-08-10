@@ -6,11 +6,15 @@
 
 ## 🎯 Objective
 
-Generate client SDKs for all gcommon gRPC services in multiple programming languages. Create high-quality, idiomatic client libraries with comprehensive documentation and examples.
+Generate client SDKs for all gcommon gRPC services in multiple programming
+languages. Create high-quality, idiomatic client libraries with comprehensive
+documentation and examples.
 
 ## 📋 Context
 
-To maximize gcommon adoption, client SDKs in popular languages are essential. These should be auto-generated from protobuf definitions with language-specific optimizations.
+To maximize gcommon adoption, client SDKs in popular languages are essential.
+These should be auto-generated from protobuf definitions with language-specific
+optimizations.
 
 ## 🔧 Implementation Requirements
 
@@ -43,18 +47,21 @@ sdks/{language}/
 ### 3. Language-Specific Optimizations
 
 #### Python SDK
+
 - Async/await support
 - Type hints
 - Pythonic API design
 - pip package distribution
 
 #### JavaScript/TypeScript SDK
+
 - Promise-based API
 - TypeScript definitions
 - npm package distribution
 - Browser and Node.js support
 
 #### Java SDK
+
 - Reactive streams support
 - Maven/Gradle integration
 - Idiomatic Java patterns

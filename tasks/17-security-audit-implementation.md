@@ -6,11 +6,15 @@
 
 ## 🎯 Objective
 
-Conduct comprehensive security audit and implement security best practices across all gcommon modules. Address security vulnerabilities, implement security policies, and create security monitoring.
+Conduct comprehensive security audit and implement security best practices
+across all gcommon modules. Address security vulnerabilities, implement security
+policies, and create security monitoring.
 
 ## 📋 Context
 
-Security is critical for a library used across multiple services. We need comprehensive security audit, vulnerability assessment, and security policy implementation.
+Security is critical for a library used across multiple services. We need
+comprehensive security audit, vulnerability assessment, and security policy
+implementation.
 
 ## 🔧 Implementation Requirements
 
@@ -43,18 +47,21 @@ security/
 Conduct security reviews for each module:
 
 #### Auth Module Security
+
 - Token security implementation
 - Password handling best practices
 - Session management security
 - Authorization bypass prevention
 
 #### Web Module Security
+
 - Input validation and sanitization
 - CSRF protection
 - XSS prevention
 - SQL injection prevention
 
 #### Queue Module Security
+
 - Message encryption
 - Access control for queues
 - Data integrity verification

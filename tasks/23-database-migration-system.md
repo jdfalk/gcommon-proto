@@ -6,11 +6,14 @@
 
 ## 🎯 Objective
 
-Enhance the existing database module with a comprehensive migration system. Support schema versioning, automated migrations, rollbacks, and multi-database compatibility.
+Enhance the existing database module with a comprehensive migration system.
+Support schema versioning, automated migrations, rollbacks, and multi-database
+compatibility.
 
 ## 📋 Context
 
-The database module is production-ready but needs enhanced migration capabilities for complex schema management and database evolution.
+The database module is production-ready but needs enhanced migration
+capabilities for complex schema management and database evolution.
 
 ## 🔧 Implementation Requirements
 

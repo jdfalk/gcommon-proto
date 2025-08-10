@@ -6,11 +6,15 @@
 
 ## 🎯 Objective
 
-Develop a comprehensive performance testing and benchmarking framework for all gcommon modules. This includes load testing, stress testing, memory profiling, and performance regression detection.
+Develop a comprehensive performance testing and benchmarking framework for all
+gcommon modules. This includes load testing, stress testing, memory profiling,
+and performance regression detection.
 
 ## 📋 Context
 
-Performance is critical for a common library that will be used across multiple services. We need comprehensive performance testing to ensure scalability and efficiency.
+Performance is critical for a common library that will be used across multiple
+services. We need comprehensive performance testing to ensure scalability and
+efficiency.
 
 ### Current State
 
@@ -84,36 +88,42 @@ type ThroughputMetrics struct {
 Create benchmarks for each module:
 
 #### Config Module Benchmarks
+
 - Configuration retrieval performance
 - Configuration parsing speed
 - Concurrent configuration access
 - Configuration watching overhead
 
 #### Queue Module Benchmarks
+
 - Message publishing throughput
 - Message consumption latency
 - Queue depth handling
 - Concurrent producer/consumer performance
 
 #### Metrics Module Benchmarks
+
 - Metric collection overhead
 - Metric aggregation performance
 - Export performance
 - Concurrent metric recording
 
 #### Auth Module Benchmarks
+
 - Token validation speed
 - Authorization decision latency
 - Concurrent authentication requests
 - Policy evaluation performance
 
 #### Web Module Benchmarks
+
 - HTTP request handling throughput
 - Middleware chain overhead
 - Session management performance
 - Concurrent connection handling
 
 #### Cache Module Benchmarks
+
 - Cache hit/miss latency
 - Cache throughput
 - Eviction policy performance
@@ -165,6 +175,7 @@ Create stress tests to find breaking points:
 ## 📊 Performance Targets
 
 ### Latency Targets
+
 - Config retrieval: < 1ms P99
 - Cache operations: < 500μs P99
 - Auth token validation: < 2ms P99
@@ -172,6 +183,7 @@ Create stress tests to find breaking points:
 - Web request handling: < 10ms P99
 
 ### Throughput Targets
+
 - Config reads: > 10,000 ops/sec
 - Cache operations: > 50,000 ops/sec
 - Queue messages: > 5,000 msg/sec
@@ -179,6 +191,7 @@ Create stress tests to find breaking points:
 - Web requests: > 10,000 req/sec
 
 ### Resource Targets
+
 - Memory usage: < 100MB baseline
 - CPU usage: < 10% under normal load
 - Goroutine count: < 1000 under load

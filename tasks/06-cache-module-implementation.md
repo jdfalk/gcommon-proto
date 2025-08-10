@@ -6,11 +6,14 @@
 
 ## 🎯 Objective
 
-Implement the complete Go service layer for the Cache module (72 protobuf files). This includes cache providers, distributed caching, cache policies, and performance optimization.
+Implement the complete Go service layer for the Cache module (72 protobuf
+files). This includes cache providers, distributed caching, cache policies, and
+performance optimization.
 
 ## 📋 Context
 
-The Cache module provides comprehensive caching infrastructure with support for multiple cache backends and advanced caching strategies.
+The Cache module provides comprehensive caching infrastructure with support for
+multiple cache backends and advanced caching strategies.
 
 ### Current State
 

@@ -6,11 +6,15 @@
 
 ## 🎯 Objective
 
-Create comprehensive examples and tutorials for all gcommon modules. This includes getting started guides, real-world usage examples, and best practices documentation.
+Create comprehensive examples and tutorials for all gcommon modules. This
+includes getting started guides, real-world usage examples, and best practices
+documentation.
 
 ## 📋 Context
 
-With 8 complex modules, developers need clear examples and tutorials to understand how to use gcommon effectively. This documentation is critical for adoption and proper usage.
+With 8 complex modules, developers need clear examples and tutorials to
+understand how to use gcommon effectively. This documentation is critical for
+adoption and proper usage.
 
 ### Current State
 
@@ -87,17 +91,20 @@ examples/
 Create a comprehensive getting started guide:
 
 #### Quick Start (5 minutes)
+
 - Installation instructions
 - Basic "Hello World" example
 - Key concepts overview
 
 #### First Application (30 minutes)
+
 - Building a simple web service
 - Adding authentication
 - Implementing metrics
 - Basic configuration
 
 #### Common Patterns (1 hour)
+
 - Module integration patterns
 - Error handling best practices
 - Performance optimization
@@ -108,17 +115,20 @@ Create a comprehensive getting started guide:
 For each module, create examples that demonstrate:
 
 #### Basic Usage
+
 - Simple configuration and initialization
 - Core functionality demonstration
 - Error handling examples
 
 #### Advanced Features
+
 - Complex configuration scenarios
 - Integration with other modules
 - Performance optimization
 - Production considerations
 
 #### Real-World Scenarios
+
 - Practical use cases
 - Complete working applications
 - Production deployment examples
@@ -128,15 +138,19 @@ For each module, create examples that demonstrate:
 Create examples showing module interactions:
 
 #### Web + Auth + Metrics
+
 Complete web service with authentication and monitoring
 
 #### Queue + Notification
+
 Message processing with notification delivery
 
 #### Config + All Modules
+
 Centralized configuration for all modules
 
 #### Full Application
+
 Production-ready application using all modules
 
 ### 5. Production Examples
@@ -144,18 +158,21 @@ Production-ready application using all modules
 Create production-ready examples:
 
 #### Microservice Template
+
 - Complete microservice architecture
 - Docker containerization
 - Kubernetes deployment
 - Monitoring and logging
 
 #### API Gateway
+
 - Request routing
 - Authentication and authorization
 - Rate limiting
 - Metrics collection
 
 #### Event-Driven Architecture
+
 - Queue-based message processing
 - Event sourcing patterns
 - Notification delivery

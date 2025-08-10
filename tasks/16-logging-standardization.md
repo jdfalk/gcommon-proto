@@ -6,11 +6,14 @@
 
 ## 🎯 Objective
 
-Implement comprehensive and standardized logging across all gcommon modules. Create structured logging, log aggregation, and monitoring integration.
+Implement comprehensive and standardized logging across all gcommon modules.
+Create structured logging, log aggregation, and monitoring integration.
 
 ## 📋 Context
 
-Consistent logging is essential for debugging, monitoring, and observability. All modules need standardized logging with proper correlation and structured data.
+Consistent logging is essential for debugging, monitoring, and observability.
+All modules need standardized logging with proper correlation and structured
+data.
 
 ## 🔧 Implementation Requirements
 
@@ -65,18 +68,21 @@ type LogEntry struct {
 Implement logging for each module with consistent patterns:
 
 #### Config Module Logging
+
 - Configuration loading events
 - Configuration changes
 - Validation errors
 - Performance metrics
 
 #### Queue Module Logging
+
 - Message processing events
 - Queue status changes
 - Job scheduling events
 - Dead letter queue events
 
 #### Auth Module Logging
+
 - Authentication attempts
 - Authorization decisions
 - Token operations

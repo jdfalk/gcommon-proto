@@ -31,7 +31,8 @@
 - `config_secret.proto` - Split into 26 files
 - `config_value.proto` - Split into 35 files
 
-**Total Result:** 16 large files split into ~180+ individual files, all following the 1-1-1 pattern.
+**Total Result:** 16 large files split into ~180+ individual files, all
+following the 1-1-1 pattern.
 
 ## Standard Splitting Process
 
@@ -103,7 +104,8 @@
 ## Tools Created
 
 1. `analyze_proto_files.sh` - Analyze all files that need splitting
-2. `split_proto.py` - Automated splitting script that successfully split all files
+2. `split_proto.py` - Automated splitting script that successfully split all
+   files
 
 ## Usage
 

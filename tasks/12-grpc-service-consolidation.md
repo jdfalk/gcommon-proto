@@ -6,11 +6,14 @@
 
 ## 🎯 Objective
 
-Consolidate and standardize all gRPC service implementations across modules. Create unified gRPC server management, service registration, and cross-module gRPC communication.
+Consolidate and standardize all gRPC service implementations across modules.
+Create unified gRPC server management, service registration, and cross-module
+gRPC communication.
 
 ## 📋 Context
 
-Each module has its own gRPC services that need to be consolidated into a cohesive system with standardized patterns and unified server management.
+Each module has its own gRPC services that need to be consolidated into a
+cohesive system with standardized patterns and unified server management.
 
 ### Current State
 
@@ -90,21 +93,25 @@ Implement internal gRPC communication between modules:
 Create standardized middleware for all services:
 
 #### Authentication Middleware
+
 - JWT token validation
 - Role-based access control
 - Request context enrichment
 
 #### Metrics Middleware
+
 - Request/response metrics
 - Latency tracking
 - Error rate monitoring
 
 #### Logging Middleware
+
 - Request/response logging
 - Correlation ID tracking
 - Structured logging
 
 #### Recovery Middleware
+
 - Panic recovery
 - Error standardization
 - Graceful error responses

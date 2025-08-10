@@ -6,11 +6,15 @@
 
 ## 🎯 Objective
 
-Implement the complete Go service layer for the Queue module, which has 216 protobuf files (the most complex module). This includes message queue providers, gRPC services, and comprehensive queue management functionality.
+Implement the complete Go service layer for the Queue module, which has 216
+protobuf files (the most complex module). This includes message queue providers,
+gRPC services, and comprehensive queue management functionality.
 
 ## 📋 Context
 
-The Queue module has the most comprehensive protobuf implementation with 216 files covering message queuing, job scheduling, dead letter queues, and monitoring.
+The Queue module has the most comprehensive protobuf implementation with 216
+files covering message queuing, job scheduling, dead letter queues, and
+monitoring.
 
 ### Current State
 
@@ -84,6 +88,7 @@ Implement at least 2 queue providers:
 - **Redis Provider**: For production use with Redis
 
 Optional advanced providers:
+
 - RabbitMQ provider
 - NATS provider
 

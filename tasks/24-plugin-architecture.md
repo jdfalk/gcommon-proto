@@ -6,11 +6,14 @@
 
 ## 🎯 Objective
 
-Design and implement a plugin architecture for gcommon modules. Enable extensibility, custom providers, and third-party integrations without modifying core code.
+Design and implement a plugin architecture for gcommon modules. Enable
+extensibility, custom providers, and third-party integrations without modifying
+core code.
 
 ## 📋 Context
 
-A plugin architecture will allow users to extend gcommon functionality with custom providers and integrations while maintaining core stability.
+A plugin architecture will allow users to extend gcommon functionality with
+custom providers and integrations while maintaining core stability.
 
 ## 🔧 Implementation Requirements
 
