@@ -1,9 +1,10 @@
 #!/usr/bin/env python3
 # file: convert_labels.py
-# version: 1.0.1
+# version: 1.1.0
 # guid: a1b2c3d4-e5f6-7890-abcd-ef1234567890
 
 import json
+import os
 
 
 def hex_to_ansi_bg(hex_color):
@@ -194,6 +195,162 @@ This document provides a comprehensive overview of all labels across our reposit
     return md_content
 
 
+def format_single_repo_labels(repo_name, labels):
+    """Convert label data for a single repository to nicely formatted markdown"""
+    md_content = f"""<!-- file: labels.md -->
+<!-- version: 1.0.0 -->
+<!-- guid: {repo_name.lower()}-labels-{hash(repo_name) % 100000:05d} -->
+
+# {repo_name} Repository Labels
+
+This document provides a comprehensive overview of all labels in the {repo_name} repository, organized by category.
+
+**Total Labels:** {len(labels)}
+
+"""
+
+    # Categorize labels
+    categories = {
+        "Priority": [],
+        "Type": [],
+        "Module": [],
+        "Size": [],
+        "Status": [],
+        "Technology": [],
+        "Workflow": [],
+        "Project": [],
+        "Default GitHub": [],
+        "Other": [],
+    }
+
+    for label in labels:
+        name = label["name"]
+        if (
+            name.startswith("priority:")
+            or name.startswith("priority-")
+            or name in ["critical", "high", "medium", "low"]
+        ):
+            categories["Priority"].append(label)
+        elif name.startswith("type:") or name in [
+            "bug",
+            "enhancement",
+            "documentation",
+            "feature",
+            "bugfix",
+            "refactor",
+            "testing",
+        ]:
+            categories["Type"].append(label)
+        elif name.startswith("module:") or name in [
+            "auth",
+            "cache",
+            "config",
+            "database",
+            "metrics",
+            "queue",
+            "web",
+            "api",
+            "backend",
+            "frontend",
+            "ui",
+        ]:
+            categories["Module"].append(label)
+        elif name.startswith("size:") or name in ["small", "medium", "large", "epic"]:
+            categories["Size"].append(label)
+        elif name.startswith("status:") or name in [
+            "blocked",
+            "in-progress",
+            "needs-review",
+            "ready",
+            "todo",
+            "duplicate",
+            "wontfix",
+        ]:
+            categories["Status"].append(label)
+        elif (
+            name.startswith("tech:")
+            or name.startswith("workflow:")
+            or name
+            in [
+                "go",
+                "python",
+                "javascript",
+                "docker",
+                "kubernetes",
+                "protobuf",
+                "grpc",
+            ]
+        ):
+            if name.startswith("workflow:"):
+                categories["Workflow"].append(label)
+            else:
+                categories["Technology"].append(label)
+        elif name.startswith("project:"):
+            categories["Project"].append(label)
+        elif label["isDefault"]:
+            categories["Default GitHub"].append(label)
+        else:
+            categories["Other"].append(label)
+
+    # Output each category
+    for category, category_labels in categories.items():
+        if not category_labels:
+            continue
+
+        md_content += f"## {category} Labels ({len(category_labels)})\n\n"
+        md_content += "| Color | Name | Description |\n"
+        md_content += "|-------|------|-------------|\n"
+
+        # Sort labels by name
+        category_labels.sort(key=lambda x: x["name"])
+
+        for label in category_labels:
+            color_preview = hex_to_ansi_bg(label["color"])
+            color_hex = f"#{label['color']}"
+            name = label["name"]
+            description = (
+                label.get("description", "").replace("|", "\\|") or "*No description*"
+            )
+
+            # Create color cell with both hex and visual representation
+            color_cell = f"`{color_hex}` {color_preview}"
+
+            md_content += f"| {color_cell} | `{name}` | {description} |\n"
+
+        md_content += "\n"
+
+    md_content += "---\n\n"
+    md_content += "*Generated automatically from GitHub API data*\n"
+
+    return md_content
+
+
+def deploy_to_repositories(sections):
+    """Deploy individual label files to their respective repositories"""
+    repo_paths = {
+        "gcommon": "/Users/jdfalk/repos/github.com/jdfalk/gcommon",
+        "ghcommon": "/Users/jdfalk/repos/github.com/jdfalk/ghcommon",
+        "subtitle-manager": "/Users/jdfalk/repos/github.com/jdfalk/subtitle-manager",
+        "copilot-agent-util": "/Users/jdfalk/repos/github.com/jdfalk/copilot-agent-util",
+    }
+
+    for repo_name, labels in sections.items():
+        if not labels or repo_name not in repo_paths:
+            continue
+
+        repo_path = repo_paths[repo_name]
+        labels_file = os.path.join(repo_path, "labels.md")
+
+        # Generate the markdown content for this repository
+        content = format_single_repo_labels(repo_name, labels)
+
+        # Write the file
+        with open(labels_file, "w") as f:
+            f.write(content)
+
+        print(f"✅ Created labels.md for {repo_name} ({len(labels)} labels)")
+
+
 def main():
     # Read the current markdown file
     with open("repository_labels.md", "r") as f:
@@ -202,17 +359,14 @@ def main():
     # Extract JSON data
     sections = extract_json_from_markdown(content)
 
-    # Convert to formatted markdown
-    formatted_md = format_labels_as_markdown(sections)
+    # Create individual repository files
+    deploy_to_repositories(sections)
 
-    # Write the new file
-    with open("repository_labels.md", "w") as f:
-        f.write(formatted_md)
-
-    print("✅ Successfully converted repository_labels.md to formatted markdown!")
+    print("✅ Successfully created individual label files for each repository!")
     print(f"📊 Processed {len(sections)} repositories")
     total_labels = sum(len(labels) for labels in sections.values() if labels)
     print(f"🏷️  Total labels: {total_labels}")
+    print("📁 Individual label files created in each repository")
 
 
 if __name__ == "__main__":
