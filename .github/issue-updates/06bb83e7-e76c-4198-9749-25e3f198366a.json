@@ -1,0 +1,12 @@
+{
+  "action": "comment",
+  "number": 24,
+  "body": "Add configuration manager skeleton for unified config interface",
+  "guid": "06bb83e7-e76c-4198-9749-25e3f198366a",
+  "legacy_guid": "comment-issue-24-2025-08-10",
+  "created_at": "2025-08-10T02:56:14.000Z",
+  "processed_at": null,
+  "failed_at": null,
+  "sequence": 0,
+  "parent_guid": null
+}

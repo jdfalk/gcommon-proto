@@ -1,0 +1,16 @@
+{
+  "file": "CHANGELOG.md",
+  "mode": "changelog-entry",
+  "content": "Add comprehensive configuration management system skeleton with loaders, watchers, sources and examples",
+  "guid": "534c8dc8-09f5-4d12-a735-889ea7ec2a00",
+  "created_at": "2025-08-10T14:40:25Z",
+  "options": {
+    "section": null,
+    "after": null,
+    "before": null,
+    "task_id": null,
+    "badge_name": null,
+    "priority": null,
+    "category": null
+  }
+}
