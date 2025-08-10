@@ -1,0 +1,13 @@
+{
+  "action": "create",
+  "title": "Add Code of Conduct",
+  "body": "Introduce Contributor Covenant Code of Conduct to set community standards",
+  "labels": ["type:docs", "area:community"],
+  "guid": "b6f69132-9c21-4003-9c26-7a7d4ef5267a",
+  "legacy_guid": "create-add-code-of-conduct-2025-08-10",
+  "created_at": "2025-08-10T02:55:54.000Z",
+  "processed_at": null,
+  "failed_at": null,
+  "sequence": 0,
+  "parent_guid": null
+}
