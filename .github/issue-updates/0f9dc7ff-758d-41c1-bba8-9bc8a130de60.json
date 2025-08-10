@@ -1,0 +1,13 @@
+{
+  "action": "create",
+  "title": "Add getting started examples",
+  "body": "Introduce initial getting started example structure",
+  "labels": ["documentation", "examples"],
+  "guid": "0f9dc7ff-758d-41c1-bba8-9bc8a130de60",
+  "legacy_guid": "create-add-getting-started-examples-2025-08-10",
+  "created_at": "2025-08-10T02:55:55.000Z",
+  "processed_at": null,
+  "failed_at": null,
+  "sequence": 0,
+  "parent_guid": null
+}

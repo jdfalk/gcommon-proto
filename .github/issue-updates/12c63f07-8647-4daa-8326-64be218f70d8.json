@@ -1,0 +1,13 @@
+{
+  "action": "create",
+  "title": "Expand example skeleton",
+  "body": "Add directory structure for all examples",
+  "labels": ["documentation", "examples"],
+  "guid": "12c63f07-8647-4daa-8326-64be218f70d8",
+  "legacy_guid": "create-expand-example-skeleton-2025-08-10",
+  "created_at": "2025-08-10T12:33:27.000Z",
+  "processed_at": null,
+  "failed_at": null,
+  "sequence": 0,
+  "parent_guid": null
+}
