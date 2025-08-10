@@ -1,0 +1,13 @@
+{
+  "action": "create",
+  "title": "Add microservice template scaffolding",
+  "body": "Introduce initial microservice template directories and generator script for basic services.",
+  "labels": ["enhancement", "automation", "scripts"],
+  "guid": "a5a8c187-1705-4fa3-90e5-1a9f0a4fcf77",
+  "legacy_guid": "create-add-microservice-template-scaffolding-2025-08-10",
+  "created_at": "2025-08-10T02:56:12.000Z",
+  "processed_at": null,
+  "failed_at": null,
+  "sequence": 0,
+  "parent_guid": null
+}
