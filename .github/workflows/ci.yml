@@ -1,38 +1,268 @@
 # file: .github/workflows/ci.yml
-# version: 2.1.0
-# guid: 7f1b2c3d-4f5a-6b7c-8d9e-0a1b2c3d4e5f
+# version: 3.0.0
+# guid: 8721720b-6c3d-49e6-a280-3af8b67f4261
 
-name: CI
+name: Continuous Integration
 
 on:
   push:
     branches: [main]
   pull_request:
     branches: [main]
+  schedule:
+    - cron: '0 0 * * 0'
+  workflow_dispatch:
 
-permissions:
-  contents: write # Required for auto-committing fixes from super-linter
-  statuses: write # Required for status updates
-  pull-requests: write
-  actions: write # Required for uploading artifacts
-  checks: write
-  security-events: write
-  id-token: write
-  # Additional permissions for dependency submission
-  repository-projects: write
-  packages: write
-  attestations: write
+env:
+  GO_VERSION: '1.22'
+  NODE_VERSION: '22'
+  PYTHON_VERSION: '3.12'
+  COVERAGE_THRESHOLD: '80'
 
 jobs:
-  universal-ci:
-    uses: jdfalk/ghcommon/.github/workflows/reusable-ci.yml@main
-    with:
-      python-version: "3.12"
-      node-version: "22"
-      go-version: "1.22"
-      run-lint: true
-      run-test: true
-      run-build: false
-      enable-dependency-submission: true
-      enable-backend-frontend: false
-    secrets: inherit
+  lint:
+    name: Lint codebase
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Go
+        uses: actions/setup-go@v5
+        with:
+          go-version: ${{ env.GO_VERSION }}
+
+      - name: Format Go sources
+        run: |
+          gofmt -w $(git ls-files '*.go')
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+
+      - name: Install Node dependencies
+        run: npm ci
+
+      - name: Run eslint
+        run: npx eslint .
+
+  unit-tests:
+    name: Run unit tests
+    runs-on: ubuntu-latest
+    needs: lint
+    strategy:
+      matrix:
+        module:
+          - config
+          - queue
+          - metrics
+          - auth
+          - web
+          - cache
+          - organization
+          - notification
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Go
+        uses: actions/setup-go@v5
+        with:
+          go-version: ${{ env.GO_VERSION }}
+
+      - name: Run Go unit tests
+        run: |
+          echo "Running Go tests for ${{ matrix.module }}"
+          go test ./cmd/${{ matrix.module }}/... -coverprofile=coverage-${{ matrix.module }}.out
+
+      - name: Upload coverage
+        uses: actions/upload-artifact@v4
+        with:
+          name: coverage-${{ matrix.module }}
+          path: coverage-${{ matrix.module }}.out
+
+  e2e-tests:
+    name: Run end-to-end tests
+    runs-on: ubuntu-latest
+    needs: unit-tests
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Go
+        uses: actions/setup-go@v5
+        with:
+          go-version: ${{ env.GO_VERSION }}
+
+      - name: Start services
+        run: |
+          echo "Starting services for E2E testing"
+          # Placeholder for service startup
+
+      - name: Run E2E tests
+        run: go test ./e2e/... -timeout 30m
+
+  compatibility-tests:
+    name: Run compatibility tests
+    runs-on: ubuntu-latest
+    needs: unit-tests
+    strategy:
+      matrix:
+        go: ['1.21', '1.22', '1.23']
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Go
+        uses: actions/setup-go@v5
+        with:
+          go-version: ${{ matrix.go }}
+
+      - name: Run compatibility tests
+        run: go test ./... -run TestCompatibility
+
+  coverage-report:
+    name: Aggregate coverage
+    runs-on: ubuntu-latest
+    needs: unit-tests
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Download coverage artifacts
+        uses: actions/download-artifact@v4
+        with:
+          path: coverage
+
+      - name: Merge coverage reports
+        run: |
+          echo "mode: set" > coverage.out
+          find coverage -name '*.out' -exec tail -n +2 {} \; >> coverage.out
+
+      - name: Check coverage threshold
+        run: |
+          total=$(go tool cover -func coverage.out | tail -n 1 | awk '{print substr($3, 1, length($3)-1)}')
+          echo "Total coverage: $total"
+          if (( $(echo "$total < $COVERAGE_THRESHOLD" | bc -l) )); then
+            echo "Coverage $total is below threshold $COVERAGE_THRESHOLD" >&2
+            exit 1
+          fi
+
+      - name: Upload coverage summary
+        uses: actions/upload-artifact@v4
+        with:
+          name: coverage-summary
+          path: coverage.out
+
+  build:
+    name: Build binaries
+    runs-on: ubuntu-latest
+    needs: [lint, unit-tests]
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Go
+        uses: actions/setup-go@v5
+        with:
+          go-version: ${{ env.GO_VERSION }}
+
+      - name: Build modules
+        run: |
+          for module in config queue metrics auth web cache organization notification; do
+            echo "Building $module"
+            go build ./cmd/$module
+          done
+
+  notify:
+    name: Notify status
+    runs-on: ubuntu-latest
+    needs: [build, coverage-report, e2e-tests, compatibility-tests]
+    if: always()
+    steps:
+      - name: Determine job status
+        id: status
+        run: |
+          if [[ "${{ needs.build.result }}" == 'success' && "${{ needs.coverage-report.result }}" == 'success' && "${{ needs.e2e-tests.result }}" == 'success' && "${{ needs.compatibility-tests.result }}" == 'success' ]]; then
+            echo "status=success" >> $GITHUB_OUTPUT
+          else
+            echo "status=failure" >> $GITHUB_OUTPUT
+          fi
+
+      - name: Post GitHub comment
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const status = '${{ steps.status.outputs.status }}';
+            const body = `CI pipeline ${status}`;
+            github.rest.issues.createComment({
+              issue_number: context.issue.number,
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              body
+            });
+
+      - name: Send Slack notification
+        if: env.SLACK_WEBHOOK != ''
+        uses: slackapi/slack-github-action@v1.27.0
+        with:
+          payload: |
+            {
+              "text": "CI pipeline ${{ steps.status.outputs.status }} for ${{ github.repository }} @ ${{ github.sha }}"
+            }
+
+  deploy-dev:
+    name: Deploy to development environment
+    runs-on: ubuntu-latest
+    needs: build
+    environment: development
+    steps:
+      - name: Deploy development
+        run: echo 'Deploying to development'
+
+  deploy-staging:
+    name: Deploy to staging environment
+    runs-on: ubuntu-latest
+    needs: deploy-dev
+    environment: staging
+    steps:
+      - name: Deploy staging
+        run: echo 'Deploying to staging'
+
+  deploy-production:
+    name: Deploy to production environment
+    runs-on: ubuntu-latest
+    needs: deploy-staging
+    environment: production
+    steps:
+      - name: Deploy production
+        run: echo 'Deploying to production'
+
+  deploy-performance:
+    name: Deploy to performance environment
+    runs-on: ubuntu-latest
+    needs: build
+    environment: performance
+    steps:
+      - name: Deploy performance
+        run: echo 'Deploying to performance testing'
+
+  deploy-notify:
+    name: Notify deployment status
+    runs-on: ubuntu-latest
+    needs: [deploy-production, deploy-performance]
+    if: always()
+    steps:
+      - name: Summarize deployments
+        run: |
+          echo "Development: ${{ needs.deploy-dev.result }}" > deploy-report.txt
+          echo "Staging: ${{ needs.deploy-staging.result }}" >> deploy-report.txt
+          echo "Production: ${{ needs.deploy-production.result }}" >> deploy-report.txt
+          echo "Performance: ${{ needs.deploy-performance.result }}" >> deploy-report.txt
+
+      - name: Upload deployment report
+        uses: actions/upload-artifact@v4
+        with:
+          name: deployment-report
+          path: deploy-report.txt

@@ -1,0 +1,13 @@
+{
+  "action": "create",
+  "title": "Enhance CI/CD pipeline",
+  "body": "Implement comprehensive multi-stage CI/CD pipeline with testing, quality gates, release automation, environments, and reporting.",
+  "labels": ["ci", "enhancement"],
+  "guid": "ceae48e0-8cdf-4439-9d26-ffabc25204b6",
+  "legacy_guid": "create-enhance-ci-cd-pipeline-2025-08-10",
+  "created_at": "2025-08-10T12:34:38.000Z",
+  "processed_at": null,
+  "failed_at": null,
+  "sequence": 0,
+  "parent_guid": null
+}

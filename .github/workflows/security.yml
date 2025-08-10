@@ -1,0 +1,134 @@
+# file: .github/workflows/security.yml
+# version: 2.0.0
+# guid: c396df26-5d09-4da8-b2c5-c6615662f6d9
+
+name: Security Scan
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+  schedule:
+    - cron: '0 3 * * 1'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  security-events: write
+
+jobs:
+  go-security:
+    name: Go security analysis
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Go
+        uses: actions/setup-go@v5
+        with:
+          go-version: '1.22'
+
+      - name: Run gofmt
+        run: gofmt -l $(git ls-files '*.go')
+
+      - name: Run go vet
+        run: go vet ./...
+
+      - name: Run gosec
+        uses: securego/gosec@v2
+        with:
+          args: ./...
+
+  node-audit:
+    name: Node dependency audit
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+
+      - name: Install dependencies
+        run: npm install --ignore-scripts
+
+      - name: Run npm audit
+        run: npm audit --audit-level=high
+        continue-on-error: true
+
+      - name: Run npm outdated
+        run: npm outdated || true
+
+  dependency-review:
+    name: Dependency review
+    runs-on: ubuntu-latest
+    if: github.event_name == 'pull_request'
+    steps:
+      - name: Dependency review
+        uses: actions/dependency-review-action@v4
+
+  container-scan:
+    name: Container image scan
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Trivy
+        uses: aquasecurity/trivy-action@0.20.0
+        with:
+          scan-type: fs
+          ignore-unfixed: true
+          format: sarif
+          output: trivy-results.sarif
+
+      - name: Upload Trivy results
+        uses: github/codeql-action/upload-sarif@v2
+        with:
+          sarif_file: trivy-results.sarif
+
+  report:
+    name: Publish security report
+    runs-on: ubuntu-latest
+    needs: [go-security, node-audit, dependency-review, container-scan]
+    if: always()
+    steps:
+      - name: Summarize results
+        run: |
+          echo "Go security job: ${{ needs.go-security.result }}" > report.txt
+          echo "Node audit job: ${{ needs.node-audit.result }}" >> report.txt
+          echo "Dependency review job: ${{ needs.dependency-review.result }}" >> report.txt
+          echo "Container scan job: ${{ needs.container-scan.result }}" >> report.txt
+
+      - name: Upload security summary
+        uses: actions/upload-artifact@v4
+        with:
+          name: security-summary
+          path: report.txt
+
+      - name: Post GitHub comment
+        if: github.event_name == 'pull_request'
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const fs = require('fs');
+            const report = fs.readFileSync('report.txt', 'utf8');
+            github.rest.issues.createComment({
+              issue_number: context.issue.number,
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              body: `Security scan results:\n\n${report}`
+            });
+
+      - name: Send Slack notification
+        if: env.SLACK_WEBHOOK != ''
+        uses: slackapi/slack-github-action@v1.27.0
+        with:
+          payload: |
+            {
+              "text": "Security scan completed for ${{ github.repository }}"
+            }
