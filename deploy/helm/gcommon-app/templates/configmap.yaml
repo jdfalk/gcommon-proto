@@ -1,0 +1,14 @@
+# file: deploy/helm/gcommon-app/templates/configmap.yaml
+# version: 1.0.0
+# guid: bcb3191e-a6c8-4069-be7b-21c7b325898a
+
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: {{ include "gcommon-app.fullname" . }}-config
+  labels:
+    {{- include "gcommon-app.labels" . | nindent 4 }}
+data:
+  {{- range $key, $value := .Values.config }}
+  {{ $key }}: "{{ $value }}"
+  {{- end }}

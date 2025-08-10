@@ -1,0 +1,13 @@
+{
+  "action": "create",
+  "title": "Implement comprehensive deployment stack",
+  "body": "Provide full containerization, Helm charts, automation, and monitoring for gcommon apps.",
+  "labels": ["module:deployment", "type:enhancement"],
+  "guid": "4f89924f-b503-4efe-b489-8492f0ac62be",
+  "legacy_guid": "create-implement-comprehensive-deployment-stack-2025-08-10",
+  "created_at": "2025-08-10T12:35:11.000Z",
+  "processed_at": null,
+  "failed_at": null,
+  "sequence": 0,
+  "parent_guid": null
+}

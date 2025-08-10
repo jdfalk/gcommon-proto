@@ -1,0 +1,21 @@
+# file: deploy/helm/gcommon-app/templates/hpa.yaml
+# version: 1.0.0
+# guid: 20dbbac2-96d6-419e-a14f-eeb578b03c03
+
+{{- if .Values.autoscaling.enabled }}
+apiVersion: autoscaling/v2
+kind: HorizontalPodAutoscaler
+metadata:
+  name: {{ include "gcommon-app.fullname" . }}
+  labels:
+    {{- include "gcommon-app.labels" . | nindent 4 }}
+spec:
+  scaleTargetRef:
+    apiVersion: apps/v1
+    kind: Deployment
+    name: {{ include "gcommon-app.fullname" . }}
+  minReplicas: {{ .Values.autoscaling.minReplicas }}
+  maxReplicas: {{ .Values.autoscaling.maxReplicas }}
+  metrics:
+    {{- toYaml .Values.hpaMetrics | nindent 4 }}
+{{- end }}

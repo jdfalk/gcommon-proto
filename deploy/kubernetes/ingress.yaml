@@ -1,0 +1,25 @@
+# file: deploy/kubernetes/ingress.yaml
+# version: 1.0.0
+# guid: 25eb45cf-59cb-4fb0-bbb3-a514dd2a57f9
+
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: gcommon-ingress
+  labels:
+    app: gcommon-app
+  annotations:
+    kubernetes.io/ingress.class: nginx
+    nginx.ingress.kubernetes.io/rewrite-target: /
+spec:
+  rules:
+    - host: gcommon.local
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: gcommon-app
+                port:
+                  number: 80

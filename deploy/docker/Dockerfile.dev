@@ -1,0 +1,23 @@
+# file: deploy/docker/Dockerfile.dev
+# version: 1.0.0
+# guid: fc1aaf72-5cb9-459c-9c50-acafd9634b17
+
+# Development image with hot-reload and debugger support
+FROM golang:1.22-alpine
+
+WORKDIR /app
+
+# Install development tools
+RUN apk add --no-cache bash git curl delve && \
+    go install github.com/cosmtrek/air@latest
+
+# Copy go modules and download dependencies
+COPY go.mod go.sum ./
+RUN --mount=type=cache,target=/go/pkg/mod \
+    go mod download
+
+# Copy source for live development
+COPY . .
+
+# Default command runs Air for hot reload
+CMD ["air", "-c", ".air.toml"]

@@ -1,0 +1,57 @@
+# file: deploy/kubernetes/monitoring/fluent-bit.yaml
+# version: 1.0.0
+# guid: af1c544d-50a4-4535-b693-61964f08253d
+
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: fluent-bit-config
+  labels:
+    app: gcommon-app
+  namespace: default
+
+data:
+  fluent-bit.conf: |
+    [SERVICE]
+        Flush        1
+        Daemon       Off
+        Log_Level    info
+    [INPUT]
+        Name         tail
+        Path         /var/log/containers/*.log
+        Parser       docker
+    [OUTPUT]
+        Name         stdout
+        Match        *
+---
+apiVersion: apps/v1
+kind: DaemonSet
+metadata:
+  name: fluent-bit
+  labels:
+    app: gcommon-app
+spec:
+  selector:
+    matchLabels:
+      app: fluent-bit
+  template:
+    metadata:
+      labels:
+        app: fluent-bit
+    spec:
+      serviceAccountName: gcommon-app
+      containers:
+        - name: fluent-bit
+          image: fluent/fluent-bit:3.0
+          volumeMounts:
+            - name: varlog
+              mountPath: /var/log
+            - name: cfg
+              mountPath: /fluent-bit/etc
+      volumes:
+        - name: varlog
+          hostPath:
+            path: /var/log
+        - name: cfg
+          configMap:
+            name: fluent-bit-config
