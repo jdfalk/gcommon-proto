@@ -1,0 +1,29 @@
+# file: monitoring/dashboards/prometheus/alert_rules.yml
+# version: 1.0.0
+# guid: c3d4e5f6-7890-4a1b-b2c3-d4e5f67890ab
+
+groups:
+  - name: system
+    interval: 30s
+    rules:
+      - alert: HighCPUUsage
+        expr: process_cpu_seconds_total > 0.9
+        for: 1m
+        labels:
+          severity: warning
+        annotations:
+          summary: "High CPU usage"
+      - alert: HighMemoryUsage
+        expr: process_resident_memory_bytes > 1000000000
+        for: 1m
+        labels:
+          severity: warning
+        annotations:
+          summary: "High memory usage"
+      - alert: ErrorRateTooHigh
+        expr: rate(errors_total[5m]) > 0.05
+        for: 2m
+        labels:
+          severity: critical
+        annotations:
+          summary: "Error rate above threshold"

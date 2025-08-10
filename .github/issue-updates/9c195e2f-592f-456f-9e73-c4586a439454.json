@@ -1,0 +1,14 @@
+{
+  "action": "create",
+  "title": "Add monitoring infrastructure scaffolding",
+  "body": "Set up monitoring directory with collectors, alerts, and exporters for observability.",
+  "labels": ["module:monitoring", "type:feature"],
+  "guid": "9c195e2f-592f-456f-9e73-c4586a439454",
+  "legacy_guid": "create-add-monitoring-infrastructure-scaffolding-2025-08-10",
+  "created_at": "2025-08-10T02:56:00.000Z",
+  "processed_at": null,
+  "failed_at": null,
+  "sequence": 0,
+  "parent_guid": null,
+  "repo": "jdfalk/gcommon"
+}
