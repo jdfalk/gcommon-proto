@@ -1,0 +1,13 @@
+{
+  "action": "create",
+  "title": "API Docs: generator pipeline",
+  "body": "Implement script for automated API documentation generation across all modules.",
+  "labels": ["documentation", "module:api", "priority:medium", "size:large", "codex"],
+  "guid": "403b631e-8f31-43ed-86d5-dced75a0922a",
+  "legacy_guid": "create-api-docs-generator-pipeline-2025-08-10",
+  "created_at": "2025-08-10T12:37:53.000Z",
+  "processed_at": null,
+  "failed_at": null,
+  "sequence": 0,
+  "parent_guid": null
+}

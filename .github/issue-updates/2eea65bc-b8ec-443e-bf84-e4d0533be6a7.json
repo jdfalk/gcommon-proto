@@ -1,0 +1,13 @@
+{
+  "action": "create",
+  "title": "API Docs: Automated generation",
+  "body": "## Summary\nImplement automated API documentation generation for all gRPC services and protobuf definitions. Support multiple formats and an interactive API explorer.\n\n## Requirements\n- Generate HTML, Markdown, and PDF docs\n- Provide interactive API explorer\n- Ensure cross-module service mapping\n- Automate docs pipeline on code changes\n\n## References\n- tasks/20-api-documentation-generation.md",
+  "labels": ["documentation", "module:api", "priority:medium", "size:medium", "codex"],
+  "guid": "2eea65bc-b8ec-443e-bf84-e4d0533be6a7",
+  "legacy_guid": "create-api-docs-automated-generation-2025-08-10",
+  "created_at": "2025-08-10T02:55:16.000Z",
+  "processed_at": null,
+  "failed_at": null,
+  "sequence": 0,
+  "parent_guid": null
+}
