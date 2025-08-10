@@ -1,0 +1,13 @@
+{
+  "action": "create",
+  "title": "Web: implement basic service layer",
+  "body": "Add HTTP server, logging middleware, and memory session store for web module.",
+  "labels": ["module:web", "enhancement"],
+  "guid": "396c0bfe-3f58-49a6-b1e4-5346b77e0101",
+  "legacy_guid": "create-web-implement-basic-service-layer-2025-08-10",
+  "created_at": "2025-08-10T02:57:01.000Z",
+  "processed_at": null,
+  "failed_at": null,
+  "sequence": 0,
+  "parent_guid": null
+}
