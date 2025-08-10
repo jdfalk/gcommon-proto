@@ -1,0 +1,13 @@
+{
+  "action": "create",
+  "title": "Standardize error handling across modules",
+  "body": "Implement base error framework with common codes and wrapping utilities.",
+  "labels": ["module:common", "type:feature", "enhancement", "codex"],
+  "guid": "2a40ebc7-e42d-4bca-ad8c-eb2be0d96f7c",
+  "legacy_guid": "create-standardize-error-handling-across-modules-2025-08-10",
+  "created_at": "2025-08-10T02:55:38.000Z",
+  "processed_at": null,
+  "failed_at": null,
+  "sequence": 0,
+  "parent_guid": null
+}
