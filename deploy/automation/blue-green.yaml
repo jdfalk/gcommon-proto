@@ -1,0 +1,55 @@
+# file: deploy/automation/blue-green.yaml
+# version: 1.0.0
+# guid: 6220b6a1-b157-45cd-bad3-4caf0c9e196e
+
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: gcommon-app-blue
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: gcommon-app
+      color: blue
+  template:
+    metadata:
+      labels:
+        app: gcommon-app
+        color: blue
+    spec:
+      containers:
+        - name: app
+          image: gcommon/app:blue
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: gcommon-app-green
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: gcommon-app
+      color: green
+  template:
+    metadata:
+      labels:
+        app: gcommon-app
+        color: green
+    spec:
+      containers:
+        - name: app
+          image: gcommon/app:green
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: gcommon-app
+spec:
+  selector:
+    app: gcommon-app
+    color: blue
+  ports:
+    - port: 80
+      targetPort: 8080

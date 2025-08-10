@@ -1,0 +1,14 @@
+# file: deploy/kubernetes/configmap.yaml
+# version: 1.0.0
+# guid: a1f6a8ea-d933-4942-96fd-0eee848cf67a
+
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: gcommon-config
+  labels:
+    app: gcommon-app
+
+data:
+  APP_ENV: "production"
+  LOG_LEVEL: "info"

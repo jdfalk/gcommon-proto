@@ -1,0 +1,17 @@
+# file: deploy/helm/gcommon-app/templates/tests/test-connection.yaml
+# version: 1.0.0
+# guid: 2612d62a-2dbf-4643-b35d-3fa9a4ddcd41
+
+apiVersion: v1
+kind: Pod
+metadata:
+  name: "{{ include \"gcommon-app.fullname\" . }}-test"
+  labels:
+    {{- include "gcommon-app.labels" . | nindent 4 }}
+spec:
+  containers:
+    - name: wget
+      image: busybox
+      command: ['wget']
+      args: ['{{ include "gcommon-app.fullname" . }}:{{ .Values.service.port }}']
+  restartPolicy: Never

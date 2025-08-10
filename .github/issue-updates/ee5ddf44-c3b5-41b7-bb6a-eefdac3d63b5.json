@@ -1,0 +1,13 @@
+{
+  "action": "create",
+  "title": "Add containerization templates",
+  "body": "Add Dockerfile and Kubernetes deployment manifests for gcommon apps.",
+  "labels": ["module:deployment", "type:enhancement"],
+  "guid": "ee5ddf44-c3b5-41b7-bb6a-eefdac3d63b5",
+  "legacy_guid": "create-add-containerization-templates-2025-08-10",
+  "created_at": "2025-08-10T02:55:25.000Z",
+  "processed_at": null,
+  "failed_at": null,
+  "sequence": 0,
+  "parent_guid": null
+}

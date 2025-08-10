@@ -1,0 +1,17 @@
+# file: deploy/kubernetes/monitoring/prometheus.yaml
+# version: 1.0.0
+# guid: cd9944ca-5175-44bb-bcbd-2b6cbf8e2737
+
+apiVersion: monitoring.coreos.com/v1
+kind: ServiceMonitor
+metadata:
+  name: gcommon-app
+  labels:
+    app: gcommon-app
+spec:
+  selector:
+    matchLabels:
+      app: gcommon-app
+  endpoints:
+    - port: http
+      interval: 15s

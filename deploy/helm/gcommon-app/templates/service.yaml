@@ -1,0 +1,21 @@
+# file: deploy/helm/gcommon-app/templates/service.yaml
+# version: 1.0.0
+# guid: eecf5791-309d-4734-87d5-6955da057831
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: {{ include "gcommon-app.fullname" . }}
+  labels:
+    {{- include "gcommon-app.labels" . | nindent 4 }}
+  annotations:
+    {{- toYaml .Values.service.annotations | nindent 4 }}
+spec:
+  type: {{ .Values.service.type }}
+  ports:
+    - port: {{ .Values.service.port }}
+      targetPort: http
+      protocol: TCP
+      name: http
+  selector:
+    {{- include "gcommon-app.selectorLabels" . | nindent 4 }}
