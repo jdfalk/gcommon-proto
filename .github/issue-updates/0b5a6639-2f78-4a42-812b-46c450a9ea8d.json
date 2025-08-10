@@ -1,0 +1,13 @@
+{
+  "action": "comment",
+  "number": 882,
+  "body": "Implemented server registration delegation and lifecycle hooks",
+  "guid": "0b5a6639-2f78-4a42-812b-46c450a9ea8d",
+  "legacy_guid": "comment-issue-882-2025-08-10",
+  "created_at": "2025-08-10T12:34:46.000Z",
+  "processed_at": null,
+  "failed_at": null,
+  "sequence": 0,
+  "parent_guid": null ,
+  "parent": "module:grpc,type:feature"
+}

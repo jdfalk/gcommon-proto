@@ -1,0 +1,13 @@
+{
+  "action": "create",
+  "title": "gRPC: add unified service registration scaffold",
+  "body": "Add service registry and server interfaces to unify gRPC service management.",
+  "labels": ["module:grpc", "type:feature"],
+  "guid": "0c2a4832-31e3-44bb-81d1-c289a6fc9795",
+  "legacy_guid": "create-grpc-add-unified-service-registration-scaffold-2025-08-10",
+  "created_at": "2025-08-10T02:56:17.000Z",
+  "processed_at": null,
+  "failed_at": null,
+  "sequence": 0,
+  "parent_guid": null
+}
