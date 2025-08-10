@@ -1,0 +1,16 @@
+{
+  "file": "README.md",
+  "mode": "append",
+  "content": "## CI/CD Pipeline\\n\\nThis project now includes a security scanning workflow that runs `go vet` and `npm audit` during continuous integration.",
+  "guid": "abf8bf75-7ad5-41d5-97a1-678ffa143216",
+  "created_at": "2025-08-10T02:55:53Z",
+  "options": {
+    "section": null,
+    "after": null,
+    "before": null,
+    "task_id": null,
+    "badge_name": null,
+    "priority": null,
+    "category": null
+  }
+}

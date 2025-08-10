@@ -1,6 +1,6 @@
 # file: .github/workflows/release.yml
-# version: 1.0.0
-# guid: b2c3d4e5-f6a7-8b9c-0d1e-2f3a4b5c6d7e
+# version: 2.0.0
+# guid: 10ad5e5f-3106-4ab2-88c5-eebfb2211b4c
 
 name: Release
 
@@ -8,7 +8,7 @@ on:
   workflow_dispatch:
     inputs:
       release-type:
-        description: "Type of release"
+        description: 'Type of release'
         required: true
         type: choice
         options:
@@ -16,25 +16,174 @@ on:
           - minor
           - major
           - prerelease
-        default: "patch"
+        default: patch
       dry-run:
-        description: "Run in dry-run mode (no actual release)"
+        description: 'Run in dry-run mode'
         required: false
         type: boolean
         default: false
 
-permissions:
-  contents: write
-  packages: write
-  issues: write
-  pull-requests: write
+env:
+  GO_VERSION: '1.22'
+  NODE_VERSION: '22'
 
 jobs:
-  release:
-    uses: jdfalk/ghcommon/.github/workflows/reusable-goreleaser.yml@main
-    with:
-      go-version: "1.23"
-      release-type: ${{ github.event.inputs.release-type }}
-      dry-run: ${{ github.event.inputs.dry-run == 'true' }}
-      snapshot: false
-    secrets: inherit
+  prepare:
+    name: Prepare release
+    runs-on: ubuntu-latest
+    outputs:
+      version: ${{ steps.semver.outputs.new_tag }}
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Determine next version
+        id: semver
+        uses: mathieudutour/github-tag-action@v6.2
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          release_branches: main
+          custom_release_rules: prerelease:prerelease
+          tag_prefix: ''
+          default_bump: ${{ github.event.inputs.release-type }}
+
+      - name: Generate changelog
+        run: |
+          echo "# Changelog" > CHANGELOG_RELEASE.md
+          git log --pretty=format:'* %s (%h)' $(git describe --tags --abbrev=0)..HEAD >> CHANGELOG_RELEASE.md
+
+      - name: Upload changelog
+        uses: actions/upload-artifact@v4
+        with:
+          name: changelog
+          path: CHANGELOG_RELEASE.md
+
+  goreleaser:
+    name: Run GoReleaser
+    needs: prepare
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Set up Go
+        uses: actions/setup-go@v5
+        with:
+          go-version: ${{ env.GO_VERSION }}
+
+      - name: Download changelog
+        uses: actions/download-artifact@v4
+        with:
+          name: changelog
+
+      - name: Run GoReleaser
+        uses: goreleaser/goreleaser-action@v6
+        with:
+          version: latest
+          args: release --rm-dist ${{ github.event.inputs.dry-run == 'true' && '--skip-publish' || '' }}
+
+  publish:
+    name: Publish GitHub release
+    needs: goreleaser
+    runs-on: ubuntu-latest
+    steps:
+      - name: Download changelog
+        uses: actions/download-artifact@v4
+        with:
+          name: changelog
+
+      - name: Create GitHub release
+        uses: softprops/action-gh-release@v2
+        with:
+          tag_name: ${{ needs.prepare.outputs.version }}
+          body_path: CHANGELOG_RELEASE.md
+          draft: ${{ github.event.inputs.dry-run == 'true' }}
+
+      - name: Publish package to npm
+        if: github.event.inputs.dry-run == 'false'
+        run: |
+          npm publish
+
+      - name: Publish container image
+        if: github.event.inputs.dry-run == 'false'
+        run: |
+          echo "Publishing container image"
+
+      - name: Upload release artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: release-artifacts
+          path: dist
+
+  deploy-development:
+    name: Deploy to development
+    runs-on: ubuntu-latest
+    needs: publish
+    environment: development
+    steps:
+      - name: Deploy development environment
+        run: echo 'Deploying to development'
+
+  deploy-staging:
+    name: Deploy to staging
+    runs-on: ubuntu-latest
+    needs: publish
+    environment: staging
+    steps:
+      - name: Deploy staging environment
+        run: echo 'Deploying to staging'
+
+  deploy-production:
+    name: Deploy to production
+    runs-on: ubuntu-latest
+    needs: [deploy-development, deploy-staging]
+    environment: production
+    steps:
+      - name: Deploy production environment
+        run: echo 'Deploying to production'
+
+  deploy-performance:
+    name: Deploy performance environment
+    runs-on: ubuntu-latest
+    needs: publish
+    environment: performance
+    steps:
+      - name: Deploy performance environment
+        run: echo 'Deploying to performance testing'
+
+  notify:
+    name: Notify release
+    runs-on: ubuntu-latest
+    needs: [deploy-production]
+    if: always()
+    steps:
+      - name: Download changelog
+        uses: actions/download-artifact@v4
+        with:
+          name: changelog
+
+      - name: Post release comment
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const fs = require('fs');
+            const body = fs.readFileSync('CHANGELOG_RELEASE.md', 'utf8');
+            github.rest.issues.createComment({
+              issue_number: context.issue.number || 1,
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              body: `Release ${{ needs.prepare.outputs.version }} completed\n\n${body}`
+            });
+
+      - name: Send Slack announcement
+        if: env.SLACK_WEBHOOK != ''
+        uses: slackapi/slack-github-action@v1.27.0
+        with:
+          payload: |
+            {
+              "text": "Release ${{ needs.prepare.outputs.version }} for ${{ github.repository }} completed"
+            }

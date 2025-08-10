@@ -1,0 +1,13 @@
+{
+  "action": "create",
+  "title": "CI/CD: add security scanning workflow",
+  "body": "Add GitHub Actions security scanning workflow running go vet and npm audit.",
+  "labels": ["ci", "security", "enhancement"],
+  "guid": "7761e1d3-d5fc-47b5-b8cf-89868566f30d",
+  "legacy_guid": "create-ci-cd-add-security-scanning-workflow-2025-08-10",
+  "created_at": "2025-08-10T02:55:44.000Z",
+  "processed_at": null,
+  "failed_at": null,
+  "sequence": 0,
+  "parent_guid": null
+}
