@@ -1,0 +1,12 @@
+{
+  "action": "close",
+  "number": 0,
+  "state_reason": "Integration testing framework completed",
+  "guid": "4f7d91b2-f0a7-4237-a6dd-c4b49da2c6b5",
+  "legacy_guid": "close-issue-0-2025-08-10",
+  "created_at": "2025-08-10T14:37:35.854Z",
+  "processed_at": null,
+  "failed_at": null,
+  "sequence": 0,
+  "parent_guid": null
+}

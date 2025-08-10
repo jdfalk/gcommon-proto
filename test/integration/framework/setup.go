@@ -1,54 +1,79 @@
 // file: test/integration/framework/setup.go
-// version: 0.1.0
-// guid: 6379a7e2-f5f5-4047-8127-aa3f6a7e3ed3
+// version: 1.1.0
+// guid: a140e477-5008-4669-8525-e1d830ad6a76
 
 package framework
 
 import (
+	"context"
 	"database/sql"
 	"fmt"
+	"io"
+	"log"
 	"os"
 
+	"github.com/DATA-DOG/go-sqlmock"
+	"github.com/alicebob/miniredis/v2"
 	"github.com/go-redis/redis/v8"
-
 	"github.com/jdfalk/gcommon/pkg/config"
-	"github.com/jdfalk/gcommon/pkg/log"
 	"github.com/jdfalk/gcommon/pkg/metrics"
 )
 
-// TestEnvironment holds shared resources for integration tests.
+// TestEnvironment contains resources for integration tests.
 type TestEnvironment struct {
-	Config   *config.Config
-	Database *sql.DB
-	Redis    *redis.Client
-	Logger   log.Logger
-	Metrics  metrics.Provider
-	TempDir  string
+	Config      *config.Config
+	Database    *sql.DB
+	Redis       *redis.Client
+	Logger      *log.Logger
+	Metrics     metrics.Provider
+	TempDir     string
+	redisServer *miniredis.Miniredis
 }
 
-// SetupTestEnvironment creates a basic integration testing environment.
+// SetupTestEnvironment configures a basic test environment.
 func SetupTestEnvironment() (*TestEnvironment, error) {
-	dir, err := os.MkdirTemp("", "gcommon-test-")
+	tempDir, err := os.MkdirTemp("", "gcommon-test-")
 	if err != nil {
 		return nil, fmt.Errorf("create temp dir: %w", err)
 	}
 
-	logger, err := log.NewProvider(log.Config{})
+	db, _, err := sqlmock.New()
 	if err != nil {
-		os.RemoveAll(dir)
-		return nil, fmt.Errorf("create logger: %w", err)
+		os.RemoveAll(tempDir)
+		return nil, fmt.Errorf("create mock database: %w", err)
 	}
+
+	mr, err := miniredis.Run()
+	if err != nil {
+		db.Close()
+		os.RemoveAll(tempDir)
+		return nil, fmt.Errorf("start miniredis: %w", err)
+	}
+
+	rdb := redis.NewClient(&redis.Options{Addr: mr.Addr()})
+
+	logger := log.New(io.Discard, "", log.LstdFlags)
 
 	metricsProvider, err := metrics.NewProvider(metrics.Config{})
 	if err != nil {
-		os.RemoveAll(dir)
+		db.Close()
+		rdb.Close()
+		mr.Close()
+		os.RemoveAll(tempDir)
 		return nil, fmt.Errorf("create metrics provider: %w", err)
 	}
 
-	return &TestEnvironment{
-		Config:  &config.Config{},
-		Logger:  logger,
-		Metrics: metricsProvider,
-		TempDir: dir,
-	}, nil
+	env := &TestEnvironment{
+		Config:      &config.Config{},
+		Database:    db,
+		Redis:       rdb,
+		Logger:      logger,
+		Metrics:     metricsProvider,
+		TempDir:     tempDir,
+		redisServer: mr,
+	}
+
+	_ = env.Metrics.Start(context.Background())
+
+	return env, nil
 }
