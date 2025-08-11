@@ -1,5 +1,5 @@
 // file: pkg/queue/grpc/server.go
-// version: 1.0.0
+// version: 1.1.0
 // guid: 739634b6-cbd8-471b-b71b-1e2f8c4d3120
 //go:build queue_grpc
 // +build queue_grpc
@@ -16,5 +16,7 @@ import (
 func NewServer(q queue.Queue) *grpc.Server {
 	srv := grpc.NewServer()
 	queuepb.RegisterQueueServiceServer(srv, NewQueueService(q))
+	queuepb.RegisterQueueAdminServiceServer(srv, NewAdminService(q))
+	queuepb.RegisterQueueMonitoringServiceServer(srv, NewMonitoringService(q))
 	return srv
 }

@@ -1,0 +1,12 @@
+{
+  "action": "comment",
+  "number": 29,
+  "body": "Starting queue module implementation: interfaces, providers, gRPC services",
+  "guid": "b627e562-a777-4b3f-aa17-4e495915b973",
+  "legacy_guid": "comment-issue-29-2025-08-10",
+  "created_at": "2025-08-10T23:40:51.000Z",
+  "processed_at": null,
+  "failed_at": null,
+  "sequence": 0,
+  "parent_guid": null
+}
