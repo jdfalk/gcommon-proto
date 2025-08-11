@@ -1,0 +1,13 @@
+{
+  "action": "create",
+  "title": "Task 23 - Database migration system",
+  "body": "Implement database migration system with migration framework, multi-database support, rollback, validation, and documentation",
+  "labels": ["db", "migration"],
+  "guid": "90fc506b-64e3-4291-880a-0d1867340018",
+  "legacy_guid": "create-task-23-database-migration-system-2025-08-11",
+  "created_at": "2025-08-11T15:32:34.000Z",
+  "processed_at": null,
+  "failed_at": null,
+  "sequence": 0,
+  "parent_guid": null
+}
