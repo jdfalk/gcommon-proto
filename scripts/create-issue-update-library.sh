@@ -213,11 +213,8 @@ create_issue_file() {
             local timestamp
             timestamp=$(date -u +"%Y-%m-%dT%H:%M:%S.000Z")
 
-            # Check if issue already exists on GitHub
-            if check_github_issue_exists "$title"; then
-                echo "❌ Skipping creation: Issue with this title already exists on GitHub" >&2
-                return 1
-            fi
+            # Note: GitHub duplicate check is handled by the workflow processing the JSON files
+            # This script should only create JSON files, not make API calls
 
             legacy_guid=$(generate_legacy_guid "create" "$title")
 
