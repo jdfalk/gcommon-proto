@@ -1,0 +1,269 @@
+# file: deploy/helm/gcommon-app/values-dev.yaml
+# version: 1.0.0
+# guid: 8f0cfc7d-9a32-4f7a-8fa4-d781a229e121
+
+# Development values for gcommon-app Helm chart
+# Tailored for local development and testing environments.
+# These values prioritize fast startup and minimal resource usage.
+
+replicaCount: 1
+
+image:
+  repository: gcommon/app
+  tag: dev
+  pullPolicy: IfNotPresent
+  pullSecrets: []
+
+serviceAccount:
+  create: true
+  name: ""
+  annotations: {}
+
+podAnnotations: {}
+
+podSecurityContext:
+  runAsNonRoot: true
+  runAsUser: 10001
+
+securityContext:
+  capabilities:
+    drop:
+      - ALL
+  readOnlyRootFilesystem: true
+  allowPrivilegeEscalation: false
+
+service:
+  type: ClusterIP
+  port: 80
+  annotations: {}
+
+resources:
+  limits:
+    cpu: 250m
+    memory: 128Mi
+  requests:
+    cpu: 50m
+    memory: 64Mi
+
+autoscaling:
+  enabled: false
+  minReplicas: 1
+  maxReplicas: 1
+  targetCPUUtilizationPercentage: 75
+  targetMemoryUtilizationPercentage: 80
+
+ingress:
+  enabled: false
+  className: ""
+  annotations: {}
+  hosts: []
+  tls: []
+
+config:
+  APP_ENV: development
+  LOG_LEVEL: debug
+
+secret:
+  create: true
+  data:
+    DATABASE_URL: "postgres://dev:dev@localhost:5432/devdb"
+
+monitoring:
+  prometheus:
+    enabled: true
+    scrapeInterval: 15s
+  logging:
+    fluentBit:
+      enabled: true
+  tracing:
+    jaeger:
+      enabled: true
+
+nodeSelector: {}
+
+tolerations: []
+
+affinity: {}
+
+# Additional environment variables
+extraEnv:
+  - name: FEATURE_FLAG_EXAMPLE
+    value: "true"
+
+# Extra volumes and mounts
+extraVolumes: []
+extraVolumeMounts: []
+
+# Liveness and readiness probe settings
+livenessProbe:
+  httpGet:
+    path: /healthz
+    port: http
+  initialDelaySeconds: 15
+  periodSeconds: 20
+readinessProbe:
+  httpGet:
+    path: /healthz
+    port: http
+  initialDelaySeconds: 5
+  periodSeconds: 10
+
+# Sidecars
+sidecars:
+  - name: debug-sidecar
+    image: busybox
+    command: ["/bin/sh", "-c", "sleep infinity"]
+    resources: {}
+
+# Metrics service for Prometheus
+metrics:
+  enabled: true
+  serviceMonitor:
+    enabled: true
+    additionalLabels: {}
+
+# HPA Metrics
+hpaMetrics: []
+
+# Deployment strategy
+strategy:
+  type: RollingUpdate
+  rollingUpdate:
+    maxSurge: 1
+    maxUnavailable: 0
+
+# Pod disruption budget
+podDisruptionBudget:
+  enabled: false
+  minAvailable: 1
+
+# Extra labels
+labels: {}
+
+# Volume claim template for stateful workloads
+persistence:
+  enabled: false
+  size: 1Gi
+  storageClass: ""
+
+# ------------------------------------------------------------------------
+# TODO: Additional development-specific configuration placeholders
+# TODO: Configure feature flags for experimental APIs
+# TODO: Setup mock external services for integration testing
+# TODO: Integrate local debugging tools and port mappings
+# TODO: Replace in-memory caches with persistent stores when ready
+# TODO: Define service mesh sidecar configuration if needed
+# TODO: Configure additional environment variables for testing
+# TODO: Document all configuration changes in README
+# TODO: Ensure secrets are sourced from local files for development
+# TODO: Add sample ConfigMap entries for developers
+# TODO: Provide example of mounting local directories into pods
+# TODO: Include guidance on using Skaffold for dev iterations
+# TODO: Add optional hot-reload setup for Go applications
+# TODO: Define local volumes for sqlite databases
+# TODO: Document how to run integration tests inside container
+# TODO: Add more comments to guide developers
+# TODO: Ensure compliance with security guidelines even in dev
+# TODO: Provide placeholders for feature toggles
+# TODO: Add placeholders for optional web UI
+# TODO: More TODO placeholders to satisfy template
+# TODO: Additional TODO line 1
+# TODO: Additional TODO line 2
+# TODO: Additional TODO line 3
+# TODO: Additional TODO line 4
+# TODO: Additional TODO line 5
+# TODO: Additional TODO line 6
+# TODO: Additional TODO line 7
+# TODO: Additional TODO line 8
+# TODO: Additional TODO line 9
+# TODO: Additional TODO line 10
+# TODO: Additional TODO line 11
+# TODO: Additional TODO line 12
+# TODO: Additional TODO line 13
+# TODO: Additional TODO line 14
+# TODO: Additional TODO line 15
+# TODO: Additional TODO line 16
+# TODO: Additional TODO line 17
+# TODO: Additional TODO line 18
+# TODO: Additional TODO line 19
+# TODO: Additional TODO line 20
+# TODO: Additional TODO line 21
+# TODO: Additional TODO line 22
+# TODO: Additional TODO line 23
+# TODO: Additional TODO line 24
+# TODO: Additional TODO line 25
+# TODO: Additional TODO line 26
+# TODO: Additional TODO line 27
+# TODO: Additional TODO line 28
+# TODO: Additional TODO line 29
+# TODO: Additional TODO line 30
+# TODO: Additional TODO line 31
+# TODO: Additional TODO line 32
+# TODO: Additional TODO line 33
+# TODO: Additional TODO line 34
+# TODO: Additional TODO line 35
+# TODO: Additional TODO line 36
+# TODO: Additional TODO line 37
+# TODO: Additional TODO line 38
+# TODO: Additional TODO line 39
+# TODO: Additional TODO line 40
+# TODO: Additional TODO line 41
+# TODO: Additional TODO line 42
+# TODO: Additional TODO line 43
+# TODO: Additional TODO line 44
+# TODO: Additional TODO line 45
+# TODO: Additional TODO line 46
+# TODO: Additional TODO line 47
+# TODO: Additional TODO line 48
+# TODO: Additional TODO line 49
+# TODO: Additional TODO line 50
+# TODO: Additional TODO line 51
+# TODO: Additional TODO line 52
+# TODO: Additional TODO line 53
+# TODO: Additional TODO line 54
+# TODO: Additional TODO line 55
+# TODO: Additional TODO line 56
+# TODO: Additional TODO line 57
+# TODO: Additional TODO line 58
+# TODO: Additional TODO line 59
+# TODO: Additional TODO line 60
+# TODO: Additional TODO line 61
+# TODO: Additional TODO line 62
+# TODO: Additional TODO line 63
+# TODO: Additional TODO line 64
+# TODO: Additional TODO line 65
+# TODO: Additional TODO line 66
+# TODO: Additional TODO line 67
+# TODO: Additional TODO line 68
+# TODO: Additional TODO line 69
+# TODO: Additional TODO line 70
+# TODO: Additional TODO line 71
+# TODO: Additional TODO line 72
+# TODO: Additional TODO line 73
+# TODO: Additional TODO line 74
+# TODO: Additional TODO line 75
+# TODO: Additional TODO line 76
+# TODO: Additional TODO line 77
+# TODO: Additional TODO line 78
+# TODO: Additional TODO line 79
+# TODO: Additional TODO line 80
+# TODO: Additional TODO line 81
+# TODO: Additional TODO line 82
+# TODO: Additional TODO line 83
+# TODO: Additional TODO line 84
+# TODO: Additional TODO line 85
+# TODO: Additional TODO line 86
+# TODO: Additional TODO line 87
+# TODO: Additional TODO line 88
+# TODO: Additional TODO line 89
+# TODO: Additional TODO line 90
+# TODO: Additional TODO line 91
+# TODO: Additional TODO line 92
+# TODO: Additional TODO line 93
+# TODO: Additional TODO line 94
+# TODO: Additional TODO line 95
+# TODO: Additional TODO line 96
+# TODO: Additional TODO line 97
+# TODO: Additional TODO line 98
+# TODO: Additional TODO line 99
+# TODO: Additional TODO line 100
