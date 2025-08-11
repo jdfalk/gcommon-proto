@@ -1,0 +1,13 @@
+{
+  "action": "create",
+  "title": "Security audit framework verification",
+  "body": "Confirm security audit tools, policies, monitoring, and module protections are implemented.",
+  "labels": ["security", "documentation"],
+  "guid": "11218915-d635-4903-98d1-07806fd4c64f",
+  "legacy_guid": "create-security-audit-framework-verification-2025-08-11",
+  "created_at": "2025-08-11T15:32:01.000Z",
+  "processed_at": null,
+  "failed_at": null,
+  "sequence": 0,
+  "parent_guid": null
+}
