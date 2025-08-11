@@ -1,0 +1,13 @@
+{
+  "action": "create",
+  "title": "SDK: implement Python and TypeScript clients",
+  "body": "Add async Python and TypeScript client SDKs with token providers and examples.",
+  "labels": ["sdk", "enhancement"],
+  "guid": "7a46a1d2-79fa-4b6c-8f3c-5c0a6c0da007",
+  "legacy_guid": "create-sdk-implement-python-and-typescript-clients-2025-08-11",
+  "created_at": "2025-08-11T15:36:36.000Z",
+  "processed_at": null,
+  "failed_at": null,
+  "sequence": 0,
+  "parent_guid": null
+}

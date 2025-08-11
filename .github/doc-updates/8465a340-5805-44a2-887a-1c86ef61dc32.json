@@ -1,0 +1,16 @@
+{
+  "file": "sdks/README.md",
+  "mode": "replace-section",
+  "content": "## Structure\\n\\n- Go: placeholder SDK with basic stubs\\n- Python: async client, models, services, and tests\\n- TypeScript: promise-based client with service wrappers\\n- Java: skeleton\\n- C#: skeleton\\n- Rust: skeleton awaiting implementation\\n",
+  "guid": "8465a340-5805-44a2-887a-1c86ef61dc32",
+  "created_at": "2025-08-11T15:36:42Z",
+  "options": {
+    "section": null,
+    "after": null,
+    "before": null,
+    "task_id": null,
+    "badge_name": null,
+    "priority": null,
+    "category": null
+  }
+}
