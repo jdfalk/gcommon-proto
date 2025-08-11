@@ -1,7 +1,16 @@
 # file: sdks/.gitignore
-# version: 1.0.0
+# version: 1.1.0
 # guid: 1b8d87e0-2c93-4a74-b5f2-1d594de2fc80
 
-# Ignore all generated SDK files
-*
+# Allow SDK source files while ignoring build artifacts
+# TODO: refine ignore patterns as SDK implementations evolve
+
+dist/
+node_modules/
+bin/
+obj/
+target/
+*.pyc
+__pycache__/
+
 !.gitignore

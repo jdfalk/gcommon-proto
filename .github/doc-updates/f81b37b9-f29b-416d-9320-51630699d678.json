@@ -1,0 +1,16 @@
+{
+  "file": "TODO.md",
+  "mode": "task-add",
+  "content": "- [ ] 🟡 **General**: Implement full functionality for generated client SDKs",
+  "guid": "f81b37b9-f29b-416d-9320-51630699d678",
+  "created_at": "2025-08-11T01:16:46Z",
+  "options": {
+    "section": null,
+    "after": null,
+    "before": null,
+    "task_id": null,
+    "badge_name": null,
+    "priority": null,
+    "category": null
+  }
+}
