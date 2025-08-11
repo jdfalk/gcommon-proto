@@ -9,7 +9,7 @@ require (
 	github.com/go-ldap/ldap/v3 v3.4.11
 	github.com/golang-jwt/jwt/v5 v5.3.0
 	github.com/jackc/pgx/v4 v4.18.3
-	github.com/mattn/go-sqlite3 v1.14.30
+	github.com/mattn/go-sqlite3 v1.14.31
 	github.com/nmcclain/ldap v0.0.0-20210720162743-7f8d1e44eeba
 	github.com/pelletier/go-toml/v2 v2.2.4
 	github.com/prometheus/client_golang v1.23.0
