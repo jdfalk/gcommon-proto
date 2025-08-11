@@ -1,0 +1,16 @@
+{
+  "file": "CHANGELOG.md",
+  "mode": "changelog-entry",
+  "content": "### Added\n\n- Add deployment templates and monitoring configuration",
+  "guid": "3f4b4a9d-516f-4a42-8512-8f19e08bafa3",
+  "created_at": "2025-08-11T01:19:41Z",
+  "options": {
+    "section": null,
+    "after": null,
+    "before": null,
+    "task_id": null,
+    "badge_name": null,
+    "priority": null,
+    "category": null
+  }
+}

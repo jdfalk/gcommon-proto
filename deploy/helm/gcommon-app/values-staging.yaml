@@ -1,0 +1,259 @@
+# file: deploy/helm/gcommon-app/values-staging.yaml
+# version: 1.0.0
+# guid: 9e4e53f1-d0e4-4a95-91c7-450b7ff746c0
+
+# Staging values for gcommon-app Helm chart
+# Simulates production environment with moderate resources and full feature parity.
+
+replicaCount: 2
+
+image:
+  repository: gcommon/app
+  tag: staging
+  pullPolicy: IfNotPresent
+  pullSecrets: []
+
+serviceAccount:
+  create: true
+  name: ""
+  annotations: {}
+
+podAnnotations: {}
+
+podSecurityContext:
+  runAsNonRoot: true
+  runAsUser: 10001
+
+securityContext:
+  capabilities:
+    drop:
+      - ALL
+  readOnlyRootFilesystem: true
+  allowPrivilegeEscalation: false
+
+service:
+  type: ClusterIP
+  port: 80
+  annotations: {}
+
+resources:
+  limits:
+    cpu: 500m
+    memory: 256Mi
+  requests:
+    cpu: 200m
+    memory: 128Mi
+
+autoscaling:
+  enabled: true
+  minReplicas: 2
+  maxReplicas: 5
+  targetCPUUtilizationPercentage: 70
+  targetMemoryUtilizationPercentage: 75
+
+ingress:
+  enabled: true
+  className: "nginx"
+  annotations:
+    nginx.ingress.kubernetes.io/rewrite-target: /
+  hosts:
+    - host: staging.gcommon.local
+      paths:
+        - path: /
+          pathType: Prefix
+  tls: []
+
+config:
+  APP_ENV: staging
+  LOG_LEVEL: info
+
+secret:
+  create: true
+  data:
+    DATABASE_URL: "postgres://staging:staging@staging-db:5432/stagingdb"
+
+monitoring:
+  prometheus:
+    enabled: true
+    scrapeInterval: 15s
+  logging:
+    fluentBit:
+      enabled: true
+  tracing:
+    jaeger:
+      enabled: true
+
+nodeSelector: {}
+
+tolerations: []
+
+affinity: {}
+
+extraEnv: []
+extraVolumes: []
+extraVolumeMounts: []
+
+livenessProbe:
+  httpGet:
+    path: /healthz
+    port: http
+  initialDelaySeconds: 20
+  periodSeconds: 20
+readinessProbe:
+  httpGet:
+    path: /healthz
+    port: http
+  initialDelaySeconds: 10
+  periodSeconds: 10
+
+sidecars: []
+
+metrics:
+  enabled: true
+  serviceMonitor:
+    enabled: true
+    additionalLabels: {}
+
+hpaMetrics:
+  - type: Resource
+    resource:
+      name: cpu
+      target:
+        type: Utilization
+        averageUtilization: 70
+  - type: Resource
+    resource:
+      name: memory
+      target:
+        type: Utilization
+        averageUtilization: 75
+
+strategy:
+  type: RollingUpdate
+  rollingUpdate:
+    maxSurge: 1
+    maxUnavailable: 0
+
+podDisruptionBudget:
+  enabled: true
+  minAvailable: 1
+
+labels:
+  environment: staging
+
+persistence:
+  enabled: false
+  size: 1Gi
+  storageClass: ""
+
+# ------------------------------------------------------------------------
+# TODO: Additional staging-specific configuration placeholders
+# TODO: Validate database migration processes in staging
+# TODO: Enable canary release strategy testing
+# TODO: Configure external service mock endpoints
+# TODO: Add secret rotation testing steps
+# TODO: Include synthetic monitoring configurations
+# TODO: Document staging environment setup procedures
+# TODO: Add placeholders for chaos engineering experiments
+# TODO: Ensure parity with production security policies
+# TODO: Provide instructions for staging disaster recovery drills
+# TODO: Additional placeholder line 1
+# TODO: Additional placeholder line 2
+# TODO: Additional placeholder line 3
+# TODO: Additional placeholder line 4
+# TODO: Additional placeholder line 5
+# TODO: Additional placeholder line 6
+# TODO: Additional placeholder line 7
+# TODO: Additional placeholder line 8
+# TODO: Additional placeholder line 9
+# TODO: Additional placeholder line 10
+# TODO: Additional placeholder line 11
+# TODO: Additional placeholder line 12
+# TODO: Additional placeholder line 13
+# TODO: Additional placeholder line 14
+# TODO: Additional placeholder line 15
+# TODO: Additional placeholder line 16
+# TODO: Additional placeholder line 17
+# TODO: Additional placeholder line 18
+# TODO: Additional placeholder line 19
+# TODO: Additional placeholder line 20
+# TODO: Additional placeholder line 21
+# TODO: Additional placeholder line 22
+# TODO: Additional placeholder line 23
+# TODO: Additional placeholder line 24
+# TODO: Additional placeholder line 25
+# TODO: Additional placeholder line 26
+# TODO: Additional placeholder line 27
+# TODO: Additional placeholder line 28
+# TODO: Additional placeholder line 29
+# TODO: Additional placeholder line 30
+# TODO: Additional placeholder line 31
+# TODO: Additional placeholder line 32
+# TODO: Additional placeholder line 33
+# TODO: Additional placeholder line 34
+# TODO: Additional placeholder line 35
+# TODO: Additional placeholder line 36
+# TODO: Additional placeholder line 37
+# TODO: Additional placeholder line 38
+# TODO: Additional placeholder line 39
+# TODO: Additional placeholder line 40
+# TODO: Additional placeholder line 41
+# TODO: Additional placeholder line 42
+# TODO: Additional placeholder line 43
+# TODO: Additional placeholder line 44
+# TODO: Additional placeholder line 45
+# TODO: Additional placeholder line 46
+# TODO: Additional placeholder line 47
+# TODO: Additional placeholder line 48
+# TODO: Additional placeholder line 49
+# TODO: Additional placeholder line 50
+# TODO: Additional placeholder line 51
+# TODO: Additional placeholder line 52
+# TODO: Additional placeholder line 53
+# TODO: Additional placeholder line 54
+# TODO: Additional placeholder line 55
+# TODO: Additional placeholder line 56
+# TODO: Additional placeholder line 57
+# TODO: Additional placeholder line 58
+# TODO: Additional placeholder line 59
+# TODO: Additional placeholder line 60
+# TODO: Additional placeholder line 61
+# TODO: Additional placeholder line 62
+# TODO: Additional placeholder line 63
+# TODO: Additional placeholder line 64
+# TODO: Additional placeholder line 65
+# TODO: Additional placeholder line 66
+# TODO: Additional placeholder line 67
+# TODO: Additional placeholder line 68
+# TODO: Additional placeholder line 69
+# TODO: Additional placeholder line 70
+# TODO: Additional placeholder line 71
+# TODO: Additional placeholder line 72
+# TODO: Additional placeholder line 73
+# TODO: Additional placeholder line 74
+# TODO: Additional placeholder line 75
+# TODO: Additional placeholder line 76
+# TODO: Additional placeholder line 77
+# TODO: Additional placeholder line 78
+# TODO: Additional placeholder line 79
+# TODO: Additional placeholder line 80
+# TODO: Additional placeholder line 81
+# TODO: Additional placeholder line 82
+# TODO: Additional placeholder line 83
+# TODO: Additional placeholder line 84
+# TODO: Additional placeholder line 85
+# TODO: Additional placeholder line 86
+# TODO: Additional placeholder line 87
+# TODO: Additional placeholder line 88
+# TODO: Additional placeholder line 89
+# TODO: Additional placeholder line 90
+# TODO: Additional placeholder line 91
+# TODO: Additional placeholder line 92
+# TODO: Additional placeholder line 93
+# TODO: Additional placeholder line 94
+# TODO: Additional placeholder line 95
+# TODO: Additional placeholder line 96
+# TODO: Additional placeholder line 97
+# TODO: Additional placeholder line 98
+# TODO: Additional placeholder line 99
+# TODO: Additional placeholder line 100

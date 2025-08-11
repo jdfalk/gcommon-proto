@@ -1,0 +1,13 @@
+{
+  "action": "create",
+  "title": "Deployment: add comprehensive deployment templates",
+  "body": "Add environment-specific Helm values, FluxCD config, GitHub Actions CD workflow, and Alertmanager manifest.",
+  "labels": ["module:deployment", "type:enhancement"],
+  "guid": "bc7d74ac-723f-4eca-bf38-fd95d084cfe5",
+  "legacy_guid": "create-deployment-add-comprehensive-deployment-templates-2025-08-11",
+  "created_at": "2025-08-11T01:19:32.000Z",
+  "processed_at": null,
+  "failed_at": null,
+  "sequence": 0,
+  "parent_guid": null
+}

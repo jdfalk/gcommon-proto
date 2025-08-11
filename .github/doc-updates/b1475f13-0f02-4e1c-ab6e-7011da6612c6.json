@@ -1,0 +1,16 @@
+{
+  "file": "TODO.md",
+  "mode": "task-add",
+  "content": "- [ ] 🟡 **General**: Finalize deployment template placeholders",
+  "guid": "b1475f13-0f02-4e1c-ab6e-7011da6612c6",
+  "created_at": "2025-08-11T01:19:48Z",
+  "options": {
+    "section": null,
+    "after": null,
+    "before": null,
+    "task_id": null,
+    "badge_name": null,
+    "priority": null,
+    "category": null
+  }
+}

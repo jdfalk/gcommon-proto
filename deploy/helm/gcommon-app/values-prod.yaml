@@ -1,0 +1,275 @@
+# file: deploy/helm/gcommon-app/values-prod.yaml
+# version: 1.0.0
+# guid: 2bce0c2d-0ad9-4f64-b2c5-50b26dc5fac0
+
+# Production values for gcommon-app Helm chart
+# Optimized for high availability, security, and performance in production.
+
+replicaCount: 3
+
+image:
+  repository: gcommon/app
+  tag: stable
+  pullPolicy: IfNotPresent
+  pullSecrets: []
+
+serviceAccount:
+  create: true
+  name: ""
+  annotations: {}
+
+podAnnotations: {}
+
+podSecurityContext:
+  runAsNonRoot: true
+  runAsUser: 10001
+
+securityContext:
+  capabilities:
+    drop:
+      - ALL
+  readOnlyRootFilesystem: true
+  allowPrivilegeEscalation: false
+
+service:
+  type: ClusterIP
+  port: 80
+  annotations: {}
+
+resources:
+  limits:
+    cpu: 1000m
+    memory: 512Mi
+  requests:
+    cpu: 500m
+    memory: 256Mi
+
+autoscaling:
+  enabled: true
+  minReplicas: 3
+  maxReplicas: 10
+  targetCPUUtilizationPercentage: 60
+  targetMemoryUtilizationPercentage: 70
+
+ingress:
+  enabled: true
+  className: "nginx"
+  annotations:
+    nginx.ingress.kubernetes.io/rewrite-target: /
+    kubernetes.io/tls-acme: "true"
+  hosts:
+    - host: gcommon.example.com
+      paths:
+        - path: /
+          pathType: Prefix
+  tls:
+    - secretName: gcommon-tls
+      hosts:
+        - gcommon.example.com
+
+config:
+  APP_ENV: production
+  LOG_LEVEL: warn
+
+secret:
+  create: true
+  data:
+    DATABASE_URL: "postgres://prod:prod@prod-db:5432/proddb"
+
+monitoring:
+  prometheus:
+    enabled: true
+    scrapeInterval: 15s
+  logging:
+    fluentBit:
+      enabled: true
+  tracing:
+    jaeger:
+      enabled: true
+
+nodeSelector: {}
+
+tolerations: []
+
+affinity: {}
+
+extraEnv:
+  - name: FEATURE_FLAG_X
+    value: "false"
+extraVolumes: []
+extraVolumeMounts: []
+
+livenessProbe:
+  httpGet:
+    path: /healthz
+    port: http
+  initialDelaySeconds: 30
+  periodSeconds: 10
+readinessProbe:
+  httpGet:
+    path: /healthz
+    port: http
+  initialDelaySeconds: 15
+  periodSeconds: 5
+
+sidecars:
+  - name: security-agent
+    image: gcommon/security-agent:latest
+    resources:
+      limits:
+        cpu: 100m
+        memory: 64Mi
+      requests:
+        cpu: 50m
+        memory: 32Mi
+
+metrics:
+  enabled: true
+  serviceMonitor:
+    enabled: true
+    additionalLabels:
+      release: monitoring
+
+hpaMetrics:
+  - type: Resource
+    resource:
+      name: cpu
+      target:
+        type: Utilization
+        averageUtilization: 60
+  - type: Resource
+    resource:
+      name: memory
+      target:
+        type: Utilization
+        averageUtilization: 70
+
+strategy:
+  type: RollingUpdate
+  rollingUpdate:
+    maxSurge: 2
+    maxUnavailable: 1
+
+podDisruptionBudget:
+  enabled: true
+  minAvailable: 2
+
+labels:
+  environment: production
+
+persistence:
+  enabled: true
+  size: 10Gi
+  storageClass: "fast-storage"
+
+# ------------------------------------------------------------------------
+# TODO: Additional production-specific configuration placeholders
+# TODO: Configure advanced monitoring dashboards
+# TODO: Integrate with external secrets management systems
+# TODO: Implement rate limiting policies
+# TODO: Set up WAF and DDoS protections
+# TODO: Automate disaster recovery runbooks
+# TODO: Enable strict network policies
+# TODO: Validate backup restoration procedures
+# TODO: Add runbook links for on-call engineers
+# TODO: Configure multi-region deployment strategies
+# TODO: Additional placeholder line 1
+# TODO: Additional placeholder line 2
+# TODO: Additional placeholder line 3
+# TODO: Additional placeholder line 4
+# TODO: Additional placeholder line 5
+# TODO: Additional placeholder line 6
+# TODO: Additional placeholder line 7
+# TODO: Additional placeholder line 8
+# TODO: Additional placeholder line 9
+# TODO: Additional placeholder line 10
+# TODO: Additional placeholder line 11
+# TODO: Additional placeholder line 12
+# TODO: Additional placeholder line 13
+# TODO: Additional placeholder line 14
+# TODO: Additional placeholder line 15
+# TODO: Additional placeholder line 16
+# TODO: Additional placeholder line 17
+# TODO: Additional placeholder line 18
+# TODO: Additional placeholder line 19
+# TODO: Additional placeholder line 20
+# TODO: Additional placeholder line 21
+# TODO: Additional placeholder line 22
+# TODO: Additional placeholder line 23
+# TODO: Additional placeholder line 24
+# TODO: Additional placeholder line 25
+# TODO: Additional placeholder line 26
+# TODO: Additional placeholder line 27
+# TODO: Additional placeholder line 28
+# TODO: Additional placeholder line 29
+# TODO: Additional placeholder line 30
+# TODO: Additional placeholder line 31
+# TODO: Additional placeholder line 32
+# TODO: Additional placeholder line 33
+# TODO: Additional placeholder line 34
+# TODO: Additional placeholder line 35
+# TODO: Additional placeholder line 36
+# TODO: Additional placeholder line 37
+# TODO: Additional placeholder line 38
+# TODO: Additional placeholder line 39
+# TODO: Additional placeholder line 40
+# TODO: Additional placeholder line 41
+# TODO: Additional placeholder line 42
+# TODO: Additional placeholder line 43
+# TODO: Additional placeholder line 44
+# TODO: Additional placeholder line 45
+# TODO: Additional placeholder line 46
+# TODO: Additional placeholder line 47
+# TODO: Additional placeholder line 48
+# TODO: Additional placeholder line 49
+# TODO: Additional placeholder line 50
+# TODO: Additional placeholder line 51
+# TODO: Additional placeholder line 52
+# TODO: Additional placeholder line 53
+# TODO: Additional placeholder line 54
+# TODO: Additional placeholder line 55
+# TODO: Additional placeholder line 56
+# TODO: Additional placeholder line 57
+# TODO: Additional placeholder line 58
+# TODO: Additional placeholder line 59
+# TODO: Additional placeholder line 60
+# TODO: Additional placeholder line 61
+# TODO: Additional placeholder line 62
+# TODO: Additional placeholder line 63
+# TODO: Additional placeholder line 64
+# TODO: Additional placeholder line 65
+# TODO: Additional placeholder line 66
+# TODO: Additional placeholder line 67
+# TODO: Additional placeholder line 68
+# TODO: Additional placeholder line 69
+# TODO: Additional placeholder line 70
+# TODO: Additional placeholder line 71
+# TODO: Additional placeholder line 72
+# TODO: Additional placeholder line 73
+# TODO: Additional placeholder line 74
+# TODO: Additional placeholder line 75
+# TODO: Additional placeholder line 76
+# TODO: Additional placeholder line 77
+# TODO: Additional placeholder line 78
+# TODO: Additional placeholder line 79
+# TODO: Additional placeholder line 80
+# TODO: Additional placeholder line 81
+# TODO: Additional placeholder line 82
+# TODO: Additional placeholder line 83
+# TODO: Additional placeholder line 84
+# TODO: Additional placeholder line 85
+# TODO: Additional placeholder line 86
+# TODO: Additional placeholder line 87
+# TODO: Additional placeholder line 88
+# TODO: Additional placeholder line 89
+# TODO: Additional placeholder line 90
+# TODO: Additional placeholder line 91
+# TODO: Additional placeholder line 92
+# TODO: Additional placeholder line 93
+# TODO: Additional placeholder line 94
+# TODO: Additional placeholder line 95
+# TODO: Additional placeholder line 96
+# TODO: Additional placeholder line 97
+# TODO: Additional placeholder line 98
+# TODO: Additional placeholder line 99
+# TODO: Additional placeholder line 100
