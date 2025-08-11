@@ -1,0 +1,13 @@
+{
+  "action": "create",
+  "title": "Fix create-issue-update GH_TOKEN requirement",
+  "body": "Ensure script works without GH_TOKEN or remote",
+  "labels": ["maintenance"],
+  "guid": "4d473dd4-75cb-47e8-95ae-28deea3d650c",
+  "legacy_guid": "create-fix-create-issue-update-gh-token-requirement-2025-08-11",
+  "created_at": "2025-08-11T02:11:20.000Z",
+  "processed_at": null,
+  "failed_at": null,
+  "sequence": 0,
+  "parent_guid": null
+}

@@ -1,6 +1,6 @@
 #!/bin/bash
 # file: scripts/create-issue-update-library.sh
-# version: 2.0.0
+# version: 2.0.1
 # guid: 4a81c3e0-5f7b-4e2a-b92d-6c8a7c1d3e5f
 #
 # Enhanced Library for creating GitHub issue update files with enhanced timestamp format v2.0
@@ -44,11 +44,26 @@ generate_uuid() {
 # Function to check if issue already exists on GitHub
 check_github_issue_exists() {
     local title="$1"
-    local repo="${GITHUB_REPOSITORY:-$(git remote get-url origin | sed 's/.*github.com[:/]\(.*\)\.git/\1/')}"
-    local token="${GITHUB_TOKEN:-${GH_TOKEN}}"
+    local repo=""
 
+    # Determine repository from environment or git remote if available
+    if [[ -n "${GITHUB_REPOSITORY:-}" ]]; then
+        repo="$GITHUB_REPOSITORY"
+    else
+        repo=$(git remote get-url origin 2>/dev/null | \
+            sed 's/.*github.com[:/]\(.*\)\.git/\1/') || true
+    fi
+
+    local token="${GITHUB_TOKEN:-${GH_TOKEN:-}}"
+
+    # If we don't have the necessary info, skip the GitHub check gracefully
     if [[ -z "$token" ]]; then
         echo "Warning: No GitHub token found. Skipping GitHub issue check." >&2
+        return 1
+    fi
+
+    if [[ -z "$repo" ]]; then
+        echo "Warning: No git remote 'origin' found. Skipping GitHub issue check." >&2
         return 1
     fi
 
