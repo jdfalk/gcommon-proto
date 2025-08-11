@@ -7,13 +7,24 @@ edition = "2023";
 package gcommon.v1.auth;
 
 import "google/protobuf/go_features.proto";
+import "google/protobuf/timestamp.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
 option go_package = "github.com/jdfalk/gcommon/pkg/auth/proto";
 
 /**
- * Message representing auth token.
+ * Combined authentication token pair containing access and refresh tokens.
  */
 message AuthToken {
-  // TODO: Add message fields
+  // Access token used for authenticated requests.
+  string access_token = 1;
+
+  // Refresh token used to obtain new access tokens.
+  string refresh_token = 2;
+
+  // Expiration time of the access token.
+  google.protobuf.Timestamp expires_at = 3 [lazy = true];
+
+  // Optional metadata associated with the token pair.
+  map<string, string> metadata = 4 [lazy = true];
 }

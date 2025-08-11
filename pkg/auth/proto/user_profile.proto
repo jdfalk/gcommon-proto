@@ -12,8 +12,21 @@ option features.(pb.go).api_level = API_OPAQUE;
 option go_package = "github.com/jdfalk/gcommon/pkg/auth/proto";
 
 /**
- * Message representing user profile.
+ * Public profile information for a user.
  */
 message UserProfile {
-  // TODO: Add message fields
+  // Unique identifier for the user.
+  string user_id = 1;
+
+  // Display name for the user.
+  string display_name = 2;
+
+  // Primary email address.
+  string email = 3;
+
+  // URL to the user's avatar image.
+  string avatar_url = 4;
+
+  // Additional custom attributes for the profile.
+  map<string, string> attributes = 5 [lazy = true];
 }
