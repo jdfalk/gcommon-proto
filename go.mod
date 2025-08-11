@@ -5,6 +5,7 @@ go 1.23.0
 require (
 	github.com/bradfitz/gomemcache v0.0.0-20250403215159-8d39553ac7cf
 	github.com/cockroachdb/pebble v1.1.5
+	github.com/fsnotify/fsnotify v1.4.9
 	github.com/go-ldap/ldap/v3 v3.4.11
 	github.com/golang-jwt/jwt/v5 v5.3.0
 	github.com/jackc/pgx/v4 v4.18.3
