@@ -1,0 +1,9 @@
+# file: templates/basic-api-service/config/config.yaml
+# version: 1.0.0
+# guid: dbcedb92-dc6a-4dcd-8d18-3745a61f27de
+
+# Application configuration for the basic API service template.
+# Values here are loaded via the gcommon configuration manager.
+http_port: "8080"
+metrics_port: "9090"
+

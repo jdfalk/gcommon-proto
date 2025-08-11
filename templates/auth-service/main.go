@@ -1,12 +1,27 @@
 // file: templates/auth-service/main.go
-// version: 1.0.0
-// guid: 2f7de4d9-4d93-46e0-9211-974c1ab2ef41
+// version: 1.1.0
+// guid: de7b176e-9ae6-482b-a70b-bf235d437b49
 
-// Package main provides an authentication service template.
 package main
 
-import "log"
+import (
+	"fmt"
+	"net/http"
+
+	gconfig "github.com/jdfalk/gcommon/pkg/config"
+	glog "github.com/jdfalk/gcommon/pkg/log"
+
+	"github.com/jdfalk/gcommon/templates/auth-service/internal/config"
+	"github.com/jdfalk/gcommon/templates/auth-service/internal/server"
+)
 
 func main() {
-	log.Println("auth service starting")
+	cfgMgr := gconfig.NewManager()
+	if err := cfgMgr.Load(config.NewFileSource("config/config.yaml")); err != nil {
+		panic(fmt.Sprintf("config load failed: %v", err))
+	}
+	cfg := config.MustLoad(cfgMgr)
+	logger, _ := glog.NewProvider(glog.Config{Provider: "std"})
+	srv := server.New(cfg, logger)
+	http.ListenAndServe(":"+cfg.HTTPPort, srv.Handler())
 }
