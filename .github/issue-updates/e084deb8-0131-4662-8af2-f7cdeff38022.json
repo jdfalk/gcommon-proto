@@ -1,0 +1,13 @@
+{
+  "action": "create",
+  "title": "Add auth and cache examples",
+  "body": "Implement working JWT auth and basic cache examples",
+  "labels": ["documentation", "examples"],
+  "guid": "e084deb8-0131-4662-8af2-f7cdeff38022",
+  "legacy_guid": "create-add-auth-and-cache-examples-2025-08-11",
+  "created_at": "2025-08-11T15:31:24.000Z",
+  "processed_at": null,
+  "failed_at": null,
+  "sequence": 0,
+  "parent_guid": null
+}
