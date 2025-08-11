@@ -1,0 +1,13 @@
+{
+  "action": "create",
+  "title": "Task 13: document error handling standardization completion",
+  "body": "Verify existing error framework meets Task 13 requirements and update task docs accordingly.",
+  "labels": ["module:common", "documentation"],
+  "guid": "50ed2067-aadc-47bc-8af6-47c59816792a",
+  "legacy_guid": "create-task-13-document-error-handling-standardization-completion-2025-08-11",
+  "created_at": "2025-08-11T15:32:18.000Z",
+  "processed_at": null,
+  "failed_at": null,
+  "sequence": 0,
+  "parent_guid": null
+}
