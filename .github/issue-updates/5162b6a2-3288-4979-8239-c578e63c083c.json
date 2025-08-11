@@ -1,0 +1,13 @@
+{
+  "action": "create",
+  "title": "Feature: Add client SDK skeletons",
+  "body": "Create multi-language client SDK directories with placeholder implementations",
+  "labels": ["type:feature", "sdk"],
+  "guid": "5162b6a2-3288-4979-8239-c578e63c083c",
+  "legacy_guid": "create-feature-add-client-sdk-skeletons-2025-08-11",
+  "created_at": "2025-08-11T01:16:36.000Z",
+  "processed_at": null,
+  "failed_at": null,
+  "sequence": 0,
+  "parent_guid": null
+}
