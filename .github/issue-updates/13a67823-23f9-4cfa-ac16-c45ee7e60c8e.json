@@ -1,0 +1,13 @@
+{
+  "action": "create",
+  "title": "Add advanced gRPC client resilience features",
+  "body": "Implement token bucket rate limiter, bulkhead limiter, and request hedging in gRPC client with comprehensive tests.",
+  "labels": ["module:grpc", "enhancement"],
+  "guid": "13a67823-23f9-4cfa-ac16-c45ee7e60c8e",
+  "legacy_guid": "create-add-advanced-grpc-client-resilience-features-2025-08-11",
+  "created_at": "2025-08-11T15:32:57.000Z",
+  "processed_at": null,
+  "failed_at": null,
+  "sequence": 0,
+  "parent_guid": null
+}
