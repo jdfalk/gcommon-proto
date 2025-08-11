@@ -1,0 +1,16 @@
+{
+  "file": "CHANGELOG.md",
+  "mode": "changelog-entry",
+  "content": "### Changed\n\n- Marked plugin architecture task as complete in tasks documentation.\n",
+  "guid": "2435a6af-2ada-4eb2-bf1c-0d5aa9cadc53",
+  "created_at": "2025-08-11T13:51:14Z",
+  "options": {
+    "section": null,
+    "after": null,
+    "before": null,
+    "task_id": null,
+    "badge_name": null,
+    "priority": null,
+    "category": null
+  }
+}
