@@ -1,0 +1,13 @@
+{
+  "action": "create",
+  "title": "Documentation: scaffold module documentation system",
+  "body": "Add comprehensive documentation skeleton including API, guides, tutorials, and reference sections to support future module docs.",
+  "labels": ["documentation", "docs"],
+  "guid": "015f9fc4-f137-4c07-ba08-a76ea549b114",
+  "legacy_guid": "create-documentation-scaffold-module-documentation-system-2025-08-11",
+  "created_at": "2025-08-11T15:31:22.000Z",
+  "processed_at": null,
+  "failed_at": null,
+  "sequence": 0,
+  "parent_guid": null
+}
