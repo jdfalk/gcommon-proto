@@ -1,12 +1,14 @@
 // file: pkg/config/sources/file.go
-// version: 1.0.0
+// version: 1.1.0
 // guid: 88888888-9999-aaaa-bbbb-cccccccccccc
 
 package sources
 
 import (
+	"fmt"
 	"io/ioutil"
 	"path/filepath"
+	"strings"
 
 	"github.com/jdfalk/gcommon/pkg/config"
 	"github.com/jdfalk/gcommon/pkg/config/formats"
@@ -24,10 +26,23 @@ func (f FileSource) Load() (map[string]interface{}, error) {
 	if err != nil {
 		return nil, err
 	}
-	if f.Decoder == nil {
-		return nil, nil
+
+	dec := f.Decoder
+	if dec == nil {
+		switch strings.ToLower(filepath.Ext(f.Path)) {
+		case ".yaml", ".yml":
+			dec = formats.YAMLDecoder{}
+		case ".json":
+			dec = formats.JSONDecoder{}
+		case ".toml":
+			dec = formats.TOMLDecoder{}
+		case ".env":
+			dec = formats.EnvDecoder{}
+		default:
+			return nil, fmt.Errorf("unsupported configuration format: %s", f.Path)
+		}
 	}
-	return f.Decoder.Decode(data)
+	return dec.Decode(data)
 }
 
 // TODO:

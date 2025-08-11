@@ -1,5 +1,5 @@
 // file: pkg/config/manager_test.go
-// version: 1.1.0
+// version: 1.2.0
 // guid: 3c3b2a1d-5e6f-7890-ab12-cdefcdefcdef
 
 package config
@@ -33,5 +33,21 @@ func TestManagerWatch(t *testing.T) {
 	}
 	if v := <-ch; v != 42 {
 		t.Fatalf("expected 42, got %v", v)
+	}
+}
+
+// TestManagerMerge verifies merging ConfigData into Manager storage.
+func TestManagerMerge(t *testing.T) {
+	m := NewManager()
+	cfg := NewConfig(GlobalConfig{Logger: LogConfig{Level: "info"}}, ModuleConfigs{})
+	if err := m.Merge(cfg); err != nil {
+		t.Fatalf("Merge returned error: %v", err)
+	}
+	v, err := m.GetString("global.logger.level")
+	if err != nil {
+		t.Fatalf("GetString returned error: %v", err)
+	}
+	if v != "info" {
+		t.Fatalf("expected info, got %s", v)
 	}
 }
