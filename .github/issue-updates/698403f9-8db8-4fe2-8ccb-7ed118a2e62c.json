@@ -1,0 +1,13 @@
+{
+  "action": "create",
+  "title": "Integration Testing: add e2e scenarios",
+  "body": "Implemented basic scenario and full workflow end-to-end tests for integration framework",
+  "labels": ["testing", "integration"],
+  "guid": "698403f9-8db8-4fe2-8ccb-7ed118a2e62c",
+  "legacy_guid": "create-integration-testing-add-e2e-scenarios-2025-08-11",
+  "created_at": "2025-08-11T15:41:31.000Z",
+  "processed_at": null,
+  "failed_at": null,
+  "sequence": 0,
+  "parent_guid": null
+}
