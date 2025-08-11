@@ -1,5 +1,5 @@
 // file: pkg/organization/grpc/server.go
-// version: 1.0.0
+// version: 1.1.0
 // guid: 7a6b4ad3-d481-47d1-9ba2-fa0a391e287b
 
 package grpc
@@ -10,6 +10,8 @@ import (
 )
 
 // Register registers organization gRPC services with the server.
-func Register(s *grpc.Server, ts orgpb.TenantServiceServer) {
+func Register(s *grpc.Server, ts orgpb.TenantServiceServer, os orgpb.OrganizationServiceServer, hs orgpb.HierarchyServiceServer) {
 	orgpb.RegisterTenantServiceServer(s, ts)
+	orgpb.RegisterOrganizationServiceServer(s, os)
+	orgpb.RegisterHierarchyServiceServer(s, hs)
 }

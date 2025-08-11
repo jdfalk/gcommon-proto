@@ -1,0 +1,13 @@
+{
+  "action": "create",
+  "title": "Implement organization service layer",
+  "body": "Implement organization module with tenant, hierarchy, team management, and gRPC services",
+  "labels": ["module:organization", "type:enhancement"],
+  "guid": "401d6972-e451-4e8e-ae3f-1bde8c5a9fda",
+  "legacy_guid": "create-implement-organization-service-layer-2025-08-10",
+  "created_at": "2025-08-10T23:41:35.000Z",
+  "processed_at": null,
+  "failed_at": null,
+  "sequence": 0,
+  "parent_guid": null
+}
