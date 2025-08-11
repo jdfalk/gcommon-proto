@@ -1,0 +1,16 @@
+{
+  "file": "CHANGELOG.md",
+  "mode": "changelog-entry",
+  "content": "- Added gRPC MigrationService server and client",
+  "guid": "37faefdc-4bae-48dc-b7ec-3dd4992252b6",
+  "created_at": "2025-08-11T01:22:09Z",
+  "options": {
+    "section": null,
+    "after": null,
+    "before": null,
+    "task_id": null,
+    "badge_name": null,
+    "priority": null,
+    "category": null
+  }
+}
