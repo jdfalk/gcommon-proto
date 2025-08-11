@@ -1,5 +1,5 @@
 # file: deploy/kubernetes/monitoring/alertmanager.yaml
-# version: 1.0.0
+# version: 1.1.0
 # guid: 4d06c4ff-f43c-4a3d-9b1d-b5380b6ea3df
 
 apiVersion: v1
@@ -10,7 +10,6 @@ metadata:
   labels:
     app: alertmanager
     component: config
-
 data:
   alertmanager.yml: |
     global:
@@ -20,9 +19,27 @@ data:
       group_wait: 30s
       group_interval: 5m
       repeat_interval: 4h
-      receiver: 'null'
+      receiver: slack-notifications
+      routes:
+        - match:
+            severity: critical
+          receiver: email-notifications
+        - match:
+            severity: warning
+          receiver: slack-notifications
     receivers:
-      - name: 'null'
+      - name: slack-notifications
+        slack_configs:
+          - channel: '#alerts'
+            send_resolved: true
+            api_url: $SLACK_WEBHOOK_URL
+      - name: email-notifications
+        email_configs:
+          - to: ops@example.com
+            from: noreply@example.com
+            smarthost: smtp.example.com:587
+            auth_username: alertmanager
+            auth_password: $SMTP_PASSWORD
 
 ---
 apiVersion: apps/v1
@@ -42,21 +59,48 @@ spec:
       labels:
         app: alertmanager
     spec:
+      serviceAccountName: alertmanager
       containers:
         - name: alertmanager
           image: prom/alertmanager:v0.26.0
           args:
             - --config.file=/etc/alertmanager/alertmanager.yml
             - --storage.path=/alertmanager
+            - --web.external-url=https://alertmanager.example.com
+          env:
+            - name: SLACK_WEBHOOK_URL
+              valueFrom:
+                secretKeyRef:
+                  name: alertmanager-secrets
+                  key: slack_webhook
+            - name: SMTP_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: alertmanager-secrets
+                  key: smtp_password
+          securityContext:
+            runAsNonRoot: true
+            runAsUser: 65534
+          readinessProbe:
+            httpGet:
+              path: /-/ready
+              port: 9093
+            initialDelaySeconds: 10
+            periodSeconds: 10
           ports:
             - containerPort: 9093
           volumeMounts:
             - name: config
               mountPath: /etc/alertmanager
+            - name: data
+              mountPath: /alertmanager
       volumes:
         - name: config
           configMap:
             name: alertmanager-config
+        - name: data
+          persistentVolumeClaim:
+            claimName: alertmanager-pvc
 
 ---
 apiVersion: v1
@@ -74,89 +118,27 @@ spec:
   selector:
     app: alertmanager
 
-# ------------------------------------------------------------------------
-# TODO: Configure real receivers for email, Slack, or PagerDuty
-# TODO: Define alert routing for different severity levels
-# TODO: Add persistent volume for alert history
-# TODO: Secure Alertmanager with authentication
-# TODO: Integrate Alertmanager with external notification systems
-# TODO: Additional placeholder line 1
-# TODO: Additional placeholder line 2
-# TODO: Additional placeholder line 3
-# TODO: Additional placeholder line 4
-# TODO: Additional placeholder line 5
-# TODO: Additional placeholder line 6
-# TODO: Additional placeholder line 7
-# TODO: Additional placeholder line 8
-# TODO: Additional placeholder line 9
-# TODO: Additional placeholder line 10
-# TODO: Additional placeholder line 11
-# TODO: Additional placeholder line 12
-# TODO: Additional placeholder line 13
-# TODO: Additional placeholder line 14
-# TODO: Additional placeholder line 15
-# TODO: Additional placeholder line 16
-# TODO: Additional placeholder line 17
-# TODO: Additional placeholder line 18
-# TODO: Additional placeholder line 19
-# TODO: Additional placeholder line 20
-# TODO: Additional placeholder line 21
-# TODO: Additional placeholder line 22
-# TODO: Additional placeholder line 23
-# TODO: Additional placeholder line 24
-# TODO: Additional placeholder line 25
-# TODO: Additional placeholder line 26
-# TODO: Additional placeholder line 27
-# TODO: Additional placeholder line 28
-# TODO: Additional placeholder line 29
-# TODO: Additional placeholder line 30
-# TODO: Additional placeholder line 31
-# TODO: Additional placeholder line 32
-# TODO: Additional placeholder line 33
-# TODO: Additional placeholder line 34
-# TODO: Additional placeholder line 35
-# TODO: Additional placeholder line 36
-# TODO: Additional placeholder line 37
-# TODO: Additional placeholder line 38
-# TODO: Additional placeholder line 39
-# TODO: Additional placeholder line 40
-# TODO: Additional placeholder line 41
-# TODO: Additional placeholder line 42
-# TODO: Additional placeholder line 43
-# TODO: Additional placeholder line 44
-# TODO: Additional placeholder line 45
-# TODO: Additional placeholder line 46
-# TODO: Additional placeholder line 47
-# TODO: Additional placeholder line 48
-# TODO: Additional placeholder line 49
-# TODO: Additional placeholder line 50
-# TODO: Additional placeholder line 51
-# TODO: Additional placeholder line 52
-# TODO: Additional placeholder line 53
-# TODO: Additional placeholder line 54
-# TODO: Additional placeholder line 55
-# TODO: Additional placeholder line 56
-# TODO: Additional placeholder line 57
-# TODO: Additional placeholder line 58
-# TODO: Additional placeholder line 59
-# TODO: Additional placeholder line 60
-# TODO: Additional placeholder line 61
-# TODO: Additional placeholder line 62
-# TODO: Additional placeholder line 63
-# TODO: Additional placeholder line 64
-# TODO: Additional placeholder line 65
-# TODO: Additional placeholder line 66
-# TODO: Additional placeholder line 67
-# TODO: Additional placeholder line 68
-# TODO: Additional placeholder line 69
-# TODO: Additional placeholder line 70
-# TODO: Additional placeholder line 71
-# TODO: Additional placeholder line 72
-# TODO: Additional placeholder line 73
-# TODO: Additional placeholder line 74
-# TODO: Additional placeholder line 75
-# TODO: Additional placeholder line 76
-# TODO: Additional placeholder line 77
-# TODO: Additional placeholder line 78
-# TODO: Additional placeholder line 79
-# TODO: Additional placeholder line 80
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: alertmanager-pvc
+  namespace: monitoring
+spec:
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: 1Gi
+
+---
+apiVersion: v1
+kind: Secret
+metadata:
+  name: alertmanager-secrets
+  namespace: monitoring
+type: Opaque
+stringData:
+  slack_webhook: "https://hooks.slack.com/services/T000/B000/XXXXX"
+  smtp_password: "changeme"
+

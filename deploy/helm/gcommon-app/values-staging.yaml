@@ -1,5 +1,5 @@
 # file: deploy/helm/gcommon-app/values-staging.yaml
-# version: 1.0.0
+# version: 1.1.0
 # guid: 9e4e53f1-d0e4-4a95-91c7-450b7ff746c0
 
 # Staging values for gcommon-app Helm chart
@@ -147,113 +147,48 @@ persistence:
   storageClass: ""
 
 # ------------------------------------------------------------------------
-# TODO: Additional staging-specific configuration placeholders
-# TODO: Validate database migration processes in staging
-# TODO: Enable canary release strategy testing
-# TODO: Configure external service mock endpoints
-# TODO: Add secret rotation testing steps
-# TODO: Include synthetic monitoring configurations
-# TODO: Document staging environment setup procedures
-# TODO: Add placeholders for chaos engineering experiments
-# TODO: Ensure parity with production security policies
-# TODO: Provide instructions for staging disaster recovery drills
-# TODO: Additional placeholder line 1
-# TODO: Additional placeholder line 2
-# TODO: Additional placeholder line 3
-# TODO: Additional placeholder line 4
-# TODO: Additional placeholder line 5
-# TODO: Additional placeholder line 6
-# TODO: Additional placeholder line 7
-# TODO: Additional placeholder line 8
-# TODO: Additional placeholder line 9
-# TODO: Additional placeholder line 10
-# TODO: Additional placeholder line 11
-# TODO: Additional placeholder line 12
-# TODO: Additional placeholder line 13
-# TODO: Additional placeholder line 14
-# TODO: Additional placeholder line 15
-# TODO: Additional placeholder line 16
-# TODO: Additional placeholder line 17
-# TODO: Additional placeholder line 18
-# TODO: Additional placeholder line 19
-# TODO: Additional placeholder line 20
-# TODO: Additional placeholder line 21
-# TODO: Additional placeholder line 22
-# TODO: Additional placeholder line 23
-# TODO: Additional placeholder line 24
-# TODO: Additional placeholder line 25
-# TODO: Additional placeholder line 26
-# TODO: Additional placeholder line 27
-# TODO: Additional placeholder line 28
-# TODO: Additional placeholder line 29
-# TODO: Additional placeholder line 30
-# TODO: Additional placeholder line 31
-# TODO: Additional placeholder line 32
-# TODO: Additional placeholder line 33
-# TODO: Additional placeholder line 34
-# TODO: Additional placeholder line 35
-# TODO: Additional placeholder line 36
-# TODO: Additional placeholder line 37
-# TODO: Additional placeholder line 38
-# TODO: Additional placeholder line 39
-# TODO: Additional placeholder line 40
-# TODO: Additional placeholder line 41
-# TODO: Additional placeholder line 42
-# TODO: Additional placeholder line 43
-# TODO: Additional placeholder line 44
-# TODO: Additional placeholder line 45
-# TODO: Additional placeholder line 46
-# TODO: Additional placeholder line 47
-# TODO: Additional placeholder line 48
-# TODO: Additional placeholder line 49
-# TODO: Additional placeholder line 50
-# TODO: Additional placeholder line 51
-# TODO: Additional placeholder line 52
-# TODO: Additional placeholder line 53
-# TODO: Additional placeholder line 54
-# TODO: Additional placeholder line 55
-# TODO: Additional placeholder line 56
-# TODO: Additional placeholder line 57
-# TODO: Additional placeholder line 58
-# TODO: Additional placeholder line 59
-# TODO: Additional placeholder line 60
-# TODO: Additional placeholder line 61
-# TODO: Additional placeholder line 62
-# TODO: Additional placeholder line 63
-# TODO: Additional placeholder line 64
-# TODO: Additional placeholder line 65
-# TODO: Additional placeholder line 66
-# TODO: Additional placeholder line 67
-# TODO: Additional placeholder line 68
-# TODO: Additional placeholder line 69
-# TODO: Additional placeholder line 70
-# TODO: Additional placeholder line 71
-# TODO: Additional placeholder line 72
-# TODO: Additional placeholder line 73
-# TODO: Additional placeholder line 74
-# TODO: Additional placeholder line 75
-# TODO: Additional placeholder line 76
-# TODO: Additional placeholder line 77
-# TODO: Additional placeholder line 78
-# TODO: Additional placeholder line 79
-# TODO: Additional placeholder line 80
-# TODO: Additional placeholder line 81
-# TODO: Additional placeholder line 82
-# TODO: Additional placeholder line 83
-# TODO: Additional placeholder line 84
-# TODO: Additional placeholder line 85
-# TODO: Additional placeholder line 86
-# TODO: Additional placeholder line 87
-# TODO: Additional placeholder line 88
-# TODO: Additional placeholder line 89
-# TODO: Additional placeholder line 90
-# TODO: Additional placeholder line 91
-# TODO: Additional placeholder line 92
-# TODO: Additional placeholder line 93
-# TODO: Additional placeholder line 94
-# TODO: Additional placeholder line 95
-# TODO: Additional placeholder line 96
-# TODO: Additional placeholder line 97
-# TODO: Additional placeholder line 98
-# TODO: Additional placeholder line 99
-# TODO: Additional placeholder line 100
+staging:
+  migrations:
+    runOnStartup: true
+    verifyOnly: false
+  canary:
+    enabled: true
+    steps: 5
+    maxSurge: 1
+  mockEndpoints:
+    payment: https://sandbox-payments.example.com
+    email: https://sandbox-email.example.com
+  secretRotation:
+    enabled: true
+    schedule: "0 3 * * 0"
+  syntheticMonitoring:
+    enabled: true
+    probes:
+      - name: home-page
+        path: /
+        interval: 30s
+      - name: login-page
+        path: /login
+        interval: 1m
+  setupGuide:
+    - "Apply database migrations using \`make migrate-staging\`"
+    - "Run smoke tests with \`make test-staging\`"
+  chaosEngineering:
+    enabled: true
+    experiments:
+      - name: pod-kill
+        schedule: "@daily"
+      - name: network-latency
+        schedule: "@weekly"
+  security:
+    parityWithProd: true
+    networkPolicies: strict
+  disasterRecovery:
+    backups:
+      schedule: "0 */6 * * *"
+      retention: 7
+    restoreProcedure: "docs/dr-staging.md"
+  additionalNotes:
+    - "Staging mirrors production configuration for security."
+    - "Use sandbox endpoints for external integrations."
+    - "Chaos experiments help validate resilience."
