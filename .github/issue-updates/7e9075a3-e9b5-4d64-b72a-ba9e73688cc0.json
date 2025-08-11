@@ -1,0 +1,13 @@
+{
+  "action": "create",
+  "title": "Implement monitoring and observability across modules",
+  "body": "Complete monitoring module with collectors, exporters, alerts, tracing, and dashboards",
+  "labels": ["module:monitoring", "type:feature"],
+  "guid": "7e9075a3-e9b5-4d64-b72a-ba9e73688cc0",
+  "legacy_guid": "create-implement-monitoring-and-observability-across-modules-2025-08-11",
+  "created_at": "2025-08-11T01:18:36.000Z",
+  "processed_at": null,
+  "failed_at": null,
+  "sequence": 0,
+  "parent_guid": null
+}
