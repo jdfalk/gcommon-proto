@@ -1,0 +1,13 @@
+{
+  "action": "close",
+  "number": 21,
+  "state_reason": "Cache module implementation complete",
+  "guid": "e77a94ec-e2ea-4db3-83dc-8e2fbf0b04d7",
+  "legacy_guid": "close-issue-21-2025-08-11",
+  "created_at": "2025-08-11T15:34:53.807Z",
+  "processed_at": null,
+  "failed_at": null,
+  "sequence": 0,
+  "parent_guid": null ,
+  "parent": "module:cache,language:go"
+}
