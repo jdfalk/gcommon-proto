@@ -1,5 +1,5 @@
 # file: .github/workflows/ci.yml
-# version: 3.0.0
+# version: 3.1.0
 # guid: 8721720b-6c3d-49e6-a280-3af8b67f4261
 
 name: Continuous Integration
@@ -175,16 +175,32 @@ jobs:
             go build ./cmd/$module
           done
 
+  quality-gates:
+    name: Run quality gates
+    runs-on: ubuntu-latest
+    needs: [coverage-report, e2e-tests, compatibility-tests]
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: ${{ env.PYTHON_VERSION }}
+
+      - name: Execute quality gate checks
+        run: python ci/pipeline/quality_gates.py
+
   notify:
     name: Notify status
     runs-on: ubuntu-latest
-    needs: [build, coverage-report, e2e-tests, compatibility-tests]
+    needs: [build, coverage-report, e2e-tests, compatibility-tests, quality-gates]
     if: always()
     steps:
       - name: Determine job status
         id: status
         run: |
-          if [[ "${{ needs.build.result }}" == 'success' && "${{ needs.coverage-report.result }}" == 'success' && "${{ needs.e2e-tests.result }}" == 'success' && "${{ needs.compatibility-tests.result }}" == 'success' ]]; then
+          if [[ "${{ needs.build.result }}" == 'success' && "${{ needs.coverage-report.result }}" == 'success' && "${{ needs.e2e-tests.result }}" == 'success' && "${{ needs.compatibility-tests.result }}" == 'success' && "${{ needs.quality-gates.result }}" == 'success' ]]; then
             echo "status=success" >> $GITHUB_OUTPUT
           else
             echo "status=failure" >> $GITHUB_OUTPUT
