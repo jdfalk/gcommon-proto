@@ -1,0 +1,13 @@
+{
+  "action": "create",
+  "title": "Implement containerization and deployment workflows",
+  "body": "Implement comprehensive Docker, Kubernetes, Helm, and deployment automation with monitoring integration",
+  "labels": ["enhancement", "deployment"],
+  "guid": "ffd176b0-034a-4faf-b520-51ff4162f06b",
+  "legacy_guid": "create-implement-containerization-and-deployment-workflows-2025-08-11",
+  "created_at": "2025-08-11T15:31:47.000Z",
+  "processed_at": null,
+  "failed_at": null,
+  "sequence": 0,
+  "parent_guid": null
+}

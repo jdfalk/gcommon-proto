@@ -1,5 +1,5 @@
 # file: deploy/helm/gcommon-app/values-dev.yaml
-# version: 1.0.0
+# version: 1.1.0
 # guid: 8f0cfc7d-9a32-4f7a-8fa4-d781a229e121
 
 # Development values for gcommon-app Helm chart
@@ -147,123 +147,120 @@ persistence:
   storageClass: ""
 
 # ------------------------------------------------------------------------
-# TODO: Additional development-specific configuration placeholders
-# TODO: Configure feature flags for experimental APIs
-# TODO: Setup mock external services for integration testing
-# TODO: Integrate local debugging tools and port mappings
-# TODO: Replace in-memory caches with persistent stores when ready
-# TODO: Define service mesh sidecar configuration if needed
-# TODO: Configure additional environment variables for testing
-# TODO: Document all configuration changes in README
-# TODO: Ensure secrets are sourced from local files for development
-# TODO: Add sample ConfigMap entries for developers
-# TODO: Provide example of mounting local directories into pods
-# TODO: Include guidance on using Skaffold for dev iterations
-# TODO: Add optional hot-reload setup for Go applications
-# TODO: Define local volumes for sqlite databases
-# TODO: Document how to run integration tests inside container
-# TODO: Add more comments to guide developers
-# TODO: Ensure compliance with security guidelines even in dev
-# TODO: Provide placeholders for feature toggles
-# TODO: Add placeholders for optional web UI
-# TODO: More TODO placeholders to satisfy template
-# TODO: Additional TODO line 1
-# TODO: Additional TODO line 2
-# TODO: Additional TODO line 3
-# TODO: Additional TODO line 4
-# TODO: Additional TODO line 5
-# TODO: Additional TODO line 6
-# TODO: Additional TODO line 7
-# TODO: Additional TODO line 8
-# TODO: Additional TODO line 9
-# TODO: Additional TODO line 10
-# TODO: Additional TODO line 11
-# TODO: Additional TODO line 12
-# TODO: Additional TODO line 13
-# TODO: Additional TODO line 14
-# TODO: Additional TODO line 15
-# TODO: Additional TODO line 16
-# TODO: Additional TODO line 17
-# TODO: Additional TODO line 18
-# TODO: Additional TODO line 19
-# TODO: Additional TODO line 20
-# TODO: Additional TODO line 21
-# TODO: Additional TODO line 22
-# TODO: Additional TODO line 23
-# TODO: Additional TODO line 24
-# TODO: Additional TODO line 25
-# TODO: Additional TODO line 26
-# TODO: Additional TODO line 27
-# TODO: Additional TODO line 28
-# TODO: Additional TODO line 29
-# TODO: Additional TODO line 30
-# TODO: Additional TODO line 31
-# TODO: Additional TODO line 32
-# TODO: Additional TODO line 33
-# TODO: Additional TODO line 34
-# TODO: Additional TODO line 35
-# TODO: Additional TODO line 36
-# TODO: Additional TODO line 37
-# TODO: Additional TODO line 38
-# TODO: Additional TODO line 39
-# TODO: Additional TODO line 40
-# TODO: Additional TODO line 41
-# TODO: Additional TODO line 42
-# TODO: Additional TODO line 43
-# TODO: Additional TODO line 44
-# TODO: Additional TODO line 45
-# TODO: Additional TODO line 46
-# TODO: Additional TODO line 47
-# TODO: Additional TODO line 48
-# TODO: Additional TODO line 49
-# TODO: Additional TODO line 50
-# TODO: Additional TODO line 51
-# TODO: Additional TODO line 52
-# TODO: Additional TODO line 53
-# TODO: Additional TODO line 54
-# TODO: Additional TODO line 55
-# TODO: Additional TODO line 56
-# TODO: Additional TODO line 57
-# TODO: Additional TODO line 58
-# TODO: Additional TODO line 59
-# TODO: Additional TODO line 60
-# TODO: Additional TODO line 61
-# TODO: Additional TODO line 62
-# TODO: Additional TODO line 63
-# TODO: Additional TODO line 64
-# TODO: Additional TODO line 65
-# TODO: Additional TODO line 66
-# TODO: Additional TODO line 67
-# TODO: Additional TODO line 68
-# TODO: Additional TODO line 69
-# TODO: Additional TODO line 70
-# TODO: Additional TODO line 71
-# TODO: Additional TODO line 72
-# TODO: Additional TODO line 73
-# TODO: Additional TODO line 74
-# TODO: Additional TODO line 75
-# TODO: Additional TODO line 76
-# TODO: Additional TODO line 77
-# TODO: Additional TODO line 78
-# TODO: Additional TODO line 79
-# TODO: Additional TODO line 80
-# TODO: Additional TODO line 81
-# TODO: Additional TODO line 82
-# TODO: Additional TODO line 83
-# TODO: Additional TODO line 84
-# TODO: Additional TODO line 85
-# TODO: Additional TODO line 86
-# TODO: Additional TODO line 87
-# TODO: Additional TODO line 88
-# TODO: Additional TODO line 89
-# TODO: Additional TODO line 90
-# TODO: Additional TODO line 91
-# TODO: Additional TODO line 92
-# TODO: Additional TODO line 93
-# TODO: Additional TODO line 94
-# TODO: Additional TODO line 95
-# TODO: Additional TODO line 96
-# TODO: Additional TODO line 97
-# TODO: Additional TODO line 98
-# TODO: Additional TODO line 99
-# TODO: Additional TODO line 100
+dev:
+  debug:
+    enabled: true
+    ports:
+      - name: delve
+        containerPort: 40000
+    tools:
+      air: true
+      skaffold: true
+  featureFlags:
+    experimentalAPI: true
+    enableHotReload: true
+    useLocalCache: false
+  mockServices:
+    payment:
+      enabled: true
+      url: http://host.docker.internal:9000
+    notification:
+      enabled: true
+      url: http://host.docker.internal:9001
+  environment:
+    - name: LOG_LEVEL
+      value: debug
+    - name: DATABASE_URL
+      value: postgres://dev:dev@db:5432/dev?sslmode=disable
+    - name: CACHE_URL
+      value: redis://cache:6379
+    - name: FEATURE_TOGGLE_FILE
+      value: /app/config/feature-flags.yaml
+  volumes:
+    - name: config
+      configMap:
+        name: gcommon-dev-config
+    - name: source
+      hostPath:
+        path: ../../
+        type: Directory
+  volumeMounts:
+    - name: config
+      mountPath: /app/config
+    - name: source
+      mountPath: /workspace
+  cache:
+    type: memory
+    persistent:
+      enabled: false
+  databases:
+    sqlite:
+      enabled: true
+      path: /workspace/data/dev.db
+  serviceMesh:
+    enabled: false
+    sidecar:
+      image: envoyproxy/envoy:v1.29.0
+  ports:
+    - name: http
+      containerPort: 8080
+      hostPort: 8080
+  localDirectories:
+    - host: ./configs
+      container: /app/configs
+    - host: ./logs
+      container: /app/logs
+  skaffold:
+    profile: dev
+    autoSync: true
+  integrationTests:
+    insideContainer: true
+    command: ["go", "test", "./..."]
+  guidance:
+    - "Mount local directories using volumes.source"
+    - "Run \`skaffold dev\` for rapid iterations"
+    - "Use air for hot reloading"
+  security:
+    enableRBAC: false
+    readOnlyFS: false
+  webUI:
+    enabled: true
+    port: 3000
+  featureToggles:
+    - name: newDashboard
+      enabled: false
+    - name: experimentalAuth
+      enabled: false
+  additionalEnv:
+    - name: EXTRA_VAR_1
+      value: value1
+    - name: EXTRA_VAR_2
+      value: value2
+    - name: EXTRA_VAR_3
+      value: value3
+    - name: EXTRA_VAR_4
+      value: value4
+    - name: EXTRA_VAR_5
+      value: value5
+    - name: EXTRA_VAR_6
+      value: value6
+    - name: EXTRA_VAR_7
+      value: value7
+    - name: EXTRA_VAR_8
+      value: value8
+    - name: EXTRA_VAR_9
+      value: value9
+    - name: EXTRA_VAR_10
+      value: value10
+  sampleConfigMap:
+    apiVersion: v1
+    kind: ConfigMap
+    metadata:
+      name: gcommon-dev-config
+    data:
+      APP_ENV: development
+      FEATURE_FLAG_SAMPLE: "true"
+  notes:
+    - "This section documents development-specific overrides."
+    - "Secrets should be loaded from local files using kubectl create secret."
+    - "Ensure compliance with security guidelines even in dev environments."

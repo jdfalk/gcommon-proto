@@ -1,11 +1,134 @@
 # file: deploy/kubernetes/monitoring/prometheus.yaml
-# version: 1.0.0
+# version: 1.1.0
 # guid: cd9944ca-5175-44bb-bcbd-2b6cbf8e2737
 
+apiVersion: monitoring.coreos.com/v1
+kind: Prometheus
+metadata:
+  name: gcommon
+  namespace: monitoring
+  labels:
+    app: prometheus
+spec:
+  replicas: 1
+  serviceAccountName: prometheus
+  serviceMonitorSelector:
+    matchLabels:
+      app: gcommon-app
+  resources:
+    requests:
+      cpu: 200m
+      memory: 256Mi
+  enableAdminAPI: false
+  retention: 7d
+  storage:
+    volumeClaimTemplate:
+      spec:
+        accessModes: ["ReadWriteOnce"]
+        resources:
+          requests:
+            storage: 5Gi
+  additionalScrapeConfigs:
+    name: prometheus-additional-scrape-config
+    key: scrape-config.yaml
+
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: prometheus-additional-scrape-config
+  namespace: monitoring
+data:
+  scrape-config.yaml: |
+    - job_name: 'node'
+      kubernetes_sd_configs:
+        - role: node
+      relabel_configs:
+        - action: labelmap
+          regex: __meta_kubernetes_node_label_(.+)
+    - job_name: 'kubernetes-pods'
+      kubernetes_sd_configs:
+        - role: pod
+      relabel_configs:
+        - source_labels: [__meta_kubernetes_pod_annotation_prometheus_io_scrape]
+          action: keep
+          regex: true
+        - source_labels: [__meta_kubernetes_pod_annotation_prometheus_io_path]
+          action: replace
+          target_label: __metrics_path__
+          regex: (.+)
+        - source_labels: [__address__, __meta_kubernetes_pod_annotation_prometheus_io_port]
+          action: replace
+          regex: (.+):(?:\d+);(\d+)
+          replacement: ${1}:${2}
+          target_label: __address__
+
+---
+apiVersion: v1
+kind: ServiceAccount
+metadata:
+  name: prometheus
+  namespace: monitoring
+
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRole
+metadata:
+  name: prometheus
+rules:
+  - apiGroups: [""]
+    resources:
+      - nodes
+      - nodes/proxy
+      - services
+      - endpoints
+      - pods
+    verbs: ["get", "list", "watch"]
+  - apiGroups:
+      - extensions
+    resources:
+      - ingresses
+    verbs: ["get", "list", "watch"]
+  - nonResourceURLs: ["/metrics"]
+    verbs: ["get"]
+
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRoleBinding
+metadata:
+  name: prometheus
+roleRef:
+  apiGroup: rbac.authorization.k8s.io
+  kind: ClusterRole
+  name: prometheus
+subjects:
+  - kind: ServiceAccount
+    name: prometheus
+    namespace: monitoring
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: prometheus
+  namespace: monitoring
+  labels:
+    app: prometheus
+spec:
+  type: ClusterIP
+  ports:
+    - name: web
+      port: 9090
+      targetPort: 9090
+  selector:
+    app: prometheus
+
+---
 apiVersion: monitoring.coreos.com/v1
 kind: ServiceMonitor
 metadata:
   name: gcommon-app
+  namespace: monitoring
   labels:
     app: gcommon-app
 spec:
@@ -15,3 +138,42 @@ spec:
   endpoints:
     - port: http
       interval: 15s
+
+---
+apiVersion: monitoring.coreos.com/v1
+kind: PrometheusRule
+metadata:
+  name: gcommon-rules
+  namespace: monitoring
+spec:
+  groups:
+    - name: general.rules
+      rules:
+        - alert: HighRequestLatency
+          expr: histogram_quantile(0.9, rate(http_request_duration_seconds_bucket[5m])) > 1
+          for: 10m
+          labels:
+            severity: warning
+          annotations:
+            summary: "High request latency detected"
+        - alert: HighErrorRate
+          expr: rate(http_requests_total{status=~\"5..\"}[5m]) > 0.05
+          for: 10m
+          labels:
+            severity: critical
+          annotations:
+            summary: "High HTTP error rate"
+
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: prometheus-pvc
+  namespace: monitoring
+spec:
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: 5Gi
+
