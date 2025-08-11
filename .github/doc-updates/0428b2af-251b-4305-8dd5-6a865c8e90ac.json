@@ -1,0 +1,16 @@
+{
+  "file": "CHANGELOG.md",
+  "mode": "changelog-entry",
+  "content": "### Added\\n- Implemented organization service layer with tenant, hierarchy, and team management",
+  "guid": "0428b2af-251b-4305-8dd5-6a865c8e90ac",
+  "created_at": "2025-08-10T23:45:24Z",
+  "options": {
+    "section": null,
+    "after": null,
+    "before": null,
+    "task_id": null,
+    "badge_name": null,
+    "priority": null,
+    "category": null
+  }
+}
