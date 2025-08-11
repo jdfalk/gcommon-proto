@@ -1,0 +1,13 @@
+{
+  "action": "create",
+  "title": "Integration testing framework implementation",
+  "body": "Implement integration test suites for modules, cross-module scenarios, and performance metrics",
+  "labels": ["testing", "enhancement"],
+  "guid": "97670e31-8bc7-4a83-8cfe-276e84470ae4",
+  "legacy_guid": "create-integration-testing-framework-implementation-2025-08-10",
+  "created_at": "2025-08-10T23:51:11.000Z",
+  "processed_at": null,
+  "failed_at": null,
+  "sequence": 0,
+  "parent_guid": null
+}
