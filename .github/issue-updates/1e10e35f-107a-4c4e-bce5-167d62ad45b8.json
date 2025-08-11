@@ -1,0 +1,12 @@
+{
+  "action": "comment",
+  "number": 24,
+  "body": "Implement configuration manager enhancements with auto format detection and TOML support",
+  "guid": "1e10e35f-107a-4c4e-bce5-167d62ad45b8",
+  "legacy_guid": "comment-issue-24-2025-08-11",
+  "created_at": "2025-08-11T01:20:16.000Z",
+  "processed_at": null,
+  "failed_at": null,
+  "sequence": 0,
+  "parent_guid": null
+}
