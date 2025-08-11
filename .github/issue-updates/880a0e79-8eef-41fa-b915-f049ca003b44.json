@@ -1,0 +1,12 @@
+{
+  "action": "comment",
+  "number": 63,
+  "body": "Added skeleton API documentation pipeline and explorer.",
+  "guid": "880a0e79-8eef-41fa-b915-f049ca003b44",
+  "legacy_guid": "comment-issue-63-2025-08-11",
+  "created_at": "2025-08-11T15:34:57.000Z",
+  "processed_at": null,
+  "failed_at": null,
+  "sequence": 0,
+  "parent_guid": null
+}

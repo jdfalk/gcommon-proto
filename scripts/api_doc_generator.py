@@ -765,6 +765,426 @@ class DBModuleDocGenerator(ModuleDocGenerator):
         return output
 
 
+class NotificationModuleDocGenerator(ModuleDocGenerator):
+    """Documentation generator for the notification module.
+
+    This module delivers messages to end users through various channels
+    such as email, SMS, and push notifications. The generator focuses on
+    message templates, delivery semantics, and retry strategies.
+    """
+
+    module_name = "notification"
+
+    def generate_html(self) -> Path:  # type: ignore[override]
+        """Generate HTML docs for notification workflows."""
+
+        output = self.output_dir / "notification.html"
+        self._write_placeholder(output, "Notification HTML docs")
+        return output
+
+    def generate_markdown(self) -> Path:  # type: ignore[override]
+        """Generate Markdown docs for notification module."""
+
+        output = self.output_dir / "notification.md"
+        self._write_placeholder(output, "Notification Markdown docs")
+        return output
+
+    def generate_pdf(self) -> Path:  # type: ignore[override]
+        """Generate PDF docs for notification module."""
+
+        output = self.output_dir / "notification.pdf"
+        self._write_placeholder(output, "Notification PDF docs")
+        return output
+
+    def generate_openapi(self) -> Path:  # type: ignore[override]
+        """Generate OpenAPI spec for notification services."""
+
+        output = self.output_dir / "notification.openapi.json"
+        self._write_placeholder(output, "Notification OpenAPI spec")
+        return output
+
+    def generate_postman(self) -> Path:  # type: ignore[override]
+        """Generate Postman collection for notification services."""
+
+        output = self.output_dir / "notification.postman.json"
+        self._write_placeholder(output, "Notification Postman collection")
+        return output
+
+    def generate_playground(self) -> Path:  # type: ignore[override]
+        """Generate playground configuration for notification module."""
+
+        output = self.output_dir / "notification.playground.json"
+        self._write_placeholder(output, "Notification playground config")
+        return output
+
+    def generate_examples(self) -> Path:  # type: ignore[override]
+        """Generate notification module examples."""
+
+        output = self.output_dir / "notification_examples.md"
+        self._write_placeholder(output, "Notification examples")
+        return output
+
+
+class OrganizationModuleDocGenerator(ModuleDocGenerator):
+    """Documentation generator for the organization module.
+
+    The organization module manages tenants, teams, and membership
+    hierarchies. Generated documentation describes access controls and
+    organizational structure APIs.
+    """
+
+    module_name = "organization"
+
+    def generate_html(self) -> Path:  # type: ignore[override]
+        """Generate HTML docs for organization features."""
+
+        output = self.output_dir / "organization.html"
+        self._write_placeholder(output, "Organization HTML docs")
+        return output
+
+    def generate_markdown(self) -> Path:  # type: ignore[override]
+        """Generate Markdown docs for organization module."""
+
+        output = self.output_dir / "organization.md"
+        self._write_placeholder(output, "Organization Markdown docs")
+        return output
+
+    def generate_pdf(self) -> Path:  # type: ignore[override]
+        """Generate PDF docs for organization module."""
+
+        output = self.output_dir / "organization.pdf"
+        self._write_placeholder(output, "Organization PDF docs")
+        return output
+
+    def generate_openapi(self) -> Path:  # type: ignore[override]
+        """Generate OpenAPI spec for organization services."""
+
+        output = self.output_dir / "organization.openapi.json"
+        self._write_placeholder(output, "Organization OpenAPI spec")
+        return output
+
+    def generate_postman(self) -> Path:  # type: ignore[override]
+        """Generate Postman collection for organization services."""
+
+        output = self.output_dir / "organization.postman.json"
+        self._write_placeholder(output, "Organization Postman collection")
+        return output
+
+    def generate_playground(self) -> Path:  # type: ignore[override]
+        """Generate playground configuration for organization module."""
+
+        output = self.output_dir / "organization.playground.json"
+        self._write_placeholder(output, "Organization playground config")
+        return output
+
+    def generate_examples(self) -> Path:  # type: ignore[override]
+        """Generate organization module examples."""
+
+        output = self.output_dir / "organization_examples.md"
+        self._write_placeholder(output, "Organization examples")
+        return output
+
+
+class LogModuleDocGenerator(ModuleDocGenerator):
+    """Documentation generator for the log module.
+
+    Logging utilities provide structured logging capabilities with
+    pluggable backends. Documentation covers configuration options and
+    best practices for observability.
+    """
+
+    module_name = "log"
+
+    def generate_html(self) -> Path:  # type: ignore[override]
+        """Generate HTML docs for logging utilities."""
+
+        output = self.output_dir / "log.html"
+        self._write_placeholder(output, "Log HTML docs")
+        return output
+
+    def generate_markdown(self) -> Path:  # type: ignore[override]
+        """Generate Markdown docs for log module."""
+
+        output = self.output_dir / "log.md"
+        self._write_placeholder(output, "Log Markdown docs")
+        return output
+
+    def generate_pdf(self) -> Path:  # type: ignore[override]
+        """Generate PDF docs for log module."""
+
+        output = self.output_dir / "log.pdf"
+        self._write_placeholder(output, "Log PDF docs")
+        return output
+
+    def generate_openapi(self) -> Path:  # type: ignore[override]
+        """Generate OpenAPI spec for log services."""
+
+        output = self.output_dir / "log.openapi.json"
+        self._write_placeholder(output, "Log OpenAPI spec")
+        return output
+
+    def generate_postman(self) -> Path:  # type: ignore[override]
+        """Generate Postman collection for log services."""
+
+        output = self.output_dir / "log.postman.json"
+        self._write_placeholder(output, "Log Postman collection")
+        return output
+
+    def generate_playground(self) -> Path:  # type: ignore[override]
+        """Generate playground configuration for log module."""
+
+        output = self.output_dir / "log.playground.json"
+        self._write_placeholder(output, "Log playground config")
+        return output
+
+    def generate_examples(self) -> Path:  # type: ignore[override]
+        """Generate log module examples."""
+
+        output = self.output_dir / "log_examples.md"
+        self._write_placeholder(output, "Log examples")
+        return output
+
+
+class ErrorsModuleDocGenerator(ModuleDocGenerator):
+    """Documentation generator for the errors module.
+
+    The errors module standardizes error handling across services. Docs
+    describe error wrapping, codes, and cross-module propagation
+    strategies.
+    """
+
+    module_name = "errors"
+
+    def generate_html(self) -> Path:  # type: ignore[override]
+        """Generate HTML docs for error handling."""
+
+        output = self.output_dir / "errors.html"
+        self._write_placeholder(output, "Errors HTML docs")
+        return output
+
+    def generate_markdown(self) -> Path:  # type: ignore[override]
+        """Generate Markdown docs for errors module."""
+
+        output = self.output_dir / "errors.md"
+        self._write_placeholder(output, "Errors Markdown docs")
+        return output
+
+    def generate_pdf(self) -> Path:  # type: ignore[override]
+        """Generate PDF docs for errors module."""
+
+        output = self.output_dir / "errors.pdf"
+        self._write_placeholder(output, "Errors PDF docs")
+        return output
+
+    def generate_openapi(self) -> Path:  # type: ignore[override]
+        """Generate OpenAPI spec for error services."""
+
+        output = self.output_dir / "errors.openapi.json"
+        self._write_placeholder(output, "Errors OpenAPI spec")
+        return output
+
+    def generate_postman(self) -> Path:  # type: ignore[override]
+        """Generate Postman collection for error services."""
+
+        output = self.output_dir / "errors.postman.json"
+        self._write_placeholder(output, "Errors Postman collection")
+        return output
+
+    def generate_playground(self) -> Path:  # type: ignore[override]
+        """Generate playground configuration for errors module."""
+
+        output = self.output_dir / "errors.playground.json"
+        self._write_placeholder(output, "Errors playground config")
+        return output
+
+    def generate_examples(self) -> Path:  # type: ignore[override]
+        """Generate errors module examples."""
+
+        output = self.output_dir / "errors_examples.md"
+        self._write_placeholder(output, "Errors examples")
+        return output
+
+
+class GRPCModuleDocGenerator(ModuleDocGenerator):
+    """Documentation generator for the grpc module.
+
+    The grpc module hosts shared gRPC utilities including interceptors
+    and connection management helpers. Documentation outlines usage
+    patterns and extension points for gRPC components.
+    """
+
+    module_name = "grpc"
+
+    def generate_html(self) -> Path:  # type: ignore[override]
+        """Generate HTML docs for gRPC utilities."""
+
+        output = self.output_dir / "grpc.html"
+        self._write_placeholder(output, "gRPC HTML docs")
+        return output
+
+    def generate_markdown(self) -> Path:  # type: ignore[override]
+        """Generate Markdown docs for grpc module."""
+
+        output = self.output_dir / "grpc.md"
+        self._write_placeholder(output, "gRPC Markdown docs")
+        return output
+
+    def generate_pdf(self) -> Path:  # type: ignore[override]
+        """Generate PDF docs for grpc module."""
+
+        output = self.output_dir / "grpc.pdf"
+        self._write_placeholder(output, "gRPC PDF docs")
+        return output
+
+    def generate_openapi(self) -> Path:  # type: ignore[override]
+        """Generate OpenAPI spec for grpc utilities."""
+
+        output = self.output_dir / "grpc.openapi.json"
+        self._write_placeholder(output, "gRPC OpenAPI spec")
+        return output
+
+    def generate_postman(self) -> Path:  # type: ignore[override]
+        """Generate Postman collection for grpc utilities."""
+
+        output = self.output_dir / "grpc.postman.json"
+        self._write_placeholder(output, "gRPC Postman collection")
+        return output
+
+    def generate_playground(self) -> Path:  # type: ignore[override]
+        """Generate playground configuration for grpc module."""
+
+        output = self.output_dir / "grpc.playground.json"
+        self._write_placeholder(output, "gRPC playground config")
+        return output
+
+    def generate_examples(self) -> Path:  # type: ignore[override]
+        """Generate grpc module examples."""
+
+        output = self.output_dir / "grpc_examples.md"
+        self._write_placeholder(output, "gRPC examples")
+        return output
+
+
+class MediaModuleDocGenerator(ModuleDocGenerator):
+    """Documentation generator for the media module.
+
+    The media module handles file uploads, storage, and transcoding.
+    Documentation explains supported formats and lifecycle operations for
+    media assets.
+    """
+
+    module_name = "media"
+
+    def generate_html(self) -> Path:  # type: ignore[override]
+        """Generate HTML docs for media services."""
+
+        output = self.output_dir / "media.html"
+        self._write_placeholder(output, "Media HTML docs")
+        return output
+
+    def generate_markdown(self) -> Path:  # type: ignore[override]
+        """Generate Markdown docs for media module."""
+
+        output = self.output_dir / "media.md"
+        self._write_placeholder(output, "Media Markdown docs")
+        return output
+
+    def generate_pdf(self) -> Path:  # type: ignore[override]
+        """Generate PDF docs for media module."""
+
+        output = self.output_dir / "media.pdf"
+        self._write_placeholder(output, "Media PDF docs")
+        return output
+
+    def generate_openapi(self) -> Path:  # type: ignore[override]
+        """Generate OpenAPI spec for media services."""
+
+        output = self.output_dir / "media.openapi.json"
+        self._write_placeholder(output, "Media OpenAPI spec")
+        return output
+
+    def generate_postman(self) -> Path:  # type: ignore[override]
+        """Generate Postman collection for media services."""
+
+        output = self.output_dir / "media.postman.json"
+        self._write_placeholder(output, "Media Postman collection")
+        return output
+
+    def generate_playground(self) -> Path:  # type: ignore[override]
+        """Generate playground configuration for media module."""
+
+        output = self.output_dir / "media.playground.json"
+        self._write_placeholder(output, "Media playground config")
+        return output
+
+    def generate_examples(self) -> Path:  # type: ignore[override]
+        """Generate media module examples."""
+
+        output = self.output_dir / "media_examples.md"
+        self._write_placeholder(output, "Media examples")
+        return output
+
+
+class PluginsModuleDocGenerator(ModuleDocGenerator):
+    """Documentation generator for the plugins module.
+
+    The plugins module allows external extensions to integrate with the
+    system. Documentation describes plugin lifecycles, discovery, and
+    security considerations.
+    """
+
+    module_name = "plugins"
+
+    def generate_html(self) -> Path:  # type: ignore[override]
+        """Generate HTML docs for plugin integration."""
+
+        output = self.output_dir / "plugins.html"
+        self._write_placeholder(output, "Plugins HTML docs")
+        return output
+
+    def generate_markdown(self) -> Path:  # type: ignore[override]
+        """Generate Markdown docs for plugins module."""
+
+        output = self.output_dir / "plugins.md"
+        self._write_placeholder(output, "Plugins Markdown docs")
+        return output
+
+    def generate_pdf(self) -> Path:  # type: ignore[override]
+        """Generate PDF docs for plugins module."""
+
+        output = self.output_dir / "plugins.pdf"
+        self._write_placeholder(output, "Plugins PDF docs")
+        return output
+
+    def generate_openapi(self) -> Path:  # type: ignore[override]
+        """Generate OpenAPI spec for plugin services."""
+
+        output = self.output_dir / "plugins.openapi.json"
+        self._write_placeholder(output, "Plugins OpenAPI spec")
+        return output
+
+    def generate_postman(self) -> Path:  # type: ignore[override]
+        """Generate Postman collection for plugin services."""
+
+        output = self.output_dir / "plugins.postman.json"
+        self._write_placeholder(output, "Plugins Postman collection")
+        return output
+
+    def generate_playground(self) -> Path:  # type: ignore[override]
+        """Generate playground configuration for plugins module."""
+
+        output = self.output_dir / "plugins.playground.json"
+        self._write_placeholder(output, "Plugins playground config")
+        return output
+
+    def generate_examples(self) -> Path:  # type: ignore[override]
+        """Generate plugins module examples."""
+
+        output = self.output_dir / "plugins_examples.md"
+        self._write_placeholder(output, "Plugins examples")
+        return output
+
+
 # ----------------------------------------------------------------------
 # Pipeline Orchestration
 # ----------------------------------------------------------------------
@@ -792,6 +1212,13 @@ class APIDocumentationPipeline:
             HealthModuleDocGenerator(repository_root),
             CommonModuleDocGenerator(repository_root),
             DBModuleDocGenerator(repository_root),
+            NotificationModuleDocGenerator(repository_root),
+            OrganizationModuleDocGenerator(repository_root),
+            LogModuleDocGenerator(repository_root),
+            ErrorsModuleDocGenerator(repository_root),
+            GRPCModuleDocGenerator(repository_root),
+            MediaModuleDocGenerator(repository_root),
+            PluginsModuleDocGenerator(repository_root),
         ]
 
     def _collect_results(self) -> Dict[str, Dict[str, str]]:
@@ -831,6 +1258,13 @@ class APIDocumentationPipeline:
                     "cache": ["db"],
                     "config": ["db"],
                     "health": ["metrics"],
+                    "notification": ["queue", "auth"],
+                    "organization": ["auth"],
+                    "log": [],
+                    "errors": [],
+                    "grpc": ["auth"],
+                    "media": ["db"],
+                    "plugins": ["config"],
                 },
                 indent=2,
             )
