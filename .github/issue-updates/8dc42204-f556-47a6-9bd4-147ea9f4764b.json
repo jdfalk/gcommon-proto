@@ -1,0 +1,13 @@
+{
+  "action": "create",
+  "title": "Dependency management implementation",
+  "body": "Add audit, optimization, security scanning, version policy",
+  "labels": ["dependencies", "security"],
+  "guid": "8dc42204-f556-47a6-9bd4-147ea9f4764b",
+  "legacy_guid": "create-dependency-management-implementation-2025-08-11",
+  "created_at": "2025-08-11T15:39:27.000Z",
+  "processed_at": null,
+  "failed_at": null,
+  "sequence": 0,
+  "parent_guid": null
+}

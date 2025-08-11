@@ -4,18 +4,17 @@
 
 """Dependency metrics collection utilities.
 
-This module contains skeleton code for gathering performance metrics
-related to project dependencies.  The goal is to evaluate the impact of
-dependencies on build times, binary sizes, and runtime performance.
-
-The actual measurement logic is unimplemented.  Each function includes a
-detailed docstring describing the intended behavior and is marked with a
-TODO comment so future contributors know where to add real logic.
+This module gathers performance metrics related to project dependencies.
+The goal is to evaluate the impact of dependencies on build times,
+binary sizes, and runtime performance.
 """
 
 from __future__ import annotations
 
 from dataclasses import dataclass, field
+import json
+import subprocess
+import time
 from pathlib import Path
 from typing import Dict, List, Optional
 
@@ -42,29 +41,37 @@ class DependencyMetricsCollector:
     # ------------------------------------------------------------------
 
     def measure_go_build_time(self) -> None:
-        """Measure the time required to build Go modules.
+        """Measure the time required to build Go modules."""
 
-        TODO
-        ----
-        Implement benchmarking logic that records the time taken to
-        compile Go modules.  Consider using ``go test -c`` or similar
-        techniques and record results in :attr:`results`.
-        """
-
-        # TODO: implement Go build time measurement
+        start = time.time()
+        subprocess.run(
+            ["go", "build", "./..."],
+            cwd=self.root,
+            stdout=subprocess.DEVNULL,
+            stderr=subprocess.DEVNULL,
+            check=False,
+        )
+        duration = time.time() - start
+        self.results.append(
+            MetricRecord("go", "build_time", duration, "s")
+        )
         return None
 
     def measure_node_install_time(self) -> None:
-        """Measure installation time for Node packages.
+        """Measure installation time for Node packages."""
 
-        TODO
-        ----
-        Capture the time required for ``npm install`` or ``npm ci`` and
-        record it as a metric.  This helps identify dependencies that
-        significantly slow down setup processes.
-        """
-
-        # TODO: implement Node install time measurement
+        start = time.time()
+        subprocess.run(
+            ["npm", "install", "--ignore-scripts"],
+            cwd=self.root,
+            stdout=subprocess.DEVNULL,
+            stderr=subprocess.DEVNULL,
+            check=False,
+        )
+        duration = time.time() - start
+        self.results.append(
+            MetricRecord("node", "install_time", duration, "s")
+        )
         return None
 
     # ------------------------------------------------------------------
@@ -72,27 +79,41 @@ class DependencyMetricsCollector:
     # ------------------------------------------------------------------
 
     def measure_go_binary_sizes(self) -> None:
-        """Measure sizes of compiled Go binaries.
+        """Measure sizes of compiled Go binaries."""
 
-        TODO
-        ----
-        Build representative binaries and record their sizes.  Use this
-        to estimate the impact of dependencies on final artifacts.
-        """
-
-        # TODO: implement Go binary size measurement
+        out = self.root / "_metric_bin"
+        subprocess.run(
+            ["go", "build", "-o", str(out), "./..."],
+            cwd=self.root,
+            stdout=subprocess.DEVNULL,
+            stderr=subprocess.DEVNULL,
+            check=False,
+        )
+        if out.exists():
+            size = out.stat().st_size
+            self.results.append(
+                MetricRecord("go", "binary_size", float(size), "bytes")
+            )
+            out.unlink()
         return None
 
     def measure_node_bundle_sizes(self) -> None:
-        """Measure sizes of bundled Node.js artifacts.
+        """Measure sizes of bundled Node.js artifacts."""
 
-        TODO
-        ----
-        Integrate with build tools like webpack or esbuild to measure
-        bundle sizes.  The results should be stored in :attr:`results`.
-        """
-
-        # TODO: implement Node bundle size measurement
+        subprocess.run(
+            ["npm", "run", "build"],
+            cwd=self.root,
+            stdout=subprocess.DEVNULL,
+            stderr=subprocess.DEVNULL,
+            check=False,
+        )
+        dist = self.root / "dist"
+        size = 0
+        if dist.exists():
+            size = sum(f.stat().st_size for f in dist.rglob("*") if f.is_file())
+        self.results.append(
+            MetricRecord("node", "bundle_size", float(size), "bytes")
+        )
         return None
 
     # ------------------------------------------------------------------
@@ -100,28 +121,50 @@ class DependencyMetricsCollector:
     # ------------------------------------------------------------------
 
     def benchmark_go_runtime(self) -> None:
-        """Run benchmarks to assess Go runtime performance.
+        """Run benchmarks to assess Go runtime performance."""
 
-        TODO
-        ----
-        Execute ``go test -bench`` or similar benchmarking tools.  Store
-        throughput or latency metrics for later analysis.
-        """
-
-        # TODO: implement Go runtime benchmarking
+        res = subprocess.run(
+            ["go", "test", "-bench=.", "-run", "^$", "./..."],
+            cwd=self.root,
+            capture_output=True,
+            text=True,
+            check=False,
+        )
+        for line in res.stdout.splitlines():
+            parts = line.split()
+            if len(parts) >= 3 and parts[0].startswith("Benchmark"):
+                try:
+                    ns = float(parts[2])
+                except ValueError:
+                    continue
+                self.results.append(
+                    MetricRecord(parts[0], "time_per_op", ns, "ns/op")
+                )
         return None
 
     def benchmark_node_runtime(self) -> None:
-        """Run benchmarks to assess Node runtime performance.
+        """Run benchmarks to assess Node runtime performance."""
 
-        TODO
-        ----
-        Use tools such as ``benchmark.js`` or custom scripts to measure
-        runtime performance of critical paths.  Store metrics including
-        operations per second or memory usage.
-        """
-
-        # TODO: implement Node runtime benchmarking
+        script = (
+            "console.time('b'); for(let i=0;i<1e6;i++); console.timeEnd('b');"
+        )
+        res = subprocess.run(
+            ["node", "-e", script],
+            cwd=self.root,
+            capture_output=True,
+            text=True,
+            check=False,
+        )
+        duration = 0.0
+        for line in res.stdout.splitlines():
+            if line.startswith("b:"):
+                try:
+                    duration = float(line.split()[1])
+                except ValueError:
+                    duration = 0.0
+        self.results.append(
+            MetricRecord("node", "loop_benchmark", duration, "ms")
+        )
         return None
 
     # ------------------------------------------------------------------
@@ -143,15 +186,14 @@ class DependencyMetricsCollector:
         return summary
 
     def save_report(self, path: Path) -> None:
-        """Save metrics summary to *path* in JSON format.
+        """Save metrics summary to *path* in JSON format."""
 
-        TODO
-        ----
-        Serialize the results of :meth:`summarize_metrics` to JSON and
-        write them to disk.
-        """
-
-        # TODO: implement report serialization
+        summary = self.summarize_metrics()
+        data = {
+            dep: [record.__dict__ for record in records]
+            for dep, records in summary.items()
+        }
+        path.write_text(json.dumps(data, indent=2), encoding="utf-8")
         return None
 
 
