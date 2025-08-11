@@ -1,0 +1,13 @@
+{
+  "action": "update",
+  "number": 21,
+  "body": "Implemented memcached cache provider and extended gRPC cache service methods",
+  "labels": ["module:cache", "language:go"],
+  "guid": "64510b7d-21c6-4bc8-8927-2639f3e61e2b",
+  "legacy_guid": "update-issue-21-2025-08-10",
+  "created_at": "2025-08-10T23:47:08.000Z",
+  "processed_at": null,
+  "failed_at": null,
+  "sequence": 0,
+  "parent_guid": null
+}

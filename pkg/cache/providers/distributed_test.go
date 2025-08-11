@@ -1,5 +1,5 @@
 // file: pkg/cache/providers/distributed_test.go
-// version: 1.0.0
+// version: 1.1.0
 // guid: f1a2b3c4-d5e6-47f8-9a0b-1c2d3e4f5a6b
 
 package providers
