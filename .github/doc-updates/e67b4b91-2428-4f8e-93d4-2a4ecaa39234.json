@@ -1,0 +1,16 @@
+{
+  "file": "tasks/07-organization-module-implementation.md",
+  "mode": "append",
+  "content": "Implementation complete: see pkg/organization/manager.go, pkg/organization/grpc/org_service.go",
+  "guid": "e67b4b91-2428-4f8e-93d4-2a4ecaa39234",
+  "created_at": "2025-08-11T15:43:37Z",
+  "options": {
+    "section": null,
+    "after": null,
+    "before": null,
+    "task_id": null,
+    "badge_name": null,
+    "priority": null,
+    "category": null
+  }
+}

@@ -1,0 +1,13 @@
+{
+  "action": "create",
+  "title": "Organization module service layer",
+  "body": "Implement organization and hierarchy managers, gRPC services, and multi-tenancy.",
+  "labels": ["module:organization"],
+  "guid": "3d36913e-7ae9-4338-9698-b27dde7caf4e",
+  "legacy_guid": "create-organization-module-service-layer-2025-08-11",
+  "created_at": "2025-08-11T15:31:01.000Z",
+  "processed_at": null,
+  "failed_at": null,
+  "sequence": 0,
+  "parent_guid": null
+}

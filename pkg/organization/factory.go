@@ -1,5 +1,5 @@
 // file: pkg/organization/factory.go
-// version: 1.1.0
+// version: 1.2.0
 // guid: 2b80b967-fa14-4400-8c4e-cd7d63efd1bd
 
 // Package organization exposes constructors for service implementations.
@@ -13,16 +13,20 @@ import (
 
 // Services groups organization service implementations.
 type Services struct {
-	Tenant    TenantManager
-	Hierarchy HierarchyManager
-	Teams     TeamManager
+	Tenant        TenantManager
+	Hierarchy     HierarchyManager
+	Departments   DepartmentManager
+	Teams         TeamManager
+	Organizations OrganizationManager
 }
 
 // NewServices returns initialized organization service implementations.
 func NewServices() *Services {
 	return &Services{
-		Tenant:    tenant.NewManager(),
-		Hierarchy: hierarchy.NewTree(),
-		Teams:     teams.NewManager(),
+		Tenant:        tenant.NewManager(),
+		Hierarchy:     hierarchy.NewTree(),
+		Departments:   hierarchy.NewDepartmentManager(),
+		Teams:         teams.NewManager(),
+		Organizations: NewManager(),
 	}
 }
