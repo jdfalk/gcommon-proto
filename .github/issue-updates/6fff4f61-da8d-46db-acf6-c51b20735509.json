@@ -1,0 +1,13 @@
+{
+  "action": "create",
+  "title": "Standardize logging across modules",
+  "body": "Implement logging wrappers and structured logging across config, queue, and auth modules to ensure consistent log patterns and correlation.",
+  "labels": ["enhancement", "module:log", "module:config", "module:queue", "module:auth"],
+  "guid": "6fff4f61-da8d-46db-acf6-c51b20735509",
+  "legacy_guid": "create-standardize-logging-across-modules-2025-08-11",
+  "created_at": "2025-08-11T01:17:58.000Z",
+  "processed_at": null,
+  "failed_at": null,
+  "sequence": 0,
+  "parent_guid": null
+}
