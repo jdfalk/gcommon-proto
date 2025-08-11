@@ -1,11 +1,13 @@
 // file: pkg/config/watcher_test.go
-// version: 1.0.1
+// version: 1.1.0
 // guid: 77777777-8888-9999-aaaa-bbbbbbbbbbbb
 
 package config
 
 import (
 	"context"
+	"os"
+	"path/filepath"
 	"sync"
 	"testing"
 	"time"
@@ -96,6 +98,27 @@ func (m *mockProvider) Watch(key string, callback func(interface{})) error {
 }
 
 func (m *mockProvider) Close() error { return nil }
+
+// TestWatchFile ensures callbacks fire when watched file changes.
+func TestWatchFile(t *testing.T) {
+	path := filepath.Join(t.TempDir(), "cfg.yaml")
+	os.WriteFile(path, []byte("a: 1"), 0o600)
+
+	w := NewWatcher(time.Millisecond)
+	done := make(chan struct{})
+	if err := w.WatchFile(path, func() { close(done) }); err != nil {
+		t.Fatalf("WatchFile failed: %v", err)
+	}
+
+	// Trigger change
+	os.WriteFile(path, []byte("a: 2"), 0o600)
+	select {
+	case <-done:
+	case <-time.After(time.Second):
+		t.Fatalf("callback not triggered")
+	}
+	w.Stop()
+}
 
 // TODO:
 //  - Test multiple watchers running concurrently

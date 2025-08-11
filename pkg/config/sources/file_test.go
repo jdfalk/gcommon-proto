@@ -1,12 +1,15 @@
 // file: pkg/config/sources/file_test.go
-// version: 1.0.0
+// version: 1.1.0
 // guid: 9c9e5e3b-5ba4-4fc6-9cb0-97a8821c6f91
 
 package sources
 
 import (
 	"fmt"
+	"net/http"
+	"net/http/httptest"
 	"os"
+	"path/filepath"
 	"testing"
 
 	"github.com/jdfalk/gcommon/pkg/config/formats"
@@ -65,6 +68,42 @@ func TestFileSourceCustomDecoder(t *testing.T) {
 	fs := FileSource{Path: path, Decoder: formats.JSONDecoder{}}
 	if _, err := fs.Load(); err == nil {
 		t.Fatalf("expected decoder error but got nil")
+	}
+}
+
+// TestFileSourceGlob verifies loading multiple files via glob patterns with
+// later files taking precedence.
+func TestFileSourceGlob(t *testing.T) {
+	dir := t.TempDir()
+	f1 := filepath.Join(dir, "a.yaml")
+	os.WriteFile(f1, []byte("x: 1"), 0o600)
+	f2 := filepath.Join(dir, "b.yaml")
+	os.WriteFile(f2, []byte("x: 2"), 0o600)
+
+	fs := FileSource{Paths: []string{filepath.Join(dir, "*.yaml")}}
+	m, err := fs.Load()
+	if err != nil {
+		t.Fatalf("Load failed: %v", err)
+	}
+	if m["x"] != 2 {
+		t.Fatalf("expected last file to win, got %v", m["x"])
+	}
+}
+
+// TestFileSourceRemote verifies loading configuration from an HTTP endpoint.
+func TestFileSourceRemote(t *testing.T) {
+	srv := httptest.NewServer(http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
+		_, _ = w.Write([]byte("a: 1"))
+	}))
+	defer srv.Close()
+
+	fs := FileSource{Paths: []string{srv.URL + "/cfg.yaml"}}
+	m, err := fs.Load()
+	if err != nil {
+		t.Fatalf("Load failed: %v", err)
+	}
+	if fmt.Sprint(m["a"]) != "1" {
+		t.Fatalf("unexpected value: %v", m["a"])
 	}
 }
 

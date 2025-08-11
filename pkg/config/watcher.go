@@ -1,5 +1,5 @@
 // file: pkg/config/watcher.go
-// version: 1.1.0
+// version: 1.2.0
 // guid: 33333333-4444-5555-6666-777777777777
 
 package config
@@ -8,6 +8,8 @@ import (
 	"context"
 	"sync"
 	"time"
+
+	"github.com/fsnotify/fsnotify"
 )
 
 // Watcher monitors configuration changes and notifies callbacks.
@@ -18,6 +20,7 @@ type Watcher struct {
 	stopCh   chan struct{}
 	running  bool
 	watches  map[string][]func(interface{})
+	files    []*fsnotify.Watcher
 	provider Provider
 }
 
@@ -62,12 +65,19 @@ func (w *Watcher) Start(fetch func() (map[string]interface{}, error), apply func
 func (w *Watcher) Stop() {
 	w.mu.Lock()
 	if !w.running {
+		for _, fw := range w.files {
+			_ = fw.Close()
+		}
 		w.mu.Unlock()
 		return
 	}
 	w.running = false
 	close(w.stopCh)
 	w.stopCh = make(chan struct{})
+	for _, fw := range w.files {
+		_ = fw.Close()
+	}
+	w.files = nil
 	w.mu.Unlock()
 }
 
@@ -85,6 +95,44 @@ func (w *Watcher) Watch(ctx context.Context, key string, cb func(interface{})) e
 			f(v)
 		}
 	})
+}
+
+// WatchFile registers a callback that is invoked when the specified file
+// changes. The callback receives no parameters; it is expected that the caller
+// will reload configuration as needed. Multiple WatchFile calls may be used to
+// monitor several files. The watcher is automatically closed on Stop/Close.
+func (w *Watcher) WatchFile(path string, cb func()) error {
+	fw, err := fsnotify.NewWatcher()
+	if err != nil {
+		return err
+	}
+	if err := fw.Add(path); err != nil {
+		fw.Close()
+		return err
+	}
+
+	w.mu.Lock()
+	w.files = append(w.files, fw)
+	w.mu.Unlock()
+
+	go func() {
+		for {
+			select {
+			case ev, ok := <-fw.Events:
+				if !ok {
+					return
+				}
+				if ev.Op&(fsnotify.Write|fsnotify.Create|fsnotify.Remove|fsnotify.Rename) != 0 {
+					cb()
+				}
+			case <-fw.Errors:
+				// ignore
+			case <-w.stopCh:
+				return
+			}
+		}
+	}()
+	return nil
 }
 
 func (w *Watcher) copyCallbacks(key string) []func(interface{}) {
@@ -107,7 +155,6 @@ func (w *Watcher) Close() error {
 }
 
 // TODO:
-//  - Support file system notifications using fsnotify
 //  - Allow per-key watch subscriptions with fine-grained control
 //  - Provide jitter to reduce thundering herd on updates
 //  - Expose metrics for watch latency and error counts
