@@ -1,5 +1,5 @@
 // file: pkg/config/manager.go
-// version: 1.1.0
+// version: 1.2.0
 // guid: 1a9b0cdd-9e19-4dba-89c4-6e4a1a111111
 
 package config
@@ -146,11 +146,15 @@ func (m *Manager) Validate() error {
 // Merge merges additional configurations.
 func (m *Manager) Merge(configs ...Config) error {
 	for _, cfg := range configs {
-		g, err := cfg.GetGlobalConfig()
-		if err != nil {
-			return err
+		mapper, ok := cfg.(interface{ ToMap() map[string]interface{} })
+		if !ok {
+			return fmt.Errorf("config does not support mapping")
 		}
-		_ = g // TODO: merge global config values
+		for k, v := range mapper.ToMap() {
+			if err := m.Set(k, v); err != nil {
+				return err
+			}
+		}
 	}
 	return nil
 }

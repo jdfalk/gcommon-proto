@@ -1,16 +1,29 @@
 // file: pkg/config/formats/toml.go
-// version: 1.0.0
+// version: 1.1.0
 // guid: 11111111-2222-3333-4444-aaaaaaaabbbb
 
 package formats
 
-// TOMLDecoder decodes TOML configuration data.
+import "github.com/pelletier/go-toml/v2"
+
+// TOMLDecoder decodes TOML configuration data using the
+// `github.com/pelletier/go-toml/v2` package. The decoder converts raw
+// TOML bytes into a generic `map[string]interface{}` for further
+// processing by the configuration system.
+//
+// This implementation intentionally keeps the returned structure very
+// simple to avoid imposing strong typing assumptions on callers. The
+// resulting map can later be mapped to strongly typed structs if
+// required by specific modules.
 type TOMLDecoder struct{}
 
 // Decode converts TOML bytes into a map.
 func (TOMLDecoder) Decode(b []byte) (map[string]interface{}, error) {
-	// TODO: implement TOML decoding
-	return nil, nil
+	var m map[string]interface{}
+	if err := toml.Unmarshal(b, &m); err != nil {
+		return nil, err
+	}
+	return m, nil
 }
 
 // TODO:
