@@ -1,5 +1,5 @@
 // file: pkg/cache/providers/memory_test.go
-// version: 1.0.0
+// version: 1.1.0
 // guid: d9d2a025-ce4e-495e-b42d-d946829a7497
 
 package providers
@@ -10,6 +10,7 @@ import (
 	"time"
 
 	"github.com/jdfalk/gcommon/pkg/cache/policies"
+	cachetypes "github.com/jdfalk/gcommon/pkg/cache/types"
 )
 
 // TestMemoryCache_GetSet verifies basic get and set behavior.
@@ -90,5 +91,62 @@ func TestMemoryCache_LFUEviction(t *testing.T) {
 	}
 	if val, _ := cache.Get(ctx, "b"); val != nil {
 		t.Fatalf("expected 'b' to be evicted, got %v", val)
+	}
+}
+
+// TestMemoryCache_AdvancedOps verifies batch and counter operations.
+func TestMemoryCache_AdvancedOps(t *testing.T) {
+	cache := NewMemoryCache(0, policies.NewLRU())
+	ctx := context.Background()
+
+	// SetMultiple and GetMultiple
+	items := map[string]cachetypes.CacheItem{
+		"a": {Value: []byte("1"), TTL: 0},
+		"b": {Value: []byte("2"), TTL: 0},
+	}
+	if err := cache.SetMultiple(ctx, items); err != nil {
+		t.Fatalf("set multiple: %v", err)
+	}
+	vals, err := cache.GetMultiple(ctx, []string{"a", "b", "c"})
+	if err != nil {
+		t.Fatalf("get multiple: %v", err)
+	}
+	if len(vals) != 2 {
+		t.Fatalf("expected 2 values, got %d", len(vals))
+	}
+
+	// Increment/Decrement
+	if v, err := cache.Increment(ctx, "counter", 2); err != nil || v != 2 {
+		t.Fatalf("increment: %v %d", err, v)
+	}
+	if v, err := cache.Decrement(ctx, "counter", 1); err != nil || v != 1 {
+		t.Fatalf("decrement: %v %d", err, v)
+	}
+
+	// Keys
+	keys, err := cache.Keys(ctx, "")
+	if err != nil || len(keys) < 3 {
+		t.Fatalf("keys: %v len=%d", err, len(keys))
+	}
+
+	// TouchExpiration
+	if err := cache.TouchExpiration(ctx, "a", time.Millisecond); err != nil {
+		t.Fatalf("touch: %v", err)
+	}
+	time.Sleep(2 * time.Millisecond)
+	if v, _ := cache.Get(ctx, "a"); v != nil {
+		t.Fatalf("expected 'a' expired")
+	}
+
+	// DeleteMultiple and Flush
+	if err := cache.DeleteMultiple(ctx, []string{"b", "counter"}); err != nil {
+		t.Fatalf("delete multiple: %v", err)
+	}
+	if err := cache.Flush(ctx); err != nil {
+		t.Fatalf("flush: %v", err)
+	}
+	keys, _ = cache.Keys(ctx, "")
+	if len(keys) != 0 {
+		t.Fatalf("expected empty cache after flush")
 	}
 }

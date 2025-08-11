@@ -1,5 +1,5 @@
 // file: pkg/cache/factory.go
-// version: 1.0.0
+// version: 1.1.0
 // guid: d54fe3da-43e0-4e13-8201-017a79499f05
 
 package cache
@@ -15,6 +15,7 @@ import (
 const (
 	ProviderMemory      = "memory"
 	ProviderRedis       = "redis"
+	ProviderMemcached   = "memcached"
 	ProviderDistributed = "distributed"
 )
 
@@ -25,6 +26,8 @@ func New(provider string) (Cache, error) {
 		return providers.NewMemoryCache(0, policies.NewLRU()), nil
 	case ProviderRedis:
 		return providers.NewRedisCache(nil), nil
+	case ProviderMemcached:
+		return providers.NewMemcachedCache(nil), nil
 	case ProviderDistributed:
 		return providers.NewDistributedCache(nil), nil
 	default:

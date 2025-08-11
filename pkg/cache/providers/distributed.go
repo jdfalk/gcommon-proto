@@ -1,5 +1,5 @@
 // file: pkg/cache/providers/distributed.go
-// version: 1.0.0
+// version: 1.1.0
 // guid: d3e4f5a6-b7c8-49d0-1e2f-3a4b5c6d7e8f
 
 package providers
@@ -9,6 +9,7 @@ import (
 	"time"
 
 	cachepb "github.com/jdfalk/gcommon/pkg/cache/proto"
+	cachetypes "github.com/jdfalk/gcommon/pkg/cache/types"
 	gproto "google.golang.org/protobuf/proto"
 )
 
@@ -20,6 +21,14 @@ type Node interface {
 	Exists(ctx context.Context, key string) (bool, error)
 	Clear(ctx context.Context) error
 	GetStats() *cachepb.CacheStats
+	GetMultiple(ctx context.Context, keys []string) (map[string]any, error)
+	SetMultiple(ctx context.Context, items map[string]cachetypes.CacheItem) error
+	DeleteMultiple(ctx context.Context, keys []string) error
+	Increment(ctx context.Context, key string, n int64) (int64, error)
+	Decrement(ctx context.Context, key string, n int64) (int64, error)
+	Keys(ctx context.Context, pattern string) ([]string, error)
+	Flush(ctx context.Context) error
+	TouchExpiration(ctx context.Context, key string, ttl time.Duration) error
 }
 
 // DistributedCache coordinates multiple cache nodes.
@@ -107,30 +116,84 @@ func (d *DistributedCache) InvalidatePattern(ctx context.Context, pattern string
 	return nil
 }
 
-// BulkGet retrieves multiple keys across nodes.
-func (d *DistributedCache) BulkGet(ctx context.Context, keys []string) (map[string]any, error) {
+// GetMultiple retrieves keys from first node containing them.
+func (d *DistributedCache) GetMultiple(ctx context.Context, keys []string) (map[string]any, error) {
 	result := make(map[string]any)
-	for _, key := range keys {
-		v, err := d.Get(ctx, key)
+	for _, k := range keys {
+		v, err := d.Get(ctx, k)
 		if err != nil {
 			return nil, err
 		}
 		if v != nil {
-			result[key] = v
+			result[k] = v
 		}
 	}
 	return result, nil
 }
 
-// BulkSet stores items on all nodes.
-type CacheItem struct {
-	Value any
-	TTL   time.Duration
-}
-
-func (d *DistributedCache) BulkSet(ctx context.Context, items map[string]CacheItem) error {
+// SetMultiple stores items on all nodes.
+func (d *DistributedCache) SetMultiple(ctx context.Context, items map[string]cachetypes.CacheItem) error {
 	for k, it := range items {
 		if err := d.Set(ctx, k, it.Value, it.TTL); err != nil {
+			return err
+		}
+	}
+	return nil
+}
+
+// DeleteMultiple removes keys from all nodes.
+func (d *DistributedCache) DeleteMultiple(ctx context.Context, keys []string) error {
+	for _, k := range keys {
+		if err := d.Delete(ctx, k); err != nil {
+			return err
+		}
+	}
+	return nil
+}
+
+// Increment increments across nodes; uses first node.
+func (d *DistributedCache) Increment(ctx context.Context, key string, n int64) (int64, error) {
+	if len(d.nodes) == 0 {
+		return 0, nil
+	}
+	return d.nodes[0].Increment(ctx, key, n)
+}
+
+// Decrement decrements across nodes; uses first node.
+func (d *DistributedCache) Decrement(ctx context.Context, key string, n int64) (int64, error) {
+	if len(d.nodes) == 0 {
+		return 0, nil
+	}
+	return d.nodes[0].Decrement(ctx, key, n)
+}
+
+// Keys aggregates keys from all nodes.
+func (d *DistributedCache) Keys(ctx context.Context, pattern string) ([]string, error) {
+	var keys []string
+	for _, n := range d.nodes {
+		ks, err := n.Keys(ctx, pattern)
+		if err != nil {
+			return nil, err
+		}
+		keys = append(keys, ks...)
+	}
+	return keys, nil
+}
+
+// Flush flushes all nodes.
+func (d *DistributedCache) Flush(ctx context.Context) error {
+	for _, n := range d.nodes {
+		if err := n.Flush(ctx); err != nil {
+			return err
+		}
+	}
+	return nil
+}
+
+// TouchExpiration updates TTL on all nodes.
+func (d *DistributedCache) TouchExpiration(ctx context.Context, key string, ttl time.Duration) error {
+	for _, n := range d.nodes {
+		if err := n.TouchExpiration(ctx, key, ttl); err != nil {
 			return err
 		}
 	}
