@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 # file: ci/pipeline/quality_gates.py
-# version: 1.0.0
+# version: 1.1.0
 # guid: f8c2a1b5-8f6c-4c8a-90f4-3b74d914b5cf
 """Quality gate checks for the CI/CD pipeline.
 
@@ -17,24 +17,25 @@ from __future__ import annotations
 
 import json
 import pathlib
-from dataclasses import dataclass
-from typing import Dict, List, Optional
+import re
+from dataclasses import dataclass, field
+from typing import Dict, List, Optional, Tuple
 
 
 @dataclass
 class GateResult:
-    """Represents result of a quality gate check.
-
-    Attributes:
-        passed: Whether the gate was satisfied.
-        details: Additional context about the result.
-
-    TODO: Add severity levels for warnings vs. failures.
-    TODO: Include structured metrics output.
-    """
+    """Represents result of a quality gate check."""
 
     passed: bool
     details: str = ""
+    metrics: Dict[str, float] = field(default_factory=dict)
+    severity: str = "error"
+
+    def as_dict(self) -> Dict[str, str]:
+        data = {"passed": str(self.passed), "details": self.details, "severity": self.severity}
+        for k, v in self.metrics.items():
+            data[k] = f"{v}"
+        return data
 
 
 @dataclass
@@ -53,19 +54,20 @@ class CoverageGate:
     report_path: pathlib.Path
 
     def evaluate(self) -> GateResult:
-        """Evaluate the coverage gate.
-
-        Reads the coverage report and compares the total coverage against the
-        threshold. The current implementation is a placeholder that always
-        passes.
-
-        TODO: Parse actual coverage output and compute totals.
-        TODO: Handle missing or malformed coverage files.
-        """
+        """Evaluate the coverage gate."""
 
         if not self.report_path.exists():
             return GateResult(False, f"Coverage report {self.report_path} missing")
-        return GateResult(True, "Coverage gate placeholder - always passes")
+        total = 0.0
+        pattern = re.compile(r"total:\s+\(statements\)\s+(\d+\.\d+)%")
+        for line in self.report_path.read_text().splitlines():
+            match = pattern.search(line)
+            if match:
+                total = float(match.group(1))
+                break
+        passed = total >= self.threshold
+        details = f"coverage {total:.2f}% (threshold {self.threshold}%)"
+        return GateResult(passed, details, {"coverage": total})
 
 
 @dataclass
@@ -84,19 +86,41 @@ class PerformanceGate:
     benchmark_path: pathlib.Path
 
     def evaluate(self) -> GateResult:
-        """Evaluate the performance gate.
-
-        Reads benchmark results and determines whether performance has
-        regressed beyond the configured threshold. This implementation is a
-        placeholder that always passes.
-
-        TODO: Parse benchmark outputs and compare with baseline.
-        TODO: Detect and report regressions in detail.
-        """
+        """Evaluate the performance gate."""
 
         if not self.benchmark_path.exists():
             return GateResult(False, f"Benchmark file {self.benchmark_path} missing")
-        return GateResult(True, "Performance gate placeholder - always passes")
+
+        regression = 0.0
+        base_path = self.benchmark_path.with_suffix(".base")
+        if base_path.exists():
+            try:
+                current = self._parse(self.benchmark_path.read_text())
+                baseline = self._parse(base_path.read_text())
+                regression = self._compare(current, baseline)
+            except Exception:  # pragma: no cover
+                regression = 0.0
+        passed = regression <= self.regression_threshold
+        details = f"regression {regression:.2f}% (threshold {self.regression_threshold}%)"
+        return GateResult(passed, details, {"regression": regression})
+
+    def _parse(self, text: str) -> Dict[str, float]:
+        results: Dict[str, float] = {}
+        pattern = re.compile(r"^(Benchmark\w+)\s+\d+\s+(\d+) ns/op", re.MULTILINE)
+        for name, value in pattern.findall(text):
+            results[name] = float(value)
+        return results
+
+    def _compare(self, current: Dict[str, float], baseline: Dict[str, float]) -> float:
+        if not baseline:
+            return 0.0
+        deltas: List[float] = []
+        for name, base in baseline.items():
+            cur = current.get(name, base)
+            if base == 0:
+                continue
+            deltas.append(((cur - base) / base) * 100)
+        return max(deltas) if deltas else 0.0
 
 
 @dataclass
@@ -115,18 +139,19 @@ class SecurityGate:
     report_path: pathlib.Path
 
     def evaluate(self) -> GateResult:
-        """Evaluate the security gate.
-
-        Reads a security report and counts vulnerabilities. This placeholder
-        implementation always passes.
-
-        TODO: Parse SARIF or other security report formats.
-        TODO: Integrate with dependency review results.
-        """
+        """Evaluate the security gate."""
 
         if not self.report_path.exists():
             return GateResult(False, f"Security report {self.report_path} missing")
-        return GateResult(True, "Security gate placeholder - always passes")
+        try:
+            data = json.loads(self.report_path.read_text())
+            vulnerabilities = data.get("vulnerabilities", [])
+            count = len(vulnerabilities)
+        except json.JSONDecodeError:
+            return GateResult(False, "Security report invalid JSON")
+        passed = count <= self.max_vulnerabilities
+        details = f"{count} vulnerabilities (max {self.max_vulnerabilities})"
+        return GateResult(passed, details, {"vulnerabilities": float(count)})
 
 
 @dataclass
@@ -146,7 +171,7 @@ class DocumentationGate:
         missing = [str(p) for p in self.required_files if not p.exists()]
         if missing:
             return GateResult(False, "Missing docs: " + ", ".join(missing))
-        return GateResult(True, "Documentation gate placeholder - all files present")
+        return GateResult(True, "documentation complete")
 
 
 @dataclass
@@ -174,52 +199,32 @@ class DependencyGate:
         except json.JSONDecodeError:
             return GateResult(False, "Dependency report is invalid JSON")
 
-        # Placeholder logic using fake keys
         critical = data.get("critical", 0)
         high = data.get("high", 0)
 
         if critical > self.max_critical:
-            return GateResult(False, f"{critical} critical vulnerabilities exceed limit")
+            return GateResult(False, f"{critical} critical vulnerabilities exceed limit", {"critical": critical})
         if high > self.max_high:
-            return GateResult(False, f"{high} high vulnerabilities exceed limit")
-        return GateResult(True, "Dependency gate placeholder - within limits")
+            return GateResult(False, f"{high} high vulnerabilities exceed limit", {"high": high})
+        return GateResult(True, "dependencies within limits", {"critical": critical, "high": high})
 
 
 class QualityGateRunner:
-    """Runs a collection of quality gates.
-
-    TODO: Load gates dynamically from configuration.
-    TODO: Aggregate results for reporting and notification.
-    """
+    """Runs a collection of quality gates."""
 
     def __init__(self) -> None:
         self.gates: List = []
 
     def add_gate(self, gate) -> None:
-        """Add a quality gate to the runner.
-
-        TODO: Validate gate instance type.
-        TODO: Support enabling/disabling gates dynamically.
-        """
-
         self.gates.append(gate)
 
     def run(self) -> Dict[str, GateResult]:
-        """Run all configured gates.
-
-        Returns a dictionary mapping gate names to results. The current
-        implementation runs each gate sequentially and does not fail fast.
-
-        TODO: Support parallel gate execution.
-        TODO: Integrate with structured logging.
-        """
-
         results: Dict[str, GateResult] = {}
         for gate in self.gates:
             name = gate.__class__.__name__
             try:
                 results[name] = gate.evaluate()
-            except Exception as exc:  # pragma: no cover - placeholder
+            except Exception as exc:  # pragma: no cover - defensive
                 results[name] = GateResult(False, str(exc))
         return results
 

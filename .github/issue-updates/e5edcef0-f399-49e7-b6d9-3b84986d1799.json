@@ -1,0 +1,13 @@
+{
+  "action": "create",
+  "title": "Enhance CI/CD pipeline",
+  "body": "Implement advanced pipeline features and modules",
+  "labels": ["ci-cd"],
+  "guid": "e5edcef0-f399-49e7-b6d9-3b84986d1799",
+  "legacy_guid": "create-enhance-ci-cd-pipeline-2025-08-11",
+  "created_at": "2025-08-11T15:37:47.000Z",
+  "processed_at": null,
+  "failed_at": null,
+  "sequence": 0,
+  "parent_guid": null
+}

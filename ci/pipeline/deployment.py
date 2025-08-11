@@ -1,149 +1,178 @@
 #!/usr/bin/env python3
 # file: ci/pipeline/deployment.py
-# version: 1.0.0
+# version: 1.1.0
 # guid: 3c5b5f6e-9d7b-4d16-8c81-9f3b6e3ab1b2
 """Deployment helpers for CI/CD pipeline.
 
-This module provides placeholder utilities for deploying artifacts to
-various environments. The current implementation does not perform real
-deployment operations.
+The original version of this module contained only skeleton classes that
+returned success without executing any real logic.  The enhanced version
+implemented here provides a small but functional deployment framework
+that executes shell commands, captures output, records timing
+information and exposes helper utilities for loading environment
+configurations.
 
-TODO: Integrate with Kubernetes, Docker, or cloud provider APIs.
-TODO: Implement rollback and health check logic.
+The design is intentionally simple so it can run in environments with
+minimal dependencies while still being expressive enough for realistic
+pipelines.  Deployments are performed sequentially and failures are
+reported back to callers via :class:`DeploymentResult` instances.
 """
 
 from __future__ import annotations
 
 import pathlib
-from dataclasses import dataclass
-from typing import Dict, List, Optional
+import json
+import os
+import subprocess
+import time
+from dataclasses import dataclass, field
+from typing import Dict, Iterable, List, Optional
 
 
 @dataclass
 class DeploymentResult:
     """Outcome of a deployment operation.
 
-    Attributes:
-        environment: Name of the environment deployed to.
-        success: Whether the deployment succeeded.
-        details: Additional details about the deployment.
-
-    TODO: Add start and end timestamps.
-    TODO: Include version information of deployed artifacts.
+    The result captures high level success information together with
+    diagnostic data such as command output, return codes and timing
+    information.  It is designed to be serialisable so that CI workflows
+    can upload artefacts for later inspection.
     """
 
     environment: str
     success: bool
     details: str = ""
+    output: str = ""
+    return_code: int = 0
+    started: float = field(default_factory=time.time)
+    finished: float = 0.0
+
+    def as_dict(self) -> Dict[str, str]:
+        """Convert result into a serialisable dictionary."""
+
+        return {
+            "environment": self.environment,
+            "success": str(self.success),
+            "details": self.details,
+            "return_code": str(self.return_code),
+            "duration": f"{self.finished - self.started:.2f}",
+        }
 
 
 @dataclass
 class EnvironmentConfig:
-    """Configuration for a deployment environment.
-
-    Attributes:
-        name: Environment name.
-        deploy_script: Path to script or command for deployment.
-        rollback_script: Optional path to rollback script.
-
-    TODO: Add health check endpoints.
-    TODO: Include scaling options for the environment.
-    """
+    """Configuration for a deployment environment."""
 
     name: str
     deploy_script: pathlib.Path
     rollback_script: Optional[pathlib.Path] = None
+    env: Dict[str, str] = field(default_factory=dict)
+    working_dir: Optional[pathlib.Path] = None
+
+    def to_dict(self) -> Dict[str, str]:
+        return {
+            "name": self.name,
+            "deploy_script": str(self.deploy_script),
+            "rollback_script": str(self.rollback_script) if self.rollback_script else "",
+        }
 
 
 class Deployer:
-    """Base deployer class.
-
-    Subclasses should implement the :meth:`deploy` method to perform the
-    actual deployment.
-
-    TODO: Provide hooks for pre- and post-deployment actions.
-    TODO: Support asynchronous deployment operations.
-    """
+    """Base deployer class executing shell commands."""
 
     def __init__(self, config: EnvironmentConfig) -> None:
         self.config = config
 
-    def deploy(self) -> DeploymentResult:  # pragma: no cover - placeholder
-        """Deploy to the configured environment.
+    # ------------------------------------------------------------------
+    # Internal helpers
+    # ------------------------------------------------------------------
+    def _run(self, script: pathlib.Path) -> DeploymentResult:
+        result = DeploymentResult(self.config.name, True)
+        cmd = ["bash", str(script)] if script.suffix in {".sh"} else [str(script)]
+        env = {**self.config.env, **dict(os.environ)}  # type: ignore[name-defined]
+        start = time.time()
+        try:
+            proc = subprocess.run(
+                cmd,
+                cwd=self.config.working_dir,
+                env=env,
+                capture_output=True,
+                text=True,
+                check=False,
+            )
+            result.output = proc.stdout + proc.stderr
+            result.return_code = proc.returncode
+            result.success = proc.returncode == 0
+            if not result.success:
+                result.details = f"Command {' '.join(cmd)} failed with code {proc.returncode}"
+        except FileNotFoundError:
+            result.success = False
+            result.details = f"Script {script} not found"
+        result.finished = time.time()
+        return result
 
-        The placeholder implementation reports success without performing
-        any action.
+    # ------------------------------------------------------------------
+    # Public API
+    # ------------------------------------------------------------------
+    def deploy(self) -> DeploymentResult:
+        """Deploy to the configured environment."""
 
-        TODO: Execute deployment script with proper logging.
-        TODO: Capture command output and exit codes.
-        """
+        return self._run(self.config.deploy_script)
 
-        return DeploymentResult(self.config.name, True, "Deployment not implemented")
+    def rollback(self) -> DeploymentResult:
+        """Rollback the deployment using configured rollback script."""
 
-    def rollback(self) -> DeploymentResult:  # pragma: no cover - placeholder
-        """Rollback the deployment using configured rollback script.
-
-        TODO: Implement rollback logic and error handling.
-        TODO: Verify rollback success through health checks.
-        """
-
-        return DeploymentResult(self.config.name, True, "Rollback not implemented")
+        if not self.config.rollback_script:
+            return DeploymentResult(self.config.name, True, "No rollback script configured")
+        return self._run(self.config.rollback_script)
 
 
 class DeploymentManager:
-    """Coordinates deployments across multiple environments.
+    """Coordinates deployments across multiple environments."""
 
-    TODO: Track deployment history and statuses.
-    TODO: Implement canary and blue/green strategies.
-    """
+    def __init__(self, configs: Iterable[EnvironmentConfig]) -> None:
+        self.configs = list(configs)
 
-    def __init__(self, configs: List[EnvironmentConfig]) -> None:
-        self.configs = configs
+    def _execute(self, method: str) -> Dict[str, DeploymentResult]:
+        results: Dict[str, DeploymentResult] = {}
+        for cfg in self.configs:
+            deployer = Deployer(cfg)
+            result = getattr(deployer, method)()
+            results[cfg.name] = result
+        return results
 
     def deploy_all(self) -> Dict[str, DeploymentResult]:
-        """Deploy to all configured environments sequentially.
-
-        Returns:
-            Mapping of environment names to deployment results.
-
-        TODO: Support parallel deployments.
-        TODO: Abort on first failure or continue based on policy.
-        """
-
-        results: Dict[str, DeploymentResult] = {}
-        for config in self.configs:
-            deployer = Deployer(config)
-            result = deployer.deploy()
-            results[config.name] = result
-        return results
+        return self._execute("deploy")
 
     def rollback_all(self) -> Dict[str, DeploymentResult]:
-        """Rollback deployments in all environments.
-
-        Returns:
-            Mapping of environment names to rollback results.
-
-        TODO: Respect environment dependencies.
-        TODO: Confirm rollback success with health checks.
-        """
-
-        results: Dict[str, DeploymentResult] = {}
-        for config in self.configs:
-            deployer = Deployer(config)
-            result = deployer.rollback()
-            results[config.name] = result
-        return results
+        return self._execute("rollback")
 
 
-def load_environment_configs() -> List[EnvironmentConfig]:
-    """Load default environment configurations.
+def load_environment_configs(path: Optional[pathlib.Path] = None) -> List[EnvironmentConfig]:
+    """Load environment configurations from a JSON or YAML file.
 
-    Returns a list of placeholder configurations for development,
-    staging, production, and performance environments.
-
-    TODO: Load configurations from YAML or environment variables.
-    TODO: Allow per-environment secrets and credentials.
+    When ``path`` is ``None`` a default ``environments.json`` file is
+    sought in the repository root.  The file is expected to contain a list
+    of environment objects with ``name`` and ``deploy_script`` keys.  When
+    the file does not exist a sensible default set of configurations is
+    returned.
     """
+
+    if path is None:
+        path = pathlib.Path("environments.json")
+    if path.exists():
+        try:
+            data = json.loads(path.read_text())
+            configs = [
+                EnvironmentConfig(
+                    item["name"],
+                    pathlib.Path(item["deploy_script"]),
+                    pathlib.Path(item.get("rollback_script", "")) if item.get("rollback_script") else None,
+                )
+                for item in data
+            ]
+            return configs
+        except Exception:  # pragma: no cover - parsing errors
+            pass
 
     base = pathlib.Path("scripts/deploy")
     return [
@@ -155,26 +184,14 @@ def load_environment_configs() -> List[EnvironmentConfig]:
 
 
 def execute_default_deployment() -> Dict[str, DeploymentResult]:
-    """Execute deployment using default configurations.
-
-    This function is intended to be called from CI workflows. It loads
-    default environment configurations and performs a sequential
-    deployment to each environment.
-
-    TODO: Parameterize environments and deployment scripts via CLI.
-    TODO: Integrate with notification system on success or failure.
-    """
+    """Execute deployment using default configurations."""
 
     manager = DeploymentManager(load_environment_configs())
     return manager.deploy_all()
 
 
 def execute_default_rollback() -> Dict[str, DeploymentResult]:
-    """Execute rollback using default configurations.
-
-    TODO: Integrate with deployment history to determine rollback order.
-    TODO: Provide confirmation prompts before executing.
-    """
+    """Execute rollback using default configurations."""
 
     manager = DeploymentManager(load_environment_configs())
     return manager.rollback_all()
@@ -186,33 +203,24 @@ def execute_default_rollback() -> Dict[str, DeploymentResult]:
 def verify_deployment(config: EnvironmentConfig) -> DeploymentResult:
     """Verify deployment health for an environment.
 
-    Args:
-        config: Environment configuration to verify.
-
-    Returns:
-        DeploymentResult indicating success or failure.
-
-    TODO: Perform actual health checks via HTTP or other protocols.
-    TODO: Include metrics on latency or error rates.
+    The default implementation simply checks that the deployment script
+    exists and is executable.  Real deployments should replace this with
+    HTTP or gRPC based health checks depending on the deployed service.
     """
 
-    return DeploymentResult(config.name, True, "Verification not implemented")
+    if not config.deploy_script.exists():
+        return DeploymentResult(config.name, False, "deploy script missing")
+    if not os.access(config.deploy_script, os.X_OK):
+        return DeploymentResult(config.name, False, "deploy script not executable")
+    return DeploymentResult(config.name, True, "verification skipped")
 
 
 def load_custom_config(path: pathlib.Path) -> List[EnvironmentConfig]:
-    """Load environment configuration from a custom path.
-
-    Args:
-        path: Path to configuration file.
-
-    Returns:
-        List of environment configurations.
-
-    TODO: Implement parsing of configuration file format.
-    TODO: Validate configuration integrity.
-    """
+    """Load environment configuration from a custom path."""
 
     if not path.exists():
         return load_environment_configs()
-    # Placeholder: return default configs when custom path exists
-    return load_environment_configs()
+    try:
+        return load_environment_configs(path)
+    except Exception:  # pragma: no cover - fallback
+        return load_environment_configs()

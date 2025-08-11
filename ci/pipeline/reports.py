@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 # file: ci/pipeline/reports.py
-# version: 1.0.0
+# version: 1.1.0
 # guid: 2a96b81c-3a5f-4c5a-b6e5-5774fd4e0c11
 """Reporting utilities for the pipeline.
 
@@ -14,22 +14,20 @@ TODO: Add Slack and email notification backends.
 
 from __future__ import annotations
 
+import email.message
+import json
+import os
 import pathlib
+import smtplib
+import urllib.error
+import urllib.request
 from dataclasses import dataclass
-from typing import Dict, Iterable, List
+from typing import Dict, Iterable, List, Mapping, Optional
 
 
 @dataclass
 class ReportSection:
-    """Represents a section within a report.
-
-    Attributes:
-        title: Title of the section.
-        content: Lines of text forming the section body.
-
-    TODO: Support rich text formatting.
-    TODO: Include metadata for rendering.
-    """
+    """Represents a section within a report."""
 
     title: str
     content: List[str]
@@ -49,13 +47,7 @@ class Report:
     sections: List[ReportSection]
 
     def render(self) -> str:
-        """Render the report to a Markdown string.
-
-        The placeholder implementation concatenates sections using headings.
-
-        TODO: Add templating system for custom rendering.
-        TODO: Include summary information and metadata.
-        """
+        """Render the report to a Markdown string."""
 
         lines: List[str] = []
         for section in self.sections:
@@ -88,70 +80,73 @@ def generate_summary_report(results: Dict[str, Dict[str, str]]) -> Report:
 
 
 def save_report(report: Report, path: pathlib.Path) -> None:
-    """Save a rendered report to a file.
-
-    Args:
-        report: Report instance to save.
-        path: Path to output file.
-
-    TODO: Handle file I/O errors gracefully.
-    TODO: Support multiple output formats.
-    """
+    """Save a rendered report to a file."""
 
     path.write_text(report.render())
 
 
 def send_github_comment(issue_number: int, body: str) -> None:
-    """Send a comment to a GitHub issue or pull request.
+    """Send a comment to a GitHub issue or pull request."""
 
-    This is a placeholder that only prints to stdout.
-
-    TODO: Implement GitHub API call using requests or a client library.
-    TODO: Handle authentication and rate limiting.
-    """
-
-    print(f"Would post to GitHub issue {issue_number}:\n{body}")
+    token = os.getenv("GITHUB_TOKEN")
+    repo = os.getenv("GITHUB_REPOSITORY")
+    if not token or not repo:
+        print("GitHub token or repository not configured - skipping comment")
+        return
+    owner, name = repo.split("/")
+    url = f"https://api.github.com/repos/{owner}/{name}/issues/{issue_number}/comments"
+    data = json.dumps({"body": body}).encode()
+    req = urllib.request.Request(url, data=data, method="POST")
+    req.add_header("Authorization", f"Bearer {token}")
+    req.add_header("Accept", "application/vnd.github+json")
+    try:  # pragma: no cover - network call
+        urllib.request.urlopen(req, timeout=10)
+    except urllib.error.URLError as exc:
+        print(f"Failed to send GitHub comment: {exc}")
 
 
 def send_slack_message(webhook_url: str, text: str) -> None:
-    """Send a message to Slack via webhook.
+    """Send a message to Slack via webhook."""
 
-    This is a placeholder that only prints to stdout.
-
-    TODO: Implement HTTP POST to webhook.
-    TODO: Support attachments and formatting.
-    """
-
-    print(f"Would post to Slack {webhook_url}: {text}")
+    if not webhook_url:
+        print("Slack webhook not configured - skipping notification")
+        return
+    data = json.dumps({"text": text}).encode()
+    req = urllib.request.Request(webhook_url, data=data, method="POST")
+    req.add_header("Content-Type", "application/json")
+    try:  # pragma: no cover - network call
+        urllib.request.urlopen(req, timeout=10)
+    except urllib.error.URLError as exc:
+        print(f"Failed to send Slack message: {exc}")
 
 
 def send_email(recipients: Iterable[str], subject: str, body: str) -> None:
-    """Send an email notification.
+    """Send an email notification via local SMTP relay."""
 
-    This is a placeholder that only prints to stdout.
-
-    TODO: Integrate with SMTP or email service providers.
-    TODO: Support HTML content and attachments.
-    """
-
-    print(f"Would send email to {', '.join(recipients)}: {subject}\n{body}")
+    if not recipients:
+        return
+    message = email.message.EmailMessage()
+    message["Subject"] = subject
+    message["From"] = os.getenv("PIPELINE_EMAIL_FROM", "noreply@example.com")
+    message["To"] = ", ".join(recipients)
+    message.set_content(body)
+    try:  # pragma: no cover - network
+        with smtplib.SMTP("localhost") as smtp:
+            smtp.send_message(message)
+    except OSError as exc:
+        print(f"Failed to send email: {exc}")
 
 
 def generate_and_send_report(results: Dict[str, Dict[str, str]]) -> None:
-    """Generate a report and send notifications.
-
-    Args:
-        results: Mapping of stage names to result dictionaries.
-
-    TODO: Parameterize notification targets.
-    TODO: Store report artifacts for later retrieval.
-    """
+    """Generate a report and send notifications."""
 
     report = generate_summary_report(results)
     save_report(report, pathlib.Path("pipeline-report.md"))
-    send_github_comment(0, report.render())
-    send_slack_message("https://example.com/webhook", "Pipeline completed")
-    send_email(["nobody@example.com"], "Pipeline report", report.render())
+    issue = int(os.getenv("GITHUB_ISSUE", "0"))
+    send_github_comment(issue, report.render())
+    send_slack_message(os.getenv("SLACK_WEBHOOK", ""), "Pipeline completed")
+    recipients = os.getenv("PIPELINE_EMAILS", "").split(",") if os.getenv("PIPELINE_EMAILS") else []
+    send_email(recipients, "Pipeline report", report.render())
 
 
 # End of reports module
