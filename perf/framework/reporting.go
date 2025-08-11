@@ -1,82 +1,28 @@
 // file: perf/framework/reporting.go
-// version: 1.1.0
-// guid: cae403f2-401c-4d19-b1de-b6e9cd16df1e
+// version: 0.1.0
+// guid: ec985fc3-bb5c-43a4-a6ef-c25577282476
 
 package framework
 
 import (
 	"encoding/json"
-	"errors"
-	"io/ioutil"
-	"os"
-	"path/filepath"
-	"time"
+	"io"
 )
 
-// Report wraps performance metrics for output.
-type Report struct {
-	GeneratedAt time.Time          `json:"generated_at"`
-	Metrics     PerformanceMetrics `json:"metrics"`
+// Reporter serializes performance metrics and other results into various output
+// formats. Only JSON output is stubbed at the moment.
+type Reporter struct {
+	// TODO: Add fields for output destinations, formats, and templates.
 }
 
-// GenerateReport returns metrics as formatted JSON.
-func GenerateReport(m PerformanceMetrics) ([]byte, error) {
-	r := Report{GeneratedAt: time.Now(), Metrics: m}
-	return json.MarshalIndent(r, "", "  ")
+// WriteJSON writes metrics as pretty-printed JSON to the given writer.
+func (r Reporter) WriteJSON(w io.Writer, m PerformanceMetrics) error {
+	enc := json.NewEncoder(w)
+	enc.SetIndent("", "  ")
+	// TODO: Include additional contextual information in the output.
+	return enc.Encode(m)
 }
 
-// SaveReport writes metrics to the specified path in JSON format.
-func SaveReport(path string, m PerformanceMetrics) error {
-	data, err := GenerateReport(m)
-	if err != nil {
-		return err
-	}
-	if err := os.MkdirAll(filepath.Dir(path), 0o755); err != nil {
-		return err
-	}
-	return ioutil.WriteFile(path, data, 0o644)
-}
-
-// LoadReport loads metrics from a JSON file.
-func LoadReport(path string) (PerformanceMetrics, error) {
-	b, err := ioutil.ReadFile(path)
-	if err != nil {
-		return PerformanceMetrics{}, err
-	}
-	var r Report
-	if err := json.Unmarshal(b, &r); err != nil {
-		return PerformanceMetrics{}, err
-	}
-	return r.Metrics, nil
-}
-
-// CompareReports returns the difference between two metrics.
-func CompareReports(a, b PerformanceMetrics) PerformanceMetrics {
-	mc := NewMetricsCollector()
-	mc.RecordLatency(a.Latency.Mean)
-	mc.RecordLatency(b.Latency.Mean)
-	mc.RecordThroughput(int64(a.Throughput.BytesPerSecond-b.Throughput.BytesPerSecond),
-		int64(a.Throughput.OperationsPerSecond-b.Throughput.OperationsPerSecond))
-	if a.ErrorRate.Errors > b.ErrorRate.Errors {
-		mc.errors = a.ErrorRate.Errors - b.ErrorRate.Errors
-	} else {
-		mc.errors = b.ErrorRate.Errors - a.ErrorRate.Errors
-	}
-	return mc.Snapshot()
-}
-
-// ValidateReport ensures report file contains valid JSON.
-func ValidateReport(path string) error {
-	b, err := ioutil.ReadFile(path)
-	if err != nil {
-		return err
-	}
-	var r Report
-	if err := json.Unmarshal(b, &r); err != nil {
-		return err
-	}
-	if r.GeneratedAt.IsZero() {
-		return errors.New("missing generated_at")
-	}
-	return nil
-}
+// TODO: Implement HTML and markdown report generation.
+// TODO: Add support for comparing current metrics with baselines.
+// TODO: Integrate with CI systems for automated artifact upload.

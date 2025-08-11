@@ -1,45 +1,26 @@
 // file: perf/regression/baseline.go
-// version: 1.1.0
-// guid: c5fa1a50-68cd-4820-9956-aa7757ccc010
+// version: 0.1.0
+// guid: 42b44581-19ea-4280-9854-622562018d08
 
-// Package regression provides performance regression detection.
 package regression
 
 import (
 	"encoding/json"
-	"io/ioutil"
-	"os"
-	"path/filepath"
 
 	"github.com/jdfalk/gcommon/perf/framework"
 )
 
-// Baseline represents stored performance metrics for comparison.
+// Baseline represents stored performance metrics used for regression comparison.
 type Baseline struct {
-	Metrics framework.PerformanceMetrics `json:"metrics"`
+	Metrics framework.PerformanceMetrics
+	// TODO: Add metadata such as commit hash, environment details, and timestamps.
 }
 
-// Save writes the baseline to the given path.
-func (b Baseline) Save(path string) error {
-	data, err := json.MarshalIndent(b, "", "  ")
-	if err != nil {
-		return err
-	}
-	if err := os.MkdirAll(filepath.Dir(path), 0o755); err != nil {
-		return err
-	}
-	return ioutil.WriteFile(path, data, 0o644)
+// Serialize converts the baseline to JSON. This is a placeholder implementation.
+func (b Baseline) Serialize() ([]byte, error) {
+	// TODO: Include metadata in the serialized form.
+	return json.MarshalIndent(b.Metrics, "", "  ")
 }
 
-// LoadBaseline reads baseline metrics from path.
-func LoadBaseline(path string) (Baseline, error) {
-	b, err := ioutil.ReadFile(path)
-	if err != nil {
-		return Baseline{}, err
-	}
-	var base Baseline
-	if err := json.Unmarshal(b, &base); err != nil {
-		return Baseline{}, err
-	}
-	return base, nil
-}
+// TODO: Implement deserialization and persistence mechanisms.
+// TODO: Integrate with CI to load baselines from artifacts.

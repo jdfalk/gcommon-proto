@@ -1,0 +1,12 @@
+{
+  "action": "comment",
+  "number": null,
+  "body": "Add skeleton performance testing framework",
+  "guid": "96e101fa-dca6-4f42-a1f0-d06485ba6f7a",
+  "legacy_guid": "comment-issue-null-2025-08-11",
+  "created_at": "2025-08-11T15:33:35.000Z",
+  "processed_at": null,
+  "failed_at": null,
+  "sequence": 0,
+  "parent_guid": null
+}

@@ -20,28 +20,30 @@ type Analyzer interface {
 
 // MemoryAnalyzer stores metrics in memory for later analysis.
 type MemoryAnalyzer struct {
-	collector *framework.MetricsCollector
-	once      sync.Once
+	mu      sync.Mutex
+	metrics framework.PerformanceMetrics
+	once    sync.Once
 }
 
-// NewMemoryAnalyzer creates a MemoryAnalyzer using provided collector.
-func NewMemoryAnalyzer(c *framework.MetricsCollector) *MemoryAnalyzer {
-	return &MemoryAnalyzer{collector: c}
+// NewMemoryAnalyzer creates a MemoryAnalyzer with zeroed metrics.
+func NewMemoryAnalyzer() *MemoryAnalyzer {
+	return &MemoryAnalyzer{}
 }
 
-// AddSample records metrics sample into collector.
+// AddSample records metrics sample into internal storage.
 func (m *MemoryAnalyzer) AddSample(pm framework.PerformanceMetrics) error {
-	if m.collector == nil {
-		return errors.New("nil collector")
-	}
-	m.collector.Merge(pm)
+	m.mu.Lock()
+	defer m.mu.Unlock()
+	m.metrics.Merge(pm)
 	return nil
 }
 
 // Analyze returns aggregated metrics.
 func (m *MemoryAnalyzer) Analyze() (framework.PerformanceMetrics, error) {
-	if m.collector == nil {
-		return framework.PerformanceMetrics{}, errors.New("nil collector")
+	m.mu.Lock()
+	defer m.mu.Unlock()
+	if (m.metrics == framework.PerformanceMetrics{}) {
+		return framework.PerformanceMetrics{}, errors.New("no samples")
 	}
-	return m.collector.Snapshot(), nil
+	return m.metrics.Clone(), nil
 }

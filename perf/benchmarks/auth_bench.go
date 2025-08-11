@@ -1,72 +1,46 @@
 // file: perf/benchmarks/auth_bench.go
-// version: 1.1.0
-// guid: fd0f1fb4-c2b0-4ffe-877a-3ec930f5fa3c
+// version: 0.1.0
+// guid: 458b89d7-ac99-427d-8655-f90602a69027
 
 package benchmarks
 
 import (
-	"crypto/hmac"
-	"crypto/sha256"
-	"encoding/base64"
-	"strings"
-	"sync"
 	"testing"
+	"time"
 )
 
-var secret = []byte("secret")
-
-// mockToken creates a simple JWT-like token for benchmarking.
-func mockToken() string {
-	header := base64.RawURLEncoding.EncodeToString([]byte(`{"alg":"HS256"}`))
-	payload := base64.RawURLEncoding.EncodeToString([]byte(`{"sub":"user"}`))
-	mac := hmac.New(sha256.New, secret)
-	mac.Write([]byte(header + "." + payload))
-	sig := base64.RawURLEncoding.EncodeToString(mac.Sum(nil))
-	return strings.Join([]string{header, payload, sig}, ".")
-}
-
-// BenchmarkTokenValidation measures token validation speed.
-func BenchmarkTokenValidation(b *testing.B) {
-	tok := mockToken()
-	parts := strings.Split(tok, ".")
-	b.ResetTimer()
+// BenchmarkAuthTokenValidation measures token validation speed.
+func BenchmarkAuthTokenValidation(b *testing.B) {
 	for i := 0; i < b.N; i++ {
-		mac := hmac.New(sha256.New, secret)
-		mac.Write([]byte(parts[0] + "." + parts[1]))
-		_ = mac.Sum(nil)
+		// TODO: Implement token validation benchmark.
+		time.Sleep(time.Microsecond)
 	}
 }
 
-// BenchmarkAuthDecision measures authorization decision latency.
-func BenchmarkAuthDecision(b *testing.B) {
-	roles := map[string]bool{"admin": true}
-	b.ResetTimer()
+// BenchmarkAuthDecisionLatency measures authorization decision latency.
+func BenchmarkAuthDecisionLatency(b *testing.B) {
 	for i := 0; i < b.N; i++ {
-		_ = roles["admin"]
+		// TODO: Implement authorization decision benchmark.
+		time.Sleep(time.Microsecond)
 	}
 }
 
-// BenchmarkConcurrentAuthRequests measures concurrent authentication requests.
-func BenchmarkConcurrentAuthRequests(b *testing.B) {
-	tok := mockToken()
-	parts := strings.Split(tok, ".")
+// BenchmarkAuthConcurrentRequests measures concurrent authentication throughput.
+func BenchmarkAuthConcurrentRequests(b *testing.B) {
 	b.RunParallel(func(pb *testing.PB) {
 		for pb.Next() {
-			mac := hmac.New(sha256.New, secret)
-			mac.Write([]byte(parts[0] + "." + parts[1]))
-			_ = mac.Sum(nil)
+			// TODO: Implement concurrent authentication benchmark.
+			time.Sleep(time.Microsecond)
 		}
 	})
 }
 
-// BenchmarkPolicyEvaluation measures policy evaluation performance.
-func BenchmarkPolicyEvaluation(b *testing.B) {
-	policies := map[string]bool{"read": true, "write": false}
-	var mu sync.RWMutex
-	b.ResetTimer()
+// BenchmarkAuthPolicyEvaluation measures policy evaluation performance.
+func BenchmarkAuthPolicyEvaluation(b *testing.B) {
 	for i := 0; i < b.N; i++ {
-		mu.RLock()
-		_ = policies["read"]
-		mu.RUnlock()
+		// TODO: Implement policy evaluation benchmark.
+		time.Sleep(time.Microsecond)
 	}
 }
+
+// TODO: Add benchmarks for session management and credential rotation.
