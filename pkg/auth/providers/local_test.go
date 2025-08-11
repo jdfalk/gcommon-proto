@@ -1,5 +1,5 @@
 // file: pkg/auth/providers/local_test.go
-// version: 1.0.0
+// version: 1.1.0
 // guid: c435feb8-73af-440f-b59a-bf6a77501547
 
 package providers
@@ -14,7 +14,7 @@ import (
 func TestLocalProvider(t *testing.T) {
 	users := map[string]string{"alice": "password"}
 	roles := map[string]string{"alice": "admin"}
-	p := NewLocalProvider([]byte("secret"), users, roles)
+	p := NewLocalProvider([]byte("secret"), users, roles, nil)
 	req := &proto.AuthenticateRequest{}
 	creds := &proto.PasswordCredentials{}
 	creds.SetUsername("alice")
