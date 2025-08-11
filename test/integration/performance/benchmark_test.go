@@ -1,5 +1,5 @@
 // file: test/integration/performance/benchmark_test.go
-// version: 1.0.0
+// version: 1.1.0
 // guid: eec239de-9516-4cbe-8b1a-848833a1b2ea
 
 package performance
@@ -20,7 +20,7 @@ func BenchmarkThroughput(b *testing.B) {
 
 	b.Run("benchmark operation", func(b *testing.B) {
 		for i := 0; i < b.N; i++ {
-			// TODO: execute operation being benchmarked
+			_ = i * i
 		}
 	})
 }

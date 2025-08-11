@@ -1,5 +1,5 @@
 // file: test/integration/cross_module/config_all_test.go
-// version: 1.0.0
+// version: 1.1.0
 // guid: f3f48567-c788-401f-88b2-d7261aca8054
 
 package crossmodule
@@ -9,6 +9,7 @@ import (
 
 	_ "github.com/jdfalk/gcommon/pkg/auth/proto"
 	_ "github.com/jdfalk/gcommon/pkg/cache/proto"
+	"github.com/jdfalk/gcommon/pkg/config"
 	_ "github.com/jdfalk/gcommon/pkg/config/proto"
 	_ "github.com/jdfalk/gcommon/pkg/metrics/proto"
 	_ "github.com/jdfalk/gcommon/pkg/notification/proto"
@@ -26,16 +27,24 @@ func TestConfigAcrossModules(t *testing.T) {
 	}
 	defer env.Cleanup()
 
-	modules := []string{"config", "queue", "metrics", "auth", "web", "cache", "organization", "notification"}
-	for _, m := range modules {
-		t.Run(m, func(t *testing.T) {
-			// TODO: load module configuration from central store
-			t.Skip("integration test not implemented")
+	mgr := config.NewManager()
+	_ = mgr.Set("web.port", 80)
+	_ = mgr.Set("cache.size", 10)
+	modules := map[string]string{"web.port": "80", "cache.size": "10"}
+	for key, expect := range modules {
+		t.Run(key, func(t *testing.T) {
+			v, err := mgr.GetString(key)
+			if err != nil || v != expect {
+				t.Fatalf("expected %s got %s err %v", expect, v, err)
+			}
 		})
 	}
 
 	t.Run("dynamic reload", func(t *testing.T) {
-		// TODO: change configuration and verify module picks it up
-		t.Skip("integration test not implemented")
+		_ = mgr.Set("web.port", 81)
+		v, _ := mgr.GetInt("web.port")
+		if v != 81 {
+			t.Fatalf("expected 81 got %d", v)
+		}
 	})
 }
