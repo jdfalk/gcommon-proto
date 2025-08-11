@@ -7,27 +7,42 @@ package main
 import (
 	"context"
 	"fmt"
+	"time"
+
+	"github.com/jdfalk/gcommon/pkg/cache/policies"
+	"github.com/jdfalk/gcommon/pkg/cache/providers"
 )
 
-// TODO: Complete basic-cache example
-
-func setup(ctx context.Context) error {
-	// TODO: implement setup for basic-cache
-	return nil
+// cacheApp wraps the cache provider used in this example.
+type cacheApp struct {
+	cache *providers.MemoryCache
 }
 
-func run(ctx context.Context) error {
-	// TODO: run basic-cache logic
-	fmt.Println("TODO: run basic-cache")
+// setup initializes an in-memory cache with LRU eviction.
+func setup(ctx context.Context) (*cacheApp, error) {
+	return &cacheApp{cache: providers.NewMemoryCache(10, policies.NewLRU())}, nil
+}
+
+// run stores and retrieves a value to demonstrate basic cache operations.
+func run(ctx context.Context, app *cacheApp) error {
+	if err := app.cache.Set(ctx, "foo", "bar", time.Minute); err != nil {
+		return err
+	}
+	val, err := app.cache.Get(ctx, "foo")
+	if err != nil {
+		return err
+	}
+	fmt.Printf("foo=%v\n", val)
 	return nil
 }
 
 func main() {
 	ctx := context.Background()
-	if err := setup(ctx); err != nil {
+	app, err := setup(ctx)
+	if err != nil {
 		panic(err)
 	}
-	if err := run(ctx); err != nil {
+	if err := run(ctx, app); err != nil {
 		panic(err)
 	}
 }

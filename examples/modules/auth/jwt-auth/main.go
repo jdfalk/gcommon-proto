@@ -7,27 +7,39 @@ package main
 import (
 	"context"
 	"fmt"
+	"time"
+
+	"github.com/golang-jwt/jwt/v5"
+	"github.com/jdfalk/gcommon/pkg/auth/tokens"
 )
 
-// TODO: Complete jwt-auth example
-
-func setup(ctx context.Context) error {
-	// TODO: implement setup for jwt-auth
-	return nil
+// setup returns a shared secret used for signing tokens.
+func setup(ctx context.Context) ([]byte, error) {
+	return []byte("secret"), nil
 }
 
-func run(ctx context.Context) error {
-	// TODO: run jwt-auth logic
-	fmt.Println("TODO: run jwt-auth")
+// run generates and validates a JWT using the provided secret.
+func run(ctx context.Context, secret []byte) error {
+	tok, err := tokens.Generate(secret, jwt.SigningMethodHS256, "demo-user", time.Minute, map[string]any{"role": "user"})
+	if err != nil {
+		return err
+	}
+	claims, err := tokens.Parse(secret, tok)
+	if err != nil {
+		return err
+	}
+	fmt.Println("token:", tok)
+	fmt.Println("claims:", claims)
 	return nil
 }
 
 func main() {
 	ctx := context.Background()
-	if err := setup(ctx); err != nil {
+	secret, err := setup(ctx)
+	if err != nil {
 		panic(err)
 	}
-	if err := run(ctx); err != nil {
+	if err := run(ctx, secret); err != nil {
 		panic(err)
 	}
 }
