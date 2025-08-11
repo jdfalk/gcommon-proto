@@ -1,0 +1,13 @@
+{
+  "action": "create",
+  "title": "Implement microservice templates",
+  "body": "Add production-ready microservice templates and generator.",
+  "labels": ["enhancement", "templates"],
+  "guid": "de4af46c-62b0-4034-bb79-a1d526d04753",
+  "legacy_guid": "create-implement-microservice-templates-2025-08-11",
+  "created_at": "2025-08-11T01:26:48.000Z",
+  "processed_at": null,
+  "failed_at": null,
+  "sequence": 0,
+  "parent_guid": null
+}

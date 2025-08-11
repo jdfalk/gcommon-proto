@@ -1,0 +1,6 @@
+# file: templates/event-driven-service/config/config.yaml
+# version: 1.0.0
+# guid: 0af16973-e1d5-4890-86a3-1e793212f0a3
+
+queue_name: events
+metrics_port: "9090"

@@ -1,0 +1,24 @@
+# file: templates/event-driven-service/.github/workflows/ci.yaml
+# version: 1.0.0
+# guid: aa1480dd-dea9-4405-a838-fe5282ae80e4
+
+name: CI
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Set up Go
+        uses: actions/setup-go@v5
+        with:
+          go-version: '1.23'
+      - name: Build
+        run: go build ./...
+      - name: Test
+        run: go test ./...
