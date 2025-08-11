@@ -1,5 +1,5 @@
 // file: pkg/auth/providers/jwt.go
-// version: 1.0.0
+// version: 1.1.0
 // guid: d1f2e3a4-b5c6-4d7e-8f90-1a2b3c4d5e6f
 
 // Package providers implements concrete authentication providers.
@@ -19,11 +19,17 @@ import (
 
 // JWTProvider validates externally issued JWTs.
 type JWTProvider struct {
-	secret []byte
+	secret    []byte
+	blacklist *tokens.Blacklist
 }
 
 // NewJWTProvider creates a new JWT provider.
-func NewJWTProvider(secret []byte) *JWTProvider { return &JWTProvider{secret: secret} }
+func NewJWTProvider(secret []byte, bl *tokens.Blacklist) *JWTProvider {
+	if bl == nil {
+		bl = tokens.NewBlacklist()
+	}
+	return &JWTProvider{secret: secret, blacklist: bl}
+}
 
 // Authenticate is not supported for JWT provider.
 func (p *JWTProvider) Authenticate(ctx context.Context, req *proto.AuthenticateRequest) (*proto.AuthenticateResponse, error) {
@@ -35,6 +41,11 @@ func (p *JWTProvider) ValidateToken(ctx context.Context, req *proto.ValidateToke
 	claims, err := tokens.Validate(req.GetAccessToken(), p.secret)
 	if err != nil {
 		return &proto.ValidateTokenResponse{}, err
+	}
+	if p.blacklist.IsRevoked(req.GetAccessToken()) {
+		resp := &proto.ValidateTokenResponse{}
+		resp.SetValid(false)
+		return resp, nil
 	}
 	resp := &proto.ValidateTokenResponse{}
 	resp.SetValid(true)
@@ -71,6 +82,14 @@ func (p *JWTProvider) RefreshToken(ctx context.Context, req *proto.RefreshTokenR
 
 // RevokeToken is a no-op.
 func (p *JWTProvider) RevokeToken(ctx context.Context, req *proto.RevokeTokenRequest) (*proto.RevokeTokenResponse, error) {
+	claims, _ := tokens.Parse(p.secret, req.GetToken())
+	var exp time.Time
+	if v, ok := claims["exp"].(float64); ok {
+		exp = time.Unix(int64(v), 0)
+	} else {
+		exp = time.Now().Add(time.Hour)
+	}
+	p.blacklist.Revoke(req.GetToken(), exp)
 	resp := &proto.RevokeTokenResponse{}
 	resp.SetTokenId(req.GetToken())
 	resp.SetTokenType("access")
