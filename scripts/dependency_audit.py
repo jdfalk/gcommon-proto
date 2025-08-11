@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 # file: scripts/dependency_audit.py
-# version: 1.0.0
+# version: 1.1.0
 # guid: 5f49bb34-5d21-4aa8-80aa-1a08fe123456
 
 """Dependency audit and optimization utilities.
@@ -18,7 +18,7 @@ import os
 import subprocess
 from dataclasses import dataclass, field
 from pathlib import Path
-from typing import Dict, List, Optional
+from typing import Dict, List, Optional, Set
 
 
 @dataclass
@@ -146,17 +146,62 @@ class LicenseChecker:
 
     def collect_license_data(self, packages: Dict[str, PackageInfo]) -> Dict[str, str]:
         """Collect license identifiers for *packages*.
-
-        TODO
-        ----
-        Implement logic to inspect package metadata.  For Go modules this
-        may involve checking the module source for a ``LICENSE`` file.  For
-        Node packages the license field in ``package.json`` can be used.
         Returns a mapping of package name to license identifier.
+
+        The function currently supports two ecosystems:
+
+        * **Node.js** – Looks for ``package.json`` files under the
+          ``node_modules`` directory and reads the ``license`` field.
+        * **Go modules** – Executes ``go list -m -json`` to locate the module
+          directory and attempts to read a ``LICENSE`` or ``COPYING`` file.  A
+          very small subset of common licenses (MIT, Apache-2.0, BSD) is
+          detected via keyword matching.  Modules without a detectable license
+          are reported as ``UNKNOWN`` so they can be reviewed manually.
         """
 
-        # TODO: implement license data collection
-        return {}
+        licenses: Dict[str, str] = {}
+        node_root = self.root / "node_modules"
+
+        for name in packages:
+            pkg_license: Optional[str] = None
+
+            # Node.js package detection
+            pkg_json = node_root / name / "package.json"
+            if pkg_json.exists():
+                try:
+                    data = json.loads(pkg_json.read_text(encoding="utf-8"))
+                    pkg_license = data.get("license")
+                except json.JSONDecodeError:
+                    pkg_license = None
+
+            if pkg_license:
+                licenses[name] = pkg_license
+                continue
+
+            # Go module detection
+            try:
+                raw = _run_command(["go", "list", "-m", "-json", name])
+                meta = json.loads(raw)
+                module_dir = Path(meta.get("Dir", ""))
+                for candidate in ["LICENSE", "LICENSE.txt", "LICENSE.md", "COPYING"]:
+                    lic_path = module_dir / candidate
+                    if lic_path.exists():
+                        text = lic_path.read_text(encoding="utf-8", errors="ignore")
+                        if "MIT" in text:
+                            pkg_license = "MIT"
+                        elif "Apache" in text:
+                            pkg_license = "Apache-2.0"
+                        elif "BSD" in text:
+                            pkg_license = "BSD"
+                        else:
+                            pkg_license = "UNKNOWN"
+                        break
+            except RuntimeError:
+                pkg_license = None
+
+            licenses[name] = pkg_license or "UNKNOWN"
+
+        return licenses
 
     def check_compliance(self, licenses: Dict[str, str]) -> List[str]:
         """Check collected *licenses* against an allowlist.
@@ -172,8 +217,12 @@ class LicenseChecker:
             Names of packages with unapproved licenses.
         """
 
-        # TODO: implement license compliance check
-        return []
+        allowed = {"MIT", "Apache-2.0", "BSD"}
+        violations: List[str] = []
+        for name, lic in licenses.items():
+            if lic not in allowed:
+                violations.append(name)
+        return violations
 
 
 class ConflictDetector:
@@ -199,8 +248,15 @@ class ConflictDetector:
         conflict messages.
         """
 
-        # TODO: implement conflict detection
-        return []
+        versions: Dict[str, Set[str]] = {}
+        for pkg in self.packages.values():
+            versions.setdefault(pkg.name, set()).add(pkg.version)
+
+        conflicts: List[str] = []
+        for name, vers in versions.items():
+            if len(vers) > 1:
+                conflicts.append(f"{name}: {', '.join(sorted(vers))}")
+        return conflicts
 
 
 def extended_generate_report(root: Path) -> AuditReport:
