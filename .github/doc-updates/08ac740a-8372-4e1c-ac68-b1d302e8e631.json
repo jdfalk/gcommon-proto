@@ -1,0 +1,16 @@
+{
+  "file": "CHANGELOG.md",
+  "mode": "changelog-entry",
+  "content": "### Added\n\n- Enhanced CI/CD pipeline with multi-stage testing and quality gates",
+  "guid": "08ac740a-8372-4e1c-ac68-b1d302e8e631",
+  "created_at": "2025-08-11T15:37:50Z",
+  "options": {
+    "section": null,
+    "after": null,
+    "before": null,
+    "task_id": null,
+    "badge_name": null,
+    "priority": null,
+    "category": null
+  }
+}

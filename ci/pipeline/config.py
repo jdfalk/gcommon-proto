@@ -1,22 +1,35 @@
 #!/usr/bin/env python3
 # file: ci/pipeline/config.py
-# version: 1.0.0
+# version: 1.1.0
 # guid: 1e4a8e06-5f9d-4c66-9bfd-1c47bba2d4a9
 """Pipeline configuration models.
 
-This module contains dataclass-based configuration structures for the
-CI/CD pipeline. Each structure defines settings for a specific stage or
-feature. The actual loading from files or environment variables is not
-implemented yet.
+This module defines dataclass based configuration structures used by the
+pipeline runner.  Earlier versions of this file only provided the data
+containers themselves.  The enhanced version implements comprehensive
+configuration management utilities including loading from YAML/JSON
+files, environment variable overrides, deep merging and validation.
 
-TODO: Implement configuration loading logic.
-TODO: Validate configuration values and handle errors.
+The goal of this module is to provide a single, well typed source of
+truth for all pipeline behaviour.  Each configuration section mirrors a
+pipeline stage and exposes helper methods to serialise/deserialise the
+settings.  The :func:`load_default_config` function now searches for a
+configuration file named ``pipeline.json`` or ``pipeline.yaml`` and will
+fall back to built in defaults when none is found.
 """
 
 from __future__ import annotations
 
-from dataclasses import dataclass, field
-from typing import Dict, List, Optional
+import json
+import os
+import pathlib
+from dataclasses import asdict, dataclass, field, fields
+from typing import Any, Dict, List, Optional, Tuple, Type, TypeVar, get_type_hints
+
+try:  # pragma: no cover - optional dependency
+    import yaml  # type: ignore
+except Exception:  # pragma: no cover - fallback when PyYAML is missing
+    yaml = None  # type: ignore
 
 
 @dataclass
@@ -267,51 +280,183 @@ class PipelineConfig:
     notification: NotificationConfig = field(default_factory=NotificationConfig)
 
 
-def load_default_config() -> PipelineConfig:
-    """Load a default configuration instance.
+# ---------------------------------------------------------------------------
+# Serialization helpers
+# ---------------------------------------------------------------------------
+T = TypeVar("T")
 
-    This function currently returns a configuration with all default values.
-    In the future it will parse a configuration file or environment variables
-    to construct a customized configuration.
 
-    TODO: Parse configuration from file or environment variables.
-    TODO: Allow partial configuration overrides.
+def _dataclass_from_dict(cls: Type[T], data: Dict[str, Any]) -> T:
+    """Instantiate ``cls`` from a dictionary.
+
+    The helper recursively constructs dataclass instances by matching keys in
+    ``data`` to dataclass fields.  Unknown keys are ignored which allows users
+    to supply partially specified configuration files without causing
+    hard failures.
+
+    Args:
+        cls: Dataclass type to instantiate.
+        data: Mapping of field names to values.
+
+    Returns:
+        Instance of ``cls`` populated with values from ``data``.
     """
 
+    kwargs: Dict[str, Any] = {}
+    hints = get_type_hints(cls)
+    for f in fields(cls):
+        value = data.get(f.name, None)
+        if value is None:
+            continue
+        f_type = hints.get(f.name, f.type)
+        if hasattr(f_type, "__dataclass_fields__") and isinstance(value, dict):
+            kwargs[f.name] = _dataclass_from_dict(f_type, value)
+        else:
+            kwargs[f.name] = value
+    return cls(**kwargs)  # type: ignore[arg-type]
+
+
+def pipeline_config_from_dict(data: Dict[str, Any]) -> PipelineConfig:
+    """Create a :class:`PipelineConfig` from a raw dictionary."""
+
+    return _dataclass_from_dict(PipelineConfig, data)
+
+
+def pipeline_config_to_dict(config: PipelineConfig) -> Dict[str, Any]:
+    """Convert a :class:`PipelineConfig` into a serialisable dictionary."""
+
+    return asdict(config)
+
+
+def load_config_file(path: pathlib.Path) -> PipelineConfig:
+    """Load configuration from a YAML or JSON file.
+
+    The format is detected from the file extension.  YAML loading requires the
+    optional ``pyyaml`` package.  When parsing fails or the file is empty a
+    :class:`ValueError` is raised to signal misconfiguration.
+    """
+
+    if not path.exists():
+        raise ValueError(f"Configuration file {path} does not exist")
+
+    raw: Dict[str, Any]
+    if path.suffix in {".yaml", ".yml"}:
+        if yaml is None:  # pragma: no cover - optional dependency
+            raise ValueError("PyYAML is required to load YAML configuration")
+        raw = yaml.safe_load(path.read_text()) or {}
+    else:
+        raw = json.loads(path.read_text())
+
+    if not isinstance(raw, dict):  # pragma: no cover - defensive check
+        raise ValueError("Configuration file must contain a JSON/YAML object")
+
+    return pipeline_config_from_dict(raw)
+
+
+def load_default_config() -> PipelineConfig:
+    """Load pipeline configuration.
+
+    The function checks the ``PIPELINE_CONFIG`` environment variable for the
+    path to a configuration file.  If not provided it searches for
+    ``pipeline.yaml`` and ``pipeline.json`` in the current working directory.
+    When no configuration is found, a config with default values is returned.
+    """
+
+    env_path = os.getenv("PIPELINE_CONFIG")
+    candidate_paths = [
+        pathlib.Path(env_path) if env_path else None,
+        pathlib.Path("pipeline.yaml"),
+        pathlib.Path("pipeline.yml"),
+        pathlib.Path("pipeline.json"),
+    ]
+
+    for path in candidate_paths:
+        if path and path.exists():
+            try:
+                cfg = load_config_file(path)
+            except Exception:
+                continue
+            else:
+                return cfg
     return PipelineConfig()
 
 
-def merge_configs(base: PipelineConfig, overrides: PipelineConfig) -> PipelineConfig:
-    """Merge two pipeline configurations.
+def deep_merge(base: Any, overrides: Any) -> Any:
+    """Recursively merge ``overrides`` into ``base``.
 
-    The overrides parameter takes precedence over values in the base
-    configuration. Only shallow merging is performed at this time.
-
-    TODO: Implement deep merge for nested dataclasses.
-    TODO: Handle list merging strategies.
+    Dataclasses, dictionaries and lists are merged recursively.  Primitive
+    values are replaced entirely.  This function returns a new merged object
+    leaving the inputs untouched.
     """
 
-    result = base
-    if overrides.lint != base.lint:
-        result.lint = overrides.lint
-    if overrides.unit_tests != base.unit_tests:
-        result.unit_tests = overrides.unit_tests
-    if overrides.integration_tests != base.integration_tests:
-        result.integration_tests = overrides.integration_tests
-    if overrides.performance != base.performance:
-        result.performance = overrides.performance
-    if overrides.security != base.security:
-        result.security = overrides.security
-    if overrides.documentation != base.documentation:
-        result.documentation = overrides.documentation
-    if overrides.release != base.release:
-        result.release = overrides.release
-    if overrides.deployment != base.deployment:
-        result.deployment = overrides.deployment
-    if overrides.notification != base.notification:
-        result.notification = overrides.notification
-    return result
+    if isinstance(base, list) and isinstance(overrides, list):
+        return base + [item for item in overrides if item not in base]
+    if isinstance(base, dict) and isinstance(overrides, dict):
+        result = {k: base.get(k) for k in base}
+        for key, value in overrides.items():
+            if key in result:
+                result[key] = deep_merge(result[key], value)
+            else:
+                result[key] = value
+        return result
+    if hasattr(base, "__dataclass_fields__") and hasattr(overrides, "__dataclass_fields__"):
+        merged: Dict[str, Any] = {}
+        for f in fields(base):
+            left = getattr(base, f.name)
+            right = getattr(overrides, f.name)
+            merged[f.name] = deep_merge(left, right)
+        return type(base)(**merged)  # type: ignore[call-arg]
+    return overrides
+
+
+def merge_configs(base: PipelineConfig, overrides: PipelineConfig) -> PipelineConfig:
+    """Merge two pipeline configurations deeply."""
+
+    return deep_merge(base, overrides)
+
+
+def override_with_env(config: PipelineConfig) -> PipelineConfig:
+    """Override configuration values using environment variables.
+
+    Only a limited subset of options is currently supported.  Environment
+    variables are expected in upper case with sections separated by
+    underscores, e.g. ``LINT_ENABLED`` or ``UNIT_TESTS_COVERAGE_THRESHOLD``.
+    """
+
+    mapping = {
+        ("lint", "enabled"): "LINT_ENABLED",
+        ("unit_tests", "coverage_threshold"): "UNIT_TESTS_COVERAGE_THRESHOLD",
+        ("performance", "regression_threshold"): "PERFORMANCE_REGRESSION_THRESHOLD",
+    }
+
+    for (section, field_name), env_var in mapping.items():
+        value = os.getenv(env_var)
+        if value is None:
+            continue
+        section_obj = getattr(config, section)
+        field_type = type(getattr(section_obj, field_name))
+        try:
+            if field_type is bool:
+                cast_value = value.lower() in {"1", "true", "yes"}
+            else:
+                cast_value = field_type(value)
+            setattr(section_obj, field_name, cast_value)
+        except Exception:  # pragma: no cover - defensive
+            continue
+    return config
+
+
+def validate_config(config: PipelineConfig) -> Tuple[bool, List[str]]:
+    """Validate configuration and return (status, errors)."""
+
+    errors: List[str] = []
+    if config.unit_tests.coverage_threshold < 0 or config.unit_tests.coverage_threshold > 100:
+        errors.append("coverage_threshold must be between 0 and 100")
+    if config.performance.regression_threshold < 0:
+        errors.append("regression_threshold cannot be negative")
+    if config.performance.benchmark_iterations <= 0:
+        errors.append("benchmark_iterations must be positive")
+    return not errors, errors
 
 
 # End of config module
-# TODO: Expand with serialization and validation utilities.

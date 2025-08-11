@@ -1,21 +1,25 @@
 #!/usr/bin/env python3
 # file: ci/pipeline/__init__.py
-# version: 1.0.0
+# version: 1.1.0
 # guid: 6f0c1e88-fbd1-4c82-8614-91c0ef9b1a0e
 """CI/CD pipeline package.
 
-This package contains modules that provide a skeleton for advanced
-CI/CD pipeline features such as configuration management, stage
-execution, quality gates, reporting, and deployment automation.
-
-Each module is currently a placeholder and must be fully implemented.
-
-TODO: Implement actual pipeline integration logic.
-TODO: Add unit tests for all modules in this package.
+The package now provides a functional pipeline implementation including
+configuration management, stage execution, quality gates, deployment
+helpers and reporting utilities.  It can be used programmatically via
+the :class:`PipelineRunner` class or individual components may be
+integrated into other tooling.
 """
 
 # Expose primary entry points for convenience
-from .config import PipelineConfig, load_default_config
+from .config import (
+    PipelineConfig,
+    load_default_config,
+    override_with_env,
+    validate_config,
+    pipeline_config_to_dict,
+    pipeline_config_from_dict,
+)
 from .stages import (
     LintStage,
     UnitTestStage,
@@ -31,10 +35,8 @@ from .stages import (
 )
 from .quality_gates import run_default_gates
 from .reports import generate_and_send_report
-from .deployment import (
-    execute_default_deployment,
-    execute_default_rollback,
-)
+from .deployment import execute_default_deployment, execute_default_rollback
+from .runner import PipelineRunner
 
 __all__ = [
     "PipelineConfig",
@@ -54,6 +56,11 @@ __all__ = [
     "generate_and_send_report",
     "execute_default_deployment",
     "execute_default_rollback",
+    "PipelineRunner",
+    "override_with_env",
+    "validate_config",
+    "pipeline_config_to_dict",
+    "pipeline_config_from_dict",
 ]
 
 # End of package initialization
