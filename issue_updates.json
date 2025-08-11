@@ -17,4 +17,11 @@
     "body": "Implement SessionConfig, SessionData messages and session CRUD request/response protobufs.",
     "labels": ["module:web", "type:protobuf", "enhancement"]
   }
+  ,
+  {
+    "action": "create",
+    "title": "Examples: add module tutorials",
+    "body": "Add example programs and tutorial documentation for config, queue, and metrics modules (Task 11).",
+    "labels": ["documentation", "examples"]
+  }
 ]
