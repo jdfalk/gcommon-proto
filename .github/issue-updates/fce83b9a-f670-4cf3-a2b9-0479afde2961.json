@@ -1,0 +1,12 @@
+{
+  "action": "comment",
+  "number": 29,
+  "body": "Implemented queue service layer with memory and redis providers, gRPC admin and monitoring services, and job scheduler",
+  "guid": "fce83b9a-f670-4cf3-a2b9-0479afde2961",
+  "legacy_guid": "comment-issue-29-2025-08-10",
+  "created_at": "2025-08-10T23:56:47.000Z",
+  "processed_at": null,
+  "failed_at": null,
+  "sequence": 0,
+  "parent_guid": null
+}
