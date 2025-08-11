@@ -12,8 +12,24 @@ option features.(pb.go).api_level = API_OPAQUE;
 option go_package = "github.com/jdfalk/gcommon/pkg/auth/proto";
 
 /**
- * Message representing mfa config.
+ * Multi-factor authentication configuration settings.
  */
 message MfaConfig {
-  // TODO: Add message fields
+  // Whether MFA is enabled.
+  bool enabled = 1;
+
+  // Supported MFA methods (e.g., "totp", "sms", "email").
+  repeated string methods = 2;
+
+  // Time-based one-time password period in seconds.
+  int32 totp_period = 3;
+
+  // Number of digits for TOTP codes.
+  int32 totp_digits = 4;
+
+  // Whether SMS delivery is enabled.
+  bool sms_enabled = 5;
+
+  // Whether email delivery is enabled.
+  bool email_enabled = 6;
 }

@@ -1,0 +1,12 @@
+{
+  "action": "close",
+  "number": 42,
+  "state_reason": "Completed remaining auth proto definitions.",
+  "guid": "df0d66a0-72ea-4f70-acdc-a1ab5b4d1edd",
+  "legacy_guid": "close-issue-42-2025-08-11",
+  "created_at": "2025-08-11T15:34:03.415Z",
+  "processed_at": null,
+  "failed_at": null,
+  "sequence": 0,
+  "parent_guid": null
+}

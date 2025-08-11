@@ -12,8 +12,24 @@ option features.(pb.go).api_level = API_OPAQUE;
 option go_package = "github.com/jdfalk/gcommon/pkg/auth/proto";
 
 /**
- * Message representing saml config.
+ * Configuration options for SAML authentication.
  */
 message SamlConfig {
-  // TODO: Add message fields
+  // URL for the identity provider metadata.
+  string idp_metadata_url = 1;
+
+  // Service provider entity ID.
+  string sp_entity_id = 2;
+
+  // Service provider assertion consumer service URL.
+  string sp_acs_url = 3;
+
+  // X.509 certificate for the service provider.
+  string certificate = 4;
+
+  // Private key for the service provider certificate.
+  string private_key = 5;
+
+  // Allowed domains for SAML assertions.
+  repeated string allowed_domains = 6;
 }

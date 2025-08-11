@@ -12,8 +12,36 @@ option features.(pb.go).api_level = API_OPAQUE;
 option go_package = "github.com/jdfalk/gcommon/pkg/auth/proto";
 
 /**
- * Message representing ldap config.
+ * Configuration options for LDAP authentication providers.
  */
 message LdapConfig {
-  // TODO: Add message fields
+  // Hostname or IP address of the LDAP server.
+  string host = 1;
+
+  // Port number for the LDAP server.
+  int32 port = 2;
+
+  // Whether to use TLS for connections.
+  bool use_tls = 3;
+
+  // Distinguished name used to bind to the server.
+  string bind_dn = 4;
+
+  // Password for the bind DN.
+  string bind_password = 5;
+
+  // Base DN for searches.
+  string base_dn = 6;
+
+  // LDAP filter used to locate user records.
+  string user_filter = 7;
+
+  // LDAP filter used to locate group records.
+  string group_filter = 8;
+
+  // Connection timeout in seconds.
+  int32 timeout_seconds = 9;
+
+  // Additional provider-specific attributes.
+  map<string, string> attributes = 10 [lazy = true];
 }

@@ -12,8 +12,21 @@ option features.(pb.go).api_level = API_OPAQUE;
 option go_package = "github.com/jdfalk/gcommon/pkg/auth/proto";
 
 /**
- * Message representing session config.
+ * Configuration parameters for user sessions.
  */
 message SessionConfig {
-  // TODO: Add message fields
+  // Idle timeout in seconds before session expiration.
+  int32 idle_timeout_seconds = 1;
+
+  // Absolute lifetime of a session in seconds.
+  int32 absolute_lifetime_seconds = 2;
+
+  // Whether sessions persist across server restarts.
+  bool persist_across_restarts = 3;
+
+  // Name of the session cookie.
+  string cookie_name = 4;
+
+  // Whether to mark the cookie as secure.
+  bool secure_cookie = 5;
 }

@@ -1,0 +1,16 @@
+{
+  "file": "tasks/04-auth-module-implementation.md",
+  "mode": "replace-section",
+  "content": "## ✅ Definition of Done\n\n- [x] At least 2 auth providers implemented (JWT + Local) – see [pkg/auth/providers/jwt.go](pkg/auth/providers/jwt.go) and [pkg/auth/providers/local.go](pkg/auth/providers/local.go)\n- [x] RBAC policy engine functional – see [pkg/auth/policies/rbac.go](pkg/auth/policies/rbac.go)\n- [x] Token management complete – see [pkg/auth/tokens](pkg/auth/tokens)\n- [x] All gRPC services implemented – see [pkg/auth/grpc](pkg/auth/grpc)\n- [x] Security middleware implemented – see [pkg/auth/middleware](pkg/auth/middleware)\n- [x] Unit tests with 85%+ coverage – see [pkg/auth/security_test.go](pkg/auth/security_test.go)\n- [x] Security audit completed\n",
+  "guid": "319e6ee0-d2fb-4cf8-99d0-1d2f10d5ce74",
+  "created_at": "2025-08-11T15:34:59Z",
+  "options": {
+    "section": null,
+    "after": null,
+    "before": null,
+    "task_id": null,
+    "badge_name": null,
+    "priority": null,
+    "category": null
+  }
+}
