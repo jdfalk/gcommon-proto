@@ -21,7 +21,7 @@ import (
 
 // TestEnvironment contains resources for integration tests.
 type TestEnvironment struct {
-	Config      *config.Config
+	Config      config.Config
 	Database    *sql.DB
 	Redis       *redis.Client
 	Logger      *log.Logger
@@ -64,7 +64,7 @@ func SetupTestEnvironment() (*TestEnvironment, error) {
 	}
 
 	env := &TestEnvironment{
-		Config:      &config.Config{},
+		Config:      nil,
 		Database:    db,
 		Redis:       rdb,
 		Logger:      logger,
