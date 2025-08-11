@@ -1,84 +1,103 @@
 // file: perf/framework/runner.go
-// version: 1.1.0
-// guid: b6ba8daf-d498-45da-8fbc-92f4bddfc1c0
+// version: 0.1.0
+// guid: 39830806-921a-4985-ba8e-37e2a166d00a
 
-// Package framework provides utilities for performance testing.
 package framework
 
 import (
 	"context"
-	"os"
-	"runtime"
-	"testing"
+	"errors"
 	"time"
 )
 
-// BenchmarkFunc represents a benchmark operation.
-type BenchmarkFunc func(ctx context.Context, i int) error
-
-// Runner executes benchmarks and collects metrics.
+// Runner coordinates execution of benchmarks, load tests, and stress tests. It
+// is intended to be extended with more sophisticated scheduling and reporting
+// capabilities. The current implementation is a placeholder that provides the
+// structure for future work.
 type Runner struct {
-	collector *MetricsCollector
-	options   RunnerOptions
+	// ctx allows coordinated cancellation of running tests.
+	ctx context.Context
+	// cancel stops any running operations when invoked.
+	cancel context.CancelFunc
+	// metrics holds aggregated performance metrics from executed tests.
+	metrics PerformanceMetrics
+	// TODO: Add fields for configuration, test suites, and reporting sinks.
 }
 
-// RunnerOptions defines configurable options for the Runner.
-type RunnerOptions struct {
-	WarmupIterations int
-	Profiling        bool
-}
-
-// NewRunner creates a Runner with the provided options.
-func NewRunner(opts RunnerOptions) *Runner {
-	return &Runner{collector: NewMetricsCollector(), options: opts}
-}
-
-// Run executes a benchmark function and returns collected metrics.
-func (r *Runner) Run(b *testing.B, fn BenchmarkFunc) PerformanceMetrics {
-	ctx := context.Background()
-	for i := 0; i < r.options.WarmupIterations; i++ {
-		_ = fn(ctx, i) // Warmup phase
+// NewRunner creates a new Runner with a background context. Callers can supply
+// their own context to integrate with larger systems if necessary.
+func NewRunner(parent context.Context) *Runner {
+	if parent == nil {
+		parent = context.Background()
 	}
+	ctx, cancel := context.WithCancel(parent)
+	return &Runner{ctx: ctx, cancel: cancel, metrics: NewPerformanceMetrics()}
+}
 
-	b.ResetTimer()
-	for i := 0; i < b.N; i++ {
-		iterStart := time.Now()
-		if err := fn(ctx, i); err != nil {
-			r.collector.RecordError()
+// Run executes a set of named test functions sequentially. Each function should
+// perform its work and return an error if it fails. The runner collects metrics
+// between tests and stops execution if a test returns an error.
+func (r *Runner) Run(tests map[string]func(context.Context) error) error {
+	if tests == nil {
+		return errors.New("tests map is nil")
+	}
+	for name, fn := range tests {
+		if fn == nil {
+			return errors.New("nil test function: " + name)
 		}
-		r.collector.RecordLatency(time.Since(iterStart))
-		r.collector.RecordThroughput(0, 1)
-	}
-
-	// Capture resource usage after benchmark
-	r.collector.mu.Lock()
-	r.collector.mu.Unlock()
-	m := r.collector.Snapshot()
-
-	var mem runtime.MemStats
-	runtime.ReadMemStats(&mem)
-	m.MemoryUsage = MemoryMetrics{AllocatedBytes: mem.Alloc, TotalBytes: mem.TotalAlloc}
-	m.ResourceUsage = ResourceMetrics{Goroutines: runtime.NumGoroutine()}
-	return m
-}
-
-// RunWithProfiling executes the benchmark with CPU profiling enabled.
-func (r *Runner) RunWithProfiling(b *testing.B, profilePath string, fn BenchmarkFunc) (PerformanceMetrics, error) {
-	var (
-		profFile *os.File
-		err      error
-	)
-	if r.options.Profiling {
-		profFile, err = StartCPUProfile(profilePath)
-		if err != nil {
-			return PerformanceMetrics{}, err
+		start := time.Now()
+		if err := fn(r.ctx); err != nil {
+			return err
 		}
-		defer StopCPUProfile(profFile)
+		_ = start // TODO: Record elapsed time into metrics.
+		// TODO: Aggregate metrics for each test execution.
+		// TODO: Implement logging and reporting hooks per test.
 	}
-	return r.Run(b, fn), nil
+	return nil
 }
 
-// Reset clears any metrics collected by the runner.
+// Metrics returns the aggregated metrics collected during all executed tests.
+func (r *Runner) Metrics() PerformanceMetrics {
+	// TODO: Return a copy of metrics to prevent external modification.
+	return r.metrics
+}
+
+// Stop cancels any running tests and prevents further execution.
+func (r *Runner) Stop() {
+	// TODO: Flush any buffered metrics or logs before stopping.
+	if r.cancel != nil {
+		r.cancel()
+	}
+}
+
+// Reset clears accumulated metrics and establishes a new context for additional
+// test executions.
 func (r *Runner) Reset() {
-	r.collector.Reset()
+	if r.cancel != nil {
+		r.cancel()
+	}
+	r.ctx, r.cancel = context.WithCancel(context.Background())
+	r.metrics.Reset()
+	// TODO: Reset internal test state and configuration once implemented.
 }
+
+// RegisterBenchmark registers a benchmark with the runner. This is a placeholder
+// demonstrating how benchmarks might be added dynamically.
+func (r *Runner) RegisterBenchmark(name string, fn func(context.Context) error) {
+	// TODO: Store benchmarks in internal structures for execution ordering.
+	_ = name
+	_ = fn
+}
+
+// RunAsync executes tests in a separate goroutine, returning immediately. Errors
+// are sent to the provided channel. This skeleton is intentionally simple.
+func (r *Runner) RunAsync(tests map[string]func(context.Context) error, errs chan<- error) {
+	go func() {
+		errs <- r.Run(tests)
+	}()
+}
+
+// TODO: Add support for concurrent test execution with worker pools.
+// TODO: Add CLI integration for running benchmarks from the command line.
+// TODO: Add result persistence to disk for historical comparison.
+// TODO: Integrate with regression package once completed.

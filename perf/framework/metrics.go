@@ -1,184 +1,143 @@
 // file: perf/framework/metrics.go
-// version: 1.1.0
-// guid: 4e9b2dc2-9853-459b-9c81-a190eaf138a8
+// version: 0.1.0
+// guid: 61471bcd-4a2d-4af9-bf97-50efd408c853
 
-// Package framework provides utilities for performance testing.
 package framework
 
-import (
-	"sort"
-	"sync"
-	"time"
-)
+import "time"
 
-// PerformanceMetrics captures collected metrics for a benchmark run.
+// PerformanceMetrics aggregates various performance statistics gathered during
+// benchmarks and load tests. Each field groups related metrics and is intended
+// to be expanded as the framework matures.
 type PerformanceMetrics struct {
-	Latency       LatencyMetrics
-	Throughput    ThroughputMetrics
-	MemoryUsage   MemoryMetrics
-	CPUUsage      CPUMetrics
-	ErrorRate     ErrorRateMetrics
+	// Latency contains percentile and aggregate duration metrics.
+	Latency LatencyMetrics
+	// Throughput captures request and operation rates measured over time.
+	Throughput ThroughputMetrics
+	// MemoryUsage records memory consumption statistics for the system under test.
+	MemoryUsage MemoryMetrics
+	// CPUUsage tracks CPU usage percentages and scheduling metrics.
+	CPUUsage CPUMetrics
+	// ErrorRate provides visibility into the frequency of failures.
+	ErrorRate ErrorRateMetrics
+	// ResourceUsage consolidates miscellaneous resource metrics such as
+	// file descriptors and goroutine counts.
 	ResourceUsage ResourceMetrics
 }
 
-// LatencyMetrics represents latency distribution metrics.
+// LatencyMetrics stores common percentile and aggregate latency measurements.
 type LatencyMetrics struct {
-	P50, P95, P99, P999 time.Duration
-	Mean, Max, Min      time.Duration
+	// P50 represents the median latency.
+	P50 time.Duration
+	// P95 represents the 95th percentile latency.
+	P95 time.Duration
+	// P99 represents the 99th percentile latency.
+	P99 time.Duration
+	// P999 represents the 99.9th percentile latency.
+	P999 time.Duration
+	// Mean represents the average latency.
+	Mean time.Duration
+	// Max represents the maximum observed latency.
+	Max time.Duration
+	// Min represents the minimum observed latency.
+	Min time.Duration
 }
 
-// ThroughputMetrics represents throughput measurements.
+// ThroughputMetrics tracks rates of different operations.
 type ThroughputMetrics struct {
-	RequestsPerSecond   float64
+	// RequestsPerSecond measures the number of requests handled per second.
+	RequestsPerSecond float64
+	// OperationsPerSecond measures the number of generic operations performed per second.
 	OperationsPerSecond float64
-	BytesPerSecond      float64
+	// BytesPerSecond measures the throughput in bytes per second.
+	BytesPerSecond float64
 }
 
-// MemoryMetrics reports memory usage statistics.
+// MemoryMetrics captures memory usage information during tests.
 type MemoryMetrics struct {
-	AllocatedBytes uint64
-	TotalBytes     uint64
+	// Allocated represents the currently allocated bytes.
+	Allocated uint64
+	// TotalAlloc represents the total bytes allocated since program start.
+	TotalAlloc uint64
+	// Sys represents the bytes obtained from the system.
+	Sys uint64
+	// NumGC represents the number of completed garbage collection cycles.
+	NumGC uint32
+	// TODO: Add more detailed memory statistics as the framework evolves.
+	// TODO: Integrate profiling hooks to gather live heap data.
+	// TODO: Consider tracking allocation rate and GC pause times.
 }
 
-// CPUMetrics reports CPU usage percentages.
+// CPUMetrics records CPU related statistics.
 type CPUMetrics struct {
-	UserPercent   float64
-	SystemPercent float64
+	// User represents user mode CPU time.
+	User float64
+	// System represents system mode CPU time.
+	System float64
+	// Total represents total CPU usage percentage.
+	Total float64
+	// TODO: Track per-core utilization and scheduling delays.
+	// TODO: Integrate with runtime metrics for goroutine scheduling.
 }
 
-// ErrorRateMetrics captures error counts and rate.
+// ErrorRateMetrics measures failure frequencies.
 type ErrorRateMetrics struct {
-	Errors    int64
-	ErrorRate float64
+	// Errors is the total number of errors observed.
+	Errors uint64
+	// Rate is the proportion of errors relative to total operations.
+	Rate float64
+	// TODO: Provide categorized error counts and severities.
 }
 
-// ResourceMetrics tracks system resource utilization.
+// ResourceMetrics aggregates miscellaneous system resource metrics.
 type ResourceMetrics struct {
-	OpenFiles  int
+	// Goroutines is the current number of goroutines.
 	Goroutines int
+	// FileDescriptors is the number of open file descriptors.
+	FileDescriptors int
+	// TODO: Track network sockets and other resource types.
+	// TODO: Include channel and mutex profiling information.
 }
 
-// MetricsCollector aggregates raw samples into PerformanceMetrics.
-type MetricsCollector struct {
-	mu        sync.Mutex
-	latencies []time.Duration
-	bytes     int64
-	ops       int64
-	errors    int64
-	start     time.Time
+// NewPerformanceMetrics creates a PerformanceMetrics instance with zeroed fields.
+// It exists primarily as a convenience for future extensions where default
+// initialization logic may be required.
+func NewPerformanceMetrics() PerformanceMetrics {
+	// TODO: Initialize metrics with default baselines or configuration driven values.
+	// TODO: Add hooks to register metrics with a central registry.
+	return PerformanceMetrics{}
 }
 
-// NewMetricsCollector returns an initialized MetricsCollector.
-func NewMetricsCollector() *MetricsCollector {
-	return &MetricsCollector{start: time.Now()}
+// Merge merges another PerformanceMetrics into the receiver, aggregating values
+// in a meaningful way. Currently, this is a placeholder that simply returns the
+// receiver without modification.
+func (pm *PerformanceMetrics) Merge(other PerformanceMetrics) {
+	// TODO: Implement proper aggregation logic for each metric category.
+	// TODO: Consider weighted averages for combining latency percentiles.
+	// TODO: Decide on conflict resolution strategies for resource metrics.
 }
 
-// RecordLatency stores a latency sample.
-func (c *MetricsCollector) RecordLatency(d time.Duration) {
-	c.mu.Lock()
-	defer c.mu.Unlock()
-	c.latencies = append(c.latencies, d)
+// Reset zeroes out all metrics in the structure to prepare for a new measurement
+// cycle.
+func (pm *PerformanceMetrics) Reset() {
+	// TODO: Reset latency metrics to zero values.
+	// TODO: Reset throughput metrics to zero values.
+	// TODO: Reset memory metrics to zero values.
+	// TODO: Reset CPU metrics to zero values.
+	// TODO: Reset error rate metrics to zero values.
+	// TODO: Reset resource usage metrics to zero values.
+	*pm = PerformanceMetrics{}
 }
 
-// RecordThroughput adds bytes and operations counters.
-func (c *MetricsCollector) RecordThroughput(bytes int64, ops int64) {
-	c.mu.Lock()
-	c.bytes += bytes
-	c.ops += ops
-	c.mu.Unlock()
+// Clone returns a copy of the PerformanceMetrics structure.
+func (pm PerformanceMetrics) Clone() PerformanceMetrics {
+	// TODO: Ensure deep copy semantics for slices or maps when added.
+	return pm
 }
 
-// RecordError increments the error counter.
-func (c *MetricsCollector) RecordError() {
-	c.mu.Lock()
-	c.errors++
-	c.mu.Unlock()
-}
-
-// Snapshot converts collected samples into PerformanceMetrics.
-func (c *MetricsCollector) Snapshot() PerformanceMetrics {
-	c.mu.Lock()
-	defer c.mu.Unlock()
-
-	elapsed := time.Since(c.start)
-	m := PerformanceMetrics{}
-	m.Latency = calculateLatencyMetrics(c.latencies)
-
-	if elapsed > 0 {
-		m.Throughput = ThroughputMetrics{
-			RequestsPerSecond:   float64(c.ops) / elapsed.Seconds(),
-			OperationsPerSecond: float64(c.ops) / elapsed.Seconds(),
-			BytesPerSecond:      float64(c.bytes) / elapsed.Seconds(),
-		}
-	}
-
-	if c.ops > 0 {
-		m.ErrorRate = ErrorRateMetrics{
-			Errors:    c.errors,
-			ErrorRate: float64(c.errors) / float64(c.ops),
-		}
-	} else {
-		m.ErrorRate = ErrorRateMetrics{Errors: c.errors}
-	}
-
-	m.ResourceUsage = ResourceMetrics{}
-	return m
-}
-
-// calculateLatencyMetrics computes percentile and summary statistics.
-func calculateLatencyMetrics(samples []time.Duration) LatencyMetrics {
-	if len(samples) == 0 {
-		return LatencyMetrics{}
-	}
-
-	sort.Slice(samples, func(i, j int) bool { return samples[i] < samples[j] })
-	n := len(samples)
-
-	lm := LatencyMetrics{
-		P50:  samples[(50*n)/100],
-		P95:  samples[(95*n)/100],
-		P99:  samples[(99*n)/100],
-		P999: samples[(999*n)/1000],
-		Min:  samples[0],
-		Max:  samples[n-1],
-	}
-
-	var total time.Duration
-	for _, s := range samples {
-		total += s
-	}
-	lm.Mean = total / time.Duration(n)
-	return lm
-}
-
-// Merge combines another PerformanceMetrics into this collector.
-func (c *MetricsCollector) Merge(other PerformanceMetrics) {
-	c.mu.Lock()
-	defer c.mu.Unlock()
-	c.latencies = append(c.latencies, other.Latency.P50)
-	c.bytes += int64(other.Throughput.BytesPerSecond)
-	c.ops += int64(other.Throughput.OperationsPerSecond)
-	c.errors += other.ErrorRate.Errors
-}
-
-// Reset clears collected samples.
-func (c *MetricsCollector) Reset() {
-	c.mu.Lock()
-	defer c.mu.Unlock()
-	c.latencies = nil
-	c.bytes = 0
-	c.ops = 0
-	c.errors = 0
-	c.start = time.Now()
-}
-
-// CombineMetrics merges two PerformanceMetrics and returns result.
-func CombineMetrics(a, b PerformanceMetrics) PerformanceMetrics {
-	mc := NewMetricsCollector()
-	mc.RecordThroughput(int64(a.Throughput.BytesPerSecond), int64(a.Throughput.OperationsPerSecond))
-	mc.RecordThroughput(int64(b.Throughput.BytesPerSecond), int64(b.Throughput.OperationsPerSecond))
-	mc.RecordLatency(a.Latency.Mean)
-	mc.RecordLatency(b.Latency.Mean)
-	mc.errors = a.ErrorRate.Errors + b.ErrorRate.Errors
-	return mc.Snapshot()
+// Validate checks for any obviously invalid metric values and returns an error
+// if any are found. Currently this always returns nil.
+func (pm PerformanceMetrics) Validate() error {
+	// TODO: Implement validation rules for metric sanity checks.
+	return nil
 }

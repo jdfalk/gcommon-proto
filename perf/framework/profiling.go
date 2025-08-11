@@ -1,102 +1,76 @@
 // file: perf/framework/profiling.go
-// version: 1.1.0
-// guid: ab4d72d9-fc62-4f07-8051-55df394207c0
+// version: 0.1.0
+// guid: ad34b443-f7be-46af-84f1-72b5aa9f2bb4
 
 package framework
 
 import (
-	"fmt"
+	"io"
 	"os"
-	"runtime"
 	"runtime/pprof"
-	"time"
 )
 
-// StartCPUProfile begins CPU profiling and writes to the given path.
-func StartCPUProfile(path string) (*os.File, error) {
-	f, err := os.Create(path)
-	if err != nil {
-		return nil, err
-	}
-	if err := pprof.StartCPUProfile(f); err != nil {
-		_ = f.Close()
-		return nil, err
-	}
-	return f, nil
+// Profiler handles CPU and memory profiling for performance tests. The methods
+// are placeholders and do not yet implement the full profiling workflow.
+type Profiler struct {
+	// cpuFile is the destination for CPU profiling data.
+	cpuFile *os.File
+	// memFile is the destination for memory profiling data.
+	memFile *os.File
+	// TODO: Add fields for block and goroutine profiles.
 }
 
-// StopCPUProfile stops the CPU profile and closes the file.
-func StopCPUProfile(f *os.File) {
+// StartCPU begins CPU profiling and writes profile data to the provided writer.
+// Call StopCPU to end profiling. If writer is nil a default file is created.
+func (p *Profiler) StartCPU(w io.Writer) error {
+	if w == nil {
+		file, err := os.Create("cpu.prof")
+		if err != nil {
+			return err
+		}
+		p.cpuFile = file
+		w = file
+	}
+	// TODO: Support custom profiling configurations and durations.
+	return pprof.StartCPUProfile(w)
+}
+
+// StopCPU stops the CPU profiler if it was started.
+func (p *Profiler) StopCPU() {
 	pprof.StopCPUProfile()
-	_ = f.Close()
+	if p.cpuFile != nil {
+		_ = p.cpuFile.Close()
+		p.cpuFile = nil
+	}
 }
 
-// WriteMemProfile writes a heap profile to the specified path.
-func WriteMemProfile(path string) error {
-	f, err := os.Create(path)
-	if err != nil {
-		return err
+// WriteMemoryProfile writes a memory profile to the provided writer. If writer
+// is nil, a default file is created.
+func (p *Profiler) WriteMemoryProfile(w io.Writer) error {
+	if w == nil {
+		file, err := os.Create("mem.prof")
+		if err != nil {
+			return err
+		}
+		p.memFile = file
+		w = file
 	}
-	defer f.Close()
-	runtime.GC()
-	return pprof.WriteHeapProfile(f)
+	// TODO: Trigger GC to get up-to-date statistics before writing profile.
+	return pprof.WriteHeapProfile(w)
 }
 
-// CaptureBlockProfile writes a blocking profile to the specified path.
-func CaptureBlockProfile(path string, dur time.Duration) error {
-	runtime.SetBlockProfileRate(1)
-	defer runtime.SetBlockProfileRate(0)
-	time.Sleep(dur)
-	f, err := os.Create(path)
-	if err != nil {
-		return err
+// Close releases any resources held by the profiler.
+func (p *Profiler) Close() {
+	if p.cpuFile != nil {
+		_ = p.cpuFile.Close()
+		p.cpuFile = nil
 	}
-	defer f.Close()
-	if err := pprof.Lookup("block").WriteTo(f, 0); err != nil {
-		return err
+	if p.memFile != nil {
+		_ = p.memFile.Close()
+		p.memFile = nil
 	}
-	return nil
+	// TODO: Add cleanup for other profile types when implemented.
 }
 
-// CaptureGoroutineProfile writes goroutine profile to path.
-func CaptureGoroutineProfile(path string) error {
-	f, err := os.Create(path)
-	if err != nil {
-		return err
-	}
-	defer f.Close()
-	if err := pprof.Lookup("goroutine").WriteTo(f, 0); err != nil {
-		return err
-	}
-	return nil
-}
-
-// RuntimeStats captures current memory and goroutine statistics.
-func RuntimeStats() (MemoryMetrics, ResourceMetrics) {
-	var m runtime.MemStats
-	runtime.ReadMemStats(&m)
-	mem := MemoryMetrics{AllocatedBytes: m.Alloc, TotalBytes: m.TotalAlloc}
-	res := ResourceMetrics{Goroutines: runtime.NumGoroutine()}
-	return mem, res
-}
-
-// ProfileSection executes fn while collecting CPU profile for duration d.
-func ProfileSection(path string, d time.Duration, fn func()) error {
-	f, err := StartCPUProfile(path)
-	if err != nil {
-		return err
-	}
-	timer := time.AfterFunc(d, func() { StopCPUProfile(f) })
-	fn()
-	timer.Stop()
-	StopCPUProfile(f)
-	return nil
-}
-
-// LogRuntimeStats prints memory and goroutine usage to stdout.
-func LogRuntimeStats() {
-	var m runtime.MemStats
-	runtime.ReadMemStats(&m)
-	fmt.Printf("alloc=%d totalAlloc=%d sys=%d numGC=%d goroutines=%d\n",
-		m.Alloc, m.TotalAlloc, m.Sys, m.NumGC, runtime.NumGoroutine())
-}
+// TODO: Add support for tracing profiles and real-time metric streaming.
+// TODO: Integrate profiler with Runner for automatic profile management.

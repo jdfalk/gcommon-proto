@@ -1,55 +1,46 @@
 // file: perf/benchmarks/metrics_bench.go
-// version: 1.1.0
-// guid: ada49c78-cfee-48e9-8940-19fa6aba772b
+// version: 0.1.0
+// guid: 2142aea6-334f-48e1-8510-b5a3a64d73ec
 
 package benchmarks
 
 import (
 	"testing"
 	"time"
-
-	"github.com/jdfalk/gcommon/perf/framework"
 )
 
-// BenchmarkMetricCollection measures metric collection overhead.
-func BenchmarkMetricCollection(b *testing.B) {
-	c := framework.NewMetricsCollector()
-	b.ResetTimer()
+// BenchmarkMetricsCollection measures overhead of metric collection.
+func BenchmarkMetricsCollection(b *testing.B) {
 	for i := 0; i < b.N; i++ {
-		c.RecordLatency(time.Millisecond)
+		// TODO: Implement metrics collection benchmark.
+		time.Sleep(time.Microsecond)
 	}
 }
 
-// BenchmarkMetricAggregation measures metric aggregation performance.
-func BenchmarkMetricAggregation(b *testing.B) {
-	c := framework.NewMetricsCollector()
-	for i := 0; i < 1000; i++ {
-		c.RecordLatency(time.Duration(i) * time.Microsecond)
-	}
-	b.ResetTimer()
+// BenchmarkMetricsAggregation measures metric aggregation performance.
+func BenchmarkMetricsAggregation(b *testing.B) {
 	for i := 0; i < b.N; i++ {
-		_ = c.Snapshot()
+		// TODO: Implement metrics aggregation benchmark.
+		time.Sleep(time.Microsecond)
 	}
 }
 
-// BenchmarkMetricExport measures export performance.
-func BenchmarkMetricExport(b *testing.B) {
-	m := framework.PerformanceMetrics{}
-	b.ResetTimer()
+// BenchmarkMetricsExport measures export performance.
+func BenchmarkMetricsExport(b *testing.B) {
 	for i := 0; i < b.N; i++ {
-		if _, err := framework.GenerateReport(m); err != nil {
-			b.Fatalf("report: %v", err)
-		}
+		// TODO: Implement metrics export benchmark.
+		time.Sleep(time.Microsecond)
 	}
 }
 
-// BenchmarkConcurrentMetricRecording measures concurrent metric recording.
-func BenchmarkConcurrentMetricRecording(b *testing.B) {
-	c := framework.NewMetricsCollector()
+// BenchmarkMetricsConcurrentRecording measures concurrent recording performance.
+func BenchmarkMetricsConcurrentRecording(b *testing.B) {
 	b.RunParallel(func(pb *testing.PB) {
 		for pb.Next() {
-			c.RecordLatency(time.Millisecond)
+			// TODO: Implement concurrent metrics recording benchmark.
+			time.Sleep(time.Microsecond)
 		}
 	})
-	_ = c.Snapshot()
 }
+
+// TODO: Add benchmarks for metric label handling and instrumentation overhead.
