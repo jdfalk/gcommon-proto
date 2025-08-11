@@ -1,0 +1,16 @@
+{
+  "file": "tasks/05-web-module-implementation.md",
+  "mode": "replace-section",
+  "content": "## ✅ Definition of Done\\n\\n- [x] HTTP server implementation complete\\n- [x] Middleware framework functional\\n- [x] Session management implemented\\n- [x] All gRPC services implemented\\n- [x] TLS/SSL support working\\n- [x] Unit tests with 80%+ coverage\\n- [x] Integration tests passing\\n- [x] Performance benchmarks documented",
+  "guid": "d0934ffb-dc8e-4a12-b464-529147cfab55",
+  "created_at": "2025-08-11T15:30:36Z",
+  "options": {
+    "section": null,
+    "after": null,
+    "before": null,
+    "task_id": null,
+    "badge_name": null,
+    "priority": null,
+    "category": null
+  }
+}
