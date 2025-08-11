@@ -1,0 +1,13 @@
+{
+  "action": "update",
+  "number": 64,
+  "body": "Add CI/CD pipeline skeleton and quality gate workflow",
+  "labels": ["type:infrastructure"],
+  "guid": "9a404e38-50e4-4cfd-b9b5-b4694c85d16b",
+  "legacy_guid": "update-issue-64-2025-08-11",
+  "created_at": "2025-08-11T01:20:05.000Z",
+  "processed_at": null,
+  "failed_at": null,
+  "sequence": 0,
+  "parent_guid": null
+}
