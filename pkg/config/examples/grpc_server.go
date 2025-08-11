@@ -1,3 +1,5 @@
+//go:build ignore
+
 // file: pkg/config/examples/grpc_server.go
 // version: 1.0.0
 // guid: dddddddd-dddd-dddd-dddd-dddddddddddd

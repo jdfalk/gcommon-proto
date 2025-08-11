@@ -465,34 +465,33 @@ func CreateHTTPServerMetrics(provider metrics.Provider, serviceName string, defa
 	return &HTTPServerMetrics{
 		RequestsTotal: provider.Counter(
 			prefix+"http_requests_total",
-			labelNames,
+			metrics.WithTags(labelNames...),
 			metrics.WithDescription("Total number of HTTP requests"),
 		),
 
 		RequestDurationSeconds: provider.Histogram(
 			prefix+"http_request_duration_seconds",
-			labelNames,
+			metrics.WithTags(labelNames...),
 			metrics.WithDescription("HTTP request duration in seconds"),
 			metrics.WithBuckets(LatencyBuckets()),
 		),
 
 		ResponseSizeBytes: provider.Histogram(
 			prefix+"http_response_size_bytes",
-			labelNames,
+			metrics.WithTags(labelNames...),
 			metrics.WithDescription("HTTP response size in bytes"),
 			metrics.WithBuckets(SizeBuckets()),
 		),
 
 		RequestSizeBytes: provider.Histogram(
 			prefix+"http_request_size_bytes",
-			labelNames,
+			metrics.WithTags(labelNames...),
 			metrics.WithDescription("HTTP request size in bytes"),
 			metrics.WithBuckets(SizeBuckets()),
 		),
 
 		InFlightRequests: provider.Gauge(
 			prefix+"http_in_flight_requests",
-			[]metrics.Tag{},
 			metrics.WithDescription("Current number of in-flight HTTP requests"),
 		),
 	}
@@ -547,32 +546,32 @@ func CreateDatabaseMetrics(provider metrics.Provider, serviceName string, defaul
 	return &DatabaseMetrics{
 		OperationsTotal: provider.Counter(
 			prefix+"db_operations_total",
-			labelNames,
+			metrics.WithTags(labelNames...),
 			metrics.WithDescription("Total number of database operations"),
 		),
 
 		OperationErrors: provider.Counter(
 			prefix+"db_operation_errors_total",
-			labelNames,
+			metrics.WithTags(labelNames...),
 			metrics.WithDescription("Total number of database operation errors"),
 		),
 
 		OperationDurationSeconds: provider.Histogram(
 			prefix+"db_operation_duration_seconds",
-			labelNames,
+			metrics.WithTags(labelNames...),
 			metrics.WithDescription("Database operation duration in seconds"),
 			metrics.WithBuckets(LatencyBuckets()),
 		),
 
 		ConnectionsOpen: provider.Gauge(
 			prefix+"db_connections_open",
-			[]metrics.Tag{{Key: "database", Value: ""}},
+			metrics.WithTags(metrics.Tag{Key: "database", Value: ""}),
 			metrics.WithDescription("Number of open database connections"),
 		),
 
 		ConnectionsMax: provider.Gauge(
 			prefix+"db_connections_max",
-			[]metrics.Tag{{Key: "database", Value: ""}},
+			metrics.WithTags(metrics.Tag{Key: "database", Value: ""}),
 			metrics.WithDescription("Maximum number of open database connections"),
 		),
 	}
@@ -626,38 +625,38 @@ func CreateCacheMetrics(provider metrics.Provider, serviceName string, defaultLa
 	return &CacheMetrics{
 		OperationsTotal: provider.Counter(
 			prefix+"cache_operations_total",
-			labelNames,
+			metrics.WithTags(labelNames...),
 			metrics.WithDescription("Total number of cache operations"),
 		),
 
 		Hits: provider.Counter(
 			prefix+"cache_hits_total",
-			labelNames,
+			metrics.WithTags(labelNames...),
 			metrics.WithDescription("Total number of cache hits"),
 		),
 
 		Misses: provider.Counter(
 			prefix+"cache_misses_total",
-			labelNames,
+			metrics.WithTags(labelNames...),
 			metrics.WithDescription("Total number of cache misses"),
 		),
 
 		OperationDurationSeconds: provider.Histogram(
 			prefix+"cache_operation_duration_seconds",
-			labelNames,
+			metrics.WithTags(labelNames...),
 			metrics.WithDescription("Cache operation duration in seconds"),
 			metrics.WithBuckets([]float64{0.0001, 0.0005, 0.001, 0.005, 0.01, 0.05, 0.1, 0.5}),
 		),
 
 		Size: provider.Gauge(
 			prefix+"cache_size",
-			[]metrics.Tag{{Key: "cache", Value: ""}},
+			metrics.WithTags(metrics.Tag{Key: "cache", Value: ""}),
 			metrics.WithDescription("Current number of items in cache"),
 		),
 
 		MemoryUsageBytes: provider.Gauge(
 			prefix+"cache_memory_usage_bytes",
-			[]metrics.Tag{{Key: "cache", Value: ""}},
+			metrics.WithTags(metrics.Tag{Key: "cache", Value: ""}),
 			metrics.WithDescription("Current memory usage of cache in bytes"),
 		),
 	}
