@@ -1,3 +1,5 @@
+//go:build ignore
+
 // file: pkg/config/examples/simple.go
 // version: 1.0.0
 // guid: cccccccc-cccc-cccc-cccc-cccccccccccc

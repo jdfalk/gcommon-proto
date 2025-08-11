@@ -12,6 +12,7 @@ import (
 
 	"go.opentelemetry.io/otel"
 	"go.opentelemetry.io/otel/attribute"
+	"go.opentelemetry.io/otel/codes"
 	"go.opentelemetry.io/otel/exporters/jaeger"
 	"go.opentelemetry.io/otel/sdk/resource"
 	sdktrace "go.opentelemetry.io/otel/sdk/trace"
@@ -36,6 +37,7 @@ func NewTracesCollector(serviceName, jaegerEndpoint string) (*TracesCollector, e
 		return nil, fmt.Errorf("create jaeger exporter: %w", err)
 	}
 	res, err := resource.Merge(resource.Default(), resource.NewWithAttributes(
+		"",
 		attribute.String("service.name", serviceName),
 	))
 	if err != nil {
@@ -61,7 +63,7 @@ func (t *TracesCollector) StartSpan(ctx context.Context, name string, attrs ...a
 func (t *TracesCollector) EndSpan(span trace.Span, err error) {
 	if err != nil {
 		span.RecordError(err)
-		span.SetStatus(trace.Status{Code: trace.StatusCodeError, Description: err.Error()})
+		span.SetStatus(codes.Error, err.Error())
 	}
 	span.End()
 }

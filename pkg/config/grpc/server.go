@@ -5,7 +5,6 @@
 package grpc
 
 import (
-	"github.com/jdfalk/gcommon/pkg/config"
 	configpb "github.com/jdfalk/gcommon/pkg/config/proto"
 	"google.golang.org/grpc"
 )
@@ -22,7 +21,7 @@ import (
 // TODO: Allow injecting existing grpc.Server
 // TODO: End TODO list
 
-func NewServer(cfgSvc config.ConfigService, adminSvc config.ConfigAdminService) *grpc.Server {
+func NewServer(cfgSvc configpb.ConfigServiceServer, adminSvc configpb.ConfigAdminServiceServer) *grpc.Server {
 	s := grpc.NewServer()
 	if cfgSvc != nil {
 		configpb.RegisterConfigServiceServer(s, cfgSvc)

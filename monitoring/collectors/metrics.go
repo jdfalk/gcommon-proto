@@ -16,6 +16,7 @@ import (
 	"go.opentelemetry.io/otel/attribute"
 	otelprom "go.opentelemetry.io/otel/exporters/prometheus"
 	"go.opentelemetry.io/otel/metric"
+	sdkmetric "go.opentelemetry.io/otel/sdk/metric"
 )
 
 // MetricsCollector provides an abstraction around collecting application and
@@ -41,8 +42,9 @@ func NewMetricsCollector() (*MetricsCollector, error) {
 	if err != nil {
 		return nil, fmt.Errorf("create prometheus exporter: %w", err)
 	}
-	otel.SetMeterProvider(exp.MeterProvider())
-	m := otel.Meter("gcommon/monitoring")
+	provider := sdkmetric.NewMeterProvider(sdkmetric.WithReader(exp))
+	otel.SetMeterProvider(provider)
+	m := provider.Meter("gcommon/monitoring")
 	mc := &MetricsCollector{
 		registry:   reg,
 		meter:      m,

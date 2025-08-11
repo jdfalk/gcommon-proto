@@ -1,7 +1,8 @@
+//go:build ignore
+
 // file: pkg/config/examples/hierarchical.go
 // version: 1.0.0
 // guid: 33333333-4444-5555-6666-cccccccccccc
-//go:build ignore
 
 package main
 

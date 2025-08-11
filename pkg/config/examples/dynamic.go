@@ -1,7 +1,8 @@
+//go:build ignore
+
 // file: pkg/config/examples/dynamic.go
 // version: 1.0.0
 // guid: 44444444-5555-6666-7777-dddddddddddd
-//go:build ignore
 
 package main
 

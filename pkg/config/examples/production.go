@@ -1,7 +1,8 @@
+//go:build ignore
+
 // file: pkg/config/examples/production.go
 // version: 1.0.0
 // guid: 55555555-6666-7777-8888-eeeeeeeeeeee
-//go:build ignore
 
 package main
 
