@@ -1,0 +1,16 @@
+{
+  "file": "TODO.md",
+  "mode": "task-add",
+  "content": "Expand performance tests for future modules",
+  "guid": "9388033f-bdd2-4a30-ab66-b1ef02187461",
+  "created_at": "2025-08-10T23:58:44Z",
+  "options": {
+    "section": null,
+    "after": null,
+    "before": null,
+    "task_id": null,
+    "badge_name": null,
+    "priority": null,
+    "category": null
+  }
+}
