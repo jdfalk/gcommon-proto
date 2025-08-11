@@ -1,0 +1,13 @@
+{
+  "action": "create",
+  "title": "perf: implement comprehensive performance testing framework",
+  "body": "Implement benchmarks, load, stress, and regression testing with metrics collection",
+  "labels": ["type:feature", "performance", "testing"],
+  "guid": "eff9a5ba-d247-489e-bbe3-5fcf6770f922",
+  "legacy_guid": "create-perf-implement-comprehensive-performance-testing-framework-2025-08-10",
+  "created_at": "2025-08-10T23:52:49.000Z",
+  "processed_at": null,
+  "failed_at": null,
+  "sequence": 0,
+  "parent_guid": null
+}
