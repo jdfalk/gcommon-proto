@@ -1,17 +1,32 @@
 // file: sdks/typescript/models/model.ts
-// version: 1.0.0
+// version: 1.1.0
 // guid: 6e866da9-dfde-48f0-b6aa-334a7dfccc3c
 
-export interface ExampleModel {
-  // TODO: define model properties
-  value: number;
-}
+export class ExampleModel {
+  constructor(
+    public id: string,
+    public name: string,
+    public metadata: Record<string, string> = {},
+  ) {}
 
-export function validate(model: ExampleModel): boolean {
-  // TODO: implement validation logic
-  return true;
-}
+  validate(): void {
+    if (!this.id) {
+      throw new Error('id is required');
+    }
+    if (!this.name) {
+      throw new Error('name is required');
+    }
+  }
 
-// TODO: Add serialization helpers
-// TODO: Provide conversion functions
-// TODO: Document model usage
+  toJSON(): Record<string, unknown> {
+    return { id: this.id, name: this.name, metadata: { ...this.metadata } };
+  }
+
+  static fromJSON(data: unknown): ExampleModel {
+    const obj = data as Record<string, unknown>;
+    const id = String(obj.id ?? '');
+    const name = String(obj.name ?? '');
+    const metadata = (obj.metadata as Record<string, string>) || {};
+    return new ExampleModel(id, name, metadata);
+  }
+}

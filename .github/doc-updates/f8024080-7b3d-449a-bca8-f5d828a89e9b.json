@@ -1,0 +1,16 @@
+{
+  "file": "sdks/python/docs/README.md",
+  "mode": "replace",
+  "content": "<!-- file: sdks/python/docs/README.md -->\n<!-- version: 1.1.0 -->\n<!-- guid: 9e71fe6e-a036-472d-ad1d-d830d232bd83 -->\n\n# Python Client SDK\n\nThis SDK offers an asynchronous client with token-based authentication and service wrappers.\n\n## Quick Start\n\n```python\nfrom sdks.python.client.client import Client\nfrom sdks.python.services.service import ExampleService\nfrom sdks.python.models.model import ExampleModel\n\nasync with Client().lifespan() as client:\n    service = ExampleService(client)\n    model = ExampleModel(identifier=\"1\", name=\"demo\")\n    await service.call(model)\n```\n\n## Features\n\n- Async/await API\n- TokenProvider supporting API keys and OAuth2\n- ExampleService demonstrating unary RPC calls\n- Pytest-based tests",
+  "guid": "f8024080-7b3d-449a-bca8-f5d828a89e9b",
+  "created_at": "2025-08-11T15:37:06Z",
+  "options": {
+    "section": null,
+    "after": null,
+    "before": null,
+    "task_id": null,
+    "badge_name": null,
+    "priority": null,
+    "category": null
+  }
+}

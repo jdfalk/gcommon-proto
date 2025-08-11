@@ -1,23 +1,23 @@
 // file: sdks/typescript/services/service.ts
-// version: 1.0.0
+// version: 1.1.0
 // guid: 16593558-ea1b-497b-9e7d-9547c7f5f04b
 
 import { Client } from '../client/client';
+import { ExampleModel } from '../models/model';
 
 export class ExampleService {
-  private client: Client;
-
-  constructor(client: Client) {
-    this.client = client;
+  constructor(private readonly client: Client) {
+    this.client.registerUnary('Example/Call', this.callRpc.bind(this));
   }
 
-  async call(data: unknown): Promise<unknown> {
-    // TODO: implement RPC call via client
-    return null;
+  private async callRpc(request: unknown): Promise<unknown> {
+    const model = ExampleModel.fromJSON(request);
+    model.validate();
+    return { ...model.toJSON(), status: 'ok' };
   }
 
-  // TODO: Add more service methods
-  // TODO: Map errors to exceptions
-  // TODO: Support retries
-  // TODO: Document usage
+  async call(model: ExampleModel): Promise<unknown> {
+    model.validate();
+    return await this.client.callUnary('Example/Call', model.toJSON());
+  }
 }
