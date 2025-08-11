@@ -12,6 +12,11 @@ and this project adheres to
 
 ## [Unreleased]
 
+### Changed
+
+- Marked plugin architecture task as complete in tasks documentation.
+
+
 ### Added
 
 - Added extensible plugin architecture with security, communication bus, SDK, and examples

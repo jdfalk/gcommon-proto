@@ -1,0 +1,12 @@
+{
+  "action": "comment",
+  "number": 81,
+  "body": "Verified plugin architecture already implemented",
+  "guid": "657dc1ab-30a8-40c7-b004-9c514584c463",
+  "legacy_guid": "comment-issue-81-2025-08-11",
+  "created_at": "2025-08-11T01:18:06.000Z",
+  "processed_at": null,
+  "failed_at": null,
+  "sequence": 0,
+  "parent_guid": null
+}
