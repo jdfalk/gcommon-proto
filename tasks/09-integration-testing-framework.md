@@ -174,3 +174,12 @@ This task depends on completion of module implementation tasks:
 - Task 06: Cache Module Implementation
 - Task 07: Organization Module Implementation
 - Task 08: Notification Module Implementation
+
+## 📝 Implementation References
+
+- [test/integration/framework/setup.go](test/integration/framework/setup.go)
+- [test/integration/modules](test/integration/modules)
+- [test/integration/cross_module](test/integration/cross_module)
+- [test/integration/performance](test/integration/performance)
+- [test/e2e/scenarios/basic_test.go](test/e2e/scenarios/basic_test.go)
+- [test/e2e/workflows/full_workflow_test.go](test/e2e/workflows/full_workflow_test.go)

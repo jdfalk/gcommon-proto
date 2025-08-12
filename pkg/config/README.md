@@ -17,3 +17,5 @@ value, _ := p.Get("EXAMPLE_KEY")
 
 - **env**: uses environment variables
 - **file**: reads and writes JSON configuration files
+
+# Config Module\n\nTODO: document config module

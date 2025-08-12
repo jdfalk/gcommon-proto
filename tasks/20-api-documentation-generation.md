@@ -68,3 +68,5 @@ Implement automated documentation pipeline:
 3. Easy to discover and use APIs
 4. Interactive documentation improves developer experience
 5. Documentation supports multiple use cases
+
+## Implementation References\n- scripts/api_doc_generator.py\n- scripts/api_explorer.py\n- pkg/docsystem/explorer.go

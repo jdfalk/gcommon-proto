@@ -22,6 +22,7 @@
 - **[Health Module Guide](docs/user/health-kubernetes.md)** - Production-ready
   health monitoring
 - **[Basic Examples](examples/)** - Working code examples for each module
+- **[Getting Started Examples](examples/getting-started/)** - Quick start projects
 
 ### For Developers
 
@@ -36,6 +37,7 @@ GCommon is a comprehensive library of common Go modules designed for building
 robust, scalable applications. It provides consistent APIs across
 authentication, caching, configuration, database operations, health checking,
 logging, metrics, message queuing, and web services.
+This update introduces a security module for audits, policies, monitoring, and tools.
 
 ## 🚀 Quick Start
 
@@ -458,6 +460,7 @@ python3 /path/to/ghcommon/scripts/unified_github_project_manager_v2.py
 See `scripts/MIGRATION-NOTICE.md` for migration details.
 
 ### Recent Updates
+- Added standardized LogEntry struct for consistent structured logging across modules
 
 - Implemented initial auth configuration and API key messages
 - Logging module migrated to 1-1-1 structure with 10 new protobuf files
@@ -548,3 +551,43 @@ This project includes automated dependency auditing and optimization scripts.
 ## Documentation
 
 Comprehensive documentation for all modules is available under the docs/ directory, featuring module overviews, API references, guides, examples, tutorials, and reference materials.
+
+## SDK Generation\n\nInitial scaffolding for multi-language client SDK generation. Further implementation required.
+## Examples and Tutorials\n\nTODO: Add content for this section
+## Client SDKs\n\nTODO: Add content for this section
+## Deployment
+
+- **Docker**: Multi-stage build example in [deploy/docker](deploy/docker)
+- **Kubernetes**: Example manifest in [deploy/kubernetes](deploy/kubernetes)
+### Advanced Deployment\n\n- **Helm Charts**: Configurable Helm chart in [deploy/helm](deploy/helm)\n- **Automation**: GitOps and CI/CD templates in [deploy/automation](deploy/automation)\n- **Monitoring**: Prometheus, logging, and tracing configs in [deploy/kubernetes/monitoring](deploy/kubernetes/monitoring)
+## Error Handling\n\nInitial error handling framework with standardized error codes.
+## Monitoring and Observability\nThis module provides metrics, logging, tracing, alerting, and dashboards for system health.
+Add dependency audit utility with license checks.
+### Integration Testing\nA new integration testing framework validates module interactions and performance.
+- Added fully functional in-memory metrics provider supporting counters, gauges, histograms, summaries, and timers
+Added preliminary CI/CD pipeline infrastructure skeleton
+## API Documentation\n\nRun `python scripts/api_doc_generator.py` to generate HTML, Markdown, PDF, OpenAPI specs, Postman collections, and playground configs for all modules.
+## API Documentation\n\nAutomated documentation generation and interactive explorer are available under scripts/api_doc_generator.py and scripts/api_explorer.py.
+### gRPC Client Resilience\n\nCombined retry, circuit breaking, and fallback utilities are available via the resilience interceptor. See pkg/grpc/client for details. (Refs #882)
+## CI/CD Pipeline\n\nComprehensive pipeline with multi-stage testing, quality gates, automated releases, environment management, and reporting.
+### Error Handling\nStandardized errors across modules with codes, wrapping, and monitoring.
+## Monitoring\nComprehensive collectors, alerts, exporters, and dashboards provide full observability.
+## 🤝 Community Guidelines
+
+Please read our [Code of Conduct](CODE_OF_CONDUCT.md) to understand expected behavior.
+### Auth Module Docs\n\nComprehensive authentication module documentation is available under docs/modules/auth.
+## Documentation\n\nInitial module documentation skeleton is available under docs/modules/.
+- **[Production Readiness Checklist](docs/production-readiness-checklist.md)** - Module readiness criteria and assessments
+## CI/CD Pipeline\n\nThis project now includes a security scanning workflow that runs `go vet` and `npm audit` during continuous integration.
+## CI/CD Pipeline\n\nThis project includes an advanced CI/CD pipeline with multi-stage testing, quality gates, automated releases, and environment deployments.
+## Microservice Templates\n\nUse `scripts/generate-microservice.sh` to scaffold a new service from templates like `basic-api-service` or `worker-service`.
+Notification module service layer implemented with multi-channel gRPC services.
+## Deployment Templates\n\nTODO: Add content for this section
+## Integration Testing\n\nRun `go test ./test/integration/...` to execute integration tests across all modules.
+## Security Audit\n\nProvides audit tools, security policies, monitoring, and cryptographic utilities enabling comprehensive protection across auth, web, and queue modules.
+## Web Module\n\nTODO: Add content for this section
+- Added gRPC server and client for database migrations
+\n## Documentation System\nPlaceholder for module documentation system.
+## Performance Testing\nThe perf/ directory contains benchmarking, load, stress, and regression tools for all modules.
+## Microservice Templates\nTemplates for common service types are now available with a generation CLI.
+## Security Module\nProvides auditing, policies, monitoring, and tools for secure operations.

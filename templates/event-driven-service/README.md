@@ -12,3 +12,5 @@ It includes configuration, logging, metrics, and worker skeleton.
 ```bash
 ./scripts/generate-microservice.sh event-driven-service ../my-event-service
 ```
+
+# Event-Driven Service Template\n\nTemplate for services that process messages from queues.
