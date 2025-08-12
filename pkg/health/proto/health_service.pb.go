@@ -25,9 +25,10 @@ var File_pkg_health_proto_health_service_proto protoreflect.FileDescriptor
 
 const file_pkg_health_proto_health_service_proto_rawDesc = "" +
 	"\n" +
-	"%pkg/health/proto/health_service.proto\x12\x11gcommon.v1.health\x1a!google/protobuf/go_features.proto\x1a1pkg/health/proto/get_health_metrics_request.proto\x1a2pkg/health/proto/get_health_metrics_response.proto\x1a1pkg/health/proto/get_service_health_request.proto\x1a2pkg/health/proto/get_service_health_response.proto\x1a+pkg/health/proto/health_check_request.proto\x1a,pkg/health/proto/health_check_response.proto\x1a,pkg/health/proto/list_services_request.proto\x1a-pkg/health/proto/list_services_response.proto\x1a-pkg/health/proto/register_check_request.proto\x1a.pkg/health/proto/register_check_response.proto\x1a/pkg/health/proto/unregister_check_request.proto\x1a0pkg/health/proto/unregister_check_response.proto\x1a$pkg/health/proto/watch_request.proto\x1a%pkg/health/proto/watch_response.proto2\xbe\x05\n" +
+	"%pkg/health/proto/health_service.proto\x12\x11gcommon.v1.health\x1a!google/protobuf/go_features.proto\x1a1pkg/health/proto/get_health_metrics_request.proto\x1a2pkg/health/proto/get_health_metrics_response.proto\x1a1pkg/health/proto/get_service_health_request.proto\x1a2pkg/health/proto/get_service_health_response.proto\x1a+pkg/health/proto/health_check_request.proto\x1a,pkg/health/proto/health_check_response.proto\x1a/pkg/health/proto/health_check_all_request.proto\x1a0pkg/health/proto/health_check_all_response.proto\x1a,pkg/health/proto/list_services_request.proto\x1a-pkg/health/proto/list_services_response.proto\x1a-pkg/health/proto/register_check_request.proto\x1a.pkg/health/proto/register_check_response.proto\x1a/pkg/health/proto/unregister_check_request.proto\x1a0pkg/health/proto/unregister_check_response.proto\x1a$pkg/health/proto/watch_request.proto\x1a%pkg/health/proto/watch_response.proto2\x9f\x06\n" +
 	"\rHealthService\x12V\n" +
-	"\x05Check\x12%.gcommon.v1.health.HealthCheckRequest\x1a&.gcommon.v1.health.HealthCheckResponse\x12L\n" +
+	"\x05Check\x12%.gcommon.v1.health.HealthCheckRequest\x1a&.gcommon.v1.health.HealthCheckResponse\x12_\n" +
+	"\bCheckAll\x12(.gcommon.v1.health.HealthCheckAllRequest\x1a).gcommon.v1.health.HealthCheckAllResponse\x12L\n" +
 	"\x05Watch\x12\x1f.gcommon.v1.health.WatchRequest\x1a .gcommon.v1.health.WatchResponse0\x01\x12k\n" +
 	"\x10GetServiceHealth\x12*.gcommon.v1.health.GetServiceHealthRequest\x1a+.gcommon.v1.health.GetServiceHealthResponse\x12_\n" +
 	"\fListServices\x12&.gcommon.v1.health.ListServicesRequest\x1a'.gcommon.v1.health.ListServicesResponse\x12b\n" +
@@ -38,37 +39,41 @@ const file_pkg_health_proto_health_service_proto_rawDesc = "" +
 
 var file_pkg_health_proto_health_service_proto_goTypes = []any{
 	(*HealthCheckRequest)(nil),       // 0: gcommon.v1.health.HealthCheckRequest
-	(*WatchRequest)(nil),             // 1: gcommon.v1.health.WatchRequest
-	(*GetServiceHealthRequest)(nil),  // 2: gcommon.v1.health.GetServiceHealthRequest
-	(*ListServicesRequest)(nil),      // 3: gcommon.v1.health.ListServicesRequest
-	(*RegisterCheckRequest)(nil),     // 4: gcommon.v1.health.RegisterCheckRequest
-	(*UnregisterCheckRequest)(nil),   // 5: gcommon.v1.health.UnregisterCheckRequest
-	(*GetHealthMetricsRequest)(nil),  // 6: gcommon.v1.health.GetHealthMetricsRequest
-	(*HealthCheckResponse)(nil),      // 7: gcommon.v1.health.HealthCheckResponse
-	(*WatchResponse)(nil),            // 8: gcommon.v1.health.WatchResponse
-	(*GetServiceHealthResponse)(nil), // 9: gcommon.v1.health.GetServiceHealthResponse
-	(*ListServicesResponse)(nil),     // 10: gcommon.v1.health.ListServicesResponse
-	(*RegisterCheckResponse)(nil),    // 11: gcommon.v1.health.RegisterCheckResponse
-	(*UnregisterCheckResponse)(nil),  // 12: gcommon.v1.health.UnregisterCheckResponse
-	(*GetHealthMetricsResponse)(nil), // 13: gcommon.v1.health.GetHealthMetricsResponse
+	(*HealthCheckAllRequest)(nil),    // 1: gcommon.v1.health.HealthCheckAllRequest
+	(*WatchRequest)(nil),             // 2: gcommon.v1.health.WatchRequest
+	(*GetServiceHealthRequest)(nil),  // 3: gcommon.v1.health.GetServiceHealthRequest
+	(*ListServicesRequest)(nil),      // 4: gcommon.v1.health.ListServicesRequest
+	(*RegisterCheckRequest)(nil),     // 5: gcommon.v1.health.RegisterCheckRequest
+	(*UnregisterCheckRequest)(nil),   // 6: gcommon.v1.health.UnregisterCheckRequest
+	(*GetHealthMetricsRequest)(nil),  // 7: gcommon.v1.health.GetHealthMetricsRequest
+	(*HealthCheckResponse)(nil),      // 8: gcommon.v1.health.HealthCheckResponse
+	(*HealthCheckAllResponse)(nil),   // 9: gcommon.v1.health.HealthCheckAllResponse
+	(*WatchResponse)(nil),            // 10: gcommon.v1.health.WatchResponse
+	(*GetServiceHealthResponse)(nil), // 11: gcommon.v1.health.GetServiceHealthResponse
+	(*ListServicesResponse)(nil),     // 12: gcommon.v1.health.ListServicesResponse
+	(*RegisterCheckResponse)(nil),    // 13: gcommon.v1.health.RegisterCheckResponse
+	(*UnregisterCheckResponse)(nil),  // 14: gcommon.v1.health.UnregisterCheckResponse
+	(*GetHealthMetricsResponse)(nil), // 15: gcommon.v1.health.GetHealthMetricsResponse
 }
 var file_pkg_health_proto_health_service_proto_depIdxs = []int32{
 	0,  // 0: gcommon.v1.health.HealthService.Check:input_type -> gcommon.v1.health.HealthCheckRequest
-	1,  // 1: gcommon.v1.health.HealthService.Watch:input_type -> gcommon.v1.health.WatchRequest
-	2,  // 2: gcommon.v1.health.HealthService.GetServiceHealth:input_type -> gcommon.v1.health.GetServiceHealthRequest
-	3,  // 3: gcommon.v1.health.HealthService.ListServices:input_type -> gcommon.v1.health.ListServicesRequest
-	4,  // 4: gcommon.v1.health.HealthService.RegisterCheck:input_type -> gcommon.v1.health.RegisterCheckRequest
-	5,  // 5: gcommon.v1.health.HealthService.UnregisterCheck:input_type -> gcommon.v1.health.UnregisterCheckRequest
-	6,  // 6: gcommon.v1.health.HealthService.GetHealthMetrics:input_type -> gcommon.v1.health.GetHealthMetricsRequest
-	7,  // 7: gcommon.v1.health.HealthService.Check:output_type -> gcommon.v1.health.HealthCheckResponse
-	8,  // 8: gcommon.v1.health.HealthService.Watch:output_type -> gcommon.v1.health.WatchResponse
-	9,  // 9: gcommon.v1.health.HealthService.GetServiceHealth:output_type -> gcommon.v1.health.GetServiceHealthResponse
-	10, // 10: gcommon.v1.health.HealthService.ListServices:output_type -> gcommon.v1.health.ListServicesResponse
-	11, // 11: gcommon.v1.health.HealthService.RegisterCheck:output_type -> gcommon.v1.health.RegisterCheckResponse
-	12, // 12: gcommon.v1.health.HealthService.UnregisterCheck:output_type -> gcommon.v1.health.UnregisterCheckResponse
-	13, // 13: gcommon.v1.health.HealthService.GetHealthMetrics:output_type -> gcommon.v1.health.GetHealthMetricsResponse
-	7,  // [7:14] is the sub-list for method output_type
-	0,  // [0:7] is the sub-list for method input_type
+	1,  // 1: gcommon.v1.health.HealthService.CheckAll:input_type -> gcommon.v1.health.HealthCheckAllRequest
+	2,  // 2: gcommon.v1.health.HealthService.Watch:input_type -> gcommon.v1.health.WatchRequest
+	3,  // 3: gcommon.v1.health.HealthService.GetServiceHealth:input_type -> gcommon.v1.health.GetServiceHealthRequest
+	4,  // 4: gcommon.v1.health.HealthService.ListServices:input_type -> gcommon.v1.health.ListServicesRequest
+	5,  // 5: gcommon.v1.health.HealthService.RegisterCheck:input_type -> gcommon.v1.health.RegisterCheckRequest
+	6,  // 6: gcommon.v1.health.HealthService.UnregisterCheck:input_type -> gcommon.v1.health.UnregisterCheckRequest
+	7,  // 7: gcommon.v1.health.HealthService.GetHealthMetrics:input_type -> gcommon.v1.health.GetHealthMetricsRequest
+	8,  // 8: gcommon.v1.health.HealthService.Check:output_type -> gcommon.v1.health.HealthCheckResponse
+	9,  // 9: gcommon.v1.health.HealthService.CheckAll:output_type -> gcommon.v1.health.HealthCheckAllResponse
+	10, // 10: gcommon.v1.health.HealthService.Watch:output_type -> gcommon.v1.health.WatchResponse
+	11, // 11: gcommon.v1.health.HealthService.GetServiceHealth:output_type -> gcommon.v1.health.GetServiceHealthResponse
+	12, // 12: gcommon.v1.health.HealthService.ListServices:output_type -> gcommon.v1.health.ListServicesResponse
+	13, // 13: gcommon.v1.health.HealthService.RegisterCheck:output_type -> gcommon.v1.health.RegisterCheckResponse
+	14, // 14: gcommon.v1.health.HealthService.UnregisterCheck:output_type -> gcommon.v1.health.UnregisterCheckResponse
+	15, // 15: gcommon.v1.health.HealthService.GetHealthMetrics:output_type -> gcommon.v1.health.GetHealthMetricsResponse
+	8,  // [8:16] is the sub-list for method output_type
+	0,  // [0:8] is the sub-list for method input_type
 	0,  // [0:0] is the sub-list for extension type_name
 	0,  // [0:0] is the sub-list for extension extendee
 	0,  // [0:0] is the sub-list for field type_name
@@ -85,6 +90,8 @@ func file_pkg_health_proto_health_service_proto_init() {
 	file_pkg_health_proto_get_service_health_response_proto_init()
 	file_pkg_health_proto_health_check_request_proto_init()
 	file_pkg_health_proto_health_check_response_proto_init()
+	file_pkg_health_proto_health_check_all_request_proto_init()
+	file_pkg_health_proto_health_check_all_response_proto_init()
 	file_pkg_health_proto_list_services_request_proto_init()
 	file_pkg_health_proto_list_services_response_proto_init()
 	file_pkg_health_proto_register_check_request_proto_init()

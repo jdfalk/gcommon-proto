@@ -19,20 +19,20 @@ type (
 
 // Status constants using protobuf values
 const (
-	StatusUnknown  = healthpb.ServingStatus_UNKNOWN
-	StatusUp       = healthpb.ServingStatus_SERVING
-	StatusDown     = healthpb.ServingStatus_NOT_SERVING
-	StatusDegraded = healthpb.ServingStatus_SERVING_DEGRADED
+	StatusUnknown  = healthpb.ServingStatus_SERVING_STATUS_UNSPECIFIED
+	StatusUp       = healthpb.ServingStatus_SERVING_STATUS_SERVING
+	StatusDown     = healthpb.ServingStatus_SERVING_STATUS_NOT_SERVING
+	StatusDegraded = healthpb.ServingStatus_SERVING_STATUS_SERVING_DEGRADED
 )
 
 // CheckType constants using protobuf values
 const (
-	TypeUnspecified = healthpb.CheckType_TYPE_UNSPECIFIED
-	TypeLiveness    = healthpb.CheckType_LIVENESS
-	TypeReadiness   = healthpb.CheckType_READINESS
-	TypeStartup     = healthpb.CheckType_STARTUP
-	TypeComponent   = healthpb.CheckType_COMPONENT
-	TypeDependency  = healthpb.CheckType_DEPENDENCY
+	TypeUnspecified = healthpb.CheckType_CHECK_TYPE_UNSPECIFIED
+	TypeLiveness    = healthpb.CheckType_CHECK_TYPE_LIVENESS
+	TypeReadiness   = healthpb.CheckType_CHECK_TYPE_READINESS
+	TypeStartup     = healthpb.CheckType_CHECK_TYPE_STARTUP
+	TypeComponent   = healthpb.CheckType_CHECK_TYPE_COMPONENT
+	TypeDependency  = healthpb.CheckType_CHECK_TYPE_DEPENDENCY
 )
 
 // HealthConfig represents health configuration using protobuf message

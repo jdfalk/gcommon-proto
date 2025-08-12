@@ -20,6 +20,7 @@ const _ = grpc.SupportPackageIsVersion9
 
 const (
 	HealthService_Check_FullMethodName            = "/gcommon.v1.health.HealthService/Check"
+	HealthService_CheckAll_FullMethodName         = "/gcommon.v1.health.HealthService/CheckAll"
 	HealthService_Watch_FullMethodName            = "/gcommon.v1.health.HealthService/Watch"
 	HealthService_GetServiceHealth_FullMethodName = "/gcommon.v1.health.HealthService/GetServiceHealth"
 	HealthService_ListServices_FullMethodName     = "/gcommon.v1.health.HealthService/ListServices"
@@ -38,6 +39,8 @@ const (
 type HealthServiceClient interface {
 	// Check performs a health check for a specific service
 	Check(ctx context.Context, in *HealthCheckRequest, opts ...grpc.CallOption) (*HealthCheckResponse, error)
+	// CheckAll performs comprehensive health checks for all services
+	CheckAll(ctx context.Context, in *HealthCheckAllRequest, opts ...grpc.CallOption) (*HealthCheckAllResponse, error)
 	// Watch returns a stream of health check results
 	Watch(ctx context.Context, in *WatchRequest, opts ...grpc.CallOption) (grpc.ServerStreamingClient[WatchResponse], error)
 	// GetServiceHealth returns health status for a service
@@ -64,6 +67,16 @@ func (c *healthServiceClient) Check(ctx context.Context, in *HealthCheckRequest,
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(HealthCheckResponse)
 	err := c.cc.Invoke(ctx, HealthService_Check_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *healthServiceClient) CheckAll(ctx context.Context, in *HealthCheckAllRequest, opts ...grpc.CallOption) (*HealthCheckAllResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(HealthCheckAllResponse)
+	err := c.cc.Invoke(ctx, HealthService_CheckAll_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
@@ -149,6 +162,8 @@ func (c *healthServiceClient) GetHealthMetrics(ctx context.Context, in *GetHealt
 type HealthServiceServer interface {
 	// Check performs a health check for a specific service
 	Check(context.Context, *HealthCheckRequest) (*HealthCheckResponse, error)
+	// CheckAll performs comprehensive health checks for all services
+	CheckAll(context.Context, *HealthCheckAllRequest) (*HealthCheckAllResponse, error)
 	// Watch returns a stream of health check results
 	Watch(*WatchRequest, grpc.ServerStreamingServer[WatchResponse]) error
 	// GetServiceHealth returns health status for a service
@@ -172,6 +187,9 @@ type UnimplementedHealthServiceServer struct{}
 
 func (UnimplementedHealthServiceServer) Check(context.Context, *HealthCheckRequest) (*HealthCheckResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method Check not implemented")
+}
+func (UnimplementedHealthServiceServer) CheckAll(context.Context, *HealthCheckAllRequest) (*HealthCheckAllResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method CheckAll not implemented")
 }
 func (UnimplementedHealthServiceServer) Watch(*WatchRequest, grpc.ServerStreamingServer[WatchResponse]) error {
 	return status.Errorf(codes.Unimplemented, "method Watch not implemented")
@@ -225,6 +243,24 @@ func _HealthService_Check_Handler(srv interface{}, ctx context.Context, dec func
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(HealthServiceServer).Check(ctx, req.(*HealthCheckRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _HealthService_CheckAll_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(HealthCheckAllRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(HealthServiceServer).CheckAll(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: HealthService_CheckAll_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(HealthServiceServer).CheckAll(ctx, req.(*HealthCheckAllRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -340,6 +376,10 @@ var HealthService_ServiceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "Check",
 			Handler:    _HealthService_Check_Handler,
+		},
+		{
+			MethodName: "CheckAll",
+			Handler:    _HealthService_CheckAll_Handler,
 		},
 		{
 			MethodName: "GetServiceHealth",

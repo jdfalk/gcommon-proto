@@ -1,0 +1,31 @@
+// file: pkg/health/proto/health_check_all_response.proto
+edition = "2023";
+
+package gcommon.v1.health;
+
+import "google/protobuf/go_features.proto";
+import "pkg/health/proto/serving_status.proto";
+import "pkg/health/proto/health_check_result.proto";
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/jdfalk/gcommon/pkg/health/proto";
+
+/**
+ * HealthCheckAllResponse contains comprehensive health information for all services
+ */
+message HealthCheckAllResponse {
+  // Overall system status
+  ServingStatus overall_status = 1;
+  // Individual service health results
+  repeated HealthCheckResult results = 2;
+  // Total number of services checked
+  int32 total_services = 3;
+  // Number of healthy services
+  int32 healthy_services = 4;
+  // Number of unhealthy services
+  int32 unhealthy_services = 5;
+  // Total check duration in milliseconds
+  int64 total_duration_ms = 6;
+  // Timestamp when the check was completed
+  int64 timestamp = 7;
+}

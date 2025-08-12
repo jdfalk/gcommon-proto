@@ -10,6 +10,8 @@ import "pkg/health/proto/get_service_health_request.proto";
 import "pkg/health/proto/get_service_health_response.proto";
 import "pkg/health/proto/health_check_request.proto";
 import "pkg/health/proto/health_check_response.proto";
+import "pkg/health/proto/health_check_all_request.proto";
+import "pkg/health/proto/health_check_all_response.proto";
 import "pkg/health/proto/list_services_request.proto";
 import "pkg/health/proto/list_services_response.proto";
 import "pkg/health/proto/register_check_request.proto";
@@ -29,6 +31,9 @@ option go_package = "github.com/jdfalk/gcommon/pkg/health/proto";
 service HealthService {
   // Check performs a health check for a specific service
   rpc Check(HealthCheckRequest) returns (HealthCheckResponse);
+
+  // CheckAll performs comprehensive health checks for all services
+  rpc CheckAll(HealthCheckAllRequest) returns (HealthCheckAllResponse);
 
   // Watch returns a stream of health check results
   rpc Watch(WatchRequest) returns (stream WatchResponse);
