@@ -13,6 +13,7 @@ Working on fixing buf.gen.yaml configuration to properly support Edition 2023 pr
 ## Current buf.gen.yaml State
 
 File shows mixed configuration:
+
 - Still using remote plugins for Go, Python, JS
 - Some plugins missing version numbers
 - gRPC-Web plugin still present (doesn't support Edition 2023)
@@ -21,9 +22,10 @@ File shows mixed configuration:
 
 Need to replace ALL built-in language plugins with `protoc_builtin` configuration:
 
-### Languages with Built-in Support:
+### Languages with Built-in Support
+
 - `cpp`
-- `csharp` 
+- `csharp`
 - `java`
 - `js` (before v21)
 - `kotlin` (after v3.17)
@@ -33,7 +35,8 @@ Need to replace ALL built-in language plugins with `protoc_builtin` configuratio
 - `python`
 - `ruby`
 
-### Languages Requiring Remote Plugins:
+### Languages Requiring Remote Plugins
+
 - Go gRPC (buf.build/grpc/go)
 - TypeScript/gRPC-Web (when Edition 2023 support available)
 - Rust (when Edition 2023 support available)
@@ -42,6 +45,7 @@ Need to replace ALL built-in language plugins with `protoc_builtin` configuratio
 ## Next Steps
 
 1. **Fix buf.gen.yaml immediately**:
+
    ```yaml
    version: v2
    managed:
@@ -89,7 +93,7 @@ Need to replace ALL built-in language plugins with `protoc_builtin` configuratio
 
 - **Original Task**: Fix all failing Go tests
 - **Metrics Tests**: Fixed collector tests by removing incompatible Prometheus testutil usage
-- **Mockery**: Configured for proto interfaces  
+- **Mockery**: Configured for proto interfaces
 - **Protobuf Architecture**: Need to use protobuf definitions instead of custom Go interfaces for metrics
 - **Edition 2023**: Mandatory, no downgrading allowed per user requirements
 - **Language Preferences**: Go, TypeScript, Python, Rust, Swift (Java removed)
@@ -97,7 +101,7 @@ Need to replace ALL built-in language plugins with `protoc_builtin` configuratio
 ## Files Modified This Session
 
 - `buf.gen.yaml` - Multiple iterations, needs final fix
-- `monitoring/collectors/metrics_test.go` - Fixed Prometheus compatibility 
+- `monitoring/collectors/metrics_test.go` - Fixed Prometheus compatibility
 - `monitoring/collectors/metrics_extended_test.go` - Fixed Prometheus compatibility
 - `.mockery.yml` - Configured for proto interface mocks
 - Various middleware test files - Attempted mock fixes (incomplete)
@@ -105,7 +109,7 @@ Need to replace ALL built-in language plugins with `protoc_builtin` configuratio
 ## Immediate Action Required
 
 1. Apply the buf.gen.yaml fix above
-2. Test `buf generate` 
+2. Test `buf generate`
 3. Continue with metrics middleware test fixes
 4. Address remaining Go test failures systematically
 
