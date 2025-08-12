@@ -6,6 +6,8 @@ from pkg.health.proto import get_health_metrics_request_pb2 as pkg_dot_health_do
 from pkg.health.proto import get_health_metrics_response_pb2 as pkg_dot_health_dot_proto_dot_get__health__metrics__response__pb2
 from pkg.health.proto import get_service_health_request_pb2 as pkg_dot_health_dot_proto_dot_get__service__health__request__pb2
 from pkg.health.proto import get_service_health_response_pb2 as pkg_dot_health_dot_proto_dot_get__service__health__response__pb2
+from pkg.health.proto import health_check_all_request_pb2 as pkg_dot_health_dot_proto_dot_health__check__all__request__pb2
+from pkg.health.proto import health_check_all_response_pb2 as pkg_dot_health_dot_proto_dot_health__check__all__response__pb2
 from pkg.health.proto import health_check_request_pb2 as pkg_dot_health_dot_proto_dot_health__check__request__pb2
 from pkg.health.proto import health_check_response_pb2 as pkg_dot_health_dot_proto_dot_health__check__response__pb2
 from pkg.health.proto import list_services_request_pb2 as pkg_dot_health_dot_proto_dot_list__services__request__pb2
@@ -34,6 +36,11 @@ class HealthServiceStub(object):
                 '/gcommon.v1.health.HealthService/Check',
                 request_serializer=pkg_dot_health_dot_proto_dot_health__check__request__pb2.HealthCheckRequest.SerializeToString,
                 response_deserializer=pkg_dot_health_dot_proto_dot_health__check__response__pb2.HealthCheckResponse.FromString,
+                _registered_method=True)
+        self.CheckAll = channel.unary_unary(
+                '/gcommon.v1.health.HealthService/CheckAll',
+                request_serializer=pkg_dot_health_dot_proto_dot_health__check__all__request__pb2.HealthCheckAllRequest.SerializeToString,
+                response_deserializer=pkg_dot_health_dot_proto_dot_health__check__all__response__pb2.HealthCheckAllResponse.FromString,
                 _registered_method=True)
         self.Watch = channel.unary_stream(
                 '/gcommon.v1.health.HealthService/Watch',
@@ -75,6 +82,13 @@ class HealthServiceServicer(object):
 
     def Check(self, request, context):
         """Check performs a health check for a specific service
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def CheckAll(self, request, context):
+        """CheckAll performs comprehensive health checks for all services
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
@@ -129,6 +143,11 @@ def add_HealthServiceServicer_to_server(servicer, server):
                     servicer.Check,
                     request_deserializer=pkg_dot_health_dot_proto_dot_health__check__request__pb2.HealthCheckRequest.FromString,
                     response_serializer=pkg_dot_health_dot_proto_dot_health__check__response__pb2.HealthCheckResponse.SerializeToString,
+            ),
+            'CheckAll': grpc.unary_unary_rpc_method_handler(
+                    servicer.CheckAll,
+                    request_deserializer=pkg_dot_health_dot_proto_dot_health__check__all__request__pb2.HealthCheckAllRequest.FromString,
+                    response_serializer=pkg_dot_health_dot_proto_dot_health__check__all__response__pb2.HealthCheckAllResponse.SerializeToString,
             ),
             'Watch': grpc.unary_stream_rpc_method_handler(
                     servicer.Watch,
@@ -191,6 +210,33 @@ class HealthService(object):
             '/gcommon.v1.health.HealthService/Check',
             pkg_dot_health_dot_proto_dot_health__check__request__pb2.HealthCheckRequest.SerializeToString,
             pkg_dot_health_dot_proto_dot_health__check__response__pb2.HealthCheckResponse.FromString,
+            options,
+            channel_credentials,
+            insecure,
+            call_credentials,
+            compression,
+            wait_for_ready,
+            timeout,
+            metadata,
+            _registered_method=True)
+
+    @staticmethod
+    def CheckAll(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(
+            request,
+            target,
+            '/gcommon.v1.health.HealthService/CheckAll',
+            pkg_dot_health_dot_proto_dot_health__check__all__request__pb2.HealthCheckAllRequest.SerializeToString,
+            pkg_dot_health_dot_proto_dot_health__check__all__response__pb2.HealthCheckAllResponse.FromString,
             options,
             channel_credentials,
             insecure,
