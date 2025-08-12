@@ -4,9 +4,9 @@ managed:
   disable:
     - file_option: go_package
       module: buf.build/googleapis/googleapis
-    - file_option: go_package
 plugins:
-  - remote: buf.build/protocolbuffers/go:v1.36.6
+  # Go - built-in protoc plugin
+  - protoc_builtin: go
     out: .
     opt:
       - paths=source_relative
@@ -14,26 +14,17 @@ plugins:
       - Mgoogle/protobuf/duration.proto=google.golang.org/protobuf/types/known/durationpb
       - Mgoogle/protobuf/empty.proto=google.golang.org/protobuf/types/known/emptypb
       - Mgoogle/protobuf/any.proto=google.golang.org/protobuf/types/known/anypb
+  # Go gRPC - requires remote plugin
   - remote: buf.build/grpc/go:v1.5.1
     out: .
     opt:
       - paths=source_relative
       - require_unimplemented_servers=false
-  - remote: buf.build/protocolbuffers/python
+  # Python - built-in protoc plugin (no paths option)
+  - protoc_builtin: python
     out: sdks/python
-    opt:
-      - paths=source_relative
+  # Python gRPC - remote plugin
   - remote: buf.build/grpc/python
     out: sdks/python
-    opt:
-      - paths=source_relative
-  - remote: buf.build/protocolbuffers/js
-    out: sdks/ts
-    opt:
-      - import_style=commonjs
-      - binary
-  - remote: buf.build/grpc/web
-    out: sdks/ts
-    opt:
-      - import_style=typescript
-      - mode=grpcweb
+  # TypeScript and other language support disabled until Edition 2023 support improves
+  # Will revisit when ts-proto or other TypeScript plugins support Edition 2023
