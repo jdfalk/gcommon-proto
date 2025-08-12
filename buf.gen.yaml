@@ -37,15 +37,3 @@ plugins:
     opt:
       - import_style=typescript
       - mode=grpcweb
-  - remote: buf.build/protocolbuffers/java
-    out: sdks/java
-    opt:
-      - lite
-  - remote: buf.build/grpc/java
-    out: sdks/java
-    opt:
-      - lite
-  - remote: buf.build/protocolbuffers/csharp
-    out: sdks/csharp
-  - remote: buf.build/grpc/csharp
-    out: sdks/csharp

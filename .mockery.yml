@@ -80,6 +80,22 @@ packages:
       LogAdminServiceClient:
       LogAdminServiceServer:
 
+  github.com/jdfalk/gcommon/pkg/metrics:
+    config:
+      dir: pkg/metrics/mock
+      filename: "{{.InterfaceName}}_mock.go"
+      pkgname: mock
+      structname: "Mock{{.InterfaceName}}"
+    interfaces:
+      Provider:
+      Counter:
+      Gauge:
+      Histogram:
+      HistogramSnapshot:
+      Summary:
+      Timer:
+      Registry:
+
   github.com/jdfalk/gcommon/pkg/metrics/proto:
     config:
       dir: pkg/metrics/mock

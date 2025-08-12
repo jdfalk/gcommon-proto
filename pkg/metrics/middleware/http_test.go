@@ -5,66 +5,12 @@ import (
 	"net/http/httptest"
 	"strings"
 	"testing"
-	"time"
 
 	"github.com/jdfalk/gcommon/pkg/metrics"
+	"github.com/jdfalk/gcommon/pkg/metrics/mock"
+	"github.com/stretchr/testify/assert"
+	"github.com/stretchr/testify/mock"
 )
-
-// mockCounter is a simple mock implementation of metrics.Counter for testing
-type mockCounter struct {
-	name      string
-	value     float64
-	tags      []metrics.Tag
-	incCalled bool
-	addValue  float64
-}
-
-func (c *mockCounter) Inc() {
-	c.incCalled = true
-	c.value++
-}
-
-func (c *mockCounter) Add(value float64) {
-	c.addValue = value
-	c.value += value
-}
-
-func (c *mockCounter) WithTags(tags ...metrics.Tag) metrics.Counter {
-	return &mockCounter{
-		name: c.name,
-		tags: append(c.tags, tags...),
-	}
-}
-
-func (c *mockCounter) Value() float64 {
-	return c.value
-}
-
-// mockHistogram is a simple mock implementation of metrics.Histogram for testing
-type mockHistogram struct {
-	name         string
-	observations []float64
-	tags         []metrics.Tag
-}
-
-func (h *mockHistogram) Observe(value float64) {
-	h.observations = append(h.observations, value)
-}
-
-func (h *mockHistogram) WithTags(tags ...metrics.Tag) metrics.Histogram {
-	return &mockHistogram{
-		name: h.name,
-		tags: append(h.tags, tags...),
-	}
-}
-
-func (h *mockHistogram) Snapshot() metrics.HistogramSnapshot {
-	return nil // Not needed for this test
-}
-
-// mockProvider is a simple mock implementation of metrics.Provider for testing
-type mockProvider struct {
-	counters   map[string]*mockCounter
 	histograms map[string]*mockHistogram
 }
 
