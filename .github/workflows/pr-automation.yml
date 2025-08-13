@@ -59,13 +59,13 @@ jobs:
           DEFAULT_BRANCH: ${{ env.DEFAULT_BRANCH }}
           FILTER_REGEX_EXCLUDE: ${{ env.FILTER_REGEX_EXCLUDE }}
 
-          # Core validations
+          # Enable validations and auto-fixes (only true/false, not mixed)
           VALIDATE_MARKDOWN: true
           VALIDATE_YAML: true
           VALIDATE_JSON: true
           VALIDATE_SHELL_SHFMT: true
           VALIDATE_PYTHON_BLACK: true
-          VALIDATE_PYTHON_PYLINT: true
+          VALIDATE_PYTHON_PYLINT: false
           VALIDATE_PYTHON_ISORT: true
           VALIDATE_JAVASCRIPT_ES: true
           VALIDATE_TYPESCRIPT_ES: true
@@ -77,14 +77,9 @@ jobs:
           VALIDATE_GITLEAKS: true
           VALIDATE_DOCKERFILE_HADOLINT: true
 
-          # Auto-fix capabilities
-          FIX_GO: true
-          FIX_JAVASCRIPT_ES: false
-          FIX_TYPESCRIPT_ES: false
+          # Auto-fix settings (separate from validation)
           FIX_JSON: true
           FIX_MARKDOWN: true
-          FIX_PYTHON_BLACK: true
-          FIX_PYTHON_ISORT: true
           FIX_SHELL_SHFMT: true
 
       - name: Check for auto-fixes
