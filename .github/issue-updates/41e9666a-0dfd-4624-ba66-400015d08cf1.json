@@ -10,5 +10,5 @@
   "failed_at": null,
   "sequence": 0,
   "parent_guid": null,
-  "parent_issue": dependencies,security
+  "parent_issue": "dependencies,security"
 }
