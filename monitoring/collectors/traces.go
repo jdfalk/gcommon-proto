@@ -13,7 +13,7 @@ import (
 	"go.opentelemetry.io/otel"
 	"go.opentelemetry.io/otel/attribute"
 	"go.opentelemetry.io/otel/codes"
-	"go.opentelemetry.io/otel/exporters/jaeger"
+	"go.opentelemetry.io/otel/exporters/otlp/otlptrace/otlptracehttp"
 	"go.opentelemetry.io/otel/sdk/resource"
 	sdktrace "go.opentelemetry.io/otel/sdk/trace"
 	"go.opentelemetry.io/otel/trace"
@@ -29,12 +29,15 @@ type TracesCollector struct {
 }
 
 // NewTracesCollector creates a new collector configured to export spans to the
-// provided Jaeger endpoint. serviceName is used to tag spans with the service
+// provided OTLP endpoint. serviceName is used to tag spans with the service
 // attribute for easier filtering in tracing backends.
-func NewTracesCollector(serviceName, jaegerEndpoint string) (*TracesCollector, error) {
-	exp, err := jaeger.New(jaeger.WithCollectorEndpoint(jaeger.WithEndpoint(jaegerEndpoint)))
+func NewTracesCollector(serviceName, otlpEndpoint string) (*TracesCollector, error) {
+	exp, err := otlptracehttp.New(context.Background(),
+		otlptracehttp.WithEndpoint(otlpEndpoint),
+		otlptracehttp.WithInsecure(), // Use WithTLSClientConfig for secure connections
+	)
 	if err != nil {
-		return nil, fmt.Errorf("create jaeger exporter: %w", err)
+		return nil, fmt.Errorf("create OTLP exporter: %w", err)
 	}
 	res, err := resource.Merge(resource.Default(), resource.NewWithAttributes(
 		"",
