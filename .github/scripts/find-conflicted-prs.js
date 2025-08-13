@@ -13,9 +13,9 @@ async function findConflictedPRs(github, context, core) {
     repo: context.repo.repo,
     state: 'open',
   });
-  
+
   const conflicted = [];
-  
+
   for (const pr of prs) {
     let full = await github.rest.pulls.get({
       owner: context.repo.owner,
@@ -35,19 +35,19 @@ async function findConflictedPRs(github, context, core) {
 
     const state = full.data.mergeable_state;
     core.info(`PR #${pr.number} state: ${state}`);
-    
+
     if (state === 'dirty' || state === 'behind') {
-      conflicted.push({ 
-        number: pr.number, 
+      conflicted.push({
+        number: pr.number,
         branch: pr.head.ref,
         state: state
       });
     }
   }
-  
+
   core.setOutput('conflicted_prs', JSON.stringify(conflicted));
   core.info(`Found ${conflicted.length} conflicted PR(s)`);
-  
+
   return conflicted;
 }
 

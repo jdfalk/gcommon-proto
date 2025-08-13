@@ -21,7 +21,6 @@ permissions:
   packages: read
   id-token: write
   repository-projects: write
-  models: read
 
 env:
   VALIDATE_ALL_CODEBASE: false
@@ -43,9 +42,11 @@ jobs:
       - name: Setup Super Linter environment
         run: |
           echo "Setting up Super Linter environment..."
-          echo "VALIDATE_ALL_CODEBASE=false" >> $GITHUB_ENV
-          echo "DEFAULT_BRANCH=${{ github.event.repository.default_branch }}" >> $GITHUB_ENV
-          echo "FILTER_REGEX_EXCLUDE=${{ env.FILTER_REGEX_EXCLUDE }}" >> $GITHUB_ENV
+          {
+            echo "VALIDATE_ALL_CODEBASE=false"
+            echo "DEFAULT_BRANCH=${{ github.event.repository.default_branch }}"
+            echo "FILTER_REGEX_EXCLUDE=${{ env.FILTER_REGEX_EXCLUDE }}"
+          } >> "$GITHUB_ENV"
 
           # Debug workspace contents
           echo "Current working directory: $(pwd)"
@@ -58,7 +59,7 @@ jobs:
         run: |
           if [ -f ".github/super-linter.env" ]; then
             echo "Loading custom configuration from .github/super-linter.env"
-            grep -v '^#' ".github/super-linter.env" | grep -v '^$' >> $GITHUB_ENV
+            grep -v '^#' ".github/super-linter.env" | grep -v '^$' >> "$GITHUB_ENV"
           else
             echo "No custom configuration file found at .github/super-linter.env"
           fi
@@ -122,10 +123,10 @@ jobs:
         id: check-fixes
         run: |
           if ! git diff --quiet; then
-            echo "has_fixes=true" >> $GITHUB_OUTPUT
+            echo "has_fixes=true" >> "$GITHUB_OUTPUT"
             echo "Auto-fixes were applied by Super Linter"
           else
-            echo "has_fixes=false" >> $GITHUB_OUTPUT
+            echo "has_fixes=false" >> "$GITHUB_OUTPUT"
             echo "No auto-fixes were applied"
           fi
 
@@ -142,18 +143,20 @@ jobs:
           FIXED_FILES=$(git diff --cached --name-only | head -10)
           TOTAL_FILES=$(git diff --cached --name-only | wc -l)
 
-          echo "style: auto-fix linting issues [skip ci]" > commit_msg.txt
-          echo "" >> commit_msg.txt
-          echo "Auto-formatting and fixes applied by Super Linter." >> commit_msg.txt
-          echo "" >> commit_msg.txt
-          echo "Files changed:" >> commit_msg.txt
+          {
+            echo "style: auto-fix linting issues [skip ci]"
+            echo ""
+            echo "Auto-formatting and fixes applied by Super Linter."
+            echo ""
+            echo "Files changed:"
+          } > commit_msg.txt
 
           echo "$FIXED_FILES" | while IFS= read -r file; do
             echo "- $file - Auto-formatting applied" >> commit_msg.txt
           done
 
           if [ "$TOTAL_FILES" -gt 10 ]; then
-            echo "- ... and $((TOTAL_FILES - 10)) more files" >> commit_msg.txt
+            echo "- ... and $(("$TOTAL_FILES" - 10)) more files" >> commit_msg.txt
           fi
 
           git commit -F commit_msg.txt
@@ -166,30 +169,36 @@ jobs:
       - name: Create Job Summary
         if: always()
         run: |
-          echo "# 🔍 Super Linter Summary" >> $GITHUB_STEP_SUMMARY
-          echo "" >> $GITHUB_STEP_SUMMARY
+          {
+            echo "# 🔍 Super Linter Summary"
+            echo ""
+          } >> "$GITHUB_STEP_SUMMARY"
 
           if [ "${{ steps.run-super-linter.outcome }}" = "success" ]; then
-            echo "✅ **All code quality checks passed!**" >> $GITHUB_STEP_SUMMARY
+            echo "✅ **All code quality checks passed!**" >> "$GITHUB_STEP_SUMMARY"
           elif [ "${{ steps.run-super-linter.outcome }}" = "failure" ]; then
-            echo "❌ **Issues found that need attention**" >> $GITHUB_STEP_SUMMARY
+            echo "❌ **Issues found that need attention**" >> "$GITHUB_STEP_SUMMARY"
           else
-            echo "⚠️ **Linter status unknown** - check workflow logs" >> $GITHUB_STEP_SUMMARY
+            echo "⚠️ **Linter status unknown** - check workflow logs" >> "$GITHUB_STEP_SUMMARY"
           fi
 
-          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "" >> "$GITHUB_STEP_SUMMARY"
 
           # Show auto-fixes if applied
           if [ "${{ steps.check-fixes.outputs.has_fixes }}" = "true" ]; then
-            echo "## 🔧 Auto-fixes Applied" >> $GITHUB_STEP_SUMMARY
-            echo "Auto-formatting fixes were applied and committed." >> $GITHUB_STEP_SUMMARY
-            echo "" >> $GITHUB_STEP_SUMMARY
+            {
+              echo "## 🔧 Auto-fixes Applied"
+              echo "Auto-formatting fixes were applied and committed."
+              echo ""
+            } >> "$GITHUB_STEP_SUMMARY"
           fi
 
-          echo "## Configuration" >> $GITHUB_STEP_SUMMARY
-          echo "- **Mode**: Changed files only" >> $GITHUB_STEP_SUMMARY
-          echo "- **Auto-fix**: true" >> $GITHUB_STEP_SUMMARY
-          echo "- **Auto-commit**: true" >> $GITHUB_STEP_SUMMARY
+          {
+            echo "## Configuration"
+            echo "- **Mode**: Changed files only"
+            echo "- **Auto-fix**: true"
+            echo "- **Auto-commit**: true"
+          } >> "$GITHUB_STEP_SUMMARY"
 
       - name: Upload Super Linter results
         if: always()
@@ -208,14 +217,14 @@ jobs:
           script: |
             const fs = require('fs');
             const path = require('path');
-            
+
             // Load and execute our external script
             const scriptPath = path.join(process.env.GITHUB_WORKSPACE, '.github/scripts/pr-linter-comment.js');
             const { updatePRComment } = require(scriptPath);
-            
+
             const linterOutcome = '${{ steps.run-super-linter.outcome }}' || 'unknown';
             const hasAutoFixes = '${{ steps.check-fixes.outputs.has_fixes }}' === 'true';
-            
+
             await updatePRComment(github, context, linterOutcome, hasAutoFixes);
 
       - name: Fail if linting errors remain
@@ -257,11 +266,11 @@ jobs:
           script: |
             const fs = require('fs');
             const path = require('path');
-            
+
             // Load and execute our external script
             const scriptPath = path.join(process.env.GITHUB_WORKSPACE, '.github/scripts/find-conflicted-prs.js');
             const { findConflictedPRs } = require(scriptPath);
-            
+
             const result = await findConflictedPRs(github, context, core);
             return JSON.stringify(result);
 
@@ -273,24 +282,24 @@ jobs:
           script: |
             const fs = require('fs');
             const path = require('path');
-            
+
             // Get the result from the previous step
             const conflictedPRsStr = '${{ steps.find-conflicts.outputs.result }}';
             if (!conflictedPRsStr || conflictedPRsStr === '[]') {
               console.log('No conflicted PRs found, skipping...');
               return;
             }
-            
+
             // Load and execute our external script
             const scriptPath = path.join(process.env.GITHUB_WORKSPACE, '.github/scripts/process-conflicted-prs.js');
             const { processConflictedPRs } = require(scriptPath);
-            
+
             const conflictedPRs = JSON.parse(conflictedPRsStr);
             const defaultBranch = '${{ github.event.repository.default_branch }}';
-            
+
             await processConflictedPRs(github, context, conflictedPRs, defaultBranch);
 
-  # Intelligent AI labeling - runs only on new issues/PRs for efficiency  
+  # Intelligent AI labeling - runs only on new issues/PRs for efficiency
   intelligent-labeling:
     name: Intelligent Issue Labeling
     runs-on: ubuntu-latest
@@ -321,7 +330,33 @@ jobs:
           "
 
       - name: Run intelligent labeling
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           echo "Running intelligent issue labeling..."
-          # Here you would run your intelligent labeling script
-          # python scripts/intelligent_labeling.py --batch-size 10 --confidence-threshold 0.7
+          echo "Repository: ${{ github.repository }}"
+          echo "Issue/PR number: ${{ github.event.number }}"
+          echo "Event action: ${{ github.event.action }}"
+
+          # Create a simple labeling script that runs inline
+          cat << 'EOF' > temp_labeling.py
+          import os
+          import requests
+          import json
+
+          # Basic labeling logic for demonstration
+          github_token = os.environ.get('GITHUB_TOKEN')
+          repo = os.environ.get('GITHUB_REPOSITORY')
+          issue_number = os.environ.get('GITHUB_EVENT_NUMBER', '')
+
+          if not all([github_token, repo, issue_number]):
+              print("Missing required environment variables")
+              exit(0)
+
+          print(f"Would apply intelligent labeling to {repo}#{issue_number}")
+          print("Intelligent labeling completed (mock implementation)")
+          EOF
+
+          export GITHUB_EVENT_NUMBER="${{ github.event.number }}"
+          python temp_labeling.py
+          rm temp_labeling.py
