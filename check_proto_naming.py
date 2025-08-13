@@ -67,7 +67,12 @@ def check_filename_standards(
     # Check naming based on definition type
     if definitions["services"]:
         service_name = definitions["services"][0]
-        expected_name = to_snake_case(service_name) + "_service"
+        snake_name = to_snake_case(service_name)
+        # Don't duplicate _service if it already ends with it
+        if snake_name.endswith("_service"):
+            expected_name = snake_name
+        else:
+            expected_name = snake_name + "_service"
         if filename != expected_name:
             issues.append(
                 f"Service file should be named '{expected_name}.proto', not '{filename}.proto'"

@@ -10,10 +10,10 @@ find pkg -name "*_service_service.proto" | while read file; do
     # Get the directory and current filename
     dir=$(dirname "$file")
     current_name=$(basename "$file")
-    
+
     # Remove the duplicate _service suffix
     new_name=$(echo "$current_name" | sed 's/_service_service\.proto$/_service.proto/')
-    
+
     if [ "$current_name" != "$new_name" ]; then
         echo "Renaming: $file -> $dir/$new_name"
         mv "$file" "$dir/$new_name"
