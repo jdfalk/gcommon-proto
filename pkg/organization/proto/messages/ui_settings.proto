@@ -1,0 +1,45 @@
+// file: organization/proto/messages/ui_settings.proto
+// version: 1.0.0
+// guid: e3ed3da1-f827-4d15-974d-f19dd591a248
+
+edition = "2023";
+
+package gcommon.v1.organization;
+
+import "google/protobuf/go_features.proto";
+import "google/protobuf/timestamp.proto";
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/jdfalk/gcommon/pkg/organization/proto";
+
+message UISettings {
+  // Organization's primary brand color (hex code)
+  string primary_color = 1;
+
+  // Organization's secondary brand color (hex code)
+  string secondary_color = 2;
+
+  // Organization's logo URL
+  string logo_url = 3;
+
+  // Organization's favicon URL
+  string favicon_url = 4;
+
+  // Custom CSS for organization branding
+  string custom_css = 5;
+
+  // Default language/locale for organization
+  string default_locale = 6;
+
+  // Default timezone for organization
+  string default_timezone = 7;
+
+  // Date format preference (e.g., "MM/DD/YYYY", "DD/MM/YYYY")
+  string date_format = 8;
+
+  // Time format preference (12-hour or 24-hour)
+  string time_format = 9;
+
+  // Whether dark mode is enabled by default
+  bool dark_mode_default = 10;
+}

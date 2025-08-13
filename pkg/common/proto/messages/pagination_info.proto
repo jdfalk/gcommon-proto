@@ -1,0 +1,40 @@
+// file: common/proto/messages/pagination_info.proto
+// version: 1.0.0
+// guid: 085f52cb-b1d9-4c82-ada7-9783f2807a33
+
+edition = "2023";
+
+package gcommon.v1.common;
+
+import "google/protobuf/duration.proto";
+import "google/protobuf/go_features.proto";
+import "google/protobuf/timestamp.proto";
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/jdfalk/gcommon/pkg/common/proto";
+
+message PaginationInfo {
+  // Current page number (1-based)
+  int32 current_page = 1;
+
+  // Number of items per page
+  int32 page_size = 2;
+
+  // Total number of items available
+  int64 total_items = 3;
+
+  // Total number of pages available
+  int32 total_pages = 4;
+
+  // Whether there is a next page
+  bool has_next = 5;
+
+  // Whether there is a previous page
+  bool has_previous = 6;
+
+  // Token for retrieving the next page
+  string next_page_token = 7;
+
+  // Token for retrieving the previous page
+  string previous_page_token = 8;
+}

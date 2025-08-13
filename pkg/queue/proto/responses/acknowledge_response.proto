@@ -1,0 +1,104 @@
+// file: queue/proto/responses/acknowledge_response.proto
+// version: 1.0.0
+// guid: 69fb5b85-226c-407d-9aaf-dd8810a3b662
+
+edition = "2023";
+
+package gcommon.v1.queue;
+
+import "google/protobuf/go_features.proto";
+import "google/protobuf/timestamp.proto";
+import "pkg/common/proto/error.proto";
+import "pkg/common/proto/request_metadata.proto";
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/jdfalk/gcommon/pkg/queue/proto";
+
+message AcknowledgeResponse {
+  // Required fields (1-10)
+
+  /**
+   * Overall success status of the acknowledgment operation.
+   * True if all messages were successfully acknowledged.
+   */
+  bool success = 1;
+
+  /**
+   * Number of messages that were successfully acknowledged.
+   */
+  int32 acknowledged_count = 2;
+
+  /**
+   * Number of messages that failed to be acknowledged.
+   */
+  int32 failed_count = 3;
+
+  // Optional fields (11-50)
+
+  /**
+   * Request processing metadata including timing, request ID,
+   * and other observability information.
+   */
+  gcommon.v1.common.RequestMetadata request_metadata = 11;
+
+  /**
+   * Name of the queue where messages were acknowledged.
+   * Echoed from the request for verification.
+   */
+  string queue_name = 12;
+
+  /**
+   * Detailed results for each message acknowledgment.
+   * Only populated if there were failures or if detailed results were requested.
+   */
+  repeated MessageAckResult message_results = 13;
+
+  /**
+   * Consumer ID that was used for acknowledgment.
+   * Echoed from the request for verification.
+   */
+  string consumer_id = 14;
+
+  /**
+   * Total processing time for the acknowledgment operation in milliseconds.
+   */
+  int64 operation_time_ms = 15;
+
+  /**
+   * Whether the operation was completed in batch mode.
+   * Echoed from the request for verification.
+   */
+  bool batch_mode = 16;
+
+  /**
+   * Number of messages that were already acknowledged (duplicates).
+   * These don't count as failures but indicate potential issues.
+   */
+  int32 already_acknowledged_count = 17;
+
+  /**
+   * Number of messages with expired visibility timeouts.
+   * These may have been redelivered to other consumers.
+   */
+  int32 expired_timeout_count = 18;
+
+  // Status and error fields (61-70)
+
+  /**
+   * Error information if the overall acknowledgment operation failed
+   * or completed with warnings.
+   */
+  gcommon.v1.common.Error error = 61;
+
+  // Timestamps (51-60)
+
+  /**
+   * Timestamp when the acknowledgment operation was processed.
+   */
+  google.protobuf.Timestamp acknowledged_at = 51;
+
+  /**
+   * Timestamp when this response was generated.
+   */
+  google.protobuf.Timestamp response_generated_at = 52;
+}

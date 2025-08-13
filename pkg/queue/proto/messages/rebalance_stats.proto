@@ -1,0 +1,31 @@
+// file: queue/proto/messages/rebalance_stats.proto
+// version: 1.0.0
+// guid: 3a965b27-4706-4f72-ada6-d9f3547ebd00
+
+edition = "2023";
+
+package gcommon.v1.queue;
+
+import "google/protobuf/go_features.proto";
+import "google/protobuf/timestamp.proto";
+import "pkg/queue/proto/consumer_state.proto";
+import "pkg/queue/proto/consumer_stats.proto";
+import "pkg/queue/proto/load_balancing_strategy.proto";
+import "pkg/queue/proto/subscribe_request.proto";
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/jdfalk/gcommon/pkg/queue/proto";
+
+message RebalanceStats {
+  // Total number of rebalances
+  int64 total_rebalances = 1;
+
+  // Last rebalance timestamp
+  google.protobuf.Timestamp last_rebalance = 2;
+
+  // Average rebalance duration (milliseconds)
+  int64 avg_rebalance_duration_ms = 3;
+
+  // Failed rebalances
+  int64 failed_rebalances = 4;
+}

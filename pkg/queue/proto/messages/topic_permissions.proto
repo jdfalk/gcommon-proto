@@ -1,0 +1,33 @@
+// file: queue/proto/messages/topic_permissions.proto
+// version: 1.0.0
+// guid: a2131871-2610-442f-93e7-5ab90e53e36c
+
+edition = "2023";
+
+package gcommon.v1.queue;
+
+import "google/protobuf/go_features.proto";
+import "google/protobuf/timestamp.proto";
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/jdfalk/gcommon/pkg/queue/proto";
+
+message TopicPermissions {
+  // Can read messages from topic
+  bool can_read = 1;
+
+  // Can write messages to topic
+  bool can_write = 2;
+
+  // Can modify topic configuration
+  bool can_configure = 3;
+
+  // Can delete the topic
+  bool can_delete = 4;
+
+  // Can manage topic permissions
+  bool can_manage_permissions = 5;
+
+  // Can view topic statistics
+  bool can_view_stats = 6;
+}

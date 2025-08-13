@@ -1,0 +1,33 @@
+// file: auth/proto/messages/verification_status.proto
+// version: 1.0.0
+// guid: 2e8605fa-61b3-4b0c-8322-8e47f1d58d0e
+
+edition = "2023";
+
+package gcommon.v1.auth;
+
+import "google/protobuf/go_features.proto";
+import "google/protobuf/timestamp.proto";
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/jdfalk/gcommon/pkg/auth/proto";
+
+message VerificationStatus {
+  // Email verification status
+  bool email_verified = 1;
+
+  // Phone number verification status
+  bool phone_verified = 2;
+
+  // Identity verification status
+  bool identity_verified = 3;
+
+  // When email was verified
+  google.protobuf.Timestamp email_verified_at = 4;
+
+  // When phone was verified
+  google.protobuf.Timestamp phone_verified_at = 5;
+
+  // When identity was verified
+  google.protobuf.Timestamp identity_verified_at = 6;
+}

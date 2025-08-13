@@ -1,0 +1,45 @@
+// file: metrics/proto/messages/stats_options.proto
+// version: 1.0.0
+// guid: 08b06fd3-e0a2-4e73-a871-038c11415178
+
+edition = "2023";
+
+package gcommon.v1.metrics;
+
+import "google/protobuf/go_features.proto";
+import "pkg/metrics/proto/time_range.proto";
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/jdfalk/gcommon/pkg/metrics/proto";
+
+message StatsOptions {
+  // Include performance statistics
+  bool include_performance = 1;
+
+  // Include resource usage statistics
+  bool include_resource_usage = 2;
+
+  // Include error statistics
+  bool include_errors = 3;
+
+  // Include data volume statistics
+  bool include_data_volume = 4;
+
+  // Include export statistics
+  bool include_exports = 5;
+
+  // Include health status history
+  bool include_health_history = 6;
+
+  // Include configuration information
+  bool include_config = 7;
+
+  // Include top metrics by various criteria
+  bool include_top_metrics = 8;
+
+  // Maximum number of top metrics to include
+  int32 top_metrics_limit = 9;
+
+  // Include trend analysis
+  bool include_trends = 10;
+}

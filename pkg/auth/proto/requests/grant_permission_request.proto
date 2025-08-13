@@ -1,0 +1,29 @@
+// file: auth/proto/requests/grant_permission_request.proto
+// version: 1.0.0
+// guid: f01c2811-f92f-4582-bfca-c77c277c3e12
+
+edition = "2023";
+
+package gcommon.v1.auth;
+
+import "google/protobuf/go_features.proto";
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/jdfalk/gcommon/pkg/auth/proto";
+
+
+message GrantPermissionRequest {
+  // Subject ID (user or role)
+  string subject_id = 1;
+
+  // Subject type
+  enum SubjectType {
+    SUBJECT_TYPE_UNSPECIFIED = 0;
+    SUBJECT_TYPE_USER = 1;
+    SUBJECT_TYPE_ROLE = 2;
+  }
+  SubjectType subject_type = 2;
+
+  // Permission ID to grant
+  string permission_id = 3;
+}

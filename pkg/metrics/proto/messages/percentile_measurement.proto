@@ -1,0 +1,25 @@
+// file: metrics/proto/messages/percentile_measurement.proto
+// version: 1.0.0
+// guid: 48293be8-c475-44ee-b41d-c428b059063a
+
+edition = "2023";
+
+package gcommon.v1.metrics;
+
+import "google/protobuf/duration.proto";
+import "google/protobuf/go_features.proto";
+import "google/protobuf/timestamp.proto";
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/jdfalk/gcommon/pkg/metrics/proto";
+
+message PercentileMeasurement {
+  // Percentile value (e.g., 50.0 for median, 95.0 for 95th percentile)
+  double percentile = 1;
+
+  // Duration value at this percentile
+  google.protobuf.Duration duration = 2;
+
+  // Number of samples at or below this percentile
+  int64 sample_count = 3;
+}

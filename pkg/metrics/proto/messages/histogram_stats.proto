@@ -1,0 +1,33 @@
+// file: metrics/proto/messages/histogram_stats.proto
+// version: 1.0.0
+// guid: 7cf98dfc-ae0d-4d1b-95c2-cc76b9e021e1
+
+edition = "2023";
+
+package gcommon.v1.metrics;
+
+import "google/protobuf/go_features.proto";
+import "google/protobuf/timestamp.proto";
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/jdfalk/gcommon/pkg/metrics/proto";
+
+message HistogramStats {
+  // Total number of observations
+  uint64 total_count = 1;
+
+  // Sum of all observed values
+  double total_sum = 2;
+
+  // Mean value
+  double mean = 3;
+
+  // Minimum observed value
+  double min_value = 4;
+
+  // Maximum observed value
+  double max_value = 5;
+
+  // Standard deviation (if calculated)
+  double std_deviation = 6;
+}

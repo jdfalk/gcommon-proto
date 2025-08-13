@@ -1,0 +1,42 @@
+// file: queue/proto/responses/get_queue_stats_response.proto
+// version: 1.0.0
+// guid: 7014296b-b332-416c-9de8-7d0fd264251c
+
+edition = "2023";
+
+package gcommon.v1.queue;
+
+import "google/protobuf/duration.proto";
+import "google/protobuf/go_features.proto";
+import "google/protobuf/timestamp.proto";
+import "pkg/common/proto/response_metadata.proto";
+import "pkg/queue/proto/consumer_stats.proto";
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/jdfalk/gcommon/pkg/queue/proto";
+
+message GetQueueStatsResponse {
+  // Standard response metadata
+  gcommon.v1.common.ResponseMetadata metadata = 1;
+
+  // Overall statistics summary
+  QueueStatsSummary summary = 2;
+
+  // Per-queue statistics (if multiple queues requested)
+  repeated QueueStats queue_stats = 3;
+
+  // Consumer statistics (if requested)
+  repeated ConsumerStats consumer_stats = 4;
+
+  // Historical statistics (if requested)
+  HistoricalStats historical_stats = 5;
+
+  // Error statistics (if requested)
+  ErrorStats error_stats = 6;
+
+  // Performance metrics
+  PerformanceMetrics performance_metrics = 7;
+
+  // Timestamp when these statistics were generated
+  google.protobuf.Timestamp generated_at = 8;
+}

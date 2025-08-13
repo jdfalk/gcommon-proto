@@ -1,0 +1,36 @@
+// file: cache/proto/messages/namespace_info.proto
+// version: 1.0.0
+// guid: 99ca4ced-3db8-4b4d-a745-b9f6a699357d
+
+edition = "2023";
+
+package gcommon.v1.cache;
+
+import "google/protobuf/go_features.proto";
+import "google/protobuf/timestamp.proto";
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/jdfalk/gcommon/pkg/cache/proto";
+
+message NamespaceInfo {
+  // ID of the namespace
+  string namespace_id = 1;
+
+  // Name of the namespace
+  string name = 2;
+
+  // Description
+  string description = 3;
+
+  // When created
+  google.protobuf.Timestamp created_at = 4;
+
+  // Current key count
+  int64 current_keys = 5;
+
+  // Current memory usage (bytes)
+  int64 current_memory_bytes = 6;
+
+  // Configuration
+  map<string, string> config = 7;
+}

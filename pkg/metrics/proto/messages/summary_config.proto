@@ -1,0 +1,23 @@
+// file: metrics/proto/messages/summary_config.proto
+// version: 1.0.0
+// guid: f54bfb16-e799-4222-881b-a86425813aa6
+
+edition = "2023";
+
+package gcommon.v1.metrics;
+
+import "google/protobuf/go_features.proto";
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/jdfalk/gcommon/pkg/metrics/proto";
+
+message SummaryConfig {
+  // Quantiles to calculate (e.g., 0.5, 0.95, 0.99)
+  repeated double quantiles = 1;
+
+  // Time window for calculating quantiles
+  string time_window = 2;
+
+  // Maximum age of observations to include
+  string max_age = 3;
+}

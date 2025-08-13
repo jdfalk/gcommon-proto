@@ -1,0 +1,19 @@
+// file: metrics/proto/messages/security_summary.proto
+// version: 1.0.0
+// guid: 88866dac-7333-4ae4-9fa5-9985e01c00dc
+
+edition = "2023";
+
+package gcommon.v1.metrics;
+
+import "google/protobuf/go_features.proto";
+import "google/protobuf/timestamp.proto";
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/jdfalk/gcommon/pkg/metrics/proto";
+
+message SecuritySummary {
+  bool auth_enabled = 1;
+  bool tls_enabled = 2;
+  repeated string auth_methods = 3;
+}

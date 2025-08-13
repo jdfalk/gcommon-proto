@@ -1,0 +1,37 @@
+// file: metrics/proto/messages/provider_stats.proto
+// version: 1.0.0
+// guid: 50e90cb9-edcb-4e84-b110-1e41adfa7b50
+
+edition = "2023";
+
+package gcommon.v1.metrics;
+
+import "google/protobuf/go_features.proto";
+import "google/protobuf/timestamp.proto";
+import "pkg/metrics/proto/pagination_info.proto";
+import "pkg/metrics/proto/provider_info.proto";
+import "pkg/metrics/proto/provider_summary.proto";
+import "pkg/metrics/proto/resource_limits_summary.proto";
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/jdfalk/gcommon/pkg/metrics/proto";
+
+message ProviderStats {
+  // Number of metrics managed
+  int64 metrics_count = 1;
+
+  // Number of data points
+  int64 data_points_count = 2;
+
+  // Data volume (bytes)
+  int64 data_volume_bytes = 3;
+
+  // Operations per second
+  double operations_per_second = 4;
+
+  // Error rate
+  double error_rate = 5;
+
+  // Resource usage
+  ResourceUsage resource_usage = 6;
+}

@@ -1,0 +1,31 @@
+// file: organization/proto/messages/billing_settings.proto
+// version: 1.0.0
+// guid: 839c1259-f26c-4f40-8970-daf8fdead8e3
+
+edition = "2023";
+
+package gcommon.v1.organization;
+
+import "google/protobuf/go_features.proto";
+import "google/protobuf/timestamp.proto";
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/jdfalk/gcommon/pkg/organization/proto";
+
+
+message BillingSettings {
+  // Billing contact email
+  string billing_email = 1;
+
+  // Billing address
+  string billing_address = 2;
+
+  // Tax ID for billing
+  string tax_id = 3;
+
+  // Preferred currency for billing
+  string currency = 4;
+
+  // Billing cycle (monthly, annual, etc.)
+  string billing_cycle = 5;
+}

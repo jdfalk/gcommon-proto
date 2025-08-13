@@ -1,0 +1,35 @@
+// file: queue/proto/messages/message.proto
+// version: 1.0.0
+// guid: 4c1c6a76-109a-4abb-8e88-6cbbcba663c6
+
+edition = "2023";
+
+package gcommon.v1.queue;
+
+import "google/protobuf/any.proto";
+import "google/protobuf/go_features.proto";
+import "google/protobuf/timestamp.proto";
+import "pkg/queue/proto/delivery_mode.proto";
+import "pkg/queue/proto/message_metadata.proto";
+import "pkg/queue/proto/priority_level.proto";
+import "pkg/queue/proto/retry_config.proto";
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/jdfalk/gcommon/pkg/queue/proto";
+
+message Message {
+  // Message payload
+  google.protobuf.Any payload = 1;
+
+  // Message headers
+  map<string, string> headers = 2;
+
+  // Message properties
+  MessageProperties properties = 3;
+
+  // Routing information
+  RoutingInfo routing_info = 4;
+
+  // Message metadata - references existing MessageMetadata
+  MessageMetadata message_metadata = 5;
+}

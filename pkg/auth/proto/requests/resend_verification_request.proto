@@ -1,0 +1,26 @@
+// file: auth/proto/requests/resend_verification_request.proto
+// version: 1.0.0
+// guid: 59477f5d-a132-4166-97a0-58e8a4534c3e
+
+edition = "2023";
+
+package gcommon.v1.auth;
+
+import "google/protobuf/go_features.proto";
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/jdfalk/gcommon/pkg/auth/proto";
+
+
+message ResendVerificationRequest {
+  // User ID or email address
+  string identifier = 1;
+
+  // Verification type
+  enum VerificationType {
+    VERIFICATION_TYPE_UNSPECIFIED = 0;
+    VERIFICATION_TYPE_EMAIL = 1;
+    VERIFICATION_TYPE_SMS = 2;
+  }
+  VerificationType type = 2;
+}

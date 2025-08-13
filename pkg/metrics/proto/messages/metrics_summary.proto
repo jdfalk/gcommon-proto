@@ -1,0 +1,49 @@
+// file: metrics/proto/messages/metrics_summary.proto
+// version: 1.0.0
+// guid: df4c181e-98bb-488d-8052-2238af4f3a5c
+
+edition = "2023";
+
+package gcommon.v1.metrics;
+
+import "google/protobuf/go_features.proto";
+import "google/protobuf/timestamp.proto";
+import "pkg/metrics/proto/error_stats.proto";
+import "pkg/metrics/proto/health_status.proto";
+import "pkg/metrics/proto/performance_stats.proto";
+import "pkg/metrics/proto/provider_summary.proto";
+import "pkg/metrics/proto/retention_policy_retentionpolicyconfig.proto";
+import "pkg/metrics/proto/time_range.proto";
+import "pkg/metrics/proto/top_metrics.proto";
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/jdfalk/gcommon/pkg/metrics/proto";
+
+message MetricsSummary {
+  // Total number of unique metrics
+  int64 total_metrics = 1;
+
+  // Total number of data points
+  int64 total_data_points = 2;
+
+  // Total data volume (bytes)
+  int64 total_data_volume_bytes = 3;
+
+  // Metrics by type
+  MetricTypeCounts type_counts = 4;
+
+  // Performance statistics
+  PerformanceStats performance = 5;
+
+  // Error statistics
+  ErrorStats errors = 6;
+
+  // Top metrics by various criteria
+  TopMetrics top_metrics = 7;
+
+  // Retention information
+  RetentionInfo retention = 8;
+
+  // Export status information
+  ExportStatus export_status = 9;
+}

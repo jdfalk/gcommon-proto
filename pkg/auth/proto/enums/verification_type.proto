@@ -1,0 +1,18 @@
+// file: auth/proto/enums/verification_type.proto
+// version: 1.0.0
+// guid: 0875b6fd-5225-43a7-a52d-fa98beee769d
+
+edition = "2023";
+
+package gcommon.v1.auth;
+
+import "google/protobuf/go_features.proto";
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/jdfalk/gcommon/pkg/auth/proto";
+
+  enum VerificationType {
+    VERIFICATION_TYPE_UNSPECIFIED = 0;
+    VERIFICATION_TYPE_EMAIL = 1;
+    VERIFICATION_TYPE_SMS = 2;
+  }

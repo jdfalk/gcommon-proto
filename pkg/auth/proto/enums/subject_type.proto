@@ -1,0 +1,18 @@
+// file: auth/proto/enums/subject_type.proto
+// version: 1.0.0
+// guid: d89bcd75-cade-444b-a4de-35078c41a269
+
+edition = "2023";
+
+package gcommon.v1.auth;
+
+import "google/protobuf/go_features.proto";
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/jdfalk/gcommon/pkg/auth/proto";
+
+  enum SubjectType {
+    SUBJECT_TYPE_UNSPECIFIED = 0;
+    SUBJECT_TYPE_USER = 1;
+    SUBJECT_TYPE_ROLE = 2;
+  }

@@ -1,0 +1,37 @@
+// file: queue/proto/messages/cluster_health.proto
+// version: 1.0.0
+// guid: a0aa1fd8-9db2-427a-b5d5-359c620f271a
+
+edition = "2023";
+
+package gcommon.v1.queue;
+
+import "google/protobuf/go_features.proto";
+import "google/protobuf/timestamp.proto";
+import "pkg/common/proto/time_range.proto";
+import "pkg/queue/proto/cluster_info.proto";
+import "pkg/queue/proto/get_cluster_info_request.proto";
+import "pkg/queue/proto/get_cluster_info_response.proto";
+import "pkg/queue/proto/get_queue_stats_response.proto";
+import "pkg/queue/proto/health_status.proto";
+import "pkg/queue/proto/metric_type.proto";
+import "pkg/queue/proto/stats_granularity.proto";
+import "pkg/queue/proto/time_range.proto";
+import "pkg/queue/proto/topic_info.proto";
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/jdfalk/gcommon/pkg/queue/proto";
+
+message ClusterHealth {
+  // Overall health status
+  gcommon.v1.queue.HealthStatus status = 1;
+
+  // Number of healthy nodes
+  int32 healthy_nodes = 2;
+
+  // Total number of nodes
+  int32 total_nodes = 3;
+
+  // Health issues affecting the cluster
+  repeated string issues = 4;
+}

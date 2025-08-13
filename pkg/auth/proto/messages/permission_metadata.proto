@@ -1,0 +1,44 @@
+// file: auth/proto/messages/permission_metadata.proto
+// version: 1.0.0
+// guid: e953942b-bd06-424a-8c5a-2b2b9f60d4ab
+
+edition = "2023";
+
+package gcommon.v1.auth;
+
+import "google/protobuf/go_features.proto";
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/jdfalk/gcommon/pkg/auth/proto";
+
+
+message PermissionMetadata {
+  // Permission ID
+  string permission_id = 1;
+
+  // Permission name
+  string name = 2;
+
+  // Resource types this permission applies to
+  repeated string resource_types = 3;
+
+  // Actions allowed by this permission
+  repeated string actions = 4;
+
+  // Conditions or constraints
+  repeated PermissionCondition conditions = 5;
+
+  // Permission level (system, organization, project, etc.)
+  enum PermissionLevel {
+    PERMISSION_LEVEL_UNSPECIFIED = 0;
+    PERMISSION_LEVEL_SYSTEM = 1;
+    PERMISSION_LEVEL_ORGANIZATION = 2;
+    PERMISSION_LEVEL_PROJECT = 3;
+    PERMISSION_LEVEL_RESOURCE = 4;
+  }
+  PermissionLevel level = 6;
+
+  // Creation metadata
+  int64 created_at = 7;
+  string created_by = 8;
+}

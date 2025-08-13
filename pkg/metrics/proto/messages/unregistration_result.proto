@@ -1,0 +1,42 @@
+// file: metrics/proto/messages/unregistration_result.proto
+// version: 1.0.0
+// guid: ada4f63c-d9d5-496b-a0f9-a70062740177
+
+edition = "2023";
+
+package gcommon.v1.metrics;
+
+import "google/protobuf/go_features.proto";
+import "google/protobuf/timestamp.proto";
+import "pkg/common/proto/error.proto";
+import "pkg/metrics/proto/backup_info.proto";
+import "pkg/metrics/proto/dry_run_result.proto";
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/jdfalk/gcommon/pkg/metrics/proto";
+
+message UnregistrationResult {
+  // Whether the metric definition was deleted
+  bool definition_deleted = 1;
+
+  // Amount of data that was deleted (bytes)
+  int64 data_deleted_bytes = 2;
+
+  // Number of data points deleted
+  int64 data_points_deleted = 3;
+
+  // Indices that were deleted
+  repeated string deleted_indices = 4;
+
+  // Alert rules that were removed
+  repeated string removed_alerts = 5;
+
+  // Export configurations that were stopped
+  repeated string stopped_exports = 6;
+
+  // Time when actual deletion will occur (if grace period is set)
+  google.protobuf.Timestamp scheduled_deletion = 7;
+
+  // What would be deleted (for dry run operations)
+  DryRunResult dry_run_result = 8;
+}

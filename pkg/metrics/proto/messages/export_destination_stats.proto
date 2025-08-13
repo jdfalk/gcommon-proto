@@ -1,0 +1,30 @@
+// file: metrics/proto/messages/export_destination_stats.proto
+// version: 1.0.0
+// guid: 11866630-71dc-417d-b08e-c9e3802eb0fa
+
+edition = "2023";
+
+package gcommon.v1.metrics;
+
+import "google/protobuf/go_features.proto";
+import "google/protobuf/timestamp.proto";
+import "pkg/common/proto/error.proto";
+import "pkg/common/proto/time_range.proto";
+import "pkg/metrics/proto/error_stats.proto";
+import "pkg/metrics/proto/performance_stats.proto";
+import "pkg/metrics/proto/provider_info.proto";
+import "pkg/metrics/proto/resource_limits_summary.proto";
+import "pkg/metrics/proto/time_range.proto";
+import "pkg/metrics/proto/top_metrics.proto";
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/jdfalk/gcommon/pkg/metrics/proto";
+
+message ExportDestinationStats {
+  string destination_id = 1;
+  string destination_type = 2;
+  int64 exported_metrics = 3;
+  int64 failed_exports = 4;
+  double success_rate = 5;
+  google.protobuf.Timestamp last_export = 6;
+}

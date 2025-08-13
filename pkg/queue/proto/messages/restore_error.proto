@@ -1,0 +1,40 @@
+// file: queue/proto/messages/restore_error.proto
+// version: 1.0.0
+// guid: 9b5c3655-3a8b-40fa-ab5d-ddcec3f98462
+
+edition = "2023";
+
+package gcommon.v1.queue;
+
+import "google/protobuf/duration.proto";
+import "google/protobuf/go_features.proto";
+import "google/protobuf/timestamp.proto";
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/jdfalk/gcommon/pkg/queue/proto";
+
+message RestoreError {
+  // Error code for programmatic handling
+  string error_code = 1;
+
+  // Human-readable error message
+  string error_message = 2;
+
+  // Error category (validation, io, corruption, etc.)
+  string error_category = 3;
+
+  // Specific component that failed
+  string failed_component = 4;
+
+  // Partition ID if error is partition-specific
+  int32 partition_id = 5;
+
+  // Message offset range affected by error
+  OffsetRange affected_range = 6;
+
+  // Error timestamp
+  google.protobuf.Timestamp error_time = 7;
+
+  // Whether error is recoverable
+  bool recoverable = 8;
+}

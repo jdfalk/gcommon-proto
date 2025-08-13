@@ -1,0 +1,42 @@
+// file: config/proto/messages/retention_policy.proto
+// version: 1.0.0
+// guid: 6144fe44-891b-4c63-818e-572c219e36a7
+
+edition = "2023";
+
+package gcommon.v1.config;
+
+import "google/protobuf/go_features.proto";
+import "google/protobuf/timestamp.proto";
+import "pkg/config/proto/access_control.proto";
+import "pkg/config/proto/audit_settings.proto";
+import "pkg/config/proto/compliance_settings.proto";
+import "pkg/config/proto/deployment_status.proto";
+import "pkg/config/proto/environment_status.proto";
+import "pkg/config/proto/environment_type.proto";
+import "pkg/config/proto/health_check_type.proto";
+import "pkg/config/proto/health_state.proto";
+import "pkg/config/proto/notification_settings.proto";
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/jdfalk/gcommon/pkg/config/proto";
+
+message RetentionPolicy {
+  // Retention enabled
+  bool enabled = 1;
+
+  // Configuration retention
+  int32 config_retention_days = 2;
+
+  // Audit log retention
+  int32 audit_retention_days = 3;
+
+  // Backup retention
+  int32 backup_retention_days = 4;
+
+  // Metrics retention
+  int32 metrics_retention_days = 5;
+
+  // Custom retention policies
+  map<string, int32> custom_retention = 6;
+}

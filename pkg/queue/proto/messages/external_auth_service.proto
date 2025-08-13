@@ -1,0 +1,32 @@
+// file: queue/proto/messages/external_auth_service.proto
+// version: 1.0.0
+// guid: 888d52ef-a351-4fe1-a31e-6d7085e83b26
+
+edition = "2023";
+
+package gcommon.v1.queue;
+
+import "google/protobuf/go_features.proto";
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/jdfalk/gcommon/pkg/queue/proto";
+
+message ExternalAuthService {
+  // Enable external authorization
+  bool enabled = 1;
+
+  // Authorization service endpoint
+  string endpoint = 2;
+
+  // Request timeout (milliseconds)
+  int32 timeout_ms = 3;
+
+  // Retry configuration - references existing RetryConfig
+  RetryConfig retry_config = 4;
+
+  // Cache configuration
+  AuthCacheConfig cache_config = 5;
+
+  // Headers to include in authorization requests
+  map<string, string> request_headers = 6;
+}

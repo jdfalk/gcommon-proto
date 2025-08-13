@@ -1,0 +1,27 @@
+// file: metrics/proto/messages/schema_change.proto
+// version: 1.0.0
+// guid: 57c8fdff-d924-42a5-89a6-6a843c28e13e
+
+edition = "2023";
+
+package gcommon.v1.metrics;
+
+import "google/protobuf/go_features.proto";
+import "google/protobuf/timestamp.proto";
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/jdfalk/gcommon/pkg/metrics/proto";
+
+message SchemaChange {
+  // Type of change made
+  string change_type = 1;
+
+  // Description of the change
+  string description = 2;
+
+  // Whether this change is backward compatible
+  bool backward_compatible = 3;
+
+  // Migration steps required (if any)
+  repeated string migration_steps = 4;
+}

@@ -1,0 +1,42 @@
+// file: cache/proto/messages/namespace_stats.proto
+// version: 1.0.0
+// guid: 17ab825b-e172-494b-a8b3-a410bf866ed3
+
+edition = "2023";
+
+package gcommon.v1.cache;
+
+import "google/protobuf/go_features.proto";
+import "google/protobuf/timestamp.proto";
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/jdfalk/gcommon/pkg/cache/proto";
+
+message NamespaceStats {
+  // Total keys in namespace
+  int64 total_keys = 1;
+
+  // Memory usage in bytes
+  int64 memory_usage_bytes = 2;
+
+  // Hit rate percentage
+  double hit_rate_percent = 3;
+
+  // Cache hits
+  int64 cache_hits = 4;
+
+  // Cache misses
+  int64 cache_misses = 5;
+
+  // Evictions
+  int64 evictions = 6;
+
+  // Average key size
+  double avg_key_size_bytes = 7;
+
+  // Average value size
+  double avg_value_size_bytes = 8;
+
+  // Last access time
+  google.protobuf.Timestamp last_access_time = 9;
+}

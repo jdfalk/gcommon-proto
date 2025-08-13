@@ -1,0 +1,32 @@
+// file: metrics/proto/messages/label_definition.proto
+// version: 1.0.0
+// guid: 56dd3a22-ceda-4620-bfb2-c279efc6fab3
+
+edition = "2023";
+
+package gcommon.v1.metrics;
+
+import "google/protobuf/go_features.proto";
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/jdfalk/gcommon/pkg/metrics/proto";
+
+message LabelDefinition {
+  // Name of the label
+  string name = 1;
+
+  // Description of what this label represents
+  string description = 2;
+
+  // Whether this label is required
+  bool required = 3;
+
+  // Allowed values for this label (empty = any value allowed)
+  repeated string allowed_values = 4;
+
+  // Pattern for validating label values (regex)
+  string validation_pattern = 5;
+
+  // Default value if not specified
+  string default_value = 6;
+}

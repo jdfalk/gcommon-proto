@@ -1,0 +1,30 @@
+// file: queue/proto/messages/latency_metrics.proto
+// version: 1.0.0
+// guid: 3e90b50a-4d0c-440a-911c-75bf6da02e43
+
+edition = "2023";
+
+package gcommon.v1.queue;
+
+import "google/protobuf/duration.proto";
+import "google/protobuf/go_features.proto";
+import "google/protobuf/timestamp.proto";
+import "pkg/queue/proto/consumer_stats.proto";
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/jdfalk/gcommon/pkg/queue/proto";
+
+message LatencyMetrics {
+  // Processing latency percentiles (in milliseconds)
+  double p50_processing_latency_ms = 1;
+  double p95_processing_latency_ms = 2;
+  double p99_processing_latency_ms = 3;
+
+  // Queue latency (time from enqueue to dequeue)
+  double average_queue_latency_ms = 4;
+  double p95_queue_latency_ms = 5;
+
+  // End-to-end latency (enqueue to completion)
+  double average_e2e_latency_ms = 6;
+  double p95_e2e_latency_ms = 7;
+}

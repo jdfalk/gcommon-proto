@@ -1,0 +1,24 @@
+// file: auth/proto/messages/api_key.proto
+// version: 1.0.0
+// guid: c7b5f96c-f837-4c31-8b34-fe05d3442560
+
+edition = "2023";
+
+package gcommon.v1.auth;
+
+import "google/protobuf/go_features.proto";
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/jdfalk/gcommon/pkg/auth/proto";
+
+
+message ApiKey {
+  string id = 1;
+  string name = 2;
+  string key_prefix = 3; // Only show prefix for security
+  repeated string scopes = 4;
+  int64 created_at = 5;
+  int64 expires_at = 6;
+  int64 last_used_at = 7;
+  bool is_active = 8;
+}

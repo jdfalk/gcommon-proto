@@ -1,0 +1,53 @@
+// file: auth/proto/messages/security_context.proto
+// version: 1.0.0
+// guid: 80402f15-2486-4290-92b0-77a7f38f1820
+
+edition = "2023";
+
+package gcommon.v1.auth;
+
+import "google/protobuf/go_features.proto";
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/jdfalk/gcommon/pkg/auth/proto";
+
+
+message SecurityContext {
+  // User ID
+  string user_id = 1;
+
+  // Session ID
+  string session_id = 2;
+
+  // User roles
+  repeated string roles = 3;
+
+  // User permissions
+  repeated string permissions = 4;
+
+  // Authentication method used
+  enum AuthMethod {
+    AUTH_METHOD_UNSPECIFIED = 0;
+    AUTH_METHOD_PASSWORD = 1;
+    AUTH_METHOD_MFA = 2;
+    AUTH_METHOD_API_KEY = 3;
+    AUTH_METHOD_OAUTH = 4;
+    AUTH_METHOD_SSO = 5;
+  }
+  AuthMethod auth_method = 5;
+
+  // MFA verified
+  bool mfa_verified = 6;
+
+  // IP address
+  string ip_address = 7;
+
+  // User agent
+  string user_agent = 8;
+
+  // Authentication timestamp
+  int64 auth_timestamp = 9;
+
+  // Context metadata
+  map<string, string> metadata = 10;
+}

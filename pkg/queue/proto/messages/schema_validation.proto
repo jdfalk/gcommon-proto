@@ -1,0 +1,28 @@
+// file: queue/proto/messages/schema_validation.proto
+// version: 1.0.0
+// guid: ee7fffd9-460b-48d0-bea8-533482d34e85
+
+edition = "2023";
+
+package gcommon.v1.queue;
+
+import "google/protobuf/duration.proto";
+import "google/protobuf/go_features.proto";
+import "google/protobuf/timestamp.proto";
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/jdfalk/gcommon/pkg/queue/proto";
+
+message SchemaValidation {
+  // Schema validation passed
+  bool passed = 1;
+
+  // Schema version in backup
+  string backup_schema_version = 2;
+
+  // Current schema version
+  string current_schema_version = 3;
+
+  // Schema compatibility status
+  string compatibility_status = 4;
+}

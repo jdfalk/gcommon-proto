@@ -1,0 +1,43 @@
+// file: config/proto/messages/config_diff.proto
+// version: 1.0.0
+// guid: 1d9db67e-5b10-4366-8b2b-b962194a0951
+
+edition = "2023";
+
+package gcommon.v1.config;
+
+import "google/protobuf/any.proto";
+import "google/protobuf/go_features.proto";
+import "google/protobuf/timestamp.proto";
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/jdfalk/gcommon/pkg/config/proto";
+
+message ConfigDiff {
+  // Unique identifier for this diff
+  string diff_id = 1;
+
+  // Source configuration version/snapshot
+  string source_version = 2;
+
+  // Target configuration version/snapshot
+  string target_version = 3;
+
+  // List of added configuration keys
+  repeated ConfigDiffEntry added = 4;
+
+  // List of modified configuration keys
+  repeated ConfigDiffEntry modified = 5;
+
+  // List of removed configuration keys
+  repeated ConfigDiffEntry removed = 6;
+
+  // Timestamp when diff was computed
+  google.protobuf.Timestamp computed_at = 7;
+
+  // User or service that requested the diff
+  string requested_by = 8;
+
+  // Additional metadata
+  map<string, string> metadata = 9;
+}

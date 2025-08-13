@@ -1,0 +1,23 @@
+// file: queue/proto/messages/multi_value_config.proto
+// version: 1.0.0
+// guid: 9ed9dcb6-f12f-4eea-92c1-7ee4a199f462
+
+edition = "2023";
+
+package gcommon.v1.queue;
+
+import "google/protobuf/go_features.proto";
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/jdfalk/gcommon/pkg/queue/proto";
+
+message MultiValueConfig {
+  // Maximum number of concurrent values to keep
+  int32 max_values = 1;
+
+  // Value expiration time (seconds)
+  int32 value_ttl_seconds = 2;
+
+  // Conflict value cleanup strategy
+  string cleanup_strategy = 3;
+}

@@ -1,0 +1,31 @@
+// file: queue/proto/messages/batch_settings.proto
+// version: 1.0.0
+// guid: 2fbffbe6-e92a-4e99-a5f4-b325fcd2e05b
+
+edition = "2023";
+
+package gcommon.v1.queue;
+
+import "google/protobuf/any.proto";
+import "google/protobuf/go_features.proto";
+import "google/protobuf/timestamp.proto";
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/jdfalk/gcommon/pkg/queue/proto";
+
+message BatchSettings {
+  // Enable batch publishing
+  bool enabled = 1;
+
+  // Maximum messages per batch
+  int32 max_batch_size = 2;
+
+  // Maximum batch size in bytes
+  int64 max_batch_bytes = 3;
+
+  // Maximum time to wait for batch completion (milliseconds)
+  int32 batch_timeout_ms = 4;
+
+  // Flush batch on publish request completion
+  bool flush_on_complete = 5;
+}

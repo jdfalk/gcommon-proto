@@ -1,0 +1,25 @@
+// file: organization/proto/messages/memory_allocation.proto
+// version: 1.0.0
+// guid: b8114ab9-1c29-4549-ab06-3cad6a44ccf1
+
+edition = "2023";
+
+package gcommon.v1.organization;
+
+import "google/protobuf/go_features.proto";
+import "google/protobuf/timestamp.proto";
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/jdfalk/gcommon/pkg/organization/proto";
+
+
+message MemoryAllocation {
+  // Memory size in MB
+  int64 size_mb = 1;
+
+  // Memory usage limit percentage
+  int32 usage_limit_percent = 2;
+
+  // Swap allocation in MB
+  int64 swap_mb = 3;
+}

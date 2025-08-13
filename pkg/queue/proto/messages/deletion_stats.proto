@@ -1,0 +1,30 @@
+// file: queue/proto/messages/deletion_stats.proto
+// version: 1.0.0
+// guid: 671eaddd-dddd-48e2-8910-428b3f80a7d1
+
+edition = "2023";
+
+package gcommon.v1.queue;
+
+import "google/protobuf/go_features.proto";
+import "google/protobuf/timestamp.proto";
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/jdfalk/gcommon/pkg/queue/proto";
+
+message DeletionStats {
+  // Number of messages deleted
+  int64 messages_deleted = 1;
+
+  // Amount of data deleted (bytes)
+  int64 data_deleted_bytes = 2;
+
+  // Number of subscriptions deleted
+  int32 subscriptions_deleted = 3;
+
+  // Number of partitions deleted
+  int32 partitions_deleted = 4;
+
+  // Time taken for deletion (milliseconds)
+  int64 deletion_duration_ms = 5;
+}

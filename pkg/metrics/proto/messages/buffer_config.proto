@@ -1,0 +1,31 @@
+// file: metrics/proto/messages/buffer_config.proto
+// version: 1.0.0
+// guid: 3cbd27e2-8ac4-4dad-8b12-6ae61bca9e6c
+
+edition = "2023";
+
+package gcommon.v1.metrics;
+
+import "google/protobuf/go_features.proto";
+import "google/protobuf/timestamp.proto";
+import "pkg/metrics/proto/buffer_overflow_strategy.proto";
+import "pkg/metrics/proto/metric_filter.proto";
+import "pkg/metrics/proto/stream_compression.proto";
+import "pkg/metrics/proto/stream_qos.proto";
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/jdfalk/gcommon/pkg/metrics/proto";
+
+message BufferConfig {
+  // Maximum number of metrics to buffer
+  int32 max_buffer_size = 1;
+
+  // Buffer overflow strategy
+  BufferOverflowStrategy overflow_strategy = 2;
+
+  // Whether to persist buffer to disk during streaming
+  bool persist_buffer = 3;
+
+  // Maximum memory usage for buffering (bytes)
+  int64 max_memory_bytes = 4;
+}

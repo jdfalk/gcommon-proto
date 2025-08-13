@@ -1,0 +1,23 @@
+// file: metrics/proto/messages/api_key_config.proto
+// version: 1.0.0
+// guid: af9b891a-1959-43c2-a287-891b402b4cdf
+
+edition = "2023";
+
+package gcommon.v1.metrics;
+
+import "google/protobuf/go_features.proto";
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/jdfalk/gcommon/pkg/metrics/proto";
+
+message APIKeyConfig {
+  // Header name for API key
+  string header_name = 1;
+
+  // Whether API key is required
+  bool required = 2;
+
+  // Allowed API keys (for validation)
+  repeated string allowed_keys = 3;
+}

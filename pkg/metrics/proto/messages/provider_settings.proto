@@ -1,0 +1,26 @@
+// file: metrics/proto/messages/provider_settings.proto
+// version: 1.0.0
+// guid: bfca385c-e614-41b8-a78b-1d073e6e8a3d
+
+edition = "2023";
+
+package gcommon.v1.metrics;
+
+import "google/protobuf/go_features.proto";
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/jdfalk/gcommon/pkg/metrics/proto";
+
+message ProviderSettings {
+  // Prometheus-specific settings
+  PrometheusSettings prometheus = 1;
+
+  // OpenTelemetry-specific settings
+  OpenTelemetrySettings opentelemetry = 2;
+
+  // StatsD-specific settings
+  StatsDSettings statsd = 3;
+
+  // Custom provider settings
+  map<string, string> custom = 4;
+}

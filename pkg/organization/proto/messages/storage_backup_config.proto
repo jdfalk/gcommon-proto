@@ -1,0 +1,31 @@
+// file: organization/proto/messages/storage_backup_config.proto
+// version: 1.0.0
+// guid: 374d573f-8428-4748-8c1a-65ccfb6995ad
+
+edition = "2023";
+
+package gcommon.v1.organization;
+
+import "google/protobuf/go_features.proto";
+import "google/protobuf/timestamp.proto";
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/jdfalk/gcommon/pkg/organization/proto";
+
+
+message StorageBackupConfig {
+  // Whether backup is enabled
+  bool enabled = 1;
+
+  // Backup schedule (cron expression)
+  string schedule = 2;
+
+  // Backup retention period
+  int32 retention_days = 3;
+
+  // Cross-region backup enabled
+  bool cross_region = 4;
+
+  // Backup encryption enabled
+  bool encryption_enabled = 5;
+}

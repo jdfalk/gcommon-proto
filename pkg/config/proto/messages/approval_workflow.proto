@@ -1,0 +1,33 @@
+// file: config/proto/messages/approval_workflow.proto
+// version: 1.0.0
+// guid: b19bfc28-1770-4f3d-a1d5-cb8f6e45ad88
+
+edition = "2023";
+
+package gcommon.v1.config;
+
+import "google/protobuf/go_features.proto";
+import "google/protobuf/timestamp.proto";
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/jdfalk/gcommon/pkg/config/proto";
+
+message ApprovalWorkflow {
+  // Workflow enabled
+  bool enabled = 1;
+
+  // Workflow type
+  string type = 2;
+
+  // Approval stages
+  repeated ApprovalStage stages = 3;
+
+  // Workflow timeout
+  int32 timeout_hours = 4;
+
+  // Workflow conditions
+  repeated string conditions = 5;
+
+  // Workflow notifications
+  repeated string notifications = 6;
+}

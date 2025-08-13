@@ -1,0 +1,24 @@
+// file: queue/proto/messages/historical_data_point.proto
+// version: 1.0.0
+// guid: 8e947e6d-7509-4f8b-931c-cb36d515b5e5
+
+edition = "2023";
+
+package gcommon.v1.queue;
+
+import "google/protobuf/duration.proto";
+import "google/protobuf/go_features.proto";
+import "google/protobuf/timestamp.proto";
+import "pkg/common/proto/response_metadata.proto";
+import "pkg/queue/proto/consumer_stats.proto";
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/jdfalk/gcommon/pkg/queue/proto";
+
+message HistoricalDataPoint {
+  google.protobuf.Timestamp timestamp = 1;
+  int64 message_count = 2;
+  double throughput = 3;
+  double average_latency_ms = 4;
+  double error_rate = 5;
+}

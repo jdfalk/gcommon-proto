@@ -1,0 +1,26 @@
+// file: queue/proto/messages/auth_cache_config.proto
+// version: 1.0.0
+// guid: 4282b3d6-375a-4b30-aaad-1763d882936a
+
+edition = "2023";
+
+package gcommon.v1.queue;
+
+import "google/protobuf/go_features.proto";
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/jdfalk/gcommon/pkg/queue/proto";
+
+message AuthCacheConfig {
+  // Enable caching
+  bool enabled = 1;
+
+  // Cache TTL (seconds)
+  int32 ttl_seconds = 2;
+
+  // Maximum cache size
+  int32 max_size = 3;
+
+  // Cache cleanup interval (seconds)
+  int32 cleanup_interval_seconds = 4;
+}

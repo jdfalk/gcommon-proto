@@ -1,0 +1,24 @@
+// file: queue/proto/messages/queue_configuration.proto
+// version: 1.0.0
+// guid: a7660f75-3be5-49a6-bcd6-fc522e7e5c9a
+
+edition = "2023";
+
+package gcommon.v1.queue;
+
+import "google/protobuf/duration.proto";
+import "google/protobuf/go_features.proto";
+import "google/protobuf/timestamp.proto";
+import "pkg/common/proto/response_metadata.proto";
+import "pkg/queue/proto/consumer_stats.proto";
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/jdfalk/gcommon/pkg/queue/proto";
+
+message QueueConfiguration {
+  int64 max_messages = 1;
+  google.protobuf.Duration visibility_timeout = 2;
+  google.protobuf.Duration message_retention_period = 3;
+  int32 max_retry_attempts = 4;
+  bool dead_letter_queue_enabled = 5;
+}

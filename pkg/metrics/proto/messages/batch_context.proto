@@ -1,0 +1,27 @@
+// file: metrics/proto/messages/batch_context.proto
+// version: 1.0.0
+// guid: f2e4f42e-77e5-4086-89ea-b7d514304089
+
+edition = "2023";
+
+package gcommon.v1.metrics;
+
+import "google/protobuf/go_features.proto";
+import "google/protobuf/timestamp.proto";
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/jdfalk/gcommon/pkg/metrics/proto";
+
+message BatchContext {
+  // Unique batch ID
+  string batch_id = 1;
+
+  // Position in the batch (0-based)
+  int32 batch_position = 2;
+
+  // Total size of the batch
+  int32 batch_size = 3;
+
+  // Whether this is the last item in the batch
+  bool is_last = 4;
+}

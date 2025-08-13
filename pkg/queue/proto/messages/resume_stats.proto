@@ -1,0 +1,33 @@
+// file: queue/proto/messages/resume_stats.proto
+// version: 1.0.0
+// guid: dd734c97-7ac1-4b56-8ea6-dbd08cac6e27
+
+edition = "2023";
+
+package gcommon.v1.queue;
+
+import "google/protobuf/go_features.proto";
+import "google/protobuf/timestamp.proto";
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/jdfalk/gcommon/pkg/queue/proto";
+
+message ResumeStats {
+  // Number of partitions resumed
+  int32 partitions_resumed = 1;
+
+  // Number of subscriptions reactivated
+  int32 subscriptions_reactivated = 2;
+
+  // Number of consumers reconnected
+  int32 consumers_reconnected = 3;
+
+  // Time taken to complete resume (milliseconds)
+  int64 resume_time_ms = 4;
+
+  // Messages processed immediately after resume
+  int64 immediate_messages_processed = 5;
+
+  // Throughput after resume (messages/second)
+  double post_resume_throughput = 6;
+}

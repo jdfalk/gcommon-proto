@@ -1,0 +1,25 @@
+// file: queue/proto/messages/priority_update.proto
+// version: 1.0.0
+// guid: 65ef02ba-9810-4cd5-9b8e-d1db580b22f6
+
+edition = "2023";
+
+package gcommon.v1.queue;
+
+import "google/protobuf/any.proto";
+import "google/protobuf/go_features.proto";
+import "google/protobuf/timestamp.proto";
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/jdfalk/gcommon/pkg/queue/proto";
+
+message PriorityUpdate {
+  // New priority level
+  int32 priority_level = 1;
+
+  // Priority change reason
+  string priority_reason = 2;
+
+  // Maintain relative priority ordering
+  bool maintain_order = 3;
+}

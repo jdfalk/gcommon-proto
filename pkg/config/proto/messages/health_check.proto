@@ -1,0 +1,36 @@
+// file: config/proto/messages/health_check.proto
+// version: 1.0.0
+// guid: a4cee3ca-9b9b-4b61-bc58-0a9b8d4fa96f
+
+edition = "2023";
+
+package gcommon.v1.config;
+
+import "google/protobuf/go_features.proto";
+import "google/protobuf/timestamp.proto";
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/jdfalk/gcommon/pkg/config/proto";
+
+message HealthCheck {
+  // Health check name
+  string name = 1;
+
+  // Health check type
+  HealthCheckType type = 2;
+
+  // Health check endpoint
+  string endpoint = 3;
+
+  // Health check interval
+  int32 interval_seconds = 4;
+
+  // Health check timeout
+  int32 timeout_seconds = 5;
+
+  // Health check retries
+  int32 retries = 6;
+
+  // Health check conditions
+  repeated string conditions = 7;
+}
