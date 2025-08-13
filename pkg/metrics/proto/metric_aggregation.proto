@@ -1,7 +1,8 @@
-// file: pkg/metrics/proto/enums/metric_aggregation.proto
-// version: 1.0.0
-// guid: 123e4567-e89b-12d3-a456-426614174011
-
+// file: pkg/metrics/proto/messages/metric_aggregation_result.proto
+// file: metrics/proto/messages/metric_aggregation_result.proto
+//
+// Definition of aggregation results for metrics queries.
+//
 edition = "2023";
 
 package gcommon.v1.metrics;
@@ -12,36 +13,15 @@ option features.(pb.go).api_level = API_OPAQUE;
 option go_package = "github.com/jdfalk/gcommon/pkg/metrics/proto";
 
 /**
- * Aggregation methods for metric values.
+ * MetricAggregation represents aggregated metric value.
  */
-enum MetricAggregation {
-  // Default aggregation method
-  METRIC_AGGREGATION_UNSPECIFIED = 0;
-
-  // Sum of all values
-  METRIC_AGGREGATION_SUM = 1;
-
-  // Average of all values
-  METRIC_AGGREGATION_AVERAGE = 2;
-
-  // Minimum value
-  METRIC_AGGREGATION_MIN = 3;
-
-  // Maximum value
-  METRIC_AGGREGATION_MAX = 4;
-
-  // Count of values
-  METRIC_AGGREGATION_COUNT = 5;
-
-  // Median value
-  METRIC_AGGREGATION_MEDIAN = 6;
-
-  // 95th percentile
-  METRIC_AGGREGATION_P95 = 7;
-
-  // 99th percentile
-  METRIC_AGGREGATION_P99 = 8;
-
-  // Standard deviation
-  METRIC_AGGREGATION_STDDEV = 9;
-}
+// CONFLICT_DISABLED: message MetricAggregation {
+// CONFLICT_DISABLED:   // Aggregation type performed
+// CONFLICT_DISABLED:   AggregationType type = 1;
+// CONFLICT_DISABLED:
+// CONFLICT_DISABLED:   // Value produced by aggregation
+// CONFLICT_DISABLED:   double value = 2;
+// CONFLICT_DISABLED:
+// CONFLICT_DISABLED:   // Number of samples aggregated
+// CONFLICT_DISABLED:   int64 sample_count = 3;
+// CONFLICT_DISABLED: }
