@@ -1,7 +1,8 @@
-// file: pkg/metrics/proto/export_config.proto
-// version: 1.0.0
-// guid: b0c1d2e3-456b-801a-5678-123456789012
-
+// file: pkg/metrics/proto/messages/export_config_options.proto
+// file: metrics/proto/messages/export_config_options.proto
+//
+// Configuration options for exporting metrics to external systems.
+//
 edition = "2023";
 
 package gcommon.v1.metrics;
@@ -11,16 +12,16 @@ import "google/protobuf/go_features.proto";
 option features.(pb.go).api_level = API_OPAQUE;
 option go_package = "github.com/jdfalk/gcommon/pkg/metrics/proto";
 
-message ExportConfig {
-  // Export enabled status
-  bool enabled = 1;
-
-  // Export interval in seconds
-  int32 interval_seconds = 2;
-
-  // Export destinations
-  repeated string destinations = 3;
-
-  // Export format
-  string format = 4;
-}
+/**
+ * ExportConfig defines how metrics are exported.
+ */
+// CONFLICT_DISABLED: message ExportConfig {
+// CONFLICT_DISABLED:   // Output format (e.g., prometheus, json)
+// CONFLICT_DISABLED:   ExportFormat format = 1;
+// CONFLICT_DISABLED:
+// CONFLICT_DISABLED:   // Compression algorithm to use
+// CONFLICT_DISABLED:   CompressionType compression = 2;
+// CONFLICT_DISABLED:
+// CONFLICT_DISABLED:   // Destination URL or path
+// CONFLICT_DISABLED:   string destination = 3;
+// CONFLICT_DISABLED: }

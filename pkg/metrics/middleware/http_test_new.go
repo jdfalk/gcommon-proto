@@ -6,30 +6,30 @@ import (
 	"testing"
 
 	"github.com/jdfalk/gcommon/pkg/metrics"
-	"github.com/jdfalk/gcommon/pkg/metrics/mock"
+	metricsmock "github.com/jdfalk/gcommon/pkg/metrics/mock"
 	"github.com/stretchr/testify/assert"
-	"github.com/stretchr/testify/mock as testmock"
+	"github.com/stretchr/testify/mock"
 )
 
 func TestHTTPMetricsMiddleware(t *testing.T) {
 	// Create mock provider and metrics
-	mockProvider := mock.NewMockProvider(t)
-	mockCounter := mock.NewMockCounter(t)
-	mockHistogram := mock.NewMockHistogram(t)
+	mockProvider := metricsmock.NewMockProvider(t)
+	mockCounter := metricsmock.NewMockCounter(t)
+	mockHistogram := metricsmock.NewMockHistogram(t)
 
 	// Setup expectations
 	mockProvider.On("Counter", "http_requests_total", []metrics.Option(nil)).Return(mockCounter)
 	mockProvider.On("Histogram", "http_request_duration_seconds", []metrics.Option(nil)).Return(mockHistogram)
 
-	mockCounter.On("WithTags", testmock.MatchedBy(func(tags []metrics.Tag) bool {
+	mockCounter.On("WithTags", mock.MatchedBy(func(tags []metrics.Tag) bool {
 		return len(tags) >= 2 // method and status code tags
 	})).Return(mockCounter)
 	mockCounter.On("Inc").Return()
 
-	mockHistogram.On("WithTags", testmock.MatchedBy(func(tags []metrics.Tag) bool {
+	mockHistogram.On("WithTags", mock.MatchedBy(func(tags []metrics.Tag) bool {
 		return len(tags) >= 1 // method tag
 	})).Return(mockHistogram)
-	mockHistogram.On("Observe", testmock.AnythingOfType("float64")).Return()
+	mockHistogram.On("Observe", mock.AnythingOfType("float64")).Return()
 
 	// Create middleware
 	middleware := HTTPMetrics(HTTPMetricsOptions{Provider: mockProvider})
