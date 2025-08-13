@@ -13,7 +13,7 @@ import "pkg/queue/proto/enqueue_request.proto";
 import "pkg/queue/proto/enqueue_response.proto";
 import "pkg/queue/proto/get_queue_info_request.proto";
 import "pkg/queue/proto/get_queue_info_response.proto";
-import "pkg/queue/proto/get_queue_stats_request.proto";
+import "pkg/queue/proto/queue_monitoring_service.proto";
 import "pkg/queue/proto/get_queue_stats_response.proto";
 import "pkg/queue/proto/peek_request.proto";
 import "pkg/queue/proto/peek_response.proto";
