@@ -7,18 +7,19 @@ package examples
 import (
 	"context"
 	"fmt"
-	clientpkg "gcommon/sdks/go/client"
+
+	"github.com/jdfalk/gcommon/sdks/go/client"
 )
 
 // Basic demonstrates simple client usage.
 func Basic() {
 	ctx := context.Background()
-	client, err := clientpkg.New(ctx)
+	clientInstance, err := client.New(ctx)
 	if err != nil {
 		fmt.Println("TODO: handle error", err)
 		return
 	}
-	defer client.Close()
+	defer clientInstance.Close()
 
 	// TODO: demonstrate calling a service
 	fmt.Println("TODO: call service method")
