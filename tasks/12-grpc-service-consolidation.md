@@ -181,4 +181,5 @@ Create comprehensive gRPC documentation:
 - Task 03: Metrics Module (for metrics middleware)
 
 ## Progress\n\n- Advanced client resilience features implemented in [pkg/grpc/client/resilience_future.go](../pkg/grpc/client/resilience_future.go)
+
 ## Status\n\nAll deliverables implemented. See:\n- pkg/grpc/server\n- pkg/grpc/services\n- pkg/grpc/client\n- pkg/grpc/interceptors\n- pkg/grpc/examples\n\nRefs #882

@@ -204,7 +204,9 @@ Implement documentation automation:
 - Task 20: API Documentation Generation
 
 # Progress
-- Documentation skeletons for API, guides, tutorials, and reference sections added.
+
+- Documentation skeletons for API, guides, tutorials, and reference sections
+  added.
 - Placeholder READMEs created in:
   - docs/api/grpc/README.md
   - docs/api/rest/README.md
