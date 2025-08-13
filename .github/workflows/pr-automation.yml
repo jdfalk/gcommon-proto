@@ -43,7 +43,8 @@ jobs:
       run-security: true
       enable-auto-fix: true
       auto-commit-fixes: true
-    secrets: inherit
+    secrets:
+      github-token: ${{ secrets.GITHUB_TOKEN }}
 
   # Unified automation for issue management and docs
   unified-automation:
@@ -91,4 +92,5 @@ jobs:
     with:
       base-branch: ${{ github.event.repository.default_branch }}
       model: "gpt-4o-mini"
-    secrets: inherit
+    secrets:
+      github-token: ${{ secrets.GITHUB_TOKEN }}
