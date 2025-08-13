@@ -1,0 +1,28 @@
+// file: pkg/log/proto/log_service.proto
+// version: 1.0.0
+// guid: 1f2e3d4c-5b6a-7089-1e2f-3a4b5c6d7e8f
+
+edition = "2023";
+
+package gcommon.v1.log;
+
+import "google/protobuf/go_features.proto";
+import "pkg/log/proto/write_log_request.proto";
+import "pkg/log/proto/write_log_response.proto";
+import "pkg/log/proto/read_logs_request.proto";
+import "pkg/log/proto/read_logs_response.proto";
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/jdfalk/gcommon/pkg/log/proto";
+
+/**
+ * LogService provides log management operations for
+ * centralized logging and log retrieval.
+ */
+service LogService {
+  // Write a log entry
+  rpc WriteLog(WriteLogRequest) returns (WriteLogResponse);
+
+  // Read log entries
+  rpc ReadLogs(ReadLogsRequest) returns (ReadLogsResponse);
+}

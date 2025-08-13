@@ -1,0 +1,26 @@
+// file: pkg/log/proto/configure_logger_request.proto
+// version: 1.0.0
+// guid: 2f3e4d5c-6b7a-8190-2e3f-4a5b6c7d8e9f
+
+edition = "2023";
+
+package gcommon.v1.log;
+
+import "google/protobuf/go_features.proto";
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/jdfalk/gcommon/pkg/log/proto";
+
+/**
+ * ConfigureLoggerRequest defines the request for configuring logger settings.
+ */
+message ConfigureLoggerRequest {
+  // Logger name or identifier
+  string logger_name = 1;
+
+  // Log level to set
+  string level = 2;
+
+  // Output configuration
+  string output_config = 3;
+}
