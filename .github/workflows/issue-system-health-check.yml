@@ -1,0 +1,128 @@
+# file: .github/workflows/issue-system-health-check.yml
+# version: 1.0.0
+# guid: b9c1d2e3-f4a5-6789-bcde-f123456789ab
+
+name: Issue System Health Check
+
+on:
+  # Run on push to main branch and pull requests
+  push:
+    branches: [ main, develop ]
+    paths:
+      - '.github/issue-updates/**'
+  pull_request:
+    branches: [ main, develop ]
+    paths:
+      - '.github/issue-updates/**'
+  
+  # Run daily at 6 AM UTC
+  schedule:
+    - cron: '0 6 * * *'
+  
+  # Allow manual trigger
+  workflow_dispatch:
+    inputs:
+      auto_fix:
+        description: 'Automatically fix issues if found'
+        required: false
+        default: false
+        type: boolean
+
+jobs:
+  health-check:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      pull-requests: write
+      issues: write
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v4
+      with:
+        token: ${{ secrets.GITHUB_TOKEN }}
+
+    - name: Set up Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.11'
+
+    - name: Run health check
+      id: health_check
+      run: |
+        if [ "${{ github.event.inputs.auto_fix }}" = "true" ]; then
+          python3 scripts/issue_health_check.py --auto-fix
+        else
+          python3 scripts/issue_health_check.py
+        fi
+      continue-on-error: true
+
+    - name: Check health status
+      run: |
+        exit_code=$?
+        echo "Health check exit code: $exit_code"
+        
+        if [ $exit_code -eq 0 ]; then
+          echo "✅ System is healthy"
+        elif [ $exit_code -eq 1 ]; then
+          echo "❌ System has critical errors"
+          exit 1
+        elif [ $exit_code -eq 2 ]; then
+          echo "⚠️  System has warnings"
+          # Don't fail the workflow for warnings, just report them
+        fi
+
+    - name: Create issue on failure
+      if: failure() && github.event_name == 'schedule'
+      uses: actions/github-script@v7
+      with:
+        script: |
+          const title = 'Issue System Health Check Failed';
+          const body = `🚨 **Automated Issue System Health Check Failed**
+          
+          The scheduled health check detected critical issues in the issue management system.
+          
+          **Triggered by:** Scheduled workflow
+          **Workflow:** ${{ github.workflow }}
+          **Run:** ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
+          
+          **Recommended Actions:**
+          1. Review the workflow logs for specific errors
+          2. Run the repair tool manually: \`python3 issue_system_repair.py --auto-commit\`
+          3. Run health check again: \`python3 scripts/issue_health_check.py\`
+          
+          This issue was created automatically and should be resolved promptly.`;
+          
+          github.rest.issues.create({
+            owner: context.repo.owner,
+            repo: context.repo.repo,
+            title: title,
+            body: body,
+            labels: ['automated', 'issue-system', 'critical']
+          });
+
+    - name: Comment on PR if warnings
+      if: github.event_name == 'pull_request' && steps.health_check.outcome == 'failure'
+      uses: actions/github-script@v7
+      with:
+        script: |
+          const comment = `⚠️ **Issue System Health Check Warning**
+          
+          The health check detected potential issues in the issue management system changes.
+          
+          Please review the workflow logs and consider running:
+          \`\`\`bash
+          python3 scripts/issue_health_check.py
+          \`\`\`
+          
+          If issues are found, you can auto-fix them with:
+          \`\`\`bash
+          python3 issue_system_repair.py --auto-commit
+          \`\`\``;
+          
+          github.rest.issues.createComment({
+            issue_number: context.issue.number,
+            owner: context.repo.owner,
+            repo: context.repo.repo,
+            body: comment
+          });
