@@ -137,4 +137,5 @@ Implement team functionality:
 4. Scalable tenant operations
 5. Comprehensive permission system
 
-Implementation complete: see pkg/organization/manager.go, pkg/organization/grpc/org_service.go
+Implementation complete: see pkg/organization/manager.go,
+pkg/organization/grpc/org_service.go
