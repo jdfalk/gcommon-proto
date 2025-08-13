@@ -32,4 +32,3 @@ spec:
         - name: config
           configMap:
             name: basic-api-config
-

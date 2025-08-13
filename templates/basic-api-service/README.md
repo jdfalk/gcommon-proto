@@ -26,5 +26,4 @@ Kubernetes deployment manifests.
 
 After generation, customize the service as needed.
 
-
 # Basic API Service Template\n\nSkeleton service providing a simple API with gcommon integration.

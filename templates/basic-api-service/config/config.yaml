@@ -6,4 +6,3 @@
 # Values here are loaded via the gcommon configuration manager.
 http_port: "8080"
 metrics_port: "9090"
-

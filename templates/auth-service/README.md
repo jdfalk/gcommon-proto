@@ -7,5 +7,4 @@
 Provides a minimal authentication service skeleton using gcommon modules.
 Includes configuration loading, a basic login endpoint, and container setup.
 
-
 # Auth Service Template\n\nProvides authentication and authorization scaffolding.

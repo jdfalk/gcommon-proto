@@ -5,7 +5,7 @@
 # Rust Client SDK
 
 This directory is a **skeleton** for the future Rust client SDK. The
-implementation is intentionally incomplete and filled with TODO items.  Multiple
+implementation is intentionally incomplete and filled with TODO items. Multiple
 reminders are placed throughout the codebase to ensure contributors know that
 significant work remains.
 

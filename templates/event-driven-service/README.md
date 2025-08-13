@@ -4,8 +4,8 @@
 
 # Event-Driven Service Template
 
-Template showcasing queue-based processing using gcommon's queue module.
-It includes configuration, logging, metrics, and worker skeleton.
+Template showcasing queue-based processing using gcommon's queue module. It
+includes configuration, logging, metrics, and worker skeleton.
 
 ## Usage
 

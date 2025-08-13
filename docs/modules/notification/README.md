@@ -7,6 +7,7 @@
 ## Module Overview
 
 ### Purpose and Key Features
+
 - TODO: Send emails, SMS, and push notifications
 - TODO: Support subscription preferences
 - TODO: Provide templating for messages
@@ -14,6 +15,7 @@
 - TODO: Integrate with queue for async dispatch
 
 ### Architecture Overview
+
 - TODO: Describe channels and providers
 - TODO: Explain template rendering pipeline
 - TODO: Detail scheduling and throttling
@@ -23,11 +25,13 @@
 ## API Reference
 
 ### Interfaces
+
 - TODO: Notification service interface
 - TODO: Subscription interface
 - TODO: Template interface
 
 ### Common Methods
+
 - TODO: Send dispatches a notification
 - TODO: Subscribe registers preferences
 - TODO: Unsubscribe removes preferences
@@ -36,22 +40,26 @@
 ## Usage Guides
 
 ### Common Use Cases
+
 - TODO: Send welcome emails
 - TODO: Deliver security alerts
 - TODO: Notify admins of system events
 - TODO: Broadcast marketing campaigns
 
 ### Troubleshooting
+
 - TODO: Handle bounced emails
 - TODO: Resolve provider outages
 - TODO: Debug missing notifications
 - TODO: Monitor delivery metrics
 
 ## Interactive Documentation
+
 - TODO: Provide template preview tool
 - TODO: Offer sandbox notification sender
 
 ## Documentation Automation
+
 - TODO: Generate API reference from protobuf
 - TODO: Validate template examples
 - TODO: Publish docs automatically

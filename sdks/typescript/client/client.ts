@@ -4,7 +4,10 @@
 
 import { TokenProvider } from '../auth/auth';
 
-export type UnaryHandler = (req: unknown, metadata: Record<string, string>) => Promise<unknown>;
+export type UnaryHandler = (
+  req: unknown,
+  metadata: Record<string, string>
+) => Promise<unknown>;
 
 export class Client {
   private readonly handlers: Record<string, UnaryHandler> = {};
@@ -12,7 +15,7 @@ export class Client {
 
   constructor(
     private readonly address = 'http://localhost:8080',
-    private readonly tokenProvider: TokenProvider | null = null,
+    private readonly tokenProvider: TokenProvider | null = null
   ) {}
 
   async connect(): Promise<void> {
@@ -27,7 +30,11 @@ export class Client {
     this.handlers[name] = handler;
   }
 
-  async callUnary(name: string, data: unknown, timeout = 30_000): Promise<unknown> {
+  async callUnary(
+    name: string,
+    data: unknown,
+    timeout = 30_000
+  ): Promise<unknown> {
     if (!this.connected) {
       throw new Error('client not connected');
     }
@@ -42,7 +49,7 @@ export class Client {
     return await Promise.race([
       handler(data, metadata),
       new Promise((_, reject) =>
-        setTimeout(() => reject(new Error('timeout')), timeout),
+        setTimeout(() => reject(new Error('timeout')), timeout)
       ),
     ]);
   }
