@@ -25,11 +25,14 @@ _sym_db = _symbol_database.Default()
 from google.protobuf import go_features_pb2 as google_dot_protobuf_dot_go__features__pb2
 from google.protobuf import timestamp_pb2 as google_dot_protobuf_dot_timestamp__pb2
 from pkg.common.proto import error_pb2 as pkg_dot_common_dot_proto_dot_error__pb2
+from pkg.config.proto import validation_result_pb2 as pkg_dot_config_dot_proto_dot_validation__result__pb2
+from pkg.metrics.proto import applied_config_pb2 as pkg_dot_metrics_dot_proto_dot_applied__config__pb2
+from pkg.metrics.proto import provider_endpoints_pb2 as pkg_dot_metrics_dot_proto_dot_provider__endpoints__pb2
 from pkg.metrics.proto import provider_status_pb2 as pkg_dot_metrics_dot_proto_dot_provider__status__pb2
 from pkg.metrics.proto import validation_result_pb2 as pkg_dot_metrics_dot_proto_dot_validation__result__pb2
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n0pkg/metrics/proto/create_provider_response.proto\x12\x12gcommon.v1.metrics\x1a!google/protobuf/go_features.proto\x1a\x1fgoogle/protobuf/timestamp.proto\x1a\x1cpkg/common/proto/error.proto\x1a\'pkg/metrics/proto/provider_status.proto\x1a)pkg/metrics/proto/validation_result.proto\"\xeb\x03\n\x16\x43reateProviderResponse\x12\x18\n\x07success\x18\x01 \x01(\x08R\x07success\x12.\n\x05\x65rror\x18\x02 \x01(\x0b\x32\x18.gcommon.v1.common.ErrorR\x05\x65rror\x12\x1f\n\x0bprovider_id\x18\x03 \x01(\tR\nproviderId\x12\x39\n\ncreated_at\x18\x04 \x01(\x0b\x32\x1a.google.protobuf.TimestampR\tcreatedAt\x12:\n\x06status\x18\x05 \x01(\x0b\x32\".gcommon.v1.metrics.ProviderStatusR\x06status\x12\x44\n\nvalidation\x18\x06 \x01(\x0b\x32$.gcommon.v1.metrics.ValidationResultR\nvalidation\x12H\n\x0e\x61pplied_config\x18\x07 \x01(\x0b\x32!.gcommon.v1.metrics.AppliedConfigR\rappliedConfig\x12\x1a\n\x08warnings\x18\x08 \x03(\tR\x08warnings\x12\x43\n\tendpoints\x18\t \x01(\x0b\x32%.gcommon.v1.metrics.ProviderEndpointsR\tendpoints\"\xe4\x03\n\rAppliedConfig\x12%\n\x0e\x63onfig_summary\x18\x01 \x01(\tR\rconfigSummary\x12\x61\n\x10\x61pplied_defaults\x18\x02 \x03(\x0b\x32\x36.gcommon.v1.metrics.AppliedConfig.AppliedDefaultsEntryR\x0f\x61ppliedDefaults\x12\x64\n\x11\x61pplied_overrides\x18\x03 \x03(\x0b\x32\x37.gcommon.v1.metrics.AppliedConfig.AppliedOverridesEntryR\x10\x61ppliedOverrides\x12Z\n\x14resource_allocations\x18\x04 \x01(\x0b\x32\'.gcommon.v1.metrics.ResourceAllocationsR\x13resourceAllocations\x1a\x42\n\x14\x41ppliedDefaultsEntry\x12\x10\n\x03key\x18\x01 \x01(\tR\x03key\x12\x14\n\x05value\x18\x02 \x01(\tR\x05value:\x02\x38\x01\x1a\x43\n\x15\x41ppliedOverridesEntry\x12\x10\n\x03key\x18\x01 \x01(\tR\x03key\x12\x14\n\x05value\x18\x02 \x01(\tR\x05value:\x02\x38\x01\"\xda\x01\n\x13ResourceAllocations\x12\x34\n\x16\x61llocated_memory_bytes\x18\x01 \x01(\x03R\x14\x61llocatedMemoryBytes\x12\x32\n\x15\x61llocated_cpu_percent\x18\x02 \x01(\x01R\x13\x61llocatedCpuPercent\x12\x30\n\x14\x61llocated_disk_bytes\x18\x03 \x01(\x03R\x12\x61llocatedDiskBytes\x12\'\n\x0f\x61llocated_ports\x18\x04 \x03(\x05R\x0e\x61llocatedPorts\"\xf4\x02\n\x11ProviderEndpoints\x12)\n\x10service_endpoint\x18\x01 \x01(\tR\x0fserviceEndpoint\x12)\n\x10metrics_endpoint\x18\x02 \x01(\tR\x0fmetricsEndpoint\x12\'\n\x0fhealth_endpoint\x18\x03 \x01(\tR\x0ehealthEndpoint\x12%\n\x0e\x61\x64min_endpoint\x18\x04 \x01(\tR\radminEndpoint\x12q\n\x14\x61\x64\x64itional_endpoints\x18\x05 \x03(\x0b\x32>.gcommon.v1.metrics.ProviderEndpoints.AdditionalEndpointsEntryR\x13\x61\x64\x64itionalEndpoints\x1a\x46\n\x18\x41\x64\x64itionalEndpointsEntry\x12\x10\n\x03key\x18\x01 \x01(\tR\x03key\x12\x14\n\x05value\x18\x02 \x01(\tR\x05value:\x02\x38\x01\x42\xd4\x01\n\x16\x63om.gcommon.v1.metricsB\x1b\x43reateProviderResponseProtoP\x01Z+github.com/jdfalk/gcommon/pkg/metrics/proto\xa2\x02\x03GVM\xaa\x02\x12Gcommon.V1.Metrics\xca\x02\x12Gcommon\\V1\\Metrics\xe2\x02\x1eGcommon\\V1\\Metrics\\GPBMetadata\xea\x02\x14Gcommon::V1::Metrics\x92\x03\x05\xd2>\x02\x10\x03\x62\x08\x65\x64itionsp\xe8\x07')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n0pkg/metrics/proto/create_provider_response.proto\x12\x12gcommon.v1.metrics\x1a!google/protobuf/go_features.proto\x1a\x1fgoogle/protobuf/timestamp.proto\x1a\x1cpkg/common/proto/error.proto\x1a(pkg/config/proto/validation_result.proto\x1a&pkg/metrics/proto/applied_config.proto\x1a*pkg/metrics/proto/provider_endpoints.proto\x1a\'pkg/metrics/proto/provider_status.proto\x1a)pkg/metrics/proto/validation_result.proto\"\xf2\x03\n\x16\x43reateProviderResponse\x12\x18\n\x07success\x18\x01 \x01(\x08R\x07success\x12.\n\x05\x65rror\x18\x02 \x01(\x0b\x32\x18.gcommon.v1.common.ErrorR\x05\x65rror\x12\x1f\n\x0bprovider_id\x18\x03 \x01(\tR\nproviderId\x12\x39\n\ncreated_at\x18\x04 \x01(\x0b\x32\x1a.google.protobuf.TimestampR\tcreatedAt\x12:\n\x06status\x18\x05 \x01(\x0b\x32\".gcommon.v1.metrics.ProviderStatusR\x06status\x12K\n\nvalidation\x18\x06 \x01(\x0b\x32+.gcommon.v1.metrics.MetricsValidationResultR\nvalidation\x12H\n\x0e\x61pplied_config\x18\x07 \x01(\x0b\x32!.gcommon.v1.metrics.AppliedConfigR\rappliedConfig\x12\x1a\n\x08warnings\x18\x08 \x03(\tR\x08warnings\x12\x43\n\tendpoints\x18\t \x01(\x0b\x32%.gcommon.v1.metrics.ProviderEndpointsR\tendpointsB\xd4\x01\n\x16\x63om.gcommon.v1.metricsB\x1b\x43reateProviderResponseProtoP\x01Z+github.com/jdfalk/gcommon/pkg/metrics/proto\xa2\x02\x03GVM\xaa\x02\x12Gcommon.V1.Metrics\xca\x02\x12Gcommon\\V1\\Metrics\xe2\x02\x1eGcommon\\V1\\Metrics\\GPBMetadata\xea\x02\x14Gcommon::V1::Metrics\x92\x03\x05\xd2>\x02\x10\x03\x62\x08\x65\x64itionsp\xe8\x07')
 
 _globals = globals()
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, _globals)
@@ -37,24 +40,6 @@ _builder.BuildTopDescriptorsAndMessages(DESCRIPTOR, 'pkg.metrics.proto.create_pr
 if not _descriptor._USE_C_DESCRIPTORS:
   _globals['DESCRIPTOR']._loaded_options = None
   _globals['DESCRIPTOR']._serialized_options = b'\n\026com.gcommon.v1.metricsB\033CreateProviderResponseProtoP\001Z+github.com/jdfalk/gcommon/pkg/metrics/proto\242\002\003GVM\252\002\022Gcommon.V1.Metrics\312\002\022Gcommon\\V1\\Metrics\342\002\036Gcommon\\V1\\Metrics\\GPBMetadata\352\002\024Gcommon::V1::Metrics\222\003\005\322>\002\020\003'
-  _globals['_APPLIEDCONFIG_APPLIEDDEFAULTSENTRY']._loaded_options = None
-  _globals['_APPLIEDCONFIG_APPLIEDDEFAULTSENTRY']._serialized_options = b'8\001'
-  _globals['_APPLIEDCONFIG_APPLIEDOVERRIDESENTRY']._loaded_options = None
-  _globals['_APPLIEDCONFIG_APPLIEDOVERRIDESENTRY']._serialized_options = b'8\001'
-  _globals['_PROVIDERENDPOINTS_ADDITIONALENDPOINTSENTRY']._loaded_options = None
-  _globals['_PROVIDERENDPOINTS_ADDITIONALENDPOINTSENTRY']._serialized_options = b'8\001'
-  _globals['_CREATEPROVIDERRESPONSE']._serialized_start=255
-  _globals['_CREATEPROVIDERRESPONSE']._serialized_end=746
-  _globals['_APPLIEDCONFIG']._serialized_start=749
-  _globals['_APPLIEDCONFIG']._serialized_end=1233
-  _globals['_APPLIEDCONFIG_APPLIEDDEFAULTSENTRY']._serialized_start=1098
-  _globals['_APPLIEDCONFIG_APPLIEDDEFAULTSENTRY']._serialized_end=1164
-  _globals['_APPLIEDCONFIG_APPLIEDOVERRIDESENTRY']._serialized_start=1166
-  _globals['_APPLIEDCONFIG_APPLIEDOVERRIDESENTRY']._serialized_end=1233
-  _globals['_RESOURCEALLOCATIONS']._serialized_start=1236
-  _globals['_RESOURCEALLOCATIONS']._serialized_end=1454
-  _globals['_PROVIDERENDPOINTS']._serialized_start=1457
-  _globals['_PROVIDERENDPOINTS']._serialized_end=1829
-  _globals['_PROVIDERENDPOINTS_ADDITIONALENDPOINTSENTRY']._serialized_start=1759
-  _globals['_PROVIDERENDPOINTS_ADDITIONALENDPOINTSENTRY']._serialized_end=1829
+  _globals['_CREATEPROVIDERRESPONSE']._serialized_start=381
+  _globals['_CREATEPROVIDERRESPONSE']._serialized_end=879
 # @@protoc_insertion_point(module_scope)

@@ -24,9 +24,11 @@ _sym_db = _symbol_database.Default()
 
 from google.protobuf import go_features_pb2 as google_dot_protobuf_dot_go__features__pb2
 from google.protobuf import timestamp_pb2 as google_dot_protobuf_dot_timestamp__pb2
+from pkg.queue.proto import backup_info_pb2 as pkg_dot_queue_dot_proto_dot_backup__info__pb2
+from pkg.queue.proto import deletion_stats_pb2 as pkg_dot_queue_dot_proto_dot_deletion__stats__pb2
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n%pkg/queue/proto/delete_response.proto\x12\x10gcommon.v1.queue\x1a!google/protobuf/go_features.proto\x1a\x1fgoogle/protobuf/timestamp.proto\"\xaa\x04\n\x0e\x44\x65leteResponse\x12\x18\n\x07success\x18\x01 \x01(\x08R\x07success\x12.\n\x13\x64\x65leted_resource_id\x18\x02 \x01(\tR\x11\x64\x65letedResourceId\x12#\n\rresource_type\x18\x03 \x01(\tR\x0cresourceType\x12\x39\n\ndeleted_at\x18\x04 \x01(\x0b\x32\x1a.google.protobuf.TimestampR\tdeletedAt\x12#\n\rerror_message\x18\x05 \x01(\tR\x0c\x65rrorMessage\x12\x1d\n\nerror_code\x18\x06 \x01(\tR\terrorCode\x12\x46\n\x0e\x64\x65letion_stats\x18\x07 \x01(\x0b\x32\x1f.gcommon.v1.queue.DeletionStatsR\rdeletionStats\x12=\n\x0b\x62\x61\x63kup_info\x18\x08 \x01(\x0b\x32\x1c.gcommon.v1.queue.BackupInfoR\nbackupInfo\x12\x1a\n\x08warnings\x18\t \x03(\tR\x08warnings\x12J\n\x08metadata\x18\n \x03(\x0b\x32..gcommon.v1.queue.DeleteResponse.MetadataEntryR\x08metadata\x1a;\n\rMetadataEntry\x12\x10\n\x03key\x18\x01 \x01(\tR\x03key\x12\x14\n\x05value\x18\x02 \x01(\tR\x05value:\x02\x38\x01\"\xfe\x01\n\rDeletionStats\x12)\n\x10messages_deleted\x18\x01 \x01(\x03R\x0fmessagesDeleted\x12,\n\x12\x64\x61ta_deleted_bytes\x18\x02 \x01(\x03R\x10\x64\x61taDeletedBytes\x12\x33\n\x15subscriptions_deleted\x18\x03 \x01(\x05R\x14subscriptionsDeleted\x12-\n\x12partitions_deleted\x18\x04 \x01(\x05R\x11partitionsDeleted\x12\x30\n\x14\x64\x65letion_duration_ms\x18\x05 \x01(\x03R\x12\x64\x65letionDurationMs\"\x8e\x02\n\nBackupInfo\x12\x1b\n\tbackup_id\x18\x01 \x01(\tR\x08\x62\x61\x63kupId\x12\'\n\x0f\x62\x61\x63kup_location\x18\x02 \x01(\tR\x0e\x62\x61\x63kupLocation\x12*\n\x11\x62\x61\x63kup_size_bytes\x18\x03 \x01(\x03R\x0f\x62\x61\x63kupSizeBytes\x12\x46\n\x11\x62\x61\x63kup_created_at\x18\x04 \x01(\x0b\x32\x1a.google.protobuf.TimestampR\x0f\x62\x61\x63kupCreatedAt\x12\x46\n\x11\x62\x61\x63kup_expires_at\x18\x05 \x01(\x0b\x32\x1a.google.protobuf.TimestampR\x0f\x62\x61\x63kupExpiresAtB\xc0\x01\n\x14\x63om.gcommon.v1.queueB\x13\x44\x65leteResponseProtoP\x01Z)github.com/jdfalk/gcommon/pkg/queue/proto\xa2\x02\x03GVQ\xaa\x02\x10Gcommon.V1.Queue\xca\x02\x10Gcommon\\V1\\Queue\xe2\x02\x1cGcommon\\V1\\Queue\\GPBMetadata\xea\x02\x12Gcommon::V1::Queue\x92\x03\x05\xd2>\x02\x10\x03\x62\x08\x65\x64itionsp\xe8\x07')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n%pkg/queue/proto/delete_response.proto\x12\x10gcommon.v1.queue\x1a!google/protobuf/go_features.proto\x1a\x1fgoogle/protobuf/timestamp.proto\x1a!pkg/queue/proto/backup_info.proto\x1a$pkg/queue/proto/deletion_stats.proto\"\xb9\x04\n\x13QueueDeleteResponse\x12\x18\n\x07success\x18\x01 \x01(\x08R\x07success\x12.\n\x13\x64\x65leted_resource_id\x18\x02 \x01(\tR\x11\x64\x65letedResourceId\x12#\n\rresource_type\x18\x03 \x01(\tR\x0cresourceType\x12\x39\n\ndeleted_at\x18\x04 \x01(\x0b\x32\x1a.google.protobuf.TimestampR\tdeletedAt\x12#\n\rerror_message\x18\x05 \x01(\tR\x0c\x65rrorMessage\x12\x1d\n\nerror_code\x18\x06 \x01(\tR\terrorCode\x12\x46\n\x0e\x64\x65letion_stats\x18\x07 \x01(\x0b\x32\x1f.gcommon.v1.queue.DeletionStatsR\rdeletionStats\x12\x42\n\x0b\x62\x61\x63kup_info\x18\x08 \x01(\x0b\x32!.gcommon.v1.queue.QueueBackupInfoR\nbackupInfo\x12\x1a\n\x08warnings\x18\t \x03(\tR\x08warnings\x12O\n\x08metadata\x18\n \x03(\x0b\x32\x33.gcommon.v1.queue.QueueDeleteResponse.MetadataEntryR\x08metadata\x1a;\n\rMetadataEntry\x12\x10\n\x03key\x18\x01 \x01(\tR\x03key\x12\x14\n\x05value\x18\x02 \x01(\tR\x05value:\x02\x38\x01\x42\xc0\x01\n\x14\x63om.gcommon.v1.queueB\x13\x44\x65leteResponseProtoP\x01Z)github.com/jdfalk/gcommon/pkg/queue/proto\xa2\x02\x03GVQ\xaa\x02\x10Gcommon.V1.Queue\xca\x02\x10Gcommon\\V1\\Queue\xe2\x02\x1cGcommon\\V1\\Queue\\GPBMetadata\xea\x02\x12Gcommon::V1::Queue\x92\x03\x05\xd2>\x02\x10\x03\x62\x08\x65\x64itionsp\xe8\x07')
 
 _globals = globals()
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, _globals)
@@ -34,14 +36,10 @@ _builder.BuildTopDescriptorsAndMessages(DESCRIPTOR, 'pkg.queue.proto.delete_resp
 if not _descriptor._USE_C_DESCRIPTORS:
   _globals['DESCRIPTOR']._loaded_options = None
   _globals['DESCRIPTOR']._serialized_options = b'\n\024com.gcommon.v1.queueB\023DeleteResponseProtoP\001Z)github.com/jdfalk/gcommon/pkg/queue/proto\242\002\003GVQ\252\002\020Gcommon.V1.Queue\312\002\020Gcommon\\V1\\Queue\342\002\034Gcommon\\V1\\Queue\\GPBMetadata\352\002\022Gcommon::V1::Queue\222\003\005\322>\002\020\003'
-  _globals['_DELETERESPONSE_METADATAENTRY']._loaded_options = None
-  _globals['_DELETERESPONSE_METADATAENTRY']._serialized_options = b'8\001'
-  _globals['_DELETERESPONSE']._serialized_start=128
-  _globals['_DELETERESPONSE']._serialized_end=682
-  _globals['_DELETERESPONSE_METADATAENTRY']._serialized_start=623
-  _globals['_DELETERESPONSE_METADATAENTRY']._serialized_end=682
-  _globals['_DELETIONSTATS']._serialized_start=685
-  _globals['_DELETIONSTATS']._serialized_end=939
-  _globals['_BACKUPINFO']._serialized_start=942
-  _globals['_BACKUPINFO']._serialized_end=1212
+  _globals['_QUEUEDELETERESPONSE_METADATAENTRY']._loaded_options = None
+  _globals['_QUEUEDELETERESPONSE_METADATAENTRY']._serialized_options = b'8\001'
+  _globals['_QUEUEDELETERESPONSE']._serialized_start=201
+  _globals['_QUEUEDELETERESPONSE']._serialized_end=770
+  _globals['_QUEUEDELETERESPONSE_METADATAENTRY']._serialized_start=711
+  _globals['_QUEUEDELETERESPONSE_METADATAENTRY']._serialized_end=770
 # @@protoc_insertion_point(module_scope)

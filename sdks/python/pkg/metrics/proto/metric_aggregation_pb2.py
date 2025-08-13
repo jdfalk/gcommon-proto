@@ -23,9 +23,10 @@ _sym_db = _symbol_database.Default()
 
 
 from google.protobuf import go_features_pb2 as google_dot_protobuf_dot_go__features__pb2
+from pkg.metrics.proto import aggregation_type_pb2 as pkg_dot_metrics_dot_proto_dot_aggregation__type__pb2
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n*pkg/metrics/proto/metric_aggregation.proto\x12\x12gcommon.v1.metrics\x1a!google/protobuf/go_features.proto*\xbf\x02\n\x11MetricAggregation\x12\"\n\x1eMETRIC_AGGREGATION_UNSPECIFIED\x10\x00\x12\x1a\n\x16METRIC_AGGREGATION_SUM\x10\x01\x12\x1e\n\x1aMETRIC_AGGREGATION_AVERAGE\x10\x02\x12\x1a\n\x16METRIC_AGGREGATION_MIN\x10\x03\x12\x1a\n\x16METRIC_AGGREGATION_MAX\x10\x04\x12\x1c\n\x18METRIC_AGGREGATION_COUNT\x10\x05\x12\x1d\n\x19METRIC_AGGREGATION_MEDIAN\x10\x06\x12\x1a\n\x16METRIC_AGGREGATION_P95\x10\x07\x12\x1a\n\x16METRIC_AGGREGATION_P99\x10\x08\x12\x1d\n\x19METRIC_AGGREGATION_STDDEV\x10\tB\xcf\x01\n\x16\x63om.gcommon.v1.metricsB\x16MetricAggregationProtoP\x01Z+github.com/jdfalk/gcommon/pkg/metrics/proto\xa2\x02\x03GVM\xaa\x02\x12Gcommon.V1.Metrics\xca\x02\x12Gcommon\\V1\\Metrics\xe2\x02\x1eGcommon\\V1\\Metrics\\GPBMetadata\xea\x02\x14Gcommon::V1::Metrics\x92\x03\x05\xd2>\x02\x10\x03\x62\x08\x65\x64itionsp\xe8\x07')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n*pkg/metrics/proto/metric_aggregation.proto\x12\x12gcommon.v1.metrics\x1a!google/protobuf/go_features.proto\x1a(pkg/metrics/proto/aggregation_type.proto\"\x9f\x02\n\x11MetricAggregation\x12\x37\n\x04type\x18\x01 \x01(\x0e\x32#.gcommon.v1.metrics.AggregationTypeR\x04type\x12%\n\x0ewindow_seconds\x18\x02 \x01(\x05R\rwindowSeconds\x12\x19\n\x08group_by\x18\x03 \x03(\tR\x07groupBy\x12 \n\x0bpercentiles\x18\x04 \x03(\x01R\x0bpercentiles\x12\'\n\x0f\x63ustom_function\x18\x05 \x01(\tR\x0e\x63ustomFunction\x12#\n\rinclude_nulls\x18\x06 \x01(\x08R\x0cincludeNulls\x12\x1f\n\x0bmin_samples\x18\x07 \x01(\x05R\nminSamplesB\xcf\x01\n\x16\x63om.gcommon.v1.metricsB\x16MetricAggregationProtoP\x01Z+github.com/jdfalk/gcommon/pkg/metrics/proto\xa2\x02\x03GVM\xaa\x02\x12Gcommon.V1.Metrics\xca\x02\x12Gcommon\\V1\\Metrics\xe2\x02\x1eGcommon\\V1\\Metrics\\GPBMetadata\xea\x02\x14Gcommon::V1::Metrics\x92\x03\x05\xd2>\x02\x10\x03\x62\x08\x65\x64itionsp\xe8\x07')
 
 _globals = globals()
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, _globals)
@@ -33,6 +34,6 @@ _builder.BuildTopDescriptorsAndMessages(DESCRIPTOR, 'pkg.metrics.proto.metric_ag
 if not _descriptor._USE_C_DESCRIPTORS:
   _globals['DESCRIPTOR']._loaded_options = None
   _globals['DESCRIPTOR']._serialized_options = b'\n\026com.gcommon.v1.metricsB\026MetricAggregationProtoP\001Z+github.com/jdfalk/gcommon/pkg/metrics/proto\242\002\003GVM\252\002\022Gcommon.V1.Metrics\312\002\022Gcommon\\V1\\Metrics\342\002\036Gcommon\\V1\\Metrics\\GPBMetadata\352\002\024Gcommon::V1::Metrics\222\003\005\322>\002\020\003'
-  _globals['_METRICAGGREGATION']._serialized_start=102
-  _globals['_METRICAGGREGATION']._serialized_end=421
+  _globals['_METRICAGGREGATION']._serialized_start=144
+  _globals['_METRICAGGREGATION']._serialized_end=431
 # @@protoc_insertion_point(module_scope)

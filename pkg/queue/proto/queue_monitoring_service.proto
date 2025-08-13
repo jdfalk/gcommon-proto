@@ -9,7 +9,7 @@ package gcommon.v1.queue;
 import "google/protobuf/go_features.proto";
 import "google/protobuf/timestamp.proto";
 import "pkg/common/proto/time_range.proto";
-import "pkg/metrics/proto/stream_metrics_request.proto";
+import "pkg/queue/proto/stream_metrics_request.proto";
 import "pkg/queue/proto/cluster_info.proto";
 import "pkg/queue/proto/get_cluster_info_request.proto";
 import "pkg/queue/proto/get_cluster_info_response.proto";
@@ -39,5 +39,5 @@ service QueueMonitoringService {
   rpc GetQueueStats(GetQueueStatsRequest) returns (QueueStatsResponse);
 
   // Get real-time metrics stream
-  rpc StreamMetrics(StreamMetricsRequest) returns (stream MetricsEvent);
+  rpc StreamMetrics(QueueStreamMetricsRequest) returns (stream MetricsEvent);
 }

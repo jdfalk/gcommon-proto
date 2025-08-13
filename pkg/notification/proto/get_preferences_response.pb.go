@@ -123,7 +123,7 @@ var File_pkg_notification_proto_get_preferences_response_proto protoreflect.File
 
 const file_pkg_notification_proto_get_preferences_response_proto_rawDesc = "" +
 	"\n" +
-	"5pkg/notification/proto/get_preferences_response.proto\x12\x17gcommon.v1.notification\x1a!google/protobuf/go_features.proto\x1a5pkg/notification/proto/subscription_preferences.proto\x1a(pkg/common/proto/response_metadata.proto\"\xad\x01\n" +
+	"5pkg/notification/proto/get_preferences_response.proto\x12\x17gcommon.v1.notification\x1a!google/protobuf/go_features.proto\x1a(pkg/common/proto/response_metadata.proto\x1a5pkg/notification/proto/subscription_preferences.proto\"\xad\x01\n" +
 	"\x16GetPreferencesResponse\x12R\n" +
 	"\vpreferences\x18\x01 \x01(\v20.gcommon.v1.notification.SubscriptionPreferencesR\vpreferences\x12?\n" +
 	"\bmetadata\x18\x02 \x01(\v2#.gcommon.v1.common.ResponseMetadataR\bmetadataB\xf2\x01\n" +

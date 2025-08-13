@@ -157,7 +157,7 @@ var File_pkg_notification_proto_update_preferences_request_proto protoreflect.Fi
 
 const file_pkg_notification_proto_update_preferences_request_proto_rawDesc = "" +
 	"\n" +
-	"7pkg/notification/proto/update_preferences_request.proto\x12\x17gcommon.v1.notification\x1a!google/protobuf/go_features.proto\x1a5pkg/notification/proto/subscription_preferences.proto\x1a'pkg/common/proto/request_metadata.proto\"\xb6\x01\n" +
+	"7pkg/notification/proto/update_preferences_request.proto\x12\x17gcommon.v1.notification\x1a!google/protobuf/go_features.proto\x1a'pkg/common/proto/request_metadata.proto\x1a5pkg/notification/proto/subscription_preferences.proto\"\xb6\x01\n" +
 	"\x18UpdatePreferencesRequest\x12V\n" +
 	"\vpreferences\x18\x01 \x01(\v20.gcommon.v1.notification.SubscriptionPreferencesB\x02(\x01R\vpreferences\x12B\n" +
 	"\bmetadata\x18\x02 \x01(\v2\".gcommon.v1.common.RequestMetadataB\x02(\x01R\bmetadataB\xf4\x01\n" +

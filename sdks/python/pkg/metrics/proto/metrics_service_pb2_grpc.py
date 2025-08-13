@@ -46,12 +46,12 @@ class MetricsServiceStub(object):
                 _registered_method=True)
         self.GetMetrics = channel.unary_unary(
                 '/gcommon.v1.metrics.MetricsService/GetMetrics',
-                request_serializer=pkg_dot_metrics_dot_proto_dot_get__metrics__request__pb2.GetMetricsRequest.SerializeToString,
-                response_deserializer=pkg_dot_metrics_dot_proto_dot_get__metrics__response__pb2.GetMetricsResponse.FromString,
+                request_serializer=pkg_dot_metrics_dot_proto_dot_get__metrics__request__pb2.MetricsGetMetricsRequest.SerializeToString,
+                response_deserializer=pkg_dot_metrics_dot_proto_dot_get__metrics__response__pb2.MetricsGetMetricsResponse.FromString,
                 _registered_method=True)
         self.StreamMetrics = channel.unary_stream(
                 '/gcommon.v1.metrics.MetricsService/StreamMetrics',
-                request_serializer=pkg_dot_metrics_dot_proto_dot_stream__metrics__request__pb2.StreamMetricsRequest.SerializeToString,
+                request_serializer=pkg_dot_metrics_dot_proto_dot_stream__metrics__request__pb2.MetricsStreamMetricsRequest.SerializeToString,
                 response_deserializer=pkg_dot_metrics_dot_proto_dot_metric__data__pb2.MetricData.FromString,
                 _registered_method=True)
         self.RegisterMetric = channel.unary_unary(
@@ -109,7 +109,7 @@ class MetricsServiceServicer(object):
         raise NotImplementedError('Method not implemented!')
 
     def StreamMetrics(self, request, context):
-        """Stream metrics data in real-time
+        """Stream real-time metrics data with configurable filters and options
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
@@ -165,12 +165,12 @@ def add_MetricsServiceServicer_to_server(servicer, server):
             ),
             'GetMetrics': grpc.unary_unary_rpc_method_handler(
                     servicer.GetMetrics,
-                    request_deserializer=pkg_dot_metrics_dot_proto_dot_get__metrics__request__pb2.GetMetricsRequest.FromString,
-                    response_serializer=pkg_dot_metrics_dot_proto_dot_get__metrics__response__pb2.GetMetricsResponse.SerializeToString,
+                    request_deserializer=pkg_dot_metrics_dot_proto_dot_get__metrics__request__pb2.MetricsGetMetricsRequest.FromString,
+                    response_serializer=pkg_dot_metrics_dot_proto_dot_get__metrics__response__pb2.MetricsGetMetricsResponse.SerializeToString,
             ),
             'StreamMetrics': grpc.unary_stream_rpc_method_handler(
                     servicer.StreamMetrics,
-                    request_deserializer=pkg_dot_metrics_dot_proto_dot_stream__metrics__request__pb2.StreamMetricsRequest.FromString,
+                    request_deserializer=pkg_dot_metrics_dot_proto_dot_stream__metrics__request__pb2.MetricsStreamMetricsRequest.FromString,
                     response_serializer=pkg_dot_metrics_dot_proto_dot_metric__data__pb2.MetricData.SerializeToString,
             ),
             'RegisterMetric': grpc.unary_unary_rpc_method_handler(
@@ -281,8 +281,8 @@ class MetricsService(object):
             request,
             target,
             '/gcommon.v1.metrics.MetricsService/GetMetrics',
-            pkg_dot_metrics_dot_proto_dot_get__metrics__request__pb2.GetMetricsRequest.SerializeToString,
-            pkg_dot_metrics_dot_proto_dot_get__metrics__response__pb2.GetMetricsResponse.FromString,
+            pkg_dot_metrics_dot_proto_dot_get__metrics__request__pb2.MetricsGetMetricsRequest.SerializeToString,
+            pkg_dot_metrics_dot_proto_dot_get__metrics__response__pb2.MetricsGetMetricsResponse.FromString,
             options,
             channel_credentials,
             insecure,
@@ -308,7 +308,7 @@ class MetricsService(object):
             request,
             target,
             '/gcommon.v1.metrics.MetricsService/StreamMetrics',
-            pkg_dot_metrics_dot_proto_dot_stream__metrics__request__pb2.StreamMetricsRequest.SerializeToString,
+            pkg_dot_metrics_dot_proto_dot_stream__metrics__request__pb2.MetricsStreamMetricsRequest.SerializeToString,
             pkg_dot_metrics_dot_proto_dot_metric__data__pb2.MetricData.FromString,
             options,
             channel_credentials,

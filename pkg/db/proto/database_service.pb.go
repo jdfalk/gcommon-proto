@@ -25,7 +25,7 @@ var File_pkg_db_proto_database_service_proto protoreflect.FileDescriptor
 
 const file_pkg_db_proto_database_service_proto_rawDesc = "" +
 	"\n" +
-	"#pkg/db/proto/database_service.proto\x12\x13gcommon.v1.database\x1a!google/protobuf/go_features.proto\x1a(pkg/db/proto/execute_batch_request.proto\x1a)pkg/db/proto/execute_batch_response.proto\x1a\"pkg/db/proto/execute_request.proto\x1a#pkg/db/proto/execute_response.proto\x1a.pkg/db/proto/get_connection_info_request.proto\x1a/pkg/db/proto/get_connection_info_response.proto\x1a pkg/db/proto/query_request.proto\x1a!pkg/db/proto/query_response.proto\x1a$pkg/db/proto/query_row_request.proto\x1a%pkg/db/proto/query_row_response.proto\x1a'pkg/db/proto/health_check_request.proto\x1a(pkg/db/proto/health_check_response.proto2\xdb\x04\n" +
+	"#pkg/db/proto/database_service.proto\x12\x13gcommon.v1.database\x1a!google/protobuf/go_features.proto\x1a(pkg/db/proto/execute_batch_request.proto\x1a)pkg/db/proto/execute_batch_response.proto\x1a\"pkg/db/proto/execute_request.proto\x1a#pkg/db/proto/execute_response.proto\x1a.pkg/db/proto/get_connection_info_request.proto\x1a/pkg/db/proto/get_connection_info_response.proto\x1a'pkg/db/proto/health_check_request.proto\x1a(pkg/db/proto/health_check_response.proto\x1a pkg/db/proto/query_request.proto\x1a!pkg/db/proto/query_response.proto\x1a$pkg/db/proto/query_row_request.proto\x1a%pkg/db/proto/query_row_response.proto2\xdb\x04\n" +
 	"\x0fDatabaseService\x12N\n" +
 	"\x05Query\x12!.gcommon.v1.database.QueryRequest\x1a\".gcommon.v1.database.QueryResponse\x12W\n" +
 	"\bQueryRow\x12$.gcommon.v1.database.QueryRowRequest\x1a%.gcommon.v1.database.QueryRowResponse\x12T\n" +
@@ -80,12 +80,12 @@ func file_pkg_db_proto_database_service_proto_init() {
 	file_pkg_db_proto_execute_response_proto_init()
 	file_pkg_db_proto_get_connection_info_request_proto_init()
 	file_pkg_db_proto_get_connection_info_response_proto_init()
+	file_pkg_db_proto_health_check_request_proto_init()
+	file_pkg_db_proto_health_check_response_proto_init()
 	file_pkg_db_proto_query_request_proto_init()
 	file_pkg_db_proto_query_response_proto_init()
 	file_pkg_db_proto_query_row_request_proto_init()
 	file_pkg_db_proto_query_row_response_proto_init()
-	file_pkg_db_proto_health_check_request_proto_init()
-	file_pkg_db_proto_health_check_response_proto_init()
 	type x struct{}
 	out := protoimpl.TypeBuilder{
 		File: protoimpl.DescBuilder{

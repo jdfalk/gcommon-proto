@@ -23,23 +23,9 @@ _sym_db = _symbol_database.Default()
 
 
 from google.protobuf import go_features_pb2 as google_dot_protobuf_dot_go__features__pb2
-from pkg.queue.proto import dequeue_request_pb2 as pkg_dot_queue_dot_proto_dot_dequeue__request__pb2
-from pkg.queue.proto import dequeue_response_pb2 as pkg_dot_queue_dot_proto_dot_dequeue__response__pb2
-from pkg.queue.proto import enqueue_request_pb2 as pkg_dot_queue_dot_proto_dot_enqueue__request__pb2
-from pkg.queue.proto import enqueue_response_pb2 as pkg_dot_queue_dot_proto_dot_enqueue__response__pb2
-from pkg.queue.proto import get_queue_info_request_pb2 as pkg_dot_queue_dot_proto_dot_get__queue__info__request__pb2
-from pkg.queue.proto import get_queue_info_response_pb2 as pkg_dot_queue_dot_proto_dot_get__queue__info__response__pb2
-from pkg.queue.proto import queue_monitoring_service_pb2 as pkg_dot_queue_dot_proto_dot_queue__monitoring__service__pb2
-from pkg.queue.proto import get_queue_stats_response_pb2 as pkg_dot_queue_dot_proto_dot_get__queue__stats__response__pb2
-from pkg.queue.proto import peek_request_pb2 as pkg_dot_queue_dot_proto_dot_peek__request__pb2
-from pkg.queue.proto import peek_response_pb2 as pkg_dot_queue_dot_proto_dot_peek__response__pb2
-from pkg.queue.proto import publish_request_pb2 as pkg_dot_queue_dot_proto_dot_publish__request__pb2
-from pkg.queue.proto import publish_response_pb2 as pkg_dot_queue_dot_proto_dot_publish__response__pb2
-from pkg.queue.proto import subscribe_request_pb2 as pkg_dot_queue_dot_proto_dot_subscribe__request__pb2
-from pkg.queue.proto import subscribe_response_pb2 as pkg_dot_queue_dot_proto_dot_subscribe__response__pb2
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n\x1bpkg/queue/proto/queue.proto\x12\x10gcommon.v1.queue\x1a!google/protobuf/go_features.proto\x1a%pkg/queue/proto/dequeue_request.proto\x1a&pkg/queue/proto/dequeue_response.proto\x1a%pkg/queue/proto/enqueue_request.proto\x1a&pkg/queue/proto/enqueue_response.proto\x1a,pkg/queue/proto/get_queue_info_request.proto\x1a-pkg/queue/proto/get_queue_info_response.proto\x1a.pkg/queue/proto/queue_monitoring_service.proto\x1a.pkg/queue/proto/get_queue_stats_response.proto\x1a\"pkg/queue/proto/peek_request.proto\x1a#pkg/queue/proto/peek_response.proto\x1a%pkg/queue/proto/publish_request.proto\x1a&pkg/queue/proto/publish_response.proto\x1a\'pkg/queue/proto/subscribe_request.proto\x1a(pkg/queue/proto/subscribe_response.proto2\xde\x04\n\x0cQueueService\x12N\n\x07\x45nqueue\x12 .gcommon.v1.queue.EnqueueRequest\x1a!.gcommon.v1.queue.EnqueueResponse\x12N\n\x07\x44\x65queue\x12 .gcommon.v1.queue.DequeueRequest\x1a!.gcommon.v1.queue.DequeueResponse\x12\x45\n\x04Peek\x12\x1d.gcommon.v1.queue.PeekRequest\x1a\x1e.gcommon.v1.queue.PeekResponse\x12]\n\x0cGetQueueInfo\x12%.gcommon.v1.queue.GetQueueInfoRequest\x1a&.gcommon.v1.queue.GetQueueInfoResponse\x12`\n\rGetQueueStats\x12&.gcommon.v1.queue.GetQueueStatsRequest\x1a\'.gcommon.v1.queue.GetQueueStatsResponse\x12V\n\tSubscribe\x12\".gcommon.v1.queue.SubscribeRequest\x1a#.gcommon.v1.queue.SubscribeResponse0\x01\x12N\n\x07Publish\x12 .gcommon.v1.queue.PublishRequest\x1a!.gcommon.v1.queue.PublishResponseB\xb7\x01\n\x14\x63om.gcommon.v1.queueB\nQueueProtoP\x01Z)github.com/jdfalk/gcommon/pkg/queue/proto\xa2\x02\x03GVQ\xaa\x02\x10Gcommon.V1.Queue\xca\x02\x10Gcommon\\V1\\Queue\xe2\x02\x1cGcommon\\V1\\Queue\\GPBMetadata\xea\x02\x12Gcommon::V1::Queue\x92\x03\x05\xd2>\x02\x10\x03\x62\x08\x65\x64itionsp\xe8\x07')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n\x1bpkg/queue/proto/queue.proto\x12\x10gcommon.v1.queue\x1a!google/protobuf/go_features.protoB\xb7\x01\n\x14\x63om.gcommon.v1.queueB\nQueueProtoP\x01Z)github.com/jdfalk/gcommon/pkg/queue/proto\xa2\x02\x03GVQ\xaa\x02\x10Gcommon.V1.Queue\xca\x02\x10Gcommon\\V1\\Queue\xe2\x02\x1cGcommon\\V1\\Queue\\GPBMetadata\xea\x02\x12Gcommon::V1::Queue\x92\x03\x05\xd2>\x02\x10\x03\x62\x08\x65\x64itionsp\xe8\x07')
 
 _globals = globals()
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, _globals)
@@ -47,6 +33,4 @@ _builder.BuildTopDescriptorsAndMessages(DESCRIPTOR, 'pkg.queue.proto.queue_pb2',
 if not _descriptor._USE_C_DESCRIPTORS:
   _globals['DESCRIPTOR']._loaded_options = None
   _globals['DESCRIPTOR']._serialized_options = b'\n\024com.gcommon.v1.queueB\nQueueProtoP\001Z)github.com/jdfalk/gcommon/pkg/queue/proto\242\002\003GVQ\252\002\020Gcommon.V1.Queue\312\002\020Gcommon\\V1\\Queue\342\002\034Gcommon\\V1\\Queue\\GPBMetadata\352\002\022Gcommon::V1::Queue\222\003\005\322>\002\020\003'
-  _globals['_QUEUESERVICE']._serialized_start=667
-  _globals['_QUEUESERVICE']._serialized_end=1273
 # @@protoc_insertion_point(module_scope)

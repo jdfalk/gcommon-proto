@@ -23,9 +23,14 @@ _sym_db = _symbol_database.Default()
 
 
 from google.protobuf import go_features_pb2 as google_dot_protobuf_dot_go__features__pb2
+from pkg.queue.proto import api_key_auth_pb2 as pkg_dot_queue_dot_proto_dot_api__key__auth__pb2
+from pkg.queue.proto import o_auth2_auth_pb2 as pkg_dot_queue_dot_proto_dot_o__auth2__auth__pb2
+from pkg.queue.proto import sasl_auth_pb2 as pkg_dot_queue_dot_proto_dot_sasl__auth__pb2
+from pkg.queue.proto import tls_auth_pb2 as pkg_dot_queue_dot_proto_dot_tls__auth__pb2
+from pkg.queue.proto import username_password_auth_pb2 as pkg_dot_queue_dot_proto_dot_username__password__auth__pb2
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n+pkg/queue/proto/authentication_config.proto\x12\x10gcommon.v1.queue\x1a!google/protobuf/go_features.proto\"\xe2\x02\n\x14\x41uthenticationConfig\x12\x14\n\x04none\x18\x01 \x01(\x08H\x00R\x04none\x12U\n\x11username_password\x18\x02 \x01(\x0b\x32&.gcommon.v1.queue.UsernamePasswordAuthH\x00R\x10usernamePassword\x12\x37\n\x07\x61pi_key\x18\x03 \x01(\x0b\x32\x1c.gcommon.v1.queue.APIKeyAuthH\x00R\x06\x61piKey\x12-\n\x03tls\x18\x04 \x01(\x0b\x32\x19.gcommon.v1.queue.TLSAuthH\x00R\x03tls\x12\x30\n\x04sasl\x18\x05 \x01(\x0b\x32\x1a.gcommon.v1.queue.SASLAuthH\x00R\x04sasl\x12\x36\n\x06oauth2\x18\x06 \x01(\x0b\x32\x1c.gcommon.v1.queue.OAuth2AuthH\x00R\x06oauth2B\x0b\n\tauth_type\"N\n\x14UsernamePasswordAuth\x12\x1a\n\x08username\x18\x01 \x01(\tR\x08username\x12\x1a\n\x08password\x18\x02 \x01(\tR\x08password\"<\n\nAPIKeyAuth\x12\x17\n\x07\x61pi_key\x18\x01 \x01(\tR\x06\x61piKey\x12\x15\n\x06key_id\x18\x02 \x01(\tR\x05keyId\"y\n\x07TLSAuth\x12\x19\n\x08\x63\x65rt_pem\x18\x01 \x01(\tR\x07\x63\x65rtPem\x12\x17\n\x07key_pem\x18\x02 \x01(\tR\x06keyPem\x12\x15\n\x06\x63\x61_pem\x18\x03 \x01(\tR\x05\x63\x61Pem\x12#\n\rverify_server\x18\x04 \x01(\x08R\x0cverifyServer\"\xeb\x01\n\x08SASLAuth\x12\x1c\n\tmechanism\x18\x01 \x01(\tR\tmechanism\x12\x1a\n\x08username\x18\x02 \x01(\tR\x08username\x12\x1a\n\x08password\x18\x03 \x01(\tR\x08password\x12J\n\nproperties\x18\x04 \x03(\x0b\x32*.gcommon.v1.queue.SASLAuth.PropertiesEntryR\nproperties\x1a=\n\x0fPropertiesEntry\x12\x10\n\x03key\x18\x01 \x01(\tR\x03key\x12\x14\n\x05value\x18\x02 \x01(\tR\x05value:\x02\x38\x01\"\x9a\x02\n\nOAuth2Auth\x12%\n\x0etoken_endpoint\x18\x01 \x01(\tR\rtokenEndpoint\x12\x1b\n\tclient_id\x18\x02 \x01(\tR\x08\x63lientId\x12#\n\rclient_secret\x18\x03 \x01(\tR\x0c\x63lientSecret\x12\x16\n\x06scopes\x18\x04 \x03(\tR\x06scopes\x12L\n\nparameters\x18\x05 \x03(\x0b\x32,.gcommon.v1.queue.OAuth2Auth.ParametersEntryR\nparameters\x1a=\n\x0fParametersEntry\x12\x10\n\x03key\x18\x01 \x01(\tR\x03key\x12\x14\n\x05value\x18\x02 \x01(\tR\x05value:\x02\x38\x01\x42\xc6\x01\n\x14\x63om.gcommon.v1.queueB\x19\x41uthenticationConfigProtoP\x01Z)github.com/jdfalk/gcommon/pkg/queue/proto\xa2\x02\x03GVQ\xaa\x02\x10Gcommon.V1.Queue\xca\x02\x10Gcommon\\V1\\Queue\xe2\x02\x1cGcommon\\V1\\Queue\\GPBMetadata\xea\x02\x12Gcommon::V1::Queue\x92\x03\x05\xd2>\x02\x10\x03\x62\x08\x65\x64itionsp\xe8\x07')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n+pkg/queue/proto/authentication_config.proto\x12\x10gcommon.v1.queue\x1a!google/protobuf/go_features.proto\x1a\"pkg/queue/proto/api_key_auth.proto\x1a\"pkg/queue/proto/o_auth2_auth.proto\x1a\x1fpkg/queue/proto/sasl_auth.proto\x1a\x1epkg/queue/proto/tls_auth.proto\x1a,pkg/queue/proto/username_password_auth.proto\"\xe2\x02\n\x14\x41uthenticationConfig\x12\x14\n\x04none\x18\x01 \x01(\x08H\x00R\x04none\x12U\n\x11username_password\x18\x02 \x01(\x0b\x32&.gcommon.v1.queue.UsernamePasswordAuthH\x00R\x10usernamePassword\x12\x37\n\x07\x61pi_key\x18\x03 \x01(\x0b\x32\x1c.gcommon.v1.queue.APIKeyAuthH\x00R\x06\x61piKey\x12-\n\x03tls\x18\x04 \x01(\x0b\x32\x19.gcommon.v1.queue.TLSAuthH\x00R\x03tls\x12\x30\n\x04sasl\x18\x05 \x01(\x0b\x32\x1a.gcommon.v1.queue.SASLAuthH\x00R\x04sasl\x12\x36\n\x06oauth2\x18\x06 \x01(\x0b\x32\x1c.gcommon.v1.queue.OAuth2AuthH\x00R\x06oauth2B\x0b\n\tauth_typeB\xc6\x01\n\x14\x63om.gcommon.v1.queueB\x19\x41uthenticationConfigProtoP\x01Z)github.com/jdfalk/gcommon/pkg/queue/proto\xa2\x02\x03GVQ\xaa\x02\x10Gcommon.V1.Queue\xca\x02\x10Gcommon\\V1\\Queue\xe2\x02\x1cGcommon\\V1\\Queue\\GPBMetadata\xea\x02\x12Gcommon::V1::Queue\x92\x03\x05\xd2>\x02\x10\x03\x62\x08\x65\x64itionsp\xe8\x07')
 
 _globals = globals()
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, _globals)
@@ -33,24 +38,6 @@ _builder.BuildTopDescriptorsAndMessages(DESCRIPTOR, 'pkg.queue.proto.authenticat
 if not _descriptor._USE_C_DESCRIPTORS:
   _globals['DESCRIPTOR']._loaded_options = None
   _globals['DESCRIPTOR']._serialized_options = b'\n\024com.gcommon.v1.queueB\031AuthenticationConfigProtoP\001Z)github.com/jdfalk/gcommon/pkg/queue/proto\242\002\003GVQ\252\002\020Gcommon.V1.Queue\312\002\020Gcommon\\V1\\Queue\342\002\034Gcommon\\V1\\Queue\\GPBMetadata\352\002\022Gcommon::V1::Queue\222\003\005\322>\002\020\003'
-  _globals['_SASLAUTH_PROPERTIESENTRY']._loaded_options = None
-  _globals['_SASLAUTH_PROPERTIESENTRY']._serialized_options = b'8\001'
-  _globals['_OAUTH2AUTH_PARAMETERSENTRY']._loaded_options = None
-  _globals['_OAUTH2AUTH_PARAMETERSENTRY']._serialized_options = b'8\001'
-  _globals['_AUTHENTICATIONCONFIG']._serialized_start=101
-  _globals['_AUTHENTICATIONCONFIG']._serialized_end=455
-  _globals['_USERNAMEPASSWORDAUTH']._serialized_start=457
-  _globals['_USERNAMEPASSWORDAUTH']._serialized_end=535
-  _globals['_APIKEYAUTH']._serialized_start=537
-  _globals['_APIKEYAUTH']._serialized_end=597
-  _globals['_TLSAUTH']._serialized_start=599
-  _globals['_TLSAUTH']._serialized_end=720
-  _globals['_SASLAUTH']._serialized_start=723
-  _globals['_SASLAUTH']._serialized_end=958
-  _globals['_SASLAUTH_PROPERTIESENTRY']._serialized_start=897
-  _globals['_SASLAUTH_PROPERTIESENTRY']._serialized_end=958
-  _globals['_OAUTH2AUTH']._serialized_start=961
-  _globals['_OAUTH2AUTH']._serialized_end=1243
-  _globals['_OAUTH2AUTH_PARAMETERSENTRY']._serialized_start=1182
-  _globals['_OAUTH2AUTH_PARAMETERSENTRY']._serialized_end=1243
+  _globals['_AUTHENTICATIONCONFIG']._serialized_start=284
+  _globals['_AUTHENTICATIONCONFIG']._serialized_end=638
 # @@protoc_insertion_point(module_scope)

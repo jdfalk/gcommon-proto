@@ -25,7 +25,7 @@ var File_pkg_health_proto_health_service_proto protoreflect.FileDescriptor
 
 const file_pkg_health_proto_health_service_proto_rawDesc = "" +
 	"\n" +
-	"%pkg/health/proto/health_service.proto\x12\x11gcommon.v1.health\x1a!google/protobuf/go_features.proto\x1a$pkg/health/proto/watch_request.proto\x1a1pkg/health/proto/get_health_metrics_request.proto\x1a2pkg/health/proto/get_health_metrics_response.proto\x1a1pkg/health/proto/get_service_health_request.proto\x1a2pkg/health/proto/get_service_health_response.proto\x1a/pkg/health/proto/health_check_all_request.proto\x1a0pkg/health/proto/health_check_all_response.proto\x1a+pkg/health/proto/health_check_request.proto\x1a,pkg/health/proto/health_check_response.proto\x1a,pkg/health/proto/list_services_request.proto\x1a-pkg/health/proto/list_services_response.proto\x1a-pkg/health/proto/register_check_request.proto\x1a.pkg/health/proto/register_check_response.proto\x1a/pkg/health/proto/unregister_check_request.proto\x1a0pkg/health/proto/unregister_check_response.proto\x1a%pkg/health/proto/watch_response.proto2\xb1\x06\n" +
+	"%pkg/health/proto/health_service.proto\x12\x11gcommon.v1.health\x1a!google/protobuf/go_features.proto\x1a1pkg/health/proto/get_health_metrics_request.proto\x1a2pkg/health/proto/get_health_metrics_response.proto\x1a1pkg/health/proto/get_service_health_request.proto\x1a2pkg/health/proto/get_service_health_response.proto\x1a/pkg/health/proto/health_check_all_request.proto\x1a0pkg/health/proto/health_check_all_response.proto\x1a+pkg/health/proto/health_check_request.proto\x1a,pkg/health/proto/health_check_response.proto\x1a,pkg/health/proto/list_services_request.proto\x1a-pkg/health/proto/list_services_response.proto\x1a-pkg/health/proto/register_check_request.proto\x1a.pkg/health/proto/register_check_response.proto\x1a/pkg/health/proto/unregister_check_request.proto\x1a0pkg/health/proto/unregister_check_response.proto\x1a$pkg/health/proto/watch_request.proto\x1a%pkg/health/proto/watch_response.proto2\xb1\x06\n" +
 	"\rHealthService\x12b\n" +
 	"\x05Check\x12+.gcommon.v1.health.HealthHealthCheckRequest\x1a,.gcommon.v1.health.HealthHealthCheckResponse\x12_\n" +
 	"\bCheckAll\x12(.gcommon.v1.health.HealthCheckAllRequest\x1a).gcommon.v1.health.HealthCheckAllResponse\x12R\n" +
@@ -84,7 +84,6 @@ func file_pkg_health_proto_health_service_proto_init() {
 	if File_pkg_health_proto_health_service_proto != nil {
 		return
 	}
-	file_pkg_health_proto_watch_request_proto_init()
 	file_pkg_health_proto_get_health_metrics_request_proto_init()
 	file_pkg_health_proto_get_health_metrics_response_proto_init()
 	file_pkg_health_proto_get_service_health_request_proto_init()
@@ -99,6 +98,7 @@ func file_pkg_health_proto_health_service_proto_init() {
 	file_pkg_health_proto_register_check_response_proto_init()
 	file_pkg_health_proto_unregister_check_request_proto_init()
 	file_pkg_health_proto_unregister_check_response_proto_init()
+	file_pkg_health_proto_watch_request_proto_init()
 	file_pkg_health_proto_watch_response_proto_init()
 	type x struct{}
 	out := protoimpl.TypeBuilder{

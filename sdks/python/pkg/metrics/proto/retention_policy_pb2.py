@@ -23,11 +23,9 @@ _sym_db = _symbol_database.Default()
 
 
 from google.protobuf import go_features_pb2 as google_dot_protobuf_dot_go__features__pb2
-from pkg.metrics.proto import retention_policy_retentionpolicy_pb2 as pkg_dot_metrics_dot_proto_dot_retention__policy__retentionpolicy__pb2
-from pkg.metrics.proto import retention_policy_retentionpolicyconfig_pb2 as pkg_dot_metrics_dot_proto_dot_retention__policy__retentionpolicyconfig__pb2
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n(pkg/metrics/proto/retention_policy.proto\x12\x12gcommon.v1.metrics\x1a!google/protobuf/go_features.proto\x1a\x38pkg/metrics/proto/retention_policy_retentionpolicy.proto\x1a>pkg/metrics/proto/retention_policy_retentionpolicyconfig.proto\"\x95\x01\n\x13RetentionPolicyInfo\x12;\n\x06policy\x18\x01 \x01(\x0e\x32#.gcommon.v1.metrics.RetentionPolicyR\x06policy\x12\x41\n\x06\x63onfig\x18\x02 \x01(\x0b\x32).gcommon.v1.metrics.RetentionPolicyConfigR\x06\x63onfigB\xcd\x01\n\x16\x63om.gcommon.v1.metricsB\x14RetentionPolicyProtoP\x01Z+github.com/jdfalk/gcommon/pkg/metrics/proto\xa2\x02\x03GVM\xaa\x02\x12Gcommon.V1.Metrics\xca\x02\x12Gcommon\\V1\\Metrics\xe2\x02\x1eGcommon\\V1\\Metrics\\GPBMetadata\xea\x02\x14Gcommon::V1::Metrics\x92\x03\x05\xd2>\x02\x10\x03\x62\x08\x65\x64itionsp\xe8\x07')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n(pkg/metrics/proto/retention_policy.proto\x12\x12gcommon.v1.metrics\x1a!google/protobuf/go_features.proto*\x82\x03\n\x16MetricsRetentionPolicy\x12 \n\x1cRETENTION_POLICY_UNSPECIFIED\x10\x00\x12\x1f\n\x1bRETENTION_POLICY_SHORT_TERM\x10\x01\x12 \n\x1cRETENTION_POLICY_MEDIUM_TERM\x10\x02\x12\x1e\n\x1aRETENTION_POLICY_LONG_TERM\x10\x03\x12\x1c\n\x18RETENTION_POLICY_ARCHIVE\x10\x04\x12\x1b\n\x17RETENTION_POLICY_CUSTOM\x10\x05\x12#\n\x1fRETENTION_POLICY_HIGH_FREQUENCY\x10\x06\x12\"\n\x1eRETENTION_POLICY_LOW_FREQUENCY\x10\x07\x12\x1f\n\x1bRETENTION_POLICY_COMPLIANCE\x10\x08\x12\x1e\n\x1aRETENTION_POLICY_REAL_TIME\x10\t\x12\x1e\n\x1aRETENTION_POLICY_AGGREGATE\x10\nB\xcd\x01\n\x16\x63om.gcommon.v1.metricsB\x14RetentionPolicyProtoP\x01Z+github.com/jdfalk/gcommon/pkg/metrics/proto\xa2\x02\x03GVM\xaa\x02\x12Gcommon.V1.Metrics\xca\x02\x12Gcommon\\V1\\Metrics\xe2\x02\x1eGcommon\\V1\\Metrics\\GPBMetadata\xea\x02\x14Gcommon::V1::Metrics\x92\x03\x05\xd2>\x02\x10\x03\x62\x08\x65\x64itionsp\xe8\x07')
 
 _globals = globals()
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, _globals)
@@ -35,6 +33,6 @@ _builder.BuildTopDescriptorsAndMessages(DESCRIPTOR, 'pkg.metrics.proto.retention
 if not _descriptor._USE_C_DESCRIPTORS:
   _globals['DESCRIPTOR']._loaded_options = None
   _globals['DESCRIPTOR']._serialized_options = b'\n\026com.gcommon.v1.metricsB\024RetentionPolicyProtoP\001Z+github.com/jdfalk/gcommon/pkg/metrics/proto\242\002\003GVM\252\002\022Gcommon.V1.Metrics\312\002\022Gcommon\\V1\\Metrics\342\002\036Gcommon\\V1\\Metrics\\GPBMetadata\352\002\024Gcommon::V1::Metrics\222\003\005\322>\002\020\003'
-  _globals['_RETENTIONPOLICYINFO']._serialized_start=222
-  _globals['_RETENTIONPOLICYINFO']._serialized_end=371
+  _globals['_METRICSRETENTIONPOLICY']._serialized_start=100
+  _globals['_METRICSRETENTIONPOLICY']._serialized_end=486
 # @@protoc_insertion_point(module_scope)

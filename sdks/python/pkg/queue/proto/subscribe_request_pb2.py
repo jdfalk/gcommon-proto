@@ -24,10 +24,14 @@ _sym_db = _symbol_database.Default()
 
 from google.protobuf import go_features_pb2 as google_dot_protobuf_dot_go__features__pb2
 from pkg.queue.proto import ack_level_pb2 as pkg_dot_queue_dot_proto_dot_ack__level__pb2
+from pkg.queue.proto import delivery_configuration_pb2 as pkg_dot_queue_dot_proto_dot_delivery__configuration__pb2
 from pkg.queue.proto import delivery_mode_pb2 as pkg_dot_queue_dot_proto_dot_delivery__mode__pb2
+from pkg.queue.proto import error_handling_config_pb2 as pkg_dot_queue_dot_proto_dot_error__handling__config__pb2
+from pkg.queue.proto import message_filter_config_pb2 as pkg_dot_queue_dot_proto_dot_message__filter__config__pb2
+from pkg.queue.proto import subscription_configuration_pb2 as pkg_dot_queue_dot_proto_dot_subscription__configuration__pb2
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n\'pkg/queue/proto/subscribe_request.proto\x12\x10gcommon.v1.queue\x1a!google/protobuf/go_features.proto\x1a\x1fpkg/queue/proto/ack_level.proto\x1a#pkg/queue/proto/delivery_mode.proto\"\xde\x04\n\x10SubscribeRequest\x12\x14\n\x05topic\x18\x01 \x01(\tR\x05topic\x12+\n\x11subscription_name\x18\x02 \x01(\tR\x10subscriptionName\x12*\n\x11\x63onsumer_group_id\x18\x03 \x01(\tR\x0f\x63onsumerGroupId\x12\x1f\n\x0b\x63onsumer_id\x18\x04 \x01(\tR\nconsumerId\x12\x43\n\x06\x63onfig\x18\x05 \x01(\x0b\x32+.gcommon.v1.queue.SubscriptionConfigurationR\x06\x63onfig\x12J\n\rfilter_config\x18\x06 \x01(\x0b\x32%.gcommon.v1.queue.MessageFilterConfigR\x0c\x66ilterConfig\x12P\n\x0f\x64\x65livery_config\x18\x07 \x01(\x0b\x32\'.gcommon.v1.queue.DeliveryConfigurationR\x0e\x64\x65liveryConfig\x12L\n\x0e\x65rror_handling\x18\x08 \x01(\x0b\x32%.gcommon.v1.queue.ErrorHandlingConfigR\rerrorHandling\x12L\n\x08metadata\x18\t \x03(\x0b\x32\x30.gcommon.v1.queue.SubscribeRequest.MetadataEntryR\x08metadata\x1a;\n\rMetadataEntry\x12\x10\n\x03key\x18\x01 \x01(\tR\x03key\x12\x14\n\x05value\x18\x02 \x01(\tR\x05value:\x02\x38\x01\"\x81\x04\n\x19SubscriptionConfiguration\x12\x37\n\tack_level\x18\x01 \x01(\x0e\x32\x1a.gcommon.v1.queue.AckLevelR\x08\x61\x63kLevel\x12\x43\n\rdelivery_mode\x18\x02 \x01(\x0e\x32\x1e.gcommon.v1.queue.DeliveryModeR\x0c\x64\x65liveryMode\x12\x30\n\x14max_unacked_messages\x18\x03 \x01(\x05R\x12maxUnackedMessages\x12$\n\x0e\x61\x63k_timeout_ms\x18\x04 \x01(\x05R\x0c\x61\x63kTimeoutMs\x12!\n\x0cmin_priority\x18\x05 \x01(\x05R\x0bminPriority\x12)\n\x10ordered_delivery\x18\x06 \x01(\x08R\x0forderedDelivery\x12)\n\x10\x61uto_acknowledge\x18\x07 \x01(\x08R\x0f\x61utoAcknowledge\x12-\n\x12\x65xpiration_seconds\x18\x08 \x01(\x03R\x11\x65xpirationSeconds\x12/\n\x13\x64uplicate_detection\x18\t \x01(\x08R\x12\x64uplicateDetection\x12\x35\n\x17max_message_age_seconds\x18\n \x01(\x03R\x14maxMessageAgeSeconds\"\xb3\x03\n\x13MessageFilterConfig\x12_\n\x0eheader_filters\x18\x01 \x03(\x0b\x32\x38.gcommon.v1.queue.MessageFilterConfig.HeaderFiltersEntryR\rheaderFilters\x12H\n\x0f\x63ontent_filters\x18\x02 \x03(\x0b\x32\x1f.gcommon.v1.queue.ContentFilterR\x0e\x63ontentFilters\x12\x30\n\x14routing_key_patterns\x18\x03 \x03(\tR\x12routingKeyPatterns\x12#\n\rmessage_types\x18\x04 \x03(\tR\x0cmessageTypes\x12-\n\x12\x66ilter_expressions\x18\x05 \x03(\tR\x11\x66ilterExpressions\x12)\n\x10\x65xclude_matching\x18\x06 \x01(\x08R\x0f\x65xcludeMatching\x1a@\n\x12HeaderFiltersEntry\x12\x10\n\x03key\x18\x01 \x01(\tR\x03key\x12\x14\n\x05value\x18\x02 \x01(\tR\x05value:\x02\x38\x01\"\x87\x01\n\rContentFilter\x12\x1d\n\nfield_path\x18\x01 \x01(\tR\tfieldPath\x12\x1a\n\x08operator\x18\x02 \x01(\tR\x08operator\x12\x14\n\x05value\x18\x03 \x01(\tR\x05value\x12%\n\x0e\x63\x61se_sensitive\x18\x04 \x01(\x08R\rcaseSensitive\"\x96\x04\n\x15\x44\x65liveryConfiguration\x12#\n\rpush_endpoint\x18\x01 \x01(\tR\x0cpushEndpoint\x12.\n\x13\x64\x65livery_timeout_ms\x18\x02 \x01(\x05R\x11\x64\x65liveryTimeoutMs\x12H\n\x0cretry_config\x18\x03 \x01(\x0b\x32%.gcommon.v1.queue.DeliveryRetryConfigR\x0bretryConfig\x12H\n\x0c\x62\x61tch_config\x18\x04 \x01(\x0b\x32%.gcommon.v1.queue.BatchDeliveryConfigR\x0b\x62\x61tchConfig\x12H\n\x0c\x66low_control\x18\x05 \x01(\x0b\x32%.gcommon.v1.queue.FlowControlSettingsR\x0b\x66lowControl\x12-\n\x12\x65nable_compression\x18\x06 \x01(\x08R\x11\x65nableCompression\x12[\n\x0c\x61uth_headers\x18\x07 \x03(\x0b\x32\x38.gcommon.v1.queue.DeliveryConfiguration.AuthHeadersEntryR\x0b\x61uthHeaders\x1a>\n\x10\x41uthHeadersEntry\x12\x10\n\x03key\x18\x01 \x01(\tR\x03key\x12\x14\n\x05value\x18\x02 \x01(\tR\x05value:\x02\x38\x01\"\xf7\x01\n\x13\x44\x65liveryRetryConfig\x12\x18\n\x07\x65nabled\x18\x01 \x01(\x08R\x07\x65nabled\x12\x1f\n\x0bmax_retries\x18\x02 \x01(\x05R\nmaxRetries\x12(\n\x10initial_delay_ms\x18\x03 \x01(\x05R\x0einitialDelayMs\x12 \n\x0cmax_delay_ms\x18\x04 \x01(\x05R\nmaxDelayMs\x12-\n\x12\x62\x61\x63koff_multiplier\x18\x05 \x01(\x01R\x11\x62\x61\x63koffMultiplier\x12*\n\x11retry_error_codes\x18\x06 \x03(\tR\x0fretryErrorCodes\"\xa7\x01\n\x13\x42\x61tchDeliveryConfig\x12\x18\n\x07\x65nabled\x18\x01 \x01(\x08R\x07\x65nabled\x12$\n\x0emax_batch_size\x18\x02 \x01(\x05R\x0cmaxBatchSize\x12&\n\x0fmax_batch_bytes\x18\x03 \x01(\x03R\rmaxBatchBytes\x12(\n\x10\x62\x61tch_timeout_ms\x18\x04 \x01(\x05R\x0e\x62\x61tchTimeoutMs\"\xa1\x01\n\x13\x46lowControlSettings\x12\x38\n\x18max_outstanding_messages\x18\x01 \x01(\x05R\x16maxOutstandingMessages\x12\x32\n\x15max_outstanding_bytes\x18\x02 \x01(\x03R\x13maxOutstandingBytes\x12\x1c\n\talgorithm\x18\x03 \x01(\tR\talgorithm\"\xe9\x02\n\x13\x45rrorHandlingConfig\x12\x46\n\ndlq_config\x18\x01 \x01(\x0b\x32\'.gcommon.v1.queue.DeadLetterQueueConfigR\tdlqConfig\x12\x32\n\x15max_delivery_attempts\x18\x02 \x01(\x05R\x13maxDeliveryAttempts\x12H\n\rerror_actions\x18\x03 \x03(\x0b\x32#.gcommon.v1.queue.ErrorActionConfigR\x0c\x65rrorActions\x12\x30\n\x14\x65nable_error_logging\x18\x04 \x01(\x08R\x12\x65nableErrorLogging\x12Z\n\x13notification_config\x18\x05 \x01(\x0b\x32).gcommon.v1.queue.ErrorNotificationConfigR\x12notificationConfig\"\xab\x01\n\x15\x44\x65\x61\x64LetterQueueConfig\x12\x18\n\x07\x65nabled\x18\x01 \x01(\x08R\x07\x65nabled\x12\x1b\n\tdlq_topic\x18\x02 \x01(\tR\x08\x64lqTopic\x12-\n\x13\x64lq_max_age_seconds\x18\x03 \x01(\x03R\x10\x64lqMaxAgeSeconds\x12,\n\x12include_error_info\x18\x04 \x01(\x08R\x10includeErrorInfo\"\xed\x01\n\x11\x45rrorActionConfig\x12#\n\rerror_pattern\x18\x01 \x01(\tR\x0c\x65rrorPattern\x12\x16\n\x06\x61\x63tion\x18\x02 \x01(\tR\x06\x61\x63tion\x12Z\n\raction_params\x18\x03 \x03(\x0b\x32\x35.gcommon.v1.queue.ErrorActionConfig.ActionParamsEntryR\x0c\x61\x63tionParams\x1a?\n\x11\x41\x63tionParamsEntry\x12\x10\n\x03key\x18\x01 \x01(\tR\x03key\x12\x14\n\x05value\x18\x02 \x01(\tR\x05value:\x02\x38\x01\"\xd7\x01\n\x17\x45rrorNotificationConfig\x12\x18\n\x07\x65nabled\x18\x01 \x01(\x08R\x07\x65nabled\x12\x33\n\x15notification_channels\x18\x02 \x03(\tR\x14notificationChannels\x12\'\n\x0f\x65rror_threshold\x18\x03 \x01(\x05R\x0e\x65rrorThreshold\x12\x44\n\x1enotification_frequency_seconds\x18\x04 \x01(\x05R\x1cnotificationFrequencySecondsB\xc2\x01\n\x14\x63om.gcommon.v1.queueB\x15SubscribeRequestProtoP\x01Z)github.com/jdfalk/gcommon/pkg/queue/proto\xa2\x02\x03GVQ\xaa\x02\x10Gcommon.V1.Queue\xca\x02\x10Gcommon\\V1\\Queue\xe2\x02\x1cGcommon\\V1\\Queue\\GPBMetadata\xea\x02\x12Gcommon::V1::Queue\x92\x03\x05\xd2>\x02\x10\x03\x62\x08\x65\x64itionsp\xe8\x07')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n\'pkg/queue/proto/subscribe_request.proto\x12\x10gcommon.v1.queue\x1a!google/protobuf/go_features.proto\x1a\x1fpkg/queue/proto/ack_level.proto\x1a,pkg/queue/proto/delivery_configuration.proto\x1a#pkg/queue/proto/delivery_mode.proto\x1a+pkg/queue/proto/error_handling_config.proto\x1a+pkg/queue/proto/message_filter_config.proto\x1a\x30pkg/queue/proto/subscription_configuration.proto\"\xe8\x04\n\x15QueueSubscribeRequest\x12\x14\n\x05topic\x18\x01 \x01(\tR\x05topic\x12+\n\x11subscription_name\x18\x02 \x01(\tR\x10subscriptionName\x12*\n\x11\x63onsumer_group_id\x18\x03 \x01(\tR\x0f\x63onsumerGroupId\x12\x1f\n\x0b\x63onsumer_id\x18\x04 \x01(\tR\nconsumerId\x12\x43\n\x06\x63onfig\x18\x05 \x01(\x0b\x32+.gcommon.v1.queue.SubscriptionConfigurationR\x06\x63onfig\x12J\n\rfilter_config\x18\x06 \x01(\x0b\x32%.gcommon.v1.queue.MessageFilterConfigR\x0c\x66ilterConfig\x12P\n\x0f\x64\x65livery_config\x18\x07 \x01(\x0b\x32\'.gcommon.v1.queue.DeliveryConfigurationR\x0e\x64\x65liveryConfig\x12L\n\x0e\x65rror_handling\x18\x08 \x01(\x0b\x32%.gcommon.v1.queue.ErrorHandlingConfigR\rerrorHandling\x12Q\n\x08metadata\x18\t \x03(\x0b\x32\x35.gcommon.v1.queue.QueueSubscribeRequest.MetadataEntryR\x08metadata\x1a;\n\rMetadataEntry\x12\x10\n\x03key\x18\x01 \x01(\tR\x03key\x12\x14\n\x05value\x18\x02 \x01(\tR\x05value:\x02\x38\x01\x42\xc2\x01\n\x14\x63om.gcommon.v1.queueB\x15SubscribeRequestProtoP\x01Z)github.com/jdfalk/gcommon/pkg/queue/proto\xa2\x02\x03GVQ\xaa\x02\x10Gcommon.V1.Queue\xca\x02\x10Gcommon\\V1\\Queue\xe2\x02\x1cGcommon\\V1\\Queue\\GPBMetadata\xea\x02\x12Gcommon::V1::Queue\x92\x03\x05\xd2>\x02\x10\x03\x62\x08\x65\x64itionsp\xe8\x07')
 
 _globals = globals()
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, _globals)
@@ -35,44 +39,10 @@ _builder.BuildTopDescriptorsAndMessages(DESCRIPTOR, 'pkg.queue.proto.subscribe_r
 if not _descriptor._USE_C_DESCRIPTORS:
   _globals['DESCRIPTOR']._loaded_options = None
   _globals['DESCRIPTOR']._serialized_options = b'\n\024com.gcommon.v1.queueB\025SubscribeRequestProtoP\001Z)github.com/jdfalk/gcommon/pkg/queue/proto\242\002\003GVQ\252\002\020Gcommon.V1.Queue\312\002\020Gcommon\\V1\\Queue\342\002\034Gcommon\\V1\\Queue\\GPBMetadata\352\002\022Gcommon::V1::Queue\222\003\005\322>\002\020\003'
-  _globals['_SUBSCRIBEREQUEST_METADATAENTRY']._loaded_options = None
-  _globals['_SUBSCRIBEREQUEST_METADATAENTRY']._serialized_options = b'8\001'
-  _globals['_MESSAGEFILTERCONFIG_HEADERFILTERSENTRY']._loaded_options = None
-  _globals['_MESSAGEFILTERCONFIG_HEADERFILTERSENTRY']._serialized_options = b'8\001'
-  _globals['_DELIVERYCONFIGURATION_AUTHHEADERSENTRY']._loaded_options = None
-  _globals['_DELIVERYCONFIGURATION_AUTHHEADERSENTRY']._serialized_options = b'8\001'
-  _globals['_ERRORACTIONCONFIG_ACTIONPARAMSENTRY']._loaded_options = None
-  _globals['_ERRORACTIONCONFIG_ACTIONPARAMSENTRY']._serialized_options = b'8\001'
-  _globals['_SUBSCRIBEREQUEST']._serialized_start=167
-  _globals['_SUBSCRIBEREQUEST']._serialized_end=773
-  _globals['_SUBSCRIBEREQUEST_METADATAENTRY']._serialized_start=714
-  _globals['_SUBSCRIBEREQUEST_METADATAENTRY']._serialized_end=773
-  _globals['_SUBSCRIPTIONCONFIGURATION']._serialized_start=776
-  _globals['_SUBSCRIPTIONCONFIGURATION']._serialized_end=1289
-  _globals['_MESSAGEFILTERCONFIG']._serialized_start=1292
-  _globals['_MESSAGEFILTERCONFIG']._serialized_end=1727
-  _globals['_MESSAGEFILTERCONFIG_HEADERFILTERSENTRY']._serialized_start=1663
-  _globals['_MESSAGEFILTERCONFIG_HEADERFILTERSENTRY']._serialized_end=1727
-  _globals['_CONTENTFILTER']._serialized_start=1730
-  _globals['_CONTENTFILTER']._serialized_end=1865
-  _globals['_DELIVERYCONFIGURATION']._serialized_start=1868
-  _globals['_DELIVERYCONFIGURATION']._serialized_end=2402
-  _globals['_DELIVERYCONFIGURATION_AUTHHEADERSENTRY']._serialized_start=2340
-  _globals['_DELIVERYCONFIGURATION_AUTHHEADERSENTRY']._serialized_end=2402
-  _globals['_DELIVERYRETRYCONFIG']._serialized_start=2405
-  _globals['_DELIVERYRETRYCONFIG']._serialized_end=2652
-  _globals['_BATCHDELIVERYCONFIG']._serialized_start=2655
-  _globals['_BATCHDELIVERYCONFIG']._serialized_end=2822
-  _globals['_FLOWCONTROLSETTINGS']._serialized_start=2825
-  _globals['_FLOWCONTROLSETTINGS']._serialized_end=2986
-  _globals['_ERRORHANDLINGCONFIG']._serialized_start=2989
-  _globals['_ERRORHANDLINGCONFIG']._serialized_end=3350
-  _globals['_DEADLETTERQUEUECONFIG']._serialized_start=3353
-  _globals['_DEADLETTERQUEUECONFIG']._serialized_end=3524
-  _globals['_ERRORACTIONCONFIG']._serialized_start=3527
-  _globals['_ERRORACTIONCONFIG']._serialized_end=3764
-  _globals['_ERRORACTIONCONFIG_ACTIONPARAMSENTRY']._serialized_start=3701
-  _globals['_ERRORACTIONCONFIG_ACTIONPARAMSENTRY']._serialized_end=3764
-  _globals['_ERRORNOTIFICATIONCONFIG']._serialized_start=3767
-  _globals['_ERRORNOTIFICATIONCONFIG']._serialized_end=3982
+  _globals['_QUEUESUBSCRIBEREQUEST_METADATAENTRY']._loaded_options = None
+  _globals['_QUEUESUBSCRIBEREQUEST_METADATAENTRY']._serialized_options = b'8\001'
+  _globals['_QUEUESUBSCRIBEREQUEST']._serialized_start=353
+  _globals['_QUEUESUBSCRIBEREQUEST']._serialized_end=969
+  _globals['_QUEUESUBSCRIBEREQUEST_METADATAENTRY']._serialized_start=910
+  _globals['_QUEUESUBSCRIBEREQUEST_METADATAENTRY']._serialized_end=969
 # @@protoc_insertion_point(module_scope)

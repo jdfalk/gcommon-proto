@@ -176,7 +176,7 @@ var File_pkg_health_proto_register_check_request_proto protoreflect.FileDescript
 
 const file_pkg_health_proto_register_check_request_proto_rawDesc = "" +
 	"\n" +
-	"-pkg/health/proto/register_check_request.proto\x12\x11gcommon.v1.health\x1a!google/protobuf/go_features.proto\x1a,pkg/metrics/proto/health_check_request.proto\x1a'pkg/common/proto/request_metadata.proto\"\xb9\x01\n" +
+	"-pkg/health/proto/register_check_request.proto\x12\x11gcommon.v1.health\x1a!google/protobuf/go_features.proto\x1a'pkg/common/proto/request_metadata.proto\x1a,pkg/metrics/proto/health_check_request.proto\"\xb9\x01\n" +
 	"\x14RegisterCheckRequest\x12\x18\n" +
 	"\aservice\x18\x01 \x01(\tR\aservice\x12C\n" +
 	"\x05check\x18\x02 \x01(\v2-.gcommon.v1.metrics.MetricsHealthCheckRequestR\x05check\x12B\n" +

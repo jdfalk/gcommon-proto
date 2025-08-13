@@ -13,8 +13,8 @@ import "pkg/common/proto/response_metadata.proto";
 import "pkg/metrics/proto/error_stats.proto";
 import "pkg/queue/proto/consumer_stats.proto";
 import "pkg/queue/proto/historical_stats.proto";
-import "pkg/queue/proto/queue_stats.proto";
 import "pkg/queue/proto/performance_metrics.proto";
+import "pkg/queue/proto/queue_stats.proto";
 import "pkg/queue/proto/queue_stats_summary.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;

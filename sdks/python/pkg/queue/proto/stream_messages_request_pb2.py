@@ -25,11 +25,13 @@ _sym_db = _symbol_database.Default()
 from google.protobuf import go_features_pb2 as google_dot_protobuf_dot_go__features__pb2
 from google.protobuf import timestamp_pb2 as google_dot_protobuf_dot_timestamp__pb2
 from pkg.queue.proto import ack_level_pb2 as pkg_dot_queue_dot_proto_dot_ack__level__pb2
+from pkg.queue.proto import message_filter_pb2 as pkg_dot_queue_dot_proto_dot_message__filter__pb2
+from pkg.queue.proto import offset_config_pb2 as pkg_dot_queue_dot_proto_dot_offset__config__pb2
 from pkg.queue.proto import offset_type_pb2 as pkg_dot_queue_dot_proto_dot_offset__type__pb2
 from pkg.queue.proto import stream_config_pb2 as pkg_dot_queue_dot_proto_dot_stream__config__pb2
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n-pkg/queue/proto/stream_messages_request.proto\x12\x10gcommon.v1.queue\x1a!google/protobuf/go_features.proto\x1a\x1fgoogle/protobuf/timestamp.proto\x1a\x1fpkg/queue/proto/ack_level.proto\x1a!pkg/queue/proto/offset_type.proto\x1a#pkg/queue/proto/stream_config.proto\"\x85\x05\n\x15StreamMessagesRequest\x12\x14\n\x05topic\x18\x01 \x01(\tR\x05topic\x12*\n\x11\x63onsumer_group_id\x18\x02 \x01(\tR\x0f\x63onsumerGroupId\x12\x1f\n\x0b\x63onsumer_id\x18\x03 \x01(\tR\nconsumerId\x12\x43\n\roffset_config\x18\x04 \x01(\x0b\x32\x1e.gcommon.v1.queue.OffsetConfigR\x0coffsetConfig\x12!\n\x0cmax_messages\x18\x05 \x01(\x03R\x0bmaxMessages\x12*\n\x11stream_timeout_ms\x18\x06 \x01(\x05R\x0fstreamTimeoutMs\x12\x37\n\tack_level\x18\x07 \x01(\x0e\x32\x1a.gcommon.v1.queue.AckLevelR\x08\x61\x63kLevel\x12\x1d\n\nbatch_size\x18\x08 \x01(\x05R\tbatchSize\x12\x37\n\x06\x66ilter\x18\t \x01(\x0b\x32\x1f.gcommon.v1.queue.MessageFilterR\x06\x66ilter\x12)\n\x10\x61uto_acknowledge\x18\n \x01(\x08R\x0f\x61utoAcknowledge\x12$\n\x0epause_on_error\x18\x0b \x01(\x08R\x0cpauseOnError\x12)\n\x10include_metadata\x18\x0c \x01(\x08R\x0fincludeMetadata\x12#\n\rpartition_ids\x18\r \x03(\x05R\x0cpartitionIds\x12\x43\n\rstream_config\x18\x0e \x01(\x0b\x32\x1e.gcommon.v1.queue.StreamConfigR\x0cstreamConfig\"\xe2\x01\n\x0cOffsetConfig\x12=\n\x0boffset_type\x18\x01 \x01(\x0e\x32\x1c.gcommon.v1.queue.OffsetTypeR\noffsetType\x12!\n\x0coffset_value\x18\x02 \x01(\x03R\x0boffsetValue\x12\x43\n\x0fstart_timestamp\x18\x03 \x01(\x0b\x32\x1a.google.protobuf.TimestampR\x0estartTimestamp\x12+\n\x12reset_on_not_found\x18\x04 \x01(\x08R\x0fresetOnNotFound\"\xec\x03\n\rMessageFilter\x12Y\n\x0eheader_filters\x18\x01 \x03(\x0b\x32\x32.gcommon.v1.queue.MessageFilter.HeaderFiltersEntryR\rheaderFilters\x12_\n\x10property_filters\x18\x02 \x03(\x0b\x32\x34.gcommon.v1.queue.MessageFilter.PropertyFiltersEntryR\x0fpropertyFilters\x12!\n\x0cmin_priority\x18\x03 \x01(\x05R\x0bminPriority\x12&\n\x0fmax_age_seconds\x18\x04 \x01(\x05R\rmaxAgeSeconds\x12!\n\x0c\x63ontent_type\x18\x05 \x01(\tR\x0b\x63ontentType\x12+\n\x11\x66ilter_expression\x18\x06 \x01(\tR\x10\x66ilterExpression\x1a@\n\x12HeaderFiltersEntry\x12\x10\n\x03key\x18\x01 \x01(\tR\x03key\x12\x14\n\x05value\x18\x02 \x01(\tR\x05value:\x02\x38\x01\x1a\x42\n\x14PropertyFiltersEntry\x12\x10\n\x03key\x18\x01 \x01(\tR\x03key\x12\x14\n\x05value\x18\x02 \x01(\tR\x05value:\x02\x38\x01\"\xb9\x01\n\x11\x46lowControlConfig\x12\x18\n\x07\x65nabled\x18\x01 \x01(\x08R\x07\x65nabled\x12\x38\n\x18max_outstanding_messages\x18\x02 \x01(\x05R\x16maxOutstandingMessages\x12\x32\n\x15max_outstanding_bytes\x18\x03 \x01(\x03R\x13maxOutstandingBytes\x12\x1c\n\talgorithm\x18\x04 \x01(\tR\talgorithmB\xc7\x01\n\x14\x63om.gcommon.v1.queueB\x1aStreamMessagesRequestProtoP\x01Z)github.com/jdfalk/gcommon/pkg/queue/proto\xa2\x02\x03GVQ\xaa\x02\x10Gcommon.V1.Queue\xca\x02\x10Gcommon\\V1\\Queue\xe2\x02\x1cGcommon\\V1\\Queue\\GPBMetadata\xea\x02\x12Gcommon::V1::Queue\x92\x03\x05\xd2>\x02\x10\x03\x62\x08\x65\x64itionsp\xe8\x07')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n-pkg/queue/proto/stream_messages_request.proto\x12\x10gcommon.v1.queue\x1a!google/protobuf/go_features.proto\x1a\x1fgoogle/protobuf/timestamp.proto\x1a\x1fpkg/queue/proto/ack_level.proto\x1a$pkg/queue/proto/message_filter.proto\x1a#pkg/queue/proto/offset_config.proto\x1a!pkg/queue/proto/offset_type.proto\x1a#pkg/queue/proto/stream_config.proto\"\x85\x05\n\x15StreamMessagesRequest\x12\x14\n\x05topic\x18\x01 \x01(\tR\x05topic\x12*\n\x11\x63onsumer_group_id\x18\x02 \x01(\tR\x0f\x63onsumerGroupId\x12\x1f\n\x0b\x63onsumer_id\x18\x03 \x01(\tR\nconsumerId\x12\x43\n\roffset_config\x18\x04 \x01(\x0b\x32\x1e.gcommon.v1.queue.OffsetConfigR\x0coffsetConfig\x12!\n\x0cmax_messages\x18\x05 \x01(\x03R\x0bmaxMessages\x12*\n\x11stream_timeout_ms\x18\x06 \x01(\x05R\x0fstreamTimeoutMs\x12\x37\n\tack_level\x18\x07 \x01(\x0e\x32\x1a.gcommon.v1.queue.AckLevelR\x08\x61\x63kLevel\x12\x1d\n\nbatch_size\x18\x08 \x01(\x05R\tbatchSize\x12\x37\n\x06\x66ilter\x18\t \x01(\x0b\x32\x1f.gcommon.v1.queue.MessageFilterR\x06\x66ilter\x12)\n\x10\x61uto_acknowledge\x18\n \x01(\x08R\x0f\x61utoAcknowledge\x12$\n\x0epause_on_error\x18\x0b \x01(\x08R\x0cpauseOnError\x12)\n\x10include_metadata\x18\x0c \x01(\x08R\x0fincludeMetadata\x12#\n\rpartition_ids\x18\r \x03(\x05R\x0cpartitionIds\x12\x43\n\rstream_config\x18\x0e \x01(\x0b\x32\x1e.gcommon.v1.queue.StreamConfigR\x0cstreamConfigB\xc7\x01\n\x14\x63om.gcommon.v1.queueB\x1aStreamMessagesRequestProtoP\x01Z)github.com/jdfalk/gcommon/pkg/queue/proto\xa2\x02\x03GVQ\xaa\x02\x10Gcommon.V1.Queue\xca\x02\x10Gcommon\\V1\\Queue\xe2\x02\x1cGcommon\\V1\\Queue\\GPBMetadata\xea\x02\x12Gcommon::V1::Queue\x92\x03\x05\xd2>\x02\x10\x03\x62\x08\x65\x64itionsp\xe8\x07')
 
 _globals = globals()
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, _globals)
@@ -37,20 +39,6 @@ _builder.BuildTopDescriptorsAndMessages(DESCRIPTOR, 'pkg.queue.proto.stream_mess
 if not _descriptor._USE_C_DESCRIPTORS:
   _globals['DESCRIPTOR']._loaded_options = None
   _globals['DESCRIPTOR']._serialized_options = b'\n\024com.gcommon.v1.queueB\032StreamMessagesRequestProtoP\001Z)github.com/jdfalk/gcommon/pkg/queue/proto\242\002\003GVQ\252\002\020Gcommon.V1.Queue\312\002\020Gcommon\\V1\\Queue\342\002\034Gcommon\\V1\\Queue\\GPBMetadata\352\002\022Gcommon::V1::Queue\222\003\005\322>\002\020\003'
-  _globals['_MESSAGEFILTER_HEADERFILTERSENTRY']._loaded_options = None
-  _globals['_MESSAGEFILTER_HEADERFILTERSENTRY']._serialized_options = b'8\001'
-  _globals['_MESSAGEFILTER_PROPERTYFILTERSENTRY']._loaded_options = None
-  _globals['_MESSAGEFILTER_PROPERTYFILTERSENTRY']._serialized_options = b'8\001'
-  _globals['_STREAMMESSAGESREQUEST']._serialized_start=241
-  _globals['_STREAMMESSAGESREQUEST']._serialized_end=886
-  _globals['_OFFSETCONFIG']._serialized_start=889
-  _globals['_OFFSETCONFIG']._serialized_end=1115
-  _globals['_MESSAGEFILTER']._serialized_start=1118
-  _globals['_MESSAGEFILTER']._serialized_end=1610
-  _globals['_MESSAGEFILTER_HEADERFILTERSENTRY']._serialized_start=1478
-  _globals['_MESSAGEFILTER_HEADERFILTERSENTRY']._serialized_end=1542
-  _globals['_MESSAGEFILTER_PROPERTYFILTERSENTRY']._serialized_start=1544
-  _globals['_MESSAGEFILTER_PROPERTYFILTERSENTRY']._serialized_end=1610
-  _globals['_FLOWCONTROLCONFIG']._serialized_start=1613
-  _globals['_FLOWCONTROLCONFIG']._serialized_end=1798
+  _globals['_STREAMMESSAGESREQUEST']._serialized_start=316
+  _globals['_STREAMMESSAGESREQUEST']._serialized_end=961
 # @@protoc_insertion_point(module_scope)

@@ -24,12 +24,11 @@ _sym_db = _symbol_database.Default()
 
 from google.protobuf import go_features_pb2 as google_dot_protobuf_dot_go__features__pb2
 from pkg.common.proto import request_metadata_pb2 as pkg_dot_common_dot_proto_dot_request__metadata__pb2
-from pkg.metrics.proto import export_config_pb2 as pkg_dot_metrics_dot_proto_dot_export__config__pb2
-from pkg.metrics.proto import metric_type_pb2 as pkg_dot_metrics_dot_proto_dot_metric__type__pb2
-from pkg.metrics.proto import retention_policy_retentionpolicyconfig_pb2 as pkg_dot_metrics_dot_proto_dot_retention__policy__retentionpolicyconfig__pb2
+from pkg.metrics.proto import metric_definition_pb2 as pkg_dot_metrics_dot_proto_dot_metric__definition__pb2
+from pkg.metrics.proto import registration_options_pb2 as pkg_dot_metrics_dot_proto_dot_registration__options__pb2
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n/pkg/metrics/proto/register_metric_request.proto\x12\x12gcommon.v1.metrics\x1a!google/protobuf/go_features.proto\x1a\'pkg/common/proto/request_metadata.proto\x1a%pkg/metrics/proto/export_config.proto\x1a#pkg/metrics/proto/metric_type.proto\x1a>pkg/metrics/proto/retention_policy_retentionpolicyconfig.proto\"\xac\x02\n\x15RegisterMetricRequest\x12>\n\x08metadata\x18\x01 \x01(\x0b\x32\".gcommon.v1.common.RequestMetadataR\x08metadata\x12\x44\n\ndefinition\x18\x02 \x01(\x0b\x32$.gcommon.v1.metrics.MetricDefinitionR\ndefinition\x12\x1f\n\x0bprovider_id\x18\x03 \x01(\tR\nproviderId\x12)\n\x10replace_existing\x18\x04 \x01(\x08R\x0freplaceExisting\x12\x41\n\x07options\x18\x05 \x01(\x0b\x32\'.gcommon.v1.metrics.RegistrationOptionsR\x07options\"\xdd\x04\n\x10MetricDefinition\x12\x12\n\x04name\x18\x01 \x01(\tR\x04name\x12\x32\n\x04type\x18\x02 \x01(\x0e\x32\x1e.gcommon.v1.metrics.MetricTypeR\x04type\x12 \n\x0b\x64\x65scription\x18\x03 \x01(\tR\x0b\x64\x65scription\x12\x12\n\x04unit\x18\x04 \x01(\tR\x04unit\x12;\n\x06labels\x18\x05 \x03(\x0b\x32#.gcommon.v1.metrics.LabelDefinitionR\x06labels\x12<\n\x06\x63onfig\x18\x06 \x01(\x0b\x32$.gcommon.v1.metrics.MetricTypeConfigR\x06\x63onfig\x12G\n\tretention\x18\x07 \x01(\x0b\x32).gcommon.v1.metrics.RetentionPolicyConfigR\tretention\x12\x45\n\rexport_config\x18\x08 \x01(\x0b\x32 .gcommon.v1.metrics.ExportConfigR\x0c\x65xportConfig\x12\x43\n\nvalidation\x18\t \x01(\x0b\x32#.gcommon.v1.metrics.ValidationRulesR\nvalidation\x12\x42\n\x04tags\x18\n \x03(\x0b\x32..gcommon.v1.metrics.MetricDefinition.TagsEntryR\x04tags\x1a\x37\n\tTagsEntry\x12\x10\n\x03key\x18\x01 \x01(\tR\x03key\x12\x14\n\x05value\x18\x02 \x01(\tR\x05value:\x02\x38\x01\"\xde\x01\n\x0fLabelDefinition\x12\x12\n\x04name\x18\x01 \x01(\tR\x04name\x12 \n\x0b\x64\x65scription\x18\x02 \x01(\tR\x0b\x64\x65scription\x12\x1a\n\x08required\x18\x03 \x01(\x08R\x08required\x12%\n\x0e\x61llowed_values\x18\x04 \x03(\tR\rallowedValues\x12-\n\x12validation_pattern\x18\x05 \x01(\tR\x11validationPattern\x12#\n\rdefault_value\x18\x06 \x01(\tR\x0c\x64\x65\x66\x61ultValue\"\x86\x02\n\x10MetricTypeConfig\x12\x41\n\thistogram\x18\x01 \x01(\x0b\x32#.gcommon.v1.metrics.HistogramConfigR\thistogram\x12;\n\x07summary\x18\x02 \x01(\x0b\x32!.gcommon.v1.metrics.SummaryConfigR\x07summary\x12\x35\n\x05gauge\x18\x03 \x01(\x0b\x32\x1f.gcommon.v1.metrics.GaugeConfigR\x05gauge\x12;\n\x07\x63ounter\x18\x04 \x01(\x0b\x32!.gcommon.v1.metrics.CounterConfigR\x07\x63ounter\"o\n\x0fHistogramConfig\x12\x18\n\x07\x62uckets\x18\x01 \x03(\x01R\x07\x62uckets\x12!\n\x0c\x61uto_buckets\x18\x02 \x01(\x08R\x0b\x61utoBuckets\x12\x1f\n\x0bmax_buckets\x18\x03 \x01(\x05R\nmaxBuckets\"g\n\rSummaryConfig\x12\x1c\n\tquantiles\x18\x01 \x03(\x01R\tquantiles\x12\x1f\n\x0btime_window\x18\x02 \x01(\tR\ntimeWindow\x12\x17\n\x07max_age\x18\x03 \x01(\tR\x06maxAge\"n\n\x0bGaugeConfig\x12\x1b\n\tmin_value\x18\x01 \x01(\x01R\x08minValue\x12\x1b\n\tmax_value\x18\x02 \x01(\x01R\x08maxValue\x12%\n\x0e\x61llow_negative\x18\x03 \x01(\x08R\rallowNegative\"r\n\rCounterConfig\x12#\n\rinitial_value\x18\x01 \x01(\x01R\x0cinitialValue\x12\x1f\n\x0b\x61llow_reset\x18\x02 \x01(\x08R\nallowReset\x12\x1b\n\tmax_value\x18\x03 \x01(\x01R\x08maxValue\"\xa1\x01\n\x0fValidationRules\x12\x1b\n\tmin_value\x18\x01 \x01(\x01R\x08minValue\x12\x1b\n\tmax_value\x18\x02 \x01(\x01R\x08maxValue\x12\x1d\n\nallow_null\x18\x03 \x01(\x08R\tallowNull\x12\x35\n\x16validation_expressions\x18\x04 \x03(\tR\x15validationExpressions\"\xaf\x01\n\x13RegistrationOptions\x12/\n\x13validate_definition\x18\x01 \x01(\x08R\x12validateDefinition\x12\x17\n\x07\x64ry_run\x18\x02 \x01(\x08R\x06\x64ryRun\x12%\n\x0e\x63reate_indices\x18\x03 \x01(\x08R\rcreateIndices\x12\'\n\x0f\x65nable_alerting\x18\x04 \x01(\x08R\x0e\x65nableAlertingB\xd3\x01\n\x16\x63om.gcommon.v1.metricsB\x1aRegisterMetricRequestProtoP\x01Z+github.com/jdfalk/gcommon/pkg/metrics/proto\xa2\x02\x03GVM\xaa\x02\x12Gcommon.V1.Metrics\xca\x02\x12Gcommon\\V1\\Metrics\xe2\x02\x1eGcommon\\V1\\Metrics\\GPBMetadata\xea\x02\x14Gcommon::V1::Metrics\x92\x03\x05\xd2>\x02\x10\x03\x62\x08\x65\x64itionsp\xe8\x07')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n/pkg/metrics/proto/register_metric_request.proto\x12\x12gcommon.v1.metrics\x1a!google/protobuf/go_features.proto\x1a\'pkg/common/proto/request_metadata.proto\x1a)pkg/metrics/proto/metric_definition.proto\x1a,pkg/metrics/proto/registration_options.proto\"\xac\x02\n\x15RegisterMetricRequest\x12>\n\x08metadata\x18\x01 \x01(\x0b\x32\".gcommon.v1.common.RequestMetadataR\x08metadata\x12\x44\n\ndefinition\x18\x02 \x01(\x0b\x32$.gcommon.v1.metrics.MetricDefinitionR\ndefinition\x12\x1f\n\x0bprovider_id\x18\x03 \x01(\tR\nproviderId\x12)\n\x10replace_existing\x18\x04 \x01(\x08R\x0freplaceExisting\x12\x41\n\x07options\x18\x05 \x01(\x0b\x32\'.gcommon.v1.metrics.RegistrationOptionsR\x07optionsB\xd3\x01\n\x16\x63om.gcommon.v1.metricsB\x1aRegisterMetricRequestProtoP\x01Z+github.com/jdfalk/gcommon/pkg/metrics/proto\xa2\x02\x03GVM\xaa\x02\x12Gcommon.V1.Metrics\xca\x02\x12Gcommon\\V1\\Metrics\xe2\x02\x1eGcommon\\V1\\Metrics\\GPBMetadata\xea\x02\x14Gcommon::V1::Metrics\x92\x03\x05\xd2>\x02\x10\x03\x62\x08\x65\x64itionsp\xe8\x07')
 
 _globals = globals()
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, _globals)
@@ -37,28 +36,6 @@ _builder.BuildTopDescriptorsAndMessages(DESCRIPTOR, 'pkg.metrics.proto.register_
 if not _descriptor._USE_C_DESCRIPTORS:
   _globals['DESCRIPTOR']._loaded_options = None
   _globals['DESCRIPTOR']._serialized_options = b'\n\026com.gcommon.v1.metricsB\032RegisterMetricRequestProtoP\001Z+github.com/jdfalk/gcommon/pkg/metrics/proto\242\002\003GVM\252\002\022Gcommon.V1.Metrics\312\002\022Gcommon\\V1\\Metrics\342\002\036Gcommon\\V1\\Metrics\\GPBMetadata\352\002\024Gcommon::V1::Metrics\222\003\005\322>\002\020\003'
-  _globals['_METRICDEFINITION_TAGSENTRY']._loaded_options = None
-  _globals['_METRICDEFINITION_TAGSENTRY']._serialized_options = b'8\001'
-  _globals['_REGISTERMETRICREQUEST']._serialized_start=288
-  _globals['_REGISTERMETRICREQUEST']._serialized_end=588
-  _globals['_METRICDEFINITION']._serialized_start=591
-  _globals['_METRICDEFINITION']._serialized_end=1196
-  _globals['_METRICDEFINITION_TAGSENTRY']._serialized_start=1141
-  _globals['_METRICDEFINITION_TAGSENTRY']._serialized_end=1196
-  _globals['_LABELDEFINITION']._serialized_start=1199
-  _globals['_LABELDEFINITION']._serialized_end=1421
-  _globals['_METRICTYPECONFIG']._serialized_start=1424
-  _globals['_METRICTYPECONFIG']._serialized_end=1686
-  _globals['_HISTOGRAMCONFIG']._serialized_start=1688
-  _globals['_HISTOGRAMCONFIG']._serialized_end=1799
-  _globals['_SUMMARYCONFIG']._serialized_start=1801
-  _globals['_SUMMARYCONFIG']._serialized_end=1904
-  _globals['_GAUGECONFIG']._serialized_start=1906
-  _globals['_GAUGECONFIG']._serialized_end=2016
-  _globals['_COUNTERCONFIG']._serialized_start=2018
-  _globals['_COUNTERCONFIG']._serialized_end=2132
-  _globals['_VALIDATIONRULES']._serialized_start=2135
-  _globals['_VALIDATIONRULES']._serialized_end=2296
-  _globals['_REGISTRATIONOPTIONS']._serialized_start=2299
-  _globals['_REGISTRATIONOPTIONS']._serialized_end=2474
+  _globals['_REGISTERMETRICREQUEST']._serialized_start=237
+  _globals['_REGISTERMETRICREQUEST']._serialized_end=537
 # @@protoc_insertion_point(module_scope)

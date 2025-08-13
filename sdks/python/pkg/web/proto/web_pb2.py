@@ -23,13 +23,10 @@ _sym_db = _symbol_database.Default()
 
 
 from google.protobuf import go_features_pb2 as google_dot_protobuf_dot_go__features__pb2
-from pkg.web.proto import handle_request_request_pb2 as pkg_dot_web_dot_proto_dot_handle__request__request__pb2
-from pkg.web.proto import handle_request_response_pb2 as pkg_dot_web_dot_proto_dot_handle__request__response__pb2
-from pkg.web.proto import health_check_request_pb2 as pkg_dot_web_dot_proto_dot_health__check__request__pb2
-from pkg.web.proto import health_check_response_pb2 as pkg_dot_web_dot_proto_dot_health__check__response__pb2
+from google.protobuf import timestamp_pb2 as google_dot_protobuf_dot_timestamp__pb2
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n\x17pkg/web/proto/web.proto\x12\x0egcommon.v1.web\x1a!google/protobuf/go_features.proto\x1a*pkg/web/proto/handle_request_request.proto\x1a+pkg/web/proto/handle_request_response.proto\x1a(pkg/web/proto/health_check_request.proto\x1a)pkg/web/proto/health_check_response.proto2\xc2\x01\n\nWebService\x12\\\n\rHandleRequest\x12$.gcommon.v1.web.HandleRequestRequest\x1a%.gcommon.v1.web.HandleRequestResponse\x12V\n\x0bHealthCheck\x12\".gcommon.v1.web.HealthCheckRequest\x1a#.gcommon.v1.web.HealthCheckResponseB\xa9\x01\n\x12\x63om.gcommon.v1.webB\x08WebProtoP\x01Z\'github.com/jdfalk/gcommon/pkg/web/proto\xa2\x02\x03GVW\xaa\x02\x0eGcommon.V1.Web\xca\x02\x0eGcommon\\V1\\Web\xe2\x02\x1aGcommon\\V1\\Web\\GPBMetadata\xea\x02\x10Gcommon::V1::Web\x92\x03\x05\xd2>\x02\x10\x03\x62\x08\x65\x64itionsp\xe8\x07')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n\x17pkg/web/proto/web.proto\x12\x0egcommon.v1.web\x1a!google/protobuf/go_features.proto\x1a\x1fgoogle/protobuf/timestamp.proto\"\xc2\x01\n\x07WebInfo\x12\x1f\n\x0bserver_name\x18\x01 \x01(\tR\nserverName\x12\x18\n\x07version\x18\x02 \x01(\tR\x07version\x12\x39\n\nstarted_at\x18\x03 \x01(\x0b\x32\x1a.google.protobuf.TimestampR\tstartedAt\x12-\n\x12\x61\x63\x63\x65pting_requests\x18\x04 \x01(\x08R\x11\x61\x63\x63\x65ptingRequests\x12\x12\n\x04port\x18\x05 \x01(\x05R\x04portB\xa9\x01\n\x12\x63om.gcommon.v1.webB\x08WebProtoP\x01Z\'github.com/jdfalk/gcommon/pkg/web/proto\xa2\x02\x03GVW\xaa\x02\x0eGcommon.V1.Web\xca\x02\x0eGcommon\\V1\\Web\xe2\x02\x1aGcommon\\V1\\Web\\GPBMetadata\xea\x02\x10Gcommon::V1::Web\x92\x03\x05\xd2>\x02\x10\x03\x62\x08\x65\x64itionsp\xe8\x07')
 
 _globals = globals()
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, _globals)
@@ -37,6 +34,6 @@ _builder.BuildTopDescriptorsAndMessages(DESCRIPTOR, 'pkg.web.proto.web_pb2', _gl
 if not _descriptor._USE_C_DESCRIPTORS:
   _globals['DESCRIPTOR']._loaded_options = None
   _globals['DESCRIPTOR']._serialized_options = b'\n\022com.gcommon.v1.webB\010WebProtoP\001Z\'github.com/jdfalk/gcommon/pkg/web/proto\242\002\003GVW\252\002\016Gcommon.V1.Web\312\002\016Gcommon\\V1\\Web\342\002\032Gcommon\\V1\\Web\\GPBMetadata\352\002\020Gcommon::V1::Web\222\003\005\322>\002\020\003'
-  _globals['_WEBSERVICE']._serialized_start=253
-  _globals['_WEBSERVICE']._serialized_end=447
+  _globals['_WEBINFO']._serialized_start=112
+  _globals['_WEBINFO']._serialized_end=306
 # @@protoc_insertion_point(module_scope)

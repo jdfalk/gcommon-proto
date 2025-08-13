@@ -4,14 +4,16 @@ import grpc
 
 from pkg.queue.proto import get_cluster_info_request_pb2 as pkg_dot_queue_dot_proto_dot_get__cluster__info__request__pb2
 from pkg.queue.proto import get_cluster_info_response_pb2 as pkg_dot_queue_dot_proto_dot_get__cluster__info__response__pb2
-from pkg.queue.proto import queue_monitoring_service_pb2 as pkg_dot_queue_dot_proto_dot_queue__monitoring__service__pb2
+from pkg.queue.proto import get_queue_health_request_pb2 as pkg_dot_queue_dot_proto_dot_get__queue__health__request__pb2
+from pkg.queue.proto import get_queue_health_response_pb2 as pkg_dot_queue_dot_proto_dot_get__queue__health__response__pb2
+from pkg.queue.proto import get_queue_stats_request_pb2 as pkg_dot_queue_dot_proto_dot_get__queue__stats__request__pb2
+from pkg.queue.proto import metrics_event_pb2 as pkg_dot_queue_dot_proto_dot_metrics__event__pb2
+from pkg.queue.proto import queue_stats_response_pb2 as pkg_dot_queue_dot_proto_dot_queue__stats__response__pb2
+from pkg.queue.proto import stream_metrics_request_pb2 as pkg_dot_queue_dot_proto_dot_stream__metrics__request__pb2
 
 
 class QueueMonitoringServiceStub(object):
-    """*
-    Service for monitoring queue health, performance, and statistics.
-    Provides read-only access to queue metrics and operational data.
-    """
+    """Missing associated documentation comment in .proto file."""
 
     def __init__(self, channel):
         """Constructor.
@@ -26,26 +28,23 @@ class QueueMonitoringServiceStub(object):
                 _registered_method=True)
         self.GetQueueHealth = channel.unary_unary(
                 '/gcommon.v1.queue.QueueMonitoringService/GetQueueHealth',
-                request_serializer=pkg_dot_queue_dot_proto_dot_queue__monitoring__service__pb2.GetQueueHealthRequest.SerializeToString,
-                response_deserializer=pkg_dot_queue_dot_proto_dot_queue__monitoring__service__pb2.GetQueueHealthResponse.FromString,
+                request_serializer=pkg_dot_queue_dot_proto_dot_get__queue__health__request__pb2.GetQueueHealthRequest.SerializeToString,
+                response_deserializer=pkg_dot_queue_dot_proto_dot_get__queue__health__response__pb2.GetQueueHealthResponse.FromString,
                 _registered_method=True)
         self.GetQueueStats = channel.unary_unary(
                 '/gcommon.v1.queue.QueueMonitoringService/GetQueueStats',
-                request_serializer=pkg_dot_queue_dot_proto_dot_queue__monitoring__service__pb2.GetQueueStatsRequest.SerializeToString,
-                response_deserializer=pkg_dot_queue_dot_proto_dot_queue__monitoring__service__pb2.QueueStatsResponse.FromString,
+                request_serializer=pkg_dot_queue_dot_proto_dot_get__queue__stats__request__pb2.GetQueueStatsRequest.SerializeToString,
+                response_deserializer=pkg_dot_queue_dot_proto_dot_queue__stats__response__pb2.QueueStatsResponse.FromString,
                 _registered_method=True)
         self.StreamMetrics = channel.unary_stream(
                 '/gcommon.v1.queue.QueueMonitoringService/StreamMetrics',
-                request_serializer=pkg_dot_queue_dot_proto_dot_queue__monitoring__service__pb2.StreamMetricsRequest.SerializeToString,
-                response_deserializer=pkg_dot_queue_dot_proto_dot_queue__monitoring__service__pb2.MetricsEvent.FromString,
+                request_serializer=pkg_dot_queue_dot_proto_dot_stream__metrics__request__pb2.QueueStreamMetricsRequest.SerializeToString,
+                response_deserializer=pkg_dot_queue_dot_proto_dot_metrics__event__pb2.MetricsEvent.FromString,
                 _registered_method=True)
 
 
 class QueueMonitoringServiceServicer(object):
-    """*
-    Service for monitoring queue health, performance, and statistics.
-    Provides read-only access to queue metrics and operational data.
-    """
+    """Missing associated documentation comment in .proto file."""
 
     def GetClusterInfo(self, request, context):
         """Get information about the queue cluster
@@ -85,18 +84,18 @@ def add_QueueMonitoringServiceServicer_to_server(servicer, server):
             ),
             'GetQueueHealth': grpc.unary_unary_rpc_method_handler(
                     servicer.GetQueueHealth,
-                    request_deserializer=pkg_dot_queue_dot_proto_dot_queue__monitoring__service__pb2.GetQueueHealthRequest.FromString,
-                    response_serializer=pkg_dot_queue_dot_proto_dot_queue__monitoring__service__pb2.GetQueueHealthResponse.SerializeToString,
+                    request_deserializer=pkg_dot_queue_dot_proto_dot_get__queue__health__request__pb2.GetQueueHealthRequest.FromString,
+                    response_serializer=pkg_dot_queue_dot_proto_dot_get__queue__health__response__pb2.GetQueueHealthResponse.SerializeToString,
             ),
             'GetQueueStats': grpc.unary_unary_rpc_method_handler(
                     servicer.GetQueueStats,
-                    request_deserializer=pkg_dot_queue_dot_proto_dot_queue__monitoring__service__pb2.GetQueueStatsRequest.FromString,
-                    response_serializer=pkg_dot_queue_dot_proto_dot_queue__monitoring__service__pb2.QueueStatsResponse.SerializeToString,
+                    request_deserializer=pkg_dot_queue_dot_proto_dot_get__queue__stats__request__pb2.GetQueueStatsRequest.FromString,
+                    response_serializer=pkg_dot_queue_dot_proto_dot_queue__stats__response__pb2.QueueStatsResponse.SerializeToString,
             ),
             'StreamMetrics': grpc.unary_stream_rpc_method_handler(
                     servicer.StreamMetrics,
-                    request_deserializer=pkg_dot_queue_dot_proto_dot_queue__monitoring__service__pb2.StreamMetricsRequest.FromString,
-                    response_serializer=pkg_dot_queue_dot_proto_dot_queue__monitoring__service__pb2.MetricsEvent.SerializeToString,
+                    request_deserializer=pkg_dot_queue_dot_proto_dot_stream__metrics__request__pb2.QueueStreamMetricsRequest.FromString,
+                    response_serializer=pkg_dot_queue_dot_proto_dot_metrics__event__pb2.MetricsEvent.SerializeToString,
             ),
     }
     generic_handler = grpc.method_handlers_generic_handler(
@@ -107,10 +106,7 @@ def add_QueueMonitoringServiceServicer_to_server(servicer, server):
 
  # This class is part of an EXPERIMENTAL API.
 class QueueMonitoringService(object):
-    """*
-    Service for monitoring queue health, performance, and statistics.
-    Provides read-only access to queue metrics and operational data.
-    """
+    """Missing associated documentation comment in .proto file."""
 
     @staticmethod
     def GetClusterInfo(request,
@@ -154,8 +150,8 @@ class QueueMonitoringService(object):
             request,
             target,
             '/gcommon.v1.queue.QueueMonitoringService/GetQueueHealth',
-            pkg_dot_queue_dot_proto_dot_queue__monitoring__service__pb2.GetQueueHealthRequest.SerializeToString,
-            pkg_dot_queue_dot_proto_dot_queue__monitoring__service__pb2.GetQueueHealthResponse.FromString,
+            pkg_dot_queue_dot_proto_dot_get__queue__health__request__pb2.GetQueueHealthRequest.SerializeToString,
+            pkg_dot_queue_dot_proto_dot_get__queue__health__response__pb2.GetQueueHealthResponse.FromString,
             options,
             channel_credentials,
             insecure,
@@ -181,8 +177,8 @@ class QueueMonitoringService(object):
             request,
             target,
             '/gcommon.v1.queue.QueueMonitoringService/GetQueueStats',
-            pkg_dot_queue_dot_proto_dot_queue__monitoring__service__pb2.GetQueueStatsRequest.SerializeToString,
-            pkg_dot_queue_dot_proto_dot_queue__monitoring__service__pb2.QueueStatsResponse.FromString,
+            pkg_dot_queue_dot_proto_dot_get__queue__stats__request__pb2.GetQueueStatsRequest.SerializeToString,
+            pkg_dot_queue_dot_proto_dot_queue__stats__response__pb2.QueueStatsResponse.FromString,
             options,
             channel_credentials,
             insecure,
@@ -208,8 +204,8 @@ class QueueMonitoringService(object):
             request,
             target,
             '/gcommon.v1.queue.QueueMonitoringService/StreamMetrics',
-            pkg_dot_queue_dot_proto_dot_queue__monitoring__service__pb2.StreamMetricsRequest.SerializeToString,
-            pkg_dot_queue_dot_proto_dot_queue__monitoring__service__pb2.MetricsEvent.FromString,
+            pkg_dot_queue_dot_proto_dot_stream__metrics__request__pb2.QueueStreamMetricsRequest.SerializeToString,
+            pkg_dot_queue_dot_proto_dot_metrics__event__pb2.MetricsEvent.FromString,
             options,
             channel_credentials,
             insecure,

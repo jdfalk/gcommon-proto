@@ -24,12 +24,14 @@ _sym_db = _symbol_database.Default()
 
 from google.protobuf import go_features_pb2 as google_dot_protobuf_dot_go__features__pb2
 from google.protobuf import timestamp_pb2 as google_dot_protobuf_dot_timestamp__pb2
+from pkg.queue.proto import backup_source_pb2 as pkg_dot_queue_dot_proto_dot_backup__source__pb2
 from pkg.queue.proto import restore_config_pb2 as pkg_dot_queue_dot_proto_dot_restore__config__pb2
+from pkg.queue.proto import restore_options_pb2 as pkg_dot_queue_dot_proto_dot_restore__options__pb2
 from pkg.queue.proto import restore_queue_response_pb2 as pkg_dot_queue_dot_proto_dot_restore__queue__response__pb2
 from pkg.queue.proto import time_range_pb2 as pkg_dot_queue_dot_proto_dot_time__range__pb2
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n+pkg/queue/proto/restore_queue_request.proto\x12\x10gcommon.v1.queue\x1a!google/protobuf/go_features.proto\x1a\x1fgoogle/protobuf/timestamp.proto\x1a$pkg/queue/proto/restore_config.proto\x1a,pkg/queue/proto/restore_queue_response.proto\x1a pkg/queue/proto/time_range.proto\"\xd2\x04\n\x13RestoreQueueRequest\x12&\n\x0ftarget_queue_id\x18\x01 \x01(\tR\rtargetQueueId\x12\x43\n\rbackup_source\x18\x02 \x01(\x0b\x32\x1e.gcommon.v1.queue.BackupSourceR\x0c\x62\x61\x63kupSource\x12\x46\n\x0erestore_config\x18\x03 \x01(\x0b\x32\x1f.gcommon.v1.queue.RestoreConfigR\rrestoreConfig\x12?\n\rrestore_point\x18\x04 \x01(\x0b\x32\x1a.google.protobuf.TimestampR\x0crestorePoint\x12-\n\x12overwrite_existing\x18\x05 \x01(\x08R\x11overwriteExisting\x12\'\n\x0fvalidate_backup\x18\x06 \x01(\x08R\x0evalidateBackup\x12#\n\rpartition_ids\x18\x07 \x03(\x05R\x0cpartitionIds\x12:\n\x07options\x18\x08 \x01(\x0b\x32 .gcommon.v1.queue.RestoreOptionsR\x07options\x12O\n\x08metadata\x18\t \x03(\x0b\x32\x33.gcommon.v1.queue.RestoreQueueRequest.MetadataEntryR\x08metadata\x1a;\n\rMetadataEntry\x12\x10\n\x03key\x18\x01 \x01(\tR\x03key\x12\x14\n\x05value\x18\x02 \x01(\tR\x05value:\x02\x38\x01\"\xad\x04\n\x0c\x42\x61\x63kupSource\x12\x1b\n\tbackup_id\x18\x01 \x01(\tR\x08\x62\x61\x63kupId\x12\x1f\n\x0b\x62\x61\x63kup_path\x18\x02 \x01(\tR\nbackupPath\x12!\n\x0cstorage_type\x18\x03 \x01(\tR\x0bstorageType\x12Q\n\x0b\x63redentials\x18\x04 \x03(\x0b\x32/.gcommon.v1.queue.BackupSource.CredentialsEntryR\x0b\x63redentials\x12\x45\n\x10\x62\x61\x63kup_timestamp\x18\x05 \x01(\x0b\x32\x1a.google.protobuf.TimestampR\x0f\x62\x61\x63kupTimestamp\x12J\n\x0eoriginal_queue\x18\x06 \x01(\x0b\x32#.gcommon.v1.queue.OriginalQueueInfoR\roriginalQueue\x12%\n\x0e\x62\x61\x63kup_version\x18\x07 \x01(\tR\rbackupVersion\x12-\n\x12\x63ompression_format\x18\x08 \x01(\tR\x11\x63ompressionFormat\x12@\n\nencryption\x18\t \x01(\x0b\x32 .gcommon.v1.queue.EncryptionInfoR\nencryption\x1a>\n\x10\x43redentialsEntry\x12\x10\n\x03key\x18\x01 \x01(\tR\x03key\x12\x14\n\x05value\x18\x02 \x01(\tR\x05value:\x02\x38\x01\"\xda\x02\n\x11OriginalQueueInfo\x12\x19\n\x08queue_id\x18\x01 \x01(\tR\x07queueId\x12\x1d\n\nqueue_name\x18\x02 \x01(\tR\tqueueName\x12\'\n\x0fpartition_count\x18\x03 \x01(\x05R\x0epartitionCount\x12`\n\x0f\x63onfig_snapshot\x18\x04 \x03(\x0b\x32\x37.gcommon.v1.queue.OriginalQueueInfo.ConfigSnapshotEntryR\x0e\x63onfigSnapshot\x12=\n\x0c\x62\x61\x63kup_point\x18\x05 \x01(\x0b\x32\x1a.google.protobuf.TimestampR\x0b\x62\x61\x63kupPoint\x1a\x41\n\x13\x43onfigSnapshotEntry\x12\x10\n\x03key\x18\x01 \x01(\tR\x03key\x12\x14\n\x05value\x18\x02 \x01(\tR\x05value:\x02\x38\x01\"\x82\x01\n\x0e\x45ncryptionInfo\x12\x18\n\x07\x65nabled\x18\x01 \x01(\x08R\x07\x65nabled\x12\x1c\n\talgorithm\x18\x02 \x01(\tR\talgorithm\x12!\n\x0ckms_provider\x18\x03 \x01(\tR\x0bkmsProvider\x12\x15\n\x06key_id\x18\x04 \x01(\tR\x05keyId\"\xc4\x03\n\x0eRestoreOptions\x12\x30\n\x14skip_message_content\x18\x01 \x01(\x08R\x12skipMessageContent\x12#\n\rmetadata_only\x18\x02 \x01(\x08R\x0cmetadataOnly\x12!\n\x0cmax_messages\x18\x03 \x01(\x03R\x0bmaxMessages\x12@\n\x0coffset_range\x18\x04 \x01(\x0b\x32\x1d.gcommon.v1.queue.OffsetRangeR\x0boffsetRange\x12:\n\ntime_range\x18\x05 \x01(\x0b\x32\x1b.gcommon.v1.queue.TimeRangeR\ttimeRange\x12\'\n\x0fpriority_levels\x18\x06 \x03(\x05R\x0epriorityLevels\x12I\n\x0f\x66ilter_criteria\x18\x07 \x01(\x0b\x32 .gcommon.v1.queue.FilterCriteriaR\x0e\x66ilterCriteria\x12\x46\n\x0bperformance\x18\x08 \x01(\x0b\x32$.gcommon.v1.queue.PerformanceOptionsR\x0bperformance\"\xa9\x02\n\x0e\x46ilterCriteria\x12)\n\x10include_patterns\x18\x01 \x03(\tR\x0fincludePatterns\x12)\n\x10\x65xclude_patterns\x18\x02 \x03(\tR\x0f\x65xcludePatterns\x12Z\n\x0eheader_filters\x18\x03 \x03(\x0b\x32\x33.gcommon.v1.queue.FilterCriteria.HeaderFiltersEntryR\rheaderFilters\x12#\n\rcontent_types\x18\x04 \x03(\tR\x0c\x63ontentTypes\x1a@\n\x12HeaderFiltersEntry\x12\x10\n\x03key\x18\x01 \x01(\tR\x03key\x12\x14\n\x05value\x18\x02 \x01(\tR\x05value:\x02\x38\x01\"\xd0\x01\n\x12PerformanceOptions\x12!\n\x0cworker_count\x18\x01 \x01(\x05R\x0bworkerCount\x12\x1d\n\nbatch_size\x18\x02 \x01(\x05R\tbatchSize\x12$\n\x0e\x62uffer_size_mb\x18\x03 \x01(\x05R\x0c\x62ufferSizeMb\x12-\n\x12\x65nable_compression\x18\x04 \x01(\x08R\x11\x65nableCompression\x12#\n\rthrottle_rate\x18\x05 \x01(\x05R\x0cthrottleRateB\xc5\x01\n\x14\x63om.gcommon.v1.queueB\x18RestoreQueueRequestProtoP\x01Z)github.com/jdfalk/gcommon/pkg/queue/proto\xa2\x02\x03GVQ\xaa\x02\x10Gcommon.V1.Queue\xca\x02\x10Gcommon\\V1\\Queue\xe2\x02\x1cGcommon\\V1\\Queue\\GPBMetadata\xea\x02\x12Gcommon::V1::Queue\x92\x03\x05\xd2>\x02\x10\x03\x62\x08\x65\x64itionsp\xe8\x07')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n+pkg/queue/proto/restore_queue_request.proto\x12\x10gcommon.v1.queue\x1a!google/protobuf/go_features.proto\x1a\x1fgoogle/protobuf/timestamp.proto\x1a#pkg/queue/proto/backup_source.proto\x1a$pkg/queue/proto/restore_config.proto\x1a%pkg/queue/proto/restore_options.proto\x1a,pkg/queue/proto/restore_queue_response.proto\x1a pkg/queue/proto/time_range.proto\"\xd2\x04\n\x13RestoreQueueRequest\x12&\n\x0ftarget_queue_id\x18\x01 \x01(\tR\rtargetQueueId\x12\x43\n\rbackup_source\x18\x02 \x01(\x0b\x32\x1e.gcommon.v1.queue.BackupSourceR\x0c\x62\x61\x63kupSource\x12\x46\n\x0erestore_config\x18\x03 \x01(\x0b\x32\x1f.gcommon.v1.queue.RestoreConfigR\rrestoreConfig\x12?\n\rrestore_point\x18\x04 \x01(\x0b\x32\x1a.google.protobuf.TimestampR\x0crestorePoint\x12-\n\x12overwrite_existing\x18\x05 \x01(\x08R\x11overwriteExisting\x12\'\n\x0fvalidate_backup\x18\x06 \x01(\x08R\x0evalidateBackup\x12#\n\rpartition_ids\x18\x07 \x03(\x05R\x0cpartitionIds\x12:\n\x07options\x18\x08 \x01(\x0b\x32 .gcommon.v1.queue.RestoreOptionsR\x07options\x12O\n\x08metadata\x18\t \x03(\x0b\x32\x33.gcommon.v1.queue.RestoreQueueRequest.MetadataEntryR\x08metadata\x1a;\n\rMetadataEntry\x12\x10\n\x03key\x18\x01 \x01(\tR\x03key\x12\x14\n\x05value\x18\x02 \x01(\tR\x05value:\x02\x38\x01\x42\xc5\x01\n\x14\x63om.gcommon.v1.queueB\x18RestoreQueueRequestProtoP\x01Z)github.com/jdfalk/gcommon/pkg/queue/proto\xa2\x02\x03GVQ\xaa\x02\x10Gcommon.V1.Queue\xca\x02\x10Gcommon\\V1\\Queue\xe2\x02\x1cGcommon\\V1\\Queue\\GPBMetadata\xea\x02\x12Gcommon::V1::Queue\x92\x03\x05\xd2>\x02\x10\x03\x62\x08\x65\x64itionsp\xe8\x07')
 
 _globals = globals()
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, _globals)
@@ -39,32 +41,8 @@ if not _descriptor._USE_C_DESCRIPTORS:
   _globals['DESCRIPTOR']._serialized_options = b'\n\024com.gcommon.v1.queueB\030RestoreQueueRequestProtoP\001Z)github.com/jdfalk/gcommon/pkg/queue/proto\242\002\003GVQ\252\002\020Gcommon.V1.Queue\312\002\020Gcommon\\V1\\Queue\342\002\034Gcommon\\V1\\Queue\\GPBMetadata\352\002\022Gcommon::V1::Queue\222\003\005\322>\002\020\003'
   _globals['_RESTOREQUEUEREQUEST_METADATAENTRY']._loaded_options = None
   _globals['_RESTOREQUEUEREQUEST_METADATAENTRY']._serialized_options = b'8\001'
-  _globals['_BACKUPSOURCE_CREDENTIALSENTRY']._loaded_options = None
-  _globals['_BACKUPSOURCE_CREDENTIALSENTRY']._serialized_options = b'8\001'
-  _globals['_ORIGINALQUEUEINFO_CONFIGSNAPSHOTENTRY']._loaded_options = None
-  _globals['_ORIGINALQUEUEINFO_CONFIGSNAPSHOTENTRY']._serialized_options = b'8\001'
-  _globals['_FILTERCRITERIA_HEADERFILTERSENTRY']._loaded_options = None
-  _globals['_FILTERCRITERIA_HEADERFILTERSENTRY']._serialized_options = b'8\001'
-  _globals['_RESTOREQUEUEREQUEST']._serialized_start=252
-  _globals['_RESTOREQUEUEREQUEST']._serialized_end=846
-  _globals['_RESTOREQUEUEREQUEST_METADATAENTRY']._serialized_start=787
-  _globals['_RESTOREQUEUEREQUEST_METADATAENTRY']._serialized_end=846
-  _globals['_BACKUPSOURCE']._serialized_start=849
-  _globals['_BACKUPSOURCE']._serialized_end=1406
-  _globals['_BACKUPSOURCE_CREDENTIALSENTRY']._serialized_start=1344
-  _globals['_BACKUPSOURCE_CREDENTIALSENTRY']._serialized_end=1406
-  _globals['_ORIGINALQUEUEINFO']._serialized_start=1409
-  _globals['_ORIGINALQUEUEINFO']._serialized_end=1755
-  _globals['_ORIGINALQUEUEINFO_CONFIGSNAPSHOTENTRY']._serialized_start=1690
-  _globals['_ORIGINALQUEUEINFO_CONFIGSNAPSHOTENTRY']._serialized_end=1755
-  _globals['_ENCRYPTIONINFO']._serialized_start=1758
-  _globals['_ENCRYPTIONINFO']._serialized_end=1888
-  _globals['_RESTOREOPTIONS']._serialized_start=1891
-  _globals['_RESTOREOPTIONS']._serialized_end=2343
-  _globals['_FILTERCRITERIA']._serialized_start=2346
-  _globals['_FILTERCRITERIA']._serialized_end=2643
-  _globals['_FILTERCRITERIA_HEADERFILTERSENTRY']._serialized_start=2579
-  _globals['_FILTERCRITERIA_HEADERFILTERSENTRY']._serialized_end=2643
-  _globals['_PERFORMANCEOPTIONS']._serialized_start=2646
-  _globals['_PERFORMANCEOPTIONS']._serialized_end=2854
+  _globals['_RESTOREQUEUEREQUEST']._serialized_start=328
+  _globals['_RESTOREQUEUEREQUEST']._serialized_end=922
+  _globals['_RESTOREQUEUEREQUEST_METADATAENTRY']._serialized_start=863
+  _globals['_RESTOREQUEUEREQUEST_METADATAENTRY']._serialized_end=922
 # @@protoc_insertion_point(module_scope)

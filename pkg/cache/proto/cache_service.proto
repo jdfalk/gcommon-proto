@@ -30,8 +30,8 @@ import "pkg/cache/proto/set_multiple_request.proto";
 import "pkg/cache/proto/set_multiple_response.proto";
 import "pkg/cache/proto/set_request.proto";
 import "pkg/cache/proto/set_response.proto";
-import "pkg/cache/proto/touch_expiration_response.proto";
 import "pkg/cache/proto/touch_expiration_request.proto";
+import "pkg/cache/proto/touch_expiration_response.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
 option go_package = "github.com/jdfalk/gcommon/pkg/cache/proto";

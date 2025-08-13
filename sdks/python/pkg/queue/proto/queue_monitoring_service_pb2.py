@@ -25,18 +25,24 @@ _sym_db = _symbol_database.Default()
 from google.protobuf import go_features_pb2 as google_dot_protobuf_dot_go__features__pb2
 from google.protobuf import timestamp_pb2 as google_dot_protobuf_dot_timestamp__pb2
 from pkg.common.proto import time_range_pb2 as pkg_dot_common_dot_proto_dot_time__range__pb2
+from pkg.queue.proto import stream_metrics_request_pb2 as pkg_dot_queue_dot_proto_dot_stream__metrics__request__pb2
 from pkg.queue.proto import cluster_info_pb2 as pkg_dot_queue_dot_proto_dot_cluster__info__pb2
 from pkg.queue.proto import get_cluster_info_request_pb2 as pkg_dot_queue_dot_proto_dot_get__cluster__info__request__pb2
 from pkg.queue.proto import get_cluster_info_response_pb2 as pkg_dot_queue_dot_proto_dot_get__cluster__info__response__pb2
+from pkg.queue.proto import get_queue_health_request_pb2 as pkg_dot_queue_dot_proto_dot_get__queue__health__request__pb2
+from pkg.queue.proto import get_queue_health_response_pb2 as pkg_dot_queue_dot_proto_dot_get__queue__health__response__pb2
+from pkg.queue.proto import get_queue_stats_request_pb2 as pkg_dot_queue_dot_proto_dot_get__queue__stats__request__pb2
 from pkg.queue.proto import get_queue_stats_response_pb2 as pkg_dot_queue_dot_proto_dot_get__queue__stats__response__pb2
 from pkg.queue.proto import health_status_pb2 as pkg_dot_queue_dot_proto_dot_health__status__pb2
 from pkg.queue.proto import metric_type_pb2 as pkg_dot_queue_dot_proto_dot_metric__type__pb2
+from pkg.queue.proto import metrics_event_pb2 as pkg_dot_queue_dot_proto_dot_metrics__event__pb2
+from pkg.queue.proto import queue_stats_response_pb2 as pkg_dot_queue_dot_proto_dot_queue__stats__response__pb2
 from pkg.queue.proto import stats_granularity_pb2 as pkg_dot_queue_dot_proto_dot_stats__granularity__pb2
 from pkg.queue.proto import time_range_pb2 as pkg_dot_queue_dot_proto_dot_time__range__pb2
 from pkg.queue.proto import topic_info_pb2 as pkg_dot_queue_dot_proto_dot_topic__info__pb2
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n.pkg/queue/proto/queue_monitoring_service.proto\x12\x10gcommon.v1.queue\x1a!google/protobuf/go_features.proto\x1a\x1fgoogle/protobuf/timestamp.proto\x1a!pkg/common/proto/time_range.proto\x1a\"pkg/queue/proto/cluster_info.proto\x1a.pkg/queue/proto/get_cluster_info_request.proto\x1a/pkg/queue/proto/get_cluster_info_response.proto\x1a.pkg/queue/proto/get_queue_stats_response.proto\x1a#pkg/queue/proto/health_status.proto\x1a!pkg/queue/proto/metric_type.proto\x1a\'pkg/queue/proto/stats_granularity.proto\x1a pkg/queue/proto/time_range.proto\x1a pkg/queue/proto/topic_info.proto\"a\n\x15GetQueueHealthRequest\x12\x1f\n\x0bqueue_names\x18\x01 \x03(\tR\nqueueNames\x12\'\n\x0finclude_details\x18\x02 \x01(\x08R\x0eincludeDetails\"\xa2\x01\n\x16GetQueueHealthResponse\x12@\n\x0cqueue_health\x18\x01 \x03(\x0b\x32\x1d.gcommon.v1.queue.QueueHealthR\x0bqueueHealth\x12\x46\n\x0e\x63luster_health\x18\x02 \x01(\x0b\x32\x1f.gcommon.v1.queue.ClusterHealthR\rclusterHealth\"\xda\x01\n\x0bQueueHealth\x12\x1d\n\nqueue_name\x18\x01 \x01(\tR\tqueueName\x12\x36\n\x06status\x18\x02 \x01(\x0e\x32\x1e.gcommon.v1.queue.HealthStatusR\x06status\x12!\n\x0chealth_score\x18\x03 \x01(\x05R\x0bhealthScore\x12\x16\n\x06issues\x18\x04 \x03(\tR\x06issues\x12\x39\n\nlast_check\x18\x05 \x01(\x0b\x32\x1a.google.protobuf.TimestampR\tlastCheck\"\xa5\x01\n\rClusterHealth\x12\x36\n\x06status\x18\x01 \x01(\x0e\x32\x1e.gcommon.v1.queue.HealthStatusR\x06status\x12#\n\rhealthy_nodes\x18\x02 \x01(\x05R\x0chealthyNodes\x12\x1f\n\x0btotal_nodes\x18\x03 \x01(\x05R\ntotalNodes\x12\x16\n\x06issues\x18\x04 \x03(\tR\x06issues\"\xb7\x01\n\x14GetQueueStatsRequest\x12\x1d\n\nqueue_name\x18\x01 \x01(\tR\tqueueName\x12:\n\ntime_range\x18\x02 \x01(\x0b\x32\x1b.gcommon.v1.queue.TimeRangeR\ttimeRange\x12\x44\n\x0bgranularity\x18\x03 \x01(\x0e\x32\".gcommon.v1.queue.StatsGranularityR\x0bgranularity\"\x8c\x01\n\x12QueueStatsResponse\x12\x32\n\x05stats\x18\x01 \x01(\x0b\x32\x1c.gcommon.v1.queue.QueueStatsR\x05stats\x12\x42\n\x0btime_series\x18\x02 \x03(\x0b\x32!.gcommon.v1.queue.QueueStatsPointR\ntimeSeries\"\x7f\n\x0fQueueStatsPoint\x12\x38\n\ttimestamp\x18\x01 \x01(\x0b\x32\x1a.google.protobuf.TimestampR\ttimestamp\x12\x32\n\x05stats\x18\x02 \x01(\x0b\x32\x1c.gcommon.v1.queue.QueueStatsR\x05stats\"\xa3\x01\n\x14StreamMetricsRequest\x12\x1f\n\x0bqueue_names\x18\x01 \x03(\tR\nqueueNames\x12?\n\x0cmetric_types\x18\x02 \x03(\x0e\x32\x1c.gcommon.v1.queue.MetricTypeR\x0bmetricTypes\x12)\n\x10interval_seconds\x18\x03 \x01(\x05R\x0fintervalSeconds\"\xbb\x02\n\x0cMetricsEvent\x12\x38\n\ttimestamp\x18\x01 \x01(\x0b\x32\x1a.google.protobuf.TimestampR\ttimestamp\x12\x1d\n\nqueue_name\x18\x02 \x01(\tR\tqueueName\x12=\n\x0bmetric_type\x18\x03 \x01(\x0e\x32\x1c.gcommon.v1.queue.MetricTypeR\nmetricType\x12\x14\n\x05value\x18\x04 \x01(\x01R\x05value\x12\x42\n\x06labels\x18\x05 \x03(\x0b\x32*.gcommon.v1.queue.MetricsEvent.LabelsEntryR\x06labels\x1a\x39\n\x0bLabelsEntry\x12\x10\n\x03key\x18\x01 \x01(\tR\x03key\x12\x14\n\x05value\x18\x02 \x01(\tR\x05value:\x02\x38\x01\x32\x9c\x03\n\x16QueueMonitoringService\x12\x63\n\x0eGetClusterInfo\x12\'.gcommon.v1.queue.GetClusterInfoRequest\x1a(.gcommon.v1.queue.GetClusterInfoResponse\x12\x63\n\x0eGetQueueHealth\x12\'.gcommon.v1.queue.GetQueueHealthRequest\x1a(.gcommon.v1.queue.GetQueueHealthResponse\x12]\n\rGetQueueStats\x12&.gcommon.v1.queue.GetQueueStatsRequest\x1a$.gcommon.v1.queue.QueueStatsResponse\x12Y\n\rStreamMetrics\x12&.gcommon.v1.queue.StreamMetricsRequest\x1a\x1e.gcommon.v1.queue.MetricsEvent0\x01\x42\xc8\x01\n\x14\x63om.gcommon.v1.queueB\x1bQueueMonitoringServiceProtoP\x01Z)github.com/jdfalk/gcommon/pkg/queue/proto\xa2\x02\x03GVQ\xaa\x02\x10Gcommon.V1.Queue\xca\x02\x10Gcommon\\V1\\Queue\xe2\x02\x1cGcommon\\V1\\Queue\\GPBMetadata\xea\x02\x12Gcommon::V1::Queue\x92\x03\x05\xd2>\x02\x10\x03\x62\x08\x65\x64itionsp\xe8\x07')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n.pkg/queue/proto/queue_monitoring_service.proto\x12\x10gcommon.v1.queue\x1a!google/protobuf/go_features.proto\x1a\x1fgoogle/protobuf/timestamp.proto\x1a!pkg/common/proto/time_range.proto\x1a,pkg/queue/proto/stream_metrics_request.proto\x1a\"pkg/queue/proto/cluster_info.proto\x1a.pkg/queue/proto/get_cluster_info_request.proto\x1a/pkg/queue/proto/get_cluster_info_response.proto\x1a.pkg/queue/proto/get_queue_health_request.proto\x1a/pkg/queue/proto/get_queue_health_response.proto\x1a-pkg/queue/proto/get_queue_stats_request.proto\x1a.pkg/queue/proto/get_queue_stats_response.proto\x1a#pkg/queue/proto/health_status.proto\x1a!pkg/queue/proto/metric_type.proto\x1a#pkg/queue/proto/metrics_event.proto\x1a*pkg/queue/proto/queue_stats_response.proto\x1a\'pkg/queue/proto/stats_granularity.proto\x1a pkg/queue/proto/time_range.proto\x1a pkg/queue/proto/topic_info.proto2\xa1\x03\n\x16QueueMonitoringService\x12\x63\n\x0eGetClusterInfo\x12\'.gcommon.v1.queue.GetClusterInfoRequest\x1a(.gcommon.v1.queue.GetClusterInfoResponse\x12\x63\n\x0eGetQueueHealth\x12\'.gcommon.v1.queue.GetQueueHealthRequest\x1a(.gcommon.v1.queue.GetQueueHealthResponse\x12]\n\rGetQueueStats\x12&.gcommon.v1.queue.GetQueueStatsRequest\x1a$.gcommon.v1.queue.QueueStatsResponse\x12^\n\rStreamMetrics\x12+.gcommon.v1.queue.QueueStreamMetricsRequest\x1a\x1e.gcommon.v1.queue.MetricsEvent0\x01\x42\xc8\x01\n\x14\x63om.gcommon.v1.queueB\x1bQueueMonitoringServiceProtoP\x01Z)github.com/jdfalk/gcommon/pkg/queue/proto\xa2\x02\x03GVQ\xaa\x02\x10Gcommon.V1.Queue\xca\x02\x10Gcommon\\V1\\Queue\xe2\x02\x1cGcommon\\V1\\Queue\\GPBMetadata\xea\x02\x12Gcommon::V1::Queue\x92\x03\x05\xd2>\x02\x10\x03\x62\x08\x65\x64itionsp\xe8\x07')
 
 _globals = globals()
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, _globals)
@@ -44,28 +50,6 @@ _builder.BuildTopDescriptorsAndMessages(DESCRIPTOR, 'pkg.queue.proto.queue_monit
 if not _descriptor._USE_C_DESCRIPTORS:
   _globals['DESCRIPTOR']._loaded_options = None
   _globals['DESCRIPTOR']._serialized_options = b'\n\024com.gcommon.v1.queueB\033QueueMonitoringServiceProtoP\001Z)github.com/jdfalk/gcommon/pkg/queue/proto\242\002\003GVQ\252\002\020Gcommon.V1.Queue\312\002\020Gcommon\\V1\\Queue\342\002\034Gcommon\\V1\\Queue\\GPBMetadata\352\002\022Gcommon::V1::Queue\222\003\005\322>\002\020\003'
-  _globals['_METRICSEVENT_LABELSENTRY']._loaded_options = None
-  _globals['_METRICSEVENT_LABELSENTRY']._serialized_options = b'8\001'
-  _globals['_GETQUEUEHEALTHREQUEST']._serialized_start=533
-  _globals['_GETQUEUEHEALTHREQUEST']._serialized_end=630
-  _globals['_GETQUEUEHEALTHRESPONSE']._serialized_start=633
-  _globals['_GETQUEUEHEALTHRESPONSE']._serialized_end=795
-  _globals['_QUEUEHEALTH']._serialized_start=798
-  _globals['_QUEUEHEALTH']._serialized_end=1016
-  _globals['_CLUSTERHEALTH']._serialized_start=1019
-  _globals['_CLUSTERHEALTH']._serialized_end=1184
-  _globals['_GETQUEUESTATSREQUEST']._serialized_start=1187
-  _globals['_GETQUEUESTATSREQUEST']._serialized_end=1370
-  _globals['_QUEUESTATSRESPONSE']._serialized_start=1373
-  _globals['_QUEUESTATSRESPONSE']._serialized_end=1513
-  _globals['_QUEUESTATSPOINT']._serialized_start=1515
-  _globals['_QUEUESTATSPOINT']._serialized_end=1642
-  _globals['_STREAMMETRICSREQUEST']._serialized_start=1645
-  _globals['_STREAMMETRICSREQUEST']._serialized_end=1808
-  _globals['_METRICSEVENT']._serialized_start=1811
-  _globals['_METRICSEVENT']._serialized_end=2126
-  _globals['_METRICSEVENT_LABELSENTRY']._serialized_start=2069
-  _globals['_METRICSEVENT_LABELSENTRY']._serialized_end=2126
-  _globals['_QUEUEMONITORINGSERVICE']._serialized_start=2129
-  _globals['_QUEUEMONITORINGSERVICE']._serialized_end=2541
+  _globals['_QUEUEMONITORINGSERVICE']._serialized_start=805
+  _globals['_QUEUEMONITORINGSERVICE']._serialized_end=1222
 # @@protoc_insertion_point(module_scope)

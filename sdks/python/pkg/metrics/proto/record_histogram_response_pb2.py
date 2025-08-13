@@ -25,11 +25,13 @@ _sym_db = _symbol_database.Default()
 from google.protobuf import go_features_pb2 as google_dot_protobuf_dot_go__features__pb2
 from google.protobuf import timestamp_pb2 as google_dot_protobuf_dot_timestamp__pb2
 from pkg.common.proto import error_pb2 as pkg_dot_common_dot_proto_dot_error__pb2
+from pkg.metrics.proto import bucket_info_pb2 as pkg_dot_metrics_dot_proto_dot_bucket__info__pb2
 from pkg.metrics.proto import histogram_metric_pb2 as pkg_dot_metrics_dot_proto_dot_histogram__metric__pb2
+from pkg.metrics.proto import histogram_stats_pb2 as pkg_dot_metrics_dot_proto_dot_histogram__stats__pb2
 from pkg.metrics.proto import recording_stats_pb2 as pkg_dot_metrics_dot_proto_dot_recording__stats__pb2
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n1pkg/metrics/proto/record_histogram_response.proto\x12\x12gcommon.v1.metrics\x1a!google/protobuf/go_features.proto\x1a\x1fgoogle/protobuf/timestamp.proto\x1a\x1cpkg/common/proto/error.proto\x1a(pkg/metrics/proto/histogram_metric.proto\x1a\'pkg/metrics/proto/recording_stats.proto\"\xe0\x03\n\x17RecordHistogramResponse\x12\x18\n\x07success\x18\x01 \x01(\x08R\x07success\x12.\n\x05\x65rror\x18\x02 \x01(\x0b\x32\x18.gcommon.v1.common.ErrorR\x05\x65rror\x12;\n\x06metric\x18\x03 \x01(\x0b\x32#.gcommon.v1.metrics.HistogramMetricR\x06metric\x12G\n\rcurrent_stats\x18\x04 \x01(\x0b\x32\".gcommon.v1.metrics.HistogramStatsR\x0c\x63urrentStats\x12;\n\x0brecorded_at\x18\x05 \x01(\x0b\x32\x1a.google.protobuf.TimestampR\nrecordedAt\x12\"\n\ris_new_metric\x18\x06 \x01(\x08R\x0bisNewMetric\x12G\n\x0f\x61\x66\x66\x65\x63ted_bucket\x18\x07 \x01(\x0b\x32\x1e.gcommon.v1.metrics.BucketInfoR\x0e\x61\x66\x66\x65\x63tedBucket\x12K\n\x0frecording_stats\x18\x08 \x01(\x0b\x32\".gcommon.v1.metrics.RecordingStatsR\x0erecordingStats\"f\n\nBucketInfo\x12\x1f\n\x0bupper_bound\x18\x01 \x01(\x01R\nupperBound\x12\x14\n\x05\x63ount\x18\x02 \x01(\x04R\x05\x63ount\x12!\n\x0c\x62ucket_index\x18\x03 \x01(\x05R\x0b\x62ucketIndex\"\xc1\x01\n\x0eHistogramStats\x12\x1f\n\x0btotal_count\x18\x01 \x01(\x04R\ntotalCount\x12\x1b\n\ttotal_sum\x18\x02 \x01(\x01R\x08totalSum\x12\x12\n\x04mean\x18\x03 \x01(\x01R\x04mean\x12\x1b\n\tmin_value\x18\x04 \x01(\x01R\x08minValue\x12\x1b\n\tmax_value\x18\x05 \x01(\x01R\x08maxValue\x12#\n\rstd_deviation\x18\x06 \x01(\x01R\x0cstdDeviationB\xd5\x01\n\x16\x63om.gcommon.v1.metricsB\x1cRecordHistogramResponseProtoP\x01Z+github.com/jdfalk/gcommon/pkg/metrics/proto\xa2\x02\x03GVM\xaa\x02\x12Gcommon.V1.Metrics\xca\x02\x12Gcommon\\V1\\Metrics\xe2\x02\x1eGcommon\\V1\\Metrics\\GPBMetadata\xea\x02\x14Gcommon::V1::Metrics\x92\x03\x05\xd2>\x02\x10\x03\x62\x08\x65\x64itionsp\xe8\x07')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n1pkg/metrics/proto/record_histogram_response.proto\x12\x12gcommon.v1.metrics\x1a!google/protobuf/go_features.proto\x1a\x1fgoogle/protobuf/timestamp.proto\x1a\x1cpkg/common/proto/error.proto\x1a#pkg/metrics/proto/bucket_info.proto\x1a(pkg/metrics/proto/histogram_metric.proto\x1a\'pkg/metrics/proto/histogram_stats.proto\x1a\'pkg/metrics/proto/recording_stats.proto\"\xe0\x03\n\x17RecordHistogramResponse\x12\x18\n\x07success\x18\x01 \x01(\x08R\x07success\x12.\n\x05\x65rror\x18\x02 \x01(\x0b\x32\x18.gcommon.v1.common.ErrorR\x05\x65rror\x12;\n\x06metric\x18\x03 \x01(\x0b\x32#.gcommon.v1.metrics.HistogramMetricR\x06metric\x12G\n\rcurrent_stats\x18\x04 \x01(\x0b\x32\".gcommon.v1.metrics.HistogramStatsR\x0c\x63urrentStats\x12;\n\x0brecorded_at\x18\x05 \x01(\x0b\x32\x1a.google.protobuf.TimestampR\nrecordedAt\x12\"\n\ris_new_metric\x18\x06 \x01(\x08R\x0bisNewMetric\x12G\n\x0f\x61\x66\x66\x65\x63ted_bucket\x18\x07 \x01(\x0b\x32\x1e.gcommon.v1.metrics.BucketInfoR\x0e\x61\x66\x66\x65\x63tedBucket\x12K\n\x0frecording_stats\x18\x08 \x01(\x0b\x32\".gcommon.v1.metrics.RecordingStatsR\x0erecordingStatsB\xd5\x01\n\x16\x63om.gcommon.v1.metricsB\x1cRecordHistogramResponseProtoP\x01Z+github.com/jdfalk/gcommon/pkg/metrics/proto\xa2\x02\x03GVM\xaa\x02\x12Gcommon.V1.Metrics\xca\x02\x12Gcommon\\V1\\Metrics\xe2\x02\x1eGcommon\\V1\\Metrics\\GPBMetadata\xea\x02\x14Gcommon::V1::Metrics\x92\x03\x05\xd2>\x02\x10\x03\x62\x08\x65\x64itionsp\xe8\x07')
 
 _globals = globals()
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, _globals)
@@ -37,10 +39,6 @@ _builder.BuildTopDescriptorsAndMessages(DESCRIPTOR, 'pkg.metrics.proto.record_hi
 if not _descriptor._USE_C_DESCRIPTORS:
   _globals['DESCRIPTOR']._loaded_options = None
   _globals['DESCRIPTOR']._serialized_options = b'\n\026com.gcommon.v1.metricsB\034RecordHistogramResponseProtoP\001Z+github.com/jdfalk/gcommon/pkg/metrics/proto\242\002\003GVM\252\002\022Gcommon.V1.Metrics\312\002\022Gcommon\\V1\\Metrics\342\002\036Gcommon\\V1\\Metrics\\GPBMetadata\352\002\024Gcommon::V1::Metrics\222\003\005\322>\002\020\003'
-  _globals['_RECORDHISTOGRAMRESPONSE']._serialized_start=255
-  _globals['_RECORDHISTOGRAMRESPONSE']._serialized_end=735
-  _globals['_BUCKETINFO']._serialized_start=737
-  _globals['_BUCKETINFO']._serialized_end=839
-  _globals['_HISTOGRAMSTATS']._serialized_start=842
-  _globals['_HISTOGRAMSTATS']._serialized_end=1035
+  _globals['_RECORDHISTOGRAMRESPONSE']._serialized_start=333
+  _globals['_RECORDHISTOGRAMRESPONSE']._serialized_end=813
 # @@protoc_insertion_point(module_scope)
