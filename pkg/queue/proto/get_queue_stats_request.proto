@@ -1,0 +1,51 @@
+// file: pkg/queue/proto/get_queue_stats_request.proto
+// version: 1.0.0
+// guid: 7f8e9d0c-1b2a-3c4d-5e6f-708192a3b4c5
+
+edition = "2023";
+
+package gcommon.v1.queue;
+
+import "google/protobuf/go_features.proto";
+import "pkg/queue/proto/time_range.proto";
+import "pkg/queue/proto/statistic_type.proto";
+import "pkg/queue/proto/stats_granularity.proto";
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/jdfalk/gcommon/pkg/queue/proto";
+
+// GetQueueStatsRequest retrieves statistical information about a specific queue
+message GetQueueStatsRequest {
+  // Queue identifier
+  string queue_id = 1;
+
+  // Time range for statistics (optional - defaults to last 24 hours)
+  TimeRange time_range = 2;
+
+  // Types of statistics to include
+  repeated StatisticType statistic_types = 3;
+
+  // Granularity of statistics (hourly, daily, etc.)
+  StatsGranularity granularity = 4;
+
+  // Include partition-level statistics
+  bool include_partition_stats = 5;
+
+  // Include consumer group statistics
+  bool include_consumer_stats = 6;
+
+  // Include producer statistics
+  bool include_producer_stats = 7;
+
+  // Include error statistics
+  bool include_error_stats = 8;
+
+  // Include performance metrics
+  bool include_performance_metrics = 9;
+
+  // Maximum number of data points to return
+  int32 max_data_points = 10;
+
+  // Include historical trends
+  bool include_trends = 11;
+}
