@@ -10,7 +10,7 @@ disable-default-path-filters: false
 # Specify which files to include/exclude
 paths-ignore:
   - "**/*.md"
-  - "**/*.txt" 
+  - "**/*.txt"
   - "**/*.json"
   - "**/vendor/**"
   - "**/node_modules/**"

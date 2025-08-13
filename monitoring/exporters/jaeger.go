@@ -8,8 +8,8 @@ import (
 	"context"
 
 	"go.opentelemetry.io/otel/exporters/otlp/otlptrace/otlptracehttp"
-	sdktrace "go.opentelemetry.io/otel/sdk/trace"
 	"go.opentelemetry.io/otel/sdk/trace"
+	sdktrace "go.opentelemetry.io/otel/sdk/trace"
 )
 
 // OTLPExporter wraps the OpenTelemetry OTLP HTTP exporter.
