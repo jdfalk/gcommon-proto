@@ -14,11 +14,11 @@ on:
     branches: [ main, develop ]
     paths:
       - '.github/issue-updates/**'
-  
+
   # Run daily at 6 AM UTC
   schedule:
     - cron: '0 6 * * *'
-  
+
   # Allow manual trigger
   workflow_dispatch:
     inputs:
@@ -61,7 +61,7 @@ jobs:
       run: |
         exit_code=$?
         echo "Health check exit code: $exit_code"
-        
+
         if [ $exit_code -eq 0 ]; then
           echo "✅ System is healthy"
         elif [ $exit_code -eq 1 ]; then
@@ -79,20 +79,20 @@ jobs:
         script: |
           const title = 'Issue System Health Check Failed';
           const body = `🚨 **Automated Issue System Health Check Failed**
-          
+
           The scheduled health check detected critical issues in the issue management system.
-          
+
           **Triggered by:** Scheduled workflow
           **Workflow:** ${{ github.workflow }}
           **Run:** ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
-          
+
           **Recommended Actions:**
           1. Review the workflow logs for specific errors
           2. Run the repair tool manually: \`python3 issue_system_repair.py --auto-commit\`
           3. Run health check again: \`python3 scripts/issue_health_check.py\`
-          
+
           This issue was created automatically and should be resolved promptly.`;
-          
+
           github.rest.issues.create({
             owner: context.repo.owner,
             repo: context.repo.repo,
@@ -107,19 +107,19 @@ jobs:
       with:
         script: |
           const comment = `⚠️ **Issue System Health Check Warning**
-          
+
           The health check detected potential issues in the issue management system changes.
-          
+
           Please review the workflow logs and consider running:
           \`\`\`bash
           python3 scripts/issue_health_check.py
           \`\`\`
-          
+
           If issues are found, you can auto-fix them with:
           \`\`\`bash
           python3 issue_system_repair.py --auto-commit
           \`\`\``;
-          
+
           github.rest.issues.createComment({
             issue_number: context.issue.number,
             owner: context.repo.owner,
