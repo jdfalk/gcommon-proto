@@ -141,4 +141,3 @@ type: Opaque
 stringData:
   slack_webhook: "https://hooks.slack.com/services/T000/B000/XXXXX"
   smtp_password: "changeme"
-
