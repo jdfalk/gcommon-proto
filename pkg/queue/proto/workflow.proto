@@ -1,0 +1,28 @@
+// file: pkg/queue/proto/workflow.proto
+// version: 1.0.0
+// guid: 6f7e8d9c-0b1a-2534-6e7f-8a9b0c1d2e3f
+
+edition = "2023";
+
+package gcommon.v1.queue;
+
+import "google/protobuf/go_features.proto";
+import "pkg/queue/proto/start_workflow_request.proto";
+import "pkg/queue/proto/start_workflow_response.proto";
+import "pkg/queue/proto/stop_workflow_request.proto";
+import "pkg/queue/proto/stop_workflow_response.proto";
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package = "github.com/jdfalk/gcommon/pkg/queue/proto";
+
+/**
+ * WorkflowService provides workflow management operations for
+ * orchestrating complex, multi-step processes.
+ */
+service WorkflowService {
+  // Start a new workflow execution
+  rpc StartWorkflow(StartWorkflowRequest) returns (StartWorkflowResponse);
+
+  // Stop a running workflow execution
+  rpc StopWorkflow(StopWorkflowRequest) returns (StopWorkflowResponse);
+}
