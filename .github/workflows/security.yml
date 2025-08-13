@@ -89,7 +89,7 @@ jobs:
           else
             echo "languages_json=[]" >> $GITHUB_OUTPUT
           fi
-          
+
           echo "languages=$languages" >> $GITHUB_OUTPUT
           echo "has_go=$has_go" >> $GITHUB_OUTPUT
           echo "has_javascript=$has_javascript" >> $GITHUB_OUTPUT
@@ -280,9 +280,9 @@ jobs:
         if: needs.detect-languages.outputs.has_go == 'true'
         run: |
           # Use go list to check for dependencies and their licenses
-          echo "=== Go Dependencies ===" 
+          echo "=== Go Dependencies ==="
           go list -m all || echo "No Go modules found"
-          
+
           # Install go-licenses for license detection (alternative to FOSSA)
           go install github.com/google/go-licenses@latest
           go-licenses check . || echo "Go license check completed"
@@ -395,17 +395,17 @@ jobs:
           # Only fail the workflow on actual critical security issues
           # Don't fail on configuration issues or skipped jobs
           critical_failures=""
-          
+
           # Check for actual CodeQL analysis failures (not config issues)
           if [[ "${{ needs.codeql-analysis.result }}" == "failure" ]]; then
             echo "⚠️ CodeQL analysis failed - check logs for actual security issues"
             # Don't fail immediately - could be configuration issue
           fi
-          
+
           # Only fail on actual secret detection (Gitleaks is more reliable than TruffleHog)
           if [[ "${{ needs.secret-scan.result }}" == "failure" ]]; then
             # Check if it's a real secret or just TruffleHog configuration issue
             echo "⚠️ Secret scanning failed - check if real secrets were found"
           fi
-          
+
           echo "Security scan completed. Check individual job results for details."
