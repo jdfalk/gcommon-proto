@@ -84,10 +84,23 @@ copy_with_backup() {
     local source="$1"
     local dest="$2"
     local repo_name="$3"
+    local repo_path="$4"
 
     if [[ ! -f "$source" ]]; then
         log_error "Source file not found: $source"
         return 1
+    fi
+
+    if [[ "$DRY_RUN" == "true" ]]; then
+        # Detailed dry-run output
+        local rel_source="${source#$REPO_ROOT/}"
+        local rel_dest="${dest#$repo_path/}"
+
+        if [[ -f "$dest" ]]; then
+            log_info "  Would backup: $rel_dest -> $rel_dest.backup.$(date +%Y%m%d_%H%M%S)"
+        fi
+        log_info "  Would copy: $rel_source -> $repo_name/$rel_dest"
+        return 0
     fi
 
     # Create backup if destination exists
@@ -116,10 +129,15 @@ update_tasks_json() {
         return 0
     fi
 
+    if [[ "$DRY_RUN" == "true" ]]; then
+        log_info "  Would update: .vscode/tasks.json"
+        return 0
+    fi
+
     log_info "Updating VS Code tasks for $repo_name"
 
     # Copy the updated tasks.json from gcommon
-    copy_with_backup "$REPO_ROOT/.vscode/tasks.json" "$tasks_file" "$repo_name"
+    copy_with_backup "$REPO_ROOT/.vscode/tasks.json" "$tasks_file" "$repo_name" "$repo_path"
 }
 
 # Main deployment function
@@ -127,7 +145,11 @@ deploy_to_repo() {
     local repo_path="$1"
     local repo_name="$(basename "$repo_path")"
 
-    log_info "Deploying to repository: $repo_name"
+    if [[ "$DRY_RUN" == "true" ]]; then
+        log_info "Would deploy to repository: $repo_name"
+    else
+        log_info "Deploying to repository: $repo_name"
+    fi
 
     if ! check_repo "$repo_path"; then
         return 1
@@ -137,20 +159,24 @@ deploy_to_repo() {
     for file in "${INSTRUCTION_FILES[@]}"; do
         local source="$REPO_ROOT/$file"
         local dest="$repo_path/$file"
-        copy_with_backup "$source" "$dest" "$repo_name"
+        copy_with_backup "$source" "$dest" "$repo_name" "$repo_path"
     done
 
     # Copy utility configuration files
     for file in "${UTIL_FILES[@]}"; do
         local source="$REPO_ROOT/$file"
         local dest="$repo_path/$file"
-        copy_with_backup "$source" "$dest" "$repo_name"
+        copy_with_backup "$source" "$dest" "$repo_name" "$repo_path"
     done
 
     # Update VS Code tasks
     update_tasks_json "$repo_path"
 
-    log_success "Completed deployment to $repo_name"
+    if [[ "$DRY_RUN" == "true" ]]; then
+        log_info "Would complete deployment to $repo_name"
+    else
+        log_success "Completed deployment to $repo_name"
+    fi
     echo
 }
 
@@ -218,8 +244,9 @@ main() {
 
     for repo in "${target_repos[@]}"; do
         if [[ "$DRY_RUN" == "true" ]]; then
-            log_info "Would deploy to: $(basename "$repo")"
-            ((success_count++))
+            if deploy_to_repo "$repo"; then
+                ((success_count++))
+            fi
         else
             if deploy_to_repo "$repo"; then
                 ((success_count++))
