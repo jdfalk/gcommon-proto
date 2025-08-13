@@ -2,87 +2,73 @@
 <!-- version: 1.1.0 -->
 ## Table of Contents
 
-  - [Table of Contents](#table-of-contents)
-  - [📚 Essential Documentation](#-essential-documentation)
-    - [New Users Start Here](#new-users-start-here)
-    - [For Developers](#for-developers)
-  - [� Overview](#-overview)
-  - [🚀 Quick Start](#-quick-start)
-    - [Installation](#installation)
-    - [Build Tools](#build-tools)
-      - [Rust Version (Recommended)](#rust-version-recommended)
-- [Install the Rust version](#install-the-rust-version)
-- [Create symlink for easy access (copilot-agent-utilr)](#create-symlink-for-easy-access-copilot-agent-utilr)
-- [Verify installation](#verify-installation)
-      - [Go Version (Fallback)](#go-version-fallback)
-- [Install the Go version](#install-the-go-version)
-- [Verify installation](#verify-installation)
-    - [Basic Health Check Example](#basic-health-check-example)
-    - [gRPC Metrics Interceptor Example](#grpc-metrics-interceptor-example)
-    - [Database gRPC Service Example](#database-grpc-service-example)
-    - [Multi-Module Example](#multi-module-example)
-  - [📦 Current Module Status (August 2025 - MAJOR UPDATE)](#-current-module-status-august-2025-major-update)
-  - [🎉 Recent Achievements](#-recent-achievements)
-    - [August 2025: MASSIVE PROTOBUF IMPLEMENTATION MILESTONE ✅](#august-2025-massive-protobuf-implementation-milestone)
-    - [Previous Milestones](#previous-milestones)
-    - [June 8, 2025: Complete Protobuf Implementation Roadmap ✅](#june-8-2025-complete-protobuf-implementation-roadmap)
-  - [🔧 Installation & Setup](#-installation-setup)
-    - [Prerequisites](#prerequisites)
-    - [Quick Setup](#quick-setup)
-- [Clone the repository](#clone-the-repository)
-- [Install dependencies](#install-dependencies)
-- [Generate protobuf code (if developing)](#generate-protobuf-code-if-developing)
-- [Run tests](#run-tests)
-- [Try the health example](#try-the-health-example)
-    - [Development Tools (Optional)](#development-tools-optional)
-- [Install protobuf tools for gRPC development](#install-protobuf-tools-for-grpc-development)
-- [Install mockery for testing](#install-mockery-for-testing)
-  - [🤖 Automated Issue Management](#-automated-issue-management)
-    - [Issue Status Updates](#issue-status-updates)
-    - [Example Workflow](#example-workflow)
-- [When starting work on issue #68](#when-starting-work-on-issue-68)
-- [When completing work](#when-completing-work)
-  - [🏗️ Architecture Overview](#-architecture-overview)
-  - [🔄 Protobuf Import Strategy (BREAKING CHANGE in v0.3.0)](#-protobuf-import-strategy-breaking-change-in-v0-3-0)
-  - [🤝 Contributing](#-contributing)
-  - [📄 License](#-license)
-  - [🆘 Need Help?](#-need-help)
-    - [GitHub Projects](#github-projects)
-    - [Recent Updates](#recent-updates)
-  - [Progress](#progress)
-  - [📦 Current Module Status](#-current-module-status)
-  - [Implementation Status](#implementation-status)
-    - [July 28, 2025 - Metrics module progress updated: 33 of 97 protobufs implemented](#july-28-2025-metrics-module-progress-updated-33-of-97-protobufs-implemented)
-    - [July 28, 2025 - Metrics module progress updated: 33 of 97 protobufs implemented](#july-28-2025-metrics-module-progress-updated-33-of-97-protobufs-implemented)
-  - [Dependency Management](#dependency-management)
-  - [Documentation](#documentation)
-  - [SDK Generation\n\nInitial scaffolding for multi-language client SDK generation. Further implementation required.](#sdk-generation-n-ninitial-scaffolding-for-multi-language-client-sdk-generation-further-implementation-required)
-  - [Examples and Tutorials\n\nTODO: Add content for this section](#examples-and-tutorials-n-ntodo-add-content-for-this-section)
-  - [Client SDKs\n\nTODO: Add content for this section](#client-sdks-n-ntodo-add-content-for-this-section)
-  - [Deployment](#deployment)
-    - [Advanced Deployment\n\n- **Helm Charts**: Configurable Helm chart in [deploy/helm](deploy/helm)\n- **Automation**: GitOps and CI/CD templates in [deploy/automation](deploy/automation)\n- **Monitoring**: Prometheus, logging, and tracing configs in [deploy/kubernetes/monitoring](deploy/kubernetes/monitoring)](#advanced-deployment-n-n-helm-charts-configurable-helm-chart-in-deploy-helm-deploy-helm-n-automation-gitops-and-ci-cd-templates-in-deploy-automation-deploy-automation-n-monitoring-prometheus-logging-and-tracing-configs-in-deploy-kubernetes-monitoring-deploy-kubernetes-monitoring)
-  - [Error Handling\n\nInitial error handling framework with standardized error codes.](#error-handling-n-ninitial-error-handling-framework-with-standardized-error-codes)
-  - [Monitoring and Observability\nThis module provides metrics, logging, tracing, alerting, and dashboards for system health.](#monitoring-and-observability-nthis-module-provides-metrics-logging-tracing-alerting-and-dashboards-for-system-health)
-    - [Integration Testing\nA new integration testing framework validates module interactions and performance.](#integration-testing-na-new-integration-testing-framework-validates-module-interactions-and-performance)
-  - [API Documentation\n\nRun `python scripts/api_doc_generator.py` to generate HTML, Markdown, PDF, OpenAPI specs, Postman collections, and playground configs for all modules.](#api-documentation-n-nrun-python-scripts-api-doc-generator-py-to-generate-html-markdown-pdf-openapi-specs-postman-collections-and-playground-configs-for-all-modules)
-  - [API Documentation\n\nAutomated documentation generation and interactive explorer are available under scripts/api_doc_generator.py and scripts/api_explorer.py.](#api-documentation-n-nautomated-documentation-generation-and-interactive-explorer-are-available-under-scripts-api-doc-generator-py-and-scripts-api-explorer-py)
-    - [gRPC Client Resilience\n\nCombined retry, circuit breaking, and fallback utilities are available via the resilience interceptor. See pkg/grpc/client for details. (Refs #882)](#grpc-client-resilience-n-ncombined-retry-circuit-breaking-and-fallback-utilities-are-available-via-the-resilience-interceptor-see-pkg-grpc-client-for-details-refs-882)
-  - [CI/CD Pipeline\n\nComprehensive pipeline with multi-stage testing, quality gates, automated releases, environment management, and reporting.](#ci-cd-pipeline-n-ncomprehensive-pipeline-with-multi-stage-testing-quality-gates-automated-releases-environment-management-and-reporting)
-    - [Error Handling\nStandardized errors across modules with codes, wrapping, and monitoring.](#error-handling-nstandardized-errors-across-modules-with-codes-wrapping-and-monitoring)
-  - [Monitoring\nComprehensive collectors, alerts, exporters, and dashboards provide full observability.](#monitoring-ncomprehensive-collectors-alerts-exporters-and-dashboards-provide-full-observability)
-  - [🤝 Community Guidelines](#-community-guidelines)
-    - [Auth Module Docs\n\nComprehensive authentication module documentation is available under docs/modules/auth.](#auth-module-docs-n-ncomprehensive-authentication-module-documentation-is-available-under-docs-modules-auth)
-  - [Documentation\n\nInitial module documentation skeleton is available under docs/modules/.](#documentation-n-ninitial-module-documentation-skeleton-is-available-under-docs-modules)
-  - [CI/CD Pipeline\n\nThis project now includes a security scanning workflow that runs `go vet` and `npm audit` during continuous integration.](#ci-cd-pipeline-n-nthis-project-now-includes-a-security-scanning-workflow-that-runs-go-vet-and-npm-audit-during-continuous-integration)
-  - [CI/CD Pipeline\n\nThis project includes an advanced CI/CD pipeline with multi-stage testing, quality gates, automated releases, and environment deployments.](#ci-cd-pipeline-n-nthis-project-includes-an-advanced-ci-cd-pipeline-with-multi-stage-testing-quality-gates-automated-releases-and-environment-deployments)
-  - [Microservice Templates\n\nUse `scripts/generate-microservice.sh` to scaffold a new service from templates like `basic-api-service` or `worker-service`.](#microservice-templates-n-nuse-scripts-generate-microservice-sh-to-scaffold-a-new-service-from-templates-like-basic-api-service-or-worker-service)
-  - [Deployment Templates\n\nTODO: Add content for this section](#deployment-templates-n-ntodo-add-content-for-this-section)
-  - [Integration Testing\n\nRun `go test ./test/integration/...` to execute integration tests across all modules.](#integration-testing-n-nrun-go-test-test-integration-to-execute-integration-tests-across-all-modules)
-  - [Security Audit\n\nProvides audit tools, security policies, monitoring, and cryptographic utilities enabling comprehensive protection across auth, web, and queue modules.](#security-audit-n-nprovides-audit-tools-security-policies-monitoring-and-cryptographic-utilities-enabling-comprehensive-protection-across-auth-web-and-queue-modules)
-  - [Web Module\n\nTODO: Add content for this section](#web-module-n-ntodo-add-content-for-this-section)
-  - [Performance Testing\nThe perf/ directory contains benchmarking, load, stress, and regression tools for all modules.](#performance-testing-nthe-perf-directory-contains-benchmarking-load-stress-and-regression-tools-for-all-modules)
-  - [Microservice Templates\nTemplates for common service types are now available with a generation CLI.](#microservice-templates-ntemplates-for-common-service-types-are-now-available-with-a-generation-cli)
-  - [Security Module\nProvides auditing, policies, monitoring, and tools for secure operations.](#security-module-nprovides-auditing-policies-monitoring-and-tools-for-secure-operations)
+- [Table of Contents](#table-of-contents)
+- [📚 Essential Documentation](#-essential-documentation)
+  - [New Users Start Here](#new-users-start-here)
+  - [For Developers](#for-developers)
+- [� Overview](#-overview)
+- [🚀 Quick Start](#-quick-start)
+  - [Installation](#installation)
+  - [Build Tools](#build-tools)
+    - [Rust Version (Recommended)](#rust-version-recommended)
+    - [Go Version (Fallback)](#go-version-fallback)
+  - [Basic Health Check Example](#basic-health-check-example)
+  - [gRPC Metrics Interceptor Example](#grpc-metrics-interceptor-example)
+  - [Database gRPC Service Example](#database-grpc-service-example)
+  - [Multi-Module Example](#multi-module-example)
+- [📦 Current Module Status (August 2025 - MAJOR UPDATE)](#-current-module-status-august-2025---major-update)
+- [🎉 Recent Achievements](#-recent-achievements)
+  - [August 2025: MASSIVE PROTOBUF IMPLEMENTATION MILESTONE ✅](#august-2025-massive-protobuf-implementation-milestone-)
+  - [Previous Milestones](#previous-milestones)
+  - [June 8, 2025: Complete Protobuf Implementation Roadmap ✅](#june-8-2025-complete-protobuf-implementation-roadmap-)
+- [🔧 Installation \& Setup](#-installation--setup)
+  - [Prerequisites](#prerequisites)
+  - [Quick Setup](#quick-setup)
+  - [Development Tools (Optional)](#development-tools-optional)
+- [🤖 Automated Issue Management](#-automated-issue-management)
+  - [Issue Status Updates](#issue-status-updates)
+  - [Example Workflow](#example-workflow)
+- [🏗️ Architecture Overview](#️-architecture-overview)
+- [🔄 Protobuf Import Strategy (BREAKING CHANGE in v0.3.0)](#-protobuf-import-strategy-breaking-change-in-v030)
+- [🤝 Contributing](#-contributing)
+- [📄 License](#-license)
+- [🆘 Need Help?](#-need-help)
+  - [GitHub Projects](#github-projects)
+  - [Recent Updates](#recent-updates)
+- [Progress](#progress)
+- [📦 Current Module Status](#-current-module-status)
+- [Implementation Status](#implementation-status)
+  - [July 28, 2025 - Metrics module progress updated: 33 of 97 protobufs implemented](#july-28-2025---metrics-module-progress-updated-33-of-97-protobufs-implemented)
+  - [July 28, 2025 - Metrics module progress updated: 33 of 97 protobufs implemented](#july-28-2025---metrics-module-progress-updated-33-of-97-protobufs-implemented-1)
+- [Dependency Management](#dependency-management)
+- [Documentation](#documentation)
+- [SDK Generation\\n\\nInitial scaffolding for multi-language client SDK generation. Further implementation required.](#sdk-generationnninitial-scaffolding-for-multi-language-client-sdk-generation-further-implementation-required)
+- [Examples and Tutorials\\n\\nTODO: Add content for this section](#examples-and-tutorialsnntodo-add-content-for-this-section)
+- [Client SDKs\\n\\nTODO: Add content for this section](#client-sdksnntodo-add-content-for-this-section)
+- [Deployment](#deployment)
+  - [Advanced Deployment\\n\\n- **Helm Charts**: Configurable Helm chart in deploy/helm\\n- **Automation**: GitOps and CI/CD templates in deploy/automation\\n- **Monitoring**: Prometheus, logging, and tracing configs in deploy/kubernetes/monitoring](#advanced-deploymentnn--helm-charts-configurable-helm-chart-in-deployhelmn--automation-gitops-and-cicd-templates-in-deployautomationn--monitoring-prometheus-logging-and-tracing-configs-in-deploykubernetesmonitoring)
+- [Error Handling\\n\\nInitial error handling framework with standardized error codes.](#error-handlingnninitial-error-handling-framework-with-standardized-error-codes)
+- [Monitoring and Observability\\nThis module provides metrics, logging, tracing, alerting, and dashboards for system health.](#monitoring-and-observabilitynthis-module-provides-metrics-logging-tracing-alerting-and-dashboards-for-system-health)
+  - [Integration Testing\\nA new integration testing framework validates module interactions and performance.](#integration-testingna-new-integration-testing-framework-validates-module-interactions-and-performance)
+- [API Documentation\\n\\nRun `python scripts/api_doc_generator.py` to generate HTML, Markdown, PDF, OpenAPI specs, Postman collections, and playground configs for all modules.](#api-documentationnnrun-python-scriptsapi_doc_generatorpy-to-generate-html-markdown-pdf-openapi-specs-postman-collections-and-playground-configs-for-all-modules)
+- [API Documentation\\n\\nAutomated documentation generation and interactive explorer are available under scripts/api\_doc\_generator.py and scripts/api\_explorer.py.](#api-documentationnnautomated-documentation-generation-and-interactive-explorer-are-available-under-scriptsapi_doc_generatorpy-and-scriptsapi_explorerpy)
+  - [gRPC Client Resilience\\n\\nCombined retry, circuit breaking, and fallback utilities are available via the resilience interceptor. See pkg/grpc/client for details. (Refs #882)](#grpc-client-resiliencenncombined-retry-circuit-breaking-and-fallback-utilities-are-available-via-the-resilience-interceptor-see-pkggrpcclient-for-details-refs-882)
+- [CI/CD Pipeline\\n\\nComprehensive pipeline with multi-stage testing, quality gates, automated releases, environment management, and reporting.](#cicd-pipelinenncomprehensive-pipeline-with-multi-stage-testing-quality-gates-automated-releases-environment-management-and-reporting)
+  - [Error Handling\\nStandardized errors across modules with codes, wrapping, and monitoring.](#error-handlingnstandardized-errors-across-modules-with-codes-wrapping-and-monitoring)
+- [Monitoring\\nComprehensive collectors, alerts, exporters, and dashboards provide full observability.](#monitoringncomprehensive-collectors-alerts-exporters-and-dashboards-provide-full-observability)
+- [🤝 Community Guidelines](#-community-guidelines)
+  - [Auth Module Docs\\n\\nComprehensive authentication module documentation is available under docs/modules/auth.](#auth-module-docsnncomprehensive-authentication-module-documentation-is-available-under-docsmodulesauth)
+- [Documentation\\n\\nInitial module documentation skeleton is available under docs/modules/.](#documentationnninitial-module-documentation-skeleton-is-available-under-docsmodules)
+- [CI/CD Pipeline\\n\\nThis project now includes a security scanning workflow that runs `go vet` and `npm audit` during continuous integration.](#cicd-pipelinennthis-project-now-includes-a-security-scanning-workflow-that-runs-go-vet-and-npm-audit-during-continuous-integration)
+- [CI/CD Pipeline\\n\\nThis project includes an advanced CI/CD pipeline with multi-stage testing, quality gates, automated releases, and environment deployments.](#cicd-pipelinennthis-project-includes-an-advanced-cicd-pipeline-with-multi-stage-testing-quality-gates-automated-releases-and-environment-deployments)
+- [Microservice Templates\\n\\nUse `scripts/generate-microservice.sh` to scaffold a new service from templates like `basic-api-service` or `worker-service`.](#microservice-templatesnnuse-scriptsgenerate-microservicesh-to-scaffold-a-new-service-from-templates-like-basic-api-service-or-worker-service)
+- [Deployment Templates\\n\\nTODO: Add content for this section](#deployment-templatesnntodo-add-content-for-this-section)
+- [Integration Testing\\n\\nRun `go test ./test/integration/...` to execute integration tests across all modules.](#integration-testingnnrun-go-test-testintegration-to-execute-integration-tests-across-all-modules)
+- [Security Audit\\n\\nProvides audit tools, security policies, monitoring, and cryptographic utilities enabling comprehensive protection across auth, web, and queue modules.](#security-auditnnprovides-audit-tools-security-policies-monitoring-and-cryptographic-utilities-enabling-comprehensive-protection-across-auth-web-and-queue-modules)
+- [Web Module\\n\\nTODO: Add content for this section](#web-modulenntodo-add-content-for-this-section)
+- [Performance Testing\\nThe perf/ directory contains benchmarking, load, stress, and regression tools for all modules.](#performance-testingnthe-perf-directory-contains-benchmarking-load-stress-and-regression-tools-for-all-modules)
+- [Microservice Templates\\nTemplates for common service types are now available with a generation CLI.](#microservice-templatesntemplates-for-common-service-types-are-now-available-with-a-generation-cli)
+- [Security Module\\nProvides auditing, policies, monitoring, and tools for secure operations.](#security-modulenprovides-auditing-policies-monitoring-and-tools-for-secure-operations)
 
 ## 📚 Essential Documentation
 
@@ -93,7 +79,8 @@
 - **[Health Module Guide](docs/user/health-kubernetes.md)** - Production-ready
   health monitoring
 - **[Basic Examples](examples/)** - Working code examples for each module
-- **[Getting Started Examples](examples/getting-started/)** - Quick start projects
+- **[Getting Started Examples](examples/getting-started/)** - Quick start
+  projects
 
 ### For Developers
 
@@ -107,8 +94,8 @@
 GCommon is a comprehensive library of common Go modules designed for building
 robust, scalable applications. It provides consistent APIs across
 authentication, caching, configuration, database operations, health checking,
-logging, metrics, message queuing, and web services.
-This update introduces a security module for audits, policies, monitoring, and tools.
+logging, metrics, message queuing, and web services. This update introduces a
+security module for audits, policies, monitoring, and tools.
 
 ## 🚀 Quick Start
 
@@ -241,20 +228,20 @@ func main() {
 **🚀 MASSIVE PROTOBUF MILESTONE ACHIEVED**: All modules now have complete
 protobuf structure following 1-1-1 pattern
 
-| Module           | Proto Files | Completion | Ready for Production | gRPC Services | Recent Progress                            |
-| ---------------- | ----------- | ---------- | -------------------- | ------------- | ------------------------------------------ |
-| **Config**       | 155         | ✅ 100%     | 🔄 Proto Complete     | 🔄 In Progress | **✅ Complete 1-1-1 migration (155 files)** |
-| **Queue**        | 216         | ✅ 100%     | 🔄 Proto Complete     | 🔄 In Progress | **✅ Complete 1-1-1 migration (216 files)** |
-| **Metrics**      | 172         | ✅ 100%     | 🔄 Proto Complete     | 🔄 In Progress | **✅ Complete 1-1-1 migration (172 files)** |
-| **Auth**         | 172         | ✅ 100%     | 🔄 Proto Complete     | 🔄 In Progress | **✅ Complete 1-1-1 migration (172 files)** |
-| **Web**          | 224         | ✅ 100%     | 🔄 Proto Complete     | 🔄 In Progress | **✅ Complete 1-1-1 migration (224 files)** |
-| **Cache**        | 72          | ✅ 100%     | 🔄 Proto Complete     | 🔄 In Progress | **✅ Complete 1-1-1 migration (72 files)**  |
-| **Health**       | 35          | ✅ 100%     | ✅ Yes                | ✅ Complete    | **✅ Complete and production-ready**        |
-| **Common**       | 40          | ✅ 100%     | ✅ Yes                | ✅ Complete    | **✅ Foundation types complete**            |
-| **Database**     | 52          | ✅ 100%     | ✅ Yes                | ✅ Complete    | **✅ Complete and production-ready**        |
-| **Log**          | 14          | ✅ 100%     | ✅ Yes                | ✅ Complete    | **✅ Minimal implementation complete**      |
-| **Organization** | 80          | ✅ 100%     | 🔄 Proto Complete     | 🔄 In Progress | **✅ Team and tenant management**           |
-| **Notification** | 22          | ✅ 100%     | 🔄 Proto Complete     | 🔄 In Progress | **✅ Notification delivery system**         |
+| Module           | Proto Files | Completion | Ready for Production | gRPC Services  | Recent Progress                             |
+| ---------------- | ----------- | ---------- | -------------------- | -------------- | ------------------------------------------- |
+| **Config**       | 155         | ✅ 100%    | 🔄 Proto Complete    | 🔄 In Progress | **✅ Complete 1-1-1 migration (155 files)** |
+| **Queue**        | 216         | ✅ 100%    | 🔄 Proto Complete    | 🔄 In Progress | **✅ Complete 1-1-1 migration (216 files)** |
+| **Metrics**      | 172         | ✅ 100%    | 🔄 Proto Complete    | 🔄 In Progress | **✅ Complete 1-1-1 migration (172 files)** |
+| **Auth**         | 172         | ✅ 100%    | 🔄 Proto Complete    | 🔄 In Progress | **✅ Complete 1-1-1 migration (172 files)** |
+| **Web**          | 224         | ✅ 100%    | 🔄 Proto Complete    | 🔄 In Progress | **✅ Complete 1-1-1 migration (224 files)** |
+| **Cache**        | 72          | ✅ 100%    | 🔄 Proto Complete    | 🔄 In Progress | **✅ Complete 1-1-1 migration (72 files)**  |
+| **Health**       | 35          | ✅ 100%    | ✅ Yes               | ✅ Complete    | **✅ Complete and production-ready**        |
+| **Common**       | 40          | ✅ 100%    | ✅ Yes               | ✅ Complete    | **✅ Foundation types complete**            |
+| **Database**     | 52          | ✅ 100%    | ✅ Yes               | ✅ Complete    | **✅ Complete and production-ready**        |
+| **Log**          | 14          | ✅ 100%    | ✅ Yes               | ✅ Complete    | **✅ Minimal implementation complete**      |
+| **Organization** | 80          | ✅ 100%    | 🔄 Proto Complete    | 🔄 In Progress | **✅ Team and tenant management**           |
+| **Notification** | 22          | ✅ 100%    | 🔄 Proto Complete    | 🔄 In Progress | **✅ Notification delivery system**         |
 
 **📊 TOTAL: 1,254 protobuf files implemented** (up from ~754)
 
@@ -531,7 +518,9 @@ python3 /path/to/ghcommon/scripts/unified_github_project_manager_v2.py
 See `scripts/MIGRATION-NOTICE.md` for migration details.
 
 ### Recent Updates
-- Added standardized LogEntry struct for consistent structured logging across modules
+
+- Added standardized LogEntry struct for consistent structured logging across
+  modules
 
 - Implemented initial auth configuration and API key messages
 - Logging module migrated to 1-1-1 structure with 10 new protobuf files
@@ -552,35 +541,35 @@ See `scripts/MIGRATION-NOTICE.md` for migration details.
 
 ## Progress
 
-| Module           | Completion | Ready for Production | gRPC Services | Recent Progress                           |
-| ---------------- | ---------- | -------------------- | ------------- | ----------------------------------------- |
-| **Health**       | ✅ 100%     | ✅ Yes                | ✅ Complete    | **✅ Complete 1-1-1 migration (36 types)** |
-| **Common**       | ✅ 100%     | ✅ Yes                | ✅ Complete    | **✅ 40 shared types implemented**         |
-| **Database**     | ✅ 100%     | ✅ Yes                | ✅ Complete    | **✅ Complete 1-1-1 migration (52 types)** |
-| **Log**          | ✅ 100%     | ✅ Yes                | ✅ Complete    | **✅ Minimal logging implementation**      |
-| **Auth**         | 🔄 13.5%    | ⚠️ Partial            | 🔄 Partial     | **🔄 17/126 files implemented**            |
-| **Cache**        | 🔄 18.2%    | ❌ No                 | 🔄 In Progress | **🔄 8/44 files implemented**              |
-| **Config**       | 🔄 13.0%    | ❌ No                 | ❌ Planned     | **🔄 3/23 files implemented**              |
-| **Notification** | ✅ 100%     | ✅ Yes                | ✅ Complete    | **✅ Notification service implemented**    |
-| **Metrics**      | 🔄 2.1%     | ❌ No                 | 🔄 In Progress | **❌ 95/97 files need implementation**     |
-| **Queue**        | 🔄 1.1%     | ❌ No                 | ❌ Planned     | **❌ 175/177 files need implementation**   |
-| **Web**          | 🔄 1.1%     | ❌ No                 | ❌ Planned     | **❌ 176/178 files need implementation**   |
+| Module           | Completion | Ready for Production | gRPC Services  | Recent Progress                            |
+| ---------------- | ---------- | -------------------- | -------------- | ------------------------------------------ |
+| **Health**       | ✅ 100%    | ✅ Yes               | ✅ Complete    | **✅ Complete 1-1-1 migration (36 types)** |
+| **Common**       | ✅ 100%    | ✅ Yes               | ✅ Complete    | **✅ 40 shared types implemented**         |
+| **Database**     | ✅ 100%    | ✅ Yes               | ✅ Complete    | **✅ Complete 1-1-1 migration (52 types)** |
+| **Log**          | ✅ 100%    | ✅ Yes               | ✅ Complete    | **✅ Minimal logging implementation**      |
+| **Auth**         | 🔄 13.5%   | ⚠️ Partial           | 🔄 Partial     | **🔄 17/126 files implemented**            |
+| **Cache**        | 🔄 18.2%   | ❌ No                | 🔄 In Progress | **🔄 8/44 files implemented**              |
+| **Config**       | 🔄 13.0%   | ❌ No                | ❌ Planned     | **🔄 3/23 files implemented**              |
+| **Notification** | ✅ 100%    | ✅ Yes               | ✅ Complete    | **✅ Notification service implemented**    |
+| **Metrics**      | 🔄 2.1%    | ❌ No                | 🔄 In Progress | **❌ 95/97 files need implementation**     |
+| **Queue**        | 🔄 1.1%    | ❌ No                | ❌ Planned     | **❌ 175/177 files need implementation**   |
+| **Web**          | 🔄 1.1%    | ❌ No                | ❌ Planned     | **❌ 176/178 files need implementation**   |
 
 ## 📦 Current Module Status
 
-| Module           | Completion | Ready for Production | gRPC Services | Recent Progress                           |
-| ---------------- | ---------- | -------------------- | ------------- | ----------------------------------------- |
-| **Health**       | ✅ 100%     | ✅ Yes                | ✅ Complete    | **✅ Complete 1-1-1 migration (36 types)** |
-| **Common**       | ✅ 100%     | ✅ Yes                | ✅ Complete    | **✅ 40 shared types implemented**         |
-| **Database**     | ✅ 100%     | ✅ Yes                | ✅ Complete    | **✅ Complete 1-1-1 migration (52 types)** |
-| **Log**          | ✅ 100%     | ✅ Yes                | ✅ Complete    | **✅ Minimal logging implementation**      |
-| **Auth**         | 🔄 13.5%    | ⚠️ Partial            | 🔄 Partial     | **🔄 17/126 files implemented**            |
-| **Cache**        | ✅ 100%     | ✅ Yes                | ✅ Complete    | **✅ 44/44 files implemented**             |
-| **Config**       | 🔄 13.0%    | ❌ No                 | ❌ Planned     | **🔄 3/23 files implemented**              |
-| **Notification** | 🔄 25%      | ❌ No                 | ❌ Planned     | **🔄 Initial message types defined**       |
-| **Metrics**      | 🔄 2.1%     | ❌ No                 | 🔄 In Progress | **❌ 95/97 files need implementation**     |
-| **Queue**        | 🔄 1.1%     | ❌ No                 | ❌ Planned     | **❌ 175/177 files need implementation**   |
-| **Web**          | 🔄 1.1%     | ❌ No                 | ❌ Planned     | **❌ 176/178 files need implementation**   |
+| Module           | Completion | Ready for Production | gRPC Services  | Recent Progress                            |
+| ---------------- | ---------- | -------------------- | -------------- | ------------------------------------------ |
+| **Health**       | ✅ 100%    | ✅ Yes               | ✅ Complete    | **✅ Complete 1-1-1 migration (36 types)** |
+| **Common**       | ✅ 100%    | ✅ Yes               | ✅ Complete    | **✅ 40 shared types implemented**         |
+| **Database**     | ✅ 100%    | ✅ Yes               | ✅ Complete    | **✅ Complete 1-1-1 migration (52 types)** |
+| **Log**          | ✅ 100%    | ✅ Yes               | ✅ Complete    | **✅ Minimal logging implementation**      |
+| **Auth**         | 🔄 13.5%   | ⚠️ Partial           | 🔄 Partial     | **🔄 17/126 files implemented**            |
+| **Cache**        | ✅ 100%    | ✅ Yes               | ✅ Complete    | **✅ 44/44 files implemented**             |
+| **Config**       | 🔄 13.0%   | ❌ No                | ❌ Planned     | **🔄 3/23 files implemented**              |
+| **Notification** | 🔄 25%     | ❌ No                | ❌ Planned     | **🔄 Initial message types defined**       |
+| **Metrics**      | 🔄 2.1%    | ❌ No                | 🔄 In Progress | **❌ 95/97 files need implementation**     |
+| **Queue**        | 🔄 1.1%    | ❌ No                | ❌ Planned     | **❌ 175/177 files need implementation**   |
+| **Web**          | 🔄 1.1%    | ❌ No                | ❌ Planned     | **❌ 176/178 files need implementation**   |
 
 **⚠️ Development Status**: This project is under active development. Only the
 Health, Common, Database, and Cache modules are production-ready.
@@ -612,8 +601,8 @@ protobuf messages added
 
 Common module protobufs verified complete (July 28, 2025).
 
-It now supports a plugin architecture for custom integrations.
-Provides SDK, security features, and example plugins for extensibility.
+It now supports a plugin architecture for custom integrations. Provides SDK,
+security features, and example plugins for extensibility.
 
 ## Dependency Management
 
@@ -621,44 +610,80 @@ This project includes automated dependency auditing and optimization scripts.
 
 ## Documentation
 
-Comprehensive documentation for all modules is available under the docs/ directory, featuring module overviews, API references, guides, examples, tutorials, and reference materials.
+Comprehensive documentation for all modules is available under the docs/
+directory, featuring module overviews, API references, guides, examples,
+tutorials, and reference materials.
 
 ## SDK Generation\n\nInitial scaffolding for multi-language client SDK generation. Further implementation required.
+
 ## Examples and Tutorials\n\nTODO: Add content for this section
+
 ## Client SDKs\n\nTODO: Add content for this section
+
 ## Deployment
 
 - **Docker**: Multi-stage build example in [deploy/docker](deploy/docker)
 - **Kubernetes**: Example manifest in [deploy/kubernetes](deploy/kubernetes)
+
 ### Advanced Deployment\n\n- **Helm Charts**: Configurable Helm chart in [deploy/helm](deploy/helm)\n- **Automation**: GitOps and CI/CD templates in [deploy/automation](deploy/automation)\n- **Monitoring**: Prometheus, logging, and tracing configs in [deploy/kubernetes/monitoring](deploy/kubernetes/monitoring)
+
 ## Error Handling\n\nInitial error handling framework with standardized error codes.
+
 ## Monitoring and Observability\nThis module provides metrics, logging, tracing, alerting, and dashboards for system health.
+
 Add dependency audit utility with license checks.
+
 ### Integration Testing\nA new integration testing framework validates module interactions and performance.
-- Added fully functional in-memory metrics provider supporting counters, gauges, histograms, summaries, and timers
-Added preliminary CI/CD pipeline infrastructure skeleton
+
+- Added fully functional in-memory metrics provider supporting counters, gauges,
+  histograms, summaries, and timers Added preliminary CI/CD pipeline
+  infrastructure skeleton
+
 ## API Documentation\n\nRun `python scripts/api_doc_generator.py` to generate HTML, Markdown, PDF, OpenAPI specs, Postman collections, and playground configs for all modules.
+
 ## API Documentation\n\nAutomated documentation generation and interactive explorer are available under scripts/api_doc_generator.py and scripts/api_explorer.py.
+
 ### gRPC Client Resilience\n\nCombined retry, circuit breaking, and fallback utilities are available via the resilience interceptor. See pkg/grpc/client for details. (Refs #882)
+
 ## CI/CD Pipeline\n\nComprehensive pipeline with multi-stage testing, quality gates, automated releases, environment management, and reporting.
+
 ### Error Handling\nStandardized errors across modules with codes, wrapping, and monitoring.
+
 ## Monitoring\nComprehensive collectors, alerts, exporters, and dashboards provide full observability.
+
 ## 🤝 Community Guidelines
 
-Please read our [Code of Conduct](CODE_OF_CONDUCT.md) to understand expected behavior.
+Please read our [Code of Conduct](CODE_OF_CONDUCT.md) to understand expected
+behavior.
+
 ### Auth Module Docs\n\nComprehensive authentication module documentation is available under docs/modules/auth.
+
 ## Documentation\n\nInitial module documentation skeleton is available under docs/modules/.
-- **[Production Readiness Checklist](docs/production-readiness-checklist.md)** - Module readiness criteria and assessments
+
+- **[Production Readiness Checklist](docs/production-readiness-checklist.md)** -
+  Module readiness criteria and assessments
+
 ## CI/CD Pipeline\n\nThis project now includes a security scanning workflow that runs `go vet` and `npm audit` during continuous integration.
+
 ## CI/CD Pipeline\n\nThis project includes an advanced CI/CD pipeline with multi-stage testing, quality gates, automated releases, and environment deployments.
+
 ## Microservice Templates\n\nUse `scripts/generate-microservice.sh` to scaffold a new service from templates like `basic-api-service` or `worker-service`.
+
 Notification module service layer implemented with multi-channel gRPC services.
+
 ## Deployment Templates\n\nTODO: Add content for this section
+
 ## Integration Testing\n\nRun `go test ./test/integration/...` to execute integration tests across all modules.
+
 ## Security Audit\n\nProvides audit tools, security policies, monitoring, and cryptographic utilities enabling comprehensive protection across auth, web, and queue modules.
+
 ## Web Module\n\nTODO: Add content for this section
-- Added gRPC server and client for database migrations
-\n## Documentation System\nPlaceholder for module documentation system.
+
+- Added gRPC server and client for database migrations \n## Documentation
+  System\nPlaceholder for module documentation system.
+
 ## Performance Testing\nThe perf/ directory contains benchmarking, load, stress, and regression tools for all modules.
+
 ## Microservice Templates\nTemplates for common service types are now available with a generation CLI.
+
 ## Security Module\nProvides auditing, policies, monitoring, and tools for secure operations.

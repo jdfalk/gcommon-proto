@@ -5,5 +5,4 @@
 scrape_configs:
   - job_name: basic-api-service
     static_configs:
-      - targets: ['localhost:9090']
-
+      - targets: ["localhost:9090"]

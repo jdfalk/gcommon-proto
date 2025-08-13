@@ -16,8 +16,7 @@
     "title": "Web: implement session management protobufs",
     "body": "Implement SessionConfig, SessionData messages and session CRUD request/response protobufs.",
     "labels": ["module:web", "type:protobuf", "enhancement"]
-  }
-  ,
+  },
   {
     "action": "create",
     "title": "Examples: add module tutorials",

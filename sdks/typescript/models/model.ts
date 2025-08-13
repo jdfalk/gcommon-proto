@@ -6,7 +6,7 @@ export class ExampleModel {
   constructor(
     public id: string,
     public name: string,
-    public metadata: Record<string, string> = {},
+    public metadata: Record<string, string> = {}
   ) {}
 
   validate(): void {
