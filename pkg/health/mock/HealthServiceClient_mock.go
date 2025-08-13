@@ -122,6 +122,89 @@ func (_c *MockHealthServiceClient_Check_Call) RunAndReturn(run func(ctx context.
 	return _c
 }
 
+// CheckAll provides a mock function for the type MockHealthServiceClient
+func (_mock *MockHealthServiceClient) CheckAll(ctx context.Context, in *proto.HealthCheckAllRequest, opts ...grpc.CallOption) (*proto.HealthCheckAllResponse, error) {
+	var tmpRet mock.Arguments
+	if len(opts) > 0 {
+		tmpRet = _mock.Called(ctx, in, opts)
+	} else {
+		tmpRet = _mock.Called(ctx, in)
+	}
+	ret := tmpRet
+
+	if len(ret) == 0 {
+		panic("no return value specified for CheckAll")
+	}
+
+	var r0 *proto.HealthCheckAllResponse
+	var r1 error
+	if returnFunc, ok := ret.Get(0).(func(context.Context, *proto.HealthCheckAllRequest, ...grpc.CallOption) (*proto.HealthCheckAllResponse, error)); ok {
+		return returnFunc(ctx, in, opts...)
+	}
+	if returnFunc, ok := ret.Get(0).(func(context.Context, *proto.HealthCheckAllRequest, ...grpc.CallOption) *proto.HealthCheckAllResponse); ok {
+		r0 = returnFunc(ctx, in, opts...)
+	} else {
+		if ret.Get(0) != nil {
+			r0 = ret.Get(0).(*proto.HealthCheckAllResponse)
+		}
+	}
+	if returnFunc, ok := ret.Get(1).(func(context.Context, *proto.HealthCheckAllRequest, ...grpc.CallOption) error); ok {
+		r1 = returnFunc(ctx, in, opts...)
+	} else {
+		r1 = ret.Error(1)
+	}
+	return r0, r1
+}
+
+// MockHealthServiceClient_CheckAll_Call is a *mock.Call that shadows Run/Return methods with type explicit version for method 'CheckAll'
+type MockHealthServiceClient_CheckAll_Call struct {
+	*mock.Call
+}
+
+// CheckAll is a helper method to define mock.On call
+//   - ctx context.Context
+//   - in *proto.HealthCheckAllRequest
+//   - opts ...grpc.CallOption
+func (_e *MockHealthServiceClient_Expecter) CheckAll(ctx interface{}, in interface{}, opts ...interface{}) *MockHealthServiceClient_CheckAll_Call {
+	return &MockHealthServiceClient_CheckAll_Call{Call: _e.mock.On("CheckAll",
+		append([]interface{}{ctx, in}, opts...)...)}
+}
+
+func (_c *MockHealthServiceClient_CheckAll_Call) Run(run func(ctx context.Context, in *proto.HealthCheckAllRequest, opts ...grpc.CallOption)) *MockHealthServiceClient_CheckAll_Call {
+	_c.Call.Run(func(args mock.Arguments) {
+		var arg0 context.Context
+		if args[0] != nil {
+			arg0 = args[0].(context.Context)
+		}
+		var arg1 *proto.HealthCheckAllRequest
+		if args[1] != nil {
+			arg1 = args[1].(*proto.HealthCheckAllRequest)
+		}
+		var arg2 []grpc.CallOption
+		var variadicArgs []grpc.CallOption
+		if len(args) > 2 {
+			variadicArgs = args[2].([]grpc.CallOption)
+		}
+		arg2 = variadicArgs
+		run(
+			arg0,
+			arg1,
+			arg2...,
+		)
+	})
+	return _c
+}
+
+func (_c *MockHealthServiceClient_CheckAll_Call) Return(healthCheckAllResponse *proto.HealthCheckAllResponse, err error) *MockHealthServiceClient_CheckAll_Call {
+	_c.Call.Return(healthCheckAllResponse, err)
+	return _c
+}
+
+func (_c *MockHealthServiceClient_CheckAll_Call) RunAndReturn(run func(ctx context.Context, in *proto.HealthCheckAllRequest, opts ...grpc.CallOption) (*proto.HealthCheckAllResponse, error)) *MockHealthServiceClient_CheckAll_Call {
+	_c.Call.Return(run)
+	return _c
+}
+
 // GetHealthMetrics provides a mock function for the type MockHealthServiceClient
 func (_mock *MockHealthServiceClient) GetHealthMetrics(ctx context.Context, in *proto.GetHealthMetricsRequest, opts ...grpc.CallOption) (*proto.GetHealthMetricsResponse, error) {
 	var tmpRet mock.Arguments
