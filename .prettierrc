@@ -12,7 +12,15 @@
   "overrides": [
     {
       "files": "*.md",
-      "options": { "proseWrap": "always", "printWidth": 80 }
+      "options": { "proseWrap": "always", "printWidth": 240 }
+    },
+    {
+      "files": ["AGENTS.md"],
+      "options": { "proseWrap": "preserve", "printWidth": 240 }
+    },
+    {
+      "files": ["CHANGELOG.md"],
+      "options": { "proseWrap": "preserve", "printWidth": 240 }
     },
     {
       "files": ["*.yaml", "*.yml"],
