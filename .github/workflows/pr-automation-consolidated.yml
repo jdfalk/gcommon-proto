@@ -253,6 +253,7 @@ jobs:
         uses: actions/github-script@v7
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
+          result-encoding: string
           script: |
             const fs = require('fs');
             const path = require('path');
@@ -261,20 +262,20 @@ jobs:
             const scriptPath = path.join(process.env.GITHUB_WORKSPACE, '.github/scripts/find-conflicted-prs.js');
             const { findConflictedPRs } = require(scriptPath);
             
-            await findConflictedPRs(github, context, core);
+            const result = await findConflictedPRs(github, context, core);
+            return JSON.stringify(result);
 
       - name: Process conflicted PRs
+        if: steps.find-conflicts.outputs.result != '[]'
         uses: actions/github-script@v7
-        env:
-          CONFLICTED_PRS: ${{ steps.find-conflicts.outputs.conflicted_prs }}
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
           script: |
             const fs = require('fs');
             const path = require('path');
             
-            // Skip if no conflicts found
-            const conflictedPRsStr = process.env.CONFLICTED_PRS;
+            // Get the result from the previous step
+            const conflictedPRsStr = '${{ steps.find-conflicts.outputs.result }}';
             if (!conflictedPRsStr || conflictedPRsStr === '[]') {
               console.log('No conflicted PRs found, skipping...');
               return;
