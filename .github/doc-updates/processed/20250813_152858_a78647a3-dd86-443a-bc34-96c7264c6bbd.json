@@ -1,0 +1,16 @@
+{
+  "file": "CHANGELOG.md",
+  "mode": "changelog-entry",
+  "content": "### Added\\n- Scaffold dependency optimization, security scanning, version policy, and metrics tools for Task 18",
+  "guid": "a78647a3-dd86-443a-bc34-96c7264c6bbd",
+  "created_at": "2025-08-10T14:40:02Z",
+  "options": {
+    "section": null,
+    "after": null,
+    "before": null,
+    "task_id": null,
+    "badge_name": null,
+    "priority": null,
+    "category": null
+  }
+}

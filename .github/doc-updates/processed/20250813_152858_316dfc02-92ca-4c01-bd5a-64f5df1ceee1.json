@@ -1,0 +1,16 @@
+{
+  "file": "CHANGELOG.md",
+  "mode": "changelog-entry",
+  "content": "### Added\n\n- Added microservice templates and generator",
+  "guid": "316dfc02-92ca-4c01-bd5a-64f5df1ceee1",
+  "created_at": "2025-08-11T01:26:54Z",
+  "options": {
+    "section": null,
+    "after": null,
+    "before": null,
+    "task_id": null,
+    "badge_name": null,
+    "priority": null,
+    "category": null
+  }
+}

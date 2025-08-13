@@ -1,0 +1,16 @@
+{
+  "file": "tasks/09-integration-testing-framework.md",
+  "mode": "append",
+  "content": "## 📝 Implementation References\n\n- [test/integration/framework/setup.go](test/integration/framework/setup.go)\n- [test/integration/modules](test/integration/modules)\n- [test/integration/cross_module](test/integration/cross_module)\n- [test/integration/performance](test/integration/performance)\n- [test/e2e/scenarios/basic_test.go](test/e2e/scenarios/basic_test.go)\n- [test/e2e/workflows/full_workflow_test.go](test/e2e/workflows/full_workflow_test.go)",
+  "guid": "e02fc7b0-b8d5-4dcc-828a-3932902525be",
+  "created_at": "2025-08-11T15:41:54Z",
+  "options": {
+    "section": null,
+    "after": null,
+    "before": null,
+    "task_id": null,
+    "badge_name": null,
+    "priority": null,
+    "category": null
+  }
+}

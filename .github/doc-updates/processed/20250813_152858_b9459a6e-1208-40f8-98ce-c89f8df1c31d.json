@@ -1,0 +1,16 @@
+{
+  "file": "CHANGELOG.md",
+  "mode": "changelog-entry",
+  "content": "feat: unify gRPC server and service registration across modules",
+  "guid": "b9459a6e-1208-40f8-98ce-c89f8df1c31d",
+  "created_at": "2025-08-10T14:38:32Z",
+  "options": {
+    "section": null,
+    "after": null,
+    "before": null,
+    "task_id": null,
+    "badge_name": null,
+    "priority": null,
+    "category": null
+  }
+}

@@ -1,0 +1,16 @@
+{
+  "file": "TODO.md",
+  "mode": "task-add",
+  "content": "Implement full Config module service layer",
+  "guid": "9ac532e3-bfd3-481b-98ea-697aa81117f0",
+  "created_at": "2025-08-10T18:10:38Z",
+  "options": {
+    "section": null,
+    "after": null,
+    "before": null,
+    "task_id": null,
+    "badge_name": null,
+    "priority": null,
+    "category": null
+  }
+}

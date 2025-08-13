@@ -1,0 +1,16 @@
+{
+  "file": "CHANGELOG.md",
+  "mode": "changelog-entry",
+  "content": "### Added\n\n- Expand monitoring and observability with collectors, alerts, exporters, and dashboards",
+  "guid": "f0a8f7a1-5b71-4a96-8835-6d72abbbf530",
+  "created_at": "2025-08-10T12:54:47Z",
+  "options": {
+    "section": null,
+    "after": null,
+    "before": null,
+    "task_id": null,
+    "badge_name": null,
+    "priority": null,
+    "category": null
+  }
+}
