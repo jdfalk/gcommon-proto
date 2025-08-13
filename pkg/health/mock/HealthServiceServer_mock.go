@@ -107,6 +107,74 @@ func (_c *MockHealthServiceServer_Check_Call) RunAndReturn(run func(context1 con
 	return _c
 }
 
+// CheckAll provides a mock function for the type MockHealthServiceServer
+func (_mock *MockHealthServiceServer) CheckAll(context1 context.Context, healthCheckAllRequest *proto.HealthCheckAllRequest) (*proto.HealthCheckAllResponse, error) {
+	ret := _mock.Called(context1, healthCheckAllRequest)
+
+	if len(ret) == 0 {
+		panic("no return value specified for CheckAll")
+	}
+
+	var r0 *proto.HealthCheckAllResponse
+	var r1 error
+	if returnFunc, ok := ret.Get(0).(func(context.Context, *proto.HealthCheckAllRequest) (*proto.HealthCheckAllResponse, error)); ok {
+		return returnFunc(context1, healthCheckAllRequest)
+	}
+	if returnFunc, ok := ret.Get(0).(func(context.Context, *proto.HealthCheckAllRequest) *proto.HealthCheckAllResponse); ok {
+		r0 = returnFunc(context1, healthCheckAllRequest)
+	} else {
+		if ret.Get(0) != nil {
+			r0 = ret.Get(0).(*proto.HealthCheckAllResponse)
+		}
+	}
+	if returnFunc, ok := ret.Get(1).(func(context.Context, *proto.HealthCheckAllRequest) error); ok {
+		r1 = returnFunc(context1, healthCheckAllRequest)
+	} else {
+		r1 = ret.Error(1)
+	}
+	return r0, r1
+}
+
+// MockHealthServiceServer_CheckAll_Call is a *mock.Call that shadows Run/Return methods with type explicit version for method 'CheckAll'
+type MockHealthServiceServer_CheckAll_Call struct {
+	*mock.Call
+}
+
+// CheckAll is a helper method to define mock.On call
+//   - context1 context.Context
+//   - healthCheckAllRequest *proto.HealthCheckAllRequest
+func (_e *MockHealthServiceServer_Expecter) CheckAll(context1 interface{}, healthCheckAllRequest interface{}) *MockHealthServiceServer_CheckAll_Call {
+	return &MockHealthServiceServer_CheckAll_Call{Call: _e.mock.On("CheckAll", context1, healthCheckAllRequest)}
+}
+
+func (_c *MockHealthServiceServer_CheckAll_Call) Run(run func(context1 context.Context, healthCheckAllRequest *proto.HealthCheckAllRequest)) *MockHealthServiceServer_CheckAll_Call {
+	_c.Call.Run(func(args mock.Arguments) {
+		var arg0 context.Context
+		if args[0] != nil {
+			arg0 = args[0].(context.Context)
+		}
+		var arg1 *proto.HealthCheckAllRequest
+		if args[1] != nil {
+			arg1 = args[1].(*proto.HealthCheckAllRequest)
+		}
+		run(
+			arg0,
+			arg1,
+		)
+	})
+	return _c
+}
+
+func (_c *MockHealthServiceServer_CheckAll_Call) Return(healthCheckAllResponse *proto.HealthCheckAllResponse, err error) *MockHealthServiceServer_CheckAll_Call {
+	_c.Call.Return(healthCheckAllResponse, err)
+	return _c
+}
+
+func (_c *MockHealthServiceServer_CheckAll_Call) RunAndReturn(run func(context1 context.Context, healthCheckAllRequest *proto.HealthCheckAllRequest) (*proto.HealthCheckAllResponse, error)) *MockHealthServiceServer_CheckAll_Call {
+	_c.Call.Return(run)
+	return _c
+}
+
 // GetHealthMetrics provides a mock function for the type MockHealthServiceServer
 func (_mock *MockHealthServiceServer) GetHealthMetrics(context1 context.Context, getHealthMetricsRequest *proto.GetHealthMetricsRequest) (*proto.GetHealthMetricsResponse, error) {
 	ret := _mock.Called(context1, getHealthMetricsRequest)
