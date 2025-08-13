@@ -1,0 +1,16 @@
+{
+  "file": "CHANGELOG.md",
+  "mode": "changelog-entry",
+  "content": "### Fixed\n\n- Fixed create-issue-update script requiring GH_TOKEN or git remote",
+  "guid": "ad00a159-982a-4c06-a4f8-c3d1bf03e1a6",
+  "created_at": "2025-08-11T02:11:27Z",
+  "options": {
+    "section": null,
+    "after": null,
+    "before": null,
+    "task_id": null,
+    "badge_name": null,
+    "priority": null,
+    "category": null
+  }
+}

@@ -1,0 +1,16 @@
+{
+  "file": "TODO.md",
+  "mode": "task-add",
+  "content": "- [x] 🟡 **General**: Implement remaining auth providers and gRPC services",
+  "guid": "421ffc4f-8668-492b-ae86-a06a7f0edcc6",
+  "created_at": "2025-08-10T12:36:44Z",
+  "options": {
+    "section": null,
+    "after": null,
+    "before": null,
+    "task_id": null,
+    "badge_name": null,
+    "priority": null,
+    "category": null
+  }
+}

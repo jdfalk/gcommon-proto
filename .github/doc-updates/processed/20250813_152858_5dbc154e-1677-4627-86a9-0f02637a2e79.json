@@ -1,0 +1,16 @@
+{
+  "file": "README.md",
+  "mode": "append",
+  "content": "## API Documentation\\n\\nRun `python scripts/api_doc_generator.py` to generate HTML, Markdown, PDF, OpenAPI specs, Postman collections, and playground configs for all modules.",
+  "guid": "5dbc154e-1677-4627-86a9-0f02637a2e79",
+  "created_at": "2025-08-10T12:38:00Z",
+  "options": {
+    "section": null,
+    "after": null,
+    "before": null,
+    "task_id": null,
+    "badge_name": null,
+    "priority": null,
+    "category": null
+  }
+}

@@ -1,0 +1,16 @@
+{
+  "file": "pkg/queue/README.md",
+  "mode": "append",
+  "content": "# Queue Module\\n\\n## Provider Comparison\\n- Memory provider for development\\n- Redis provider for production\\n\\n## Job Scheduling Guide\\nDescribes how to schedule jobs using the Scheduler.\\n\\n## Dead Letter Queue Configuration\\nOverview of handling failed messages.\\n\\n## Performance Tuning\\nNotes on optimizing queue throughput.\\n\\n## Production Deployment\\nRecommendations for deploying queue services.",
+  "guid": "b140723a-2c43-4414-8c42-92a128d3ddd2",
+  "created_at": "2025-08-10T03:03:03Z",
+  "options": {
+    "section": null,
+    "after": null,
+    "before": null,
+    "task_id": null,
+    "badge_name": null,
+    "priority": null,
+    "category": null
+  }
+}

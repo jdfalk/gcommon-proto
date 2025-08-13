@@ -1,0 +1,16 @@
+{
+  "file": "README.md",
+  "mode": "append",
+  "content": "## Integration Testing\\n\\nRun `go test ./test/integration/...` to execute integration tests across all modules.",
+  "guid": "d2ec9140-6388-4063-938d-d9cb73582b1f",
+  "created_at": "2025-08-10T14:37:42Z",
+  "options": {
+    "section": null,
+    "after": null,
+    "before": null,
+    "task_id": null,
+    "badge_name": null,
+    "priority": null,
+    "category": null
+  }
+}

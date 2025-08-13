@@ -1,0 +1,16 @@
+{
+  "file": "CHANGELOG.md",
+  "mode": "changelog-entry",
+  "content": "### Added\n\n- Added monitoring infrastructure scaffolding",
+  "guid": "47c06239-fcb3-4ce0-8ab8-7e6af647d6d5",
+  "created_at": "2025-08-10T02:57:21Z",
+  "options": {
+    "section": null,
+    "after": null,
+    "before": null,
+    "task_id": null,
+    "badge_name": null,
+    "priority": null,
+    "category": null
+  }
+}

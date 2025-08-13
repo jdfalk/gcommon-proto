@@ -1,0 +1,16 @@
+{
+  "file": "CHANGELOG.md",
+  "mode": "changelog-entry",
+  "content": "### Added\n\n- Add API documentation generation scaffolding",
+  "guid": "3d9dbf5a-2bdf-40b7-a761-8910a01ba88f",
+  "created_at": "2025-08-11T15:34:48Z",
+  "options": {
+    "section": null,
+    "after": null,
+    "before": null,
+    "task_id": null,
+    "badge_name": null,
+    "priority": null,
+    "category": null
+  }
+}

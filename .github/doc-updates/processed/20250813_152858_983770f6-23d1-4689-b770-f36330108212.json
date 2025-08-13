@@ -1,0 +1,16 @@
+{
+  "file": "tasks/23-database-migration-system.md",
+  "mode": "replace-section",
+  "content": "## ✅ Definition of Done\n\n- [x] Migration framework implemented ([manager.go](../pkg/db/migration/manager.go), [executor.go](../pkg/db/migration/executor.go))\n- [x] Multi-database support complete ([executor_postgres.go](../pkg/db/migration/executor_postgres.go), [executor_sqlite.go](../pkg/db/migration/executor_sqlite.go), [executor_mysql.go](../pkg/db/migration/executor_mysql.go), [executor_cockroach.go](../pkg/db/migration/executor_cockroach.go))\n- [x] Rollback functionality working ([rollback.go](../pkg/db/migration/rollback.go))\n- [x] Migration validation implemented ([validation.go](../pkg/db/migration/validation.go))\n- [x] Documentation complete (this file)",
+  "guid": "983770f6-23d1-4689-b770-f36330108212",
+  "created_at": "2025-08-11T15:33:30Z",
+  "options": {
+    "section": "✅ Definition of Done",
+    "after": null,
+    "before": null,
+    "task_id": null,
+    "badge_name": null,
+    "priority": null,
+    "category": null
+  }
+}

@@ -1,0 +1,16 @@
+{
+  "file": "CHANGELOG.md",
+  "mode": "changelog-entry",
+  "content": "- Completed remaining auth module protobuf definitions",
+  "guid": "f3e25e0c-b8f8-48c3-94ca-ff3f10d2559c",
+  "created_at": "2025-08-11T15:34:45Z",
+  "options": {
+    "section": null,
+    "after": null,
+    "before": null,
+    "task_id": null,
+    "badge_name": null,
+    "priority": null,
+    "category": null
+  }
+}

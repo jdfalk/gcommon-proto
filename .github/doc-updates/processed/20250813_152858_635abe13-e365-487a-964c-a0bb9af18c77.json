@@ -1,0 +1,16 @@
+{
+  "file": "README.md",
+  "mode": "append",
+  "content": "### gRPC Client Resilience\\n\\nCombined retry, circuit breaking, and fallback utilities are available via the resilience interceptor. See pkg/grpc/client for details. (Refs #882)",
+  "guid": "635abe13-e365-487a-964c-a0bb9af18c77",
+  "created_at": "2025-08-11T15:36:12Z",
+  "options": {
+    "section": null,
+    "after": null,
+    "before": null,
+    "task_id": null,
+    "badge_name": null,
+    "priority": null,
+    "category": null
+  }
+}

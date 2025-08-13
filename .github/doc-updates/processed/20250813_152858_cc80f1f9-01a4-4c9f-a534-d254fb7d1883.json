@@ -1,0 +1,16 @@
+{
+  "file": "templates/worker-service/README.md",
+  "mode": "append",
+  "content": "# Worker Service Template\\n\\nBackground job processing scaffold.",
+  "guid": "cc80f1f9-01a4-4c9f-a534-d254fb7d1883",
+  "created_at": "2025-08-10T02:57:38Z",
+  "options": {
+    "section": null,
+    "after": null,
+    "before": null,
+    "task_id": null,
+    "badge_name": null,
+    "priority": null,
+    "category": null
+  }
+}

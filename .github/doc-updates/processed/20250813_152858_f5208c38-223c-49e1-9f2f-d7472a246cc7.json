@@ -1,0 +1,16 @@
+{
+  "file": "CHANGELOG.md",
+  "mode": "changelog-entry",
+  "content": "### Added\n\n- Add skeleton database migration framework",
+  "guid": "f5208c38-223c-49e1-9f2f-d7472a246cc7",
+  "created_at": "2025-08-10T02:56:06Z",
+  "options": {
+    "section": null,
+    "after": null,
+    "before": null,
+    "task_id": null,
+    "badge_name": null,
+    "priority": null,
+    "category": null
+  }
+}

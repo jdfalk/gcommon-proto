@@ -1,0 +1,16 @@
+{
+  "file": "CHANGELOG.md",
+  "mode": "changelog-entry",
+  "content": "### Added\n\n- Added gRPC client resilience interceptor combining retries and circuit breaking (Refs #882)",
+  "guid": "3844068a-1d3a-4ac1-b8f5-c8c4fd6ee8bc",
+  "created_at": "2025-08-11T15:36:08Z",
+  "options": {
+    "section": null,
+    "after": null,
+    "before": null,
+    "task_id": null,
+    "badge_name": null,
+    "priority": null,
+    "category": null
+  }
+}
