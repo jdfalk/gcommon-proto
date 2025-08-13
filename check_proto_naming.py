@@ -164,6 +164,7 @@ def main():
     print(f"Found {len(proto_files)} proto files to check\n")
 
     issues_found = 0
+    structural_issues = 0
     rename_commands = []
 
     # Group by module for better organization
@@ -179,33 +180,68 @@ def main():
         print("-" * 40)
 
         module_issues = 0
+        module_structural = 0
         for file_path in sorted(files):
             definitions = parse_proto_file(file_path)
             issues = check_filename_standards(file_path, definitions)
 
-            if issues:
-                issues_found += len(issues)
-                module_issues += len(issues)
-                print(f"❌ {file_path.relative_to(base_path)}")
-                for issue in issues:
-                    print(f"   • {issue}")
+            # Separate naming issues from structural issues
+            naming_issues = []
+            structural_file_issues = []
 
-                # Generate rename commands
-                commands = generate_rename_commands(file_path, definitions)
-                rename_commands.extend(commands)
+            for issue in issues:
+                if "violates 1-1-1 pattern" in issue or "No definitions found" in issue:
+                    structural_file_issues.append(issue)
+                else:
+                    naming_issues.append(issue)
+
+            if issues:
+                issues_found += len(naming_issues)
+                structural_issues += len(structural_file_issues)
+
+                print(f"❌ {file_path.relative_to(base_path)}")
+
+                if naming_issues:
+                    for issue in naming_issues:
+                        print(f"   📝 NAMING: {issue}")
+
+                if structural_file_issues:
+                    for issue in structural_file_issues:
+                        print(f"   🏗️  STRUCTURE: {issue}")
+
+                # Generate rename commands only for naming issues
+                if naming_issues:
+                    commands = generate_rename_commands(file_path, definitions)
+                    rename_commands.extend(commands)
                 print()
             else:
                 print(f"✅ {file_path.relative_to(base_path)}")
 
-        if module_issues == 0:
+        if module_issues == 0 and module_structural == 0:
             print("   All files in this module follow naming standards!")
         print()
 
     print("📊 SUMMARY:")
     print(f"Total files checked: {len(proto_files)}")
-    print(f"Issues found: {issues_found}")
+    print(f"Naming issues found: {issues_found}")
+    print(f"Structural issues found: {structural_issues}")
     print(f"Files needing rename: {len(rename_commands)}")
 
+    if structural_issues > 0:
+        print("\n🏗️  STRUCTURAL ISSUES:")
+        print(
+            f"   {structural_issues} files violate the 1-1-1 pattern or have no definitions"
+        )
+        print("   These need to be split or fixed manually")
+
+    if issues_found == 0 and structural_issues == 0:
+        print("\n✅ All proto files follow naming and structural standards!")
+    elif issues_found == 0:
+        print("\n✅ All proto files follow naming standards!")
+        print("⚠️  Some structural issues remain (see above)")
+    elif structural_issues == 0:
+        print("✅ All proto files follow structural standards!")
+        print("⚠️  Some naming issues remain (see below)")
     if rename_commands:
         print("\n🔧 RENAME COMMANDS:")
         print("Run these commands to fix naming issues:")
