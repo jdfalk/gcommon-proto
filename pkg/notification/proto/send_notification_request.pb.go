@@ -121,7 +121,7 @@ var File_pkg_notification_proto_send_notification_request_proto protoreflect.Fil
 
 const file_pkg_notification_proto_send_notification_request_proto_rawDesc = "" +
 	"\n" +
-	"6pkg/notification/proto/send_notification_request.proto\x12\x17gcommon.v1.notification\x1a!google/protobuf/go_features.proto\x1a1pkg/notification/proto/notification_message.proto\x1a'pkg/common/proto/request_metadata.proto\"\xab\x01\n" +
+	"6pkg/notification/proto/send_notification_request.proto\x12\x17gcommon.v1.notification\x1a!google/protobuf/go_features.proto\x1a'pkg/common/proto/request_metadata.proto\x1a1pkg/notification/proto/notification_message.proto\"\xab\x01\n" +
 	"\x17SendNotificationRequest\x12>\n" +
 	"\bmetadata\x18\x01 \x01(\v2\".gcommon.v1.common.RequestMetadataR\bmetadata\x12P\n" +
 	"\fnotification\x18\x02 \x01(\v2,.gcommon.v1.notification.NotificationMessageR\fnotificationB\xf3\x01\n" +

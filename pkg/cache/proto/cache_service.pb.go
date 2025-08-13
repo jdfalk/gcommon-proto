@@ -25,7 +25,7 @@ var File_pkg_cache_proto_cache_service_proto protoreflect.FileDescriptor
 
 const file_pkg_cache_proto_cache_service_proto_rawDesc = "" +
 	"\n" +
-	"#pkg/cache/proto/cache_service.proto\x12\x10gcommon.v1.cache\x1a!google/protobuf/go_features.proto\x1a#pkg/cache/proto/clear_request.proto\x1a$pkg/cache/proto/clear_response.proto\x1a'pkg/cache/proto/decrement_request.proto\x1a(pkg/cache/proto/decrement_response.proto\x1a-pkg/cache/proto/delete_multiple_request.proto\x1a.pkg/cache/proto/delete_multiple_response.proto\x1a$pkg/cache/proto/delete_request.proto\x1a%pkg/cache/proto/delete_response.proto\x1a$pkg/cache/proto/exists_request.proto\x1a%pkg/cache/proto/exists_response.proto\x1a#pkg/cache/proto/flush_request.proto\x1a$pkg/cache/proto/flush_response.proto\x1a*pkg/cache/proto/get_multiple_request.proto\x1a+pkg/cache/proto/get_multiple_response.proto\x1a!pkg/cache/proto/get_request.proto\x1a\"pkg/cache/proto/get_response.proto\x1a'pkg/cache/proto/get_stats_request.proto\x1a(pkg/cache/proto/get_stats_response.proto\x1a'pkg/cache/proto/increment_request.proto\x1a(pkg/cache/proto/increment_response.proto\x1a\"pkg/cache/proto/keys_request.proto\x1a#pkg/cache/proto/keys_response.proto\x1a*pkg/cache/proto/set_multiple_request.proto\x1a+pkg/cache/proto/set_multiple_response.proto\x1a!pkg/cache/proto/set_request.proto\x1a\"pkg/cache/proto/set_response.proto\x1a/pkg/cache/proto/touch_expiration_response.proto\x1a.pkg/cache/proto/touch_expiration_request.proto2\xa3\t\n" +
+	"#pkg/cache/proto/cache_service.proto\x12\x10gcommon.v1.cache\x1a!google/protobuf/go_features.proto\x1a#pkg/cache/proto/clear_request.proto\x1a$pkg/cache/proto/clear_response.proto\x1a'pkg/cache/proto/decrement_request.proto\x1a(pkg/cache/proto/decrement_response.proto\x1a-pkg/cache/proto/delete_multiple_request.proto\x1a.pkg/cache/proto/delete_multiple_response.proto\x1a$pkg/cache/proto/delete_request.proto\x1a%pkg/cache/proto/delete_response.proto\x1a$pkg/cache/proto/exists_request.proto\x1a%pkg/cache/proto/exists_response.proto\x1a#pkg/cache/proto/flush_request.proto\x1a$pkg/cache/proto/flush_response.proto\x1a*pkg/cache/proto/get_multiple_request.proto\x1a+pkg/cache/proto/get_multiple_response.proto\x1a!pkg/cache/proto/get_request.proto\x1a\"pkg/cache/proto/get_response.proto\x1a'pkg/cache/proto/get_stats_request.proto\x1a(pkg/cache/proto/get_stats_response.proto\x1a'pkg/cache/proto/increment_request.proto\x1a(pkg/cache/proto/increment_response.proto\x1a\"pkg/cache/proto/keys_request.proto\x1a#pkg/cache/proto/keys_response.proto\x1a*pkg/cache/proto/set_multiple_request.proto\x1a+pkg/cache/proto/set_multiple_response.proto\x1a!pkg/cache/proto/set_request.proto\x1a\"pkg/cache/proto/set_response.proto\x1a.pkg/cache/proto/touch_expiration_request.proto\x1a/pkg/cache/proto/touch_expiration_response.proto2\xa3\t\n" +
 	"\fCacheService\x12B\n" +
 	"\x03Get\x12\x1c.gcommon.v1.cache.GetRequest\x1a\x1d.gcommon.v1.cache.GetResponse\x12B\n" +
 	"\x03Set\x12\x1c.gcommon.v1.cache.SetRequest\x1a\x1d.gcommon.v1.cache.SetResponse\x12U\n" +
@@ -140,8 +140,8 @@ func file_pkg_cache_proto_cache_service_proto_init() {
 	file_pkg_cache_proto_set_multiple_response_proto_init()
 	file_pkg_cache_proto_set_request_proto_init()
 	file_pkg_cache_proto_set_response_proto_init()
-	file_pkg_cache_proto_touch_expiration_response_proto_init()
 	file_pkg_cache_proto_touch_expiration_request_proto_init()
+	file_pkg_cache_proto_touch_expiration_response_proto_init()
 	type x struct{}
 	out := protoimpl.TypeBuilder{
 		File: protoimpl.DescBuilder{

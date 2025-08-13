@@ -23,9 +23,10 @@ _sym_db = _symbol_database.Default()
 
 
 from google.protobuf import go_features_pb2 as google_dot_protobuf_dot_go__features__pb2
+from pkg.metrics.proto import error_type_count_pb2 as pkg_dot_metrics_dot_proto_dot_error__type__count__pb2
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n#pkg/metrics/proto/error_stats.proto\x12\x12gcommon.v1.metrics\x1a!google/protobuf/go_features.proto\"\xb4\x01\n\nErrorStats\x12!\n\x0ctotal_errors\x18\x01 \x01(\x03R\x0btotalErrors\x12\x1d\n\nerror_rate\x18\x02 \x01(\x01R\terrorRate\x12\x43\n\x0b\x65rror_types\x18\x03 \x03(\x0b\x32\".gcommon.v1.metrics.ErrorTypeCountR\nerrorTypes\x12\x1f\n\x0b\x65rror_trend\x18\x04 \x01(\tR\nerrorTrend\"e\n\x0e\x45rrorTypeCount\x12\x1d\n\nerror_type\x18\x01 \x01(\tR\terrorType\x12\x14\n\x05\x63ount\x18\x02 \x01(\x03R\x05\x63ount\x12\x1e\n\npercentage\x18\x03 \x01(\x01R\npercentageB\xc8\x01\n\x16\x63om.gcommon.v1.metricsB\x0f\x45rrorStatsProtoP\x01Z+github.com/jdfalk/gcommon/pkg/metrics/proto\xa2\x02\x03GVM\xaa\x02\x12Gcommon.V1.Metrics\xca\x02\x12Gcommon\\V1\\Metrics\xe2\x02\x1eGcommon\\V1\\Metrics\\GPBMetadata\xea\x02\x14Gcommon::V1::Metrics\x92\x03\x05\xd2>\x02\x10\x03\x62\x08\x65\x64itionsp\xe8\x07')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n#pkg/metrics/proto/error_stats.proto\x12\x12gcommon.v1.metrics\x1a!google/protobuf/go_features.proto\x1a(pkg/metrics/proto/error_type_count.proto\"\xbb\x01\n\x11MetricsErrorStats\x12!\n\x0ctotal_errors\x18\x01 \x01(\x03R\x0btotalErrors\x12\x1d\n\nerror_rate\x18\x02 \x01(\x01R\terrorRate\x12\x43\n\x0b\x65rror_types\x18\x03 \x03(\x0b\x32\".gcommon.v1.metrics.ErrorTypeCountR\nerrorTypes\x12\x1f\n\x0b\x65rror_trend\x18\x04 \x01(\tR\nerrorTrendB\xc8\x01\n\x16\x63om.gcommon.v1.metricsB\x0f\x45rrorStatsProtoP\x01Z+github.com/jdfalk/gcommon/pkg/metrics/proto\xa2\x02\x03GVM\xaa\x02\x12Gcommon.V1.Metrics\xca\x02\x12Gcommon\\V1\\Metrics\xe2\x02\x1eGcommon\\V1\\Metrics\\GPBMetadata\xea\x02\x14Gcommon::V1::Metrics\x92\x03\x05\xd2>\x02\x10\x03\x62\x08\x65\x64itionsp\xe8\x07')
 
 _globals = globals()
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, _globals)
@@ -33,8 +34,6 @@ _builder.BuildTopDescriptorsAndMessages(DESCRIPTOR, 'pkg.metrics.proto.error_sta
 if not _descriptor._USE_C_DESCRIPTORS:
   _globals['DESCRIPTOR']._loaded_options = None
   _globals['DESCRIPTOR']._serialized_options = b'\n\026com.gcommon.v1.metricsB\017ErrorStatsProtoP\001Z+github.com/jdfalk/gcommon/pkg/metrics/proto\242\002\003GVM\252\002\022Gcommon.V1.Metrics\312\002\022Gcommon\\V1\\Metrics\342\002\036Gcommon\\V1\\Metrics\\GPBMetadata\352\002\024Gcommon::V1::Metrics\222\003\005\322>\002\020\003'
-  _globals['_ERRORSTATS']._serialized_start=95
-  _globals['_ERRORSTATS']._serialized_end=275
-  _globals['_ERRORTYPECOUNT']._serialized_start=277
-  _globals['_ERRORTYPECOUNT']._serialized_end=378
+  _globals['_METRICSERRORSTATS']._serialized_start=137
+  _globals['_METRICSERRORSTATS']._serialized_end=324
 # @@protoc_insertion_point(module_scope)

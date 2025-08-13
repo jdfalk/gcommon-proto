@@ -24,15 +24,18 @@ _sym_db = _symbol_database.Default()
 
 from google.protobuf import duration_pb2 as google_dot_protobuf_dot_duration__pb2
 from google.protobuf import go_features_pb2 as google_dot_protobuf_dot_go__features__pb2
-from pkg.common.proto import sort_pb2 as pkg_dot_common_dot_proto_dot_sort__pb2
+from pkg.common.proto import sort_options_pb2 as pkg_dot_common_dot_proto_dot_sort__options__pb2
+from pkg.common.proto import time_range_pb2 as pkg_dot_common_dot_proto_dot_time__range__pb2
+from pkg.metrics.proto import aggregation_spec_pb2 as pkg_dot_metrics_dot_proto_dot_aggregation__spec__pb2
 from pkg.metrics.proto import aggregation_type_pb2 as pkg_dot_metrics_dot_proto_dot_aggregation__type__pb2
+from pkg.metrics.proto import group_by_spec_pb2 as pkg_dot_metrics_dot_proto_dot_group__by__spec__pb2
 from pkg.metrics.proto import metric_filter_pb2 as pkg_dot_metrics_dot_proto_dot_metric__filter__pb2
 from pkg.metrics.proto import query_operation_pb2 as pkg_dot_metrics_dot_proto_dot_query__operation__pb2
 from pkg.metrics.proto import time_range_pb2 as pkg_dot_metrics_dot_proto_dot_time__range__pb2
 from pkg.metrics.proto import timestamp_range_pb2 as pkg_dot_metrics_dot_proto_dot_timestamp__range__pb2
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n$pkg/metrics/proto/metric_query.proto\x12\x12gcommon.v1.metrics\x1a\x1egoogle/protobuf/duration.proto\x1a!google/protobuf/go_features.proto\x1a\x1bpkg/common/proto/sort.proto\x1a(pkg/metrics/proto/aggregation_type.proto\x1a%pkg/metrics/proto/metric_filter.proto\x1a\'pkg/metrics/proto/query_operation.proto\x1a\"pkg/metrics/proto/time_range.proto\x1a\'pkg/metrics/proto/timestamp_range.proto\"\xd1\x03\n\x0bMetricQuery\x12\x19\n\x08query_id\x18\x01 \x01(\tR\x07queryId\x12\x12\n\x04name\x18\x02 \x01(\tR\x04name\x12!\n\x0cquery_string\x18\x03 \x01(\tR\x0bqueryString\x12\x38\n\x06\x66ilter\x18\x04 \x01(\x0b\x32 .gcommon.v1.metrics.MetricFilterR\x06\x66ilter\x12>\n\x0btime_filter\x18\x05 \x01(\x0b\x32\x1d.gcommon.v1.metrics.TimeRangeR\ntimeFilter\x12G\n\x0c\x61ggregations\x18\x06 \x03(\x0b\x32#.gcommon.v1.metrics.AggregationSpecR\x0c\x61ggregations\x12:\n\x08group_by\x18\x07 \x03(\x0b\x32\x1f.gcommon.v1.metrics.GroupBySpecR\x07groupBy\x12\x43\n\rsort_criteria\x18\x08 \x03(\x0b\x32\x1e.gcommon.v1.common.SortOptionsR\x0csortCriteria\x12\x14\n\x05limit\x18\t \x01(\x05R\x05limit\x12\x16\n\x06offset\x18\n \x01(\x05R\x06offset\"\xed\x02\n\x0f\x41ggregationSpec\x12N\n\x10\x61ggregation_type\x18\x01 \x01(\x0e\x32#.gcommon.v1.metrics.AggregationTypeR\x0f\x61ggregationType\x12\x14\n\x05\x66ield\x18\x02 \x01(\tR\x05\x66ield\x12\x31\n\x06window\x18\x03 \x01(\x0b\x32\x19.google.protobuf.DurationR\x06window\x12-\n\x04step\x18\x04 \x01(\x0b\x32\x19.google.protobuf.DurationR\x04step\x12S\n\nparameters\x18\x05 \x03(\x0b\x32\x33.gcommon.v1.metrics.AggregationSpec.ParametersEntryR\nparameters\x1a=\n\x0fParametersEntry\x12\x10\n\x03key\x18\x01 \x01(\tR\x03key\x12\x14\n\x05value\x18\x02 \x01(\tR\x05value:\x02\x38\x01\"\x85\x01\n\x0bGroupBySpec\x12\x1d\n\nlabel_keys\x18\x01 \x03(\tR\tlabelKeys\x12\x38\n\ntime_group\x18\x02 \x01(\x0b\x32\x19.google.protobuf.DurationR\ttimeGroup\x12\x1d\n\nmax_groups\x18\x03 \x01(\x05R\tmaxGroups\"\x84\x02\n\tQueryPlan\x12\x19\n\x08query_id\x18\x01 \x01(\tR\x07queryId\x12H\n\x12\x65stimated_duration\x18\x02 \x01(\x0b\x32\x19.google.protobuf.DurationR\x11\x65stimatedDuration\x12\x32\n\x15\x65stimated_data_points\x18\x03 \x01(\x03R\x13\x65stimatedDataPoints\x12\x33\n\x05steps\x18\x04 \x03(\x0b\x32\x1d.gcommon.v1.metrics.QueryStepR\x05steps\x12)\n\x10storage_backends\x18\x05 \x03(\tR\x0fstorageBackends\"\xf8\x01\n\tQueryStep\x12\x17\n\x07step_id\x18\x01 \x01(\tR\x06stepId\x12@\n\toperation\x18\x02 \x01(\x0e\x32\".gcommon.v1.metrics.QueryOperationR\toperation\x12 \n\x0b\x64\x65scription\x18\x03 \x01(\tR\x0b\x64\x65scription\x12H\n\x12\x65stimated_duration\x18\x04 \x01(\x0b\x32\x19.google.protobuf.DurationR\x11\x65stimatedDuration\x12$\n\x0einput_step_ids\x18\x05 \x03(\tR\x0cinputStepIdsB\xc9\x01\n\x16\x63om.gcommon.v1.metricsB\x10MetricQueryProtoP\x01Z+github.com/jdfalk/gcommon/pkg/metrics/proto\xa2\x02\x03GVM\xaa\x02\x12Gcommon.V1.Metrics\xca\x02\x12Gcommon\\V1\\Metrics\xe2\x02\x1eGcommon\\V1\\Metrics\\GPBMetadata\xea\x02\x14Gcommon::V1::Metrics\x92\x03\x05\xd2>\x02\x10\x03\x62\x08\x65\x64itionsp\xe8\x07')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n$pkg/metrics/proto/metric_query.proto\x12\x12gcommon.v1.metrics\x1a\x1egoogle/protobuf/duration.proto\x1a!google/protobuf/go_features.proto\x1a#pkg/common/proto/sort_options.proto\x1a!pkg/common/proto/time_range.proto\x1a(pkg/metrics/proto/aggregation_spec.proto\x1a(pkg/metrics/proto/aggregation_type.proto\x1a%pkg/metrics/proto/group_by_spec.proto\x1a%pkg/metrics/proto/metric_filter.proto\x1a\'pkg/metrics/proto/query_operation.proto\x1a\"pkg/metrics/proto/time_range.proto\x1a\'pkg/metrics/proto/timestamp_range.proto\"\xd8\x03\n\x0bMetricQuery\x12\x19\n\x08query_id\x18\x01 \x01(\tR\x07queryId\x12\x12\n\x04name\x18\x02 \x01(\tR\x04name\x12!\n\x0cquery_string\x18\x03 \x01(\tR\x0bqueryString\x12\x38\n\x06\x66ilter\x18\x04 \x01(\x0b\x32 .gcommon.v1.metrics.MetricFilterR\x06\x66ilter\x12\x45\n\x0btime_filter\x18\x05 \x01(\x0b\x32$.gcommon.v1.metrics.MetricsTimeRangeR\ntimeFilter\x12G\n\x0c\x61ggregations\x18\x06 \x03(\x0b\x32#.gcommon.v1.metrics.AggregationSpecR\x0c\x61ggregations\x12:\n\x08group_by\x18\x07 \x03(\x0b\x32\x1f.gcommon.v1.metrics.GroupBySpecR\x07groupBy\x12\x43\n\rsort_criteria\x18\x08 \x03(\x0b\x32\x1e.gcommon.v1.common.SortOptionsR\x0csortCriteria\x12\x14\n\x05limit\x18\t \x01(\x05R\x05limit\x12\x16\n\x06offset\x18\n \x01(\x05R\x06offsetB\xc9\x01\n\x16\x63om.gcommon.v1.metricsB\x10MetricQueryProtoP\x01Z+github.com/jdfalk/gcommon/pkg/metrics/proto\xa2\x02\x03GVM\xaa\x02\x12Gcommon.V1.Metrics\xca\x02\x12Gcommon\\V1\\Metrics\xe2\x02\x1eGcommon\\V1\\Metrics\\GPBMetadata\xea\x02\x14Gcommon::V1::Metrics\x92\x03\x05\xd2>\x02\x10\x03\x62\x08\x65\x64itionsp\xe8\x07')
 
 _globals = globals()
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, _globals)
@@ -40,18 +43,6 @@ _builder.BuildTopDescriptorsAndMessages(DESCRIPTOR, 'pkg.metrics.proto.metric_qu
 if not _descriptor._USE_C_DESCRIPTORS:
   _globals['DESCRIPTOR']._loaded_options = None
   _globals['DESCRIPTOR']._serialized_options = b'\n\026com.gcommon.v1.metricsB\020MetricQueryProtoP\001Z+github.com/jdfalk/gcommon/pkg/metrics/proto\242\002\003GVM\252\002\022Gcommon.V1.Metrics\312\002\022Gcommon\\V1\\Metrics\342\002\036Gcommon\\V1\\Metrics\\GPBMetadata\352\002\024Gcommon::V1::Metrics\222\003\005\322>\002\020\003'
-  _globals['_AGGREGATIONSPEC_PARAMETERSENTRY']._loaded_options = None
-  _globals['_AGGREGATIONSPEC_PARAMETERSENTRY']._serialized_options = b'8\001'
-  _globals['_METRICQUERY']._serialized_start=356
-  _globals['_METRICQUERY']._serialized_end=821
-  _globals['_AGGREGATIONSPEC']._serialized_start=824
-  _globals['_AGGREGATIONSPEC']._serialized_end=1189
-  _globals['_AGGREGATIONSPEC_PARAMETERSENTRY']._serialized_start=1128
-  _globals['_AGGREGATIONSPEC_PARAMETERSENTRY']._serialized_end=1189
-  _globals['_GROUPBYSPEC']._serialized_start=1192
-  _globals['_GROUPBYSPEC']._serialized_end=1325
-  _globals['_QUERYPLAN']._serialized_start=1328
-  _globals['_QUERYPLAN']._serialized_end=1588
-  _globals['_QUERYSTEP']._serialized_start=1591
-  _globals['_QUERYSTEP']._serialized_end=1839
+  _globals['_METRICQUERY']._serialized_start=480
+  _globals['_METRICQUERY']._serialized_end=952
 # @@protoc_insertion_point(module_scope)

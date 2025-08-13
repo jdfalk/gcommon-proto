@@ -24,9 +24,10 @@ _sym_db = _symbol_database.Default()
 
 from google.protobuf import go_features_pb2 as google_dot_protobuf_dot_go__features__pb2
 from pkg.common.proto import response_metadata_pb2 as pkg_dot_common_dot_proto_dot_response__metadata__pb2
+from pkg.queue.proto import failed_ack_pb2 as pkg_dot_queue_dot_proto_dot_failed__ack__pb2
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n(pkg/queue/proto/batch_ack_response.proto\x12\x10gcommon.v1.queue\x1a!google/protobuf/go_features.proto\x1a(pkg/common/proto/response_metadata.proto\"\x98\x02\n\x10\x42\x61tchAckResponse\x12\x18\n\x07success\x18\x01 \x01(\x08R\x07success\x12-\n\x12\x61\x63knowledged_count\x18\x02 \x01(\x05R\x11\x61\x63knowledgedCount\x12!\n\x0c\x66\x61iled_count\x18\x03 \x01(\x05R\x0b\x66\x61iledCount\x12<\n\x0b\x66\x61iled_acks\x18\x04 \x03(\x0b\x32\x1b.gcommon.v1.queue.FailedAckR\nfailedAcks\x12?\n\x08metadata\x18\x05 \x01(\x0b\x32#.gcommon.v1.common.ResponseMetadataR\x08metadata\x12\x19\n\x08\x62\x61tch_id\x18\x06 \x01(\tR\x07\x62\x61tchId\"l\n\tFailedAck\x12\x1d\n\nmessage_id\x18\x01 \x01(\tR\tmessageId\x12!\n\x0c\x65rror_reason\x18\x02 \x01(\tR\x0b\x65rrorReason\x12\x1d\n\nerror_code\x18\x03 \x01(\tR\terrorCodeB\xc2\x01\n\x14\x63om.gcommon.v1.queueB\x15\x42\x61tchAckResponseProtoP\x01Z)github.com/jdfalk/gcommon/pkg/queue/proto\xa2\x02\x03GVQ\xaa\x02\x10Gcommon.V1.Queue\xca\x02\x10Gcommon\\V1\\Queue\xe2\x02\x1cGcommon\\V1\\Queue\\GPBMetadata\xea\x02\x12Gcommon::V1::Queue\x92\x03\x05\xd2>\x02\x10\x03\x62\x08\x65\x64itionsp\xe8\x07')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n(pkg/queue/proto/batch_ack_response.proto\x12\x10gcommon.v1.queue\x1a!google/protobuf/go_features.proto\x1a(pkg/common/proto/response_metadata.proto\x1a pkg/queue/proto/failed_ack.proto\"\x98\x02\n\x10\x42\x61tchAckResponse\x12\x18\n\x07success\x18\x01 \x01(\x08R\x07success\x12-\n\x12\x61\x63knowledged_count\x18\x02 \x01(\x05R\x11\x61\x63knowledgedCount\x12!\n\x0c\x66\x61iled_count\x18\x03 \x01(\x05R\x0b\x66\x61iledCount\x12<\n\x0b\x66\x61iled_acks\x18\x04 \x03(\x0b\x32\x1b.gcommon.v1.queue.FailedAckR\nfailedAcks\x12?\n\x08metadata\x18\x05 \x01(\x0b\x32#.gcommon.v1.common.ResponseMetadataR\x08metadata\x12\x19\n\x08\x62\x61tch_id\x18\x06 \x01(\tR\x07\x62\x61tchIdB\xc2\x01\n\x14\x63om.gcommon.v1.queueB\x15\x42\x61tchAckResponseProtoP\x01Z)github.com/jdfalk/gcommon/pkg/queue/proto\xa2\x02\x03GVQ\xaa\x02\x10Gcommon.V1.Queue\xca\x02\x10Gcommon\\V1\\Queue\xe2\x02\x1cGcommon\\V1\\Queue\\GPBMetadata\xea\x02\x12Gcommon::V1::Queue\x92\x03\x05\xd2>\x02\x10\x03\x62\x08\x65\x64itionsp\xe8\x07')
 
 _globals = globals()
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, _globals)
@@ -34,8 +35,6 @@ _builder.BuildTopDescriptorsAndMessages(DESCRIPTOR, 'pkg.queue.proto.batch_ack_r
 if not _descriptor._USE_C_DESCRIPTORS:
   _globals['DESCRIPTOR']._loaded_options = None
   _globals['DESCRIPTOR']._serialized_options = b'\n\024com.gcommon.v1.queueB\025BatchAckResponseProtoP\001Z)github.com/jdfalk/gcommon/pkg/queue/proto\242\002\003GVQ\252\002\020Gcommon.V1.Queue\312\002\020Gcommon\\V1\\Queue\342\002\034Gcommon\\V1\\Queue\\GPBMetadata\352\002\022Gcommon::V1::Queue\222\003\005\322>\002\020\003'
-  _globals['_BATCHACKRESPONSE']._serialized_start=140
-  _globals['_BATCHACKRESPONSE']._serialized_end=420
-  _globals['_FAILEDACK']._serialized_start=422
-  _globals['_FAILEDACK']._serialized_end=530
+  _globals['_BATCHACKRESPONSE']._serialized_start=174
+  _globals['_BATCHACKRESPONSE']._serialized_end=454
 # @@protoc_insertion_point(module_scope)

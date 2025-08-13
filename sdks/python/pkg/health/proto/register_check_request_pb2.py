@@ -23,11 +23,11 @@ _sym_db = _symbol_database.Default()
 
 
 from google.protobuf import go_features_pb2 as google_dot_protobuf_dot_go__features__pb2
-from pkg.metrics.proto import health_check_request_pb2 as pkg_dot_metrics_dot_proto_dot_health__check__request__pb2
 from pkg.common.proto import request_metadata_pb2 as pkg_dot_common_dot_proto_dot_request__metadata__pb2
+from pkg.metrics.proto import health_check_request_pb2 as pkg_dot_metrics_dot_proto_dot_health__check__request__pb2
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n-pkg/health/proto/register_check_request.proto\x12\x11gcommon.v1.health\x1a!google/protobuf/go_features.proto\x1a,pkg/metrics/proto/health_check_request.proto\x1a\'pkg/common/proto/request_metadata.proto\"\xb9\x01\n\x14RegisterCheckRequest\x12\x18\n\x07service\x18\x01 \x01(\tR\x07service\x12\x43\n\x05\x63heck\x18\x02 \x01(\x0b\x32-.gcommon.v1.metrics.MetricsHealthCheckRequestR\x05\x63heck\x12\x42\n\x08metadata\x18\x03 \x01(\x0b\x32\".gcommon.v1.common.RequestMetadataB\x02(\x01R\x08metadataB\xcc\x01\n\x15\x63om.gcommon.v1.healthB\x19RegisterCheckRequestProtoP\x01Z*github.com/jdfalk/gcommon/pkg/health/proto\xa2\x02\x03GVH\xaa\x02\x11Gcommon.V1.Health\xca\x02\x11Gcommon\\V1\\Health\xe2\x02\x1dGcommon\\V1\\Health\\GPBMetadata\xea\x02\x13Gcommon::V1::Health\x92\x03\x05\xd2>\x02\x10\x03\x62\x08\x65\x64itionsp\xe8\x07')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n-pkg/health/proto/register_check_request.proto\x12\x11gcommon.v1.health\x1a!google/protobuf/go_features.proto\x1a\'pkg/common/proto/request_metadata.proto\x1a,pkg/metrics/proto/health_check_request.proto\"\xb9\x01\n\x14RegisterCheckRequest\x12\x18\n\x07service\x18\x01 \x01(\tR\x07service\x12\x43\n\x05\x63heck\x18\x02 \x01(\x0b\x32-.gcommon.v1.metrics.MetricsHealthCheckRequestR\x05\x63heck\x12\x42\n\x08metadata\x18\x03 \x01(\x0b\x32\".gcommon.v1.common.RequestMetadataB\x02(\x01R\x08metadataB\xcc\x01\n\x15\x63om.gcommon.v1.healthB\x19RegisterCheckRequestProtoP\x01Z*github.com/jdfalk/gcommon/pkg/health/proto\xa2\x02\x03GVH\xaa\x02\x11Gcommon.V1.Health\xca\x02\x11Gcommon\\V1\\Health\xe2\x02\x1dGcommon\\V1\\Health\\GPBMetadata\xea\x02\x13Gcommon::V1::Health\x92\x03\x05\xd2>\x02\x10\x03\x62\x08\x65\x64itionsp\xe8\x07')
 
 _globals = globals()
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, _globals)

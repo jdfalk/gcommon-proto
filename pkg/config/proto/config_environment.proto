@@ -8,16 +8,6 @@ package gcommon.v1.config;
 
 import "google/protobuf/go_features.proto";
 import "google/protobuf/timestamp.proto";
-// Organization-scoped settings used by environments
-import "pkg/organization/proto/access_control.proto";
-import "pkg/organization/proto/resource_limits.proto";
-import "pkg/organization/proto/compliance_settings.proto";
-import "pkg/organization/proto/notification_settings.proto";
-
-// Metrics enums referenced by this message
-import "pkg/metrics/proto/health_status.proto";
-import "pkg/metrics/proto/retention_policy.proto";
-
 // Config-local types
 import "pkg/config/proto/approval_workflow.proto";
 import "pkg/config/proto/audit_settings.proto";
@@ -29,6 +19,14 @@ import "pkg/config/proto/environment_type.proto";
 import "pkg/config/proto/monitoring_config.proto";
 import "pkg/config/proto/promotion_rule.proto";
 import "pkg/config/proto/sync_settings.proto";
+// Metrics enums referenced by this message
+import "pkg/metrics/proto/health_status.proto";
+import "pkg/metrics/proto/retention_policy.proto";
+// Organization-scoped settings used by environments
+import "pkg/organization/proto/access_control.proto";
+import "pkg/organization/proto/compliance_settings.proto";
+import "pkg/organization/proto/notification_settings.proto";
+import "pkg/organization/proto/resource_limits.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
 option go_package = "github.com/jdfalk/gcommon/pkg/config/proto";

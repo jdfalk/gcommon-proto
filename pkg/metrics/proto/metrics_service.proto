@@ -44,8 +44,8 @@ service MetricsService {
   // Retrieve metrics data with filtering and aggregation
   rpc GetMetrics(MetricsGetMetricsRequest) returns (MetricsGetMetricsResponse);
 
-  // Stream metrics data in real-time
-  rpc StreamMetrics(StreamMetricsRequest) returns (stream MetricData);
+  // Stream real-time metrics data with configurable filters and options
+  rpc StreamMetrics(MetricsStreamMetricsRequest) returns (stream MetricData);
 
   // Register a new metric definition
   rpc RegisterMetric(RegisterMetricRequest) returns (RegisterMetricResponse);

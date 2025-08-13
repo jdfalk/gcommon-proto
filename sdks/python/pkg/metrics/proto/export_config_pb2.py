@@ -25,7 +25,7 @@ _sym_db = _symbol_database.Default()
 from google.protobuf import go_features_pb2 as google_dot_protobuf_dot_go__features__pb2
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n%pkg/metrics/proto/export_config.proto\x12\x12gcommon.v1.metrics\x1a!google/protobuf/go_features.proto\"\x8f\x01\n\x0c\x45xportConfig\x12\x18\n\x07\x65nabled\x18\x01 \x01(\x08R\x07\x65nabled\x12)\n\x10interval_seconds\x18\x02 \x01(\x05R\x0fintervalSeconds\x12\"\n\x0c\x64\x65stinations\x18\x03 \x03(\tR\x0c\x64\x65stinations\x12\x16\n\x06\x66ormat\x18\x04 \x01(\tR\x06\x66ormatB\xca\x01\n\x16\x63om.gcommon.v1.metricsB\x11\x45xportConfigProtoP\x01Z+github.com/jdfalk/gcommon/pkg/metrics/proto\xa2\x02\x03GVM\xaa\x02\x12Gcommon.V1.Metrics\xca\x02\x12Gcommon\\V1\\Metrics\xe2\x02\x1eGcommon\\V1\\Metrics\\GPBMetadata\xea\x02\x14Gcommon::V1::Metrics\x92\x03\x05\xd2>\x02\x10\x03\x62\x08\x65\x64itionsp\xe8\x07')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n%pkg/metrics/proto/export_config.proto\x12\x12gcommon.v1.metrics\x1a!google/protobuf/go_features.proto\"\x91\x05\n\x0c\x45xportConfig\x12 \n\x0b\x64\x65stination\x18\x01 \x01(\tR\x0b\x64\x65stination\x12\x16\n\x06\x66ormat\x18\x02 \x01(\tR\x06\x66ormat\x12+\n\x11\x66requency_seconds\x18\x03 \x01(\x05R\x10\x66requencySeconds\x12\x1a\n\x08\x63ompress\x18\x04 \x01(\x08R\x08\x63ompress\x12\x1d\n\nbatch_size\x18\x05 \x01(\x05R\tbatchSize\x12\'\n\x0ftimeout_seconds\x18\x06 \x01(\x05R\x0etimeoutSeconds\x12G\n\x07headers\x18\x07 \x03(\x0b\x32-.gcommon.v1.metrics.ExportConfig.HeadersEntryR\x07headers\x12Q\n\x0b\x61uth_config\x18\x08 \x03(\x0b\x32\x30.gcommon.v1.metrics.ExportConfig.AuthConfigEntryR\nauthConfig\x12I\n\x0cretry_config\x18\t \x01(\x0b\x32&.gcommon.v1.metrics.MetricsRetryConfigR\x0bretryConfig\x12)\n\x10include_patterns\x18\n \x03(\tR\x0fincludePatterns\x12)\n\x10\x65xclude_patterns\x18\x0b \x03(\tR\x0f\x65xcludePatterns\x1a:\n\x0cHeadersEntry\x12\x10\n\x03key\x18\x01 \x01(\tR\x03key\x12\x14\n\x05value\x18\x02 \x01(\tR\x05value:\x02\x38\x01\x1a=\n\x0f\x41uthConfigEntry\x12\x10\n\x03key\x18\x01 \x01(\tR\x03key\x12\x14\n\x05value\x18\x02 \x01(\tR\x05value:\x02\x38\x01\"\xc4\x01\n\x12MetricsRetryConfig\x12\x1f\n\x0bmax_retries\x18\x01 \x01(\x05R\nmaxRetries\x12\x32\n\x15initial_delay_seconds\x18\x02 \x01(\x05R\x13initialDelaySeconds\x12*\n\x11max_delay_seconds\x18\x03 \x01(\x05R\x0fmaxDelaySeconds\x12-\n\x12\x62\x61\x63koff_multiplier\x18\x04 \x01(\x01R\x11\x62\x61\x63koffMultiplierB\xca\x01\n\x16\x63om.gcommon.v1.metricsB\x11\x45xportConfigProtoP\x01Z+github.com/jdfalk/gcommon/pkg/metrics/proto\xa2\x02\x03GVM\xaa\x02\x12Gcommon.V1.Metrics\xca\x02\x12Gcommon\\V1\\Metrics\xe2\x02\x1eGcommon\\V1\\Metrics\\GPBMetadata\xea\x02\x14Gcommon::V1::Metrics\x92\x03\x05\xd2>\x02\x10\x03\x62\x08\x65\x64itionsp\xe8\x07')
 
 _globals = globals()
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, _globals)
@@ -33,6 +33,16 @@ _builder.BuildTopDescriptorsAndMessages(DESCRIPTOR, 'pkg.metrics.proto.export_co
 if not _descriptor._USE_C_DESCRIPTORS:
   _globals['DESCRIPTOR']._loaded_options = None
   _globals['DESCRIPTOR']._serialized_options = b'\n\026com.gcommon.v1.metricsB\021ExportConfigProtoP\001Z+github.com/jdfalk/gcommon/pkg/metrics/proto\242\002\003GVM\252\002\022Gcommon.V1.Metrics\312\002\022Gcommon\\V1\\Metrics\342\002\036Gcommon\\V1\\Metrics\\GPBMetadata\352\002\024Gcommon::V1::Metrics\222\003\005\322>\002\020\003'
+  _globals['_EXPORTCONFIG_HEADERSENTRY']._loaded_options = None
+  _globals['_EXPORTCONFIG_HEADERSENTRY']._serialized_options = b'8\001'
+  _globals['_EXPORTCONFIG_AUTHCONFIGENTRY']._loaded_options = None
+  _globals['_EXPORTCONFIG_AUTHCONFIGENTRY']._serialized_options = b'8\001'
   _globals['_EXPORTCONFIG']._serialized_start=97
-  _globals['_EXPORTCONFIG']._serialized_end=240
+  _globals['_EXPORTCONFIG']._serialized_end=754
+  _globals['_EXPORTCONFIG_HEADERSENTRY']._serialized_start=633
+  _globals['_EXPORTCONFIG_HEADERSENTRY']._serialized_end=691
+  _globals['_EXPORTCONFIG_AUTHCONFIGENTRY']._serialized_start=693
+  _globals['_EXPORTCONFIG_AUTHCONFIGENTRY']._serialized_end=754
+  _globals['_METRICSRETRYCONFIG']._serialized_start=757
+  _globals['_METRICSRETRYCONFIG']._serialized_end=953
 # @@protoc_insertion_point(module_scope)

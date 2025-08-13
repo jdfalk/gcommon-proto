@@ -2,3 +2,363 @@
 """Client and server classes corresponding to protobuf-defined services."""
 import grpc
 
+from pkg.queue.proto import dequeue_request_pb2 as pkg_dot_queue_dot_proto_dot_dequeue__request__pb2
+from pkg.queue.proto import dequeue_response_pb2 as pkg_dot_queue_dot_proto_dot_dequeue__response__pb2
+from pkg.queue.proto import enqueue_request_pb2 as pkg_dot_queue_dot_proto_dot_enqueue__request__pb2
+from pkg.queue.proto import enqueue_response_pb2 as pkg_dot_queue_dot_proto_dot_enqueue__response__pb2
+from pkg.queue.proto import get_queue_info_request_pb2 as pkg_dot_queue_dot_proto_dot_get__queue__info__request__pb2
+from pkg.queue.proto import get_queue_info_response_pb2 as pkg_dot_queue_dot_proto_dot_get__queue__info__response__pb2
+from pkg.queue.proto import get_queue_stats_request_pb2 as pkg_dot_queue_dot_proto_dot_get__queue__stats__request__pb2
+from pkg.queue.proto import get_queue_stats_response_pb2 as pkg_dot_queue_dot_proto_dot_get__queue__stats__response__pb2
+from pkg.queue.proto import peek_request_pb2 as pkg_dot_queue_dot_proto_dot_peek__request__pb2
+from pkg.queue.proto import peek_response_pb2 as pkg_dot_queue_dot_proto_dot_peek__response__pb2
+from pkg.queue.proto import publish_request_pb2 as pkg_dot_queue_dot_proto_dot_publish__request__pb2
+from pkg.queue.proto import publish_response_pb2 as pkg_dot_queue_dot_proto_dot_publish__response__pb2
+from pkg.queue.proto import subscribe_request_pb2 as pkg_dot_queue_dot_proto_dot_subscribe__request__pb2
+from pkg.queue.proto import subscribe_response_pb2 as pkg_dot_queue_dot_proto_dot_subscribe__response__pb2
+
+
+class QueueServiceStub(object):
+    """*
+    QueueService provides core queue operations for message handling,
+    task distribution, and asynchronous processing.
+    """
+
+    def __init__(self, channel):
+        """Constructor.
+
+        Args:
+            channel: A grpc.Channel.
+        """
+        self.Enqueue = channel.unary_unary(
+                '/gcommon.v1.queue.QueueService/Enqueue',
+                request_serializer=pkg_dot_queue_dot_proto_dot_enqueue__request__pb2.EnqueueRequest.SerializeToString,
+                response_deserializer=pkg_dot_queue_dot_proto_dot_enqueue__response__pb2.EnqueueResponse.FromString,
+                _registered_method=True)
+        self.Dequeue = channel.unary_unary(
+                '/gcommon.v1.queue.QueueService/Dequeue',
+                request_serializer=pkg_dot_queue_dot_proto_dot_dequeue__request__pb2.DequeueRequest.SerializeToString,
+                response_deserializer=pkg_dot_queue_dot_proto_dot_dequeue__response__pb2.DequeueResponse.FromString,
+                _registered_method=True)
+        self.Peek = channel.unary_unary(
+                '/gcommon.v1.queue.QueueService/Peek',
+                request_serializer=pkg_dot_queue_dot_proto_dot_peek__request__pb2.PeekRequest.SerializeToString,
+                response_deserializer=pkg_dot_queue_dot_proto_dot_peek__response__pb2.PeekResponse.FromString,
+                _registered_method=True)
+        self.GetQueueInfo = channel.unary_unary(
+                '/gcommon.v1.queue.QueueService/GetQueueInfo',
+                request_serializer=pkg_dot_queue_dot_proto_dot_get__queue__info__request__pb2.GetQueueInfoRequest.SerializeToString,
+                response_deserializer=pkg_dot_queue_dot_proto_dot_get__queue__info__response__pb2.GetQueueInfoResponse.FromString,
+                _registered_method=True)
+        self.GetQueueStats = channel.unary_unary(
+                '/gcommon.v1.queue.QueueService/GetQueueStats',
+                request_serializer=pkg_dot_queue_dot_proto_dot_get__queue__stats__request__pb2.GetQueueStatsRequest.SerializeToString,
+                response_deserializer=pkg_dot_queue_dot_proto_dot_get__queue__stats__response__pb2.GetQueueStatsResponse.FromString,
+                _registered_method=True)
+        self.Subscribe = channel.unary_stream(
+                '/gcommon.v1.queue.QueueService/Subscribe',
+                request_serializer=pkg_dot_queue_dot_proto_dot_subscribe__request__pb2.QueueSubscribeRequest.SerializeToString,
+                response_deserializer=pkg_dot_queue_dot_proto_dot_subscribe__response__pb2.SubscribeResponse.FromString,
+                _registered_method=True)
+        self.Publish = channel.unary_unary(
+                '/gcommon.v1.queue.QueueService/Publish',
+                request_serializer=pkg_dot_queue_dot_proto_dot_publish__request__pb2.QueuePublishRequest.SerializeToString,
+                response_deserializer=pkg_dot_queue_dot_proto_dot_publish__response__pb2.PublishResponse.FromString,
+                _registered_method=True)
+
+
+class QueueServiceServicer(object):
+    """*
+    QueueService provides core queue operations for message handling,
+    task distribution, and asynchronous processing.
+    """
+
+    def Enqueue(self, request, context):
+        """Enqueue a message or task
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def Dequeue(self, request, context):
+        """Dequeue a message or task
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def Peek(self, request, context):
+        """Peek at the next message without removing it
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def GetQueueInfo(self, request, context):
+        """Get information about a queue
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def GetQueueStats(self, request, context):
+        """Get queue statistics
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def Subscribe(self, request, context):
+        """Subscribe to queue messages (streaming)
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def Publish(self, request, context):
+        """Publish message to queue topic
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+
+def add_QueueServiceServicer_to_server(servicer, server):
+    rpc_method_handlers = {
+            'Enqueue': grpc.unary_unary_rpc_method_handler(
+                    servicer.Enqueue,
+                    request_deserializer=pkg_dot_queue_dot_proto_dot_enqueue__request__pb2.EnqueueRequest.FromString,
+                    response_serializer=pkg_dot_queue_dot_proto_dot_enqueue__response__pb2.EnqueueResponse.SerializeToString,
+            ),
+            'Dequeue': grpc.unary_unary_rpc_method_handler(
+                    servicer.Dequeue,
+                    request_deserializer=pkg_dot_queue_dot_proto_dot_dequeue__request__pb2.DequeueRequest.FromString,
+                    response_serializer=pkg_dot_queue_dot_proto_dot_dequeue__response__pb2.DequeueResponse.SerializeToString,
+            ),
+            'Peek': grpc.unary_unary_rpc_method_handler(
+                    servicer.Peek,
+                    request_deserializer=pkg_dot_queue_dot_proto_dot_peek__request__pb2.PeekRequest.FromString,
+                    response_serializer=pkg_dot_queue_dot_proto_dot_peek__response__pb2.PeekResponse.SerializeToString,
+            ),
+            'GetQueueInfo': grpc.unary_unary_rpc_method_handler(
+                    servicer.GetQueueInfo,
+                    request_deserializer=pkg_dot_queue_dot_proto_dot_get__queue__info__request__pb2.GetQueueInfoRequest.FromString,
+                    response_serializer=pkg_dot_queue_dot_proto_dot_get__queue__info__response__pb2.GetQueueInfoResponse.SerializeToString,
+            ),
+            'GetQueueStats': grpc.unary_unary_rpc_method_handler(
+                    servicer.GetQueueStats,
+                    request_deserializer=pkg_dot_queue_dot_proto_dot_get__queue__stats__request__pb2.GetQueueStatsRequest.FromString,
+                    response_serializer=pkg_dot_queue_dot_proto_dot_get__queue__stats__response__pb2.GetQueueStatsResponse.SerializeToString,
+            ),
+            'Subscribe': grpc.unary_stream_rpc_method_handler(
+                    servicer.Subscribe,
+                    request_deserializer=pkg_dot_queue_dot_proto_dot_subscribe__request__pb2.QueueSubscribeRequest.FromString,
+                    response_serializer=pkg_dot_queue_dot_proto_dot_subscribe__response__pb2.SubscribeResponse.SerializeToString,
+            ),
+            'Publish': grpc.unary_unary_rpc_method_handler(
+                    servicer.Publish,
+                    request_deserializer=pkg_dot_queue_dot_proto_dot_publish__request__pb2.QueuePublishRequest.FromString,
+                    response_serializer=pkg_dot_queue_dot_proto_dot_publish__response__pb2.PublishResponse.SerializeToString,
+            ),
+    }
+    generic_handler = grpc.method_handlers_generic_handler(
+            'gcommon.v1.queue.QueueService', rpc_method_handlers)
+    server.add_generic_rpc_handlers((generic_handler,))
+    server.add_registered_method_handlers('gcommon.v1.queue.QueueService', rpc_method_handlers)
+
+
+ # This class is part of an EXPERIMENTAL API.
+class QueueService(object):
+    """*
+    QueueService provides core queue operations for message handling,
+    task distribution, and asynchronous processing.
+    """
+
+    @staticmethod
+    def Enqueue(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(
+            request,
+            target,
+            '/gcommon.v1.queue.QueueService/Enqueue',
+            pkg_dot_queue_dot_proto_dot_enqueue__request__pb2.EnqueueRequest.SerializeToString,
+            pkg_dot_queue_dot_proto_dot_enqueue__response__pb2.EnqueueResponse.FromString,
+            options,
+            channel_credentials,
+            insecure,
+            call_credentials,
+            compression,
+            wait_for_ready,
+            timeout,
+            metadata,
+            _registered_method=True)
+
+    @staticmethod
+    def Dequeue(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(
+            request,
+            target,
+            '/gcommon.v1.queue.QueueService/Dequeue',
+            pkg_dot_queue_dot_proto_dot_dequeue__request__pb2.DequeueRequest.SerializeToString,
+            pkg_dot_queue_dot_proto_dot_dequeue__response__pb2.DequeueResponse.FromString,
+            options,
+            channel_credentials,
+            insecure,
+            call_credentials,
+            compression,
+            wait_for_ready,
+            timeout,
+            metadata,
+            _registered_method=True)
+
+    @staticmethod
+    def Peek(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(
+            request,
+            target,
+            '/gcommon.v1.queue.QueueService/Peek',
+            pkg_dot_queue_dot_proto_dot_peek__request__pb2.PeekRequest.SerializeToString,
+            pkg_dot_queue_dot_proto_dot_peek__response__pb2.PeekResponse.FromString,
+            options,
+            channel_credentials,
+            insecure,
+            call_credentials,
+            compression,
+            wait_for_ready,
+            timeout,
+            metadata,
+            _registered_method=True)
+
+    @staticmethod
+    def GetQueueInfo(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(
+            request,
+            target,
+            '/gcommon.v1.queue.QueueService/GetQueueInfo',
+            pkg_dot_queue_dot_proto_dot_get__queue__info__request__pb2.GetQueueInfoRequest.SerializeToString,
+            pkg_dot_queue_dot_proto_dot_get__queue__info__response__pb2.GetQueueInfoResponse.FromString,
+            options,
+            channel_credentials,
+            insecure,
+            call_credentials,
+            compression,
+            wait_for_ready,
+            timeout,
+            metadata,
+            _registered_method=True)
+
+    @staticmethod
+    def GetQueueStats(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(
+            request,
+            target,
+            '/gcommon.v1.queue.QueueService/GetQueueStats',
+            pkg_dot_queue_dot_proto_dot_get__queue__stats__request__pb2.GetQueueStatsRequest.SerializeToString,
+            pkg_dot_queue_dot_proto_dot_get__queue__stats__response__pb2.GetQueueStatsResponse.FromString,
+            options,
+            channel_credentials,
+            insecure,
+            call_credentials,
+            compression,
+            wait_for_ready,
+            timeout,
+            metadata,
+            _registered_method=True)
+
+    @staticmethod
+    def Subscribe(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_stream(
+            request,
+            target,
+            '/gcommon.v1.queue.QueueService/Subscribe',
+            pkg_dot_queue_dot_proto_dot_subscribe__request__pb2.QueueSubscribeRequest.SerializeToString,
+            pkg_dot_queue_dot_proto_dot_subscribe__response__pb2.SubscribeResponse.FromString,
+            options,
+            channel_credentials,
+            insecure,
+            call_credentials,
+            compression,
+            wait_for_ready,
+            timeout,
+            metadata,
+            _registered_method=True)
+
+    @staticmethod
+    def Publish(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(
+            request,
+            target,
+            '/gcommon.v1.queue.QueueService/Publish',
+            pkg_dot_queue_dot_proto_dot_publish__request__pb2.QueuePublishRequest.SerializeToString,
+            pkg_dot_queue_dot_proto_dot_publish__response__pb2.PublishResponse.FromString,
+            options,
+            channel_credentials,
+            insecure,
+            call_credentials,
+            compression,
+            wait_for_ready,
+            timeout,
+            metadata,
+            _registered_method=True)

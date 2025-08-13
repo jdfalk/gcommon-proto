@@ -9,11 +9,11 @@ package gcommon.v1.organization;
 import "google/protobuf/go_features.proto";
 import "google/protobuf/timestamp.proto";
 import "pkg/common/proto/key_value.proto";
-import "pkg/organization/proto/compliance_settings.proto";
-import "pkg/organization/proto/notification_settings.proto";
 import "pkg/organization/proto/billing_settings.proto";
+import "pkg/organization/proto/compliance_settings.proto";
 import "pkg/organization/proto/feature_flag.proto";
 import "pkg/organization/proto/integration_settings.proto";
+import "pkg/organization/proto/notification_settings.proto";
 import "pkg/organization/proto/security_settings.proto";
 import "pkg/organization/proto/ui_settings.proto";
 

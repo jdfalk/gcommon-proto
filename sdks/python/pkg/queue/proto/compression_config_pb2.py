@@ -25,7 +25,7 @@ _sym_db = _symbol_database.Default()
 from google.protobuf import go_features_pb2 as google_dot_protobuf_dot_go__features__pb2
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n(pkg/queue/proto/compression_config.proto\x12\x10gcommon.v1.queue\x1a!google/protobuf/go_features.proto\"\x87\x01\n\x11\x43ompressionConfig\x12\x18\n\x07\x65nabled\x18\x01 \x01(\x08R\x07\x65nabled\x12\x1c\n\talgorithm\x18\x02 \x01(\tR\talgorithm\x12\x14\n\x05level\x18\x03 \x01(\x05R\x05level\x12$\n\x0emin_size_bytes\x18\x04 \x01(\x05R\x0cminSizeBytesB\xc3\x01\n\x14\x63om.gcommon.v1.queueB\x16\x43ompressionConfigProtoP\x01Z)github.com/jdfalk/gcommon/pkg/queue/proto\xa2\x02\x03GVQ\xaa\x02\x10Gcommon.V1.Queue\xca\x02\x10Gcommon\\V1\\Queue\xe2\x02\x1cGcommon\\V1\\Queue\\GPBMetadata\xea\x02\x12Gcommon::V1::Queue\x92\x03\x05\xd2>\x02\x10\x03\x62\x08\x65\x64itionsp\xe8\x07')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n(pkg/queue/proto/compression_config.proto\x12\x10gcommon.v1.queue\x1a!google/protobuf/go_features.proto\"\x8c\x01\n\x16QueueCompressionConfig\x12\x18\n\x07\x65nabled\x18\x01 \x01(\x08R\x07\x65nabled\x12\x1c\n\talgorithm\x18\x02 \x01(\tR\talgorithm\x12\x14\n\x05level\x18\x03 \x01(\x05R\x05level\x12$\n\x0emin_size_bytes\x18\x04 \x01(\x05R\x0cminSizeBytesB\xc3\x01\n\x14\x63om.gcommon.v1.queueB\x16\x43ompressionConfigProtoP\x01Z)github.com/jdfalk/gcommon/pkg/queue/proto\xa2\x02\x03GVQ\xaa\x02\x10Gcommon.V1.Queue\xca\x02\x10Gcommon\\V1\\Queue\xe2\x02\x1cGcommon\\V1\\Queue\\GPBMetadata\xea\x02\x12Gcommon::V1::Queue\x92\x03\x05\xd2>\x02\x10\x03\x62\x08\x65\x64itionsp\xe8\x07')
 
 _globals = globals()
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, _globals)
@@ -33,6 +33,6 @@ _builder.BuildTopDescriptorsAndMessages(DESCRIPTOR, 'pkg.queue.proto.compression
 if not _descriptor._USE_C_DESCRIPTORS:
   _globals['DESCRIPTOR']._loaded_options = None
   _globals['DESCRIPTOR']._serialized_options = b'\n\024com.gcommon.v1.queueB\026CompressionConfigProtoP\001Z)github.com/jdfalk/gcommon/pkg/queue/proto\242\002\003GVQ\252\002\020Gcommon.V1.Queue\312\002\020Gcommon\\V1\\Queue\342\002\034Gcommon\\V1\\Queue\\GPBMetadata\352\002\022Gcommon::V1::Queue\222\003\005\322>\002\020\003'
-  _globals['_COMPRESSIONCONFIG']._serialized_start=98
-  _globals['_COMPRESSIONCONFIG']._serialized_end=233
+  _globals['_QUEUECOMPRESSIONCONFIG']._serialized_start=98
+  _globals['_QUEUECOMPRESSIONCONFIG']._serialized_end=238
 # @@protoc_insertion_point(module_scope)
