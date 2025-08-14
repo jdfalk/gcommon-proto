@@ -16,6 +16,7 @@ import "pkg/metrics/proto/provider_info.proto";
 import "pkg/metrics/proto/resource_limits_summary.proto";
 import "pkg/metrics/proto/time_range.proto";
 import "pkg/metrics/proto/top_metrics.proto";
+import "metrics/proto/export_destination_stats.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
 option go_package = "github.com/jdfalk/gcommon/pkg/metrics/proto";

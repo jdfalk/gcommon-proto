@@ -13,6 +13,9 @@ import "google/protobuf/timestamp.proto";
 import "pkg/common/proto/error.proto";
 import "pkg/metrics/proto/metric_metadata.proto";
 import "pkg/metrics/proto/pagination_info.proto";
+import "common/proto/pagination_info.proto";
+import "metrics/proto/metric_metadata.proto";
+import "metrics/proto/pagination_info.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
 option go_package = "github.com/jdfalk/gcommon/pkg/metrics/proto";

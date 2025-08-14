@@ -11,6 +11,12 @@ import "google/protobuf/timestamp.proto";
 import "pkg/common/proto/error.proto";
 import "pkg/metrics/proto/provider_status.proto";
 import "pkg/metrics/proto/validation_result.proto";
+import "metrics/proto/provider_status.proto";
+import "metrics/proto/provider_endpoints.proto";
+import "metrics/proto/applied_config.proto";
+import "queue/proto/validation_result.proto";
+import "metrics/proto/validation_result.proto";
+import "config/proto/validation_result.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
 option go_package = "github.com/jdfalk/gcommon/pkg/metrics/proto";

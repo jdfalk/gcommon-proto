@@ -9,6 +9,11 @@ package gcommon.v1.metrics;
 import "google/protobuf/go_features.proto";
 import "google/protobuf/timestamp.proto";
 import "pkg/metrics/proto/health_status.proto";
+import "metrics/proto/health_status.proto";
+import "queue/proto/health_status.proto";
+import "common/proto/health_status.proto";
+import "web/proto/health_status.proto";
+import "config/proto/health_status.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
 option go_package = "github.com/jdfalk/gcommon/pkg/metrics/proto";

@@ -9,6 +9,8 @@ package gcommon.v1.metrics;
 import "google/protobuf/go_features.proto";
 import "pkg/metrics/proto/apikey_config_update.proto";
 import "pkg/metrics/proto/tlsconfig_update.proto";
+import "metrics/proto/api_key_config_update.proto";
+import "metrics/proto/tls_config_update.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
 option go_package = "github.com/jdfalk/gcommon/pkg/metrics/proto";

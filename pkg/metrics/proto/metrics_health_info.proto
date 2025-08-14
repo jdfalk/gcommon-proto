@@ -17,6 +17,11 @@ import "pkg/metrics/proto/provider_summary.proto";
 import "pkg/metrics/proto/retention_policy_retentionpolicyconfig.proto";
 import "pkg/metrics/proto/time_range.proto";
 import "pkg/metrics/proto/top_metrics.proto";
+import "metrics/proto/health_status.proto";
+import "queue/proto/health_status.proto";
+import "common/proto/health_status.proto";
+import "web/proto/health_status.proto";
+import "config/proto/health_status.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
 option go_package = "github.com/jdfalk/gcommon/pkg/metrics/proto";

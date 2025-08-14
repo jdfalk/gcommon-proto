@@ -9,6 +9,7 @@ package gcommon.v1.metrics;
 import "google/protobuf/go_features.proto";
 import "pkg/common/proto/pagination_options.proto";
 import "pkg/common/proto/request_metadata.proto";
+import "metrics/proto/provider_filter.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
 option go_package = "github.com/jdfalk/gcommon/pkg/metrics/proto";
