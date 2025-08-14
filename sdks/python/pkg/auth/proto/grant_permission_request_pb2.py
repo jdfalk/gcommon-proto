@@ -25,7 +25,7 @@ _sym_db = _symbol_database.Default()
 from google.protobuf import go_features_pb2 as google_dot_protobuf_dot_go__features__pb2
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n-pkg/auth/proto/grant_permission_request.proto\x12\x0fgcommon.v1.auth\x1a!google/protobuf/go_features.proto\"\x8f\x02\n\x16GrantPermissionRequest\x12\x1d\n\nsubject_id\x18\x01 \x01(\tR\tsubjectId\x12V\n\x0csubject_type\x18\x02 \x01(\x0e\x32\x33.gcommon.v1.auth.GrantPermissionRequest.SubjectTypeR\x0bsubjectType\x12#\n\rpermission_id\x18\x03 \x01(\tR\x0cpermissionId\"Y\n\x0bSubjectType\x12\x1c\n\x18SUBJECT_TYPE_UNSPECIFIED\x10\x00\x12\x15\n\x11SUBJECT_TYPE_USER\x10\x01\x12\x15\n\x11SUBJECT_TYPE_ROLE\x10\x02\x42\xc2\x01\n\x13\x63om.gcommon.v1.authB\x1bGrantPermissionRequestProtoP\x01Z(github.com/jdfalk/gcommon/pkg/auth/proto\xa2\x02\x03GVA\xaa\x02\x0fGcommon.V1.Auth\xca\x02\x0fGcommon\\V1\\Auth\xe2\x02\x1bGcommon\\V1\\Auth\\GPBMetadata\xea\x02\x11Gcommon::V1::Auth\x92\x03\x05\xd2>\x02\x10\x03\x62\x08\x65\x64itionsp\xe8\x07')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n-pkg/auth/proto/grant_permission_request.proto\x12\x0fgcommon.v1.auth\x1a!google/protobuf/go_features.proto\"\x97\x02\n\x16GrantPermissionRequest\x12\x1d\n\nsubject_id\x18\x01 \x01(\tR\tsubjectId\x12Z\n\x0csubject_type\x18\x02 \x01(\x0e\x32\x37.gcommon.v1.auth.GrantPermissionRequest.AuthSubjectTypeR\x0bsubjectType\x12#\n\rpermission_id\x18\x03 \x01(\tR\x0cpermissionId\"]\n\x0f\x41uthSubjectType\x12\x1c\n\x18SUBJECT_TYPE_UNSPECIFIED\x10\x00\x12\x15\n\x11SUBJECT_TYPE_USER\x10\x01\x12\x15\n\x11SUBJECT_TYPE_ROLE\x10\x02\x42\xc2\x01\n\x13\x63om.gcommon.v1.authB\x1bGrantPermissionRequestProtoP\x01Z(github.com/jdfalk/gcommon/pkg/auth/proto\xa2\x02\x03GVA\xaa\x02\x0fGcommon.V1.Auth\xca\x02\x0fGcommon\\V1\\Auth\xe2\x02\x1bGcommon\\V1\\Auth\\GPBMetadata\xea\x02\x11Gcommon::V1::Auth\x92\x03\x05\xd2>\x02\x10\x03\x62\x08\x65\x64itionsp\xe8\x07')
 
 _globals = globals()
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, _globals)
@@ -34,7 +34,7 @@ if not _descriptor._USE_C_DESCRIPTORS:
   _globals['DESCRIPTOR']._loaded_options = None
   _globals['DESCRIPTOR']._serialized_options = b'\n\023com.gcommon.v1.authB\033GrantPermissionRequestProtoP\001Z(github.com/jdfalk/gcommon/pkg/auth/proto\242\002\003GVA\252\002\017Gcommon.V1.Auth\312\002\017Gcommon\\V1\\Auth\342\002\033Gcommon\\V1\\Auth\\GPBMetadata\352\002\021Gcommon::V1::Auth\222\003\005\322>\002\020\003'
   _globals['_GRANTPERMISSIONREQUEST']._serialized_start=102
-  _globals['_GRANTPERMISSIONREQUEST']._serialized_end=373
-  _globals['_GRANTPERMISSIONREQUEST_SUBJECTTYPE']._serialized_start=284
-  _globals['_GRANTPERMISSIONREQUEST_SUBJECTTYPE']._serialized_end=373
+  _globals['_GRANTPERMISSIONREQUEST']._serialized_end=381
+  _globals['_GRANTPERMISSIONREQUEST_AUTHSUBJECTTYPE']._serialized_start=288
+  _globals['_GRANTPERMISSIONREQUEST_AUTHSUBJECTTYPE']._serialized_end=381
 # @@protoc_insertion_point(module_scope)

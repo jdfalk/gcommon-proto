@@ -37,8 +37,8 @@ class AuthServiceStub(object):
         """
         self.Authenticate = channel.unary_unary(
                 '/gcommon.v1.auth.AuthService/Authenticate',
-                request_serializer=pkg_dot_auth_dot_proto_dot_authenticate__request__pb2.AuthenticateRequest.SerializeToString,
-                response_deserializer=pkg_dot_auth_dot_proto_dot_authenticate__response__pb2.AuthenticateResponse.FromString,
+                request_serializer=pkg_dot_auth_dot_proto_dot_authenticate__request__pb2.AuthAuthenticateRequest.SerializeToString,
+                response_deserializer=pkg_dot_auth_dot_proto_dot_authenticate__response__pb2.AuthAuthenticateResponse.FromString,
                 _registered_method=True)
         self.ValidateToken = channel.unary_unary(
                 '/gcommon.v1.auth.AuthService/ValidateToken',
@@ -157,8 +157,8 @@ def add_AuthServiceServicer_to_server(servicer, server):
     rpc_method_handlers = {
             'Authenticate': grpc.unary_unary_rpc_method_handler(
                     servicer.Authenticate,
-                    request_deserializer=pkg_dot_auth_dot_proto_dot_authenticate__request__pb2.AuthenticateRequest.FromString,
-                    response_serializer=pkg_dot_auth_dot_proto_dot_authenticate__response__pb2.AuthenticateResponse.SerializeToString,
+                    request_deserializer=pkg_dot_auth_dot_proto_dot_authenticate__request__pb2.AuthAuthenticateRequest.FromString,
+                    response_serializer=pkg_dot_auth_dot_proto_dot_authenticate__response__pb2.AuthAuthenticateResponse.SerializeToString,
             ),
             'ValidateToken': grpc.unary_unary_rpc_method_handler(
                     servicer.ValidateToken,
@@ -230,8 +230,8 @@ class AuthService(object):
             request,
             target,
             '/gcommon.v1.auth.AuthService/Authenticate',
-            pkg_dot_auth_dot_proto_dot_authenticate__request__pb2.AuthenticateRequest.SerializeToString,
-            pkg_dot_auth_dot_proto_dot_authenticate__response__pb2.AuthenticateResponse.FromString,
+            pkg_dot_auth_dot_proto_dot_authenticate__request__pb2.AuthAuthenticateRequest.SerializeToString,
+            pkg_dot_auth_dot_proto_dot_authenticate__response__pb2.AuthAuthenticateResponse.FromString,
             options,
             channel_credentials,
             insecure,

@@ -22,11 +22,11 @@ _runtime_version.ValidateProtobufRuntimeVersion(
 _sym_db = _symbol_database.Default()
 
 
-from pkg.auth.proto import mfa_setup_instruction_pb2 as pkg_dot_auth_dot_proto_dot_mfa__setup__instruction__pb2
 from google.protobuf import go_features_pb2 as google_dot_protobuf_dot_go__features__pb2
+from pkg.auth.proto import mfa_setup_instruction_pb2 as pkg_dot_auth_dot_proto_dot_mfa__setup__instruction__pb2
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n(pkg/auth/proto/enable_mfa_response.proto\x12\x0fgcommon.v1.auth\x1a*pkg/auth/proto/mfa_setup_instruction.proto\x1a!google/protobuf/go_features.proto\"\xa7\x01\n\x11\x45nableMfaResponse\x12\x18\n\x07success\x18\x01 \x01(\x08R\x07success\x12S\n\x12setup_instructions\x18\x02 \x03(\x0b\x32$.gcommon.v1.auth.MfaSetupInstructionR\x11setupInstructions\x12#\n\rerror_message\x18\x03 \x01(\tR\x0c\x65rrorMessageB\xbd\x01\n\x13\x63om.gcommon.v1.authB\x16\x45nableMfaResponseProtoP\x01Z(github.com/jdfalk/gcommon/pkg/auth/proto\xa2\x02\x03GVA\xaa\x02\x0fGcommon.V1.Auth\xca\x02\x0fGcommon\\V1\\Auth\xe2\x02\x1bGcommon\\V1\\Auth\\GPBMetadata\xea\x02\x11Gcommon::V1::Auth\x92\x03\x05\xd2>\x02\x10\x03\x62\x08\x65\x64itionsp\xe8\x07')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n(pkg/auth/proto/enable_mfa_response.proto\x12\x0fgcommon.v1.auth\x1a!google/protobuf/go_features.proto\x1a*pkg/auth/proto/mfa_setup_instruction.proto\"\xa7\x01\n\x11\x45nableMfaResponse\x12\x18\n\x07success\x18\x01 \x01(\x08R\x07success\x12S\n\x12setup_instructions\x18\x02 \x03(\x0b\x32$.gcommon.v1.auth.MfaSetupInstructionR\x11setupInstructions\x12#\n\rerror_message\x18\x03 \x01(\tR\x0c\x65rrorMessageB\xbd\x01\n\x13\x63om.gcommon.v1.authB\x16\x45nableMfaResponseProtoP\x01Z(github.com/jdfalk/gcommon/pkg/auth/proto\xa2\x02\x03GVA\xaa\x02\x0fGcommon.V1.Auth\xca\x02\x0fGcommon\\V1\\Auth\xe2\x02\x1bGcommon\\V1\\Auth\\GPBMetadata\xea\x02\x11Gcommon::V1::Auth\x92\x03\x05\xd2>\x02\x10\x03\x62\x08\x65\x64itionsp\xe8\x07')
 
 _globals = globals()
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, _globals)

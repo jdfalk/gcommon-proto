@@ -29,10 +29,9 @@ from pkg.auth.proto import get_user_permissions_request_pb2 as pkg_dot_auth_dot_
 from pkg.auth.proto import get_user_permissions_response_pb2 as pkg_dot_auth_dot_proto_dot_get__user__permissions__response__pb2
 from pkg.auth.proto import get_user_roles_request_pb2 as pkg_dot_auth_dot_proto_dot_get__user__roles__request__pb2
 from pkg.auth.proto import get_user_roles_response_pb2 as pkg_dot_auth_dot_proto_dot_get__user__roles__response__pb2
-from pkg.auth.proto import role_pb2 as pkg_dot_auth_dot_proto_dot_role__pb2
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n*pkg/auth/proto/authorization_service.proto\x12\x0fgcommon.v1.auth\x1a!google/protobuf/go_features.proto\x1a&pkg/auth/proto/authorize_request.proto\x1a\'pkg/auth/proto/authorize_response.proto\x1a\x31pkg/auth/proto/get_user_permissions_request.proto\x1a\x32pkg/auth/proto/get_user_permissions_response.proto\x1a+pkg/auth/proto/get_user_roles_request.proto\x1a,pkg/auth/proto/get_user_roles_response.proto\x1a\x19pkg/auth/proto/role.proto2\xb6\x02\n\x14\x41uthorizationService\x12R\n\tAuthorize\x12!.gcommon.v1.auth.AuthorizeRequest\x1a\".gcommon.v1.auth.AuthorizeResponse\x12m\n\x12GetUserPermissions\x12*.gcommon.v1.auth.GetUserPermissionsRequest\x1a+.gcommon.v1.auth.GetUserPermissionsResponse\x12[\n\x0cGetUserRoles\x12$.gcommon.v1.auth.GetUserRolesRequest\x1a%.gcommon.v1.auth.GetUserRolesResponseB\xc0\x01\n\x13\x63om.gcommon.v1.authB\x19\x41uthorizationServiceProtoP\x01Z(github.com/jdfalk/gcommon/pkg/auth/proto\xa2\x02\x03GVA\xaa\x02\x0fGcommon.V1.Auth\xca\x02\x0fGcommon\\V1\\Auth\xe2\x02\x1bGcommon\\V1\\Auth\\GPBMetadata\xea\x02\x11Gcommon::V1::Auth\x92\x03\x05\xd2>\x02\x10\x03\x62\x08\x65\x64itionsp\xe8\x07')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n*pkg/auth/proto/authorization_service.proto\x12\x0fgcommon.v1.auth\x1a!google/protobuf/go_features.proto\x1a&pkg/auth/proto/authorize_request.proto\x1a\'pkg/auth/proto/authorize_response.proto\x1a\x31pkg/auth/proto/get_user_permissions_request.proto\x1a\x32pkg/auth/proto/get_user_permissions_response.proto\x1a+pkg/auth/proto/get_user_roles_request.proto\x1a,pkg/auth/proto/get_user_roles_response.proto2\xbe\x02\n\x14\x41uthorizationService\x12Z\n\tAuthorize\x12%.gcommon.v1.auth.AuthAuthorizeRequest\x1a&.gcommon.v1.auth.AuthAuthorizeResponse\x12m\n\x12GetUserPermissions\x12*.gcommon.v1.auth.GetUserPermissionsRequest\x1a+.gcommon.v1.auth.GetUserPermissionsResponse\x12[\n\x0cGetUserRoles\x12$.gcommon.v1.auth.GetUserRolesRequest\x1a%.gcommon.v1.auth.GetUserRolesResponseB\xc0\x01\n\x13\x63om.gcommon.v1.authB\x19\x41uthorizationServiceProtoP\x01Z(github.com/jdfalk/gcommon/pkg/auth/proto\xa2\x02\x03GVA\xaa\x02\x0fGcommon.V1.Auth\xca\x02\x0fGcommon\\V1\\Auth\xe2\x02\x1bGcommon\\V1\\Auth\\GPBMetadata\xea\x02\x11Gcommon::V1::Auth\x92\x03\x05\xd2>\x02\x10\x03\x62\x08\x65\x64itionsp\xe8\x07')
 
 _globals = globals()
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, _globals)
@@ -40,6 +39,6 @@ _builder.BuildTopDescriptorsAndMessages(DESCRIPTOR, 'pkg.auth.proto.authorizatio
 if not _descriptor._USE_C_DESCRIPTORS:
   _globals['DESCRIPTOR']._loaded_options = None
   _globals['DESCRIPTOR']._serialized_options = b'\n\023com.gcommon.v1.authB\031AuthorizationServiceProtoP\001Z(github.com/jdfalk/gcommon/pkg/auth/proto\242\002\003GVA\252\002\017Gcommon.V1.Auth\312\002\017Gcommon\\V1\\Auth\342\002\033Gcommon\\V1\\Auth\\GPBMetadata\352\002\021Gcommon::V1::Auth\222\003\005\322>\002\020\003'
-  _globals['_AUTHORIZATIONSERVICE']._serialized_start=401
-  _globals['_AUTHORIZATIONSERVICE']._serialized_end=711
+  _globals['_AUTHORIZATIONSERVICE']._serialized_start=374
+  _globals['_AUTHORIZATIONSERVICE']._serialized_end=692
 # @@protoc_insertion_point(module_scope)

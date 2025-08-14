@@ -24,9 +24,10 @@ _sym_db = _symbol_database.Default()
 
 from google.protobuf import go_features_pb2 as google_dot_protobuf_dot_go__features__pb2
 from pkg.auth.proto import api_key_pb2 as pkg_dot_auth_dot_proto_dot_api__key__pb2
+from pkg.auth.proto import api_key_stats_pb2 as pkg_dot_auth_dot_proto_dot_api__key__stats__pb2
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n)pkg/auth/proto/get_api_key_response.proto\x12\x0fgcommon.v1.auth\x1a!google/protobuf/go_features.proto\x1a\x1cpkg/auth/proto/api_key.proto\"\x9e\x01\n\x11GetApiKeyResponse\x12\x30\n\x07\x61pi_key\x18\x01 \x01(\x0b\x32\x17.gcommon.v1.auth.APIKeyR\x06\x61piKey\x12\x32\n\x05stats\x18\x02 \x01(\x0b\x32\x1c.gcommon.v1.auth.ApiKeyStatsR\x05stats\x12#\n\rerror_message\x18\x03 \x01(\tR\x0c\x65rrorMessage\"\xee\x01\n\x0b\x41piKeyStats\x12%\n\x0etotal_requests\x18\x01 \x01(\x05R\rtotalRequests\x12/\n\x13successful_requests\x18\x02 \x01(\x05R\x12successfulRequests\x12\'\n\x0f\x66\x61iled_requests\x18\x03 \x01(\x05R\x0e\x66\x61iledRequests\x12 \n\x0clast_used_at\x18\x04 \x01(\x03R\nlastUsedAt\x12<\n\x0b\x64\x61ily_usage\x18\x05 \x03(\x0b\x32\x1b.gcommon.v1.auth.DailyUsageR\ndailyUsage\"E\n\nDailyUsage\x12\x12\n\x04\x64\x61te\x18\x01 \x01(\tR\x04\x64\x61te\x12#\n\rrequest_count\x18\x02 \x01(\x05R\x0crequestCountB\xbd\x01\n\x13\x63om.gcommon.v1.authB\x16GetApiKeyResponseProtoP\x01Z(github.com/jdfalk/gcommon/pkg/auth/proto\xa2\x02\x03GVA\xaa\x02\x0fGcommon.V1.Auth\xca\x02\x0fGcommon\\V1\\Auth\xe2\x02\x1bGcommon\\V1\\Auth\\GPBMetadata\xea\x02\x11Gcommon::V1::Auth\x92\x03\x05\xd2>\x02\x10\x03\x62\x08\x65\x64itionsp\xe8\x07')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n)pkg/auth/proto/get_api_key_response.proto\x12\x0fgcommon.v1.auth\x1a!google/protobuf/go_features.proto\x1a\x1cpkg/auth/proto/api_key.proto\x1a\"pkg/auth/proto/api_key_stats.proto\"\x9e\x01\n\x11GetApiKeyResponse\x12\x30\n\x07\x61pi_key\x18\x01 \x01(\x0b\x32\x17.gcommon.v1.auth.APIKeyR\x06\x61piKey\x12\x32\n\x05stats\x18\x02 \x01(\x0b\x32\x1c.gcommon.v1.auth.ApiKeyStatsR\x05stats\x12#\n\rerror_message\x18\x03 \x01(\tR\x0c\x65rrorMessageB\xbd\x01\n\x13\x63om.gcommon.v1.authB\x16GetApiKeyResponseProtoP\x01Z(github.com/jdfalk/gcommon/pkg/auth/proto\xa2\x02\x03GVA\xaa\x02\x0fGcommon.V1.Auth\xca\x02\x0fGcommon\\V1\\Auth\xe2\x02\x1bGcommon\\V1\\Auth\\GPBMetadata\xea\x02\x11Gcommon::V1::Auth\x92\x03\x05\xd2>\x02\x10\x03\x62\x08\x65\x64itionsp\xe8\x07')
 
 _globals = globals()
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, _globals)
@@ -34,10 +35,6 @@ _builder.BuildTopDescriptorsAndMessages(DESCRIPTOR, 'pkg.auth.proto.get_api_key_
 if not _descriptor._USE_C_DESCRIPTORS:
   _globals['DESCRIPTOR']._loaded_options = None
   _globals['DESCRIPTOR']._serialized_options = b'\n\023com.gcommon.v1.authB\026GetApiKeyResponseProtoP\001Z(github.com/jdfalk/gcommon/pkg/auth/proto\242\002\003GVA\252\002\017Gcommon.V1.Auth\312\002\017Gcommon\\V1\\Auth\342\002\033Gcommon\\V1\\Auth\\GPBMetadata\352\002\021Gcommon::V1::Auth\222\003\005\322>\002\020\003'
-  _globals['_GETAPIKEYRESPONSE']._serialized_start=128
-  _globals['_GETAPIKEYRESPONSE']._serialized_end=286
-  _globals['_APIKEYSTATS']._serialized_start=289
-  _globals['_APIKEYSTATS']._serialized_end=527
-  _globals['_DAILYUSAGE']._serialized_start=529
-  _globals['_DAILYUSAGE']._serialized_end=598
+  _globals['_GETAPIKEYRESPONSE']._serialized_start=164
+  _globals['_GETAPIKEYRESPONSE']._serialized_end=322
 # @@protoc_insertion_point(module_scope)

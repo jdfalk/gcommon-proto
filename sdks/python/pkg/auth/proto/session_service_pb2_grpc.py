@@ -35,18 +35,18 @@ class SessionServiceStub(object):
         """
         self.CreateSession = channel.unary_unary(
                 '/gcommon.v1.auth.SessionService/CreateSession',
-                request_serializer=pkg_dot_auth_dot_proto_dot_create__session__request__pb2.CreateSessionRequest.SerializeToString,
-                response_deserializer=pkg_dot_auth_dot_proto_dot_create__session__response__pb2.CreateSessionResponse.FromString,
+                request_serializer=pkg_dot_auth_dot_proto_dot_create__session__request__pb2.AuthCreateSessionRequest.SerializeToString,
+                response_deserializer=pkg_dot_auth_dot_proto_dot_create__session__response__pb2.AuthCreateSessionResponse.FromString,
                 _registered_method=True)
         self.GetSession = channel.unary_unary(
                 '/gcommon.v1.auth.SessionService/GetSession',
-                request_serializer=pkg_dot_auth_dot_proto_dot_get__session__request__pb2.GetSessionRequest.SerializeToString,
-                response_deserializer=pkg_dot_auth_dot_proto_dot_get__session__response__pb2.GetSessionResponse.FromString,
+                request_serializer=pkg_dot_auth_dot_proto_dot_get__session__request__pb2.AuthGetSessionRequest.SerializeToString,
+                response_deserializer=pkg_dot_auth_dot_proto_dot_get__session__response__pb2.AuthGetSessionResponse.FromString,
                 _registered_method=True)
         self.UpdateSession = channel.unary_unary(
                 '/gcommon.v1.auth.SessionService/UpdateSession',
-                request_serializer=pkg_dot_auth_dot_proto_dot_update__session__request__pb2.UpdateSessionRequest.SerializeToString,
-                response_deserializer=pkg_dot_auth_dot_proto_dot_update__session__response__pb2.UpdateSessionResponse.FromString,
+                request_serializer=pkg_dot_auth_dot_proto_dot_update__session__request__pb2.AuthUpdateSessionRequest.SerializeToString,
+                response_deserializer=pkg_dot_auth_dot_proto_dot_update__session__response__pb2.AuthUpdateSessionResponse.FromString,
                 _registered_method=True)
         self.ValidateSession = channel.unary_unary(
                 '/gcommon.v1.auth.SessionService/ValidateSession',
@@ -60,8 +60,8 @@ class SessionServiceStub(object):
                 _registered_method=True)
         self.DeleteSession = channel.unary_unary(
                 '/gcommon.v1.auth.SessionService/DeleteSession',
-                request_serializer=pkg_dot_auth_dot_proto_dot_delete__session__request__pb2.DeleteSessionRequest.SerializeToString,
-                response_deserializer=pkg_dot_auth_dot_proto_dot_delete__session__response__pb2.DeleteSessionResponse.FromString,
+                request_serializer=pkg_dot_auth_dot_proto_dot_delete__session__request__pb2.AuthDeleteSessionRequest.SerializeToString,
+                response_deserializer=pkg_dot_auth_dot_proto_dot_delete__session__response__pb2.AuthDeleteSessionResponse.FromString,
                 _registered_method=True)
         self.ListUserSessions = channel.unary_unary(
                 '/gcommon.v1.auth.SessionService/ListUserSessions',
@@ -70,8 +70,8 @@ class SessionServiceStub(object):
                 _registered_method=True)
         self.ListSessions = channel.unary_unary(
                 '/gcommon.v1.auth.SessionService/ListSessions',
-                request_serializer=pkg_dot_auth_dot_proto_dot_list__sessions__request__pb2.ListSessionsRequest.SerializeToString,
-                response_deserializer=pkg_dot_auth_dot_proto_dot_list__sessions__response__pb2.ListSessionsResponse.FromString,
+                request_serializer=pkg_dot_auth_dot_proto_dot_list__sessions__request__pb2.AuthListSessionsRequest.SerializeToString,
+                response_deserializer=pkg_dot_auth_dot_proto_dot_list__sessions__response__pb2.AuthListSessionsResponse.FromString,
                 _registered_method=True)
 
 
@@ -143,18 +143,18 @@ def add_SessionServiceServicer_to_server(servicer, server):
     rpc_method_handlers = {
             'CreateSession': grpc.unary_unary_rpc_method_handler(
                     servicer.CreateSession,
-                    request_deserializer=pkg_dot_auth_dot_proto_dot_create__session__request__pb2.CreateSessionRequest.FromString,
-                    response_serializer=pkg_dot_auth_dot_proto_dot_create__session__response__pb2.CreateSessionResponse.SerializeToString,
+                    request_deserializer=pkg_dot_auth_dot_proto_dot_create__session__request__pb2.AuthCreateSessionRequest.FromString,
+                    response_serializer=pkg_dot_auth_dot_proto_dot_create__session__response__pb2.AuthCreateSessionResponse.SerializeToString,
             ),
             'GetSession': grpc.unary_unary_rpc_method_handler(
                     servicer.GetSession,
-                    request_deserializer=pkg_dot_auth_dot_proto_dot_get__session__request__pb2.GetSessionRequest.FromString,
-                    response_serializer=pkg_dot_auth_dot_proto_dot_get__session__response__pb2.GetSessionResponse.SerializeToString,
+                    request_deserializer=pkg_dot_auth_dot_proto_dot_get__session__request__pb2.AuthGetSessionRequest.FromString,
+                    response_serializer=pkg_dot_auth_dot_proto_dot_get__session__response__pb2.AuthGetSessionResponse.SerializeToString,
             ),
             'UpdateSession': grpc.unary_unary_rpc_method_handler(
                     servicer.UpdateSession,
-                    request_deserializer=pkg_dot_auth_dot_proto_dot_update__session__request__pb2.UpdateSessionRequest.FromString,
-                    response_serializer=pkg_dot_auth_dot_proto_dot_update__session__response__pb2.UpdateSessionResponse.SerializeToString,
+                    request_deserializer=pkg_dot_auth_dot_proto_dot_update__session__request__pb2.AuthUpdateSessionRequest.FromString,
+                    response_serializer=pkg_dot_auth_dot_proto_dot_update__session__response__pb2.AuthUpdateSessionResponse.SerializeToString,
             ),
             'ValidateSession': grpc.unary_unary_rpc_method_handler(
                     servicer.ValidateSession,
@@ -168,8 +168,8 @@ def add_SessionServiceServicer_to_server(servicer, server):
             ),
             'DeleteSession': grpc.unary_unary_rpc_method_handler(
                     servicer.DeleteSession,
-                    request_deserializer=pkg_dot_auth_dot_proto_dot_delete__session__request__pb2.DeleteSessionRequest.FromString,
-                    response_serializer=pkg_dot_auth_dot_proto_dot_delete__session__response__pb2.DeleteSessionResponse.SerializeToString,
+                    request_deserializer=pkg_dot_auth_dot_proto_dot_delete__session__request__pb2.AuthDeleteSessionRequest.FromString,
+                    response_serializer=pkg_dot_auth_dot_proto_dot_delete__session__response__pb2.AuthDeleteSessionResponse.SerializeToString,
             ),
             'ListUserSessions': grpc.unary_unary_rpc_method_handler(
                     servicer.ListUserSessions,
@@ -178,8 +178,8 @@ def add_SessionServiceServicer_to_server(servicer, server):
             ),
             'ListSessions': grpc.unary_unary_rpc_method_handler(
                     servicer.ListSessions,
-                    request_deserializer=pkg_dot_auth_dot_proto_dot_list__sessions__request__pb2.ListSessionsRequest.FromString,
-                    response_serializer=pkg_dot_auth_dot_proto_dot_list__sessions__response__pb2.ListSessionsResponse.SerializeToString,
+                    request_deserializer=pkg_dot_auth_dot_proto_dot_list__sessions__request__pb2.AuthListSessionsRequest.FromString,
+                    response_serializer=pkg_dot_auth_dot_proto_dot_list__sessions__response__pb2.AuthListSessionsResponse.SerializeToString,
             ),
     }
     generic_handler = grpc.method_handlers_generic_handler(
@@ -211,8 +211,8 @@ class SessionService(object):
             request,
             target,
             '/gcommon.v1.auth.SessionService/CreateSession',
-            pkg_dot_auth_dot_proto_dot_create__session__request__pb2.CreateSessionRequest.SerializeToString,
-            pkg_dot_auth_dot_proto_dot_create__session__response__pb2.CreateSessionResponse.FromString,
+            pkg_dot_auth_dot_proto_dot_create__session__request__pb2.AuthCreateSessionRequest.SerializeToString,
+            pkg_dot_auth_dot_proto_dot_create__session__response__pb2.AuthCreateSessionResponse.FromString,
             options,
             channel_credentials,
             insecure,
@@ -238,8 +238,8 @@ class SessionService(object):
             request,
             target,
             '/gcommon.v1.auth.SessionService/GetSession',
-            pkg_dot_auth_dot_proto_dot_get__session__request__pb2.GetSessionRequest.SerializeToString,
-            pkg_dot_auth_dot_proto_dot_get__session__response__pb2.GetSessionResponse.FromString,
+            pkg_dot_auth_dot_proto_dot_get__session__request__pb2.AuthGetSessionRequest.SerializeToString,
+            pkg_dot_auth_dot_proto_dot_get__session__response__pb2.AuthGetSessionResponse.FromString,
             options,
             channel_credentials,
             insecure,
@@ -265,8 +265,8 @@ class SessionService(object):
             request,
             target,
             '/gcommon.v1.auth.SessionService/UpdateSession',
-            pkg_dot_auth_dot_proto_dot_update__session__request__pb2.UpdateSessionRequest.SerializeToString,
-            pkg_dot_auth_dot_proto_dot_update__session__response__pb2.UpdateSessionResponse.FromString,
+            pkg_dot_auth_dot_proto_dot_update__session__request__pb2.AuthUpdateSessionRequest.SerializeToString,
+            pkg_dot_auth_dot_proto_dot_update__session__response__pb2.AuthUpdateSessionResponse.FromString,
             options,
             channel_credentials,
             insecure,
@@ -346,8 +346,8 @@ class SessionService(object):
             request,
             target,
             '/gcommon.v1.auth.SessionService/DeleteSession',
-            pkg_dot_auth_dot_proto_dot_delete__session__request__pb2.DeleteSessionRequest.SerializeToString,
-            pkg_dot_auth_dot_proto_dot_delete__session__response__pb2.DeleteSessionResponse.FromString,
+            pkg_dot_auth_dot_proto_dot_delete__session__request__pb2.AuthDeleteSessionRequest.SerializeToString,
+            pkg_dot_auth_dot_proto_dot_delete__session__response__pb2.AuthDeleteSessionResponse.FromString,
             options,
             channel_credentials,
             insecure,
@@ -400,8 +400,8 @@ class SessionService(object):
             request,
             target,
             '/gcommon.v1.auth.SessionService/ListSessions',
-            pkg_dot_auth_dot_proto_dot_list__sessions__request__pb2.ListSessionsRequest.SerializeToString,
-            pkg_dot_auth_dot_proto_dot_list__sessions__response__pb2.ListSessionsResponse.FromString,
+            pkg_dot_auth_dot_proto_dot_list__sessions__request__pb2.AuthListSessionsRequest.SerializeToString,
+            pkg_dot_auth_dot_proto_dot_list__sessions__response__pb2.AuthListSessionsResponse.FromString,
             options,
             channel_credentials,
             insecure,

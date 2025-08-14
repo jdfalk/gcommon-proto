@@ -27,7 +27,7 @@ from pkg.auth.proto import session_pb2 as pkg_dot_auth_dot_proto_dot_session__pb
 from pkg.common.proto import paginated_response_pb2 as pkg_dot_common_dot_proto_dot_paginated__response__pb2
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n+pkg/auth/proto/list_sessions_response.proto\x12\x0fgcommon.v1.auth\x1a!google/protobuf/go_features.proto\x1a\x1cpkg/auth/proto/session.proto\x1a)pkg/common/proto/paginated_response.proto\"\x92\x01\n\x14ListSessionsResponse\x12\x34\n\x08sessions\x18\x01 \x03(\x0b\x32\x18.gcommon.v1.auth.SessionR\x08sessions\x12\x44\n\npagination\x18\x02 \x01(\x0b\x32$.gcommon.v1.common.PaginatedResponseR\npaginationB\xc0\x01\n\x13\x63om.gcommon.v1.authB\x19ListSessionsResponseProtoP\x01Z(github.com/jdfalk/gcommon/pkg/auth/proto\xa2\x02\x03GVA\xaa\x02\x0fGcommon.V1.Auth\xca\x02\x0fGcommon\\V1\\Auth\xe2\x02\x1bGcommon\\V1\\Auth\\GPBMetadata\xea\x02\x11Gcommon::V1::Auth\x92\x03\x05\xd2>\x02\x10\x03\x62\x08\x65\x64itionsp\xe8\x07')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n+pkg/auth/proto/list_sessions_response.proto\x12\x0fgcommon.v1.auth\x1a!google/protobuf/go_features.proto\x1a\x1cpkg/auth/proto/session.proto\x1a)pkg/common/proto/paginated_response.proto\"\x96\x01\n\x18\x41uthListSessionsResponse\x12\x34\n\x08sessions\x18\x01 \x03(\x0b\x32\x18.gcommon.v1.auth.SessionR\x08sessions\x12\x44\n\npagination\x18\x02 \x01(\x0b\x32$.gcommon.v1.common.PaginatedResponseR\npaginationB\xc0\x01\n\x13\x63om.gcommon.v1.authB\x19ListSessionsResponseProtoP\x01Z(github.com/jdfalk/gcommon/pkg/auth/proto\xa2\x02\x03GVA\xaa\x02\x0fGcommon.V1.Auth\xca\x02\x0fGcommon\\V1\\Auth\xe2\x02\x1bGcommon\\V1\\Auth\\GPBMetadata\xea\x02\x11Gcommon::V1::Auth\x92\x03\x05\xd2>\x02\x10\x03\x62\x08\x65\x64itionsp\xe8\x07')
 
 _globals = globals()
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, _globals)
@@ -35,6 +35,6 @@ _builder.BuildTopDescriptorsAndMessages(DESCRIPTOR, 'pkg.auth.proto.list_session
 if not _descriptor._USE_C_DESCRIPTORS:
   _globals['DESCRIPTOR']._loaded_options = None
   _globals['DESCRIPTOR']._serialized_options = b'\n\023com.gcommon.v1.authB\031ListSessionsResponseProtoP\001Z(github.com/jdfalk/gcommon/pkg/auth/proto\242\002\003GVA\252\002\017Gcommon.V1.Auth\312\002\017Gcommon\\V1\\Auth\342\002\033Gcommon\\V1\\Auth\\GPBMetadata\352\002\021Gcommon::V1::Auth\222\003\005\322>\002\020\003'
-  _globals['_LISTSESSIONSRESPONSE']._serialized_start=173
-  _globals['_LISTSESSIONSRESPONSE']._serialized_end=319
+  _globals['_AUTHLISTSESSIONSRESPONSE']._serialized_start=173
+  _globals['_AUTHLISTSESSIONSRESPONSE']._serialized_end=323
 # @@protoc_insertion_point(module_scope)

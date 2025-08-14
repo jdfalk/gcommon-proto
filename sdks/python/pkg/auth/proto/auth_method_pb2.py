@@ -25,7 +25,7 @@ _sym_db = _symbol_database.Default()
 from google.protobuf import go_features_pb2 as google_dot_protobuf_dot_go__features__pb2
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n pkg/auth/proto/auth_method.proto\x12\x0fgcommon.v1.auth\x1a!google/protobuf/go_features.proto*\xb5\x01\n\nAuthMethod\x12\x1b\n\x17\x41UTH_METHOD_UNSPECIFIED\x10\x00\x12\x18\n\x14\x41UTH_METHOD_PASSWORD\x10\x01\x12\x17\n\x13\x41UTH_METHOD_API_KEY\x10\x02\x12\x16\n\x12\x41UTH_METHOD_OAUTH2\x10\x03\x12\x14\n\x10\x41UTH_METHOD_SAML\x10\x04\x12\x14\n\x10\x41UTH_METHOD_LDAP\x10\x05\x12\x13\n\x0f\x41UTH_METHOD_MFA\x10\x06\x42\xb6\x01\n\x13\x63om.gcommon.v1.authB\x0f\x41uthMethodProtoP\x01Z(github.com/jdfalk/gcommon/pkg/auth/proto\xa2\x02\x03GVA\xaa\x02\x0fGcommon.V1.Auth\xca\x02\x0fGcommon\\V1\\Auth\xe2\x02\x1bGcommon\\V1\\Auth\\GPBMetadata\xea\x02\x11Gcommon::V1::Auth\x92\x03\x05\xd2>\x02\x10\x03\x62\x08\x65\x64itionsp\xe8\x07')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n pkg/auth/proto/auth_method.proto\x12\x0fgcommon.v1.auth\x1a!google/protobuf/go_features.proto*\xb9\x01\n\x0e\x41uthAuthMethod\x12\x1b\n\x17\x41UTH_METHOD_UNSPECIFIED\x10\x00\x12\x18\n\x14\x41UTH_METHOD_PASSWORD\x10\x01\x12\x17\n\x13\x41UTH_METHOD_API_KEY\x10\x02\x12\x16\n\x12\x41UTH_METHOD_OAUTH2\x10\x03\x12\x14\n\x10\x41UTH_METHOD_SAML\x10\x04\x12\x14\n\x10\x41UTH_METHOD_LDAP\x10\x05\x12\x13\n\x0f\x41UTH_METHOD_MFA\x10\x06\x42\xb6\x01\n\x13\x63om.gcommon.v1.authB\x0f\x41uthMethodProtoP\x01Z(github.com/jdfalk/gcommon/pkg/auth/proto\xa2\x02\x03GVA\xaa\x02\x0fGcommon.V1.Auth\xca\x02\x0fGcommon\\V1\\Auth\xe2\x02\x1bGcommon\\V1\\Auth\\GPBMetadata\xea\x02\x11Gcommon::V1::Auth\x92\x03\x05\xd2>\x02\x10\x03\x62\x08\x65\x64itionsp\xe8\x07')
 
 _globals = globals()
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, _globals)
@@ -33,6 +33,6 @@ _builder.BuildTopDescriptorsAndMessages(DESCRIPTOR, 'pkg.auth.proto.auth_method_
 if not _descriptor._USE_C_DESCRIPTORS:
   _globals['DESCRIPTOR']._loaded_options = None
   _globals['DESCRIPTOR']._serialized_options = b'\n\023com.gcommon.v1.authB\017AuthMethodProtoP\001Z(github.com/jdfalk/gcommon/pkg/auth/proto\242\002\003GVA\252\002\017Gcommon.V1.Auth\312\002\017Gcommon\\V1\\Auth\342\002\033Gcommon\\V1\\Auth\\GPBMetadata\352\002\021Gcommon::V1::Auth\222\003\005\322>\002\020\003'
-  _globals['_AUTHMETHOD']._serialized_start=89
-  _globals['_AUTHMETHOD']._serialized_end=270
+  _globals['_AUTHAUTHMETHOD']._serialized_start=89
+  _globals['_AUTHAUTHMETHOD']._serialized_end=274
 # @@protoc_insertion_point(module_scope)

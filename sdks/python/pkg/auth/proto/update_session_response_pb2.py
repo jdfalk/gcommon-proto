@@ -27,7 +27,7 @@ from pkg.auth.proto import session_info_pb2 as pkg_dot_auth_dot_proto_dot_sessio
 from pkg.common.proto import response_metadata_pb2 as pkg_dot_common_dot_proto_dot_response__metadata__pb2
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n,pkg/auth/proto/update_session_response.proto\x12\x0fgcommon.v1.auth\x1a!google/protobuf/go_features.proto\x1a!pkg/auth/proto/session_info.proto\x1a(pkg/common/proto/response_metadata.proto\"\xcf\x01\n\x15UpdateSessionResponse\x12\x18\n\x07success\x18\x01 \x01(\x08R\x07success\x12\x36\n\x07session\x18\x02 \x01(\x0b\x32\x1c.gcommon.v1.auth.SessionInfoR\x07session\x12#\n\rerror_message\x18\x03 \x01(\tR\x0c\x65rrorMessage\x12?\n\x08metadata\x18\x04 \x01(\x0b\x32#.gcommon.v1.common.ResponseMetadataR\x08metadataB\xc1\x01\n\x13\x63om.gcommon.v1.authB\x1aUpdateSessionResponseProtoP\x01Z(github.com/jdfalk/gcommon/pkg/auth/proto\xa2\x02\x03GVA\xaa\x02\x0fGcommon.V1.Auth\xca\x02\x0fGcommon\\V1\\Auth\xe2\x02\x1bGcommon\\V1\\Auth\\GPBMetadata\xea\x02\x11Gcommon::V1::Auth\x92\x03\x05\xd2>\x02\x10\x03\x62\x08\x65\x64itionsp\xe8\x07')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n,pkg/auth/proto/update_session_response.proto\x12\x0fgcommon.v1.auth\x1a!google/protobuf/go_features.proto\x1a!pkg/auth/proto/session_info.proto\x1a(pkg/common/proto/response_metadata.proto\"\xd3\x01\n\x19\x41uthUpdateSessionResponse\x12\x18\n\x07success\x18\x01 \x01(\x08R\x07success\x12\x36\n\x07session\x18\x02 \x01(\x0b\x32\x1c.gcommon.v1.auth.SessionInfoR\x07session\x12#\n\rerror_message\x18\x03 \x01(\tR\x0c\x65rrorMessage\x12?\n\x08metadata\x18\x04 \x01(\x0b\x32#.gcommon.v1.common.ResponseMetadataR\x08metadataB\xc1\x01\n\x13\x63om.gcommon.v1.authB\x1aUpdateSessionResponseProtoP\x01Z(github.com/jdfalk/gcommon/pkg/auth/proto\xa2\x02\x03GVA\xaa\x02\x0fGcommon.V1.Auth\xca\x02\x0fGcommon\\V1\\Auth\xe2\x02\x1bGcommon\\V1\\Auth\\GPBMetadata\xea\x02\x11Gcommon::V1::Auth\x92\x03\x05\xd2>\x02\x10\x03\x62\x08\x65\x64itionsp\xe8\x07')
 
 _globals = globals()
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, _globals)
@@ -35,6 +35,6 @@ _builder.BuildTopDescriptorsAndMessages(DESCRIPTOR, 'pkg.auth.proto.update_sessi
 if not _descriptor._USE_C_DESCRIPTORS:
   _globals['DESCRIPTOR']._loaded_options = None
   _globals['DESCRIPTOR']._serialized_options = b'\n\023com.gcommon.v1.authB\032UpdateSessionResponseProtoP\001Z(github.com/jdfalk/gcommon/pkg/auth/proto\242\002\003GVA\252\002\017Gcommon.V1.Auth\312\002\017Gcommon\\V1\\Auth\342\002\033Gcommon\\V1\\Auth\\GPBMetadata\352\002\021Gcommon::V1::Auth\222\003\005\322>\002\020\003'
-  _globals['_UPDATESESSIONRESPONSE']._serialized_start=178
-  _globals['_UPDATESESSIONRESPONSE']._serialized_end=385
+  _globals['_AUTHUPDATESESSIONRESPONSE']._serialized_start=178
+  _globals['_AUTHUPDATESESSIONRESPONSE']._serialized_end=389
 # @@protoc_insertion_point(module_scope)

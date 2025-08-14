@@ -22,11 +22,11 @@ _runtime_version.ValidateProtobufRuntimeVersion(
 _sym_db = _symbol_database.Default()
 
 
-from pkg.auth.proto import mfa_method_pb2 as pkg_dot_auth_dot_proto_dot_mfa__method__pb2
 from google.protobuf import go_features_pb2 as google_dot_protobuf_dot_go__features__pb2
+from pkg.auth.proto import mfa_method_pb2 as pkg_dot_auth_dot_proto_dot_mfa__method__pb2
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n\'pkg/auth/proto/enable_mfa_request.proto\x12\x0fgcommon.v1.auth\x1a\x1fpkg/auth/proto/mfa_method.proto\x1a!google/protobuf/go_features.proto\"\x8a\x01\n\x10\x45nableMfaRequest\x12\x17\n\x07user_id\x18\x01 \x01(\tR\x06userId\x12\x34\n\x07methods\x18\x02 \x03(\x0e\x32\x1a.gcommon.v1.auth.MfaMethodR\x07methods\x12\'\n\x0fprimary_contact\x18\x03 \x01(\tR\x0eprimaryContactB\xbc\x01\n\x13\x63om.gcommon.v1.authB\x15\x45nableMfaRequestProtoP\x01Z(github.com/jdfalk/gcommon/pkg/auth/proto\xa2\x02\x03GVA\xaa\x02\x0fGcommon.V1.Auth\xca\x02\x0fGcommon\\V1\\Auth\xe2\x02\x1bGcommon\\V1\\Auth\\GPBMetadata\xea\x02\x11Gcommon::V1::Auth\x92\x03\x05\xd2>\x02\x10\x03\x62\x08\x65\x64itionsp\xe8\x07')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n\'pkg/auth/proto/enable_mfa_request.proto\x12\x0fgcommon.v1.auth\x1a!google/protobuf/go_features.proto\x1a\x1fpkg/auth/proto/mfa_method.proto\"\x8a\x01\n\x10\x45nableMfaRequest\x12\x17\n\x07user_id\x18\x01 \x01(\tR\x06userId\x12\x34\n\x07methods\x18\x02 \x03(\x0e\x32\x1a.gcommon.v1.auth.MfaMethodR\x07methods\x12\'\n\x0fprimary_contact\x18\x03 \x01(\tR\x0eprimaryContactB\xbc\x01\n\x13\x63om.gcommon.v1.authB\x15\x45nableMfaRequestProtoP\x01Z(github.com/jdfalk/gcommon/pkg/auth/proto\xa2\x02\x03GVA\xaa\x02\x0fGcommon.V1.Auth\xca\x02\x0fGcommon\\V1\\Auth\xe2\x02\x1bGcommon\\V1\\Auth\\GPBMetadata\xea\x02\x11Gcommon::V1::Auth\x92\x03\x05\xd2>\x02\x10\x03\x62\x08\x65\x64itionsp\xe8\x07')
 
 _globals = globals()
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, _globals)
