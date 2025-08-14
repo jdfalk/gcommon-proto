@@ -12,7 +12,7 @@ option features.(pb.go).api_level = API_OPAQUE;
 option go_package = "github.com/jdfalk/gcommon/pkg/log/proto";
 
 // FilterType enumerates log filter strategies
-enum FilterType {
+enum LogFilterType {
   FILTER_TYPE_UNSPECIFIED = 0;
   FILTER_TYPE_LEVEL = 1;
   FILTER_TYPE_LOGGER = 2;

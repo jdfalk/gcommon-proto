@@ -12,7 +12,7 @@ option features.(pb.go).api_level = API_OPAQUE;
 option go_package = "github.com/jdfalk/gcommon/pkg/log/proto";
 
 // CompressionType enumerates archive compression formats
-enum CompressionType {
+enum LogCompressionType {
   COMPRESSION_TYPE_UNSPECIFIED = 0;
   COMPRESSION_TYPE_NONE = 1;
   COMPRESSION_TYPE_GZIP = 2;

@@ -7,9 +7,8 @@ edition = "2023";
 package gcommon.v1.log;
 
 import "google/protobuf/any.proto";
-import "google/protobuf/go_features.proto";
 import "google/protobuf/timestamp.proto";
-import "pkg/common/proto/error.proto";
+import "common/proto/error.proto";
 import "pkg/log/proto/error_info.proto";
 import "pkg/log/proto/log_level.proto";
 import "pkg/log/proto/source_location.proto";

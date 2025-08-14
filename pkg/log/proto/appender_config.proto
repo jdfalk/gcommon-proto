@@ -6,11 +6,10 @@ edition = "2023";
 
 package gcommon.v1.log;
 
-import "google/protobuf/go_features.proto";
 import "pkg/log/proto/appender_type.proto";
 import "pkg/log/proto/formatter_type.proto";
-import "log/proto/output_config.proto";
-import "log/proto/formatter_config.proto";
+import "log/proto/appender_config.proto";
+import "log/proto/appender_config.proto";
 import "log/proto/appender_type.proto";
 import "log/proto/formatter_type.proto";
 
@@ -28,7 +27,7 @@ message AppenderConfig {
   OutputConfig output = 3;
 
   // Formatting configuration
-  FormatterConfig formatter = 4;
+  LogFormatterConfig formatter = 4;
 
   // Arbitrary appender properties
   map<string, string> properties = 5;
@@ -43,7 +42,7 @@ message AppenderConfig {
   }
 
   // FormatterConfig defines how log entries are formatted
-  message FormatterConfig {
+  message LogFormatterConfig {
     // Formatting strategy
     FormatterType type = 1;
 

@@ -6,7 +6,6 @@ edition = "2023";
 
 package gcommon.v1.log;
 
-import "google/protobuf/go_features.proto";
 import "pkg/log/proto/configure_logger_request.proto";
 import "pkg/log/proto/configure_logger_response.proto";
 import "log/proto/configure_logger_request.proto";

@@ -12,7 +12,7 @@ import "log/proto/formatter_type.proto";
 option features.(pb.go).api_level = API_OPAQUE;
 option go_package = "github.com/jdfalk/gcommon/pkg/log/proto";
 
-  message FormatterConfig {
+  message LogFormatterConfig {
     // Formatting strategy
     FormatterType type = 1;
 
