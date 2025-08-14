@@ -530,7 +530,7 @@ jobs:
           result-encoding: string
           script: |
             const pr_number = context.issue.number;
-            
+
             try {
               let pr = await github.rest.pulls.get({
                 owner: context.repo.owner,
@@ -550,7 +550,7 @@ jobs:
 
               const state = pr.data.mergeable_state;
               core.info(`PR #${pr_number} mergeable state: ${state}`);
-              
+
               if (state === 'dirty' || state === 'behind') {
                 return 'true';
               } else {
