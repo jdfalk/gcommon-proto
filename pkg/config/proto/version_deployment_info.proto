@@ -11,6 +11,8 @@ import "google/protobuf/timestamp.proto";
 import "pkg/common/proto/audit_log.proto";
 import "pkg/config/proto/version_deployment_status.proto";
 import "pkg/config/proto/version_health_status.proto";
+import "config/proto/version_deployment_status.proto";
+import "config/proto/version_health_status.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
 option go_package = "github.com/jdfalk/gcommon/pkg/config/proto";

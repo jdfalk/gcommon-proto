@@ -10,6 +10,8 @@ import "google/protobuf/go_features.proto";
 import "google/protobuf/timestamp.proto";
 import "pkg/config/proto/compliance_audit.proto";
 import "pkg/config/proto/compliance_reporting.proto";
+import "config/proto/compliance_reporting.proto";
+import "config/proto/compliance_audit.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
 option go_package = "github.com/jdfalk/gcommon/pkg/config/proto";

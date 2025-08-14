@@ -13,6 +13,7 @@ import "pkg/config/proto/audit_operation_type.proto";
 import "pkg/config/proto/rollback_method.proto";
 import "pkg/config/proto/validation_result_type.proto";
 import "pkg/config/proto/validation_severity.proto";
+import "config/proto/rollback_method.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
 option go_package = "github.com/jdfalk/gcommon/pkg/config/proto";

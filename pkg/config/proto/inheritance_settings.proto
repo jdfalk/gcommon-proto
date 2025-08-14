@@ -13,6 +13,10 @@ import "pkg/config/proto/inheritance_filter.proto";
 import "pkg/config/proto/inheritance_strategy.proto";
 import "pkg/config/proto/inheritance_transformation.proto";
 import "pkg/config/proto/merge_strategy.proto";
+import "config/proto/inheritance_strategy.proto";
+import "config/proto/merge_strategy.proto";
+import "config/proto/inheritance_transformation.proto";
+import "config/proto/inheritance_filter.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
 option go_package = "github.com/jdfalk/gcommon/pkg/config/proto";

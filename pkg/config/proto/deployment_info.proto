@@ -17,6 +17,9 @@ import "pkg/config/proto/environment_type.proto";
 import "pkg/config/proto/health_check_type.proto";
 import "pkg/config/proto/health_state.proto";
 import "pkg/config/proto/notification_settings.proto";
+import "config/proto/deployment_rollback_info.proto";
+import "config/proto/deployment_status.proto";
+import "config/proto/health_check.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
 option go_package = "github.com/jdfalk/gcommon/pkg/config/proto";

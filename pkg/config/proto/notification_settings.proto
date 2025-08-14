@@ -17,6 +17,10 @@ import "pkg/config/proto/deprecation_level.proto";
 import "pkg/config/proto/metadata_status.proto";
 import "pkg/config/proto/notification_channel.proto";
 import "pkg/config/proto/notification_trigger.proto";
+import "queue/proto/notification_channel.proto";
+import "config/proto/notification_trigger.proto";
+import "config/proto/notification_channel.proto";
+import "config/proto/batching_settings.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
 option go_package = "github.com/jdfalk/gcommon/pkg/config/proto";
