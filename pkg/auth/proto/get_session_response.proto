@@ -6,9 +6,8 @@ edition = "2023";
 
 package gcommon.v1.auth;
 
-import "google/protobuf/go_features.proto";
 import "pkg/auth/proto/session.proto";
-import "pkg/common/proto/error.proto";
+import "common/proto/error.proto";
 import "auth/proto/session.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
@@ -18,7 +17,7 @@ option go_package = "github.com/jdfalk/gcommon/pkg/auth/proto";
  * Response for getting session information.
  * Contains session details if found, or error information if not found.
  */
-message GetSessionResponse {
+message AuthGetSessionResponse {
   // Session information if found
   Session session = 1;
 

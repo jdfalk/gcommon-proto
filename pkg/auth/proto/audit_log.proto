@@ -13,7 +13,7 @@ option features.(pb.go).api_level = API_OPAQUE;
 option go_package = "github.com/jdfalk/gcommon/pkg/auth/proto";
 
 // AuditLog captures security-relevant user actions for auditing purposes
-message AuditLog {
+message AuthAuditLog {
   // Unique identifier of the user performing the action
   string user_id = 1;
 

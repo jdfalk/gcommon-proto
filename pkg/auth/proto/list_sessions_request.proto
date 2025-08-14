@@ -6,7 +6,6 @@ edition = "2023";
 
 package gcommon.v1.auth;
 
-import "google/protobuf/go_features.proto";
 import "pkg/common/proto/pagination.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
@@ -16,7 +15,7 @@ option go_package = "github.com/jdfalk/gcommon/pkg/auth/proto";
  * Request to list all sessions (admin only).
  * Used for administrative monitoring and management.
  */
-message ListSessionsRequest {
+message AuthListSessionsRequest {
   // Pagination parameters
   gcommon.v1.common.Pagination pagination = 1;
 

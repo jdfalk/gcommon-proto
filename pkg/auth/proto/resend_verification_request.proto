@@ -6,8 +6,7 @@ edition = "2023";
 
 package gcommon.v1.auth;
 
-import "google/protobuf/go_features.proto";
-import "auth/proto/verification_type.proto";
+import "auth/proto/resend_verification_request.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
 option go_package = "github.com/jdfalk/gcommon/pkg/auth/proto";
@@ -18,10 +17,10 @@ message ResendVerificationRequest {
   string identifier = 1;
 
   // Verification type
-  enum VerificationType {
+  enum AuthVerificationType {
     VERIFICATION_TYPE_UNSPECIFIED = 0;
     VERIFICATION_TYPE_EMAIL = 1;
     VERIFICATION_TYPE_SMS = 2;
   }
-  VerificationType type = 2;
+  AuthVerificationType type = 2;
 }

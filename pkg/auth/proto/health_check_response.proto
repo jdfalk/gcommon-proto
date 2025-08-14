@@ -8,10 +8,9 @@ edition = "2023";
 package gcommon.v1.auth;
 
 import "google/protobuf/duration.proto";
-import "google/protobuf/go_features.proto";
-import "pkg/common/proto/error.proto";
+import "common/proto/error.proto";
 import "pkg/common/proto/health_status.proto";
-import "pkg/common/proto/request_metadata.proto";
+import "common/proto/request_metadata.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
 option go_package = "github.com/jdfalk/gcommon/pkg/auth/proto";
@@ -19,9 +18,9 @@ option go_package = "github.com/jdfalk/gcommon/pkg/auth/proto";
 /**
  * HealthCheckResponse conveys the authentication service health status.
  */
-message HealthCheckResponse {
+message AuthHealthCheckResponse {
   // Overall health status.
-  gcommon.v1.common.HealthStatus status = 1;
+  gcommon.v1.common.MetricsHealthStatus status = 1;
 
   // Response time for the health check.
   google.protobuf.Duration response_time = 2 [lazy = true];

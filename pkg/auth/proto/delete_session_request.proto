@@ -6,7 +6,6 @@ edition = "2023";
 
 package gcommon.v1.auth;
 
-import "google/protobuf/go_features.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
 option go_package = "github.com/jdfalk/gcommon/pkg/auth/proto";
@@ -15,7 +14,7 @@ option go_package = "github.com/jdfalk/gcommon/pkg/auth/proto";
  * Request to delete a session.
  * Used for session cleanup and administrative purposes.
  */
-message DeleteSessionRequest {
+message AuthDeleteSessionRequest {
   // Session ID to delete
   string session_id = 1;
 

@@ -6,7 +6,6 @@ edition = "2023";
 
 package gcommon.v1.auth;
 
-import "google/protobuf/go_features.proto";
 import "pkg/auth/proto/session_info.proto";
 import "pkg/common/proto/response_metadata.proto";
 
@@ -17,7 +16,7 @@ option go_package = "github.com/jdfalk/gcommon/pkg/auth/proto";
  * Response for session update operations.
  * Contains the updated session information.
  */
-message UpdateSessionResponse {
+message AuthUpdateSessionResponse {
   // Whether the update was successful
   bool success = 1;
 

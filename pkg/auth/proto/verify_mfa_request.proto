@@ -8,7 +8,6 @@ edition = "2023";
 
 package gcommon.v1.auth;
 
-import "google/protobuf/go_features.proto";
 import "pkg/auth/proto/mfa_method.proto";
 import "auth/proto/mfa_method.proto";
 

@@ -6,10 +6,9 @@ edition = "2023";
 
 package gcommon.v1.auth;
 
-import "google/protobuf/go_features.proto";
-import "auth/proto/session_state.proto";
+import "auth/proto/session_metadata.proto";
 import "auth/proto/location_info.proto";
-import "web/proto/session_state.proto";
+import "auth/proto/session_metadata.proto";
 import "auth/proto/device_info.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
@@ -45,12 +44,12 @@ message SessionMetadata {
   LocationInfo location_info = 9;
 
   // Session state
-  enum SessionState {
+  enum AuthSessionState {
     SESSION_STATE_UNSPECIFIED = 0;
     SESSION_STATE_ACTIVE = 1;
     SESSION_STATE_IDLE = 2;
     SESSION_STATE_EXPIRED = 3;
     SESSION_STATE_TERMINATED = 4;
   }
-  SessionState state = 10;
+  AuthSessionState state = 10;
 }

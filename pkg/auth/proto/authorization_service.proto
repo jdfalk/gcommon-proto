@@ -3,7 +3,6 @@ edition = "2023";
 
 package gcommon.v1.auth;
 
-import "google/protobuf/go_features.proto";
 import "pkg/auth/proto/authorize_request.proto";
 import "pkg/auth/proto/authorize_response.proto";
 import "pkg/auth/proto/get_user_permissions_request.proto";
@@ -12,10 +11,10 @@ import "pkg/auth/proto/get_user_roles_request.proto";
 import "pkg/auth/proto/get_user_roles_response.proto";
 import "pkg/auth/proto/role.proto";
 import "auth/proto/authorize_request.proto";
-import "web/proto/authorize_request.proto";
+import "auth/proto/authorize_request.proto";
 import "auth/proto/get_user_roles_request.proto";
 import "auth/proto/authorize_response.proto";
-import "web/proto/authorize_response.proto";
+import "auth/proto/authorize_response.proto";
 import "auth/proto/get_user_roles_response.proto";
 import "auth/proto/get_user_permissions_request.proto";
 import "auth/proto/get_user_permissions_response.proto";

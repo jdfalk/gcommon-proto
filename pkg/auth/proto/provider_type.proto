@@ -6,7 +6,6 @@ edition = "2023";
 
 package gcommon.v1.auth;
 
-import "google/protobuf/go_features.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
 option go_package = "github.com/jdfalk/gcommon/pkg/auth/proto";
@@ -14,7 +13,7 @@ option go_package = "github.com/jdfalk/gcommon/pkg/auth/proto";
 /**
  * ProviderType enumerates the supported authentication provider backends.
  */
-enum ProviderType {
+enum AuthProviderType {
   // Default unspecified provider type
   PROVIDER_TYPE_UNSPECIFIED = 0;
 

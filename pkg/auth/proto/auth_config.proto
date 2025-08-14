@@ -6,7 +6,6 @@ edition = "2023";
 
 package gcommon.v1.auth;
 
-import "google/protobuf/go_features.proto";
 import "google/protobuf/timestamp.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
@@ -16,7 +15,7 @@ option go_package = "github.com/jdfalk/gcommon/pkg/auth/proto";
  * AuthConfig defines authentication configuration for the application
  * including token lifetimes and password requirements.
  */
-message AuthConfig {
+message AuthAuthConfig {
   // How long issued access tokens remain valid
   google.protobuf.Timestamp access_token_ttl = 1;
 

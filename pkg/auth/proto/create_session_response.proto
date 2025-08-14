@@ -6,9 +6,8 @@ edition = "2023";
 
 package gcommon.v1.auth;
 
-import "google/protobuf/go_features.proto";
 import "google/protobuf/timestamp.proto";
-import "pkg/common/proto/request_metadata.proto";
+import "common/proto/request_metadata.proto";
 import "pkg/common/proto/response_metadata.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
@@ -18,7 +17,7 @@ option go_package = "github.com/jdfalk/gcommon/pkg/auth/proto";
  * Response for session creation operations.
  * Contains session token, expiration details, and user context.
  */
-message CreateSessionResponse {
+message AuthCreateSessionResponse {
   // Standard response metadata
   gcommon.v1.common.ResponseMetadata metadata = 1;
 

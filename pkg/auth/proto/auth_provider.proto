@@ -6,10 +6,9 @@ edition = "2023";
 
 package gcommon.v1.auth;
 
-import "google/protobuf/go_features.proto";
 import "pkg/auth/proto/provider_type.proto";
 import "auth/proto/provider_type.proto";
-import "metrics/proto/provider_type.proto";
+import "auth/proto/provider_type.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
 option go_package = "github.com/jdfalk/gcommon/pkg/auth/proto";
@@ -26,7 +25,7 @@ message AuthProvider {
   string name = 2;
 
   // Provider type (e.g., LDAP, OAUTH2, SAML)
-  ProviderType type = 3;
+  MetricsProviderType type = 3;
 
   // Provider-specific configuration reference or JSON blob
   string config = 4;

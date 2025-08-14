@@ -4,7 +4,6 @@ edition = "2023";
 package gcommon.v1.auth;
 
 import "google/protobuf/duration.proto";
-import "google/protobuf/go_features.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
 option go_package = "github.com/jdfalk/gcommon/pkg/auth/proto";
@@ -14,7 +13,7 @@ option go_package = "github.com/jdfalk/gcommon/pkg/auth/proto";
  * Used to prevent abuse and enforce security policies.
  * Supports various rate limiting strategies.
  */
-message RateLimitConfig {
+message AuthRateLimitConfig {
   // Maximum number of requests allowed
   int32 max_requests = 1;
 

@@ -31,14 +31,14 @@ message PermissionMetadata {
   repeated PermissionCondition conditions = 5;
 
   // Permission level (system, organization, project, etc.)
-  enum PermissionLevel {
+  enum AuthPermissionLevel {
     PERMISSION_LEVEL_UNSPECIFIED = 0;
     PERMISSION_LEVEL_SYSTEM = 1;
     PERMISSION_LEVEL_ORGANIZATION = 2;
     PERMISSION_LEVEL_PROJECT = 3;
     PERMISSION_LEVEL_RESOURCE = 4;
   }
-  PermissionLevel level = 6;
+  AuthPermissionLevel level = 6;
 
   // Creation metadata
   int64 created_at = 7;
