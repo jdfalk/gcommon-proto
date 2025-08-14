@@ -9,7 +9,7 @@ edition = "2023";
 package gcommon.v1.health;
 
 import "google/protobuf/go_features.proto";
-import "pkg/common/proto/health_status.proto";
+import "pkg/metrics/proto/health_status.proto";
 import "pkg/common/proto/request_metadata.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
@@ -20,7 +20,7 @@ message SetHealthRequest {
   string service = 1;
 
   // Desired health status
-  gcommon.v1.common.MetricsHealthStatus status = 2;
+  gcommon.v1.metrics.MetricsHealthStatus status = 2;
 
   // Request metadata for auditing
   gcommon.v1.common.RequestMetadata metadata = 3 [lazy = true];
