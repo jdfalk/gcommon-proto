@@ -11,6 +11,14 @@ package gcommon.v1.health;
 import "google/protobuf/go_features.proto";
 import "pkg/common/proto/request_metadata.proto";
 import "pkg/health/proto/health_check_request.proto";
+import "health/proto/health_check_request.proto";
+import "config/proto/health_check_request.proto";
+import "cache/proto/health_check_request.proto";
+import "web/proto/health_check_request.proto";
+import "db/proto/health_check_request.proto";
+import "metrics/proto/health_check_request.proto";
+import "auth/proto/health_check_request.proto";
+import "queue/proto/health_check_request.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
 option go_package = "github.com/jdfalk/gcommon/pkg/health/proto";
