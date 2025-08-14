@@ -6,7 +6,6 @@ edition = "2023";
 
 package gcommon.v1.media;
 
-import "google/protobuf/go_features.proto";
 import "pkg/media/proto/quality_score.proto";
 import "pkg/media/proto/resolution.proto";
 import "media/proto/quality_score.proto";
