@@ -3,11 +3,9 @@ edition = "2023";
 
 package gcommon.v1.auth;
 
-import "auth/proto/enums/token_type.proto";
-import "auth/proto/token_status.proto";
-import "auth/proto/token_type.proto";
 import "google/protobuf/go_features.proto";
 import "google/protobuf/timestamp.proto";
+import "pkg/auth/proto/enums/token_type.proto";
 import "pkg/auth/proto/token_status.proto";
 import "pkg/auth/proto/token_type.proto";
 

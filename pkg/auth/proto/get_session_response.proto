@@ -6,7 +6,6 @@ edition = "2023";
 
 package gcommon.v1.auth;
 
-import "auth/proto/session.proto";
 import "google/protobuf/go_features.proto";
 import "pkg/auth/proto/session.proto";
 import "pkg/common/proto/error.proto";

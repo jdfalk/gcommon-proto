@@ -6,10 +6,10 @@ edition = "2023";
 
 package gcommon.v1.auth;
 
-import "auth/proto/user_preferences.proto";
-import "auth/proto/verification_status.proto";
 import "google/protobuf/go_features.proto";
 import "google/protobuf/timestamp.proto";
+import "pkg/auth/proto/user_preferences.proto";
+import "pkg/auth/proto/verification_status.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
 option go_package = "github.com/jdfalk/gcommon/pkg/auth/proto";

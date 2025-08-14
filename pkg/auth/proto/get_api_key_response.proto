@@ -6,9 +6,9 @@ edition = "2023";
 
 package gcommon.v1.auth;
 
-import "auth/proto/api_key.proto";
-import "auth/proto/api_key_stats.proto";
 import "google/protobuf/go_features.proto";
+import "pkg/auth/proto/api_key.proto";
+import "pkg/auth/proto/api_key_stats.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
 option go_package = "github.com/jdfalk/gcommon/pkg/auth/proto";

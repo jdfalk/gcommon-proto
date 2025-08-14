@@ -6,9 +6,9 @@ edition = "2023";
 
 package gcommon.v1.auth;
 
-import "auth/proto/o_auth2_flow_type.proto";
 import "google/protobuf/go_features.proto";
 import "pkg/auth/proto/jwt_config.proto";
+import "pkg/auth/proto/o_auth2_flow_type.proto";
 import "pkg/auth/proto/oauth2_flow_type.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
