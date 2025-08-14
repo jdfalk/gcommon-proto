@@ -14,7 +14,6 @@ import "pkg/auth/proto/list_sessions_request.proto";
 import "pkg/auth/proto/list_sessions_response.proto";
 import "pkg/auth/proto/list_user_sessions_request.proto";
 import "pkg/auth/proto/list_user_sessions_response.proto";
-import "pkg/auth/proto/session.proto";
 import "pkg/auth/proto/terminate_session_request.proto";
 import "pkg/auth/proto/terminate_session_response.proto";
 import "pkg/auth/proto/update_session_request.proto";
@@ -32,13 +31,13 @@ option go_package = "github.com/jdfalk/gcommon/pkg/auth/proto";
  */
 service SessionService {
   // Create a new session for an authenticated user
-  rpc CreateSession(CreateSessionRequest) returns (CreateSessionResponse);
+  rpc CreateSession(AuthCreateSessionRequest) returns (AuthCreateSessionResponse);
 
   // Get detailed information about a specific session
-  rpc GetSession(GetSessionRequest) returns (GetSessionResponse);
+  rpc GetSession(AuthGetSessionRequest) returns (AuthGetSessionResponse);
 
   // Update session information (e.g., refresh activity timestamp)
-  rpc UpdateSession(UpdateSessionRequest) returns (UpdateSessionResponse);
+  rpc UpdateSession(AuthUpdateSessionRequest) returns (AuthUpdateSessionResponse);
 
   // Validate a session and return session information
   rpc ValidateSession(ValidateSessionRequest) returns (ValidateSessionResponse);
@@ -47,11 +46,11 @@ service SessionService {
   rpc TerminateSession(TerminateSessionRequest) returns (TerminateSessionResponse);
 
   // Delete a specific session
-  rpc DeleteSession(DeleteSessionRequest) returns (DeleteSessionResponse);
+  rpc DeleteSession(AuthDeleteSessionRequest) returns (AuthDeleteSessionResponse);
 
   // List all active sessions for a user
   rpc ListUserSessions(ListUserSessionsRequest) returns (ListUserSessionsResponse);
 
   // List all sessions (admin only)
-  rpc ListSessions(ListSessionsRequest) returns (ListSessionsResponse);
+  rpc ListSessions(AuthListSessionsRequest) returns (AuthListSessionsResponse);
 }
