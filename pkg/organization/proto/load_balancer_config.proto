@@ -8,6 +8,9 @@ package gcommon.v1.organization;
 
 import "google/protobuf/go_features.proto";
 import "google/protobuf/timestamp.proto";
+import "organization/proto/ssl_config.proto";
+import "organization/proto/health_check_config.proto";
+import "web/proto/health_check_config.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
 option go_package = "github.com/jdfalk/gcommon/pkg/organization/proto";

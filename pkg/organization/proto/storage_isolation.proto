@@ -8,6 +8,10 @@ package gcommon.v1.organization;
 
 import "google/protobuf/go_features.proto";
 import "google/protobuf/timestamp.proto";
+import "organization/proto/storage_policy.proto";
+import "organization/proto/storage_quota.proto";
+import "organization/proto/storage_encryption.proto";
+import "organization/proto/storage_backup_config.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
 option go_package = "github.com/jdfalk/gcommon/pkg/organization/proto";
