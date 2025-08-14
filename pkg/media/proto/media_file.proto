@@ -13,6 +13,11 @@ import "pkg/media/proto/media_metadata.proto";
 import "pkg/media/proto/media_quality.proto";
 import "pkg/media/proto/media_type.proto";
 import "pkg/media/proto/subtitle_track.proto";
+import "media/proto/subtitle_track.proto";
+import "media/proto/media_quality.proto";
+import "media/proto/audio_track.proto";
+import "media/proto/media_metadata.proto";
+import "media/proto/media_type.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
 option go_package = "github.com/jdfalk/gcommon/pkg/media/proto";
