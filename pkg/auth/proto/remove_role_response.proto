@@ -7,7 +7,7 @@ import "google/protobuf/go_features.proto";
 
 import "google/protobuf/timestamp.proto";
 import "pkg/auth/proto/role.proto";
-import "common/proto/request_metadata.proto";
+import "pkg/common/proto/request_metadata.proto";
 import "auth/proto/role.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;

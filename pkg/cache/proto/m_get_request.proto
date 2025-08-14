@@ -9,7 +9,7 @@ package gcommon.v1.cache;
 
 import "google/protobuf/go_features.proto";
 
-import "common/proto/request_metadata.proto";
+import "pkg/common/proto/request_metadata.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
 option go_package = "github.com/jdfalk/gcommon/pkg/cache/proto";

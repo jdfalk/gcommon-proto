@@ -8,7 +8,7 @@ package gcommon.v1.config;
 
 import "google/protobuf/go_features.proto";
 
-import "common/proto/request_metadata.proto";
+import "pkg/common/proto/request_metadata.proto";
 import "pkg/config/proto/config_entry.proto";
 import "config/proto/config_entry.proto";
 

@@ -8,8 +8,8 @@ import "google/protobuf/go_features.proto";
 import "google/protobuf/timestamp.proto";
 import "pkg/common/proto/audit_result.proto";
 import "pkg/common/proto/resource_reference.proto";
-import "common/proto/resource_reference.proto";
-import "common/proto/audit_result.proto";
+import "pkg/common/proto/resource_reference.proto";
+import "pkg/common/proto/audit_result.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
 option go_package = "github.com/jdfalk/gcommon/pkg/common/proto";

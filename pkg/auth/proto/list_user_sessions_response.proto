@@ -12,10 +12,10 @@ import "google/protobuf/go_features.proto";
 import "google/protobuf/timestamp.proto";
 // Auth module types
 import "pkg/auth/proto/session_info.proto";
-import "common/proto/error.proto";
+import "pkg/common/proto/error.proto";
 // Common types
-import "common/proto/paginated_response.proto";
-import "common/proto/request_metadata.proto";
+import "pkg/common/proto/paginated_response.proto";
+import "pkg/common/proto/request_metadata.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
 option go_package = "github.com/jdfalk/gcommon/pkg/auth/proto";

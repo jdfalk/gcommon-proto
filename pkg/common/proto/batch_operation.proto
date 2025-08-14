@@ -6,8 +6,8 @@ package gcommon.v1.common;
 import "google/protobuf/go_features.proto";
 
 import "google/protobuf/any.proto";
-import "common/proto/batch_options.proto";
-import "common/proto/request_metadata.proto";
+import "pkg/common/proto/batch_options.proto";
+import "pkg/common/proto/request_metadata.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
 option go_package = "github.com/jdfalk/gcommon/pkg/common/proto";

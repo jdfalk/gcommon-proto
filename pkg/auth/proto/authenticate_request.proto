@@ -10,7 +10,7 @@ import "pkg/auth/proto/jwt_credentials.proto";
 import "pkg/auth/proto/oauth2_credentials.proto";
 import "pkg/auth/proto/password_credentials.proto";
 import "pkg/common/proto/client_info.proto";
-import "common/proto/request_metadata.proto";
+import "pkg/common/proto/request_metadata.proto";
 import "auth/proto/jwt_credentials.proto";
 import "auth/proto/password_credentials.proto";
 import "auth/proto/o_auth2_credentials.proto";

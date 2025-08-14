@@ -5,7 +5,7 @@ package gcommon.v1.database;
 
 import "google/protobuf/go_features.proto";
 
-import "common/proto/error.proto";
+import "pkg/common/proto/error.proto";
 import "pkg/db/proto/batch_operation_result.proto";
 import "pkg/db/proto/batch_stats.proto";
 import "db/proto/batch_operation_result.proto";

@@ -9,7 +9,7 @@ package gcommon.v1.config;
 import "google/protobuf/go_features.proto";
 
 import "google/protobuf/timestamp.proto";
-import "common/proto/audit_log.proto";
+import "pkg/common/proto/audit_log.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
 option go_package = "github.com/jdfalk/gcommon/pkg/config/proto";

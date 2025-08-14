@@ -26,7 +26,7 @@ import "config/proto/resource_limits.proto";
 import "config/proto/sync_settings.proto";
 import "config/proto/monitoring_config.proto";
 import "config/proto/backup_policy.proto";
-import "common/proto/health_status.proto";
+import "pkg/common/proto/health_status.proto";
 import "config/proto/encryption_settings.proto";
 import "config/proto/notification_settings.proto";
 import "config/proto/compliance_settings.proto";
