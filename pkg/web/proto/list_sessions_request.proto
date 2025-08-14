@@ -12,7 +12,7 @@ option features.(pb.go).api_level = API_OPAQUE;
 option go_package = "github.com/jdfalk/gcommon/pkg/web/proto";
 
 // ListSessionsRequest request definition.
-message ListSessionsRequest {
+message WebListSessionsRequest {
   // Filter sessions by user ID (optional)
   string user_id = 1;
 }

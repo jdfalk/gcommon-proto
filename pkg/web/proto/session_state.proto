@@ -12,7 +12,7 @@ import "google/protobuf/go_features.proto";
 option features.(pb.go).api_level = API_OPAQUE;
 option go_package = "github.com/jdfalk/gcommon/pkg/web/proto";
 
-enum SessionState {
+enum WebSessionState {
   SESSION_STATE_UNSPECIFIED = 0;
   SESSION_STATE_ACTIVE = 1;
   SESSION_STATE_EXPIRED = 2;

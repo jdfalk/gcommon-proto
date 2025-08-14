@@ -6,11 +6,10 @@ edition = "2023";
 
 package gcommon.v1.web;
 
-import "google/protobuf/go_features.proto";
 import "google/protobuf/timestamp.proto";
 import "pkg/web/proto/session_state.proto";
-import "auth/proto/session_state.proto";
-import "web/proto/session_state.proto";
+import "auth/proto/session_metadata.proto";
+import "auth/proto/session_metadata.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
 option go_package = "github.com/jdfalk/gcommon/pkg/web/proto";
@@ -24,7 +23,7 @@ message SessionData {
   string user_id = 2;
 
   // Current session state
-  SessionState state = 3;
+  AuthSessionState state = 3;
 
   // Session creation timestamp
   google.protobuf.Timestamp created_at = 4 [lazy = true];

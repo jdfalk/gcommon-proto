@@ -13,7 +13,7 @@ option features.(pb.go).api_level = API_OPAQUE;
 option go_package = "github.com/jdfalk/gcommon/pkg/web/proto";
 
 // Supported compression algorithms for responses.
-enum CompressionType {
+enum WebCompressionType {
   COMPRESSION_TYPE_UNSPECIFIED = 0;
   // No compression.
   COMPRESSION_TYPE_NONE = 1;

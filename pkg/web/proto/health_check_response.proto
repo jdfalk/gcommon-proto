@@ -15,9 +15,9 @@ option features.(pb.go).api_level = API_OPAQUE;
 option go_package = "github.com/jdfalk/gcommon/pkg/web/proto";
 
 // HealthCheckResponse response definition.
-message HealthCheckResponse {
+message WebHealthCheckResponse {
   // Web server health status.
-  gcommon.v1.common.HealthStatus status = 1;
+  gcommon.v1.common.MetricsHealthStatus status = 1;
 
   // Time taken to respond to the health check.
   google.protobuf.Duration response_time = 2 [lazy = true];

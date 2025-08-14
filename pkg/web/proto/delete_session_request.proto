@@ -12,7 +12,7 @@ option features.(pb.go).api_level = API_OPAQUE;
 option go_package = "github.com/jdfalk/gcommon/pkg/web/proto";
 
 // DeleteSessionRequest request definition.
-message DeleteSessionRequest {
+message WebDeleteSessionRequest {
   // Identifier of the session to delete
   string session_id = 1;
 }

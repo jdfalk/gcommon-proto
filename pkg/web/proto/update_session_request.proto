@@ -12,7 +12,7 @@ option features.(pb.go).api_level = API_OPAQUE;
 option go_package = "github.com/jdfalk/gcommon/pkg/web/proto";
 
 // UpdateSessionRequest request definition.
-message UpdateSessionRequest {
+message WebUpdateSessionRequest {
   // Identifier of the session to update
   string session_id = 1;
 

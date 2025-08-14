@@ -12,7 +12,7 @@ option features.(pb.go).api_level = API_OPAQUE;
 option go_package = "github.com/jdfalk/gcommon/pkg/web/proto";
 
 // HealthCheckConfig defines parameters for performing HTTP health checks.
-message HealthCheckConfig {
+message WebHealthCheckConfig {
   // HTTP path used for the health check request.
   string path = 1;
 

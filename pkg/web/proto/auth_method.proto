@@ -13,7 +13,7 @@ option features.(pb.go).api_level = API_OPAQUE;
 option go_package = "github.com/jdfalk/gcommon/pkg/web/proto";
 
 // Supported authentication mechanisms for HTTP requests.
-enum AuthMethod {
+enum WebAuthMethod {
   // Default unspecified value.
   AUTH_METHOD_UNSPECIFIED = 0;
   // No authentication required.

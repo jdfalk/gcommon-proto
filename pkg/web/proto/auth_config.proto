@@ -13,7 +13,7 @@ option go_package = "github.com/jdfalk/gcommon/pkg/web/proto";
 
 // AuthConfig message definition.
 // AuthConfig defines authentication settings for a web server.
-message AuthConfig {
+message WebAuthConfig {
   // Enable authentication middleware
   bool enable_auth = 1;
 

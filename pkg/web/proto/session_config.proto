@@ -15,7 +15,7 @@ option features.(pb.go).api_level = API_OPAQUE;
 option go_package = "github.com/jdfalk/gcommon/pkg/web/proto";
 
 // SessionConfig message definition.
-message SessionConfig {
+message WebSessionConfig {
   // Session idle timeout before automatic expiration
   google.protobuf.Duration idle_timeout = 1;
 

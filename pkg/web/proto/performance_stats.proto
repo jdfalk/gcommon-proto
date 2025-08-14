@@ -12,7 +12,7 @@ option features.(pb.go).api_level = API_OPAQUE;
 option go_package = "github.com/jdfalk/gcommon/pkg/web/proto";
 
 // PerformanceStats message definition.
-message PerformanceStats {
+message WebPerformanceStats {
   // Total number of requests handled
   int64 request_count = 1;
 

@@ -12,6 +12,6 @@ option features.(pb.go).api_level = API_OPAQUE;
 option go_package = "github.com/jdfalk/gcommon/pkg/web/proto";
 
 // GetMetricsResponse response definition.
-message GetMetricsResponse {
+message WebGetMetricsResponse {
   string placeholder = 1;
 }

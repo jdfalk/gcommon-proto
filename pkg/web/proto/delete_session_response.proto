@@ -12,7 +12,7 @@ option features.(pb.go).api_level = API_OPAQUE;
 option go_package = "github.com/jdfalk/gcommon/pkg/web/proto";
 
 // DeleteSessionResponse response definition.
-message DeleteSessionResponse {
+message WebDeleteSessionResponse {
   // Indicates if the session was deleted
   bool success = 1;
 }

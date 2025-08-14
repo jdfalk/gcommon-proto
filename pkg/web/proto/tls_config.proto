@@ -15,7 +15,7 @@ option go_package = "github.com/jdfalk/gcommon/pkg/web/proto";
 /**
  * TLSConfig defines TLS/SSL configuration for web servers.
  */
-message TLSConfig {
+message WebTLSConfig {
   // Required fields (1-10)
 
   /**

@@ -6,7 +6,6 @@ edition = "2023";
 
 package gcommon.v1.web;
 
-import "google/protobuf/go_features.proto";
 import "google/protobuf/timestamp.proto";
 import "pkg/web/proto/route_config.proto";
 import "pkg/web/proto/route_type.proto";

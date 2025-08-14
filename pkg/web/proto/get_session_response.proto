@@ -14,7 +14,7 @@ option features.(pb.go).api_level = API_OPAQUE;
 option go_package = "github.com/jdfalk/gcommon/pkg/web/proto";
 
 // GetSessionResponse response definition.
-message GetSessionResponse {
+message WebGetSessionResponse {
   // Retrieved session data
   SessionData session = 1;
 }

@@ -7,7 +7,6 @@ edition = "2023";
 
 package gcommon.v1.web;
 
-import "google/protobuf/go_features.proto";
 import "pkg/web/proto/flush_cache_request.proto";
 import "pkg/web/proto/flush_cache_response.proto";
 import "pkg/web/proto/get_cache_config_request.proto";

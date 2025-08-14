@@ -14,7 +14,7 @@ option features.(pb.go).api_level = API_OPAQUE;
 option go_package = "github.com/jdfalk/gcommon/pkg/web/proto";
 
 // RateLimitConfig message definition.
-message RateLimitConfig {
+message WebRateLimitConfig {
   // Enable rate limiting
   bool enabled = 1;
 

@@ -12,7 +12,7 @@ option features.(pb.go).api_level = API_OPAQUE;
 option go_package = "github.com/jdfalk/gcommon/pkg/web/proto";
 
 // CreateSessionRequest request definition.
-message CreateSessionRequest {
+message WebCreateSessionRequest {
   // User ID for the new session
   string user_id = 1;
 
