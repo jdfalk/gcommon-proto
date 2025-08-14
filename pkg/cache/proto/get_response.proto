@@ -5,6 +5,7 @@ package gcommon.v1.cache;
 
 import "google/protobuf/go_features.proto";
 import "pkg/cache/proto/cache_entry.proto";
+import "cache/proto/cache_entry.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
 option go_package = "github.com/jdfalk/gcommon/pkg/cache/proto";

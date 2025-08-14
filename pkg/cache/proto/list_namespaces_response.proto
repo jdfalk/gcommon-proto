@@ -8,6 +8,7 @@ package gcommon.v1.cache;
 
 import "google/protobuf/go_features.proto";
 import "google/protobuf/timestamp.proto";
+import "cache/proto/namespace_info.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
 option go_package = "github.com/jdfalk/gcommon/pkg/cache/proto";
