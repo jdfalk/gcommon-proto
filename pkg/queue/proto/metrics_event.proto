@@ -8,8 +8,8 @@ package gcommon.v1.queue;
 
 import "google/protobuf/go_features.proto";
 import "google/protobuf/timestamp.proto";
-import "metrics/proto/metric_type.proto";
 import "pkg/common/proto/time_range.proto";
+import "pkg/metrics/proto/metric_type.proto";
 import "pkg/queue/proto/cluster_info.proto";
 import "pkg/queue/proto/get_cluster_info_request.proto";
 import "pkg/queue/proto/get_cluster_info_response.proto";

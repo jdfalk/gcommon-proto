@@ -7,9 +7,9 @@ edition = "2023";
 package gcommon.v1.queue;
 
 import "google/protobuf/go_features.proto";
-import "queue/proto/conflict_strategy.proto";
-import "queue/proto/timestamp_config.proto";
-import "queue/proto/vector_clock_config.proto";
+import "pkg/queue/proto/conflict_strategy.proto";
+import "pkg/queue/proto/timestamp_config.proto";
+import "pkg/queue/proto/vector_clock_config.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
 option go_package = "github.com/jdfalk/gcommon/pkg/queue/proto";

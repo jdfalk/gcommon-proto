@@ -8,11 +8,11 @@ package gcommon.v1.queue;
 
 import "google/protobuf/go_features.proto";
 import "pkg/queue/proto/ack_level.proto";
+import "pkg/queue/proto/delivery_configuration.proto";
 import "pkg/queue/proto/delivery_mode.proto";
-import "queue/proto/delivery_configuration.proto";
-import "queue/proto/error_handling_config.proto";
-import "queue/proto/message_filter_config.proto";
-import "queue/proto/subscription_configuration.proto";
+import "pkg/queue/proto/error_handling_config.proto";
+import "pkg/queue/proto/message_filter_config.proto";
+import "pkg/queue/proto/subscription_configuration.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
 option go_package = "github.com/jdfalk/gcommon/pkg/queue/proto";

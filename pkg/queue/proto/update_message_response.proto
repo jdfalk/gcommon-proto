@@ -8,8 +8,8 @@ package gcommon.v1.queue;
 
 import "google/protobuf/go_features.proto";
 import "google/protobuf/timestamp.proto";
-import "queue/proto/failed_field_update.proto";
-import "queue/proto/updated_properties.proto";
+import "pkg/queue/proto/failed_field_update.proto";
+import "pkg/queue/proto/updated_properties.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
 option go_package = "github.com/jdfalk/gcommon/pkg/queue/proto";

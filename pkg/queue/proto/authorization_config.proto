@@ -7,11 +7,11 @@ edition = "2023";
 package gcommon.v1.queue;
 
 import "google/protobuf/go_features.proto";
-import "queue/proto/api_key_auth.proto";
-import "queue/proto/external_auth_service.proto";
-import "queue/proto/jwt_auth.proto";
-import "queue/proto/permission_rule.proto";
-import "queue/proto/role_based_access_control.proto";
+import "pkg/queue/proto/api_key_auth.proto";
+import "pkg/queue/proto/external_auth_service.proto";
+import "pkg/queue/proto/jwt_auth.proto";
+import "pkg/queue/proto/permission_rule.proto";
+import "pkg/queue/proto/role_based_access_control.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
 option go_package = "github.com/jdfalk/gcommon/pkg/queue/proto";

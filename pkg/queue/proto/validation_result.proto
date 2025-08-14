@@ -9,10 +9,10 @@ package gcommon.v1.queue;
 import "google/protobuf/duration.proto";
 import "google/protobuf/go_features.proto";
 import "google/protobuf/timestamp.proto";
-import "queue/proto/checksum_validation.proto";
-import "queue/proto/integrity_validation.proto";
-import "queue/proto/schema_validation.proto";
-import "queue/proto/validation_error.proto";
+import "pkg/queue/proto/checksum_validation.proto";
+import "pkg/queue/proto/integrity_validation.proto";
+import "pkg/queue/proto/schema_validation.proto";
+import "pkg/queue/proto/validation_error.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
 option go_package = "github.com/jdfalk/gcommon/pkg/queue/proto";

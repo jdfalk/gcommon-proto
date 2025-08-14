@@ -7,9 +7,9 @@ edition = "2023";
 package gcommon.v1.queue;
 
 import "google/protobuf/go_features.proto";
-import "queue/proto/batch_delivery_config.proto";
-import "queue/proto/delivery_retry_config.proto";
-import "queue/proto/flow_control_settings.proto";
+import "pkg/queue/proto/batch_delivery_config.proto";
+import "pkg/queue/proto/delivery_retry_config.proto";
+import "pkg/queue/proto/flow_control_settings.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
 option go_package = "github.com/jdfalk/gcommon/pkg/queue/proto";

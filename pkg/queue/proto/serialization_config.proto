@@ -10,8 +10,6 @@ import "google/protobuf/go_features.proto";
 import "pkg/queue/proto/compression_algorithm.proto";
 import "pkg/queue/proto/format_options.proto";
 import "pkg/queue/proto/serialization_format.proto";
-import "queue/proto/compression_algorithm.proto";
-import "queue/proto/format_options.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
 option go_package = "github.com/jdfalk/gcommon/pkg/queue/proto";

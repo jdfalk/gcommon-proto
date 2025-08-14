@@ -8,8 +8,8 @@ package gcommon.v1.queue;
 
 import "google/protobuf/go_features.proto";
 import "pkg/common/proto/request_metadata.proto";
+import "pkg/queue/proto/delete_criteria.proto";
 import "pkg/queue/proto/message_state.proto";
-import "queue/proto/delete_criteria.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
 option go_package = "github.com/jdfalk/gcommon/pkg/queue/proto";
