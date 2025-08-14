@@ -7,12 +7,11 @@ edition = "2023";
 package gcommon.v1.queue;
 
 import "google/protobuf/duration.proto";
-import "google/protobuf/go_features.proto";
 import "google/protobuf/timestamp.proto";
 import "pkg/common/proto/response_metadata.proto";
 import "pkg/queue/proto/consumer_stats.proto";
 import "queue/proto/consumer_stats.proto";
-import "queue/proto/error_stats.proto";
+import "metrics/proto/error_stats.proto";
 import "queue/proto/messages/queue_stats.proto";
 import "queue/proto/queue_stats_summary.proto";
 import "queue/proto/historical_stats.proto";
@@ -39,7 +38,7 @@ message GetQueueStatsResponse {
   HistoricalStats historical_stats = 5;
 
   // Error statistics (if requested)
-  ErrorStats error_stats = 6;
+  MetricsErrorStats error_stats = 6;
 
   // Performance metrics
   PerformanceMetrics performance_metrics = 7;

@@ -7,7 +7,6 @@ edition = "2023";
 package gcommon.v1.queue;
 
 import "google/protobuf/duration.proto";
-import "google/protobuf/go_features.proto";
 import "google/protobuf/timestamp.proto";
 import "pkg/common/proto/response_metadata.proto";
 import "pkg/queue/proto/consumer_stats.proto";

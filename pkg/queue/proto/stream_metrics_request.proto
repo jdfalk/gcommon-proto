@@ -23,12 +23,12 @@ import "metrics/proto/metric_type.proto";
 option features.(pb.go).api_level = API_OPAQUE;
 option go_package = "github.com/jdfalk/gcommon/pkg/queue/proto";
 
-message StreamMetricsRequest {
+message QueueStreamMetricsRequest {
   // Queue names to monitor (empty = all queues)
   repeated string queue_names = 1;
 
   // Types of metrics to include
-  repeated MetricType metric_types = 2;
+  repeated MetricsMetricType metric_types = 2;
 
   // Streaming interval in seconds
   int32 interval_seconds = 3;

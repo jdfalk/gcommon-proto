@@ -14,7 +14,7 @@ import "pkg/queue/proto/topic_stats.proto";
 option features.(pb.go).api_level = API_OPAQUE;
 option go_package = "github.com/jdfalk/gcommon/pkg/queue/proto";
 
-message RetentionInfo {
+message QueueRetentionInfo {
   // Current retention policy
   string retention_policy = 1;
 

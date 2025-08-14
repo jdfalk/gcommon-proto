@@ -12,7 +12,7 @@ option features.(pb.go).api_level = API_OPAQUE;
 option go_package = "github.com/jdfalk/gcommon/pkg/queue/proto";
 
 // RateLimitConfig defines throughput limits for a queue.
-message RateLimitConfig {
+message QueueRateLimitConfig {
   // Maximum messages allowed per second.
   int32 max_per_second = 1;
 

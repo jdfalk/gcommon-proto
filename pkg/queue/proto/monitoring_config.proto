@@ -12,7 +12,7 @@ option features.(pb.go).api_level = API_OPAQUE;
 option go_package = "github.com/jdfalk/gcommon/pkg/queue/proto";
 
 // MonitoringConfig controls runtime monitoring for a queue.
-message MonitoringConfig {
+message QueueMonitoringConfig {
   // Enable or disable monitoring for this queue.
   bool enabled = 1;
 

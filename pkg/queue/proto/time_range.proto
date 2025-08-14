@@ -19,7 +19,7 @@ option go_package = "github.com/jdfalk/gcommon/pkg/queue/proto";
 /**
  * Time range for filtering messages.
  */
-message TimeRange {
+message QueueTimeRange {
   // Start time (inclusive)
   google.protobuf.Timestamp start_time = 1;
 

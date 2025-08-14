@@ -7,15 +7,14 @@ edition = "2023";
 package gcommon.v1.queue;
 
 import "google/protobuf/duration.proto";
-import "google/protobuf/go_features.proto";
 import "pkg/queue/proto/alert_rule.proto";
 import "pkg/queue/proto/alert_severity.proto";
 import "pkg/queue/proto/notification_channel.proto";
-import "queue/proto/notification_channel.proto";
 import "config/proto/notification_channel.proto";
-import "queue/proto/alert_severity.proto";
+import "config/proto/notification_channel.proto";
+import "config/proto/alert_severity.proto";
 import "queue/proto/alert_rule.proto";
-import "metrics/proto/alert_severity.proto";
+import "config/proto/alert_severity.proto";
 import "config/proto/alert_severity.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
@@ -32,10 +31,10 @@ message AlertingConfig {
   repeated AlertRule rules = 2;
 
   // Notification channels for alerts
-  repeated NotificationChannel channels = 3;
+  repeated ConfigNotificationChannel channels = 3;
 
   // Default alert severity level
-  AlertSeverity default_severity = 4;
+  MetricsAlertSeverity default_severity = 4;
 
   // Alert aggregation window
   google.protobuf.Duration aggregation_window = 5;

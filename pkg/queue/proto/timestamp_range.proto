@@ -17,7 +17,7 @@ option go_package = "github.com/jdfalk/gcommon/pkg/queue/proto";
 
 // TimestampRange is used to specify a time window when querying
 // statistics or messages.
-message TimestampRange {
+message QueueTimestampRange {
   // Start of the range (inclusive).
   google.protobuf.Timestamp start = 1;
 

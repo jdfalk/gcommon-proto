@@ -6,9 +6,8 @@ edition = "2023";
 
 package gcommon.v1.queue;
 
-import "google/protobuf/go_features.proto";
 import "queue/proto/auth_cache_config.proto";
-import "queue/proto/retry_config.proto";
+import "metrics/proto/export_config.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
 option go_package = "github.com/jdfalk/gcommon/pkg/queue/proto";
@@ -24,7 +23,7 @@ message ExternalAuthService {
   int32 timeout_ms = 3;
 
   // Retry configuration - references existing RetryConfig
-  RetryConfig retry_config = 4;
+  MetricsRetryConfig retry_config = 4;
 
   // Cache configuration
   AuthCacheConfig cache_config = 5;

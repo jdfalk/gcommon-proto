@@ -9,7 +9,6 @@ edition = "2023";
 
 package gcommon.v1.queue;
 
-import "google/protobuf/go_features.proto";
 import "pkg/queue/proto/export_format.proto";
 import "pkg/queue/proto/time_range.proto";
 
@@ -27,13 +26,13 @@ message ExportQueueRequest {
   string destination = 2;
 
   // Export format
-  gcommon.v1.queue.ExportFormat format = 3;
+  gcommon.v1.queue.QueueExportFormat format = 3;
 
   // Whether to include message data or just metadata
   bool include_message_data = 4;
 
   // Time range for export (optional)
-  gcommon.v1.queue.TimeRange time_range = 5;
+  gcommon.v1.queue.MetricsTimeRange time_range = 5;
 
   // Whether to compress the export
   bool compress = 6;

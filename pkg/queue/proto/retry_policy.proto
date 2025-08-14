@@ -19,7 +19,7 @@ option go_package = "github.com/jdfalk/gcommon/pkg/queue/proto";
  * Defines how failed messages should be retried before being
  * sent to dead letter queue.
  */
-message RetryPolicy {
+message QueueRetryPolicy {
   // Maximum number of retry attempts
   int32 max_attempts = 1;
 

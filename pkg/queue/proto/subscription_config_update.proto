@@ -6,12 +6,11 @@ edition = "2023";
 
 package gcommon.v1.queue;
 
-import "google/protobuf/go_features.proto";
 import "config/proto/retry_settings.proto";
 import "queue/proto/delivery_settings.proto";
 import "queue/proto/routing_settings.proto";
 import "queue/proto/filter_settings.proto";
-import "queue/proto/retry_settings.proto";
+import "config/proto/retry_settings.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
 option go_package = "github.com/jdfalk/gcommon/pkg/queue/proto";
@@ -24,7 +23,7 @@ message SubscriptionConfigUpdate {
   DeliverySettings delivery_settings = 2;
 
   // Updated retry configuration
-  RetrySettings retry_settings = 3;
+  ConfigRetrySettings retry_settings = 3;
 
   // Updated filtering rules
   FilterSettings filter_settings = 4;

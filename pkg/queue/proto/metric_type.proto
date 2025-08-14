@@ -15,7 +15,7 @@ option go_package = "github.com/jdfalk/gcommon/pkg/queue/proto";
  * MetricType represents the types of metrics that can be monitored.
  * Specifies different types of queue metrics for monitoring and analysis.
  */
-enum MetricType {
+enum QueueMetricType {
   // Default unspecified type
   METRIC_TYPE_UNSPECIFIED = 0;
 

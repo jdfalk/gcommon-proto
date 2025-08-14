@@ -17,7 +17,7 @@ option go_package = "github.com/jdfalk/gcommon/pkg/queue/proto";
 /**
  * Consistency level for queue operations.
  */
-enum ConsistencyLevel {
+enum QueueConsistencyLevel {
   // Default unspecified consistency level
   CONSISTENCY_LEVEL_UNSPECIFIED = 0;
 

@@ -6,12 +6,11 @@ edition = "2023";
 
 package gcommon.v1.queue;
 
-import "google/protobuf/go_features.proto";
 import "google/protobuf/timestamp.proto";
 import "pkg/queue/proto/partition_info.proto";
 import "pkg/queue/proto/topic_stats.proto";
 import "queue/proto/owner_info.proto";
-import "queue/proto/retention_info.proto";
+import "metrics/proto/retention_info.proto";
 import "queue/proto/topic_stats.proto";
 import "queue/proto/topic_configuration.proto";
 import "metrics/proto/retention_info.proto";
@@ -62,5 +61,5 @@ message GetTopicInfoResponse {
   OwnerInfo owner = 13;
 
   // Retention policy details
-  RetentionInfo retention = 14;
+  MetricsRetentionInfo retention = 14;
 }

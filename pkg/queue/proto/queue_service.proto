@@ -6,7 +6,6 @@ edition = "2023";
 
 package gcommon.v1.queue;
 
-import "google/protobuf/go_features.proto";
 import "pkg/queue/proto/dequeue_request.proto";
 import "pkg/queue/proto/dequeue_response.proto";
 import "pkg/queue/proto/enqueue_request.proto";
@@ -27,14 +26,14 @@ import "queue/proto/dequeue_response.proto";
 import "queue/proto/get_queue_stats_response.proto";
 import "cache/proto/publish_request.proto";
 import "queue/proto/get_queue_stats_request.proto";
-import "queue/proto/publish_request.proto";
+import "cache/proto/publish_request.proto";
 import "queue/proto/get_queue_info_request.proto";
 import "queue/proto/dequeue_request.proto";
 import "queue/proto/get_queue_info_response.proto";
 import "queue/proto/publish_response.proto";
 import "queue/proto/enqueue_request.proto";
 import "queue/proto/peek_response.proto";
-import "queue/proto/subscribe_request.proto";
+import "cache/proto/subscribe_request.proto";
 import "cache/proto/subscribe_request.proto";
 import "queue/proto/enqueue_response.proto";
 

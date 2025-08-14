@@ -9,7 +9,6 @@ edition = "2023";
 
 package gcommon.v1.queue;
 
-import "google/protobuf/go_features.proto";
 import "pkg/queue/proto/cluster_info.proto";
 import "pkg/queue/proto/node_info.proto";
 

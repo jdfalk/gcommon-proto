@@ -17,7 +17,7 @@ option go_package = "github.com/jdfalk/gcommon/pkg/queue/proto";
 /**
  * Export format options.
  */
-enum ExportFormat {
+enum QueueExportFormat {
   // Default unspecified format
   EXPORT_FORMAT_UNSPECIFIED = 0;
 

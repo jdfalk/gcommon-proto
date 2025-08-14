@@ -13,7 +13,7 @@ option features.(pb.go).api_level = API_OPAQUE;
 option go_package = "github.com/jdfalk/gcommon/pkg/queue/proto";
 
 // RetentionPolicy controls how long messages are kept before deletion.
-message RetentionPolicy {
+message QueueRetentionPolicy {
   // Maximum age of a message before it is removed.
   google.protobuf.Duration max_age = 1;
   // Maximum total storage size for the queue in bytes.

@@ -6,9 +6,8 @@ edition = "2023";
 
 package gcommon.v1.queue;
 
-import "google/protobuf/go_features.proto";
 import "queue/proto/durability_level.proto";
-import "queue/proto/conflict_resolution.proto";
+import "config/proto/conflict_resolution.proto";
 import "queue/proto/ack_level.proto";
 import "queue/proto/replication_consistency.proto";
 import "queue/proto/write_consistency.proto";
@@ -40,7 +39,7 @@ message ConsistencyConfig {
   OrderingConfig ordering = 6;
 
   // Conflict resolution settings
-  ConflictResolution conflict_resolution = 7;
+  ConfigConflictResolution conflict_resolution = 7;
 
   // Consistency validation settings
   ConsistencyValidation validation = 8;

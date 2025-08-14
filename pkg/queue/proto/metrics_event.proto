@@ -6,7 +6,6 @@ edition = "2023";
 
 package gcommon.v1.queue;
 
-import "google/protobuf/go_features.proto";
 import "google/protobuf/timestamp.proto";
 import "pkg/common/proto/time_range.proto";
 import "pkg/queue/proto/cluster_info.proto";
@@ -18,7 +17,7 @@ import "pkg/queue/proto/metric_type.proto";
 import "pkg/queue/proto/stats_granularity.proto";
 import "pkg/queue/proto/time_range.proto";
 import "pkg/queue/proto/topic_info.proto";
-import "queue/proto/metric_type.proto";
+import "metrics/proto/metric_type.proto";
 import "metrics/proto/metric_type.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
@@ -32,7 +31,7 @@ message MetricsEvent {
   string queue_name = 2;
 
   // Type of metric
-  MetricType metric_type = 3;
+  MetricsMetricType metric_type = 3;
 
   // Metric value
   double value = 4;

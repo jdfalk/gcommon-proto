@@ -14,7 +14,7 @@ option go_package = "github.com/jdfalk/gcommon/pkg/queue/proto";
 /**
  * Alert severity levels.
  */
-enum AlertSeverity {
+enum QueueAlertSeverity {
   // Default unspecified severity
   ALERT_SEVERITY_UNSPECIFIED = 0;
 

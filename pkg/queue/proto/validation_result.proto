@@ -17,7 +17,7 @@ import "queue/proto/schema_validation.proto";
 option features.(pb.go).api_level = API_OPAQUE;
 option go_package = "github.com/jdfalk/gcommon/pkg/queue/proto";
 
-message ValidationResult {
+message QueueValidationResult {
   // Validation success status
   bool validation_passed = 1;
 

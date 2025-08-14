@@ -17,7 +17,7 @@ option go_package = "github.com/jdfalk/gcommon/pkg/queue/proto";
 /**
  * Configuration for message encryption in queues.
  */
-message EncryptionConfig {
+message QueueEncryptionConfig {
   // Whether encryption is enabled
   bool enabled = 1;
 

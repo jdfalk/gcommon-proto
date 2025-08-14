@@ -6,7 +6,6 @@ edition = "2023";
 
 package gcommon.v1.queue;
 
-import "google/protobuf/go_features.proto";
 import "pkg/queue/proto/publish_result.proto";
 import "queue/proto/publish_result.proto";
 

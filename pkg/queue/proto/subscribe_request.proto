@@ -17,7 +17,7 @@ import "queue/proto/error_handling_config.proto";
 option features.(pb.go).api_level = API_OPAQUE;
 option go_package = "github.com/jdfalk/gcommon/pkg/queue/proto";
 
-message SubscribeRequest {
+message QueueSubscribeRequest {
   // Topic or queue to subscribe to
   string topic = 1;
 

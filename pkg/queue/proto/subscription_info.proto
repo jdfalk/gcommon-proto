@@ -18,7 +18,7 @@ option go_package = "github.com/jdfalk/gcommon/pkg/queue/proto";
 /**
  * SubscriptionInfo describes a subscriber's configuration and status.
  */
-message SubscriptionInfo {
+message QueueSubscriptionInfo {
   // Name of the subscription
   string name = 1;
 

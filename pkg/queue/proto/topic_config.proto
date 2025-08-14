@@ -10,7 +10,6 @@ edition = "2023";
 package gcommon.v1.queue;
 
 import "google/protobuf/duration.proto";
-import "google/protobuf/go_features.proto";
 import "pkg/queue/proto/partition_config.proto";
 import "pkg/queue/proto/retention_policy.proto";
 
@@ -28,7 +27,7 @@ message TopicConfig {
   uint64 max_size_bytes = 2;
 
   // Message retention policy
-  gcommon.v1.queue.RetentionPolicy retention_policy = 3;
+  gcommon.v1.queue.MetricsRetentionPolicy retention_policy = 3;
 
   // Partitioning configuration
   gcommon.v1.queue.PartitionConfig partition_config = 4;

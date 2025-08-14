@@ -18,7 +18,7 @@ option go_package = "github.com/jdfalk/gcommon/pkg/queue/proto";
 /**
  * Configuration for circuit breaker pattern in queue operations.
  */
-message CircuitBreakerConfig {
+message QueueCircuitBreakerConfig {
   // Whether circuit breaker is enabled
   bool enabled = 1;
 

@@ -6,12 +6,11 @@ edition = "2023";
 
 package gcommon.v1.queue;
 
-import "google/protobuf/go_features.proto";
 import "google/protobuf/timestamp.proto";
 import "queue/proto/offset_range.proto";
-import "queue/proto/time_range.proto";
+import "common/proto/time_range.proto";
 import "queue/proto/filter_criteria.proto";
-import "metrics/proto/time_range.proto";
+import "common/proto/time_range.proto";
 import "queue/proto/performance_options.proto";
 import "common/proto/time_range.proto";
 
@@ -32,7 +31,7 @@ message RestoreOptions {
   OffsetRange offset_range = 4;
 
   // Restore messages within time range
-  TimeRange time_range = 5;
+  MetricsTimeRange time_range = 5;
 
   // Restore specific message priorities
   repeated int32 priority_levels = 6;

@@ -6,7 +6,6 @@ edition = "2023";
 
 package gcommon.v1.queue;
 
-import "google/protobuf/go_features.proto";
 import "google/protobuf/timestamp.proto";
 import "pkg/common/proto/time_range.proto";
 import "pkg/queue/proto/cluster_info.proto";
@@ -24,7 +23,7 @@ option go_package = "github.com/jdfalk/gcommon/pkg/queue/proto";
 
 message ClusterHealth {
   // Overall health status
-  gcommon.v1.queue.HealthStatus status = 1;
+  gcommon.v1.queue.MetricsHealthStatus status = 1;
 
   // Number of healthy nodes
   int32 healthy_nodes = 2;

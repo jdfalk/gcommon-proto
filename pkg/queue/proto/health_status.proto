@@ -15,7 +15,7 @@ option go_package = "github.com/jdfalk/gcommon/pkg/queue/proto";
 /**
  * HealthStatus represents queue service availability.
  */
-enum HealthStatus {
+enum QueueHealthStatus {
   // Unspecified status.
   HEALTH_STATUS_UNSPECIFIED = 0;
 

@@ -10,7 +10,6 @@ edition = "2023";
 package gcommon.v1.queue;
 
 import "google/protobuf/duration.proto";
-import "google/protobuf/go_features.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
 option go_package = "github.com/jdfalk/gcommon/pkg/queue/proto";
@@ -18,7 +17,7 @@ option go_package = "github.com/jdfalk/gcommon/pkg/queue/proto";
 /**
  * Timeout configuration for various queue operations.
  */
-message TimeoutConfig {
+message QueueTimeoutConfig {
   // Timeout for message publishing operations
   google.protobuf.Duration publish_timeout = 1;
 

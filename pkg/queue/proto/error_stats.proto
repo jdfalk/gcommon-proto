@@ -14,7 +14,7 @@ import "queue/proto/error_type_stat.proto";
 option features.(pb.go).api_level = API_OPAQUE;
 option go_package = "github.com/jdfalk/gcommon/pkg/queue/proto";
 
-message ErrorStats {
+message QueueErrorStats {
   int64 total_errors = 1;
   double error_rate = 2;
   repeated ErrorTypeStat error_types = 3;

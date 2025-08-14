@@ -7,12 +7,11 @@ edition = "2023";
 package gcommon.v1.queue;
 
 import "google/protobuf/duration.proto";
-import "google/protobuf/go_features.proto";
 import "pkg/queue/proto/alert_condition.proto";
 import "pkg/queue/proto/alert_severity.proto";
 import "config/proto/alert_severity.proto";
-import "metrics/proto/alert_severity.proto";
-import "queue/proto/alert_severity.proto";
+import "config/proto/alert_severity.proto";
+import "config/proto/alert_severity.proto";
 import "queue/proto/alert_condition.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
@@ -41,7 +40,7 @@ message AlertRule {
   google.protobuf.Duration duration = 6;
 
   // Severity of the alert
-  AlertSeverity severity = 7;
+  MetricsAlertSeverity severity = 7;
 
   // Whether the rule is enabled
   bool enabled = 8;
