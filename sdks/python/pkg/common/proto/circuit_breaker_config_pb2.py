@@ -27,7 +27,7 @@ from google.protobuf import go_features_pb2 as google_dot_protobuf_dot_go__featu
 from pkg.common.proto import circuit_breaker_state_pb2 as pkg_dot_common_dot_proto_dot_circuit__breaker__state__pb2
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n-pkg/common/proto/circuit_breaker_config.proto\x12\x11gcommon.v1.common\x1a\x1egoogle/protobuf/duration.proto\x1a!google/protobuf/go_features.proto\x1a,pkg/common/proto/circuit_breaker_state.proto\"\xc2\x02\n\x14\x43ircuitBreakerConfig\x12+\n\x11\x66\x61ilure_threshold\x18\x01 \x01(\x05R\x10\x66\x61ilureThreshold\x12+\n\x11success_threshold\x18\x02 \x01(\x05R\x10successThreshold\x12\x33\n\x07timeout\x18\x03 \x01(\x0b\x32\x19.google.protobuf.DurationR\x07timeout\x12!\n\x0cmax_requests\x18\x04 \x01(\x05R\x0bmaxRequests\x12:\n\x0bwindow_size\x18\x05 \x01(\x0b\x32\x19.google.protobuf.DurationR\nwindowSize\x12<\n\x05state\x18\x06 \x01(\x0e\x32&.gcommon.v1.common.CircuitBreakerStateR\x05stateB\xcc\x01\n\x15\x63om.gcommon.v1.commonB\x19\x43ircuitBreakerConfigProtoP\x01Z*github.com/jdfalk/gcommon/pkg/common/proto\xa2\x02\x03GVC\xaa\x02\x11Gcommon.V1.Common\xca\x02\x11Gcommon\\V1\\Common\xe2\x02\x1dGcommon\\V1\\Common\\GPBMetadata\xea\x02\x13Gcommon::V1::Common\x92\x03\x05\xd2>\x02\x10\x03\x62\x08\x65\x64itionsp\xe8\x07')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n-pkg/common/proto/circuit_breaker_config.proto\x12\x11gcommon.v1.common\x1a\x1egoogle/protobuf/duration.proto\x1a!google/protobuf/go_features.proto\x1a,pkg/common/proto/circuit_breaker_state.proto\"\xc8\x02\n\x1a\x43ommonCircuitBreakerConfig\x12+\n\x11\x66\x61ilure_threshold\x18\x01 \x01(\x05R\x10\x66\x61ilureThreshold\x12+\n\x11success_threshold\x18\x02 \x01(\x05R\x10successThreshold\x12\x33\n\x07timeout\x18\x03 \x01(\x0b\x32\x19.google.protobuf.DurationR\x07timeout\x12!\n\x0cmax_requests\x18\x04 \x01(\x05R\x0bmaxRequests\x12:\n\x0bwindow_size\x18\x05 \x01(\x0b\x32\x19.google.protobuf.DurationR\nwindowSize\x12<\n\x05state\x18\x06 \x01(\x0e\x32&.gcommon.v1.common.CircuitBreakerStateR\x05stateB\xcc\x01\n\x15\x63om.gcommon.v1.commonB\x19\x43ircuitBreakerConfigProtoP\x01Z*github.com/jdfalk/gcommon/pkg/common/proto\xa2\x02\x03GVC\xaa\x02\x11Gcommon.V1.Common\xca\x02\x11Gcommon\\V1\\Common\xe2\x02\x1dGcommon\\V1\\Common\\GPBMetadata\xea\x02\x13Gcommon::V1::Common\x92\x03\x05\xd2>\x02\x10\x03\x62\x08\x65\x64itionsp\xe8\x07')
 
 _globals = globals()
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, _globals)
@@ -35,6 +35,6 @@ _builder.BuildTopDescriptorsAndMessages(DESCRIPTOR, 'pkg.common.proto.circuit_br
 if not _descriptor._USE_C_DESCRIPTORS:
   _globals['DESCRIPTOR']._loaded_options = None
   _globals['DESCRIPTOR']._serialized_options = b'\n\025com.gcommon.v1.commonB\031CircuitBreakerConfigProtoP\001Z*github.com/jdfalk/gcommon/pkg/common/proto\242\002\003GVC\252\002\021Gcommon.V1.Common\312\002\021Gcommon\\V1\\Common\342\002\035Gcommon\\V1\\Common\\GPBMetadata\352\002\023Gcommon::V1::Common\222\003\005\322>\002\020\003'
-  _globals['_CIRCUITBREAKERCONFIG']._serialized_start=182
-  _globals['_CIRCUITBREAKERCONFIG']._serialized_end=504
+  _globals['_COMMONCIRCUITBREAKERCONFIG']._serialized_start=182
+  _globals['_COMMONCIRCUITBREAKERCONFIG']._serialized_end=510
 # @@protoc_insertion_point(module_scope)

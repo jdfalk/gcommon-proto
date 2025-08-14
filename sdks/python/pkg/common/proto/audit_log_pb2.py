@@ -28,7 +28,7 @@ from pkg.common.proto import audit_result_pb2 as pkg_dot_common_dot_proto_dot_au
 from pkg.common.proto import resource_reference_pb2 as pkg_dot_common_dot_proto_dot_resource__reference__pb2
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n pkg/common/proto/audit_log.proto\x12\x11gcommon.v1.common\x1a!google/protobuf/go_features.proto\x1a\x1fgoogle/protobuf/timestamp.proto\x1a#pkg/common/proto/audit_result.proto\x1a)pkg/common/proto/resource_reference.proto\"\xde\x03\n\x08\x41uditLog\x12\x0e\n\x02id\x18\x01 \x01(\tR\x02id\x12\x17\n\x07user_id\x18\x02 \x01(\tR\x06userId\x12\x16\n\x06\x61\x63tion\x18\x03 \x01(\tR\x06\x61\x63tion\x12@\n\x08resource\x18\x04 \x01(\x0b\x32$.gcommon.v1.common.ResourceReferenceR\x08resource\x12\x38\n\ttimestamp\x18\x05 \x01(\x0b\x32\x1a.google.protobuf.TimestampR\ttimestamp\x12\x1b\n\tsource_ip\x18\x06 \x01(\tR\x08sourceIp\x12\x1d\n\nuser_agent\x18\x07 \x01(\tR\tuserAgent\x12\x45\n\x08metadata\x18\x08 \x03(\x0b\x32).gcommon.v1.common.AuditLog.MetadataEntryR\x08metadata\x12\x36\n\x06result\x18\t \x01(\x0e\x32\x1e.gcommon.v1.common.AuditResultR\x06result\x12\x1d\n\nsession_id\x18\n \x01(\tR\tsessionId\x1a;\n\rMetadataEntry\x12\x10\n\x03key\x18\x01 \x01(\tR\x03key\x12\x14\n\x05value\x18\x02 \x01(\tR\x05value:\x02\x38\x01\x42\xc0\x01\n\x15\x63om.gcommon.v1.commonB\rAuditLogProtoP\x01Z*github.com/jdfalk/gcommon/pkg/common/proto\xa2\x02\x03GVC\xaa\x02\x11Gcommon.V1.Common\xca\x02\x11Gcommon\\V1\\Common\xe2\x02\x1dGcommon\\V1\\Common\\GPBMetadata\xea\x02\x13Gcommon::V1::Common\x92\x03\x05\xd2>\x02\x10\x03\x62\x08\x65\x64itionsp\xe8\x07')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n pkg/common/proto/audit_log.proto\x12\x11gcommon.v1.common\x1a!google/protobuf/go_features.proto\x1a\x1fgoogle/protobuf/timestamp.proto\x1a#pkg/common/proto/audit_result.proto\x1a)pkg/common/proto/resource_reference.proto\"\xea\x03\n\x0e\x43ommonAuditLog\x12\x0e\n\x02id\x18\x01 \x01(\tR\x02id\x12\x17\n\x07user_id\x18\x02 \x01(\tR\x06userId\x12\x16\n\x06\x61\x63tion\x18\x03 \x01(\tR\x06\x61\x63tion\x12@\n\x08resource\x18\x04 \x01(\x0b\x32$.gcommon.v1.common.ResourceReferenceR\x08resource\x12\x38\n\ttimestamp\x18\x05 \x01(\x0b\x32\x1a.google.protobuf.TimestampR\ttimestamp\x12\x1b\n\tsource_ip\x18\x06 \x01(\tR\x08sourceIp\x12\x1d\n\nuser_agent\x18\x07 \x01(\tR\tuserAgent\x12K\n\x08metadata\x18\x08 \x03(\x0b\x32/.gcommon.v1.common.CommonAuditLog.MetadataEntryR\x08metadata\x12\x36\n\x06result\x18\t \x01(\x0e\x32\x1e.gcommon.v1.common.AuditResultR\x06result\x12\x1d\n\nsession_id\x18\n \x01(\tR\tsessionId\x1a;\n\rMetadataEntry\x12\x10\n\x03key\x18\x01 \x01(\tR\x03key\x12\x14\n\x05value\x18\x02 \x01(\tR\x05value:\x02\x38\x01\x42\xc0\x01\n\x15\x63om.gcommon.v1.commonB\rAuditLogProtoP\x01Z*github.com/jdfalk/gcommon/pkg/common/proto\xa2\x02\x03GVC\xaa\x02\x11Gcommon.V1.Common\xca\x02\x11Gcommon\\V1\\Common\xe2\x02\x1dGcommon\\V1\\Common\\GPBMetadata\xea\x02\x13Gcommon::V1::Common\x92\x03\x05\xd2>\x02\x10\x03\x62\x08\x65\x64itionsp\xe8\x07')
 
 _globals = globals()
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, _globals)
@@ -36,10 +36,10 @@ _builder.BuildTopDescriptorsAndMessages(DESCRIPTOR, 'pkg.common.proto.audit_log_
 if not _descriptor._USE_C_DESCRIPTORS:
   _globals['DESCRIPTOR']._loaded_options = None
   _globals['DESCRIPTOR']._serialized_options = b'\n\025com.gcommon.v1.commonB\rAuditLogProtoP\001Z*github.com/jdfalk/gcommon/pkg/common/proto\242\002\003GVC\252\002\021Gcommon.V1.Common\312\002\021Gcommon\\V1\\Common\342\002\035Gcommon\\V1\\Common\\GPBMetadata\352\002\023Gcommon::V1::Common\222\003\005\322>\002\020\003'
-  _globals['_AUDITLOG_METADATAENTRY']._loaded_options = None
-  _globals['_AUDITLOG_METADATAENTRY']._serialized_options = b'8\001'
-  _globals['_AUDITLOG']._serialized_start=204
-  _globals['_AUDITLOG']._serialized_end=682
-  _globals['_AUDITLOG_METADATAENTRY']._serialized_start=623
-  _globals['_AUDITLOG_METADATAENTRY']._serialized_end=682
+  _globals['_COMMONAUDITLOG_METADATAENTRY']._loaded_options = None
+  _globals['_COMMONAUDITLOG_METADATAENTRY']._serialized_options = b'8\001'
+  _globals['_COMMONAUDITLOG']._serialized_start=204
+  _globals['_COMMONAUDITLOG']._serialized_end=694
+  _globals['_COMMONAUDITLOG_METADATAENTRY']._serialized_start=635
+  _globals['_COMMONAUDITLOG_METADATAENTRY']._serialized_end=694
 # @@protoc_insertion_point(module_scope)

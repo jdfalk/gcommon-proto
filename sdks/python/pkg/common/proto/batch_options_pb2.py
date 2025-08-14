@@ -26,7 +26,7 @@ from google.protobuf import duration_pb2 as google_dot_protobuf_dot_duration__pb
 from google.protobuf import go_features_pb2 as google_dot_protobuf_dot_go__features__pb2
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n$pkg/common/proto/batch_options.proto\x12\x11gcommon.v1.common\x1a\x1egoogle/protobuf/duration.proto\x1a!google/protobuf/go_features.proto\"\xaa\x01\n\x0c\x42\x61tchOptions\x12!\n\x0cmax_parallel\x18\x01 \x01(\x05R\x0bmaxParallel\x12\x1b\n\tfail_fast\x18\x02 \x01(\x08R\x08\x66\x61ilFast\x12\x33\n\x07timeout\x18\x03 \x01(\x0b\x32\x19.google.protobuf.DurationR\x07timeout\x12%\n\x0ereturn_partial\x18\x04 \x01(\x08R\rreturnPartialB\xc4\x01\n\x15\x63om.gcommon.v1.commonB\x11\x42\x61tchOptionsProtoP\x01Z*github.com/jdfalk/gcommon/pkg/common/proto\xa2\x02\x03GVC\xaa\x02\x11Gcommon.V1.Common\xca\x02\x11Gcommon\\V1\\Common\xe2\x02\x1dGcommon\\V1\\Common\\GPBMetadata\xea\x02\x13Gcommon::V1::Common\x92\x03\x05\xd2>\x02\x10\x03\x62\x08\x65\x64itionsp\xe8\x07')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n$pkg/common/proto/batch_options.proto\x12\x11gcommon.v1.common\x1a\x1egoogle/protobuf/duration.proto\x1a!google/protobuf/go_features.proto\"\xb0\x01\n\x12\x43ommonBatchOptions\x12!\n\x0cmax_parallel\x18\x01 \x01(\x05R\x0bmaxParallel\x12\x1b\n\tfail_fast\x18\x02 \x01(\x08R\x08\x66\x61ilFast\x12\x33\n\x07timeout\x18\x03 \x01(\x0b\x32\x19.google.protobuf.DurationR\x07timeout\x12%\n\x0ereturn_partial\x18\x04 \x01(\x08R\rreturnPartialB\xc4\x01\n\x15\x63om.gcommon.v1.commonB\x11\x42\x61tchOptionsProtoP\x01Z*github.com/jdfalk/gcommon/pkg/common/proto\xa2\x02\x03GVC\xaa\x02\x11Gcommon.V1.Common\xca\x02\x11Gcommon\\V1\\Common\xe2\x02\x1dGcommon\\V1\\Common\\GPBMetadata\xea\x02\x13Gcommon::V1::Common\x92\x03\x05\xd2>\x02\x10\x03\x62\x08\x65\x64itionsp\xe8\x07')
 
 _globals = globals()
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, _globals)
@@ -34,6 +34,6 @@ _builder.BuildTopDescriptorsAndMessages(DESCRIPTOR, 'pkg.common.proto.batch_opti
 if not _descriptor._USE_C_DESCRIPTORS:
   _globals['DESCRIPTOR']._loaded_options = None
   _globals['DESCRIPTOR']._serialized_options = b'\n\025com.gcommon.v1.commonB\021BatchOptionsProtoP\001Z*github.com/jdfalk/gcommon/pkg/common/proto\242\002\003GVC\252\002\021Gcommon.V1.Common\312\002\021Gcommon\\V1\\Common\342\002\035Gcommon\\V1\\Common\\GPBMetadata\352\002\023Gcommon::V1::Common\222\003\005\322>\002\020\003'
-  _globals['_BATCHOPTIONS']._serialized_start=127
-  _globals['_BATCHOPTIONS']._serialized_end=297
+  _globals['_COMMONBATCHOPTIONS']._serialized_start=127
+  _globals['_COMMONBATCHOPTIONS']._serialized_end=303
 # @@protoc_insertion_point(module_scope)
