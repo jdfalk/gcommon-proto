@@ -7,9 +7,7 @@ edition = "2023";
 package gcommon.v1.log;
 
 import "google/protobuf/go_features.proto";
-import "log/proto/appender_config.proto";
-import "log/proto/appender_type.proto";
-import "log/proto/formatter_type.proto";
+import "pkg/log/proto/appender_config.proto";
 import "pkg/log/proto/appender_type.proto";
 import "pkg/log/proto/formatter_type.proto";
 
