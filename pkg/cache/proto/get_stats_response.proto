@@ -6,8 +6,7 @@ edition = "2023";
 
 package gcommon.v1.cache;
 
-import "google/protobuf/go_features.proto";
-import "pkg/common/proto/error.proto";
+import "common/proto/error.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
 option go_package = "github.com/jdfalk/gcommon/pkg/cache/proto";
@@ -16,7 +15,7 @@ option go_package = "github.com/jdfalk/gcommon/pkg/cache/proto";
  * Response for cache statistics operations.
  * Provides detailed cache performance metrics.
  */
-message GetStatsResponse {
+message CacheGetStatsResponse {
   // Total number of cached items
   int64 total_items = 1;
 

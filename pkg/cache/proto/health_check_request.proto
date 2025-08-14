@@ -12,7 +12,7 @@ option go_package = "github.com/jdfalk/gcommon/pkg/cache/proto";
 /**
  * Request to perform a cache health check.
  */
-message HealthCheckRequest {
+message CacheHealthCheckRequest {
   // Optional namespace to check
   string namespace = 1;
 

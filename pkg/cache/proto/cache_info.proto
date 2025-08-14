@@ -6,7 +6,6 @@ edition = "2023";
 
 package gcommon.v1.cache;
 
-import "google/protobuf/go_features.proto";
 import "google/protobuf/timestamp.proto";
 import "pkg/common/proto/health_status.proto";
 
@@ -28,7 +27,7 @@ message CacheInfo {
   string cache_type = 3;
 
   // Current health status
-  gcommon.v1.common.HealthStatus health_status = 4;
+  gcommon.v1.common.MetricsHealthStatus health_status = 4;
 
   // Cache creation timestamp
   google.protobuf.Timestamp created_at = 5;

@@ -7,7 +7,6 @@ edition = "2023";
 package gcommon.v1.cache;
 
 import "google/protobuf/duration.proto";
-import "google/protobuf/go_features.proto";
 import "pkg/common/proto/eviction_policy.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
@@ -17,7 +16,7 @@ option go_package = "github.com/jdfalk/gcommon/pkg/cache/proto";
  * Configuration settings for cache behavior.
  * Defines cache policies, limits, and operational parameters.
  */
-message CacheConfig {
+message CacheCacheConfig {
   // Maximum number of entries in cache
   int64 max_entries = 1;
 
