@@ -26,5 +26,11 @@ plugins:
   # Python gRPC - remote plugin
   - remote: buf.build/grpc/python
     out: sdks/python
+  # Rust - built-in protoc plugin (DISABLED due to experimental issues)
+  # - protoc_builtin: rust
+  #   out: sdks/rust
+  #   opt:
+  #     - experimental-codegen=enabled
+  #     - kernel=cpp
   # TypeScript and other language support disabled until Edition 2023 support improves
   # Will revisit when ts-proto or other TypeScript plugins support Edition 2023
