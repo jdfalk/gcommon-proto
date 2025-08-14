@@ -363,7 +363,7 @@ class ComprehensiveProtoAnalyzer:
         return False
 
     def _print_summary(self):
-        """Print analysis summary"""
+        """Print analysis summary with organized issue breakdown"""
         print("\n📊 ANALYSIS SUMMARY")
         print("=" * 40)
         print(f"Total proto files analyzed: {len(self.proto_files)}")
@@ -373,10 +373,112 @@ class ComprehensiveProtoAnalyzer:
         if self.issues:
             print("\n🚨 ISSUES FOUND:")
             print("-" * 40)
+
+            # Organize issues by type
+            duplicates = []
+            missing_imports = []
+            invalid_imports = []
+            other_issues = []
+
             for issue in self.issues:
-                print(issue)
+                if issue.startswith("⚠️  DUPLICATE:"):
+                    duplicates.append(issue)
+                elif issue.startswith("📦 MISSING IMPORT:"):
+                    missing_imports.append(issue)
+                elif issue.startswith("❌ INVALID IMPORT:"):
+                    invalid_imports.append(issue)
+                else:
+                    other_issues.append(issue)
+
+            # Print duplicates first
+            if duplicates:
+                print(f"\n🔄 DUPLICATE DEFINITIONS ({len(duplicates)} issues):")
+                print("-" * 30)
+                for issue in duplicates:
+                    print(issue)
+
+            # Print missing imports organized by missing file
+            if missing_imports:
+                print(f"\n📦 MISSING IMPORTS ({len(missing_imports)} issues):")
+                print("-" * 30)
+                self._print_organized_missing_imports(missing_imports)
+
+            # Print invalid imports organized by missing file
+            if invalid_imports:
+                print(f"\n❌ INVALID IMPORTS ({len(invalid_imports)} issues):")
+                print("-" * 30)
+                self._print_organized_invalid_imports(invalid_imports)
+
+            # Print other issues
+            if other_issues:
+                print(f"\n🔍 OTHER ISSUES ({len(other_issues)} issues):")
+                print("-" * 30)
+                for issue in other_issues:
+                    print(issue)
         else:
             print("\n✅ No issues found!")
+
+    def _print_organized_missing_imports(self, missing_imports):
+        """Print missing imports organized by the missing file"""
+        missing_files = {}
+
+        for issue in missing_imports:
+            # Extract the missing file from the issue
+            # Format: "📦 MISSING IMPORT: path/to/missing_file.proto"
+            lines = issue.split("\n")
+            if len(lines) >= 1:
+                main_line = lines[0]
+                missing_file = main_line.replace("📦 MISSING IMPORT: ", "")
+
+                if missing_file not in missing_files:
+                    missing_files[missing_file] = []
+                missing_files[missing_file].append(issue)
+
+        # Sort by missing file and print
+        for missing_file in sorted(missing_files.keys()):
+            count = len(missing_files[missing_file])
+            print(f"\n📁 Missing file: {missing_file} ({count} references)")
+            for issue in missing_files[missing_file]:
+                print(f"   {issue}")
+
+    def _print_organized_invalid_imports(self, invalid_imports):
+        """Print invalid imports organized by the missing file"""
+        missing_files = {}
+
+        for issue in invalid_imports:
+            # Extract the missing file from the issue
+            # Format: "❌ INVALID IMPORT: file.proto imports 'missing/file.proto' (file not found)"
+            import re
+
+            match = re.search(r"imports '([^']+)'", issue)
+            if match:
+                missing_file = match.group(1)
+
+                if missing_file not in missing_files:
+                    missing_files[missing_file] = []
+                missing_files[missing_file].append(issue)
+
+        # Sort by missing file and print with subtotals
+        for missing_file in sorted(missing_files.keys()):
+            count = len(missing_files[missing_file])
+            print(f"\n📁 Missing file: {missing_file} ({count} references)")
+
+            # Show first few examples, then summarize if too many
+            if count <= 5:
+                for issue in missing_files[missing_file]:
+                    # Extract just the importing file for cleaner display
+                    parts = issue.split(" imports ")
+                    if len(parts) >= 2:
+                        importing_file = parts[0].replace("❌ INVALID IMPORT: ", "")
+                        print(f"   • {importing_file}")
+            else:
+                # Show first 3 examples
+                for i, issue in enumerate(missing_files[missing_file][:3]):
+                    parts = issue.split(" imports ")
+                    if len(parts) >= 2:
+                        importing_file = parts[0].replace("❌ INVALID IMPORT: ", "")
+                        print(f"   • {importing_file}")
+                print(f"   • ... and {count - 3} more files")
 
 
 def main():
