@@ -6,6 +6,8 @@ edition = "2023";
 
 package gcommon.v1.web;
 
+import "google/protobuf/go_features.proto";
+
 import "pkg/web/proto/ssl_protocol.proto";
 import "web/proto/ssl_protocol.proto";
 

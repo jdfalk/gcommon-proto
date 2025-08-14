@@ -6,11 +6,12 @@ edition = "2023";
 
 package gcommon.v1.metrics;
 
+import "google/protobuf/go_features.proto";
+
 import "google/protobuf/timestamp.proto";
 import "pkg/metrics/proto/config_change.proto";
 import "pkg/metrics/proto/update_action.proto";
 import "pkg/metrics/proto/validation_result.proto";
-import "config/proto/config_change.proto";
 import "config/proto/config_change.proto";
 import "metrics/proto/update_action.proto";
 

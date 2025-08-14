@@ -6,6 +6,8 @@ edition = "2023";
 
 package gcommon.v1.queue;
 
+import "google/protobuf/go_features.proto";
+
 import "queue/proto/external_role_provider.proto";
 import "queue/proto/role_inheritance.proto";
 

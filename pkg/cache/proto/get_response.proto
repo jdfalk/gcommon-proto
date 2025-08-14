@@ -3,6 +3,8 @@ edition = "2023";
 
 package gcommon.v1.cache;
 
+import "google/protobuf/go_features.proto";
+
 import "pkg/cache/proto/cache_entry.proto";
 import "cache/proto/cache_entry.proto";
 

@@ -7,6 +7,8 @@ edition = "2023";
 
 package gcommon.v1.metrics;
 
+import "google/protobuf/go_features.proto";
+
 import "common/proto/error.proto";
 import "pkg/metrics/proto/recording_stats.proto";
 import "pkg/metrics/proto/summary_metric.proto";

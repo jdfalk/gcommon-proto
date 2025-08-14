@@ -6,6 +6,8 @@ edition = "2023";
 
 package gcommon.v1.queue;
 
+import "google/protobuf/go_features.proto";
+
 // Standard imports
 import "google/protobuf/duration.proto";
 // Common types

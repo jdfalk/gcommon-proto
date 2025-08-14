@@ -6,6 +6,8 @@ edition = "2023";
 
 package gcommon.v1.config;
 
+import "google/protobuf/go_features.proto";
+
 import "google/protobuf/timestamp.proto";
 import "pkg/config/proto/access_control.proto";
 import "pkg/config/proto/audit_settings.proto";
@@ -23,27 +25,15 @@ import "config/proto/deployment_info.proto";
 import "config/proto/resource_limits.proto";
 import "config/proto/sync_settings.proto";
 import "config/proto/monitoring_config.proto";
-import "config/proto/retention_policy.proto";
 import "config/proto/backup_policy.proto";
 import "common/proto/health_status.proto";
-import "config/proto/monitoring_config.proto";
-import "common/proto/health_status.proto";
 import "config/proto/encryption_settings.proto";
-import "config/proto/retention_policy.proto";
 import "config/proto/notification_settings.proto";
 import "config/proto/compliance_settings.proto";
 import "config/proto/audit_settings.proto";
-import "config/proto/notification_settings.proto";
-import "config/proto/access_control.proto";
 import "config/proto/environment_type.proto";
 import "config/proto/promotion_rule.proto";
-import "common/proto/health_status.proto";
 import "config/proto/environment_status.proto";
-import "common/proto/health_status.proto";
-import "common/proto/health_status.proto";
-import "config/proto/resource_limits.proto";
-import "config/proto/resource_limits.proto";
-import "config/proto/compliance_settings.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
 option go_package = "github.com/jdfalk/gcommon/pkg/config/proto";

@@ -3,6 +3,8 @@ edition = "2023";
 
 package gcommon.v1.auth;
 
+import "google/protobuf/go_features.proto";
+
 import "pkg/auth/proto/authenticate_request.proto";
 import "pkg/auth/proto/authenticate_response.proto";
 import "pkg/auth/proto/change_password_request.proto";
@@ -33,9 +35,7 @@ import "auth/proto/verify_credentials_request.proto";
 import "auth/proto/refresh_token_response.proto";
 import "auth/proto/complete_password_reset_response.proto";
 import "auth/proto/revoke_token_request.proto";
-import "auth/proto/authenticate_response.proto";
 import "auth/proto/revoke_token_response.proto";
-import "auth/proto/authenticate_request.proto";
 import "auth/proto/get_user_info_request.proto";
 import "auth/proto/get_user_info_response.proto";
 import "auth/proto/initiate_password_reset_response.proto";

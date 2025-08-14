@@ -3,6 +3,8 @@ edition = "2023";
 
 package gcommon.v1.organization;
 
+import "google/protobuf/go_features.proto";
+
 import "pkg/organization/proto/create_department_request.proto";
 import "pkg/organization/proto/create_department_response.proto";
 import "pkg/organization/proto/create_team_request.proto";

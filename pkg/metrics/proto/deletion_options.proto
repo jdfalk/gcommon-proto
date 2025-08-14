@@ -6,6 +6,8 @@ edition = "2023";
 
 package gcommon.v1.metrics;
 
+import "google/protobuf/go_features.proto";
+
 import "pkg/metrics/proto/cleanup_strategy.proto";
 import "metrics/proto/cleanup_strategy.proto";
 

@@ -6,6 +6,8 @@ edition = "2023";
 
 package gcommon.v1.queue;
 
+import "google/protobuf/go_features.proto";
+
 import "queue/proto/sasl_auth.proto";
 import "queue/proto/tls_auth.proto";
 import "queue/proto/username_password_auth.proto";

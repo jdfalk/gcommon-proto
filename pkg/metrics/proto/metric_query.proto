@@ -6,6 +6,8 @@ edition = "2023";
 
 package gcommon.v1.metrics;
 
+import "google/protobuf/go_features.proto";
+
 import "google/protobuf/duration.proto";
 import "pkg/common/proto/sort.proto";
 import "pkg/metrics/proto/aggregation_type.proto";
@@ -17,8 +19,6 @@ import "metrics/proto/aggregation_spec.proto";
 import "common/proto/time_range.proto";
 import "metrics/proto/metric_filter.proto";
 import "metrics/proto/group_by_spec.proto";
-import "common/proto/time_range.proto";
-import "common/proto/time_range.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
 option go_package = "github.com/jdfalk/gcommon/pkg/metrics/proto";

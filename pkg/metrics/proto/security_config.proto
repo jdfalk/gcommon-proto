@@ -6,8 +6,8 @@ edition = "2023";
 
 package gcommon.v1.metrics;
 
-import "metrics/proto/tls_config.proto";
-import "metrics/proto/api_key_config.proto";
+import "google/protobuf/go_features.proto";
+
 import "metrics/proto/tls_config.proto";
 import "metrics/proto/api_key_config.proto";
 

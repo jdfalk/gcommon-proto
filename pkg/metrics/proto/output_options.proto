@@ -6,6 +6,8 @@ edition = "2023";
 
 package gcommon.v1.metrics;
 
+import "google/protobuf/go_features.proto";
+
 import "metrics/proto/response_compression.proto";
 import "metrics/proto/numeric_format.proto";
 

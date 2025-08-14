@@ -3,6 +3,8 @@ edition = "2023";
 
 package gcommon.v1.config;
 
+import "google/protobuf/go_features.proto";
+
 import "google/protobuf/empty.proto";
 import "pkg/config/proto/delete_config_request.proto";
 import "pkg/config/proto/get_config_request.proto";

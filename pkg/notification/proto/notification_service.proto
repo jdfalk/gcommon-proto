@@ -6,6 +6,8 @@ edition = "2023";
 
 package gcommon.v1.notification;
 
+import "google/protobuf/go_features.proto";
+
 import "pkg/notification/proto/delete_notification_request.proto";
 import "pkg/notification/proto/delete_notification_response.proto";
 import "pkg/notification/proto/get_template_request.proto";

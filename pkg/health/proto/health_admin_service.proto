@@ -7,6 +7,8 @@ edition = "2023";
 
 package gcommon.v1.health;
 
+import "google/protobuf/go_features.proto";
+
 import "pkg/health/proto/configure_alerting_request.proto";
 import "pkg/health/proto/configure_alerting_response.proto";
 import "pkg/health/proto/disable_check_request.proto";

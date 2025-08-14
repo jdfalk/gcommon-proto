@@ -6,6 +6,8 @@ edition = "2023";
 
 package gcommon.v1.database;
 
+import "google/protobuf/go_features.proto";
+
 import "google/protobuf/empty.proto";
 import "pkg/db/proto/begin_transaction_request.proto";
 import "pkg/db/proto/begin_transaction_response.proto";

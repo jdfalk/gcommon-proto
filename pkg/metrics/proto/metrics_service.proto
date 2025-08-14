@@ -6,6 +6,8 @@ edition = "2023";
 
 package gcommon.v1.metrics;
 
+import "google/protobuf/go_features.proto";
+
 import "pkg/metrics/proto/get_metric_metadata_request.proto";
 import "pkg/metrics/proto/get_metric_metadata_response.proto";
 import "pkg/metrics/proto/get_metrics_request.proto";
@@ -31,19 +33,16 @@ import "metrics/proto/get_metrics_request.proto";
 import "metrics/proto/unregister_metric_response.proto";
 import "metrics/proto/get_metric_metadata_request.proto";
 import "metrics/proto/metric_data.proto";
-import "metrics/proto/get_metrics_request.proto";
 import "metrics/proto/get_metrics_summary_response.proto";
 import "metrics/proto/record_metric_request.proto";
 import "metrics/proto/record_metrics_request.proto";
 import "metrics/proto/record_metric_response.proto";
-import "metrics/proto/get_metrics_response.proto";
 import "metrics/proto/record_metrics_response.proto";
 import "metrics/proto/query_metrics_response.proto";
 import "metrics/proto/get_metrics_summary_request.proto";
 import "metrics/proto/stream_metrics_request.proto";
 import "metrics/proto/register_metric_request.proto";
 import "metrics/proto/register_metric_response.proto";
-import "metrics/proto/stream_metrics_request.proto";
 import "metrics/proto/get_metric_metadata_response.proto";
 import "metrics/proto/unregister_metric_request.proto";
 

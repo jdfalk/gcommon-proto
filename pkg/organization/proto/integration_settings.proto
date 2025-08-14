@@ -6,12 +6,13 @@ edition = "2023";
 
 package gcommon.v1.organization;
 
+import "google/protobuf/go_features.proto";
+
 import "google/protobuf/timestamp.proto";
 import "organization/proto/integration.proto";
 import "metrics/proto/api_key_config.proto";
 import "organization/proto/o_auth_app_config.proto";
 import "organization/proto/webhook_config.proto";
-import "metrics/proto/api_key_config.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
 option go_package = "github.com/jdfalk/gcommon/pkg/organization/proto";

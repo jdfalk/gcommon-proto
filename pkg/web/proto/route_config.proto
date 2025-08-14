@@ -6,6 +6,8 @@ edition = "2023";
 
 package gcommon.v1.web;
 
+import "google/protobuf/go_features.proto";
+
 import "pkg/web/proto/handler_type.proto";
 import "pkg/web/proto/http_method.proto";
 import "web/proto/http_method.proto";

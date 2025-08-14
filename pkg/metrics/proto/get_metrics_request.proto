@@ -6,6 +6,8 @@ edition = "2023";
 
 package gcommon.v1.metrics;
 
+import "google/protobuf/go_features.proto";
+
 import "pkg/common/proto/pagination_options.proto";
 import "common/proto/request_metadata.proto";
 import "pkg/common/proto/sort_direction.proto";
@@ -18,8 +20,6 @@ import "pkg/metrics/proto/time_range.proto";
 import "common/proto/time_range.proto";
 import "metrics/proto/metric_filter.proto";
 import "metrics/proto/output_options.proto";
-import "common/proto/time_range.proto";
-import "common/proto/time_range.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
 option go_package = "github.com/jdfalk/gcommon/pkg/metrics/proto";
