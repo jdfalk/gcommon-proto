@@ -27,7 +27,7 @@ message CommonBatchOperation {
   repeated google.protobuf.Any operations = 3 [lazy = true];
 
   // Batch processing configuration options
-  MetricsBatchOptions options = 4 [lazy = true];
+  CommonBatchOptions options = 4 [lazy = true];
 
   // Request metadata for tracing and correlation
   RequestMetadata metadata = 5 [lazy = true];
