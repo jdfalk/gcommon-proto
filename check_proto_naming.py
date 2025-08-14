@@ -36,44 +36,44 @@ def parse_proto_file(file_path: Path) -> Dict[str, List[str]]:
 
     # Remove comments and strings to avoid false matches
     # Remove single-line comments
-    content = re.sub(r'//.*$', '', content, flags=re.MULTILINE)
+    content = re.sub(r"//.*$", "", content, flags=re.MULTILINE)
     # Remove multi-line comments
-    content = re.sub(r'/\*.*?\*/', '', content, flags=re.DOTALL)
+    content = re.sub(r"/\*.*?\*/", "", content, flags=re.DOTALL)
     # Remove string literals
-    content = re.sub(r'"[^"]*"', '', content)
+    content = re.sub(r'"[^"]*"', "", content)
 
     messages = []
     services = []
     enums = []
-    
+
     # Track brace depth to identify top-level definitions only
-    lines = content.split('\n')
+    lines = content.split("\n")
     brace_depth = 0
-    
+
     for line in lines:
         line = line.strip()
         if not line:
             continue
-            
+
         # Count braces to track nesting level
-        brace_depth += line.count('{') - line.count('}')
-        
+        brace_depth += line.count("{") - line.count("}")
+
         # Only check for definitions when at top level (brace_depth 0 or 1)
         # brace_depth 0: before any braces
         # brace_depth 1: just opened a top-level definition
         if brace_depth <= 1:
             # Check for message definition
-            message_match = re.search(r'^\s*message\s+(\w+)\s*\{', line)
+            message_match = re.search(r"^\s*message\s+(\w+)\s*\{", line)
             if message_match:
                 messages.append(message_match.group(1))
-                
-            # Check for service definition  
-            service_match = re.search(r'^\s*service\s+(\w+)\s*\{', line)
+
+            # Check for service definition
+            service_match = re.search(r"^\s*service\s+(\w+)\s*\{", line)
             if service_match:
                 services.append(service_match.group(1))
-                
+
             # Check for enum definition
-            enum_match = re.search(r'^\s*enum\s+(\w+)\s*\{', line)
+            enum_match = re.search(r"^\s*enum\s+(\w+)\s*\{", line)
             if enum_match:
                 enums.append(enum_match.group(1))
 
