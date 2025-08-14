@@ -19,7 +19,7 @@ message SetHealthResponse {
   // Success status
   bool success = 1;
 
-    // Previous health status before the change
+  // Previous health status before the change
   gcommon.v1.metrics.MetricsHealthStatus previous_status = 2;
 
   // New health status after the change

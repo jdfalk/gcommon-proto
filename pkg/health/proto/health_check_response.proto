@@ -7,9 +7,9 @@ import "google/protobuf/duration.proto";
 import "google/protobuf/go_features.proto";
 import "google/protobuf/timestamp.proto";
 import "pkg/common/proto/error.proto";
-import "pkg/metrics/proto/health_status.proto";
 import "pkg/health/proto/check_result.proto";
 import "pkg/health/proto/health_metrics.proto";
+import "pkg/metrics/proto/health_status.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
 option go_package = "github.com/jdfalk/gcommon/pkg/health/proto";
