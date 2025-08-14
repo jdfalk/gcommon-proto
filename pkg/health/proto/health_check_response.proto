@@ -6,10 +6,8 @@ package gcommon.v1.health;
 import "google/protobuf/duration.proto";
 import "google/protobuf/go_features.proto";
 import "google/protobuf/timestamp.proto";
-import "health/proto/check_result.proto";
-import "health/proto/health_metrics.proto";
 import "pkg/common/proto/error.proto";
-import "pkg/common/proto/health_status.proto";
+import "pkg/metrics/proto/health_status.proto";
 import "pkg/health/proto/check_result.proto";
 import "pkg/health/proto/health_metrics.proto";
 
@@ -22,7 +20,7 @@ option go_package = "github.com/jdfalk/gcommon/pkg/health/proto";
  */
 message HealthHealthCheckResponse {
   // Overall health status
-  gcommon.v1.common.MetricsHealthStatus status = 1;
+  gcommon.v1.metrics.MetricsHealthStatus status = 1;
 
   // Service name
   string service = 2;

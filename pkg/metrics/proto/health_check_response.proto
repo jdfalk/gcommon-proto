@@ -10,7 +10,7 @@ package gcommon.v1.metrics;
 import "google/protobuf/duration.proto";
 import "google/protobuf/go_features.proto";
 import "pkg/common/proto/error.proto";
-import "pkg/common/proto/health_status.proto";
+import "pkg/metrics/proto/health_status.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
 option go_package = "github.com/jdfalk/gcommon/pkg/metrics/proto";
@@ -20,7 +20,7 @@ option go_package = "github.com/jdfalk/gcommon/pkg/metrics/proto";
  */
 message MetricsHealthCheckResponse {
   // Health status of the subsystem.
-  gcommon.v1.common.MetricsHealthStatus status = 1;
+  MetricsHealthStatus status = 1;
 
   // Time taken to execute the health check.
   google.protobuf.Duration response_time = 2 [lazy = true];

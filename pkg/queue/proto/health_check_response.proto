@@ -10,7 +10,7 @@ package gcommon.v1.queue;
 import "google/protobuf/duration.proto";
 import "google/protobuf/go_features.proto";
 import "pkg/common/proto/error.proto";
-import "pkg/common/proto/health_status.proto";
+import "pkg/metrics/proto/health_status.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
 option go_package = "github.com/jdfalk/gcommon/pkg/queue/proto";
@@ -20,7 +20,7 @@ option go_package = "github.com/jdfalk/gcommon/pkg/queue/proto";
  */
 message QueueHealthCheckResponse {
   // Overall queue service health.
-  gcommon.v1.common.MetricsHealthStatus status = 1;
+  gcommon.v1.metrics.MetricsHealthStatus status = 1;
 
   // Whether the queue connection is operational.
   bool connection_ok = 2;

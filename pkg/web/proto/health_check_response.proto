@@ -9,7 +9,7 @@ package gcommon.v1.web;
 import "google/protobuf/duration.proto";
 import "google/protobuf/go_features.proto";
 import "pkg/common/proto/error.proto";
-import "pkg/common/proto/health_status.proto";
+import "pkg/metrics/proto/health_status.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
 option go_package = "github.com/jdfalk/gcommon/pkg/web/proto";
@@ -17,7 +17,7 @@ option go_package = "github.com/jdfalk/gcommon/pkg/web/proto";
 // HealthCheckResponse response definition.
 message WebHealthCheckResponse {
   // Web server health status.
-  gcommon.v1.common.MetricsHealthStatus status = 1;
+  gcommon.v1.metrics.MetricsHealthStatus status = 1;
 
   // Time taken to respond to the health check.
   google.protobuf.Duration response_time = 2 [lazy = true];
