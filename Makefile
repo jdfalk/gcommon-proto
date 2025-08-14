@@ -24,6 +24,10 @@ proto-compile: ## Validate protobuf compilation and linting
 	@echo "🔍 Validating protobuf files..."
 	@./scripts/validate-protos.sh
 
+proto-generate-modules: ## Generate protobuf files per module with detailed reporting
+	@echo "🔧 Generating protobuf files per module..."
+	@./scripts/buf-generate-per-module.sh
+
 test: ## Run all tests
 	@echo "🧪 Running tests..."
 	@go test ./... -v
