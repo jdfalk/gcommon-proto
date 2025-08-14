@@ -16,7 +16,7 @@ import "health/proto/serving_status.proto";
 option features.(pb.go).api_level = API_OPAQUE;
 option go_package = "github.com/jdfalk/gcommon/pkg/health/proto";
 
-message HealthCheckResult {
+message HealthHealthCheckResult {
   // Service name being checked
   string service = 1;
   // Overall status of the health check

@@ -3,9 +3,8 @@ edition = "2023";
 
 package gcommon.v1.health;
 
-import "google/protobuf/go_features.proto";
 import "google/protobuf/timestamp.proto";
-import "pkg/common/proto/error.proto";
+import "common/proto/error.proto";
 import "pkg/common/proto/health_status.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
@@ -20,10 +19,10 @@ message SetHealthResponse {
   bool success = 1;
 
   // Previous health status
-  gcommon.v1.common.HealthStatus previous_status = 2;
+  gcommon.v1.common.MetricsHealthStatus previous_status = 2;
 
   // New health status
-  gcommon.v1.common.HealthStatus new_status = 3;
+  gcommon.v1.common.MetricsHealthStatus new_status = 3;
 
   // Timestamp when status was changed
   google.protobuf.Timestamp changed_at = 4;

@@ -4,9 +4,8 @@ edition = "2023";
 package gcommon.v1.health;
 
 import "google/protobuf/duration.proto";
-import "google/protobuf/go_features.proto";
 import "google/protobuf/timestamp.proto";
-import "pkg/common/proto/error.proto";
+import "common/proto/error.proto";
 import "pkg/common/proto/health_status.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
@@ -24,7 +23,7 @@ message RunCheckResponse {
   string check_id = 2;
 
   // Health status result
-  gcommon.v1.common.HealthStatus status = 3;
+  gcommon.v1.common.MetricsHealthStatus status = 3;
 
   // Execution timestamp
   google.protobuf.Timestamp executed_at = 4;

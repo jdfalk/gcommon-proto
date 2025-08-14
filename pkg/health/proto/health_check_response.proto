@@ -20,9 +20,9 @@ option go_package = "github.com/jdfalk/gcommon/pkg/health/proto";
  * Response message for health check operations.
  * Contains comprehensive health status information including detailed results and metrics.
  */
-message HealthCheckResponse {
+message HealthHealthCheckResponse {
   // Overall health status
-  gcommon.v1.common.HealthStatus status = 1;
+  gcommon.v1.common.MetricsHealthStatus status = 1;
 
   // Service name
   string service = 2;
