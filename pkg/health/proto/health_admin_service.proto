@@ -8,18 +8,6 @@ edition = "2023";
 package gcommon.v1.health;
 
 import "google/protobuf/go_features.proto";
-import "health/proto/configure_alerting_request.proto";
-import "health/proto/configure_alerting_response.proto";
-import "health/proto/disable_check_request.proto";
-import "health/proto/disable_check_response.proto";
-import "health/proto/enable_check_request.proto";
-import "health/proto/enable_check_response.proto";
-import "health/proto/reset_health_stats_request.proto";
-import "health/proto/reset_health_stats_response.proto";
-import "health/proto/run_check_request.proto";
-import "health/proto/run_check_response.proto";
-import "health/proto/set_health_request.proto";
-import "health/proto/set_health_response.proto";
 import "pkg/health/proto/configure_alerting_request.proto";
 import "pkg/health/proto/configure_alerting_response.proto";
 import "pkg/health/proto/disable_check_request.proto";

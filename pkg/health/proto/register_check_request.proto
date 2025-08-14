@@ -8,8 +8,8 @@ edition = "2023";
 
 package gcommon.v1.health;
 
-import "auth/proto/health_check_request.proto";
 import "google/protobuf/go_features.proto";
+import "pkg/auth/proto/health_check_request.proto";
 import "pkg/common/proto/request_metadata.proto";
 import "pkg/health/proto/health_check_request.proto";
 

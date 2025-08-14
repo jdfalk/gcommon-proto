@@ -3,9 +3,8 @@ edition = "2023";
 
 package gcommon.v1.health;
 
-import "config/proto/health_check_result.proto";
 import "google/protobuf/go_features.proto";
-import "health/proto/serving_status.proto";
+import "pkg/config/proto/health_check_result.proto";
 import "pkg/health/proto/health_check_result.proto";
 import "pkg/health/proto/serving_status.proto";
 
