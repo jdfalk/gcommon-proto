@@ -12,6 +12,8 @@ package gcommon.v1.queue;
 import "google/protobuf/go_features.proto";
 import "pkg/common/proto/response_metadata.proto";
 import "pkg/queue/proto/subscription_info.proto";
+import "common/proto/subscription_info.proto";
+import "queue/proto/subscription_info.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
 option go_package = "github.com/jdfalk/gcommon/pkg/queue/proto";

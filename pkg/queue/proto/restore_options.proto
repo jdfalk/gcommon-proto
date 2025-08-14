@@ -8,6 +8,12 @@ package gcommon.v1.queue;
 
 import "google/protobuf/go_features.proto";
 import "google/protobuf/timestamp.proto";
+import "queue/proto/offset_range.proto";
+import "queue/proto/time_range.proto";
+import "queue/proto/filter_criteria.proto";
+import "metrics/proto/time_range.proto";
+import "queue/proto/performance_options.proto";
+import "common/proto/time_range.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
 option go_package = "github.com/jdfalk/gcommon/pkg/queue/proto";

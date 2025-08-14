@@ -11,6 +11,10 @@ import "pkg/queue/proto/delivery_options.proto";
 import "pkg/queue/proto/priority_level.proto";
 import "pkg/queue/proto/routing_strategy.proto";
 import "pkg/queue/proto/subscription_state.proto";
+import "queue/proto/routing_strategy.proto";
+import "queue/proto/priority_level.proto";
+import "queue/proto/delivery_options.proto";
+import "queue/proto/subscription_state.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
 option go_package = "github.com/jdfalk/gcommon/pkg/queue/proto";

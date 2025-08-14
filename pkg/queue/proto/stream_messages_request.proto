@@ -11,6 +11,10 @@ import "google/protobuf/timestamp.proto";
 import "pkg/queue/proto/ack_level.proto";
 import "pkg/queue/proto/offset_type.proto";
 import "pkg/queue/proto/stream_config.proto";
+import "queue/proto/message_filter.proto";
+import "queue/proto/stream_config.proto";
+import "queue/proto/offset_config.proto";
+import "queue/proto/ack_level.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
 option go_package = "github.com/jdfalk/gcommon/pkg/queue/proto";

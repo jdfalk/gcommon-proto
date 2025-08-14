@@ -11,6 +11,13 @@ import "google/protobuf/go_features.proto";
 import "google/protobuf/timestamp.proto";
 import "pkg/common/proto/response_metadata.proto";
 import "pkg/queue/proto/consumer_stats.proto";
+import "queue/proto/message_state_counts.proto";
+import "queue/proto/queue_depth_sample.proto";
+import "queue/proto/queue_configuration.proto";
+import "queue/proto/size_distribution.proto";
+import "queue/proto/latency_metrics.proto";
+import "queue/proto/throughput_metrics.proto";
+import "queue/proto/age_distribution.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
 option go_package = "github.com/jdfalk/gcommon/pkg/queue/proto";

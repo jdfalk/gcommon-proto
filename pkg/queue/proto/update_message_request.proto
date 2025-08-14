@@ -9,6 +9,12 @@ package gcommon.v1.queue;
 import "google/protobuf/any.proto";
 import "google/protobuf/go_features.proto";
 import "google/protobuf/timestamp.proto";
+import "queue/proto/priority_update.proto";
+import "queue/proto/message_update_properties.proto";
+import "queue/proto/content_update.proto";
+import "queue/proto/visibility_update.proto";
+import "queue/proto/metadata_update.proto";
+import "queue/proto/update_condition.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
 option go_package = "github.com/jdfalk/gcommon/pkg/queue/proto";

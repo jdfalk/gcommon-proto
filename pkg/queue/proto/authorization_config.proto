@@ -7,6 +7,11 @@ edition = "2023";
 package gcommon.v1.queue;
 
 import "google/protobuf/go_features.proto";
+import "queue/proto/api_key_auth.proto";
+import "queue/proto/external_auth_service.proto";
+import "queue/proto/jwt_auth.proto";
+import "queue/proto/permission_rule.proto";
+import "queue/proto/role_based_access_control.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
 option go_package = "github.com/jdfalk/gcommon/pkg/queue/proto";
@@ -25,7 +30,7 @@ message AuthorizationConfig {
   RoleBasedAccessControl rbac = 4;
 
   // API key authentication settings
-  ApiKeyAuth api_key_auth = 5;
+  APIKeyAuth api_key_auth = 5;
 
   // JWT token authentication settings
   JwtAuth jwt_auth = 6;

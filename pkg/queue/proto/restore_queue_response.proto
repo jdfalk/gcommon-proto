@@ -9,6 +9,14 @@ package gcommon.v1.queue;
 import "google/protobuf/duration.proto";
 import "google/protobuf/go_features.proto";
 import "google/protobuf/timestamp.proto";
+import "metrics/proto/validation_result.proto";
+import "queue/proto/restore_warning.proto";
+import "queue/proto/restore_statistics.proto";
+import "queue/proto/restore_status.proto";
+import "queue/proto/validation_result.proto";
+import "queue/proto/restore_error.proto";
+import "queue/proto/partition_restore_result.proto";
+import "config/proto/validation_result.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
 option go_package = "github.com/jdfalk/gcommon/pkg/queue/proto";

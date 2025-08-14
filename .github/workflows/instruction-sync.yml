@@ -1,0 +1,226 @@
+# file: .github/workflows/instruction-sync.yml
+# version: 1.0.0
+# guid: i0j1k2l3-m4n5-o6p7-q8r9-s0t1u2v3w4x5
+
+name: Instruction Synchronization
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - ".github/instructions/**"
+      - ".github/copilot-instructions.md"
+  workflow_dispatch:
+    inputs:
+      target_repos:
+        description: "Target repositories (comma-separated)"
+        required: true
+        default: "jdfalk/subtitle-manager,jdfalk/copilot-agent-util-rust"
+        type: string
+      force_sync:
+        description: "Force sync all instruction files"
+        required: false
+        default: false
+        type: boolean
+
+permissions:
+  contents: write
+  pull-requests: write
+
+env:
+  # Core instruction files to sync
+  INSTRUCTION_FILES: |
+    .github/copilot-instructions.md
+    .github/instructions/general-coding.instructions.md
+
+jobs:
+  sync-instructions:
+    name: Sync Copilot Instructions
+    runs-on: ubuntu-latest
+    if: github.repository == 'jdfalk/ghcommon'
+    steps:
+      - name: Checkout source repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Determine changed files
+        id: changes
+        run: |
+          if [ "${{ github.event_name }}" = "push" ] && [ "${{ github.event.inputs.force_sync }}" != "true" ]; then
+            # Get changed instruction files from the push
+            changed_files=$(git diff --name-only ${{ github.event.before }}..${{ github.event.after }} | grep -E "(\.github/instructions/|\.github/copilot-instructions\.md)" || true)
+            if [ -n "$changed_files" ]; then
+              files_json=$(echo "$changed_files" | jq -R -s 'split("\n") | map(select(length > 0))')
+              echo "changed_files=$files_json" >> $GITHUB_OUTPUT
+              echo "has_changes=true" >> $GITHUB_OUTPUT
+            else
+              echo "has_changes=false" >> $GITHUB_OUTPUT
+            fi
+          else
+            # Manual trigger or force sync - sync all instruction files
+            files_json=$(echo "$INSTRUCTION_FILES" | tr '\n' ',' | sed 's/,$//' | jq -R 'split(",")')
+            echo "changed_files=$files_json" >> $GITHUB_OUTPUT
+            echo "has_changes=true" >> $GITHUB_OUTPUT
+          fi
+
+      - name: Sync instructions to target repositories
+        if: steps.changes.outputs.has_changes == 'true'
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          TARGET_REPOS: ${{ github.event.inputs.target_repos || 'jdfalk/subtitle-manager,jdfalk/copilot-agent-util-rust' }}
+        run: |
+          files='${{ steps.changes.outputs.changed_files }}'
+          
+          echo "# 📚 Instruction Synchronization" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "**Source**: ${{ github.repository }}" >> $GITHUB_STEP_SUMMARY
+          echo "**Files**: $(echo "$files" | jq -r '.[]' | tr '\n' ', ' | sed 's/, $//')" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          
+          # Parse target repositories
+          IFS=',' read -ra TARGET_ARRAY <<< "$TARGET_REPOS"
+          
+          for target_repo in "${TARGET_ARRAY[@]}"; do
+            target_repo=$(echo "$target_repo" | xargs) # trim whitespace
+            echo "## Syncing to $target_repo" >> $GITHUB_STEP_SUMMARY
+            
+            # Create temporary directory for target repo
+            temp_dir=$(mktemp -d)
+            cd "$temp_dir"
+            
+            # Clone target repository
+            if git clone "https://github.com/$target_repo.git" target_repo; then
+              cd target_repo
+              git config user.name "Instruction Sync Bot"
+              git config user.email "action@github.com"
+              
+              # Create sync branch
+              sync_branch="instruction-sync-$(date +%Y%m%d-%H%M%S)"
+              git checkout -b "$sync_branch"
+              
+              files_updated=0
+              
+              # Sync each instruction file
+              echo "$files" | jq -r '.[]' | while read -r file; do
+                if [ -f "$GITHUB_WORKSPACE/$file" ]; then
+                  # Create directory structure if needed
+                  mkdir -p "$(dirname "$file")"
+                  cp "$GITHUB_WORKSPACE/$file" "$file"
+                  echo "✅ Synced: $file" >> $GITHUB_STEP_SUMMARY
+                  files_updated=$((files_updated + 1))
+                else
+                  echo "⚠️ Missing: $file" >> $GITHUB_STEP_SUMMARY
+                fi
+              done
+              
+              # Update VS Code symlinks if they exist
+              if [ -d ".vscode/copilot" ]; then
+                echo "🔗 Updating VS Code Copilot symlinks..." >> $GITHUB_STEP_SUMMARY
+                cd .vscode/copilot
+                
+                # Recreate symlinks to instruction files
+                if [ -f "../../.github/instructions/general-coding.instructions.md" ]; then
+                  ln -sf ../../.github/instructions/general-coding.instructions.md general-coding.instructions.md 2>/dev/null || true
+                fi
+                
+                # Add language-specific symlinks if they exist
+                for lang_file in ../../.github/instructions/*.instructions.md; do
+                  if [ -f "$lang_file" ] && [ "$(basename "$lang_file")" != "general-coding.instructions.md" ]; then
+                    ln -sf "$lang_file" "$(basename "$lang_file")" 2>/dev/null || true
+                  fi
+                done
+                
+                cd ../..
+              fi
+              
+              # Commit and push if there are changes
+              if ! git diff --quiet; then
+                git add .github/ .vscode/ 2>/dev/null || git add .github/
+                git commit -m "sync: update Copilot instructions from ghcommon
+
+                Updated instruction files:
+                $(echo "$files" | jq -r '.[]' | sed 's/^/- /')
+                
+                Auto-synced by instruction-sync from ${{ github.repository }}
+                Source commit: ${{ github.sha }}"
+                
+                # Push branch
+                git push origin "$sync_branch"
+                
+                # Create pull request using GitHub API
+                pr_body="🤖 **Automated Instruction Sync**
+
+                This PR synchronizes Copilot instruction files from \`${{ github.repository }}\`.
+
+                ## Updated Files
+                $(echo "$files" | jq -r '.[] | "- " + .')
+
+                ## What's Updated
+                - Copilot coding instructions and rules
+                - VS Code Copilot integration files
+                - Language-specific instruction files
+
+                ## Changes
+                - Source commit: [\`${{ github.sha }}\`](https://github.com/${{ github.repository }}/commit/${{ github.sha }})
+                - Sync triggered by: ${{ github.event_name }}
+                
+                These updates ensure consistent AI assistant behavior across repositories."
+
+                curl -X POST \
+                  -H "Authorization: token $GITHUB_TOKEN" \
+                  -H "Accept: application/vnd.github.v3+json" \
+                  -H "Content-Type: application/json" \
+                  "https://api.github.com/repos/$target_repo/pulls" \
+                  -d "{
+                    \"title\": \"Instruction Sync: Update Copilot instructions from ghcommon\",
+                    \"head\": \"$sync_branch\",
+                    \"base\": \"main\",
+                    \"body\": $(echo "$pr_body" | jq -R -s .)
+                  }" > pr_response.json
+                
+                pr_url=$(jq -r '.html_url // "Failed to create PR"' pr_response.json)
+                echo "📝 Created PR: $pr_url" >> $GITHUB_STEP_SUMMARY
+              else
+                echo "ℹ️ No changes needed" >> $GITHUB_STEP_SUMMARY
+              fi
+            else
+              echo "❌ Failed to clone $target_repo" >> $GITHUB_STEP_SUMMARY
+            fi
+            
+            # Cleanup
+            cd "$GITHUB_WORKSPACE"
+            rm -rf "$temp_dir"
+          done
+
+  validate-instructions:
+    name: Validate Instruction Sync
+    runs-on: ubuntu-latest
+    needs: sync-instructions
+    if: always()
+    steps:
+      - name: Create sync summary
+        run: |
+          echo "# 📋 Instruction Sync Summary" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          
+          if [ "${{ needs.sync-instructions.result }}" = "success" ]; then
+            echo "✅ **Status**: Instruction synchronization completed successfully" >> $GITHUB_STEP_SUMMARY
+          elif [ "${{ needs.sync-instructions.result }}" = "skipped" ]; then
+            echo "⏭️ **Status**: No instruction changes to sync" >> $GITHUB_STEP_SUMMARY
+          else
+            echo "❌ **Status**: Instruction synchronization failed" >> $GITHUB_STEP_SUMMARY
+          fi
+          
+          echo "**Timestamp**: $(date -u)" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "## Synchronized Components" >> $GITHUB_STEP_SUMMARY
+          echo "- Copilot instructions and coding rules" >> $GITHUB_STEP_SUMMARY
+          echo "- VS Code Copilot integration files" >> $GITHUB_STEP_SUMMARY
+          echo "- Language-specific instruction files" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "## Next Steps" >> $GITHUB_STEP_SUMMARY
+          echo "1. Review and merge created pull requests" >> $GITHUB_STEP_SUMMARY
+          echo "2. Verify Copilot behavior in target repositories" >> $GITHUB_STEP_SUMMARY
+          echo "3. Test VS Code Copilot customization features" >> $GITHUB_STEP_SUMMARY

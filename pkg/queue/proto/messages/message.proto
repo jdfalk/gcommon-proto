@@ -13,6 +13,9 @@ import "pkg/queue/proto/delivery_mode.proto";
 import "pkg/queue/proto/message_metadata.proto";
 import "pkg/queue/proto/priority_level.proto";
 import "pkg/queue/proto/retry_config.proto";
+import "queue/proto/routing_info.proto";
+import "queue/proto/message_properties.proto";
+import "queue/proto/message_metadata.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
 option go_package = "github.com/jdfalk/gcommon/pkg/queue/proto";

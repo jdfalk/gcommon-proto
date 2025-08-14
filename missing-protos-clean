@@ -1,0 +1,17 @@
+🔍 PROTOBUF MISSING IMPORTS ANALYZER
+============================================================
+Analyzing proto files in: /Users/jdfalk/repos/github.com/jdfalk/gcommon/pkg
+
+🔍 Building type index from all proto files...
+   Found 1527 unique types across 1632 files
+
+🔍 Analyzing missing imports...
+⚠️  Type 'ExportConfig' referenced in metrics/proto/metric_definition.proto but not found anywhere
+⚠️  Type 'MetricAggregation' referenced in metrics/proto/get_metrics_request.proto but not found anywhere
+⚠️  Type 'ExportConfig' referenced in metrics/proto/provider_config.proto but not found anywhere
+⚠️  Type 'ExportConfig' referenced in metrics/proto/metric_config.proto but not found anywhere
+⚠️  Type 'ApiKeyAuth' referenced in queue/proto/authorization_config.proto but not found anywhere
+
+📊 MISSING IMPORTS ANALYSIS
+================================================================================
+✅ No missing imports found!

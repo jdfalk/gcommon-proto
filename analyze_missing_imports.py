@@ -93,21 +93,38 @@ class ProtoAnalyzer:
 
         # Pattern to match field declarations and RPC parameters/returns
         field_patterns = [
-            r"\s+(\w+)\s+\w+\s*=",  # message field: Type field_name =
-            r"rpc\s+\w+\s*\(\s*(\w+)\s*\)",  # RPC parameter: rpc Method(RequestType)
-            r"returns\s*\(\s*(\w+)\s*\)",  # RPC return: returns (ResponseType)
-            r"returns\s*\(\s*stream\s+(\w+)\s*\)",  # RPC stream return: returns (stream Type)
-            r"repeated\s+(\w+)\s+\w+\s*=",  # repeated field: repeated Type field =
-            r"map<\w+,\s*(\w+)>\s+\w+\s*=",  # map value type: map<string, ValueType>
-            r"map<(\w+),\s*\w+>\s+\w+\s*=",  # map key type: map<KeyType, string>
+            r"^\s+(\w+)\s+\w+\s*=",  # message field: Type field_name =
+            r"^\s+rpc\s+\w+\s*\(\s*(\w+)\s*\)",  # RPC parameter: rpc Method(RequestType)
+            r"^\s+rpc\s+\w+\s*\(\s*\w+\s*\)\s*returns\s*\(\s*(\w+)\s*\)",  # RPC return: returns (ResponseType)
+            r"^\s+rpc\s+\w+\s*\(\s*\w+\s*\)\s*returns\s*\(\s*stream\s+(\w+)\s*\)",  # RPC stream return: returns (stream Type)
+            r"^\s+repeated\s+(\w+)\s+\w+\s*=",  # repeated field: repeated Type field =
+            r"^\s+map<\w+,\s*(\w+)>\s+\w+\s*=",  # map value type: map<string, ValueType>
+            r"^\s+map<(\w+),\s*\w+>\s+\w+\s*=",  # map key type: map<KeyType, string>
+            r"^\s+optional\s+(\w+)\s+\w+\s*=",  # optional field: optional Type field =
+            r"^\s+stream\s+(\w+)\s+\w+\s*=",  # stream field: stream Type field =
         ]
 
-        for pattern in field_patterns:
-            for match in re.finditer(pattern, content):
-                type_name = match.group(1)
-                # Filter out primitive types and well-known types
-                if not self._is_primitive_type(type_name):
-                    referenced_types.add(type_name)
+        # Split content into lines to process more carefully
+        lines = content.split("\n")
+        for line in lines:
+            # Skip comment lines and option lines
+            stripped = line.strip()
+            if (
+                stripped.startswith("//")
+                or stripped.startswith("option")
+                or stripped.startswith("import")
+                or stripped.startswith("package")
+            ):
+                continue
+
+            for pattern in field_patterns:
+                for match in re.finditer(pattern, line):
+                    type_name = match.group(1)
+                    # Filter out primitive types, well-known types, and protobuf keywords
+                    if not self._is_primitive_type(
+                        type_name
+                    ) and not self._is_protobuf_keyword(type_name):
+                        referenced_types.add(type_name)
 
         return defined_types, referenced_types, imports
 
@@ -135,6 +152,66 @@ class ProtoAnalyzer:
             "Empty",
         }
         return type_name in primitives
+
+    def _is_protobuf_keyword(self, type_name: str) -> bool:
+        """Check if a type is a protobuf keyword that should not be treated as a missing type"""
+        keywords = {
+            "option",
+            "import",
+            "package",
+            "syntax",
+            "edition",
+            "message",
+            "service",
+            "enum",
+            "rpc",
+            "returns",
+            "stream",
+            "repeated",
+            "optional",
+            "required",
+            "map",
+            "oneof",
+            "reserved",
+            "extensions",
+            "extend",
+            "group",
+            "public",
+            "weak",
+            "true",
+            "false",
+            "max",
+            "to",
+            "inf",
+            "nan",
+            "features",
+            "deprecated",
+            "packed",
+            "lazy",
+            "unverified_lazy",
+            "retention",
+            "target",
+            "targets",
+            "TYPE_DOUBLE",
+            "TYPE_FLOAT",
+            "TYPE_INT64",
+            "TYPE_UINT64",
+            "TYPE_INT32",
+            "TYPE_FIXED64",
+            "TYPE_FIXED32",
+            "TYPE_BOOL",
+            "TYPE_STRING",
+            "TYPE_GROUP",
+            "TYPE_MESSAGE",
+            "TYPE_BYTES",
+            "TYPE_UINT32",
+            "TYPE_ENUM",
+            "TYPE_SFIXED32",
+            "TYPE_SFIXED64",
+            "TYPE_SINT32",
+            "TYPE_SINT64",
+        }
+        return type_name in keywords
 
     def build_type_index(self):
         """Build an index of all types and where they're defined"""
