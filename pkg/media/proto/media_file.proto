@@ -8,11 +8,6 @@ package gcommon.v1.media;
 
 import "google/protobuf/go_features.proto";
 import "google/protobuf/timestamp.proto";
-import "media/proto/audio_track.proto";
-import "media/proto/media_metadata.proto";
-import "media/proto/media_quality.proto";
-import "media/proto/media_type.proto";
-import "media/proto/subtitle_track.proto";
 import "pkg/media/proto/audio_track.proto";
 import "pkg/media/proto/media_metadata.proto";
 import "pkg/media/proto/media_quality.proto";
