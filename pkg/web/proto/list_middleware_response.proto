@@ -10,7 +10,6 @@ import "google/protobuf/go_features.proto";
 import "pkg/common/proto/error.proto";
 import "pkg/common/proto/pagination.proto";
 import "pkg/web/proto/middleware_info.proto";
-import "web/proto/middleware_info.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
 option go_package = "github.com/jdfalk/gcommon/pkg/web/proto";

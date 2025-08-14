@@ -6,8 +6,8 @@ edition = "2023";
 
 package gcommon.v1.web;
 
-import "cache/proto/cache_config.proto";
 import "google/protobuf/go_features.proto";
+import "pkg/cache/proto/cache_config.proto";
 import "pkg/common/proto/request_metadata.proto";
 import "pkg/web/proto/cache_config.proto";
 

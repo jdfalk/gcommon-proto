@@ -9,7 +9,6 @@ package gcommon.v1.web;
 import "google/protobuf/go_features.proto";
 import "google/protobuf/timestamp.proto";
 import "pkg/web/proto/handler_config.proto";
-import "web/proto/handler_config.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
 option go_package = "github.com/jdfalk/gcommon/pkg/web/proto";

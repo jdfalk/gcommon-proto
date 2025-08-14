@@ -10,8 +10,6 @@ import "google/protobuf/duration.proto";
 import "google/protobuf/go_features.proto";
 import "pkg/web/proto/http_header.proto";
 import "pkg/web/proto/proxy_type.proto";
-import "web/proto/http_header.proto";
-import "web/proto/proxy_type.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
 option go_package = "github.com/jdfalk/gcommon/pkg/web/proto";

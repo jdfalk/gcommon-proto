@@ -8,7 +8,6 @@ package gcommon.v1.web;
 
 import "google/protobuf/go_features.proto";
 import "pkg/web/proto/rate_limit_strategy.proto";
-import "web/proto/rate_limit_strategy.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
 option go_package = "github.com/jdfalk/gcommon/pkg/web/proto";
