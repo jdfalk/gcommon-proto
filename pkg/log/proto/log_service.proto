@@ -11,6 +11,10 @@ import "pkg/log/proto/write_log_request.proto";
 import "pkg/log/proto/write_log_response.proto";
 import "pkg/log/proto/read_logs_request.proto";
 import "pkg/log/proto/read_logs_response.proto";
+import "log/proto/write_log_request.proto";
+import "log/proto/read_logs_response.proto";
+import "log/proto/write_log_response.proto";
+import "log/proto/read_logs_request.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
 option go_package = "github.com/jdfalk/gcommon/pkg/log/proto";
