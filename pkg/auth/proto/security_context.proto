@@ -8,7 +8,6 @@ package gcommon.v1.auth;
 
 import "google/protobuf/go_features.proto";
 import "pkg/auth/proto/auth_method.proto";
-import "pkg/auth/proto/enums/auth_method.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
 option go_package = "github.com/jdfalk/gcommon/pkg/auth/proto";

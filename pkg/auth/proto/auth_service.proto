@@ -33,7 +33,7 @@ option go_package = "github.com/jdfalk/gcommon/pkg/auth/proto";
  */
 service AuthService {
   // Authenticate a user with various credential types (password, OAuth, etc.)
-  rpc Authenticate(AuthenticateRequest) returns (AuthenticateResponse);
+  rpc Authenticate(AuthAuthenticateRequest) returns (AuthAuthenticateResponse);
 
   // Validate an access token and return token information
   rpc ValidateToken(ValidateTokenRequest) returns (ValidateTokenResponse);
