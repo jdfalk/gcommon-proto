@@ -10,7 +10,7 @@ import "google/protobuf/duration.proto";
 import "google/protobuf/go_features.proto";
 import "google/protobuf/timestamp.proto";
 import "pkg/common/proto/error.proto";
-import "pkg/common/proto/pagination_info.proto";
+import "pkg/metrics/proto/pagination_info.proto";
 import "pkg/common/proto/rate_limit_info.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
@@ -45,5 +45,5 @@ message ResponseMetadata {
   RateLimitInfo rate_limit = 9;
 
   // Pagination information for list responses
-  MetricsPaginationInfo pagination = 10;
+  gcommon.v1.metrics.MetricsPaginationInfo pagination = 10;
 }
