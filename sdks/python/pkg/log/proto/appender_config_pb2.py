@@ -27,7 +27,7 @@ from pkg.log.proto import appender_type_pb2 as pkg_dot_log_dot_proto_dot_appende
 from pkg.log.proto import formatter_type_pb2 as pkg_dot_log_dot_proto_dot_formatter__type__pb2
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n#pkg/log/proto/appender_config.proto\x12\x0egcommon.v1.log\x1a!google/protobuf/go_features.proto\x1a!pkg/log/proto/appender_type.proto\x1a\"pkg/log/proto/formatter_type.proto\"\x91\x05\n\x0e\x41ppenderConfig\x12\x12\n\x04name\x18\x01 \x01(\tR\x04name\x12\x30\n\x04type\x18\x02 \x01(\x0e\x32\x1c.gcommon.v1.log.AppenderTypeR\x04type\x12\x43\n\x06output\x18\x03 \x01(\x0b\x32+.gcommon.v1.log.AppenderConfig.OutputConfigR\x06output\x12L\n\tformatter\x18\x04 \x01(\x0b\x32..gcommon.v1.log.AppenderConfig.FormatterConfigR\tformatter\x12N\n\nproperties\x18\x05 \x03(\x0b\x32..gcommon.v1.log.AppenderConfig.PropertiesEntryR\nproperties\x1a=\n\x0fPropertiesEntry\x12\x10\n\x03key\x18\x01 \x01(\tR\x03key\x12\x14\n\x05value\x18\x02 \x01(\tR\x05value:\x02\x38\x01\x1a\xb6\x01\n\x0cOutputConfig\x12\x16\n\x06target\x18\x01 \x01(\tR\x06target\x12R\n\x07options\x18\x02 \x03(\x0b\x32\x38.gcommon.v1.log.AppenderConfig.OutputConfig.OptionsEntryR\x07options\x1a:\n\x0cOptionsEntry\x12\x10\n\x03key\x18\x01 \x01(\tR\x03key\x12\x14\n\x05value\x18\x02 \x01(\tR\x05value:\x02\x38\x01\x1a^\n\x0f\x46ormatterConfig\x12\x31\n\x04type\x18\x01 \x01(\x0e\x32\x1d.gcommon.v1.log.FormatterTypeR\x04type\x12\x18\n\x07pattern\x18\x02 \x01(\tR\x07patternB\xb4\x01\n\x12\x63om.gcommon.v1.logB\x13\x41ppenderConfigProtoP\x01Z\'github.com/jdfalk/gcommon/pkg/log/proto\xa2\x02\x03GVL\xaa\x02\x0eGcommon.V1.Log\xca\x02\x0eGcommon\\V1\\Log\xe2\x02\x1aGcommon\\V1\\Log\\GPBMetadata\xea\x02\x10Gcommon::V1::Log\x92\x03\x05\xd2>\x02\x10\x03\x62\x08\x65\x64itionsp\xe8\x07')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n#pkg/log/proto/appender_config.proto\x12\x0egcommon.v1.log\x1a!google/protobuf/go_features.proto\x1a!pkg/log/proto/appender_type.proto\x1a\"pkg/log/proto/formatter_type.proto\"\x97\x05\n\x0e\x41ppenderConfig\x12\x12\n\x04name\x18\x01 \x01(\tR\x04name\x12\x30\n\x04type\x18\x02 \x01(\x0e\x32\x1c.gcommon.v1.log.AppenderTypeR\x04type\x12\x43\n\x06output\x18\x03 \x01(\x0b\x32+.gcommon.v1.log.AppenderConfig.OutputConfigR\x06output\x12O\n\tformatter\x18\x04 \x01(\x0b\x32\x31.gcommon.v1.log.AppenderConfig.LogFormatterConfigR\tformatter\x12N\n\nproperties\x18\x05 \x03(\x0b\x32..gcommon.v1.log.AppenderConfig.PropertiesEntryR\nproperties\x1a=\n\x0fPropertiesEntry\x12\x10\n\x03key\x18\x01 \x01(\tR\x03key\x12\x14\n\x05value\x18\x02 \x01(\tR\x05value:\x02\x38\x01\x1a\xb6\x01\n\x0cOutputConfig\x12\x16\n\x06target\x18\x01 \x01(\tR\x06target\x12R\n\x07options\x18\x02 \x03(\x0b\x32\x38.gcommon.v1.log.AppenderConfig.OutputConfig.OptionsEntryR\x07options\x1a:\n\x0cOptionsEntry\x12\x10\n\x03key\x18\x01 \x01(\tR\x03key\x12\x14\n\x05value\x18\x02 \x01(\tR\x05value:\x02\x38\x01\x1a\x61\n\x12LogFormatterConfig\x12\x31\n\x04type\x18\x01 \x01(\x0e\x32\x1d.gcommon.v1.log.FormatterTypeR\x04type\x12\x18\n\x07pattern\x18\x02 \x01(\tR\x07patternB\xb4\x01\n\x12\x63om.gcommon.v1.logB\x13\x41ppenderConfigProtoP\x01Z\'github.com/jdfalk/gcommon/pkg/log/proto\xa2\x02\x03GVL\xaa\x02\x0eGcommon.V1.Log\xca\x02\x0eGcommon\\V1\\Log\xe2\x02\x1aGcommon\\V1\\Log\\GPBMetadata\xea\x02\x10Gcommon::V1::Log\x92\x03\x05\xd2>\x02\x10\x03\x62\x08\x65\x64itionsp\xe8\x07')
 
 _globals = globals()
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, _globals)
@@ -40,13 +40,13 @@ if not _descriptor._USE_C_DESCRIPTORS:
   _globals['_APPENDERCONFIG_OUTPUTCONFIG_OPTIONSENTRY']._loaded_options = None
   _globals['_APPENDERCONFIG_OUTPUTCONFIG_OPTIONSENTRY']._serialized_options = b'8\001'
   _globals['_APPENDERCONFIG']._serialized_start=162
-  _globals['_APPENDERCONFIG']._serialized_end=819
-  _globals['_APPENDERCONFIG_PROPERTIESENTRY']._serialized_start=477
-  _globals['_APPENDERCONFIG_PROPERTIESENTRY']._serialized_end=538
-  _globals['_APPENDERCONFIG_OUTPUTCONFIG']._serialized_start=541
-  _globals['_APPENDERCONFIG_OUTPUTCONFIG']._serialized_end=723
-  _globals['_APPENDERCONFIG_OUTPUTCONFIG_OPTIONSENTRY']._serialized_start=665
-  _globals['_APPENDERCONFIG_OUTPUTCONFIG_OPTIONSENTRY']._serialized_end=723
-  _globals['_APPENDERCONFIG_FORMATTERCONFIG']._serialized_start=725
-  _globals['_APPENDERCONFIG_FORMATTERCONFIG']._serialized_end=819
+  _globals['_APPENDERCONFIG']._serialized_end=825
+  _globals['_APPENDERCONFIG_PROPERTIESENTRY']._serialized_start=480
+  _globals['_APPENDERCONFIG_PROPERTIESENTRY']._serialized_end=541
+  _globals['_APPENDERCONFIG_OUTPUTCONFIG']._serialized_start=544
+  _globals['_APPENDERCONFIG_OUTPUTCONFIG']._serialized_end=726
+  _globals['_APPENDERCONFIG_OUTPUTCONFIG_OPTIONSENTRY']._serialized_start=668
+  _globals['_APPENDERCONFIG_OUTPUTCONFIG_OPTIONSENTRY']._serialized_end=726
+  _globals['_APPENDERCONFIG_LOGFORMATTERCONFIG']._serialized_start=728
+  _globals['_APPENDERCONFIG_LOGFORMATTERCONFIG']._serialized_end=825
 # @@protoc_insertion_point(module_scope)

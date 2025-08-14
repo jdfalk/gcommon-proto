@@ -23,13 +23,13 @@ _sym_db = _symbol_database.Default()
 
 
 from google.protobuf import go_features_pb2 as google_dot_protobuf_dot_go__features__pb2
-from pkg.log.proto import write_log_request_pb2 as pkg_dot_log_dot_proto_dot_write__log__request__pb2
-from pkg.log.proto import write_log_response_pb2 as pkg_dot_log_dot_proto_dot_write__log__response__pb2
 from pkg.log.proto import read_logs_request_pb2 as pkg_dot_log_dot_proto_dot_read__logs__request__pb2
 from pkg.log.proto import read_logs_response_pb2 as pkg_dot_log_dot_proto_dot_read__logs__response__pb2
+from pkg.log.proto import write_log_request_pb2 as pkg_dot_log_dot_proto_dot_write__log__request__pb2
+from pkg.log.proto import write_log_response_pb2 as pkg_dot_log_dot_proto_dot_write__log__response__pb2
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n\x1fpkg/log/proto/log_service.proto\x12\x0egcommon.v1.log\x1a!google/protobuf/go_features.proto\x1a%pkg/log/proto/write_log_request.proto\x1a&pkg/log/proto/write_log_response.proto\x1a%pkg/log/proto/read_logs_request.proto\x1a&pkg/log/proto/read_logs_response.proto2\xaa\x01\n\nLogService\x12M\n\x08WriteLog\x12\x1f.gcommon.v1.log.WriteLogRequest\x1a .gcommon.v1.log.WriteLogResponse\x12M\n\x08ReadLogs\x12\x1f.gcommon.v1.log.ReadLogsRequest\x1a .gcommon.v1.log.ReadLogsResponseB\xb0\x01\n\x12\x63om.gcommon.v1.logB\x0fLogServiceProtoP\x01Z\'github.com/jdfalk/gcommon/pkg/log/proto\xa2\x02\x03GVL\xaa\x02\x0eGcommon.V1.Log\xca\x02\x0eGcommon\\V1\\Log\xe2\x02\x1aGcommon\\V1\\Log\\GPBMetadata\xea\x02\x10Gcommon::V1::Log\x92\x03\x05\xd2>\x02\x10\x03\x62\x08\x65\x64itionsp\xe8\x07')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n\x1fpkg/log/proto/log_service.proto\x12\x0egcommon.v1.log\x1a!google/protobuf/go_features.proto\x1a%pkg/log/proto/read_logs_request.proto\x1a&pkg/log/proto/read_logs_response.proto\x1a%pkg/log/proto/write_log_request.proto\x1a&pkg/log/proto/write_log_response.proto2\xaa\x01\n\nLogService\x12M\n\x08WriteLog\x12\x1f.gcommon.v1.log.WriteLogRequest\x1a .gcommon.v1.log.WriteLogResponse\x12M\n\x08ReadLogs\x12\x1f.gcommon.v1.log.ReadLogsRequest\x1a .gcommon.v1.log.ReadLogsResponseB\xb0\x01\n\x12\x63om.gcommon.v1.logB\x0fLogServiceProtoP\x01Z\'github.com/jdfalk/gcommon/pkg/log/proto\xa2\x02\x03GVL\xaa\x02\x0eGcommon.V1.Log\xca\x02\x0eGcommon\\V1\\Log\xe2\x02\x1aGcommon\\V1\\Log\\GPBMetadata\xea\x02\x10Gcommon::V1::Log\x92\x03\x05\xd2>\x02\x10\x03\x62\x08\x65\x64itionsp\xe8\x07')
 
 _globals = globals()
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, _globals)
