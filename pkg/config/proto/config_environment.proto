@@ -6,7 +6,6 @@ edition = "2023";
 
 package gcommon.v1.config;
 
-import "google/protobuf/go_features.proto";
 import "google/protobuf/timestamp.proto";
 import "pkg/config/proto/access_control.proto";
 import "pkg/config/proto/audit_settings.proto";
@@ -18,32 +17,32 @@ import "pkg/config/proto/health_check_type.proto";
 import "pkg/config/proto/health_state.proto";
 import "pkg/config/proto/notification_settings.proto";
 import "config/proto/approval_workflow.proto";
-import "queue/proto/retention_policy.proto";
-import "organization/proto/access_control.proto";
+import "config/proto/retention_policy.proto";
+import "config/proto/access_control.proto";
 import "config/proto/deployment_info.proto";
 import "config/proto/resource_limits.proto";
 import "config/proto/sync_settings.proto";
-import "queue/proto/monitoring_config.proto";
+import "config/proto/monitoring_config.proto";
 import "config/proto/retention_policy.proto";
 import "config/proto/backup_policy.proto";
-import "web/proto/health_status.proto";
+import "common/proto/health_status.proto";
 import "config/proto/monitoring_config.proto";
-import "metrics/proto/health_status.proto";
+import "common/proto/health_status.proto";
 import "config/proto/encryption_settings.proto";
-import "metrics/proto/retention_policy.proto";
-import "organization/proto/notification_settings.proto";
-import "organization/proto/compliance_settings.proto";
+import "config/proto/retention_policy.proto";
+import "config/proto/notification_settings.proto";
+import "config/proto/compliance_settings.proto";
 import "config/proto/audit_settings.proto";
 import "config/proto/notification_settings.proto";
 import "config/proto/access_control.proto";
 import "config/proto/environment_type.proto";
 import "config/proto/promotion_rule.proto";
-import "queue/proto/health_status.proto";
+import "common/proto/health_status.proto";
 import "config/proto/environment_status.proto";
 import "common/proto/health_status.proto";
-import "config/proto/health_status.proto";
-import "organization/proto/resource_limits.proto";
-import "metrics/proto/resource_limits.proto";
+import "common/proto/health_status.proto";
+import "config/proto/resource_limits.proto";
+import "config/proto/resource_limits.proto";
 import "config/proto/compliance_settings.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
@@ -99,16 +98,16 @@ message ConfigEnvironment {
   repeated PromotionRule promotion_rules = 16;
 
   // Environment access control
-  repeated AccessControl access_controls = 17;
+  repeated OrganizationAccessControl access_controls = 17;
 
   // Environment deployment info
   DeploymentInfo deployment_info = 18;
 
   // Environment health status
-  HealthStatus health_status = 19;
+  MetricsHealthStatus health_status = 19;
 
   // Environment resource limits
-  ResourceLimits resource_limits = 20;
+  OrganizationResourceLimits resource_limits = 20;
 
   // Environment backup policy
   BackupPolicy backup_policy = 21;
@@ -117,13 +116,13 @@ message ConfigEnvironment {
   ApprovalWorkflow approval_workflow = 22;
 
   // Environment monitoring config
-  MonitoringConfig monitoring_config = 23;
+  ConfigMonitoringConfig monitoring_config = 23;
 
   // Environment retention policy
-  RetentionPolicy retention_policy = 24;
+  MetricsRetentionPolicy retention_policy = 24;
 
   // Environment compliance settings
-  ComplianceSettings compliance_settings = 25;
+  OrganizationComplianceSettings compliance_settings = 25;
 
   // Environment encryption settings
   EncryptionSettings encryption_settings = 26;
@@ -132,7 +131,7 @@ message ConfigEnvironment {
   AuditSettings audit_settings = 27;
 
   // Environment notification settings
-  NotificationSettings notification_settings = 28;
+  OrganizationNotificationSettings notification_settings = 28;
 
   // Environment sync settings
   SyncSettings sync_settings = 29;

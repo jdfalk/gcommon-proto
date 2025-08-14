@@ -15,9 +15,9 @@ option go_package = "github.com/jdfalk/gcommon/pkg/config/proto";
 /**
  * HealthCheckResponse provides health status for the config service.
  */
-message HealthCheckResponse {
+message ConfigHealthCheckResponse {
   // Overall health status
-  gcommon.v1.common.HealthStatus status = 1;
+  gcommon.v1.common.MetricsHealthStatus status = 1;
 
   // Optional human-readable message
   string message = 2;

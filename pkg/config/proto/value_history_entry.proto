@@ -7,11 +7,10 @@ edition = "2023";
 package gcommon.v1.config;
 
 import "google/protobuf/any.proto";
-import "google/protobuf/go_features.proto";
 import "google/protobuf/timestamp.proto";
 import "pkg/config/proto/change_type.proto";
 import "config/proto/change_type.proto";
-import "metrics/proto/change_type.proto";
+import "config/proto/change_type.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
 option go_package = "github.com/jdfalk/gcommon/pkg/config/proto";
@@ -36,7 +35,7 @@ message ValueHistoryEntry {
   string reason = 6;
 
   // Change type (using ChangeType from config_template.proto)
-  ChangeType change_type = 7;
+  TemplateChangeType change_type = 7;
 
   // Change metadata
   map<string, string> metadata = 8;

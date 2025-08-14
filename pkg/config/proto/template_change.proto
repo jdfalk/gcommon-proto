@@ -6,11 +6,10 @@ edition = "2023";
 
 package gcommon.v1.config;
 
-import "google/protobuf/go_features.proto";
 import "google/protobuf/timestamp.proto";
 import "pkg/config/proto/change_type.proto";
 import "config/proto/change_type.proto";
-import "metrics/proto/change_type.proto";
+import "config/proto/change_type.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
 option go_package = "github.com/jdfalk/gcommon/pkg/config/proto";
@@ -29,7 +28,7 @@ message TemplateChange {
   google.protobuf.Timestamp timestamp = 4;
 
   // Change type
-  ChangeType type = 5;
+  TemplateChangeType type = 5;
 
   // Breaking change flag
   bool breaking = 6;

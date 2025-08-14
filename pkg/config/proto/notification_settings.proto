@@ -6,7 +6,6 @@ edition = "2023";
 
 package gcommon.v1.config;
 
-import "google/protobuf/go_features.proto";
 import "google/protobuf/timestamp.proto";
 import "pkg/config/proto/audit_level.proto";
 import "pkg/config/proto/backup_frequency.proto";
@@ -17,7 +16,7 @@ import "pkg/config/proto/deprecation_level.proto";
 import "pkg/config/proto/metadata_status.proto";
 import "pkg/config/proto/notification_channel.proto";
 import "pkg/config/proto/notification_trigger.proto";
-import "queue/proto/notification_channel.proto";
+import "config/proto/notification_channel.proto";
 import "config/proto/notification_trigger.proto";
 import "config/proto/notification_channel.proto";
 import "config/proto/batching_settings.proto";
@@ -25,12 +24,12 @@ import "config/proto/batching_settings.proto";
 option features.(pb.go).api_level = API_OPAQUE;
 option go_package = "github.com/jdfalk/gcommon/pkg/config/proto";
 
-message NotificationSettings {
+message ConfigNotificationSettings {
   // Whether notifications are enabled
   bool enabled = 1;
 
   // Notification channels
-  repeated NotificationChannel channels = 2;
+  repeated ConfigNotificationChannel channels = 2;
 
   // Notification triggers
   repeated NotificationTrigger triggers = 3;

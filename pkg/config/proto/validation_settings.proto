@@ -7,13 +7,12 @@ edition = "2023";
 package gcommon.v1.config;
 
 import "google/protobuf/any.proto";
-import "google/protobuf/go_features.proto";
 import "google/protobuf/timestamp.proto";
 import "pkg/config/proto/retry_settings.proto";
 import "pkg/config/proto/validation_rule.proto";
 import "config/proto/retry_settings.proto";
 import "config/proto/validation_rule.proto";
-import "queue/proto/retry_settings.proto";
+import "config/proto/retry_settings.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
 option go_package = "github.com/jdfalk/gcommon/pkg/config/proto";
@@ -35,7 +34,7 @@ message ValidationSettings {
   int32 timeout_seconds = 5;
 
   // Validation retry settings
-  RetrySettings retry = 6;
+  ConfigRetrySettings retry = 6;
 
   // Validation metadata
   map<string, string> metadata = 7;
