@@ -4,7 +4,6 @@ edition = "2023";
 package gcommon.v1.common;
 
 import "google/protobuf/duration.proto";
-import "google/protobuf/go_features.proto";
 import "pkg/common/proto/ack_mode.proto";
 import "common/proto/ack_mode.proto";
 

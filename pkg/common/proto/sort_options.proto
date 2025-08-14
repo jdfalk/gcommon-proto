@@ -6,7 +6,6 @@ edition = "2023";
 
 package gcommon.v1.common;
 
-import "google/protobuf/go_features.proto";
 import "pkg/common/proto/sort_direction.proto";
 import "common/proto/sort_direction.proto";
 

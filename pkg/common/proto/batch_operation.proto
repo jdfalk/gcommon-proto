@@ -4,10 +4,7 @@ edition = "2023";
 package gcommon.v1.common;
 
 import "google/protobuf/any.proto";
-import "google/protobuf/go_features.proto";
-import "pkg/common/proto/batch_options.proto";
-import "pkg/common/proto/request_metadata.proto";
-import "metrics/proto/batch_options.proto";
+import "common/proto/batch_options.proto";
 import "common/proto/request_metadata.proto";
 import "common/proto/batch_options.proto";
 
@@ -19,7 +16,7 @@ option go_package = "github.com/jdfalk/gcommon/pkg/common/proto";
  * Enables efficient processing of multiple operations with
  * configurable parallelism, error handling, and timeout policies.
  */
-message BatchOperation {
+message CommonBatchOperation {
   // Unique identifier for this batch operation
   string batch_id = 1;
 
@@ -30,7 +27,7 @@ message BatchOperation {
   repeated google.protobuf.Any operations = 3 [lazy = true];
 
   // Batch processing configuration options
-  BatchOptions options = 4 [lazy = true];
+  MetricsBatchOptions options = 4 [lazy = true];
 
   // Request metadata for tracing and correlation
   RequestMetadata metadata = 5 [lazy = true];

@@ -4,7 +4,6 @@ edition = "2023";
 package gcommon.v1.common;
 
 import "google/protobuf/duration.proto";
-import "google/protobuf/go_features.proto";
 import "pkg/common/proto/circuit_breaker_state.proto";
 import "common/proto/circuit_breaker_state.proto";
 
@@ -16,7 +15,7 @@ option go_package = "github.com/jdfalk/gcommon/pkg/common/proto";
  * Implements the circuit breaker pattern with configurable thresholds,
  * timeouts, and state management for preventing cascade failures.
  */
-message CircuitBreakerConfig {
+message CommonCircuitBreakerConfig {
   // Number of consecutive failures to trigger circuit opening
   int32 failure_threshold = 1;
 

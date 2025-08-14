@@ -3,7 +3,6 @@ edition = "2023";
 
 package gcommon.v1.common;
 
-import "google/protobuf/go_features.proto";
 import "google/protobuf/timestamp.proto";
 import "pkg/common/proto/audit_result.proto";
 import "pkg/common/proto/resource_reference.proto";
@@ -18,7 +17,7 @@ option go_package = "github.com/jdfalk/gcommon/pkg/common/proto";
  * Provides comprehensive audit trail with user identification,
  * action details, and contextual metadata for compliance and debugging.
  */
-message AuditLog {
+message CommonAuditLog {
   // Unique audit log entry identifier
   string id = 1;
 

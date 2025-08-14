@@ -3,7 +3,6 @@ edition = "2023";
 
 package gcommon.v1.common;
 
-import "google/protobuf/go_features.proto";
 import "google/protobuf/timestamp.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
@@ -14,7 +13,7 @@ option go_package = "github.com/jdfalk/gcommon/pkg/common/proto";
  * Provides standardized time-based filtering across all GCommon modules
  * for queries, reports, and data analysis.
  */
-message TimeRange {
+message CommonTimeRange {
   // Start time (inclusive) - operations at or after this time are included
   google.protobuf.Timestamp start_time = 1;
 

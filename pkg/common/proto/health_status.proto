@@ -3,7 +3,6 @@ edition = "2023";
 
 package gcommon.v1.common;
 
-import "google/protobuf/go_features.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
 option go_package = "github.com/jdfalk/gcommon/pkg/common/proto";
@@ -12,7 +11,7 @@ option go_package = "github.com/jdfalk/gcommon/pkg/common/proto";
  * Common health status enumeration used across all GCommon modules.
  * Provides consistent health reporting for services, components, and resources.
  */
-enum HealthStatus {
+enum CommonHealthStatus {
   // Default value indicating health status was not specified
   HEALTH_STATUS_UNSPECIFIED = 0;
 

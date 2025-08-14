@@ -4,7 +4,6 @@ edition = "2023";
 package gcommon.v1.common;
 
 import "google/protobuf/duration.proto";
-import "google/protobuf/go_features.proto";
 import "pkg/common/proto/error_code.proto";
 import "common/proto/error_code.proto";
 
@@ -16,7 +15,7 @@ option go_package = "github.com/jdfalk/gcommon/pkg/common/proto";
  * Defines retry behavior with exponential backoff, jitter,
  * and configurable error handling for robust service interactions.
  */
-message RetryPolicy {
+message CommonRetryPolicy {
   // Maximum number of retry attempts (including initial attempt)
   int32 max_attempts = 1;
 

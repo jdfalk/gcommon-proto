@@ -4,7 +4,6 @@ edition = "2023";
 package gcommon.v1.common;
 
 import "google/protobuf/duration.proto";
-import "google/protobuf/go_features.proto";
 import "pkg/common/proto/eviction_policy.proto";
 import "pkg/common/proto/expiration_policy.proto";
 import "common/proto/expiration_policy.proto";
