@@ -14,6 +14,12 @@ import "pkg/db/proto/commit_transaction_request.proto";
 import "pkg/db/proto/rollback_transaction_request.proto";
 import "pkg/db/proto/transaction_status_request.proto";
 import "pkg/db/proto/transaction_status_response.proto";
+import "db/proto/begin_transaction_response.proto";
+import "db/proto/transaction_status_response.proto";
+import "db/proto/rollback_transaction_request.proto";
+import "db/proto/commit_transaction_request.proto";
+import "db/proto/begin_transaction_request.proto";
+import "db/proto/transaction_status_request.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
 option go_package = "github.com/jdfalk/gcommon/pkg/db/proto";

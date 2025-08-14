@@ -8,6 +8,9 @@ import "google/protobuf/go_features.proto";
 import "pkg/common/proto/request_metadata.proto";
 import "pkg/db/proto/batch_execute_options.proto";
 import "pkg/db/proto/batch_operation.proto";
+import "db/proto/batch_execute_options.proto";
+import "common/proto/batch_operation.proto";
+import "db/proto/batch_operation.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
 option go_package = "github.com/jdfalk/gcommon/pkg/db/proto";

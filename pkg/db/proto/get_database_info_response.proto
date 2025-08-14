@@ -5,6 +5,7 @@ package gcommon.v1.database;
 
 import "google/protobuf/go_features.proto";
 import "pkg/db/proto/database_info.proto";
+import "db/proto/database_info.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
 option go_package = "github.com/jdfalk/gcommon/pkg/db/proto";

@@ -7,6 +7,7 @@ import "google/protobuf/any.proto";
 import "google/protobuf/go_features.proto";
 import "pkg/common/proto/error.proto";
 import "pkg/db/proto/execute_stats.proto";
+import "db/proto/execute_stats.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
 option go_package = "github.com/jdfalk/gcommon/pkg/db/proto";
