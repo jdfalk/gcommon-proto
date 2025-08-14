@@ -6,20 +6,19 @@ edition = "2023";
 
 package gcommon.v1.config;
 
-import "config/proto/health_check_result.proto";
-import "config/proto/health_state.proto";
 import "google/protobuf/go_features.proto";
 import "google/protobuf/timestamp.proto";
-import "health/proto/health_check_result.proto";
 import "pkg/config/proto/access_control.proto";
 import "pkg/config/proto/audit_settings.proto";
 import "pkg/config/proto/compliance_settings.proto";
 import "pkg/config/proto/deployment_status.proto";
 import "pkg/config/proto/environment_status.proto";
 import "pkg/config/proto/environment_type.proto";
+import "pkg/config/proto/health_check_result.proto";
 import "pkg/config/proto/health_check_type.proto";
 import "pkg/config/proto/health_state.proto";
 import "pkg/config/proto/notification_settings.proto";
+import "pkg/health/proto/health_check_result.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
 option go_package = "github.com/jdfalk/gcommon/pkg/config/proto";

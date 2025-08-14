@@ -6,9 +6,6 @@ edition = "2023";
 
 package gcommon.v1.config;
 
-import "config/proto/batching_settings.proto";
-import "config/proto/notification_channel.proto";
-import "config/proto/notification_trigger.proto";
 import "google/protobuf/go_features.proto";
 import "google/protobuf/timestamp.proto";
 import "pkg/config/proto/audit_level.proto";

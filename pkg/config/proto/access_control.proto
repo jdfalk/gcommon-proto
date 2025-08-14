@@ -6,8 +6,6 @@ edition = "2023";
 
 package gcommon.v1.config;
 
-import "config/proto/access_restriction.proto";
-import "config/proto/rate_limits.proto";
 import "google/protobuf/go_features.proto";
 import "google/protobuf/timestamp.proto";
 import "pkg/config/proto/access_restriction.proto";

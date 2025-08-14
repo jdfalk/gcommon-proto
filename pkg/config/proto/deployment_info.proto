@@ -6,17 +6,16 @@ edition = "2023";
 
 package gcommon.v1.config;
 
-import "config/proto/deployment_rollback_info.proto";
-import "config/proto/deployment_status.proto";
-import "config/proto/health_check.proto";
 import "google/protobuf/go_features.proto";
 import "google/protobuf/timestamp.proto";
 import "pkg/config/proto/access_control.proto";
 import "pkg/config/proto/audit_settings.proto";
 import "pkg/config/proto/compliance_settings.proto";
+import "pkg/config/proto/deployment_rollback_info.proto";
 import "pkg/config/proto/deployment_status.proto";
 import "pkg/config/proto/environment_status.proto";
 import "pkg/config/proto/environment_type.proto";
+import "pkg/config/proto/health_check.proto";
 import "pkg/config/proto/health_check_type.proto";
 import "pkg/config/proto/health_state.proto";
 import "pkg/config/proto/notification_settings.proto";

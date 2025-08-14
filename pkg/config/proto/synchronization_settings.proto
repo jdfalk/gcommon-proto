@@ -6,9 +6,6 @@ edition = "2023";
 
 package gcommon.v1.config;
 
-import "config/proto/conflict_resolution.proto";
-import "config/proto/synchronization_frequency.proto";
-import "config/proto/synchronization_target.proto";
 import "google/protobuf/any.proto";
 import "google/protobuf/go_features.proto";
 import "google/protobuf/timestamp.proto";

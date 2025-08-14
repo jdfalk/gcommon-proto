@@ -3,7 +3,6 @@ edition = "2023";
 
 package gcommon.v1.config;
 
-import "config/proto/config_schema.proto";
 import "google/protobuf/go_features.proto";
 import "pkg/common/proto/error.proto";
 import "pkg/config/proto/config_schema.proto";
