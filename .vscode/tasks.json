@@ -34,6 +34,17 @@
       "problemMatcher": []
     },
     {
+      "label": "Buf Generate Per Module",
+      "type": "shell",
+      "command": "./scripts/buf-generate-per-module.sh",
+      "options": {
+        "cwd": "${workspaceFolder}"
+      },
+      "group": "build",
+      "isBackground": false,
+      "problemMatcher": []
+    },
+    {
       "label": "Buf Lint with Output",
       "type": "shell",
       "command": "copilot-agent-util",
