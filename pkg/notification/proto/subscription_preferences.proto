@@ -6,7 +6,6 @@ edition = "2023";
 
 package gcommon.v1.notification;
 
-import "google/protobuf/go_features.proto";
 import "pkg/notification/proto/delivery_channel_type.proto";
 import "notification/proto/delivery_channel_type.proto";
 
