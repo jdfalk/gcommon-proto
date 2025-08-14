@@ -8,6 +8,7 @@ package gcommon.v1.notification;
 
 import "google/protobuf/go_features.proto";
 import "pkg/notification/proto/delivery_status.proto";
+import "notification/proto/delivery_status.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
 option go_package = "github.com/jdfalk/gcommon/pkg/notification/proto";
