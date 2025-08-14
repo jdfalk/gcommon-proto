@@ -10,6 +10,10 @@ import "google/protobuf/duration.proto";
 import "google/protobuf/go_features.proto";
 import "google/protobuf/timestamp.proto";
 import "pkg/common/proto/error.proto";
+import "common/proto/pagination_info.proto";
+import "common/proto/rate_limit_info.proto";
+import "common/proto/error.proto";
+import "metrics/proto/pagination_info.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
 option go_package = "github.com/jdfalk/gcommon/pkg/common/proto";

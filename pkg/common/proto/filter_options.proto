@@ -6,6 +6,10 @@ package gcommon.v1.common;
 import "google/protobuf/go_features.proto";
 import "pkg/common/proto/filter_value.proto";
 import "pkg/common/proto/time_range.proto";
+import "queue/proto/time_range.proto";
+import "metrics/proto/time_range.proto";
+import "common/proto/time_range.proto";
+import "common/proto/filter_value.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
 option go_package = "github.com/jdfalk/gcommon/pkg/common/proto";
