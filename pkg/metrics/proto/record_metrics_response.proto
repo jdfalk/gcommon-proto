@@ -6,12 +6,11 @@ edition = "2023";
 
 package gcommon.v1.metrics;
 
-import "google/protobuf/go_features.proto";
 import "google/protobuf/timestamp.proto";
-import "pkg/common/proto/error.proto";
+import "common/proto/error.proto";
 import "metrics/proto/validation_summary.proto";
 import "metrics/proto/metric_result.proto";
-import "metrics/proto/batch_stats.proto";
+import "db/proto/batch_stats.proto";
 import "db/proto/batch_stats.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
@@ -43,7 +42,7 @@ message RecordMetricsResponse {
   string provider_id = 8;
 
   // Performance metrics about the batch operation
-  BatchStats stats = 9;
+  MetricsBatchStats stats = 9;
 
   // Warnings or informational messages about the batch
   repeated string warnings = 10;

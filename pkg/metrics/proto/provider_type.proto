@@ -15,7 +15,7 @@ option go_package = "github.com/jdfalk/gcommon/pkg/metrics/proto";
  * Provider type enumeration.
  * Defines the different types of metrics providers supported.
  */
-enum ProviderType {
+enum MetricsProviderType {
   PROVIDER_TYPE_UNSPECIFIED = 0;
   PROVIDER_TYPE_PROMETHEUS = 1;
   PROVIDER_TYPE_OPENTELEMETRY = 2;

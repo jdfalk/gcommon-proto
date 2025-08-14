@@ -6,7 +6,6 @@ edition = "2023";
 
 package gcommon.v1.metrics;
 
-import "google/protobuf/go_features.proto";
 import "google/protobuf/timestamp.proto";
 import "pkg/metrics/proto/error_stats.proto";
 import "pkg/metrics/proto/performance_stats.proto";
@@ -14,14 +13,14 @@ import "pkg/metrics/proto/provider_info.proto";
 import "pkg/metrics/proto/resource_limits_summary.proto";
 import "pkg/metrics/proto/time_range.proto";
 import "pkg/metrics/proto/top_metrics.proto";
-import "web/proto/performance_stats.proto";
+import "metrics/proto/performance_stats.proto";
 import "metrics/proto/data_volume_stats.proto";
 import "metrics/proto/provider_info.proto";
 import "metrics/proto/top_metrics.proto";
 import "metrics/proto/performance_stats.proto";
 import "metrics/proto/health_status_entry.proto";
 import "metrics/proto/export_stats.proto";
-import "queue/proto/error_stats.proto";
+import "metrics/proto/error_stats.proto";
 import "metrics/proto/configuration_summary.proto";
 import "metrics/proto/resource_usage_stats.proto";
 import "metrics/proto/trend_analysis.proto";
@@ -35,13 +34,13 @@ message ProviderStatistics {
   ProviderInfo provider_info = 1;
 
   // Performance statistics
-  PerformanceStats performance = 2;
+  MetricsPerformanceStats performance = 2;
 
   // Resource usage statistics
   ResourceUsageStats resource_usage = 3;
 
   // Error statistics
-  ErrorStats errors = 4;
+  MetricsErrorStats errors = 4;
 
   // Data volume statistics
   DataVolumeStats data_volume = 5;

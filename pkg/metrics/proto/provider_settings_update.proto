@@ -6,7 +6,6 @@ edition = "2023";
 
 package gcommon.v1.metrics;
 
-import "google/protobuf/go_features.proto";
 import "pkg/metrics/proto/open_telemetry_settings_update.proto";
 import "pkg/metrics/proto/prometheus_settings_update.proto";
 import "pkg/metrics/proto/stats_dsettings_update.proto";

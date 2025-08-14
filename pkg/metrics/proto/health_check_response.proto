@@ -18,9 +18,9 @@ option go_package = "github.com/jdfalk/gcommon/pkg/metrics/proto";
 /**
  * HealthCheckResponse contains the result of a metrics subsystem health check.
  */
-message HealthCheckResponse {
+message MetricsHealthCheckResponse {
   // Health status of the subsystem.
-  gcommon.v1.common.HealthStatus status = 1;
+  gcommon.v1.common.MetricsHealthStatus status = 1;
 
   // Time taken to execute the health check.
   google.protobuf.Duration response_time = 2 [lazy = true];

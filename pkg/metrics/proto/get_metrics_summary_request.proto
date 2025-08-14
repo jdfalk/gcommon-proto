@@ -6,15 +6,14 @@ edition = "2023";
 
 package gcommon.v1.metrics;
 
-import "google/protobuf/go_features.proto";
-import "pkg/common/proto/request_metadata.proto";
+import "common/proto/request_metadata.proto";
 import "pkg/common/proto/time_range.proto";
 import "pkg/metrics/proto/metric_filter.proto";
 import "pkg/metrics/proto/time_range.proto";
-import "queue/proto/time_range.proto";
+import "common/proto/time_range.proto";
 import "metrics/proto/summary_options.proto";
 import "metrics/proto/metric_filter.proto";
-import "metrics/proto/time_range.proto";
+import "common/proto/time_range.proto";
 import "common/proto/time_range.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
@@ -29,7 +28,7 @@ message GetMetricsSummaryRequest {
   MetricFilter filter = 2;
 
   // Time range for the summary
-  TimeRange time_range = 3;
+  MetricsTimeRange time_range = 3;
 
   // What summary information to include
   SummaryOptions options = 4;

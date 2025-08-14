@@ -6,12 +6,11 @@ edition = "2023";
 
 package gcommon.v1.metrics;
 
-import "google/protobuf/go_features.proto";
 import "google/protobuf/timestamp.proto";
 import "pkg/metrics/proto/metric_type.proto";
 import "pkg/metrics/proto/metric_value.proto";
 import "metrics/proto/metric_value.proto";
-import "queue/proto/metric_type.proto";
+import "metrics/proto/metric_type.proto";
 import "metrics/proto/metric_type.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
@@ -20,7 +19,7 @@ option go_package = "github.com/jdfalk/gcommon/pkg/metrics/proto";
 message MetricSeries {
   // Metric metadata
   string name = 1;
-  MetricType type = 2;
+  MetricsMetricType type = 2;
   map<string, string> labels = 3;
 
   // Time-ordered series of values

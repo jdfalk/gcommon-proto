@@ -6,11 +6,10 @@ edition = "2023";
 
 package gcommon.v1.metrics;
 
-import "google/protobuf/go_features.proto";
-import "pkg/common/proto/request_metadata.proto";
+import "common/proto/request_metadata.proto";
 import "pkg/metrics/proto/time_range.proto";
-import "queue/proto/time_range.proto";
-import "metrics/proto/time_range.proto";
+import "common/proto/time_range.proto";
+import "common/proto/time_range.proto";
 import "metrics/proto/stats_options.proto";
 import "common/proto/time_range.proto";
 
@@ -26,7 +25,7 @@ message GetProviderStatsRequest {
   string provider_id = 2;
 
   // Time range for statistics
-  TimeRange time_range = 3;
+  MetricsTimeRange time_range = 3;
 
   // What statistics to include
   StatsOptions options = 4;

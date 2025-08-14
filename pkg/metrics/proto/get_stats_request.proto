@@ -17,12 +17,12 @@ import "metrics/proto/timestamp_range.proto";
 option features.(pb.go).api_level = API_OPAQUE;
 option go_package = "github.com/jdfalk/gcommon/pkg/metrics/proto";
 
-message GetStatsRequest {
+message MetricsGetStatsRequest {
   // Metric name or ID to query
   string metric = 1;
 
   // Time range for stats
-  TimestampRange range = 2;
+  MetricsTimestampRange range = 2;
 
   // Request metadata
   gcommon.v1.common.RequestMetadata metadata = 3 [lazy = true];

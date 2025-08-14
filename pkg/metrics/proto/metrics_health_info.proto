@@ -6,9 +6,8 @@ edition = "2023";
 
 package gcommon.v1.metrics;
 
-import "google/protobuf/go_features.proto";
 import "google/protobuf/timestamp.proto";
-import "pkg/common/proto/error.proto";
+import "common/proto/error.proto";
 import "pkg/common/proto/time_range.proto";
 import "pkg/metrics/proto/error_stats.proto";
 import "pkg/metrics/proto/health_status.proto";
@@ -17,17 +16,17 @@ import "pkg/metrics/proto/provider_summary.proto";
 import "pkg/metrics/proto/retention_policy_retentionpolicyconfig.proto";
 import "pkg/metrics/proto/time_range.proto";
 import "pkg/metrics/proto/top_metrics.proto";
-import "metrics/proto/health_status.proto";
-import "queue/proto/health_status.proto";
 import "common/proto/health_status.proto";
-import "web/proto/health_status.proto";
-import "config/proto/health_status.proto";
+import "common/proto/health_status.proto";
+import "common/proto/health_status.proto";
+import "common/proto/health_status.proto";
+import "common/proto/health_status.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
 option go_package = "github.com/jdfalk/gcommon/pkg/metrics/proto";
 
 message MetricsHealthInfo {
-  HealthStatus overall_status = 1;
+  MetricsHealthStatus overall_status = 1;
   repeated string health_checks = 2;
   repeated string warnings = 3;
   google.protobuf.Timestamp last_check = 4;

@@ -8,8 +8,7 @@ edition = "2023";
 
 package gcommon.v1.metrics;
 
-import "google/protobuf/go_features.proto";
-import "pkg/common/proto/request_metadata.proto";
+import "common/proto/request_metadata.proto";
 import "pkg/metrics/proto/alerting_rule.proto";
 import "metrics/proto/alerting_rule.proto";
 

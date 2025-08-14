@@ -14,7 +14,7 @@ option go_package = "github.com/jdfalk/gcommon/pkg/metrics/proto";
 /**
  * PaginationInfo contains information about paginated results.
  */
-message PaginationInfo {
+message MetricsPaginationInfo {
   // Current page number (1-based)
   uint32 page = 1;
 

@@ -12,7 +12,7 @@ import "google/protobuf/timestamp.proto";
 option features.(pb.go).api_level = API_OPAQUE;
 option go_package = "github.com/jdfalk/gcommon/pkg/metrics/proto";
 
-message BatchStats {
+message MetricsBatchStats {
   // Total time taken to process the batch (milliseconds)
   int64 total_processing_time_ms = 1;
 

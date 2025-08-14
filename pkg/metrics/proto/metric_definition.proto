@@ -6,10 +6,9 @@ edition = "2023";
 
 package gcommon.v1.metrics;
 
-import "google/protobuf/go_features.proto";
 import "metrics/proto/export_config.proto";
 import "metrics/proto/retention_policy_config.proto";
-import "queue/proto/metric_type.proto";
+import "metrics/proto/metric_type.proto";
 import "metrics/proto/validation_rules.proto";
 import "metrics/proto/label_definition.proto";
 import "metrics/proto/metric_type_config.proto";
@@ -23,7 +22,7 @@ message MetricDefinition {
   string name = 1;
 
   // Type of metric (counter, gauge, histogram, etc.)
-  MetricType type = 2;
+  MetricsMetricType type = 2;
 
   // Human-readable description
   string description = 3;

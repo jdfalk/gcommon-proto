@@ -6,9 +6,8 @@ edition = "2023";
 
 package gcommon.v1.metrics;
 
-import "google/protobuf/go_features.proto";
 import "google/protobuf/timestamp.proto";
-import "pkg/common/proto/error.proto";
+import "common/proto/error.proto";
 import "pkg/metrics/proto/pagination_info.proto";
 import "pkg/metrics/proto/provider_info.proto";
 import "pkg/metrics/proto/provider_summary.proto";
@@ -16,7 +15,7 @@ import "pkg/metrics/proto/resource_limits_summary.proto";
 import "metrics/proto/provider_info.proto";
 import "common/proto/pagination_info.proto";
 import "metrics/proto/provider_summary.proto";
-import "metrics/proto/pagination_info.proto";
+import "common/proto/pagination_info.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
 option go_package = "github.com/jdfalk/gcommon/pkg/metrics/proto";
@@ -32,7 +31,7 @@ message ListProvidersResponse {
   repeated ProviderInfo providers = 3;
 
   // Pagination information
-  PaginationInfo pagination = 4;
+  MetricsPaginationInfo pagination = 4;
 
   // Summary statistics about the providers
   ProviderSummary summary = 5;

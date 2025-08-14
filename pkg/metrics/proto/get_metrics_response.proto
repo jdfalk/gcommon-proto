@@ -7,9 +7,8 @@ edition = "2023";
 
 package gcommon.v1.metrics;
 
-import "google/protobuf/go_features.proto";
 import "google/protobuf/timestamp.proto";
-import "pkg/common/proto/error.proto";
+import "common/proto/error.proto";
 import "pkg/common/proto/time_range.proto";
 import "pkg/metrics/proto/metric_data.proto";
 import "pkg/metrics/proto/metric_metadata.proto";
@@ -17,13 +16,13 @@ import "pkg/metrics/proto/pagination_info.proto";
 import "pkg/metrics/proto/query_stats.proto";
 import "pkg/metrics/proto/time_range.proto";
 import "db/proto/query_stats.proto";
-import "queue/proto/time_range.proto";
+import "common/proto/time_range.proto";
 import "metrics/proto/metric_data.proto";
 import "metrics/proto/metric_metadata.proto";
-import "metrics/proto/pagination_info.proto";
-import "metrics/proto/query_stats.proto";
 import "common/proto/pagination_info.proto";
-import "metrics/proto/time_range.proto";
+import "db/proto/query_stats.proto";
+import "common/proto/pagination_info.proto";
+import "common/proto/time_range.proto";
 import "common/proto/time_range.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
@@ -32,7 +31,7 @@ option go_package = "github.com/jdfalk/gcommon/pkg/metrics/proto";
 /**
  * GetMetricsResponse contains the retrieved metrics data.
  */
-message GetMetricsResponse {
+message MetricsGetMetricsResponse {
   // Success status of the operation
   bool success = 1;
 
@@ -46,16 +45,16 @@ message GetMetricsResponse {
   repeated MetricMetadata metadata = 4;
 
   // Pagination information
-  PaginationInfo pagination = 5;
+  MetricsPaginationInfo pagination = 5;
 
   // Query execution statistics
-  QueryStats stats = 6;
+  MetricsQueryStats stats = 6;
 
   // When the response was generated
   google.protobuf.Timestamp generated_at = 7;
 
   // Time range covered by the response
-  TimeRange time_range = 8;
+  MetricsTimeRange time_range = 8;
 
   // Warnings or informational messages
   repeated string warnings = 9;

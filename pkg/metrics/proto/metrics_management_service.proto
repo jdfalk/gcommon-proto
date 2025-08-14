@@ -6,7 +6,6 @@ edition = "2023";
 
 package gcommon.v1.metrics;
 
-import "google/protobuf/go_features.proto";
 // Import all required request and response messages
 import "pkg/metrics/proto/create_provider_request.proto";
 import "pkg/metrics/proto/create_provider_response.proto";

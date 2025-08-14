@@ -6,7 +6,6 @@ edition = "2023";
 
 package gcommon.v1.metrics;
 
-import "google/protobuf/go_features.proto";
 import "google/protobuf/timestamp.proto";
 import "pkg/metrics/proto/error_stats.proto";
 import "pkg/metrics/proto/health_status.proto";
@@ -15,12 +14,12 @@ import "pkg/metrics/proto/provider_summary.proto";
 import "pkg/metrics/proto/retention_policy_retentionpolicyconfig.proto";
 import "pkg/metrics/proto/time_range.proto";
 import "pkg/metrics/proto/top_metrics.proto";
-import "web/proto/performance_stats.proto";
+import "metrics/proto/performance_stats.proto";
 import "metrics/proto/top_metrics.proto";
 import "metrics/proto/performance_stats.proto";
 import "metrics/proto/export_status.proto";
-import "queue/proto/retention_info.proto";
-import "queue/proto/error_stats.proto";
+import "metrics/proto/retention_info.proto";
+import "metrics/proto/error_stats.proto";
 import "metrics/proto/retention_info.proto";
 import "metrics/proto/metric_type_counts.proto";
 import "metrics/proto/error_stats.proto";
@@ -42,16 +41,16 @@ message MetricsSummary {
   MetricTypeCounts type_counts = 4;
 
   // Performance statistics
-  PerformanceStats performance = 5;
+  MetricsPerformanceStats performance = 5;
 
   // Error statistics
-  ErrorStats errors = 6;
+  MetricsErrorStats errors = 6;
 
   // Top metrics by various criteria
   TopMetrics top_metrics = 7;
 
   // Retention information
-  RetentionInfo retention = 8;
+  MetricsRetentionInfo retention = 8;
 
   // Export status information
   ExportStatus export_status = 9;

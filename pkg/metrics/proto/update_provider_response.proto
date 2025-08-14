@@ -8,13 +8,12 @@ edition = "2023";
 
 package gcommon.v1.metrics;
 
-import "google/protobuf/go_features.proto";
 import "google/protobuf/timestamp.proto";
-import "pkg/common/proto/error.proto";
+import "common/proto/error.proto";
 import "pkg/metrics/proto/provider_status.proto";
 import "pkg/metrics/proto/validation_result.proto";
-import "queue/proto/validation_result.proto";
-import "metrics/proto/validation_result.proto";
+import "config/proto/validation_result.proto";
+import "config/proto/validation_result.proto";
 import "metrics/proto/provider_status.proto";
 import "config/proto/validation_result.proto";
 
@@ -35,7 +34,7 @@ message UpdateProviderResponse {
   ProviderStatus status = 3;
 
   // Validation results from the update operation
-  repeated ValidationResult validation_results = 4;
+  repeated MetricsValidationResult validation_results = 4;
 
   // Error information if update failed
   gcommon.v1.common.Error error = 5;

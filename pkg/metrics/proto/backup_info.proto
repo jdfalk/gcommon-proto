@@ -6,7 +6,6 @@ edition = "2023";
 
 package gcommon.v1.metrics;
 
-import "google/protobuf/go_features.proto";
 import "google/protobuf/timestamp.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
@@ -15,7 +14,7 @@ option go_package = "github.com/jdfalk/gcommon/pkg/metrics/proto";
 /**
  * BackupInfo contains information about backup operations.
  */
-message BackupInfo {
+message MetricsBackupInfo {
   // Unique backup identifier
   string backup_id = 1;
 

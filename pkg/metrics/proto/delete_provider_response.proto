@@ -6,13 +6,12 @@ edition = "2023";
 
 package gcommon.v1.metrics;
 
-import "google/protobuf/go_features.proto";
 import "google/protobuf/timestamp.proto";
-import "pkg/common/proto/error.proto";
+import "common/proto/error.proto";
 import "pkg/metrics/proto/backup_info.proto";
 import "pkg/metrics/proto/dry_run_result.proto";
 import "metrics/proto/backup_info.proto";
-import "queue/proto/backup_info.proto";
+import "metrics/proto/backup_info.proto";
 import "metrics/proto/deletion_result.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
@@ -38,7 +37,7 @@ message DeleteProviderResponse {
   repeated string warnings = 6;
 
   // Backup information (if backup was created)
-  BackupInfo backup_info = 7;
+  MetricsBackupInfo backup_info = 7;
 
   // When scheduled deletion will occur (if grace period is set)
   google.protobuf.Timestamp scheduled_deletion = 8;

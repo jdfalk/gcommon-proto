@@ -6,7 +6,6 @@ edition = "2023";
 
 package gcommon.v1.metrics;
 
-import "google/protobuf/go_features.proto";
 import "pkg/metrics/proto/metric_filter.proto";
 import "pkg/metrics/proto/time_range.proto";
 

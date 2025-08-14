@@ -11,7 +11,7 @@ import "google/protobuf/go_features.proto";
 option features.(pb.go).api_level = API_OPAQUE;
 option go_package = "github.com/jdfalk/gcommon/pkg/metrics/proto";
 
-enum HealthStatus {
+enum MetricsHealthStatus {
   HEALTH_STATUS_UNSPECIFIED = 0;
   HEALTH_STATUS_HEALTHY = 1;
   HEALTH_STATUS_DEGRADED = 2;

@@ -8,9 +8,8 @@ edition = "2023";
 
 package gcommon.v1.metrics;
 
-import "google/protobuf/go_features.proto";
 import "google/protobuf/timestamp.proto";
-import "pkg/common/proto/request_metadata.proto";
+import "common/proto/request_metadata.proto";
 import "pkg/metrics/proto/summary_metric.proto";
 import "metrics/proto/summary_metric.proto";
 

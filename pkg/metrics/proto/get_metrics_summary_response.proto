@@ -6,9 +6,8 @@ edition = "2023";
 
 package gcommon.v1.metrics;
 
-import "google/protobuf/go_features.proto";
 import "google/protobuf/timestamp.proto";
-import "pkg/common/proto/error.proto";
+import "common/proto/error.proto";
 import "pkg/common/proto/time_range.proto";
 import "pkg/metrics/proto/error_stats.proto";
 import "pkg/metrics/proto/health_status.proto";
@@ -17,10 +16,10 @@ import "pkg/metrics/proto/provider_summary.proto";
 import "pkg/metrics/proto/retention_policy_retentionpolicyconfig.proto";
 import "pkg/metrics/proto/time_range.proto";
 import "pkg/metrics/proto/top_metrics.proto";
-import "queue/proto/time_range.proto";
+import "common/proto/time_range.proto";
 import "metrics/proto/metrics_health_info.proto";
 import "metrics/proto/metrics_summary.proto";
-import "metrics/proto/time_range.proto";
+import "common/proto/time_range.proto";
 import "metrics/proto/provider_summary.proto";
 import "common/proto/time_range.proto";
 
@@ -47,7 +46,7 @@ message GetMetricsSummaryResponse {
   google.protobuf.Timestamp generated_at = 6;
 
   // Time range covered by the summary
-  TimeRange time_range = 7;
+  MetricsTimeRange time_range = 7;
 
   // Warnings or informational messages
   repeated string warnings = 8;

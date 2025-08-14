@@ -16,7 +16,7 @@ option go_package = "github.com/jdfalk/gcommon/pkg/metrics/proto";
 /**
  * ChangeType defines the type of configuration change.
  */
-enum ChangeType {
+enum MetricsChangeType {
   CHANGE_TYPE_UNSPECIFIED = 0;
   CHANGE_TYPE_ADDED = 1;
   CHANGE_TYPE_UPDATED = 2;

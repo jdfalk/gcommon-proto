@@ -6,14 +6,13 @@ edition = "2023";
 
 package gcommon.v1.metrics;
 
-import "google/protobuf/go_features.proto";
 import "google/protobuf/timestamp.proto";
 import "pkg/metrics/proto/health_status.proto";
-import "metrics/proto/health_status.proto";
-import "queue/proto/health_status.proto";
 import "common/proto/health_status.proto";
-import "web/proto/health_status.proto";
-import "config/proto/health_status.proto";
+import "common/proto/health_status.proto";
+import "common/proto/health_status.proto";
+import "common/proto/health_status.proto";
+import "common/proto/health_status.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
 option go_package = "github.com/jdfalk/gcommon/pkg/metrics/proto";
@@ -26,7 +25,7 @@ message MetricHealth {
   string target_id = 1;
 
   // Health status
-  HealthStatus status = 2;
+  MetricsHealthStatus status = 2;
 
   // When this health status was checked
   google.protobuf.Timestamp checked_at = 3;

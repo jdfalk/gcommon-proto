@@ -14,7 +14,7 @@ option go_package = "github.com/jdfalk/gcommon/pkg/metrics/proto";
 /**
  * CompressionType defines supported compression algorithms for stored metrics.
  */
-enum CompressionType {
+enum MetricsCompressionType {
   // Unspecified compression type.
   COMPRESSION_TYPE_UNSPECIFIED = 0;
 

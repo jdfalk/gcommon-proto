@@ -11,7 +11,7 @@ import "google/protobuf/go_features.proto";
 option features.(pb.go).api_level = API_OPAQUE;
 option go_package = "github.com/jdfalk/gcommon/pkg/metrics/proto";
 
-message QueryStats {
+message MetricsQueryStats {
   // Total queries executed
   int64 total_queries = 1;
 

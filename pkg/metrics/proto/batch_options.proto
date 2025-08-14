@@ -17,7 +17,7 @@ option go_package = "github.com/jdfalk/gcommon/pkg/metrics/proto";
 /**
  * BatchOptions configures how batch operations should be processed.
  */
-message BatchOptions {
+message MetricsBatchOptions {
   // Whether to process metrics in parallel
   bool parallel_processing = 1;
 

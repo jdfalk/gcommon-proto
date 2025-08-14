@@ -6,16 +6,15 @@ edition = "2023";
 
 package gcommon.v1.metrics;
 
-import "google/protobuf/go_features.proto";
-import "web/proto/tls_config.proto";
-import "organization/proto/api_key_config.proto";
+import "metrics/proto/tls_config.proto";
+import "metrics/proto/api_key_config.proto";
 import "metrics/proto/tls_config.proto";
 import "metrics/proto/api_key_config.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
 option go_package = "github.com/jdfalk/gcommon/pkg/metrics/proto";
 
-message SecurityConfig {
+message MetricsSecurityConfig {
   // Whether authentication is required
   bool require_auth = 1;
 
@@ -26,8 +25,8 @@ message SecurityConfig {
   bool require_tls = 3;
 
   // TLS configuration
-  TLSConfig tls_config = 4;
+  MetricsTLSConfig tls_config = 4;
 
   // API key configuration
-  APIKeyConfig api_key_config = 5;
+  OrganizationAPIKeyConfig api_key_config = 5;
 }

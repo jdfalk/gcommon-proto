@@ -6,9 +6,8 @@ edition = "2023";
 
 package gcommon.v1.metrics;
 
-import "google/protobuf/go_features.proto";
 import "google/protobuf/timestamp.proto";
-import "pkg/common/proto/request_metadata.proto";
+import "common/proto/request_metadata.proto";
 import "pkg/metrics/proto/buffer_overflow_strategy.proto";
 import "pkg/metrics/proto/metric_filter.proto";
 import "pkg/metrics/proto/stream_compression.proto";
@@ -21,7 +20,7 @@ import "metrics/proto/buffer_config.proto";
 option features.(pb.go).api_level = API_OPAQUE;
 option go_package = "github.com/jdfalk/gcommon/pkg/metrics/proto";
 
-message StreamMetricsRequest {
+message MetricsStreamMetricsRequest {
   // Standard request metadata (tracing, auth, etc.)
   gcommon.v1.common.RequestMetadata metadata = 1;
 

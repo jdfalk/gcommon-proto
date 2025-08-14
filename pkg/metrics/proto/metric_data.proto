@@ -6,12 +6,11 @@ edition = "2023";
 
 package gcommon.v1.metrics;
 
-import "google/protobuf/go_features.proto";
 import "google/protobuf/timestamp.proto";
 import "pkg/metrics/proto/metric_type.proto";
 import "pkg/metrics/proto/metric_value.proto";
 import "metrics/proto/metric_value.proto";
-import "queue/proto/metric_type.proto";
+import "metrics/proto/metric_type.proto";
 import "metrics/proto/metric_type.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
@@ -25,7 +24,7 @@ message MetricData {
   string name = 2;
 
   // Type of metric (counter, gauge, histogram, etc.)
-  MetricType type = 3;
+  MetricsMetricType type = 3;
 
   // Human-readable description of the metric
   string description = 4;

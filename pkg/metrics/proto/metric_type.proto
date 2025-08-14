@@ -3,7 +3,6 @@ edition = "2023";
 
 package gcommon.v1.metrics;
 
-import "google/protobuf/go_features.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
 option go_package = "github.com/jdfalk/gcommon/pkg/metrics/proto";
@@ -12,7 +11,7 @@ option go_package = "github.com/jdfalk/gcommon/pkg/metrics/proto";
  * MetricType defines the different types of metrics that can be collected.
  * Each type has specific semantics for how values are interpreted and aggregated.
  */
-enum MetricType {
+enum MetricsMetricType {
   // Unspecified metric type
   METRIC_TYPE_UNSPECIFIED = 0;
 

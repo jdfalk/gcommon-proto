@@ -7,7 +7,6 @@ edition = "2023";
 package gcommon.v1.metrics;
 
 import "google/protobuf/duration.proto";
-import "google/protobuf/go_features.proto";
 import "pkg/common/proto/sort.proto";
 import "pkg/metrics/proto/aggregation_type.proto";
 import "pkg/metrics/proto/metric_filter.proto";
@@ -15,10 +14,10 @@ import "pkg/metrics/proto/query_operation.proto";
 import "pkg/metrics/proto/time_range.proto";
 import "pkg/metrics/proto/timestamp_range.proto";
 import "metrics/proto/aggregation_spec.proto";
-import "queue/proto/time_range.proto";
+import "common/proto/time_range.proto";
 import "metrics/proto/metric_filter.proto";
 import "metrics/proto/group_by_spec.proto";
-import "metrics/proto/time_range.proto";
+import "common/proto/time_range.proto";
 import "common/proto/time_range.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
@@ -38,7 +37,7 @@ message MetricQuery {
   MetricFilter filter = 4;
 
   // Time range for the query
-  TimeRange time_filter = 5;
+  MetricsTimeRange time_filter = 5;
 
   // Aggregation operations to apply
   repeated AggregationSpec aggregations = 6;
