@@ -4,8 +4,6 @@ edition = "2023";
 
 package gcommon.v1.database;
 
-import "db/proto/execute_options.proto";
-import "db/proto/query_parameter.proto";
 import "google/protobuf/go_features.proto";
 import "pkg/common/proto/request_metadata.proto";
 import "pkg/db/proto/execute_options.proto";

@@ -3,7 +3,6 @@ edition = "2023";
 
 package gcommon.v1.database;
 
-import "db/proto/isolation_level.proto";
 import "google/protobuf/duration.proto";
 import "google/protobuf/go_features.proto";
 import "pkg/db/proto/isolation_level.proto";
