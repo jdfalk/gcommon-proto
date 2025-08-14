@@ -486,7 +486,7 @@ jobs:
           if [ ! -f ".goreleaser.yml" ] && [ ! -f ".goreleaser.yaml" ]; then
             cat > .goreleaser.yml << 'EOF'
           project_name: ${{ github.event.repository.name }}
-          
+
           builds:
             - env:
                 - CGO_ENABLED=0
@@ -499,7 +499,7 @@ jobs:
                 - arm64
               binary: ${{ github.event.repository.name }}
               main: ./
-          
+
           archives:
             - format: tar.gz
               name_template: >-
@@ -512,13 +512,13 @@ jobs:
               format_overrides:
                 - goos: windows
                   format: zip
-          
+
           checksum:
             name_template: 'checksums.txt'
-          
+
           snapshot:
             name_template: "{{ incpatch .Version }}-next"
-          
+
           changelog:
             sort: asc
             filters:
@@ -528,7 +528,7 @@ jobs:
                 - '^ci:'
                 - Merge pull request
                 - Merge branch
-          
+
           release:
             prerelease: auto
             name_template: "Release v{{ .Version }}"
@@ -561,7 +561,7 @@ jobs:
     runs-on: ubuntu-latest
     needs: [detect-project, calculate-version]
     if: >
-      needs.detect-project.outputs.should_release == 'true' && 
+      needs.detect-project.outputs.should_release == 'true' &&
       needs.detect-project.outputs.has_node == 'true'
     outputs:
       version: ${{ steps.semantic.outputs.new_release_version }}

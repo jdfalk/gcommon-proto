@@ -105,7 +105,7 @@ jobs:
 
             - Processed ${{ steps.process.outputs.files_updated }} documentation files
             - Applied pending updates from .github/doc-updates/
-            
+
             [skip ci]"
             git push
           fi
@@ -159,33 +159,33 @@ jobs:
           for file in README.md CONTRIBUTING.md CHANGELOG.md; do
             if [ -f "$file" ] && [ "$(wc -l < "$file")" -gt 50 ]; then
               echo "Generating TOC for $file"
-              
+
               # Extract headings and create TOC
               temp_file=$(mktemp)
               echo "## Table of Contents" > "$temp_file"
               echo "" >> "$temp_file"
-              
+
               grep -n "^##*" "$file" | while IFS=: read -r line_num heading; do
                 level=$(echo "$heading" | sed 's/[^#].*$//' | wc -c)
                 title=$(echo "$heading" | sed 's/^##* //')
                 anchor=$(echo "$title" | tr '[:upper:]' '[:lower:]' | sed 's/[^a-z0-9]/-/g' | sed 's/--*/-/g' | sed 's/-$//')
-                
+
                 indent=$(printf "%*s" $((($level - 2) * 2)) "")
                 echo "${indent}- [$title](#$anchor)" >> "$temp_file"
               done
-              
+
               echo "" >> "$temp_file"
-              
+
               # Check if TOC already exists, if so replace it
               if grep -q "## Table of Contents" "$file"; then
                 # Replace existing TOC
                 awk '
-                  /^## Table of Contents/ { 
-                    system("cat '"$temp_file"'"); 
-                    skip=1; 
-                    next 
-                  } 
-                  /^##/ && skip { skip=0 } 
+                  /^## Table of Contents/ {
+                    system("cat '"$temp_file"'");
+                    skip=1;
+                    next
+                  }
+                  /^##/ && skip { skip=0 }
                   !skip { print }
                 ' "$file" > "${file}.tmp" && mv "${file}.tmp" "$file"
               else
@@ -195,7 +195,7 @@ jobs:
                   NR>2 { print }
                 ' "$file" > "${file}.tmp" && mv "${file}.tmp" "$file"
               fi
-              
+
               rm "$temp_file"
             fi
           done
@@ -211,18 +211,18 @@ jobs:
           # Find all markdown files and check internal links
           find . -name "*.md" -not -path "./node_modules/*" -not -path "./.git/*" | while read -r file; do
             echo "Checking links in $file..."
-            
+
             # Extract markdown links [text](url)
             grep -o '\[.*\](.*\.md[^)]*)' "$file" 2>/dev/null | while read -r link; do
               url=$(echo "$link" | sed 's/.*](\([^)]*\)).*/\1/')
-              
+
               # Skip external links
               if [[ "$url" =~ ^https?:// ]]; then
                 continue
               fi
-              
+
               total_links=$((total_links + 1))
-              
+
               # Resolve relative path
               if [[ "$url" =~ ^/ ]]; then
                 target_file=".$url"
@@ -230,7 +230,7 @@ jobs:
                 dir=$(dirname "$file")
                 target_file="$dir/$url"
               fi
-              
+
               if [ ! -f "$target_file" ]; then
                 echo "❌ Broken link in $file: $url" >> $GITHUB_STEP_SUMMARY
                 broken_links=$((broken_links + 1))
@@ -252,7 +252,7 @@ jobs:
             - Updated documentation index
             - Generated table of contents for long documents
             - Validated internal links
-            
+
             [skip ci]" || echo "No changes to commit"
             git push || echo "No changes to push"
           fi
@@ -317,11 +317,11 @@ jobs:
           echo "# 🔄 Documentation Sync" >> $GITHUB_STEP_SUMMARY
           echo "" >> $GITHUB_STEP_SUMMARY
           echo "Syncing shared documentation files across repositories..." >> $GITHUB_STEP_SUMMARY
-          
+
           # This would integrate with repo-sync workflow
           # For now, just log what would be synced
           shared_files=(".github/copilot-instructions.md" "CONTRIBUTING.md" "CODE_OF_CONDUCT.md")
-          
+
           for file in "${shared_files[@]}"; do
             if [ -f "$file" ]; then
               echo "📄 Would sync: $file" >> $GITHUB_STEP_SUMMARY
