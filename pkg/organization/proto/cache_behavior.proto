@@ -6,7 +6,6 @@ edition = "2023";
 
 package gcommon.v1.organization;
 
-import "google/protobuf/go_features.proto";
 import "google/protobuf/timestamp.proto";
 import "organization/proto/cache_key_policy.proto";
 

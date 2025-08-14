@@ -6,17 +6,16 @@ edition = "2023";
 
 package gcommon.v1.organization;
 
-import "google/protobuf/go_features.proto";
 import "google/protobuf/timestamp.proto";
 import "organization/proto/ssl_config.proto";
 import "organization/proto/health_check_config.proto";
-import "web/proto/health_check_config.proto";
+import "organization/proto/health_check_config.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
 option go_package = "github.com/jdfalk/gcommon/pkg/organization/proto";
 
 
-message LoadBalancerConfig {
+message OrganizationLoadBalancerConfig {
   // Load balancer type (application, network)
   string type = 1;
 
@@ -24,7 +23,7 @@ message LoadBalancerConfig {
   string algorithm = 2;
 
   // Health check configuration
-  HealthCheckConfig health_check = 3;
+  OrganizationHealthCheckConfig health_check = 3;
 
   // SSL/TLS configuration
   SSLConfig ssl = 4;

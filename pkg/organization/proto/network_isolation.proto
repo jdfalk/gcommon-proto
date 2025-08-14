@@ -6,11 +6,10 @@ edition = "2023";
 
 package gcommon.v1.organization;
 
-import "google/protobuf/go_features.proto";
 import "google/protobuf/timestamp.proto";
 import "organization/proto/load_balancer_config.proto";
 import "organization/proto/network_acl_rule.proto";
-import "web/proto/load_balancer_config.proto";
+import "organization/proto/load_balancer_config.proto";
 import "organization/proto/cdn_config.proto";
 import "organization/proto/domain_config.proto";
 
@@ -34,7 +33,7 @@ message NetworkIsolation {
   bool dedicated_network = 5;
 
   // Load balancer configuration for this tenant
-  LoadBalancerConfig load_balancer = 6;
+  OrganizationLoadBalancerConfig load_balancer = 6;
 
   // CDN configuration for this tenant
   CDNConfig cdn = 7;

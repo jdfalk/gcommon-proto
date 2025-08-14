@@ -6,17 +6,16 @@ edition = "2023";
 
 package gcommon.v1.organization;
 
-import "google/protobuf/go_features.proto";
 import "google/protobuf/timestamp.proto";
-import "pkg/common/proto/key_value.proto";
+import "common/proto/key_value.proto";
 import "organization/proto/ui_settings.proto";
 import "organization/proto/feature_flag.proto";
 import "organization/proto/integration_settings.proto";
 import "config/proto/notification_settings.proto";
 import "config/proto/compliance_settings.proto";
 import "organization/proto/billing_settings.proto";
-import "organization/proto/notification_settings.proto";
-import "organization/proto/compliance_settings.proto";
+import "config/proto/notification_settings.proto";
+import "config/proto/compliance_settings.proto";
 import "organization/proto/security_settings.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
@@ -36,13 +35,13 @@ message OrganizationSettings {
   IntegrationSettings integrations = 4;
 
   // Notification and communication settings
-  NotificationSettings notifications = 5;
+  OrganizationNotificationSettings notifications = 5;
 
   // Billing and subscription settings
   BillingSettings billing = 6;
 
   // Data retention and compliance settings
-  ComplianceSettings compliance = 7;
+  OrganizationComplianceSettings compliance = 7;
 
   // Feature flags and experimental features
   repeated FeatureFlag feature_flags = 8;

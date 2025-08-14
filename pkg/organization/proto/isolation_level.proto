@@ -12,7 +12,7 @@ option go_package = "github.com/jdfalk/gcommon/pkg/organization/proto";
  * Isolation level enumeration defining the degree of tenant isolation.
  * Used in multi-tenant architectures to control data and resource separation.
  */
-enum IsolationLevel {
+enum OrganizationIsolationLevel {
   // Default value indicating no isolation level was specified
   ISOLATION_LEVEL_UNSPECIFIED = 0;
 

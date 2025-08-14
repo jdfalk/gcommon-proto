@@ -14,7 +14,7 @@ import "organization/proto/email_template.proto";
 option features.(pb.go).api_level = API_OPAQUE;
 option go_package = "github.com/jdfalk/gcommon/pkg/organization/proto";
 
-message NotificationSettings {
+message OrganizationNotificationSettings {
   // Default email sender address for organization notifications
   string sender_email = 1;
 

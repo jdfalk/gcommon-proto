@@ -3,9 +3,8 @@ edition = "2023";
 
 package gcommon.v1.organization;
 
-import "google/protobuf/go_features.proto";
-import "pkg/common/proto/error.proto";
-import "pkg/common/proto/paginated_response.proto";
+import "common/proto/error.proto";
+import "common/proto/paginated_response.proto";
 import "pkg/organization/proto/team.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;

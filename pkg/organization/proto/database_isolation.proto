@@ -6,10 +6,9 @@ edition = "2023";
 
 package gcommon.v1.organization;
 
-import "google/protobuf/go_features.proto";
 import "google/protobuf/timestamp.proto";
-import "pkg/common/proto/key_value.proto";
-import "queue/proto/backup_config.proto";
+import "common/proto/key_value.proto";
+import "organization/proto/backup_config.proto";
 import "organization/proto/backup_config.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
@@ -29,7 +28,7 @@ message DatabaseIsolation {
   bool dedicated_database = 4;
 
   // Database backup configuration
-  BackupConfig backup = 5;
+  OrganizationBackupConfig backup = 5;
 
   // Database access restrictions
   repeated string allowed_operations = 6;

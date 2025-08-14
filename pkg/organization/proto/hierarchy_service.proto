@@ -3,7 +3,6 @@ edition = "2023";
 
 package gcommon.v1.organization;
 
-import "google/protobuf/go_features.proto";
 import "pkg/organization/proto/create_department_request.proto";
 import "pkg/organization/proto/create_department_response.proto";
 import "pkg/organization/proto/create_team_request.proto";
@@ -28,30 +27,6 @@ import "pkg/organization/proto/update_hierarchy_request.proto";
 import "pkg/organization/proto/update_hierarchy_response.proto";
 import "pkg/organization/proto/update_team_request.proto";
 import "pkg/organization/proto/update_team_response.proto";
-import "organization/proto/list_teams_request.proto";
-import "organization/proto/update_hierarchy_request.proto";
-import "organization/proto/get_hierarchy_response.proto";
-import "organization/proto/list_departments_request.proto";
-import "organization/proto/update_team_response.proto";
-import "organization/proto/update_team_request.proto";
-import "organization/proto/create_department_request.proto";
-import "organization/proto/delete_team_response.proto";
-import "organization/proto/create_department_response.proto";
-import "organization/proto/get_team_response.proto";
-import "organization/proto/update_department_response.proto";
-import "organization/proto/update_department_request.proto";
-import "organization/proto/get_hierarchy_request.proto";
-import "organization/proto/create_team_response.proto";
-import "organization/proto/get_team_request.proto";
-import "organization/proto/delete_department_response.proto";
-import "organization/proto/update_hierarchy_response.proto";
-import "organization/proto/get_department_response.proto";
-import "organization/proto/list_departments_response.proto";
-import "organization/proto/list_teams_response.proto";
-import "organization/proto/get_department_request.proto";
-import "organization/proto/delete_team_request.proto";
-import "organization/proto/create_team_request.proto";
-import "organization/proto/delete_department_request.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
 option go_package = "github.com/jdfalk/gcommon/pkg/organization/proto";

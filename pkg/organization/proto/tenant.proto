@@ -3,14 +3,13 @@ edition = "2023";
 
 package gcommon.v1.organization;
 
-import "google/protobuf/go_features.proto";
 import "google/protobuf/timestamp.proto";
-import "pkg/common/proto/key_value.proto";
+import "common/proto/key_value.proto";
 import "pkg/organization/proto/isolation_level.proto";
 import "pkg/organization/proto/tenant_quota.proto";
 import "pkg/organization/proto/tenant_status.proto";
 import "db/proto/isolation_level.proto";
-import "organization/proto/isolation_level.proto";
+import "db/proto/isolation_level.proto";
 import "organization/proto/tenant_status.proto";
 import "organization/proto/tenant_quota.proto";
 
@@ -42,7 +41,7 @@ message Tenant {
   TenantStatus status = 6;
 
   // Isolation level for this tenant
-  IsolationLevel isolation_level = 7;
+  OrganizationIsolationLevel isolation_level = 7;
 
   // Tenant metadata and custom attributes
   repeated gcommon.v1.common.KeyValue metadata = 8 [lazy = true];

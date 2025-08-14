@@ -3,7 +3,6 @@ edition = "2023";
 
 package gcommon.v1.organization;
 
-import "google/protobuf/go_features.proto";
 import "pkg/organization/proto/configure_tenant_isolation_request.proto";
 import "pkg/organization/proto/configure_tenant_isolation_response.proto";
 import "pkg/organization/proto/create_tenant_request.proto";

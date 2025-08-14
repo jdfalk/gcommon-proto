@@ -14,7 +14,7 @@ option features.(pb.go).api_level = API_OPAQUE;
 option go_package = "github.com/jdfalk/gcommon/pkg/organization/proto";
 
 
-message APIKeyConfig {
+message OrganizationAPIKeyConfig {
   // API key name/identifier
   string name = 1;
 
