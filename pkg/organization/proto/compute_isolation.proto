@@ -6,12 +6,12 @@ edition = "2023";
 
 package gcommon.v1.organization;
 
-import "config/proto/resource_limits.proto";
 import "google/protobuf/go_features.proto";
 import "google/protobuf/timestamp.proto";
-import "organization/proto/auto_scaling_config.proto";
-import "organization/proto/cpu_allocation.proto";
-import "organization/proto/memory_allocation.proto";
+import "pkg/config/proto/resource_limits.proto";
+import "pkg/organization/proto/auto_scaling_config.proto";
+import "pkg/organization/proto/cpu_allocation.proto";
+import "pkg/organization/proto/memory_allocation.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
 option go_package = "github.com/jdfalk/gcommon/pkg/organization/proto";

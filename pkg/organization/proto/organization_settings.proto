@@ -6,16 +6,16 @@ edition = "2023";
 
 package gcommon.v1.organization;
 
-import "config/proto/compliance_settings.proto";
-import "config/proto/notification_settings.proto";
 import "google/protobuf/go_features.proto";
 import "google/protobuf/timestamp.proto";
-import "organization/proto/billing_settings.proto";
-import "organization/proto/feature_flag.proto";
-import "organization/proto/integration_settings.proto";
-import "organization/proto/security_settings.proto";
-import "organization/proto/ui_settings.proto";
 import "pkg/common/proto/key_value.proto";
+import "pkg/config/proto/compliance_settings.proto";
+import "pkg/config/proto/notification_settings.proto";
+import "pkg/organization/proto/billing_settings.proto";
+import "pkg/organization/proto/feature_flag.proto";
+import "pkg/organization/proto/integration_settings.proto";
+import "pkg/organization/proto/security_settings.proto";
+import "pkg/organization/proto/ui_settings.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
 option go_package = "github.com/jdfalk/gcommon/pkg/organization/proto";

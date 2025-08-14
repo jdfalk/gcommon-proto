@@ -5,7 +5,6 @@ package gcommon.v1.organization;
 
 import "google/protobuf/go_features.proto";
 import "google/protobuf/timestamp.proto";
-import "organization/proto/member_role.proto";
 import "pkg/common/proto/key_value.proto";
 import "pkg/organization/proto/member_role.proto";
 

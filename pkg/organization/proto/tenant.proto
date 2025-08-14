@@ -3,12 +3,10 @@ edition = "2023";
 
 package gcommon.v1.organization;
 
-import "db/proto/isolation_level.proto";
 import "google/protobuf/go_features.proto";
 import "google/protobuf/timestamp.proto";
-import "organization/proto/tenant_quota.proto";
-import "organization/proto/tenant_status.proto";
 import "pkg/common/proto/key_value.proto";
+import "pkg/db/proto/isolation_level.proto";
 import "pkg/organization/proto/isolation_level.proto";
 import "pkg/organization/proto/tenant_quota.proto";
 import "pkg/organization/proto/tenant_status.proto";

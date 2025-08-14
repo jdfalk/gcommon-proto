@@ -8,10 +8,10 @@ package gcommon.v1.organization;
 
 import "google/protobuf/go_features.proto";
 import "google/protobuf/timestamp.proto";
-import "organization/proto/cdn_config.proto";
-import "organization/proto/domain_config.proto";
-import "organization/proto/load_balancer_config.proto";
-import "organization/proto/network_acl_rule.proto";
+import "pkg/organization/proto/cdn_config.proto";
+import "pkg/organization/proto/domain_config.proto";
+import "pkg/organization/proto/load_balancer_config.proto";
+import "pkg/organization/proto/network_acl_rule.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
 option go_package = "github.com/jdfalk/gcommon/pkg/organization/proto";
