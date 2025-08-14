@@ -15,9 +15,9 @@ option go_package = "github.com/jdfalk/gcommon/pkg/db/proto";
  * HealthCheckResponse contains the result of a database health check.
  * Provides connection status, response time, and error details.
  */
-message HealthCheckResponse {
+message DatabaseHealthCheckResponse {
   // Overall health status of the database
-  gcommon.v1.common.HealthStatus status = 1;
+  gcommon.v1.common.MetricsHealthStatus status = 1;
 
   // Whether the database connection is operational
   bool connection_ok = 2;

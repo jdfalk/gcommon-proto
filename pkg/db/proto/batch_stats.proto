@@ -4,7 +4,6 @@ edition = "2023";
 package gcommon.v1.database;
 
 import "google/protobuf/duration.proto";
-import "google/protobuf/go_features.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
 option go_package = "github.com/jdfalk/gcommon/pkg/db/proto";
@@ -13,7 +12,7 @@ option go_package = "github.com/jdfalk/gcommon/pkg/db/proto";
  * BatchStats provides execution statistics for batch database operations.
  * Used for monitoring batch performance and operation success rates.
  */
-message BatchStats {
+message DatabaseBatchStats {
   // Total execution time for the entire batch
   google.protobuf.Duration total_time = 1 [lazy = true];
 

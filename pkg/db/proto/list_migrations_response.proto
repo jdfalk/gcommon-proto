@@ -6,7 +6,6 @@ edition = "2023";
 
 package gcommon.v1.database;
 
-import "google/protobuf/go_features.proto";
 import "pkg/db/proto/migration_info.proto";
 import "db/proto/migration_info.proto";
 

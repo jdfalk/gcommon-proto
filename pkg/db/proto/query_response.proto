@@ -3,13 +3,12 @@ edition = "2023";
 
 package gcommon.v1.database;
 
-import "google/protobuf/go_features.proto";
-import "pkg/common/proto/error.proto";
+import "common/proto/error.proto";
 import "pkg/db/proto/query_stats.proto";
 import "pkg/db/proto/result_set.proto";
 import "db/proto/query_stats.proto";
 import "db/proto/result_set.proto";
-import "metrics/proto/query_stats.proto";
+import "db/proto/query_stats.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
 option go_package = "github.com/jdfalk/gcommon/pkg/db/proto";
@@ -23,7 +22,7 @@ message QueryResponse {
   ResultSet result_set = 1 [lazy = true];
 
   // Query execution statistics and performance metrics
-  QueryStats stats = 2 [lazy = true];
+  MetricsQueryStats stats = 2 [lazy = true];
 
   // Error information if the query failed
   gcommon.v1.common.Error error = 3 [lazy = true];

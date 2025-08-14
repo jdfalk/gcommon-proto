@@ -4,10 +4,9 @@ edition = "2023";
 package gcommon.v1.database;
 
 import "google/protobuf/duration.proto";
-import "google/protobuf/go_features.proto";
 import "pkg/db/proto/isolation_level.proto";
 import "db/proto/isolation_level.proto";
-import "organization/proto/isolation_level.proto";
+import "db/proto/isolation_level.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
 option go_package = "github.com/jdfalk/gcommon/pkg/db/proto";
@@ -18,7 +17,7 @@ option go_package = "github.com/jdfalk/gcommon/pkg/db/proto";
  */
 message TransactionOptions {
   // Isolation level for the transaction
-  IsolationLevel isolation = 1;
+  OrganizationIsolationLevel isolation = 1;
 
   // Transaction timeout before automatic rollback
   google.protobuf.Duration timeout = 2 [lazy = true];

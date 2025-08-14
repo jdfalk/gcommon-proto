@@ -4,7 +4,6 @@ edition = "2023";
 package gcommon.v1.database;
 
 import "google/protobuf/empty.proto";
-import "google/protobuf/go_features.proto";
 import "pkg/db/proto/create_database_request.proto";
 import "pkg/db/proto/create_database_response.proto";
 import "pkg/db/proto/create_schema_request.proto";

@@ -4,10 +4,9 @@ edition = "2023";
 package gcommon.v1.database;
 
 import "google/protobuf/duration.proto";
-import "google/protobuf/go_features.proto";
 import "pkg/db/proto/isolation_level.proto";
 import "db/proto/isolation_level.proto";
-import "organization/proto/isolation_level.proto";
+import "db/proto/isolation_level.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
 option go_package = "github.com/jdfalk/gcommon/pkg/db/proto";
@@ -24,5 +23,5 @@ message ExecuteOptions {
   bool return_generated_keys = 2;
 
   // Isolation level for transaction operations
-  IsolationLevel isolation = 3;
+  OrganizationIsolationLevel isolation = 3;
 }

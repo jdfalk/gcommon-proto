@@ -14,7 +14,7 @@ option go_package = "github.com/jdfalk/gcommon/pkg/db/proto";
  * BatchOperation represents a single operation within a batch execution.
  * Contains the SQL statement and its parameters for batch processing.
  */
-message BatchOperation {
+message DatabaseBatchOperation {
   // SQL statement or database operation to execute
   string statement = 1;
 

@@ -3,7 +3,6 @@ edition = "2023";
 
 package gcommon.v1.database;
 
-import "google/protobuf/go_features.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
 option go_package = "github.com/jdfalk/gcommon/pkg/db/proto";
@@ -12,7 +11,7 @@ option go_package = "github.com/jdfalk/gcommon/pkg/db/proto";
  * IsolationLevel defines transaction isolation levels controlling concurrent access.
  * Balances data consistency with concurrency performance.
  */
-enum IsolationLevel {
+enum DatabaseIsolationLevel {
   // Default unspecified isolation level
   ISOLATION_LEVEL_UNSPECIFIED = 0;
 

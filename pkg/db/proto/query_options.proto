@@ -4,9 +4,8 @@ edition = "2023";
 package gcommon.v1.database;
 
 import "google/protobuf/duration.proto";
-import "google/protobuf/go_features.proto";
 import "pkg/db/proto/consistency_level.proto";
-import "queue/proto/consistency_level.proto";
+import "db/proto/consistency_level.proto";
 import "db/proto/consistency_level.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
@@ -30,5 +29,5 @@ message QueryOptions {
   bool include_metadata = 4;
 
   // Read consistency level for the query
-  ConsistencyLevel consistency = 5;
+  QueueConsistencyLevel consistency = 5;
 }
