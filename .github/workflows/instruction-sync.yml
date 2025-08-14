@@ -72,36 +72,36 @@ jobs:
           TARGET_REPOS: ${{ github.event.inputs.target_repos || 'jdfalk/subtitle-manager,jdfalk/copilot-agent-util-rust' }}
         run: |
           files='${{ steps.changes.outputs.changed_files }}'
-          
+
           echo "# 📚 Instruction Synchronization" >> $GITHUB_STEP_SUMMARY
           echo "" >> $GITHUB_STEP_SUMMARY
           echo "**Source**: ${{ github.repository }}" >> $GITHUB_STEP_SUMMARY
           echo "**Files**: $(echo "$files" | jq -r '.[]' | tr '\n' ', ' | sed 's/, $//')" >> $GITHUB_STEP_SUMMARY
           echo "" >> $GITHUB_STEP_SUMMARY
-          
+
           # Parse target repositories
           IFS=',' read -ra TARGET_ARRAY <<< "$TARGET_REPOS"
-          
+
           for target_repo in "${TARGET_ARRAY[@]}"; do
             target_repo=$(echo "$target_repo" | xargs) # trim whitespace
             echo "## Syncing to $target_repo" >> $GITHUB_STEP_SUMMARY
-            
+
             # Create temporary directory for target repo
             temp_dir=$(mktemp -d)
             cd "$temp_dir"
-            
+
             # Clone target repository
             if git clone "https://github.com/$target_repo.git" target_repo; then
               cd target_repo
               git config user.name "Instruction Sync Bot"
               git config user.email "action@github.com"
-              
+
               # Create sync branch
               sync_branch="instruction-sync-$(date +%Y%m%d-%H%M%S)"
               git checkout -b "$sync_branch"
-              
+
               files_updated=0
-              
+
               # Sync each instruction file
               echo "$files" | jq -r '.[]' | while read -r file; do
                 if [ -f "$GITHUB_WORKSPACE/$file" ]; then
@@ -114,27 +114,27 @@ jobs:
                   echo "⚠️ Missing: $file" >> $GITHUB_STEP_SUMMARY
                 fi
               done
-              
+
               # Update VS Code symlinks if they exist
               if [ -d ".vscode/copilot" ]; then
                 echo "🔗 Updating VS Code Copilot symlinks..." >> $GITHUB_STEP_SUMMARY
                 cd .vscode/copilot
-                
+
                 # Recreate symlinks to instruction files
                 if [ -f "../../.github/instructions/general-coding.instructions.md" ]; then
                   ln -sf ../../.github/instructions/general-coding.instructions.md general-coding.instructions.md 2>/dev/null || true
                 fi
-                
+
                 # Add language-specific symlinks if they exist
                 for lang_file in ../../.github/instructions/*.instructions.md; do
                   if [ -f "$lang_file" ] && [ "$(basename "$lang_file")" != "general-coding.instructions.md" ]; then
                     ln -sf "$lang_file" "$(basename "$lang_file")" 2>/dev/null || true
                   fi
                 done
-                
+
                 cd ../..
               fi
-              
+
               # Commit and push if there are changes
               if ! git diff --quiet; then
                 git add .github/ .vscode/ 2>/dev/null || git add .github/
@@ -142,13 +142,13 @@ jobs:
 
                 Updated instruction files:
                 $(echo "$files" | jq -r '.[]' | sed 's/^/- /')
-                
+
                 Auto-synced by instruction-sync from ${{ github.repository }}
                 Source commit: ${{ github.sha }}"
-                
+
                 # Push branch
                 git push origin "$sync_branch"
-                
+
                 # Create pull request using GitHub API
                 pr_body="🤖 **Automated Instruction Sync**
 
@@ -165,7 +165,7 @@ jobs:
                 ## Changes
                 - Source commit: [\`${{ github.sha }}\`](https://github.com/${{ github.repository }}/commit/${{ github.sha }})
                 - Sync triggered by: ${{ github.event_name }}
-                
+
                 These updates ensure consistent AI assistant behavior across repositories."
 
                 curl -X POST \
@@ -179,7 +179,7 @@ jobs:
                     \"base\": \"main\",
                     \"body\": $(echo "$pr_body" | jq -R -s .)
                   }" > pr_response.json
-                
+
                 pr_url=$(jq -r '.html_url // "Failed to create PR"' pr_response.json)
                 echo "📝 Created PR: $pr_url" >> $GITHUB_STEP_SUMMARY
               else
@@ -188,7 +188,7 @@ jobs:
             else
               echo "❌ Failed to clone $target_repo" >> $GITHUB_STEP_SUMMARY
             fi
-            
+
             # Cleanup
             cd "$GITHUB_WORKSPACE"
             rm -rf "$temp_dir"
@@ -204,7 +204,7 @@ jobs:
         run: |
           echo "# 📋 Instruction Sync Summary" >> $GITHUB_STEP_SUMMARY
           echo "" >> $GITHUB_STEP_SUMMARY
-          
+
           if [ "${{ needs.sync-instructions.result }}" = "success" ]; then
             echo "✅ **Status**: Instruction synchronization completed successfully" >> $GITHUB_STEP_SUMMARY
           elif [ "${{ needs.sync-instructions.result }}" = "skipped" ]; then
@@ -212,7 +212,7 @@ jobs:
           else
             echo "❌ **Status**: Instruction synchronization failed" >> $GITHUB_STEP_SUMMARY
           fi
-          
+
           echo "**Timestamp**: $(date -u)" >> $GITHUB_STEP_SUMMARY
           echo "" >> $GITHUB_STEP_SUMMARY
           echo "## Synchronized Components" >> $GITHUB_STEP_SUMMARY

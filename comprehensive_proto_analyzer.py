@@ -8,7 +8,7 @@ Comprehensive Protobuf Analyzer
 
 This script analyzes all .proto files and identifies:
 1. Missing imports
-2. Duplicate type definitions 
+2. Duplicate type definitions
 3. Invalid import paths
 4. Circular dependencies
 5. Unused imports
@@ -41,7 +41,9 @@ class ComprehensiveProtoAnalyzer:
                     proto_files.append(Path(root) / file)
         return proto_files
 
-    def _extract_types_from_file(self, file_path: Path) -> Tuple[Set[str], Set[str], Set[str]]:
+    def _extract_types_from_file(
+        self, file_path: Path
+    ) -> Tuple[Set[str], Set[str], Set[str]]:
         """Extract defined types, referenced types, and imports from a proto file"""
         try:
             with open(file_path, "r", encoding="utf-8") as f:
@@ -52,23 +54,23 @@ class ComprehensiveProtoAnalyzer:
 
         # Extract defined types (messages, enums, services)
         defined_types = set()
-        
+
         # Find all top-level definitions
         lines = content.split("\n")
         brace_depth = 0
-        
+
         for line in lines:
             stripped = line.strip()
-            
+
             # Track brace depth
             brace_depth += stripped.count("{") - stripped.count("}")
-            
+
             # Only capture top-level definitions (brace_depth 0 when we encounter the definition)
             if brace_depth <= 1 and ("{" in stripped or brace_depth == 0):
                 msg_match = re.match(r"\s*message\s+(\w+)", stripped)
                 svc_match = re.match(r"\s*service\s+(\w+)", stripped)
                 enum_match = re.match(r"\s*enum\s+(\w+)", stripped)
-                
+
                 if msg_match and brace_depth <= 1:
                     defined_types.add(msg_match.group(1))
                 elif svc_match and brace_depth <= 1:
@@ -84,7 +86,7 @@ class ComprehensiveProtoAnalyzer:
 
         # Extract referenced types
         referenced_types = set()
-        
+
         # Pattern to match field declarations and RPC parameters/returns
         field_patterns = [
             r"^\s+(\w+)\s+\w+\s*=",  # message field: Type field_name =
@@ -101,13 +103,20 @@ class ComprehensiveProtoAnalyzer:
         for line in lines:
             stripped = line.strip()
             # Skip comments and protobuf keywords
-            if stripped.startswith('//') or stripped.startswith('option') or stripped.startswith('import') or stripped.startswith('package'):
+            if (
+                stripped.startswith("//")
+                or stripped.startswith("option")
+                or stripped.startswith("import")
+                or stripped.startswith("package")
+            ):
                 continue
-                
+
             for pattern in field_patterns:
                 for match in re.finditer(pattern, line):
                     type_name = match.group(1)
-                    if not self._is_primitive_type(type_name) and not self._is_protobuf_keyword(type_name):
+                    if not self._is_primitive_type(
+                        type_name
+                    ) and not self._is_protobuf_keyword(type_name):
                         referenced_types.add(type_name)
 
         return defined_types, referenced_types, imports
@@ -115,20 +124,62 @@ class ComprehensiveProtoAnalyzer:
     def _is_primitive_type(self, type_name: str) -> bool:
         """Check if a type is a primitive or well-known type"""
         primitives = {
-            "bool", "int32", "int64", "uint32", "uint64", "sint32", "sint64",
-            "fixed32", "fixed64", "sfixed32", "sfixed64", "float", "double",
-            "string", "bytes", "Any", "Timestamp", "Duration", "Empty",
+            "bool",
+            "int32",
+            "int64",
+            "uint32",
+            "uint64",
+            "sint32",
+            "sint64",
+            "fixed32",
+            "fixed64",
+            "sfixed32",
+            "sfixed64",
+            "float",
+            "double",
+            "string",
+            "bytes",
+            "Any",
+            "Timestamp",
+            "Duration",
+            "Empty",
         }
         return type_name in primitives
 
     def _is_protobuf_keyword(self, type_name: str) -> bool:
         """Check if a type is a protobuf keyword"""
         keywords = {
-            "option", "import", "package", "syntax", "edition", "message",
-            "service", "enum", "rpc", "returns", "stream", "repeated",
-            "optional", "required", "map", "oneof", "reserved", "extensions",
-            "extend", "group", "public", "weak", "true", "false", "max", "to",
-            "inf", "nan", "features", "deprecated", "packed"
+            "option",
+            "import",
+            "package",
+            "syntax",
+            "edition",
+            "message",
+            "service",
+            "enum",
+            "rpc",
+            "returns",
+            "stream",
+            "repeated",
+            "optional",
+            "required",
+            "map",
+            "oneof",
+            "reserved",
+            "extensions",
+            "extend",
+            "group",
+            "public",
+            "weak",
+            "true",
+            "false",
+            "max",
+            "to",
+            "inf",
+            "nan",
+            "features",
+            "deprecated",
+            "packed",
         }
         return type_name in keywords
 
@@ -138,26 +189,28 @@ class ComprehensiveProtoAnalyzer:
         absolute_path = self.base_path / import_path
         if absolute_path.exists():
             return absolute_path
-            
+
         # Try relative to current file's directory
         relative_path = current_file.parent / import_path
         if relative_path.exists():
             return relative_path
-            
+
         return None
 
     def analyze_all_files(self):
         """Analyze all proto files for issues"""
         print("🔍 COMPREHENSIVE PROTOBUF ANALYZER")
         print("=" * 60)
-        
+
         # First pass: collect all definitions and imports
         for file_path in self.proto_files:
-            defined_types, referenced_types, imports = self._extract_types_from_file(file_path)
-            
+            defined_types, referenced_types, imports = self._extract_types_from_file(
+                file_path
+            )
+
             self.file_types[file_path] = defined_types
             self.file_imports[file_path] = imports
-            
+
             # Track where each type is defined
             for type_name in defined_types:
                 self.type_definitions[type_name].append(file_path)
@@ -168,22 +221,24 @@ class ComprehensiveProtoAnalyzer:
         self._find_invalid_imports()
         self._find_unused_imports()
         self._find_circular_dependencies()
-        
+
         self._print_summary()
 
     def _find_duplicate_definitions(self):
         """Find types defined in multiple files"""
         print("\n🔍 CHECKING FOR DUPLICATE DEFINITIONS...")
         duplicates_found = False
-        
+
         for type_name, locations in self.type_definitions.items():
             if len(locations) > 1:
                 duplicates_found = True
-                self.issues.append(f"⚠️  DUPLICATE: Type '{type_name}' defined in {len(locations)} files:")
+                self.issues.append(
+                    f"⚠️  DUPLICATE: Type '{type_name}' defined in {len(locations)} files:"
+                )
                 for loc in locations:
                     rel_path = loc.relative_to(self.base_path)
                     self.issues.append(f"   • {rel_path}")
-        
+
         if not duplicates_found:
             print("✅ No duplicate type definitions found")
 
@@ -191,16 +246,18 @@ class ComprehensiveProtoAnalyzer:
         """Find missing import statements"""
         print("\n🔍 CHECKING FOR MISSING IMPORTS...")
         missing_imports = defaultdict(list)
-        
+
         for file_path in self.proto_files:
-            defined_types, referenced_types, imports = self._extract_types_from_file(file_path)
-            
+            defined_types, referenced_types, imports = self._extract_types_from_file(
+                file_path
+            )
+
             # Check each referenced type
             for ref_type in referenced_types:
                 # Skip if type is defined locally
                 if ref_type in defined_types:
                     continue
-                    
+
                 # Find where this type is defined
                 if ref_type in self.type_definitions:
                     for def_location in self.type_definitions[ref_type]:
@@ -208,19 +265,23 @@ class ComprehensiveProtoAnalyzer:
                             # Check if there's already an import for this file
                             def_rel_path = def_location.relative_to(self.base_path)
                             expected_import = str(def_rel_path)
-                            
+
                             # Check various possible import paths
                             possible_imports = [
                                 expected_import,
                                 expected_import.replace("pkg/", ""),
-                                str(def_rel_path.relative_to(def_rel_path.parts[0]))
+                                str(def_rel_path.relative_to(def_rel_path.parts[0])),
                             ]
-                            
+
                             if not any(imp in imports for imp in possible_imports):
-                                missing_imports[expected_import].append((file_path, ref_type))
+                                missing_imports[expected_import].append(
+                                    (file_path, ref_type)
+                                )
                 else:
-                    self.issues.append(f"⚠️  MISSING TYPE: '{ref_type}' referenced in {file_path.relative_to(self.base_path)} but not found anywhere")
-        
+                    self.issues.append(
+                        f"⚠️  MISSING TYPE: '{ref_type}' referenced in {file_path.relative_to(self.base_path)} but not found anywhere"
+                    )
+
         if missing_imports:
             for import_needed, files_needing in missing_imports.items():
                 self.issues.append(f"📦 MISSING IMPORT: {import_needed}")
@@ -234,17 +295,19 @@ class ComprehensiveProtoAnalyzer:
         """Find import statements that point to non-existent files"""
         print("\n🔍 CHECKING FOR INVALID IMPORTS...")
         invalid_found = False
-        
+
         for file_path in self.proto_files:
             _, _, imports = self._extract_types_from_file(file_path)
-            
+
             for import_path in imports:
                 resolved_path = self._resolve_import_path(import_path, file_path)
                 if resolved_path is None:
                     invalid_found = True
                     rel_path = file_path.relative_to(self.base_path)
-                    self.issues.append(f"❌ INVALID IMPORT: {rel_path} imports '{import_path}' (file not found)")
-        
+                    self.issues.append(
+                        f"❌ INVALID IMPORT: {rel_path} imports '{import_path}' (file not found)"
+                    )
+
         if not invalid_found:
             print("✅ No invalid imports found")
 
@@ -260,12 +323,12 @@ class ComprehensiveProtoAnalyzer:
         # Build dependency graph
         for file_path in self.proto_files:
             _, _, imports = self._extract_types_from_file(file_path)
-            
+
             for import_path in imports:
                 resolved_path = self._resolve_import_path(import_path, file_path)
                 if resolved_path and resolved_path in self.proto_files:
                     self.file_dependencies[file_path].add(resolved_path)
-        
+
         # Simple cycle detection (this could be more sophisticated)
         cycles_found = self._detect_cycles()
         if not cycles_found:
@@ -275,22 +338,24 @@ class ComprehensiveProtoAnalyzer:
         """Simple cycle detection in dependency graph"""
         visited = set()
         rec_stack = set()
-        
+
         def dfs(node):
             visited.add(node)
             rec_stack.add(node)
-            
+
             for neighbor in self.file_dependencies[node]:
                 if neighbor not in visited:
                     if dfs(neighbor):
                         return True
                 elif neighbor in rec_stack:
-                    self.issues.append(f"🔄 CIRCULAR DEPENDENCY: Cycle detected involving {node.relative_to(self.base_path)}")
+                    self.issues.append(
+                        f"🔄 CIRCULAR DEPENDENCY: Cycle detected involving {node.relative_to(self.base_path)}"
+                    )
                     return True
-            
+
             rec_stack.remove(node)
             return False
-        
+
         for file_path in self.proto_files:
             if file_path not in visited:
                 if dfs(file_path):
@@ -304,7 +369,7 @@ class ComprehensiveProtoAnalyzer:
         print(f"Total proto files analyzed: {len(self.proto_files)}")
         print(f"Total types found: {len(self.type_definitions)}")
         print(f"Total issues found: {len(self.issues)}")
-        
+
         if self.issues:
             print("\n🚨 ISSUES FOUND:")
             print("-" * 40)
@@ -316,11 +381,11 @@ class ComprehensiveProtoAnalyzer:
 
 def main():
     base_path = Path("pkg")
-    
+
     if not base_path.exists():
         print(f"❌ Directory not found: {base_path}")
         return
-    
+
     analyzer = ComprehensiveProtoAnalyzer(base_path)
     analyzer.analyze_all_files()
 

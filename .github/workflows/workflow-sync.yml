@@ -92,36 +92,36 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           workflows='${{ steps.changes.outputs.changed_workflows }}'
-          
+
           echo "# 🔄 Workflow Synchronization" >> $GITHUB_STEP_SUMMARY
           echo "" >> $GITHUB_STEP_SUMMARY
           echo "**Source**: $SOURCE_REPO" >> $GITHUB_STEP_SUMMARY
           echo "**Workflows**: $(echo "$workflows" | jq -r '.[]' | tr '\n' ', ' | sed 's/, $//')" >> $GITHUB_STEP_SUMMARY
           echo "" >> $GITHUB_STEP_SUMMARY
-          
+
           # Parse target repositories
           IFS=',' read -ra TARGET_ARRAY <<< "$TARGET_REPOS"
-          
+
           for target_repo in "${TARGET_ARRAY[@]}"; do
             target_repo=$(echo "$target_repo" | xargs) # trim whitespace
             echo "## Syncing to $target_repo" >> $GITHUB_STEP_SUMMARY
-            
+
             # Create temporary directory for target repo
             temp_dir=$(mktemp -d)
             cd "$temp_dir"
-            
+
             # Clone target repository
             if git clone "https://github.com/$target_repo.git" target_repo; then
               cd target_repo
               git config user.name "Workflow Sync Bot"
               git config user.email "action@github.com"
-              
+
               # Create sync branch
               sync_branch="workflow-sync-$(date +%Y%m%d-%H%M%S)"
               git checkout -b "$sync_branch"
-              
+
               files_updated=0
-              
+
               # Sync each workflow
               echo "$workflows" | jq -r '.[]' | while read -r workflow; do
                 if [ -f "$GITHUB_WORKSPACE/.github/workflows/$workflow" ]; then
@@ -133,7 +133,7 @@ jobs:
                   echo "⚠️ Missing: $workflow" >> $GITHUB_STEP_SUMMARY
                 fi
               done
-              
+
               # Commit and push if there are changes
               if ! git diff --quiet; then
                 git add .github/workflows/
@@ -141,13 +141,13 @@ jobs:
 
                 Updated workflows:
                 $(echo "$workflows" | jq -r '.[]' | sed 's/^/- /')
-                
+
                 Auto-synced by workflow-sync from ${{ github.repository }}
                 Source commit: ${{ github.sha }}"
-                
+
                 # Push branch
                 git push origin "$sync_branch"
-                
+
                 # Create pull request using GitHub API
                 pr_body="🤖 **Automated Workflow Sync**
 
@@ -159,7 +159,7 @@ jobs:
                 ## Changes
                 - Source commit: [\`${{ github.sha }}\`](https://github.com/${{ github.repository }}/commit/${{ github.sha }})
                 - Sync triggered by: ${{ github.event_name }}
-                
+
                 Review and merge to apply the latest workflow improvements."
 
                 curl -X POST \
@@ -173,7 +173,7 @@ jobs:
                     \"base\": \"main\",
                     \"body\": $(echo "$pr_body" | jq -R -s .)
                   }" > pr_response.json
-                
+
                 pr_url=$(jq -r '.html_url // "Failed to create PR"' pr_response.json)
                 echo "📝 Created PR: $pr_url" >> $GITHUB_STEP_SUMMARY
               else
@@ -182,7 +182,7 @@ jobs:
             else
               echo "❌ Failed to clone $target_repo" >> $GITHUB_STEP_SUMMARY
             fi
-            
+
             # Cleanup
             cd "$GITHUB_WORKSPACE"
             rm -rf "$temp_dir"
