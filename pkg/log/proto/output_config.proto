@@ -11,10 +11,10 @@ import "google/protobuf/go_features.proto";
 option features.(pb.go).api_level = API_OPAQUE;
 option go_package = "github.com/jdfalk/gcommon/pkg/log/proto";
 
-  message OutputConfig {
-    // Output target (file path, network address, etc.)
-    string target = 1;
+message OutputConfig {
+  // Output target (file path, network address, etc.)
+  string target = 1;
 
-    // Additional output options
-    map<string, string> options = 2;
-  }
+  // Additional output options
+  map<string, string> options = 2;
+}

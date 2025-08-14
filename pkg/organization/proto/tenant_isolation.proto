@@ -6,19 +6,18 @@ edition = "2023";
 
 package gcommon.v1.organization;
 
-import "google/protobuf/go_features.proto";
-
-import "google/protobuf/timestamp.proto";
-import "common/proto/key_value.proto";
-import "pkg/organization/proto/isolation_level.proto";
-import "organization/proto/encryption_config.proto";
-import "organization/proto/database_isolation.proto";
-import "organization/proto/network_isolation.proto";
-import "db/proto/isolation_level.proto";
-import "organization/proto/storage_isolation.proto";
-import "organization/proto/compute_isolation.proto";
 import "config/proto/access_control.proto";
+import "db/proto/isolation_level.proto";
+import "google/protobuf/go_features.proto";
+import "google/protobuf/timestamp.proto";
 import "organization/proto/audit_config.proto";
+import "organization/proto/compute_isolation.proto";
+import "organization/proto/database_isolation.proto";
+import "organization/proto/encryption_config.proto";
+import "organization/proto/network_isolation.proto";
+import "organization/proto/storage_isolation.proto";
+import "pkg/common/proto/key_value.proto";
+import "pkg/organization/proto/isolation_level.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
 option go_package = "github.com/jdfalk/gcommon/pkg/organization/proto";

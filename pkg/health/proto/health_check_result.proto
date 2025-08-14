@@ -7,11 +7,11 @@ edition = "2023";
 package gcommon.v1.health;
 
 import "google/protobuf/go_features.proto";
-import "pkg/health/proto/serving_status.proto";
-import "pkg/health/proto/check_type.proto";
-import "health/proto/component_health.proto";
 import "health/proto/check_type.proto";
+import "health/proto/component_health.proto";
 import "health/proto/serving_status.proto";
+import "pkg/health/proto/check_type.proto";
+import "pkg/health/proto/serving_status.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
 option go_package = "github.com/jdfalk/gcommon/pkg/health/proto";

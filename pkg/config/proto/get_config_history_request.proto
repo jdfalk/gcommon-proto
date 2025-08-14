@@ -9,7 +9,6 @@ edition = "2023";
 package gcommon.v1.config;
 
 import "google/protobuf/go_features.proto";
-
 import "google/protobuf/timestamp.proto";
 import "pkg/common/proto/request_metadata.proto";
 

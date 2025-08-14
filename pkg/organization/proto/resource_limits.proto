@@ -12,7 +12,6 @@ import "google/protobuf/timestamp.proto";
 option features.(pb.go).api_level = API_OPAQUE;
 option go_package = "github.com/jdfalk/gcommon/pkg/organization/proto";
 
-
 message OrganizationResourceLimits {
   // Maximum CPU usage percentage
   int32 max_cpu_percent = 1;
