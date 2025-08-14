@@ -27,25 +27,67 @@ def to_snake_case(name: str) -> str:
 
 
 def parse_proto_file(file_path: Path) -> Dict[str, List[str]]:
-    """Parse a proto file and extract definitions"""
+    """Parse a proto file and extract only top-level definitions"""
     try:
         with open(file_path, "r", encoding="utf-8") as f:
             content = f.read()
     except Exception:
         return {"messages": [], "services": [], "enums": []}
 
-    # Extract definitions
-    messages = re.findall(r"message\s+(\w+)\s*\{", content)
-    services = re.findall(r"service\s+(\w+)\s*\{", content)
-    enums = re.findall(r"enum\s+(\w+)\s*\{", content)
+    # Remove comments and strings to avoid false matches
+    # Remove single-line comments
+    content = re.sub(r'//.*$', '', content, flags=re.MULTILINE)
+    # Remove multi-line comments
+    content = re.sub(r'/\*.*?\*/', '', content, flags=re.DOTALL)
+    # Remove string literals
+    content = re.sub(r'"[^"]*"', '', content)
+
+    messages = []
+    services = []
+    enums = []
+    
+    # Track brace depth to identify top-level definitions only
+    lines = content.split('\n')
+    brace_depth = 0
+    
+    for line in lines:
+        line = line.strip()
+        if not line:
+            continue
+            
+        # Count braces to track nesting level
+        brace_depth += line.count('{') - line.count('}')
+        
+        # Only check for definitions when at top level (brace_depth 0 or 1)
+        # brace_depth 0: before any braces
+        # brace_depth 1: just opened a top-level definition
+        if brace_depth <= 1:
+            # Check for message definition
+            message_match = re.search(r'^\s*message\s+(\w+)\s*\{', line)
+            if message_match:
+                messages.append(message_match.group(1))
+                
+            # Check for service definition  
+            service_match = re.search(r'^\s*service\s+(\w+)\s*\{', line)
+            if service_match:
+                services.append(service_match.group(1))
+                
+            # Check for enum definition
+            enum_match = re.search(r'^\s*enum\s+(\w+)\s*\{', line)
+            if enum_match:
+                enums.append(enum_match.group(1))
 
     return {"messages": messages, "services": services, "enums": enums}
 
 
 def check_filename_standards(
     file_path: Path, definitions: Dict[str, List[str]]
-) -> List[str]:
-    """Check if filename follows naming standards"""
+) -> tuple[List[str], bool, bool]:
+    """Check if filename follows naming standards
+
+    Returns:
+        tuple: (issues, is_empty, violates_1_1_1)
+    """
     issues = []
     filename = file_path.stem  # Without .proto extension
 
@@ -54,12 +96,13 @@ def check_filename_standards(
         definitions["messages"] + definitions["services"] + definitions["enums"]
     )
 
+    # Check if file is empty
     if not all_definitions:
-        issues.append("No definitions found in file")
-        return issues
+        return (["No definitions found in file"], True, False)
 
     # Check if multiple definitions (violates 1-1-1 pattern)
-    if len(all_definitions) > 1:
+    violates_1_1_1 = len(all_definitions) > 1
+    if violates_1_1_1:
         issues.append(
             f"Multiple definitions found: {', '.join(all_definitions)} (violates 1-1-1 pattern)"
         )
@@ -100,7 +143,7 @@ def check_filename_standards(
             f"Filename should be in snake_case: '{filename}' -> '{to_snake_case(filename)}'"
         )
 
-    return issues
+    return (issues, False, violates_1_1_1)
 
 
 def generate_rename_commands(
@@ -166,6 +209,8 @@ def main():
     issues_found = 0
     structural_issues = 0
     rename_commands = []
+    deleted_files = []
+    files_violating_1_1_1 = []
 
     # Group by module for better organization
     modules = {}
@@ -183,7 +228,27 @@ def main():
         module_structural = 0
         for file_path in sorted(files):
             definitions = parse_proto_file(file_path)
-            issues = check_filename_standards(file_path, definitions)
+            issues, is_empty, violates_1_1_1 = check_filename_standards(
+                file_path, definitions
+            )
+
+            # Handle empty files - delete them
+            if is_empty:
+                try:
+                    file_path.unlink()
+                    deleted_files.append(str(file_path.relative_to(Path("pkg/"))))
+                    print(
+                        f"🗑️  DELETED: {file_path.relative_to(Path('pkg/'))} (empty file)"
+                    )
+                    continue
+                except Exception as e:
+                    print(
+                        f"❌ Failed to delete {file_path.relative_to(Path('pkg/'))}: {e}"
+                    )
+
+            # Track files that violate 1-1-1 pattern
+            if violates_1_1_1:
+                files_violating_1_1_1.append(str(file_path.relative_to(Path("pkg/"))))
 
             # Separate naming issues from structural issues
             naming_issues = []
@@ -226,6 +291,19 @@ def main():
     print(f"Naming issues found: {issues_found}")
     print(f"Structural issues found: {structural_issues}")
     print(f"Files needing rename: {len(rename_commands)}")
+
+    if deleted_files:
+        print("\n🗑️  DELETED FILES:")
+        print(f"   {len(deleted_files)} empty files were automatically deleted:")
+        for file in deleted_files:
+            print(f"   • {file}")
+
+    if files_violating_1_1_1:
+        print("\n🏗️  FILES VIOLATING 1-1-1 PATTERN:")
+        print(f"   {len(files_violating_1_1_1)} files contain multiple definitions:")
+        for file in files_violating_1_1_1:
+            print(f"   • {file}")
+        print("   These files need to be split using the split_proto_files.py script")
 
     if structural_issues > 0:
         print("\n🏗️  STRUCTURAL ISSUES:")
