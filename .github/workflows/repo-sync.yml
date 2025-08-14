@@ -79,7 +79,7 @@ jobs:
       should_sync: ${{ steps.check.outputs.should_sync }}
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
 
       - name: Determine target repositories
         id: repos
@@ -153,14 +153,14 @@ jobs:
       fail-fast: false
     steps:
       - name: Checkout source repository (ghcommon)
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
         with:
           repository: jdfalk/ghcommon
           token: ${{ secrets.GITHUB_TOKEN }}
           path: source
 
       - name: Checkout target repository
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
         with:
           repository: ${{ matrix.repo }}
           token: ${{ secrets.GITHUB_TOKEN }}
