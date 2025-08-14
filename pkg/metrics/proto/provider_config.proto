@@ -6,13 +6,12 @@ edition = "2023";
 
 package gcommon.v1.metrics;
 
-import "google/protobuf/go_features.proto";
-
-import "metrics/proto/export_config.proto";
 import "auth/proto/provider_type.proto";
 import "config/proto/resource_limits.proto";
-import "metrics/proto/security_config.proto";
+import "google/protobuf/go_features.proto";
+import "metrics/proto/export_config.proto";
 import "metrics/proto/provider_settings.proto";
+import "metrics/proto/security_config.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
 option go_package = "github.com/jdfalk/gcommon/pkg/metrics/proto";

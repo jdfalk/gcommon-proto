@@ -9,13 +9,12 @@ edition = "2023";
 package gcommon.v1.metrics;
 
 import "google/protobuf/go_features.proto";
-
 import "google/protobuf/timestamp.proto";
-import "common/proto/error.proto";
+import "metrics/proto/metric_metadata.proto";
+import "pkg/common/proto/error.proto";
+import "pkg/common/proto/pagination_info.proto";
 import "pkg/metrics/proto/metric_metadata.proto";
 import "pkg/metrics/proto/pagination_info.proto";
-import "common/proto/pagination_info.proto";
-import "metrics/proto/metric_metadata.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
 option go_package = "github.com/jdfalk/gcommon/pkg/metrics/proto";

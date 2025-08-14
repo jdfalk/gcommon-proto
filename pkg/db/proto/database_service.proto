@@ -3,8 +3,19 @@ edition = "2023";
 
 package gcommon.v1.database;
 
+import "auth/proto/health_check_request.proto";
+import "auth/proto/health_check_response.proto";
+import "db/proto/execute_batch_request.proto";
+import "db/proto/execute_batch_response.proto";
+import "db/proto/execute_request.proto";
+import "db/proto/execute_response.proto";
+import "db/proto/get_connection_info_request.proto";
+import "db/proto/get_connection_info_response.proto";
+import "db/proto/query_request.proto";
+import "db/proto/query_response.proto";
+import "db/proto/query_row_request.proto";
+import "db/proto/query_row_response.proto";
 import "google/protobuf/go_features.proto";
-
 import "pkg/db/proto/execute_batch_request.proto";
 import "pkg/db/proto/execute_batch_response.proto";
 import "pkg/db/proto/execute_request.proto";
@@ -17,18 +28,6 @@ import "pkg/db/proto/query_request.proto";
 import "pkg/db/proto/query_response.proto";
 import "pkg/db/proto/query_row_request.proto";
 import "pkg/db/proto/query_row_response.proto";
-import "auth/proto/health_check_request.proto";
-import "db/proto/query_row_request.proto";
-import "db/proto/get_connection_info_request.proto";
-import "auth/proto/health_check_response.proto";
-import "db/proto/query_request.proto";
-import "db/proto/execute_response.proto";
-import "db/proto/query_response.proto";
-import "db/proto/query_row_response.proto";
-import "db/proto/execute_batch_request.proto";
-import "db/proto/execute_batch_response.proto";
-import "db/proto/get_connection_info_response.proto";
-import "db/proto/execute_request.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
 option go_package = "github.com/jdfalk/gcommon/pkg/db/proto";

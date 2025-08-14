@@ -8,13 +8,12 @@ package gcommon.v1.auth;
 
 import "google/protobuf/go_features.proto";
 
-
 option features.(pb.go).api_level = API_OPAQUE;
 option go_package = "github.com/jdfalk/gcommon/pkg/auth/proto";
 
-  enum AuthTwoFaType {
-    TWO_FA_TYPE_UNSPECIFIED = 0;
-    TWO_FA_TYPE_TOTP = 1; // Time-based One-Time Password
-    TWO_FA_TYPE_SMS = 2; // SMS code
-    TWO_FA_TYPE_BACKUP = 3; // Backup code
-  }
+enum AuthTwoFaType {
+  TWO_FA_TYPE_UNSPECIFIED = 0;
+  TWO_FA_TYPE_TOTP = 1; // Time-based One-Time Password
+  TWO_FA_TYPE_SMS = 2; // SMS code
+  TWO_FA_TYPE_BACKUP = 3; // Backup code
+}

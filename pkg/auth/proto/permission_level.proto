@@ -8,14 +8,13 @@ package gcommon.v1.auth;
 
 import "google/protobuf/go_features.proto";
 
-
 option features.(pb.go).api_level = API_OPAQUE;
 option go_package = "github.com/jdfalk/gcommon/pkg/auth/proto";
 
-  enum AuthPermissionLevel {
-    PERMISSION_LEVEL_UNSPECIFIED = 0;
-    PERMISSION_LEVEL_SYSTEM = 1;
-    PERMISSION_LEVEL_ORGANIZATION = 2;
-    PERMISSION_LEVEL_PROJECT = 3;
-    PERMISSION_LEVEL_RESOURCE = 4;
-  }
+enum AuthPermissionLevel {
+  PERMISSION_LEVEL_UNSPECIFIED = 0;
+  PERMISSION_LEVEL_SYSTEM = 1;
+  PERMISSION_LEVEL_ORGANIZATION = 2;
+  PERMISSION_LEVEL_PROJECT = 3;
+  PERMISSION_LEVEL_RESOURCE = 4;
+}

@@ -6,10 +6,9 @@ edition = "2023";
 
 package gcommon.v1.database;
 
-import "google/protobuf/go_features.proto";
-
-import "pkg/db/proto/database_status_code.proto";
 import "db/proto/database_status_code.proto";
+import "google/protobuf/go_features.proto";
+import "pkg/db/proto/database_status_code.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
 option go_package = "github.com/jdfalk/gcommon/pkg/db/proto";
