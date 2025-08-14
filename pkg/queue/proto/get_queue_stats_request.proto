@@ -7,8 +7,8 @@ edition = "2023";
 package gcommon.v1.queue;
 
 import "google/protobuf/go_features.proto";
-
 import "google/protobuf/timestamp.proto";
+import "pkg/common/proto/time_range.proto";
 import "pkg/queue/proto/cluster_info.proto";
 import "pkg/queue/proto/get_cluster_info_request.proto";
 import "pkg/queue/proto/get_cluster_info_response.proto";
@@ -19,7 +19,6 @@ import "pkg/queue/proto/stats_granularity.proto";
 import "pkg/queue/proto/time_range.proto";
 import "pkg/queue/proto/topic_info.proto";
 import "queue/proto/stats_granularity.proto";
-import "common/proto/time_range.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
 option go_package = "github.com/jdfalk/gcommon/pkg/queue/proto";

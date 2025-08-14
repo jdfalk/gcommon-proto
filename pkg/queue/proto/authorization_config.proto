@@ -7,7 +7,6 @@ edition = "2023";
 package gcommon.v1.queue;
 
 import "google/protobuf/go_features.proto";
-
 import "queue/proto/api_key_auth.proto";
 import "queue/proto/external_auth_service.proto";
 import "queue/proto/jwt_auth.proto";

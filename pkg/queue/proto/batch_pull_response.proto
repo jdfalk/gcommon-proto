@@ -10,7 +10,6 @@ edition = "2023";
 package gcommon.v1.queue;
 
 import "google/protobuf/go_features.proto";
-
 import "pkg/queue/proto/queue_message.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;

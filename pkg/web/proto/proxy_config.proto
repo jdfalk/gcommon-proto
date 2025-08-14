@@ -6,9 +6,8 @@ edition = "2023";
 
 package gcommon.v1.web;
 
-import "google/protobuf/go_features.proto";
-
 import "google/protobuf/duration.proto";
+import "google/protobuf/go_features.proto";
 import "pkg/web/proto/http_header.proto";
 import "pkg/web/proto/proxy_type.proto";
 import "web/proto/http_header.proto";

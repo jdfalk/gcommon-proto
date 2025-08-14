@@ -6,16 +6,15 @@ edition = "2023";
 
 package gcommon.v1.queue;
 
-import "google/protobuf/go_features.proto";
-
-import "queue/proto/durability_level.proto";
 import "config/proto/conflict_resolution.proto";
+import "google/protobuf/go_features.proto";
 import "queue/proto/ack_level.proto";
+import "queue/proto/consistency_validation.proto";
+import "queue/proto/durability_level.proto";
+import "queue/proto/ordering_config.proto";
+import "queue/proto/read_consistency.proto";
 import "queue/proto/replication_consistency.proto";
 import "queue/proto/write_consistency.proto";
-import "queue/proto/consistency_validation.proto";
-import "queue/proto/read_consistency.proto";
-import "queue/proto/ordering_config.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
 option go_package = "github.com/jdfalk/gcommon/pkg/queue/proto";

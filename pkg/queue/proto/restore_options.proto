@@ -7,11 +7,10 @@ edition = "2023";
 package gcommon.v1.queue;
 
 import "google/protobuf/go_features.proto";
-
 import "google/protobuf/timestamp.proto";
-import "queue/proto/offset_range.proto";
-import "common/proto/time_range.proto";
+import "pkg/common/proto/time_range.proto";
 import "queue/proto/filter_criteria.proto";
+import "queue/proto/offset_range.proto";
 import "queue/proto/performance_options.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;

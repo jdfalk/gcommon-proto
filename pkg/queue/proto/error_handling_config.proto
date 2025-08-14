@@ -7,12 +7,11 @@ edition = "2023";
 package gcommon.v1.queue;
 
 import "google/protobuf/go_features.proto";
-
 import "pkg/queue/proto/ack_level.proto";
 import "pkg/queue/proto/delivery_mode.proto";
 import "queue/proto/dead_letter_queue_config.proto";
-import "queue/proto/error_notification_config.proto";
 import "queue/proto/error_action_config.proto";
+import "queue/proto/error_notification_config.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
 option go_package = "github.com/jdfalk/gcommon/pkg/queue/proto";

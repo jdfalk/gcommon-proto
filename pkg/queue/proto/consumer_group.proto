@@ -7,18 +7,17 @@ edition = "2023";
 package gcommon.v1.queue;
 
 import "google/protobuf/go_features.proto";
-
 import "google/protobuf/timestamp.proto";
 import "pkg/queue/proto/consumer_state.proto";
 import "pkg/queue/proto/consumer_stats.proto";
 import "pkg/queue/proto/load_balancing_strategy.proto";
 import "pkg/queue/proto/subscribe_request.proto";
 import "queue/proto/consumer.proto";
-import "queue/proto/consumer_group_stats.proto";
-import "queue/proto/partition_assignment.proto";
 import "queue/proto/consumer_group_config.proto";
 import "queue/proto/consumer_group_state.proto";
+import "queue/proto/consumer_group_stats.proto";
 import "queue/proto/group_coordinator.proto";
+import "queue/proto/partition_assignment.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
 option go_package = "github.com/jdfalk/gcommon/pkg/queue/proto";

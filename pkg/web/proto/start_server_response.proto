@@ -7,8 +7,7 @@ edition = "2023";
 package gcommon.v1.web;
 
 import "google/protobuf/go_features.proto";
-
-import "common/proto/error.proto";
+import "pkg/common/proto/error.proto";
 import "pkg/web/proto/server_status.proto";
 import "web/proto/server_status.proto";
 
