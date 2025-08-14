@@ -7,6 +7,9 @@ edition = "2023";
 package gcommon.v1.auth;
 
 import "google/protobuf/go_features.proto";
+import "auth/proto/auth_method.proto";
+import "auth/proto/enums/auth_method.proto";
+import "web/proto/auth_method.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
 option go_package = "github.com/jdfalk/gcommon/pkg/auth/proto";
@@ -26,14 +29,6 @@ message SecurityContext {
   repeated string permissions = 4;
 
   // Authentication method used
-  enum AuthMethod {
-    AUTH_METHOD_UNSPECIFIED = 0;
-    AUTH_METHOD_PASSWORD = 1;
-    AUTH_METHOD_MFA = 2;
-    AUTH_METHOD_API_KEY = 3;
-    AUTH_METHOD_OAUTH = 4;
-    AUTH_METHOD_SSO = 5;
-  }
   AuthMethod auth_method = 5;
 
   // MFA verified

@@ -7,6 +7,8 @@ import "google/protobuf/go_features.proto";
 import "pkg/auth/proto/session.proto";
 import "pkg/auth/proto/user_info.proto";
 import "pkg/common/proto/error.proto";
+import "auth/proto/user_info.proto";
+import "auth/proto/session.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
 option go_package = "github.com/jdfalk/gcommon/pkg/auth/proto";
