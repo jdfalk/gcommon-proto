@@ -7,16 +7,6 @@ edition = "2023";
 package gcommon.v1.metrics;
 
 import "google/protobuf/go_features.proto";
-import "metrics/proto/create_provider_request.proto";
-import "metrics/proto/create_provider_response.proto";
-import "metrics/proto/delete_provider_request.proto";
-import "metrics/proto/delete_provider_response.proto";
-import "metrics/proto/get_provider_stats_request.proto";
-import "metrics/proto/get_provider_stats_response.proto";
-import "metrics/proto/list_providers_request.proto";
-import "metrics/proto/list_providers_response.proto";
-import "metrics/proto/update_provider_request.proto";
-import "metrics/proto/update_provider_response.proto";
 // Import all required request and response messages
 import "pkg/metrics/proto/create_provider_request.proto";
 import "pkg/metrics/proto/create_provider_response.proto";

@@ -8,12 +8,10 @@ package gcommon.v1.metrics;
 
 import "google/protobuf/go_features.proto";
 import "google/protobuf/timestamp.proto";
-import "metrics/proto/bucket_info.proto";
-import "metrics/proto/histogram_metric.proto";
-import "metrics/proto/histogram_stats.proto";
-import "metrics/proto/recording_stats.proto";
 import "pkg/common/proto/error.proto";
+import "pkg/metrics/proto/bucket_info.proto";
 import "pkg/metrics/proto/histogram_metric.proto";
+import "pkg/metrics/proto/histogram_stats.proto";
 import "pkg/metrics/proto/recording_stats.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;

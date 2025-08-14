@@ -10,7 +10,6 @@ package gcommon.v1.metrics;
 
 import "google/protobuf/go_features.proto";
 import "google/protobuf/timestamp.proto";
-import "metrics/proto/counter_metric.proto";
 import "pkg/common/proto/error.proto";
 import "pkg/common/proto/request_metadata.proto";
 import "pkg/metrics/proto/counter_metric.proto";

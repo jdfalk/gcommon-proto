@@ -8,11 +8,11 @@ package gcommon.v1.metrics;
 
 import "google/protobuf/go_features.proto";
 import "google/protobuf/timestamp.proto";
-import "metrics/proto/cpu_usage.proto";
-import "metrics/proto/disk_usage.proto";
-import "metrics/proto/memory_usage.proto";
-import "metrics/proto/network_usage.proto";
-import "metrics/proto/resource_data_point.proto";
+import "pkg/metrics/proto/cpu_usage.proto";
+import "pkg/metrics/proto/disk_usage.proto";
+import "pkg/metrics/proto/memory_usage.proto";
+import "pkg/metrics/proto/network_usage.proto";
+import "pkg/metrics/proto/resource_data_point.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
 option go_package = "github.com/jdfalk/gcommon/pkg/metrics/proto";

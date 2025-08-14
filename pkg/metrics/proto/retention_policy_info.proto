@@ -6,9 +6,9 @@ edition = "2023";
 
 package gcommon.v1.metrics;
 
-import "config/proto/retention_policy.proto";
 import "google/protobuf/go_features.proto";
-import "metrics/proto/retention_policy_config.proto";
+import "pkg/config/proto/retention_policy.proto";
+import "pkg/metrics/proto/retention_policy_config.proto";
 import "pkg/metrics/proto/retention_policy_retentionpolicy.proto";
 import "pkg/metrics/proto/retention_policy_retentionpolicyconfig.proto";
 

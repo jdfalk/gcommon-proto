@@ -8,12 +8,11 @@ package gcommon.v1.metrics;
 
 import "google/protobuf/duration.proto";
 import "google/protobuf/go_features.proto";
-import "metrics/proto/aggregation_spec.proto";
-import "metrics/proto/group_by_spec.proto";
-import "metrics/proto/metric_filter.proto";
 import "pkg/common/proto/sort.proto";
 import "pkg/common/proto/time_range.proto";
+import "pkg/metrics/proto/aggregation_spec.proto";
 import "pkg/metrics/proto/aggregation_type.proto";
+import "pkg/metrics/proto/group_by_spec.proto";
 import "pkg/metrics/proto/metric_filter.proto";
 import "pkg/metrics/proto/query_operation.proto";
 import "pkg/metrics/proto/time_range.proto";

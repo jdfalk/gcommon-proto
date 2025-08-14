@@ -8,15 +8,14 @@ package gcommon.v1.metrics;
 
 import "google/protobuf/go_features.proto";
 import "google/protobuf/timestamp.proto";
-import "metrics/proto/buffer_config.proto";
-import "metrics/proto/metric_filter.proto";
-import "metrics/proto/stream_options.proto";
-import "metrics/proto/stream_start.proto";
 import "pkg/common/proto/request_metadata.proto";
+import "pkg/metrics/proto/buffer_config.proto";
 import "pkg/metrics/proto/buffer_overflow_strategy.proto";
 import "pkg/metrics/proto/metric_filter.proto";
 import "pkg/metrics/proto/stream_compression.proto";
+import "pkg/metrics/proto/stream_options.proto";
 import "pkg/metrics/proto/stream_qos.proto";
+import "pkg/metrics/proto/stream_start.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
 option go_package = "github.com/jdfalk/gcommon/pkg/metrics/proto";

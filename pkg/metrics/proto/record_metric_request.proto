@@ -8,9 +8,8 @@ package gcommon.v1.metrics;
 
 import "google/protobuf/go_features.proto";
 import "google/protobuf/timestamp.proto";
-import "metrics/proto/batch_context.proto";
-import "metrics/proto/metric_data.proto";
 import "pkg/common/proto/request_metadata.proto";
+import "pkg/metrics/proto/batch_context.proto";
 import "pkg/metrics/proto/metric_data.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;

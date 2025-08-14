@@ -7,15 +7,14 @@ edition = "2023";
 package gcommon.v1.metrics;
 
 import "google/protobuf/go_features.proto";
-import "metrics/proto/metric_aggregation.proto";
-import "metrics/proto/metric_filter.proto";
-import "metrics/proto/output_options.proto";
 import "pkg/common/proto/pagination_options.proto";
 import "pkg/common/proto/request_metadata.proto";
 import "pkg/common/proto/sort_direction.proto";
 import "pkg/common/proto/time_range.proto";
+import "pkg/metrics/proto/metric_aggregation.proto";
 import "pkg/metrics/proto/metric_filter.proto";
 import "pkg/metrics/proto/numeric_format.proto";
+import "pkg/metrics/proto/output_options.proto";
 import "pkg/metrics/proto/response_compression.proto";
 import "pkg/metrics/proto/time_range.proto";
 

@@ -7,14 +7,12 @@ edition = "2023";
 
 package gcommon.v1.metrics;
 
-import "db/proto/query_stats.proto";
 import "google/protobuf/go_features.proto";
 import "google/protobuf/timestamp.proto";
-import "metrics/proto/metric_data.proto";
-import "metrics/proto/metric_metadata.proto";
 import "pkg/common/proto/error.proto";
 import "pkg/common/proto/pagination_info.proto";
 import "pkg/common/proto/time_range.proto";
+import "pkg/db/proto/query_stats.proto";
 import "pkg/metrics/proto/metric_data.proto";
 import "pkg/metrics/proto/metric_metadata.proto";
 import "pkg/metrics/proto/pagination_info.proto";

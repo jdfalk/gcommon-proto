@@ -7,10 +7,9 @@ edition = "2023";
 package gcommon.v1.metrics;
 
 import "google/protobuf/go_features.proto";
-import "metrics/proto/metric_query.proto";
-import "metrics/proto/query_output_options.proto";
 import "pkg/common/proto/request_metadata.proto";
 import "pkg/metrics/proto/metric_query.proto";
+import "pkg/metrics/proto/query_output_options.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
 option go_package = "github.com/jdfalk/gcommon/pkg/metrics/proto";

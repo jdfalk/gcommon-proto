@@ -8,8 +8,6 @@ package gcommon.v1.metrics;
 
 import "google/protobuf/go_features.proto";
 import "google/protobuf/timestamp.proto";
-import "metrics/proto/stream_compression.proto";
-import "metrics/proto/stream_qos.proto";
 import "pkg/metrics/proto/buffer_overflow_strategy.proto";
 import "pkg/metrics/proto/metric_filter.proto";
 import "pkg/metrics/proto/stream_compression.proto";
