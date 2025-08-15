@@ -7,8 +7,7 @@ edition = "2023";
 package gcommon.v1.organization;
 
 import "google/protobuf/go_features.proto";
-import "google/protobuf/timestamp.proto";
-import "pkg/config/proto/resource_limits.proto";
+import "pkg/organization/proto/resource_limits.proto";
 import "pkg/organization/proto/auto_scaling_config.proto";
 import "pkg/organization/proto/cpu_allocation.proto";
 import "pkg/organization/proto/memory_allocation.proto";
@@ -33,7 +32,7 @@ message ComputeIsolation {
   bool dedicated_compute = 5;
 
   // Resource limits and quotas
-  OrganizationResourceLimits limits = 6;
+  gcommon.v1.organization.OrganizationResourceLimits limits = 6;
 
   // Auto-scaling configuration
   AutoScalingConfig auto_scaling = 7;

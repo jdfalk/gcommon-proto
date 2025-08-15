@@ -7,7 +7,6 @@ edition = "2023";
 package gcommon.v1.organization;
 
 import "google/protobuf/go_features.proto";
-import "google/protobuf/timestamp.proto";
 import "pkg/metrics/proto/api_key_config.proto";
 import "pkg/organization/proto/integration.proto";
 import "pkg/organization/proto/o_auth_app_config.proto";
@@ -24,7 +23,7 @@ message IntegrationSettings {
   repeated WebhookConfig webhooks = 2;
 
   // API keys for external services
-  repeated OrganizationAPIKeyConfig api_keys = 3 [lazy = true];
+  repeated gcommon.v1.metrics.MetricsAPIKeyConfig api_keys = 3 [lazy = true];
 
   // OAuth applications registered for this organization
   repeated OAuthAppConfig oauth_apps = 4;

@@ -7,8 +7,7 @@ edition = "2023";
 package gcommon.v1.organization;
 
 import "google/protobuf/go_features.proto";
-import "google/protobuf/timestamp.proto";
-import "pkg/auth/proto/rate_limit_config.proto";
+import "pkg/organization/proto/rate_limit_config.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
 option go_package = "github.com/jdfalk/gcommon/pkg/organization/proto";
@@ -42,7 +41,7 @@ message SecuritySettings {
   bool api_access_enabled = 9;
 
   // API rate limiting configuration
-  OrganizationRateLimitConfig api_rate_limit = 10;
+  gcommon.v1.organization.OrganizationRateLimitConfig api_rate_limit = 10;
 
   // Audit log retention period in days
   int32 audit_log_retention_days = 11;
