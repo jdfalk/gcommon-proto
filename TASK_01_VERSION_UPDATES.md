@@ -27,7 +27,7 @@ This task covers updating version requirements in all repositories in the worksp
 
 2. **Available modes**:
    - `append` - Add content to end of file
-   - `prepend` - Add content to beginning of file  
+   - `prepend` - Add content to beginning of file
    - `replace-section` - Replace specific section
    - `changelog-entry` - Add properly formatted changelog entry
 
@@ -297,7 +297,7 @@ The `copilot-agent-util` (or `copilot-agent-utilr`) is a comprehensive Rust-base
 - All `go.work` files (if any)
 - All `*.go` file headers to use version 1.23.0+
 
-### Python Files  
+### Python Files
 - All `requirements.txt` files
 - All `pyproject.toml` files
 - All `setup.py` files
