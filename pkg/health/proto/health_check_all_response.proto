@@ -5,7 +5,6 @@ package gcommon.v1.health;
 
 import "google/protobuf/go_features.proto";
 import "pkg/config/proto/health_check_result.proto";
-import "pkg/health/proto/health_check_result.proto";
 import "pkg/health/proto/serving_status.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
@@ -18,7 +17,7 @@ message HealthCheckAllResponse {
   // Overall system status
   ServingStatus overall_status = 1;
   // Individual service health results
-  repeated ConfigHealthCheckResult results = 2;
+  repeated gcommon.v1.config.ConfigHealthCheckResult results = 2;
   // Total number of services checked
   int32 total_services = 3;
   // Number of healthy services
