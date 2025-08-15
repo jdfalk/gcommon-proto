@@ -8,8 +8,6 @@ package gcommon.v1.config;
 
 import "google/protobuf/empty.proto";
 import "google/protobuf/go_features.proto";
-import "pkg/auth/proto/health_check_request.proto";
-import "pkg/auth/proto/health_check_response.proto";
 import "pkg/config/proto/backup_config_request.proto";
 import "pkg/config/proto/config_backup.proto";
 import "pkg/config/proto/config_snapshot.proto";
@@ -62,7 +60,7 @@ service ConfigAdminService {
   rpc GetConfigStats(GetConfigStatsRequest) returns (GetConfigStatsResponse);
 
   // Perform service health check
-  rpc HealthCheck(HealthCheckRequest) returns (HealthCheckResponse);
+  rpc HealthCheck(ConfigHealthCheckRequest) returns (ConfigHealthCheckResponse);
 
   // Stop watching configuration changes
   rpc UnwatchConfig(UnwatchConfigRequest) returns (google.protobuf.Empty);

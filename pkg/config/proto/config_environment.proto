@@ -1,5 +1,5 @@
-// file: config/proto/messages/config_environment.proto
-// version: 1.0.0
+// file: pkg/config/proto/config_environment.proto
+// version: 1.0.1
 // guid: 167ed450-2130-48be-8d18-2ad5bd34cf7e
 
 edition = "2023";
@@ -8,24 +8,26 @@ package gcommon.v1.config;
 
 import "google/protobuf/go_features.proto";
 import "google/protobuf/timestamp.proto";
-import "pkg/common/proto/health_status.proto";
-import "pkg/config/proto/access_control.proto";
+// Organization-scoped settings used by environments
+import "pkg/organization/proto/access_control.proto";
+import "pkg/organization/proto/resource_limits.proto";
+import "pkg/organization/proto/compliance_settings.proto";
+import "pkg/organization/proto/notification_settings.proto";
+
+// Metrics enums referenced by this message
+import "pkg/metrics/proto/health_status.proto";
+import "pkg/metrics/proto/retention_policy.proto";
+
+// Config-local types
 import "pkg/config/proto/approval_workflow.proto";
 import "pkg/config/proto/audit_settings.proto";
 import "pkg/config/proto/backup_policy.proto";
-import "pkg/config/proto/compliance_settings.proto";
 import "pkg/config/proto/deployment_info.proto";
-import "pkg/config/proto/deployment_status.proto";
 import "pkg/config/proto/encryption_settings.proto";
 import "pkg/config/proto/environment_status.proto";
 import "pkg/config/proto/environment_type.proto";
-import "pkg/config/proto/health_check_type.proto";
-import "pkg/config/proto/health_state.proto";
 import "pkg/config/proto/monitoring_config.proto";
-import "pkg/config/proto/notification_settings.proto";
 import "pkg/config/proto/promotion_rule.proto";
-import "pkg/config/proto/resource_limits.proto";
-import "pkg/config/proto/retention_policy.proto";
 import "pkg/config/proto/sync_settings.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
@@ -81,16 +83,16 @@ message ConfigEnvironment {
   repeated PromotionRule promotion_rules = 16;
 
   // Environment access control
-  repeated OrganizationAccessControl access_controls = 17;
+  repeated gcommon.v1.organization.OrganizationAccessControl access_controls = 17;
 
   // Environment deployment info
   DeploymentInfo deployment_info = 18;
 
   // Environment health status
-  MetricsHealthStatus health_status = 19;
+  gcommon.v1.metrics.MetricsHealthStatus health_status = 19;
 
   // Environment resource limits
-  OrganizationResourceLimits resource_limits = 20;
+  gcommon.v1.organization.OrganizationResourceLimits resource_limits = 20;
 
   // Environment backup policy
   BackupPolicy backup_policy = 21;
@@ -102,10 +104,10 @@ message ConfigEnvironment {
   ConfigMonitoringConfig monitoring_config = 23;
 
   // Environment retention policy
-  MetricsRetentionPolicy retention_policy = 24;
+  gcommon.v1.metrics.MetricsRetentionPolicy retention_policy = 24;
 
   // Environment compliance settings
-  OrganizationComplianceSettings compliance_settings = 25;
+  gcommon.v1.organization.OrganizationComplianceSettings compliance_settings = 25;
 
   // Environment encryption settings
   EncryptionSettings encryption_settings = 26;
@@ -114,7 +116,7 @@ message ConfigEnvironment {
   AuditSettings audit_settings = 27;
 
   // Environment notification settings
-  OrganizationNotificationSettings notification_settings = 28;
+  gcommon.v1.organization.OrganizationNotificationSettings notification_settings = 28;
 
   // Environment sync settings
   SyncSettings sync_settings = 29;
