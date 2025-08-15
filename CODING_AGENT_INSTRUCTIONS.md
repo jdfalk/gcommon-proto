@@ -12,7 +12,7 @@ This project needs to complete the protobuf implementation for a comprehensive G
 
 ### ✅ MODULES CURRENTLY PASSING (10/13)
 - auth ✅
-- cache ✅ 
+- cache ✅
 - common ✅
 - config ✅
 - db ✅
@@ -24,7 +24,7 @@ This project needs to complete the protobuf implementation for a comprehensive G
 
 ### ❌ MODULES STILL FAILING (3/13)
 1. **metrics** - Import path issues with retention_policy.proto
-2. **organization** - Missing access_control.proto import 
+2. **organization** - Missing access_control.proto import
 3. **queue** - Multiple type qualification issues
 
 ## CRITICAL RULES AND GUIDELINES
@@ -51,15 +51,15 @@ You MUST read and follow these comprehensive protobuf guidelines:
 
 ALL messages MUST include module prefix to avoid conflicts:
 
-| Module | Prefix | Examples |
-|--------|--------|----------|
-| `auth` | `Auth` | `AuthUserInfo`, `AuthSessionData`, `AuthLoginRequest` |
-| `metrics` | `Metrics` | `MetricsHealthStatus`, `MetricsBatchOptions`, `MetricsTimeRange` |
-| `organization` | `Organization` | `OrganizationAccessControl`, `OrganizationResourceLimits` |
-| `queue` | `Queue` | `QueueSubscriptionInfo`, `QueueMessage`, `QueueConfiguration` |
-| `database` | `Database` | `DatabaseHealthStatus`, `DatabaseConnection` |
-| `web` | `Web` | `WebHealthResponse`, `WebConfiguration` |
-| `common` | `Common` | `CommonError`, `CommonPagination` |
+| Module         | Prefix         | Examples                                                         |
+| -------------- | -------------- | ---------------------------------------------------------------- |
+| `auth`         | `Auth`         | `AuthUserInfo`, `AuthSessionData`, `AuthLoginRequest`            |
+| `metrics`      | `Metrics`      | `MetricsHealthStatus`, `MetricsBatchOptions`, `MetricsTimeRange` |
+| `organization` | `Organization` | `OrganizationAccessControl`, `OrganizationResourceLimits`        |
+| `queue`        | `Queue`        | `QueueSubscriptionInfo`, `QueueMessage`, `QueueConfiguration`    |
+| `database`     | `Database`     | `DatabaseHealthStatus`, `DatabaseConnection`                     |
+| `web`          | `Web`          | `WebHealthResponse`, `WebConfiguration`                          |
+| `common`       | `Common`       | `CommonError`, `CommonPagination`                                |
 
 ## Cross-Package Type References
 
@@ -126,7 +126,7 @@ option go_package = "github.com/jdfalk/gcommon/pkg/module/proto";
 2. Fix the import to proper path (likely `pkg/metrics/proto/retention_policy.proto`)
 3. Ensure `RetentionPolicy` message has correct module prefix: `MetricsRetentionPolicy`
 
-#### Organization Module Issues  
+#### Organization Module Issues
 **Error**: `pkg/organization/proto/tenant_isolation.proto:33:3:field gcommon.v1.organization.TenantIsolation.access_control: unknown type OrganizationAccessControl`
 
 **Actions Required**:
