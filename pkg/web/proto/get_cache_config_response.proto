@@ -7,7 +7,6 @@ edition = "2023";
 package gcommon.v1.web;
 
 import "google/protobuf/go_features.proto";
-import "pkg/cache/proto/cache_config.proto";
 import "pkg/common/proto/request_metadata.proto";
 import "pkg/web/proto/cache_config.proto";
 
@@ -16,7 +15,7 @@ option go_package = "github.com/jdfalk/gcommon/pkg/web/proto";
 
 message GetCacheConfigResponse {
   // The current cache configuration
-  CacheCacheConfig config = 1;
+  WebCacheConfig config = 1;
 
   // Request metadata for tracing
   gcommon.v1.common.RequestMetadata metadata = 2;

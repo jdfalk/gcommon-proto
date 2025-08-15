@@ -8,7 +8,6 @@ package gcommon.v1.web;
 
 import "google/protobuf/go_features.proto";
 import "google/protobuf/timestamp.proto";
-import "pkg/auth/proto/session_metadata.proto";
 import "pkg/web/proto/session_state.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
@@ -23,7 +22,7 @@ message SessionData {
   string user_id = 2;
 
   // Current session state
-  AuthSessionState state = 3;
+  WebSessionState state = 3;
 
   // Session creation timestamp
   google.protobuf.Timestamp created_at = 4 [lazy = true];

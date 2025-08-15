@@ -7,8 +7,6 @@ edition = "2023";
 package gcommon.v1.web;
 
 import "google/protobuf/go_features.proto";
-import "pkg/auth/proto/health_check_request.proto";
-import "pkg/auth/proto/health_check_response.proto";
 import "pkg/web/proto/handle_request_request.proto";
 import "pkg/web/proto/handle_request_response.proto";
 import "pkg/web/proto/health_check_request.proto";
@@ -26,5 +24,5 @@ service WebService {
   rpc HandleRequest(HandleRequestRequest) returns (HandleRequestResponse);
 
   // Check health of web service
-  rpc HealthCheck(HealthCheckRequest) returns (HealthCheckResponse);
+  rpc HealthCheck(WebHealthCheckRequest) returns (WebHealthCheckResponse);
 }
