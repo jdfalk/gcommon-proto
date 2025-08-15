@@ -58,6 +58,7 @@ This directory contains auto-generated documentation for this project.
 - [Contributing to GCommon](CONTRIBUTING.md)
 - [Improved Issue Management Automation](ISSUE_AUTOMATION_IMPROVEMENTS.md)
 - [](PACKAGE_NAMING_RESOLUTION.md)
+- [Comprehensive Protobuf Analysis Report](PROTOBUF_ANALYSIS_REPORT.md)
 - [](PROTOBUF_HANDOFF_COMPLETE.md)
 - [](PROTOBUF_IMPLEMENTATION_PLAN.md)
 - [Proto File Splitting Guide - 1-1-1 Pattern Implementation](PROTO_SPLITTING_GUIDE.md)
@@ -283,4 +284,4 @@ This directory contains auto-generated documentation for this project.
 - [Gateway Service Template\n\nAPI gateway with routing setup.](templates/gateway-service/README.md)
 - [Worker Service Template\n\nBackground job processing scaffold.](templates/worker-service/README.md)
 
-_Generated on Fri Aug 15 19:42:27 UTC 2025_
+_Generated on Fri Aug 15 19:45:34 UTC 2025_
