@@ -52,10 +52,11 @@ This directory contains auto-generated documentation for this project.
 - [Security Guidelines for Reusable Workflows](.github/security-guidelines.md)
 - [GitHub Actions Workflow Usage Instructions (Pointer)](.github/workflow-usage.md)
 - [AGENTS.md](AGENTS.md)
-- [GCommon Changelog](CHANGELOG.md)
+- [[1.0.0](https://github.com/jdfalk/gcommon/compare/v0.1.1...v1.0.0) (2025-08-15)](CHANGELOG.md)
 - [Contributor Covenant Code of Conduct](CODE_OF_CONDUCT.md)
 - [🚀 PROTOBUF COMPLETION PROJECT - CODING AGENT INSTRUCTIONS](CODING_AGENT_INSTRUCTIONS.md)
 - [Contributing to GCommon](CONTRIBUTING.md)
+- [Improved Issue Management Automation](ISSUE_AUTOMATION_IMPROVEMENTS.md)
 - [](PACKAGE_NAMING_RESOLUTION.md)
 - [](PROTOBUF_HANDOFF_COMPLETE.md)
 - [](PROTOBUF_IMPLEMENTATION_PLAN.md)
@@ -281,4 +282,4 @@ This directory contains auto-generated documentation for this project.
 - [Gateway Service Template\n\nAPI gateway with routing setup.](templates/gateway-service/README.md)
 - [Worker Service Template\n\nBackground job processing scaffold.](templates/worker-service/README.md)
 
-_Generated on Fri Aug 15 10:37:27 UTC 2025_
+_Generated on Fri Aug 15 16:42:57 UTC 2025_
