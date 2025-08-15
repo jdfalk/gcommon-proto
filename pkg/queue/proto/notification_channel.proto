@@ -7,9 +7,7 @@ edition = "2023";
 package gcommon.v1.queue;
 
 import "google/protobuf/go_features.proto";
-import "pkg/config/proto/alert_severity.proto";
 import "pkg/metrics/proto/alert_severity.proto";
-import "pkg/queue/proto/alert_severity.proto";
 import "pkg/queue/proto/notification_channel_type.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
@@ -32,5 +30,5 @@ message QueueNotificationChannel {
   bool enabled = 4;
 
   // Minimum severity level for notifications
-  MetricsAlertSeverity min_severity = 5;
+  gcommon.v1.metrics.MetricsAlertSeverity min_severity = 5;
 }

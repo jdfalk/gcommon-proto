@@ -8,7 +8,6 @@ package gcommon.v1.queue;
 
 import "google/protobuf/go_features.proto";
 import "google/protobuf/timestamp.proto";
-import "pkg/metrics/proto/backup_info.proto";
 import "pkg/queue/proto/backup_info.proto";
 import "pkg/queue/proto/deletion_stats.proto";
 
@@ -38,7 +37,7 @@ message QueueDeleteResponse {
   DeletionStats deletion_stats = 7;
 
   // Backup information (if backup was created)
-  MetricsBackupInfo backup_info = 8;
+  QueueBackupInfo backup_info = 8;
 
   // Warning messages
   repeated string warnings = 9;

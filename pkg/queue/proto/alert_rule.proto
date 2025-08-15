@@ -8,9 +8,8 @@ package gcommon.v1.queue;
 
 import "google/protobuf/duration.proto";
 import "google/protobuf/go_features.proto";
-import "pkg/config/proto/alert_severity.proto";
+import "pkg/metrics/proto/alert_severity.proto";
 import "pkg/queue/proto/alert_condition.proto";
-import "pkg/queue/proto/alert_severity.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
 option go_package = "github.com/jdfalk/gcommon/pkg/queue/proto";
@@ -38,7 +37,7 @@ message AlertRule {
   google.protobuf.Duration duration = 6;
 
   // Severity of the alert
-  MetricsAlertSeverity severity = 7;
+  gcommon.v1.metrics.MetricsAlertSeverity severity = 7;
 
   // Whether the rule is enabled
   bool enabled = 8;

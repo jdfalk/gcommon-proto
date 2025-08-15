@@ -39,7 +39,7 @@ message ConsistencyConfig {
   OrderingConfig ordering = 6;
 
   // Conflict resolution settings
-  ConfigConflictResolution conflict_resolution = 7;
+  gcommon.v1.config.ConfigConflictResolution conflict_resolution = 7;
 
   // Consistency validation settings
   ConsistencyValidation validation = 8;
