@@ -9,6 +9,7 @@ package gcommon.v1.queue;
 import "google/protobuf/go_features.proto";
 import "google/protobuf/timestamp.proto";
 import "pkg/common/proto/time_range.proto";
+import "pkg/metrics/proto/time_range.proto";
 import "pkg/queue/proto/filter_criteria.proto";
 import "pkg/queue/proto/offset_range.proto";
 import "pkg/queue/proto/performance_options.proto";
@@ -30,7 +31,7 @@ message RestoreOptions {
   OffsetRange offset_range = 4;
 
   // Restore messages within time range
-  MetricsTimeRange time_range = 5;
+  gcommon.v1.metrics.MetricsTimeRange time_range = 5;
 
   // Restore specific message priorities
   repeated int32 priority_levels = 6;

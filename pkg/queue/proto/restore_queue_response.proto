@@ -10,6 +10,7 @@ import "google/protobuf/duration.proto";
 import "google/protobuf/go_features.proto";
 import "google/protobuf/timestamp.proto";
 import "pkg/config/proto/validation_result.proto";
+import "pkg/metrics/proto/validation_result.proto";
 import "pkg/queue/proto/partition_restore_result.proto";
 import "pkg/queue/proto/restore_error.proto";
 import "pkg/queue/proto/restore_statistics.proto";
@@ -54,7 +55,7 @@ message RestoreQueueResponse {
   repeated PartitionRestoreResult partition_results = 11;
 
   // Validation results if validation was requested
-  MetricsValidationResult validation_result = 12;
+  gcommon.v1.metrics.MetricsValidationResult validation_result = 12;
 
   // Operation metadata
   map<string, string> metadata = 13;
