@@ -30,10 +30,8 @@ import "pkg/cache/proto/set_multiple_request.proto";
 import "pkg/cache/proto/set_multiple_response.proto";
 import "pkg/cache/proto/set_request.proto";
 import "pkg/cache/proto/set_response.proto";
-import "pkg/cache/proto/stats_request.proto";
-import "pkg/cache/proto/touch_expiration_request.proto";
 import "pkg/cache/proto/touch_expiration_response.proto";
-import "pkg/cache/proto/ttl_request.proto";
+import "pkg/cache/proto/touch_expiration_request.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
 option go_package = "github.com/jdfalk/gcommon/pkg/cache/proto";
@@ -51,7 +49,7 @@ service CacheService {
   rpc Set(SetRequest) returns (SetResponse);
 
   // Delete removes a value from the cache
-  rpc Delete(DeleteRequest) returns (DeleteResponse);
+  rpc Delete(CacheDeleteRequest) returns (CacheDeleteResponse);
 
   // Exists checks if a key exists in the cache
   rpc Exists(ExistsRequest) returns (ExistsResponse);
@@ -78,7 +76,7 @@ service CacheService {
   rpc Keys(KeysRequest) returns (KeysResponse);
 
   // GetStats returns cache statistics and performance metrics
-  rpc GetStats(GetStatsRequest) returns (GetStatsResponse);
+  rpc GetStats(CacheGetStatsRequest) returns (CacheGetStatsResponse);
 
   // Flush forces cache persistence if supported by the backend
   rpc Flush(FlushRequest) returns (FlushResponse);
