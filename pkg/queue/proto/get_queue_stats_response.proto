@@ -13,7 +13,7 @@ import "pkg/common/proto/response_metadata.proto";
 import "pkg/metrics/proto/error_stats.proto";
 import "pkg/queue/proto/consumer_stats.proto";
 import "pkg/queue/proto/historical_stats.proto";
-import "pkg/queue/proto/messages/queue_stats.proto";
+import "pkg/queue/proto/queue_stats.proto";
 import "pkg/queue/proto/performance_metrics.proto";
 import "pkg/queue/proto/queue_stats_summary.proto";
 
@@ -37,7 +37,7 @@ message GetQueueStatsResponse {
   HistoricalStats historical_stats = 5;
 
   // Error statistics (if requested)
-  MetricsErrorStats error_stats = 6;
+  gcommon.v1.metrics.MetricsErrorStats error_stats = 6;
 
   // Performance metrics
   PerformanceMetrics performance_metrics = 7;

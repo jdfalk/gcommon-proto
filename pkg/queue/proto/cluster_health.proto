@@ -9,6 +9,7 @@ package gcommon.v1.queue;
 import "google/protobuf/go_features.proto";
 import "google/protobuf/timestamp.proto";
 import "pkg/common/proto/time_range.proto";
+import "pkg/metrics/proto/health_status.proto";
 import "pkg/queue/proto/cluster_info.proto";
 import "pkg/queue/proto/get_cluster_info_request.proto";
 import "pkg/queue/proto/get_cluster_info_response.proto";
@@ -24,7 +25,7 @@ option go_package = "github.com/jdfalk/gcommon/pkg/queue/proto";
 
 message ClusterHealth {
   // Overall health status
-  gcommon.v1.queue.MetricsHealthStatus status = 1;
+  gcommon.v1.metrics.MetricsHealthStatus status = 1;
 
   // Number of healthy nodes
   int32 healthy_nodes = 2;
