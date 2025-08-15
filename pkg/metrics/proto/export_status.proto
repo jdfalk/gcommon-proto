@@ -15,7 +15,7 @@ import "pkg/metrics/proto/exporter_status.proto";
 import "pkg/metrics/proto/health_status.proto";
 import "pkg/metrics/proto/performance_stats.proto";
 import "pkg/metrics/proto/provider_summary.proto";
-import "pkg/metrics/proto/retention_policy_retentionpolicyconfig.proto";
+import "pkg/metrics/proto/retention_policy_config.proto";
 import "pkg/metrics/proto/time_range.proto";
 import "pkg/metrics/proto/top_metrics.proto";
 

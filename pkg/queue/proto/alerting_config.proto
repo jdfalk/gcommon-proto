@@ -28,10 +28,10 @@ message AlertingConfig {
   repeated AlertRule rules = 2;
 
   // Notification channels for alerts
-  repeated ConfigNotificationChannel channels = 3;
+  repeated gcommon.v1.queue.QueueNotificationChannel channels = 3;
 
   // Default alert severity level
-  MetricsAlertSeverity default_severity = 4;
+  gcommon.v1.queue.QueueAlertSeverity default_severity = 4;
 
   // Alert aggregation window
   google.protobuf.Duration aggregation_window = 5;

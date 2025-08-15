@@ -11,6 +11,7 @@ import "google/protobuf/timestamp.proto";
 import "pkg/common/proto/key_value.proto";
 import "pkg/config/proto/access_control.proto";
 import "pkg/db/proto/isolation_level.proto";
+import "pkg/organization/proto/access_control.proto";
 import "pkg/organization/proto/audit_config.proto";
 import "pkg/organization/proto/compute_isolation.proto";
 import "pkg/organization/proto/database_isolation.proto";
