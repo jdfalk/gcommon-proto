@@ -28,7 +28,7 @@ from pkg.db.proto import batch_execute_options_pb2 as pkg_dot_db_dot_proto_dot_b
 from pkg.db.proto import batch_operation_pb2 as pkg_dot_db_dot_proto_dot_batch__operation__pb2
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n(pkg/db/proto/execute_batch_request.proto\x12\x13gcommon.v1.database\x1a!google/protobuf/go_features.proto\x1a\'pkg/common/proto/request_metadata.proto\x1a(pkg/db/proto/batch_execute_options.proto\x1a\"pkg/db/proto/batch_operation.proto\"\xad\x02\n\x13\x45xecuteBatchRequest\x12G\n\noperations\x18\x01 \x03(\x0b\x32#.gcommon.v1.database.BatchOperationB\x02(\x01R\noperations\x12\x1a\n\x08\x64\x61tabase\x18\x02 \x01(\tR\x08\x64\x61tabase\x12\x46\n\x07options\x18\x03 \x01(\x0b\x32(.gcommon.v1.database.BatchExecuteOptionsB\x02(\x01R\x07options\x12\x42\n\x08metadata\x18\x04 \x01(\x0b\x32\".gcommon.v1.common.RequestMetadataB\x02(\x01R\x08metadata\x12%\n\x0etransaction_id\x18\x05 \x01(\tR\rtransactionIdB\xd1\x01\n\x17\x63om.gcommon.v1.databaseB\x18\x45xecuteBatchRequestProtoP\x01Z&github.com/jdfalk/gcommon/pkg/db/proto\xa2\x02\x03GVD\xaa\x02\x13Gcommon.V1.Database\xca\x02\x13Gcommon\\V1\\Database\xe2\x02\x1fGcommon\\V1\\Database\\GPBMetadata\xea\x02\x15Gcommon::V1::Database\x92\x03\x05\xd2>\x02\x10\x03\x62\x08\x65\x64itionsp\xe8\x07')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n(pkg/db/proto/execute_batch_request.proto\x12\x13gcommon.v1.database\x1a!google/protobuf/go_features.proto\x1a\'pkg/common/proto/request_metadata.proto\x1a(pkg/db/proto/batch_execute_options.proto\x1a\"pkg/db/proto/batch_operation.proto\"\xb5\x02\n\x13\x45xecuteBatchRequest\x12O\n\noperations\x18\x01 \x03(\x0b\x32+.gcommon.v1.database.DatabaseBatchOperationB\x02(\x01R\noperations\x12\x1a\n\x08\x64\x61tabase\x18\x02 \x01(\tR\x08\x64\x61tabase\x12\x46\n\x07options\x18\x03 \x01(\x0b\x32(.gcommon.v1.database.BatchExecuteOptionsB\x02(\x01R\x07options\x12\x42\n\x08metadata\x18\x04 \x01(\x0b\x32\".gcommon.v1.common.RequestMetadataB\x02(\x01R\x08metadata\x12%\n\x0etransaction_id\x18\x05 \x01(\tR\rtransactionIdB\xd1\x01\n\x17\x63om.gcommon.v1.databaseB\x18\x45xecuteBatchRequestProtoP\x01Z&github.com/jdfalk/gcommon/pkg/db/proto\xa2\x02\x03GVD\xaa\x02\x13Gcommon.V1.Database\xca\x02\x13Gcommon\\V1\\Database\xe2\x02\x1fGcommon\\V1\\Database\\GPBMetadata\xea\x02\x15Gcommon::V1::Database\x92\x03\x05\xd2>\x02\x10\x03\x62\x08\x65\x64itionsp\xe8\x07')
 
 _globals = globals()
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, _globals)
@@ -43,5 +43,5 @@ if not _descriptor._USE_C_DESCRIPTORS:
   _globals['_EXECUTEBATCHREQUEST'].fields_by_name['metadata']._loaded_options = None
   _globals['_EXECUTEBATCHREQUEST'].fields_by_name['metadata']._serialized_options = b'(\001'
   _globals['_EXECUTEBATCHREQUEST']._serialized_start=220
-  _globals['_EXECUTEBATCHREQUEST']._serialized_end=521
+  _globals['_EXECUTEBATCHREQUEST']._serialized_end=529
 # @@protoc_insertion_point(module_scope)

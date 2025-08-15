@@ -26,7 +26,7 @@ from google.protobuf import go_features_pb2 as google_dot_protobuf_dot_go__featu
 from pkg.common.proto import request_metadata_pb2 as pkg_dot_common_dot_proto_dot_request__metadata__pb2
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n\'pkg/db/proto/health_check_request.proto\x12\x13gcommon.v1.database\x1a!google/protobuf/go_features.proto\x1a\'pkg/common/proto/request_metadata.proto\"X\n\x12HealthCheckRequest\x12\x42\n\x08metadata\x18\x01 \x01(\x0b\x32\".gcommon.v1.common.RequestMetadataB\x02(\x01R\x08metadataB\xd0\x01\n\x17\x63om.gcommon.v1.databaseB\x17HealthCheckRequestProtoP\x01Z&github.com/jdfalk/gcommon/pkg/db/proto\xa2\x02\x03GVD\xaa\x02\x13Gcommon.V1.Database\xca\x02\x13Gcommon\\V1\\Database\xe2\x02\x1fGcommon\\V1\\Database\\GPBMetadata\xea\x02\x15Gcommon::V1::Database\x92\x03\x05\xd2>\x02\x10\x03\x62\x08\x65\x64itionsp\xe8\x07')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n\'pkg/db/proto/health_check_request.proto\x12\x13gcommon.v1.database\x1a!google/protobuf/go_features.proto\x1a\'pkg/common/proto/request_metadata.proto\"`\n\x1a\x44\x61tabaseHealthCheckRequest\x12\x42\n\x08metadata\x18\x01 \x01(\x0b\x32\".gcommon.v1.common.RequestMetadataB\x02(\x01R\x08metadataB\xd0\x01\n\x17\x63om.gcommon.v1.databaseB\x17HealthCheckRequestProtoP\x01Z&github.com/jdfalk/gcommon/pkg/db/proto\xa2\x02\x03GVD\xaa\x02\x13Gcommon.V1.Database\xca\x02\x13Gcommon\\V1\\Database\xe2\x02\x1fGcommon\\V1\\Database\\GPBMetadata\xea\x02\x15Gcommon::V1::Database\x92\x03\x05\xd2>\x02\x10\x03\x62\x08\x65\x64itionsp\xe8\x07')
 
 _globals = globals()
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, _globals)
@@ -34,8 +34,8 @@ _builder.BuildTopDescriptorsAndMessages(DESCRIPTOR, 'pkg.db.proto.health_check_r
 if not _descriptor._USE_C_DESCRIPTORS:
   _globals['DESCRIPTOR']._loaded_options = None
   _globals['DESCRIPTOR']._serialized_options = b'\n\027com.gcommon.v1.databaseB\027HealthCheckRequestProtoP\001Z&github.com/jdfalk/gcommon/pkg/db/proto\242\002\003GVD\252\002\023Gcommon.V1.Database\312\002\023Gcommon\\V1\\Database\342\002\037Gcommon\\V1\\Database\\GPBMetadata\352\002\025Gcommon::V1::Database\222\003\005\322>\002\020\003'
-  _globals['_HEALTHCHECKREQUEST'].fields_by_name['metadata']._loaded_options = None
-  _globals['_HEALTHCHECKREQUEST'].fields_by_name['metadata']._serialized_options = b'(\001'
-  _globals['_HEALTHCHECKREQUEST']._serialized_start=140
-  _globals['_HEALTHCHECKREQUEST']._serialized_end=228
+  _globals['_DATABASEHEALTHCHECKREQUEST'].fields_by_name['metadata']._loaded_options = None
+  _globals['_DATABASEHEALTHCHECKREQUEST'].fields_by_name['metadata']._serialized_options = b'(\001'
+  _globals['_DATABASEHEALTHCHECKREQUEST']._serialized_start=140
+  _globals['_DATABASEHEALTHCHECKREQUEST']._serialized_end=236
 # @@protoc_insertion_point(module_scope)

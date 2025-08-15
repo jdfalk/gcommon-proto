@@ -25,10 +25,10 @@ _sym_db = _symbol_database.Default()
 from google.protobuf import go_features_pb2 as google_dot_protobuf_dot_go__features__pb2
 from pkg.common.proto import error_pb2 as pkg_dot_common_dot_proto_dot_error__pb2
 from pkg.db.proto import batch_operation_result_pb2 as pkg_dot_db_dot_proto_dot_batch__operation__result__pb2
-from pkg.db.proto import batch_stats_pb2 as pkg_dot_db_dot_proto_dot_batch__stats__pb2
+from pkg.metrics.proto import batch_stats_pb2 as pkg_dot_metrics_dot_proto_dot_batch__stats__pb2
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n)pkg/db/proto/execute_batch_response.proto\x12\x13gcommon.v1.database\x1a!google/protobuf/go_features.proto\x1a\x1cpkg/common/proto/error.proto\x1a)pkg/db/proto/batch_operation_result.proto\x1a\x1epkg/db/proto/batch_stats.proto\"\xce\x01\n\x14\x45xecuteBatchResponse\x12G\n\x07results\x18\x01 \x03(\x0b\x32).gcommon.v1.database.BatchOperationResultB\x02(\x01R\x07results\x12\x39\n\x05stats\x18\x02 \x01(\x0b\x32\x1f.gcommon.v1.database.BatchStatsB\x02(\x01R\x05stats\x12\x32\n\x05\x65rror\x18\x03 \x01(\x0b\x32\x18.gcommon.v1.common.ErrorB\x02(\x01R\x05\x65rrorB\xd2\x01\n\x17\x63om.gcommon.v1.databaseB\x19\x45xecuteBatchResponseProtoP\x01Z&github.com/jdfalk/gcommon/pkg/db/proto\xa2\x02\x03GVD\xaa\x02\x13Gcommon.V1.Database\xca\x02\x13Gcommon\\V1\\Database\xe2\x02\x1fGcommon\\V1\\Database\\GPBMetadata\xea\x02\x15Gcommon::V1::Database\x92\x03\x05\xd2>\x02\x10\x03\x62\x08\x65\x64itionsp\xe8\x07')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n)pkg/db/proto/execute_batch_response.proto\x12\x13gcommon.v1.database\x1a!google/protobuf/go_features.proto\x1a\x1cpkg/common/proto/error.proto\x1a)pkg/db/proto/batch_operation_result.proto\x1a#pkg/metrics/proto/batch_stats.proto\"\xd4\x01\n\x14\x45xecuteBatchResponse\x12G\n\x07results\x18\x01 \x03(\x0b\x32).gcommon.v1.database.BatchOperationResultB\x02(\x01R\x07results\x12?\n\x05stats\x18\x02 \x01(\x0b\x32%.gcommon.v1.metrics.MetricsBatchStatsB\x02(\x01R\x05stats\x12\x32\n\x05\x65rror\x18\x03 \x01(\x0b\x32\x18.gcommon.v1.common.ErrorB\x02(\x01R\x05\x65rrorB\xd2\x01\n\x17\x63om.gcommon.v1.databaseB\x19\x45xecuteBatchResponseProtoP\x01Z&github.com/jdfalk/gcommon/pkg/db/proto\xa2\x02\x03GVD\xaa\x02\x13Gcommon.V1.Database\xca\x02\x13Gcommon\\V1\\Database\xe2\x02\x1fGcommon\\V1\\Database\\GPBMetadata\xea\x02\x15Gcommon::V1::Database\x92\x03\x05\xd2>\x02\x10\x03\x62\x08\x65\x64itionsp\xe8\x07')
 
 _globals = globals()
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, _globals)
@@ -42,6 +42,6 @@ if not _descriptor._USE_C_DESCRIPTORS:
   _globals['_EXECUTEBATCHRESPONSE'].fields_by_name['stats']._serialized_options = b'(\001'
   _globals['_EXECUTEBATCHRESPONSE'].fields_by_name['error']._loaded_options = None
   _globals['_EXECUTEBATCHRESPONSE'].fields_by_name['error']._serialized_options = b'(\001'
-  _globals['_EXECUTEBATCHRESPONSE']._serialized_start=207
-  _globals['_EXECUTEBATCHRESPONSE']._serialized_end=413
+  _globals['_EXECUTEBATCHRESPONSE']._serialized_start=212
+  _globals['_EXECUTEBATCHRESPONSE']._serialized_end=424
 # @@protoc_insertion_point(module_scope)

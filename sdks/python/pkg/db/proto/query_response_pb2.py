@@ -28,7 +28,7 @@ from pkg.db.proto import query_stats_pb2 as pkg_dot_db_dot_proto_dot_query__stat
 from pkg.db.proto import result_set_pb2 as pkg_dot_db_dot_proto_dot_result__set__pb2
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n!pkg/db/proto/query_response.proto\x12\x13gcommon.v1.database\x1a!google/protobuf/go_features.proto\x1a\x1cpkg/common/proto/error.proto\x1a\x1epkg/db/proto/query_stats.proto\x1a\x1dpkg/db/proto/result_set.proto\"\xc1\x01\n\rQueryResponse\x12\x41\n\nresult_set\x18\x01 \x01(\x0b\x32\x1e.gcommon.v1.database.ResultSetB\x02(\x01R\tresultSet\x12\x39\n\x05stats\x18\x02 \x01(\x0b\x32\x1f.gcommon.v1.database.QueryStatsB\x02(\x01R\x05stats\x12\x32\n\x05\x65rror\x18\x03 \x01(\x0b\x32\x18.gcommon.v1.common.ErrorB\x02(\x01R\x05\x65rrorB\xcb\x01\n\x17\x63om.gcommon.v1.databaseB\x12QueryResponseProtoP\x01Z&github.com/jdfalk/gcommon/pkg/db/proto\xa2\x02\x03GVD\xaa\x02\x13Gcommon.V1.Database\xca\x02\x13Gcommon\\V1\\Database\xe2\x02\x1fGcommon\\V1\\Database\\GPBMetadata\xea\x02\x15Gcommon::V1::Database\x92\x03\x05\xd2>\x02\x10\x03\x62\x08\x65\x64itionsp\xe8\x07')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n!pkg/db/proto/query_response.proto\x12\x13gcommon.v1.database\x1a!google/protobuf/go_features.proto\x1a\x1cpkg/common/proto/error.proto\x1a\x1epkg/db/proto/query_stats.proto\x1a\x1dpkg/db/proto/result_set.proto\"\xc9\x01\n\rQueryResponse\x12\x41\n\nresult_set\x18\x01 \x01(\x0b\x32\x1e.gcommon.v1.database.ResultSetB\x02(\x01R\tresultSet\x12\x41\n\x05stats\x18\x02 \x01(\x0b\x32\'.gcommon.v1.database.DatabaseQueryStatsB\x02(\x01R\x05stats\x12\x32\n\x05\x65rror\x18\x03 \x01(\x0b\x32\x18.gcommon.v1.common.ErrorB\x02(\x01R\x05\x65rrorB\xcb\x01\n\x17\x63om.gcommon.v1.databaseB\x12QueryResponseProtoP\x01Z&github.com/jdfalk/gcommon/pkg/db/proto\xa2\x02\x03GVD\xaa\x02\x13Gcommon.V1.Database\xca\x02\x13Gcommon\\V1\\Database\xe2\x02\x1fGcommon\\V1\\Database\\GPBMetadata\xea\x02\x15Gcommon::V1::Database\x92\x03\x05\xd2>\x02\x10\x03\x62\x08\x65\x64itionsp\xe8\x07')
 
 _globals = globals()
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, _globals)
@@ -43,5 +43,5 @@ if not _descriptor._USE_C_DESCRIPTORS:
   _globals['_QUERYRESPONSE'].fields_by_name['error']._loaded_options = None
   _globals['_QUERYRESPONSE'].fields_by_name['error']._serialized_options = b'(\001'
   _globals['_QUERYRESPONSE']._serialized_start=187
-  _globals['_QUERYRESPONSE']._serialized_end=380
+  _globals['_QUERYRESPONSE']._serialized_end=388
 # @@protoc_insertion_point(module_scope)

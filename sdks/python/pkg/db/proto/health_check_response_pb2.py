@@ -25,10 +25,10 @@ _sym_db = _symbol_database.Default()
 from google.protobuf import duration_pb2 as google_dot_protobuf_dot_duration__pb2
 from google.protobuf import go_features_pb2 as google_dot_protobuf_dot_go__features__pb2
 from pkg.common.proto import error_pb2 as pkg_dot_common_dot_proto_dot_error__pb2
-from pkg.common.proto import health_status_pb2 as pkg_dot_common_dot_proto_dot_health__status__pb2
+from pkg.metrics.proto import health_status_pb2 as pkg_dot_metrics_dot_proto_dot_health__status__pb2
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n(pkg/db/proto/health_check_response.proto\x12\x13gcommon.v1.database\x1a\x1egoogle/protobuf/duration.proto\x1a!google/protobuf/go_features.proto\x1a\x1cpkg/common/proto/error.proto\x1a$pkg/common/proto/health_status.proto\"\xeb\x01\n\x13HealthCheckResponse\x12\x37\n\x06status\x18\x01 \x01(\x0e\x32\x1f.gcommon.v1.common.HealthStatusR\x06status\x12#\n\rconnection_ok\x18\x02 \x01(\x08R\x0c\x63onnectionOk\x12\x42\n\rresponse_time\x18\x03 \x01(\x0b\x32\x19.google.protobuf.DurationB\x02(\x01R\x0cresponseTime\x12\x32\n\x05\x65rror\x18\x04 \x01(\x0b\x32\x18.gcommon.v1.common.ErrorB\x02(\x01R\x05\x65rrorB\xd1\x01\n\x17\x63om.gcommon.v1.databaseB\x18HealthCheckResponseProtoP\x01Z&github.com/jdfalk/gcommon/pkg/db/proto\xa2\x02\x03GVD\xaa\x02\x13Gcommon.V1.Database\xca\x02\x13Gcommon\\V1\\Database\xe2\x02\x1fGcommon\\V1\\Database\\GPBMetadata\xea\x02\x15Gcommon::V1::Database\x92\x03\x05\xd2>\x02\x10\x03\x62\x08\x65\x64itionsp\xe8\x07')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n(pkg/db/proto/health_check_response.proto\x12\x13gcommon.v1.database\x1a\x1egoogle/protobuf/duration.proto\x1a!google/protobuf/go_features.proto\x1a\x1cpkg/common/proto/error.proto\x1a%pkg/metrics/proto/health_status.proto\"\xfb\x01\n\x1b\x44\x61tabaseHealthCheckResponse\x12?\n\x06status\x18\x01 \x01(\x0e\x32\'.gcommon.v1.metrics.MetricsHealthStatusR\x06status\x12#\n\rconnection_ok\x18\x02 \x01(\x08R\x0c\x63onnectionOk\x12\x42\n\rresponse_time\x18\x03 \x01(\x0b\x32\x19.google.protobuf.DurationB\x02(\x01R\x0cresponseTime\x12\x32\n\x05\x65rror\x18\x04 \x01(\x0b\x32\x18.gcommon.v1.common.ErrorB\x02(\x01R\x05\x65rrorB\xd1\x01\n\x17\x63om.gcommon.v1.databaseB\x18HealthCheckResponseProtoP\x01Z&github.com/jdfalk/gcommon/pkg/db/proto\xa2\x02\x03GVD\xaa\x02\x13Gcommon.V1.Database\xca\x02\x13Gcommon\\V1\\Database\xe2\x02\x1fGcommon\\V1\\Database\\GPBMetadata\xea\x02\x15Gcommon::V1::Database\x92\x03\x05\xd2>\x02\x10\x03\x62\x08\x65\x64itionsp\xe8\x07')
 
 _globals = globals()
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, _globals)
@@ -36,10 +36,10 @@ _builder.BuildTopDescriptorsAndMessages(DESCRIPTOR, 'pkg.db.proto.health_check_r
 if not _descriptor._USE_C_DESCRIPTORS:
   _globals['DESCRIPTOR']._loaded_options = None
   _globals['DESCRIPTOR']._serialized_options = b'\n\027com.gcommon.v1.databaseB\030HealthCheckResponseProtoP\001Z&github.com/jdfalk/gcommon/pkg/db/proto\242\002\003GVD\252\002\023Gcommon.V1.Database\312\002\023Gcommon\\V1\\Database\342\002\037Gcommon\\V1\\Database\\GPBMetadata\352\002\025Gcommon::V1::Database\222\003\005\322>\002\020\003'
-  _globals['_HEALTHCHECKRESPONSE'].fields_by_name['response_time']._loaded_options = None
-  _globals['_HEALTHCHECKRESPONSE'].fields_by_name['response_time']._serialized_options = b'(\001'
-  _globals['_HEALTHCHECKRESPONSE'].fields_by_name['error']._loaded_options = None
-  _globals['_HEALTHCHECKRESPONSE'].fields_by_name['error']._serialized_options = b'(\001'
-  _globals['_HEALTHCHECKRESPONSE']._serialized_start=201
-  _globals['_HEALTHCHECKRESPONSE']._serialized_end=436
+  _globals['_DATABASEHEALTHCHECKRESPONSE'].fields_by_name['response_time']._loaded_options = None
+  _globals['_DATABASEHEALTHCHECKRESPONSE'].fields_by_name['response_time']._serialized_options = b'(\001'
+  _globals['_DATABASEHEALTHCHECKRESPONSE'].fields_by_name['error']._loaded_options = None
+  _globals['_DATABASEHEALTHCHECKRESPONSE'].fields_by_name['error']._serialized_options = b'(\001'
+  _globals['_DATABASEHEALTHCHECKRESPONSE']._serialized_start=202
+  _globals['_DATABASEHEALTHCHECKRESPONSE']._serialized_end=453
 # @@protoc_insertion_point(module_scope)

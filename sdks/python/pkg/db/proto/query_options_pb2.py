@@ -27,7 +27,7 @@ from google.protobuf import go_features_pb2 as google_dot_protobuf_dot_go__featu
 from pkg.db.proto import consistency_level_pb2 as pkg_dot_db_dot_proto_dot_consistency__level__pb2
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n pkg/db/proto/query_options.proto\x12\x13gcommon.v1.database\x1a\x1egoogle/protobuf/duration.proto\x1a!google/protobuf/go_features.proto\x1a$pkg/db/proto/consistency_level.proto\"\xe9\x01\n\x0cQueryOptions\x12\x14\n\x05limit\x18\x01 \x01(\x05R\x05limit\x12\x16\n\x06offset\x18\x02 \x01(\x05R\x06offset\x12\x37\n\x07timeout\x18\x03 \x01(\x0b\x32\x19.google.protobuf.DurationB\x02(\x01R\x07timeout\x12)\n\x10include_metadata\x18\x04 \x01(\x08R\x0fincludeMetadata\x12G\n\x0b\x63onsistency\x18\x05 \x01(\x0e\x32%.gcommon.v1.database.ConsistencyLevelR\x0b\x63onsistencyB\xca\x01\n\x17\x63om.gcommon.v1.databaseB\x11QueryOptionsProtoP\x01Z&github.com/jdfalk/gcommon/pkg/db/proto\xa2\x02\x03GVD\xaa\x02\x13Gcommon.V1.Database\xca\x02\x13Gcommon\\V1\\Database\xe2\x02\x1fGcommon\\V1\\Database\\GPBMetadata\xea\x02\x15Gcommon::V1::Database\x92\x03\x05\xd2>\x02\x10\x03\x62\x08\x65\x64itionsp\xe8\x07')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n pkg/db/proto/query_options.proto\x12\x13gcommon.v1.database\x1a\x1egoogle/protobuf/duration.proto\x1a!google/protobuf/go_features.proto\x1a$pkg/db/proto/consistency_level.proto\"\xf1\x01\n\x0cQueryOptions\x12\x14\n\x05limit\x18\x01 \x01(\x05R\x05limit\x12\x16\n\x06offset\x18\x02 \x01(\x05R\x06offset\x12\x37\n\x07timeout\x18\x03 \x01(\x0b\x32\x19.google.protobuf.DurationB\x02(\x01R\x07timeout\x12)\n\x10include_metadata\x18\x04 \x01(\x08R\x0fincludeMetadata\x12O\n\x0b\x63onsistency\x18\x05 \x01(\x0e\x32-.gcommon.v1.database.DatabaseConsistencyLevelR\x0b\x63onsistencyB\xca\x01\n\x17\x63om.gcommon.v1.databaseB\x11QueryOptionsProtoP\x01Z&github.com/jdfalk/gcommon/pkg/db/proto\xa2\x02\x03GVD\xaa\x02\x13Gcommon.V1.Database\xca\x02\x13Gcommon\\V1\\Database\xe2\x02\x1fGcommon\\V1\\Database\\GPBMetadata\xea\x02\x15Gcommon::V1::Database\x92\x03\x05\xd2>\x02\x10\x03\x62\x08\x65\x64itionsp\xe8\x07')
 
 _globals = globals()
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, _globals)
@@ -38,5 +38,5 @@ if not _descriptor._USE_C_DESCRIPTORS:
   _globals['_QUERYOPTIONS'].fields_by_name['timeout']._loaded_options = None
   _globals['_QUERYOPTIONS'].fields_by_name['timeout']._serialized_options = b'(\001'
   _globals['_QUERYOPTIONS']._serialized_start=163
-  _globals['_QUERYOPTIONS']._serialized_end=396
+  _globals['_QUERYOPTIONS']._serialized_end=404
 # @@protoc_insertion_point(module_scope)

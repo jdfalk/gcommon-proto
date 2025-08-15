@@ -25,7 +25,7 @@ _sym_db = _symbol_database.Default()
 from google.protobuf import go_features_pb2 as google_dot_protobuf_dot_go__features__pb2
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n$pkg/db/proto/consistency_level.proto\x12\x13gcommon.v1.database\x1a!google/protobuf/go_features.proto*\x9c\x01\n\x10\x43onsistencyLevel\x12!\n\x1d\x43ONSISTENCY_LEVEL_UNSPECIFIED\x10\x00\x12\x1e\n\x1a\x43ONSISTENCY_LEVEL_EVENTUAL\x10\x01\x12\x1c\n\x18\x43ONSISTENCY_LEVEL_STRONG\x10\x02\x12\'\n#CONSISTENCY_LEVEL_BOUNDED_STALENESS\x10\x03\x42\xce\x01\n\x17\x63om.gcommon.v1.databaseB\x15\x43onsistencyLevelProtoP\x01Z&github.com/jdfalk/gcommon/pkg/db/proto\xa2\x02\x03GVD\xaa\x02\x13Gcommon.V1.Database\xca\x02\x13Gcommon\\V1\\Database\xe2\x02\x1fGcommon\\V1\\Database\\GPBMetadata\xea\x02\x15Gcommon::V1::Database\x92\x03\x05\xd2>\x02\x10\x03\x62\x08\x65\x64itionsp\xe8\x07')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n$pkg/db/proto/consistency_level.proto\x12\x13gcommon.v1.database\x1a!google/protobuf/go_features.proto*\xa4\x01\n\x18\x44\x61tabaseConsistencyLevel\x12!\n\x1d\x43ONSISTENCY_LEVEL_UNSPECIFIED\x10\x00\x12\x1e\n\x1a\x43ONSISTENCY_LEVEL_EVENTUAL\x10\x01\x12\x1c\n\x18\x43ONSISTENCY_LEVEL_STRONG\x10\x02\x12\'\n#CONSISTENCY_LEVEL_BOUNDED_STALENESS\x10\x03\x42\xce\x01\n\x17\x63om.gcommon.v1.databaseB\x15\x43onsistencyLevelProtoP\x01Z&github.com/jdfalk/gcommon/pkg/db/proto\xa2\x02\x03GVD\xaa\x02\x13Gcommon.V1.Database\xca\x02\x13Gcommon\\V1\\Database\xe2\x02\x1fGcommon\\V1\\Database\\GPBMetadata\xea\x02\x15Gcommon::V1::Database\x92\x03\x05\xd2>\x02\x10\x03\x62\x08\x65\x64itionsp\xe8\x07')
 
 _globals = globals()
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, _globals)
@@ -33,6 +33,6 @@ _builder.BuildTopDescriptorsAndMessages(DESCRIPTOR, 'pkg.db.proto.consistency_le
 if not _descriptor._USE_C_DESCRIPTORS:
   _globals['DESCRIPTOR']._loaded_options = None
   _globals['DESCRIPTOR']._serialized_options = b'\n\027com.gcommon.v1.databaseB\025ConsistencyLevelProtoP\001Z&github.com/jdfalk/gcommon/pkg/db/proto\242\002\003GVD\252\002\023Gcommon.V1.Database\312\002\023Gcommon\\V1\\Database\342\002\037Gcommon\\V1\\Database\\GPBMetadata\352\002\025Gcommon::V1::Database\222\003\005\322>\002\020\003'
-  _globals['_CONSISTENCYLEVEL']._serialized_start=97
-  _globals['_CONSISTENCYLEVEL']._serialized_end=253
+  _globals['_DATABASECONSISTENCYLEVEL']._serialized_start=97
+  _globals['_DATABASECONSISTENCYLEVEL']._serialized_end=261
 # @@protoc_insertion_point(module_scope)

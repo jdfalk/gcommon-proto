@@ -55,8 +55,8 @@ class DatabaseServiceStub(object):
                 _registered_method=True)
         self.HealthCheck = channel.unary_unary(
                 '/gcommon.v1.database.DatabaseService/HealthCheck',
-                request_serializer=pkg_dot_db_dot_proto_dot_health__check__request__pb2.HealthCheckRequest.SerializeToString,
-                response_deserializer=pkg_dot_db_dot_proto_dot_health__check__response__pb2.HealthCheckResponse.FromString,
+                request_serializer=pkg_dot_db_dot_proto_dot_health__check__request__pb2.DatabaseHealthCheckRequest.SerializeToString,
+                response_deserializer=pkg_dot_db_dot_proto_dot_health__check__response__pb2.DatabaseHealthCheckResponse.FromString,
                 _registered_method=True)
 
 
@@ -138,8 +138,8 @@ def add_DatabaseServiceServicer_to_server(servicer, server):
             ),
             'HealthCheck': grpc.unary_unary_rpc_method_handler(
                     servicer.HealthCheck,
-                    request_deserializer=pkg_dot_db_dot_proto_dot_health__check__request__pb2.HealthCheckRequest.FromString,
-                    response_serializer=pkg_dot_db_dot_proto_dot_health__check__response__pb2.HealthCheckResponse.SerializeToString,
+                    request_deserializer=pkg_dot_db_dot_proto_dot_health__check__request__pb2.DatabaseHealthCheckRequest.FromString,
+                    response_serializer=pkg_dot_db_dot_proto_dot_health__check__response__pb2.DatabaseHealthCheckResponse.SerializeToString,
             ),
     }
     generic_handler = grpc.method_handlers_generic_handler(
@@ -305,8 +305,8 @@ class DatabaseService(object):
             request,
             target,
             '/gcommon.v1.database.DatabaseService/HealthCheck',
-            pkg_dot_db_dot_proto_dot_health__check__request__pb2.HealthCheckRequest.SerializeToString,
-            pkg_dot_db_dot_proto_dot_health__check__response__pb2.HealthCheckResponse.FromString,
+            pkg_dot_db_dot_proto_dot_health__check__request__pb2.DatabaseHealthCheckRequest.SerializeToString,
+            pkg_dot_db_dot_proto_dot_health__check__response__pb2.DatabaseHealthCheckResponse.FromString,
             options,
             channel_credentials,
             insecure,

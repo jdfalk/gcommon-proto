@@ -28,7 +28,7 @@ from pkg.common.proto import error_pb2 as pkg_dot_common_dot_proto_dot_error__pb
 from pkg.db.proto import query_stats_pb2 as pkg_dot_db_dot_proto_dot_query__stats__pb2
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n%pkg/db/proto/query_row_response.proto\x12\x13gcommon.v1.database\x1a\x19google/protobuf/any.proto\x1a!google/protobuf/go_features.proto\x1a\x1cpkg/common/proto/error.proto\x1a\x1epkg/db/proto/query_stats.proto\"\xe3\x01\n\x10QueryRowResponse\x12\x14\n\x05\x66ound\x18\x01 \x01(\x08R\x05\x66ound\x12\x18\n\x07\x63olumns\x18\x02 \x03(\tR\x07\x63olumns\x12\x30\n\x06values\x18\x03 \x03(\x0b\x32\x14.google.protobuf.AnyB\x02(\x01R\x06values\x12\x39\n\x05stats\x18\x04 \x01(\x0b\x32\x1f.gcommon.v1.database.QueryStatsB\x02(\x01R\x05stats\x12\x32\n\x05\x65rror\x18\x05 \x01(\x0b\x32\x18.gcommon.v1.common.ErrorB\x02(\x01R\x05\x65rrorB\xce\x01\n\x17\x63om.gcommon.v1.databaseB\x15QueryRowResponseProtoP\x01Z&github.com/jdfalk/gcommon/pkg/db/proto\xa2\x02\x03GVD\xaa\x02\x13Gcommon.V1.Database\xca\x02\x13Gcommon\\V1\\Database\xe2\x02\x1fGcommon\\V1\\Database\\GPBMetadata\xea\x02\x15Gcommon::V1::Database\x92\x03\x05\xd2>\x02\x10\x03\x62\x08\x65\x64itionsp\xe8\x07')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n%pkg/db/proto/query_row_response.proto\x12\x13gcommon.v1.database\x1a\x19google/protobuf/any.proto\x1a!google/protobuf/go_features.proto\x1a\x1cpkg/common/proto/error.proto\x1a\x1epkg/db/proto/query_stats.proto\"\xeb\x01\n\x10QueryRowResponse\x12\x14\n\x05\x66ound\x18\x01 \x01(\x08R\x05\x66ound\x12\x18\n\x07\x63olumns\x18\x02 \x03(\tR\x07\x63olumns\x12\x30\n\x06values\x18\x03 \x03(\x0b\x32\x14.google.protobuf.AnyB\x02(\x01R\x06values\x12\x41\n\x05stats\x18\x04 \x01(\x0b\x32\'.gcommon.v1.database.DatabaseQueryStatsB\x02(\x01R\x05stats\x12\x32\n\x05\x65rror\x18\x05 \x01(\x0b\x32\x18.gcommon.v1.common.ErrorB\x02(\x01R\x05\x65rrorB\xce\x01\n\x17\x63om.gcommon.v1.databaseB\x15QueryRowResponseProtoP\x01Z&github.com/jdfalk/gcommon/pkg/db/proto\xa2\x02\x03GVD\xaa\x02\x13Gcommon.V1.Database\xca\x02\x13Gcommon\\V1\\Database\xe2\x02\x1fGcommon\\V1\\Database\\GPBMetadata\xea\x02\x15Gcommon::V1::Database\x92\x03\x05\xd2>\x02\x10\x03\x62\x08\x65\x64itionsp\xe8\x07')
 
 _globals = globals()
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, _globals)
@@ -43,5 +43,5 @@ if not _descriptor._USE_C_DESCRIPTORS:
   _globals['_QUERYROWRESPONSE'].fields_by_name['error']._loaded_options = None
   _globals['_QUERYROWRESPONSE'].fields_by_name['error']._serialized_options = b'(\001'
   _globals['_QUERYROWRESPONSE']._serialized_start=187
-  _globals['_QUERYROWRESPONSE']._serialized_end=414
+  _globals['_QUERYROWRESPONSE']._serialized_end=422
 # @@protoc_insertion_point(module_scope)
