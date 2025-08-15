@@ -10,7 +10,6 @@ import "google/protobuf/go_features.proto";
 import "pkg/config/proto/retention_policy.proto";
 import "pkg/metrics/proto/retention_policy_config.proto";
 import "pkg/metrics/proto/retention_policy_retentionpolicy.proto";
-import "pkg/metrics/proto/retention_policy_retentionpolicyconfig.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
 option go_package = "github.com/jdfalk/gcommon/pkg/metrics/proto";

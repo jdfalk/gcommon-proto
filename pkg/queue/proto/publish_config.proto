@@ -31,7 +31,7 @@ message PublishConfig {
   bool enable_ordering = 5;
 
   // Retry configuration for failed publishes - references existing RetryConfig
-  MetricsRetryConfig retry_config = 6;
+  gcommon.v1.metrics.MetricsRetryConfig retry_config = 6;
 
   // Persistence level required
   string persistence_level = 7;
