@@ -4,12 +4,12 @@
 
 name: Workflow Synchronization
 
-on:
-  push:
+# DISABLED - on:
+# DISABLED -   push:
     branches: [main]
     paths:
       - ".github/workflows/**"
-  workflow_dispatch:
+# DISABLED -   workflow_dispatch:
     inputs:
       source_repo:
         description: "Source repository for workflow sync"

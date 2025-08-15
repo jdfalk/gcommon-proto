@@ -4,13 +4,13 @@
 
 name: Instruction Synchronization
 
-on:
-  push:
+# DISABLED - on:
+# DISABLED -   push:
     branches: [main]
     paths:
       - ".github/instructions/**"
       - ".github/copilot-instructions.md"
-  workflow_dispatch:
+# DISABLED -   workflow_dispatch:
     inputs:
       target_repos:
         description: "Target repositories (comma-separated)"
