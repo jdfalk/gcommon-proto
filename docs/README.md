@@ -60,7 +60,7 @@ This directory contains auto-generated documentation for this project.
 - [](PROTOBUF_HANDOFF_COMPLETE.md)
 - [](PROTOBUF_IMPLEMENTATION_PLAN.md)
 - [Proto File Splitting Guide - 1-1-1 Pattern Implementation](PROTO_SPLITTING_GUIDE.md)
-- [GCommon - Common Go Modules](README.md)
+- [Install the Rust version](README.md)
 - [Session Status & Handoff - August 11, 2025](SESSION_STATUS_HANDOFF.md)
 - [](SESSION_SUMMARY.md)
 - [GCommon Protobuf Status Assessment - August 3, 2025](STATUS_ASSESSMENT_2025_08_03.md)
@@ -281,4 +281,4 @@ This directory contains auto-generated documentation for this project.
 - [Gateway Service Template\n\nAPI gateway with routing setup.](templates/gateway-service/README.md)
 - [Worker Service Template\n\nBackground job processing scaffold.](templates/worker-service/README.md)
 
-_Generated on Fri Aug 15 03:22:22 UTC 2025_
+_Generated on Fri Aug 15 10:37:27 UTC 2025_

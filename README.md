@@ -3,7 +3,6 @@
 ## Table of Contents
 
   - [Table of Contents](#table-of-contents)
-- [GCommon - Common Go Modules](#gcommon-common-go-modules)
   - [📚 Essential Documentation](#-essential-documentation)
     - [New Users Start Here](#new-users-start-here)
     - [For Developers](#for-developers)
