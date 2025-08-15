@@ -1,5 +1,5 @@
 <!-- file: .github/instructions/rust-utility.instructions.md -->
-<!-- version: 1.1.0 -->
+<!-- version: 1.2.0 -->
 <!-- guid: a1b2c3d4-e5f6-7890-1234-567890abcdef -->
 
 ---
@@ -13,6 +13,18 @@ Instructions for using the copilot-agent-util Rust utility as the primary tool f
 # Copilot Agent Utility (Rust) - Command Reference
 
 The `copilot-agent-util` (or `copilot-agent-utilr`) is a comprehensive Rust-based development utility that provides superior performance, memory safety, and extensive command coverage. **Always prefer this utility over manual commands when available.**
+
+## 📥 Installation & Download
+
+**Download the copilot-agent-util tool from:**
+- **Source Repository**: https://github.com/jdfalk/copilot-agent-util-rust
+- **Installation**: Follow the installation instructions in the repository's README
+- **Requirements**: The tool is required for proper VS Code task execution and logging
+
+**If the tool is not available in your environment:**
+1. Clone the repository: `git clone https://github.com/jdfalk/copilot-agent-util-rust`
+2. Build with Cargo: `cargo build --release`
+3. Add to PATH or use the binary directly from `target/release/copilot-agent-util`
 
 ## 🚀 NEW: Arguments File Support
 
