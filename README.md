@@ -2,6 +2,7 @@
 <!-- version: 1.1.0 -->
 ## Table of Contents
 
+  - [Table of Contents](#table-of-contents)
 - [GCommon - Common Go Modules](#gcommon-common-go-modules)
   - [📚 Essential Documentation](#-essential-documentation)
     - [New Users Start Here](#new-users-start-here)
@@ -83,20 +84,6 @@
   - [Performance Testing\nThe perf/ directory contains benchmarking, load, stress, and regression tools for all modules.](#performance-testing-nthe-perf-directory-contains-benchmarking-load-stress-and-regression-tools-for-all-modules)
   - [Microservice Templates\nTemplates for common service types are now available with a generation CLI.](#microservice-templates-ntemplates-for-common-service-types-are-now-available-with-a-generation-cli)
   - [Security Module\nProvides auditing, policies, monitoring, and tools for secure operations.](#security-module-nprovides-auditing-policies-monitoring-and-tools-for-secure-operations)
-
-
-<!-- guid: a1b2c3d4-e5f6-7890-abcd-ef0123456789 -->
-
-# GCommon - Common Go Modules
-
-[![Go Version](https://img.shields.io/badge/go-1.21+-blue.svg)](https://golang.org/)
-[![License](https://img.shields.io/badge/license-MIT-green.svg)](LICENSE)
-[![Build Status](https://img.shields.io/badge/build-passing-brightgreen.svg)](https://github.com/jdfalk/gcommon)
-
-> **🚨 MAJOR BREAKING CHANGES COMING**: Version 0.2.0 will introduce significant
-> protobuf message structure changes. **NEW**: We are migrating from
-> `import public` aggregator files to direct proto imports for better Go
-> compatibility. See [CHANGELOG.md](CHANGELOG.md) for migration details.
 
 ## 📚 Essential Documentation
 

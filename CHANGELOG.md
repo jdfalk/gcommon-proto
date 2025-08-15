@@ -3,6 +3,7 @@
 ## Table of Contents
 
 - [GCommon Changelog](#gcommon-changelog)
+  - [Table of Contents](#table-of-contents)
   - [[Unreleased]](#-unreleased)
     - [Added](#added)
     - [Added](#added)
@@ -116,17 +117,6 @@
     - [Observability Integration](#observability-integration)
     - [Production Considerations](#production-considerations)
   - [Changelog](#changelog)
-
-
-<!-- file: CHANGELOG.md -->
-<!-- version: 1.1.1 -->
-<!-- guid: a1b2c3d4-e5f6-7a8b-9c0d-1e2f3a4b5c6d -->
-
-All notable changes to this project will be documented in this file.
-
-The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
-and this project adheres to
-[Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
 

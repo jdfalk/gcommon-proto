@@ -3,6 +3,7 @@
 ## Table of Contents
 
 - [Contributing to GCommon](#contributing-to-gcommon)
+  - [Table of Contents](#table-of-contents)
   - [🚀 Quick Start for New Contributors](#-quick-start-for-new-contributors)
     - [Prerequisites](#prerequisites)
     - [Setting Up Your Development Environment](#setting-up-your-development-environment)
@@ -64,10 +65,6 @@
     - [Module-Specific Guides](#module-specific-guides)
     - [Getting Help](#getting-help)
   - [📄 License](#-license)
-
-
-Thank you for your interest in contributing to GCommon! This guide will help you
-understand our development workflow, coding standards, and contribution process.
 
 ## 🚀 Quick Start for New Contributors
 

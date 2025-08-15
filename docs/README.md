@@ -54,6 +54,7 @@ This directory contains auto-generated documentation for this project.
 - [AGENTS.md](AGENTS.md)
 - [GCommon Changelog](CHANGELOG.md)
 - [Contributor Covenant Code of Conduct](CODE_OF_CONDUCT.md)
+- [🚀 PROTOBUF COMPLETION PROJECT - CODING AGENT INSTRUCTIONS](CODING_AGENT_INSTRUCTIONS.md)
 - [Contributing to GCommon](CONTRIBUTING.md)
 - [](PACKAGE_NAMING_RESOLUTION.md)
 - [](PROTOBUF_HANDOFF_COMPLETE.md)
@@ -231,6 +232,7 @@ This directory contains auto-generated documentation for this project.
 - [web_events Module](proto-docs/web_events.md)
 - [web_services Module](proto-docs/web_services.md)
 - [Protocol Buffer Analysis Report](proto_analysis_report.md)
+- [](protos-to-fix.md)
 - [Repository Labels](repository_labels.md)
 - [Repository Labels](repository_labels_backup.md)
 - [Repository Labels](repository_labels_json.md)
@@ -279,4 +281,4 @@ This directory contains auto-generated documentation for this project.
 - [Gateway Service Template\n\nAPI gateway with routing setup.](templates/gateway-service/README.md)
 - [Worker Service Template\n\nBackground job processing scaffold.](templates/worker-service/README.md)
 
-_Generated on Thu Aug 14 22:20:14 UTC 2025_
+_Generated on Fri Aug 15 03:22:22 UTC 2025_
