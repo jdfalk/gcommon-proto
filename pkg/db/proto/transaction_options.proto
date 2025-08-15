@@ -16,7 +16,7 @@ option go_package = "github.com/jdfalk/gcommon/pkg/db/proto";
  */
 message TransactionOptions {
   // Isolation level for the transaction
-  OrganizationIsolationLevel isolation = 1;
+  DatabaseIsolationLevel isolation = 1;
 
   // Transaction timeout before automatic rollback
   google.protobuf.Duration timeout = 2 [lazy = true];

@@ -5,7 +5,7 @@ edition = "2023";
 package gcommon.v1.database;
 
 import "google/protobuf/go_features.proto";
-import "pkg/common/proto/batch_operation.proto";
+// Use DB-specific batch operation definitions
 import "pkg/common/proto/request_metadata.proto";
 import "pkg/db/proto/batch_execute_options.proto";
 import "pkg/db/proto/batch_operation.proto";
@@ -15,7 +15,7 @@ option go_package = "github.com/jdfalk/gcommon/pkg/db/proto";
 
 message ExecuteBatchRequest {
   // List of operations to execute in the batch
-  repeated CommonBatchOperation operations = 1 [lazy = true];
+  repeated DatabaseBatchOperation operations = 1 [lazy = true];
 
   // Database name (optional, uses default if not specified)
   string database = 2;

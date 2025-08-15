@@ -28,5 +28,5 @@ message QueryOptions {
   bool include_metadata = 4;
 
   // Read consistency level for the query
-  QueueConsistencyLevel consistency = 5;
+  DatabaseConsistencyLevel consistency = 5;
 }

@@ -29,7 +29,7 @@ message QueryRowResponse {
   repeated google.protobuf.Any values = 3 [lazy = true];
 
   // Query execution statistics
-  MetricsQueryStats stats = 4 [lazy = true];
+  DatabaseQueryStats stats = 4 [lazy = true];
 
   // Error information if the query failed
   gcommon.v1.common.Error error = 5 [lazy = true];

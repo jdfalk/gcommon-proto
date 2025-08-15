@@ -20,7 +20,7 @@ message QueryResponse {
   ResultSet result_set = 1 [lazy = true];
 
   // Query execution statistics and performance metrics
-  MetricsQueryStats stats = 2 [lazy = true];
+  DatabaseQueryStats stats = 2 [lazy = true];
 
   // Error information if the query failed
   gcommon.v1.common.Error error = 3 [lazy = true];

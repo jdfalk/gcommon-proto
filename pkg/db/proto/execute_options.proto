@@ -22,5 +22,5 @@ message ExecuteOptions {
   bool return_generated_keys = 2;
 
   // Isolation level for transaction operations
-  OrganizationIsolationLevel isolation = 3;
+  DatabaseIsolationLevel isolation = 3;
 }
