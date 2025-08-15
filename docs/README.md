@@ -65,6 +65,7 @@ This directory contains auto-generated documentation for this project.
 - [Session Status & Handoff - August 11, 2025](SESSION_STATUS_HANDOFF.md)
 - [](SESSION_SUMMARY.md)
 - [GCommon Protobuf Status Assessment - August 3, 2025](STATUS_ASSESSMENT_2025_08_03.md)
+- [TASK 01: Go and Python Version Requirements Update](TASK_01_VERSION_UPDATES.md)
 - [🎯 Comprehensive Timestamp Enhancement System - Implementation Summary](TIMESTAMP_ENHANCEMENT_SUMMARY.md)
 - [GCommon Project Roadmap & Implementation Plan](TODO.md)
 - [Protobuf Implementation Strategy & Guidelines](docs/PROTOBUF_STRATEGY.md)
@@ -282,4 +283,4 @@ This directory contains auto-generated documentation for this project.
 - [Gateway Service Template\n\nAPI gateway with routing setup.](templates/gateway-service/README.md)
 - [Worker Service Template\n\nBackground job processing scaffold.](templates/worker-service/README.md)
 
-_Generated on Fri Aug 15 16:42:57 UTC 2025_
+_Generated on Fri Aug 15 16:44:47 UTC 2025_
