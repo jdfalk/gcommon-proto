@@ -42,7 +42,7 @@ service MetricsService {
   rpc RecordBatchMetrics(RecordMetricsRequest) returns (RecordMetricsResponse);
 
   // Retrieve metrics data with filtering and aggregation
-  rpc GetMetrics(GetMetricsRequest) returns (GetMetricsResponse);
+  rpc GetMetrics(MetricsGetMetricsRequest) returns (MetricsGetMetricsResponse);
 
   // Stream metrics data in real-time
   rpc StreamMetrics(StreamMetricsRequest) returns (stream MetricData);
