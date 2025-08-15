@@ -7,8 +7,8 @@ edition = "2023";
 package gcommon.v1.metrics;
 
 import "google/protobuf/go_features.proto";
-import "pkg/auth/proto/provider_type.proto";
-import "pkg/config/proto/resource_limits.proto";
+import "pkg/metrics/proto/provider_type.proto";
+import "pkg/organization/proto/resource_limits.proto";
 import "pkg/metrics/proto/export_config.proto";
 import "pkg/metrics/proto/provider_settings.proto";
 import "pkg/metrics/proto/security_config.proto";
@@ -24,7 +24,7 @@ message ProviderConfig {
   string name = 2;
 
   // Type of provider (prometheus, opentelemetry, custom, etc.)
-  MetricsProviderType type = 3;
+  gcommon.v1.metrics.MetricsProviderType type = 3;
 
   // Provider-specific configuration
   ProviderSettings settings = 4;
@@ -33,7 +33,7 @@ message ProviderConfig {
   ExportConfig export_config = 5;
 
   // Resource limits for this provider
-  OrganizationResourceLimits resource_limits = 6;
+  gcommon.v1.organization.OrganizationResourceLimits resource_limits = 6;
 
   // Security configuration
   MetricsSecurityConfig security_config = 7;

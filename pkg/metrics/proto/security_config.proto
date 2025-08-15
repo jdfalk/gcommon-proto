@@ -27,5 +27,5 @@ message MetricsSecurityConfig {
   MetricsTLSConfig tls_config = 4;
 
   // API key configuration
-  OrganizationAPIKeyConfig api_key_config = 5;
+  MetricsAPIKeyConfig api_key_config = 5;
 }

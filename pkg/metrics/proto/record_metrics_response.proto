@@ -9,7 +9,7 @@ package gcommon.v1.metrics;
 import "google/protobuf/go_features.proto";
 import "google/protobuf/timestamp.proto";
 import "pkg/common/proto/error.proto";
-import "pkg/db/proto/batch_stats.proto";
+import "pkg/metrics/proto/batch_stats.proto";
 import "pkg/metrics/proto/metric_result.proto";
 import "pkg/metrics/proto/validation_summary.proto";
 
@@ -42,7 +42,7 @@ message RecordMetricsResponse {
   string provider_id = 8;
 
   // Performance metrics about the batch operation
-  MetricsBatchStats stats = 9;
+  gcommon.v1.metrics.MetricsBatchStats stats = 9;
 
   // Warnings or informational messages about the batch
   repeated string warnings = 10;
