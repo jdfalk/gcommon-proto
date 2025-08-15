@@ -27,7 +27,7 @@ from pkg.common.proto import request_metadata_pb2 as pkg_dot_common_dot_proto_do
 from pkg.web.proto import cache_config_pb2 as pkg_dot_web_dot_proto_dot_cache__config__pb2
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n/pkg/web/proto/update_cache_config_request.proto\x12\x0egcommon.v1.web\x1a!google/protobuf/go_features.proto\x1a\'pkg/common/proto/request_metadata.proto\x1a pkg/web/proto/cache_config.proto\"\x8f\x01\n\x18UpdateCacheConfigRequest\x12\x33\n\x06\x63onfig\x18\x01 \x01(\x0b\x32\x1b.gcommon.v1.web.CacheConfigR\x06\x63onfig\x12>\n\x08metadata\x18\x02 \x01(\x0b\x32\".gcommon.v1.common.RequestMetadataR\x08metadataB\xbe\x01\n\x12\x63om.gcommon.v1.webB\x1dUpdateCacheConfigRequestProtoP\x01Z\'github.com/jdfalk/gcommon/pkg/web/proto\xa2\x02\x03GVW\xaa\x02\x0eGcommon.V1.Web\xca\x02\x0eGcommon\\V1\\Web\xe2\x02\x1aGcommon\\V1\\Web\\GPBMetadata\xea\x02\x10Gcommon::V1::Web\x92\x03\x05\xd2>\x02\x10\x03\x62\x08\x65\x64itionsp\xe8\x07')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n/pkg/web/proto/update_cache_config_request.proto\x12\x0egcommon.v1.web\x1a!google/protobuf/go_features.proto\x1a\'pkg/common/proto/request_metadata.proto\x1a pkg/web/proto/cache_config.proto\"\x92\x01\n\x18UpdateCacheConfigRequest\x12\x36\n\x06\x63onfig\x18\x01 \x01(\x0b\x32\x1e.gcommon.v1.web.WebCacheConfigR\x06\x63onfig\x12>\n\x08metadata\x18\x02 \x01(\x0b\x32\".gcommon.v1.common.RequestMetadataR\x08metadataB\xbe\x01\n\x12\x63om.gcommon.v1.webB\x1dUpdateCacheConfigRequestProtoP\x01Z\'github.com/jdfalk/gcommon/pkg/web/proto\xa2\x02\x03GVW\xaa\x02\x0eGcommon.V1.Web\xca\x02\x0eGcommon\\V1\\Web\xe2\x02\x1aGcommon\\V1\\Web\\GPBMetadata\xea\x02\x10Gcommon::V1::Web\x92\x03\x05\xd2>\x02\x10\x03\x62\x08\x65\x64itionsp\xe8\x07')
 
 _globals = globals()
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, _globals)
@@ -36,5 +36,5 @@ if not _descriptor._USE_C_DESCRIPTORS:
   _globals['DESCRIPTOR']._loaded_options = None
   _globals['DESCRIPTOR']._serialized_options = b'\n\022com.gcommon.v1.webB\035UpdateCacheConfigRequestProtoP\001Z\'github.com/jdfalk/gcommon/pkg/web/proto\242\002\003GVW\252\002\016Gcommon.V1.Web\312\002\016Gcommon\\V1\\Web\342\002\032Gcommon\\V1\\Web\\GPBMetadata\352\002\020Gcommon::V1::Web\222\003\005\322>\002\020\003'
   _globals['_UPDATECACHECONFIGREQUEST']._serialized_start=178
-  _globals['_UPDATECACHECONFIGREQUEST']._serialized_end=321
+  _globals['_UPDATECACHECONFIGREQUEST']._serialized_end=324
 # @@protoc_insertion_point(module_scope)

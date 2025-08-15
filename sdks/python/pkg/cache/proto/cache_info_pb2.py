@@ -27,7 +27,7 @@ from google.protobuf import timestamp_pb2 as google_dot_protobuf_dot_timestamp__
 from pkg.common.proto import health_status_pb2 as pkg_dot_common_dot_proto_dot_health__status__pb2
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n pkg/cache/proto/cache_info.proto\x12\x10gcommon.v1.cache\x1a!google/protobuf/go_features.proto\x1a\x1fgoogle/protobuf/timestamp.proto\x1a$pkg/common/proto/health_status.proto\"\xe1\x03\n\tCacheInfo\x12\x12\n\x04name\x18\x01 \x01(\tR\x04name\x12\x18\n\x07version\x18\x02 \x01(\tR\x07version\x12\x1d\n\ncache_type\x18\x03 \x01(\tR\tcacheType\x12\x44\n\rhealth_status\x18\x04 \x01(\x0e\x32\x1f.gcommon.v1.common.HealthStatusR\x0chealthStatus\x12\x39\n\ncreated_at\x18\x05 \x01(\x0b\x32\x1a.google.protobuf.TimestampR\tcreatedAt\x12?\n\rlast_accessed\x18\x06 \x01(\x0b\x32\x1a.google.protobuf.TimestampR\x0clastAccessed\x12\x1f\n\x0binstance_id\x18\x07 \x01(\tR\ninstanceId\x12 \n\x0b\x64\x65scription\x18\x08 \x01(\tR\x0b\x64\x65scription\x12\x45\n\x08metadata\x18\t \x03(\x0b\x32).gcommon.v1.cache.CacheInfo.MetadataEntryR\x08metadata\x1a;\n\rMetadataEntry\x12\x10\n\x03key\x18\x01 \x01(\tR\x03key\x12\x14\n\x05value\x18\x02 \x01(\tR\x05value:\x02\x38\x01\x42\xbb\x01\n\x14\x63om.gcommon.v1.cacheB\x0e\x43\x61\x63heInfoProtoP\x01Z)github.com/jdfalk/gcommon/pkg/cache/proto\xa2\x02\x03GVC\xaa\x02\x10Gcommon.V1.Cache\xca\x02\x10Gcommon\\V1\\Cache\xe2\x02\x1cGcommon\\V1\\Cache\\GPBMetadata\xea\x02\x12Gcommon::V1::Cache\x92\x03\x05\xd2>\x02\x10\x03\x62\x08\x65\x64itionsp\xe8\x07')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n pkg/cache/proto/cache_info.proto\x12\x10gcommon.v1.cache\x1a!google/protobuf/go_features.proto\x1a\x1fgoogle/protobuf/timestamp.proto\x1a$pkg/common/proto/health_status.proto\"\xe7\x03\n\tCacheInfo\x12\x12\n\x04name\x18\x01 \x01(\tR\x04name\x12\x18\n\x07version\x18\x02 \x01(\tR\x07version\x12\x1d\n\ncache_type\x18\x03 \x01(\tR\tcacheType\x12J\n\rhealth_status\x18\x04 \x01(\x0e\x32%.gcommon.v1.common.CommonHealthStatusR\x0chealthStatus\x12\x39\n\ncreated_at\x18\x05 \x01(\x0b\x32\x1a.google.protobuf.TimestampR\tcreatedAt\x12?\n\rlast_accessed\x18\x06 \x01(\x0b\x32\x1a.google.protobuf.TimestampR\x0clastAccessed\x12\x1f\n\x0binstance_id\x18\x07 \x01(\tR\ninstanceId\x12 \n\x0b\x64\x65scription\x18\x08 \x01(\tR\x0b\x64\x65scription\x12\x45\n\x08metadata\x18\t \x03(\x0b\x32).gcommon.v1.cache.CacheInfo.MetadataEntryR\x08metadata\x1a;\n\rMetadataEntry\x12\x10\n\x03key\x18\x01 \x01(\tR\x03key\x12\x14\n\x05value\x18\x02 \x01(\tR\x05value:\x02\x38\x01\x42\xbb\x01\n\x14\x63om.gcommon.v1.cacheB\x0e\x43\x61\x63heInfoProtoP\x01Z)github.com/jdfalk/gcommon/pkg/cache/proto\xa2\x02\x03GVC\xaa\x02\x10Gcommon.V1.Cache\xca\x02\x10Gcommon\\V1\\Cache\xe2\x02\x1cGcommon\\V1\\Cache\\GPBMetadata\xea\x02\x12Gcommon::V1::Cache\x92\x03\x05\xd2>\x02\x10\x03\x62\x08\x65\x64itionsp\xe8\x07')
 
 _globals = globals()
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, _globals)
@@ -38,7 +38,7 @@ if not _descriptor._USE_C_DESCRIPTORS:
   _globals['_CACHEINFO_METADATAENTRY']._loaded_options = None
   _globals['_CACHEINFO_METADATAENTRY']._serialized_options = b'8\001'
   _globals['_CACHEINFO']._serialized_start=161
-  _globals['_CACHEINFO']._serialized_end=642
-  _globals['_CACHEINFO_METADATAENTRY']._serialized_start=583
-  _globals['_CACHEINFO_METADATAENTRY']._serialized_end=642
+  _globals['_CACHEINFO']._serialized_end=648
+  _globals['_CACHEINFO_METADATAENTRY']._serialized_start=589
+  _globals['_CACHEINFO_METADATAENTRY']._serialized_end=648
 # @@protoc_insertion_point(module_scope)

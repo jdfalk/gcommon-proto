@@ -24,9 +24,10 @@ _sym_db = _symbol_database.Default()
 
 from google.protobuf import go_features_pb2 as google_dot_protobuf_dot_go__features__pb2
 from google.protobuf import timestamp_pb2 as google_dot_protobuf_dot_timestamp__pb2
+from pkg.cache.proto import namespace_info_pb2 as pkg_dot_cache_dot_proto_dot_namespace__info__pb2
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n.pkg/cache/proto/list_namespaces_response.proto\x12\x10gcommon.v1.cache\x1a!google/protobuf/go_features.proto\x1a\x1fgoogle/protobuf/timestamp.proto\"\xf8\x02\n\rNamespaceInfo\x12!\n\x0cnamespace_id\x18\x01 \x01(\tR\x0bnamespaceId\x12\x12\n\x04name\x18\x02 \x01(\tR\x04name\x12 \n\x0b\x64\x65scription\x18\x03 \x01(\tR\x0b\x64\x65scription\x12\x39\n\ncreated_at\x18\x04 \x01(\x0b\x32\x1a.google.protobuf.TimestampR\tcreatedAt\x12!\n\x0c\x63urrent_keys\x18\x05 \x01(\x03R\x0b\x63urrentKeys\x12\x30\n\x14\x63urrent_memory_bytes\x18\x06 \x01(\x03R\x12\x63urrentMemoryBytes\x12\x43\n\x06\x63onfig\x18\x07 \x03(\x0b\x32+.gcommon.v1.cache.NamespaceInfo.ConfigEntryR\x06\x63onfig\x1a\x39\n\x0b\x43onfigEntry\x12\x10\n\x03key\x18\x01 \x01(\tR\x03key\x12\x14\n\x05value\x18\x02 \x01(\tR\x05value:\x02\x38\x01\"\xcc\x01\n\x16ListNamespacesResponse\x12?\n\nnamespaces\x18\x01 \x03(\x0b\x32\x1f.gcommon.v1.cache.NamespaceInfoR\nnamespaces\x12\x1f\n\x0btotal_count\x18\x02 \x01(\x05R\ntotalCount\x12\x12\n\x04page\x18\x03 \x01(\x05R\x04page\x12\x1b\n\tpage_size\x18\x04 \x01(\x05R\x08pageSize\x12\x1f\n\x0btotal_pages\x18\x05 \x01(\x05R\ntotalPagesB\xc8\x01\n\x14\x63om.gcommon.v1.cacheB\x1bListNamespacesResponseProtoP\x01Z)github.com/jdfalk/gcommon/pkg/cache/proto\xa2\x02\x03GVC\xaa\x02\x10Gcommon.V1.Cache\xca\x02\x10Gcommon\\V1\\Cache\xe2\x02\x1cGcommon\\V1\\Cache\\GPBMetadata\xea\x02\x12Gcommon::V1::Cache\x92\x03\x05\xd2>\x02\x10\x03\x62\x08\x65\x64itionsp\xe8\x07')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n.pkg/cache/proto/list_namespaces_response.proto\x12\x10gcommon.v1.cache\x1a!google/protobuf/go_features.proto\x1a\x1fgoogle/protobuf/timestamp.proto\x1a$pkg/cache/proto/namespace_info.proto\"\xcc\x01\n\x16ListNamespacesResponse\x12?\n\nnamespaces\x18\x01 \x03(\x0b\x32\x1f.gcommon.v1.cache.NamespaceInfoR\nnamespaces\x12\x1f\n\x0btotal_count\x18\x02 \x01(\x05R\ntotalCount\x12\x12\n\x04page\x18\x03 \x01(\x05R\x04page\x12\x1b\n\tpage_size\x18\x04 \x01(\x05R\x08pageSize\x12\x1f\n\x0btotal_pages\x18\x05 \x01(\x05R\ntotalPagesB\xc8\x01\n\x14\x63om.gcommon.v1.cacheB\x1bListNamespacesResponseProtoP\x01Z)github.com/jdfalk/gcommon/pkg/cache/proto\xa2\x02\x03GVC\xaa\x02\x10Gcommon.V1.Cache\xca\x02\x10Gcommon\\V1\\Cache\xe2\x02\x1cGcommon\\V1\\Cache\\GPBMetadata\xea\x02\x12Gcommon::V1::Cache\x92\x03\x05\xd2>\x02\x10\x03\x62\x08\x65\x64itionsp\xe8\x07')
 
 _globals = globals()
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, _globals)
@@ -34,12 +35,6 @@ _builder.BuildTopDescriptorsAndMessages(DESCRIPTOR, 'pkg.cache.proto.list_namesp
 if not _descriptor._USE_C_DESCRIPTORS:
   _globals['DESCRIPTOR']._loaded_options = None
   _globals['DESCRIPTOR']._serialized_options = b'\n\024com.gcommon.v1.cacheB\033ListNamespacesResponseProtoP\001Z)github.com/jdfalk/gcommon/pkg/cache/proto\242\002\003GVC\252\002\020Gcommon.V1.Cache\312\002\020Gcommon\\V1\\Cache\342\002\034Gcommon\\V1\\Cache\\GPBMetadata\352\002\022Gcommon::V1::Cache\222\003\005\322>\002\020\003'
-  _globals['_NAMESPACEINFO_CONFIGENTRY']._loaded_options = None
-  _globals['_NAMESPACEINFO_CONFIGENTRY']._serialized_options = b'8\001'
-  _globals['_NAMESPACEINFO']._serialized_start=137
-  _globals['_NAMESPACEINFO']._serialized_end=513
-  _globals['_NAMESPACEINFO_CONFIGENTRY']._serialized_start=456
-  _globals['_NAMESPACEINFO_CONFIGENTRY']._serialized_end=513
-  _globals['_LISTNAMESPACESRESPONSE']._serialized_start=516
-  _globals['_LISTNAMESPACESRESPONSE']._serialized_end=720
+  _globals['_LISTNAMESPACESRESPONSE']._serialized_start=175
+  _globals['_LISTNAMESPACESRESPONSE']._serialized_end=379
 # @@protoc_insertion_point(module_scope)

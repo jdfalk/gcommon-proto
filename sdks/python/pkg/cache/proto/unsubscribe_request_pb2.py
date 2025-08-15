@@ -26,7 +26,7 @@ from google.protobuf import go_features_pb2 as google_dot_protobuf_dot_go__featu
 from pkg.common.proto import request_metadata_pb2 as pkg_dot_common_dot_proto_dot_request__metadata__pb2
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n)pkg/cache/proto/unsubscribe_request.proto\x12\x10gcommon.v1.cache\x1a!google/protobuf/go_features.proto\x1a\'pkg/common/proto/request_metadata.proto\"n\n\x12UnsubscribeRequest\x12\x14\n\x05topic\x18\x01 \x01(\tR\x05topic\x12\x42\n\x08metadata\x18\x02 \x01(\x0b\x32\".gcommon.v1.common.RequestMetadataB\x02(\x01R\x08metadataB\xc4\x01\n\x14\x63om.gcommon.v1.cacheB\x17UnsubscribeRequestProtoP\x01Z)github.com/jdfalk/gcommon/pkg/cache/proto\xa2\x02\x03GVC\xaa\x02\x10Gcommon.V1.Cache\xca\x02\x10Gcommon\\V1\\Cache\xe2\x02\x1cGcommon\\V1\\Cache\\GPBMetadata\xea\x02\x12Gcommon::V1::Cache\x92\x03\x05\xd2>\x02\x10\x03\x62\x08\x65\x64itionsp\xe8\x07')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n)pkg/cache/proto/unsubscribe_request.proto\x12\x10gcommon.v1.cache\x1a!google/protobuf/go_features.proto\x1a\'pkg/common/proto/request_metadata.proto\"s\n\x17\x43\x61\x63heUnsubscribeRequest\x12\x14\n\x05topic\x18\x01 \x01(\tR\x05topic\x12\x42\n\x08metadata\x18\x02 \x01(\x0b\x32\".gcommon.v1.common.RequestMetadataB\x02(\x01R\x08metadataB\xc4\x01\n\x14\x63om.gcommon.v1.cacheB\x17UnsubscribeRequestProtoP\x01Z)github.com/jdfalk/gcommon/pkg/cache/proto\xa2\x02\x03GVC\xaa\x02\x10Gcommon.V1.Cache\xca\x02\x10Gcommon\\V1\\Cache\xe2\x02\x1cGcommon\\V1\\Cache\\GPBMetadata\xea\x02\x12Gcommon::V1::Cache\x92\x03\x05\xd2>\x02\x10\x03\x62\x08\x65\x64itionsp\xe8\x07')
 
 _globals = globals()
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, _globals)
@@ -34,8 +34,8 @@ _builder.BuildTopDescriptorsAndMessages(DESCRIPTOR, 'pkg.cache.proto.unsubscribe
 if not _descriptor._USE_C_DESCRIPTORS:
   _globals['DESCRIPTOR']._loaded_options = None
   _globals['DESCRIPTOR']._serialized_options = b'\n\024com.gcommon.v1.cacheB\027UnsubscribeRequestProtoP\001Z)github.com/jdfalk/gcommon/pkg/cache/proto\242\002\003GVC\252\002\020Gcommon.V1.Cache\312\002\020Gcommon\\V1\\Cache\342\002\034Gcommon\\V1\\Cache\\GPBMetadata\352\002\022Gcommon::V1::Cache\222\003\005\322>\002\020\003'
-  _globals['_UNSUBSCRIBEREQUEST'].fields_by_name['metadata']._loaded_options = None
-  _globals['_UNSUBSCRIBEREQUEST'].fields_by_name['metadata']._serialized_options = b'(\001'
-  _globals['_UNSUBSCRIBEREQUEST']._serialized_start=139
-  _globals['_UNSUBSCRIBEREQUEST']._serialized_end=249
+  _globals['_CACHEUNSUBSCRIBEREQUEST'].fields_by_name['metadata']._loaded_options = None
+  _globals['_CACHEUNSUBSCRIBEREQUEST'].fields_by_name['metadata']._serialized_options = b'(\001'
+  _globals['_CACHEUNSUBSCRIBEREQUEST']._serialized_start=139
+  _globals['_CACHEUNSUBSCRIBEREQUEST']._serialized_end=254
 # @@protoc_insertion_point(module_scope)

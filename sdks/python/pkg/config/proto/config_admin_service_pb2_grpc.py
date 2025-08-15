@@ -79,8 +79,8 @@ class ConfigAdminServiceStub(object):
                 _registered_method=True)
         self.HealthCheck = channel.unary_unary(
                 '/gcommon.v1.config.ConfigAdminService/HealthCheck',
-                request_serializer=pkg_dot_config_dot_proto_dot_health__check__request__pb2.HealthCheckRequest.SerializeToString,
-                response_deserializer=pkg_dot_config_dot_proto_dot_health__check__response__pb2.HealthCheckResponse.FromString,
+                request_serializer=pkg_dot_config_dot_proto_dot_health__check__request__pb2.ConfigHealthCheckRequest.SerializeToString,
+                response_deserializer=pkg_dot_config_dot_proto_dot_health__check__response__pb2.ConfigHealthCheckResponse.FromString,
                 _registered_method=True)
         self.UnwatchConfig = channel.unary_unary(
                 '/gcommon.v1.config.ConfigAdminService/UnwatchConfig',
@@ -221,8 +221,8 @@ def add_ConfigAdminServiceServicer_to_server(servicer, server):
             ),
             'HealthCheck': grpc.unary_unary_rpc_method_handler(
                     servicer.HealthCheck,
-                    request_deserializer=pkg_dot_config_dot_proto_dot_health__check__request__pb2.HealthCheckRequest.FromString,
-                    response_serializer=pkg_dot_config_dot_proto_dot_health__check__response__pb2.HealthCheckResponse.SerializeToString,
+                    request_deserializer=pkg_dot_config_dot_proto_dot_health__check__request__pb2.ConfigHealthCheckRequest.FromString,
+                    response_serializer=pkg_dot_config_dot_proto_dot_health__check__response__pb2.ConfigHealthCheckResponse.SerializeToString,
             ),
             'UnwatchConfig': grpc.unary_unary_rpc_method_handler(
                     servicer.UnwatchConfig,
@@ -500,8 +500,8 @@ class ConfigAdminService(object):
             request,
             target,
             '/gcommon.v1.config.ConfigAdminService/HealthCheck',
-            pkg_dot_config_dot_proto_dot_health__check__request__pb2.HealthCheckRequest.SerializeToString,
-            pkg_dot_config_dot_proto_dot_health__check__response__pb2.HealthCheckResponse.FromString,
+            pkg_dot_config_dot_proto_dot_health__check__request__pb2.ConfigHealthCheckRequest.SerializeToString,
+            pkg_dot_config_dot_proto_dot_health__check__response__pb2.ConfigHealthCheckResponse.FromString,
             options,
             channel_credentials,
             insecure,

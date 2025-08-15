@@ -26,10 +26,10 @@ from google.protobuf import duration_pb2 as google_dot_protobuf_dot_duration__pb
 from google.protobuf import go_features_pb2 as google_dot_protobuf_dot_go__features__pb2
 from google.protobuf import timestamp_pb2 as google_dot_protobuf_dot_timestamp__pb2
 from pkg.common.proto import error_pb2 as pkg_dot_common_dot_proto_dot_error__pb2
-from pkg.common.proto import health_status_pb2 as pkg_dot_common_dot_proto_dot_health__status__pb2
+from pkg.metrics.proto import health_status_pb2 as pkg_dot_metrics_dot_proto_dot_health__status__pb2
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n#pkg/health/proto/check_result.proto\x12\x11gcommon.v1.health\x1a\x1egoogle/protobuf/duration.proto\x1a!google/protobuf/go_features.proto\x1a\x1fgoogle/protobuf/timestamp.proto\x1a\x1cpkg/common/proto/error.proto\x1a$pkg/common/proto/health_status.proto\"\xa7\x03\n\x0b\x43heckResult\x12\x12\n\x04name\x18\x01 \x01(\tR\x04name\x12\x37\n\x06status\x18\x02 \x01(\x0e\x32\x1f.gcommon.v1.common.HealthStatusR\x06status\x12\x38\n\ttimestamp\x18\x03 \x01(\x0b\x32\x1a.google.protobuf.TimestampR\ttimestamp\x12@\n\x0e\x65xecution_time\x18\x04 \x01(\x0b\x32\x19.google.protobuf.DurationR\rexecutionTime\x12\x18\n\x07message\x18\x05 \x01(\tR\x07message\x12.\n\x05\x65rror\x18\x06 \x01(\x0b\x32\x18.gcommon.v1.common.ErrorR\x05\x65rror\x12H\n\x08metadata\x18\x07 \x03(\x0b\x32,.gcommon.v1.health.CheckResult.MetadataEntryR\x08metadata\x1a;\n\rMetadataEntry\x12\x10\n\x03key\x18\x01 \x01(\tR\x03key\x12\x14\n\x05value\x18\x02 \x01(\tR\x05value:\x02\x38\x01\x42\xc3\x01\n\x15\x63om.gcommon.v1.healthB\x10\x43heckResultProtoP\x01Z*github.com/jdfalk/gcommon/pkg/health/proto\xa2\x02\x03GVH\xaa\x02\x11Gcommon.V1.Health\xca\x02\x11Gcommon\\V1\\Health\xe2\x02\x1dGcommon\\V1\\Health\\GPBMetadata\xea\x02\x13Gcommon::V1::Health\x92\x03\x05\xd2>\x02\x10\x03\x62\x08\x65\x64itionsp\xe8\x07')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n#pkg/health/proto/check_result.proto\x12\x11gcommon.v1.health\x1a\x1egoogle/protobuf/duration.proto\x1a!google/protobuf/go_features.proto\x1a\x1fgoogle/protobuf/timestamp.proto\x1a\x1cpkg/common/proto/error.proto\x1a%pkg/metrics/proto/health_status.proto\"\xaf\x03\n\x0b\x43heckResult\x12\x12\n\x04name\x18\x01 \x01(\tR\x04name\x12?\n\x06status\x18\x02 \x01(\x0e\x32\'.gcommon.v1.metrics.MetricsHealthStatusR\x06status\x12\x38\n\ttimestamp\x18\x03 \x01(\x0b\x32\x1a.google.protobuf.TimestampR\ttimestamp\x12@\n\x0e\x65xecution_time\x18\x04 \x01(\x0b\x32\x19.google.protobuf.DurationR\rexecutionTime\x12\x18\n\x07message\x18\x05 \x01(\tR\x07message\x12.\n\x05\x65rror\x18\x06 \x01(\x0b\x32\x18.gcommon.v1.common.ErrorR\x05\x65rror\x12H\n\x08metadata\x18\x07 \x03(\x0b\x32,.gcommon.v1.health.CheckResult.MetadataEntryR\x08metadata\x1a;\n\rMetadataEntry\x12\x10\n\x03key\x18\x01 \x01(\tR\x03key\x12\x14\n\x05value\x18\x02 \x01(\tR\x05value:\x02\x38\x01\x42\xc3\x01\n\x15\x63om.gcommon.v1.healthB\x10\x43heckResultProtoP\x01Z*github.com/jdfalk/gcommon/pkg/health/proto\xa2\x02\x03GVH\xaa\x02\x11Gcommon.V1.Health\xca\x02\x11Gcommon\\V1\\Health\xe2\x02\x1dGcommon\\V1\\Health\\GPBMetadata\xea\x02\x13Gcommon::V1::Health\x92\x03\x05\xd2>\x02\x10\x03\x62\x08\x65\x64itionsp\xe8\x07')
 
 _globals = globals()
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, _globals)
@@ -39,8 +39,8 @@ if not _descriptor._USE_C_DESCRIPTORS:
   _globals['DESCRIPTOR']._serialized_options = b'\n\025com.gcommon.v1.healthB\020CheckResultProtoP\001Z*github.com/jdfalk/gcommon/pkg/health/proto\242\002\003GVH\252\002\021Gcommon.V1.Health\312\002\021Gcommon\\V1\\Health\342\002\035Gcommon\\V1\\Health\\GPBMetadata\352\002\023Gcommon::V1::Health\222\003\005\322>\002\020\003'
   _globals['_CHECKRESULT_METADATAENTRY']._loaded_options = None
   _globals['_CHECKRESULT_METADATAENTRY']._serialized_options = b'8\001'
-  _globals['_CHECKRESULT']._serialized_start=227
-  _globals['_CHECKRESULT']._serialized_end=650
-  _globals['_CHECKRESULT_METADATAENTRY']._serialized_start=591
-  _globals['_CHECKRESULT_METADATAENTRY']._serialized_end=650
+  _globals['_CHECKRESULT']._serialized_start=228
+  _globals['_CHECKRESULT']._serialized_end=659
+  _globals['_CHECKRESULT_METADATAENTRY']._serialized_start=600
+  _globals['_CHECKRESULT_METADATAENTRY']._serialized_end=659
 # @@protoc_insertion_point(module_scope)

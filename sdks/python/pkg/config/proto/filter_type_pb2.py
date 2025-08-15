@@ -27,7 +27,7 @@ from google.protobuf import go_features_pb2 as google_dot_protobuf_dot_go__featu
 from google.protobuf import timestamp_pb2 as google_dot_protobuf_dot_timestamp__pb2
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n\"pkg/config/proto/filter_type.proto\x12\x11gcommon.v1.config\x1a\x19google/protobuf/any.proto\x1a!google/protobuf/go_features.proto\x1a\x1fgoogle/protobuf/timestamp.proto*\xe3\x01\n\nFilterType\x12\x1b\n\x17\x46ILTER_TYPE_UNSPECIFIED\x10\x00\x12\x1b\n\x17\x46ILTER_TYPE_KEY_PATTERN\x10\x01\x12\x1d\n\x19\x46ILTER_TYPE_VALUE_PATTERN\x10\x02\x12\x1b\n\x17\x46ILTER_TYPE_ENVIRONMENT\x10\x03\x12\x17\n\x13\x46ILTER_TYPE_SERVICE\x10\x04\x12\x19\n\x15\x46ILTER_TYPE_COMPONENT\x10\x05\x12\x13\n\x0f\x46ILTER_TYPE_TAG\x10\x06\x12\x16\n\x12\x46ILTER_TYPE_CUSTOM\x10\x07\x42\xc2\x01\n\x15\x63om.gcommon.v1.configB\x0f\x46ilterTypeProtoP\x01Z*github.com/jdfalk/gcommon/pkg/config/proto\xa2\x02\x03GVC\xaa\x02\x11Gcommon.V1.Config\xca\x02\x11Gcommon\\V1\\Config\xe2\x02\x1dGcommon\\V1\\Config\\GPBMetadata\xea\x02\x13Gcommon::V1::Config\x92\x03\x05\xd2>\x02\x10\x03\x62\x08\x65\x64itionsp\xe8\x07')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n\"pkg/config/proto/filter_type.proto\x12\x11gcommon.v1.config\x1a\x19google/protobuf/any.proto\x1a!google/protobuf/go_features.proto\x1a\x1fgoogle/protobuf/timestamp.proto*\xe9\x01\n\x10\x43onfigFilterType\x12\x1b\n\x17\x46ILTER_TYPE_UNSPECIFIED\x10\x00\x12\x1b\n\x17\x46ILTER_TYPE_KEY_PATTERN\x10\x01\x12\x1d\n\x19\x46ILTER_TYPE_VALUE_PATTERN\x10\x02\x12\x1b\n\x17\x46ILTER_TYPE_ENVIRONMENT\x10\x03\x12\x17\n\x13\x46ILTER_TYPE_SERVICE\x10\x04\x12\x19\n\x15\x46ILTER_TYPE_COMPONENT\x10\x05\x12\x13\n\x0f\x46ILTER_TYPE_TAG\x10\x06\x12\x16\n\x12\x46ILTER_TYPE_CUSTOM\x10\x07\x42\xc2\x01\n\x15\x63om.gcommon.v1.configB\x0f\x46ilterTypeProtoP\x01Z*github.com/jdfalk/gcommon/pkg/config/proto\xa2\x02\x03GVC\xaa\x02\x11Gcommon.V1.Config\xca\x02\x11Gcommon\\V1\\Config\xe2\x02\x1dGcommon\\V1\\Config\\GPBMetadata\xea\x02\x13Gcommon::V1::Config\x92\x03\x05\xd2>\x02\x10\x03\x62\x08\x65\x64itionsp\xe8\x07')
 
 _globals = globals()
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, _globals)
@@ -35,6 +35,6 @@ _builder.BuildTopDescriptorsAndMessages(DESCRIPTOR, 'pkg.config.proto.filter_typ
 if not _descriptor._USE_C_DESCRIPTORS:
   _globals['DESCRIPTOR']._loaded_options = None
   _globals['DESCRIPTOR']._serialized_options = b'\n\025com.gcommon.v1.configB\017FilterTypeProtoP\001Z*github.com/jdfalk/gcommon/pkg/config/proto\242\002\003GVC\252\002\021Gcommon.V1.Config\312\002\021Gcommon\\V1\\Config\342\002\035Gcommon\\V1\\Config\\GPBMetadata\352\002\023Gcommon::V1::Config\222\003\005\322>\002\020\003'
-  _globals['_FILTERTYPE']._serialized_start=153
-  _globals['_FILTERTYPE']._serialized_end=380
+  _globals['_CONFIGFILTERTYPE']._serialized_start=153
+  _globals['_CONFIGFILTERTYPE']._serialized_end=386
 # @@protoc_insertion_point(module_scope)

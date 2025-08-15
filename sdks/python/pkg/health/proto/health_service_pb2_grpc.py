@@ -34,8 +34,8 @@ class HealthServiceStub(object):
         """
         self.Check = channel.unary_unary(
                 '/gcommon.v1.health.HealthService/Check',
-                request_serializer=pkg_dot_health_dot_proto_dot_health__check__request__pb2.HealthCheckRequest.SerializeToString,
-                response_deserializer=pkg_dot_health_dot_proto_dot_health__check__response__pb2.HealthCheckResponse.FromString,
+                request_serializer=pkg_dot_health_dot_proto_dot_health__check__request__pb2.HealthHealthCheckRequest.SerializeToString,
+                response_deserializer=pkg_dot_health_dot_proto_dot_health__check__response__pb2.HealthHealthCheckResponse.FromString,
                 _registered_method=True)
         self.CheckAll = channel.unary_unary(
                 '/gcommon.v1.health.HealthService/CheckAll',
@@ -44,7 +44,7 @@ class HealthServiceStub(object):
                 _registered_method=True)
         self.Watch = channel.unary_stream(
                 '/gcommon.v1.health.HealthService/Watch',
-                request_serializer=pkg_dot_health_dot_proto_dot_watch__request__pb2.WatchRequest.SerializeToString,
+                request_serializer=pkg_dot_health_dot_proto_dot_watch__request__pb2.HealthWatchRequest.SerializeToString,
                 response_deserializer=pkg_dot_health_dot_proto_dot_watch__response__pb2.WatchResponse.FromString,
                 _registered_method=True)
         self.GetServiceHealth = channel.unary_unary(
@@ -141,8 +141,8 @@ def add_HealthServiceServicer_to_server(servicer, server):
     rpc_method_handlers = {
             'Check': grpc.unary_unary_rpc_method_handler(
                     servicer.Check,
-                    request_deserializer=pkg_dot_health_dot_proto_dot_health__check__request__pb2.HealthCheckRequest.FromString,
-                    response_serializer=pkg_dot_health_dot_proto_dot_health__check__response__pb2.HealthCheckResponse.SerializeToString,
+                    request_deserializer=pkg_dot_health_dot_proto_dot_health__check__request__pb2.HealthHealthCheckRequest.FromString,
+                    response_serializer=pkg_dot_health_dot_proto_dot_health__check__response__pb2.HealthHealthCheckResponse.SerializeToString,
             ),
             'CheckAll': grpc.unary_unary_rpc_method_handler(
                     servicer.CheckAll,
@@ -151,7 +151,7 @@ def add_HealthServiceServicer_to_server(servicer, server):
             ),
             'Watch': grpc.unary_stream_rpc_method_handler(
                     servicer.Watch,
-                    request_deserializer=pkg_dot_health_dot_proto_dot_watch__request__pb2.WatchRequest.FromString,
+                    request_deserializer=pkg_dot_health_dot_proto_dot_watch__request__pb2.HealthWatchRequest.FromString,
                     response_serializer=pkg_dot_health_dot_proto_dot_watch__response__pb2.WatchResponse.SerializeToString,
             ),
             'GetServiceHealth': grpc.unary_unary_rpc_method_handler(
@@ -208,8 +208,8 @@ class HealthService(object):
             request,
             target,
             '/gcommon.v1.health.HealthService/Check',
-            pkg_dot_health_dot_proto_dot_health__check__request__pb2.HealthCheckRequest.SerializeToString,
-            pkg_dot_health_dot_proto_dot_health__check__response__pb2.HealthCheckResponse.FromString,
+            pkg_dot_health_dot_proto_dot_health__check__request__pb2.HealthHealthCheckRequest.SerializeToString,
+            pkg_dot_health_dot_proto_dot_health__check__response__pb2.HealthHealthCheckResponse.FromString,
             options,
             channel_credentials,
             insecure,
@@ -262,7 +262,7 @@ class HealthService(object):
             request,
             target,
             '/gcommon.v1.health.HealthService/Watch',
-            pkg_dot_health_dot_proto_dot_watch__request__pb2.WatchRequest.SerializeToString,
+            pkg_dot_health_dot_proto_dot_watch__request__pb2.HealthWatchRequest.SerializeToString,
             pkg_dot_health_dot_proto_dot_watch__response__pb2.WatchResponse.FromString,
             options,
             channel_credentials,

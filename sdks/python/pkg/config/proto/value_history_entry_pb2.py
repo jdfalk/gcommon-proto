@@ -28,7 +28,7 @@ from google.protobuf import timestamp_pb2 as google_dot_protobuf_dot_timestamp__
 from pkg.config.proto import change_type_pb2 as pkg_dot_config_dot_proto_dot_change__type__pb2
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n*pkg/config/proto/value_history_entry.proto\x12\x11gcommon.v1.config\x1a\x19google/protobuf/any.proto\x1a!google/protobuf/go_features.proto\x1a\x1fgoogle/protobuf/timestamp.proto\x1a\"pkg/config/proto/change_type.proto\"\xb0\x03\n\x11ValueHistoryEntry\x12\x19\n\x08\x65ntry_id\x18\x01 \x01(\tR\x07\x65ntryId\x12%\n\x0eprevious_value\x18\x02 \x01(\tR\rpreviousValue\x12\x1b\n\tnew_value\x18\x03 \x01(\tR\x08newValue\x12\x38\n\ttimestamp\x18\x04 \x01(\x0b\x32\x1a.google.protobuf.TimestampR\ttimestamp\x12\x1d\n\nchanged_by\x18\x05 \x01(\tR\tchangedBy\x12\x16\n\x06reason\x18\x06 \x01(\tR\x06reason\x12>\n\x0b\x63hange_type\x18\x07 \x01(\x0e\x32\x1d.gcommon.v1.config.ChangeTypeR\nchangeType\x12N\n\x08metadata\x18\x08 \x03(\x0b\x32\x32.gcommon.v1.config.ValueHistoryEntry.MetadataEntryR\x08metadata\x1a;\n\rMetadataEntry\x12\x10\n\x03key\x18\x01 \x01(\tR\x03key\x12\x14\n\x05value\x18\x02 \x01(\tR\x05value:\x02\x38\x01\x42\xc9\x01\n\x15\x63om.gcommon.v1.configB\x16ValueHistoryEntryProtoP\x01Z*github.com/jdfalk/gcommon/pkg/config/proto\xa2\x02\x03GVC\xaa\x02\x11Gcommon.V1.Config\xca\x02\x11Gcommon\\V1\\Config\xe2\x02\x1dGcommon\\V1\\Config\\GPBMetadata\xea\x02\x13Gcommon::V1::Config\x92\x03\x05\xd2>\x02\x10\x03\x62\x08\x65\x64itionsp\xe8\x07')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n*pkg/config/proto/value_history_entry.proto\x12\x11gcommon.v1.config\x1a\x19google/protobuf/any.proto\x1a!google/protobuf/go_features.proto\x1a\x1fgoogle/protobuf/timestamp.proto\x1a\"pkg/config/proto/change_type.proto\"\xb8\x03\n\x11ValueHistoryEntry\x12\x19\n\x08\x65ntry_id\x18\x01 \x01(\tR\x07\x65ntryId\x12%\n\x0eprevious_value\x18\x02 \x01(\tR\rpreviousValue\x12\x1b\n\tnew_value\x18\x03 \x01(\tR\x08newValue\x12\x38\n\ttimestamp\x18\x04 \x01(\x0b\x32\x1a.google.protobuf.TimestampR\ttimestamp\x12\x1d\n\nchanged_by\x18\x05 \x01(\tR\tchangedBy\x12\x16\n\x06reason\x18\x06 \x01(\tR\x06reason\x12\x46\n\x0b\x63hange_type\x18\x07 \x01(\x0e\x32%.gcommon.v1.config.TemplateChangeTypeR\nchangeType\x12N\n\x08metadata\x18\x08 \x03(\x0b\x32\x32.gcommon.v1.config.ValueHistoryEntry.MetadataEntryR\x08metadata\x1a;\n\rMetadataEntry\x12\x10\n\x03key\x18\x01 \x01(\tR\x03key\x12\x14\n\x05value\x18\x02 \x01(\tR\x05value:\x02\x38\x01\x42\xc9\x01\n\x15\x63om.gcommon.v1.configB\x16ValueHistoryEntryProtoP\x01Z*github.com/jdfalk/gcommon/pkg/config/proto\xa2\x02\x03GVC\xaa\x02\x11Gcommon.V1.Config\xca\x02\x11Gcommon\\V1\\Config\xe2\x02\x1dGcommon\\V1\\Config\\GPBMetadata\xea\x02\x13Gcommon::V1::Config\x92\x03\x05\xd2>\x02\x10\x03\x62\x08\x65\x64itionsp\xe8\x07')
 
 _globals = globals()
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, _globals)
@@ -39,7 +39,7 @@ if not _descriptor._USE_C_DESCRIPTORS:
   _globals['_VALUEHISTORYENTRY_METADATAENTRY']._loaded_options = None
   _globals['_VALUEHISTORYENTRY_METADATAENTRY']._serialized_options = b'8\001'
   _globals['_VALUEHISTORYENTRY']._serialized_start=197
-  _globals['_VALUEHISTORYENTRY']._serialized_end=629
-  _globals['_VALUEHISTORYENTRY_METADATAENTRY']._serialized_start=570
-  _globals['_VALUEHISTORYENTRY_METADATAENTRY']._serialized_end=629
+  _globals['_VALUEHISTORYENTRY']._serialized_end=637
+  _globals['_VALUEHISTORYENTRY_METADATAENTRY']._serialized_start=578
+  _globals['_VALUEHISTORYENTRY_METADATAENTRY']._serialized_end=637
 # @@protoc_insertion_point(module_scope)

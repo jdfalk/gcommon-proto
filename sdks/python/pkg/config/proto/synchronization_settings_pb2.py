@@ -30,7 +30,7 @@ from pkg.config.proto import synchronization_frequency_pb2 as pkg_dot_config_dot
 from pkg.config.proto import synchronization_target_pb2 as pkg_dot_config_dot_proto_dot_synchronization__target__pb2
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n/pkg/config/proto/synchronization_settings.proto\x12\x11gcommon.v1.config\x1a\x19google/protobuf/any.proto\x1a!google/protobuf/go_features.proto\x1a\x1fgoogle/protobuf/timestamp.proto\x1a*pkg/config/proto/conflict_resolution.proto\x1a\x30pkg/config/proto/synchronization_frequency.proto\x1a-pkg/config/proto/synchronization_target.proto\"\xad\x03\n\x17SynchronizationSettings\x12\x18\n\x07\x65nabled\x18\x01 \x01(\x08R\x07\x65nabled\x12\x42\n\x07targets\x18\x02 \x03(\x0b\x32(.gcommon.v1.config.SynchronizationTargetR\x07targets\x12I\n\tfrequency\x18\x03 \x01(\x0e\x32+.gcommon.v1.config.SynchronizationFrequencyR\tfrequency\x12V\n\x13\x63onflict_resolution\x18\x04 \x01(\x0e\x32%.gcommon.v1.config.ConflictResolutionR\x12\x63onflictResolution\x12T\n\x08metadata\x18\x05 \x03(\x0b\x32\x38.gcommon.v1.config.SynchronizationSettings.MetadataEntryR\x08metadata\x1a;\n\rMetadataEntry\x12\x10\n\x03key\x18\x01 \x01(\tR\x03key\x12\x14\n\x05value\x18\x02 \x01(\tR\x05value:\x02\x38\x01\x42\xcf\x01\n\x15\x63om.gcommon.v1.configB\x1cSynchronizationSettingsProtoP\x01Z*github.com/jdfalk/gcommon/pkg/config/proto\xa2\x02\x03GVC\xaa\x02\x11Gcommon.V1.Config\xca\x02\x11Gcommon\\V1\\Config\xe2\x02\x1dGcommon\\V1\\Config\\GPBMetadata\xea\x02\x13Gcommon::V1::Config\x92\x03\x05\xd2>\x02\x10\x03\x62\x08\x65\x64itionsp\xe8\x07')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n/pkg/config/proto/synchronization_settings.proto\x12\x11gcommon.v1.config\x1a\x19google/protobuf/any.proto\x1a!google/protobuf/go_features.proto\x1a\x1fgoogle/protobuf/timestamp.proto\x1a*pkg/config/proto/conflict_resolution.proto\x1a\x30pkg/config/proto/synchronization_frequency.proto\x1a-pkg/config/proto/synchronization_target.proto\"\xb3\x03\n\x17SynchronizationSettings\x12\x18\n\x07\x65nabled\x18\x01 \x01(\x08R\x07\x65nabled\x12\x42\n\x07targets\x18\x02 \x03(\x0b\x32(.gcommon.v1.config.SynchronizationTargetR\x07targets\x12I\n\tfrequency\x18\x03 \x01(\x0e\x32+.gcommon.v1.config.SynchronizationFrequencyR\tfrequency\x12\\\n\x13\x63onflict_resolution\x18\x04 \x01(\x0e\x32+.gcommon.v1.config.ConfigConflictResolutionR\x12\x63onflictResolution\x12T\n\x08metadata\x18\x05 \x03(\x0b\x32\x38.gcommon.v1.config.SynchronizationSettings.MetadataEntryR\x08metadata\x1a;\n\rMetadataEntry\x12\x10\n\x03key\x18\x01 \x01(\tR\x03key\x12\x14\n\x05value\x18\x02 \x01(\tR\x05value:\x02\x38\x01\x42\xcf\x01\n\x15\x63om.gcommon.v1.configB\x1cSynchronizationSettingsProtoP\x01Z*github.com/jdfalk/gcommon/pkg/config/proto\xa2\x02\x03GVC\xaa\x02\x11Gcommon.V1.Config\xca\x02\x11Gcommon\\V1\\Config\xe2\x02\x1dGcommon\\V1\\Config\\GPBMetadata\xea\x02\x13Gcommon::V1::Config\x92\x03\x05\xd2>\x02\x10\x03\x62\x08\x65\x64itionsp\xe8\x07')
 
 _globals = globals()
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, _globals)
@@ -41,7 +41,7 @@ if not _descriptor._USE_C_DESCRIPTORS:
   _globals['_SYNCHRONIZATIONSETTINGS_METADATAENTRY']._loaded_options = None
   _globals['_SYNCHRONIZATIONSETTINGS_METADATAENTRY']._serialized_options = b'8\001'
   _globals['_SYNCHRONIZATIONSETTINGS']._serialized_start=307
-  _globals['_SYNCHRONIZATIONSETTINGS']._serialized_end=736
-  _globals['_SYNCHRONIZATIONSETTINGS_METADATAENTRY']._serialized_start=677
-  _globals['_SYNCHRONIZATIONSETTINGS_METADATAENTRY']._serialized_end=736
+  _globals['_SYNCHRONIZATIONSETTINGS']._serialized_end=742
+  _globals['_SYNCHRONIZATIONSETTINGS_METADATAENTRY']._serialized_start=683
+  _globals['_SYNCHRONIZATIONSETTINGS_METADATAENTRY']._serialized_end=742
 # @@protoc_insertion_point(module_scope)

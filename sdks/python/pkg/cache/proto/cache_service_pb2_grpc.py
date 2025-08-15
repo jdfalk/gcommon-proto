@@ -18,6 +18,7 @@ from pkg.cache.proto import get_multiple_request_pb2 as pkg_dot_cache_dot_proto_
 from pkg.cache.proto import get_multiple_response_pb2 as pkg_dot_cache_dot_proto_dot_get__multiple__response__pb2
 from pkg.cache.proto import get_request_pb2 as pkg_dot_cache_dot_proto_dot_get__request__pb2
 from pkg.cache.proto import get_response_pb2 as pkg_dot_cache_dot_proto_dot_get__response__pb2
+from pkg.cache.proto import get_stats_request_pb2 as pkg_dot_cache_dot_proto_dot_get__stats__request__pb2
 from pkg.cache.proto import get_stats_response_pb2 as pkg_dot_cache_dot_proto_dot_get__stats__response__pb2
 from pkg.cache.proto import increment_request_pb2 as pkg_dot_cache_dot_proto_dot_increment__request__pb2
 from pkg.cache.proto import increment_response_pb2 as pkg_dot_cache_dot_proto_dot_increment__response__pb2
@@ -27,9 +28,8 @@ from pkg.cache.proto import set_multiple_request_pb2 as pkg_dot_cache_dot_proto_
 from pkg.cache.proto import set_multiple_response_pb2 as pkg_dot_cache_dot_proto_dot_set__multiple__response__pb2
 from pkg.cache.proto import set_request_pb2 as pkg_dot_cache_dot_proto_dot_set__request__pb2
 from pkg.cache.proto import set_response_pb2 as pkg_dot_cache_dot_proto_dot_set__response__pb2
-from pkg.cache.proto import stats_request_pb2 as pkg_dot_cache_dot_proto_dot_stats__request__pb2
+from pkg.cache.proto import touch_expiration_request_pb2 as pkg_dot_cache_dot_proto_dot_touch__expiration__request__pb2
 from pkg.cache.proto import touch_expiration_response_pb2 as pkg_dot_cache_dot_proto_dot_touch__expiration__response__pb2
-from pkg.cache.proto import ttl_request_pb2 as pkg_dot_cache_dot_proto_dot_ttl__request__pb2
 
 
 class CacheServiceStub(object):
@@ -57,8 +57,8 @@ class CacheServiceStub(object):
                 _registered_method=True)
         self.Delete = channel.unary_unary(
                 '/gcommon.v1.cache.CacheService/Delete',
-                request_serializer=pkg_dot_cache_dot_proto_dot_delete__request__pb2.DeleteRequest.SerializeToString,
-                response_deserializer=pkg_dot_cache_dot_proto_dot_delete__response__pb2.DeleteResponse.FromString,
+                request_serializer=pkg_dot_cache_dot_proto_dot_delete__request__pb2.CacheDeleteRequest.SerializeToString,
+                response_deserializer=pkg_dot_cache_dot_proto_dot_delete__response__pb2.CacheDeleteResponse.FromString,
                 _registered_method=True)
         self.Exists = channel.unary_unary(
                 '/gcommon.v1.cache.CacheService/Exists',
@@ -102,8 +102,8 @@ class CacheServiceStub(object):
                 _registered_method=True)
         self.GetStats = channel.unary_unary(
                 '/gcommon.v1.cache.CacheService/GetStats',
-                request_serializer=pkg_dot_cache_dot_proto_dot_stats__request__pb2.GetStatsRequest.SerializeToString,
-                response_deserializer=pkg_dot_cache_dot_proto_dot_get__stats__response__pb2.GetStatsResponse.FromString,
+                request_serializer=pkg_dot_cache_dot_proto_dot_get__stats__request__pb2.CacheGetStatsRequest.SerializeToString,
+                response_deserializer=pkg_dot_cache_dot_proto_dot_get__stats__response__pb2.CacheGetStatsResponse.FromString,
                 _registered_method=True)
         self.Flush = channel.unary_unary(
                 '/gcommon.v1.cache.CacheService/Flush',
@@ -112,7 +112,7 @@ class CacheServiceStub(object):
                 _registered_method=True)
         self.TouchExpiration = channel.unary_unary(
                 '/gcommon.v1.cache.CacheService/TouchExpiration',
-                request_serializer=pkg_dot_cache_dot_proto_dot_ttl__request__pb2.TouchExpirationRequest.SerializeToString,
+                request_serializer=pkg_dot_cache_dot_proto_dot_touch__expiration__request__pb2.TouchExpirationRequest.SerializeToString,
                 response_deserializer=pkg_dot_cache_dot_proto_dot_touch__expiration__response__pb2.TouchExpirationResponse.FromString,
                 _registered_method=True)
 
@@ -237,8 +237,8 @@ def add_CacheServiceServicer_to_server(servicer, server):
             ),
             'Delete': grpc.unary_unary_rpc_method_handler(
                     servicer.Delete,
-                    request_deserializer=pkg_dot_cache_dot_proto_dot_delete__request__pb2.DeleteRequest.FromString,
-                    response_serializer=pkg_dot_cache_dot_proto_dot_delete__response__pb2.DeleteResponse.SerializeToString,
+                    request_deserializer=pkg_dot_cache_dot_proto_dot_delete__request__pb2.CacheDeleteRequest.FromString,
+                    response_serializer=pkg_dot_cache_dot_proto_dot_delete__response__pb2.CacheDeleteResponse.SerializeToString,
             ),
             'Exists': grpc.unary_unary_rpc_method_handler(
                     servicer.Exists,
@@ -282,8 +282,8 @@ def add_CacheServiceServicer_to_server(servicer, server):
             ),
             'GetStats': grpc.unary_unary_rpc_method_handler(
                     servicer.GetStats,
-                    request_deserializer=pkg_dot_cache_dot_proto_dot_stats__request__pb2.GetStatsRequest.FromString,
-                    response_serializer=pkg_dot_cache_dot_proto_dot_get__stats__response__pb2.GetStatsResponse.SerializeToString,
+                    request_deserializer=pkg_dot_cache_dot_proto_dot_get__stats__request__pb2.CacheGetStatsRequest.FromString,
+                    response_serializer=pkg_dot_cache_dot_proto_dot_get__stats__response__pb2.CacheGetStatsResponse.SerializeToString,
             ),
             'Flush': grpc.unary_unary_rpc_method_handler(
                     servicer.Flush,
@@ -292,7 +292,7 @@ def add_CacheServiceServicer_to_server(servicer, server):
             ),
             'TouchExpiration': grpc.unary_unary_rpc_method_handler(
                     servicer.TouchExpiration,
-                    request_deserializer=pkg_dot_cache_dot_proto_dot_ttl__request__pb2.TouchExpirationRequest.FromString,
+                    request_deserializer=pkg_dot_cache_dot_proto_dot_touch__expiration__request__pb2.TouchExpirationRequest.FromString,
                     response_serializer=pkg_dot_cache_dot_proto_dot_touch__expiration__response__pb2.TouchExpirationResponse.SerializeToString,
             ),
     }
@@ -379,8 +379,8 @@ class CacheService(object):
             request,
             target,
             '/gcommon.v1.cache.CacheService/Delete',
-            pkg_dot_cache_dot_proto_dot_delete__request__pb2.DeleteRequest.SerializeToString,
-            pkg_dot_cache_dot_proto_dot_delete__response__pb2.DeleteResponse.FromString,
+            pkg_dot_cache_dot_proto_dot_delete__request__pb2.CacheDeleteRequest.SerializeToString,
+            pkg_dot_cache_dot_proto_dot_delete__response__pb2.CacheDeleteResponse.FromString,
             options,
             channel_credentials,
             insecure,
@@ -622,8 +622,8 @@ class CacheService(object):
             request,
             target,
             '/gcommon.v1.cache.CacheService/GetStats',
-            pkg_dot_cache_dot_proto_dot_stats__request__pb2.GetStatsRequest.SerializeToString,
-            pkg_dot_cache_dot_proto_dot_get__stats__response__pb2.GetStatsResponse.FromString,
+            pkg_dot_cache_dot_proto_dot_get__stats__request__pb2.CacheGetStatsRequest.SerializeToString,
+            pkg_dot_cache_dot_proto_dot_get__stats__response__pb2.CacheGetStatsResponse.FromString,
             options,
             channel_credentials,
             insecure,
@@ -676,7 +676,7 @@ class CacheService(object):
             request,
             target,
             '/gcommon.v1.cache.CacheService/TouchExpiration',
-            pkg_dot_cache_dot_proto_dot_ttl__request__pb2.TouchExpirationRequest.SerializeToString,
+            pkg_dot_cache_dot_proto_dot_touch__expiration__request__pb2.TouchExpirationRequest.SerializeToString,
             pkg_dot_cache_dot_proto_dot_touch__expiration__response__pb2.TouchExpirationResponse.FromString,
             options,
             channel_credentials,

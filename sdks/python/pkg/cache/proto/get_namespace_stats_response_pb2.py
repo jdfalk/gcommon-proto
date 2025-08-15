@@ -24,9 +24,10 @@ _sym_db = _symbol_database.Default()
 
 from google.protobuf import go_features_pb2 as google_dot_protobuf_dot_go__features__pb2
 from google.protobuf import timestamp_pb2 as google_dot_protobuf_dot_timestamp__pb2
+from pkg.cache.proto import namespace_stats_pb2 as pkg_dot_cache_dot_proto_dot_namespace__stats__pb2
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n2pkg/cache/proto/get_namespace_stats_response.proto\x12\x10gcommon.v1.cache\x1a!google/protobuf/go_features.proto\x1a\x1fgoogle/protobuf/timestamp.proto\"\x8b\x03\n\x0eNamespaceStats\x12\x1d\n\ntotal_keys\x18\x01 \x01(\x03R\ttotalKeys\x12,\n\x12memory_usage_bytes\x18\x02 \x01(\x03R\x10memoryUsageBytes\x12(\n\x10hit_rate_percent\x18\x03 \x01(\x01R\x0ehitRatePercent\x12\x1d\n\ncache_hits\x18\x04 \x01(\x03R\tcacheHits\x12!\n\x0c\x63\x61\x63he_misses\x18\x05 \x01(\x03R\x0b\x63\x61\x63heMisses\x12\x1c\n\tevictions\x18\x06 \x01(\x03R\tevictions\x12+\n\x12\x61vg_key_size_bytes\x18\x07 \x01(\x01R\x0f\x61vgKeySizeBytes\x12/\n\x14\x61vg_value_size_bytes\x18\x08 \x01(\x01R\x11\x61vgValueSizeBytes\x12\x44\n\x10last_access_time\x18\t \x01(\x0b\x32\x1a.google.protobuf.TimestampR\x0elastAccessTime\"\xb5\x01\n\x19GetNamespaceStatsResponse\x12!\n\x0cnamespace_id\x18\x01 \x01(\tR\x0bnamespaceId\x12\x36\n\x05stats\x18\x02 \x01(\x0b\x32 .gcommon.v1.cache.NamespaceStatsR\x05stats\x12=\n\x0c\x63ollected_at\x18\x03 \x01(\x0b\x32\x1a.google.protobuf.TimestampR\x0b\x63ollectedAtB\xcb\x01\n\x14\x63om.gcommon.v1.cacheB\x1eGetNamespaceStatsResponseProtoP\x01Z)github.com/jdfalk/gcommon/pkg/cache/proto\xa2\x02\x03GVC\xaa\x02\x10Gcommon.V1.Cache\xca\x02\x10Gcommon\\V1\\Cache\xe2\x02\x1cGcommon\\V1\\Cache\\GPBMetadata\xea\x02\x12Gcommon::V1::Cache\x92\x03\x05\xd2>\x02\x10\x03\x62\x08\x65\x64itionsp\xe8\x07')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n2pkg/cache/proto/get_namespace_stats_response.proto\x12\x10gcommon.v1.cache\x1a!google/protobuf/go_features.proto\x1a\x1fgoogle/protobuf/timestamp.proto\x1a%pkg/cache/proto/namespace_stats.proto\"\xb5\x01\n\x19GetNamespaceStatsResponse\x12!\n\x0cnamespace_id\x18\x01 \x01(\tR\x0bnamespaceId\x12\x36\n\x05stats\x18\x02 \x01(\x0b\x32 .gcommon.v1.cache.NamespaceStatsR\x05stats\x12=\n\x0c\x63ollected_at\x18\x03 \x01(\x0b\x32\x1a.google.protobuf.TimestampR\x0b\x63ollectedAtB\xcb\x01\n\x14\x63om.gcommon.v1.cacheB\x1eGetNamespaceStatsResponseProtoP\x01Z)github.com/jdfalk/gcommon/pkg/cache/proto\xa2\x02\x03GVC\xaa\x02\x10Gcommon.V1.Cache\xca\x02\x10Gcommon\\V1\\Cache\xe2\x02\x1cGcommon\\V1\\Cache\\GPBMetadata\xea\x02\x12Gcommon::V1::Cache\x92\x03\x05\xd2>\x02\x10\x03\x62\x08\x65\x64itionsp\xe8\x07')
 
 _globals = globals()
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, _globals)
@@ -34,8 +35,6 @@ _builder.BuildTopDescriptorsAndMessages(DESCRIPTOR, 'pkg.cache.proto.get_namespa
 if not _descriptor._USE_C_DESCRIPTORS:
   _globals['DESCRIPTOR']._loaded_options = None
   _globals['DESCRIPTOR']._serialized_options = b'\n\024com.gcommon.v1.cacheB\036GetNamespaceStatsResponseProtoP\001Z)github.com/jdfalk/gcommon/pkg/cache/proto\242\002\003GVC\252\002\020Gcommon.V1.Cache\312\002\020Gcommon\\V1\\Cache\342\002\034Gcommon\\V1\\Cache\\GPBMetadata\352\002\022Gcommon::V1::Cache\222\003\005\322>\002\020\003'
-  _globals['_NAMESPACESTATS']._serialized_start=141
-  _globals['_NAMESPACESTATS']._serialized_end=536
-  _globals['_GETNAMESPACESTATSRESPONSE']._serialized_start=539
-  _globals['_GETNAMESPACESTATSRESPONSE']._serialized_end=720
+  _globals['_GETNAMESPACESTATSRESPONSE']._serialized_start=180
+  _globals['_GETNAMESPACESTATSRESPONSE']._serialized_end=361
 # @@protoc_insertion_point(module_scope)

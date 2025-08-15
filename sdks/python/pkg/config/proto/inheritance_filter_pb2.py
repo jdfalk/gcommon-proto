@@ -29,7 +29,7 @@ from pkg.config.proto import filter_action_pb2 as pkg_dot_config_dot_proto_dot_f
 from pkg.config.proto import filter_type_pb2 as pkg_dot_config_dot_proto_dot_filter__type__pb2
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n)pkg/config/proto/inheritance_filter.proto\x12\x11gcommon.v1.config\x1a\x19google/protobuf/any.proto\x1a!google/protobuf/go_features.proto\x1a\x1fgoogle/protobuf/timestamp.proto\x1a$pkg/config/proto/filter_action.proto\x1a\"pkg/config/proto/filter_type.proto\"\xac\x02\n\x11InheritanceFilter\x12\x31\n\x04type\x18\x01 \x01(\x0e\x32\x1d.gcommon.v1.config.FilterTypeR\x04type\x12\x1e\n\nexpression\x18\x02 \x01(\tR\nexpression\x12\x37\n\x06\x61\x63tion\x18\x03 \x01(\x0e\x32\x1f.gcommon.v1.config.FilterActionR\x06\x61\x63tion\x12N\n\x08metadata\x18\x04 \x03(\x0b\x32\x32.gcommon.v1.config.InheritanceFilter.MetadataEntryR\x08metadata\x1a;\n\rMetadataEntry\x12\x10\n\x03key\x18\x01 \x01(\tR\x03key\x12\x14\n\x05value\x18\x02 \x01(\tR\x05value:\x02\x38\x01\x42\xc9\x01\n\x15\x63om.gcommon.v1.configB\x16InheritanceFilterProtoP\x01Z*github.com/jdfalk/gcommon/pkg/config/proto\xa2\x02\x03GVC\xaa\x02\x11Gcommon.V1.Config\xca\x02\x11Gcommon\\V1\\Config\xe2\x02\x1dGcommon\\V1\\Config\\GPBMetadata\xea\x02\x13Gcommon::V1::Config\x92\x03\x05\xd2>\x02\x10\x03\x62\x08\x65\x64itionsp\xe8\x07')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n)pkg/config/proto/inheritance_filter.proto\x12\x11gcommon.v1.config\x1a\x19google/protobuf/any.proto\x1a!google/protobuf/go_features.proto\x1a\x1fgoogle/protobuf/timestamp.proto\x1a$pkg/config/proto/filter_action.proto\x1a\"pkg/config/proto/filter_type.proto\"\xb2\x02\n\x11InheritanceFilter\x12\x37\n\x04type\x18\x01 \x01(\x0e\x32#.gcommon.v1.config.ConfigFilterTypeR\x04type\x12\x1e\n\nexpression\x18\x02 \x01(\tR\nexpression\x12\x37\n\x06\x61\x63tion\x18\x03 \x01(\x0e\x32\x1f.gcommon.v1.config.FilterActionR\x06\x61\x63tion\x12N\n\x08metadata\x18\x04 \x03(\x0b\x32\x32.gcommon.v1.config.InheritanceFilter.MetadataEntryR\x08metadata\x1a;\n\rMetadataEntry\x12\x10\n\x03key\x18\x01 \x01(\tR\x03key\x12\x14\n\x05value\x18\x02 \x01(\tR\x05value:\x02\x38\x01\x42\xc9\x01\n\x15\x63om.gcommon.v1.configB\x16InheritanceFilterProtoP\x01Z*github.com/jdfalk/gcommon/pkg/config/proto\xa2\x02\x03GVC\xaa\x02\x11Gcommon.V1.Config\xca\x02\x11Gcommon\\V1\\Config\xe2\x02\x1dGcommon\\V1\\Config\\GPBMetadata\xea\x02\x13Gcommon::V1::Config\x92\x03\x05\xd2>\x02\x10\x03\x62\x08\x65\x64itionsp\xe8\x07')
 
 _globals = globals()
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, _globals)
@@ -40,7 +40,7 @@ if not _descriptor._USE_C_DESCRIPTORS:
   _globals['_INHERITANCEFILTER_METADATAENTRY']._loaded_options = None
   _globals['_INHERITANCEFILTER_METADATAENTRY']._serialized_options = b'8\001'
   _globals['_INHERITANCEFILTER']._serialized_start=234
-  _globals['_INHERITANCEFILTER']._serialized_end=534
-  _globals['_INHERITANCEFILTER_METADATAENTRY']._serialized_start=475
-  _globals['_INHERITANCEFILTER_METADATAENTRY']._serialized_end=534
+  _globals['_INHERITANCEFILTER']._serialized_end=540
+  _globals['_INHERITANCEFILTER_METADATAENTRY']._serialized_start=481
+  _globals['_INHERITANCEFILTER_METADATAENTRY']._serialized_end=540
 # @@protoc_insertion_point(module_scope)

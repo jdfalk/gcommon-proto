@@ -27,7 +27,7 @@ from google.protobuf import go_features_pb2 as google_dot_protobuf_dot_go__featu
 from pkg.common.proto import request_metadata_pb2 as pkg_dot_common_dot_proto_dot_request__metadata__pb2
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n+pkg/health/proto/health_check_request.proto\x12\x11gcommon.v1.health\x1a\x1egoogle/protobuf/duration.proto\x1a!google/protobuf/go_features.proto\x1a\'pkg/common/proto/request_metadata.proto\"\xcc\x01\n\x12HealthCheckRequest\x12\x18\n\x07service\x18\x01 \x01(\tR\x07service\x12>\n\x08metadata\x18\x02 \x01(\x0b\x32\".gcommon.v1.common.RequestMetadataR\x08metadata\x12\x33\n\x07timeout\x18\x03 \x01(\x0b\x32\x19.google.protobuf.DurationR\x07timeout\x12\'\n\x0finclude_details\x18\x04 \x01(\x08R\x0eincludeDetailsB\xca\x01\n\x15\x63om.gcommon.v1.healthB\x17HealthCheckRequestProtoP\x01Z*github.com/jdfalk/gcommon/pkg/health/proto\xa2\x02\x03GVH\xaa\x02\x11Gcommon.V1.Health\xca\x02\x11Gcommon\\V1\\Health\xe2\x02\x1dGcommon\\V1\\Health\\GPBMetadata\xea\x02\x13Gcommon::V1::Health\x92\x03\x05\xd2>\x02\x10\x03\x62\x08\x65\x64itionsp\xe8\x07')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n+pkg/health/proto/health_check_request.proto\x12\x11gcommon.v1.health\x1a\x1egoogle/protobuf/duration.proto\x1a!google/protobuf/go_features.proto\x1a\'pkg/common/proto/request_metadata.proto\"\xd2\x01\n\x18HealthHealthCheckRequest\x12\x18\n\x07service\x18\x01 \x01(\tR\x07service\x12>\n\x08metadata\x18\x02 \x01(\x0b\x32\".gcommon.v1.common.RequestMetadataR\x08metadata\x12\x33\n\x07timeout\x18\x03 \x01(\x0b\x32\x19.google.protobuf.DurationR\x07timeout\x12\'\n\x0finclude_details\x18\x04 \x01(\x08R\x0eincludeDetailsB\xca\x01\n\x15\x63om.gcommon.v1.healthB\x17HealthCheckRequestProtoP\x01Z*github.com/jdfalk/gcommon/pkg/health/proto\xa2\x02\x03GVH\xaa\x02\x11Gcommon.V1.Health\xca\x02\x11Gcommon\\V1\\Health\xe2\x02\x1dGcommon\\V1\\Health\\GPBMetadata\xea\x02\x13Gcommon::V1::Health\x92\x03\x05\xd2>\x02\x10\x03\x62\x08\x65\x64itionsp\xe8\x07')
 
 _globals = globals()
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, _globals)
@@ -35,6 +35,6 @@ _builder.BuildTopDescriptorsAndMessages(DESCRIPTOR, 'pkg.health.proto.health_che
 if not _descriptor._USE_C_DESCRIPTORS:
   _globals['DESCRIPTOR']._loaded_options = None
   _globals['DESCRIPTOR']._serialized_options = b'\n\025com.gcommon.v1.healthB\027HealthCheckRequestProtoP\001Z*github.com/jdfalk/gcommon/pkg/health/proto\242\002\003GVH\252\002\021Gcommon.V1.Health\312\002\021Gcommon\\V1\\Health\342\002\035Gcommon\\V1\\Health\\GPBMetadata\352\002\023Gcommon::V1::Health\222\003\005\322>\002\020\003'
-  _globals['_HEALTHCHECKREQUEST']._serialized_start=175
-  _globals['_HEALTHCHECKREQUEST']._serialized_end=379
+  _globals['_HEALTHHEALTHCHECKREQUEST']._serialized_start=175
+  _globals['_HEALTHHEALTHCHECKREQUEST']._serialized_end=385
 # @@protoc_insertion_point(module_scope)

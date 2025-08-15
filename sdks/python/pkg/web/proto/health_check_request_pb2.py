@@ -26,7 +26,7 @@ from google.protobuf import go_features_pb2 as google_dot_protobuf_dot_go__featu
 from pkg.common.proto import request_metadata_pb2 as pkg_dot_common_dot_proto_dot_request__metadata__pb2
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n(pkg/web/proto/health_check_request.proto\x12\x0egcommon.v1.web\x1a!google/protobuf/go_features.proto\x1a\'pkg/common/proto/request_metadata.proto\"X\n\x12HealthCheckRequest\x12\x42\n\x08metadata\x18\x01 \x01(\x0b\x32\".gcommon.v1.common.RequestMetadataB\x02(\x01R\x08metadataB\xb8\x01\n\x12\x63om.gcommon.v1.webB\x17HealthCheckRequestProtoP\x01Z\'github.com/jdfalk/gcommon/pkg/web/proto\xa2\x02\x03GVW\xaa\x02\x0eGcommon.V1.Web\xca\x02\x0eGcommon\\V1\\Web\xe2\x02\x1aGcommon\\V1\\Web\\GPBMetadata\xea\x02\x10Gcommon::V1::Web\x92\x03\x05\xd2>\x02\x10\x03\x62\x08\x65\x64itionsp\xe8\x07')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n(pkg/web/proto/health_check_request.proto\x12\x0egcommon.v1.web\x1a!google/protobuf/go_features.proto\x1a\'pkg/common/proto/request_metadata.proto\"[\n\x15WebHealthCheckRequest\x12\x42\n\x08metadata\x18\x01 \x01(\x0b\x32\".gcommon.v1.common.RequestMetadataB\x02(\x01R\x08metadataB\xb8\x01\n\x12\x63om.gcommon.v1.webB\x17HealthCheckRequestProtoP\x01Z\'github.com/jdfalk/gcommon/pkg/web/proto\xa2\x02\x03GVW\xaa\x02\x0eGcommon.V1.Web\xca\x02\x0eGcommon\\V1\\Web\xe2\x02\x1aGcommon\\V1\\Web\\GPBMetadata\xea\x02\x10Gcommon::V1::Web\x92\x03\x05\xd2>\x02\x10\x03\x62\x08\x65\x64itionsp\xe8\x07')
 
 _globals = globals()
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, _globals)
@@ -34,8 +34,8 @@ _builder.BuildTopDescriptorsAndMessages(DESCRIPTOR, 'pkg.web.proto.health_check_
 if not _descriptor._USE_C_DESCRIPTORS:
   _globals['DESCRIPTOR']._loaded_options = None
   _globals['DESCRIPTOR']._serialized_options = b'\n\022com.gcommon.v1.webB\027HealthCheckRequestProtoP\001Z\'github.com/jdfalk/gcommon/pkg/web/proto\242\002\003GVW\252\002\016Gcommon.V1.Web\312\002\016Gcommon\\V1\\Web\342\002\032Gcommon\\V1\\Web\\GPBMetadata\352\002\020Gcommon::V1::Web\222\003\005\322>\002\020\003'
-  _globals['_HEALTHCHECKREQUEST'].fields_by_name['metadata']._loaded_options = None
-  _globals['_HEALTHCHECKREQUEST'].fields_by_name['metadata']._serialized_options = b'(\001'
-  _globals['_HEALTHCHECKREQUEST']._serialized_start=136
-  _globals['_HEALTHCHECKREQUEST']._serialized_end=224
+  _globals['_WEBHEALTHCHECKREQUEST'].fields_by_name['metadata']._loaded_options = None
+  _globals['_WEBHEALTHCHECKREQUEST'].fields_by_name['metadata']._serialized_options = b'(\001'
+  _globals['_WEBHEALTHCHECKREQUEST']._serialized_start=136
+  _globals['_WEBHEALTHCHECKREQUEST']._serialized_end=227
 # @@protoc_insertion_point(module_scope)

@@ -28,7 +28,7 @@ from pkg.config.proto import compliance_audit_pb2 as pkg_dot_config_dot_proto_do
 from pkg.config.proto import compliance_reporting_pb2 as pkg_dot_config_dot_proto_dot_compliance__reporting__pb2
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n*pkg/config/proto/compliance_settings.proto\x12\x11gcommon.v1.config\x1a!google/protobuf/go_features.proto\x1a\x1fgoogle/protobuf/timestamp.proto\x1a\'pkg/config/proto/compliance_audit.proto\x1a+pkg/config/proto/compliance_reporting.proto\"\x8f\x03\n\x12\x43omplianceSettings\x12\x1e\n\nframeworks\x18\x01 \x03(\tR\nframeworks\x12\x1a\n\x08policies\x18\x02 \x03(\tR\x08policies\x12:\n\x06\x61udits\x18\x03 \x03(\x0b\x32\".gcommon.v1.config.ComplianceAuditR\x06\x61udits\x12\x44\n\treporting\x18\x04 \x01(\x0b\x32&.gcommon.v1.config.ComplianceReportingR\treporting\x12-\n\x12validation_enabled\x18\x05 \x01(\x08R\x11validationEnabled\x12O\n\x08metadata\x18\x06 \x03(\x0b\x32\x33.gcommon.v1.config.ComplianceSettings.MetadataEntryR\x08metadata\x1a;\n\rMetadataEntry\x12\x10\n\x03key\x18\x01 \x01(\tR\x03key\x12\x14\n\x05value\x18\x02 \x01(\tR\x05value:\x02\x38\x01\x42\xca\x01\n\x15\x63om.gcommon.v1.configB\x17\x43omplianceSettingsProtoP\x01Z*github.com/jdfalk/gcommon/pkg/config/proto\xa2\x02\x03GVC\xaa\x02\x11Gcommon.V1.Config\xca\x02\x11Gcommon\\V1\\Config\xe2\x02\x1dGcommon\\V1\\Config\\GPBMetadata\xea\x02\x13Gcommon::V1::Config\x92\x03\x05\xd2>\x02\x10\x03\x62\x08\x65\x64itionsp\xe8\x07')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n*pkg/config/proto/compliance_settings.proto\x12\x11gcommon.v1.config\x1a!google/protobuf/go_features.proto\x1a\x1fgoogle/protobuf/timestamp.proto\x1a\'pkg/config/proto/compliance_audit.proto\x1a+pkg/config/proto/compliance_reporting.proto\"\x9b\x03\n\x18\x43onfigComplianceSettings\x12\x1e\n\nframeworks\x18\x01 \x03(\tR\nframeworks\x12\x1a\n\x08policies\x18\x02 \x03(\tR\x08policies\x12:\n\x06\x61udits\x18\x03 \x03(\x0b\x32\".gcommon.v1.config.ComplianceAuditR\x06\x61udits\x12\x44\n\treporting\x18\x04 \x01(\x0b\x32&.gcommon.v1.config.ComplianceReportingR\treporting\x12-\n\x12validation_enabled\x18\x05 \x01(\x08R\x11validationEnabled\x12U\n\x08metadata\x18\x06 \x03(\x0b\x32\x39.gcommon.v1.config.ConfigComplianceSettings.MetadataEntryR\x08metadata\x1a;\n\rMetadataEntry\x12\x10\n\x03key\x18\x01 \x01(\tR\x03key\x12\x14\n\x05value\x18\x02 \x01(\tR\x05value:\x02\x38\x01\x42\xca\x01\n\x15\x63om.gcommon.v1.configB\x17\x43omplianceSettingsProtoP\x01Z*github.com/jdfalk/gcommon/pkg/config/proto\xa2\x02\x03GVC\xaa\x02\x11Gcommon.V1.Config\xca\x02\x11Gcommon\\V1\\Config\xe2\x02\x1dGcommon\\V1\\Config\\GPBMetadata\xea\x02\x13Gcommon::V1::Config\x92\x03\x05\xd2>\x02\x10\x03\x62\x08\x65\x64itionsp\xe8\x07')
 
 _globals = globals()
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, _globals)
@@ -36,10 +36,10 @@ _builder.BuildTopDescriptorsAndMessages(DESCRIPTOR, 'pkg.config.proto.compliance
 if not _descriptor._USE_C_DESCRIPTORS:
   _globals['DESCRIPTOR']._loaded_options = None
   _globals['DESCRIPTOR']._serialized_options = b'\n\025com.gcommon.v1.configB\027ComplianceSettingsProtoP\001Z*github.com/jdfalk/gcommon/pkg/config/proto\242\002\003GVC\252\002\021Gcommon.V1.Config\312\002\021Gcommon\\V1\\Config\342\002\035Gcommon\\V1\\Config\\GPBMetadata\352\002\023Gcommon::V1::Config\222\003\005\322>\002\020\003'
-  _globals['_COMPLIANCESETTINGS_METADATAENTRY']._loaded_options = None
-  _globals['_COMPLIANCESETTINGS_METADATAENTRY']._serialized_options = b'8\001'
-  _globals['_COMPLIANCESETTINGS']._serialized_start=220
-  _globals['_COMPLIANCESETTINGS']._serialized_end=619
-  _globals['_COMPLIANCESETTINGS_METADATAENTRY']._serialized_start=560
-  _globals['_COMPLIANCESETTINGS_METADATAENTRY']._serialized_end=619
+  _globals['_CONFIGCOMPLIANCESETTINGS_METADATAENTRY']._loaded_options = None
+  _globals['_CONFIGCOMPLIANCESETTINGS_METADATAENTRY']._serialized_options = b'8\001'
+  _globals['_CONFIGCOMPLIANCESETTINGS']._serialized_start=220
+  _globals['_CONFIGCOMPLIANCESETTINGS']._serialized_end=631
+  _globals['_CONFIGCOMPLIANCESETTINGS_METADATAENTRY']._serialized_start=572
+  _globals['_CONFIGCOMPLIANCESETTINGS_METADATAENTRY']._serialized_end=631
 # @@protoc_insertion_point(module_scope)

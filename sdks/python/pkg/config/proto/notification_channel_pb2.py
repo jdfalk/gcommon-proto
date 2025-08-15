@@ -33,7 +33,7 @@ from pkg.config.proto import metadata_status_pb2 as pkg_dot_config_dot_proto_dot
 from pkg.config.proto import notification_trigger_pb2 as pkg_dot_config_dot_proto_dot_notification__trigger__pb2
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n+pkg/config/proto/notification_channel.proto\x12\x11gcommon.v1.config\x1a!google/protobuf/go_features.proto\x1a\x1fgoogle/protobuf/timestamp.proto\x1a\"pkg/config/proto/audit_level.proto\x1a\'pkg/config/proto/backup_frequency.proto\x1a#pkg/config/proto/channel_type.proto\x1a\'pkg/config/proto/config_data_type.proto\x1a(pkg/config/proto/deprecation_level.proto\x1a&pkg/config/proto/metadata_status.proto\x1a+pkg/config/proto/notification_trigger.proto\"\x86\x02\n\x13NotificationChannel\x12\x32\n\x04type\x18\x01 \x01(\x0e\x32\x1e.gcommon.v1.config.ChannelTypeR\x04type\x12J\n\x06\x63onfig\x18\x02 \x03(\x0b\x32\x32.gcommon.v1.config.NotificationChannel.ConfigEntryR\x06\x63onfig\x12\x18\n\x07\x65nabled\x18\x03 \x01(\x08R\x07\x65nabled\x12\x1a\n\x08priority\x18\x04 \x01(\x05R\x08priority\x1a\x39\n\x0b\x43onfigEntry\x12\x10\n\x03key\x18\x01 \x01(\tR\x03key\x12\x14\n\x05value\x18\x02 \x01(\tR\x05value:\x02\x38\x01\x42\xcb\x01\n\x15\x63om.gcommon.v1.configB\x18NotificationChannelProtoP\x01Z*github.com/jdfalk/gcommon/pkg/config/proto\xa2\x02\x03GVC\xaa\x02\x11Gcommon.V1.Config\xca\x02\x11Gcommon\\V1\\Config\xe2\x02\x1dGcommon\\V1\\Config\\GPBMetadata\xea\x02\x13Gcommon::V1::Config\x92\x03\x05\xd2>\x02\x10\x03\x62\x08\x65\x64itionsp\xe8\x07')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n+pkg/config/proto/notification_channel.proto\x12\x11gcommon.v1.config\x1a!google/protobuf/go_features.proto\x1a\x1fgoogle/protobuf/timestamp.proto\x1a\"pkg/config/proto/audit_level.proto\x1a\'pkg/config/proto/backup_frequency.proto\x1a#pkg/config/proto/channel_type.proto\x1a\'pkg/config/proto/config_data_type.proto\x1a(pkg/config/proto/deprecation_level.proto\x1a&pkg/config/proto/metadata_status.proto\x1a+pkg/config/proto/notification_trigger.proto\"\x92\x02\n\x19\x43onfigNotificationChannel\x12\x32\n\x04type\x18\x01 \x01(\x0e\x32\x1e.gcommon.v1.config.ChannelTypeR\x04type\x12P\n\x06\x63onfig\x18\x02 \x03(\x0b\x32\x38.gcommon.v1.config.ConfigNotificationChannel.ConfigEntryR\x06\x63onfig\x12\x18\n\x07\x65nabled\x18\x03 \x01(\x08R\x07\x65nabled\x12\x1a\n\x08priority\x18\x04 \x01(\x05R\x08priority\x1a\x39\n\x0b\x43onfigEntry\x12\x10\n\x03key\x18\x01 \x01(\tR\x03key\x12\x14\n\x05value\x18\x02 \x01(\tR\x05value:\x02\x38\x01\x42\xcb\x01\n\x15\x63om.gcommon.v1.configB\x18NotificationChannelProtoP\x01Z*github.com/jdfalk/gcommon/pkg/config/proto\xa2\x02\x03GVC\xaa\x02\x11Gcommon.V1.Config\xca\x02\x11Gcommon\\V1\\Config\xe2\x02\x1dGcommon\\V1\\Config\\GPBMetadata\xea\x02\x13Gcommon::V1::Config\x92\x03\x05\xd2>\x02\x10\x03\x62\x08\x65\x64itionsp\xe8\x07')
 
 _globals = globals()
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, _globals)
@@ -41,10 +41,10 @@ _builder.BuildTopDescriptorsAndMessages(DESCRIPTOR, 'pkg.config.proto.notificati
 if not _descriptor._USE_C_DESCRIPTORS:
   _globals['DESCRIPTOR']._loaded_options = None
   _globals['DESCRIPTOR']._serialized_options = b'\n\025com.gcommon.v1.configB\030NotificationChannelProtoP\001Z*github.com/jdfalk/gcommon/pkg/config/proto\242\002\003GVC\252\002\021Gcommon.V1.Config\312\002\021Gcommon\\V1\\Config\342\002\035Gcommon\\V1\\Config\\GPBMetadata\352\002\023Gcommon::V1::Config\222\003\005\322>\002\020\003'
-  _globals['_NOTIFICATIONCHANNEL_CONFIGENTRY']._loaded_options = None
-  _globals['_NOTIFICATIONCHANNEL_CONFIGENTRY']._serialized_options = b'8\001'
-  _globals['_NOTIFICATIONCHANNEL']._serialized_start=417
-  _globals['_NOTIFICATIONCHANNEL']._serialized_end=679
-  _globals['_NOTIFICATIONCHANNEL_CONFIGENTRY']._serialized_start=622
-  _globals['_NOTIFICATIONCHANNEL_CONFIGENTRY']._serialized_end=679
+  _globals['_CONFIGNOTIFICATIONCHANNEL_CONFIGENTRY']._loaded_options = None
+  _globals['_CONFIGNOTIFICATIONCHANNEL_CONFIGENTRY']._serialized_options = b'8\001'
+  _globals['_CONFIGNOTIFICATIONCHANNEL']._serialized_start=417
+  _globals['_CONFIGNOTIFICATIONCHANNEL']._serialized_end=691
+  _globals['_CONFIGNOTIFICATIONCHANNEL_CONFIGENTRY']._serialized_start=634
+  _globals['_CONFIGNOTIFICATIONCHANNEL_CONFIGENTRY']._serialized_end=691
 # @@protoc_insertion_point(module_scope)

@@ -29,7 +29,7 @@ from pkg.config.proto import retry_settings_pb2 as pkg_dot_config_dot_proto_dot_
 from pkg.config.proto import validation_rule_pb2 as pkg_dot_config_dot_proto_dot_validation__rule__pb2
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n*pkg/config/proto/validation_settings.proto\x12\x11gcommon.v1.config\x1a\x19google/protobuf/any.proto\x1a!google/protobuf/go_features.proto\x1a\x1fgoogle/protobuf/timestamp.proto\x1a%pkg/config/proto/retry_settings.proto\x1a&pkg/config/proto/validation_rule.proto\"\xb2\x03\n\x12ValidationSettings\x12\x18\n\x07\x65nabled\x18\x01 \x01(\x08R\x07\x65nabled\x12\x37\n\x05rules\x18\x02 \x03(\x0b\x32!.gcommon.v1.config.ValidationRuleR\x05rules\x12,\n\x12validate_on_change\x18\x03 \x01(\x08R\x10validateOnChange\x12,\n\x12validate_on_access\x18\x04 \x01(\x08R\x10validateOnAccess\x12\'\n\x0ftimeout_seconds\x18\x05 \x01(\x05R\x0etimeoutSeconds\x12\x36\n\x05retry\x18\x06 \x01(\x0b\x32 .gcommon.v1.config.RetrySettingsR\x05retry\x12O\n\x08metadata\x18\x07 \x03(\x0b\x32\x33.gcommon.v1.config.ValidationSettings.MetadataEntryR\x08metadata\x1a;\n\rMetadataEntry\x12\x10\n\x03key\x18\x01 \x01(\tR\x03key\x12\x14\n\x05value\x18\x02 \x01(\tR\x05value:\x02\x38\x01\x42\xca\x01\n\x15\x63om.gcommon.v1.configB\x17ValidationSettingsProtoP\x01Z*github.com/jdfalk/gcommon/pkg/config/proto\xa2\x02\x03GVC\xaa\x02\x11Gcommon.V1.Config\xca\x02\x11Gcommon\\V1\\Config\xe2\x02\x1dGcommon\\V1\\Config\\GPBMetadata\xea\x02\x13Gcommon::V1::Config\x92\x03\x05\xd2>\x02\x10\x03\x62\x08\x65\x64itionsp\xe8\x07')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n*pkg/config/proto/validation_settings.proto\x12\x11gcommon.v1.config\x1a\x19google/protobuf/any.proto\x1a!google/protobuf/go_features.proto\x1a\x1fgoogle/protobuf/timestamp.proto\x1a%pkg/config/proto/retry_settings.proto\x1a&pkg/config/proto/validation_rule.proto\"\xb8\x03\n\x12ValidationSettings\x12\x18\n\x07\x65nabled\x18\x01 \x01(\x08R\x07\x65nabled\x12\x37\n\x05rules\x18\x02 \x03(\x0b\x32!.gcommon.v1.config.ValidationRuleR\x05rules\x12,\n\x12validate_on_change\x18\x03 \x01(\x08R\x10validateOnChange\x12,\n\x12validate_on_access\x18\x04 \x01(\x08R\x10validateOnAccess\x12\'\n\x0ftimeout_seconds\x18\x05 \x01(\x05R\x0etimeoutSeconds\x12<\n\x05retry\x18\x06 \x01(\x0b\x32&.gcommon.v1.config.ConfigRetrySettingsR\x05retry\x12O\n\x08metadata\x18\x07 \x03(\x0b\x32\x33.gcommon.v1.config.ValidationSettings.MetadataEntryR\x08metadata\x1a;\n\rMetadataEntry\x12\x10\n\x03key\x18\x01 \x01(\tR\x03key\x12\x14\n\x05value\x18\x02 \x01(\tR\x05value:\x02\x38\x01\x42\xca\x01\n\x15\x63om.gcommon.v1.configB\x17ValidationSettingsProtoP\x01Z*github.com/jdfalk/gcommon/pkg/config/proto\xa2\x02\x03GVC\xaa\x02\x11Gcommon.V1.Config\xca\x02\x11Gcommon\\V1\\Config\xe2\x02\x1dGcommon\\V1\\Config\\GPBMetadata\xea\x02\x13Gcommon::V1::Config\x92\x03\x05\xd2>\x02\x10\x03\x62\x08\x65\x64itionsp\xe8\x07')
 
 _globals = globals()
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, _globals)
@@ -40,7 +40,7 @@ if not _descriptor._USE_C_DESCRIPTORS:
   _globals['_VALIDATIONSETTINGS_METADATAENTRY']._loaded_options = None
   _globals['_VALIDATIONSETTINGS_METADATAENTRY']._serialized_options = b'8\001'
   _globals['_VALIDATIONSETTINGS']._serialized_start=240
-  _globals['_VALIDATIONSETTINGS']._serialized_end=674
-  _globals['_VALIDATIONSETTINGS_METADATAENTRY']._serialized_start=615
-  _globals['_VALIDATIONSETTINGS_METADATAENTRY']._serialized_end=674
+  _globals['_VALIDATIONSETTINGS']._serialized_end=680
+  _globals['_VALIDATIONSETTINGS_METADATAENTRY']._serialized_start=621
+  _globals['_VALIDATIONSETTINGS_METADATAENTRY']._serialized_end=680
 # @@protoc_insertion_point(module_scope)

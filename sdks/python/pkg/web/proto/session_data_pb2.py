@@ -27,7 +27,7 @@ from google.protobuf import timestamp_pb2 as google_dot_protobuf_dot_timestamp__
 from pkg.web.proto import session_state_pb2 as pkg_dot_web_dot_proto_dot_session__state__pb2
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n pkg/web/proto/session_data.proto\x12\x0egcommon.v1.web\x1a!google/protobuf/go_features.proto\x1a\x1fgoogle/protobuf/timestamp.proto\x1a!pkg/web/proto/session_state.proto\"\xff\x03\n\x0bSessionData\x12\x1d\n\nsession_id\x18\x01 \x01(\tR\tsessionId\x12\x17\n\x07user_id\x18\x02 \x01(\tR\x06userId\x12\x32\n\x05state\x18\x03 \x01(\x0e\x32\x1c.gcommon.v1.web.SessionStateR\x05state\x12=\n\ncreated_at\x18\x04 \x01(\x0b\x32\x1a.google.protobuf.TimestampB\x02(\x01R\tcreatedAt\x12\x44\n\x0elast_access_at\x18\x05 \x01(\x0b\x32\x1a.google.protobuf.TimestampB\x02(\x01R\x0clastAccessAt\x12=\n\nexpires_at\x18\x06 \x01(\x0b\x32\x1a.google.protobuf.TimestampB\x02(\x01R\texpiresAt\x12\x1d\n\nip_address\x18\x07 \x01(\tR\tipAddress\x12\x1d\n\nuser_agent\x18\x08 \x01(\tR\tuserAgent\x12\x45\n\x08metadata\x18\t \x03(\x0b\x32).gcommon.v1.web.SessionData.MetadataEntryR\x08metadata\x1a;\n\rMetadataEntry\x12\x10\n\x03key\x18\x01 \x01(\tR\x03key\x12\x14\n\x05value\x18\x02 \x01(\tR\x05value:\x02\x38\x01\x42\xb1\x01\n\x12\x63om.gcommon.v1.webB\x10SessionDataProtoP\x01Z\'github.com/jdfalk/gcommon/pkg/web/proto\xa2\x02\x03GVW\xaa\x02\x0eGcommon.V1.Web\xca\x02\x0eGcommon\\V1\\Web\xe2\x02\x1aGcommon\\V1\\Web\\GPBMetadata\xea\x02\x10Gcommon::V1::Web\x92\x03\x05\xd2>\x02\x10\x03\x62\x08\x65\x64itionsp\xe8\x07')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n pkg/web/proto/session_data.proto\x12\x0egcommon.v1.web\x1a!google/protobuf/go_features.proto\x1a\x1fgoogle/protobuf/timestamp.proto\x1a!pkg/web/proto/session_state.proto\"\x82\x04\n\x0bSessionData\x12\x1d\n\nsession_id\x18\x01 \x01(\tR\tsessionId\x12\x17\n\x07user_id\x18\x02 \x01(\tR\x06userId\x12\x35\n\x05state\x18\x03 \x01(\x0e\x32\x1f.gcommon.v1.web.WebSessionStateR\x05state\x12=\n\ncreated_at\x18\x04 \x01(\x0b\x32\x1a.google.protobuf.TimestampB\x02(\x01R\tcreatedAt\x12\x44\n\x0elast_access_at\x18\x05 \x01(\x0b\x32\x1a.google.protobuf.TimestampB\x02(\x01R\x0clastAccessAt\x12=\n\nexpires_at\x18\x06 \x01(\x0b\x32\x1a.google.protobuf.TimestampB\x02(\x01R\texpiresAt\x12\x1d\n\nip_address\x18\x07 \x01(\tR\tipAddress\x12\x1d\n\nuser_agent\x18\x08 \x01(\tR\tuserAgent\x12\x45\n\x08metadata\x18\t \x03(\x0b\x32).gcommon.v1.web.SessionData.MetadataEntryR\x08metadata\x1a;\n\rMetadataEntry\x12\x10\n\x03key\x18\x01 \x01(\tR\x03key\x12\x14\n\x05value\x18\x02 \x01(\tR\x05value:\x02\x38\x01\x42\xb1\x01\n\x12\x63om.gcommon.v1.webB\x10SessionDataProtoP\x01Z\'github.com/jdfalk/gcommon/pkg/web/proto\xa2\x02\x03GVW\xaa\x02\x0eGcommon.V1.Web\xca\x02\x0eGcommon\\V1\\Web\xe2\x02\x1aGcommon\\V1\\Web\\GPBMetadata\xea\x02\x10Gcommon::V1::Web\x92\x03\x05\xd2>\x02\x10\x03\x62\x08\x65\x64itionsp\xe8\x07')
 
 _globals = globals()
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, _globals)
@@ -44,7 +44,7 @@ if not _descriptor._USE_C_DESCRIPTORS:
   _globals['_SESSIONDATA'].fields_by_name['expires_at']._loaded_options = None
   _globals['_SESSIONDATA'].fields_by_name['expires_at']._serialized_options = b'(\001'
   _globals['_SESSIONDATA']._serialized_start=156
-  _globals['_SESSIONDATA']._serialized_end=667
-  _globals['_SESSIONDATA_METADATAENTRY']._serialized_start=608
-  _globals['_SESSIONDATA_METADATAENTRY']._serialized_end=667
+  _globals['_SESSIONDATA']._serialized_end=670
+  _globals['_SESSIONDATA_METADATAENTRY']._serialized_start=611
+  _globals['_SESSIONDATA_METADATAENTRY']._serialized_end=670
 # @@protoc_insertion_point(module_scope)
