@@ -278,6 +278,9 @@ This directory contains auto-generated documentation for this project.
 - [Rust Client SDK](sdks/rust/docs/README.md)
 - [TypeScript Client SDK](sdks/typescript/docs/README.md)
 - [GCommon Implementation Tasks](tasks/README.md)
+- [1. Current State Analysis](tasks/REORG/01-current-state-analysis.md)
+- [2. Target Architecture](tasks/REORG/02-target-architecture.md)
+- [GCommon Repository Protocol Buffer Reorganization Plan](tasks/REORG/MASSIVE-REORG-PLAN.md)
 - [Task 01: Config Module Implementation](tasks/v0.1/01-config-module-implementation.md)
 - [Task 02: Queue Module Implementation](tasks/v0.1/02-queue-module-implementation.md)
 - [Task 03: Metrics Module Implementation](tasks/v0.1/03-metrics-module-implementation.md)
@@ -319,4 +322,4 @@ This directory contains auto-generated documentation for this project.
 - [Gateway Service Template\n\nAPI gateway with routing setup.](templates/gateway-service/README.md)
 - [Worker Service Template\n\nBackground job processing scaffold.](templates/worker-service/README.md)
 
-_Generated on Sat Aug 16 13:45:11 UTC 2025_
+_Generated on Sat Aug 16 15:04:14 UTC 2025_
