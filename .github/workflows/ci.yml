@@ -179,7 +179,7 @@ jobs:
           VALIDATE_ALL_CODEBASE: false
           FILTER_REGEX_EXCLUDE: ".*\\.git/.*|.*\\.github/copilot/.*|.*\\.vscode/.*|.*node_modules/.*|.*\\.cache/.*|.*vendor/.*|.*dist/.*"
 
-          # Language-specific validation only (no FIX_ to avoid conflicts)
+          # Language-specific validation (enable only what we need)
           VALIDATE_GO: ${{ needs.detect-changes.outputs.go }}
           VALIDATE_JAVASCRIPT_ES: ${{ needs.detect-changes.outputs.frontend }}
           VALIDATE_TYPESCRIPT_ES: ${{ needs.detect-changes.outputs.frontend }}
@@ -580,7 +580,6 @@ jobs:
     if: needs.detect-changes.outputs.should-build == 'true' && needs.check-overrides.outputs.skip-build != 'true'
     uses: ./.github/workflows/reusable-matrix-build.yml
     with:
-      rust-versions: '["1.75", "1.76", "1.77"]'
       enable-protobuf: true
       enable-docker: true
       skip-tests: ${{ needs.check-overrides.outputs.skip-tests == 'true' }}
