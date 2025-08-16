@@ -19,7 +19,7 @@
 #### 2. Massive Unused Imports (HIGH)
 
 - Hundreds of unused `google/protobuf/timestamp.proto` imports
-- Many unused internal package imports  
+- Many unused internal package imports
 - Cross-package imports that create cycles
 
 #### 3. Enum Naming Convention Violations (MEDIUM)
@@ -100,7 +100,7 @@ Use `copilot-agent-util` for all operations:
 copilot-agent-util buf lint
 copilot-agent-util buf breaking --against .git#branch=main
 
-# Generation commands  
+# Generation commands
 copilot-agent-util buf generate --clean
 
 # Build verification
@@ -127,7 +127,7 @@ copilot-agent-util exec "go build ./..."
 ### Risk Assessment
 
 **HIGH RISK:** Breaking changes to existing consumers
-**MITIGATION:** 
+**MITIGATION:**
 - Version all changes properly
 - Provide migration guides
 - Test with all consuming repositories
@@ -141,7 +141,7 @@ copilot-agent-util exec "go build ./..."
 ### Estimated Timeline
 
 - **Phase 1:** 3-5 days (circular dependency fixes)
-- **Phase 2:** 2-3 days (import cleanup)  
+- **Phase 2:** 2-3 days (import cleanup)
 - **Phase 3:** 1-2 days (naming convention fixes)
 - **Testing:** 2-3 days (integration testing)
 
