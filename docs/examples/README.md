@@ -4,9 +4,7 @@
 
 # Examples
 
-The examples directory houses runnable code samples that illustrate how to use
-gcommon modules in real applications. Each example is self-contained and
-includes setup instructions.
+The examples directory houses runnable code samples that illustrate how to use gcommon modules in real applications. Each example is self-contained and includes setup instructions.
 
 ## Structure
 
@@ -32,5 +30,4 @@ docs/examples/
 - Link to related guides and reference documentation.
 - Use the documentation update workflow for changes.
 
-More examples will be added as modules mature. Community contributions are
-welcome.
+More examples will be added as modules mature. Community contributions are welcome.

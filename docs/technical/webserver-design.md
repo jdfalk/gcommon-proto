@@ -2,10 +2,8 @@
 
 ## Overview
 
-The web server module provides a unified interface for building HTTP services
-with support for middleware, routing, template rendering, and static file
-serving. This design document outlines the architecture, interfaces, and
-implementation details for the web server module.
+The web server module provides a unified interface for building HTTP services with support for middleware, routing, template rendering, and static file serving. This design document outlines the architecture, interfaces, and implementation
+details for the web server module.
 
 ## Goals
 
@@ -46,18 +44,15 @@ implementation details for the web server module.
 
 #### Server Interface
 
-The core of the module is the `Server` interface, which defines the common
-operations for HTTP server management.
+The core of the module is the `Server` interface, which defines the common operations for HTTP server management.
 
 #### Router Interface
 
-The Router interface provides routing functionality with support for different
-HTTP methods and path parameters.
+The Router interface provides routing functionality with support for different HTTP methods and path parameters.
 
 #### Middleware Interface
 
-The middleware chain processes requests and responses, supporting both standard
-Go HTTP handlers and custom middleware.
+The middleware chain processes requests and responses, supporting both standard Go HTTP handlers and custom middleware.
 
 #### Handler Interface
 
@@ -296,18 +291,15 @@ type Config struct {
 
 ### Standard HTTP Implementation
 
-The standard HTTP implementation uses the `net/http` package for server
-functionality, providing a lightweight server solution.
+The standard HTTP implementation uses the `net/http` package for server functionality, providing a lightweight server solution.
 
 ### Template Rendering
 
-The template rendering component uses the `html/template` package to render
-templates with proper HTML escaping.
+The template rendering component uses the `html/template` package to render templates with proper HTML escaping.
 
 ### Static File Serving
 
-Static file serving uses the `http.FileServer` functionality with caching and
-compression middleware.
+Static file serving uses the `http.FileServer` functionality with caching and compression middleware.
 
 ### Middleware Implementations
 
@@ -330,13 +322,11 @@ compression middleware.
 
 ### Context Implementation
 
-The context implementation wraps the standard request and response objects with
-additional functionality for easier handling of common web tasks.
+The context implementation wraps the standard request and response objects with additional functionality for easier handling of common web tasks.
 
 ### Routing Implementation
 
-The routing implementation uses a tree-based router for efficient path matching,
-supporting path parameters and wildcards.
+The routing implementation uses a tree-based router for efficient path matching, supporting path parameters and wildcards.
 
 ## Usage Examples
 

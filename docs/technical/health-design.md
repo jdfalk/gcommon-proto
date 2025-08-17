@@ -2,10 +2,8 @@
 
 ## Overview
 
-The health module provides a unified interface for application health checking
-and monitoring with support for both internal and external health checks. This
-design document outlines the architecture, interfaces, and implementation
-details for the health module.
+The health module provides a unified interface for application health checking and monitoring with support for both internal and external health checks. This design document outlines the architecture, interfaces, and implementation details
+for the health module.
 
 ## Goals
 
@@ -46,16 +44,14 @@ details for the health module.
 
 #### Provider Interface
 
-The core of the module is the `Provider` interface, which defines the common
-operations for health check management.
+The core of the module is the `Provider` interface, which defines the common operations for health check management.
 
 #### Check Types
 
 The module supports different types of health checks:
 
 - **Liveness**: Indicates if the application is running (for auto-restart)
-- **Readiness**: Indicates if the application can serve requests (for load
-  balancing)
+- **Readiness**: Indicates if the application can serve requests (for load balancing)
 - **Component**: Check specific application components
 - **Dependency**: Check external dependencies
 
@@ -65,8 +61,7 @@ The registry manages the registration and organization of health checks.
 
 #### Reporter
 
-The reporter handles reporting health check results through various channels
-(HTTP, metrics, etc.).
+The reporter handles reporting health check results through various channels (HTTP, metrics, etc.).
 
 ## Interface Design
 
@@ -293,8 +288,7 @@ The module includes built-in health checks for:
 
 ### Custom Health Checks
 
-Custom health checks can be implemented by providing a function that returns a
-health status.
+Custom health checks can be implemented by providing a function that returns a health status.
 
 ```go
 func CustomCheck(ctx context.Context) (health.Result, error) {

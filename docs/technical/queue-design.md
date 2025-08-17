@@ -2,9 +2,7 @@
 
 ## Overview
 
-The queue module provides a unified interface for message queuing and processing
-with support for multiple queue backends, delivery guarantees, and processing
-patterns. This design document outlines the architecture, interfaces, and
+The queue module provides a unified interface for message queuing and processing with support for multiple queue backends, delivery guarantees, and processing patterns. This design document outlines the architecture, interfaces, and
 implementation details for the queue module.
 
 ## Goals
@@ -43,8 +41,7 @@ implementation details for the queue module.
 
 #### Queue Interface
 
-The core of the module is the `Queue` interface, which defines the common
-operations for queue management.
+The core of the module is the `Queue` interface, which defines the common operations for queue management.
 
 ```go
 type Queue interface {
@@ -164,8 +161,7 @@ consumers:
 
 ### Dead Letter Queues
 
-Failed messages are sent to dead letter queues after exhausting retries,
-allowing for:
+Failed messages are sent to dead letter queues after exhausting retries, allowing for:
 
 - Manual inspection and reprocessing
 - Alerting on failed messages
@@ -323,6 +319,4 @@ for message := range messages {
 - Message format evolution
 - Dead letter queue cleanup
 
-This queue module design provides a robust foundation for message queuing across
-diverse applications while maintaining consistency with the overall GCommon
-architecture.
+This queue module design provides a robust foundation for message queuing across diverse applications while maintaining consistency with the overall GCommon architecture.

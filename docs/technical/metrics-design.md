@@ -2,10 +2,8 @@
 
 ## Overview
 
-The metrics module provides a unified interface for application metrics
-collection, aggregation, and export with support for multiple metrics backends.
-This design document outlines the architecture, interfaces, and implementation
-details for the metrics module.
+The metrics module provides a unified interface for application metrics collection, aggregation, and export with support for multiple metrics backends. This design document outlines the architecture, interfaces, and implementation details
+for the metrics module.
 
 ## Goals
 
@@ -46,8 +44,7 @@ details for the metrics module.
 
 #### Provider Interface
 
-The core of the module is the `Provider` interface, which defines the common
-operations for metrics management.
+The core of the module is the `Provider` interface, which defines the common operations for metrics management.
 
 #### Metric Types
 
@@ -397,24 +394,19 @@ type StatsdConfig struct {
 
 ### Prometheus Implementation
 
-The Prometheus implementation uses the `prometheus/client_golang` package and
-supports both pull and push models for metrics exposition.
+The Prometheus implementation uses the `prometheus/client_golang` package and supports both pull and push models for metrics exposition.
 
 ### OpenTelemetry Implementation
 
-The OpenTelemetry implementation uses the OpenTelemetry SDK and supports
-exporting to various backends through the OpenTelemetry collector.
+The OpenTelemetry implementation uses the OpenTelemetry SDK and supports exporting to various backends through the OpenTelemetry collector.
 
 ### In-memory Implementation
 
-The in-memory implementation provides metrics for testing and development, with
-support for snapshots and introspection.
+The in-memory implementation provides metrics for testing and development, with support for snapshots and introspection.
 
 ### Adapter Pattern
 
-The module uses adapters to transform between the common interface and
-backend-specific implementations, allowing for easier integration of new
-backends.
+The module uses adapters to transform between the common interface and backend-specific implementations, allowing for easier integration of new backends.
 
 ## Usage Examples
 

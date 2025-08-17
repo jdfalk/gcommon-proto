@@ -4,9 +4,7 @@
 
 # Guides
 
-The guides section provides step-by-step instructions, best practices, and
-conceptual overviews for working with gcommon. Content is organized by topic to
-help new and experienced users alike.
+The guides section provides step-by-step instructions, best practices, and conceptual overviews for working with gcommon. Content is organized by topic to help new and experienced users alike.
 
 ## Directory Structure
 
@@ -18,8 +16,7 @@ docs/guides/
 └── troubleshooting/   # Common problems and solutions
 ```
 
-Each subdirectory contains focused guides. Additional topics may be added as the
-project grows.
+Each subdirectory contains focused guides. Additional topics may be added as the project grows.
 
 ## Getting Started
 
@@ -81,5 +78,4 @@ Planned enhancements for the guides section include:
 - Searchable index across all guides
 - User feedback integration for continuous improvement
 
-Contributions and feedback are welcome. Please submit updates using the
-documentation update workflow.
+Contributions and feedback are welcome. Please submit updates using the documentation update workflow.

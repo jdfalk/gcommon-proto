@@ -2,16 +2,13 @@
 
 ## Overview
 
-The configuration module provides a unified interface for application
-configuration management with support for multiple sources, validation, and
-dynamic updates. This design document outlines the architecture, interfaces, and
+The configuration module provides a unified interface for application configuration management with support for multiple sources, validation, and dynamic updates. This design document outlines the architecture, interfaces, and
 implementation details for the configuration module.
 
 ## Goals
 
 - Provide a consistent API for configuration management
-- Support multiple configuration sources (files, environment variables, remote
-  sources)
+- Support multiple configuration sources (files, environment variables, remote sources)
 - Enable strong typing and validation of configuration values
 - Support dynamic configuration updates
 - Enable hierarchical configuration structures
@@ -45,8 +42,7 @@ implementation details for the configuration module.
 
 #### Provider Interface
 
-The core of the module is the `Provider` interface, which defines the common
-operations for configuration access and management.
+The core of the module is the `Provider` interface, which defines the common operations for configuration access and management.
 
 #### Configuration Sources
 
@@ -269,28 +265,23 @@ type RemoteConfig struct {
 
 ### File Source Implementation
 
-The file source implementation uses the Go standard library to read
-configuration files, with optional file watching for dynamic updates.
+The file source implementation uses the Go standard library to read configuration files, with optional file watching for dynamic updates.
 
 ### Environment Source Implementation
 
-The environment source implementation uses the `os.Environ` function to read
-environment variables, with support for prefixes and key transformations.
+The environment source implementation uses the `os.Environ` function to read environment variables, with support for prefixes and key transformations.
 
 ### Remote Source Implementation
 
-The remote source implementation provides adapters for common remote
-configuration services such as etcd, Consul, and Vault.
+The remote source implementation provides adapters for common remote configuration services such as etcd, Consul, and Vault.
 
 ### In-memory Implementation
 
-The in-memory implementation provides a fast, in-process store for configuration
-values with support for updating and watching.
+The in-memory implementation provides a fast, in-process store for configuration values with support for updating and watching.
 
 ### Binding Implementation
 
-The binding implementation uses reflection to bind configuration values to
-struct fields, supporting tags for customization.
+The binding implementation uses reflection to bind configuration values to struct fields, supporting tags for customization.
 
 ## Usage Examples
 

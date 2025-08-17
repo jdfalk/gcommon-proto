@@ -2,23 +2,16 @@
 
 ## Overview
 
-This document outlines the strategy for integrating Protocol Buffers (protobuf)
-and gRPC across all modules of the gcommon library. This integration will enable
-language-agnostic service definitions, efficient serialization, standardized API
-contracts, and streamlined microservices architecture.
+This document outlines the strategy for integrating Protocol Buffers (protobuf) and gRPC across all modules of the gcommon library. This integration will enable language-agnostic service definitions, efficient serialization, standardized
+API contracts, and streamlined microservices architecture.
 
 ## Core Principles
 
-1. **Protocol-First Design**: All modules should be designed with Protocol
-   Buffers as the primary data exchange format.
-2. **Dual Interface Support**: Each module should support both traditional Go
-   interfaces and gRPC interfaces.
-3. **Consistent Versioning**: All proto files should follow a consistent
-   versioning strategy.
-4. **Backward Compatibility**: Changes to proto definitions should maintain
-   backward compatibility.
-5. **Cross-Language Support**: Proto definitions should be designed to work well
-   across multiple languages.
+1. **Protocol-First Design**: All modules should be designed with Protocol Buffers as the primary data exchange format.
+2. **Dual Interface Support**: Each module should support both traditional Go interfaces and gRPC interfaces.
+3. **Consistent Versioning**: All proto files should follow a consistent versioning strategy.
+4. **Backward Compatibility**: Changes to proto definitions should maintain backward compatibility.
+5. **Cross-Language Support**: Proto definitions should be designed to work well across multiple languages.
 
 ## Directory Structure
 
@@ -72,8 +65,7 @@ message Response {
 
 - **Services**: `<Module>Service` (e.g., `DatabaseService`, `CacheService`)
 - **Methods**: Use verb-noun format (e.g., `GetConfig`, `StoreValue`)
-- **Messages**: Use purpose-based names (e.g., `StoreValueRequest`,
-  `ConfigResponse`)
+- **Messages**: Use purpose-based names (e.g., `StoreValueRequest`, `ConfigResponse`)
 - **Fields**: Use snake_case (e.g., `connection_string`, `max_connections`)
 - **Enums**: Use PascalCase for type names and SCREAMING_SNAKE_CASE for values
 
@@ -351,8 +343,7 @@ Each proto file should be well-documented:
 
 1. **Define Common Types**: Create shared proto definitions for common types
 2. **Create Proto Templates**: Define templates for each module
-3. **Implement Health Module**: Complete protobuf/gRPC for health module
-   (already done)
+3. **Implement Health Module**: Complete protobuf/gRPC for health module (already done)
 4. **Database Module**: Implement database protobufs and gRPC service
 5. **Extend Incrementally**: Add protobuf/gRPC support to each module
 6. **Integration Testing**: Create comprehensive tests for gRPC services
@@ -360,7 +351,5 @@ Each proto file should be well-documented:
 
 ## Conclusion
 
-This strategy provides a comprehensive approach to integrating Protocol Buffers
-and gRPC throughout the gcommon library. By following these guidelines, we'll
-create a powerful, consistent, and interoperable foundation for microservices
+This strategy provides a comprehensive approach to integrating Protocol Buffers and gRPC throughout the gcommon library. By following these guidelines, we'll create a powerful, consistent, and interoperable foundation for microservices
 development.

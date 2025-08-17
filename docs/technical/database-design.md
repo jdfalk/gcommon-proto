@@ -2,9 +2,7 @@
 
 ## Overview
 
-The database module provides a unified interface for database operations with
-support for multiple database backends. This design document outlines the
-architecture, interfaces, and implementation details for the database module.
+The database module provides a unified interface for database operations with support for multiple database backends. This design document outlines the architecture, interfaces, and implementation details for the database module.
 
 ## Goals
 
@@ -50,8 +48,7 @@ architecture, interfaces, and implementation details for the database module.
 
 #### DB Interface
 
-The core of the module is the `DB` interface, which defines the common
-operations for database access.
+The core of the module is the `DB` interface, which defines the common operations for database access.
 
 #### Transaction Interface
 
@@ -63,8 +60,7 @@ The `Query` interface provides operations for building and executing queries.
 
 #### Driver Implementation
 
-Each database backend has a specific driver implementation that adapts the
-backend-specific APIs to the common interfaces.
+Each database backend has a specific driver implementation that adapts the backend-specific APIs to the common interfaces.
 
 ## Interface Design
 
@@ -531,34 +527,27 @@ type PebbleConfig struct {
 
 ### SQLite Implementation
 
-The SQLite implementation uses the `github.com/mattn/go-sqlite3` package and
-provides a lightweight, file-based database solution.
+The SQLite implementation uses the `github.com/mattn/go-sqlite3` package and provides a lightweight, file-based database solution.
 
 ### PostgreSQL Implementation
 
-The PostgreSQL implementation uses the `github.com/jackc/pgx/v4` package and
-provides a robust, server-based database solution.
+The PostgreSQL implementation uses the `github.com/jackc/pgx/v4` package and provides a robust, server-based database solution.
 
 ### CockroachDB Implementation
 
-The CockroachDB implementation builds on the PostgreSQL driver with additional
-features specific to CockroachDB, such as automatic retry for serialization
-errors.
+The CockroachDB implementation builds on the PostgreSQL driver with additional features specific to CockroachDB, such as automatic retry for serialization errors.
 
 ### Pebble Implementation
 
-The Pebble implementation uses the `github.com/cockroachdb/pebble` package and
-provides a high-performance, local key-value store.
+The Pebble implementation uses the `github.com/cockroachdb/pebble` package and provides a high-performance, local key-value store.
 
 ### Migration System
 
-The migration system supports both SQL and key-value migrations with versioning
-and rollback capabilities.
+The migration system supports both SQL and key-value migrations with versioning and rollback capabilities.
 
 ### Query Building
 
-The module includes a query builder to help construct SQL queries safely and
-efficiently.
+The module includes a query builder to help construct SQL queries safely and efficiently.
 
 ## Usage Examples
 

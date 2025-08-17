@@ -4,9 +4,7 @@
 
 # Reference
 
-Reference materials provide precise technical details that supplement guides and
-tutorials. Use this section when you need authoritative information about
-configuration keys, error codes, or performance characteristics.
+Reference materials provide precise technical details that supplement guides and tutorials. Use this section when you need authoritative information about configuration keys, error codes, or performance characteristics.
 
 ## Directory Structure
 
@@ -44,5 +42,4 @@ Guidance for achieving optimal performance:
 - Tuning parameters for heavy workloads
 - Profiling tools and techniques
 
-This section will grow alongside the project. Contributions are welcome via the
-documentation update workflow.
+This section will grow alongside the project. Contributions are welcome via the documentation update workflow.

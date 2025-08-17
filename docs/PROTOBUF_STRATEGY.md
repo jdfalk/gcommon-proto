@@ -14,18 +14,15 @@
 
 ## Overview
 
-We are implementing a modern, scalable protobuf architecture across two main
-repositories:
+We are implementing a modern, scalable protobuf architecture across two main repositories:
 
 - **gcommon**: Shared protobuf definitions for distributed systems
 - **subtitle-manager**: Subtitle processing service with specific protobuf needs
 
 ### Key Principles
 
-1. **1-1-1 Pattern**: One message per file, one enum per file, one service per
-   file
-2. **Types First**: Define basic types in `types/` packages, import everywhere
-   else
+1. **1-1-1 Pattern**: One message per file, one enum per file, one service per file
+2. **Types First**: Define basic types in `types/` packages, import everywhere else
 3. **Backwards Compatibility**: Maintain compatibility during migration
 4. **Edition 2023**: Use modern protobuf editions for all new files
 
@@ -100,8 +97,7 @@ pkg/auth/proto/auth.proto                       # Contains: Multiple messages, e
 
 ### Purpose
 
-The `types/` directory contains fundamental, reusable types that are imported by
-other protobuf files.
+The `types/` directory contains fundamental, reusable types that are imported by other protobuf files.
 
 ### Types Directory Structure
 
@@ -422,5 +418,4 @@ go mod tidy
 go mod graph | grep cycle
 ```
 
-This documentation should be referenced for all protobuf work and updated as
-patterns evolve.
+This documentation should be referenced for all protobuf work and updated as patterns evolve.

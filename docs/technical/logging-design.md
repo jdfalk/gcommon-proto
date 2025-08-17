@@ -2,9 +2,7 @@
 
 ## Overview
 
-The logging module provides a unified interface for application logging with
-support for multiple logging backends. This design document outlines the
-architecture, interfaces, and implementation details for the logging module.
+The logging module provides a unified interface for application logging with support for multiple logging backends. This design document outlines the architecture, interfaces, and implementation details for the logging module.
 
 ## Goals
 
@@ -45,8 +43,7 @@ architecture, interfaces, and implementation details for the logging module.
 
 #### Logger Interface
 
-The core of the module is the `Logger` interface, which defines the common
-operations for logging.
+The core of the module is the `Logger` interface, which defines the common operations for logging.
 
 #### Providers
 
@@ -283,24 +280,19 @@ type LogrusConfig struct {
 
 ### Standard Library Implementation
 
-The standard library implementation uses the `log` package with custom
-formatting to match the structured logging interface.
+The standard library implementation uses the `log` package with custom formatting to match the structured logging interface.
 
 ### Zap Implementation
 
-The Zap implementation uses the `go.uber.org/zap` package, which provides
-high-performance, structured logging.
+The Zap implementation uses the `go.uber.org/zap` package, which provides high-performance, structured logging.
 
 ### Logrus Implementation
 
-The Logrus implementation uses the `github.com/sirupsen/logrus` package, which
-provides feature-rich structured logging.
+The Logrus implementation uses the `github.com/sirupsen/logrus` package, which provides feature-rich structured logging.
 
 ### Context Integration
 
-The logging module integrates with the Go context package to allow for
-context-aware logging, including trace identifiers and other contextual
-information.
+The logging module integrates with the Go context package to allow for context-aware logging, including trace identifiers and other contextual information.
 
 ### Performance Considerations
 

@@ -6,14 +6,11 @@
 
 ## Objective
 
-Create and execute a comprehensive production readiness checklist for all
-gcommon modules. Ensure all modules meet production standards for performance,
-security, reliability, and maintainability.
+Create and execute a comprehensive production readiness checklist for all gcommon modules. Ensure all modules meet production standards for performance, security, reliability, and maintainability.
 
 ## Context
 
-Before declaring gcommon production-ready, all modules must pass comprehensive
-production readiness criteria.
+Before declaring gcommon production-ready, all modules must pass comprehensive production readiness criteria.
 
 ## Production Readiness Criteria
 

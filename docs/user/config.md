@@ -2,25 +2,17 @@
 
 ## Overview
 
-The GCommon Configuration module provides a unified interface for managing
-application configuration with support for multiple sources and formats. It
-enables hierarchical configuration, environment variable integration,
-command-line flags, defaults, validation, and hot reloading capabilities. The
-module is built on top of [Viper](https://github.com/spf13/viper) for
-configuration management and [Cobra](https://github.com/spf13/cobra) for
-command-line interface functionality, providing a simplified and enhanced API
-while leveraging these battle-tested libraries.
+The GCommon Configuration module provides a unified interface for managing application configuration with support for multiple sources and formats. It enables hierarchical configuration, environment variable integration, command-line flags,
+defaults, validation, and hot reloading capabilities. The module is built on top of [Viper](https://github.com/spf13/viper) for configuration management and [Cobra](https://github.com/spf13/cobra) for command-line interface functionality,
+providing a simplified and enhanced API while leveraging these battle-tested libraries.
 
 ## Features
 
-- **Multiple Sources**: Load configuration from files, environment variables,
-  command-line flags, and in-code defaults
+- **Multiple Sources**: Load configuration from files, environment variables, command-line flags, and in-code defaults
 - **Multiple Formats**: Support for YAML, JSON, TOML, and HCL
 - **Hierarchical Structure**: Access nested configuration using dot notation
-- **Environment Variable Integration**: Override configuration with environment
-  variables
-- **Command-Line Flag Integration**: Override configuration with command-line
-  flags
+- **Environment Variable Integration**: Override configuration with environment variables
+- **Command-Line Flag Integration**: Override configuration with command-line flags
 - **Defaults**: Provide fallback values for configuration
 - **Validation**: Validate configuration against schemas
 - **Hot Reloading**: Automatically reload configuration when source files change
@@ -128,16 +120,12 @@ cfg, err := config.Load(
 
 With this configuration:
 
-- Environment variable `APP_SERVER_PORT=8080` would override `server.port` in
-  the config file
-- Environment variable `APP_DATABASE_DSN=postgres://localhost/testdb` would
-  override `database.dsn`
+- Environment variable `APP_SERVER_PORT=8080` would override `server.port` in the config file
+- Environment variable `APP_DATABASE_DSN=postgres://localhost/testdb` would override `database.dsn`
 
 ### Command-Line Flag Integration
 
-You can override configuration values using command-line flags. The
-configuration module integrates with both standard Go flag package and the more
-powerful Cobra library for command-line interfaces:
+You can override configuration values using command-line flags. The configuration module integrates with both standard Go flag package and the more powerful Cobra library for command-line interfaces:
 
 #### Standard flag package
 
@@ -169,8 +157,7 @@ func main() {
 
 #### Cobra CLI integration
 
-For more advanced command-line interfaces, the module seamlessly integrates with
-Cobra:
+For more advanced command-line interfaces, the module seamlessly integrates with Cobra:
 
 ```go
 import (
@@ -319,8 +306,7 @@ if err != nil {
 
 ### Hot Reloading
 
-You can enable hot reloading to automatically reload configuration when the
-source file changes:
+You can enable hot reloading to automatically reload configuration when the source file changes:
 
 ```go
 cfg, err := config.Load(
@@ -397,8 +383,7 @@ The GCommon Configuration module extends Viper's capabilities with:
 
 ### Cobra Integration
 
-[Cobra](https://github.com/spf13/cobra) is used to provide robust command-line
-interface capabilities:
+[Cobra](https://github.com/spf13/cobra) is used to provide robust command-line interface capabilities:
 
 - Easy subcommand-based CLIs: `app server start`, `app config validate`
 - Fully POSIX-compliant flags (including short & long versions)
@@ -415,8 +400,7 @@ The GCommon Configuration module integrates seamlessly with Cobra through:
 - Automatic mapping between command flags and configuration keys
 - Unified help documentation
 
-For more advanced CLI applications, you can directly access the underlying Cobra
-command structure:
+For more advanced CLI applications, you can directly access the underlying Cobra command structure:
 
 ```go
 import (
@@ -484,12 +468,9 @@ cfg, err := config.Load(
 
 ### Sensitive Information
 
-- Never store sensitive information like passwords or API keys directly in
-  configuration files
-- Use environment variables or secret management systems for sensitive
-  information
-- Consider using the `config.WithSecretProvider()` option to integrate with
-  secret management systems
+- Never store sensitive information like passwords or API keys directly in configuration files
+- Use environment variables or secret management systems for sensitive information
+- Consider using the `config.WithSecretProvider()` option to integrate with secret management systems
 
 ### Testing
 

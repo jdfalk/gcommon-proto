@@ -6,8 +6,7 @@
 
 ## Module Overview
 
-The Auth module provides authentication and authorization capabilities across
-gcommon services.
+The Auth module provides authentication and authorization capabilities across gcommon services.
 
 ### Purpose and Key Features
 

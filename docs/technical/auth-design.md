@@ -2,17 +2,13 @@
 
 ## Overview
 
-The authentication module provides a unified interface for authentication and
-authorization with support for multiple authentication methods, role-based
-access control, and integration with various identity providers. This design
-document outlines the architecture, interfaces, and implementation details for
-the authentication module.
+The authentication module provides a unified interface for authentication and authorization with support for multiple authentication methods, role-based access control, and integration with various identity providers. This design document
+outlines the architecture, interfaces, and implementation details for the authentication module.
 
 ## Goals
 
 - Provide a consistent API for authentication and authorization
-- Support multiple authentication methods (username/password, token, OAuth,
-  etc.)
+- Support multiple authentication methods (username/password, token, OAuth, etc.)
 - Enable role-based access control (RBAC)
 - Support claims-based authorization
 - Allow integration with external identity providers
@@ -48,8 +44,7 @@ the authentication module.
 
 #### Provider Interface
 
-The core of the module is the `Provider` interface, which defines the common
-operations for authentication and authorization.
+The core of the module is the `Provider` interface, which defines the common operations for authentication and authorization.
 
 #### Authentication Methods
 
@@ -407,33 +402,27 @@ type SAMLConfig struct {
 
 ### Local Authentication
 
-The local authentication implementation uses bcrypt for password hashing and
-supports user management with a database backend.
+The local authentication implementation uses bcrypt for password hashing and supports user management with a database backend.
 
 ### JWT Authentication
 
-The JWT authentication implementation uses the `golang-jwt/jwt` package for
-token generation and validation, supporting multiple signing algorithms.
+The JWT authentication implementation uses the `golang-jwt/jwt` package for token generation and validation, supporting multiple signing algorithms.
 
 ### OAuth/OIDC Authentication
 
-The OAuth authentication implementation supports multiple OAuth providers and
-OpenID Connect, using the `golang.org/x/oauth2` package.
+The OAuth authentication implementation supports multiple OAuth providers and OpenID Connect, using the `golang.org/x/oauth2` package.
 
 ### LDAP Authentication
 
-The LDAP authentication implementation uses the `go-ldap/ldap` package to
-connect to LDAP servers and validate credentials.
+The LDAP authentication implementation uses the `go-ldap/ldap` package to connect to LDAP servers and validate credentials.
 
 ### Role-Based Access Control
 
-The RBAC implementation uses a permission model where roles are assigned to
-users and permissions are assigned to roles.
+The RBAC implementation uses a permission model where roles are assigned to users and permissions are assigned to roles.
 
 ### Token Management
 
-Token management includes token generation, validation, refreshing, and
-revocation, with support for different token types (access, refresh, id).
+Token management includes token generation, validation, refreshing, and revocation, with support for different token types (access, refresh, id).
 
 ## Usage Examples
 
