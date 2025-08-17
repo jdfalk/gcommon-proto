@@ -1,0 +1,27 @@
+// file: proto/gcommon/v1/organization/api/storage_quota.proto
+// version: 1.0.0
+// guid: d87a1435-3bce-4513-adf6-2be8c493d5f1
+
+edition = "2023";
+
+package gcommon.v1.organization.api;
+
+import "google/protobuf/go_features.proto";
+import "google/protobuf/timestamp.proto";
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package gcommon.v1.organization.api;
+
+message StorageQuota {
+  // Maximum storage size in bytes
+  int64 max_size_bytes = 1;
+
+  // Maximum number of objects
+  int64 max_objects = 2;
+
+  // Maximum request rate per second
+  int32 max_requests_per_second = 3;
+
+  // Transfer quota in bytes per month
+  int64 transfer_quota_bytes = 4;
+}

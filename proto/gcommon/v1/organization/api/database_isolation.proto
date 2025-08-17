@@ -1,0 +1,41 @@
+// file: proto/gcommon/v1/organization/api/database_isolation.proto
+// version: 1.0.0
+// guid: 3719d310-ed72-4d75-8760-a91686438853
+
+edition = "2023";
+
+package gcommon.v1.organization.api;
+
+import "google/protobuf/go_features.proto";
+import "google/protobuf/timestamp.proto";
+import "proto/gcommon/v1/common/messages/key_value.proto";
+import "proto/gcommon/v1/organization/config/backup_config.proto";
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package gcommon.v1.organization.api;
+
+message DatabaseIsolation {
+  // Database instance identifier (for INFRASTRUCTURE isolation)
+  string database_instance = 1;
+
+  // Schema or database name for this tenant
+  string schema_name = 2;
+
+  // Database connection parameters
+  repeated gcommon.v1.common.KeyValue connection_params = 3 [lazy = true];
+
+  // Whether tenant has dedicated database
+  bool dedicated_database = 4;
+
+  // Database backup configuration
+  OrganizationBackupConfig backup = 5;
+
+  // Database access restrictions
+  repeated string allowed_operations = 6;
+
+  // Maximum connections allowed for this tenant
+  int32 max_connections = 7;
+
+  // Query timeout in seconds
+  int32 query_timeout_seconds = 8;
+}

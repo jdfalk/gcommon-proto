@@ -1,0 +1,30 @@
+// file: proto/gcommon/v1/organization/api/integration_settings.proto
+// version: 1.0.0
+// guid: eb075ee2-2fa4-4809-a4b1-66199758b188
+
+edition = "2023";
+
+package gcommon.v1.organization.api;
+
+import "google/protobuf/go_features.proto";
+import "proto/gcommon/v1/metrics/config/api_key_config.proto";
+import "proto/gcommon/v1/organization/messages/integration.proto";
+import "proto/gcommon/v1/organization/config/o_auth_app_config.proto";
+import "proto/gcommon/v1/organization/config/webhook_config.proto";
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package gcommon.v1.organization.api;
+
+message IntegrationSettings {
+  // Enabled third-party integrations
+  repeated Integration enabled_integrations = 1;
+
+  // Webhook configuration for external notifications
+  repeated WebhookConfig webhooks = 2;
+
+  // API keys for external services
+  repeated gcommon.v1.metrics.MetricsAPIKeyConfig api_keys = 3 [lazy = true];
+
+  // OAuth applications registered for this organization
+  repeated OAuthAppConfig oauth_apps = 4;
+}

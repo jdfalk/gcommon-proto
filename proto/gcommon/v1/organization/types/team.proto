@@ -1,0 +1,93 @@
+// file: proto/gcommon/v1/organization/types/team.proto
+edition = "2023";
+
+package gcommon.v1.organization.types;
+
+import "google/protobuf/go_features.proto";
+import "google/protobuf/timestamp.proto";
+import "proto/gcommon/v1/common/messages/key_value.proto";
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package gcommon.v1.organization.types;
+
+/**
+ * Team message representing a team within an organization or department.
+ * Teams are smaller organizational units focused on specific projects,
+ * functions, or objectives.
+ */
+message Team {
+  // Unique team identifier
+  string id = 1;
+
+  // Organization identifier
+  string organization_id = 2;
+
+  // Department identifier (teams can belong to departments)
+  string department_id = 3;
+
+  // Team name
+  string name = 4;
+
+  // URL-friendly slug for the team
+  string slug = 5;
+
+  // Team description or purpose
+  string description = 6;
+
+  // Team lead/manager user ID
+  string lead_id = 7;
+
+  // Team type or category (e.g., "engineering", "marketing", "sales")
+  string team_type = 8;
+
+  // Team's primary focus area or mission
+  string focus_area = 9;
+
+  // Team metadata and custom attributes
+  repeated gcommon.v1.common.KeyValue metadata = 10 [lazy = true];
+
+  // Team creation timestamp
+  google.protobuf.Timestamp created_at = 11 [lazy = true];
+
+  // Last update timestamp
+  google.protobuf.Timestamp updated_at = 12 [lazy = true];
+
+  // User ID who created this team
+  string created_by = 13;
+
+  // User ID who last updated this team
+  string updated_by = 14;
+
+  // Whether this team is currently active
+  bool active = 15;
+
+  // Team's email address for external communications
+  string contact_email = 16;
+
+  // Team's communication channel (e.g., Slack channel, Discord server)
+  string communication_channel = 17;
+
+  // Maximum number of members in this team
+  int32 max_members = 18;
+
+  // Team's budget allocation (in organization's currency)
+  double budget_allocation = 19;
+
+  // Team's timezone (inherits from department/organization if not set)
+  string timezone = 20;
+
+  // List of member user IDs in this team
+  repeated string member_ids = 21;
+
+  // List of project IDs this team is responsible for
+  repeated string project_ids = 22;
+
+  // Team's goals or objectives for the current period
+  repeated string objectives = 23;
+
+  // Team's key performance indicators or metrics
+  repeated string kpis = 24;
+
+  // Whether this team is cross-functional (spans multiple departments)
+  bool cross_functional = 25;
+}

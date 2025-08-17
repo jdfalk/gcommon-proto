@@ -1,0 +1,31 @@
+// file: proto/gcommon/v1/organization/api/cache_behavior.proto
+// version: 1.0.0
+// guid: e71b878c-7505-4ea2-af2b-59a9f9a155ca
+
+edition = "2023";
+
+package gcommon.v1.organization.api;
+
+import "google/protobuf/go_features.proto";
+import "google/protobuf/timestamp.proto";
+import "proto/gcommon/v1/organization/messages/cache_key_policy.proto";
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package gcommon.v1.organization.api;
+
+message CacheBehavior {
+  // Path pattern for this behavior
+  string path_pattern = 1;
+
+  // Cache TTL in seconds
+  int64 ttl_seconds = 2;
+
+  // Whether to compress objects
+  bool compress = 3;
+
+  // Allowed HTTP methods
+  repeated string allowed_methods = 4;
+
+  // Cache key policy
+  CacheKeyPolicy cache_key = 5;
+}

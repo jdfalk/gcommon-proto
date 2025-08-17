@@ -1,0 +1,26 @@
+// file: proto/gcommon/v1/organization/api/update_organization_request.proto
+
+edition = "2023";
+
+package gcommon.v1.organization.api;
+
+import "google/protobuf/go_features.proto";
+import "proto/gcommon/v1/common/api/request_metadata.proto";
+import "proto/gcommon/v1/organization/messages/organization.proto";
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package gcommon.v1.organization.api;
+
+message UpdateOrganizationRequest {
+  // Request metadata for tracing and context
+  gcommon.v1.common.RequestMetadata metadata = 1;
+
+  // Organization ID to update
+  string organization_id = 2;
+
+  // Updated organization information
+  Organization organization = 3;
+
+  // Fields to update (field mask)
+  repeated string update_fields = 4;
+}

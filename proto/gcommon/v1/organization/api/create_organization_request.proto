@@ -1,0 +1,37 @@
+// file: proto/gcommon/v1/organization/api/create_organization_request.proto
+// version: 1.0.0
+// guid: 56789abc-def0-1234-5678-9abcdef01234
+
+edition = "2023";
+
+package gcommon.v1.organization.api;
+
+import "google/protobuf/go_features.proto";
+import "proto/gcommon/v1/common/api/request_metadata.proto";
+import "proto/gcommon/v1/organization/messages/organization.proto";
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package gcommon.v1.organization.api;
+
+message CreateOrganizationRequest {
+  // Request metadata for tracing and context
+  gcommon.v1.common.RequestMetadata metadata = 1;
+
+  // Organization information to create
+  Organization organization = 2;
+
+  // Whether to create a default tenant for this organization
+  bool create_default_tenant = 3;
+
+  // Initial organization settings (optional)
+  string initial_settings_json = 4;
+
+  // Owner user ID (will be added as organization owner)
+  string owner_user_id = 5;
+
+  // Whether to send welcome email to owner
+  bool send_welcome_email = 6;
+
+  // Template to use for organization creation (if applicable)
+  string organization_template = 7;
+}

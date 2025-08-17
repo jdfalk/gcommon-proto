@@ -1,0 +1,27 @@
+// file: proto/gcommon/v1/organization/api/email_template.proto
+// version: 1.0.0
+// guid: 03debb46-12b4-4099-9c8f-99523c435029
+
+edition = "2023";
+
+package gcommon.v1.organization.api;
+
+import "google/protobuf/go_features.proto";
+import "google/protobuf/timestamp.proto";
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package gcommon.v1.organization.api;
+
+message EmailTemplate {
+  // Template name/type (e.g., "welcome", "password_reset")
+  string name = 1;
+
+  // Email subject template
+  string subject = 2;
+
+  // Email body template (HTML)
+  string body_html = 3;
+
+  // Email body template (plain text)
+  string body_text = 4;
+}

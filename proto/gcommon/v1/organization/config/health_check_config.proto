@@ -1,0 +1,38 @@
+// file: proto/gcommon/v1/organization/config/health_check_config.proto
+// version: 1.0.0
+// guid: 3d161671-ebd9-42de-857a-2aef7ff4b62a
+
+edition = "2023";
+
+package gcommon.v1.organization.config;
+
+import "google/protobuf/go_features.proto";
+import "google/protobuf/timestamp.proto";
+import "proto/gcommon/v1/common/messages/key_value.proto";
+import "proto/gcommon/v1/organization/messages/isolation_level.proto";
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package gcommon.v1.organization.config;
+
+message OrganizationHealthCheckConfig {
+  // Health check path
+  string path = 1;
+
+  // Health check port
+  int32 port = 2;
+
+  // Health check protocol (HTTP, HTTPS, TCP)
+  string protocol = 3;
+
+  // Health check interval in seconds
+  int32 interval_seconds = 4;
+
+  // Health check timeout in seconds
+  int32 timeout_seconds = 5;
+
+  // Healthy threshold
+  int32 healthy_threshold = 6;
+
+  // Unhealthy threshold
+  int32 unhealthy_threshold = 7;
+}

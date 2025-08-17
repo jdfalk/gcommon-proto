@@ -1,0 +1,42 @@
+// file: proto/gcommon/v1/organization/api/tenant_status.proto
+edition = "2023";
+
+package gcommon.v1.organization.api;
+
+import "google/protobuf/go_features.proto";
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package gcommon.v1.organization.api;
+
+/**
+ * Tenant status enumeration defining the state of a tenant within an organization.
+ * Used for multi-tenant architecture to control tenant access and operations.
+ */
+enum TenantStatus {
+  // Default value indicating no status was specified
+  TENANT_STATUS_UNSPECIFIED = 0;
+
+  // Tenant is active and operational
+  TENANT_STATUS_ACTIVE = 1;
+
+  // Tenant is inactive (temporarily disabled)
+  TENANT_STATUS_INACTIVE = 2;
+
+  // Tenant is suspended due to policy violations or resource limits
+  TENANT_STATUS_SUSPENDED = 3;
+
+  // Tenant is pending setup or verification
+  TENANT_STATUS_PENDING = 4;
+
+  // Tenant has exceeded resource quotas and is throttled
+  TENANT_STATUS_QUOTA_EXCEEDED = 5;
+
+  // Tenant is in trial period with limited features
+  TENANT_STATUS_TRIAL = 6;
+
+  // Tenant is archived (read-only access)
+  TENANT_STATUS_ARCHIVED = 7;
+
+  // Tenant is marked for deletion
+  TENANT_STATUS_DELETED = 8;
+}

@@ -1,0 +1,28 @@
+// file: proto/gcommon/v1/organization/api/list_tenants_request.proto
+
+edition = "2023";
+
+package gcommon.v1.organization.api;
+
+import "google/protobuf/go_features.proto";
+import "proto/gcommon/v1/common/api/request_metadata.proto";
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package gcommon.v1.organization.api;
+
+message ListTenantsRequest {
+  // Request metadata for tracing and context
+  gcommon.v1.common.RequestMetadata metadata = 1;
+
+  // Organization identifier
+  string organization_id = 2;
+
+  // Pagination size
+  int32 page_size = 3;
+
+  // Pagination token from previous response
+  string page_token = 4;
+
+  // Optional filter expression
+  string filter = 5;
+}

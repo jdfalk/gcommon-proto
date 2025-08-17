@@ -1,0 +1,43 @@
+// file: proto/gcommon/v1/organization/api/network_isolation.proto
+// version: 1.0.0
+// guid: d005d972-e2a8-443e-ae8a-dcc1d5be7bd6
+
+edition = "2023";
+
+package gcommon.v1.organization.api;
+
+import "google/protobuf/go_features.proto";
+import "google/protobuf/timestamp.proto";
+import "proto/gcommon/v1/organization/config/cdn_config.proto";
+import "proto/gcommon/v1/organization/config/domain_config.proto";
+import "proto/gcommon/v1/organization/config/load_balancer_config.proto";
+import "proto/gcommon/v1/organization/messages/network_acl_rule.proto";
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package gcommon.v1.organization.api;
+
+message NetworkIsolation {
+  // Virtual private cloud (VPC) identifier
+  string vpc_id = 1;
+
+  // Subnet identifier for this tenant
+  string subnet_id = 2;
+
+  // Security group identifiers
+  repeated string security_group_ids = 3;
+
+  // Network access control list (ACL) rules
+  repeated NetworkACLRule acl_rules = 4;
+
+  // Whether tenant has dedicated network
+  bool dedicated_network = 5;
+
+  // Load balancer configuration for this tenant
+  OrganizationLoadBalancerConfig load_balancer = 6;
+
+  // CDN configuration for this tenant
+  CDNConfig cdn = 7;
+
+  // Custom domain configuration
+  DomainConfig domain = 8;
+}
