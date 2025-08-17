@@ -170,22 +170,36 @@ class BackupManager:
             backup_file = self.backup_dir / f"gcommon-backup-{timestamp}.tar.gz"
             self.logger.log(f"Creating filesystem backup: {backup_file}")
 
+            def should_exclude(path):
+                """Check if a path should be excluded from backup"""
+                exclude_patterns = [
+                    ".git",
+                    "node_modules",
+                    "target",
+                    ".log",
+                    "logs",
+                    "__pycache__",
+                    ".pyc",
+                    ".DS_Store",
+                    "*.tmp",
+                ]
+
+                path_str = str(path)
+                for pattern in exclude_patterns:
+                    if pattern in path_str:
+                        return True
+                return False
+
             with tarfile.open(backup_file, "w:gz") as tar:
-                tar.add(
-                    self.root_dir,
-                    arcname="gcommon",
-                    exclude=lambda x: any(
-                        exclude in x
-                        for exclude in [
-                            ".git",
-                            "node_modules",
-                            "target",
-                            ".log",
-                            "logs",
-                            "__pycache__",
-                        ]
-                    ),
-                )
+                # Add files recursively while filtering out excluded paths
+                for item in self.root_dir.rglob("*"):
+                    if not should_exclude(item.relative_to(self.root_dir)):
+                        try:
+                            arcname = Path("gcommon") / item.relative_to(self.root_dir)
+                            tar.add(item, arcname=str(arcname))
+                        except (OSError, PermissionError):
+                            # Skip files that can't be read (like some system files)
+                            continue
 
             self.filesystem_backup = backup_file
             backup_info["filesystem_backup"] = str(backup_file)
