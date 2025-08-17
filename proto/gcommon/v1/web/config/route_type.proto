@@ -10,7 +10,7 @@ package gcommon.v1.web.config;
 import "google/protobuf/go_features.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package gcommon.v1.web.config;
+option go_package = "gcommon.v1.web.config";
 
 enum RouteType {
   ROUTE_TYPE_UNSPECIFIED = 0;

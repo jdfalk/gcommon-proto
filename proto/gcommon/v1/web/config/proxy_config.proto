@@ -9,10 +9,10 @@ package gcommon.v1.web.config;
 import "google/protobuf/duration.proto";
 import "google/protobuf/go_features.proto";
 import "proto/gcommon/v1/web/messages/http_header.proto";
-import "proto/gcommon/v1/web/types/proxy_type.proto";
+import "proto/gcommon/v1/web/enums/proxy_type.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package gcommon.v1.web.config;
+option go_package = "gcommon.v1.web.config";
 
 // ProxyConfig message definition.
 message ProxyConfig {

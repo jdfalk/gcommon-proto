@@ -8,10 +8,10 @@ package gcommon.v1.web.config;
 
 import "google/protobuf/any.proto";
 import "google/protobuf/go_features.proto";
-import "proto/gcommon/v1/web/types/handler_type.proto";
+import "proto/gcommon/v1/web/enums/handler_type.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package gcommon.v1.web.config;
+option go_package = "gcommon.v1.web.config";
 
 // HandlerConfig message definition.
 message HandlerConfig {

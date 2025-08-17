@@ -12,7 +12,7 @@ import "proto/gcommon/v1/common/messages/cache_policy.proto";
 import "proto/gcommon/v1/web/messages/cache_strategy.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package gcommon.v1.web.config;
+option go_package = "gcommon.v1.web.config";
 
 // CacheConfig defines caching behavior for web responses.
 message WebCacheConfig {

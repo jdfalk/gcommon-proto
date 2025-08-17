@@ -9,7 +9,7 @@ package gcommon.v1.web.api;
 import "google/protobuf/go_features.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package gcommon.v1.web.api;
+option go_package = "gcommon.v1.web.api";
 
 // UpdateSessionRequest request definition.
 message WebUpdateSessionRequest {
