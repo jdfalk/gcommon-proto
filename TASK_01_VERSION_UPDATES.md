@@ -5,10 +5,13 @@
 # TASK 01: Go and Python Version Requirements Update
 
 ## 🎯 OBJECTIVE
+
 Update all Go and Python version requirements across all repositories to use Go 1.23+ and Python 3.13+ as minimum requirements.
 
 ## 📋 SCOPE
+
 This task covers updating version requirements in all repositories in the workspace:
+
 - `/Users/jdfalk/repos/github.com/jdfalk/gcommon`
 - `/Users/jdfalk/repos/github.com/jdfalk/ghcommon`
 - `/Users/jdfalk/repos/github.com/jdfalk/subtitle-manager`
@@ -18,9 +21,11 @@ This task covers updating version requirements in all repositories in the worksp
 ## 🚨 CRITICAL INSTRUCTIONS
 
 ### Documentation Updates
+
 **NEVER edit markdown files directly. ALWAYS use the documentation update system:**
 
 1. **Create documentation updates**:
+
    ```bash
    ./scripts/create-doc-update.sh [filename] "[content]" [mode] --issue [issue-number]
    ```
@@ -32,6 +37,7 @@ This task covers updating version requirements in all repositories in the worksp
    - `changelog-entry` - Add properly formatted changelog entry
 
 ### VS Code Tasks Priority
+
 **MANDATORY: Always use VS Code tasks first before manual commands:**
 
 1. **Use VS Code tasks** via `run_task` tool when available
@@ -42,7 +48,7 @@ This task covers updating version requirements in all repositories in the worksp
 
 ### Go Instructions (Minimum Go 1.23+)
 
-```markdown
+````markdown
 <!-- file: .github/instructions/go.instructions.md -->
 <!-- version: 1.3.0 -->
 <!-- guid: 4f5a6b7c-8d9e-0f1a-2b3c-4d5e6f7a8b9c -->
@@ -50,19 +56,17 @@ This task covers updating version requirements in all repositories in the worksp
 <!-- To update: Create an issue/PR in jdfalk/ghcommon -->
 
 ---
-applyTo: "**/*.go"
-description: |
-  Go language-specific coding, documentation, and testing rules for Copilot/AI agents and VS Code Copilot customization. These rules extend the general instructions in `general-coding.instructions.md` and merge all unique content from the Google Go Style Guide.
+
+applyTo: "\*_/_.go" description: | Go language-specific coding, documentation, and testing rules for Copilot/AI agents and VS Code Copilot customization. These rules extend the general instructions in `general-coding.instructions.md` and
+merge all unique content from the Google Go Style Guide.
+
 ---
 
 # Go Coding Instructions
 
 - Follow the [general coding instructions](general-coding.instructions.md).
-- Follow the
-  [Google Go Style Guide](https://google.github.io/styleguide/go/index.html) for
-  additional best practices.
-- All Go files must begin with the required file header (see general
-  instructions for details and Go example).
+- Follow the [Google Go Style Guide](https://google.github.io/styleguide/go/index.html) for additional best practices.
+- All Go files must begin with the required file header (see general instructions for details and Go example).
 
 ## Version Requirements
 
@@ -82,8 +86,7 @@ description: |
 
 - Use short, concise, evocative package names (lowercase, no underscores)
 - Use camelCase for unexported names, PascalCase for exported names
-- Use short names for short-lived variables, descriptive names for longer-lived
-  variables
+- Use short names for short-lived variables, descriptive names for longer-lived variables
 - Use PascalCase for exported constants, camelCase for unexported constants
 - Single-method interfaces should end in "-er" (e.g., Reader, Writer)
 
@@ -129,15 +132,16 @@ description: |
 
 ## Required File Header
 
-All Go files must begin with a standard header as described in the
-[general coding instructions](general-coding.instructions.md). Example for Go:
+All Go files must begin with a standard header as described in the [general coding instructions](general-coding.instructions.md). Example for Go:
 
 ```go
 // file: path/to/file.go
 // version: 1.23.0
 // guid: 123e4567-e89b-12d3-a456-426614174000
 ```
-```
+````
+
+````
 
 ### Python Instructions (Minimum Python 3.13+)
 
@@ -211,8 +215,9 @@ All Python files must begin with a standard header as described in the
 # file: path/to/file.py
 # version: 1.23.0
 # guid: 123e4567-e89b-12d3-a456-426614174000
-```
-```
+````
+
+````
 
 ### Rust Utility Instructions
 
@@ -254,13 +259,14 @@ The `copilot-agent-util` (or `copilot-agent-utilr`) is a comprehensive Rust-base
 3. **LAST RESORT**: Manual terminal commands only if neither above option exists
 
 [Complete utility documentation continues...]
-```
+````
 
 ## 🎯 TASK BREAKDOWN
 
 ### Phase 1: Update Go Version Requirements (30 minutes)
 
 1. **Find all go.mod files**:
+
    ```bash
    find /Users/jdfalk/repos/github.com/jdfalk -name "go.mod" -type f
    ```
@@ -274,6 +280,7 @@ The `copilot-agent-util` (or `copilot-agent-utilr`) is a comprehensive Rust-base
 ### Phase 2: Update Python Version Requirements (30 minutes)
 
 1. **Find Python requirements files**:
+
    ```bash
    find /Users/jdfalk/repos/github.com/jdfalk -name "requirements.txt" -o -name "pyproject.toml" -o -name "setup.py" -type f
    ```
@@ -293,11 +300,13 @@ The `copilot-agent-util` (or `copilot-agent-utilr`) is a comprehensive Rust-base
 ## 📝 FILES TO UPDATE
 
 ### Go Files
+
 - All `go.mod` files throughout workspace
 - All `go.work` files (if any)
 - All `*.go` file headers to use version 1.23.0+
 
 ### Python Files
+
 - All `requirements.txt` files
 - All `pyproject.toml` files
 - All `setup.py` files

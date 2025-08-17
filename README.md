@@ -1,26 +1,26 @@
 <!-- file: README.md -->
 <!-- version: 1.1.0 -->
+
 ## Table of Contents
 
-  - [Table of Contents](#table-of-contents)
-  - [📚 Essential Documentation](#-essential-documentation)
-    - [New Users Start Here](#new-users-start-here)
-    - [For Developers](#for-developers)
-  - [� Overview](#-overview)
-  - [🚀 Quick Start](#-quick-start)
-    - [Installation](#installation)
-    - [Build Tools](#build-tools)
-      - [Rust Version (Recommended)](#rust-version-recommended)
+- [Table of Contents](#table-of-contents)
+- [📚 Essential Documentation](#-essential-documentation)
+  - [New Users Start Here](#new-users-start-here)
+  - [For Developers](#for-developers)
+- [� Overview](#-overview)
+- [🚀 Quick Start](#-quick-start)
+  - [Installation](#installation)
+  - [Build Tools](#build-tools)
+    - [Rust Version (Recommended)](#rust-version-recommended)
 - [Install the Rust version](#install-the-rust-version)
 - [Create symlink for easy access (copilot-agent-utilr)](#create-symlink-for-easy-access-copilot-agent-utilr)
-- [Verify installation](#verify-installation)
-      - [Go Version (Fallback)](#go-version-fallback)
+- [Verify installation](#verify-installation) - [Go Version (Fallback)](#go-version-fallback)
 - [Install the Go version](#install-the-go-version)
 - [Verify installation](#verify-installation)
-    - [Basic Health Check Example](#basic-health-check-example)
-    - [gRPC Metrics Interceptor Example](#grpc-metrics-interceptor-example)
-    - [Database gRPC Service Example](#database-grpc-service-example)
-    - [Multi-Module Example](#multi-module-example)
+  - [Basic Health Check Example](#basic-health-check-example)
+  - [gRPC Metrics Interceptor Example](#grpc-metrics-interceptor-example)
+  - [Database gRPC Service Example](#database-grpc-service-example)
+  - [Multi-Module Example](#multi-module-example)
   - [📦 Current Module Status (August 2025 - MAJOR UPDATE)](#-current-module-status-august-2025-major-update)
   - [🎉 Recent Achievements](#-recent-achievements)
     - [August 2025: MASSIVE PROTOBUF IMPLEMENTATION MILESTONE ✅](#august-2025-massive-protobuf-implementation-milestone)
@@ -34,7 +34,7 @@
 - [Generate protobuf code (if developing)](#generate-protobuf-code-if-developing)
 - [Run tests](#run-tests)
 - [Try the health example](#try-the-health-example)
-    - [Development Tools (Optional)](#development-tools-optional)
+  - [Development Tools (Optional)](#development-tools-optional)
 - [Install protobuf tools for gRPC development](#install-protobuf-tools-for-grpc-development)
 - [Install mockery for testing](#install-mockery-for-testing)
   - [🤖 Automated Issue Management](#-automated-issue-management)
@@ -88,28 +88,21 @@
 
 ### New Users Start Here
 
-- **[Getting Started Guide](docs/user/getting-started.md)** - Complete setup and
-  first steps
-- **[Health Module Guide](docs/user/health-kubernetes.md)** - Production-ready
-  health monitoring
+- **[Getting Started Guide](docs/user/getting-started.md)** - Complete setup and first steps
+- **[Health Module Guide](docs/user/health-kubernetes.md)** - Production-ready health monitoring
 - **[Basic Examples](examples/)** - Working code examples for each module
-- **[Getting Started Examples](examples/getting-started/)** - Quick start
-  projects
+- **[Getting Started Examples](examples/getting-started/)** - Quick start projects
 
 ### For Developers
 
 - **[Project Roadmap](TODO.md)** - Implementation status and plans
 - **[Technical Architecture](CHANGELOG.md)** - Detailed technical documentation
-- **[Protobuf API Design](docs/technical/protobuf-grpc-design.md)** - gRPC
-  service definitions
+- **[Protobuf API Design](docs/technical/protobuf-grpc-design.md)** - gRPC service definitions
 
 ## � Overview
 
-GCommon is a comprehensive library of common Go modules designed for building
-robust, scalable applications. It provides consistent APIs across
-authentication, caching, configuration, database operations, health checking,
-logging, metrics, message queuing, and web services. This update introduces a
-security module for audits, policies, monitoring, and tools.
+GCommon is a comprehensive library of common Go modules designed for building robust, scalable applications. It provides consistent APIs across authentication, caching, configuration, database operations, health checking, logging, metrics,
+message queuing, and web services. This update introduces a security module for audits, policies, monitoring, and tools.
 
 ## 🚀 Quick Start
 
@@ -121,13 +114,11 @@ go get github.com/jdfalk/gcommon
 
 ### Build Tools
 
-This project uses the **Copilot Agent Utility** for reliable build operations
-and VS Code task integration.
+This project uses the **Copilot Agent Utility** for reliable build operations and VS Code task integration.
 
 #### Rust Version (Recommended)
 
-The preferred build tool is the Rust implementation, which provides memory
-safety, robust error handling, and comprehensive logging:
+The preferred build tool is the Rust implementation, which provides memory safety, robust error handling, and comprehensive logging:
 
 ```bash
 # Install the Rust version
@@ -159,8 +150,7 @@ go install github.com/jdfalk/copilot-agent-util/cmd/copilot-agent-util@latest
 copilot-agent-util --version
 ```
 
-VS Code tasks are configured to use the Rust version (`copilot-agent-utilr`) by
-default, with automatic fallback to the Go version if needed.
+VS Code tasks are configured to use the Rust version (`copilot-agent-utilr`) by default, with automatic fallback to the Go version if needed.
 
 ### Basic Health Check Example
 
@@ -239,8 +229,7 @@ func main() {
 
 ## 📦 Current Module Status (August 2025 - MAJOR UPDATE)
 
-**🚀 MASSIVE PROTOBUF MILESTONE ACHIEVED**: All modules now have complete
-protobuf structure following 1-1-1 pattern
+**🚀 MASSIVE PROTOBUF MILESTONE ACHIEVED**: All modules now have complete protobuf structure following 1-1-1 pattern
 
 | Module           | Proto Files | Completion | Ready for Production | gRPC Services  | Recent Progress                             |
 | ---------------- | ----------- | ---------- | -------------------- | -------------- | ------------------------------------------- |
@@ -262,26 +251,21 @@ protobuf structure following 1-1-1 pattern
 **⚠️ Development Status**:
 
 - **Protobuf Layer**: 100% complete across all modules (MAJOR MILESTONE!)
-- **gRPC Services**: 3 modules production-ready (Health, Database, Common),
-  others in progress
+- **gRPC Services**: 3 modules production-ready (Health, Database, Common), others in progress
 - **Go Implementations**: Varies by module, focusing on service layer completion
 
 ## 🎉 Recent Achievements
 
 ### August 2025: MASSIVE PROTOBUF IMPLEMENTATION MILESTONE ✅
 
-**🚀 UNPRECEDENTED ACHIEVEMENT**: Completed comprehensive 1-1-1 pattern
-implementation across ALL modules
+**🚀 UNPRECEDENTED ACHIEVEMENT**: Completed comprehensive 1-1-1 pattern implementation across ALL modules
 
 **Key Accomplishments:**
 
-- **1,254+ Protobuf Files**: Massive expansion from ~754 to 1,254+ individual
-  files following 1-1-1 pattern
+- **1,254+ Protobuf Files**: Massive expansion from ~754 to 1,254+ individual files following 1-1-1 pattern
 - **100% Module Coverage**: All 12 modules now have complete protobuf structure
-- **Automated Tooling**: Created `split_proto.py` for automated proto file
-  splitting
-- **Complete Documentation**: Comprehensive implementation guide in
-  `PROTO_SPLITTING_GUIDE.md`
+- **Automated Tooling**: Created `split_proto.py` for automated proto file splitting
+- **Complete Documentation**: Comprehensive implementation guide in `PROTO_SPLITTING_GUIDE.md`
 
 **Module Implementation Results:**
 
@@ -294,61 +278,44 @@ implementation across ALL modules
 - **Organization Module**: 80 proto files (team/tenant management)
 - **Notification Module**: 22 proto files (notification system)
 
-**Impact**: This represents the largest single development milestone in the
-project's history, establishing a complete protobuf foundation for all planned
-services.
+**Impact**: This represents the largest single development milestone in the project's history, establishing a complete protobuf foundation for all planned services.
 
 ### Previous Milestones
 
 ### June 8, 2025: Complete Protobuf Implementation Roadmap ✅
 
-We've completed comprehensive analysis and created a detailed implementation
-plan for all 754 protobuf files:
+We've completed comprehensive analysis and created a detailed implementation plan for all 754 protobuf files:
 
 **🚀 Ready for Implementation:**
 
 - **📊 Total Coverage**: 754 protobuf files analyzed and tracked
-- **📋 GitHub Issues**: 39 detailed implementation issues created covering 625
-  empty files
+- **📋 GitHub Issues**: 39 detailed implementation issues created covering 625 empty files
 - **🎯 Implementation Plan**: Detailed priority order and workflow established
-- **✅ 100% Issue Coverage**: Every empty protobuf file has a corresponding
-  GitHub issue
+- **✅ 100% Issue Coverage**: Every empty protobuf file has a corresponding GitHub issue
 - **📝 Open Issues**: 58 currently active
 
 **Current Module Status (June 8, 2025):**
 
-- **✅ Common Module**: 100% complete (40/40 files) - **Shared Types
-  Foundation**
-- **✅ Database Module**: 100% complete (52/52 files) - **Gold Standard
-  Reference**
+- **✅ Common Module**: 100% complete (40/40 files) - **Shared Types Foundation**
+- **✅ Database Module**: 100% complete (52/52 files) - **Gold Standard Reference**
 - **✅ Log Module**: 100% complete (1/1 files) - **Minimal Implementation**
-- **🔄 Auth Module**: 13.5% complete (17/126 files) - 109 files need
-  implementation
-- **🔄 Cache Module**: 18.2% complete (8/44 files) - 36 files need
-  implementation
-- **🔄 Config Module**: 13.0% complete (3/23 files) - 20 files need
-  implementation
-- **✅ Health Module**: 100% complete (16/16 files) - Stable and
-  production-ready
-- **❌ Metrics Module**: 2.1% complete (2/97 files) - **95 files need
-  implementation**
-- **❌ Queue Module**: 1.1% complete (2/177 files) - **175 files need
-  implementation**
-- **❌ Web Module**: 1.1% complete (2/178 files) - **176 files need
-  implementation**
+- **🔄 Auth Module**: 13.5% complete (17/126 files) - 109 files need implementation
+- **🔄 Cache Module**: 18.2% complete (8/44 files) - 36 files need implementation
+- **🔄 Config Module**: 13.0% complete (3/23 files) - 20 files need implementation
+- **✅ Health Module**: 100% complete (16/16 files) - Stable and production-ready
+- **❌ Metrics Module**: 2.1% complete (2/97 files) - **95 files need implementation**
+- **❌ Queue Module**: 1.1% complete (2/177 files) - **175 files need implementation**
+- **❌ Web Module**: 1.1% complete (2/178 files) - **176 files need implementation**
 
 **Ready to Start:**
 
-- **📍 GitHub Project**:
-  [GCommon Development Board](https://github.com/users/jdfalk/projects/3)
+- **📍 GitHub Project**: [GCommon Development Board](https://github.com/users/jdfalk/projects/3)
 - **📋 Next Step**: Start with Issue #67 (Protobuf Validation Pipeline)
 - **🎯 Priority Order**: Metrics → Queue → Web → Auth → Cache → Config → Health
 - **Priority 3**: Add request metadata to all services
 - **Priority 4**: Enable gRPC services across all modules
 
-**Critical Finding**: The protobuf migration from monolithic to 1-1-1 structure
-revealed **631 total types** requiring implementation - significantly more
-extensive than initially estimated.
+**Critical Finding**: The protobuf migration from monolithic to 1-1-1 structure revealed **631 total types** requiring implementation - significantly more extensive than initially estimated.
 
 ## 🔧 Installation & Setup
 
@@ -391,14 +358,11 @@ go install github.com/vektra/mockery/v2@latest
 
 ## 🤖 Automated Issue Management
 
-This repository uses GitHub Actions for automated issue management. When working
-on features or bugs, **always update issue status** to maintain accurate project
-tracking.
+This repository uses GitHub Actions for automated issue management. When working on features or bugs, **always update issue status** to maintain accurate project tracking.
 
 ### Issue Status Updates
 
-To programmatically update GitHub issues, create an `issue_updates.json` file in
-the repository root and push to main:
+To programmatically update GitHub issues, create an `issue_updates.json` file in the repository root and push to main:
 
 ```json
 [
@@ -442,8 +406,7 @@ echo '[{"action": "update", "number": 68, "state": "closed", "labels": ["complet
 git add issue_updates.json && git commit -m "Complete issue #68: Metrics Messages" && git push
 ```
 
-The GitHub Actions workflow automatically processes these updates on every push
-to main.
+The GitHub Actions workflow automatically processes these updates on every push to main.
 
 ## 🏗️ Architecture Overview
 
@@ -463,8 +426,7 @@ to main.
 - **Protocol Buffers Foundation**: All services defined using protobuf
 - **Dual API Support**: Both Go interfaces and gRPC for maximum flexibility
 - **Common Types**: Shared definitions for consistency across modules
-- **Direct Proto Imports**: Import specific proto files directly (v0.3.0+)
-  instead of aggregator files
+- **Direct Proto Imports**: Import specific proto files directly (v0.3.0+) instead of aggregator files
 
 ## 🔄 Protobuf Import Strategy (BREAKING CHANGE in v0.3.0)
 
@@ -501,8 +463,7 @@ We welcome contributions! Current priority areas:
 3. **Documentation improvements**
 4. **Example applications**
 
-See our [contribution guidelines](CONTRIBUTING.md) for code style, testing
-requirements, and development workflow.
+See our [contribution guidelines](CONTRIBUTING.md) for code style, testing requirements, and development workflow.
 
 ## 📄 License
 
@@ -513,17 +474,13 @@ MIT License - see [LICENSE](LICENSE) file for details.
 - **📖 Documentation**: [docs/](docs/) directory
 - **💡 Examples**: [examples/](examples/) directory
 - **🐛 Issues**: [GitHub Issues](https://github.com/jdfalk/gcommon/issues)
-- **💬 Discussions**:
-  [GitHub Discussions](https://github.com/jdfalk/gcommon/discussions)
+- **💬 Discussions**: [GitHub Discussions](https://github.com/jdfalk/gcommon/discussions)
 
-The updated setup script automatically authenticates using `gh auth token` and
-links open issues by module labels.
+The updated setup script automatically authenticates using `gh auth token` and links open issues by module labels.
 
 ### GitHub Projects
 
-This repository now uses a dedicated GitHub Project board for each major module
-(Metrics, Queue, Web, Auth, Cache, Config). Run the unified project manager to
-create these boards and automatically add issues by label:
+This repository now uses a dedicated GitHub Project board for each major module (Metrics, Queue, Web, Auth, Cache, Config). Run the unified project manager to create these boards and automatically add issues by label:
 
 ```bash
 python3 /path/to/ghcommon/scripts/unified_github_project_manager_v2.py
@@ -533,8 +490,7 @@ See `scripts/MIGRATION-NOTICE.md` for migration details.
 
 ### Recent Updates
 
-- Added standardized LogEntry struct for consistent structured logging across
-  modules
+- Added standardized LogEntry struct for consistent structured logging across modules
 
 - Implemented initial auth configuration and API key messages
 - Logging module migrated to 1-1-1 structure with 10 new protobuf files
@@ -543,15 +499,12 @@ See `scripts/MIGRATION-NOTICE.md` for migration details.
 - Updated config module progress
 - Added DebugInfo message for advanced debugging
 - Implemented TransactionService and MigrationService protobufs
-- Queue module progress: implemented acknowledgment messages and types (approx.
-  6% complete) Queue module progress updated: implemented listing and pull
-  protobufs (approx. 10% complete)
+- Queue module progress: implemented acknowledgment messages and types (approx. 6% complete) Queue module progress updated: implemented listing and pull protobufs (approx. 10% complete)
 - Implemented core web protobufs
 - July 21, 2025: Web module protobufs implemented (178 files)
 - Updated auth module progress to 24/126 implemented
 - July 21, 2025: Database GRPCService Implementation Complete (#132)
-- SQLite and CockroachDB drivers now expose GRPCService() for gRPC server
-  registration
+- SQLite and CockroachDB drivers now expose GRPCService() for gRPC server registration
 
 ## Progress
 
@@ -585,29 +538,18 @@ See `scripts/MIGRATION-NOTICE.md` for migration details.
 | **Queue**        | 🔄 1.1%    | ❌ No                | ❌ Planned     | **❌ 175/177 files need implementation**   |
 | **Web**          | 🔄 1.1%    | ❌ No                | ❌ Planned     | **❌ 176/178 files need implementation**   |
 
-**⚠️ Development Status**: This project is under active development. Only the
-Health, Common, Database, and Cache modules are production-ready.
+**⚠️ Development Status**: This project is under active development. Only the Health, Common, Database, and Cache modules are production-ready.
 
 ## Implementation Status
 
-**Current Module Status (June 8, 2025):**\n\n- **✅ Common Module**: 100%
-complete (40/40 files) - **Shared Types Foundation**\n- **✅ Database Module**:
-100% complete (53/53 files) - **Gold Standard Reference** (QueryRow RPC
-implemented)\n- **✅ Log Module**: 100% complete (1/1 files) - **Minimal
-Implementation**\n- **🔄 Auth Module**: 13.5% complete (17/126 files) - 109
-files need implementation\n- **🔄 Cache Module**: 18.2% complete (8/44 files) -
-36 files need implementation\n- **🔄 Config Module**: 13.0% complete (3/23
-files) - 20 files need implementation\n- **✅ Health Module**: 100% complete
-(16/16 files) - Stable and production-ready\n- **❌ Metrics Module**: 2.1%
-complete (2/97 files) - **95 files need implementation**\n- **❌ Queue Module**:
-1.1% complete (2/177 files) - **175 files need implementation**\n- **❌ Web
-Module**: 1.1% complete (2/178 files) - **176 files need implementation**
+**Current Module Status (June 8, 2025):**\n\n- **✅ Common Module**: 100% complete (40/40 files) - **Shared Types Foundation**\n- **✅ Database Module**: 100% complete (53/53 files) - **Gold Standard Reference** (QueryRow RPC
+implemented)\n- **✅ Log Module**: 100% complete (1/1 files) - **Minimal Implementation**\n- **🔄 Auth Module**: 13.5% complete (17/126 files) - 109 files need implementation\n- **🔄 Cache Module**: 18.2% complete (8/44 files) - 36 files
+need implementation\n- **🔄 Config Module**: 13.0% complete (3/23 files) - 20 files need implementation\n- **✅ Health Module**: 100% complete (16/16 files) - Stable and production-ready\n- **❌ Metrics Module**: 2.1% complete (2/97
+files) - **95 files need implementation**\n- **❌ Queue Module**: 1.1% complete (2/177 files) - **175 files need implementation**\n- **❌ Web Module**: 1.1% complete (2/178 files) - **176 files need implementation**
 
-| **Notification** | ✅ 100% | ✅ Yes | ✅ Complete | **✅ Notification service
-implemented** |
+| **Notification** | ✅ 100% | ✅ Yes | ✅ Complete | **✅ Notification service implemented** |
 
-Updated queue module progress to reflect new protobuf implementations MySQL
-protobuf messages added
+Updated queue module progress to reflect new protobuf implementations MySQL protobuf messages added
 
 ### July 28, 2025 - Metrics module progress updated: 33 of 97 protobufs implemented
 
@@ -615,8 +557,7 @@ protobuf messages added
 
 Common module protobufs verified complete (July 28, 2025).
 
-It now supports a plugin architecture for custom integrations. Provides SDK,
-security features, and example plugins for extensibility.
+It now supports a plugin architecture for custom integrations. Provides SDK, security features, and example plugins for extensibility.
 
 ## Dependency Management
 
@@ -624,9 +565,7 @@ This project includes automated dependency auditing and optimization scripts.
 
 ## Documentation
 
-Comprehensive documentation for all modules is available under the docs/
-directory, featuring module overviews, API references, guides, examples,
-tutorials, and reference materials.
+Comprehensive documentation for all modules is available under the docs/ directory, featuring module overviews, API references, guides, examples, tutorials, and reference materials.
 
 ## SDK Generation\n\nInitial scaffolding for multi-language client SDK generation. Further implementation required.
 
@@ -649,9 +588,7 @@ Add dependency audit utility with license checks.
 
 ### Integration Testing\nA new integration testing framework validates module interactions and performance.
 
-- Added fully functional in-memory metrics provider supporting counters, gauges,
-  histograms, summaries, and timers Added preliminary CI/CD pipeline
-  infrastructure skeleton
+- Added fully functional in-memory metrics provider supporting counters, gauges, histograms, summaries, and timers Added preliminary CI/CD pipeline infrastructure skeleton
 
 ## API Documentation\n\nRun `python scripts/api_doc_generator.py` to generate HTML, Markdown, PDF, OpenAPI specs, Postman collections, and playground configs for all modules.
 
@@ -667,15 +604,13 @@ Add dependency audit utility with license checks.
 
 ## 🤝 Community Guidelines
 
-Please read our [Code of Conduct](CODE_OF_CONDUCT.md) to understand expected
-behavior.
+Please read our [Code of Conduct](CODE_OF_CONDUCT.md) to understand expected behavior.
 
 ### Auth Module Docs\n\nComprehensive authentication module documentation is available under docs/modules/auth.
 
 ## Documentation\n\nInitial module documentation skeleton is available under docs/modules/.
 
-- **[Production Readiness Checklist](docs/production-readiness-checklist.md)** -
-  Module readiness criteria and assessments
+- **[Production Readiness Checklist](docs/production-readiness-checklist.md)** - Module readiness criteria and assessments
 
 ## CI/CD Pipeline\n\nThis project now includes a security scanning workflow that runs `go vet` and `npm audit` during continuous integration.
 
@@ -693,8 +628,7 @@ Notification module service layer implemented with multi-channel gRPC services.
 
 ## Web Module\n\nTODO: Add content for this section
 
-- Added gRPC server and client for database migrations \n## Documentation
-  System\nPlaceholder for module documentation system.
+- Added gRPC server and client for database migrations \n## Documentation System\nPlaceholder for module documentation system.
 
 ## Performance Testing\nThe perf/ directory contains benchmarking, load, stress, and regression tools for all modules.
 

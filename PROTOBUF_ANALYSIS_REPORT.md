@@ -25,6 +25,7 @@
 #### 3. Enum Naming Convention Violations (MEDIUM)
 
 Multiple enums don't follow the package prefix convention:
+
 - `ALERT_SEVERITY_*` should be `QUEUE_ALERT_SEVERITY_*`
 - `CONSISTENCY_LEVEL_*` should be `QUEUE_CONSISTENCY_LEVEL_*`
 - `HEALTH_STATUS_*` should be `QUEUE_HEALTH_STATUS_*` (in queue package)
@@ -126,14 +127,14 @@ copilot-agent-util exec "go build ./..."
 
 ### Risk Assessment
 
-**HIGH RISK:** Breaking changes to existing consumers
-**MITIGATION:**
+**HIGH RISK:** Breaking changes to existing consumers **MITIGATION:**
+
 - Version all changes properly
 - Provide migration guides
 - Test with all consuming repositories
 
-**MEDIUM RISK:** Extended downtime during fixes
-**MITIGATION:**
+**MEDIUM RISK:** Extended downtime during fixes **MITIGATION:**
+
 - Work in feature branches
 - Use incremental fixes
 - Automated testing at each step

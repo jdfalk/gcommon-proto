@@ -2,17 +2,12 @@
 
 ## Current State
 
-Working on fixing buf.gen.yaml configuration to properly support Edition 2023
-protobuf files and use built-in protoc plugins instead of remote plugins for
-languages that have built-in support.
+Working on fixing buf.gen.yaml configuration to properly support Edition 2023 protobuf files and use built-in protoc plugins instead of remote plugins for languages that have built-in support.
 
 ## Problem Discovered
 
-1. **Remote vs Built-in Plugins**: We were incorrectly using remote plugins from
-   buf.build for languages that have built-in protoc support (Go, Java, JS,
-   Python, etc.)
-2. **Edition 2023 Support**: Many remote plugins don't support Edition 2023 yet
-   (Rust, Swift, gRPC-Web)
+1. **Remote vs Built-in Plugins**: We were incorrectly using remote plugins from buf.build for languages that have built-in protoc support (Go, Java, JS, Python, etc.)
+2. **Edition 2023 Support**: Many remote plugins don't support Edition 2023 yet (Rust, Swift, gRPC-Web)
 3. **Rate Limiting**: Hit buf.build registry rate limits during testing
 
 ## Current buf.gen.yaml State
@@ -25,8 +20,7 @@ File shows mixed configuration:
 
 ## Required Changes to buf.gen.yaml
 
-Need to replace ALL built-in language plugins with `protoc_builtin`
-configuration:
+Need to replace ALL built-in language plugins with `protoc_builtin` configuration:
 
 ### Languages with Built-in Support
 
@@ -91,20 +85,16 @@ configuration:
      - directory: .
    ```
 
-2. **Test protobuf generation**: Run `buf generate` to verify Edition 2023
-   compatibility
+2. **Test protobuf generation**: Run `buf generate` to verify Edition 2023 compatibility
 
-3. **Continue fixing Go tests**: Return to original task of fixing failing tests
-   in metrics middleware
+3. **Continue fixing Go tests**: Return to original task of fixing failing tests in metrics middleware
 
 ## Background Context
 
 - **Original Task**: Fix all failing Go tests
-- **Metrics Tests**: Fixed collector tests by removing incompatible Prometheus
-  testutil usage
+- **Metrics Tests**: Fixed collector tests by removing incompatible Prometheus testutil usage
 - **Mockery**: Configured for proto interfaces
-- **Protobuf Architecture**: Need to use protobuf definitions instead of custom
-  Go interfaces for metrics
+- **Protobuf Architecture**: Need to use protobuf definitions instead of custom Go interfaces for metrics
 - **Edition 2023**: Mandatory, no downgrading allowed per user requirements
 - **Language Preferences**: Go, TypeScript, Python, Rust, Swift (Java removed)
 
@@ -112,8 +102,7 @@ configuration:
 
 - `buf.gen.yaml` - Multiple iterations, needs final fix
 - `monitoring/collectors/metrics_test.go` - Fixed Prometheus compatibility
-- `monitoring/collectors/metrics_extended_test.go` - Fixed Prometheus
-  compatibility
+- `monitoring/collectors/metrics_extended_test.go` - Fixed Prometheus compatibility
 - `.mockery.yml` - Configured for proto interface mocks
 - Various middleware test files - Attempted mock fixes (incomplete)
 

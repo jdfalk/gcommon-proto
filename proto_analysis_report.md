@@ -51,18 +51,15 @@ Generated on: 2025-08-09 10:14:21
 - [permission_type.proto](#permissiontypeproto) - 3 issues
 - [refresh_token_response.proto](#refreshtokenresponseproto) - 1 issues
 - [register_user_response.proto](#registeruserresponseproto) - 3 issues
-- [resend_verification_request.proto](#resendverificationrequestproto) - 3
-  issues
+- [resend_verification_request.proto](#resendverificationrequestproto) - 3 issues
 - [revoke_api_key_request.proto](#revokeapikeyrequestproto) - 3 issues
 - [revoke_api_key_response.proto](#revokeapikeyresponseproto) - 3 issues
 - [revoke_permission_request.proto](#revokepermissionrequestproto) - 3 issues
 - [revoke_role_response.proto](#revokeroleresponseproto) - 3 issues
 - [saml_config.proto](#samlconfigproto) - 3 issues
 - [security_context.proto](#securitycontextproto) - 3 issues
-- [send_verification_email_request.proto](#sendverificationemailrequestproto) -
-  3 issues
-- [send_verification_email_response.proto](#sendverificationemailresponseproto) -
-  3 issues
+- [send_verification_email_request.proto](#sendverificationemailrequestproto) - 3 issues
+- [send_verification_email_response.proto](#sendverificationemailresponseproto) - 3 issues
 - [session_config.proto](#sessionconfigproto) - 3 issues
 - [session_metadata.proto](#sessionmetadataproto) - 3 issues
 - [token_metadata.proto](#tokenmetadataproto) - 3 issues
@@ -78,8 +75,7 @@ Generated on: 2025-08-09 10:14:21
 - [alert_state.proto](#alertstateproto) - 1 issues
 - [export_config_options.proto](#exportconfigoptionsproto) - 3 issues
 - [get_metric_metadata_request.proto](#getmetricmetadatarequestproto) - 1 issues
-- [get_metric_metadata_response.proto](#getmetricmetadataresponseproto) - 1
-  issues
+- [get_metric_metadata_response.proto](#getmetricmetadataresponseproto) - 1 issues
 - [metric_aggregation_result.proto](#metricaggregationresultproto) - 3 issues
 - [metric_data.proto](#metricdataproto) - 1 issues
 - [metric_family.proto](#metricfamilyproto) - 5 issues
@@ -101,8 +97,7 @@ Generated on: 2025-08-09 10:14:21
 - [list_queues_request.proto](#listqueuesrequestproto) - 1 issues
 - [list_queues_response.proto](#listqueuesresponseproto) - 1 issues
 - [list_subscriptions_request.proto](#listsubscriptionsrequestproto) - 1 issues
-- [list_subscriptions_response.proto](#listsubscriptionsresponseproto) - 1
-  issues
+- [list_subscriptions_response.proto](#listsubscriptionsresponseproto) - 1 issues
 - [message_id.proto](#messageidproto) - 1 issues
 - [pull_request.proto](#pullrequestproto) - 1 issues
 - [pull_response.proto](#pullresponseproto) - 1 issues
@@ -134,13 +129,10 @@ Generated on: 2025-08-09 10:14:21
 - [delete_template_response.proto](#deletetemplateresponseproto) - 1 issues
 - [download_file_request.proto](#downloadfilerequestproto) - 1 issues
 - [download_file_response.proto](#downloadfileresponseproto) - 1 issues
-- [export_server_config_request.proto](#exportserverconfigrequestproto) - 1
-  issues
-- [export_server_config_response.proto](#exportserverconfigresponseproto) - 1
-  issues
+- [export_server_config_request.proto](#exportserverconfigrequestproto) - 1 issues
+- [export_server_config_response.proto](#exportserverconfigresponseproto) - 1 issues
 - [generate_csrf_token_request.proto](#generatecsrftokenrequestproto) - 1 issues
-- [generate_csrf_token_response.proto](#generatecsrftokenresponseproto) - 1
-  issues
+- [generate_csrf_token_response.proto](#generatecsrftokenresponseproto) - 1 issues
 - [get_access_logs_request.proto](#getaccesslogsrequestproto) - 1 issues
 - [get_access_logs_response.proto](#getaccesslogsresponseproto) - 1 issues
 - [get_cookie_request.proto](#getcookierequestproto) - 1 issues
@@ -154,19 +146,15 @@ Generated on: 2025-08-09 10:14:21
 - [get_metrics_request.proto](#getmetricsrequestproto) - 1 issues
 - [get_metrics_response.proto](#getmetricsresponseproto) - 1 issues
 - [get_middleware_info_request.proto](#getmiddlewareinforequestproto) - 1 issues
-- [get_middleware_info_response.proto](#getmiddlewareinforesponseproto) - 1
-  issues
-- [get_performance_stats_request.proto](#getperformancestatsrequestproto) - 1
-  issues
-- [get_performance_stats_response.proto](#getperformancestatsresponseproto) - 1
-  issues
+- [get_middleware_info_response.proto](#getmiddlewareinforesponseproto) - 1 issues
+- [get_performance_stats_request.proto](#getperformancestatsrequestproto) - 1 issues
+- [get_performance_stats_response.proto](#getperformancestatsresponseproto) - 1 issues
 - [get_route_info_request.proto](#getrouteinforequestproto) - 1 issues
 - [get_route_info_response.proto](#getrouteinforesponseproto) - 1 issues
 - [get_route_metrics_request.proto](#getroutemetricsrequestproto) - 1 issues
 - [get_route_metrics_response.proto](#getroutemetricsresponseproto) - 1 issues
 - [get_security_config_request.proto](#getsecurityconfigrequestproto) - 1 issues
-- [get_security_config_response.proto](#getsecurityconfigresponseproto) - 1
-  issues
+- [get_security_config_response.proto](#getsecurityconfigresponseproto) - 1 issues
 - [get_server_config_request.proto](#getserverconfigrequestproto) - 1 issues
 - [get_server_config_response.proto](#getserverconfigresponseproto) - 1 issues
 - [get_server_health_request.proto](#getserverhealthrequestproto) - 1 issues
@@ -177,10 +165,8 @@ Generated on: 2025-08-09 10:14:21
 - [get_server_metrics_response.proto](#getservermetricsresponseproto) - 1 issues
 - [get_server_status_request.proto](#getserverstatusrequestproto) - 1 issues
 - [get_server_status_response.proto](#getserverstatusresponseproto) - 1 issues
-- [get_ssl_certificate_info_request.proto](#getsslcertificateinforequestproto) -
-  1 issues
-- [get_ssl_certificate_info_response.proto](#getsslcertificateinforesponseproto) -
-  1 issues
+- [get_ssl_certificate_info_request.proto](#getsslcertificateinforequestproto) - 1 issues
+- [get_ssl_certificate_info_response.proto](#getsslcertificateinforesponseproto) - 1 issues
 - [get_template_info_request.proto](#gettemplateinforequestproto) - 1 issues
 - [get_template_info_response.proto](#gettemplateinforesponseproto) - 1 issues
 - [get_websocket_info_request.proto](#getwebsocketinforequestproto) - 1 issues
@@ -189,10 +175,8 @@ Generated on: 2025-08-09 10:14:21
 - [handle_request_request.proto](#handlerequestrequestproto) - 1 issues
 - [handle_request_response.proto](#handlerequestresponseproto) - 1 issues
 - [handle_response.proto](#handleresponseproto) - 1 issues
-- [import_server_config_request.proto](#importserverconfigrequestproto) - 1
-  issues
-- [import_server_config_response.proto](#importserverconfigresponseproto) - 1
-  issues
+- [import_server_config_request.proto](#importserverconfigrequestproto) - 1 issues
+- [import_server_config_response.proto](#importserverconfigresponseproto) - 1 issues
 - [list_cookies_request.proto](#listcookiesrequestproto) - 1 issues
 - [list_cookies_response.proto](#listcookiesresponseproto) - 1 issues
 - [list_handlers_response.proto](#listhandlersresponseproto) - 1 issues
@@ -208,10 +192,8 @@ Generated on: 2025-08-09 10:14:21
 - [register_handler_response.proto](#registerhandlerresponseproto) - 1 issues
 - [register_route_request.proto](#registerrouterequestproto) - 1 issues
 - [register_route_response.proto](#registerrouteresponseproto) - 1 issues
-- [reload_server_config_request.proto](#reloadserverconfigrequestproto) - 1
-  issues
-- [reload_server_config_response.proto](#reloadserverconfigresponseproto) - 1
-  issues
+- [reload_server_config_request.proto](#reloadserverconfigrequestproto) - 1 issues
+- [reload_server_config_response.proto](#reloadserverconfigresponseproto) - 1 issues
 - [remove_middleware_request.proto](#removemiddlewarerequestproto) - 1 issues
 - [remove_middleware_response.proto](#removemiddlewareresponseproto) - 1 issues
 - [render_template_request.proto](#rendertemplaterequestproto) - 1 issues
@@ -220,50 +202,36 @@ Generated on: 2025-08-09 10:14:21
 - [reset_stats_response.proto](#resetstatsresponseproto) - 1 issues
 - [restart_server_request.proto](#restartserverrequestproto) - 1 issues
 - [restart_server_response.proto](#restartserverresponseproto) - 1 issues
-- [send_websocket_message_request.proto](#sendwebsocketmessagerequestproto) - 1
-  issues
-- [send_websocket_message_response.proto](#sendwebsocketmessageresponseproto) -
-  1 issues
+- [send_websocket_message_request.proto](#sendwebsocketmessagerequestproto) - 1 issues
+- [send_websocket_message_response.proto](#sendwebsocketmessageresponseproto) - 1 issues
 - [serve_static_request.proto](#servestaticrequestproto) - 1 issues
 - [serve_static_response.proto](#servestaticresponseproto) - 1 issues
 - [server_event.proto](#servereventproto) - 1 issues
 - [stop_server_request.proto](#stopserverrequestproto) - 1 issues
 - [stop_server_response.proto](#stopserverresponseproto) - 1 issues
-- [stream_server_events_request.proto](#streamservereventsrequestproto) - 1
-  issues
+- [stream_server_events_request.proto](#streamservereventsrequestproto) - 1 issues
 - [unregister_handler_request.proto](#unregisterhandlerrequestproto) - 1 issues
-- [unregister_handler_response.proto](#unregisterhandlerresponseproto) - 1
-  issues
+- [unregister_handler_response.proto](#unregisterhandlerresponseproto) - 1 issues
 - [unregister_route_request.proto](#unregisterrouterequestproto) - 1 issues
 - [unregister_route_response.proto](#unregisterrouteresponseproto) - 1 issues
 - [update_cookie_request.proto](#updatecookierequestproto) - 1 issues
 - [update_cookie_response.proto](#updatecookieresponseproto) - 1 issues
 - [update_cors_config_request.proto](#updatecorsconfigrequestproto) - 1 issues
 - [update_cors_config_response.proto](#updatecorsconfigresponseproto) - 1 issues
-- [update_handler_config_request.proto](#updatehandlerconfigrequestproto) - 1
-  issues
-- [update_handler_config_response.proto](#updatehandlerconfigresponseproto) - 1
-  issues
+- [update_handler_config_request.proto](#updatehandlerconfigrequestproto) - 1 issues
+- [update_handler_config_response.proto](#updatehandlerconfigresponseproto) - 1 issues
 - [update_route_config_request.proto](#updaterouteconfigrequestproto) - 1 issues
-- [update_route_config_response.proto](#updaterouteconfigresponseproto) - 1
-  issues
-- [update_security_config_request.proto](#updatesecurityconfigrequestproto) - 1
-  issues
-- [update_security_config_response.proto](#updatesecurityconfigresponseproto) -
-  1 issues
-- [update_server_config_request.proto](#updateserverconfigrequestproto) - 1
-  issues
-- [update_server_config_response.proto](#updateserverconfigresponseproto) - 1
-  issues
-- [update_ssl_certificate_request.proto](#updatesslcertificaterequestproto) - 1
-  issues
-- [update_ssl_certificate_response.proto](#updatesslcertificateresponseproto) -
-  1 issues
+- [update_route_config_response.proto](#updaterouteconfigresponseproto) - 1 issues
+- [update_security_config_request.proto](#updatesecurityconfigrequestproto) - 1 issues
+- [update_security_config_response.proto](#updatesecurityconfigresponseproto) - 1 issues
+- [update_server_config_request.proto](#updateserverconfigrequestproto) - 1 issues
+- [update_server_config_response.proto](#updateserverconfigresponseproto) - 1 issues
+- [update_ssl_certificate_request.proto](#updatesslcertificaterequestproto) - 1 issues
+- [update_ssl_certificate_response.proto](#updatesslcertificateresponseproto) - 1 issues
 - [upload_file_request.proto](#uploadfilerequestproto) - 1 issues
 - [upload_file_response.proto](#uploadfileresponseproto) - 1 issues
 - [validate_csrf_token_request.proto](#validatecsrftokenrequestproto) - 1 issues
-- [validate_csrf_token_response.proto](#validatecsrftokenresponseproto) - 1
-  issues
+- [validate_csrf_token_response.proto](#validatecsrftokenresponseproto) - 1 issues
 
 # Table of Contents
 
@@ -1799,8 +1767,7 @@ Generated on: 2025-08-09 10:14:21
 
 **Package**: `gcommon.v1.auth` **Lines**: 42
 
-**Messages** (1): `APIKey` **Imports** (2): `google/protobuf/go_features.proto`,
-`google/protobuf/timestamp.proto`
+**Messages** (1): `APIKey` **Imports** (2): `google/protobuf/go_features.proto`, `google/protobuf/timestamp.proto`
 
 ### File Content
 
@@ -1857,8 +1824,7 @@ message APIKey {
 
 **Package**: `gcommon.v1.auth` **Lines**: 23
 
-**Messages** (1): `APIKeyCredentials` **Imports** (1):
-`google/protobuf/go_features.proto`
+**Messages** (1): `APIKeyCredentials` **Imports** (1): `google/protobuf/go_features.proto`
 
 ### File Content
 
@@ -1896,9 +1862,7 @@ message APIKeyCredentials {
 
 **Package**: `gcommon.v1.auth` **Lines**: 54
 
-**Messages** (1): `AssignRoleRequest` **Imports** (3):
-`google/protobuf/go_features.proto`, `pkg/auth/proto/role.proto`,
-`pkg/common/proto/request_metadata.proto`
+**Messages** (1): `AssignRoleRequest` **Imports** (3): `google/protobuf/go_features.proto`, `pkg/auth/proto/role.proto`, `pkg/common/proto/request_metadata.proto`
 
 ### File Content
 
@@ -1973,8 +1937,7 @@ message AssignRoleRequest {
 
 - Line 5: TODO - // TODO: Implement actual protobuf definitions
 - Line 16: TODO - // TODO: Add response definitions here
-- Line 17: Implementation needed - // This is a placeholder file created during
-  1-1-1 migration
+- Line 17: Implementation needed - // This is a placeholder file created during 1-1-1 migration
 
 ### File Content
 
@@ -2010,8 +1973,7 @@ option go_package = "github.com/jdfalk/gcommon/pkg/auth/proto";
 
 **Package**: `gcommon.v1.auth` **Lines**: 57
 
-**Enums** (1): `AuditAction` **Imports** (2):
-`google/protobuf/go_features.proto`, `pkg/auth/proto/role.proto`
+**Enums** (1): `AuditAction` **Imports** (2): `google/protobuf/go_features.proto`, `pkg/auth/proto/role.proto`
 
 ### File Content
 
@@ -2083,8 +2045,7 @@ enum AuditAction {
 
 **Package**: `gcommon.v1.auth` **Lines**: 31
 
-**Messages** (1): `AuditEvent` **Imports** (2):
-`google/protobuf/go_features.proto`, `google/protobuf/timestamp.proto`
+**Messages** (1): `AuditEvent` **Imports** (2): `google/protobuf/go_features.proto`, `google/protobuf/timestamp.proto`
 
 ### File Content
 
@@ -2130,8 +2091,7 @@ message AuditEvent {
 
 **Package**: `gcommon.v1.auth` **Lines**: 32
 
-**Messages** (1): `AuditLog` **Imports** (2):
-`google/protobuf/go_features.proto`, `google/protobuf/timestamp.proto`
+**Messages** (1): `AuditLog` **Imports** (2): `google/protobuf/go_features.proto`, `google/protobuf/timestamp.proto`
 
 ### File Content
 
@@ -2178,24 +2138,14 @@ message AuditLog {
 
 **Package**: `gcommon.v1.auth` **Lines**: 71
 
-**Services** (1): `AuthAdminService` **Imports** (13):
-`google/protobuf/empty.proto`, `google/protobuf/go_features.proto`,
-`pkg/auth/proto/role.proto`, `pkg/auth/proto/create_user_response.proto`,
-`pkg/auth/proto/delete_user_request.proto`,
-`pkg/auth/proto/get_user_request.proto`,
-`pkg/auth/proto/remove_role_request.proto`,
-`pkg/auth/proto/update_role_request.proto`,
-`pkg/auth/proto/list_roles_request.proto`,
-`pkg/auth/proto/list_users_response.proto`,
-`pkg/auth/proto/create_role_response.proto`,
-`pkg/auth/proto/list_roles_response.proto`,
-`pkg/auth/proto/get_system_stats_request.proto`
+**Services** (1): `AuthAdminService` **Imports** (13): `google/protobuf/empty.proto`, `google/protobuf/go_features.proto`, `pkg/auth/proto/role.proto`, `pkg/auth/proto/create_user_response.proto`, `pkg/auth/proto/delete_user_request.proto`,
+`pkg/auth/proto/get_user_request.proto`, `pkg/auth/proto/remove_role_request.proto`, `pkg/auth/proto/update_role_request.proto`, `pkg/auth/proto/list_roles_request.proto`, `pkg/auth/proto/list_users_response.proto`,
+`pkg/auth/proto/create_role_response.proto`, `pkg/auth/proto/list_roles_response.proto`, `pkg/auth/proto/get_system_stats_request.proto`
 
 ### ⚠️ Issues Found (2)
 
 - Line 11: TODO - // TODO: Add imports when files are created
-- Line 29: TODO - // TODO: All methods commented out until message types are
-  created
+- Line 29: TODO - // TODO: All methods commented out until message types are created
 
 ### File Content
 
@@ -2281,8 +2231,7 @@ service AuthAdminService {
 
 **Package**: `gcommon.v1.auth` **Lines**: 29
 
-**Messages** (1): `AuthConfig` **Imports** (2):
-`google/protobuf/go_features.proto`, `google/protobuf/timestamp.proto`
+**Messages** (1): `AuthConfig` **Imports** (2): `google/protobuf/go_features.proto`, `google/protobuf/timestamp.proto`
 
 ### File Content
 
@@ -2326,9 +2275,7 @@ message AuthConfig {
 
 **Package**: `gcommon.v1.auth` **Lines**: 36
 
-**Messages** (1): `AuthContext` **Imports** (3):
-`google/protobuf/go_features.proto`, `google/protobuf/timestamp.proto`,
-`pkg/auth/proto/role.proto`
+**Messages** (1): `AuthContext` **Imports** (3): `google/protobuf/go_features.proto`, `google/protobuf/timestamp.proto`, `pkg/auth/proto/role.proto`
 
 ### File Content
 
@@ -2433,8 +2380,7 @@ enum AuthMethod {
 
 **Package**: `gcommon.v1.auth` **Lines**: 32
 
-**Messages** (1): `AuthProvider` **Imports** (2):
-`google/protobuf/go_features.proto`, `pkg/auth/proto/provider_type.proto`
+**Messages** (1): `AuthProvider` **Imports** (2): `google/protobuf/go_features.proto`, `pkg/auth/proto/provider_type.proto`
 
 ### File Content
 
@@ -2481,23 +2427,14 @@ message AuthProvider {
 
 **Package**: `gcommon.v1.auth` **Lines**: 57
 
-**Services** (1): `AuthService` **Imports** (10):
-`google/protobuf/go_features.proto`,
-`pkg/auth/proto/authenticate_response.proto`,
-`pkg/auth/proto/validate_token_response.proto`,
-`pkg/auth/proto/verify_credentials_response.proto`,
-`pkg/auth/proto/refresh_token_response.proto`,
-`pkg/auth/proto/revoke_token_response.proto`,
-`pkg/auth/proto/get_user_info_response.proto`,
-`pkg/auth/proto/initiate_password_reset_response.proto`,
-`pkg/auth/proto/complete_password_reset_response.proto`,
-`pkg/auth/proto/change_password_response.proto`
+**Services** (1): `AuthService` **Imports** (10): `google/protobuf/go_features.proto`, `pkg/auth/proto/authenticate_response.proto`, `pkg/auth/proto/validate_token_response.proto`, `pkg/auth/proto/verify_credentials_response.proto`,
+`pkg/auth/proto/refresh_token_response.proto`, `pkg/auth/proto/revoke_token_response.proto`, `pkg/auth/proto/get_user_info_response.proto`, `pkg/auth/proto/initiate_password_reset_response.proto`,
+`pkg/auth/proto/complete_password_reset_response.proto`, `pkg/auth/proto/change_password_response.proto`
 
 ### ⚠️ Issues Found (2)
 
 - Line 9: TODO - // TODO: Add imports when message types are created
-- Line 27: TODO - // TODO: All methods commented out until message types are
-  created
+- Line 27: TODO - // TODO: All methods commented out until message types are created
 
 ### File Content
 
@@ -2575,8 +2512,7 @@ service AuthService {
 
 - Line 5: TODO - // TODO: Implement actual protobuf definitions
 - Line 16: TODO - // TODO: Add message definitions here
-- Line 17: Implementation needed - // This is a placeholder file created during
-  1-1-1 migration
+- Line 17: Implementation needed - // This is a placeholder file created during 1-1-1 migration
 
 ### File Content
 
@@ -2610,12 +2546,8 @@ option go_package = "github.com/jdfalk/gcommon/pkg/auth/proto";
 
 **Package**: `gcommon.v1.auth` **Lines**: 44
 
-**Messages** (1): `AuthenticateRequest` **Imports** (7):
-`google/protobuf/go_features.proto`, `pkg/auth/proto/api_key_credentials.proto`,
-`pkg/auth/proto/jwt_credentials.proto`,
-`pkg/auth/proto/oauth2_credentials.proto`,
-`pkg/auth/proto/password_credentials.proto`,
-`pkg/common/proto/client_info.proto`, `pkg/common/proto/request_metadata.proto`
+**Messages** (1): `AuthenticateRequest` **Imports** (7): `google/protobuf/go_features.proto`, `pkg/auth/proto/api_key_credentials.proto`, `pkg/auth/proto/jwt_credentials.proto`, `pkg/auth/proto/oauth2_credentials.proto`,
+`pkg/auth/proto/password_credentials.proto`, `pkg/common/proto/client_info.proto`, `pkg/common/proto/request_metadata.proto`
 
 ### File Content
 
@@ -2674,10 +2606,7 @@ message AuthenticateRequest {
 
 **Package**: `gcommon.v1.auth` **Lines**: 45
 
-**Messages** (1): `AuthenticateResponse` **Imports** (5):
-`google/protobuf/go_features.proto`, `pkg/auth/proto/session.proto`,
-`pkg/auth/proto/user_info.proto`, `pkg/common/proto/rate_limit.proto`,
-`pkg/common/proto/response_metadata.proto`
+**Messages** (1): `AuthenticateResponse` **Imports** (5): `google/protobuf/go_features.proto`, `pkg/auth/proto/session.proto`, `pkg/auth/proto/user_info.proto`, `pkg/common/proto/rate_limit.proto`, `pkg/common/proto/response_metadata.proto`
 
 ### File Content
 
@@ -2737,13 +2666,8 @@ message AuthenticateResponse {
 
 **Package**: `gcommon.v1.auth` **Lines**: 33
 
-**Services** (1): `AuthorizationService` **Imports** (8):
-`google/protobuf/go_features.proto`, `pkg/auth/proto/authorize_request.proto`,
-`pkg/auth/proto/authorize_response.proto`,
-`pkg/auth/proto/get_user_permissions_request.proto`,
-`pkg/auth/proto/get_user_permissions_response.proto`,
-`pkg/auth/proto/get_user_roles_request.proto`,
-`pkg/auth/proto/get_user_roles_response.proto`, `pkg/auth/proto/role.proto`
+**Services** (1): `AuthorizationService` **Imports** (8): `google/protobuf/go_features.proto`, `pkg/auth/proto/authorize_request.proto`, `pkg/auth/proto/authorize_response.proto`, `pkg/auth/proto/get_user_permissions_request.proto`,
+`pkg/auth/proto/get_user_permissions_response.proto`, `pkg/auth/proto/get_user_roles_request.proto`, `pkg/auth/proto/get_user_roles_response.proto`, `pkg/auth/proto/role.proto`
 
 ### File Content
 
@@ -2791,8 +2715,7 @@ service AuthorizationService {
 
 **Package**: `gcommon.v1.auth` **Lines**: 33
 
-**Messages** (1): `AuthorizeRequest` **Imports** (2):
-`google/protobuf/go_features.proto`, `pkg/common/proto/request_metadata.proto`
+**Messages** (1): `AuthorizeRequest` **Imports** (2): `google/protobuf/go_features.proto`, `pkg/common/proto/request_metadata.proto`
 
 ### File Content
 
@@ -2840,8 +2763,7 @@ message AuthorizeRequest {
 
 **Package**: `gcommon.v1.auth` **Lines**: 30
 
-**Messages** (1): `AuthorizeResponse` **Imports** (2):
-`google/protobuf/go_features.proto`, `pkg/common/proto/error.proto`
+**Messages** (1): `AuthorizeResponse` **Imports** (2): `google/protobuf/go_features.proto`, `pkg/common/proto/error.proto`
 
 ### File Content
 
@@ -2886,8 +2808,7 @@ message AuthorizeResponse {
 
 **Package**: `gcommon.v1.auth` **Lines**: 27
 
-**Messages** (1): `ChangePasswordRequest` **Imports** (2):
-`google/protobuf/go_features.proto`, `pkg/common/proto/request_metadata.proto`
+**Messages** (1): `ChangePasswordRequest` **Imports** (2): `google/protobuf/go_features.proto`, `pkg/common/proto/request_metadata.proto`
 
 ### File Content
 
@@ -2929,9 +2850,7 @@ message ChangePasswordRequest {
 
 **Package**: `gcommon.v1.auth` **Lines**: 34
 
-**Messages** (1): `ChangePasswordResponse` **Imports** (3):
-`google/protobuf/go_features.proto`, `pkg/common/proto/error.proto`,
-`pkg/common/proto/request_metadata.proto`
+**Messages** (1): `ChangePasswordResponse` **Imports** (3): `google/protobuf/go_features.proto`, `pkg/common/proto/error.proto`, `pkg/common/proto/request_metadata.proto`
 
 ### File Content
 
@@ -2980,8 +2899,7 @@ message ChangePasswordResponse {
 
 **Package**: `gcommon.v1.auth` **Lines**: 28
 
-**Messages** (1): `CheckPermissionRequest` **Imports** (2):
-`google/protobuf/go_features.proto`, `pkg/common/proto/request_metadata.proto`
+**Messages** (1): `CheckPermissionRequest` **Imports** (2): `google/protobuf/go_features.proto`, `pkg/common/proto/request_metadata.proto`
 
 ### File Content
 
@@ -3024,8 +2942,7 @@ message CheckPermissionRequest {
 
 **Package**: `gcommon.v1.auth` **Lines**: 21
 
-**Messages** (1): `CheckPermissionResponse` **Imports** (1):
-`google/protobuf/go_features.proto`
+**Messages** (1): `CheckPermissionResponse` **Imports** (1): `google/protobuf/go_features.proto`
 
 ### File Content
 
@@ -3067,8 +2984,7 @@ message CheckPermissionResponse {
 
 - Line 5: TODO - // TODO: Implement actual protobuf definitions
 - Line 16: TODO - // TODO: Add type definitions here
-- Line 17: Implementation needed - // This is a placeholder file created during
-  1-1-1 migration
+- Line 17: Implementation needed - // This is a placeholder file created during 1-1-1 migration
 
 ### File Content
 
@@ -3104,8 +3020,7 @@ option go_package = "github.com/jdfalk/gcommon/pkg/auth/proto";
 
 **Package**: `gcommon.v1.auth` **Lines**: 27
 
-**Messages** (1): `CompletePasswordResetRequest` **Imports** (2):
-`google/protobuf/go_features.proto`, `pkg/common/proto/request_metadata.proto`
+**Messages** (1): `CompletePasswordResetRequest` **Imports** (2): `google/protobuf/go_features.proto`, `pkg/common/proto/request_metadata.proto`
 
 ### File Content
 
@@ -3147,8 +3062,7 @@ message CompletePasswordResetRequest {
 
 **Package**: `gcommon.v1.auth` **Lines**: 45
 
-**Messages** (1): `CompletePasswordResetResponse` **Imports** (2):
-`google/protobuf/go_features.proto`, `google/protobuf/timestamp.proto`
+**Messages** (1): `CompletePasswordResetResponse` **Imports** (2): `google/protobuf/go_features.proto`, `google/protobuf/timestamp.proto`
 
 ### File Content
 
@@ -3214,8 +3128,7 @@ message CompletePasswordResetResponse {
 
 - Line 5: TODO - // TODO: Implement actual protobuf definitions
 - Line 16: TODO - // TODO: Add request definitions here
-- Line 17: Implementation needed - // This is a placeholder file created during
-  1-1-1 migration
+- Line 17: Implementation needed - // This is a placeholder file created during 1-1-1 migration
 
 ### File Content
 
@@ -3251,14 +3164,11 @@ option go_package = "github.com/jdfalk/gcommon/pkg/auth/proto";
 
 **Package**: `gcommon.v1.auth` **Lines**: 27
 
-**Messages** (1): `CreateRoleRequest` **Imports** (3):
-`google/protobuf/go_features.proto`, `pkg/auth/proto/role.proto`,
-`pkg/common/proto/request_metadata.proto`
+**Messages** (1): `CreateRoleRequest` **Imports** (3): `google/protobuf/go_features.proto`, `pkg/auth/proto/role.proto`, `pkg/common/proto/request_metadata.proto`
 
 ### ⚠️ Issues Found (1)
 
-- Line 25: Implementation needed - // This is a placeholder file created during
-  1-1-1 migration
+- Line 25: Implementation needed - // This is a placeholder file created during 1-1-1 migration
 
 ### File Content
 
@@ -3300,9 +3210,7 @@ message CreateRoleRequest {
 
 **Package**: `gcommon.v1.auth` **Lines**: 28
 
-**Messages** (1): `CreateRoleResponse` **Imports** (3):
-`google/protobuf/go_features.proto`, `pkg/auth/proto/role.proto`,
-`pkg/common/proto/error.proto`
+**Messages** (1): `CreateRoleResponse` **Imports** (3): `google/protobuf/go_features.proto`, `pkg/auth/proto/role.proto`, `pkg/common/proto/error.proto`
 
 ### File Content
 
@@ -3345,9 +3253,7 @@ message CreateRoleResponse {
 
 **Package**: `gcommon.v1.auth` **Lines**: 34
 
-**Messages** (1): `CreateSessionRequest` **Imports** (3):
-`google/protobuf/go_features.proto`, `pkg/common/proto/client_info.proto`,
-`pkg/common/proto/request_metadata.proto`
+**Messages** (1): `CreateSessionRequest` **Imports** (3): `google/protobuf/go_features.proto`, `pkg/common/proto/client_info.proto`, `pkg/common/proto/request_metadata.proto`
 
 ### File Content
 
@@ -3396,10 +3302,7 @@ message CreateSessionRequest {
 
 **Package**: `gcommon.v1.auth` **Lines**: 37
 
-**Messages** (1): `CreateSessionResponse` **Imports** (4):
-`google/protobuf/go_features.proto`, `google/protobuf/timestamp.proto`,
-`pkg/common/proto/request_metadata.proto`,
-`pkg/common/proto/response_metadata.proto`
+**Messages** (1): `CreateSessionResponse` **Imports** (4): `google/protobuf/go_features.proto`, `google/protobuf/timestamp.proto`, `pkg/common/proto/request_metadata.proto`, `pkg/common/proto/response_metadata.proto`
 
 ### File Content
 
@@ -3451,8 +3354,7 @@ message CreateSessionResponse {
 
 **Package**: `gcommon.v1.auth` **Lines**: 46
 
-**Messages** (1): `CreateUserRequest` **Imports** (2):
-`google/protobuf/go_features.proto`, `google/protobuf/timestamp.proto`
+**Messages** (1): `CreateUserRequest` **Imports** (2): `google/protobuf/go_features.proto`, `google/protobuf/timestamp.proto`
 
 ### File Content
 
@@ -3513,8 +3415,7 @@ message CreateUserRequest {
 
 **Package**: `gcommon.v1.auth` **Lines**: 49
 
-**Messages** (1): `CreateUserResponse` **Imports** (2):
-`google/protobuf/go_features.proto`, `google/protobuf/timestamp.proto`
+**Messages** (1): `CreateUserResponse` **Imports** (2): `google/protobuf/go_features.proto`, `google/protobuf/timestamp.proto`
 
 ### File Content
 
@@ -3584,8 +3485,7 @@ message CreateUserResponse {
 
 - Line 5: TODO - // TODO: Implement actual protobuf definitions
 - Line 16: TODO - // TODO: Add request definitions here
-- Line 17: Implementation needed - // This is a placeholder file created during
-  1-1-1 migration
+- Line 17: Implementation needed - // This is a placeholder file created during 1-1-1 migration
 
 ### File Content
 
@@ -3621,14 +3521,11 @@ option go_package = "github.com/jdfalk/gcommon/pkg/auth/proto";
 
 **Package**: `gcommon.v1.auth` **Lines**: 27
 
-**Messages** (1): `DeleteRoleRequest` **Imports** (3):
-`google/protobuf/go_features.proto`, `pkg/auth/proto/role.proto`,
-`pkg/common/proto/request_metadata.proto`
+**Messages** (1): `DeleteRoleRequest` **Imports** (3): `google/protobuf/go_features.proto`, `pkg/auth/proto/role.proto`, `pkg/common/proto/request_metadata.proto`
 
 ### ⚠️ Issues Found (1)
 
-- Line 25: Implementation needed - // This is a placeholder file created during
-  1-1-1 migration
+- Line 25: Implementation needed - // This is a placeholder file created during 1-1-1 migration
 
 ### File Content
 
@@ -3676,8 +3573,7 @@ message DeleteRoleRequest {
 
 - Line 5: TODO - // TODO: Implement actual protobuf definitions
 - Line 16: TODO - // TODO: Add response definitions here
-- Line 17: Implementation needed - // This is a placeholder file created during
-  1-1-1 migration
+- Line 17: Implementation needed - // This is a placeholder file created during 1-1-1 migration
 
 ### File Content
 
@@ -3713,8 +3609,7 @@ option go_package = "github.com/jdfalk/gcommon/pkg/auth/proto";
 
 **Package**: `gcommon.v1.auth` **Lines**: 25
 
-**Messages** (1): `DeleteSessionRequest` **Imports** (1):
-`google/protobuf/go_features.proto`
+**Messages** (1): `DeleteSessionRequest` **Imports** (1): `google/protobuf/go_features.proto`
 
 ### File Content
 
@@ -3754,8 +3649,7 @@ message DeleteSessionRequest {
 
 **Package**: `gcommon.v1.auth` **Lines**: 26
 
-**Messages** (1): `DeleteSessionResponse` **Imports** (2):
-`google/protobuf/go_features.proto`, `pkg/common/proto/error.proto`
+**Messages** (1): `DeleteSessionResponse` **Imports** (2): `google/protobuf/go_features.proto`, `pkg/common/proto/error.proto`
 
 ### File Content
 
@@ -3796,8 +3690,7 @@ message DeleteSessionResponse {
 
 **Package**: `gcommon.v1.auth` **Lines**: 33
 
-**Messages** (1): `DeleteUserRequest` **Imports** (1):
-`google/protobuf/go_features.proto`
+**Messages** (1): `DeleteUserRequest` **Imports** (1): `google/protobuf/go_features.proto`
 
 ### File Content
 
@@ -3851,8 +3744,7 @@ message DeleteUserRequest {
 
 - Line 5: TODO - // TODO: Implement actual protobuf definitions
 - Line 16: TODO - // TODO: Add response definitions here
-- Line 17: Implementation needed - // This is a placeholder file created during
-  1-1-1 migration
+- Line 17: Implementation needed - // This is a placeholder file created during 1-1-1 migration
 
 ### File Content
 
@@ -3894,8 +3786,7 @@ option go_package = "github.com/jdfalk/gcommon/pkg/auth/proto";
 
 - Line 5: TODO - // TODO: Implement actual protobuf definitions
 - Line 16: TODO - // TODO: Add request definitions here
-- Line 17: Implementation needed - // This is a placeholder file created during
-  1-1-1 migration
+- Line 17: Implementation needed - // This is a placeholder file created during 1-1-1 migration
 
 ### File Content
 
@@ -3937,8 +3828,7 @@ option go_package = "github.com/jdfalk/gcommon/pkg/auth/proto";
 
 - Line 5: TODO - // TODO: Implement actual protobuf definitions
 - Line 16: TODO - // TODO: Add request definitions here
-- Line 17: Implementation needed - // This is a placeholder file created during
-  1-1-1 migration
+- Line 17: Implementation needed - // This is a placeholder file created during 1-1-1 migration
 
 ### File Content
 
@@ -3980,8 +3870,7 @@ option go_package = "github.com/jdfalk/gcommon/pkg/auth/proto";
 
 - Line 5: TODO - // TODO: Implement actual protobuf definitions
 - Line 16: TODO - // TODO: Add response definitions here
-- Line 17: Implementation needed - // This is a placeholder file created during
-  1-1-1 migration
+- Line 17: Implementation needed - // This is a placeholder file created during 1-1-1 migration
 
 ### File Content
 
@@ -4023,8 +3912,7 @@ option go_package = "github.com/jdfalk/gcommon/pkg/auth/proto";
 
 - Line 5: TODO - // TODO: Implement actual protobuf definitions
 - Line 16: TODO - // TODO: Add request definitions here
-- Line 17: Implementation needed - // This is a placeholder file created during
-  1-1-1 migration
+- Line 17: Implementation needed - // This is a placeholder file created during 1-1-1 migration
 
 ### File Content
 
@@ -4066,8 +3954,7 @@ option go_package = "github.com/jdfalk/gcommon/pkg/auth/proto";
 
 - Line 5: TODO - // TODO: Implement actual protobuf definitions
 - Line 16: TODO - // TODO: Add request definitions here
-- Line 17: Implementation needed - // This is a placeholder file created during
-  1-1-1 migration
+- Line 17: Implementation needed - // This is a placeholder file created during 1-1-1 migration
 
 ### File Content
 
@@ -4109,8 +3996,7 @@ option go_package = "github.com/jdfalk/gcommon/pkg/auth/proto";
 
 - Line 5: TODO - // TODO: Implement actual protobuf definitions
 - Line 16: TODO - // TODO: Add response definitions here
-- Line 17: Implementation needed - // This is a placeholder file created during
-  1-1-1 migration
+- Line 17: Implementation needed - // This is a placeholder file created during 1-1-1 migration
 
 ### File Content
 
@@ -4146,8 +4032,7 @@ option go_package = "github.com/jdfalk/gcommon/pkg/auth/proto";
 
 **Package**: `gcommon.v1.auth` **Lines**: 31
 
-**Messages** (1): `GenerateAPIKeyRequest` **Imports** (2):
-`google/protobuf/go_features.proto`, `pkg/common/proto/request_metadata.proto`
+**Messages** (1): `GenerateAPIKeyRequest` **Imports** (2): `google/protobuf/go_features.proto`, `pkg/common/proto/request_metadata.proto`
 
 ### File Content
 
@@ -4193,9 +4078,7 @@ message GenerateAPIKeyRequest {
 
 **Package**: `gcommon.v1.auth` **Lines**: 29
 
-**Messages** (1): `GenerateAPIKeyResponse` **Imports** (3):
-`google/protobuf/go_features.proto`, `pkg/common/proto/request_metadata.proto`,
-`pkg/common/proto/response_metadata.proto`
+**Messages** (1): `GenerateAPIKeyResponse` **Imports** (3): `google/protobuf/go_features.proto`, `pkg/common/proto/request_metadata.proto`, `pkg/common/proto/response_metadata.proto`
 
 ### File Content
 
@@ -4245,8 +4128,7 @@ message GenerateAPIKeyResponse {
 
 - Line 5: TODO - // TODO: Implement actual protobuf definitions
 - Line 16: TODO - // TODO: Add request definitions here
-- Line 17: Implementation needed - // This is a placeholder file created during
-  1-1-1 migration
+- Line 17: Implementation needed - // This is a placeholder file created during 1-1-1 migration
 
 ### File Content
 
@@ -4288,8 +4170,7 @@ option go_package = "github.com/jdfalk/gcommon/pkg/auth/proto";
 
 - Line 5: TODO - // TODO: Implement actual protobuf definitions
 - Line 16: TODO - // TODO: Add response definitions here
-- Line 17: Implementation needed - // This is a placeholder file created during
-  1-1-1 migration
+- Line 17: Implementation needed - // This is a placeholder file created during 1-1-1 migration
 
 ### File Content
 
@@ -4331,8 +4212,7 @@ option go_package = "github.com/jdfalk/gcommon/pkg/auth/proto";
 
 - Line 5: TODO - // TODO: Implement actual protobuf definitions
 - Line 16: TODO - // TODO: Add request definitions here
-- Line 17: Implementation needed - // This is a placeholder file created during
-  1-1-1 migration
+- Line 17: Implementation needed - // This is a placeholder file created during 1-1-1 migration
 
 ### File Content
 
@@ -4368,8 +4248,7 @@ option go_package = "github.com/jdfalk/gcommon/pkg/auth/proto";
 
 **Package**: `gcommon.v1.auth` **Lines**: 25
 
-**Messages** (1): `GetPermissionRequest` **Imports** (2):
-`google/protobuf/go_features.proto`, `pkg/common/proto/request_metadata.proto`
+**Messages** (1): `GetPermissionRequest` **Imports** (2): `google/protobuf/go_features.proto`, `pkg/common/proto/request_metadata.proto`
 
 ### File Content
 
@@ -4409,9 +4288,7 @@ message GetPermissionRequest {
 
 **Package**: `gcommon.v1.auth` **Lines**: 26
 
-**Messages** (1): `GetPermissionResponse` **Imports** (3):
-`google/protobuf/go_features.proto`, `pkg/auth/proto/permission.proto`,
-`pkg/common/proto/error.proto`
+**Messages** (1): `GetPermissionResponse` **Imports** (3): `google/protobuf/go_features.proto`, `pkg/auth/proto/permission.proto`, `pkg/common/proto/error.proto`
 
 ### File Content
 
@@ -4452,9 +4329,7 @@ message GetPermissionResponse {
 
 **Package**: `gcommon.v1.auth` **Lines**: 29
 
-**Messages** (1): `GetRoleRequest` **Imports** (3):
-`google/protobuf/go_features.proto`, `pkg/auth/proto/role.proto`,
-`pkg/common/proto/request_metadata.proto`
+**Messages** (1): `GetRoleRequest` **Imports** (3): `google/protobuf/go_features.proto`, `pkg/auth/proto/role.proto`, `pkg/common/proto/request_metadata.proto`
 
 ### File Content
 
@@ -4498,9 +4373,7 @@ message GetRoleRequest {
 
 **Package**: `gcommon.v1.auth` **Lines**: 26
 
-**Messages** (1): `GetRoleResponse` **Imports** (3):
-`google/protobuf/go_features.proto`, `pkg/auth/proto/role.proto`,
-`pkg/common/proto/error.proto`
+**Messages** (1): `GetRoleResponse` **Imports** (3): `google/protobuf/go_features.proto`, `pkg/auth/proto/role.proto`, `pkg/common/proto/error.proto`
 
 ### File Content
 
@@ -4541,8 +4414,7 @@ message GetRoleResponse {
 
 **Package**: `gcommon.v1.auth` **Lines**: 30
 
-**Messages** (1): `GetSessionRequest` **Imports** (2):
-`google/protobuf/go_features.proto`, `pkg/common/proto/request_metadata.proto`
+**Messages** (1): `GetSessionRequest` **Imports** (2): `google/protobuf/go_features.proto`, `pkg/common/proto/request_metadata.proto`
 
 ### File Content
 
@@ -4587,9 +4459,7 @@ message GetSessionRequest {
 
 **Package**: `gcommon.v1.auth` **Lines**: 27
 
-**Messages** (1): `GetSessionResponse` **Imports** (3):
-`google/protobuf/go_features.proto`, `pkg/auth/proto/session.proto`,
-`pkg/common/proto/error.proto`
+**Messages** (1): `GetSessionResponse` **Imports** (3): `google/protobuf/go_features.proto`, `pkg/auth/proto/session.proto`, `pkg/common/proto/error.proto`
 
 ### File Content
 
@@ -4631,8 +4501,7 @@ message GetSessionResponse {
 
 **Package**: `gcommon.v1.auth` **Lines**: 22
 
-**Messages** (1): `GetSystemStatsRequest` **Imports** (2):
-`google/protobuf/go_features.proto`, `pkg/common/proto/request_metadata.proto`
+**Messages** (1): `GetSystemStatsRequest` **Imports** (2): `google/protobuf/go_features.proto`, `pkg/common/proto/request_metadata.proto`
 
 ### File Content
 
@@ -4669,9 +4538,7 @@ message GetSystemStatsRequest {
 
 **Package**: `gcommon.v1.auth` **Lines**: 38
 
-**Messages** (1): `GetSystemStatsResponse` **Imports** (3):
-`google/protobuf/go_features.proto`, `pkg/common/proto/error.proto`,
-`pkg/common/proto/request_metadata.proto`
+**Messages** (1): `GetSystemStatsResponse` **Imports** (3): `google/protobuf/go_features.proto`, `pkg/common/proto/error.proto`, `pkg/common/proto/request_metadata.proto`
 
 ### File Content
 
@@ -4724,8 +4591,7 @@ message GetSystemStatsResponse {
 
 **Package**: `gcommon.v1.auth` **Lines**: 24
 
-**Messages** (1): `GetUserInfoRequest` **Imports** (2):
-`google/protobuf/go_features.proto`, `pkg/common/proto/request_metadata.proto`
+**Messages** (1): `GetUserInfoRequest` **Imports** (2): `google/protobuf/go_features.proto`, `pkg/common/proto/request_metadata.proto`
 
 ### File Content
 
@@ -4764,9 +4630,7 @@ message GetUserInfoRequest {
 
 **Package**: `gcommon.v1.auth` **Lines**: 26
 
-**Messages** (1): `GetUserInfoResponse` **Imports** (4):
-`google/protobuf/go_features.proto`, `pkg/auth/proto/user.proto`,
-`pkg/auth/proto/user_info.proto`, `pkg/common/proto/error.proto`
+**Messages** (1): `GetUserInfoResponse` **Imports** (4): `google/protobuf/go_features.proto`, `pkg/auth/proto/user.proto`, `pkg/auth/proto/user_info.proto`, `pkg/common/proto/error.proto`
 
 ### File Content
 
@@ -4807,8 +4671,7 @@ message GetUserInfoResponse {
 
 **Package**: `gcommon.v1.auth` **Lines**: 24
 
-**Messages** (1): `GetUserPermissionsRequest` **Imports** (2):
-`google/protobuf/go_features.proto`, `pkg/common/proto/request_metadata.proto`
+**Messages** (1): `GetUserPermissionsRequest` **Imports** (2): `google/protobuf/go_features.proto`, `pkg/common/proto/request_metadata.proto`
 
 ### File Content
 
@@ -4847,8 +4710,7 @@ message GetUserPermissionsRequest {
 
 **Package**: `gcommon.v1.auth` **Lines**: 30
 
-**Messages** (1): `GetUserPermissionsResponse` **Imports** (2):
-`google/protobuf/go_features.proto`, `pkg/auth/proto/role.proto`
+**Messages** (1): `GetUserPermissionsResponse` **Imports** (2): `google/protobuf/go_features.proto`, `pkg/auth/proto/role.proto`
 
 ### File Content
 
@@ -4893,8 +4755,7 @@ message GetUserPermissionsResponse {
 
 **Package**: `gcommon.v1.auth` **Lines**: 30
 
-**Messages** (1): `GetUserRequest` **Imports** (1):
-`google/protobuf/go_features.proto`
+**Messages** (1): `GetUserRequest` **Imports** (1): `google/protobuf/go_features.proto`
 
 ### File Content
 
@@ -4939,8 +4800,7 @@ message GetUserRequest {
 
 **Package**: `gcommon.v1.auth` **Lines**: 78
 
-**Messages** (2): `UserDetails`, `GetUserResponse` **Imports** (2):
-`google/protobuf/go_features.proto`, `google/protobuf/timestamp.proto`
+**Messages** (2): `UserDetails`, `GetUserResponse` **Imports** (2): `google/protobuf/go_features.proto`, `google/protobuf/timestamp.proto`
 
 ### File Content
 
@@ -5033,9 +4893,7 @@ message GetUserResponse {
 
 **Package**: `gcommon.v1.auth` **Lines**: 25
 
-**Messages** (1): `GetUserRolesRequest` **Imports** (3):
-`google/protobuf/go_features.proto`, `pkg/auth/proto/role.proto`,
-`pkg/common/proto/request_metadata.proto`
+**Messages** (1): `GetUserRolesRequest` **Imports** (3): `google/protobuf/go_features.proto`, `pkg/auth/proto/role.proto`, `pkg/common/proto/request_metadata.proto`
 
 ### File Content
 
@@ -5075,8 +4933,7 @@ message GetUserRolesRequest {
 
 **Package**: `gcommon.v1.auth` **Lines**: 21
 
-**Messages** (1): `GetUserRolesResponse` **Imports** (2):
-`google/protobuf/go_features.proto`, `pkg/auth/proto/role.proto`
+**Messages** (1): `GetUserRolesResponse` **Imports** (2): `google/protobuf/go_features.proto`, `pkg/auth/proto/role.proto`
 
 ### File Content
 
@@ -5118,8 +4975,7 @@ message GetUserRolesResponse {
 
 - Line 5: TODO - // TODO: Implement actual protobuf definitions
 - Line 16: TODO - // TODO: Add request definitions here
-- Line 17: Implementation needed - // This is a placeholder file created during
-  1-1-1 migration
+- Line 17: Implementation needed - // This is a placeholder file created during 1-1-1 migration
 
 ### File Content
 
@@ -5155,8 +5011,7 @@ option go_package = "github.com/jdfalk/gcommon/pkg/auth/proto";
 
 **Package**: `gcommon.v1.auth` **Lines**: 35
 
-**Messages** (1): `GrantPermissionResponse` **Imports** (2):
-`google/protobuf/go_features.proto`, `pkg/common/proto/response_metadata.proto`
+**Messages** (1): `GrantPermissionResponse` **Imports** (2): `google/protobuf/go_features.proto`, `pkg/common/proto/response_metadata.proto`
 
 ### File Content
 
@@ -5212,8 +5067,7 @@ message GrantPermissionResponse {
 
 - Line 5: TODO - // TODO: Implement actual protobuf definitions
 - Line 16: TODO - // TODO: Add enum definitions here
-- Line 17: Implementation needed - // This is a placeholder file created during
-  1-1-1 migration
+- Line 17: Implementation needed - // This is a placeholder file created during 1-1-1 migration
 
 ### File Content
 
@@ -5247,9 +5101,7 @@ option go_package = "github.com/jdfalk/gcommon/pkg/auth/proto";
 
 **Package**: `gcommon.v1.auth` **Lines**: 50
 
-**Messages** (1): `Group` **Imports** (4): `google/protobuf/go_features.proto`,
-`google/protobuf/timestamp.proto`, `pkg/common/proto/request_metadata.proto`,
-`pkg/common/proto/resource_status.proto`
+**Messages** (1): `Group` **Imports** (4): `google/protobuf/go_features.proto`, `google/protobuf/timestamp.proto`, `pkg/common/proto/request_metadata.proto`, `pkg/common/proto/resource_status.proto`
 
 ### File Content
 
@@ -5314,8 +5166,7 @@ message Group {
 
 **Package**: `gcommon.v1.auth` **Lines**: 26
 
-**Messages** (1): `HealthCheckRequest` **Imports** (2):
-`google/protobuf/go_features.proto`, `pkg/common/proto/request_metadata.proto`
+**Messages** (1): `HealthCheckRequest` **Imports** (2): `google/protobuf/go_features.proto`, `pkg/common/proto/request_metadata.proto`
 
 ### File Content
 
@@ -5356,9 +5207,7 @@ message HealthCheckRequest {
 
 **Package**: `gcommon.v1.auth` **Lines**: 32
 
-**Messages** (1): `HealthCheckResponse` **Imports** (5):
-`google/protobuf/duration.proto`, `google/protobuf/go_features.proto`,
-`pkg/common/proto/error.proto`, `pkg/common/proto/health_status.proto`,
+**Messages** (1): `HealthCheckResponse` **Imports** (5): `google/protobuf/duration.proto`, `google/protobuf/go_features.proto`, `pkg/common/proto/error.proto`, `pkg/common/proto/health_status.proto`,
 `pkg/common/proto/request_metadata.proto`
 
 ### File Content
@@ -5406,8 +5255,7 @@ message HealthCheckResponse {
 
 **Package**: `gcommon.v1.auth` **Lines**: 24
 
-**Messages** (1): `InitiatePasswordResetRequest` **Imports** (2):
-`google/protobuf/go_features.proto`, `pkg/common/proto/request_metadata.proto`
+**Messages** (1): `InitiatePasswordResetRequest` **Imports** (2): `google/protobuf/go_features.proto`, `pkg/common/proto/request_metadata.proto`
 
 ### File Content
 
@@ -5446,8 +5294,7 @@ message InitiatePasswordResetRequest {
 
 **Package**: `gcommon.v1.auth` **Lines**: 27
 
-**Messages** (1): `InitiatePasswordResetResponse` **Imports** (2):
-`google/protobuf/go_features.proto`, `google/protobuf/timestamp.proto`
+**Messages** (1): `InitiatePasswordResetResponse` **Imports** (2): `google/protobuf/go_features.proto`, `google/protobuf/timestamp.proto`
 
 ### File Content
 
@@ -5489,8 +5336,7 @@ message InitiatePasswordResetResponse {
 
 **Package**: `gcommon.v1.auth` **Lines**: 25
 
-**Messages** (1): `InvalidateUserSessionsRequest` **Imports** (2):
-`google/protobuf/go_features.proto`, `pkg/common/proto/request_metadata.proto`
+**Messages** (1): `InvalidateUserSessionsRequest` **Imports** (2): `google/protobuf/go_features.proto`, `pkg/common/proto/request_metadata.proto`
 
 ### File Content
 
@@ -5530,8 +5376,7 @@ message InvalidateUserSessionsRequest {
 
 **Package**: `gcommon.v1.auth` **Lines**: 28
 
-**Messages** (1): `JWTConfig` **Imports** (2): `google/protobuf/duration.proto`,
-`google/protobuf/go_features.proto`
+**Messages** (1): `JWTConfig` **Imports** (2): `google/protobuf/duration.proto`, `google/protobuf/go_features.proto`
 
 ### File Content
 
@@ -5574,8 +5419,7 @@ message JWTConfig {
 
 **Package**: `gcommon.v1.auth` **Lines**: 23
 
-**Messages** (1): `JWTCredentials` **Imports** (1):
-`google/protobuf/go_features.proto`
+**Messages** (1): `JWTCredentials` **Imports** (1): `google/protobuf/go_features.proto`
 
 ### File Content
 
@@ -5619,8 +5463,7 @@ message JWTCredentials {
 
 - Line 5: TODO - // TODO: Implement actual protobuf definitions
 - Line 16: TODO - // TODO: Add message definitions here
-- Line 17: Implementation needed - // This is a placeholder file created during
-  1-1-1 migration
+- Line 17: Implementation needed - // This is a placeholder file created during 1-1-1 migration
 
 ### File Content
 
@@ -5660,8 +5503,7 @@ option go_package = "github.com/jdfalk/gcommon/pkg/auth/proto";
 
 - Line 5: TODO - // TODO: Implement actual protobuf definitions
 - Line 16: TODO - // TODO: Add request definitions here
-- Line 17: Implementation needed - // This is a placeholder file created during
-  1-1-1 migration
+- Line 17: Implementation needed - // This is a placeholder file created during 1-1-1 migration
 
 ### File Content
 
@@ -5703,8 +5545,7 @@ option go_package = "github.com/jdfalk/gcommon/pkg/auth/proto";
 
 - Line 5: TODO - // TODO: Implement actual protobuf definitions
 - Line 16: TODO - // TODO: Add response definitions here
-- Line 17: Implementation needed - // This is a placeholder file created during
-  1-1-1 migration
+- Line 17: Implementation needed - // This is a placeholder file created during 1-1-1 migration
 
 ### File Content
 
@@ -5746,8 +5587,7 @@ option go_package = "github.com/jdfalk/gcommon/pkg/auth/proto";
 
 - Line 5: TODO - // TODO: Implement actual protobuf definitions
 - Line 16: TODO - // TODO: Add request definitions here
-- Line 17: Implementation needed - // This is a placeholder file created during
-  1-1-1 migration
+- Line 17: Implementation needed - // This is a placeholder file created during 1-1-1 migration
 
 ### File Content
 
@@ -5789,8 +5629,7 @@ option go_package = "github.com/jdfalk/gcommon/pkg/auth/proto";
 
 - Line 5: TODO - // TODO: Implement actual protobuf definitions
 - Line 16: TODO - // TODO: Add response definitions here
-- Line 17: Implementation needed - // This is a placeholder file created during
-  1-1-1 migration
+- Line 17: Implementation needed - // This is a placeholder file created during 1-1-1 migration
 
 ### File Content
 
@@ -5826,15 +5665,12 @@ option go_package = "github.com/jdfalk/gcommon/pkg/auth/proto";
 
 **Package**: `gcommon.v1.auth` **Lines**: 36
 
-**Messages** (1): `ListRolesRequest` **Imports** (6):
-`google/protobuf/go_features.proto`, `pkg/auth/proto/role.proto`,
-`pkg/common/proto/filter_options.proto`, `pkg/common/proto/pagination.proto`,
-`pkg/common/proto/request_metadata.proto`, `pkg/common/proto/sort.proto`
+**Messages** (1): `ListRolesRequest` **Imports** (6): `google/protobuf/go_features.proto`, `pkg/auth/proto/role.proto`, `pkg/common/proto/filter_options.proto`, `pkg/common/proto/pagination.proto`, `pkg/common/proto/request_metadata.proto`,
+`pkg/common/proto/sort.proto`
 
 ### ⚠️ Issues Found (1)
 
-- Line 34: Implementation needed - // This is a placeholder file created during
-  1-1-1 migration
+- Line 34: Implementation needed - // This is a placeholder file created during 1-1-1 migration
 
 ### File Content
 
@@ -5885,15 +5721,11 @@ message ListRolesRequest {
 
 **Package**: `gcommon.v1.auth` **Lines**: 28
 
-**Messages** (1): `ListRolesResponse` **Imports** (4):
-`google/protobuf/go_features.proto`, `pkg/auth/proto/role.proto`,
-`pkg/common/proto/paginated_response.proto`,
-`pkg/common/proto/request_metadata.proto`
+**Messages** (1): `ListRolesResponse` **Imports** (4): `google/protobuf/go_features.proto`, `pkg/auth/proto/role.proto`, `pkg/common/proto/paginated_response.proto`, `pkg/common/proto/request_metadata.proto`
 
 ### ⚠️ Issues Found (1)
 
-- Line 26: Implementation needed - // This is a placeholder file created during
-  1-1-1 migration
+- Line 26: Implementation needed - // This is a placeholder file created during 1-1-1 migration
 
 ### File Content
 
@@ -5936,8 +5768,7 @@ message ListRolesResponse {
 
 **Package**: `gcommon.v1.auth` **Lines**: 29
 
-**Messages** (1): `ListSessionsRequest` **Imports** (2):
-`google/protobuf/go_features.proto`, `pkg/common/proto/pagination.proto`
+**Messages** (1): `ListSessionsRequest` **Imports** (2): `google/protobuf/go_features.proto`, `pkg/common/proto/pagination.proto`
 
 ### File Content
 
@@ -5981,9 +5812,7 @@ message ListSessionsRequest {
 
 **Package**: `gcommon.v1.auth` **Lines**: 27
 
-**Messages** (1): `ListSessionsResponse` **Imports** (3):
-`google/protobuf/go_features.proto`, `pkg/auth/proto/session.proto`,
-`pkg/common/proto/paginated_response.proto`
+**Messages** (1): `ListSessionsResponse` **Imports** (3): `google/protobuf/go_features.proto`, `pkg/auth/proto/session.proto`, `pkg/common/proto/paginated_response.proto`
 
 ### File Content
 
@@ -6025,10 +5854,7 @@ message ListSessionsResponse {
 
 **Package**: `gcommon.v1.auth` **Lines**: 86
 
-**Messages** (1): `ListUserSessionsRequest` **Imports** (4):
-`google/protobuf/go_features.proto`, `google/protobuf/timestamp.proto`,
-`pkg/common/proto/pagination_options.proto`,
-`pkg/common/proto/request_metadata.proto`
+**Messages** (1): `ListUserSessionsRequest` **Imports** (4): `google/protobuf/go_features.proto`, `google/protobuf/timestamp.proto`, `pkg/common/proto/pagination_options.proto`, `pkg/common/proto/request_metadata.proto`
 
 ### File Content
 
@@ -6129,11 +5955,8 @@ message ListUserSessionsRequest {
 
 **Package**: `gcommon.v1.auth` **Lines**: 98
 
-**Messages** (1): `ListUserSessionsResponse` **Imports** (6):
-`google/protobuf/go_features.proto`, `google/protobuf/timestamp.proto`,
-`pkg/auth/proto/session_info.proto`, `pkg/common/proto/error.proto`,
-`pkg/common/proto/paginated_response.proto`,
-`pkg/common/proto/request_metadata.proto`
+**Messages** (1): `ListUserSessionsResponse` **Imports** (6): `google/protobuf/go_features.proto`, `google/protobuf/timestamp.proto`, `pkg/auth/proto/session_info.proto`, `pkg/common/proto/error.proto`,
+`pkg/common/proto/paginated_response.proto`, `pkg/common/proto/request_metadata.proto`
 
 ### File Content
 
@@ -6246,8 +6069,7 @@ message ListUserSessionsResponse {
 
 **Package**: `gcommon.v1.auth` **Lines**: 45
 
-**Messages** (1): `ListUsersRequest` **Imports** (1):
-`google/protobuf/go_features.proto`
+**Messages** (1): `ListUsersRequest` **Imports** (1): `google/protobuf/go_features.proto`
 
 ### File Content
 
@@ -6307,9 +6129,7 @@ message ListUsersRequest {
 
 **Package**: `gcommon.v1.auth` **Lines**: 41
 
-**Messages** (1): `ListUsersResponse` **Imports** (3):
-`google/protobuf/go_features.proto`, `pkg/auth/proto/user_info.proto`,
-`pkg/common/proto/request_metadata.proto`
+**Messages** (1): `ListUsersResponse` **Imports** (3): `google/protobuf/go_features.proto`, `pkg/auth/proto/user_info.proto`, `pkg/common/proto/request_metadata.proto`
 
 ### File Content
 
@@ -6365,8 +6185,7 @@ message ListUsersResponse {
 
 **Package**: `gcommon.v1.auth` **Lines**: 26
 
-**Messages** (1): `LogoutRequest` **Imports** (2):
-`google/protobuf/go_features.proto`, `pkg/common/proto/request_metadata.proto`
+**Messages** (1): `LogoutRequest` **Imports** (2): `google/protobuf/go_features.proto`, `pkg/common/proto/request_metadata.proto`
 
 ### File Content
 
@@ -6407,9 +6226,7 @@ message LogoutRequest {
 
 **Package**: `gcommon.v1.auth` **Lines**: 24
 
-**Messages** (1): `LogoutResponse` **Imports** (3):
-`google/protobuf/go_features.proto`, `pkg/common/proto/error.proto`,
-`pkg/common/proto/request_metadata.proto`
+**Messages** (1): `LogoutResponse` **Imports** (3): `google/protobuf/go_features.proto`, `pkg/common/proto/error.proto`, `pkg/common/proto/request_metadata.proto`
 
 ### File Content
 
@@ -6454,8 +6271,7 @@ message LogoutResponse {
 
 - Line 5: TODO - // TODO: Implement actual protobuf definitions
 - Line 16: TODO - // TODO: Add message definitions here
-- Line 17: Implementation needed - // This is a placeholder file created during
-  1-1-1 migration
+- Line 17: Implementation needed - // This is a placeholder file created during 1-1-1 migration
 
 ### File Content
 
@@ -6537,9 +6353,7 @@ enum MFAType {
 
 **Package**: `gcommon.v1.auth` **Lines**: 57
 
-**Messages** (1): `OAuth2Config` **Imports** (3):
-`google/protobuf/go_features.proto`, `pkg/auth/proto/jwt_config.proto`,
-`pkg/auth/proto/oauth2_flow_type.proto`
+**Messages** (1): `OAuth2Config` **Imports** (3): `google/protobuf/go_features.proto`, `pkg/auth/proto/jwt_config.proto`, `pkg/auth/proto/oauth2_flow_type.proto`
 
 ### File Content
 
@@ -6611,8 +6425,7 @@ message OAuth2Config {
 
 **Package**: `gcommon.v1.auth` **Lines**: 30
 
-**Messages** (1): `OAuth2Credentials` **Imports** (1):
-`google/protobuf/go_features.proto`
+**Messages** (1): `OAuth2Credentials` **Imports** (1): `google/protobuf/go_features.proto`
 
 ### File Content
 
@@ -6657,8 +6470,7 @@ message OAuth2Credentials {
 
 **Package**: `gcommon.v1.auth` **Lines**: 34
 
-**Enums** (1): `OAuth2FlowType` **Imports** (1):
-`google/protobuf/go_features.proto`
+**Enums** (1): `OAuth2FlowType` **Imports** (1): `google/protobuf/go_features.proto`
 
 ### File Content
 
@@ -6707,10 +6519,7 @@ enum OAuth2FlowType {
 
 **Package**: `gcommon.v1.auth` **Lines**: 65
 
-**Messages** (1): `OAuthClient` **Imports** (4):
-`google/protobuf/go_features.proto`, `google/protobuf/timestamp.proto`,
-`pkg/common/proto/request_metadata.proto`,
-`pkg/common/proto/resource_status.proto`
+**Messages** (1): `OAuthClient` **Imports** (4): `google/protobuf/go_features.proto`, `google/protobuf/timestamp.proto`, `pkg/common/proto/request_metadata.proto`, `pkg/common/proto/resource_status.proto`
 
 ### File Content
 
@@ -6790,8 +6599,7 @@ message OAuthClient {
 
 **Package**: `gcommon.v1.auth` **Lines**: 27
 
-**Messages** (1): `PasswordCredentials` **Imports** (1):
-`google/protobuf/go_features.proto`
+**Messages** (1): `PasswordCredentials` **Imports** (1): `google/protobuf/go_features.proto`
 
 ### File Content
 
@@ -6839,8 +6647,7 @@ message PasswordCredentials {
 
 - Line 5: TODO - // TODO: Implement actual protobuf definitions
 - Line 16: TODO - // TODO: Add message definitions here
-- Line 17: Implementation needed - // This is a placeholder file created during
-  1-1-1 migration
+- Line 17: Implementation needed - // This is a placeholder file created during 1-1-1 migration
 
 ### File Content
 
@@ -6874,9 +6681,7 @@ option go_package = "github.com/jdfalk/gcommon/pkg/auth/proto";
 
 **Package**: `gcommon.v1.auth` **Lines**: 36
 
-**Messages** (1): `Permission` **Imports** (3):
-`google/protobuf/go_features.proto`, `google/protobuf/timestamp.proto`,
-`pkg/auth/proto/scope_type.proto`
+**Messages** (1): `Permission` **Imports** (3): `google/protobuf/go_features.proto`, `google/protobuf/timestamp.proto`, `pkg/auth/proto/scope_type.proto`
 
 ### File Content
 
@@ -6927,10 +6732,7 @@ message Permission {
 
 **Package**: `gcommon.v1.auth` **Lines**: 50
 
-**Messages** (1): `PermissionGrant` **Imports** (4):
-`google/protobuf/go_features.proto`, `google/protobuf/timestamp.proto`,
-`pkg/auth/proto/permission_scope.proto`,
-`pkg/common/proto/request_metadata.proto`
+**Messages** (1): `PermissionGrant` **Imports** (4): `google/protobuf/go_features.proto`, `google/protobuf/timestamp.proto`, `pkg/auth/proto/permission_scope.proto`, `pkg/common/proto/request_metadata.proto`
 
 ### File Content
 
@@ -7001,8 +6803,7 @@ message PermissionGrant {
 
 - Line 5: TODO - // TODO: Implement actual protobuf definitions
 - Line 16: TODO - // TODO: Add type definitions here
-- Line 17: Implementation needed - // This is a placeholder file created during
-  1-1-1 migration
+- Line 17: Implementation needed - // This is a placeholder file created during 1-1-1 migration
 
 ### File Content
 
@@ -7038,8 +6839,7 @@ option go_package = "github.com/jdfalk/gcommon/pkg/auth/proto";
 
 **Package**: `gcommon.v1.auth` **Lines**: 34
 
-**Enums** (1): `PermissionScope` **Imports** (1):
-`google/protobuf/go_features.proto`
+**Enums** (1): `PermissionScope` **Imports** (1): `google/protobuf/go_features.proto`
 
 ### File Content
 
@@ -7094,8 +6894,7 @@ enum PermissionScope {
 
 - Line 5: TODO - // TODO: Implement actual protobuf definitions
 - Line 16: TODO - // TODO: Add enum definitions here
-- Line 17: Implementation needed - // This is a placeholder file created during
-  1-1-1 migration
+- Line 17: Implementation needed - // This is a placeholder file created during 1-1-1 migration
 
 ### File Content
 
@@ -7129,8 +6928,7 @@ option go_package = "github.com/jdfalk/gcommon/pkg/auth/proto";
 
 **Package**: `gcommon.v1.auth` **Lines**: 33
 
-**Enums** (1): `ProviderType` **Imports** (1):
-`google/protobuf/go_features.proto`
+**Enums** (1): `ProviderType` **Imports** (1): `google/protobuf/go_features.proto`
 
 ### File Content
 
@@ -7178,8 +6976,7 @@ enum ProviderType {
 
 **Package**: `gcommon.v1.auth` **Lines**: 39
 
-**Messages** (1): `RateLimitConfig` **Imports** (2):
-`google/protobuf/duration.proto`, `google/protobuf/go_features.proto`
+**Messages** (1): `RateLimitConfig` **Imports** (2): `google/protobuf/duration.proto`, `google/protobuf/go_features.proto`
 
 ### File Content
 
@@ -7233,8 +7030,7 @@ message RateLimitConfig {
 
 **Package**: `gcommon.v1.auth` **Lines**: 28
 
-**Messages** (1): `RefreshToken` **Imports** (2):
-`google/protobuf/go_features.proto`, `google/protobuf/timestamp.proto`
+**Messages** (1): `RefreshToken` **Imports** (2): `google/protobuf/go_features.proto`, `google/protobuf/timestamp.proto`
 
 ### File Content
 
@@ -7277,8 +7073,7 @@ message RefreshToken {
 
 **Package**: `gcommon.v1.auth` **Lines**: 27
 
-**Messages** (1): `RefreshTokenRequest` **Imports** (2):
-`google/protobuf/go_features.proto`, `pkg/common/proto/request_metadata.proto`
+**Messages** (1): `RefreshTokenRequest` **Imports** (2): `google/protobuf/go_features.proto`, `pkg/common/proto/request_metadata.proto`
 
 ### File Content
 
@@ -7320,13 +7115,11 @@ message RefreshTokenRequest {
 
 **Package**: `gcommon.v1.auth` **Lines**: 34
 
-**Messages** (1): `RefreshTokenResponse` **Imports** (1):
-`google/protobuf/go_features.proto`
+**Messages** (1): `RefreshTokenResponse` **Imports** (1): `google/protobuf/go_features.proto`
 
 ### ⚠️ Issues Found (1)
 
-- Line 32: Implementation needed - // This is a placeholder file created during
-  1-1-1 migration
+- Line 32: Implementation needed - // This is a placeholder file created during 1-1-1 migration
 
 ### File Content
 
@@ -7375,8 +7168,7 @@ message RefreshTokenResponse {
 
 **Package**: `gcommon.v1.auth` **Lines**: 59
 
-**Messages** (1): `RegisterUserRequest` **Imports** (2):
-`google/protobuf/go_features.proto`, `pkg/common/proto/request_metadata.proto`
+**Messages** (1): `RegisterUserRequest` **Imports** (2): `google/protobuf/go_features.proto`, `pkg/common/proto/request_metadata.proto`
 
 ### File Content
 
@@ -7456,8 +7248,7 @@ message RegisterUserRequest {
 
 - Line 5: TODO - // TODO: Implement actual protobuf definitions
 - Line 16: TODO - // TODO: Add response definitions here
-- Line 17: Implementation needed - // This is a placeholder file created during
-  1-1-1 migration
+- Line 17: Implementation needed - // This is a placeholder file created during 1-1-1 migration
 
 ### File Content
 
@@ -7493,9 +7284,7 @@ option go_package = "github.com/jdfalk/gcommon/pkg/auth/proto";
 
 **Package**: `gcommon.v1.auth` **Lines**: 28
 
-**Messages** (1): `RemoveRoleRequest` **Imports** (3):
-`google/protobuf/go_features.proto`, `pkg/auth/proto/role.proto`,
-`pkg/common/proto/request_metadata.proto`
+**Messages** (1): `RemoveRoleRequest` **Imports** (3): `google/protobuf/go_features.proto`, `pkg/auth/proto/role.proto`, `pkg/common/proto/request_metadata.proto`
 
 ### File Content
 
@@ -7538,9 +7327,7 @@ message RemoveRoleRequest {
 
 **Package**: `gcommon.v1.auth` **Lines**: 50
 
-**Messages** (1): `RemoveRoleResponse` **Imports** (4):
-`google/protobuf/go_features.proto`, `google/protobuf/timestamp.proto`,
-`pkg/auth/proto/role.proto`, `pkg/common/proto/request_metadata.proto`
+**Messages** (1): `RemoveRoleResponse` **Imports** (4): `google/protobuf/go_features.proto`, `google/protobuf/timestamp.proto`, `pkg/auth/proto/role.proto`, `pkg/common/proto/request_metadata.proto`
 
 ### File Content
 
@@ -7611,8 +7398,7 @@ message RemoveRoleResponse {
 
 - Line 5: TODO - // TODO: Implement actual protobuf definitions
 - Line 16: TODO - // TODO: Add request definitions here
-- Line 17: Implementation needed - // This is a placeholder file created during
-  1-1-1 migration
+- Line 17: Implementation needed - // This is a placeholder file created during 1-1-1 migration
 
 ### File Content
 
@@ -7648,8 +7434,7 @@ option go_package = "github.com/jdfalk/gcommon/pkg/auth/proto";
 
 **Package**: `gcommon.v1.auth` **Lines**: 31
 
-**Messages** (1): `ResetPasswordRequest` **Imports** (2):
-`google/protobuf/go_features.proto`, `pkg/common/proto/request_metadata.proto`
+**Messages** (1): `ResetPasswordRequest` **Imports** (2): `google/protobuf/go_features.proto`, `pkg/common/proto/request_metadata.proto`
 
 ### File Content
 
@@ -7695,9 +7480,7 @@ message ResetPasswordRequest {
 
 **Package**: `gcommon.v1.auth` **Lines**: 29
 
-**Messages** (1): `ResetPasswordResponse` **Imports** (3):
-`google/protobuf/go_features.proto`, `pkg/common/proto/request_metadata.proto`,
-`pkg/common/proto/response_metadata.proto`
+**Messages** (1): `ResetPasswordResponse` **Imports** (3): `google/protobuf/go_features.proto`, `pkg/common/proto/request_metadata.proto`, `pkg/common/proto/response_metadata.proto`
 
 ### File Content
 
@@ -7747,8 +7530,7 @@ message ResetPasswordResponse {
 
 - Line 5: TODO - // TODO: Implement actual protobuf definitions
 - Line 16: TODO - // TODO: Add request definitions here
-- Line 17: Implementation needed - // This is a placeholder file created during
-  1-1-1 migration
+- Line 17: Implementation needed - // This is a placeholder file created during 1-1-1 migration
 
 ### File Content
 
@@ -7790,8 +7572,7 @@ option go_package = "github.com/jdfalk/gcommon/pkg/auth/proto";
 
 - Line 5: TODO - // TODO: Implement actual protobuf definitions
 - Line 16: TODO - // TODO: Add response definitions here
-- Line 17: Implementation needed - // This is a placeholder file created during
-  1-1-1 migration
+- Line 17: Implementation needed - // This is a placeholder file created during 1-1-1 migration
 
 ### File Content
 
@@ -7833,8 +7614,7 @@ option go_package = "github.com/jdfalk/gcommon/pkg/auth/proto";
 
 - Line 5: TODO - // TODO: Implement actual protobuf definitions
 - Line 16: TODO - // TODO: Add request definitions here
-- Line 17: Implementation needed - // This is a placeholder file created during
-  1-1-1 migration
+- Line 17: Implementation needed - // This is a placeholder file created during 1-1-1 migration
 
 ### File Content
 
@@ -7870,8 +7650,7 @@ option go_package = "github.com/jdfalk/gcommon/pkg/auth/proto";
 
 **Package**: `gcommon.v1.auth` **Lines**: 35
 
-**Messages** (1): `RevokePermissionResponse` **Imports** (2):
-`google/protobuf/go_features.proto`, `pkg/common/proto/response_metadata.proto`
+**Messages** (1): `RevokePermissionResponse` **Imports** (2): `google/protobuf/go_features.proto`, `pkg/common/proto/response_metadata.proto`
 
 ### File Content
 
@@ -7921,9 +7700,7 @@ message RevokePermissionResponse {
 
 **Package**: `gcommon.v1.auth` **Lines**: 43
 
-**Messages** (1): `RevokeRoleRequest` **Imports** (3):
-`google/protobuf/go_features.proto`, `pkg/auth/proto/role.proto`,
-`pkg/common/proto/request_metadata.proto`
+**Messages** (1): `RevokeRoleRequest` **Imports** (3): `google/protobuf/go_features.proto`, `pkg/auth/proto/role.proto`, `pkg/common/proto/request_metadata.proto`
 
 ### File Content
 
@@ -7987,8 +7764,7 @@ message RevokeRoleRequest {
 
 - Line 5: TODO - // TODO: Implement actual protobuf definitions
 - Line 16: TODO - // TODO: Add response definitions here
-- Line 17: Implementation needed - // This is a placeholder file created during
-  1-1-1 migration
+- Line 17: Implementation needed - // This is a placeholder file created during 1-1-1 migration
 
 ### File Content
 
@@ -8024,8 +7800,7 @@ option go_package = "github.com/jdfalk/gcommon/pkg/auth/proto";
 
 **Package**: `gcommon.v1.auth` **Lines**: 27
 
-**Messages** (1): `RevokeTokenRequest` **Imports** (2):
-`google/protobuf/go_features.proto`, `pkg/common/proto/request_metadata.proto`
+**Messages** (1): `RevokeTokenRequest` **Imports** (2): `google/protobuf/go_features.proto`, `pkg/common/proto/request_metadata.proto`
 
 ### File Content
 
@@ -8067,8 +7842,7 @@ message RevokeTokenRequest {
 
 **Package**: `gcommon.v1.auth` **Lines**: 36
 
-**Messages** (1): `RevokeTokenResponse` **Imports** (2):
-`google/protobuf/go_features.proto`, `google/protobuf/timestamp.proto`
+**Messages** (1): `RevokeTokenResponse` **Imports** (2): `google/protobuf/go_features.proto`, `google/protobuf/timestamp.proto`
 
 ### File Content
 
@@ -8119,8 +7893,7 @@ message RevokeTokenResponse {
 
 **Package**: `gcommon.v1.auth` **Lines**: 43
 
-**Messages** (1): `Role` **Imports** (3): `google/protobuf/go_features.proto`,
-`google/protobuf/timestamp.proto`, `pkg/common/proto/resource_status.proto`
+**Messages** (1): `Role` **Imports** (3): `google/protobuf/go_features.proto`, `google/protobuf/timestamp.proto`, `pkg/common/proto/resource_status.proto`
 
 ### File Content
 
@@ -8178,10 +7951,7 @@ message Role {
 
 **Package**: `gcommon.v1.auth` **Lines**: 51
 
-**Messages** (1): `RoleAssignment` **Imports** (5):
-`google/protobuf/go_features.proto`, `google/protobuf/timestamp.proto`,
-`pkg/auth/proto/role.proto`, `pkg/auth/proto/role_scope.proto`,
-`pkg/common/proto/request_metadata.proto`
+**Messages** (1): `RoleAssignment` **Imports** (5): `google/protobuf/go_features.proto`, `google/protobuf/timestamp.proto`, `pkg/auth/proto/role.proto`, `pkg/auth/proto/role_scope.proto`, `pkg/common/proto/request_metadata.proto`
 
 ### File Content
 
@@ -8247,9 +8017,7 @@ message RoleAssignment {
 
 **Package**: `gcommon.v1.auth` **Lines**: 29
 
-**Messages** (1): `RoleMetadata` **Imports** (3):
-`google/protobuf/go_features.proto`, `google/protobuf/timestamp.proto`,
-`pkg/auth/proto/role.proto`
+**Messages** (1): `RoleMetadata` **Imports** (3): `google/protobuf/go_features.proto`, `google/protobuf/timestamp.proto`, `pkg/auth/proto/role.proto`
 
 ### File Content
 
@@ -8293,8 +8061,7 @@ message RoleMetadata {
 
 **Package**: `gcommon.v1.auth` **Lines**: 35
 
-**Enums** (1): `RoleScope` **Imports** (2): `google/protobuf/go_features.proto`,
-`pkg/auth/proto/role.proto`
+**Enums** (1): `RoleScope` **Imports** (2): `google/protobuf/go_features.proto`, `pkg/auth/proto/role.proto`
 
 ### File Content
 
@@ -8350,8 +8117,7 @@ enum RoleScope {
 
 - Line 5: TODO - // TODO: Implement actual protobuf definitions
 - Line 16: TODO - // TODO: Add message definitions here
-- Line 17: Implementation needed - // This is a placeholder file created during
-  1-1-1 migration
+- Line 17: Implementation needed - // This is a placeholder file created during 1-1-1 migration
 
 ### File Content
 
@@ -8440,8 +8206,7 @@ enum ScopeType {
 
 - Line 5: TODO - // TODO: Implement actual protobuf definitions
 - Line 16: TODO - // TODO: Add type definitions here
-- Line 17: Implementation needed - // This is a placeholder file created during
-  1-1-1 migration
+- Line 17: Implementation needed - // This is a placeholder file created during 1-1-1 migration
 
 ### File Content
 
@@ -8477,8 +8242,7 @@ option go_package = "github.com/jdfalk/gcommon/pkg/auth/proto";
 
 **Package**: `gcommon.v1.auth` **Lines**: 28
 
-**Messages** (1): `SecurityPolicy` **Imports** (2):
-`google/protobuf/duration.proto`, `google/protobuf/go_features.proto`
+**Messages** (1): `SecurityPolicy` **Imports** (2): `google/protobuf/duration.proto`, `google/protobuf/go_features.proto`
 
 ### File Content
 
@@ -8527,8 +8291,7 @@ message SecurityPolicy {
 
 - Line 5: TODO - // TODO: Implement actual protobuf definitions
 - Line 16: TODO - // TODO: Add request definitions here
-- Line 17: Implementation needed - // This is a placeholder file created during
-  1-1-1 migration
+- Line 17: Implementation needed - // This is a placeholder file created during 1-1-1 migration
 
 ### File Content
 
@@ -8570,8 +8333,7 @@ option go_package = "github.com/jdfalk/gcommon/pkg/auth/proto";
 
 - Line 5: TODO - // TODO: Implement actual protobuf definitions
 - Line 16: TODO - // TODO: Add response definitions here
-- Line 17: Implementation needed - // This is a placeholder file created during
-  1-1-1 migration
+- Line 17: Implementation needed - // This is a placeholder file created during 1-1-1 migration
 
 ### File Content
 
@@ -8607,9 +8369,7 @@ option go_package = "github.com/jdfalk/gcommon/pkg/auth/proto";
 
 **Package**: `gcommon.v1.auth` **Lines**: 50
 
-**Messages** (1): `Session` **Imports** (4):
-`google/protobuf/go_features.proto`, `google/protobuf/timestamp.proto`,
-`pkg/auth/proto/session_status.proto`, `pkg/common/proto/client_info.proto`
+**Messages** (1): `Session` **Imports** (4): `google/protobuf/go_features.proto`, `google/protobuf/timestamp.proto`, `pkg/auth/proto/session_status.proto`, `pkg/common/proto/client_info.proto`
 
 ### File Content
 
@@ -8680,8 +8440,7 @@ message Session {
 
 - Line 5: TODO - // TODO: Implement actual protobuf definitions
 - Line 16: TODO - // TODO: Add message definitions here
-- Line 17: Implementation needed - // This is a placeholder file created during
-  1-1-1 migration
+- Line 17: Implementation needed - // This is a placeholder file created during 1-1-1 migration
 
 ### File Content
 
@@ -8715,8 +8474,7 @@ option go_package = "github.com/jdfalk/gcommon/pkg/auth/proto";
 
 **Package**: `gcommon.v1.auth` **Lines**: 42
 
-**Messages** (1): `SessionInfo` **Imports** (2):
-`google/protobuf/go_features.proto`, `google/protobuf/timestamp.proto`
+**Messages** (1): `SessionInfo` **Imports** (2): `google/protobuf/go_features.proto`, `google/protobuf/timestamp.proto`
 
 ### File Content
 
@@ -8779,8 +8537,7 @@ message SessionInfo {
 
 - Line 5: TODO - // TODO: Implement actual protobuf definitions
 - Line 16: TODO - // TODO: Add type definitions here
-- Line 17: Implementation needed - // This is a placeholder file created during
-  1-1-1 migration
+- Line 17: Implementation needed - // This is a placeholder file created during 1-1-1 migration
 
 ### File Content
 
@@ -8816,25 +8573,10 @@ option go_package = "github.com/jdfalk/gcommon/pkg/auth/proto";
 
 **Package**: `gcommon.v1.auth` **Lines**: 58
 
-**Services** (1): `SessionService` **Imports** (18):
-`google/protobuf/go_features.proto`,
-`pkg/auth/proto/create_session_request.proto`,
-`pkg/auth/proto/create_session_response.proto`,
-`pkg/auth/proto/delete_session_request.proto`,
-`pkg/auth/proto/delete_session_response.proto`,
-`pkg/auth/proto/get_session_request.proto`,
-`pkg/auth/proto/get_session_response.proto`,
-`pkg/auth/proto/list_sessions_request.proto`,
-`pkg/auth/proto/list_sessions_response.proto`,
-`pkg/auth/proto/list_user_sessions_request.proto`,
-`pkg/auth/proto/list_user_sessions_response.proto`,
-`pkg/auth/proto/session.proto`,
-`pkg/auth/proto/terminate_session_request.proto`,
-`pkg/auth/proto/terminate_session_response.proto`,
-`pkg/auth/proto/update_session_request.proto`,
-`pkg/auth/proto/update_session_response.proto`,
-`pkg/auth/proto/validate_session_request.proto`,
-`pkg/auth/proto/validate_session_response.proto`
+**Services** (1): `SessionService` **Imports** (18): `google/protobuf/go_features.proto`, `pkg/auth/proto/create_session_request.proto`, `pkg/auth/proto/create_session_response.proto`, `pkg/auth/proto/delete_session_request.proto`,
+`pkg/auth/proto/delete_session_response.proto`, `pkg/auth/proto/get_session_request.proto`, `pkg/auth/proto/get_session_response.proto`, `pkg/auth/proto/list_sessions_request.proto`, `pkg/auth/proto/list_sessions_response.proto`,
+`pkg/auth/proto/list_user_sessions_request.proto`, `pkg/auth/proto/list_user_sessions_response.proto`, `pkg/auth/proto/session.proto`, `pkg/auth/proto/terminate_session_request.proto`, `pkg/auth/proto/terminate_session_response.proto`,
+`pkg/auth/proto/update_session_request.proto`, `pkg/auth/proto/update_session_response.proto`, `pkg/auth/proto/validate_session_request.proto`, `pkg/auth/proto/validate_session_response.proto`
 
 ### File Content
 
@@ -8907,8 +8649,7 @@ service SessionService {
 
 **Package**: `gcommon.v1.auth` **Lines**: 31
 
-**Enums** (1): `SessionStatus` **Imports** (1):
-`google/protobuf/go_features.proto`
+**Enums** (1): `SessionStatus` **Imports** (1): `google/protobuf/go_features.proto`
 
 ### File Content
 
@@ -8954,9 +8695,7 @@ enum SessionStatus {
 
 **Package**: `gcommon.v1.auth` **Lines**: 99
 
-**Messages** (1): `TerminateSessionRequest` **Imports** (3):
-`google/protobuf/go_features.proto`, `google/protobuf/timestamp.proto`,
-`pkg/common/proto/request_metadata.proto`
+**Messages** (1): `TerminateSessionRequest` **Imports** (3): `google/protobuf/go_features.proto`, `google/protobuf/timestamp.proto`, `pkg/common/proto/request_metadata.proto`
 
 ### File Content
 
@@ -9070,8 +8809,7 @@ message TerminateSessionRequest {
 
 **Package**: `gcommon.v1.auth` **Lines**: 48
 
-**Messages** (1): `TerminateSessionResponse` **Imports** (2):
-`google/protobuf/go_features.proto`, `google/protobuf/timestamp.proto`
+**Messages** (1): `TerminateSessionResponse` **Imports** (2): `google/protobuf/go_features.proto`, `google/protobuf/timestamp.proto`
 
 ### File Content
 
@@ -9134,9 +8872,7 @@ message TerminateSessionResponse {
 
 **Package**: `gcommon.v1.auth` **Lines**: 62
 
-**Messages** (1): `Token` **Imports** (4): `google/protobuf/go_features.proto`,
-`google/protobuf/timestamp.proto`, `pkg/auth/proto/token_status.proto`,
-`pkg/auth/proto/token_type.proto`
+**Messages** (1): `Token` **Imports** (4): `google/protobuf/go_features.proto`, `google/protobuf/timestamp.proto`, `pkg/auth/proto/token_status.proto`, `pkg/auth/proto/token_type.proto`
 
 ### File Content
 
@@ -9213,9 +8949,7 @@ message Token {
 
 **Package**: `gcommon.v1.auth` **Lines**: 47
 
-**Messages** (1): `TokenInfo` **Imports** (4):
-`google/protobuf/go_features.proto`, `google/protobuf/timestamp.proto`,
-`pkg/auth/proto/token_type.proto`, `pkg/common/proto/request_metadata.proto`
+**Messages** (1): `TokenInfo` **Imports** (4): `google/protobuf/go_features.proto`, `google/protobuf/timestamp.proto`, `pkg/auth/proto/token_type.proto`, `pkg/common/proto/request_metadata.proto`
 
 ### File Content
 
@@ -9283,8 +9017,7 @@ message TokenInfo {
 
 - Line 5: TODO - // TODO: Implement actual protobuf definitions
 - Line 16: TODO - // TODO: Add type definitions here
-- Line 17: Implementation needed - // This is a placeholder file created during
-  1-1-1 migration
+- Line 17: Implementation needed - // This is a placeholder file created during 1-1-1 migration
 
 ### File Content
 
@@ -9320,8 +9053,7 @@ option go_package = "github.com/jdfalk/gcommon/pkg/auth/proto";
 
 **Package**: `gcommon.v1.auth` **Lines**: 37
 
-**Enums** (1): `TokenStatus` **Imports** (1):
-`google/protobuf/go_features.proto`
+**Enums** (1): `TokenStatus` **Imports** (1): `google/protobuf/go_features.proto`
 
 ### File Content
 
@@ -9437,8 +9169,7 @@ enum TokenType {
 
 **Package**: `gcommon.v1.auth` **Lines**: 50
 
-**Messages** (1): `UpdatePermissionRequest` **Imports** (2):
-`google/protobuf/go_features.proto`, `pkg/common/proto/request_metadata.proto`
+**Messages** (1): `UpdatePermissionRequest` **Imports** (2): `google/protobuf/go_features.proto`, `pkg/common/proto/request_metadata.proto`
 
 ### File Content
 
@@ -9503,14 +9234,11 @@ message UpdatePermissionRequest {
 
 **Package**: `gcommon.v1.auth` **Lines**: 31
 
-**Messages** (1): `UpdateRoleRequest` **Imports** (4):
-`google/protobuf/field_mask.proto`, `google/protobuf/go_features.proto`,
-`pkg/auth/proto/role.proto`, `pkg/common/proto/request_metadata.proto`
+**Messages** (1): `UpdateRoleRequest` **Imports** (4): `google/protobuf/field_mask.proto`, `google/protobuf/go_features.proto`, `pkg/auth/proto/role.proto`, `pkg/common/proto/request_metadata.proto`
 
 ### ⚠️ Issues Found (1)
 
-- Line 29: Implementation needed - // This is a placeholder file created during
-  1-1-1 migration
+- Line 29: Implementation needed - // This is a placeholder file created during 1-1-1 migration
 
 ### File Content
 
@@ -9556,9 +9284,7 @@ message UpdateRoleRequest {
 
 **Package**: `gcommon.v1.auth` **Lines**: 29
 
-**Messages** (1): `UpdateRoleResponse` **Imports** (4):
-`google/protobuf/go_features.proto`, `pkg/auth/proto/role.proto`,
-`pkg/common/proto/error.proto`, `pkg/common/proto/request_metadata.proto`
+**Messages** (1): `UpdateRoleResponse` **Imports** (4): `google/protobuf/go_features.proto`, `pkg/auth/proto/role.proto`, `pkg/common/proto/error.proto`, `pkg/common/proto/request_metadata.proto`
 
 ### File Content
 
@@ -9602,8 +9328,7 @@ message UpdateRoleResponse {
 
 **Package**: `gcommon.v1.auth` **Lines**: 29
 
-**Messages** (1): `UpdateSessionRequest` **Imports** (2):
-`google/protobuf/go_features.proto`, `google/protobuf/timestamp.proto`
+**Messages** (1): `UpdateSessionRequest` **Imports** (2): `google/protobuf/go_features.proto`, `google/protobuf/timestamp.proto`
 
 ### File Content
 
@@ -9647,9 +9372,7 @@ message UpdateSessionRequest {
 
 **Package**: `gcommon.v1.auth` **Lines**: 33
 
-**Messages** (1): `UpdateSessionResponse` **Imports** (3):
-`google/protobuf/go_features.proto`, `pkg/auth/proto/session_info.proto`,
-`pkg/common/proto/response_metadata.proto`
+**Messages** (1): `UpdateSessionResponse` **Imports** (3): `google/protobuf/go_features.proto`, `pkg/auth/proto/session_info.proto`, `pkg/common/proto/response_metadata.proto`
 
 ### File Content
 
@@ -9697,8 +9420,7 @@ message UpdateSessionResponse {
 
 **Package**: `gcommon.v1.auth` **Lines**: 46
 
-**Messages** (1): `UpdateUserRequest` **Imports** (2):
-`google/protobuf/go_features.proto`, `google/protobuf/timestamp.proto`
+**Messages** (1): `UpdateUserRequest` **Imports** (2): `google/protobuf/go_features.proto`, `google/protobuf/timestamp.proto`
 
 ### File Content
 
@@ -9759,8 +9481,7 @@ message UpdateUserRequest {
 
 **Package**: `gcommon.v1.auth` **Lines**: 46
 
-**Messages** (1): `UpdateUserResponse` **Imports** (2):
-`google/protobuf/go_features.proto`, `google/protobuf/timestamp.proto`
+**Messages** (1): `UpdateUserResponse` **Imports** (2): `google/protobuf/go_features.proto`, `google/protobuf/timestamp.proto`
 
 ### File Content
 
@@ -9821,8 +9542,7 @@ message UpdateUserResponse {
 
 **Package**: `gcommon.v1.auth` **Lines**: 73
 
-**Messages** (1): `User` **Imports** (3): `google/protobuf/go_features.proto`,
-`google/protobuf/timestamp.proto`, `pkg/auth/proto/user_status.proto`
+**Messages** (1): `User` **Imports** (3): `google/protobuf/go_features.proto`, `google/protobuf/timestamp.proto`, `pkg/auth/proto/user_status.proto`
 
 ### File Content
 
@@ -9910,8 +9630,7 @@ message User {
 
 **Package**: `gcommon.v1.auth` **Lines**: 61
 
-**Messages** (1): `UserInfo` **Imports** (2):
-`google/protobuf/go_features.proto`, `google/protobuf/timestamp.proto`
+**Messages** (1): `UserInfo` **Imports** (2): `google/protobuf/go_features.proto`, `google/protobuf/timestamp.proto`
 
 ### File Content
 
@@ -9987,9 +9706,7 @@ message UserInfo {
 
 **Package**: `gcommon.v1.auth` **Lines**: 114
 
-**Messages** (3): `UserMetadata`, `UserPreferences`, `VerificationStatus`
-**Imports** (2): `google/protobuf/go_features.proto`,
-`google/protobuf/timestamp.proto`
+**Messages** (3): `UserMetadata`, `UserPreferences`, `VerificationStatus` **Imports** (2): `google/protobuf/go_features.proto`, `google/protobuf/timestamp.proto`
 
 ### File Content
 
@@ -10124,8 +9841,7 @@ message VerificationStatus {
 
 - Line 5: TODO - // TODO: Implement actual protobuf definitions
 - Line 16: TODO - // TODO: Add message definitions here
-- Line 17: Implementation needed - // This is a placeholder file created during
-  1-1-1 migration
+- Line 17: Implementation needed - // This is a placeholder file created during 1-1-1 migration
 
 ### File Content
 
@@ -10211,8 +9927,7 @@ enum UserStatus {
 
 **Package**: `gcommon.v1.auth` **Lines**: 24
 
-**Messages** (1): `ValidateSessionRequest` **Imports** (2):
-`google/protobuf/go_features.proto`, `pkg/common/proto/request_metadata.proto`
+**Messages** (1): `ValidateSessionRequest` **Imports** (2): `google/protobuf/go_features.proto`, `pkg/common/proto/request_metadata.proto`
 
 ### File Content
 
@@ -10251,9 +9966,7 @@ message ValidateSessionRequest {
 
 **Package**: `gcommon.v1.auth` **Lines**: 32
 
-**Messages** (1): `ValidateSessionResponse` **Imports** (4):
-`google/protobuf/go_features.proto`, `pkg/auth/proto/session.proto`,
-`pkg/auth/proto/user_info.proto`, `pkg/common/proto/error.proto`
+**Messages** (1): `ValidateSessionResponse` **Imports** (4): `google/protobuf/go_features.proto`, `pkg/auth/proto/session.proto`, `pkg/auth/proto/user_info.proto`, `pkg/common/proto/error.proto`
 
 ### File Content
 
@@ -10300,8 +10013,7 @@ message ValidateSessionResponse {
 
 **Package**: `gcommon.v1.auth` **Lines**: 29
 
-**Messages** (1): `ValidateTokenRequest` **Imports** (2):
-`google/protobuf/go_features.proto`, `pkg/common/proto/request_metadata.proto`
+**Messages** (1): `ValidateTokenRequest` **Imports** (2): `google/protobuf/go_features.proto`, `pkg/common/proto/request_metadata.proto`
 
 ### File Content
 
@@ -10345,9 +10057,7 @@ message ValidateTokenRequest {
 
 **Package**: `gcommon.v1.auth` **Lines**: 40
 
-**Messages** (1): `ValidateTokenResponse` **Imports** (4):
-`google/protobuf/go_features.proto`, `google/protobuf/timestamp.proto`,
-`pkg/auth/proto/user_info.proto`, `pkg/common/proto/request_metadata.proto`
+**Messages** (1): `ValidateTokenResponse` **Imports** (4): `google/protobuf/go_features.proto`, `google/protobuf/timestamp.proto`, `pkg/auth/proto/user_info.proto`, `pkg/common/proto/request_metadata.proto`
 
 ### File Content
 
@@ -10408,8 +10118,7 @@ message ValidateTokenResponse {
 
 - Line 5: TODO - // TODO: Implement actual protobuf definitions
 - Line 16: TODO - // TODO: Add request definitions here
-- Line 17: Implementation needed - // This is a placeholder file created during
-  1-1-1 migration
+- Line 17: Implementation needed - // This is a placeholder file created during 1-1-1 migration
 
 ### File Content
 
@@ -10445,10 +10154,7 @@ option go_package = "github.com/jdfalk/gcommon/pkg/auth/proto";
 
 **Package**: `gcommon.v1.auth` **Lines**: 31
 
-**Messages** (1): `VerifyCredentialsRequest` **Imports** (4):
-`google/protobuf/go_features.proto`, `pkg/auth/proto/api_key_credentials.proto`,
-`pkg/auth/proto/password_credentials.proto`,
-`pkg/common/proto/request_metadata.proto`
+**Messages** (1): `VerifyCredentialsRequest` **Imports** (4): `google/protobuf/go_features.proto`, `pkg/auth/proto/api_key_credentials.proto`, `pkg/auth/proto/password_credentials.proto`, `pkg/common/proto/request_metadata.proto`
 
 ### File Content
 
@@ -10494,9 +10200,7 @@ message VerifyCredentialsRequest {
 
 **Package**: `gcommon.v1.auth` **Lines**: 29
 
-**Messages** (1): `VerifyCredentialsResponse` **Imports** (4):
-`google/protobuf/go_features.proto`, `pkg/auth/proto/user_info.proto`,
-`pkg/common/proto/error.proto`, `pkg/common/proto/request_metadata.proto`
+**Messages** (1): `VerifyCredentialsResponse` **Imports** (4): `google/protobuf/go_features.proto`, `pkg/auth/proto/user_info.proto`, `pkg/common/proto/error.proto`, `pkg/common/proto/request_metadata.proto`
 
 ### File Content
 
@@ -10546,8 +10250,7 @@ message VerifyCredentialsResponse {
 
 - Line 5: TODO - // TODO: Implement actual protobuf definitions
 - Line 16: TODO - // TODO: Add request definitions here
-- Line 17: Implementation needed - // This is a placeholder file created during
-  1-1-1 migration
+- Line 17: Implementation needed - // This is a placeholder file created during 1-1-1 migration
 
 ### File Content
 
@@ -10589,8 +10292,7 @@ option go_package = "github.com/jdfalk/gcommon/pkg/auth/proto";
 
 - Line 5: TODO - // TODO: Implement actual protobuf definitions
 - Line 16: TODO - // TODO: Add response definitions here
-- Line 17: Implementation needed - // This is a placeholder file created during
-  1-1-1 migration
+- Line 17: Implementation needed - // This is a placeholder file created during 1-1-1 migration
 
 ### File Content
 
@@ -10632,8 +10334,7 @@ option go_package = "github.com/jdfalk/gcommon/pkg/auth/proto";
 
 - Line 5: TODO - // TODO: Implement actual protobuf definitions
 - Line 16: TODO - // TODO: Add request definitions here
-- Line 17: Implementation needed - // This is a placeholder file created during
-  1-1-1 migration
+- Line 17: Implementation needed - // This is a placeholder file created during 1-1-1 migration
 
 ### File Content
 
@@ -10675,8 +10376,7 @@ option go_package = "github.com/jdfalk/gcommon/pkg/auth/proto";
 
 - Line 5: TODO - // TODO: Implement actual protobuf definitions
 - Line 16: TODO - // TODO: Add response definitions here
-- Line 17: Implementation needed - // This is a placeholder file created during
-  1-1-1 migration
+- Line 17: Implementation needed - // This is a placeholder file created during 1-1-1 migration
 
 ### File Content
 
@@ -10712,8 +10412,7 @@ option go_package = "github.com/jdfalk/gcommon/pkg/auth/proto";
 
 **Package**: `gcommon.v1.cache` **Lines**: 29
 
-**Messages** (1): `AppendRequest` **Imports** (3): `google/protobuf/any.proto`,
-`google/protobuf/go_features.proto`, `pkg/common/proto/request_metadata.proto`
+**Messages** (1): `AppendRequest` **Imports** (3): `google/protobuf/any.proto`, `google/protobuf/go_features.proto`, `pkg/common/proto/request_metadata.proto`
 
 ### File Content
 
@@ -10757,8 +10456,7 @@ message AppendRequest {
 
 **Package**: `gcommon.v1.cache` **Lines**: 25
 
-**Messages** (1): `BackupRequest` **Imports** (2):
-`google/protobuf/go_features.proto`, `pkg/common/proto/request_metadata.proto`
+**Messages** (1): `BackupRequest` **Imports** (2): `google/protobuf/go_features.proto`, `pkg/common/proto/request_metadata.proto`
 
 ### File Content
 
@@ -10798,17 +10496,9 @@ message BackupRequest {
 
 **Package**: `gcommon.v1.cache` **Lines**: 42
 
-**Services** (1): `CacheAdminService` **Imports** (11):
-`google/protobuf/empty.proto`, `google/protobuf/go_features.proto`,
-`pkg/cache/proto/configure_policy_request.proto`,
-`pkg/cache/proto/configure_policy_response.proto`,
-`pkg/cache/proto/create_namespace_request.proto`,
-`pkg/cache/proto/create_namespace_response.proto`,
-`pkg/cache/proto/delete_namespace_request.proto`,
-`pkg/cache/proto/get_namespace_stats_request.proto`,
-`pkg/cache/proto/get_namespace_stats_response.proto`,
-`pkg/cache/proto/list_namespaces_request.proto`,
-`pkg/cache/proto/list_namespaces_response.proto`
+**Services** (1): `CacheAdminService` **Imports** (11): `google/protobuf/empty.proto`, `google/protobuf/go_features.proto`, `pkg/cache/proto/configure_policy_request.proto`, `pkg/cache/proto/configure_policy_response.proto`,
+`pkg/cache/proto/create_namespace_request.proto`, `pkg/cache/proto/create_namespace_response.proto`, `pkg/cache/proto/delete_namespace_request.proto`, `pkg/cache/proto/get_namespace_stats_request.proto`,
+`pkg/cache/proto/get_namespace_stats_response.proto`, `pkg/cache/proto/list_namespaces_request.proto`, `pkg/cache/proto/list_namespaces_response.proto`
 
 ### File Content
 
@@ -10865,9 +10555,7 @@ service CacheAdminService {
 
 **Package**: `gcommon.v1.cache` **Lines**: 45
 
-**Messages** (1): `CacheConfig` **Imports** (3):
-`google/protobuf/duration.proto`, `google/protobuf/go_features.proto`,
-`pkg/common/proto/eviction_policy.proto`
+**Messages** (1): `CacheConfig` **Imports** (3): `google/protobuf/duration.proto`, `google/protobuf/go_features.proto`, `pkg/common/proto/eviction_policy.proto`
 
 ### File Content
 
@@ -10927,8 +10615,7 @@ message CacheConfig {
 
 **Package**: `gcommon.v1.cache` **Lines**: 46
 
-**Messages** (1): `CacheEntry` **Imports** (3): `google/protobuf/any.proto`,
-`google/protobuf/go_features.proto`, `google/protobuf/timestamp.proto`
+**Messages** (1): `CacheEntry` **Imports** (3): `google/protobuf/any.proto`, `google/protobuf/go_features.proto`, `google/protobuf/timestamp.proto`
 
 ### File Content
 
@@ -10989,9 +10676,7 @@ message CacheEntry {
 
 **Package**: `gcommon.v1.cache` **Lines**: 48
 
-**Messages** (1): `CacheInfo` **Imports** (3):
-`google/protobuf/go_features.proto`, `google/protobuf/timestamp.proto`,
-`pkg/common/proto/health_status.proto`
+**Messages** (1): `CacheInfo` **Imports** (3): `google/protobuf/go_features.proto`, `google/protobuf/timestamp.proto`, `pkg/common/proto/health_status.proto`
 
 ### File Content
 
@@ -11054,9 +10739,7 @@ message CacheInfo {
 
 **Package**: `gcommon.v1.cache` **Lines**: 60
 
-**Messages** (1): `CacheMetrics` **Imports** (3):
-`google/protobuf/duration.proto`, `google/protobuf/go_features.proto`,
-`google/protobuf/timestamp.proto`
+**Messages** (1): `CacheMetrics` **Imports** (3): `google/protobuf/duration.proto`, `google/protobuf/go_features.proto`, `google/protobuf/timestamp.proto`
 
 ### File Content
 
@@ -11131,9 +10814,7 @@ message CacheMetrics {
 
 **Package**: `gcommon.v1.cache` **Lines**: 48
 
-**Messages** (1): `CacheOperationResult` **Imports** (3):
-`google/protobuf/go_features.proto`, `google/protobuf/timestamp.proto`,
-`pkg/common/proto/error.proto`
+**Messages** (1): `CacheOperationResult` **Imports** (3): `google/protobuf/go_features.proto`, `google/protobuf/timestamp.proto`, `pkg/common/proto/error.proto`
 
 ### File Content
 
@@ -11196,29 +10877,12 @@ message CacheOperationResult {
 
 **Package**: `gcommon.v1.cache` **Lines**: 87
 
-**Services** (1): `CacheService` **Imports** (29):
-`google/protobuf/go_features.proto`, `pkg/cache/proto/clear_request.proto`,
-`pkg/cache/proto/clear_response.proto`,
-`pkg/cache/proto/decrement_request.proto`,
-`pkg/cache/proto/decrement_response.proto`,
-`pkg/cache/proto/delete_multiple_request.proto`,
-`pkg/cache/proto/delete_multiple_response.proto`,
-`pkg/cache/proto/delete_request.proto`, `pkg/cache/proto/delete_response.proto`,
-`pkg/cache/proto/exists_request.proto`, `pkg/cache/proto/exists_response.proto`,
-`pkg/cache/proto/flush_request.proto`, `pkg/cache/proto/flush_response.proto`,
-`pkg/cache/proto/get_multiple_request.proto`,
-`pkg/cache/proto/get_multiple_response.proto`,
-`pkg/cache/proto/get_request.proto`, `pkg/cache/proto/get_response.proto`,
-`pkg/cache/proto/get_stats_response.proto`,
-`pkg/cache/proto/increment_request.proto`,
-`pkg/cache/proto/increment_response.proto`,
-`pkg/cache/proto/keys_request.proto`, `pkg/cache/proto/keys_response.proto`,
-`pkg/cache/proto/set_multiple_request.proto`,
-`pkg/cache/proto/set_multiple_response.proto`,
-`pkg/cache/proto/set_request.proto`, `pkg/cache/proto/set_response.proto`,
-`pkg/cache/proto/stats_request.proto`,
-`pkg/cache/proto/touch_expiration_response.proto`,
-`pkg/cache/proto/ttl_request.proto`
+**Services** (1): `CacheService` **Imports** (29): `google/protobuf/go_features.proto`, `pkg/cache/proto/clear_request.proto`, `pkg/cache/proto/clear_response.proto`, `pkg/cache/proto/decrement_request.proto`,
+`pkg/cache/proto/decrement_response.proto`, `pkg/cache/proto/delete_multiple_request.proto`, `pkg/cache/proto/delete_multiple_response.proto`, `pkg/cache/proto/delete_request.proto`, `pkg/cache/proto/delete_response.proto`,
+`pkg/cache/proto/exists_request.proto`, `pkg/cache/proto/exists_response.proto`, `pkg/cache/proto/flush_request.proto`, `pkg/cache/proto/flush_response.proto`, `pkg/cache/proto/get_multiple_request.proto`,
+`pkg/cache/proto/get_multiple_response.proto`, `pkg/cache/proto/get_request.proto`, `pkg/cache/proto/get_response.proto`, `pkg/cache/proto/get_stats_response.proto`, `pkg/cache/proto/increment_request.proto`,
+`pkg/cache/proto/increment_response.proto`, `pkg/cache/proto/keys_request.proto`, `pkg/cache/proto/keys_response.proto`, `pkg/cache/proto/set_multiple_request.proto`, `pkg/cache/proto/set_multiple_response.proto`,
+`pkg/cache/proto/set_request.proto`, `pkg/cache/proto/set_response.proto`, `pkg/cache/proto/stats_request.proto`, `pkg/cache/proto/touch_expiration_response.proto`, `pkg/cache/proto/ttl_request.proto`
 
 ### File Content
 
@@ -11320,8 +10984,7 @@ service CacheService {
 
 **Package**: `gcommon.v1.cache` **Lines**: 53
 
-**Messages** (1): `CacheStats` **Imports** (2):
-`google/protobuf/go_features.proto`, `google/protobuf/timestamp.proto`
+**Messages** (1): `CacheStats` **Imports** (2): `google/protobuf/go_features.proto`, `google/protobuf/timestamp.proto`
 
 ### File Content
 
@@ -11389,8 +11052,7 @@ message CacheStats {
 
 **Package**: `gcommon.v1.cache` **Lines**: 26
 
-**Messages** (1): `ClearRequest` **Imports** (2):
-`google/protobuf/go_features.proto`, `pkg/common/proto/request_metadata.proto`
+**Messages** (1): `ClearRequest` **Imports** (2): `google/protobuf/go_features.proto`, `pkg/common/proto/request_metadata.proto`
 
 ### File Content
 
@@ -11431,8 +11093,7 @@ message ClearRequest {
 
 **Package**: `gcommon.v1.cache` **Lines**: 29
 
-**Messages** (1): `ClearResponse` **Imports** (2):
-`google/protobuf/go_features.proto`, `pkg/common/proto/error.proto`
+**Messages** (1): `ClearResponse` **Imports** (2): `google/protobuf/go_features.proto`, `pkg/common/proto/error.proto`
 
 ### File Content
 
@@ -11476,8 +11137,7 @@ message ClearResponse {
 
 **Package**: `gcommon.v1.cache` **Lines**: 33
 
-**Messages** (1): `ConfigurePolicyRequest` **Imports** (1):
-`google/protobuf/go_features.proto`
+**Messages** (1): `ConfigurePolicyRequest` **Imports** (1): `google/protobuf/go_features.proto`
 
 ### File Content
 
@@ -11525,8 +11185,7 @@ message ConfigurePolicyRequest {
 
 **Package**: `gcommon.v1.cache` **Lines**: 40
 
-**Messages** (1): `ConfigurePolicyResponse` **Imports** (2):
-`google/protobuf/go_features.proto`, `google/protobuf/timestamp.proto`
+**Messages** (1): `ConfigurePolicyResponse` **Imports** (2): `google/protobuf/go_features.proto`, `google/protobuf/timestamp.proto`
 
 ### File Content
 
@@ -11581,8 +11240,7 @@ message ConfigurePolicyResponse {
 
 **Package**: `gcommon.v1.cache` **Lines**: 36
 
-**Messages** (1): `CreateNamespaceRequest` **Imports** (1):
-`google/protobuf/go_features.proto`
+**Messages** (1): `CreateNamespaceRequest` **Imports** (1): `google/protobuf/go_features.proto`
 
 ### File Content
 
@@ -11633,8 +11291,7 @@ message CreateNamespaceRequest {
 
 **Package**: `gcommon.v1.cache` **Lines**: 43
 
-**Messages** (1): `CreateNamespaceResponse` **Imports** (2):
-`google/protobuf/go_features.proto`, `google/protobuf/timestamp.proto`
+**Messages** (1): `CreateNamespaceResponse` **Imports** (2): `google/protobuf/go_features.proto`, `google/protobuf/timestamp.proto`
 
 ### File Content
 
@@ -11692,9 +11349,7 @@ message CreateNamespaceResponse {
 
 **Package**: `gcommon.v1.cache` **Lines**: 35
 
-**Messages** (1): `DecrementRequest` **Imports** (3):
-`google/protobuf/duration.proto`, `google/protobuf/go_features.proto`,
-`pkg/common/proto/request_metadata.proto`
+**Messages** (1): `DecrementRequest` **Imports** (3): `google/protobuf/duration.proto`, `google/protobuf/go_features.proto`, `pkg/common/proto/request_metadata.proto`
 
 ### File Content
 
@@ -11744,8 +11399,7 @@ message DecrementRequest {
 
 **Package**: `gcommon.v1.cache` **Lines**: 29
 
-**Messages** (1): `DecrementResponse` **Imports** (2):
-`google/protobuf/go_features.proto`, `pkg/common/proto/error.proto`
+**Messages** (1): `DecrementResponse` **Imports** (2): `google/protobuf/go_features.proto`, `pkg/common/proto/error.proto`
 
 ### File Content
 
@@ -11789,8 +11443,7 @@ message DecrementResponse {
 
 **Package**: `gcommon.v1.cache` **Lines**: 22
 
-**Messages** (1): `DefragRequest` **Imports** (2):
-`google/protobuf/go_features.proto`, `pkg/common/proto/request_metadata.proto`
+**Messages** (1): `DefragRequest` **Imports** (2): `google/protobuf/go_features.proto`, `pkg/common/proto/request_metadata.proto`
 
 ### File Content
 
@@ -11827,8 +11480,7 @@ message DefragRequest {
 
 **Package**: `gcommon.v1.cache` **Lines**: 25
 
-**Messages** (1): `DeleteMultipleRequest` **Imports** (2):
-`google/protobuf/go_features.proto`, `pkg/common/proto/request_metadata.proto`
+**Messages** (1): `DeleteMultipleRequest` **Imports** (2): `google/protobuf/go_features.proto`, `pkg/common/proto/request_metadata.proto`
 
 ### File Content
 
@@ -11868,8 +11520,7 @@ message DeleteMultipleRequest {
 
 **Package**: `gcommon.v1.cache` **Lines**: 32
 
-**Messages** (1): `DeleteMultipleResponse` **Imports** (2):
-`google/protobuf/go_features.proto`, `pkg/common/proto/error.proto`
+**Messages** (1): `DeleteMultipleResponse` **Imports** (2): `google/protobuf/go_features.proto`, `pkg/common/proto/error.proto`
 
 ### File Content
 
@@ -11916,8 +11567,7 @@ message DeleteMultipleResponse {
 
 **Package**: `gcommon.v1.cache` **Lines**: 27
 
-**Messages** (1): `DeleteNamespaceRequest` **Imports** (1):
-`google/protobuf/go_features.proto`
+**Messages** (1): `DeleteNamespaceRequest` **Imports** (1): `google/protobuf/go_features.proto`
 
 ### File Content
 
@@ -11959,8 +11609,7 @@ message DeleteNamespaceRequest {
 
 **Package**: `gcommon.v1.cache` **Lines**: 25
 
-**Messages** (1): `DeleteRequest` **Imports** (2):
-`google/protobuf/go_features.proto`, `pkg/common/proto/request_metadata.proto`
+**Messages** (1): `DeleteRequest` **Imports** (2): `google/protobuf/go_features.proto`, `pkg/common/proto/request_metadata.proto`
 
 ### File Content
 
@@ -12000,8 +11649,7 @@ message DeleteRequest {
 
 **Package**: `gcommon.v1.cache` **Lines**: 29
 
-**Messages** (1): `DeleteResponse` **Imports** (2):
-`google/protobuf/go_features.proto`, `pkg/common/proto/error.proto`
+**Messages** (1): `DeleteResponse` **Imports** (2): `google/protobuf/go_features.proto`, `pkg/common/proto/error.proto`
 
 ### File Content
 
@@ -12045,9 +11693,7 @@ message DeleteResponse {
 
 **Package**: `gcommon.v1.cache` **Lines**: 42
 
-**Messages** (1): `EvictionResult` **Imports** (3):
-`google/protobuf/go_features.proto`, `google/protobuf/timestamp.proto`,
-`pkg/common/proto/eviction_policy.proto`
+**Messages** (1): `EvictionResult` **Imports** (3): `google/protobuf/go_features.proto`, `google/protobuf/timestamp.proto`, `pkg/common/proto/eviction_policy.proto`
 
 ### File Content
 
@@ -12104,8 +11750,7 @@ message EvictionResult {
 
 **Package**: `gcommon.v1.cache` **Lines**: 25
 
-**Messages** (1): `ExistsRequest` **Imports** (2):
-`google/protobuf/go_features.proto`, `pkg/common/proto/request_metadata.proto`
+**Messages** (1): `ExistsRequest` **Imports** (2): `google/protobuf/go_features.proto`, `pkg/common/proto/request_metadata.proto`
 
 ### File Content
 
@@ -12145,8 +11790,7 @@ message ExistsRequest {
 
 **Package**: `gcommon.v1.cache` **Lines**: 26
 
-**Messages** (1): `ExistsResponse` **Imports** (2):
-`google/protobuf/go_features.proto`, `pkg/common/proto/error.proto`
+**Messages** (1): `ExistsResponse` **Imports** (2): `google/protobuf/go_features.proto`, `pkg/common/proto/error.proto`
 
 ### File Content
 
@@ -12187,9 +11831,7 @@ message ExistsResponse {
 
 **Package**: `gcommon.v1.cache` **Lines**: 29
 
-**Messages** (1): `ExpireRequest` **Imports** (3):
-`google/protobuf/duration.proto`, `google/protobuf/go_features.proto`,
-`pkg/common/proto/request_metadata.proto`
+**Messages** (1): `ExpireRequest` **Imports** (3): `google/protobuf/duration.proto`, `google/protobuf/go_features.proto`, `pkg/common/proto/request_metadata.proto`
 
 ### File Content
 
@@ -12233,8 +11875,7 @@ message ExpireRequest {
 
 **Package**: `gcommon.v1.cache` **Lines**: 25
 
-**Messages** (1): `ExportRequest` **Imports** (2):
-`google/protobuf/go_features.proto`, `pkg/common/proto/request_metadata.proto`
+**Messages** (1): `ExportRequest` **Imports** (2): `google/protobuf/go_features.proto`, `pkg/common/proto/request_metadata.proto`
 
 ### File Content
 
@@ -12274,8 +11915,7 @@ message ExportRequest {
 
 **Package**: `gcommon.v1.cache` **Lines**: 22
 
-**Messages** (1): `FlushRequest` **Imports** (2):
-`google/protobuf/go_features.proto`, `pkg/common/proto/request_metadata.proto`
+**Messages** (1): `FlushRequest` **Imports** (2): `google/protobuf/go_features.proto`, `pkg/common/proto/request_metadata.proto`
 
 ### File Content
 
@@ -12312,8 +11952,7 @@ message FlushRequest {
 
 **Package**: `gcommon.v1.cache` **Lines**: 29
 
-**Messages** (1): `FlushResponse` **Imports** (2):
-`google/protobuf/go_features.proto`, `pkg/common/proto/error.proto`
+**Messages** (1): `FlushResponse` **Imports** (2): `google/protobuf/go_features.proto`, `pkg/common/proto/error.proto`
 
 ### File Content
 
@@ -12357,8 +11996,7 @@ message FlushResponse {
 
 **Package**: `gcommon.v1.cache` **Lines**: 22
 
-**Messages** (1): `GcRequest` **Imports** (2):
-`google/protobuf/go_features.proto`, `pkg/common/proto/request_metadata.proto`
+**Messages** (1): `GcRequest` **Imports** (2): `google/protobuf/go_features.proto`, `pkg/common/proto/request_metadata.proto`
 
 ### File Content
 
@@ -12395,8 +12033,7 @@ message GcRequest {
 
 **Package**: `gcommon.v1.cache` **Lines**: 22
 
-**Messages** (1): `GetMemoryUsageRequest` **Imports** (2):
-`google/protobuf/go_features.proto`, `pkg/common/proto/request_metadata.proto`
+**Messages** (1): `GetMemoryUsageRequest` **Imports** (2): `google/protobuf/go_features.proto`, `pkg/common/proto/request_metadata.proto`
 
 ### File Content
 
@@ -12433,8 +12070,7 @@ message GetMemoryUsageRequest {
 
 **Package**: `gcommon.v1.cache` **Lines**: 27
 
-**Messages** (1): `GetMemoryUsageResponse` **Imports** (2):
-`google/protobuf/go_features.proto`, `pkg/common/proto/error.proto`
+**Messages** (1): `GetMemoryUsageResponse` **Imports** (2): `google/protobuf/go_features.proto`, `pkg/common/proto/error.proto`
 
 ### File Content
 
@@ -12476,8 +12112,7 @@ message GetMemoryUsageResponse {
 
 **Package**: `gcommon.v1.cache` **Lines**: 26
 
-**Messages** (1): `GetMultipleRequest` **Imports** (2):
-`google/protobuf/go_features.proto`, `pkg/common/proto/request_metadata.proto`
+**Messages** (1): `GetMultipleRequest` **Imports** (2): `google/protobuf/go_features.proto`, `pkg/common/proto/request_metadata.proto`
 
 ### File Content
 
@@ -12518,8 +12153,7 @@ message GetMultipleRequest {
 
 **Package**: `gcommon.v1.cache` **Lines**: 29
 
-**Messages** (1): `GetMultipleResponse` **Imports** (2):
-`google/protobuf/go_features.proto`, `pkg/common/proto/error.proto`
+**Messages** (1): `GetMultipleResponse` **Imports** (2): `google/protobuf/go_features.proto`, `pkg/common/proto/error.proto`
 
 ### File Content
 
@@ -12563,8 +12197,7 @@ message GetMultipleResponse {
 
 **Package**: `gcommon.v1.cache` **Lines**: 27
 
-**Messages** (1): `GetNamespaceStatsRequest` **Imports** (1):
-`google/protobuf/go_features.proto`
+**Messages** (1): `GetNamespaceStatsRequest` **Imports** (1): `google/protobuf/go_features.proto`
 
 ### File Content
 
@@ -12606,8 +12239,7 @@ message GetNamespaceStatsRequest {
 
 **Package**: `gcommon.v1.cache` **Lines**: 60
 
-**Messages** (2): `NamespaceStats`, `GetNamespaceStatsResponse` **Imports** (2):
-`google/protobuf/go_features.proto`, `google/protobuf/timestamp.proto`
+**Messages** (2): `NamespaceStats`, `GetNamespaceStatsResponse` **Imports** (2): `google/protobuf/go_features.proto`, `google/protobuf/timestamp.proto`
 
 ### File Content
 
@@ -12682,8 +12314,7 @@ message GetNamespaceStatsResponse {
 
 **Package**: `gcommon.v1.cache` **Lines**: 30
 
-**Messages** (1): `GetRequest` **Imports** (2):
-`google/protobuf/go_features.proto`, `pkg/common/proto/request_metadata.proto`
+**Messages** (1): `GetRequest` **Imports** (2): `google/protobuf/go_features.proto`, `pkg/common/proto/request_metadata.proto`
 
 ### File Content
 
@@ -12728,8 +12359,7 @@ message GetRequest {
 
 **Package**: `gcommon.v1.cache` **Lines**: 26
 
-**Messages** (1): `GetResponse` **Imports** (2):
-`google/protobuf/go_features.proto`, `pkg/cache/proto/cache_entry.proto`
+**Messages** (1): `GetResponse` **Imports** (2): `google/protobuf/go_features.proto`, `pkg/cache/proto/cache_entry.proto`
 
 ### File Content
 
@@ -12770,8 +12400,7 @@ message GetResponse {
 
 **Package**: `gcommon.v1.cache` **Lines**: 47
 
-**Messages** (1): `GetStatsResponse` **Imports** (2):
-`google/protobuf/go_features.proto`, `pkg/common/proto/error.proto`
+**Messages** (1): `GetStatsResponse` **Imports** (2): `google/protobuf/go_features.proto`, `pkg/common/proto/error.proto`
 
 ### File Content
 
@@ -12833,8 +12462,7 @@ message GetStatsResponse {
 
 **Package**: `gcommon.v1.cache` **Lines**: 22
 
-**Messages** (1): `HealthCheckRequest` **Imports** (2):
-`google/protobuf/go_features.proto`, `pkg/common/proto/request_metadata.proto`
+**Messages** (1): `HealthCheckRequest` **Imports** (2): `google/protobuf/go_features.proto`, `pkg/common/proto/request_metadata.proto`
 
 ### File Content
 
@@ -12871,8 +12499,7 @@ message HealthCheckRequest {
 
 **Package**: `gcommon.v1.cache` **Lines**: 25
 
-**Messages** (1): `ImportRequest` **Imports** (2):
-`google/protobuf/go_features.proto`, `pkg/common/proto/request_metadata.proto`
+**Messages** (1): `ImportRequest` **Imports** (2): `google/protobuf/go_features.proto`, `pkg/common/proto/request_metadata.proto`
 
 ### File Content
 
@@ -12912,9 +12539,7 @@ message ImportRequest {
 
 **Package**: `gcommon.v1.cache` **Lines**: 35
 
-**Messages** (1): `IncrementRequest` **Imports** (3):
-`google/protobuf/duration.proto`, `google/protobuf/go_features.proto`,
-`pkg/common/proto/request_metadata.proto`
+**Messages** (1): `IncrementRequest` **Imports** (3): `google/protobuf/duration.proto`, `google/protobuf/go_features.proto`, `pkg/common/proto/request_metadata.proto`
 
 ### File Content
 
@@ -12964,8 +12589,7 @@ message IncrementRequest {
 
 **Package**: `gcommon.v1.cache` **Lines**: 29
 
-**Messages** (1): `IncrementResponse` **Imports** (2):
-`google/protobuf/go_features.proto`, `pkg/common/proto/error.proto`
+**Messages** (1): `IncrementResponse` **Imports** (2): `google/protobuf/go_features.proto`, `pkg/common/proto/error.proto`
 
 ### File Content
 
@@ -13009,8 +12633,7 @@ message IncrementResponse {
 
 **Package**: `gcommon.v1.cache` **Lines**: 19
 
-**Messages** (1): `InfoRequest` **Imports** (2):
-`google/protobuf/go_features.proto`, `pkg/common/proto/request_metadata.proto`
+**Messages** (1): `InfoRequest` **Imports** (2): `google/protobuf/go_features.proto`, `pkg/common/proto/request_metadata.proto`
 
 ### File Content
 
@@ -13044,9 +12667,7 @@ message InfoRequest {
 
 **Package**: `gcommon.v1.cache` **Lines**: 29
 
-**Messages** (1): `KeysRequest` **Imports** (3):
-`google/protobuf/go_features.proto`, `pkg/common/proto/pagination.proto`,
-`pkg/common/proto/request_metadata.proto`
+**Messages** (1): `KeysRequest` **Imports** (3): `google/protobuf/go_features.proto`, `pkg/common/proto/pagination.proto`, `pkg/common/proto/request_metadata.proto`
 
 ### File Content
 
@@ -13090,8 +12711,7 @@ message KeysRequest {
 
 **Package**: `gcommon.v1.cache` **Lines**: 32
 
-**Messages** (1): `KeysResponse` **Imports** (2):
-`google/protobuf/go_features.proto`, `pkg/common/proto/error.proto`
+**Messages** (1): `KeysResponse` **Imports** (2): `google/protobuf/go_features.proto`, `pkg/common/proto/error.proto`
 
 ### File Content
 
@@ -13138,8 +12758,7 @@ message KeysResponse {
 
 **Package**: `gcommon.v1.cache` **Lines**: 30
 
-**Messages** (1): `ListNamespacesRequest` **Imports** (1):
-`google/protobuf/go_features.proto`
+**Messages** (1): `ListNamespacesRequest` **Imports** (1): `google/protobuf/go_features.proto`
 
 ### File Content
 
@@ -13184,8 +12803,7 @@ message ListNamespacesRequest {
 
 **Package**: `gcommon.v1.cache` **Lines**: 60
 
-**Messages** (2): `NamespaceInfo`, `ListNamespacesResponse` **Imports** (2):
-`google/protobuf/go_features.proto`, `google/protobuf/timestamp.proto`
+**Messages** (2): `NamespaceInfo`, `ListNamespacesResponse` **Imports** (2): `google/protobuf/go_features.proto`, `google/protobuf/timestamp.proto`
 
 ### File Content
 
@@ -13260,8 +12878,7 @@ message ListNamespacesResponse {
 
 **Package**: `gcommon.v1.cache` **Lines**: 19
 
-**Messages** (1): `ListSubscriptionsRequest` **Imports** (2):
-`google/protobuf/go_features.proto`, `pkg/common/proto/request_metadata.proto`
+**Messages** (1): `ListSubscriptionsRequest` **Imports** (2): `google/protobuf/go_features.proto`, `pkg/common/proto/request_metadata.proto`
 
 ### File Content
 
@@ -13295,9 +12912,7 @@ message ListSubscriptionsRequest {
 
 **Package**: `gcommon.v1.cache` **Lines**: 29
 
-**Messages** (1): `LockRequest` **Imports** (3):
-`google/protobuf/duration.proto`, `google/protobuf/go_features.proto`,
-`pkg/common/proto/request_metadata.proto`
+**Messages** (1): `LockRequest` **Imports** (3): `google/protobuf/duration.proto`, `google/protobuf/go_features.proto`, `pkg/common/proto/request_metadata.proto`
 
 ### File Content
 
@@ -13341,8 +12956,7 @@ message LockRequest {
 
 **Package**: `gcommon.v1.cache` **Lines**: 36
 
-**Messages** (1): `MGetRequest` **Imports** (2):
-`google/protobuf/go_features.proto`, `pkg/common/proto/request_metadata.proto`
+**Messages** (1): `MGetRequest` **Imports** (2): `google/protobuf/go_features.proto`, `pkg/common/proto/request_metadata.proto`
 
 ### File Content
 
@@ -13393,8 +13007,7 @@ message MGetRequest {
 
 **Package**: `gcommon.v1.cache` **Lines**: 22
 
-**Messages** (1): `OptimizeRequest` **Imports** (2):
-`google/protobuf/go_features.proto`, `pkg/common/proto/request_metadata.proto`
+**Messages** (1): `OptimizeRequest` **Imports** (2): `google/protobuf/go_features.proto`, `pkg/common/proto/request_metadata.proto`
 
 ### File Content
 
@@ -13431,8 +13044,7 @@ message OptimizeRequest {
 
 **Package**: `gcommon.v1.cache` **Lines**: 25
 
-**Messages** (1): `PipelineRequest` **Imports** (2):
-`google/protobuf/go_features.proto`, `pkg/common/proto/request_metadata.proto`
+**Messages** (1): `PipelineRequest` **Imports** (2): `google/protobuf/go_features.proto`, `pkg/common/proto/request_metadata.proto`
 
 ### File Content
 
@@ -13472,8 +13084,7 @@ message PipelineRequest {
 
 **Package**: `gcommon.v1.cache` **Lines**: 29
 
-**Messages** (1): `PrependRequest` **Imports** (3): `google/protobuf/any.proto`,
-`google/protobuf/go_features.proto`, `pkg/common/proto/request_metadata.proto`
+**Messages** (1): `PrependRequest` **Imports** (3): `google/protobuf/any.proto`, `google/protobuf/go_features.proto`, `pkg/common/proto/request_metadata.proto`
 
 ### File Content
 
@@ -13517,8 +13128,7 @@ message PrependRequest {
 
 **Package**: `gcommon.v1.cache` **Lines**: 26
 
-**Messages** (1): `PublishRequest` **Imports** (3): `google/protobuf/any.proto`,
-`google/protobuf/go_features.proto`, `pkg/common/proto/request_metadata.proto`
+**Messages** (1): `PublishRequest` **Imports** (3): `google/protobuf/any.proto`, `google/protobuf/go_features.proto`, `pkg/common/proto/request_metadata.proto`
 
 ### File Content
 
@@ -13559,8 +13169,7 @@ message PublishRequest {
 
 **Package**: `gcommon.v1.cache` **Lines**: 25
 
-**Messages** (1): `RestoreRequest` **Imports** (2):
-`google/protobuf/go_features.proto`, `pkg/common/proto/request_metadata.proto`
+**Messages** (1): `RestoreRequest` **Imports** (2): `google/protobuf/go_features.proto`, `pkg/common/proto/request_metadata.proto`
 
 ### File Content
 
@@ -13600,8 +13209,7 @@ message RestoreRequest {
 
 **Package**: `gcommon.v1.cache` **Lines**: 28
 
-**Messages** (1): `ScanRequest` **Imports** (2):
-`google/protobuf/go_features.proto`, `pkg/common/proto/request_metadata.proto`
+**Messages** (1): `ScanRequest` **Imports** (2): `google/protobuf/go_features.proto`, `pkg/common/proto/request_metadata.proto`
 
 ### File Content
 
@@ -13644,9 +13252,7 @@ message ScanRequest {
 
 **Package**: `gcommon.v1.cache` **Lines**: 30
 
-**Messages** (1): `SetMultipleRequest` **Imports** (3):
-`google/protobuf/duration.proto`, `google/protobuf/go_features.proto`,
-`pkg/common/proto/request_metadata.proto`
+**Messages** (1): `SetMultipleRequest` **Imports** (3): `google/protobuf/duration.proto`, `google/protobuf/go_features.proto`, `pkg/common/proto/request_metadata.proto`
 
 ### File Content
 
@@ -13691,8 +13297,7 @@ message SetMultipleRequest {
 
 **Package**: `gcommon.v1.cache` **Lines**: 32
 
-**Messages** (1): `SetMultipleResponse` **Imports** (2):
-`google/protobuf/go_features.proto`, `pkg/common/proto/error.proto`
+**Messages** (1): `SetMultipleResponse` **Imports** (2): `google/protobuf/go_features.proto`, `pkg/common/proto/error.proto`
 
 ### File Content
 
@@ -13739,8 +13344,7 @@ message SetMultipleResponse {
 
 **Package**: `gcommon.v1.cache` **Lines**: 32
 
-**Messages** (1): `SetOptions` **Imports** (2):
-`google/protobuf/duration.proto`, `google/protobuf/go_features.proto`
+**Messages** (1): `SetOptions` **Imports** (2): `google/protobuf/duration.proto`, `google/protobuf/go_features.proto`
 
 ### File Content
 
@@ -13787,9 +13391,7 @@ message SetOptions {
 
 **Package**: `gcommon.v1.cache` **Lines**: 40
 
-**Messages** (1): `SetRequest` **Imports** (4): `google/protobuf/any.proto`,
-`google/protobuf/duration.proto`, `google/protobuf/go_features.proto`,
-`pkg/common/proto/request_metadata.proto`
+**Messages** (1): `SetRequest` **Imports** (4): `google/protobuf/any.proto`, `google/protobuf/duration.proto`, `google/protobuf/go_features.proto`, `pkg/common/proto/request_metadata.proto`
 
 ### File Content
 
@@ -13844,8 +13446,7 @@ message SetRequest {
 
 **Package**: `gcommon.v1.cache` **Lines**: 25
 
-**Messages** (1): `SetResponse` **Imports** (1):
-`google/protobuf/go_features.proto`
+**Messages** (1): `SetResponse` **Imports** (1): `google/protobuf/go_features.proto`
 
 ### File Content
 
@@ -13885,8 +13486,7 @@ message SetResponse {
 
 **Package**: `gcommon.v1.cache` **Lines**: 22
 
-**Messages** (1): `GetStatsRequest` **Imports** (2):
-`google/protobuf/go_features.proto`, `pkg/common/proto/request_metadata.proto`
+**Messages** (1): `GetStatsRequest` **Imports** (2): `google/protobuf/go_features.proto`, `pkg/common/proto/request_metadata.proto`
 
 ### File Content
 
@@ -13923,8 +13523,7 @@ message GetStatsRequest {
 
 **Package**: `gcommon.v1.cache` **Lines**: 22
 
-**Messages** (1): `SubscribeRequest` **Imports** (2):
-`google/protobuf/go_features.proto`, `pkg/common/proto/request_metadata.proto`
+**Messages** (1): `SubscribeRequest` **Imports** (2): `google/protobuf/go_features.proto`, `pkg/common/proto/request_metadata.proto`
 
 ### File Content
 
@@ -13961,8 +13560,7 @@ message SubscribeRequest {
 
 **Package**: `gcommon.v1.cache` **Lines**: 29
 
-**Messages** (1): `TouchExpirationResponse` **Imports** (2):
-`google/protobuf/go_features.proto`, `pkg/common/proto/error.proto`
+**Messages** (1): `TouchExpirationResponse` **Imports** (2): `google/protobuf/go_features.proto`, `pkg/common/proto/error.proto`
 
 ### File Content
 
@@ -14006,8 +13604,7 @@ message TouchExpirationResponse {
 
 **Package**: `gcommon.v1.cache` **Lines**: 22
 
-**Messages** (1): `TransactionRequest` **Imports** (2):
-`google/protobuf/go_features.proto`, `pkg/common/proto/request_metadata.proto`
+**Messages** (1): `TransactionRequest` **Imports** (2): `google/protobuf/go_features.proto`, `pkg/common/proto/request_metadata.proto`
 
 ### File Content
 
@@ -14044,9 +13641,7 @@ message TransactionRequest {
 
 **Package**: `gcommon.v1.cache` **Lines**: 29
 
-**Messages** (1): `TouchExpirationRequest` **Imports** (3):
-`google/protobuf/duration.proto`, `google/protobuf/go_features.proto`,
-`pkg/common/proto/request_metadata.proto`
+**Messages** (1): `TouchExpirationRequest` **Imports** (3): `google/protobuf/duration.proto`, `google/protobuf/go_features.proto`, `pkg/common/proto/request_metadata.proto`
 
 ### File Content
 
@@ -14090,8 +13685,7 @@ message TouchExpirationRequest {
 
 **Package**: `gcommon.v1.cache` **Lines**: 25
 
-**Messages** (1): `UnlockRequest` **Imports** (2):
-`google/protobuf/go_features.proto`, `pkg/common/proto/request_metadata.proto`
+**Messages** (1): `UnlockRequest` **Imports** (2): `google/protobuf/go_features.proto`, `pkg/common/proto/request_metadata.proto`
 
 ### File Content
 
@@ -14131,8 +13725,7 @@ message UnlockRequest {
 
 **Package**: `gcommon.v1.cache` **Lines**: 22
 
-**Messages** (1): `UnsubscribeRequest` **Imports** (2):
-`google/protobuf/go_features.proto`, `pkg/common/proto/request_metadata.proto`
+**Messages** (1): `UnsubscribeRequest` **Imports** (2): `google/protobuf/go_features.proto`, `pkg/common/proto/request_metadata.proto`
 
 ### File Content
 
@@ -14169,8 +13762,7 @@ message UnsubscribeRequest {
 
 **Package**: `gcommon.v1.cache` **Lines**: 22
 
-**Messages** (1): `UnwatchRequest` **Imports** (2):
-`google/protobuf/go_features.proto`, `pkg/common/proto/request_metadata.proto`
+**Messages** (1): `UnwatchRequest` **Imports** (2): `google/protobuf/go_features.proto`, `pkg/common/proto/request_metadata.proto`
 
 ### File Content
 
@@ -14207,8 +13799,7 @@ message UnwatchRequest {
 
 **Package**: `gcommon.v1.cache` **Lines**: 22
 
-**Messages** (1): `WatchRequest` **Imports** (2):
-`google/protobuf/go_features.proto`, `pkg/common/proto/request_metadata.proto`
+**Messages** (1): `WatchRequest` **Imports** (2): `google/protobuf/go_features.proto`, `pkg/common/proto/request_metadata.proto`
 
 ### File Content
 
@@ -14289,10 +13880,7 @@ enum AckMode {
 
 **Package**: `gcommon.v1.common` **Lines**: 50
 
-**Messages** (1): `AuditLog` **Imports** (4):
-`google/protobuf/go_features.proto`, `google/protobuf/timestamp.proto`,
-`pkg/common/proto/audit_result.proto`,
-`pkg/common/proto/resource_reference.proto`
+**Messages** (1): `AuditLog` **Imports** (4): `google/protobuf/go_features.proto`, `google/protobuf/timestamp.proto`, `pkg/common/proto/audit_result.proto`, `pkg/common/proto/resource_reference.proto`
 
 ### File Content
 
@@ -14357,8 +13945,7 @@ message AuditLog {
 
 **Package**: `gcommon.v1.common` **Lines**: 29
 
-**Enums** (1): `AuditResult` **Imports** (1):
-`google/protobuf/go_features.proto`
+**Enums** (1): `AuditResult` **Imports** (1): `google/protobuf/go_features.proto`
 
 ### File Content
 
@@ -14402,9 +13989,7 @@ enum AuditResult {
 
 **Package**: `gcommon.v1.common` **Lines**: 35
 
-**Messages** (1): `BatchOperation` **Imports** (4): `google/protobuf/any.proto`,
-`google/protobuf/go_features.proto`, `pkg/common/proto/batch_options.proto`,
-`pkg/common/proto/request_metadata.proto`
+**Messages** (1): `BatchOperation` **Imports** (4): `google/protobuf/any.proto`, `google/protobuf/go_features.proto`, `pkg/common/proto/batch_options.proto`, `pkg/common/proto/request_metadata.proto`
 
 ### File Content
 
@@ -14454,8 +14039,7 @@ message BatchOperation {
 
 **Package**: `gcommon.v1.common` **Lines**: 30
 
-**Messages** (1): `BatchOptions` **Imports** (2):
-`google/protobuf/duration.proto`, `google/protobuf/go_features.proto`
+**Messages** (1): `BatchOptions` **Imports** (2): `google/protobuf/duration.proto`, `google/protobuf/go_features.proto`
 
 ### File Content
 
@@ -14500,10 +14084,7 @@ message BatchOptions {
 
 **Package**: `gcommon.v1.common` **Lines**: 41
 
-**Messages** (1): `CachePolicy` **Imports** (4):
-`google/protobuf/duration.proto`, `google/protobuf/go_features.proto`,
-`pkg/common/proto/eviction_policy.proto`,
-`pkg/common/proto/expiration_policy.proto`
+**Messages** (1): `CachePolicy` **Imports** (4): `google/protobuf/duration.proto`, `google/protobuf/go_features.proto`, `pkg/common/proto/eviction_policy.proto`, `pkg/common/proto/expiration_policy.proto`
 
 ### File Content
 
@@ -14559,9 +14140,7 @@ message CachePolicy {
 
 **Package**: `gcommon.v1.common` **Lines**: 37
 
-**Messages** (1): `CircuitBreakerConfig` **Imports** (3):
-`google/protobuf/duration.proto`, `google/protobuf/go_features.proto`,
-`pkg/common/proto/circuit_breaker_state.proto`
+**Messages** (1): `CircuitBreakerConfig` **Imports** (3): `google/protobuf/duration.proto`, `google/protobuf/go_features.proto`, `pkg/common/proto/circuit_breaker_state.proto`
 
 ### File Content
 
@@ -14613,8 +14192,7 @@ message CircuitBreakerConfig {
 
 **Package**: `gcommon.v1.common` **Lines**: 29
 
-**Enums** (1): `CircuitBreakerState` **Imports** (1):
-`google/protobuf/go_features.proto`
+**Enums** (1): `CircuitBreakerState` **Imports** (1): `google/protobuf/go_features.proto`
 
 ### File Content
 
@@ -14658,8 +14236,7 @@ enum CircuitBreakerState {
 
 **Package**: `gcommon.v1.common` **Lines**: 32
 
-**Messages** (1): `ClientInfo` **Imports** (1):
-`google/protobuf/go_features.proto`
+**Messages** (1): `ClientInfo` **Imports** (1): `google/protobuf/go_features.proto`
 
 ### File Content
 
@@ -14706,8 +14283,7 @@ message ClientInfo {
 
 **Package**: `gcommon.v1.common` **Lines**: 49
 
-**Messages** (1): `ConfigValue` **Imports** (3): `google/protobuf/any.proto`,
-`google/protobuf/go_features.proto`, `pkg/common/proto/value_type.proto`
+**Messages** (1): `ConfigValue` **Imports** (3): `google/protobuf/any.proto`, `google/protobuf/go_features.proto`, `pkg/common/proto/value_type.proto`
 
 ### File Content
 
@@ -14771,8 +14347,7 @@ message ConfigValue {
 
 **Package**: `gcommon.v1.common` **Lines**: 37
 
-**Messages** (1): `DebugInfo` **Imports** (2):
-`google/protobuf/go_features.proto`, `google/protobuf/timestamp.proto`
+**Messages** (1): `DebugInfo` **Imports** (2): `google/protobuf/go_features.proto`, `google/protobuf/timestamp.proto`
 
 ### File Content
 
@@ -14824,8 +14399,7 @@ message DebugInfo {
 
 **Package**: `gcommon.v1.common` **Lines**: 37
 
-**Messages** (1): `Error` **Imports** (3): `google/protobuf/go_features.proto`,
-`google/protobuf/timestamp.proto`, `pkg/common/proto/error_code.proto`
+**Messages** (1): `Error` **Imports** (3): `google/protobuf/go_features.proto`, `google/protobuf/timestamp.proto`, `pkg/common/proto/error_code.proto`
 
 ### File Content
 
@@ -14881,8 +14455,7 @@ message Error {
 
 ### ⚠️ Issues Found (1)
 
-- Line 57: Implementation needed - // Operation is not implemented or not
-  supported
+- Line 57: Implementation needed - // Operation is not implemented or not supported
 
 ### File Content
 
@@ -14960,8 +14533,7 @@ enum ErrorCode {
 
 **Package**: `gcommon.v1.common` **Lines**: 32
 
-**Enums** (1): `EvictionPolicy` **Imports** (1):
-`google/protobuf/go_features.proto`
+**Enums** (1): `EvictionPolicy` **Imports** (1): `google/protobuf/go_features.proto`
 
 ### File Content
 
@@ -15008,8 +14580,7 @@ enum EvictionPolicy {
 
 **Package**: `gcommon.v1.common` **Lines**: 32
 
-**Enums** (1): `ExpirationPolicy` **Imports** (1):
-`google/protobuf/go_features.proto`
+**Enums** (1): `ExpirationPolicy` **Imports** (1): `google/protobuf/go_features.proto`
 
 ### File Content
 
@@ -15056,8 +14627,7 @@ enum ExpirationPolicy {
 
 **Package**: `gcommon.v1.common` **Lines**: 53
 
-**Enums** (1): `FilterOperation` **Imports** (1):
-`google/protobuf/go_features.proto`
+**Enums** (1): `FilterOperation` **Imports** (1): `google/protobuf/go_features.proto`
 
 ### File Content
 
@@ -15125,9 +14695,7 @@ enum FilterOperation {
 
 **Package**: `gcommon.v1.common` **Lines**: 30
 
-**Messages** (1): `FilterOptions` **Imports** (3):
-`google/protobuf/go_features.proto`, `pkg/common/proto/filter_value.proto`,
-`pkg/common/proto/time_range.proto`
+**Messages** (1): `FilterOptions` **Imports** (3): `google/protobuf/go_features.proto`, `pkg/common/proto/filter_value.proto`, `pkg/common/proto/time_range.proto`
 
 ### File Content
 
@@ -15172,9 +14740,7 @@ message FilterOptions {
 
 **Package**: `gcommon.v1.common` **Lines**: 46
 
-**Messages** (1): `FilterValue` **Imports** (4):
-`google/protobuf/go_features.proto`, `pkg/common/proto/filter_operation.proto`,
-`pkg/common/proto/int64_array.proto`, `pkg/common/proto/string_array.proto`
+**Messages** (1): `FilterValue` **Imports** (4): `google/protobuf/go_features.proto`, `pkg/common/proto/filter_operation.proto`, `pkg/common/proto/int64_array.proto`, `pkg/common/proto/string_array.proto`
 
 ### File Content
 
@@ -15235,8 +14801,7 @@ message FilterValue {
 
 **Package**: `gcommon.v1.common` **Lines**: 34
 
-**Enums** (1): `HealthStatus` **Imports** (1):
-`google/protobuf/go_features.proto`
+**Enums** (1): `HealthStatus` **Imports** (1): `google/protobuf/go_features.proto`
 
 ### File Content
 
@@ -15285,8 +14850,7 @@ enum HealthStatus {
 
 **Package**: `gcommon.v1.common` **Lines**: 20
 
-**Messages** (1): `Int64Array` **Imports** (1):
-`google/protobuf/go_features.proto`
+**Messages** (1): `Int64Array` **Imports** (1): `google/protobuf/go_features.proto`
 
 ### File Content
 
@@ -15321,8 +14885,7 @@ message Int64Array {
 
 **Package**: `gcommon.v1.common` **Lines**: 23
 
-**Messages** (1): `KeyValue` **Imports** (1):
-`google/protobuf/go_features.proto`
+**Messages** (1): `KeyValue` **Imports** (1): `google/protobuf/go_features.proto`
 
 ### File Content
 
@@ -15360,8 +14923,7 @@ message KeyValue {
 
 **Package**: `gcommon.v1.common` **Lines**: 33
 
-**Messages** (1): `MetricPoint` **Imports** (2):
-`google/protobuf/go_features.proto`, `google/protobuf/timestamp.proto`
+**Messages** (1): `MetricPoint` **Imports** (2): `google/protobuf/go_features.proto`, `google/protobuf/timestamp.proto`
 
 ### File Content
 
@@ -15409,8 +14971,7 @@ message MetricPoint {
 
 **Package**: `gcommon.v1.common` **Lines**: 35
 
-**Messages** (1): `PaginatedResponse` **Imports** (1):
-`google/protobuf/go_features.proto`
+**Messages** (1): `PaginatedResponse` **Imports** (1): `google/protobuf/go_features.proto`
 
 ### File Content
 
@@ -15460,8 +15021,7 @@ message PaginatedResponse {
 
 **Package**: `gcommon.v1.common` **Lines**: 26
 
-**Messages** (1): `Pagination` **Imports** (1):
-`google/protobuf/go_features.proto`
+**Messages** (1): `Pagination` **Imports** (1): `google/protobuf/go_features.proto`
 
 ### File Content
 
@@ -15502,8 +15062,7 @@ message Pagination {
 
 **Package**: `gcommon.v1.common` **Lines**: 22
 
-**Messages** (1): `PaginationOptions` **Imports** (1):
-`google/protobuf/go_features.proto`
+**Messages** (1): `PaginationOptions` **Imports** (1): `google/protobuf/go_features.proto`
 
 ### File Content
 
@@ -15540,8 +15099,7 @@ message PaginationOptions {
 
 **Package**: `gcommon.v1.common` **Lines**: 30
 
-**Messages** (1): `RateLimit` **Imports** (2): `google/protobuf/duration.proto`,
-`google/protobuf/go_features.proto`
+**Messages** (1): `RateLimit` **Imports** (2): `google/protobuf/duration.proto`, `google/protobuf/go_features.proto`
 
 ### File Content
 
@@ -15586,9 +15144,7 @@ message RateLimit {
 
 **Package**: `gcommon.v1.common` **Lines**: 40
 
-**Messages** (1): `RequestMetadata` **Imports** (3):
-`google/protobuf/go_features.proto`, `google/protobuf/timestamp.proto`,
-`pkg/common/proto/client_info.proto`
+**Messages** (1): `RequestMetadata` **Imports** (3): `google/protobuf/go_features.proto`, `google/protobuf/timestamp.proto`, `pkg/common/proto/client_info.proto`
 
 ### File Content
 
@@ -15643,8 +15199,7 @@ message RequestMetadata {
 
 **Package**: `gcommon.v1.common` **Lines**: 29
 
-**Messages** (1): `ResourceReference` **Imports** (1):
-`google/protobuf/go_features.proto`
+**Messages** (1): `ResourceReference` **Imports** (1): `google/protobuf/go_features.proto`
 
 ### File Content
 
@@ -15688,8 +15243,7 @@ message ResourceReference {
 
 **Package**: `gcommon.v1.common` **Lines**: 35
 
-**Enums** (1): `ResourceStatus` **Imports** (1):
-`google/protobuf/go_features.proto`
+**Enums** (1): `ResourceStatus` **Imports** (1): `google/protobuf/go_features.proto`
 
 ### File Content
 
@@ -15739,10 +15293,7 @@ enum ResourceStatus {
 
 **Package**: `gcommon.v1.common` **Lines**: 99
 
-**Messages** (3): `ResponseMetadata`, `RateLimitInfo`, `PaginationInfo`
-**Imports** (4): `google/protobuf/duration.proto`,
-`google/protobuf/go_features.proto`, `google/protobuf/timestamp.proto`,
-`pkg/common/proto/error.proto`
+**Messages** (3): `ResponseMetadata`, `RateLimitInfo`, `PaginationInfo` **Imports** (4): `google/protobuf/duration.proto`, `google/protobuf/go_features.proto`, `google/protobuf/timestamp.proto`, `pkg/common/proto/error.proto`
 
 ### File Content
 
@@ -15856,9 +15407,7 @@ message PaginationInfo {
 
 **Package**: `gcommon.v1.common` **Lines**: 40
 
-**Messages** (1): `RetryPolicy` **Imports** (3):
-`google/protobuf/duration.proto`, `google/protobuf/go_features.proto`,
-`pkg/common/proto/error_code.proto`
+**Messages** (1): `RetryPolicy` **Imports** (3): `google/protobuf/duration.proto`, `google/protobuf/go_features.proto`, `pkg/common/proto/error_code.proto`
 
 ### File Content
 
@@ -15913,8 +15462,7 @@ message RetryPolicy {
 
 **Package**: `gcommon.v1.common` **Lines**: 33
 
-**Messages** (1): `ServiceVersion` **Imports** (2):
-`google/protobuf/go_features.proto`, `google/protobuf/timestamp.proto`
+**Messages** (1): `ServiceVersion` **Imports** (2): `google/protobuf/go_features.proto`, `google/protobuf/timestamp.proto`
 
 ### File Content
 
@@ -15962,8 +15510,7 @@ message ServiceVersion {
 
 **Package**: `gcommon.v1.common` **Lines**: 26
 
-**Messages** (1): `SortOptions` **Imports** (2):
-`google/protobuf/go_features.proto`, `pkg/common/proto/sort_direction.proto`
+**Messages** (1): `SortOptions` **Imports** (2): `google/protobuf/go_features.proto`, `pkg/common/proto/sort_direction.proto`
 
 ### File Content
 
@@ -16004,8 +15551,7 @@ message SortOptions {
 
 **Package**: `gcommon.v1.common` **Lines**: 28
 
-**Enums** (1): `SortDirection` **Imports** (1):
-`google/protobuf/go_features.proto`
+**Enums** (1): `SortDirection` **Imports** (1): `google/protobuf/go_features.proto`
 
 ### File Content
 
@@ -16048,8 +15594,7 @@ enum SortDirection {
 
 **Package**: `gcommon.v1.common` **Lines**: 20
 
-**Messages** (1): `StringArray` **Imports** (1):
-`google/protobuf/go_features.proto`
+**Messages** (1): `StringArray` **Imports** (1): `google/protobuf/go_features.proto`
 
 ### File Content
 
@@ -16084,11 +15629,8 @@ message StringArray {
 
 **Package**: `gcommon.v1.common` **Lines**: 43
 
-**Messages** (1): `SubscriptionInfo` **Imports** (6):
-`google/protobuf/go_features.proto`, `google/protobuf/timestamp.proto`,
-`pkg/common/proto/client_info.proto`, `pkg/common/proto/filter_options.proto`,
-`pkg/common/proto/subscription_options.proto`,
-`pkg/common/proto/subscription_status.proto`
+**Messages** (1): `SubscriptionInfo` **Imports** (6): `google/protobuf/go_features.proto`, `google/protobuf/timestamp.proto`, `pkg/common/proto/client_info.proto`, `pkg/common/proto/filter_options.proto`,
+`pkg/common/proto/subscription_options.proto`, `pkg/common/proto/subscription_status.proto`
 
 ### File Content
 
@@ -16146,9 +15688,7 @@ message SubscriptionInfo {
 
 **Package**: `gcommon.v1.common` **Lines**: 31
 
-**Messages** (1): `SubscriptionOptions` **Imports** (3):
-`google/protobuf/duration.proto`, `google/protobuf/go_features.proto`,
-`pkg/common/proto/ack_mode.proto`
+**Messages** (1): `SubscriptionOptions` **Imports** (3): `google/protobuf/duration.proto`, `google/protobuf/go_features.proto`, `pkg/common/proto/ack_mode.proto`
 
 ### File Content
 
@@ -16194,8 +15734,7 @@ message SubscriptionOptions {
 
 **Package**: `gcommon.v1.common` **Lines**: 32
 
-**Enums** (1): `SubscriptionStatus` **Imports** (1):
-`google/protobuf/go_features.proto`
+**Enums** (1): `SubscriptionStatus` **Imports** (1): `google/protobuf/go_features.proto`
 
 ### File Content
 
@@ -16242,8 +15781,7 @@ enum SubscriptionStatus {
 
 **Package**: `gcommon.v1.common` **Lines**: 24
 
-**Messages** (1): `TimeRange` **Imports** (2):
-`google/protobuf/go_features.proto`, `google/protobuf/timestamp.proto`
+**Messages** (1): `TimeRange` **Imports** (2): `google/protobuf/go_features.proto`, `google/protobuf/timestamp.proto`
 
 ### File Content
 
@@ -16338,10 +15876,7 @@ enum ValueType {
 
 **Package**: `gcommon.v1.config` **Lines**: 48
 
-**Messages** (1): `AccessControl` **Imports** (4):
-`google/protobuf/go_features.proto`, `google/protobuf/timestamp.proto`,
-`pkg/config/proto/access_restriction.proto`,
-`pkg/config/proto/rate_limits.proto`
+**Messages** (1): `AccessControl` **Imports** (4): `google/protobuf/go_features.proto`, `google/protobuf/timestamp.proto`, `pkg/config/proto/access_restriction.proto`, `pkg/config/proto/rate_limits.proto`
 
 ### File Content
 
@@ -16404,9 +15939,7 @@ message AccessControl {
 
 **Package**: `gcommon.v1.config` **Lines**: 29
 
-**Messages** (1): `AccessRestriction` **Imports** (3):
-`google/protobuf/go_features.proto`, `google/protobuf/timestamp.proto`,
-`pkg/config/proto/restriction_type.proto`
+**Messages** (1): `AccessRestriction` **Imports** (3): `google/protobuf/go_features.proto`, `google/protobuf/timestamp.proto`, `pkg/config/proto/restriction_type.proto`
 
 ### File Content
 
@@ -16450,8 +15983,7 @@ message AccessRestriction {
 
 **Package**: `gcommon.v1.config` **Lines**: 21
 
-**Enums** (1): `AlertSeverity` **Imports** (1):
-`google/protobuf/go_features.proto`
+**Enums** (1): `AlertSeverity` **Imports** (1): `google/protobuf/go_features.proto`
 
 ### File Content
 
@@ -16487,8 +16019,7 @@ enum AlertSeverity {
 
 **Package**: `gcommon.v1.config` **Lines**: 25
 
-**Enums** (1): `AlertType` **Imports** (2): `google/protobuf/go_features.proto`,
-`google/protobuf/timestamp.proto`
+**Enums** (1): `AlertType` **Imports** (2): `google/protobuf/go_features.proto`, `google/protobuf/timestamp.proto`
 
 ### File Content
 
@@ -16528,13 +16059,8 @@ enum AlertType {
 
 **Package**: `gcommon.v1.config` **Lines**: 42
 
-**Messages** (1): `ApprovalInfo` **Imports** (7):
-`google/protobuf/go_features.proto`, `google/protobuf/timestamp.proto`,
-`pkg/config/proto/approval_status.proto`,
-`pkg/config/proto/audit_operation_type.proto`,
-`pkg/config/proto/rollback_method.proto`,
-`pkg/config/proto/validation_result_type.proto`,
-`pkg/config/proto/validation_severity.proto`
+**Messages** (1): `ApprovalInfo` **Imports** (7): `google/protobuf/go_features.proto`, `google/protobuf/timestamp.proto`, `pkg/config/proto/approval_status.proto`, `pkg/config/proto/audit_operation_type.proto`,
+`pkg/config/proto/rollback_method.proto`, `pkg/config/proto/validation_result_type.proto`, `pkg/config/proto/validation_severity.proto`
 
 ### File Content
 
@@ -16591,14 +16117,8 @@ message ApprovalInfo {
 
 **Package**: `gcommon.v1.config` **Lines**: 47
 
-**Messages** (1): `ApprovalRequirement` **Imports** (9):
-`google/protobuf/go_features.proto`, `google/protobuf/timestamp.proto`,
-`pkg/config/proto/audit_level.proto`, `pkg/config/proto/backup_frequency.proto`,
-`pkg/config/proto/channel_type.proto`,
-`pkg/config/proto/config_data_type.proto`,
-`pkg/config/proto/deprecation_level.proto`,
-`pkg/config/proto/metadata_status.proto`,
-`pkg/config/proto/notification_trigger.proto`
+**Messages** (1): `ApprovalRequirement` **Imports** (9): `google/protobuf/go_features.proto`, `google/protobuf/timestamp.proto`, `pkg/config/proto/audit_level.proto`, `pkg/config/proto/backup_frequency.proto`,
+`pkg/config/proto/channel_type.proto`, `pkg/config/proto/config_data_type.proto`, `pkg/config/proto/deprecation_level.proto`, `pkg/config/proto/metadata_status.proto`, `pkg/config/proto/notification_trigger.proto`
 
 ### File Content
 
@@ -16660,8 +16180,7 @@ message ApprovalRequirement {
 
 **Package**: `gcommon.v1.config` **Lines**: 37
 
-**Enums** (1): `ApprovalStatus` **Imports** (1):
-`google/protobuf/go_features.proto`
+**Enums** (1): `ApprovalStatus` **Imports** (1): `google/protobuf/go_features.proto`
 
 ### File Content
 
@@ -16750,8 +16269,7 @@ enum AuditLevel {
 
 **Package**: `gcommon.v1.config` **Lines**: 61
 
-**Enums** (1): `AuditOperationType` **Imports** (1):
-`google/protobuf/go_features.proto`
+**Enums** (1): `AuditOperationType` **Imports** (1): `google/protobuf/go_features.proto`
 
 ### File Content
 
@@ -16827,9 +16345,7 @@ enum AuditOperationType {
 
 **Package**: `gcommon.v1.config` **Lines**: 38
 
-**Messages** (1): `AuditSettings` **Imports** (3):
-`google/protobuf/go_features.proto`, `google/protobuf/timestamp.proto`,
-`pkg/config/proto/audit_level.proto`
+**Messages** (1): `AuditSettings` **Imports** (3): `google/protobuf/go_features.proto`, `google/protobuf/timestamp.proto`, `pkg/config/proto/audit_level.proto`
 
 ### File Content
 
@@ -16882,8 +16398,7 @@ message AuditSettings {
 
 **Package**: `gcommon.v1.config` **Lines**: 23
 
-**Enums** (1): `BackoffStrategy` **Imports** (3): `google/protobuf/any.proto`,
-`google/protobuf/go_features.proto`, `google/protobuf/timestamp.proto`
+**Enums** (1): `BackoffStrategy` **Imports** (3): `google/protobuf/any.proto`, `google/protobuf/go_features.proto`, `google/protobuf/timestamp.proto`
 
 ### File Content
 
@@ -16921,8 +16436,7 @@ enum BackoffStrategy {
 
 **Package**: `gcommon.v1.config` **Lines**: 33
 
-**Messages** (1): `BackupConfigRequest` **Imports** (2):
-`google/protobuf/go_features.proto`, `pkg/common/proto/request_metadata.proto`
+**Messages** (1): `BackupConfigRequest` **Imports** (2): `google/protobuf/go_features.proto`, `pkg/common/proto/request_metadata.proto`
 
 ### File Content
 
@@ -16970,8 +16484,7 @@ message BackupConfigRequest {
 
 **Package**: `gcommon.v1.config` **Lines**: 23
 
-**Enums** (1): `BackupFrequency` **Imports** (1):
-`google/protobuf/go_features.proto`
+**Enums** (1): `BackupFrequency` **Imports** (1): `google/protobuf/go_features.proto`
 
 ### File Content
 
@@ -17009,9 +16522,7 @@ enum BackupFrequency {
 
 **Package**: `gcommon.v1.config` **Lines**: 38
 
-**Messages** (1): `BackupSettings` **Imports** (3):
-`google/protobuf/go_features.proto`, `google/protobuf/timestamp.proto`,
-`pkg/config/proto/backup_frequency.proto`
+**Messages** (1): `BackupSettings` **Imports** (3): `google/protobuf/go_features.proto`, `google/protobuf/timestamp.proto`, `pkg/config/proto/backup_frequency.proto`
 
 ### File Content
 
@@ -17064,14 +16575,8 @@ message BackupSettings {
 
 **Package**: `gcommon.v1.config` **Lines**: 35
 
-**Messages** (1): `BatchingSettings` **Imports** (9):
-`google/protobuf/go_features.proto`, `google/protobuf/timestamp.proto`,
-`pkg/config/proto/audit_level.proto`, `pkg/config/proto/backup_frequency.proto`,
-`pkg/config/proto/channel_type.proto`,
-`pkg/config/proto/config_data_type.proto`,
-`pkg/config/proto/deprecation_level.proto`,
-`pkg/config/proto/metadata_status.proto`,
-`pkg/config/proto/notification_trigger.proto`
+**Messages** (1): `BatchingSettings` **Imports** (9): `google/protobuf/go_features.proto`, `google/protobuf/timestamp.proto`, `pkg/config/proto/audit_level.proto`, `pkg/config/proto/backup_frequency.proto`,
+`pkg/config/proto/channel_type.proto`, `pkg/config/proto/config_data_type.proto`, `pkg/config/proto/deprecation_level.proto`, `pkg/config/proto/metadata_status.proto`, `pkg/config/proto/notification_trigger.proto`
 
 ### File Content
 
@@ -17121,9 +16626,7 @@ message BatchingSettings {
 
 **Package**: `gcommon.v1.config` **Lines**: 24
 
-**Enums** (1): `CacheInvalidationTrigger` **Imports** (3):
-`google/protobuf/any.proto`, `google/protobuf/go_features.proto`,
-`google/protobuf/timestamp.proto`
+**Enums** (1): `CacheInvalidationTrigger` **Imports** (3): `google/protobuf/any.proto`, `google/protobuf/go_features.proto`, `google/protobuf/timestamp.proto`
 
 ### File Content
 
@@ -17162,9 +16665,7 @@ enum CacheInvalidationTrigger {
 
 **Package**: `gcommon.v1.config` **Lines**: 23
 
-**Enums** (1): `CacheRefreshStrategy` **Imports** (3):
-`google/protobuf/any.proto`, `google/protobuf/go_features.proto`,
-`google/protobuf/timestamp.proto`
+**Enums** (1): `CacheRefreshStrategy` **Imports** (3): `google/protobuf/any.proto`, `google/protobuf/go_features.proto`, `google/protobuf/timestamp.proto`
 
 ### File Content
 
@@ -17202,10 +16703,7 @@ enum CacheRefreshStrategy {
 
 **Package**: `gcommon.v1.config` **Lines**: 34
 
-**Messages** (1): `CachingSettings` **Imports** (5):
-`google/protobuf/any.proto`, `google/protobuf/go_features.proto`,
-`google/protobuf/timestamp.proto`,
-`pkg/config/proto/cache_invalidation_trigger.proto`,
+**Messages** (1): `CachingSettings` **Imports** (5): `google/protobuf/any.proto`, `google/protobuf/go_features.proto`, `google/protobuf/timestamp.proto`, `pkg/config/proto/cache_invalidation_trigger.proto`,
 `pkg/config/proto/cache_refresh_strategy.proto`
 
 ### File Content
@@ -17255,8 +16753,7 @@ message CachingSettings {
 
 **Package**: `gcommon.v1.config` **Lines**: 24
 
-**Enums** (1): `ChangeType` **Imports** (2):
-`google/protobuf/go_features.proto`, `google/protobuf/timestamp.proto`
+**Enums** (1): `ChangeType` **Imports** (2): `google/protobuf/go_features.proto`, `google/protobuf/timestamp.proto`
 
 ### File Content
 
@@ -17295,8 +16792,7 @@ enum ChangeType {
 
 **Package**: `gcommon.v1.config` **Lines**: 25
 
-**Enums** (1): `ChannelType` **Imports** (1):
-`google/protobuf/go_features.proto`
+**Enums** (1): `ChannelType` **Imports** (1): `google/protobuf/go_features.proto`
 
 ### File Content
 
@@ -17336,8 +16832,7 @@ enum ChannelType {
 
 **Package**: `gcommon.v1.config` **Lines**: 27
 
-**Messages** (1): `ComplianceAudit` **Imports** (1):
-`google/protobuf/go_features.proto`
+**Messages** (1): `ComplianceAudit` **Imports** (1): `google/protobuf/go_features.proto`
 
 ### File Content
 
@@ -17379,8 +16874,7 @@ message ComplianceAudit {
 
 **Package**: `gcommon.v1.config` **Lines**: 24
 
-**Messages** (1): `ComplianceReporting` **Imports** (1):
-`google/protobuf/go_features.proto`
+**Messages** (1): `ComplianceReporting` **Imports** (1): `google/protobuf/go_features.proto`
 
 ### File Content
 
@@ -17419,10 +16913,7 @@ message ComplianceReporting {
 
 **Package**: `gcommon.v1.config` **Lines**: 36
 
-**Messages** (1): `ComplianceSettings` **Imports** (4):
-`google/protobuf/go_features.proto`, `google/protobuf/timestamp.proto`,
-`pkg/config/proto/compliance_audit.proto`,
-`pkg/config/proto/compliance_reporting.proto`
+**Messages** (1): `ComplianceSettings` **Imports** (4): `google/protobuf/go_features.proto`, `google/protobuf/timestamp.proto`, `pkg/config/proto/compliance_audit.proto`, `pkg/config/proto/compliance_reporting.proto`
 
 ### File Content
 
@@ -17473,8 +16964,7 @@ message ComplianceSettings {
 
 **Package**: `gcommon.v1.config` **Lines**: 22
 
-**Enums** (1): `CompressionType` **Imports** (2):
-`google/protobuf/go_features.proto`, `google/protobuf/timestamp.proto`
+**Enums** (1): `CompressionType` **Imports** (2): `google/protobuf/go_features.proto`, `google/protobuf/timestamp.proto`
 
 ### File Content
 
@@ -17511,24 +17001,11 @@ enum CompressionType {
 
 **Package**: `gcommon.v1.config` **Lines**: 68
 
-**Services** (1): `ConfigAdminService` **Imports** (18):
-`google/protobuf/empty.proto`, `google/protobuf/go_features.proto`,
-`pkg/config/proto/backup_config_request.proto`,
-`pkg/config/proto/config_backup.proto`,
-`pkg/config/proto/config_snapshot.proto`,
-`pkg/config/proto/export_config_request.proto`,
-`pkg/config/proto/get_config_history_request.proto`,
-`pkg/config/proto/get_config_history_response.proto`,
-`pkg/config/proto/get_config_stats_request.proto`,
-`pkg/config/proto/get_config_stats_response.proto`,
-`pkg/config/proto/health_check_request.proto`,
-`pkg/config/proto/health_check_response.proto`,
-`pkg/config/proto/import_config_request.proto`,
-`pkg/config/proto/reload_config_request.proto`,
-`pkg/config/proto/restore_config_request.proto`,
-`pkg/config/proto/rollback_config_request.proto`,
-`pkg/config/proto/set_config_schema_request.proto`,
-`pkg/config/proto/unwatch_config_request.proto`
+**Services** (1): `ConfigAdminService` **Imports** (18): `google/protobuf/empty.proto`, `google/protobuf/go_features.proto`, `pkg/config/proto/backup_config_request.proto`, `pkg/config/proto/config_backup.proto`,
+`pkg/config/proto/config_snapshot.proto`, `pkg/config/proto/export_config_request.proto`, `pkg/config/proto/get_config_history_request.proto`, `pkg/config/proto/get_config_history_response.proto`,
+`pkg/config/proto/get_config_stats_request.proto`, `pkg/config/proto/get_config_stats_response.proto`, `pkg/config/proto/health_check_request.proto`, `pkg/config/proto/health_check_response.proto`,
+`pkg/config/proto/import_config_request.proto`, `pkg/config/proto/reload_config_request.proto`, `pkg/config/proto/restore_config_request.proto`, `pkg/config/proto/rollback_config_request.proto`,
+`pkg/config/proto/set_config_schema_request.proto`, `pkg/config/proto/unwatch_config_request.proto`
 
 ### File Content
 
@@ -17611,8 +17088,7 @@ service ConfigAdminService {
 
 **Package**: `gcommon.v1.config` **Lines**: 63
 
-**Messages** (1): `ConfigBackup` **Imports** (3): `google/protobuf/any.proto`,
-`google/protobuf/go_features.proto`, `google/protobuf/timestamp.proto`
+**Messages** (1): `ConfigBackup` **Imports** (3): `google/protobuf/any.proto`, `google/protobuf/go_features.proto`, `google/protobuf/timestamp.proto`
 
 ### File Content
 
@@ -17690,8 +17166,7 @@ message ConfigBackup {
 
 **Package**: `gcommon.v1.config` **Lines**: 51
 
-**Messages** (1): `ConfigChange` **Imports** (3): `google/protobuf/any.proto`,
-`google/protobuf/go_features.proto`, `google/protobuf/timestamp.proto`
+**Messages** (1): `ConfigChange` **Imports** (3): `google/protobuf/any.proto`, `google/protobuf/go_features.proto`, `google/protobuf/timestamp.proto`
 
 ### File Content
 
@@ -17757,8 +17232,7 @@ message ConfigChange {
 
 **Package**: `gcommon.v1.config` **Lines**: 20
 
-**Enums** (1): `ConfigChangeType` **Imports** (1):
-`google/protobuf/go_features.proto`
+**Enums** (1): `ConfigChangeType` **Imports** (1): `google/protobuf/go_features.proto`
 
 ### File Content
 
@@ -17793,8 +17267,7 @@ enum ConfigChangeType {
 
 **Package**: `gcommon.v1.config` **Lines**: 42
 
-**Enums** (1): `ConfigDataType` **Imports** (1):
-`google/protobuf/go_features.proto`
+**Enums** (1): `ConfigDataType` **Imports** (1): `google/protobuf/go_features.proto`
 
 ### File Content
 
@@ -17851,9 +17324,7 @@ enum ConfigDataType {
 
 **Package**: `gcommon.v1.config` **Lines**: 68
 
-**Messages** (2): `ConfigDiff`, `ConfigDiffEntry` **Imports** (3):
-`google/protobuf/any.proto`, `google/protobuf/go_features.proto`,
-`google/protobuf/timestamp.proto`
+**Messages** (2): `ConfigDiff`, `ConfigDiffEntry` **Imports** (3): `google/protobuf/any.proto`, `google/protobuf/go_features.proto`, `google/protobuf/timestamp.proto`
 
 ### File Content
 
@@ -17936,9 +17407,7 @@ message ConfigDiffEntry {
 
 **Package**: `gcommon.v1.config` **Lines**: 45
 
-**Messages** (1): `ConfigEntry` **Imports** (4):
-`google/protobuf/go_features.proto`, `google/protobuf/timestamp.proto`,
-`pkg/common/proto/config_value.proto`, `pkg/common/proto/resource_status.proto`
+**Messages** (1): `ConfigEntry` **Imports** (4): `google/protobuf/go_features.proto`, `google/protobuf/timestamp.proto`, `pkg/common/proto/config_value.proto`, `pkg/common/proto/resource_status.proto`
 
 ### File Content
 
@@ -17998,20 +17467,10 @@ message ConfigEntry {
 
 **Package**: `gcommon.v1.config` **Lines**: 440
 
-**Messages** (15): `ConfigEnvironment`, `PromotionRule`, `DeploymentInfo`,
-`HealthCheck`, `DeploymentRollbackInfo`, `HealthStatus`, `HealthCheckResult`,
-`ResourceLimits`, `BackupPolicy`, `ApprovalWorkflow`, `ApprovalStage`,
-`MonitoringConfig`, `RetentionPolicy`, `EncryptionSettings`, `SyncSettings`
-**Imports** (11): `google/protobuf/go_features.proto`,
-`google/protobuf/timestamp.proto`, `pkg/config/proto/access_control.proto`,
-`pkg/config/proto/audit_settings.proto`,
-`pkg/config/proto/compliance_settings.proto`,
-`pkg/config/proto/deployment_status.proto`,
-`pkg/config/proto/environment_status.proto`,
-`pkg/config/proto/environment_type.proto`,
-`pkg/config/proto/health_check_type.proto`,
-`pkg/config/proto/health_state.proto`,
-`pkg/config/proto/notification_settings.proto`
+**Messages** (15): `ConfigEnvironment`, `PromotionRule`, `DeploymentInfo`, `HealthCheck`, `DeploymentRollbackInfo`, `HealthStatus`, `HealthCheckResult`, `ResourceLimits`, `BackupPolicy`, `ApprovalWorkflow`, `ApprovalStage`,
+`MonitoringConfig`, `RetentionPolicy`, `EncryptionSettings`, `SyncSettings` **Imports** (11): `google/protobuf/go_features.proto`, `google/protobuf/timestamp.proto`, `pkg/config/proto/access_control.proto`,
+`pkg/config/proto/audit_settings.proto`, `pkg/config/proto/compliance_settings.proto`, `pkg/config/proto/deployment_status.proto`, `pkg/config/proto/environment_status.proto`, `pkg/config/proto/environment_type.proto`,
+`pkg/config/proto/health_check_type.proto`, `pkg/config/proto/health_state.proto`, `pkg/config/proto/notification_settings.proto`
 
 ### File Content
 
@@ -18466,8 +17925,7 @@ message SyncSettings {
 
 **Package**: `gcommon.v1.config` **Lines**: 31
 
-**Messages** (1): `ConfigSchema` **Imports** (2):
-`google/protobuf/go_features.proto`, `google/protobuf/timestamp.proto`
+**Messages** (1): `ConfigSchema` **Imports** (2): `google/protobuf/go_features.proto`, `google/protobuf/timestamp.proto`
 
 ### File Content
 
@@ -18513,25 +17971,11 @@ message ConfigSchema {
 
 **Package**: `gcommon.v1.config` **Lines**: 61
 
-**Services** (1): `ConfigService` **Imports** (19):
-`google/protobuf/empty.proto`, `google/protobuf/go_features.proto`,
-`pkg/config/proto/delete_config_request.proto`,
-`pkg/config/proto/get_config_request.proto`,
-`pkg/config/proto/get_config_response.proto`,
-`pkg/config/proto/get_multiple_config_request.proto`,
-`pkg/config/proto/get_multiple_config_response.proto`,
-`pkg/config/proto/get_schema_request.proto`,
-`pkg/config/proto/get_schema_response.proto`,
-`pkg/config/proto/list_config_request.proto`,
-`pkg/config/proto/list_config_response.proto`,
-`pkg/config/proto/set_config_request.proto`,
-`pkg/config/proto/set_config_response.proto`,
-`pkg/config/proto/set_multiple_config_request.proto`,
-`pkg/config/proto/set_multiple_config_response.proto`,
-`pkg/config/proto/validate_config_request.proto`,
-`pkg/config/proto/validate_config_response.proto`,
-`pkg/config/proto/watch_config_request.proto`,
-`pkg/config/proto/watch_config_response.proto`
+**Services** (1): `ConfigService` **Imports** (19): `google/protobuf/empty.proto`, `google/protobuf/go_features.proto`, `pkg/config/proto/delete_config_request.proto`, `pkg/config/proto/get_config_request.proto`,
+`pkg/config/proto/get_config_response.proto`, `pkg/config/proto/get_multiple_config_request.proto`, `pkg/config/proto/get_multiple_config_response.proto`, `pkg/config/proto/get_schema_request.proto`,
+`pkg/config/proto/get_schema_response.proto`, `pkg/config/proto/list_config_request.proto`, `pkg/config/proto/list_config_response.proto`, `pkg/config/proto/set_config_request.proto`, `pkg/config/proto/set_config_response.proto`,
+`pkg/config/proto/set_multiple_config_request.proto`, `pkg/config/proto/set_multiple_config_response.proto`, `pkg/config/proto/validate_config_request.proto`, `pkg/config/proto/validate_config_response.proto`,
+`pkg/config/proto/watch_config_request.proto`, `pkg/config/proto/watch_config_response.proto`
 
 ### File Content
 
@@ -18607,8 +18051,7 @@ service ConfigService {
 
 **Package**: `gcommon.v1.config` **Lines**: 48
 
-**Messages** (1): `ConfigSnapshot` **Imports** (3): `google/protobuf/any.proto`,
-`google/protobuf/go_features.proto`, `google/protobuf/timestamp.proto`
+**Messages** (1): `ConfigSnapshot` **Imports** (3): `google/protobuf/any.proto`, `google/protobuf/go_features.proto`, `google/protobuf/timestamp.proto`
 
 ### File Content
 
@@ -18671,8 +18114,7 @@ message ConfigSnapshot {
 
 **Package**: `gcommon.v1.config` **Lines**: 27
 
-**Messages** (1): `ConfigStats` **Imports** (1):
-`google/protobuf/go_features.proto`
+**Messages** (1): `ConfigStats` **Imports** (1): `google/protobuf/go_features.proto`
 
 ### File Content
 
@@ -18714,8 +18156,7 @@ message ConfigStats {
 
 **Package**: `gcommon.v1.config` **Lines**: 24
 
-**Messages** (1): `ConfigValidationError` **Imports** (1):
-`google/protobuf/go_features.proto`
+**Messages** (1): `ConfigValidationError` **Imports** (1): `google/protobuf/go_features.proto`
 
 ### File Content
 
@@ -18754,8 +18195,7 @@ message ConfigValidationError {
 
 **Package**: `gcommon.v1.config` **Lines**: 24
 
-**Messages** (1): `ConfigValidationWarning` **Imports** (1):
-`google/protobuf/go_features.proto`
+**Messages** (1): `ConfigValidationWarning` **Imports** (1): `google/protobuf/go_features.proto`
 
 ### File Content
 
@@ -18794,9 +18234,7 @@ message ConfigValidationWarning {
 
 **Package**: `gcommon.v1.config` **Lines**: 74
 
-**Messages** (2): `ConfigWatch`, `ConfigWatchEvent` **Imports** (3):
-`google/protobuf/any.proto`, `google/protobuf/go_features.proto`,
-`google/protobuf/timestamp.proto`
+**Messages** (2): `ConfigWatch`, `ConfigWatchEvent` **Imports** (3): `google/protobuf/any.proto`, `google/protobuf/go_features.proto`, `google/protobuf/timestamp.proto`
 
 ### File Content
 
@@ -18885,9 +18323,7 @@ message ConfigWatchEvent {
 
 **Package**: `gcommon.v1.config` **Lines**: 24
 
-**Enums** (1): `ConflictResolution` **Imports** (3):
-`google/protobuf/any.proto`, `google/protobuf/go_features.proto`,
-`google/protobuf/timestamp.proto`
+**Enums** (1): `ConflictResolution` **Imports** (3): `google/protobuf/any.proto`, `google/protobuf/go_features.proto`, `google/protobuf/timestamp.proto`
 
 ### File Content
 
@@ -18926,8 +18362,7 @@ enum ConflictResolution {
 
 **Package**: `gcommon.v1.config` **Lines**: 30
 
-**Messages** (1): `DecryptConfigRequest` **Imports** (2):
-`google/protobuf/go_features.proto`, `pkg/common/proto/request_metadata.proto`
+**Messages** (1): `DecryptConfigRequest` **Imports** (2): `google/protobuf/go_features.proto`, `pkg/common/proto/request_metadata.proto`
 
 ### File Content
 
@@ -18972,8 +18407,7 @@ message DecryptConfigRequest {
 
 **Package**: `gcommon.v1.config` **Lines**: 27
 
-**Messages** (1): `DeleteConfigRequest` **Imports** (2):
-`google/protobuf/go_features.proto`, `pkg/common/proto/request_metadata.proto`
+**Messages** (1): `DeleteConfigRequest` **Imports** (2): `google/protobuf/go_features.proto`, `pkg/common/proto/request_metadata.proto`
 
 ### File Content
 
@@ -19015,8 +18449,7 @@ message DeleteConfigRequest {
 
 **Package**: `gcommon.v1.config` **Lines**: 24
 
-**Enums** (1): `DependencyType` **Imports** (3): `google/protobuf/any.proto`,
-`google/protobuf/go_features.proto`, `google/protobuf/timestamp.proto`
+**Enums** (1): `DependencyType` **Imports** (3): `google/protobuf/any.proto`, `google/protobuf/go_features.proto`, `google/protobuf/timestamp.proto`
 
 ### File Content
 
@@ -19055,8 +18488,7 @@ enum DependencyType {
 
 **Package**: `gcommon.v1.config` **Lines**: 40
 
-**Enums** (1): `DeploymentStatus` **Imports** (1):
-`google/protobuf/go_features.proto`
+**Enums** (1): `DeploymentStatus` **Imports** (1): `google/protobuf/go_features.proto`
 
 ### File Content
 
@@ -19111,14 +18543,8 @@ enum DeploymentStatus {
 
 **Package**: `gcommon.v1.config` **Lines**: 44
 
-**Messages** (1): `DeprecationInfo` **Imports** (9):
-`google/protobuf/go_features.proto`, `google/protobuf/timestamp.proto`,
-`pkg/config/proto/audit_level.proto`, `pkg/config/proto/backup_frequency.proto`,
-`pkg/config/proto/channel_type.proto`,
-`pkg/config/proto/config_data_type.proto`,
-`pkg/config/proto/deprecation_level.proto`,
-`pkg/config/proto/metadata_status.proto`,
-`pkg/config/proto/notification_trigger.proto`
+**Messages** (1): `DeprecationInfo` **Imports** (9): `google/protobuf/go_features.proto`, `google/protobuf/timestamp.proto`, `pkg/config/proto/audit_level.proto`, `pkg/config/proto/backup_frequency.proto`,
+`pkg/config/proto/channel_type.proto`, `pkg/config/proto/config_data_type.proto`, `pkg/config/proto/deprecation_level.proto`, `pkg/config/proto/metadata_status.proto`, `pkg/config/proto/notification_trigger.proto`
 
 ### File Content
 
@@ -19177,8 +18603,7 @@ message DeprecationInfo {
 
 **Package**: `gcommon.v1.config` **Lines**: 20
 
-**Enums** (1): `DeprecationLevel` **Imports** (1):
-`google/protobuf/go_features.proto`
+**Enums** (1): `DeprecationLevel` **Imports** (1): `google/protobuf/go_features.proto`
 
 ### File Content
 
@@ -19213,8 +18638,7 @@ enum DeprecationLevel {
 
 **Package**: `gcommon.v1.config` **Lines**: 30
 
-**Messages** (1): `EncryptConfigRequest` **Imports** (2):
-`google/protobuf/go_features.proto`, `pkg/common/proto/request_metadata.proto`
+**Messages** (1): `EncryptConfigRequest` **Imports** (2): `google/protobuf/go_features.proto`, `pkg/common/proto/request_metadata.proto`
 
 ### File Content
 
@@ -19259,8 +18683,7 @@ message EncryptConfigRequest {
 
 **Package**: `gcommon.v1.config` **Lines**: 40
 
-**Enums** (1): `EnvironmentStatus` **Imports** (1):
-`google/protobuf/go_features.proto`
+**Enums** (1): `EnvironmentStatus` **Imports** (1): `google/protobuf/go_features.proto`
 
 ### File Content
 
@@ -19315,8 +18738,7 @@ enum EnvironmentStatus {
 
 **Package**: `gcommon.v1.config` **Lines**: 52
 
-**Enums** (1): `EnvironmentType` **Imports** (1):
-`google/protobuf/go_features.proto`
+**Enums** (1): `EnvironmentType` **Imports** (1): `google/protobuf/go_features.proto`
 
 ### File Content
 
@@ -19383,8 +18805,7 @@ enum EnvironmentType {
 
 **Package**: `gcommon.v1.config` **Lines**: 30
 
-**Messages** (1): `ExportConfigRequest` **Imports** (2):
-`google/protobuf/go_features.proto`, `pkg/common/proto/request_metadata.proto`
+**Messages** (1): `ExportConfigRequest` **Imports** (2): `google/protobuf/go_features.proto`, `pkg/common/proto/request_metadata.proto`
 
 ### File Content
 
@@ -19429,8 +18850,7 @@ message ExportConfigRequest {
 
 **Package**: `gcommon.v1.config` **Lines**: 23
 
-**Enums** (1): `FilterAction` **Imports** (3): `google/protobuf/any.proto`,
-`google/protobuf/go_features.proto`, `google/protobuf/timestamp.proto`
+**Enums** (1): `FilterAction` **Imports** (3): `google/protobuf/any.proto`, `google/protobuf/go_features.proto`, `google/protobuf/timestamp.proto`
 
 ### File Content
 
@@ -19468,8 +18888,7 @@ enum FilterAction {
 
 **Package**: `gcommon.v1.config` **Lines**: 26
 
-**Enums** (1): `FilterType` **Imports** (3): `google/protobuf/any.proto`,
-`google/protobuf/go_features.proto`, `google/protobuf/timestamp.proto`
+**Enums** (1): `FilterType` **Imports** (3): `google/protobuf/any.proto`, `google/protobuf/go_features.proto`, `google/protobuf/timestamp.proto`
 
 ### File Content
 
@@ -19510,9 +18929,7 @@ enum FilterType {
 
 **Package**: `gcommon.v1.config` **Lines**: 34
 
-**Messages** (1): `GetConfigHistoryRequest` **Imports** (3):
-`google/protobuf/go_features.proto`, `google/protobuf/timestamp.proto`,
-`pkg/common/proto/request_metadata.proto`
+**Messages** (1): `GetConfigHistoryRequest` **Imports** (3): `google/protobuf/go_features.proto`, `google/protobuf/timestamp.proto`, `pkg/common/proto/request_metadata.proto`
 
 ### File Content
 
@@ -19561,8 +18978,7 @@ message GetConfigHistoryRequest {
 
 **Package**: `gcommon.v1.config` **Lines**: 22
 
-**Messages** (1): `GetConfigHistoryResponse` **Imports** (2):
-`google/protobuf/go_features.proto`, `pkg/config/proto/config_change.proto`
+**Messages** (1): `GetConfigHistoryResponse` **Imports** (2): `google/protobuf/go_features.proto`, `pkg/config/proto/config_change.proto`
 
 ### File Content
 
@@ -19599,8 +19015,7 @@ message GetConfigHistoryResponse {
 
 **Package**: `gcommon.v1.config` **Lines**: 28
 
-**Messages** (1): `GetConfigRequest` **Imports** (2):
-`google/protobuf/go_features.proto`, `pkg/common/proto/request_metadata.proto`
+**Messages** (1): `GetConfigRequest` **Imports** (2): `google/protobuf/go_features.proto`, `pkg/common/proto/request_metadata.proto`
 
 ### File Content
 
@@ -19643,9 +19058,7 @@ message GetConfigRequest {
 
 **Package**: `gcommon.v1.config` **Lines**: 26
 
-**Messages** (1): `GetConfigResponse` **Imports** (3):
-`google/protobuf/go_features.proto`, `pkg/common/proto/error.proto`,
-`pkg/config/proto/config_entry.proto`
+**Messages** (1): `GetConfigResponse` **Imports** (3): `google/protobuf/go_features.proto`, `pkg/common/proto/error.proto`, `pkg/config/proto/config_entry.proto`
 
 ### File Content
 
@@ -19686,8 +19099,7 @@ message GetConfigResponse {
 
 **Package**: `gcommon.v1.config` **Lines**: 25
 
-**Messages** (1): `GetConfigStatsRequest` **Imports** (2):
-`google/protobuf/go_features.proto`, `pkg/common/proto/request_metadata.proto`
+**Messages** (1): `GetConfigStatsRequest` **Imports** (2): `google/protobuf/go_features.proto`, `pkg/common/proto/request_metadata.proto`
 
 ### File Content
 
@@ -19727,8 +19139,7 @@ message GetConfigStatsRequest {
 
 **Package**: `gcommon.v1.config` **Lines**: 22
 
-**Messages** (1): `GetConfigStatsResponse` **Imports** (2):
-`google/protobuf/go_features.proto`, `pkg/config/proto/config_stats.proto`
+**Messages** (1): `GetConfigStatsResponse` **Imports** (2): `google/protobuf/go_features.proto`, `pkg/config/proto/config_stats.proto`
 
 ### File Content
 
@@ -19765,8 +19176,7 @@ message GetConfigStatsResponse {
 
 **Package**: `gcommon.v1.config` **Lines**: 26
 
-**Messages** (1): `GetMultipleConfigRequest` **Imports** (2):
-`google/protobuf/go_features.proto`, `pkg/common/proto/request_metadata.proto`
+**Messages** (1): `GetMultipleConfigRequest` **Imports** (2): `google/protobuf/go_features.proto`, `pkg/common/proto/request_metadata.proto`
 
 ### File Content
 
@@ -19807,9 +19217,7 @@ message GetMultipleConfigRequest {
 
 **Package**: `gcommon.v1.config` **Lines**: 26
 
-**Messages** (1): `GetMultipleConfigResponse` **Imports** (3):
-`google/protobuf/go_features.proto`, `pkg/common/proto/error.proto`,
-`pkg/config/proto/config_entry.proto`
+**Messages** (1): `GetMultipleConfigResponse` **Imports** (3): `google/protobuf/go_features.proto`, `pkg/common/proto/error.proto`, `pkg/config/proto/config_entry.proto`
 
 ### File Content
 
@@ -19850,8 +19258,7 @@ message GetMultipleConfigResponse {
 
 **Package**: `gcommon.v1.config` **Lines**: 22
 
-**Messages** (1): `GetSchemaRequest` **Imports** (2):
-`google/protobuf/go_features.proto`, `pkg/common/proto/request_metadata.proto`
+**Messages** (1): `GetSchemaRequest` **Imports** (2): `google/protobuf/go_features.proto`, `pkg/common/proto/request_metadata.proto`
 
 ### File Content
 
@@ -19888,9 +19295,7 @@ message GetSchemaRequest {
 
 **Package**: `gcommon.v1.config` **Lines**: 23
 
-**Messages** (1): `GetSchemaResponse` **Imports** (3):
-`google/protobuf/go_features.proto`, `pkg/common/proto/error.proto`,
-`pkg/config/proto/config_schema.proto`
+**Messages** (1): `GetSchemaResponse` **Imports** (3): `google/protobuf/go_features.proto`, `pkg/common/proto/error.proto`, `pkg/config/proto/config_schema.proto`
 
 ### File Content
 
@@ -19928,8 +19333,7 @@ message GetSchemaResponse {
 
 **Package**: `gcommon.v1.config` **Lines**: 24
 
-**Messages** (1): `HealthCheckRequest` **Imports** (2):
-`google/protobuf/go_features.proto`, `pkg/common/proto/request_metadata.proto`
+**Messages** (1): `HealthCheckRequest` **Imports** (2): `google/protobuf/go_features.proto`, `pkg/common/proto/request_metadata.proto`
 
 ### File Content
 
@@ -19968,8 +19372,7 @@ message HealthCheckRequest {
 
 **Package**: `gcommon.v1.config` **Lines**: 25
 
-**Messages** (1): `HealthCheckResponse` **Imports** (2):
-`google/protobuf/go_features.proto`, `pkg/common/proto/health_status.proto`
+**Messages** (1): `HealthCheckResponse` **Imports** (2): `google/protobuf/go_features.proto`, `pkg/common/proto/health_status.proto`
 
 ### File Content
 
@@ -20009,8 +19412,7 @@ message HealthCheckResponse {
 
 **Package**: `gcommon.v1.config` **Lines**: 43
 
-**Enums** (1): `HealthCheckType` **Imports** (1):
-`google/protobuf/go_features.proto`
+**Enums** (1): `HealthCheckType` **Imports** (1): `google/protobuf/go_features.proto`
 
 ### File Content
 
@@ -20068,8 +19470,7 @@ enum HealthCheckType {
 
 **Package**: `gcommon.v1.config` **Lines**: 34
 
-**Enums** (1): `HealthState` **Imports** (1):
-`google/protobuf/go_features.proto`
+**Enums** (1): `HealthState` **Imports** (1): `google/protobuf/go_features.proto`
 
 ### File Content
 
@@ -20118,8 +19519,7 @@ enum HealthState {
 
 **Package**: `gcommon.v1.config` **Lines**: 21
 
-**Enums** (1): `HookErrorHandling` **Imports** (2):
-`google/protobuf/go_features.proto`, `google/protobuf/timestamp.proto`
+**Enums** (1): `HookErrorHandling` **Imports** (2): `google/protobuf/go_features.proto`, `google/protobuf/timestamp.proto`
 
 ### File Content
 
@@ -20155,8 +19555,7 @@ enum HookErrorHandling {
 
 **Package**: `gcommon.v1.config` **Lines**: 24
 
-**Enums** (1): `HookType` **Imports** (2): `google/protobuf/go_features.proto`,
-`google/protobuf/timestamp.proto`
+**Enums** (1): `HookType` **Imports** (2): `google/protobuf/go_features.proto`, `google/protobuf/timestamp.proto`
 
 ### File Content
 
@@ -20195,8 +19594,7 @@ enum HookType {
 
 **Package**: `gcommon.v1.config` **Lines**: 31
 
-**Messages** (1): `ImportConfigRequest` **Imports** (2):
-`google/protobuf/go_features.proto`, `pkg/common/proto/request_metadata.proto`
+**Messages** (1): `ImportConfigRequest` **Imports** (2): `google/protobuf/go_features.proto`, `pkg/common/proto/request_metadata.proto`
 
 ### File Content
 
@@ -20242,10 +19640,7 @@ message ImportConfigRequest {
 
 **Package**: `gcommon.v1.config` **Lines**: 31
 
-**Messages** (1): `InheritanceFilter` **Imports** (5):
-`google/protobuf/any.proto`, `google/protobuf/go_features.proto`,
-`google/protobuf/timestamp.proto`, `pkg/config/proto/filter_action.proto`,
-`pkg/config/proto/filter_type.proto`
+**Messages** (1): `InheritanceFilter` **Imports** (5): `google/protobuf/any.proto`, `google/protobuf/go_features.proto`, `google/protobuf/timestamp.proto`, `pkg/config/proto/filter_action.proto`, `pkg/config/proto/filter_type.proto`
 
 ### File Content
 
@@ -20291,12 +19686,8 @@ message InheritanceFilter {
 
 **Package**: `gcommon.v1.config` **Lines**: 45
 
-**Messages** (1): `InheritanceSettings` **Imports** (7):
-`google/protobuf/any.proto`, `google/protobuf/go_features.proto`,
-`google/protobuf/timestamp.proto`, `pkg/config/proto/inheritance_filter.proto`,
-`pkg/config/proto/inheritance_strategy.proto`,
-`pkg/config/proto/inheritance_transformation.proto`,
-`pkg/config/proto/merge_strategy.proto`
+**Messages** (1): `InheritanceSettings` **Imports** (7): `google/protobuf/any.proto`, `google/protobuf/go_features.proto`, `google/protobuf/timestamp.proto`, `pkg/config/proto/inheritance_filter.proto`,
+`pkg/config/proto/inheritance_strategy.proto`, `pkg/config/proto/inheritance_transformation.proto`, `pkg/config/proto/merge_strategy.proto`
 
 ### File Content
 
@@ -20356,9 +19747,7 @@ message InheritanceSettings {
 
 **Package**: `gcommon.v1.config` **Lines**: 24
 
-**Enums** (1): `InheritanceStrategy` **Imports** (3):
-`google/protobuf/any.proto`, `google/protobuf/go_features.proto`,
-`google/protobuf/timestamp.proto`
+**Enums** (1): `InheritanceStrategy` **Imports** (3): `google/protobuf/any.proto`, `google/protobuf/go_features.proto`, `google/protobuf/timestamp.proto`
 
 ### File Content
 
@@ -20397,9 +19786,7 @@ enum InheritanceStrategy {
 
 **Package**: `gcommon.v1.config` **Lines**: 30
 
-**Messages** (1): `InheritanceTransformation` **Imports** (4):
-`google/protobuf/any.proto`, `google/protobuf/go_features.proto`,
-`google/protobuf/timestamp.proto`, `pkg/config/proto/transformation_type.proto`
+**Messages** (1): `InheritanceTransformation` **Imports** (4): `google/protobuf/any.proto`, `google/protobuf/go_features.proto`, `google/protobuf/timestamp.proto`, `pkg/config/proto/transformation_type.proto`
 
 ### File Content
 
@@ -20444,9 +19831,7 @@ message InheritanceTransformation {
 
 **Package**: `gcommon.v1.config` **Lines**: 38
 
-**Messages** (1): `ListConfigRequest` **Imports** (5):
-`google/protobuf/go_features.proto`, `pkg/common/proto/filter_options.proto`,
-`pkg/common/proto/pagination.proto`, `pkg/common/proto/request_metadata.proto`,
+**Messages** (1): `ListConfigRequest` **Imports** (5): `google/protobuf/go_features.proto`, `pkg/common/proto/filter_options.proto`, `pkg/common/proto/pagination.proto`, `pkg/common/proto/request_metadata.proto`,
 `pkg/common/proto/sort.proto`
 
 ### File Content
@@ -20500,10 +19885,7 @@ message ListConfigRequest {
 
 **Package**: `gcommon.v1.config` **Lines**: 27
 
-**Messages** (1): `ListConfigResponse` **Imports** (4):
-`google/protobuf/go_features.proto`, `pkg/common/proto/error.proto`,
-`pkg/common/proto/paginated_response.proto`,
-`pkg/config/proto/config_entry.proto`
+**Messages** (1): `ListConfigResponse` **Imports** (4): `google/protobuf/go_features.proto`, `pkg/common/proto/error.proto`, `pkg/common/proto/paginated_response.proto`, `pkg/config/proto/config_entry.proto`
 
 ### File Content
 
@@ -20545,8 +19927,7 @@ message ListConfigResponse {
 
 **Package**: `gcommon.v1.config` **Lines**: 26
 
-**Enums** (1): `MergeStrategy` **Imports** (3): `google/protobuf/any.proto`,
-`google/protobuf/go_features.proto`, `google/protobuf/timestamp.proto`
+**Enums** (1): `MergeStrategy` **Imports** (3): `google/protobuf/any.proto`, `google/protobuf/go_features.proto`, `google/protobuf/timestamp.proto`
 
 ### File Content
 
@@ -20587,8 +19968,7 @@ enum MergeStrategy {
 
 **Package**: `gcommon.v1.config` **Lines**: 23
 
-**Enums** (1): `MetadataStatus` **Imports** (1):
-`google/protobuf/go_features.proto`
+**Enums** (1): `MetadataStatus` **Imports** (1): `google/protobuf/go_features.proto`
 
 ### File Content
 
@@ -20626,8 +20006,7 @@ enum MetadataStatus {
 
 **Package**: `gcommon.v1.config` **Lines**: 30
 
-**Messages** (1): `MonitoringAlert` **Imports** (1):
-`google/protobuf/go_features.proto`
+**Messages** (1): `MonitoringAlert` **Imports** (1): `google/protobuf/go_features.proto`
 
 ### File Content
 
@@ -20672,9 +20051,7 @@ message MonitoringAlert {
 
 **Package**: `gcommon.v1.config` **Lines**: 32
 
-**Messages** (1): `MonitoringSettings` **Imports** (3):
-`google/protobuf/go_features.proto`, `google/protobuf/timestamp.proto`,
-`pkg/config/proto/monitoring_alert.proto`
+**Messages** (1): `MonitoringSettings` **Imports** (3): `google/protobuf/go_features.proto`, `google/protobuf/timestamp.proto`, `pkg/config/proto/monitoring_alert.proto`
 
 ### File Content
 
@@ -20721,14 +20098,8 @@ message MonitoringSettings {
 
 **Package**: `gcommon.v1.config` **Lines**: 35
 
-**Messages** (1): `NotificationChannel` **Imports** (9):
-`google/protobuf/go_features.proto`, `google/protobuf/timestamp.proto`,
-`pkg/config/proto/audit_level.proto`, `pkg/config/proto/backup_frequency.proto`,
-`pkg/config/proto/channel_type.proto`,
-`pkg/config/proto/config_data_type.proto`,
-`pkg/config/proto/deprecation_level.proto`,
-`pkg/config/proto/metadata_status.proto`,
-`pkg/config/proto/notification_trigger.proto`
+**Messages** (1): `NotificationChannel` **Imports** (9): `google/protobuf/go_features.proto`, `google/protobuf/timestamp.proto`, `pkg/config/proto/audit_level.proto`, `pkg/config/proto/backup_frequency.proto`,
+`pkg/config/proto/channel_type.proto`, `pkg/config/proto/config_data_type.proto`, `pkg/config/proto/deprecation_level.proto`, `pkg/config/proto/metadata_status.proto`, `pkg/config/proto/notification_trigger.proto`
 
 ### File Content
 
@@ -20778,16 +20149,9 @@ message NotificationChannel {
 
 **Package**: `gcommon.v1.config` **Lines**: 46
 
-**Messages** (1): `NotificationSettings` **Imports** (11):
-`google/protobuf/go_features.proto`, `google/protobuf/timestamp.proto`,
-`pkg/config/proto/audit_level.proto`, `pkg/config/proto/backup_frequency.proto`,
-`pkg/config/proto/batching_settings.proto`,
-`pkg/config/proto/channel_type.proto`,
-`pkg/config/proto/config_data_type.proto`,
-`pkg/config/proto/deprecation_level.proto`,
-`pkg/config/proto/metadata_status.proto`,
-`pkg/config/proto/notification_channel.proto`,
-`pkg/config/proto/notification_trigger.proto`
+**Messages** (1): `NotificationSettings` **Imports** (11): `google/protobuf/go_features.proto`, `google/protobuf/timestamp.proto`, `pkg/config/proto/audit_level.proto`, `pkg/config/proto/backup_frequency.proto`,
+`pkg/config/proto/batching_settings.proto`, `pkg/config/proto/channel_type.proto`, `pkg/config/proto/config_data_type.proto`, `pkg/config/proto/deprecation_level.proto`, `pkg/config/proto/metadata_status.proto`,
+`pkg/config/proto/notification_channel.proto`, `pkg/config/proto/notification_trigger.proto`
 
 ### File Content
 
@@ -20848,8 +20212,7 @@ message NotificationSettings {
 
 **Package**: `gcommon.v1.config` **Lines**: 24
 
-**Enums** (1): `NotificationTrigger` **Imports** (1):
-`google/protobuf/go_features.proto`
+**Enums** (1): `NotificationTrigger` **Imports** (1): `google/protobuf/go_features.proto`
 
 ### File Content
 
@@ -20888,8 +20251,7 @@ enum NotificationTrigger {
 
 **Package**: `gcommon.v1.config` **Lines**: 30
 
-**Messages** (1): `ParameterConstraints` **Imports** (1):
-`google/protobuf/go_features.proto`
+**Messages** (1): `ParameterConstraints` **Imports** (1): `google/protobuf/go_features.proto`
 
 ### File Content
 
@@ -20934,8 +20296,7 @@ message ParameterConstraints {
 
 **Package**: `gcommon.v1.config` **Lines**: 32
 
-**Enums** (1): `ParameterType` **Imports** (2):
-`google/protobuf/go_features.proto`, `google/protobuf/timestamp.proto`
+**Enums** (1): `ParameterType` **Imports** (2): `google/protobuf/go_features.proto`, `google/protobuf/timestamp.proto`
 
 ### File Content
 
@@ -20982,8 +20343,7 @@ enum ParameterType {
 
 **Package**: `gcommon.v1.config` **Lines**: 24
 
-**Messages** (1): `RateLimits` **Imports** (1):
-`google/protobuf/go_features.proto`
+**Messages** (1): `RateLimits` **Imports** (1): `google/protobuf/go_features.proto`
 
 ### File Content
 
@@ -21022,8 +20382,7 @@ message RateLimits {
 
 **Package**: `gcommon.v1.config` **Lines**: 24
 
-**Enums** (1): `ReferenceType` **Imports** (3): `google/protobuf/any.proto`,
-`google/protobuf/go_features.proto`, `google/protobuf/timestamp.proto`
+**Enums** (1): `ReferenceType` **Imports** (3): `google/protobuf/any.proto`, `google/protobuf/go_features.proto`, `google/protobuf/timestamp.proto`
 
 ### File Content
 
@@ -21062,8 +20421,7 @@ enum ReferenceType {
 
 **Package**: `gcommon.v1.config` **Lines**: 25
 
-**Messages** (1): `ReloadConfigRequest` **Imports** (2):
-`google/protobuf/go_features.proto`, `pkg/common/proto/request_metadata.proto`
+**Messages** (1): `ReloadConfigRequest` **Imports** (2): `google/protobuf/go_features.proto`, `pkg/common/proto/request_metadata.proto`
 
 ### File Content
 
@@ -21103,8 +20461,7 @@ message ReloadConfigRequest {
 
 **Package**: `gcommon.v1.config` **Lines**: 28
 
-**Messages** (1): `RestoreConfigRequest` **Imports** (2):
-`google/protobuf/go_features.proto`, `pkg/common/proto/request_metadata.proto`
+**Messages** (1): `RestoreConfigRequest` **Imports** (2): `google/protobuf/go_features.proto`, `pkg/common/proto/request_metadata.proto`
 
 ### File Content
 
@@ -21147,8 +20504,7 @@ message RestoreConfigRequest {
 
 **Package**: `gcommon.v1.config` **Lines**: 23
 
-**Enums** (1): `RestorePointStatus` **Imports** (2):
-`google/protobuf/go_features.proto`, `google/protobuf/timestamp.proto`
+**Enums** (1): `RestorePointStatus` **Imports** (2): `google/protobuf/go_features.proto`, `google/protobuf/timestamp.proto`
 
 ### File Content
 
@@ -21186,8 +20542,7 @@ enum RestorePointStatus {
 
 **Package**: `gcommon.v1.config` **Lines**: 24
 
-**Enums** (1): `RestorePointType` **Imports** (2):
-`google/protobuf/go_features.proto`, `google/protobuf/timestamp.proto`
+**Enums** (1): `RestorePointType` **Imports** (2): `google/protobuf/go_features.proto`, `google/protobuf/timestamp.proto`
 
 ### File Content
 
@@ -21226,8 +20581,7 @@ enum RestorePointType {
 
 **Package**: `gcommon.v1.config` **Lines**: 23
 
-**Enums** (1): `RestrictionType` **Imports** (2):
-`google/protobuf/go_features.proto`, `google/protobuf/timestamp.proto`
+**Enums** (1): `RestrictionType` **Imports** (2): `google/protobuf/go_features.proto`, `google/protobuf/timestamp.proto`
 
 ### File Content
 
@@ -21265,9 +20619,7 @@ enum RestrictionType {
 
 **Package**: `gcommon.v1.config` **Lines**: 33
 
-**Messages** (1): `RetrySettings` **Imports** (4): `google/protobuf/any.proto`,
-`google/protobuf/go_features.proto`, `google/protobuf/timestamp.proto`,
-`pkg/config/proto/backoff_strategy.proto`
+**Messages** (1): `RetrySettings` **Imports** (4): `google/protobuf/any.proto`, `google/protobuf/go_features.proto`, `google/protobuf/timestamp.proto`, `pkg/config/proto/backoff_strategy.proto`
 
 ### File Content
 
@@ -21315,8 +20667,7 @@ message RetrySettings {
 
 **Package**: `gcommon.v1.config` **Lines**: 28
 
-**Messages** (1): `RollbackConfigRequest` **Imports** (2):
-`google/protobuf/go_features.proto`, `pkg/common/proto/request_metadata.proto`
+**Messages** (1): `RollbackConfigRequest` **Imports** (2): `google/protobuf/go_features.proto`, `pkg/common/proto/request_metadata.proto`
 
 ### File Content
 
@@ -21359,13 +20710,8 @@ message RollbackConfigRequest {
 
 **Package**: `gcommon.v1.config` **Lines**: 36
 
-**Messages** (1): `RollbackInfo` **Imports** (7):
-`google/protobuf/go_features.proto`, `google/protobuf/timestamp.proto`,
-`pkg/config/proto/approval_status.proto`,
-`pkg/config/proto/audit_operation_type.proto`,
-`pkg/config/proto/rollback_method.proto`,
-`pkg/config/proto/validation_result_type.proto`,
-`pkg/config/proto/validation_severity.proto`
+**Messages** (1): `RollbackInfo` **Imports** (7): `google/protobuf/go_features.proto`, `google/protobuf/timestamp.proto`, `pkg/config/proto/approval_status.proto`, `pkg/config/proto/audit_operation_type.proto`,
+`pkg/config/proto/rollback_method.proto`, `pkg/config/proto/validation_result_type.proto`, `pkg/config/proto/validation_severity.proto`
 
 ### File Content
 
@@ -21416,8 +20762,7 @@ message RollbackInfo {
 
 **Package**: `gcommon.v1.config` **Lines**: 34
 
-**Enums** (1): `RollbackMethod` **Imports** (1):
-`google/protobuf/go_features.proto`
+**Enums** (1): `RollbackMethod` **Imports** (1): `google/protobuf/go_features.proto`
 
 ### File Content
 
@@ -21466,8 +20811,7 @@ enum RollbackMethod {
 
 **Package**: `gcommon.v1.config` **Lines**: 31
 
-**Messages** (1): `RotationEvent` **Imports** (2):
-`google/protobuf/go_features.proto`, `google/protobuf/timestamp.proto`
+**Messages** (1): `RotationEvent` **Imports** (2): `google/protobuf/go_features.proto`, `google/protobuf/timestamp.proto`
 
 ### File Content
 
@@ -21513,8 +20857,7 @@ message RotationEvent {
 
 **Package**: `gcommon.v1.config` **Lines**: 25
 
-**Enums** (1): `RotationFrequency` **Imports** (2):
-`google/protobuf/go_features.proto`, `google/protobuf/timestamp.proto`
+**Enums** (1): `RotationFrequency` **Imports** (2): `google/protobuf/go_features.proto`, `google/protobuf/timestamp.proto`
 
 ### File Content
 
@@ -21554,10 +20897,7 @@ enum RotationFrequency {
 
 **Package**: `gcommon.v1.config` **Lines**: 48
 
-**Messages** (1): `RotationSettings` **Imports** (4):
-`google/protobuf/go_features.proto`, `google/protobuf/timestamp.proto`,
-`pkg/config/proto/rotation_event.proto`,
-`pkg/config/proto/rotation_frequency.proto`
+**Messages** (1): `RotationSettings` **Imports** (4): `google/protobuf/go_features.proto`, `google/protobuf/timestamp.proto`, `pkg/config/proto/rotation_event.proto`, `pkg/config/proto/rotation_frequency.proto`
 
 ### File Content
 
@@ -21620,8 +20960,7 @@ message RotationSettings {
 
 **Package**: `gcommon.v1.config` **Lines**: 23
 
-**Enums** (1): `SecretAuditLevel` **Imports** (2):
-`google/protobuf/go_features.proto`, `google/protobuf/timestamp.proto`
+**Enums** (1): `SecretAuditLevel` **Imports** (2): `google/protobuf/go_features.proto`, `google/protobuf/timestamp.proto`
 
 ### File Content
 
@@ -21659,9 +20998,7 @@ enum SecretAuditLevel {
 
 **Package**: `gcommon.v1.config` **Lines**: 44
 
-**Messages** (1): `SecretAuditSettings` **Imports** (3):
-`google/protobuf/go_features.proto`, `google/protobuf/timestamp.proto`,
-`pkg/config/proto/secret_audit_level.proto`
+**Messages** (1): `SecretAuditSettings` **Imports** (3): `google/protobuf/go_features.proto`, `google/protobuf/timestamp.proto`, `pkg/config/proto/secret_audit_level.proto`
 
 ### File Content
 
@@ -21720,8 +21057,7 @@ message SecretAuditSettings {
 
 **Package**: `gcommon.v1.config` **Lines**: 24
 
-**Enums** (1): `SecretBackupFrequency` **Imports** (2):
-`google/protobuf/go_features.proto`, `google/protobuf/timestamp.proto`
+**Enums** (1): `SecretBackupFrequency` **Imports** (2): `google/protobuf/go_features.proto`, `google/protobuf/timestamp.proto`
 
 ### File Content
 
@@ -21760,9 +21096,7 @@ enum SecretBackupFrequency {
 
 **Package**: `gcommon.v1.config` **Lines**: 41
 
-**Messages** (1): `SecretBackupSettings` **Imports** (3):
-`google/protobuf/go_features.proto`, `google/protobuf/timestamp.proto`,
-`pkg/config/proto/secret_backup_frequency.proto`
+**Messages** (1): `SecretBackupSettings` **Imports** (3): `google/protobuf/go_features.proto`, `google/protobuf/timestamp.proto`, `pkg/config/proto/secret_backup_frequency.proto`
 
 ### File Content
 
@@ -21818,8 +21152,7 @@ message SecretBackupSettings {
 
 **Package**: `gcommon.v1.config` **Lines**: 25
 
-**Enums** (1): `SecretStatus` **Imports** (2):
-`google/protobuf/go_features.proto`, `google/protobuf/timestamp.proto`
+**Enums** (1): `SecretStatus` **Imports** (2): `google/protobuf/go_features.proto`, `google/protobuf/timestamp.proto`
 
 ### File Content
 
@@ -21859,8 +21192,7 @@ enum SecretStatus {
 
 **Package**: `gcommon.v1.config` **Lines**: 34
 
-**Enums** (1): `SecretType` **Imports** (2):
-`google/protobuf/go_features.proto`, `google/protobuf/timestamp.proto`
+**Enums** (1): `SecretType` **Imports** (2): `google/protobuf/go_features.proto`, `google/protobuf/timestamp.proto`
 
 ### File Content
 
@@ -21909,10 +21241,7 @@ enum SecretType {
 
 **Package**: `gcommon.v1.config` **Lines**: 36
 
-**Messages** (1): `SecretValidationResult` **Imports** (4):
-`google/protobuf/go_features.proto`, `google/protobuf/timestamp.proto`,
-`pkg/config/proto/secret_validation_result_type.proto`,
-`pkg/config/proto/secret_validation_severity.proto`
+**Messages** (1): `SecretValidationResult` **Imports** (4): `google/protobuf/go_features.proto`, `google/protobuf/timestamp.proto`, `pkg/config/proto/secret_validation_result_type.proto`, `pkg/config/proto/secret_validation_severity.proto`
 
 ### File Content
 
@@ -21963,8 +21292,7 @@ message SecretValidationResult {
 
 **Package**: `gcommon.v1.config` **Lines**: 22
 
-**Enums** (1): `SecretValidationResultType` **Imports** (2):
-`google/protobuf/go_features.proto`, `google/protobuf/timestamp.proto`
+**Enums** (1): `SecretValidationResultType` **Imports** (2): `google/protobuf/go_features.proto`, `google/protobuf/timestamp.proto`
 
 ### File Content
 
@@ -22001,8 +21329,7 @@ enum SecretValidationResultType {
 
 **Package**: `gcommon.v1.config` **Lines**: 22
 
-**Enums** (1): `SecretValidationSeverity` **Imports** (2):
-`google/protobuf/go_features.proto`, `google/protobuf/timestamp.proto`
+**Enums** (1): `SecretValidationSeverity` **Imports** (2): `google/protobuf/go_features.proto`, `google/protobuf/timestamp.proto`
 
 ### File Content
 
@@ -22039,9 +21366,7 @@ enum SecretValidationSeverity {
 
 **Package**: `gcommon.v1.config` **Lines**: 39
 
-**Messages** (1): `SetConfigRequest` **Imports** (3):
-`google/protobuf/go_features.proto`, `pkg/common/proto/config_value.proto`,
-`pkg/common/proto/request_metadata.proto`
+**Messages** (1): `SetConfigRequest` **Imports** (3): `google/protobuf/go_features.proto`, `pkg/common/proto/config_value.proto`, `pkg/common/proto/request_metadata.proto`
 
 ### File Content
 
@@ -22095,9 +21420,7 @@ message SetConfigRequest {
 
 **Package**: `gcommon.v1.config` **Lines**: 26
 
-**Messages** (1): `SetConfigResponse` **Imports** (3):
-`google/protobuf/go_features.proto`, `pkg/common/proto/error.proto`,
-`pkg/config/proto/config_entry.proto`
+**Messages** (1): `SetConfigResponse` **Imports** (3): `google/protobuf/go_features.proto`, `pkg/common/proto/error.proto`, `pkg/config/proto/config_entry.proto`
 
 ### File Content
 
@@ -22138,9 +21461,7 @@ message SetConfigResponse {
 
 **Package**: `gcommon.v1.config` **Lines**: 29
 
-**Messages** (1): `SetConfigSchemaRequest` **Imports** (3):
-`google/protobuf/go_features.proto`, `pkg/common/proto/request_metadata.proto`,
-`pkg/config/proto/config_schema.proto`
+**Messages** (1): `SetConfigSchemaRequest` **Imports** (3): `google/protobuf/go_features.proto`, `pkg/common/proto/request_metadata.proto`, `pkg/config/proto/config_schema.proto`
 
 ### File Content
 
@@ -22184,9 +21505,7 @@ message SetConfigSchemaRequest {
 
 **Package**: `gcommon.v1.config` **Lines**: 32
 
-**Messages** (1): `SetMultipleConfigRequest` **Imports** (3):
-`google/protobuf/go_features.proto`, `pkg/common/proto/config_value.proto`,
-`pkg/common/proto/request_metadata.proto`
+**Messages** (1): `SetMultipleConfigRequest` **Imports** (3): `google/protobuf/go_features.proto`, `pkg/common/proto/config_value.proto`, `pkg/common/proto/request_metadata.proto`
 
 ### File Content
 
@@ -22233,8 +21552,7 @@ message SetMultipleConfigRequest {
 
 **Package**: `gcommon.v1.config` **Lines**: 22
 
-**Messages** (1): `SetMultipleConfigResponse` **Imports** (2):
-`google/protobuf/go_features.proto`, `pkg/common/proto/error.proto`
+**Messages** (1): `SetMultipleConfigResponse` **Imports** (2): `google/protobuf/go_features.proto`, `pkg/common/proto/error.proto`
 
 ### File Content
 
@@ -22271,9 +21589,7 @@ message SetMultipleConfigResponse {
 
 **Package**: `gcommon.v1.config` **Lines**: 24
 
-**Enums** (1): `SynchronizationFrequency` **Imports** (3):
-`google/protobuf/any.proto`, `google/protobuf/go_features.proto`,
-`google/protobuf/timestamp.proto`
+**Enums** (1): `SynchronizationFrequency` **Imports** (3): `google/protobuf/any.proto`, `google/protobuf/go_features.proto`, `google/protobuf/timestamp.proto`
 
 ### File Content
 
@@ -22312,11 +21628,8 @@ enum SynchronizationFrequency {
 
 **Package**: `gcommon.v1.config` **Lines**: 35
 
-**Messages** (1): `SynchronizationSettings` **Imports** (6):
-`google/protobuf/any.proto`, `google/protobuf/go_features.proto`,
-`google/protobuf/timestamp.proto`, `pkg/config/proto/conflict_resolution.proto`,
-`pkg/config/proto/synchronization_frequency.proto`,
-`pkg/config/proto/synchronization_target.proto`
+**Messages** (1): `SynchronizationSettings` **Imports** (6): `google/protobuf/any.proto`, `google/protobuf/go_features.proto`, `google/protobuf/timestamp.proto`, `pkg/config/proto/conflict_resolution.proto`,
+`pkg/config/proto/synchronization_frequency.proto`, `pkg/config/proto/synchronization_target.proto`
 
 ### File Content
 
@@ -22366,9 +21679,7 @@ message SynchronizationSettings {
 
 **Package**: `gcommon.v1.config` **Lines**: 32
 
-**Messages** (1): `SynchronizationTarget` **Imports** (3):
-`google/protobuf/any.proto`, `google/protobuf/go_features.proto`,
-`google/protobuf/timestamp.proto`
+**Messages** (1): `SynchronizationTarget` **Imports** (3): `google/protobuf/any.proto`, `google/protobuf/go_features.proto`, `google/protobuf/timestamp.proto`
 
 ### File Content
 
@@ -22415,9 +21726,7 @@ message SynchronizationTarget {
 
 **Package**: `gcommon.v1.config` **Lines**: 41
 
-**Messages** (1): `TemplateChange` **Imports** (3):
-`google/protobuf/go_features.proto`, `google/protobuf/timestamp.proto`,
-`pkg/config/proto/change_type.proto`
+**Messages** (1): `TemplateChange` **Imports** (3): `google/protobuf/go_features.proto`, `google/protobuf/timestamp.proto`, `pkg/config/proto/change_type.proto`
 
 ### File Content
 
@@ -22473,8 +21782,7 @@ message TemplateChange {
 
 **Package**: `gcommon.v1.config` **Lines**: 25
 
-**Enums** (1): `TemplateFormat` **Imports** (2):
-`google/protobuf/go_features.proto`, `google/protobuf/timestamp.proto`
+**Enums** (1): `TemplateFormat` **Imports** (2): `google/protobuf/go_features.proto`, `google/protobuf/timestamp.proto`
 
 ### File Content
 
@@ -22514,9 +21822,7 @@ enum TemplateFormat {
 
 **Package**: `gcommon.v1.config` **Lines**: 42
 
-**Messages** (1): `TemplateHook` **Imports** (4):
-`google/protobuf/go_features.proto`, `google/protobuf/timestamp.proto`,
-`pkg/config/proto/hook_error_handling.proto`, `pkg/config/proto/hook_type.proto`
+**Messages** (1): `TemplateHook` **Imports** (4): `google/protobuf/go_features.proto`, `google/protobuf/timestamp.proto`, `pkg/config/proto/hook_error_handling.proto`, `pkg/config/proto/hook_type.proto`
 
 ### File Content
 
@@ -22573,8 +21879,7 @@ message TemplateHook {
 
 **Package**: `gcommon.v1.config` **Lines**: 40
 
-**Messages** (1): `TemplateOutput` **Imports** (2):
-`google/protobuf/go_features.proto`, `google/protobuf/timestamp.proto`
+**Messages** (1): `TemplateOutput` **Imports** (2): `google/protobuf/go_features.proto`, `google/protobuf/timestamp.proto`
 
 ### File Content
 
@@ -22629,10 +21934,7 @@ message TemplateOutput {
 
 **Package**: `gcommon.v1.config` **Lines**: 63
 
-**Messages** (1): `TemplateParameter` **Imports** (4):
-`google/protobuf/go_features.proto`, `google/protobuf/timestamp.proto`,
-`pkg/config/proto/parameter_constraints.proto`,
-`pkg/config/proto/parameter_type.proto`
+**Messages** (1): `TemplateParameter` **Imports** (4): `google/protobuf/go_features.proto`, `google/protobuf/timestamp.proto`, `pkg/config/proto/parameter_constraints.proto`, `pkg/config/proto/parameter_type.proto`
 
 ### ⚠️ Issues Found (2)
 
@@ -22715,8 +22017,7 @@ message TemplateParameter {
 
 **Package**: `gcommon.v1.config` **Lines**: 23
 
-**Enums** (1): `TemplateStatus` **Imports** (2):
-`google/protobuf/go_features.proto`, `google/protobuf/timestamp.proto`
+**Enums** (1): `TemplateStatus` **Imports** (2): `google/protobuf/go_features.proto`, `google/protobuf/timestamp.proto`
 
 ### File Content
 
@@ -22754,9 +22055,7 @@ enum TemplateStatus {
 
 **Package**: `gcommon.v1.config` **Lines**: 33
 
-**Messages** (1): `TransformationSettings` **Imports** (4):
-`google/protobuf/any.proto`, `google/protobuf/go_features.proto`,
-`google/protobuf/timestamp.proto`, `pkg/config/proto/transformation_step.proto`
+**Messages** (1): `TransformationSettings` **Imports** (4): `google/protobuf/any.proto`, `google/protobuf/go_features.proto`, `google/protobuf/timestamp.proto`, `pkg/config/proto/transformation_step.proto`
 
 ### File Content
 
@@ -22804,9 +22103,7 @@ message TransformationSettings {
 
 **Package**: `gcommon.v1.config` **Lines**: 36
 
-**Messages** (1): `TransformationStep` **Imports** (4):
-`google/protobuf/any.proto`, `google/protobuf/go_features.proto`,
-`google/protobuf/timestamp.proto`, `pkg/config/proto/transformation_type.proto`
+**Messages** (1): `TransformationStep` **Imports** (4): `google/protobuf/any.proto`, `google/protobuf/go_features.proto`, `google/protobuf/timestamp.proto`, `pkg/config/proto/transformation_type.proto`
 
 ### File Content
 
@@ -22857,9 +22154,7 @@ message TransformationStep {
 
 **Package**: `gcommon.v1.config` **Lines**: 26
 
-**Enums** (1): `TransformationType` **Imports** (3):
-`google/protobuf/any.proto`, `google/protobuf/go_features.proto`,
-`google/protobuf/timestamp.proto`
+**Enums** (1): `TransformationType` **Imports** (3): `google/protobuf/any.proto`, `google/protobuf/go_features.proto`, `google/protobuf/timestamp.proto`
 
 ### File Content
 
@@ -22900,8 +22195,7 @@ enum TransformationType {
 
 **Package**: `gcommon.v1.config` **Lines**: 25
 
-**Messages** (1): `UnwatchConfigRequest` **Imports** (2):
-`google/protobuf/go_features.proto`, `pkg/common/proto/request_metadata.proto`
+**Messages** (1): `UnwatchConfigRequest` **Imports** (2): `google/protobuf/go_features.proto`, `pkg/common/proto/request_metadata.proto`
 
 ### File Content
 
@@ -22941,9 +22235,7 @@ message UnwatchConfigRequest {
 
 **Package**: `gcommon.v1.config` **Lines**: 47
 
-**Messages** (1): `UsageStatistics` **Imports** (3):
-`google/protobuf/go_features.proto`, `google/protobuf/timestamp.proto`,
-`pkg/config/proto/usage_trend.proto`
+**Messages** (1): `UsageStatistics` **Imports** (3): `google/protobuf/go_features.proto`, `google/protobuf/timestamp.proto`, `pkg/config/proto/usage_trend.proto`
 
 ### File Content
 
@@ -23005,8 +22297,7 @@ message UsageStatistics {
 
 **Package**: `gcommon.v1.config` **Lines**: 25
 
-**Messages** (1): `UsageTrend` **Imports** (2):
-`google/protobuf/go_features.proto`, `google/protobuf/timestamp.proto`
+**Messages** (1): `UsageTrend` **Imports** (2): `google/protobuf/go_features.proto`, `google/protobuf/timestamp.proto`
 
 ### File Content
 
@@ -23046,9 +22337,7 @@ message UsageTrend {
 
 **Package**: `gcommon.v1.config` **Lines**: 26
 
-**Messages** (1): `ValidateConfigRequest` **Imports** (3):
-`google/protobuf/go_features.proto`, `pkg/common/proto/request_metadata.proto`,
-`pkg/config/proto/config_entry.proto`
+**Messages** (1): `ValidateConfigRequest` **Imports** (3): `google/protobuf/go_features.proto`, `pkg/common/proto/request_metadata.proto`, `pkg/config/proto/config_entry.proto`
 
 ### File Content
 
@@ -23089,10 +22378,7 @@ message ValidateConfigRequest {
 
 **Package**: `gcommon.v1.config` **Lines**: 26
 
-**Messages** (1): `ValidateConfigResponse` **Imports** (3):
-`google/protobuf/go_features.proto`,
-`pkg/config/proto/config_validation_error.proto`,
-`pkg/config/proto/config_validation_warning.proto`
+**Messages** (1): `ValidateConfigResponse` **Imports** (3): `google/protobuf/go_features.proto`, `pkg/config/proto/config_validation_error.proto`, `pkg/config/proto/config_validation_warning.proto`
 
 ### File Content
 
@@ -23133,13 +22419,8 @@ message ValidateConfigResponse {
 
 **Package**: `gcommon.v1.config` **Lines**: 39
 
-**Messages** (1): `ValidationResult` **Imports** (7):
-`google/protobuf/go_features.proto`, `google/protobuf/timestamp.proto`,
-`pkg/config/proto/approval_status.proto`,
-`pkg/config/proto/audit_operation_type.proto`,
-`pkg/config/proto/rollback_method.proto`,
-`pkg/config/proto/validation_result_type.proto`,
-`pkg/config/proto/validation_severity.proto`
+**Messages** (1): `ValidationResult` **Imports** (7): `google/protobuf/go_features.proto`, `google/protobuf/timestamp.proto`, `pkg/config/proto/approval_status.proto`, `pkg/config/proto/audit_operation_type.proto`,
+`pkg/config/proto/rollback_method.proto`, `pkg/config/proto/validation_result_type.proto`, `pkg/config/proto/validation_severity.proto`
 
 ### File Content
 
@@ -23193,8 +22474,7 @@ message ValidationResult {
 
 **Package**: `gcommon.v1.config` **Lines**: 34
 
-**Enums** (1): `ValidationResultType` **Imports** (1):
-`google/protobuf/go_features.proto`
+**Enums** (1): `ValidationResultType` **Imports** (1): `google/protobuf/go_features.proto`
 
 ### File Content
 
@@ -23243,9 +22523,7 @@ enum ValidationResultType {
 
 **Package**: `gcommon.v1.config` **Lines**: 38
 
-**Messages** (1): `ValidationRule` **Imports** (3):
-`google/protobuf/go_features.proto`, `google/protobuf/timestamp.proto`,
-`pkg/config/proto/validation_severity.proto`
+**Messages** (1): `ValidationRule` **Imports** (3): `google/protobuf/go_features.proto`, `google/protobuf/timestamp.proto`, `pkg/config/proto/validation_severity.proto`
 
 ### File Content
 
@@ -23298,9 +22576,7 @@ message ValidationRule {
 
 **Package**: `gcommon.v1.config` **Lines**: 23
 
-**Enums** (1): `ValidationRuleSeverity` **Imports** (3):
-`google/protobuf/any.proto`, `google/protobuf/go_features.proto`,
-`google/protobuf/timestamp.proto`
+**Enums** (1): `ValidationRuleSeverity` **Imports** (3): `google/protobuf/any.proto`, `google/protobuf/go_features.proto`, `google/protobuf/timestamp.proto`
 
 ### File Content
 
@@ -23338,9 +22614,7 @@ enum ValidationRuleSeverity {
 
 **Package**: `gcommon.v1.config` **Lines**: 27
 
-**Enums** (1): `ValidationRuleType` **Imports** (3):
-`google/protobuf/any.proto`, `google/protobuf/go_features.proto`,
-`google/protobuf/timestamp.proto`
+**Enums** (1): `ValidationRuleType` **Imports** (3): `google/protobuf/any.proto`, `google/protobuf/go_features.proto`, `google/protobuf/timestamp.proto`
 
 ### File Content
 
@@ -23382,10 +22656,7 @@ enum ValidationRuleType {
 
 **Package**: `gcommon.v1.config` **Lines**: 40
 
-**Messages** (1): `ValidationSettings` **Imports** (5):
-`google/protobuf/any.proto`, `google/protobuf/go_features.proto`,
-`google/protobuf/timestamp.proto`, `pkg/config/proto/retry_settings.proto`,
-`pkg/config/proto/validation_rule.proto`
+**Messages** (1): `ValidationSettings` **Imports** (5): `google/protobuf/any.proto`, `google/protobuf/go_features.proto`, `google/protobuf/timestamp.proto`, `pkg/config/proto/retry_settings.proto`, `pkg/config/proto/validation_rule.proto`
 
 ### File Content
 
@@ -23440,8 +22711,7 @@ message ValidationSettings {
 
 **Package**: `gcommon.v1.config` **Lines**: 21
 
-**Enums** (1): `ValidationSeverity` **Imports** (1):
-`google/protobuf/go_features.proto`
+**Enums** (1): `ValidationSeverity` **Imports** (1): `google/protobuf/go_features.proto`
 
 ### File Content
 
@@ -23477,9 +22747,7 @@ enum ValidationSeverity {
 
 **Package**: `gcommon.v1.config` **Lines**: 33
 
-**Messages** (1): `ValueDependency` **Imports** (4):
-`google/protobuf/any.proto`, `google/protobuf/go_features.proto`,
-`google/protobuf/timestamp.proto`, `pkg/config/proto/dependency_type.proto`
+**Messages** (1): `ValueDependency` **Imports** (4): `google/protobuf/any.proto`, `google/protobuf/go_features.proto`, `google/protobuf/timestamp.proto`, `pkg/config/proto/dependency_type.proto`
 
 ### File Content
 
@@ -23527,9 +22795,7 @@ message ValueDependency {
 
 **Package**: `gcommon.v1.config` **Lines**: 42
 
-**Messages** (1): `ValueHistoryEntry` **Imports** (4):
-`google/protobuf/any.proto`, `google/protobuf/go_features.proto`,
-`google/protobuf/timestamp.proto`, `pkg/config/proto/change_type.proto`
+**Messages** (1): `ValueHistoryEntry` **Imports** (4): `google/protobuf/any.proto`, `google/protobuf/go_features.proto`, `google/protobuf/timestamp.proto`, `pkg/config/proto/change_type.proto`
 
 ### File Content
 
@@ -23586,9 +22852,7 @@ message ValueHistoryEntry {
 
 **Package**: `gcommon.v1.config` **Lines**: 30
 
-**Messages** (1): `ValueReference` **Imports** (4): `google/protobuf/any.proto`,
-`google/protobuf/go_features.proto`, `google/protobuf/timestamp.proto`,
-`pkg/config/proto/reference_type.proto`
+**Messages** (1): `ValueReference` **Imports** (4): `google/protobuf/any.proto`, `google/protobuf/go_features.proto`, `google/protobuf/timestamp.proto`, `pkg/config/proto/reference_type.proto`
 
 ### File Content
 
@@ -23633,8 +22897,7 @@ message ValueReference {
 
 **Package**: `gcommon.v1.config` **Lines**: 39
 
-**Enums** (1): `ValueSource` **Imports** (3): `google/protobuf/any.proto`,
-`google/protobuf/go_features.proto`, `google/protobuf/timestamp.proto`
+**Enums** (1): `ValueSource` **Imports** (3): `google/protobuf/any.proto`, `google/protobuf/go_features.proto`, `google/protobuf/timestamp.proto`
 
 ### File Content
 
@@ -23688,8 +22951,7 @@ enum ValueSource {
 
 **Package**: `gcommon.v1.config` **Lines**: 28
 
-**Enums** (1): `ValueStatus` **Imports** (3): `google/protobuf/any.proto`,
-`google/protobuf/go_features.proto`, `google/protobuf/timestamp.proto`
+**Enums** (1): `ValueStatus` **Imports** (3): `google/protobuf/any.proto`, `google/protobuf/go_features.proto`, `google/protobuf/timestamp.proto`
 
 ### File Content
 
@@ -23732,9 +22994,7 @@ enum ValueStatus {
 
 **Package**: `gcommon.v1.config` **Lines**: 51
 
-**Messages** (1): `ValueUsageStatistics` **Imports** (4):
-`google/protobuf/any.proto`, `google/protobuf/go_features.proto`,
-`google/protobuf/timestamp.proto`, `pkg/config/proto/value_usage_trend.proto`
+**Messages** (1): `ValueUsageStatistics` **Imports** (4): `google/protobuf/any.proto`, `google/protobuf/go_features.proto`, `google/protobuf/timestamp.proto`, `pkg/config/proto/value_usage_trend.proto`
 
 ### File Content
 
@@ -23800,9 +23060,7 @@ message ValueUsageStatistics {
 
 **Package**: `gcommon.v1.config` **Lines**: 32
 
-**Messages** (1): `ValueUsageTrend` **Imports** (3):
-`google/protobuf/any.proto`, `google/protobuf/go_features.proto`,
-`google/protobuf/timestamp.proto`
+**Messages** (1): `ValueUsageTrend` **Imports** (3): `google/protobuf/any.proto`, `google/protobuf/go_features.proto`, `google/protobuf/timestamp.proto`
 
 ### File Content
 
@@ -23849,10 +23107,7 @@ message ValueUsageTrend {
 
 **Package**: `gcommon.v1.config` **Lines**: 43
 
-**Messages** (1): `ValueValidationResult` **Imports** (5):
-`google/protobuf/any.proto`, `google/protobuf/go_features.proto`,
-`google/protobuf/timestamp.proto`,
-`pkg/config/proto/value_validation_result_type.proto`,
+**Messages** (1): `ValueValidationResult` **Imports** (5): `google/protobuf/any.proto`, `google/protobuf/go_features.proto`, `google/protobuf/timestamp.proto`, `pkg/config/proto/value_validation_result_type.proto`,
 `pkg/config/proto/value_validation_severity.proto`
 
 ### File Content
@@ -23911,9 +23166,7 @@ message ValueValidationResult {
 
 **Package**: `gcommon.v1.config` **Lines**: 23
 
-**Enums** (1): `ValueValidationResultType` **Imports** (3):
-`google/protobuf/any.proto`, `google/protobuf/go_features.proto`,
-`google/protobuf/timestamp.proto`
+**Enums** (1): `ValueValidationResultType` **Imports** (3): `google/protobuf/any.proto`, `google/protobuf/go_features.proto`, `google/protobuf/timestamp.proto`
 
 ### File Content
 
@@ -23951,9 +23204,7 @@ enum ValueValidationResultType {
 
 **Package**: `gcommon.v1.config` **Lines**: 23
 
-**Enums** (1): `ValueValidationSeverity` **Imports** (3):
-`google/protobuf/any.proto`, `google/protobuf/go_features.proto`,
-`google/protobuf/timestamp.proto`
+**Enums** (1): `ValueValidationSeverity` **Imports** (3): `google/protobuf/any.proto`, `google/protobuf/go_features.proto`, `google/protobuf/timestamp.proto`
 
 ### File Content
 
@@ -23991,9 +23242,7 @@ enum ValueValidationSeverity {
 
 **Package**: `gcommon.v1.config` **Lines**: 38
 
-**Messages** (1): `VersionArtifact` **Imports** (3):
-`google/protobuf/go_features.proto`, `google/protobuf/timestamp.proto`,
-`pkg/common/proto/audit_log.proto`
+**Messages** (1): `VersionArtifact` **Imports** (3): `google/protobuf/go_features.proto`, `google/protobuf/timestamp.proto`, `pkg/common/proto/audit_log.proto`
 
 ### File Content
 
@@ -24046,9 +23295,7 @@ message VersionArtifact {
 
 **Package**: `gcommon.v1.config` **Lines**: 41
 
-**Messages** (1): `VersionCompatibilityInfo` **Imports** (3):
-`google/protobuf/go_features.proto`, `google/protobuf/timestamp.proto`,
-`pkg/common/proto/audit_log.proto`
+**Messages** (1): `VersionCompatibilityInfo` **Imports** (3): `google/protobuf/go_features.proto`, `google/protobuf/timestamp.proto`, `pkg/common/proto/audit_log.proto`
 
 ### File Content
 
@@ -24104,10 +23351,7 @@ message VersionCompatibilityInfo {
 
 **Package**: `gcommon.v1.config` **Lines**: 39
 
-**Messages** (1): `VersionDependency` **Imports** (4):
-`google/protobuf/go_features.proto`, `google/protobuf/timestamp.proto`,
-`pkg/common/proto/audit_log.proto`,
-`pkg/config/proto/version_dependency_type.proto`
+**Messages** (1): `VersionDependency` **Imports** (4): `google/protobuf/go_features.proto`, `google/protobuf/timestamp.proto`, `pkg/common/proto/audit_log.proto`, `pkg/config/proto/version_dependency_type.proto`
 
 ### File Content
 
@@ -24161,9 +23405,7 @@ message VersionDependency {
 
 **Package**: `gcommon.v1.config` **Lines**: 25
 
-**Enums** (1): `VersionDependencyType` **Imports** (3):
-`google/protobuf/go_features.proto`, `google/protobuf/timestamp.proto`,
-`pkg/common/proto/audit_log.proto`
+**Enums** (1): `VersionDependencyType` **Imports** (3): `google/protobuf/go_features.proto`, `google/protobuf/timestamp.proto`, `pkg/common/proto/audit_log.proto`
 
 ### File Content
 
@@ -24203,10 +23445,7 @@ enum VersionDependencyType {
 
 **Package**: `gcommon.v1.config` **Lines**: 46
 
-**Messages** (1): `VersionDeploymentInfo` **Imports** (5):
-`google/protobuf/go_features.proto`, `google/protobuf/timestamp.proto`,
-`pkg/common/proto/audit_log.proto`,
-`pkg/config/proto/version_deployment_status.proto`,
+**Messages** (1): `VersionDeploymentInfo` **Imports** (5): `google/protobuf/go_features.proto`, `google/protobuf/timestamp.proto`, `pkg/common/proto/audit_log.proto`, `pkg/config/proto/version_deployment_status.proto`,
 `pkg/config/proto/version_health_status.proto`
 
 ### File Content
@@ -24268,9 +23507,7 @@ message VersionDeploymentInfo {
 
 **Package**: `gcommon.v1.config` **Lines**: 25
 
-**Enums** (1): `VersionDeploymentStatus` **Imports** (3):
-`google/protobuf/go_features.proto`, `google/protobuf/timestamp.proto`,
-`pkg/common/proto/audit_log.proto`
+**Enums** (1): `VersionDeploymentStatus` **Imports** (3): `google/protobuf/go_features.proto`, `google/protobuf/timestamp.proto`, `pkg/common/proto/audit_log.proto`
 
 ### File Content
 
@@ -24310,9 +23547,7 @@ enum VersionDeploymentStatus {
 
 **Package**: `gcommon.v1.config` **Lines**: 23
 
-**Enums** (1): `VersionHealthStatus` **Imports** (3):
-`google/protobuf/go_features.proto`, `google/protobuf/timestamp.proto`,
-`pkg/common/proto/audit_log.proto`
+**Enums** (1): `VersionHealthStatus` **Imports** (3): `google/protobuf/go_features.proto`, `google/protobuf/timestamp.proto`, `pkg/common/proto/audit_log.proto`
 
 ### File Content
 
@@ -24350,9 +23585,7 @@ enum VersionHealthStatus {
 
 **Package**: `gcommon.v1.config` **Lines**: 44
 
-**Messages** (1): `VersionPromotionEvent` **Imports** (3):
-`google/protobuf/go_features.proto`, `google/protobuf/timestamp.proto`,
-`pkg/common/proto/audit_log.proto`
+**Messages** (1): `VersionPromotionEvent` **Imports** (3): `google/protobuf/go_features.proto`, `google/protobuf/timestamp.proto`, `pkg/common/proto/audit_log.proto`
 
 ### File Content
 
@@ -24411,9 +23644,7 @@ message VersionPromotionEvent {
 
 **Package**: `gcommon.v1.config` **Lines**: 35
 
-**Messages** (1): `VersionQualityIssue` **Imports** (3):
-`google/protobuf/go_features.proto`, `google/protobuf/timestamp.proto`,
-`pkg/common/proto/audit_log.proto`
+**Messages** (1): `VersionQualityIssue` **Imports** (3): `google/protobuf/go_features.proto`, `google/protobuf/timestamp.proto`, `pkg/common/proto/audit_log.proto`
 
 ### File Content
 
@@ -24463,10 +23694,7 @@ message VersionQualityIssue {
 
 **Package**: `gcommon.v1.config` **Lines**: 45
 
-**Messages** (1): `VersionQualityMetrics` **Imports** (4):
-`google/protobuf/go_features.proto`, `google/protobuf/timestamp.proto`,
-`pkg/common/proto/audit_log.proto`,
-`pkg/config/proto/version_quality_issue.proto`
+**Messages** (1): `VersionQualityMetrics` **Imports** (4): `google/protobuf/go_features.proto`, `google/protobuf/timestamp.proto`, `pkg/common/proto/audit_log.proto`, `pkg/config/proto/version_quality_issue.proto`
 
 ### File Content
 
@@ -24526,9 +23754,7 @@ message VersionQualityMetrics {
 
 **Package**: `gcommon.v1.config` **Lines**: 27
 
-**Enums** (1): `VersionStatus` **Imports** (3):
-`google/protobuf/go_features.proto`, `google/protobuf/timestamp.proto`,
-`pkg/common/proto/audit_log.proto`
+**Enums** (1): `VersionStatus` **Imports** (3): `google/protobuf/go_features.proto`, `google/protobuf/timestamp.proto`, `pkg/common/proto/audit_log.proto`
 
 ### File Content
 
@@ -24570,9 +23796,7 @@ enum VersionStatus {
 
 **Package**: `gcommon.v1.config` **Lines**: 27
 
-**Enums** (1): `VersionType` **Imports** (3):
-`google/protobuf/go_features.proto`, `google/protobuf/timestamp.proto`,
-`pkg/common/proto/audit_log.proto`
+**Enums** (1): `VersionType` **Imports** (3): `google/protobuf/go_features.proto`, `google/protobuf/timestamp.proto`, `pkg/common/proto/audit_log.proto`
 
 ### File Content
 
@@ -24614,14 +23838,8 @@ enum VersionType {
 
 **Package**: `gcommon.v1.config` **Lines**: 44
 
-**Messages** (1): `VersioningSettings` **Imports** (9):
-`google/protobuf/go_features.proto`, `google/protobuf/timestamp.proto`,
-`pkg/config/proto/audit_level.proto`, `pkg/config/proto/backup_frequency.proto`,
-`pkg/config/proto/channel_type.proto`,
-`pkg/config/proto/config_data_type.proto`,
-`pkg/config/proto/deprecation_level.proto`,
-`pkg/config/proto/metadata_status.proto`,
-`pkg/config/proto/notification_trigger.proto`
+**Messages** (1): `VersioningSettings` **Imports** (9): `google/protobuf/go_features.proto`, `google/protobuf/timestamp.proto`, `pkg/config/proto/audit_level.proto`, `pkg/config/proto/backup_frequency.proto`,
+`pkg/config/proto/channel_type.proto`, `pkg/config/proto/config_data_type.proto`, `pkg/config/proto/deprecation_level.proto`, `pkg/config/proto/metadata_status.proto`, `pkg/config/proto/notification_trigger.proto`
 
 ### File Content
 
@@ -24680,8 +23898,7 @@ message VersioningSettings {
 
 **Package**: `gcommon.v1.config` **Lines**: 25
 
-**Messages** (1): `WatchConfigRequest` **Imports** (2):
-`google/protobuf/go_features.proto`, `pkg/common/proto/request_metadata.proto`
+**Messages** (1): `WatchConfigRequest` **Imports** (2): `google/protobuf/go_features.proto`, `pkg/common/proto/request_metadata.proto`
 
 ### File Content
 
@@ -24721,10 +23938,7 @@ message WatchConfigRequest {
 
 **Package**: `gcommon.v1.config` **Lines**: 30
 
-**Messages** (1): `WatchConfigResponse` **Imports** (4):
-`google/protobuf/go_features.proto`, `google/protobuf/timestamp.proto`,
-`pkg/config/proto/config_change_type.proto`,
-`pkg/config/proto/config_entry.proto`
+**Messages** (1): `WatchConfigResponse` **Imports** (4): `google/protobuf/go_features.proto`, `google/protobuf/timestamp.proto`, `pkg/config/proto/config_change_type.proto`, `pkg/config/proto/config_entry.proto`
 
 ### File Content
 
@@ -24769,8 +23983,7 @@ message WatchConfigResponse {
 
 **Package**: `gcommon.v1.database` **Lines**: 26
 
-**Messages** (1): `BatchExecuteOptions` **Imports** (2):
-`google/protobuf/duration.proto`, `google/protobuf/go_features.proto`
+**Messages** (1): `BatchExecuteOptions` **Imports** (2): `google/protobuf/duration.proto`, `google/protobuf/go_features.proto`
 
 ### File Content
 
@@ -24811,8 +24024,7 @@ message BatchExecuteOptions {
 
 **Package**: `gcommon.v1.database` **Lines**: 23
 
-**Messages** (1): `BatchOperation` **Imports** (2):
-`google/protobuf/go_features.proto`, `pkg/db/proto/query_parameter.proto`
+**Messages** (1): `BatchOperation` **Imports** (2): `google/protobuf/go_features.proto`, `pkg/db/proto/query_parameter.proto`
 
 ### File Content
 
@@ -24850,9 +24062,7 @@ message BatchOperation {
 
 **Package**: `gcommon.v1.database` **Lines**: 30
 
-**Messages** (1): `BatchOperationResult` **Imports** (3):
-`google/protobuf/any.proto`, `google/protobuf/go_features.proto`,
-`pkg/common/proto/error.proto`
+**Messages** (1): `BatchOperationResult` **Imports** (3): `google/protobuf/any.proto`, `google/protobuf/go_features.proto`, `pkg/common/proto/error.proto`
 
 ### File Content
 
@@ -24897,8 +24107,7 @@ message BatchOperationResult {
 
 **Package**: `gcommon.v1.database` **Lines**: 29
 
-**Messages** (1): `BatchStats` **Imports** (2):
-`google/protobuf/duration.proto`, `google/protobuf/go_features.proto`
+**Messages** (1): `BatchStats` **Imports** (2): `google/protobuf/duration.proto`, `google/protobuf/go_features.proto`
 
 ### File Content
 
@@ -24942,9 +24151,7 @@ message BatchStats {
 
 **Package**: `gcommon.v1.database` **Lines**: 24
 
-**Messages** (1): `BeginTransactionRequest` **Imports** (3):
-`google/protobuf/go_features.proto`, `pkg/common/proto/request_metadata.proto`,
-`pkg/db/proto/transaction_options.proto`
+**Messages** (1): `BeginTransactionRequest` **Imports** (3): `google/protobuf/go_features.proto`, `pkg/common/proto/request_metadata.proto`, `pkg/db/proto/transaction_options.proto`
 
 ### File Content
 
@@ -24983,8 +24190,7 @@ message BeginTransactionRequest {
 
 **Package**: `gcommon.v1.database` **Lines**: 23
 
-**Messages** (1): `BeginTransactionResponse` **Imports** (2):
-`google/protobuf/go_features.proto`, `google/protobuf/timestamp.proto`
+**Messages** (1): `BeginTransactionResponse` **Imports** (2): `google/protobuf/go_features.proto`, `google/protobuf/timestamp.proto`
 
 ### File Content
 
@@ -25022,8 +24228,7 @@ message BeginTransactionResponse {
 
 **Package**: `gcommon.v1.database` **Lines**: 46
 
-**Messages** (1): `CockroachConfig` **Imports** (1):
-`google/protobuf/go_features.proto`
+**Messages** (1): `CockroachConfig` **Imports** (1): `google/protobuf/go_features.proto`
 
 ### File Content
 
@@ -25084,8 +24289,7 @@ message CockroachConfig {
 
 **Package**: `gcommon.v1.database` **Lines**: 34
 
-**Messages** (1): `ColumnMetadata` **Imports** (1):
-`google/protobuf/go_features.proto`
+**Messages** (1): `ColumnMetadata` **Imports** (1): `google/protobuf/go_features.proto`
 
 ### File Content
 
@@ -25134,8 +24338,7 @@ message ColumnMetadata {
 
 **Package**: `gcommon.v1.database` **Lines**: 20
 
-**Messages** (1): `CommitTransactionRequest` **Imports** (2):
-`google/protobuf/go_features.proto`, `pkg/common/proto/request_metadata.proto`
+**Messages** (1): `CommitTransactionRequest` **Imports** (2): `google/protobuf/go_features.proto`, `pkg/common/proto/request_metadata.proto`
 
 ### File Content
 
@@ -25170,9 +24373,7 @@ message CommitTransactionRequest {
 
 **Package**: `gcommon.v1.database` **Lines**: 33
 
-**Messages** (1): `ConnectionPoolInfo` **Imports** (3):
-`google/protobuf/duration.proto`, `google/protobuf/go_features.proto`,
-`pkg/db/proto/pool_stats.proto`
+**Messages** (1): `ConnectionPoolInfo` **Imports** (3): `google/protobuf/duration.proto`, `google/protobuf/go_features.proto`, `pkg/db/proto/pool_stats.proto`
 
 ### File Content
 
@@ -25220,8 +24421,7 @@ message ConnectionPoolInfo {
 
 **Package**: `gcommon.v1.database` **Lines**: 28
 
-**Enums** (1): `ConsistencyLevel` **Imports** (1):
-`google/protobuf/go_features.proto`
+**Enums** (1): `ConsistencyLevel` **Imports** (1): `google/protobuf/go_features.proto`
 
 ### File Content
 
@@ -25264,8 +24464,7 @@ enum ConsistencyLevel {
 
 **Package**: `gcommon.v1.database` **Lines**: 23
 
-**Messages** (1): `CreateDatabaseRequest` **Imports** (2):
-`google/protobuf/go_features.proto`, `pkg/common/proto/request_metadata.proto`
+**Messages** (1): `CreateDatabaseRequest` **Imports** (2): `google/protobuf/go_features.proto`, `pkg/common/proto/request_metadata.proto`
 
 ### File Content
 
@@ -25303,8 +24502,7 @@ message CreateDatabaseRequest {
 
 **Package**: `gcommon.v1.database` **Lines**: 23
 
-**Messages** (1): `CreateDatabaseResponse` **Imports** (2):
-`google/protobuf/go_features.proto`, `pkg/common/proto/error.proto`
+**Messages** (1): `CreateDatabaseResponse` **Imports** (2): `google/protobuf/go_features.proto`, `pkg/common/proto/error.proto`
 
 ### File Content
 
@@ -25342,8 +24540,7 @@ message CreateDatabaseResponse {
 
 **Package**: `gcommon.v1.database` **Lines**: 23
 
-**Messages** (1): `CreateSchemaRequest` **Imports** (2):
-`google/protobuf/go_features.proto`, `pkg/common/proto/request_metadata.proto`
+**Messages** (1): `CreateSchemaRequest` **Imports** (2): `google/protobuf/go_features.proto`, `pkg/common/proto/request_metadata.proto`
 
 ### File Content
 
@@ -25381,8 +24578,7 @@ message CreateSchemaRequest {
 
 **Package**: `gcommon.v1.database` **Lines**: 23
 
-**Messages** (1): `CreateSchemaResponse` **Imports** (2):
-`google/protobuf/go_features.proto`, `pkg/common/proto/error.proto`
+**Messages** (1): `CreateSchemaResponse` **Imports** (2): `google/protobuf/go_features.proto`, `pkg/common/proto/error.proto`
 
 ### File Content
 
@@ -25420,20 +24616,9 @@ message CreateSchemaResponse {
 
 **Package**: `gcommon.v1.database` **Lines**: 50
 
-**Services** (1): `DatabaseAdminService` **Imports** (14):
-`google/protobuf/empty.proto`, `google/protobuf/go_features.proto`,
-`pkg/db/proto/create_database_request.proto`,
-`pkg/db/proto/create_database_response.proto`,
-`pkg/db/proto/create_schema_request.proto`,
-`pkg/db/proto/create_schema_response.proto`,
-`pkg/db/proto/drop_database_request.proto`,
-`pkg/db/proto/drop_schema_request.proto`,
-`pkg/db/proto/get_database_info_request.proto`,
-`pkg/db/proto/get_database_info_response.proto`,
-`pkg/db/proto/list_databases_request.proto`,
-`pkg/db/proto/list_databases_response.proto`,
-`pkg/db/proto/list_schemas_request.proto`,
-`pkg/db/proto/list_schemas_response.proto`
+**Services** (1): `DatabaseAdminService` **Imports** (14): `google/protobuf/empty.proto`, `google/protobuf/go_features.proto`, `pkg/db/proto/create_database_request.proto`, `pkg/db/proto/create_database_response.proto`,
+`pkg/db/proto/create_schema_request.proto`, `pkg/db/proto/create_schema_response.proto`, `pkg/db/proto/drop_database_request.proto`, `pkg/db/proto/drop_schema_request.proto`, `pkg/db/proto/get_database_info_request.proto`,
+`pkg/db/proto/get_database_info_response.proto`, `pkg/db/proto/list_databases_request.proto`, `pkg/db/proto/list_databases_response.proto`, `pkg/db/proto/list_schemas_request.proto`, `pkg/db/proto/list_schemas_response.proto`
 
 ### File Content
 
@@ -25498,8 +24683,7 @@ service DatabaseAdminService {
 
 **Package**: `gcommon.v1.database` **Lines**: 31
 
-**Messages** (1): `DatabaseInfo` **Imports** (1):
-`google/protobuf/go_features.proto`
+**Messages** (1): `DatabaseInfo` **Imports** (1): `google/protobuf/go_features.proto`
 
 ### File Content
 
@@ -25545,16 +24729,9 @@ message DatabaseInfo {
 
 **Package**: `gcommon.v1.database` **Lines**: 46
 
-**Services** (1): `DatabaseService` **Imports** (13):
-`google/protobuf/go_features.proto`, `pkg/db/proto/execute_batch_request.proto`,
-`pkg/db/proto/execute_batch_response.proto`,
-`pkg/db/proto/execute_request.proto`, `pkg/db/proto/execute_response.proto`,
-`pkg/db/proto/get_connection_info_request.proto`,
-`pkg/db/proto/get_connection_info_response.proto`,
-`pkg/db/proto/health_check_request.proto`,
-`pkg/db/proto/health_check_response.proto`, `pkg/db/proto/query_request.proto`,
-`pkg/db/proto/query_response.proto`, `pkg/db/proto/query_row_request.proto`,
-`pkg/db/proto/query_row_response.proto`
+**Services** (1): `DatabaseService` **Imports** (13): `google/protobuf/go_features.proto`, `pkg/db/proto/execute_batch_request.proto`, `pkg/db/proto/execute_batch_response.proto`, `pkg/db/proto/execute_request.proto`,
+`pkg/db/proto/execute_response.proto`, `pkg/db/proto/get_connection_info_request.proto`, `pkg/db/proto/get_connection_info_response.proto`, `pkg/db/proto/health_check_request.proto`, `pkg/db/proto/health_check_response.proto`,
+`pkg/db/proto/query_request.proto`, `pkg/db/proto/query_response.proto`, `pkg/db/proto/query_row_request.proto`, `pkg/db/proto/query_row_response.proto`
 
 ### File Content
 
@@ -25615,8 +24792,7 @@ service DatabaseService {
 
 **Package**: `gcommon.v1.database` **Lines**: 26
 
-**Messages** (1): `DatabaseStatus` **Imports** (2):
-`google/protobuf/go_features.proto`, `pkg/db/proto/database_status_code.proto`
+**Messages** (1): `DatabaseStatus` **Imports** (2): `google/protobuf/go_features.proto`, `pkg/db/proto/database_status_code.proto`
 
 ### File Content
 
@@ -25657,8 +24833,7 @@ message DatabaseStatus {
 
 **Package**: `gcommon.v1.database` **Lines**: 28
 
-**Enums** (1): `DatabaseStatusCode` **Imports** (1):
-`google/protobuf/go_features.proto`
+**Enums** (1): `DatabaseStatusCode` **Imports** (1): `google/protobuf/go_features.proto`
 
 ### File Content
 
@@ -25701,8 +24876,7 @@ enum DatabaseStatusCode {
 
 **Package**: `gcommon.v1.database` **Lines**: 20
 
-**Messages** (1): `DropDatabaseRequest` **Imports** (2):
-`google/protobuf/go_features.proto`, `pkg/common/proto/request_metadata.proto`
+**Messages** (1): `DropDatabaseRequest` **Imports** (2): `google/protobuf/go_features.proto`, `pkg/common/proto/request_metadata.proto`
 
 ### File Content
 
@@ -25737,8 +24911,7 @@ message DropDatabaseRequest {
 
 **Package**: `gcommon.v1.database` **Lines**: 23
 
-**Messages** (1): `DropSchemaRequest` **Imports** (2):
-`google/protobuf/go_features.proto`, `pkg/common/proto/request_metadata.proto`
+**Messages** (1): `DropSchemaRequest` **Imports** (2): `google/protobuf/go_features.proto`, `pkg/common/proto/request_metadata.proto`
 
 ### File Content
 
@@ -25776,9 +24949,7 @@ message DropSchemaRequest {
 
 **Package**: `gcommon.v1.database` **Lines**: 31
 
-**Messages** (1): `ExecuteBatchRequest` **Imports** (4):
-`google/protobuf/go_features.proto`, `pkg/common/proto/request_metadata.proto`,
-`pkg/db/proto/batch_execute_options.proto`, `pkg/db/proto/batch_operation.proto`
+**Messages** (1): `ExecuteBatchRequest` **Imports** (4): `google/protobuf/go_features.proto`, `pkg/common/proto/request_metadata.proto`, `pkg/db/proto/batch_execute_options.proto`, `pkg/db/proto/batch_operation.proto`
 
 ### File Content
 
@@ -25824,9 +24995,7 @@ message ExecuteBatchRequest {
 
 **Package**: `gcommon.v1.database` **Lines**: 28
 
-**Messages** (1): `ExecuteBatchResponse` **Imports** (4):
-`google/protobuf/go_features.proto`, `pkg/common/proto/error.proto`,
-`pkg/db/proto/batch_operation_result.proto`, `pkg/db/proto/batch_stats.proto`
+**Messages** (1): `ExecuteBatchResponse` **Imports** (4): `google/protobuf/go_features.proto`, `pkg/common/proto/error.proto`, `pkg/db/proto/batch_operation_result.proto`, `pkg/db/proto/batch_stats.proto`
 
 ### File Content
 
@@ -25869,9 +25038,7 @@ message ExecuteBatchResponse {
 
 **Package**: `gcommon.v1.database` **Lines**: 27
 
-**Messages** (1): `ExecuteOptions` **Imports** (3):
-`google/protobuf/duration.proto`, `google/protobuf/go_features.proto`,
-`pkg/db/proto/isolation_level.proto`
+**Messages** (1): `ExecuteOptions` **Imports** (3): `google/protobuf/duration.proto`, `google/protobuf/go_features.proto`, `pkg/db/proto/isolation_level.proto`
 
 ### File Content
 
@@ -25913,9 +25080,7 @@ message ExecuteOptions {
 
 **Package**: `gcommon.v1.database` **Lines**: 34
 
-**Messages** (1): `ExecuteRequest` **Imports** (4):
-`google/protobuf/go_features.proto`, `pkg/common/proto/request_metadata.proto`,
-`pkg/db/proto/execute_options.proto`, `pkg/db/proto/query_parameter.proto`
+**Messages** (1): `ExecuteRequest` **Imports** (4): `google/protobuf/go_features.proto`, `pkg/common/proto/request_metadata.proto`, `pkg/db/proto/execute_options.proto`, `pkg/db/proto/query_parameter.proto`
 
 ### File Content
 
@@ -25964,9 +25129,7 @@ message ExecuteRequest {
 
 **Package**: `gcommon.v1.database` **Lines**: 31
 
-**Messages** (1): `ExecuteResponse` **Imports** (4):
-`google/protobuf/any.proto`, `google/protobuf/go_features.proto`,
-`pkg/common/proto/error.proto`, `pkg/db/proto/execute_stats.proto`
+**Messages** (1): `ExecuteResponse` **Imports** (4): `google/protobuf/any.proto`, `google/protobuf/go_features.proto`, `pkg/common/proto/error.proto`, `pkg/db/proto/execute_stats.proto`
 
 ### File Content
 
@@ -26012,8 +25175,7 @@ message ExecuteResponse {
 
 **Package**: `gcommon.v1.database` **Lines**: 26
 
-**Messages** (1): `ExecuteStats` **Imports** (2):
-`google/protobuf/duration.proto`, `google/protobuf/go_features.proto`
+**Messages** (1): `ExecuteStats` **Imports** (2): `google/protobuf/duration.proto`, `google/protobuf/go_features.proto`
 
 ### File Content
 
@@ -26054,8 +25216,7 @@ message ExecuteStats {
 
 **Package**: `gcommon.v1.database` **Lines**: 17
 
-**Messages** (1): `GetConnectionInfoRequest` **Imports** (2):
-`google/protobuf/go_features.proto`, `pkg/common/proto/request_metadata.proto`
+**Messages** (1): `GetConnectionInfoRequest` **Imports** (2): `google/protobuf/go_features.proto`, `pkg/common/proto/request_metadata.proto`
 
 ### File Content
 
@@ -26087,9 +25248,7 @@ message GetConnectionInfoRequest {
 
 **Package**: `gcommon.v1.database` **Lines**: 24
 
-**Messages** (1): `GetConnectionInfoResponse` **Imports** (3):
-`google/protobuf/go_features.proto`, `pkg/db/proto/connection_pool_info.proto`,
-`pkg/db/proto/database_info.proto`
+**Messages** (1): `GetConnectionInfoResponse` **Imports** (3): `google/protobuf/go_features.proto`, `pkg/db/proto/connection_pool_info.proto`, `pkg/db/proto/database_info.proto`
 
 ### File Content
 
@@ -26128,8 +25287,7 @@ message GetConnectionInfoResponse {
 
 **Package**: `gcommon.v1.database` **Lines**: 20
 
-**Messages** (1): `GetDatabaseInfoRequest` **Imports** (2):
-`google/protobuf/go_features.proto`, `pkg/common/proto/request_metadata.proto`
+**Messages** (1): `GetDatabaseInfoRequest` **Imports** (2): `google/protobuf/go_features.proto`, `pkg/common/proto/request_metadata.proto`
 
 ### File Content
 
@@ -26164,8 +25322,7 @@ message GetDatabaseInfoRequest {
 
 **Package**: `gcommon.v1.database` **Lines**: 20
 
-**Messages** (1): `GetDatabaseInfoResponse` **Imports** (2):
-`google/protobuf/go_features.proto`, `pkg/db/proto/database_info.proto`
+**Messages** (1): `GetDatabaseInfoResponse` **Imports** (2): `google/protobuf/go_features.proto`, `pkg/db/proto/database_info.proto`
 
 ### File Content
 
@@ -26200,8 +25357,7 @@ message GetDatabaseInfoResponse {
 
 **Package**: `gcommon.v1.database` **Lines**: 20
 
-**Messages** (1): `GetMigrationStatusRequest` **Imports** (2):
-`google/protobuf/go_features.proto`, `pkg/common/proto/request_metadata.proto`
+**Messages** (1): `GetMigrationStatusRequest` **Imports** (2): `google/protobuf/go_features.proto`, `pkg/common/proto/request_metadata.proto`
 
 ### File Content
 
@@ -26236,8 +25392,7 @@ message GetMigrationStatusRequest {
 
 **Package**: `gcommon.v1.database` **Lines**: 25
 
-**Messages** (1): `GetMigrationStatusResponse` **Imports** (1):
-`google/protobuf/go_features.proto`
+**Messages** (1): `GetMigrationStatusResponse` **Imports** (1): `google/protobuf/go_features.proto`
 
 ### File Content
 
@@ -26277,8 +25432,7 @@ message GetMigrationStatusResponse {
 
 **Package**: `gcommon.v1.database` **Lines**: 17
 
-**Messages** (1): `HealthCheckRequest` **Imports** (2):
-`google/protobuf/go_features.proto`, `pkg/common/proto/request_metadata.proto`
+**Messages** (1): `HealthCheckRequest` **Imports** (2): `google/protobuf/go_features.proto`, `pkg/common/proto/request_metadata.proto`
 
 ### File Content
 
@@ -26310,9 +25464,7 @@ message HealthCheckRequest {
 
 **Package**: `gcommon.v1.database` **Lines**: 31
 
-**Messages** (1): `HealthCheckResponse` **Imports** (4):
-`google/protobuf/duration.proto`, `google/protobuf/go_features.proto`,
-`pkg/common/proto/error.proto`, `pkg/common/proto/health_status.proto`
+**Messages** (1): `HealthCheckResponse` **Imports** (4): `google/protobuf/duration.proto`, `google/protobuf/go_features.proto`, `pkg/common/proto/error.proto`, `pkg/common/proto/health_status.proto`
 
 ### File Content
 
@@ -26358,8 +25510,7 @@ message HealthCheckResponse {
 
 **Package**: `gcommon.v1.database` **Lines**: 31
 
-**Enums** (1): `IsolationLevel` **Imports** (1):
-`google/protobuf/go_features.proto`
+**Enums** (1): `IsolationLevel` **Imports** (1): `google/protobuf/go_features.proto`
 
 ### File Content
 
@@ -26405,8 +25556,7 @@ enum IsolationLevel {
 
 **Package**: `gcommon.v1.database` **Lines**: 17
 
-**Messages** (1): `ListDatabasesRequest` **Imports** (2):
-`google/protobuf/go_features.proto`, `pkg/common/proto/request_metadata.proto`
+**Messages** (1): `ListDatabasesRequest` **Imports** (2): `google/protobuf/go_features.proto`, `pkg/common/proto/request_metadata.proto`
 
 ### File Content
 
@@ -26438,8 +25588,7 @@ message ListDatabasesRequest {
 
 **Package**: `gcommon.v1.database` **Lines**: 19
 
-**Messages** (1): `ListDatabasesResponse` **Imports** (1):
-`google/protobuf/go_features.proto`
+**Messages** (1): `ListDatabasesResponse` **Imports** (1): `google/protobuf/go_features.proto`
 
 ### File Content
 
@@ -26473,8 +25622,7 @@ message ListDatabasesResponse {
 
 **Package**: `gcommon.v1.database` **Lines**: 25
 
-**Messages** (1): `ListMigrationsRequest` **Imports** (2):
-`google/protobuf/go_features.proto`, `pkg/common/proto/request_metadata.proto`
+**Messages** (1): `ListMigrationsRequest` **Imports** (2): `google/protobuf/go_features.proto`, `pkg/common/proto/request_metadata.proto`
 
 ### File Content
 
@@ -26514,8 +25662,7 @@ message ListMigrationsRequest {
 
 **Package**: `gcommon.v1.database` **Lines**: 22
 
-**Messages** (1): `ListMigrationsResponse` **Imports** (2):
-`google/protobuf/go_features.proto`, `pkg/db/proto/migration_info.proto`
+**Messages** (1): `ListMigrationsResponse` **Imports** (2): `google/protobuf/go_features.proto`, `pkg/db/proto/migration_info.proto`
 
 ### File Content
 
@@ -26552,8 +25699,7 @@ message ListMigrationsResponse {
 
 **Package**: `gcommon.v1.database` **Lines**: 20
 
-**Messages** (1): `ListSchemasRequest` **Imports** (2):
-`google/protobuf/go_features.proto`, `pkg/common/proto/request_metadata.proto`
+**Messages** (1): `ListSchemasRequest` **Imports** (2): `google/protobuf/go_features.proto`, `pkg/common/proto/request_metadata.proto`
 
 ### File Content
 
@@ -26588,8 +25734,7 @@ message ListSchemasRequest {
 
 **Package**: `gcommon.v1.database` **Lines**: 19
 
-**Messages** (1): `ListSchemasResponse` **Imports** (1):
-`google/protobuf/go_features.proto`
+**Messages** (1): `ListSchemasResponse` **Imports** (1): `google/protobuf/go_features.proto`
 
 ### File Content
 
@@ -26623,8 +25768,7 @@ message ListSchemasResponse {
 
 **Package**: `gcommon.v1.database` **Lines**: 28
 
-**Messages** (1): `MigrationInfo` **Imports** (2):
-`google/protobuf/go_features.proto`, `google/protobuf/timestamp.proto`
+**Messages** (1): `MigrationInfo` **Imports** (2): `google/protobuf/go_features.proto`, `google/protobuf/timestamp.proto`
 
 ### File Content
 
@@ -26667,8 +25811,7 @@ message MigrationInfo {
 
 **Package**: `gcommon.v1.database` **Lines**: 25
 
-**Messages** (1): `MigrationScript` **Imports** (1):
-`google/protobuf/go_features.proto`
+**Messages** (1): `MigrationScript` **Imports** (1): `google/protobuf/go_features.proto`
 
 ### File Content
 
@@ -26708,16 +25851,8 @@ message MigrationScript {
 
 **Package**: `gcommon.v1.database` **Lines**: 38
 
-**Services** (1): `MigrationService` **Imports** (9):
-`google/protobuf/go_features.proto`,
-`pkg/db/proto/get_migration_status_request.proto`,
-`pkg/db/proto/get_migration_status_response.proto`,
-`pkg/db/proto/list_migrations_request.proto`,
-`pkg/db/proto/list_migrations_response.proto`,
-`pkg/db/proto/revert_migration_request.proto`,
-`pkg/db/proto/revert_migration_response.proto`,
-`pkg/db/proto/run_migration_request.proto`,
-`pkg/db/proto/run_migration_response.proto`
+**Services** (1): `MigrationService` **Imports** (9): `google/protobuf/go_features.proto`, `pkg/db/proto/get_migration_status_request.proto`, `pkg/db/proto/get_migration_status_response.proto`, `pkg/db/proto/list_migrations_request.proto`,
+`pkg/db/proto/list_migrations_response.proto`, `pkg/db/proto/revert_migration_request.proto`, `pkg/db/proto/revert_migration_response.proto`, `pkg/db/proto/run_migration_request.proto`, `pkg/db/proto/run_migration_response.proto`
 
 ### File Content
 
@@ -26770,8 +25905,7 @@ service MigrationService {
 
 **Package**: `gcommon.v1.database` **Lines**: 27
 
-**Messages** (1): `MySQLConfig` **Imports** (1):
-`google/protobuf/go_features.proto`
+**Messages** (1): `MySQLConfig` **Imports** (1): `google/protobuf/go_features.proto`
 
 ### File Content
 
@@ -26813,8 +25947,7 @@ message MySQLConfig {
 
 **Package**: `gcommon.v1.database` **Lines**: 28
 
-**Messages** (1): `MySQLStatus` **Imports** (2):
-`google/protobuf/go_features.proto`, `google/protobuf/timestamp.proto`
+**Messages** (1): `MySQLStatus` **Imports** (2): `google/protobuf/go_features.proto`, `google/protobuf/timestamp.proto`
 
 ### File Content
 
@@ -26857,8 +25990,7 @@ message MySQLStatus {
 
 **Package**: `gcommon.v1.database` **Lines**: 34
 
-**Messages** (1): `PebbleConfig` **Imports** (1):
-`google/protobuf/go_features.proto`
+**Messages** (1): `PebbleConfig` **Imports** (1): `google/protobuf/go_features.proto`
 
 ### File Content
 
@@ -26907,8 +26039,7 @@ message PebbleConfig {
 
 **Package**: `gcommon.v1.database` **Lines**: 29
 
-**Messages** (1): `PoolStats` **Imports** (2): `google/protobuf/duration.proto`,
-`google/protobuf/go_features.proto`
+**Messages** (1): `PoolStats` **Imports** (2): `google/protobuf/duration.proto`, `google/protobuf/go_features.proto`
 
 ### File Content
 
@@ -26952,9 +26083,7 @@ message PoolStats {
 
 **Package**: `gcommon.v1.database` **Lines**: 33
 
-**Messages** (1): `QueryOptions` **Imports** (3):
-`google/protobuf/duration.proto`, `google/protobuf/go_features.proto`,
-`pkg/db/proto/consistency_level.proto`
+**Messages** (1): `QueryOptions` **Imports** (3): `google/protobuf/duration.proto`, `google/protobuf/go_features.proto`, `pkg/db/proto/consistency_level.proto`
 
 ### File Content
 
@@ -27002,8 +26131,7 @@ message QueryOptions {
 
 **Package**: `gcommon.v1.database` **Lines**: 26
 
-**Messages** (1): `QueryParameter` **Imports** (2): `google/protobuf/any.proto`,
-`google/protobuf/go_features.proto`
+**Messages** (1): `QueryParameter` **Imports** (2): `google/protobuf/any.proto`, `google/protobuf/go_features.proto`
 
 ### File Content
 
@@ -27044,9 +26172,7 @@ message QueryParameter {
 
 **Package**: `gcommon.v1.database` **Lines**: 34
 
-**Messages** (1): `QueryRequest` **Imports** (4):
-`google/protobuf/go_features.proto`, `pkg/common/proto/request_metadata.proto`,
-`pkg/db/proto/query_options.proto`, `pkg/db/proto/query_parameter.proto`
+**Messages** (1): `QueryRequest` **Imports** (4): `google/protobuf/go_features.proto`, `pkg/common/proto/request_metadata.proto`, `pkg/db/proto/query_options.proto`, `pkg/db/proto/query_parameter.proto`
 
 ### File Content
 
@@ -27095,9 +26221,7 @@ message QueryRequest {
 
 **Package**: `gcommon.v1.database` **Lines**: 28
 
-**Messages** (1): `QueryResponse` **Imports** (4):
-`google/protobuf/go_features.proto`, `pkg/common/proto/error.proto`,
-`pkg/db/proto/query_stats.proto`, `pkg/db/proto/result_set.proto`
+**Messages** (1): `QueryResponse` **Imports** (4): `google/protobuf/go_features.proto`, `pkg/common/proto/error.proto`, `pkg/db/proto/query_stats.proto`, `pkg/db/proto/result_set.proto`
 
 ### File Content
 
@@ -27140,9 +26264,7 @@ message QueryResponse {
 
 **Package**: `gcommon.v1.database` **Lines**: 36
 
-**Messages** (1): `QueryRowRequest` **Imports** (4):
-`google/protobuf/go_features.proto`, `pkg/common/proto/request_metadata.proto`,
-`pkg/db/proto/query_options.proto`, `pkg/db/proto/query_parameter.proto`
+**Messages** (1): `QueryRowRequest` **Imports** (4): `google/protobuf/go_features.proto`, `pkg/common/proto/request_metadata.proto`, `pkg/db/proto/query_options.proto`, `pkg/db/proto/query_parameter.proto`
 
 ### File Content
 
@@ -27193,9 +26315,7 @@ message QueryRowRequest {
 
 **Package**: `gcommon.v1.database` **Lines**: 37
 
-**Messages** (1): `QueryRowResponse` **Imports** (4):
-`google/protobuf/any.proto`, `google/protobuf/go_features.proto`,
-`pkg/common/proto/error.proto`, `pkg/db/proto/query_stats.proto`
+**Messages** (1): `QueryRowResponse` **Imports** (4): `google/protobuf/any.proto`, `google/protobuf/go_features.proto`, `pkg/common/proto/error.proto`, `pkg/db/proto/query_stats.proto`
 
 ### File Content
 
@@ -27247,8 +26367,7 @@ message QueryRowResponse {
 
 **Package**: `gcommon.v1.database` **Lines**: 32
 
-**Messages** (1): `QueryStats` **Imports** (2):
-`google/protobuf/duration.proto`, `google/protobuf/go_features.proto`
+**Messages** (1): `QueryStats` **Imports** (2): `google/protobuf/duration.proto`, `google/protobuf/go_features.proto`
 
 ### File Content
 
@@ -27295,9 +26414,7 @@ message QueryStats {
 
 **Package**: `gcommon.v1.database` **Lines**: 30
 
-**Messages** (1): `ResultSet` **Imports** (3):
-`google/protobuf/go_features.proto`, `pkg/db/proto/column_metadata.proto`,
-`pkg/db/proto/row.proto`
+**Messages** (1): `ResultSet` **Imports** (3): `google/protobuf/go_features.proto`, `pkg/db/proto/column_metadata.proto`, `pkg/db/proto/row.proto`
 
 ### File Content
 
@@ -27342,8 +26459,7 @@ message ResultSet {
 
 **Package**: `gcommon.v1.database` **Lines**: 25
 
-**Messages** (1): `RevertMigrationRequest` **Imports** (2):
-`google/protobuf/go_features.proto`, `pkg/common/proto/request_metadata.proto`
+**Messages** (1): `RevertMigrationRequest` **Imports** (2): `google/protobuf/go_features.proto`, `pkg/common/proto/request_metadata.proto`
 
 ### File Content
 
@@ -27383,8 +26499,7 @@ message RevertMigrationRequest {
 
 **Package**: `gcommon.v1.database` **Lines**: 28
 
-**Messages** (1): `RevertMigrationResponse` **Imports** (2):
-`google/protobuf/go_features.proto`, `pkg/common/proto/error.proto`
+**Messages** (1): `RevertMigrationResponse` **Imports** (2): `google/protobuf/go_features.proto`, `pkg/common/proto/error.proto`
 
 ### File Content
 
@@ -27427,8 +26542,7 @@ message RevertMigrationResponse {
 
 **Package**: `gcommon.v1.database` **Lines**: 20
 
-**Messages** (1): `RollbackTransactionRequest` **Imports** (2):
-`google/protobuf/go_features.proto`, `pkg/common/proto/request_metadata.proto`
+**Messages** (1): `RollbackTransactionRequest` **Imports** (2): `google/protobuf/go_features.proto`, `pkg/common/proto/request_metadata.proto`
 
 ### File Content
 
@@ -27463,8 +26577,7 @@ message RollbackTransactionRequest {
 
 **Package**: `gcommon.v1.database` **Lines**: 20
 
-**Messages** (1): `Row` **Imports** (2): `google/protobuf/any.proto`,
-`google/protobuf/go_features.proto`
+**Messages** (1): `Row` **Imports** (2): `google/protobuf/any.proto`, `google/protobuf/go_features.proto`
 
 ### File Content
 
@@ -27499,9 +26612,7 @@ message Row {
 
 **Package**: `gcommon.v1.database` **Lines**: 24
 
-**Messages** (1): `RunMigrationRequest` **Imports** (3):
-`google/protobuf/go_features.proto`, `pkg/common/proto/request_metadata.proto`,
-`pkg/db/proto/migration_script.proto`
+**Messages** (1): `RunMigrationRequest` **Imports** (3): `google/protobuf/go_features.proto`, `pkg/common/proto/request_metadata.proto`, `pkg/db/proto/migration_script.proto`
 
 ### File Content
 
@@ -27540,8 +26651,7 @@ message RunMigrationRequest {
 
 **Package**: `gcommon.v1.database` **Lines**: 26
 
-**Messages** (1): `RunMigrationResponse` **Imports** (2):
-`google/protobuf/go_features.proto`, `pkg/common/proto/error.proto`
+**Messages** (1): `RunMigrationResponse` **Imports** (2): `google/protobuf/go_features.proto`, `pkg/common/proto/error.proto`
 
 ### File Content
 
@@ -27582,9 +26692,7 @@ message RunMigrationResponse {
 
 **Package**: `gcommon.v1.database` **Lines**: 27
 
-**Messages** (1): `TransactionOptions` **Imports** (3):
-`google/protobuf/duration.proto`, `google/protobuf/go_features.proto`,
-`pkg/db/proto/isolation_level.proto`
+**Messages** (1): `TransactionOptions` **Imports** (3): `google/protobuf/duration.proto`, `google/protobuf/go_features.proto`, `pkg/db/proto/isolation_level.proto`
 
 ### File Content
 
@@ -27626,14 +26734,8 @@ message TransactionOptions {
 
 **Package**: `gcommon.v1.database` **Lines**: 37
 
-**Services** (1): `TransactionService` **Imports** (8):
-`google/protobuf/empty.proto`, `google/protobuf/go_features.proto`,
-`pkg/db/proto/begin_transaction_request.proto`,
-`pkg/db/proto/begin_transaction_response.proto`,
-`pkg/db/proto/commit_transaction_request.proto`,
-`pkg/db/proto/rollback_transaction_request.proto`,
-`pkg/db/proto/transaction_status_request.proto`,
-`pkg/db/proto/transaction_status_response.proto`
+**Services** (1): `TransactionService` **Imports** (8): `google/protobuf/empty.proto`, `google/protobuf/go_features.proto`, `pkg/db/proto/begin_transaction_request.proto`, `pkg/db/proto/begin_transaction_response.proto`,
+`pkg/db/proto/commit_transaction_request.proto`, `pkg/db/proto/rollback_transaction_request.proto`, `pkg/db/proto/transaction_status_request.proto`, `pkg/db/proto/transaction_status_response.proto`
 
 ### File Content
 
@@ -27685,8 +26787,7 @@ service TransactionService {
 
 **Package**: `gcommon.v1.database` **Lines**: 22
 
-**Messages** (1): `TransactionStatusRequest` **Imports** (2):
-`google/protobuf/go_features.proto`, `pkg/common/proto/request_metadata.proto`
+**Messages** (1): `TransactionStatusRequest` **Imports** (2): `google/protobuf/go_features.proto`, `pkg/common/proto/request_metadata.proto`
 
 ### File Content
 
@@ -27723,8 +26824,7 @@ message TransactionStatusRequest {
 
 **Package**: `gcommon.v1.database` **Lines**: 25
 
-**Messages** (1): `TransactionStatusResponse` **Imports** (2):
-`google/protobuf/go_features.proto`, `pkg/common/proto/error.proto`
+**Messages** (1): `TransactionStatusResponse` **Imports** (2): `google/protobuf/go_features.proto`, `pkg/common/proto/error.proto`
 
 ### File Content
 
@@ -27764,10 +26864,7 @@ message TransactionStatusResponse {
 
 **Package**: `gcommon.v1.health` **Lines**: 41
 
-**Messages** (1): `CheckResult` **Imports** (5):
-`google/protobuf/duration.proto`, `google/protobuf/go_features.proto`,
-`google/protobuf/timestamp.proto`, `pkg/common/proto/error.proto`,
-`pkg/common/proto/health_status.proto`
+**Messages** (1): `CheckResult` **Imports** (5): `google/protobuf/duration.proto`, `google/protobuf/go_features.proto`, `google/protobuf/timestamp.proto`, `pkg/common/proto/error.proto`, `pkg/common/proto/health_status.proto`
 
 ### File Content
 
@@ -27823,8 +26920,7 @@ message CheckResult {
 
 **Package**: `gcommon.v1.health` **Lines**: 33
 
-**Messages** (1): `ConfigureAlertingRequest` **Imports** (2):
-`google/protobuf/go_features.proto`, `pkg/common/proto/request_metadata.proto`
+**Messages** (1): `ConfigureAlertingRequest` **Imports** (2): `google/protobuf/go_features.proto`, `pkg/common/proto/request_metadata.proto`
 
 ### File Content
 
@@ -27872,8 +26968,7 @@ message ConfigureAlertingRequest {
 
 **Package**: `gcommon.v1.health` **Lines**: 29
 
-**Messages** (1): `ConfigureAlertingResponse` **Imports** (2):
-`google/protobuf/go_features.proto`, `pkg/common/proto/error.proto`
+**Messages** (1): `ConfigureAlertingResponse` **Imports** (2): `google/protobuf/go_features.proto`, `pkg/common/proto/error.proto`
 
 ### File Content
 
@@ -27917,8 +27012,7 @@ message ConfigureAlertingResponse {
 
 **Package**: `gcommon.v1.health` **Lines**: 24
 
-**Messages** (1): `DisableCheckRequest` **Imports** (2):
-`google/protobuf/go_features.proto`, `pkg/common/proto/request_metadata.proto`
+**Messages** (1): `DisableCheckRequest` **Imports** (2): `google/protobuf/go_features.proto`, `pkg/common/proto/request_metadata.proto`
 
 ### File Content
 
@@ -27957,8 +27051,7 @@ message DisableCheckRequest {
 
 **Package**: `gcommon.v1.health` **Lines**: 29
 
-**Messages** (1): `DisableCheckResponse` **Imports** (2):
-`google/protobuf/go_features.proto`, `pkg/common/proto/error.proto`
+**Messages** (1): `DisableCheckResponse` **Imports** (2): `google/protobuf/go_features.proto`, `pkg/common/proto/error.proto`
 
 ### File Content
 
@@ -28002,8 +27095,7 @@ message DisableCheckResponse {
 
 **Package**: `gcommon.v1.health` **Lines**: 24
 
-**Messages** (1): `EnableCheckRequest` **Imports** (2):
-`google/protobuf/go_features.proto`, `pkg/common/proto/request_metadata.proto`
+**Messages** (1): `EnableCheckRequest` **Imports** (2): `google/protobuf/go_features.proto`, `pkg/common/proto/request_metadata.proto`
 
 ### File Content
 
@@ -28042,8 +27134,7 @@ message EnableCheckRequest {
 
 **Package**: `gcommon.v1.health` **Lines**: 29
 
-**Messages** (1): `EnableCheckResponse` **Imports** (2):
-`google/protobuf/go_features.proto`, `pkg/common/proto/error.proto`
+**Messages** (1): `EnableCheckResponse` **Imports** (2): `google/protobuf/go_features.proto`, `pkg/common/proto/error.proto`
 
 ### File Content
 
@@ -28087,8 +27178,7 @@ message EnableCheckResponse {
 
 **Package**: `gcommon.v1.health` **Lines**: 24
 
-**Messages** (1): `GetCheckStatusRequest` **Imports** (2):
-`google/protobuf/go_features.proto`, `pkg/common/proto/request_metadata.proto`
+**Messages** (1): `GetCheckStatusRequest` **Imports** (2): `google/protobuf/go_features.proto`, `pkg/common/proto/request_metadata.proto`
 
 ### File Content
 
@@ -28127,9 +27217,7 @@ message GetCheckStatusRequest {
 
 **Package**: `gcommon.v1.health` **Lines**: 31
 
-**Messages** (1): `GetHealthHistoryRequest` **Imports** (3):
-`google/protobuf/go_features.proto`, `google/protobuf/timestamp.proto`,
-`pkg/common/proto/request_metadata.proto`
+**Messages** (1): `GetHealthHistoryRequest` **Imports** (3): `google/protobuf/go_features.proto`, `google/protobuf/timestamp.proto`, `pkg/common/proto/request_metadata.proto`
 
 ### File Content
 
@@ -28175,8 +27263,7 @@ message GetHealthHistoryRequest {
 
 **Package**: `gcommon.v1.health` **Lines**: 24
 
-**Messages** (1): `GetHealthMetricsRequest` **Imports** (2):
-`google/protobuf/go_features.proto`, `pkg/common/proto/request_metadata.proto`
+**Messages** (1): `GetHealthMetricsRequest` **Imports** (2): `google/protobuf/go_features.proto`, `pkg/common/proto/request_metadata.proto`
 
 ### File Content
 
@@ -28215,9 +27302,7 @@ message GetHealthMetricsRequest {
 
 **Package**: `gcommon.v1.health` **Lines**: 21
 
-**Messages** (1): `GetHealthMetricsResponse` **Imports** (3):
-`google/protobuf/go_features.proto`, `pkg/common/proto/request_metadata.proto`,
-`pkg/health/proto/health_metric_data.proto`
+**Messages** (1): `GetHealthMetricsResponse` **Imports** (3): `google/protobuf/go_features.proto`, `pkg/common/proto/request_metadata.proto`, `pkg/health/proto/health_metric_data.proto`
 
 ### File Content
 
@@ -28253,8 +27338,7 @@ message GetHealthMetricsResponse {
 
 **Package**: `gcommon.v1.health` **Lines**: 27
 
-**Messages** (1): `GetHealthRequest` **Imports** (2):
-`google/protobuf/go_features.proto`, `pkg/common/proto/request_metadata.proto`
+**Messages** (1): `GetHealthRequest` **Imports** (2): `google/protobuf/go_features.proto`, `pkg/common/proto/request_metadata.proto`
 
 ### File Content
 
@@ -28296,8 +27380,7 @@ message GetHealthRequest {
 
 **Package**: `gcommon.v1.health` **Lines**: 23
 
-**Messages** (1): `GetServiceHealthRequest` **Imports** (2):
-`google/protobuf/go_features.proto`, `pkg/common/proto/request_metadata.proto`
+**Messages** (1): `GetServiceHealthRequest` **Imports** (2): `google/protobuf/go_features.proto`, `pkg/common/proto/request_metadata.proto`
 
 ### File Content
 
@@ -28335,9 +27418,7 @@ message GetServiceHealthRequest {
 
 **Package**: `gcommon.v1.health` **Lines**: 28
 
-**Messages** (1): `GetServiceHealthResponse` **Imports** (4):
-`google/protobuf/go_features.proto`, `google/protobuf/timestamp.proto`,
-`pkg/common/proto/error.proto`, `pkg/common/proto/health_status.proto`
+**Messages** (1): `GetServiceHealthResponse` **Imports** (4): `google/protobuf/go_features.proto`, `google/protobuf/timestamp.proto`, `pkg/common/proto/error.proto`, `pkg/common/proto/health_status.proto`
 
 ### File Content
 
@@ -28380,19 +27461,9 @@ message GetServiceHealthResponse {
 
 **Package**: `gcommon.v1.health` **Lines**: 50
 
-**Services** (1): `HealthAdminService` **Imports** (13):
-`google/protobuf/go_features.proto`,
-`pkg/health/proto/configure_alerting_request.proto`,
-`pkg/health/proto/configure_alerting_response.proto`,
-`pkg/health/proto/disable_check_request.proto`,
-`pkg/health/proto/disable_check_response.proto`,
-`pkg/health/proto/enable_check_request.proto`,
-`pkg/health/proto/enable_check_response.proto`,
-`pkg/health/proto/reset_health_stats_request.proto`,
-`pkg/health/proto/reset_health_stats_response.proto`,
-`pkg/health/proto/run_check_request.proto`,
-`pkg/health/proto/run_check_response.proto`,
-`pkg/health/proto/set_health_request.proto`,
+**Services** (1): `HealthAdminService` **Imports** (13): `google/protobuf/go_features.proto`, `pkg/health/proto/configure_alerting_request.proto`, `pkg/health/proto/configure_alerting_response.proto`,
+`pkg/health/proto/disable_check_request.proto`, `pkg/health/proto/disable_check_response.proto`, `pkg/health/proto/enable_check_request.proto`, `pkg/health/proto/enable_check_response.proto`,
+`pkg/health/proto/reset_health_stats_request.proto`, `pkg/health/proto/reset_health_stats_response.proto`, `pkg/health/proto/run_check_request.proto`, `pkg/health/proto/run_check_response.proto`, `pkg/health/proto/set_health_request.proto`,
 `pkg/health/proto/set_health_response.proto`
 
 ### File Content
@@ -28458,9 +27529,7 @@ service HealthAdminService {
 
 **Package**: `gcommon.v1.health` **Lines**: 30
 
-**Messages** (1): `HealthCheckRequest` **Imports** (3):
-`google/protobuf/duration.proto`, `google/protobuf/go_features.proto`,
-`pkg/common/proto/request_metadata.proto`
+**Messages** (1): `HealthCheckRequest` **Imports** (3): `google/protobuf/duration.proto`, `google/protobuf/go_features.proto`, `pkg/common/proto/request_metadata.proto`
 
 ### File Content
 
@@ -28505,11 +27574,8 @@ message HealthCheckRequest {
 
 **Package**: `gcommon.v1.health` **Lines**: 46
 
-**Messages** (1): `HealthCheckResponse` **Imports** (7):
-`google/protobuf/duration.proto`, `google/protobuf/go_features.proto`,
-`google/protobuf/timestamp.proto`, `pkg/common/proto/error.proto`,
-`pkg/common/proto/health_status.proto`, `pkg/health/proto/check_result.proto`,
-`pkg/health/proto/health_metrics.proto`
+**Messages** (1): `HealthCheckResponse` **Imports** (7): `google/protobuf/duration.proto`, `google/protobuf/go_features.proto`, `google/protobuf/timestamp.proto`, `pkg/common/proto/error.proto`, `pkg/common/proto/health_status.proto`,
+`pkg/health/proto/check_result.proto`, `pkg/health/proto/health_metrics.proto`
 
 ### File Content
 
@@ -28570,8 +27636,7 @@ message HealthCheckResponse {
 
 **Package**: `gcommon.v1.health` **Lines**: 35
 
-**Messages** (1): `HealthMetricData` **Imports** (2):
-`google/protobuf/go_features.proto`, `google/protobuf/timestamp.proto`
+**Messages** (1): `HealthMetricData` **Imports** (2): `google/protobuf/go_features.proto`, `google/protobuf/timestamp.proto`
 
 ### File Content
 
@@ -28621,8 +27686,7 @@ message HealthMetricData {
 
 **Package**: `gcommon.v1.health` **Lines**: 41
 
-**Messages** (1): `HealthMetrics` **Imports** (2):
-`google/protobuf/go_features.proto`, `google/protobuf/timestamp.proto`
+**Messages** (1): `HealthMetrics` **Imports** (2): `google/protobuf/go_features.proto`, `google/protobuf/timestamp.proto`
 
 ### File Content
 
@@ -28678,21 +27742,10 @@ message HealthMetrics {
 
 **Package**: `gcommon.v1.health` **Lines**: 51
 
-**Services** (1): `HealthService` **Imports** (15):
-`google/protobuf/go_features.proto`,
-`pkg/health/proto/get_health_metrics_request.proto`,
-`pkg/health/proto/get_health_metrics_response.proto`,
-`pkg/health/proto/get_service_health_request.proto`,
-`pkg/health/proto/get_service_health_response.proto`,
-`pkg/health/proto/health_check_request.proto`,
-`pkg/health/proto/health_check_response.proto`,
-`pkg/health/proto/list_services_request.proto`,
-`pkg/health/proto/list_services_response.proto`,
-`pkg/health/proto/register_check_request.proto`,
-`pkg/health/proto/register_check_response.proto`,
-`pkg/health/proto/unregister_check_request.proto`,
-`pkg/health/proto/unregister_check_response.proto`,
-`pkg/health/proto/watch_request.proto`, `pkg/health/proto/watch_response.proto`
+**Services** (1): `HealthService` **Imports** (15): `google/protobuf/go_features.proto`, `pkg/health/proto/get_health_metrics_request.proto`, `pkg/health/proto/get_health_metrics_response.proto`,
+`pkg/health/proto/get_service_health_request.proto`, `pkg/health/proto/get_service_health_response.proto`, `pkg/health/proto/health_check_request.proto`, `pkg/health/proto/health_check_response.proto`,
+`pkg/health/proto/list_services_request.proto`, `pkg/health/proto/list_services_response.proto`, `pkg/health/proto/register_check_request.proto`, `pkg/health/proto/register_check_response.proto`,
+`pkg/health/proto/unregister_check_request.proto`, `pkg/health/proto/unregister_check_response.proto`, `pkg/health/proto/watch_request.proto`, `pkg/health/proto/watch_response.proto`
 
 ### File Content
 
@@ -28758,8 +27811,7 @@ service HealthService {
 
 **Package**: `gcommon.v1.health` **Lines**: 24
 
-**Messages** (1): `ListChecksRequest` **Imports** (2):
-`google/protobuf/go_features.proto`, `pkg/common/proto/request_metadata.proto`
+**Messages** (1): `ListChecksRequest` **Imports** (2): `google/protobuf/go_features.proto`, `pkg/common/proto/request_metadata.proto`
 
 ### File Content
 
@@ -28798,8 +27850,7 @@ message ListChecksRequest {
 
 **Package**: `gcommon.v1.health` **Lines**: 20
 
-**Messages** (1): `ListServicesRequest` **Imports** (2):
-`google/protobuf/go_features.proto`, `pkg/common/proto/request_metadata.proto`
+**Messages** (1): `ListServicesRequest` **Imports** (2): `google/protobuf/go_features.proto`, `pkg/common/proto/request_metadata.proto`
 
 ### File Content
 
@@ -28834,8 +27885,7 @@ message ListServicesRequest {
 
 **Package**: `gcommon.v1.health` **Lines**: 20
 
-**Messages** (1): `ListServicesResponse` **Imports** (2):
-`google/protobuf/go_features.proto`, `pkg/common/proto/request_metadata.proto`
+**Messages** (1): `ListServicesResponse` **Imports** (2): `google/protobuf/go_features.proto`, `pkg/common/proto/request_metadata.proto`
 
 ### File Content
 
@@ -28870,9 +27920,7 @@ message ListServicesResponse {
 
 **Package**: `gcommon.v1.health` **Lines**: 28
 
-**Messages** (1): `RegisterCheckRequest` **Imports** (3):
-`google/protobuf/go_features.proto`, `pkg/common/proto/request_metadata.proto`,
-`pkg/health/proto/health_check_request.proto`
+**Messages** (1): `RegisterCheckRequest` **Imports** (3): `google/protobuf/go_features.proto`, `pkg/common/proto/request_metadata.proto`, `pkg/health/proto/health_check_request.proto`
 
 ### File Content
 
@@ -28915,8 +27963,7 @@ message RegisterCheckRequest {
 
 **Package**: `gcommon.v1.health` **Lines**: 26
 
-**Messages** (1): `RegisterCheckResponse` **Imports** (2):
-`google/protobuf/go_features.proto`, `pkg/common/proto/error.proto`
+**Messages** (1): `RegisterCheckResponse` **Imports** (2): `google/protobuf/go_features.proto`, `pkg/common/proto/error.proto`
 
 ### File Content
 
@@ -28957,8 +28004,7 @@ message RegisterCheckResponse {
 
 **Package**: `gcommon.v1.health` **Lines**: 24
 
-**Messages** (1): `ResetHealthStatsRequest` **Imports** (2):
-`google/protobuf/go_features.proto`, `pkg/common/proto/request_metadata.proto`
+**Messages** (1): `ResetHealthStatsRequest` **Imports** (2): `google/protobuf/go_features.proto`, `pkg/common/proto/request_metadata.proto`
 
 ### File Content
 
@@ -28997,9 +28043,7 @@ message ResetHealthStatsRequest {
 
 **Package**: `gcommon.v1.health` **Lines**: 33
 
-**Messages** (1): `ResetHealthStatsResponse` **Imports** (3):
-`google/protobuf/go_features.proto`, `google/protobuf/timestamp.proto`,
-`pkg/common/proto/error.proto`
+**Messages** (1): `ResetHealthStatsResponse` **Imports** (3): `google/protobuf/go_features.proto`, `google/protobuf/timestamp.proto`, `pkg/common/proto/error.proto`
 
 ### File Content
 
@@ -29047,8 +28091,7 @@ message ResetHealthStatsResponse {
 
 **Package**: `gcommon.v1.health` **Lines**: 24
 
-**Messages** (1): `RunCheckRequest` **Imports** (2):
-`google/protobuf/go_features.proto`, `pkg/common/proto/request_metadata.proto`
+**Messages** (1): `RunCheckRequest` **Imports** (2): `google/protobuf/go_features.proto`, `pkg/common/proto/request_metadata.proto`
 
 ### File Content
 
@@ -29087,10 +28130,7 @@ message RunCheckRequest {
 
 **Package**: `gcommon.v1.health` **Lines**: 41
 
-**Messages** (1): `RunCheckResponse` **Imports** (5):
-`google/protobuf/duration.proto`, `google/protobuf/go_features.proto`,
-`google/protobuf/timestamp.proto`, `pkg/common/proto/error.proto`,
-`pkg/common/proto/health_status.proto`
+**Messages** (1): `RunCheckResponse` **Imports** (5): `google/protobuf/duration.proto`, `google/protobuf/go_features.proto`, `google/protobuf/timestamp.proto`, `pkg/common/proto/error.proto`, `pkg/common/proto/health_status.proto`
 
 ### File Content
 
@@ -29146,9 +28186,7 @@ message RunCheckResponse {
 
 **Package**: `gcommon.v1.health` **Lines**: 28
 
-**Messages** (1): `SetHealthRequest` **Imports** (3):
-`google/protobuf/go_features.proto`, `pkg/common/proto/health_status.proto`,
-`pkg/common/proto/request_metadata.proto`
+**Messages** (1): `SetHealthRequest` **Imports** (3): `google/protobuf/go_features.proto`, `pkg/common/proto/health_status.proto`, `pkg/common/proto/request_metadata.proto`
 
 ### File Content
 
@@ -29191,9 +28229,7 @@ message SetHealthRequest {
 
 **Package**: `gcommon.v1.health` **Lines**: 37
 
-**Messages** (1): `SetHealthResponse` **Imports** (4):
-`google/protobuf/go_features.proto`, `google/protobuf/timestamp.proto`,
-`pkg/common/proto/error.proto`, `pkg/common/proto/health_status.proto`
+**Messages** (1): `SetHealthResponse` **Imports** (4): `google/protobuf/go_features.proto`, `google/protobuf/timestamp.proto`, `pkg/common/proto/error.proto`, `pkg/common/proto/health_status.proto`
 
 ### File Content
 
@@ -29245,8 +28281,7 @@ message SetHealthResponse {
 
 **Package**: `gcommon.v1.health` **Lines**: 24
 
-**Messages** (1): `UnregisterCheckRequest` **Imports** (2):
-`google/protobuf/go_features.proto`, `pkg/common/proto/request_metadata.proto`
+**Messages** (1): `UnregisterCheckRequest` **Imports** (2): `google/protobuf/go_features.proto`, `pkg/common/proto/request_metadata.proto`
 
 ### File Content
 
@@ -29285,8 +28320,7 @@ message UnregisterCheckRequest {
 
 **Package**: `gcommon.v1.health` **Lines**: 29
 
-**Messages** (1): `UnregisterCheckResponse` **Imports** (2):
-`google/protobuf/go_features.proto`, `pkg/common/proto/error.proto`
+**Messages** (1): `UnregisterCheckResponse` **Imports** (2): `google/protobuf/go_features.proto`, `pkg/common/proto/error.proto`
 
 ### File Content
 
@@ -29330,8 +28364,7 @@ message UnregisterCheckResponse {
 
 **Package**: `gcommon.v1.health` **Lines**: 23
 
-**Messages** (1): `WatchRequest` **Imports** (2):
-`google/protobuf/go_features.proto`, `pkg/common/proto/request_metadata.proto`
+**Messages** (1): `WatchRequest` **Imports** (2): `google/protobuf/go_features.proto`, `pkg/common/proto/request_metadata.proto`
 
 ### File Content
 
@@ -29369,11 +28402,8 @@ message WatchRequest {
 
 **Package**: `gcommon.v1.health` **Lines**: 55
 
-**Messages** (1): `WatchResponse` **Imports** (7):
-`google/protobuf/duration.proto`, `google/protobuf/go_features.proto`,
-`google/protobuf/timestamp.proto`, `pkg/common/proto/error.proto`,
-`pkg/common/proto/health_status.proto`, `pkg/health/proto/check_result.proto`,
-`pkg/health/proto/health_metrics.proto`
+**Messages** (1): `WatchResponse` **Imports** (7): `google/protobuf/duration.proto`, `google/protobuf/go_features.proto`, `google/protobuf/timestamp.proto`, `pkg/common/proto/error.proto`, `pkg/common/proto/health_status.proto`,
+`pkg/health/proto/check_result.proto`, `pkg/health/proto/health_metrics.proto`
 
 ### File Content
 
@@ -29443,9 +28473,7 @@ message WatchResponse {
 
 **Package**: `gcommon.v1.log` **Lines**: 51
 
-**Messages** (3): `AppenderConfig`, `OutputConfig`, `FormatterConfig`
-**Imports** (3): `google/protobuf/go_features.proto`,
-`pkg/log/proto/appender_type.proto`, `pkg/log/proto/formatter_type.proto`
+**Messages** (3): `AppenderConfig`, `OutputConfig`, `FormatterConfig` **Imports** (3): `google/protobuf/go_features.proto`, `pkg/log/proto/appender_type.proto`, `pkg/log/proto/formatter_type.proto`
 
 ### File Content
 
@@ -29511,8 +28539,7 @@ message AppenderConfig {
 
 **Package**: `gcommon.v1.log` **Lines**: 24
 
-**Enums** (1): `AppenderType` **Imports** (1):
-`google/protobuf/go_features.proto`
+**Enums** (1): `AppenderType` **Imports** (1): `google/protobuf/go_features.proto`
 
 ### File Content
 
@@ -29551,8 +28578,7 @@ enum AppenderType {
 
 **Package**: `gcommon.v1.log` **Lines**: 23
 
-**Messages** (1): `ArchiveCriteria` **Imports** (2):
-`google/protobuf/duration.proto`, `google/protobuf/go_features.proto`
+**Messages** (1): `ArchiveCriteria` **Imports** (2): `google/protobuf/duration.proto`, `google/protobuf/go_features.proto`
 
 ### File Content
 
@@ -29590,8 +28616,7 @@ message ArchiveCriteria {
 
 **Package**: `gcommon.v1.log` **Lines**: 23
 
-**Enums** (1): `CompressionType` **Imports** (1):
-`google/protobuf/go_features.proto`
+**Enums** (1): `CompressionType` **Imports** (1): `google/protobuf/go_features.proto`
 
 ### File Content
 
@@ -29629,8 +28654,7 @@ enum CompressionType {
 
 **Package**: `gcommon.v1.log` **Lines**: 34
 
-**Messages** (1): `ErrorInfo` **Imports** (1):
-`google/protobuf/go_features.proto`
+**Messages** (1): `ErrorInfo` **Imports** (1): `google/protobuf/go_features.proto`
 
 ### File Content
 
@@ -29716,8 +28740,7 @@ enum FilterType {
 
 **Package**: `gcommon.v1.log` **Lines**: 22
 
-**Enums** (1): `FormatterType` **Imports** (1):
-`google/protobuf/go_features.proto`
+**Enums** (1): `FormatterType` **Imports** (1): `google/protobuf/go_features.proto`
 
 ### File Content
 
@@ -29754,9 +28777,7 @@ enum FormatterType {
 
 **Package**: `gcommon.v1.log` **Lines**: 61
 
-**Messages** (1): `LogEntry` **Imports** (7): `google/protobuf/any.proto`,
-`google/protobuf/go_features.proto`, `google/protobuf/timestamp.proto`,
-`pkg/common/proto/error.proto`, `pkg/log/proto/error_info.proto`,
+**Messages** (1): `LogEntry` **Imports** (7): `google/protobuf/any.proto`, `google/protobuf/go_features.proto`, `google/protobuf/timestamp.proto`, `pkg/common/proto/error.proto`, `pkg/log/proto/error_info.proto`,
 `pkg/log/proto/log_level.proto`, `pkg/log/proto/source_location.proto`
 
 ### File Content
@@ -29872,8 +28893,7 @@ enum LogLevel {
 
 **Package**: `gcommon.v1.log` **Lines**: 22
 
-**Enums** (1): `LogSortField` **Imports** (1):
-`google/protobuf/go_features.proto`
+**Enums** (1): `LogSortField` **Imports** (1): `google/protobuf/go_features.proto`
 
 ### File Content
 
@@ -29910,8 +28930,7 @@ enum LogSortField {
 
 **Package**: `gcommon.v1.log` **Lines**: 34
 
-**Messages** (1): `LogStatistics` **Imports** (1):
-`google/protobuf/go_features.proto`
+**Messages** (1): `LogStatistics` **Imports** (1): `google/protobuf/go_features.proto`
 
 ### File Content
 
@@ -29960,9 +28979,7 @@ message LogStatistics {
 
 **Package**: `gcommon.v1.log` **Lines**: 33
 
-**Messages** (1): `LoggerConfig` **Imports** (3):
-`google/protobuf/go_features.proto`, `pkg/log/proto/appender_config.proto`,
-`pkg/log/proto/log_level.proto`
+**Messages** (1): `LoggerConfig` **Imports** (3): `google/protobuf/go_features.proto`, `pkg/log/proto/appender_config.proto`, `pkg/log/proto/log_level.proto`
 
 ### File Content
 
@@ -30010,8 +29027,7 @@ message LoggerConfig {
 
 **Package**: `gcommon.v1.log` **Lines**: 21
 
-**Enums** (1): `LoggerStatus` **Imports** (1):
-`google/protobuf/go_features.proto`
+**Enums** (1): `LoggerStatus` **Imports** (1): `google/protobuf/go_features.proto`
 
 ### File Content
 
@@ -30047,8 +29063,7 @@ enum LoggerStatus {
 
 **Package**: `gcommon.v1.log` **Lines**: 28
 
-**Messages** (1): `SourceLocation` **Imports** (1):
-`google/protobuf/go_features.proto`
+**Messages** (1): `SourceLocation` **Imports** (1): `google/protobuf/go_features.proto`
 
 ### File Content
 
@@ -30091,8 +29106,7 @@ message SourceLocation {
 
 **Package**: `gcommon.v1.media` **Lines**: 24
 
-**Messages** (1): `AudioTrack` **Imports** (1):
-`google/protobuf/go_features.proto`
+**Messages** (1): `AudioTrack` **Imports** (1): `google/protobuf/go_features.proto`
 
 ### File Content
 
@@ -30131,11 +29145,8 @@ message AudioTrack {
 
 **Package**: `gcommon.v1.media` **Lines**: 34
 
-**Messages** (1): `MediaFile` **Imports** (7):
-`google/protobuf/go_features.proto`, `google/protobuf/timestamp.proto`,
-`pkg/media/proto/audio_track.proto`, `pkg/media/proto/media_metadata.proto`,
-`pkg/media/proto/media_quality.proto`, `pkg/media/proto/media_type.proto`,
-`pkg/media/proto/subtitle_track.proto`
+**Messages** (1): `MediaFile` **Imports** (7): `google/protobuf/go_features.proto`, `google/protobuf/timestamp.proto`, `pkg/media/proto/audio_track.proto`, `pkg/media/proto/media_metadata.proto`, `pkg/media/proto/media_quality.proto`,
+`pkg/media/proto/media_type.proto`, `pkg/media/proto/subtitle_track.proto`
 
 ### File Content
 
@@ -30184,9 +29195,7 @@ message MediaFile {
 
 **Package**: `gcommon.v1.media` **Lines**: 32
 
-**Messages** (1): `MediaMetadata` **Imports** (3):
-`google/protobuf/go_features.proto`, `pkg/media/proto/movie_info.proto`,
-`pkg/media/proto/series_info.proto`
+**Messages** (1): `MediaMetadata` **Imports** (3): `google/protobuf/go_features.proto`, `pkg/media/proto/movie_info.proto`, `pkg/media/proto/series_info.proto`
 
 ### File Content
 
@@ -30233,9 +29242,7 @@ message MediaMetadata {
 
 **Package**: `gcommon.v1.media` **Lines**: 24
 
-**Messages** (1): `MediaQuality` **Imports** (3):
-`google/protobuf/go_features.proto`, `pkg/media/proto/quality_score.proto`,
-`pkg/media/proto/resolution.proto`
+**Messages** (1): `MediaQuality` **Imports** (3): `google/protobuf/go_features.proto`, `pkg/media/proto/quality_score.proto`, `pkg/media/proto/resolution.proto`
 
 ### File Content
 
@@ -30311,8 +29318,7 @@ enum MediaType {
 
 **Package**: `gcommon.v1.media` **Lines**: 22
 
-**Messages** (1): `MovieInfo` **Imports** (2):
-`google/protobuf/go_features.proto`, `google/protobuf/timestamp.proto`
+**Messages** (1): `MovieInfo` **Imports** (2): `google/protobuf/go_features.proto`, `google/protobuf/timestamp.proto`
 
 ### File Content
 
@@ -30349,8 +29355,7 @@ message MovieInfo {
 
 **Package**: `gcommon.v1.media` **Lines**: 22
 
-**Enums** (1): `QualityScore` **Imports** (1):
-`google/protobuf/go_features.proto`
+**Enums** (1): `QualityScore` **Imports** (1): `google/protobuf/go_features.proto`
 
 ### File Content
 
@@ -30424,8 +29429,7 @@ enum Resolution {
 
 **Package**: `gcommon.v1.media` **Lines**: 23
 
-**Messages** (1): `SeriesInfo` **Imports** (2):
-`google/protobuf/go_features.proto`, `google/protobuf/timestamp.proto`
+**Messages** (1): `SeriesInfo` **Imports** (2): `google/protobuf/go_features.proto`, `google/protobuf/timestamp.proto`
 
 ### File Content
 
@@ -30463,8 +29467,7 @@ message SeriesInfo {
 
 **Package**: `gcommon.v1.media` **Lines**: 24
 
-**Messages** (1): `SubtitleTrack` **Imports** (1):
-`google/protobuf/go_features.proto`
+**Messages** (1): `SubtitleTrack` **Imports** (1): `google/protobuf/go_features.proto`
 
 ### File Content
 
@@ -30503,8 +29506,7 @@ message SubtitleTrack {
 
 **Package**: `gcommon.v1.metrics` **Lines**: 58
 
-**Enums** (1): `AggregationType` **Imports** (1):
-`google/protobuf/go_features.proto`
+**Enums** (1): `AggregationType` **Imports** (1): `google/protobuf/go_features.proto`
 
 ### File Content
 
@@ -30577,8 +29579,7 @@ enum AggregationType {
 
 **Package**: `gcommon.v1.metrics` **Lines**: 55
 
-**Enums** (1): `AlertChannelType` **Imports** (1):
-`google/protobuf/go_features.proto`
+**Enums** (1): `AlertChannelType` **Imports** (1): `google/protobuf/go_features.proto`
 
 ### File Content
 
@@ -30648,9 +29649,7 @@ enum AlertChannelType {
 
 **Package**: `gcommon.v1.metrics` **Lines**: 33
 
-**Messages** (1): `AlertNotification` **Imports** (3):
-`google/protobuf/go_features.proto`, `google/protobuf/timestamp.proto`,
-`pkg/metrics/proto/alert_severity.proto`
+**Messages** (1): `AlertNotification` **Imports** (3): `google/protobuf/go_features.proto`, `google/protobuf/timestamp.proto`, `pkg/metrics/proto/alert_severity.proto`
 
 ### File Content
 
@@ -30698,8 +29697,7 @@ message AlertNotification {
 
 **Package**: `gcommon.v1.metrics` **Lines**: 21
 
-**Enums** (1): `AlertSeverity` **Imports** (1):
-`google/protobuf/go_features.proto`
+**Enums** (1): `AlertSeverity` **Imports** (1): `google/protobuf/go_features.proto`
 
 ### File Content
 
@@ -30796,9 +29794,7 @@ enum AlertState {
 
 **Package**: `gcommon.v1.metrics` **Lines**: 32
 
-**Messages** (1): `AlertingCondition` **Imports** (2):
-`google/protobuf/go_features.proto`,
-`pkg/metrics/proto/comparison_operator.proto`
+**Messages** (1): `AlertingCondition` **Imports** (2): `google/protobuf/go_features.proto`, `pkg/metrics/proto/comparison_operator.proto`
 
 ### File Content
 
@@ -30845,8 +29841,7 @@ message AlertingCondition {
 
 **Package**: `gcommon.v1.metrics` **Lines**: 33
 
-**Messages** (1): `AlertingRule` **Imports** (1):
-`google/protobuf/go_features.proto`
+**Messages** (1): `AlertingRule` **Imports** (1): `google/protobuf/go_features.proto`
 
 ### File Content
 
@@ -30894,8 +29889,7 @@ message AlertingRule {
 
 **Package**: `gcommon.v1.metrics` **Lines**: 30
 
-**Messages** (1): `APIKeyConfigUpdate` **Imports** (1):
-`google/protobuf/go_features.proto`
+**Messages** (1): `APIKeyConfigUpdate` **Imports** (1): `google/protobuf/go_features.proto`
 
 ### File Content
 
@@ -30940,8 +29934,7 @@ message APIKeyConfigUpdate {
 
 **Package**: `gcommon.v1.metrics` **Lines**: 34
 
-**Messages** (1): `BackupInfo` **Imports** (2):
-`google/protobuf/go_features.proto`, `google/protobuf/timestamp.proto`
+**Messages** (1): `BackupInfo` **Imports** (2): `google/protobuf/go_features.proto`, `google/protobuf/timestamp.proto`
 
 ### File Content
 
@@ -30990,9 +29983,7 @@ message BackupInfo {
 
 **Package**: `gcommon.v1.metrics` **Lines**: 41
 
-**Messages** (1): `BatchOptions` **Imports** (3):
-`google/protobuf/go_features.proto`, `google/protobuf/timestamp.proto`,
-`pkg/metrics/proto/batch_priority.proto`
+**Messages** (1): `BatchOptions` **Imports** (3): `google/protobuf/go_features.proto`, `google/protobuf/timestamp.proto`, `pkg/metrics/proto/batch_priority.proto`
 
 ### File Content
 
@@ -31048,8 +30039,7 @@ message BatchOptions {
 
 **Package**: `gcommon.v1.metrics` **Lines**: 25
 
-**Enums** (1): `BatchPriority` **Imports** (2):
-`google/protobuf/go_features.proto`, `google/protobuf/timestamp.proto`
+**Enums** (1): `BatchPriority` **Imports** (2): `google/protobuf/go_features.proto`, `google/protobuf/timestamp.proto`
 
 ### File Content
 
@@ -31089,8 +30079,7 @@ enum BatchPriority {
 
 **Package**: `gcommon.v1.metrics` **Lines**: 34
 
-**Enums** (1): `BufferOverflowStrategy` **Imports** (1):
-`google/protobuf/go_features.proto`
+**Enums** (1): `BufferOverflowStrategy` **Imports** (1): `google/protobuf/go_features.proto`
 
 ### File Content
 
@@ -31139,9 +30128,7 @@ enum BufferOverflowStrategy {
 
 **Package**: `gcommon.v1.metrics` **Lines**: 26
 
-**Enums** (1): `ChangeType` **Imports** (3):
-`google/protobuf/go_features.proto`, `google/protobuf/timestamp.proto`,
-`pkg/metrics/proto/validation_result.proto`
+**Enums** (1): `ChangeType` **Imports** (3): `google/protobuf/go_features.proto`, `google/protobuf/timestamp.proto`, `pkg/metrics/proto/validation_result.proto`
 
 ### File Content
 
@@ -31182,8 +30169,7 @@ enum ChangeType {
 
 **Package**: `gcommon.v1.metrics` **Lines**: 24
 
-**Enums** (1): `CleanupStrategy` **Imports** (1):
-`google/protobuf/go_features.proto`
+**Enums** (1): `CleanupStrategy` **Imports** (1): `google/protobuf/go_features.proto`
 
 ### File Content
 
@@ -31222,8 +30208,7 @@ enum CleanupStrategy {
 
 **Package**: `gcommon.v1.metrics` **Lines**: 23
 
-**Enums** (1): `ComparisonOperator` **Imports** (1):
-`google/protobuf/go_features.proto`
+**Enums** (1): `ComparisonOperator` **Imports** (1): `google/protobuf/go_features.proto`
 
 ### File Content
 
@@ -31261,8 +30246,7 @@ enum ComparisonOperator {
 
 **Package**: `gcommon.v1.metrics` **Lines**: 36
 
-**Enums** (1): `CompressionType` **Imports** (1):
-`google/protobuf/go_features.proto`
+**Enums** (1): `CompressionType` **Imports** (1): `google/protobuf/go_features.proto`
 
 ### File Content
 
@@ -31313,10 +30297,7 @@ enum CompressionType {
 
 **Package**: `gcommon.v1.metrics` **Lines**: 36
 
-**Messages** (1): `ConfigChange` **Imports** (4):
-`google/protobuf/go_features.proto`, `google/protobuf/timestamp.proto`,
-`pkg/metrics/proto/change_type.proto`,
-`pkg/metrics/proto/validation_result.proto`
+**Messages** (1): `ConfigChange` **Imports** (4): `google/protobuf/go_features.proto`, `google/protobuf/timestamp.proto`, `pkg/metrics/proto/change_type.proto`, `pkg/metrics/proto/validation_result.proto`
 
 ### File Content
 
@@ -31367,8 +30348,7 @@ message ConfigChange {
 
 **Package**: `gcommon.v1.metrics` **Lines**: 39
 
-**Messages** (1): `CounterMetric` **Imports** (2):
-`google/protobuf/go_features.proto`, `google/protobuf/timestamp.proto`
+**Messages** (1): `CounterMetric` **Imports** (2): `google/protobuf/go_features.proto`, `google/protobuf/timestamp.proto`
 
 ### File Content
 
@@ -31422,9 +30402,7 @@ message CounterMetric {
 
 **Package**: `gcommon.v1.metrics` **Lines**: 25
 
-**Messages** (1): `CreateMetricRequest` **Imports** (3):
-`google/protobuf/go_features.proto`, `pkg/common/proto/request_metadata.proto`,
-`pkg/metrics/proto/metric_data.proto`
+**Messages** (1): `CreateMetricRequest` **Imports** (3): `google/protobuf/go_features.proto`, `pkg/common/proto/request_metadata.proto`, `pkg/metrics/proto/metric_data.proto`
 
 ### File Content
 
@@ -31464,9 +30442,7 @@ message CreateMetricRequest {
 
 **Package**: `gcommon.v1.metrics` **Lines**: 27
 
-**Messages** (1): `CreateMetricResponse` **Imports** (3):
-`google/protobuf/go_features.proto`, `pkg/common/proto/error.proto`,
-`pkg/metrics/proto/metric_metadata.proto`
+**Messages** (1): `CreateMetricResponse` **Imports** (3): `google/protobuf/go_features.proto`, `pkg/common/proto/error.proto`, `pkg/metrics/proto/metric_metadata.proto`
 
 ### File Content
 
@@ -31508,12 +30484,8 @@ message CreateMetricResponse {
 
 **Package**: `gcommon.v1.metrics` **Lines**: 233
 
-**Messages** (11): `CreateProviderRequest`, `ProviderConfig`,
-`ProviderSettings`, `PrometheusSettings`, `OpenTelemetrySettings`,
-`StatsDSettings`, `ExportDestination`, `ResourceLimits`, `SecurityConfig`,
-`TLSConfig`, `APIKeyConfig` **Imports** (4):
-`google/protobuf/go_features.proto`, `pkg/common/proto/request_metadata.proto`,
-`pkg/metrics/proto/export_config.proto`, `pkg/metrics/proto/provider_type.proto`
+**Messages** (11): `CreateProviderRequest`, `ProviderConfig`, `ProviderSettings`, `PrometheusSettings`, `OpenTelemetrySettings`, `StatsDSettings`, `ExportDestination`, `ResourceLimits`, `SecurityConfig`, `TLSConfig`, `APIKeyConfig`
+**Imports** (4): `google/protobuf/go_features.proto`, `pkg/common/proto/request_metadata.proto`, `pkg/metrics/proto/export_config.proto`, `pkg/metrics/proto/provider_type.proto`
 
 ### File Content
 
@@ -31761,11 +30733,8 @@ message APIKeyConfig {
 
 **Package**: `gcommon.v1.metrics` **Lines**: 104
 
-**Messages** (4): `CreateProviderResponse`, `AppliedConfig`,
-`ResourceAllocations`, `ProviderEndpoints` **Imports** (5):
-`google/protobuf/go_features.proto`, `google/protobuf/timestamp.proto`,
-`pkg/common/proto/error.proto`, `pkg/metrics/proto/provider_status.proto`,
-`pkg/metrics/proto/validation_result.proto`
+**Messages** (4): `CreateProviderResponse`, `AppliedConfig`, `ResourceAllocations`, `ProviderEndpoints` **Imports** (5): `google/protobuf/go_features.proto`, `google/protobuf/timestamp.proto`, `pkg/common/proto/error.proto`,
+`pkg/metrics/proto/provider_status.proto`, `pkg/metrics/proto/validation_result.proto`
 
 ### File Content
 
@@ -31884,8 +30853,7 @@ message ProviderEndpoints {
 
 **Package**: `gcommon.v1.metrics` **Lines**: 55
 
-**Enums** (1): `DashboardType` **Imports** (1):
-`google/protobuf/go_features.proto`
+**Enums** (1): `DashboardType` **Imports** (1): `google/protobuf/go_features.proto`
 
 ### File Content
 
@@ -31955,8 +30923,7 @@ enum DashboardType {
 
 **Package**: `gcommon.v1.metrics` **Lines**: 27
 
-**Messages** (1): `DeleteMetricRequest` **Imports** (2):
-`google/protobuf/go_features.proto`, `pkg/common/proto/request_metadata.proto`
+**Messages** (1): `DeleteMetricRequest` **Imports** (2): `google/protobuf/go_features.proto`, `pkg/common/proto/request_metadata.proto`
 
 ### File Content
 
@@ -31998,8 +30965,7 @@ message DeleteMetricRequest {
 
 **Package**: `gcommon.v1.metrics` **Lines**: 26
 
-**Messages** (1): `DeleteMetricResponse` **Imports** (2):
-`google/protobuf/go_features.proto`, `pkg/common/proto/error.proto`
+**Messages** (1): `DeleteMetricResponse` **Imports** (2): `google/protobuf/go_features.proto`, `pkg/common/proto/error.proto`
 
 ### File Content
 
@@ -32040,8 +31006,7 @@ message DeleteMetricResponse {
 
 **Package**: `gcommon.v1.metrics` **Lines**: 28
 
-**Messages** (1): `DeleteProviderRequest` **Imports** (2):
-`google/protobuf/go_features.proto`, `pkg/common/proto/request_metadata.proto`
+**Messages** (1): `DeleteProviderRequest` **Imports** (2): `google/protobuf/go_features.proto`, `pkg/common/proto/request_metadata.proto`
 
 ### File Content
 
@@ -32084,9 +31049,7 @@ message DeleteProviderRequest {
 
 **Package**: `gcommon.v1.metrics` **Lines**: 86
 
-**Messages** (2): `DeleteProviderResponse`, `DeletionResult` **Imports** (5):
-`google/protobuf/go_features.proto`, `google/protobuf/timestamp.proto`,
-`pkg/common/proto/error.proto`, `pkg/metrics/proto/backup_info.proto`,
+**Messages** (2): `DeleteProviderResponse`, `DeletionResult` **Imports** (5): `google/protobuf/go_features.proto`, `google/protobuf/timestamp.proto`, `pkg/common/proto/error.proto`, `pkg/metrics/proto/backup_info.proto`,
 `pkg/metrics/proto/dry_run_result.proto`
 
 ### File Content
@@ -32188,8 +31151,7 @@ message DeletionResult {
 
 **Package**: `gcommon.v1.metrics` **Lines**: 52
 
-**Messages** (1): `DeletionOptions` **Imports** (2):
-`google/protobuf/go_features.proto`, `pkg/metrics/proto/cleanup_strategy.proto`
+**Messages** (1): `DeletionOptions` **Imports** (2): `google/protobuf/go_features.proto`, `pkg/metrics/proto/cleanup_strategy.proto`
 
 ### File Content
 
@@ -32256,8 +31218,7 @@ message DeletionOptions {
 
 **Package**: `gcommon.v1.metrics` **Lines**: 33
 
-**Messages** (1): `DryRunResult` **Imports** (1):
-`google/protobuf/go_features.proto`
+**Messages** (1): `DryRunResult` **Imports** (1): `google/protobuf/go_features.proto`
 
 ### File Content
 
@@ -32305,8 +31266,7 @@ message DryRunResult {
 
 **Package**: `gcommon.v1.metrics` **Lines**: 39
 
-**Messages** (2): `ErrorStats`, `ErrorTypeCount` **Imports** (1):
-`google/protobuf/go_features.proto`
+**Messages** (2): `ErrorStats`, `ErrorTypeCount` **Imports** (1): `google/protobuf/go_features.proto`
 
 ### File Content
 
@@ -32360,8 +31320,7 @@ message ErrorTypeCount {
 
 **Package**: `gcommon.v1.metrics` **Lines**: 27
 
-**Messages** (1): `ExportConfig` **Imports** (1):
-`google/protobuf/go_features.proto`
+**Messages** (1): `ExportConfig` **Imports** (1): `google/protobuf/go_features.proto`
 
 ### File Content
 
@@ -32403,14 +31362,12 @@ message ExportConfig {
 
 **Package**: `gcommon.v1.metrics` **Lines**: 28
 
-**Messages** (1): `ExportConfig` **Imports** (1):
-`google/protobuf/go_features.proto`
+**Messages** (1): `ExportConfig` **Imports** (1): `google/protobuf/go_features.proto`
 
 ### ⚠️ Issues Found (3)
 
 - Line 20: Commented field - // CONFLICT_DISABLED: ExportFormat format = 1;
-- Line 23: Commented field - // CONFLICT_DISABLED: CompressionType compression =
-  2;
+- Line 23: Commented field - // CONFLICT_DISABLED: CompressionType compression = 2;
 - Line 26: Commented field - // CONFLICT_DISABLED: string destination = 3;
 
 ### File Content
@@ -32454,9 +31411,7 @@ option go_package = "github.com/jdfalk/gcommon/pkg/metrics/proto";
 
 **Package**: `gcommon.v1.metrics` **Lines**: 40
 
-**Messages** (1): `ExportConfigUpdate` **Imports** (2):
-`google/protobuf/go_features.proto`,
-`pkg/metrics/proto/export_destination_update.proto`
+**Messages** (1): `ExportConfigUpdate` **Imports** (2): `google/protobuf/go_features.proto`, `pkg/metrics/proto/export_destination_update.proto`
 
 ### File Content
 
@@ -32511,8 +31466,7 @@ message ExportConfigUpdate {
 
 **Package**: `gcommon.v1.metrics` **Lines**: 27
 
-**Messages** (1): `ExportDestinationUpdate` **Imports** (1):
-`google/protobuf/go_features.proto`
+**Messages** (1): `ExportDestinationUpdate` **Imports** (1): `google/protobuf/go_features.proto`
 
 ### File Content
 
@@ -32554,8 +31508,7 @@ message ExportDestinationUpdate {
 
 **Package**: `gcommon.v1.metrics` **Lines**: 21
 
-**Enums** (1): `ExportFormat` **Imports** (1):
-`google/protobuf/go_features.proto`
+**Enums** (1): `ExportFormat` **Imports** (1): `google/protobuf/go_features.proto`
 
 ### File Content
 
@@ -32591,9 +31544,7 @@ enum ExportFormat {
 
 **Package**: `gcommon.v1.metrics` **Lines**: 35
 
-**Messages** (1): `ExportMetricsRequest` **Imports** (3):
-`google/protobuf/go_features.proto`, `pkg/common/proto/request_metadata.proto`,
-`pkg/metrics/proto/export_format.proto`
+**Messages** (1): `ExportMetricsRequest` **Imports** (3): `google/protobuf/go_features.proto`, `pkg/common/proto/request_metadata.proto`, `pkg/metrics/proto/export_format.proto`
 
 ### File Content
 
@@ -32643,9 +31594,7 @@ message ExportMetricsRequest {
 
 **Package**: `gcommon.v1.metrics` **Lines**: 35
 
-**Messages** (1): `ExportMetricsResponse` **Imports** (3):
-`google/protobuf/go_features.proto`, `google/protobuf/timestamp.proto`,
-`pkg/common/proto/error.proto`
+**Messages** (1): `ExportMetricsResponse` **Imports** (3): `google/protobuf/go_features.proto`, `google/protobuf/timestamp.proto`, `pkg/common/proto/error.proto`
 
 ### File Content
 
@@ -32695,8 +31644,7 @@ message ExportMetricsResponse {
 
 **Package**: `gcommon.v1.metrics` **Lines**: 45
 
-**Messages** (1): `GaugeMetric` **Imports** (2):
-`google/protobuf/go_features.proto`, `google/protobuf/timestamp.proto`
+**Messages** (1): `GaugeMetric` **Imports** (2): `google/protobuf/go_features.proto`, `google/protobuf/timestamp.proto`
 
 ### File Content
 
@@ -32756,8 +31704,7 @@ message GaugeMetric {
 
 **Package**: `gcommon.v1.metrics` **Lines**: 37
 
-**Enums** (1): `GaugeOperation` **Imports** (1):
-`google/protobuf/go_features.proto`
+**Enums** (1): `GaugeOperation` **Imports** (1): `google/protobuf/go_features.proto`
 
 ### File Content
 
@@ -32809,8 +31756,7 @@ enum GaugeOperation {
 
 **Package**: `gcommon.v1.metrics` **Lines**: 24
 
-**Messages** (1): `GetAlertingRulesRequest` **Imports** (2):
-`google/protobuf/go_features.proto`, `pkg/common/proto/request_metadata.proto`
+**Messages** (1): `GetAlertingRulesRequest` **Imports** (2): `google/protobuf/go_features.proto`, `pkg/common/proto/request_metadata.proto`
 
 ### File Content
 
@@ -32849,9 +31795,7 @@ message GetAlertingRulesRequest {
 
 **Package**: `gcommon.v1.metrics` **Lines**: 27
 
-**Messages** (1): `GetAlertingRulesResponse` **Imports** (3):
-`google/protobuf/go_features.proto`, `pkg/common/proto/error.proto`,
-`pkg/metrics/proto/alerting_rule.proto`
+**Messages** (1): `GetAlertingRulesResponse` **Imports** (3): `google/protobuf/go_features.proto`, `pkg/common/proto/error.proto`, `pkg/metrics/proto/alerting_rule.proto`
 
 ### File Content
 
@@ -32893,8 +31837,7 @@ message GetAlertingRulesResponse {
 
 **Package**: `gcommon.v1.metrics` **Lines**: 24
 
-**Messages** (1): `GetMetricConfigRequest` **Imports** (2):
-`google/protobuf/go_features.proto`, `pkg/common/proto/request_metadata.proto`
+**Messages** (1): `GetMetricConfigRequest` **Imports** (2): `google/protobuf/go_features.proto`, `pkg/common/proto/request_metadata.proto`
 
 ### File Content
 
@@ -32933,9 +31876,7 @@ message GetMetricConfigRequest {
 
 **Package**: `gcommon.v1.metrics` **Lines**: 29
 
-**Messages** (1): `GetMetricConfigResponse` **Imports** (3):
-`google/protobuf/go_features.proto`, `pkg/common/proto/error.proto`,
-`pkg/metrics/proto/metric_config.proto`
+**Messages** (1): `GetMetricConfigResponse` **Imports** (3): `google/protobuf/go_features.proto`, `pkg/common/proto/error.proto`, `pkg/metrics/proto/metric_config.proto`
 
 ### File Content
 
@@ -32979,8 +31920,7 @@ message GetMetricConfigResponse {
 
 **Package**: `gcommon.v1.metrics` **Lines**: 48
 
-**Messages** (1): `GetMetricMetadataRequest` **Imports** (1):
-`google/protobuf/go_features.proto`
+**Messages** (1): `GetMetricMetadataRequest` **Imports** (1): `google/protobuf/go_features.proto`
 
 ### ⚠️ Issues Found (1)
 
@@ -33047,9 +31987,7 @@ message GetMetricMetadataRequest {
 
 **Package**: `gcommon.v1.metrics` **Lines**: 51
 
-**Messages** (1): `GetMetricMetadataResponse` **Imports** (5):
-`google/protobuf/go_features.proto`, `google/protobuf/timestamp.proto`,
-`pkg/common/proto/error.proto`, `pkg/metrics/proto/metric_metadata.proto`,
+**Messages** (1): `GetMetricMetadataResponse` **Imports** (5): `google/protobuf/go_features.proto`, `google/protobuf/timestamp.proto`, `pkg/common/proto/error.proto`, `pkg/metrics/proto/metric_metadata.proto`,
 `pkg/metrics/proto/pagination_info.proto`
 
 ### ⚠️ Issues Found (1)
@@ -33120,8 +32058,7 @@ message GetMetricMetadataResponse {
 
 **Package**: `gcommon.v1.metrics` **Lines**: 24
 
-**Messages** (1): `GetMetricRequest` **Imports** (2):
-`google/protobuf/go_features.proto`, `pkg/common/proto/request_metadata.proto`
+**Messages** (1): `GetMetricRequest` **Imports** (2): `google/protobuf/go_features.proto`, `pkg/common/proto/request_metadata.proto`
 
 ### File Content
 
@@ -33160,9 +32097,7 @@ message GetMetricRequest {
 
 **Package**: `gcommon.v1.metrics` **Lines**: 27
 
-**Messages** (1): `GetMetricResponse` **Imports** (3):
-`google/protobuf/go_features.proto`, `pkg/common/proto/error.proto`,
-`pkg/metrics/proto/metric_data.proto`
+**Messages** (1): `GetMetricResponse` **Imports** (3): `google/protobuf/go_features.proto`, `pkg/common/proto/error.proto`, `pkg/metrics/proto/metric_data.proto`
 
 ### File Content
 
@@ -33204,16 +32139,9 @@ message GetMetricResponse {
 
 **Package**: `gcommon.v1.metrics` **Lines**: 86
 
-**Messages** (3): `GetMetricsRequest`, `SecondarySortField`, `OutputOptions`
-**Imports** (10): `google/protobuf/go_features.proto`,
-`pkg/common/proto/pagination_options.proto`,
-`pkg/common/proto/request_metadata.proto`,
-`pkg/common/proto/sort_direction.proto`, `pkg/common/proto/time_range.proto`,
-`pkg/metrics/proto/metric_aggregation.proto`,
-`pkg/metrics/proto/metric_filter.proto`,
-`pkg/metrics/proto/numeric_format.proto`,
-`pkg/metrics/proto/response_compression.proto`,
-`pkg/metrics/proto/time_range.proto`
+**Messages** (3): `GetMetricsRequest`, `SecondarySortField`, `OutputOptions` **Imports** (10): `google/protobuf/go_features.proto`, `pkg/common/proto/pagination_options.proto`, `pkg/common/proto/request_metadata.proto`,
+`pkg/common/proto/sort_direction.proto`, `pkg/common/proto/time_range.proto`, `pkg/metrics/proto/metric_aggregation.proto`, `pkg/metrics/proto/metric_filter.proto`, `pkg/metrics/proto/numeric_format.proto`,
+`pkg/metrics/proto/response_compression.proto`, `pkg/metrics/proto/time_range.proto`
 
 ### File Content
 
@@ -33314,13 +32242,8 @@ message OutputOptions {
 
 **Package**: `gcommon.v1.metrics` **Lines**: 57
 
-**Messages** (1): `GetMetricsResponse` **Imports** (9):
-`google/protobuf/go_features.proto`, `google/protobuf/timestamp.proto`,
-`pkg/common/proto/error.proto`, `pkg/common/proto/time_range.proto`,
-`pkg/metrics/proto/metric_data.proto`,
-`pkg/metrics/proto/metric_metadata.proto`,
-`pkg/metrics/proto/pagination_info.proto`,
-`pkg/metrics/proto/query_stats.proto`, `pkg/metrics/proto/time_range.proto`
+**Messages** (1): `GetMetricsResponse` **Imports** (9): `google/protobuf/go_features.proto`, `google/protobuf/timestamp.proto`, `pkg/common/proto/error.proto`, `pkg/common/proto/time_range.proto`, `pkg/metrics/proto/metric_data.proto`,
+`pkg/metrics/proto/metric_metadata.proto`, `pkg/metrics/proto/pagination_info.proto`, `pkg/metrics/proto/query_stats.proto`, `pkg/metrics/proto/time_range.proto`
 
 ### File Content
 
@@ -33392,9 +32315,7 @@ message GetMetricsResponse {
 
 **Package**: `gcommon.v1.metrics` **Lines**: 71
 
-**Messages** (2): `GetMetricsSummaryRequest`, `SummaryOptions` **Imports** (5):
-`google/protobuf/go_features.proto`, `pkg/common/proto/request_metadata.proto`,
-`pkg/common/proto/time_range.proto`, `pkg/metrics/proto/metric_filter.proto`,
+**Messages** (2): `GetMetricsSummaryRequest`, `SummaryOptions` **Imports** (5): `google/protobuf/go_features.proto`, `pkg/common/proto/request_metadata.proto`, `pkg/common/proto/time_range.proto`, `pkg/metrics/proto/metric_filter.proto`,
 `pkg/metrics/proto/time_range.proto`
 
 ### File Content
@@ -33481,16 +32402,9 @@ message SummaryOptions {
 
 **Package**: `gcommon.v1.metrics` **Lines**: 150
 
-**Messages** (8): `GetMetricsSummaryResponse`, `MetricsSummary`,
-`MetricTypeCounts`, `MetricInfo`, `MetricsHealthInfo`, `RetentionInfo`,
-`ExportStatus`, `ExporterStatus` **Imports** (11):
-`google/protobuf/go_features.proto`, `google/protobuf/timestamp.proto`,
-`pkg/common/proto/error.proto`, `pkg/common/proto/time_range.proto`,
-`pkg/metrics/proto/error_stats.proto`, `pkg/metrics/proto/health_status.proto`,
-`pkg/metrics/proto/performance_stats.proto`,
-`pkg/metrics/proto/provider_summary.proto`,
-`pkg/metrics/proto/retention_policy_retentionpolicyconfig.proto`,
-`pkg/metrics/proto/time_range.proto`, `pkg/metrics/proto/top_metrics.proto`
+**Messages** (8): `GetMetricsSummaryResponse`, `MetricsSummary`, `MetricTypeCounts`, `MetricInfo`, `MetricsHealthInfo`, `RetentionInfo`, `ExportStatus`, `ExporterStatus` **Imports** (11): `google/protobuf/go_features.proto`,
+`google/protobuf/timestamp.proto`, `pkg/common/proto/error.proto`, `pkg/common/proto/time_range.proto`, `pkg/metrics/proto/error_stats.proto`, `pkg/metrics/proto/health_status.proto`, `pkg/metrics/proto/performance_stats.proto`,
+`pkg/metrics/proto/provider_summary.proto`, `pkg/metrics/proto/retention_policy_retentionpolicyconfig.proto`, `pkg/metrics/proto/time_range.proto`, `pkg/metrics/proto/top_metrics.proto`
 
 ### File Content
 
@@ -33655,9 +32569,7 @@ message ExporterStatus {
 
 **Package**: `gcommon.v1.metrics` **Lines**: 70
 
-**Messages** (2): `GetProviderStatsRequest`, `StatsOptions` **Imports** (3):
-`google/protobuf/go_features.proto`, `pkg/common/proto/request_metadata.proto`,
-`pkg/metrics/proto/time_range.proto`
+**Messages** (2): `GetProviderStatsRequest`, `StatsOptions` **Imports** (3): `google/protobuf/go_features.proto`, `pkg/common/proto/request_metadata.proto`, `pkg/metrics/proto/time_range.proto`
 
 ### File Content
 
@@ -33742,20 +32654,10 @@ message StatsOptions {
 
 **Package**: `gcommon.v1.metrics` **Lines**: 395
 
-**Messages** (25): `GetProviderStatsResponse`, `ProviderStatistics`,
-`PerformanceDataPoint`, `ResourceUsageStats`, `MemoryUsage`, `CPUUsage`,
-`DiskUsage`, `NetworkUsage`, `ResourceDataPoint`, `ErrorTypeStats`,
-`ErrorEntry`, `ErrorDataPoint`, `DataVolumeStats`, `DataVolumeDataPoint`,
-`ExportStats`, `ExportDestinationStats`, `HealthStatusEntry`,
-`ConfigurationSummary`, `SecuritySummary`, `MetricSummary`, `TrendAnalysis`,
-`PerformanceTrend`, `ResourceUsageTrend`, `ErrorTrend`, `DataVolumeTrend`
-**Imports** (10): `google/protobuf/go_features.proto`,
-`google/protobuf/timestamp.proto`, `pkg/common/proto/error.proto`,
-`pkg/common/proto/time_range.proto`, `pkg/metrics/proto/error_stats.proto`,
-`pkg/metrics/proto/performance_stats.proto`,
-`pkg/metrics/proto/provider_info.proto`,
-`pkg/metrics/proto/resource_limits_summary.proto`,
-`pkg/metrics/proto/time_range.proto`, `pkg/metrics/proto/top_metrics.proto`
+**Messages** (25): `GetProviderStatsResponse`, `ProviderStatistics`, `PerformanceDataPoint`, `ResourceUsageStats`, `MemoryUsage`, `CPUUsage`, `DiskUsage`, `NetworkUsage`, `ResourceDataPoint`, `ErrorTypeStats`, `ErrorEntry`,
+`ErrorDataPoint`, `DataVolumeStats`, `DataVolumeDataPoint`, `ExportStats`, `ExportDestinationStats`, `HealthStatusEntry`, `ConfigurationSummary`, `SecuritySummary`, `MetricSummary`, `TrendAnalysis`, `PerformanceTrend`, `ResourceUsageTrend`,
+`ErrorTrend`, `DataVolumeTrend` **Imports** (10): `google/protobuf/go_features.proto`, `google/protobuf/timestamp.proto`, `pkg/common/proto/error.proto`, `pkg/common/proto/time_range.proto`, `pkg/metrics/proto/error_stats.proto`,
+`pkg/metrics/proto/performance_stats.proto`, `pkg/metrics/proto/provider_info.proto`, `pkg/metrics/proto/resource_limits_summary.proto`, `pkg/metrics/proto/time_range.proto`, `pkg/metrics/proto/top_metrics.proto`
 
 ### File Content
 
@@ -34165,8 +33067,7 @@ message DataVolumeTrend {
 
 **Package**: `gcommon.v1.metrics` **Lines**: 24
 
-**Messages** (1): `GetScrapeConfigRequest` **Imports** (2):
-`google/protobuf/go_features.proto`, `pkg/common/proto/request_metadata.proto`
+**Messages** (1): `GetScrapeConfigRequest` **Imports** (2): `google/protobuf/go_features.proto`, `pkg/common/proto/request_metadata.proto`
 
 ### File Content
 
@@ -34205,9 +33106,7 @@ message GetScrapeConfigRequest {
 
 **Package**: `gcommon.v1.metrics` **Lines**: 27
 
-**Messages** (1): `GetScrapeConfigResponse` **Imports** (3):
-`google/protobuf/go_features.proto`, `pkg/common/proto/error.proto`,
-`pkg/metrics/proto/scrape_config.proto`
+**Messages** (1): `GetScrapeConfigResponse` **Imports** (3): `google/protobuf/go_features.proto`, `pkg/common/proto/error.proto`, `pkg/metrics/proto/scrape_config.proto`
 
 ### File Content
 
@@ -34249,9 +33148,7 @@ message GetScrapeConfigResponse {
 
 **Package**: `gcommon.v1.metrics` **Lines**: 28
 
-**Messages** (1): `GetStatsRequest` **Imports** (3):
-`google/protobuf/go_features.proto`, `pkg/common/proto/request_metadata.proto`,
-`pkg/metrics/proto/timestamp_range.proto`
+**Messages** (1): `GetStatsRequest` **Imports** (3): `google/protobuf/go_features.proto`, `pkg/common/proto/request_metadata.proto`, `pkg/metrics/proto/timestamp_range.proto`
 
 ### File Content
 
@@ -34294,9 +33191,7 @@ message GetStatsRequest {
 
 **Package**: `gcommon.v1.metrics` **Lines**: 27
 
-**Messages** (1): `GetStatsResponse` **Imports** (3):
-`google/protobuf/go_features.proto`, `pkg/common/proto/error.proto`,
-`pkg/metrics/proto/query_stats.proto`
+**Messages** (1): `GetStatsResponse` **Imports** (3): `google/protobuf/go_features.proto`, `pkg/common/proto/error.proto`, `pkg/metrics/proto/query_stats.proto`
 
 ### File Content
 
@@ -34338,8 +33233,7 @@ message GetStatsResponse {
 
 **Package**: `gcommon.v1.metrics` **Lines**: 24
 
-**Messages** (1): `HealthCheckRequest` **Imports** (2):
-`google/protobuf/go_features.proto`, `pkg/common/proto/request_metadata.proto`
+**Messages** (1): `HealthCheckRequest` **Imports** (2): `google/protobuf/go_features.proto`, `pkg/common/proto/request_metadata.proto`
 
 ### File Content
 
@@ -34378,9 +33272,7 @@ message HealthCheckRequest {
 
 **Package**: `gcommon.v1.metrics` **Lines**: 34
 
-**Messages** (1): `HealthCheckResponse` **Imports** (4):
-`google/protobuf/duration.proto`, `google/protobuf/go_features.proto`,
-`pkg/common/proto/error.proto`, `pkg/common/proto/health_status.proto`
+**Messages** (1): `HealthCheckResponse` **Imports** (4): `google/protobuf/duration.proto`, `google/protobuf/go_features.proto`, `pkg/common/proto/error.proto`, `pkg/common/proto/health_status.proto`
 
 ### File Content
 
@@ -34429,8 +33321,7 @@ message HealthCheckResponse {
 
 **Package**: `gcommon.v1.metrics` **Lines**: 21
 
-**Enums** (1): `HealthStatus` **Imports** (1):
-`google/protobuf/go_features.proto`
+**Enums** (1): `HealthStatus` **Imports** (1): `google/protobuf/go_features.proto`
 
 ### File Content
 
@@ -34466,8 +33357,7 @@ enum HealthStatus {
 
 **Package**: `gcommon.v1.metrics` **Lines**: 24
 
-**Messages** (1): `HistogramBucket` **Imports** (1):
-`google/protobuf/go_features.proto`
+**Messages** (1): `HistogramBucket` **Imports** (1): `google/protobuf/go_features.proto`
 
 ### File Content
 
@@ -34506,9 +33396,7 @@ message HistogramBucket {
 
 **Package**: `gcommon.v1.metrics` **Lines**: 39
 
-**Messages** (1): `HistogramMetric` **Imports** (3):
-`google/protobuf/go_features.proto`, `google/protobuf/timestamp.proto`,
-`pkg/metrics/proto/histogram_bucket.proto`
+**Messages** (1): `HistogramMetric` **Imports** (3): `google/protobuf/go_features.proto`, `google/protobuf/timestamp.proto`, `pkg/metrics/proto/histogram_bucket.proto`
 
 ### File Content
 
@@ -34562,8 +33450,7 @@ message HistogramMetric {
 
 **Package**: `gcommon.v1.metrics` **Lines**: 28
 
-**Messages** (1): `ImportConfig` **Imports** (1):
-`google/protobuf/go_features.proto`
+**Messages** (1): `ImportConfig` **Imports** (1): `google/protobuf/go_features.proto`
 
 ### File Content
 
@@ -34606,9 +33493,7 @@ message ImportConfig {
 
 **Package**: `gcommon.v1.metrics` **Lines**: 25
 
-**Messages** (1): `ImportMetricsRequest` **Imports** (3):
-`google/protobuf/go_features.proto`, `pkg/common/proto/request_metadata.proto`,
-`pkg/metrics/proto/metric_data.proto`
+**Messages** (1): `ImportMetricsRequest` **Imports** (3): `google/protobuf/go_features.proto`, `pkg/common/proto/request_metadata.proto`, `pkg/metrics/proto/metric_data.proto`
 
 ### File Content
 
@@ -34648,8 +33533,7 @@ message ImportMetricsRequest {
 
 **Package**: `gcommon.v1.metrics` **Lines**: 26
 
-**Messages** (1): `ImportMetricsResponse` **Imports** (2):
-`google/protobuf/go_features.proto`, `pkg/common/proto/error.proto`
+**Messages** (1): `ImportMetricsResponse` **Imports** (2): `google/protobuf/go_features.proto`, `pkg/common/proto/error.proto`
 
 ### File Content
 
@@ -34690,8 +33574,7 @@ message ImportMetricsResponse {
 
 **Package**: `gcommon.v1.metrics` **Lines**: 25
 
-**Messages** (1): `ListMetricsRequest` **Imports** (2):
-`google/protobuf/go_features.proto`, `pkg/common/proto/pagination.proto`
+**Messages** (1): `ListMetricsRequest` **Imports** (2): `google/protobuf/go_features.proto`, `pkg/common/proto/pagination.proto`
 
 ### File Content
 
@@ -34731,9 +33614,7 @@ message ListMetricsRequest {
 
 **Package**: `gcommon.v1.metrics` **Lines**: 27
 
-**Messages** (1): `ListMetricsResponse` **Imports** (3):
-`google/protobuf/go_features.proto`, `pkg/common/proto/error.proto`,
-`pkg/metrics/proto/metric_metadata.proto`
+**Messages** (1): `ListMetricsResponse` **Imports** (3): `google/protobuf/go_features.proto`, `pkg/common/proto/error.proto`, `pkg/metrics/proto/metric_metadata.proto`
 
 ### File Content
 
@@ -34775,10 +33656,7 @@ message ListMetricsResponse {
 
 **Package**: `gcommon.v1.metrics` **Lines**: 65
 
-**Messages** (2): `ListProvidersRequest`, `ProviderFilter` **Imports** (4):
-`google/protobuf/go_features.proto`,
-`pkg/common/proto/pagination_options.proto`,
-`pkg/common/proto/request_metadata.proto`,
+**Messages** (2): `ListProvidersRequest`, `ProviderFilter` **Imports** (4): `google/protobuf/go_features.proto`, `pkg/common/proto/pagination_options.proto`, `pkg/common/proto/request_metadata.proto`,
 `pkg/metrics/proto/provider_sort_field.proto`
 
 ### File Content
@@ -34859,13 +33737,8 @@ message ProviderFilter {
 
 **Package**: `gcommon.v1.metrics` **Lines**: 100
 
-**Messages** (4): `ListProvidersResponse`, `ProviderConfigSummary`,
-`ProviderStats`, `ResourceUsage` **Imports** (7):
-`google/protobuf/go_features.proto`, `google/protobuf/timestamp.proto`,
-`pkg/common/proto/error.proto`, `pkg/metrics/proto/pagination_info.proto`,
-`pkg/metrics/proto/provider_info.proto`,
-`pkg/metrics/proto/provider_summary.proto`,
-`pkg/metrics/proto/resource_limits_summary.proto`
+**Messages** (4): `ListProvidersResponse`, `ProviderConfigSummary`, `ProviderStats`, `ResourceUsage` **Imports** (7): `google/protobuf/go_features.proto`, `google/protobuf/timestamp.proto`, `pkg/common/proto/error.proto`,
+`pkg/metrics/proto/pagination_info.proto`, `pkg/metrics/proto/provider_info.proto`, `pkg/metrics/proto/provider_summary.proto`, `pkg/metrics/proto/resource_limits_summary.proto`
 
 ### File Content
 
@@ -34980,8 +33853,7 @@ message ResourceUsage {
 
 **Package**: `gcommon.v1.metrics` **Lines**: 48
 
-**Enums** (1): `MetricAggregation` **Imports** (1):
-`google/protobuf/go_features.proto`
+**Enums** (1): `MetricAggregation` **Imports** (1): `google/protobuf/go_features.proto`
 
 ### File Content
 
@@ -35044,8 +33916,7 @@ enum MetricAggregation {
 
 **Package**: `gcommon.v1.metrics` **Lines**: 28
 
-**Messages** (1): `MetricAggregation` **Imports** (1):
-`google/protobuf/go_features.proto`
+**Messages** (1): `MetricAggregation` **Imports** (1): `google/protobuf/go_features.proto`
 
 ### ⚠️ Issues Found (3)
 
@@ -35094,8 +33965,7 @@ option go_package = "github.com/jdfalk/gcommon/pkg/metrics/proto";
 
 **Package**: `gcommon.v1.metrics` **Lines**: 27
 
-**Messages** (1): `MetricBucket` **Imports** (1):
-`google/protobuf/go_features.proto`
+**Messages** (1): `MetricBucket` **Imports** (1): `google/protobuf/go_features.proto`
 
 ### File Content
 
@@ -35137,9 +34007,7 @@ message MetricBucket {
 
 **Package**: `gcommon.v1.metrics` **Lines**: 50
 
-**Messages** (1): `MetricConfig` **Imports** (3):
-`google/protobuf/duration.proto`, `google/protobuf/go_features.proto`,
-`pkg/metrics/proto/export_config.proto`
+**Messages** (1): `MetricConfig` **Imports** (3): `google/protobuf/duration.proto`, `google/protobuf/go_features.proto`, `pkg/metrics/proto/export_config.proto`
 
 ### File Content
 
@@ -35204,9 +34072,7 @@ message MetricConfig {
 
 **Package**: `gcommon.v1.metrics` **Lines**: 95
 
-**Messages** (3): `MetricData`, `MetricSeries`, `MetricFamily` **Imports** (4):
-`google/protobuf/go_features.proto`, `google/protobuf/timestamp.proto`,
-`pkg/metrics/proto/metric_type.proto`, `pkg/metrics/proto/metric_value.proto`
+**Messages** (3): `MetricData`, `MetricSeries`, `MetricFamily` **Imports** (4): `google/protobuf/go_features.proto`, `google/protobuf/timestamp.proto`, `pkg/metrics/proto/metric_type.proto`, `pkg/metrics/proto/metric_value.proto`
 
 ### ⚠️ Issues Found (1)
 
@@ -35320,8 +34186,7 @@ message MetricFamily {
 
 **Package**: `gcommon.v1.metrics` **Lines**: 35
 
-**Messages** (1): `MetricFamily` **Imports** (2):
-`google/protobuf/go_features.proto`, `pkg/metrics/proto/metric_data.proto`
+**Messages** (1): `MetricFamily` **Imports** (2): `google/protobuf/go_features.proto`, `pkg/metrics/proto/metric_data.proto`
 
 ### ⚠️ Issues Found (5)
 
@@ -35329,8 +34194,7 @@ message MetricFamily {
 - Line 24: Commented field - // CONFLICT_DISABLED: string description = 2;
 - Line 27: Commented field - // CONFLICT_DISABLED: MetricType type = 3;
 - Line 30: Commented field - // CONFLICT_DISABLED: string unit = 4;
-- Line 33: Commented field - // CONFLICT_DISABLED: repeated MetricData metrics =
-  5;
+- Line 33: Commented field - // CONFLICT_DISABLED: repeated MetricData metrics = 5;
 
 ### File Content
 
@@ -35380,8 +34244,7 @@ option go_package = "github.com/jdfalk/gcommon/pkg/metrics/proto";
 
 **Package**: `gcommon.v1.metrics` **Lines**: 37
 
-**Messages** (1): `MetricFilter` **Imports** (1):
-`google/protobuf/go_features.proto`
+**Messages** (1): `MetricFilter` **Imports** (1): `google/protobuf/go_features.proto`
 
 ### File Content
 
@@ -35433,9 +34296,7 @@ message MetricFilter {
 
 **Package**: `gcommon.v1.metrics` **Lines**: 32
 
-**Messages** (1): `MetricHealth` **Imports** (3):
-`google/protobuf/go_features.proto`, `google/protobuf/timestamp.proto`,
-`pkg/metrics/proto/health_status.proto`
+**Messages** (1): `MetricHealth` **Imports** (3): `google/protobuf/go_features.proto`, `google/protobuf/timestamp.proto`, `pkg/metrics/proto/health_status.proto`
 
 ### File Content
 
@@ -35482,8 +34343,7 @@ message MetricHealth {
 
 **Package**: `gcommon.v1.metrics` **Lines**: 25
 
-**Messages** (1): `MetricLabel` **Imports** (1):
-`google/protobuf/go_features.proto`
+**Messages** (1): `MetricLabel` **Imports** (1): `google/protobuf/go_features.proto`
 
 ### File Content
 
@@ -35523,8 +34383,7 @@ message MetricLabel {
 
 **Package**: `gcommon.v1.metrics` **Lines**: 57
 
-**Messages** (1): `MetricMetadata` **Imports** (2):
-`google/protobuf/go_features.proto`, `google/protobuf/timestamp.proto`
+**Messages** (1): `MetricMetadata` **Imports** (2): `google/protobuf/go_features.proto`, `google/protobuf/timestamp.proto`
 
 ### ⚠️ Issues Found (1)
 
@@ -35600,8 +34459,7 @@ message MetricMetadata {
 
 **Package**: `gcommon.v1.metrics` **Lines**: 25
 
-**Messages** (1): `MetricQuantile` **Imports** (1):
-`google/protobuf/go_features.proto`
+**Messages** (1): `MetricQuantile` **Imports** (1): `google/protobuf/go_features.proto`
 
 ### File Content
 
@@ -35641,13 +34499,8 @@ message MetricQuantile {
 
 **Package**: `gcommon.v1.metrics` **Lines**: 133
 
-**Messages** (5): `MetricQuery`, `AggregationSpec`, `GroupBySpec`, `QueryPlan`,
-`QueryStep` **Imports** (8): `google/protobuf/duration.proto`,
-`google/protobuf/go_features.proto`, `pkg/common/proto/sort.proto`,
-`pkg/metrics/proto/aggregation_type.proto`,
-`pkg/metrics/proto/metric_filter.proto`,
-`pkg/metrics/proto/query_operation.proto`, `pkg/metrics/proto/time_range.proto`,
-`pkg/metrics/proto/timestamp_range.proto`
+**Messages** (5): `MetricQuery`, `AggregationSpec`, `GroupBySpec`, `QueryPlan`, `QueryStep` **Imports** (8): `google/protobuf/duration.proto`, `google/protobuf/go_features.proto`, `pkg/common/proto/sort.proto`,
+`pkg/metrics/proto/aggregation_type.proto`, `pkg/metrics/proto/metric_filter.proto`, `pkg/metrics/proto/query_operation.proto`, `pkg/metrics/proto/time_range.proto`, `pkg/metrics/proto/timestamp_range.proto`
 
 ### ⚠️ Issues Found (1)
 
@@ -35799,8 +34652,7 @@ message QueryStep {
 
 **Package**: `gcommon.v1.metrics` **Lines**: 28
 
-**Messages** (1): `MetricSample` **Imports** (2):
-`google/protobuf/go_features.proto`, `google/protobuf/timestamp.proto`
+**Messages** (1): `MetricSample` **Imports** (2): `google/protobuf/go_features.proto`, `google/protobuf/timestamp.proto`
 
 ### File Content
 
@@ -35843,8 +34695,7 @@ message MetricSample {
 
 **Package**: `gcommon.v1.metrics` **Lines**: 61
 
-**Enums** (1): `MetricSource` **Imports** (1):
-`google/protobuf/go_features.proto`
+**Enums** (1): `MetricSource` **Imports** (1): `google/protobuf/go_features.proto`
 
 ### File Content
 
@@ -35920,8 +34771,7 @@ enum MetricSource {
 
 **Package**: `gcommon.v1.metrics` **Lines**: 33
 
-**Messages** (1): `MetricStats` **Imports** (1):
-`google/protobuf/go_features.proto`
+**Messages** (1): `MetricStats` **Imports** (1): `google/protobuf/go_features.proto`
 
 ### File Content
 
@@ -35969,8 +34819,7 @@ message MetricStats {
 
 **Package**: `gcommon.v1.metrics` **Lines**: 33
 
-**Enums** (1): `MetricStatus` **Imports** (1):
-`google/protobuf/go_features.proto`
+**Enums** (1): `MetricStatus` **Imports** (1): `google/protobuf/go_features.proto`
 
 ### File Content
 
@@ -36070,9 +34919,7 @@ enum MetricType {
 
 **Package**: `gcommon.v1.metrics` **Lines**: 92
 
-**Messages** (4): `MetricValue`, `HistogramValue`, `SummaryValue`, `Quantile`
-**Imports** (3): `google/protobuf/go_features.proto`,
-`google/protobuf/timestamp.proto`, `pkg/metrics/proto/histogram_bucket.proto`
+**Messages** (4): `MetricValue`, `HistogramValue`, `SummaryValue`, `Quantile` **Imports** (3): `google/protobuf/go_features.proto`, `google/protobuf/timestamp.proto`, `pkg/metrics/proto/histogram_bucket.proto`
 
 ### ⚠️ Issues Found (1)
 
@@ -36183,18 +35030,9 @@ message Quantile {
 
 **Package**: `gcommon.v1.metrics` **Lines**: 45
 
-**Services** (1): `MetricsManagementService` **Imports** (11):
-`google/protobuf/go_features.proto`,
-`pkg/metrics/proto/create_provider_request.proto`,
-`pkg/metrics/proto/create_provider_response.proto`,
-`pkg/metrics/proto/delete_provider_request.proto`,
-`pkg/metrics/proto/delete_provider_response.proto`,
-`pkg/metrics/proto/get_provider_stats_request.proto`,
-`pkg/metrics/proto/get_provider_stats_response.proto`,
-`pkg/metrics/proto/list_providers_request.proto`,
-`pkg/metrics/proto/list_providers_response.proto`,
-`pkg/metrics/proto/update_provider_request.proto`,
-`pkg/metrics/proto/update_provider_response.proto`
+**Services** (1): `MetricsManagementService` **Imports** (11): `google/protobuf/go_features.proto`, `pkg/metrics/proto/create_provider_request.proto`, `pkg/metrics/proto/create_provider_response.proto`,
+`pkg/metrics/proto/delete_provider_request.proto`, `pkg/metrics/proto/delete_provider_response.proto`, `pkg/metrics/proto/get_provider_stats_request.proto`, `pkg/metrics/proto/get_provider_stats_response.proto`,
+`pkg/metrics/proto/list_providers_request.proto`, `pkg/metrics/proto/list_providers_response.proto`, `pkg/metrics/proto/update_provider_request.proto`, `pkg/metrics/proto/update_provider_response.proto`
 
 ### File Content
 
@@ -36254,26 +35092,11 @@ service MetricsManagementService {
 
 **Package**: `gcommon.v1.metrics` **Lines**: 65
 
-**Services** (1): `MetricsService` **Imports** (19):
-`google/protobuf/go_features.proto`,
-`pkg/metrics/proto/get_metric_metadata_request.proto`,
-`pkg/metrics/proto/get_metric_metadata_response.proto`,
-`pkg/metrics/proto/get_metrics_request.proto`,
-`pkg/metrics/proto/get_metrics_response.proto`,
-`pkg/metrics/proto/get_metrics_summary_request.proto`,
-`pkg/metrics/proto/get_metrics_summary_response.proto`,
-`pkg/metrics/proto/metric_data.proto`,
-`pkg/metrics/proto/query_metrics_request.proto`,
-`pkg/metrics/proto/query_metrics_response.proto`,
-`pkg/metrics/proto/record_metric_request.proto`,
-`pkg/metrics/proto/record_metric_response.proto`,
-`pkg/metrics/proto/record_metrics_request.proto`,
-`pkg/metrics/proto/record_metrics_response.proto`,
-`pkg/metrics/proto/register_metric_request.proto`,
-`pkg/metrics/proto/register_metric_response.proto`,
-`pkg/metrics/proto/stream_metrics_request.proto`,
-`pkg/metrics/proto/unregister_metric_request.proto`,
-`pkg/metrics/proto/unregister_metric_response.proto`
+**Services** (1): `MetricsService` **Imports** (19): `google/protobuf/go_features.proto`, `pkg/metrics/proto/get_metric_metadata_request.proto`, `pkg/metrics/proto/get_metric_metadata_response.proto`,
+`pkg/metrics/proto/get_metrics_request.proto`, `pkg/metrics/proto/get_metrics_response.proto`, `pkg/metrics/proto/get_metrics_summary_request.proto`, `pkg/metrics/proto/get_metrics_summary_response.proto`,
+`pkg/metrics/proto/metric_data.proto`, `pkg/metrics/proto/query_metrics_request.proto`, `pkg/metrics/proto/query_metrics_response.proto`, `pkg/metrics/proto/record_metric_request.proto`, `pkg/metrics/proto/record_metric_response.proto`,
+`pkg/metrics/proto/record_metrics_request.proto`, `pkg/metrics/proto/record_metrics_response.proto`, `pkg/metrics/proto/register_metric_request.proto`, `pkg/metrics/proto/register_metric_response.proto`,
+`pkg/metrics/proto/stream_metrics_request.proto`, `pkg/metrics/proto/unregister_metric_request.proto`, `pkg/metrics/proto/unregister_metric_response.proto`
 
 ### File Content
 
@@ -36353,8 +35176,7 @@ service MetricsService {
 
 **Package**: `gcommon.v1.metrics` **Lines**: 63
 
-**Enums** (1): `NotificationType` **Imports** (1):
-`google/protobuf/go_features.proto`
+**Enums** (1): `NotificationType` **Imports** (1): `google/protobuf/go_features.proto`
 
 ### ⚠️ Issues Found (1)
 
@@ -36436,8 +35258,7 @@ enum NotificationType {
 
 **Package**: `gcommon.v1.metrics` **Lines**: 34
 
-**Enums** (1): `NumericFormat` **Imports** (1):
-`google/protobuf/go_features.proto`
+**Enums** (1): `NumericFormat` **Imports** (1): `google/protobuf/go_features.proto`
 
 ### File Content
 
@@ -36486,8 +35307,7 @@ enum NumericFormat {
 
 **Package**: `gcommon.v1.metrics` **Lines**: 39
 
-**Messages** (1): `OpenTelemetrySettingsUpdate` **Imports** (1):
-`google/protobuf/go_features.proto`
+**Messages** (1): `OpenTelemetrySettingsUpdate` **Imports** (1): `google/protobuf/go_features.proto`
 
 ### File Content
 
@@ -36541,8 +35361,7 @@ message OpenTelemetrySettingsUpdate {
 
 **Package**: `gcommon.v1.metrics` **Lines**: 42
 
-**Messages** (1): `PaginationInfo` **Imports** (1):
-`google/protobuf/go_features.proto`
+**Messages** (1): `PaginationInfo` **Imports** (1): `google/protobuf/go_features.proto`
 
 ### File Content
 
@@ -36599,8 +35418,7 @@ message PaginationInfo {
 
 **Package**: `gcommon.v1.metrics` **Lines**: 60
 
-**Messages** (1): `PerformanceStats` **Imports** (1):
-`google/protobuf/go_features.proto`
+**Messages** (1): `PerformanceStats` **Imports** (1): `google/protobuf/go_features.proto`
 
 ### File Content
 
@@ -36675,8 +35493,7 @@ message PerformanceStats {
 
 **Package**: `gcommon.v1.metrics` **Lines**: 33
 
-**Messages** (1): `PrometheusSettingsUpdate` **Imports** (1):
-`google/protobuf/go_features.proto`
+**Messages** (1): `PrometheusSettingsUpdate` **Imports** (1): `google/protobuf/go_features.proto`
 
 ### File Content
 
@@ -36724,13 +35541,8 @@ message PrometheusSettingsUpdate {
 
 **Package**: `gcommon.v1.metrics` **Lines**: 44
 
-**Messages** (1): `ProviderConfigUpdate` **Imports** (6):
-`google/protobuf/go_features.proto`,
-`pkg/metrics/proto/export_config_update.proto`,
-`pkg/metrics/proto/provider_settings_update.proto`,
-`pkg/metrics/proto/resource_limits_update.proto`,
-`pkg/metrics/proto/security_config_update.proto`,
-`pkg/metrics/proto/tag_updates.proto`
+**Messages** (1): `ProviderConfigUpdate` **Imports** (6): `google/protobuf/go_features.proto`, `pkg/metrics/proto/export_config_update.proto`, `pkg/metrics/proto/provider_settings_update.proto`,
+`pkg/metrics/proto/resource_limits_update.proto`, `pkg/metrics/proto/security_config_update.proto`, `pkg/metrics/proto/tag_updates.proto`
 
 ### File Content
 
@@ -36789,9 +35601,7 @@ message ProviderConfigUpdate {
 
 **Package**: `gcommon.v1.metrics` **Lines**: 56
 
-**Messages** (1): `ProviderInfo` **Imports** (3):
-`google/protobuf/go_features.proto`, `google/protobuf/timestamp.proto`,
-`pkg/metrics/proto/provider_status.proto`
+**Messages** (1): `ProviderInfo` **Imports** (3): `google/protobuf/go_features.proto`, `google/protobuf/timestamp.proto`, `pkg/metrics/proto/provider_status.proto`
 
 ### File Content
 
@@ -36862,10 +35672,7 @@ message ProviderInfo {
 
 **Package**: `gcommon.v1.metrics` **Lines**: 27
 
-**Messages** (1): `ProviderSettingsUpdate` **Imports** (4):
-`google/protobuf/go_features.proto`,
-`pkg/metrics/proto/open_telemetry_settings_update.proto`,
-`pkg/metrics/proto/prometheus_settings_update.proto`,
+**Messages** (1): `ProviderSettingsUpdate` **Imports** (4): `google/protobuf/go_features.proto`, `pkg/metrics/proto/open_telemetry_settings_update.proto`, `pkg/metrics/proto/prometheus_settings_update.proto`,
 `pkg/metrics/proto/stats_dsettings_update.proto`
 
 ### File Content
@@ -36960,8 +35767,7 @@ enum SortField {
 
 **Package**: `gcommon.v1.metrics` **Lines**: 27
 
-**Enums** (1): `ProviderState` **Imports** (1):
-`google/protobuf/go_features.proto`
+**Enums** (1): `ProviderState` **Imports** (1): `google/protobuf/go_features.proto`
 
 ### File Content
 
@@ -37003,9 +35809,7 @@ enum ProviderState {
 
 **Package**: `gcommon.v1.metrics` **Lines**: 35
 
-**Messages** (1): `ProviderStatus` **Imports** (3):
-`google/protobuf/go_features.proto`, `google/protobuf/timestamp.proto`,
-`pkg/metrics/proto/provider_state.proto`
+**Messages** (1): `ProviderStatus` **Imports** (3): `google/protobuf/go_features.proto`, `google/protobuf/timestamp.proto`, `pkg/metrics/proto/provider_state.proto`
 
 ### File Content
 
@@ -37055,9 +35859,7 @@ message ProviderStatus {
 
 **Package**: `gcommon.v1.metrics` **Lines**: 62
 
-**Messages** (1): `ProviderSummary` **Imports** (3):
-`google/protobuf/go_features.proto`, `google/protobuf/timestamp.proto`,
-`pkg/metrics/proto/provider_status.proto`
+**Messages** (1): `ProviderSummary` **Imports** (3): `google/protobuf/go_features.proto`, `google/protobuf/timestamp.proto`, `pkg/metrics/proto/provider_status.proto`
 
 ### File Content
 
@@ -37134,8 +35936,7 @@ message ProviderSummary {
 
 **Package**: `gcommon.v1.metrics` **Lines**: 27
 
-**Enums** (1): `ProviderType` **Imports** (1):
-`google/protobuf/go_features.proto`
+**Enums** (1): `ProviderType` **Imports** (1): `google/protobuf/go_features.proto`
 
 ### File Content
 
@@ -37177,9 +35978,7 @@ enum ProviderType {
 
 **Package**: `gcommon.v1.metrics` **Lines**: 55
 
-**Messages** (2): `QueryMetricsRequest`, `QueryOutputOptions` **Imports** (3):
-`google/protobuf/go_features.proto`, `pkg/common/proto/request_metadata.proto`,
-`pkg/metrics/proto/metric_query.proto`
+**Messages** (2): `QueryMetricsRequest`, `QueryOutputOptions` **Imports** (3): `google/protobuf/go_features.proto`, `pkg/common/proto/request_metadata.proto`, `pkg/metrics/proto/metric_query.proto`
 
 ### File Content
 
@@ -37249,9 +36048,7 @@ message QueryOutputOptions {
 
 **Package**: `gcommon.v1.metrics` **Lines**: 76
 
-**Messages** (2): `QueryMetricsResponse`, `QueryStatistics` **Imports** (6):
-`google/protobuf/duration.proto`, `google/protobuf/go_features.proto`,
-`google/protobuf/timestamp.proto`, `pkg/common/proto/error.proto`,
+**Messages** (2): `QueryMetricsResponse`, `QueryStatistics` **Imports** (6): `google/protobuf/duration.proto`, `google/protobuf/go_features.proto`, `google/protobuf/timestamp.proto`, `pkg/common/proto/error.proto`,
 `pkg/metrics/proto/metric_data.proto`, `pkg/metrics/proto/metric_query.proto`
 
 ### File Content
@@ -37343,8 +36140,7 @@ message QueryStatistics {
 
 **Package**: `gcommon.v1.metrics` **Lines**: 60
 
-**Enums** (1): `QueryOperation` **Imports** (1):
-`google/protobuf/go_features.proto`
+**Enums** (1): `QueryOperation` **Imports** (1): `google/protobuf/go_features.proto`
 
 ### ⚠️ Issues Found (1)
 
@@ -37423,8 +36219,7 @@ enum QueryOperation {
 
 **Package**: `gcommon.v1.metrics` **Lines**: 27
 
-**Messages** (1): `QueryStats` **Imports** (1):
-`google/protobuf/go_features.proto`
+**Messages** (1): `QueryStats` **Imports** (1): `google/protobuf/go_features.proto`
 
 ### File Content
 
@@ -37466,8 +36261,7 @@ message QueryStats {
 
 **Package**: `gcommon.v1.metrics` **Lines**: 41
 
-**Messages** (1): `RecordCounterRequest` **Imports** (2):
-`google/protobuf/go_features.proto`, `pkg/common/proto/request_metadata.proto`
+**Messages** (1): `RecordCounterRequest` **Imports** (2): `google/protobuf/go_features.proto`, `pkg/common/proto/request_metadata.proto`
 
 ### File Content
 
@@ -37523,9 +36317,7 @@ message RecordCounterRequest {
 
 **Package**: `gcommon.v1.metrics` **Lines**: 36
 
-**Messages** (1): `RecordCounterResponse` **Imports** (5):
-`google/protobuf/go_features.proto`, `google/protobuf/timestamp.proto`,
-`pkg/common/proto/error.proto`, `pkg/common/proto/request_metadata.proto`,
+**Messages** (1): `RecordCounterResponse` **Imports** (5): `google/protobuf/go_features.proto`, `google/protobuf/timestamp.proto`, `pkg/common/proto/error.proto`, `pkg/common/proto/request_metadata.proto`,
 `pkg/metrics/proto/counter_metric.proto`
 
 ### File Content
@@ -37577,10 +36369,7 @@ message RecordCounterResponse {
 
 **Package**: `gcommon.v1.metrics` **Lines**: 46
 
-**Messages** (1): `RecordGaugeRequest` **Imports** (4):
-`google/protobuf/go_features.proto`, `google/protobuf/timestamp.proto`,
-`pkg/common/proto/request_metadata.proto`,
-`pkg/metrics/proto/gauge_operation.proto`
+**Messages** (1): `RecordGaugeRequest` **Imports** (4): `google/protobuf/go_features.proto`, `google/protobuf/timestamp.proto`, `pkg/common/proto/request_metadata.proto`, `pkg/metrics/proto/gauge_operation.proto`
 
 ### File Content
 
@@ -37641,9 +36430,7 @@ message RecordGaugeRequest {
 
 **Package**: `gcommon.v1.metrics` **Lines**: 43
 
-**Messages** (1): `RecordGaugeResponse` **Imports** (5):
-`google/protobuf/go_features.proto`, `google/protobuf/timestamp.proto`,
-`pkg/common/proto/error.proto`, `pkg/metrics/proto/gauge_metric.proto`,
+**Messages** (1): `RecordGaugeResponse` **Imports** (5): `google/protobuf/go_features.proto`, `google/protobuf/timestamp.proto`, `pkg/common/proto/error.proto`, `pkg/metrics/proto/gauge_metric.proto`,
 `pkg/metrics/proto/recording_stats.proto`
 
 ### File Content
@@ -37702,9 +36489,7 @@ message RecordGaugeResponse {
 
 **Package**: `gcommon.v1.metrics` **Lines**: 50
 
-**Messages** (1): `RecordHistogramRequest` **Imports** (3):
-`google/protobuf/go_features.proto`, `google/protobuf/timestamp.proto`,
-`pkg/common/proto/request_metadata.proto`
+**Messages** (1): `RecordHistogramRequest` **Imports** (3): `google/protobuf/go_features.proto`, `google/protobuf/timestamp.proto`, `pkg/common/proto/request_metadata.proto`
 
 ### ⚠️ Issues Found (1)
 
@@ -37773,10 +36558,7 @@ message RecordHistogramRequest {
 
 **Package**: `gcommon.v1.metrics` **Lines**: 85
 
-**Messages** (3): `RecordHistogramResponse`, `BucketInfo`, `HistogramStats`
-**Imports** (5): `google/protobuf/go_features.proto`,
-`google/protobuf/timestamp.proto`, `pkg/common/proto/error.proto`,
-`pkg/metrics/proto/histogram_metric.proto`,
+**Messages** (3): `RecordHistogramResponse`, `BucketInfo`, `HistogramStats` **Imports** (5): `google/protobuf/go_features.proto`, `google/protobuf/timestamp.proto`, `pkg/common/proto/error.proto`, `pkg/metrics/proto/histogram_metric.proto`,
 `pkg/metrics/proto/recording_stats.proto`
 
 ### ⚠️ Issues Found (1)
@@ -37881,9 +36663,7 @@ message HistogramStats {
 
 **Package**: `gcommon.v1.metrics` **Lines**: 55
 
-**Messages** (2): `RecordMetricRequest`, `BatchContext` **Imports** (4):
-`google/protobuf/go_features.proto`, `google/protobuf/timestamp.proto`,
-`pkg/common/proto/request_metadata.proto`, `pkg/metrics/proto/metric_data.proto`
+**Messages** (2): `RecordMetricRequest`, `BatchContext` **Imports** (4): `google/protobuf/go_features.proto`, `google/protobuf/timestamp.proto`, `pkg/common/proto/request_metadata.proto`, `pkg/metrics/proto/metric_data.proto`
 
 ### File Content
 
@@ -37953,9 +36733,7 @@ message BatchContext {
 
 **Package**: `gcommon.v1.metrics` **Lines**: 47
 
-**Messages** (1): `RecordMetricResponse` **Imports** (5):
-`google/protobuf/go_features.proto`, `google/protobuf/timestamp.proto`,
-`pkg/common/proto/error.proto`, `pkg/metrics/proto/recording_stats.proto`,
+**Messages** (1): `RecordMetricResponse` **Imports** (5): `google/protobuf/go_features.proto`, `google/protobuf/timestamp.proto`, `pkg/common/proto/error.proto`, `pkg/metrics/proto/recording_stats.proto`,
 `pkg/metrics/proto/validation_result.proto`
 
 ### File Content
@@ -38018,9 +36796,7 @@ message RecordMetricResponse {
 
 **Package**: `gcommon.v1.metrics` **Lines**: 35
 
-**Messages** (1): `RecordMetricsRequest` **Imports** (3):
-`google/protobuf/go_features.proto`, `pkg/common/proto/request_metadata.proto`,
-`pkg/metrics/proto/metric_data.proto`
+**Messages** (1): `RecordMetricsRequest` **Imports** (3): `google/protobuf/go_features.proto`, `pkg/common/proto/request_metadata.proto`, `pkg/metrics/proto/metric_data.proto`
 
 ### File Content
 
@@ -38070,9 +36846,7 @@ message RecordMetricsRequest {
 
 **Package**: `gcommon.v1.metrics` **Lines**: 123
 
-**Messages** (4): `RecordMetricsResponse`, `MetricResult`, `BatchStats`,
-`ValidationSummary` **Imports** (3): `google/protobuf/go_features.proto`,
-`google/protobuf/timestamp.proto`, `pkg/common/proto/error.proto`
+**Messages** (4): `RecordMetricsResponse`, `MetricResult`, `BatchStats`, `ValidationSummary` **Imports** (3): `google/protobuf/go_features.proto`, `google/protobuf/timestamp.proto`, `pkg/common/proto/error.proto`
 
 ### File Content
 
@@ -38210,10 +36984,7 @@ message ValidationSummary {
 
 **Package**: `gcommon.v1.metrics` **Lines**: 29
 
-**Messages** (1): `RecordSummaryRequest` **Imports** (4):
-`google/protobuf/go_features.proto`, `google/protobuf/timestamp.proto`,
-`pkg/common/proto/request_metadata.proto`,
-`pkg/metrics/proto/summary_metric.proto`
+**Messages** (1): `RecordSummaryRequest` **Imports** (4): `google/protobuf/go_features.proto`, `google/protobuf/timestamp.proto`, `pkg/common/proto/request_metadata.proto`, `pkg/metrics/proto/summary_metric.proto`
 
 ### File Content
 
@@ -38257,10 +37028,7 @@ message RecordSummaryRequest {
 
 **Package**: `gcommon.v1.metrics` **Lines**: 31
 
-**Messages** (1): `RecordSummaryResponse` **Imports** (4):
-`google/protobuf/go_features.proto`, `pkg/common/proto/error.proto`,
-`pkg/metrics/proto/recording_stats.proto`,
-`pkg/metrics/proto/summary_metric.proto`
+**Messages** (1): `RecordSummaryResponse` **Imports** (4): `google/protobuf/go_features.proto`, `pkg/common/proto/error.proto`, `pkg/metrics/proto/recording_stats.proto`, `pkg/metrics/proto/summary_metric.proto`
 
 ### File Content
 
@@ -38306,8 +37074,7 @@ message RecordSummaryResponse {
 
 **Package**: `gcommon.v1.metrics` **Lines**: 30
 
-**Messages** (1): `RecordingStats` **Imports** (1):
-`google/protobuf/go_features.proto`
+**Messages** (1): `RecordingStats` **Imports** (1): `google/protobuf/go_features.proto`
 
 ### File Content
 
@@ -38352,13 +37119,8 @@ message RecordingStats {
 
 **Package**: `gcommon.v1.metrics` **Lines**: 201
 
-**Messages** (10): `RegisterMetricRequest`, `MetricDefinition`,
-`LabelDefinition`, `MetricTypeConfig`, `HistogramConfig`, `SummaryConfig`,
-`GaugeConfig`, `CounterConfig`, `ValidationRules`, `RegistrationOptions`
-**Imports** (5): `google/protobuf/go_features.proto`,
-`pkg/common/proto/request_metadata.proto`,
-`pkg/metrics/proto/export_config.proto`, `pkg/metrics/proto/metric_type.proto`,
-`pkg/metrics/proto/retention_policy_retentionpolicyconfig.proto`
+**Messages** (10): `RegisterMetricRequest`, `MetricDefinition`, `LabelDefinition`, `MetricTypeConfig`, `HistogramConfig`, `SummaryConfig`, `GaugeConfig`, `CounterConfig`, `ValidationRules`, `RegistrationOptions` **Imports** (5):
+`google/protobuf/go_features.proto`, `pkg/common/proto/request_metadata.proto`, `pkg/metrics/proto/export_config.proto`, `pkg/metrics/proto/metric_type.proto`, `pkg/metrics/proto/retention_policy_retentionpolicyconfig.proto`
 
 ### File Content
 
@@ -38574,10 +37336,8 @@ message RegistrationOptions {
 
 **Package**: `gcommon.v1.metrics` **Lines**: 111
 
-**Messages** (4): `RegisterMetricResponse`, `RegistrationValidation`,
-`RegistrationResult`, `SchemaChange` **Imports** (4):
-`google/protobuf/go_features.proto`, `google/protobuf/timestamp.proto`,
-`pkg/common/proto/error.proto`, `pkg/metrics/proto/registration_action.proto`
+**Messages** (4): `RegisterMetricResponse`, `RegistrationValidation`, `RegistrationResult`, `SchemaChange` **Imports** (4): `google/protobuf/go_features.proto`, `google/protobuf/timestamp.proto`, `pkg/common/proto/error.proto`,
+`pkg/metrics/proto/registration_action.proto`
 
 ### File Content
 
@@ -38703,8 +37463,7 @@ message SchemaChange {
 
 **Package**: `gcommon.v1.metrics` **Lines**: 24
 
-**Enums** (1): `RegistrationAction` **Imports** (1):
-`google/protobuf/go_features.proto`
+**Enums** (1): `RegistrationAction` **Imports** (1): `google/protobuf/go_features.proto`
 
 ### File Content
 
@@ -38743,8 +37502,7 @@ enum RegistrationAction {
 
 **Package**: `gcommon.v1.metrics` **Lines**: 24
 
-**Messages** (1): `ResetMetricsRequest` **Imports** (2):
-`google/protobuf/go_features.proto`, `pkg/common/proto/request_metadata.proto`
+**Messages** (1): `ResetMetricsRequest` **Imports** (2): `google/protobuf/go_features.proto`, `pkg/common/proto/request_metadata.proto`
 
 ### File Content
 
@@ -38783,8 +37541,7 @@ message ResetMetricsRequest {
 
 **Package**: `gcommon.v1.metrics` **Lines**: 26
 
-**Messages** (1): `ResetMetricsResponse` **Imports** (2):
-`google/protobuf/go_features.proto`, `pkg/common/proto/error.proto`
+**Messages** (1): `ResetMetricsResponse` **Imports** (2): `google/protobuf/go_features.proto`, `pkg/common/proto/error.proto`
 
 ### File Content
 
@@ -38825,8 +37582,7 @@ message ResetMetricsResponse {
 
 **Package**: `gcommon.v1.metrics` **Lines**: 48
 
-**Messages** (1): `ResourceLimitsSummary` **Imports** (1):
-`google/protobuf/go_features.proto`
+**Messages** (1): `ResourceLimitsSummary` **Imports** (1): `google/protobuf/go_features.proto`
 
 ### File Content
 
@@ -38889,8 +37645,7 @@ message ResourceLimitsSummary {
 
 **Package**: `gcommon.v1.metrics` **Lines**: 33
 
-**Messages** (1): `ResourceLimitsUpdate` **Imports** (1):
-`google/protobuf/go_features.proto`
+**Messages** (1): `ResourceLimitsUpdate` **Imports** (1): `google/protobuf/go_features.proto`
 
 ### File Content
 
@@ -38938,8 +37693,7 @@ message ResourceLimitsUpdate {
 
 **Package**: `gcommon.v1.metrics` **Lines**: 31
 
-**Enums** (1): `ResponseCompression` **Imports** (1):
-`google/protobuf/go_features.proto`
+**Enums** (1): `ResponseCompression` **Imports** (1): `google/protobuf/go_features.proto`
 
 ### File Content
 
@@ -38985,10 +37739,7 @@ enum ResponseCompression {
 
 **Package**: `gcommon.v1.metrics` **Lines**: 27
 
-**Messages** (1): `RetentionPolicyInfo` **Imports** (3):
-`google/protobuf/go_features.proto`,
-`pkg/metrics/proto/retention_policy_retentionpolicy.proto`,
-`pkg/metrics/proto/retention_policy_retentionpolicyconfig.proto`
+**Messages** (1): `RetentionPolicyInfo` **Imports** (3): `google/protobuf/go_features.proto`, `pkg/metrics/proto/retention_policy_retentionpolicy.proto`, `pkg/metrics/proto/retention_policy_retentionpolicyconfig.proto`
 
 ### File Content
 
@@ -39030,8 +37781,7 @@ message RetentionPolicyInfo {
 
 **Package**: `gcommon.v1.metrics` **Lines**: 49
 
-**Enums** (1): `RetentionPolicy` **Imports** (1):
-`google/protobuf/go_features.proto`
+**Enums** (1): `RetentionPolicy` **Imports** (1): `google/protobuf/go_features.proto`
 
 ### File Content
 
@@ -39095,8 +37845,7 @@ enum RetentionPolicy {
 
 **Package**: `gcommon.v1.metrics` **Lines**: 28
 
-**Messages** (1): `RetentionPolicyConfig` **Imports** (2):
-`google/protobuf/duration.proto`, `google/protobuf/go_features.proto`
+**Messages** (1): `RetentionPolicyConfig` **Imports** (2): `google/protobuf/duration.proto`, `google/protobuf/go_features.proto`
 
 ### File Content
 
@@ -39139,8 +37888,7 @@ message RetentionPolicyConfig {
 
 **Package**: `gcommon.v1.metrics` **Lines**: 48
 
-**Enums** (1): `RetentionUnit` **Imports** (1):
-`google/protobuf/go_features.proto`
+**Enums** (1): `RetentionUnit` **Imports** (1): `google/protobuf/go_features.proto`
 
 ### ⚠️ Issues Found (1)
 
@@ -39268,8 +38016,7 @@ enum SampleRate {
 
 **Package**: `gcommon.v1.metrics` **Lines**: 28
 
-**Messages** (1): `ScrapeConfig` **Imports** (2):
-`google/protobuf/go_features.proto`, `pkg/metrics/proto/scrape_target.proto`
+**Messages** (1): `ScrapeConfig` **Imports** (2): `google/protobuf/go_features.proto`, `pkg/metrics/proto/scrape_target.proto`
 
 ### File Content
 
@@ -39312,9 +38059,7 @@ message ScrapeConfig {
 
 **Package**: `gcommon.v1.metrics` **Lines**: 35
 
-**Messages** (1): `ScrapeJob` **Imports** (3):
-`google/protobuf/go_features.proto`, `google/protobuf/timestamp.proto`,
-`pkg/metrics/proto/scrape_config.proto`
+**Messages** (1): `ScrapeJob` **Imports** (3): `google/protobuf/go_features.proto`, `google/protobuf/timestamp.proto`, `pkg/metrics/proto/scrape_config.proto`
 
 ### File Content
 
@@ -39364,8 +38109,7 @@ message ScrapeJob {
 
 **Package**: `gcommon.v1.metrics` **Lines**: 57
 
-**Enums** (1): `ScrapeStatus` **Imports** (1):
-`google/protobuf/go_features.proto`
+**Enums** (1): `ScrapeStatus` **Imports** (1): `google/protobuf/go_features.proto`
 
 ### ⚠️ Issues Found (1)
 
@@ -39441,8 +38185,7 @@ enum ScrapeStatus {
 
 **Package**: `gcommon.v1.metrics` **Lines**: 24
 
-**Messages** (1): `ScrapeTarget` **Imports** (1):
-`google/protobuf/go_features.proto`
+**Messages** (1): `ScrapeTarget` **Imports** (1): `google/protobuf/go_features.proto`
 
 ### File Content
 
@@ -39481,10 +38224,7 @@ message ScrapeTarget {
 
 **Package**: `gcommon.v1.metrics` **Lines**: 35
 
-**Messages** (1): `SecurityConfigUpdate` **Imports** (3):
-`google/protobuf/go_features.proto`,
-`pkg/metrics/proto/apikey_config_update.proto`,
-`pkg/metrics/proto/tlsconfig_update.proto`
+**Messages** (1): `SecurityConfigUpdate` **Imports** (3): `google/protobuf/go_features.proto`, `pkg/metrics/proto/apikey_config_update.proto`, `pkg/metrics/proto/tlsconfig_update.proto`
 
 ### File Content
 
@@ -39534,9 +38274,7 @@ message SecurityConfigUpdate {
 
 **Package**: `gcommon.v1.metrics` **Lines**: 28
 
-**Messages** (1): `SetAlertingRulesRequest` **Imports** (3):
-`google/protobuf/go_features.proto`, `pkg/common/proto/request_metadata.proto`,
-`pkg/metrics/proto/alerting_rule.proto`
+**Messages** (1): `SetAlertingRulesRequest` **Imports** (3): `google/protobuf/go_features.proto`, `pkg/common/proto/request_metadata.proto`, `pkg/metrics/proto/alerting_rule.proto`
 
 ### File Content
 
@@ -39579,8 +38317,7 @@ message SetAlertingRulesRequest {
 
 **Package**: `gcommon.v1.metrics` **Lines**: 26
 
-**Messages** (1): `SetAlertingRulesResponse` **Imports** (2):
-`google/protobuf/go_features.proto`, `pkg/common/proto/error.proto`
+**Messages** (1): `SetAlertingRulesResponse` **Imports** (2): `google/protobuf/go_features.proto`, `pkg/common/proto/error.proto`
 
 ### File Content
 
@@ -39621,8 +38358,7 @@ message SetAlertingRulesResponse {
 
 **Package**: `gcommon.v1.metrics` **Lines**: 22
 
-**Messages** (1): `SetMetricConfigRequest` **Imports** (2):
-`google/protobuf/go_features.proto`, `pkg/metrics/proto/metric_config.proto`
+**Messages** (1): `SetMetricConfigRequest` **Imports** (2): `google/protobuf/go_features.proto`, `pkg/metrics/proto/metric_config.proto`
 
 ### File Content
 
@@ -39659,8 +38395,7 @@ message SetMetricConfigRequest {
 
 **Package**: `gcommon.v1.metrics` **Lines**: 25
 
-**Messages** (1): `SetMetricConfigResponse` **Imports** (2):
-`google/protobuf/go_features.proto`, `pkg/common/proto/error.proto`
+**Messages** (1): `SetMetricConfigResponse` **Imports** (2): `google/protobuf/go_features.proto`, `pkg/common/proto/error.proto`
 
 ### File Content
 
@@ -39700,9 +38435,7 @@ message SetMetricConfigResponse {
 
 **Package**: `gcommon.v1.metrics` **Lines**: 25
 
-**Messages** (1): `SetMetricMetadataRequest` **Imports** (3):
-`google/protobuf/go_features.proto`, `pkg/common/proto/request_metadata.proto`,
-`pkg/metrics/proto/metric_metadata.proto`
+**Messages** (1): `SetMetricMetadataRequest` **Imports** (3): `google/protobuf/go_features.proto`, `pkg/common/proto/request_metadata.proto`, `pkg/metrics/proto/metric_metadata.proto`
 
 ### File Content
 
@@ -39742,9 +38475,7 @@ message SetMetricMetadataRequest {
 
 **Package**: `gcommon.v1.metrics` **Lines**: 27
 
-**Messages** (1): `SetMetricMetadataResponse` **Imports** (3):
-`google/protobuf/go_features.proto`, `pkg/common/proto/error.proto`,
-`pkg/metrics/proto/metric_metadata.proto`
+**Messages** (1): `SetMetricMetadataResponse` **Imports** (3): `google/protobuf/go_features.proto`, `pkg/common/proto/error.proto`, `pkg/metrics/proto/metric_metadata.proto`
 
 ### File Content
 
@@ -39786,9 +38517,7 @@ message SetMetricMetadataResponse {
 
 **Package**: `gcommon.v1.metrics` **Lines**: 28
 
-**Messages** (1): `SetScrapeConfigRequest` **Imports** (3):
-`google/protobuf/go_features.proto`, `pkg/common/proto/request_metadata.proto`,
-`pkg/metrics/proto/scrape_config.proto`
+**Messages** (1): `SetScrapeConfigRequest` **Imports** (3): `google/protobuf/go_features.proto`, `pkg/common/proto/request_metadata.proto`, `pkg/metrics/proto/scrape_config.proto`
 
 ### File Content
 
@@ -39831,8 +38560,7 @@ message SetScrapeConfigRequest {
 
 **Package**: `gcommon.v1.metrics` **Lines**: 26
 
-**Messages** (1): `SetScrapeConfigResponse` **Imports** (2):
-`google/protobuf/go_features.proto`, `pkg/common/proto/error.proto`
+**Messages** (1): `SetScrapeConfigResponse` **Imports** (2): `google/protobuf/go_features.proto`, `pkg/common/proto/error.proto`
 
 ### File Content
 
@@ -39873,9 +38601,7 @@ message SetScrapeConfigResponse {
 
 **Package**: `gcommon.v1.metrics` **Lines**: 26
 
-**Messages** (1): `StartScrapingRequest` **Imports** (3):
-`google/protobuf/go_features.proto`, `pkg/common/proto/request_metadata.proto`,
-`pkg/metrics/proto/scrape_config.proto`
+**Messages** (1): `StartScrapingRequest` **Imports** (3): `google/protobuf/go_features.proto`, `pkg/common/proto/request_metadata.proto`, `pkg/metrics/proto/scrape_config.proto`
 
 ### File Content
 
@@ -39916,9 +38642,7 @@ message StartScrapingRequest {
 
 **Package**: `gcommon.v1.metrics` **Lines**: 33
 
-**Messages** (1): `StartScrapingResponse` **Imports** (4):
-`google/protobuf/go_features.proto`, `google/protobuf/timestamp.proto`,
-`pkg/common/proto/error.proto`, `pkg/metrics/proto/scrape_job.proto`
+**Messages** (1): `StartScrapingResponse` **Imports** (4): `google/protobuf/go_features.proto`, `google/protobuf/timestamp.proto`, `pkg/common/proto/error.proto`, `pkg/metrics/proto/scrape_job.proto`
 
 ### File Content
 
@@ -39966,8 +38690,7 @@ message StartScrapingResponse {
 
 **Package**: `gcommon.v1.metrics` **Lines**: 33
 
-**Messages** (1): `StatsDSettingsUpdate` **Imports** (1):
-`google/protobuf/go_features.proto`
+**Messages** (1): `StatsDSettingsUpdate` **Imports** (1): `google/protobuf/go_features.proto`
 
 ### File Content
 
@@ -40015,8 +38738,7 @@ message StatsDSettingsUpdate {
 
 **Package**: `gcommon.v1.metrics` **Lines**: 22
 
-**Messages** (1): `StopScrapingRequest` **Imports** (2):
-`google/protobuf/go_features.proto`, `pkg/common/proto/request_metadata.proto`
+**Messages** (1): `StopScrapingRequest` **Imports** (2): `google/protobuf/go_features.proto`, `pkg/common/proto/request_metadata.proto`
 
 ### File Content
 
@@ -40053,9 +38775,7 @@ message StopScrapingRequest {
 
 **Package**: `gcommon.v1.metrics` **Lines**: 33
 
-**Messages** (1): `StopScrapingResponse` **Imports** (4):
-`google/protobuf/go_features.proto`, `google/protobuf/timestamp.proto`,
-`pkg/common/proto/error.proto`, `pkg/metrics/proto/scrape_job.proto`
+**Messages** (1): `StopScrapingResponse` **Imports** (4): `google/protobuf/go_features.proto`, `google/protobuf/timestamp.proto`, `pkg/common/proto/error.proto`, `pkg/metrics/proto/scrape_job.proto`
 
 ### File Content
 
@@ -40103,8 +38823,7 @@ message StopScrapingResponse {
 
 **Package**: `gcommon.v1.metrics` **Lines**: 57
 
-**Enums** (1): `StorageBackend` **Imports** (1):
-`google/protobuf/go_features.proto`
+**Enums** (1): `StorageBackend` **Imports** (1): `google/protobuf/go_features.proto`
 
 ### ⚠️ Issues Found (1)
 
@@ -40180,8 +38899,7 @@ enum StorageBackend {
 
 **Package**: `gcommon.v1.metrics` **Lines**: 34
 
-**Enums** (1): `StreamCompression` **Imports** (1):
-`google/protobuf/go_features.proto`
+**Enums** (1): `StreamCompression` **Imports** (1): `google/protobuf/go_features.proto`
 
 ### File Content
 
@@ -40230,13 +38948,8 @@ enum StreamCompression {
 
 **Package**: `gcommon.v1.metrics` **Lines**: 109
 
-**Messages** (4): `StreamMetricsRequest`, `StreamOptions`, `StreamStart`,
-`BufferConfig` **Imports** (7): `google/protobuf/go_features.proto`,
-`google/protobuf/timestamp.proto`, `pkg/common/proto/request_metadata.proto`,
-`pkg/metrics/proto/buffer_overflow_strategy.proto`,
-`pkg/metrics/proto/metric_filter.proto`,
-`pkg/metrics/proto/stream_compression.proto`,
-`pkg/metrics/proto/stream_qos.proto`
+**Messages** (4): `StreamMetricsRequest`, `StreamOptions`, `StreamStart`, `BufferConfig` **Imports** (7): `google/protobuf/go_features.proto`, `google/protobuf/timestamp.proto`, `pkg/common/proto/request_metadata.proto`,
+`pkg/metrics/proto/buffer_overflow_strategy.proto`, `pkg/metrics/proto/metric_filter.proto`, `pkg/metrics/proto/stream_compression.proto`, `pkg/metrics/proto/stream_qos.proto`
 
 ### File Content
 
@@ -40406,9 +39119,7 @@ enum StreamQOS {
 
 **Package**: `gcommon.v1.metrics` **Lines**: 62
 
-**Messages** (2): `SummaryQuantile`, `SummaryMetric` **Imports** (4):
-`google/protobuf/duration.proto`, `google/protobuf/go_features.proto`,
-`google/protobuf/timestamp.proto`, `pkg/common/proto/request_metadata.proto`
+**Messages** (2): `SummaryQuantile`, `SummaryMetric` **Imports** (4): `google/protobuf/duration.proto`, `google/protobuf/go_features.proto`, `google/protobuf/timestamp.proto`, `pkg/common/proto/request_metadata.proto`
 
 ### File Content
 
@@ -40485,8 +39196,7 @@ message SummaryMetric {
 
 **Package**: `gcommon.v1.metrics` **Lines**: 24
 
-**Messages** (1): `TagUpdates` **Imports** (1):
-`google/protobuf/go_features.proto`
+**Messages** (1): `TagUpdates` **Imports** (1): `google/protobuf/go_features.proto`
 
 ### File Content
 
@@ -40525,8 +39235,7 @@ message TagUpdates {
 
 **Package**: `gcommon.v1.metrics` **Lines**: 25
 
-**Messages** (1): `TimeRange` **Imports** (2):
-`google/protobuf/go_features.proto`, `google/protobuf/timestamp.proto`
+**Messages** (1): `TimeRange` **Imports** (2): `google/protobuf/go_features.proto`, `google/protobuf/timestamp.proto`
 
 ### File Content
 
@@ -40566,8 +39275,7 @@ message TimeRange {
 
 **Package**: `gcommon.v1.metrics` **Lines**: 28
 
-**Messages** (1): `TimeSeries` **Imports** (2):
-`google/protobuf/go_features.proto`, `pkg/metrics/proto/metric_sample.proto`
+**Messages** (1): `TimeSeries` **Imports** (2): `google/protobuf/go_features.proto`, `pkg/metrics/proto/metric_sample.proto`
 
 ### File Content
 
@@ -40753,9 +39461,7 @@ enum TimeWindow {
 
 **Package**: `gcommon.v1.metrics` **Lines**: 101
 
-**Messages** (3): `TimerMetric`, `TimerStatistics`, `PercentileMeasurement`
-**Imports** (3): `google/protobuf/duration.proto`,
-`google/protobuf/go_features.proto`, `google/protobuf/timestamp.proto`
+**Messages** (3): `TimerMetric`, `TimerStatistics`, `PercentileMeasurement` **Imports** (3): `google/protobuf/duration.proto`, `google/protobuf/go_features.proto`, `google/protobuf/timestamp.proto`
 
 ### File Content
 
@@ -40871,8 +39577,7 @@ message PercentileMeasurement {
 
 **Package**: `gcommon.v1.metrics` **Lines**: 22
 
-**Messages** (1): `TimestampRange` **Imports** (2):
-`google/protobuf/go_features.proto`, `google/protobuf/timestamp.proto`
+**Messages** (1): `TimestampRange` **Imports** (2): `google/protobuf/go_features.proto`, `google/protobuf/timestamp.proto`
 
 ### File Content
 
@@ -40909,8 +39614,7 @@ message TimestampRange {
 
 **Package**: `gcommon.v1.metrics` **Lines**: 30
 
-**Messages** (1): `TLSConfigUpdate` **Imports** (1):
-`google/protobuf/go_features.proto`
+**Messages** (1): `TLSConfigUpdate` **Imports** (1): `google/protobuf/go_features.proto`
 
 ### File Content
 
@@ -40955,8 +39659,7 @@ message TLSConfigUpdate {
 
 **Package**: `gcommon.v1.metrics` **Lines**: 36
 
-**Messages** (1): `TopMetrics` **Imports** (1):
-`google/protobuf/go_features.proto`
+**Messages** (1): `TopMetrics` **Imports** (1): `google/protobuf/go_features.proto`
 
 ### File Content
 
@@ -41007,9 +39710,7 @@ message TopMetrics {
 
 **Package**: `gcommon.v1.metrics` **Lines**: 65
 
-**Messages** (2): `UnregisterMetricRequest`, `UnregistrationOptions` **Imports**
-(2): `google/protobuf/go_features.proto`,
-`pkg/common/proto/request_metadata.proto`
+**Messages** (2): `UnregisterMetricRequest`, `UnregistrationOptions` **Imports** (2): `google/protobuf/go_features.proto`, `pkg/common/proto/request_metadata.proto`
 
 ### File Content
 
@@ -41089,9 +39790,7 @@ message UnregistrationOptions {
 
 **Package**: `gcommon.v1.metrics` **Lines**: 79
 
-**Messages** (2): `UnregisterMetricResponse`, `UnregistrationResult` **Imports**
-(5): `google/protobuf/go_features.proto`, `google/protobuf/timestamp.proto`,
-`pkg/common/proto/error.proto`, `pkg/metrics/proto/backup_info.proto`,
+**Messages** (2): `UnregisterMetricResponse`, `UnregistrationResult` **Imports** (5): `google/protobuf/go_features.proto`, `google/protobuf/timestamp.proto`, `pkg/common/proto/error.proto`, `pkg/metrics/proto/backup_info.proto`,
 `pkg/metrics/proto/dry_run_result.proto`
 
 ### File Content
@@ -41186,9 +39885,7 @@ message UnregistrationResult {
 
 **Package**: `gcommon.v1.metrics` **Lines**: 26
 
-**Enums** (1): `UpdateAction` **Imports** (3):
-`google/protobuf/go_features.proto`, `google/protobuf/timestamp.proto`,
-`pkg/metrics/proto/validation_result.proto`
+**Enums** (1): `UpdateAction` **Imports** (3): `google/protobuf/go_features.proto`, `google/protobuf/timestamp.proto`, `pkg/metrics/proto/validation_result.proto`
 
 ### File Content
 
@@ -41229,9 +39926,7 @@ enum UpdateAction {
 
 **Package**: `gcommon.v1.metrics` **Lines**: 25
 
-**Messages** (1): `UpdateMetricRequest` **Imports** (3):
-`google/protobuf/go_features.proto`, `pkg/common/proto/request_metadata.proto`,
-`pkg/metrics/proto/metric_data.proto`
+**Messages** (1): `UpdateMetricRequest` **Imports** (3): `google/protobuf/go_features.proto`, `pkg/common/proto/request_metadata.proto`, `pkg/metrics/proto/metric_data.proto`
 
 ### File Content
 
@@ -41271,9 +39966,7 @@ message UpdateMetricRequest {
 
 **Package**: `gcommon.v1.metrics` **Lines**: 27
 
-**Messages** (1): `UpdateMetricResponse` **Imports** (3):
-`google/protobuf/go_features.proto`, `pkg/common/proto/error.proto`,
-`pkg/metrics/proto/metric_metadata.proto`
+**Messages** (1): `UpdateMetricResponse` **Imports** (3): `google/protobuf/go_features.proto`, `pkg/common/proto/error.proto`, `pkg/metrics/proto/metric_metadata.proto`
 
 ### File Content
 
@@ -41315,8 +40008,7 @@ message UpdateMetricResponse {
 
 **Package**: `gcommon.v1.metrics` **Lines**: 34
 
-**Messages** (1): `UpdateOptions` **Imports** (2):
-`google/protobuf/go_features.proto`, `pkg/metrics/proto/update_strategy.proto`
+**Messages** (1): `UpdateOptions` **Imports** (2): `google/protobuf/go_features.proto`, `pkg/metrics/proto/update_strategy.proto`
 
 ### File Content
 
@@ -41365,8 +40057,7 @@ message UpdateOptions {
 
 **Package**: `gcommon.v1.metrics` **Lines**: 29
 
-**Messages** (1): `UpdateProviderRequest` **Imports** (2):
-`google/protobuf/go_features.proto`, `pkg/common/proto/request_metadata.proto`
+**Messages** (1): `UpdateProviderRequest` **Imports** (2): `google/protobuf/go_features.proto`, `pkg/common/proto/request_metadata.proto`
 
 ### File Content
 
@@ -41410,9 +40101,7 @@ message UpdateProviderRequest {
 
 **Package**: `gcommon.v1.metrics` **Lines**: 48
 
-**Messages** (1): `UpdateProviderResponse` **Imports** (5):
-`google/protobuf/go_features.proto`, `google/protobuf/timestamp.proto`,
-`pkg/common/proto/error.proto`, `pkg/metrics/proto/provider_status.proto`,
+**Messages** (1): `UpdateProviderResponse` **Imports** (5): `google/protobuf/go_features.proto`, `google/protobuf/timestamp.proto`, `pkg/common/proto/error.proto`, `pkg/metrics/proto/provider_status.proto`,
 `pkg/metrics/proto/validation_result.proto`
 
 ### File Content
@@ -41476,10 +40165,7 @@ message UpdateProviderResponse {
 
 **Package**: `gcommon.v1.metrics` **Lines**: 43
 
-**Messages** (1): `UpdateResult` **Imports** (5):
-`google/protobuf/go_features.proto`, `google/protobuf/timestamp.proto`,
-`pkg/metrics/proto/config_change.proto`,
-`pkg/metrics/proto/update_action.proto`,
+**Messages** (1): `UpdateResult` **Imports** (5): `google/protobuf/go_features.proto`, `google/protobuf/timestamp.proto`, `pkg/metrics/proto/config_change.proto`, `pkg/metrics/proto/update_action.proto`,
 `pkg/metrics/proto/validation_result.proto`
 
 ### File Content
@@ -41538,8 +40224,7 @@ message UpdateResult {
 
 **Package**: `gcommon.v1.metrics` **Lines**: 24
 
-**Enums** (1): `UpdateStrategy` **Imports** (1):
-`google/protobuf/go_features.proto`
+**Enums** (1): `UpdateStrategy` **Imports** (1): `google/protobuf/go_features.proto`
 
 ### File Content
 
@@ -41578,8 +40263,7 @@ enum UpdateStrategy {
 
 **Package**: `gcommon.v1.metrics` **Lines**: 30
 
-**Messages** (1): `ValidationResult` **Imports** (1):
-`google/protobuf/go_features.proto`
+**Messages** (1): `ValidationResult` **Imports** (1): `google/protobuf/go_features.proto`
 
 ### File Content
 
@@ -41624,8 +40308,7 @@ message ValidationResult {
 
 **Package**: `gcommon.v1.metrics` **Lines**: 61
 
-**Enums** (1): `VisualizationType` **Imports** (1):
-`google/protobuf/go_features.proto`
+**Enums** (1): `VisualizationType` **Imports** (1): `google/protobuf/go_features.proto`
 
 ### File Content
 
@@ -41701,8 +40384,7 @@ enum VisualizationType {
 
 **Package**: `gcommon.v1.notification` **Lines**: 22
 
-**Messages** (1): `DeleteNotificationRequest` **Imports** (2):
-`google/protobuf/go_features.proto`, `pkg/common/proto/request_metadata.proto`
+**Messages** (1): `DeleteNotificationRequest` **Imports** (2): `google/protobuf/go_features.proto`, `pkg/common/proto/request_metadata.proto`
 
 ### File Content
 
@@ -41739,8 +40421,7 @@ message DeleteNotificationRequest {
 
 **Package**: `gcommon.v1.notification` **Lines**: 21
 
-**Messages** (1): `DeleteNotificationResponse` **Imports** (1):
-`google/protobuf/go_features.proto`
+**Messages** (1): `DeleteNotificationResponse` **Imports** (1): `google/protobuf/go_features.proto`
 
 ### File Content
 
@@ -41776,9 +40457,7 @@ message DeleteNotificationResponse {
 
 **Package**: `gcommon.v1.notification` **Lines**: 28
 
-**Messages** (1): `DeliveryChannel` **Imports** (2):
-`google/protobuf/go_features.proto`,
-`pkg/notification/proto/delivery_channel_type.proto`
+**Messages** (1): `DeliveryChannel` **Imports** (2): `google/protobuf/go_features.proto`, `pkg/notification/proto/delivery_channel_type.proto`
 
 ### File Content
 
@@ -41821,8 +40500,7 @@ message DeliveryChannel {
 
 **Package**: `gcommon.v1.notification` **Lines**: 34
 
-**Enums** (1): `DeliveryChannelType` **Imports** (1):
-`google/protobuf/go_features.proto`
+**Enums** (1): `DeliveryChannelType` **Imports** (1): `google/protobuf/go_features.proto`
 
 ### File Content
 
@@ -41871,8 +40549,7 @@ enum DeliveryChannelType {
 
 **Package**: `gcommon.v1.notification` **Lines**: 22
 
-**Enums** (1): `DeliveryStatus` **Imports** (1):
-`google/protobuf/go_features.proto`
+**Enums** (1): `DeliveryStatus` **Imports** (1): `google/protobuf/go_features.proto`
 
 ### File Content
 
@@ -41909,10 +40586,7 @@ enum DeliveryStatus {
 
 **Package**: `gcommon.v1.notification` **Lines**: 36
 
-**Messages** (1): `EventNotification` **Imports** (4):
-`google/protobuf/any.proto`, `google/protobuf/go_features.proto`,
-`google/protobuf/timestamp.proto`,
-`pkg/notification/proto/notification_message.proto`
+**Messages** (1): `EventNotification` **Imports** (4): `google/protobuf/any.proto`, `google/protobuf/go_features.proto`, `google/protobuf/timestamp.proto`, `pkg/notification/proto/notification_message.proto`
 
 ### File Content
 
@@ -41963,8 +40637,7 @@ message EventNotification {
 
 **Package**: `gcommon.v1.notification` **Lines**: 22
 
-**Messages** (1): `GetPreferencesRequest` **Imports** (2):
-`google/protobuf/go_features.proto`, `pkg/common/proto/request_metadata.proto`
+**Messages** (1): `GetPreferencesRequest` **Imports** (2): `google/protobuf/go_features.proto`, `pkg/common/proto/request_metadata.proto`
 
 ### File Content
 
@@ -42001,9 +40674,7 @@ message GetPreferencesRequest {
 
 **Package**: `gcommon.v1.notification` **Lines**: 26
 
-**Messages** (1): `GetPreferencesResponse` **Imports** (3):
-`google/protobuf/go_features.proto`, `pkg/common/proto/response_metadata.proto`,
-`pkg/notification/proto/subscription_preferences.proto`
+**Messages** (1): `GetPreferencesResponse` **Imports** (3): `google/protobuf/go_features.proto`, `pkg/common/proto/response_metadata.proto`, `pkg/notification/proto/subscription_preferences.proto`
 
 ### File Content
 
@@ -42044,8 +40715,7 @@ message GetPreferencesResponse {
 
 **Package**: `gcommon.v1.notification` **Lines**: 22
 
-**Messages** (1): `GetTemplateRequest` **Imports** (2):
-`google/protobuf/go_features.proto`, `pkg/common/proto/request_metadata.proto`
+**Messages** (1): `GetTemplateRequest` **Imports** (2): `google/protobuf/go_features.proto`, `pkg/common/proto/request_metadata.proto`
 
 ### File Content
 
@@ -42082,8 +40752,7 @@ message GetTemplateRequest {
 
 **Package**: `gcommon.v1.notification` **Lines**: 22
 
-**Messages** (1): `GetTemplateResponse` **Imports** (2):
-`google/protobuf/go_features.proto`, `pkg/notification/proto/template.proto`
+**Messages** (1): `GetTemplateResponse` **Imports** (2): `google/protobuf/go_features.proto`, `pkg/notification/proto/template.proto`
 
 ### File Content
 
@@ -42120,8 +40789,7 @@ message GetTemplateResponse {
 
 **Package**: `gcommon.v1.notification` **Lines**: 22
 
-**Messages** (1): `ListNotificationsRequest` **Imports** (2):
-`google/protobuf/go_features.proto`, `pkg/common/proto/pagination.proto`
+**Messages** (1): `ListNotificationsRequest` **Imports** (2): `google/protobuf/go_features.proto`, `pkg/common/proto/pagination.proto`
 
 ### File Content
 
@@ -42158,9 +40826,7 @@ message ListNotificationsRequest {
 
 **Package**: `gcommon.v1.notification` **Lines**: 22
 
-**Messages** (1): `ListNotificationsResponse` **Imports** (2):
-`google/protobuf/go_features.proto`,
-`pkg/notification/proto/notification_message.proto`
+**Messages** (1): `ListNotificationsResponse` **Imports** (2): `google/protobuf/go_features.proto`, `pkg/notification/proto/notification_message.proto`
 
 ### File Content
 
@@ -42197,8 +40863,7 @@ message ListNotificationsResponse {
 
 **Package**: `gcommon.v1.notification` **Lines**: 22
 
-**Messages** (1): `MarkAsReadRequest` **Imports** (2):
-`google/protobuf/go_features.proto`, `pkg/common/proto/request_metadata.proto`
+**Messages** (1): `MarkAsReadRequest` **Imports** (2): `google/protobuf/go_features.proto`, `pkg/common/proto/request_metadata.proto`
 
 ### File Content
 
@@ -42235,8 +40900,7 @@ message MarkAsReadRequest {
 
 **Package**: `gcommon.v1.notification` **Lines**: 21
 
-**Messages** (1): `MarkAsReadResponse` **Imports** (1):
-`google/protobuf/go_features.proto`
+**Messages** (1): `MarkAsReadResponse` **Imports** (1): `google/protobuf/go_features.proto`
 
 ### File Content
 
@@ -42272,10 +40936,7 @@ message MarkAsReadResponse {
 
 **Package**: `gcommon.v1.notification` **Lines**: 47
 
-**Messages** (1): `NotificationMessage` **Imports** (5):
-`google/protobuf/any.proto`, `google/protobuf/go_features.proto`,
-`google/protobuf/timestamp.proto`,
-`pkg/notification/proto/delivery_channel.proto`,
+**Messages** (1): `NotificationMessage` **Imports** (5): `google/protobuf/any.proto`, `google/protobuf/go_features.proto`, `google/protobuf/timestamp.proto`, `pkg/notification/proto/delivery_channel.proto`,
 `pkg/notification/proto/delivery_status.proto`
 
 ### File Content
@@ -42338,20 +40999,10 @@ message NotificationMessage {
 
 **Package**: `gcommon.v1.notification` **Lines**: 48
 
-**Services** (1): `NotificationService` **Imports** (13):
-`google/protobuf/go_features.proto`,
-`pkg/notification/proto/delete_notification_request.proto`,
-`pkg/notification/proto/delete_notification_response.proto`,
-`pkg/notification/proto/get_template_request.proto`,
-`pkg/notification/proto/get_template_response.proto`,
-`pkg/notification/proto/list_notifications_request.proto`,
-`pkg/notification/proto/list_notifications_response.proto`,
-`pkg/notification/proto/mark_as_read_request.proto`,
-`pkg/notification/proto/mark_as_read_response.proto`,
-`pkg/notification/proto/send_notification_request.proto`,
-`pkg/notification/proto/send_notification_response.proto`,
-`pkg/notification/proto/update_preferences_request.proto`,
-`pkg/notification/proto/update_preferences_response.proto`
+**Services** (1): `NotificationService` **Imports** (13): `google/protobuf/go_features.proto`, `pkg/notification/proto/delete_notification_request.proto`, `pkg/notification/proto/delete_notification_response.proto`,
+`pkg/notification/proto/get_template_request.proto`, `pkg/notification/proto/get_template_response.proto`, `pkg/notification/proto/list_notifications_request.proto`, `pkg/notification/proto/list_notifications_response.proto`,
+`pkg/notification/proto/mark_as_read_request.proto`, `pkg/notification/proto/mark_as_read_response.proto`, `pkg/notification/proto/send_notification_request.proto`, `pkg/notification/proto/send_notification_response.proto`,
+`pkg/notification/proto/update_preferences_request.proto`, `pkg/notification/proto/update_preferences_response.proto`
 
 ### File Content
 
@@ -42414,9 +41065,7 @@ service NotificationService {
 
 **Package**: `gcommon.v1.notification` **Lines**: 23
 
-**Messages** (1): `SendNotificationRequest` **Imports** (3):
-`google/protobuf/go_features.proto`, `pkg/common/proto/request_metadata.proto`,
-`pkg/notification/proto/notification_message.proto`
+**Messages** (1): `SendNotificationRequest` **Imports** (3): `google/protobuf/go_features.proto`, `pkg/common/proto/request_metadata.proto`, `pkg/notification/proto/notification_message.proto`
 
 ### File Content
 
@@ -42454,9 +41103,7 @@ message SendNotificationRequest {
 
 **Package**: `gcommon.v1.notification` **Lines**: 28
 
-**Messages** (1): `SendNotificationResponse` **Imports** (2):
-`google/protobuf/go_features.proto`,
-`pkg/notification/proto/delivery_status.proto`
+**Messages** (1): `SendNotificationResponse` **Imports** (2): `google/protobuf/go_features.proto`, `pkg/notification/proto/delivery_status.proto`
 
 ### File Content
 
@@ -42499,9 +41146,7 @@ message SendNotificationResponse {
 
 **Package**: `gcommon.v1.notification` **Lines**: 31
 
-**Messages** (1): `SubscriptionPreferences` **Imports** (2):
-`google/protobuf/go_features.proto`,
-`pkg/notification/proto/delivery_channel_type.proto`
+**Messages** (1): `SubscriptionPreferences` **Imports** (2): `google/protobuf/go_features.proto`, `pkg/notification/proto/delivery_channel_type.proto`
 
 ### File Content
 
@@ -42547,8 +41192,7 @@ message SubscriptionPreferences {
 
 **Package**: `gcommon.v1.notification` **Lines**: 34
 
-**Messages** (1): `Template` **Imports** (2):
-`google/protobuf/go_features.proto`, `google/protobuf/timestamp.proto`
+**Messages** (1): `Template` **Imports** (2): `google/protobuf/go_features.proto`, `google/protobuf/timestamp.proto`
 
 ### ⚠️ Issues Found (1)
 
@@ -42601,9 +41245,7 @@ message Template {
 
 **Package**: `gcommon.v1.notification` **Lines**: 23
 
-**Messages** (1): `UpdatePreferencesRequest` **Imports** (3):
-`google/protobuf/go_features.proto`, `pkg/common/proto/request_metadata.proto`,
-`pkg/notification/proto/subscription_preferences.proto`
+**Messages** (1): `UpdatePreferencesRequest` **Imports** (3): `google/protobuf/go_features.proto`, `pkg/common/proto/request_metadata.proto`, `pkg/notification/proto/subscription_preferences.proto`
 
 ### File Content
 
@@ -42641,8 +41283,7 @@ message UpdatePreferencesRequest {
 
 **Package**: `gcommon.v1.notification` **Lines**: 20
 
-**Messages** (1): `UpdatePreferencesResponse` **Imports** (1):
-`google/protobuf/go_features.proto`
+**Messages** (1): `UpdatePreferencesResponse` **Imports** (1): `google/protobuf/go_features.proto`
 
 ### File Content
 
@@ -42677,9 +41318,7 @@ message UpdatePreferencesResponse {
 
 **Package**: `gcommon.v1.organization` **Lines**: 27
 
-**Messages** (1): `AddMemberRequest` **Imports** (3):
-`google/protobuf/go_features.proto`, `pkg/common/proto/request_metadata.proto`,
-`pkg/organization/proto/organization_member.proto`
+**Messages** (1): `AddMemberRequest` **Imports** (3): `google/protobuf/go_features.proto`, `pkg/common/proto/request_metadata.proto`, `pkg/organization/proto/organization_member.proto`
 
 ### File Content
 
@@ -42721,9 +41360,7 @@ message AddMemberRequest {
 
 **Package**: `gcommon.v1.organization` **Lines**: 23
 
-**Messages** (1): `AddMemberResponse` **Imports** (3):
-`google/protobuf/go_features.proto`, `pkg/common/proto/error.proto`,
-`pkg/organization/proto/organization_member.proto`
+**Messages** (1): `AddMemberResponse` **Imports** (3): `google/protobuf/go_features.proto`, `pkg/common/proto/error.proto`, `pkg/organization/proto/organization_member.proto`
 
 ### File Content
 
@@ -42761,9 +41398,7 @@ message AddMemberResponse {
 
 **Package**: `gcommon.v1.organization` **Lines**: 24
 
-**Messages** (1): `ConfigureTenantIsolationRequest` **Imports** (3):
-`google/protobuf/go_features.proto`, `pkg/common/proto/request_metadata.proto`,
-`pkg/organization/proto/tenant_isolation.proto`
+**Messages** (1): `ConfigureTenantIsolationRequest` **Imports** (3): `google/protobuf/go_features.proto`, `pkg/common/proto/request_metadata.proto`, `pkg/organization/proto/tenant_isolation.proto`
 
 ### File Content
 
@@ -42802,9 +41437,7 @@ message ConfigureTenantIsolationRequest {
 
 **Package**: `gcommon.v1.organization` **Lines**: 23
 
-**Messages** (1): `ConfigureTenantIsolationResponse` **Imports** (3):
-`google/protobuf/go_features.proto`, `pkg/common/proto/error.proto`,
-`pkg/organization/proto/tenant_isolation.proto`
+**Messages** (1): `ConfigureTenantIsolationResponse` **Imports** (3): `google/protobuf/go_features.proto`, `pkg/common/proto/error.proto`, `pkg/organization/proto/tenant_isolation.proto`
 
 ### File Content
 
@@ -42842,9 +41475,7 @@ message ConfigureTenantIsolationResponse {
 
 **Package**: `gcommon.v1.organization` **Lines**: 24
 
-**Messages** (1): `CreateDepartmentRequest` **Imports** (3):
-`google/protobuf/go_features.proto`, `pkg/common/proto/request_metadata.proto`,
-`pkg/organization/proto/department.proto`
+**Messages** (1): `CreateDepartmentRequest` **Imports** (3): `google/protobuf/go_features.proto`, `pkg/common/proto/request_metadata.proto`, `pkg/organization/proto/department.proto`
 
 ### File Content
 
@@ -42883,9 +41514,7 @@ message CreateDepartmentRequest {
 
 **Package**: `gcommon.v1.organization` **Lines**: 23
 
-**Messages** (1): `CreateDepartmentResponse` **Imports** (3):
-`google/protobuf/go_features.proto`, `pkg/common/proto/error.proto`,
-`pkg/organization/proto/department.proto`
+**Messages** (1): `CreateDepartmentResponse` **Imports** (3): `google/protobuf/go_features.proto`, `pkg/common/proto/error.proto`, `pkg/organization/proto/department.proto`
 
 ### File Content
 
@@ -42923,9 +41552,7 @@ message CreateDepartmentResponse {
 
 **Package**: `gcommon.v1.organization` **Lines**: 38
 
-**Messages** (1): `CreateOrganizationRequest` **Imports** (3):
-`google/protobuf/go_features.proto`, `pkg/common/proto/request_metadata.proto`,
-`pkg/organization/proto/organization.proto`
+**Messages** (1): `CreateOrganizationRequest` **Imports** (3): `google/protobuf/go_features.proto`, `pkg/common/proto/request_metadata.proto`, `pkg/organization/proto/organization.proto`
 
 ### File Content
 
@@ -42978,10 +41605,7 @@ message CreateOrganizationRequest {
 
 **Package**: `gcommon.v1.organization` **Lines**: 37
 
-**Messages** (1): `CreateOrganizationResponse` **Imports** (4):
-`google/protobuf/go_features.proto`, `pkg/common/proto/error.proto`,
-`pkg/organization/proto/organization.proto`,
-`pkg/organization/proto/tenant.proto`
+**Messages** (1): `CreateOrganizationResponse` **Imports** (4): `google/protobuf/go_features.proto`, `pkg/common/proto/error.proto`, `pkg/organization/proto/organization.proto`, `pkg/organization/proto/tenant.proto`
 
 ### File Content
 
@@ -43033,9 +41657,7 @@ message CreateOrganizationResponse {
 
 **Package**: `gcommon.v1.organization` **Lines**: 24
 
-**Messages** (1): `CreateTeamRequest` **Imports** (3):
-`google/protobuf/go_features.proto`, `pkg/common/proto/request_metadata.proto`,
-`pkg/organization/proto/team.proto`
+**Messages** (1): `CreateTeamRequest` **Imports** (3): `google/protobuf/go_features.proto`, `pkg/common/proto/request_metadata.proto`, `pkg/organization/proto/team.proto`
 
 ### File Content
 
@@ -43074,9 +41696,7 @@ message CreateTeamRequest {
 
 **Package**: `gcommon.v1.organization` **Lines**: 23
 
-**Messages** (1): `CreateTeamResponse` **Imports** (3):
-`google/protobuf/go_features.proto`, `pkg/common/proto/error.proto`,
-`pkg/organization/proto/team.proto`
+**Messages** (1): `CreateTeamResponse` **Imports** (3): `google/protobuf/go_features.proto`, `pkg/common/proto/error.proto`, `pkg/organization/proto/team.proto`
 
 ### File Content
 
@@ -43114,9 +41734,7 @@ message CreateTeamResponse {
 
 **Package**: `gcommon.v1.organization` **Lines**: 23
 
-**Messages** (1): `CreateTenantRequest` **Imports** (3):
-`google/protobuf/go_features.proto`, `pkg/common/proto/request_metadata.proto`,
-`pkg/organization/proto/tenant.proto`
+**Messages** (1): `CreateTenantRequest` **Imports** (3): `google/protobuf/go_features.proto`, `pkg/common/proto/request_metadata.proto`, `pkg/organization/proto/tenant.proto`
 
 ### File Content
 
@@ -43154,9 +41772,7 @@ message CreateTenantRequest {
 
 **Package**: `gcommon.v1.organization` **Lines**: 23
 
-**Messages** (1): `CreateTenantResponse` **Imports** (3):
-`google/protobuf/go_features.proto`, `pkg/common/proto/error.proto`,
-`pkg/organization/proto/tenant.proto`
+**Messages** (1): `CreateTenantResponse` **Imports** (3): `google/protobuf/go_features.proto`, `pkg/common/proto/error.proto`, `pkg/organization/proto/tenant.proto`
 
 ### File Content
 
@@ -43194,8 +41810,7 @@ message CreateTenantResponse {
 
 **Package**: `gcommon.v1.organization` **Lines**: 20
 
-**Messages** (1): `DeleteDepartmentRequest` **Imports** (2):
-`google/protobuf/go_features.proto`, `pkg/common/proto/request_metadata.proto`
+**Messages** (1): `DeleteDepartmentRequest` **Imports** (2): `google/protobuf/go_features.proto`, `pkg/common/proto/request_metadata.proto`
 
 ### File Content
 
@@ -43230,8 +41845,7 @@ message DeleteDepartmentRequest {
 
 **Package**: `gcommon.v1.organization` **Lines**: 19
 
-**Messages** (1): `DeleteDepartmentResponse` **Imports** (2):
-`google/protobuf/go_features.proto`, `pkg/common/proto/error.proto`
+**Messages** (1): `DeleteDepartmentResponse` **Imports** (2): `google/protobuf/go_features.proto`, `pkg/common/proto/error.proto`
 
 ### File Content
 
@@ -43265,8 +41879,7 @@ message DeleteDepartmentResponse {
 
 **Package**: `gcommon.v1.organization` **Lines**: 20
 
-**Messages** (1): `DeleteOrganizationRequest` **Imports** (2):
-`google/protobuf/go_features.proto`, `pkg/common/proto/request_metadata.proto`
+**Messages** (1): `DeleteOrganizationRequest` **Imports** (2): `google/protobuf/go_features.proto`, `pkg/common/proto/request_metadata.proto`
 
 ### File Content
 
@@ -43301,8 +41914,7 @@ message DeleteOrganizationRequest {
 
 **Package**: `gcommon.v1.organization` **Lines**: 19
 
-**Messages** (1): `DeleteOrganizationResponse` **Imports** (2):
-`google/protobuf/go_features.proto`, `pkg/common/proto/error.proto`
+**Messages** (1): `DeleteOrganizationResponse` **Imports** (2): `google/protobuf/go_features.proto`, `pkg/common/proto/error.proto`
 
 ### File Content
 
@@ -43336,8 +41948,7 @@ message DeleteOrganizationResponse {
 
 **Package**: `gcommon.v1.organization` **Lines**: 23
 
-**Messages** (1): `DeleteTeamRequest` **Imports** (2):
-`google/protobuf/go_features.proto`, `pkg/common/proto/request_metadata.proto`
+**Messages** (1): `DeleteTeamRequest` **Imports** (2): `google/protobuf/go_features.proto`, `pkg/common/proto/request_metadata.proto`
 
 ### File Content
 
@@ -43375,8 +41986,7 @@ message DeleteTeamRequest {
 
 **Package**: `gcommon.v1.organization` **Lines**: 19
 
-**Messages** (1): `DeleteTeamResponse` **Imports** (2):
-`google/protobuf/go_features.proto`, `pkg/common/proto/error.proto`
+**Messages** (1): `DeleteTeamResponse` **Imports** (2): `google/protobuf/go_features.proto`, `pkg/common/proto/error.proto`
 
 ### File Content
 
@@ -43410,8 +42020,7 @@ message DeleteTeamResponse {
 
 **Package**: `gcommon.v1.organization` **Lines**: 20
 
-**Messages** (1): `DeleteTenantRequest` **Imports** (2):
-`google/protobuf/go_features.proto`, `pkg/common/proto/request_metadata.proto`
+**Messages** (1): `DeleteTenantRequest` **Imports** (2): `google/protobuf/go_features.proto`, `pkg/common/proto/request_metadata.proto`
 
 ### File Content
 
@@ -43446,8 +42055,7 @@ message DeleteTenantRequest {
 
 **Package**: `gcommon.v1.organization` **Lines**: 19
 
-**Messages** (1): `DeleteTenantResponse` **Imports** (2):
-`google/protobuf/go_features.proto`, `pkg/common/proto/error.proto`
+**Messages** (1): `DeleteTenantResponse` **Imports** (2): `google/protobuf/go_features.proto`, `pkg/common/proto/error.proto`
 
 ### File Content
 
@@ -43481,9 +42089,7 @@ message DeleteTenantResponse {
 
 **Package**: `gcommon.v1.organization` **Lines**: 85
 
-**Messages** (1): `Department` **Imports** (3):
-`google/protobuf/go_features.proto`, `google/protobuf/timestamp.proto`,
-`pkg/common/proto/key_value.proto`
+**Messages** (1): `Department` **Imports** (3): `google/protobuf/go_features.proto`, `google/protobuf/timestamp.proto`, `pkg/common/proto/key_value.proto`
 
 ### File Content
 
@@ -43583,8 +42189,7 @@ message Department {
 
 **Package**: `gcommon.v1.organization` **Lines**: 20
 
-**Messages** (1): `GetDepartmentRequest` **Imports** (2):
-`google/protobuf/go_features.proto`, `pkg/common/proto/request_metadata.proto`
+**Messages** (1): `GetDepartmentRequest` **Imports** (2): `google/protobuf/go_features.proto`, `pkg/common/proto/request_metadata.proto`
 
 ### File Content
 
@@ -43619,9 +42224,7 @@ message GetDepartmentRequest {
 
 **Package**: `gcommon.v1.organization` **Lines**: 23
 
-**Messages** (1): `GetDepartmentResponse` **Imports** (3):
-`google/protobuf/go_features.proto`, `pkg/common/proto/error.proto`,
-`pkg/organization/proto/department.proto`
+**Messages** (1): `GetDepartmentResponse` **Imports** (3): `google/protobuf/go_features.proto`, `pkg/common/proto/error.proto`, `pkg/organization/proto/department.proto`
 
 ### File Content
 
@@ -43659,8 +42262,7 @@ message GetDepartmentResponse {
 
 **Package**: `gcommon.v1.organization` **Lines**: 23
 
-**Messages** (1): `GetHierarchyRequest` **Imports** (2):
-`google/protobuf/go_features.proto`, `pkg/common/proto/request_metadata.proto`
+**Messages** (1): `GetHierarchyRequest` **Imports** (2): `google/protobuf/go_features.proto`, `pkg/common/proto/request_metadata.proto`
 
 ### File Content
 
@@ -43698,9 +42300,7 @@ message GetHierarchyRequest {
 
 **Package**: `gcommon.v1.organization` **Lines**: 23
 
-**Messages** (1): `GetHierarchyResponse` **Imports** (3):
-`google/protobuf/go_features.proto`, `pkg/common/proto/error.proto`,
-`pkg/organization/proto/organization_hierarchy.proto`
+**Messages** (1): `GetHierarchyResponse` **Imports** (3): `google/protobuf/go_features.proto`, `pkg/common/proto/error.proto`, `pkg/organization/proto/organization_hierarchy.proto`
 
 ### File Content
 
@@ -43738,8 +42338,7 @@ message GetHierarchyResponse {
 
 **Package**: `gcommon.v1.organization` **Lines**: 29
 
-**Messages** (1): `GetOrganizationRequest` **Imports** (2):
-`google/protobuf/go_features.proto`, `pkg/common/proto/request_metadata.proto`
+**Messages** (1): `GetOrganizationRequest` **Imports** (2): `google/protobuf/go_features.proto`, `pkg/common/proto/request_metadata.proto`
 
 ### File Content
 
@@ -43783,10 +42382,7 @@ message GetOrganizationRequest {
 
 **Package**: `gcommon.v1.organization` **Lines**: 40
 
-**Messages** (1): `GetOrganizationResponse` **Imports** (5):
-`google/protobuf/go_features.proto`, `pkg/common/proto/error.proto`,
-`pkg/organization/proto/organization.proto`,
-`pkg/organization/proto/organization_settings.proto`,
+**Messages** (1): `GetOrganizationResponse` **Imports** (5): `google/protobuf/go_features.proto`, `pkg/common/proto/error.proto`, `pkg/organization/proto/organization.proto`, `pkg/organization/proto/organization_settings.proto`,
 `pkg/organization/proto/tenant.proto`
 
 ### File Content
@@ -43842,8 +42438,7 @@ message GetOrganizationResponse {
 
 **Package**: `gcommon.v1.organization` **Lines**: 20
 
-**Messages** (1): `GetOrganizationSettingsRequest` **Imports** (2):
-`google/protobuf/go_features.proto`, `pkg/common/proto/request_metadata.proto`
+**Messages** (1): `GetOrganizationSettingsRequest` **Imports** (2): `google/protobuf/go_features.proto`, `pkg/common/proto/request_metadata.proto`
 
 ### File Content
 
@@ -43878,9 +42473,7 @@ message GetOrganizationSettingsRequest {
 
 **Package**: `gcommon.v1.organization` **Lines**: 23
 
-**Messages** (1): `GetOrganizationSettingsResponse` **Imports** (3):
-`google/protobuf/go_features.proto`, `pkg/common/proto/error.proto`,
-`pkg/organization/proto/organization_settings.proto`
+**Messages** (1): `GetOrganizationSettingsResponse` **Imports** (3): `google/protobuf/go_features.proto`, `pkg/common/proto/error.proto`, `pkg/organization/proto/organization_settings.proto`
 
 ### File Content
 
@@ -43918,8 +42511,7 @@ message GetOrganizationSettingsResponse {
 
 **Package**: `gcommon.v1.organization` **Lines**: 20
 
-**Messages** (1): `GetTeamRequest` **Imports** (2):
-`google/protobuf/go_features.proto`, `pkg/common/proto/request_metadata.proto`
+**Messages** (1): `GetTeamRequest` **Imports** (2): `google/protobuf/go_features.proto`, `pkg/common/proto/request_metadata.proto`
 
 ### File Content
 
@@ -43954,9 +42546,7 @@ message GetTeamRequest {
 
 **Package**: `gcommon.v1.organization` **Lines**: 23
 
-**Messages** (1): `GetTeamResponse` **Imports** (3):
-`google/protobuf/go_features.proto`, `pkg/common/proto/error.proto`,
-`pkg/organization/proto/team.proto`
+**Messages** (1): `GetTeamResponse` **Imports** (3): `google/protobuf/go_features.proto`, `pkg/common/proto/error.proto`, `pkg/organization/proto/team.proto`
 
 ### File Content
 
@@ -43994,8 +42584,7 @@ message GetTeamResponse {
 
 **Package**: `gcommon.v1.organization` **Lines**: 20
 
-**Messages** (1): `GetTenantIsolationRequest` **Imports** (2):
-`google/protobuf/go_features.proto`, `pkg/common/proto/request_metadata.proto`
+**Messages** (1): `GetTenantIsolationRequest` **Imports** (2): `google/protobuf/go_features.proto`, `pkg/common/proto/request_metadata.proto`
 
 ### File Content
 
@@ -44030,9 +42619,7 @@ message GetTenantIsolationRequest {
 
 **Package**: `gcommon.v1.organization` **Lines**: 23
 
-**Messages** (1): `GetTenantIsolationResponse` **Imports** (3):
-`google/protobuf/go_features.proto`, `pkg/common/proto/error.proto`,
-`pkg/organization/proto/tenant_isolation.proto`
+**Messages** (1): `GetTenantIsolationResponse` **Imports** (3): `google/protobuf/go_features.proto`, `pkg/common/proto/error.proto`, `pkg/organization/proto/tenant_isolation.proto`
 
 ### File Content
 
@@ -44070,8 +42657,7 @@ message GetTenantIsolationResponse {
 
 **Package**: `gcommon.v1.organization` **Lines**: 20
 
-**Messages** (1): `GetTenantRequest` **Imports** (2):
-`google/protobuf/go_features.proto`, `pkg/common/proto/request_metadata.proto`
+**Messages** (1): `GetTenantRequest` **Imports** (2): `google/protobuf/go_features.proto`, `pkg/common/proto/request_metadata.proto`
 
 ### File Content
 
@@ -44106,9 +42692,7 @@ message GetTenantRequest {
 
 **Package**: `gcommon.v1.organization` **Lines**: 23
 
-**Messages** (1): `GetTenantResponse` **Imports** (3):
-`google/protobuf/go_features.proto`, `pkg/common/proto/error.proto`,
-`pkg/organization/proto/tenant.proto`
+**Messages** (1): `GetTenantResponse` **Imports** (3): `google/protobuf/go_features.proto`, `pkg/common/proto/error.proto`, `pkg/organization/proto/tenant.proto`
 
 ### File Content
 
@@ -44146,8 +42730,7 @@ message GetTenantResponse {
 
 **Package**: `gcommon.v1.organization` **Lines**: 20
 
-**Messages** (1): `GetTenantUsageRequest` **Imports** (2):
-`google/protobuf/go_features.proto`, `pkg/common/proto/request_metadata.proto`
+**Messages** (1): `GetTenantUsageRequest` **Imports** (2): `google/protobuf/go_features.proto`, `pkg/common/proto/request_metadata.proto`
 
 ### File Content
 
@@ -44182,9 +42765,7 @@ message GetTenantUsageRequest {
 
 **Package**: `gcommon.v1.organization` **Lines**: 23
 
-**Messages** (1): `GetTenantUsageResponse` **Imports** (3):
-`google/protobuf/go_features.proto`, `pkg/common/proto/error.proto`,
-`pkg/common/proto/key_value.proto`
+**Messages** (1): `GetTenantUsageResponse` **Imports** (3): `google/protobuf/go_features.proto`, `pkg/common/proto/error.proto`, `pkg/common/proto/key_value.proto`
 
 ### File Content
 
@@ -44222,32 +42803,13 @@ message GetTenantUsageResponse {
 
 **Package**: `gcommon.v1.organization` **Lines**: 77
 
-**Services** (1): `HierarchyService` **Imports** (25):
-`google/protobuf/go_features.proto`,
-`pkg/organization/proto/create_department_request.proto`,
-`pkg/organization/proto/create_department_response.proto`,
-`pkg/organization/proto/create_team_request.proto`,
-`pkg/organization/proto/create_team_response.proto`,
-`pkg/organization/proto/delete_department_request.proto`,
-`pkg/organization/proto/delete_department_response.proto`,
-`pkg/organization/proto/delete_team_request.proto`,
-`pkg/organization/proto/delete_team_response.proto`,
-`pkg/organization/proto/get_department_request.proto`,
-`pkg/organization/proto/get_department_response.proto`,
-`pkg/organization/proto/get_hierarchy_request.proto`,
-`pkg/organization/proto/get_hierarchy_response.proto`,
-`pkg/organization/proto/get_team_request.proto`,
-`pkg/organization/proto/get_team_response.proto`,
-`pkg/organization/proto/list_departments_request.proto`,
-`pkg/organization/proto/list_departments_response.proto`,
-`pkg/organization/proto/list_teams_request.proto`,
-`pkg/organization/proto/list_teams_response.proto`,
-`pkg/organization/proto/update_department_request.proto`,
-`pkg/organization/proto/update_department_response.proto`,
-`pkg/organization/proto/update_hierarchy_request.proto`,
-`pkg/organization/proto/update_hierarchy_response.proto`,
-`pkg/organization/proto/update_team_request.proto`,
-`pkg/organization/proto/update_team_response.proto`
+**Services** (1): `HierarchyService` **Imports** (25): `google/protobuf/go_features.proto`, `pkg/organization/proto/create_department_request.proto`, `pkg/organization/proto/create_department_response.proto`,
+`pkg/organization/proto/create_team_request.proto`, `pkg/organization/proto/create_team_response.proto`, `pkg/organization/proto/delete_department_request.proto`, `pkg/organization/proto/delete_department_response.proto`,
+`pkg/organization/proto/delete_team_request.proto`, `pkg/organization/proto/delete_team_response.proto`, `pkg/organization/proto/get_department_request.proto`, `pkg/organization/proto/get_department_response.proto`,
+`pkg/organization/proto/get_hierarchy_request.proto`, `pkg/organization/proto/get_hierarchy_response.proto`, `pkg/organization/proto/get_team_request.proto`, `pkg/organization/proto/get_team_response.proto`,
+`pkg/organization/proto/list_departments_request.proto`, `pkg/organization/proto/list_departments_response.proto`, `pkg/organization/proto/list_teams_request.proto`, `pkg/organization/proto/list_teams_response.proto`,
+`pkg/organization/proto/update_department_request.proto`, `pkg/organization/proto/update_department_response.proto`, `pkg/organization/proto/update_hierarchy_request.proto`, `pkg/organization/proto/update_hierarchy_response.proto`,
+`pkg/organization/proto/update_team_request.proto`, `pkg/organization/proto/update_team_response.proto`
 
 ### File Content
 
@@ -44339,8 +42901,7 @@ service HierarchyService {
 
 **Package**: `gcommon.v1.organization` **Lines**: 40
 
-**Enums** (1): `HierarchyType` **Imports** (1):
-`google/protobuf/go_features.proto`
+**Enums** (1): `HierarchyType` **Imports** (1): `google/protobuf/go_features.proto`
 
 ### File Content
 
@@ -44395,8 +42956,7 @@ enum HierarchyType {
 
 **Package**: `gcommon.v1.organization` **Lines**: 34
 
-**Enums** (1): `IsolationLevel` **Imports** (1):
-`google/protobuf/go_features.proto`
+**Enums** (1): `IsolationLevel` **Imports** (1): `google/protobuf/go_features.proto`
 
 ### File Content
 
@@ -44445,8 +43005,7 @@ enum IsolationLevel {
 
 **Package**: `gcommon.v1.organization` **Lines**: 29
 
-**Messages** (1): `ListDepartmentsRequest` **Imports** (2):
-`google/protobuf/go_features.proto`, `pkg/common/proto/request_metadata.proto`
+**Messages** (1): `ListDepartmentsRequest` **Imports** (2): `google/protobuf/go_features.proto`, `pkg/common/proto/request_metadata.proto`
 
 ### File Content
 
@@ -44490,10 +43049,7 @@ message ListDepartmentsRequest {
 
 **Package**: `gcommon.v1.organization` **Lines**: 27
 
-**Messages** (1): `ListDepartmentsResponse` **Imports** (4):
-`google/protobuf/go_features.proto`, `pkg/common/proto/error.proto`,
-`pkg/common/proto/paginated_response.proto`,
-`pkg/organization/proto/department.proto`
+**Messages** (1): `ListDepartmentsResponse` **Imports** (4): `google/protobuf/go_features.proto`, `pkg/common/proto/error.proto`, `pkg/common/proto/paginated_response.proto`, `pkg/organization/proto/department.proto`
 
 ### File Content
 
@@ -44535,8 +43091,7 @@ message ListDepartmentsResponse {
 
 **Package**: `gcommon.v1.organization` **Lines**: 35
 
-**Messages** (1): `ListMembersRequest` **Imports** (2):
-`google/protobuf/go_features.proto`, `pkg/common/proto/request_metadata.proto`
+**Messages** (1): `ListMembersRequest` **Imports** (2): `google/protobuf/go_features.proto`, `pkg/common/proto/request_metadata.proto`
 
 ### File Content
 
@@ -44586,10 +43141,7 @@ message ListMembersRequest {
 
 **Package**: `gcommon.v1.organization` **Lines**: 27
 
-**Messages** (1): `ListMembersResponse` **Imports** (4):
-`google/protobuf/go_features.proto`, `pkg/common/proto/error.proto`,
-`pkg/common/proto/paginated_response.proto`,
-`pkg/organization/proto/organization_member.proto`
+**Messages** (1): `ListMembersResponse` **Imports** (4): `google/protobuf/go_features.proto`, `pkg/common/proto/error.proto`, `pkg/common/proto/paginated_response.proto`, `pkg/organization/proto/organization_member.proto`
 
 ### File Content
 
@@ -44631,8 +43183,7 @@ message ListMembersResponse {
 
 **Package**: `gcommon.v1.organization` **Lines**: 26
 
-**Messages** (1): `ListOrganizationsRequest` **Imports** (2):
-`google/protobuf/go_features.proto`, `pkg/common/proto/request_metadata.proto`
+**Messages** (1): `ListOrganizationsRequest` **Imports** (2): `google/protobuf/go_features.proto`, `pkg/common/proto/request_metadata.proto`
 
 ### File Content
 
@@ -44673,10 +43224,7 @@ message ListOrganizationsRequest {
 
 **Package**: `gcommon.v1.organization` **Lines**: 27
 
-**Messages** (1): `ListOrganizationsResponse` **Imports** (4):
-`google/protobuf/go_features.proto`, `pkg/common/proto/error.proto`,
-`pkg/common/proto/paginated_response.proto`,
-`pkg/organization/proto/organization.proto`
+**Messages** (1): `ListOrganizationsResponse` **Imports** (4): `google/protobuf/go_features.proto`, `pkg/common/proto/error.proto`, `pkg/common/proto/paginated_response.proto`, `pkg/organization/proto/organization.proto`
 
 ### File Content
 
@@ -44718,8 +43266,7 @@ message ListOrganizationsResponse {
 
 **Package**: `gcommon.v1.organization` **Lines**: 32
 
-**Messages** (1): `ListTeamsRequest` **Imports** (2):
-`google/protobuf/go_features.proto`, `pkg/common/proto/request_metadata.proto`
+**Messages** (1): `ListTeamsRequest` **Imports** (2): `google/protobuf/go_features.proto`, `pkg/common/proto/request_metadata.proto`
 
 ### File Content
 
@@ -44766,9 +43313,7 @@ message ListTeamsRequest {
 
 **Package**: `gcommon.v1.organization` **Lines**: 27
 
-**Messages** (1): `ListTeamsResponse` **Imports** (4):
-`google/protobuf/go_features.proto`, `pkg/common/proto/error.proto`,
-`pkg/common/proto/paginated_response.proto`, `pkg/organization/proto/team.proto`
+**Messages** (1): `ListTeamsResponse` **Imports** (4): `google/protobuf/go_features.proto`, `pkg/common/proto/error.proto`, `pkg/common/proto/paginated_response.proto`, `pkg/organization/proto/team.proto`
 
 ### File Content
 
@@ -44810,8 +43355,7 @@ message ListTeamsResponse {
 
 **Package**: `gcommon.v1.organization` **Lines**: 29
 
-**Messages** (1): `ListTenantsRequest` **Imports** (2):
-`google/protobuf/go_features.proto`, `pkg/common/proto/request_metadata.proto`
+**Messages** (1): `ListTenantsRequest` **Imports** (2): `google/protobuf/go_features.proto`, `pkg/common/proto/request_metadata.proto`
 
 ### File Content
 
@@ -44855,10 +43399,7 @@ message ListTenantsRequest {
 
 **Package**: `gcommon.v1.organization` **Lines**: 27
 
-**Messages** (1): `ListTenantsResponse` **Imports** (4):
-`google/protobuf/go_features.proto`, `pkg/common/proto/error.proto`,
-`pkg/common/proto/paginated_response.proto`,
-`pkg/organization/proto/tenant.proto`
+**Messages** (1): `ListTenantsResponse` **Imports** (4): `google/protobuf/go_features.proto`, `pkg/common/proto/error.proto`, `pkg/common/proto/paginated_response.proto`, `pkg/organization/proto/tenant.proto`
 
 ### File Content
 
@@ -44937,10 +43478,7 @@ enum MemberRole {
 
 **Package**: `gcommon.v1.organization` **Lines**: 89
 
-**Messages** (1): `Organization` **Imports** (4):
-`google/protobuf/go_features.proto`, `google/protobuf/timestamp.proto`,
-`pkg/common/proto/key_value.proto`,
-`pkg/organization/proto/organization_status.proto`
+**Messages** (1): `Organization` **Imports** (4): `google/protobuf/go_features.proto`, `google/protobuf/timestamp.proto`, `pkg/common/proto/key_value.proto`, `pkg/organization/proto/organization_status.proto`
 
 ### File Content
 
@@ -45044,9 +43582,7 @@ message Organization {
 
 **Package**: `gcommon.v1.organization` **Lines**: 119
 
-**Messages** (3): `OrganizationHierarchy`, `HierarchyNode`, `HierarchyPath`
-**Imports** (4): `google/protobuf/go_features.proto`,
-`google/protobuf/timestamp.proto`, `pkg/common/proto/key_value.proto`,
+**Messages** (3): `OrganizationHierarchy`, `HierarchyNode`, `HierarchyPath` **Imports** (4): `google/protobuf/go_features.proto`, `google/protobuf/timestamp.proto`, `pkg/common/proto/key_value.proto`,
 `pkg/organization/proto/hierarchy_type.proto`
 
 ### File Content
@@ -45181,9 +43717,7 @@ message HierarchyPath {
 
 **Package**: `gcommon.v1.organization` **Lines**: 91
 
-**Messages** (1): `OrganizationMember` **Imports** (4):
-`google/protobuf/go_features.proto`, `google/protobuf/timestamp.proto`,
-`pkg/common/proto/key_value.proto`, `pkg/organization/proto/member_role.proto`
+**Messages** (1): `OrganizationMember` **Imports** (4): `google/protobuf/go_features.proto`, `google/protobuf/timestamp.proto`, `pkg/common/proto/key_value.proto`, `pkg/organization/proto/member_role.proto`
 
 ### File Content
 
@@ -45289,30 +43823,13 @@ message OrganizationMember {
 
 **Package**: `gcommon.v1.organization` **Lines**: 72
 
-**Services** (1): `OrganizationService` **Imports** (23):
-`google/protobuf/go_features.proto`,
-`pkg/organization/proto/add_member_request.proto`,
-`pkg/organization/proto/add_member_response.proto`,
-`pkg/organization/proto/create_organization_request.proto`,
-`pkg/organization/proto/create_organization_response.proto`,
-`pkg/organization/proto/delete_organization_request.proto`,
-`pkg/organization/proto/delete_organization_response.proto`,
-`pkg/organization/proto/get_organization_request.proto`,
-`pkg/organization/proto/get_organization_response.proto`,
-`pkg/organization/proto/get_organization_settings_request.proto`,
-`pkg/organization/proto/get_organization_settings_response.proto`,
-`pkg/organization/proto/list_members_request.proto`,
-`pkg/organization/proto/list_members_response.proto`,
-`pkg/organization/proto/list_organizations_request.proto`,
-`pkg/organization/proto/list_organizations_response.proto`,
-`pkg/organization/proto/remove_member_request.proto`,
-`pkg/organization/proto/remove_member_response.proto`,
-`pkg/organization/proto/update_member_request.proto`,
-`pkg/organization/proto/update_member_response.proto`,
-`pkg/organization/proto/update_organization_request.proto`,
-`pkg/organization/proto/update_organization_response.proto`,
-`pkg/organization/proto/update_organization_settings_request.proto`,
-`pkg/organization/proto/update_organization_settings_response.proto`
+**Services** (1): `OrganizationService` **Imports** (23): `google/protobuf/go_features.proto`, `pkg/organization/proto/add_member_request.proto`, `pkg/organization/proto/add_member_response.proto`,
+`pkg/organization/proto/create_organization_request.proto`, `pkg/organization/proto/create_organization_response.proto`, `pkg/organization/proto/delete_organization_request.proto`,
+`pkg/organization/proto/delete_organization_response.proto`, `pkg/organization/proto/get_organization_request.proto`, `pkg/organization/proto/get_organization_response.proto`,
+`pkg/organization/proto/get_organization_settings_request.proto`, `pkg/organization/proto/get_organization_settings_response.proto`, `pkg/organization/proto/list_members_request.proto`, `pkg/organization/proto/list_members_response.proto`,
+`pkg/organization/proto/list_organizations_request.proto`, `pkg/organization/proto/list_organizations_response.proto`, `pkg/organization/proto/remove_member_request.proto`, `pkg/organization/proto/remove_member_response.proto`,
+`pkg/organization/proto/update_member_request.proto`, `pkg/organization/proto/update_member_response.proto`, `pkg/organization/proto/update_organization_request.proto`, `pkg/organization/proto/update_organization_response.proto`,
+`pkg/organization/proto/update_organization_settings_request.proto`, `pkg/organization/proto/update_organization_settings_response.proto`
 
 ### File Content
 
@@ -45399,12 +43916,8 @@ service OrganizationService {
 
 **Package**: `gcommon.v1.organization` **Lines**: 323
 
-**Messages** (15): `OrganizationSettings`, `SecuritySettings`, `UISettings`,
-`IntegrationSettings`, `Integration`, `NotificationSettings`, `RateLimitConfig`,
-`WebhookConfig`, `APIKeyConfig`, `OAuthAppConfig`, `BillingSettings`,
-`ComplianceSettings`, `FeatureFlag`, `EmailTemplate`, `NotificationFrequency`
-**Imports** (3): `google/protobuf/go_features.proto`,
-`google/protobuf/timestamp.proto`, `pkg/common/proto/key_value.proto`
+**Messages** (15): `OrganizationSettings`, `SecuritySettings`, `UISettings`, `IntegrationSettings`, `Integration`, `NotificationSettings`, `RateLimitConfig`, `WebhookConfig`, `APIKeyConfig`, `OAuthAppConfig`, `BillingSettings`,
+`ComplianceSettings`, `FeatureFlag`, `EmailTemplate`, `NotificationFrequency` **Imports** (3): `google/protobuf/go_features.proto`, `google/protobuf/timestamp.proto`, `pkg/common/proto/key_value.proto`
 
 ### File Content
 
@@ -45742,8 +44255,7 @@ message NotificationFrequency {
 
 **Package**: `gcommon.v1.organization` **Lines**: 37
 
-**Enums** (1): `OrganizationStatus` **Imports** (1):
-`google/protobuf/go_features.proto`
+**Enums** (1): `OrganizationStatus` **Imports** (1): `google/protobuf/go_features.proto`
 
 ### File Content
 
@@ -45795,8 +44307,7 @@ enum OrganizationStatus {
 
 **Package**: `gcommon.v1.organization` **Lines**: 23
 
-**Messages** (1): `RemoveMemberRequest` **Imports** (2):
-`google/protobuf/go_features.proto`, `pkg/common/proto/request_metadata.proto`
+**Messages** (1): `RemoveMemberRequest` **Imports** (2): `google/protobuf/go_features.proto`, `pkg/common/proto/request_metadata.proto`
 
 ### File Content
 
@@ -45834,8 +44345,7 @@ message RemoveMemberRequest {
 
 **Package**: `gcommon.v1.organization` **Lines**: 19
 
-**Messages** (1): `RemoveMemberResponse` **Imports** (2):
-`google/protobuf/go_features.proto`, `pkg/common/proto/error.proto`
+**Messages** (1): `RemoveMemberResponse` **Imports** (2): `google/protobuf/go_features.proto`, `pkg/common/proto/error.proto`
 
 ### File Content
 
@@ -45869,8 +44379,7 @@ message RemoveMemberResponse {
 
 **Package**: `gcommon.v1.organization` **Lines**: 94
 
-**Messages** (1): `Team` **Imports** (3): `google/protobuf/go_features.proto`,
-`google/protobuf/timestamp.proto`, `pkg/common/proto/key_value.proto`
+**Messages** (1): `Team` **Imports** (3): `google/protobuf/go_features.proto`, `google/protobuf/timestamp.proto`, `pkg/common/proto/key_value.proto`
 
 ### File Content
 
@@ -45979,11 +44488,8 @@ message Team {
 
 **Package**: `gcommon.v1.organization` **Lines**: 82
 
-**Messages** (1): `Tenant` **Imports** (6): `google/protobuf/go_features.proto`,
-`google/protobuf/timestamp.proto`, `pkg/common/proto/key_value.proto`,
-`pkg/organization/proto/isolation_level.proto`,
-`pkg/organization/proto/tenant_quota.proto`,
-`pkg/organization/proto/tenant_status.proto`
+**Messages** (1): `Tenant` **Imports** (6): `google/protobuf/go_features.proto`, `google/protobuf/timestamp.proto`, `pkg/common/proto/key_value.proto`, `pkg/organization/proto/isolation_level.proto`,
+`pkg/organization/proto/tenant_quota.proto`, `pkg/organization/proto/tenant_status.proto`
 
 ### File Content
 
@@ -46080,16 +44586,9 @@ message Tenant {
 
 **Package**: `gcommon.v1.organization` **Lines**: 590
 
-**Messages** (30): `TenantIsolation`, `DatabaseIsolation`, `NetworkIsolation`,
-`StorageIsolation`, `ComputeIsolation`, `EncryptionConfig`, `AccessControl`,
-`AuditConfig`, `BackupConfig`, `NetworkACLRule`, `LoadBalancerConfig`,
-`CDNConfig`, `DomainConfig`, `StorageEncryption`, `StoragePolicy`,
-`StorageBackupConfig`, `StorageQuota`, `CPUAllocation`, `MemoryAllocation`,
-`ResourceLimits`, `AutoScalingConfig`, `TimeRestriction`, `AuditAlert`,
-`HealthCheckConfig`, `SSLConfig`, `CacheBehavior`, `OriginConfig`, `DNSConfig`,
-`DNSRecord`, `CacheKeyPolicy` **Imports** (4):
-`google/protobuf/go_features.proto`, `google/protobuf/timestamp.proto`,
-`pkg/common/proto/key_value.proto`,
+**Messages** (30): `TenantIsolation`, `DatabaseIsolation`, `NetworkIsolation`, `StorageIsolation`, `ComputeIsolation`, `EncryptionConfig`, `AccessControl`, `AuditConfig`, `BackupConfig`, `NetworkACLRule`, `LoadBalancerConfig`, `CDNConfig`,
+`DomainConfig`, `StorageEncryption`, `StoragePolicy`, `StorageBackupConfig`, `StorageQuota`, `CPUAllocation`, `MemoryAllocation`, `ResourceLimits`, `AutoScalingConfig`, `TimeRestriction`, `AuditAlert`, `HealthCheckConfig`, `SSLConfig`,
+`CacheBehavior`, `OriginConfig`, `DNSConfig`, `DNSRecord`, `CacheKeyPolicy` **Imports** (4): `google/protobuf/go_features.proto`, `google/protobuf/timestamp.proto`, `pkg/common/proto/key_value.proto`,
 `pkg/organization/proto/isolation_level.proto`
 
 ### File Content
@@ -46695,8 +45194,7 @@ message CacheKeyPolicy {
 
 **Package**: `gcommon.v1.organization` **Lines**: 41
 
-**Messages** (1): `TenantQuota` **Imports** (1):
-`google/protobuf/go_features.proto`
+**Messages** (1): `TenantQuota` **Imports** (1): `google/protobuf/go_features.proto`
 
 ### File Content
 
@@ -46752,26 +45250,11 @@ message TenantQuota {
 
 **Package**: `gcommon.v1.organization` **Lines**: 62
 
-**Services** (1): `TenantService` **Imports** (19):
-`google/protobuf/go_features.proto`,
-`pkg/organization/proto/configure_tenant_isolation_request.proto`,
-`pkg/organization/proto/configure_tenant_isolation_response.proto`,
-`pkg/organization/proto/create_tenant_request.proto`,
-`pkg/organization/proto/create_tenant_response.proto`,
-`pkg/organization/proto/delete_tenant_request.proto`,
-`pkg/organization/proto/delete_tenant_response.proto`,
-`pkg/organization/proto/get_tenant_isolation_request.proto`,
-`pkg/organization/proto/get_tenant_isolation_response.proto`,
-`pkg/organization/proto/get_tenant_request.proto`,
-`pkg/organization/proto/get_tenant_response.proto`,
-`pkg/organization/proto/get_tenant_usage_request.proto`,
-`pkg/organization/proto/get_tenant_usage_response.proto`,
-`pkg/organization/proto/list_tenants_request.proto`,
-`pkg/organization/proto/list_tenants_response.proto`,
-`pkg/organization/proto/update_tenant_quota_request.proto`,
-`pkg/organization/proto/update_tenant_quota_response.proto`,
-`pkg/organization/proto/update_tenant_request.proto`,
-`pkg/organization/proto/update_tenant_response.proto`
+**Services** (1): `TenantService` **Imports** (19): `google/protobuf/go_features.proto`, `pkg/organization/proto/configure_tenant_isolation_request.proto`, `pkg/organization/proto/configure_tenant_isolation_response.proto`,
+`pkg/organization/proto/create_tenant_request.proto`, `pkg/organization/proto/create_tenant_response.proto`, `pkg/organization/proto/delete_tenant_request.proto`, `pkg/organization/proto/delete_tenant_response.proto`,
+`pkg/organization/proto/get_tenant_isolation_request.proto`, `pkg/organization/proto/get_tenant_isolation_response.proto`, `pkg/organization/proto/get_tenant_request.proto`, `pkg/organization/proto/get_tenant_response.proto`,
+`pkg/organization/proto/get_tenant_usage_request.proto`, `pkg/organization/proto/get_tenant_usage_response.proto`, `pkg/organization/proto/list_tenants_request.proto`, `pkg/organization/proto/list_tenants_response.proto`,
+`pkg/organization/proto/update_tenant_quota_request.proto`, `pkg/organization/proto/update_tenant_quota_response.proto`, `pkg/organization/proto/update_tenant_request.proto`, `pkg/organization/proto/update_tenant_response.proto`
 
 ### File Content
 
@@ -46848,8 +45331,7 @@ service TenantService {
 
 **Package**: `gcommon.v1.organization` **Lines**: 43
 
-**Enums** (1): `TenantStatus` **Imports** (1):
-`google/protobuf/go_features.proto`
+**Enums** (1): `TenantStatus` **Imports** (1): `google/protobuf/go_features.proto`
 
 ### File Content
 
@@ -46907,10 +45389,7 @@ enum TenantStatus {
 
 **Package**: `gcommon.v1.organization` **Lines**: 31
 
-**Messages** (1): `UpdateDepartmentRequest` **Imports** (4):
-`google/protobuf/field_mask.proto`, `google/protobuf/go_features.proto`,
-`pkg/common/proto/request_metadata.proto`,
-`pkg/organization/proto/department.proto`
+**Messages** (1): `UpdateDepartmentRequest` **Imports** (4): `google/protobuf/field_mask.proto`, `google/protobuf/go_features.proto`, `pkg/common/proto/request_metadata.proto`, `pkg/organization/proto/department.proto`
 
 ### File Content
 
@@ -46956,9 +45435,7 @@ message UpdateDepartmentRequest {
 
 **Package**: `gcommon.v1.organization` **Lines**: 23
 
-**Messages** (1): `UpdateDepartmentResponse` **Imports** (3):
-`google/protobuf/go_features.proto`, `pkg/common/proto/error.proto`,
-`pkg/organization/proto/department.proto`
+**Messages** (1): `UpdateDepartmentResponse` **Imports** (3): `google/protobuf/go_features.proto`, `pkg/common/proto/error.proto`, `pkg/organization/proto/department.proto`
 
 ### File Content
 
@@ -46996,10 +45473,7 @@ message UpdateDepartmentResponse {
 
 **Package**: `gcommon.v1.organization` **Lines**: 31
 
-**Messages** (1): `UpdateHierarchyRequest` **Imports** (4):
-`google/protobuf/field_mask.proto`, `google/protobuf/go_features.proto`,
-`pkg/common/proto/request_metadata.proto`,
-`pkg/organization/proto/organization_hierarchy.proto`
+**Messages** (1): `UpdateHierarchyRequest` **Imports** (4): `google/protobuf/field_mask.proto`, `google/protobuf/go_features.proto`, `pkg/common/proto/request_metadata.proto`, `pkg/organization/proto/organization_hierarchy.proto`
 
 ### File Content
 
@@ -47045,9 +45519,7 @@ message UpdateHierarchyRequest {
 
 **Package**: `gcommon.v1.organization` **Lines**: 23
 
-**Messages** (1): `UpdateHierarchyResponse` **Imports** (3):
-`google/protobuf/go_features.proto`, `pkg/common/proto/error.proto`,
-`pkg/organization/proto/organization_hierarchy.proto`
+**Messages** (1): `UpdateHierarchyResponse` **Imports** (3): `google/protobuf/go_features.proto`, `pkg/common/proto/error.proto`, `pkg/organization/proto/organization_hierarchy.proto`
 
 ### File Content
 
@@ -47085,10 +45557,7 @@ message UpdateHierarchyResponse {
 
 **Package**: `gcommon.v1.organization` **Lines**: 28
 
-**Messages** (1): `UpdateMemberRequest` **Imports** (4):
-`google/protobuf/field_mask.proto`, `google/protobuf/go_features.proto`,
-`pkg/common/proto/request_metadata.proto`,
-`pkg/organization/proto/organization_member.proto`
+**Messages** (1): `UpdateMemberRequest` **Imports** (4): `google/protobuf/field_mask.proto`, `google/protobuf/go_features.proto`, `pkg/common/proto/request_metadata.proto`, `pkg/organization/proto/organization_member.proto`
 
 ### File Content
 
@@ -47131,9 +45600,7 @@ message UpdateMemberRequest {
 
 **Package**: `gcommon.v1.organization` **Lines**: 23
 
-**Messages** (1): `UpdateMemberResponse` **Imports** (3):
-`google/protobuf/go_features.proto`, `pkg/common/proto/error.proto`,
-`pkg/organization/proto/organization_member.proto`
+**Messages** (1): `UpdateMemberResponse` **Imports** (3): `google/protobuf/go_features.proto`, `pkg/common/proto/error.proto`, `pkg/organization/proto/organization_member.proto`
 
 ### File Content
 
@@ -47171,9 +45638,7 @@ message UpdateMemberResponse {
 
 **Package**: `gcommon.v1.organization` **Lines**: 27
 
-**Messages** (1): `UpdateOrganizationRequest` **Imports** (3):
-`google/protobuf/go_features.proto`, `pkg/common/proto/request_metadata.proto`,
-`pkg/organization/proto/organization.proto`
+**Messages** (1): `UpdateOrganizationRequest` **Imports** (3): `google/protobuf/go_features.proto`, `pkg/common/proto/request_metadata.proto`, `pkg/organization/proto/organization.proto`
 
 ### File Content
 
@@ -47215,9 +45680,7 @@ message UpdateOrganizationRequest {
 
 **Package**: `gcommon.v1.organization` **Lines**: 26
 
-**Messages** (1): `UpdateOrganizationResponse` **Imports** (3):
-`google/protobuf/go_features.proto`, `pkg/common/proto/error.proto`,
-`pkg/organization/proto/organization.proto`
+**Messages** (1): `UpdateOrganizationResponse` **Imports** (3): `google/protobuf/go_features.proto`, `pkg/common/proto/error.proto`, `pkg/organization/proto/organization.proto`
 
 ### File Content
 
@@ -47258,10 +45721,7 @@ message UpdateOrganizationResponse {
 
 **Package**: `gcommon.v1.organization` **Lines**: 31
 
-**Messages** (1): `UpdateOrganizationSettingsRequest` **Imports** (4):
-`google/protobuf/field_mask.proto`, `google/protobuf/go_features.proto`,
-`pkg/common/proto/request_metadata.proto`,
-`pkg/organization/proto/organization_settings.proto`
+**Messages** (1): `UpdateOrganizationSettingsRequest` **Imports** (4): `google/protobuf/field_mask.proto`, `google/protobuf/go_features.proto`, `pkg/common/proto/request_metadata.proto`, `pkg/organization/proto/organization_settings.proto`
 
 ### File Content
 
@@ -47307,9 +45767,7 @@ message UpdateOrganizationSettingsRequest {
 
 **Package**: `gcommon.v1.organization` **Lines**: 23
 
-**Messages** (1): `UpdateOrganizationSettingsResponse` **Imports** (3):
-`google/protobuf/go_features.proto`, `pkg/common/proto/error.proto`,
-`pkg/organization/proto/organization_settings.proto`
+**Messages** (1): `UpdateOrganizationSettingsResponse` **Imports** (3): `google/protobuf/go_features.proto`, `pkg/common/proto/error.proto`, `pkg/organization/proto/organization_settings.proto`
 
 ### File Content
 
@@ -47347,9 +45805,7 @@ message UpdateOrganizationSettingsResponse {
 
 **Package**: `gcommon.v1.organization` **Lines**: 31
 
-**Messages** (1): `UpdateTeamRequest` **Imports** (4):
-`google/protobuf/field_mask.proto`, `google/protobuf/go_features.proto`,
-`pkg/common/proto/request_metadata.proto`, `pkg/organization/proto/team.proto`
+**Messages** (1): `UpdateTeamRequest` **Imports** (4): `google/protobuf/field_mask.proto`, `google/protobuf/go_features.proto`, `pkg/common/proto/request_metadata.proto`, `pkg/organization/proto/team.proto`
 
 ### File Content
 
@@ -47395,9 +45851,7 @@ message UpdateTeamRequest {
 
 **Package**: `gcommon.v1.organization` **Lines**: 23
 
-**Messages** (1): `UpdateTeamResponse` **Imports** (3):
-`google/protobuf/go_features.proto`, `pkg/common/proto/error.proto`,
-`pkg/organization/proto/team.proto`
+**Messages** (1): `UpdateTeamResponse` **Imports** (3): `google/protobuf/go_features.proto`, `pkg/common/proto/error.proto`, `pkg/organization/proto/team.proto`
 
 ### File Content
 
@@ -47435,9 +45889,7 @@ message UpdateTeamResponse {
 
 **Package**: `gcommon.v1.organization` **Lines**: 24
 
-**Messages** (1): `UpdateTenantQuotaRequest` **Imports** (3):
-`google/protobuf/go_features.proto`, `pkg/common/proto/request_metadata.proto`,
-`pkg/organization/proto/tenant_quota.proto`
+**Messages** (1): `UpdateTenantQuotaRequest` **Imports** (3): `google/protobuf/go_features.proto`, `pkg/common/proto/request_metadata.proto`, `pkg/organization/proto/tenant_quota.proto`
 
 ### File Content
 
@@ -47476,9 +45928,7 @@ message UpdateTenantQuotaRequest {
 
 **Package**: `gcommon.v1.organization` **Lines**: 23
 
-**Messages** (1): `UpdateTenantQuotaResponse` **Imports** (3):
-`google/protobuf/go_features.proto`, `pkg/common/proto/error.proto`,
-`pkg/organization/proto/tenant_quota.proto`
+**Messages** (1): `UpdateTenantQuotaResponse` **Imports** (3): `google/protobuf/go_features.proto`, `pkg/common/proto/error.proto`, `pkg/organization/proto/tenant_quota.proto`
 
 ### File Content
 
@@ -47516,9 +45966,7 @@ message UpdateTenantQuotaResponse {
 
 **Package**: `gcommon.v1.organization` **Lines**: 31
 
-**Messages** (1): `UpdateTenantRequest` **Imports** (4):
-`google/protobuf/field_mask.proto`, `google/protobuf/go_features.proto`,
-`pkg/common/proto/request_metadata.proto`, `pkg/organization/proto/tenant.proto`
+**Messages** (1): `UpdateTenantRequest` **Imports** (4): `google/protobuf/field_mask.proto`, `google/protobuf/go_features.proto`, `pkg/common/proto/request_metadata.proto`, `pkg/organization/proto/tenant.proto`
 
 ### File Content
 
@@ -47564,9 +46012,7 @@ message UpdateTenantRequest {
 
 **Package**: `gcommon.v1.organization` **Lines**: 23
 
-**Messages** (1): `UpdateTenantResponse` **Imports** (3):
-`google/protobuf/go_features.proto`, `pkg/common/proto/error.proto`,
-`pkg/organization/proto/tenant.proto`
+**Messages** (1): `UpdateTenantResponse` **Imports** (3): `google/protobuf/go_features.proto`, `pkg/common/proto/error.proto`, `pkg/organization/proto/tenant.proto`
 
 ### File Content
 
@@ -47655,13 +46101,11 @@ enum AckLevel {
 
 **Package**: `gcommon.v1.queue` **Lines**: 32
 
-**Messages** (1): `AckRequest` **Imports** (2):
-`google/protobuf/go_features.proto`, `pkg/common/proto/request_metadata.proto`
+**Messages** (1): `AckRequest` **Imports** (2): `google/protobuf/go_features.proto`, `pkg/common/proto/request_metadata.proto`
 
 ### ⚠️ Issues Found (1)
 
-- Line 5: Implementation needed - // removes it from the queue. This file was
-  previously a placeholder
+- Line 5: Implementation needed - // removes it from the queue. This file was previously a placeholder
 
 ### File Content
 
@@ -47708,13 +46152,11 @@ message AckRequest {
 
 **Package**: `gcommon.v1.queue` **Lines**: 28
 
-**Messages** (1): `AckResponse` **Imports** (2):
-`google/protobuf/go_features.proto`, `pkg/common/proto/error.proto`
+**Messages** (1): `AckResponse` **Imports** (2): `google/protobuf/go_features.proto`, `pkg/common/proto/error.proto`
 
 ### ⚠️ Issues Found (1)
 
-- Line 6: Implementation needed - // successfully processed. This replaces the
-  previous placeholder
+- Line 6: Implementation needed - // successfully processed. This replaces the previous placeholder
 
 ### File Content
 
@@ -47806,8 +46248,7 @@ enum AckType {
 
 **Package**: `gcommon.v1.queue` **Lines**: 83
 
-**Messages** (1): `AcknowledgeRequest` **Imports** (2):
-`google/protobuf/go_features.proto`, `pkg/common/proto/request_metadata.proto`
+**Messages** (1): `AcknowledgeRequest` **Imports** (2): `google/protobuf/go_features.proto`, `pkg/common/proto/request_metadata.proto`
 
 ### File Content
 
@@ -47905,9 +46346,7 @@ message AcknowledgeRequest {
 
 **Package**: `gcommon.v1.queue` **Lines**: 146
 
-**Messages** (2): `MessageAckResult`, `AcknowledgeResponse` **Imports** (4):
-`google/protobuf/go_features.proto`, `google/protobuf/timestamp.proto`,
-`pkg/common/proto/error.proto`, `pkg/common/proto/request_metadata.proto`
+**Messages** (2): `MessageAckResult`, `AcknowledgeResponse` **Imports** (4): `google/protobuf/go_features.proto`, `google/protobuf/timestamp.proto`, `pkg/common/proto/error.proto`, `pkg/common/proto/request_metadata.proto`
 
 ### File Content
 
@@ -48068,9 +46507,7 @@ message AcknowledgeResponse {
 
 **Package**: `gcommon.v1.queue` **Lines**: 51
 
-**Messages** (1): `Acknowledgment` **Imports** (3):
-`google/protobuf/go_features.proto`, `google/protobuf/timestamp.proto`,
-`pkg/queue/proto/ack_type.proto`
+**Messages** (1): `Acknowledgment` **Imports** (3): `google/protobuf/go_features.proto`, `google/protobuf/timestamp.proto`, `pkg/queue/proto/ack_type.proto`
 
 ### File Content
 
@@ -48136,13 +46573,11 @@ message Acknowledgment {
 
 **Package**: `gcommon.v1.queue` **Lines**: 37
 
-**Enums** (1): `AcknowledgmentMode` **Imports** (1):
-`google/protobuf/go_features.proto`
+**Enums** (1): `AcknowledgmentMode` **Imports** (1): `google/protobuf/go_features.proto`
 
 ### ⚠️ Issues Found (1)
 
-- Line 6: Implementation needed - // queue consumer. This was previously left as
-  a placeholder during the
+- Line 6: Implementation needed - // queue consumer. This was previously left as a placeholder during the
 
 ### File Content
 
@@ -48194,8 +46629,7 @@ enum AcknowledgmentMode {
 
 **Package**: `gcommon.v1.queue` **Lines**: 39
 
-**Enums** (1): `AlertCondition` **Imports** (1):
-`google/protobuf/go_features.proto`
+**Enums** (1): `AlertCondition` **Imports** (1): `google/protobuf/go_features.proto`
 
 ### File Content
 
@@ -48249,9 +46683,7 @@ enum AlertCondition {
 
 **Package**: `gcommon.v1.queue` **Lines**: 48
 
-**Messages** (1): `AlertRule` **Imports** (4): `google/protobuf/duration.proto`,
-`google/protobuf/go_features.proto`, `pkg/queue/proto/alert_condition.proto`,
-`pkg/queue/proto/alert_severity.proto`
+**Messages** (1): `AlertRule` **Imports** (4): `google/protobuf/duration.proto`, `google/protobuf/go_features.proto`, `pkg/queue/proto/alert_condition.proto`, `pkg/queue/proto/alert_severity.proto`
 
 ### File Content
 
@@ -48314,8 +46746,7 @@ message AlertRule {
 
 **Package**: `gcommon.v1.queue` **Lines**: 33
 
-**Enums** (1): `AlertSeverity` **Imports** (1):
-`google/protobuf/go_features.proto`
+**Enums** (1): `AlertSeverity` **Imports** (1): `google/protobuf/go_features.proto`
 
 ### File Content
 
@@ -48363,9 +46794,7 @@ enum AlertSeverity {
 
 **Package**: `gcommon.v1.queue` **Lines**: 37
 
-**Messages** (1): `AlertingConfig` **Imports** (5):
-`google/protobuf/duration.proto`, `google/protobuf/go_features.proto`,
-`pkg/queue/proto/alert_rule.proto`, `pkg/queue/proto/alert_severity.proto`,
+**Messages** (1): `AlertingConfig` **Imports** (5): `google/protobuf/duration.proto`, `google/protobuf/go_features.proto`, `pkg/queue/proto/alert_rule.proto`, `pkg/queue/proto/alert_severity.proto`,
 `pkg/queue/proto/notification_channel.proto`
 
 ### File Content
@@ -48418,10 +46847,7 @@ message AlertingConfig {
 
 **Package**: `gcommon.v1.queue` **Lines**: 31
 
-**Messages** (1): `AntiAffinityRule` **Imports** (5):
-`google/protobuf/duration.proto`, `google/protobuf/go_features.proto`,
-`pkg/queue/proto/anti_affinity_scope.proto`,
-`pkg/queue/proto/consistency_level.proto`,
+**Messages** (1): `AntiAffinityRule` **Imports** (5): `google/protobuf/duration.proto`, `google/protobuf/go_features.proto`, `pkg/queue/proto/anti_affinity_scope.proto`, `pkg/queue/proto/consistency_level.proto`,
 `pkg/queue/proto/replication_mode.proto`
 
 ### File Content
@@ -48468,10 +46894,7 @@ message AntiAffinityRule {
 
 **Package**: `gcommon.v1.queue` **Lines**: 36
 
-**Enums** (1): `AntiAffinityScope` **Imports** (4):
-`google/protobuf/duration.proto`, `google/protobuf/go_features.proto`,
-`pkg/queue/proto/consistency_level.proto`,
-`pkg/queue/proto/replication_mode.proto`
+**Enums** (1): `AntiAffinityScope` **Imports** (4): `google/protobuf/duration.proto`, `google/protobuf/go_features.proto`, `pkg/queue/proto/consistency_level.proto`, `pkg/queue/proto/replication_mode.proto`
 
 ### File Content
 
@@ -48522,9 +46945,7 @@ enum AntiAffinityScope {
 
 **Package**: `gcommon.v1.queue` **Lines**: 116
 
-**Messages** (6): `AuthenticationConfig`, `UsernamePasswordAuth`, `APIKeyAuth`,
-`TLSAuth`, `SASLAuth`, `OAuth2Auth` **Imports** (1):
-`google/protobuf/go_features.proto`
+**Messages** (6): `AuthenticationConfig`, `UsernamePasswordAuth`, `APIKeyAuth`, `TLSAuth`, `SASLAuth`, `OAuth2Auth` **Imports** (1): `google/protobuf/go_features.proto`
 
 ### File Content
 
@@ -48655,11 +47076,8 @@ message OAuth2Auth {
 
 **Package**: `gcommon.v1.queue` **Lines**: 185
 
-**Messages** (10): `AuthorizationConfig`, `PermissionRule`,
-`RoleBasedAccessControl`, `RoleInheritance`, `ExternalRoleProvider`,
-`ApiKeyAuth`, `KeyValidationService`, `JwtAuth`, `ExternalAuthService`,
-`AuthCacheConfig` **Imports** (2): `google/protobuf/go_features.proto`,
-`pkg/queue/proto/retry_config.proto`
+**Messages** (10): `AuthorizationConfig`, `PermissionRule`, `RoleBasedAccessControl`, `RoleInheritance`, `ExternalRoleProvider`, `ApiKeyAuth`, `KeyValidationService`, `JwtAuth`, `ExternalAuthService`, `AuthCacheConfig` **Imports** (2):
+`google/protobuf/go_features.proto`, `pkg/queue/proto/retry_config.proto`
 
 ### File Content
 
@@ -48859,8 +47277,7 @@ message AuthCacheConfig {
 
 **Package**: `gcommon.v1.queue` **Lines**: 30
 
-**Messages** (1): `BackupConfig` **Imports** (2):
-`google/protobuf/duration.proto`, `google/protobuf/go_features.proto`
+**Messages** (1): `BackupConfig` **Imports** (2): `google/protobuf/duration.proto`, `google/protobuf/go_features.proto`
 
 ### File Content
 
@@ -48905,8 +47322,7 @@ message BackupConfig {
 
 **Package**: `gcommon.v1.queue` **Lines**: 43
 
-**Messages** (1): `BackupQueueRequest` **Imports** (1):
-`google/protobuf/go_features.proto`
+**Messages** (1): `BackupQueueRequest` **Imports** (1): `google/protobuf/go_features.proto`
 
 ### File Content
 
@@ -48964,8 +47380,7 @@ message BackupQueueRequest {
 
 **Package**: `gcommon.v1.queue` **Lines**: 40
 
-**Messages** (1): `BackupQueueResponse` **Imports** (1):
-`google/protobuf/go_features.proto`
+**Messages** (1): `BackupQueueResponse` **Imports** (1): `google/protobuf/go_features.proto`
 
 ### File Content
 
@@ -49020,8 +47435,7 @@ message BackupQueueResponse {
 
 **Package**: `gcommon.v1.queue` **Lines**: 31
 
-**Messages** (1): `BatchAckRequest` **Imports** (1):
-`google/protobuf/go_features.proto`
+**Messages** (1): `BatchAckRequest` **Imports** (1): `google/protobuf/go_features.proto`
 
 ### File Content
 
@@ -49067,8 +47481,7 @@ message BatchAckRequest {
 
 **Package**: `gcommon.v1.queue` **Lines**: 52
 
-**Messages** (2): `BatchAckResponse`, `FailedAck` **Imports** (2):
-`google/protobuf/go_features.proto`, `pkg/common/proto/response_metadata.proto`
+**Messages** (2): `BatchAckResponse`, `FailedAck` **Imports** (2): `google/protobuf/go_features.proto`, `pkg/common/proto/response_metadata.proto`
 
 ### File Content
 
@@ -49135,8 +47548,7 @@ message FailedAck {
 
 **Package**: `gcommon.v1.queue` **Lines**: 40
 
-**Messages** (1): `BatchConfig` **Imports** (2):
-`google/protobuf/duration.proto`, `google/protobuf/go_features.proto`
+**Messages** (1): `BatchConfig` **Imports** (2): `google/protobuf/duration.proto`, `google/protobuf/go_features.proto`
 
 ### File Content
 
@@ -49191,8 +47603,7 @@ message BatchConfig {
 
 **Package**: `gcommon.v1.queue` **Lines**: 77
 
-**Messages** (2): `BatchNackRequest`, `MessageNack` **Imports** (2):
-`google/protobuf/go_features.proto`, `pkg/queue/proto/nack_error_category.proto`
+**Messages** (2): `BatchNackRequest`, `MessageNack` **Imports** (2): `google/protobuf/go_features.proto`, `pkg/queue/proto/nack_error_category.proto`
 
 ### File Content
 
@@ -49284,8 +47695,7 @@ message MessageNack {
 
 **Package**: `gcommon.v1.queue` **Lines**: 34
 
-**Messages** (1): `BatchNackResponse` **Imports** (1):
-`google/protobuf/go_features.proto`
+**Messages** (1): `BatchNackResponse` **Imports** (1): `google/protobuf/go_features.proto`
 
 ### File Content
 
@@ -49334,9 +47744,7 @@ message BatchNackResponse {
 
 **Package**: `gcommon.v1.queue` **Lines**: 45
 
-**Messages** (1): `BatchPublishRequest` **Imports** (3):
-`google/protobuf/go_features.proto`, `pkg/common/proto/request_metadata.proto`,
-`pkg/queue/proto/queue_message.proto`
+**Messages** (1): `BatchPublishRequest` **Imports** (3): `google/protobuf/go_features.proto`, `pkg/common/proto/request_metadata.proto`, `pkg/queue/proto/queue_message.proto`
 
 ### File Content
 
@@ -49396,8 +47804,7 @@ message BatchPublishRequest {
 
 **Package**: `gcommon.v1.queue` **Lines**: 32
 
-**Messages** (1): `BatchPublishResponse` **Imports** (2):
-`google/protobuf/go_features.proto`, `pkg/queue/proto/publish_result.proto`
+**Messages** (1): `BatchPublishResponse` **Imports** (2): `google/protobuf/go_features.proto`, `pkg/queue/proto/publish_result.proto`
 
 ### File Content
 
@@ -49444,8 +47851,7 @@ message BatchPublishResponse {
 
 **Package**: `gcommon.v1.queue` **Lines**: 43
 
-**Messages** (1): `BatchPullRequest` **Imports** (2):
-`google/protobuf/duration.proto`, `google/protobuf/go_features.proto`
+**Messages** (1): `BatchPullRequest` **Imports** (2): `google/protobuf/duration.proto`, `google/protobuf/go_features.proto`
 
 ### File Content
 
@@ -49503,8 +47909,7 @@ message BatchPullRequest {
 
 **Package**: `gcommon.v1.queue` **Lines**: 37
 
-**Messages** (1): `BatchPullResponse` **Imports** (2):
-`google/protobuf/go_features.proto`, `pkg/queue/proto/queue_message.proto`
+**Messages** (1): `BatchPullResponse` **Imports** (2): `google/protobuf/go_features.proto`, `pkg/queue/proto/queue_message.proto`
 
 ### File Content
 
@@ -49556,8 +47961,7 @@ message BatchPullResponse {
 
 **Package**: `gcommon.v1.queue` **Lines**: 48
 
-**Messages** (1): `BindingInfo` **Imports** (1):
-`google/protobuf/go_features.proto`
+**Messages** (1): `BindingInfo` **Imports** (1): `google/protobuf/go_features.proto`
 
 ### File Content
 
@@ -49620,8 +48024,7 @@ message BindingInfo {
 
 **Package**: `gcommon.v1.queue` **Lines**: 40
 
-**Messages** (1): `CircuitBreakerConfig` **Imports** (2):
-`google/protobuf/duration.proto`, `google/protobuf/go_features.proto`
+**Messages** (1): `CircuitBreakerConfig` **Imports** (2): `google/protobuf/duration.proto`, `google/protobuf/go_features.proto`
 
 ### File Content
 
@@ -49676,8 +48079,7 @@ message CircuitBreakerConfig {
 
 **Package**: `gcommon.v1.queue` **Lines**: 31
 
-**Messages** (1): `ClusterConfig` **Imports** (2):
-`google/protobuf/go_features.proto`, `google/protobuf/timestamp.proto`
+**Messages** (1): `ClusterConfig` **Imports** (2): `google/protobuf/go_features.proto`, `google/protobuf/timestamp.proto`
 
 ### File Content
 
@@ -49723,8 +48125,7 @@ message ClusterConfig {
 
 **Package**: `gcommon.v1.queue` **Lines**: 56
 
-**Messages** (1): `ClusterInfo` **Imports** (2):
-`google/protobuf/go_features.proto`, `google/protobuf/timestamp.proto`
+**Messages** (1): `ClusterInfo` **Imports** (2): `google/protobuf/go_features.proto`, `google/protobuf/timestamp.proto`
 
 ### File Content
 
@@ -49795,8 +48196,7 @@ message ClusterInfo {
 
 **Package**: `gcommon.v1.queue` **Lines**: 37
 
-**Enums** (1): `ClusterState` **Imports** (2):
-`google/protobuf/go_features.proto`, `google/protobuf/timestamp.proto`
+**Enums** (1): `ClusterState` **Imports** (2): `google/protobuf/go_features.proto`, `google/protobuf/timestamp.proto`
 
 ### File Content
 
@@ -49848,8 +48248,7 @@ enum ClusterState {
 
 **Package**: `gcommon.v1.queue` **Lines**: 31
 
-**Messages** (1): `ClusterStats` **Imports** (2):
-`google/protobuf/go_features.proto`, `google/protobuf/timestamp.proto`
+**Messages** (1): `ClusterStats` **Imports** (2): `google/protobuf/go_features.proto`, `google/protobuf/timestamp.proto`
 
 ### File Content
 
@@ -49895,8 +48294,7 @@ message ClusterStats {
 
 **Package**: `gcommon.v1.queue` **Lines**: 33
 
-**Messages** (1): `CommitOffsetRequest` **Imports** (2):
-`google/protobuf/go_features.proto`, `pkg/common/proto/request_metadata.proto`
+**Messages** (1): `CommitOffsetRequest` **Imports** (2): `google/protobuf/go_features.proto`, `pkg/common/proto/request_metadata.proto`
 
 ### File Content
 
@@ -49944,8 +48342,7 @@ message CommitOffsetRequest {
 
 **Package**: `gcommon.v1.queue` **Lines**: 71
 
-**Messages** (2): `CommitOffsetResponse`, `PartitionCommitResult` **Imports**
-(2): `google/protobuf/go_features.proto`, `google/protobuf/timestamp.proto`
+**Messages** (2): `CommitOffsetResponse`, `PartitionCommitResult` **Imports** (2): `google/protobuf/go_features.proto`, `google/protobuf/timestamp.proto`
 
 ### File Content
 
@@ -50031,9 +48428,7 @@ message PartitionCommitResult {
 
 **Package**: `gcommon.v1.queue` **Lines**: 40
 
-**Enums** (1): `CompressionAlgorithm` **Imports** (2):
-`google/protobuf/go_features.proto`,
-`pkg/queue/proto/serialization_format.proto`
+**Enums** (1): `CompressionAlgorithm` **Imports** (2): `google/protobuf/go_features.proto`, `pkg/queue/proto/serialization_format.proto`
 
 ### File Content
 
@@ -50088,8 +48483,7 @@ enum CompressionAlgorithm {
 
 **Package**: `gcommon.v1.queue` **Lines**: 28
 
-**Messages** (1): `CompressionConfig` **Imports** (1):
-`google/protobuf/go_features.proto`
+**Messages** (1): `CompressionConfig` **Imports** (1): `google/protobuf/go_features.proto`
 
 ### File Content
 
@@ -50132,8 +48526,7 @@ message CompressionConfig {
 
 **Package**: `gcommon.v1.queue` **Lines**: 34
 
-**Messages** (1): `ConnectionDetails` **Imports** (1):
-`google/protobuf/go_features.proto`
+**Messages** (1): `ConnectionDetails` **Imports** (1): `google/protobuf/go_features.proto`
 
 ### File Content
 
@@ -50182,15 +48575,9 @@ message ConnectionDetails {
 
 **Package**: `gcommon.v1.queue` **Lines**: 328
 
-**Messages** (16): `ConsistencyConfig`, `ReplicationConsistency`,
-`ReadConsistency`, `WriteConsistency`, `SyncReplication`, `ConflictDetection`,
-`VectorClockConfig`, `TimestampConfig`, `OrderingConfig`, `ConflictResolution`,
-`CustomResolution`, `LastWriterWins`, `MultiValueConfig`,
-`ConsistencyValidation`, `ReadRetryConfig`, `WriteRetryConfig` **Enums** (6):
-`ReplicationLevel`, `ReadLevel`, `WriteLevel`, `ConflictStrategy`,
-`OrderingLevel`, `ResolutionStrategy` **Imports** (3):
-`google/protobuf/go_features.proto`, `pkg/queue/proto/ack_level.proto`,
-`pkg/queue/proto/durability_level.proto`
+**Messages** (16): `ConsistencyConfig`, `ReplicationConsistency`, `ReadConsistency`, `WriteConsistency`, `SyncReplication`, `ConflictDetection`, `VectorClockConfig`, `TimestampConfig`, `OrderingConfig`, `ConflictResolution`,
+`CustomResolution`, `LastWriterWins`, `MultiValueConfig`, `ConsistencyValidation`, `ReadRetryConfig`, `WriteRetryConfig` **Enums** (6): `ReplicationLevel`, `ReadLevel`, `WriteLevel`, `ConflictStrategy`, `OrderingLevel`, `ResolutionStrategy`
+**Imports** (3): `google/protobuf/go_features.proto`, `pkg/queue/proto/ack_level.proto`, `pkg/queue/proto/durability_level.proto`
 
 ### File Content
 
@@ -50533,8 +48920,7 @@ message WriteRetryConfig {
 
 **Package**: `gcommon.v1.queue` **Lines**: 39
 
-**Enums** (1): `ConsistencyLevel` **Imports** (1):
-`google/protobuf/go_features.proto`
+**Enums** (1): `ConsistencyLevel` **Imports** (1): `google/protobuf/go_features.proto`
 
 ### File Content
 
@@ -50588,15 +48974,9 @@ enum ConsistencyLevel {
 
 **Package**: `gcommon.v1.queue` **Lines**: 325
 
-**Messages** (12): `ConsumerGroup`, `ConsumerGroupConfig`, `AutoCommitConfig`,
-`RetryDelayConfig`, `Consumer`, `ConsumerClient`, `ConsumerConfig`,
-`PartitionAssignment`, `GroupCoordinator`, `ConsumerGroupStats`,
-`RebalanceStats`, `ConsumerErrorStats` **Enums** (4): `RebalanceStrategy`,
-`OffsetResetStrategy`, `ConsumerGroupState`, `CoordinatorState` **Imports** (6):
-`google/protobuf/go_features.proto`, `google/protobuf/timestamp.proto`,
-`pkg/queue/proto/consumer_state.proto`, `pkg/queue/proto/consumer_stats.proto`,
-`pkg/queue/proto/load_balancing_strategy.proto`,
-`pkg/queue/proto/subscribe_request.proto`
+**Messages** (12): `ConsumerGroup`, `ConsumerGroupConfig`, `AutoCommitConfig`, `RetryDelayConfig`, `Consumer`, `ConsumerClient`, `ConsumerConfig`, `PartitionAssignment`, `GroupCoordinator`, `ConsumerGroupStats`, `RebalanceStats`,
+`ConsumerErrorStats` **Enums** (4): `RebalanceStrategy`, `OffsetResetStrategy`, `ConsumerGroupState`, `CoordinatorState` **Imports** (6): `google/protobuf/go_features.proto`, `google/protobuf/timestamp.proto`,
+`pkg/queue/proto/consumer_state.proto`, `pkg/queue/proto/consumer_stats.proto`, `pkg/queue/proto/load_balancing_strategy.proto`, `pkg/queue/proto/subscribe_request.proto`
 
 ### File Content
 
@@ -50936,8 +49316,7 @@ message ConsumerErrorStats {
 
 **Package**: `gcommon.v1.queue` **Lines**: 45
 
-**Enums** (1): `ConsumerState` **Imports** (1):
-`google/protobuf/go_features.proto`
+**Enums** (1): `ConsumerState` **Imports** (1): `google/protobuf/go_features.proto`
 
 ### File Content
 
@@ -50997,8 +49376,7 @@ enum ConsumerState {
 
 **Package**: `gcommon.v1.queue` **Lines**: 30
 
-**Messages** (1): `ConsumerStats` **Imports** (1):
-`google/protobuf/go_features.proto`
+**Messages** (1): `ConsumerStats` **Imports** (1): `google/protobuf/go_features.proto`
 
 ### File Content
 
@@ -51043,9 +49421,7 @@ message ConsumerStats {
 
 **Package**: `gcommon.v1.queue` **Lines**: 39
 
-**Messages** (1): `CreateQueueRequest` **Imports** (3):
-`google/protobuf/go_features.proto`, `pkg/common/proto/request_metadata.proto`,
-`pkg/queue/proto/queue_config.proto`
+**Messages** (1): `CreateQueueRequest` **Imports** (3): `google/protobuf/go_features.proto`, `pkg/common/proto/request_metadata.proto`, `pkg/queue/proto/queue_config.proto`
 
 ### File Content
 
@@ -51099,8 +49475,7 @@ message CreateQueueRequest {
 
 **Package**: `gcommon.v1.queue` **Lines**: 34
 
-**Messages** (1): `CreateQueueResponse` **Imports** (1):
-`google/protobuf/go_features.proto`
+**Messages** (1): `CreateQueueResponse` **Imports** (1): `google/protobuf/go_features.proto`
 
 ### File Content
 
@@ -51149,8 +49524,7 @@ message CreateQueueResponse {
 
 **Package**: `gcommon.v1.queue` **Lines**: 38
 
-**Messages** (1): `CreateSubscriptionRequest` **Imports** (2):
-`google/protobuf/go_features.proto`, `pkg/queue/proto/subscription_config.proto`
+**Messages** (1): `CreateSubscriptionRequest` **Imports** (2): `google/protobuf/go_features.proto`, `pkg/queue/proto/subscription_config.proto`
 
 ### File Content
 
@@ -51203,8 +49577,7 @@ message CreateSubscriptionRequest {
 
 **Package**: `gcommon.v1.queue` **Lines**: 39
 
-**Messages** (1): `CreateSubscriptionResponse` **Imports** (1):
-`google/protobuf/go_features.proto`
+**Messages** (1): `CreateSubscriptionResponse` **Imports** (1): `google/protobuf/go_features.proto`
 
 ### File Content
 
@@ -51258,8 +49631,7 @@ message CreateSubscriptionResponse {
 
 **Package**: `gcommon.v1.queue` **Lines**: 37
 
-**Messages** (1): `CreateTopicRequest` **Imports** (2):
-`google/protobuf/go_features.proto`, `pkg/queue/proto/topic_config.proto`
+**Messages** (1): `CreateTopicRequest` **Imports** (2): `google/protobuf/go_features.proto`, `pkg/queue/proto/topic_config.proto`
 
 ### File Content
 
@@ -51311,9 +49683,7 @@ message CreateTopicRequest {
 
 **Package**: `gcommon.v1.queue` **Lines**: 41
 
-**Messages** (1): `CreateTopicResponse` **Imports** (4):
-`google/protobuf/go_features.proto`, `google/protobuf/timestamp.proto`,
-`pkg/queue/proto/topic_config.proto`, `pkg/queue/proto/topic_info.proto`
+**Messages** (1): `CreateTopicResponse` **Imports** (4): `google/protobuf/go_features.proto`, `google/protobuf/timestamp.proto`, `pkg/queue/proto/topic_config.proto`, `pkg/queue/proto/topic_info.proto`
 
 ### File Content
 
@@ -51369,8 +49739,7 @@ message CreateTopicResponse {
 
 **Package**: `gcommon.v1.queue` **Lines**: 41
 
-**Messages** (1): `DeadLetterConfig` **Imports** (2):
-`google/protobuf/duration.proto`, `google/protobuf/go_features.proto`
+**Messages** (1): `DeadLetterConfig` **Imports** (2): `google/protobuf/duration.proto`, `google/protobuf/go_features.proto`
 
 ### File Content
 
@@ -51426,8 +49795,7 @@ message DeadLetterConfig {
 
 **Package**: `gcommon.v1.queue` **Lines**: 42
 
-**Messages** (1): `DeadLetterPolicy` **Imports** (2):
-`google/protobuf/duration.proto`, `google/protobuf/go_features.proto`
+**Messages** (1): `DeadLetterPolicy` **Imports** (2): `google/protobuf/duration.proto`, `google/protobuf/go_features.proto`
 
 ### File Content
 
@@ -51484,8 +49852,7 @@ message DeadLetterPolicy {
 
 **Package**: `gcommon.v1.queue` **Lines**: 43
 
-**Messages** (1): `DeleteQueueRequest` **Imports** (2):
-`google/protobuf/go_features.proto`, `pkg/common/proto/request_metadata.proto`
+**Messages** (1): `DeleteQueueRequest` **Imports** (2): `google/protobuf/go_features.proto`, `pkg/common/proto/request_metadata.proto`
 
 ### File Content
 
@@ -51543,8 +49910,7 @@ message DeleteQueueRequest {
 
 **Package**: `gcommon.v1.queue` **Lines**: 25
 
-**Messages** (1): `DeleteQueueResponse` **Imports** (1):
-`google/protobuf/go_features.proto`
+**Messages** (1): `DeleteQueueResponse` **Imports** (1): `google/protobuf/go_features.proto`
 
 ### File Content
 
@@ -51584,9 +49950,7 @@ message DeleteQueueResponse {
 
 **Package**: `gcommon.v1.queue` **Lines**: 69
 
-**Messages** (2): `DeleteRequest`, `DeleteCriteria` **Imports** (3):
-`google/protobuf/go_features.proto`, `pkg/common/proto/request_metadata.proto`,
-`pkg/queue/proto/message_state.proto`
+**Messages** (2): `DeleteRequest`, `DeleteCriteria` **Imports** (3): `google/protobuf/go_features.proto`, `pkg/common/proto/request_metadata.proto`, `pkg/queue/proto/message_state.proto`
 
 ### File Content
 
@@ -51670,8 +50034,7 @@ message DeleteCriteria {
 
 **Package**: `gcommon.v1.queue` **Lines**: 85
 
-**Messages** (3): `DeleteResponse`, `DeletionStats`, `BackupInfo` **Imports**
-(2): `google/protobuf/go_features.proto`, `google/protobuf/timestamp.proto`
+**Messages** (3): `DeleteResponse`, `DeletionStats`, `BackupInfo` **Imports** (2): `google/protobuf/go_features.proto`, `google/protobuf/timestamp.proto`
 
 ### File Content
 
@@ -51771,8 +50134,7 @@ message BackupInfo {
 
 **Package**: `gcommon.v1.queue` **Lines**: 25
 
-**Messages** (1): `DeleteSubscriptionRequest` **Imports** (1):
-`google/protobuf/go_features.proto`
+**Messages** (1): `DeleteSubscriptionRequest` **Imports** (1): `google/protobuf/go_features.proto`
 
 ### File Content
 
@@ -51812,8 +50174,7 @@ message DeleteSubscriptionRequest {
 
 **Package**: `gcommon.v1.queue` **Lines**: 28
 
-**Messages** (1): `DeleteSubscriptionResponse` **Imports** (1):
-`google/protobuf/go_features.proto`
+**Messages** (1): `DeleteSubscriptionResponse` **Imports** (1): `google/protobuf/go_features.proto`
 
 ### File Content
 
@@ -51856,8 +50217,7 @@ message DeleteSubscriptionResponse {
 
 **Package**: `gcommon.v1.queue` **Lines**: 42
 
-**Messages** (1): `DeleteTopicRequest` **Imports** (1):
-`google/protobuf/go_features.proto`
+**Messages** (1): `DeleteTopicRequest` **Imports** (1): `google/protobuf/go_features.proto`
 
 ### File Content
 
@@ -51914,8 +50274,7 @@ message DeleteTopicRequest {
 
 **Package**: `gcommon.v1.queue` **Lines**: 31
 
-**Messages** (1): `DeleteTopicResponse` **Imports** (1):
-`google/protobuf/go_features.proto`
+**Messages** (1): `DeleteTopicResponse` **Imports** (1): `google/protobuf/go_features.proto`
 
 ### File Content
 
@@ -51961,8 +50320,7 @@ message DeleteTopicResponse {
 
 **Package**: `gcommon.v1.queue` **Lines**: 36
 
-**Enums** (1): `DeliveryMode` **Imports** (1):
-`google/protobuf/go_features.proto`
+**Enums** (1): `DeliveryMode` **Imports** (1): `google/protobuf/go_features.proto`
 
 ### File Content
 
@@ -52013,8 +50371,7 @@ enum DeliveryMode {
 
 **Package**: `gcommon.v1.queue` **Lines**: 41
 
-**Messages** (1): `DeliveryOptions` **Imports** (2):
-`google/protobuf/duration.proto`, `google/protobuf/go_features.proto`
+**Messages** (1): `DeliveryOptions` **Imports** (2): `google/protobuf/duration.proto`, `google/protobuf/go_features.proto`
 
 ### File Content
 
@@ -52070,9 +50427,7 @@ message DeliveryOptions {
 
 **Package**: `gcommon.v1.queue` **Lines**: 110
 
-**Messages** (1): `DequeueRequest` **Imports** (3):
-`google/protobuf/duration.proto`, `google/protobuf/go_features.proto`,
-`pkg/common/proto/request_metadata.proto`
+**Messages** (1): `DequeueRequest` **Imports** (3): `google/protobuf/duration.proto`, `google/protobuf/go_features.proto`, `pkg/common/proto/request_metadata.proto`
 
 ### File Content
 
@@ -52197,10 +50552,7 @@ message DequeueRequest {
 
 **Package**: `gcommon.v1.queue` **Lines**: 111
 
-**Messages** (1): `DequeueResponse` **Imports** (5):
-`google/protobuf/go_features.proto`, `google/protobuf/timestamp.proto`,
-`pkg/common/proto/error.proto`, `pkg/common/proto/request_metadata.proto`,
-`pkg/queue/proto/queue_message.proto`
+**Messages** (1): `DequeueResponse` **Imports** (5): `google/protobuf/go_features.proto`, `google/protobuf/timestamp.proto`, `pkg/common/proto/error.proto`, `pkg/common/proto/request_metadata.proto`, `pkg/queue/proto/queue_message.proto`
 
 ### File Content
 
@@ -52326,9 +50678,7 @@ message DequeueResponse {
 
 **Package**: `gcommon.v1.queue` **Lines**: 40
 
-**Messages** (1): `DeserializationConfig` **Imports** (2):
-`google/protobuf/go_features.proto`,
-`pkg/queue/proto/serialization_format.proto`
+**Messages** (1): `DeserializationConfig` **Imports** (2): `google/protobuf/go_features.proto`, `pkg/queue/proto/serialization_format.proto`
 
 ### File Content
 
@@ -52383,9 +50733,7 @@ message DeserializationConfig {
 
 **Package**: `gcommon.v1.queue` **Lines**: 48
 
-**Messages** (1): `DurabilityConfig` **Imports** (4):
-`google/protobuf/duration.proto`, `google/protobuf/go_features.proto`,
-`pkg/queue/proto/ack_level.proto`, `pkg/queue/proto/flush_policy.proto`
+**Messages** (1): `DurabilityConfig` **Imports** (4): `google/protobuf/duration.proto`, `google/protobuf/go_features.proto`, `pkg/queue/proto/ack_level.proto`, `pkg/queue/proto/flush_policy.proto`
 
 ### File Content
 
@@ -52448,8 +50796,7 @@ message DurabilityConfig {
 
 **Package**: `gcommon.v1.queue` **Lines**: 39
 
-**Enums** (1): `DurabilityLevel` **Imports** (1):
-`google/protobuf/go_features.proto`
+**Enums** (1): `DurabilityLevel` **Imports** (1): `google/protobuf/go_features.proto`
 
 ### File Content
 
@@ -52503,8 +50850,7 @@ enum DurabilityLevel {
 
 **Package**: `gcommon.v1.queue` **Lines**: 42
 
-**Messages** (1): `EncryptionConfig` **Imports** (1):
-`google/protobuf/go_features.proto`
+**Messages** (1): `EncryptionConfig` **Imports** (1): `google/protobuf/go_features.proto`
 
 ### File Content
 
@@ -52561,9 +50907,7 @@ message EncryptionConfig {
 
 **Package**: `gcommon.v1.queue` **Lines**: 123
 
-**Messages** (1): `EnqueueRequest` **Imports** (5): `google/protobuf/any.proto`,
-`google/protobuf/duration.proto`, `google/protobuf/go_features.proto`,
-`google/protobuf/timestamp.proto`, `pkg/common/proto/request_metadata.proto`
+**Messages** (1): `EnqueueRequest` **Imports** (5): `google/protobuf/any.proto`, `google/protobuf/duration.proto`, `google/protobuf/go_features.proto`, `google/protobuf/timestamp.proto`, `pkg/common/proto/request_metadata.proto`
 
 ### File Content
 
@@ -52701,9 +51045,7 @@ message EnqueueRequest {
 
 **Package**: `gcommon.v1.queue` **Lines**: 125
 
-**Messages** (1): `EnqueueResponse` **Imports** (4):
-`google/protobuf/go_features.proto`, `google/protobuf/timestamp.proto`,
-`pkg/common/proto/error.proto`, `pkg/common/proto/request_metadata.proto`
+**Messages** (1): `EnqueueResponse` **Imports** (4): `google/protobuf/go_features.proto`, `google/protobuf/timestamp.proto`, `pkg/common/proto/error.proto`, `pkg/common/proto/request_metadata.proto`
 
 ### File Content
 
@@ -52843,8 +51185,7 @@ message EnqueueResponse {
 
 **Package**: `gcommon.v1.queue` **Lines**: 45
 
-**Messages** (1): `ExchangeConfig` **Imports** (1):
-`google/protobuf/go_features.proto`
+**Messages** (1): `ExchangeConfig` **Imports** (1): `google/protobuf/go_features.proto`
 
 ### File Content
 
@@ -52904,8 +51245,7 @@ message ExchangeConfig {
 
 **Package**: `gcommon.v1.queue` **Lines**: 36
 
-**Enums** (1): `ExportFormat` **Imports** (1):
-`google/protobuf/go_features.proto`
+**Enums** (1): `ExportFormat` **Imports** (1): `google/protobuf/go_features.proto`
 
 ### File Content
 
@@ -52956,9 +51296,7 @@ enum ExportFormat {
 
 **Package**: `gcommon.v1.queue` **Lines**: 50
 
-**Messages** (1): `ExportQueueRequest` **Imports** (4):
-`google/protobuf/go_features.proto`, `pkg/common/proto/time_range.proto`,
-`pkg/queue/proto/export_format.proto`, `pkg/queue/proto/time_range.proto`
+**Messages** (1): `ExportQueueRequest` **Imports** (4): `google/protobuf/go_features.proto`, `pkg/common/proto/time_range.proto`, `pkg/queue/proto/export_format.proto`, `pkg/queue/proto/time_range.proto`
 
 ### File Content
 
@@ -53023,8 +51361,7 @@ message ExportQueueRequest {
 
 **Package**: `gcommon.v1.queue` **Lines**: 43
 
-**Messages** (1): `ExportQueueResponse` **Imports** (1):
-`google/protobuf/go_features.proto`
+**Messages** (1): `ExportQueueResponse` **Imports** (1): `google/protobuf/go_features.proto`
 
 ### File Content
 
@@ -53082,8 +51419,7 @@ message ExportQueueResponse {
 
 **Package**: `gcommon.v1.queue` **Lines**: 27
 
-**Messages** (1): `FlowControl` **Imports** (2):
-`google/protobuf/duration.proto`, `google/protobuf/go_features.proto`
+**Messages** (1): `FlowControl` **Imports** (2): `google/protobuf/duration.proto`, `google/protobuf/go_features.proto`
 
 ### File Content
 
@@ -53125,8 +51461,7 @@ message FlowControl {
 
 **Package**: `gcommon.v1.queue` **Lines**: 39
 
-**Enums** (1): `FlushPolicy` **Imports** (1):
-`google/protobuf/go_features.proto`
+**Enums** (1): `FlushPolicy` **Imports** (1): `google/protobuf/go_features.proto`
 
 ### File Content
 
@@ -53180,9 +51515,7 @@ enum FlushPolicy {
 
 **Package**: `gcommon.v1.queue` **Lines**: 42
 
-**Messages** (1): `FlushQueueRequest` **Imports** (3):
-`google/protobuf/go_features.proto`, `google/protobuf/timestamp.proto`,
-`pkg/queue/proto/flush_policy.proto`
+**Messages** (1): `FlushQueueRequest` **Imports** (3): `google/protobuf/go_features.proto`, `google/protobuf/timestamp.proto`, `pkg/queue/proto/flush_policy.proto`
 
 ### File Content
 
@@ -53239,8 +51572,7 @@ message FlushQueueRequest {
 
 **Package**: `gcommon.v1.queue` **Lines**: 31
 
-**Messages** (1): `FlushQueueResponse` **Imports** (1):
-`google/protobuf/go_features.proto`
+**Messages** (1): `FlushQueueResponse` **Imports** (1): `google/protobuf/go_features.proto`
 
 ### File Content
 
@@ -53286,10 +51618,7 @@ message FlushQueueResponse {
 
 **Package**: `gcommon.v1.queue` **Lines**: 35
 
-**Messages** (1): `FormatOptions` **Imports** (3):
-`google/protobuf/go_features.proto`,
-`pkg/queue/proto/compression_algorithm.proto`,
-`pkg/queue/proto/serialization_format.proto`
+**Messages** (1): `FormatOptions` **Imports** (3): `google/protobuf/go_features.proto`, `pkg/queue/proto/compression_algorithm.proto`, `pkg/queue/proto/serialization_format.proto`
 
 ### File Content
 
@@ -53339,8 +51668,7 @@ message FormatOptions {
 
 **Package**: `gcommon.v1.queue` **Lines**: 34
 
-**Messages** (1): `GetClusterInfoRequest` **Imports** (1):
-`google/protobuf/go_features.proto`
+**Messages** (1): `GetClusterInfoRequest` **Imports** (1): `google/protobuf/go_features.proto`
 
 ### File Content
 
@@ -53389,8 +51717,7 @@ message GetClusterInfoRequest {
 
 **Package**: `gcommon.v1.queue` **Lines**: 33
 
-**Messages** (1): `GetClusterInfoResponse` **Imports** (2):
-`google/protobuf/go_features.proto`, `pkg/queue/proto/cluster_info.proto`
+**Messages** (1): `GetClusterInfoResponse` **Imports** (2): `google/protobuf/go_features.proto`, `pkg/queue/proto/cluster_info.proto`
 
 ### File Content
 
@@ -53438,8 +51765,7 @@ message GetClusterInfoResponse {
 
 **Package**: `gcommon.v1.queue` **Lines**: 34
 
-**Messages** (1): `GetMessageRequest` **Imports** (1):
-`google/protobuf/go_features.proto`
+**Messages** (1): `GetMessageRequest` **Imports** (1): `google/protobuf/go_features.proto`
 
 ### File Content
 
@@ -53488,8 +51814,7 @@ message GetMessageRequest {
 
 **Package**: `gcommon.v1.queue` **Lines**: 37
 
-**Messages** (1): `GetMessageResponse` **Imports** (2):
-`google/protobuf/go_features.proto`, `pkg/queue/proto/message_envelope.proto`
+**Messages** (1): `GetMessageResponse` **Imports** (2): `google/protobuf/go_features.proto`, `pkg/queue/proto/message_envelope.proto`
 
 ### File Content
 
@@ -53541,8 +51866,7 @@ message GetMessageResponse {
 
 **Package**: `gcommon.v1.queue` **Lines**: 34
 
-**Messages** (1): `GetNodeInfoRequest` **Imports** (1):
-`google/protobuf/go_features.proto`
+**Messages** (1): `GetNodeInfoRequest` **Imports** (1): `google/protobuf/go_features.proto`
 
 ### File Content
 
@@ -53591,8 +51915,7 @@ message GetNodeInfoRequest {
 
 **Package**: `gcommon.v1.queue` **Lines**: 26
 
-**Messages** (1): `GetNodeInfoResponse` **Imports** (2):
-`google/protobuf/go_features.proto`, `pkg/queue/proto/node_info.proto`
+**Messages** (1): `GetNodeInfoResponse` **Imports** (2): `google/protobuf/go_features.proto`, `pkg/queue/proto/node_info.proto`
 
 ### File Content
 
@@ -53633,9 +51956,7 @@ message GetNodeInfoResponse {
 
 **Package**: `gcommon.v1.queue` **Lines**: 39
 
-**Messages** (1): `GetOffsetRequest` **Imports** (3):
-`google/protobuf/go_features.proto`, `pkg/common/proto/request_metadata.proto`,
-`pkg/queue/proto/offset_type.proto`
+**Messages** (1): `GetOffsetRequest` **Imports** (3): `google/protobuf/go_features.proto`, `pkg/common/proto/request_metadata.proto`, `pkg/queue/proto/offset_type.proto`
 
 ### File Content
 
@@ -53689,8 +52010,7 @@ message GetOffsetRequest {
 
 **Package**: `gcommon.v1.queue` **Lines**: 28
 
-**Messages** (1): `GetOffsetResponse` **Imports** (2):
-`google/protobuf/go_features.proto`, `pkg/common/proto/request_metadata.proto`
+**Messages** (1): `GetOffsetResponse` **Imports** (2): `google/protobuf/go_features.proto`, `pkg/common/proto/request_metadata.proto`
 
 ### File Content
 
@@ -53733,9 +52053,7 @@ message GetOffsetResponse {
 
 **Package**: `gcommon.v1.queue` **Lines**: 49
 
-**Messages** (1): `GetPartitionInfoRequest` **Imports** (2):
-`google/protobuf/go_features.proto`,
-`pkg/queue/proto/get_queue_info_request.proto`
+**Messages** (1): `GetPartitionInfoRequest` **Imports** (2): `google/protobuf/go_features.proto`, `pkg/queue/proto/get_queue_info_request.proto`
 
 ### File Content
 
@@ -53799,8 +52117,7 @@ message GetPartitionInfoRequest {
 
 **Package**: `gcommon.v1.queue` **Lines**: 26
 
-**Messages** (1): `GetPartitionInfoResponse` **Imports** (2):
-`google/protobuf/go_features.proto`, `pkg/queue/proto/partition_info.proto`
+**Messages** (1): `GetPartitionInfoResponse` **Imports** (2): `google/protobuf/go_features.proto`, `pkg/queue/proto/partition_info.proto`
 
 ### File Content
 
@@ -53841,8 +52158,7 @@ message GetPartitionInfoResponse {
 
 **Package**: `gcommon.v1.queue` **Lines**: 64
 
-**Messages** (2): `GetQueueInfoRequest`, `TimeRangeFilter` **Imports** (1):
-`google/protobuf/go_features.proto`
+**Messages** (2): `GetQueueInfoRequest`, `TimeRangeFilter` **Imports** (1): `google/protobuf/go_features.proto`
 
 ### File Content
 
@@ -53921,8 +52237,7 @@ message TimeRangeFilter {
 
 **Package**: `gcommon.v1.queue` **Lines**: 26
 
-**Messages** (1): `GetQueueInfoResponse` **Imports** (2):
-`google/protobuf/go_features.proto`, `pkg/queue/proto/queue_info.proto`
+**Messages** (1): `GetQueueInfoResponse` **Imports** (2): `google/protobuf/go_features.proto`, `pkg/queue/proto/queue_info.proto`
 
 ### File Content
 
@@ -53963,15 +52278,9 @@ message GetQueueInfoResponse {
 
 **Package**: `gcommon.v1.queue` **Lines**: 262
 
-**Messages** (18): `GetQueueStatsResponse`, `QueueStatsSummary`, `QueueStats`,
-`MessageStateCounts`, `ThroughputMetrics`, `LatencyMetrics`, `QueueDepthSample`,
-`SizeDistribution`, `SizeBucket`, `AgeDistribution`, `AgeBucket`,
-`QueueConfiguration`, `QueueConsumerStats`, `HistoricalStats`,
-`HistoricalDataPoint`, `ErrorStats`, `ErrorTypeStat`, `PerformanceMetrics`
-**Imports** (5): `google/protobuf/duration.proto`,
-`google/protobuf/go_features.proto`, `google/protobuf/timestamp.proto`,
-`pkg/common/proto/response_metadata.proto`,
-`pkg/queue/proto/consumer_stats.proto`
+**Messages** (18): `GetQueueStatsResponse`, `QueueStatsSummary`, `QueueStats`, `MessageStateCounts`, `ThroughputMetrics`, `LatencyMetrics`, `QueueDepthSample`, `SizeDistribution`, `SizeBucket`, `AgeDistribution`, `AgeBucket`,
+`QueueConfiguration`, `QueueConsumerStats`, `HistoricalStats`, `HistoricalDataPoint`, `ErrorStats`, `ErrorTypeStat`, `PerformanceMetrics` **Imports** (5): `google/protobuf/duration.proto`, `google/protobuf/go_features.proto`,
+`google/protobuf/timestamp.proto`, `pkg/common/proto/response_metadata.proto`, `pkg/queue/proto/consumer_stats.proto`
 
 ### File Content
 
@@ -54248,8 +52557,7 @@ message PerformanceMetrics {
 
 **Package**: `gcommon.v1.queue` **Lines**: 31
 
-**Messages** (1): `GetSubscriptionInfoRequest` **Imports** (1):
-`google/protobuf/go_features.proto`
+**Messages** (1): `GetSubscriptionInfoRequest` **Imports** (1): `google/protobuf/go_features.proto`
 
 ### File Content
 
@@ -54295,8 +52603,7 @@ message GetSubscriptionInfoRequest {
 
 **Package**: `gcommon.v1.queue` **Lines**: 61
 
-**Messages** (1): `GetSubscriptionInfoResponse` **Imports** (2):
-`google/protobuf/go_features.proto`, `google/protobuf/timestamp.proto`
+**Messages** (1): `GetSubscriptionInfoResponse` **Imports** (2): `google/protobuf/go_features.proto`, `google/protobuf/timestamp.proto`
 
 ### File Content
 
@@ -54372,8 +52679,7 @@ message GetSubscriptionInfoResponse {
 
 **Package**: `gcommon.v1.queue` **Lines**: 35
 
-**Messages** (1): `GetTopicInfoRequest` **Imports** (2):
-`google/protobuf/go_features.proto`, `pkg/common/proto/request_metadata.proto`
+**Messages** (1): `GetTopicInfoRequest` **Imports** (2): `google/protobuf/go_features.proto`, `pkg/common/proto/request_metadata.proto`
 
 ### File Content
 
@@ -54423,9 +52729,7 @@ message GetTopicInfoRequest {
 
 **Package**: `gcommon.v1.queue` **Lines**: 154
 
-**Messages** (5): `GetTopicInfoResponse`, `TopicConfiguration`,
-`TopicPermissions`, `OwnerInfo`, `RetentionInfo` **Imports** (4):
-`google/protobuf/go_features.proto`, `google/protobuf/timestamp.proto`,
+**Messages** (5): `GetTopicInfoResponse`, `TopicConfiguration`, `TopicPermissions`, `OwnerInfo`, `RetentionInfo` **Imports** (4): `google/protobuf/go_features.proto`, `google/protobuf/timestamp.proto`,
 `pkg/queue/proto/partition_info.proto`, `pkg/queue/proto/topic_stats.proto`
 
 ### File Content
@@ -54595,8 +52899,7 @@ message RetentionInfo {
 
 **Package**: `gcommon.v1.queue` **Lines**: 27
 
-**Messages** (1): `HeaderRoutingConfig` **Imports** (1):
-`google/protobuf/go_features.proto`
+**Messages** (1): `HeaderRoutingConfig` **Imports** (1): `google/protobuf/go_features.proto`
 
 ### File Content
 
@@ -54638,8 +52941,7 @@ message HeaderRoutingConfig {
 
 **Package**: `gcommon.v1.queue` **Lines**: 24
 
-**Messages** (1): `HealthCheckRequest` **Imports** (2):
-`google/protobuf/go_features.proto`, `pkg/common/proto/request_metadata.proto`
+**Messages** (1): `HealthCheckRequest` **Imports** (2): `google/protobuf/go_features.proto`, `pkg/common/proto/request_metadata.proto`
 
 ### File Content
 
@@ -54678,9 +52980,7 @@ message HealthCheckRequest {
 
 **Package**: `gcommon.v1.queue` **Lines**: 34
 
-**Messages** (1): `HealthCheckResponse` **Imports** (4):
-`google/protobuf/duration.proto`, `google/protobuf/go_features.proto`,
-`pkg/common/proto/error.proto`, `pkg/common/proto/health_status.proto`
+**Messages** (1): `HealthCheckResponse` **Imports** (4): `google/protobuf/duration.proto`, `google/protobuf/go_features.proto`, `pkg/common/proto/error.proto`, `pkg/common/proto/health_status.proto`
 
 ### File Content
 
@@ -54729,8 +53029,7 @@ message HealthCheckResponse {
 
 **Package**: `gcommon.v1.queue` **Lines**: 31
 
-**Enums** (1): `HealthStatus` **Imports** (1):
-`google/protobuf/go_features.proto`
+**Enums** (1): `HealthStatus` **Imports** (1): `google/protobuf/go_features.proto`
 
 ### File Content
 
@@ -54776,8 +53075,7 @@ enum HealthStatus {
 
 **Package**: `gcommon.v1.queue` **Lines**: 43
 
-**Messages** (1): `ImportQueueRequest` **Imports** (2):
-`google/protobuf/go_features.proto`, `pkg/queue/proto/export_format.proto`
+**Messages** (1): `ImportQueueRequest` **Imports** (2): `google/protobuf/go_features.proto`, `pkg/queue/proto/export_format.proto`
 
 ### File Content
 
@@ -54835,8 +53133,7 @@ message ImportQueueRequest {
 
 **Package**: `gcommon.v1.queue` **Lines**: 52
 
-**Messages** (1): `ImportQueueResponse` **Imports** (2):
-`google/protobuf/go_features.proto`, `google/protobuf/timestamp.proto`
+**Messages** (1): `ImportQueueResponse` **Imports** (2): `google/protobuf/go_features.proto`, `google/protobuf/timestamp.proto`
 
 ### File Content
 
@@ -54903,8 +53200,7 @@ message ImportQueueResponse {
 
 **Package**: `gcommon.v1.queue` **Lines**: 40
 
-**Messages** (1): `ListMessagesRequest` **Imports** (1):
-`google/protobuf/go_features.proto`
+**Messages** (1): `ListMessagesRequest` **Imports** (1): `google/protobuf/go_features.proto`
 
 ### File Content
 
@@ -54959,8 +53255,7 @@ message ListMessagesRequest {
 
 **Package**: `gcommon.v1.queue` **Lines**: 32
 
-**Messages** (1): `ListMessagesResponse` **Imports** (2):
-`google/protobuf/go_features.proto`, `pkg/queue/proto/queue_message.proto`
+**Messages** (1): `ListMessagesResponse` **Imports** (2): `google/protobuf/go_features.proto`, `pkg/queue/proto/queue_message.proto`
 
 ### File Content
 
@@ -55007,13 +53302,11 @@ message ListMessagesResponse {
 
 **Package**: `gcommon.v1.queue` **Lines**: 28
 
-**Messages** (1): `ListQueuesRequest` **Imports** (2):
-`google/protobuf/go_features.proto`, `pkg/common/proto/request_metadata.proto`
+**Messages** (1): `ListQueuesRequest` **Imports** (2): `google/protobuf/go_features.proto`, `pkg/common/proto/request_metadata.proto`
 
 ### ⚠️ Issues Found (1)
 
-- Line 5: Implementation needed - // user or service account. This file was a
-  placeholder and now
+- Line 5: Implementation needed - // user or service account. This file was a placeholder and now
 
 ### File Content
 
@@ -55056,14 +53349,11 @@ message ListQueuesRequest {
 
 **Package**: `gcommon.v1.queue` **Lines**: 29
 
-**Messages** (1): `ListQueuesResponse` **Imports** (3):
-`google/protobuf/go_features.proto`, `pkg/common/proto/response_metadata.proto`,
-`pkg/queue/proto/queue_info.proto`
+**Messages** (1): `ListQueuesResponse` **Imports** (3): `google/protobuf/go_features.proto`, `pkg/common/proto/response_metadata.proto`, `pkg/queue/proto/queue_info.proto`
 
 ### ⚠️ Issues Found (1)
 
-- Line 7: Implementation needed - // placeholder file generated during the
-  migration.
+- Line 7: Implementation needed - // placeholder file generated during the migration.
 
 ### File Content
 
@@ -55107,13 +53397,11 @@ message ListQueuesResponse {
 
 **Package**: `gcommon.v1.queue` **Lines**: 30
 
-**Messages** (1): `ListSubscriptionsRequest` **Imports** (2):
-`google/protobuf/go_features.proto`, `pkg/common/proto/request_metadata.proto`
+**Messages** (1): `ListSubscriptionsRequest` **Imports** (2): `google/protobuf/go_features.proto`, `pkg/common/proto/request_metadata.proto`
 
 ### ⚠️ Issues Found (1)
 
-- Line 5: Implementation needed - // Previously a placeholder, this file now
-  contains the full request definition.
+- Line 5: Implementation needed - // Previously a placeholder, this file now contains the full request definition.
 
 ### File Content
 
@@ -55158,9 +53446,7 @@ message ListSubscriptionsRequest {
 
 **Package**: `gcommon.v1.queue` **Lines**: 29
 
-**Messages** (1): `ListSubscriptionsResponse` **Imports** (3):
-`google/protobuf/go_features.proto`, `pkg/common/proto/response_metadata.proto`,
-`pkg/queue/proto/subscription_info.proto`
+**Messages** (1): `ListSubscriptionsResponse` **Imports** (3): `google/protobuf/go_features.proto`, `pkg/common/proto/response_metadata.proto`, `pkg/queue/proto/subscription_info.proto`
 
 ### ⚠️ Issues Found (1)
 
@@ -55208,8 +53494,7 @@ message ListSubscriptionsResponse {
 
 **Package**: `gcommon.v1.queue` **Lines**: 49
 
-**Messages** (1): `ListTopicsRequest` **Imports** (1):
-`google/protobuf/go_features.proto`
+**Messages** (1): `ListTopicsRequest` **Imports** (1): `google/protobuf/go_features.proto`
 
 ### File Content
 
@@ -55273,9 +53558,7 @@ message ListTopicsRequest {
 
 **Package**: `gcommon.v1.queue` **Lines**: 36
 
-**Messages** (1): `ListTopicsResponse` **Imports** (4):
-`google/protobuf/go_features.proto`, `google/protobuf/timestamp.proto`,
-`pkg/queue/proto/topic_info.proto`, `pkg/queue/proto/topic_stats.proto`
+**Messages** (1): `ListTopicsResponse` **Imports** (4): `google/protobuf/go_features.proto`, `google/protobuf/timestamp.proto`, `pkg/queue/proto/topic_info.proto`, `pkg/queue/proto/topic_stats.proto`
 
 ### File Content
 
@@ -55326,9 +53609,7 @@ message ListTopicsResponse {
 
 **Package**: `gcommon.v1.queue` **Lines**: 40
 
-**Messages** (1): `LoadBalancingConfig` **Imports** (2):
-`google/protobuf/go_features.proto`,
-`pkg/queue/proto/load_balancing_strategy.proto`
+**Messages** (1): `LoadBalancingConfig` **Imports** (2): `google/protobuf/go_features.proto`, `pkg/queue/proto/load_balancing_strategy.proto`
 
 ### File Content
 
@@ -55383,8 +53664,7 @@ message LoadBalancingConfig {
 
 **Package**: `gcommon.v1.queue` **Lines**: 39
 
-**Enums** (1): `LoadBalancingStrategy` **Imports** (1):
-`google/protobuf/go_features.proto`
+**Enums** (1): `LoadBalancingStrategy` **Imports** (1): `google/protobuf/go_features.proto`
 
 ### File Content
 
@@ -55438,8 +53718,7 @@ enum LoadBalancingStrategy {
 
 **Package**: `gcommon.v1.queue` **Lines**: 19
 
-**Imports** (3): `google/protobuf/go_features.proto`,
-`google/protobuf/timestamp.proto`, `pkg/queue/proto/queue_message.proto`
+**Imports** (3): `google/protobuf/go_features.proto`, `google/protobuf/timestamp.proto`, `pkg/queue/proto/queue_message.proto`
 
 ### File Content
 
@@ -55473,9 +53752,7 @@ option go_package = "github.com/jdfalk/gcommon/pkg/queue/proto";
 
 **Package**: `gcommon.v1.queue` **Lines**: 66
 
-**Messages** (1): `MessageEnvelope` **Imports** (3):
-`google/protobuf/any.proto`, `google/protobuf/go_features.proto`,
-`google/protobuf/timestamp.proto`
+**Messages** (1): `MessageEnvelope` **Imports** (3): `google/protobuf/any.proto`, `google/protobuf/go_features.proto`, `google/protobuf/timestamp.proto`
 
 ### File Content
 
@@ -55556,8 +53833,7 @@ message MessageEnvelope {
 
 **Package**: `gcommon.v1.queue` **Lines**: 23
 
-**Messages** (1): `MessageId` **Imports** (1):
-`google/protobuf/go_features.proto`
+**Messages** (1): `MessageId` **Imports** (1): `google/protobuf/go_features.proto`
 
 ### ⚠️ Issues Found (1)
 
@@ -55599,8 +53875,7 @@ message MessageId {
 
 **Package**: `gcommon.v1.queue` **Lines**: 55
 
-**Messages** (1): `MessageMetadata` **Imports** (2):
-`google/protobuf/go_features.proto`, `google/protobuf/timestamp.proto`
+**Messages** (1): `MessageMetadata` **Imports** (2): `google/protobuf/go_features.proto`, `google/protobuf/timestamp.proto`
 
 ### File Content
 
@@ -55670,8 +53945,7 @@ message MessageMetadata {
 
 **Package**: `gcommon.v1.queue` **Lines**: 37
 
-**Enums** (1): `MessageState` **Imports** (1):
-`google/protobuf/go_features.proto`
+**Enums** (1): `MessageState` **Imports** (1): `google/protobuf/go_features.proto`
 
 ### File Content
 
@@ -55778,8 +54052,7 @@ enum MetricType {
 
 **Package**: `gcommon.v1.queue` **Lines**: 40
 
-**Messages** (1): `MigrateQueueRequest` **Imports** (1):
-`google/protobuf/go_features.proto`
+**Messages** (1): `MigrateQueueRequest` **Imports** (1): `google/protobuf/go_features.proto`
 
 ### File Content
 
@@ -55834,8 +54107,7 @@ message MigrateQueueRequest {
 
 **Package**: `gcommon.v1.queue` **Lines**: 37
 
-**Messages** (1): `MigrateQueueResponse` **Imports** (1):
-`google/protobuf/go_features.proto`
+**Messages** (1): `MigrateQueueResponse` **Imports** (1): `google/protobuf/go_features.proto`
 
 ### File Content
 
@@ -55887,8 +54159,7 @@ message MigrateQueueResponse {
 
 **Package**: `gcommon.v1.queue` **Lines**: 46
 
-**Messages** (1): `MigrationConfig` **Imports** (2):
-`google/protobuf/duration.proto`, `google/protobuf/go_features.proto`
+**Messages** (1): `MigrationConfig` **Imports** (2): `google/protobuf/duration.proto`, `google/protobuf/go_features.proto`
 
 ### File Content
 
@@ -55949,8 +54220,7 @@ message MigrationConfig {
 
 **Package**: `gcommon.v1.queue` **Lines**: 22
 
-**Messages** (1): `MonitoringConfig` **Imports** (1):
-`google/protobuf/go_features.proto`
+**Messages** (1): `MonitoringConfig` **Imports** (1): `google/protobuf/go_features.proto`
 
 ### File Content
 
@@ -55987,8 +54257,7 @@ message MonitoringConfig {
 
 **Package**: `gcommon.v1.queue` **Lines**: 34
 
-**Messages** (1): `NackError` **Imports** (2):
-`google/protobuf/go_features.proto`, `pkg/queue/proto/nack_error_category.proto`
+**Messages** (1): `NackError` **Imports** (2): `google/protobuf/go_features.proto`, `pkg/queue/proto/nack_error_category.proto`
 
 ### File Content
 
@@ -56037,8 +54306,7 @@ message NackError {
 
 **Package**: `gcommon.v1.queue` **Lines**: 39
 
-**Enums** (1): `NackErrorCategory` **Imports** (1):
-`google/protobuf/go_features.proto`
+**Enums** (1): `NackErrorCategory` **Imports** (1): `google/protobuf/go_features.proto`
 
 ### File Content
 
@@ -56092,9 +54360,7 @@ enum NackErrorCategory {
 
 **Package**: `gcommon.v1.queue` **Lines**: 42
 
-**Messages** (1): `NackRequest` **Imports** (3):
-`google/protobuf/go_features.proto`, `pkg/common/proto/request_metadata.proto`,
-`pkg/queue/proto/nack_error.proto`
+**Messages** (1): `NackRequest` **Imports** (3): `google/protobuf/go_features.proto`, `pkg/common/proto/request_metadata.proto`, `pkg/queue/proto/nack_error.proto`
 
 ### File Content
 
@@ -56151,8 +54417,7 @@ message NackRequest {
 
 **Package**: `gcommon.v1.queue` **Lines**: 28
 
-**Messages** (1): `NackResponse` **Imports** (1):
-`google/protobuf/go_features.proto`
+**Messages** (1): `NackResponse` **Imports** (1): `google/protobuf/go_features.proto`
 
 ### File Content
 
@@ -56195,9 +54460,7 @@ message NackResponse {
 
 **Package**: `gcommon.v1.queue` **Lines**: 42
 
-**Messages** (1): `NodeInfo` **Imports** (4):
-`google/protobuf/go_features.proto`, `google/protobuf/timestamp.proto`,
-`pkg/queue/proto/node_state.proto`, `pkg/queue/proto/node_stats.proto`
+**Messages** (1): `NodeInfo` **Imports** (4): `google/protobuf/go_features.proto`, `google/protobuf/timestamp.proto`, `pkg/queue/proto/node_state.proto`, `pkg/queue/proto/node_stats.proto`
 
 ### File Content
 
@@ -56254,8 +54517,7 @@ message NodeInfo {
 
 **Package**: `gcommon.v1.queue` **Lines**: 37
 
-**Enums** (1): `NodeState` **Imports** (2): `google/protobuf/go_features.proto`,
-`google/protobuf/timestamp.proto`
+**Enums** (1): `NodeState` **Imports** (2): `google/protobuf/go_features.proto`, `google/protobuf/timestamp.proto`
 
 ### File Content
 
@@ -56307,8 +54569,7 @@ enum NodeState {
 
 **Package**: `gcommon.v1.queue` **Lines**: 37
 
-**Messages** (1): `NodeStats` **Imports** (2):
-`google/protobuf/go_features.proto`, `google/protobuf/timestamp.proto`
+**Messages** (1): `NodeStats` **Imports** (2): `google/protobuf/go_features.proto`, `google/protobuf/timestamp.proto`
 
 ### File Content
 
@@ -56360,9 +54621,7 @@ message NodeStats {
 
 **Package**: `gcommon.v1.queue` **Lines**: 35
 
-**Messages** (1): `NotificationChannel` **Imports** (3):
-`google/protobuf/go_features.proto`, `pkg/queue/proto/alert_severity.proto`,
-`pkg/queue/proto/notification_channel_type.proto`
+**Messages** (1): `NotificationChannel` **Imports** (3): `google/protobuf/go_features.proto`, `pkg/queue/proto/alert_severity.proto`, `pkg/queue/proto/notification_channel_type.proto`
 
 ### File Content
 
@@ -56412,8 +54671,7 @@ message NotificationChannel {
 
 **Package**: `gcommon.v1.queue` **Lines**: 36
 
-**Enums** (1): `NotificationChannelType` **Imports** (1):
-`google/protobuf/go_features.proto`
+**Enums** (1): `NotificationChannelType` **Imports** (1): `google/protobuf/go_features.proto`
 
 ### File Content
 
@@ -56464,8 +54722,7 @@ enum NotificationChannelType {
 
 **Package**: `gcommon.v1.queue` **Lines**: 43
 
-**Messages** (1): `OffsetInfo` **Imports** (2):
-`google/protobuf/go_features.proto`, `google/protobuf/timestamp.proto`
+**Messages** (1): `OffsetInfo` **Imports** (2): `google/protobuf/go_features.proto`, `google/protobuf/timestamp.proto`
 
 ### File Content
 
@@ -56572,8 +54829,7 @@ enum OffsetType {
 
 **Package**: `gcommon.v1.queue` **Lines**: 45
 
-**Messages** (1): `PartitionConfig` **Imports** (1):
-`google/protobuf/go_features.proto`
+**Messages** (1): `PartitionConfig` **Imports** (1): `google/protobuf/go_features.proto`
 
 ### File Content
 
@@ -56633,8 +54889,7 @@ message PartitionConfig {
 
 **Package**: `gcommon.v1.queue` **Lines**: 45
 
-**Messages** (1): `PartitionInfo` **Imports** (1):
-`google/protobuf/go_features.proto`
+**Messages** (1): `PartitionInfo` **Imports** (1): `google/protobuf/go_features.proto`
 
 ### File Content
 
@@ -56694,8 +54949,7 @@ message PartitionInfo {
 
 **Package**: `gcommon.v1.queue` **Lines**: 29
 
-**Messages** (1): `PartitionOffset` **Imports** (2):
-`google/protobuf/go_features.proto`, `google/protobuf/timestamp.proto`
+**Messages** (1): `PartitionOffset` **Imports** (2): `google/protobuf/go_features.proto`, `google/protobuf/timestamp.proto`
 
 ### File Content
 
@@ -56739,8 +54993,7 @@ message PartitionOffset {
 
 **Package**: `gcommon.v1.queue` **Lines**: 40
 
-**Enums** (1): `PartitionStrategy` **Imports** (1):
-`google/protobuf/go_features.proto`
+**Enums** (1): `PartitionStrategy` **Imports** (1): `google/protobuf/go_features.proto`
 
 ### File Content
 
@@ -56795,8 +55048,7 @@ enum PartitionStrategy {
 
 **Package**: `gcommon.v1.queue` **Lines**: 38
 
-**Messages** (1): `PauseQueueRequest` **Imports** (2):
-`google/protobuf/go_features.proto`, `pkg/common/proto/request_metadata.proto`
+**Messages** (1): `PauseQueueRequest` **Imports** (2): `google/protobuf/go_features.proto`, `pkg/common/proto/request_metadata.proto`
 
 ### File Content
 
@@ -56849,8 +55101,7 @@ message PauseQueueRequest {
 
 **Package**: `gcommon.v1.queue` **Lines**: 34
 
-**Messages** (1): `PauseQueueResponse` **Imports** (1):
-`google/protobuf/go_features.proto`
+**Messages** (1): `PauseQueueResponse` **Imports** (1): `google/protobuf/go_features.proto`
 
 ### File Content
 
@@ -56899,8 +55150,7 @@ message PauseQueueResponse {
 
 **Package**: `gcommon.v1.queue` **Lines**: 97
 
-**Messages** (1): `PeekRequest` **Imports** (2):
-`google/protobuf/go_features.proto`, `pkg/common/proto/request_metadata.proto`
+**Messages** (1): `PeekRequest` **Imports** (2): `google/protobuf/go_features.proto`, `pkg/common/proto/request_metadata.proto`
 
 ### File Content
 
@@ -57012,10 +55262,7 @@ message PeekRequest {
 
 **Package**: `gcommon.v1.queue` **Lines**: 123
 
-**Messages** (1): `PeekResponse` **Imports** (5):
-`google/protobuf/go_features.proto`, `google/protobuf/timestamp.proto`,
-`pkg/common/proto/error.proto`, `pkg/common/proto/request_metadata.proto`,
-`pkg/queue/proto/queue_message.proto`
+**Messages** (1): `PeekResponse` **Imports** (5): `google/protobuf/go_features.proto`, `google/protobuf/timestamp.proto`, `pkg/common/proto/error.proto`, `pkg/common/proto/request_metadata.proto`, `pkg/queue/proto/queue_message.proto`
 
 ### File Content
 
@@ -57153,8 +55400,7 @@ message PeekResponse {
 
 **Package**: `gcommon.v1.queue` **Lines**: 55
 
-**Messages** (1): `PerformanceConfig` **Imports** (2):
-`google/protobuf/duration.proto`, `google/protobuf/go_features.proto`
+**Messages** (1): `PerformanceConfig` **Imports** (2): `google/protobuf/duration.proto`, `google/protobuf/go_features.proto`
 
 ### File Content
 
@@ -57224,8 +55470,7 @@ message PerformanceConfig {
 
 **Package**: `gcommon.v1.queue` **Lines**: 27
 
-**Enums** (1): `PriorityLevel` **Imports** (1):
-`google/protobuf/go_features.proto`
+**Enums** (1): `PriorityLevel` **Imports** (1): `google/protobuf/go_features.proto`
 
 ### File Content
 
@@ -57267,8 +55512,7 @@ enum PriorityLevel {
 
 **Package**: `gcommon.v1.queue` **Lines**: 24
 
-**Messages** (1): `PriorityRange` **Imports** (1):
-`google/protobuf/go_features.proto`
+**Messages** (1): `PriorityRange` **Imports** (1): `google/protobuf/go_features.proto`
 
 ### File Content
 
@@ -57307,9 +55551,7 @@ message PriorityRange {
 
 **Package**: `gcommon.v1.queue` **Lines**: 35
 
-**Messages** (1): `PublishRequest` **Imports** (4):
-`google/protobuf/go_features.proto`, `pkg/common/proto/request_metadata.proto`,
-`pkg/queue/proto/delivery_options.proto`, `pkg/queue/proto/queue_message.proto`
+**Messages** (1): `PublishRequest` **Imports** (4): `google/protobuf/go_features.proto`, `pkg/common/proto/request_metadata.proto`, `pkg/queue/proto/delivery_options.proto`, `pkg/queue/proto/queue_message.proto`
 
 ### File Content
 
@@ -57359,9 +55601,7 @@ message PublishRequest {
 
 **Package**: `gcommon.v1.queue` **Lines**: 33
 
-**Messages** (1): `PublishResponse` **Imports** (3):
-`google/protobuf/go_features.proto`, `pkg/common/proto/error.proto`,
-`pkg/common/proto/request_metadata.proto`
+**Messages** (1): `PublishResponse` **Imports** (3): `google/protobuf/go_features.proto`, `pkg/common/proto/error.proto`, `pkg/common/proto/request_metadata.proto`
 
 ### File Content
 
@@ -57409,8 +55649,7 @@ message PublishResponse {
 
 **Package**: `gcommon.v1.queue` **Lines**: 34
 
-**Messages** (1): `PublishResult` **Imports** (1):
-`google/protobuf/go_features.proto`
+**Messages** (1): `PublishResult` **Imports** (1): `google/protobuf/go_features.proto`
 
 ### File Content
 
@@ -57459,8 +55698,7 @@ message PublishResult {
 
 **Package**: `gcommon.v1.queue` **Lines**: 28
 
-**Messages** (1): `PullRequest` **Imports** (2):
-`google/protobuf/go_features.proto`, `pkg/common/proto/request_metadata.proto`
+**Messages** (1): `PullRequest` **Imports** (2): `google/protobuf/go_features.proto`, `pkg/common/proto/request_metadata.proto`
 
 ### ⚠️ Issues Found (1)
 
@@ -57507,14 +55745,11 @@ message PullRequest {
 
 **Package**: `gcommon.v1.queue` **Lines**: 25
 
-**Messages** (1): `PullResponse` **Imports** (3):
-`google/protobuf/go_features.proto`, `pkg/common/proto/response_metadata.proto`,
-`pkg/queue/proto/received_message.proto`
+**Messages** (1): `PullResponse` **Imports** (3): `google/protobuf/go_features.proto`, `pkg/common/proto/response_metadata.proto`, `pkg/queue/proto/received_message.proto`
 
 ### ⚠️ Issues Found (1)
 
-- Line 6: Implementation needed - // now contains the actual response definition
-  instead of a placeholder.
+- Line 6: Implementation needed - // now contains the actual response definition instead of a placeholder.
 
 ### File Content
 
@@ -57554,9 +55789,7 @@ message PullResponse {
 
 **Package**: `gcommon.v1.queue` **Lines**: 64
 
-**Messages** (2): `PurgeRequest`, `PurgeOptions` **Imports** (3):
-`google/protobuf/go_features.proto`, `google/protobuf/timestamp.proto`,
-`pkg/common/proto/request_metadata.proto`
+**Messages** (2): `PurgeRequest`, `PurgeOptions` **Imports** (3): `google/protobuf/go_features.proto`, `google/protobuf/timestamp.proto`, `pkg/common/proto/request_metadata.proto`
 
 ### File Content
 
@@ -57635,8 +55868,7 @@ message PurgeOptions {
 
 **Package**: `gcommon.v1.queue` **Lines**: 34
 
-**Messages** (1): `PurgeResponse` **Imports** (1):
-`google/protobuf/go_features.proto`
+**Messages** (1): `PurgeResponse` **Imports** (1): `google/protobuf/go_features.proto`
 
 ### File Content
 
@@ -57685,11 +55917,8 @@ message PurgeResponse {
 
 **Package**: `gcommon.v1.queue` **Lines**: 154
 
-**Messages** (6): `PushRequest`, `Message`, `MessageProperties`, `RoutingInfo`,
-`PublishConfig`, `BatchSettings` **Imports** (7): `google/protobuf/any.proto`,
-`google/protobuf/go_features.proto`, `google/protobuf/timestamp.proto`,
-`pkg/queue/proto/delivery_mode.proto`, `pkg/queue/proto/message_metadata.proto`,
-`pkg/queue/proto/priority_level.proto`, `pkg/queue/proto/retry_config.proto`
+**Messages** (6): `PushRequest`, `Message`, `MessageProperties`, `RoutingInfo`, `PublishConfig`, `BatchSettings` **Imports** (7): `google/protobuf/any.proto`, `google/protobuf/go_features.proto`, `google/protobuf/timestamp.proto`,
+`pkg/queue/proto/delivery_mode.proto`, `pkg/queue/proto/message_metadata.proto`, `pkg/queue/proto/priority_level.proto`, `pkg/queue/proto/retry_config.proto`
 
 ### File Content
 
@@ -57858,8 +56087,7 @@ message BatchSettings {
 
 **Package**: `gcommon.v1.queue` **Lines**: 42
 
-**Messages** (1): `PushResponse` **Imports** (2):
-`google/protobuf/go_features.proto`, `google/protobuf/timestamp.proto`
+**Messages** (1): `PushResponse` **Imports** (2): `google/protobuf/go_features.proto`, `google/protobuf/timestamp.proto`
 
 ### File Content
 
@@ -57916,20 +56144,9 @@ message PushResponse {
 
 **Package**: `gcommon.v1.queue` **Lines**: 51
 
-**Services** (1): `QueueAdminService` **Imports** (15):
-`google/protobuf/go_features.proto`,
-`pkg/queue/proto/create_queue_request.proto`,
-`pkg/queue/proto/create_queue_response.proto`,
-`pkg/queue/proto/delete_topic_request.proto`,
-`pkg/queue/proto/delete_topic_response.proto`,
-`pkg/queue/proto/get_queue_info_request.proto`,
-`pkg/queue/proto/get_queue_info_response.proto`,
-`pkg/queue/proto/pause_queue_request.proto`,
-`pkg/queue/proto/pause_queue_response.proto`,
-`pkg/queue/proto/purge_request.proto`, `pkg/queue/proto/purge_response.proto`,
-`pkg/queue/proto/reset_queue_stats_request.proto`,
-`pkg/queue/proto/reset_queue_stats_response.proto`,
-`pkg/queue/proto/resume_queue_request.proto`,
+**Services** (1): `QueueAdminService` **Imports** (15): `google/protobuf/go_features.proto`, `pkg/queue/proto/create_queue_request.proto`, `pkg/queue/proto/create_queue_response.proto`, `pkg/queue/proto/delete_topic_request.proto`,
+`pkg/queue/proto/delete_topic_response.proto`, `pkg/queue/proto/get_queue_info_request.proto`, `pkg/queue/proto/get_queue_info_response.proto`, `pkg/queue/proto/pause_queue_request.proto`, `pkg/queue/proto/pause_queue_response.proto`,
+`pkg/queue/proto/purge_request.proto`, `pkg/queue/proto/purge_response.proto`, `pkg/queue/proto/reset_queue_stats_request.proto`, `pkg/queue/proto/reset_queue_stats_response.proto`, `pkg/queue/proto/resume_queue_request.proto`,
 `pkg/queue/proto/resume_queue_response.proto`
 
 ### File Content
@@ -57996,9 +56213,7 @@ service QueueAdminService {
 
 **Package**: `gcommon.v1.queue` **Lines**: 34
 
-**Messages** (1): `QueueConfig` **Imports** (4):
-`google/protobuf/go_features.proto`, `pkg/queue/proto/priority_level.proto`,
-`pkg/queue/proto/queue_type.proto`, `pkg/queue/proto/retention_policy.proto`
+**Messages** (1): `QueueConfig` **Imports** (4): `google/protobuf/go_features.proto`, `pkg/queue/proto/priority_level.proto`, `pkg/queue/proto/queue_type.proto`, `pkg/queue/proto/retention_policy.proto`
 
 ### File Content
 
@@ -58047,13 +56262,11 @@ message QueueConfig {
 
 **Package**: `gcommon.v1.queue` **Lines**: 40
 
-**Messages** (1): `QueueInfo` **Imports** (2):
-`google/protobuf/go_features.proto`, `google/protobuf/timestamp.proto`
+**Messages** (1): `QueueInfo` **Imports** (2): `google/protobuf/go_features.proto`, `google/protobuf/timestamp.proto`
 
 ### ⚠️ Issues Found (1)
 
-- Line 6: Implementation needed - // empty placeholder created during the 1-1-1
-  migration.
+- Line 6: Implementation needed - // empty placeholder created during the 1-1-1 migration.
 
 ### File Content
 
@@ -58108,8 +56321,7 @@ message QueueInfo {
 
 **Package**: `gcommon.v1.queue` **Lines**: 51
 
-**Messages** (1): `QueueMessage` **Imports** (3): `google/protobuf/any.proto`,
-`google/protobuf/go_features.proto`, `google/protobuf/timestamp.proto`
+**Messages** (1): `QueueMessage` **Imports** (3): `google/protobuf/any.proto`, `google/protobuf/go_features.proto`, `google/protobuf/timestamp.proto`
 
 ### File Content
 
@@ -58175,18 +56387,10 @@ message QueueMessage {
 
 **Package**: `gcommon.v1.queue` **Lines**: 174
 
-**Messages** (9): `GetQueueHealthRequest`, `GetQueueHealthResponse`,
-`QueueHealth`, `ClusterHealth`, `GetQueueStatsRequest`, `QueueStatsResponse`,
-`QueueStatsPoint`, `StreamMetricsRequest`, `MetricsEvent` **Services** (1):
-`QueueMonitoringService` **Imports** (12): `google/protobuf/go_features.proto`,
-`google/protobuf/timestamp.proto`, `pkg/common/proto/time_range.proto`,
-`pkg/queue/proto/cluster_info.proto`,
-`pkg/queue/proto/get_cluster_info_request.proto`,
-`pkg/queue/proto/get_cluster_info_response.proto`,
-`pkg/queue/proto/get_queue_stats_response.proto`,
-`pkg/queue/proto/health_status.proto`, `pkg/queue/proto/metric_type.proto`,
-`pkg/queue/proto/stats_granularity.proto`, `pkg/queue/proto/time_range.proto`,
-`pkg/queue/proto/topic_info.proto`
+**Messages** (9): `GetQueueHealthRequest`, `GetQueueHealthResponse`, `QueueHealth`, `ClusterHealth`, `GetQueueStatsRequest`, `QueueStatsResponse`, `QueueStatsPoint`, `StreamMetricsRequest`, `MetricsEvent` **Services** (1):
+`QueueMonitoringService` **Imports** (12): `google/protobuf/go_features.proto`, `google/protobuf/timestamp.proto`, `pkg/common/proto/time_range.proto`, `pkg/queue/proto/cluster_info.proto`, `pkg/queue/proto/get_cluster_info_request.proto`,
+`pkg/queue/proto/get_cluster_info_response.proto`, `pkg/queue/proto/get_queue_stats_response.proto`, `pkg/queue/proto/health_status.proto`, `pkg/queue/proto/metric_type.proto`, `pkg/queue/proto/stats_granularity.proto`,
+`pkg/queue/proto/time_range.proto`, `pkg/queue/proto/topic_info.proto`
 
 ### File Content
 
@@ -58375,8 +56579,7 @@ message MetricsEvent {
 
 **Package**: `gcommon.v1.queue` **Lines**: 32
 
-**Services** (1): `QueueManagementService` **Imports** (1):
-`google/protobuf/go_features.proto`
+**Services** (1): `QueueManagementService` **Imports** (1): `google/protobuf/go_features.proto`
 
 ### File Content
 
@@ -58480,8 +56683,7 @@ enum QueueState {
 
 **Package**: `gcommon.v1.queue` **Lines**: 51
 
-**Messages** (1): `BasicQueueStats` **Imports** (1):
-`google/protobuf/go_features.proto`
+**Messages** (1): `BasicQueueStats` **Imports** (1): `google/protobuf/go_features.proto`
 
 ### File Content
 
@@ -58589,8 +56791,7 @@ enum QueueType {
 
 **Package**: `gcommon.v1.queue` **Lines**: 25
 
-**Messages** (1): `RateLimitConfig` **Imports** (1):
-`google/protobuf/go_features.proto`
+**Messages** (1): `RateLimitConfig` **Imports** (1): `google/protobuf/go_features.proto`
 
 ### File Content
 
@@ -58630,8 +56831,7 @@ message RateLimitConfig {
 
 **Package**: `gcommon.v1.queue` **Lines**: 30
 
-**Messages** (1): `ReceivedMessage` **Imports** (1):
-`google/protobuf/go_features.proto`
+**Messages** (1): `ReceivedMessage` **Imports** (1): `google/protobuf/go_features.proto`
 
 ### File Content
 
@@ -58676,8 +56876,7 @@ message ReceivedMessage {
 
 **Package**: `gcommon.v1.queue` **Lines**: 28
 
-**Messages** (1): `ReplicationConfig` **Imports** (1):
-`google/protobuf/go_features.proto`
+**Messages** (1): `ReplicationConfig` **Imports** (1): `google/protobuf/go_features.proto`
 
 ### File Content
 
@@ -58720,8 +56919,7 @@ message ReplicationConfig {
 
 **Package**: `gcommon.v1.queue` **Lines**: 42
 
-**Enums** (1): `ReplicationMode` **Imports** (1):
-`google/protobuf/go_features.proto`
+**Enums** (1): `ReplicationMode` **Imports** (1): `google/protobuf/go_features.proto`
 
 ### File Content
 
@@ -58778,8 +56976,7 @@ enum ReplicationMode {
 
 **Package**: `gcommon.v1.queue` **Lines**: 31
 
-**Messages** (1): `ResetQueueStatsRequest` **Imports** (1):
-`google/protobuf/go_features.proto`
+**Messages** (1): `ResetQueueStatsRequest` **Imports** (1): `google/protobuf/go_features.proto`
 
 ### File Content
 
@@ -58825,9 +57022,7 @@ message ResetQueueStatsRequest {
 
 **Package**: `gcommon.v1.queue` **Lines**: 98
 
-**Messages** (3): `ResetQueueStatsResponse`, `PreservedStats`, `ResetDetails`
-**Imports** (2): `google/protobuf/go_features.proto`,
-`google/protobuf/timestamp.proto`
+**Messages** (3): `ResetQueueStatsResponse`, `PreservedStats`, `ResetDetails` **Imports** (2): `google/protobuf/go_features.proto`, `google/protobuf/timestamp.proto`
 
 ### File Content
 
@@ -58940,8 +57135,7 @@ message ResetDetails {
 
 **Package**: `gcommon.v1.queue` **Lines**: 46
 
-**Messages** (1): `RestoreConfig` **Imports** (2):
-`google/protobuf/duration.proto`, `google/protobuf/go_features.proto`
+**Messages** (1): `RestoreConfig` **Imports** (2): `google/protobuf/duration.proto`, `google/protobuf/go_features.proto`
 
 ### File Content
 
@@ -59002,12 +57196,8 @@ message RestoreConfig {
 
 **Package**: `gcommon.v1.queue` **Lines**: 170
 
-**Messages** (7): `RestoreQueueRequest`, `BackupSource`, `OriginalQueueInfo`,
-`EncryptionInfo`, `RestoreOptions`, `FilterCriteria`, `PerformanceOptions`
-**Imports** (5): `google/protobuf/go_features.proto`,
-`google/protobuf/timestamp.proto`, `pkg/queue/proto/restore_config.proto`,
-`pkg/queue/proto/restore_queue_response.proto`,
-`pkg/queue/proto/time_range.proto`
+**Messages** (7): `RestoreQueueRequest`, `BackupSource`, `OriginalQueueInfo`, `EncryptionInfo`, `RestoreOptions`, `FilterCriteria`, `PerformanceOptions` **Imports** (5): `google/protobuf/go_features.proto`,
+`google/protobuf/timestamp.proto`, `pkg/queue/proto/restore_config.proto`, `pkg/queue/proto/restore_queue_response.proto`, `pkg/queue/proto/time_range.proto`
 
 ### File Content
 
@@ -59192,12 +57382,8 @@ message PerformanceOptions {
 
 **Package**: `gcommon.v1.queue` **Lines**: 276
 
-**Messages** (12): `RestoreQueueResponse`, `RestoreStatistics`, `RestoreStatus`,
-`RestoreError`, `RestoreWarning`, `PartitionRestoreResult`, `ValidationResult`,
-`ChecksumValidation`, `SchemaValidation`, `IntegrityValidation`,
-`ValidationError`, `OffsetRange` **Imports** (3):
-`google/protobuf/duration.proto`, `google/protobuf/go_features.proto`,
-`google/protobuf/timestamp.proto`
+**Messages** (12): `RestoreQueueResponse`, `RestoreStatistics`, `RestoreStatus`, `RestoreError`, `RestoreWarning`, `PartitionRestoreResult`, `ValidationResult`, `ChecksumValidation`, `SchemaValidation`, `IntegrityValidation`,
+`ValidationError`, `OffsetRange` **Imports** (3): `google/protobuf/duration.proto`, `google/protobuf/go_features.proto`, `google/protobuf/timestamp.proto`
 
 ### File Content
 
@@ -59488,8 +57674,7 @@ message OffsetRange {
 
 **Package**: `gcommon.v1.queue` **Lines**: 35
 
-**Messages** (1): `ResumeQueueRequest` **Imports** (2):
-`google/protobuf/go_features.proto`, `pkg/common/proto/request_metadata.proto`
+**Messages** (1): `ResumeQueueRequest` **Imports** (2): `google/protobuf/go_features.proto`, `pkg/common/proto/request_metadata.proto`
 
 ### File Content
 
@@ -59539,9 +57724,7 @@ message ResumeQueueRequest {
 
 **Package**: `gcommon.v1.queue` **Lines**: 78
 
-**Messages** (2): `ResumeQueueResponse`, `ResumeStats` **Imports** (3):
-`google/protobuf/go_features.proto`, `google/protobuf/timestamp.proto`,
-`pkg/queue/proto/queue_state.proto`
+**Messages** (2): `ResumeQueueResponse`, `ResumeStats` **Imports** (3): `google/protobuf/go_features.proto`, `google/protobuf/timestamp.proto`, `pkg/queue/proto/queue_state.proto`
 
 ### File Content
 
@@ -59634,8 +57817,7 @@ message ResumeStats {
 
 **Package**: `gcommon.v1.queue` **Lines**: 24
 
-**Messages** (1): `RetentionPolicy` **Imports** (2):
-`google/protobuf/duration.proto`, `google/protobuf/go_features.proto`
+**Messages** (1): `RetentionPolicy` **Imports** (2): `google/protobuf/duration.proto`, `google/protobuf/go_features.proto`
 
 ### File Content
 
@@ -59674,8 +57856,7 @@ message RetentionPolicy {
 
 **Package**: `gcommon.v1.queue` **Lines**: 43
 
-**Messages** (1): `RetryConfig` **Imports** (2):
-`google/protobuf/duration.proto`, `google/protobuf/go_features.proto`
+**Messages** (1): `RetryConfig` **Imports** (2): `google/protobuf/duration.proto`, `google/protobuf/go_features.proto`
 
 ### File Content
 
@@ -59733,8 +57914,7 @@ message RetryConfig {
 
 **Package**: `gcommon.v1.queue` **Lines**: 34
 
-**Enums** (1): `RetryDelayStrategy` **Imports** (1):
-`google/protobuf/go_features.proto`
+**Enums** (1): `RetryDelayStrategy` **Imports** (1): `google/protobuf/go_features.proto`
 
 ### File Content
 
@@ -59783,9 +57963,7 @@ enum RetryDelayStrategy {
 
 **Package**: `gcommon.v1.queue` **Lines**: 43
 
-**Messages** (1): `RetryPolicy` **Imports** (3):
-`google/protobuf/duration.proto`, `google/protobuf/go_features.proto`,
-`pkg/queue/proto/retry_delay_strategy.proto`
+**Messages** (1): `RetryPolicy` **Imports** (3): `google/protobuf/duration.proto`, `google/protobuf/go_features.proto`, `pkg/queue/proto/retry_delay_strategy.proto`
 
 ### File Content
 
@@ -59843,9 +58021,7 @@ message RetryPolicy {
 
 **Package**: `gcommon.v1.queue` **Lines**: 38
 
-**Messages** (1): `RoutingCondition` **Imports** (3):
-`google/protobuf/go_features.proto`, `pkg/queue/proto/priority_range.proto`,
-`pkg/queue/proto/size_range.proto`
+**Messages** (1): `RoutingCondition` **Imports** (3): `google/protobuf/go_features.proto`, `pkg/queue/proto/priority_range.proto`, `pkg/queue/proto/size_range.proto`
 
 ### File Content
 
@@ -59898,8 +58074,7 @@ message RoutingCondition {
 
 **Package**: `gcommon.v1.queue` **Lines**: 28
 
-**Messages** (1): `RoutingConfig` **Imports** (1):
-`google/protobuf/go_features.proto`
+**Messages** (1): `RoutingConfig` **Imports** (1): `google/protobuf/go_features.proto`
 
 ### File Content
 
@@ -59942,8 +58117,7 @@ message RoutingConfig {
 
 **Package**: `gcommon.v1.queue` **Lines**: 35
 
-**Messages** (1): `RoutingKey` **Imports** (2):
-`google/protobuf/go_features.proto`, `pkg/queue/proto/routing_pattern.proto`
+**Messages** (1): `RoutingKey` **Imports** (2): `google/protobuf/go_features.proto`, `pkg/queue/proto/routing_pattern.proto`
 
 ### File Content
 
@@ -59993,8 +58167,7 @@ message RoutingKey {
 
 **Package**: `gcommon.v1.queue` **Lines**: 37
 
-**Enums** (1): `RoutingPattern` **Imports** (1):
-`google/protobuf/go_features.proto`
+**Enums** (1): `RoutingPattern` **Imports** (1): `google/protobuf/go_features.proto`
 
 ### File Content
 
@@ -60046,8 +58219,7 @@ enum RoutingPattern {
 
 **Package**: `gcommon.v1.queue` **Lines**: 37
 
-**Messages** (1): `RoutingRule` **Imports** (2):
-`google/protobuf/go_features.proto`, `pkg/queue/proto/routing_condition.proto`
+**Messages** (1): `RoutingRule` **Imports** (2): `google/protobuf/go_features.proto`, `pkg/queue/proto/routing_condition.proto`
 
 ### File Content
 
@@ -60099,8 +58271,7 @@ message RoutingRule {
 
 **Package**: `gcommon.v1.queue` **Lines**: 39
 
-**Enums** (1): `RoutingStrategy` **Imports** (1):
-`google/protobuf/go_features.proto`
+**Enums** (1): `RoutingStrategy` **Imports** (1): `google/protobuf/go_features.proto`
 
 ### File Content
 
@@ -60154,9 +58325,7 @@ enum RoutingStrategy {
 
 **Package**: `gcommon.v1.queue` **Lines**: 31
 
-**Enums** (1): `SchemaCompatibilityMode` **Imports** (2):
-`google/protobuf/go_features.proto`,
-`pkg/queue/proto/serialization_format.proto`
+**Enums** (1): `SchemaCompatibilityMode` **Imports** (2): `google/protobuf/go_features.proto`, `pkg/queue/proto/serialization_format.proto`
 
 ### File Content
 
@@ -60202,8 +58371,7 @@ enum SchemaCompatibilityMode {
 
 **Package**: `gcommon.v1.queue` **Lines**: 28
 
-**Messages** (1): `SchemaConfig` **Imports** (1):
-`google/protobuf/go_features.proto`
+**Messages** (1): `SchemaConfig` **Imports** (1): `google/protobuf/go_features.proto`
 
 ### File Content
 
@@ -60246,9 +58414,7 @@ message SchemaConfig {
 
 **Package**: `gcommon.v1.queue` **Lines**: 37
 
-**Enums** (1): `SchemaEvolutionStrategy` **Imports** (2):
-`google/protobuf/go_features.proto`,
-`pkg/queue/proto/serialization_format.proto`
+**Enums** (1): `SchemaEvolutionStrategy` **Imports** (2): `google/protobuf/go_features.proto`, `pkg/queue/proto/serialization_format.proto`
 
 ### File Content
 
@@ -60300,9 +58466,7 @@ enum SchemaEvolutionStrategy {
 
 **Package**: `gcommon.v1.queue` **Lines**: 37
 
-**Enums** (1): `SchemaFormat` **Imports** (2):
-`google/protobuf/go_features.proto`,
-`pkg/queue/proto/serialization_format.proto`
+**Enums** (1): `SchemaFormat` **Imports** (2): `google/protobuf/go_features.proto`, `pkg/queue/proto/serialization_format.proto`
 
 ### File Content
 
@@ -60354,9 +58518,7 @@ enum SchemaFormat {
 
 **Package**: `gcommon.v1.queue` **Lines**: 53
 
-**Messages** (1): `SeekRequest` **Imports** (3):
-`google/protobuf/go_features.proto`, `google/protobuf/timestamp.proto`,
-`pkg/common/proto/request_metadata.proto`
+**Messages** (1): `SeekRequest` **Imports** (3): `google/protobuf/go_features.proto`, `google/protobuf/timestamp.proto`, `pkg/common/proto/request_metadata.proto`
 
 ### File Content
 
@@ -60424,8 +58586,7 @@ message SeekRequest {
 
 **Package**: `gcommon.v1.queue` **Lines**: 38
 
-**Messages** (1): `SeekResponse` **Imports** (2):
-`google/protobuf/go_features.proto`, `pkg/common/proto/response_metadata.proto`
+**Messages** (1): `SeekResponse` **Imports** (2): `google/protobuf/go_features.proto`, `pkg/common/proto/response_metadata.proto`
 
 ### File Content
 
@@ -60478,9 +58639,7 @@ message SeekResponse {
 
 **Package**: `gcommon.v1.queue` **Lines**: 31
 
-**Messages** (1): `SendMessageRequest` **Imports** (4):
-`google/protobuf/go_features.proto`, `pkg/common/proto/request_metadata.proto`,
-`pkg/queue/proto/delivery_options.proto`, `pkg/queue/proto/queue_message.proto`
+**Messages** (1): `SendMessageRequest` **Imports** (4): `google/protobuf/go_features.proto`, `pkg/common/proto/request_metadata.proto`, `pkg/queue/proto/delivery_options.proto`, `pkg/queue/proto/queue_message.proto`
 
 ### File Content
 
@@ -60526,8 +58685,7 @@ message SendMessageRequest {
 
 **Package**: `gcommon.v1.queue` **Lines**: 29
 
-**Messages** (1): `SendMessageResponse` **Imports** (2):
-`google/protobuf/go_features.proto`, `pkg/common/proto/error.proto`
+**Messages** (1): `SendMessageResponse` **Imports** (2): `google/protobuf/go_features.proto`, `pkg/common/proto/error.proto`
 
 ### File Content
 
@@ -60571,11 +58729,7 @@ message SendMessageResponse {
 
 **Package**: `gcommon.v1.queue` **Lines**: 51
 
-**Messages** (1): `SerializationConfig` **Imports** (4):
-`google/protobuf/go_features.proto`,
-`pkg/queue/proto/compression_algorithm.proto`,
-`pkg/queue/proto/format_options.proto`,
-`pkg/queue/proto/serialization_format.proto`
+**Messages** (1): `SerializationConfig` **Imports** (4): `google/protobuf/go_features.proto`, `pkg/queue/proto/compression_algorithm.proto`, `pkg/queue/proto/format_options.proto`, `pkg/queue/proto/serialization_format.proto`
 
 ### File Content
 
@@ -60641,8 +58795,7 @@ message SerializationConfig {
 
 **Package**: `gcommon.v1.queue` **Lines**: 45
 
-**Enums** (1): `SerializationFormat` **Imports** (1):
-`google/protobuf/go_features.proto`
+**Enums** (1): `SerializationFormat` **Imports** (1): `google/protobuf/go_features.proto`
 
 ### File Content
 
@@ -60702,8 +58855,7 @@ enum SerializationFormat {
 
 **Package**: `gcommon.v1.queue` **Lines**: 24
 
-**Messages** (1): `SizeRange` **Imports** (1):
-`google/protobuf/go_features.proto`
+**Messages** (1): `SizeRange` **Imports** (1): `google/protobuf/go_features.proto`
 
 ### File Content
 
@@ -60742,8 +58894,7 @@ message SizeRange {
 
 **Package**: `gcommon.v1.queue` **Lines**: 23
 
-**Enums** (1): `StatisticGrouping` **Imports** (2):
-`google/protobuf/go_features.proto`, `google/protobuf/timestamp.proto`
+**Enums** (1): `StatisticGrouping` **Imports** (2): `google/protobuf/go_features.proto`, `google/protobuf/timestamp.proto`
 
 ### File Content
 
@@ -60781,8 +58932,7 @@ enum StatisticGrouping {
 
 **Package**: `gcommon.v1.queue` **Lines**: 28
 
-**Enums** (1): `StatisticType` **Imports** (2):
-`google/protobuf/go_features.proto`, `google/protobuf/timestamp.proto`
+**Enums** (1): `StatisticType` **Imports** (2): `google/protobuf/go_features.proto`, `google/protobuf/timestamp.proto`
 
 ### File Content
 
@@ -60825,8 +58975,7 @@ enum StatisticType {
 
 **Package**: `gcommon.v1.queue` **Lines**: 34
 
-**Enums** (1): `StatsGranularity` **Imports** (1):
-`google/protobuf/go_features.proto`
+**Enums** (1): `StatsGranularity` **Imports** (1): `google/protobuf/go_features.proto`
 
 ### File Content
 
@@ -60875,9 +59024,7 @@ enum StatsGranularity {
 
 **Package**: `gcommon.v1.queue` **Lines**: 50
 
-**Messages** (1): `StreamConfig` **Imports** (3):
-`google/protobuf/duration.proto`, `google/protobuf/go_features.proto`,
-`pkg/queue/proto/stream_restart_policy.proto`
+**Messages** (1): `StreamConfig` **Imports** (3): `google/protobuf/duration.proto`, `google/protobuf/go_features.proto`, `pkg/queue/proto/stream_restart_policy.proto`
 
 ### File Content
 
@@ -60942,9 +59089,7 @@ message StreamConfig {
 
 **Package**: `gcommon.v1.queue` **Lines**: 113
 
-**Messages** (4): `StreamMessagesRequest`, `OffsetConfig`, `MessageFilter`,
-`FlowControlConfig` **Imports** (5): `google/protobuf/go_features.proto`,
-`google/protobuf/timestamp.proto`, `pkg/queue/proto/ack_level.proto`,
+**Messages** (4): `StreamMessagesRequest`, `OffsetConfig`, `MessageFilter`, `FlowControlConfig` **Imports** (5): `google/protobuf/go_features.proto`, `google/protobuf/timestamp.proto`, `pkg/queue/proto/ack_level.proto`,
 `pkg/queue/proto/offset_type.proto`, `pkg/queue/proto/stream_config.proto`
 
 ### File Content
@@ -61073,8 +59218,7 @@ message FlowControlConfig {
 
 **Package**: `gcommon.v1.queue` **Lines**: 40
 
-**Messages** (1): `StreamMessagesResponse` **Imports** (2):
-`google/protobuf/go_features.proto`, `pkg/queue/proto/queue_message.proto`
+**Messages** (1): `StreamMessagesResponse` **Imports** (2): `google/protobuf/go_features.proto`, `pkg/queue/proto/queue_message.proto`
 
 ### File Content
 
@@ -61129,8 +59273,7 @@ message StreamMessagesResponse {
 
 **Package**: `gcommon.v1.queue` **Lines**: 36
 
-**Enums** (1): `StreamRestartPolicy` **Imports** (1):
-`google/protobuf/go_features.proto`
+**Enums** (1): `StreamRestartPolicy` **Imports** (1): `google/protobuf/go_features.proto`
 
 ### File Content
 
@@ -61181,12 +59324,8 @@ enum StreamRestartPolicy {
 
 **Package**: `gcommon.v1.queue` **Lines**: 246
 
-**Messages** (12): `SubscribeRequest`, `SubscriptionConfiguration`,
-`MessageFilterConfig`, `ContentFilter`, `DeliveryConfiguration`,
-`DeliveryRetryConfig`, `BatchDeliveryConfig`, `FlowControlSettings`,
-`ErrorHandlingConfig`, `DeadLetterQueueConfig`, `ErrorActionConfig`,
-`ErrorNotificationConfig` **Imports** (3): `google/protobuf/go_features.proto`,
-`pkg/queue/proto/ack_level.proto`, `pkg/queue/proto/delivery_mode.proto`
+**Messages** (12): `SubscribeRequest`, `SubscriptionConfiguration`, `MessageFilterConfig`, `ContentFilter`, `DeliveryConfiguration`, `DeliveryRetryConfig`, `BatchDeliveryConfig`, `FlowControlSettings`, `ErrorHandlingConfig`,
+`DeadLetterQueueConfig`, `ErrorActionConfig`, `ErrorNotificationConfig` **Imports** (3): `google/protobuf/go_features.proto`, `pkg/queue/proto/ack_level.proto`, `pkg/queue/proto/delivery_mode.proto`
 
 ### File Content
 
@@ -61447,9 +59586,7 @@ message ErrorNotificationConfig {
 
 **Package**: `gcommon.v1.queue` **Lines**: 34
 
-**Messages** (1): `SubscribeResponse` **Imports** (4):
-`google/protobuf/go_features.proto`, `pkg/queue/proto/connection_details.proto`,
-`pkg/queue/proto/partition_offset.proto`, `pkg/queue/proto/queue_message.proto`
+**Messages** (1): `SubscribeResponse` **Imports** (4): `google/protobuf/go_features.proto`, `pkg/queue/proto/connection_details.proto`, `pkg/queue/proto/partition_offset.proto`, `pkg/queue/proto/queue_message.proto`
 
 ### File Content
 
@@ -61498,10 +59635,7 @@ message SubscribeResponse {
 
 **Package**: `gcommon.v1.queue` **Lines**: 33
 
-**Messages** (1): `SubscriptionConfig` **Imports** (5):
-`google/protobuf/go_features.proto`, `pkg/queue/proto/delivery_options.proto`,
-`pkg/queue/proto/priority_level.proto`,
-`pkg/queue/proto/routing_strategy.proto`,
+**Messages** (1): `SubscriptionConfig` **Imports** (5): `google/protobuf/go_features.proto`, `pkg/queue/proto/delivery_options.proto`, `pkg/queue/proto/priority_level.proto`, `pkg/queue/proto/routing_strategy.proto`,
 `pkg/queue/proto/subscription_state.proto`
 
 ### File Content
@@ -61550,13 +59684,11 @@ message SubscriptionConfig {
 
 **Package**: `gcommon.v1.queue` **Lines**: 40
 
-**Messages** (1): `SubscriptionInfo` **Imports** (2):
-`google/protobuf/go_features.proto`, `google/protobuf/timestamp.proto`
+**Messages** (1): `SubscriptionInfo` **Imports** (2): `google/protobuf/go_features.proto`, `google/protobuf/timestamp.proto`
 
 ### ⚠️ Issues Found (1)
 
-- Line 6: Implementation needed - // or queue. It replaces the placeholder file
-  created during the
+- Line 6: Implementation needed - // or queue. It replaces the placeholder file created during the
 
 ### File Content
 
@@ -61611,8 +59743,7 @@ message SubscriptionInfo {
 
 **Package**: `gcommon.v1.queue` **Lines**: 25
 
-**Enums** (1): `SubscriptionState` **Imports** (1):
-`google/protobuf/go_features.proto`
+**Enums** (1): `SubscriptionState` **Imports** (1): `google/protobuf/go_features.proto`
 
 ### File Content
 
@@ -61652,8 +59783,7 @@ enum SubscriptionState {
 
 **Package**: `gcommon.v1.queue` **Lines**: 48
 
-**Messages** (1): `SubscriptionStats` **Imports** (1):
-`google/protobuf/go_features.proto`
+**Messages** (1): `SubscriptionStats` **Imports** (1): `google/protobuf/go_features.proto`
 
 ### File Content
 
@@ -61716,9 +59846,7 @@ message SubscriptionStats {
 
 **Package**: `gcommon.v1.queue` **Lines**: 29
 
-**Messages** (1): `TimeRange` **Imports** (3):
-`google/protobuf/go_features.proto`, `google/protobuf/timestamp.proto`,
-`pkg/common/proto/time_range.proto`
+**Messages** (1): `TimeRange` **Imports** (3): `google/protobuf/go_features.proto`, `google/protobuf/timestamp.proto`, `pkg/common/proto/time_range.proto`
 
 ### File Content
 
@@ -61762,8 +59890,7 @@ message TimeRange {
 
 **Package**: `gcommon.v1.queue` **Lines**: 46
 
-**Messages** (1): `TimeoutConfig` **Imports** (2):
-`google/protobuf/duration.proto`, `google/protobuf/go_features.proto`
+**Messages** (1): `TimeoutConfig` **Imports** (2): `google/protobuf/duration.proto`, `google/protobuf/go_features.proto`
 
 ### File Content
 
@@ -61824,13 +59951,11 @@ message TimeoutConfig {
 
 **Package**: `gcommon.v1.queue` **Lines**: 27
 
-**Messages** (1): `TimestampRange` **Imports** (2):
-`google/protobuf/go_features.proto`, `google/protobuf/timestamp.proto`
+**Messages** (1): `TimestampRange` **Imports** (2): `google/protobuf/go_features.proto`, `google/protobuf/timestamp.proto`
 
 ### ⚠️ Issues Found (1)
 
-- Line 6: Implementation needed - // statistics queries. This implementation
-  replaces the placeholder
+- Line 6: Implementation needed - // statistics queries. This implementation replaces the placeholder
 
 ### File Content
 
@@ -61872,10 +59997,7 @@ message TimestampRange {
 
 **Package**: `gcommon.v1.queue` **Lines**: 48
 
-**Messages** (1): `TopicConfig` **Imports** (4):
-`google/protobuf/duration.proto`, `google/protobuf/go_features.proto`,
-`pkg/queue/proto/partition_config.proto`,
-`pkg/queue/proto/retention_policy.proto`
+**Messages** (1): `TopicConfig` **Imports** (4): `google/protobuf/duration.proto`, `google/protobuf/go_features.proto`, `pkg/queue/proto/partition_config.proto`, `pkg/queue/proto/retention_policy.proto`
 
 ### File Content
 
@@ -61938,8 +60060,7 @@ message TopicConfig {
 
 **Package**: `gcommon.v1.queue` **Lines**: 50
 
-**Messages** (1): `TopicInfo` **Imports** (2):
-`google/protobuf/go_features.proto`, `google/protobuf/timestamp.proto`
+**Messages** (1): `TopicInfo` **Imports** (2): `google/protobuf/go_features.proto`, `google/protobuf/timestamp.proto`
 
 ### File Content
 
@@ -62004,8 +60125,7 @@ message TopicInfo {
 
 **Package**: `gcommon.v1.queue` **Lines**: 27
 
-**Messages** (1): `TopicRoutingConfig` **Imports** (1):
-`google/protobuf/go_features.proto`
+**Messages** (1): `TopicRoutingConfig` **Imports** (1): `google/protobuf/go_features.proto`
 
 ### File Content
 
@@ -62047,8 +60167,7 @@ message TopicRoutingConfig {
 
 **Package**: `gcommon.v1.queue` **Lines**: 48
 
-**Messages** (1): `TopicStats` **Imports** (1):
-`google/protobuf/go_features.proto`
+**Messages** (1): `TopicStats` **Imports** (1): `google/protobuf/go_features.proto`
 
 ### File Content
 
@@ -62111,8 +60230,7 @@ message TopicStats {
 
 **Package**: `gcommon.v1.queue` **Lines**: 45
 
-**Messages** (1): `TransformationConfig` **Imports** (1):
-`google/protobuf/go_features.proto`
+**Messages** (1): `TransformationConfig` **Imports** (1): `google/protobuf/go_features.proto`
 
 ### File Content
 
@@ -62172,8 +60290,7 @@ message TransformationConfig {
 
 **Package**: `gcommon.v1.queue` **Lines**: 31
 
-**Messages** (1): `UnsubscribeRequest` **Imports** (1):
-`google/protobuf/go_features.proto`
+**Messages** (1): `UnsubscribeRequest` **Imports** (1): `google/protobuf/go_features.proto`
 
 ### File Content
 
@@ -62219,8 +60336,7 @@ message UnsubscribeRequest {
 
 **Package**: `gcommon.v1.queue` **Lines**: 39
 
-**Messages** (1): `UnsubscribeResponse` **Imports** (2):
-`google/protobuf/go_features.proto`, `google/protobuf/timestamp.proto`
+**Messages** (1): `UnsubscribeResponse` **Imports** (2): `google/protobuf/go_features.proto`, `google/protobuf/timestamp.proto`
 
 ### File Content
 
@@ -62274,9 +60390,7 @@ message UnsubscribeResponse {
 
 **Package**: `gcommon.v1.queue` **Lines**: 156
 
-**Messages** (7): `UpdateMessageRequest`, `MessageUpdateProperties`,
-`VisibilityUpdate`, `PriorityUpdate`, `MetadataUpdate`, `ContentUpdate`,
-`UpdateCondition` **Imports** (3): `google/protobuf/any.proto`,
+**Messages** (7): `UpdateMessageRequest`, `MessageUpdateProperties`, `VisibilityUpdate`, `PriorityUpdate`, `MetadataUpdate`, `ContentUpdate`, `UpdateCondition` **Imports** (3): `google/protobuf/any.proto`,
 `google/protobuf/go_features.proto`, `google/protobuf/timestamp.proto`
 
 ### File Content
@@ -62448,9 +60562,7 @@ message UpdateCondition {
 
 **Package**: `gcommon.v1.queue` **Lines**: 95
 
-**Messages** (3): `UpdateMessageResponse`, `FailedFieldUpdate`,
-`UpdatedProperties` **Imports** (2): `google/protobuf/go_features.proto`,
-`google/protobuf/timestamp.proto`
+**Messages** (3): `UpdateMessageResponse`, `FailedFieldUpdate`, `UpdatedProperties` **Imports** (2): `google/protobuf/go_features.proto`, `google/protobuf/timestamp.proto`
 
 ### File Content
 
@@ -62560,9 +60672,7 @@ message UpdatedProperties {
 
 **Package**: `gcommon.v1.queue` **Lines**: 39
 
-**Messages** (1): `UpdateQueueConfigRequest` **Imports** (3):
-`google/protobuf/go_features.proto`, `pkg/common/proto/request_metadata.proto`,
-`pkg/queue/proto/queue_config.proto`
+**Messages** (1): `UpdateQueueConfigRequest` **Imports** (3): `google/protobuf/go_features.proto`, `pkg/common/proto/request_metadata.proto`, `pkg/queue/proto/queue_config.proto`
 
 ### File Content
 
@@ -62616,8 +60726,7 @@ message UpdateQueueConfigRequest {
 
 **Package**: `gcommon.v1.queue` **Lines**: 36
 
-**Messages** (1): `UpdateQueueConfigResponse` **Imports** (1):
-`google/protobuf/go_features.proto`
+**Messages** (1): `UpdateQueueConfigResponse` **Imports** (1): `google/protobuf/go_features.proto`
 
 ### File Content
 
@@ -62668,9 +60777,7 @@ message UpdateQueueConfigResponse {
 
 **Package**: `gcommon.v1.queue` **Lines**: 124
 
-**Messages** (6): `UpdateSubscriptionConfigRequest`, `SubscriptionConfigUpdate`,
-`DeliverySettings`, `RetrySettings`, `FilterSettings`, `RoutingSettings`
-**Imports** (1): `google/protobuf/go_features.proto`
+**Messages** (6): `UpdateSubscriptionConfigRequest`, `SubscriptionConfigUpdate`, `DeliverySettings`, `RetrySettings`, `FilterSettings`, `RoutingSettings` **Imports** (1): `google/protobuf/go_features.proto`
 
 ### File Content
 
@@ -62809,8 +60916,7 @@ message RoutingSettings {
 
 **Package**: `gcommon.v1.queue` **Lines**: 31
 
-**Messages** (1): `UpdateSubscriptionConfigResponse` **Imports** (1):
-`google/protobuf/go_features.proto`
+**Messages** (1): `UpdateSubscriptionConfigResponse` **Imports** (1): `google/protobuf/go_features.proto`
 
 ### File Content
 
@@ -62856,8 +60962,7 @@ message UpdateSubscriptionConfigResponse {
 
 **Package**: `gcommon.v1.queue` **Lines**: 32
 
-**Messages** (1): `UpdateTopicConfigRequest` **Imports** (2):
-`google/protobuf/go_features.proto`, `pkg/queue/proto/topic_config.proto`
+**Messages** (1): `UpdateTopicConfigRequest` **Imports** (2): `google/protobuf/go_features.proto`, `pkg/queue/proto/topic_config.proto`
 
 ### File Content
 
@@ -62904,8 +61009,7 @@ message UpdateTopicConfigRequest {
 
 **Package**: `gcommon.v1.queue` **Lines**: 43
 
-**Messages** (1): `UpdateTopicConfigResponse` **Imports** (2):
-`google/protobuf/go_features.proto`, `google/protobuf/timestamp.proto`
+**Messages** (1): `UpdateTopicConfigResponse` **Imports** (2): `google/protobuf/go_features.proto`, `google/protobuf/timestamp.proto`
 
 ### File Content
 
@@ -62963,8 +61067,7 @@ message UpdateTopicConfigResponse {
 
 **Package**: `gcommon.v1.queue` **Lines**: 23
 
-**Messages** (1): `ValidationConfig` **Imports** (1):
-`google/protobuf/go_features.proto`
+**Messages** (1): `ValidationConfig` **Imports** (1): `google/protobuf/go_features.proto`
 
 ### File Content
 
@@ -63002,14 +61105,11 @@ message ValidationConfig {
 
 **Package**: `gcommon.v1.web` **Lines**: 42
 
-**Messages** (1): `AddMiddlewareRequest` **Imports** (3):
-`google/protobuf/go_features.proto`, `google/protobuf/timestamp.proto`,
-`pkg/common/proto/request_metadata.proto`
+**Messages** (1): `AddMiddlewareRequest` **Imports** (3): `google/protobuf/go_features.proto`, `google/protobuf/timestamp.proto`, `pkg/common/proto/request_metadata.proto`
 
 ### ⚠️ Issues Found (1)
 
-- Line 20: Implementation needed - \* Auto-generated placeholder - implement
-  specific fields as needed.
+- Line 20: Implementation needed - \* Auto-generated placeholder - implement specific fields as needed.
 
 ### File Content
 
@@ -63066,14 +61166,11 @@ message AddMiddlewareRequest {
 
 **Package**: `gcommon.v1.web` **Lines**: 56
 
-**Messages** (1): `AddMiddlewareResponse` **Imports** (4):
-`google/protobuf/go_features.proto`, `google/protobuf/timestamp.proto`,
-`pkg/common/proto/error.proto`, `pkg/common/proto/request_metadata.proto`
+**Messages** (1): `AddMiddlewareResponse` **Imports** (4): `google/protobuf/go_features.proto`, `google/protobuf/timestamp.proto`, `pkg/common/proto/error.proto`, `pkg/common/proto/request_metadata.proto`
 
 ### ⚠️ Issues Found (1)
 
-- Line 21: Implementation needed - \* Auto-generated placeholder - implement
-  specific fields as needed.
+- Line 21: Implementation needed - \* Auto-generated placeholder - implement specific fields as needed.
 
 ### File Content
 
@@ -63144,8 +61241,7 @@ message AddMiddlewareResponse {
 
 **Package**: `gcommon.v1.web` **Lines**: 29
 
-**Messages** (1): `AuthConfig` **Imports** (1):
-`google/protobuf/go_features.proto`
+**Messages** (1): `AuthConfig` **Imports** (1): `google/protobuf/go_features.proto`
 
 ### File Content
 
@@ -63232,8 +61328,7 @@ enum AuthMethod {
 
 **Package**: `gcommon.v1.web` **Lines**: 18
 
-**Messages** (1): `AuthenticateRequest` **Imports** (1):
-`google/protobuf/go_features.proto`
+**Messages** (1): `AuthenticateRequest` **Imports** (1): `google/protobuf/go_features.proto`
 
 ### ⚠️ Issues Found (1)
 
@@ -63270,8 +61365,7 @@ message AuthenticateRequest {
 
 **Package**: `gcommon.v1.web` **Lines**: 18
 
-**Messages** (1): `AuthenticateResponse` **Imports** (1):
-`google/protobuf/go_features.proto`
+**Messages** (1): `AuthenticateResponse` **Imports** (1): `google/protobuf/go_features.proto`
 
 ### ⚠️ Issues Found (1)
 
@@ -63308,8 +61402,7 @@ message AuthenticateResponse {
 
 **Package**: `gcommon.v1.web` **Lines**: 18
 
-**Messages** (1): `AuthorizeRequest` **Imports** (1):
-`google/protobuf/go_features.proto`
+**Messages** (1): `AuthorizeRequest` **Imports** (1): `google/protobuf/go_features.proto`
 
 ### ⚠️ Issues Found (1)
 
@@ -63346,8 +61439,7 @@ message AuthorizeRequest {
 
 **Package**: `gcommon.v1.web` **Lines**: 18
 
-**Messages** (1): `AuthorizeResponse` **Imports** (1):
-`google/protobuf/go_features.proto`
+**Messages** (1): `AuthorizeResponse` **Imports** (1): `google/protobuf/go_features.proto`
 
 ### ⚠️ Issues Found (1)
 
@@ -63384,9 +61476,7 @@ message AuthorizeResponse {
 
 **Package**: `gcommon.v1.web` **Lines**: 34
 
-**Messages** (1): `CacheConfig` **Imports** (4):
-`google/protobuf/duration.proto`, `google/protobuf/go_features.proto`,
-`pkg/common/proto/cache_policy.proto`, `pkg/web/proto/cache_strategy.proto`
+**Messages** (1): `CacheConfig` **Imports** (4): `google/protobuf/duration.proto`, `google/protobuf/go_features.proto`, `pkg/common/proto/cache_policy.proto`, `pkg/web/proto/cache_strategy.proto`
 
 ### File Content
 
@@ -63435,8 +61525,7 @@ message CacheConfig {
 
 **Package**: `gcommon.v1.web` **Lines**: 27
 
-**Enums** (1): `CacheStrategy` **Imports** (1):
-`google/protobuf/go_features.proto`
+**Enums** (1): `CacheStrategy` **Imports** (1): `google/protobuf/go_features.proto`
 
 ### File Content
 
@@ -63478,8 +61567,7 @@ enum CacheStrategy {
 
 **Package**: `gcommon.v1.web` **Lines**: 18
 
-**Messages** (1): `CloseWebsocketRequest` **Imports** (1):
-`google/protobuf/go_features.proto`
+**Messages** (1): `CloseWebsocketRequest` **Imports** (1): `google/protobuf/go_features.proto`
 
 ### ⚠️ Issues Found (1)
 
@@ -63516,8 +61604,7 @@ message CloseWebsocketRequest {
 
 **Package**: `gcommon.v1.web` **Lines**: 18
 
-**Messages** (1): `CloseWebsocketResponse` **Imports** (1):
-`google/protobuf/go_features.proto`
+**Messages** (1): `CloseWebsocketResponse` **Imports** (1): `google/protobuf/go_features.proto`
 
 ### ⚠️ Issues Found (1)
 
@@ -63554,8 +61641,7 @@ message CloseWebsocketResponse {
 
 **Package**: `gcommon.v1.web` **Lines**: 26
 
-**Messages** (1): `CompressionConfig` **Imports** (2):
-`google/protobuf/go_features.proto`, `pkg/web/proto/compression_type.proto`
+**Messages** (1): `CompressionConfig` **Imports** (2): `google/protobuf/go_features.proto`, `pkg/web/proto/compression_type.proto`
 
 ### File Content
 
@@ -63596,8 +61682,7 @@ message CompressionConfig {
 
 **Package**: `gcommon.v1.web` **Lines**: 25
 
-**Enums** (1): `CompressionType` **Imports** (1):
-`google/protobuf/go_features.proto`
+**Enums** (1): `CompressionType` **Imports** (1): `google/protobuf/go_features.proto`
 
 ### File Content
 
@@ -63637,14 +61722,11 @@ enum CompressionType {
 
 **Package**: `gcommon.v1.web` **Lines**: 42
 
-**Messages** (1): `ConfigureGlobalRequest` **Imports** (3):
-`google/protobuf/go_features.proto`, `google/protobuf/timestamp.proto`,
-`pkg/common/proto/request_metadata.proto`
+**Messages** (1): `ConfigureGlobalRequest` **Imports** (3): `google/protobuf/go_features.proto`, `google/protobuf/timestamp.proto`, `pkg/common/proto/request_metadata.proto`
 
 ### ⚠️ Issues Found (1)
 
-- Line 20: Implementation needed - \* Auto-generated placeholder - implement
-  specific fields as needed.
+- Line 20: Implementation needed - \* Auto-generated placeholder - implement specific fields as needed.
 
 ### File Content
 
@@ -63701,14 +61783,11 @@ message ConfigureGlobalRequest {
 
 **Package**: `gcommon.v1.web` **Lines**: 56
 
-**Messages** (1): `ConfigureGlobalResponse` **Imports** (4):
-`google/protobuf/go_features.proto`, `google/protobuf/timestamp.proto`,
-`pkg/common/proto/error.proto`, `pkg/common/proto/request_metadata.proto`
+**Messages** (1): `ConfigureGlobalResponse` **Imports** (4): `google/protobuf/go_features.proto`, `google/protobuf/timestamp.proto`, `pkg/common/proto/error.proto`, `pkg/common/proto/request_metadata.proto`
 
 ### ⚠️ Issues Found (1)
 
-- Line 21: Implementation needed - \* Auto-generated placeholder - implement
-  specific fields as needed.
+- Line 21: Implementation needed - \* Auto-generated placeholder - implement specific fields as needed.
 
 ### File Content
 
@@ -63779,8 +61858,7 @@ message ConfigureGlobalResponse {
 
 **Package**: `gcommon.v1.web` **Lines**: 24
 
-**Enums** (1): `ContentType` **Imports** (1):
-`google/protobuf/go_features.proto`
+**Enums** (1): `ContentType` **Imports** (1): `google/protobuf/go_features.proto`
 
 ### File Content
 
@@ -63819,9 +61897,7 @@ enum ContentType {
 
 **Package**: `gcommon.v1.web` **Lines**: 39
 
-**Messages** (1): `CookieConfig` **Imports** (3):
-`google/protobuf/duration.proto`, `google/protobuf/go_features.proto`,
-`pkg/web/proto/cookie_same_site.proto`
+**Messages** (1): `CookieConfig` **Imports** (3): `google/protobuf/duration.proto`, `google/protobuf/go_features.proto`, `pkg/web/proto/cookie_same_site.proto`
 
 ### File Content
 
@@ -63875,9 +61951,7 @@ message CookieConfig {
 
 **Package**: `gcommon.v1.web` **Lines**: 42
 
-**Messages** (1): `CookieData` **Imports** (3):
-`google/protobuf/go_features.proto`, `google/protobuf/timestamp.proto`,
-`pkg/web/proto/cookie_same_site.proto`
+**Messages** (1): `CookieData` **Imports** (3): `google/protobuf/go_features.proto`, `google/protobuf/timestamp.proto`, `pkg/web/proto/cookie_same_site.proto`
 
 ### File Content
 
@@ -63934,8 +62008,7 @@ message CookieData {
 
 **Package**: `gcommon.v1.web` **Lines**: 22
 
-**Enums** (1): `CookieSameSite` **Imports** (1):
-`google/protobuf/go_features.proto`
+**Enums** (1): `CookieSameSite` **Imports** (1): `google/protobuf/go_features.proto`
 
 ### File Content
 
@@ -63972,8 +62045,7 @@ enum CookieSameSite {
 
 **Package**: `gcommon.v1.web` **Lines**: 38
 
-**Messages** (1): `CORSConfig` **Imports** (2):
-`google/protobuf/duration.proto`, `google/protobuf/go_features.proto`
+**Messages** (1): `CORSConfig` **Imports** (2): `google/protobuf/duration.proto`, `google/protobuf/go_features.proto`
 
 ### File Content
 
@@ -64026,10 +62098,7 @@ message CORSConfig {
 
 **Package**: `gcommon.v1.web` **Lines**: 52
 
-**Messages** (1): `CreateCookieRequest` **Imports** (4):
-`google/protobuf/go_features.proto`, `google/protobuf/timestamp.proto`,
-`pkg/common/proto/request_metadata.proto`,
-`pkg/web/proto/same_site_policy.proto`
+**Messages** (1): `CreateCookieRequest` **Imports** (4): `google/protobuf/go_features.proto`, `google/protobuf/timestamp.proto`, `pkg/common/proto/request_metadata.proto`, `pkg/web/proto/same_site_policy.proto`
 
 ### File Content
 
@@ -64096,8 +62165,7 @@ message CreateCookieRequest {
 
 **Package**: `gcommon.v1.web` **Lines**: 18
 
-**Messages** (1): `CreateCookieResponse` **Imports** (1):
-`google/protobuf/go_features.proto`
+**Messages** (1): `CreateCookieResponse` **Imports** (1): `google/protobuf/go_features.proto`
 
 ### ⚠️ Issues Found (1)
 
@@ -64134,14 +62202,11 @@ message CreateCookieResponse {
 
 **Package**: `gcommon.v1.web` **Lines**: 42
 
-**Messages** (1): `CreateServerRequest` **Imports** (3):
-`google/protobuf/go_features.proto`, `google/protobuf/timestamp.proto`,
-`pkg/common/proto/request_metadata.proto`
+**Messages** (1): `CreateServerRequest` **Imports** (3): `google/protobuf/go_features.proto`, `google/protobuf/timestamp.proto`, `pkg/common/proto/request_metadata.proto`
 
 ### ⚠️ Issues Found (1)
 
-- Line 20: Implementation needed - \* Auto-generated placeholder - implement
-  specific fields as needed.
+- Line 20: Implementation needed - \* Auto-generated placeholder - implement specific fields as needed.
 
 ### File Content
 
@@ -64198,14 +62263,11 @@ message CreateServerRequest {
 
 **Package**: `gcommon.v1.web` **Lines**: 56
 
-**Messages** (1): `CreateServerResponse` **Imports** (4):
-`google/protobuf/go_features.proto`, `google/protobuf/timestamp.proto`,
-`pkg/common/proto/error.proto`, `pkg/common/proto/request_metadata.proto`
+**Messages** (1): `CreateServerResponse` **Imports** (4): `google/protobuf/go_features.proto`, `google/protobuf/timestamp.proto`, `pkg/common/proto/error.proto`, `pkg/common/proto/request_metadata.proto`
 
 ### ⚠️ Issues Found (1)
 
-- Line 21: Implementation needed - \* Auto-generated placeholder - implement
-  specific fields as needed.
+- Line 21: Implementation needed - \* Auto-generated placeholder - implement specific fields as needed.
 
 ### File Content
 
@@ -64276,8 +62338,7 @@ message CreateServerResponse {
 
 **Package**: `gcommon.v1.web` **Lines**: 22
 
-**Messages** (1): `CreateSessionRequest` **Imports** (1):
-`google/protobuf/go_features.proto`
+**Messages** (1): `CreateSessionRequest` **Imports** (1): `google/protobuf/go_features.proto`
 
 ### File Content
 
@@ -64314,8 +62375,7 @@ message CreateSessionRequest {
 
 **Package**: `gcommon.v1.web` **Lines**: 20
 
-**Messages** (1): `CreateSessionResponse` **Imports** (2):
-`google/protobuf/go_features.proto`, `pkg/web/proto/session_data.proto`
+**Messages** (1): `CreateSessionResponse` **Imports** (2): `google/protobuf/go_features.proto`, `pkg/web/proto/session_data.proto`
 
 ### File Content
 
@@ -64350,8 +62410,7 @@ message CreateSessionResponse {
 
 **Package**: `gcommon.v1.web` **Lines**: 18
 
-**Messages** (1): `CreateTemplateRequest` **Imports** (1):
-`google/protobuf/go_features.proto`
+**Messages** (1): `CreateTemplateRequest` **Imports** (1): `google/protobuf/go_features.proto`
 
 ### ⚠️ Issues Found (1)
 
@@ -64388,8 +62447,7 @@ message CreateTemplateRequest {
 
 **Package**: `gcommon.v1.web` **Lines**: 18
 
-**Messages** (1): `CreateTemplateResponse` **Imports** (1):
-`google/protobuf/go_features.proto`
+**Messages** (1): `CreateTemplateResponse` **Imports** (1): `google/protobuf/go_features.proto`
 
 ### ⚠️ Issues Found (1)
 
@@ -64426,8 +62484,7 @@ message CreateTemplateResponse {
 
 **Package**: `gcommon.v1.web` **Lines**: 18
 
-**Messages** (1): `CreateWebsocketRequest` **Imports** (1):
-`google/protobuf/go_features.proto`
+**Messages** (1): `CreateWebsocketRequest` **Imports** (1): `google/protobuf/go_features.proto`
 
 ### ⚠️ Issues Found (1)
 
@@ -64464,8 +62521,7 @@ message CreateWebsocketRequest {
 
 **Package**: `gcommon.v1.web` **Lines**: 18
 
-**Messages** (1): `CreateWebsocketResponse` **Imports** (1):
-`google/protobuf/go_features.proto`
+**Messages** (1): `CreateWebsocketResponse` **Imports** (1): `google/protobuf/go_features.proto`
 
 ### ⚠️ Issues Found (1)
 
@@ -64502,8 +62558,7 @@ message CreateWebsocketResponse {
 
 **Package**: `gcommon.v1.web` **Lines**: 32
 
-**Messages** (1): `CsrfConfig` **Imports** (2):
-`google/protobuf/duration.proto`, `google/protobuf/go_features.proto`
+**Messages** (1): `CsrfConfig` **Imports** (2): `google/protobuf/duration.proto`, `google/protobuf/go_features.proto`
 
 ### File Content
 
@@ -64550,8 +62605,7 @@ message CsrfConfig {
 
 **Package**: `gcommon.v1.web` **Lines**: 18
 
-**Messages** (1): `DeleteCookieRequest` **Imports** (1):
-`google/protobuf/go_features.proto`
+**Messages** (1): `DeleteCookieRequest` **Imports** (1): `google/protobuf/go_features.proto`
 
 ### ⚠️ Issues Found (1)
 
@@ -64588,8 +62642,7 @@ message DeleteCookieRequest {
 
 **Package**: `gcommon.v1.web` **Lines**: 18
 
-**Messages** (1): `DeleteCookieResponse` **Imports** (1):
-`google/protobuf/go_features.proto`
+**Messages** (1): `DeleteCookieResponse` **Imports** (1): `google/protobuf/go_features.proto`
 
 ### ⚠️ Issues Found (1)
 
@@ -64626,8 +62679,7 @@ message DeleteCookieResponse {
 
 **Package**: `gcommon.v1.web` **Lines**: 18
 
-**Messages** (1): `DeleteFileRequest` **Imports** (1):
-`google/protobuf/go_features.proto`
+**Messages** (1): `DeleteFileRequest` **Imports** (1): `google/protobuf/go_features.proto`
 
 ### ⚠️ Issues Found (1)
 
@@ -64664,8 +62716,7 @@ message DeleteFileRequest {
 
 **Package**: `gcommon.v1.web` **Lines**: 18
 
-**Messages** (1): `DeleteFileResponse` **Imports** (1):
-`google/protobuf/go_features.proto`
+**Messages** (1): `DeleteFileResponse` **Imports** (1): `google/protobuf/go_features.proto`
 
 ### ⚠️ Issues Found (1)
 
@@ -64702,8 +62753,7 @@ message DeleteFileResponse {
 
 **Package**: `gcommon.v1.web` **Lines**: 19
 
-**Messages** (1): `DeleteSessionRequest` **Imports** (1):
-`google/protobuf/go_features.proto`
+**Messages** (1): `DeleteSessionRequest` **Imports** (1): `google/protobuf/go_features.proto`
 
 ### File Content
 
@@ -64737,8 +62787,7 @@ message DeleteSessionRequest {
 
 **Package**: `gcommon.v1.web` **Lines**: 19
 
-**Messages** (1): `DeleteSessionResponse` **Imports** (1):
-`google/protobuf/go_features.proto`
+**Messages** (1): `DeleteSessionResponse` **Imports** (1): `google/protobuf/go_features.proto`
 
 ### File Content
 
@@ -64772,8 +62821,7 @@ message DeleteSessionResponse {
 
 **Package**: `gcommon.v1.web` **Lines**: 18
 
-**Messages** (1): `DeleteTemplateRequest` **Imports** (1):
-`google/protobuf/go_features.proto`
+**Messages** (1): `DeleteTemplateRequest` **Imports** (1): `google/protobuf/go_features.proto`
 
 ### ⚠️ Issues Found (1)
 
@@ -64810,8 +62858,7 @@ message DeleteTemplateRequest {
 
 **Package**: `gcommon.v1.web` **Lines**: 18
 
-**Messages** (1): `DeleteTemplateResponse` **Imports** (1):
-`google/protobuf/go_features.proto`
+**Messages** (1): `DeleteTemplateResponse` **Imports** (1): `google/protobuf/go_features.proto`
 
 ### ⚠️ Issues Found (1)
 
@@ -64848,8 +62895,7 @@ message DeleteTemplateResponse {
 
 **Package**: `gcommon.v1.web` **Lines**: 18
 
-**Messages** (1): `DownloadFileRequest` **Imports** (1):
-`google/protobuf/go_features.proto`
+**Messages** (1): `DownloadFileRequest` **Imports** (1): `google/protobuf/go_features.proto`
 
 ### ⚠️ Issues Found (1)
 
@@ -64886,8 +62932,7 @@ message DownloadFileRequest {
 
 **Package**: `gcommon.v1.web` **Lines**: 18
 
-**Messages** (1): `DownloadFileResponse` **Imports** (1):
-`google/protobuf/go_features.proto`
+**Messages** (1): `DownloadFileResponse` **Imports** (1): `google/protobuf/go_features.proto`
 
 ### ⚠️ Issues Found (1)
 
@@ -64924,14 +62969,11 @@ message DownloadFileResponse {
 
 **Package**: `gcommon.v1.web` **Lines**: 42
 
-**Messages** (1): `ExportServerConfigRequest` **Imports** (3):
-`google/protobuf/go_features.proto`, `google/protobuf/timestamp.proto`,
-`pkg/common/proto/request_metadata.proto`
+**Messages** (1): `ExportServerConfigRequest` **Imports** (3): `google/protobuf/go_features.proto`, `google/protobuf/timestamp.proto`, `pkg/common/proto/request_metadata.proto`
 
 ### ⚠️ Issues Found (1)
 
-- Line 20: Implementation needed - \* Auto-generated placeholder - implement
-  specific fields as needed.
+- Line 20: Implementation needed - \* Auto-generated placeholder - implement specific fields as needed.
 
 ### File Content
 
@@ -64988,14 +63030,11 @@ message ExportServerConfigRequest {
 
 **Package**: `gcommon.v1.web` **Lines**: 56
 
-**Messages** (1): `ExportServerConfigResponse` **Imports** (4):
-`google/protobuf/go_features.proto`, `google/protobuf/timestamp.proto`,
-`pkg/common/proto/error.proto`, `pkg/common/proto/request_metadata.proto`
+**Messages** (1): `ExportServerConfigResponse` **Imports** (4): `google/protobuf/go_features.proto`, `google/protobuf/timestamp.proto`, `pkg/common/proto/error.proto`, `pkg/common/proto/request_metadata.proto`
 
 ### ⚠️ Issues Found (1)
 
-- Line 21: Implementation needed - \* Auto-generated placeholder - implement
-  specific fields as needed.
+- Line 21: Implementation needed - \* Auto-generated placeholder - implement specific fields as needed.
 
 ### File Content
 
@@ -65066,9 +63105,7 @@ message ExportServerConfigResponse {
 
 **Package**: `gcommon.v1.web` **Lines**: 33
 
-**Messages** (1): `FileInfo` **Imports** (3):
-`google/protobuf/go_features.proto`, `google/protobuf/timestamp.proto`,
-`pkg/web/proto/mime_type.proto`
+**Messages** (1): `FileInfo` **Imports** (3): `google/protobuf/go_features.proto`, `google/protobuf/timestamp.proto`, `pkg/web/proto/mime_type.proto`
 
 ### File Content
 
@@ -65116,9 +63153,7 @@ message FileInfo {
 
 **Package**: `gcommon.v1.web` **Lines**: 33
 
-**Messages** (1): `FileMetadata` **Imports** (3):
-`google/protobuf/go_features.proto`, `google/protobuf/timestamp.proto`,
-`pkg/web/proto/mime_type.proto`
+**Messages** (1): `FileMetadata` **Imports** (3): `google/protobuf/go_features.proto`, `google/protobuf/timestamp.proto`, `pkg/web/proto/mime_type.proto`
 
 ### File Content
 
@@ -65166,8 +63201,7 @@ message FileMetadata {
 
 **Package**: `gcommon.v1.web` **Lines**: 40
 
-**Enums** (1): `FileSortOrder` **Imports** (1):
-`google/protobuf/go_features.proto`
+**Enums** (1): `FileSortOrder` **Imports** (1): `google/protobuf/go_features.proto`
 
 ### File Content
 
@@ -65222,8 +63256,7 @@ enum FileSortOrder {
 
 **Package**: `gcommon.v1.web` **Lines**: 29
 
-**Messages** (1): `FileUpload` **Imports** (2):
-`google/protobuf/go_features.proto`, `pkg/web/proto/mime_type.proto`
+**Messages** (1): `FileUpload` **Imports** (2): `google/protobuf/go_features.proto`, `pkg/web/proto/mime_type.proto`
 
 ### File Content
 
@@ -65267,8 +63300,7 @@ message FileUpload {
 
 **Package**: `gcommon.v1.web` **Lines**: 22
 
-**Messages** (1): `FlushCacheRequest` **Imports** (2):
-`google/protobuf/go_features.proto`, `pkg/common/proto/request_metadata.proto`
+**Messages** (1): `FlushCacheRequest` **Imports** (2): `google/protobuf/go_features.proto`, `pkg/common/proto/request_metadata.proto`
 
 ### File Content
 
@@ -65305,8 +63337,7 @@ message FlushCacheRequest {
 
 **Package**: `gcommon.v1.web` **Lines**: 25
 
-**Messages** (1): `FlushCacheResponse` **Imports** (2):
-`google/protobuf/go_features.proto`, `pkg/common/proto/request_metadata.proto`
+**Messages** (1): `FlushCacheResponse` **Imports** (2): `google/protobuf/go_features.proto`, `pkg/common/proto/request_metadata.proto`
 
 ### File Content
 
@@ -65346,8 +63377,7 @@ message FlushCacheResponse {
 
 **Package**: `gcommon.v1.web` **Lines**: 18
 
-**Messages** (1): `GenerateCsrfTokenRequest` **Imports** (1):
-`google/protobuf/go_features.proto`
+**Messages** (1): `GenerateCsrfTokenRequest` **Imports** (1): `google/protobuf/go_features.proto`
 
 ### ⚠️ Issues Found (1)
 
@@ -65384,8 +63414,7 @@ message GenerateCsrfTokenRequest {
 
 **Package**: `gcommon.v1.web` **Lines**: 18
 
-**Messages** (1): `GenerateCsrfTokenResponse` **Imports** (1):
-`google/protobuf/go_features.proto`
+**Messages** (1): `GenerateCsrfTokenResponse` **Imports** (1): `google/protobuf/go_features.proto`
 
 ### ⚠️ Issues Found (1)
 
@@ -65422,14 +63451,11 @@ message GenerateCsrfTokenResponse {
 
 **Package**: `gcommon.v1.web` **Lines**: 42
 
-**Messages** (1): `GetAccessLogsRequest` **Imports** (3):
-`google/protobuf/go_features.proto`, `google/protobuf/timestamp.proto`,
-`pkg/common/proto/request_metadata.proto`
+**Messages** (1): `GetAccessLogsRequest` **Imports** (3): `google/protobuf/go_features.proto`, `google/protobuf/timestamp.proto`, `pkg/common/proto/request_metadata.proto`
 
 ### ⚠️ Issues Found (1)
 
-- Line 20: Implementation needed - \* Auto-generated placeholder - implement
-  specific fields as needed.
+- Line 20: Implementation needed - \* Auto-generated placeholder - implement specific fields as needed.
 
 ### File Content
 
@@ -65486,14 +63512,11 @@ message GetAccessLogsRequest {
 
 **Package**: `gcommon.v1.web` **Lines**: 56
 
-**Messages** (1): `GetAccessLogsResponse` **Imports** (4):
-`google/protobuf/go_features.proto`, `google/protobuf/timestamp.proto`,
-`pkg/common/proto/error.proto`, `pkg/common/proto/request_metadata.proto`
+**Messages** (1): `GetAccessLogsResponse` **Imports** (4): `google/protobuf/go_features.proto`, `google/protobuf/timestamp.proto`, `pkg/common/proto/error.proto`, `pkg/common/proto/request_metadata.proto`
 
 ### ⚠️ Issues Found (1)
 
-- Line 21: Implementation needed - \* Auto-generated placeholder - implement
-  specific fields as needed.
+- Line 21: Implementation needed - \* Auto-generated placeholder - implement specific fields as needed.
 
 ### File Content
 
@@ -65564,8 +63587,7 @@ message GetAccessLogsResponse {
 
 **Package**: `gcommon.v1.web` **Lines**: 19
 
-**Messages** (1): `GetCacheConfigRequest` **Imports** (2):
-`google/protobuf/go_features.proto`, `pkg/common/proto/request_metadata.proto`
+**Messages** (1): `GetCacheConfigRequest` **Imports** (2): `google/protobuf/go_features.proto`, `pkg/common/proto/request_metadata.proto`
 
 ### File Content
 
@@ -65599,9 +63621,7 @@ message GetCacheConfigRequest {
 
 **Package**: `gcommon.v1.web` **Lines**: 23
 
-**Messages** (1): `GetCacheConfigResponse` **Imports** (3):
-`google/protobuf/go_features.proto`, `pkg/common/proto/request_metadata.proto`,
-`pkg/web/proto/cache_config.proto`
+**Messages** (1): `GetCacheConfigResponse` **Imports** (3): `google/protobuf/go_features.proto`, `pkg/common/proto/request_metadata.proto`, `pkg/web/proto/cache_config.proto`
 
 ### File Content
 
@@ -65639,8 +63659,7 @@ message GetCacheConfigResponse {
 
 **Package**: `gcommon.v1.web` **Lines**: 18
 
-**Messages** (1): `GetCookieRequest` **Imports** (1):
-`google/protobuf/go_features.proto`
+**Messages** (1): `GetCookieRequest` **Imports** (1): `google/protobuf/go_features.proto`
 
 ### ⚠️ Issues Found (1)
 
@@ -65677,8 +63696,7 @@ message GetCookieRequest {
 
 **Package**: `gcommon.v1.web` **Lines**: 18
 
-**Messages** (1): `GetCookieResponse` **Imports** (1):
-`google/protobuf/go_features.proto`
+**Messages** (1): `GetCookieResponse` **Imports** (1): `google/protobuf/go_features.proto`
 
 ### ⚠️ Issues Found (1)
 
@@ -65715,8 +63733,7 @@ message GetCookieResponse {
 
 **Package**: `gcommon.v1.web` **Lines**: 18
 
-**Messages** (1): `GetCorsConfigRequest` **Imports** (1):
-`google/protobuf/go_features.proto`
+**Messages** (1): `GetCorsConfigRequest` **Imports** (1): `google/protobuf/go_features.proto`
 
 ### ⚠️ Issues Found (1)
 
@@ -65753,8 +63770,7 @@ message GetCorsConfigRequest {
 
 **Package**: `gcommon.v1.web` **Lines**: 18
 
-**Messages** (1): `GetCorsConfigResponse` **Imports** (1):
-`google/protobuf/go_features.proto`
+**Messages** (1): `GetCorsConfigResponse` **Imports** (1): `google/protobuf/go_features.proto`
 
 ### ⚠️ Issues Found (1)
 
@@ -65791,8 +63807,7 @@ message GetCorsConfigResponse {
 
 **Package**: `gcommon.v1.web` **Lines**: 18
 
-**Messages** (1): `GetFileInfoRequest` **Imports** (1):
-`google/protobuf/go_features.proto`
+**Messages** (1): `GetFileInfoRequest` **Imports** (1): `google/protobuf/go_features.proto`
 
 ### ⚠️ Issues Found (1)
 
@@ -65829,8 +63844,7 @@ message GetFileInfoRequest {
 
 **Package**: `gcommon.v1.web` **Lines**: 18
 
-**Messages** (1): `GetFileInfoResponse` **Imports** (1):
-`google/protobuf/go_features.proto`
+**Messages** (1): `GetFileInfoResponse` **Imports** (1): `google/protobuf/go_features.proto`
 
 ### ⚠️ Issues Found (1)
 
@@ -65867,8 +63881,7 @@ message GetFileInfoResponse {
 
 **Package**: `gcommon.v1.web` **Lines**: 18
 
-**Messages** (1): `GetHandlerInfoRequest` **Imports** (1):
-`google/protobuf/go_features.proto`
+**Messages** (1): `GetHandlerInfoRequest` **Imports** (1): `google/protobuf/go_features.proto`
 
 ### ⚠️ Issues Found (1)
 
@@ -65905,8 +63918,7 @@ message GetHandlerInfoRequest {
 
 **Package**: `gcommon.v1.web` **Lines**: 18
 
-**Messages** (1): `GetHandlerInfoResponse` **Imports** (1):
-`google/protobuf/go_features.proto`
+**Messages** (1): `GetHandlerInfoResponse` **Imports** (1): `google/protobuf/go_features.proto`
 
 ### ⚠️ Issues Found (1)
 
@@ -65943,8 +63955,7 @@ message GetHandlerInfoResponse {
 
 **Package**: `gcommon.v1.web` **Lines**: 18
 
-**Messages** (1): `GetMetricsRequest` **Imports** (1):
-`google/protobuf/go_features.proto`
+**Messages** (1): `GetMetricsRequest` **Imports** (1): `google/protobuf/go_features.proto`
 
 ### ⚠️ Issues Found (1)
 
@@ -65981,8 +63992,7 @@ message GetMetricsRequest {
 
 **Package**: `gcommon.v1.web` **Lines**: 18
 
-**Messages** (1): `GetMetricsResponse` **Imports** (1):
-`google/protobuf/go_features.proto`
+**Messages** (1): `GetMetricsResponse` **Imports** (1): `google/protobuf/go_features.proto`
 
 ### ⚠️ Issues Found (1)
 
@@ -66019,8 +64029,7 @@ message GetMetricsResponse {
 
 **Package**: `gcommon.v1.web` **Lines**: 18
 
-**Messages** (1): `GetMiddlewareInfoRequest` **Imports** (1):
-`google/protobuf/go_features.proto`
+**Messages** (1): `GetMiddlewareInfoRequest` **Imports** (1): `google/protobuf/go_features.proto`
 
 ### ⚠️ Issues Found (1)
 
@@ -66057,8 +64066,7 @@ message GetMiddlewareInfoRequest {
 
 **Package**: `gcommon.v1.web` **Lines**: 18
 
-**Messages** (1): `GetMiddlewareInfoResponse` **Imports** (1):
-`google/protobuf/go_features.proto`
+**Messages** (1): `GetMiddlewareInfoResponse` **Imports** (1): `google/protobuf/go_features.proto`
 
 ### ⚠️ Issues Found (1)
 
@@ -66095,8 +64103,7 @@ message GetMiddlewareInfoResponse {
 
 **Package**: `gcommon.v1.web` **Lines**: 18
 
-**Messages** (1): `GetPerformanceStatsRequest` **Imports** (1):
-`google/protobuf/go_features.proto`
+**Messages** (1): `GetPerformanceStatsRequest` **Imports** (1): `google/protobuf/go_features.proto`
 
 ### ⚠️ Issues Found (1)
 
@@ -66133,8 +64140,7 @@ message GetPerformanceStatsRequest {
 
 **Package**: `gcommon.v1.web` **Lines**: 18
 
-**Messages** (1): `GetPerformanceStatsResponse` **Imports** (1):
-`google/protobuf/go_features.proto`
+**Messages** (1): `GetPerformanceStatsResponse` **Imports** (1): `google/protobuf/go_features.proto`
 
 ### ⚠️ Issues Found (1)
 
@@ -66171,8 +64177,7 @@ message GetPerformanceStatsResponse {
 
 **Package**: `gcommon.v1.web` **Lines**: 18
 
-**Messages** (1): `GetRouteInfoRequest` **Imports** (1):
-`google/protobuf/go_features.proto`
+**Messages** (1): `GetRouteInfoRequest` **Imports** (1): `google/protobuf/go_features.proto`
 
 ### ⚠️ Issues Found (1)
 
@@ -66209,8 +64214,7 @@ message GetRouteInfoRequest {
 
 **Package**: `gcommon.v1.web` **Lines**: 18
 
-**Messages** (1): `GetRouteInfoResponse` **Imports** (1):
-`google/protobuf/go_features.proto`
+**Messages** (1): `GetRouteInfoResponse` **Imports** (1): `google/protobuf/go_features.proto`
 
 ### ⚠️ Issues Found (1)
 
@@ -66247,14 +64251,11 @@ message GetRouteInfoResponse {
 
 **Package**: `gcommon.v1.web` **Lines**: 42
 
-**Messages** (1): `GetRouteMetricsRequest` **Imports** (3):
-`google/protobuf/go_features.proto`, `google/protobuf/timestamp.proto`,
-`pkg/common/proto/request_metadata.proto`
+**Messages** (1): `GetRouteMetricsRequest` **Imports** (3): `google/protobuf/go_features.proto`, `google/protobuf/timestamp.proto`, `pkg/common/proto/request_metadata.proto`
 
 ### ⚠️ Issues Found (1)
 
-- Line 20: Implementation needed - \* Auto-generated placeholder - implement
-  specific fields as needed.
+- Line 20: Implementation needed - \* Auto-generated placeholder - implement specific fields as needed.
 
 ### File Content
 
@@ -66311,14 +64312,11 @@ message GetRouteMetricsRequest {
 
 **Package**: `gcommon.v1.web` **Lines**: 56
 
-**Messages** (1): `GetRouteMetricsResponse` **Imports** (4):
-`google/protobuf/go_features.proto`, `google/protobuf/timestamp.proto`,
-`pkg/common/proto/error.proto`, `pkg/common/proto/request_metadata.proto`
+**Messages** (1): `GetRouteMetricsResponse` **Imports** (4): `google/protobuf/go_features.proto`, `google/protobuf/timestamp.proto`, `pkg/common/proto/error.proto`, `pkg/common/proto/request_metadata.proto`
 
 ### ⚠️ Issues Found (1)
 
-- Line 21: Implementation needed - \* Auto-generated placeholder - implement
-  specific fields as needed.
+- Line 21: Implementation needed - \* Auto-generated placeholder - implement specific fields as needed.
 
 ### File Content
 
@@ -66389,8 +64387,7 @@ message GetRouteMetricsResponse {
 
 **Package**: `gcommon.v1.web` **Lines**: 18
 
-**Messages** (1): `GetSecurityConfigRequest` **Imports** (1):
-`google/protobuf/go_features.proto`
+**Messages** (1): `GetSecurityConfigRequest` **Imports** (1): `google/protobuf/go_features.proto`
 
 ### ⚠️ Issues Found (1)
 
@@ -66427,8 +64424,7 @@ message GetSecurityConfigRequest {
 
 **Package**: `gcommon.v1.web` **Lines**: 18
 
-**Messages** (1): `GetSecurityConfigResponse` **Imports** (1):
-`google/protobuf/go_features.proto`
+**Messages** (1): `GetSecurityConfigResponse` **Imports** (1): `google/protobuf/go_features.proto`
 
 ### ⚠️ Issues Found (1)
 
@@ -66465,8 +64461,7 @@ message GetSecurityConfigResponse {
 
 **Package**: `gcommon.v1.web` **Lines**: 18
 
-**Messages** (1): `GetServerConfigRequest` **Imports** (1):
-`google/protobuf/go_features.proto`
+**Messages** (1): `GetServerConfigRequest` **Imports** (1): `google/protobuf/go_features.proto`
 
 ### ⚠️ Issues Found (1)
 
@@ -66503,8 +64498,7 @@ message GetServerConfigRequest {
 
 **Package**: `gcommon.v1.web` **Lines**: 18
 
-**Messages** (1): `GetServerConfigResponse` **Imports** (1):
-`google/protobuf/go_features.proto`
+**Messages** (1): `GetServerConfigResponse` **Imports** (1): `google/protobuf/go_features.proto`
 
 ### ⚠️ Issues Found (1)
 
@@ -66541,14 +64535,11 @@ message GetServerConfigResponse {
 
 **Package**: `gcommon.v1.web` **Lines**: 42
 
-**Messages** (1): `GetServerHealthRequest` **Imports** (3):
-`google/protobuf/go_features.proto`, `google/protobuf/timestamp.proto`,
-`pkg/common/proto/request_metadata.proto`
+**Messages** (1): `GetServerHealthRequest` **Imports** (3): `google/protobuf/go_features.proto`, `google/protobuf/timestamp.proto`, `pkg/common/proto/request_metadata.proto`
 
 ### ⚠️ Issues Found (1)
 
-- Line 20: Implementation needed - \* Auto-generated placeholder - implement
-  specific fields as needed.
+- Line 20: Implementation needed - \* Auto-generated placeholder - implement specific fields as needed.
 
 ### File Content
 
@@ -66605,14 +64596,11 @@ message GetServerHealthRequest {
 
 **Package**: `gcommon.v1.web` **Lines**: 56
 
-**Messages** (1): `GetServerHealthResponse` **Imports** (4):
-`google/protobuf/go_features.proto`, `google/protobuf/timestamp.proto`,
-`pkg/common/proto/error.proto`, `pkg/common/proto/request_metadata.proto`
+**Messages** (1): `GetServerHealthResponse` **Imports** (4): `google/protobuf/go_features.proto`, `google/protobuf/timestamp.proto`, `pkg/common/proto/error.proto`, `pkg/common/proto/request_metadata.proto`
 
 ### ⚠️ Issues Found (1)
 
-- Line 21: Implementation needed - \* Auto-generated placeholder - implement
-  specific fields as needed.
+- Line 21: Implementation needed - \* Auto-generated placeholder - implement specific fields as needed.
 
 ### File Content
 
@@ -66683,14 +64671,11 @@ message GetServerHealthResponse {
 
 **Package**: `gcommon.v1.web` **Lines**: 42
 
-**Messages** (1): `GetServerLogsRequest` **Imports** (3):
-`google/protobuf/go_features.proto`, `google/protobuf/timestamp.proto`,
-`pkg/common/proto/request_metadata.proto`
+**Messages** (1): `GetServerLogsRequest` **Imports** (3): `google/protobuf/go_features.proto`, `google/protobuf/timestamp.proto`, `pkg/common/proto/request_metadata.proto`
 
 ### ⚠️ Issues Found (1)
 
-- Line 20: Implementation needed - \* Auto-generated placeholder - implement
-  specific fields as needed.
+- Line 20: Implementation needed - \* Auto-generated placeholder - implement specific fields as needed.
 
 ### File Content
 
@@ -66747,14 +64732,11 @@ message GetServerLogsRequest {
 
 **Package**: `gcommon.v1.web` **Lines**: 56
 
-**Messages** (1): `GetServerLogsResponse` **Imports** (4):
-`google/protobuf/go_features.proto`, `google/protobuf/timestamp.proto`,
-`pkg/common/proto/error.proto`, `pkg/common/proto/request_metadata.proto`
+**Messages** (1): `GetServerLogsResponse` **Imports** (4): `google/protobuf/go_features.proto`, `google/protobuf/timestamp.proto`, `pkg/common/proto/error.proto`, `pkg/common/proto/request_metadata.proto`
 
 ### ⚠️ Issues Found (1)
 
-- Line 21: Implementation needed - \* Auto-generated placeholder - implement
-  specific fields as needed.
+- Line 21: Implementation needed - \* Auto-generated placeholder - implement specific fields as needed.
 
 ### File Content
 
@@ -66825,14 +64807,11 @@ message GetServerLogsResponse {
 
 **Package**: `gcommon.v1.web` **Lines**: 42
 
-**Messages** (1): `GetServerMetricsRequest` **Imports** (3):
-`google/protobuf/go_features.proto`, `google/protobuf/timestamp.proto`,
-`pkg/common/proto/request_metadata.proto`
+**Messages** (1): `GetServerMetricsRequest` **Imports** (3): `google/protobuf/go_features.proto`, `google/protobuf/timestamp.proto`, `pkg/common/proto/request_metadata.proto`
 
 ### ⚠️ Issues Found (1)
 
-- Line 20: Implementation needed - \* Auto-generated placeholder - implement
-  specific fields as needed.
+- Line 20: Implementation needed - \* Auto-generated placeholder - implement specific fields as needed.
 
 ### File Content
 
@@ -66889,14 +64868,11 @@ message GetServerMetricsRequest {
 
 **Package**: `gcommon.v1.web` **Lines**: 56
 
-**Messages** (1): `GetServerMetricsResponse` **Imports** (4):
-`google/protobuf/go_features.proto`, `google/protobuf/timestamp.proto`,
-`pkg/common/proto/error.proto`, `pkg/common/proto/request_metadata.proto`
+**Messages** (1): `GetServerMetricsResponse` **Imports** (4): `google/protobuf/go_features.proto`, `google/protobuf/timestamp.proto`, `pkg/common/proto/error.proto`, `pkg/common/proto/request_metadata.proto`
 
 ### ⚠️ Issues Found (1)
 
-- Line 21: Implementation needed - \* Auto-generated placeholder - implement
-  specific fields as needed.
+- Line 21: Implementation needed - \* Auto-generated placeholder - implement specific fields as needed.
 
 ### File Content
 
@@ -66967,8 +64943,7 @@ message GetServerMetricsResponse {
 
 **Package**: `gcommon.v1.web` **Lines**: 18
 
-**Messages** (1): `GetServerStatusRequest` **Imports** (1):
-`google/protobuf/go_features.proto`
+**Messages** (1): `GetServerStatusRequest` **Imports** (1): `google/protobuf/go_features.proto`
 
 ### ⚠️ Issues Found (1)
 
@@ -67005,8 +64980,7 @@ message GetServerStatusRequest {
 
 **Package**: `gcommon.v1.web` **Lines**: 18
 
-**Messages** (1): `GetServerStatusResponse` **Imports** (1):
-`google/protobuf/go_features.proto`
+**Messages** (1): `GetServerStatusResponse` **Imports** (1): `google/protobuf/go_features.proto`
 
 ### ⚠️ Issues Found (1)
 
@@ -67043,8 +65017,7 @@ message GetServerStatusResponse {
 
 **Package**: `gcommon.v1.web` **Lines**: 19
 
-**Messages** (1): `GetSessionRequest` **Imports** (1):
-`google/protobuf/go_features.proto`
+**Messages** (1): `GetSessionRequest` **Imports** (1): `google/protobuf/go_features.proto`
 
 ### File Content
 
@@ -67078,8 +65051,7 @@ message GetSessionRequest {
 
 **Package**: `gcommon.v1.web` **Lines**: 20
 
-**Messages** (1): `GetSessionResponse` **Imports** (2):
-`google/protobuf/go_features.proto`, `pkg/web/proto/session_data.proto`
+**Messages** (1): `GetSessionResponse` **Imports** (2): `google/protobuf/go_features.proto`, `pkg/web/proto/session_data.proto`
 
 ### File Content
 
@@ -67114,14 +65086,11 @@ message GetSessionResponse {
 
 **Package**: `gcommon.v1.web` **Lines**: 42
 
-**Messages** (1): `GetSSLCertificateInfoRequest` **Imports** (3):
-`google/protobuf/go_features.proto`, `google/protobuf/timestamp.proto`,
-`pkg/common/proto/request_metadata.proto`
+**Messages** (1): `GetSSLCertificateInfoRequest` **Imports** (3): `google/protobuf/go_features.proto`, `google/protobuf/timestamp.proto`, `pkg/common/proto/request_metadata.proto`
 
 ### ⚠️ Issues Found (1)
 
-- Line 20: Implementation needed - \* Auto-generated placeholder - implement
-  specific fields as needed.
+- Line 20: Implementation needed - \* Auto-generated placeholder - implement specific fields as needed.
 
 ### File Content
 
@@ -67178,14 +65147,11 @@ message GetSSLCertificateInfoRequest {
 
 **Package**: `gcommon.v1.web` **Lines**: 56
 
-**Messages** (1): `GetSSLCertificateInfoResponse` **Imports** (4):
-`google/protobuf/go_features.proto`, `google/protobuf/timestamp.proto`,
-`pkg/common/proto/error.proto`, `pkg/common/proto/request_metadata.proto`
+**Messages** (1): `GetSSLCertificateInfoResponse` **Imports** (4): `google/protobuf/go_features.proto`, `google/protobuf/timestamp.proto`, `pkg/common/proto/error.proto`, `pkg/common/proto/request_metadata.proto`
 
 ### ⚠️ Issues Found (1)
 
-- Line 21: Implementation needed - \* Auto-generated placeholder - implement
-  specific fields as needed.
+- Line 21: Implementation needed - \* Auto-generated placeholder - implement specific fields as needed.
 
 ### File Content
 
@@ -67256,8 +65222,7 @@ message GetSSLCertificateInfoResponse {
 
 **Package**: `gcommon.v1.web` **Lines**: 18
 
-**Messages** (1): `GetTemplateInfoRequest` **Imports** (1):
-`google/protobuf/go_features.proto`
+**Messages** (1): `GetTemplateInfoRequest` **Imports** (1): `google/protobuf/go_features.proto`
 
 ### ⚠️ Issues Found (1)
 
@@ -67294,8 +65259,7 @@ message GetTemplateInfoRequest {
 
 **Package**: `gcommon.v1.web` **Lines**: 18
 
-**Messages** (1): `GetTemplateInfoResponse` **Imports** (1):
-`google/protobuf/go_features.proto`
+**Messages** (1): `GetTemplateInfoResponse` **Imports** (1): `google/protobuf/go_features.proto`
 
 ### ⚠️ Issues Found (1)
 
@@ -67332,8 +65296,7 @@ message GetTemplateInfoResponse {
 
 **Package**: `gcommon.v1.web` **Lines**: 18
 
-**Messages** (1): `GetWebsocketInfoRequest` **Imports** (1):
-`google/protobuf/go_features.proto`
+**Messages** (1): `GetWebsocketInfoRequest` **Imports** (1): `google/protobuf/go_features.proto`
 
 ### ⚠️ Issues Found (1)
 
@@ -67370,8 +65333,7 @@ message GetWebsocketInfoRequest {
 
 **Package**: `gcommon.v1.web` **Lines**: 18
 
-**Messages** (1): `GetWebsocketInfoResponse` **Imports** (1):
-`google/protobuf/go_features.proto`
+**Messages** (1): `GetWebsocketInfoResponse` **Imports** (1): `google/protobuf/go_features.proto`
 
 ### ⚠️ Issues Found (1)
 
@@ -67408,8 +65370,7 @@ message GetWebsocketInfoResponse {
 
 **Package**: `gcommon.v1.web` **Lines**: 18
 
-**Messages** (1): `HandleRequest` **Imports** (1):
-`google/protobuf/go_features.proto`
+**Messages** (1): `HandleRequest` **Imports** (1): `google/protobuf/go_features.proto`
 
 ### ⚠️ Issues Found (1)
 
@@ -67446,14 +65407,11 @@ message HandleRequest {
 
 **Package**: `gcommon.v1.web` **Lines**: 42
 
-**Messages** (1): `HandleRequestRequest` **Imports** (3):
-`google/protobuf/go_features.proto`, `google/protobuf/timestamp.proto`,
-`pkg/common/proto/request_metadata.proto`
+**Messages** (1): `HandleRequestRequest` **Imports** (3): `google/protobuf/go_features.proto`, `google/protobuf/timestamp.proto`, `pkg/common/proto/request_metadata.proto`
 
 ### ⚠️ Issues Found (1)
 
-- Line 20: Implementation needed - \* Auto-generated placeholder - implement
-  specific fields as needed.
+- Line 20: Implementation needed - \* Auto-generated placeholder - implement specific fields as needed.
 
 ### File Content
 
@@ -67510,14 +65468,11 @@ message HandleRequestRequest {
 
 **Package**: `gcommon.v1.web` **Lines**: 56
 
-**Messages** (1): `HandleRequestResponse` **Imports** (4):
-`google/protobuf/go_features.proto`, `google/protobuf/timestamp.proto`,
-`pkg/common/proto/error.proto`, `pkg/common/proto/request_metadata.proto`
+**Messages** (1): `HandleRequestResponse` **Imports** (4): `google/protobuf/go_features.proto`, `google/protobuf/timestamp.proto`, `pkg/common/proto/error.proto`, `pkg/common/proto/request_metadata.proto`
 
 ### ⚠️ Issues Found (1)
 
-- Line 21: Implementation needed - \* Auto-generated placeholder - implement
-  specific fields as needed.
+- Line 21: Implementation needed - \* Auto-generated placeholder - implement specific fields as needed.
 
 ### File Content
 
@@ -67588,8 +65543,7 @@ message HandleRequestResponse {
 
 **Package**: `gcommon.v1.web` **Lines**: 18
 
-**Messages** (1): `HandleResponse` **Imports** (1):
-`google/protobuf/go_features.proto`
+**Messages** (1): `HandleResponse` **Imports** (1): `google/protobuf/go_features.proto`
 
 ### ⚠️ Issues Found (1)
 
@@ -67626,8 +65580,7 @@ message HandleResponse {
 
 **Package**: `gcommon.v1.web` **Lines**: 30
 
-**Messages** (1): `HandlerConfig` **Imports** (3): `google/protobuf/any.proto`,
-`google/protobuf/go_features.proto`, `pkg/web/proto/handler_type.proto`
+**Messages** (1): `HandlerConfig` **Imports** (3): `google/protobuf/any.proto`, `google/protobuf/go_features.proto`, `pkg/web/proto/handler_type.proto`
 
 ### File Content
 
@@ -67672,9 +65625,7 @@ message HandlerConfig {
 
 **Package**: `gcommon.v1.web` **Lines**: 30
 
-**Messages** (1): `HandlerInfo` **Imports** (3):
-`google/protobuf/go_features.proto`, `google/protobuf/timestamp.proto`,
-`pkg/web/proto/handler_config.proto`
+**Messages** (1): `HandlerInfo` **Imports** (3): `google/protobuf/go_features.proto`, `google/protobuf/timestamp.proto`, `pkg/web/proto/handler_config.proto`
 
 ### File Content
 
@@ -67719,8 +65670,7 @@ message HandlerInfo {
 
 **Package**: `gcommon.v1.web` **Lines**: 21
 
-**Enums** (1): `HandlerType` **Imports** (1):
-`google/protobuf/go_features.proto`
+**Enums** (1): `HandlerType` **Imports** (1): `google/protobuf/go_features.proto`
 
 ### File Content
 
@@ -67756,8 +65706,7 @@ enum HandlerType {
 
 **Package**: `gcommon.v1.web` **Lines**: 34
 
-**Messages** (1): `HealthCheckConfig` **Imports** (1):
-`google/protobuf/go_features.proto`
+**Messages** (1): `HealthCheckConfig` **Imports** (1): `google/protobuf/go_features.proto`
 
 ### File Content
 
@@ -67806,8 +65755,7 @@ message HealthCheckConfig {
 
 **Package**: `gcommon.v1.web` **Lines**: 20
 
-**Messages** (1): `HealthCheckRequest` **Imports** (2):
-`google/protobuf/go_features.proto`, `pkg/common/proto/request_metadata.proto`
+**Messages** (1): `HealthCheckRequest` **Imports** (2): `google/protobuf/go_features.proto`, `pkg/common/proto/request_metadata.proto`
 
 ### File Content
 
@@ -67842,9 +65790,7 @@ message HealthCheckRequest {
 
 **Package**: `gcommon.v1.web` **Lines**: 28
 
-**Messages** (1): `HealthCheckResponse` **Imports** (4):
-`google/protobuf/duration.proto`, `google/protobuf/go_features.proto`,
-`pkg/common/proto/error.proto`, `pkg/common/proto/health_status.proto`
+**Messages** (1): `HealthCheckResponse` **Imports** (4): `google/protobuf/duration.proto`, `google/protobuf/go_features.proto`, `pkg/common/proto/error.proto`, `pkg/common/proto/health_status.proto`
 
 ### File Content
 
@@ -67887,8 +65833,7 @@ message HealthCheckResponse {
 
 **Package**: `gcommon.v1.web` **Lines**: 21
 
-**Enums** (1): `HealthStatus` **Imports** (1):
-`google/protobuf/go_features.proto`
+**Enums** (1): `HealthStatus` **Imports** (1): `google/protobuf/go_features.proto`
 
 ### File Content
 
@@ -67924,8 +65869,7 @@ enum HealthStatus {
 
 **Package**: `gcommon.v1.web` **Lines**: 23
 
-**Messages** (1): `HttpHeader` **Imports** (1):
-`google/protobuf/go_features.proto`
+**Messages** (1): `HttpHeader` **Imports** (1): `google/protobuf/go_features.proto`
 
 ### File Content
 
@@ -68003,8 +65947,7 @@ enum HTTPMethod {
 
 **Package**: `gcommon.v1.web` **Lines**: 49
 
-**Messages** (1): `HTTPRequest` **Imports** (1):
-`google/protobuf/go_features.proto`
+**Messages** (1): `HTTPRequest` **Imports** (1): `google/protobuf/go_features.proto`
 
 ### File Content
 
@@ -68068,9 +66011,7 @@ message HTTPRequest {
 
 **Package**: `gcommon.v1.web` **Lines**: 175
 
-**Messages** (1): `HttpRequest` **Imports** (4): `google/protobuf/any.proto`,
-`google/protobuf/go_features.proto`, `google/protobuf/timestamp.proto`,
-`pkg/common/proto/request_metadata.proto`
+**Messages** (1): `HttpRequest` **Imports** (4): `google/protobuf/any.proto`, `google/protobuf/go_features.proto`, `google/protobuf/timestamp.proto`, `pkg/common/proto/request_metadata.proto`
 
 ### File Content
 
@@ -68260,8 +66201,7 @@ message HttpRequest {
 
 **Package**: `gcommon.v1.web` **Lines**: 34
 
-**Messages** (1): `HTTPResponse` **Imports** (1):
-`google/protobuf/go_features.proto`
+**Messages** (1): `HTTPResponse` **Imports** (1): `google/protobuf/go_features.proto`
 
 ### File Content
 
@@ -68310,9 +66250,7 @@ message HTTPResponse {
 
 **Package**: `gcommon.v1.web` **Lines**: 190
 
-**Messages** (1): `HttpResponse` **Imports** (5): `google/protobuf/any.proto`,
-`google/protobuf/go_features.proto`, `google/protobuf/timestamp.proto`,
-`pkg/common/proto/error.proto`, `pkg/common/proto/request_metadata.proto`
+**Messages** (1): `HttpResponse` **Imports** (5): `google/protobuf/any.proto`, `google/protobuf/go_features.proto`, `google/protobuf/timestamp.proto`, `pkg/common/proto/error.proto`, `pkg/common/proto/request_metadata.proto`
 
 ### File Content
 
@@ -68556,14 +66494,11 @@ enum HTTPStatus {
 
 **Package**: `gcommon.v1.web` **Lines**: 42
 
-**Messages** (1): `ImportServerConfigRequest` **Imports** (3):
-`google/protobuf/go_features.proto`, `google/protobuf/timestamp.proto`,
-`pkg/common/proto/request_metadata.proto`
+**Messages** (1): `ImportServerConfigRequest` **Imports** (3): `google/protobuf/go_features.proto`, `google/protobuf/timestamp.proto`, `pkg/common/proto/request_metadata.proto`
 
 ### ⚠️ Issues Found (1)
 
-- Line 20: Implementation needed - \* Auto-generated placeholder - implement
-  specific fields as needed.
+- Line 20: Implementation needed - \* Auto-generated placeholder - implement specific fields as needed.
 
 ### File Content
 
@@ -68620,14 +66555,11 @@ message ImportServerConfigRequest {
 
 **Package**: `gcommon.v1.web` **Lines**: 56
 
-**Messages** (1): `ImportServerConfigResponse` **Imports** (4):
-`google/protobuf/go_features.proto`, `google/protobuf/timestamp.proto`,
-`pkg/common/proto/error.proto`, `pkg/common/proto/request_metadata.proto`
+**Messages** (1): `ImportServerConfigResponse` **Imports** (4): `google/protobuf/go_features.proto`, `google/protobuf/timestamp.proto`, `pkg/common/proto/error.proto`, `pkg/common/proto/request_metadata.proto`
 
 ### ⚠️ Issues Found (1)
 
-- Line 21: Implementation needed - \* Auto-generated placeholder - implement
-  specific fields as needed.
+- Line 21: Implementation needed - \* Auto-generated placeholder - implement specific fields as needed.
 
 ### File Content
 
@@ -68698,8 +66630,7 @@ message ImportServerConfigResponse {
 
 **Package**: `gcommon.v1.web` **Lines**: 18
 
-**Messages** (1): `ListCookiesRequest` **Imports** (1):
-`google/protobuf/go_features.proto`
+**Messages** (1): `ListCookiesRequest` **Imports** (1): `google/protobuf/go_features.proto`
 
 ### ⚠️ Issues Found (1)
 
@@ -68736,8 +66667,7 @@ message ListCookiesRequest {
 
 **Package**: `gcommon.v1.web` **Lines**: 18
 
-**Messages** (1): `ListCookiesResponse` **Imports** (1):
-`google/protobuf/go_features.proto`
+**Messages** (1): `ListCookiesResponse` **Imports** (1): `google/protobuf/go_features.proto`
 
 ### ⚠️ Issues Found (1)
 
@@ -68774,9 +66704,7 @@ message ListCookiesResponse {
 
 **Package**: `gcommon.v1.web` **Lines**: 45
 
-**Messages** (1): `ListFilesRequest` **Imports** (3):
-`google/protobuf/go_features.proto`, `pkg/common/proto/request_metadata.proto`,
-`pkg/web/proto/file_sort_order.proto`
+**Messages** (1): `ListFilesRequest` **Imports** (3): `google/protobuf/go_features.proto`, `pkg/common/proto/request_metadata.proto`, `pkg/web/proto/file_sort_order.proto`
 
 ### File Content
 
@@ -68836,9 +66764,7 @@ message ListFilesRequest {
 
 **Package**: `gcommon.v1.web` **Lines**: 36
 
-**Messages** (1): `ListFilesResponse` **Imports** (3):
-`google/protobuf/go_features.proto`, `pkg/common/proto/response_metadata.proto`,
-`pkg/web/proto/file_info.proto`
+**Messages** (1): `ListFilesResponse` **Imports** (3): `google/protobuf/go_features.proto`, `pkg/common/proto/response_metadata.proto`, `pkg/web/proto/file_info.proto`
 
 ### File Content
 
@@ -68889,8 +66815,7 @@ message ListFilesResponse {
 
 **Package**: `gcommon.v1.web` **Lines**: 38
 
-**Messages** (1): `ListHandlersRequest` **Imports** (2):
-`google/protobuf/go_features.proto`, `pkg/common/proto/request_metadata.proto`
+**Messages** (1): `ListHandlersRequest` **Imports** (2): `google/protobuf/go_features.proto`, `pkg/common/proto/request_metadata.proto`
 
 ### File Content
 
@@ -68943,8 +66868,7 @@ message ListHandlersRequest {
 
 **Package**: `gcommon.v1.web` **Lines**: 18
 
-**Messages** (1): `ListHandlersResponse` **Imports** (1):
-`google/protobuf/go_features.proto`
+**Messages** (1): `ListHandlersResponse` **Imports** (1): `google/protobuf/go_features.proto`
 
 ### ⚠️ Issues Found (1)
 
@@ -68981,9 +66905,7 @@ message ListHandlersResponse {
 
 **Package**: `gcommon.v1.web` **Lines**: 34
 
-**Messages** (1): `ListMiddlewareRequest` **Imports** (4):
-`google/protobuf/go_features.proto`, `pkg/common/proto/pagination.proto`,
-`pkg/common/proto/request_metadata.proto`, `pkg/web/proto/middleware_type.proto`
+**Messages** (1): `ListMiddlewareRequest` **Imports** (4): `google/protobuf/go_features.proto`, `pkg/common/proto/pagination.proto`, `pkg/common/proto/request_metadata.proto`, `pkg/web/proto/middleware_type.proto`
 
 ### File Content
 
@@ -69032,9 +66954,7 @@ message ListMiddlewareRequest {
 
 **Package**: `gcommon.v1.web` **Lines**: 28
 
-**Messages** (1): `ListMiddlewareResponse` **Imports** (4):
-`google/protobuf/go_features.proto`, `pkg/common/proto/error.proto`,
-`pkg/common/proto/pagination.proto`, `pkg/web/proto/middleware_info.proto`
+**Messages** (1): `ListMiddlewareResponse` **Imports** (4): `google/protobuf/go_features.proto`, `pkg/common/proto/error.proto`, `pkg/common/proto/pagination.proto`, `pkg/web/proto/middleware_info.proto`
 
 ### File Content
 
@@ -69077,8 +66997,7 @@ message ListMiddlewareResponse {
 
 **Package**: `gcommon.v1.web` **Lines**: 18
 
-**Messages** (1): `ListRoutesRequest` **Imports** (1):
-`google/protobuf/go_features.proto`
+**Messages** (1): `ListRoutesRequest` **Imports** (1): `google/protobuf/go_features.proto`
 
 ### ⚠️ Issues Found (1)
 
@@ -69115,8 +67034,7 @@ message ListRoutesRequest {
 
 **Package**: `gcommon.v1.web` **Lines**: 18
 
-**Messages** (1): `ListRoutesResponse` **Imports** (1):
-`google/protobuf/go_features.proto`
+**Messages** (1): `ListRoutesResponse` **Imports** (1): `google/protobuf/go_features.proto`
 
 ### ⚠️ Issues Found (1)
 
@@ -69153,14 +67071,11 @@ message ListRoutesResponse {
 
 **Package**: `gcommon.v1.web` **Lines**: 42
 
-**Messages** (1): `ListServersRequest` **Imports** (3):
-`google/protobuf/go_features.proto`, `google/protobuf/timestamp.proto`,
-`pkg/common/proto/request_metadata.proto`
+**Messages** (1): `ListServersRequest` **Imports** (3): `google/protobuf/go_features.proto`, `google/protobuf/timestamp.proto`, `pkg/common/proto/request_metadata.proto`
 
 ### ⚠️ Issues Found (1)
 
-- Line 20: Implementation needed - \* Auto-generated placeholder - implement
-  specific fields as needed.
+- Line 20: Implementation needed - \* Auto-generated placeholder - implement specific fields as needed.
 
 ### File Content
 
@@ -69217,14 +67132,11 @@ message ListServersRequest {
 
 **Package**: `gcommon.v1.web` **Lines**: 56
 
-**Messages** (1): `ListServersResponse` **Imports** (4):
-`google/protobuf/go_features.proto`, `google/protobuf/timestamp.proto`,
-`pkg/common/proto/error.proto`, `pkg/common/proto/request_metadata.proto`
+**Messages** (1): `ListServersResponse` **Imports** (4): `google/protobuf/go_features.proto`, `google/protobuf/timestamp.proto`, `pkg/common/proto/error.proto`, `pkg/common/proto/request_metadata.proto`
 
 ### ⚠️ Issues Found (1)
 
-- Line 21: Implementation needed - \* Auto-generated placeholder - implement
-  specific fields as needed.
+- Line 21: Implementation needed - \* Auto-generated placeholder - implement specific fields as needed.
 
 ### File Content
 
@@ -69295,8 +67207,7 @@ message ListServersResponse {
 
 **Package**: `gcommon.v1.web` **Lines**: 19
 
-**Messages** (1): `ListSessionsRequest` **Imports** (1):
-`google/protobuf/go_features.proto`
+**Messages** (1): `ListSessionsRequest` **Imports** (1): `google/protobuf/go_features.proto`
 
 ### File Content
 
@@ -69330,8 +67241,7 @@ message ListSessionsRequest {
 
 **Package**: `gcommon.v1.web` **Lines**: 20
 
-**Messages** (1): `ListSessionsResponse` **Imports** (2):
-`google/protobuf/go_features.proto`, `pkg/web/proto/session_data.proto`
+**Messages** (1): `ListSessionsResponse` **Imports** (2): `google/protobuf/go_features.proto`, `pkg/web/proto/session_data.proto`
 
 ### File Content
 
@@ -69366,8 +67276,7 @@ message ListSessionsResponse {
 
 **Package**: `gcommon.v1.web` **Lines**: 18
 
-**Messages** (1): `ListTemplatesRequest` **Imports** (1):
-`google/protobuf/go_features.proto`
+**Messages** (1): `ListTemplatesRequest` **Imports** (1): `google/protobuf/go_features.proto`
 
 ### ⚠️ Issues Found (1)
 
@@ -69404,8 +67313,7 @@ message ListTemplatesRequest {
 
 **Package**: `gcommon.v1.web` **Lines**: 18
 
-**Messages** (1): `ListTemplatesResponse` **Imports** (1):
-`google/protobuf/go_features.proto`
+**Messages** (1): `ListTemplatesResponse` **Imports** (1): `google/protobuf/go_features.proto`
 
 ### ⚠️ Issues Found (1)
 
@@ -69442,8 +67350,7 @@ message ListTemplatesResponse {
 
 **Package**: `gcommon.v1.web` **Lines**: 18
 
-**Messages** (1): `ListWebsocketsRequest` **Imports** (1):
-`google/protobuf/go_features.proto`
+**Messages** (1): `ListWebsocketsRequest` **Imports** (1): `google/protobuf/go_features.proto`
 
 ### ⚠️ Issues Found (1)
 
@@ -69480,8 +67387,7 @@ message ListWebsocketsRequest {
 
 **Package**: `gcommon.v1.web` **Lines**: 18
 
-**Messages** (1): `ListWebsocketsResponse` **Imports** (1):
-`google/protobuf/go_features.proto`
+**Messages** (1): `ListWebsocketsResponse` **Imports** (1): `google/protobuf/go_features.proto`
 
 ### ⚠️ Issues Found (1)
 
@@ -69518,8 +67424,7 @@ message ListWebsocketsResponse {
 
 **Package**: `gcommon.v1.web` **Lines**: 21
 
-**Enums** (1): `LoadBalanceStrategy` **Imports** (1):
-`google/protobuf/go_features.proto`
+**Enums** (1): `LoadBalanceStrategy` **Imports** (1): `google/protobuf/go_features.proto`
 
 ### File Content
 
@@ -69555,9 +67460,7 @@ enum LoadBalanceStrategy {
 
 **Package**: `gcommon.v1.web` **Lines**: 30
 
-**Messages** (1): `LoadBalancerConfig` **Imports** (3):
-`google/protobuf/duration.proto`, `google/protobuf/go_features.proto`,
-`pkg/web/proto/load_balance_strategy.proto`
+**Messages** (1): `LoadBalancerConfig` **Imports** (3): `google/protobuf/duration.proto`, `google/protobuf/go_features.proto`, `pkg/web/proto/load_balance_strategy.proto`
 
 ### File Content
 
@@ -69602,8 +67505,7 @@ message LoadBalancerConfig {
 
 **Package**: `gcommon.v1.web` **Lines**: 30
 
-**Messages** (1): `MiddlewareConfig` **Imports** (2):
-`google/protobuf/go_features.proto`, `pkg/web/proto/middleware_type.proto`
+**Messages** (1): `MiddlewareConfig` **Imports** (2): `google/protobuf/go_features.proto`, `pkg/web/proto/middleware_type.proto`
 
 ### File Content
 
@@ -69648,8 +67550,7 @@ message MiddlewareConfig {
 
 **Package**: `gcommon.v1.web` **Lines**: 29
 
-**Messages** (1): `MiddlewareInfo` **Imports** (2):
-`google/protobuf/go_features.proto`, `pkg/web/proto/middleware_type.proto`
+**Messages** (1): `MiddlewareInfo` **Imports** (2): `google/protobuf/go_features.proto`, `pkg/web/proto/middleware_type.proto`
 
 ### File Content
 
@@ -69693,8 +67594,7 @@ message MiddlewareInfo {
 
 **Package**: `gcommon.v1.web` **Lines**: 24
 
-**Enums** (1): `MiddlewareType` **Imports** (1):
-`google/protobuf/go_features.proto`
+**Enums** (1): `MiddlewareType` **Imports** (1): `google/protobuf/go_features.proto`
 
 ### File Content
 
@@ -69733,8 +67633,7 @@ enum MiddlewareType {
 
 **Package**: `gcommon.v1.web` **Lines**: 26
 
-**Messages** (1): `MimeType` **Imports** (1):
-`google/protobuf/go_features.proto`
+**Messages** (1): `MimeType` **Imports** (1): `google/protobuf/go_features.proto`
 
 ### File Content
 
@@ -69775,8 +67674,7 @@ message MimeType {
 
 **Package**: `gcommon.v1.web` **Lines**: 28
 
-**Messages** (1): `PerformanceStats` **Imports** (1):
-`google/protobuf/go_features.proto`
+**Messages** (1): `PerformanceStats` **Imports** (1): `google/protobuf/go_features.proto`
 
 ### File Content
 
@@ -69819,9 +67717,7 @@ message PerformanceStats {
 
 **Package**: `gcommon.v1.web` **Lines**: 34
 
-**Messages** (1): `ProxyConfig` **Imports** (4):
-`google/protobuf/duration.proto`, `google/protobuf/go_features.proto`,
-`pkg/web/proto/http_header.proto`, `pkg/web/proto/proxy_type.proto`
+**Messages** (1): `ProxyConfig` **Imports** (4): `google/protobuf/duration.proto`, `google/protobuf/go_features.proto`, `pkg/web/proto/http_header.proto`, `pkg/web/proto/proxy_type.proto`
 
 ### File Content
 
@@ -69906,8 +67802,7 @@ enum ProxyType {
 
 **Package**: `gcommon.v1.web` **Lines**: 35
 
-**Messages** (1): `RateLimitConfig` **Imports** (2):
-`google/protobuf/go_features.proto`, `pkg/web/proto/rate_limit_strategy.proto`
+**Messages** (1): `RateLimitConfig` **Imports** (2): `google/protobuf/go_features.proto`, `pkg/web/proto/rate_limit_strategy.proto`
 
 ### File Content
 
@@ -69957,8 +67852,7 @@ message RateLimitConfig {
 
 **Package**: `gcommon.v1.web` **Lines**: 22
 
-**Enums** (1): `RateLimitStrategy` **Imports** (1):
-`google/protobuf/go_features.proto`
+**Enums** (1): `RateLimitStrategy` **Imports** (1): `google/protobuf/go_features.proto`
 
 ### File Content
 
@@ -69995,8 +67889,7 @@ enum RateLimitStrategy {
 
 **Package**: `gcommon.v1.web` **Lines**: 18
 
-**Messages** (1): `RegisterHandlerRequest` **Imports** (1):
-`google/protobuf/go_features.proto`
+**Messages** (1): `RegisterHandlerRequest` **Imports** (1): `google/protobuf/go_features.proto`
 
 ### ⚠️ Issues Found (1)
 
@@ -70033,8 +67926,7 @@ message RegisterHandlerRequest {
 
 **Package**: `gcommon.v1.web` **Lines**: 18
 
-**Messages** (1): `RegisterHandlerResponse` **Imports** (1):
-`google/protobuf/go_features.proto`
+**Messages** (1): `RegisterHandlerResponse` **Imports** (1): `google/protobuf/go_features.proto`
 
 ### ⚠️ Issues Found (1)
 
@@ -70071,9 +67963,7 @@ message RegisterHandlerResponse {
 
 **Package**: `gcommon.v1.web` **Lines**: 27
 
-**Messages** (1): `RegisterMiddlewareRequest` **Imports** (3):
-`google/protobuf/go_features.proto`, `pkg/common/proto/request_metadata.proto`,
-`pkg/web/proto/middleware_config.proto`
+**Messages** (1): `RegisterMiddlewareRequest` **Imports** (3): `google/protobuf/go_features.proto`, `pkg/common/proto/request_metadata.proto`, `pkg/web/proto/middleware_config.proto`
 
 ### File Content
 
@@ -70115,9 +68005,7 @@ message RegisterMiddlewareRequest {
 
 **Package**: `gcommon.v1.web` **Lines**: 27
 
-**Messages** (1): `RegisterMiddlewareResponse` **Imports** (3):
-`google/protobuf/go_features.proto`, `pkg/common/proto/error.proto`,
-`pkg/web/proto/middleware_info.proto`
+**Messages** (1): `RegisterMiddlewareResponse` **Imports** (3): `google/protobuf/go_features.proto`, `pkg/common/proto/error.proto`, `pkg/web/proto/middleware_info.proto`
 
 ### File Content
 
@@ -70159,8 +68047,7 @@ message RegisterMiddlewareResponse {
 
 **Package**: `gcommon.v1.web` **Lines**: 18
 
-**Messages** (1): `RegisterRouteRequest` **Imports** (1):
-`google/protobuf/go_features.proto`
+**Messages** (1): `RegisterRouteRequest` **Imports** (1): `google/protobuf/go_features.proto`
 
 ### ⚠️ Issues Found (1)
 
@@ -70197,8 +68084,7 @@ message RegisterRouteRequest {
 
 **Package**: `gcommon.v1.web` **Lines**: 18
 
-**Messages** (1): `RegisterRouteResponse` **Imports** (1):
-`google/protobuf/go_features.proto`
+**Messages** (1): `RegisterRouteResponse` **Imports** (1): `google/protobuf/go_features.proto`
 
 ### ⚠️ Issues Found (1)
 
@@ -70235,14 +68121,11 @@ message RegisterRouteResponse {
 
 **Package**: `gcommon.v1.web` **Lines**: 42
 
-**Messages** (1): `ReloadServerConfigRequest` **Imports** (3):
-`google/protobuf/go_features.proto`, `google/protobuf/timestamp.proto`,
-`pkg/common/proto/request_metadata.proto`
+**Messages** (1): `ReloadServerConfigRequest` **Imports** (3): `google/protobuf/go_features.proto`, `google/protobuf/timestamp.proto`, `pkg/common/proto/request_metadata.proto`
 
 ### ⚠️ Issues Found (1)
 
-- Line 20: Implementation needed - \* Auto-generated placeholder - implement
-  specific fields as needed.
+- Line 20: Implementation needed - \* Auto-generated placeholder - implement specific fields as needed.
 
 ### File Content
 
@@ -70299,14 +68182,11 @@ message ReloadServerConfigRequest {
 
 **Package**: `gcommon.v1.web` **Lines**: 56
 
-**Messages** (1): `ReloadServerConfigResponse` **Imports** (4):
-`google/protobuf/go_features.proto`, `google/protobuf/timestamp.proto`,
-`pkg/common/proto/error.proto`, `pkg/common/proto/request_metadata.proto`
+**Messages** (1): `ReloadServerConfigResponse` **Imports** (4): `google/protobuf/go_features.proto`, `google/protobuf/timestamp.proto`, `pkg/common/proto/error.proto`, `pkg/common/proto/request_metadata.proto`
 
 ### ⚠️ Issues Found (1)
 
-- Line 21: Implementation needed - \* Auto-generated placeholder - implement
-  specific fields as needed.
+- Line 21: Implementation needed - \* Auto-generated placeholder - implement specific fields as needed.
 
 ### File Content
 
@@ -70377,14 +68257,11 @@ message ReloadServerConfigResponse {
 
 **Package**: `gcommon.v1.web` **Lines**: 42
 
-**Messages** (1): `RemoveMiddlewareRequest` **Imports** (3):
-`google/protobuf/go_features.proto`, `google/protobuf/timestamp.proto`,
-`pkg/common/proto/request_metadata.proto`
+**Messages** (1): `RemoveMiddlewareRequest` **Imports** (3): `google/protobuf/go_features.proto`, `google/protobuf/timestamp.proto`, `pkg/common/proto/request_metadata.proto`
 
 ### ⚠️ Issues Found (1)
 
-- Line 20: Implementation needed - \* Auto-generated placeholder - implement
-  specific fields as needed.
+- Line 20: Implementation needed - \* Auto-generated placeholder - implement specific fields as needed.
 
 ### File Content
 
@@ -70441,14 +68318,11 @@ message RemoveMiddlewareRequest {
 
 **Package**: `gcommon.v1.web` **Lines**: 56
 
-**Messages** (1): `RemoveMiddlewareResponse` **Imports** (4):
-`google/protobuf/go_features.proto`, `google/protobuf/timestamp.proto`,
-`pkg/common/proto/error.proto`, `pkg/common/proto/request_metadata.proto`
+**Messages** (1): `RemoveMiddlewareResponse` **Imports** (4): `google/protobuf/go_features.proto`, `google/protobuf/timestamp.proto`, `pkg/common/proto/error.proto`, `pkg/common/proto/request_metadata.proto`
 
 ### ⚠️ Issues Found (1)
 
-- Line 21: Implementation needed - \* Auto-generated placeholder - implement
-  specific fields as needed.
+- Line 21: Implementation needed - \* Auto-generated placeholder - implement specific fields as needed.
 
 ### File Content
 
@@ -70519,8 +68393,7 @@ message RemoveMiddlewareResponse {
 
 **Package**: `gcommon.v1.web` **Lines**: 18
 
-**Messages** (1): `RenderTemplateRequest` **Imports** (1):
-`google/protobuf/go_features.proto`
+**Messages** (1): `RenderTemplateRequest` **Imports** (1): `google/protobuf/go_features.proto`
 
 ### ⚠️ Issues Found (1)
 
@@ -70557,8 +68430,7 @@ message RenderTemplateRequest {
 
 **Package**: `gcommon.v1.web` **Lines**: 18
 
-**Messages** (1): `RenderTemplateResponse` **Imports** (1):
-`google/protobuf/go_features.proto`
+**Messages** (1): `RenderTemplateResponse` **Imports** (1): `google/protobuf/go_features.proto`
 
 ### ⚠️ Issues Found (1)
 
@@ -70595,8 +68467,7 @@ message RenderTemplateResponse {
 
 **Package**: `gcommon.v1.web` **Lines**: 18
 
-**Messages** (1): `ResetStatsRequest` **Imports** (1):
-`google/protobuf/go_features.proto`
+**Messages** (1): `ResetStatsRequest` **Imports** (1): `google/protobuf/go_features.proto`
 
 ### ⚠️ Issues Found (1)
 
@@ -70633,8 +68504,7 @@ message ResetStatsRequest {
 
 **Package**: `gcommon.v1.web` **Lines**: 18
 
-**Messages** (1): `ResetStatsResponse` **Imports** (1):
-`google/protobuf/go_features.proto`
+**Messages** (1): `ResetStatsResponse` **Imports** (1): `google/protobuf/go_features.proto`
 
 ### ⚠️ Issues Found (1)
 
@@ -70671,8 +68541,7 @@ message ResetStatsResponse {
 
 **Package**: `gcommon.v1.web` **Lines**: 18
 
-**Messages** (1): `RestartServerRequest` **Imports** (1):
-`google/protobuf/go_features.proto`
+**Messages** (1): `RestartServerRequest` **Imports** (1): `google/protobuf/go_features.proto`
 
 ### ⚠️ Issues Found (1)
 
@@ -70709,8 +68578,7 @@ message RestartServerRequest {
 
 **Package**: `gcommon.v1.web` **Lines**: 18
 
-**Messages** (1): `RestartServerResponse` **Imports** (1):
-`google/protobuf/go_features.proto`
+**Messages** (1): `RestartServerResponse` **Imports** (1): `google/protobuf/go_features.proto`
 
 ### ⚠️ Issues Found (1)
 
@@ -70747,9 +68615,7 @@ message RestartServerResponse {
 
 **Package**: `gcommon.v1.web` **Lines**: 36
 
-**Messages** (1): `RouteConfig` **Imports** (3):
-`google/protobuf/go_features.proto`, `pkg/web/proto/handler_type.proto`,
-`pkg/web/proto/http_method.proto`
+**Messages** (1): `RouteConfig` **Imports** (3): `google/protobuf/go_features.proto`, `pkg/web/proto/handler_type.proto`, `pkg/web/proto/http_method.proto`
 
 ### File Content
 
@@ -70800,9 +68666,7 @@ message RouteConfig {
 
 **Package**: `gcommon.v1.web` **Lines**: 31
 
-**Messages** (1): `RouteInfo` **Imports** (4):
-`google/protobuf/go_features.proto`, `google/protobuf/timestamp.proto`,
-`pkg/web/proto/route_config.proto`, `pkg/web/proto/route_type.proto`
+**Messages** (1): `RouteInfo` **Imports** (4): `google/protobuf/go_features.proto`, `google/protobuf/timestamp.proto`, `pkg/web/proto/route_config.proto`, `pkg/web/proto/route_type.proto`
 
 ### File Content
 
@@ -70884,8 +68748,7 @@ enum RouteType {
 
 **Package**: `gcommon.v1.web` **Lines**: 31
 
-**Enums** (1): `SameSitePolicy` **Imports** (1):
-`google/protobuf/go_features.proto`
+**Enums** (1): `SameSitePolicy` **Imports** (1): `google/protobuf/go_features.proto`
 
 ### File Content
 
@@ -70931,8 +68794,7 @@ enum SameSitePolicy {
 
 **Package**: `gcommon.v1.web` **Lines**: 30
 
-**Messages** (1): `SecurityConfig` **Imports** (2):
-`google/protobuf/go_features.proto`, `pkg/web/proto/tls_config.proto`
+**Messages** (1): `SecurityConfig` **Imports** (2): `google/protobuf/go_features.proto`, `pkg/web/proto/tls_config.proto`
 
 ### File Content
 
@@ -70977,8 +68839,7 @@ message SecurityConfig {
 
 **Package**: `gcommon.v1.web` **Lines**: 18
 
-**Messages** (1): `SendWebsocketMessageRequest` **Imports** (1):
-`google/protobuf/go_features.proto`
+**Messages** (1): `SendWebsocketMessageRequest` **Imports** (1): `google/protobuf/go_features.proto`
 
 ### ⚠️ Issues Found (1)
 
@@ -71015,8 +68876,7 @@ message SendWebsocketMessageRequest {
 
 **Package**: `gcommon.v1.web` **Lines**: 18
 
-**Messages** (1): `SendWebsocketMessageResponse` **Imports** (1):
-`google/protobuf/go_features.proto`
+**Messages** (1): `SendWebsocketMessageResponse` **Imports** (1): `google/protobuf/go_features.proto`
 
 ### ⚠️ Issues Found (1)
 
@@ -71053,8 +68913,7 @@ message SendWebsocketMessageResponse {
 
 **Package**: `gcommon.v1.web` **Lines**: 18
 
-**Messages** (1): `ServeStaticRequest` **Imports** (1):
-`google/protobuf/go_features.proto`
+**Messages** (1): `ServeStaticRequest` **Imports** (1): `google/protobuf/go_features.proto`
 
 ### ⚠️ Issues Found (1)
 
@@ -71091,8 +68950,7 @@ message ServeStaticRequest {
 
 **Package**: `gcommon.v1.web` **Lines**: 18
 
-**Messages** (1): `ServeStaticResponse` **Imports** (1):
-`google/protobuf/go_features.proto`
+**Messages** (1): `ServeStaticResponse` **Imports** (1): `google/protobuf/go_features.proto`
 
 ### ⚠️ Issues Found (1)
 
@@ -71129,8 +68987,7 @@ message ServeStaticResponse {
 
 **Package**: `gcommon.v1.web` **Lines**: 38
 
-**Messages** (1): `ServerConfig` **Imports** (1):
-`google/protobuf/go_features.proto`
+**Messages** (1): `ServerConfig` **Imports** (1): `google/protobuf/go_features.proto`
 
 ### File Content
 
@@ -71183,14 +69040,11 @@ message ServerConfig {
 
 **Package**: `gcommon.v1.web` **Lines**: 57
 
-**Messages** (1): `ServerEvent` **Imports** (4): `google/protobuf/any.proto`,
-`google/protobuf/go_features.proto`, `google/protobuf/timestamp.proto`,
-`pkg/common/proto/request_metadata.proto`
+**Messages** (1): `ServerEvent` **Imports** (4): `google/protobuf/any.proto`, `google/protobuf/go_features.proto`, `google/protobuf/timestamp.proto`, `pkg/common/proto/request_metadata.proto`
 
 ### ⚠️ Issues Found (1)
 
-- Line 21: Implementation needed - \* Auto-generated placeholder - implement
-  specific fields as needed.
+- Line 21: Implementation needed - \* Auto-generated placeholder - implement specific fields as needed.
 
 ### File Content
 
@@ -71262,8 +69116,7 @@ message ServerEvent {
 
 **Package**: `gcommon.v1.web` **Lines**: 22
 
-**Enums** (1): `ServerState` **Imports** (1):
-`google/protobuf/go_features.proto`
+**Enums** (1): `ServerState` **Imports** (1): `google/protobuf/go_features.proto`
 
 ### File Content
 
@@ -71300,8 +69153,7 @@ enum ServerState {
 
 **Package**: `gcommon.v1.web` **Lines**: 24
 
-**Enums** (1): `ServerStatus` **Imports** (1):
-`google/protobuf/go_features.proto`
+**Enums** (1): `ServerStatus` **Imports** (1): `google/protobuf/go_features.proto`
 
 ### File Content
 
@@ -71340,9 +69192,7 @@ enum ServerStatus {
 
 **Package**: `gcommon.v1.web` **Lines**: 36
 
-**Messages** (1): `SessionConfig` **Imports** (3):
-`google/protobuf/duration.proto`, `google/protobuf/go_features.proto`,
-`pkg/web/proto/cookie_same_site.proto`
+**Messages** (1): `SessionConfig` **Imports** (3): `google/protobuf/duration.proto`, `google/protobuf/go_features.proto`, `pkg/web/proto/cookie_same_site.proto`
 
 ### File Content
 
@@ -71393,9 +69243,7 @@ message SessionConfig {
 
 **Package**: `gcommon.v1.web` **Lines**: 45
 
-**Messages** (1): `SessionData` **Imports** (3):
-`google/protobuf/go_features.proto`, `google/protobuf/timestamp.proto`,
-`pkg/web/proto/session_state.proto`
+**Messages** (1): `SessionData` **Imports** (3): `google/protobuf/go_features.proto`, `google/protobuf/timestamp.proto`, `pkg/web/proto/session_state.proto`
 
 ### File Content
 
@@ -71455,8 +69303,7 @@ message SessionData {
 
 **Package**: `gcommon.v1.web` **Lines**: 21
 
-**Enums** (1): `SessionState` **Imports** (1):
-`google/protobuf/go_features.proto`
+**Enums** (1): `SessionState` **Imports** (1): `google/protobuf/go_features.proto`
 
 ### File Content
 
@@ -71492,8 +69339,7 @@ enum SessionState {
 
 **Package**: `gcommon.v1.web` **Lines**: 32
 
-**Messages** (1): `SslConfig` **Imports** (2):
-`google/protobuf/go_features.proto`, `pkg/web/proto/ssl_protocol.proto`
+**Messages** (1): `SslConfig` **Imports** (2): `google/protobuf/go_features.proto`, `pkg/web/proto/ssl_protocol.proto`
 
 ### File Content
 
@@ -71540,8 +69386,7 @@ message SslConfig {
 
 **Package**: `gcommon.v1.web` **Lines**: 22
 
-**Enums** (1): `SSLProtocol` **Imports** (1):
-`google/protobuf/go_features.proto`
+**Enums** (1): `SSLProtocol` **Imports** (1): `google/protobuf/go_features.proto`
 
 ### File Content
 
@@ -71578,8 +69423,7 @@ enum SSLProtocol {
 
 **Package**: `gcommon.v1.web` **Lines**: 23
 
-**Messages** (1): `StartServerRequest` **Imports** (2):
-`google/protobuf/go_features.proto`, `pkg/common/proto/request_metadata.proto`
+**Messages** (1): `StartServerRequest` **Imports** (2): `google/protobuf/go_features.proto`, `pkg/common/proto/request_metadata.proto`
 
 ### File Content
 
@@ -71617,9 +69461,7 @@ message StartServerRequest {
 
 **Package**: `gcommon.v1.web` **Lines**: 30
 
-**Messages** (1): `StartServerResponse` **Imports** (3):
-`google/protobuf/go_features.proto`, `pkg/common/proto/error.proto`,
-`pkg/web/proto/server_status.proto`
+**Messages** (1): `StartServerResponse` **Imports** (3): `google/protobuf/go_features.proto`, `pkg/common/proto/error.proto`, `pkg/web/proto/server_status.proto`
 
 ### File Content
 
@@ -71664,8 +69506,7 @@ message StartServerResponse {
 
 **Package**: `gcommon.v1.web` **Lines**: 25
 
-**Messages** (1): `StaticConfig` **Imports** (1):
-`google/protobuf/go_features.proto`
+**Messages** (1): `StaticConfig` **Imports** (1): `google/protobuf/go_features.proto`
 
 ### File Content
 
@@ -71705,8 +69546,7 @@ message StaticConfig {
 
 **Package**: `gcommon.v1.web` **Lines**: 18
 
-**Messages** (1): `StopServerRequest` **Imports** (1):
-`google/protobuf/go_features.proto`
+**Messages** (1): `StopServerRequest` **Imports** (1): `google/protobuf/go_features.proto`
 
 ### ⚠️ Issues Found (1)
 
@@ -71743,8 +69583,7 @@ message StopServerRequest {
 
 **Package**: `gcommon.v1.web` **Lines**: 18
 
-**Messages** (1): `StopServerResponse` **Imports** (1):
-`google/protobuf/go_features.proto`
+**Messages** (1): `StopServerResponse` **Imports** (1): `google/protobuf/go_features.proto`
 
 ### ⚠️ Issues Found (1)
 
@@ -71781,14 +69620,11 @@ message StopServerResponse {
 
 **Package**: `gcommon.v1.web` **Lines**: 42
 
-**Messages** (1): `StreamServerEventsRequest` **Imports** (3):
-`google/protobuf/go_features.proto`, `google/protobuf/timestamp.proto`,
-`pkg/common/proto/request_metadata.proto`
+**Messages** (1): `StreamServerEventsRequest` **Imports** (3): `google/protobuf/go_features.proto`, `google/protobuf/timestamp.proto`, `pkg/common/proto/request_metadata.proto`
 
 ### ⚠️ Issues Found (1)
 
-- Line 20: Implementation needed - \* Auto-generated placeholder - implement
-  specific fields as needed.
+- Line 20: Implementation needed - \* Auto-generated placeholder - implement specific fields as needed.
 
 ### File Content
 
@@ -71845,8 +69681,7 @@ message StreamServerEventsRequest {
 
 **Package**: `gcommon.v1.web` **Lines**: 28
 
-**Messages** (1): `TemplateConfig` **Imports** (1):
-`google/protobuf/go_features.proto`
+**Messages** (1): `TemplateConfig` **Imports** (1): `google/protobuf/go_features.proto`
 
 ### File Content
 
@@ -71889,8 +69724,7 @@ message TemplateConfig {
 
 **Package**: `gcommon.v1.web` **Lines**: 30
 
-**Messages** (1): `TemplateData` **Imports** (3): `google/protobuf/any.proto`,
-`google/protobuf/go_features.proto`, `google/protobuf/timestamp.proto`
+**Messages** (1): `TemplateData` **Imports** (3): `google/protobuf/any.proto`, `google/protobuf/go_features.proto`, `google/protobuf/timestamp.proto`
 
 ### File Content
 
@@ -71935,8 +69769,7 @@ message TemplateData {
 
 **Package**: `gcommon.v1.web` **Lines**: 32
 
-**Messages** (1): `TimeoutConfig` **Imports** (2):
-`google/protobuf/duration.proto`, `google/protobuf/go_features.proto`
+**Messages** (1): `TimeoutConfig` **Imports** (2): `google/protobuf/duration.proto`, `google/protobuf/go_features.proto`
 
 ### File Content
 
@@ -71983,8 +69816,7 @@ message TimeoutConfig {
 
 **Package**: `gcommon.v1.web` **Lines**: 68
 
-**Messages** (1): `TLSConfig` **Imports** (1):
-`google/protobuf/go_features.proto`
+**Messages** (1): `TLSConfig` **Imports** (1): `google/protobuf/go_features.proto`
 
 ### File Content
 
@@ -72067,8 +69899,7 @@ message TLSConfig {
 
 **Package**: `gcommon.v1.web` **Lines**: 18
 
-**Messages** (1): `UnregisterHandlerRequest` **Imports** (1):
-`google/protobuf/go_features.proto`
+**Messages** (1): `UnregisterHandlerRequest` **Imports** (1): `google/protobuf/go_features.proto`
 
 ### ⚠️ Issues Found (1)
 
@@ -72105,8 +69936,7 @@ message UnregisterHandlerRequest {
 
 **Package**: `gcommon.v1.web` **Lines**: 18
 
-**Messages** (1): `UnregisterHandlerResponse` **Imports** (1):
-`google/protobuf/go_features.proto`
+**Messages** (1): `UnregisterHandlerResponse` **Imports** (1): `google/protobuf/go_features.proto`
 
 ### ⚠️ Issues Found (1)
 
@@ -72143,8 +69973,7 @@ message UnregisterHandlerResponse {
 
 **Package**: `gcommon.v1.web` **Lines**: 26
 
-**Messages** (1): `UnregisterMiddlewareRequest` **Imports** (2):
-`google/protobuf/go_features.proto`, `pkg/common/proto/request_metadata.proto`
+**Messages** (1): `UnregisterMiddlewareRequest` **Imports** (2): `google/protobuf/go_features.proto`, `pkg/common/proto/request_metadata.proto`
 
 ### File Content
 
@@ -72185,8 +70014,7 @@ message UnregisterMiddlewareRequest {
 
 **Package**: `gcommon.v1.web` **Lines**: 23
 
-**Messages** (1): `UnregisterMiddlewareResponse` **Imports** (2):
-`google/protobuf/go_features.proto`, `pkg/common/proto/error.proto`
+**Messages** (1): `UnregisterMiddlewareResponse` **Imports** (2): `google/protobuf/go_features.proto`, `pkg/common/proto/error.proto`
 
 ### File Content
 
@@ -72224,8 +70052,7 @@ message UnregisterMiddlewareResponse {
 
 **Package**: `gcommon.v1.web` **Lines**: 18
 
-**Messages** (1): `UnregisterRouteRequest` **Imports** (1):
-`google/protobuf/go_features.proto`
+**Messages** (1): `UnregisterRouteRequest` **Imports** (1): `google/protobuf/go_features.proto`
 
 ### ⚠️ Issues Found (1)
 
@@ -72262,8 +70089,7 @@ message UnregisterRouteRequest {
 
 **Package**: `gcommon.v1.web` **Lines**: 18
 
-**Messages** (1): `UnregisterRouteResponse` **Imports** (1):
-`google/protobuf/go_features.proto`
+**Messages** (1): `UnregisterRouteResponse` **Imports** (1): `google/protobuf/go_features.proto`
 
 ### ⚠️ Issues Found (1)
 
@@ -72300,9 +70126,7 @@ message UnregisterRouteResponse {
 
 **Package**: `gcommon.v1.web` **Lines**: 23
 
-**Messages** (1): `UpdateCacheConfigRequest` **Imports** (3):
-`google/protobuf/go_features.proto`, `pkg/common/proto/request_metadata.proto`,
-`pkg/web/proto/cache_config.proto`
+**Messages** (1): `UpdateCacheConfigRequest` **Imports** (3): `google/protobuf/go_features.proto`, `pkg/common/proto/request_metadata.proto`, `pkg/web/proto/cache_config.proto`
 
 ### File Content
 
@@ -72340,8 +70164,7 @@ message UpdateCacheConfigRequest {
 
 **Package**: `gcommon.v1.web` **Lines**: 22
 
-**Messages** (1): `UpdateCacheConfigResponse` **Imports** (2):
-`google/protobuf/go_features.proto`, `pkg/common/proto/request_metadata.proto`
+**Messages** (1): `UpdateCacheConfigResponse` **Imports** (2): `google/protobuf/go_features.proto`, `pkg/common/proto/request_metadata.proto`
 
 ### File Content
 
@@ -72378,8 +70201,7 @@ message UpdateCacheConfigResponse {
 
 **Package**: `gcommon.v1.web` **Lines**: 18
 
-**Messages** (1): `UpdateCookieRequest` **Imports** (1):
-`google/protobuf/go_features.proto`
+**Messages** (1): `UpdateCookieRequest` **Imports** (1): `google/protobuf/go_features.proto`
 
 ### ⚠️ Issues Found (1)
 
@@ -72416,8 +70238,7 @@ message UpdateCookieRequest {
 
 **Package**: `gcommon.v1.web` **Lines**: 18
 
-**Messages** (1): `UpdateCookieResponse` **Imports** (1):
-`google/protobuf/go_features.proto`
+**Messages** (1): `UpdateCookieResponse` **Imports** (1): `google/protobuf/go_features.proto`
 
 ### ⚠️ Issues Found (1)
 
@@ -72454,8 +70275,7 @@ message UpdateCookieResponse {
 
 **Package**: `gcommon.v1.web` **Lines**: 18
 
-**Messages** (1): `UpdateCorsConfigRequest` **Imports** (1):
-`google/protobuf/go_features.proto`
+**Messages** (1): `UpdateCorsConfigRequest` **Imports** (1): `google/protobuf/go_features.proto`
 
 ### ⚠️ Issues Found (1)
 
@@ -72492,8 +70312,7 @@ message UpdateCorsConfigRequest {
 
 **Package**: `gcommon.v1.web` **Lines**: 18
 
-**Messages** (1): `UpdateCorsConfigResponse` **Imports** (1):
-`google/protobuf/go_features.proto`
+**Messages** (1): `UpdateCorsConfigResponse` **Imports** (1): `google/protobuf/go_features.proto`
 
 ### ⚠️ Issues Found (1)
 
@@ -72530,8 +70349,7 @@ message UpdateCorsConfigResponse {
 
 **Package**: `gcommon.v1.web` **Lines**: 18
 
-**Messages** (1): `UpdateHandlerConfigRequest` **Imports** (1):
-`google/protobuf/go_features.proto`
+**Messages** (1): `UpdateHandlerConfigRequest` **Imports** (1): `google/protobuf/go_features.proto`
 
 ### ⚠️ Issues Found (1)
 
@@ -72568,8 +70386,7 @@ message UpdateHandlerConfigRequest {
 
 **Package**: `gcommon.v1.web` **Lines**: 18
 
-**Messages** (1): `UpdateHandlerConfigResponse` **Imports** (1):
-`google/protobuf/go_features.proto`
+**Messages** (1): `UpdateHandlerConfigResponse` **Imports** (1): `google/protobuf/go_features.proto`
 
 ### ⚠️ Issues Found (1)
 
@@ -72606,9 +70423,7 @@ message UpdateHandlerConfigResponse {
 
 **Package**: `gcommon.v1.web` **Lines**: 25
 
-**Messages** (1): `UpdateMiddlewareConfigRequest` **Imports** (3):
-`google/protobuf/go_features.proto`, `pkg/common/proto/request_metadata.proto`,
-`pkg/web/proto/middleware_config.proto`
+**Messages** (1): `UpdateMiddlewareConfigRequest` **Imports** (3): `google/protobuf/go_features.proto`, `pkg/common/proto/request_metadata.proto`, `pkg/web/proto/middleware_config.proto`
 
 ### File Content
 
@@ -72648,8 +70463,7 @@ message UpdateMiddlewareConfigRequest {
 
 **Package**: `gcommon.v1.web` **Lines**: 24
 
-**Messages** (1): `UpdateMiddlewareConfigResponse` **Imports** (2):
-`google/protobuf/go_features.proto`, `pkg/common/proto/response_metadata.proto`
+**Messages** (1): `UpdateMiddlewareConfigResponse` **Imports** (2): `google/protobuf/go_features.proto`, `pkg/common/proto/response_metadata.proto`
 
 ### File Content
 
@@ -72688,8 +70502,7 @@ message UpdateMiddlewareConfigResponse {
 
 **Package**: `gcommon.v1.web` **Lines**: 18
 
-**Messages** (1): `UpdateRouteConfigRequest` **Imports** (1):
-`google/protobuf/go_features.proto`
+**Messages** (1): `UpdateRouteConfigRequest` **Imports** (1): `google/protobuf/go_features.proto`
 
 ### ⚠️ Issues Found (1)
 
@@ -72726,8 +70539,7 @@ message UpdateRouteConfigRequest {
 
 **Package**: `gcommon.v1.web` **Lines**: 18
 
-**Messages** (1): `UpdateRouteConfigResponse` **Imports** (1):
-`google/protobuf/go_features.proto`
+**Messages** (1): `UpdateRouteConfigResponse` **Imports** (1): `google/protobuf/go_features.proto`
 
 ### ⚠️ Issues Found (1)
 
@@ -72764,8 +70576,7 @@ message UpdateRouteConfigResponse {
 
 **Package**: `gcommon.v1.web` **Lines**: 18
 
-**Messages** (1): `UpdateSecurityConfigRequest` **Imports** (1):
-`google/protobuf/go_features.proto`
+**Messages** (1): `UpdateSecurityConfigRequest` **Imports** (1): `google/protobuf/go_features.proto`
 
 ### ⚠️ Issues Found (1)
 
@@ -72802,8 +70613,7 @@ message UpdateSecurityConfigRequest {
 
 **Package**: `gcommon.v1.web` **Lines**: 18
 
-**Messages** (1): `UpdateSecurityConfigResponse` **Imports** (1):
-`google/protobuf/go_features.proto`
+**Messages** (1): `UpdateSecurityConfigResponse` **Imports** (1): `google/protobuf/go_features.proto`
 
 ### ⚠️ Issues Found (1)
 
@@ -72840,8 +70650,7 @@ message UpdateSecurityConfigResponse {
 
 **Package**: `gcommon.v1.web` **Lines**: 18
 
-**Messages** (1): `UpdateServerConfigRequest` **Imports** (1):
-`google/protobuf/go_features.proto`
+**Messages** (1): `UpdateServerConfigRequest` **Imports** (1): `google/protobuf/go_features.proto`
 
 ### ⚠️ Issues Found (1)
 
@@ -72878,8 +70687,7 @@ message UpdateServerConfigRequest {
 
 **Package**: `gcommon.v1.web` **Lines**: 18
 
-**Messages** (1): `UpdateServerConfigResponse` **Imports** (1):
-`google/protobuf/go_features.proto`
+**Messages** (1): `UpdateServerConfigResponse` **Imports** (1): `google/protobuf/go_features.proto`
 
 ### ⚠️ Issues Found (1)
 
@@ -72916,8 +70724,7 @@ message UpdateServerConfigResponse {
 
 **Package**: `gcommon.v1.web` **Lines**: 22
 
-**Messages** (1): `UpdateSessionRequest` **Imports** (1):
-`google/protobuf/go_features.proto`
+**Messages** (1): `UpdateSessionRequest` **Imports** (1): `google/protobuf/go_features.proto`
 
 ### File Content
 
@@ -72954,8 +70761,7 @@ message UpdateSessionRequest {
 
 **Package**: `gcommon.v1.web` **Lines**: 20
 
-**Messages** (1): `UpdateSessionResponse` **Imports** (2):
-`google/protobuf/go_features.proto`, `pkg/web/proto/session_data.proto`
+**Messages** (1): `UpdateSessionResponse` **Imports** (2): `google/protobuf/go_features.proto`, `pkg/web/proto/session_data.proto`
 
 ### File Content
 
@@ -72990,14 +70796,11 @@ message UpdateSessionResponse {
 
 **Package**: `gcommon.v1.web` **Lines**: 42
 
-**Messages** (1): `UpdateSSLCertificateRequest` **Imports** (3):
-`google/protobuf/go_features.proto`, `google/protobuf/timestamp.proto`,
-`pkg/common/proto/request_metadata.proto`
+**Messages** (1): `UpdateSSLCertificateRequest` **Imports** (3): `google/protobuf/go_features.proto`, `google/protobuf/timestamp.proto`, `pkg/common/proto/request_metadata.proto`
 
 ### ⚠️ Issues Found (1)
 
-- Line 20: Implementation needed - \* Auto-generated placeholder - implement
-  specific fields as needed.
+- Line 20: Implementation needed - \* Auto-generated placeholder - implement specific fields as needed.
 
 ### File Content
 
@@ -73054,14 +70857,11 @@ message UpdateSSLCertificateRequest {
 
 **Package**: `gcommon.v1.web` **Lines**: 56
 
-**Messages** (1): `UpdateSSLCertificateResponse` **Imports** (4):
-`google/protobuf/go_features.proto`, `google/protobuf/timestamp.proto`,
-`pkg/common/proto/error.proto`, `pkg/common/proto/request_metadata.proto`
+**Messages** (1): `UpdateSSLCertificateResponse` **Imports** (4): `google/protobuf/go_features.proto`, `google/protobuf/timestamp.proto`, `pkg/common/proto/error.proto`, `pkg/common/proto/request_metadata.proto`
 
 ### ⚠️ Issues Found (1)
 
-- Line 21: Implementation needed - \* Auto-generated placeholder - implement
-  specific fields as needed.
+- Line 21: Implementation needed - \* Auto-generated placeholder - implement specific fields as needed.
 
 ### File Content
 
@@ -73132,8 +70932,7 @@ message UpdateSSLCertificateResponse {
 
 **Package**: `gcommon.v1.web` **Lines**: 18
 
-**Messages** (1): `UploadFileRequest` **Imports** (1):
-`google/protobuf/go_features.proto`
+**Messages** (1): `UploadFileRequest` **Imports** (1): `google/protobuf/go_features.proto`
 
 ### ⚠️ Issues Found (1)
 
@@ -73170,8 +70969,7 @@ message UploadFileRequest {
 
 **Package**: `gcommon.v1.web` **Lines**: 18
 
-**Messages** (1): `UploadFileResponse` **Imports** (1):
-`google/protobuf/go_features.proto`
+**Messages** (1): `UploadFileResponse` **Imports** (1): `google/protobuf/go_features.proto`
 
 ### ⚠️ Issues Found (1)
 
@@ -73242,8 +71040,7 @@ message UrlPath {
 
 **Package**: `gcommon.v1.web` **Lines**: 18
 
-**Messages** (1): `ValidateCsrfTokenRequest` **Imports** (1):
-`google/protobuf/go_features.proto`
+**Messages** (1): `ValidateCsrfTokenRequest` **Imports** (1): `google/protobuf/go_features.proto`
 
 ### ⚠️ Issues Found (1)
 
@@ -73280,8 +71077,7 @@ message ValidateCsrfTokenRequest {
 
 **Package**: `gcommon.v1.web` **Lines**: 18
 
-**Messages** (1): `ValidateCsrfTokenResponse` **Imports** (1):
-`google/protobuf/go_features.proto`
+**Messages** (1): `ValidateCsrfTokenResponse` **Imports** (1): `google/protobuf/go_features.proto`
 
 ### ⚠️ Issues Found (1)
 
@@ -73318,13 +71114,8 @@ message ValidateCsrfTokenResponse {
 
 **Package**: `gcommon.v1.web` **Lines**: 35
 
-**Services** (1): `WebAdminService` **Imports** (7):
-`google/protobuf/go_features.proto`, `pkg/web/proto/flush_cache_request.proto`,
-`pkg/web/proto/flush_cache_response.proto`,
-`pkg/web/proto/get_cache_config_request.proto`,
-`pkg/web/proto/get_cache_config_response.proto`,
-`pkg/web/proto/update_cache_config_request.proto`,
-`pkg/web/proto/update_cache_config_response.proto`
+**Services** (1): `WebAdminService` **Imports** (7): `google/protobuf/go_features.proto`, `pkg/web/proto/flush_cache_request.proto`, `pkg/web/proto/flush_cache_response.proto`, `pkg/web/proto/get_cache_config_request.proto`,
+`pkg/web/proto/get_cache_config_response.proto`, `pkg/web/proto/update_cache_config_request.proto`, `pkg/web/proto/update_cache_config_response.proto`
 
 ### File Content
 
@@ -73374,8 +71165,7 @@ service WebAdminService {
 
 **Package**: `gcommon.v1.web` **Lines**: 33
 
-**Services** (1): `HTTPGatewayService` **Imports** (1):
-`google/protobuf/go_features.proto`
+**Services** (1): `HTTPGatewayService` **Imports** (1): `google/protobuf/go_features.proto`
 
 ### File Content
 
@@ -73423,8 +71213,7 @@ option go_package = "github.com/jdfalk/gcommon/pkg/web/proto";
 
 **Package**: `gcommon.v1.web` **Lines**: 31
 
-**Messages** (1): `WebsocketConfig` **Imports** (1):
-`google/protobuf/go_features.proto`
+**Messages** (1): `WebsocketConfig` **Imports** (1): `google/protobuf/go_features.proto`
 
 ### File Content
 
@@ -73470,8 +71259,7 @@ message WebsocketConfig {
 
 **Package**: `gcommon.v1.web` **Lines**: 29
 
-**Messages** (1): `WebsocketInfo` **Imports** (2):
-`google/protobuf/go_features.proto`, `google/protobuf/timestamp.proto`
+**Messages** (1): `WebsocketInfo` **Imports** (2): `google/protobuf/go_features.proto`, `google/protobuf/timestamp.proto`
 
 ### File Content
 
@@ -73515,8 +71303,7 @@ message WebsocketInfo {
 
 **Package**: `gcommon.v1.web` **Lines**: 29
 
-**Messages** (1): `WebsocketMessage` **Imports** (2):
-`google/protobuf/go_features.proto`, `google/protobuf/timestamp.proto`
+**Messages** (1): `WebsocketMessage` **Imports** (2): `google/protobuf/go_features.proto`, `google/protobuf/timestamp.proto`
 
 ### File Content
 
@@ -73560,8 +71347,7 @@ message WebsocketMessage {
 
 **Package**: `gcommon.v1.web` **Lines**: 22
 
-**Enums** (1): `WebSocketState` **Imports** (1):
-`google/protobuf/go_features.proto`
+**Enums** (1): `WebSocketState` **Imports** (1): `google/protobuf/go_features.proto`
 
 ### File Content
 

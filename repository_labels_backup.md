@@ -4,8 +4,7 @@
 
 # Repository Labels
 
-This document provides a comprehensive overview of all labels across our
-repositories, organized by repository and categorized by type.
+This document provides a comprehensive overview of all labels across our repositories, organized by repository and categorized by type.
 
 ## gcommon
 

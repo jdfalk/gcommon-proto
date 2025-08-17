@@ -13,7 +13,7 @@
     - [Completing Work](#completing-work)
 - [Close issue and mark completed](#close-issue-and-mark-completed)
 - [Or manually](#or-manually)
-    - [Using scripts/create-issue-update.sh](#using-scripts-create-issue-update-sh)
+  - [Using scripts/create-issue-update.sh](#using-scripts-create-issue-update-sh)
 - [Create a new issue](#create-a-new-issue)
 - [Update an existing issue](#update-an-existing-issue)
 - [Add a comment to an issue](#add-a-comment-to-an-issue)
@@ -43,8 +43,8 @@
 - [Run all tests](#run-all-tests)
 - [Run tests for specific module](#run-tests-for-specific-module)
 - [Run tests with coverage](#run-tests-with-coverage)
-    - [Writing Tests](#writing-tests)
-    - [Test Guidelines](#test-guidelines)
+  - [Writing Tests](#writing-tests)
+  - [Test Guidelines](#test-guidelines)
   - [🏗️ Development Workflow](#-development-workflow)
     - [Project Structure](#project-structure)
     - [Priority Areas for Contribution](#priority-areas-for-contribution)
@@ -98,8 +98,7 @@
 
 ## 📋 Issue Workflow
 
-**CRITICAL:** All development work must include proper GitHub issue tracking
-using our automated workflow.
+**CRITICAL:** All development work must include proper GitHub issue tracking using our automated workflow.
 
 ### Starting Work on an Issue
 
@@ -119,8 +118,7 @@ using our automated workflow.
 
 ### During Development
 
-- **Reference Issues:** Always include issue numbers in commit messages
-  (`#ISSUE_NUMBER`)
+- **Reference Issues:** Always include issue numbers in commit messages (`#ISSUE_NUMBER`)
 - **Progress Updates:** Add comments to issues for significant progress using:
   ```bash
   ./scripts/create-issue-update.sh comment ISSUE_NUMBER "Progress update text"
@@ -139,8 +137,7 @@ git add issue_updates.json && git commit -m "Complete issue #ISSUE_NUMBER: [What
 
 ### Using scripts/create-issue-update.sh
 
-The `scripts/create-issue-update.sh` script is the **required** way to manage
-GitHub issues programmatically:
+The `scripts/create-issue-update.sh` script is the **required** way to manage GitHub issues programmatically:
 
 ```bash
 # Create a new issue
@@ -187,8 +184,7 @@ GitHub issues programmatically:
 
 ### Protocol Buffers
 
-- Follow
-  [Google's Protocol Buffer Style Guide](https://developers.google.com/protocol-buffers/docs/style)
+- Follow [Google's Protocol Buffer Style Guide](https://developers.google.com/protocol-buffers/docs/style)
 - Use snake_case for field names
 - Use PascalCase for message and service names
 - Include comprehensive documentation for all messages and services
@@ -414,8 +410,7 @@ Current development priorities:
 3. **Documentation improvements**
 4. **Example applications**
 
-See [TODO.md](TODO.md) for detailed implementation status and
-[CHANGELOG.md](CHANGELOG.md) for technical architecture details.
+See [TODO.md](TODO.md) for detailed implementation status and [CHANGELOG.md](CHANGELOG.md) for technical architecture details.
 
 ### High-Impact Quick Wins
 
@@ -476,12 +471,10 @@ make compile
 
 ### Documentation
 
-- **[Getting Started Guide](docs/user/getting-started.md)** - Complete setup and
-  first steps
+- **[Getting Started Guide](docs/user/getting-started.md)** - Complete setup and first steps
 - **[Project Roadmap](TODO.md)** - Implementation status and plans
 - **[Technical Architecture](CHANGELOG.md)** - Detailed technical documentation
-- **[Issue Management Workflow](ISSUE_MANAGEMENT.md)** - Detailed issue
-  management process
+- **[Issue Management Workflow](ISSUE_MANAGEMENT.md)** - Detailed issue management process
 
 ### Module-Specific Guides
 
@@ -495,13 +488,11 @@ make compile
 - **📖 Documentation**: [docs/](docs/) directory
 - **💡 Examples**: [examples/](examples/) directory
 - **🐛 Issues**: [GitHub Issues](https://github.com/jdfalk/gcommon/issues)
-- **💬 Discussions**:
-  [GitHub Discussions](https://github.com/jdfalk/gcommon/discussions)
+- **💬 Discussions**: [GitHub Discussions](https://github.com/jdfalk/gcommon/discussions)
 
 ## 📄 License
 
-By contributing to GCommon, you agree that your contributions will be licensed
-under the [MIT License](LICENSE).
+By contributing to GCommon, you agree that your contributions will be licensed under the [MIT License](LICENSE).
 
 ---
 
