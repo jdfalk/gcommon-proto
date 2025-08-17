@@ -1,8 +1,8 @@
 # file: .github/dependabot.yml
-# version: 1.0.1
+# version: 1.1.0
 # guid: 5b1b7e5b-317a-470e-bf6f-fddf1c808ca0
 # Smart Dependabot configuration for gcommon
-# Automatically detected: go, python, nodejs, github-actions
+# Automatically detected: go, python, nodejs, rust, github-actions
 
 version: 2
 updates:
@@ -68,6 +68,24 @@ updates:
     labels:
       - "dependencies"
       - "go"
+    allow:
+      - dependency-type: direct
+      - dependency-type: indirect
+  - package-ecosystem: cargo
+    directory: /
+    schedule:
+      interval: weekly
+      day: thursday
+      time: 09:00
+      timezone: America/New_York
+    open-pull-requests-limit: 5
+    commit-message:
+      prefix: rust
+      include: scope
+    labels:
+      - "dependencies"
+      # NOTE: "tech:rust" label should be added to repository labels
+      # Using generic label until tech:rust is created
     allow:
       - dependency-type: direct
       - dependency-type: indirect
