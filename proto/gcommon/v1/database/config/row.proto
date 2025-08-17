@@ -1,0 +1,19 @@
+// file: proto/gcommon/v1/database/config/row.proto
+edition = "2023";
+
+package gcommon.v1.database.config;
+
+import "google/protobuf/any.proto";
+import "google/protobuf/go_features.proto";
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package gcommon.v1.database.config;
+
+/**
+ * Row represents a single row of data from a database result set.
+ * Contains column values in the same order as defined in ColumnMetadata.
+ */
+message Row {
+  // Column values in order matching the column metadata
+  repeated google.protobuf.Any values = 1 [lazy = true];
+}

@@ -1,0 +1,28 @@
+// file: proto/gcommon/v1/database/config/delete_response.proto
+// version: 1.0.0
+// guid: 9a0bcdef-12a3-4b5c-6d7e-8f9a0b1c2d3e
+
+edition = "2023";
+
+package gcommon.v1.database.config;
+
+import "google/protobuf/go_features.proto";
+import "proto/gcommon/v1/common/messages/error.proto";
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package gcommon.v1.database.config;
+
+/**
+ * Response for cache delete operations.
+ * Indicates success/failure of key deletion.
+ */
+message CacheDeleteResponse {
+  // Whether the key was successfully deleted
+  bool success = 1;
+
+  // Error details if deletion failed
+  gcommon.v1.common.Error error = 2;
+
+  // Number of keys that were actually deleted
+  int32 deleted_count = 3;
+}

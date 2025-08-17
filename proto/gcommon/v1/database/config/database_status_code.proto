@@ -1,0 +1,27 @@
+// file: proto/gcommon/v1/database/config/database_status_code.proto
+// version: 1.0.0
+// guid: 9849ce1c-df0e-418d-9de6-27b7b1b99d99
+
+edition = "2023";
+
+package gcommon.v1.database.config;
+
+import "google/protobuf/go_features.proto";
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package gcommon.v1.database.config;
+
+/**
+ * DatabaseStatusCode represents the health state of a database
+ * connection or service.
+ */
+enum DatabaseStatusCode {
+  // Default unspecified status
+  DATABASE_STATUS_CODE_UNSPECIFIED = 0;
+
+  // Database is reachable and operational
+  DATABASE_STATUS_CODE_OK = 1;
+
+  // Database is unreachable or returned an error
+  DATABASE_STATUS_CODE_ERROR = 2;
+}

@@ -1,0 +1,39 @@
+// file: proto/gcommon/v1/database/config/set_request.proto
+edition = "2023";
+
+package gcommon.v1.database.config;
+
+import "google/protobuf/any.proto";
+import "google/protobuf/duration.proto";
+import "google/protobuf/go_features.proto";
+import "proto/gcommon/v1/common/api/request_metadata.proto";
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package gcommon.v1.database.config;
+
+/**
+ * Request to store a value in the cache.
+ * Supports flexible expiration policies and namespace isolation.
+ */
+message SetRequest {
+  // Cache key to store
+  string key = 1;
+
+  // Value to store (supports any type)
+  google.protobuf.Any value = 2 [lazy = true];
+
+  // Optional namespace for cache isolation
+  string namespace = 3;
+
+  // Time-to-live for the cache entry (0 for no expiration)
+  google.protobuf.Duration ttl = 4 [lazy = true];
+
+  // Request metadata for tracing and correlation
+  gcommon.v1.common.RequestMetadata metadata = 5 [lazy = true];
+
+  // Whether to overwrite existing value
+  bool overwrite = 6;
+
+  // Entry metadata for extensibility
+  map<string, string> entry_metadata = 7 [lazy = true];
+}

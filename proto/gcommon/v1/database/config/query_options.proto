@@ -1,0 +1,32 @@
+// file: proto/gcommon/v1/database/config/query_options.proto
+edition = "2023";
+
+package gcommon.v1.database.config;
+
+import "google/protobuf/duration.proto";
+import "google/protobuf/go_features.proto";
+import "proto/gcommon/v1/database/messages/consistency_level.proto";
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package gcommon.v1.database.config;
+
+/**
+ * QueryOptions configures behavior for database query operations.
+ * Controls result limits, timeouts, and consistency requirements.
+ */
+message QueryOptions {
+  // Maximum number of rows to return
+  int32 limit = 1;
+
+  // Number of rows to skip for pagination
+  int32 offset = 2;
+
+  // Query execution timeout
+  google.protobuf.Duration timeout = 3 [lazy = true];
+
+  // Whether to include column metadata in response
+  bool include_metadata = 4;
+
+  // Read consistency level for the query
+  DatabaseConsistencyLevel consistency = 5;
+}

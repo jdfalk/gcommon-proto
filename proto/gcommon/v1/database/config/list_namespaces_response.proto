@@ -1,0 +1,31 @@
+// file: proto/gcommon/v1/database/config/list_namespaces_response.proto
+// version: 1.0.0
+// guid: 4b616806-7b7b-4186-94bf-981b0e229c1c
+
+edition = "2023";
+
+package gcommon.v1.database.config;
+
+import "google/protobuf/go_features.proto";
+import "google/protobuf/timestamp.proto";
+import "proto/gcommon/v1/database/messages/namespace_info.proto";
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package gcommon.v1.database.config;
+
+message ListNamespacesResponse {
+  // List of namespaces
+  repeated NamespaceInfo namespaces = 1;
+
+  // Total count
+  int32 total_count = 2;
+
+  // Current page
+  int32 page = 3;
+
+  // Page size
+  int32 page_size = 4;
+
+  // Total pages
+  int32 total_pages = 5;
+}

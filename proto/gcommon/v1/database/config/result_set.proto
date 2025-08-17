@@ -1,0 +1,29 @@
+// file: proto/gcommon/v1/database/config/result_set.proto
+edition = "2023";
+
+package gcommon.v1.database.config;
+
+import "google/protobuf/go_features.proto";
+import "proto/gcommon/v1/database/messages/column_metadata.proto";
+import "proto/gcommon/v1/database/messages/row.proto";
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package gcommon.v1.database.config;
+
+/**
+ * ResultSet contains the results of a database query operation.
+ * Includes column metadata, data rows, and pagination information.
+ */
+message ResultSet {
+  // Metadata for each column in the result set
+  repeated ColumnMetadata columns = 1 [lazy = true];
+
+  // Data rows matching the query
+  repeated Row rows = 2 [lazy = true];
+
+  // Total row count if known (for pagination)
+  int64 total_count = 3;
+
+  // Whether more rows are available beyond this result set
+  bool has_more = 4;
+}

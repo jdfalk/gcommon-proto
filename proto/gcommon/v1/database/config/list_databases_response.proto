@@ -1,0 +1,18 @@
+// file: proto/gcommon/v1/database/config/list_databases_response.proto
+edition = "2023";
+
+package gcommon.v1.database.config;
+
+import "google/protobuf/go_features.proto";
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package gcommon.v1.database.config;
+
+/**
+ * ListDatabasesResponse contains the list of available databases.
+ * Provides database names accessible to the authenticated user.
+ */
+message ListDatabasesResponse {
+  // List of database names
+  repeated string databases = 1;
+}

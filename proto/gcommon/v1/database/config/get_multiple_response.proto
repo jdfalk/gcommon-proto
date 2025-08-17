@@ -1,0 +1,28 @@
+// file: proto/gcommon/v1/database/config/get_multiple_response.proto
+// version: 1.0.0
+// guid: cd3ef456-567a-8b9c-0d1e-2f3a4b5c6d7e
+
+edition = "2023";
+
+package gcommon.v1.database.config;
+
+import "google/protobuf/go_features.proto";
+import "proto/gcommon/v1/common/messages/error.proto";
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package gcommon.v1.database.config;
+
+/**
+ * Response for multiple cache value retrieval.
+ * Contains a map of keys to their values or error information.
+ */
+message GetMultipleResponse {
+  // Map of key to value for successful retrievals
+  map<string, bytes> values = 1;
+
+  // List of keys that were not found
+  repeated string missing_keys = 2;
+
+  // Error details if operation failed
+  gcommon.v1.common.Error error = 3;
+}

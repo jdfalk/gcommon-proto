@@ -1,0 +1,26 @@
+// file: proto/gcommon/v1/database/config/get_memory_usage_response.proto
+// version: 1.0.0
+// guid: 4bd2a1f2-5469-4fc5-9bdb-e0691a1bbaa9
+edition = "2023";
+
+package gcommon.v1.database.config;
+
+import "google/protobuf/go_features.proto";
+import "proto/gcommon/v1/common/messages/error.proto";
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package gcommon.v1.database.config;
+
+/**
+ * Response for GetMemoryUsage operations.
+ */
+message GetMemoryUsageResponse {
+  // Memory usage in bytes
+  int64 memory_usage_bytes = 1;
+
+  // Memory usage as a percentage of total capacity
+  double memory_usage_percent = 2;
+
+  // Error information if the operation failed
+  gcommon.v1.common.Error error = 3;
+}

@@ -1,0 +1,24 @@
+// file: proto/gcommon/v1/database/schema/migration_script.proto
+edition = "2023";
+
+package gcommon.v1.database.schema;
+
+import "google/protobuf/go_features.proto";
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package gcommon.v1.database.schema;
+
+/**
+ * MigrationScript represents a database migration script with version control.
+ * Used for managing database schema changes and data migrations.
+ */
+message MigrationScript {
+  // Migration version identifier
+  string version = 1;
+
+  // SQL script or migration commands
+  string script = 2;
+
+  // Human-readable description of the migration
+  string description = 3;
+}

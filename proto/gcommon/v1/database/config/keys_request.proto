@@ -1,0 +1,28 @@
+// file: proto/gcommon/v1/database/config/keys_request.proto
+edition = "2023";
+
+package gcommon.v1.database.config;
+
+import "google/protobuf/go_features.proto";
+import "proto/gcommon/v1/common/messages/pagination.proto";
+import "proto/gcommon/v1/common/api/request_metadata.proto";
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package gcommon.v1.database.config;
+
+/**
+ * Request to list cache keys matching a pattern.
+ */
+message KeysRequest {
+  // Key pattern to match (supports wildcards)
+  string pattern = 1;
+
+  // Optional namespace
+  string namespace = 2;
+
+  // Pagination options
+  gcommon.v1.common.Pagination pagination = 3 [lazy = true];
+
+  // Request metadata
+  gcommon.v1.common.RequestMetadata metadata = 4 [lazy = true];
+}

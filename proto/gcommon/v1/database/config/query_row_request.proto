@@ -1,0 +1,35 @@
+// file: proto/gcommon/v1/database/config/query_row_request.proto
+// version: 1.0.0
+// guid: 7a8b9c0d-1e2f-3a4b-5c6d-7e8f9a0b1c2d
+
+edition = "2023";
+
+package gcommon.v1.database.config;
+
+import "google/protobuf/go_features.proto";
+import "proto/gcommon/v1/common/api/request_metadata.proto";
+import "proto/gcommon/v1/database/messages/query_options.proto";
+import "proto/gcommon/v1/database/messages/query_parameter.proto";
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package gcommon.v1.database.config;
+
+message QueryRowRequest {
+  // SQL query or NoSQL query string (should return at most one row)
+  string query = 1;
+
+  // Query parameters for parameterized queries
+  repeated QueryParameter parameters = 2 [lazy = true];
+
+  // Database name (optional, uses default if not specified)
+  string database = 3;
+
+  // Query execution options
+  QueryOptions options = 4 [lazy = true];
+
+  // Transaction ID if this query should be executed within a transaction
+  string transaction_id = 5;
+
+  // Request metadata for tracing and correlation
+  gcommon.v1.common.RequestMetadata metadata = 6;
+}

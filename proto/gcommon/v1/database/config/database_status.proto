@@ -1,0 +1,25 @@
+// file: proto/gcommon/v1/database/config/database_status.proto
+// version: 1.0.0
+// guid: 67bfa96b-764e-4290-adc8-2387c9b456b4
+
+edition = "2023";
+
+package gcommon.v1.database.config;
+
+import "google/protobuf/go_features.proto";
+import "proto/gcommon/v1/database/types/database_status_code.proto";
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package gcommon.v1.database.config;
+
+/**
+ * DatabaseStatus reports the current connection status for a
+ * database driver or service.
+ */
+message DatabaseStatus {
+  // Code indicates the health state of the database
+  DatabaseStatusCode code = 1;
+
+  // Human readable status details
+  string message = 2;
+}
