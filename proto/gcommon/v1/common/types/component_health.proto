@@ -7,7 +7,7 @@ edition = "2023";
 package gcommon.v1.common.types;
 
 import "google/protobuf/go_features.proto";
-import "proto/gcommon/v1/common/types/check_type.proto";
+import "proto/gcommon/v1/common/enums/check_type.proto";
 import "proto/gcommon/v1/common/types/serving_status.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;

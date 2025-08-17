@@ -11,7 +11,7 @@ import "proto/gcommon/v1/common/config/configure_logger_request.proto";
 import "proto/gcommon/v1/common/config/configure_logger_response.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package gcommon.v1.common.services;
+option go_package = "gcommon.v1.common.services";
 
 /**
  * LogAdminService provides log administration operations for

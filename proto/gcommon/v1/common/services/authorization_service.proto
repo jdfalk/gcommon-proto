@@ -12,7 +12,7 @@ import "proto/gcommon/v1/common/api/get_user_roles_request.proto";
 import "proto/gcommon/v1/common/api/get_user_roles_response.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package gcommon.v1.common.services;
+option go_package = "gcommon.v1.common.services";
 
 /**
  * AuthorizationService provides authorization and permission management.

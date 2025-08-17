@@ -21,7 +21,7 @@ import "proto/gcommon/v1/common/api/update_preferences_request.proto";
 import "proto/gcommon/v1/common/api/update_preferences_response.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package gcommon.v1.common.messages;
+option go_package = "gcommon.v1.common.messages";
 
 /**
  * NotificationService handles delivery, retrieval, and management of notifications.

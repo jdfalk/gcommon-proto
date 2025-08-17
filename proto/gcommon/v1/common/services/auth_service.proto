@@ -24,7 +24,7 @@ import "proto/gcommon/v1/common/api/verify_credentials_request.proto";
 import "proto/gcommon/v1/common/api/verify_credentials_response.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package gcommon.v1.common.services;
+option go_package = "gcommon.v1.common.services";
 
 /**
  * AuthService provides comprehensive authentication capabilities.

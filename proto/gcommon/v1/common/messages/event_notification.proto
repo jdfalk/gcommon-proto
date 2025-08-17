@@ -12,7 +12,7 @@ import "google/protobuf/timestamp.proto";
 import "proto/gcommon/v1/common/messages/notification_message.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package gcommon.v1.common.messages;
+option go_package = "gcommon.v1.common.messages";
 
 /**
  * Notification generated from an event.

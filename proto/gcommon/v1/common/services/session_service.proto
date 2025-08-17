@@ -22,7 +22,7 @@ import "proto/gcommon/v1/common/api/validate_session_request.proto";
 import "proto/gcommon/v1/common/api/validate_session_response.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package gcommon.v1.common.services;
+option go_package = "gcommon.v1.common.services";
 
 /**
  * SessionService manages user sessions and session lifecycle.
