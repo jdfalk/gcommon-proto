@@ -1,31 +1,30 @@
 version: v2
 modules:
-  - path: .
-    excludes:
-      - pkg/test
-      - protobuf_backup_*
-      - vendor/
+- path: proto
+  name: buf.build/jdfalk/gcommon
+deps:
+- buf.build/googleapis/googleapis
+- buf.build/protocolbuffers/wellknowntypes
+- buf.build/grpc-ecosystem/grpc-gateway
+breaking:
+  use:
+  - FILE
+  except:
+  - FIELD_SAME_LABEL
+  - EXTENSION_NO_DELETE
+  - FIELD_SAME_DEFAULT
 lint:
   use:
-    - STANDARD
+  - STANDARD
   except:
-    # - FIELD_NOT_REQUIRED
-    - PACKAGE_DIRECTORY_MATCH
-    - PACKAGE_SAME_DIRECTORY
-    # - PACKAGE_NO_IMPORT_CYCLE
-    - PACKAGE_VERSION_SUFFIX
-    # - IMPORT_USED
-    - IMPORT_NO_PUBLIC # Allow public imports for backward compatibility
-    - RPC_REQUEST_STANDARD_NAME
-    - RPC_RESPONSE_STANDARD_NAME
+  - PACKAGE_DIRECTORY_MATCH
+  - PACKAGE_SAME_DIRECTORY
+  - PACKAGE_VERSION_SUFFIX
+  - IMPORT_NO_PUBLIC
+  - RPC_REQUEST_STANDARD_NAME
+  - RPC_RESPONSE_STANDARD_NAME
   enum_zero_value_suffix: _UNSPECIFIED
   rpc_allow_google_protobuf_empty_requests: true
   rpc_allow_google_protobuf_empty_responses: true
   service_suffix: Service
   disallow_comment_ignores: true
-breaking:
-  use:
-    - FILE
-  except:
-    - EXTENSION_NO_DELETE
-    - FIELD_SAME_DEFAULT

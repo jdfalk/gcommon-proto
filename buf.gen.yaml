@@ -1,36 +1,35 @@
 version: v2
 managed:
   enabled: true
+  go_package_prefix:
+    default: github.com/jdfalk/gcommon/pkg
+    override:
+      proto/gcommon/v1/common: github.com/jdfalk/gcommon/pkg/common
+      proto/gcommon/v1/config: github.com/jdfalk/gcommon/pkg/config
+      proto/gcommon/v1/database: github.com/jdfalk/gcommon/pkg/database
+      proto/gcommon/v1/media: github.com/jdfalk/gcommon/pkg/media
+      proto/gcommon/v1/metrics: github.com/jdfalk/gcommon/pkg/metrics
+      proto/gcommon/v1/organization: github.com/jdfalk/gcommon/pkg/organization
+      proto/gcommon/v1/queue: github.com/jdfalk/gcommon/pkg/queue
+      proto/gcommon/v1/web: github.com/jdfalk/gcommon/pkg/web
   disable:
-    - file_option: go_package
-      module: buf.build/googleapis/googleapis
+  - file_option: go_package_prefix
+    module: buf.build/googleapis/googleapis
 plugins:
-  # Go - built-in protoc plugin
-  - protoc_builtin: go
-    out: .
-    opt:
-      - paths=source_relative
-      - Mgoogle/protobuf/timestamp.proto=google.golang.org/protobuf/types/known/timestamppb
-      - Mgoogle/protobuf/duration.proto=google.golang.org/protobuf/types/known/durationpb
-      - Mgoogle/protobuf/empty.proto=google.golang.org/protobuf/types/known/emptypb
-      - Mgoogle/protobuf/any.proto=google.golang.org/protobuf/types/known/anypb
-  # Go gRPC - requires remote plugin
-  - remote: buf.build/grpc/go:v1.5.1
-    out: .
-    opt:
-      - paths=source_relative
-      - require_unimplemented_servers=false
-  # Python - built-in protoc plugin (no paths option)
-  - protoc_builtin: python
-    out: sdks/python
-  # Python gRPC - remote plugin
-  - remote: buf.build/grpc/python
-    out: sdks/python
-  # Rust - built-in protoc plugin (DISABLED due to experimental issues)
-  # - protoc_builtin: rust
-  #   out: sdks/rust
-  #   opt:
-  #     - experimental-codegen=enabled
-  #     - kernel=cpp
-  # TypeScript and other language support disabled until Edition 2023 support improves
-  # Will revisit when ts-proto or other TypeScript plugins support Edition 2023
+- remote: buf.build/protocolbuffers/go:v1.36.6
+  out: pkg
+  opt:
+  - paths=source_relative
+  - Mgoogle/protobuf/timestamp.proto=google.golang.org/protobuf/types/known/timestamppb
+  - Mgoogle/protobuf/duration.proto=google.golang.org/protobuf/types/known/durationpb
+  - Mgoogle/protobuf/empty.proto=google.golang.org/protobuf/types/known/emptypb
+  - Mgoogle/protobuf/any.proto=google.golang.org/protobuf/types/known/anypb
+- remote: buf.build/grpc/go:v1.5.1
+  out: pkg
+  opt:
+  - paths=source_relative
+  - require_unimplemented_servers=false
+- remote: buf.build/protocolbuffers/python:v5.28.0
+  out: sdks/python
+- remote: buf.build/grpc/python:v1.68.0
+  out: sdks/python
