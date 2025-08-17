@@ -9,10 +9,10 @@ package gcommon.v1.organization.api;
 import "google/protobuf/go_features.proto";
 import "google/protobuf/timestamp.proto";
 import "proto/gcommon/v1/common/messages/key_value.proto";
-import "proto/gcommon/v1/organization/types/hierarchy_type.proto";
+import "proto/gcommon/v1/organization/enums/hierarchy_type.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package gcommon.v1.organization.api;
+option go_package = "gcommon.v1.organization.api";
 
 message HierarchyNode {
   // Unique node identifier

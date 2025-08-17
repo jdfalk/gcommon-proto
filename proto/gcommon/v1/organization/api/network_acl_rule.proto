@@ -12,7 +12,7 @@ import "proto/gcommon/v1/common/messages/key_value.proto";
 import "proto/gcommon/v1/organization/messages/isolation_level.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package gcommon.v1.organization.api;
+option go_package = "gcommon.v1.organization.api";
 
 message NetworkACLRule {
   // Rule action (allow, deny)

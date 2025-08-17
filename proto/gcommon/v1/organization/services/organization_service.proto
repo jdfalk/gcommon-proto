@@ -28,7 +28,7 @@ import "proto/gcommon/v1/organization/config/update_organization_settings_reques
 import "proto/gcommon/v1/organization/config/update_organization_settings_response.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package gcommon.v1.organization.services;
+option go_package = "gcommon.v1.organization.services";
 
 /**
  * OrganizationService provides comprehensive organization management capabilities.

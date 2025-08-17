@@ -18,7 +18,7 @@ import "proto/gcommon/v1/organization/config/security_settings.proto";
 import "proto/gcommon/v1/organization/config/ui_settings.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package gcommon.v1.organization.types;
+option go_package = "gcommon.v1.organization.types";
 
 message OrganizationSettings {
   // Organization identifier

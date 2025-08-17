@@ -14,7 +14,7 @@ import "proto/gcommon/v1/organization/config/load_balancer_config.proto";
 import "proto/gcommon/v1/organization/messages/network_acl_rule.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package gcommon.v1.organization.api;
+option go_package = "gcommon.v1.organization.api";
 
 message NetworkIsolation {
   // Virtual private cloud (VPC) identifier

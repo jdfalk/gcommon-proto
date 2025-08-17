@@ -9,7 +9,7 @@ import "proto/gcommon/v1/common/messages/key_value.proto";
 import "proto/gcommon/v1/organization/messages/member_role.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package gcommon.v1.organization.types;
+option go_package = "gcommon.v1.organization.types";
 
 /**
  * OrganizationMember message representing a user's membership in an organization.

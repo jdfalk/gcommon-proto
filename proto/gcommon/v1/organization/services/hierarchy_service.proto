@@ -30,7 +30,7 @@ import "proto/gcommon/v1/organization/api/update_team_request.proto";
 import "proto/gcommon/v1/organization/api/update_team_response.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package gcommon.v1.organization.services;
+option go_package = "gcommon.v1.organization.services";
 
 /**
  * HierarchyService provides comprehensive organizational hierarchy management.

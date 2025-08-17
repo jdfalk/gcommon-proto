@@ -12,7 +12,7 @@ import "proto/gcommon/v1/organization/config/health_check_config.proto";
 import "proto/gcommon/v1/organization/config/ssl_config.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package gcommon.v1.organization.config;
+option go_package = "gcommon.v1.organization.config";
 
 message OrganizationLoadBalancerConfig {
   // Load balancer type (application, network)
