@@ -4,10 +4,8 @@
 
 # Rust Client SDK
 
-This directory is a **skeleton** for the future Rust client SDK. The
-implementation is intentionally incomplete and filled with TODO items. Multiple
-reminders are placed throughout the codebase to ensure contributors know that
-significant work remains.
+This directory is a **skeleton** for the future Rust client SDK. The implementation is intentionally incomplete and filled with TODO items. Multiple reminders are placed throughout the codebase to ensure contributors know that significant
+work remains.
 
 ## Outstanding Work
 
@@ -19,5 +17,4 @@ significant work remains.
 - [ ] Document usage examples and best practices
 - [ ] Publish crate to crates.io when complete
 
-> **Note:** Until these tasks are completed the Rust SDK should be considered a
-> placeholder and not used in production.
+> **Note:** Until these tasks are completed the Rust SDK should be considered a placeholder and not used in production.

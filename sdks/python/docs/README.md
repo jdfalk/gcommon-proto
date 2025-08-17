@@ -4,8 +4,7 @@
 
 # Python Client SDK
 
-This SDK offers an asynchronous client with token-based authentication and
-service wrappers.
+This SDK offers an asynchronous client with token-based authentication and service wrappers.
 
 ## Quick Start
 
