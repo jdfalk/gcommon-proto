@@ -12,7 +12,7 @@ import "proto/gcommon/v1/metrics/config/prometheus_settings_update.proto";
 import "proto/gcommon/v1/metrics/config/stats_d_settings_update.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package gcommon.v1.metrics.v1;
+option go_package = "gcommon.v1.metrics.v1";
 
 message ProviderSettingsUpdate {
   // Prometheus settings update

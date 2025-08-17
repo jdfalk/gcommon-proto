@@ -12,7 +12,7 @@ import "proto/gcommon/v1/metrics/config/retention_policy_config.proto";
 import "proto/gcommon/v1/metrics/messages/retention_policy.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package gcommon.v1.metrics.v1;
+option go_package = "gcommon.v1.metrics.v1";
 
 /**
  * RetentionPolicyInfo combines a retention policy enum with

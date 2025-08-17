@@ -20,7 +20,7 @@ import "proto/gcommon/v1/metrics/api/update_provider_request.proto";
 import "proto/gcommon/v1/metrics/api/update_provider_response.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package gcommon.v1.metrics.v1;
+option go_package = "gcommon.v1.metrics.v1";
 
 /**
  * MetricsManagementService provides administrative capabilities for metrics providers.

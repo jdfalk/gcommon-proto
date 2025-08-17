@@ -8,11 +8,11 @@ package gcommon.v1.metrics.v1;
 
 import "google/protobuf/go_features.proto";
 import "google/protobuf/timestamp.proto";
-import "proto/gcommon/v1/metrics/types/metric_type.proto";
+import "proto/gcommon/v1/metrics/enums/metric_type.proto";
 import "proto/gcommon/v1/metrics/messages/metric_value.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package gcommon.v1.metrics.v1;
+option go_package = "gcommon.v1.metrics.v1";
 
 message MetricSeries {
   // Metric metadata

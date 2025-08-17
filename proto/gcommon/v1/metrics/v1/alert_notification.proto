@@ -12,7 +12,7 @@ import "proto/gcommon/v1/config/messages/alert_severity.proto";
 import "proto/gcommon/v1/metrics/messages/alert_severity.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package gcommon.v1.metrics.v1;
+option go_package = "gcommon.v1.metrics.v1";
 
 /**
  * AlertNotification represents a notification event generated when an

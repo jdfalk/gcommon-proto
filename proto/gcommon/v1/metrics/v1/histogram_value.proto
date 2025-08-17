@@ -11,7 +11,7 @@ import "google/protobuf/timestamp.proto";
 import "proto/gcommon/v1/metrics/messages/histogram_bucket.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package gcommon.v1.metrics.v1;
+option go_package = "gcommon.v1.metrics.v1";
 
 message HistogramValue {
   // Histogram buckets with their counts

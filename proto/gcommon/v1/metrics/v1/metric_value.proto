@@ -13,7 +13,7 @@ import "proto/gcommon/v1/metrics/messages/histogram_value.proto";
 import "proto/gcommon/v1/metrics/messages/summary_value.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package gcommon.v1.metrics.v1;
+option go_package = "gcommon.v1.metrics.v1";
 
 message MetricValue {
   // Timestamp when this metric value was recorded

@@ -11,7 +11,7 @@ import "proto/gcommon/v1/common/messages/error.proto";
 import "proto/gcommon/v1/metrics/config/metric_config.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package gcommon.v1.metrics.v1;
+option go_package = "gcommon.v1.metrics.v1";
 
 /**
  * GetMetricConfigResponse contains metric configuration information.

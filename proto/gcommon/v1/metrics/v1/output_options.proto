@@ -11,7 +11,7 @@ import "proto/gcommon/v1/metrics/messages/numeric_format.proto";
 import "proto/gcommon/v1/metrics/api/response_compression.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package gcommon.v1.metrics.v1;
+option go_package = "gcommon.v1.metrics.v1";
 
 message OutputOptions {
   // Format for numeric values

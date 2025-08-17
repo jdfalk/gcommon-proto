@@ -8,14 +8,14 @@ package gcommon.v1.metrics.v1;
 
 import "google/protobuf/duration.proto";
 import "google/protobuf/go_features.proto";
-import "proto/gcommon/v1/metrics/types/aggregation_type.proto";
+import "proto/gcommon/v1/metrics/enums/aggregation_type.proto";
 import "proto/gcommon/v1/metrics/messages/metric_filter.proto";
 import "proto/gcommon/v1/metrics/messages/query_operation.proto";
 import "proto/gcommon/v1/metrics/messages/time_range.proto";
 import "proto/gcommon/v1/metrics/messages/timestamp_range.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package gcommon.v1.metrics.v1;
+option go_package = "gcommon.v1.metrics.v1";
 
 message AggregationSpec {
   // Type of aggregation to perform
