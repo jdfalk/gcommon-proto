@@ -1,0 +1,28 @@
+// file: proto/gcommon/v1/common/types/update_session_request.proto
+// file: proto/gcommon/v1/common/types/update_session_request.proto
+//
+// Request definitions for auth module
+edition = "2023";
+
+package gcommon.v1.common.types;
+
+import "google/protobuf/go_features.proto";
+import "google/protobuf/timestamp.proto";
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package gcommon.v1.common.types;
+
+/**
+ * Request to update session information.
+ * Used to refresh session activity or update session metadata.
+ */
+message AuthUpdateSessionRequest {
+  // Session ID to update
+  string session_id = 1;
+
+  // Updated session metadata
+  map<string, string> metadata = 2;
+
+  // New expiration time (optional)
+  google.protobuf.Timestamp expires_at = 3;
+}

@@ -1,0 +1,25 @@
+// file: proto/gcommon/v1/common/types/assign_role_response.proto
+// file: proto/gcommon/v1/common/types/assign_role_response.proto
+//
+// Response definitions for auth module
+
+//
+edition = "2023";
+
+package gcommon.v1.common.types;
+
+import "google/protobuf/go_features.proto";
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package gcommon.v1.common.types;
+
+message AssignRoleResponse {
+  // Assignment success
+  bool success = 1;
+
+  // Error message if assignment failed
+  string error_message = 2;
+
+  // Effective permissions after assignment
+  repeated string effective_permissions = 3;
+}

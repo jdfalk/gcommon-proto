@@ -1,0 +1,19 @@
+// file: proto/gcommon/v1/common/enums/two_fa_type.proto
+// version: 1.0.0
+// guid: dcad7fe3-8803-479a-b205-bff3accb74d5
+
+edition = "2023";
+
+package gcommon.v1.common.enums;
+
+import "google/protobuf/go_features.proto";
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package gcommon.v1.common.enums;
+
+enum AuthTwoFaType {
+  TWO_FA_TYPE_UNSPECIFIED = 0;
+  TWO_FA_TYPE_TOTP = 1; // Time-based One-Time Password
+  TWO_FA_TYPE_SMS = 2; // SMS code
+  TWO_FA_TYPE_BACKUP = 3; // Backup code
+}

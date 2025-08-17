@@ -1,0 +1,58 @@
+// file: proto/gcommon/v1/common/types/register_user_request.proto
+// version: 1.0.0
+// guid: b1c2d3e4-f5a6-7b8c-9d0e-1f2a3b4c5d6e
+
+edition = "2023";
+
+package gcommon.v1.common.types;
+
+import "google/protobuf/go_features.proto";
+import "proto/gcommon/v1/common/api/request_metadata.proto";
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package gcommon.v1.common.types;
+
+/**
+ * Request to register a new user account.
+ * Creates a new user with the provided credentials and profile information.
+ */
+message RegisterUserRequest {
+  // Username for the new account (required)
+  string username = 1;
+
+  // Email address for the new account (required)
+  string email = 2;
+
+  // Password for the new account (required)
+  string password = 3;
+
+  // First name of the user
+  string first_name = 4;
+
+  // Last name of the user
+  string last_name = 5;
+
+  // Phone number (optional)
+  string phone_number = 6;
+
+  // Initial organization to associate user with (optional)
+  string organization_id = 7;
+
+  // Whether email verification is required
+  bool require_email_verification = 8;
+
+  // Invitation token (if registering via invitation)
+  string invitation_token = 9;
+
+  // Additional user metadata
+  map<string, string> metadata = 10;
+
+  // Request metadata for tracing and correlation
+  gcommon.v1.common.RequestMetadata request_metadata = 11;
+
+  // Terms of service acceptance timestamp
+  int64 tos_accepted_at = 12;
+
+  // Privacy policy acceptance timestamp
+  int64 privacy_accepted_at = 13;
+}

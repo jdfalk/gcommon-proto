@@ -1,0 +1,28 @@
+// file: proto/gcommon/v1/common/types/role_metadata.proto
+// version: 1.0.0
+// guid: 1b935f51-d35c-4113-aa68-03457b4294db
+
+edition = "2023";
+
+package gcommon.v1.common.types;
+
+import "google/protobuf/go_features.proto";
+import "google/protobuf/timestamp.proto";
+import "proto/gcommon/v1/common/messages/role.proto";
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package gcommon.v1.common.types;
+
+/**
+ * RoleMetadata provides metadata about role creation and updates.
+ */
+message RoleMetadata {
+  // Timestamp when the role was created
+  google.protobuf.Timestamp created_at = 1 [lazy = true];
+
+  // Timestamp of the last update to the role
+  google.protobuf.Timestamp updated_at = 2 [lazy = true];
+
+  // User ID that created the role
+  string created_by = 3;
+}

@@ -1,0 +1,21 @@
+// file: proto/gcommon/v1/common/types/pagination_options.proto
+// version: 1.1.0
+// guid: 5c1c9ffd-3554-4f8b-91d6-82d7a453683f
+
+edition = "2023";
+
+package gcommon.v1.common.types;
+
+import "google/protobuf/go_features.proto";
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package gcommon.v1.common.types;
+
+// PaginationOptions defines standard paging parameters.
+message PaginationOptions {
+  // Maximum number of items to return.
+  int32 page_size = 1;
+
+  // Opaque token representing the next page.
+  string page_token = 2;
+}

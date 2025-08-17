@@ -1,0 +1,27 @@
+// file: proto/gcommon/v1/common/types/check_permission_request.proto
+// version: 1.0.0
+// guid: db7aca7d-742a-443b-b641-448ddf4a8518
+
+edition = "2023";
+
+package gcommon.v1.common.types;
+
+import "google/protobuf/go_features.proto";
+import "proto/gcommon/v1/common/api/request_metadata.proto";
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package gcommon.v1.common.types;
+
+/**
+ * Request to verify that a user possesses a specific permission.
+ */
+message CheckPermissionRequest {
+  // Metadata for tracing and audit purposes
+  gcommon.v1.common.RequestMetadata metadata = 1 [lazy = true];
+
+  // User ID being verified
+  string user_id = 2;
+
+  // Permission ID to check
+  string permission_id = 3;
+}

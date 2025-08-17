@@ -1,0 +1,29 @@
+// file: proto/gcommon/v1/common/types/batch_options.proto
+edition = "2023";
+
+package gcommon.v1.common.types;
+
+import "google/protobuf/duration.proto";
+import "google/protobuf/go_features.proto";
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package gcommon.v1.common.types;
+
+/**
+ * Batch processing options for configuring bulk operation behavior.
+ * Controls parallelism, error handling, timeout policies, and
+ * result handling for efficient batch processing.
+ */
+message CommonBatchOptions {
+  // Maximum number of operations to process in parallel
+  int32 max_parallel = 1;
+
+  // Whether to stop processing on the first error encountered
+  bool fail_fast = 2;
+
+  // Total timeout for the entire batch operation
+  google.protobuf.Duration timeout = 3;
+
+  // Whether to return partial results if timeout is reached
+  bool return_partial = 4;
+}

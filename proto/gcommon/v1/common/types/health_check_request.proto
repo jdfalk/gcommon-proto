@@ -1,0 +1,29 @@
+// file: proto/gcommon/v1/common/types/health_check_request.proto
+//
+// Health check request message definition
+//
+
+edition = "2023";
+
+package gcommon.v1.common.types;
+
+import "google/protobuf/duration.proto";
+import "google/protobuf/go_features.proto";
+import "proto/gcommon/v1/common/api/request_metadata.proto";
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package gcommon.v1.common.types;
+
+message HealthHealthCheckRequest {
+  // Service name to check (empty for overall health)
+  string service = 1;
+
+  // Request metadata
+  gcommon.v1.common.RequestMetadata metadata = 2;
+
+  // Check timeout
+  google.protobuf.Duration timeout = 3;
+
+  // Include detailed check results
+  bool include_details = 4;
+}

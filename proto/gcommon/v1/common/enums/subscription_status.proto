@@ -1,0 +1,31 @@
+// file: proto/gcommon/v1/common/enums/subscription_status.proto
+edition = "2023";
+
+package gcommon.v1.common.enums;
+
+import "google/protobuf/go_features.proto";
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package gcommon.v1.common.enums;
+
+/**
+ * Subscription status enumeration for streaming operations.
+ * Provides consistent status tracking for event subscriptions, data streams,
+ * and real-time updates across all GCommon modules.
+ */
+enum SubscriptionStatus {
+  // Default value indicating no subscription status was specified
+  SUBSCRIPTION_STATUS_UNSPECIFIED = 0;
+
+  // Subscription is active and receiving events
+  SUBSCRIPTION_STATUS_ACTIVE = 1;
+
+  // Subscription is temporarily paused
+  SUBSCRIPTION_STATUS_PAUSED = 2;
+
+  // Subscription has been cancelled by client or system
+  SUBSCRIPTION_STATUS_CANCELLED = 3;
+
+  // Subscription is in an error state
+  SUBSCRIPTION_STATUS_ERROR = 4;
+}

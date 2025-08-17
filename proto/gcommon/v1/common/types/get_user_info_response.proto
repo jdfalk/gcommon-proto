@@ -1,0 +1,25 @@
+// file: proto/gcommon/v1/common/types/get_user_info_response.proto
+edition = "2023";
+
+package gcommon.v1.common.types;
+
+import "google/protobuf/go_features.proto";
+import "proto/gcommon/v1/common/messages/user.proto";
+import "proto/gcommon/v1/common/messages/user_info.proto";
+import "proto/gcommon/v1/common/messages/error.proto";
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package gcommon.v1.common.types;
+
+/**
+ * Response containing user information from token validation.
+ * Provides comprehensive user profile and metadata.
+ * Used for user profile display and application authorization.
+ */
+message GetUserInfoResponse {
+  // Complete user information
+  UserInfo user_info = 1;
+
+  // Additional user attributes/metadata
+  map<string, string> attributes = 2 [lazy = true];
+}

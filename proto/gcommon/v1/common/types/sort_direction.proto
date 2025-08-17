@@ -1,0 +1,27 @@
+// file: proto/gcommon/v1/common/types/sort_direction.proto
+// version: 1.0.0
+// guid: a1b2c3d4-e5f6-7a8b-9c0d-1e2f3a4b5c6d
+
+edition = "2023";
+
+package gcommon.v1.common.types;
+
+import "google/protobuf/go_features.proto";
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package gcommon.v1.common.types;
+
+/**
+ * Sort direction enumeration.
+ * Defines ascending or descending order for sorting operations.
+ */
+enum SortDirection {
+  // Unspecified sort direction
+  SORT_DIRECTION_UNSPECIFIED = 0;
+
+  // Ascending order (A-Z, 0-9, oldest-newest)
+  SORT_DIRECTION_ASC = 1;
+
+  // Descending order (Z-A, 9-0, newest-oldest)
+  SORT_DIRECTION_DESC = 2;
+}

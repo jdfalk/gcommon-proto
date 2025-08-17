@@ -1,0 +1,20 @@
+// file: proto/gcommon/v1/common/messages/delete_notification_response.proto
+// version: 1.0.0
+// guid: d7f015d6-70a1-4fcd-82b3-560a134d7a45
+
+edition = "2023";
+
+package gcommon.v1.common.messages;
+
+import "google/protobuf/go_features.proto";
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package gcommon.v1.common.messages;
+
+/**
+ * Response after deleting a notification.
+ */
+message DeleteNotificationResponse {
+  // True if the deletion succeeded.
+  bool success = 1;
+}

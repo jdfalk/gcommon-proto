@@ -1,0 +1,23 @@
+// file: proto/gcommon/v1/common/types/logout_response.proto
+// version: 1.0.0
+// guid: 96821169-cc26-45e4-a7e3-b81f44ddeb99
+
+edition = "2023";
+
+package gcommon.v1.common.types;
+
+import "google/protobuf/go_features.proto";
+import "proto/gcommon/v1/common/messages/error.proto";
+import "proto/gcommon/v1/common/api/request_metadata.proto";
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package gcommon.v1.common.types;
+
+// LogoutResponse provides the result of a logout request
+message LogoutResponse {
+  // Whether the logout was successful
+  bool success = 1;
+
+  // Optional error information if logout failed
+  gcommon.v1.common.Error error = 2;
+}

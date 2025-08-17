@@ -1,0 +1,32 @@
+// file: proto/gcommon/v1/common/services/service_version.proto
+edition = "2023";
+
+package gcommon.v1.common.services;
+
+import "google/protobuf/go_features.proto";
+import "google/protobuf/timestamp.proto";
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package gcommon.v1.common.services;
+
+/**
+ * Service version information for deployment tracking and compatibility.
+ * Provides comprehensive build and version metadata for service
+ * identification, debugging, and compatibility checking.
+ */
+message ServiceVersion {
+  // Service name identifier
+  string name = 1;
+
+  // Semantic version string (e.g., "1.2.3")
+  string version = 2;
+
+  // Git commit hash used for the build
+  string commit = 3;
+
+  // Timestamp when the service was built
+  google.protobuf.Timestamp build_time = 4;
+
+  // Go version used for compilation
+  string go_version = 5;
+}

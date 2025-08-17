@@ -1,0 +1,49 @@
+// file: proto/gcommon/v1/common/types/response_metadata.proto
+// version: 1.0.0
+// guid: ef32bc34-15e2-49e7-82a9-0c0577f76c38
+
+edition = "2023";
+
+package gcommon.v1.common.types;
+
+import "google/protobuf/duration.proto";
+import "google/protobuf/go_features.proto";
+import "google/protobuf/timestamp.proto";
+import "proto/gcommon/v1/common/messages/error.proto";
+import "proto/gcommon/v1/common/messages/rate_limit_info.proto";
+import "proto/gcommon/v1/metrics/messages/pagination_info.proto";
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package gcommon.v1.common.types;
+
+message ResponseMetadata {
+  // Trace ID from the corresponding request for correlation
+  string trace_id = 1;
+
+  // Request ID for unique identification of this specific request
+  string request_id = 2;
+
+  // Timestamp when the response was generated
+  google.protobuf.Timestamp timestamp = 3;
+
+  // Total processing time for the request
+  google.protobuf.Duration processing_time = 4;
+
+  // Service version that processed the request
+  string service_version = 5;
+
+  // Success indicator (true if operation succeeded)
+  bool success = 6;
+
+  // Error information if the operation failed
+  Error error = 7;
+
+  // Additional metadata specific to the response
+  map<string, string> metadata = 8;
+
+  // Rate limiting information
+  RateLimitInfo rate_limit = 9;
+
+  // Pagination information for list responses
+  gcommon.v1.metrics.MetricsPaginationInfo pagination = 10;
+}

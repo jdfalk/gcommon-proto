@@ -1,0 +1,22 @@
+// file: proto/gcommon/v1/common/types/update_preferences_request.proto
+// version: 1.0.0
+// guid: c74c733f-1a03-4b74-b5f1-cfa062e66475
+
+edition = "2023";
+
+package gcommon.v1.common.types;
+
+import "google/protobuf/go_features.proto";
+import "proto/gcommon/v1/common/api/request_metadata.proto";
+import "proto/gcommon/v1/common/messages/subscription_preferences.proto";
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package gcommon.v1.common.types;
+
+message UpdatePreferencesRequest {
+  // Subscription preferences to apply
+  SubscriptionPreferences preferences = 1 [lazy = true];
+
+  // Request metadata for auditing
+  gcommon.v1.common.RequestMetadata metadata = 2 [lazy = true];
+}

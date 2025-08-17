@@ -1,0 +1,30 @@
+// file: proto/gcommon/v1/common/types/list_permissions_request.proto
+// version: 1.0.0
+// guid: b28e318d-b0e8-41bb-9c90-d6b98f138e4f
+
+edition = "2023";
+
+package gcommon.v1.common.types;
+
+import "google/protobuf/go_features.proto";
+import "proto/gcommon/v1/common/types/subject_type.proto";
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package gcommon.v1.common.types;
+
+message ListPermissionsRequest {
+  // User or role ID to list permissions for
+  string subject_id = 1;
+
+  // Subject type
+  enum AuthSubjectType {
+    SUBJECT_TYPE_UNSPECIFIED = 0;
+    SUBJECT_TYPE_USER = 1;
+    SUBJECT_TYPE_ROLE = 2;
+  }
+  AuthSubjectType subject_type = 2;
+
+  // Pagination
+  int32 page_size = 3;
+  string page_token = 4;
+}

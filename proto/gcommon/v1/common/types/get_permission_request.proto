@@ -1,0 +1,24 @@
+// file: proto/gcommon/v1/common/types/get_permission_request.proto
+// version: 1.0.0
+// guid: 0658829b-708a-480e-942d-42b7ce0e4fdd
+
+edition = "2023";
+
+package gcommon.v1.common.types;
+
+import "google/protobuf/go_features.proto";
+import "proto/gcommon/v1/common/api/request_metadata.proto";
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package gcommon.v1.common.types;
+
+/**
+ * Request to fetch details about a permission entry.
+ */
+message GetPermissionRequest {
+  // Permission identifier
+  string permission_id = 1;
+
+  // Request metadata for tracing and correlation
+  gcommon.v1.common.RequestMetadata metadata = 2;
+}

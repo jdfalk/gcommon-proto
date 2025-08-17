@@ -1,0 +1,27 @@
+// file: proto/gcommon/v1/common/types/create_role_response.proto
+// file: proto/gcommon/v1/common/types/create_role_response.proto
+// version: 1.0.0
+// guid: 345e6789-a1b2-3c4d-5e6f-7a8b9c0d1e2f
+
+edition = "2023";
+
+package gcommon.v1.common.types;
+
+import "google/protobuf/go_features.proto";
+import "proto/gcommon/v1/common/messages/role.proto";
+import "proto/gcommon/v1/common/messages/error.proto";
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package gcommon.v1.common.types;
+
+/**
+ * Response for creating a new role.
+ * Returns the created role with its assigned ID.
+ */
+message CreateRoleResponse {
+  // The created role
+  gcommon.v1.auth.Role role = 1;
+
+  // Error information if creation failed
+  gcommon.v1.common.Error error = 2;
+}

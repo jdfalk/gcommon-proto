@@ -1,0 +1,45 @@
+// file: proto/gcommon/v1/common/types/claims.proto
+// file: proto/gcommon/v1/common/types/claims.proto
+//
+// Type definitions for auth module
+
+//
+edition = "2023";
+
+package gcommon.v1.common.types;
+
+import "google/protobuf/go_features.proto";
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package gcommon.v1.common.types;
+
+message Claims {
+  // Standard JWT claims
+  string issuer = 1; // iss
+  string subject = 2; // sub
+  repeated string audience = 3; // aud
+  int64 expires_at = 4; // exp
+  int64 not_before = 5; // nbf
+  int64 issued_at = 6; // iat
+  string jwt_id = 7; // jti
+
+  // Custom claims
+  string user_id = 8;
+  string username = 9;
+  string email = 10;
+  bool email_verified = 11;
+  repeated string roles = 12;
+  repeated string permissions = 13;
+  repeated string scopes = 14;
+
+  // MFA claims
+  bool mfa_verified = 15;
+  string mfa_method = 16;
+
+  // Session claims
+  string session_id = 17;
+  bool is_refresh_token = 18;
+
+  // Additional metadata
+  map<string, string> metadata = 19;
+}

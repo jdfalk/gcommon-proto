@@ -1,0 +1,23 @@
+// file: proto/gcommon/v1/common/types/time_range.proto
+edition = "2023";
+
+package gcommon.v1.common.types;
+
+import "google/protobuf/go_features.proto";
+import "google/protobuf/timestamp.proto";
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package gcommon.v1.common.types;
+
+/**
+ * Common time range specification for filtering operations.
+ * Provides standardized time-based filtering across all GCommon modules
+ * for queries, reports, and data analysis.
+ */
+message CommonTimeRange {
+  // Start time (inclusive) - operations at or after this time are included
+  google.protobuf.Timestamp start_time = 1;
+
+  // End time (exclusive) - operations before this time are included
+  google.protobuf.Timestamp end_time = 2;
+}

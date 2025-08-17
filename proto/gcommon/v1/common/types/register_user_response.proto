@@ -1,0 +1,34 @@
+// file: proto/gcommon/v1/common/types/register_user_response.proto
+// file: proto/gcommon/v1/common/types/register_user_response.proto
+//
+// Response definitions for auth module
+
+//
+edition = "2023";
+
+package gcommon.v1.common.types;
+
+import "google/protobuf/go_features.proto";
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package gcommon.v1.common.types;
+
+message RegisterUserResponse {
+  // Registration success
+  bool success = 1;
+
+  // User ID of created user
+  string user_id = 2;
+
+  // Whether email verification is required
+  bool email_verification_required = 3;
+
+  // Error message if registration failed
+  string error_message = 4;
+
+  // Session token if immediate login is allowed
+  string session_token = 5;
+}
+
+// Implement the actual protobuf definitions according to the auth module requirements
+// This file needs proper implementation

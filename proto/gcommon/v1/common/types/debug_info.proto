@@ -1,0 +1,36 @@
+// file: proto/gcommon/v1/common/types/debug_info.proto
+// version: 1.0.0
+// guid: 5cfc62b5-b458-4d97-bf91-b5a1c3eccadf
+
+edition = "2023";
+
+package gcommon.v1.common.types;
+
+import "google/protobuf/go_features.proto";
+import "google/protobuf/timestamp.proto";
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package gcommon.v1.common.types;
+
+/**
+ * DebugInfo provides supplemental debugging information
+ * that can be included in request or response messages.
+ * It captures contextual details useful for tracing and
+ * troubleshooting complex issues.
+ */
+message DebugInfo {
+  // Service or component name emitting this debug info
+  string service = 1;
+
+  // Optional method or operation identifier
+  string method = 2;
+
+  // Time when this debug info was generated
+  google.protobuf.Timestamp timestamp = 3;
+
+  // Arbitrary key/value details for debugging
+  map<string, string> details = 4;
+
+  // Additional tags to categorize or filter debug entries
+  repeated string tags = 5;
+}

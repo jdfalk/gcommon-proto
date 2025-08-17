@@ -1,0 +1,47 @@
+// file: proto/gcommon/v1/common/messages/notification_service.proto
+// version: 1.0.0
+// guid: e9327023-1377-4f3c-8fed-77a4c7e40b1b
+
+edition = "2023";
+
+package gcommon.v1.common.messages;
+
+import "google/protobuf/go_features.proto";
+import "proto/gcommon/v1/common/api/delete_notification_request.proto";
+import "proto/gcommon/v1/common/api/delete_notification_response.proto";
+import "proto/gcommon/v1/common/api/get_template_request.proto";
+import "proto/gcommon/v1/common/api/get_template_response.proto";
+import "proto/gcommon/v1/common/api/list_notifications_request.proto";
+import "proto/gcommon/v1/common/api/list_notifications_response.proto";
+import "proto/gcommon/v1/common/api/mark_as_read_request.proto";
+import "proto/gcommon/v1/common/api/mark_as_read_response.proto";
+import "proto/gcommon/v1/common/api/send_notification_request.proto";
+import "proto/gcommon/v1/common/api/send_notification_response.proto";
+import "proto/gcommon/v1/common/api/update_preferences_request.proto";
+import "proto/gcommon/v1/common/api/update_preferences_response.proto";
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package gcommon.v1.common.messages;
+
+/**
+ * NotificationService handles delivery, retrieval, and management of notifications.
+ */
+service NotificationService {
+  // Send delivers a notification through configured channels.
+  rpc Send(SendNotificationRequest) returns (SendNotificationResponse);
+
+  // List returns previously sent notifications.
+  rpc List(ListNotificationsRequest) returns (ListNotificationsResponse);
+
+  // Update subscription preferences for a user
+  rpc UpdatePreferences(UpdatePreferencesRequest) returns (UpdatePreferencesResponse);
+
+  // Retrieve a notification template by ID
+  rpc GetTemplate(GetTemplateRequest) returns (GetTemplateResponse);
+
+  // Mark a notification as read
+  rpc MarkAsRead(MarkAsReadRequest) returns (MarkAsReadResponse);
+
+  // Delete a notification
+  rpc Delete(DeleteNotificationRequest) returns (DeleteNotificationResponse);
+}

@@ -1,0 +1,25 @@
+// file: proto/gcommon/v1/common/types/get_api_key_response.proto
+// version: 1.0.0
+// guid: 584574e5-3a49-4346-ada5-78a7454f921e
+
+edition = "2023";
+
+package gcommon.v1.common.types;
+
+import "google/protobuf/go_features.proto";
+import "proto/gcommon/v1/common/api/api_key.proto";
+import "proto/gcommon/v1/common/api/api_key_stats.proto";
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package gcommon.v1.common.types;
+
+message GetApiKeyResponse {
+  // API key details
+  APIKey api_key = 1;
+
+  // Usage statistics if requested
+  ApiKeyStats stats = 2;
+
+  // Error message if not found
+  string error_message = 3;
+}

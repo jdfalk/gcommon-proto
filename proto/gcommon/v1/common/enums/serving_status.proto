@@ -1,0 +1,23 @@
+// file: proto/gcommon/v1/common/enums/serving_status.proto
+edition = "2023";
+
+package gcommon.v1.common.enums;
+
+import "google/protobuf/go_features.proto";
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package gcommon.v1.common.enums;
+
+/**
+ * ServingStatus indicates the current serving status of a service
+ */
+enum ServingStatus {
+  // Unknown status
+  SERVING_STATUS_UNSPECIFIED = 0;
+  // Service is serving
+  SERVING_STATUS_SERVING = 1;
+  // Service is not serving
+  SERVING_STATUS_NOT_SERVING = 2;
+  // Service is serving but degraded
+  SERVING_STATUS_SERVING_DEGRADED = 3;
+}

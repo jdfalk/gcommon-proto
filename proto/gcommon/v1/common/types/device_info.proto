@@ -1,0 +1,20 @@
+// file: proto/gcommon/v1/common/types/device_info.proto
+// version: 1.0.0
+// guid: 3c9b9c62-c45a-4919-bbf2-88ae536fc5e6
+
+edition = "2023";
+
+package gcommon.v1.common.types;
+
+import "google/protobuf/go_features.proto";
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package gcommon.v1.common.types;
+
+message DeviceInfo {
+  string device_id = 1;
+  string device_type = 2; // mobile, desktop, tablet
+  string os = 3;
+  string browser = 4;
+  bool is_trusted = 5;
+}

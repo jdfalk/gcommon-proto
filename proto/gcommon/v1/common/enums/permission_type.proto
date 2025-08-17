@@ -1,0 +1,32 @@
+// file: proto/gcommon/v1/common/enums/permission_type.proto
+edition = "2023";
+
+package gcommon.v1.common.enums;
+
+import "google/protobuf/go_features.proto";
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package gcommon.v1.common.enums;
+
+/**
+ * Permission categories for authorization decisions.
+ */
+enum PermissionType {
+  // Unspecified permission type.
+  PERMISSION_TYPE_UNSPECIFIED = 0;
+
+  // Read-only access.
+  PERMISSION_TYPE_READ = 1;
+
+  // Write access.
+  PERMISSION_TYPE_WRITE = 2;
+
+  // Delete access.
+  PERMISSION_TYPE_DELETE = 3;
+
+  // Administrative privileges.
+  PERMISSION_TYPE_ADMIN = 4;
+
+  // Execute or run operations.
+  PERMISSION_TYPE_EXECUTE = 5;
+}

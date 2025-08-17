@@ -1,0 +1,46 @@
+// file: proto/gcommon/v1/common/messages/notification_message.proto
+// file: proto/gcommon/v1/common/messages/notification_message.proto
+//
+// Message definitions for notification module
+edition = "2023";
+
+package gcommon.v1.common.messages;
+
+import "google/protobuf/any.proto";
+import "google/protobuf/go_features.proto";
+import "google/protobuf/timestamp.proto";
+import "proto/gcommon/v1/common/messages/delivery_channel.proto";
+import "proto/gcommon/v1/common/types/delivery_status.proto";
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package gcommon.v1.common.messages;
+
+/**
+ * Notification message containing content and delivery details.
+ * Supports scheduling, multi-channel delivery, and custom data.
+ */
+message NotificationMessage {
+  // Unique notification identifier
+  string id = 1;
+
+  // Subject or title of the notification
+  string subject = 2;
+
+  // Body text or formatted content
+  string body = 3;
+
+  // Structured data payload for templating
+  google.protobuf.Any data = 4 [lazy = true];
+
+  // Delivery channels for this notification
+  repeated DeliveryChannel channels = 5;
+
+  // Desired send time (defaults to immediate)
+  google.protobuf.Timestamp send_at = 6 [lazy = true];
+
+  // Current delivery status
+  DeliveryStatus status = 7;
+
+  // Creation timestamp
+  google.protobuf.Timestamp created_at = 8 [lazy = true];
+}

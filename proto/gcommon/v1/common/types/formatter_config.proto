@@ -1,0 +1,21 @@
+// file: proto/gcommon/v1/common/types/formatter_config.proto
+// version: 1.0.0
+// guid: d4e8088a-7b07-48cf-b572-0d850b7218e4
+
+edition = "2023";
+
+package gcommon.v1.common.types;
+
+import "google/protobuf/go_features.proto";
+import "proto/gcommon/v1/common/types/formatter_type.proto";
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package gcommon.v1.common.types;
+
+message LogFormatterConfig {
+  // Formatting strategy
+  FormatterType type = 1;
+
+  // Optional format pattern
+  string pattern = 2;
+}

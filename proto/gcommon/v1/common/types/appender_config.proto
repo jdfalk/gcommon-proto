@@ -1,0 +1,49 @@
+// file: proto/gcommon/v1/common/types/appender_config.proto
+// version: 1.0.0
+// guid: 1423b6a1-54da-4a63-8427-4225cd81621a
+
+edition = "2023";
+
+package gcommon.v1.common.types;
+
+import "google/protobuf/go_features.proto";
+import "proto/gcommon/v1/common/types/appender_type.proto";
+import "proto/gcommon/v1/common/types/formatter_type.proto";
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package gcommon.v1.common.types;
+
+message AppenderConfig {
+  // Unique appender name
+  string name = 1;
+
+  // Appender backend type
+  AppenderType type = 2;
+
+  // Output destination details
+  OutputConfig output = 3;
+
+  // Formatting configuration
+  LogFormatterConfig formatter = 4;
+
+  // Arbitrary appender properties
+  map<string, string> properties = 5;
+
+  // OutputConfig defines the destination for log entries
+  message OutputConfig {
+    // Output target (file path, network address, etc.)
+    string target = 1;
+
+    // Additional output options
+    map<string, string> options = 2;
+  }
+
+  // FormatterConfig defines how log entries are formatted
+  message LogFormatterConfig {
+    // Formatting strategy
+    FormatterType type = 1;
+
+    // Optional format pattern
+    string pattern = 2;
+  }
+}

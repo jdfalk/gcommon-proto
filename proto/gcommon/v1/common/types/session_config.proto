@@ -1,0 +1,32 @@
+// file: proto/gcommon/v1/common/types/session_config.proto
+// version: 1.0.0
+// guid: cf31dcbd-ba1f-402c-a37c-c1a2afe2dba8
+
+edition = "2023";
+
+package gcommon.v1.common.types;
+
+import "google/protobuf/go_features.proto";
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package gcommon.v1.common.types;
+
+/**
+ * Configuration parameters for user sessions.
+ */
+message AuthSessionConfig {
+  // Idle timeout in seconds before session expiration.
+  int32 idle_timeout_seconds = 1;
+
+  // Absolute lifetime of a session in seconds.
+  int32 absolute_lifetime_seconds = 2;
+
+  // Whether sessions persist across server restarts.
+  bool persist_across_restarts = 3;
+
+  // Name of the session cookie.
+  string cookie_name = 4;
+
+  // Whether to mark the cookie as secure.
+  bool secure_cookie = 5;
+}

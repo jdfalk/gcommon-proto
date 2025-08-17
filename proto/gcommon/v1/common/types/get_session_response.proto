@@ -1,0 +1,26 @@
+// file: proto/gcommon/v1/common/types/get_session_response.proto
+// file: proto/gcommon/v1/common/types/get_session_response.proto
+//
+// Response definitions for auth module
+edition = "2023";
+
+package gcommon.v1.common.types;
+
+import "google/protobuf/go_features.proto";
+import "proto/gcommon/v1/common/messages/session.proto";
+import "proto/gcommon/v1/common/messages/error.proto";
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package gcommon.v1.common.types;
+
+/**
+ * Response for getting session information.
+ * Contains session details if found, or error information if not found.
+ */
+message AuthGetSessionResponse {
+  // Session information if found
+  Session session = 1;
+
+  // Error information if session not found or access denied
+  gcommon.v1.common.Error error = 2;
+}

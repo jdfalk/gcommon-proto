@@ -1,0 +1,29 @@
+// file: proto/gcommon/v1/common/types/get_session_request.proto
+// version: 1.1.0
+// guid: d3e4f5a6-b7c8-9d0e-1f2a-3b4c5d6e7f8a
+
+edition = "2023";
+
+package gcommon.v1.common.types;
+
+import "google/protobuf/go_features.proto";
+import "proto/gcommon/v1/common/api/request_metadata.proto";
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package gcommon.v1.common.types;
+
+/**
+ * Request to get session information.
+ * Used to retrieve detailed session data by session ID.
+ * Provides session status, metadata, and activity information.
+ */
+message AuthGetSessionRequest {
+  // Session ID to retrieve (required)
+  string session_id = 1;
+
+  // Whether to include detailed session activity
+  bool include_activity = 2;
+
+  // Request metadata for tracing and correlation
+  gcommon.v1.common.RequestMetadata metadata = 3;
+}

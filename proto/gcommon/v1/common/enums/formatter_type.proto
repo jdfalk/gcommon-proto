@@ -1,0 +1,21 @@
+// file: proto/gcommon/v1/common/enums/formatter_type.proto
+// version: 1.0.0
+// guid: 0d49c8f5-9abd-4a9e-8d96-ddab6f45249b
+
+edition = "2023";
+
+package gcommon.v1.common.enums;
+
+import "google/protobuf/go_features.proto";
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package gcommon.v1.common.enums;
+
+// FormatterType enumerates log formatting strategies
+enum FormatterType {
+  FORMATTER_TYPE_UNSPECIFIED = 0;
+  FORMATTER_TYPE_TEXT = 1;
+  FORMATTER_TYPE_JSON = 2;
+  FORMATTER_TYPE_XML = 3;
+  FORMATTER_TYPE_CUSTOM = 4;
+}

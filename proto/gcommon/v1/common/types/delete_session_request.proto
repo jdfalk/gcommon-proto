@@ -1,0 +1,24 @@
+// file: proto/gcommon/v1/common/types/delete_session_request.proto
+// file: proto/gcommon/v1/common/types/delete_session_request.proto
+//
+// Request definitions for auth module
+edition = "2023";
+
+package gcommon.v1.common.types;
+
+import "google/protobuf/go_features.proto";
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package gcommon.v1.common.types;
+
+/**
+ * Request to delete a session.
+ * Used for session cleanup and administrative purposes.
+ */
+message AuthDeleteSessionRequest {
+  // Session ID to delete
+  string session_id = 1;
+
+  // Force delete even if session is active (admin only)
+  bool force = 2;
+}

@@ -1,0 +1,25 @@
+// file: proto/gcommon/v1/common/types/disable2_fa_request.proto
+// file: proto/gcommon/v1/common/types/disable2_fa_request.proto
+//
+// Request definitions for auth module
+
+//
+edition = "2023";
+
+package gcommon.v1.common.types;
+
+import "google/protobuf/go_features.proto";
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package gcommon.v1.common.types;
+
+message Disable2FaRequest {
+  // User ID requesting 2FA disable
+  string user_id = 1;
+
+  // Current password for verification
+  string password = 2;
+
+  // 2FA code for verification
+  string verification_code = 3;
+}

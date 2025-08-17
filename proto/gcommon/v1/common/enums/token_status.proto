@@ -1,0 +1,36 @@
+// file: proto/gcommon/v1/common/enums/token_status.proto
+edition = "2023";
+
+package gcommon.v1.common.enums;
+
+import "google/protobuf/go_features.proto";
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package gcommon.v1.common.enums;
+
+/**
+ * Token status enumeration for tracking token lifecycle.
+ * Used for token management and security validation.
+ */
+enum TokenStatus {
+  // Unspecified token status
+  TOKEN_STATUS_UNSPECIFIED = 0;
+
+  // Token is active and valid
+  TOKEN_STATUS_ACTIVE = 1;
+
+  // Token has expired
+  TOKEN_STATUS_EXPIRED = 2;
+
+  // Token has been revoked
+  TOKEN_STATUS_REVOKED = 3;
+
+  // Token is suspended (temporarily inactive)
+  TOKEN_STATUS_SUSPENDED = 4;
+
+  // Token is pending activation
+  TOKEN_STATUS_PENDING = 5;
+
+  // Token is invalid (malformed or corrupted)
+  TOKEN_STATUS_INVALID = 6;
+}

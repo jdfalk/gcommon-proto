@@ -1,0 +1,29 @@
+// file: proto/gcommon/v1/common/types/get_user_request.proto
+// version: 1.0.0
+// guid: 123e4567-e89b-12d3-a456-426614174008
+
+edition = "2023";
+
+package gcommon.v1.common.types;
+
+import "google/protobuf/go_features.proto";
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package gcommon.v1.common.types;
+
+/**
+ * Request to get a specific user's details.
+ */
+message GetUserRequest {
+  // Unique identifier of the user to retrieve
+  string user_id = 1;
+
+  // Include detailed information (roles, permissions, etc.)
+  bool include_details = 2;
+
+  // Include deleted users in search
+  bool include_deleted = 3;
+
+  // Specific fields to return (if empty, all fields returned)
+  repeated string fields = 4;
+}

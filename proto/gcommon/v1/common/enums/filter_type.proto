@@ -1,0 +1,21 @@
+// file: proto/gcommon/v1/common/enums/filter_type.proto
+// version: 1.0.0
+// guid: eb317c45-0d04-48fb-ab44-ab82262f995b
+
+edition = "2023";
+
+package gcommon.v1.common.enums;
+
+import "google/protobuf/go_features.proto";
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package gcommon.v1.common.enums;
+
+// FilterType enumerates log filter strategies
+enum LogFilterType {
+  FILTER_TYPE_UNSPECIFIED = 0;
+  FILTER_TYPE_LEVEL = 1;
+  FILTER_TYPE_LOGGER = 2;
+  FILTER_TYPE_MESSAGE = 3;
+  FILTER_TYPE_FIELD = 4;
+}

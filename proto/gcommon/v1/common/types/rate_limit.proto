@@ -1,0 +1,29 @@
+// file: proto/gcommon/v1/common/types/rate_limit.proto
+edition = "2023";
+
+package gcommon.v1.common.types;
+
+import "google/protobuf/duration.proto";
+import "google/protobuf/go_features.proto";
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package gcommon.v1.common.types;
+
+/**
+ * Rate limiting information for API throttling and quota management.
+ * Provides current rate limit status and reset timing information
+ * for client-side rate limit handling and backoff strategies.
+ */
+message RateLimit {
+  // Maximum number of requests allowed per time window
+  int32 limit = 1;
+
+  // Duration of the time window for rate limiting
+  google.protobuf.Duration window = 2;
+
+  // Number of requests remaining in the current window
+  int32 remaining = 3;
+
+  // Time until the rate limit window resets
+  google.protobuf.Duration reset_time = 4;
+}

@@ -1,0 +1,27 @@
+// file: proto/gcommon/v1/common/enums/check_type.proto
+edition = "2023";
+
+package gcommon.v1.common.enums;
+
+import "google/protobuf/go_features.proto";
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package gcommon.v1.common.enums;
+
+/**
+ * CheckType indicates the type of health check
+ */
+enum CheckType {
+  // Unspecified check type
+  CHECK_TYPE_UNSPECIFIED = 0;
+  // Liveness check
+  CHECK_TYPE_LIVENESS = 1;
+  // Readiness check
+  CHECK_TYPE_READINESS = 2;
+  // Startup check
+  CHECK_TYPE_STARTUP = 3;
+  // Component check
+  CHECK_TYPE_COMPONENT = 4;
+  // Dependency check
+  CHECK_TYPE_DEPENDENCY = 5;
+}

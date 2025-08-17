@@ -1,0 +1,35 @@
+// file: proto/gcommon/v1/common/types/revoke_token_response.proto
+edition = "2023";
+
+package gcommon.v1.common.types;
+
+import "google/protobuf/go_features.proto";
+import "google/protobuf/timestamp.proto";
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package gcommon.v1.common.types;
+
+/**
+ * RevokeTokenResponse confirms successful token revocation.
+ * Provides information about the revoked token and revocation timestamp
+ * for audit logging and confirmation purposes.
+ */
+message RevokeTokenResponse {
+  // Token ID that was revoked
+  string token_id = 1;
+
+  // Type of token that was revoked (access, refresh, etc.)
+  string token_type = 2;
+
+  // Timestamp when the token was revoked
+  google.protobuf.Timestamp revoked_at = 3;
+
+  // User ID associated with the revoked token
+  string user_id = 4;
+
+  // Reason for revocation (logout, security, expiry, etc.)
+  string revocation_reason = 5;
+
+  // Whether this was the last token for the user session
+  bool last_token_in_session = 6;
+}

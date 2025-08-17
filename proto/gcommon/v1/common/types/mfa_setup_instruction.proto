@@ -1,0 +1,20 @@
+// file: proto/gcommon/v1/common/types/mfa_setup_instruction.proto
+// version: 1.0.0
+// guid: bf15a5c9-23b0-4e2d-9583-24ed000c4656
+
+edition = "2023";
+
+package gcommon.v1.common.types;
+
+import "google/protobuf/go_features.proto";
+import "proto/gcommon/v1/common/messages/mfa_method.proto";
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package gcommon.v1.common.types;
+
+message MfaSetupInstruction {
+  MfaMethod method = 1;
+  string instruction = 2;
+  string qr_code = 3;
+  string secret_key = 4;
+}

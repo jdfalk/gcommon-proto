@@ -1,0 +1,25 @@
+// file: proto/gcommon/v1/common/types/delete_role_response.proto
+// file: proto/gcommon/v1/common/types/delete_role_response.proto
+//
+// Response definitions for auth module
+
+//
+edition = "2023";
+
+package gcommon.v1.common.types;
+
+import "google/protobuf/go_features.proto";
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package gcommon.v1.common.types;
+
+message DeleteRoleResponse {
+  // Deletion success
+  bool success = 1;
+
+  // Error message if deletion failed
+  string error_message = 2;
+
+  // Number of users/entities that lost this role
+  int32 affected_subjects = 3;
+}

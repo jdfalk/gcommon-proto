@@ -1,0 +1,28 @@
+// file: proto/gcommon/v1/common/types/resource_reference.proto
+edition = "2023";
+
+package gcommon.v1.common.types;
+
+import "google/protobuf/go_features.proto";
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package gcommon.v1.common.types;
+
+/**
+ * Resource reference for cross-module operations and relationships.
+ * Provides a standardized way to reference resources across different
+ * GCommon modules with consistent identification and ownership tracking.
+ */
+message ResourceReference {
+  // Resource type identifier (e.g., "user", "config", "queue", "metric")
+  string type = 1;
+
+  // Unique resource identifier within the module
+  string id = 2;
+
+  // Human-readable resource name for display purposes
+  string name = 3;
+
+  // Module that owns and manages this resource
+  string module = 4;
+}

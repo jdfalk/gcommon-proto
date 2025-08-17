@@ -1,0 +1,34 @@
+// file: proto/gcommon/v1/common/enums/resource_status.proto
+edition = "2023";
+
+package gcommon.v1.common.enums;
+
+import "google/protobuf/go_features.proto";
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package gcommon.v1.common.enums;
+
+/**
+ * Common resource status enumeration used across all GCommon modules.
+ * Provides consistent status reporting for various resources like configurations,
+ * cache entries, database connections, etc.
+ */
+enum ResourceStatus {
+  // Default value indicating resource status was not specified
+  RESOURCE_STATUS_UNSPECIFIED = 0;
+
+  // Resource is active and available for use
+  RESOURCE_STATUS_ACTIVE = 1;
+
+  // Resource is inactive but can be activated
+  RESOURCE_STATUS_INACTIVE = 2;
+
+  // Resource is pending activation or processing
+  RESOURCE_STATUS_PENDING = 3;
+
+  // Resource has been marked for deletion or is deleted
+  RESOURCE_STATUS_DELETED = 4;
+
+  // Resource is in an error state and requires attention
+  RESOURCE_STATUS_ERROR = 5;
+}

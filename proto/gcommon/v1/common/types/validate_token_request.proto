@@ -1,0 +1,28 @@
+// file: proto/gcommon/v1/common/types/validate_token_request.proto
+edition = "2023";
+
+package gcommon.v1.common.types;
+
+import "google/protobuf/go_features.proto";
+import "proto/gcommon/v1/common/api/request_metadata.proto";
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package gcommon.v1.common.types;
+
+/**
+ * Request to validate an access token.
+ * Used to verify token authenticity, expiration, and extract user information.
+ */
+message ValidateTokenRequest {
+  // Access token to validate (Bearer token format)
+  string access_token = 1;
+
+  // Request metadata for tracing and correlation
+  gcommon.v1.common.RequestMetadata metadata = 2 [lazy = true];
+
+  // Whether to include user information in response
+  bool include_user_info = 3;
+
+  // Whether to include permissions in response
+  bool include_permissions = 4;
+}

@@ -1,0 +1,48 @@
+// file: proto/gcommon/v1/common/enums/token_type.proto
+edition = "2023";
+
+package gcommon.v1.common.enums;
+
+import "google/protobuf/go_features.proto";
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package gcommon.v1.common.enums;
+
+/**
+ * Token type enumeration for different kinds of authentication tokens.
+ * Used to distinguish between access tokens, refresh tokens, and other token types.
+ */
+enum TokenType {
+  // Unspecified token type
+  TOKEN_TYPE_UNSPECIFIED = 0;
+
+  // Access token for API authentication
+  TOKEN_TYPE_ACCESS = 1;
+
+  // Refresh token for token renewal
+  TOKEN_TYPE_REFRESH = 2;
+
+  // ID token for user identity (OpenID Connect)
+  TOKEN_TYPE_ID = 3;
+
+  // Authorization code for OAuth2 flows
+  TOKEN_TYPE_AUTHORIZATION_CODE = 4;
+
+  // API key token for service authentication
+  TOKEN_TYPE_API_KEY = 5;
+
+  // Session token for web sessions
+  TOKEN_TYPE_SESSION = 6;
+
+  // Password reset token
+  TOKEN_TYPE_PASSWORD_RESET = 7;
+
+  // Email verification token
+  TOKEN_TYPE_EMAIL_VERIFICATION = 8;
+
+  // Phone verification token
+  TOKEN_TYPE_PHONE_VERIFICATION = 9;
+
+  // Invitation token
+  TOKEN_TYPE_INVITATION = 10;
+}

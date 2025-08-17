@@ -1,0 +1,33 @@
+// file: proto/gcommon/v1/common/types/template.proto
+// file: proto/gcommon/v1/common/types/template.proto
+//
+// Notification template definition for reusable messages.
+edition = "2023";
+
+package gcommon.v1.common.types;
+
+import "google/protobuf/go_features.proto";
+import "google/protobuf/timestamp.proto";
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package gcommon.v1.common.types;
+
+/**
+ * Template for rendering notification content.
+ */
+message Template {
+  // Template identifier
+  string id = 1;
+
+  // Human readable name
+  string name = 2;
+
+  // Template body using placeholders
+  string body = 3;
+
+  // Time the template was created
+  google.protobuf.Timestamp created_at = 4 [lazy = true];
+
+  // Time the template was last updated
+  google.protobuf.Timestamp updated_at = 5 [lazy = true];
+}

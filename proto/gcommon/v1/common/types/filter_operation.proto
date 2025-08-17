@@ -1,0 +1,52 @@
+// file: proto/gcommon/v1/common/types/filter_operation.proto
+edition = "2023";
+
+package gcommon.v1.common.types;
+
+import "google/protobuf/go_features.proto";
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package gcommon.v1.common.types;
+
+/**
+ * Filter operation types for query filtering across all GCommon modules.
+ * Provides standardized filtering operations for database queries, search,
+ * and other filtering requirements.
+ */
+enum FilterOperation {
+  // Default value indicating no filter operation was specified
+  FILTER_OPERATION_UNSPECIFIED = 0;
+
+  // Exact equality match
+  FILTER_OPERATION_EQUALS = 1;
+
+  // Not equal to the specified value
+  FILTER_OPERATION_NOT_EQUALS = 2;
+
+  // Greater than the specified value (numeric/date comparison)
+  FILTER_OPERATION_GREATER_THAN = 3;
+
+  // Less than the specified value (numeric/date comparison)
+  FILTER_OPERATION_LESS_THAN = 4;
+
+  // Greater than or equal to the specified value
+  FILTER_OPERATION_GREATER_THAN_OR_EQUAL = 5;
+
+  // Less than or equal to the specified value
+  FILTER_OPERATION_LESS_THAN_OR_EQUAL = 6;
+
+  // Contains the specified substring (case-sensitive)
+  FILTER_OPERATION_CONTAINS = 7;
+
+  // Starts with the specified prefix
+  FILTER_OPERATION_STARTS_WITH = 8;
+
+  // Ends with the specified suffix
+  FILTER_OPERATION_ENDS_WITH = 9;
+
+  // Value is contained in the specified list
+  FILTER_OPERATION_IN = 10;
+
+  // Value is not contained in the specified list
+  FILTER_OPERATION_NOT_IN = 11;
+}

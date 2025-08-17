@@ -1,0 +1,21 @@
+// file: proto/gcommon/v1/common/types/log_sort_field.proto
+// version: 1.0.0
+// guid: 8d1776a3-51f0-43c4-8199-698ee5ba98e7
+
+edition = "2023";
+
+package gcommon.v1.common.types;
+
+import "google/protobuf/go_features.proto";
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package gcommon.v1.common.types;
+
+// LogSortField enumerates fields usable for log sorting
+enum LogSortField {
+  LOG_SORT_FIELD_UNSPECIFIED = 0;
+  LOG_SORT_FIELD_TIMESTAMP = 1;
+  LOG_SORT_FIELD_LEVEL = 2;
+  LOG_SORT_FIELD_LOGGER = 3;
+  LOG_SORT_FIELD_MESSAGE = 4;
+}

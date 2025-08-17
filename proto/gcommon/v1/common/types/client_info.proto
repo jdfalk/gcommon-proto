@@ -1,0 +1,31 @@
+// file: proto/gcommon/v1/common/types/client_info.proto
+edition = "2023";
+
+package gcommon.v1.common.types;
+
+import "google/protobuf/go_features.proto";
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package gcommon.v1.common.types;
+
+/**
+ * Client information for request identification and monitoring.
+ * Provides standardized client metadata for logging, analytics,
+ * and security purposes across all GCommon modules.
+ */
+message ClientInfo {
+  // Client application name (e.g., "mobile-app", "web-frontend")
+  string name = 1;
+
+  // Client version using semantic versioning (e.g., "1.2.3")
+  string version = 2;
+
+  // Client IP address (IPv4 or IPv6)
+  string ip_address = 3;
+
+  // User agent string for web clients or application identifier
+  string user_agent = 4;
+
+  // Platform information (e.g., "iOS 15.0", "Chrome 95", "Go 1.19")
+  string platform = 5;
+}

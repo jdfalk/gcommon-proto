@@ -1,0 +1,28 @@
+// file: proto/gcommon/v1/common/types/send_verification_email_request.proto
+// file: proto/gcommon/v1/common/types/send_verification_email_request.proto
+//
+// Request definitions for auth module
+
+//
+edition = "2023";
+
+package gcommon.v1.common.types;
+
+import "google/protobuf/go_features.proto";
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package gcommon.v1.common.types;
+
+message SendVerificationEmailRequest {
+  // User ID or email address
+  string identifier = 1;
+
+  // Template to use for email
+  string template = 2;
+
+  // Additional context data
+  map<string, string> context = 3;
+}
+
+// Implement the actual protobuf definitions according to the auth module requirements
+// This file needs proper implementation

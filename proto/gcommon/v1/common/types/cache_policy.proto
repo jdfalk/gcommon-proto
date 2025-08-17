@@ -1,0 +1,40 @@
+// file: proto/gcommon/v1/common/types/cache_policy.proto
+edition = "2023";
+
+package gcommon.v1.common.types;
+
+import "google/protobuf/duration.proto";
+import "google/protobuf/go_features.proto";
+import "proto/gcommon/v1/common/messages/eviction_policy.proto";
+import "proto/gcommon/v1/common/messages/expiration_policy.proto";
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package gcommon.v1.common.types;
+
+/**
+ * Cache policy configuration for cache behavior and performance tuning.
+ * Defines expiration, eviction, sizing, and operational policies
+ * for consistent cache management across GCommon modules.
+ */
+message CachePolicy {
+  // Cache expiration policy strategy
+  ExpirationPolicy expiration = 1;
+
+  // Eviction policy when cache reaches capacity
+  EvictionPolicy eviction = 2;
+
+  // Maximum cache size in bytes (0 for unlimited)
+  int64 max_size_bytes = 3;
+
+  // Maximum number of cache entries (0 for unlimited)
+  int64 max_entries = 4;
+
+  // Default time-to-live for cache entries
+  google.protobuf.Duration default_ttl = 5;
+
+  // Whether to refresh entries before they expire
+  bool refresh_ahead = 6;
+
+  // Whether to collect and expose cache statistics
+  bool enable_stats = 7;
+}

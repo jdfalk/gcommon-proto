@@ -1,0 +1,22 @@
+// file: proto/gcommon/v1/common/types/key_value.proto
+edition = "2023";
+
+package gcommon.v1.common.types;
+
+import "google/protobuf/go_features.proto";
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package gcommon.v1.common.types;
+
+/**
+ * Generic key-value pair for metadata and configuration storage.
+ * Provides a simple, reusable structure for storing arbitrary
+ * string-based key-value data across all GCommon modules.
+ */
+message KeyValue {
+  // The key identifier for this pair
+  string key = 1;
+
+  // The value associated with the key
+  string value = 2;
+}

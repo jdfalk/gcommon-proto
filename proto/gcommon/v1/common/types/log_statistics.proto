@@ -1,0 +1,33 @@
+// file: proto/gcommon/v1/common/types/log_statistics.proto
+// version: 1.0.0
+// guid: 98acfd30-4a7f-43f6-ac8d-f10a598a805a
+
+edition = "2023";
+
+package gcommon.v1.common.types;
+
+import "google/protobuf/go_features.proto";
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package gcommon.v1.common.types;
+
+// LogStatistics provides aggregated metrics about log entries
+message LogStatistics {
+  // Total log entries
+  int64 total_entries = 1;
+
+  // Entries per second
+  double entries_per_second = 2;
+
+  // Average entry size
+  int64 average_size = 3;
+
+  // Total size of all log entries
+  int64 total_size = 4;
+
+  // Count of log entries with level ERROR
+  int64 error_count = 5;
+
+  // Count of log entries with level WARNING
+  int64 warning_count = 6;
+}

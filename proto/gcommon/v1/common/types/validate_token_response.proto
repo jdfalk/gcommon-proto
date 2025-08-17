@@ -1,0 +1,39 @@
+// file: proto/gcommon/v1/common/types/validate_token_response.proto
+edition = "2023";
+
+package gcommon.v1.common.types;
+
+import "google/protobuf/go_features.proto";
+import "google/protobuf/timestamp.proto";
+import "proto/gcommon/v1/common/messages/user_info.proto";
+import "proto/gcommon/v1/common/api/request_metadata.proto";
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package gcommon.v1.common.types;
+
+/**
+ * Response for token validation requests.
+ * Contains token validity status and associated user information.
+ */
+message ValidateTokenResponse {
+  // Whether the token is valid
+  bool valid = 1;
+
+  // Token expiration timestamp
+  google.protobuf.Timestamp expires_at = 2 [lazy = true];
+
+  // User information associated with the token
+  UserInfo user_info = 3 [lazy = true];
+
+  // Token scopes/permissions
+  repeated string scopes = 4;
+
+  // Token subject (user ID)
+  string subject = 5;
+
+  // Token issuer
+  string issuer = 6;
+
+  // Time until token expires (in seconds)
+  int32 expires_in = 7;
+}

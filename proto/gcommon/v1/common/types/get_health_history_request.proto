@@ -1,0 +1,30 @@
+// file: proto/gcommon/v1/common/types/get_health_history_request.proto
+// file: proto/gcommon/v1/common/types/get_health_history_request.proto
+//
+// Request definitions for health module
+//
+
+edition = "2023";
+
+package gcommon.v1.common.types;
+
+import "google/protobuf/go_features.proto";
+import "google/protobuf/timestamp.proto";
+import "proto/gcommon/v1/common/api/request_metadata.proto";
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package gcommon.v1.common.types;
+
+message GetHealthHistoryRequest {
+  // Service name to query
+  string service = 1;
+
+  // Optional start time for history records
+  google.protobuf.Timestamp start_time = 2;
+
+  // Optional end time for history records
+  google.protobuf.Timestamp end_time = 3;
+
+  // Request metadata for authentication and tracing
+  gcommon.v1.common.RequestMetadata metadata = 4 [lazy = true];
+}

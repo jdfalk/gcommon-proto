@@ -1,0 +1,18 @@
+// file: proto/gcommon/v1/common/types/permission_condition.proto
+// version: 1.0.0
+// guid: 54038d4d-21ce-4ccb-a735-255fae2bcd86
+
+edition = "2023";
+
+package gcommon.v1.common.types;
+
+import "google/protobuf/go_features.proto";
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package gcommon.v1.common.types;
+
+message PermissionCondition {
+  string key = 1;
+  string operator = 2; // eq, ne, in, not_in, etc.
+  repeated string values = 3;
+}

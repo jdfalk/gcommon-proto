@@ -1,0 +1,33 @@
+// file: proto/gcommon/v1/common/types/health_config.proto
+edition = "2023";
+
+package gcommon.v1.common.types;
+
+import "google/protobuf/go_features.proto";
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package gcommon.v1.common.types;
+
+/**
+ * HealthConfig represents health configuration
+ */
+message HealthConfig {
+  // Whether health checking is enabled
+  bool enabled = 1;
+  // Health endpoint path
+  string endpoint = 2;
+  // Liveness check path
+  string liveness_path = 3;
+  // Readiness check path
+  string readiness_path = 4;
+  // Startup check path
+  string startup_path = 5;
+  // Check timeout in seconds
+  int32 timeout_seconds = 6;
+  // Check interval in seconds
+  int32 interval_seconds = 7;
+  // Grace period in seconds
+  int32 grace_period_seconds = 8;
+  // Number of retries
+  int32 retries = 9;
+}
