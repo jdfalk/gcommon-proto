@@ -10,7 +10,7 @@ import "proto/gcommon/v1/common/messages/rate_limit.proto";
 import "proto/gcommon/v1/common/api/response_metadata.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package gcommon.v1.common.types;
+option go_package = "gcommon.v1.common.types";
 
 /**
  * Authentication response containing access tokens and user information.

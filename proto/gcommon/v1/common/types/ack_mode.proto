@@ -6,7 +6,7 @@ package gcommon.v1.common.types;
 import "google/protobuf/go_features.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package gcommon.v1.common.types;
+option go_package = "gcommon.v1.common.types";
 
 /**
  * Acknowledgment mode enumeration for message processing.

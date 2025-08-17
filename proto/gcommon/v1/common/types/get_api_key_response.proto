@@ -11,7 +11,7 @@ import "proto/gcommon/v1/common/api/api_key.proto";
 import "proto/gcommon/v1/common/api/api_key_stats.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package gcommon.v1.common.types;
+option go_package = "gcommon.v1.common.types";
 
 message GetApiKeyResponse {
   // API key details

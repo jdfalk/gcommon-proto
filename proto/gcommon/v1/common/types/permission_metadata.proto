@@ -11,7 +11,7 @@ import "proto/gcommon/v1/common/messages/permission_condition.proto";
 import "proto/gcommon/v1/common/messages/permission_level.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package gcommon.v1.common.types;
+option go_package = "gcommon.v1.common.types";
 
 message PermissionMetadata {
   // Permission ID

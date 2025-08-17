@@ -11,7 +11,7 @@ import "proto/gcommon/v1/common/messages/subscription_options.proto";
 import "proto/gcommon/v1/common/types/subscription_status.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package gcommon.v1.common.types;
+option go_package = "gcommon.v1.common.types";
 
 /**
  * Subscription information for streaming and event-driven operations.

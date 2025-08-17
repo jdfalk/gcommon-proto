@@ -15,7 +15,7 @@ import "proto/gcommon/v1/common/messages/log_level.proto";
 import "proto/gcommon/v1/common/messages/source_location.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package gcommon.v1.common.types;
+option go_package = "gcommon.v1.common.types";
 
 // LogEntry represents a single structured log event
 message LogEntry {

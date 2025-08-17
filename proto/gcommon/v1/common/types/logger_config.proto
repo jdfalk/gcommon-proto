@@ -11,7 +11,7 @@ import "proto/gcommon/v1/common/config/appender_config.proto";
 import "proto/gcommon/v1/common/messages/log_level.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package gcommon.v1.common.types;
+option go_package = "gcommon.v1.common.types";
 
 // LoggerConfig defines configuration for a logger instance
 message LoggerConfig {
