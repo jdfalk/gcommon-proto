@@ -11,11 +11,11 @@ import "google/protobuf/timestamp.proto";
 import "proto/gcommon/v1/media/messages/audio_track.proto";
 import "proto/gcommon/v1/media/messages/media_metadata.proto";
 import "proto/gcommon/v1/media/messages/media_quality.proto";
-import "proto/gcommon/v1/media/types/media_type.proto";
+import "proto/gcommon/v1/media/enums/media_type.proto";
 import "proto/gcommon/v1/media/messages/subtitle_track.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package gcommon.v1.media.types;
+option go_package = "gcommon.v1.media.types";
 
 // Media file representation with associated metadata and tracks.
 message MediaFile {
