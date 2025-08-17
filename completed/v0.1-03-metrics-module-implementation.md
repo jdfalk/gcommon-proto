@@ -6,15 +6,11 @@
 
 ## 🎯 Objective
 
-Implement the complete Go service layer for the Metrics module (172 protobuf
-files). This includes metrics collection, provider interfaces, exporters, and
-comprehensive monitoring capabilities.
+Implement the complete Go service layer for the Metrics module (172 protobuf files). This includes metrics collection, provider interfaces, exporters, and comprehensive monitoring capabilities.
 
 ## 📋 Context
 
-The Metrics module provides comprehensive monitoring and observability
-infrastructure with support for multiple metrics providers (Prometheus,
-InfluxDB, etc.).
+The Metrics module provides comprehensive monitoring and observability infrastructure with support for multiple metrics providers (Prometheus, InfluxDB, etc.).
 
 ### Current State
 

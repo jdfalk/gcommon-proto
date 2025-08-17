@@ -6,13 +6,11 @@
 
 ## 🎯 Objective
 
-Build community around gcommon and develop ecosystem tools. Create contribution
-guidelines, community resources, and third-party integration tools.
+Build community around gcommon and develop ecosystem tools. Create contribution guidelines, community resources, and third-party integration tools.
 
 ## 📋 Context
 
-For gcommon to succeed as a widely-used library, it needs an active community
-and rich ecosystem of tools and integrations.
+For gcommon to succeed as a widely-used library, it needs an active community and rich ecosystem of tools and integrations.
 
 ## 🔧 Implementation Requirements
 

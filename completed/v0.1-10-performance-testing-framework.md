@@ -6,15 +6,11 @@
 
 ## 🎯 Objective
 
-Develop a comprehensive performance testing and benchmarking framework for all
-gcommon modules. This includes load testing, stress testing, memory profiling,
-and performance regression detection.
+Develop a comprehensive performance testing and benchmarking framework for all gcommon modules. This includes load testing, stress testing, memory profiling, and performance regression detection.
 
 ## 📋 Context
 
-Performance is critical for a common library that will be used across multiple
-services. We need comprehensive performance testing to ensure scalability and
-efficiency.
+Performance is critical for a common library that will be used across multiple services. We need comprehensive performance testing to ensure scalability and efficiency.
 
 ### Current State
 

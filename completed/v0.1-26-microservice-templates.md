@@ -6,14 +6,11 @@
 
 ## 🎯 Objective
 
-Create production-ready microservice templates using gcommon modules. Provide
-complete application scaffolding with best practices, configuration, and
-deployment ready templates.
+Create production-ready microservice templates using gcommon modules. Provide complete application scaffolding with best practices, configuration, and deployment ready templates.
 
 ## 📋 Context
 
-Developers need ready-to-use microservice templates that demonstrate proper
-gcommon usage and provide a foundation for new services.
+Developers need ready-to-use microservice templates that demonstrate proper gcommon usage and provide a foundation for new services.
 
 ## 🔧 Implementation Requirements
 

@@ -6,14 +6,11 @@
 
 ## 🎯 Objective
 
-Create a comprehensive configuration management system that unifies
-configuration across all gcommon modules. This includes hierarchical
-configuration, environment-specific configs, and dynamic configuration updates.
+Create a comprehensive configuration management system that unifies configuration across all gcommon modules. This includes hierarchical configuration, environment-specific configs, and dynamic configuration updates.
 
 ## 📋 Context
 
-Each module needs configuration management, but there should be a unified system
-that handles configuration consistently across all modules.
+Each module needs configuration management, but there should be a unified system that handles configuration consistently across all modules.
 
 ## 🔧 Implementation Requirements
 
