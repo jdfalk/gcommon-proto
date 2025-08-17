@@ -16,7 +16,7 @@ import "proto/gcommon/v1/database/types/transaction_status_request.proto";
 import "proto/gcommon/v1/database/types/transaction_status_response.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package gcommon.v1.database.services;
+option go_package = "gcommon.v1.database.services";
 
 /**
  * TransactionService manages database transactions.

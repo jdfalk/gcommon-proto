@@ -19,7 +19,7 @@ import "proto/gcommon/v1/database/api/list_schemas_request.proto";
 import "proto/gcommon/v1/database/api/list_schemas_response.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package gcommon.v1.database.services;
+option go_package = "gcommon.v1.database.services";
 
 /**
  * DatabaseAdminService provides administrative operations for database

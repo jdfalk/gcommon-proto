@@ -9,7 +9,7 @@ package gcommon.v1.database.config;
 import "google/protobuf/go_features.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package gcommon.v1.database.config;
+option go_package = "gcommon.v1.database.config";
 
 /**
  * CockroachConfig provides CockroachDB-specific connection configuration.

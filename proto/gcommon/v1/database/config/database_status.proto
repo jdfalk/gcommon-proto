@@ -10,7 +10,7 @@ import "google/protobuf/go_features.proto";
 import "proto/gcommon/v1/database/types/database_status_code.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package gcommon.v1.database.config;
+option go_package = "gcommon.v1.database.config";
 
 /**
  * DatabaseStatus reports the current connection status for a

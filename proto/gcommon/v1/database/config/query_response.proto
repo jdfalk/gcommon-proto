@@ -9,7 +9,7 @@ import "proto/gcommon/v1/database/messages/query_stats.proto";
 import "proto/gcommon/v1/database/messages/result_set.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package gcommon.v1.database.config;
+option go_package = "gcommon.v1.database.config";
 
 /**
  * QueryResponse contains the results of a database query operation.

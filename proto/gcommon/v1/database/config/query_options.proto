@@ -8,7 +8,7 @@ import "google/protobuf/go_features.proto";
 import "proto/gcommon/v1/database/messages/consistency_level.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package gcommon.v1.database.config;
+option go_package = "gcommon.v1.database.config";
 
 /**
  * QueryOptions configures behavior for database query operations.
