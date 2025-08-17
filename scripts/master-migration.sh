@@ -310,11 +310,16 @@ step_validation() {
     progress "Validating Migration"
     
     log "Running migration validation..."
-    python3 scripts/validate-migration.py || warning "Some validation checks failed"
+    local validate_args=()
+    if [[ "$DRY_RUN" == "true" ]]; then
+        validate_args+=("--dry-run")
+    fi
+    
+    python3 scripts/validate-migration.py "${validate_args[@]}" || warning "Some validation checks failed"
     
     if [[ "$VERBOSE" == "true" ]]; then
         log "Running comprehensive validation..."
-        python3 scripts/comprehensive-validation.py || warning "Comprehensive validation had issues"
+        python3 scripts/comprehensive-validation.py "${validate_args[@]}" || warning "Comprehensive validation had issues"
     fi
     
     success "Validation completed"
@@ -373,7 +378,12 @@ step_final_verification() {
     progress "Final Verification"
     
     log "Running final system verification..."
-    python3 scripts/final-verification.py || {
+    local verify_args=()
+    if [[ "$DRY_RUN" == "true" ]]; then
+        verify_args+=("--dry-run")
+    fi
+    
+    python3 scripts/final-verification.py "${verify_args[@]}" || {
         error "Final verification failed"
         
         if [[ "$DRY_RUN" == "false" ]]; then

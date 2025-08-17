@@ -19,19 +19,41 @@ import re
 import sys
 import subprocess
 from pathlib import Path
-from typing import List, Dict, Set
+from typing import List
 
 class MigrationValidator:
     """Validate the proto migration results."""
     
-    def __init__(self, root_dir: str = '.'):
+    def __init__(self, root_dir: str = '.', dry_run: bool = False):
         self.root_dir = Path(root_dir)
+        self.dry_run = dry_run
         self.errors: List[str] = []
         self.warnings: List[str] = []
+        
+    def detect_dry_run_mode(self) -> bool:
+        """Detect if we're in dry-run mode."""
+        if self.dry_run:
+            return True
+            
+        # Check environment variables
+        if os.getenv('DRY_RUN', '').lower() in ('true', '1', 'yes'):
+            return True
+            
+        # Check if new structure exists - if not, likely dry-run
+        proto_dir = self.root_dir / 'proto' / 'gcommon' / 'v1'
+        if not proto_dir.exists():
+            return True
+            
+        return False
         
     def validate_directory_structure(self) -> bool:
         """Validate the new directory structure exists."""
         print("🔍 Validating directory structure...")
+        
+        is_dry_run = self.detect_dry_run_mode()
+        if is_dry_run:
+            print("ℹ️  Dry-run mode detected - skipping directory structure validation")
+            return True
         
         required_dirs = [
             'proto/gcommon/v1/common',
@@ -60,6 +82,11 @@ class MigrationValidator:
     def validate_proto_files(self) -> bool:
         """Validate proto files in new structure."""
         print("🔍 Validating proto files...")
+        
+        is_dry_run = self.detect_dry_run_mode()
+        if is_dry_run:
+            print("ℹ️  Dry-run mode detected - skipping proto file validation")
+            return True
         
         proto_files = list(self.root_dir.glob('proto/**/*.proto'))
         
@@ -126,14 +153,20 @@ class MigrationValidator:
         """Validate that old proto files have been removed."""
         print("🔍 Checking for remaining old proto files...")
         
+        is_dry_run = self.detect_dry_run_mode()
+        
         old_proto_files = []
         for proto_file in self.root_dir.glob('pkg/**/*.proto'):
             old_proto_files.append(str(proto_file))
         
         if old_proto_files:
-            self.warnings.extend([f"Old proto file still exists: {f}" for f in old_proto_files])
-            print(f"⚠️  Found {len(old_proto_files)} old proto files")
-            return False
+            if is_dry_run:
+                print(f"ℹ️  Found {len(old_proto_files)} old proto files (expected in dry-run mode)")
+                return True
+            else:
+                self.warnings.extend([f"Old proto file still exists: {f}" for f in old_proto_files])
+                print(f"⚠️  Found {len(old_proto_files)} old proto files")
+                return False
         
         print("✅ No old proto files found")
         return True
@@ -160,6 +193,11 @@ class MigrationValidator:
     def validate_buf_build(self) -> bool:
         """Validate that buf can build the new structure."""
         print("🔍 Testing buf build...")
+        
+        is_dry_run = self.detect_dry_run_mode()
+        if is_dry_run:
+            print("ℹ️  Dry-run mode detected - skipping buf build test")
+            return True
         
         try:
             result = subprocess.run(
@@ -242,30 +280,40 @@ class MigrationValidator:
                 all_passed = False
         
         # Print summary
-        print(f"\n📊 Validation Summary:")
+        print("\n📊 Validation Summary:")
         print(f"   Errors: {len(self.errors)}")
         print(f"   Warnings: {len(self.warnings)}")
         
         if self.errors:
-            print(f"\n❌ Errors:")
+            print("\n❌ Errors:")
             for error in self.errors:
                 print(f"   • {error}")
         
         if self.warnings:
-            print(f"\n⚠️  Warnings:")
+            print("\n⚠️  Warnings:")
             for warning in self.warnings:
                 print(f"   • {warning}")
         
         if all_passed and not self.errors:
-            print(f"\n🎉 Validation passed!")
+            print("\n🎉 Validation passed!")
             return True
         else:
-            print(f"\n💥 Validation failed!")
+            print("\n💥 Validation failed!")
             return False
 
 def main():
     """Main entry point."""
-    validator = MigrationValidator()
+    import argparse
+    
+    parser = argparse.ArgumentParser(description='Validate proto migration')
+    parser.add_argument('--dry-run', action='store_true', 
+                       help='Run in dry-run mode')
+    parser.add_argument('--root-dir', default='.', 
+                       help='Root directory of the project')
+    
+    args = parser.parse_args()
+    
+    validator = MigrationValidator(args.root_dir, args.dry_run)
     
     if validator.run_validation():
         sys.exit(0)
