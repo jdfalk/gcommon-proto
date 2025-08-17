@@ -12,9 +12,9 @@ on:
   workflow_dispatch:
     inputs:
       build_target:
-        description: 'Build target'
+        description: "Build target"
         required: false
-        default: 'all'
+        default: "all"
         type: choice
         options:
           - all
@@ -55,19 +55,19 @@ jobs:
         id: detect
         run: |
           echo "Detecting build matrix requirements..."
-          
+
           # Initialize matrices
           GO_MATRIX='{"include":[]}'
           PYTHON_MATRIX='{"include":[]}'
           FRONTEND_MATRIX='{"include":[]}'
           DOCKER_MATRIX='{"include":[]}'
-          
+
           HAS_GO=false
           HAS_PYTHON=false
           HAS_FRONTEND=false
           HAS_DOCKER=false
           PROTOBUF_NEEDED=false
-          
+
           # Check for Go projects
           if [ -f "go.mod" ] || find . -name "*.go" -not -path "./vendor/*" | head -1 | grep -q .; then
             echo "Go project detected"
@@ -82,7 +82,7 @@ jobs:
               ]
             }'
           fi
-          
+
           # Check for Python projects
           if [ -f "pyproject.toml" ] || [ -f "requirements.txt" ] || [ -f "setup.py" ] || find . -name "*.py" | head -1 | grep -q .; then
             echo "Python project detected"
@@ -97,7 +97,7 @@ jobs:
               ]
             }'
           fi
-          
+
           # Check for frontend projects
           if [ -f "package.json" ] || [ -f "yarn.lock" ] || [ -f "pnpm-lock.yaml" ]; then
             echo "Frontend project detected"
@@ -112,7 +112,7 @@ jobs:
               ]
             }'
           fi
-          
+
           # Check for Docker projects
           if find . -name "Dockerfile*" -o -name "docker-compose*.yml" -o -name "docker-compose*.yaml" | head -1 | grep -q .; then
             echo "Docker project detected"
@@ -124,13 +124,13 @@ jobs:
               ]
             }'
           fi
-          
+
           # Check for protobuf
           if [ -f "buf.yaml" ] || [ -f "buf.gen.yaml" ] || find . -name "*.proto" | head -1 | grep -q .; then
             echo "Protobuf project detected"
             PROTOBUF_NEEDED=true
           fi
-          
+
           # Set outputs
           echo "go-matrix=$GO_MATRIX" >> $GITHUB_OUTPUT
           echo "python-matrix=$PYTHON_MATRIX" >> $GITHUB_OUTPUT
@@ -141,7 +141,7 @@ jobs:
           echo "has-python=$HAS_PYTHON" >> $GITHUB_OUTPUT
           echo "has-frontend=$HAS_FRONTEND" >> $GITHUB_OUTPUT
           echo "has-docker=$HAS_DOCKER" >> $GITHUB_OUTPUT
-          
+
           echo "Matrix detection complete"
 
   # Protobuf generation (runs first as dependency)
@@ -373,38 +373,38 @@ jobs:
         run: |
           echo "## 🏗️ Matrix Build Summary" >> $GITHUB_STEP_SUMMARY
           echo "" >> $GITHUB_STEP_SUMMARY
-          
+
           # Check each build job
           if [[ "${{ needs.protobuf.result }}" == "success" || "${{ needs.protobuf.result }}" == "skipped" ]]; then
             echo "✅ **Protobuf Generation**: Completed" >> $GITHUB_STEP_SUMMARY
           else
             echo "❌ **Protobuf Generation**: Failed" >> $GITHUB_STEP_SUMMARY
           fi
-          
+
           if [[ "${{ needs.build-go.result }}" == "success" || "${{ needs.build-go.result }}" == "skipped" ]]; then
             echo "✅ **Go Build**: Completed" >> $GITHUB_STEP_SUMMARY
           else
             echo "❌ **Go Build**: Failed" >> $GITHUB_STEP_SUMMARY
           fi
-          
+
           if [[ "${{ needs.build-python.result }}" == "success" || "${{ needs.build-python.result }}" == "skipped" ]]; then
             echo "✅ **Python Build**: Completed" >> $GITHUB_STEP_SUMMARY
           else
             echo "❌ **Python Build**: Failed" >> $GITHUB_STEP_SUMMARY
           fi
-          
+
           if [[ "${{ needs.build-frontend.result }}" == "success" || "${{ needs.build-frontend.result }}" == "skipped" ]]; then
             echo "✅ **Frontend Build**: Completed" >> $GITHUB_STEP_SUMMARY
           else
             echo "❌ **Frontend Build**: Failed" >> $GITHUB_STEP_SUMMARY
           fi
-          
+
           if [[ "${{ needs.build-docker.result }}" == "success" || "${{ needs.build-docker.result }}" == "skipped" ]]; then
             echo "✅ **Docker Build**: Completed" >> $GITHUB_STEP_SUMMARY
           else
             echo "❌ **Docker Build**: Failed" >> $GITHUB_STEP_SUMMARY
           fi
-          
+
           # Overall status
           if [[ "${{ needs.build-go.result }}" == "failure" || 
                 "${{ needs.build-python.result }}" == "failure" || 

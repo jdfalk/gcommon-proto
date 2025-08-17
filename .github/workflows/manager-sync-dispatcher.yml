@@ -8,19 +8,19 @@ on:
   push:
     branches: [main]
     paths:
-      - '.github/workflows/**'
-      - '.github/instructions/**'
-      - '.github/prompts/**'
-      - 'scripts/**'
-      - '.github/linters/**'
-      - 'labels.json'
-      - 'labels.md'
+      - ".github/workflows/**"
+      - ".github/instructions/**"
+      - ".github/prompts/**"
+      - "scripts/**"
+      - ".github/linters/**"
+      - "labels.json"
+      - "labels.md"
   workflow_dispatch:
     inputs:
       sync_type:
-        description: 'Type of sync to perform'
+        description: "Type of sync to perform"
         required: false
-        default: 'all'
+        default: "all"
         type: choice
         options:
           - all
@@ -31,9 +31,9 @@ on:
           - linters
           - labels
       target_repos:
-        description: 'Target repositories (comma-separated)'
+        description: "Target repositories (comma-separated)"
         required: false
-        default: 'auto'
+        default: "auto"
 
 permissions:
   contents: read
@@ -52,14 +52,14 @@ jobs:
       - name: Set up Python
         uses: actions/setup-python@v5
         with:
-          python-version: '3.12'
+          python-version: "3.12"
 
       - name: Create repositories list
         id: repos
         run: |
           # Default repository list - exclude ghcommon to prevent self-syncing
           DEFAULT_REPOS="jdfalk/subtitle-manager,jdfalk/audiobook-organizer,jdfalk/copilot-agent-util-rust"
-          
+
           if [ "${{ github.event.inputs.target_repos }}" = "auto" ] || [ -z "${{ github.event.inputs.target_repos }}" ]; then
             echo "repos=$DEFAULT_REPOS" >> $GITHUB_OUTPUT
             echo "Using default repository list: $DEFAULT_REPOS"
@@ -72,7 +72,7 @@ jobs:
         id: sync-type
         run: |
           SYNC_TYPE="${{ github.event.inputs.sync_type }}"
-          
+
           if [ -z "$SYNC_TYPE" ] || [ "$SYNC_TYPE" = "all" ]; then
             # Auto-detect based on changed files for push events
             if [ "${{ github.event_name }}" = "push" ]; then
@@ -101,7 +101,7 @@ jobs:
               SYNC_TYPE="all"
             fi
           fi
-          
+
           echo "sync_type=$SYNC_TYPE" >> $GITHUB_OUTPUT
           echo "Sync type determined: $SYNC_TYPE"
 
@@ -109,11 +109,11 @@ jobs:
         run: |
           IFS=',' read -ra REPOS <<< "${{ steps.repos.outputs.repos }}"
           SYNC_TYPE="${{ steps.sync-type.outputs.sync_type }}"
-          
+
           echo "Dispatching sync events to repositories..."
           echo "Sync type: $SYNC_TYPE"
           echo "Target repositories: ${{ steps.repos.outputs.repos }}"
-          
+
           for repo in "${REPOS[@]}"; do
             # Trim whitespace
             repo=$(echo "$repo" | xargs)

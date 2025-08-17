@@ -591,7 +591,19 @@ jobs:
   ci-status:
     name: CI Status
     runs-on: ubuntu-latest
-    needs: [check-overrides, detect-changes, lint, test-go, test-frontend, test-python, test-rust, security-scan, build, matrix-build]
+    needs:
+      [
+        check-overrides,
+        detect-changes,
+        lint,
+        test-go,
+        test-frontend,
+        test-python,
+        test-rust,
+        security-scan,
+        build,
+        matrix-build,
+      ]
     if: always() && needs.check-overrides.outputs.skip-ci != 'true'
     steps:
       - name: Check CI status

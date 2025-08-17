@@ -8,37 +8,37 @@ on:
   workflow_call:
     inputs:
       go-versions:
-        description: 'Go versions to test (JSON array)'
+        description: "Go versions to test (JSON array)"
         required: false
         type: string
         default: '["1.22", "1.23", "1.24"]'
       python-versions:
-        description: 'Python versions to test (JSON array)'
+        description: "Python versions to test (JSON array)"
         required: false
         type: string
         default: '["3.11", "3.12", "3.13"]'
       node-versions:
-        description: 'Node.js versions to test (JSON array)'
+        description: "Node.js versions to test (JSON array)"
         required: false
         type: string
         default: '["20", "22", "24"]'
       rust-versions:
-        description: 'Rust versions to test (JSON array)'
+        description: "Rust versions to test (JSON array)"
         required: false
         type: string
         default: '["1.75", "1.76", "1.77"]'
       enable-protobuf:
-        description: 'Enable protobuf generation'
+        description: "Enable protobuf generation"
         required: false
         type: boolean
         default: true
       enable-docker:
-        description: 'Enable Docker builds'
+        description: "Enable Docker builds"
         required: false
         type: boolean
         default: true
       skip-tests:
-        description: 'Skip running tests'
+        description: "Skip running tests"
         required: false
         type: boolean
         default: false

@@ -15,9 +15,11 @@ GitHub Projects (the new Projects beta/v2) can be configured programmatically vi
 Based on our 137 repository labels, here are the recommended GitHub Projects with their associated labels:
 
 ### 1. 🚀 Feature Development Project
+
 **Purpose**: Track new feature development and enhancements
 
 **Auto-sort Rules (Labels)**:
+
 - `type:feature` - New feature development
 - `type:enhancement` - Improvement to existing feature
 - `feature` - New feature development
@@ -26,6 +28,7 @@ Based on our 137 repository labels, here are the recommended GitHub Projects wit
 - `size:large` - Large change (1-2 days)
 
 **Columns**:
+
 - Backlog (status:todo)
 - Ready (status:ready)
 - In Progress (status:in-progress)
@@ -33,9 +36,11 @@ Based on our 137 repository labels, here are the recommended GitHub Projects wit
 - Done (closed issues)
 
 ### 2. 🐛 Bug Fixes & Maintenance Project
+
 **Purpose**: Track bug fixes and maintenance work
 
 **Auto-sort Rules (Labels)**:
+
 - `type:bug` - Something isn't working
 - `bug` - Something isn't working
 - `bugfix` - Bug fix work
@@ -46,6 +51,7 @@ Based on our 137 repository labels, here are the recommended GitHub Projects wit
 - `priority:critical` - Critical priority - immediate attention required
 
 **Columns**:
+
 - Critical Issues (priority:critical, critical)
 - Ready to Fix (status:ready)
 - In Progress (status:in-progress)
@@ -53,9 +59,11 @@ Based on our 137 repository labels, here are the recommended GitHub Projects wit
 - Resolved (closed issues)
 
 ### 3. 📚 Documentation & Standards Project
+
 **Purpose**: Track documentation updates and coding standards
 
 **Auto-sort Rules (Labels)**:
+
 - `type:documentation` - Improvements or additions to documentation
 - `documentation` - Improvements or additions to documentation
 - `type:refactor` - Code refactoring without feature changes
@@ -64,15 +72,18 @@ Based on our 137 repository labels, here are the recommended GitHub Projects wit
 - `project:gcommon-refactor` - gcommon refactor initiative
 
 **Columns**:
+
 - Documentation Needed
 - In Progress
 - Review
 - Published
 
 ### 4. 🔧 Infrastructure & DevOps Project
+
 **Purpose**: Track CI/CD, automation, and infrastructure work
 
 **Auto-sort Rules (Labels)**:
+
 - `workflow:ci-cd` - Continuous integration and deployment
 - `ci-cd` - Continuous integration and deployment
 - `workflow:github-actions` - GitHub Actions workflows
@@ -84,6 +95,7 @@ Based on our 137 repository labels, here are the recommended GitHub Projects wit
 - `external-dependency` - Depends on external systems or libraries
 
 **Columns**:
+
 - Infrastructure Backlog
 - In Development
 - Testing
@@ -92,12 +104,16 @@ Based on our 137 repository labels, here are the recommended GitHub Projects wit
 ### 5. 🎯 Module-Specific Projects
 
 #### Auth Module Project
+
 **Auto-sort Rules (Labels)**:
+
 - `module:auth` - Authentication and authorization
 - `auth` - Authentication and authorization
 
 #### Protobuf Implementation Project
+
 **Auto-sort Rules (Labels)**:
+
 - `project:protobuf-implementation` - Protocol buffer implementation work
 - `module:proto` - Protocol buffer related
 - `proto` - Protocol buffer work
@@ -106,7 +122,9 @@ Based on our 137 repository labels, here are the recommended GitHub Projects wit
 - `protobuf` - Protocol buffer definitions
 
 #### Media Processing Project
+
 **Auto-sort Rules (Labels)**:
+
 - `project:media` - Media processing and handling
 - `project:subtitles` - Subtitle processing and conversion
 - `project:transcription` - Audio transcription features
@@ -118,17 +136,23 @@ Based on our 137 repository labels, here are the recommended GitHub Projects wit
 ### 6. 🏷️ Technology-Specific Projects
 
 #### Go Development Project
+
 **Auto-sort Rules (Labels)**:
+
 - `tech:go` - Go programming language
 - `go` - Go programming language
 
 #### Python Development Project
+
 **Auto-sort Rules (Labels)**:
+
 - `tech:python` - Python programming language
 - `python` - Python programming language
 
 #### JavaScript/TypeScript Project
+
 **Auto-sort Rules (Labels)**:
+
 - `tech:javascript` - JavaScript programming language
 - `javascript` - JavaScript programming language
 - `tech:typescript` - TypeScript programming language
@@ -166,7 +190,7 @@ Then: Move to "Review" column
 Within each project, use these priority labels for sorting:
 
 - `priority:critical` / `critical` - Top priority
-- `priority:high` / `high` - High priority  
+- `priority:high` / `high` - High priority
 - `priority:medium` / `medium` - Medium priority
 - `priority:low` / `low` - Low priority
 
