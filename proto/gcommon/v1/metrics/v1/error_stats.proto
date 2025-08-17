@@ -1,0 +1,27 @@
+// file: proto/gcommon/v1/metrics/v1/error_stats.proto
+// version: 1.0.0
+// guid: ba56b09c-77ad-41e9-80ae-0a95c96c8394
+
+edition = "2023";
+
+package gcommon.v1.metrics.v1;
+
+import "google/protobuf/go_features.proto";
+import "proto/gcommon/v1/metrics/types/error_type_count.proto";
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package gcommon.v1.metrics.v1;
+
+message MetricsErrorStats {
+  // Total number of errors
+  int64 total_errors = 1;
+
+  // Error rate (errors per total operations)
+  double error_rate = 2;
+
+  // Most common error types
+  repeated ErrorTypeCount error_types = 3;
+
+  // Recent error trend (increasing/decreasing/stable)
+  string error_trend = 4;
+}

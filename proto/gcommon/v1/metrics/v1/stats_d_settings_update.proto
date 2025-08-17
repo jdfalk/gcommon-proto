@@ -1,0 +1,32 @@
+// file: proto/gcommon/v1/metrics/v1/stats_d_settings_update.proto
+// version: 1.0.0
+// guid: d12fd84f-4de1-43f7-ad5d-5079bfa8b126
+
+edition = "2023";
+
+package gcommon.v1.metrics.v1;
+
+import "google/protobuf/go_features.proto";
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package gcommon.v1.metrics.v1;
+
+/**
+ * StatsDSettingsUpdate contains updates to StatsD settings.
+ */
+message StatsDSettingsUpdate {
+  // Updated server address
+  string address = 1;
+
+  // Updated protocol
+  string protocol = 2;
+
+  // Updated prefix
+  string prefix = 3;
+
+  // Updated sample rate
+  double sample_rate = 4;
+
+  // Updated buffer size
+  int32 buffer_size = 5;
+}

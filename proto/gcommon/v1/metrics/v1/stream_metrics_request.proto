@@ -1,0 +1,41 @@
+// file: proto/gcommon/v1/metrics/v1/stream_metrics_request.proto
+// version: 1.0.0
+// guid: e3a862c4-9279-4574-baf6-5eb6c9317d19
+
+edition = "2023";
+
+package gcommon.v1.metrics.v1;
+
+import "google/protobuf/go_features.proto";
+import "google/protobuf/timestamp.proto";
+import "proto/gcommon/v1/common/api/request_metadata.proto";
+import "proto/gcommon/v1/metrics/config/buffer_config.proto";
+import "proto/gcommon/v1/metrics/messages/buffer_overflow_strategy.proto";
+import "proto/gcommon/v1/metrics/messages/metric_filter.proto";
+import "proto/gcommon/v1/metrics/messages/stream_compression.proto";
+import "proto/gcommon/v1/metrics/messages/stream_options.proto";
+import "proto/gcommon/v1/metrics/messages/stream_qos.proto";
+import "proto/gcommon/v1/metrics/messages/stream_start.proto";
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package gcommon.v1.metrics.v1;
+
+message MetricsStreamMetricsRequest {
+  // Standard request metadata (tracing, auth, etc.)
+  gcommon.v1.common.RequestMetadata metadata = 1;
+
+  // Filter to determine which metrics to stream
+  MetricFilter filter = 2;
+
+  // Streaming configuration options
+  StreamOptions options = 3;
+
+  // Optional provider ID to stream from
+  string provider_id = 4;
+
+  // Starting point for the stream
+  StreamStart start = 5;
+
+  // Buffer configuration for the stream
+  BufferConfig buffer_config = 6;
+}

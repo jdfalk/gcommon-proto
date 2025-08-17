@@ -1,0 +1,26 @@
+// file: proto/gcommon/v1/metrics/v1/provider_settings_update.proto
+// version: 1.0.0
+// guid: d2e3f4a5-678d-023c-7890-345678901234
+
+edition = "2023";
+
+package gcommon.v1.metrics.v1;
+
+import "google/protobuf/go_features.proto";
+import "proto/gcommon/v1/metrics/config/open_telemetry_settings_update.proto";
+import "proto/gcommon/v1/metrics/config/prometheus_settings_update.proto";
+import "proto/gcommon/v1/metrics/config/stats_d_settings_update.proto";
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package gcommon.v1.metrics.v1;
+
+message ProviderSettingsUpdate {
+  // Prometheus settings update
+  PrometheusSettingsUpdate prometheus = 1;
+
+  // OpenTelemetry settings update
+  OpenTelemetrySettingsUpdate opentelemetry = 2;
+
+  // StatsD settings update
+  StatsDSettingsUpdate statsd = 3;
+}

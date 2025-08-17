@@ -1,0 +1,20 @@
+// file: proto/gcommon/v1/metrics/types/error_type_stats.proto
+// version: 1.0.0
+// guid: 93946dec-5ff0-40d4-8fd3-ff3d9c0b3dc4
+
+edition = "2023";
+
+package gcommon.v1.metrics.types;
+
+import "google/protobuf/go_features.proto";
+import "google/protobuf/timestamp.proto";
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package gcommon.v1.metrics.types;
+
+message ErrorTypeStats {
+  string error_type = 1;
+  int64 count = 2;
+  double rate = 3;
+  double percentage = 4;
+}

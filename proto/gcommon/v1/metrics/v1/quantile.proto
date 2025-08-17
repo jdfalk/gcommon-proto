@@ -1,0 +1,21 @@
+// file: proto/gcommon/v1/metrics/v1/quantile.proto
+// version: 1.0.0
+// guid: 9aa0660a-bf89-48a8-856e-cbc136a634b9
+
+edition = "2023";
+
+package gcommon.v1.metrics.v1;
+
+import "google/protobuf/go_features.proto";
+import "google/protobuf/timestamp.proto";
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package gcommon.v1.metrics.v1;
+
+message Quantile {
+  // Quantile value (0.0 to 1.0, e.g., 0.95 for 95th percentile)
+  double quantile = 1;
+
+  // Value at this quantile
+  double value = 2;
+}

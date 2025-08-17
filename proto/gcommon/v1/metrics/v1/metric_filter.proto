@@ -1,0 +1,36 @@
+// file: proto/gcommon/v1/metrics/v1/metric_filter.proto
+// version: 1.0.0
+// Filter for metrics queries
+
+edition = "2023";
+
+package gcommon.v1.metrics.v1;
+
+import "google/protobuf/go_features.proto";
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package gcommon.v1.metrics.v1;
+
+// Filter for metrics queries
+message MetricFilter {
+  // Metric name patterns to include
+  repeated string metric_names = 1;
+
+  // Label filters
+  map<string, string> labels = 2;
+
+  // Namespace filter
+  string namespace = 3;
+
+  // Time range filter
+  int64 start_timestamp = 4;
+  int64 end_timestamp = 5;
+
+  // Value threshold filters
+  double min_value = 6;
+  double max_value = 7;
+
+  // Include/exclude patterns
+  repeated string include_patterns = 8;
+  repeated string exclude_patterns = 9;
+}

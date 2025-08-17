@@ -1,0 +1,45 @@
+// file: proto/gcommon/v1/metrics/v1/sample_rate.proto
+// version: 1.0.0
+// guid: 5b6c7d8e-9f0a-1b2c-3d4e-5f6a7b8c9d0e
+
+edition = "2023";
+
+package gcommon.v1.metrics.v1;
+
+import "google/protobuf/go_features.proto";
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package gcommon.v1.metrics.v1;
+
+// SampleRate represents different sampling rates for metrics collection
+enum SampleRate {
+  // Unspecified sample rate
+  SAMPLE_RATE_UNSPECIFIED = 0;
+
+  // Collect every sample (100%)
+  SAMPLE_RATE_FULL = 1;
+
+  // Sample at 50% rate
+  SAMPLE_RATE_HALF = 2;
+
+  // Sample at 25% rate
+  SAMPLE_RATE_QUARTER = 3;
+
+  // Sample at 10% rate
+  SAMPLE_RATE_TENTH = 4;
+
+  // Sample at 5% rate
+  SAMPLE_RATE_TWENTIETH = 5;
+
+  // Sample at 1% rate
+  SAMPLE_RATE_HUNDREDTH = 6;
+
+  // Sample at 0.1% rate
+  SAMPLE_RATE_THOUSANDTH = 7;
+
+  // Adaptive sampling (dynamic rate)
+  SAMPLE_RATE_ADAPTIVE = 8;
+
+  // Custom sampling rate
+  SAMPLE_RATE_CUSTOM = 9;
+}

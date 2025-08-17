@@ -1,0 +1,60 @@
+// file: proto/gcommon/v1/metrics/v1/metric_source.proto
+// version: 1.0.0
+// guid: 0a1b2c3d-4e5f-6a7b-8c9d-0e1f2a3b4c5d
+
+edition = "2023";
+
+package gcommon.v1.metrics.v1;
+
+import "google/protobuf/go_features.proto";
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package gcommon.v1.metrics.v1;
+
+// MetricSource represents different sources of metrics data
+enum MetricSource {
+  // Unspecified metric source
+  METRIC_SOURCE_UNSPECIFIED = 0;
+
+  // Application metrics
+  METRIC_SOURCE_APPLICATION = 1;
+
+  // System metrics
+  METRIC_SOURCE_SYSTEM = 2;
+
+  // Infrastructure metrics
+  METRIC_SOURCE_INFRASTRUCTURE = 3;
+
+  // Container metrics
+  METRIC_SOURCE_CONTAINER = 4;
+
+  // Kubernetes metrics
+  METRIC_SOURCE_KUBERNETES = 5;
+
+  // Database metrics
+  METRIC_SOURCE_DATABASE = 6;
+
+  // Network metrics
+  METRIC_SOURCE_NETWORK = 7;
+
+  // Storage metrics
+  METRIC_SOURCE_STORAGE = 8;
+
+  // Security metrics
+  METRIC_SOURCE_SECURITY = 9;
+
+  // Business metrics
+  METRIC_SOURCE_BUSINESS = 10;
+
+  // Custom metrics
+  METRIC_SOURCE_CUSTOM = 11;
+
+  // Third-party metrics
+  METRIC_SOURCE_THIRD_PARTY = 12;
+
+  // Synthetic metrics
+  METRIC_SOURCE_SYNTHETIC = 13;
+
+  // Log-derived metrics
+  METRIC_SOURCE_LOG_DERIVED = 14;
+}

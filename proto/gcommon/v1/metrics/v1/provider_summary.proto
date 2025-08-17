@@ -1,0 +1,61 @@
+// file: proto/gcommon/v1/metrics/v1/provider_summary.proto
+// version: 1.0.0
+// guid: d5e6f7a8-b9c0-1d2e-3f4a-5b6c7d8e9f0a
+
+edition = "2023";
+
+package gcommon.v1.metrics.v1;
+
+import "google/protobuf/go_features.proto";
+import "google/protobuf/timestamp.proto";
+import "proto/gcommon/v1/metrics/types/provider_status.proto";
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package gcommon.v1.metrics.v1;
+
+/**
+ * ProviderSummary contains summary information about a metrics provider.
+ */
+message ProviderSummary {
+  // Unique identifier for the provider
+  string provider_id = 1;
+
+  // Human-readable name of the provider
+  string name = 2;
+
+  // Provider type (e.g., "prometheus", "datadog", "custom")
+  string provider_type = 3;
+
+  // Current status of the provider
+  ProviderStatus status = 4;
+
+  // Number of metrics currently managed by this provider
+  uint64 metric_count = 5;
+
+  // Number of active data points
+  uint64 active_data_points = 6;
+
+  // Storage size used by this provider (in bytes)
+  uint64 storage_size_bytes = 7;
+
+  // When this provider was registered
+  google.protobuf.Timestamp registered_at = 8;
+
+  // When this provider was last updated
+  google.protobuf.Timestamp last_updated = 9;
+
+  // Whether this provider is currently enabled
+  bool enabled = 10;
+
+  // Performance score (0.0 to 100.0)
+  double performance_score = 11;
+
+  // Health score (0.0 to 100.0)
+  double health_score = 12;
+
+  // Tags associated with this provider
+  repeated string tags = 13;
+
+  // Brief description of the provider
+  string description = 14;
+}

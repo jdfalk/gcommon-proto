@@ -1,0 +1,44 @@
+// file: proto/gcommon/v1/metrics/v1/record_histogram_response.proto
+// version: 1.0.0
+// guid: 33d2781c-78d0-4293-8c90-1a2b4e20c522
+
+edition = "2023";
+
+package gcommon.v1.metrics.v1;
+
+import "google/protobuf/go_features.proto";
+import "google/protobuf/timestamp.proto";
+import "proto/gcommon/v1/common/messages/error.proto";
+import "proto/gcommon/v1/metrics/messages/bucket_info.proto";
+import "proto/gcommon/v1/metrics/messages/histogram_metric.proto";
+import "proto/gcommon/v1/metrics/messages/histogram_stats.proto";
+import "proto/gcommon/v1/metrics/messages/recording_stats.proto";
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package gcommon.v1.metrics.v1;
+
+message RecordHistogramResponse {
+  // Whether the operation was successful
+  bool success = 1;
+
+  // Error information if the operation failed
+  gcommon.v1.common.Error error = 2;
+
+  // The histogram metric with updated bucket counts
+  HistogramMetric metric = 3;
+
+  // Current histogram statistics
+  HistogramStats current_stats = 4;
+
+  // Timestamp when the observation was recorded
+  google.protobuf.Timestamp recorded_at = 5;
+
+  // Whether this was a new histogram or an update to existing
+  bool is_new_metric = 6;
+
+  // Bucket that the observation fell into
+  BucketInfo affected_bucket = 7;
+
+  // Processing statistics
+  RecordingStats recording_stats = 8;
+}

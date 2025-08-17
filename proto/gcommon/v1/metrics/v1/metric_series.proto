@@ -1,0 +1,28 @@
+// file: proto/gcommon/v1/metrics/v1/metric_series.proto
+// version: 1.0.0
+// guid: 642e0c7a-6461-4167-b3e3-746ed9f6e413
+
+edition = "2023";
+
+package gcommon.v1.metrics.v1;
+
+import "google/protobuf/go_features.proto";
+import "google/protobuf/timestamp.proto";
+import "proto/gcommon/v1/metrics/types/metric_type.proto";
+import "proto/gcommon/v1/metrics/messages/metric_value.proto";
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package gcommon.v1.metrics.v1;
+
+message MetricSeries {
+  // Metric metadata
+  string name = 1;
+  MetricsMetricType type = 2;
+  map<string, string> labels = 3;
+
+  // Time-ordered series of values
+  repeated MetricValue values = 4;
+
+  // Resolution/step between data points
+  int64 step_seconds = 5;
+}

@@ -1,0 +1,32 @@
+// file: proto/gcommon/v1/metrics/v1/stream_start.proto
+// version: 1.0.0
+// guid: 035f2196-05b5-429a-be1c-e7feae4a5b49
+
+edition = "2023";
+
+package gcommon.v1.metrics.v1;
+
+import "google/protobuf/go_features.proto";
+import "google/protobuf/timestamp.proto";
+import "proto/gcommon/v1/common/api/request_metadata.proto";
+import "proto/gcommon/v1/metrics/messages/buffer_overflow_strategy.proto";
+import "proto/gcommon/v1/metrics/messages/metric_filter.proto";
+import "proto/gcommon/v1/metrics/messages/stream_compression.proto";
+import "proto/gcommon/v1/metrics/messages/stream_qos.proto";
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package gcommon.v1.metrics.v1;
+
+message StreamStart {
+  // Start from a specific timestamp
+  google.protobuf.Timestamp from_timestamp = 1;
+
+  // Start from the beginning of available data
+  bool from_beginning = 2;
+
+  // Start from the current time (live streaming only)
+  bool from_now = 3;
+
+  // Start from a specific offset or position
+  string from_offset = 4;
+}

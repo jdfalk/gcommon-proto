@@ -1,0 +1,28 @@
+// file: proto/gcommon/v1/metrics/v1/provider_config_summary.proto
+// version: 1.0.0
+// guid: 394dfc33-7acb-4583-bd49-44bdcb86e5ba
+
+edition = "2023";
+
+package gcommon.v1.metrics.v1;
+
+import "google/protobuf/go_features.proto";
+import "google/protobuf/timestamp.proto";
+import "proto/gcommon/v1/metrics/messages/resource_limits_summary.proto";
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package gcommon.v1.metrics.v1;
+
+message ProviderConfigSummary {
+  // Number of configured exporters
+  int32 exporter_count = 1;
+
+  // Whether security is enabled
+  bool security_enabled = 2;
+
+  // Resource limits summary
+  ResourceLimitsSummary resource_limits = 3;
+
+  // Export destinations
+  repeated string export_destinations = 4;
+}

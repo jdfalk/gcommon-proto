@@ -1,0 +1,26 @@
+// file: proto/gcommon/v1/metrics/v1/registration_options.proto
+// version: 1.0.0
+// guid: c171bdc3-4ccb-4042-b2f0-c6c6b89ee6f2
+
+edition = "2023";
+
+package gcommon.v1.metrics.v1;
+
+import "google/protobuf/go_features.proto";
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package gcommon.v1.metrics.v1;
+
+message RegistrationOptions {
+  // Whether to validate the definition before registration
+  bool validate_definition = 1;
+
+  // Whether to perform a dry run (validation only)
+  bool dry_run = 2;
+
+  // Whether to create indices for efficient querying
+  bool create_indices = 3;
+
+  // Whether to enable real-time alerts for this metric
+  bool enable_alerting = 4;
+}

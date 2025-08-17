@@ -1,0 +1,33 @@
+// file: proto/gcommon/v1/metrics/v1/backup_info.proto
+// version: 1.0.0
+// guid: 123e4567-e89b-12d3-a456-426614174026
+
+edition = "2023";
+
+package gcommon.v1.metrics.v1;
+
+import "google/protobuf/go_features.proto";
+import "google/protobuf/timestamp.proto";
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package gcommon.v1.metrics.v1;
+
+/**
+ * BackupInfo contains information about backup operations.
+ */
+message MetricsBackupInfo {
+  // Unique backup identifier
+  string backup_id = 1;
+
+  // Location where backup is stored
+  string backup_location = 2;
+
+  // Size of backup in bytes
+  int64 backup_size_bytes = 3;
+
+  // When backup was created
+  google.protobuf.Timestamp backup_created_at = 4;
+
+  // Backup retention period
+  string backup_retention = 5;
+}

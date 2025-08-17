@@ -1,0 +1,25 @@
+// file: proto/gcommon/v1/metrics/v1/reset_metrics_response.proto
+// file: proto/gcommon/v1/metrics/v1/reset_metrics_response.proto
+//
+// Response after resetting metric data.
+//
+edition = "2023";
+
+package gcommon.v1.metrics.v1;
+
+import "google/protobuf/go_features.proto";
+import "proto/gcommon/v1/common/messages/error.proto";
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package gcommon.v1.metrics.v1;
+
+/**
+ * ResetMetricsResponse reports reset status.
+ */
+message ResetMetricsResponse {
+  // Whether the reset succeeded
+  bool success = 1;
+
+  // Error information if reset failed
+  gcommon.v1.common.Error error = 2;
+}

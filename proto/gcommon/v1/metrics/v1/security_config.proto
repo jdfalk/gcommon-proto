@@ -1,0 +1,31 @@
+// file: proto/gcommon/v1/metrics/v1/security_config.proto
+// version: 1.0.0
+// guid: 61377102-cbd1-4223-8342-a2f11b1c4d47
+
+edition = "2023";
+
+package gcommon.v1.metrics.v1;
+
+import "google/protobuf/go_features.proto";
+import "proto/gcommon/v1/metrics/config/api_key_config.proto";
+import "proto/gcommon/v1/metrics/config/tls_config.proto";
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package gcommon.v1.metrics.v1;
+
+message MetricsSecurityConfig {
+  // Whether authentication is required
+  bool require_auth = 1;
+
+  // Allowed authentication methods
+  repeated string auth_methods = 2;
+
+  // Whether TLS is required
+  bool require_tls = 3;
+
+  // TLS configuration
+  MetricsTLSConfig tls_config = 4;
+
+  // API key configuration
+  MetricsAPIKeyConfig api_key_config = 5;
+}

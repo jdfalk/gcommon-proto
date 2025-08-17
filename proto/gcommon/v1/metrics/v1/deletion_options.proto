@@ -1,0 +1,51 @@
+// file: proto/gcommon/v1/metrics/v1/deletion_options.proto
+// version: 1.0.0
+// guid: 6e247c69-d9f2-452e-bb15-e81da5c53d42
+
+edition = "2023";
+
+package gcommon.v1.metrics.v1;
+
+import "google/protobuf/go_features.proto";
+import "proto/gcommon/v1/metrics/messages/cleanup_strategy.proto";
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package gcommon.v1.metrics.v1;
+
+/**
+ * DeletionOptions configure the deletion process.
+ */
+message DeletionOptions {
+  // Whether to delete all associated data
+  bool delete_data = 1;
+
+  // Whether to delete associated indices
+  bool delete_indices = 2;
+
+  // Whether to delete configuration backups
+  bool delete_backups = 3;
+
+  // Whether to stop all exports before deletion
+  bool stop_exports = 4;
+
+  // Grace period before actual deletion
+  string grace_period = 5;
+
+  // Whether to perform a dry run
+  bool dry_run = 6;
+
+  // Whether to force deletion even if provider is in use
+  bool force = 7;
+
+  // Whether to create a final backup before deletion
+  bool create_backup = 8;
+
+  // Cleanup strategy to use
+  CleanupStrategy cleanup_strategy = 9;
+
+  // Whether to wait for ongoing operations to complete
+  bool wait_for_completion = 10;
+
+  // Maximum time to wait for operations to complete
+  string completion_timeout = 11;
+}

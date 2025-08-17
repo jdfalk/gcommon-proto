@@ -1,0 +1,29 @@
+// file: proto/gcommon/v1/metrics/types/exporter_status.proto
+// version: 1.0.0
+// guid: 852f34ef-6a24-4d4c-a324-3cd1192428e9
+
+edition = "2023";
+
+package gcommon.v1.metrics.types;
+
+import "google/protobuf/go_features.proto";
+import "google/protobuf/timestamp.proto";
+import "proto/gcommon/v1/common/messages/error.proto";
+import "proto/gcommon/v1/common/messages/time_range.proto";
+import "proto/gcommon/v1/metrics/messages/error_stats.proto";
+import "proto/gcommon/v1/metrics/types/health_status.proto";
+import "proto/gcommon/v1/metrics/messages/performance_stats.proto";
+import "proto/gcommon/v1/metrics/messages/provider_summary.proto";
+import "proto/gcommon/v1/metrics/config/retention_policy_config.proto";
+import "proto/gcommon/v1/metrics/messages/top_metrics.proto";
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package gcommon.v1.metrics.types;
+
+message ExporterStatus {
+  string exporter_id = 1;
+  string exporter_type = 2;
+  string status = 3;
+  int64 exported_count = 4;
+  google.protobuf.Timestamp last_export = 5;
+}

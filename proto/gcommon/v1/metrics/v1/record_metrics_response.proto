@@ -1,0 +1,52 @@
+// file: proto/gcommon/v1/metrics/v1/record_metrics_response.proto
+// version: 1.0.0
+// guid: 14d6d2f6-2386-4f1b-a00f-086e0bfb5653
+
+edition = "2023";
+
+package gcommon.v1.metrics.v1;
+
+import "google/protobuf/go_features.proto";
+import "google/protobuf/timestamp.proto";
+import "proto/gcommon/v1/common/messages/error.proto";
+import "proto/gcommon/v1/metrics/messages/batch_stats.proto";
+import "proto/gcommon/v1/metrics/messages/metric_result.proto";
+import "proto/gcommon/v1/metrics/messages/validation_summary.proto";
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package gcommon.v1.metrics.v1;
+
+message RecordMetricsResponse {
+  // Overall success status of the batch operation
+  bool success = 1;
+
+  // Number of metrics successfully recorded
+  int32 success_count = 2;
+
+  // Number of metrics that failed to record
+  int32 failure_count = 3;
+
+  // Total number of metrics processed
+  int32 total_count = 4;
+
+  // Overall error information if the batch operation failed
+  gcommon.v1.common.Error error = 5;
+
+  // Detailed results for each metric (if requested)
+  repeated MetricResult results = 6;
+
+  // Timestamp when the batch operation was completed
+  google.protobuf.Timestamp completed_at = 7;
+
+  // Provider that handled the batch
+  string provider_id = 8;
+
+  // Performance metrics about the batch operation
+  gcommon.v1.metrics.MetricsBatchStats stats = 9;
+
+  // Warnings or informational messages about the batch
+  repeated string warnings = 10;
+
+  // Summary of validation results (if validation was enabled)
+  ValidationSummary validation_summary = 11;
+}

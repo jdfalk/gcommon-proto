@@ -1,0 +1,42 @@
+// file: proto/gcommon/v1/metrics/v1/record_gauge_response.proto
+// version: 1.2.0
+// guid: c1d2e3f4-g5h6-7890-i1j2-k3l4m5n6o7p8
+
+edition = "2023";
+
+package gcommon.v1.metrics.v1;
+
+import "google/protobuf/go_features.proto";
+import "google/protobuf/timestamp.proto";
+import "proto/gcommon/v1/common/messages/error.proto";
+import "proto/gcommon/v1/metrics/messages/gauge_metric.proto";
+import "proto/gcommon/v1/metrics/messages/recording_stats.proto";
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package gcommon.v1.metrics.v1;
+
+/**
+ * RecordGaugeResponse is returned after recording a gauge metric.
+ */
+message RecordGaugeResponse {
+  // Whether the operation was successful
+  bool success = 1;
+
+  // Error information if the operation failed
+  gcommon.v1.common.Error error = 2;
+
+  // The recorded gauge metric with updated value
+  GaugeMetric metric = 3;
+
+  // Previous value of the gauge (if applicable)
+  double previous_value = 4;
+
+  // Timestamp when the gauge was recorded
+  google.protobuf.Timestamp recorded_at = 5;
+
+  // Whether this was a new gauge or an update to existing
+  bool is_new_metric = 6;
+
+  // Processing statistics
+  RecordingStats stats = 7;
+}

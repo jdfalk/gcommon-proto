@@ -1,0 +1,61 @@
+// file: proto/gcommon/v1/metrics/v1/export_config.proto
+// version: 1.0.0
+// guid: 2b3c4d5e-6f7a-8b9c-0d1e-2f3a4b5c6d7e
+
+edition = "2023";
+
+package gcommon.v1.metrics.v1;
+
+import "google/protobuf/go_features.proto";
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package gcommon.v1.metrics.v1;
+
+// Configuration for exporting metrics data
+message ExportConfig {
+  // Export destination URL or endpoint
+  string destination = 1;
+
+  // Export format (json, csv, prometheus, etc.)
+  string format = 2;
+
+  // Export frequency in seconds
+  int32 frequency_seconds = 3;
+
+  // Whether to compress exported data
+  bool compress = 4;
+
+  // Batch size for exports
+  int32 batch_size = 5;
+
+  // Timeout for export operations in seconds
+  int32 timeout_seconds = 6;
+
+  // Custom headers for HTTP exports
+  map<string, string> headers = 7;
+
+  // Authentication configuration
+  map<string, string> auth_config = 8;
+
+  // Retry configuration
+  MetricsRetryConfig retry_config = 9;
+
+  // Filtering rules for what to export
+  repeated string include_patterns = 10;
+  repeated string exclude_patterns = 11;
+}
+
+// Retry configuration for exports
+message MetricsRetryConfig {
+  // Maximum number of retries
+  int32 max_retries = 1;
+
+  // Initial retry delay in seconds
+  int32 initial_delay_seconds = 2;
+
+  // Maximum retry delay in seconds
+  int32 max_delay_seconds = 3;
+
+  // Backoff multiplier
+  double backoff_multiplier = 4;
+}

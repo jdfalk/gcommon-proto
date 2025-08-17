@@ -1,0 +1,29 @@
+// file: proto/gcommon/v1/metrics/v1/resource_data_point.proto
+// version: 1.0.0
+// guid: aada674f-48f3-4943-b35d-4866b7b17399
+
+edition = "2023";
+
+package gcommon.v1.metrics.v1;
+
+import "google/protobuf/go_features.proto";
+import "google/protobuf/timestamp.proto";
+import "proto/gcommon/v1/common/messages/error.proto";
+import "proto/gcommon/v1/common/messages/time_range.proto";
+import "proto/gcommon/v1/metrics/messages/error_stats.proto";
+import "proto/gcommon/v1/metrics/messages/performance_stats.proto";
+import "proto/gcommon/v1/metrics/messages/provider_info.proto";
+import "proto/gcommon/v1/metrics/messages/resource_limits_summary.proto";
+import "proto/gcommon/v1/metrics/messages/time_range.proto";
+import "proto/gcommon/v1/metrics/messages/top_metrics.proto";
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package gcommon.v1.metrics.v1;
+
+message ResourceDataPoint {
+  google.protobuf.Timestamp timestamp = 1;
+  double memory_usage_percent = 2;
+  double cpu_usage_percent = 3;
+  double disk_usage_percent = 4;
+  int64 network_bytes_per_second = 5;
+}

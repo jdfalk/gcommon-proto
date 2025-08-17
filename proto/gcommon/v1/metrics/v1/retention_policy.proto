@@ -1,0 +1,48 @@
+// file: proto/gcommon/v1/metrics/v1/retention_policy.proto
+// version: 1.0.0
+// guid: 4a5b6c7d-8e9f-0a1b-2c3d-4e5f6a7b8c9d
+
+edition = "2023";
+
+package gcommon.v1.metrics.v1;
+
+import "google/protobuf/go_features.proto";
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package gcommon.v1.metrics.v1;
+
+// RetentionPolicy represents different retention policies for metrics data
+enum MetricsRetentionPolicy {
+  // Unspecified retention policy
+  RETENTION_POLICY_UNSPECIFIED = 0;
+
+  // Short-term retention (minutes to hours)
+  RETENTION_POLICY_SHORT_TERM = 1;
+
+  // Medium-term retention (days to weeks)
+  RETENTION_POLICY_MEDIUM_TERM = 2;
+
+  // Long-term retention (months to years)
+  RETENTION_POLICY_LONG_TERM = 3;
+
+  // Archive retention (permanent storage)
+  RETENTION_POLICY_ARCHIVE = 4;
+
+  // Custom retention policy
+  RETENTION_POLICY_CUSTOM = 5;
+
+  // High-frequency data retention (seconds to minutes)
+  RETENTION_POLICY_HIGH_FREQUENCY = 6;
+
+  // Low-frequency data retention (hours to days)
+  RETENTION_POLICY_LOW_FREQUENCY = 7;
+
+  // Compliance retention (regulatory requirements)
+  RETENTION_POLICY_COMPLIANCE = 8;
+
+  // Real-time retention (immediate processing, no storage)
+  RETENTION_POLICY_REAL_TIME = 9;
+
+  // Aggregate retention (summary data only)
+  RETENTION_POLICY_AGGREGATE = 10;
+}

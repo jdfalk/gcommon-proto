@@ -1,0 +1,26 @@
+// file: proto/gcommon/v1/metrics/v1/list_metrics_response.proto
+// file: proto/gcommon/v1/metrics/v1/list_metrics_response.proto
+//
+// Response containing a list of metric metadata.
+//
+edition = "2023";
+
+package gcommon.v1.metrics.v1;
+
+import "google/protobuf/go_features.proto";
+import "proto/gcommon/v1/common/messages/error.proto";
+import "proto/gcommon/v1/metrics/messages/metric_metadata.proto";
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package gcommon.v1.metrics.v1;
+
+/**
+ * ListMetricsResponse lists available metrics.
+ */
+message ListMetricsResponse {
+  // Available metrics
+  repeated MetricMetadata metrics = 1;
+
+  // Error information
+  gcommon.v1.common.Error error = 2;
+}

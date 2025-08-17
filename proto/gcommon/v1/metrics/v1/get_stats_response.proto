@@ -1,0 +1,27 @@
+// file: proto/gcommon/v1/metrics/v1/get_stats_response.proto
+// file: proto/gcommon/v1/metrics/v1/get_stats_response.proto
+//
+// Response containing metric statistics over a time range.
+//
+edition = "2023";
+
+package gcommon.v1.metrics.v1;
+
+import "google/protobuf/go_features.proto";
+import "proto/gcommon/v1/common/messages/error.proto";
+import "proto/gcommon/v1/database/messages/query_stats.proto";
+import "proto/gcommon/v1/metrics/messages/query_stats.proto";
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package gcommon.v1.metrics.v1;
+
+/**
+ * GetStatsResponse returns statistics for a metric.
+ */
+message MetricsGetStatsResponse {
+  // Statistics for the query
+  MetricsQueryStats stats = 1;
+
+  // Error information
+  gcommon.v1.common.Error error = 2;
+}

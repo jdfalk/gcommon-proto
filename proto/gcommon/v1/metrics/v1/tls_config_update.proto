@@ -1,0 +1,29 @@
+// file: proto/gcommon/v1/metrics/v1/tls_config_update.proto
+// version: 1.0.0
+// guid: d61cb51c-f2b6-403b-bf24-6b5fe08c3e61
+
+edition = "2023";
+
+package gcommon.v1.metrics.v1;
+
+import "google/protobuf/go_features.proto";
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package gcommon.v1.metrics.v1;
+
+/**
+ * TLSConfigUpdate contains updates to TLS configuration.
+ */
+message TLSConfigUpdate {
+  // Updated certificate file path
+  string cert_file = 1;
+
+  // Updated private key file path
+  string key_file = 2;
+
+  // Updated CA certificate file path
+  string ca_file = 3;
+
+  // Updated certificate verification setting
+  bool verify_certs = 4;
+}

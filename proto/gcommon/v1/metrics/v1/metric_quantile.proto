@@ -1,0 +1,24 @@
+// file: proto/gcommon/v1/metrics/v1/metric_quantile.proto
+// version: 1.0.0
+// guid: 9ab5b0e2-0228-47d2-9a48-d714ee6f3d6f
+
+edition = "2023";
+
+package gcommon.v1.metrics.v1;
+
+import "google/protobuf/go_features.proto";
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package gcommon.v1.metrics.v1;
+
+/**
+ * MetricQuantile represents a quantile value calculated from a
+ * distribution of metric samples.
+ */
+message MetricQuantile {
+  // Quantile (0-1, e.g., 0.95 for 95th percentile).
+  double quantile = 1;
+
+  // Value observed at this quantile.
+  double value = 2;
+}

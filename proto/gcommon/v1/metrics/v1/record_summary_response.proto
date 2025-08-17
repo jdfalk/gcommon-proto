@@ -1,0 +1,30 @@
+// file: proto/gcommon/v1/metrics/v1/record_summary_response.proto
+// file: proto/gcommon/v1/metrics/v1/record_summary_response.proto
+//
+// Response after recording a summary metric.
+//
+edition = "2023";
+
+package gcommon.v1.metrics.v1;
+
+import "google/protobuf/go_features.proto";
+import "proto/gcommon/v1/common/messages/error.proto";
+import "proto/gcommon/v1/metrics/messages/recording_stats.proto";
+import "proto/gcommon/v1/metrics/messages/summary_metric.proto";
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package gcommon.v1.metrics.v1;
+
+/**
+ * RecordSummaryResponse returns updated summary stats.
+ */
+message RecordSummaryResponse {
+  // Updated summary metric
+  SummaryMetric metric = 1;
+
+  // Processing stats
+  RecordingStats stats = 2;
+
+  // Error information
+  gcommon.v1.common.Error error = 3;
+}

@@ -1,0 +1,23 @@
+// file: proto/gcommon/v1/metrics/v1/health_check_request.proto
+// version: 1.0.0
+// guid: ffa1c922-b413-4b2d-a7fd-0d58fcd0b048
+//
+// HealthCheckRequest for the metrics module
+
+edition = "2023";
+
+package gcommon.v1.metrics.v1;
+
+import "google/protobuf/go_features.proto";
+import "proto/gcommon/v1/common/api/request_metadata.proto";
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package gcommon.v1.metrics.v1;
+
+message MetricsHealthCheckRequest {
+  // Metrics subsystem name (e.g., "prometheus").
+  string subsystem = 1;
+
+  // Request metadata for tracing and auth.
+  gcommon.v1.common.RequestMetadata metadata = 2 [lazy = true];
+}

@@ -1,0 +1,54 @@
+// file: proto/gcommon/v1/metrics/v1/timer_metric.proto
+// version: 1.0.0
+// guid: 13ed2d88-7499-4d64-83cb-9292a1e35065
+
+edition = "2023";
+
+package gcommon.v1.metrics.v1;
+
+import "google/protobuf/duration.proto";
+import "google/protobuf/go_features.proto";
+import "google/protobuf/timestamp.proto";
+import "proto/gcommon/v1/metrics/messages/percentile_measurement.proto";
+import "proto/gcommon/v1/metrics/messages/timer_statistics.proto";
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package gcommon.v1.metrics.v1;
+
+message TimerMetric {
+  // Unique identifier for this timer measurement
+  string timer_id = 1;
+
+  // Name or label for this timer (e.g., "api_request_duration")
+  string name = 2;
+
+  // Start time of the measured operation
+  google.protobuf.Timestamp start_time = 3;
+
+  // End time of the measured operation
+  google.protobuf.Timestamp end_time = 4;
+
+  // Duration of the measured operation
+  google.protobuf.Duration duration = 5;
+
+  // Tags/labels for categorization and filtering
+  map<string, string> tags = 6;
+
+  // Statistical aggregations for this timer
+  TimerStatistics statistics = 7;
+
+  // Whether this timer is currently running
+  bool is_running = 8;
+
+  // Number of times this timer has been recorded
+  int64 count = 9;
+
+  // Total accumulated time across all recordings
+  google.protobuf.Duration total_duration = 10;
+
+  // Percentile measurements
+  repeated PercentileMeasurement percentiles = 11;
+
+  // Timestamp when this metric was recorded
+  google.protobuf.Timestamp recorded_at = 12;
+}

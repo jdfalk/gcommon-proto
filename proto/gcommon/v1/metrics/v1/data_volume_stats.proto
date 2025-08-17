@@ -1,0 +1,43 @@
+// file: proto/gcommon/v1/metrics/v1/data_volume_stats.proto
+// version: 1.0.0
+// guid: 85a18add-5de2-4de6-9e3a-05e4959520e4
+
+edition = "2023";
+
+package gcommon.v1.metrics.v1;
+
+import "google/protobuf/go_features.proto";
+import "google/protobuf/timestamp.proto";
+import "proto/gcommon/v1/metrics/messages/data_volume_data_point.proto";
+import "proto/gcommon/v1/metrics/messages/error_stats.proto";
+import "proto/gcommon/v1/metrics/messages/performance_stats.proto";
+import "proto/gcommon/v1/metrics/messages/provider_info.proto";
+import "proto/gcommon/v1/metrics/messages/resource_limits_summary.proto";
+import "proto/gcommon/v1/metrics/messages/time_range.proto";
+import "proto/gcommon/v1/metrics/messages/top_metrics.proto";
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package gcommon.v1.metrics.v1;
+
+message DataVolumeStats {
+  // Total data stored (bytes)
+  int64 total_bytes = 1;
+
+  // Total number of metrics
+  int64 total_metrics = 2;
+
+  // Total number of data points
+  int64 total_data_points = 3;
+
+  // Data ingestion rate (bytes per second)
+  double ingestion_rate_bytes_per_second = 4;
+
+  // Data points ingestion rate (points per second)
+  double ingestion_rate_points_per_second = 5;
+
+  // Compression ratio
+  double compression_ratio = 6;
+
+  // Time-series data volume
+  repeated DataVolumeDataPoint volume_timeseries = 7;
+}

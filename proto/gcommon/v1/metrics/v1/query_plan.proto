@@ -1,0 +1,37 @@
+// file: proto/gcommon/v1/metrics/v1/query_plan.proto
+// version: 1.0.0
+// guid: 6acf658c-3ed4-4910-a68b-dc33ce5d816b
+
+edition = "2023";
+
+package gcommon.v1.metrics.v1;
+
+import "google/protobuf/duration.proto";
+import "google/protobuf/go_features.proto";
+import "proto/gcommon/v1/common/messages/sort_options.proto";
+import "proto/gcommon/v1/metrics/types/aggregation_type.proto";
+import "proto/gcommon/v1/metrics/messages/metric_filter.proto";
+import "proto/gcommon/v1/metrics/messages/query_operation.proto";
+import "proto/gcommon/v1/metrics/messages/query_step.proto";
+import "proto/gcommon/v1/metrics/messages/time_range.proto";
+import "proto/gcommon/v1/metrics/messages/timestamp_range.proto";
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package gcommon.v1.metrics.v1;
+
+message QueryPlan {
+  // Query that this plan is for
+  string query_id = 1;
+
+  // Estimated execution time
+  google.protobuf.Duration estimated_duration = 2;
+
+  // Estimated number of data points to process
+  int64 estimated_data_points = 3;
+
+  // Execution steps
+  repeated QueryStep steps = 4;
+
+  // Storage backends that will be queried
+  repeated string storage_backends = 5;
+}

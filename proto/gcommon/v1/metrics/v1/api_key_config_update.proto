@@ -1,0 +1,29 @@
+// file: proto/gcommon/v1/metrics/v1/api_key_config_update.proto
+// version: 1.0.0
+// guid: f04936d2-7273-4746-bc4b-9a2c0794658f
+
+edition = "2023";
+
+package gcommon.v1.metrics.v1;
+
+import "google/protobuf/go_features.proto";
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package gcommon.v1.metrics.v1;
+
+/**
+ * APIKeyConfigUpdate contains updates to API key configuration.
+ */
+message APIKeyConfigUpdate {
+  // Updated header name
+  string header_name = 1;
+
+  // Updated required setting
+  bool required = 2;
+
+  // API key updates
+  repeated string allowed_key_updates = 3;
+
+  // API keys to remove
+  repeated string allowed_key_removes = 4;
+}

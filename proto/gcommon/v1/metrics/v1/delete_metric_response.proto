@@ -1,0 +1,25 @@
+// file: proto/gcommon/v1/metrics/v1/delete_metric_response.proto
+// file: proto/gcommon/v1/metrics/v1/delete_metric_response.proto
+//
+// Response returned after deleting a metric.
+//
+edition = "2023";
+
+package gcommon.v1.metrics.v1;
+
+import "google/protobuf/go_features.proto";
+import "proto/gcommon/v1/common/messages/error.proto";
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package gcommon.v1.metrics.v1;
+
+/**
+ * DeleteMetricResponse confirms metric deletion.
+ */
+message DeleteMetricResponse {
+  // Whether the delete succeeded
+  bool success = 1;
+
+  // Error details if the operation failed
+  gcommon.v1.common.Error error = 2;
+}

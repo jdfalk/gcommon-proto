@@ -1,0 +1,25 @@
+// file: proto/gcommon/v1/metrics/v1/histogram_value.proto
+// version: 1.0.0
+// guid: eb817cca-e34f-456c-8769-cb7f42cb931c
+
+edition = "2023";
+
+package gcommon.v1.metrics.v1;
+
+import "google/protobuf/go_features.proto";
+import "google/protobuf/timestamp.proto";
+import "proto/gcommon/v1/metrics/messages/histogram_bucket.proto";
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package gcommon.v1.metrics.v1;
+
+message HistogramValue {
+  // Histogram buckets with their counts
+  repeated HistogramBucket buckets = 1;
+
+  // Total count of all samples
+  uint64 count = 2;
+
+  // Sum of all sample values
+  double sum = 3;
+}

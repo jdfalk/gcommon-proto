@@ -1,0 +1,39 @@
+// file: proto/gcommon/v1/metrics/v1/export_config_update.proto
+// version: 1.0.0
+// guid: fd6ebe54-a1db-4c08-84b4-a91b690e9af6
+
+edition = "2023";
+
+package gcommon.v1.metrics.v1;
+
+import "google/protobuf/go_features.proto";
+import "proto/gcommon/v1/metrics/messages/export_destination_update.proto";
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package gcommon.v1.metrics.v1;
+
+/**
+ * ExportConfigUpdate contains updates to export configuration.
+ */
+message ExportConfigUpdate {
+  // Updated enabled status
+  bool enabled = 1;
+
+  // Format updates
+  repeated string format_updates = 2;
+
+  // Formats to remove
+  repeated string format_removes = 3;
+
+  // Destination updates
+  repeated ExportDestinationUpdate destination_updates = 4;
+
+  // Destinations to remove
+  repeated string destination_removes = 5;
+
+  // Updated export frequency
+  string frequency = 6;
+
+  // Updated batch size
+  int32 batch_size = 7;
+}

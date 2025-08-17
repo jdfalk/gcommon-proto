@@ -1,0 +1,44 @@
+// file: proto/gcommon/v1/metrics/v1/metrics_management_service.proto
+// version: 1.1.0
+// guid: a1b2c3d4-e5f6-7890-abcd-1234567890ab
+
+edition = "2023";
+
+package gcommon.v1.metrics.v1;
+
+import "google/protobuf/go_features.proto";
+// Import all required request and response messages
+import "proto/gcommon/v1/metrics/api/create_provider_request.proto";
+import "proto/gcommon/v1/metrics/api/create_provider_response.proto";
+import "proto/gcommon/v1/metrics/api/delete_provider_request.proto";
+import "proto/gcommon/v1/metrics/api/delete_provider_response.proto";
+import "proto/gcommon/v1/metrics/api/get_provider_stats_request.proto";
+import "proto/gcommon/v1/metrics/api/get_provider_stats_response.proto";
+import "proto/gcommon/v1/metrics/api/list_providers_request.proto";
+import "proto/gcommon/v1/metrics/api/list_providers_response.proto";
+import "proto/gcommon/v1/metrics/api/update_provider_request.proto";
+import "proto/gcommon/v1/metrics/api/update_provider_response.proto";
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package gcommon.v1.metrics.v1;
+
+/**
+ * MetricsManagementService provides administrative capabilities for metrics providers.
+ * This service handles provider lifecycle, configuration, and monitoring.
+ */
+service MetricsManagementService {
+  // Create a new metrics provider
+  rpc CreateMetricsProvider(CreateProviderRequest) returns (CreateProviderResponse);
+
+  // Update an existing metrics provider configuration
+  rpc UpdateMetricsProvider(UpdateProviderRequest) returns (UpdateProviderResponse);
+
+  // Delete a metrics provider and optionally its data
+  rpc DeleteMetricsProvider(DeleteProviderRequest) returns (DeleteProviderResponse);
+
+  // List all configured metrics providers
+  rpc ListMetricsProviders(ListProvidersRequest) returns (ListProvidersResponse);
+
+  // Get statistics and status for a specific provider
+  rpc GetProviderStats(GetProviderStatsRequest) returns (GetProviderStatsResponse);
+}

@@ -1,0 +1,33 @@
+// file: proto/gcommon/v1/metrics/v1/health_check_response.proto
+// version: 1.0.0
+// guid: 2d9c7ce3-2e5b-42d7-9473-70bef7518cdd
+//
+// HealthCheckResponse for the metrics module
+edition = "2023";
+
+package gcommon.v1.metrics.v1;
+
+import "google/protobuf/duration.proto";
+import "google/protobuf/go_features.proto";
+import "proto/gcommon/v1/common/messages/error.proto";
+import "proto/gcommon/v1/metrics/types/health_status.proto";
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package gcommon.v1.metrics.v1;
+
+/**
+ * HealthCheckResponse contains the result of a metrics subsystem health check.
+ */
+message MetricsHealthCheckResponse {
+  // Health status of the subsystem.
+  MetricsHealthStatus status = 1;
+
+  // Time taken to execute the health check.
+  google.protobuf.Duration response_time = 2 [lazy = true];
+
+  // Optional human-readable message.
+  string message = 3;
+
+  // Error details if unhealthy.
+  gcommon.v1.common.Error error = 4 [lazy = true];
+}

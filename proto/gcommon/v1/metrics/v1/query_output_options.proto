@@ -1,0 +1,29 @@
+// file: proto/gcommon/v1/metrics/v1/query_output_options.proto
+// version: 1.0.0
+// guid: b6da5ff6-e156-4256-b53f-bebc54538f99
+
+edition = "2023";
+
+package gcommon.v1.metrics.v1;
+
+import "google/protobuf/go_features.proto";
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package gcommon.v1.metrics.v1;
+
+message QueryOutputOptions {
+  // Whether to include timestamps in results
+  bool include_timestamps = 1;
+
+  // Whether to include label information
+  bool include_labels = 2;
+
+  // Whether to compress/optimize output for network transfer
+  bool compress_output = 3;
+
+  // Maximum precision for numeric values (decimal places)
+  int32 numeric_precision = 4;
+
+  // Whether to include statistics about the query execution
+  bool include_statistics = 5;
+}

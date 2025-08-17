@@ -1,0 +1,47 @@
+// file: proto/gcommon/v1/metrics/v1/record_metric_response.proto
+// file: proto/gcommon/v1/metrics/v1/record_metric_response.proto
+//
+// Record metric response definitions for metrics module
+//
+edition = "2023";
+
+package gcommon.v1.metrics.v1;
+
+import "google/protobuf/go_features.proto";
+import "google/protobuf/timestamp.proto";
+import "proto/gcommon/v1/common/messages/error.proto";
+import "proto/gcommon/v1/config/messages/validation_result.proto";
+import "proto/gcommon/v1/metrics/messages/recording_stats.proto";
+import "proto/gcommon/v1/metrics/messages/validation_result.proto";
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package gcommon.v1.metrics.v1;
+
+/**
+ * RecordMetricResponse contains the result of recording a metric data point.
+ */
+message RecordMetricResponse {
+  // Success status of the operation
+  bool success = 1;
+
+  // Error information if the operation failed
+  gcommon.v1.common.Error error = 2;
+
+  // Unique ID assigned to the recorded metric (if applicable)
+  string metric_id = 3;
+
+  // Timestamp when the metric was actually recorded
+  google.protobuf.Timestamp recorded_at = 4;
+
+  // Provider that handled the metric
+  string provider_id = 5;
+
+  // Validation results if validation was requested
+  MetricsValidationResult validation = 6;
+
+  // Performance metrics about the recording operation
+  RecordingStats stats = 7;
+
+  // Warnings or informational messages
+  repeated string warnings = 8;
+}

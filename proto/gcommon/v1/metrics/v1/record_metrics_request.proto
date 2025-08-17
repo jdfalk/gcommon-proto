@@ -1,0 +1,34 @@
+// file: proto/gcommon/v1/metrics/v1/record_metrics_request.proto
+// version: 1.0.0
+// guid: a9b8c7d6-e5f4-3210-9876-543210abcdef
+
+edition = "2023";
+
+package gcommon.v1.metrics.v1;
+
+import "google/protobuf/go_features.proto";
+import "proto/gcommon/v1/common/api/request_metadata.proto";
+import "proto/gcommon/v1/metrics/messages/metric_data.proto";
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package gcommon.v1.metrics.v1;
+
+/**
+ * RecordMetricsRequest represents a batch request to record multiple metrics.
+ */
+message RecordMetricsRequest {
+  // Standard request metadata (tracing, auth, etc.)
+  gcommon.v1.common.RequestMetadata metadata = 1;
+
+  // Batch of metrics to record
+  repeated MetricData metrics = 2;
+
+  // Whether to validate all metrics before recording any
+  bool atomic = 3;
+
+  // Optional batch ID for tracking
+  string batch_id = 4;
+
+  // Maximum number of retries for failed metrics
+  int32 max_retries = 5;
+}

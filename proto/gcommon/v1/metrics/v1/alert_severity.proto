@@ -1,0 +1,20 @@
+// file: proto/gcommon/v1/metrics/v1/alert_severity.proto
+// version: 1.0.0
+// guid: f1a2b3c4-5678-901c-5678-123456789012
+
+edition = "2023";
+
+package gcommon.v1.metrics.v1;
+
+import "google/protobuf/go_features.proto";
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package gcommon.v1.metrics.v1;
+
+enum MetricsAlertSeverity {
+  ALERT_SEVERITY_UNSPECIFIED = 0;
+  ALERT_SEVERITY_LOW = 1;
+  ALERT_SEVERITY_MEDIUM = 2;
+  ALERT_SEVERITY_HIGH = 3;
+  ALERT_SEVERITY_CRITICAL = 4;
+}
