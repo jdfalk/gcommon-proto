@@ -59,29 +59,4 @@ ignore = [
 "**/migrations/**/*.py" = ["D100", "D103"]
 
 [lint.isort]
-# Google Python Style Guide import ordering
-known-first-party = ["gcommon"]
-known-third-party = ["fastapi", "pydantic", "starlette", "requests", "yaml"]
-force-sort-within-sections = true
-force-single-line = false
-combine-as-imports = true
-split-on-trailing-comma = true
-
-[lint.pydocstyle]
-convention = "google"
-
-[lint.pylint]
-max-args = 7
-max-branches = 12
-max-returns = 6
-max-statements = 50
-
-[lint.mccabe]
-max-complexity = 15
-
-[format]
-# Use double quotes for strings
-quote-style = "double"
-# Use spaces around slice operators
-docstring-code-format = true
-docstring-code-line-length = 80
+known-third-party = ["fastapi", "pydantic", "starlette"]

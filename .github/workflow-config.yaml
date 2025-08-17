@@ -75,12 +75,23 @@ sync:
   sync_paths:
     - ".github/workflows/matrix-build.yml"
     - ".github/workflows/unified-automation.yml"
+    - ".github/workflows/ci.yml"
+    - ".github/workflows/pr-automation.yml"
+    - ".github/workflows/commit-override-handler.yml"
+    - ".github/workflows/reusable-matrix-build.yml"
     - ".github/instructions/"
     - ".github/prompts/"
-    - "scripts/workflow_manager.py"
     - ".github/linters/"
+    - ".pre-commit-config.yaml"
+    - "scripts/workflow_manager.py"
     - "labels.json"
     - "labels.md"
+  
+  # Files to explicitly exclude from sync (repo-specific configs)
+  exclude_files:
+    - ".github/workflow-config.yaml"  # Each repo has its own config
+    - ".github/super-linter.env"     # Repo-specific linter config
+    - ".github/unified-automation-config.json"  # Repo-specific automation config
   
   # Exclusions to prevent sync loops
   exclude_repos:

@@ -99,14 +99,6 @@ jobs:
             echo "has-frontend=false" >> $GITHUB_OUTPUT
           fi
 
-          # Rust detection
-          if [[ -f "Cargo.toml" ]] || find . -name "*.rs" -not -path "./target/*" | head -1 | grep -q .; then
-            echo "has-rust=true" >> $GITHUB_OUTPUT
-            echo "✅ Rust project detected"
-          else
-            echo "has-rust=false" >> $GITHUB_OUTPUT
-          fi
-
           # Docker detection
           if find . -name "Dockerfile*" -o -name "docker-compose*.yml" -o -name "docker-compose*.yaml" | head -1 | grep -q .; then
             echo "has-docker=true" >> $GITHUB_OUTPUT
@@ -164,6 +156,19 @@ jobs:
             ]
           }')
           echo "frontend-matrix=$FRONTEND_MATRIX" >> $GITHUB_OUTPUT
+
+          # Rust matrix
+          RUST_VERSIONS='${{ inputs.rust-versions }}'
+          RUST_MATRIX=$(echo "$RUST_VERSIONS" | jq -c '{
+            include: [
+              .[] as $version | {
+                "rust-version": $version,
+                "os": "ubuntu-latest",
+                "primary": ($version == "1.76")
+              }
+            ]
+          }')
+          echo "rust-matrix=$RUST_MATRIX" >> $GITHUB_OUTPUT
 
           # Rust matrix
           RUST_VERSIONS='${{ inputs.rust-versions }}'
@@ -496,12 +501,6 @@ jobs:
             echo "❌ **Frontend Build**: Failed" >> $GITHUB_STEP_SUMMARY
           fi
 
-          if [[ "$RUST_STATUS" == "success" || "$RUST_STATUS" == "skipped" ]]; then
-            echo "✅ **Rust Build**: Completed" >> $GITHUB_STEP_SUMMARY
-          else
-            echo "❌ **Rust Build**: Failed" >> $GITHUB_STEP_SUMMARY
-          fi
-
           if [[ "$DOCKER_STATUS" == "success" || "$DOCKER_STATUS" == "skipped" ]]; then
             echo "✅ **Docker Build**: Completed" >> $GITHUB_STEP_SUMMARY
           else
@@ -512,7 +511,6 @@ jobs:
           if [[ "$GO_STATUS" == "failure" ||
                 "$PYTHON_STATUS" == "failure" ||
                 "$FRONTEND_STATUS" == "failure" ||
-                "$RUST_STATUS" == "failure" ||
                 "$DOCKER_STATUS" == "failure" ||
                 "$PROTOBUF_STATUS" == "failure" ]]; then
             echo "" >> $GITHUB_STEP_SUMMARY
