@@ -1,5 +1,5 @@
 # file: .github/workflows/reusable-matrix-build.yml
-# version: 1.0.0
+# version: 1.1.0
 # guid: f6a7b8c9-d0e1-2345-fa67-890123456789
 
 name: Reusable Matrix Build
@@ -22,6 +22,11 @@ on:
         required: false
         type: string
         default: '["20", "22", "24"]'
+      rust-versions:
+        description: 'Rust versions to test (JSON array)'
+        required: false
+        type: string
+        default: '["1.75", "1.76", "1.77"]'
       enable-protobuf:
         description: 'Enable protobuf generation'
         required: false
@@ -54,11 +59,13 @@ jobs:
       has-go: ${{ steps.detect.outputs.has-go }}
       has-python: ${{ steps.detect.outputs.has-python }}
       has-frontend: ${{ steps.detect.outputs.has-frontend }}
+      has-rust: ${{ steps.detect.outputs.has-rust }}
       has-docker: ${{ steps.detect.outputs.has-docker }}
       has-protobuf: ${{ steps.detect.outputs.has-protobuf }}
       go-matrix: ${{ steps.matrix.outputs.go-matrix }}
       python-matrix: ${{ steps.matrix.outputs.python-matrix }}
       frontend-matrix: ${{ steps.matrix.outputs.frontend-matrix }}
+      rust-matrix: ${{ steps.matrix.outputs.rust-matrix }}
     steps:
       - name: Checkout
         uses: actions/checkout@v5
@@ -90,6 +97,14 @@ jobs:
             echo "✅ Frontend project detected"
           else
             echo "has-frontend=false" >> $GITHUB_OUTPUT
+          fi
+          
+          # Rust detection
+          if [[ -f "Cargo.toml" ]] || find . -name "*.rs" -not -path "./target/*" | head -1 | grep -q .; then
+            echo "has-rust=true" >> $GITHUB_OUTPUT
+            echo "✅ Rust project detected"
+          else
+            echo "has-rust=false" >> $GITHUB_OUTPUT
           fi
           
           # Docker detection
@@ -149,6 +164,19 @@ jobs:
             ]
           }')
           echo "frontend-matrix=$FRONTEND_MATRIX" >> $GITHUB_OUTPUT
+          
+          # Rust matrix
+          RUST_VERSIONS='${{ inputs.rust-versions }}'
+          RUST_MATRIX=$(echo "$RUST_VERSIONS" | jq -c '{
+            include: [
+              .[] as $version | {
+                "rust-version": $version,
+                "os": "ubuntu-latest",
+                "primary": ($version == "1.76")
+              }
+            ]
+          }')
+          echo "rust-matrix=$RUST_MATRIX" >> $GITHUB_OUTPUT
 
   # Protobuf generation
   protobuf:
@@ -288,6 +316,68 @@ jobs:
             coverage.xml
             htmlcov/
 
+  # Rust matrix build
+  build-rust:
+    name: Rust (${{ matrix.rust-version }})
+    runs-on: ${{ matrix.os }}
+    needs: [detect, protobuf]
+    if: always() && needs.detect.outputs.has-rust == 'true'
+    strategy:
+      fail-fast: false
+      matrix: ${{ fromJSON(needs.detect.outputs.rust-matrix) }}
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v5
+
+      - name: Download protobuf artifacts
+        if: needs.detect.outputs.has-protobuf == 'true' && inputs.enable-protobuf
+        uses: actions/download-artifact@v4
+        with:
+          name: protobuf-generated
+        continue-on-error: true
+
+      - name: Set up Rust
+        uses: dtolnay/rust-toolchain@stable
+        with:
+          toolchain: ${{ matrix.rust-version }}
+          components: rustfmt, clippy
+
+      - name: Cache Rust dependencies
+        uses: actions/cache@v4
+        with:
+          path: |
+            ~/.cargo/bin/
+            ~/.cargo/registry/index/
+            ~/.cargo/registry/cache/
+            ~/.cargo/git/db/
+            target/
+          key: rust-${{ matrix.rust-version }}-${{ hashFiles('**/Cargo.lock') }}
+          restore-keys: |
+            rust-${{ matrix.rust-version }}-
+
+      - name: Build
+        run: cargo build --verbose
+
+      - name: Test
+        if: ${{ !inputs.skip-tests }}
+        run: |
+          cargo test --verbose
+          cargo clippy --all-targets --all-features -- -D warnings
+
+      - name: Generate coverage
+        if: matrix.primary && !inputs.skip-tests
+        run: |
+          cargo install cargo-tarpaulin || true
+          cargo tarpaulin --out xml --output-dir target/coverage/ || true
+
+      - name: Upload coverage
+        if: matrix.primary && !inputs.skip-tests
+        uses: actions/upload-artifact@v4
+        with:
+          name: rust-coverage
+          path: target/coverage/
+        continue-on-error: true
+
   # Frontend matrix build
   build-frontend:
     name: Frontend (Node ${{ matrix.node-version }})
@@ -365,7 +455,7 @@ jobs:
   build-status:
     name: Build Status
     runs-on: ubuntu-latest
-    needs: [detect, protobuf, build-go, build-python, build-frontend, build-docker]
+    needs: [detect, protobuf, build-go, build-python, build-frontend, build-rust, build-docker]
     if: always()
     steps:
       - name: Check status
@@ -378,6 +468,7 @@ jobs:
           GO_STATUS="${{ needs.build-go.result }}"
           PYTHON_STATUS="${{ needs.build-python.result }}"
           FRONTEND_STATUS="${{ needs.build-frontend.result }}"
+          RUST_STATUS="${{ needs.build-rust.result }}"
           DOCKER_STATUS="${{ needs.build-docker.result }}"
           
           # Report status
@@ -405,6 +496,12 @@ jobs:
             echo "❌ **Frontend Build**: Failed" >> $GITHUB_STEP_SUMMARY
           fi
           
+          if [[ "$RUST_STATUS" == "success" || "$RUST_STATUS" == "skipped" ]]; then
+            echo "✅ **Rust Build**: Completed" >> $GITHUB_STEP_SUMMARY
+          else
+            echo "❌ **Rust Build**: Failed" >> $GITHUB_STEP_SUMMARY
+          fi
+          
           if [[ "$DOCKER_STATUS" == "success" || "$DOCKER_STATUS" == "skipped" ]]; then
             echo "✅ **Docker Build**: Completed" >> $GITHUB_STEP_SUMMARY
           else
@@ -415,6 +512,7 @@ jobs:
           if [[ "$GO_STATUS" == "failure" || 
                 "$PYTHON_STATUS" == "failure" || 
                 "$FRONTEND_STATUS" == "failure" || 
+                "$RUST_STATUS" == "failure" ||
                 "$DOCKER_STATUS" == "failure" || 
                 "$PROTOBUF_STATUS" == "failure" ]]; then
             echo "" >> $GITHUB_STEP_SUMMARY

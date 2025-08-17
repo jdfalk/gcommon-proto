@@ -1,5 +1,5 @@
 # file: .github/workflows/ci.yml
-# version: 1.1.0
+# version: 1.2.0
 # guid: f1a2b3c4-d5e6-f7a8-b9c0-d1e2f3a4b5c6
 
 name: Continuous Integration
@@ -21,6 +21,7 @@ env:
   GO_VERSION: "1.24"
   NODE_VERSION: "22"
   PYTHON_VERSION: "3.12"
+  RUST_VERSION: "1.76"
   COVERAGE_THRESHOLD: "80"
   CACHE_VERSION: "v1"
 
@@ -29,6 +30,10 @@ permissions:
   actions: read
 
 jobs:
+  # Check for commit message overrides first
+  check-overrides:
+    uses: ./.github/workflows/commit-override-handler.yml
+
   # Detect what files changed to optimize workflow execution
   detect-changes:
     name: Detect Changes
@@ -37,6 +42,7 @@ jobs:
       go: ${{ steps.filter.outputs.go }}
       frontend: ${{ steps.filter.outputs.frontend }}
       python: ${{ steps.filter.outputs.python }}
+      rust: ${{ steps.filter.outputs.rust }}
       docker: ${{ steps.filter.outputs.docker }}
       docs: ${{ steps.filter.outputs.docs }}
       workflows: ${{ steps.filter.outputs.workflows }}
@@ -81,6 +87,10 @@ jobs:
               - '**/pyproject.toml'
               - '**/setup.py'
               - '**/Pipfile'
+            rust:
+              - '**/*.rs'
+              - '**/Cargo.toml'
+              - '**/Cargo.lock'
             docker:
               - '**/Dockerfile*'
               - '**/docker-compose*.yml'
@@ -101,7 +111,8 @@ jobs:
 
           if [[ "${{ steps.filter.outputs.go }}" == "true" ||
                 "${{ steps.filter.outputs.frontend }}" == "true" ||
-                "${{ steps.filter.outputs.python }}" == "true" ]]; then
+                "${{ steps.filter.outputs.python }}" == "true" ||
+                "${{ steps.filter.outputs.rust }}" == "true" ]]; then
             echo "should-test=true" >> $GITHUB_OUTPUT
           else
             echo "should-test=false" >> $GITHUB_OUTPUT
@@ -109,6 +120,7 @@ jobs:
 
           if [[ "${{ steps.filter.outputs.go }}" == "true" ||
                 "${{ steps.filter.outputs.frontend }}" == "true" ||
+                "${{ steps.filter.outputs.rust }}" == "true" ||
                 "${{ steps.filter.outputs.docker }}" == "true" ]]; then
             echo "should-build=true" >> $GITHUB_OUTPUT
           else
@@ -119,8 +131,8 @@ jobs:
   lint:
     name: Lint Code
     runs-on: ubuntu-latest
-    needs: detect-changes
-    if: needs.detect-changes.outputs.should-lint == 'true'
+    needs: [check-overrides, detect-changes]
+    if: needs.detect-changes.outputs.should-lint == 'true' && needs.check-overrides.outputs.skip-validation != 'true'
     steps:
       - name: Checkout Code
         uses: actions/checkout@v5
@@ -152,6 +164,13 @@ jobs:
           python-version: ${{ env.PYTHON_VERSION }}
           cache: pip
 
+      - name: Set up Rust
+        if: needs.detect-changes.outputs.rust == 'true'
+        uses: dtolnay/rust-toolchain@stable
+        with:
+          toolchain: stable
+          components: rustfmt, clippy
+
       - name: Run Super Linter
         uses: github/super-linter/slim@v7
         env:
@@ -160,13 +179,17 @@ jobs:
           VALIDATE_ALL_CODEBASE: false
           FILTER_REGEX_EXCLUDE: ".*\\.git/.*|.*\\.github/copilot/.*|.*\\.vscode/.*|.*node_modules/.*|.*\\.cache/.*|.*vendor/.*|.*dist/.*"
 
-          # Language-specific validation (enable only what we need)
+          # Language-specific validation only (no FIX_ to avoid conflicts)
           VALIDATE_GO: ${{ needs.detect-changes.outputs.go }}
           VALIDATE_JAVASCRIPT_ES: ${{ needs.detect-changes.outputs.frontend }}
           VALIDATE_TYPESCRIPT_ES: ${{ needs.detect-changes.outputs.frontend }}
           VALIDATE_PYTHON_BLACK: ${{ needs.detect-changes.outputs.python }}
           VALIDATE_PYTHON_PYLINT: ${{ needs.detect-changes.outputs.python }}
           VALIDATE_PYTHON_ISORT: ${{ needs.detect-changes.outputs.python }}
+          VALIDATE_RUST_2015: ${{ needs.detect-changes.outputs.rust }}
+          VALIDATE_RUST_2018: ${{ needs.detect-changes.outputs.rust }}
+          VALIDATE_RUST_2021: ${{ needs.detect-changes.outputs.rust }}
+          VALIDATE_RUST_CLIPPY: ${{ needs.detect-changes.outputs.rust }}
 
           # Always validate these
           VALIDATE_MARKDOWN: true
@@ -207,8 +230,8 @@ jobs:
   test-go:
     name: Test Go
     runs-on: ubuntu-latest
-    needs: [detect-changes, lint]
-    if: needs.detect-changes.outputs.go == 'true'
+    needs: [check-overrides, detect-changes, lint]
+    if: needs.detect-changes.outputs.go == 'true' && needs.check-overrides.outputs.skip-tests != 'true'
     strategy:
       matrix:
         go-version: ["1.22", "1.23", "1.24"]
@@ -257,8 +280,8 @@ jobs:
   test-frontend:
     name: Test Frontend
     runs-on: ubuntu-latest
-    needs: [detect-changes, lint]
-    if: needs.detect-changes.outputs.frontend == 'true'
+    needs: [check-overrides, detect-changes, lint]
+    if: needs.detect-changes.outputs.frontend == 'true' && needs.check-overrides.outputs.skip-tests != 'true'
     strategy:
       matrix:
         node-version: ["20", "22", "24"]
@@ -307,8 +330,8 @@ jobs:
   test-python:
     name: Test Python
     runs-on: ubuntu-latest
-    needs: [detect-changes, lint]
-    if: needs.detect-changes.outputs.python == 'true'
+    needs: [check-overrides, detect-changes, lint]
+    if: needs.detect-changes.outputs.python == 'true' && needs.check-overrides.outputs.skip-tests != 'true'
     strategy:
       matrix:
         python-version: ["3.11", "3.12", "3.13"]
@@ -349,18 +372,76 @@ jobs:
             htmlcov/
             coverage.xml
 
+  # Rust testing
+  test-rust:
+    name: Test Rust
+    runs-on: ubuntu-latest
+    needs: [check-overrides, detect-changes, lint]
+    if: needs.detect-changes.outputs.rust == 'true' && needs.check-overrides.outputs.skip-tests != 'true'
+    strategy:
+      matrix:
+        rust-version: ["1.75", "1.76", "1.77"]
+        include:
+          - rust-version: "1.76"
+            primary: true
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v5
+
+      - name: Set up Rust
+        uses: dtolnay/rust-toolchain@stable
+        with:
+          toolchain: ${{ matrix.rust-version }}
+          components: rustfmt, clippy
+
+      - name: Cache Rust dependencies
+        uses: actions/cache@v4
+        with:
+          path: |
+            ~/.cargo/bin/
+            ~/.cargo/registry/index/
+            ~/.cargo/registry/cache/
+            ~/.cargo/git/db/
+            target/
+          key: rust-${{ matrix.rust-version }}-${{ hashFiles('**/Cargo.lock') }}
+          restore-keys: |
+            rust-${{ matrix.rust-version }}-
+
+      - name: Build
+        run: cargo build --verbose
+
+      - name: Run tests
+        run: |
+          cargo test --verbose
+          cargo clippy --all-targets --all-features -- -D warnings
+
+      - name: Generate coverage
+        if: matrix.primary
+        run: |
+          cargo install cargo-tarpaulin || true
+          cargo tarpaulin --out xml --output-dir target/coverage/ || true
+
+      - name: Upload coverage
+        if: matrix.primary
+        uses: actions/upload-artifact@v4
+        with:
+          name: rust-coverage
+          path: target/coverage/
+        continue-on-error: true
+
   # Security scanning with CodeQL
   security-scan:
     name: Security Scan
     runs-on: ubuntu-latest
-    needs: detect-changes
+    needs: [check-overrides, detect-changes]
+    if: needs.check-overrides.outputs.skip-validation != 'true'
     permissions:
       security-events: write
       contents: read
       actions: read
     strategy:
       matrix:
-        language: ["go", "javascript", "python"]
+        language: ["go", "javascript", "python", "rust"]
     steps:
       - name: Checkout repository
         uses: actions/checkout@v5
@@ -383,8 +464,8 @@ jobs:
   build:
     name: Build
     runs-on: ubuntu-latest
-    needs: [detect-changes, test-go, test-frontend]
-    if: always() && needs.detect-changes.outputs.should-build == 'true'
+    needs: [check-overrides, detect-changes, test-go, test-frontend, test-rust]
+    if: always() && needs.detect-changes.outputs.should-build == 'true' && needs.check-overrides.outputs.skip-build != 'true'
     steps:
       - name: Checkout repository
         uses: actions/checkout@v5
@@ -406,6 +487,12 @@ jobs:
             **/package-lock.json
             webui/package-lock.json
 
+      - name: Set up Rust
+        if: needs.detect-changes.outputs.rust == 'true'
+        uses: dtolnay/rust-toolchain@stable
+        with:
+          toolchain: ${{ env.RUST_VERSION }}
+
       - name: Build Go binary
         if: needs.detect-changes.outputs.go == 'true'
         run: |
@@ -423,12 +510,18 @@ jobs:
             npm run build
           fi
 
+      - name: Build Rust binary
+        if: needs.detect-changes.outputs.rust == 'true'
+        run: |
+          cargo build --release
+
       - name: Upload build artifacts
         uses: actions/upload-artifact@v4
         with:
           name: build-artifacts
           path: |
             bin/
+            target/release/
             webui/dist/
             dist/
             build/
@@ -437,8 +530,8 @@ jobs:
   coverage-report:
     name: Coverage Report
     runs-on: ubuntu-latest
-    needs: [test-go, test-frontend, test-python]
-    if: always() && (needs.test-go.result == 'success' || needs.test-frontend.result == 'success' || needs.test-python.result == 'success')
+    needs: [test-go, test-frontend, test-python, test-rust]
+    if: always() && (needs.test-go.result == 'success' || needs.test-frontend.result == 'success' || needs.test-python.result == 'success' || needs.test-rust.result == 'success')
     steps:
       - name: Checkout repository
         uses: actions/checkout@v5
@@ -469,6 +562,11 @@ jobs:
             echo "- **Python**: Coverage reports available" >> $GITHUB_STEP_SUMMARY
           fi
 
+          # Rust coverage
+          if [ -d "coverage-artifacts/rust-coverage" ]; then
+            echo "- **Rust**: Coverage reports available" >> $GITHUB_STEP_SUMMARY
+          fi
+
       - name: Upload combined coverage
         uses: actions/upload-artifact@v4
         with:
@@ -478,13 +576,14 @@ jobs:
   # Matrix build system (uses the reusable workflow)
   matrix-build:
     name: Matrix Build
-    needs: detect-changes
-    if: needs.detect-changes.outputs.should-build == 'true'
+    needs: [check-overrides, detect-changes]
+    if: needs.detect-changes.outputs.should-build == 'true' && needs.check-overrides.outputs.skip-build != 'true'
     uses: ./.github/workflows/reusable-matrix-build.yml
     with:
+      rust-versions: '["1.75", "1.76", "1.77"]'
       enable-protobuf: true
       enable-docker: true
-      skip-tests: false
+      skip-tests: ${{ needs.check-overrides.outputs.skip-tests == 'true' }}
     secrets:
       GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
@@ -492,8 +591,8 @@ jobs:
   ci-status:
     name: CI Status
     runs-on: ubuntu-latest
-    needs: [detect-changes, lint, test-go, test-frontend, test-python, security-scan, build, matrix-build]
-    if: always()
+    needs: [check-overrides, detect-changes, lint, test-go, test-frontend, test-python, test-rust, security-scan, build, matrix-build]
+    if: always() && needs.check-overrides.outputs.skip-ci != 'true'
     steps:
       - name: Check CI status
         run: |
@@ -520,6 +619,22 @@ jobs:
             echo "⏭️ **Frontend Tests**: Skipped (no changes)" >> $GITHUB_STEP_SUMMARY
           else
             echo "❌ **Frontend Tests**: Failed" >> $GITHUB_STEP_SUMMARY
+          fi
+
+          if [[ "${{ needs.test-python.result }}" == "success" ]]; then
+            echo "✅ **Python Tests**: Passed" >> $GITHUB_STEP_SUMMARY
+          elif [[ "${{ needs.test-python.result }}" == "skipped" ]]; then
+            echo "⏭️ **Python Tests**: Skipped (no changes)" >> $GITHUB_STEP_SUMMARY
+          else
+            echo "❌ **Python Tests**: Failed" >> $GITHUB_STEP_SUMMARY
+          fi
+
+          if [[ "${{ needs.test-rust.result }}" == "success" ]]; then
+            echo "✅ **Rust Tests**: Passed" >> $GITHUB_STEP_SUMMARY
+          elif [[ "${{ needs.test-rust.result }}" == "skipped" ]]; then
+            echo "⏭️ **Rust Tests**: Skipped (no changes)" >> $GITHUB_STEP_SUMMARY
+          else
+            echo "❌ **Rust Tests**: Failed" >> $GITHUB_STEP_SUMMARY
           fi
 
           if [[ "${{ needs.security-scan.result }}" == "success" ]]; then
@@ -549,6 +664,7 @@ jobs:
                 "${{ needs.test-go.result }}" == "failure" ||
                 "${{ needs.test-frontend.result }}" == "failure" ||
                 "${{ needs.test-python.result }}" == "failure" ||
+                "${{ needs.test-rust.result }}" == "failure" ||
                 "${{ needs.matrix-build.result }}" == "failure" ]]; then
             echo "" >> $GITHUB_STEP_SUMMARY
             echo "❌ **Overall Status**: FAILED - Critical issues found" >> $GITHUB_STEP_SUMMARY

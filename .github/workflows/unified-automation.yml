@@ -12,13 +12,11 @@ on:
       operation:
         description: 'Operation to perform'
         required: false
-        default: 'all'
+        default: 'issues'
         type: choice
         options:
-          - all
           - issues
           - migrate
-          - docs
           - dependencies
       dry_run:
         description: 'Run in dry-run mode'
@@ -59,22 +57,26 @@ jobs:
 
       - name: Run unified issue automation
         run: |
-          echo "Running unified automation with operation: ${{ github.event.inputs.operation || 'all' }}"
-          
+          echo "Running unified automation with operation: ${{ github.event.inputs.operation || 'issues' }}"
+
           # Set parameters
-          OPERATION="${{ github.event.inputs.operation || 'all' }}"
+          OPERATION="${{ github.event.inputs.operation || 'issues' }}"
           DRY_RUN="${{ github.event.inputs.dry_run || 'false' }}"
-          
-          # Build command
+
+          # Build command - focused on issue management and core automation
           CMD="python3 unified_issue_automation.py --operation $OPERATION"
           if [ "$DRY_RUN" = "true" ]; then
             CMD="$CMD --dry-run"
           fi
           CMD="$CMD --quiet"
-          
+
           # Execute automation
           echo "Executing: $CMD"
           $CMD
+
+          echo ""
+          echo "Note: Document updates are handled by separate workflows in .github/workflows/docs-automation.yml"
+          echo "Note: Migration tasks are handled by scripts/migrate_to_python.py and workflow_manager.py"
 
       - name: Check for changes
         id: changes
@@ -94,9 +96,9 @@ jobs:
           git config --local user.email "action@github.com"
           git config --local user.name "GitHub Action"
           git add .
-          git commit -m "automation: unified automation updates
+          git commit -m "automation: unified issue automation updates
 
-          Operation: ${{ github.event.inputs.operation || 'all' }}
+          Operation: ${{ github.event.inputs.operation || 'issues' }}
           Dry run: ${{ github.event.inputs.dry_run || 'false' }}
           Triggered: ${{ github.event_name }}"
           git push
@@ -104,7 +106,11 @@ jobs:
       - name: Summary
         run: |
           echo "## 🤖 Unified Automation Summary" >> $GITHUB_STEP_SUMMARY
-          echo "- **Operation:** ${{ github.event.inputs.operation || 'all' }}" >> $GITHUB_STEP_SUMMARY
+          echo "- **Operation:** ${{ github.event.inputs.operation || 'issues' }}" >> $GITHUB_STEP_SUMMARY
           echo "- **Dry Run:** ${{ github.event.inputs.dry_run || 'false' }}" >> $GITHUB_STEP_SUMMARY
           echo "- **Changes Made:** ${{ steps.changes.outputs.has_changes }}" >> $GITHUB_STEP_SUMMARY
           echo "- **Trigger:** ${{ github.event_name }}" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "**Scope:** This workflow focuses on issue management and core automation." >> $GITHUB_STEP_SUMMARY
+          echo "**Document Updates:** Handled by docs-automation.yml workflow" >> $GITHUB_STEP_SUMMARY
+          echo "**Migration Tasks:** Handled by workflow_manager.py and migrate_to_python.py scripts" >> $GITHUB_STEP_SUMMARY
