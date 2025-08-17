@@ -4,10 +4,8 @@
 
 # Basic API Service Template
 
-This template provides a starting point for building a simple HTTP API using
-[gcommon](https://github.com/jdfalk/gcommon) modules. It demonstrates
-configuration management, structured logging, metrics integration, and basic
-Kubernetes deployment manifests.
+This template provides a starting point for building a simple HTTP API using [gcommon](https://github.com/jdfalk/gcommon) modules. It demonstrates configuration management, structured logging, metrics integration, and basic Kubernetes
+deployment manifests.
 
 ## Features
 
