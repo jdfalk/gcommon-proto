@@ -28,8 +28,7 @@
 
 ### audio_track.proto {#audio_track}
 
-**Path**: `pkg/media/proto/audio_track.proto` **Package**: `gcommon.v1.media`
-**Lines**: 24
+**Path**: `pkg/media/proto/audio_track.proto` **Package**: `gcommon.v1.media` **Lines**: 24
 
 **Messages** (1): `AudioTrack`
 
@@ -70,8 +69,7 @@ message AudioTrack {
 
 ### media_file.proto {#media_file}
 
-**Path**: `pkg/media/proto/media_file.proto` **Package**: `gcommon.v1.media`
-**Lines**: 34
+**Path**: `pkg/media/proto/media_file.proto` **Package**: `gcommon.v1.media` **Lines**: 34
 
 **Messages** (1): `MediaFile`
 
@@ -128,8 +126,7 @@ message MediaFile {
 
 ### media_metadata.proto {#media_metadata}
 
-**Path**: `pkg/media/proto/media_metadata.proto` **Package**: `gcommon.v1.media`
-**Lines**: 32
+**Path**: `pkg/media/proto/media_metadata.proto` **Package**: `gcommon.v1.media` **Lines**: 32
 
 **Messages** (1): `MediaMetadata`
 
@@ -180,8 +177,7 @@ message MediaMetadata {
 
 ### media_quality.proto {#media_quality}
 
-**Path**: `pkg/media/proto/media_quality.proto` **Package**: `gcommon.v1.media`
-**Lines**: 24
+**Path**: `pkg/media/proto/media_quality.proto` **Package**: `gcommon.v1.media` **Lines**: 24
 
 **Messages** (1): `MediaQuality`
 
@@ -224,8 +220,7 @@ message MediaQuality {
 
 ### media_type.proto {#media_type}
 
-**Path**: `pkg/media/proto/media_type.proto` **Package**: `gcommon.v1.media`
-**Lines**: 22
+**Path**: `pkg/media/proto/media_type.proto` **Package**: `gcommon.v1.media` **Lines**: 22
 
 **Enums** (1): `MediaType`
 
@@ -264,8 +259,7 @@ enum MediaType {
 
 ### movie_info.proto {#movie_info}
 
-**Path**: `pkg/media/proto/movie_info.proto` **Package**: `gcommon.v1.media`
-**Lines**: 22
+**Path**: `pkg/media/proto/movie_info.proto` **Package**: `gcommon.v1.media` **Lines**: 22
 
 **Messages** (1): `MovieInfo`
 
@@ -305,8 +299,7 @@ message MovieInfo {
 
 ### quality_score.proto {#quality_score}
 
-**Path**: `pkg/media/proto/quality_score.proto` **Package**: `gcommon.v1.media`
-**Lines**: 22
+**Path**: `pkg/media/proto/quality_score.proto` **Package**: `gcommon.v1.media` **Lines**: 22
 
 **Enums** (1): `QualityScore`
 
@@ -345,8 +338,7 @@ enum QualityScore {
 
 ### resolution.proto {#resolution}
 
-**Path**: `pkg/media/proto/resolution.proto` **Package**: `gcommon.v1.media`
-**Lines**: 22
+**Path**: `pkg/media/proto/resolution.proto` **Package**: `gcommon.v1.media` **Lines**: 22
 
 **Enums** (1): `Resolution`
 
@@ -385,8 +377,7 @@ enum Resolution {
 
 ### series_info.proto {#series_info}
 
-**Path**: `pkg/media/proto/series_info.proto` **Package**: `gcommon.v1.media`
-**Lines**: 23
+**Path**: `pkg/media/proto/series_info.proto` **Package**: `gcommon.v1.media` **Lines**: 23
 
 **Messages** (1): `SeriesInfo`
 
@@ -427,8 +418,7 @@ message SeriesInfo {
 
 ### subtitle_track.proto {#subtitle_track}
 
-**Path**: `pkg/media/proto/subtitle_track.proto` **Package**: `gcommon.v1.media`
-**Lines**: 24
+**Path**: `pkg/media/proto/subtitle_track.proto` **Package**: `gcommon.v1.media` **Lines**: 24
 
 **Messages** (1): `SubtitleTrack`
 

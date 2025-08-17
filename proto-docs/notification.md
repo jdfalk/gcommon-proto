@@ -47,16 +47,14 @@
 
 ### delete_notification_request.proto {#delete_notification_request}
 
-**Path**: `pkg/notification/proto/delete_notification_request.proto`
-**Package**: `gcommon.v1.notification` **Lines**: 22
+**Path**: `pkg/notification/proto/delete_notification_request.proto` **Package**: `gcommon.v1.notification` **Lines**: 22
 
 **Messages** (1): `DeleteNotificationRequest`
 
 **Imports** (2):
 
 - `google/protobuf/go_features.proto`
-- `pkg/common/proto/request_metadata.proto` →
-  [common](./common.md#request_metadata)
+- `pkg/common/proto/request_metadata.proto` → [common](./common.md#request_metadata)
 
 #### Source Code
 
@@ -89,8 +87,7 @@ message DeleteNotificationRequest {
 
 ### delete_notification_response.proto {#delete_notification_response}
 
-**Path**: `pkg/notification/proto/delete_notification_response.proto`
-**Package**: `gcommon.v1.notification` **Lines**: 21
+**Path**: `pkg/notification/proto/delete_notification_response.proto` **Package**: `gcommon.v1.notification` **Lines**: 21
 
 **Messages** (1): `DeleteNotificationResponse`
 
@@ -128,8 +125,7 @@ message DeleteNotificationResponse {
 
 ### delivery_channel.proto {#delivery_channel}
 
-**Path**: `pkg/notification/proto/delivery_channel.proto` **Package**:
-`gcommon.v1.notification` **Lines**: 28
+**Path**: `pkg/notification/proto/delivery_channel.proto` **Package**: `gcommon.v1.notification` **Lines**: 28
 
 **Messages** (1): `DeliveryChannel`
 
@@ -175,8 +171,7 @@ message DeliveryChannel {
 
 ### delivery_channel_type.proto {#delivery_channel_type}
 
-**Path**: `pkg/notification/proto/delivery_channel_type.proto` **Package**:
-`gcommon.v1.notification` **Lines**: 34
+**Path**: `pkg/notification/proto/delivery_channel_type.proto` **Package**: `gcommon.v1.notification` **Lines**: 34
 
 **Enums** (1): `DeliveryChannelType`
 
@@ -227,8 +222,7 @@ enum DeliveryChannelType {
 
 ### delivery_status.proto {#delivery_status}
 
-**Path**: `pkg/notification/proto/delivery_status.proto` **Package**:
-`gcommon.v1.notification` **Lines**: 22
+**Path**: `pkg/notification/proto/delivery_status.proto` **Package**: `gcommon.v1.notification` **Lines**: 22
 
 **Enums** (1): `DeliveryStatus`
 
@@ -267,8 +261,7 @@ enum DeliveryStatus {
 
 ### event_notification.proto {#event_notification}
 
-**Path**: `pkg/notification/proto/event_notification.proto` **Package**:
-`gcommon.v1.notification` **Lines**: 36
+**Path**: `pkg/notification/proto/event_notification.proto` **Package**: `gcommon.v1.notification` **Lines**: 36
 
 **Messages** (1): `EventNotification`
 
@@ -324,16 +317,14 @@ message EventNotification {
 
 ### get_preferences_request.proto {#get_preferences_request}
 
-**Path**: `pkg/notification/proto/get_preferences_request.proto` **Package**:
-`gcommon.v1.notification` **Lines**: 22
+**Path**: `pkg/notification/proto/get_preferences_request.proto` **Package**: `gcommon.v1.notification` **Lines**: 22
 
 **Messages** (1): `GetPreferencesRequest`
 
 **Imports** (2):
 
 - `google/protobuf/go_features.proto`
-- `pkg/common/proto/request_metadata.proto` →
-  [common](./common.md#request_metadata)
+- `pkg/common/proto/request_metadata.proto` → [common](./common.md#request_metadata)
 
 #### Source Code
 
@@ -366,16 +357,14 @@ message GetPreferencesRequest {
 
 ### get_preferences_response.proto {#get_preferences_response}
 
-**Path**: `pkg/notification/proto/get_preferences_response.proto` **Package**:
-`gcommon.v1.notification` **Lines**: 26
+**Path**: `pkg/notification/proto/get_preferences_response.proto` **Package**: `gcommon.v1.notification` **Lines**: 26
 
 **Messages** (1): `GetPreferencesResponse`
 
 **Imports** (3):
 
 - `google/protobuf/go_features.proto`
-- `pkg/common/proto/response_metadata.proto` →
-  [common](./common.md#response_metadata)
+- `pkg/common/proto/response_metadata.proto` → [common](./common.md#response_metadata)
 - `pkg/notification/proto/subscription_preferences.proto`
 
 #### Source Code
@@ -413,16 +402,14 @@ message GetPreferencesResponse {
 
 ### get_template_request.proto {#get_template_request}
 
-**Path**: `pkg/notification/proto/get_template_request.proto` **Package**:
-`gcommon.v1.notification` **Lines**: 22
+**Path**: `pkg/notification/proto/get_template_request.proto` **Package**: `gcommon.v1.notification` **Lines**: 22
 
 **Messages** (1): `GetTemplateRequest`
 
 **Imports** (2):
 
 - `google/protobuf/go_features.proto`
-- `pkg/common/proto/request_metadata.proto` →
-  [common](./common.md#request_metadata)
+- `pkg/common/proto/request_metadata.proto` → [common](./common.md#request_metadata)
 
 #### Source Code
 
@@ -455,8 +442,7 @@ message GetTemplateRequest {
 
 ### get_template_response.proto {#get_template_response}
 
-**Path**: `pkg/notification/proto/get_template_response.proto` **Package**:
-`gcommon.v1.notification` **Lines**: 22
+**Path**: `pkg/notification/proto/get_template_response.proto` **Package**: `gcommon.v1.notification` **Lines**: 22
 
 **Messages** (1): `GetTemplateResponse`
 
@@ -496,8 +482,7 @@ message GetTemplateResponse {
 
 ### list_notifications_request.proto {#list_notifications_request}
 
-**Path**: `pkg/notification/proto/list_notifications_request.proto` **Package**:
-`gcommon.v1.notification` **Lines**: 22
+**Path**: `pkg/notification/proto/list_notifications_request.proto` **Package**: `gcommon.v1.notification` **Lines**: 22
 
 **Messages** (1): `ListNotificationsRequest`
 
@@ -537,8 +522,7 @@ message ListNotificationsRequest {
 
 ### list_notifications_response.proto {#list_notifications_response}
 
-**Path**: `pkg/notification/proto/list_notifications_response.proto`
-**Package**: `gcommon.v1.notification` **Lines**: 22
+**Path**: `pkg/notification/proto/list_notifications_response.proto` **Package**: `gcommon.v1.notification` **Lines**: 22
 
 **Messages** (1): `ListNotificationsResponse`
 
@@ -578,16 +562,14 @@ message ListNotificationsResponse {
 
 ### mark_as_read_request.proto {#mark_as_read_request}
 
-**Path**: `pkg/notification/proto/mark_as_read_request.proto` **Package**:
-`gcommon.v1.notification` **Lines**: 22
+**Path**: `pkg/notification/proto/mark_as_read_request.proto` **Package**: `gcommon.v1.notification` **Lines**: 22
 
 **Messages** (1): `MarkAsReadRequest`
 
 **Imports** (2):
 
 - `google/protobuf/go_features.proto`
-- `pkg/common/proto/request_metadata.proto` →
-  [common](./common.md#request_metadata)
+- `pkg/common/proto/request_metadata.proto` → [common](./common.md#request_metadata)
 
 #### Source Code
 
@@ -620,8 +602,7 @@ message MarkAsReadRequest {
 
 ### mark_as_read_response.proto {#mark_as_read_response}
 
-**Path**: `pkg/notification/proto/mark_as_read_response.proto` **Package**:
-`gcommon.v1.notification` **Lines**: 21
+**Path**: `pkg/notification/proto/mark_as_read_response.proto` **Package**: `gcommon.v1.notification` **Lines**: 21
 
 **Messages** (1): `MarkAsReadResponse`
 
@@ -659,8 +640,7 @@ message MarkAsReadResponse {
 
 ### notification_message.proto {#notification_message}
 
-**Path**: `pkg/notification/proto/notification_message.proto` **Package**:
-`gcommon.v1.notification` **Lines**: 47
+**Path**: `pkg/notification/proto/notification_message.proto` **Package**: `gcommon.v1.notification` **Lines**: 47
 
 **Messages** (1): `NotificationMessage`
 
@@ -728,8 +708,7 @@ message NotificationMessage {
 
 ### notification_service.proto {#notification_service}
 
-**Path**: `pkg/notification/proto/notification_service.proto` **Package**:
-`gcommon.v1.notification` **Lines**: 48
+**Path**: `pkg/notification/proto/notification_service.proto` **Package**: `gcommon.v1.notification` **Lines**: 48
 
 **Services** (1): `NotificationService`
 
@@ -806,16 +785,14 @@ service NotificationService {
 
 ### send_notification_request.proto {#send_notification_request}
 
-**Path**: `pkg/notification/proto/send_notification_request.proto` **Package**:
-`gcommon.v1.notification` **Lines**: 23
+**Path**: `pkg/notification/proto/send_notification_request.proto` **Package**: `gcommon.v1.notification` **Lines**: 23
 
 **Messages** (1): `SendNotificationRequest`
 
 **Imports** (3):
 
 - `google/protobuf/go_features.proto`
-- `pkg/common/proto/request_metadata.proto` →
-  [common](./common.md#request_metadata)
+- `pkg/common/proto/request_metadata.proto` → [common](./common.md#request_metadata)
 - `pkg/notification/proto/notification_message.proto`
 
 #### Source Code
@@ -850,8 +827,7 @@ message SendNotificationRequest {
 
 ### send_notification_response.proto {#send_notification_response}
 
-**Path**: `pkg/notification/proto/send_notification_response.proto` **Package**:
-`gcommon.v1.notification` **Lines**: 28
+**Path**: `pkg/notification/proto/send_notification_response.proto` **Package**: `gcommon.v1.notification` **Lines**: 28
 
 **Messages** (1): `SendNotificationResponse`
 
@@ -897,8 +873,7 @@ message SendNotificationResponse {
 
 ### subscription_preferences.proto {#subscription_preferences}
 
-**Path**: `pkg/notification/proto/subscription_preferences.proto` **Package**:
-`gcommon.v1.notification` **Lines**: 31
+**Path**: `pkg/notification/proto/subscription_preferences.proto` **Package**: `gcommon.v1.notification` **Lines**: 31
 
 **Messages** (1): `SubscriptionPreferences`
 
@@ -947,8 +922,7 @@ message SubscriptionPreferences {
 
 ### template.proto {#template}
 
-**Path**: `pkg/notification/proto/template.proto` **Package**:
-`gcommon.v1.notification` **Lines**: 34
+**Path**: `pkg/notification/proto/template.proto` **Package**: `gcommon.v1.notification` **Lines**: 34
 
 **Messages** (1): `Template`
 
@@ -1004,16 +978,14 @@ message Template {
 
 ### update_preferences_request.proto {#update_preferences_request}
 
-**Path**: `pkg/notification/proto/update_preferences_request.proto` **Package**:
-`gcommon.v1.notification` **Lines**: 23
+**Path**: `pkg/notification/proto/update_preferences_request.proto` **Package**: `gcommon.v1.notification` **Lines**: 23
 
 **Messages** (1): `UpdatePreferencesRequest`
 
 **Imports** (3):
 
 - `google/protobuf/go_features.proto`
-- `pkg/common/proto/request_metadata.proto` →
-  [common](./common.md#request_metadata)
+- `pkg/common/proto/request_metadata.proto` → [common](./common.md#request_metadata)
 - `pkg/notification/proto/subscription_preferences.proto`
 
 #### Source Code
@@ -1048,8 +1020,7 @@ message UpdatePreferencesRequest {
 
 ### update_preferences_response.proto {#update_preferences_response}
 
-**Path**: `pkg/notification/proto/update_preferences_response.proto`
-**Package**: `gcommon.v1.notification` **Lines**: 20
+**Path**: `pkg/notification/proto/update_preferences_response.proto` **Package**: `gcommon.v1.notification` **Lines**: 20
 
 **Messages** (1): `UpdatePreferencesResponse`
 

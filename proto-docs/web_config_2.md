@@ -12,8 +12,7 @@
 
 ## Files in this Module
 
-- [update_server_config_response.proto](#update_server_config_response) ⚠️ 1
-  issues
+- [update_server_config_response.proto](#update_server_config_response) ⚠️ 1 issues
 - [websocket_config.proto](#websocket_config)
 
 ---
@@ -22,8 +21,7 @@
 
 ### update_server_config_response.proto {#update_server_config_response}
 
-**Path**: `pkg/web/proto/update_server_config_response.proto` **Package**:
-`gcommon.v1.web` **Lines**: 18
+**Path**: `pkg/web/proto/update_server_config_response.proto` **Package**: `gcommon.v1.web` **Lines**: 18
 
 **Messages** (1): `UpdateServerConfigResponse`
 
@@ -62,8 +60,7 @@ message UpdateServerConfigResponse {
 
 ### websocket_config.proto {#websocket_config}
 
-**Path**: `pkg/web/proto/websocket_config.proto` **Package**: `gcommon.v1.web`
-**Lines**: 31
+**Path**: `pkg/web/proto/websocket_config.proto` **Package**: `gcommon.v1.web` **Lines**: 31
 
 **Messages** (1): `WebsocketConfig`
 

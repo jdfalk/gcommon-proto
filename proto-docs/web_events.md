@@ -26,8 +26,7 @@
 
 ### server_event.proto {#server_event}
 
-**Path**: `pkg/web/proto/server_event.proto` **Package**: `gcommon.v1.web`
-**Lines**: 57
+**Path**: `pkg/web/proto/server_event.proto` **Package**: `gcommon.v1.web` **Lines**: 57
 
 **Messages** (1): `ServerEvent`
 
@@ -36,13 +35,11 @@
 - `google/protobuf/any.proto`
 - `google/protobuf/go_features.proto`
 - `google/protobuf/timestamp.proto`
-- `pkg/common/proto/request_metadata.proto` →
-  [common](./common.md#request_metadata)
+- `pkg/common/proto/request_metadata.proto` → [common](./common.md#request_metadata)
 
 #### ⚠️ Issues Found (1)
 
-- Line 21: Implementation needed - \* Auto-generated placeholder - implement
-  specific fields as needed.
+- Line 21: Implementation needed - \* Auto-generated placeholder - implement specific fields as needed.
 
 #### Source Code
 

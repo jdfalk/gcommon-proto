@@ -81,8 +81,7 @@
 
 ### secret_validation_result_type.proto {#secret_validation_result_type}
 
-**Path**: `pkg/config/proto/secret_validation_result_type.proto` **Package**:
-`gcommon.v1.config` **Lines**: 22
+**Path**: `pkg/config/proto/secret_validation_result_type.proto` **Package**: `gcommon.v1.config` **Lines**: 22
 
 **Enums** (1): `SecretValidationResultType`
 
@@ -122,8 +121,7 @@ enum SecretValidationResultType {
 
 ### secret_validation_severity.proto {#secret_validation_severity}
 
-**Path**: `pkg/config/proto/secret_validation_severity.proto` **Package**:
-`gcommon.v1.config` **Lines**: 22
+**Path**: `pkg/config/proto/secret_validation_severity.proto` **Package**: `gcommon.v1.config` **Lines**: 22
 
 **Enums** (1): `SecretValidationSeverity`
 
@@ -163,8 +161,7 @@ enum SecretValidationSeverity {
 
 ### synchronization_frequency.proto {#synchronization_frequency}
 
-**Path**: `pkg/config/proto/synchronization_frequency.proto` **Package**:
-`gcommon.v1.config` **Lines**: 24
+**Path**: `pkg/config/proto/synchronization_frequency.proto` **Package**: `gcommon.v1.config` **Lines**: 24
 
 **Enums** (1): `SynchronizationFrequency`
 
@@ -207,8 +204,7 @@ enum SynchronizationFrequency {
 
 ### synchronization_target.proto {#synchronization_target}
 
-**Path**: `pkg/config/proto/synchronization_target.proto` **Package**:
-`gcommon.v1.config` **Lines**: 32
+**Path**: `pkg/config/proto/synchronization_target.proto` **Package**: `gcommon.v1.config` **Lines**: 32
 
 **Messages** (1): `SynchronizationTarget`
 
@@ -259,8 +255,7 @@ message SynchronizationTarget {
 
 ### template_change.proto {#template_change}
 
-**Path**: `pkg/config/proto/template_change.proto` **Package**:
-`gcommon.v1.config` **Lines**: 41
+**Path**: `pkg/config/proto/template_change.proto` **Package**: `gcommon.v1.config` **Lines**: 41
 
 **Messages** (1): `TemplateChange`
 
@@ -268,8 +263,7 @@ message SynchronizationTarget {
 
 - `google/protobuf/go_features.proto`
 - `google/protobuf/timestamp.proto`
-- `pkg/config/proto/change_type.proto` → [config_1](./config_1.md#change_type) →
-  [metrics_1](./metrics_1.md#change_type)
+- `pkg/config/proto/change_type.proto` → [config_1](./config_1.md#change_type) → [metrics_1](./metrics_1.md#change_type)
 
 #### Source Code
 
@@ -321,8 +315,7 @@ message TemplateChange {
 
 ### template_format.proto {#template_format}
 
-**Path**: `pkg/config/proto/template_format.proto` **Package**:
-`gcommon.v1.config` **Lines**: 25
+**Path**: `pkg/config/proto/template_format.proto` **Package**: `gcommon.v1.config` **Lines**: 25
 
 **Enums** (1): `TemplateFormat`
 
@@ -365,8 +358,7 @@ enum TemplateFormat {
 
 ### template_hook.proto {#template_hook}
 
-**Path**: `pkg/config/proto/template_hook.proto` **Package**:
-`gcommon.v1.config` **Lines**: 42
+**Path**: `pkg/config/proto/template_hook.proto` **Package**: `gcommon.v1.config` **Lines**: 42
 
 **Messages** (1): `TemplateHook`
 
@@ -374,8 +366,7 @@ enum TemplateFormat {
 
 - `google/protobuf/go_features.proto`
 - `google/protobuf/timestamp.proto`
-- `pkg/config/proto/hook_error_handling.proto` →
-  [config_1](./config_1.md#hook_error_handling)
+- `pkg/config/proto/hook_error_handling.proto` → [config_1](./config_1.md#hook_error_handling)
 - `pkg/config/proto/hook_type.proto` → [config_1](./config_1.md#hook_type)
 
 #### Source Code
@@ -429,8 +420,7 @@ message TemplateHook {
 
 ### template_output.proto {#template_output}
 
-**Path**: `pkg/config/proto/template_output.proto` **Package**:
-`gcommon.v1.config` **Lines**: 40
+**Path**: `pkg/config/proto/template_output.proto` **Package**: `gcommon.v1.config` **Lines**: 40
 
 **Messages** (1): `TemplateOutput`
 
@@ -488,8 +478,7 @@ message TemplateOutput {
 
 ### template_parameter.proto {#template_parameter}
 
-**Path**: `pkg/config/proto/template_parameter.proto` **Package**:
-`gcommon.v1.config` **Lines**: 63
+**Path**: `pkg/config/proto/template_parameter.proto` **Package**: `gcommon.v1.config` **Lines**: 63
 
 **Messages** (1): `TemplateParameter`
 
@@ -497,10 +486,8 @@ message TemplateOutput {
 
 - `google/protobuf/go_features.proto`
 - `google/protobuf/timestamp.proto`
-- `pkg/config/proto/parameter_constraints.proto` →
-  [config_1](./config_1.md#parameter_constraints)
-- `pkg/config/proto/parameter_type.proto` →
-  [config_1](./config_1.md#parameter_type)
+- `pkg/config/proto/parameter_constraints.proto` → [config_1](./config_1.md#parameter_constraints)
+- `pkg/config/proto/parameter_type.proto` → [config_1](./config_1.md#parameter_type)
 
 #### ⚠️ Issues Found (2)
 
@@ -579,8 +566,7 @@ message TemplateParameter {
 
 ### template_status.proto {#template_status}
 
-**Path**: `pkg/config/proto/template_status.proto` **Package**:
-`gcommon.v1.config` **Lines**: 23
+**Path**: `pkg/config/proto/template_status.proto` **Package**: `gcommon.v1.config` **Lines**: 23
 
 **Enums** (1): `TemplateStatus`
 
@@ -621,8 +607,7 @@ enum TemplateStatus {
 
 ### transformation_step.proto {#transformation_step}
 
-**Path**: `pkg/config/proto/transformation_step.proto` **Package**:
-`gcommon.v1.config` **Lines**: 36
+**Path**: `pkg/config/proto/transformation_step.proto` **Package**: `gcommon.v1.config` **Lines**: 36
 
 **Messages** (1): `TransformationStep`
 
@@ -678,8 +663,7 @@ message TransformationStep {
 
 ### transformation_type.proto {#transformation_type}
 
-**Path**: `pkg/config/proto/transformation_type.proto` **Package**:
-`gcommon.v1.config` **Lines**: 26
+**Path**: `pkg/config/proto/transformation_type.proto` **Package**: `gcommon.v1.config` **Lines**: 26
 
 **Enums** (1): `TransformationType`
 
@@ -724,8 +708,7 @@ enum TransformationType {
 
 ### usage_statistics.proto {#usage_statistics}
 
-**Path**: `pkg/config/proto/usage_statistics.proto` **Package**:
-`gcommon.v1.config` **Lines**: 47
+**Path**: `pkg/config/proto/usage_statistics.proto` **Package**: `gcommon.v1.config` **Lines**: 47
 
 **Messages** (1): `UsageStatistics`
 
@@ -791,8 +774,7 @@ message UsageStatistics {
 
 ### usage_trend.proto {#usage_trend}
 
-**Path**: `pkg/config/proto/usage_trend.proto` **Package**: `gcommon.v1.config`
-**Lines**: 25
+**Path**: `pkg/config/proto/usage_trend.proto` **Package**: `gcommon.v1.config` **Lines**: 25
 
 **Messages** (1): `UsageTrend`
 
@@ -835,8 +817,7 @@ message UsageTrend {
 
 ### validation_result.proto {#validation_result}
 
-**Path**: `pkg/config/proto/validation_result.proto` **Package**:
-`gcommon.v1.config` **Lines**: 39
+**Path**: `pkg/config/proto/validation_result.proto` **Package**: `gcommon.v1.config` **Lines**: 39
 
 **Messages** (1): `ValidationResult`
 
@@ -844,12 +825,9 @@ message UsageTrend {
 
 - `google/protobuf/go_features.proto`
 - `google/protobuf/timestamp.proto`
-- `pkg/config/proto/approval_status.proto` →
-  [config_1](./config_1.md#approval_status)
-- `pkg/config/proto/audit_operation_type.proto` →
-  [config_events](./config_events.md#audit_operation_type)
-- `pkg/config/proto/rollback_method.proto` →
-  [config_1](./config_1.md#rollback_method)
+- `pkg/config/proto/approval_status.proto` → [config_1](./config_1.md#approval_status)
+- `pkg/config/proto/audit_operation_type.proto` → [config_events](./config_events.md#audit_operation_type)
+- `pkg/config/proto/rollback_method.proto` → [config_1](./config_1.md#rollback_method)
 - `pkg/config/proto/validation_result_type.proto`
 - `pkg/config/proto/validation_severity.proto`
 
@@ -901,8 +879,7 @@ message ValidationResult {
 
 ### validation_result_type.proto {#validation_result_type}
 
-**Path**: `pkg/config/proto/validation_result_type.proto` **Package**:
-`gcommon.v1.config` **Lines**: 34
+**Path**: `pkg/config/proto/validation_result_type.proto` **Package**: `gcommon.v1.config` **Lines**: 34
 
 **Enums** (1): `ValidationResultType`
 
@@ -953,8 +930,7 @@ enum ValidationResultType {
 
 ### validation_rule.proto {#validation_rule}
 
-**Path**: `pkg/config/proto/validation_rule.proto` **Package**:
-`gcommon.v1.config` **Lines**: 38
+**Path**: `pkg/config/proto/validation_rule.proto` **Package**: `gcommon.v1.config` **Lines**: 38
 
 **Messages** (1): `ValidationRule`
 
@@ -1011,8 +987,7 @@ message ValidationRule {
 
 ### validation_rule_severity.proto {#validation_rule_severity}
 
-**Path**: `pkg/config/proto/validation_rule_severity.proto` **Package**:
-`gcommon.v1.config` **Lines**: 23
+**Path**: `pkg/config/proto/validation_rule_severity.proto` **Package**: `gcommon.v1.config` **Lines**: 23
 
 **Enums** (1): `ValidationRuleSeverity`
 
@@ -1054,8 +1029,7 @@ enum ValidationRuleSeverity {
 
 ### validation_rule_type.proto {#validation_rule_type}
 
-**Path**: `pkg/config/proto/validation_rule_type.proto` **Package**:
-`gcommon.v1.config` **Lines**: 27
+**Path**: `pkg/config/proto/validation_rule_type.proto` **Package**: `gcommon.v1.config` **Lines**: 27
 
 **Enums** (1): `ValidationRuleType`
 
@@ -1101,8 +1075,7 @@ enum ValidationRuleType {
 
 ### validation_severity.proto {#validation_severity}
 
-**Path**: `pkg/config/proto/validation_severity.proto` **Package**:
-`gcommon.v1.config` **Lines**: 21
+**Path**: `pkg/config/proto/validation_severity.proto` **Package**: `gcommon.v1.config` **Lines**: 21
 
 **Enums** (1): `ValidationSeverity`
 
@@ -1140,8 +1113,7 @@ enum ValidationSeverity {
 
 ### value_dependency.proto {#value_dependency}
 
-**Path**: `pkg/config/proto/value_dependency.proto` **Package**:
-`gcommon.v1.config` **Lines**: 33
+**Path**: `pkg/config/proto/value_dependency.proto` **Package**: `gcommon.v1.config` **Lines**: 33
 
 **Messages** (1): `ValueDependency`
 
@@ -1150,8 +1122,7 @@ enum ValidationSeverity {
 - `google/protobuf/any.proto`
 - `google/protobuf/go_features.proto`
 - `google/protobuf/timestamp.proto`
-- `pkg/config/proto/dependency_type.proto` →
-  [config_1](./config_1.md#dependency_type)
+- `pkg/config/proto/dependency_type.proto` → [config_1](./config_1.md#dependency_type)
 
 #### Source Code
 
@@ -1195,8 +1166,7 @@ message ValueDependency {
 
 ### value_history_entry.proto {#value_history_entry}
 
-**Path**: `pkg/config/proto/value_history_entry.proto` **Package**:
-`gcommon.v1.config` **Lines**: 42
+**Path**: `pkg/config/proto/value_history_entry.proto` **Package**: `gcommon.v1.config` **Lines**: 42
 
 **Messages** (1): `ValueHistoryEntry`
 
@@ -1205,8 +1175,7 @@ message ValueDependency {
 - `google/protobuf/any.proto`
 - `google/protobuf/go_features.proto`
 - `google/protobuf/timestamp.proto`
-- `pkg/config/proto/change_type.proto` → [config_1](./config_1.md#change_type) →
-  [metrics_1](./metrics_1.md#change_type)
+- `pkg/config/proto/change_type.proto` → [config_1](./config_1.md#change_type) → [metrics_1](./metrics_1.md#change_type)
 
 #### Source Code
 
@@ -1259,8 +1228,7 @@ message ValueHistoryEntry {
 
 ### value_reference.proto {#value_reference}
 
-**Path**: `pkg/config/proto/value_reference.proto` **Package**:
-`gcommon.v1.config` **Lines**: 30
+**Path**: `pkg/config/proto/value_reference.proto` **Package**: `gcommon.v1.config` **Lines**: 30
 
 **Messages** (1): `ValueReference`
 
@@ -1269,8 +1237,7 @@ message ValueHistoryEntry {
 - `google/protobuf/any.proto`
 - `google/protobuf/go_features.proto`
 - `google/protobuf/timestamp.proto`
-- `pkg/config/proto/reference_type.proto` →
-  [config_1](./config_1.md#reference_type)
+- `pkg/config/proto/reference_type.proto` → [config_1](./config_1.md#reference_type)
 
 #### Source Code
 
@@ -1311,8 +1278,7 @@ message ValueReference {
 
 ### value_source.proto {#value_source}
 
-**Path**: `pkg/config/proto/value_source.proto` **Package**: `gcommon.v1.config`
-**Lines**: 39
+**Path**: `pkg/config/proto/value_source.proto` **Package**: `gcommon.v1.config` **Lines**: 39
 
 **Enums** (1): `ValueSource`
 
@@ -1370,8 +1336,7 @@ enum ValueSource {
 
 ### value_status.proto {#value_status}
 
-**Path**: `pkg/config/proto/value_status.proto` **Package**: `gcommon.v1.config`
-**Lines**: 28
+**Path**: `pkg/config/proto/value_status.proto` **Package**: `gcommon.v1.config` **Lines**: 28
 
 **Enums** (1): `ValueStatus`
 
@@ -1418,8 +1383,7 @@ enum ValueStatus {
 
 ### value_usage_statistics.proto {#value_usage_statistics}
 
-**Path**: `pkg/config/proto/value_usage_statistics.proto` **Package**:
-`gcommon.v1.config` **Lines**: 51
+**Path**: `pkg/config/proto/value_usage_statistics.proto` **Package**: `gcommon.v1.config` **Lines**: 51
 
 **Messages** (1): `ValueUsageStatistics`
 
@@ -1490,8 +1454,7 @@ message ValueUsageStatistics {
 
 ### value_usage_trend.proto {#value_usage_trend}
 
-**Path**: `pkg/config/proto/value_usage_trend.proto` **Package**:
-`gcommon.v1.config` **Lines**: 32
+**Path**: `pkg/config/proto/value_usage_trend.proto` **Package**: `gcommon.v1.config` **Lines**: 32
 
 **Messages** (1): `ValueUsageTrend`
 
@@ -1542,8 +1505,7 @@ message ValueUsageTrend {
 
 ### value_validation_result.proto {#value_validation_result}
 
-**Path**: `pkg/config/proto/value_validation_result.proto` **Package**:
-`gcommon.v1.config` **Lines**: 43
+**Path**: `pkg/config/proto/value_validation_result.proto` **Package**: `gcommon.v1.config` **Lines**: 43
 
 **Messages** (1): `ValueValidationResult`
 
@@ -1607,8 +1569,7 @@ message ValueValidationResult {
 
 ### value_validation_result_type.proto {#value_validation_result_type}
 
-**Path**: `pkg/config/proto/value_validation_result_type.proto` **Package**:
-`gcommon.v1.config` **Lines**: 23
+**Path**: `pkg/config/proto/value_validation_result_type.proto` **Package**: `gcommon.v1.config` **Lines**: 23
 
 **Enums** (1): `ValueValidationResultType`
 
@@ -1650,8 +1611,7 @@ enum ValueValidationResultType {
 
 ### value_validation_severity.proto {#value_validation_severity}
 
-**Path**: `pkg/config/proto/value_validation_severity.proto` **Package**:
-`gcommon.v1.config` **Lines**: 23
+**Path**: `pkg/config/proto/value_validation_severity.proto` **Package**: `gcommon.v1.config` **Lines**: 23
 
 **Enums** (1): `ValueValidationSeverity`
 
@@ -1693,8 +1653,7 @@ enum ValueValidationSeverity {
 
 ### version_artifact.proto {#version_artifact}
 
-**Path**: `pkg/config/proto/version_artifact.proto` **Package**:
-`gcommon.v1.config` **Lines**: 38
+**Path**: `pkg/config/proto/version_artifact.proto` **Package**: `gcommon.v1.config` **Lines**: 38
 
 **Messages** (1): `VersionArtifact`
 
@@ -1702,8 +1661,7 @@ enum ValueValidationSeverity {
 
 - `google/protobuf/go_features.proto`
 - `google/protobuf/timestamp.proto`
-- `pkg/common/proto/audit_log.proto` → [auth_events](./auth_events.md#audit_log)
-  → [common](./common.md#audit_log)
+- `pkg/common/proto/audit_log.proto` → [auth_events](./auth_events.md#audit_log) → [common](./common.md#audit_log)
 
 #### Source Code
 
@@ -1752,8 +1710,7 @@ message VersionArtifact {
 
 ### version_compatibility_info.proto {#version_compatibility_info}
 
-**Path**: `pkg/config/proto/version_compatibility_info.proto` **Package**:
-`gcommon.v1.config` **Lines**: 41
+**Path**: `pkg/config/proto/version_compatibility_info.proto` **Package**: `gcommon.v1.config` **Lines**: 41
 
 **Messages** (1): `VersionCompatibilityInfo`
 
@@ -1761,8 +1718,7 @@ message VersionArtifact {
 
 - `google/protobuf/go_features.proto`
 - `google/protobuf/timestamp.proto`
-- `pkg/common/proto/audit_log.proto` → [auth_events](./auth_events.md#audit_log)
-  → [common](./common.md#audit_log)
+- `pkg/common/proto/audit_log.proto` → [auth_events](./auth_events.md#audit_log) → [common](./common.md#audit_log)
 
 #### Source Code
 
@@ -1814,8 +1770,7 @@ message VersionCompatibilityInfo {
 
 ### version_dependency.proto {#version_dependency}
 
-**Path**: `pkg/config/proto/version_dependency.proto` **Package**:
-`gcommon.v1.config` **Lines**: 38
+**Path**: `pkg/config/proto/version_dependency.proto` **Package**: `gcommon.v1.config` **Lines**: 38
 
 **Messages** (1): `VersionDependency`
 
@@ -1823,8 +1778,7 @@ message VersionCompatibilityInfo {
 
 - `google/protobuf/go_features.proto`
 - `google/protobuf/timestamp.proto`
-- `pkg/common/proto/audit_log.proto` → [auth_events](./auth_events.md#audit_log)
-  → [common](./common.md#audit_log)
+- `pkg/common/proto/audit_log.proto` → [auth_events](./auth_events.md#audit_log) → [common](./common.md#audit_log)
 - `pkg/config/proto/version_dependency_type.proto`
 
 #### ⚠️ Issues Found (1)
@@ -1878,8 +1832,7 @@ message VersionDependency {
 
 ### version_dependency_type.proto {#version_dependency_type}
 
-**Path**: `pkg/config/proto/version_dependency_type.proto` **Package**:
-`gcommon.v1.config` **Lines**: 25
+**Path**: `pkg/config/proto/version_dependency_type.proto` **Package**: `gcommon.v1.config` **Lines**: 25
 
 **Enums** (1): `VersionDependencyType`
 
@@ -1887,8 +1840,7 @@ message VersionDependency {
 
 - `google/protobuf/go_features.proto`
 - `google/protobuf/timestamp.proto`
-- `pkg/common/proto/audit_log.proto` → [auth_events](./auth_events.md#audit_log)
-  → [common](./common.md#audit_log)
+- `pkg/common/proto/audit_log.proto` → [auth_events](./auth_events.md#audit_log) → [common](./common.md#audit_log)
 
 #### Source Code
 
@@ -1924,8 +1876,7 @@ enum VersionDependencyType {
 
 ### version_deployment_info.proto {#version_deployment_info}
 
-**Path**: `pkg/config/proto/version_deployment_info.proto` **Package**:
-`gcommon.v1.config` **Lines**: 46
+**Path**: `pkg/config/proto/version_deployment_info.proto` **Package**: `gcommon.v1.config` **Lines**: 46
 
 **Messages** (1): `VersionDeploymentInfo`
 
@@ -1933,8 +1884,7 @@ enum VersionDependencyType {
 
 - `google/protobuf/go_features.proto`
 - `google/protobuf/timestamp.proto`
-- `pkg/common/proto/audit_log.proto` → [auth_events](./auth_events.md#audit_log)
-  → [common](./common.md#audit_log)
+- `pkg/common/proto/audit_log.proto` → [auth_events](./auth_events.md#audit_log) → [common](./common.md#audit_log)
 - `pkg/config/proto/version_deployment_status.proto`
 - `pkg/config/proto/version_health_status.proto`
 
@@ -1993,8 +1943,7 @@ message VersionDeploymentInfo {
 
 ### version_deployment_status.proto {#version_deployment_status}
 
-**Path**: `pkg/config/proto/version_deployment_status.proto` **Package**:
-`gcommon.v1.config` **Lines**: 25
+**Path**: `pkg/config/proto/version_deployment_status.proto` **Package**: `gcommon.v1.config` **Lines**: 25
 
 **Enums** (1): `VersionDeploymentStatus`
 
@@ -2002,8 +1951,7 @@ message VersionDeploymentInfo {
 
 - `google/protobuf/go_features.proto`
 - `google/protobuf/timestamp.proto`
-- `pkg/common/proto/audit_log.proto` → [auth_events](./auth_events.md#audit_log)
-  → [common](./common.md#audit_log)
+- `pkg/common/proto/audit_log.proto` → [auth_events](./auth_events.md#audit_log) → [common](./common.md#audit_log)
 
 #### Source Code
 
@@ -2039,8 +1987,7 @@ enum VersionDeploymentStatus {
 
 ### version_health_status.proto {#version_health_status}
 
-**Path**: `pkg/config/proto/version_health_status.proto` **Package**:
-`gcommon.v1.config` **Lines**: 23
+**Path**: `pkg/config/proto/version_health_status.proto` **Package**: `gcommon.v1.config` **Lines**: 23
 
 **Enums** (1): `VersionHealthStatus`
 
@@ -2048,8 +1995,7 @@ enum VersionDeploymentStatus {
 
 - `google/protobuf/go_features.proto`
 - `google/protobuf/timestamp.proto`
-- `pkg/common/proto/audit_log.proto` → [auth_events](./auth_events.md#audit_log)
-  → [common](./common.md#audit_log)
+- `pkg/common/proto/audit_log.proto` → [auth_events](./auth_events.md#audit_log) → [common](./common.md#audit_log)
 
 #### Source Code
 
@@ -2083,8 +2029,7 @@ enum VersionHealthStatus {
 
 ### version_quality_issue.proto {#version_quality_issue}
 
-**Path**: `pkg/config/proto/version_quality_issue.proto` **Package**:
-`gcommon.v1.config` **Lines**: 35
+**Path**: `pkg/config/proto/version_quality_issue.proto` **Package**: `gcommon.v1.config` **Lines**: 35
 
 **Messages** (1): `VersionQualityIssue`
 
@@ -2092,8 +2037,7 @@ enum VersionHealthStatus {
 
 - `google/protobuf/go_features.proto`
 - `google/protobuf/timestamp.proto`
-- `pkg/common/proto/audit_log.proto` → [auth_events](./auth_events.md#audit_log)
-  → [common](./common.md#audit_log)
+- `pkg/common/proto/audit_log.proto` → [auth_events](./auth_events.md#audit_log) → [common](./common.md#audit_log)
 
 #### Source Code
 
@@ -2139,8 +2083,7 @@ message VersionQualityIssue {
 
 ### version_quality_metrics.proto {#version_quality_metrics}
 
-**Path**: `pkg/config/proto/version_quality_metrics.proto` **Package**:
-`gcommon.v1.config` **Lines**: 45
+**Path**: `pkg/config/proto/version_quality_metrics.proto` **Package**: `gcommon.v1.config` **Lines**: 45
 
 **Messages** (1): `VersionQualityMetrics`
 
@@ -2148,8 +2091,7 @@ message VersionQualityIssue {
 
 - `google/protobuf/go_features.proto`
 - `google/protobuf/timestamp.proto`
-- `pkg/common/proto/audit_log.proto` → [auth_events](./auth_events.md#audit_log)
-  → [common](./common.md#audit_log)
+- `pkg/common/proto/audit_log.proto` → [auth_events](./auth_events.md#audit_log) → [common](./common.md#audit_log)
 - `pkg/config/proto/version_quality_issue.proto`
 
 #### Source Code
@@ -2206,8 +2148,7 @@ message VersionQualityMetrics {
 
 ### version_status.proto {#version_status}
 
-**Path**: `pkg/config/proto/version_status.proto` **Package**:
-`gcommon.v1.config` **Lines**: 27
+**Path**: `pkg/config/proto/version_status.proto` **Package**: `gcommon.v1.config` **Lines**: 27
 
 **Enums** (1): `VersionStatus`
 
@@ -2215,8 +2156,7 @@ message VersionQualityMetrics {
 
 - `google/protobuf/go_features.proto`
 - `google/protobuf/timestamp.proto`
-- `pkg/common/proto/audit_log.proto` → [auth_events](./auth_events.md#audit_log)
-  → [common](./common.md#audit_log)
+- `pkg/common/proto/audit_log.proto` → [auth_events](./auth_events.md#audit_log) → [common](./common.md#audit_log)
 
 #### Source Code
 
@@ -2254,8 +2194,7 @@ enum VersionStatus {
 
 ### version_type.proto {#version_type}
 
-**Path**: `pkg/config/proto/version_type.proto` **Package**: `gcommon.v1.config`
-**Lines**: 27
+**Path**: `pkg/config/proto/version_type.proto` **Package**: `gcommon.v1.config` **Lines**: 27
 
 **Enums** (1): `VersionType`
 
@@ -2263,8 +2202,7 @@ enum VersionStatus {
 
 - `google/protobuf/go_features.proto`
 - `google/protobuf/timestamp.proto`
-- `pkg/common/proto/audit_log.proto` → [auth_events](./auth_events.md#audit_log)
-  → [common](./common.md#audit_log)
+- `pkg/common/proto/audit_log.proto` → [auth_events](./auth_events.md#audit_log) → [common](./common.md#audit_log)
 
 #### Source Code
 

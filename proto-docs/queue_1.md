@@ -98,8 +98,7 @@
 
 ### ack_level.proto {#ack_level}
 
-**Path**: `pkg/queue/proto/ack_level.proto` **Package**: `gcommon.v1.queue`
-**Lines**: 36
+**Path**: `pkg/queue/proto/ack_level.proto` **Package**: `gcommon.v1.queue` **Lines**: 36
 
 **Enums** (1): `AckLevel`
 
@@ -152,8 +151,7 @@ enum AckLevel {
 
 ### ack_type.proto {#ack_type}
 
-**Path**: `pkg/queue/proto/ack_type.proto` **Package**: `gcommon.v1.queue`
-**Lines**: 34
+**Path**: `pkg/queue/proto/ack_type.proto` **Package**: `gcommon.v1.queue` **Lines**: 34
 
 **Enums** (1): `AckType`
 
@@ -204,8 +202,7 @@ enum AckType {
 
 ### acknowledgment.proto {#acknowledgment}
 
-**Path**: `pkg/queue/proto/acknowledgment.proto` **Package**: `gcommon.v1.queue`
-**Lines**: 51
+**Path**: `pkg/queue/proto/acknowledgment.proto` **Package**: `gcommon.v1.queue` **Lines**: 51
 
 **Messages** (1): `Acknowledgment`
 
@@ -275,8 +272,7 @@ message Acknowledgment {
 
 ### acknowledgment_mode.proto {#acknowledgment_mode}
 
-**Path**: `pkg/queue/proto/acknowledgment_mode.proto` **Package**:
-`gcommon.v1.queue` **Lines**: 37
+**Path**: `pkg/queue/proto/acknowledgment_mode.proto` **Package**: `gcommon.v1.queue` **Lines**: 37
 
 **Enums** (1): `AcknowledgmentMode`
 
@@ -286,8 +282,7 @@ message Acknowledgment {
 
 #### ⚠️ Issues Found (1)
 
-- Line 6: Implementation needed - // queue consumer. This was previously left as
-  a placeholder during the
+- Line 6: Implementation needed - // queue consumer. This was previously left as a placeholder during the
 
 #### Source Code
 
@@ -335,8 +330,7 @@ enum AcknowledgmentMode {
 
 ### alert_condition.proto {#alert_condition}
 
-**Path**: `pkg/queue/proto/alert_condition.proto` **Package**:
-`gcommon.v1.queue` **Lines**: 39
+**Path**: `pkg/queue/proto/alert_condition.proto` **Package**: `gcommon.v1.queue` **Lines**: 39
 
 **Enums** (1): `AlertCondition`
 
@@ -392,8 +386,7 @@ enum AlertCondition {
 
 ### alert_rule.proto {#alert_rule}
 
-**Path**: `pkg/queue/proto/alert_rule.proto` **Package**: `gcommon.v1.queue`
-**Lines**: 48
+**Path**: `pkg/queue/proto/alert_rule.proto` **Package**: `gcommon.v1.queue` **Lines**: 48
 
 **Messages** (1): `AlertRule`
 
@@ -402,9 +395,7 @@ enum AlertCondition {
 - `google/protobuf/duration.proto`
 - `google/protobuf/go_features.proto`
 - `pkg/queue/proto/alert_condition.proto`
-- `pkg/queue/proto/alert_severity.proto` →
-  [config_1](./config_1.md#alert_severity) →
-  [metrics_1](./metrics_1.md#alert_severity)
+- `pkg/queue/proto/alert_severity.proto` → [config_1](./config_1.md#alert_severity) → [metrics_1](./metrics_1.md#alert_severity)
 
 #### Source Code
 
@@ -463,8 +454,7 @@ message AlertRule {
 
 ### alert_severity.proto {#alert_severity}
 
-**Path**: `pkg/queue/proto/alert_severity.proto` **Package**: `gcommon.v1.queue`
-**Lines**: 33
+**Path**: `pkg/queue/proto/alert_severity.proto` **Package**: `gcommon.v1.queue` **Lines**: 33
 
 **Enums** (1): `AlertSeverity`
 
@@ -514,8 +504,7 @@ enum AlertSeverity {
 
 ### anti_affinity_rule.proto {#anti_affinity_rule}
 
-**Path**: `pkg/queue/proto/anti_affinity_rule.proto` **Package**:
-`gcommon.v1.queue` **Lines**: 31
+**Path**: `pkg/queue/proto/anti_affinity_rule.proto` **Package**: `gcommon.v1.queue` **Lines**: 31
 
 **Messages** (1): `AntiAffinityRule`
 
@@ -524,10 +513,8 @@ enum AlertSeverity {
 - `google/protobuf/duration.proto`
 - `google/protobuf/go_features.proto`
 - `pkg/queue/proto/anti_affinity_scope.proto`
-- `pkg/queue/proto/consistency_level.proto` →
-  [database](./database.md#consistency_level)
-- `pkg/queue/proto/replication_mode.proto` →
-  [queue_2](./queue_2.md#replication_mode)
+- `pkg/queue/proto/consistency_level.proto` → [database](./database.md#consistency_level)
+- `pkg/queue/proto/replication_mode.proto` → [queue_2](./queue_2.md#replication_mode)
 
 #### Source Code
 
@@ -569,8 +556,7 @@ message AntiAffinityRule {
 
 ### anti_affinity_scope.proto {#anti_affinity_scope}
 
-**Path**: `pkg/queue/proto/anti_affinity_scope.proto` **Package**:
-`gcommon.v1.queue` **Lines**: 36
+**Path**: `pkg/queue/proto/anti_affinity_scope.proto` **Package**: `gcommon.v1.queue` **Lines**: 36
 
 **Enums** (1): `AntiAffinityScope`
 
@@ -578,10 +564,8 @@ message AntiAffinityRule {
 
 - `google/protobuf/duration.proto`
 - `google/protobuf/go_features.proto`
-- `pkg/queue/proto/consistency_level.proto` →
-  [database](./database.md#consistency_level)
-- `pkg/queue/proto/replication_mode.proto` →
-  [queue_2](./queue_2.md#replication_mode)
+- `pkg/queue/proto/consistency_level.proto` → [database](./database.md#consistency_level)
+- `pkg/queue/proto/replication_mode.proto` → [queue_2](./queue_2.md#replication_mode)
 
 #### Source Code
 
@@ -628,8 +612,7 @@ enum AntiAffinityScope {
 
 ### binding_info.proto {#binding_info}
 
-**Path**: `pkg/queue/proto/binding_info.proto` **Package**: `gcommon.v1.queue`
-**Lines**: 48
+**Path**: `pkg/queue/proto/binding_info.proto` **Package**: `gcommon.v1.queue` **Lines**: 48
 
 **Messages** (1): `BindingInfo`
 
@@ -694,8 +677,7 @@ message BindingInfo {
 
 ### cluster_info.proto {#cluster_info}
 
-**Path**: `pkg/queue/proto/cluster_info.proto` **Package**: `gcommon.v1.queue`
-**Lines**: 56
+**Path**: `pkg/queue/proto/cluster_info.proto` **Package**: `gcommon.v1.queue` **Lines**: 56
 
 **Messages** (1): `ClusterInfo`
 
@@ -769,8 +751,7 @@ message ClusterInfo {
 
 ### cluster_state.proto {#cluster_state}
 
-**Path**: `pkg/queue/proto/cluster_state.proto` **Package**: `gcommon.v1.queue`
-**Lines**: 37
+**Path**: `pkg/queue/proto/cluster_state.proto` **Package**: `gcommon.v1.queue` **Lines**: 37
 
 **Enums** (1): `ClusterState`
 
@@ -825,8 +806,7 @@ enum ClusterState {
 
 ### cluster_stats.proto {#cluster_stats}
 
-**Path**: `pkg/queue/proto/cluster_stats.proto` **Package**: `gcommon.v1.queue`
-**Lines**: 31
+**Path**: `pkg/queue/proto/cluster_stats.proto` **Package**: `gcommon.v1.queue` **Lines**: 31
 
 **Messages** (1): `ClusterStats`
 
@@ -875,16 +855,14 @@ message ClusterStats {
 
 ### compression_algorithm.proto {#compression_algorithm}
 
-**Path**: `pkg/queue/proto/compression_algorithm.proto` **Package**:
-`gcommon.v1.queue` **Lines**: 40
+**Path**: `pkg/queue/proto/compression_algorithm.proto` **Package**: `gcommon.v1.queue` **Lines**: 40
 
 **Enums** (1): `CompressionAlgorithm`
 
 **Imports** (2):
 
 - `google/protobuf/go_features.proto`
-- `pkg/queue/proto/serialization_format.proto` →
-  [queue_2](./queue_2.md#serialization_format)
+- `pkg/queue/proto/serialization_format.proto` → [queue_2](./queue_2.md#serialization_format)
 
 #### Source Code
 
@@ -935,8 +913,7 @@ enum CompressionAlgorithm {
 
 ### connection_details.proto {#connection_details}
 
-**Path**: `pkg/queue/proto/connection_details.proto` **Package**:
-`gcommon.v1.queue` **Lines**: 34
+**Path**: `pkg/queue/proto/connection_details.proto` **Package**: `gcommon.v1.queue` **Lines**: 34
 
 **Messages** (1): `ConnectionDetails`
 
@@ -987,8 +964,7 @@ message ConnectionDetails {
 
 ### consistency_level.proto {#consistency_level}
 
-**Path**: `pkg/queue/proto/consistency_level.proto` **Package**:
-`gcommon.v1.queue` **Lines**: 39
+**Path**: `pkg/queue/proto/consistency_level.proto` **Package**: `gcommon.v1.queue` **Lines**: 39
 
 **Enums** (1): `ConsistencyLevel`
 
@@ -1044,16 +1020,12 @@ enum ConsistencyLevel {
 
 ### consumer_group.proto {#consumer_group}
 
-**Path**: `pkg/queue/proto/consumer_group.proto` **Package**: `gcommon.v1.queue`
-**Lines**: 325
+**Path**: `pkg/queue/proto/consumer_group.proto` **Package**: `gcommon.v1.queue` **Lines**: 325
 
-**Messages** (12): `ConsumerGroup`, `ConsumerGroupConfig`, `AutoCommitConfig`,
-`RetryDelayConfig`, `Consumer`, `ConsumerClient`, `ConsumerConfig`,
-`PartitionAssignment`, `GroupCoordinator`, `ConsumerGroupStats`,
-`RebalanceStats`, `ConsumerErrorStats`
+**Messages** (12): `ConsumerGroup`, `ConsumerGroupConfig`, `AutoCommitConfig`, `RetryDelayConfig`, `Consumer`, `ConsumerClient`, `ConsumerConfig`, `PartitionAssignment`, `GroupCoordinator`, `ConsumerGroupStats`, `RebalanceStats`,
+`ConsumerErrorStats`
 
-**Enums** (4): `RebalanceStrategy`, `OffsetResetStrategy`, `ConsumerGroupState`,
-`CoordinatorState`
+**Enums** (4): `RebalanceStrategy`, `OffsetResetStrategy`, `ConsumerGroupState`, `CoordinatorState`
 
 **Imports** (6):
 
@@ -1062,9 +1034,7 @@ enum ConsistencyLevel {
 - `pkg/queue/proto/consumer_state.proto`
 - `pkg/queue/proto/consumer_stats.proto`
 - `pkg/queue/proto/load_balancing_strategy.proto`
-- `pkg/queue/proto/subscribe_request.proto` →
-  [cache_api_2](./cache_api_2.md#subscribe_request) →
-  [queue_api_2](./queue_api_2.md#subscribe_request)
+- `pkg/queue/proto/subscribe_request.proto` → [cache_api_2](./cache_api_2.md#subscribe_request) → [queue_api_2](./queue_api_2.md#subscribe_request)
 
 #### Source Code
 
@@ -1400,8 +1370,7 @@ message ConsumerErrorStats {
 
 ### consumer_state.proto {#consumer_state}
 
-**Path**: `pkg/queue/proto/consumer_state.proto` **Package**: `gcommon.v1.queue`
-**Lines**: 45
+**Path**: `pkg/queue/proto/consumer_state.proto` **Package**: `gcommon.v1.queue` **Lines**: 45
 
 **Enums** (1): `ConsumerState`
 
@@ -1463,8 +1432,7 @@ enum ConsumerState {
 
 ### consumer_stats.proto {#consumer_stats}
 
-**Path**: `pkg/queue/proto/consumer_stats.proto` **Package**: `gcommon.v1.queue`
-**Lines**: 30
+**Path**: `pkg/queue/proto/consumer_stats.proto` **Package**: `gcommon.v1.queue` **Lines**: 30
 
 **Messages** (1): `ConsumerStats`
 
@@ -1511,8 +1479,7 @@ message ConsumerStats {
 
 ### dead_letter_policy.proto {#dead_letter_policy}
 
-**Path**: `pkg/queue/proto/dead_letter_policy.proto` **Package**:
-`gcommon.v1.queue` **Lines**: 42
+**Path**: `pkg/queue/proto/dead_letter_policy.proto` **Package**: `gcommon.v1.queue` **Lines**: 42
 
 **Messages** (1): `DeadLetterPolicy`
 
@@ -1572,8 +1539,7 @@ message DeadLetterPolicy {
 
 ### delivery_mode.proto {#delivery_mode}
 
-**Path**: `pkg/queue/proto/delivery_mode.proto` **Package**: `gcommon.v1.queue`
-**Lines**: 36
+**Path**: `pkg/queue/proto/delivery_mode.proto` **Package**: `gcommon.v1.queue` **Lines**: 36
 
 **Enums** (1): `DeliveryMode`
 
@@ -1626,8 +1592,7 @@ enum DeliveryMode {
 
 ### delivery_options.proto {#delivery_options}
 
-**Path**: `pkg/queue/proto/delivery_options.proto` **Package**:
-`gcommon.v1.queue` **Lines**: 41
+**Path**: `pkg/queue/proto/delivery_options.proto` **Package**: `gcommon.v1.queue` **Lines**: 41
 
 **Messages** (1): `DeliveryOptions`
 
@@ -1686,8 +1651,7 @@ message DeliveryOptions {
 
 ### durability_level.proto {#durability_level}
 
-**Path**: `pkg/queue/proto/durability_level.proto` **Package**:
-`gcommon.v1.queue` **Lines**: 39
+**Path**: `pkg/queue/proto/durability_level.proto` **Package**: `gcommon.v1.queue` **Lines**: 39
 
 **Enums** (1): `DurabilityLevel`
 
@@ -1743,8 +1707,7 @@ enum DurabilityLevel {
 
 ### export_format.proto {#export_format}
 
-**Path**: `pkg/queue/proto/export_format.proto` **Package**: `gcommon.v1.queue`
-**Lines**: 36
+**Path**: `pkg/queue/proto/export_format.proto` **Package**: `gcommon.v1.queue` **Lines**: 36
 
 **Enums** (1): `ExportFormat`
 
@@ -1797,8 +1760,7 @@ enum ExportFormat {
 
 ### flow_control.proto {#flow_control}
 
-**Path**: `pkg/queue/proto/flow_control.proto` **Package**: `gcommon.v1.queue`
-**Lines**: 27
+**Path**: `pkg/queue/proto/flow_control.proto` **Package**: `gcommon.v1.queue` **Lines**: 27
 
 **Messages** (1): `FlowControl`
 
@@ -1843,8 +1805,7 @@ message FlowControl {
 
 ### flush_policy.proto {#flush_policy}
 
-**Path**: `pkg/queue/proto/flush_policy.proto` **Package**: `gcommon.v1.queue`
-**Lines**: 39
+**Path**: `pkg/queue/proto/flush_policy.proto` **Package**: `gcommon.v1.queue` **Lines**: 39
 
 **Enums** (1): `FlushPolicy`
 
@@ -1900,8 +1861,7 @@ enum FlushPolicy {
 
 ### format_options.proto {#format_options}
 
-**Path**: `pkg/queue/proto/format_options.proto` **Package**: `gcommon.v1.queue`
-**Lines**: 35
+**Path**: `pkg/queue/proto/format_options.proto` **Package**: `gcommon.v1.queue` **Lines**: 35
 
 **Messages** (1): `FormatOptions`
 
@@ -1909,8 +1869,7 @@ enum FlushPolicy {
 
 - `google/protobuf/go_features.proto`
 - `pkg/queue/proto/compression_algorithm.proto`
-- `pkg/queue/proto/serialization_format.proto` →
-  [queue_2](./queue_2.md#serialization_format)
+- `pkg/queue/proto/serialization_format.proto` → [queue_2](./queue_2.md#serialization_format)
 
 #### Source Code
 
@@ -1956,8 +1915,7 @@ message FormatOptions {
 
 ### health_status.proto {#health_status}
 
-**Path**: `pkg/queue/proto/health_status.proto` **Package**: `gcommon.v1.queue`
-**Lines**: 31
+**Path**: `pkg/queue/proto/health_status.proto` **Package**: `gcommon.v1.queue` **Lines**: 31
 
 **Enums** (1): `HealthStatus`
 
@@ -2005,8 +1963,7 @@ enum HealthStatus {
 
 ### load_balancing_strategy.proto {#load_balancing_strategy}
 
-**Path**: `pkg/queue/proto/load_balancing_strategy.proto` **Package**:
-`gcommon.v1.queue` **Lines**: 39
+**Path**: `pkg/queue/proto/load_balancing_strategy.proto` **Package**: `gcommon.v1.queue` **Lines**: 39
 
 **Enums** (1): `LoadBalancingStrategy`
 
@@ -2062,8 +2019,7 @@ enum LoadBalancingStrategy {
 
 ### message.proto {#message}
 
-**Path**: `pkg/queue/proto/message.proto` **Package**: `gcommon.v1.queue`
-**Lines**: 19
+**Path**: `pkg/queue/proto/message.proto` **Package**: `gcommon.v1.queue` **Lines**: 19
 
 **Imports** (3):
 
@@ -2099,8 +2055,7 @@ option go_package = "github.com/jdfalk/gcommon/pkg/queue/proto";
 
 ### message_envelope.proto {#message_envelope}
 
-**Path**: `pkg/queue/proto/message_envelope.proto` **Package**:
-`gcommon.v1.queue` **Lines**: 66
+**Path**: `pkg/queue/proto/message_envelope.proto` **Package**: `gcommon.v1.queue` **Lines**: 66
 
 **Messages** (1): `MessageEnvelope`
 
@@ -2185,8 +2140,7 @@ message MessageEnvelope {
 
 ### message_id.proto {#message_id}
 
-**Path**: `pkg/queue/proto/message_id.proto` **Package**: `gcommon.v1.queue`
-**Lines**: 23
+**Path**: `pkg/queue/proto/message_id.proto` **Package**: `gcommon.v1.queue` **Lines**: 23
 
 **Messages** (1): `MessageId`
 
@@ -2230,8 +2184,7 @@ message MessageId {
 
 ### message_metadata.proto {#message_metadata}
 
-**Path**: `pkg/queue/proto/message_metadata.proto` **Package**:
-`gcommon.v1.queue` **Lines**: 55
+**Path**: `pkg/queue/proto/message_metadata.proto` **Package**: `gcommon.v1.queue` **Lines**: 55
 
 **Messages** (1): `MessageMetadata`
 
@@ -2304,8 +2257,7 @@ message MessageMetadata {
 
 ### message_state.proto {#message_state}
 
-**Path**: `pkg/queue/proto/message_state.proto` **Package**: `gcommon.v1.queue`
-**Lines**: 37
+**Path**: `pkg/queue/proto/message_state.proto` **Package**: `gcommon.v1.queue` **Lines**: 37
 
 **Enums** (1): `MessageState`
 
@@ -2359,8 +2311,7 @@ enum MessageState {
 
 ### metric_type.proto {#metric_type}
 
-**Path**: `pkg/queue/proto/metric_type.proto` **Package**: `gcommon.v1.queue`
-**Lines**: 40
+**Path**: `pkg/queue/proto/metric_type.proto` **Package**: `gcommon.v1.queue` **Lines**: 40
 
 **Enums** (1): `MetricType`
 
@@ -2417,8 +2368,7 @@ enum MetricType {
 
 ### nack_error.proto {#nack_error}
 
-**Path**: `pkg/queue/proto/nack_error.proto` **Package**: `gcommon.v1.queue`
-**Lines**: 34
+**Path**: `pkg/queue/proto/nack_error.proto` **Package**: `gcommon.v1.queue` **Lines**: 34
 
 **Messages** (1): `NackError`
 
@@ -2470,8 +2420,7 @@ message NackError {
 
 ### nack_error_category.proto {#nack_error_category}
 
-**Path**: `pkg/queue/proto/nack_error_category.proto` **Package**:
-`gcommon.v1.queue` **Lines**: 39
+**Path**: `pkg/queue/proto/nack_error_category.proto` **Package**: `gcommon.v1.queue` **Lines**: 39
 
 **Enums** (1): `NackErrorCategory`
 
@@ -2527,8 +2476,7 @@ enum NackErrorCategory {
 
 ### node_info.proto {#node_info}
 
-**Path**: `pkg/queue/proto/node_info.proto` **Package**: `gcommon.v1.queue`
-**Lines**: 42
+**Path**: `pkg/queue/proto/node_info.proto` **Package**: `gcommon.v1.queue` **Lines**: 42
 
 **Messages** (1): `NodeInfo`
 
@@ -2590,8 +2538,7 @@ message NodeInfo {
 
 ### node_state.proto {#node_state}
 
-**Path**: `pkg/queue/proto/node_state.proto` **Package**: `gcommon.v1.queue`
-**Lines**: 37
+**Path**: `pkg/queue/proto/node_state.proto` **Package**: `gcommon.v1.queue` **Lines**: 37
 
 **Enums** (1): `NodeState`
 
@@ -2646,8 +2593,7 @@ enum NodeState {
 
 ### node_stats.proto {#node_stats}
 
-**Path**: `pkg/queue/proto/node_stats.proto` **Package**: `gcommon.v1.queue`
-**Lines**: 37
+**Path**: `pkg/queue/proto/node_stats.proto` **Package**: `gcommon.v1.queue` **Lines**: 37
 
 **Messages** (1): `NodeStats`
 
@@ -2702,17 +2648,14 @@ message NodeStats {
 
 ### notification_channel.proto {#notification_channel}
 
-**Path**: `pkg/queue/proto/notification_channel.proto` **Package**:
-`gcommon.v1.queue` **Lines**: 35
+**Path**: `pkg/queue/proto/notification_channel.proto` **Package**: `gcommon.v1.queue` **Lines**: 35
 
 **Messages** (1): `NotificationChannel`
 
 **Imports** (3):
 
 - `google/protobuf/go_features.proto`
-- `pkg/queue/proto/alert_severity.proto` →
-  [config_1](./config_1.md#alert_severity) →
-  [metrics_1](./metrics_1.md#alert_severity)
+- `pkg/queue/proto/alert_severity.proto` → [config_1](./config_1.md#alert_severity) → [metrics_1](./metrics_1.md#alert_severity)
 - `pkg/queue/proto/notification_channel_type.proto`
 
 #### Source Code
@@ -2759,8 +2702,7 @@ message NotificationChannel {
 
 ### notification_channel_type.proto {#notification_channel_type}
 
-**Path**: `pkg/queue/proto/notification_channel_type.proto` **Package**:
-`gcommon.v1.queue` **Lines**: 36
+**Path**: `pkg/queue/proto/notification_channel_type.proto` **Package**: `gcommon.v1.queue` **Lines**: 36
 
 **Enums** (1): `NotificationChannelType`
 
@@ -2813,8 +2755,7 @@ enum NotificationChannelType {
 
 ### offset_info.proto {#offset_info}
 
-**Path**: `pkg/queue/proto/offset_info.proto` **Package**: `gcommon.v1.queue`
-**Lines**: 43
+**Path**: `pkg/queue/proto/offset_info.proto` **Package**: `gcommon.v1.queue` **Lines**: 43
 
 **Messages** (1): `OffsetInfo`
 
@@ -2875,8 +2816,7 @@ message OffsetInfo {
 
 ### offset_type.proto {#offset_type}
 
-**Path**: `pkg/queue/proto/offset_type.proto` **Package**: `gcommon.v1.queue`
-**Lines**: 34
+**Path**: `pkg/queue/proto/offset_type.proto` **Package**: `gcommon.v1.queue` **Lines**: 34
 
 **Enums** (1): `OffsetType`
 
@@ -2927,8 +2867,7 @@ enum OffsetType {
 
 ### partition_info.proto {#partition_info}
 
-**Path**: `pkg/queue/proto/partition_info.proto` **Package**: `gcommon.v1.queue`
-**Lines**: 45
+**Path**: `pkg/queue/proto/partition_info.proto` **Package**: `gcommon.v1.queue` **Lines**: 45
 
 **Messages** (1): `PartitionInfo`
 
@@ -2990,8 +2929,7 @@ message PartitionInfo {
 
 ### partition_offset.proto {#partition_offset}
 
-**Path**: `pkg/queue/proto/partition_offset.proto` **Package**:
-`gcommon.v1.queue` **Lines**: 29
+**Path**: `pkg/queue/proto/partition_offset.proto` **Package**: `gcommon.v1.queue` **Lines**: 29
 
 **Messages** (1): `PartitionOffset`
 
@@ -3038,8 +2976,7 @@ message PartitionOffset {
 
 ### partition_strategy.proto {#partition_strategy}
 
-**Path**: `pkg/queue/proto/partition_strategy.proto` **Package**:
-`gcommon.v1.queue` **Lines**: 40
+**Path**: `pkg/queue/proto/partition_strategy.proto` **Package**: `gcommon.v1.queue` **Lines**: 40
 
 **Enums** (1): `PartitionStrategy`
 
@@ -3096,8 +3033,7 @@ enum PartitionStrategy {
 
 ### priority_level.proto {#priority_level}
 
-**Path**: `pkg/queue/proto/priority_level.proto` **Package**: `gcommon.v1.queue`
-**Lines**: 27
+**Path**: `pkg/queue/proto/priority_level.proto` **Package**: `gcommon.v1.queue` **Lines**: 27
 
 **Enums** (1): `PriorityLevel`
 
@@ -3141,8 +3077,7 @@ enum PriorityLevel {
 
 ### priority_range.proto {#priority_range}
 
-**Path**: `pkg/queue/proto/priority_range.proto` **Package**: `gcommon.v1.queue`
-**Lines**: 24
+**Path**: `pkg/queue/proto/priority_range.proto` **Package**: `gcommon.v1.queue` **Lines**: 24
 
 **Messages** (1): `PriorityRange`
 
@@ -3183,8 +3118,7 @@ message PriorityRange {
 
 ### publish_result.proto {#publish_result}
 
-**Path**: `pkg/queue/proto/publish_result.proto` **Package**: `gcommon.v1.queue`
-**Lines**: 34
+**Path**: `pkg/queue/proto/publish_result.proto` **Package**: `gcommon.v1.queue` **Lines**: 34
 
 **Messages** (1): `PublishResult`
 

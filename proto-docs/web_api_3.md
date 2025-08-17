@@ -20,18 +20,15 @@
 - [reset_stats_response.proto](#reset_stats_response) ⚠️ 1 issues
 - [restart_server_request.proto](#restart_server_request) ⚠️ 1 issues
 - [restart_server_response.proto](#restart_server_response) ⚠️ 1 issues
-- [send_websocket_message_request.proto](#send_websocket_message_request) ⚠️ 1
-  issues
-- [send_websocket_message_response.proto](#send_websocket_message_response) ⚠️ 1
-  issues
+- [send_websocket_message_request.proto](#send_websocket_message_request) ⚠️ 1 issues
+- [send_websocket_message_response.proto](#send_websocket_message_response) ⚠️ 1 issues
 - [serve_static_request.proto](#serve_static_request) ⚠️ 1 issues
 - [serve_static_response.proto](#serve_static_response) ⚠️ 1 issues
 - [start_server_request.proto](#start_server_request)
 - [start_server_response.proto](#start_server_response)
 - [stop_server_request.proto](#stop_server_request) ⚠️ 1 issues
 - [stop_server_response.proto](#stop_server_response) ⚠️ 1 issues
-- [stream_server_events_request.proto](#stream_server_events_request) ⚠️ 1
-  issues
+- [stream_server_events_request.proto](#stream_server_events_request) ⚠️ 1 issues
 - [unregister_handler_request.proto](#unregister_handler_request) ⚠️ 1 issues
 - [unregister_handler_response.proto](#unregister_handler_response) ⚠️ 1 issues
 - [unregister_middleware_request.proto](#unregister_middleware_request)
@@ -42,15 +39,12 @@
 - [update_cookie_response.proto](#update_cookie_response) ⚠️ 1 issues
 - [update_session_request.proto](#update_session_request)
 - [update_session_response.proto](#update_session_response)
-- [update_ssl_certificate_request.proto](#update_ssl_certificate_request) ⚠️ 1
-  issues
-- [update_ssl_certificate_response.proto](#update_ssl_certificate_response) ⚠️ 1
-  issues
+- [update_ssl_certificate_request.proto](#update_ssl_certificate_request) ⚠️ 1 issues
+- [update_ssl_certificate_response.proto](#update_ssl_certificate_response) ⚠️ 1 issues
 - [upload_file_request.proto](#upload_file_request) ⚠️ 1 issues
 - [upload_file_response.proto](#upload_file_response) ⚠️ 1 issues
 - [validate_csrf_token_request.proto](#validate_csrf_token_request) ⚠️ 1 issues
-- [validate_csrf_token_response.proto](#validate_csrf_token_response) ⚠️ 1
-  issues
+- [validate_csrf_token_response.proto](#validate_csrf_token_response) ⚠️ 1 issues
 
 ## Module Dependencies
 
@@ -69,8 +63,7 @@
 
 ### remove_middleware_request.proto {#remove_middleware_request}
 
-**Path**: `pkg/web/proto/remove_middleware_request.proto` **Package**:
-`gcommon.v1.web` **Lines**: 42
+**Path**: `pkg/web/proto/remove_middleware_request.proto` **Package**: `gcommon.v1.web` **Lines**: 42
 
 **Messages** (1): `RemoveMiddlewareRequest`
 
@@ -78,13 +71,11 @@
 
 - `google/protobuf/go_features.proto`
 - `google/protobuf/timestamp.proto`
-- `pkg/common/proto/request_metadata.proto` →
-  [common](./common.md#request_metadata)
+- `pkg/common/proto/request_metadata.proto` → [common](./common.md#request_metadata)
 
 #### ⚠️ Issues Found (1)
 
-- Line 20: Implementation needed - \* Auto-generated placeholder - implement
-  specific fields as needed.
+- Line 20: Implementation needed - \* Auto-generated placeholder - implement specific fields as needed.
 
 #### Source Code
 
@@ -137,8 +128,7 @@ message RemoveMiddlewareRequest {
 
 ### remove_middleware_response.proto {#remove_middleware_response}
 
-**Path**: `pkg/web/proto/remove_middleware_response.proto` **Package**:
-`gcommon.v1.web` **Lines**: 56
+**Path**: `pkg/web/proto/remove_middleware_response.proto` **Package**: `gcommon.v1.web` **Lines**: 56
 
 **Messages** (1): `RemoveMiddlewareResponse`
 
@@ -147,13 +137,11 @@ message RemoveMiddlewareRequest {
 - `google/protobuf/go_features.proto`
 - `google/protobuf/timestamp.proto`
 - `pkg/common/proto/error.proto` → [common](./common.md#error)
-- `pkg/common/proto/request_metadata.proto` →
-  [common](./common.md#request_metadata)
+- `pkg/common/proto/request_metadata.proto` → [common](./common.md#request_metadata)
 
 #### ⚠️ Issues Found (1)
 
-- Line 21: Implementation needed - \* Auto-generated placeholder - implement
-  specific fields as needed.
+- Line 21: Implementation needed - \* Auto-generated placeholder - implement specific fields as needed.
 
 #### Source Code
 
@@ -220,8 +208,7 @@ message RemoveMiddlewareResponse {
 
 ### render_template_request.proto {#render_template_request}
 
-**Path**: `pkg/web/proto/render_template_request.proto` **Package**:
-`gcommon.v1.web` **Lines**: 18
+**Path**: `pkg/web/proto/render_template_request.proto` **Package**: `gcommon.v1.web` **Lines**: 18
 
 **Messages** (1): `RenderTemplateRequest`
 
@@ -260,8 +247,7 @@ message RenderTemplateRequest {
 
 ### render_template_response.proto {#render_template_response}
 
-**Path**: `pkg/web/proto/render_template_response.proto` **Package**:
-`gcommon.v1.web` **Lines**: 18
+**Path**: `pkg/web/proto/render_template_response.proto` **Package**: `gcommon.v1.web` **Lines**: 18
 
 **Messages** (1): `RenderTemplateResponse`
 
@@ -300,8 +286,7 @@ message RenderTemplateResponse {
 
 ### reset_stats_request.proto {#reset_stats_request}
 
-**Path**: `pkg/web/proto/reset_stats_request.proto` **Package**:
-`gcommon.v1.web` **Lines**: 18
+**Path**: `pkg/web/proto/reset_stats_request.proto` **Package**: `gcommon.v1.web` **Lines**: 18
 
 **Messages** (1): `ResetStatsRequest`
 
@@ -340,8 +325,7 @@ message ResetStatsRequest {
 
 ### reset_stats_response.proto {#reset_stats_response}
 
-**Path**: `pkg/web/proto/reset_stats_response.proto` **Package**:
-`gcommon.v1.web` **Lines**: 18
+**Path**: `pkg/web/proto/reset_stats_response.proto` **Package**: `gcommon.v1.web` **Lines**: 18
 
 **Messages** (1): `ResetStatsResponse`
 
@@ -380,8 +364,7 @@ message ResetStatsResponse {
 
 ### restart_server_request.proto {#restart_server_request}
 
-**Path**: `pkg/web/proto/restart_server_request.proto` **Package**:
-`gcommon.v1.web` **Lines**: 18
+**Path**: `pkg/web/proto/restart_server_request.proto` **Package**: `gcommon.v1.web` **Lines**: 18
 
 **Messages** (1): `RestartServerRequest`
 
@@ -420,8 +403,7 @@ message RestartServerRequest {
 
 ### restart_server_response.proto {#restart_server_response}
 
-**Path**: `pkg/web/proto/restart_server_response.proto` **Package**:
-`gcommon.v1.web` **Lines**: 18
+**Path**: `pkg/web/proto/restart_server_response.proto` **Package**: `gcommon.v1.web` **Lines**: 18
 
 **Messages** (1): `RestartServerResponse`
 
@@ -460,8 +442,7 @@ message RestartServerResponse {
 
 ### send_websocket_message_request.proto {#send_websocket_message_request}
 
-**Path**: `pkg/web/proto/send_websocket_message_request.proto` **Package**:
-`gcommon.v1.web` **Lines**: 18
+**Path**: `pkg/web/proto/send_websocket_message_request.proto` **Package**: `gcommon.v1.web` **Lines**: 18
 
 **Messages** (1): `SendWebsocketMessageRequest`
 
@@ -500,8 +481,7 @@ message SendWebsocketMessageRequest {
 
 ### send_websocket_message_response.proto {#send_websocket_message_response}
 
-**Path**: `pkg/web/proto/send_websocket_message_response.proto` **Package**:
-`gcommon.v1.web` **Lines**: 18
+**Path**: `pkg/web/proto/send_websocket_message_response.proto` **Package**: `gcommon.v1.web` **Lines**: 18
 
 **Messages** (1): `SendWebsocketMessageResponse`
 
@@ -540,8 +520,7 @@ message SendWebsocketMessageResponse {
 
 ### serve_static_request.proto {#serve_static_request}
 
-**Path**: `pkg/web/proto/serve_static_request.proto` **Package**:
-`gcommon.v1.web` **Lines**: 18
+**Path**: `pkg/web/proto/serve_static_request.proto` **Package**: `gcommon.v1.web` **Lines**: 18
 
 **Messages** (1): `ServeStaticRequest`
 
@@ -580,8 +559,7 @@ message ServeStaticRequest {
 
 ### serve_static_response.proto {#serve_static_response}
 
-**Path**: `pkg/web/proto/serve_static_response.proto` **Package**:
-`gcommon.v1.web` **Lines**: 18
+**Path**: `pkg/web/proto/serve_static_response.proto` **Package**: `gcommon.v1.web` **Lines**: 18
 
 **Messages** (1): `ServeStaticResponse`
 
@@ -620,16 +598,14 @@ message ServeStaticResponse {
 
 ### start_server_request.proto {#start_server_request}
 
-**Path**: `pkg/web/proto/start_server_request.proto` **Package**:
-`gcommon.v1.web` **Lines**: 23
+**Path**: `pkg/web/proto/start_server_request.proto` **Package**: `gcommon.v1.web` **Lines**: 23
 
 **Messages** (1): `StartServerRequest`
 
 **Imports** (2):
 
 - `google/protobuf/go_features.proto`
-- `pkg/common/proto/request_metadata.proto` →
-  [common](./common.md#request_metadata)
+- `pkg/common/proto/request_metadata.proto` → [common](./common.md#request_metadata)
 
 #### Source Code
 
@@ -663,8 +639,7 @@ message StartServerRequest {
 
 ### start_server_response.proto {#start_server_response}
 
-**Path**: `pkg/web/proto/start_server_response.proto` **Package**:
-`gcommon.v1.web` **Lines**: 30
+**Path**: `pkg/web/proto/start_server_response.proto` **Package**: `gcommon.v1.web` **Lines**: 30
 
 **Messages** (1): `StartServerResponse`
 
@@ -713,8 +688,7 @@ message StartServerResponse {
 
 ### stop_server_request.proto {#stop_server_request}
 
-**Path**: `pkg/web/proto/stop_server_request.proto` **Package**:
-`gcommon.v1.web` **Lines**: 18
+**Path**: `pkg/web/proto/stop_server_request.proto` **Package**: `gcommon.v1.web` **Lines**: 18
 
 **Messages** (1): `StopServerRequest`
 
@@ -753,8 +727,7 @@ message StopServerRequest {
 
 ### stop_server_response.proto {#stop_server_response}
 
-**Path**: `pkg/web/proto/stop_server_response.proto` **Package**:
-`gcommon.v1.web` **Lines**: 18
+**Path**: `pkg/web/proto/stop_server_response.proto` **Package**: `gcommon.v1.web` **Lines**: 18
 
 **Messages** (1): `StopServerResponse`
 
@@ -793,8 +766,7 @@ message StopServerResponse {
 
 ### stream_server_events_request.proto {#stream_server_events_request}
 
-**Path**: `pkg/web/proto/stream_server_events_request.proto` **Package**:
-`gcommon.v1.web` **Lines**: 42
+**Path**: `pkg/web/proto/stream_server_events_request.proto` **Package**: `gcommon.v1.web` **Lines**: 42
 
 **Messages** (1): `StreamServerEventsRequest`
 
@@ -802,13 +774,11 @@ message StopServerResponse {
 
 - `google/protobuf/go_features.proto`
 - `google/protobuf/timestamp.proto`
-- `pkg/common/proto/request_metadata.proto` →
-  [common](./common.md#request_metadata)
+- `pkg/common/proto/request_metadata.proto` → [common](./common.md#request_metadata)
 
 #### ⚠️ Issues Found (1)
 
-- Line 20: Implementation needed - \* Auto-generated placeholder - implement
-  specific fields as needed.
+- Line 20: Implementation needed - \* Auto-generated placeholder - implement specific fields as needed.
 
 #### Source Code
 
@@ -861,8 +831,7 @@ message StreamServerEventsRequest {
 
 ### unregister_handler_request.proto {#unregister_handler_request}
 
-**Path**: `pkg/web/proto/unregister_handler_request.proto` **Package**:
-`gcommon.v1.web` **Lines**: 18
+**Path**: `pkg/web/proto/unregister_handler_request.proto` **Package**: `gcommon.v1.web` **Lines**: 18
 
 **Messages** (1): `UnregisterHandlerRequest`
 
@@ -901,8 +870,7 @@ message UnregisterHandlerRequest {
 
 ### unregister_handler_response.proto {#unregister_handler_response}
 
-**Path**: `pkg/web/proto/unregister_handler_response.proto` **Package**:
-`gcommon.v1.web` **Lines**: 18
+**Path**: `pkg/web/proto/unregister_handler_response.proto` **Package**: `gcommon.v1.web` **Lines**: 18
 
 **Messages** (1): `UnregisterHandlerResponse`
 
@@ -941,16 +909,14 @@ message UnregisterHandlerResponse {
 
 ### unregister_middleware_request.proto {#unregister_middleware_request}
 
-**Path**: `pkg/web/proto/unregister_middleware_request.proto` **Package**:
-`gcommon.v1.web` **Lines**: 26
+**Path**: `pkg/web/proto/unregister_middleware_request.proto` **Package**: `gcommon.v1.web` **Lines**: 26
 
 **Messages** (1): `UnregisterMiddlewareRequest`
 
 **Imports** (2):
 
 - `google/protobuf/go_features.proto`
-- `pkg/common/proto/request_metadata.proto` →
-  [common](./common.md#request_metadata)
+- `pkg/common/proto/request_metadata.proto` → [common](./common.md#request_metadata)
 
 #### Source Code
 
@@ -987,8 +953,7 @@ message UnregisterMiddlewareRequest {
 
 ### unregister_middleware_response.proto {#unregister_middleware_response}
 
-**Path**: `pkg/web/proto/unregister_middleware_response.proto` **Package**:
-`gcommon.v1.web` **Lines**: 23
+**Path**: `pkg/web/proto/unregister_middleware_response.proto` **Package**: `gcommon.v1.web` **Lines**: 23
 
 **Messages** (1): `UnregisterMiddlewareResponse`
 
@@ -1029,8 +994,7 @@ message UnregisterMiddlewareResponse {
 
 ### unregister_route_request.proto {#unregister_route_request}
 
-**Path**: `pkg/web/proto/unregister_route_request.proto` **Package**:
-`gcommon.v1.web` **Lines**: 18
+**Path**: `pkg/web/proto/unregister_route_request.proto` **Package**: `gcommon.v1.web` **Lines**: 18
 
 **Messages** (1): `UnregisterRouteRequest`
 
@@ -1069,8 +1033,7 @@ message UnregisterRouteRequest {
 
 ### unregister_route_response.proto {#unregister_route_response}
 
-**Path**: `pkg/web/proto/unregister_route_response.proto` **Package**:
-`gcommon.v1.web` **Lines**: 18
+**Path**: `pkg/web/proto/unregister_route_response.proto` **Package**: `gcommon.v1.web` **Lines**: 18
 
 **Messages** (1): `UnregisterRouteResponse`
 
@@ -1109,8 +1072,7 @@ message UnregisterRouteResponse {
 
 ### update_cookie_request.proto {#update_cookie_request}
 
-**Path**: `pkg/web/proto/update_cookie_request.proto` **Package**:
-`gcommon.v1.web` **Lines**: 18
+**Path**: `pkg/web/proto/update_cookie_request.proto` **Package**: `gcommon.v1.web` **Lines**: 18
 
 **Messages** (1): `UpdateCookieRequest`
 
@@ -1149,8 +1111,7 @@ message UpdateCookieRequest {
 
 ### update_cookie_response.proto {#update_cookie_response}
 
-**Path**: `pkg/web/proto/update_cookie_response.proto` **Package**:
-`gcommon.v1.web` **Lines**: 18
+**Path**: `pkg/web/proto/update_cookie_response.proto` **Package**: `gcommon.v1.web` **Lines**: 18
 
 **Messages** (1): `UpdateCookieResponse`
 
@@ -1189,8 +1150,7 @@ message UpdateCookieResponse {
 
 ### update_session_request.proto {#update_session_request}
 
-**Path**: `pkg/web/proto/update_session_request.proto` **Package**:
-`gcommon.v1.web` **Lines**: 22
+**Path**: `pkg/web/proto/update_session_request.proto` **Package**: `gcommon.v1.web` **Lines**: 22
 
 **Messages** (1): `UpdateSessionRequest`
 
@@ -1229,8 +1189,7 @@ message UpdateSessionRequest {
 
 ### update_session_response.proto {#update_session_response}
 
-**Path**: `pkg/web/proto/update_session_response.proto` **Package**:
-`gcommon.v1.web` **Lines**: 20
+**Path**: `pkg/web/proto/update_session_response.proto` **Package**: `gcommon.v1.web` **Lines**: 20
 
 **Messages** (1): `UpdateSessionResponse`
 
@@ -1268,8 +1227,7 @@ message UpdateSessionResponse {
 
 ### update_ssl_certificate_request.proto {#update_ssl_certificate_request}
 
-**Path**: `pkg/web/proto/update_ssl_certificate_request.proto` **Package**:
-`gcommon.v1.web` **Lines**: 42
+**Path**: `pkg/web/proto/update_ssl_certificate_request.proto` **Package**: `gcommon.v1.web` **Lines**: 42
 
 **Messages** (1): `UpdateSSLCertificateRequest`
 
@@ -1277,13 +1235,11 @@ message UpdateSessionResponse {
 
 - `google/protobuf/go_features.proto`
 - `google/protobuf/timestamp.proto`
-- `pkg/common/proto/request_metadata.proto` →
-  [common](./common.md#request_metadata)
+- `pkg/common/proto/request_metadata.proto` → [common](./common.md#request_metadata)
 
 #### ⚠️ Issues Found (1)
 
-- Line 20: Implementation needed - \* Auto-generated placeholder - implement
-  specific fields as needed.
+- Line 20: Implementation needed - \* Auto-generated placeholder - implement specific fields as needed.
 
 #### Source Code
 
@@ -1336,8 +1292,7 @@ message UpdateSSLCertificateRequest {
 
 ### update_ssl_certificate_response.proto {#update_ssl_certificate_response}
 
-**Path**: `pkg/web/proto/update_ssl_certificate_response.proto` **Package**:
-`gcommon.v1.web` **Lines**: 56
+**Path**: `pkg/web/proto/update_ssl_certificate_response.proto` **Package**: `gcommon.v1.web` **Lines**: 56
 
 **Messages** (1): `UpdateSSLCertificateResponse`
 
@@ -1346,13 +1301,11 @@ message UpdateSSLCertificateRequest {
 - `google/protobuf/go_features.proto`
 - `google/protobuf/timestamp.proto`
 - `pkg/common/proto/error.proto` → [common](./common.md#error)
-- `pkg/common/proto/request_metadata.proto` →
-  [common](./common.md#request_metadata)
+- `pkg/common/proto/request_metadata.proto` → [common](./common.md#request_metadata)
 
 #### ⚠️ Issues Found (1)
 
-- Line 21: Implementation needed - \* Auto-generated placeholder - implement
-  specific fields as needed.
+- Line 21: Implementation needed - \* Auto-generated placeholder - implement specific fields as needed.
 
 #### Source Code
 
@@ -1419,8 +1372,7 @@ message UpdateSSLCertificateResponse {
 
 ### upload_file_request.proto {#upload_file_request}
 
-**Path**: `pkg/web/proto/upload_file_request.proto` **Package**:
-`gcommon.v1.web` **Lines**: 18
+**Path**: `pkg/web/proto/upload_file_request.proto` **Package**: `gcommon.v1.web` **Lines**: 18
 
 **Messages** (1): `UploadFileRequest`
 
@@ -1459,8 +1411,7 @@ message UploadFileRequest {
 
 ### upload_file_response.proto {#upload_file_response}
 
-**Path**: `pkg/web/proto/upload_file_response.proto` **Package**:
-`gcommon.v1.web` **Lines**: 18
+**Path**: `pkg/web/proto/upload_file_response.proto` **Package**: `gcommon.v1.web` **Lines**: 18
 
 **Messages** (1): `UploadFileResponse`
 
@@ -1499,8 +1450,7 @@ message UploadFileResponse {
 
 ### validate_csrf_token_request.proto {#validate_csrf_token_request}
 
-**Path**: `pkg/web/proto/validate_csrf_token_request.proto` **Package**:
-`gcommon.v1.web` **Lines**: 18
+**Path**: `pkg/web/proto/validate_csrf_token_request.proto` **Package**: `gcommon.v1.web` **Lines**: 18
 
 **Messages** (1): `ValidateCsrfTokenRequest`
 
@@ -1539,8 +1489,7 @@ message ValidateCsrfTokenRequest {
 
 ### validate_csrf_token_response.proto {#validate_csrf_token_response}
 
-**Path**: `pkg/web/proto/validate_csrf_token_response.proto` **Package**:
-`gcommon.v1.web` **Lines**: 18
+**Path**: `pkg/web/proto/validate_csrf_token_response.proto` **Package**: `gcommon.v1.web` **Lines**: 18
 
 **Messages** (1): `ValidateCsrfTokenResponse`
 

@@ -34,8 +34,7 @@
 
 ### auth_config.proto {#auth_config}
 
-**Path**: `pkg/auth/proto/auth_config.proto` **Package**: `gcommon.v1.auth`
-**Lines**: 29
+**Path**: `pkg/auth/proto/auth_config.proto` **Package**: `gcommon.v1.auth` **Lines**: 29
 
 **Messages** (1): `AuthConfig`
 
@@ -82,8 +81,7 @@ message AuthConfig {
 
 ### get_auth_config_request.proto {#get_auth_config_request}
 
-**Path**: `pkg/auth/proto/get_auth_config_request.proto` **Package**:
-`gcommon.v1.auth` **Lines**: 26
+**Path**: `pkg/auth/proto/get_auth_config_request.proto` **Package**: `gcommon.v1.auth` **Lines**: 26
 
 **Messages** (1): `GetAuthConfigRequest`
 
@@ -126,8 +124,7 @@ message GetAuthConfigRequest {
 
 ### jwt_config.proto {#jwt_config}
 
-**Path**: `pkg/auth/proto/jwt_config.proto` **Package**: `gcommon.v1.auth`
-**Lines**: 28
+**Path**: `pkg/auth/proto/jwt_config.proto` **Package**: `gcommon.v1.auth` **Lines**: 28
 
 **Messages** (1): `JWTConfig`
 
@@ -173,8 +170,7 @@ message JWTConfig {
 
 ### ldap_config.proto {#ldap_config}
 
-**Path**: `pkg/auth/proto/ldap_config.proto` **Package**: `gcommon.v1.auth`
-**Lines**: 20
+**Path**: `pkg/auth/proto/ldap_config.proto` **Package**: `gcommon.v1.auth` **Lines**: 20
 
 **Messages** (1): `LdapConfig`
 
@@ -216,8 +212,7 @@ message LdapConfig {
 
 ### mfa_config.proto {#mfa_config}
 
-**Path**: `pkg/auth/proto/mfa_config.proto` **Package**: `gcommon.v1.auth`
-**Lines**: 20
+**Path**: `pkg/auth/proto/mfa_config.proto` **Package**: `gcommon.v1.auth` **Lines**: 20
 
 **Messages** (1): `MfaConfig`
 
@@ -259,8 +254,7 @@ message MfaConfig {
 
 ### oauth2_config.proto {#oauth2_config}
 
-**Path**: `pkg/auth/proto/oauth2_config.proto` **Package**: `gcommon.v1.auth`
-**Lines**: 57
+**Path**: `pkg/auth/proto/oauth2_config.proto` **Package**: `gcommon.v1.auth` **Lines**: 57
 
 **Messages** (1): `OAuth2Config`
 
@@ -336,8 +330,7 @@ message OAuth2Config {
 
 ### rate_limit_config.proto {#rate_limit_config}
 
-**Path**: `pkg/auth/proto/rate_limit_config.proto` **Package**:
-`gcommon.v1.auth` **Lines**: 39
+**Path**: `pkg/auth/proto/rate_limit_config.proto` **Package**: `gcommon.v1.auth` **Lines**: 39
 
 **Messages** (1): `RateLimitConfig`
 
@@ -394,8 +387,7 @@ message RateLimitConfig {
 
 ### saml_config.proto {#saml_config}
 
-**Path**: `pkg/auth/proto/saml_config.proto` **Package**: `gcommon.v1.auth`
-**Lines**: 20
+**Path**: `pkg/auth/proto/saml_config.proto` **Package**: `gcommon.v1.auth` **Lines**: 20
 
 **Messages** (1): `SamlConfig`
 
@@ -437,8 +429,7 @@ message SamlConfig {
 
 ### session_config.proto {#session_config}
 
-**Path**: `pkg/auth/proto/session_config.proto` **Package**: `gcommon.v1.auth`
-**Lines**: 20
+**Path**: `pkg/auth/proto/session_config.proto` **Package**: `gcommon.v1.auth` **Lines**: 20
 
 **Messages** (1): `SessionConfig`
 

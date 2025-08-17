@@ -35,8 +35,7 @@
 
 ### database_admin_service.proto {#database_admin_service}
 
-**Path**: `pkg/db/proto/database_admin_service.proto` **Package**:
-`gcommon.v1.database` **Lines**: 50
+**Path**: `pkg/db/proto/database_admin_service.proto` **Package**: `gcommon.v1.database` **Lines**: 50
 
 **Services** (1): `DatabaseAdminService`
 
@@ -44,30 +43,18 @@
 
 - `google/protobuf/empty.proto`
 - `google/protobuf/go_features.proto`
-- `pkg/db/proto/create_database_request.proto` →
-  [database_api](./database_api.md#create_database_request)
-- `pkg/db/proto/create_database_response.proto` →
-  [database_api](./database_api.md#create_database_response)
-- `pkg/db/proto/create_schema_request.proto` →
-  [database_api](./database_api.md#create_schema_request)
-- `pkg/db/proto/create_schema_response.proto` →
-  [database_api](./database_api.md#create_schema_response)
-- `pkg/db/proto/drop_database_request.proto` →
-  [database_api](./database_api.md#drop_database_request)
-- `pkg/db/proto/drop_schema_request.proto` →
-  [database_api](./database_api.md#drop_schema_request)
-- `pkg/db/proto/get_database_info_request.proto` →
-  [database_api](./database_api.md#get_database_info_request)
-- `pkg/db/proto/get_database_info_response.proto` →
-  [database_api](./database_api.md#get_database_info_response)
-- `pkg/db/proto/list_databases_request.proto` →
-  [database_api](./database_api.md#list_databases_request)
-- `pkg/db/proto/list_databases_response.proto` →
-  [database_api](./database_api.md#list_databases_response)
-- `pkg/db/proto/list_schemas_request.proto` →
-  [database_api](./database_api.md#list_schemas_request)
-- `pkg/db/proto/list_schemas_response.proto` →
-  [database_api](./database_api.md#list_schemas_response)
+- `pkg/db/proto/create_database_request.proto` → [database_api](./database_api.md#create_database_request)
+- `pkg/db/proto/create_database_response.proto` → [database_api](./database_api.md#create_database_response)
+- `pkg/db/proto/create_schema_request.proto` → [database_api](./database_api.md#create_schema_request)
+- `pkg/db/proto/create_schema_response.proto` → [database_api](./database_api.md#create_schema_response)
+- `pkg/db/proto/drop_database_request.proto` → [database_api](./database_api.md#drop_database_request)
+- `pkg/db/proto/drop_schema_request.proto` → [database_api](./database_api.md#drop_schema_request)
+- `pkg/db/proto/get_database_info_request.proto` → [database_api](./database_api.md#get_database_info_request)
+- `pkg/db/proto/get_database_info_response.proto` → [database_api](./database_api.md#get_database_info_response)
+- `pkg/db/proto/list_databases_request.proto` → [database_api](./database_api.md#list_databases_request)
+- `pkg/db/proto/list_databases_response.proto` → [database_api](./database_api.md#list_databases_response)
+- `pkg/db/proto/list_schemas_request.proto` → [database_api](./database_api.md#list_schemas_request)
+- `pkg/db/proto/list_schemas_response.proto` → [database_api](./database_api.md#list_schemas_response)
 
 #### Source Code
 
@@ -128,51 +115,28 @@ service DatabaseAdminService {
 
 ### database_service.proto {#database_service}
 
-**Path**: `pkg/db/proto/database_service.proto` **Package**:
-`gcommon.v1.database` **Lines**: 46
+**Path**: `pkg/db/proto/database_service.proto` **Package**: `gcommon.v1.database` **Lines**: 46
 
 **Services** (1): `DatabaseService`
 
 **Imports** (13):
 
 - `google/protobuf/go_features.proto`
-- `pkg/db/proto/execute_batch_request.proto` →
-  [database_api](./database_api.md#execute_batch_request)
-- `pkg/db/proto/execute_batch_response.proto` →
-  [database_api](./database_api.md#execute_batch_response)
-- `pkg/db/proto/execute_request.proto` →
-  [database_api](./database_api.md#execute_request)
-- `pkg/db/proto/execute_response.proto` →
-  [database_api](./database_api.md#execute_response)
-- `pkg/db/proto/get_connection_info_request.proto` →
-  [database_api](./database_api.md#get_connection_info_request)
-- `pkg/db/proto/get_connection_info_response.proto` →
-  [database_api](./database_api.md#get_connection_info_response)
-- `pkg/db/proto/health_check_request.proto` →
-  [auth_api_2](./auth_api_2.md#health_check_request) →
-  [cache_api_1](./cache_api_1.md#health_check_request) →
-  [config_api](./config_api.md#health_check_request) →
-  [database_api](./database_api.md#health_check_request) →
-  [health](./health.md#health_check_request) →
-  [metrics_api_1](./metrics_api_1.md#health_check_request) →
-  [queue_api_2](./queue_api_2.md#health_check_request) →
+- `pkg/db/proto/execute_batch_request.proto` → [database_api](./database_api.md#execute_batch_request)
+- `pkg/db/proto/execute_batch_response.proto` → [database_api](./database_api.md#execute_batch_response)
+- `pkg/db/proto/execute_request.proto` → [database_api](./database_api.md#execute_request)
+- `pkg/db/proto/execute_response.proto` → [database_api](./database_api.md#execute_response)
+- `pkg/db/proto/get_connection_info_request.proto` → [database_api](./database_api.md#get_connection_info_request)
+- `pkg/db/proto/get_connection_info_response.proto` → [database_api](./database_api.md#get_connection_info_response)
+- `pkg/db/proto/health_check_request.proto` → [auth_api_2](./auth_api_2.md#health_check_request) → [cache_api_1](./cache_api_1.md#health_check_request) → [config_api](./config_api.md#health_check_request) →
+  [database_api](./database_api.md#health_check_request) → [health](./health.md#health_check_request) → [metrics_api_1](./metrics_api_1.md#health_check_request) → [queue_api_2](./queue_api_2.md#health_check_request) →
   [web_api_2](./web_api_2.md#health_check_request)
-- `pkg/db/proto/health_check_response.proto` →
-  [auth_api_2](./auth_api_2.md#health_check_response) →
-  [config_api](./config_api.md#health_check_response) →
-  [database_api](./database_api.md#health_check_response) →
-  [health](./health.md#health_check_response) →
-  [metrics_api_1](./metrics_api_1.md#health_check_response) →
-  [queue_api_2](./queue_api_2.md#health_check_response) →
-  [web_api_2](./web_api_2.md#health_check_response)
-- `pkg/db/proto/query_request.proto` →
-  [database_api](./database_api.md#query_request)
-- `pkg/db/proto/query_response.proto` →
-  [database_api](./database_api.md#query_response)
-- `pkg/db/proto/query_row_request.proto` →
-  [database_api](./database_api.md#query_row_request)
-- `pkg/db/proto/query_row_response.proto` →
-  [database_api](./database_api.md#query_row_response)
+- `pkg/db/proto/health_check_response.proto` → [auth_api_2](./auth_api_2.md#health_check_response) → [config_api](./config_api.md#health_check_response) → [database_api](./database_api.md#health_check_response) →
+  [health](./health.md#health_check_response) → [metrics_api_1](./metrics_api_1.md#health_check_response) → [queue_api_2](./queue_api_2.md#health_check_response) → [web_api_2](./web_api_2.md#health_check_response)
+- `pkg/db/proto/query_request.proto` → [database_api](./database_api.md#query_request)
+- `pkg/db/proto/query_response.proto` → [database_api](./database_api.md#query_response)
+- `pkg/db/proto/query_row_request.proto` → [database_api](./database_api.md#query_row_request)
+- `pkg/db/proto/query_row_response.proto` → [database_api](./database_api.md#query_row_response)
 
 #### Source Code
 
@@ -229,30 +193,21 @@ service DatabaseService {
 
 ### migration_service.proto {#migration_service}
 
-**Path**: `pkg/db/proto/migration_service.proto` **Package**:
-`gcommon.v1.database` **Lines**: 38
+**Path**: `pkg/db/proto/migration_service.proto` **Package**: `gcommon.v1.database` **Lines**: 38
 
 **Services** (1): `MigrationService`
 
 **Imports** (9):
 
 - `google/protobuf/go_features.proto`
-- `pkg/db/proto/get_migration_status_request.proto` →
-  [database_api](./database_api.md#get_migration_status_request)
-- `pkg/db/proto/get_migration_status_response.proto` →
-  [database_api](./database_api.md#get_migration_status_response)
-- `pkg/db/proto/list_migrations_request.proto` →
-  [database_api](./database_api.md#list_migrations_request)
-- `pkg/db/proto/list_migrations_response.proto` →
-  [database_api](./database_api.md#list_migrations_response)
-- `pkg/db/proto/revert_migration_request.proto` →
-  [database_api](./database_api.md#revert_migration_request)
-- `pkg/db/proto/revert_migration_response.proto` →
-  [database_api](./database_api.md#revert_migration_response)
-- `pkg/db/proto/run_migration_request.proto` →
-  [database_api](./database_api.md#run_migration_request)
-- `pkg/db/proto/run_migration_response.proto` →
-  [database_api](./database_api.md#run_migration_response)
+- `pkg/db/proto/get_migration_status_request.proto` → [database_api](./database_api.md#get_migration_status_request)
+- `pkg/db/proto/get_migration_status_response.proto` → [database_api](./database_api.md#get_migration_status_response)
+- `pkg/db/proto/list_migrations_request.proto` → [database_api](./database_api.md#list_migrations_request)
+- `pkg/db/proto/list_migrations_response.proto` → [database_api](./database_api.md#list_migrations_response)
+- `pkg/db/proto/revert_migration_request.proto` → [database_api](./database_api.md#revert_migration_request)
+- `pkg/db/proto/revert_migration_response.proto` → [database_api](./database_api.md#revert_migration_response)
+- `pkg/db/proto/run_migration_request.proto` → [database_api](./database_api.md#run_migration_request)
+- `pkg/db/proto/run_migration_response.proto` → [database_api](./database_api.md#run_migration_response)
 
 #### Source Code
 
@@ -301,8 +256,7 @@ service MigrationService {
 
 ### transaction_service.proto {#transaction_service}
 
-**Path**: `pkg/db/proto/transaction_service.proto` **Package**:
-`gcommon.v1.database` **Lines**: 37
+**Path**: `pkg/db/proto/transaction_service.proto` **Package**: `gcommon.v1.database` **Lines**: 37
 
 **Services** (1): `TransactionService`
 
@@ -310,18 +264,12 @@ service MigrationService {
 
 - `google/protobuf/empty.proto`
 - `google/protobuf/go_features.proto`
-- `pkg/db/proto/begin_transaction_request.proto` →
-  [database_api](./database_api.md#begin_transaction_request)
-- `pkg/db/proto/begin_transaction_response.proto` →
-  [database_api](./database_api.md#begin_transaction_response)
-- `pkg/db/proto/commit_transaction_request.proto` →
-  [database_api](./database_api.md#commit_transaction_request)
-- `pkg/db/proto/rollback_transaction_request.proto` →
-  [database_api](./database_api.md#rollback_transaction_request)
-- `pkg/db/proto/transaction_status_request.proto` →
-  [database_api](./database_api.md#transaction_status_request)
-- `pkg/db/proto/transaction_status_response.proto` →
-  [database_api](./database_api.md#transaction_status_response)
+- `pkg/db/proto/begin_transaction_request.proto` → [database_api](./database_api.md#begin_transaction_request)
+- `pkg/db/proto/begin_transaction_response.proto` → [database_api](./database_api.md#begin_transaction_response)
+- `pkg/db/proto/commit_transaction_request.proto` → [database_api](./database_api.md#commit_transaction_request)
+- `pkg/db/proto/rollback_transaction_request.proto` → [database_api](./database_api.md#rollback_transaction_request)
+- `pkg/db/proto/transaction_status_request.proto` → [database_api](./database_api.md#transaction_status_request)
+- `pkg/db/proto/transaction_status_response.proto` → [database_api](./database_api.md#transaction_status_response)
 
 #### Source Code
 

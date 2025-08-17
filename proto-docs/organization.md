@@ -45,8 +45,7 @@
 
 ### department.proto {#department}
 
-**Path**: `pkg/organization/proto/department.proto` **Package**:
-`gcommon.v1.organization` **Lines**: 85
+**Path**: `pkg/organization/proto/department.proto` **Package**: `gcommon.v1.organization` **Lines**: 85
 
 **Messages** (1): `Department`
 
@@ -150,8 +149,7 @@ message Department {
 
 ### hierarchy_type.proto {#hierarchy_type}
 
-**Path**: `pkg/organization/proto/hierarchy_type.proto` **Package**:
-`gcommon.v1.organization` **Lines**: 40
+**Path**: `pkg/organization/proto/hierarchy_type.proto` **Package**: `gcommon.v1.organization` **Lines**: 40
 
 **Enums** (1): `HierarchyType`
 
@@ -208,8 +206,7 @@ enum HierarchyType {
 
 ### isolation_level.proto {#isolation_level}
 
-**Path**: `pkg/organization/proto/isolation_level.proto` **Package**:
-`gcommon.v1.organization` **Lines**: 34
+**Path**: `pkg/organization/proto/isolation_level.proto` **Package**: `gcommon.v1.organization` **Lines**: 34
 
 **Enums** (1): `IsolationLevel`
 
@@ -260,8 +257,7 @@ enum IsolationLevel {
 
 ### member_role.proto {#member_role}
 
-**Path**: `pkg/organization/proto/member_role.proto` **Package**:
-`gcommon.v1.organization` **Lines**: 22
+**Path**: `pkg/organization/proto/member_role.proto` **Package**: `gcommon.v1.organization` **Lines**: 22
 
 **Enums** (1): `MemberRole`
 
@@ -300,8 +296,7 @@ enum MemberRole {
 
 ### organization.proto {#organization}
 
-**Path**: `pkg/organization/proto/organization.proto` **Package**:
-`gcommon.v1.organization` **Lines**: 89
+**Path**: `pkg/organization/proto/organization.proto` **Package**: `gcommon.v1.organization` **Lines**: 89
 
 **Messages** (1): `Organization`
 
@@ -410,8 +405,7 @@ message Organization {
 
 ### organization_hierarchy.proto {#organization_hierarchy}
 
-**Path**: `pkg/organization/proto/organization_hierarchy.proto` **Package**:
-`gcommon.v1.organization` **Lines**: 119
+**Path**: `pkg/organization/proto/organization_hierarchy.proto` **Package**: `gcommon.v1.organization` **Lines**: 119
 
 **Messages** (3): `OrganizationHierarchy`, `HierarchyNode`, `HierarchyPath`
 
@@ -550,8 +544,7 @@ message HierarchyPath {
 
 ### organization_member.proto {#organization_member}
 
-**Path**: `pkg/organization/proto/organization_member.proto` **Package**:
-`gcommon.v1.organization` **Lines**: 91
+**Path**: `pkg/organization/proto/organization_member.proto` **Package**: `gcommon.v1.organization` **Lines**: 91
 
 **Messages** (1): `OrganizationMember`
 
@@ -662,8 +655,7 @@ message OrganizationMember {
 
 ### organization_status.proto {#organization_status}
 
-**Path**: `pkg/organization/proto/organization_status.proto` **Package**:
-`gcommon.v1.organization` **Lines**: 37
+**Path**: `pkg/organization/proto/organization_status.proto` **Package**: `gcommon.v1.organization` **Lines**: 37
 
 **Enums** (1): `OrganizationStatus`
 
@@ -717,8 +709,7 @@ enum OrganizationStatus {
 
 ### team.proto {#team}
 
-**Path**: `pkg/organization/proto/team.proto` **Package**:
-`gcommon.v1.organization` **Lines**: 94
+**Path**: `pkg/organization/proto/team.proto` **Package**: `gcommon.v1.organization` **Lines**: 94
 
 **Messages** (1): `Team`
 
@@ -831,8 +822,7 @@ message Team {
 
 ### tenant.proto {#tenant}
 
-**Path**: `pkg/organization/proto/tenant.proto` **Package**:
-`gcommon.v1.organization` **Lines**: 82
+**Path**: `pkg/organization/proto/tenant.proto` **Package**: `gcommon.v1.organization` **Lines**: 82
 
 **Messages** (1): `Tenant`
 
@@ -841,8 +831,7 @@ message Team {
 - `google/protobuf/go_features.proto`
 - `google/protobuf/timestamp.proto`
 - `pkg/common/proto/key_value.proto` → [common](./common.md#key_value)
-- `pkg/organization/proto/isolation_level.proto` →
-  [database](./database.md#isolation_level)
+- `pkg/organization/proto/isolation_level.proto` → [database](./database.md#isolation_level)
 - `pkg/organization/proto/tenant_quota.proto`
 - `pkg/organization/proto/tenant_status.proto`
 
@@ -937,25 +926,18 @@ message Tenant {
 
 ### tenant_isolation.proto {#tenant_isolation}
 
-**Path**: `pkg/organization/proto/tenant_isolation.proto` **Package**:
-`gcommon.v1.organization` **Lines**: 590
+**Path**: `pkg/organization/proto/tenant_isolation.proto` **Package**: `gcommon.v1.organization` **Lines**: 590
 
-**Messages** (30): `TenantIsolation`, `DatabaseIsolation`, `NetworkIsolation`,
-`StorageIsolation`, `ComputeIsolation`, `EncryptionConfig`, `AccessControl`,
-`AuditConfig`, `BackupConfig`, `NetworkACLRule`, `LoadBalancerConfig`,
-`CDNConfig`, `DomainConfig`, `StorageEncryption`, `StoragePolicy`,
-`StorageBackupConfig`, `StorageQuota`, `CPUAllocation`, `MemoryAllocation`,
-`ResourceLimits`, `AutoScalingConfig`, `TimeRestriction`, `AuditAlert`,
-`HealthCheckConfig`, `SSLConfig`, `CacheBehavior`, `OriginConfig`, `DNSConfig`,
-`DNSRecord`, `CacheKeyPolicy`
+**Messages** (30): `TenantIsolation`, `DatabaseIsolation`, `NetworkIsolation`, `StorageIsolation`, `ComputeIsolation`, `EncryptionConfig`, `AccessControl`, `AuditConfig`, `BackupConfig`, `NetworkACLRule`, `LoadBalancerConfig`, `CDNConfig`,
+`DomainConfig`, `StorageEncryption`, `StoragePolicy`, `StorageBackupConfig`, `StorageQuota`, `CPUAllocation`, `MemoryAllocation`, `ResourceLimits`, `AutoScalingConfig`, `TimeRestriction`, `AuditAlert`, `HealthCheckConfig`, `SSLConfig`,
+`CacheBehavior`, `OriginConfig`, `DNSConfig`, `DNSRecord`, `CacheKeyPolicy`
 
 **Imports** (4):
 
 - `google/protobuf/go_features.proto`
 - `google/protobuf/timestamp.proto`
 - `pkg/common/proto/key_value.proto` → [common](./common.md#key_value)
-- `pkg/organization/proto/isolation_level.proto` →
-  [database](./database.md#isolation_level)
+- `pkg/organization/proto/isolation_level.proto` → [database](./database.md#isolation_level)
 
 #### Source Code
 
@@ -1556,8 +1538,7 @@ message CacheKeyPolicy {
 
 ### tenant_quota.proto {#tenant_quota}
 
-**Path**: `pkg/organization/proto/tenant_quota.proto` **Package**:
-`gcommon.v1.organization` **Lines**: 41
+**Path**: `pkg/organization/proto/tenant_quota.proto` **Package**: `gcommon.v1.organization` **Lines**: 41
 
 **Messages** (1): `TenantQuota`
 
@@ -1615,8 +1596,7 @@ message TenantQuota {
 
 ### tenant_status.proto {#tenant_status}
 
-**Path**: `pkg/organization/proto/tenant_status.proto` **Package**:
-`gcommon.v1.organization` **Lines**: 43
+**Path**: `pkg/organization/proto/tenant_status.proto` **Package**: `gcommon.v1.organization` **Lines**: 43
 
 **Enums** (1): `TenantStatus`
 

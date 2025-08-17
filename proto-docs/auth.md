@@ -79,8 +79,7 @@
 
 ### auth_context.proto {#auth_context}
 
-**Path**: `pkg/auth/proto/auth_context.proto` **Package**: `gcommon.v1.auth`
-**Lines**: 36
+**Path**: `pkg/auth/proto/auth_context.proto` **Package**: `gcommon.v1.auth` **Lines**: 36
 
 **Messages** (1): `AuthContext`
 
@@ -135,8 +134,7 @@ message AuthContext {
 
 ### auth_method.proto {#auth_method}
 
-**Path**: `pkg/auth/proto/auth_method.proto` **Package**: `gcommon.v1.auth`
-**Lines**: 39
+**Path**: `pkg/auth/proto/auth_method.proto` **Package**: `gcommon.v1.auth` **Lines**: 39
 
 **Enums** (1): `AuthMethod`
 
@@ -192,16 +190,14 @@ enum AuthMethod {
 
 ### auth_provider.proto {#auth_provider}
 
-**Path**: `pkg/auth/proto/auth_provider.proto` **Package**: `gcommon.v1.auth`
-**Lines**: 32
+**Path**: `pkg/auth/proto/auth_provider.proto` **Package**: `gcommon.v1.auth` **Lines**: 32
 
 **Messages** (1): `AuthProvider`
 
 **Imports** (2):
 
 - `google/protobuf/go_features.proto`
-- `pkg/auth/proto/provider_type.proto` →
-  [metrics_2](./metrics_2.md#provider_type)
+- `pkg/auth/proto/provider_type.proto` → [metrics_2](./metrics_2.md#provider_type)
 
 #### Source Code
 
@@ -244,8 +240,7 @@ message AuthProvider {
 
 ### auth_token.proto {#auth_token}
 
-**Path**: `pkg/auth/proto/auth_token.proto` **Package**: `gcommon.v1.auth`
-**Lines**: 20
+**Path**: `pkg/auth/proto/auth_token.proto` **Package**: `gcommon.v1.auth` **Lines**: 20
 
 **Messages** (1): `AuthToken`
 
@@ -287,8 +282,7 @@ message AuthToken {
 
 ### claims.proto {#claims}
 
-**Path**: `pkg/auth/proto/claims.proto` **Package**: `gcommon.v1.auth`
-**Lines**: 46
+**Path**: `pkg/auth/proto/claims.proto` **Package**: `gcommon.v1.auth` **Lines**: 46
 
 **Messages** (1): `Claims`
 
@@ -351,8 +345,7 @@ message Claims {
 
 ### grant_type.proto {#grant_type}
 
-**Path**: `pkg/auth/proto/grant_type.proto` **Package**: `gcommon.v1.auth`
-**Lines**: 19
+**Path**: `pkg/auth/proto/grant_type.proto` **Package**: `gcommon.v1.auth` **Lines**: 19
 
 **Imports** (1):
 
@@ -390,8 +383,7 @@ option go_package = "github.com/jdfalk/gcommon/pkg/auth/proto";
 
 ### group.proto {#group}
 
-**Path**: `pkg/auth/proto/group.proto` **Package**: `gcommon.v1.auth` **Lines**:
-50
+**Path**: `pkg/auth/proto/group.proto` **Package**: `gcommon.v1.auth` **Lines**: 50
 
 **Messages** (1): `Group`
 
@@ -399,10 +391,8 @@ option go_package = "github.com/jdfalk/gcommon/pkg/auth/proto";
 
 - `google/protobuf/go_features.proto`
 - `google/protobuf/timestamp.proto`
-- `pkg/common/proto/request_metadata.proto` →
-  [common](./common.md#request_metadata)
-- `pkg/common/proto/resource_status.proto` →
-  [common](./common.md#resource_status)
+- `pkg/common/proto/request_metadata.proto` → [common](./common.md#request_metadata)
+- `pkg/common/proto/resource_status.proto` → [common](./common.md#resource_status)
 
 #### Source Code
 
@@ -463,8 +453,7 @@ message Group {
 
 ### jwt_credentials.proto {#jwt_credentials}
 
-**Path**: `pkg/auth/proto/jwt_credentials.proto` **Package**: `gcommon.v1.auth`
-**Lines**: 23
+**Path**: `pkg/auth/proto/jwt_credentials.proto` **Package**: `gcommon.v1.auth` **Lines**: 23
 
 **Messages** (1): `JWTCredentials`
 
@@ -504,8 +493,7 @@ message JWTCredentials {
 
 ### mfa_method.proto {#mfa_method}
 
-**Path**: `pkg/auth/proto/mfa_method.proto` **Package**: `gcommon.v1.auth`
-**Lines**: 33
+**Path**: `pkg/auth/proto/mfa_method.proto` **Package**: `gcommon.v1.auth` **Lines**: 33
 
 **Enums** (1): `MfaMethod`
 
@@ -555,8 +543,7 @@ enum MfaMethod {
 
 ### mfa_type.proto {#mfa_type}
 
-**Path**: `pkg/auth/proto/mfa_type.proto` **Package**: `gcommon.v1.auth`
-**Lines**: 33
+**Path**: `pkg/auth/proto/mfa_type.proto` **Package**: `gcommon.v1.auth` **Lines**: 33
 
 **Enums** (1): `MFAType`
 
@@ -606,8 +593,7 @@ enum MFAType {
 
 ### oauth2_credentials.proto {#oauth2_credentials}
 
-**Path**: `pkg/auth/proto/oauth2_credentials.proto` **Package**:
-`gcommon.v1.auth` **Lines**: 30
+**Path**: `pkg/auth/proto/oauth2_credentials.proto` **Package**: `gcommon.v1.auth` **Lines**: 30
 
 **Messages** (1): `OAuth2Credentials`
 
@@ -654,8 +640,7 @@ message OAuth2Credentials {
 
 ### oauth2_flow_type.proto {#oauth2_flow_type}
 
-**Path**: `pkg/auth/proto/oauth2_flow_type.proto` **Package**: `gcommon.v1.auth`
-**Lines**: 34
+**Path**: `pkg/auth/proto/oauth2_flow_type.proto` **Package**: `gcommon.v1.auth` **Lines**: 34
 
 **Enums** (1): `OAuth2FlowType`
 
@@ -706,8 +691,7 @@ enum OAuth2FlowType {
 
 ### oauth_client.proto {#oauth_client}
 
-**Path**: `pkg/auth/proto/oauth_client.proto` **Package**: `gcommon.v1.auth`
-**Lines**: 65
+**Path**: `pkg/auth/proto/oauth_client.proto` **Package**: `gcommon.v1.auth` **Lines**: 65
 
 **Messages** (1): `OAuthClient`
 
@@ -715,10 +699,8 @@ enum OAuth2FlowType {
 
 - `google/protobuf/go_features.proto`
 - `google/protobuf/timestamp.proto`
-- `pkg/common/proto/request_metadata.proto` →
-  [common](./common.md#request_metadata)
-- `pkg/common/proto/resource_status.proto` →
-  [common](./common.md#resource_status)
+- `pkg/common/proto/request_metadata.proto` → [common](./common.md#request_metadata)
+- `pkg/common/proto/resource_status.proto` → [common](./common.md#resource_status)
 
 #### Source Code
 
@@ -794,8 +776,7 @@ message OAuthClient {
 
 ### password_credentials.proto {#password_credentials}
 
-**Path**: `pkg/auth/proto/password_credentials.proto` **Package**:
-`gcommon.v1.auth` **Lines**: 27
+**Path**: `pkg/auth/proto/password_credentials.proto` **Package**: `gcommon.v1.auth` **Lines**: 27
 
 **Messages** (1): `PasswordCredentials`
 
@@ -839,8 +820,7 @@ message PasswordCredentials {
 
 ### password_policy.proto {#password_policy}
 
-**Path**: `pkg/auth/proto/password_policy.proto` **Package**: `gcommon.v1.auth`
-**Lines**: 20
+**Path**: `pkg/auth/proto/password_policy.proto` **Package**: `gcommon.v1.auth` **Lines**: 20
 
 **Messages** (1): `PasswordPolicy`
 
@@ -882,8 +862,7 @@ message PasswordPolicy {
 
 ### permission.proto {#permission}
 
-**Path**: `pkg/auth/proto/permission.proto` **Package**: `gcommon.v1.auth`
-**Lines**: 36
+**Path**: `pkg/auth/proto/permission.proto` **Package**: `gcommon.v1.auth` **Lines**: 36
 
 **Messages** (1): `Permission`
 
@@ -938,8 +917,7 @@ message Permission {
 
 ### permission_grant.proto {#permission_grant}
 
-**Path**: `pkg/auth/proto/permission_grant.proto` **Package**: `gcommon.v1.auth`
-**Lines**: 50
+**Path**: `pkg/auth/proto/permission_grant.proto` **Package**: `gcommon.v1.auth` **Lines**: 50
 
 **Messages** (1): `PermissionGrant`
 
@@ -948,8 +926,7 @@ message Permission {
 - `google/protobuf/go_features.proto`
 - `google/protobuf/timestamp.proto`
 - `pkg/auth/proto/permission_scope.proto`
-- `pkg/common/proto/request_metadata.proto` →
-  [common](./common.md#request_metadata)
+- `pkg/common/proto/request_metadata.proto` → [common](./common.md#request_metadata)
 
 #### Source Code
 
@@ -1010,8 +987,7 @@ message PermissionGrant {
 
 ### permission_metadata.proto {#permission_metadata}
 
-**Path**: `pkg/auth/proto/permission_metadata.proto` **Package**:
-`gcommon.v1.auth` **Lines**: 55
+**Path**: `pkg/auth/proto/permission_metadata.proto` **Package**: `gcommon.v1.auth` **Lines**: 55
 
 **Messages** (2): `PermissionMetadata`, `PermissionCondition`
 
@@ -1085,8 +1061,7 @@ message PermissionCondition {
 
 ### permission_scope.proto {#permission_scope}
 
-**Path**: `pkg/auth/proto/permission_scope.proto` **Package**: `gcommon.v1.auth`
-**Lines**: 34
+**Path**: `pkg/auth/proto/permission_scope.proto` **Package**: `gcommon.v1.auth` **Lines**: 34
 
 **Enums** (1): `PermissionScope`
 
@@ -1137,8 +1112,7 @@ enum PermissionScope {
 
 ### permission_type.proto {#permission_type}
 
-**Path**: `pkg/auth/proto/permission_type.proto` **Package**: `gcommon.v1.auth`
-**Lines**: 19
+**Path**: `pkg/auth/proto/permission_type.proto` **Package**: `gcommon.v1.auth` **Lines**: 19
 
 **Imports** (1):
 
@@ -1176,8 +1150,7 @@ option go_package = "github.com/jdfalk/gcommon/pkg/auth/proto";
 
 ### provider_type.proto {#provider_type}
 
-**Path**: `pkg/auth/proto/provider_type.proto` **Package**: `gcommon.v1.auth`
-**Lines**: 33
+**Path**: `pkg/auth/proto/provider_type.proto` **Package**: `gcommon.v1.auth` **Lines**: 33
 
 **Enums** (1): `ProviderType`
 
@@ -1227,8 +1200,7 @@ enum ProviderType {
 
 ### refresh_token.proto {#refresh_token}
 
-**Path**: `pkg/auth/proto/refresh_token.proto` **Package**: `gcommon.v1.auth`
-**Lines**: 28
+**Path**: `pkg/auth/proto/refresh_token.proto` **Package**: `gcommon.v1.auth` **Lines**: 28
 
 **Messages** (1): `RefreshToken`
 
@@ -1274,8 +1246,7 @@ message RefreshToken {
 
 ### role.proto {#role}
 
-**Path**: `pkg/auth/proto/role.proto` **Package**: `gcommon.v1.auth` **Lines**:
-43
+**Path**: `pkg/auth/proto/role.proto` **Package**: `gcommon.v1.auth` **Lines**: 43
 
 **Messages** (1): `Role`
 
@@ -1283,8 +1254,7 @@ message RefreshToken {
 
 - `google/protobuf/go_features.proto`
 - `google/protobuf/timestamp.proto`
-- `pkg/common/proto/resource_status.proto` →
-  [common](./common.md#resource_status)
+- `pkg/common/proto/resource_status.proto` → [common](./common.md#resource_status)
 
 #### Source Code
 
@@ -1338,8 +1308,7 @@ message Role {
 
 ### role_assignment.proto {#role_assignment}
 
-**Path**: `pkg/auth/proto/role_assignment.proto` **Package**: `gcommon.v1.auth`
-**Lines**: 51
+**Path**: `pkg/auth/proto/role_assignment.proto` **Package**: `gcommon.v1.auth` **Lines**: 51
 
 **Messages** (1): `RoleAssignment`
 
@@ -1349,8 +1318,7 @@ message Role {
 - `google/protobuf/timestamp.proto`
 - `pkg/auth/proto/role.proto`
 - `pkg/auth/proto/role_scope.proto`
-- `pkg/common/proto/request_metadata.proto` →
-  [common](./common.md#request_metadata)
+- `pkg/common/proto/request_metadata.proto` → [common](./common.md#request_metadata)
 
 #### Source Code
 
@@ -1412,8 +1380,7 @@ message RoleAssignment {
 
 ### role_metadata.proto {#role_metadata}
 
-**Path**: `pkg/auth/proto/role_metadata.proto` **Package**: `gcommon.v1.auth`
-**Lines**: 29
+**Path**: `pkg/auth/proto/role_metadata.proto` **Package**: `gcommon.v1.auth` **Lines**: 29
 
 **Messages** (1): `RoleMetadata`
 
@@ -1461,8 +1428,7 @@ message RoleMetadata {
 
 ### role_scope.proto {#role_scope}
 
-**Path**: `pkg/auth/proto/role_scope.proto` **Package**: `gcommon.v1.auth`
-**Lines**: 35
+**Path**: `pkg/auth/proto/role_scope.proto` **Package**: `gcommon.v1.auth` **Lines**: 35
 
 **Enums** (1): `RoleScope`
 
@@ -1515,8 +1481,7 @@ enum RoleScope {
 
 ### scope_type.proto {#scope_type}
 
-**Path**: `pkg/auth/proto/scope_type.proto` **Package**: `gcommon.v1.auth`
-**Lines**: 34
+**Path**: `pkg/auth/proto/scope_type.proto` **Package**: `gcommon.v1.auth` **Lines**: 34
 
 **Enums** (1): `ScopeType`
 
@@ -1567,8 +1532,7 @@ enum ScopeType {
 
 ### security_context.proto {#security_context}
 
-**Path**: `pkg/auth/proto/security_context.proto` **Package**: `gcommon.v1.auth`
-**Lines**: 58
+**Path**: `pkg/auth/proto/security_context.proto` **Package**: `gcommon.v1.auth` **Lines**: 58
 
 **Messages** (1): `SecurityContext`
 
@@ -1645,8 +1609,7 @@ message SecurityContext {
 
 ### security_policy.proto {#security_policy}
 
-**Path**: `pkg/auth/proto/security_policy.proto` **Package**: `gcommon.v1.auth`
-**Lines**: 28
+**Path**: `pkg/auth/proto/security_policy.proto` **Package**: `gcommon.v1.auth` **Lines**: 28
 
 **Messages** (1): `SecurityPolicy`
 
@@ -1692,8 +1655,7 @@ message SecurityPolicy {
 
 ### session.proto {#session}
 
-**Path**: `pkg/auth/proto/session.proto` **Package**: `gcommon.v1.auth`
-**Lines**: 50
+**Path**: `pkg/auth/proto/session.proto` **Package**: `gcommon.v1.auth` **Lines**: 50
 
 **Messages** (1): `Session`
 
@@ -1763,8 +1725,7 @@ message Session {
 
 ### session_info.proto {#session_info}
 
-**Path**: `pkg/auth/proto/session_info.proto` **Package**: `gcommon.v1.auth`
-**Lines**: 42
+**Path**: `pkg/auth/proto/session_info.proto` **Package**: `gcommon.v1.auth` **Lines**: 42
 
 **Messages** (1): `SessionInfo`
 
@@ -1824,8 +1785,7 @@ message SessionInfo {
 
 ### session_metadata.proto {#session_metadata}
 
-**Path**: `pkg/auth/proto/session_metadata.proto` **Package**: `gcommon.v1.auth`
-**Lines**: 73
+**Path**: `pkg/auth/proto/session_metadata.proto` **Package**: `gcommon.v1.auth` **Lines**: 73
 
 **Messages** (3): `SessionMetadata`, `DeviceInfo`, `LocationInfo`
 
@@ -1917,8 +1877,7 @@ message LocationInfo {
 
 ### session_status.proto {#session_status}
 
-**Path**: `pkg/auth/proto/session_status.proto` **Package**: `gcommon.v1.auth`
-**Lines**: 31
+**Path**: `pkg/auth/proto/session_status.proto` **Package**: `gcommon.v1.auth` **Lines**: 31
 
 **Enums** (1): `SessionStatus`
 
@@ -1966,8 +1925,7 @@ enum SessionStatus {
 
 ### token.proto {#token}
 
-**Path**: `pkg/auth/proto/token.proto` **Package**: `gcommon.v1.auth` **Lines**:
-62
+**Path**: `pkg/auth/proto/token.proto` **Package**: `gcommon.v1.auth` **Lines**: 62
 
 **Messages** (1): `Token`
 
@@ -2049,8 +2007,7 @@ message Token {
 
 ### token_info.proto {#token_info}
 
-**Path**: `pkg/auth/proto/token_info.proto` **Package**: `gcommon.v1.auth`
-**Lines**: 47
+**Path**: `pkg/auth/proto/token_info.proto` **Package**: `gcommon.v1.auth` **Lines**: 47
 
 **Messages** (1): `TokenInfo`
 
@@ -2059,8 +2016,7 @@ message Token {
 - `google/protobuf/go_features.proto`
 - `google/protobuf/timestamp.proto`
 - `pkg/auth/proto/token_type.proto`
-- `pkg/common/proto/request_metadata.proto` →
-  [common](./common.md#request_metadata)
+- `pkg/common/proto/request_metadata.proto` → [common](./common.md#request_metadata)
 
 #### Source Code
 
@@ -2118,8 +2074,7 @@ message TokenInfo {
 
 ### token_metadata.proto {#token_metadata}
 
-**Path**: `pkg/auth/proto/token_metadata.proto` **Package**: `gcommon.v1.auth`
-**Lines**: 54
+**Path**: `pkg/auth/proto/token_metadata.proto` **Package**: `gcommon.v1.auth` **Lines**: 54
 
 **Messages** (1): `TokenMetadata`
 
@@ -2192,8 +2147,7 @@ message TokenMetadata {
 
 ### token_status.proto {#token_status}
 
-**Path**: `pkg/auth/proto/token_status.proto` **Package**: `gcommon.v1.auth`
-**Lines**: 37
+**Path**: `pkg/auth/proto/token_status.proto` **Package**: `gcommon.v1.auth` **Lines**: 37
 
 **Enums** (1): `TokenStatus`
 
@@ -2247,8 +2201,7 @@ enum TokenStatus {
 
 ### token_type.proto {#token_type}
 
-**Path**: `pkg/auth/proto/token_type.proto` **Package**: `gcommon.v1.auth`
-**Lines**: 49
+**Path**: `pkg/auth/proto/token_type.proto` **Package**: `gcommon.v1.auth` **Lines**: 49
 
 **Enums** (1): `TokenType`
 
@@ -2314,8 +2267,7 @@ enum TokenType {
 
 ### user.proto {#user}
 
-**Path**: `pkg/auth/proto/user.proto` **Package**: `gcommon.v1.auth` **Lines**:
-73
+**Path**: `pkg/auth/proto/user.proto` **Package**: `gcommon.v1.auth` **Lines**: 73
 
 **Messages** (1): `User`
 
@@ -2407,8 +2359,7 @@ message User {
 
 ### user_info.proto {#user_info}
 
-**Path**: `pkg/auth/proto/user_info.proto` **Package**: `gcommon.v1.auth`
-**Lines**: 61
+**Path**: `pkg/auth/proto/user_info.proto` **Package**: `gcommon.v1.auth` **Lines**: 61
 
 **Messages** (1): `UserInfo`
 
@@ -2487,8 +2438,7 @@ message UserInfo {
 
 ### user_metadata.proto {#user_metadata}
 
-**Path**: `pkg/auth/proto/user_metadata.proto` **Package**: `gcommon.v1.auth`
-**Lines**: 114
+**Path**: `pkg/auth/proto/user_metadata.proto` **Package**: `gcommon.v1.auth` **Lines**: 114
 
 **Messages** (3): `UserMetadata`, `UserPreferences`, `VerificationStatus`
 
@@ -2620,8 +2570,7 @@ message VerificationStatus {
 
 ### user_profile.proto {#user_profile}
 
-**Path**: `pkg/auth/proto/user_profile.proto` **Package**: `gcommon.v1.auth`
-**Lines**: 20
+**Path**: `pkg/auth/proto/user_profile.proto` **Package**: `gcommon.v1.auth` **Lines**: 20
 
 **Messages** (1): `UserProfile`
 
@@ -2663,8 +2612,7 @@ message UserProfile {
 
 ### user_status.proto {#user_status}
 
-**Path**: `pkg/auth/proto/user_status.proto` **Package**: `gcommon.v1.auth`
-**Lines**: 37
+**Path**: `pkg/auth/proto/user_status.proto` **Package**: `gcommon.v1.auth` **Lines**: 37
 
 **Enums** (1): `UserStatus`
 

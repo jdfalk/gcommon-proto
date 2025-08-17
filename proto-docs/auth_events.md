@@ -32,8 +32,7 @@
 
 ### audit_action.proto {#audit_action}
 
-**Path**: `pkg/auth/proto/audit_action.proto` **Package**: `gcommon.v1.auth`
-**Lines**: 57
+**Path**: `pkg/auth/proto/audit_action.proto` **Package**: `gcommon.v1.auth` **Lines**: 57
 
 **Enums** (1): `AuditAction`
 
@@ -108,8 +107,7 @@ enum AuditAction {
 
 ### audit_event.proto {#audit_event}
 
-**Path**: `pkg/auth/proto/audit_event.proto` **Package**: `gcommon.v1.auth`
-**Lines**: 31
+**Path**: `pkg/auth/proto/audit_event.proto` **Package**: `gcommon.v1.auth` **Lines**: 31
 
 **Messages** (1): `AuditEvent`
 
@@ -158,8 +156,7 @@ message AuditEvent {
 
 ### audit_log.proto {#audit_log}
 
-**Path**: `pkg/auth/proto/audit_log.proto` **Package**: `gcommon.v1.auth`
-**Lines**: 32
+**Path**: `pkg/auth/proto/audit_log.proto` **Package**: `gcommon.v1.auth` **Lines**: 32
 
 **Messages** (1): `AuditLog`
 

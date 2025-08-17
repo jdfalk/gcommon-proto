@@ -29,34 +29,23 @@
 
 ### metrics_admin_service.proto {#metrics_admin_service}
 
-**Path**: `pkg/metrics/proto/metrics_admin_service.proto` **Package**:
-`gcommon.v1.metrics` **Lines**: 45
+**Path**: `pkg/metrics/proto/metrics_admin_service.proto` **Package**: `gcommon.v1.metrics` **Lines**: 45
 
 **Services** (1): `MetricsManagementService`
 
 **Imports** (11):
 
 - `google/protobuf/go_features.proto`
-- `pkg/metrics/proto/create_provider_request.proto` →
-  [metrics_api_1](./metrics_api_1.md#create_provider_request)
-- `pkg/metrics/proto/create_provider_response.proto` →
-  [metrics_api_1](./metrics_api_1.md#create_provider_response)
-- `pkg/metrics/proto/delete_provider_request.proto` →
-  [metrics_api_1](./metrics_api_1.md#delete_provider_request)
-- `pkg/metrics/proto/delete_provider_response.proto` →
-  [metrics_api_1](./metrics_api_1.md#delete_provider_response)
-- `pkg/metrics/proto/get_provider_stats_request.proto` →
-  [metrics_api_1](./metrics_api_1.md#get_provider_stats_request)
-- `pkg/metrics/proto/get_provider_stats_response.proto` →
-  [metrics_api_1](./metrics_api_1.md#get_provider_stats_response)
-- `pkg/metrics/proto/list_providers_request.proto` →
-  [metrics_api_1](./metrics_api_1.md#list_providers_request)
-- `pkg/metrics/proto/list_providers_response.proto` →
-  [metrics_api_1](./metrics_api_1.md#list_providers_response)
-- `pkg/metrics/proto/update_provider_request.proto` →
-  [metrics_api_2](./metrics_api_2.md#update_provider_request)
-- `pkg/metrics/proto/update_provider_response.proto` →
-  [metrics_api_2](./metrics_api_2.md#update_provider_response)
+- `pkg/metrics/proto/create_provider_request.proto` → [metrics_api_1](./metrics_api_1.md#create_provider_request)
+- `pkg/metrics/proto/create_provider_response.proto` → [metrics_api_1](./metrics_api_1.md#create_provider_response)
+- `pkg/metrics/proto/delete_provider_request.proto` → [metrics_api_1](./metrics_api_1.md#delete_provider_request)
+- `pkg/metrics/proto/delete_provider_response.proto` → [metrics_api_1](./metrics_api_1.md#delete_provider_response)
+- `pkg/metrics/proto/get_provider_stats_request.proto` → [metrics_api_1](./metrics_api_1.md#get_provider_stats_request)
+- `pkg/metrics/proto/get_provider_stats_response.proto` → [metrics_api_1](./metrics_api_1.md#get_provider_stats_response)
+- `pkg/metrics/proto/list_providers_request.proto` → [metrics_api_1](./metrics_api_1.md#list_providers_request)
+- `pkg/metrics/proto/list_providers_response.proto` → [metrics_api_1](./metrics_api_1.md#list_providers_response)
+- `pkg/metrics/proto/update_provider_request.proto` → [metrics_api_2](./metrics_api_2.md#update_provider_request)
+- `pkg/metrics/proto/update_provider_response.proto` → [metrics_api_2](./metrics_api_2.md#update_provider_response)
 
 #### Source Code
 
@@ -112,52 +101,31 @@ service MetricsManagementService {
 
 ### metrics_service.proto {#metrics_service}
 
-**Path**: `pkg/metrics/proto/metrics_service.proto` **Package**:
-`gcommon.v1.metrics` **Lines**: 65
+**Path**: `pkg/metrics/proto/metrics_service.proto` **Package**: `gcommon.v1.metrics` **Lines**: 65
 
 **Services** (1): `MetricsService`
 
 **Imports** (19):
 
 - `google/protobuf/go_features.proto`
-- `pkg/metrics/proto/get_metric_metadata_request.proto` →
-  [metrics_api_1](./metrics_api_1.md#get_metric_metadata_request)
-- `pkg/metrics/proto/get_metric_metadata_response.proto` →
-  [metrics_api_1](./metrics_api_1.md#get_metric_metadata_response)
-- `pkg/metrics/proto/get_metrics_request.proto` →
-  [metrics_api_1](./metrics_api_1.md#get_metrics_request) →
-  [web_api_1](./web_api_1.md#get_metrics_request)
-- `pkg/metrics/proto/get_metrics_response.proto` →
-  [metrics_api_1](./metrics_api_1.md#get_metrics_response) →
-  [web_api_1](./web_api_1.md#get_metrics_response)
-- `pkg/metrics/proto/get_metrics_summary_request.proto` →
-  [metrics_api_1](./metrics_api_1.md#get_metrics_summary_request)
-- `pkg/metrics/proto/get_metrics_summary_response.proto` →
-  [metrics_api_1](./metrics_api_1.md#get_metrics_summary_response)
-- `pkg/metrics/proto/metric_data.proto` →
-  [metrics_1](./metrics_1.md#metric_data)
-- `pkg/metrics/proto/query_metrics_request.proto` →
-  [metrics_api_1](./metrics_api_1.md#query_metrics_request)
-- `pkg/metrics/proto/query_metrics_response.proto` →
-  [metrics_api_1](./metrics_api_1.md#query_metrics_response)
-- `pkg/metrics/proto/record_metric_request.proto` →
-  [metrics_api_1](./metrics_api_1.md#record_metric_request)
-- `pkg/metrics/proto/record_metric_response.proto` →
-  [metrics_api_1](./metrics_api_1.md#record_metric_response)
-- `pkg/metrics/proto/record_metrics_request.proto` →
-  [metrics_api_1](./metrics_api_1.md#record_metrics_request)
-- `pkg/metrics/proto/record_metrics_response.proto` →
-  [metrics_api_1](./metrics_api_1.md#record_metrics_response)
-- `pkg/metrics/proto/register_metric_request.proto` →
-  [metrics_api_1](./metrics_api_1.md#register_metric_request)
-- `pkg/metrics/proto/register_metric_response.proto` →
-  [metrics_api_1](./metrics_api_1.md#register_metric_response)
-- `pkg/metrics/proto/stream_metrics_request.proto` →
-  [metrics_api_2](./metrics_api_2.md#stream_metrics_request)
-- `pkg/metrics/proto/unregister_metric_request.proto` →
-  [metrics_api_2](./metrics_api_2.md#unregister_metric_request)
-- `pkg/metrics/proto/unregister_metric_response.proto` →
-  [metrics_api_2](./metrics_api_2.md#unregister_metric_response)
+- `pkg/metrics/proto/get_metric_metadata_request.proto` → [metrics_api_1](./metrics_api_1.md#get_metric_metadata_request)
+- `pkg/metrics/proto/get_metric_metadata_response.proto` → [metrics_api_1](./metrics_api_1.md#get_metric_metadata_response)
+- `pkg/metrics/proto/get_metrics_request.proto` → [metrics_api_1](./metrics_api_1.md#get_metrics_request) → [web_api_1](./web_api_1.md#get_metrics_request)
+- `pkg/metrics/proto/get_metrics_response.proto` → [metrics_api_1](./metrics_api_1.md#get_metrics_response) → [web_api_1](./web_api_1.md#get_metrics_response)
+- `pkg/metrics/proto/get_metrics_summary_request.proto` → [metrics_api_1](./metrics_api_1.md#get_metrics_summary_request)
+- `pkg/metrics/proto/get_metrics_summary_response.proto` → [metrics_api_1](./metrics_api_1.md#get_metrics_summary_response)
+- `pkg/metrics/proto/metric_data.proto` → [metrics_1](./metrics_1.md#metric_data)
+- `pkg/metrics/proto/query_metrics_request.proto` → [metrics_api_1](./metrics_api_1.md#query_metrics_request)
+- `pkg/metrics/proto/query_metrics_response.proto` → [metrics_api_1](./metrics_api_1.md#query_metrics_response)
+- `pkg/metrics/proto/record_metric_request.proto` → [metrics_api_1](./metrics_api_1.md#record_metric_request)
+- `pkg/metrics/proto/record_metric_response.proto` → [metrics_api_1](./metrics_api_1.md#record_metric_response)
+- `pkg/metrics/proto/record_metrics_request.proto` → [metrics_api_1](./metrics_api_1.md#record_metrics_request)
+- `pkg/metrics/proto/record_metrics_response.proto` → [metrics_api_1](./metrics_api_1.md#record_metrics_response)
+- `pkg/metrics/proto/register_metric_request.proto` → [metrics_api_1](./metrics_api_1.md#register_metric_request)
+- `pkg/metrics/proto/register_metric_response.proto` → [metrics_api_1](./metrics_api_1.md#register_metric_response)
+- `pkg/metrics/proto/stream_metrics_request.proto` → [metrics_api_2](./metrics_api_2.md#stream_metrics_request)
+- `pkg/metrics/proto/unregister_metric_request.proto` → [metrics_api_2](./metrics_api_2.md#unregister_metric_request)
+- `pkg/metrics/proto/unregister_metric_response.proto` → [metrics_api_2](./metrics_api_2.md#unregister_metric_response)
 
 #### Source Code
 

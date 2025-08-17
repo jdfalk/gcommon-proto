@@ -49,8 +49,7 @@
 
 ### response_compression.proto {#response_compression}
 
-**Path**: `pkg/metrics/proto/response_compression.proto` **Package**:
-`gcommon.v1.metrics` **Lines**: 31
+**Path**: `pkg/metrics/proto/response_compression.proto` **Package**: `gcommon.v1.metrics` **Lines**: 31
 
 **Enums** (1): `ResponseCompression`
 
@@ -98,18 +97,15 @@ enum ResponseCompression {
 
 ### set_alerting_rules_request.proto {#set_alerting_rules_request}
 
-**Path**: `pkg/metrics/proto/set_alerting_rules_request.proto` **Package**:
-`gcommon.v1.metrics` **Lines**: 28
+**Path**: `pkg/metrics/proto/set_alerting_rules_request.proto` **Package**: `gcommon.v1.metrics` **Lines**: 28
 
 **Messages** (1): `SetAlertingRulesRequest`
 
 **Imports** (3):
 
 - `google/protobuf/go_features.proto`
-- `pkg/common/proto/request_metadata.proto` →
-  [common](./common.md#request_metadata)
-- `pkg/metrics/proto/alerting_rule.proto` →
-  [metrics_1](./metrics_1.md#alerting_rule)
+- `pkg/common/proto/request_metadata.proto` → [common](./common.md#request_metadata)
+- `pkg/metrics/proto/alerting_rule.proto` → [metrics_1](./metrics_1.md#alerting_rule)
 
 #### Source Code
 
@@ -148,8 +144,7 @@ message SetAlertingRulesRequest {
 
 ### set_alerting_rules_response.proto {#set_alerting_rules_response}
 
-**Path**: `pkg/metrics/proto/set_alerting_rules_response.proto` **Package**:
-`gcommon.v1.metrics` **Lines**: 26
+**Path**: `pkg/metrics/proto/set_alerting_rules_response.proto` **Package**: `gcommon.v1.metrics` **Lines**: 26
 
 **Messages** (1): `SetAlertingRulesResponse`
 
@@ -193,18 +188,15 @@ message SetAlertingRulesResponse {
 
 ### set_metric_metadata_request.proto {#set_metric_metadata_request}
 
-**Path**: `pkg/metrics/proto/set_metric_metadata_request.proto` **Package**:
-`gcommon.v1.metrics` **Lines**: 25
+**Path**: `pkg/metrics/proto/set_metric_metadata_request.proto` **Package**: `gcommon.v1.metrics` **Lines**: 25
 
 **Messages** (1): `SetMetricMetadataRequest`
 
 **Imports** (3):
 
 - `google/protobuf/go_features.proto`
-- `pkg/common/proto/request_metadata.proto` →
-  [common](./common.md#request_metadata)
-- `pkg/metrics/proto/metric_metadata.proto` →
-  [metrics_1](./metrics_1.md#metric_metadata)
+- `pkg/common/proto/request_metadata.proto` → [common](./common.md#request_metadata)
+- `pkg/metrics/proto/metric_metadata.proto` → [metrics_1](./metrics_1.md#metric_metadata)
 
 #### Source Code
 
@@ -240,8 +232,7 @@ message SetMetricMetadataRequest {
 
 ### set_metric_metadata_response.proto {#set_metric_metadata_response}
 
-**Path**: `pkg/metrics/proto/set_metric_metadata_response.proto` **Package**:
-`gcommon.v1.metrics` **Lines**: 27
+**Path**: `pkg/metrics/proto/set_metric_metadata_response.proto` **Package**: `gcommon.v1.metrics` **Lines**: 27
 
 **Messages** (1): `SetMetricMetadataResponse`
 
@@ -249,8 +240,7 @@ message SetMetricMetadataRequest {
 
 - `google/protobuf/go_features.proto`
 - `pkg/common/proto/error.proto` → [common](./common.md#error)
-- `pkg/metrics/proto/metric_metadata.proto` →
-  [metrics_1](./metrics_1.md#metric_metadata)
+- `pkg/metrics/proto/metric_metadata.proto` → [metrics_1](./metrics_1.md#metric_metadata)
 
 #### Source Code
 
@@ -288,18 +278,15 @@ message SetMetricMetadataResponse {
 
 ### start_scraping_request.proto {#start_scraping_request}
 
-**Path**: `pkg/metrics/proto/start_scraping_request.proto` **Package**:
-`gcommon.v1.metrics` **Lines**: 26
+**Path**: `pkg/metrics/proto/start_scraping_request.proto` **Package**: `gcommon.v1.metrics` **Lines**: 26
 
 **Messages** (1): `StartScrapingRequest`
 
 **Imports** (3):
 
 - `google/protobuf/go_features.proto`
-- `pkg/common/proto/request_metadata.proto` →
-  [common](./common.md#request_metadata)
-- `pkg/metrics/proto/scrape_config.proto` →
-  [metrics_config](./metrics_config.md#scrape_config)
+- `pkg/common/proto/request_metadata.proto` → [common](./common.md#request_metadata)
+- `pkg/metrics/proto/scrape_config.proto` → [metrics_config](./metrics_config.md#scrape_config)
 
 #### Source Code
 
@@ -336,8 +323,7 @@ message StartScrapingRequest {
 
 ### start_scraping_response.proto {#start_scraping_response}
 
-**Path**: `pkg/metrics/proto/start_scraping_response.proto` **Package**:
-`gcommon.v1.metrics` **Lines**: 33
+**Path**: `pkg/metrics/proto/start_scraping_response.proto` **Package**: `gcommon.v1.metrics` **Lines**: 33
 
 **Messages** (1): `StartScrapingResponse`
 
@@ -390,16 +376,14 @@ message StartScrapingResponse {
 
 ### stop_scraping_request.proto {#stop_scraping_request}
 
-**Path**: `pkg/metrics/proto/stop_scraping_request.proto` **Package**:
-`gcommon.v1.metrics` **Lines**: 22
+**Path**: `pkg/metrics/proto/stop_scraping_request.proto` **Package**: `gcommon.v1.metrics` **Lines**: 22
 
 **Messages** (1): `StopScrapingRequest`
 
 **Imports** (2):
 
 - `google/protobuf/go_features.proto`
-- `pkg/common/proto/request_metadata.proto` →
-  [common](./common.md#request_metadata)
+- `pkg/common/proto/request_metadata.proto` → [common](./common.md#request_metadata)
 
 #### Source Code
 
@@ -432,8 +416,7 @@ message StopScrapingRequest {
 
 ### stop_scraping_response.proto {#stop_scraping_response}
 
-**Path**: `pkg/metrics/proto/stop_scraping_response.proto` **Package**:
-`gcommon.v1.metrics` **Lines**: 33
+**Path**: `pkg/metrics/proto/stop_scraping_response.proto` **Package**: `gcommon.v1.metrics` **Lines**: 33
 
 **Messages** (1): `StopScrapingResponse`
 
@@ -486,24 +469,18 @@ message StopScrapingResponse {
 
 ### stream_metrics_request.proto {#stream_metrics_request}
 
-**Path**: `pkg/metrics/proto/stream_metrics_request.proto` **Package**:
-`gcommon.v1.metrics` **Lines**: 109
+**Path**: `pkg/metrics/proto/stream_metrics_request.proto` **Package**: `gcommon.v1.metrics` **Lines**: 109
 
-**Messages** (4): `StreamMetricsRequest`, `StreamOptions`, `StreamStart`,
-`BufferConfig`
+**Messages** (4): `StreamMetricsRequest`, `StreamOptions`, `StreamStart`, `BufferConfig`
 
 **Imports** (7):
 
 - `google/protobuf/go_features.proto`
 - `google/protobuf/timestamp.proto`
-- `pkg/common/proto/request_metadata.proto` →
-  [common](./common.md#request_metadata)
-- `pkg/metrics/proto/buffer_overflow_strategy.proto` →
-  [metrics_1](./metrics_1.md#buffer_overflow_strategy)
-- `pkg/metrics/proto/metric_filter.proto` →
-  [metrics_1](./metrics_1.md#metric_filter)
-- `pkg/metrics/proto/stream_compression.proto` →
-  [metrics_2](./metrics_2.md#stream_compression)
+- `pkg/common/proto/request_metadata.proto` → [common](./common.md#request_metadata)
+- `pkg/metrics/proto/buffer_overflow_strategy.proto` → [metrics_1](./metrics_1.md#buffer_overflow_strategy)
+- `pkg/metrics/proto/metric_filter.proto` → [metrics_1](./metrics_1.md#metric_filter)
+- `pkg/metrics/proto/stream_compression.proto` → [metrics_2](./metrics_2.md#stream_compression)
 - `pkg/metrics/proto/stream_qos.proto` → [metrics_2](./metrics_2.md#stream_qos)
 
 #### Source Code
@@ -624,16 +601,14 @@ message BufferConfig {
 
 ### unregister_metric_request.proto {#unregister_metric_request}
 
-**Path**: `pkg/metrics/proto/unregister_metric_request.proto` **Package**:
-`gcommon.v1.metrics` **Lines**: 65
+**Path**: `pkg/metrics/proto/unregister_metric_request.proto` **Package**: `gcommon.v1.metrics` **Lines**: 65
 
 **Messages** (2): `UnregisterMetricRequest`, `UnregistrationOptions`
 
 **Imports** (2):
 
 - `google/protobuf/go_features.proto`
-- `pkg/common/proto/request_metadata.proto` →
-  [common](./common.md#request_metadata)
+- `pkg/common/proto/request_metadata.proto` → [common](./common.md#request_metadata)
 
 #### Source Code
 
@@ -709,8 +684,7 @@ message UnregistrationOptions {
 
 ### unregister_metric_response.proto {#unregister_metric_response}
 
-**Path**: `pkg/metrics/proto/unregister_metric_response.proto` **Package**:
-`gcommon.v1.metrics` **Lines**: 79
+**Path**: `pkg/metrics/proto/unregister_metric_response.proto` **Package**: `gcommon.v1.metrics` **Lines**: 79
 
 **Messages** (2): `UnregisterMetricResponse`, `UnregistrationResult`
 
@@ -719,10 +693,8 @@ message UnregistrationOptions {
 - `google/protobuf/go_features.proto`
 - `google/protobuf/timestamp.proto`
 - `pkg/common/proto/error.proto` → [common](./common.md#error)
-- `pkg/metrics/proto/backup_info.proto` →
-  [metrics_1](./metrics_1.md#backup_info)
-- `pkg/metrics/proto/dry_run_result.proto` →
-  [metrics_1](./metrics_1.md#dry_run_result)
+- `pkg/metrics/proto/backup_info.proto` → [metrics_1](./metrics_1.md#backup_info)
+- `pkg/metrics/proto/dry_run_result.proto` → [metrics_1](./metrics_1.md#dry_run_result)
 
 #### Source Code
 
@@ -812,18 +784,15 @@ message UnregistrationResult {
 
 ### update_metric_request.proto {#update_metric_request}
 
-**Path**: `pkg/metrics/proto/update_metric_request.proto` **Package**:
-`gcommon.v1.metrics` **Lines**: 25
+**Path**: `pkg/metrics/proto/update_metric_request.proto` **Package**: `gcommon.v1.metrics` **Lines**: 25
 
 **Messages** (1): `UpdateMetricRequest`
 
 **Imports** (3):
 
 - `google/protobuf/go_features.proto`
-- `pkg/common/proto/request_metadata.proto` →
-  [common](./common.md#request_metadata)
-- `pkg/metrics/proto/metric_data.proto` →
-  [metrics_1](./metrics_1.md#metric_data)
+- `pkg/common/proto/request_metadata.proto` → [common](./common.md#request_metadata)
+- `pkg/metrics/proto/metric_data.proto` → [metrics_1](./metrics_1.md#metric_data)
 
 #### Source Code
 
@@ -859,8 +828,7 @@ message UpdateMetricRequest {
 
 ### update_metric_response.proto {#update_metric_response}
 
-**Path**: `pkg/metrics/proto/update_metric_response.proto` **Package**:
-`gcommon.v1.metrics` **Lines**: 27
+**Path**: `pkg/metrics/proto/update_metric_response.proto` **Package**: `gcommon.v1.metrics` **Lines**: 27
 
 **Messages** (1): `UpdateMetricResponse`
 
@@ -868,8 +836,7 @@ message UpdateMetricRequest {
 
 - `google/protobuf/go_features.proto`
 - `pkg/common/proto/error.proto` → [common](./common.md#error)
-- `pkg/metrics/proto/metric_metadata.proto` →
-  [metrics_1](./metrics_1.md#metric_metadata)
+- `pkg/metrics/proto/metric_metadata.proto` → [metrics_1](./metrics_1.md#metric_metadata)
 
 #### Source Code
 
@@ -907,16 +874,14 @@ message UpdateMetricResponse {
 
 ### update_provider_request.proto {#update_provider_request}
 
-**Path**: `pkg/metrics/proto/update_provider_request.proto` **Package**:
-`gcommon.v1.metrics` **Lines**: 29
+**Path**: `pkg/metrics/proto/update_provider_request.proto` **Package**: `gcommon.v1.metrics` **Lines**: 29
 
 **Messages** (1): `UpdateProviderRequest`
 
 **Imports** (2):
 
 - `google/protobuf/go_features.proto`
-- `pkg/common/proto/request_metadata.proto` →
-  [common](./common.md#request_metadata)
+- `pkg/common/proto/request_metadata.proto` → [common](./common.md#request_metadata)
 
 #### Source Code
 
@@ -956,8 +921,7 @@ message UpdateProviderRequest {
 
 ### update_provider_response.proto {#update_provider_response}
 
-**Path**: `pkg/metrics/proto/update_provider_response.proto` **Package**:
-`gcommon.v1.metrics` **Lines**: 48
+**Path**: `pkg/metrics/proto/update_provider_response.proto` **Package**: `gcommon.v1.metrics` **Lines**: 48
 
 **Messages** (1): `UpdateProviderResponse`
 
@@ -966,11 +930,8 @@ message UpdateProviderRequest {
 - `google/protobuf/go_features.proto`
 - `google/protobuf/timestamp.proto`
 - `pkg/common/proto/error.proto` → [common](./common.md#error)
-- `pkg/metrics/proto/provider_status.proto` →
-  [metrics_2](./metrics_2.md#provider_status)
-- `pkg/metrics/proto/validation_result.proto` →
-  [config_2](./config_2.md#validation_result) →
-  [metrics_2](./metrics_2.md#validation_result)
+- `pkg/metrics/proto/provider_status.proto` → [metrics_2](./metrics_2.md#provider_status)
+- `pkg/metrics/proto/validation_result.proto` → [config_2](./config_2.md#validation_result) → [metrics_2](./metrics_2.md#validation_result)
 
 #### Source Code
 

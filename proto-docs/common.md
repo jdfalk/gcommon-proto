@@ -107,8 +107,7 @@
 
 ### ack_mode.proto {#ack_mode}
 
-**Path**: `pkg/common/proto/ack_mode.proto` **Package**: `gcommon.v1.common`
-**Lines**: 29
+**Path**: `pkg/common/proto/ack_mode.proto` **Package**: `gcommon.v1.common` **Lines**: 29
 
 **Enums** (1): `AckMode`
 
@@ -154,8 +153,7 @@ enum AckMode {
 
 ### audit_log.proto {#audit_log}
 
-**Path**: `pkg/common/proto/audit_log.proto` **Package**: `gcommon.v1.common`
-**Lines**: 50
+**Path**: `pkg/common/proto/audit_log.proto` **Package**: `gcommon.v1.common` **Lines**: 50
 
 **Messages** (1): `AuditLog`
 
@@ -225,8 +223,7 @@ message AuditLog {
 
 ### audit_result.proto {#audit_result}
 
-**Path**: `pkg/common/proto/audit_result.proto` **Package**: `gcommon.v1.common`
-**Lines**: 29
+**Path**: `pkg/common/proto/audit_result.proto` **Package**: `gcommon.v1.common` **Lines**: 29
 
 **Enums** (1): `AuditResult`
 
@@ -272,8 +269,7 @@ enum AuditResult {
 
 ### batch_operation.proto {#batch_operation}
 
-**Path**: `pkg/common/proto/batch_operation.proto` **Package**:
-`gcommon.v1.common` **Lines**: 35
+**Path**: `pkg/common/proto/batch_operation.proto` **Package**: `gcommon.v1.common` **Lines**: 35
 
 **Messages** (1): `BatchOperation`
 
@@ -281,8 +277,7 @@ enum AuditResult {
 
 - `google/protobuf/any.proto`
 - `google/protobuf/go_features.proto`
-- `pkg/common/proto/batch_options.proto` →
-  [metrics_1](./metrics_1.md#batch_options)
+- `pkg/common/proto/batch_options.proto` → [metrics_1](./metrics_1.md#batch_options)
 - `pkg/common/proto/request_metadata.proto`
 
 #### Source Code
@@ -329,8 +324,7 @@ message BatchOperation {
 
 ### batch_options.proto {#batch_options}
 
-**Path**: `pkg/common/proto/batch_options.proto` **Package**:
-`gcommon.v1.common` **Lines**: 30
+**Path**: `pkg/common/proto/batch_options.proto` **Package**: `gcommon.v1.common` **Lines**: 30
 
 **Messages** (1): `BatchOptions`
 
@@ -378,8 +372,7 @@ message BatchOptions {
 
 ### cache_policy.proto {#cache_policy}
 
-**Path**: `pkg/common/proto/cache_policy.proto` **Package**: `gcommon.v1.common`
-**Lines**: 41
+**Path**: `pkg/common/proto/cache_policy.proto` **Package**: `gcommon.v1.common` **Lines**: 41
 
 **Messages** (1): `CachePolicy`
 
@@ -440,8 +433,7 @@ message CachePolicy {
 
 ### circuit_breaker_config.proto {#circuit_breaker_config}
 
-**Path**: `pkg/common/proto/circuit_breaker_config.proto` **Package**:
-`gcommon.v1.common` **Lines**: 37
+**Path**: `pkg/common/proto/circuit_breaker_config.proto` **Package**: `gcommon.v1.common` **Lines**: 37
 
 **Messages** (1): `CircuitBreakerConfig`
 
@@ -497,8 +489,7 @@ message CircuitBreakerConfig {
 
 ### circuit_breaker_state.proto {#circuit_breaker_state}
 
-**Path**: `pkg/common/proto/circuit_breaker_state.proto` **Package**:
-`gcommon.v1.common` **Lines**: 29
+**Path**: `pkg/common/proto/circuit_breaker_state.proto` **Package**: `gcommon.v1.common` **Lines**: 29
 
 **Enums** (1): `CircuitBreakerState`
 
@@ -544,8 +535,7 @@ enum CircuitBreakerState {
 
 ### client_info.proto {#client_info}
 
-**Path**: `pkg/common/proto/client_info.proto` **Package**: `gcommon.v1.common`
-**Lines**: 32
+**Path**: `pkg/common/proto/client_info.proto` **Package**: `gcommon.v1.common` **Lines**: 32
 
 **Messages** (1): `ClientInfo`
 
@@ -594,8 +584,7 @@ message ClientInfo {
 
 ### config_value.proto {#config_value}
 
-**Path**: `pkg/common/proto/config_value.proto` **Package**: `gcommon.v1.common`
-**Lines**: 49
+**Path**: `pkg/common/proto/config_value.proto` **Package**: `gcommon.v1.common` **Lines**: 49
 
 **Messages** (1): `ConfigValue`
 
@@ -663,8 +652,7 @@ message ConfigValue {
 
 ### debug_info.proto {#debug_info}
 
-**Path**: `pkg/common/proto/debug_info.proto` **Package**: `gcommon.v1.common`
-**Lines**: 37
+**Path**: `pkg/common/proto/debug_info.proto` **Package**: `gcommon.v1.common` **Lines**: 37
 
 **Messages** (1): `DebugInfo`
 
@@ -719,8 +707,7 @@ message DebugInfo {
 
 ### error.proto {#error}
 
-**Path**: `pkg/common/proto/error.proto` **Package**: `gcommon.v1.common`
-**Lines**: 37
+**Path**: `pkg/common/proto/error.proto` **Package**: `gcommon.v1.common` **Lines**: 37
 
 **Messages** (1): `Error`
 
@@ -776,8 +763,7 @@ message Error {
 
 ### error_code.proto {#error_code}
 
-**Path**: `pkg/common/proto/error_code.proto` **Package**: `gcommon.v1.common`
-**Lines**: 63
+**Path**: `pkg/common/proto/error_code.proto` **Package**: `gcommon.v1.common` **Lines**: 63
 
 **Enums** (1): `ErrorCode`
 
@@ -787,8 +773,7 @@ message Error {
 
 #### ⚠️ Issues Found (1)
 
-- Line 57: Implementation needed - // Operation is not implemented or not
-  supported
+- Line 57: Implementation needed - // Operation is not implemented or not supported
 
 #### Source Code
 
@@ -862,8 +847,7 @@ enum ErrorCode {
 
 ### eviction_policy.proto {#eviction_policy}
 
-**Path**: `pkg/common/proto/eviction_policy.proto` **Package**:
-`gcommon.v1.common` **Lines**: 32
+**Path**: `pkg/common/proto/eviction_policy.proto` **Package**: `gcommon.v1.common` **Lines**: 32
 
 **Enums** (1): `EvictionPolicy`
 
@@ -912,8 +896,7 @@ enum EvictionPolicy {
 
 ### expiration_policy.proto {#expiration_policy}
 
-**Path**: `pkg/common/proto/expiration_policy.proto` **Package**:
-`gcommon.v1.common` **Lines**: 32
+**Path**: `pkg/common/proto/expiration_policy.proto` **Package**: `gcommon.v1.common` **Lines**: 32
 
 **Enums** (1): `ExpirationPolicy`
 
@@ -962,8 +945,7 @@ enum ExpirationPolicy {
 
 ### filter_operation.proto {#filter_operation}
 
-**Path**: `pkg/common/proto/filter_operation.proto` **Package**:
-`gcommon.v1.common` **Lines**: 53
+**Path**: `pkg/common/proto/filter_operation.proto` **Package**: `gcommon.v1.common` **Lines**: 53
 
 **Enums** (1): `FilterOperation`
 
@@ -1033,8 +1015,7 @@ enum FilterOperation {
 
 ### filter_options.proto {#filter_options}
 
-**Path**: `pkg/common/proto/filter_options.proto` **Package**:
-`gcommon.v1.common` **Lines**: 30
+**Path**: `pkg/common/proto/filter_options.proto` **Package**: `gcommon.v1.common` **Lines**: 30
 
 **Messages** (1): `FilterOptions`
 
@@ -1042,8 +1023,7 @@ enum FilterOperation {
 
 - `google/protobuf/go_features.proto`
 - `pkg/common/proto/filter_value.proto`
-- `pkg/common/proto/time_range.proto` → [metrics_2](./metrics_2.md#time_range) →
-  [queue_2](./queue_2.md#time_range)
+- `pkg/common/proto/time_range.proto` → [metrics_2](./metrics_2.md#time_range) → [queue_2](./queue_2.md#time_range)
 
 #### Source Code
 
@@ -1084,8 +1064,7 @@ message FilterOptions {
 
 ### filter_value.proto {#filter_value}
 
-**Path**: `pkg/common/proto/filter_value.proto` **Package**: `gcommon.v1.common`
-**Lines**: 46
+**Path**: `pkg/common/proto/filter_value.proto` **Package**: `gcommon.v1.common` **Lines**: 46
 
 **Messages** (1): `FilterValue`
 
@@ -1151,8 +1130,7 @@ message FilterValue {
 
 ### health_status.proto {#health_status}
 
-**Path**: `pkg/common/proto/health_status.proto` **Package**:
-`gcommon.v1.common` **Lines**: 34
+**Path**: `pkg/common/proto/health_status.proto` **Package**: `gcommon.v1.common` **Lines**: 34
 
 **Enums** (1): `HealthStatus`
 
@@ -1203,8 +1181,7 @@ enum HealthStatus {
 
 ### int64_array.proto {#int64_array}
 
-**Path**: `pkg/common/proto/int64_array.proto` **Package**: `gcommon.v1.common`
-**Lines**: 20
+**Path**: `pkg/common/proto/int64_array.proto` **Package**: `gcommon.v1.common` **Lines**: 20
 
 **Messages** (1): `Int64Array`
 
@@ -1241,8 +1218,7 @@ message Int64Array {
 
 ### key_value.proto {#key_value}
 
-**Path**: `pkg/common/proto/key_value.proto` **Package**: `gcommon.v1.common`
-**Lines**: 23
+**Path**: `pkg/common/proto/key_value.proto` **Package**: `gcommon.v1.common` **Lines**: 23
 
 **Messages** (1): `KeyValue`
 
@@ -1282,8 +1258,7 @@ message KeyValue {
 
 ### metric_point.proto {#metric_point}
 
-**Path**: `pkg/common/proto/metric_point.proto` **Package**: `gcommon.v1.common`
-**Lines**: 33
+**Path**: `pkg/common/proto/metric_point.proto` **Package**: `gcommon.v1.common` **Lines**: 33
 
 **Messages** (1): `MetricPoint`
 
@@ -1334,8 +1309,7 @@ message MetricPoint {
 
 ### paginated_response.proto {#paginated_response}
 
-**Path**: `pkg/common/proto/paginated_response.proto` **Package**:
-`gcommon.v1.common` **Lines**: 35
+**Path**: `pkg/common/proto/paginated_response.proto` **Package**: `gcommon.v1.common` **Lines**: 35
 
 **Messages** (1): `PaginatedResponse`
 
@@ -1387,8 +1361,7 @@ message PaginatedResponse {
 
 ### pagination.proto {#pagination}
 
-**Path**: `pkg/common/proto/pagination.proto` **Package**: `gcommon.v1.common`
-**Lines**: 26
+**Path**: `pkg/common/proto/pagination.proto` **Package**: `gcommon.v1.common` **Lines**: 26
 
 **Messages** (1): `Pagination`
 
@@ -1431,8 +1404,7 @@ message Pagination {
 
 ### pagination_options.proto {#pagination_options}
 
-**Path**: `pkg/common/proto/pagination_options.proto` **Package**:
-`gcommon.v1.common` **Lines**: 22
+**Path**: `pkg/common/proto/pagination_options.proto` **Package**: `gcommon.v1.common` **Lines**: 22
 
 **Messages** (1): `PaginationOptions`
 
@@ -1471,8 +1443,7 @@ message PaginationOptions {
 
 ### rate_limit.proto {#rate_limit}
 
-**Path**: `pkg/common/proto/rate_limit.proto` **Package**: `gcommon.v1.common`
-**Lines**: 30
+**Path**: `pkg/common/proto/rate_limit.proto` **Package**: `gcommon.v1.common` **Lines**: 30
 
 **Messages** (1): `RateLimit`
 
@@ -1520,8 +1491,7 @@ message RateLimit {
 
 ### request_metadata.proto {#request_metadata}
 
-**Path**: `pkg/common/proto/request_metadata.proto` **Package**:
-`gcommon.v1.common` **Lines**: 40
+**Path**: `pkg/common/proto/request_metadata.proto` **Package**: `gcommon.v1.common` **Lines**: 40
 
 **Messages** (1): `RequestMetadata`
 
@@ -1580,8 +1550,7 @@ message RequestMetadata {
 
 ### resource_reference.proto {#resource_reference}
 
-**Path**: `pkg/common/proto/resource_reference.proto` **Package**:
-`gcommon.v1.common` **Lines**: 29
+**Path**: `pkg/common/proto/resource_reference.proto` **Package**: `gcommon.v1.common` **Lines**: 29
 
 **Messages** (1): `ResourceReference`
 
@@ -1627,8 +1596,7 @@ message ResourceReference {
 
 ### resource_status.proto {#resource_status}
 
-**Path**: `pkg/common/proto/resource_status.proto` **Package**:
-`gcommon.v1.common` **Lines**: 35
+**Path**: `pkg/common/proto/resource_status.proto` **Package**: `gcommon.v1.common` **Lines**: 35
 
 **Enums** (1): `ResourceStatus`
 
@@ -1680,8 +1648,7 @@ enum ResourceStatus {
 
 ### response_metadata.proto {#response_metadata}
 
-**Path**: `pkg/common/proto/response_metadata.proto` **Package**:
-`gcommon.v1.common` **Lines**: 99
+**Path**: `pkg/common/proto/response_metadata.proto` **Package**: `gcommon.v1.common` **Lines**: 99
 
 **Messages** (3): `ResponseMetadata`, `RateLimitInfo`, `PaginationInfo`
 
@@ -1800,8 +1767,7 @@ message PaginationInfo {
 
 ### retry_policy.proto {#retry_policy}
 
-**Path**: `pkg/common/proto/retry_policy.proto` **Package**: `gcommon.v1.common`
-**Lines**: 40
+**Path**: `pkg/common/proto/retry_policy.proto` **Package**: `gcommon.v1.common` **Lines**: 40
 
 **Messages** (1): `RetryPolicy`
 
@@ -1860,8 +1826,7 @@ message RetryPolicy {
 
 ### service_version.proto {#service_version}
 
-**Path**: `pkg/common/proto/service_version.proto` **Package**:
-`gcommon.v1.common` **Lines**: 33
+**Path**: `pkg/common/proto/service_version.proto` **Package**: `gcommon.v1.common` **Lines**: 33
 
 **Messages** (1): `ServiceVersion`
 
@@ -1912,8 +1877,7 @@ message ServiceVersion {
 
 ### sort.proto {#sort}
 
-**Path**: `pkg/common/proto/sort.proto` **Package**: `gcommon.v1.common`
-**Lines**: 26
+**Path**: `pkg/common/proto/sort.proto` **Package**: `gcommon.v1.common` **Lines**: 26
 
 **Messages** (1): `SortOptions`
 
@@ -1957,8 +1921,7 @@ message SortOptions {
 
 ### sort_direction.proto {#sort_direction}
 
-**Path**: `pkg/common/proto/sort_direction.proto` **Package**:
-`gcommon.v1.common` **Lines**: 28
+**Path**: `pkg/common/proto/sort_direction.proto` **Package**: `gcommon.v1.common` **Lines**: 28
 
 **Enums** (1): `SortDirection`
 
@@ -2003,8 +1966,7 @@ enum SortDirection {
 
 ### string_array.proto {#string_array}
 
-**Path**: `pkg/common/proto/string_array.proto` **Package**: `gcommon.v1.common`
-**Lines**: 20
+**Path**: `pkg/common/proto/string_array.proto` **Package**: `gcommon.v1.common` **Lines**: 20
 
 **Messages** (1): `StringArray`
 
@@ -2041,8 +2003,7 @@ message StringArray {
 
 ### subscription_info.proto {#subscription_info}
 
-**Path**: `pkg/common/proto/subscription_info.proto` **Package**:
-`gcommon.v1.common` **Lines**: 43
+**Path**: `pkg/common/proto/subscription_info.proto` **Package**: `gcommon.v1.common` **Lines**: 43
 
 **Messages** (1): `SubscriptionInfo`
 
@@ -2107,8 +2068,7 @@ message SubscriptionInfo {
 
 ### subscription_options.proto {#subscription_options}
 
-**Path**: `pkg/common/proto/subscription_options.proto` **Package**:
-`gcommon.v1.common` **Lines**: 31
+**Path**: `pkg/common/proto/subscription_options.proto` **Package**: `gcommon.v1.common` **Lines**: 31
 
 **Messages** (1): `SubscriptionOptions`
 
@@ -2158,8 +2118,7 @@ message SubscriptionOptions {
 
 ### subscription_status.proto {#subscription_status}
 
-**Path**: `pkg/common/proto/subscription_status.proto` **Package**:
-`gcommon.v1.common` **Lines**: 32
+**Path**: `pkg/common/proto/subscription_status.proto` **Package**: `gcommon.v1.common` **Lines**: 32
 
 **Enums** (1): `SubscriptionStatus`
 
@@ -2208,8 +2167,7 @@ enum SubscriptionStatus {
 
 ### time_range.proto {#time_range}
 
-**Path**: `pkg/common/proto/time_range.proto` **Package**: `gcommon.v1.common`
-**Lines**: 24
+**Path**: `pkg/common/proto/time_range.proto` **Package**: `gcommon.v1.common` **Lines**: 24
 
 **Messages** (1): `TimeRange`
 
@@ -2251,8 +2209,7 @@ message TimeRange {
 
 ### value_type.proto {#value_type}
 
-**Path**: `pkg/common/proto/value_type.proto` **Package**: `gcommon.v1.common`
-**Lines**: 41
+**Path**: `pkg/common/proto/value_type.proto` **Package**: `gcommon.v1.common` **Lines**: 41
 
 **Enums** (1): `ValueType`
 

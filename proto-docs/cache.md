@@ -38,8 +38,7 @@
 
 ### cache_entry.proto {#cache_entry}
 
-**Path**: `pkg/cache/proto/cache_entry.proto` **Package**: `gcommon.v1.cache`
-**Lines**: 46
+**Path**: `pkg/cache/proto/cache_entry.proto` **Package**: `gcommon.v1.cache` **Lines**: 46
 
 **Messages** (1): `CacheEntry`
 
@@ -104,8 +103,7 @@ message CacheEntry {
 
 ### cache_info.proto {#cache_info}
 
-**Path**: `pkg/cache/proto/cache_info.proto` **Package**: `gcommon.v1.cache`
-**Lines**: 48
+**Path**: `pkg/cache/proto/cache_info.proto` **Package**: `gcommon.v1.cache` **Lines**: 48
 
 **Messages** (1): `CacheInfo`
 
@@ -113,9 +111,7 @@ message CacheEntry {
 
 - `google/protobuf/go_features.proto`
 - `google/protobuf/timestamp.proto`
-- `pkg/common/proto/health_status.proto` → [common](./common.md#health_status) →
-  [metrics_1](./metrics_1.md#health_status) →
-  [queue_1](./queue_1.md#health_status) → [web](./web.md#health_status)
+- `pkg/common/proto/health_status.proto` → [common](./common.md#health_status) → [metrics_1](./metrics_1.md#health_status) → [queue_1](./queue_1.md#health_status) → [web](./web.md#health_status)
 
 #### Source Code
 
@@ -174,8 +170,7 @@ message CacheInfo {
 
 ### cache_metrics.proto {#cache_metrics}
 
-**Path**: `pkg/cache/proto/cache_metrics.proto` **Package**: `gcommon.v1.cache`
-**Lines**: 60
+**Path**: `pkg/cache/proto/cache_metrics.proto` **Package**: `gcommon.v1.cache` **Lines**: 60
 
 **Messages** (1): `CacheMetrics`
 
@@ -254,8 +249,7 @@ message CacheMetrics {
 
 ### cache_operation_result.proto {#cache_operation_result}
 
-**Path**: `pkg/cache/proto/cache_operation_result.proto` **Package**:
-`gcommon.v1.cache` **Lines**: 48
+**Path**: `pkg/cache/proto/cache_operation_result.proto` **Package**: `gcommon.v1.cache` **Lines**: 48
 
 **Messages** (1): `CacheOperationResult`
 
@@ -322,8 +316,7 @@ message CacheOperationResult {
 
 ### cache_stats.proto {#cache_stats}
 
-**Path**: `pkg/cache/proto/cache_stats.proto` **Package**: `gcommon.v1.cache`
-**Lines**: 53
+**Path**: `pkg/cache/proto/cache_stats.proto` **Package**: `gcommon.v1.cache` **Lines**: 53
 
 **Messages** (1): `CacheStats`
 
@@ -394,8 +387,7 @@ message CacheStats {
 
 ### eviction_result.proto {#eviction_result}
 
-**Path**: `pkg/cache/proto/eviction_result.proto` **Package**:
-`gcommon.v1.cache` **Lines**: 42
+**Path**: `pkg/cache/proto/eviction_result.proto` **Package**: `gcommon.v1.cache` **Lines**: 42
 
 **Messages** (1): `EvictionResult`
 
@@ -403,8 +395,7 @@ message CacheStats {
 
 - `google/protobuf/go_features.proto`
 - `google/protobuf/timestamp.proto`
-- `pkg/common/proto/eviction_policy.proto` →
-  [common](./common.md#eviction_policy)
+- `pkg/common/proto/eviction_policy.proto` → [common](./common.md#eviction_policy)
 
 #### Source Code
 
@@ -457,8 +448,7 @@ message EvictionResult {
 
 ### set_options.proto {#set_options}
 
-**Path**: `pkg/cache/proto/set_options.proto` **Package**: `gcommon.v1.cache`
-**Lines**: 32
+**Path**: `pkg/cache/proto/set_options.proto` **Package**: `gcommon.v1.cache` **Lines**: 32
 
 **Messages** (1): `SetOptions`
 

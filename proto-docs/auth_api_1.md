@@ -81,8 +81,7 @@
 
 ### api_key.proto {#api_key}
 
-**Path**: `pkg/auth/proto/api_key.proto` **Package**: `gcommon.v1.auth`
-**Lines**: 42
+**Path**: `pkg/auth/proto/api_key.proto` **Package**: `gcommon.v1.auth` **Lines**: 42
 
 **Messages** (1): `APIKey`
 
@@ -142,8 +141,7 @@ message APIKey {
 
 ### api_key_credentials.proto {#api_key_credentials}
 
-**Path**: `pkg/auth/proto/api_key_credentials.proto` **Package**:
-`gcommon.v1.auth` **Lines**: 23
+**Path**: `pkg/auth/proto/api_key_credentials.proto` **Package**: `gcommon.v1.auth` **Lines**: 23
 
 **Messages** (1): `APIKeyCredentials`
 
@@ -183,8 +181,7 @@ message APIKeyCredentials {
 
 ### assign_role_request.proto {#assign_role_request}
 
-**Path**: `pkg/auth/proto/assign_role_request.proto` **Package**:
-`gcommon.v1.auth` **Lines**: 54
+**Path**: `pkg/auth/proto/assign_role_request.proto` **Package**: `gcommon.v1.auth` **Lines**: 54
 
 **Messages** (1): `AssignRoleRequest`
 
@@ -192,8 +189,7 @@ message APIKeyCredentials {
 
 - `google/protobuf/go_features.proto`
 - `pkg/auth/proto/role.proto` → [auth](./auth.md#role)
-- `pkg/common/proto/request_metadata.proto` →
-  [common](./common.md#request_metadata)
+- `pkg/common/proto/request_metadata.proto` → [common](./common.md#request_metadata)
 
 #### Source Code
 
@@ -258,8 +254,7 @@ message AssignRoleRequest {
 
 ### assign_role_response.proto {#assign_role_response}
 
-**Path**: `pkg/auth/proto/assign_role_response.proto` **Package**:
-`gcommon.v1.auth` **Lines**: 26
+**Path**: `pkg/auth/proto/assign_role_response.proto` **Package**: `gcommon.v1.auth` **Lines**: 26
 
 **Messages** (1): `AssignRoleResponse`
 
@@ -302,8 +297,7 @@ message AssignRoleResponse {
 
 ### authenticate_request.proto {#authenticate_request}
 
-**Path**: `pkg/auth/proto/authenticate_request.proto` **Package**:
-`gcommon.v1.auth` **Lines**: 44
+**Path**: `pkg/auth/proto/authenticate_request.proto` **Package**: `gcommon.v1.auth` **Lines**: 44
 
 **Messages** (1): `AuthenticateRequest`
 
@@ -312,13 +306,10 @@ message AssignRoleResponse {
 - `google/protobuf/go_features.proto`
 - `pkg/auth/proto/api_key_credentials.proto`
 - `pkg/auth/proto/jwt_credentials.proto` → [auth](./auth.md#jwt_credentials)
-- `pkg/auth/proto/oauth2_credentials.proto` →
-  [auth](./auth.md#oauth2_credentials)
-- `pkg/auth/proto/password_credentials.proto` →
-  [auth](./auth.md#password_credentials)
+- `pkg/auth/proto/oauth2_credentials.proto` → [auth](./auth.md#oauth2_credentials)
+- `pkg/auth/proto/password_credentials.proto` → [auth](./auth.md#password_credentials)
 - `pkg/common/proto/client_info.proto` → [common](./common.md#client_info)
-- `pkg/common/proto/request_metadata.proto` →
-  [common](./common.md#request_metadata)
+- `pkg/common/proto/request_metadata.proto` → [common](./common.md#request_metadata)
 
 #### Source Code
 
@@ -373,8 +364,7 @@ message AuthenticateRequest {
 
 ### authenticate_response.proto {#authenticate_response}
 
-**Path**: `pkg/auth/proto/authenticate_response.proto` **Package**:
-`gcommon.v1.auth` **Lines**: 45
+**Path**: `pkg/auth/proto/authenticate_response.proto` **Package**: `gcommon.v1.auth` **Lines**: 45
 
 **Messages** (1): `AuthenticateResponse`
 
@@ -384,8 +374,7 @@ message AuthenticateRequest {
 - `pkg/auth/proto/session.proto` → [auth](./auth.md#session)
 - `pkg/auth/proto/user_info.proto` → [auth](./auth.md#user_info)
 - `pkg/common/proto/rate_limit.proto` → [common](./common.md#rate_limit)
-- `pkg/common/proto/response_metadata.proto` →
-  [common](./common.md#response_metadata)
+- `pkg/common/proto/response_metadata.proto` → [common](./common.md#response_metadata)
 
 #### Source Code
 
@@ -441,16 +430,14 @@ message AuthenticateResponse {
 
 ### authorize_request.proto {#authorize_request}
 
-**Path**: `pkg/auth/proto/authorize_request.proto` **Package**:
-`gcommon.v1.auth` **Lines**: 33
+**Path**: `pkg/auth/proto/authorize_request.proto` **Package**: `gcommon.v1.auth` **Lines**: 33
 
 **Messages** (1): `AuthorizeRequest`
 
 **Imports** (2):
 
 - `google/protobuf/go_features.proto`
-- `pkg/common/proto/request_metadata.proto` →
-  [common](./common.md#request_metadata)
+- `pkg/common/proto/request_metadata.proto` → [common](./common.md#request_metadata)
 
 #### Source Code
 
@@ -494,8 +481,7 @@ message AuthorizeRequest {
 
 ### authorize_response.proto {#authorize_response}
 
-**Path**: `pkg/auth/proto/authorize_response.proto` **Package**:
-`gcommon.v1.auth` **Lines**: 30
+**Path**: `pkg/auth/proto/authorize_response.proto` **Package**: `gcommon.v1.auth` **Lines**: 30
 
 **Messages** (1): `AuthorizeResponse`
 
@@ -543,16 +529,14 @@ message AuthorizeResponse {
 
 ### change_password_request.proto {#change_password_request}
 
-**Path**: `pkg/auth/proto/change_password_request.proto` **Package**:
-`gcommon.v1.auth` **Lines**: 27
+**Path**: `pkg/auth/proto/change_password_request.proto` **Package**: `gcommon.v1.auth` **Lines**: 27
 
 **Messages** (1): `ChangePasswordRequest`
 
 **Imports** (2):
 
 - `google/protobuf/go_features.proto`
-- `pkg/common/proto/request_metadata.proto` →
-  [common](./common.md#request_metadata)
+- `pkg/common/proto/request_metadata.proto` → [common](./common.md#request_metadata)
 
 #### Source Code
 
@@ -590,8 +574,7 @@ message ChangePasswordRequest {
 
 ### change_password_response.proto {#change_password_response}
 
-**Path**: `pkg/auth/proto/change_password_response.proto` **Package**:
-`gcommon.v1.auth` **Lines**: 34
+**Path**: `pkg/auth/proto/change_password_response.proto` **Package**: `gcommon.v1.auth` **Lines**: 34
 
 **Messages** (1): `ChangePasswordResponse`
 
@@ -599,8 +582,7 @@ message ChangePasswordRequest {
 
 - `google/protobuf/go_features.proto`
 - `pkg/common/proto/error.proto` → [common](./common.md#error)
-- `pkg/common/proto/request_metadata.proto` →
-  [common](./common.md#request_metadata)
+- `pkg/common/proto/request_metadata.proto` → [common](./common.md#request_metadata)
 
 #### Source Code
 
@@ -645,16 +627,14 @@ message ChangePasswordResponse {
 
 ### check_permission_request.proto {#check_permission_request}
 
-**Path**: `pkg/auth/proto/check_permission_request.proto` **Package**:
-`gcommon.v1.auth` **Lines**: 28
+**Path**: `pkg/auth/proto/check_permission_request.proto` **Package**: `gcommon.v1.auth` **Lines**: 28
 
 **Messages** (1): `CheckPermissionRequest`
 
 **Imports** (2):
 
 - `google/protobuf/go_features.proto`
-- `pkg/common/proto/request_metadata.proto` →
-  [common](./common.md#request_metadata)
+- `pkg/common/proto/request_metadata.proto` → [common](./common.md#request_metadata)
 
 #### Source Code
 
@@ -693,8 +673,7 @@ message CheckPermissionRequest {
 
 ### check_permission_response.proto {#check_permission_response}
 
-**Path**: `pkg/auth/proto/check_permission_response.proto` **Package**:
-`gcommon.v1.auth` **Lines**: 21
+**Path**: `pkg/auth/proto/check_permission_response.proto` **Package**: `gcommon.v1.auth` **Lines**: 21
 
 **Messages** (1): `CheckPermissionResponse`
 
@@ -732,16 +711,14 @@ message CheckPermissionResponse {
 
 ### complete_password_reset_request.proto {#complete_password_reset_request}
 
-**Path**: `pkg/auth/proto/complete_password_reset_request.proto` **Package**:
-`gcommon.v1.auth` **Lines**: 27
+**Path**: `pkg/auth/proto/complete_password_reset_request.proto` **Package**: `gcommon.v1.auth` **Lines**: 27
 
 **Messages** (1): `CompletePasswordResetRequest`
 
 **Imports** (2):
 
 - `google/protobuf/go_features.proto`
-- `pkg/common/proto/request_metadata.proto` →
-  [common](./common.md#request_metadata)
+- `pkg/common/proto/request_metadata.proto` → [common](./common.md#request_metadata)
 
 #### Source Code
 
@@ -779,8 +756,7 @@ message CompletePasswordResetRequest {
 
 ### complete_password_reset_response.proto {#complete_password_reset_response}
 
-**Path**: `pkg/auth/proto/complete_password_reset_response.proto` **Package**:
-`gcommon.v1.auth` **Lines**: 45
+**Path**: `pkg/auth/proto/complete_password_reset_response.proto` **Package**: `gcommon.v1.auth` **Lines**: 45
 
 **Messages** (1): `CompletePasswordResetResponse`
 
@@ -843,8 +819,7 @@ message CompletePasswordResetResponse {
 
 ### create_permission_request.proto {#create_permission_request}
 
-**Path**: `pkg/auth/proto/create_permission_request.proto` **Package**:
-`gcommon.v1.auth` **Lines**: 29
+**Path**: `pkg/auth/proto/create_permission_request.proto` **Package**: `gcommon.v1.auth` **Lines**: 29
 
 **Messages** (1): `CreatePermissionRequest`
 
@@ -890,8 +865,7 @@ message CreatePermissionRequest {
 
 ### create_role_request.proto {#create_role_request}
 
-**Path**: `pkg/auth/proto/create_role_request.proto` **Package**:
-`gcommon.v1.auth` **Lines**: 27
+**Path**: `pkg/auth/proto/create_role_request.proto` **Package**: `gcommon.v1.auth` **Lines**: 27
 
 **Messages** (1): `CreateRoleRequest`
 
@@ -899,13 +873,11 @@ message CreatePermissionRequest {
 
 - `google/protobuf/go_features.proto`
 - `pkg/auth/proto/role.proto` → [auth](./auth.md#role)
-- `pkg/common/proto/request_metadata.proto` →
-  [common](./common.md#request_metadata)
+- `pkg/common/proto/request_metadata.proto` → [common](./common.md#request_metadata)
 
 #### ⚠️ Issues Found (1)
 
-- Line 25: Implementation needed - // This is a placeholder file created during
-  1-1-1 migration
+- Line 25: Implementation needed - // This is a placeholder file created during 1-1-1 migration
 
 #### Source Code
 
@@ -943,8 +915,7 @@ message CreateRoleRequest {
 
 ### create_role_response.proto {#create_role_response}
 
-**Path**: `pkg/auth/proto/create_role_response.proto` **Package**:
-`gcommon.v1.auth` **Lines**: 28
+**Path**: `pkg/auth/proto/create_role_response.proto` **Package**: `gcommon.v1.auth` **Lines**: 28
 
 **Messages** (1): `CreateRoleResponse`
 
@@ -991,8 +962,7 @@ message CreateRoleResponse {
 
 ### create_session_request.proto {#create_session_request}
 
-**Path**: `pkg/auth/proto/create_session_request.proto` **Package**:
-`gcommon.v1.auth` **Lines**: 34
+**Path**: `pkg/auth/proto/create_session_request.proto` **Package**: `gcommon.v1.auth` **Lines**: 34
 
 **Messages** (1): `CreateSessionRequest`
 
@@ -1000,8 +970,7 @@ message CreateRoleResponse {
 
 - `google/protobuf/go_features.proto`
 - `pkg/common/proto/client_info.proto` → [common](./common.md#client_info)
-- `pkg/common/proto/request_metadata.proto` →
-  [common](./common.md#request_metadata)
+- `pkg/common/proto/request_metadata.proto` → [common](./common.md#request_metadata)
 
 #### Source Code
 
@@ -1046,8 +1015,7 @@ message CreateSessionRequest {
 
 ### create_session_response.proto {#create_session_response}
 
-**Path**: `pkg/auth/proto/create_session_response.proto` **Package**:
-`gcommon.v1.auth` **Lines**: 37
+**Path**: `pkg/auth/proto/create_session_response.proto` **Package**: `gcommon.v1.auth` **Lines**: 37
 
 **Messages** (1): `CreateSessionResponse`
 
@@ -1055,10 +1023,8 @@ message CreateSessionRequest {
 
 - `google/protobuf/go_features.proto`
 - `google/protobuf/timestamp.proto`
-- `pkg/common/proto/request_metadata.proto` →
-  [common](./common.md#request_metadata)
-- `pkg/common/proto/response_metadata.proto` →
-  [common](./common.md#response_metadata)
+- `pkg/common/proto/request_metadata.proto` → [common](./common.md#request_metadata)
+- `pkg/common/proto/response_metadata.proto` → [common](./common.md#response_metadata)
 
 #### Source Code
 
@@ -1106,8 +1072,7 @@ message CreateSessionResponse {
 
 ### create_user_request.proto {#create_user_request}
 
-**Path**: `pkg/auth/proto/create_user_request.proto` **Package**:
-`gcommon.v1.auth` **Lines**: 46
+**Path**: `pkg/auth/proto/create_user_request.proto` **Package**: `gcommon.v1.auth` **Lines**: 46
 
 **Messages** (1): `CreateUserRequest`
 
@@ -1171,8 +1136,7 @@ message CreateUserRequest {
 
 ### create_user_response.proto {#create_user_response}
 
-**Path**: `pkg/auth/proto/create_user_response.proto` **Package**:
-`gcommon.v1.auth` **Lines**: 49
+**Path**: `pkg/auth/proto/create_user_response.proto` **Package**: `gcommon.v1.auth` **Lines**: 49
 
 **Messages** (1): `CreateUserResponse`
 
@@ -1239,8 +1203,7 @@ message CreateUserResponse {
 
 ### delete_permission_request.proto {#delete_permission_request}
 
-**Path**: `pkg/auth/proto/delete_permission_request.proto` **Package**:
-`gcommon.v1.auth` **Lines**: 23
+**Path**: `pkg/auth/proto/delete_permission_request.proto` **Package**: `gcommon.v1.auth` **Lines**: 23
 
 **Messages** (1): `DeletePermissionRequest`
 
@@ -1280,8 +1243,7 @@ message DeletePermissionRequest {
 
 ### delete_role_request.proto {#delete_role_request}
 
-**Path**: `pkg/auth/proto/delete_role_request.proto` **Package**:
-`gcommon.v1.auth` **Lines**: 27
+**Path**: `pkg/auth/proto/delete_role_request.proto` **Package**: `gcommon.v1.auth` **Lines**: 27
 
 **Messages** (1): `DeleteRoleRequest`
 
@@ -1289,13 +1251,11 @@ message DeletePermissionRequest {
 
 - `google/protobuf/go_features.proto`
 - `pkg/auth/proto/role.proto` → [auth](./auth.md#role)
-- `pkg/common/proto/request_metadata.proto` →
-  [common](./common.md#request_metadata)
+- `pkg/common/proto/request_metadata.proto` → [common](./common.md#request_metadata)
 
 #### ⚠️ Issues Found (1)
 
-- Line 25: Implementation needed - // This is a placeholder file created during
-  1-1-1 migration
+- Line 25: Implementation needed - // This is a placeholder file created during 1-1-1 migration
 
 #### Source Code
 
@@ -1333,8 +1293,7 @@ message DeleteRoleRequest {
 
 ### delete_role_response.proto {#delete_role_response}
 
-**Path**: `pkg/auth/proto/delete_role_response.proto` **Package**:
-`gcommon.v1.auth` **Lines**: 26
+**Path**: `pkg/auth/proto/delete_role_response.proto` **Package**: `gcommon.v1.auth` **Lines**: 26
 
 **Messages** (1): `DeleteRoleResponse`
 
@@ -1377,8 +1336,7 @@ message DeleteRoleResponse {
 
 ### delete_session_request.proto {#delete_session_request}
 
-**Path**: `pkg/auth/proto/delete_session_request.proto` **Package**:
-`gcommon.v1.auth` **Lines**: 25
+**Path**: `pkg/auth/proto/delete_session_request.proto` **Package**: `gcommon.v1.auth` **Lines**: 25
 
 **Messages** (1): `DeleteSessionRequest`
 
@@ -1420,8 +1378,7 @@ message DeleteSessionRequest {
 
 ### delete_session_response.proto {#delete_session_response}
 
-**Path**: `pkg/auth/proto/delete_session_response.proto` **Package**:
-`gcommon.v1.auth` **Lines**: 26
+**Path**: `pkg/auth/proto/delete_session_response.proto` **Package**: `gcommon.v1.auth` **Lines**: 26
 
 **Messages** (1): `DeleteSessionResponse`
 
@@ -1465,8 +1422,7 @@ message DeleteSessionResponse {
 
 ### delete_user_request.proto {#delete_user_request}
 
-**Path**: `pkg/auth/proto/delete_user_request.proto` **Package**:
-`gcommon.v1.auth` **Lines**: 33
+**Path**: `pkg/auth/proto/delete_user_request.proto` **Package**: `gcommon.v1.auth` **Lines**: 33
 
 **Messages** (1): `DeleteUserRequest`
 
@@ -1516,8 +1472,7 @@ message DeleteUserRequest {
 
 ### delete_user_response.proto {#delete_user_response}
 
-**Path**: `pkg/auth/proto/delete_user_response.proto` **Package**:
-`gcommon.v1.auth` **Lines**: 26
+**Path**: `pkg/auth/proto/delete_user_response.proto` **Package**: `gcommon.v1.auth` **Lines**: 26
 
 **Messages** (1): `DeleteUserResponse`
 
@@ -1560,8 +1515,7 @@ message DeleteUserResponse {
 
 ### disable_2fa_request.proto {#disable_2fa_request}
 
-**Path**: `pkg/auth/proto/disable_2fa_request.proto` **Package**:
-`gcommon.v1.auth` **Lines**: 26
+**Path**: `pkg/auth/proto/disable_2fa_request.proto` **Package**: `gcommon.v1.auth` **Lines**: 26
 
 **Messages** (1): `Disable2FaRequest`
 
@@ -1604,8 +1558,7 @@ message Disable2FaRequest {
 
 ### disable_mfa_request.proto {#disable_mfa_request}
 
-**Path**: `pkg/auth/proto/disable_mfa_request.proto` **Package**:
-`gcommon.v1.auth` **Lines**: 30
+**Path**: `pkg/auth/proto/disable_mfa_request.proto` **Package**: `gcommon.v1.auth` **Lines**: 30
 
 **Messages** (1): `DisableMfaRequest`
 
@@ -1653,8 +1606,7 @@ message DisableMfaRequest {
 
 ### disable_mfa_response.proto {#disable_mfa_response}
 
-**Path**: `pkg/auth/proto/disable_mfa_response.proto` **Package**:
-`gcommon.v1.auth` **Lines**: 30
+**Path**: `pkg/auth/proto/disable_mfa_response.proto` **Package**: `gcommon.v1.auth` **Lines**: 30
 
 **Messages** (1): `DisableMfaResponse`
 
@@ -1702,8 +1654,7 @@ message DisableMfaResponse {
 
 ### enable_2fa_request.proto {#enable_2fa_request}
 
-**Path**: `pkg/auth/proto/enable_2fa_request.proto` **Package**:
-`gcommon.v1.auth` **Lines**: 32
+**Path**: `pkg/auth/proto/enable_2fa_request.proto` **Package**: `gcommon.v1.auth` **Lines**: 32
 
 **Messages** (1): `Enable2FaRequest`
 
@@ -1752,8 +1703,7 @@ message Enable2FaRequest {
 
 ### enable_mfa_request.proto {#enable_mfa_request}
 
-**Path**: `pkg/auth/proto/enable_mfa_request.proto` **Package**:
-`gcommon.v1.auth` **Lines**: 30
+**Path**: `pkg/auth/proto/enable_mfa_request.proto` **Package**: `gcommon.v1.auth` **Lines**: 30
 
 **Messages** (1): `EnableMfaRequest`
 
@@ -1801,8 +1751,7 @@ message EnableMfaRequest {
 
 ### enable_mfa_response.proto {#enable_mfa_response}
 
-**Path**: `pkg/auth/proto/enable_mfa_response.proto` **Package**:
-`gcommon.v1.auth` **Lines**: 37
+**Path**: `pkg/auth/proto/enable_mfa_response.proto` **Package**: `gcommon.v1.auth` **Lines**: 37
 
 **Messages** (2): `EnableMfaResponse`, `MfaSetupInstruction`
 
@@ -1857,16 +1806,14 @@ message MfaSetupInstruction {
 
 ### generate_api_key_request.proto {#generate_api_key_request}
 
-**Path**: `pkg/auth/proto/generate_api_key_request.proto` **Package**:
-`gcommon.v1.auth` **Lines**: 31
+**Path**: `pkg/auth/proto/generate_api_key_request.proto` **Package**: `gcommon.v1.auth` **Lines**: 31
 
 **Messages** (1): `GenerateAPIKeyRequest`
 
 **Imports** (2):
 
 - `google/protobuf/go_features.proto`
-- `pkg/common/proto/request_metadata.proto` →
-  [common](./common.md#request_metadata)
+- `pkg/common/proto/request_metadata.proto` → [common](./common.md#request_metadata)
 
 #### Source Code
 
@@ -1908,18 +1855,15 @@ message GenerateAPIKeyRequest {
 
 ### generate_api_key_response.proto {#generate_api_key_response}
 
-**Path**: `pkg/auth/proto/generate_api_key_response.proto` **Package**:
-`gcommon.v1.auth` **Lines**: 29
+**Path**: `pkg/auth/proto/generate_api_key_response.proto` **Package**: `gcommon.v1.auth` **Lines**: 29
 
 **Messages** (1): `GenerateAPIKeyResponse`
 
 **Imports** (3):
 
 - `google/protobuf/go_features.proto`
-- `pkg/common/proto/request_metadata.proto` →
-  [common](./common.md#request_metadata)
-- `pkg/common/proto/response_metadata.proto` →
-  [common](./common.md#response_metadata)
+- `pkg/common/proto/request_metadata.proto` → [common](./common.md#request_metadata)
+- `pkg/common/proto/response_metadata.proto` → [common](./common.md#response_metadata)
 
 #### Source Code
 
@@ -1959,8 +1903,7 @@ message GenerateAPIKeyResponse {
 
 ### get_api_key_request.proto {#get_api_key_request}
 
-**Path**: `pkg/auth/proto/get_api_key_request.proto` **Package**:
-`gcommon.v1.auth` **Lines**: 26
+**Path**: `pkg/auth/proto/get_api_key_request.proto` **Package**: `gcommon.v1.auth` **Lines**: 26
 
 **Messages** (1): `GetApiKeyRequest`
 
@@ -2003,8 +1946,7 @@ message GetApiKeyRequest {
 
 ### get_api_key_response.proto {#get_api_key_response}
 
-**Path**: `pkg/auth/proto/get_api_key_response.proto` **Package**:
-`gcommon.v1.auth` **Lines**: 43
+**Path**: `pkg/auth/proto/get_api_key_response.proto` **Package**: `gcommon.v1.auth` **Lines**: 43
 
 **Messages** (3): `GetApiKeyResponse`, `ApiKeyStats`, `DailyUsage`
 
@@ -2065,16 +2007,14 @@ message DailyUsage {
 
 ### get_permission_request.proto {#get_permission_request}
 
-**Path**: `pkg/auth/proto/get_permission_request.proto` **Package**:
-`gcommon.v1.auth` **Lines**: 25
+**Path**: `pkg/auth/proto/get_permission_request.proto` **Package**: `gcommon.v1.auth` **Lines**: 25
 
 **Messages** (1): `GetPermissionRequest`
 
 **Imports** (2):
 
 - `google/protobuf/go_features.proto`
-- `pkg/common/proto/request_metadata.proto` →
-  [common](./common.md#request_metadata)
+- `pkg/common/proto/request_metadata.proto` → [common](./common.md#request_metadata)
 
 #### Source Code
 
@@ -2110,8 +2050,7 @@ message GetPermissionRequest {
 
 ### get_permission_response.proto {#get_permission_response}
 
-**Path**: `pkg/auth/proto/get_permission_response.proto` **Package**:
-`gcommon.v1.auth` **Lines**: 26
+**Path**: `pkg/auth/proto/get_permission_response.proto` **Package**: `gcommon.v1.auth` **Lines**: 26
 
 **Messages** (1): `GetPermissionResponse`
 
@@ -2156,8 +2095,7 @@ message GetPermissionResponse {
 
 ### get_role_request.proto {#get_role_request}
 
-**Path**: `pkg/auth/proto/get_role_request.proto` **Package**: `gcommon.v1.auth`
-**Lines**: 29
+**Path**: `pkg/auth/proto/get_role_request.proto` **Package**: `gcommon.v1.auth` **Lines**: 29
 
 **Messages** (1): `GetRoleRequest`
 
@@ -2165,8 +2103,7 @@ message GetPermissionResponse {
 
 - `google/protobuf/go_features.proto`
 - `pkg/auth/proto/role.proto` → [auth](./auth.md#role)
-- `pkg/common/proto/request_metadata.proto` →
-  [common](./common.md#request_metadata)
+- `pkg/common/proto/request_metadata.proto` → [common](./common.md#request_metadata)
 
 #### Source Code
 
@@ -2206,8 +2143,7 @@ message GetRoleRequest {
 
 ### get_role_response.proto {#get_role_response}
 
-**Path**: `pkg/auth/proto/get_role_response.proto` **Package**:
-`gcommon.v1.auth` **Lines**: 26
+**Path**: `pkg/auth/proto/get_role_response.proto` **Package**: `gcommon.v1.auth` **Lines**: 26
 
 **Messages** (1): `GetRoleResponse`
 
@@ -2252,16 +2188,14 @@ message GetRoleResponse {
 
 ### get_session_request.proto {#get_session_request}
 
-**Path**: `pkg/auth/proto/get_session_request.proto` **Package**:
-`gcommon.v1.auth` **Lines**: 30
+**Path**: `pkg/auth/proto/get_session_request.proto` **Package**: `gcommon.v1.auth` **Lines**: 30
 
 **Messages** (1): `GetSessionRequest`
 
 **Imports** (2):
 
 - `google/protobuf/go_features.proto`
-- `pkg/common/proto/request_metadata.proto` →
-  [common](./common.md#request_metadata)
+- `pkg/common/proto/request_metadata.proto` → [common](./common.md#request_metadata)
 
 #### Source Code
 
@@ -2302,8 +2236,7 @@ message GetSessionRequest {
 
 ### get_session_response.proto {#get_session_response}
 
-**Path**: `pkg/auth/proto/get_session_response.proto` **Package**:
-`gcommon.v1.auth` **Lines**: 27
+**Path**: `pkg/auth/proto/get_session_response.proto` **Package**: `gcommon.v1.auth` **Lines**: 27
 
 **Messages** (1): `GetSessionResponse`
 
@@ -2349,16 +2282,14 @@ message GetSessionResponse {
 
 ### get_system_stats_request.proto {#get_system_stats_request}
 
-**Path**: `pkg/auth/proto/get_system_stats_request.proto` **Package**:
-`gcommon.v1.auth` **Lines**: 22
+**Path**: `pkg/auth/proto/get_system_stats_request.proto` **Package**: `gcommon.v1.auth` **Lines**: 22
 
 **Messages** (1): `GetSystemStatsRequest`
 
 **Imports** (2):
 
 - `google/protobuf/go_features.proto`
-- `pkg/common/proto/request_metadata.proto` →
-  [common](./common.md#request_metadata)
+- `pkg/common/proto/request_metadata.proto` → [common](./common.md#request_metadata)
 
 #### Source Code
 
@@ -2391,8 +2322,7 @@ message GetSystemStatsRequest {
 
 ### get_system_stats_response.proto {#get_system_stats_response}
 
-**Path**: `pkg/auth/proto/get_system_stats_response.proto` **Package**:
-`gcommon.v1.auth` **Lines**: 38
+**Path**: `pkg/auth/proto/get_system_stats_response.proto` **Package**: `gcommon.v1.auth` **Lines**: 38
 
 **Messages** (1): `GetSystemStatsResponse`
 
@@ -2400,8 +2330,7 @@ message GetSystemStatsRequest {
 
 - `google/protobuf/go_features.proto`
 - `pkg/common/proto/error.proto` → [common](./common.md#error)
-- `pkg/common/proto/request_metadata.proto` →
-  [common](./common.md#request_metadata)
+- `pkg/common/proto/request_metadata.proto` → [common](./common.md#request_metadata)
 
 #### Source Code
 
@@ -2450,16 +2379,14 @@ message GetSystemStatsResponse {
 
 ### get_user_info_request.proto {#get_user_info_request}
 
-**Path**: `pkg/auth/proto/get_user_info_request.proto` **Package**:
-`gcommon.v1.auth` **Lines**: 24
+**Path**: `pkg/auth/proto/get_user_info_request.proto` **Package**: `gcommon.v1.auth` **Lines**: 24
 
 **Messages** (1): `GetUserInfoRequest`
 
 **Imports** (2):
 
 - `google/protobuf/go_features.proto`
-- `pkg/common/proto/request_metadata.proto` →
-  [common](./common.md#request_metadata)
+- `pkg/common/proto/request_metadata.proto` → [common](./common.md#request_metadata)
 
 #### Source Code
 
@@ -2494,8 +2421,7 @@ message GetUserInfoRequest {
 
 ### get_user_info_response.proto {#get_user_info_response}
 
-**Path**: `pkg/auth/proto/get_user_info_response.proto` **Package**:
-`gcommon.v1.auth` **Lines**: 26
+**Path**: `pkg/auth/proto/get_user_info_response.proto` **Package**: `gcommon.v1.auth` **Lines**: 26
 
 **Messages** (1): `GetUserInfoResponse`
 
@@ -2541,16 +2467,14 @@ message GetUserInfoResponse {
 
 ### get_user_permissions_request.proto {#get_user_permissions_request}
 
-**Path**: `pkg/auth/proto/get_user_permissions_request.proto` **Package**:
-`gcommon.v1.auth` **Lines**: 24
+**Path**: `pkg/auth/proto/get_user_permissions_request.proto` **Package**: `gcommon.v1.auth` **Lines**: 24
 
 **Messages** (1): `GetUserPermissionsRequest`
 
 **Imports** (2):
 
 - `google/protobuf/go_features.proto`
-- `pkg/common/proto/request_metadata.proto` →
-  [common](./common.md#request_metadata)
+- `pkg/common/proto/request_metadata.proto` → [common](./common.md#request_metadata)
 
 #### Source Code
 
@@ -2585,8 +2509,7 @@ message GetUserPermissionsRequest {
 
 ### get_user_permissions_response.proto {#get_user_permissions_response}
 
-**Path**: `pkg/auth/proto/get_user_permissions_response.proto` **Package**:
-`gcommon.v1.auth` **Lines**: 30
+**Path**: `pkg/auth/proto/get_user_permissions_response.proto` **Package**: `gcommon.v1.auth` **Lines**: 30
 
 **Messages** (1): `GetUserPermissionsResponse`
 

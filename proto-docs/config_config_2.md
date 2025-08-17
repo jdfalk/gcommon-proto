@@ -40,8 +40,7 @@
 
 ### transformation_settings.proto {#transformation_settings}
 
-**Path**: `pkg/config/proto/transformation_settings.proto` **Package**:
-`gcommon.v1.config` **Lines**: 33
+**Path**: `pkg/config/proto/transformation_settings.proto` **Package**: `gcommon.v1.config` **Lines**: 33
 
 **Messages** (1): `TransformationSettings`
 
@@ -50,8 +49,7 @@
 - `google/protobuf/any.proto`
 - `google/protobuf/go_features.proto`
 - `google/protobuf/timestamp.proto`
-- `pkg/config/proto/transformation_step.proto` →
-  [config_2](./config_2.md#transformation_step)
+- `pkg/config/proto/transformation_step.proto` → [config_2](./config_2.md#transformation_step)
 
 #### Source Code
 
@@ -95,16 +93,14 @@ message TransformationSettings {
 
 ### unwatch_config_request.proto {#unwatch_config_request}
 
-**Path**: `pkg/config/proto/unwatch_config_request.proto` **Package**:
-`gcommon.v1.config` **Lines**: 25
+**Path**: `pkg/config/proto/unwatch_config_request.proto` **Package**: `gcommon.v1.config` **Lines**: 25
 
 **Messages** (1): `UnwatchConfigRequest`
 
 **Imports** (2):
 
 - `google/protobuf/go_features.proto`
-- `pkg/common/proto/request_metadata.proto` →
-  [common](./common.md#request_metadata)
+- `pkg/common/proto/request_metadata.proto` → [common](./common.md#request_metadata)
 
 #### Source Code
 
@@ -140,18 +136,15 @@ message UnwatchConfigRequest {
 
 ### validate_config_request.proto {#validate_config_request}
 
-**Path**: `pkg/config/proto/validate_config_request.proto` **Package**:
-`gcommon.v1.config` **Lines**: 26
+**Path**: `pkg/config/proto/validate_config_request.proto` **Package**: `gcommon.v1.config` **Lines**: 26
 
 **Messages** (1): `ValidateConfigRequest`
 
 **Imports** (3):
 
 - `google/protobuf/go_features.proto`
-- `pkg/common/proto/request_metadata.proto` →
-  [common](./common.md#request_metadata)
-- `pkg/config/proto/config_entry.proto` →
-  [config_config_1](./config_config_1.md#config_entry)
+- `pkg/common/proto/request_metadata.proto` → [common](./common.md#request_metadata)
+- `pkg/config/proto/config_entry.proto` → [config_config_1](./config_config_1.md#config_entry)
 
 #### Source Code
 
@@ -188,18 +181,15 @@ message ValidateConfigRequest {
 
 ### validate_config_response.proto {#validate_config_response}
 
-**Path**: `pkg/config/proto/validate_config_response.proto` **Package**:
-`gcommon.v1.config` **Lines**: 26
+**Path**: `pkg/config/proto/validate_config_response.proto` **Package**: `gcommon.v1.config` **Lines**: 26
 
 **Messages** (1): `ValidateConfigResponse`
 
 **Imports** (3):
 
 - `google/protobuf/go_features.proto`
-- `pkg/config/proto/config_validation_error.proto` →
-  [config_config_1](./config_config_1.md#config_validation_error)
-- `pkg/config/proto/config_validation_warning.proto` →
-  [config_config_1](./config_config_1.md#config_validation_warning)
+- `pkg/config/proto/config_validation_error.proto` → [config_config_1](./config_config_1.md#config_validation_error)
+- `pkg/config/proto/config_validation_warning.proto` → [config_config_1](./config_config_1.md#config_validation_warning)
 
 #### Source Code
 
@@ -236,8 +226,7 @@ message ValidateConfigResponse {
 
 ### validation_settings.proto {#validation_settings}
 
-**Path**: `pkg/config/proto/validation_settings.proto` **Package**:
-`gcommon.v1.config` **Lines**: 40
+**Path**: `pkg/config/proto/validation_settings.proto` **Package**: `gcommon.v1.config` **Lines**: 40
 
 **Messages** (1): `ValidationSettings`
 
@@ -246,10 +235,8 @@ message ValidateConfigResponse {
 - `google/protobuf/any.proto`
 - `google/protobuf/go_features.proto`
 - `google/protobuf/timestamp.proto`
-- `pkg/config/proto/retry_settings.proto` →
-  [config_config_1](./config_config_1.md#retry_settings)
-- `pkg/config/proto/validation_rule.proto` →
-  [config_2](./config_2.md#validation_rule)
+- `pkg/config/proto/retry_settings.proto` → [config_config_1](./config_config_1.md#retry_settings)
+- `pkg/config/proto/validation_rule.proto` → [config_2](./config_2.md#validation_rule)
 
 #### Source Code
 
@@ -300,8 +287,7 @@ message ValidationSettings {
 
 ### versioning_settings.proto {#versioning_settings}
 
-**Path**: `pkg/config/proto/versioning_settings.proto` **Package**:
-`gcommon.v1.config` **Lines**: 44
+**Path**: `pkg/config/proto/versioning_settings.proto` **Package**: `gcommon.v1.config` **Lines**: 44
 
 **Messages** (1): `VersioningSettings`
 
@@ -309,19 +295,13 @@ message ValidationSettings {
 
 - `google/protobuf/go_features.proto`
 - `google/protobuf/timestamp.proto`
-- `pkg/config/proto/audit_level.proto` →
-  [config_events](./config_events.md#audit_level)
-- `pkg/config/proto/backup_frequency.proto` →
-  [config_1](./config_1.md#backup_frequency)
+- `pkg/config/proto/audit_level.proto` → [config_events](./config_events.md#audit_level)
+- `pkg/config/proto/backup_frequency.proto` → [config_1](./config_1.md#backup_frequency)
 - `pkg/config/proto/channel_type.proto` → [config_1](./config_1.md#channel_type)
-- `pkg/config/proto/config_data_type.proto` →
-  [config_config_1](./config_config_1.md#config_data_type)
-- `pkg/config/proto/deprecation_level.proto` →
-  [config_1](./config_1.md#deprecation_level)
-- `pkg/config/proto/metadata_status.proto` →
-  [config_1](./config_1.md#metadata_status)
-- `pkg/config/proto/notification_trigger.proto` →
-  [config_1](./config_1.md#notification_trigger)
+- `pkg/config/proto/config_data_type.proto` → [config_config_1](./config_config_1.md#config_data_type)
+- `pkg/config/proto/deprecation_level.proto` → [config_1](./config_1.md#deprecation_level)
+- `pkg/config/proto/metadata_status.proto` → [config_1](./config_1.md#metadata_status)
+- `pkg/config/proto/notification_trigger.proto` → [config_1](./config_1.md#notification_trigger)
 
 #### Source Code
 
@@ -376,16 +356,14 @@ message VersioningSettings {
 
 ### watch_config_request.proto {#watch_config_request}
 
-**Path**: `pkg/config/proto/watch_config_request.proto` **Package**:
-`gcommon.v1.config` **Lines**: 25
+**Path**: `pkg/config/proto/watch_config_request.proto` **Package**: `gcommon.v1.config` **Lines**: 25
 
 **Messages** (1): `WatchConfigRequest`
 
 **Imports** (2):
 
 - `google/protobuf/go_features.proto`
-- `pkg/common/proto/request_metadata.proto` →
-  [common](./common.md#request_metadata)
+- `pkg/common/proto/request_metadata.proto` → [common](./common.md#request_metadata)
 
 #### Source Code
 
@@ -421,8 +399,7 @@ message WatchConfigRequest {
 
 ### watch_config_response.proto {#watch_config_response}
 
-**Path**: `pkg/config/proto/watch_config_response.proto` **Package**:
-`gcommon.v1.config` **Lines**: 30
+**Path**: `pkg/config/proto/watch_config_response.proto` **Package**: `gcommon.v1.config` **Lines**: 30
 
 **Messages** (1): `WatchConfigResponse`
 
@@ -430,10 +407,8 @@ message WatchConfigRequest {
 
 - `google/protobuf/go_features.proto`
 - `google/protobuf/timestamp.proto`
-- `pkg/config/proto/config_change_type.proto` →
-  [config_config_1](./config_config_1.md#config_change_type)
-- `pkg/config/proto/config_entry.proto` →
-  [config_config_1](./config_config_1.md#config_entry)
+- `pkg/config/proto/config_change_type.proto` → [config_config_1](./config_config_1.md#config_change_type)
+- `pkg/config/proto/config_entry.proto` → [config_config_1](./config_config_1.md#config_entry)
 
 #### Source Code
 

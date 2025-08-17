@@ -19,11 +19,9 @@
 
 ### update_message_response.proto {#update_message_response}
 
-**Path**: `pkg/queue/proto/update_message_response.proto` **Package**:
-`gcommon.v1.queue` **Lines**: 95
+**Path**: `pkg/queue/proto/update_message_response.proto` **Package**: `gcommon.v1.queue` **Lines**: 95
 
-**Messages** (3): `UpdateMessageResponse`, `FailedFieldUpdate`,
-`UpdatedProperties`
+**Messages** (3): `UpdateMessageResponse`, `FailedFieldUpdate`, `UpdatedProperties`
 
 **Imports** (2):
 

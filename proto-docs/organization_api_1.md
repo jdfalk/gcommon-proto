@@ -80,18 +80,15 @@
 
 ### add_member_request.proto {#add_member_request}
 
-**Path**: `pkg/organization/proto/add_member_request.proto` **Package**:
-`gcommon.v1.organization` **Lines**: 27
+**Path**: `pkg/organization/proto/add_member_request.proto` **Package**: `gcommon.v1.organization` **Lines**: 27
 
 **Messages** (1): `AddMemberRequest`
 
 **Imports** (3):
 
 - `google/protobuf/go_features.proto`
-- `pkg/common/proto/request_metadata.proto` →
-  [common](./common.md#request_metadata)
-- `pkg/organization/proto/organization_member.proto` →
-  [organization](./organization.md#organization_member)
+- `pkg/common/proto/request_metadata.proto` → [common](./common.md#request_metadata)
+- `pkg/organization/proto/organization_member.proto` → [organization](./organization.md#organization_member)
 
 #### Source Code
 
@@ -129,8 +126,7 @@ message AddMemberRequest {
 
 ### add_member_response.proto {#add_member_response}
 
-**Path**: `pkg/organization/proto/add_member_response.proto` **Package**:
-`gcommon.v1.organization` **Lines**: 23
+**Path**: `pkg/organization/proto/add_member_response.proto` **Package**: `gcommon.v1.organization` **Lines**: 23
 
 **Messages** (1): `AddMemberResponse`
 
@@ -138,8 +134,7 @@ message AddMemberRequest {
 
 - `google/protobuf/go_features.proto`
 - `pkg/common/proto/error.proto` → [common](./common.md#error)
-- `pkg/organization/proto/organization_member.proto` →
-  [organization](./organization.md#organization_member)
+- `pkg/organization/proto/organization_member.proto` → [organization](./organization.md#organization_member)
 
 #### Source Code
 
@@ -173,18 +168,15 @@ message AddMemberResponse {
 
 ### create_department_request.proto {#create_department_request}
 
-**Path**: `pkg/organization/proto/create_department_request.proto` **Package**:
-`gcommon.v1.organization` **Lines**: 24
+**Path**: `pkg/organization/proto/create_department_request.proto` **Package**: `gcommon.v1.organization` **Lines**: 24
 
 **Messages** (1): `CreateDepartmentRequest`
 
 **Imports** (3):
 
 - `google/protobuf/go_features.proto`
-- `pkg/common/proto/request_metadata.proto` →
-  [common](./common.md#request_metadata)
-- `pkg/organization/proto/department.proto` →
-  [organization](./organization.md#department)
+- `pkg/common/proto/request_metadata.proto` → [common](./common.md#request_metadata)
+- `pkg/organization/proto/department.proto` → [organization](./organization.md#department)
 
 #### Source Code
 
@@ -219,8 +211,7 @@ message CreateDepartmentRequest {
 
 ### create_department_response.proto {#create_department_response}
 
-**Path**: `pkg/organization/proto/create_department_response.proto` **Package**:
-`gcommon.v1.organization` **Lines**: 23
+**Path**: `pkg/organization/proto/create_department_response.proto` **Package**: `gcommon.v1.organization` **Lines**: 23
 
 **Messages** (1): `CreateDepartmentResponse`
 
@@ -228,8 +219,7 @@ message CreateDepartmentRequest {
 
 - `google/protobuf/go_features.proto`
 - `pkg/common/proto/error.proto` → [common](./common.md#error)
-- `pkg/organization/proto/department.proto` →
-  [organization](./organization.md#department)
+- `pkg/organization/proto/department.proto` → [organization](./organization.md#department)
 
 #### Source Code
 
@@ -263,18 +253,15 @@ message CreateDepartmentResponse {
 
 ### create_organization_request.proto {#create_organization_request}
 
-**Path**: `pkg/organization/proto/create_organization_request.proto`
-**Package**: `gcommon.v1.organization` **Lines**: 38
+**Path**: `pkg/organization/proto/create_organization_request.proto` **Package**: `gcommon.v1.organization` **Lines**: 38
 
 **Messages** (1): `CreateOrganizationRequest`
 
 **Imports** (3):
 
 - `google/protobuf/go_features.proto`
-- `pkg/common/proto/request_metadata.proto` →
-  [common](./common.md#request_metadata)
-- `pkg/organization/proto/organization.proto` →
-  [organization](./organization.md#organization)
+- `pkg/common/proto/request_metadata.proto` → [common](./common.md#request_metadata)
+- `pkg/organization/proto/organization.proto` → [organization](./organization.md#organization)
 
 #### Source Code
 
@@ -323,8 +310,7 @@ message CreateOrganizationRequest {
 
 ### create_organization_response.proto {#create_organization_response}
 
-**Path**: `pkg/organization/proto/create_organization_response.proto`
-**Package**: `gcommon.v1.organization` **Lines**: 37
+**Path**: `pkg/organization/proto/create_organization_response.proto` **Package**: `gcommon.v1.organization` **Lines**: 37
 
 **Messages** (1): `CreateOrganizationResponse`
 
@@ -332,10 +318,8 @@ message CreateOrganizationRequest {
 
 - `google/protobuf/go_features.proto`
 - `pkg/common/proto/error.proto` → [common](./common.md#error)
-- `pkg/organization/proto/organization.proto` →
-  [organization](./organization.md#organization)
-- `pkg/organization/proto/tenant.proto` →
-  [organization](./organization.md#tenant)
+- `pkg/organization/proto/organization.proto` → [organization](./organization.md#organization)
+- `pkg/organization/proto/tenant.proto` → [organization](./organization.md#tenant)
 
 #### Source Code
 
@@ -383,16 +367,14 @@ message CreateOrganizationResponse {
 
 ### create_team_request.proto {#create_team_request}
 
-**Path**: `pkg/organization/proto/create_team_request.proto` **Package**:
-`gcommon.v1.organization` **Lines**: 24
+**Path**: `pkg/organization/proto/create_team_request.proto` **Package**: `gcommon.v1.organization` **Lines**: 24
 
 **Messages** (1): `CreateTeamRequest`
 
 **Imports** (3):
 
 - `google/protobuf/go_features.proto`
-- `pkg/common/proto/request_metadata.proto` →
-  [common](./common.md#request_metadata)
+- `pkg/common/proto/request_metadata.proto` → [common](./common.md#request_metadata)
 - `pkg/organization/proto/team.proto` → [organization](./organization.md#team)
 
 #### Source Code
@@ -428,8 +410,7 @@ message CreateTeamRequest {
 
 ### create_team_response.proto {#create_team_response}
 
-**Path**: `pkg/organization/proto/create_team_response.proto` **Package**:
-`gcommon.v1.organization` **Lines**: 23
+**Path**: `pkg/organization/proto/create_team_response.proto` **Package**: `gcommon.v1.organization` **Lines**: 23
 
 **Messages** (1): `CreateTeamResponse`
 
@@ -471,18 +452,15 @@ message CreateTeamResponse {
 
 ### create_tenant_request.proto {#create_tenant_request}
 
-**Path**: `pkg/organization/proto/create_tenant_request.proto` **Package**:
-`gcommon.v1.organization` **Lines**: 23
+**Path**: `pkg/organization/proto/create_tenant_request.proto` **Package**: `gcommon.v1.organization` **Lines**: 23
 
 **Messages** (1): `CreateTenantRequest`
 
 **Imports** (3):
 
 - `google/protobuf/go_features.proto`
-- `pkg/common/proto/request_metadata.proto` →
-  [common](./common.md#request_metadata)
-- `pkg/organization/proto/tenant.proto` →
-  [organization](./organization.md#tenant)
+- `pkg/common/proto/request_metadata.proto` → [common](./common.md#request_metadata)
+- `pkg/organization/proto/tenant.proto` → [organization](./organization.md#tenant)
 
 #### Source Code
 
@@ -516,8 +494,7 @@ message CreateTenantRequest {
 
 ### create_tenant_response.proto {#create_tenant_response}
 
-**Path**: `pkg/organization/proto/create_tenant_response.proto` **Package**:
-`gcommon.v1.organization` **Lines**: 23
+**Path**: `pkg/organization/proto/create_tenant_response.proto` **Package**: `gcommon.v1.organization` **Lines**: 23
 
 **Messages** (1): `CreateTenantResponse`
 
@@ -525,8 +502,7 @@ message CreateTenantRequest {
 
 - `google/protobuf/go_features.proto`
 - `pkg/common/proto/error.proto` → [common](./common.md#error)
-- `pkg/organization/proto/tenant.proto` →
-  [organization](./organization.md#tenant)
+- `pkg/organization/proto/tenant.proto` → [organization](./organization.md#tenant)
 
 #### Source Code
 
@@ -560,16 +536,14 @@ message CreateTenantResponse {
 
 ### delete_department_request.proto {#delete_department_request}
 
-**Path**: `pkg/organization/proto/delete_department_request.proto` **Package**:
-`gcommon.v1.organization` **Lines**: 20
+**Path**: `pkg/organization/proto/delete_department_request.proto` **Package**: `gcommon.v1.organization` **Lines**: 20
 
 **Messages** (1): `DeleteDepartmentRequest`
 
 **Imports** (2):
 
 - `google/protobuf/go_features.proto`
-- `pkg/common/proto/request_metadata.proto` →
-  [common](./common.md#request_metadata)
+- `pkg/common/proto/request_metadata.proto` → [common](./common.md#request_metadata)
 
 #### Source Code
 
@@ -600,8 +574,7 @@ message DeleteDepartmentRequest {
 
 ### delete_department_response.proto {#delete_department_response}
 
-**Path**: `pkg/organization/proto/delete_department_response.proto` **Package**:
-`gcommon.v1.organization` **Lines**: 19
+**Path**: `pkg/organization/proto/delete_department_response.proto` **Package**: `gcommon.v1.organization` **Lines**: 19
 
 **Messages** (1): `DeleteDepartmentResponse`
 
@@ -638,16 +611,14 @@ message DeleteDepartmentResponse {
 
 ### delete_organization_request.proto {#delete_organization_request}
 
-**Path**: `pkg/organization/proto/delete_organization_request.proto`
-**Package**: `gcommon.v1.organization` **Lines**: 20
+**Path**: `pkg/organization/proto/delete_organization_request.proto` **Package**: `gcommon.v1.organization` **Lines**: 20
 
 **Messages** (1): `DeleteOrganizationRequest`
 
 **Imports** (2):
 
 - `google/protobuf/go_features.proto`
-- `pkg/common/proto/request_metadata.proto` →
-  [common](./common.md#request_metadata)
+- `pkg/common/proto/request_metadata.proto` → [common](./common.md#request_metadata)
 
 #### Source Code
 
@@ -678,8 +649,7 @@ message DeleteOrganizationRequest {
 
 ### delete_organization_response.proto {#delete_organization_response}
 
-**Path**: `pkg/organization/proto/delete_organization_response.proto`
-**Package**: `gcommon.v1.organization` **Lines**: 19
+**Path**: `pkg/organization/proto/delete_organization_response.proto` **Package**: `gcommon.v1.organization` **Lines**: 19
 
 **Messages** (1): `DeleteOrganizationResponse`
 
@@ -716,16 +686,14 @@ message DeleteOrganizationResponse {
 
 ### delete_team_request.proto {#delete_team_request}
 
-**Path**: `pkg/organization/proto/delete_team_request.proto` **Package**:
-`gcommon.v1.organization` **Lines**: 23
+**Path**: `pkg/organization/proto/delete_team_request.proto` **Package**: `gcommon.v1.organization` **Lines**: 23
 
 **Messages** (1): `DeleteTeamRequest`
 
 **Imports** (2):
 
 - `google/protobuf/go_features.proto`
-- `pkg/common/proto/request_metadata.proto` →
-  [common](./common.md#request_metadata)
+- `pkg/common/proto/request_metadata.proto` → [common](./common.md#request_metadata)
 
 #### Source Code
 
@@ -759,8 +727,7 @@ message DeleteTeamRequest {
 
 ### delete_team_response.proto {#delete_team_response}
 
-**Path**: `pkg/organization/proto/delete_team_response.proto` **Package**:
-`gcommon.v1.organization` **Lines**: 19
+**Path**: `pkg/organization/proto/delete_team_response.proto` **Package**: `gcommon.v1.organization` **Lines**: 19
 
 **Messages** (1): `DeleteTeamResponse`
 
@@ -797,16 +764,14 @@ message DeleteTeamResponse {
 
 ### delete_tenant_request.proto {#delete_tenant_request}
 
-**Path**: `pkg/organization/proto/delete_tenant_request.proto` **Package**:
-`gcommon.v1.organization` **Lines**: 20
+**Path**: `pkg/organization/proto/delete_tenant_request.proto` **Package**: `gcommon.v1.organization` **Lines**: 20
 
 **Messages** (1): `DeleteTenantRequest`
 
 **Imports** (2):
 
 - `google/protobuf/go_features.proto`
-- `pkg/common/proto/request_metadata.proto` →
-  [common](./common.md#request_metadata)
+- `pkg/common/proto/request_metadata.proto` → [common](./common.md#request_metadata)
 
 #### Source Code
 
@@ -837,8 +802,7 @@ message DeleteTenantRequest {
 
 ### delete_tenant_response.proto {#delete_tenant_response}
 
-**Path**: `pkg/organization/proto/delete_tenant_response.proto` **Package**:
-`gcommon.v1.organization` **Lines**: 19
+**Path**: `pkg/organization/proto/delete_tenant_response.proto` **Package**: `gcommon.v1.organization` **Lines**: 19
 
 **Messages** (1): `DeleteTenantResponse`
 
@@ -875,16 +839,14 @@ message DeleteTenantResponse {
 
 ### get_department_request.proto {#get_department_request}
 
-**Path**: `pkg/organization/proto/get_department_request.proto` **Package**:
-`gcommon.v1.organization` **Lines**: 20
+**Path**: `pkg/organization/proto/get_department_request.proto` **Package**: `gcommon.v1.organization` **Lines**: 20
 
 **Messages** (1): `GetDepartmentRequest`
 
 **Imports** (2):
 
 - `google/protobuf/go_features.proto`
-- `pkg/common/proto/request_metadata.proto` →
-  [common](./common.md#request_metadata)
+- `pkg/common/proto/request_metadata.proto` → [common](./common.md#request_metadata)
 
 #### Source Code
 
@@ -915,8 +877,7 @@ message GetDepartmentRequest {
 
 ### get_department_response.proto {#get_department_response}
 
-**Path**: `pkg/organization/proto/get_department_response.proto` **Package**:
-`gcommon.v1.organization` **Lines**: 23
+**Path**: `pkg/organization/proto/get_department_response.proto` **Package**: `gcommon.v1.organization` **Lines**: 23
 
 **Messages** (1): `GetDepartmentResponse`
 
@@ -924,8 +885,7 @@ message GetDepartmentRequest {
 
 - `google/protobuf/go_features.proto`
 - `pkg/common/proto/error.proto` → [common](./common.md#error)
-- `pkg/organization/proto/department.proto` →
-  [organization](./organization.md#department)
+- `pkg/organization/proto/department.proto` → [organization](./organization.md#department)
 
 #### Source Code
 
@@ -959,16 +919,14 @@ message GetDepartmentResponse {
 
 ### get_hierarchy_request.proto {#get_hierarchy_request}
 
-**Path**: `pkg/organization/proto/get_hierarchy_request.proto` **Package**:
-`gcommon.v1.organization` **Lines**: 23
+**Path**: `pkg/organization/proto/get_hierarchy_request.proto` **Package**: `gcommon.v1.organization` **Lines**: 23
 
 **Messages** (1): `GetHierarchyRequest`
 
 **Imports** (2):
 
 - `google/protobuf/go_features.proto`
-- `pkg/common/proto/request_metadata.proto` →
-  [common](./common.md#request_metadata)
+- `pkg/common/proto/request_metadata.proto` → [common](./common.md#request_metadata)
 
 #### Source Code
 
@@ -1002,8 +960,7 @@ message GetHierarchyRequest {
 
 ### get_hierarchy_response.proto {#get_hierarchy_response}
 
-**Path**: `pkg/organization/proto/get_hierarchy_response.proto` **Package**:
-`gcommon.v1.organization` **Lines**: 23
+**Path**: `pkg/organization/proto/get_hierarchy_response.proto` **Package**: `gcommon.v1.organization` **Lines**: 23
 
 **Messages** (1): `GetHierarchyResponse`
 
@@ -1011,8 +968,7 @@ message GetHierarchyRequest {
 
 - `google/protobuf/go_features.proto`
 - `pkg/common/proto/error.proto` → [common](./common.md#error)
-- `pkg/organization/proto/organization_hierarchy.proto` →
-  [organization](./organization.md#organization_hierarchy)
+- `pkg/organization/proto/organization_hierarchy.proto` → [organization](./organization.md#organization_hierarchy)
 
 #### Source Code
 
@@ -1046,16 +1002,14 @@ message GetHierarchyResponse {
 
 ### get_organization_request.proto {#get_organization_request}
 
-**Path**: `pkg/organization/proto/get_organization_request.proto` **Package**:
-`gcommon.v1.organization` **Lines**: 29
+**Path**: `pkg/organization/proto/get_organization_request.proto` **Package**: `gcommon.v1.organization` **Lines**: 29
 
 **Messages** (1): `GetOrganizationRequest`
 
 **Imports** (2):
 
 - `google/protobuf/go_features.proto`
-- `pkg/common/proto/request_metadata.proto` →
-  [common](./common.md#request_metadata)
+- `pkg/common/proto/request_metadata.proto` → [common](./common.md#request_metadata)
 
 #### Source Code
 
@@ -1095,8 +1049,7 @@ message GetOrganizationRequest {
 
 ### get_organization_response.proto {#get_organization_response}
 
-**Path**: `pkg/organization/proto/get_organization_response.proto` **Package**:
-`gcommon.v1.organization` **Lines**: 40
+**Path**: `pkg/organization/proto/get_organization_response.proto` **Package**: `gcommon.v1.organization` **Lines**: 40
 
 **Messages** (1): `GetOrganizationResponse`
 
@@ -1104,12 +1057,9 @@ message GetOrganizationRequest {
 
 - `google/protobuf/go_features.proto`
 - `pkg/common/proto/error.proto` → [common](./common.md#error)
-- `pkg/organization/proto/organization.proto` →
-  [organization](./organization.md#organization)
-- `pkg/organization/proto/organization_settings.proto` →
-  [organization_config](./organization_config.md#organization_settings)
-- `pkg/organization/proto/tenant.proto` →
-  [organization](./organization.md#tenant)
+- `pkg/organization/proto/organization.proto` → [organization](./organization.md#organization)
+- `pkg/organization/proto/organization_settings.proto` → [organization_config](./organization_config.md#organization_settings)
+- `pkg/organization/proto/tenant.proto` → [organization](./organization.md#tenant)
 
 #### Source Code
 
@@ -1160,16 +1110,14 @@ message GetOrganizationResponse {
 
 ### get_team_request.proto {#get_team_request}
 
-**Path**: `pkg/organization/proto/get_team_request.proto` **Package**:
-`gcommon.v1.organization` **Lines**: 20
+**Path**: `pkg/organization/proto/get_team_request.proto` **Package**: `gcommon.v1.organization` **Lines**: 20
 
 **Messages** (1): `GetTeamRequest`
 
 **Imports** (2):
 
 - `google/protobuf/go_features.proto`
-- `pkg/common/proto/request_metadata.proto` →
-  [common](./common.md#request_metadata)
+- `pkg/common/proto/request_metadata.proto` → [common](./common.md#request_metadata)
 
 #### Source Code
 
@@ -1200,8 +1148,7 @@ message GetTeamRequest {
 
 ### get_team_response.proto {#get_team_response}
 
-**Path**: `pkg/organization/proto/get_team_response.proto` **Package**:
-`gcommon.v1.organization` **Lines**: 23
+**Path**: `pkg/organization/proto/get_team_response.proto` **Package**: `gcommon.v1.organization` **Lines**: 23
 
 **Messages** (1): `GetTeamResponse`
 
@@ -1243,16 +1190,14 @@ message GetTeamResponse {
 
 ### get_tenant_isolation_request.proto {#get_tenant_isolation_request}
 
-**Path**: `pkg/organization/proto/get_tenant_isolation_request.proto`
-**Package**: `gcommon.v1.organization` **Lines**: 20
+**Path**: `pkg/organization/proto/get_tenant_isolation_request.proto` **Package**: `gcommon.v1.organization` **Lines**: 20
 
 **Messages** (1): `GetTenantIsolationRequest`
 
 **Imports** (2):
 
 - `google/protobuf/go_features.proto`
-- `pkg/common/proto/request_metadata.proto` →
-  [common](./common.md#request_metadata)
+- `pkg/common/proto/request_metadata.proto` → [common](./common.md#request_metadata)
 
 #### Source Code
 
@@ -1283,8 +1228,7 @@ message GetTenantIsolationRequest {
 
 ### get_tenant_isolation_response.proto {#get_tenant_isolation_response}
 
-**Path**: `pkg/organization/proto/get_tenant_isolation_response.proto`
-**Package**: `gcommon.v1.organization` **Lines**: 23
+**Path**: `pkg/organization/proto/get_tenant_isolation_response.proto` **Package**: `gcommon.v1.organization` **Lines**: 23
 
 **Messages** (1): `GetTenantIsolationResponse`
 
@@ -1292,8 +1236,7 @@ message GetTenantIsolationRequest {
 
 - `google/protobuf/go_features.proto`
 - `pkg/common/proto/error.proto` → [common](./common.md#error)
-- `pkg/organization/proto/tenant_isolation.proto` →
-  [organization](./organization.md#tenant_isolation)
+- `pkg/organization/proto/tenant_isolation.proto` → [organization](./organization.md#tenant_isolation)
 
 #### Source Code
 
@@ -1327,16 +1270,14 @@ message GetTenantIsolationResponse {
 
 ### get_tenant_request.proto {#get_tenant_request}
 
-**Path**: `pkg/organization/proto/get_tenant_request.proto` **Package**:
-`gcommon.v1.organization` **Lines**: 20
+**Path**: `pkg/organization/proto/get_tenant_request.proto` **Package**: `gcommon.v1.organization` **Lines**: 20
 
 **Messages** (1): `GetTenantRequest`
 
 **Imports** (2):
 
 - `google/protobuf/go_features.proto`
-- `pkg/common/proto/request_metadata.proto` →
-  [common](./common.md#request_metadata)
+- `pkg/common/proto/request_metadata.proto` → [common](./common.md#request_metadata)
 
 #### Source Code
 
@@ -1367,8 +1308,7 @@ message GetTenantRequest {
 
 ### get_tenant_response.proto {#get_tenant_response}
 
-**Path**: `pkg/organization/proto/get_tenant_response.proto` **Package**:
-`gcommon.v1.organization` **Lines**: 23
+**Path**: `pkg/organization/proto/get_tenant_response.proto` **Package**: `gcommon.v1.organization` **Lines**: 23
 
 **Messages** (1): `GetTenantResponse`
 
@@ -1376,8 +1316,7 @@ message GetTenantRequest {
 
 - `google/protobuf/go_features.proto`
 - `pkg/common/proto/error.proto` → [common](./common.md#error)
-- `pkg/organization/proto/tenant.proto` →
-  [organization](./organization.md#tenant)
+- `pkg/organization/proto/tenant.proto` → [organization](./organization.md#tenant)
 
 #### Source Code
 
@@ -1411,16 +1350,14 @@ message GetTenantResponse {
 
 ### get_tenant_usage_request.proto {#get_tenant_usage_request}
 
-**Path**: `pkg/organization/proto/get_tenant_usage_request.proto` **Package**:
-`gcommon.v1.organization` **Lines**: 20
+**Path**: `pkg/organization/proto/get_tenant_usage_request.proto` **Package**: `gcommon.v1.organization` **Lines**: 20
 
 **Messages** (1): `GetTenantUsageRequest`
 
 **Imports** (2):
 
 - `google/protobuf/go_features.proto`
-- `pkg/common/proto/request_metadata.proto` →
-  [common](./common.md#request_metadata)
+- `pkg/common/proto/request_metadata.proto` → [common](./common.md#request_metadata)
 
 #### Source Code
 
@@ -1451,8 +1388,7 @@ message GetTenantUsageRequest {
 
 ### get_tenant_usage_response.proto {#get_tenant_usage_response}
 
-**Path**: `pkg/organization/proto/get_tenant_usage_response.proto` **Package**:
-`gcommon.v1.organization` **Lines**: 23
+**Path**: `pkg/organization/proto/get_tenant_usage_response.proto` **Package**: `gcommon.v1.organization` **Lines**: 23
 
 **Messages** (1): `GetTenantUsageResponse`
 
@@ -1494,16 +1430,14 @@ message GetTenantUsageResponse {
 
 ### list_departments_request.proto {#list_departments_request}
 
-**Path**: `pkg/organization/proto/list_departments_request.proto` **Package**:
-`gcommon.v1.organization` **Lines**: 29
+**Path**: `pkg/organization/proto/list_departments_request.proto` **Package**: `gcommon.v1.organization` **Lines**: 29
 
 **Messages** (1): `ListDepartmentsRequest`
 
 **Imports** (2):
 
 - `google/protobuf/go_features.proto`
-- `pkg/common/proto/request_metadata.proto` →
-  [common](./common.md#request_metadata)
+- `pkg/common/proto/request_metadata.proto` → [common](./common.md#request_metadata)
 
 #### Source Code
 
@@ -1543,8 +1477,7 @@ message ListDepartmentsRequest {
 
 ### list_departments_response.proto {#list_departments_response}
 
-**Path**: `pkg/organization/proto/list_departments_response.proto` **Package**:
-`gcommon.v1.organization` **Lines**: 27
+**Path**: `pkg/organization/proto/list_departments_response.proto` **Package**: `gcommon.v1.organization` **Lines**: 27
 
 **Messages** (1): `ListDepartmentsResponse`
 
@@ -1552,10 +1485,8 @@ message ListDepartmentsRequest {
 
 - `google/protobuf/go_features.proto`
 - `pkg/common/proto/error.proto` → [common](./common.md#error)
-- `pkg/common/proto/paginated_response.proto` →
-  [common](./common.md#paginated_response)
-- `pkg/organization/proto/department.proto` →
-  [organization](./organization.md#department)
+- `pkg/common/proto/paginated_response.proto` → [common](./common.md#paginated_response)
+- `pkg/organization/proto/department.proto` → [organization](./organization.md#department)
 
 #### Source Code
 
@@ -1593,16 +1524,14 @@ message ListDepartmentsResponse {
 
 ### list_members_request.proto {#list_members_request}
 
-**Path**: `pkg/organization/proto/list_members_request.proto` **Package**:
-`gcommon.v1.organization` **Lines**: 35
+**Path**: `pkg/organization/proto/list_members_request.proto` **Package**: `gcommon.v1.organization` **Lines**: 35
 
 **Messages** (1): `ListMembersRequest`
 
 **Imports** (2):
 
 - `google/protobuf/go_features.proto`
-- `pkg/common/proto/request_metadata.proto` →
-  [common](./common.md#request_metadata)
+- `pkg/common/proto/request_metadata.proto` → [common](./common.md#request_metadata)
 
 #### Source Code
 
@@ -1648,8 +1577,7 @@ message ListMembersRequest {
 
 ### list_members_response.proto {#list_members_response}
 
-**Path**: `pkg/organization/proto/list_members_response.proto` **Package**:
-`gcommon.v1.organization` **Lines**: 27
+**Path**: `pkg/organization/proto/list_members_response.proto` **Package**: `gcommon.v1.organization` **Lines**: 27
 
 **Messages** (1): `ListMembersResponse`
 
@@ -1657,10 +1585,8 @@ message ListMembersRequest {
 
 - `google/protobuf/go_features.proto`
 - `pkg/common/proto/error.proto` → [common](./common.md#error)
-- `pkg/common/proto/paginated_response.proto` →
-  [common](./common.md#paginated_response)
-- `pkg/organization/proto/organization_member.proto` →
-  [organization](./organization.md#organization_member)
+- `pkg/common/proto/paginated_response.proto` → [common](./common.md#paginated_response)
+- `pkg/organization/proto/organization_member.proto` → [organization](./organization.md#organization_member)
 
 #### Source Code
 
@@ -1698,16 +1624,14 @@ message ListMembersResponse {
 
 ### list_organizations_request.proto {#list_organizations_request}
 
-**Path**: `pkg/organization/proto/list_organizations_request.proto` **Package**:
-`gcommon.v1.organization` **Lines**: 26
+**Path**: `pkg/organization/proto/list_organizations_request.proto` **Package**: `gcommon.v1.organization` **Lines**: 26
 
 **Messages** (1): `ListOrganizationsRequest`
 
 **Imports** (2):
 
 - `google/protobuf/go_features.proto`
-- `pkg/common/proto/request_metadata.proto` →
-  [common](./common.md#request_metadata)
+- `pkg/common/proto/request_metadata.proto` → [common](./common.md#request_metadata)
 
 #### Source Code
 
@@ -1744,8 +1668,7 @@ message ListOrganizationsRequest {
 
 ### list_organizations_response.proto {#list_organizations_response}
 
-**Path**: `pkg/organization/proto/list_organizations_response.proto`
-**Package**: `gcommon.v1.organization` **Lines**: 27
+**Path**: `pkg/organization/proto/list_organizations_response.proto` **Package**: `gcommon.v1.organization` **Lines**: 27
 
 **Messages** (1): `ListOrganizationsResponse`
 
@@ -1753,10 +1676,8 @@ message ListOrganizationsRequest {
 
 - `google/protobuf/go_features.proto`
 - `pkg/common/proto/error.proto` → [common](./common.md#error)
-- `pkg/common/proto/paginated_response.proto` →
-  [common](./common.md#paginated_response)
-- `pkg/organization/proto/organization.proto` →
-  [organization](./organization.md#organization)
+- `pkg/common/proto/paginated_response.proto` → [common](./common.md#paginated_response)
+- `pkg/organization/proto/organization.proto` → [organization](./organization.md#organization)
 
 #### Source Code
 
@@ -1794,16 +1715,14 @@ message ListOrganizationsResponse {
 
 ### list_teams_request.proto {#list_teams_request}
 
-**Path**: `pkg/organization/proto/list_teams_request.proto` **Package**:
-`gcommon.v1.organization` **Lines**: 32
+**Path**: `pkg/organization/proto/list_teams_request.proto` **Package**: `gcommon.v1.organization` **Lines**: 32
 
 **Messages** (1): `ListTeamsRequest`
 
 **Imports** (2):
 
 - `google/protobuf/go_features.proto`
-- `pkg/common/proto/request_metadata.proto` →
-  [common](./common.md#request_metadata)
+- `pkg/common/proto/request_metadata.proto` → [common](./common.md#request_metadata)
 
 #### Source Code
 
@@ -1846,8 +1765,7 @@ message ListTeamsRequest {
 
 ### list_teams_response.proto {#list_teams_response}
 
-**Path**: `pkg/organization/proto/list_teams_response.proto` **Package**:
-`gcommon.v1.organization` **Lines**: 27
+**Path**: `pkg/organization/proto/list_teams_response.proto` **Package**: `gcommon.v1.organization` **Lines**: 27
 
 **Messages** (1): `ListTeamsResponse`
 
@@ -1855,8 +1773,7 @@ message ListTeamsRequest {
 
 - `google/protobuf/go_features.proto`
 - `pkg/common/proto/error.proto` → [common](./common.md#error)
-- `pkg/common/proto/paginated_response.proto` →
-  [common](./common.md#paginated_response)
+- `pkg/common/proto/paginated_response.proto` → [common](./common.md#paginated_response)
 - `pkg/organization/proto/team.proto` → [organization](./organization.md#team)
 
 #### Source Code
@@ -1895,16 +1812,14 @@ message ListTeamsResponse {
 
 ### list_tenants_request.proto {#list_tenants_request}
 
-**Path**: `pkg/organization/proto/list_tenants_request.proto` **Package**:
-`gcommon.v1.organization` **Lines**: 29
+**Path**: `pkg/organization/proto/list_tenants_request.proto` **Package**: `gcommon.v1.organization` **Lines**: 29
 
 **Messages** (1): `ListTenantsRequest`
 
 **Imports** (2):
 
 - `google/protobuf/go_features.proto`
-- `pkg/common/proto/request_metadata.proto` →
-  [common](./common.md#request_metadata)
+- `pkg/common/proto/request_metadata.proto` → [common](./common.md#request_metadata)
 
 #### Source Code
 
@@ -1944,8 +1859,7 @@ message ListTenantsRequest {
 
 ### list_tenants_response.proto {#list_tenants_response}
 
-**Path**: `pkg/organization/proto/list_tenants_response.proto` **Package**:
-`gcommon.v1.organization` **Lines**: 27
+**Path**: `pkg/organization/proto/list_tenants_response.proto` **Package**: `gcommon.v1.organization` **Lines**: 27
 
 **Messages** (1): `ListTenantsResponse`
 
@@ -1953,10 +1867,8 @@ message ListTenantsRequest {
 
 - `google/protobuf/go_features.proto`
 - `pkg/common/proto/error.proto` → [common](./common.md#error)
-- `pkg/common/proto/paginated_response.proto` →
-  [common](./common.md#paginated_response)
-- `pkg/organization/proto/tenant.proto` →
-  [organization](./organization.md#tenant)
+- `pkg/common/proto/paginated_response.proto` → [common](./common.md#paginated_response)
+- `pkg/organization/proto/tenant.proto` → [organization](./organization.md#tenant)
 
 #### Source Code
 
@@ -1994,16 +1906,14 @@ message ListTenantsResponse {
 
 ### remove_member_request.proto {#remove_member_request}
 
-**Path**: `pkg/organization/proto/remove_member_request.proto` **Package**:
-`gcommon.v1.organization` **Lines**: 23
+**Path**: `pkg/organization/proto/remove_member_request.proto` **Package**: `gcommon.v1.organization` **Lines**: 23
 
 **Messages** (1): `RemoveMemberRequest`
 
 **Imports** (2):
 
 - `google/protobuf/go_features.proto`
-- `pkg/common/proto/request_metadata.proto` →
-  [common](./common.md#request_metadata)
+- `pkg/common/proto/request_metadata.proto` → [common](./common.md#request_metadata)
 
 #### Source Code
 
@@ -2037,8 +1947,7 @@ message RemoveMemberRequest {
 
 ### remove_member_response.proto {#remove_member_response}
 
-**Path**: `pkg/organization/proto/remove_member_response.proto` **Package**:
-`gcommon.v1.organization` **Lines**: 19
+**Path**: `pkg/organization/proto/remove_member_response.proto` **Package**: `gcommon.v1.organization` **Lines**: 19
 
 **Messages** (1): `RemoveMemberResponse`
 
@@ -2075,8 +1984,7 @@ message RemoveMemberResponse {
 
 ### update_department_request.proto {#update_department_request}
 
-**Path**: `pkg/organization/proto/update_department_request.proto` **Package**:
-`gcommon.v1.organization` **Lines**: 31
+**Path**: `pkg/organization/proto/update_department_request.proto` **Package**: `gcommon.v1.organization` **Lines**: 31
 
 **Messages** (1): `UpdateDepartmentRequest`
 
@@ -2084,10 +1992,8 @@ message RemoveMemberResponse {
 
 - `google/protobuf/field_mask.proto`
 - `google/protobuf/go_features.proto`
-- `pkg/common/proto/request_metadata.proto` →
-  [common](./common.md#request_metadata)
-- `pkg/organization/proto/department.proto` →
-  [organization](./organization.md#department)
+- `pkg/common/proto/request_metadata.proto` → [common](./common.md#request_metadata)
+- `pkg/organization/proto/department.proto` → [organization](./organization.md#department)
 
 #### Source Code
 
@@ -2129,8 +2035,7 @@ message UpdateDepartmentRequest {
 
 ### update_department_response.proto {#update_department_response}
 
-**Path**: `pkg/organization/proto/update_department_response.proto` **Package**:
-`gcommon.v1.organization` **Lines**: 23
+**Path**: `pkg/organization/proto/update_department_response.proto` **Package**: `gcommon.v1.organization` **Lines**: 23
 
 **Messages** (1): `UpdateDepartmentResponse`
 
@@ -2138,8 +2043,7 @@ message UpdateDepartmentRequest {
 
 - `google/protobuf/go_features.proto`
 - `pkg/common/proto/error.proto` → [common](./common.md#error)
-- `pkg/organization/proto/department.proto` →
-  [organization](./organization.md#department)
+- `pkg/organization/proto/department.proto` → [organization](./organization.md#department)
 
 #### Source Code
 
@@ -2173,8 +2077,7 @@ message UpdateDepartmentResponse {
 
 ### update_hierarchy_request.proto {#update_hierarchy_request}
 
-**Path**: `pkg/organization/proto/update_hierarchy_request.proto` **Package**:
-`gcommon.v1.organization` **Lines**: 31
+**Path**: `pkg/organization/proto/update_hierarchy_request.proto` **Package**: `gcommon.v1.organization` **Lines**: 31
 
 **Messages** (1): `UpdateHierarchyRequest`
 
@@ -2182,10 +2085,8 @@ message UpdateDepartmentResponse {
 
 - `google/protobuf/field_mask.proto`
 - `google/protobuf/go_features.proto`
-- `pkg/common/proto/request_metadata.proto` →
-  [common](./common.md#request_metadata)
-- `pkg/organization/proto/organization_hierarchy.proto` →
-  [organization](./organization.md#organization_hierarchy)
+- `pkg/common/proto/request_metadata.proto` → [common](./common.md#request_metadata)
+- `pkg/organization/proto/organization_hierarchy.proto` → [organization](./organization.md#organization_hierarchy)
 
 #### Source Code
 
@@ -2227,8 +2128,7 @@ message UpdateHierarchyRequest {
 
 ### update_hierarchy_response.proto {#update_hierarchy_response}
 
-**Path**: `pkg/organization/proto/update_hierarchy_response.proto` **Package**:
-`gcommon.v1.organization` **Lines**: 23
+**Path**: `pkg/organization/proto/update_hierarchy_response.proto` **Package**: `gcommon.v1.organization` **Lines**: 23
 
 **Messages** (1): `UpdateHierarchyResponse`
 
@@ -2236,8 +2136,7 @@ message UpdateHierarchyRequest {
 
 - `google/protobuf/go_features.proto`
 - `pkg/common/proto/error.proto` → [common](./common.md#error)
-- `pkg/organization/proto/organization_hierarchy.proto` →
-  [organization](./organization.md#organization_hierarchy)
+- `pkg/organization/proto/organization_hierarchy.proto` → [organization](./organization.md#organization_hierarchy)
 
 #### Source Code
 
@@ -2271,8 +2170,7 @@ message UpdateHierarchyResponse {
 
 ### update_member_request.proto {#update_member_request}
 
-**Path**: `pkg/organization/proto/update_member_request.proto` **Package**:
-`gcommon.v1.organization` **Lines**: 28
+**Path**: `pkg/organization/proto/update_member_request.proto` **Package**: `gcommon.v1.organization` **Lines**: 28
 
 **Messages** (1): `UpdateMemberRequest`
 
@@ -2280,10 +2178,8 @@ message UpdateHierarchyResponse {
 
 - `google/protobuf/field_mask.proto`
 - `google/protobuf/go_features.proto`
-- `pkg/common/proto/request_metadata.proto` →
-  [common](./common.md#request_metadata)
-- `pkg/organization/proto/organization_member.proto` →
-  [organization](./organization.md#organization_member)
+- `pkg/common/proto/request_metadata.proto` → [common](./common.md#request_metadata)
+- `pkg/organization/proto/organization_member.proto` → [organization](./organization.md#organization_member)
 
 #### Source Code
 
@@ -2322,8 +2218,7 @@ message UpdateMemberRequest {
 
 ### update_member_response.proto {#update_member_response}
 
-**Path**: `pkg/organization/proto/update_member_response.proto` **Package**:
-`gcommon.v1.organization` **Lines**: 23
+**Path**: `pkg/organization/proto/update_member_response.proto` **Package**: `gcommon.v1.organization` **Lines**: 23
 
 **Messages** (1): `UpdateMemberResponse`
 
@@ -2331,8 +2226,7 @@ message UpdateMemberRequest {
 
 - `google/protobuf/go_features.proto`
 - `pkg/common/proto/error.proto` → [common](./common.md#error)
-- `pkg/organization/proto/organization_member.proto` →
-  [organization](./organization.md#organization_member)
+- `pkg/organization/proto/organization_member.proto` → [organization](./organization.md#organization_member)
 
 #### Source Code
 

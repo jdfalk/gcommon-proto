@@ -87,8 +87,7 @@
 
 ### audit_settings.proto {#audit_settings}
 
-**Path**: `pkg/config/proto/audit_settings.proto` **Package**:
-`gcommon.v1.config` **Lines**: 38
+**Path**: `pkg/config/proto/audit_settings.proto` **Package**: `gcommon.v1.config` **Lines**: 38
 
 **Messages** (1): `AuditSettings`
 
@@ -96,8 +95,7 @@
 
 - `google/protobuf/go_features.proto`
 - `google/protobuf/timestamp.proto`
-- `pkg/config/proto/audit_level.proto` →
-  [config_events](./config_events.md#audit_level)
+- `pkg/config/proto/audit_level.proto` → [config_events](./config_events.md#audit_level)
 
 #### Source Code
 
@@ -146,16 +144,14 @@ message AuditSettings {
 
 ### backup_config_request.proto {#backup_config_request}
 
-**Path**: `pkg/config/proto/backup_config_request.proto` **Package**:
-`gcommon.v1.config` **Lines**: 33
+**Path**: `pkg/config/proto/backup_config_request.proto` **Package**: `gcommon.v1.config` **Lines**: 33
 
 **Messages** (1): `BackupConfigRequest`
 
 **Imports** (2):
 
 - `google/protobuf/go_features.proto`
-- `pkg/common/proto/request_metadata.proto` →
-  [common](./common.md#request_metadata)
+- `pkg/common/proto/request_metadata.proto` → [common](./common.md#request_metadata)
 
 #### Source Code
 
@@ -199,8 +195,7 @@ message BackupConfigRequest {
 
 ### backup_settings.proto {#backup_settings}
 
-**Path**: `pkg/config/proto/backup_settings.proto` **Package**:
-`gcommon.v1.config` **Lines**: 38
+**Path**: `pkg/config/proto/backup_settings.proto` **Package**: `gcommon.v1.config` **Lines**: 38
 
 **Messages** (1): `BackupSettings`
 
@@ -208,8 +203,7 @@ message BackupConfigRequest {
 
 - `google/protobuf/go_features.proto`
 - `google/protobuf/timestamp.proto`
-- `pkg/config/proto/backup_frequency.proto` →
-  [config_1](./config_1.md#backup_frequency)
+- `pkg/config/proto/backup_frequency.proto` → [config_1](./config_1.md#backup_frequency)
 
 #### Source Code
 
@@ -258,8 +252,7 @@ message BackupSettings {
 
 ### batching_settings.proto {#batching_settings}
 
-**Path**: `pkg/config/proto/batching_settings.proto` **Package**:
-`gcommon.v1.config` **Lines**: 35
+**Path**: `pkg/config/proto/batching_settings.proto` **Package**: `gcommon.v1.config` **Lines**: 35
 
 **Messages** (1): `BatchingSettings`
 
@@ -267,18 +260,13 @@ message BackupSettings {
 
 - `google/protobuf/go_features.proto`
 - `google/protobuf/timestamp.proto`
-- `pkg/config/proto/audit_level.proto` →
-  [config_events](./config_events.md#audit_level)
-- `pkg/config/proto/backup_frequency.proto` →
-  [config_1](./config_1.md#backup_frequency)
+- `pkg/config/proto/audit_level.proto` → [config_events](./config_events.md#audit_level)
+- `pkg/config/proto/backup_frequency.proto` → [config_1](./config_1.md#backup_frequency)
 - `pkg/config/proto/channel_type.proto` → [config_1](./config_1.md#channel_type)
 - `pkg/config/proto/config_data_type.proto`
-- `pkg/config/proto/deprecation_level.proto` →
-  [config_1](./config_1.md#deprecation_level)
-- `pkg/config/proto/metadata_status.proto` →
-  [config_1](./config_1.md#metadata_status)
-- `pkg/config/proto/notification_trigger.proto` →
-  [config_1](./config_1.md#notification_trigger)
+- `pkg/config/proto/deprecation_level.proto` → [config_1](./config_1.md#deprecation_level)
+- `pkg/config/proto/metadata_status.proto` → [config_1](./config_1.md#metadata_status)
+- `pkg/config/proto/notification_trigger.proto` → [config_1](./config_1.md#notification_trigger)
 
 #### Source Code
 
@@ -324,8 +312,7 @@ message BatchingSettings {
 
 ### caching_settings.proto {#caching_settings}
 
-**Path**: `pkg/config/proto/caching_settings.proto` **Package**:
-`gcommon.v1.config` **Lines**: 34
+**Path**: `pkg/config/proto/caching_settings.proto` **Package**: `gcommon.v1.config` **Lines**: 34
 
 **Messages** (1): `CachingSettings`
 
@@ -334,10 +321,8 @@ message BatchingSettings {
 - `google/protobuf/any.proto`
 - `google/protobuf/go_features.proto`
 - `google/protobuf/timestamp.proto`
-- `pkg/config/proto/cache_invalidation_trigger.proto` →
-  [config_1](./config_1.md#cache_invalidation_trigger)
-- `pkg/config/proto/cache_refresh_strategy.proto` →
-  [config_1](./config_1.md#cache_refresh_strategy)
+- `pkg/config/proto/cache_invalidation_trigger.proto` → [config_1](./config_1.md#cache_invalidation_trigger)
+- `pkg/config/proto/cache_refresh_strategy.proto` → [config_1](./config_1.md#cache_refresh_strategy)
 
 #### Source Code
 
@@ -382,8 +367,7 @@ message CachingSettings {
 
 ### compliance_settings.proto {#compliance_settings}
 
-**Path**: `pkg/config/proto/compliance_settings.proto` **Package**:
-`gcommon.v1.config` **Lines**: 36
+**Path**: `pkg/config/proto/compliance_settings.proto` **Package**: `gcommon.v1.config` **Lines**: 36
 
 **Messages** (1): `ComplianceSettings`
 
@@ -391,10 +375,8 @@ message CachingSettings {
 
 - `google/protobuf/go_features.proto`
 - `google/protobuf/timestamp.proto`
-- `pkg/config/proto/compliance_audit.proto` →
-  [config_events](./config_events.md#compliance_audit)
-- `pkg/config/proto/compliance_reporting.proto` →
-  [config_1](./config_1.md#compliance_reporting)
+- `pkg/config/proto/compliance_audit.proto` → [config_events](./config_events.md#compliance_audit)
+- `pkg/config/proto/compliance_reporting.proto` → [config_1](./config_1.md#compliance_reporting)
 
 #### Source Code
 
@@ -441,8 +423,7 @@ message ComplianceSettings {
 
 ### config_backup.proto {#config_backup}
 
-**Path**: `pkg/config/proto/config_backup.proto` **Package**:
-`gcommon.v1.config` **Lines**: 63
+**Path**: `pkg/config/proto/config_backup.proto` **Package**: `gcommon.v1.config` **Lines**: 63
 
 **Messages** (1): `ConfigBackup`
 
@@ -524,8 +505,7 @@ message ConfigBackup {
 
 ### config_change.proto {#config_change}
 
-**Path**: `pkg/config/proto/config_change.proto` **Package**:
-`gcommon.v1.config` **Lines**: 51
+**Path**: `pkg/config/proto/config_change.proto` **Package**: `gcommon.v1.config` **Lines**: 51
 
 **Messages** (1): `ConfigChange`
 
@@ -595,8 +575,7 @@ message ConfigChange {
 
 ### config_change_type.proto {#config_change_type}
 
-**Path**: `pkg/config/proto/config_change_type.proto` **Package**:
-`gcommon.v1.config` **Lines**: 20
+**Path**: `pkg/config/proto/config_change_type.proto` **Package**: `gcommon.v1.config` **Lines**: 20
 
 **Enums** (1): `ConfigChangeType`
 
@@ -633,8 +612,7 @@ enum ConfigChangeType {
 
 ### config_data_type.proto {#config_data_type}
 
-**Path**: `pkg/config/proto/config_data_type.proto` **Package**:
-`gcommon.v1.config` **Lines**: 42
+**Path**: `pkg/config/proto/config_data_type.proto` **Package**: `gcommon.v1.config` **Lines**: 42
 
 **Enums** (1): `ConfigDataType`
 
@@ -693,8 +671,7 @@ enum ConfigDataType {
 
 ### config_diff.proto {#config_diff}
 
-**Path**: `pkg/config/proto/config_diff.proto` **Package**: `gcommon.v1.config`
-**Lines**: 68
+**Path**: `pkg/config/proto/config_diff.proto` **Package**: `gcommon.v1.config` **Lines**: 68
 
 **Messages** (2): `ConfigDiff`, `ConfigDiffEntry`
 
@@ -781,8 +758,7 @@ message ConfigDiffEntry {
 
 ### config_entry.proto {#config_entry}
 
-**Path**: `pkg/config/proto/config_entry.proto` **Package**: `gcommon.v1.config`
-**Lines**: 45
+**Path**: `pkg/config/proto/config_entry.proto` **Package**: `gcommon.v1.config` **Lines**: 45
 
 **Messages** (1): `ConfigEntry`
 
@@ -791,8 +767,7 @@ message ConfigDiffEntry {
 - `google/protobuf/go_features.proto`
 - `google/protobuf/timestamp.proto`
 - `pkg/common/proto/config_value.proto` → [common](./common.md#config_value)
-- `pkg/common/proto/resource_status.proto` →
-  [common](./common.md#resource_status)
+- `pkg/common/proto/resource_status.proto` → [common](./common.md#resource_status)
 
 #### Source Code
 
@@ -848,30 +823,22 @@ message ConfigEntry {
 
 ### config_environment.proto {#config_environment}
 
-**Path**: `pkg/config/proto/config_environment.proto` **Package**:
-`gcommon.v1.config` **Lines**: 440
+**Path**: `pkg/config/proto/config_environment.proto` **Package**: `gcommon.v1.config` **Lines**: 440
 
-**Messages** (15): `ConfigEnvironment`, `PromotionRule`, `DeploymentInfo`,
-`HealthCheck`, `DeploymentRollbackInfo`, `HealthStatus`, `HealthCheckResult`,
-`ResourceLimits`, `BackupPolicy`, `ApprovalWorkflow`, `ApprovalStage`,
+**Messages** (15): `ConfigEnvironment`, `PromotionRule`, `DeploymentInfo`, `HealthCheck`, `DeploymentRollbackInfo`, `HealthStatus`, `HealthCheckResult`, `ResourceLimits`, `BackupPolicy`, `ApprovalWorkflow`, `ApprovalStage`,
 `MonitoringConfig`, `RetentionPolicy`, `EncryptionSettings`, `SyncSettings`
 
 **Imports** (11):
 
 - `google/protobuf/go_features.proto`
 - `google/protobuf/timestamp.proto`
-- `pkg/config/proto/access_control.proto` →
-  [config_1](./config_1.md#access_control)
+- `pkg/config/proto/access_control.proto` → [config_1](./config_1.md#access_control)
 - `pkg/config/proto/audit_settings.proto`
 - `pkg/config/proto/compliance_settings.proto`
-- `pkg/config/proto/deployment_status.proto` →
-  [config_1](./config_1.md#deployment_status)
-- `pkg/config/proto/environment_status.proto` →
-  [config_1](./config_1.md#environment_status)
-- `pkg/config/proto/environment_type.proto` →
-  [config_1](./config_1.md#environment_type)
-- `pkg/config/proto/health_check_type.proto` →
-  [config_1](./config_1.md#health_check_type)
+- `pkg/config/proto/deployment_status.proto` → [config_1](./config_1.md#deployment_status)
+- `pkg/config/proto/environment_status.proto` → [config_1](./config_1.md#environment_status)
+- `pkg/config/proto/environment_type.proto` → [config_1](./config_1.md#environment_type)
+- `pkg/config/proto/health_check_type.proto` → [config_1](./config_1.md#health_check_type)
 - `pkg/config/proto/health_state.proto` → [config_1](./config_1.md#health_state)
 - `pkg/config/proto/notification_settings.proto`
 
@@ -1324,8 +1291,7 @@ message SyncSettings {
 
 ### config_schema.proto {#config_schema}
 
-**Path**: `pkg/config/proto/config_schema.proto` **Package**:
-`gcommon.v1.config` **Lines**: 31
+**Path**: `pkg/config/proto/config_schema.proto` **Package**: `gcommon.v1.config` **Lines**: 31
 
 **Messages** (1): `ConfigSchema`
 
@@ -1374,8 +1340,7 @@ message ConfigSchema {
 
 ### config_snapshot.proto {#config_snapshot}
 
-**Path**: `pkg/config/proto/config_snapshot.proto` **Package**:
-`gcommon.v1.config` **Lines**: 48
+**Path**: `pkg/config/proto/config_snapshot.proto` **Package**: `gcommon.v1.config` **Lines**: 48
 
 **Messages** (1): `ConfigSnapshot`
 
@@ -1442,8 +1407,7 @@ message ConfigSnapshot {
 
 ### config_stats.proto {#config_stats}
 
-**Path**: `pkg/config/proto/config_stats.proto` **Package**: `gcommon.v1.config`
-**Lines**: 27
+**Path**: `pkg/config/proto/config_stats.proto` **Package**: `gcommon.v1.config` **Lines**: 27
 
 **Messages** (1): `ConfigStats`
 
@@ -1487,8 +1451,7 @@ message ConfigStats {
 
 ### config_validation_error.proto {#config_validation_error}
 
-**Path**: `pkg/config/proto/config_validation_error.proto` **Package**:
-`gcommon.v1.config` **Lines**: 24
+**Path**: `pkg/config/proto/config_validation_error.proto` **Package**: `gcommon.v1.config` **Lines**: 24
 
 **Messages** (1): `ConfigValidationError`
 
@@ -1529,8 +1492,7 @@ message ConfigValidationError {
 
 ### config_validation_warning.proto {#config_validation_warning}
 
-**Path**: `pkg/config/proto/config_validation_warning.proto` **Package**:
-`gcommon.v1.config` **Lines**: 24
+**Path**: `pkg/config/proto/config_validation_warning.proto` **Package**: `gcommon.v1.config` **Lines**: 24
 
 **Messages** (1): `ConfigValidationWarning`
 
@@ -1571,8 +1533,7 @@ message ConfigValidationWarning {
 
 ### config_watch.proto {#config_watch}
 
-**Path**: `pkg/config/proto/config_watch.proto` **Package**: `gcommon.v1.config`
-**Lines**: 74
+**Path**: `pkg/config/proto/config_watch.proto` **Package**: `gcommon.v1.config` **Lines**: 74
 
 **Messages** (2): `ConfigWatch`, `ConfigWatchEvent`
 
@@ -1665,16 +1626,14 @@ message ConfigWatchEvent {
 
 ### decrypt_config_request.proto {#decrypt_config_request}
 
-**Path**: `pkg/config/proto/decrypt_config_request.proto` **Package**:
-`gcommon.v1.config` **Lines**: 30
+**Path**: `pkg/config/proto/decrypt_config_request.proto` **Package**: `gcommon.v1.config` **Lines**: 30
 
 **Messages** (1): `DecryptConfigRequest`
 
 **Imports** (2):
 
 - `google/protobuf/go_features.proto`
-- `pkg/common/proto/request_metadata.proto` →
-  [common](./common.md#request_metadata)
+- `pkg/common/proto/request_metadata.proto` → [common](./common.md#request_metadata)
 
 #### Source Code
 
@@ -1715,16 +1674,14 @@ message DecryptConfigRequest {
 
 ### delete_config_request.proto {#delete_config_request}
 
-**Path**: `pkg/config/proto/delete_config_request.proto` **Package**:
-`gcommon.v1.config` **Lines**: 27
+**Path**: `pkg/config/proto/delete_config_request.proto` **Package**: `gcommon.v1.config` **Lines**: 27
 
 **Messages** (1): `DeleteConfigRequest`
 
 **Imports** (2):
 
 - `google/protobuf/go_features.proto`
-- `pkg/common/proto/request_metadata.proto` →
-  [common](./common.md#request_metadata)
+- `pkg/common/proto/request_metadata.proto` → [common](./common.md#request_metadata)
 
 #### Source Code
 
@@ -1762,16 +1719,14 @@ message DeleteConfigRequest {
 
 ### encrypt_config_request.proto {#encrypt_config_request}
 
-**Path**: `pkg/config/proto/encrypt_config_request.proto` **Package**:
-`gcommon.v1.config` **Lines**: 30
+**Path**: `pkg/config/proto/encrypt_config_request.proto` **Package**: `gcommon.v1.config` **Lines**: 30
 
 **Messages** (1): `EncryptConfigRequest`
 
 **Imports** (2):
 
 - `google/protobuf/go_features.proto`
-- `pkg/common/proto/request_metadata.proto` →
-  [common](./common.md#request_metadata)
+- `pkg/common/proto/request_metadata.proto` → [common](./common.md#request_metadata)
 
 #### Source Code
 
@@ -1812,16 +1767,14 @@ message EncryptConfigRequest {
 
 ### export_config_request.proto {#export_config_request}
 
-**Path**: `pkg/config/proto/export_config_request.proto` **Package**:
-`gcommon.v1.config` **Lines**: 30
+**Path**: `pkg/config/proto/export_config_request.proto` **Package**: `gcommon.v1.config` **Lines**: 30
 
 **Messages** (1): `ExportConfigRequest`
 
 **Imports** (2):
 
 - `google/protobuf/go_features.proto`
-- `pkg/common/proto/request_metadata.proto` →
-  [common](./common.md#request_metadata)
+- `pkg/common/proto/request_metadata.proto` → [common](./common.md#request_metadata)
 
 #### Source Code
 
@@ -1862,8 +1815,7 @@ message ExportConfigRequest {
 
 ### get_config_history_request.proto {#get_config_history_request}
 
-**Path**: `pkg/config/proto/get_config_history_request.proto` **Package**:
-`gcommon.v1.config` **Lines**: 34
+**Path**: `pkg/config/proto/get_config_history_request.proto` **Package**: `gcommon.v1.config` **Lines**: 34
 
 **Messages** (1): `GetConfigHistoryRequest`
 
@@ -1871,8 +1823,7 @@ message ExportConfigRequest {
 
 - `google/protobuf/go_features.proto`
 - `google/protobuf/timestamp.proto`
-- `pkg/common/proto/request_metadata.proto` →
-  [common](./common.md#request_metadata)
+- `pkg/common/proto/request_metadata.proto` → [common](./common.md#request_metadata)
 
 #### Source Code
 
@@ -1917,16 +1868,14 @@ message GetConfigHistoryRequest {
 
 ### get_config_history_response.proto {#get_config_history_response}
 
-**Path**: `pkg/config/proto/get_config_history_response.proto` **Package**:
-`gcommon.v1.config` **Lines**: 22
+**Path**: `pkg/config/proto/get_config_history_response.proto` **Package**: `gcommon.v1.config` **Lines**: 22
 
 **Messages** (1): `GetConfigHistoryResponse`
 
 **Imports** (2):
 
 - `google/protobuf/go_features.proto`
-- `pkg/config/proto/config_change.proto` →
-  [metrics_config](./metrics_config.md#config_change)
+- `pkg/config/proto/config_change.proto` → [metrics_config](./metrics_config.md#config_change)
 
 #### Source Code
 
@@ -1959,16 +1908,14 @@ message GetConfigHistoryResponse {
 
 ### get_config_request.proto {#get_config_request}
 
-**Path**: `pkg/config/proto/get_config_request.proto` **Package**:
-`gcommon.v1.config` **Lines**: 28
+**Path**: `pkg/config/proto/get_config_request.proto` **Package**: `gcommon.v1.config` **Lines**: 28
 
 **Messages** (1): `GetConfigRequest`
 
 **Imports** (2):
 
 - `google/protobuf/go_features.proto`
-- `pkg/common/proto/request_metadata.proto` →
-  [common](./common.md#request_metadata)
+- `pkg/common/proto/request_metadata.proto` → [common](./common.md#request_metadata)
 
 #### Source Code
 
@@ -2007,8 +1954,7 @@ message GetConfigRequest {
 
 ### get_config_response.proto {#get_config_response}
 
-**Path**: `pkg/config/proto/get_config_response.proto` **Package**:
-`gcommon.v1.config` **Lines**: 26
+**Path**: `pkg/config/proto/get_config_response.proto` **Package**: `gcommon.v1.config` **Lines**: 26
 
 **Messages** (1): `GetConfigResponse`
 
@@ -2053,16 +1999,14 @@ message GetConfigResponse {
 
 ### get_config_stats_request.proto {#get_config_stats_request}
 
-**Path**: `pkg/config/proto/get_config_stats_request.proto` **Package**:
-`gcommon.v1.config` **Lines**: 25
+**Path**: `pkg/config/proto/get_config_stats_request.proto` **Package**: `gcommon.v1.config` **Lines**: 25
 
 **Messages** (1): `GetConfigStatsRequest`
 
 **Imports** (2):
 
 - `google/protobuf/go_features.proto`
-- `pkg/common/proto/request_metadata.proto` →
-  [common](./common.md#request_metadata)
+- `pkg/common/proto/request_metadata.proto` → [common](./common.md#request_metadata)
 
 #### Source Code
 
@@ -2098,8 +2042,7 @@ message GetConfigStatsRequest {
 
 ### get_config_stats_response.proto {#get_config_stats_response}
 
-**Path**: `pkg/config/proto/get_config_stats_response.proto` **Package**:
-`gcommon.v1.config` **Lines**: 22
+**Path**: `pkg/config/proto/get_config_stats_response.proto` **Package**: `gcommon.v1.config` **Lines**: 22
 
 **Messages** (1): `GetConfigStatsResponse`
 
@@ -2139,16 +2082,14 @@ message GetConfigStatsResponse {
 
 ### get_multiple_config_request.proto {#get_multiple_config_request}
 
-**Path**: `pkg/config/proto/get_multiple_config_request.proto` **Package**:
-`gcommon.v1.config` **Lines**: 26
+**Path**: `pkg/config/proto/get_multiple_config_request.proto` **Package**: `gcommon.v1.config` **Lines**: 26
 
 **Messages** (1): `GetMultipleConfigRequest`
 
 **Imports** (2):
 
 - `google/protobuf/go_features.proto`
-- `pkg/common/proto/request_metadata.proto` →
-  [common](./common.md#request_metadata)
+- `pkg/common/proto/request_metadata.proto` → [common](./common.md#request_metadata)
 
 #### Source Code
 
@@ -2185,8 +2126,7 @@ message GetMultipleConfigRequest {
 
 ### get_multiple_config_response.proto {#get_multiple_config_response}
 
-**Path**: `pkg/config/proto/get_multiple_config_response.proto` **Package**:
-`gcommon.v1.config` **Lines**: 26
+**Path**: `pkg/config/proto/get_multiple_config_response.proto` **Package**: `gcommon.v1.config` **Lines**: 26
 
 **Messages** (1): `GetMultipleConfigResponse`
 
@@ -2231,16 +2171,14 @@ message GetMultipleConfigResponse {
 
 ### import_config_request.proto {#import_config_request}
 
-**Path**: `pkg/config/proto/import_config_request.proto` **Package**:
-`gcommon.v1.config` **Lines**: 31
+**Path**: `pkg/config/proto/import_config_request.proto` **Package**: `gcommon.v1.config` **Lines**: 31
 
 **Messages** (1): `ImportConfigRequest`
 
 **Imports** (2):
 
 - `google/protobuf/go_features.proto`
-- `pkg/common/proto/request_metadata.proto` →
-  [common](./common.md#request_metadata)
+- `pkg/common/proto/request_metadata.proto` → [common](./common.md#request_metadata)
 
 #### Source Code
 
@@ -2282,8 +2220,7 @@ message ImportConfigRequest {
 
 ### inheritance_settings.proto {#inheritance_settings}
 
-**Path**: `pkg/config/proto/inheritance_settings.proto` **Package**:
-`gcommon.v1.config` **Lines**: 45
+**Path**: `pkg/config/proto/inheritance_settings.proto` **Package**: `gcommon.v1.config` **Lines**: 45
 
 **Messages** (1): `InheritanceSettings`
 
@@ -2292,14 +2229,10 @@ message ImportConfigRequest {
 - `google/protobuf/any.proto`
 - `google/protobuf/go_features.proto`
 - `google/protobuf/timestamp.proto`
-- `pkg/config/proto/inheritance_filter.proto` →
-  [config_1](./config_1.md#inheritance_filter)
-- `pkg/config/proto/inheritance_strategy.proto` →
-  [config_1](./config_1.md#inheritance_strategy)
-- `pkg/config/proto/inheritance_transformation.proto` →
-  [config_1](./config_1.md#inheritance_transformation)
-- `pkg/config/proto/merge_strategy.proto` →
-  [config_1](./config_1.md#merge_strategy)
+- `pkg/config/proto/inheritance_filter.proto` → [config_1](./config_1.md#inheritance_filter)
+- `pkg/config/proto/inheritance_strategy.proto` → [config_1](./config_1.md#inheritance_strategy)
+- `pkg/config/proto/inheritance_transformation.proto` → [config_1](./config_1.md#inheritance_transformation)
+- `pkg/config/proto/merge_strategy.proto` → [config_1](./config_1.md#merge_strategy)
 
 #### Source Code
 
@@ -2355,8 +2288,7 @@ message InheritanceSettings {
 
 ### list_config_request.proto {#list_config_request}
 
-**Path**: `pkg/config/proto/list_config_request.proto` **Package**:
-`gcommon.v1.config` **Lines**: 38
+**Path**: `pkg/config/proto/list_config_request.proto` **Package**: `gcommon.v1.config` **Lines**: 38
 
 **Messages** (1): `ListConfigRequest`
 
@@ -2365,8 +2297,7 @@ message InheritanceSettings {
 - `google/protobuf/go_features.proto`
 - `pkg/common/proto/filter_options.proto` → [common](./common.md#filter_options)
 - `pkg/common/proto/pagination.proto` → [common](./common.md#pagination)
-- `pkg/common/proto/request_metadata.proto` →
-  [common](./common.md#request_metadata)
+- `pkg/common/proto/request_metadata.proto` → [common](./common.md#request_metadata)
 - `pkg/common/proto/sort.proto` → [common](./common.md#sort)
 
 #### Source Code
@@ -2416,8 +2347,7 @@ message ListConfigRequest {
 
 ### list_config_response.proto {#list_config_response}
 
-**Path**: `pkg/config/proto/list_config_response.proto` **Package**:
-`gcommon.v1.config` **Lines**: 27
+**Path**: `pkg/config/proto/list_config_response.proto` **Package**: `gcommon.v1.config` **Lines**: 27
 
 **Messages** (1): `ListConfigResponse`
 
@@ -2425,8 +2355,7 @@ message ListConfigRequest {
 
 - `google/protobuf/go_features.proto`
 - `pkg/common/proto/error.proto` → [common](./common.md#error)
-- `pkg/common/proto/paginated_response.proto` →
-  [common](./common.md#paginated_response)
+- `pkg/common/proto/paginated_response.proto` → [common](./common.md#paginated_response)
 - `pkg/config/proto/config_entry.proto`
 
 #### Source Code
@@ -2465,8 +2394,7 @@ message ListConfigResponse {
 
 ### monitoring_settings.proto {#monitoring_settings}
 
-**Path**: `pkg/config/proto/monitoring_settings.proto` **Package**:
-`gcommon.v1.config` **Lines**: 32
+**Path**: `pkg/config/proto/monitoring_settings.proto` **Package**: `gcommon.v1.config` **Lines**: 32
 
 **Messages** (1): `MonitoringSettings`
 
@@ -2474,8 +2402,7 @@ message ListConfigResponse {
 
 - `google/protobuf/go_features.proto`
 - `google/protobuf/timestamp.proto`
-- `pkg/config/proto/monitoring_alert.proto` →
-  [config_1](./config_1.md#monitoring_alert)
+- `pkg/config/proto/monitoring_alert.proto` → [config_1](./config_1.md#monitoring_alert)
 
 #### Source Code
 
@@ -2518,8 +2445,7 @@ message MonitoringSettings {
 
 ### notification_settings.proto {#notification_settings}
 
-**Path**: `pkg/config/proto/notification_settings.proto` **Package**:
-`gcommon.v1.config` **Lines**: 46
+**Path**: `pkg/config/proto/notification_settings.proto` **Package**: `gcommon.v1.config` **Lines**: 46
 
 **Messages** (1): `NotificationSettings`
 
@@ -2527,22 +2453,15 @@ message MonitoringSettings {
 
 - `google/protobuf/go_features.proto`
 - `google/protobuf/timestamp.proto`
-- `pkg/config/proto/audit_level.proto` →
-  [config_events](./config_events.md#audit_level)
-- `pkg/config/proto/backup_frequency.proto` →
-  [config_1](./config_1.md#backup_frequency)
+- `pkg/config/proto/audit_level.proto` → [config_events](./config_events.md#audit_level)
+- `pkg/config/proto/backup_frequency.proto` → [config_1](./config_1.md#backup_frequency)
 - `pkg/config/proto/batching_settings.proto`
 - `pkg/config/proto/channel_type.proto` → [config_1](./config_1.md#channel_type)
 - `pkg/config/proto/config_data_type.proto`
-- `pkg/config/proto/deprecation_level.proto` →
-  [config_1](./config_1.md#deprecation_level)
-- `pkg/config/proto/metadata_status.proto` →
-  [config_1](./config_1.md#metadata_status)
-- `pkg/config/proto/notification_channel.proto` →
-  [config_1](./config_1.md#notification_channel) →
-  [queue_1](./queue_1.md#notification_channel)
-- `pkg/config/proto/notification_trigger.proto` →
-  [config_1](./config_1.md#notification_trigger)
+- `pkg/config/proto/deprecation_level.proto` → [config_1](./config_1.md#deprecation_level)
+- `pkg/config/proto/metadata_status.proto` → [config_1](./config_1.md#metadata_status)
+- `pkg/config/proto/notification_channel.proto` → [config_1](./config_1.md#notification_channel) → [queue_1](./queue_1.md#notification_channel)
+- `pkg/config/proto/notification_trigger.proto` → [config_1](./config_1.md#notification_trigger)
 
 #### Source Code
 
@@ -2599,16 +2518,14 @@ message NotificationSettings {
 
 ### reload_config_request.proto {#reload_config_request}
 
-**Path**: `pkg/config/proto/reload_config_request.proto` **Package**:
-`gcommon.v1.config` **Lines**: 25
+**Path**: `pkg/config/proto/reload_config_request.proto` **Package**: `gcommon.v1.config` **Lines**: 25
 
 **Messages** (1): `ReloadConfigRequest`
 
 **Imports** (2):
 
 - `google/protobuf/go_features.proto`
-- `pkg/common/proto/request_metadata.proto` →
-  [common](./common.md#request_metadata)
+- `pkg/common/proto/request_metadata.proto` → [common](./common.md#request_metadata)
 
 #### Source Code
 
@@ -2644,16 +2561,14 @@ message ReloadConfigRequest {
 
 ### restore_config_request.proto {#restore_config_request}
 
-**Path**: `pkg/config/proto/restore_config_request.proto` **Package**:
-`gcommon.v1.config` **Lines**: 28
+**Path**: `pkg/config/proto/restore_config_request.proto` **Package**: `gcommon.v1.config` **Lines**: 28
 
 **Messages** (1): `RestoreConfigRequest`
 
 **Imports** (2):
 
 - `google/protobuf/go_features.proto`
-- `pkg/common/proto/request_metadata.proto` →
-  [common](./common.md#request_metadata)
+- `pkg/common/proto/request_metadata.proto` → [common](./common.md#request_metadata)
 
 #### Source Code
 
@@ -2692,8 +2607,7 @@ message RestoreConfigRequest {
 
 ### retry_settings.proto {#retry_settings}
 
-**Path**: `pkg/config/proto/retry_settings.proto` **Package**:
-`gcommon.v1.config` **Lines**: 33
+**Path**: `pkg/config/proto/retry_settings.proto` **Package**: `gcommon.v1.config` **Lines**: 33
 
 **Messages** (1): `RetrySettings`
 
@@ -2702,8 +2616,7 @@ message RestoreConfigRequest {
 - `google/protobuf/any.proto`
 - `google/protobuf/go_features.proto`
 - `google/protobuf/timestamp.proto`
-- `pkg/config/proto/backoff_strategy.proto` →
-  [config_1](./config_1.md#backoff_strategy)
+- `pkg/config/proto/backoff_strategy.proto` → [config_1](./config_1.md#backoff_strategy)
 
 #### Source Code
 
@@ -2747,16 +2660,14 @@ message RetrySettings {
 
 ### rollback_config_request.proto {#rollback_config_request}
 
-**Path**: `pkg/config/proto/rollback_config_request.proto` **Package**:
-`gcommon.v1.config` **Lines**: 28
+**Path**: `pkg/config/proto/rollback_config_request.proto` **Package**: `gcommon.v1.config` **Lines**: 28
 
 **Messages** (1): `RollbackConfigRequest`
 
 **Imports** (2):
 
 - `google/protobuf/go_features.proto`
-- `pkg/common/proto/request_metadata.proto` →
-  [common](./common.md#request_metadata)
+- `pkg/common/proto/request_metadata.proto` → [common](./common.md#request_metadata)
 
 #### Source Code
 
@@ -2795,8 +2706,7 @@ message RollbackConfigRequest {
 
 ### rotation_settings.proto {#rotation_settings}
 
-**Path**: `pkg/config/proto/rotation_settings.proto` **Package**:
-`gcommon.v1.config` **Lines**: 48
+**Path**: `pkg/config/proto/rotation_settings.proto` **Package**: `gcommon.v1.config` **Lines**: 48
 
 **Messages** (1): `RotationSettings`
 
@@ -2804,10 +2714,8 @@ message RollbackConfigRequest {
 
 - `google/protobuf/go_features.proto`
 - `google/protobuf/timestamp.proto`
-- `pkg/config/proto/rotation_event.proto` →
-  [config_events](./config_events.md#rotation_event)
-- `pkg/config/proto/rotation_frequency.proto` →
-  [config_1](./config_1.md#rotation_frequency)
+- `pkg/config/proto/rotation_event.proto` → [config_events](./config_events.md#rotation_event)
+- `pkg/config/proto/rotation_frequency.proto` → [config_1](./config_1.md#rotation_frequency)
 
 #### Source Code
 
@@ -2866,8 +2774,7 @@ message RotationSettings {
 
 ### secret_audit_settings.proto {#secret_audit_settings}
 
-**Path**: `pkg/config/proto/secret_audit_settings.proto` **Package**:
-`gcommon.v1.config` **Lines**: 44
+**Path**: `pkg/config/proto/secret_audit_settings.proto` **Package**: `gcommon.v1.config` **Lines**: 44
 
 **Messages** (1): `SecretAuditSettings`
 
@@ -2875,8 +2782,7 @@ message RotationSettings {
 
 - `google/protobuf/go_features.proto`
 - `google/protobuf/timestamp.proto`
-- `pkg/config/proto/secret_audit_level.proto` →
-  [config_events](./config_events.md#secret_audit_level)
+- `pkg/config/proto/secret_audit_level.proto` → [config_events](./config_events.md#secret_audit_level)
 
 #### Source Code
 
@@ -2931,8 +2837,7 @@ message SecretAuditSettings {
 
 ### secret_backup_settings.proto {#secret_backup_settings}
 
-**Path**: `pkg/config/proto/secret_backup_settings.proto` **Package**:
-`gcommon.v1.config` **Lines**: 41
+**Path**: `pkg/config/proto/secret_backup_settings.proto` **Package**: `gcommon.v1.config` **Lines**: 41
 
 **Messages** (1): `SecretBackupSettings`
 
@@ -2940,8 +2845,7 @@ message SecretAuditSettings {
 
 - `google/protobuf/go_features.proto`
 - `google/protobuf/timestamp.proto`
-- `pkg/config/proto/secret_backup_frequency.proto` →
-  [config_1](./config_1.md#secret_backup_frequency)
+- `pkg/config/proto/secret_backup_frequency.proto` → [config_1](./config_1.md#secret_backup_frequency)
 
 #### Source Code
 
@@ -2993,8 +2897,7 @@ message SecretBackupSettings {
 
 ### set_config_request.proto {#set_config_request}
 
-**Path**: `pkg/config/proto/set_config_request.proto` **Package**:
-`gcommon.v1.config` **Lines**: 39
+**Path**: `pkg/config/proto/set_config_request.proto` **Package**: `gcommon.v1.config` **Lines**: 39
 
 **Messages** (1): `SetConfigRequest`
 
@@ -3002,8 +2905,7 @@ message SecretBackupSettings {
 
 - `google/protobuf/go_features.proto`
 - `pkg/common/proto/config_value.proto` → [common](./common.md#config_value)
-- `pkg/common/proto/request_metadata.proto` →
-  [common](./common.md#request_metadata)
+- `pkg/common/proto/request_metadata.proto` → [common](./common.md#request_metadata)
 
 #### Source Code
 
@@ -3053,8 +2955,7 @@ message SetConfigRequest {
 
 ### set_config_response.proto {#set_config_response}
 
-**Path**: `pkg/config/proto/set_config_response.proto` **Package**:
-`gcommon.v1.config` **Lines**: 26
+**Path**: `pkg/config/proto/set_config_response.proto` **Package**: `gcommon.v1.config` **Lines**: 26
 
 **Messages** (1): `SetConfigResponse`
 
@@ -3099,16 +3000,14 @@ message SetConfigResponse {
 
 ### set_config_schema_request.proto {#set_config_schema_request}
 
-**Path**: `pkg/config/proto/set_config_schema_request.proto` **Package**:
-`gcommon.v1.config` **Lines**: 29
+**Path**: `pkg/config/proto/set_config_schema_request.proto` **Package**: `gcommon.v1.config` **Lines**: 29
 
 **Messages** (1): `SetConfigSchemaRequest`
 
 **Imports** (3):
 
 - `google/protobuf/go_features.proto`
-- `pkg/common/proto/request_metadata.proto` →
-  [common](./common.md#request_metadata)
+- `pkg/common/proto/request_metadata.proto` → [common](./common.md#request_metadata)
 - `pkg/config/proto/config_schema.proto`
 
 #### Source Code
@@ -3149,8 +3048,7 @@ message SetConfigSchemaRequest {
 
 ### set_multiple_config_request.proto {#set_multiple_config_request}
 
-**Path**: `pkg/config/proto/set_multiple_config_request.proto` **Package**:
-`gcommon.v1.config` **Lines**: 32
+**Path**: `pkg/config/proto/set_multiple_config_request.proto` **Package**: `gcommon.v1.config` **Lines**: 32
 
 **Messages** (1): `SetMultipleConfigRequest`
 
@@ -3158,8 +3056,7 @@ message SetConfigSchemaRequest {
 
 - `google/protobuf/go_features.proto`
 - `pkg/common/proto/config_value.proto` → [common](./common.md#config_value)
-- `pkg/common/proto/request_metadata.proto` →
-  [common](./common.md#request_metadata)
+- `pkg/common/proto/request_metadata.proto` → [common](./common.md#request_metadata)
 
 #### Source Code
 
@@ -3202,8 +3099,7 @@ message SetMultipleConfigRequest {
 
 ### set_multiple_config_response.proto {#set_multiple_config_response}
 
-**Path**: `pkg/config/proto/set_multiple_config_response.proto` **Package**:
-`gcommon.v1.config` **Lines**: 22
+**Path**: `pkg/config/proto/set_multiple_config_response.proto` **Package**: `gcommon.v1.config` **Lines**: 22
 
 **Messages** (1): `SetMultipleConfigResponse`
 
@@ -3243,8 +3139,7 @@ message SetMultipleConfigResponse {
 
 ### synchronization_settings.proto {#synchronization_settings}
 
-**Path**: `pkg/config/proto/synchronization_settings.proto` **Package**:
-`gcommon.v1.config` **Lines**: 35
+**Path**: `pkg/config/proto/synchronization_settings.proto` **Package**: `gcommon.v1.config` **Lines**: 35
 
 **Messages** (1): `SynchronizationSettings`
 
@@ -3253,12 +3148,9 @@ message SetMultipleConfigResponse {
 - `google/protobuf/any.proto`
 - `google/protobuf/go_features.proto`
 - `google/protobuf/timestamp.proto`
-- `pkg/config/proto/conflict_resolution.proto` →
-  [config_1](./config_1.md#conflict_resolution)
-- `pkg/config/proto/synchronization_frequency.proto` →
-  [config_2](./config_2.md#synchronization_frequency)
-- `pkg/config/proto/synchronization_target.proto` →
-  [config_2](./config_2.md#synchronization_target)
+- `pkg/config/proto/conflict_resolution.proto` → [config_1](./config_1.md#conflict_resolution)
+- `pkg/config/proto/synchronization_frequency.proto` → [config_2](./config_2.md#synchronization_frequency)
+- `pkg/config/proto/synchronization_target.proto` → [config_2](./config_2.md#synchronization_target)
 
 #### Source Code
 

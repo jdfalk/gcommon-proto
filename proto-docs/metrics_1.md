@@ -103,8 +103,7 @@
 
 ### aggregation_type.proto {#aggregation_type}
 
-**Path**: `pkg/metrics/proto/aggregation_type.proto` **Package**:
-`gcommon.v1.metrics` **Lines**: 58
+**Path**: `pkg/metrics/proto/aggregation_type.proto` **Package**: `gcommon.v1.metrics` **Lines**: 58
 
 **Enums** (1): `AggregationType`
 
@@ -179,8 +178,7 @@ enum AggregationType {
 
 ### alert_channel_type.proto {#alert_channel_type}
 
-**Path**: `pkg/metrics/proto/alert_channel_type.proto` **Package**:
-`gcommon.v1.metrics` **Lines**: 55
+**Path**: `pkg/metrics/proto/alert_channel_type.proto` **Package**: `gcommon.v1.metrics` **Lines**: 55
 
 **Enums** (1): `AlertChannelType`
 
@@ -252,8 +250,7 @@ enum AlertChannelType {
 
 ### alert_notification.proto {#alert_notification}
 
-**Path**: `pkg/metrics/proto/alert_notification.proto` **Package**:
-`gcommon.v1.metrics` **Lines**: 33
+**Path**: `pkg/metrics/proto/alert_notification.proto` **Package**: `gcommon.v1.metrics` **Lines**: 33
 
 **Messages** (1): `AlertNotification`
 
@@ -261,9 +258,7 @@ enum AlertChannelType {
 
 - `google/protobuf/go_features.proto`
 - `google/protobuf/timestamp.proto`
-- `pkg/metrics/proto/alert_severity.proto` →
-  [config_1](./config_1.md#alert_severity) →
-  [queue_1](./queue_1.md#alert_severity)
+- `pkg/metrics/proto/alert_severity.proto` → [config_1](./config_1.md#alert_severity) → [queue_1](./queue_1.md#alert_severity)
 
 #### Source Code
 
@@ -307,8 +302,7 @@ message AlertNotification {
 
 ### alert_severity.proto {#alert_severity}
 
-**Path**: `pkg/metrics/proto/alert_severity.proto` **Package**:
-`gcommon.v1.metrics` **Lines**: 21
+**Path**: `pkg/metrics/proto/alert_severity.proto` **Package**: `gcommon.v1.metrics` **Lines**: 21
 
 **Enums** (1): `AlertSeverity`
 
@@ -346,8 +340,7 @@ enum AlertSeverity {
 
 ### alert_state.proto {#alert_state}
 
-**Path**: `pkg/metrics/proto/alert_state.proto` **Package**:
-`gcommon.v1.metrics` **Lines**: 42
+**Path**: `pkg/metrics/proto/alert_state.proto` **Package**: `gcommon.v1.metrics` **Lines**: 42
 
 **Enums** (1): `AlertState`
 
@@ -406,8 +399,7 @@ enum AlertState {
 
 ### alerting_condition.proto {#alerting_condition}
 
-**Path**: `pkg/metrics/proto/alerting_condition.proto` **Package**:
-`gcommon.v1.metrics` **Lines**: 32
+**Path**: `pkg/metrics/proto/alerting_condition.proto` **Package**: `gcommon.v1.metrics` **Lines**: 32
 
 **Messages** (1): `AlertingCondition`
 
@@ -457,8 +449,7 @@ message AlertingCondition {
 
 ### alerting_rule.proto {#alerting_rule}
 
-**Path**: `pkg/metrics/proto/alerting_rule.proto` **Package**:
-`gcommon.v1.metrics` **Lines**: 33
+**Path**: `pkg/metrics/proto/alerting_rule.proto` **Package**: `gcommon.v1.metrics` **Lines**: 33
 
 **Messages** (1): `AlertingRule`
 
@@ -508,8 +499,7 @@ message AlertingRule {
 
 ### backup_info.proto {#backup_info}
 
-**Path**: `pkg/metrics/proto/backup_info.proto` **Package**:
-`gcommon.v1.metrics` **Lines**: 34
+**Path**: `pkg/metrics/proto/backup_info.proto` **Package**: `gcommon.v1.metrics` **Lines**: 34
 
 **Messages** (1): `BackupInfo`
 
@@ -561,8 +551,7 @@ message BackupInfo {
 
 ### batch_options.proto {#batch_options}
 
-**Path**: `pkg/metrics/proto/batch_options.proto` **Package**:
-`gcommon.v1.metrics` **Lines**: 41
+**Path**: `pkg/metrics/proto/batch_options.proto` **Package**: `gcommon.v1.metrics` **Lines**: 41
 
 **Messages** (1): `BatchOptions`
 
@@ -622,8 +611,7 @@ message BatchOptions {
 
 ### batch_priority.proto {#batch_priority}
 
-**Path**: `pkg/metrics/proto/batch_priority.proto` **Package**:
-`gcommon.v1.metrics` **Lines**: 25
+**Path**: `pkg/metrics/proto/batch_priority.proto` **Package**: `gcommon.v1.metrics` **Lines**: 25
 
 **Enums** (1): `BatchPriority`
 
@@ -666,8 +654,7 @@ enum BatchPriority {
 
 ### buffer_overflow_strategy.proto {#buffer_overflow_strategy}
 
-**Path**: `pkg/metrics/proto/buffer_overflow_strategy.proto` **Package**:
-`gcommon.v1.metrics` **Lines**: 34
+**Path**: `pkg/metrics/proto/buffer_overflow_strategy.proto` **Package**: `gcommon.v1.metrics` **Lines**: 34
 
 **Enums** (1): `BufferOverflowStrategy`
 
@@ -718,8 +705,7 @@ enum BufferOverflowStrategy {
 
 ### change_type.proto {#change_type}
 
-**Path**: `pkg/metrics/proto/change_type.proto` **Package**:
-`gcommon.v1.metrics` **Lines**: 26
+**Path**: `pkg/metrics/proto/change_type.proto` **Package**: `gcommon.v1.metrics` **Lines**: 26
 
 **Enums** (1): `ChangeType`
 
@@ -727,9 +713,7 @@ enum BufferOverflowStrategy {
 
 - `google/protobuf/go_features.proto`
 - `google/protobuf/timestamp.proto`
-- `pkg/metrics/proto/validation_result.proto` →
-  [config_2](./config_2.md#validation_result) →
-  [metrics_2](./metrics_2.md#validation_result)
+- `pkg/metrics/proto/validation_result.proto` → [config_2](./config_2.md#validation_result) → [metrics_2](./metrics_2.md#validation_result)
 
 #### Source Code
 
@@ -766,8 +750,7 @@ enum ChangeType {
 
 ### cleanup_strategy.proto {#cleanup_strategy}
 
-**Path**: `pkg/metrics/proto/cleanup_strategy.proto` **Package**:
-`gcommon.v1.metrics` **Lines**: 24
+**Path**: `pkg/metrics/proto/cleanup_strategy.proto` **Package**: `gcommon.v1.metrics` **Lines**: 24
 
 **Enums** (1): `CleanupStrategy`
 
@@ -808,8 +791,7 @@ enum CleanupStrategy {
 
 ### comparison_operator.proto {#comparison_operator}
 
-**Path**: `pkg/metrics/proto/comparison_operator.proto` **Package**:
-`gcommon.v1.metrics` **Lines**: 23
+**Path**: `pkg/metrics/proto/comparison_operator.proto` **Package**: `gcommon.v1.metrics` **Lines**: 23
 
 **Enums** (1): `ComparisonOperator`
 
@@ -849,8 +831,7 @@ enum ComparisonOperator {
 
 ### compression_type.proto {#compression_type}
 
-**Path**: `pkg/metrics/proto/compression_type.proto` **Package**:
-`gcommon.v1.metrics` **Lines**: 36
+**Path**: `pkg/metrics/proto/compression_type.proto` **Package**: `gcommon.v1.metrics` **Lines**: 36
 
 **Enums** (1): `CompressionType`
 
@@ -903,8 +884,7 @@ enum CompressionType {
 
 ### counter_metric.proto {#counter_metric}
 
-**Path**: `pkg/metrics/proto/counter_metric.proto` **Package**:
-`gcommon.v1.metrics` **Lines**: 39
+**Path**: `pkg/metrics/proto/counter_metric.proto` **Package**: `gcommon.v1.metrics` **Lines**: 39
 
 **Messages** (1): `CounterMetric`
 
@@ -961,8 +941,7 @@ message CounterMetric {
 
 ### dashboard_type.proto {#dashboard_type}
 
-**Path**: `pkg/metrics/proto/dashboard_type.proto` **Package**:
-`gcommon.v1.metrics` **Lines**: 55
+**Path**: `pkg/metrics/proto/dashboard_type.proto` **Package**: `gcommon.v1.metrics` **Lines**: 55
 
 **Enums** (1): `DashboardType`
 
@@ -1034,8 +1013,7 @@ enum DashboardType {
 
 ### deletion_options.proto {#deletion_options}
 
-**Path**: `pkg/metrics/proto/deletion_options.proto` **Package**:
-`gcommon.v1.metrics` **Lines**: 52
+**Path**: `pkg/metrics/proto/deletion_options.proto` **Package**: `gcommon.v1.metrics` **Lines**: 52
 
 **Messages** (1): `DeletionOptions`
 
@@ -1105,8 +1083,7 @@ message DeletionOptions {
 
 ### dry_run_result.proto {#dry_run_result}
 
-**Path**: `pkg/metrics/proto/dry_run_result.proto` **Package**:
-`gcommon.v1.metrics` **Lines**: 33
+**Path**: `pkg/metrics/proto/dry_run_result.proto` **Package**: `gcommon.v1.metrics` **Lines**: 33
 
 **Messages** (1): `DryRunResult`
 
@@ -1156,8 +1133,7 @@ message DryRunResult {
 
 ### error_stats.proto {#error_stats}
 
-**Path**: `pkg/metrics/proto/error_stats.proto` **Package**:
-`gcommon.v1.metrics` **Lines**: 39
+**Path**: `pkg/metrics/proto/error_stats.proto` **Package**: `gcommon.v1.metrics` **Lines**: 39
 
 **Messages** (2): `ErrorStats`, `ErrorTypeCount`
 
@@ -1213,8 +1189,7 @@ message ErrorTypeCount {
 
 ### export_destination_update.proto {#export_destination_update}
 
-**Path**: `pkg/metrics/proto/export_destination_update.proto` **Package**:
-`gcommon.v1.metrics` **Lines**: 27
+**Path**: `pkg/metrics/proto/export_destination_update.proto` **Package**: `gcommon.v1.metrics` **Lines**: 27
 
 **Messages** (1): `ExportDestinationUpdate`
 
@@ -1258,8 +1233,7 @@ message ExportDestinationUpdate {
 
 ### export_format.proto {#export_format}
 
-**Path**: `pkg/metrics/proto/export_format.proto` **Package**:
-`gcommon.v1.metrics` **Lines**: 21
+**Path**: `pkg/metrics/proto/export_format.proto` **Package**: `gcommon.v1.metrics` **Lines**: 21
 
 **Enums** (1): `ExportFormat`
 
@@ -1297,8 +1271,7 @@ enum ExportFormat {
 
 ### gauge_metric.proto {#gauge_metric}
 
-**Path**: `pkg/metrics/proto/gauge_metric.proto` **Package**:
-`gcommon.v1.metrics` **Lines**: 45
+**Path**: `pkg/metrics/proto/gauge_metric.proto` **Package**: `gcommon.v1.metrics` **Lines**: 45
 
 **Messages** (1): `GaugeMetric`
 
@@ -1361,8 +1334,7 @@ message GaugeMetric {
 
 ### gauge_operation.proto {#gauge_operation}
 
-**Path**: `pkg/metrics/proto/gauge_operation.proto` **Package**:
-`gcommon.v1.metrics` **Lines**: 37
+**Path**: `pkg/metrics/proto/gauge_operation.proto` **Package**: `gcommon.v1.metrics` **Lines**: 37
 
 **Enums** (1): `GaugeOperation`
 
@@ -1416,8 +1388,7 @@ enum GaugeOperation {
 
 ### health_status.proto {#health_status}
 
-**Path**: `pkg/metrics/proto/health_status.proto` **Package**:
-`gcommon.v1.metrics` **Lines**: 21
+**Path**: `pkg/metrics/proto/health_status.proto` **Package**: `gcommon.v1.metrics` **Lines**: 21
 
 **Enums** (1): `HealthStatus`
 
@@ -1455,8 +1426,7 @@ enum HealthStatus {
 
 ### histogram_bucket.proto {#histogram_bucket}
 
-**Path**: `pkg/metrics/proto/histogram_bucket.proto` **Package**:
-`gcommon.v1.metrics` **Lines**: 24
+**Path**: `pkg/metrics/proto/histogram_bucket.proto` **Package**: `gcommon.v1.metrics` **Lines**: 24
 
 **Messages** (1): `HistogramBucket`
 
@@ -1497,8 +1467,7 @@ message HistogramBucket {
 
 ### histogram_metric.proto {#histogram_metric}
 
-**Path**: `pkg/metrics/proto/histogram_metric.proto` **Package**:
-`gcommon.v1.metrics` **Lines**: 39
+**Path**: `pkg/metrics/proto/histogram_metric.proto` **Package**: `gcommon.v1.metrics` **Lines**: 39
 
 **Messages** (1): `HistogramMetric`
 
@@ -1556,8 +1525,7 @@ message HistogramMetric {
 
 ### metric_aggregation.proto {#metric_aggregation}
 
-**Path**: `pkg/metrics/proto/metric_aggregation.proto` **Package**:
-`gcommon.v1.metrics` **Lines**: 48
+**Path**: `pkg/metrics/proto/metric_aggregation.proto` **Package**: `gcommon.v1.metrics` **Lines**: 48
 
 **Enums** (1): `MetricAggregation`
 
@@ -1622,8 +1590,7 @@ enum MetricAggregation {
 
 ### metric_aggregation_result.proto {#metric_aggregation_result}
 
-**Path**: `pkg/metrics/proto/metric_aggregation_result.proto` **Package**:
-`gcommon.v1.metrics` **Lines**: 28
+**Path**: `pkg/metrics/proto/metric_aggregation_result.proto` **Package**: `gcommon.v1.metrics` **Lines**: 28
 
 **Messages** (1): `MetricAggregation`
 
@@ -1674,8 +1641,7 @@ option go_package = "github.com/jdfalk/gcommon/pkg/metrics/proto";
 
 ### metric_bucket.proto {#metric_bucket}
 
-**Path**: `pkg/metrics/proto/metric_bucket.proto` **Package**:
-`gcommon.v1.metrics` **Lines**: 27
+**Path**: `pkg/metrics/proto/metric_bucket.proto` **Package**: `gcommon.v1.metrics` **Lines**: 27
 
 **Messages** (1): `MetricBucket`
 
@@ -1719,8 +1685,7 @@ message MetricBucket {
 
 ### metric_data.proto {#metric_data}
 
-**Path**: `pkg/metrics/proto/metric_data.proto` **Package**:
-`gcommon.v1.metrics` **Lines**: 95
+**Path**: `pkg/metrics/proto/metric_data.proto` **Package**: `gcommon.v1.metrics` **Lines**: 95
 
 **Messages** (3): `MetricData`, `MetricSeries`, `MetricFamily`
 
@@ -1835,8 +1800,7 @@ message MetricFamily {
 
 ### metric_family.proto {#metric_family}
 
-**Path**: `pkg/metrics/proto/metric_family.proto` **Package**:
-`gcommon.v1.metrics` **Lines**: 35
+**Path**: `pkg/metrics/proto/metric_family.proto` **Package**: `gcommon.v1.metrics` **Lines**: 35
 
 **Messages** (1): `MetricFamily`
 
@@ -1851,8 +1815,7 @@ message MetricFamily {
 - Line 24: Commented field - // CONFLICT_DISABLED: string description = 2;
 - Line 27: Commented field - // CONFLICT_DISABLED: MetricType type = 3;
 - Line 30: Commented field - // CONFLICT_DISABLED: string unit = 4;
-- Line 33: Commented field - // CONFLICT_DISABLED: repeated MetricData metrics =
-  5;
+- Line 33: Commented field - // CONFLICT_DISABLED: repeated MetricData metrics = 5;
 
 #### Source Code
 
@@ -1898,8 +1861,7 @@ option go_package = "github.com/jdfalk/gcommon/pkg/metrics/proto";
 
 ### metric_filter.proto {#metric_filter}
 
-**Path**: `pkg/metrics/proto/metric_filter.proto` **Package**:
-`gcommon.v1.metrics` **Lines**: 37
+**Path**: `pkg/metrics/proto/metric_filter.proto` **Package**: `gcommon.v1.metrics` **Lines**: 37
 
 **Messages** (1): `MetricFilter`
 
@@ -1953,8 +1915,7 @@ message MetricFilter {
 
 ### metric_health.proto {#metric_health}
 
-**Path**: `pkg/metrics/proto/metric_health.proto` **Package**:
-`gcommon.v1.metrics` **Lines**: 32
+**Path**: `pkg/metrics/proto/metric_health.proto` **Package**: `gcommon.v1.metrics` **Lines**: 32
 
 **Messages** (1): `MetricHealth`
 
@@ -1962,8 +1923,7 @@ message MetricFilter {
 
 - `google/protobuf/go_features.proto`
 - `google/protobuf/timestamp.proto`
-- `pkg/metrics/proto/health_status.proto` → [common](./common.md#health_status)
-  → [queue_1](./queue_1.md#health_status) → [web](./web.md#health_status)
+- `pkg/metrics/proto/health_status.proto` → [common](./common.md#health_status) → [queue_1](./queue_1.md#health_status) → [web](./web.md#health_status)
 
 #### Source Code
 
@@ -2006,8 +1966,7 @@ message MetricHealth {
 
 ### metric_label.proto {#metric_label}
 
-**Path**: `pkg/metrics/proto/metric_label.proto` **Package**:
-`gcommon.v1.metrics` **Lines**: 25
+**Path**: `pkg/metrics/proto/metric_label.proto` **Package**: `gcommon.v1.metrics` **Lines**: 25
 
 **Messages** (1): `MetricLabel`
 
@@ -2049,8 +2008,7 @@ message MetricLabel {
 
 ### metric_metadata.proto {#metric_metadata}
 
-**Path**: `pkg/metrics/proto/metric_metadata.proto` **Package**:
-`gcommon.v1.metrics` **Lines**: 57
+**Path**: `pkg/metrics/proto/metric_metadata.proto` **Package**: `gcommon.v1.metrics` **Lines**: 57
 
 **Messages** (1): `MetricMetadata`
 
@@ -2125,8 +2083,7 @@ message MetricMetadata {
 
 ### metric_quantile.proto {#metric_quantile}
 
-**Path**: `pkg/metrics/proto/metric_quantile.proto` **Package**:
-`gcommon.v1.metrics` **Lines**: 25
+**Path**: `pkg/metrics/proto/metric_quantile.proto` **Package**: `gcommon.v1.metrics` **Lines**: 25
 
 **Messages** (1): `MetricQuantile`
 
@@ -2168,11 +2125,9 @@ message MetricQuantile {
 
 ### metric_query.proto {#metric_query}
 
-**Path**: `pkg/metrics/proto/metric_query.proto` **Package**:
-`gcommon.v1.metrics` **Lines**: 133
+**Path**: `pkg/metrics/proto/metric_query.proto` **Package**: `gcommon.v1.metrics` **Lines**: 133
 
-**Messages** (5): `MetricQuery`, `AggregationSpec`, `GroupBySpec`, `QueryPlan`,
-`QueryStep`
+**Messages** (5): `MetricQuery`, `AggregationSpec`, `GroupBySpec`, `QueryPlan`, `QueryStep`
 
 **Imports** (8):
 
@@ -2181,13 +2136,9 @@ message MetricQuantile {
 - `pkg/common/proto/sort.proto` → [common](./common.md#sort)
 - `pkg/metrics/proto/aggregation_type.proto`
 - `pkg/metrics/proto/metric_filter.proto`
-- `pkg/metrics/proto/query_operation.proto` →
-  [metrics_2](./metrics_2.md#query_operation)
-- `pkg/metrics/proto/time_range.proto` → [common](./common.md#time_range) →
-  [metrics_2](./metrics_2.md#time_range) → [queue_2](./queue_2.md#time_range)
-- `pkg/metrics/proto/timestamp_range.proto` →
-  [metrics_2](./metrics_2.md#timestamp_range) →
-  [queue_2](./queue_2.md#timestamp_range)
+- `pkg/metrics/proto/query_operation.proto` → [metrics_2](./metrics_2.md#query_operation)
+- `pkg/metrics/proto/time_range.proto` → [common](./common.md#time_range) → [metrics_2](./metrics_2.md#time_range) → [queue_2](./queue_2.md#time_range)
+- `pkg/metrics/proto/timestamp_range.proto` → [metrics_2](./metrics_2.md#timestamp_range) → [queue_2](./queue_2.md#timestamp_range)
 
 #### Source Code
 
@@ -2331,8 +2282,7 @@ message QueryStep {
 
 ### metric_sample.proto {#metric_sample}
 
-**Path**: `pkg/metrics/proto/metric_sample.proto` **Package**:
-`gcommon.v1.metrics` **Lines**: 28
+**Path**: `pkg/metrics/proto/metric_sample.proto` **Package**: `gcommon.v1.metrics` **Lines**: 28
 
 **Messages** (1): `MetricSample`
 
@@ -2378,8 +2328,7 @@ message MetricSample {
 
 ### metric_source.proto {#metric_source}
 
-**Path**: `pkg/metrics/proto/metric_source.proto` **Package**:
-`gcommon.v1.metrics` **Lines**: 61
+**Path**: `pkg/metrics/proto/metric_source.proto` **Package**: `gcommon.v1.metrics` **Lines**: 61
 
 **Enums** (1): `MetricSource`
 
@@ -2457,8 +2406,7 @@ enum MetricSource {
 
 ### metric_stats.proto {#metric_stats}
 
-**Path**: `pkg/metrics/proto/metric_stats.proto` **Package**:
-`gcommon.v1.metrics` **Lines**: 33
+**Path**: `pkg/metrics/proto/metric_stats.proto` **Package**: `gcommon.v1.metrics` **Lines**: 33
 
 **Messages** (1): `MetricStats`
 
@@ -2508,8 +2456,7 @@ message MetricStats {
 
 ### metric_status.proto {#metric_status}
 
-**Path**: `pkg/metrics/proto/metric_status.proto` **Package**:
-`gcommon.v1.metrics` **Lines**: 33
+**Path**: `pkg/metrics/proto/metric_status.proto` **Package**: `gcommon.v1.metrics` **Lines**: 33
 
 **Enums** (1): `MetricStatus`
 
@@ -2559,8 +2506,7 @@ enum MetricStatus {
 
 ### metric_type.proto {#metric_type}
 
-**Path**: `pkg/metrics/proto/metric_type.proto` **Package**:
-`gcommon.v1.metrics` **Lines**: 37
+**Path**: `pkg/metrics/proto/metric_type.proto` **Package**: `gcommon.v1.metrics` **Lines**: 37
 
 **Enums** (1): `MetricType`
 
@@ -2614,8 +2560,7 @@ enum MetricType {
 
 ### metric_value.proto {#metric_value}
 
-**Path**: `pkg/metrics/proto/metric_value.proto` **Package**:
-`gcommon.v1.metrics` **Lines**: 92
+**Path**: `pkg/metrics/proto/metric_value.proto` **Package**: `gcommon.v1.metrics` **Lines**: 92
 
 **Messages** (4): `MetricValue`, `HistogramValue`, `SummaryValue`, `Quantile`
 
@@ -2726,8 +2671,7 @@ message Quantile {
 
 ### notification_type.proto {#notification_type}
 
-**Path**: `pkg/metrics/proto/notification_type.proto` **Package**:
-`gcommon.v1.metrics` **Lines**: 63
+**Path**: `pkg/metrics/proto/notification_type.proto` **Package**: `gcommon.v1.metrics` **Lines**: 63
 
 **Enums** (1): `NotificationType`
 
@@ -2807,8 +2751,7 @@ enum NotificationType {
 
 ### numeric_format.proto {#numeric_format}
 
-**Path**: `pkg/metrics/proto/numeric_format.proto` **Package**:
-`gcommon.v1.metrics` **Lines**: 34
+**Path**: `pkg/metrics/proto/numeric_format.proto` **Package**: `gcommon.v1.metrics` **Lines**: 34
 
 **Enums** (1): `NumericFormat`
 
@@ -2859,8 +2802,7 @@ enum NumericFormat {
 
 ### pagination_info.proto {#pagination_info}
 
-**Path**: `pkg/metrics/proto/pagination_info.proto` **Package**:
-`gcommon.v1.metrics` **Lines**: 42
+**Path**: `pkg/metrics/proto/pagination_info.proto` **Package**: `gcommon.v1.metrics` **Lines**: 42
 
 **Messages** (1): `PaginationInfo`
 
@@ -2919,8 +2861,7 @@ message PaginationInfo {
 
 ### performance_stats.proto {#performance_stats}
 
-**Path**: `pkg/metrics/proto/performance_stats.proto` **Package**:
-`gcommon.v1.metrics` **Lines**: 60
+**Path**: `pkg/metrics/proto/performance_stats.proto` **Package**: `gcommon.v1.metrics` **Lines**: 60
 
 **Messages** (1): `PerformanceStats`
 
@@ -2997,8 +2938,7 @@ message PerformanceStats {
 
 ### provider_info.proto {#provider_info}
 
-**Path**: `pkg/metrics/proto/provider_info.proto` **Package**:
-`gcommon.v1.metrics` **Lines**: 56
+**Path**: `pkg/metrics/proto/provider_info.proto` **Package**: `gcommon.v1.metrics` **Lines**: 56
 
 **Messages** (1): `ProviderInfo`
 
@@ -3006,8 +2946,7 @@ message PerformanceStats {
 
 - `google/protobuf/go_features.proto`
 - `google/protobuf/timestamp.proto`
-- `pkg/metrics/proto/provider_status.proto` →
-  [metrics_2](./metrics_2.md#provider_status)
+- `pkg/metrics/proto/provider_status.proto` → [metrics_2](./metrics_2.md#provider_status)
 
 #### Source Code
 
@@ -3074,8 +3013,7 @@ message ProviderInfo {
 
 ### provider_sort_field.proto {#provider_sort_field}
 
-**Path**: `pkg/metrics/proto/provider_sort_field.proto` **Package**:
-`gcommon.v1.metrics` **Lines**: 37
+**Path**: `pkg/metrics/proto/provider_sort_field.proto` **Package**: `gcommon.v1.metrics` **Lines**: 37
 
 **Enums** (1): `SortField`
 

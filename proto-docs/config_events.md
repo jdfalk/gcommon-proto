@@ -38,8 +38,7 @@
 
 ### audit_level.proto {#audit_level}
 
-**Path**: `pkg/config/proto/audit_level.proto` **Package**: `gcommon.v1.config`
-**Lines**: 22
+**Path**: `pkg/config/proto/audit_level.proto` **Package**: `gcommon.v1.config` **Lines**: 22
 
 **Enums** (1): `AuditLevel`
 
@@ -78,8 +77,7 @@ enum AuditLevel {
 
 ### audit_operation_type.proto {#audit_operation_type}
 
-**Path**: `pkg/config/proto/audit_operation_type.proto` **Package**:
-`gcommon.v1.config` **Lines**: 61
+**Path**: `pkg/config/proto/audit_operation_type.proto` **Package**: `gcommon.v1.config` **Lines**: 61
 
 **Enums** (1): `AuditOperationType`
 
@@ -157,8 +155,7 @@ enum AuditOperationType {
 
 ### compliance_audit.proto {#compliance_audit}
 
-**Path**: `pkg/config/proto/compliance_audit.proto` **Package**:
-`gcommon.v1.config` **Lines**: 27
+**Path**: `pkg/config/proto/compliance_audit.proto` **Package**: `gcommon.v1.config` **Lines**: 27
 
 **Messages** (1): `ComplianceAudit`
 
@@ -202,8 +199,7 @@ message ComplianceAudit {
 
 ### rotation_event.proto {#rotation_event}
 
-**Path**: `pkg/config/proto/rotation_event.proto` **Package**:
-`gcommon.v1.config` **Lines**: 31
+**Path**: `pkg/config/proto/rotation_event.proto` **Package**: `gcommon.v1.config` **Lines**: 31
 
 **Messages** (1): `RotationEvent`
 
@@ -252,8 +248,7 @@ message RotationEvent {
 
 ### secret_audit_level.proto {#secret_audit_level}
 
-**Path**: `pkg/config/proto/secret_audit_level.proto` **Package**:
-`gcommon.v1.config` **Lines**: 23
+**Path**: `pkg/config/proto/secret_audit_level.proto` **Package**: `gcommon.v1.config` **Lines**: 23
 
 **Enums** (1): `SecretAuditLevel`
 
@@ -294,8 +289,7 @@ enum SecretAuditLevel {
 
 ### version_promotion_event.proto {#version_promotion_event}
 
-**Path**: `pkg/config/proto/version_promotion_event.proto` **Package**:
-`gcommon.v1.config` **Lines**: 44
+**Path**: `pkg/config/proto/version_promotion_event.proto` **Package**: `gcommon.v1.config` **Lines**: 44
 
 **Messages** (1): `VersionPromotionEvent`
 
@@ -303,8 +297,7 @@ enum SecretAuditLevel {
 
 - `google/protobuf/go_features.proto`
 - `google/protobuf/timestamp.proto`
-- `pkg/common/proto/audit_log.proto` → [auth_events](./auth_events.md#audit_log)
-  → [common](./common.md#audit_log)
+- `pkg/common/proto/audit_log.proto` → [auth_events](./auth_events.md#audit_log) → [common](./common.md#audit_log)
 
 #### Source Code
 

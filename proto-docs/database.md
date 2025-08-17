@@ -56,8 +56,7 @@
 
 ### batch_execute_options.proto {#batch_execute_options}
 
-**Path**: `pkg/db/proto/batch_execute_options.proto` **Package**:
-`gcommon.v1.database` **Lines**: 26
+**Path**: `pkg/db/proto/batch_execute_options.proto` **Package**: `gcommon.v1.database` **Lines**: 26
 
 **Messages** (1): `BatchExecuteOptions`
 
@@ -101,8 +100,7 @@ message BatchExecuteOptions {
 
 ### batch_operation.proto {#batch_operation}
 
-**Path**: `pkg/db/proto/batch_operation.proto` **Package**:
-`gcommon.v1.database` **Lines**: 23
+**Path**: `pkg/db/proto/batch_operation.proto` **Package**: `gcommon.v1.database` **Lines**: 23
 
 **Messages** (1): `BatchOperation`
 
@@ -143,8 +141,7 @@ message BatchOperation {
 
 ### batch_operation_result.proto {#batch_operation_result}
 
-**Path**: `pkg/db/proto/batch_operation_result.proto` **Package**:
-`gcommon.v1.database` **Lines**: 30
+**Path**: `pkg/db/proto/batch_operation_result.proto` **Package**: `gcommon.v1.database` **Lines**: 30
 
 **Messages** (1): `BatchOperationResult`
 
@@ -193,8 +190,7 @@ message BatchOperationResult {
 
 ### batch_stats.proto {#batch_stats}
 
-**Path**: `pkg/db/proto/batch_stats.proto` **Package**: `gcommon.v1.database`
-**Lines**: 29
+**Path**: `pkg/db/proto/batch_stats.proto` **Package**: `gcommon.v1.database` **Lines**: 29
 
 **Messages** (1): `BatchStats`
 
@@ -241,8 +237,7 @@ message BatchStats {
 
 ### column_metadata.proto {#column_metadata}
 
-**Path**: `pkg/db/proto/column_metadata.proto` **Package**:
-`gcommon.v1.database` **Lines**: 34
+**Path**: `pkg/db/proto/column_metadata.proto` **Package**: `gcommon.v1.database` **Lines**: 34
 
 **Messages** (1): `ColumnMetadata`
 
@@ -293,8 +288,7 @@ message ColumnMetadata {
 
 ### connection_pool_info.proto {#connection_pool_info}
 
-**Path**: `pkg/db/proto/connection_pool_info.proto` **Package**:
-`gcommon.v1.database` **Lines**: 33
+**Path**: `pkg/db/proto/connection_pool_info.proto` **Package**: `gcommon.v1.database` **Lines**: 33
 
 **Messages** (1): `ConnectionPoolInfo`
 
@@ -346,8 +340,7 @@ message ConnectionPoolInfo {
 
 ### consistency_level.proto {#consistency_level}
 
-**Path**: `pkg/db/proto/consistency_level.proto` **Package**:
-`gcommon.v1.database` **Lines**: 28
+**Path**: `pkg/db/proto/consistency_level.proto` **Package**: `gcommon.v1.database` **Lines**: 28
 
 **Enums** (1): `ConsistencyLevel`
 
@@ -392,8 +385,7 @@ enum ConsistencyLevel {
 
 ### database_info.proto {#database_info}
 
-**Path**: `pkg/db/proto/database_info.proto` **Package**: `gcommon.v1.database`
-**Lines**: 31
+**Path**: `pkg/db/proto/database_info.proto` **Package**: `gcommon.v1.database` **Lines**: 31
 
 **Messages** (1): `DatabaseInfo`
 
@@ -441,8 +433,7 @@ message DatabaseInfo {
 
 ### database_status.proto {#database_status}
 
-**Path**: `pkg/db/proto/database_status.proto` **Package**:
-`gcommon.v1.database` **Lines**: 26
+**Path**: `pkg/db/proto/database_status.proto` **Package**: `gcommon.v1.database` **Lines**: 26
 
 **Messages** (1): `DatabaseStatus`
 
@@ -486,8 +477,7 @@ message DatabaseStatus {
 
 ### database_status_code.proto {#database_status_code}
 
-**Path**: `pkg/db/proto/database_status_code.proto` **Package**:
-`gcommon.v1.database` **Lines**: 28
+**Path**: `pkg/db/proto/database_status_code.proto` **Package**: `gcommon.v1.database` **Lines**: 28
 
 **Enums** (1): `DatabaseStatusCode`
 
@@ -532,8 +522,7 @@ enum DatabaseStatusCode {
 
 ### execute_options.proto {#execute_options}
 
-**Path**: `pkg/db/proto/execute_options.proto` **Package**:
-`gcommon.v1.database` **Lines**: 27
+**Path**: `pkg/db/proto/execute_options.proto` **Package**: `gcommon.v1.database` **Lines**: 27
 
 **Messages** (1): `ExecuteOptions`
 
@@ -541,8 +530,7 @@ enum DatabaseStatusCode {
 
 - `google/protobuf/duration.proto`
 - `google/protobuf/go_features.proto`
-- `pkg/db/proto/isolation_level.proto` →
-  [organization](./organization.md#isolation_level)
+- `pkg/db/proto/isolation_level.proto` → [organization](./organization.md#isolation_level)
 
 #### Source Code
 
@@ -580,8 +568,7 @@ message ExecuteOptions {
 
 ### execute_stats.proto {#execute_stats}
 
-**Path**: `pkg/db/proto/execute_stats.proto` **Package**: `gcommon.v1.database`
-**Lines**: 26
+**Path**: `pkg/db/proto/execute_stats.proto` **Package**: `gcommon.v1.database` **Lines**: 26
 
 **Messages** (1): `ExecuteStats`
 
@@ -625,8 +612,7 @@ message ExecuteStats {
 
 ### isolation_level.proto {#isolation_level}
 
-**Path**: `pkg/db/proto/isolation_level.proto` **Package**:
-`gcommon.v1.database` **Lines**: 31
+**Path**: `pkg/db/proto/isolation_level.proto` **Package**: `gcommon.v1.database` **Lines**: 31
 
 **Enums** (1): `IsolationLevel`
 
@@ -674,8 +660,7 @@ enum IsolationLevel {
 
 ### migration_info.proto {#migration_info}
 
-**Path**: `pkg/db/proto/migration_info.proto` **Package**: `gcommon.v1.database`
-**Lines**: 28
+**Path**: `pkg/db/proto/migration_info.proto` **Package**: `gcommon.v1.database` **Lines**: 28
 
 **Messages** (1): `MigrationInfo`
 
@@ -721,8 +706,7 @@ message MigrationInfo {
 
 ### migration_script.proto {#migration_script}
 
-**Path**: `pkg/db/proto/migration_script.proto` **Package**:
-`gcommon.v1.database` **Lines**: 25
+**Path**: `pkg/db/proto/migration_script.proto` **Package**: `gcommon.v1.database` **Lines**: 25
 
 **Messages** (1): `MigrationScript`
 
@@ -764,8 +748,7 @@ message MigrationScript {
 
 ### mysql_status.proto {#mysql_status}
 
-**Path**: `pkg/db/proto/mysql_status.proto` **Package**: `gcommon.v1.database`
-**Lines**: 28
+**Path**: `pkg/db/proto/mysql_status.proto` **Package**: `gcommon.v1.database` **Lines**: 28
 
 **Messages** (1): `MySQLStatus`
 
@@ -811,8 +794,7 @@ message MySQLStatus {
 
 ### pool_stats.proto {#pool_stats}
 
-**Path**: `pkg/db/proto/pool_stats.proto` **Package**: `gcommon.v1.database`
-**Lines**: 29
+**Path**: `pkg/db/proto/pool_stats.proto` **Package**: `gcommon.v1.database` **Lines**: 29
 
 **Messages** (1): `PoolStats`
 
@@ -859,8 +841,7 @@ message PoolStats {
 
 ### query_options.proto {#query_options}
 
-**Path**: `pkg/db/proto/query_options.proto` **Package**: `gcommon.v1.database`
-**Lines**: 33
+**Path**: `pkg/db/proto/query_options.proto` **Package**: `gcommon.v1.database` **Lines**: 33
 
 **Messages** (1): `QueryOptions`
 
@@ -868,8 +849,7 @@ message PoolStats {
 
 - `google/protobuf/duration.proto`
 - `google/protobuf/go_features.proto`
-- `pkg/db/proto/consistency_level.proto` →
-  [queue_1](./queue_1.md#consistency_level)
+- `pkg/db/proto/consistency_level.proto` → [queue_1](./queue_1.md#consistency_level)
 
 #### Source Code
 
@@ -913,8 +893,7 @@ message QueryOptions {
 
 ### query_parameter.proto {#query_parameter}
 
-**Path**: `pkg/db/proto/query_parameter.proto` **Package**:
-`gcommon.v1.database` **Lines**: 26
+**Path**: `pkg/db/proto/query_parameter.proto` **Package**: `gcommon.v1.database` **Lines**: 26
 
 **Messages** (1): `QueryParameter`
 
@@ -958,8 +937,7 @@ message QueryParameter {
 
 ### query_stats.proto {#query_stats}
 
-**Path**: `pkg/db/proto/query_stats.proto` **Package**: `gcommon.v1.database`
-**Lines**: 32
+**Path**: `pkg/db/proto/query_stats.proto` **Package**: `gcommon.v1.database` **Lines**: 32
 
 **Messages** (1): `QueryStats`
 
@@ -1009,8 +987,7 @@ message QueryStats {
 
 ### result_set.proto {#result_set}
 
-**Path**: `pkg/db/proto/result_set.proto` **Package**: `gcommon.v1.database`
-**Lines**: 30
+**Path**: `pkg/db/proto/result_set.proto` **Package**: `gcommon.v1.database` **Lines**: 30
 
 **Messages** (1): `ResultSet`
 
@@ -1059,8 +1036,7 @@ message ResultSet {
 
 ### row.proto {#row}
 
-**Path**: `pkg/db/proto/row.proto` **Package**: `gcommon.v1.database` **Lines**:
-20
+**Path**: `pkg/db/proto/row.proto` **Package**: `gcommon.v1.database` **Lines**: 20
 
 **Messages** (1): `Row`
 
@@ -1098,8 +1074,7 @@ message Row {
 
 ### transaction_options.proto {#transaction_options}
 
-**Path**: `pkg/db/proto/transaction_options.proto` **Package**:
-`gcommon.v1.database` **Lines**: 27
+**Path**: `pkg/db/proto/transaction_options.proto` **Package**: `gcommon.v1.database` **Lines**: 27
 
 **Messages** (1): `TransactionOptions`
 
@@ -1107,8 +1082,7 @@ message Row {
 
 - `google/protobuf/duration.proto`
 - `google/protobuf/go_features.proto`
-- `pkg/db/proto/isolation_level.proto` →
-  [organization](./organization.md#isolation_level)
+- `pkg/db/proto/isolation_level.proto` → [organization](./organization.md#isolation_level)
 
 #### Source Code
 

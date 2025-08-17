@@ -75,8 +75,7 @@
 
 ### alerting_config.proto {#alerting_config}
 
-**Path**: `pkg/queue/proto/alerting_config.proto` **Package**:
-`gcommon.v1.queue` **Lines**: 37
+**Path**: `pkg/queue/proto/alerting_config.proto` **Package**: `gcommon.v1.queue` **Lines**: 37
 
 **Messages** (1): `AlertingConfig`
 
@@ -85,13 +84,8 @@
 - `google/protobuf/duration.proto`
 - `google/protobuf/go_features.proto`
 - `pkg/queue/proto/alert_rule.proto` → [queue_1](./queue_1.md#alert_rule)
-- `pkg/queue/proto/alert_severity.proto` →
-  [config_1](./config_1.md#alert_severity) →
-  [metrics_1](./metrics_1.md#alert_severity) →
-  [queue_1](./queue_1.md#alert_severity)
-- `pkg/queue/proto/notification_channel.proto` →
-  [config_1](./config_1.md#notification_channel) →
-  [queue_1](./queue_1.md#notification_channel)
+- `pkg/queue/proto/alert_severity.proto` → [config_1](./config_1.md#alert_severity) → [metrics_1](./metrics_1.md#alert_severity) → [queue_1](./queue_1.md#alert_severity)
+- `pkg/queue/proto/notification_channel.proto` → [config_1](./config_1.md#notification_channel) → [queue_1](./queue_1.md#notification_channel)
 
 #### Source Code
 
@@ -139,11 +133,9 @@ message AlertingConfig {
 
 ### authentication_config.proto {#authentication_config}
 
-**Path**: `pkg/queue/proto/authentication_config.proto` **Package**:
-`gcommon.v1.queue` **Lines**: 116
+**Path**: `pkg/queue/proto/authentication_config.proto` **Package**: `gcommon.v1.queue` **Lines**: 116
 
-**Messages** (6): `AuthenticationConfig`, `UsernamePasswordAuth`, `APIKeyAuth`,
-`TLSAuth`, `SASLAuth`, `OAuth2Auth`
+**Messages** (6): `AuthenticationConfig`, `UsernamePasswordAuth`, `APIKeyAuth`, `TLSAuth`, `SASLAuth`, `OAuth2Auth`
 
 **Imports** (1):
 
@@ -274,13 +266,9 @@ message OAuth2Auth {
 
 ### authorization_config.proto {#authorization_config}
 
-**Path**: `pkg/queue/proto/authorization_config.proto` **Package**:
-`gcommon.v1.queue` **Lines**: 185
+**Path**: `pkg/queue/proto/authorization_config.proto` **Package**: `gcommon.v1.queue` **Lines**: 185
 
-**Messages** (10): `AuthorizationConfig`, `PermissionRule`,
-`RoleBasedAccessControl`, `RoleInheritance`, `ExternalRoleProvider`,
-`ApiKeyAuth`, `KeyValidationService`, `JwtAuth`, `ExternalAuthService`,
-`AuthCacheConfig`
+**Messages** (10): `AuthorizationConfig`, `PermissionRule`, `RoleBasedAccessControl`, `RoleInheritance`, `ExternalRoleProvider`, `ApiKeyAuth`, `KeyValidationService`, `JwtAuth`, `ExternalAuthService`, `AuthCacheConfig`
 
 **Imports** (2):
 
@@ -481,8 +469,7 @@ message AuthCacheConfig {
 
 ### backup_config.proto {#backup_config}
 
-**Path**: `pkg/queue/proto/backup_config.proto` **Package**: `gcommon.v1.queue`
-**Lines**: 30
+**Path**: `pkg/queue/proto/backup_config.proto` **Package**: `gcommon.v1.queue` **Lines**: 30
 
 **Messages** (1): `BackupConfig`
 
@@ -530,8 +517,7 @@ message BackupConfig {
 
 ### batch_config.proto {#batch_config}
 
-**Path**: `pkg/queue/proto/batch_config.proto` **Package**: `gcommon.v1.queue`
-**Lines**: 40
+**Path**: `pkg/queue/proto/batch_config.proto` **Package**: `gcommon.v1.queue` **Lines**: 40
 
 **Messages** (1): `BatchConfig`
 
@@ -589,8 +575,7 @@ message BatchConfig {
 
 ### circuit_breaker_config.proto {#circuit_breaker_config}
 
-**Path**: `pkg/queue/proto/circuit_breaker_config.proto` **Package**:
-`gcommon.v1.queue` **Lines**: 40
+**Path**: `pkg/queue/proto/circuit_breaker_config.proto` **Package**: `gcommon.v1.queue` **Lines**: 40
 
 **Messages** (1): `CircuitBreakerConfig`
 
@@ -648,8 +633,7 @@ message CircuitBreakerConfig {
 
 ### cluster_config.proto {#cluster_config}
 
-**Path**: `pkg/queue/proto/cluster_config.proto` **Package**: `gcommon.v1.queue`
-**Lines**: 31
+**Path**: `pkg/queue/proto/cluster_config.proto` **Package**: `gcommon.v1.queue` **Lines**: 31
 
 **Messages** (1): `ClusterConfig`
 
@@ -698,8 +682,7 @@ message ClusterConfig {
 
 ### compression_config.proto {#compression_config}
 
-**Path**: `pkg/queue/proto/compression_config.proto` **Package**:
-`gcommon.v1.queue` **Lines**: 28
+**Path**: `pkg/queue/proto/compression_config.proto` **Package**: `gcommon.v1.queue` **Lines**: 28
 
 **Messages** (1): `CompressionConfig`
 
@@ -744,24 +727,18 @@ message CompressionConfig {
 
 ### consistency_config.proto {#consistency_config}
 
-**Path**: `pkg/queue/proto/consistency_config.proto` **Package**:
-`gcommon.v1.queue` **Lines**: 328
+**Path**: `pkg/queue/proto/consistency_config.proto` **Package**: `gcommon.v1.queue` **Lines**: 328
 
-**Messages** (16): `ConsistencyConfig`, `ReplicationConsistency`,
-`ReadConsistency`, `WriteConsistency`, `SyncReplication`, `ConflictDetection`,
-`VectorClockConfig`, `TimestampConfig`, `OrderingConfig`, `ConflictResolution`,
-`CustomResolution`, `LastWriterWins`, `MultiValueConfig`,
-`ConsistencyValidation`, `ReadRetryConfig`, `WriteRetryConfig`
+**Messages** (16): `ConsistencyConfig`, `ReplicationConsistency`, `ReadConsistency`, `WriteConsistency`, `SyncReplication`, `ConflictDetection`, `VectorClockConfig`, `TimestampConfig`, `OrderingConfig`, `ConflictResolution`,
+`CustomResolution`, `LastWriterWins`, `MultiValueConfig`, `ConsistencyValidation`, `ReadRetryConfig`, `WriteRetryConfig`
 
-**Enums** (6): `ReplicationLevel`, `ReadLevel`, `WriteLevel`,
-`ConflictStrategy`, `OrderingLevel`, `ResolutionStrategy`
+**Enums** (6): `ReplicationLevel`, `ReadLevel`, `WriteLevel`, `ConflictStrategy`, `OrderingLevel`, `ResolutionStrategy`
 
 **Imports** (3):
 
 - `google/protobuf/go_features.proto`
 - `pkg/queue/proto/ack_level.proto` → [queue_1](./queue_1.md#ack_level)
-- `pkg/queue/proto/durability_level.proto` →
-  [queue_1](./queue_1.md#durability_level)
+- `pkg/queue/proto/durability_level.proto` → [queue_1](./queue_1.md#durability_level)
 
 #### Source Code
 
@@ -1100,8 +1077,7 @@ message WriteRetryConfig {
 
 ### dead_letter_config.proto {#dead_letter_config}
 
-**Path**: `pkg/queue/proto/dead_letter_config.proto` **Package**:
-`gcommon.v1.queue` **Lines**: 41
+**Path**: `pkg/queue/proto/dead_letter_config.proto` **Package**: `gcommon.v1.queue` **Lines**: 41
 
 **Messages** (1): `DeadLetterConfig`
 
@@ -1160,16 +1136,14 @@ message DeadLetterConfig {
 
 ### deserialization_config.proto {#deserialization_config}
 
-**Path**: `pkg/queue/proto/deserialization_config.proto` **Package**:
-`gcommon.v1.queue` **Lines**: 40
+**Path**: `pkg/queue/proto/deserialization_config.proto` **Package**: `gcommon.v1.queue` **Lines**: 40
 
 **Messages** (1): `DeserializationConfig`
 
 **Imports** (2):
 
 - `google/protobuf/go_features.proto`
-- `pkg/queue/proto/serialization_format.proto` →
-  [queue_2](./queue_2.md#serialization_format)
+- `pkg/queue/proto/serialization_format.proto` → [queue_2](./queue_2.md#serialization_format)
 
 #### Source Code
 
@@ -1220,8 +1194,7 @@ message DeserializationConfig {
 
 ### durability_config.proto {#durability_config}
 
-**Path**: `pkg/queue/proto/durability_config.proto` **Package**:
-`gcommon.v1.queue` **Lines**: 48
+**Path**: `pkg/queue/proto/durability_config.proto` **Package**: `gcommon.v1.queue` **Lines**: 48
 
 **Messages** (1): `DurabilityConfig`
 
@@ -1289,8 +1262,7 @@ message DurabilityConfig {
 
 ### encryption_config.proto {#encryption_config}
 
-**Path**: `pkg/queue/proto/encryption_config.proto` **Package**:
-`gcommon.v1.queue` **Lines**: 42
+**Path**: `pkg/queue/proto/encryption_config.proto` **Package**: `gcommon.v1.queue` **Lines**: 42
 
 **Messages** (1): `EncryptionConfig`
 
@@ -1349,8 +1321,7 @@ message EncryptionConfig {
 
 ### exchange_config.proto {#exchange_config}
 
-**Path**: `pkg/queue/proto/exchange_config.proto` **Package**:
-`gcommon.v1.queue` **Lines**: 45
+**Path**: `pkg/queue/proto/exchange_config.proto` **Package**: `gcommon.v1.queue` **Lines**: 45
 
 **Messages** (1): `ExchangeConfig`
 
@@ -1412,8 +1383,7 @@ message ExchangeConfig {
 
 ### header_routing_config.proto {#header_routing_config}
 
-**Path**: `pkg/queue/proto/header_routing_config.proto` **Package**:
-`gcommon.v1.queue` **Lines**: 27
+**Path**: `pkg/queue/proto/header_routing_config.proto` **Package**: `gcommon.v1.queue` **Lines**: 27
 
 **Messages** (1): `HeaderRoutingConfig`
 
@@ -1457,16 +1427,14 @@ message HeaderRoutingConfig {
 
 ### load_balancing_config.proto {#load_balancing_config}
 
-**Path**: `pkg/queue/proto/load_balancing_config.proto` **Package**:
-`gcommon.v1.queue` **Lines**: 40
+**Path**: `pkg/queue/proto/load_balancing_config.proto` **Package**: `gcommon.v1.queue` **Lines**: 40
 
 **Messages** (1): `LoadBalancingConfig`
 
 **Imports** (2):
 
 - `google/protobuf/go_features.proto`
-- `pkg/queue/proto/load_balancing_strategy.proto` →
-  [queue_1](./queue_1.md#load_balancing_strategy)
+- `pkg/queue/proto/load_balancing_strategy.proto` → [queue_1](./queue_1.md#load_balancing_strategy)
 
 #### Source Code
 
@@ -1517,8 +1485,7 @@ message LoadBalancingConfig {
 
 ### migration_config.proto {#migration_config}
 
-**Path**: `pkg/queue/proto/migration_config.proto` **Package**:
-`gcommon.v1.queue` **Lines**: 46
+**Path**: `pkg/queue/proto/migration_config.proto` **Package**: `gcommon.v1.queue` **Lines**: 46
 
 **Messages** (1): `MigrationConfig`
 
@@ -1582,8 +1549,7 @@ message MigrationConfig {
 
 ### monitoring_config.proto {#monitoring_config}
 
-**Path**: `pkg/queue/proto/monitoring_config.proto` **Package**:
-`gcommon.v1.queue` **Lines**: 22
+**Path**: `pkg/queue/proto/monitoring_config.proto` **Package**: `gcommon.v1.queue` **Lines**: 22
 
 **Messages** (1): `MonitoringConfig`
 
@@ -1622,8 +1588,7 @@ message MonitoringConfig {
 
 ### partition_config.proto {#partition_config}
 
-**Path**: `pkg/queue/proto/partition_config.proto` **Package**:
-`gcommon.v1.queue` **Lines**: 45
+**Path**: `pkg/queue/proto/partition_config.proto` **Package**: `gcommon.v1.queue` **Lines**: 45
 
 **Messages** (1): `PartitionConfig`
 
@@ -1685,8 +1650,7 @@ message PartitionConfig {
 
 ### performance_config.proto {#performance_config}
 
-**Path**: `pkg/queue/proto/performance_config.proto` **Package**:
-`gcommon.v1.queue` **Lines**: 55
+**Path**: `pkg/queue/proto/performance_config.proto` **Package**: `gcommon.v1.queue` **Lines**: 55
 
 **Messages** (1): `PerformanceConfig`
 
@@ -1759,20 +1723,16 @@ message PerformanceConfig {
 
 ### queue_config.proto {#queue_config}
 
-**Path**: `pkg/queue/proto/queue_config.proto` **Package**: `gcommon.v1.queue`
-**Lines**: 34
+**Path**: `pkg/queue/proto/queue_config.proto` **Package**: `gcommon.v1.queue` **Lines**: 34
 
 **Messages** (1): `QueueConfig`
 
 **Imports** (4):
 
 - `google/protobuf/go_features.proto`
-- `pkg/queue/proto/priority_level.proto` →
-  [queue_1](./queue_1.md#priority_level)
+- `pkg/queue/proto/priority_level.proto` → [queue_1](./queue_1.md#priority_level)
 - `pkg/queue/proto/queue_type.proto` → [queue_2](./queue_2.md#queue_type)
-- `pkg/queue/proto/retention_policy.proto` →
-  [metrics_2](./metrics_2.md#retention_policy) →
-  [queue_2](./queue_2.md#retention_policy)
+- `pkg/queue/proto/retention_policy.proto` → [metrics_2](./metrics_2.md#retention_policy) → [queue_2](./queue_2.md#retention_policy)
 
 #### Source Code
 
@@ -1817,8 +1777,7 @@ message QueueConfig {
 
 ### rate_limit_config.proto {#rate_limit_config}
 
-**Path**: `pkg/queue/proto/rate_limit_config.proto` **Package**:
-`gcommon.v1.queue` **Lines**: 25
+**Path**: `pkg/queue/proto/rate_limit_config.proto` **Package**: `gcommon.v1.queue` **Lines**: 25
 
 **Messages** (1): `RateLimitConfig`
 
@@ -1860,8 +1819,7 @@ message RateLimitConfig {
 
 ### replication_config.proto {#replication_config}
 
-**Path**: `pkg/queue/proto/replication_config.proto` **Package**:
-`gcommon.v1.queue` **Lines**: 28
+**Path**: `pkg/queue/proto/replication_config.proto` **Package**: `gcommon.v1.queue` **Lines**: 28
 
 **Messages** (1): `ReplicationConfig`
 
@@ -1906,8 +1864,7 @@ message ReplicationConfig {
 
 ### restore_config.proto {#restore_config}
 
-**Path**: `pkg/queue/proto/restore_config.proto` **Package**: `gcommon.v1.queue`
-**Lines**: 46
+**Path**: `pkg/queue/proto/restore_config.proto` **Package**: `gcommon.v1.queue` **Lines**: 46
 
 **Messages** (1): `RestoreConfig`
 
@@ -1971,8 +1928,7 @@ message RestoreConfig {
 
 ### retry_config.proto {#retry_config}
 
-**Path**: `pkg/queue/proto/retry_config.proto` **Package**: `gcommon.v1.queue`
-**Lines**: 43
+**Path**: `pkg/queue/proto/retry_config.proto` **Package**: `gcommon.v1.queue` **Lines**: 43
 
 **Messages** (1): `RetryConfig`
 
@@ -2033,8 +1989,7 @@ message RetryConfig {
 
 ### routing_config.proto {#routing_config}
 
-**Path**: `pkg/queue/proto/routing_config.proto` **Package**: `gcommon.v1.queue`
-**Lines**: 28
+**Path**: `pkg/queue/proto/routing_config.proto` **Package**: `gcommon.v1.queue` **Lines**: 28
 
 **Messages** (1): `RoutingConfig`
 
@@ -2079,8 +2034,7 @@ message RoutingConfig {
 
 ### schema_config.proto {#schema_config}
 
-**Path**: `pkg/queue/proto/schema_config.proto` **Package**: `gcommon.v1.queue`
-**Lines**: 28
+**Path**: `pkg/queue/proto/schema_config.proto` **Package**: `gcommon.v1.queue` **Lines**: 28
 
 **Messages** (1): `SchemaConfig`
 
@@ -2125,20 +2079,16 @@ message SchemaConfig {
 
 ### serialization_config.proto {#serialization_config}
 
-**Path**: `pkg/queue/proto/serialization_config.proto` **Package**:
-`gcommon.v1.queue` **Lines**: 51
+**Path**: `pkg/queue/proto/serialization_config.proto` **Package**: `gcommon.v1.queue` **Lines**: 51
 
 **Messages** (1): `SerializationConfig`
 
 **Imports** (4):
 
 - `google/protobuf/go_features.proto`
-- `pkg/queue/proto/compression_algorithm.proto` →
-  [queue_1](./queue_1.md#compression_algorithm)
-- `pkg/queue/proto/format_options.proto` →
-  [queue_1](./queue_1.md#format_options)
-- `pkg/queue/proto/serialization_format.proto` →
-  [queue_2](./queue_2.md#serialization_format)
+- `pkg/queue/proto/compression_algorithm.proto` → [queue_1](./queue_1.md#compression_algorithm)
+- `pkg/queue/proto/format_options.proto` → [queue_1](./queue_1.md#format_options)
+- `pkg/queue/proto/serialization_format.proto` → [queue_2](./queue_2.md#serialization_format)
 
 #### Source Code
 
@@ -2200,8 +2150,7 @@ message SerializationConfig {
 
 ### stream_config.proto {#stream_config}
 
-**Path**: `pkg/queue/proto/stream_config.proto` **Package**: `gcommon.v1.queue`
-**Lines**: 50
+**Path**: `pkg/queue/proto/stream_config.proto` **Package**: `gcommon.v1.queue` **Lines**: 50
 
 **Messages** (1): `StreamConfig`
 
@@ -2209,8 +2158,7 @@ message SerializationConfig {
 
 - `google/protobuf/duration.proto`
 - `google/protobuf/go_features.proto`
-- `pkg/queue/proto/stream_restart_policy.proto` →
-  [queue_2](./queue_2.md#stream_restart_policy)
+- `pkg/queue/proto/stream_restart_policy.proto` → [queue_2](./queue_2.md#stream_restart_policy)
 
 #### Source Code
 
@@ -2271,22 +2219,17 @@ message StreamConfig {
 
 ### subscription_config.proto {#subscription_config}
 
-**Path**: `pkg/queue/proto/subscription_config.proto` **Package**:
-`gcommon.v1.queue` **Lines**: 33
+**Path**: `pkg/queue/proto/subscription_config.proto` **Package**: `gcommon.v1.queue` **Lines**: 33
 
 **Messages** (1): `SubscriptionConfig`
 
 **Imports** (5):
 
 - `google/protobuf/go_features.proto`
-- `pkg/queue/proto/delivery_options.proto` →
-  [queue_1](./queue_1.md#delivery_options)
-- `pkg/queue/proto/priority_level.proto` →
-  [queue_1](./queue_1.md#priority_level)
-- `pkg/queue/proto/routing_strategy.proto` →
-  [queue_2](./queue_2.md#routing_strategy)
-- `pkg/queue/proto/subscription_state.proto` →
-  [queue_2](./queue_2.md#subscription_state)
+- `pkg/queue/proto/delivery_options.proto` → [queue_1](./queue_1.md#delivery_options)
+- `pkg/queue/proto/priority_level.proto` → [queue_1](./queue_1.md#priority_level)
+- `pkg/queue/proto/routing_strategy.proto` → [queue_2](./queue_2.md#routing_strategy)
+- `pkg/queue/proto/subscription_state.proto` → [queue_2](./queue_2.md#subscription_state)
 
 #### Source Code
 
@@ -2330,8 +2273,7 @@ message SubscriptionConfig {
 
 ### timeout_config.proto {#timeout_config}
 
-**Path**: `pkg/queue/proto/timeout_config.proto` **Package**: `gcommon.v1.queue`
-**Lines**: 46
+**Path**: `pkg/queue/proto/timeout_config.proto` **Package**: `gcommon.v1.queue` **Lines**: 46
 
 **Messages** (1): `TimeoutConfig`
 
@@ -2395,8 +2337,7 @@ message TimeoutConfig {
 
 ### topic_config.proto {#topic_config}
 
-**Path**: `pkg/queue/proto/topic_config.proto` **Package**: `gcommon.v1.queue`
-**Lines**: 48
+**Path**: `pkg/queue/proto/topic_config.proto` **Package**: `gcommon.v1.queue` **Lines**: 48
 
 **Messages** (1): `TopicConfig`
 
@@ -2405,9 +2346,7 @@ message TimeoutConfig {
 - `google/protobuf/duration.proto`
 - `google/protobuf/go_features.proto`
 - `pkg/queue/proto/partition_config.proto`
-- `pkg/queue/proto/retention_policy.proto` →
-  [metrics_2](./metrics_2.md#retention_policy) →
-  [queue_2](./queue_2.md#retention_policy)
+- `pkg/queue/proto/retention_policy.proto` → [metrics_2](./metrics_2.md#retention_policy) → [queue_2](./queue_2.md#retention_policy)
 
 #### Source Code
 
@@ -2466,8 +2405,7 @@ message TopicConfig {
 
 ### topic_routing_config.proto {#topic_routing_config}
 
-**Path**: `pkg/queue/proto/topic_routing_config.proto` **Package**:
-`gcommon.v1.queue` **Lines**: 27
+**Path**: `pkg/queue/proto/topic_routing_config.proto` **Package**: `gcommon.v1.queue` **Lines**: 27
 
 **Messages** (1): `TopicRoutingConfig`
 
@@ -2511,8 +2449,7 @@ message TopicRoutingConfig {
 
 ### transformation_config.proto {#transformation_config}
 
-**Path**: `pkg/queue/proto/transformation_config.proto` **Package**:
-`gcommon.v1.queue` **Lines**: 45
+**Path**: `pkg/queue/proto/transformation_config.proto` **Package**: `gcommon.v1.queue` **Lines**: 45
 
 **Messages** (1): `TransformationConfig`
 
@@ -2574,16 +2511,14 @@ message TransformationConfig {
 
 ### update_queue_config_request.proto {#update_queue_config_request}
 
-**Path**: `pkg/queue/proto/update_queue_config_request.proto` **Package**:
-`gcommon.v1.queue` **Lines**: 39
+**Path**: `pkg/queue/proto/update_queue_config_request.proto` **Package**: `gcommon.v1.queue` **Lines**: 39
 
 **Messages** (1): `UpdateQueueConfigRequest`
 
 **Imports** (3):
 
 - `google/protobuf/go_features.proto`
-- `pkg/common/proto/request_metadata.proto` →
-  [common](./common.md#request_metadata)
+- `pkg/common/proto/request_metadata.proto` → [common](./common.md#request_metadata)
 - `pkg/queue/proto/queue_config.proto`
 
 #### Source Code
@@ -2634,8 +2569,7 @@ message UpdateQueueConfigRequest {
 
 ### update_queue_config_response.proto {#update_queue_config_response}
 
-**Path**: `pkg/queue/proto/update_queue_config_response.proto` **Package**:
-`gcommon.v1.queue` **Lines**: 36
+**Path**: `pkg/queue/proto/update_queue_config_response.proto` **Package**: `gcommon.v1.queue` **Lines**: 36
 
 **Messages** (1): `UpdateQueueConfigResponse`
 
@@ -2688,11 +2622,9 @@ message UpdateQueueConfigResponse {
 
 ### update_subscription_config_request.proto {#update_subscription_config_request}
 
-**Path**: `pkg/queue/proto/update_subscription_config_request.proto`
-**Package**: `gcommon.v1.queue` **Lines**: 124
+**Path**: `pkg/queue/proto/update_subscription_config_request.proto` **Package**: `gcommon.v1.queue` **Lines**: 124
 
-**Messages** (6): `UpdateSubscriptionConfigRequest`, `SubscriptionConfigUpdate`,
-`DeliverySettings`, `RetrySettings`, `FilterSettings`, `RoutingSettings`
+**Messages** (6): `UpdateSubscriptionConfigRequest`, `SubscriptionConfigUpdate`, `DeliverySettings`, `RetrySettings`, `FilterSettings`, `RoutingSettings`
 
 **Imports** (1):
 
@@ -2831,8 +2763,7 @@ message RoutingSettings {
 
 ### update_subscription_config_response.proto {#update_subscription_config_response}
 
-**Path**: `pkg/queue/proto/update_subscription_config_response.proto`
-**Package**: `gcommon.v1.queue` **Lines**: 31
+**Path**: `pkg/queue/proto/update_subscription_config_response.proto` **Package**: `gcommon.v1.queue` **Lines**: 31
 
 **Messages** (1): `UpdateSubscriptionConfigResponse`
 
@@ -2880,8 +2811,7 @@ message UpdateSubscriptionConfigResponse {
 
 ### update_topic_config_request.proto {#update_topic_config_request}
 
-**Path**: `pkg/queue/proto/update_topic_config_request.proto` **Package**:
-`gcommon.v1.queue` **Lines**: 32
+**Path**: `pkg/queue/proto/update_topic_config_request.proto` **Package**: `gcommon.v1.queue` **Lines**: 32
 
 **Messages** (1): `UpdateTopicConfigRequest`
 
@@ -2931,8 +2861,7 @@ message UpdateTopicConfigRequest {
 
 ### update_topic_config_response.proto {#update_topic_config_response}
 
-**Path**: `pkg/queue/proto/update_topic_config_response.proto` **Package**:
-`gcommon.v1.queue` **Lines**: 43
+**Path**: `pkg/queue/proto/update_topic_config_response.proto` **Package**: `gcommon.v1.queue` **Lines**: 43
 
 **Messages** (1): `UpdateTopicConfigResponse`
 
@@ -2993,8 +2922,7 @@ message UpdateTopicConfigResponse {
 
 ### validation_config.proto {#validation_config}
 
-**Path**: `pkg/queue/proto/validation_config.proto` **Package**:
-`gcommon.v1.queue` **Lines**: 23
+**Path**: `pkg/queue/proto/validation_config.proto` **Package**: `gcommon.v1.queue` **Lines**: 23
 
 **Messages** (1): `ValidationConfig`
 

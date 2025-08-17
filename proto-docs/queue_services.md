@@ -34,42 +34,27 @@
 
 ### queue_admin_service.proto {#queue_admin_service}
 
-**Path**: `pkg/queue/proto/queue_admin_service.proto` **Package**:
-`gcommon.v1.queue` **Lines**: 51
+**Path**: `pkg/queue/proto/queue_admin_service.proto` **Package**: `gcommon.v1.queue` **Lines**: 51
 
 **Services** (1): `QueueAdminService`
 
 **Imports** (15):
 
 - `google/protobuf/go_features.proto`
-- `pkg/queue/proto/create_queue_request.proto` →
-  [queue_api_1](./queue_api_1.md#create_queue_request)
-- `pkg/queue/proto/create_queue_response.proto` →
-  [queue_api_1](./queue_api_1.md#create_queue_response)
-- `pkg/queue/proto/delete_topic_request.proto` →
-  [queue_api_1](./queue_api_1.md#delete_topic_request)
-- `pkg/queue/proto/delete_topic_response.proto` →
-  [queue_api_1](./queue_api_1.md#delete_topic_response)
-- `pkg/queue/proto/get_queue_info_request.proto` →
-  [queue_api_1](./queue_api_1.md#get_queue_info_request)
-- `pkg/queue/proto/get_queue_info_response.proto` →
-  [queue_api_1](./queue_api_1.md#get_queue_info_response)
-- `pkg/queue/proto/pause_queue_request.proto` →
-  [queue_api_2](./queue_api_2.md#pause_queue_request)
-- `pkg/queue/proto/pause_queue_response.proto` →
-  [queue_api_2](./queue_api_2.md#pause_queue_response)
-- `pkg/queue/proto/purge_request.proto` →
-  [queue_api_2](./queue_api_2.md#purge_request)
-- `pkg/queue/proto/purge_response.proto` →
-  [queue_api_2](./queue_api_2.md#purge_response)
-- `pkg/queue/proto/reset_queue_stats_request.proto` →
-  [queue_api_2](./queue_api_2.md#reset_queue_stats_request)
-- `pkg/queue/proto/reset_queue_stats_response.proto` →
-  [queue_api_2](./queue_api_2.md#reset_queue_stats_response)
-- `pkg/queue/proto/resume_queue_request.proto` →
-  [queue_api_2](./queue_api_2.md#resume_queue_request)
-- `pkg/queue/proto/resume_queue_response.proto` →
-  [queue_api_2](./queue_api_2.md#resume_queue_response)
+- `pkg/queue/proto/create_queue_request.proto` → [queue_api_1](./queue_api_1.md#create_queue_request)
+- `pkg/queue/proto/create_queue_response.proto` → [queue_api_1](./queue_api_1.md#create_queue_response)
+- `pkg/queue/proto/delete_topic_request.proto` → [queue_api_1](./queue_api_1.md#delete_topic_request)
+- `pkg/queue/proto/delete_topic_response.proto` → [queue_api_1](./queue_api_1.md#delete_topic_response)
+- `pkg/queue/proto/get_queue_info_request.proto` → [queue_api_1](./queue_api_1.md#get_queue_info_request)
+- `pkg/queue/proto/get_queue_info_response.proto` → [queue_api_1](./queue_api_1.md#get_queue_info_response)
+- `pkg/queue/proto/pause_queue_request.proto` → [queue_api_2](./queue_api_2.md#pause_queue_request)
+- `pkg/queue/proto/pause_queue_response.proto` → [queue_api_2](./queue_api_2.md#pause_queue_response)
+- `pkg/queue/proto/purge_request.proto` → [queue_api_2](./queue_api_2.md#purge_request)
+- `pkg/queue/proto/purge_response.proto` → [queue_api_2](./queue_api_2.md#purge_response)
+- `pkg/queue/proto/reset_queue_stats_request.proto` → [queue_api_2](./queue_api_2.md#reset_queue_stats_request)
+- `pkg/queue/proto/reset_queue_stats_response.proto` → [queue_api_2](./queue_api_2.md#reset_queue_stats_response)
+- `pkg/queue/proto/resume_queue_request.proto` → [queue_api_2](./queue_api_2.md#resume_queue_request)
+- `pkg/queue/proto/resume_queue_response.proto` → [queue_api_2](./queue_api_2.md#resume_queue_response)
 
 #### Source Code
 
@@ -131,12 +116,9 @@ service QueueAdminService {
 
 ### queue_monitoring_service.proto {#queue_monitoring_service}
 
-**Path**: `pkg/queue/proto/queue_monitoring_service.proto` **Package**:
-`gcommon.v1.queue` **Lines**: 174
+**Path**: `pkg/queue/proto/queue_monitoring_service.proto` **Package**: `gcommon.v1.queue` **Lines**: 174
 
-**Messages** (9): `GetQueueHealthRequest`, `GetQueueHealthResponse`,
-`QueueHealth`, `ClusterHealth`, `GetQueueStatsRequest`, `QueueStatsResponse`,
-`QueueStatsPoint`, `StreamMetricsRequest`, `MetricsEvent`
+**Messages** (9): `GetQueueHealthRequest`, `GetQueueHealthResponse`, `QueueHealth`, `ClusterHealth`, `GetQueueStatsRequest`, `QueueStatsResponse`, `QueueStatsPoint`, `StreamMetricsRequest`, `MetricsEvent`
 
 **Services** (1): `QueueMonitoringService`
 
@@ -144,24 +126,15 @@ service QueueAdminService {
 
 - `google/protobuf/go_features.proto`
 - `google/protobuf/timestamp.proto`
-- `pkg/common/proto/time_range.proto` → [common](./common.md#time_range) →
-  [metrics_2](./metrics_2.md#time_range) → [queue_2](./queue_2.md#time_range)
+- `pkg/common/proto/time_range.proto` → [common](./common.md#time_range) → [metrics_2](./metrics_2.md#time_range) → [queue_2](./queue_2.md#time_range)
 - `pkg/queue/proto/cluster_info.proto` → [queue_1](./queue_1.md#cluster_info)
-- `pkg/queue/proto/get_cluster_info_request.proto` →
-  [queue_api_1](./queue_api_1.md#get_cluster_info_request)
-- `pkg/queue/proto/get_cluster_info_response.proto` →
-  [queue_api_1](./queue_api_1.md#get_cluster_info_response)
-- `pkg/queue/proto/get_queue_stats_response.proto` →
-  [queue_api_2](./queue_api_2.md#get_queue_stats_response)
-- `pkg/queue/proto/health_status.proto` → [common](./common.md#health_status) →
-  [metrics_1](./metrics_1.md#health_status) →
-  [queue_1](./queue_1.md#health_status) → [web](./web.md#health_status)
-- `pkg/queue/proto/metric_type.proto` → [metrics_1](./metrics_1.md#metric_type)
-  → [queue_1](./queue_1.md#metric_type)
-- `pkg/queue/proto/stats_granularity.proto` →
-  [queue_2](./queue_2.md#stats_granularity)
-- `pkg/queue/proto/time_range.proto` → [common](./common.md#time_range) →
-  [metrics_2](./metrics_2.md#time_range) → [queue_2](./queue_2.md#time_range)
+- `pkg/queue/proto/get_cluster_info_request.proto` → [queue_api_1](./queue_api_1.md#get_cluster_info_request)
+- `pkg/queue/proto/get_cluster_info_response.proto` → [queue_api_1](./queue_api_1.md#get_cluster_info_response)
+- `pkg/queue/proto/get_queue_stats_response.proto` → [queue_api_2](./queue_api_2.md#get_queue_stats_response)
+- `pkg/queue/proto/health_status.proto` → [common](./common.md#health_status) → [metrics_1](./metrics_1.md#health_status) → [queue_1](./queue_1.md#health_status) → [web](./web.md#health_status)
+- `pkg/queue/proto/metric_type.proto` → [metrics_1](./metrics_1.md#metric_type) → [queue_1](./queue_1.md#metric_type)
+- `pkg/queue/proto/stats_granularity.proto` → [queue_2](./queue_2.md#stats_granularity)
+- `pkg/queue/proto/time_range.proto` → [common](./common.md#time_range) → [metrics_2](./metrics_2.md#time_range) → [queue_2](./queue_2.md#time_range)
 - `pkg/queue/proto/topic_info.proto` → [queue_2](./queue_2.md#topic_info)
 
 #### Source Code
@@ -347,8 +320,7 @@ message MetricsEvent {
 
 ### queue_service.proto {#queue_service}
 
-**Path**: `pkg/queue/proto/queue_service.proto` **Package**: `gcommon.v1.queue`
-**Lines**: 32
+**Path**: `pkg/queue/proto/queue_service.proto` **Package**: `gcommon.v1.queue` **Lines**: 32
 
 **Services** (1): `QueueManagementService`
 

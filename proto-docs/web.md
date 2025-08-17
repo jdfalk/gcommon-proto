@@ -76,8 +76,7 @@
 
 ### auth_method.proto {#auth_method}
 
-**Path**: `pkg/web/proto/auth_method.proto` **Package**: `gcommon.v1.web`
-**Lines**: 28
+**Path**: `pkg/web/proto/auth_method.proto` **Package**: `gcommon.v1.web` **Lines**: 28
 
 **Enums** (1): `AuthMethod`
 
@@ -122,8 +121,7 @@ enum AuthMethod {
 
 ### cache_strategy.proto {#cache_strategy}
 
-**Path**: `pkg/web/proto/cache_strategy.proto` **Package**: `gcommon.v1.web`
-**Lines**: 27
+**Path**: `pkg/web/proto/cache_strategy.proto` **Package**: `gcommon.v1.web` **Lines**: 27
 
 **Enums** (1): `CacheStrategy`
 
@@ -167,8 +165,7 @@ enum CacheStrategy {
 
 ### compression_type.proto {#compression_type}
 
-**Path**: `pkg/web/proto/compression_type.proto` **Package**: `gcommon.v1.web`
-**Lines**: 25
+**Path**: `pkg/web/proto/compression_type.proto` **Package**: `gcommon.v1.web` **Lines**: 25
 
 **Enums** (1): `CompressionType`
 
@@ -210,8 +207,7 @@ enum CompressionType {
 
 ### content_type.proto {#content_type}
 
-**Path**: `pkg/web/proto/content_type.proto` **Package**: `gcommon.v1.web`
-**Lines**: 24
+**Path**: `pkg/web/proto/content_type.proto` **Package**: `gcommon.v1.web` **Lines**: 24
 
 **Enums** (1): `ContentType`
 
@@ -252,8 +248,7 @@ enum ContentType {
 
 ### cookie_data.proto {#cookie_data}
 
-**Path**: `pkg/web/proto/cookie_data.proto` **Package**: `gcommon.v1.web`
-**Lines**: 42
+**Path**: `pkg/web/proto/cookie_data.proto` **Package**: `gcommon.v1.web` **Lines**: 42
 
 **Messages** (1): `CookieData`
 
@@ -314,8 +309,7 @@ message CookieData {
 
 ### cookie_same_site.proto {#cookie_same_site}
 
-**Path**: `pkg/web/proto/cookie_same_site.proto` **Package**: `gcommon.v1.web`
-**Lines**: 22
+**Path**: `pkg/web/proto/cookie_same_site.proto` **Package**: `gcommon.v1.web` **Lines**: 22
 
 **Enums** (1): `CookieSameSite`
 
@@ -354,8 +348,7 @@ enum CookieSameSite {
 
 ### file_info.proto {#file_info}
 
-**Path**: `pkg/web/proto/file_info.proto` **Package**: `gcommon.v1.web`
-**Lines**: 33
+**Path**: `pkg/web/proto/file_info.proto` **Package**: `gcommon.v1.web` **Lines**: 33
 
 **Messages** (1): `FileInfo`
 
@@ -407,8 +400,7 @@ message FileInfo {
 
 ### file_metadata.proto {#file_metadata}
 
-**Path**: `pkg/web/proto/file_metadata.proto` **Package**: `gcommon.v1.web`
-**Lines**: 33
+**Path**: `pkg/web/proto/file_metadata.proto` **Package**: `gcommon.v1.web` **Lines**: 33
 
 **Messages** (1): `FileMetadata`
 
@@ -460,8 +452,7 @@ message FileMetadata {
 
 ### file_sort_order.proto {#file_sort_order}
 
-**Path**: `pkg/web/proto/file_sort_order.proto` **Package**: `gcommon.v1.web`
-**Lines**: 40
+**Path**: `pkg/web/proto/file_sort_order.proto` **Package**: `gcommon.v1.web` **Lines**: 40
 
 **Enums** (1): `FileSortOrder`
 
@@ -518,8 +509,7 @@ enum FileSortOrder {
 
 ### file_upload.proto {#file_upload}
 
-**Path**: `pkg/web/proto/file_upload.proto` **Package**: `gcommon.v1.web`
-**Lines**: 29
+**Path**: `pkg/web/proto/file_upload.proto` **Package**: `gcommon.v1.web` **Lines**: 29
 
 **Messages** (1): `FileUpload`
 
@@ -566,8 +556,7 @@ message FileUpload {
 
 ### handler_info.proto {#handler_info}
 
-**Path**: `pkg/web/proto/handler_info.proto` **Package**: `gcommon.v1.web`
-**Lines**: 30
+**Path**: `pkg/web/proto/handler_info.proto` **Package**: `gcommon.v1.web` **Lines**: 30
 
 **Messages** (1): `HandlerInfo`
 
@@ -575,8 +564,7 @@ message FileUpload {
 
 - `google/protobuf/go_features.proto`
 - `google/protobuf/timestamp.proto`
-- `pkg/web/proto/handler_config.proto` →
-  [web_config_1](./web_config_1.md#handler_config)
+- `pkg/web/proto/handler_config.proto` → [web_config_1](./web_config_1.md#handler_config)
 
 #### Source Code
 
@@ -617,8 +605,7 @@ message HandlerInfo {
 
 ### handler_type.proto {#handler_type}
 
-**Path**: `pkg/web/proto/handler_type.proto` **Package**: `gcommon.v1.web`
-**Lines**: 21
+**Path**: `pkg/web/proto/handler_type.proto` **Package**: `gcommon.v1.web` **Lines**: 21
 
 **Enums** (1): `HandlerType`
 
@@ -656,8 +643,7 @@ enum HandlerType {
 
 ### health_status.proto {#health_status}
 
-**Path**: `pkg/web/proto/health_status.proto` **Package**: `gcommon.v1.web`
-**Lines**: 21
+**Path**: `pkg/web/proto/health_status.proto` **Package**: `gcommon.v1.web` **Lines**: 21
 
 **Enums** (1): `HealthStatus`
 
@@ -695,8 +681,7 @@ enum HealthStatus {
 
 ### http_header.proto {#http_header}
 
-**Path**: `pkg/web/proto/http_header.proto` **Package**: `gcommon.v1.web`
-**Lines**: 23
+**Path**: `pkg/web/proto/http_header.proto` **Package**: `gcommon.v1.web` **Lines**: 23
 
 **Messages** (1): `HttpHeader`
 
@@ -736,8 +721,7 @@ message HttpHeader {
 
 ### http_method.proto {#http_method}
 
-**Path**: `pkg/web/proto/http_method.proto` **Package**: `gcommon.v1.web`
-**Lines**: 25
+**Path**: `pkg/web/proto/http_method.proto` **Package**: `gcommon.v1.web` **Lines**: 25
 
 **Enums** (1): `HTTPMethod`
 
@@ -779,8 +763,7 @@ enum HTTPMethod {
 
 ### http_status.proto {#http_status}
 
-**Path**: `pkg/web/proto/http_status.proto` **Package**: `gcommon.v1.web`
-**Lines**: 24
+**Path**: `pkg/web/proto/http_status.proto` **Package**: `gcommon.v1.web` **Lines**: 24
 
 **Enums** (1): `HTTPStatus`
 
@@ -821,8 +804,7 @@ enum HTTPStatus {
 
 ### load_balance_strategy.proto {#load_balance_strategy}
 
-**Path**: `pkg/web/proto/load_balance_strategy.proto` **Package**:
-`gcommon.v1.web` **Lines**: 21
+**Path**: `pkg/web/proto/load_balance_strategy.proto` **Package**: `gcommon.v1.web` **Lines**: 21
 
 **Enums** (1): `LoadBalanceStrategy`
 
@@ -860,8 +842,7 @@ enum LoadBalanceStrategy {
 
 ### middleware_info.proto {#middleware_info}
 
-**Path**: `pkg/web/proto/middleware_info.proto` **Package**: `gcommon.v1.web`
-**Lines**: 29
+**Path**: `pkg/web/proto/middleware_info.proto` **Package**: `gcommon.v1.web` **Lines**: 29
 
 **Messages** (1): `MiddlewareInfo`
 
@@ -908,8 +889,7 @@ message MiddlewareInfo {
 
 ### middleware_type.proto {#middleware_type}
 
-**Path**: `pkg/web/proto/middleware_type.proto` **Package**: `gcommon.v1.web`
-**Lines**: 24
+**Path**: `pkg/web/proto/middleware_type.proto` **Package**: `gcommon.v1.web` **Lines**: 24
 
 **Enums** (1): `MiddlewareType`
 
@@ -950,8 +930,7 @@ enum MiddlewareType {
 
 ### mime_type.proto {#mime_type}
 
-**Path**: `pkg/web/proto/mime_type.proto` **Package**: `gcommon.v1.web`
-**Lines**: 26
+**Path**: `pkg/web/proto/mime_type.proto` **Package**: `gcommon.v1.web` **Lines**: 26
 
 **Messages** (1): `MimeType`
 
@@ -994,8 +973,7 @@ message MimeType {
 
 ### performance_stats.proto {#performance_stats}
 
-**Path**: `pkg/web/proto/performance_stats.proto` **Package**: `gcommon.v1.web`
-**Lines**: 28
+**Path**: `pkg/web/proto/performance_stats.proto` **Package**: `gcommon.v1.web` **Lines**: 28
 
 **Messages** (1): `PerformanceStats`
 
@@ -1040,8 +1018,7 @@ message PerformanceStats {
 
 ### proxy_type.proto {#proxy_type}
 
-**Path**: `pkg/web/proto/proxy_type.proto` **Package**: `gcommon.v1.web`
-**Lines**: 21
+**Path**: `pkg/web/proto/proxy_type.proto` **Package**: `gcommon.v1.web` **Lines**: 21
 
 **Enums** (1): `ProxyType`
 
@@ -1079,8 +1056,7 @@ enum ProxyType {
 
 ### rate_limit_strategy.proto {#rate_limit_strategy}
 
-**Path**: `pkg/web/proto/rate_limit_strategy.proto` **Package**:
-`gcommon.v1.web` **Lines**: 22
+**Path**: `pkg/web/proto/rate_limit_strategy.proto` **Package**: `gcommon.v1.web` **Lines**: 22
 
 **Enums** (1): `RateLimitStrategy`
 
@@ -1119,8 +1095,7 @@ enum RateLimitStrategy {
 
 ### route_info.proto {#route_info}
 
-**Path**: `pkg/web/proto/route_info.proto` **Package**: `gcommon.v1.web`
-**Lines**: 31
+**Path**: `pkg/web/proto/route_info.proto` **Package**: `gcommon.v1.web` **Lines**: 31
 
 **Messages** (1): `RouteInfo`
 
@@ -1128,8 +1103,7 @@ enum RateLimitStrategy {
 
 - `google/protobuf/go_features.proto`
 - `google/protobuf/timestamp.proto`
-- `pkg/web/proto/route_config.proto` →
-  [web_config_1](./web_config_1.md#route_config)
+- `pkg/web/proto/route_config.proto` → [web_config_1](./web_config_1.md#route_config)
 - `pkg/web/proto/route_type.proto`
 
 #### Source Code
@@ -1172,8 +1146,7 @@ message RouteInfo {
 
 ### route_type.proto {#route_type}
 
-**Path**: `pkg/web/proto/route_type.proto` **Package**: `gcommon.v1.web`
-**Lines**: 21
+**Path**: `pkg/web/proto/route_type.proto` **Package**: `gcommon.v1.web` **Lines**: 21
 
 **Enums** (1): `RouteType`
 
@@ -1211,8 +1184,7 @@ enum RouteType {
 
 ### same_site_policy.proto {#same_site_policy}
 
-**Path**: `pkg/web/proto/same_site_policy.proto` **Package**: `gcommon.v1.web`
-**Lines**: 31
+**Path**: `pkg/web/proto/same_site_policy.proto` **Package**: `gcommon.v1.web` **Lines**: 31
 
 **Enums** (1): `SameSitePolicy`
 
@@ -1260,8 +1232,7 @@ enum SameSitePolicy {
 
 ### server_state.proto {#server_state}
 
-**Path**: `pkg/web/proto/server_state.proto` **Package**: `gcommon.v1.web`
-**Lines**: 22
+**Path**: `pkg/web/proto/server_state.proto` **Package**: `gcommon.v1.web` **Lines**: 22
 
 **Enums** (1): `ServerState`
 
@@ -1300,8 +1271,7 @@ enum ServerState {
 
 ### server_status.proto {#server_status}
 
-**Path**: `pkg/web/proto/server_status.proto` **Package**: `gcommon.v1.web`
-**Lines**: 24
+**Path**: `pkg/web/proto/server_status.proto` **Package**: `gcommon.v1.web` **Lines**: 24
 
 **Enums** (1): `ServerStatus`
 
@@ -1342,8 +1312,7 @@ enum ServerStatus {
 
 ### session_data.proto {#session_data}
 
-**Path**: `pkg/web/proto/session_data.proto` **Package**: `gcommon.v1.web`
-**Lines**: 45
+**Path**: `pkg/web/proto/session_data.proto` **Package**: `gcommon.v1.web` **Lines**: 45
 
 **Messages** (1): `SessionData`
 
@@ -1407,8 +1376,7 @@ message SessionData {
 
 ### session_state.proto {#session_state}
 
-**Path**: `pkg/web/proto/session_state.proto` **Package**: `gcommon.v1.web`
-**Lines**: 21
+**Path**: `pkg/web/proto/session_state.proto` **Package**: `gcommon.v1.web` **Lines**: 21
 
 **Enums** (1): `SessionState`
 
@@ -1446,8 +1414,7 @@ enum SessionState {
 
 ### ssl_protocol.proto {#ssl_protocol}
 
-**Path**: `pkg/web/proto/ssl_protocol.proto` **Package**: `gcommon.v1.web`
-**Lines**: 22
+**Path**: `pkg/web/proto/ssl_protocol.proto` **Package**: `gcommon.v1.web` **Lines**: 22
 
 **Enums** (1): `SSLProtocol`
 
@@ -1486,8 +1453,7 @@ enum SSLProtocol {
 
 ### template_data.proto {#template_data}
 
-**Path**: `pkg/web/proto/template_data.proto` **Package**: `gcommon.v1.web`
-**Lines**: 30
+**Path**: `pkg/web/proto/template_data.proto` **Package**: `gcommon.v1.web` **Lines**: 30
 
 **Messages** (1): `TemplateData`
 
@@ -1536,8 +1502,7 @@ message TemplateData {
 
 ### url_path.proto {#url_path}
 
-**Path**: `pkg/web/proto/url_path.proto` **Package**: `gcommon.v1.web`
-**Lines**: 19
+**Path**: `pkg/web/proto/url_path.proto` **Package**: `gcommon.v1.web` **Lines**: 19
 
 **Messages** (1): `UrlPath`
 
@@ -1573,8 +1538,7 @@ message UrlPath {
 
 ### websocket_info.proto {#websocket_info}
 
-**Path**: `pkg/web/proto/websocket_info.proto` **Package**: `gcommon.v1.web`
-**Lines**: 29
+**Path**: `pkg/web/proto/websocket_info.proto` **Package**: `gcommon.v1.web` **Lines**: 29
 
 **Messages** (1): `WebsocketInfo`
 
@@ -1621,8 +1585,7 @@ message WebsocketInfo {
 
 ### websocket_message.proto {#websocket_message}
 
-**Path**: `pkg/web/proto/websocket_message.proto` **Package**: `gcommon.v1.web`
-**Lines**: 29
+**Path**: `pkg/web/proto/websocket_message.proto` **Package**: `gcommon.v1.web` **Lines**: 29
 
 **Messages** (1): `WebsocketMessage`
 
@@ -1669,8 +1632,7 @@ message WebsocketMessage {
 
 ### websocket_state.proto {#websocket_state}
 
-**Path**: `pkg/web/proto/websocket_state.proto` **Package**: `gcommon.v1.web`
-**Lines**: 22
+**Path**: `pkg/web/proto/websocket_state.proto` **Package**: `gcommon.v1.web` **Lines**: 22
 
 **Enums** (1): `WebSocketState`
 

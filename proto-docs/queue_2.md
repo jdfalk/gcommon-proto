@@ -69,8 +69,7 @@
 
 ### queue_info.proto {#queue_info}
 
-**Path**: `pkg/queue/proto/queue_info.proto` **Package**: `gcommon.v1.queue`
-**Lines**: 40
+**Path**: `pkg/queue/proto/queue_info.proto` **Package**: `gcommon.v1.queue` **Lines**: 40
 
 **Messages** (1): `QueueInfo`
 
@@ -81,8 +80,7 @@
 
 #### ⚠️ Issues Found (1)
 
-- Line 6: Implementation needed - // empty placeholder created during the 1-1-1
-  migration.
+- Line 6: Implementation needed - // empty placeholder created during the 1-1-1 migration.
 
 #### Source Code
 
@@ -133,8 +131,7 @@ message QueueInfo {
 
 ### queue_message.proto {#queue_message}
 
-**Path**: `pkg/queue/proto/queue_message.proto` **Package**: `gcommon.v1.queue`
-**Lines**: 51
+**Path**: `pkg/queue/proto/queue_message.proto` **Package**: `gcommon.v1.queue` **Lines**: 51
 
 **Messages** (1): `QueueMessage`
 
@@ -204,8 +201,7 @@ message QueueMessage {
 
 ### queue_state.proto {#queue_state}
 
-**Path**: `pkg/queue/proto/queue_state.proto` **Package**: `gcommon.v1.queue`
-**Lines**: 42
+**Path**: `pkg/queue/proto/queue_state.proto` **Package**: `gcommon.v1.queue` **Lines**: 42
 
 **Enums** (1): `QueueState`
 
@@ -264,8 +260,7 @@ enum QueueState {
 
 ### queue_stats.proto {#queue_stats}
 
-**Path**: `pkg/queue/proto/queue_stats.proto` **Package**: `gcommon.v1.queue`
-**Lines**: 51
+**Path**: `pkg/queue/proto/queue_stats.proto` **Package**: `gcommon.v1.queue` **Lines**: 51
 
 **Messages** (1): `BasicQueueStats`
 
@@ -333,8 +328,7 @@ message BasicQueueStats {
 
 ### queue_type.proto {#queue_type}
 
-**Path**: `pkg/queue/proto/queue_type.proto` **Package**: `gcommon.v1.queue`
-**Lines**: 27
+**Path**: `pkg/queue/proto/queue_type.proto` **Package**: `gcommon.v1.queue` **Lines**: 27
 
 **Enums** (1): `QueueType`
 
@@ -378,8 +372,7 @@ enum QueueType {
 
 ### received_message.proto {#received_message}
 
-**Path**: `pkg/queue/proto/received_message.proto` **Package**:
-`gcommon.v1.queue` **Lines**: 30
+**Path**: `pkg/queue/proto/received_message.proto` **Package**: `gcommon.v1.queue` **Lines**: 30
 
 **Messages** (1): `ReceivedMessage`
 
@@ -426,8 +419,7 @@ message ReceivedMessage {
 
 ### replication_mode.proto {#replication_mode}
 
-**Path**: `pkg/queue/proto/replication_mode.proto` **Package**:
-`gcommon.v1.queue` **Lines**: 42
+**Path**: `pkg/queue/proto/replication_mode.proto` **Package**: `gcommon.v1.queue` **Lines**: 42
 
 **Enums** (1): `ReplicationMode`
 
@@ -486,8 +478,7 @@ enum ReplicationMode {
 
 ### retention_policy.proto {#retention_policy}
 
-**Path**: `pkg/queue/proto/retention_policy.proto` **Package**:
-`gcommon.v1.queue` **Lines**: 24
+**Path**: `pkg/queue/proto/retention_policy.proto` **Package**: `gcommon.v1.queue` **Lines**: 24
 
 **Messages** (1): `RetentionPolicy`
 
@@ -529,8 +520,7 @@ message RetentionPolicy {
 
 ### retry_delay_strategy.proto {#retry_delay_strategy}
 
-**Path**: `pkg/queue/proto/retry_delay_strategy.proto` **Package**:
-`gcommon.v1.queue` **Lines**: 34
+**Path**: `pkg/queue/proto/retry_delay_strategy.proto` **Package**: `gcommon.v1.queue` **Lines**: 34
 
 **Enums** (1): `RetryDelayStrategy`
 
@@ -581,8 +571,7 @@ enum RetryDelayStrategy {
 
 ### retry_policy.proto {#retry_policy}
 
-**Path**: `pkg/queue/proto/retry_policy.proto` **Package**: `gcommon.v1.queue`
-**Lines**: 43
+**Path**: `pkg/queue/proto/retry_policy.proto` **Package**: `gcommon.v1.queue` **Lines**: 43
 
 **Messages** (1): `RetryPolicy`
 
@@ -644,16 +633,14 @@ message RetryPolicy {
 
 ### routing_condition.proto {#routing_condition}
 
-**Path**: `pkg/queue/proto/routing_condition.proto` **Package**:
-`gcommon.v1.queue` **Lines**: 38
+**Path**: `pkg/queue/proto/routing_condition.proto` **Package**: `gcommon.v1.queue` **Lines**: 38
 
 **Messages** (1): `RoutingCondition`
 
 **Imports** (3):
 
 - `google/protobuf/go_features.proto`
-- `pkg/queue/proto/priority_range.proto` →
-  [queue_1](./queue_1.md#priority_range)
+- `pkg/queue/proto/priority_range.proto` → [queue_1](./queue_1.md#priority_range)
 - `pkg/queue/proto/size_range.proto`
 
 #### Source Code
@@ -703,8 +690,7 @@ message RoutingCondition {
 
 ### routing_key.proto {#routing_key}
 
-**Path**: `pkg/queue/proto/routing_key.proto` **Package**: `gcommon.v1.queue`
-**Lines**: 35
+**Path**: `pkg/queue/proto/routing_key.proto` **Package**: `gcommon.v1.queue` **Lines**: 35
 
 **Messages** (1): `RoutingKey`
 
@@ -757,8 +743,7 @@ message RoutingKey {
 
 ### routing_pattern.proto {#routing_pattern}
 
-**Path**: `pkg/queue/proto/routing_pattern.proto` **Package**:
-`gcommon.v1.queue` **Lines**: 37
+**Path**: `pkg/queue/proto/routing_pattern.proto` **Package**: `gcommon.v1.queue` **Lines**: 37
 
 **Enums** (1): `RoutingPattern`
 
@@ -812,8 +797,7 @@ enum RoutingPattern {
 
 ### routing_rule.proto {#routing_rule}
 
-**Path**: `pkg/queue/proto/routing_rule.proto` **Package**: `gcommon.v1.queue`
-**Lines**: 37
+**Path**: `pkg/queue/proto/routing_rule.proto` **Package**: `gcommon.v1.queue` **Lines**: 37
 
 **Messages** (1): `RoutingRule`
 
@@ -868,8 +852,7 @@ message RoutingRule {
 
 ### routing_strategy.proto {#routing_strategy}
 
-**Path**: `pkg/queue/proto/routing_strategy.proto` **Package**:
-`gcommon.v1.queue` **Lines**: 39
+**Path**: `pkg/queue/proto/routing_strategy.proto` **Package**: `gcommon.v1.queue` **Lines**: 39
 
 **Enums** (1): `RoutingStrategy`
 
@@ -925,8 +908,7 @@ enum RoutingStrategy {
 
 ### schema_compatibility_mode.proto {#schema_compatibility_mode}
 
-**Path**: `pkg/queue/proto/schema_compatibility_mode.proto` **Package**:
-`gcommon.v1.queue` **Lines**: 31
+**Path**: `pkg/queue/proto/schema_compatibility_mode.proto` **Package**: `gcommon.v1.queue` **Lines**: 31
 
 **Enums** (1): `SchemaCompatibilityMode`
 
@@ -975,8 +957,7 @@ enum SchemaCompatibilityMode {
 
 ### schema_evolution_strategy.proto {#schema_evolution_strategy}
 
-**Path**: `pkg/queue/proto/schema_evolution_strategy.proto` **Package**:
-`gcommon.v1.queue` **Lines**: 37
+**Path**: `pkg/queue/proto/schema_evolution_strategy.proto` **Package**: `gcommon.v1.queue` **Lines**: 37
 
 **Enums** (1): `SchemaEvolutionStrategy`
 
@@ -1031,8 +1012,7 @@ enum SchemaEvolutionStrategy {
 
 ### schema_format.proto {#schema_format}
 
-**Path**: `pkg/queue/proto/schema_format.proto` **Package**: `gcommon.v1.queue`
-**Lines**: 37
+**Path**: `pkg/queue/proto/schema_format.proto` **Package**: `gcommon.v1.queue` **Lines**: 37
 
 **Enums** (1): `SchemaFormat`
 
@@ -1087,8 +1067,7 @@ enum SchemaFormat {
 
 ### serialization_format.proto {#serialization_format}
 
-**Path**: `pkg/queue/proto/serialization_format.proto` **Package**:
-`gcommon.v1.queue` **Lines**: 45
+**Path**: `pkg/queue/proto/serialization_format.proto` **Package**: `gcommon.v1.queue` **Lines**: 45
 
 **Enums** (1): `SerializationFormat`
 
@@ -1150,8 +1129,7 @@ enum SerializationFormat {
 
 ### size_range.proto {#size_range}
 
-**Path**: `pkg/queue/proto/size_range.proto` **Package**: `gcommon.v1.queue`
-**Lines**: 24
+**Path**: `pkg/queue/proto/size_range.proto` **Package**: `gcommon.v1.queue` **Lines**: 24
 
 **Messages** (1): `SizeRange`
 
@@ -1192,8 +1170,7 @@ message SizeRange {
 
 ### statistic_grouping.proto {#statistic_grouping}
 
-**Path**: `pkg/queue/proto/statistic_grouping.proto` **Package**:
-`gcommon.v1.queue` **Lines**: 23
+**Path**: `pkg/queue/proto/statistic_grouping.proto` **Package**: `gcommon.v1.queue` **Lines**: 23
 
 **Enums** (1): `StatisticGrouping`
 
@@ -1234,8 +1211,7 @@ enum StatisticGrouping {
 
 ### statistic_type.proto {#statistic_type}
 
-**Path**: `pkg/queue/proto/statistic_type.proto` **Package**: `gcommon.v1.queue`
-**Lines**: 28
+**Path**: `pkg/queue/proto/statistic_type.proto` **Package**: `gcommon.v1.queue` **Lines**: 28
 
 **Enums** (1): `StatisticType`
 
@@ -1281,8 +1257,7 @@ enum StatisticType {
 
 ### stats_granularity.proto {#stats_granularity}
 
-**Path**: `pkg/queue/proto/stats_granularity.proto` **Package**:
-`gcommon.v1.queue` **Lines**: 34
+**Path**: `pkg/queue/proto/stats_granularity.proto` **Package**: `gcommon.v1.queue` **Lines**: 34
 
 **Enums** (1): `StatsGranularity`
 
@@ -1333,8 +1308,7 @@ enum StatsGranularity {
 
 ### stream_restart_policy.proto {#stream_restart_policy}
 
-**Path**: `pkg/queue/proto/stream_restart_policy.proto` **Package**:
-`gcommon.v1.queue` **Lines**: 36
+**Path**: `pkg/queue/proto/stream_restart_policy.proto` **Package**: `gcommon.v1.queue` **Lines**: 36
 
 **Enums** (1): `StreamRestartPolicy`
 
@@ -1387,8 +1361,7 @@ enum StreamRestartPolicy {
 
 ### subscription_info.proto {#subscription_info}
 
-**Path**: `pkg/queue/proto/subscription_info.proto` **Package**:
-`gcommon.v1.queue` **Lines**: 40
+**Path**: `pkg/queue/proto/subscription_info.proto` **Package**: `gcommon.v1.queue` **Lines**: 40
 
 **Messages** (1): `SubscriptionInfo`
 
@@ -1399,8 +1372,7 @@ enum StreamRestartPolicy {
 
 #### ⚠️ Issues Found (1)
 
-- Line 6: Implementation needed - // or queue. It replaces the placeholder file
-  created during the
+- Line 6: Implementation needed - // or queue. It replaces the placeholder file created during the
 
 #### Source Code
 
@@ -1451,8 +1423,7 @@ message SubscriptionInfo {
 
 ### subscription_state.proto {#subscription_state}
 
-**Path**: `pkg/queue/proto/subscription_state.proto` **Package**:
-`gcommon.v1.queue` **Lines**: 25
+**Path**: `pkg/queue/proto/subscription_state.proto` **Package**: `gcommon.v1.queue` **Lines**: 25
 
 **Enums** (1): `SubscriptionState`
 
@@ -1494,8 +1465,7 @@ enum SubscriptionState {
 
 ### subscription_stats.proto {#subscription_stats}
 
-**Path**: `pkg/queue/proto/subscription_stats.proto` **Package**:
-`gcommon.v1.queue` **Lines**: 48
+**Path**: `pkg/queue/proto/subscription_stats.proto` **Package**: `gcommon.v1.queue` **Lines**: 48
 
 **Messages** (1): `SubscriptionStats`
 
@@ -1560,8 +1530,7 @@ message SubscriptionStats {
 
 ### time_range.proto {#time_range}
 
-**Path**: `pkg/queue/proto/time_range.proto` **Package**: `gcommon.v1.queue`
-**Lines**: 29
+**Path**: `pkg/queue/proto/time_range.proto` **Package**: `gcommon.v1.queue` **Lines**: 29
 
 **Messages** (1): `TimeRange`
 
@@ -1569,8 +1538,7 @@ message SubscriptionStats {
 
 - `google/protobuf/go_features.proto`
 - `google/protobuf/timestamp.proto`
-- `pkg/common/proto/time_range.proto` → [common](./common.md#time_range) →
-  [metrics_2](./metrics_2.md#time_range)
+- `pkg/common/proto/time_range.proto` → [common](./common.md#time_range) → [metrics_2](./metrics_2.md#time_range)
 
 #### Source Code
 
@@ -1610,8 +1578,7 @@ message TimeRange {
 
 ### timestamp_range.proto {#timestamp_range}
 
-**Path**: `pkg/queue/proto/timestamp_range.proto` **Package**:
-`gcommon.v1.queue` **Lines**: 27
+**Path**: `pkg/queue/proto/timestamp_range.proto` **Package**: `gcommon.v1.queue` **Lines**: 27
 
 **Messages** (1): `TimestampRange`
 
@@ -1622,8 +1589,7 @@ message TimeRange {
 
 #### ⚠️ Issues Found (1)
 
-- Line 6: Implementation needed - // statistics queries. This implementation
-  replaces the placeholder
+- Line 6: Implementation needed - // statistics queries. This implementation replaces the placeholder
 
 #### Source Code
 
@@ -1661,8 +1627,7 @@ message TimestampRange {
 
 ### topic_info.proto {#topic_info}
 
-**Path**: `pkg/queue/proto/topic_info.proto` **Package**: `gcommon.v1.queue`
-**Lines**: 50
+**Path**: `pkg/queue/proto/topic_info.proto` **Package**: `gcommon.v1.queue` **Lines**: 50
 
 **Messages** (1): `TopicInfo`
 
@@ -1730,8 +1695,7 @@ message TopicInfo {
 
 ### topic_stats.proto {#topic_stats}
 
-**Path**: `pkg/queue/proto/topic_stats.proto` **Package**: `gcommon.v1.queue`
-**Lines**: 48
+**Path**: `pkg/queue/proto/topic_stats.proto` **Package**: `gcommon.v1.queue` **Lines**: 48
 
 **Messages** (1): `TopicStats`
 

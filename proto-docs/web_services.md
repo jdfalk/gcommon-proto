@@ -27,26 +27,19 @@
 
 ### web_admin_service.proto {#web_admin_service}
 
-**Path**: `pkg/web/proto/web_admin_service.proto` **Package**: `gcommon.v1.web`
-**Lines**: 35
+**Path**: `pkg/web/proto/web_admin_service.proto` **Package**: `gcommon.v1.web` **Lines**: 35
 
 **Services** (1): `WebAdminService`
 
 **Imports** (7):
 
 - `google/protobuf/go_features.proto`
-- `pkg/web/proto/flush_cache_request.proto` →
-  [web_api_1](./web_api_1.md#flush_cache_request)
-- `pkg/web/proto/flush_cache_response.proto` →
-  [web_api_1](./web_api_1.md#flush_cache_response)
-- `pkg/web/proto/get_cache_config_request.proto` →
-  [web_config_1](./web_config_1.md#get_cache_config_request)
-- `pkg/web/proto/get_cache_config_response.proto` →
-  [web_config_1](./web_config_1.md#get_cache_config_response)
-- `pkg/web/proto/update_cache_config_request.proto` →
-  [web_config_1](./web_config_1.md#update_cache_config_request)
-- `pkg/web/proto/update_cache_config_response.proto` →
-  [web_config_1](./web_config_1.md#update_cache_config_response)
+- `pkg/web/proto/flush_cache_request.proto` → [web_api_1](./web_api_1.md#flush_cache_request)
+- `pkg/web/proto/flush_cache_response.proto` → [web_api_1](./web_api_1.md#flush_cache_response)
+- `pkg/web/proto/get_cache_config_request.proto` → [web_config_1](./web_config_1.md#get_cache_config_request)
+- `pkg/web/proto/get_cache_config_response.proto` → [web_config_1](./web_config_1.md#get_cache_config_response)
+- `pkg/web/proto/update_cache_config_request.proto` → [web_config_1](./web_config_1.md#update_cache_config_request)
+- `pkg/web/proto/update_cache_config_response.proto` → [web_config_1](./web_config_1.md#update_cache_config_response)
 
 #### Source Code
 
@@ -92,8 +85,7 @@ service WebAdminService {
 
 ### web_service.proto {#web_service}
 
-**Path**: `pkg/web/proto/web_service.proto` **Package**: `gcommon.v1.web`
-**Lines**: 33
+**Path**: `pkg/web/proto/web_service.proto` **Package**: `gcommon.v1.web` **Lines**: 33
 
 **Services** (1): `HTTPGatewayService`
 

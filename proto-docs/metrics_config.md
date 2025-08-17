@@ -60,8 +60,7 @@
 
 ### apikey_config_update.proto {#apikey_config_update}
 
-**Path**: `pkg/metrics/proto/apikey_config_update.proto` **Package**:
-`gcommon.v1.metrics` **Lines**: 30
+**Path**: `pkg/metrics/proto/apikey_config_update.proto` **Package**: `gcommon.v1.metrics` **Lines**: 30
 
 **Messages** (1): `APIKeyConfigUpdate`
 
@@ -108,8 +107,7 @@ message APIKeyConfigUpdate {
 
 ### config_change.proto {#config_change}
 
-**Path**: `pkg/metrics/proto/config_change.proto` **Package**:
-`gcommon.v1.metrics` **Lines**: 36
+**Path**: `pkg/metrics/proto/config_change.proto` **Package**: `gcommon.v1.metrics` **Lines**: 36
 
 **Messages** (1): `ConfigChange`
 
@@ -117,11 +115,8 @@ message APIKeyConfigUpdate {
 
 - `google/protobuf/go_features.proto`
 - `google/protobuf/timestamp.proto`
-- `pkg/metrics/proto/change_type.proto` → [config_1](./config_1.md#change_type)
-  → [metrics_1](./metrics_1.md#change_type)
-- `pkg/metrics/proto/validation_result.proto` →
-  [config_2](./config_2.md#validation_result) →
-  [metrics_2](./metrics_2.md#validation_result)
+- `pkg/metrics/proto/change_type.proto` → [config_1](./config_1.md#change_type) → [metrics_1](./metrics_1.md#change_type)
+- `pkg/metrics/proto/validation_result.proto` → [config_2](./config_2.md#validation_result) → [metrics_2](./metrics_2.md#validation_result)
 
 #### Source Code
 
@@ -168,8 +163,7 @@ message ConfigChange {
 
 ### export_config.proto {#export_config}
 
-**Path**: `pkg/metrics/proto/export_config.proto` **Package**:
-`gcommon.v1.metrics` **Lines**: 27
+**Path**: `pkg/metrics/proto/export_config.proto` **Package**: `gcommon.v1.metrics` **Lines**: 27
 
 **Messages** (1): `ExportConfig`
 
@@ -213,8 +207,7 @@ message ExportConfig {
 
 ### export_config_options.proto {#export_config_options}
 
-**Path**: `pkg/metrics/proto/export_config_options.proto` **Package**:
-`gcommon.v1.metrics` **Lines**: 28
+**Path**: `pkg/metrics/proto/export_config_options.proto` **Package**: `gcommon.v1.metrics` **Lines**: 28
 
 **Messages** (1): `ExportConfig`
 
@@ -225,8 +218,7 @@ message ExportConfig {
 #### ⚠️ Issues Found (3)
 
 - Line 20: Commented field - // CONFLICT_DISABLED: ExportFormat format = 1;
-- Line 23: Commented field - // CONFLICT_DISABLED: CompressionType compression =
-  2;
+- Line 23: Commented field - // CONFLICT_DISABLED: CompressionType compression = 2;
 - Line 26: Commented field - // CONFLICT_DISABLED: string destination = 3;
 
 #### Source Code
@@ -266,16 +258,14 @@ option go_package = "github.com/jdfalk/gcommon/pkg/metrics/proto";
 
 ### export_config_update.proto {#export_config_update}
 
-**Path**: `pkg/metrics/proto/export_config_update.proto` **Package**:
-`gcommon.v1.metrics` **Lines**: 40
+**Path**: `pkg/metrics/proto/export_config_update.proto` **Package**: `gcommon.v1.metrics` **Lines**: 40
 
 **Messages** (1): `ExportConfigUpdate`
 
 **Imports** (2):
 
 - `google/protobuf/go_features.proto`
-- `pkg/metrics/proto/export_destination_update.proto` →
-  [metrics_1](./metrics_1.md#export_destination_update)
+- `pkg/metrics/proto/export_destination_update.proto` → [metrics_1](./metrics_1.md#export_destination_update)
 
 #### Source Code
 
@@ -326,16 +316,14 @@ message ExportConfigUpdate {
 
 ### get_metric_config_request.proto {#get_metric_config_request}
 
-**Path**: `pkg/metrics/proto/get_metric_config_request.proto` **Package**:
-`gcommon.v1.metrics` **Lines**: 24
+**Path**: `pkg/metrics/proto/get_metric_config_request.proto` **Package**: `gcommon.v1.metrics` **Lines**: 24
 
 **Messages** (1): `GetMetricConfigRequest`
 
 **Imports** (2):
 
 - `google/protobuf/go_features.proto`
-- `pkg/common/proto/request_metadata.proto` →
-  [common](./common.md#request_metadata)
+- `pkg/common/proto/request_metadata.proto` → [common](./common.md#request_metadata)
 
 #### Source Code
 
@@ -370,8 +358,7 @@ message GetMetricConfigRequest {
 
 ### get_metric_config_response.proto {#get_metric_config_response}
 
-**Path**: `pkg/metrics/proto/get_metric_config_response.proto` **Package**:
-`gcommon.v1.metrics` **Lines**: 29
+**Path**: `pkg/metrics/proto/get_metric_config_response.proto` **Package**: `gcommon.v1.metrics` **Lines**: 29
 
 **Messages** (1): `GetMetricConfigResponse`
 
@@ -419,16 +406,14 @@ message GetMetricConfigResponse {
 
 ### get_scrape_config_request.proto {#get_scrape_config_request}
 
-**Path**: `pkg/metrics/proto/get_scrape_config_request.proto` **Package**:
-`gcommon.v1.metrics` **Lines**: 24
+**Path**: `pkg/metrics/proto/get_scrape_config_request.proto` **Package**: `gcommon.v1.metrics` **Lines**: 24
 
 **Messages** (1): `GetScrapeConfigRequest`
 
 **Imports** (2):
 
 - `google/protobuf/go_features.proto`
-- `pkg/common/proto/request_metadata.proto` →
-  [common](./common.md#request_metadata)
+- `pkg/common/proto/request_metadata.proto` → [common](./common.md#request_metadata)
 
 #### Source Code
 
@@ -463,8 +448,7 @@ message GetScrapeConfigRequest {
 
 ### get_scrape_config_response.proto {#get_scrape_config_response}
 
-**Path**: `pkg/metrics/proto/get_scrape_config_response.proto` **Package**:
-`gcommon.v1.metrics` **Lines**: 27
+**Path**: `pkg/metrics/proto/get_scrape_config_response.proto` **Package**: `gcommon.v1.metrics` **Lines**: 27
 
 **Messages** (1): `GetScrapeConfigResponse`
 
@@ -510,8 +494,7 @@ message GetScrapeConfigResponse {
 
 ### import_config.proto {#import_config}
 
-**Path**: `pkg/metrics/proto/import_config.proto` **Package**:
-`gcommon.v1.metrics` **Lines**: 28
+**Path**: `pkg/metrics/proto/import_config.proto` **Package**: `gcommon.v1.metrics` **Lines**: 28
 
 **Messages** (1): `ImportConfig`
 
@@ -556,8 +539,7 @@ message ImportConfig {
 
 ### metric_config.proto {#metric_config}
 
-**Path**: `pkg/metrics/proto/metric_config.proto` **Package**:
-`gcommon.v1.metrics` **Lines**: 50
+**Path**: `pkg/metrics/proto/metric_config.proto` **Package**: `gcommon.v1.metrics` **Lines**: 50
 
 **Messages** (1): `MetricConfig`
 
@@ -626,8 +608,7 @@ message MetricConfig {
 
 ### open_telemetry_settings_update.proto {#open_telemetry_settings_update}
 
-**Path**: `pkg/metrics/proto/open_telemetry_settings_update.proto` **Package**:
-`gcommon.v1.metrics` **Lines**: 39
+**Path**: `pkg/metrics/proto/open_telemetry_settings_update.proto` **Package**: `gcommon.v1.metrics` **Lines**: 39
 
 **Messages** (1): `OpenTelemetrySettingsUpdate`
 
@@ -683,8 +664,7 @@ message OpenTelemetrySettingsUpdate {
 
 ### prometheus_settings_update.proto {#prometheus_settings_update}
 
-**Path**: `pkg/metrics/proto/prometheus_settings_update.proto` **Package**:
-`gcommon.v1.metrics` **Lines**: 33
+**Path**: `pkg/metrics/proto/prometheus_settings_update.proto` **Package**: `gcommon.v1.metrics` **Lines**: 33
 
 **Messages** (1): `PrometheusSettingsUpdate`
 
@@ -734,8 +714,7 @@ message PrometheusSettingsUpdate {
 
 ### provider_config_update.proto {#provider_config_update}
 
-**Path**: `pkg/metrics/proto/provider_config_update.proto` **Package**:
-`gcommon.v1.metrics` **Lines**: 44
+**Path**: `pkg/metrics/proto/provider_config_update.proto` **Package**: `gcommon.v1.metrics` **Lines**: 44
 
 **Messages** (1): `ProviderConfigUpdate`
 
@@ -744,11 +723,9 @@ message PrometheusSettingsUpdate {
 - `google/protobuf/go_features.proto`
 - `pkg/metrics/proto/export_config_update.proto`
 - `pkg/metrics/proto/provider_settings_update.proto`
-- `pkg/metrics/proto/resource_limits_update.proto` →
-  [metrics_2](./metrics_2.md#resource_limits_update)
+- `pkg/metrics/proto/resource_limits_update.proto` → [metrics_2](./metrics_2.md#resource_limits_update)
 - `pkg/metrics/proto/security_config_update.proto`
-- `pkg/metrics/proto/tag_updates.proto` →
-  [metrics_2](./metrics_2.md#tag_updates)
+- `pkg/metrics/proto/tag_updates.proto` → [metrics_2](./metrics_2.md#tag_updates)
 
 #### Source Code
 
@@ -803,8 +780,7 @@ message ProviderConfigUpdate {
 
 ### provider_settings_update.proto {#provider_settings_update}
 
-**Path**: `pkg/metrics/proto/provider_settings_update.proto` **Package**:
-`gcommon.v1.metrics` **Lines**: 27
+**Path**: `pkg/metrics/proto/provider_settings_update.proto` **Package**: `gcommon.v1.metrics` **Lines**: 27
 
 **Messages** (1): `ProviderSettingsUpdate`
 
@@ -851,8 +827,7 @@ message ProviderSettingsUpdate {
 
 ### retention_policy_retentionpolicyconfig.proto {#retention_policy_retentionpolicyconfig}
 
-**Path**: `pkg/metrics/proto/retention_policy_retentionpolicyconfig.proto`
-**Package**: `gcommon.v1.metrics` **Lines**: 28
+**Path**: `pkg/metrics/proto/retention_policy_retentionpolicyconfig.proto` **Package**: `gcommon.v1.metrics` **Lines**: 28
 
 **Messages** (1): `RetentionPolicyConfig`
 
@@ -898,16 +873,14 @@ message RetentionPolicyConfig {
 
 ### scrape_config.proto {#scrape_config}
 
-**Path**: `pkg/metrics/proto/scrape_config.proto` **Package**:
-`gcommon.v1.metrics` **Lines**: 28
+**Path**: `pkg/metrics/proto/scrape_config.proto` **Package**: `gcommon.v1.metrics` **Lines**: 28
 
 **Messages** (1): `ScrapeConfig`
 
 **Imports** (2):
 
 - `google/protobuf/go_features.proto`
-- `pkg/metrics/proto/scrape_target.proto` →
-  [metrics_2](./metrics_2.md#scrape_target)
+- `pkg/metrics/proto/scrape_target.proto` → [metrics_2](./metrics_2.md#scrape_target)
 
 #### Source Code
 
@@ -946,8 +919,7 @@ message ScrapeConfig {
 
 ### security_config_update.proto {#security_config_update}
 
-**Path**: `pkg/metrics/proto/security_config_update.proto` **Package**:
-`gcommon.v1.metrics` **Lines**: 35
+**Path**: `pkg/metrics/proto/security_config_update.proto` **Package**: `gcommon.v1.metrics` **Lines**: 35
 
 **Messages** (1): `SecurityConfigUpdate`
 
@@ -1001,8 +973,7 @@ message SecurityConfigUpdate {
 
 ### set_metric_config_request.proto {#set_metric_config_request}
 
-**Path**: `pkg/metrics/proto/set_metric_config_request.proto` **Package**:
-`gcommon.v1.metrics` **Lines**: 22
+**Path**: `pkg/metrics/proto/set_metric_config_request.proto` **Package**: `gcommon.v1.metrics` **Lines**: 22
 
 **Messages** (1): `SetMetricConfigRequest`
 
@@ -1042,8 +1013,7 @@ message SetMetricConfigRequest {
 
 ### set_metric_config_response.proto {#set_metric_config_response}
 
-**Path**: `pkg/metrics/proto/set_metric_config_response.proto` **Package**:
-`gcommon.v1.metrics` **Lines**: 25
+**Path**: `pkg/metrics/proto/set_metric_config_response.proto` **Package**: `gcommon.v1.metrics` **Lines**: 25
 
 **Messages** (1): `SetMetricConfigResponse`
 
@@ -1086,16 +1056,14 @@ message SetMetricConfigResponse {
 
 ### set_scrape_config_request.proto {#set_scrape_config_request}
 
-**Path**: `pkg/metrics/proto/set_scrape_config_request.proto` **Package**:
-`gcommon.v1.metrics` **Lines**: 28
+**Path**: `pkg/metrics/proto/set_scrape_config_request.proto` **Package**: `gcommon.v1.metrics` **Lines**: 28
 
 **Messages** (1): `SetScrapeConfigRequest`
 
 **Imports** (3):
 
 - `google/protobuf/go_features.proto`
-- `pkg/common/proto/request_metadata.proto` →
-  [common](./common.md#request_metadata)
+- `pkg/common/proto/request_metadata.proto` → [common](./common.md#request_metadata)
 - `pkg/metrics/proto/scrape_config.proto`
 
 #### Source Code
@@ -1135,8 +1103,7 @@ message SetScrapeConfigRequest {
 
 ### set_scrape_config_response.proto {#set_scrape_config_response}
 
-**Path**: `pkg/metrics/proto/set_scrape_config_response.proto` **Package**:
-`gcommon.v1.metrics` **Lines**: 26
+**Path**: `pkg/metrics/proto/set_scrape_config_response.proto` **Package**: `gcommon.v1.metrics` **Lines**: 26
 
 **Messages** (1): `SetScrapeConfigResponse`
 
@@ -1180,8 +1147,7 @@ message SetScrapeConfigResponse {
 
 ### stats_dsettings_update.proto {#stats_dsettings_update}
 
-**Path**: `pkg/metrics/proto/stats_dsettings_update.proto` **Package**:
-`gcommon.v1.metrics` **Lines**: 33
+**Path**: `pkg/metrics/proto/stats_dsettings_update.proto` **Package**: `gcommon.v1.metrics` **Lines**: 33
 
 **Messages** (1): `StatsDSettingsUpdate`
 
@@ -1231,8 +1197,7 @@ message StatsDSettingsUpdate {
 
 ### tlsconfig_update.proto {#tlsconfig_update}
 
-**Path**: `pkg/metrics/proto/tlsconfig_update.proto` **Package**:
-`gcommon.v1.metrics` **Lines**: 30
+**Path**: `pkg/metrics/proto/tlsconfig_update.proto` **Package**: `gcommon.v1.metrics` **Lines**: 30
 
 **Messages** (1): `TLSConfigUpdate`
 

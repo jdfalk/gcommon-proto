@@ -73,18 +73,15 @@
 
 ### begin_transaction_request.proto {#begin_transaction_request}
 
-**Path**: `pkg/db/proto/begin_transaction_request.proto` **Package**:
-`gcommon.v1.database` **Lines**: 24
+**Path**: `pkg/db/proto/begin_transaction_request.proto` **Package**: `gcommon.v1.database` **Lines**: 24
 
 **Messages** (1): `BeginTransactionRequest`
 
 **Imports** (3):
 
 - `google/protobuf/go_features.proto`
-- `pkg/common/proto/request_metadata.proto` →
-  [common](./common.md#request_metadata)
-- `pkg/db/proto/transaction_options.proto` →
-  [database](./database.md#transaction_options)
+- `pkg/common/proto/request_metadata.proto` → [common](./common.md#request_metadata)
+- `pkg/db/proto/transaction_options.proto` → [database](./database.md#transaction_options)
 
 #### Source Code
 
@@ -119,8 +116,7 @@ message BeginTransactionRequest {
 
 ### begin_transaction_response.proto {#begin_transaction_response}
 
-**Path**: `pkg/db/proto/begin_transaction_response.proto` **Package**:
-`gcommon.v1.database` **Lines**: 23
+**Path**: `pkg/db/proto/begin_transaction_response.proto` **Package**: `gcommon.v1.database` **Lines**: 23
 
 **Messages** (1): `BeginTransactionResponse`
 
@@ -161,16 +157,14 @@ message BeginTransactionResponse {
 
 ### commit_transaction_request.proto {#commit_transaction_request}
 
-**Path**: `pkg/db/proto/commit_transaction_request.proto` **Package**:
-`gcommon.v1.database` **Lines**: 20
+**Path**: `pkg/db/proto/commit_transaction_request.proto` **Package**: `gcommon.v1.database` **Lines**: 20
 
 **Messages** (1): `CommitTransactionRequest`
 
 **Imports** (2):
 
 - `google/protobuf/go_features.proto`
-- `pkg/common/proto/request_metadata.proto` →
-  [common](./common.md#request_metadata)
+- `pkg/common/proto/request_metadata.proto` → [common](./common.md#request_metadata)
 
 #### Source Code
 
@@ -201,16 +195,14 @@ message CommitTransactionRequest {
 
 ### create_database_request.proto {#create_database_request}
 
-**Path**: `pkg/db/proto/create_database_request.proto` **Package**:
-`gcommon.v1.database` **Lines**: 23
+**Path**: `pkg/db/proto/create_database_request.proto` **Package**: `gcommon.v1.database` **Lines**: 23
 
 **Messages** (1): `CreateDatabaseRequest`
 
 **Imports** (2):
 
 - `google/protobuf/go_features.proto`
-- `pkg/common/proto/request_metadata.proto` →
-  [common](./common.md#request_metadata)
+- `pkg/common/proto/request_metadata.proto` → [common](./common.md#request_metadata)
 
 #### Source Code
 
@@ -244,8 +236,7 @@ message CreateDatabaseRequest {
 
 ### create_database_response.proto {#create_database_response}
 
-**Path**: `pkg/db/proto/create_database_response.proto` **Package**:
-`gcommon.v1.database` **Lines**: 23
+**Path**: `pkg/db/proto/create_database_response.proto` **Package**: `gcommon.v1.database` **Lines**: 23
 
 **Messages** (1): `CreateDatabaseResponse`
 
@@ -286,16 +277,14 @@ message CreateDatabaseResponse {
 
 ### create_schema_request.proto {#create_schema_request}
 
-**Path**: `pkg/db/proto/create_schema_request.proto` **Package**:
-`gcommon.v1.database` **Lines**: 23
+**Path**: `pkg/db/proto/create_schema_request.proto` **Package**: `gcommon.v1.database` **Lines**: 23
 
 **Messages** (1): `CreateSchemaRequest`
 
 **Imports** (2):
 
 - `google/protobuf/go_features.proto`
-- `pkg/common/proto/request_metadata.proto` →
-  [common](./common.md#request_metadata)
+- `pkg/common/proto/request_metadata.proto` → [common](./common.md#request_metadata)
 
 #### Source Code
 
@@ -329,8 +318,7 @@ message CreateSchemaRequest {
 
 ### create_schema_response.proto {#create_schema_response}
 
-**Path**: `pkg/db/proto/create_schema_response.proto` **Package**:
-`gcommon.v1.database` **Lines**: 23
+**Path**: `pkg/db/proto/create_schema_response.proto` **Package**: `gcommon.v1.database` **Lines**: 23
 
 **Messages** (1): `CreateSchemaResponse`
 
@@ -371,16 +359,14 @@ message CreateSchemaResponse {
 
 ### drop_database_request.proto {#drop_database_request}
 
-**Path**: `pkg/db/proto/drop_database_request.proto` **Package**:
-`gcommon.v1.database` **Lines**: 20
+**Path**: `pkg/db/proto/drop_database_request.proto` **Package**: `gcommon.v1.database` **Lines**: 20
 
 **Messages** (1): `DropDatabaseRequest`
 
 **Imports** (2):
 
 - `google/protobuf/go_features.proto`
-- `pkg/common/proto/request_metadata.proto` →
-  [common](./common.md#request_metadata)
+- `pkg/common/proto/request_metadata.proto` → [common](./common.md#request_metadata)
 
 #### Source Code
 
@@ -411,16 +397,14 @@ message DropDatabaseRequest {
 
 ### drop_schema_request.proto {#drop_schema_request}
 
-**Path**: `pkg/db/proto/drop_schema_request.proto` **Package**:
-`gcommon.v1.database` **Lines**: 23
+**Path**: `pkg/db/proto/drop_schema_request.proto` **Package**: `gcommon.v1.database` **Lines**: 23
 
 **Messages** (1): `DropSchemaRequest`
 
 **Imports** (2):
 
 - `google/protobuf/go_features.proto`
-- `pkg/common/proto/request_metadata.proto` →
-  [common](./common.md#request_metadata)
+- `pkg/common/proto/request_metadata.proto` → [common](./common.md#request_metadata)
 
 #### Source Code
 
@@ -454,20 +438,16 @@ message DropSchemaRequest {
 
 ### execute_batch_request.proto {#execute_batch_request}
 
-**Path**: `pkg/db/proto/execute_batch_request.proto` **Package**:
-`gcommon.v1.database` **Lines**: 31
+**Path**: `pkg/db/proto/execute_batch_request.proto` **Package**: `gcommon.v1.database` **Lines**: 31
 
 **Messages** (1): `ExecuteBatchRequest`
 
 **Imports** (4):
 
 - `google/protobuf/go_features.proto`
-- `pkg/common/proto/request_metadata.proto` →
-  [common](./common.md#request_metadata)
-- `pkg/db/proto/batch_execute_options.proto` →
-  [database](./database.md#batch_execute_options)
-- `pkg/db/proto/batch_operation.proto` → [common](./common.md#batch_operation) →
-  [database](./database.md#batch_operation)
+- `pkg/common/proto/request_metadata.proto` → [common](./common.md#request_metadata)
+- `pkg/db/proto/batch_execute_options.proto` → [database](./database.md#batch_execute_options)
+- `pkg/db/proto/batch_operation.proto` → [common](./common.md#batch_operation) → [database](./database.md#batch_operation)
 
 #### Source Code
 
@@ -509,8 +489,7 @@ message ExecuteBatchRequest {
 
 ### execute_batch_response.proto {#execute_batch_response}
 
-**Path**: `pkg/db/proto/execute_batch_response.proto` **Package**:
-`gcommon.v1.database` **Lines**: 28
+**Path**: `pkg/db/proto/execute_batch_response.proto` **Package**: `gcommon.v1.database` **Lines**: 28
 
 **Messages** (1): `ExecuteBatchResponse`
 
@@ -518,8 +497,7 @@ message ExecuteBatchRequest {
 
 - `google/protobuf/go_features.proto`
 - `pkg/common/proto/error.proto` → [common](./common.md#error)
-- `pkg/db/proto/batch_operation_result.proto` →
-  [database](./database.md#batch_operation_result)
+- `pkg/db/proto/batch_operation_result.proto` → [database](./database.md#batch_operation_result)
 - `pkg/db/proto/batch_stats.proto` → [database](./database.md#batch_stats)
 
 #### Source Code
@@ -559,20 +537,16 @@ message ExecuteBatchResponse {
 
 ### execute_request.proto {#execute_request}
 
-**Path**: `pkg/db/proto/execute_request.proto` **Package**:
-`gcommon.v1.database` **Lines**: 34
+**Path**: `pkg/db/proto/execute_request.proto` **Package**: `gcommon.v1.database` **Lines**: 34
 
 **Messages** (1): `ExecuteRequest`
 
 **Imports** (4):
 
 - `google/protobuf/go_features.proto`
-- `pkg/common/proto/request_metadata.proto` →
-  [common](./common.md#request_metadata)
-- `pkg/db/proto/execute_options.proto` →
-  [database](./database.md#execute_options)
-- `pkg/db/proto/query_parameter.proto` →
-  [database](./database.md#query_parameter)
+- `pkg/common/proto/request_metadata.proto` → [common](./common.md#request_metadata)
+- `pkg/db/proto/execute_options.proto` → [database](./database.md#execute_options)
+- `pkg/db/proto/query_parameter.proto` → [database](./database.md#query_parameter)
 
 #### Source Code
 
@@ -617,8 +591,7 @@ message ExecuteRequest {
 
 ### execute_response.proto {#execute_response}
 
-**Path**: `pkg/db/proto/execute_response.proto` **Package**:
-`gcommon.v1.database` **Lines**: 31
+**Path**: `pkg/db/proto/execute_response.proto` **Package**: `gcommon.v1.database` **Lines**: 31
 
 **Messages** (1): `ExecuteResponse`
 
@@ -669,16 +642,14 @@ message ExecuteResponse {
 
 ### get_connection_info_request.proto {#get_connection_info_request}
 
-**Path**: `pkg/db/proto/get_connection_info_request.proto` **Package**:
-`gcommon.v1.database` **Lines**: 17
+**Path**: `pkg/db/proto/get_connection_info_request.proto` **Package**: `gcommon.v1.database` **Lines**: 17
 
 **Messages** (1): `GetConnectionInfoRequest`
 
 **Imports** (2):
 
 - `google/protobuf/go_features.proto`
-- `pkg/common/proto/request_metadata.proto` →
-  [common](./common.md#request_metadata)
+- `pkg/common/proto/request_metadata.proto` → [common](./common.md#request_metadata)
 
 #### Source Code
 
@@ -706,16 +677,14 @@ message GetConnectionInfoRequest {
 
 ### get_connection_info_response.proto {#get_connection_info_response}
 
-**Path**: `pkg/db/proto/get_connection_info_response.proto` **Package**:
-`gcommon.v1.database` **Lines**: 24
+**Path**: `pkg/db/proto/get_connection_info_response.proto` **Package**: `gcommon.v1.database` **Lines**: 24
 
 **Messages** (1): `GetConnectionInfoResponse`
 
 **Imports** (3):
 
 - `google/protobuf/go_features.proto`
-- `pkg/db/proto/connection_pool_info.proto` →
-  [database](./database.md#connection_pool_info)
+- `pkg/db/proto/connection_pool_info.proto` → [database](./database.md#connection_pool_info)
 - `pkg/db/proto/database_info.proto` → [database](./database.md#database_info)
 
 #### Source Code
@@ -751,16 +720,14 @@ message GetConnectionInfoResponse {
 
 ### get_database_info_request.proto {#get_database_info_request}
 
-**Path**: `pkg/db/proto/get_database_info_request.proto` **Package**:
-`gcommon.v1.database` **Lines**: 20
+**Path**: `pkg/db/proto/get_database_info_request.proto` **Package**: `gcommon.v1.database` **Lines**: 20
 
 **Messages** (1): `GetDatabaseInfoRequest`
 
 **Imports** (2):
 
 - `google/protobuf/go_features.proto`
-- `pkg/common/proto/request_metadata.proto` →
-  [common](./common.md#request_metadata)
+- `pkg/common/proto/request_metadata.proto` → [common](./common.md#request_metadata)
 
 #### Source Code
 
@@ -791,8 +758,7 @@ message GetDatabaseInfoRequest {
 
 ### get_database_info_response.proto {#get_database_info_response}
 
-**Path**: `pkg/db/proto/get_database_info_response.proto` **Package**:
-`gcommon.v1.database` **Lines**: 20
+**Path**: `pkg/db/proto/get_database_info_response.proto` **Package**: `gcommon.v1.database` **Lines**: 20
 
 **Messages** (1): `GetDatabaseInfoResponse`
 
@@ -830,16 +796,14 @@ message GetDatabaseInfoResponse {
 
 ### get_migration_status_request.proto {#get_migration_status_request}
 
-**Path**: `pkg/db/proto/get_migration_status_request.proto` **Package**:
-`gcommon.v1.database` **Lines**: 20
+**Path**: `pkg/db/proto/get_migration_status_request.proto` **Package**: `gcommon.v1.database` **Lines**: 20
 
 **Messages** (1): `GetMigrationStatusRequest`
 
 **Imports** (2):
 
 - `google/protobuf/go_features.proto`
-- `pkg/common/proto/request_metadata.proto` →
-  [common](./common.md#request_metadata)
+- `pkg/common/proto/request_metadata.proto` → [common](./common.md#request_metadata)
 
 #### Source Code
 
@@ -870,8 +834,7 @@ message GetMigrationStatusRequest {
 
 ### get_migration_status_response.proto {#get_migration_status_response}
 
-**Path**: `pkg/db/proto/get_migration_status_response.proto` **Package**:
-`gcommon.v1.database` **Lines**: 25
+**Path**: `pkg/db/proto/get_migration_status_response.proto` **Package**: `gcommon.v1.database` **Lines**: 25
 
 **Messages** (1): `GetMigrationStatusResponse`
 
@@ -913,16 +876,14 @@ message GetMigrationStatusResponse {
 
 ### health_check_request.proto {#health_check_request}
 
-**Path**: `pkg/db/proto/health_check_request.proto` **Package**:
-`gcommon.v1.database` **Lines**: 17
+**Path**: `pkg/db/proto/health_check_request.proto` **Package**: `gcommon.v1.database` **Lines**: 17
 
 **Messages** (1): `HealthCheckRequest`
 
 **Imports** (2):
 
 - `google/protobuf/go_features.proto`
-- `pkg/common/proto/request_metadata.proto` →
-  [common](./common.md#request_metadata)
+- `pkg/common/proto/request_metadata.proto` → [common](./common.md#request_metadata)
 
 #### Source Code
 
@@ -950,8 +911,7 @@ message HealthCheckRequest {
 
 ### health_check_response.proto {#health_check_response}
 
-**Path**: `pkg/db/proto/health_check_response.proto` **Package**:
-`gcommon.v1.database` **Lines**: 31
+**Path**: `pkg/db/proto/health_check_response.proto` **Package**: `gcommon.v1.database` **Lines**: 31
 
 **Messages** (1): `HealthCheckResponse`
 
@@ -960,9 +920,7 @@ message HealthCheckRequest {
 - `google/protobuf/duration.proto`
 - `google/protobuf/go_features.proto`
 - `pkg/common/proto/error.proto` → [common](./common.md#error)
-- `pkg/common/proto/health_status.proto` → [common](./common.md#health_status) →
-  [metrics_1](./metrics_1.md#health_status) →
-  [queue_1](./queue_1.md#health_status) → [web](./web.md#health_status)
+- `pkg/common/proto/health_status.proto` → [common](./common.md#health_status) → [metrics_1](./metrics_1.md#health_status) → [queue_1](./queue_1.md#health_status) → [web](./web.md#health_status)
 
 #### Source Code
 
@@ -1004,16 +962,14 @@ message HealthCheckResponse {
 
 ### list_databases_request.proto {#list_databases_request}
 
-**Path**: `pkg/db/proto/list_databases_request.proto` **Package**:
-`gcommon.v1.database` **Lines**: 17
+**Path**: `pkg/db/proto/list_databases_request.proto` **Package**: `gcommon.v1.database` **Lines**: 17
 
 **Messages** (1): `ListDatabasesRequest`
 
 **Imports** (2):
 
 - `google/protobuf/go_features.proto`
-- `pkg/common/proto/request_metadata.proto` →
-  [common](./common.md#request_metadata)
+- `pkg/common/proto/request_metadata.proto` → [common](./common.md#request_metadata)
 
 #### Source Code
 
@@ -1041,8 +997,7 @@ message ListDatabasesRequest {
 
 ### list_databases_response.proto {#list_databases_response}
 
-**Path**: `pkg/db/proto/list_databases_response.proto` **Package**:
-`gcommon.v1.database` **Lines**: 19
+**Path**: `pkg/db/proto/list_databases_response.proto` **Package**: `gcommon.v1.database` **Lines**: 19
 
 **Messages** (1): `ListDatabasesResponse`
 
@@ -1078,16 +1033,14 @@ message ListDatabasesResponse {
 
 ### list_migrations_request.proto {#list_migrations_request}
 
-**Path**: `pkg/db/proto/list_migrations_request.proto` **Package**:
-`gcommon.v1.database` **Lines**: 25
+**Path**: `pkg/db/proto/list_migrations_request.proto` **Package**: `gcommon.v1.database` **Lines**: 25
 
 **Messages** (1): `ListMigrationsRequest`
 
 **Imports** (2):
 
 - `google/protobuf/go_features.proto`
-- `pkg/common/proto/request_metadata.proto` →
-  [common](./common.md#request_metadata)
+- `pkg/common/proto/request_metadata.proto` → [common](./common.md#request_metadata)
 
 #### Source Code
 
@@ -1123,8 +1076,7 @@ message ListMigrationsRequest {
 
 ### list_migrations_response.proto {#list_migrations_response}
 
-**Path**: `pkg/db/proto/list_migrations_response.proto` **Package**:
-`gcommon.v1.database` **Lines**: 22
+**Path**: `pkg/db/proto/list_migrations_response.proto` **Package**: `gcommon.v1.database` **Lines**: 22
 
 **Messages** (1): `ListMigrationsResponse`
 
@@ -1164,16 +1116,14 @@ message ListMigrationsResponse {
 
 ### list_schemas_request.proto {#list_schemas_request}
 
-**Path**: `pkg/db/proto/list_schemas_request.proto` **Package**:
-`gcommon.v1.database` **Lines**: 20
+**Path**: `pkg/db/proto/list_schemas_request.proto` **Package**: `gcommon.v1.database` **Lines**: 20
 
 **Messages** (1): `ListSchemasRequest`
 
 **Imports** (2):
 
 - `google/protobuf/go_features.proto`
-- `pkg/common/proto/request_metadata.proto` →
-  [common](./common.md#request_metadata)
+- `pkg/common/proto/request_metadata.proto` → [common](./common.md#request_metadata)
 
 #### Source Code
 
@@ -1204,8 +1154,7 @@ message ListSchemasRequest {
 
 ### list_schemas_response.proto {#list_schemas_response}
 
-**Path**: `pkg/db/proto/list_schemas_response.proto` **Package**:
-`gcommon.v1.database` **Lines**: 19
+**Path**: `pkg/db/proto/list_schemas_response.proto` **Package**: `gcommon.v1.database` **Lines**: 19
 
 **Messages** (1): `ListSchemasResponse`
 
@@ -1241,19 +1190,16 @@ message ListSchemasResponse {
 
 ### query_request.proto {#query_request}
 
-**Path**: `pkg/db/proto/query_request.proto` **Package**: `gcommon.v1.database`
-**Lines**: 34
+**Path**: `pkg/db/proto/query_request.proto` **Package**: `gcommon.v1.database` **Lines**: 34
 
 **Messages** (1): `QueryRequest`
 
 **Imports** (4):
 
 - `google/protobuf/go_features.proto`
-- `pkg/common/proto/request_metadata.proto` →
-  [common](./common.md#request_metadata)
+- `pkg/common/proto/request_metadata.proto` → [common](./common.md#request_metadata)
 - `pkg/db/proto/query_options.proto` → [database](./database.md#query_options)
-- `pkg/db/proto/query_parameter.proto` →
-  [database](./database.md#query_parameter)
+- `pkg/db/proto/query_parameter.proto` → [database](./database.md#query_parameter)
 
 #### Source Code
 
@@ -1298,8 +1244,7 @@ message QueryRequest {
 
 ### query_response.proto {#query_response}
 
-**Path**: `pkg/db/proto/query_response.proto` **Package**: `gcommon.v1.database`
-**Lines**: 28
+**Path**: `pkg/db/proto/query_response.proto` **Package**: `gcommon.v1.database` **Lines**: 28
 
 **Messages** (1): `QueryResponse`
 
@@ -1307,8 +1252,7 @@ message QueryRequest {
 
 - `google/protobuf/go_features.proto`
 - `pkg/common/proto/error.proto` → [common](./common.md#error)
-- `pkg/db/proto/query_stats.proto` → [database](./database.md#query_stats) →
-  [metrics_2](./metrics_2.md#query_stats)
+- `pkg/db/proto/query_stats.proto` → [database](./database.md#query_stats) → [metrics_2](./metrics_2.md#query_stats)
 - `pkg/db/proto/result_set.proto` → [database](./database.md#result_set)
 
 #### Source Code
@@ -1348,19 +1292,16 @@ message QueryResponse {
 
 ### query_row_request.proto {#query_row_request}
 
-**Path**: `pkg/db/proto/query_row_request.proto` **Package**:
-`gcommon.v1.database` **Lines**: 36
+**Path**: `pkg/db/proto/query_row_request.proto` **Package**: `gcommon.v1.database` **Lines**: 36
 
 **Messages** (1): `QueryRowRequest`
 
 **Imports** (4):
 
 - `google/protobuf/go_features.proto`
-- `pkg/common/proto/request_metadata.proto` →
-  [common](./common.md#request_metadata)
+- `pkg/common/proto/request_metadata.proto` → [common](./common.md#request_metadata)
 - `pkg/db/proto/query_options.proto` → [database](./database.md#query_options)
-- `pkg/db/proto/query_parameter.proto` →
-  [database](./database.md#query_parameter)
+- `pkg/db/proto/query_parameter.proto` → [database](./database.md#query_parameter)
 
 #### Source Code
 
@@ -1407,8 +1348,7 @@ message QueryRowRequest {
 
 ### query_row_response.proto {#query_row_response}
 
-**Path**: `pkg/db/proto/query_row_response.proto` **Package**:
-`gcommon.v1.database` **Lines**: 37
+**Path**: `pkg/db/proto/query_row_response.proto` **Package**: `gcommon.v1.database` **Lines**: 37
 
 **Messages** (1): `QueryRowResponse`
 
@@ -1417,8 +1357,7 @@ message QueryRowRequest {
 - `google/protobuf/any.proto`
 - `google/protobuf/go_features.proto`
 - `pkg/common/proto/error.proto` → [common](./common.md#error)
-- `pkg/db/proto/query_stats.proto` → [database](./database.md#query_stats) →
-  [metrics_2](./metrics_2.md#query_stats)
+- `pkg/db/proto/query_stats.proto` → [database](./database.md#query_stats) → [metrics_2](./metrics_2.md#query_stats)
 
 #### Source Code
 
@@ -1466,16 +1405,14 @@ message QueryRowResponse {
 
 ### revert_migration_request.proto {#revert_migration_request}
 
-**Path**: `pkg/db/proto/revert_migration_request.proto` **Package**:
-`gcommon.v1.database` **Lines**: 25
+**Path**: `pkg/db/proto/revert_migration_request.proto` **Package**: `gcommon.v1.database` **Lines**: 25
 
 **Messages** (1): `RevertMigrationRequest`
 
 **Imports** (2):
 
 - `google/protobuf/go_features.proto`
-- `pkg/common/proto/request_metadata.proto` →
-  [common](./common.md#request_metadata)
+- `pkg/common/proto/request_metadata.proto` → [common](./common.md#request_metadata)
 
 #### Source Code
 
@@ -1511,8 +1448,7 @@ message RevertMigrationRequest {
 
 ### revert_migration_response.proto {#revert_migration_response}
 
-**Path**: `pkg/db/proto/revert_migration_response.proto` **Package**:
-`gcommon.v1.database` **Lines**: 28
+**Path**: `pkg/db/proto/revert_migration_response.proto` **Package**: `gcommon.v1.database` **Lines**: 28
 
 **Messages** (1): `RevertMigrationResponse`
 
@@ -1558,16 +1494,14 @@ message RevertMigrationResponse {
 
 ### rollback_transaction_request.proto {#rollback_transaction_request}
 
-**Path**: `pkg/db/proto/rollback_transaction_request.proto` **Package**:
-`gcommon.v1.database` **Lines**: 20
+**Path**: `pkg/db/proto/rollback_transaction_request.proto` **Package**: `gcommon.v1.database` **Lines**: 20
 
 **Messages** (1): `RollbackTransactionRequest`
 
 **Imports** (2):
 
 - `google/protobuf/go_features.proto`
-- `pkg/common/proto/request_metadata.proto` →
-  [common](./common.md#request_metadata)
+- `pkg/common/proto/request_metadata.proto` → [common](./common.md#request_metadata)
 
 #### Source Code
 
@@ -1598,18 +1532,15 @@ message RollbackTransactionRequest {
 
 ### run_migration_request.proto {#run_migration_request}
 
-**Path**: `pkg/db/proto/run_migration_request.proto` **Package**:
-`gcommon.v1.database` **Lines**: 24
+**Path**: `pkg/db/proto/run_migration_request.proto` **Package**: `gcommon.v1.database` **Lines**: 24
 
 **Messages** (1): `RunMigrationRequest`
 
 **Imports** (3):
 
 - `google/protobuf/go_features.proto`
-- `pkg/common/proto/request_metadata.proto` →
-  [common](./common.md#request_metadata)
-- `pkg/db/proto/migration_script.proto` →
-  [database](./database.md#migration_script)
+- `pkg/common/proto/request_metadata.proto` → [common](./common.md#request_metadata)
+- `pkg/db/proto/migration_script.proto` → [database](./database.md#migration_script)
 
 #### Source Code
 
@@ -1644,8 +1575,7 @@ message RunMigrationRequest {
 
 ### run_migration_response.proto {#run_migration_response}
 
-**Path**: `pkg/db/proto/run_migration_response.proto` **Package**:
-`gcommon.v1.database` **Lines**: 26
+**Path**: `pkg/db/proto/run_migration_response.proto` **Package**: `gcommon.v1.database` **Lines**: 26
 
 **Messages** (1): `RunMigrationResponse`
 
@@ -1689,16 +1619,14 @@ message RunMigrationResponse {
 
 ### transaction_status_request.proto {#transaction_status_request}
 
-**Path**: `pkg/db/proto/transaction_status_request.proto` **Package**:
-`gcommon.v1.database` **Lines**: 22
+**Path**: `pkg/db/proto/transaction_status_request.proto` **Package**: `gcommon.v1.database` **Lines**: 22
 
 **Messages** (1): `TransactionStatusRequest`
 
 **Imports** (2):
 
 - `google/protobuf/go_features.proto`
-- `pkg/common/proto/request_metadata.proto` →
-  [common](./common.md#request_metadata)
+- `pkg/common/proto/request_metadata.proto` → [common](./common.md#request_metadata)
 
 #### Source Code
 
@@ -1731,8 +1659,7 @@ message TransactionStatusRequest {
 
 ### transaction_status_response.proto {#transaction_status_response}
 
-**Path**: `pkg/db/proto/transaction_status_response.proto` **Package**:
-`gcommon.v1.database` **Lines**: 25
+**Path**: `pkg/db/proto/transaction_status_response.proto` **Package**: `gcommon.v1.database` **Lines**: 25
 
 **Messages** (1): `TransactionStatusResponse`
 

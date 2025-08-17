@@ -37,18 +37,15 @@
 
 ### configure_tenant_isolation_request.proto {#configure_tenant_isolation_request}
 
-**Path**: `pkg/organization/proto/configure_tenant_isolation_request.proto`
-**Package**: `gcommon.v1.organization` **Lines**: 24
+**Path**: `pkg/organization/proto/configure_tenant_isolation_request.proto` **Package**: `gcommon.v1.organization` **Lines**: 24
 
 **Messages** (1): `ConfigureTenantIsolationRequest`
 
 **Imports** (3):
 
 - `google/protobuf/go_features.proto`
-- `pkg/common/proto/request_metadata.proto` →
-  [common](./common.md#request_metadata)
-- `pkg/organization/proto/tenant_isolation.proto` →
-  [organization](./organization.md#tenant_isolation)
+- `pkg/common/proto/request_metadata.proto` → [common](./common.md#request_metadata)
+- `pkg/organization/proto/tenant_isolation.proto` → [organization](./organization.md#tenant_isolation)
 
 #### Source Code
 
@@ -83,8 +80,7 @@ message ConfigureTenantIsolationRequest {
 
 ### configure_tenant_isolation_response.proto {#configure_tenant_isolation_response}
 
-**Path**: `pkg/organization/proto/configure_tenant_isolation_response.proto`
-**Package**: `gcommon.v1.organization` **Lines**: 23
+**Path**: `pkg/organization/proto/configure_tenant_isolation_response.proto` **Package**: `gcommon.v1.organization` **Lines**: 23
 
 **Messages** (1): `ConfigureTenantIsolationResponse`
 
@@ -92,8 +88,7 @@ message ConfigureTenantIsolationRequest {
 
 - `google/protobuf/go_features.proto`
 - `pkg/common/proto/error.proto` → [common](./common.md#error)
-- `pkg/organization/proto/tenant_isolation.proto` →
-  [organization](./organization.md#tenant_isolation)
+- `pkg/organization/proto/tenant_isolation.proto` → [organization](./organization.md#tenant_isolation)
 
 #### Source Code
 
@@ -127,16 +122,14 @@ message ConfigureTenantIsolationResponse {
 
 ### get_organization_settings_request.proto {#get_organization_settings_request}
 
-**Path**: `pkg/organization/proto/get_organization_settings_request.proto`
-**Package**: `gcommon.v1.organization` **Lines**: 20
+**Path**: `pkg/organization/proto/get_organization_settings_request.proto` **Package**: `gcommon.v1.organization` **Lines**: 20
 
 **Messages** (1): `GetOrganizationSettingsRequest`
 
 **Imports** (2):
 
 - `google/protobuf/go_features.proto`
-- `pkg/common/proto/request_metadata.proto` →
-  [common](./common.md#request_metadata)
+- `pkg/common/proto/request_metadata.proto` → [common](./common.md#request_metadata)
 
 #### Source Code
 
@@ -167,8 +160,7 @@ message GetOrganizationSettingsRequest {
 
 ### get_organization_settings_response.proto {#get_organization_settings_response}
 
-**Path**: `pkg/organization/proto/get_organization_settings_response.proto`
-**Package**: `gcommon.v1.organization` **Lines**: 23
+**Path**: `pkg/organization/proto/get_organization_settings_response.proto` **Package**: `gcommon.v1.organization` **Lines**: 23
 
 **Messages** (1): `GetOrganizationSettingsResponse`
 
@@ -210,12 +202,9 @@ message GetOrganizationSettingsResponse {
 
 ### organization_settings.proto {#organization_settings}
 
-**Path**: `pkg/organization/proto/organization_settings.proto` **Package**:
-`gcommon.v1.organization` **Lines**: 323
+**Path**: `pkg/organization/proto/organization_settings.proto` **Package**: `gcommon.v1.organization` **Lines**: 323
 
-**Messages** (15): `OrganizationSettings`, `SecuritySettings`, `UISettings`,
-`IntegrationSettings`, `Integration`, `NotificationSettings`, `RateLimitConfig`,
-`WebhookConfig`, `APIKeyConfig`, `OAuthAppConfig`, `BillingSettings`,
+**Messages** (15): `OrganizationSettings`, `SecuritySettings`, `UISettings`, `IntegrationSettings`, `Integration`, `NotificationSettings`, `RateLimitConfig`, `WebhookConfig`, `APIKeyConfig`, `OAuthAppConfig`, `BillingSettings`,
 `ComplianceSettings`, `FeatureFlag`, `EmailTemplate`, `NotificationFrequency`
 
 **Imports** (3):
@@ -556,8 +545,7 @@ message NotificationFrequency {
 
 ### update_organization_settings_request.proto {#update_organization_settings_request}
 
-**Path**: `pkg/organization/proto/update_organization_settings_request.proto`
-**Package**: `gcommon.v1.organization` **Lines**: 31
+**Path**: `pkg/organization/proto/update_organization_settings_request.proto` **Package**: `gcommon.v1.organization` **Lines**: 31
 
 **Messages** (1): `UpdateOrganizationSettingsRequest`
 
@@ -565,8 +553,7 @@ message NotificationFrequency {
 
 - `google/protobuf/field_mask.proto`
 - `google/protobuf/go_features.proto`
-- `pkg/common/proto/request_metadata.proto` →
-  [common](./common.md#request_metadata)
+- `pkg/common/proto/request_metadata.proto` → [common](./common.md#request_metadata)
 - `pkg/organization/proto/organization_settings.proto`
 
 #### Source Code
@@ -609,8 +596,7 @@ message UpdateOrganizationSettingsRequest {
 
 ### update_organization_settings_response.proto {#update_organization_settings_response}
 
-**Path**: `pkg/organization/proto/update_organization_settings_response.proto`
-**Package**: `gcommon.v1.organization` **Lines**: 23
+**Path**: `pkg/organization/proto/update_organization_settings_response.proto` **Package**: `gcommon.v1.organization` **Lines**: 23
 
 **Messages** (1): `UpdateOrganizationSettingsResponse`
 

@@ -75,8 +75,7 @@
 
 ### check_result.proto {#check_result}
 
-**Path**: `pkg/health/proto/check_result.proto` **Package**: `gcommon.v1.health`
-**Lines**: 41
+**Path**: `pkg/health/proto/check_result.proto` **Package**: `gcommon.v1.health` **Lines**: 41
 
 **Messages** (1): `CheckResult`
 
@@ -86,9 +85,7 @@
 - `google/protobuf/go_features.proto`
 - `google/protobuf/timestamp.proto`
 - `pkg/common/proto/error.proto` → [common](./common.md#error)
-- `pkg/common/proto/health_status.proto` → [common](./common.md#health_status) →
-  [metrics_1](./metrics_1.md#health_status) →
-  [queue_1](./queue_1.md#health_status) → [web](./web.md#health_status)
+- `pkg/common/proto/health_status.proto` → [common](./common.md#health_status) → [metrics_1](./metrics_1.md#health_status) → [queue_1](./queue_1.md#health_status) → [web](./web.md#health_status)
 
 #### Source Code
 
@@ -140,16 +137,14 @@ message CheckResult {
 
 ### configure_alerting_request.proto {#configure_alerting_request}
 
-**Path**: `pkg/health/proto/configure_alerting_request.proto` **Package**:
-`gcommon.v1.health` **Lines**: 33
+**Path**: `pkg/health/proto/configure_alerting_request.proto` **Package**: `gcommon.v1.health` **Lines**: 33
 
 **Messages** (1): `ConfigureAlertingRequest`
 
 **Imports** (2):
 
 - `google/protobuf/go_features.proto`
-- `pkg/common/proto/request_metadata.proto` →
-  [common](./common.md#request_metadata)
+- `pkg/common/proto/request_metadata.proto` → [common](./common.md#request_metadata)
 
 #### Source Code
 
@@ -193,8 +188,7 @@ message ConfigureAlertingRequest {
 
 ### configure_alerting_response.proto {#configure_alerting_response}
 
-**Path**: `pkg/health/proto/configure_alerting_response.proto` **Package**:
-`gcommon.v1.health` **Lines**: 29
+**Path**: `pkg/health/proto/configure_alerting_response.proto` **Package**: `gcommon.v1.health` **Lines**: 29
 
 **Messages** (1): `ConfigureAlertingResponse`
 
@@ -241,16 +235,14 @@ message ConfigureAlertingResponse {
 
 ### disable_check_request.proto {#disable_check_request}
 
-**Path**: `pkg/health/proto/disable_check_request.proto` **Package**:
-`gcommon.v1.health` **Lines**: 24
+**Path**: `pkg/health/proto/disable_check_request.proto` **Package**: `gcommon.v1.health` **Lines**: 24
 
 **Messages** (1): `DisableCheckRequest`
 
 **Imports** (2):
 
 - `google/protobuf/go_features.proto`
-- `pkg/common/proto/request_metadata.proto` →
-  [common](./common.md#request_metadata)
+- `pkg/common/proto/request_metadata.proto` → [common](./common.md#request_metadata)
 
 #### Source Code
 
@@ -285,8 +277,7 @@ message DisableCheckRequest {
 
 ### disable_check_response.proto {#disable_check_response}
 
-**Path**: `pkg/health/proto/disable_check_response.proto` **Package**:
-`gcommon.v1.health` **Lines**: 29
+**Path**: `pkg/health/proto/disable_check_response.proto` **Package**: `gcommon.v1.health` **Lines**: 29
 
 **Messages** (1): `DisableCheckResponse`
 
@@ -333,16 +324,14 @@ message DisableCheckResponse {
 
 ### enable_check_request.proto {#enable_check_request}
 
-**Path**: `pkg/health/proto/enable_check_request.proto` **Package**:
-`gcommon.v1.health` **Lines**: 24
+**Path**: `pkg/health/proto/enable_check_request.proto` **Package**: `gcommon.v1.health` **Lines**: 24
 
 **Messages** (1): `EnableCheckRequest`
 
 **Imports** (2):
 
 - `google/protobuf/go_features.proto`
-- `pkg/common/proto/request_metadata.proto` →
-  [common](./common.md#request_metadata)
+- `pkg/common/proto/request_metadata.proto` → [common](./common.md#request_metadata)
 
 #### Source Code
 
@@ -377,8 +366,7 @@ message EnableCheckRequest {
 
 ### enable_check_response.proto {#enable_check_response}
 
-**Path**: `pkg/health/proto/enable_check_response.proto` **Package**:
-`gcommon.v1.health` **Lines**: 29
+**Path**: `pkg/health/proto/enable_check_response.proto` **Package**: `gcommon.v1.health` **Lines**: 29
 
 **Messages** (1): `EnableCheckResponse`
 
@@ -425,16 +413,14 @@ message EnableCheckResponse {
 
 ### get_check_status_request.proto {#get_check_status_request}
 
-**Path**: `pkg/health/proto/get_check_status_request.proto` **Package**:
-`gcommon.v1.health` **Lines**: 24
+**Path**: `pkg/health/proto/get_check_status_request.proto` **Package**: `gcommon.v1.health` **Lines**: 24
 
 **Messages** (1): `GetCheckStatusRequest`
 
 **Imports** (2):
 
 - `google/protobuf/go_features.proto`
-- `pkg/common/proto/request_metadata.proto` →
-  [common](./common.md#request_metadata)
+- `pkg/common/proto/request_metadata.proto` → [common](./common.md#request_metadata)
 
 #### Source Code
 
@@ -469,8 +455,7 @@ message GetCheckStatusRequest {
 
 ### get_health_history_request.proto {#get_health_history_request}
 
-**Path**: `pkg/health/proto/get_health_history_request.proto` **Package**:
-`gcommon.v1.health` **Lines**: 31
+**Path**: `pkg/health/proto/get_health_history_request.proto` **Package**: `gcommon.v1.health` **Lines**: 31
 
 **Messages** (1): `GetHealthHistoryRequest`
 
@@ -478,8 +463,7 @@ message GetCheckStatusRequest {
 
 - `google/protobuf/go_features.proto`
 - `google/protobuf/timestamp.proto`
-- `pkg/common/proto/request_metadata.proto` →
-  [common](./common.md#request_metadata)
+- `pkg/common/proto/request_metadata.proto` → [common](./common.md#request_metadata)
 
 #### Source Code
 
@@ -521,16 +505,14 @@ message GetHealthHistoryRequest {
 
 ### get_health_metrics_request.proto {#get_health_metrics_request}
 
-**Path**: `pkg/health/proto/get_health_metrics_request.proto` **Package**:
-`gcommon.v1.health` **Lines**: 24
+**Path**: `pkg/health/proto/get_health_metrics_request.proto` **Package**: `gcommon.v1.health` **Lines**: 24
 
 **Messages** (1): `GetHealthMetricsRequest`
 
 **Imports** (2):
 
 - `google/protobuf/go_features.proto`
-- `pkg/common/proto/request_metadata.proto` →
-  [common](./common.md#request_metadata)
+- `pkg/common/proto/request_metadata.proto` → [common](./common.md#request_metadata)
 
 #### Source Code
 
@@ -565,16 +547,14 @@ message GetHealthMetricsRequest {
 
 ### get_health_metrics_response.proto {#get_health_metrics_response}
 
-**Path**: `pkg/health/proto/get_health_metrics_response.proto` **Package**:
-`gcommon.v1.health` **Lines**: 21
+**Path**: `pkg/health/proto/get_health_metrics_response.proto` **Package**: `gcommon.v1.health` **Lines**: 21
 
 **Messages** (1): `GetHealthMetricsResponse`
 
 **Imports** (3):
 
 - `google/protobuf/go_features.proto`
-- `pkg/common/proto/request_metadata.proto` →
-  [common](./common.md#request_metadata)
+- `pkg/common/proto/request_metadata.proto` → [common](./common.md#request_metadata)
 - `pkg/health/proto/health_metric_data.proto`
 
 #### Source Code
@@ -607,16 +587,14 @@ message GetHealthMetricsResponse {
 
 ### get_health_request.proto {#get_health_request}
 
-**Path**: `pkg/health/proto/get_health_request.proto` **Package**:
-`gcommon.v1.health` **Lines**: 27
+**Path**: `pkg/health/proto/get_health_request.proto` **Package**: `gcommon.v1.health` **Lines**: 27
 
 **Messages** (1): `GetHealthRequest`
 
 **Imports** (2):
 
 - `google/protobuf/go_features.proto`
-- `pkg/common/proto/request_metadata.proto` →
-  [common](./common.md#request_metadata)
+- `pkg/common/proto/request_metadata.proto` → [common](./common.md#request_metadata)
 
 #### Source Code
 
@@ -654,16 +632,14 @@ message GetHealthRequest {
 
 ### get_service_health_request.proto {#get_service_health_request}
 
-**Path**: `pkg/health/proto/get_service_health_request.proto` **Package**:
-`gcommon.v1.health` **Lines**: 23
+**Path**: `pkg/health/proto/get_service_health_request.proto` **Package**: `gcommon.v1.health` **Lines**: 23
 
 **Messages** (1): `GetServiceHealthRequest`
 
 **Imports** (2):
 
 - `google/protobuf/go_features.proto`
-- `pkg/common/proto/request_metadata.proto` →
-  [common](./common.md#request_metadata)
+- `pkg/common/proto/request_metadata.proto` → [common](./common.md#request_metadata)
 
 #### Source Code
 
@@ -697,8 +673,7 @@ message GetServiceHealthRequest {
 
 ### get_service_health_response.proto {#get_service_health_response}
 
-**Path**: `pkg/health/proto/get_service_health_response.proto` **Package**:
-`gcommon.v1.health` **Lines**: 28
+**Path**: `pkg/health/proto/get_service_health_response.proto` **Package**: `gcommon.v1.health` **Lines**: 28
 
 **Messages** (1): `GetServiceHealthResponse`
 
@@ -707,9 +682,7 @@ message GetServiceHealthRequest {
 - `google/protobuf/go_features.proto`
 - `google/protobuf/timestamp.proto`
 - `pkg/common/proto/error.proto` → [common](./common.md#error)
-- `pkg/common/proto/health_status.proto` → [common](./common.md#health_status) →
-  [metrics_1](./metrics_1.md#health_status) →
-  [queue_1](./queue_1.md#health_status) → [web](./web.md#health_status)
+- `pkg/common/proto/health_status.proto` → [common](./common.md#health_status) → [metrics_1](./metrics_1.md#health_status) → [queue_1](./queue_1.md#health_status) → [web](./web.md#health_status)
 
 #### Source Code
 
@@ -748,8 +721,7 @@ message GetServiceHealthResponse {
 
 ### health_admin_service.proto {#health_admin_service}
 
-**Path**: `pkg/health/proto/health_admin_service.proto` **Package**:
-`gcommon.v1.health` **Lines**: 50
+**Path**: `pkg/health/proto/health_admin_service.proto` **Package**: `gcommon.v1.health` **Lines**: 50
 
 **Services** (1): `HealthAdminService`
 
@@ -828,8 +800,7 @@ service HealthAdminService {
 
 ### health_check_request.proto {#health_check_request}
 
-**Path**: `pkg/health/proto/health_check_request.proto` **Package**:
-`gcommon.v1.health` **Lines**: 30
+**Path**: `pkg/health/proto/health_check_request.proto` **Package**: `gcommon.v1.health` **Lines**: 30
 
 **Messages** (1): `HealthCheckRequest`
 
@@ -837,8 +808,7 @@ service HealthAdminService {
 
 - `google/protobuf/duration.proto`
 - `google/protobuf/go_features.proto`
-- `pkg/common/proto/request_metadata.proto` →
-  [common](./common.md#request_metadata)
+- `pkg/common/proto/request_metadata.proto` → [common](./common.md#request_metadata)
 
 #### Source Code
 
@@ -879,8 +849,7 @@ message HealthCheckRequest {
 
 ### health_check_response.proto {#health_check_response}
 
-**Path**: `pkg/health/proto/health_check_response.proto` **Package**:
-`gcommon.v1.health` **Lines**: 46
+**Path**: `pkg/health/proto/health_check_response.proto` **Package**: `gcommon.v1.health` **Lines**: 46
 
 **Messages** (1): `HealthCheckResponse`
 
@@ -890,9 +859,7 @@ message HealthCheckRequest {
 - `google/protobuf/go_features.proto`
 - `google/protobuf/timestamp.proto`
 - `pkg/common/proto/error.proto` → [common](./common.md#error)
-- `pkg/common/proto/health_status.proto` → [common](./common.md#health_status) →
-  [metrics_1](./metrics_1.md#health_status) →
-  [queue_1](./queue_1.md#health_status) → [web](./web.md#health_status)
+- `pkg/common/proto/health_status.proto` → [common](./common.md#health_status) → [metrics_1](./metrics_1.md#health_status) → [queue_1](./queue_1.md#health_status) → [web](./web.md#health_status)
 - `pkg/health/proto/check_result.proto`
 - `pkg/health/proto/health_metrics.proto`
 
@@ -951,8 +918,7 @@ message HealthCheckResponse {
 
 ### health_metric_data.proto {#health_metric_data}
 
-**Path**: `pkg/health/proto/health_metric_data.proto` **Package**:
-`gcommon.v1.health` **Lines**: 35
+**Path**: `pkg/health/proto/health_metric_data.proto` **Package**: `gcommon.v1.health` **Lines**: 35
 
 **Messages** (1): `HealthMetricData`
 
@@ -1005,8 +971,7 @@ message HealthMetricData {
 
 ### health_metrics.proto {#health_metrics}
 
-**Path**: `pkg/health/proto/health_metrics.proto` **Package**:
-`gcommon.v1.health` **Lines**: 41
+**Path**: `pkg/health/proto/health_metrics.proto` **Package**: `gcommon.v1.health` **Lines**: 41
 
 **Messages** (1): `HealthMetrics`
 
@@ -1065,8 +1030,7 @@ message HealthMetrics {
 
 ### health_service.proto {#health_service}
 
-**Path**: `pkg/health/proto/health_service.proto` **Package**:
-`gcommon.v1.health` **Lines**: 51
+**Path**: `pkg/health/proto/health_service.proto` **Package**: `gcommon.v1.health` **Lines**: 51
 
 **Services** (1): `HealthService`
 
@@ -1077,29 +1041,17 @@ message HealthMetrics {
 - `pkg/health/proto/get_health_metrics_response.proto`
 - `pkg/health/proto/get_service_health_request.proto`
 - `pkg/health/proto/get_service_health_response.proto`
-- `pkg/health/proto/health_check_request.proto` →
-  [auth_api_2](./auth_api_2.md#health_check_request) →
-  [cache_api_1](./cache_api_1.md#health_check_request) →
-  [config_api](./config_api.md#health_check_request) →
-  [database_api](./database_api.md#health_check_request) →
-  [metrics_api_1](./metrics_api_1.md#health_check_request) →
-  [queue_api_2](./queue_api_2.md#health_check_request) →
-  [web_api_2](./web_api_2.md#health_check_request)
-- `pkg/health/proto/health_check_response.proto` →
-  [auth_api_2](./auth_api_2.md#health_check_response) →
-  [config_api](./config_api.md#health_check_response) →
-  [database_api](./database_api.md#health_check_response) →
-  [metrics_api_1](./metrics_api_1.md#health_check_response) →
-  [queue_api_2](./queue_api_2.md#health_check_response) →
-  [web_api_2](./web_api_2.md#health_check_response)
+- `pkg/health/proto/health_check_request.proto` → [auth_api_2](./auth_api_2.md#health_check_request) → [cache_api_1](./cache_api_1.md#health_check_request) → [config_api](./config_api.md#health_check_request) →
+  [database_api](./database_api.md#health_check_request) → [metrics_api_1](./metrics_api_1.md#health_check_request) → [queue_api_2](./queue_api_2.md#health_check_request) → [web_api_2](./web_api_2.md#health_check_request)
+- `pkg/health/proto/health_check_response.proto` → [auth_api_2](./auth_api_2.md#health_check_response) → [config_api](./config_api.md#health_check_response) → [database_api](./database_api.md#health_check_response) →
+  [metrics_api_1](./metrics_api_1.md#health_check_response) → [queue_api_2](./queue_api_2.md#health_check_response) → [web_api_2](./web_api_2.md#health_check_response)
 - `pkg/health/proto/list_services_request.proto`
 - `pkg/health/proto/list_services_response.proto`
 - `pkg/health/proto/register_check_request.proto`
 - `pkg/health/proto/register_check_response.proto`
 - `pkg/health/proto/unregister_check_request.proto`
 - `pkg/health/proto/unregister_check_response.proto`
-- `pkg/health/proto/watch_request.proto` →
-  [cache_api_2](./cache_api_2.md#watch_request)
+- `pkg/health/proto/watch_request.proto` → [cache_api_2](./cache_api_2.md#watch_request)
 - `pkg/health/proto/watch_response.proto`
 
 #### Source Code
@@ -1162,16 +1114,14 @@ service HealthService {
 
 ### list_checks_request.proto {#list_checks_request}
 
-**Path**: `pkg/health/proto/list_checks_request.proto` **Package**:
-`gcommon.v1.health` **Lines**: 24
+**Path**: `pkg/health/proto/list_checks_request.proto` **Package**: `gcommon.v1.health` **Lines**: 24
 
 **Messages** (1): `ListChecksRequest`
 
 **Imports** (2):
 
 - `google/protobuf/go_features.proto`
-- `pkg/common/proto/request_metadata.proto` →
-  [common](./common.md#request_metadata)
+- `pkg/common/proto/request_metadata.proto` → [common](./common.md#request_metadata)
 
 #### Source Code
 
@@ -1206,16 +1156,14 @@ message ListChecksRequest {
 
 ### list_services_request.proto {#list_services_request}
 
-**Path**: `pkg/health/proto/list_services_request.proto` **Package**:
-`gcommon.v1.health` **Lines**: 20
+**Path**: `pkg/health/proto/list_services_request.proto` **Package**: `gcommon.v1.health` **Lines**: 20
 
 **Messages** (1): `ListServicesRequest`
 
 **Imports** (2):
 
 - `google/protobuf/go_features.proto`
-- `pkg/common/proto/request_metadata.proto` →
-  [common](./common.md#request_metadata)
+- `pkg/common/proto/request_metadata.proto` → [common](./common.md#request_metadata)
 
 #### Source Code
 
@@ -1246,16 +1194,14 @@ message ListServicesRequest {
 
 ### list_services_response.proto {#list_services_response}
 
-**Path**: `pkg/health/proto/list_services_response.proto` **Package**:
-`gcommon.v1.health` **Lines**: 20
+**Path**: `pkg/health/proto/list_services_response.proto` **Package**: `gcommon.v1.health` **Lines**: 20
 
 **Messages** (1): `ListServicesResponse`
 
 **Imports** (2):
 
 - `google/protobuf/go_features.proto`
-- `pkg/common/proto/request_metadata.proto` →
-  [common](./common.md#request_metadata)
+- `pkg/common/proto/request_metadata.proto` → [common](./common.md#request_metadata)
 
 #### Source Code
 
@@ -1286,24 +1232,16 @@ message ListServicesResponse {
 
 ### register_check_request.proto {#register_check_request}
 
-**Path**: `pkg/health/proto/register_check_request.proto` **Package**:
-`gcommon.v1.health` **Lines**: 28
+**Path**: `pkg/health/proto/register_check_request.proto` **Package**: `gcommon.v1.health` **Lines**: 28
 
 **Messages** (1): `RegisterCheckRequest`
 
 **Imports** (3):
 
 - `google/protobuf/go_features.proto`
-- `pkg/common/proto/request_metadata.proto` →
-  [common](./common.md#request_metadata)
-- `pkg/health/proto/health_check_request.proto` →
-  [auth_api_2](./auth_api_2.md#health_check_request) →
-  [cache_api_1](./cache_api_1.md#health_check_request) →
-  [config_api](./config_api.md#health_check_request) →
-  [database_api](./database_api.md#health_check_request) →
-  [metrics_api_1](./metrics_api_1.md#health_check_request) →
-  [queue_api_2](./queue_api_2.md#health_check_request) →
-  [web_api_2](./web_api_2.md#health_check_request)
+- `pkg/common/proto/request_metadata.proto` → [common](./common.md#request_metadata)
+- `pkg/health/proto/health_check_request.proto` → [auth_api_2](./auth_api_2.md#health_check_request) → [cache_api_1](./cache_api_1.md#health_check_request) → [config_api](./config_api.md#health_check_request) →
+  [database_api](./database_api.md#health_check_request) → [metrics_api_1](./metrics_api_1.md#health_check_request) → [queue_api_2](./queue_api_2.md#health_check_request) → [web_api_2](./web_api_2.md#health_check_request)
 
 #### Source Code
 
@@ -1342,8 +1280,7 @@ message RegisterCheckRequest {
 
 ### register_check_response.proto {#register_check_response}
 
-**Path**: `pkg/health/proto/register_check_response.proto` **Package**:
-`gcommon.v1.health` **Lines**: 26
+**Path**: `pkg/health/proto/register_check_response.proto` **Package**: `gcommon.v1.health` **Lines**: 26
 
 **Messages** (1): `RegisterCheckResponse`
 
@@ -1387,16 +1324,14 @@ message RegisterCheckResponse {
 
 ### reset_health_stats_request.proto {#reset_health_stats_request}
 
-**Path**: `pkg/health/proto/reset_health_stats_request.proto` **Package**:
-`gcommon.v1.health` **Lines**: 24
+**Path**: `pkg/health/proto/reset_health_stats_request.proto` **Package**: `gcommon.v1.health` **Lines**: 24
 
 **Messages** (1): `ResetHealthStatsRequest`
 
 **Imports** (2):
 
 - `google/protobuf/go_features.proto`
-- `pkg/common/proto/request_metadata.proto` →
-  [common](./common.md#request_metadata)
+- `pkg/common/proto/request_metadata.proto` → [common](./common.md#request_metadata)
 
 #### Source Code
 
@@ -1431,8 +1366,7 @@ message ResetHealthStatsRequest {
 
 ### reset_health_stats_response.proto {#reset_health_stats_response}
 
-**Path**: `pkg/health/proto/reset_health_stats_response.proto` **Package**:
-`gcommon.v1.health` **Lines**: 33
+**Path**: `pkg/health/proto/reset_health_stats_response.proto` **Package**: `gcommon.v1.health` **Lines**: 33
 
 **Messages** (1): `ResetHealthStatsResponse`
 
@@ -1484,16 +1418,14 @@ message ResetHealthStatsResponse {
 
 ### run_check_request.proto {#run_check_request}
 
-**Path**: `pkg/health/proto/run_check_request.proto` **Package**:
-`gcommon.v1.health` **Lines**: 24
+**Path**: `pkg/health/proto/run_check_request.proto` **Package**: `gcommon.v1.health` **Lines**: 24
 
 **Messages** (1): `RunCheckRequest`
 
 **Imports** (2):
 
 - `google/protobuf/go_features.proto`
-- `pkg/common/proto/request_metadata.proto` →
-  [common](./common.md#request_metadata)
+- `pkg/common/proto/request_metadata.proto` → [common](./common.md#request_metadata)
 
 #### Source Code
 
@@ -1528,8 +1460,7 @@ message RunCheckRequest {
 
 ### run_check_response.proto {#run_check_response}
 
-**Path**: `pkg/health/proto/run_check_response.proto` **Package**:
-`gcommon.v1.health` **Lines**: 41
+**Path**: `pkg/health/proto/run_check_response.proto` **Package**: `gcommon.v1.health` **Lines**: 41
 
 **Messages** (1): `RunCheckResponse`
 
@@ -1539,9 +1470,7 @@ message RunCheckRequest {
 - `google/protobuf/go_features.proto`
 - `google/protobuf/timestamp.proto`
 - `pkg/common/proto/error.proto` → [common](./common.md#error)
-- `pkg/common/proto/health_status.proto` → [common](./common.md#health_status) →
-  [metrics_1](./metrics_1.md#health_status) →
-  [queue_1](./queue_1.md#health_status) → [web](./web.md#health_status)
+- `pkg/common/proto/health_status.proto` → [common](./common.md#health_status) → [metrics_1](./metrics_1.md#health_status) → [queue_1](./queue_1.md#health_status) → [web](./web.md#health_status)
 
 #### Source Code
 
@@ -1593,19 +1522,15 @@ message RunCheckResponse {
 
 ### set_health_request.proto {#set_health_request}
 
-**Path**: `pkg/health/proto/set_health_request.proto` **Package**:
-`gcommon.v1.health` **Lines**: 28
+**Path**: `pkg/health/proto/set_health_request.proto` **Package**: `gcommon.v1.health` **Lines**: 28
 
 **Messages** (1): `SetHealthRequest`
 
 **Imports** (3):
 
 - `google/protobuf/go_features.proto`
-- `pkg/common/proto/health_status.proto` → [common](./common.md#health_status) →
-  [metrics_1](./metrics_1.md#health_status) →
-  [queue_1](./queue_1.md#health_status) → [web](./web.md#health_status)
-- `pkg/common/proto/request_metadata.proto` →
-  [common](./common.md#request_metadata)
+- `pkg/common/proto/health_status.proto` → [common](./common.md#health_status) → [metrics_1](./metrics_1.md#health_status) → [queue_1](./queue_1.md#health_status) → [web](./web.md#health_status)
+- `pkg/common/proto/request_metadata.proto` → [common](./common.md#request_metadata)
 
 #### Source Code
 
@@ -1644,8 +1569,7 @@ message SetHealthRequest {
 
 ### set_health_response.proto {#set_health_response}
 
-**Path**: `pkg/health/proto/set_health_response.proto` **Package**:
-`gcommon.v1.health` **Lines**: 37
+**Path**: `pkg/health/proto/set_health_response.proto` **Package**: `gcommon.v1.health` **Lines**: 37
 
 **Messages** (1): `SetHealthResponse`
 
@@ -1654,9 +1578,7 @@ message SetHealthRequest {
 - `google/protobuf/go_features.proto`
 - `google/protobuf/timestamp.proto`
 - `pkg/common/proto/error.proto` → [common](./common.md#error)
-- `pkg/common/proto/health_status.proto` → [common](./common.md#health_status) →
-  [metrics_1](./metrics_1.md#health_status) →
-  [queue_1](./queue_1.md#health_status) → [web](./web.md#health_status)
+- `pkg/common/proto/health_status.proto` → [common](./common.md#health_status) → [metrics_1](./metrics_1.md#health_status) → [queue_1](./queue_1.md#health_status) → [web](./web.md#health_status)
 
 #### Source Code
 
@@ -1704,16 +1626,14 @@ message SetHealthResponse {
 
 ### unregister_check_request.proto {#unregister_check_request}
 
-**Path**: `pkg/health/proto/unregister_check_request.proto` **Package**:
-`gcommon.v1.health` **Lines**: 24
+**Path**: `pkg/health/proto/unregister_check_request.proto` **Package**: `gcommon.v1.health` **Lines**: 24
 
 **Messages** (1): `UnregisterCheckRequest`
 
 **Imports** (2):
 
 - `google/protobuf/go_features.proto`
-- `pkg/common/proto/request_metadata.proto` →
-  [common](./common.md#request_metadata)
+- `pkg/common/proto/request_metadata.proto` → [common](./common.md#request_metadata)
 
 #### Source Code
 
@@ -1748,8 +1668,7 @@ message UnregisterCheckRequest {
 
 ### unregister_check_response.proto {#unregister_check_response}
 
-**Path**: `pkg/health/proto/unregister_check_response.proto` **Package**:
-`gcommon.v1.health` **Lines**: 29
+**Path**: `pkg/health/proto/unregister_check_response.proto` **Package**: `gcommon.v1.health` **Lines**: 29
 
 **Messages** (1): `UnregisterCheckResponse`
 
@@ -1796,16 +1715,14 @@ message UnregisterCheckResponse {
 
 ### watch_request.proto {#watch_request}
 
-**Path**: `pkg/health/proto/watch_request.proto` **Package**:
-`gcommon.v1.health` **Lines**: 23
+**Path**: `pkg/health/proto/watch_request.proto` **Package**: `gcommon.v1.health` **Lines**: 23
 
 **Messages** (1): `WatchRequest`
 
 **Imports** (2):
 
 - `google/protobuf/go_features.proto`
-- `pkg/common/proto/request_metadata.proto` →
-  [common](./common.md#request_metadata)
+- `pkg/common/proto/request_metadata.proto` → [common](./common.md#request_metadata)
 
 #### Source Code
 
@@ -1839,8 +1756,7 @@ message WatchRequest {
 
 ### watch_response.proto {#watch_response}
 
-**Path**: `pkg/health/proto/watch_response.proto` **Package**:
-`gcommon.v1.health` **Lines**: 55
+**Path**: `pkg/health/proto/watch_response.proto` **Package**: `gcommon.v1.health` **Lines**: 55
 
 **Messages** (1): `WatchResponse`
 
@@ -1850,9 +1766,7 @@ message WatchRequest {
 - `google/protobuf/go_features.proto`
 - `google/protobuf/timestamp.proto`
 - `pkg/common/proto/error.proto` → [common](./common.md#error)
-- `pkg/common/proto/health_status.proto` → [common](./common.md#health_status) →
-  [metrics_1](./metrics_1.md#health_status) →
-  [queue_1](./queue_1.md#health_status) → [web](./web.md#health_status)
+- `pkg/common/proto/health_status.proto` → [common](./common.md#health_status) → [metrics_1](./metrics_1.md#health_status) → [queue_1](./queue_1.md#health_status) → [web](./web.md#health_status)
 - `pkg/health/proto/check_result.proto`
 - `pkg/health/proto/health_metrics.proto`
 

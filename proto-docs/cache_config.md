@@ -32,8 +32,7 @@
 
 ### cache_config.proto {#cache_config}
 
-**Path**: `pkg/cache/proto/cache_config.proto` **Package**: `gcommon.v1.cache`
-**Lines**: 45
+**Path**: `pkg/cache/proto/cache_config.proto` **Package**: `gcommon.v1.cache` **Lines**: 45
 
 **Messages** (1): `CacheConfig`
 
@@ -41,8 +40,7 @@
 
 - `google/protobuf/duration.proto`
 - `google/protobuf/go_features.proto`
-- `pkg/common/proto/eviction_policy.proto` →
-  [common](./common.md#eviction_policy)
+- `pkg/common/proto/eviction_policy.proto` → [common](./common.md#eviction_policy)
 
 #### Source Code
 
@@ -98,8 +96,7 @@ message CacheConfig {
 
 ### configure_policy_request.proto {#configure_policy_request}
 
-**Path**: `pkg/cache/proto/configure_policy_request.proto` **Package**:
-`gcommon.v1.cache` **Lines**: 33
+**Path**: `pkg/cache/proto/configure_policy_request.proto` **Package**: `gcommon.v1.cache` **Lines**: 33
 
 **Messages** (1): `ConfigurePolicyRequest`
 
@@ -149,8 +146,7 @@ message ConfigurePolicyRequest {
 
 ### configure_policy_response.proto {#configure_policy_response}
 
-**Path**: `pkg/cache/proto/configure_policy_response.proto` **Package**:
-`gcommon.v1.cache` **Lines**: 40
+**Path**: `pkg/cache/proto/configure_policy_response.proto` **Package**: `gcommon.v1.cache` **Lines**: 40
 
 **Messages** (1): `ConfigurePolicyResponse`
 

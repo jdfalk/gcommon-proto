@@ -29,62 +29,37 @@
 
 ### hierarchy_service.proto {#hierarchy_service}
 
-**Path**: `pkg/organization/proto/hierarchy_service.proto` **Package**:
-`gcommon.v1.organization` **Lines**: 77
+**Path**: `pkg/organization/proto/hierarchy_service.proto` **Package**: `gcommon.v1.organization` **Lines**: 77
 
 **Services** (1): `HierarchyService`
 
 **Imports** (25):
 
 - `google/protobuf/go_features.proto`
-- `pkg/organization/proto/create_department_request.proto` →
-  [organization_api_1](./organization_api_1.md#create_department_request)
-- `pkg/organization/proto/create_department_response.proto` →
-  [organization_api_1](./organization_api_1.md#create_department_response)
-- `pkg/organization/proto/create_team_request.proto` →
-  [organization_api_1](./organization_api_1.md#create_team_request)
-- `pkg/organization/proto/create_team_response.proto` →
-  [organization_api_1](./organization_api_1.md#create_team_response)
-- `pkg/organization/proto/delete_department_request.proto` →
-  [organization_api_1](./organization_api_1.md#delete_department_request)
-- `pkg/organization/proto/delete_department_response.proto` →
-  [organization_api_1](./organization_api_1.md#delete_department_response)
-- `pkg/organization/proto/delete_team_request.proto` →
-  [organization_api_1](./organization_api_1.md#delete_team_request)
-- `pkg/organization/proto/delete_team_response.proto` →
-  [organization_api_1](./organization_api_1.md#delete_team_response)
-- `pkg/organization/proto/get_department_request.proto` →
-  [organization_api_1](./organization_api_1.md#get_department_request)
-- `pkg/organization/proto/get_department_response.proto` →
-  [organization_api_1](./organization_api_1.md#get_department_response)
-- `pkg/organization/proto/get_hierarchy_request.proto` →
-  [organization_api_1](./organization_api_1.md#get_hierarchy_request)
-- `pkg/organization/proto/get_hierarchy_response.proto` →
-  [organization_api_1](./organization_api_1.md#get_hierarchy_response)
-- `pkg/organization/proto/get_team_request.proto` →
-  [organization_api_1](./organization_api_1.md#get_team_request)
-- `pkg/organization/proto/get_team_response.proto` →
-  [organization_api_1](./organization_api_1.md#get_team_response)
-- `pkg/organization/proto/list_departments_request.proto` →
-  [organization_api_1](./organization_api_1.md#list_departments_request)
-- `pkg/organization/proto/list_departments_response.proto` →
-  [organization_api_1](./organization_api_1.md#list_departments_response)
-- `pkg/organization/proto/list_teams_request.proto` →
-  [organization_api_1](./organization_api_1.md#list_teams_request)
-- `pkg/organization/proto/list_teams_response.proto` →
-  [organization_api_1](./organization_api_1.md#list_teams_response)
-- `pkg/organization/proto/update_department_request.proto` →
-  [organization_api_1](./organization_api_1.md#update_department_request)
-- `pkg/organization/proto/update_department_response.proto` →
-  [organization_api_1](./organization_api_1.md#update_department_response)
-- `pkg/organization/proto/update_hierarchy_request.proto` →
-  [organization_api_1](./organization_api_1.md#update_hierarchy_request)
-- `pkg/organization/proto/update_hierarchy_response.proto` →
-  [organization_api_1](./organization_api_1.md#update_hierarchy_response)
-- `pkg/organization/proto/update_team_request.proto` →
-  [organization_api_2](./organization_api_2.md#update_team_request)
-- `pkg/organization/proto/update_team_response.proto` →
-  [organization_api_2](./organization_api_2.md#update_team_response)
+- `pkg/organization/proto/create_department_request.proto` → [organization_api_1](./organization_api_1.md#create_department_request)
+- `pkg/organization/proto/create_department_response.proto` → [organization_api_1](./organization_api_1.md#create_department_response)
+- `pkg/organization/proto/create_team_request.proto` → [organization_api_1](./organization_api_1.md#create_team_request)
+- `pkg/organization/proto/create_team_response.proto` → [organization_api_1](./organization_api_1.md#create_team_response)
+- `pkg/organization/proto/delete_department_request.proto` → [organization_api_1](./organization_api_1.md#delete_department_request)
+- `pkg/organization/proto/delete_department_response.proto` → [organization_api_1](./organization_api_1.md#delete_department_response)
+- `pkg/organization/proto/delete_team_request.proto` → [organization_api_1](./organization_api_1.md#delete_team_request)
+- `pkg/organization/proto/delete_team_response.proto` → [organization_api_1](./organization_api_1.md#delete_team_response)
+- `pkg/organization/proto/get_department_request.proto` → [organization_api_1](./organization_api_1.md#get_department_request)
+- `pkg/organization/proto/get_department_response.proto` → [organization_api_1](./organization_api_1.md#get_department_response)
+- `pkg/organization/proto/get_hierarchy_request.proto` → [organization_api_1](./organization_api_1.md#get_hierarchy_request)
+- `pkg/organization/proto/get_hierarchy_response.proto` → [organization_api_1](./organization_api_1.md#get_hierarchy_response)
+- `pkg/organization/proto/get_team_request.proto` → [organization_api_1](./organization_api_1.md#get_team_request)
+- `pkg/organization/proto/get_team_response.proto` → [organization_api_1](./organization_api_1.md#get_team_response)
+- `pkg/organization/proto/list_departments_request.proto` → [organization_api_1](./organization_api_1.md#list_departments_request)
+- `pkg/organization/proto/list_departments_response.proto` → [organization_api_1](./organization_api_1.md#list_departments_response)
+- `pkg/organization/proto/list_teams_request.proto` → [organization_api_1](./organization_api_1.md#list_teams_request)
+- `pkg/organization/proto/list_teams_response.proto` → [organization_api_1](./organization_api_1.md#list_teams_response)
+- `pkg/organization/proto/update_department_request.proto` → [organization_api_1](./organization_api_1.md#update_department_request)
+- `pkg/organization/proto/update_department_response.proto` → [organization_api_1](./organization_api_1.md#update_department_response)
+- `pkg/organization/proto/update_hierarchy_request.proto` → [organization_api_1](./organization_api_1.md#update_hierarchy_request)
+- `pkg/organization/proto/update_hierarchy_response.proto` → [organization_api_1](./organization_api_1.md#update_hierarchy_response)
+- `pkg/organization/proto/update_team_request.proto` → [organization_api_2](./organization_api_2.md#update_team_request)
+- `pkg/organization/proto/update_team_response.proto` → [organization_api_2](./organization_api_2.md#update_team_response)
 
 #### Source Code
 
@@ -172,58 +147,35 @@ service HierarchyService {
 
 ### organization_service.proto {#organization_service}
 
-**Path**: `pkg/organization/proto/organization_service.proto` **Package**:
-`gcommon.v1.organization` **Lines**: 72
+**Path**: `pkg/organization/proto/organization_service.proto` **Package**: `gcommon.v1.organization` **Lines**: 72
 
 **Services** (1): `OrganizationService`
 
 **Imports** (23):
 
 - `google/protobuf/go_features.proto`
-- `pkg/organization/proto/add_member_request.proto` →
-  [organization_api_1](./organization_api_1.md#add_member_request)
-- `pkg/organization/proto/add_member_response.proto` →
-  [organization_api_1](./organization_api_1.md#add_member_response)
-- `pkg/organization/proto/create_organization_request.proto` →
-  [organization_api_1](./organization_api_1.md#create_organization_request)
-- `pkg/organization/proto/create_organization_response.proto` →
-  [organization_api_1](./organization_api_1.md#create_organization_response)
-- `pkg/organization/proto/delete_organization_request.proto` →
-  [organization_api_1](./organization_api_1.md#delete_organization_request)
-- `pkg/organization/proto/delete_organization_response.proto` →
-  [organization_api_1](./organization_api_1.md#delete_organization_response)
-- `pkg/organization/proto/get_organization_request.proto` →
-  [organization_api_1](./organization_api_1.md#get_organization_request)
-- `pkg/organization/proto/get_organization_response.proto` →
-  [organization_api_1](./organization_api_1.md#get_organization_response)
-- `pkg/organization/proto/get_organization_settings_request.proto` →
-  [organization_config](./organization_config.md#get_organization_settings_request)
-- `pkg/organization/proto/get_organization_settings_response.proto` →
-  [organization_config](./organization_config.md#get_organization_settings_response)
-- `pkg/organization/proto/list_members_request.proto` →
-  [organization_api_1](./organization_api_1.md#list_members_request)
-- `pkg/organization/proto/list_members_response.proto` →
-  [organization_api_1](./organization_api_1.md#list_members_response)
-- `pkg/organization/proto/list_organizations_request.proto` →
-  [organization_api_1](./organization_api_1.md#list_organizations_request)
-- `pkg/organization/proto/list_organizations_response.proto` →
-  [organization_api_1](./organization_api_1.md#list_organizations_response)
-- `pkg/organization/proto/remove_member_request.proto` →
-  [organization_api_1](./organization_api_1.md#remove_member_request)
-- `pkg/organization/proto/remove_member_response.proto` →
-  [organization_api_1](./organization_api_1.md#remove_member_response)
-- `pkg/organization/proto/update_member_request.proto` →
-  [organization_api_1](./organization_api_1.md#update_member_request)
-- `pkg/organization/proto/update_member_response.proto` →
-  [organization_api_1](./organization_api_1.md#update_member_response)
-- `pkg/organization/proto/update_organization_request.proto` →
-  [organization_api_2](./organization_api_2.md#update_organization_request)
-- `pkg/organization/proto/update_organization_response.proto` →
-  [organization_api_2](./organization_api_2.md#update_organization_response)
-- `pkg/organization/proto/update_organization_settings_request.proto` →
-  [organization_config](./organization_config.md#update_organization_settings_request)
-- `pkg/organization/proto/update_organization_settings_response.proto` →
-  [organization_config](./organization_config.md#update_organization_settings_response)
+- `pkg/organization/proto/add_member_request.proto` → [organization_api_1](./organization_api_1.md#add_member_request)
+- `pkg/organization/proto/add_member_response.proto` → [organization_api_1](./organization_api_1.md#add_member_response)
+- `pkg/organization/proto/create_organization_request.proto` → [organization_api_1](./organization_api_1.md#create_organization_request)
+- `pkg/organization/proto/create_organization_response.proto` → [organization_api_1](./organization_api_1.md#create_organization_response)
+- `pkg/organization/proto/delete_organization_request.proto` → [organization_api_1](./organization_api_1.md#delete_organization_request)
+- `pkg/organization/proto/delete_organization_response.proto` → [organization_api_1](./organization_api_1.md#delete_organization_response)
+- `pkg/organization/proto/get_organization_request.proto` → [organization_api_1](./organization_api_1.md#get_organization_request)
+- `pkg/organization/proto/get_organization_response.proto` → [organization_api_1](./organization_api_1.md#get_organization_response)
+- `pkg/organization/proto/get_organization_settings_request.proto` → [organization_config](./organization_config.md#get_organization_settings_request)
+- `pkg/organization/proto/get_organization_settings_response.proto` → [organization_config](./organization_config.md#get_organization_settings_response)
+- `pkg/organization/proto/list_members_request.proto` → [organization_api_1](./organization_api_1.md#list_members_request)
+- `pkg/organization/proto/list_members_response.proto` → [organization_api_1](./organization_api_1.md#list_members_response)
+- `pkg/organization/proto/list_organizations_request.proto` → [organization_api_1](./organization_api_1.md#list_organizations_request)
+- `pkg/organization/proto/list_organizations_response.proto` → [organization_api_1](./organization_api_1.md#list_organizations_response)
+- `pkg/organization/proto/remove_member_request.proto` → [organization_api_1](./organization_api_1.md#remove_member_request)
+- `pkg/organization/proto/remove_member_response.proto` → [organization_api_1](./organization_api_1.md#remove_member_response)
+- `pkg/organization/proto/update_member_request.proto` → [organization_api_1](./organization_api_1.md#update_member_request)
+- `pkg/organization/proto/update_member_response.proto` → [organization_api_1](./organization_api_1.md#update_member_response)
+- `pkg/organization/proto/update_organization_request.proto` → [organization_api_2](./organization_api_2.md#update_organization_request)
+- `pkg/organization/proto/update_organization_response.proto` → [organization_api_2](./organization_api_2.md#update_organization_response)
+- `pkg/organization/proto/update_organization_settings_request.proto` → [organization_config](./organization_config.md#update_organization_settings_request)
+- `pkg/organization/proto/update_organization_settings_response.proto` → [organization_config](./organization_config.md#update_organization_settings_response)
 
 #### Source Code
 
@@ -306,50 +258,31 @@ service OrganizationService {
 
 ### tenant_service.proto {#tenant_service}
 
-**Path**: `pkg/organization/proto/tenant_service.proto` **Package**:
-`gcommon.v1.organization` **Lines**: 62
+**Path**: `pkg/organization/proto/tenant_service.proto` **Package**: `gcommon.v1.organization` **Lines**: 62
 
 **Services** (1): `TenantService`
 
 **Imports** (19):
 
 - `google/protobuf/go_features.proto`
-- `pkg/organization/proto/configure_tenant_isolation_request.proto` →
-  [organization_config](./organization_config.md#configure_tenant_isolation_request)
-- `pkg/organization/proto/configure_tenant_isolation_response.proto` →
-  [organization_config](./organization_config.md#configure_tenant_isolation_response)
-- `pkg/organization/proto/create_tenant_request.proto` →
-  [organization_api_1](./organization_api_1.md#create_tenant_request)
-- `pkg/organization/proto/create_tenant_response.proto` →
-  [organization_api_1](./organization_api_1.md#create_tenant_response)
-- `pkg/organization/proto/delete_tenant_request.proto` →
-  [organization_api_1](./organization_api_1.md#delete_tenant_request)
-- `pkg/organization/proto/delete_tenant_response.proto` →
-  [organization_api_1](./organization_api_1.md#delete_tenant_response)
-- `pkg/organization/proto/get_tenant_isolation_request.proto` →
-  [organization_api_1](./organization_api_1.md#get_tenant_isolation_request)
-- `pkg/organization/proto/get_tenant_isolation_response.proto` →
-  [organization_api_1](./organization_api_1.md#get_tenant_isolation_response)
-- `pkg/organization/proto/get_tenant_request.proto` →
-  [organization_api_1](./organization_api_1.md#get_tenant_request)
-- `pkg/organization/proto/get_tenant_response.proto` →
-  [organization_api_1](./organization_api_1.md#get_tenant_response)
-- `pkg/organization/proto/get_tenant_usage_request.proto` →
-  [organization_api_1](./organization_api_1.md#get_tenant_usage_request)
-- `pkg/organization/proto/get_tenant_usage_response.proto` →
-  [organization_api_1](./organization_api_1.md#get_tenant_usage_response)
-- `pkg/organization/proto/list_tenants_request.proto` →
-  [organization_api_1](./organization_api_1.md#list_tenants_request)
-- `pkg/organization/proto/list_tenants_response.proto` →
-  [organization_api_1](./organization_api_1.md#list_tenants_response)
-- `pkg/organization/proto/update_tenant_quota_request.proto` →
-  [organization_api_2](./organization_api_2.md#update_tenant_quota_request)
-- `pkg/organization/proto/update_tenant_quota_response.proto` →
-  [organization_api_2](./organization_api_2.md#update_tenant_quota_response)
-- `pkg/organization/proto/update_tenant_request.proto` →
-  [organization_api_2](./organization_api_2.md#update_tenant_request)
-- `pkg/organization/proto/update_tenant_response.proto` →
-  [organization_api_2](./organization_api_2.md#update_tenant_response)
+- `pkg/organization/proto/configure_tenant_isolation_request.proto` → [organization_config](./organization_config.md#configure_tenant_isolation_request)
+- `pkg/organization/proto/configure_tenant_isolation_response.proto` → [organization_config](./organization_config.md#configure_tenant_isolation_response)
+- `pkg/organization/proto/create_tenant_request.proto` → [organization_api_1](./organization_api_1.md#create_tenant_request)
+- `pkg/organization/proto/create_tenant_response.proto` → [organization_api_1](./organization_api_1.md#create_tenant_response)
+- `pkg/organization/proto/delete_tenant_request.proto` → [organization_api_1](./organization_api_1.md#delete_tenant_request)
+- `pkg/organization/proto/delete_tenant_response.proto` → [organization_api_1](./organization_api_1.md#delete_tenant_response)
+- `pkg/organization/proto/get_tenant_isolation_request.proto` → [organization_api_1](./organization_api_1.md#get_tenant_isolation_request)
+- `pkg/organization/proto/get_tenant_isolation_response.proto` → [organization_api_1](./organization_api_1.md#get_tenant_isolation_response)
+- `pkg/organization/proto/get_tenant_request.proto` → [organization_api_1](./organization_api_1.md#get_tenant_request)
+- `pkg/organization/proto/get_tenant_response.proto` → [organization_api_1](./organization_api_1.md#get_tenant_response)
+- `pkg/organization/proto/get_tenant_usage_request.proto` → [organization_api_1](./organization_api_1.md#get_tenant_usage_request)
+- `pkg/organization/proto/get_tenant_usage_response.proto` → [organization_api_1](./organization_api_1.md#get_tenant_usage_response)
+- `pkg/organization/proto/list_tenants_request.proto` → [organization_api_1](./organization_api_1.md#list_tenants_request)
+- `pkg/organization/proto/list_tenants_response.proto` → [organization_api_1](./organization_api_1.md#list_tenants_response)
+- `pkg/organization/proto/update_tenant_quota_request.proto` → [organization_api_2](./organization_api_2.md#update_tenant_quota_request)
+- `pkg/organization/proto/update_tenant_quota_response.proto` → [organization_api_2](./organization_api_2.md#update_tenant_quota_response)
+- `pkg/organization/proto/update_tenant_request.proto` → [organization_api_2](./organization_api_2.md#update_tenant_request)
+- `pkg/organization/proto/update_tenant_response.proto` → [organization_api_2](./organization_api_2.md#update_tenant_response)
 
 #### Source Code
 

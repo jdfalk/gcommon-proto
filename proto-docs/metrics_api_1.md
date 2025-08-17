@@ -92,18 +92,15 @@
 
 ### create_metric_request.proto {#create_metric_request}
 
-**Path**: `pkg/metrics/proto/create_metric_request.proto` **Package**:
-`gcommon.v1.metrics` **Lines**: 25
+**Path**: `pkg/metrics/proto/create_metric_request.proto` **Package**: `gcommon.v1.metrics` **Lines**: 25
 
 **Messages** (1): `CreateMetricRequest`
 
 **Imports** (3):
 
 - `google/protobuf/go_features.proto`
-- `pkg/common/proto/request_metadata.proto` →
-  [common](./common.md#request_metadata)
-- `pkg/metrics/proto/metric_data.proto` →
-  [metrics_1](./metrics_1.md#metric_data)
+- `pkg/common/proto/request_metadata.proto` → [common](./common.md#request_metadata)
+- `pkg/metrics/proto/metric_data.proto` → [metrics_1](./metrics_1.md#metric_data)
 
 #### Source Code
 
@@ -139,8 +136,7 @@ message CreateMetricRequest {
 
 ### create_metric_response.proto {#create_metric_response}
 
-**Path**: `pkg/metrics/proto/create_metric_response.proto` **Package**:
-`gcommon.v1.metrics` **Lines**: 27
+**Path**: `pkg/metrics/proto/create_metric_response.proto` **Package**: `gcommon.v1.metrics` **Lines**: 27
 
 **Messages** (1): `CreateMetricResponse`
 
@@ -148,8 +144,7 @@ message CreateMetricRequest {
 
 - `google/protobuf/go_features.proto`
 - `pkg/common/proto/error.proto` → [common](./common.md#error)
-- `pkg/metrics/proto/metric_metadata.proto` →
-  [metrics_1](./metrics_1.md#metric_metadata)
+- `pkg/metrics/proto/metric_metadata.proto` → [metrics_1](./metrics_1.md#metric_metadata)
 
 #### Source Code
 
@@ -187,23 +182,16 @@ message CreateMetricResponse {
 
 ### create_provider_request.proto {#create_provider_request}
 
-**Path**: `pkg/metrics/proto/create_provider_request.proto` **Package**:
-`gcommon.v1.metrics` **Lines**: 233
+**Path**: `pkg/metrics/proto/create_provider_request.proto` **Package**: `gcommon.v1.metrics` **Lines**: 233
 
-**Messages** (11): `CreateProviderRequest`, `ProviderConfig`,
-`ProviderSettings`, `PrometheusSettings`, `OpenTelemetrySettings`,
-`StatsDSettings`, `ExportDestination`, `ResourceLimits`, `SecurityConfig`,
-`TLSConfig`, `APIKeyConfig`
+**Messages** (11): `CreateProviderRequest`, `ProviderConfig`, `ProviderSettings`, `PrometheusSettings`, `OpenTelemetrySettings`, `StatsDSettings`, `ExportDestination`, `ResourceLimits`, `SecurityConfig`, `TLSConfig`, `APIKeyConfig`
 
 **Imports** (4):
 
 - `google/protobuf/go_features.proto`
-- `pkg/common/proto/request_metadata.proto` →
-  [common](./common.md#request_metadata)
-- `pkg/metrics/proto/export_config.proto` →
-  [metrics_config](./metrics_config.md#export_config)
-- `pkg/metrics/proto/provider_type.proto` → [auth](./auth.md#provider_type) →
-  [metrics_2](./metrics_2.md#provider_type)
+- `pkg/common/proto/request_metadata.proto` → [common](./common.md#request_metadata)
+- `pkg/metrics/proto/export_config.proto` → [metrics_config](./metrics_config.md#export_config)
+- `pkg/metrics/proto/provider_type.proto` → [auth](./auth.md#provider_type) → [metrics_2](./metrics_2.md#provider_type)
 
 #### Source Code
 
@@ -447,22 +435,17 @@ message APIKeyConfig {
 
 ### create_provider_response.proto {#create_provider_response}
 
-**Path**: `pkg/metrics/proto/create_provider_response.proto` **Package**:
-`gcommon.v1.metrics` **Lines**: 104
+**Path**: `pkg/metrics/proto/create_provider_response.proto` **Package**: `gcommon.v1.metrics` **Lines**: 104
 
-**Messages** (4): `CreateProviderResponse`, `AppliedConfig`,
-`ResourceAllocations`, `ProviderEndpoints`
+**Messages** (4): `CreateProviderResponse`, `AppliedConfig`, `ResourceAllocations`, `ProviderEndpoints`
 
 **Imports** (5):
 
 - `google/protobuf/go_features.proto`
 - `google/protobuf/timestamp.proto`
 - `pkg/common/proto/error.proto` → [common](./common.md#error)
-- `pkg/metrics/proto/provider_status.proto` →
-  [metrics_2](./metrics_2.md#provider_status)
-- `pkg/metrics/proto/validation_result.proto` →
-  [config_2](./config_2.md#validation_result) →
-  [metrics_2](./metrics_2.md#validation_result)
+- `pkg/metrics/proto/provider_status.proto` → [metrics_2](./metrics_2.md#provider_status)
+- `pkg/metrics/proto/validation_result.proto` → [config_2](./config_2.md#validation_result) → [metrics_2](./metrics_2.md#validation_result)
 
 #### Source Code
 
@@ -577,16 +560,14 @@ message ProviderEndpoints {
 
 ### delete_metric_request.proto {#delete_metric_request}
 
-**Path**: `pkg/metrics/proto/delete_metric_request.proto` **Package**:
-`gcommon.v1.metrics` **Lines**: 27
+**Path**: `pkg/metrics/proto/delete_metric_request.proto` **Package**: `gcommon.v1.metrics` **Lines**: 27
 
 **Messages** (1): `DeleteMetricRequest`
 
 **Imports** (2):
 
 - `google/protobuf/go_features.proto`
-- `pkg/common/proto/request_metadata.proto` →
-  [common](./common.md#request_metadata)
+- `pkg/common/proto/request_metadata.proto` → [common](./common.md#request_metadata)
 
 #### Source Code
 
@@ -624,8 +605,7 @@ message DeleteMetricRequest {
 
 ### delete_metric_response.proto {#delete_metric_response}
 
-**Path**: `pkg/metrics/proto/delete_metric_response.proto` **Package**:
-`gcommon.v1.metrics` **Lines**: 26
+**Path**: `pkg/metrics/proto/delete_metric_response.proto` **Package**: `gcommon.v1.metrics` **Lines**: 26
 
 **Messages** (1): `DeleteMetricResponse`
 
@@ -669,16 +649,14 @@ message DeleteMetricResponse {
 
 ### delete_provider_request.proto {#delete_provider_request}
 
-**Path**: `pkg/metrics/proto/delete_provider_request.proto` **Package**:
-`gcommon.v1.metrics` **Lines**: 28
+**Path**: `pkg/metrics/proto/delete_provider_request.proto` **Package**: `gcommon.v1.metrics` **Lines**: 28
 
 **Messages** (1): `DeleteProviderRequest`
 
 **Imports** (2):
 
 - `google/protobuf/go_features.proto`
-- `pkg/common/proto/request_metadata.proto` →
-  [common](./common.md#request_metadata)
+- `pkg/common/proto/request_metadata.proto` → [common](./common.md#request_metadata)
 
 #### Source Code
 
@@ -717,8 +695,7 @@ message DeleteProviderRequest {
 
 ### delete_provider_response.proto {#delete_provider_response}
 
-**Path**: `pkg/metrics/proto/delete_provider_response.proto` **Package**:
-`gcommon.v1.metrics` **Lines**: 86
+**Path**: `pkg/metrics/proto/delete_provider_response.proto` **Package**: `gcommon.v1.metrics` **Lines**: 86
 
 **Messages** (2): `DeleteProviderResponse`, `DeletionResult`
 
@@ -727,10 +704,8 @@ message DeleteProviderRequest {
 - `google/protobuf/go_features.proto`
 - `google/protobuf/timestamp.proto`
 - `pkg/common/proto/error.proto` → [common](./common.md#error)
-- `pkg/metrics/proto/backup_info.proto` →
-  [metrics_1](./metrics_1.md#backup_info)
-- `pkg/metrics/proto/dry_run_result.proto` →
-  [metrics_1](./metrics_1.md#dry_run_result)
+- `pkg/metrics/proto/backup_info.proto` → [metrics_1](./metrics_1.md#backup_info)
+- `pkg/metrics/proto/dry_run_result.proto` → [metrics_1](./metrics_1.md#dry_run_result)
 
 #### Source Code
 
@@ -827,19 +802,15 @@ message DeletionResult {
 
 ### export_metrics_request.proto {#export_metrics_request}
 
-**Path**: `pkg/metrics/proto/export_metrics_request.proto` **Package**:
-`gcommon.v1.metrics` **Lines**: 35
+**Path**: `pkg/metrics/proto/export_metrics_request.proto` **Package**: `gcommon.v1.metrics` **Lines**: 35
 
 **Messages** (1): `ExportMetricsRequest`
 
 **Imports** (3):
 
 - `google/protobuf/go_features.proto`
-- `pkg/common/proto/request_metadata.proto` →
-  [common](./common.md#request_metadata)
-- `pkg/metrics/proto/export_format.proto` →
-  [metrics_1](./metrics_1.md#export_format) →
-  [queue_1](./queue_1.md#export_format)
+- `pkg/common/proto/request_metadata.proto` → [common](./common.md#request_metadata)
+- `pkg/metrics/proto/export_format.proto` → [metrics_1](./metrics_1.md#export_format) → [queue_1](./queue_1.md#export_format)
 
 #### Source Code
 
@@ -885,8 +856,7 @@ message ExportMetricsRequest {
 
 ### export_metrics_response.proto {#export_metrics_response}
 
-**Path**: `pkg/metrics/proto/export_metrics_response.proto` **Package**:
-`gcommon.v1.metrics` **Lines**: 35
+**Path**: `pkg/metrics/proto/export_metrics_response.proto` **Package**: `gcommon.v1.metrics` **Lines**: 35
 
 **Messages** (1): `ExportMetricsResponse`
 
@@ -940,16 +910,14 @@ message ExportMetricsResponse {
 
 ### get_alerting_rules_request.proto {#get_alerting_rules_request}
 
-**Path**: `pkg/metrics/proto/get_alerting_rules_request.proto` **Package**:
-`gcommon.v1.metrics` **Lines**: 24
+**Path**: `pkg/metrics/proto/get_alerting_rules_request.proto` **Package**: `gcommon.v1.metrics` **Lines**: 24
 
 **Messages** (1): `GetAlertingRulesRequest`
 
 **Imports** (2):
 
 - `google/protobuf/go_features.proto`
-- `pkg/common/proto/request_metadata.proto` →
-  [common](./common.md#request_metadata)
+- `pkg/common/proto/request_metadata.proto` → [common](./common.md#request_metadata)
 
 #### Source Code
 
@@ -984,8 +952,7 @@ message GetAlertingRulesRequest {
 
 ### get_alerting_rules_response.proto {#get_alerting_rules_response}
 
-**Path**: `pkg/metrics/proto/get_alerting_rules_response.proto` **Package**:
-`gcommon.v1.metrics` **Lines**: 27
+**Path**: `pkg/metrics/proto/get_alerting_rules_response.proto` **Package**: `gcommon.v1.metrics` **Lines**: 27
 
 **Messages** (1): `GetAlertingRulesResponse`
 
@@ -993,8 +960,7 @@ message GetAlertingRulesRequest {
 
 - `google/protobuf/go_features.proto`
 - `pkg/common/proto/error.proto` → [common](./common.md#error)
-- `pkg/metrics/proto/alerting_rule.proto` →
-  [metrics_1](./metrics_1.md#alerting_rule)
+- `pkg/metrics/proto/alerting_rule.proto` → [metrics_1](./metrics_1.md#alerting_rule)
 
 #### Source Code
 
@@ -1032,8 +998,7 @@ message GetAlertingRulesResponse {
 
 ### get_metric_metadata_request.proto {#get_metric_metadata_request}
 
-**Path**: `pkg/metrics/proto/get_metric_metadata_request.proto` **Package**:
-`gcommon.v1.metrics` **Lines**: 48
+**Path**: `pkg/metrics/proto/get_metric_metadata_request.proto` **Package**: `gcommon.v1.metrics` **Lines**: 48
 
 **Messages** (1): `GetMetricMetadataRequest`
 
@@ -1098,8 +1063,7 @@ message GetMetricMetadataRequest {
 
 ### get_metric_metadata_response.proto {#get_metric_metadata_response}
 
-**Path**: `pkg/metrics/proto/get_metric_metadata_response.proto` **Package**:
-`gcommon.v1.metrics` **Lines**: 51
+**Path**: `pkg/metrics/proto/get_metric_metadata_response.proto` **Package**: `gcommon.v1.metrics` **Lines**: 51
 
 **Messages** (1): `GetMetricMetadataResponse`
 
@@ -1108,10 +1072,8 @@ message GetMetricMetadataRequest {
 - `google/protobuf/go_features.proto`
 - `google/protobuf/timestamp.proto`
 - `pkg/common/proto/error.proto` → [common](./common.md#error)
-- `pkg/metrics/proto/metric_metadata.proto` →
-  [metrics_1](./metrics_1.md#metric_metadata)
-- `pkg/metrics/proto/pagination_info.proto` →
-  [metrics_1](./metrics_1.md#pagination_info)
+- `pkg/metrics/proto/metric_metadata.proto` → [metrics_1](./metrics_1.md#metric_metadata)
+- `pkg/metrics/proto/pagination_info.proto` → [metrics_1](./metrics_1.md#pagination_info)
 
 #### Source Code
 
@@ -1173,16 +1135,14 @@ message GetMetricMetadataResponse {
 
 ### get_metric_request.proto {#get_metric_request}
 
-**Path**: `pkg/metrics/proto/get_metric_request.proto` **Package**:
-`gcommon.v1.metrics` **Lines**: 24
+**Path**: `pkg/metrics/proto/get_metric_request.proto` **Package**: `gcommon.v1.metrics` **Lines**: 24
 
 **Messages** (1): `GetMetricRequest`
 
 **Imports** (2):
 
 - `google/protobuf/go_features.proto`
-- `pkg/common/proto/request_metadata.proto` →
-  [common](./common.md#request_metadata)
+- `pkg/common/proto/request_metadata.proto` → [common](./common.md#request_metadata)
 
 #### Source Code
 
@@ -1217,8 +1177,7 @@ message GetMetricRequest {
 
 ### get_metric_response.proto {#get_metric_response}
 
-**Path**: `pkg/metrics/proto/get_metric_response.proto` **Package**:
-`gcommon.v1.metrics` **Lines**: 27
+**Path**: `pkg/metrics/proto/get_metric_response.proto` **Package**: `gcommon.v1.metrics` **Lines**: 27
 
 **Messages** (1): `GetMetricResponse`
 
@@ -1226,8 +1185,7 @@ message GetMetricRequest {
 
 - `google/protobuf/go_features.proto`
 - `pkg/common/proto/error.proto` → [common](./common.md#error)
-- `pkg/metrics/proto/metric_data.proto` →
-  [metrics_1](./metrics_1.md#metric_data)
+- `pkg/metrics/proto/metric_data.proto` → [metrics_1](./metrics_1.md#metric_data)
 
 #### Source Code
 
@@ -1265,31 +1223,22 @@ message GetMetricResponse {
 
 ### get_metrics_request.proto {#get_metrics_request}
 
-**Path**: `pkg/metrics/proto/get_metrics_request.proto` **Package**:
-`gcommon.v1.metrics` **Lines**: 86
+**Path**: `pkg/metrics/proto/get_metrics_request.proto` **Package**: `gcommon.v1.metrics` **Lines**: 86
 
 **Messages** (3): `GetMetricsRequest`, `SecondarySortField`, `OutputOptions`
 
 **Imports** (10):
 
 - `google/protobuf/go_features.proto`
-- `pkg/common/proto/pagination_options.proto` →
-  [common](./common.md#pagination_options)
-- `pkg/common/proto/request_metadata.proto` →
-  [common](./common.md#request_metadata)
+- `pkg/common/proto/pagination_options.proto` → [common](./common.md#pagination_options)
+- `pkg/common/proto/request_metadata.proto` → [common](./common.md#request_metadata)
 - `pkg/common/proto/sort_direction.proto` → [common](./common.md#sort_direction)
-- `pkg/common/proto/time_range.proto` → [common](./common.md#time_range) →
-  [metrics_2](./metrics_2.md#time_range) → [queue_2](./queue_2.md#time_range)
-- `pkg/metrics/proto/metric_aggregation.proto` →
-  [metrics_1](./metrics_1.md#metric_aggregation)
-- `pkg/metrics/proto/metric_filter.proto` →
-  [metrics_1](./metrics_1.md#metric_filter)
-- `pkg/metrics/proto/numeric_format.proto` →
-  [metrics_1](./metrics_1.md#numeric_format)
-- `pkg/metrics/proto/response_compression.proto` →
-  [metrics_api_2](./metrics_api_2.md#response_compression)
-- `pkg/metrics/proto/time_range.proto` → [common](./common.md#time_range) →
-  [metrics_2](./metrics_2.md#time_range) → [queue_2](./queue_2.md#time_range)
+- `pkg/common/proto/time_range.proto` → [common](./common.md#time_range) → [metrics_2](./metrics_2.md#time_range) → [queue_2](./queue_2.md#time_range)
+- `pkg/metrics/proto/metric_aggregation.proto` → [metrics_1](./metrics_1.md#metric_aggregation)
+- `pkg/metrics/proto/metric_filter.proto` → [metrics_1](./metrics_1.md#metric_filter)
+- `pkg/metrics/proto/numeric_format.proto` → [metrics_1](./metrics_1.md#numeric_format)
+- `pkg/metrics/proto/response_compression.proto` → [metrics_api_2](./metrics_api_2.md#response_compression)
+- `pkg/metrics/proto/time_range.proto` → [common](./common.md#time_range) → [metrics_2](./metrics_2.md#time_range) → [queue_2](./queue_2.md#time_range)
 
 #### Source Code
 
@@ -1386,8 +1335,7 @@ message OutputOptions {
 
 ### get_metrics_response.proto {#get_metrics_response}
 
-**Path**: `pkg/metrics/proto/get_metrics_response.proto` **Package**:
-`gcommon.v1.metrics` **Lines**: 57
+**Path**: `pkg/metrics/proto/get_metrics_response.proto` **Package**: `gcommon.v1.metrics` **Lines**: 57
 
 **Messages** (1): `GetMetricsResponse`
 
@@ -1396,18 +1344,12 @@ message OutputOptions {
 - `google/protobuf/go_features.proto`
 - `google/protobuf/timestamp.proto`
 - `pkg/common/proto/error.proto` → [common](./common.md#error)
-- `pkg/common/proto/time_range.proto` → [common](./common.md#time_range) →
-  [metrics_2](./metrics_2.md#time_range) → [queue_2](./queue_2.md#time_range)
-- `pkg/metrics/proto/metric_data.proto` →
-  [metrics_1](./metrics_1.md#metric_data)
-- `pkg/metrics/proto/metric_metadata.proto` →
-  [metrics_1](./metrics_1.md#metric_metadata)
-- `pkg/metrics/proto/pagination_info.proto` →
-  [metrics_1](./metrics_1.md#pagination_info)
-- `pkg/metrics/proto/query_stats.proto` → [database](./database.md#query_stats)
-  → [metrics_2](./metrics_2.md#query_stats)
-- `pkg/metrics/proto/time_range.proto` → [common](./common.md#time_range) →
-  [metrics_2](./metrics_2.md#time_range) → [queue_2](./queue_2.md#time_range)
+- `pkg/common/proto/time_range.proto` → [common](./common.md#time_range) → [metrics_2](./metrics_2.md#time_range) → [queue_2](./queue_2.md#time_range)
+- `pkg/metrics/proto/metric_data.proto` → [metrics_1](./metrics_1.md#metric_data)
+- `pkg/metrics/proto/metric_metadata.proto` → [metrics_1](./metrics_1.md#metric_metadata)
+- `pkg/metrics/proto/pagination_info.proto` → [metrics_1](./metrics_1.md#pagination_info)
+- `pkg/metrics/proto/query_stats.proto` → [database](./database.md#query_stats) → [metrics_2](./metrics_2.md#query_stats)
+- `pkg/metrics/proto/time_range.proto` → [common](./common.md#time_range) → [metrics_2](./metrics_2.md#time_range) → [queue_2](./queue_2.md#time_range)
 
 #### Source Code
 
@@ -1475,22 +1417,17 @@ message GetMetricsResponse {
 
 ### get_metrics_summary_request.proto {#get_metrics_summary_request}
 
-**Path**: `pkg/metrics/proto/get_metrics_summary_request.proto` **Package**:
-`gcommon.v1.metrics` **Lines**: 71
+**Path**: `pkg/metrics/proto/get_metrics_summary_request.proto` **Package**: `gcommon.v1.metrics` **Lines**: 71
 
 **Messages** (2): `GetMetricsSummaryRequest`, `SummaryOptions`
 
 **Imports** (5):
 
 - `google/protobuf/go_features.proto`
-- `pkg/common/proto/request_metadata.proto` →
-  [common](./common.md#request_metadata)
-- `pkg/common/proto/time_range.proto` → [common](./common.md#time_range) →
-  [metrics_2](./metrics_2.md#time_range) → [queue_2](./queue_2.md#time_range)
-- `pkg/metrics/proto/metric_filter.proto` →
-  [metrics_1](./metrics_1.md#metric_filter)
-- `pkg/metrics/proto/time_range.proto` → [common](./common.md#time_range) →
-  [metrics_2](./metrics_2.md#time_range) → [queue_2](./queue_2.md#time_range)
+- `pkg/common/proto/request_metadata.proto` → [common](./common.md#request_metadata)
+- `pkg/common/proto/time_range.proto` → [common](./common.md#time_range) → [metrics_2](./metrics_2.md#time_range) → [queue_2](./queue_2.md#time_range)
+- `pkg/metrics/proto/metric_filter.proto` → [metrics_1](./metrics_1.md#metric_filter)
+- `pkg/metrics/proto/time_range.proto` → [common](./common.md#time_range) → [metrics_2](./metrics_2.md#time_range) → [queue_2](./queue_2.md#time_range)
 
 #### Source Code
 
@@ -1572,36 +1509,23 @@ message SummaryOptions {
 
 ### get_metrics_summary_response.proto {#get_metrics_summary_response}
 
-**Path**: `pkg/metrics/proto/get_metrics_summary_response.proto` **Package**:
-`gcommon.v1.metrics` **Lines**: 150
+**Path**: `pkg/metrics/proto/get_metrics_summary_response.proto` **Package**: `gcommon.v1.metrics` **Lines**: 150
 
-**Messages** (8): `GetMetricsSummaryResponse`, `MetricsSummary`,
-`MetricTypeCounts`, `MetricInfo`, `MetricsHealthInfo`, `RetentionInfo`,
-`ExportStatus`, `ExporterStatus`
+**Messages** (8): `GetMetricsSummaryResponse`, `MetricsSummary`, `MetricTypeCounts`, `MetricInfo`, `MetricsHealthInfo`, `RetentionInfo`, `ExportStatus`, `ExporterStatus`
 
 **Imports** (11):
 
 - `google/protobuf/go_features.proto`
 - `google/protobuf/timestamp.proto`
 - `pkg/common/proto/error.proto` → [common](./common.md#error)
-- `pkg/common/proto/time_range.proto` → [common](./common.md#time_range) →
-  [metrics_2](./metrics_2.md#time_range) → [queue_2](./queue_2.md#time_range)
-- `pkg/metrics/proto/error_stats.proto` →
-  [metrics_1](./metrics_1.md#error_stats)
-- `pkg/metrics/proto/health_status.proto` → [common](./common.md#health_status)
-  → [metrics_1](./metrics_1.md#health_status) →
-  [queue_1](./queue_1.md#health_status) → [web](./web.md#health_status)
-- `pkg/metrics/proto/performance_stats.proto` →
-  [metrics_1](./metrics_1.md#performance_stats) →
-  [web](./web.md#performance_stats)
-- `pkg/metrics/proto/provider_summary.proto` →
-  [metrics_2](./metrics_2.md#provider_summary)
-- `pkg/metrics/proto/retention_policy_retentionpolicyconfig.proto` →
-  [metrics_config](./metrics_config.md#retention_policy_retentionpolicyconfig)
-- `pkg/metrics/proto/time_range.proto` → [common](./common.md#time_range) →
-  [metrics_2](./metrics_2.md#time_range) → [queue_2](./queue_2.md#time_range)
-- `pkg/metrics/proto/top_metrics.proto` →
-  [metrics_2](./metrics_2.md#top_metrics)
+- `pkg/common/proto/time_range.proto` → [common](./common.md#time_range) → [metrics_2](./metrics_2.md#time_range) → [queue_2](./queue_2.md#time_range)
+- `pkg/metrics/proto/error_stats.proto` → [metrics_1](./metrics_1.md#error_stats)
+- `pkg/metrics/proto/health_status.proto` → [common](./common.md#health_status) → [metrics_1](./metrics_1.md#health_status) → [queue_1](./queue_1.md#health_status) → [web](./web.md#health_status)
+- `pkg/metrics/proto/performance_stats.proto` → [metrics_1](./metrics_1.md#performance_stats) → [web](./web.md#performance_stats)
+- `pkg/metrics/proto/provider_summary.proto` → [metrics_2](./metrics_2.md#provider_summary)
+- `pkg/metrics/proto/retention_policy_retentionpolicyconfig.proto` → [metrics_config](./metrics_config.md#retention_policy_retentionpolicyconfig)
+- `pkg/metrics/proto/time_range.proto` → [common](./common.md#time_range) → [metrics_2](./metrics_2.md#time_range) → [queue_2](./queue_2.md#time_range)
+- `pkg/metrics/proto/top_metrics.proto` → [metrics_2](./metrics_2.md#top_metrics)
 
 #### Source Code
 
@@ -1762,18 +1686,15 @@ message ExporterStatus {
 
 ### get_provider_stats_request.proto {#get_provider_stats_request}
 
-**Path**: `pkg/metrics/proto/get_provider_stats_request.proto` **Package**:
-`gcommon.v1.metrics` **Lines**: 70
+**Path**: `pkg/metrics/proto/get_provider_stats_request.proto` **Package**: `gcommon.v1.metrics` **Lines**: 70
 
 **Messages** (2): `GetProviderStatsRequest`, `StatsOptions`
 
 **Imports** (3):
 
 - `google/protobuf/go_features.proto`
-- `pkg/common/proto/request_metadata.proto` →
-  [common](./common.md#request_metadata)
-- `pkg/metrics/proto/time_range.proto` → [common](./common.md#time_range) →
-  [metrics_2](./metrics_2.md#time_range) → [queue_2](./queue_2.md#time_range)
+- `pkg/common/proto/request_metadata.proto` → [common](./common.md#request_metadata)
+- `pkg/metrics/proto/time_range.proto` → [common](./common.md#time_range) → [metrics_2](./metrics_2.md#time_range) → [queue_2](./queue_2.md#time_range)
 
 #### Source Code
 
@@ -1854,37 +1775,24 @@ message StatsOptions {
 
 ### get_provider_stats_response.proto {#get_provider_stats_response}
 
-**Path**: `pkg/metrics/proto/get_provider_stats_response.proto` **Package**:
-`gcommon.v1.metrics` **Lines**: 395
+**Path**: `pkg/metrics/proto/get_provider_stats_response.proto` **Package**: `gcommon.v1.metrics` **Lines**: 395
 
-**Messages** (25): `GetProviderStatsResponse`, `ProviderStatistics`,
-`PerformanceDataPoint`, `ResourceUsageStats`, `MemoryUsage`, `CPUUsage`,
-`DiskUsage`, `NetworkUsage`, `ResourceDataPoint`, `ErrorTypeStats`,
-`ErrorEntry`, `ErrorDataPoint`, `DataVolumeStats`, `DataVolumeDataPoint`,
-`ExportStats`, `ExportDestinationStats`, `HealthStatusEntry`,
-`ConfigurationSummary`, `SecuritySummary`, `MetricSummary`, `TrendAnalysis`,
-`PerformanceTrend`, `ResourceUsageTrend`, `ErrorTrend`, `DataVolumeTrend`
+**Messages** (25): `GetProviderStatsResponse`, `ProviderStatistics`, `PerformanceDataPoint`, `ResourceUsageStats`, `MemoryUsage`, `CPUUsage`, `DiskUsage`, `NetworkUsage`, `ResourceDataPoint`, `ErrorTypeStats`, `ErrorEntry`,
+`ErrorDataPoint`, `DataVolumeStats`, `DataVolumeDataPoint`, `ExportStats`, `ExportDestinationStats`, `HealthStatusEntry`, `ConfigurationSummary`, `SecuritySummary`, `MetricSummary`, `TrendAnalysis`, `PerformanceTrend`, `ResourceUsageTrend`,
+`ErrorTrend`, `DataVolumeTrend`
 
 **Imports** (10):
 
 - `google/protobuf/go_features.proto`
 - `google/protobuf/timestamp.proto`
 - `pkg/common/proto/error.proto` → [common](./common.md#error)
-- `pkg/common/proto/time_range.proto` → [common](./common.md#time_range) →
-  [metrics_2](./metrics_2.md#time_range) → [queue_2](./queue_2.md#time_range)
-- `pkg/metrics/proto/error_stats.proto` →
-  [metrics_1](./metrics_1.md#error_stats)
-- `pkg/metrics/proto/performance_stats.proto` →
-  [metrics_1](./metrics_1.md#performance_stats) →
-  [web](./web.md#performance_stats)
-- `pkg/metrics/proto/provider_info.proto` →
-  [metrics_1](./metrics_1.md#provider_info)
-- `pkg/metrics/proto/resource_limits_summary.proto` →
-  [metrics_2](./metrics_2.md#resource_limits_summary)
-- `pkg/metrics/proto/time_range.proto` → [common](./common.md#time_range) →
-  [metrics_2](./metrics_2.md#time_range) → [queue_2](./queue_2.md#time_range)
-- `pkg/metrics/proto/top_metrics.proto` →
-  [metrics_2](./metrics_2.md#top_metrics)
+- `pkg/common/proto/time_range.proto` → [common](./common.md#time_range) → [metrics_2](./metrics_2.md#time_range) → [queue_2](./queue_2.md#time_range)
+- `pkg/metrics/proto/error_stats.proto` → [metrics_1](./metrics_1.md#error_stats)
+- `pkg/metrics/proto/performance_stats.proto` → [metrics_1](./metrics_1.md#performance_stats) → [web](./web.md#performance_stats)
+- `pkg/metrics/proto/provider_info.proto` → [metrics_1](./metrics_1.md#provider_info)
+- `pkg/metrics/proto/resource_limits_summary.proto` → [metrics_2](./metrics_2.md#resource_limits_summary)
+- `pkg/metrics/proto/time_range.proto` → [common](./common.md#time_range) → [metrics_2](./metrics_2.md#time_range) → [queue_2](./queue_2.md#time_range)
+- `pkg/metrics/proto/top_metrics.proto` → [metrics_2](./metrics_2.md#top_metrics)
 
 #### Source Code
 
@@ -2290,19 +2198,15 @@ message DataVolumeTrend {
 
 ### get_stats_request.proto {#get_stats_request}
 
-**Path**: `pkg/metrics/proto/get_stats_request.proto` **Package**:
-`gcommon.v1.metrics` **Lines**: 28
+**Path**: `pkg/metrics/proto/get_stats_request.proto` **Package**: `gcommon.v1.metrics` **Lines**: 28
 
 **Messages** (1): `GetStatsRequest`
 
 **Imports** (3):
 
 - `google/protobuf/go_features.proto`
-- `pkg/common/proto/request_metadata.proto` →
-  [common](./common.md#request_metadata)
-- `pkg/metrics/proto/timestamp_range.proto` →
-  [metrics_2](./metrics_2.md#timestamp_range) →
-  [queue_2](./queue_2.md#timestamp_range)
+- `pkg/common/proto/request_metadata.proto` → [common](./common.md#request_metadata)
+- `pkg/metrics/proto/timestamp_range.proto` → [metrics_2](./metrics_2.md#timestamp_range) → [queue_2](./queue_2.md#timestamp_range)
 
 #### Source Code
 
@@ -2341,8 +2245,7 @@ message GetStatsRequest {
 
 ### get_stats_response.proto {#get_stats_response}
 
-**Path**: `pkg/metrics/proto/get_stats_response.proto` **Package**:
-`gcommon.v1.metrics` **Lines**: 27
+**Path**: `pkg/metrics/proto/get_stats_response.proto` **Package**: `gcommon.v1.metrics` **Lines**: 27
 
 **Messages** (1): `GetStatsResponse`
 
@@ -2350,8 +2253,7 @@ message GetStatsRequest {
 
 - `google/protobuf/go_features.proto`
 - `pkg/common/proto/error.proto` → [common](./common.md#error)
-- `pkg/metrics/proto/query_stats.proto` → [database](./database.md#query_stats)
-  → [metrics_2](./metrics_2.md#query_stats)
+- `pkg/metrics/proto/query_stats.proto` → [database](./database.md#query_stats) → [metrics_2](./metrics_2.md#query_stats)
 
 #### Source Code
 
@@ -2389,16 +2291,14 @@ message GetStatsResponse {
 
 ### health_check_request.proto {#health_check_request}
 
-**Path**: `pkg/metrics/proto/health_check_request.proto` **Package**:
-`gcommon.v1.metrics` **Lines**: 24
+**Path**: `pkg/metrics/proto/health_check_request.proto` **Package**: `gcommon.v1.metrics` **Lines**: 24
 
 **Messages** (1): `HealthCheckRequest`
 
 **Imports** (2):
 
 - `google/protobuf/go_features.proto`
-- `pkg/common/proto/request_metadata.proto` →
-  [common](./common.md#request_metadata)
+- `pkg/common/proto/request_metadata.proto` → [common](./common.md#request_metadata)
 
 #### Source Code
 
@@ -2433,8 +2333,7 @@ message HealthCheckRequest {
 
 ### health_check_response.proto {#health_check_response}
 
-**Path**: `pkg/metrics/proto/health_check_response.proto` **Package**:
-`gcommon.v1.metrics` **Lines**: 34
+**Path**: `pkg/metrics/proto/health_check_response.proto` **Package**: `gcommon.v1.metrics` **Lines**: 34
 
 **Messages** (1): `HealthCheckResponse`
 
@@ -2443,9 +2342,7 @@ message HealthCheckRequest {
 - `google/protobuf/duration.proto`
 - `google/protobuf/go_features.proto`
 - `pkg/common/proto/error.proto` → [common](./common.md#error)
-- `pkg/common/proto/health_status.proto` → [common](./common.md#health_status) →
-  [metrics_1](./metrics_1.md#health_status) →
-  [queue_1](./queue_1.md#health_status) → [web](./web.md#health_status)
+- `pkg/common/proto/health_status.proto` → [common](./common.md#health_status) → [metrics_1](./metrics_1.md#health_status) → [queue_1](./queue_1.md#health_status) → [web](./web.md#health_status)
 
 #### Source Code
 
@@ -2490,18 +2387,15 @@ message HealthCheckResponse {
 
 ### import_metrics_request.proto {#import_metrics_request}
 
-**Path**: `pkg/metrics/proto/import_metrics_request.proto` **Package**:
-`gcommon.v1.metrics` **Lines**: 25
+**Path**: `pkg/metrics/proto/import_metrics_request.proto` **Package**: `gcommon.v1.metrics` **Lines**: 25
 
 **Messages** (1): `ImportMetricsRequest`
 
 **Imports** (3):
 
 - `google/protobuf/go_features.proto`
-- `pkg/common/proto/request_metadata.proto` →
-  [common](./common.md#request_metadata)
-- `pkg/metrics/proto/metric_data.proto` →
-  [metrics_1](./metrics_1.md#metric_data)
+- `pkg/common/proto/request_metadata.proto` → [common](./common.md#request_metadata)
+- `pkg/metrics/proto/metric_data.proto` → [metrics_1](./metrics_1.md#metric_data)
 
 #### Source Code
 
@@ -2537,8 +2431,7 @@ message ImportMetricsRequest {
 
 ### import_metrics_response.proto {#import_metrics_response}
 
-**Path**: `pkg/metrics/proto/import_metrics_response.proto` **Package**:
-`gcommon.v1.metrics` **Lines**: 26
+**Path**: `pkg/metrics/proto/import_metrics_response.proto` **Package**: `gcommon.v1.metrics` **Lines**: 26
 
 **Messages** (1): `ImportMetricsResponse`
 
@@ -2582,8 +2475,7 @@ message ImportMetricsResponse {
 
 ### list_metrics_request.proto {#list_metrics_request}
 
-**Path**: `pkg/metrics/proto/list_metrics_request.proto` **Package**:
-`gcommon.v1.metrics` **Lines**: 25
+**Path**: `pkg/metrics/proto/list_metrics_request.proto` **Package**: `gcommon.v1.metrics` **Lines**: 25
 
 **Messages** (1): `ListMetricsRequest`
 
@@ -2626,8 +2518,7 @@ message ListMetricsRequest {
 
 ### list_metrics_response.proto {#list_metrics_response}
 
-**Path**: `pkg/metrics/proto/list_metrics_response.proto` **Package**:
-`gcommon.v1.metrics` **Lines**: 27
+**Path**: `pkg/metrics/proto/list_metrics_response.proto` **Package**: `gcommon.v1.metrics` **Lines**: 27
 
 **Messages** (1): `ListMetricsResponse`
 
@@ -2635,8 +2526,7 @@ message ListMetricsRequest {
 
 - `google/protobuf/go_features.proto`
 - `pkg/common/proto/error.proto` → [common](./common.md#error)
-- `pkg/metrics/proto/metric_metadata.proto` →
-  [metrics_1](./metrics_1.md#metric_metadata)
+- `pkg/metrics/proto/metric_metadata.proto` → [metrics_1](./metrics_1.md#metric_metadata)
 
 #### Source Code
 
@@ -2674,20 +2564,16 @@ message ListMetricsResponse {
 
 ### list_providers_request.proto {#list_providers_request}
 
-**Path**: `pkg/metrics/proto/list_providers_request.proto` **Package**:
-`gcommon.v1.metrics` **Lines**: 65
+**Path**: `pkg/metrics/proto/list_providers_request.proto` **Package**: `gcommon.v1.metrics` **Lines**: 65
 
 **Messages** (2): `ListProvidersRequest`, `ProviderFilter`
 
 **Imports** (4):
 
 - `google/protobuf/go_features.proto`
-- `pkg/common/proto/pagination_options.proto` →
-  [common](./common.md#pagination_options)
-- `pkg/common/proto/request_metadata.proto` →
-  [common](./common.md#request_metadata)
-- `pkg/metrics/proto/provider_sort_field.proto` →
-  [metrics_1](./metrics_1.md#provider_sort_field)
+- `pkg/common/proto/pagination_options.proto` → [common](./common.md#pagination_options)
+- `pkg/common/proto/request_metadata.proto` → [common](./common.md#request_metadata)
+- `pkg/metrics/proto/provider_sort_field.proto` → [metrics_1](./metrics_1.md#provider_sort_field)
 
 #### Source Code
 
@@ -2763,25 +2649,19 @@ message ProviderFilter {
 
 ### list_providers_response.proto {#list_providers_response}
 
-**Path**: `pkg/metrics/proto/list_providers_response.proto` **Package**:
-`gcommon.v1.metrics` **Lines**: 100
+**Path**: `pkg/metrics/proto/list_providers_response.proto` **Package**: `gcommon.v1.metrics` **Lines**: 100
 
-**Messages** (4): `ListProvidersResponse`, `ProviderConfigSummary`,
-`ProviderStats`, `ResourceUsage`
+**Messages** (4): `ListProvidersResponse`, `ProviderConfigSummary`, `ProviderStats`, `ResourceUsage`
 
 **Imports** (7):
 
 - `google/protobuf/go_features.proto`
 - `google/protobuf/timestamp.proto`
 - `pkg/common/proto/error.proto` → [common](./common.md#error)
-- `pkg/metrics/proto/pagination_info.proto` →
-  [metrics_1](./metrics_1.md#pagination_info)
-- `pkg/metrics/proto/provider_info.proto` →
-  [metrics_1](./metrics_1.md#provider_info)
-- `pkg/metrics/proto/provider_summary.proto` →
-  [metrics_2](./metrics_2.md#provider_summary)
-- `pkg/metrics/proto/resource_limits_summary.proto` →
-  [metrics_2](./metrics_2.md#resource_limits_summary)
+- `pkg/metrics/proto/pagination_info.proto` → [metrics_1](./metrics_1.md#pagination_info)
+- `pkg/metrics/proto/provider_info.proto` → [metrics_1](./metrics_1.md#provider_info)
+- `pkg/metrics/proto/provider_summary.proto` → [metrics_2](./metrics_2.md#provider_summary)
+- `pkg/metrics/proto/resource_limits_summary.proto` → [metrics_2](./metrics_2.md#resource_limits_summary)
 
 #### Source Code
 
@@ -2892,18 +2772,15 @@ message ResourceUsage {
 
 ### query_metrics_request.proto {#query_metrics_request}
 
-**Path**: `pkg/metrics/proto/query_metrics_request.proto` **Package**:
-`gcommon.v1.metrics` **Lines**: 55
+**Path**: `pkg/metrics/proto/query_metrics_request.proto` **Package**: `gcommon.v1.metrics` **Lines**: 55
 
 **Messages** (2): `QueryMetricsRequest`, `QueryOutputOptions`
 
 **Imports** (3):
 
 - `google/protobuf/go_features.proto`
-- `pkg/common/proto/request_metadata.proto` →
-  [common](./common.md#request_metadata)
-- `pkg/metrics/proto/metric_query.proto` →
-  [metrics_1](./metrics_1.md#metric_query)
+- `pkg/common/proto/request_metadata.proto` → [common](./common.md#request_metadata)
+- `pkg/metrics/proto/metric_query.proto` → [metrics_1](./metrics_1.md#metric_query)
 
 #### Source Code
 
@@ -2969,8 +2846,7 @@ message QueryOutputOptions {
 
 ### query_metrics_response.proto {#query_metrics_response}
 
-**Path**: `pkg/metrics/proto/query_metrics_response.proto` **Package**:
-`gcommon.v1.metrics` **Lines**: 76
+**Path**: `pkg/metrics/proto/query_metrics_response.proto` **Package**: `gcommon.v1.metrics` **Lines**: 76
 
 **Messages** (2): `QueryMetricsResponse`, `QueryStatistics`
 
@@ -2980,10 +2856,8 @@ message QueryOutputOptions {
 - `google/protobuf/go_features.proto`
 - `google/protobuf/timestamp.proto`
 - `pkg/common/proto/error.proto` → [common](./common.md#error)
-- `pkg/metrics/proto/metric_data.proto` →
-  [metrics_1](./metrics_1.md#metric_data)
-- `pkg/metrics/proto/metric_query.proto` →
-  [metrics_1](./metrics_1.md#metric_query)
+- `pkg/metrics/proto/metric_data.proto` → [metrics_1](./metrics_1.md#metric_data)
+- `pkg/metrics/proto/metric_query.proto` → [metrics_1](./metrics_1.md#metric_query)
 
 #### Source Code
 
@@ -3070,16 +2944,14 @@ message QueryStatistics {
 
 ### record_counter_request.proto {#record_counter_request}
 
-**Path**: `pkg/metrics/proto/record_counter_request.proto` **Package**:
-`gcommon.v1.metrics` **Lines**: 41
+**Path**: `pkg/metrics/proto/record_counter_request.proto` **Package**: `gcommon.v1.metrics` **Lines**: 41
 
 **Messages** (1): `RecordCounterRequest`
 
 **Imports** (2):
 
 - `google/protobuf/go_features.proto`
-- `pkg/common/proto/request_metadata.proto` →
-  [common](./common.md#request_metadata)
+- `pkg/common/proto/request_metadata.proto` → [common](./common.md#request_metadata)
 
 #### Source Code
 
@@ -3131,8 +3003,7 @@ message RecordCounterRequest {
 
 ### record_counter_response.proto {#record_counter_response}
 
-**Path**: `pkg/metrics/proto/record_counter_response.proto` **Package**:
-`gcommon.v1.metrics` **Lines**: 36
+**Path**: `pkg/metrics/proto/record_counter_response.proto` **Package**: `gcommon.v1.metrics` **Lines**: 36
 
 **Messages** (1): `RecordCounterResponse`
 
@@ -3141,10 +3012,8 @@ message RecordCounterRequest {
 - `google/protobuf/go_features.proto`
 - `google/protobuf/timestamp.proto`
 - `pkg/common/proto/error.proto` → [common](./common.md#error)
-- `pkg/common/proto/request_metadata.proto` →
-  [common](./common.md#request_metadata)
-- `pkg/metrics/proto/counter_metric.proto` →
-  [metrics_1](./metrics_1.md#counter_metric)
+- `pkg/common/proto/request_metadata.proto` → [common](./common.md#request_metadata)
+- `pkg/metrics/proto/counter_metric.proto` → [metrics_1](./metrics_1.md#counter_metric)
 
 #### Source Code
 
@@ -3191,8 +3060,7 @@ message RecordCounterResponse {
 
 ### record_gauge_request.proto {#record_gauge_request}
 
-**Path**: `pkg/metrics/proto/record_gauge_request.proto` **Package**:
-`gcommon.v1.metrics` **Lines**: 46
+**Path**: `pkg/metrics/proto/record_gauge_request.proto` **Package**: `gcommon.v1.metrics` **Lines**: 46
 
 **Messages** (1): `RecordGaugeRequest`
 
@@ -3200,10 +3068,8 @@ message RecordCounterResponse {
 
 - `google/protobuf/go_features.proto`
 - `google/protobuf/timestamp.proto`
-- `pkg/common/proto/request_metadata.proto` →
-  [common](./common.md#request_metadata)
-- `pkg/metrics/proto/gauge_operation.proto` →
-  [metrics_1](./metrics_1.md#gauge_operation)
+- `pkg/common/proto/request_metadata.proto` → [common](./common.md#request_metadata)
+- `pkg/metrics/proto/gauge_operation.proto` → [metrics_1](./metrics_1.md#gauge_operation)
 
 #### Source Code
 
@@ -3260,8 +3126,7 @@ message RecordGaugeRequest {
 
 ### record_gauge_response.proto {#record_gauge_response}
 
-**Path**: `pkg/metrics/proto/record_gauge_response.proto` **Package**:
-`gcommon.v1.metrics` **Lines**: 43
+**Path**: `pkg/metrics/proto/record_gauge_response.proto` **Package**: `gcommon.v1.metrics` **Lines**: 43
 
 **Messages** (1): `RecordGaugeResponse`
 
@@ -3270,10 +3135,8 @@ message RecordGaugeRequest {
 - `google/protobuf/go_features.proto`
 - `google/protobuf/timestamp.proto`
 - `pkg/common/proto/error.proto` → [common](./common.md#error)
-- `pkg/metrics/proto/gauge_metric.proto` →
-  [metrics_1](./metrics_1.md#gauge_metric)
-- `pkg/metrics/proto/recording_stats.proto` →
-  [metrics_2](./metrics_2.md#recording_stats)
+- `pkg/metrics/proto/gauge_metric.proto` → [metrics_1](./metrics_1.md#gauge_metric)
+- `pkg/metrics/proto/recording_stats.proto` → [metrics_2](./metrics_2.md#recording_stats)
 
 #### Source Code
 
@@ -3327,8 +3190,7 @@ message RecordGaugeResponse {
 
 ### record_histogram_request.proto {#record_histogram_request}
 
-**Path**: `pkg/metrics/proto/record_histogram_request.proto` **Package**:
-`gcommon.v1.metrics` **Lines**: 50
+**Path**: `pkg/metrics/proto/record_histogram_request.proto` **Package**: `gcommon.v1.metrics` **Lines**: 50
 
 **Messages** (1): `RecordHistogramRequest`
 
@@ -3336,8 +3198,7 @@ message RecordGaugeResponse {
 
 - `google/protobuf/go_features.proto`
 - `google/protobuf/timestamp.proto`
-- `pkg/common/proto/request_metadata.proto` →
-  [common](./common.md#request_metadata)
+- `pkg/common/proto/request_metadata.proto` → [common](./common.md#request_metadata)
 
 #### Source Code
 
@@ -3398,8 +3259,7 @@ message RecordHistogramRequest {
 
 ### record_histogram_response.proto {#record_histogram_response}
 
-**Path**: `pkg/metrics/proto/record_histogram_response.proto` **Package**:
-`gcommon.v1.metrics` **Lines**: 85
+**Path**: `pkg/metrics/proto/record_histogram_response.proto` **Package**: `gcommon.v1.metrics` **Lines**: 85
 
 **Messages** (3): `RecordHistogramResponse`, `BucketInfo`, `HistogramStats`
 
@@ -3408,10 +3268,8 @@ message RecordHistogramRequest {
 - `google/protobuf/go_features.proto`
 - `google/protobuf/timestamp.proto`
 - `pkg/common/proto/error.proto` → [common](./common.md#error)
-- `pkg/metrics/proto/histogram_metric.proto` →
-  [metrics_1](./metrics_1.md#histogram_metric)
-- `pkg/metrics/proto/recording_stats.proto` →
-  [metrics_2](./metrics_2.md#recording_stats)
+- `pkg/metrics/proto/histogram_metric.proto` → [metrics_1](./metrics_1.md#histogram_metric)
+- `pkg/metrics/proto/recording_stats.proto` → [metrics_2](./metrics_2.md#recording_stats)
 
 #### Source Code
 
@@ -3507,8 +3365,7 @@ message HistogramStats {
 
 ### record_metric_request.proto {#record_metric_request}
 
-**Path**: `pkg/metrics/proto/record_metric_request.proto` **Package**:
-`gcommon.v1.metrics` **Lines**: 55
+**Path**: `pkg/metrics/proto/record_metric_request.proto` **Package**: `gcommon.v1.metrics` **Lines**: 55
 
 **Messages** (2): `RecordMetricRequest`, `BatchContext`
 
@@ -3516,10 +3373,8 @@ message HistogramStats {
 
 - `google/protobuf/go_features.proto`
 - `google/protobuf/timestamp.proto`
-- `pkg/common/proto/request_metadata.proto` →
-  [common](./common.md#request_metadata)
-- `pkg/metrics/proto/metric_data.proto` →
-  [metrics_1](./metrics_1.md#metric_data)
+- `pkg/common/proto/request_metadata.proto` → [common](./common.md#request_metadata)
+- `pkg/metrics/proto/metric_data.proto` → [metrics_1](./metrics_1.md#metric_data)
 
 #### Source Code
 
@@ -3585,8 +3440,7 @@ message BatchContext {
 
 ### record_metric_response.proto {#record_metric_response}
 
-**Path**: `pkg/metrics/proto/record_metric_response.proto` **Package**:
-`gcommon.v1.metrics` **Lines**: 47
+**Path**: `pkg/metrics/proto/record_metric_response.proto` **Package**: `gcommon.v1.metrics` **Lines**: 47
 
 **Messages** (1): `RecordMetricResponse`
 
@@ -3595,11 +3449,8 @@ message BatchContext {
 - `google/protobuf/go_features.proto`
 - `google/protobuf/timestamp.proto`
 - `pkg/common/proto/error.proto` → [common](./common.md#error)
-- `pkg/metrics/proto/recording_stats.proto` →
-  [metrics_2](./metrics_2.md#recording_stats)
-- `pkg/metrics/proto/validation_result.proto` →
-  [config_2](./config_2.md#validation_result) →
-  [metrics_2](./metrics_2.md#validation_result)
+- `pkg/metrics/proto/recording_stats.proto` → [metrics_2](./metrics_2.md#recording_stats)
+- `pkg/metrics/proto/validation_result.proto` → [config_2](./config_2.md#validation_result) → [metrics_2](./metrics_2.md#validation_result)
 
 #### Source Code
 
@@ -3657,18 +3508,15 @@ message RecordMetricResponse {
 
 ### record_metrics_request.proto {#record_metrics_request}
 
-**Path**: `pkg/metrics/proto/record_metrics_request.proto` **Package**:
-`gcommon.v1.metrics` **Lines**: 35
+**Path**: `pkg/metrics/proto/record_metrics_request.proto` **Package**: `gcommon.v1.metrics` **Lines**: 35
 
 **Messages** (1): `RecordMetricsRequest`
 
 **Imports** (3):
 
 - `google/protobuf/go_features.proto`
-- `pkg/common/proto/request_metadata.proto` →
-  [common](./common.md#request_metadata)
-- `pkg/metrics/proto/metric_data.proto` →
-  [metrics_1](./metrics_1.md#metric_data)
+- `pkg/common/proto/request_metadata.proto` → [common](./common.md#request_metadata)
+- `pkg/metrics/proto/metric_data.proto` → [metrics_1](./metrics_1.md#metric_data)
 
 #### Source Code
 
@@ -3714,11 +3562,9 @@ message RecordMetricsRequest {
 
 ### record_metrics_response.proto {#record_metrics_response}
 
-**Path**: `pkg/metrics/proto/record_metrics_response.proto` **Package**:
-`gcommon.v1.metrics` **Lines**: 123
+**Path**: `pkg/metrics/proto/record_metrics_response.proto` **Package**: `gcommon.v1.metrics` **Lines**: 123
 
-**Messages** (4): `RecordMetricsResponse`, `MetricResult`, `BatchStats`,
-`ValidationSummary`
+**Messages** (4): `RecordMetricsResponse`, `MetricResult`, `BatchStats`, `ValidationSummary`
 
 **Imports** (3):
 
@@ -3858,8 +3704,7 @@ message ValidationSummary {
 
 ### record_summary_request.proto {#record_summary_request}
 
-**Path**: `pkg/metrics/proto/record_summary_request.proto` **Package**:
-`gcommon.v1.metrics` **Lines**: 29
+**Path**: `pkg/metrics/proto/record_summary_request.proto` **Package**: `gcommon.v1.metrics` **Lines**: 29
 
 **Messages** (1): `RecordSummaryRequest`
 
@@ -3867,10 +3712,8 @@ message ValidationSummary {
 
 - `google/protobuf/go_features.proto`
 - `google/protobuf/timestamp.proto`
-- `pkg/common/proto/request_metadata.proto` →
-  [common](./common.md#request_metadata)
-- `pkg/metrics/proto/summary_metric.proto` →
-  [metrics_2](./metrics_2.md#summary_metric)
+- `pkg/common/proto/request_metadata.proto` → [common](./common.md#request_metadata)
+- `pkg/metrics/proto/summary_metric.proto` → [metrics_2](./metrics_2.md#summary_metric)
 
 #### Source Code
 
@@ -3910,8 +3753,7 @@ message RecordSummaryRequest {
 
 ### record_summary_response.proto {#record_summary_response}
 
-**Path**: `pkg/metrics/proto/record_summary_response.proto` **Package**:
-`gcommon.v1.metrics` **Lines**: 31
+**Path**: `pkg/metrics/proto/record_summary_response.proto` **Package**: `gcommon.v1.metrics` **Lines**: 31
 
 **Messages** (1): `RecordSummaryResponse`
 
@@ -3919,10 +3761,8 @@ message RecordSummaryRequest {
 
 - `google/protobuf/go_features.proto`
 - `pkg/common/proto/error.proto` → [common](./common.md#error)
-- `pkg/metrics/proto/recording_stats.proto` →
-  [metrics_2](./metrics_2.md#recording_stats)
-- `pkg/metrics/proto/summary_metric.proto` →
-  [metrics_2](./metrics_2.md#summary_metric)
+- `pkg/metrics/proto/recording_stats.proto` → [metrics_2](./metrics_2.md#recording_stats)
+- `pkg/metrics/proto/summary_metric.proto` → [metrics_2](./metrics_2.md#summary_metric)
 
 #### Source Code
 
@@ -3964,24 +3804,17 @@ message RecordSummaryResponse {
 
 ### register_metric_request.proto {#register_metric_request}
 
-**Path**: `pkg/metrics/proto/register_metric_request.proto` **Package**:
-`gcommon.v1.metrics` **Lines**: 201
+**Path**: `pkg/metrics/proto/register_metric_request.proto` **Package**: `gcommon.v1.metrics` **Lines**: 201
 
-**Messages** (10): `RegisterMetricRequest`, `MetricDefinition`,
-`LabelDefinition`, `MetricTypeConfig`, `HistogramConfig`, `SummaryConfig`,
-`GaugeConfig`, `CounterConfig`, `ValidationRules`, `RegistrationOptions`
+**Messages** (10): `RegisterMetricRequest`, `MetricDefinition`, `LabelDefinition`, `MetricTypeConfig`, `HistogramConfig`, `SummaryConfig`, `GaugeConfig`, `CounterConfig`, `ValidationRules`, `RegistrationOptions`
 
 **Imports** (5):
 
 - `google/protobuf/go_features.proto`
-- `pkg/common/proto/request_metadata.proto` →
-  [common](./common.md#request_metadata)
-- `pkg/metrics/proto/export_config.proto` →
-  [metrics_config](./metrics_config.md#export_config)
-- `pkg/metrics/proto/metric_type.proto` →
-  [metrics_1](./metrics_1.md#metric_type) → [queue_1](./queue_1.md#metric_type)
-- `pkg/metrics/proto/retention_policy_retentionpolicyconfig.proto` →
-  [metrics_config](./metrics_config.md#retention_policy_retentionpolicyconfig)
+- `pkg/common/proto/request_metadata.proto` → [common](./common.md#request_metadata)
+- `pkg/metrics/proto/export_config.proto` → [metrics_config](./metrics_config.md#export_config)
+- `pkg/metrics/proto/metric_type.proto` → [metrics_1](./metrics_1.md#metric_type) → [queue_1](./queue_1.md#metric_type)
+- `pkg/metrics/proto/retention_policy_retentionpolicyconfig.proto` → [metrics_config](./metrics_config.md#retention_policy_retentionpolicyconfig)
 
 #### Source Code
 
@@ -4193,19 +4026,16 @@ message RegistrationOptions {
 
 ### register_metric_response.proto {#register_metric_response}
 
-**Path**: `pkg/metrics/proto/register_metric_response.proto` **Package**:
-`gcommon.v1.metrics` **Lines**: 111
+**Path**: `pkg/metrics/proto/register_metric_response.proto` **Package**: `gcommon.v1.metrics` **Lines**: 111
 
-**Messages** (4): `RegisterMetricResponse`, `RegistrationValidation`,
-`RegistrationResult`, `SchemaChange`
+**Messages** (4): `RegisterMetricResponse`, `RegistrationValidation`, `RegistrationResult`, `SchemaChange`
 
 **Imports** (4):
 
 - `google/protobuf/go_features.proto`
 - `google/protobuf/timestamp.proto`
 - `pkg/common/proto/error.proto` → [common](./common.md#error)
-- `pkg/metrics/proto/registration_action.proto` →
-  [metrics_2](./metrics_2.md#registration_action)
+- `pkg/metrics/proto/registration_action.proto` → [metrics_2](./metrics_2.md#registration_action)
 
 #### Source Code
 
@@ -4327,16 +4157,14 @@ message SchemaChange {
 
 ### reset_metrics_request.proto {#reset_metrics_request}
 
-**Path**: `pkg/metrics/proto/reset_metrics_request.proto` **Package**:
-`gcommon.v1.metrics` **Lines**: 24
+**Path**: `pkg/metrics/proto/reset_metrics_request.proto` **Package**: `gcommon.v1.metrics` **Lines**: 24
 
 **Messages** (1): `ResetMetricsRequest`
 
 **Imports** (2):
 
 - `google/protobuf/go_features.proto`
-- `pkg/common/proto/request_metadata.proto` →
-  [common](./common.md#request_metadata)
+- `pkg/common/proto/request_metadata.proto` → [common](./common.md#request_metadata)
 
 #### Source Code
 
@@ -4371,8 +4199,7 @@ message ResetMetricsRequest {
 
 ### reset_metrics_response.proto {#reset_metrics_response}
 
-**Path**: `pkg/metrics/proto/reset_metrics_response.proto` **Package**:
-`gcommon.v1.metrics` **Lines**: 26
+**Path**: `pkg/metrics/proto/reset_metrics_response.proto` **Package**: `gcommon.v1.metrics` **Lines**: 26
 
 **Messages** (1): `ResetMetricsResponse`
 

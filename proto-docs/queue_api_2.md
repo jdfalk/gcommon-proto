@@ -89,24 +89,18 @@
 
 ### get_queue_stats_response.proto {#get_queue_stats_response}
 
-**Path**: `pkg/queue/proto/get_queue_stats_response.proto` **Package**:
-`gcommon.v1.queue` **Lines**: 262
+**Path**: `pkg/queue/proto/get_queue_stats_response.proto` **Package**: `gcommon.v1.queue` **Lines**: 262
 
-**Messages** (18): `GetQueueStatsResponse`, `QueueStatsSummary`, `QueueStats`,
-`MessageStateCounts`, `ThroughputMetrics`, `LatencyMetrics`, `QueueDepthSample`,
-`SizeDistribution`, `SizeBucket`, `AgeDistribution`, `AgeBucket`,
-`QueueConfiguration`, `QueueConsumerStats`, `HistoricalStats`,
-`HistoricalDataPoint`, `ErrorStats`, `ErrorTypeStat`, `PerformanceMetrics`
+**Messages** (18): `GetQueueStatsResponse`, `QueueStatsSummary`, `QueueStats`, `MessageStateCounts`, `ThroughputMetrics`, `LatencyMetrics`, `QueueDepthSample`, `SizeDistribution`, `SizeBucket`, `AgeDistribution`, `AgeBucket`,
+`QueueConfiguration`, `QueueConsumerStats`, `HistoricalStats`, `HistoricalDataPoint`, `ErrorStats`, `ErrorTypeStat`, `PerformanceMetrics`
 
 **Imports** (5):
 
 - `google/protobuf/duration.proto`
 - `google/protobuf/go_features.proto`
 - `google/protobuf/timestamp.proto`
-- `pkg/common/proto/response_metadata.proto` →
-  [common](./common.md#response_metadata)
-- `pkg/queue/proto/consumer_stats.proto` →
-  [queue_1](./queue_1.md#consumer_stats)
+- `pkg/common/proto/response_metadata.proto` → [common](./common.md#response_metadata)
+- `pkg/queue/proto/consumer_stats.proto` → [queue_1](./queue_1.md#consumer_stats)
 
 #### Source Code
 
@@ -379,8 +373,7 @@ message PerformanceMetrics {
 
 ### get_subscription_info_request.proto {#get_subscription_info_request}
 
-**Path**: `pkg/queue/proto/get_subscription_info_request.proto` **Package**:
-`gcommon.v1.queue` **Lines**: 31
+**Path**: `pkg/queue/proto/get_subscription_info_request.proto` **Package**: `gcommon.v1.queue` **Lines**: 31
 
 **Messages** (1): `GetSubscriptionInfoRequest`
 
@@ -428,8 +421,7 @@ message GetSubscriptionInfoRequest {
 
 ### get_subscription_info_response.proto {#get_subscription_info_response}
 
-**Path**: `pkg/queue/proto/get_subscription_info_response.proto` **Package**:
-`gcommon.v1.queue` **Lines**: 61
+**Path**: `pkg/queue/proto/get_subscription_info_response.proto` **Package**: `gcommon.v1.queue` **Lines**: 61
 
 **Messages** (1): `GetSubscriptionInfoResponse`
 
@@ -508,16 +500,14 @@ message GetSubscriptionInfoResponse {
 
 ### get_topic_info_request.proto {#get_topic_info_request}
 
-**Path**: `pkg/queue/proto/get_topic_info_request.proto` **Package**:
-`gcommon.v1.queue` **Lines**: 35
+**Path**: `pkg/queue/proto/get_topic_info_request.proto` **Package**: `gcommon.v1.queue` **Lines**: 35
 
 **Messages** (1): `GetTopicInfoRequest`
 
 **Imports** (2):
 
 - `google/protobuf/go_features.proto`
-- `pkg/common/proto/request_metadata.proto` →
-  [common](./common.md#request_metadata)
+- `pkg/common/proto/request_metadata.proto` → [common](./common.md#request_metadata)
 
 #### Source Code
 
@@ -563,18 +553,15 @@ message GetTopicInfoRequest {
 
 ### get_topic_info_response.proto {#get_topic_info_response}
 
-**Path**: `pkg/queue/proto/get_topic_info_response.proto` **Package**:
-`gcommon.v1.queue` **Lines**: 154
+**Path**: `pkg/queue/proto/get_topic_info_response.proto` **Package**: `gcommon.v1.queue` **Lines**: 154
 
-**Messages** (5): `GetTopicInfoResponse`, `TopicConfiguration`,
-`TopicPermissions`, `OwnerInfo`, `RetentionInfo`
+**Messages** (5): `GetTopicInfoResponse`, `TopicConfiguration`, `TopicPermissions`, `OwnerInfo`, `RetentionInfo`
 
 **Imports** (4):
 
 - `google/protobuf/go_features.proto`
 - `google/protobuf/timestamp.proto`
-- `pkg/queue/proto/partition_info.proto` →
-  [queue_1](./queue_1.md#partition_info)
+- `pkg/queue/proto/partition_info.proto` → [queue_1](./queue_1.md#partition_info)
 - `pkg/queue/proto/topic_stats.proto` → [queue_2](./queue_2.md#topic_stats)
 
 #### Source Code
@@ -740,16 +727,14 @@ message RetentionInfo {
 
 ### health_check_request.proto {#health_check_request}
 
-**Path**: `pkg/queue/proto/health_check_request.proto` **Package**:
-`gcommon.v1.queue` **Lines**: 24
+**Path**: `pkg/queue/proto/health_check_request.proto` **Package**: `gcommon.v1.queue` **Lines**: 24
 
 **Messages** (1): `HealthCheckRequest`
 
 **Imports** (2):
 
 - `google/protobuf/go_features.proto`
-- `pkg/common/proto/request_metadata.proto` →
-  [common](./common.md#request_metadata)
+- `pkg/common/proto/request_metadata.proto` → [common](./common.md#request_metadata)
 
 #### Source Code
 
@@ -784,8 +769,7 @@ message HealthCheckRequest {
 
 ### health_check_response.proto {#health_check_response}
 
-**Path**: `pkg/queue/proto/health_check_response.proto` **Package**:
-`gcommon.v1.queue` **Lines**: 34
+**Path**: `pkg/queue/proto/health_check_response.proto` **Package**: `gcommon.v1.queue` **Lines**: 34
 
 **Messages** (1): `HealthCheckResponse`
 
@@ -794,9 +778,7 @@ message HealthCheckRequest {
 - `google/protobuf/duration.proto`
 - `google/protobuf/go_features.proto`
 - `pkg/common/proto/error.proto` → [common](./common.md#error)
-- `pkg/common/proto/health_status.proto` → [common](./common.md#health_status) →
-  [metrics_1](./metrics_1.md#health_status) →
-  [queue_1](./queue_1.md#health_status) → [web](./web.md#health_status)
+- `pkg/common/proto/health_status.proto` → [common](./common.md#health_status) → [metrics_1](./metrics_1.md#health_status) → [queue_1](./queue_1.md#health_status) → [web](./web.md#health_status)
 
 #### Source Code
 
@@ -841,17 +823,14 @@ message HealthCheckResponse {
 
 ### import_queue_request.proto {#import_queue_request}
 
-**Path**: `pkg/queue/proto/import_queue_request.proto` **Package**:
-`gcommon.v1.queue` **Lines**: 43
+**Path**: `pkg/queue/proto/import_queue_request.proto` **Package**: `gcommon.v1.queue` **Lines**: 43
 
 **Messages** (1): `ImportQueueRequest`
 
 **Imports** (2):
 
 - `google/protobuf/go_features.proto`
-- `pkg/queue/proto/export_format.proto` →
-  [metrics_1](./metrics_1.md#export_format) →
-  [queue_1](./queue_1.md#export_format)
+- `pkg/queue/proto/export_format.proto` → [metrics_1](./metrics_1.md#export_format) → [queue_1](./queue_1.md#export_format)
 
 #### Source Code
 
@@ -905,8 +884,7 @@ message ImportQueueRequest {
 
 ### import_queue_response.proto {#import_queue_response}
 
-**Path**: `pkg/queue/proto/import_queue_response.proto` **Package**:
-`gcommon.v1.queue` **Lines**: 52
+**Path**: `pkg/queue/proto/import_queue_response.proto` **Package**: `gcommon.v1.queue` **Lines**: 52
 
 **Messages** (1): `ImportQueueResponse`
 
@@ -976,8 +954,7 @@ message ImportQueueResponse {
 
 ### list_messages_request.proto {#list_messages_request}
 
-**Path**: `pkg/queue/proto/list_messages_request.proto` **Package**:
-`gcommon.v1.queue` **Lines**: 40
+**Path**: `pkg/queue/proto/list_messages_request.proto` **Package**: `gcommon.v1.queue` **Lines**: 40
 
 **Messages** (1): `ListMessagesRequest`
 
@@ -1034,8 +1011,7 @@ message ListMessagesRequest {
 
 ### list_messages_response.proto {#list_messages_response}
 
-**Path**: `pkg/queue/proto/list_messages_response.proto` **Package**:
-`gcommon.v1.queue` **Lines**: 32
+**Path**: `pkg/queue/proto/list_messages_response.proto` **Package**: `gcommon.v1.queue` **Lines**: 32
 
 **Messages** (1): `ListMessagesResponse`
 
@@ -1085,21 +1061,18 @@ message ListMessagesResponse {
 
 ### list_queues_request.proto {#list_queues_request}
 
-**Path**: `pkg/queue/proto/list_queues_request.proto` **Package**:
-`gcommon.v1.queue` **Lines**: 28
+**Path**: `pkg/queue/proto/list_queues_request.proto` **Package**: `gcommon.v1.queue` **Lines**: 28
 
 **Messages** (1): `ListQueuesRequest`
 
 **Imports** (2):
 
 - `google/protobuf/go_features.proto`
-- `pkg/common/proto/request_metadata.proto` →
-  [common](./common.md#request_metadata)
+- `pkg/common/proto/request_metadata.proto` → [common](./common.md#request_metadata)
 
 #### ⚠️ Issues Found (1)
 
-- Line 5: Implementation needed - // user or service account. This file was a
-  placeholder and now
+- Line 5: Implementation needed - // user or service account. This file was a placeholder and now
 
 #### Source Code
 
@@ -1138,22 +1111,19 @@ message ListQueuesRequest {
 
 ### list_queues_response.proto {#list_queues_response}
 
-**Path**: `pkg/queue/proto/list_queues_response.proto` **Package**:
-`gcommon.v1.queue` **Lines**: 29
+**Path**: `pkg/queue/proto/list_queues_response.proto` **Package**: `gcommon.v1.queue` **Lines**: 29
 
 **Messages** (1): `ListQueuesResponse`
 
 **Imports** (3):
 
 - `google/protobuf/go_features.proto`
-- `pkg/common/proto/response_metadata.proto` →
-  [common](./common.md#response_metadata)
+- `pkg/common/proto/response_metadata.proto` → [common](./common.md#response_metadata)
 - `pkg/queue/proto/queue_info.proto` → [queue_2](./queue_2.md#queue_info)
 
 #### ⚠️ Issues Found (1)
 
-- Line 7: Implementation needed - // placeholder file generated during the
-  migration.
+- Line 7: Implementation needed - // placeholder file generated during the migration.
 
 #### Source Code
 
@@ -1193,21 +1163,18 @@ message ListQueuesResponse {
 
 ### list_subscriptions_request.proto {#list_subscriptions_request}
 
-**Path**: `pkg/queue/proto/list_subscriptions_request.proto` **Package**:
-`gcommon.v1.queue` **Lines**: 30
+**Path**: `pkg/queue/proto/list_subscriptions_request.proto` **Package**: `gcommon.v1.queue` **Lines**: 30
 
 **Messages** (1): `ListSubscriptionsRequest`
 
 **Imports** (2):
 
 - `google/protobuf/go_features.proto`
-- `pkg/common/proto/request_metadata.proto` →
-  [common](./common.md#request_metadata)
+- `pkg/common/proto/request_metadata.proto` → [common](./common.md#request_metadata)
 
 #### ⚠️ Issues Found (1)
 
-- Line 5: Implementation needed - // Previously a placeholder, this file now
-  contains the full request definition.
+- Line 5: Implementation needed - // Previously a placeholder, this file now contains the full request definition.
 
 #### Source Code
 
@@ -1248,19 +1215,15 @@ message ListSubscriptionsRequest {
 
 ### list_subscriptions_response.proto {#list_subscriptions_response}
 
-**Path**: `pkg/queue/proto/list_subscriptions_response.proto` **Package**:
-`gcommon.v1.queue` **Lines**: 29
+**Path**: `pkg/queue/proto/list_subscriptions_response.proto` **Package**: `gcommon.v1.queue` **Lines**: 29
 
 **Messages** (1): `ListSubscriptionsResponse`
 
 **Imports** (3):
 
 - `google/protobuf/go_features.proto`
-- `pkg/common/proto/response_metadata.proto` →
-  [common](./common.md#response_metadata)
-- `pkg/queue/proto/subscription_info.proto` →
-  [common](./common.md#subscription_info) →
-  [queue_2](./queue_2.md#subscription_info)
+- `pkg/common/proto/response_metadata.proto` → [common](./common.md#response_metadata)
+- `pkg/queue/proto/subscription_info.proto` → [common](./common.md#subscription_info) → [queue_2](./queue_2.md#subscription_info)
 
 #### ⚠️ Issues Found (1)
 
@@ -1304,8 +1267,7 @@ message ListSubscriptionsResponse {
 
 ### list_topics_request.proto {#list_topics_request}
 
-**Path**: `pkg/queue/proto/list_topics_request.proto` **Package**:
-`gcommon.v1.queue` **Lines**: 49
+**Path**: `pkg/queue/proto/list_topics_request.proto` **Package**: `gcommon.v1.queue` **Lines**: 49
 
 **Messages** (1): `ListTopicsRequest`
 
@@ -1371,8 +1333,7 @@ message ListTopicsRequest {
 
 ### list_topics_response.proto {#list_topics_response}
 
-**Path**: `pkg/queue/proto/list_topics_response.proto` **Package**:
-`gcommon.v1.queue` **Lines**: 28
+**Path**: `pkg/queue/proto/list_topics_response.proto` **Package**: `gcommon.v1.queue` **Lines**: 28
 
 **Messages** (1): `ListTopicsResponse`
 
@@ -1418,8 +1379,7 @@ message ListTopicsResponse {
 
 ### migrate_queue_request.proto {#migrate_queue_request}
 
-**Path**: `pkg/queue/proto/migrate_queue_request.proto` **Package**:
-`gcommon.v1.queue` **Lines**: 40
+**Path**: `pkg/queue/proto/migrate_queue_request.proto` **Package**: `gcommon.v1.queue` **Lines**: 40
 
 **Messages** (1): `MigrateQueueRequest`
 
@@ -1476,8 +1436,7 @@ message MigrateQueueRequest {
 
 ### migrate_queue_response.proto {#migrate_queue_response}
 
-**Path**: `pkg/queue/proto/migrate_queue_response.proto` **Package**:
-`gcommon.v1.queue` **Lines**: 37
+**Path**: `pkg/queue/proto/migrate_queue_response.proto` **Package**: `gcommon.v1.queue` **Lines**: 37
 
 **Messages** (1): `MigrateQueueResponse`
 
@@ -1531,16 +1490,14 @@ message MigrateQueueResponse {
 
 ### nack_request.proto {#nack_request}
 
-**Path**: `pkg/queue/proto/nack_request.proto` **Package**: `gcommon.v1.queue`
-**Lines**: 42
+**Path**: `pkg/queue/proto/nack_request.proto` **Package**: `gcommon.v1.queue` **Lines**: 42
 
 **Messages** (1): `NackRequest`
 
 **Imports** (3):
 
 - `google/protobuf/go_features.proto`
-- `pkg/common/proto/request_metadata.proto` →
-  [common](./common.md#request_metadata)
+- `pkg/common/proto/request_metadata.proto` → [common](./common.md#request_metadata)
 - `pkg/queue/proto/nack_error.proto` → [queue_1](./queue_1.md#nack_error)
 
 #### Source Code
@@ -1594,8 +1551,7 @@ message NackRequest {
 
 ### nack_response.proto {#nack_response}
 
-**Path**: `pkg/queue/proto/nack_response.proto` **Package**: `gcommon.v1.queue`
-**Lines**: 28
+**Path**: `pkg/queue/proto/nack_response.proto` **Package**: `gcommon.v1.queue` **Lines**: 28
 
 **Messages** (1): `NackResponse`
 
@@ -1640,16 +1596,14 @@ message NackResponse {
 
 ### pause_queue_request.proto {#pause_queue_request}
 
-**Path**: `pkg/queue/proto/pause_queue_request.proto` **Package**:
-`gcommon.v1.queue` **Lines**: 38
+**Path**: `pkg/queue/proto/pause_queue_request.proto` **Package**: `gcommon.v1.queue` **Lines**: 38
 
 **Messages** (1): `PauseQueueRequest`
 
 **Imports** (2):
 
 - `google/protobuf/go_features.proto`
-- `pkg/common/proto/request_metadata.proto` →
-  [common](./common.md#request_metadata)
+- `pkg/common/proto/request_metadata.proto` → [common](./common.md#request_metadata)
 
 #### Source Code
 
@@ -1698,8 +1652,7 @@ message PauseQueueRequest {
 
 ### pause_queue_response.proto {#pause_queue_response}
 
-**Path**: `pkg/queue/proto/pause_queue_response.proto` **Package**:
-`gcommon.v1.queue` **Lines**: 34
+**Path**: `pkg/queue/proto/pause_queue_response.proto` **Package**: `gcommon.v1.queue` **Lines**: 34
 
 **Messages** (1): `PauseQueueResponse`
 
@@ -1750,16 +1703,14 @@ message PauseQueueResponse {
 
 ### peek_request.proto {#peek_request}
 
-**Path**: `pkg/queue/proto/peek_request.proto` **Package**: `gcommon.v1.queue`
-**Lines**: 97
+**Path**: `pkg/queue/proto/peek_request.proto` **Package**: `gcommon.v1.queue` **Lines**: 97
 
 **Messages** (1): `PeekRequest`
 
 **Imports** (2):
 
 - `google/protobuf/go_features.proto`
-- `pkg/common/proto/request_metadata.proto` →
-  [common](./common.md#request_metadata)
+- `pkg/common/proto/request_metadata.proto` → [common](./common.md#request_metadata)
 
 #### Source Code
 
@@ -1867,8 +1818,7 @@ message PeekRequest {
 
 ### peek_response.proto {#peek_response}
 
-**Path**: `pkg/queue/proto/peek_response.proto` **Package**: `gcommon.v1.queue`
-**Lines**: 123
+**Path**: `pkg/queue/proto/peek_response.proto` **Package**: `gcommon.v1.queue` **Lines**: 123
 
 **Messages** (1): `PeekResponse`
 
@@ -1877,8 +1827,7 @@ message PeekRequest {
 - `google/protobuf/go_features.proto`
 - `google/protobuf/timestamp.proto`
 - `pkg/common/proto/error.proto` → [common](./common.md#error)
-- `pkg/common/proto/request_metadata.proto` →
-  [common](./common.md#request_metadata)
+- `pkg/common/proto/request_metadata.proto` → [common](./common.md#request_metadata)
 - `pkg/queue/proto/queue_message.proto` → [queue_2](./queue_2.md#queue_message)
 
 #### Source Code
@@ -2013,18 +1962,15 @@ message PeekResponse {
 
 ### publish_request.proto {#publish_request}
 
-**Path**: `pkg/queue/proto/publish_request.proto` **Package**:
-`gcommon.v1.queue` **Lines**: 35
+**Path**: `pkg/queue/proto/publish_request.proto` **Package**: `gcommon.v1.queue` **Lines**: 35
 
 **Messages** (1): `PublishRequest`
 
 **Imports** (4):
 
 - `google/protobuf/go_features.proto`
-- `pkg/common/proto/request_metadata.proto` →
-  [common](./common.md#request_metadata)
-- `pkg/queue/proto/delivery_options.proto` →
-  [queue_1](./queue_1.md#delivery_options)
+- `pkg/common/proto/request_metadata.proto` → [common](./common.md#request_metadata)
+- `pkg/queue/proto/delivery_options.proto` → [queue_1](./queue_1.md#delivery_options)
 - `pkg/queue/proto/queue_message.proto` → [queue_2](./queue_2.md#queue_message)
 
 #### Source Code
@@ -2071,8 +2017,7 @@ message PublishRequest {
 
 ### publish_response.proto {#publish_response}
 
-**Path**: `pkg/queue/proto/publish_response.proto` **Package**:
-`gcommon.v1.queue` **Lines**: 33
+**Path**: `pkg/queue/proto/publish_response.proto` **Package**: `gcommon.v1.queue` **Lines**: 33
 
 **Messages** (1): `PublishResponse`
 
@@ -2080,8 +2025,7 @@ message PublishRequest {
 
 - `google/protobuf/go_features.proto`
 - `pkg/common/proto/error.proto` → [common](./common.md#error)
-- `pkg/common/proto/request_metadata.proto` →
-  [common](./common.md#request_metadata)
+- `pkg/common/proto/request_metadata.proto` → [common](./common.md#request_metadata)
 
 #### Source Code
 
@@ -2125,16 +2069,14 @@ message PublishResponse {
 
 ### pull_request.proto {#pull_request}
 
-**Path**: `pkg/queue/proto/pull_request.proto` **Package**: `gcommon.v1.queue`
-**Lines**: 28
+**Path**: `pkg/queue/proto/pull_request.proto` **Package**: `gcommon.v1.queue` **Lines**: 28
 
 **Messages** (1): `PullRequest`
 
 **Imports** (2):
 
 - `google/protobuf/go_features.proto`
-- `pkg/common/proto/request_metadata.proto` →
-  [common](./common.md#request_metadata)
+- `pkg/common/proto/request_metadata.proto` → [common](./common.md#request_metadata)
 
 #### ⚠️ Issues Found (1)
 
@@ -2177,23 +2119,19 @@ message PullRequest {
 
 ### pull_response.proto {#pull_response}
 
-**Path**: `pkg/queue/proto/pull_response.proto` **Package**: `gcommon.v1.queue`
-**Lines**: 25
+**Path**: `pkg/queue/proto/pull_response.proto` **Package**: `gcommon.v1.queue` **Lines**: 25
 
 **Messages** (1): `PullResponse`
 
 **Imports** (3):
 
 - `google/protobuf/go_features.proto`
-- `pkg/common/proto/response_metadata.proto` →
-  [common](./common.md#response_metadata)
-- `pkg/queue/proto/received_message.proto` →
-  [queue_2](./queue_2.md#received_message)
+- `pkg/common/proto/response_metadata.proto` → [common](./common.md#response_metadata)
+- `pkg/queue/proto/received_message.proto` → [queue_2](./queue_2.md#received_message)
 
 #### ⚠️ Issues Found (1)
 
-- Line 6: Implementation needed - // now contains the actual response definition
-  instead of a placeholder.
+- Line 6: Implementation needed - // now contains the actual response definition instead of a placeholder.
 
 #### Source Code
 
@@ -2229,8 +2167,7 @@ message PullResponse {
 
 ### purge_request.proto {#purge_request}
 
-**Path**: `pkg/queue/proto/purge_request.proto` **Package**: `gcommon.v1.queue`
-**Lines**: 62
+**Path**: `pkg/queue/proto/purge_request.proto` **Package**: `gcommon.v1.queue` **Lines**: 62
 
 **Messages** (2): `PurgeRequest`, `PurgeOptions`
 
@@ -2238,8 +2175,7 @@ message PullResponse {
 
 - `google/protobuf/go_features.proto`
 - `google/protobuf/timestamp.proto`
-- `pkg/common/proto/request_metadata.proto` →
-  [common](./common.md#request_metadata)
+- `pkg/common/proto/request_metadata.proto` → [common](./common.md#request_metadata)
 
 #### Source Code
 
@@ -2312,8 +2248,7 @@ message PurgeOptions {
 
 ### purge_response.proto {#purge_response}
 
-**Path**: `pkg/queue/proto/purge_response.proto` **Package**: `gcommon.v1.queue`
-**Lines**: 34
+**Path**: `pkg/queue/proto/purge_response.proto` **Package**: `gcommon.v1.queue` **Lines**: 34
 
 **Messages** (1): `PurgeResponse`
 
@@ -2364,11 +2299,9 @@ message PurgeResponse {
 
 ### push_request.proto {#push_request}
 
-**Path**: `pkg/queue/proto/push_request.proto` **Package**: `gcommon.v1.queue`
-**Lines**: 154
+**Path**: `pkg/queue/proto/push_request.proto` **Package**: `gcommon.v1.queue` **Lines**: 154
 
-**Messages** (6): `PushRequest`, `Message`, `MessageProperties`, `RoutingInfo`,
-`PublishConfig`, `BatchSettings`
+**Messages** (6): `PushRequest`, `Message`, `MessageProperties`, `RoutingInfo`, `PublishConfig`, `BatchSettings`
 
 **Imports** (7):
 
@@ -2376,12 +2309,9 @@ message PurgeResponse {
 - `google/protobuf/go_features.proto`
 - `google/protobuf/timestamp.proto`
 - `pkg/queue/proto/delivery_mode.proto` → [queue_1](./queue_1.md#delivery_mode)
-- `pkg/queue/proto/message_metadata.proto` →
-  [queue_1](./queue_1.md#message_metadata)
-- `pkg/queue/proto/priority_level.proto` →
-  [queue_1](./queue_1.md#priority_level)
-- `pkg/queue/proto/retry_config.proto` →
-  [queue_config](./queue_config.md#retry_config)
+- `pkg/queue/proto/message_metadata.proto` → [queue_1](./queue_1.md#message_metadata)
+- `pkg/queue/proto/priority_level.proto` → [queue_1](./queue_1.md#priority_level)
+- `pkg/queue/proto/retry_config.proto` → [queue_config](./queue_config.md#retry_config)
 
 #### Source Code
 
@@ -2546,8 +2476,7 @@ message BatchSettings {
 
 ### push_response.proto {#push_response}
 
-**Path**: `pkg/queue/proto/push_response.proto` **Package**: `gcommon.v1.queue`
-**Lines**: 41
+**Path**: `pkg/queue/proto/push_response.proto` **Package**: `gcommon.v1.queue` **Lines**: 41
 
 **Messages** (1): `PushResponse`
 
@@ -2606,8 +2535,7 @@ message PushResponse {
 
 ### reset_queue_stats_request.proto {#reset_queue_stats_request}
 
-**Path**: `pkg/queue/proto/reset_queue_stats_request.proto` **Package**:
-`gcommon.v1.queue` **Lines**: 31
+**Path**: `pkg/queue/proto/reset_queue_stats_request.proto` **Package**: `gcommon.v1.queue` **Lines**: 31
 
 **Messages** (1): `ResetQueueStatsRequest`
 
@@ -2655,8 +2583,7 @@ message ResetQueueStatsRequest {
 
 ### reset_queue_stats_response.proto {#reset_queue_stats_response}
 
-**Path**: `pkg/queue/proto/reset_queue_stats_response.proto` **Package**:
-`gcommon.v1.queue` **Lines**: 98
+**Path**: `pkg/queue/proto/reset_queue_stats_response.proto` **Package**: `gcommon.v1.queue` **Lines**: 98
 
 **Messages** (3): `ResetQueueStatsResponse`, `PreservedStats`, `ResetDetails`
 
@@ -2772,21 +2699,17 @@ message ResetDetails {
 
 ### restore_queue_request.proto {#restore_queue_request}
 
-**Path**: `pkg/queue/proto/restore_queue_request.proto` **Package**:
-`gcommon.v1.queue` **Lines**: 170
+**Path**: `pkg/queue/proto/restore_queue_request.proto` **Package**: `gcommon.v1.queue` **Lines**: 170
 
-**Messages** (7): `RestoreQueueRequest`, `BackupSource`, `OriginalQueueInfo`,
-`EncryptionInfo`, `RestoreOptions`, `FilterCriteria`, `PerformanceOptions`
+**Messages** (7): `RestoreQueueRequest`, `BackupSource`, `OriginalQueueInfo`, `EncryptionInfo`, `RestoreOptions`, `FilterCriteria`, `PerformanceOptions`
 
 **Imports** (5):
 
 - `google/protobuf/go_features.proto`
 - `google/protobuf/timestamp.proto`
-- `pkg/queue/proto/restore_config.proto` →
-  [queue_config](./queue_config.md#restore_config)
+- `pkg/queue/proto/restore_config.proto` → [queue_config](./queue_config.md#restore_config)
 - `pkg/queue/proto/restore_queue_response.proto`
-- `pkg/queue/proto/time_range.proto` → [common](./common.md#time_range) →
-  [metrics_2](./metrics_2.md#time_range) → [queue_2](./queue_2.md#time_range)
+- `pkg/queue/proto/time_range.proto` → [common](./common.md#time_range) → [metrics_2](./metrics_2.md#time_range) → [queue_2](./queue_2.md#time_range)
 
 #### Source Code
 
@@ -2967,12 +2890,9 @@ message PerformanceOptions {
 
 ### restore_queue_response.proto {#restore_queue_response}
 
-**Path**: `pkg/queue/proto/restore_queue_response.proto` **Package**:
-`gcommon.v1.queue` **Lines**: 276
+**Path**: `pkg/queue/proto/restore_queue_response.proto` **Package**: `gcommon.v1.queue` **Lines**: 276
 
-**Messages** (12): `RestoreQueueResponse`, `RestoreStatistics`, `RestoreStatus`,
-`RestoreError`, `RestoreWarning`, `PartitionRestoreResult`, `ValidationResult`,
-`ChecksumValidation`, `SchemaValidation`, `IntegrityValidation`,
+**Messages** (12): `RestoreQueueResponse`, `RestoreStatistics`, `RestoreStatus`, `RestoreError`, `RestoreWarning`, `PartitionRestoreResult`, `ValidationResult`, `ChecksumValidation`, `SchemaValidation`, `IntegrityValidation`,
 `ValidationError`, `OffsetRange`
 
 **Imports** (3):
@@ -3266,16 +3186,14 @@ message OffsetRange {
 
 ### resume_queue_request.proto {#resume_queue_request}
 
-**Path**: `pkg/queue/proto/resume_queue_request.proto` **Package**:
-`gcommon.v1.queue` **Lines**: 35
+**Path**: `pkg/queue/proto/resume_queue_request.proto` **Package**: `gcommon.v1.queue` **Lines**: 35
 
 **Messages** (1): `ResumeQueueRequest`
 
 **Imports** (2):
 
 - `google/protobuf/go_features.proto`
-- `pkg/common/proto/request_metadata.proto` →
-  [common](./common.md#request_metadata)
+- `pkg/common/proto/request_metadata.proto` → [common](./common.md#request_metadata)
 
 #### Source Code
 
@@ -3321,8 +3239,7 @@ message ResumeQueueRequest {
 
 ### resume_queue_response.proto {#resume_queue_response}
 
-**Path**: `pkg/queue/proto/resume_queue_response.proto` **Package**:
-`gcommon.v1.queue` **Lines**: 78
+**Path**: `pkg/queue/proto/resume_queue_response.proto` **Package**: `gcommon.v1.queue` **Lines**: 78
 
 **Messages** (2): `ResumeQueueResponse`, `ResumeStats`
 
@@ -3419,8 +3336,7 @@ message ResumeStats {
 
 ### seek_request.proto {#seek_request}
 
-**Path**: `pkg/queue/proto/seek_request.proto` **Package**: `gcommon.v1.queue`
-**Lines**: 52
+**Path**: `pkg/queue/proto/seek_request.proto` **Package**: `gcommon.v1.queue` **Lines**: 52
 
 **Messages** (1): `SeekRequest`
 
@@ -3428,8 +3344,7 @@ message ResumeStats {
 
 - `google/protobuf/go_features.proto`
 - `google/protobuf/timestamp.proto`
-- `pkg/common/proto/request_metadata.proto` →
-  [common](./common.md#request_metadata)
+- `pkg/common/proto/request_metadata.proto` → [common](./common.md#request_metadata)
 
 #### Source Code
 
@@ -3492,16 +3407,14 @@ message SeekRequest {
 
 ### seek_response.proto {#seek_response}
 
-**Path**: `pkg/queue/proto/seek_response.proto` **Package**: `gcommon.v1.queue`
-**Lines**: 38
+**Path**: `pkg/queue/proto/seek_response.proto` **Package**: `gcommon.v1.queue` **Lines**: 38
 
 **Messages** (1): `SeekResponse`
 
 **Imports** (2):
 
 - `google/protobuf/go_features.proto`
-- `pkg/common/proto/response_metadata.proto` →
-  [common](./common.md#response_metadata)
+- `pkg/common/proto/response_metadata.proto` → [common](./common.md#response_metadata)
 
 #### Source Code
 
@@ -3550,18 +3463,15 @@ message SeekResponse {
 
 ### send_message_request.proto {#send_message_request}
 
-**Path**: `pkg/queue/proto/send_message_request.proto` **Package**:
-`gcommon.v1.queue` **Lines**: 31
+**Path**: `pkg/queue/proto/send_message_request.proto` **Package**: `gcommon.v1.queue` **Lines**: 31
 
 **Messages** (1): `SendMessageRequest`
 
 **Imports** (4):
 
 - `google/protobuf/go_features.proto`
-- `pkg/common/proto/request_metadata.proto` →
-  [common](./common.md#request_metadata)
-- `pkg/queue/proto/delivery_options.proto` →
-  [queue_1](./queue_1.md#delivery_options)
+- `pkg/common/proto/request_metadata.proto` → [common](./common.md#request_metadata)
+- `pkg/queue/proto/delivery_options.proto` → [queue_1](./queue_1.md#delivery_options)
 - `pkg/queue/proto/queue_message.proto` → [queue_2](./queue_2.md#queue_message)
 
 #### Source Code
@@ -3604,8 +3514,7 @@ message SendMessageRequest {
 
 ### send_message_response.proto {#send_message_response}
 
-**Path**: `pkg/queue/proto/send_message_response.proto` **Package**:
-`gcommon.v1.queue` **Lines**: 29
+**Path**: `pkg/queue/proto/send_message_response.proto` **Package**: `gcommon.v1.queue` **Lines**: 29
 
 **Messages** (1): `SendMessageResponse`
 
@@ -3652,11 +3561,9 @@ message SendMessageResponse {
 
 ### stream_messages_request.proto {#stream_messages_request}
 
-**Path**: `pkg/queue/proto/stream_messages_request.proto` **Package**:
-`gcommon.v1.queue` **Lines**: 113
+**Path**: `pkg/queue/proto/stream_messages_request.proto` **Package**: `gcommon.v1.queue` **Lines**: 113
 
-**Messages** (4): `StreamMessagesRequest`, `OffsetConfig`, `MessageFilter`,
-`FlowControlConfig`
+**Messages** (4): `StreamMessagesRequest`, `OffsetConfig`, `MessageFilter`, `FlowControlConfig`
 
 **Imports** (5):
 
@@ -3664,8 +3571,7 @@ message SendMessageResponse {
 - `google/protobuf/timestamp.proto`
 - `pkg/queue/proto/ack_level.proto` → [queue_1](./queue_1.md#ack_level)
 - `pkg/queue/proto/offset_type.proto` → [queue_1](./queue_1.md#offset_type)
-- `pkg/queue/proto/stream_config.proto` →
-  [queue_config](./queue_config.md#stream_config)
+- `pkg/queue/proto/stream_config.proto` → [queue_config](./queue_config.md#stream_config)
 
 #### Source Code
 
@@ -3789,8 +3695,7 @@ message FlowControlConfig {
 
 ### stream_messages_response.proto {#stream_messages_response}
 
-**Path**: `pkg/queue/proto/stream_messages_response.proto` **Package**:
-`gcommon.v1.queue` **Lines**: 40
+**Path**: `pkg/queue/proto/stream_messages_response.proto` **Package**: `gcommon.v1.queue` **Lines**: 40
 
 **Messages** (1): `StreamMessagesResponse`
 
@@ -3848,14 +3753,10 @@ message StreamMessagesResponse {
 
 ### subscribe_request.proto {#subscribe_request}
 
-**Path**: `pkg/queue/proto/subscribe_request.proto` **Package**:
-`gcommon.v1.queue` **Lines**: 246
+**Path**: `pkg/queue/proto/subscribe_request.proto` **Package**: `gcommon.v1.queue` **Lines**: 246
 
-**Messages** (12): `SubscribeRequest`, `SubscriptionConfiguration`,
-`MessageFilterConfig`, `ContentFilter`, `DeliveryConfiguration`,
-`DeliveryRetryConfig`, `BatchDeliveryConfig`, `FlowControlSettings`,
-`ErrorHandlingConfig`, `DeadLetterQueueConfig`, `ErrorActionConfig`,
-`ErrorNotificationConfig`
+**Messages** (12): `SubscribeRequest`, `SubscriptionConfiguration`, `MessageFilterConfig`, `ContentFilter`, `DeliveryConfiguration`, `DeliveryRetryConfig`, `BatchDeliveryConfig`, `FlowControlSettings`, `ErrorHandlingConfig`,
+`DeadLetterQueueConfig`, `ErrorActionConfig`, `ErrorNotificationConfig`
 
 **Imports** (3):
 
@@ -4118,18 +4019,15 @@ message ErrorNotificationConfig {
 
 ### subscribe_response.proto {#subscribe_response}
 
-**Path**: `pkg/queue/proto/subscribe_response.proto` **Package**:
-`gcommon.v1.queue` **Lines**: 34
+**Path**: `pkg/queue/proto/subscribe_response.proto` **Package**: `gcommon.v1.queue` **Lines**: 34
 
 **Messages** (1): `SubscribeResponse`
 
 **Imports** (4):
 
 - `google/protobuf/go_features.proto`
-- `pkg/queue/proto/connection_details.proto` →
-  [queue_1](./queue_1.md#connection_details)
-- `pkg/queue/proto/partition_offset.proto` →
-  [queue_1](./queue_1.md#partition_offset)
+- `pkg/queue/proto/connection_details.proto` → [queue_1](./queue_1.md#connection_details)
+- `pkg/queue/proto/partition_offset.proto` → [queue_1](./queue_1.md#partition_offset)
 - `pkg/queue/proto/queue_message.proto` → [queue_2](./queue_2.md#queue_message)
 
 #### Source Code
@@ -4175,8 +4073,7 @@ message SubscribeResponse {
 
 ### unsubscribe_request.proto {#unsubscribe_request}
 
-**Path**: `pkg/queue/proto/unsubscribe_request.proto` **Package**:
-`gcommon.v1.queue` **Lines**: 31
+**Path**: `pkg/queue/proto/unsubscribe_request.proto` **Package**: `gcommon.v1.queue` **Lines**: 31
 
 **Messages** (1): `UnsubscribeRequest`
 
@@ -4224,8 +4121,7 @@ message UnsubscribeRequest {
 
 ### unsubscribe_response.proto {#unsubscribe_response}
 
-**Path**: `pkg/queue/proto/unsubscribe_response.proto` **Package**:
-`gcommon.v1.queue` **Lines**: 38
+**Path**: `pkg/queue/proto/unsubscribe_response.proto` **Package**: `gcommon.v1.queue` **Lines**: 38
 
 **Messages** (1): `UnsubscribeResponse`
 
@@ -4281,12 +4177,9 @@ message UnsubscribeResponse {
 
 ### update_message_request.proto {#update_message_request}
 
-**Path**: `pkg/queue/proto/update_message_request.proto` **Package**:
-`gcommon.v1.queue` **Lines**: 156
+**Path**: `pkg/queue/proto/update_message_request.proto` **Package**: `gcommon.v1.queue` **Lines**: 156
 
-**Messages** (7): `UpdateMessageRequest`, `MessageUpdateProperties`,
-`VisibilityUpdate`, `PriorityUpdate`, `MetadataUpdate`, `ContentUpdate`,
-`UpdateCondition`
+**Messages** (7): `UpdateMessageRequest`, `MessageUpdateProperties`, `VisibilityUpdate`, `PriorityUpdate`, `MetadataUpdate`, `ContentUpdate`, `UpdateCondition`
 
 **Imports** (3):
 

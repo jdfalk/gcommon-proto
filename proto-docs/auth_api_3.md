@@ -44,8 +44,7 @@
 
 ### update_session_response.proto {#update_session_response}
 
-**Path**: `pkg/auth/proto/update_session_response.proto` **Package**:
-`gcommon.v1.auth` **Lines**: 33
+**Path**: `pkg/auth/proto/update_session_response.proto` **Package**: `gcommon.v1.auth` **Lines**: 33
 
 **Messages** (1): `UpdateSessionResponse`
 
@@ -53,8 +52,7 @@
 
 - `google/protobuf/go_features.proto`
 - `pkg/auth/proto/session_info.proto` → [auth](./auth.md#session_info)
-- `pkg/common/proto/response_metadata.proto` →
-  [common](./common.md#response_metadata)
+- `pkg/common/proto/response_metadata.proto` → [common](./common.md#response_metadata)
 
 #### Source Code
 
@@ -98,8 +96,7 @@ message UpdateSessionResponse {
 
 ### update_user_request.proto {#update_user_request}
 
-**Path**: `pkg/auth/proto/update_user_request.proto` **Package**:
-`gcommon.v1.auth` **Lines**: 46
+**Path**: `pkg/auth/proto/update_user_request.proto` **Package**: `gcommon.v1.auth` **Lines**: 46
 
 **Messages** (1): `UpdateUserRequest`
 
@@ -163,8 +160,7 @@ message UpdateUserRequest {
 
 ### update_user_response.proto {#update_user_response}
 
-**Path**: `pkg/auth/proto/update_user_response.proto` **Package**:
-`gcommon.v1.auth` **Lines**: 46
+**Path**: `pkg/auth/proto/update_user_response.proto` **Package**: `gcommon.v1.auth` **Lines**: 46
 
 **Messages** (1): `UpdateUserResponse`
 
@@ -228,16 +224,14 @@ message UpdateUserResponse {
 
 ### validate_session_request.proto {#validate_session_request}
 
-**Path**: `pkg/auth/proto/validate_session_request.proto` **Package**:
-`gcommon.v1.auth` **Lines**: 24
+**Path**: `pkg/auth/proto/validate_session_request.proto` **Package**: `gcommon.v1.auth` **Lines**: 24
 
 **Messages** (1): `ValidateSessionRequest`
 
 **Imports** (2):
 
 - `google/protobuf/go_features.proto`
-- `pkg/common/proto/request_metadata.proto` →
-  [common](./common.md#request_metadata)
+- `pkg/common/proto/request_metadata.proto` → [common](./common.md#request_metadata)
 
 #### Source Code
 
@@ -272,8 +266,7 @@ message ValidateSessionRequest {
 
 ### validate_session_response.proto {#validate_session_response}
 
-**Path**: `pkg/auth/proto/validate_session_response.proto` **Package**:
-`gcommon.v1.auth` **Lines**: 32
+**Path**: `pkg/auth/proto/validate_session_response.proto` **Package**: `gcommon.v1.auth` **Lines**: 32
 
 **Messages** (1): `ValidateSessionResponse`
 
@@ -325,16 +318,14 @@ message ValidateSessionResponse {
 
 ### validate_token_request.proto {#validate_token_request}
 
-**Path**: `pkg/auth/proto/validate_token_request.proto` **Package**:
-`gcommon.v1.auth` **Lines**: 29
+**Path**: `pkg/auth/proto/validate_token_request.proto` **Package**: `gcommon.v1.auth` **Lines**: 29
 
 **Messages** (1): `ValidateTokenRequest`
 
 **Imports** (2):
 
 - `google/protobuf/go_features.proto`
-- `pkg/common/proto/request_metadata.proto` →
-  [common](./common.md#request_metadata)
+- `pkg/common/proto/request_metadata.proto` → [common](./common.md#request_metadata)
 
 #### Source Code
 
@@ -374,8 +365,7 @@ message ValidateTokenRequest {
 
 ### validate_token_response.proto {#validate_token_response}
 
-**Path**: `pkg/auth/proto/validate_token_response.proto` **Package**:
-`gcommon.v1.auth` **Lines**: 40
+**Path**: `pkg/auth/proto/validate_token_response.proto` **Package**: `gcommon.v1.auth` **Lines**: 40
 
 **Messages** (1): `ValidateTokenResponse`
 
@@ -384,8 +374,7 @@ message ValidateTokenRequest {
 - `google/protobuf/go_features.proto`
 - `google/protobuf/timestamp.proto`
 - `pkg/auth/proto/user_info.proto` → [auth](./auth.md#user_info)
-- `pkg/common/proto/request_metadata.proto` →
-  [common](./common.md#request_metadata)
+- `pkg/common/proto/request_metadata.proto` → [common](./common.md#request_metadata)
 
 #### Source Code
 
@@ -436,8 +425,7 @@ message ValidateTokenResponse {
 
 ### verify_2fa_request.proto {#verify_2fa_request}
 
-**Path**: `pkg/auth/proto/verify_2fa_request.proto` **Package**:
-`gcommon.v1.auth` **Lines**: 35
+**Path**: `pkg/auth/proto/verify_2fa_request.proto` **Package**: `gcommon.v1.auth` **Lines**: 35
 
 **Messages** (1): `Verify2FaRequest`
 
@@ -491,20 +479,16 @@ message Verify2FaRequest {
 
 ### verify_credentials_request.proto {#verify_credentials_request}
 
-**Path**: `pkg/auth/proto/verify_credentials_request.proto` **Package**:
-`gcommon.v1.auth` **Lines**: 31
+**Path**: `pkg/auth/proto/verify_credentials_request.proto` **Package**: `gcommon.v1.auth` **Lines**: 31
 
 **Messages** (1): `VerifyCredentialsRequest`
 
 **Imports** (4):
 
 - `google/protobuf/go_features.proto`
-- `pkg/auth/proto/api_key_credentials.proto` →
-  [auth_api_1](./auth_api_1.md#api_key_credentials)
-- `pkg/auth/proto/password_credentials.proto` →
-  [auth](./auth.md#password_credentials)
-- `pkg/common/proto/request_metadata.proto` →
-  [common](./common.md#request_metadata)
+- `pkg/auth/proto/api_key_credentials.proto` → [auth_api_1](./auth_api_1.md#api_key_credentials)
+- `pkg/auth/proto/password_credentials.proto` → [auth](./auth.md#password_credentials)
+- `pkg/common/proto/request_metadata.proto` → [common](./common.md#request_metadata)
 
 #### Source Code
 
@@ -546,8 +530,7 @@ message VerifyCredentialsRequest {
 
 ### verify_credentials_response.proto {#verify_credentials_response}
 
-**Path**: `pkg/auth/proto/verify_credentials_response.proto` **Package**:
-`gcommon.v1.auth` **Lines**: 29
+**Path**: `pkg/auth/proto/verify_credentials_response.proto` **Package**: `gcommon.v1.auth` **Lines**: 29
 
 **Messages** (1): `VerifyCredentialsResponse`
 
@@ -556,8 +539,7 @@ message VerifyCredentialsRequest {
 - `google/protobuf/go_features.proto`
 - `pkg/auth/proto/user_info.proto` → [auth](./auth.md#user_info)
 - `pkg/common/proto/error.proto` → [common](./common.md#error)
-- `pkg/common/proto/request_metadata.proto` →
-  [common](./common.md#request_metadata)
+- `pkg/common/proto/request_metadata.proto` → [common](./common.md#request_metadata)
 
 #### Source Code
 
@@ -597,8 +579,7 @@ message VerifyCredentialsResponse {
 
 ### verify_email_request.proto {#verify_email_request}
 
-**Path**: `pkg/auth/proto/verify_email_request.proto` **Package**:
-`gcommon.v1.auth` **Lines**: 26
+**Path**: `pkg/auth/proto/verify_email_request.proto` **Package**: `gcommon.v1.auth` **Lines**: 26
 
 **Messages** (1): `VerifyEmailRequest`
 
@@ -641,8 +622,7 @@ message VerifyEmailRequest {
 
 ### verify_email_response.proto {#verify_email_response}
 
-**Path**: `pkg/auth/proto/verify_email_response.proto` **Package**:
-`gcommon.v1.auth` **Lines**: 29
+**Path**: `pkg/auth/proto/verify_email_response.proto` **Package**: `gcommon.v1.auth` **Lines**: 29
 
 **Messages** (1): `VerifyEmailResponse`
 
@@ -688,8 +668,7 @@ message VerifyEmailResponse {
 
 ### verify_mfa_request.proto {#verify_mfa_request}
 
-**Path**: `pkg/auth/proto/verify_mfa_request.proto` **Package**:
-`gcommon.v1.auth` **Lines**: 33
+**Path**: `pkg/auth/proto/verify_mfa_request.proto` **Package**: `gcommon.v1.auth` **Lines**: 33
 
 **Messages** (1): `VerifyMfaRequest`
 
@@ -740,8 +719,7 @@ message VerifyMfaRequest {
 
 ### verify_mfa_response.proto {#verify_mfa_response}
 
-**Path**: `pkg/auth/proto/verify_mfa_response.proto` **Package**:
-`gcommon.v1.auth` **Lines**: 32
+**Path**: `pkg/auth/proto/verify_mfa_response.proto` **Package**: `gcommon.v1.auth` **Lines**: 32
 
 **Messages** (1): `VerifyMfaResponse`
 

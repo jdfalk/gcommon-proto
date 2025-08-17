@@ -78,8 +78,7 @@
 
 ### provider_state.proto {#provider_state}
 
-**Path**: `pkg/metrics/proto/provider_state.proto` **Package**:
-`gcommon.v1.metrics` **Lines**: 27
+**Path**: `pkg/metrics/proto/provider_state.proto` **Package**: `gcommon.v1.metrics` **Lines**: 27
 
 **Enums** (1): `ProviderState`
 
@@ -123,8 +122,7 @@ enum ProviderState {
 
 ### provider_status.proto {#provider_status}
 
-**Path**: `pkg/metrics/proto/provider_status.proto` **Package**:
-`gcommon.v1.metrics` **Lines**: 35
+**Path**: `pkg/metrics/proto/provider_status.proto` **Package**: `gcommon.v1.metrics` **Lines**: 35
 
 **Messages** (1): `ProviderStatus`
 
@@ -178,8 +176,7 @@ message ProviderStatus {
 
 ### provider_summary.proto {#provider_summary}
 
-**Path**: `pkg/metrics/proto/provider_summary.proto` **Package**:
-`gcommon.v1.metrics` **Lines**: 62
+**Path**: `pkg/metrics/proto/provider_summary.proto` **Package**: `gcommon.v1.metrics` **Lines**: 62
 
 **Messages** (1): `ProviderSummary`
 
@@ -260,8 +257,7 @@ message ProviderSummary {
 
 ### provider_type.proto {#provider_type}
 
-**Path**: `pkg/metrics/proto/provider_type.proto` **Package**:
-`gcommon.v1.metrics` **Lines**: 27
+**Path**: `pkg/metrics/proto/provider_type.proto` **Package**: `gcommon.v1.metrics` **Lines**: 27
 
 **Enums** (1): `ProviderType`
 
@@ -305,8 +301,7 @@ enum ProviderType {
 
 ### query_operation.proto {#query_operation}
 
-**Path**: `pkg/metrics/proto/query_operation.proto` **Package**:
-`gcommon.v1.metrics` **Lines**: 60
+**Path**: `pkg/metrics/proto/query_operation.proto` **Package**: `gcommon.v1.metrics` **Lines**: 60
 
 **Enums** (1): `QueryOperation`
 
@@ -383,8 +378,7 @@ enum QueryOperation {
 
 ### query_stats.proto {#query_stats}
 
-**Path**: `pkg/metrics/proto/query_stats.proto` **Package**:
-`gcommon.v1.metrics` **Lines**: 27
+**Path**: `pkg/metrics/proto/query_stats.proto` **Package**: `gcommon.v1.metrics` **Lines**: 27
 
 **Messages** (1): `QueryStats`
 
@@ -428,8 +422,7 @@ message QueryStats {
 
 ### recording_stats.proto {#recording_stats}
 
-**Path**: `pkg/metrics/proto/recording_stats.proto` **Package**:
-`gcommon.v1.metrics` **Lines**: 30
+**Path**: `pkg/metrics/proto/recording_stats.proto` **Package**: `gcommon.v1.metrics` **Lines**: 30
 
 **Messages** (1): `RecordingStats`
 
@@ -476,8 +469,7 @@ message RecordingStats {
 
 ### registration_action.proto {#registration_action}
 
-**Path**: `pkg/metrics/proto/registration_action.proto` **Package**:
-`gcommon.v1.metrics` **Lines**: 24
+**Path**: `pkg/metrics/proto/registration_action.proto` **Package**: `gcommon.v1.metrics` **Lines**: 24
 
 **Enums** (1): `RegistrationAction`
 
@@ -518,8 +510,7 @@ enum RegistrationAction {
 
 ### resource_limits_summary.proto {#resource_limits_summary}
 
-**Path**: `pkg/metrics/proto/resource_limits_summary.proto` **Package**:
-`gcommon.v1.metrics` **Lines**: 48
+**Path**: `pkg/metrics/proto/resource_limits_summary.proto` **Package**: `gcommon.v1.metrics` **Lines**: 48
 
 **Messages** (1): `ResourceLimitsSummary`
 
@@ -584,8 +575,7 @@ message ResourceLimitsSummary {
 
 ### resource_limits_update.proto {#resource_limits_update}
 
-**Path**: `pkg/metrics/proto/resource_limits_update.proto` **Package**:
-`gcommon.v1.metrics` **Lines**: 33
+**Path**: `pkg/metrics/proto/resource_limits_update.proto` **Package**: `gcommon.v1.metrics` **Lines**: 33
 
 **Messages** (1): `ResourceLimitsUpdate`
 
@@ -635,8 +625,7 @@ message ResourceLimitsUpdate {
 
 ### retention_policy.proto {#retention_policy}
 
-**Path**: `pkg/metrics/proto/retention_policy.proto` **Package**:
-`gcommon.v1.metrics` **Lines**: 27
+**Path**: `pkg/metrics/proto/retention_policy.proto` **Package**: `gcommon.v1.metrics` **Lines**: 27
 
 **Messages** (1): `RetentionPolicyInfo`
 
@@ -644,8 +633,7 @@ message ResourceLimitsUpdate {
 
 - `google/protobuf/go_features.proto`
 - `pkg/metrics/proto/retention_policy_retentionpolicy.proto`
-- `pkg/metrics/proto/retention_policy_retentionpolicyconfig.proto` →
-  [metrics_config](./metrics_config.md#retention_policy_retentionpolicyconfig)
+- `pkg/metrics/proto/retention_policy_retentionpolicyconfig.proto` → [metrics_config](./metrics_config.md#retention_policy_retentionpolicyconfig)
 
 #### Source Code
 
@@ -683,8 +671,7 @@ message RetentionPolicyInfo {
 
 ### retention_policy_retentionpolicy.proto {#retention_policy_retentionpolicy}
 
-**Path**: `pkg/metrics/proto/retention_policy_retentionpolicy.proto`
-**Package**: `gcommon.v1.metrics` **Lines**: 49
+**Path**: `pkg/metrics/proto/retention_policy_retentionpolicy.proto` **Package**: `gcommon.v1.metrics` **Lines**: 49
 
 **Enums** (1): `RetentionPolicy`
 
@@ -750,8 +737,7 @@ enum RetentionPolicy {
 
 ### retention_unit.proto {#retention_unit}
 
-**Path**: `pkg/metrics/proto/retention_unit.proto` **Package**:
-`gcommon.v1.metrics` **Lines**: 48
+**Path**: `pkg/metrics/proto/retention_unit.proto` **Package**: `gcommon.v1.metrics` **Lines**: 48
 
 **Enums** (1): `RetentionUnit`
 
@@ -816,8 +802,7 @@ enum RetentionUnit {
 
 ### sample_rate.proto {#sample_rate}
 
-**Path**: `pkg/metrics/proto/sample_rate.proto` **Package**:
-`gcommon.v1.metrics` **Lines**: 46
+**Path**: `pkg/metrics/proto/sample_rate.proto` **Package**: `gcommon.v1.metrics` **Lines**: 46
 
 **Enums** (1): `SampleRate`
 
@@ -880,8 +865,7 @@ enum SampleRate {
 
 ### scrape_job.proto {#scrape_job}
 
-**Path**: `pkg/metrics/proto/scrape_job.proto` **Package**: `gcommon.v1.metrics`
-**Lines**: 35
+**Path**: `pkg/metrics/proto/scrape_job.proto` **Package**: `gcommon.v1.metrics` **Lines**: 35
 
 **Messages** (1): `ScrapeJob`
 
@@ -889,8 +873,7 @@ enum SampleRate {
 
 - `google/protobuf/go_features.proto`
 - `google/protobuf/timestamp.proto`
-- `pkg/metrics/proto/scrape_config.proto` →
-  [metrics_config](./metrics_config.md#scrape_config)
+- `pkg/metrics/proto/scrape_config.proto` → [metrics_config](./metrics_config.md#scrape_config)
 
 #### Source Code
 
@@ -936,8 +919,7 @@ message ScrapeJob {
 
 ### scrape_status.proto {#scrape_status}
 
-**Path**: `pkg/metrics/proto/scrape_status.proto` **Package**:
-`gcommon.v1.metrics` **Lines**: 57
+**Path**: `pkg/metrics/proto/scrape_status.proto` **Package**: `gcommon.v1.metrics` **Lines**: 57
 
 **Enums** (1): `ScrapeStatus`
 
@@ -1011,8 +993,7 @@ enum ScrapeStatus {
 
 ### scrape_target.proto {#scrape_target}
 
-**Path**: `pkg/metrics/proto/scrape_target.proto` **Package**:
-`gcommon.v1.metrics` **Lines**: 24
+**Path**: `pkg/metrics/proto/scrape_target.proto` **Package**: `gcommon.v1.metrics` **Lines**: 24
 
 **Messages** (1): `ScrapeTarget`
 
@@ -1053,8 +1034,7 @@ message ScrapeTarget {
 
 ### storage_backend.proto {#storage_backend}
 
-**Path**: `pkg/metrics/proto/storage_backend.proto` **Package**:
-`gcommon.v1.metrics` **Lines**: 57
+**Path**: `pkg/metrics/proto/storage_backend.proto` **Package**: `gcommon.v1.metrics` **Lines**: 57
 
 **Enums** (1): `StorageBackend`
 
@@ -1128,8 +1108,7 @@ enum StorageBackend {
 
 ### stream_compression.proto {#stream_compression}
 
-**Path**: `pkg/metrics/proto/stream_compression.proto` **Package**:
-`gcommon.v1.metrics` **Lines**: 34
+**Path**: `pkg/metrics/proto/stream_compression.proto` **Package**: `gcommon.v1.metrics` **Lines**: 34
 
 **Enums** (1): `StreamCompression`
 
@@ -1180,8 +1159,7 @@ enum StreamCompression {
 
 ### stream_qos.proto {#stream_qos}
 
-**Path**: `pkg/metrics/proto/stream_qos.proto` **Package**: `gcommon.v1.metrics`
-**Lines**: 31
+**Path**: `pkg/metrics/proto/stream_qos.proto` **Package**: `gcommon.v1.metrics` **Lines**: 31
 
 **Enums** (1): `StreamQOS`
 
@@ -1229,8 +1207,7 @@ enum StreamQOS {
 
 ### summary_metric.proto {#summary_metric}
 
-**Path**: `pkg/metrics/proto/summary_metric.proto` **Package**:
-`gcommon.v1.metrics` **Lines**: 62
+**Path**: `pkg/metrics/proto/summary_metric.proto` **Package**: `gcommon.v1.metrics` **Lines**: 62
 
 **Messages** (2): `SummaryQuantile`, `SummaryMetric`
 
@@ -1239,8 +1216,7 @@ enum StreamQOS {
 - `google/protobuf/duration.proto`
 - `google/protobuf/go_features.proto`
 - `google/protobuf/timestamp.proto`
-- `pkg/common/proto/request_metadata.proto` →
-  [common](./common.md#request_metadata)
+- `pkg/common/proto/request_metadata.proto` → [common](./common.md#request_metadata)
 
 #### Source Code
 
@@ -1313,8 +1289,7 @@ message SummaryMetric {
 
 ### tag_updates.proto {#tag_updates}
 
-**Path**: `pkg/metrics/proto/tag_updates.proto` **Package**:
-`gcommon.v1.metrics` **Lines**: 24
+**Path**: `pkg/metrics/proto/tag_updates.proto` **Package**: `gcommon.v1.metrics` **Lines**: 24
 
 **Messages** (1): `TagUpdates`
 
@@ -1355,8 +1330,7 @@ message TagUpdates {
 
 ### time_range.proto {#time_range}
 
-**Path**: `pkg/metrics/proto/time_range.proto` **Package**: `gcommon.v1.metrics`
-**Lines**: 25
+**Path**: `pkg/metrics/proto/time_range.proto` **Package**: `gcommon.v1.metrics` **Lines**: 25
 
 **Messages** (1): `TimeRange`
 
@@ -1399,16 +1373,14 @@ message TimeRange {
 
 ### time_series.proto {#time_series}
 
-**Path**: `pkg/metrics/proto/time_series.proto` **Package**:
-`gcommon.v1.metrics` **Lines**: 28
+**Path**: `pkg/metrics/proto/time_series.proto` **Package**: `gcommon.v1.metrics` **Lines**: 28
 
 **Messages** (1): `TimeSeries`
 
 **Imports** (2):
 
 - `google/protobuf/go_features.proto`
-- `pkg/metrics/proto/metric_sample.proto` →
-  [metrics_1](./metrics_1.md#metric_sample)
+- `pkg/metrics/proto/metric_sample.proto` → [metrics_1](./metrics_1.md#metric_sample)
 
 #### Source Code
 
@@ -1447,8 +1419,7 @@ message TimeSeries {
 
 ### time_unit.proto {#time_unit}
 
-**Path**: `pkg/metrics/proto/time_unit.proto` **Package**: `gcommon.v1.metrics`
-**Lines**: 54
+**Path**: `pkg/metrics/proto/time_unit.proto` **Package**: `gcommon.v1.metrics` **Lines**: 54
 
 **Enums** (1): `TimeUnit`
 
@@ -1519,8 +1490,7 @@ enum TimeUnit {
 
 ### time_window.proto {#time_window}
 
-**Path**: `pkg/metrics/proto/time_window.proto` **Package**:
-`gcommon.v1.metrics` **Lines**: 55
+**Path**: `pkg/metrics/proto/time_window.proto` **Package**: `gcommon.v1.metrics` **Lines**: 55
 
 **Enums** (1): `TimeWindow`
 
@@ -1592,8 +1562,7 @@ enum TimeWindow {
 
 ### timer_metric.proto {#timer_metric}
 
-**Path**: `pkg/metrics/proto/timer_metric.proto` **Package**:
-`gcommon.v1.metrics` **Lines**: 101
+**Path**: `pkg/metrics/proto/timer_metric.proto` **Package**: `gcommon.v1.metrics` **Lines**: 101
 
 **Messages** (3): `TimerMetric`, `TimerStatistics`, `PercentileMeasurement`
 
@@ -1713,8 +1682,7 @@ message PercentileMeasurement {
 
 ### timestamp_range.proto {#timestamp_range}
 
-**Path**: `pkg/metrics/proto/timestamp_range.proto` **Package**:
-`gcommon.v1.metrics` **Lines**: 22
+**Path**: `pkg/metrics/proto/timestamp_range.proto` **Package**: `gcommon.v1.metrics` **Lines**: 22
 
 **Messages** (1): `TimestampRange`
 
@@ -1754,8 +1722,7 @@ message TimestampRange {
 
 ### top_metrics.proto {#top_metrics}
 
-**Path**: `pkg/metrics/proto/top_metrics.proto` **Package**:
-`gcommon.v1.metrics` **Lines**: 36
+**Path**: `pkg/metrics/proto/top_metrics.proto` **Package**: `gcommon.v1.metrics` **Lines**: 36
 
 **Messages** (1): `TopMetrics`
 
@@ -1808,8 +1775,7 @@ message TopMetrics {
 
 ### update_action.proto {#update_action}
 
-**Path**: `pkg/metrics/proto/update_action.proto` **Package**:
-`gcommon.v1.metrics` **Lines**: 26
+**Path**: `pkg/metrics/proto/update_action.proto` **Package**: `gcommon.v1.metrics` **Lines**: 26
 
 **Enums** (1): `UpdateAction`
 
@@ -1817,8 +1783,7 @@ message TopMetrics {
 
 - `google/protobuf/go_features.proto`
 - `google/protobuf/timestamp.proto`
-- `pkg/metrics/proto/validation_result.proto` →
-  [config_2](./config_2.md#validation_result)
+- `pkg/metrics/proto/validation_result.proto` → [config_2](./config_2.md#validation_result)
 
 #### Source Code
 
@@ -1855,8 +1820,7 @@ enum UpdateAction {
 
 ### update_options.proto {#update_options}
 
-**Path**: `pkg/metrics/proto/update_options.proto` **Package**:
-`gcommon.v1.metrics` **Lines**: 34
+**Path**: `pkg/metrics/proto/update_options.proto` **Package**: `gcommon.v1.metrics` **Lines**: 34
 
 **Messages** (1): `UpdateOptions`
 
@@ -1908,8 +1872,7 @@ message UpdateOptions {
 
 ### update_result.proto {#update_result}
 
-**Path**: `pkg/metrics/proto/update_result.proto` **Package**:
-`gcommon.v1.metrics` **Lines**: 43
+**Path**: `pkg/metrics/proto/update_result.proto` **Package**: `gcommon.v1.metrics` **Lines**: 43
 
 **Messages** (1): `UpdateResult`
 
@@ -1917,12 +1880,9 @@ message UpdateOptions {
 
 - `google/protobuf/go_features.proto`
 - `google/protobuf/timestamp.proto`
-- `pkg/metrics/proto/config_change.proto` →
-  [config_config_1](./config_config_1.md#config_change) →
-  [metrics_config](./metrics_config.md#config_change)
+- `pkg/metrics/proto/config_change.proto` → [config_config_1](./config_config_1.md#config_change) → [metrics_config](./metrics_config.md#config_change)
 - `pkg/metrics/proto/update_action.proto`
-- `pkg/metrics/proto/validation_result.proto` →
-  [config_2](./config_2.md#validation_result)
+- `pkg/metrics/proto/validation_result.proto` → [config_2](./config_2.md#validation_result)
 
 #### Source Code
 
@@ -1976,8 +1936,7 @@ message UpdateResult {
 
 ### update_strategy.proto {#update_strategy}
 
-**Path**: `pkg/metrics/proto/update_strategy.proto` **Package**:
-`gcommon.v1.metrics` **Lines**: 24
+**Path**: `pkg/metrics/proto/update_strategy.proto` **Package**: `gcommon.v1.metrics` **Lines**: 24
 
 **Enums** (1): `UpdateStrategy`
 
@@ -2018,8 +1977,7 @@ enum UpdateStrategy {
 
 ### validation_result.proto {#validation_result}
 
-**Path**: `pkg/metrics/proto/validation_result.proto` **Package**:
-`gcommon.v1.metrics` **Lines**: 30
+**Path**: `pkg/metrics/proto/validation_result.proto` **Package**: `gcommon.v1.metrics` **Lines**: 30
 
 **Messages** (1): `ValidationResult`
 
@@ -2066,8 +2024,7 @@ message ValidationResult {
 
 ### visualization_type.proto {#visualization_type}
 
-**Path**: `pkg/metrics/proto/visualization_type.proto` **Package**:
-`gcommon.v1.metrics` **Lines**: 61
+**Path**: `pkg/metrics/proto/visualization_type.proto` **Package**: `gcommon.v1.metrics` **Lines**: 61
 
 **Enums** (1): `VisualizationType`
 

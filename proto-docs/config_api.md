@@ -38,16 +38,14 @@
 
 ### get_schema_request.proto {#get_schema_request}
 
-**Path**: `pkg/config/proto/get_schema_request.proto` **Package**:
-`gcommon.v1.config` **Lines**: 22
+**Path**: `pkg/config/proto/get_schema_request.proto` **Package**: `gcommon.v1.config` **Lines**: 22
 
 **Messages** (1): `GetSchemaRequest`
 
 **Imports** (2):
 
 - `google/protobuf/go_features.proto`
-- `pkg/common/proto/request_metadata.proto` →
-  [common](./common.md#request_metadata)
+- `pkg/common/proto/request_metadata.proto` → [common](./common.md#request_metadata)
 
 #### Source Code
 
@@ -80,8 +78,7 @@ message GetSchemaRequest {
 
 ### get_schema_response.proto {#get_schema_response}
 
-**Path**: `pkg/config/proto/get_schema_response.proto` **Package**:
-`gcommon.v1.config` **Lines**: 23
+**Path**: `pkg/config/proto/get_schema_response.proto` **Package**: `gcommon.v1.config` **Lines**: 23
 
 **Messages** (1): `GetSchemaResponse`
 
@@ -89,8 +86,7 @@ message GetSchemaRequest {
 
 - `google/protobuf/go_features.proto`
 - `pkg/common/proto/error.proto` → [common](./common.md#error)
-- `pkg/config/proto/config_schema.proto` →
-  [config_config_1](./config_config_1.md#config_schema)
+- `pkg/config/proto/config_schema.proto` → [config_config_1](./config_config_1.md#config_schema)
 
 #### Source Code
 
@@ -124,16 +120,14 @@ message GetSchemaResponse {
 
 ### health_check_request.proto {#health_check_request}
 
-**Path**: `pkg/config/proto/health_check_request.proto` **Package**:
-`gcommon.v1.config` **Lines**: 24
+**Path**: `pkg/config/proto/health_check_request.proto` **Package**: `gcommon.v1.config` **Lines**: 24
 
 **Messages** (1): `HealthCheckRequest`
 
 **Imports** (2):
 
 - `google/protobuf/go_features.proto`
-- `pkg/common/proto/request_metadata.proto` →
-  [common](./common.md#request_metadata)
+- `pkg/common/proto/request_metadata.proto` → [common](./common.md#request_metadata)
 
 #### Source Code
 
@@ -168,17 +162,14 @@ message HealthCheckRequest {
 
 ### health_check_response.proto {#health_check_response}
 
-**Path**: `pkg/config/proto/health_check_response.proto` **Package**:
-`gcommon.v1.config` **Lines**: 25
+**Path**: `pkg/config/proto/health_check_response.proto` **Package**: `gcommon.v1.config` **Lines**: 25
 
 **Messages** (1): `HealthCheckResponse`
 
 **Imports** (2):
 
 - `google/protobuf/go_features.proto`
-- `pkg/common/proto/health_status.proto` → [common](./common.md#health_status) →
-  [metrics_1](./metrics_1.md#health_status) →
-  [queue_1](./queue_1.md#health_status) → [web](./web.md#health_status)
+- `pkg/common/proto/health_status.proto` → [common](./common.md#health_status) → [metrics_1](./metrics_1.md#health_status) → [queue_1](./queue_1.md#health_status) → [web](./web.md#health_status)
 
 #### Source Code
 

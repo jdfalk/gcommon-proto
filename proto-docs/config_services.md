@@ -35,8 +35,7 @@
 
 ### config_admin_service.proto {#config_admin_service}
 
-**Path**: `pkg/config/proto/config_admin_service.proto` **Package**:
-`gcommon.v1.config` **Lines**: 68
+**Path**: `pkg/config/proto/config_admin_service.proto` **Package**: `gcommon.v1.config` **Lines**: 68
 
 **Services** (1): `ConfigAdminService`
 
@@ -44,51 +43,25 @@
 
 - `google/protobuf/empty.proto`
 - `google/protobuf/go_features.proto`
-- `pkg/config/proto/backup_config_request.proto` →
-  [config_config_1](./config_config_1.md#backup_config_request)
-- `pkg/config/proto/config_backup.proto` →
-  [config_config_1](./config_config_1.md#config_backup)
-- `pkg/config/proto/config_snapshot.proto` →
-  [config_config_1](./config_config_1.md#config_snapshot)
-- `pkg/config/proto/export_config_request.proto` →
-  [config_config_1](./config_config_1.md#export_config_request)
-- `pkg/config/proto/get_config_history_request.proto` →
-  [config_config_1](./config_config_1.md#get_config_history_request)
-- `pkg/config/proto/get_config_history_response.proto` →
-  [config_config_1](./config_config_1.md#get_config_history_response)
-- `pkg/config/proto/get_config_stats_request.proto` →
-  [config_config_1](./config_config_1.md#get_config_stats_request)
-- `pkg/config/proto/get_config_stats_response.proto` →
-  [config_config_1](./config_config_1.md#get_config_stats_response)
-- `pkg/config/proto/health_check_request.proto` →
-  [auth_api_2](./auth_api_2.md#health_check_request) →
-  [cache_api_1](./cache_api_1.md#health_check_request) →
-  [config_api](./config_api.md#health_check_request) →
-  [database_api](./database_api.md#health_check_request) →
-  [health](./health.md#health_check_request) →
-  [metrics_api_1](./metrics_api_1.md#health_check_request) →
-  [queue_api_2](./queue_api_2.md#health_check_request) →
+- `pkg/config/proto/backup_config_request.proto` → [config_config_1](./config_config_1.md#backup_config_request)
+- `pkg/config/proto/config_backup.proto` → [config_config_1](./config_config_1.md#config_backup)
+- `pkg/config/proto/config_snapshot.proto` → [config_config_1](./config_config_1.md#config_snapshot)
+- `pkg/config/proto/export_config_request.proto` → [config_config_1](./config_config_1.md#export_config_request)
+- `pkg/config/proto/get_config_history_request.proto` → [config_config_1](./config_config_1.md#get_config_history_request)
+- `pkg/config/proto/get_config_history_response.proto` → [config_config_1](./config_config_1.md#get_config_history_response)
+- `pkg/config/proto/get_config_stats_request.proto` → [config_config_1](./config_config_1.md#get_config_stats_request)
+- `pkg/config/proto/get_config_stats_response.proto` → [config_config_1](./config_config_1.md#get_config_stats_response)
+- `pkg/config/proto/health_check_request.proto` → [auth_api_2](./auth_api_2.md#health_check_request) → [cache_api_1](./cache_api_1.md#health_check_request) → [config_api](./config_api.md#health_check_request) →
+  [database_api](./database_api.md#health_check_request) → [health](./health.md#health_check_request) → [metrics_api_1](./metrics_api_1.md#health_check_request) → [queue_api_2](./queue_api_2.md#health_check_request) →
   [web_api_2](./web_api_2.md#health_check_request)
-- `pkg/config/proto/health_check_response.proto` →
-  [auth_api_2](./auth_api_2.md#health_check_response) →
-  [config_api](./config_api.md#health_check_response) →
-  [database_api](./database_api.md#health_check_response) →
-  [health](./health.md#health_check_response) →
-  [metrics_api_1](./metrics_api_1.md#health_check_response) →
-  [queue_api_2](./queue_api_2.md#health_check_response) →
-  [web_api_2](./web_api_2.md#health_check_response)
-- `pkg/config/proto/import_config_request.proto` →
-  [config_config_1](./config_config_1.md#import_config_request)
-- `pkg/config/proto/reload_config_request.proto` →
-  [config_config_1](./config_config_1.md#reload_config_request)
-- `pkg/config/proto/restore_config_request.proto` →
-  [config_config_1](./config_config_1.md#restore_config_request)
-- `pkg/config/proto/rollback_config_request.proto` →
-  [config_config_1](./config_config_1.md#rollback_config_request)
-- `pkg/config/proto/set_config_schema_request.proto` →
-  [config_config_1](./config_config_1.md#set_config_schema_request)
-- `pkg/config/proto/unwatch_config_request.proto` →
-  [config_config_2](./config_config_2.md#unwatch_config_request)
+- `pkg/config/proto/health_check_response.proto` → [auth_api_2](./auth_api_2.md#health_check_response) → [config_api](./config_api.md#health_check_response) → [database_api](./database_api.md#health_check_response) →
+  [health](./health.md#health_check_response) → [metrics_api_1](./metrics_api_1.md#health_check_response) → [queue_api_2](./queue_api_2.md#health_check_response) → [web_api_2](./web_api_2.md#health_check_response)
+- `pkg/config/proto/import_config_request.proto` → [config_config_1](./config_config_1.md#import_config_request)
+- `pkg/config/proto/reload_config_request.proto` → [config_config_1](./config_config_1.md#reload_config_request)
+- `pkg/config/proto/restore_config_request.proto` → [config_config_1](./config_config_1.md#restore_config_request)
+- `pkg/config/proto/rollback_config_request.proto` → [config_config_1](./config_config_1.md#rollback_config_request)
+- `pkg/config/proto/set_config_schema_request.proto` → [config_config_1](./config_config_1.md#set_config_schema_request)
+- `pkg/config/proto/unwatch_config_request.proto` → [config_config_2](./config_config_2.md#unwatch_config_request)
 
 #### Source Code
 
@@ -167,8 +140,7 @@ service ConfigAdminService {
 
 ### config_service.proto {#config_service}
 
-**Path**: `pkg/config/proto/config_service.proto` **Package**:
-`gcommon.v1.config` **Lines**: 61
+**Path**: `pkg/config/proto/config_service.proto` **Package**: `gcommon.v1.config` **Lines**: 61
 
 **Services** (1): `ConfigService`
 
@@ -176,40 +148,23 @@ service ConfigAdminService {
 
 - `google/protobuf/empty.proto`
 - `google/protobuf/go_features.proto`
-- `pkg/config/proto/delete_config_request.proto` →
-  [config_config_1](./config_config_1.md#delete_config_request)
-- `pkg/config/proto/get_config_request.proto` →
-  [config_config_1](./config_config_1.md#get_config_request)
-- `pkg/config/proto/get_config_response.proto` →
-  [config_config_1](./config_config_1.md#get_config_response)
-- `pkg/config/proto/get_multiple_config_request.proto` →
-  [config_config_1](./config_config_1.md#get_multiple_config_request)
-- `pkg/config/proto/get_multiple_config_response.proto` →
-  [config_config_1](./config_config_1.md#get_multiple_config_response)
-- `pkg/config/proto/get_schema_request.proto` →
-  [config_api](./config_api.md#get_schema_request)
-- `pkg/config/proto/get_schema_response.proto` →
-  [config_api](./config_api.md#get_schema_response)
-- `pkg/config/proto/list_config_request.proto` →
-  [config_config_1](./config_config_1.md#list_config_request)
-- `pkg/config/proto/list_config_response.proto` →
-  [config_config_1](./config_config_1.md#list_config_response)
-- `pkg/config/proto/set_config_request.proto` →
-  [config_config_1](./config_config_1.md#set_config_request)
-- `pkg/config/proto/set_config_response.proto` →
-  [config_config_1](./config_config_1.md#set_config_response)
-- `pkg/config/proto/set_multiple_config_request.proto` →
-  [config_config_1](./config_config_1.md#set_multiple_config_request)
-- `pkg/config/proto/set_multiple_config_response.proto` →
-  [config_config_1](./config_config_1.md#set_multiple_config_response)
-- `pkg/config/proto/validate_config_request.proto` →
-  [config_config_2](./config_config_2.md#validate_config_request)
-- `pkg/config/proto/validate_config_response.proto` →
-  [config_config_2](./config_config_2.md#validate_config_response)
-- `pkg/config/proto/watch_config_request.proto` →
-  [config_config_2](./config_config_2.md#watch_config_request)
-- `pkg/config/proto/watch_config_response.proto` →
-  [config_config_2](./config_config_2.md#watch_config_response)
+- `pkg/config/proto/delete_config_request.proto` → [config_config_1](./config_config_1.md#delete_config_request)
+- `pkg/config/proto/get_config_request.proto` → [config_config_1](./config_config_1.md#get_config_request)
+- `pkg/config/proto/get_config_response.proto` → [config_config_1](./config_config_1.md#get_config_response)
+- `pkg/config/proto/get_multiple_config_request.proto` → [config_config_1](./config_config_1.md#get_multiple_config_request)
+- `pkg/config/proto/get_multiple_config_response.proto` → [config_config_1](./config_config_1.md#get_multiple_config_response)
+- `pkg/config/proto/get_schema_request.proto` → [config_api](./config_api.md#get_schema_request)
+- `pkg/config/proto/get_schema_response.proto` → [config_api](./config_api.md#get_schema_response)
+- `pkg/config/proto/list_config_request.proto` → [config_config_1](./config_config_1.md#list_config_request)
+- `pkg/config/proto/list_config_response.proto` → [config_config_1](./config_config_1.md#list_config_response)
+- `pkg/config/proto/set_config_request.proto` → [config_config_1](./config_config_1.md#set_config_request)
+- `pkg/config/proto/set_config_response.proto` → [config_config_1](./config_config_1.md#set_config_response)
+- `pkg/config/proto/set_multiple_config_request.proto` → [config_config_1](./config_config_1.md#set_multiple_config_request)
+- `pkg/config/proto/set_multiple_config_response.proto` → [config_config_1](./config_config_1.md#set_multiple_config_response)
+- `pkg/config/proto/validate_config_request.proto` → [config_config_2](./config_config_2.md#validate_config_request)
+- `pkg/config/proto/validate_config_response.proto` → [config_config_2](./config_config_2.md#validate_config_response)
+- `pkg/config/proto/watch_config_request.proto` → [config_config_2](./config_config_2.md#watch_config_request)
+- `pkg/config/proto/watch_config_response.proto` → [config_config_2](./config_config_2.md#watch_config_response)
 
 #### Source Code
 

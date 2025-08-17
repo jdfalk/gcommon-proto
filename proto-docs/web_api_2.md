@@ -22,10 +22,8 @@
 - [get_server_status_response.proto](#get_server_status_response) ⚠️ 1 issues
 - [get_session_request.proto](#get_session_request)
 - [get_session_response.proto](#get_session_response)
-- [get_ssl_certificate_info_request.proto](#get_ssl_certificate_info_request) ⚠️
-  1 issues
-- [get_ssl_certificate_info_response.proto](#get_ssl_certificate_info_response)
-  ⚠️ 1 issues
+- [get_ssl_certificate_info_request.proto](#get_ssl_certificate_info_request) ⚠️ 1 issues
+- [get_ssl_certificate_info_response.proto](#get_ssl_certificate_info_response) ⚠️ 1 issues
 - [get_template_info_request.proto](#get_template_info_request) ⚠️ 1 issues
 - [get_template_info_response.proto](#get_template_info_response) ⚠️ 1 issues
 - [get_websocket_info_request.proto](#get_websocket_info_request) ⚠️ 1 issues
@@ -88,8 +86,7 @@
 
 ### get_server_health_request.proto {#get_server_health_request}
 
-**Path**: `pkg/web/proto/get_server_health_request.proto` **Package**:
-`gcommon.v1.web` **Lines**: 42
+**Path**: `pkg/web/proto/get_server_health_request.proto` **Package**: `gcommon.v1.web` **Lines**: 42
 
 **Messages** (1): `GetServerHealthRequest`
 
@@ -97,13 +94,11 @@
 
 - `google/protobuf/go_features.proto`
 - `google/protobuf/timestamp.proto`
-- `pkg/common/proto/request_metadata.proto` →
-  [common](./common.md#request_metadata)
+- `pkg/common/proto/request_metadata.proto` → [common](./common.md#request_metadata)
 
 #### ⚠️ Issues Found (1)
 
-- Line 20: Implementation needed - \* Auto-generated placeholder - implement
-  specific fields as needed.
+- Line 20: Implementation needed - \* Auto-generated placeholder - implement specific fields as needed.
 
 #### Source Code
 
@@ -156,8 +151,7 @@ message GetServerHealthRequest {
 
 ### get_server_health_response.proto {#get_server_health_response}
 
-**Path**: `pkg/web/proto/get_server_health_response.proto` **Package**:
-`gcommon.v1.web` **Lines**: 56
+**Path**: `pkg/web/proto/get_server_health_response.proto` **Package**: `gcommon.v1.web` **Lines**: 56
 
 **Messages** (1): `GetServerHealthResponse`
 
@@ -166,13 +160,11 @@ message GetServerHealthRequest {
 - `google/protobuf/go_features.proto`
 - `google/protobuf/timestamp.proto`
 - `pkg/common/proto/error.proto` → [common](./common.md#error)
-- `pkg/common/proto/request_metadata.proto` →
-  [common](./common.md#request_metadata)
+- `pkg/common/proto/request_metadata.proto` → [common](./common.md#request_metadata)
 
 #### ⚠️ Issues Found (1)
 
-- Line 21: Implementation needed - \* Auto-generated placeholder - implement
-  specific fields as needed.
+- Line 21: Implementation needed - \* Auto-generated placeholder - implement specific fields as needed.
 
 #### Source Code
 
@@ -239,8 +231,7 @@ message GetServerHealthResponse {
 
 ### get_server_logs_request.proto {#get_server_logs_request}
 
-**Path**: `pkg/web/proto/get_server_logs_request.proto` **Package**:
-`gcommon.v1.web` **Lines**: 42
+**Path**: `pkg/web/proto/get_server_logs_request.proto` **Package**: `gcommon.v1.web` **Lines**: 42
 
 **Messages** (1): `GetServerLogsRequest`
 
@@ -248,13 +239,11 @@ message GetServerHealthResponse {
 
 - `google/protobuf/go_features.proto`
 - `google/protobuf/timestamp.proto`
-- `pkg/common/proto/request_metadata.proto` →
-  [common](./common.md#request_metadata)
+- `pkg/common/proto/request_metadata.proto` → [common](./common.md#request_metadata)
 
 #### ⚠️ Issues Found (1)
 
-- Line 20: Implementation needed - \* Auto-generated placeholder - implement
-  specific fields as needed.
+- Line 20: Implementation needed - \* Auto-generated placeholder - implement specific fields as needed.
 
 #### Source Code
 
@@ -307,8 +296,7 @@ message GetServerLogsRequest {
 
 ### get_server_logs_response.proto {#get_server_logs_response}
 
-**Path**: `pkg/web/proto/get_server_logs_response.proto` **Package**:
-`gcommon.v1.web` **Lines**: 56
+**Path**: `pkg/web/proto/get_server_logs_response.proto` **Package**: `gcommon.v1.web` **Lines**: 56
 
 **Messages** (1): `GetServerLogsResponse`
 
@@ -317,13 +305,11 @@ message GetServerLogsRequest {
 - `google/protobuf/go_features.proto`
 - `google/protobuf/timestamp.proto`
 - `pkg/common/proto/error.proto` → [common](./common.md#error)
-- `pkg/common/proto/request_metadata.proto` →
-  [common](./common.md#request_metadata)
+- `pkg/common/proto/request_metadata.proto` → [common](./common.md#request_metadata)
 
 #### ⚠️ Issues Found (1)
 
-- Line 21: Implementation needed - \* Auto-generated placeholder - implement
-  specific fields as needed.
+- Line 21: Implementation needed - \* Auto-generated placeholder - implement specific fields as needed.
 
 #### Source Code
 
@@ -390,8 +376,7 @@ message GetServerLogsResponse {
 
 ### get_server_metrics_request.proto {#get_server_metrics_request}
 
-**Path**: `pkg/web/proto/get_server_metrics_request.proto` **Package**:
-`gcommon.v1.web` **Lines**: 42
+**Path**: `pkg/web/proto/get_server_metrics_request.proto` **Package**: `gcommon.v1.web` **Lines**: 42
 
 **Messages** (1): `GetServerMetricsRequest`
 
@@ -399,13 +384,11 @@ message GetServerLogsResponse {
 
 - `google/protobuf/go_features.proto`
 - `google/protobuf/timestamp.proto`
-- `pkg/common/proto/request_metadata.proto` →
-  [common](./common.md#request_metadata)
+- `pkg/common/proto/request_metadata.proto` → [common](./common.md#request_metadata)
 
 #### ⚠️ Issues Found (1)
 
-- Line 20: Implementation needed - \* Auto-generated placeholder - implement
-  specific fields as needed.
+- Line 20: Implementation needed - \* Auto-generated placeholder - implement specific fields as needed.
 
 #### Source Code
 
@@ -458,8 +441,7 @@ message GetServerMetricsRequest {
 
 ### get_server_metrics_response.proto {#get_server_metrics_response}
 
-**Path**: `pkg/web/proto/get_server_metrics_response.proto` **Package**:
-`gcommon.v1.web` **Lines**: 56
+**Path**: `pkg/web/proto/get_server_metrics_response.proto` **Package**: `gcommon.v1.web` **Lines**: 56
 
 **Messages** (1): `GetServerMetricsResponse`
 
@@ -468,13 +450,11 @@ message GetServerMetricsRequest {
 - `google/protobuf/go_features.proto`
 - `google/protobuf/timestamp.proto`
 - `pkg/common/proto/error.proto` → [common](./common.md#error)
-- `pkg/common/proto/request_metadata.proto` →
-  [common](./common.md#request_metadata)
+- `pkg/common/proto/request_metadata.proto` → [common](./common.md#request_metadata)
 
 #### ⚠️ Issues Found (1)
 
-- Line 21: Implementation needed - \* Auto-generated placeholder - implement
-  specific fields as needed.
+- Line 21: Implementation needed - \* Auto-generated placeholder - implement specific fields as needed.
 
 #### Source Code
 
@@ -541,8 +521,7 @@ message GetServerMetricsResponse {
 
 ### get_server_status_request.proto {#get_server_status_request}
 
-**Path**: `pkg/web/proto/get_server_status_request.proto` **Package**:
-`gcommon.v1.web` **Lines**: 18
+**Path**: `pkg/web/proto/get_server_status_request.proto` **Package**: `gcommon.v1.web` **Lines**: 18
 
 **Messages** (1): `GetServerStatusRequest`
 
@@ -581,8 +560,7 @@ message GetServerStatusRequest {
 
 ### get_server_status_response.proto {#get_server_status_response}
 
-**Path**: `pkg/web/proto/get_server_status_response.proto` **Package**:
-`gcommon.v1.web` **Lines**: 18
+**Path**: `pkg/web/proto/get_server_status_response.proto` **Package**: `gcommon.v1.web` **Lines**: 18
 
 **Messages** (1): `GetServerStatusResponse`
 
@@ -621,8 +599,7 @@ message GetServerStatusResponse {
 
 ### get_session_request.proto {#get_session_request}
 
-**Path**: `pkg/web/proto/get_session_request.proto` **Package**:
-`gcommon.v1.web` **Lines**: 19
+**Path**: `pkg/web/proto/get_session_request.proto` **Package**: `gcommon.v1.web` **Lines**: 19
 
 **Messages** (1): `GetSessionRequest`
 
@@ -658,8 +635,7 @@ message GetSessionRequest {
 
 ### get_session_response.proto {#get_session_response}
 
-**Path**: `pkg/web/proto/get_session_response.proto` **Package**:
-`gcommon.v1.web` **Lines**: 20
+**Path**: `pkg/web/proto/get_session_response.proto` **Package**: `gcommon.v1.web` **Lines**: 20
 
 **Messages** (1): `GetSessionResponse`
 
@@ -697,8 +673,7 @@ message GetSessionResponse {
 
 ### get_ssl_certificate_info_request.proto {#get_ssl_certificate_info_request}
 
-**Path**: `pkg/web/proto/get_ssl_certificate_info_request.proto` **Package**:
-`gcommon.v1.web` **Lines**: 42
+**Path**: `pkg/web/proto/get_ssl_certificate_info_request.proto` **Package**: `gcommon.v1.web` **Lines**: 42
 
 **Messages** (1): `GetSSLCertificateInfoRequest`
 
@@ -706,13 +681,11 @@ message GetSessionResponse {
 
 - `google/protobuf/go_features.proto`
 - `google/protobuf/timestamp.proto`
-- `pkg/common/proto/request_metadata.proto` →
-  [common](./common.md#request_metadata)
+- `pkg/common/proto/request_metadata.proto` → [common](./common.md#request_metadata)
 
 #### ⚠️ Issues Found (1)
 
-- Line 20: Implementation needed - \* Auto-generated placeholder - implement
-  specific fields as needed.
+- Line 20: Implementation needed - \* Auto-generated placeholder - implement specific fields as needed.
 
 #### Source Code
 
@@ -765,8 +738,7 @@ message GetSSLCertificateInfoRequest {
 
 ### get_ssl_certificate_info_response.proto {#get_ssl_certificate_info_response}
 
-**Path**: `pkg/web/proto/get_ssl_certificate_info_response.proto` **Package**:
-`gcommon.v1.web` **Lines**: 56
+**Path**: `pkg/web/proto/get_ssl_certificate_info_response.proto` **Package**: `gcommon.v1.web` **Lines**: 56
 
 **Messages** (1): `GetSSLCertificateInfoResponse`
 
@@ -775,13 +747,11 @@ message GetSSLCertificateInfoRequest {
 - `google/protobuf/go_features.proto`
 - `google/protobuf/timestamp.proto`
 - `pkg/common/proto/error.proto` → [common](./common.md#error)
-- `pkg/common/proto/request_metadata.proto` →
-  [common](./common.md#request_metadata)
+- `pkg/common/proto/request_metadata.proto` → [common](./common.md#request_metadata)
 
 #### ⚠️ Issues Found (1)
 
-- Line 21: Implementation needed - \* Auto-generated placeholder - implement
-  specific fields as needed.
+- Line 21: Implementation needed - \* Auto-generated placeholder - implement specific fields as needed.
 
 #### Source Code
 
@@ -848,8 +818,7 @@ message GetSSLCertificateInfoResponse {
 
 ### get_template_info_request.proto {#get_template_info_request}
 
-**Path**: `pkg/web/proto/get_template_info_request.proto` **Package**:
-`gcommon.v1.web` **Lines**: 18
+**Path**: `pkg/web/proto/get_template_info_request.proto` **Package**: `gcommon.v1.web` **Lines**: 18
 
 **Messages** (1): `GetTemplateInfoRequest`
 
@@ -888,8 +857,7 @@ message GetTemplateInfoRequest {
 
 ### get_template_info_response.proto {#get_template_info_response}
 
-**Path**: `pkg/web/proto/get_template_info_response.proto` **Package**:
-`gcommon.v1.web` **Lines**: 18
+**Path**: `pkg/web/proto/get_template_info_response.proto` **Package**: `gcommon.v1.web` **Lines**: 18
 
 **Messages** (1): `GetTemplateInfoResponse`
 
@@ -928,8 +896,7 @@ message GetTemplateInfoResponse {
 
 ### get_websocket_info_request.proto {#get_websocket_info_request}
 
-**Path**: `pkg/web/proto/get_websocket_info_request.proto` **Package**:
-`gcommon.v1.web` **Lines**: 18
+**Path**: `pkg/web/proto/get_websocket_info_request.proto` **Package**: `gcommon.v1.web` **Lines**: 18
 
 **Messages** (1): `GetWebsocketInfoRequest`
 
@@ -968,8 +935,7 @@ message GetWebsocketInfoRequest {
 
 ### get_websocket_info_response.proto {#get_websocket_info_response}
 
-**Path**: `pkg/web/proto/get_websocket_info_response.proto` **Package**:
-`gcommon.v1.web` **Lines**: 18
+**Path**: `pkg/web/proto/get_websocket_info_response.proto` **Package**: `gcommon.v1.web` **Lines**: 18
 
 **Messages** (1): `GetWebsocketInfoResponse`
 
@@ -1008,8 +974,7 @@ message GetWebsocketInfoResponse {
 
 ### handle_request.proto {#handle_request}
 
-**Path**: `pkg/web/proto/handle_request.proto` **Package**: `gcommon.v1.web`
-**Lines**: 18
+**Path**: `pkg/web/proto/handle_request.proto` **Package**: `gcommon.v1.web` **Lines**: 18
 
 **Messages** (1): `HandleRequest`
 
@@ -1048,8 +1013,7 @@ message HandleRequest {
 
 ### handle_request_request.proto {#handle_request_request}
 
-**Path**: `pkg/web/proto/handle_request_request.proto` **Package**:
-`gcommon.v1.web` **Lines**: 42
+**Path**: `pkg/web/proto/handle_request_request.proto` **Package**: `gcommon.v1.web` **Lines**: 42
 
 **Messages** (1): `HandleRequestRequest`
 
@@ -1057,13 +1021,11 @@ message HandleRequest {
 
 - `google/protobuf/go_features.proto`
 - `google/protobuf/timestamp.proto`
-- `pkg/common/proto/request_metadata.proto` →
-  [common](./common.md#request_metadata)
+- `pkg/common/proto/request_metadata.proto` → [common](./common.md#request_metadata)
 
 #### ⚠️ Issues Found (1)
 
-- Line 20: Implementation needed - \* Auto-generated placeholder - implement
-  specific fields as needed.
+- Line 20: Implementation needed - \* Auto-generated placeholder - implement specific fields as needed.
 
 #### Source Code
 
@@ -1116,8 +1078,7 @@ message HandleRequestRequest {
 
 ### handle_request_response.proto {#handle_request_response}
 
-**Path**: `pkg/web/proto/handle_request_response.proto` **Package**:
-`gcommon.v1.web` **Lines**: 56
+**Path**: `pkg/web/proto/handle_request_response.proto` **Package**: `gcommon.v1.web` **Lines**: 56
 
 **Messages** (1): `HandleRequestResponse`
 
@@ -1126,13 +1087,11 @@ message HandleRequestRequest {
 - `google/protobuf/go_features.proto`
 - `google/protobuf/timestamp.proto`
 - `pkg/common/proto/error.proto` → [common](./common.md#error)
-- `pkg/common/proto/request_metadata.proto` →
-  [common](./common.md#request_metadata)
+- `pkg/common/proto/request_metadata.proto` → [common](./common.md#request_metadata)
 
 #### ⚠️ Issues Found (1)
 
-- Line 21: Implementation needed - \* Auto-generated placeholder - implement
-  specific fields as needed.
+- Line 21: Implementation needed - \* Auto-generated placeholder - implement specific fields as needed.
 
 #### Source Code
 
@@ -1199,8 +1158,7 @@ message HandleRequestResponse {
 
 ### handle_response.proto {#handle_response}
 
-**Path**: `pkg/web/proto/handle_response.proto` **Package**: `gcommon.v1.web`
-**Lines**: 18
+**Path**: `pkg/web/proto/handle_response.proto` **Package**: `gcommon.v1.web` **Lines**: 18
 
 **Messages** (1): `HandleResponse`
 
@@ -1239,16 +1197,14 @@ message HandleResponse {
 
 ### health_check_request.proto {#health_check_request}
 
-**Path**: `pkg/web/proto/health_check_request.proto` **Package**:
-`gcommon.v1.web` **Lines**: 20
+**Path**: `pkg/web/proto/health_check_request.proto` **Package**: `gcommon.v1.web` **Lines**: 20
 
 **Messages** (1): `HealthCheckRequest`
 
 **Imports** (2):
 
 - `google/protobuf/go_features.proto`
-- `pkg/common/proto/request_metadata.proto` →
-  [common](./common.md#request_metadata)
+- `pkg/common/proto/request_metadata.proto` → [common](./common.md#request_metadata)
 
 #### Source Code
 
@@ -1279,8 +1235,7 @@ message HealthCheckRequest {
 
 ### health_check_response.proto {#health_check_response}
 
-**Path**: `pkg/web/proto/health_check_response.proto` **Package**:
-`gcommon.v1.web` **Lines**: 28
+**Path**: `pkg/web/proto/health_check_response.proto` **Package**: `gcommon.v1.web` **Lines**: 28
 
 **Messages** (1): `HealthCheckResponse`
 
@@ -1289,9 +1244,7 @@ message HealthCheckRequest {
 - `google/protobuf/duration.proto`
 - `google/protobuf/go_features.proto`
 - `pkg/common/proto/error.proto` → [common](./common.md#error)
-- `pkg/common/proto/health_status.proto` → [common](./common.md#health_status) →
-  [metrics_1](./metrics_1.md#health_status) →
-  [queue_1](./queue_1.md#health_status) → [web](./web.md#health_status)
+- `pkg/common/proto/health_status.proto` → [common](./common.md#health_status) → [metrics_1](./metrics_1.md#health_status) → [queue_1](./queue_1.md#health_status) → [web](./web.md#health_status)
 
 #### Source Code
 
@@ -1330,8 +1283,7 @@ message HealthCheckResponse {
 
 ### http_request.proto {#http_request}
 
-**Path**: `pkg/web/proto/http_request.proto` **Package**: `gcommon.v1.web`
-**Lines**: 49
+**Path**: `pkg/web/proto/http_request.proto` **Package**: `gcommon.v1.web` **Lines**: 49
 
 **Messages** (1): `HTTPRequest`
 
@@ -1397,8 +1349,7 @@ message HTTPRequest {
 
 ### http_request_per.proto {#http_request_per}
 
-**Path**: `pkg/web/proto/http_request_per.proto` **Package**: `gcommon.v1.web`
-**Lines**: 175
+**Path**: `pkg/web/proto/http_request_per.proto` **Package**: `gcommon.v1.web` **Lines**: 175
 
 **Messages** (1): `HttpRequest`
 
@@ -1407,8 +1358,7 @@ message HTTPRequest {
 - `google/protobuf/any.proto`
 - `google/protobuf/go_features.proto`
 - `google/protobuf/timestamp.proto`
-- `pkg/common/proto/request_metadata.proto` →
-  [common](./common.md#request_metadata)
+- `pkg/common/proto/request_metadata.proto` → [common](./common.md#request_metadata)
 
 #### Source Code
 
@@ -1594,8 +1544,7 @@ message HttpRequest {
 
 ### http_response.proto {#http_response}
 
-**Path**: `pkg/web/proto/http_response.proto` **Package**: `gcommon.v1.web`
-**Lines**: 34
+**Path**: `pkg/web/proto/http_response.proto` **Package**: `gcommon.v1.web` **Lines**: 34
 
 **Messages** (1): `HTTPResponse`
 
@@ -1646,8 +1595,7 @@ message HTTPResponse {
 
 ### http_response_per.proto {#http_response_per}
 
-**Path**: `pkg/web/proto/http_response_per.proto` **Package**: `gcommon.v1.web`
-**Lines**: 190
+**Path**: `pkg/web/proto/http_response_per.proto` **Package**: `gcommon.v1.web` **Lines**: 190
 
 **Messages** (1): `HttpResponse`
 
@@ -1657,8 +1605,7 @@ message HTTPResponse {
 - `google/protobuf/go_features.proto`
 - `google/protobuf/timestamp.proto`
 - `pkg/common/proto/error.proto` → [common](./common.md#error)
-- `pkg/common/proto/request_metadata.proto` →
-  [common](./common.md#request_metadata)
+- `pkg/common/proto/request_metadata.proto` → [common](./common.md#request_metadata)
 
 #### Source Code
 
@@ -1859,8 +1806,7 @@ message HttpResponse {
 
 ### list_cookies_request.proto {#list_cookies_request}
 
-**Path**: `pkg/web/proto/list_cookies_request.proto` **Package**:
-`gcommon.v1.web` **Lines**: 18
+**Path**: `pkg/web/proto/list_cookies_request.proto` **Package**: `gcommon.v1.web` **Lines**: 18
 
 **Messages** (1): `ListCookiesRequest`
 
@@ -1899,8 +1845,7 @@ message ListCookiesRequest {
 
 ### list_cookies_response.proto {#list_cookies_response}
 
-**Path**: `pkg/web/proto/list_cookies_response.proto` **Package**:
-`gcommon.v1.web` **Lines**: 18
+**Path**: `pkg/web/proto/list_cookies_response.proto` **Package**: `gcommon.v1.web` **Lines**: 18
 
 **Messages** (1): `ListCookiesResponse`
 
@@ -1939,16 +1884,14 @@ message ListCookiesResponse {
 
 ### list_files_request.proto {#list_files_request}
 
-**Path**: `pkg/web/proto/list_files_request.proto` **Package**: `gcommon.v1.web`
-**Lines**: 45
+**Path**: `pkg/web/proto/list_files_request.proto` **Package**: `gcommon.v1.web` **Lines**: 45
 
 **Messages** (1): `ListFilesRequest`
 
 **Imports** (3):
 
 - `google/protobuf/go_features.proto`
-- `pkg/common/proto/request_metadata.proto` →
-  [common](./common.md#request_metadata)
+- `pkg/common/proto/request_metadata.proto` → [common](./common.md#request_metadata)
 - `pkg/web/proto/file_sort_order.proto` → [web](./web.md#file_sort_order)
 
 #### Source Code
@@ -2005,16 +1948,14 @@ message ListFilesRequest {
 
 ### list_files_response.proto {#list_files_response}
 
-**Path**: `pkg/web/proto/list_files_response.proto` **Package**:
-`gcommon.v1.web` **Lines**: 36
+**Path**: `pkg/web/proto/list_files_response.proto` **Package**: `gcommon.v1.web` **Lines**: 36
 
 **Messages** (1): `ListFilesResponse`
 
 **Imports** (3):
 
 - `google/protobuf/go_features.proto`
-- `pkg/common/proto/response_metadata.proto` →
-  [common](./common.md#response_metadata)
+- `pkg/common/proto/response_metadata.proto` → [common](./common.md#response_metadata)
 - `pkg/web/proto/file_info.proto` → [web](./web.md#file_info)
 
 #### Source Code
@@ -2062,16 +2003,14 @@ message ListFilesResponse {
 
 ### list_handlers_request.proto {#list_handlers_request}
 
-**Path**: `pkg/web/proto/list_handlers_request.proto` **Package**:
-`gcommon.v1.web` **Lines**: 38
+**Path**: `pkg/web/proto/list_handlers_request.proto` **Package**: `gcommon.v1.web` **Lines**: 38
 
 **Messages** (1): `ListHandlersRequest`
 
 **Imports** (2):
 
 - `google/protobuf/go_features.proto`
-- `pkg/common/proto/request_metadata.proto` →
-  [common](./common.md#request_metadata)
+- `pkg/common/proto/request_metadata.proto` → [common](./common.md#request_metadata)
 
 #### Source Code
 
@@ -2120,8 +2059,7 @@ message ListHandlersRequest {
 
 ### list_handlers_response.proto {#list_handlers_response}
 
-**Path**: `pkg/web/proto/list_handlers_response.proto` **Package**:
-`gcommon.v1.web` **Lines**: 18
+**Path**: `pkg/web/proto/list_handlers_response.proto` **Package**: `gcommon.v1.web` **Lines**: 18
 
 **Messages** (1): `ListHandlersResponse`
 
@@ -2160,8 +2098,7 @@ message ListHandlersResponse {
 
 ### list_middleware_request.proto {#list_middleware_request}
 
-**Path**: `pkg/web/proto/list_middleware_request.proto` **Package**:
-`gcommon.v1.web` **Lines**: 34
+**Path**: `pkg/web/proto/list_middleware_request.proto` **Package**: `gcommon.v1.web` **Lines**: 34
 
 **Messages** (1): `ListMiddlewareRequest`
 
@@ -2169,8 +2106,7 @@ message ListHandlersResponse {
 
 - `google/protobuf/go_features.proto`
 - `pkg/common/proto/pagination.proto` → [common](./common.md#pagination)
-- `pkg/common/proto/request_metadata.proto` →
-  [common](./common.md#request_metadata)
+- `pkg/common/proto/request_metadata.proto` → [common](./common.md#request_metadata)
 - `pkg/web/proto/middleware_type.proto` → [web](./web.md#middleware_type)
 
 #### Source Code
@@ -2216,8 +2152,7 @@ message ListMiddlewareRequest {
 
 ### list_middleware_response.proto {#list_middleware_response}
 
-**Path**: `pkg/web/proto/list_middleware_response.proto` **Package**:
-`gcommon.v1.web` **Lines**: 28
+**Path**: `pkg/web/proto/list_middleware_response.proto` **Package**: `gcommon.v1.web` **Lines**: 28
 
 **Messages** (1): `ListMiddlewareResponse`
 
@@ -2265,8 +2200,7 @@ message ListMiddlewareResponse {
 
 ### list_routes_request.proto {#list_routes_request}
 
-**Path**: `pkg/web/proto/list_routes_request.proto` **Package**:
-`gcommon.v1.web` **Lines**: 18
+**Path**: `pkg/web/proto/list_routes_request.proto` **Package**: `gcommon.v1.web` **Lines**: 18
 
 **Messages** (1): `ListRoutesRequest`
 
@@ -2305,8 +2239,7 @@ message ListRoutesRequest {
 
 ### list_routes_response.proto {#list_routes_response}
 
-**Path**: `pkg/web/proto/list_routes_response.proto` **Package**:
-`gcommon.v1.web` **Lines**: 18
+**Path**: `pkg/web/proto/list_routes_response.proto` **Package**: `gcommon.v1.web` **Lines**: 18
 
 **Messages** (1): `ListRoutesResponse`
 
@@ -2345,8 +2278,7 @@ message ListRoutesResponse {
 
 ### list_servers_request.proto {#list_servers_request}
 
-**Path**: `pkg/web/proto/list_servers_request.proto` **Package**:
-`gcommon.v1.web` **Lines**: 42
+**Path**: `pkg/web/proto/list_servers_request.proto` **Package**: `gcommon.v1.web` **Lines**: 42
 
 **Messages** (1): `ListServersRequest`
 
@@ -2354,13 +2286,11 @@ message ListRoutesResponse {
 
 - `google/protobuf/go_features.proto`
 - `google/protobuf/timestamp.proto`
-- `pkg/common/proto/request_metadata.proto` →
-  [common](./common.md#request_metadata)
+- `pkg/common/proto/request_metadata.proto` → [common](./common.md#request_metadata)
 
 #### ⚠️ Issues Found (1)
 
-- Line 20: Implementation needed - \* Auto-generated placeholder - implement
-  specific fields as needed.
+- Line 20: Implementation needed - \* Auto-generated placeholder - implement specific fields as needed.
 
 #### Source Code
 
@@ -2413,8 +2343,7 @@ message ListServersRequest {
 
 ### list_servers_response.proto {#list_servers_response}
 
-**Path**: `pkg/web/proto/list_servers_response.proto` **Package**:
-`gcommon.v1.web` **Lines**: 56
+**Path**: `pkg/web/proto/list_servers_response.proto` **Package**: `gcommon.v1.web` **Lines**: 56
 
 **Messages** (1): `ListServersResponse`
 
@@ -2423,13 +2352,11 @@ message ListServersRequest {
 - `google/protobuf/go_features.proto`
 - `google/protobuf/timestamp.proto`
 - `pkg/common/proto/error.proto` → [common](./common.md#error)
-- `pkg/common/proto/request_metadata.proto` →
-  [common](./common.md#request_metadata)
+- `pkg/common/proto/request_metadata.proto` → [common](./common.md#request_metadata)
 
 #### ⚠️ Issues Found (1)
 
-- Line 21: Implementation needed - \* Auto-generated placeholder - implement
-  specific fields as needed.
+- Line 21: Implementation needed - \* Auto-generated placeholder - implement specific fields as needed.
 
 #### Source Code
 
@@ -2496,8 +2423,7 @@ message ListServersResponse {
 
 ### list_sessions_request.proto {#list_sessions_request}
 
-**Path**: `pkg/web/proto/list_sessions_request.proto` **Package**:
-`gcommon.v1.web` **Lines**: 19
+**Path**: `pkg/web/proto/list_sessions_request.proto` **Package**: `gcommon.v1.web` **Lines**: 19
 
 **Messages** (1): `ListSessionsRequest`
 
@@ -2533,8 +2459,7 @@ message ListSessionsRequest {
 
 ### list_sessions_response.proto {#list_sessions_response}
 
-**Path**: `pkg/web/proto/list_sessions_response.proto` **Package**:
-`gcommon.v1.web` **Lines**: 20
+**Path**: `pkg/web/proto/list_sessions_response.proto` **Package**: `gcommon.v1.web` **Lines**: 20
 
 **Messages** (1): `ListSessionsResponse`
 
@@ -2572,8 +2497,7 @@ message ListSessionsResponse {
 
 ### list_templates_request.proto {#list_templates_request}
 
-**Path**: `pkg/web/proto/list_templates_request.proto` **Package**:
-`gcommon.v1.web` **Lines**: 18
+**Path**: `pkg/web/proto/list_templates_request.proto` **Package**: `gcommon.v1.web` **Lines**: 18
 
 **Messages** (1): `ListTemplatesRequest`
 
@@ -2612,8 +2536,7 @@ message ListTemplatesRequest {
 
 ### list_templates_response.proto {#list_templates_response}
 
-**Path**: `pkg/web/proto/list_templates_response.proto` **Package**:
-`gcommon.v1.web` **Lines**: 18
+**Path**: `pkg/web/proto/list_templates_response.proto` **Package**: `gcommon.v1.web` **Lines**: 18
 
 **Messages** (1): `ListTemplatesResponse`
 
@@ -2652,8 +2575,7 @@ message ListTemplatesResponse {
 
 ### list_websockets_request.proto {#list_websockets_request}
 
-**Path**: `pkg/web/proto/list_websockets_request.proto` **Package**:
-`gcommon.v1.web` **Lines**: 18
+**Path**: `pkg/web/proto/list_websockets_request.proto` **Package**: `gcommon.v1.web` **Lines**: 18
 
 **Messages** (1): `ListWebsocketsRequest`
 
@@ -2692,8 +2614,7 @@ message ListWebsocketsRequest {
 
 ### list_websockets_response.proto {#list_websockets_response}
 
-**Path**: `pkg/web/proto/list_websockets_response.proto` **Package**:
-`gcommon.v1.web` **Lines**: 18
+**Path**: `pkg/web/proto/list_websockets_response.proto` **Package**: `gcommon.v1.web` **Lines**: 18
 
 **Messages** (1): `ListWebsocketsResponse`
 
@@ -2732,8 +2653,7 @@ message ListWebsocketsResponse {
 
 ### register_handler_request.proto {#register_handler_request}
 
-**Path**: `pkg/web/proto/register_handler_request.proto` **Package**:
-`gcommon.v1.web` **Lines**: 18
+**Path**: `pkg/web/proto/register_handler_request.proto` **Package**: `gcommon.v1.web` **Lines**: 18
 
 **Messages** (1): `RegisterHandlerRequest`
 
@@ -2772,8 +2692,7 @@ message RegisterHandlerRequest {
 
 ### register_handler_response.proto {#register_handler_response}
 
-**Path**: `pkg/web/proto/register_handler_response.proto` **Package**:
-`gcommon.v1.web` **Lines**: 18
+**Path**: `pkg/web/proto/register_handler_response.proto` **Package**: `gcommon.v1.web` **Lines**: 18
 
 **Messages** (1): `RegisterHandlerResponse`
 
@@ -2812,18 +2731,15 @@ message RegisterHandlerResponse {
 
 ### register_middleware_request.proto {#register_middleware_request}
 
-**Path**: `pkg/web/proto/register_middleware_request.proto` **Package**:
-`gcommon.v1.web` **Lines**: 27
+**Path**: `pkg/web/proto/register_middleware_request.proto` **Package**: `gcommon.v1.web` **Lines**: 27
 
 **Messages** (1): `RegisterMiddlewareRequest`
 
 **Imports** (3):
 
 - `google/protobuf/go_features.proto`
-- `pkg/common/proto/request_metadata.proto` →
-  [common](./common.md#request_metadata)
-- `pkg/web/proto/middleware_config.proto` →
-  [web_config_1](./web_config_1.md#middleware_config)
+- `pkg/common/proto/request_metadata.proto` → [common](./common.md#request_metadata)
+- `pkg/web/proto/middleware_config.proto` → [web_config_1](./web_config_1.md#middleware_config)
 
 #### Source Code
 
@@ -2861,8 +2777,7 @@ message RegisterMiddlewareRequest {
 
 ### register_middleware_response.proto {#register_middleware_response}
 
-**Path**: `pkg/web/proto/register_middleware_response.proto` **Package**:
-`gcommon.v1.web` **Lines**: 27
+**Path**: `pkg/web/proto/register_middleware_response.proto` **Package**: `gcommon.v1.web` **Lines**: 27
 
 **Messages** (1): `RegisterMiddlewareResponse`
 
@@ -2908,8 +2823,7 @@ message RegisterMiddlewareResponse {
 
 ### register_route_request.proto {#register_route_request}
 
-**Path**: `pkg/web/proto/register_route_request.proto` **Package**:
-`gcommon.v1.web` **Lines**: 18
+**Path**: `pkg/web/proto/register_route_request.proto` **Package**: `gcommon.v1.web` **Lines**: 18
 
 **Messages** (1): `RegisterRouteRequest`
 
@@ -2948,8 +2862,7 @@ message RegisterRouteRequest {
 
 ### register_route_response.proto {#register_route_response}
 
-**Path**: `pkg/web/proto/register_route_response.proto` **Package**:
-`gcommon.v1.web` **Lines**: 18
+**Path**: `pkg/web/proto/register_route_response.proto` **Package**: `gcommon.v1.web` **Lines**: 18
 
 **Messages** (1): `RegisterRouteResponse`
 

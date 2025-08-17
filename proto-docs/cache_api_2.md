@@ -41,8 +41,7 @@
 
 ### set_request.proto {#set_request}
 
-**Path**: `pkg/cache/proto/set_request.proto` **Package**: `gcommon.v1.cache`
-**Lines**: 40
+**Path**: `pkg/cache/proto/set_request.proto` **Package**: `gcommon.v1.cache` **Lines**: 40
 
 **Messages** (1): `SetRequest`
 
@@ -51,8 +50,7 @@
 - `google/protobuf/any.proto`
 - `google/protobuf/duration.proto`
 - `google/protobuf/go_features.proto`
-- `pkg/common/proto/request_metadata.proto` →
-  [common](./common.md#request_metadata)
+- `pkg/common/proto/request_metadata.proto` → [common](./common.md#request_metadata)
 
 #### Source Code
 
@@ -103,8 +101,7 @@ message SetRequest {
 
 ### set_response.proto {#set_response}
 
-**Path**: `pkg/cache/proto/set_response.proto` **Package**: `gcommon.v1.cache`
-**Lines**: 25
+**Path**: `pkg/cache/proto/set_response.proto` **Package**: `gcommon.v1.cache` **Lines**: 25
 
 **Messages** (1): `SetResponse`
 
@@ -146,16 +143,14 @@ message SetResponse {
 
 ### stats_request.proto {#stats_request}
 
-**Path**: `pkg/cache/proto/stats_request.proto` **Package**: `gcommon.v1.cache`
-**Lines**: 22
+**Path**: `pkg/cache/proto/stats_request.proto` **Package**: `gcommon.v1.cache` **Lines**: 22
 
 **Messages** (1): `GetStatsRequest`
 
 **Imports** (2):
 
 - `google/protobuf/go_features.proto`
-- `pkg/common/proto/request_metadata.proto` →
-  [common](./common.md#request_metadata)
+- `pkg/common/proto/request_metadata.proto` → [common](./common.md#request_metadata)
 
 #### Source Code
 
@@ -188,16 +183,14 @@ message GetStatsRequest {
 
 ### subscribe_request.proto {#subscribe_request}
 
-**Path**: `pkg/cache/proto/subscribe_request.proto` **Package**:
-`gcommon.v1.cache` **Lines**: 22
+**Path**: `pkg/cache/proto/subscribe_request.proto` **Package**: `gcommon.v1.cache` **Lines**: 22
 
 **Messages** (1): `SubscribeRequest`
 
 **Imports** (2):
 
 - `google/protobuf/go_features.proto`
-- `pkg/common/proto/request_metadata.proto` →
-  [common](./common.md#request_metadata)
+- `pkg/common/proto/request_metadata.proto` → [common](./common.md#request_metadata)
 
 #### Source Code
 
@@ -230,8 +223,7 @@ message SubscribeRequest {
 
 ### touch_expiration_response.proto {#touch_expiration_response}
 
-**Path**: `pkg/cache/proto/touch_expiration_response.proto` **Package**:
-`gcommon.v1.cache` **Lines**: 29
+**Path**: `pkg/cache/proto/touch_expiration_response.proto` **Package**: `gcommon.v1.cache` **Lines**: 29
 
 **Messages** (1): `TouchExpirationResponse`
 
@@ -278,16 +270,14 @@ message TouchExpirationResponse {
 
 ### transaction_request.proto {#transaction_request}
 
-**Path**: `pkg/cache/proto/transaction_request.proto` **Package**:
-`gcommon.v1.cache` **Lines**: 22
+**Path**: `pkg/cache/proto/transaction_request.proto` **Package**: `gcommon.v1.cache` **Lines**: 22
 
 **Messages** (1): `TransactionRequest`
 
 **Imports** (2):
 
 - `google/protobuf/go_features.proto`
-- `pkg/common/proto/request_metadata.proto` →
-  [common](./common.md#request_metadata)
+- `pkg/common/proto/request_metadata.proto` → [common](./common.md#request_metadata)
 
 #### Source Code
 
@@ -320,8 +310,7 @@ message TransactionRequest {
 
 ### ttl_request.proto {#ttl_request}
 
-**Path**: `pkg/cache/proto/ttl_request.proto` **Package**: `gcommon.v1.cache`
-**Lines**: 29
+**Path**: `pkg/cache/proto/ttl_request.proto` **Package**: `gcommon.v1.cache` **Lines**: 29
 
 **Messages** (1): `TouchExpirationRequest`
 
@@ -329,8 +318,7 @@ message TransactionRequest {
 
 - `google/protobuf/duration.proto`
 - `google/protobuf/go_features.proto`
-- `pkg/common/proto/request_metadata.proto` →
-  [common](./common.md#request_metadata)
+- `pkg/common/proto/request_metadata.proto` → [common](./common.md#request_metadata)
 
 #### Source Code
 
@@ -370,16 +358,14 @@ message TouchExpirationRequest {
 
 ### unlock_request.proto {#unlock_request}
 
-**Path**: `pkg/cache/proto/unlock_request.proto` **Package**: `gcommon.v1.cache`
-**Lines**: 25
+**Path**: `pkg/cache/proto/unlock_request.proto` **Package**: `gcommon.v1.cache` **Lines**: 25
 
 **Messages** (1): `UnlockRequest`
 
 **Imports** (2):
 
 - `google/protobuf/go_features.proto`
-- `pkg/common/proto/request_metadata.proto` →
-  [common](./common.md#request_metadata)
+- `pkg/common/proto/request_metadata.proto` → [common](./common.md#request_metadata)
 
 #### Source Code
 
@@ -415,16 +401,14 @@ message UnlockRequest {
 
 ### unsubscribe_request.proto {#unsubscribe_request}
 
-**Path**: `pkg/cache/proto/unsubscribe_request.proto` **Package**:
-`gcommon.v1.cache` **Lines**: 22
+**Path**: `pkg/cache/proto/unsubscribe_request.proto` **Package**: `gcommon.v1.cache` **Lines**: 22
 
 **Messages** (1): `UnsubscribeRequest`
 
 **Imports** (2):
 
 - `google/protobuf/go_features.proto`
-- `pkg/common/proto/request_metadata.proto` →
-  [common](./common.md#request_metadata)
+- `pkg/common/proto/request_metadata.proto` → [common](./common.md#request_metadata)
 
 #### Source Code
 
@@ -457,16 +441,14 @@ message UnsubscribeRequest {
 
 ### unwatch_request.proto {#unwatch_request}
 
-**Path**: `pkg/cache/proto/unwatch_request.proto` **Package**:
-`gcommon.v1.cache` **Lines**: 22
+**Path**: `pkg/cache/proto/unwatch_request.proto` **Package**: `gcommon.v1.cache` **Lines**: 22
 
 **Messages** (1): `UnwatchRequest`
 
 **Imports** (2):
 
 - `google/protobuf/go_features.proto`
-- `pkg/common/proto/request_metadata.proto` →
-  [common](./common.md#request_metadata)
+- `pkg/common/proto/request_metadata.proto` → [common](./common.md#request_metadata)
 
 #### Source Code
 
@@ -499,16 +481,14 @@ message UnwatchRequest {
 
 ### watch_request.proto {#watch_request}
 
-**Path**: `pkg/cache/proto/watch_request.proto` **Package**: `gcommon.v1.cache`
-**Lines**: 22
+**Path**: `pkg/cache/proto/watch_request.proto` **Package**: `gcommon.v1.cache` **Lines**: 22
 
 **Messages** (1): `WatchRequest`
 
 **Imports** (2):
 
 - `google/protobuf/go_features.proto`
-- `pkg/common/proto/request_metadata.proto` →
-  [common](./common.md#request_metadata)
+- `pkg/common/proto/request_metadata.proto` → [common](./common.md#request_metadata)
 
 #### Source Code
 

@@ -37,18 +37,15 @@
 
 ### update_organization_request.proto {#update_organization_request}
 
-**Path**: `pkg/organization/proto/update_organization_request.proto`
-**Package**: `gcommon.v1.organization` **Lines**: 27
+**Path**: `pkg/organization/proto/update_organization_request.proto` **Package**: `gcommon.v1.organization` **Lines**: 27
 
 **Messages** (1): `UpdateOrganizationRequest`
 
 **Imports** (3):
 
 - `google/protobuf/go_features.proto`
-- `pkg/common/proto/request_metadata.proto` →
-  [common](./common.md#request_metadata)
-- `pkg/organization/proto/organization.proto` →
-  [organization](./organization.md#organization)
+- `pkg/common/proto/request_metadata.proto` → [common](./common.md#request_metadata)
+- `pkg/organization/proto/organization.proto` → [organization](./organization.md#organization)
 
 #### Source Code
 
@@ -86,8 +83,7 @@ message UpdateOrganizationRequest {
 
 ### update_organization_response.proto {#update_organization_response}
 
-**Path**: `pkg/organization/proto/update_organization_response.proto`
-**Package**: `gcommon.v1.organization` **Lines**: 26
+**Path**: `pkg/organization/proto/update_organization_response.proto` **Package**: `gcommon.v1.organization` **Lines**: 26
 
 **Messages** (1): `UpdateOrganizationResponse`
 
@@ -95,8 +91,7 @@ message UpdateOrganizationRequest {
 
 - `google/protobuf/go_features.proto`
 - `pkg/common/proto/error.proto` → [common](./common.md#error)
-- `pkg/organization/proto/organization.proto` →
-  [organization](./organization.md#organization)
+- `pkg/organization/proto/organization.proto` → [organization](./organization.md#organization)
 
 #### Source Code
 
@@ -133,8 +128,7 @@ message UpdateOrganizationResponse {
 
 ### update_team_request.proto {#update_team_request}
 
-**Path**: `pkg/organization/proto/update_team_request.proto` **Package**:
-`gcommon.v1.organization` **Lines**: 31
+**Path**: `pkg/organization/proto/update_team_request.proto` **Package**: `gcommon.v1.organization` **Lines**: 31
 
 **Messages** (1): `UpdateTeamRequest`
 
@@ -142,8 +136,7 @@ message UpdateOrganizationResponse {
 
 - `google/protobuf/field_mask.proto`
 - `google/protobuf/go_features.proto`
-- `pkg/common/proto/request_metadata.proto` →
-  [common](./common.md#request_metadata)
+- `pkg/common/proto/request_metadata.proto` → [common](./common.md#request_metadata)
 - `pkg/organization/proto/team.proto` → [organization](./organization.md#team)
 
 #### Source Code
@@ -186,8 +179,7 @@ message UpdateTeamRequest {
 
 ### update_team_response.proto {#update_team_response}
 
-**Path**: `pkg/organization/proto/update_team_response.proto` **Package**:
-`gcommon.v1.organization` **Lines**: 23
+**Path**: `pkg/organization/proto/update_team_response.proto` **Package**: `gcommon.v1.organization` **Lines**: 23
 
 **Messages** (1): `UpdateTeamResponse`
 
@@ -229,18 +221,15 @@ message UpdateTeamResponse {
 
 ### update_tenant_quota_request.proto {#update_tenant_quota_request}
 
-**Path**: `pkg/organization/proto/update_tenant_quota_request.proto`
-**Package**: `gcommon.v1.organization` **Lines**: 24
+**Path**: `pkg/organization/proto/update_tenant_quota_request.proto` **Package**: `gcommon.v1.organization` **Lines**: 24
 
 **Messages** (1): `UpdateTenantQuotaRequest`
 
 **Imports** (3):
 
 - `google/protobuf/go_features.proto`
-- `pkg/common/proto/request_metadata.proto` →
-  [common](./common.md#request_metadata)
-- `pkg/organization/proto/tenant_quota.proto` →
-  [organization](./organization.md#tenant_quota)
+- `pkg/common/proto/request_metadata.proto` → [common](./common.md#request_metadata)
+- `pkg/organization/proto/tenant_quota.proto` → [organization](./organization.md#tenant_quota)
 
 #### Source Code
 
@@ -275,8 +264,7 @@ message UpdateTenantQuotaRequest {
 
 ### update_tenant_quota_response.proto {#update_tenant_quota_response}
 
-**Path**: `pkg/organization/proto/update_tenant_quota_response.proto`
-**Package**: `gcommon.v1.organization` **Lines**: 23
+**Path**: `pkg/organization/proto/update_tenant_quota_response.proto` **Package**: `gcommon.v1.organization` **Lines**: 23
 
 **Messages** (1): `UpdateTenantQuotaResponse`
 
@@ -284,8 +272,7 @@ message UpdateTenantQuotaRequest {
 
 - `google/protobuf/go_features.proto`
 - `pkg/common/proto/error.proto` → [common](./common.md#error)
-- `pkg/organization/proto/tenant_quota.proto` →
-  [organization](./organization.md#tenant_quota)
+- `pkg/organization/proto/tenant_quota.proto` → [organization](./organization.md#tenant_quota)
 
 #### Source Code
 
@@ -319,8 +306,7 @@ message UpdateTenantQuotaResponse {
 
 ### update_tenant_request.proto {#update_tenant_request}
 
-**Path**: `pkg/organization/proto/update_tenant_request.proto` **Package**:
-`gcommon.v1.organization` **Lines**: 31
+**Path**: `pkg/organization/proto/update_tenant_request.proto` **Package**: `gcommon.v1.organization` **Lines**: 31
 
 **Messages** (1): `UpdateTenantRequest`
 
@@ -328,10 +314,8 @@ message UpdateTenantQuotaResponse {
 
 - `google/protobuf/field_mask.proto`
 - `google/protobuf/go_features.proto`
-- `pkg/common/proto/request_metadata.proto` →
-  [common](./common.md#request_metadata)
-- `pkg/organization/proto/tenant.proto` →
-  [organization](./organization.md#tenant)
+- `pkg/common/proto/request_metadata.proto` → [common](./common.md#request_metadata)
+- `pkg/organization/proto/tenant.proto` → [organization](./organization.md#tenant)
 
 #### Source Code
 
@@ -373,8 +357,7 @@ message UpdateTenantRequest {
 
 ### update_tenant_response.proto {#update_tenant_response}
 
-**Path**: `pkg/organization/proto/update_tenant_response.proto` **Package**:
-`gcommon.v1.organization` **Lines**: 23
+**Path**: `pkg/organization/proto/update_tenant_response.proto` **Package**: `gcommon.v1.organization` **Lines**: 23
 
 **Messages** (1): `UpdateTenantResponse`
 
@@ -382,8 +365,7 @@ message UpdateTenantRequest {
 
 - `google/protobuf/go_features.proto`
 - `pkg/common/proto/error.proto` → [common](./common.md#error)
-- `pkg/organization/proto/tenant.proto` →
-  [organization](./organization.md#tenant)
+- `pkg/organization/proto/tenant.proto` → [organization](./organization.md#tenant)
 
 #### Source Code
 

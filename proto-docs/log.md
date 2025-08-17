@@ -43,8 +43,7 @@
 
 ### appender_config.proto {#appender_config}
 
-**Path**: `pkg/log/proto/appender_config.proto` **Package**: `gcommon.v1.log`
-**Lines**: 51
+**Path**: `pkg/log/proto/appender_config.proto` **Package**: `gcommon.v1.log` **Lines**: 51
 
 **Messages** (3): `AppenderConfig`, `OutputConfig`, `FormatterConfig`
 
@@ -114,8 +113,7 @@ message AppenderConfig {
 
 ### appender_type.proto {#appender_type}
 
-**Path**: `pkg/log/proto/appender_type.proto` **Package**: `gcommon.v1.log`
-**Lines**: 24
+**Path**: `pkg/log/proto/appender_type.proto` **Package**: `gcommon.v1.log` **Lines**: 24
 
 **Enums** (1): `AppenderType`
 
@@ -156,8 +154,7 @@ enum AppenderType {
 
 ### archive_criteria.proto {#archive_criteria}
 
-**Path**: `pkg/log/proto/archive_criteria.proto` **Package**: `gcommon.v1.log`
-**Lines**: 23
+**Path**: `pkg/log/proto/archive_criteria.proto` **Package**: `gcommon.v1.log` **Lines**: 23
 
 **Messages** (1): `ArchiveCriteria`
 
@@ -198,8 +195,7 @@ message ArchiveCriteria {
 
 ### compression_type.proto {#compression_type}
 
-**Path**: `pkg/log/proto/compression_type.proto` **Package**: `gcommon.v1.log`
-**Lines**: 23
+**Path**: `pkg/log/proto/compression_type.proto` **Package**: `gcommon.v1.log` **Lines**: 23
 
 **Enums** (1): `CompressionType`
 
@@ -239,8 +235,7 @@ enum CompressionType {
 
 ### error_info.proto {#error_info}
 
-**Path**: `pkg/log/proto/error_info.proto` **Package**: `gcommon.v1.log`
-**Lines**: 34
+**Path**: `pkg/log/proto/error_info.proto` **Package**: `gcommon.v1.log` **Lines**: 34
 
 **Messages** (1): `ErrorInfo`
 
@@ -291,8 +286,7 @@ message ErrorInfo {
 
 ### filter_type.proto {#filter_type}
 
-**Path**: `pkg/log/proto/filter_type.proto` **Package**: `gcommon.v1.log`
-**Lines**: 22
+**Path**: `pkg/log/proto/filter_type.proto` **Package**: `gcommon.v1.log` **Lines**: 22
 
 **Enums** (1): `FilterType`
 
@@ -331,8 +325,7 @@ enum FilterType {
 
 ### formatter_type.proto {#formatter_type}
 
-**Path**: `pkg/log/proto/formatter_type.proto` **Package**: `gcommon.v1.log`
-**Lines**: 22
+**Path**: `pkg/log/proto/formatter_type.proto` **Package**: `gcommon.v1.log` **Lines**: 22
 
 **Enums** (1): `FormatterType`
 
@@ -371,8 +364,7 @@ enum FormatterType {
 
 ### log_entry.proto {#log_entry}
 
-**Path**: `pkg/log/proto/log_entry.proto` **Package**: `gcommon.v1.log`
-**Lines**: 61
+**Path**: `pkg/log/proto/log_entry.proto` **Package**: `gcommon.v1.log` **Lines**: 61
 
 **Messages** (1): `LogEntry`
 
@@ -456,8 +448,7 @@ message LogEntry {
 
 ### log_level.proto {#log_level}
 
-**Path**: `pkg/log/proto/log_level.proto` **Package**: `gcommon.v1.log`
-**Lines**: 24
+**Path**: `pkg/log/proto/log_level.proto` **Package**: `gcommon.v1.log` **Lines**: 24
 
 **Enums** (1): `LogLevel`
 
@@ -498,8 +489,7 @@ enum LogLevel {
 
 ### log_sort_field.proto {#log_sort_field}
 
-**Path**: `pkg/log/proto/log_sort_field.proto` **Package**: `gcommon.v1.log`
-**Lines**: 22
+**Path**: `pkg/log/proto/log_sort_field.proto` **Package**: `gcommon.v1.log` **Lines**: 22
 
 **Enums** (1): `LogSortField`
 
@@ -538,8 +528,7 @@ enum LogSortField {
 
 ### log_statistics.proto {#log_statistics}
 
-**Path**: `pkg/log/proto/log_statistics.proto` **Package**: `gcommon.v1.log`
-**Lines**: 34
+**Path**: `pkg/log/proto/log_statistics.proto` **Package**: `gcommon.v1.log` **Lines**: 34
 
 **Messages** (1): `LogStatistics`
 
@@ -590,8 +579,7 @@ message LogStatistics {
 
 ### logger_config.proto {#logger_config}
 
-**Path**: `pkg/log/proto/logger_config.proto` **Package**: `gcommon.v1.log`
-**Lines**: 33
+**Path**: `pkg/log/proto/logger_config.proto` **Package**: `gcommon.v1.log` **Lines**: 33
 
 **Messages** (1): `LoggerConfig`
 
@@ -643,8 +631,7 @@ message LoggerConfig {
 
 ### logger_status.proto {#logger_status}
 
-**Path**: `pkg/log/proto/logger_status.proto` **Package**: `gcommon.v1.log`
-**Lines**: 21
+**Path**: `pkg/log/proto/logger_status.proto` **Package**: `gcommon.v1.log` **Lines**: 21
 
 **Enums** (1): `LoggerStatus`
 
@@ -682,8 +669,7 @@ enum LoggerStatus {
 
 ### source_location.proto {#source_location}
 
-**Path**: `pkg/log/proto/source_location.proto` **Package**: `gcommon.v1.log`
-**Lines**: 28
+**Path**: `pkg/log/proto/source_location.proto` **Package**: `gcommon.v1.log` **Lines**: 28
 
 **Messages** (1): `SourceLocation`
 

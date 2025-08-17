@@ -88,8 +88,7 @@
 
 ### access_control.proto {#access_control}
 
-**Path**: `pkg/config/proto/access_control.proto` **Package**:
-`gcommon.v1.config` **Lines**: 48
+**Path**: `pkg/config/proto/access_control.proto` **Package**: `gcommon.v1.config` **Lines**: 48
 
 **Messages** (1): `AccessControl`
 
@@ -157,8 +156,7 @@ message AccessControl {
 
 ### access_restriction.proto {#access_restriction}
 
-**Path**: `pkg/config/proto/access_restriction.proto` **Package**:
-`gcommon.v1.config` **Lines**: 29
+**Path**: `pkg/config/proto/access_restriction.proto` **Package**: `gcommon.v1.config` **Lines**: 29
 
 **Messages** (1): `AccessRestriction`
 
@@ -206,8 +204,7 @@ message AccessRestriction {
 
 ### alert_severity.proto {#alert_severity}
 
-**Path**: `pkg/config/proto/alert_severity.proto` **Package**:
-`gcommon.v1.config` **Lines**: 21
+**Path**: `pkg/config/proto/alert_severity.proto` **Package**: `gcommon.v1.config` **Lines**: 21
 
 **Enums** (1): `AlertSeverity`
 
@@ -245,8 +242,7 @@ enum AlertSeverity {
 
 ### alert_type.proto {#alert_type}
 
-**Path**: `pkg/config/proto/alert_type.proto` **Package**: `gcommon.v1.config`
-**Lines**: 25
+**Path**: `pkg/config/proto/alert_type.proto` **Package**: `gcommon.v1.config` **Lines**: 25
 
 **Enums** (1): `AlertType`
 
@@ -289,8 +285,7 @@ enum AlertType {
 
 ### approval_info.proto {#approval_info}
 
-**Path**: `pkg/config/proto/approval_info.proto` **Package**:
-`gcommon.v1.config` **Lines**: 42
+**Path**: `pkg/config/proto/approval_info.proto` **Package**: `gcommon.v1.config` **Lines**: 42
 
 **Messages** (1): `ApprovalInfo`
 
@@ -299,13 +294,10 @@ enum AlertType {
 - `google/protobuf/go_features.proto`
 - `google/protobuf/timestamp.proto`
 - `pkg/config/proto/approval_status.proto`
-- `pkg/config/proto/audit_operation_type.proto` →
-  [config_events](./config_events.md#audit_operation_type)
+- `pkg/config/proto/audit_operation_type.proto` → [config_events](./config_events.md#audit_operation_type)
 - `pkg/config/proto/rollback_method.proto`
-- `pkg/config/proto/validation_result_type.proto` →
-  [config_2](./config_2.md#validation_result_type)
-- `pkg/config/proto/validation_severity.proto` →
-  [config_2](./config_2.md#validation_severity)
+- `pkg/config/proto/validation_result_type.proto` → [config_2](./config_2.md#validation_result_type)
+- `pkg/config/proto/validation_severity.proto` → [config_2](./config_2.md#validation_severity)
 
 #### Source Code
 
@@ -358,8 +350,7 @@ message ApprovalInfo {
 
 ### approval_requirement.proto {#approval_requirement}
 
-**Path**: `pkg/config/proto/approval_requirement.proto` **Package**:
-`gcommon.v1.config` **Lines**: 47
+**Path**: `pkg/config/proto/approval_requirement.proto` **Package**: `gcommon.v1.config` **Lines**: 47
 
 **Messages** (1): `ApprovalRequirement`
 
@@ -367,12 +358,10 @@ message ApprovalInfo {
 
 - `google/protobuf/go_features.proto`
 - `google/protobuf/timestamp.proto`
-- `pkg/config/proto/audit_level.proto` →
-  [config_events](./config_events.md#audit_level)
+- `pkg/config/proto/audit_level.proto` → [config_events](./config_events.md#audit_level)
 - `pkg/config/proto/backup_frequency.proto`
 - `pkg/config/proto/channel_type.proto`
-- `pkg/config/proto/config_data_type.proto` →
-  [config_config_1](./config_config_1.md#config_data_type)
+- `pkg/config/proto/config_data_type.proto` → [config_config_1](./config_config_1.md#config_data_type)
 - `pkg/config/proto/deprecation_level.proto`
 - `pkg/config/proto/metadata_status.proto`
 - `pkg/config/proto/notification_trigger.proto`
@@ -433,8 +422,7 @@ message ApprovalRequirement {
 
 ### approval_status.proto {#approval_status}
 
-**Path**: `pkg/config/proto/approval_status.proto` **Package**:
-`gcommon.v1.config` **Lines**: 37
+**Path**: `pkg/config/proto/approval_status.proto` **Package**: `gcommon.v1.config` **Lines**: 37
 
 **Enums** (1): `ApprovalStatus`
 
@@ -488,8 +476,7 @@ enum ApprovalStatus {
 
 ### backoff_strategy.proto {#backoff_strategy}
 
-**Path**: `pkg/config/proto/backoff_strategy.proto` **Package**:
-`gcommon.v1.config` **Lines**: 23
+**Path**: `pkg/config/proto/backoff_strategy.proto` **Package**: `gcommon.v1.config` **Lines**: 23
 
 **Enums** (1): `BackoffStrategy`
 
@@ -531,8 +518,7 @@ enum BackoffStrategy {
 
 ### backup_frequency.proto {#backup_frequency}
 
-**Path**: `pkg/config/proto/backup_frequency.proto` **Package**:
-`gcommon.v1.config` **Lines**: 23
+**Path**: `pkg/config/proto/backup_frequency.proto` **Package**: `gcommon.v1.config` **Lines**: 23
 
 **Enums** (1): `BackupFrequency`
 
@@ -572,8 +558,7 @@ enum BackupFrequency {
 
 ### cache_invalidation_trigger.proto {#cache_invalidation_trigger}
 
-**Path**: `pkg/config/proto/cache_invalidation_trigger.proto` **Package**:
-`gcommon.v1.config` **Lines**: 24
+**Path**: `pkg/config/proto/cache_invalidation_trigger.proto` **Package**: `gcommon.v1.config` **Lines**: 24
 
 **Enums** (1): `CacheInvalidationTrigger`
 
@@ -616,8 +601,7 @@ enum CacheInvalidationTrigger {
 
 ### cache_refresh_strategy.proto {#cache_refresh_strategy}
 
-**Path**: `pkg/config/proto/cache_refresh_strategy.proto` **Package**:
-`gcommon.v1.config` **Lines**: 23
+**Path**: `pkg/config/proto/cache_refresh_strategy.proto` **Package**: `gcommon.v1.config` **Lines**: 23
 
 **Enums** (1): `CacheRefreshStrategy`
 
@@ -659,8 +643,7 @@ enum CacheRefreshStrategy {
 
 ### change_type.proto {#change_type}
 
-**Path**: `pkg/config/proto/change_type.proto` **Package**: `gcommon.v1.config`
-**Lines**: 24
+**Path**: `pkg/config/proto/change_type.proto` **Package**: `gcommon.v1.config` **Lines**: 24
 
 **Enums** (1): `ChangeType`
 
@@ -702,8 +685,7 @@ enum ChangeType {
 
 ### channel_type.proto {#channel_type}
 
-**Path**: `pkg/config/proto/channel_type.proto` **Package**: `gcommon.v1.config`
-**Lines**: 25
+**Path**: `pkg/config/proto/channel_type.proto` **Package**: `gcommon.v1.config` **Lines**: 25
 
 **Enums** (1): `ChannelType`
 
@@ -745,8 +727,7 @@ enum ChannelType {
 
 ### compliance_reporting.proto {#compliance_reporting}
 
-**Path**: `pkg/config/proto/compliance_reporting.proto` **Package**:
-`gcommon.v1.config` **Lines**: 24
+**Path**: `pkg/config/proto/compliance_reporting.proto` **Package**: `gcommon.v1.config` **Lines**: 24
 
 **Messages** (1): `ComplianceReporting`
 
@@ -787,8 +768,7 @@ message ComplianceReporting {
 
 ### compression_type.proto {#compression_type}
 
-**Path**: `pkg/config/proto/compression_type.proto` **Package**:
-`gcommon.v1.config` **Lines**: 22
+**Path**: `pkg/config/proto/compression_type.proto` **Package**: `gcommon.v1.config` **Lines**: 22
 
 **Enums** (1): `CompressionType`
 
@@ -828,8 +808,7 @@ enum CompressionType {
 
 ### conflict_resolution.proto {#conflict_resolution}
 
-**Path**: `pkg/config/proto/conflict_resolution.proto` **Package**:
-`gcommon.v1.config` **Lines**: 24
+**Path**: `pkg/config/proto/conflict_resolution.proto` **Package**: `gcommon.v1.config` **Lines**: 24
 
 **Enums** (1): `ConflictResolution`
 
@@ -872,8 +851,7 @@ enum ConflictResolution {
 
 ### dependency_type.proto {#dependency_type}
 
-**Path**: `pkg/config/proto/dependency_type.proto` **Package**:
-`gcommon.v1.config` **Lines**: 24
+**Path**: `pkg/config/proto/dependency_type.proto` **Package**: `gcommon.v1.config` **Lines**: 24
 
 **Enums** (1): `DependencyType`
 
@@ -916,8 +894,7 @@ enum DependencyType {
 
 ### deployment_status.proto {#deployment_status}
 
-**Path**: `pkg/config/proto/deployment_status.proto` **Package**:
-`gcommon.v1.config` **Lines**: 40
+**Path**: `pkg/config/proto/deployment_status.proto` **Package**: `gcommon.v1.config` **Lines**: 40
 
 **Enums** (1): `DeploymentStatus`
 
@@ -974,8 +951,7 @@ enum DeploymentStatus {
 
 ### deprecation_info.proto {#deprecation_info}
 
-**Path**: `pkg/config/proto/deprecation_info.proto` **Package**:
-`gcommon.v1.config` **Lines**: 44
+**Path**: `pkg/config/proto/deprecation_info.proto` **Package**: `gcommon.v1.config` **Lines**: 44
 
 **Messages** (1): `DeprecationInfo`
 
@@ -983,12 +959,10 @@ enum DeploymentStatus {
 
 - `google/protobuf/go_features.proto`
 - `google/protobuf/timestamp.proto`
-- `pkg/config/proto/audit_level.proto` →
-  [config_events](./config_events.md#audit_level)
+- `pkg/config/proto/audit_level.proto` → [config_events](./config_events.md#audit_level)
 - `pkg/config/proto/backup_frequency.proto`
 - `pkg/config/proto/channel_type.proto`
-- `pkg/config/proto/config_data_type.proto` →
-  [config_config_1](./config_config_1.md#config_data_type)
+- `pkg/config/proto/config_data_type.proto` → [config_config_1](./config_config_1.md#config_data_type)
 - `pkg/config/proto/deprecation_level.proto`
 - `pkg/config/proto/metadata_status.proto`
 - `pkg/config/proto/notification_trigger.proto`
@@ -1046,8 +1020,7 @@ message DeprecationInfo {
 
 ### deprecation_level.proto {#deprecation_level}
 
-**Path**: `pkg/config/proto/deprecation_level.proto` **Package**:
-`gcommon.v1.config` **Lines**: 20
+**Path**: `pkg/config/proto/deprecation_level.proto` **Package**: `gcommon.v1.config` **Lines**: 20
 
 **Enums** (1): `DeprecationLevel`
 
@@ -1084,8 +1057,7 @@ enum DeprecationLevel {
 
 ### environment_status.proto {#environment_status}
 
-**Path**: `pkg/config/proto/environment_status.proto` **Package**:
-`gcommon.v1.config` **Lines**: 40
+**Path**: `pkg/config/proto/environment_status.proto` **Package**: `gcommon.v1.config` **Lines**: 40
 
 **Enums** (1): `EnvironmentStatus`
 
@@ -1142,8 +1114,7 @@ enum EnvironmentStatus {
 
 ### environment_type.proto {#environment_type}
 
-**Path**: `pkg/config/proto/environment_type.proto` **Package**:
-`gcommon.v1.config` **Lines**: 52
+**Path**: `pkg/config/proto/environment_type.proto` **Package**: `gcommon.v1.config` **Lines**: 52
 
 **Enums** (1): `EnvironmentType`
 
@@ -1212,8 +1183,7 @@ enum EnvironmentType {
 
 ### filter_action.proto {#filter_action}
 
-**Path**: `pkg/config/proto/filter_action.proto` **Package**:
-`gcommon.v1.config` **Lines**: 23
+**Path**: `pkg/config/proto/filter_action.proto` **Package**: `gcommon.v1.config` **Lines**: 23
 
 **Enums** (1): `FilterAction`
 
@@ -1255,8 +1225,7 @@ enum FilterAction {
 
 ### filter_type.proto {#filter_type}
 
-**Path**: `pkg/config/proto/filter_type.proto` **Package**: `gcommon.v1.config`
-**Lines**: 26
+**Path**: `pkg/config/proto/filter_type.proto` **Package**: `gcommon.v1.config` **Lines**: 26
 
 **Enums** (1): `FilterType`
 
@@ -1301,8 +1270,7 @@ enum FilterType {
 
 ### health_check_type.proto {#health_check_type}
 
-**Path**: `pkg/config/proto/health_check_type.proto` **Package**:
-`gcommon.v1.config` **Lines**: 43
+**Path**: `pkg/config/proto/health_check_type.proto` **Package**: `gcommon.v1.config` **Lines**: 43
 
 **Enums** (1): `HealthCheckType`
 
@@ -1362,8 +1330,7 @@ enum HealthCheckType {
 
 ### health_state.proto {#health_state}
 
-**Path**: `pkg/config/proto/health_state.proto` **Package**: `gcommon.v1.config`
-**Lines**: 34
+**Path**: `pkg/config/proto/health_state.proto` **Package**: `gcommon.v1.config` **Lines**: 34
 
 **Enums** (1): `HealthState`
 
@@ -1414,8 +1381,7 @@ enum HealthState {
 
 ### hook_error_handling.proto {#hook_error_handling}
 
-**Path**: `pkg/config/proto/hook_error_handling.proto` **Package**:
-`gcommon.v1.config` **Lines**: 21
+**Path**: `pkg/config/proto/hook_error_handling.proto` **Package**: `gcommon.v1.config` **Lines**: 21
 
 **Enums** (1): `HookErrorHandling`
 
@@ -1454,8 +1420,7 @@ enum HookErrorHandling {
 
 ### hook_type.proto {#hook_type}
 
-**Path**: `pkg/config/proto/hook_type.proto` **Package**: `gcommon.v1.config`
-**Lines**: 24
+**Path**: `pkg/config/proto/hook_type.proto` **Package**: `gcommon.v1.config` **Lines**: 24
 
 **Enums** (1): `HookType`
 
@@ -1497,8 +1462,7 @@ enum HookType {
 
 ### inheritance_filter.proto {#inheritance_filter}
 
-**Path**: `pkg/config/proto/inheritance_filter.proto` **Package**:
-`gcommon.v1.config` **Lines**: 31
+**Path**: `pkg/config/proto/inheritance_filter.proto` **Package**: `gcommon.v1.config` **Lines**: 31
 
 **Messages** (1): `InheritanceFilter`
 
@@ -1550,8 +1514,7 @@ message InheritanceFilter {
 
 ### inheritance_strategy.proto {#inheritance_strategy}
 
-**Path**: `pkg/config/proto/inheritance_strategy.proto` **Package**:
-`gcommon.v1.config` **Lines**: 24
+**Path**: `pkg/config/proto/inheritance_strategy.proto` **Package**: `gcommon.v1.config` **Lines**: 24
 
 **Enums** (1): `InheritanceStrategy`
 
@@ -1594,8 +1557,7 @@ enum InheritanceStrategy {
 
 ### inheritance_transformation.proto {#inheritance_transformation}
 
-**Path**: `pkg/config/proto/inheritance_transformation.proto` **Package**:
-`gcommon.v1.config` **Lines**: 30
+**Path**: `pkg/config/proto/inheritance_transformation.proto` **Package**: `gcommon.v1.config` **Lines**: 30
 
 **Messages** (1): `InheritanceTransformation`
 
@@ -1604,8 +1566,7 @@ enum InheritanceStrategy {
 - `google/protobuf/any.proto`
 - `google/protobuf/go_features.proto`
 - `google/protobuf/timestamp.proto`
-- `pkg/config/proto/transformation_type.proto` →
-  [config_2](./config_2.md#transformation_type)
+- `pkg/config/proto/transformation_type.proto` → [config_2](./config_2.md#transformation_type)
 
 #### Source Code
 
@@ -1646,8 +1607,7 @@ message InheritanceTransformation {
 
 ### merge_strategy.proto {#merge_strategy}
 
-**Path**: `pkg/config/proto/merge_strategy.proto` **Package**:
-`gcommon.v1.config` **Lines**: 26
+**Path**: `pkg/config/proto/merge_strategy.proto` **Package**: `gcommon.v1.config` **Lines**: 26
 
 **Enums** (1): `MergeStrategy`
 
@@ -1692,8 +1652,7 @@ enum MergeStrategy {
 
 ### metadata_status.proto {#metadata_status}
 
-**Path**: `pkg/config/proto/metadata_status.proto` **Package**:
-`gcommon.v1.config` **Lines**: 23
+**Path**: `pkg/config/proto/metadata_status.proto` **Package**: `gcommon.v1.config` **Lines**: 23
 
 **Enums** (1): `MetadataStatus`
 
@@ -1733,8 +1692,7 @@ enum MetadataStatus {
 
 ### monitoring_alert.proto {#monitoring_alert}
 
-**Path**: `pkg/config/proto/monitoring_alert.proto` **Package**:
-`gcommon.v1.config` **Lines**: 30
+**Path**: `pkg/config/proto/monitoring_alert.proto` **Package**: `gcommon.v1.config` **Lines**: 30
 
 **Messages** (1): `MonitoringAlert`
 
@@ -1781,8 +1739,7 @@ message MonitoringAlert {
 
 ### notification_channel.proto {#notification_channel}
 
-**Path**: `pkg/config/proto/notification_channel.proto` **Package**:
-`gcommon.v1.config` **Lines**: 35
+**Path**: `pkg/config/proto/notification_channel.proto` **Package**: `gcommon.v1.config` **Lines**: 35
 
 **Messages** (1): `NotificationChannel`
 
@@ -1790,12 +1747,10 @@ message MonitoringAlert {
 
 - `google/protobuf/go_features.proto`
 - `google/protobuf/timestamp.proto`
-- `pkg/config/proto/audit_level.proto` →
-  [config_events](./config_events.md#audit_level)
+- `pkg/config/proto/audit_level.proto` → [config_events](./config_events.md#audit_level)
 - `pkg/config/proto/backup_frequency.proto`
 - `pkg/config/proto/channel_type.proto`
-- `pkg/config/proto/config_data_type.proto` →
-  [config_config_1](./config_config_1.md#config_data_type)
+- `pkg/config/proto/config_data_type.proto` → [config_config_1](./config_config_1.md#config_data_type)
 - `pkg/config/proto/deprecation_level.proto`
 - `pkg/config/proto/metadata_status.proto`
 - `pkg/config/proto/notification_trigger.proto`
@@ -1844,8 +1799,7 @@ message NotificationChannel {
 
 ### notification_trigger.proto {#notification_trigger}
 
-**Path**: `pkg/config/proto/notification_trigger.proto` **Package**:
-`gcommon.v1.config` **Lines**: 24
+**Path**: `pkg/config/proto/notification_trigger.proto` **Package**: `gcommon.v1.config` **Lines**: 24
 
 **Enums** (1): `NotificationTrigger`
 
@@ -1886,8 +1840,7 @@ enum NotificationTrigger {
 
 ### parameter_constraints.proto {#parameter_constraints}
 
-**Path**: `pkg/config/proto/parameter_constraints.proto` **Package**:
-`gcommon.v1.config` **Lines**: 30
+**Path**: `pkg/config/proto/parameter_constraints.proto` **Package**: `gcommon.v1.config` **Lines**: 30
 
 **Messages** (1): `ParameterConstraints`
 
@@ -1934,8 +1887,7 @@ message ParameterConstraints {
 
 ### parameter_type.proto {#parameter_type}
 
-**Path**: `pkg/config/proto/parameter_type.proto` **Package**:
-`gcommon.v1.config` **Lines**: 32
+**Path**: `pkg/config/proto/parameter_type.proto` **Package**: `gcommon.v1.config` **Lines**: 32
 
 **Enums** (1): `ParameterType`
 
@@ -1985,8 +1937,7 @@ enum ParameterType {
 
 ### rate_limits.proto {#rate_limits}
 
-**Path**: `pkg/config/proto/rate_limits.proto` **Package**: `gcommon.v1.config`
-**Lines**: 24
+**Path**: `pkg/config/proto/rate_limits.proto` **Package**: `gcommon.v1.config` **Lines**: 24
 
 **Messages** (1): `RateLimits`
 
@@ -2027,8 +1978,7 @@ message RateLimits {
 
 ### reference_type.proto {#reference_type}
 
-**Path**: `pkg/config/proto/reference_type.proto` **Package**:
-`gcommon.v1.config` **Lines**: 24
+**Path**: `pkg/config/proto/reference_type.proto` **Package**: `gcommon.v1.config` **Lines**: 24
 
 **Enums** (1): `ReferenceType`
 
@@ -2071,8 +2021,7 @@ enum ReferenceType {
 
 ### restore_point_status.proto {#restore_point_status}
 
-**Path**: `pkg/config/proto/restore_point_status.proto` **Package**:
-`gcommon.v1.config` **Lines**: 23
+**Path**: `pkg/config/proto/restore_point_status.proto` **Package**: `gcommon.v1.config` **Lines**: 23
 
 **Enums** (1): `RestorePointStatus`
 
@@ -2113,8 +2062,7 @@ enum RestorePointStatus {
 
 ### restore_point_type.proto {#restore_point_type}
 
-**Path**: `pkg/config/proto/restore_point_type.proto` **Package**:
-`gcommon.v1.config` **Lines**: 24
+**Path**: `pkg/config/proto/restore_point_type.proto` **Package**: `gcommon.v1.config` **Lines**: 24
 
 **Enums** (1): `RestorePointType`
 
@@ -2156,8 +2104,7 @@ enum RestorePointType {
 
 ### restriction_type.proto {#restriction_type}
 
-**Path**: `pkg/config/proto/restriction_type.proto` **Package**:
-`gcommon.v1.config` **Lines**: 23
+**Path**: `pkg/config/proto/restriction_type.proto` **Package**: `gcommon.v1.config` **Lines**: 23
 
 **Enums** (1): `RestrictionType`
 
@@ -2198,8 +2145,7 @@ enum RestrictionType {
 
 ### rollback_info.proto {#rollback_info}
 
-**Path**: `pkg/config/proto/rollback_info.proto` **Package**:
-`gcommon.v1.config` **Lines**: 36
+**Path**: `pkg/config/proto/rollback_info.proto` **Package**: `gcommon.v1.config` **Lines**: 36
 
 **Messages** (1): `RollbackInfo`
 
@@ -2208,13 +2154,10 @@ enum RestrictionType {
 - `google/protobuf/go_features.proto`
 - `google/protobuf/timestamp.proto`
 - `pkg/config/proto/approval_status.proto`
-- `pkg/config/proto/audit_operation_type.proto` →
-  [config_events](./config_events.md#audit_operation_type)
+- `pkg/config/proto/audit_operation_type.proto` → [config_events](./config_events.md#audit_operation_type)
 - `pkg/config/proto/rollback_method.proto`
-- `pkg/config/proto/validation_result_type.proto` →
-  [config_2](./config_2.md#validation_result_type)
-- `pkg/config/proto/validation_severity.proto` →
-  [config_2](./config_2.md#validation_severity)
+- `pkg/config/proto/validation_result_type.proto` → [config_2](./config_2.md#validation_result_type)
+- `pkg/config/proto/validation_severity.proto` → [config_2](./config_2.md#validation_severity)
 
 #### Source Code
 
@@ -2261,8 +2204,7 @@ message RollbackInfo {
 
 ### rollback_method.proto {#rollback_method}
 
-**Path**: `pkg/config/proto/rollback_method.proto` **Package**:
-`gcommon.v1.config` **Lines**: 34
+**Path**: `pkg/config/proto/rollback_method.proto` **Package**: `gcommon.v1.config` **Lines**: 34
 
 **Enums** (1): `RollbackMethod`
 
@@ -2313,8 +2255,7 @@ enum RollbackMethod {
 
 ### rotation_frequency.proto {#rotation_frequency}
 
-**Path**: `pkg/config/proto/rotation_frequency.proto` **Package**:
-`gcommon.v1.config` **Lines**: 25
+**Path**: `pkg/config/proto/rotation_frequency.proto` **Package**: `gcommon.v1.config` **Lines**: 25
 
 **Enums** (1): `RotationFrequency`
 
@@ -2357,8 +2298,7 @@ enum RotationFrequency {
 
 ### secret_backup_frequency.proto {#secret_backup_frequency}
 
-**Path**: `pkg/config/proto/secret_backup_frequency.proto` **Package**:
-`gcommon.v1.config` **Lines**: 24
+**Path**: `pkg/config/proto/secret_backup_frequency.proto` **Package**: `gcommon.v1.config` **Lines**: 24
 
 **Enums** (1): `SecretBackupFrequency`
 
@@ -2400,8 +2340,7 @@ enum SecretBackupFrequency {
 
 ### secret_status.proto {#secret_status}
 
-**Path**: `pkg/config/proto/secret_status.proto` **Package**:
-`gcommon.v1.config` **Lines**: 25
+**Path**: `pkg/config/proto/secret_status.proto` **Package**: `gcommon.v1.config` **Lines**: 25
 
 **Enums** (1): `SecretStatus`
 
@@ -2444,8 +2383,7 @@ enum SecretStatus {
 
 ### secret_type.proto {#secret_type}
 
-**Path**: `pkg/config/proto/secret_type.proto` **Package**: `gcommon.v1.config`
-**Lines**: 34
+**Path**: `pkg/config/proto/secret_type.proto` **Package**: `gcommon.v1.config` **Lines**: 34
 
 **Enums** (1): `SecretType`
 
@@ -2497,8 +2435,7 @@ enum SecretType {
 
 ### secret_validation_result.proto {#secret_validation_result}
 
-**Path**: `pkg/config/proto/secret_validation_result.proto` **Package**:
-`gcommon.v1.config` **Lines**: 36
+**Path**: `pkg/config/proto/secret_validation_result.proto` **Package**: `gcommon.v1.config` **Lines**: 36
 
 **Messages** (1): `SecretValidationResult`
 
@@ -2506,10 +2443,8 @@ enum SecretType {
 
 - `google/protobuf/go_features.proto`
 - `google/protobuf/timestamp.proto`
-- `pkg/config/proto/secret_validation_result_type.proto` →
-  [config_2](./config_2.md#secret_validation_result_type)
-- `pkg/config/proto/secret_validation_severity.proto` →
-  [config_2](./config_2.md#secret_validation_severity)
+- `pkg/config/proto/secret_validation_result_type.proto` → [config_2](./config_2.md#secret_validation_result_type)
+- `pkg/config/proto/secret_validation_severity.proto` → [config_2](./config_2.md#secret_validation_severity)
 
 #### Source Code
 

@@ -20,33 +20,26 @@
 - [cookie_config.proto](#cookie_config)
 - [cors_config.proto](#cors_config)
 - [csrf_config.proto](#csrf_config)
-- [export_server_config_request.proto](#export_server_config_request) ⚠️ 1
-  issues
-- [export_server_config_response.proto](#export_server_config_response) ⚠️ 1
-  issues
+- [export_server_config_request.proto](#export_server_config_request) ⚠️ 1 issues
+- [export_server_config_response.proto](#export_server_config_response) ⚠️ 1 issues
 - [get_cache_config_request.proto](#get_cache_config_request)
 - [get_cache_config_response.proto](#get_cache_config_response)
 - [get_cors_config_request.proto](#get_cors_config_request) ⚠️ 1 issues
 - [get_cors_config_response.proto](#get_cors_config_response) ⚠️ 1 issues
 - [get_security_config_request.proto](#get_security_config_request) ⚠️ 1 issues
-- [get_security_config_response.proto](#get_security_config_response) ⚠️ 1
-  issues
+- [get_security_config_response.proto](#get_security_config_response) ⚠️ 1 issues
 - [get_server_config_request.proto](#get_server_config_request) ⚠️ 1 issues
 - [get_server_config_response.proto](#get_server_config_response) ⚠️ 1 issues
 - [handler_config.proto](#handler_config)
 - [health_check_config.proto](#health_check_config)
-- [import_server_config_request.proto](#import_server_config_request) ⚠️ 1
-  issues
-- [import_server_config_response.proto](#import_server_config_response) ⚠️ 1
-  issues
+- [import_server_config_request.proto](#import_server_config_request) ⚠️ 1 issues
+- [import_server_config_response.proto](#import_server_config_response) ⚠️ 1 issues
 - [load_balancer_config.proto](#load_balancer_config)
 - [middleware_config.proto](#middleware_config)
 - [proxy_config.proto](#proxy_config)
 - [rate_limit_config.proto](#rate_limit_config)
-- [reload_server_config_request.proto](#reload_server_config_request) ⚠️ 1
-  issues
-- [reload_server_config_response.proto](#reload_server_config_response) ⚠️ 1
-  issues
+- [reload_server_config_request.proto](#reload_server_config_request) ⚠️ 1 issues
+- [reload_server_config_response.proto](#reload_server_config_response) ⚠️ 1 issues
 - [route_config.proto](#route_config)
 - [security_config.proto](#security_config)
 - [server_config.proto](#server_config)
@@ -60,21 +53,15 @@
 - [update_cache_config_response.proto](#update_cache_config_response)
 - [update_cors_config_request.proto](#update_cors_config_request) ⚠️ 1 issues
 - [update_cors_config_response.proto](#update_cors_config_response) ⚠️ 1 issues
-- [update_handler_config_request.proto](#update_handler_config_request) ⚠️ 1
-  issues
-- [update_handler_config_response.proto](#update_handler_config_response) ⚠️ 1
-  issues
+- [update_handler_config_request.proto](#update_handler_config_request) ⚠️ 1 issues
+- [update_handler_config_response.proto](#update_handler_config_response) ⚠️ 1 issues
 - [update_middleware_config_request.proto](#update_middleware_config_request)
 - [update_middleware_config_response.proto](#update_middleware_config_response)
 - [update_route_config_request.proto](#update_route_config_request) ⚠️ 1 issues
-- [update_route_config_response.proto](#update_route_config_response) ⚠️ 1
-  issues
-- [update_security_config_request.proto](#update_security_config_request) ⚠️ 1
-  issues
-- [update_security_config_response.proto](#update_security_config_response) ⚠️ 1
-  issues
-- [update_server_config_request.proto](#update_server_config_request) ⚠️ 1
-  issues
+- [update_route_config_response.proto](#update_route_config_response) ⚠️ 1 issues
+- [update_security_config_request.proto](#update_security_config_request) ⚠️ 1 issues
+- [update_security_config_response.proto](#update_security_config_response) ⚠️ 1 issues
+- [update_server_config_request.proto](#update_server_config_request) ⚠️ 1 issues
 
 ## Module Dependencies
 
@@ -99,8 +86,7 @@
 
 ### auth_config.proto {#auth_config}
 
-**Path**: `pkg/web/proto/auth_config.proto` **Package**: `gcommon.v1.web`
-**Lines**: 29
+**Path**: `pkg/web/proto/auth_config.proto` **Package**: `gcommon.v1.web` **Lines**: 29
 
 **Messages** (1): `AuthConfig`
 
@@ -146,8 +132,7 @@ message AuthConfig {
 
 ### cache_config.proto {#cache_config}
 
-**Path**: `pkg/web/proto/cache_config.proto` **Package**: `gcommon.v1.web`
-**Lines**: 34
+**Path**: `pkg/web/proto/cache_config.proto` **Package**: `gcommon.v1.web` **Lines**: 34
 
 **Messages** (1): `CacheConfig`
 
@@ -201,18 +186,14 @@ message CacheConfig {
 
 ### compression_config.proto {#compression_config}
 
-**Path**: `pkg/web/proto/compression_config.proto` **Package**: `gcommon.v1.web`
-**Lines**: 26
+**Path**: `pkg/web/proto/compression_config.proto` **Package**: `gcommon.v1.web` **Lines**: 26
 
 **Messages** (1): `CompressionConfig`
 
 **Imports** (2):
 
 - `google/protobuf/go_features.proto`
-- `pkg/web/proto/compression_type.proto` →
-  [config_1](./config_1.md#compression_type) → [log](./log.md#compression_type)
-  → [metrics_1](./metrics_1.md#compression_type) →
-  [web](./web.md#compression_type)
+- `pkg/web/proto/compression_type.proto` → [config_1](./config_1.md#compression_type) → [log](./log.md#compression_type) → [metrics_1](./metrics_1.md#compression_type) → [web](./web.md#compression_type)
 
 #### Source Code
 
@@ -249,8 +230,7 @@ message CompressionConfig {
 
 ### configure_global_request.proto {#configure_global_request}
 
-**Path**: `pkg/web/proto/configure_global_request.proto` **Package**:
-`gcommon.v1.web` **Lines**: 42
+**Path**: `pkg/web/proto/configure_global_request.proto` **Package**: `gcommon.v1.web` **Lines**: 42
 
 **Messages** (1): `ConfigureGlobalRequest`
 
@@ -258,13 +238,11 @@ message CompressionConfig {
 
 - `google/protobuf/go_features.proto`
 - `google/protobuf/timestamp.proto`
-- `pkg/common/proto/request_metadata.proto` →
-  [common](./common.md#request_metadata)
+- `pkg/common/proto/request_metadata.proto` → [common](./common.md#request_metadata)
 
 #### ⚠️ Issues Found (1)
 
-- Line 20: Implementation needed - \* Auto-generated placeholder - implement
-  specific fields as needed.
+- Line 20: Implementation needed - \* Auto-generated placeholder - implement specific fields as needed.
 
 #### Source Code
 
@@ -317,8 +295,7 @@ message ConfigureGlobalRequest {
 
 ### configure_global_response.proto {#configure_global_response}
 
-**Path**: `pkg/web/proto/configure_global_response.proto` **Package**:
-`gcommon.v1.web` **Lines**: 56
+**Path**: `pkg/web/proto/configure_global_response.proto` **Package**: `gcommon.v1.web` **Lines**: 56
 
 **Messages** (1): `ConfigureGlobalResponse`
 
@@ -327,13 +304,11 @@ message ConfigureGlobalRequest {
 - `google/protobuf/go_features.proto`
 - `google/protobuf/timestamp.proto`
 - `pkg/common/proto/error.proto` → [common](./common.md#error)
-- `pkg/common/proto/request_metadata.proto` →
-  [common](./common.md#request_metadata)
+- `pkg/common/proto/request_metadata.proto` → [common](./common.md#request_metadata)
 
 #### ⚠️ Issues Found (1)
 
-- Line 21: Implementation needed - \* Auto-generated placeholder - implement
-  specific fields as needed.
+- Line 21: Implementation needed - \* Auto-generated placeholder - implement specific fields as needed.
 
 #### Source Code
 
@@ -400,8 +375,7 @@ message ConfigureGlobalResponse {
 
 ### cookie_config.proto {#cookie_config}
 
-**Path**: `pkg/web/proto/cookie_config.proto` **Package**: `gcommon.v1.web`
-**Lines**: 39
+**Path**: `pkg/web/proto/cookie_config.proto` **Package**: `gcommon.v1.web` **Lines**: 39
 
 **Messages** (1): `CookieConfig`
 
@@ -459,8 +433,7 @@ message CookieConfig {
 
 ### cors_config.proto {#cors_config}
 
-**Path**: `pkg/web/proto/cors_config.proto` **Package**: `gcommon.v1.web`
-**Lines**: 38
+**Path**: `pkg/web/proto/cors_config.proto` **Package**: `gcommon.v1.web` **Lines**: 38
 
 **Messages** (1): `CORSConfig`
 
@@ -516,8 +489,7 @@ message CORSConfig {
 
 ### csrf_config.proto {#csrf_config}
 
-**Path**: `pkg/web/proto/csrf_config.proto` **Package**: `gcommon.v1.web`
-**Lines**: 32
+**Path**: `pkg/web/proto/csrf_config.proto` **Package**: `gcommon.v1.web` **Lines**: 32
 
 **Messages** (1): `CsrfConfig`
 
@@ -567,8 +539,7 @@ message CsrfConfig {
 
 ### export_server_config_request.proto {#export_server_config_request}
 
-**Path**: `pkg/web/proto/export_server_config_request.proto` **Package**:
-`gcommon.v1.web` **Lines**: 42
+**Path**: `pkg/web/proto/export_server_config_request.proto` **Package**: `gcommon.v1.web` **Lines**: 42
 
 **Messages** (1): `ExportServerConfigRequest`
 
@@ -576,13 +547,11 @@ message CsrfConfig {
 
 - `google/protobuf/go_features.proto`
 - `google/protobuf/timestamp.proto`
-- `pkg/common/proto/request_metadata.proto` →
-  [common](./common.md#request_metadata)
+- `pkg/common/proto/request_metadata.proto` → [common](./common.md#request_metadata)
 
 #### ⚠️ Issues Found (1)
 
-- Line 20: Implementation needed - \* Auto-generated placeholder - implement
-  specific fields as needed.
+- Line 20: Implementation needed - \* Auto-generated placeholder - implement specific fields as needed.
 
 #### Source Code
 
@@ -635,8 +604,7 @@ message ExportServerConfigRequest {
 
 ### export_server_config_response.proto {#export_server_config_response}
 
-**Path**: `pkg/web/proto/export_server_config_response.proto` **Package**:
-`gcommon.v1.web` **Lines**: 56
+**Path**: `pkg/web/proto/export_server_config_response.proto` **Package**: `gcommon.v1.web` **Lines**: 56
 
 **Messages** (1): `ExportServerConfigResponse`
 
@@ -645,13 +613,11 @@ message ExportServerConfigRequest {
 - `google/protobuf/go_features.proto`
 - `google/protobuf/timestamp.proto`
 - `pkg/common/proto/error.proto` → [common](./common.md#error)
-- `pkg/common/proto/request_metadata.proto` →
-  [common](./common.md#request_metadata)
+- `pkg/common/proto/request_metadata.proto` → [common](./common.md#request_metadata)
 
 #### ⚠️ Issues Found (1)
 
-- Line 21: Implementation needed - \* Auto-generated placeholder - implement
-  specific fields as needed.
+- Line 21: Implementation needed - \* Auto-generated placeholder - implement specific fields as needed.
 
 #### Source Code
 
@@ -718,16 +684,14 @@ message ExportServerConfigResponse {
 
 ### get_cache_config_request.proto {#get_cache_config_request}
 
-**Path**: `pkg/web/proto/get_cache_config_request.proto` **Package**:
-`gcommon.v1.web` **Lines**: 19
+**Path**: `pkg/web/proto/get_cache_config_request.proto` **Package**: `gcommon.v1.web` **Lines**: 19
 
 **Messages** (1): `GetCacheConfigRequest`
 
 **Imports** (2):
 
 - `google/protobuf/go_features.proto`
-- `pkg/common/proto/request_metadata.proto` →
-  [common](./common.md#request_metadata)
+- `pkg/common/proto/request_metadata.proto` → [common](./common.md#request_metadata)
 
 #### Source Code
 
@@ -757,18 +721,15 @@ message GetCacheConfigRequest {
 
 ### get_cache_config_response.proto {#get_cache_config_response}
 
-**Path**: `pkg/web/proto/get_cache_config_response.proto` **Package**:
-`gcommon.v1.web` **Lines**: 23
+**Path**: `pkg/web/proto/get_cache_config_response.proto` **Package**: `gcommon.v1.web` **Lines**: 23
 
 **Messages** (1): `GetCacheConfigResponse`
 
 **Imports** (3):
 
 - `google/protobuf/go_features.proto`
-- `pkg/common/proto/request_metadata.proto` →
-  [common](./common.md#request_metadata)
-- `pkg/web/proto/cache_config.proto` →
-  [cache_config](./cache_config.md#cache_config)
+- `pkg/common/proto/request_metadata.proto` → [common](./common.md#request_metadata)
+- `pkg/web/proto/cache_config.proto` → [cache_config](./cache_config.md#cache_config)
 
 #### Source Code
 
@@ -802,8 +763,7 @@ message GetCacheConfigResponse {
 
 ### get_cors_config_request.proto {#get_cors_config_request}
 
-**Path**: `pkg/web/proto/get_cors_config_request.proto` **Package**:
-`gcommon.v1.web` **Lines**: 18
+**Path**: `pkg/web/proto/get_cors_config_request.proto` **Package**: `gcommon.v1.web` **Lines**: 18
 
 **Messages** (1): `GetCorsConfigRequest`
 
@@ -842,8 +802,7 @@ message GetCorsConfigRequest {
 
 ### get_cors_config_response.proto {#get_cors_config_response}
 
-**Path**: `pkg/web/proto/get_cors_config_response.proto` **Package**:
-`gcommon.v1.web` **Lines**: 18
+**Path**: `pkg/web/proto/get_cors_config_response.proto` **Package**: `gcommon.v1.web` **Lines**: 18
 
 **Messages** (1): `GetCorsConfigResponse`
 
@@ -882,8 +841,7 @@ message GetCorsConfigResponse {
 
 ### get_security_config_request.proto {#get_security_config_request}
 
-**Path**: `pkg/web/proto/get_security_config_request.proto` **Package**:
-`gcommon.v1.web` **Lines**: 18
+**Path**: `pkg/web/proto/get_security_config_request.proto` **Package**: `gcommon.v1.web` **Lines**: 18
 
 **Messages** (1): `GetSecurityConfigRequest`
 
@@ -922,8 +880,7 @@ message GetSecurityConfigRequest {
 
 ### get_security_config_response.proto {#get_security_config_response}
 
-**Path**: `pkg/web/proto/get_security_config_response.proto` **Package**:
-`gcommon.v1.web` **Lines**: 18
+**Path**: `pkg/web/proto/get_security_config_response.proto` **Package**: `gcommon.v1.web` **Lines**: 18
 
 **Messages** (1): `GetSecurityConfigResponse`
 
@@ -962,8 +919,7 @@ message GetSecurityConfigResponse {
 
 ### get_server_config_request.proto {#get_server_config_request}
 
-**Path**: `pkg/web/proto/get_server_config_request.proto` **Package**:
-`gcommon.v1.web` **Lines**: 18
+**Path**: `pkg/web/proto/get_server_config_request.proto` **Package**: `gcommon.v1.web` **Lines**: 18
 
 **Messages** (1): `GetServerConfigRequest`
 
@@ -1002,8 +958,7 @@ message GetServerConfigRequest {
 
 ### get_server_config_response.proto {#get_server_config_response}
 
-**Path**: `pkg/web/proto/get_server_config_response.proto` **Package**:
-`gcommon.v1.web` **Lines**: 18
+**Path**: `pkg/web/proto/get_server_config_response.proto` **Package**: `gcommon.v1.web` **Lines**: 18
 
 **Messages** (1): `GetServerConfigResponse`
 
@@ -1042,8 +997,7 @@ message GetServerConfigResponse {
 
 ### handler_config.proto {#handler_config}
 
-**Path**: `pkg/web/proto/handler_config.proto` **Package**: `gcommon.v1.web`
-**Lines**: 30
+**Path**: `pkg/web/proto/handler_config.proto` **Package**: `gcommon.v1.web` **Lines**: 30
 
 **Messages** (1): `HandlerConfig`
 
@@ -1092,8 +1046,7 @@ message HandlerConfig {
 
 ### health_check_config.proto {#health_check_config}
 
-**Path**: `pkg/web/proto/health_check_config.proto` **Package**:
-`gcommon.v1.web` **Lines**: 34
+**Path**: `pkg/web/proto/health_check_config.proto` **Package**: `gcommon.v1.web` **Lines**: 34
 
 **Messages** (1): `HealthCheckConfig`
 
@@ -1144,8 +1097,7 @@ message HealthCheckConfig {
 
 ### import_server_config_request.proto {#import_server_config_request}
 
-**Path**: `pkg/web/proto/import_server_config_request.proto` **Package**:
-`gcommon.v1.web` **Lines**: 42
+**Path**: `pkg/web/proto/import_server_config_request.proto` **Package**: `gcommon.v1.web` **Lines**: 42
 
 **Messages** (1): `ImportServerConfigRequest`
 
@@ -1153,13 +1105,11 @@ message HealthCheckConfig {
 
 - `google/protobuf/go_features.proto`
 - `google/protobuf/timestamp.proto`
-- `pkg/common/proto/request_metadata.proto` →
-  [common](./common.md#request_metadata)
+- `pkg/common/proto/request_metadata.proto` → [common](./common.md#request_metadata)
 
 #### ⚠️ Issues Found (1)
 
-- Line 20: Implementation needed - \* Auto-generated placeholder - implement
-  specific fields as needed.
+- Line 20: Implementation needed - \* Auto-generated placeholder - implement specific fields as needed.
 
 #### Source Code
 
@@ -1212,8 +1162,7 @@ message ImportServerConfigRequest {
 
 ### import_server_config_response.proto {#import_server_config_response}
 
-**Path**: `pkg/web/proto/import_server_config_response.proto` **Package**:
-`gcommon.v1.web` **Lines**: 56
+**Path**: `pkg/web/proto/import_server_config_response.proto` **Package**: `gcommon.v1.web` **Lines**: 56
 
 **Messages** (1): `ImportServerConfigResponse`
 
@@ -1222,13 +1171,11 @@ message ImportServerConfigRequest {
 - `google/protobuf/go_features.proto`
 - `google/protobuf/timestamp.proto`
 - `pkg/common/proto/error.proto` → [common](./common.md#error)
-- `pkg/common/proto/request_metadata.proto` →
-  [common](./common.md#request_metadata)
+- `pkg/common/proto/request_metadata.proto` → [common](./common.md#request_metadata)
 
 #### ⚠️ Issues Found (1)
 
-- Line 21: Implementation needed - \* Auto-generated placeholder - implement
-  specific fields as needed.
+- Line 21: Implementation needed - \* Auto-generated placeholder - implement specific fields as needed.
 
 #### Source Code
 
@@ -1295,8 +1242,7 @@ message ImportServerConfigResponse {
 
 ### load_balancer_config.proto {#load_balancer_config}
 
-**Path**: `pkg/web/proto/load_balancer_config.proto` **Package**:
-`gcommon.v1.web` **Lines**: 30
+**Path**: `pkg/web/proto/load_balancer_config.proto` **Package**: `gcommon.v1.web` **Lines**: 30
 
 **Messages** (1): `LoadBalancerConfig`
 
@@ -1304,8 +1250,7 @@ message ImportServerConfigResponse {
 
 - `google/protobuf/duration.proto`
 - `google/protobuf/go_features.proto`
-- `pkg/web/proto/load_balance_strategy.proto` →
-  [web](./web.md#load_balance_strategy)
+- `pkg/web/proto/load_balance_strategy.proto` → [web](./web.md#load_balance_strategy)
 
 #### Source Code
 
@@ -1346,8 +1291,7 @@ message LoadBalancerConfig {
 
 ### middleware_config.proto {#middleware_config}
 
-**Path**: `pkg/web/proto/middleware_config.proto` **Package**: `gcommon.v1.web`
-**Lines**: 30
+**Path**: `pkg/web/proto/middleware_config.proto` **Package**: `gcommon.v1.web` **Lines**: 30
 
 **Messages** (1): `MiddlewareConfig`
 
@@ -1395,8 +1339,7 @@ message MiddlewareConfig {
 
 ### proxy_config.proto {#proxy_config}
 
-**Path**: `pkg/web/proto/proxy_config.proto` **Package**: `gcommon.v1.web`
-**Lines**: 34
+**Path**: `pkg/web/proto/proxy_config.proto` **Package**: `gcommon.v1.web` **Lines**: 34
 
 **Messages** (1): `ProxyConfig`
 
@@ -1450,16 +1393,14 @@ message ProxyConfig {
 
 ### rate_limit_config.proto {#rate_limit_config}
 
-**Path**: `pkg/web/proto/rate_limit_config.proto` **Package**: `gcommon.v1.web`
-**Lines**: 35
+**Path**: `pkg/web/proto/rate_limit_config.proto` **Package**: `gcommon.v1.web` **Lines**: 35
 
 **Messages** (1): `RateLimitConfig`
 
 **Imports** (2):
 
 - `google/protobuf/go_features.proto`
-- `pkg/web/proto/rate_limit_strategy.proto` →
-  [web](./web.md#rate_limit_strategy)
+- `pkg/web/proto/rate_limit_strategy.proto` → [web](./web.md#rate_limit_strategy)
 
 #### Source Code
 
@@ -1505,8 +1446,7 @@ message RateLimitConfig {
 
 ### reload_server_config_request.proto {#reload_server_config_request}
 
-**Path**: `pkg/web/proto/reload_server_config_request.proto` **Package**:
-`gcommon.v1.web` **Lines**: 42
+**Path**: `pkg/web/proto/reload_server_config_request.proto` **Package**: `gcommon.v1.web` **Lines**: 42
 
 **Messages** (1): `ReloadServerConfigRequest`
 
@@ -1514,13 +1454,11 @@ message RateLimitConfig {
 
 - `google/protobuf/go_features.proto`
 - `google/protobuf/timestamp.proto`
-- `pkg/common/proto/request_metadata.proto` →
-  [common](./common.md#request_metadata)
+- `pkg/common/proto/request_metadata.proto` → [common](./common.md#request_metadata)
 
 #### ⚠️ Issues Found (1)
 
-- Line 20: Implementation needed - \* Auto-generated placeholder - implement
-  specific fields as needed.
+- Line 20: Implementation needed - \* Auto-generated placeholder - implement specific fields as needed.
 
 #### Source Code
 
@@ -1573,8 +1511,7 @@ message ReloadServerConfigRequest {
 
 ### reload_server_config_response.proto {#reload_server_config_response}
 
-**Path**: `pkg/web/proto/reload_server_config_response.proto` **Package**:
-`gcommon.v1.web` **Lines**: 56
+**Path**: `pkg/web/proto/reload_server_config_response.proto` **Package**: `gcommon.v1.web` **Lines**: 56
 
 **Messages** (1): `ReloadServerConfigResponse`
 
@@ -1583,13 +1520,11 @@ message ReloadServerConfigRequest {
 - `google/protobuf/go_features.proto`
 - `google/protobuf/timestamp.proto`
 - `pkg/common/proto/error.proto` → [common](./common.md#error)
-- `pkg/common/proto/request_metadata.proto` →
-  [common](./common.md#request_metadata)
+- `pkg/common/proto/request_metadata.proto` → [common](./common.md#request_metadata)
 
 #### ⚠️ Issues Found (1)
 
-- Line 21: Implementation needed - \* Auto-generated placeholder - implement
-  specific fields as needed.
+- Line 21: Implementation needed - \* Auto-generated placeholder - implement specific fields as needed.
 
 #### Source Code
 
@@ -1656,8 +1591,7 @@ message ReloadServerConfigResponse {
 
 ### route_config.proto {#route_config}
 
-**Path**: `pkg/web/proto/route_config.proto` **Package**: `gcommon.v1.web`
-**Lines**: 36
+**Path**: `pkg/web/proto/route_config.proto` **Package**: `gcommon.v1.web` **Lines**: 36
 
 **Messages** (1): `RouteConfig`
 
@@ -1712,8 +1646,7 @@ message RouteConfig {
 
 ### security_config.proto {#security_config}
 
-**Path**: `pkg/web/proto/security_config.proto` **Package**: `gcommon.v1.web`
-**Lines**: 30
+**Path**: `pkg/web/proto/security_config.proto` **Package**: `gcommon.v1.web` **Lines**: 30
 
 **Messages** (1): `SecurityConfig`
 
@@ -1761,8 +1694,7 @@ message SecurityConfig {
 
 ### server_config.proto {#server_config}
 
-**Path**: `pkg/web/proto/server_config.proto` **Package**: `gcommon.v1.web`
-**Lines**: 38
+**Path**: `pkg/web/proto/server_config.proto` **Package**: `gcommon.v1.web` **Lines**: 38
 
 **Messages** (1): `ServerConfig`
 
@@ -1817,8 +1749,7 @@ message ServerConfig {
 
 ### session_config.proto {#session_config}
 
-**Path**: `pkg/web/proto/session_config.proto` **Package**: `gcommon.v1.web`
-**Lines**: 36
+**Path**: `pkg/web/proto/session_config.proto` **Package**: `gcommon.v1.web` **Lines**: 36
 
 **Messages** (1): `SessionConfig`
 
@@ -1873,8 +1804,7 @@ message SessionConfig {
 
 ### ssl_config.proto {#ssl_config}
 
-**Path**: `pkg/web/proto/ssl_config.proto` **Package**: `gcommon.v1.web`
-**Lines**: 32
+**Path**: `pkg/web/proto/ssl_config.proto` **Package**: `gcommon.v1.web` **Lines**: 32
 
 **Messages** (1): `SslConfig`
 
@@ -1924,8 +1854,7 @@ message SslConfig {
 
 ### static_config.proto {#static_config}
 
-**Path**: `pkg/web/proto/static_config.proto` **Package**: `gcommon.v1.web`
-**Lines**: 25
+**Path**: `pkg/web/proto/static_config.proto` **Package**: `gcommon.v1.web` **Lines**: 25
 
 **Messages** (1): `StaticConfig`
 
@@ -1967,8 +1896,7 @@ message StaticConfig {
 
 ### template_config.proto {#template_config}
 
-**Path**: `pkg/web/proto/template_config.proto` **Package**: `gcommon.v1.web`
-**Lines**: 28
+**Path**: `pkg/web/proto/template_config.proto` **Package**: `gcommon.v1.web` **Lines**: 28
 
 **Messages** (1): `TemplateConfig`
 
@@ -2013,8 +1941,7 @@ message TemplateConfig {
 
 ### timeout_config.proto {#timeout_config}
 
-**Path**: `pkg/web/proto/timeout_config.proto` **Package**: `gcommon.v1.web`
-**Lines**: 32
+**Path**: `pkg/web/proto/timeout_config.proto` **Package**: `gcommon.v1.web` **Lines**: 32
 
 **Messages** (1): `TimeoutConfig`
 
@@ -2064,8 +1991,7 @@ message TimeoutConfig {
 
 ### tls_config.proto {#tls_config}
 
-**Path**: `pkg/web/proto/tls_config.proto` **Package**: `gcommon.v1.web`
-**Lines**: 68
+**Path**: `pkg/web/proto/tls_config.proto` **Package**: `gcommon.v1.web` **Lines**: 68
 
 **Messages** (1): `TLSConfig`
 
@@ -2150,18 +2076,15 @@ message TLSConfig {
 
 ### update_cache_config_request.proto {#update_cache_config_request}
 
-**Path**: `pkg/web/proto/update_cache_config_request.proto` **Package**:
-`gcommon.v1.web` **Lines**: 23
+**Path**: `pkg/web/proto/update_cache_config_request.proto` **Package**: `gcommon.v1.web` **Lines**: 23
 
 **Messages** (1): `UpdateCacheConfigRequest`
 
 **Imports** (3):
 
 - `google/protobuf/go_features.proto`
-- `pkg/common/proto/request_metadata.proto` →
-  [common](./common.md#request_metadata)
-- `pkg/web/proto/cache_config.proto` →
-  [cache_config](./cache_config.md#cache_config)
+- `pkg/common/proto/request_metadata.proto` → [common](./common.md#request_metadata)
+- `pkg/web/proto/cache_config.proto` → [cache_config](./cache_config.md#cache_config)
 
 #### Source Code
 
@@ -2195,16 +2118,14 @@ message UpdateCacheConfigRequest {
 
 ### update_cache_config_response.proto {#update_cache_config_response}
 
-**Path**: `pkg/web/proto/update_cache_config_response.proto` **Package**:
-`gcommon.v1.web` **Lines**: 22
+**Path**: `pkg/web/proto/update_cache_config_response.proto` **Package**: `gcommon.v1.web` **Lines**: 22
 
 **Messages** (1): `UpdateCacheConfigResponse`
 
 **Imports** (2):
 
 - `google/protobuf/go_features.proto`
-- `pkg/common/proto/request_metadata.proto` →
-  [common](./common.md#request_metadata)
+- `pkg/common/proto/request_metadata.proto` → [common](./common.md#request_metadata)
 
 #### Source Code
 
@@ -2237,8 +2158,7 @@ message UpdateCacheConfigResponse {
 
 ### update_cors_config_request.proto {#update_cors_config_request}
 
-**Path**: `pkg/web/proto/update_cors_config_request.proto` **Package**:
-`gcommon.v1.web` **Lines**: 18
+**Path**: `pkg/web/proto/update_cors_config_request.proto` **Package**: `gcommon.v1.web` **Lines**: 18
 
 **Messages** (1): `UpdateCorsConfigRequest`
 
@@ -2277,8 +2197,7 @@ message UpdateCorsConfigRequest {
 
 ### update_cors_config_response.proto {#update_cors_config_response}
 
-**Path**: `pkg/web/proto/update_cors_config_response.proto` **Package**:
-`gcommon.v1.web` **Lines**: 18
+**Path**: `pkg/web/proto/update_cors_config_response.proto` **Package**: `gcommon.v1.web` **Lines**: 18
 
 **Messages** (1): `UpdateCorsConfigResponse`
 
@@ -2317,8 +2236,7 @@ message UpdateCorsConfigResponse {
 
 ### update_handler_config_request.proto {#update_handler_config_request}
 
-**Path**: `pkg/web/proto/update_handler_config_request.proto` **Package**:
-`gcommon.v1.web` **Lines**: 18
+**Path**: `pkg/web/proto/update_handler_config_request.proto` **Package**: `gcommon.v1.web` **Lines**: 18
 
 **Messages** (1): `UpdateHandlerConfigRequest`
 
@@ -2357,8 +2275,7 @@ message UpdateHandlerConfigRequest {
 
 ### update_handler_config_response.proto {#update_handler_config_response}
 
-**Path**: `pkg/web/proto/update_handler_config_response.proto` **Package**:
-`gcommon.v1.web` **Lines**: 18
+**Path**: `pkg/web/proto/update_handler_config_response.proto` **Package**: `gcommon.v1.web` **Lines**: 18
 
 **Messages** (1): `UpdateHandlerConfigResponse`
 
@@ -2397,16 +2314,14 @@ message UpdateHandlerConfigResponse {
 
 ### update_middleware_config_request.proto {#update_middleware_config_request}
 
-**Path**: `pkg/web/proto/update_middleware_config_request.proto` **Package**:
-`gcommon.v1.web` **Lines**: 25
+**Path**: `pkg/web/proto/update_middleware_config_request.proto` **Package**: `gcommon.v1.web` **Lines**: 25
 
 **Messages** (1): `UpdateMiddlewareConfigRequest`
 
 **Imports** (3):
 
 - `google/protobuf/go_features.proto`
-- `pkg/common/proto/request_metadata.proto` →
-  [common](./common.md#request_metadata)
+- `pkg/common/proto/request_metadata.proto` → [common](./common.md#request_metadata)
 - `pkg/web/proto/middleware_config.proto`
 
 #### Source Code
@@ -2443,16 +2358,14 @@ message UpdateMiddlewareConfigRequest {
 
 ### update_middleware_config_response.proto {#update_middleware_config_response}
 
-**Path**: `pkg/web/proto/update_middleware_config_response.proto` **Package**:
-`gcommon.v1.web` **Lines**: 24
+**Path**: `pkg/web/proto/update_middleware_config_response.proto` **Package**: `gcommon.v1.web` **Lines**: 24
 
 **Messages** (1): `UpdateMiddlewareConfigResponse`
 
 **Imports** (2):
 
 - `google/protobuf/go_features.proto`
-- `pkg/common/proto/response_metadata.proto` →
-  [common](./common.md#response_metadata)
+- `pkg/common/proto/response_metadata.proto` → [common](./common.md#response_metadata)
 
 #### Source Code
 
@@ -2487,8 +2400,7 @@ message UpdateMiddlewareConfigResponse {
 
 ### update_route_config_request.proto {#update_route_config_request}
 
-**Path**: `pkg/web/proto/update_route_config_request.proto` **Package**:
-`gcommon.v1.web` **Lines**: 18
+**Path**: `pkg/web/proto/update_route_config_request.proto` **Package**: `gcommon.v1.web` **Lines**: 18
 
 **Messages** (1): `UpdateRouteConfigRequest`
 
@@ -2527,8 +2439,7 @@ message UpdateRouteConfigRequest {
 
 ### update_route_config_response.proto {#update_route_config_response}
 
-**Path**: `pkg/web/proto/update_route_config_response.proto` **Package**:
-`gcommon.v1.web` **Lines**: 18
+**Path**: `pkg/web/proto/update_route_config_response.proto` **Package**: `gcommon.v1.web` **Lines**: 18
 
 **Messages** (1): `UpdateRouteConfigResponse`
 
@@ -2567,8 +2478,7 @@ message UpdateRouteConfigResponse {
 
 ### update_security_config_request.proto {#update_security_config_request}
 
-**Path**: `pkg/web/proto/update_security_config_request.proto` **Package**:
-`gcommon.v1.web` **Lines**: 18
+**Path**: `pkg/web/proto/update_security_config_request.proto` **Package**: `gcommon.v1.web` **Lines**: 18
 
 **Messages** (1): `UpdateSecurityConfigRequest`
 
@@ -2607,8 +2517,7 @@ message UpdateSecurityConfigRequest {
 
 ### update_security_config_response.proto {#update_security_config_response}
 
-**Path**: `pkg/web/proto/update_security_config_response.proto` **Package**:
-`gcommon.v1.web` **Lines**: 18
+**Path**: `pkg/web/proto/update_security_config_response.proto` **Package**: `gcommon.v1.web` **Lines**: 18
 
 **Messages** (1): `UpdateSecurityConfigResponse`
 
@@ -2647,8 +2556,7 @@ message UpdateSecurityConfigResponse {
 
 ### update_server_config_request.proto {#update_server_config_request}
 
-**Path**: `pkg/web/proto/update_server_config_request.proto` **Package**:
-`gcommon.v1.web` **Lines**: 18
+**Path**: `pkg/web/proto/update_server_config_request.proto` **Package**: `gcommon.v1.web` **Lines**: 18
 
 **Messages** (1): `UpdateServerConfigRequest`
 

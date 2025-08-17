@@ -21,8 +21,7 @@
 
 ### cockroach_config.proto {#cockroach_config}
 
-**Path**: `pkg/db/proto/cockroach_config.proto` **Package**:
-`gcommon.v1.database` **Lines**: 46
+**Path**: `pkg/db/proto/cockroach_config.proto` **Package**: `gcommon.v1.database` **Lines**: 46
 
 **Messages** (1): `CockroachConfig`
 
@@ -85,8 +84,7 @@ message CockroachConfig {
 
 ### mysql_config.proto {#mysql_config}
 
-**Path**: `pkg/db/proto/mysql_config.proto` **Package**: `gcommon.v1.database`
-**Lines**: 27
+**Path**: `pkg/db/proto/mysql_config.proto` **Package**: `gcommon.v1.database` **Lines**: 27
 
 **Messages** (1): `MySQLConfig`
 
@@ -130,8 +128,7 @@ message MySQLConfig {
 
 ### pebble_config.proto {#pebble_config}
 
-**Path**: `pkg/db/proto/pebble_config.proto` **Package**: `gcommon.v1.database`
-**Lines**: 34
+**Path**: `pkg/db/proto/pebble_config.proto` **Package**: `gcommon.v1.database` **Lines**: 34
 
 **Messages** (1): `PebbleConfig`
 
