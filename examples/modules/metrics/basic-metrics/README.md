@@ -4,8 +4,7 @@
 
 # Basic Metrics Example
 
-Introduces the metrics provider by creating a counter and a gauge. Values are
-updated and printed to verify basic functionality.
+Introduces the metrics provider by creating a counter and a gauge. Values are updated and printed to verify basic functionality.
 
 ## Run
 

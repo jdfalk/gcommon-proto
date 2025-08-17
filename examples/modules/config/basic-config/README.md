@@ -4,8 +4,7 @@
 
 # Basic Config Example
 
-Demonstrates using the configuration merger with default settings. This is the
-simplest configuration scenario and forms the basis for more advanced examples.
+Demonstrates using the configuration merger with default settings. This is the simplest configuration scenario and forms the basis for more advanced examples.
 
 ## Running
 
@@ -13,8 +12,7 @@ simplest configuration scenario and forms the basis for more advanced examples.
 go run .
 ```
 
-The program prints the merged configuration map. Modify defaults in `main.go` to
-see different output.
+The program prints the merged configuration map. Modify defaults in `main.go` to see different output.
 
 ## Related Examples
 

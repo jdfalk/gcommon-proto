@@ -4,9 +4,7 @@
 
 # Worker Pool Example
 
-Demonstrates processing messages concurrently using multiple goroutines.
-Messages are published to an in-memory queue and workers consume them in
-parallel.
+Demonstrates processing messages concurrently using multiple goroutines. Messages are published to an in-memory queue and workers consume them in parallel.
 
 ## Run
 

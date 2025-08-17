@@ -4,9 +4,7 @@
 
 # Common Patterns Example
 
-This example illustrates how configuration, metrics, and queue components can be
-combined in a small application. It loads settings from environment variables,
-publishes a message to a queue, and tracks processing with a counter metric.
+This example illustrates how configuration, metrics, and queue components can be combined in a small application. It loads settings from environment variables, publishes a message to a queue, and tracks processing with a counter metric.
 
 ## Highlights
 

@@ -12,5 +12,4 @@ Shows how to publish and consume a message using the in-memory queue provider.
 go run .
 ```
 
-The program publishes a message and immediately consumes it, printing the body
-to the console.
+The program publishes a message and immediately consumes it, printing the body to the console.

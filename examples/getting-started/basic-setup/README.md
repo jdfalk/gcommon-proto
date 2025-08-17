@@ -4,9 +4,7 @@
 
 # Basic Setup Example
 
-This example demonstrates the smallest possible program that uses gcommon. It
-loads configuration from a YAML file and prints the resulting map to standard
-output.
+This example demonstrates the smallest possible program that uses gcommon. It loads configuration from a YAML file and prints the resulting map to standard output.
 
 ## Prerequisites
 
@@ -25,9 +23,7 @@ app:
 go run .
 ```
 
-The program loads the configuration and prints the merged settings. Additional
-sources such as environment variables can be added by extending the loader in
-`main.go`.
+The program loads the configuration and prints the merged settings. Additional sources such as environment variables can be added by extending the loader in `main.go`.
 
 ## Next Steps
 

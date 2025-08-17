@@ -4,8 +4,7 @@
 
 # Env Config Example
 
-Loads configuration from environment variables using the `EnvSource`. Variables
-must be prefixed with `APP_` to be recognized.
+Loads configuration from environment variables using the `EnvSource`. Variables must be prefixed with `APP_` to be recognized.
 
 ## Run
 

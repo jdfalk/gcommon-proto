@@ -4,8 +4,7 @@
 
 # Job Scheduler Example
 
-Uses the `jobs.Scheduler` to execute a task in the future. A job is scheduled to
-run one second after startup and prints a message when executed.
+Uses the `jobs.Scheduler` to execute a task in the future. A job is scheduled to run one second after startup and prints a message when executed.
 
 ## Run
 
@@ -13,5 +12,4 @@ run one second after startup and prints a message when executed.
 go run .
 ```
 
-The program waits briefly for the job to complete and then outputs the job's
-completion status.
+The program waits briefly for the job to complete and then outputs the job's completion status.

@@ -4,8 +4,7 @@
 
 # File Config Example
 
-Demonstrates loading configuration from a YAML file using gcommon's loader.
-Defaults defined in code are merged with file values.
+Demonstrates loading configuration from a YAML file using gcommon's loader. Defaults defined in code are merged with file values.
 
 ## Sample `config.yaml`
 
@@ -19,5 +18,4 @@ timeout: 10
 go run .
 ```
 
-The program prints the merged configuration showing that values from the file
-override defaults.
+The program prints the merged configuration showing that values from the file override defaults.

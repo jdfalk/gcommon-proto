@@ -4,8 +4,7 @@
 
 # JWT Auth Example
 
-Demonstrates generating and validating JSON Web Tokens with gcommon's auth
-module.
+Demonstrates generating and validating JSON Web Tokens with gcommon's auth module.
 
 ## Run
 

@@ -4,9 +4,7 @@
 
 # First App Example
 
-This tutorial walks through building a tiny HTTP service instrumented with
-Prometheus metrics using gcommon. It responds to requests on `/hello` and
-exposes metrics on `/metrics`.
+This tutorial walks through building a tiny HTTP service instrumented with Prometheus metrics using gcommon. It responds to requests on `/hello` and exposes metrics on `/metrics`.
 
 ## Steps
 
@@ -16,11 +14,9 @@ exposes metrics on `/metrics`.
    go run .
    ```
 
-2. Visit [http://localhost:8080/hello](http://localhost:8080/hello) to trigger a
-   request. Each request increments a counter.
+2. Visit [http://localhost:8080/hello](http://localhost:8080/hello) to trigger a request. Each request increments a counter.
 
-3. View metrics at
-   [http://localhost:8080/metrics](http://localhost:8080/metrics).
+3. View metrics at [http://localhost:8080/metrics](http://localhost:8080/metrics).
 
 ## What You Learned
 

@@ -4,9 +4,7 @@
 
 # Dynamic Config Example
 
-Uses the `Watcher` to monitor a configuration file and react to changes at
-runtime. When `config.yaml` is modified, the updated map is printed to the
-console.
+Uses the `Watcher` to monitor a configuration file and react to changes at runtime. When `config.yaml` is modified, the updated map is printed to the console.
 
 ## Run
 
