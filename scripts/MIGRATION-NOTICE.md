@@ -6,8 +6,7 @@
 
 ## 🚨 IMPORTANT: Scripts have been migrated
 
-The GitHub project management scripts previously located in this repository have
-been **migrated to the unified project manager** in the `ghcommon` repository.
+The GitHub project management scripts previously located in this repository have been **migrated to the unified project manager** in the `ghcommon` repository.
 
 ### Old Scripts (REMOVED)
 
@@ -54,5 +53,4 @@ python3 /path/to/ghcommon/scripts/unified_github_project_manager_v2.py --create-
 
 July 10, 2025
 
-See the unified script's README for complete documentation:
-`ghcommon/scripts/README-unified-project-manager.md`
+See the unified script's README for complete documentation: `ghcommon/scripts/README-unified-project-manager.md`

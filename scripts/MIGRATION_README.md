@@ -9,11 +9,12 @@ The migration reorganizes 1,632+ Protocol Buffer files from the scattered `pkg/*
 ## Target Architecture
 
 ### Before (Current State)
+
 ```
 pkg/
 ├── common/proto/           # 40+ files
 ├── config_*/proto/         # 150+ files (scattered across config_1, config_2, etc.)
-├── database*/proto/        # 680+ files 
+├── database*/proto/        # 680+ files
 ├── media/proto/            # 890+ files
 ├── metrics*/proto/         # 230+ files
 ├── organization*/proto/    # 150+ files
@@ -22,11 +23,12 @@ pkg/
 ```
 
 ### After (Target State)
+
 ```
 proto/gcommon/v1/
 ├── common/
 │   ├── types/              # Basic types, entities, errors
-│   ├── messages/           # Audit, events, notifications  
+│   ├── messages/           # Audit, events, notifications
 │   ├── enums/              # Status enums, levels
 │   └── services/           # Common services
 ├── config/
@@ -148,24 +150,28 @@ python3 scripts/migrate-domain.py database
 ## Migration Process Details
 
 ### Phase 1: Analysis and Preparation
+
 1. **Structure Analysis**: Discovers all proto files and their dependencies
 2. **Domain Mapping**: Maps scattered domains to organized structure
 3. **Backup Creation**: Creates git branch and filesystem backups
 4. **Directory Creation**: Sets up new proto/ directory structure
 
 ### Phase 2: File Migration
+
 1. **Domain Processing**: Processes domains in dependency order
 2. **File Categorization**: Categorizes files into appropriate subdirectories
 3. **Content Updates**: Updates file headers, packages, and import paths
 4. **Path Resolution**: Converts all old import paths to new structure
 
 ### Phase 3: Configuration Updates
+
 1. **Buf Configuration**: Updates buf.yaml for new module structure
 2. **Managed Mode**: Enables buf managed mode with Go package mappings
 3. **Plugin Configuration**: Configures code generation plugins
 4. **Dependency Management**: Sets up proper protobuf dependencies
 
 ### Phase 4: Validation and Testing
+
 1. **Structure Validation**: Ensures all directories and files are correct
 2. **Import Validation**: Verifies all import paths resolve correctly
 3. **Buf Compilation**: Tests buf build and generation

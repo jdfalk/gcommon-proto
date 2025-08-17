@@ -1,51 +1,39 @@
 # GitHub Project Manager
 
-A comprehensive Python script for automating GitHub project setup and
-management. This tool provides idempotent operations for creating and managing
-GitHub labels, milestones, projects, and issues through JSON configuration
-files.
+A comprehensive Python script for automating GitHub project setup and management. This tool provides idempotent operations for creating and managing GitHub labels, milestones, projects, and issues through JSON configuration files.
 
 ## Features
 
-- **Configuration-driven**: Define all GitHub objects in JSON configuration
-  files
+- **Configuration-driven**: Define all GitHub objects in JSON configuration files
 - **Idempotent operations**: Safe to run multiple times without duplicates
 - **Force updating**: Option to update existing objects
 - **Dry-run mode**: Preview changes without making them
 - **Comprehensive logging**: Detailed logs of all operations
-- **Cross-repository reusable**: Use the same script across different
-  repositories
+- **Cross-repository reusable**: Use the same script across different repositories
 - **Validation**: JSON schema validation for configuration files
 - **Enhanced color normalization**: Robust color handling for GitHub labels
-- **GitHub CLI validation**: Automatic validation of GitHub CLI installation and
-  authentication
+- **GitHub CLI validation**: Automatic validation of GitHub CLI installation and authentication
 - **Error handling**: Robust error handling with clear messages
 
 ## Recent Improvements
 
 ### Color Normalization Enhancement
 
-- **3-digit hex expansion**: Automatically expands 3-digit hex colors (e.g.,
-  "#F00" → "#FF0000")
-- **Format consistency**: Handles various GitHub color formats (#FFFFFF, FFFFFF,
-  #fff, fff)
+- **3-digit hex expansion**: Automatically expands 3-digit hex colors (e.g., "#F00" → "#FF0000")
+- **Format consistency**: Handles various GitHub color formats (#FFFFFF, FFFFFF, #fff, fff)
 - **Case insensitive**: Properly compares colors regardless of case
-- **Invalid format handling**: Gracefully handles invalid color formats with
-  warnings
+- **Invalid format handling**: Gracefully handles invalid color formats with warnings
 
 ### GitHub CLI Validation
 
-- **Automatic validation**: Checks GitHub CLI installation and authentication at
-  startup
+- **Automatic validation**: Checks GitHub CLI installation and authentication at startup
 - **Repository access verification**: Validates access to the target repository
-- **Dry-run mode bypass**: Skips validation in dry-run mode for testing
-  configurations
+- **Dry-run mode bypass**: Skips validation in dry-run mode for testing configurations
 - **Clear error messages**: Provides actionable error messages for common issues
 
 ### Enhanced Error Handling
 
-- **JSON parsing improvements**: Better handling of empty responses in dry-run
-  mode
+- **JSON parsing improvements**: Better handling of empty responses in dry-run mode
 - **Graceful degradation**: Continues operation when non-critical errors occur
 - **Detailed logging**: Comprehensive logging for troubleshooting
 
@@ -84,8 +72,7 @@ files.
 
 ## Configuration
 
-Create a JSON configuration file (e.g., `config/github_setup.json`) with the
-following structure:
+Create a JSON configuration file (e.g., `config/github_setup.json`) with the following structure:
 
 ```json
 {
@@ -128,8 +115,7 @@ following structure:
 
 ### Configuration Schema
 
-The configuration file follows a specific JSON schema. See
-`config/github_setup_schema.json` for the complete schema definition.
+The configuration file follows a specific JSON schema. See `config/github_setup_schema.json` for the complete schema definition.
 
 #### Repository Section
 
@@ -153,8 +139,7 @@ The configuration file follows a specific JSON schema. See
 
 - `title`: Project title (required)
 - `body`: Project description (optional)
-- `issue_patterns`: Array of strings to match in issue titles for auto-adding
-  (optional)
+- `issue_patterns`: Array of strings to match in issue titles for auto-adding (optional)
 
 #### Issues Section
 
@@ -401,8 +386,7 @@ Contributions are welcome! Please:
 
 ## License
 
-This project is licensed under the MIT License. See the LICENSE file for
-details.
+This project is licensed under the MIT License. See the LICENSE file for details.
 
 ## Changelog
 
