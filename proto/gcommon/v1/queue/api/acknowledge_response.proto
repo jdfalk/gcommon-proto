@@ -9,11 +9,11 @@ package gcommon.v1.queue.api;
 import "google/protobuf/go_features.proto";
 import "google/protobuf/timestamp.proto";
 import "proto/gcommon/v1/common/messages/error.proto";
-import "proto/gcommon/v1/common/api/request_metadata.proto";
+import "proto/gcommon/v1/common/types/request_metadata.proto";
 import "proto/gcommon/v1/queue/messages/message_ack_result.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package gcommon.v1.queue.api;
+option go_package = "gcommon.v1.queue.api";
 
 message AcknowledgeResponse {
   // Required fields (1-10)

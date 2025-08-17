@@ -15,13 +15,13 @@ import "proto/gcommon/v1/queue/api/get_cluster_info_request.proto";
 import "proto/gcommon/v1/queue/api/get_cluster_info_response.proto";
 import "proto/gcommon/v1/queue/api/get_queue_stats_response.proto";
 import "proto/gcommon/v1/queue/types/health_status.proto";
-import "proto/gcommon/v1/queue/types/metric_type.proto";
+import "proto/gcommon/v1/queue/enums/metric_type.proto";
 import "proto/gcommon/v1/queue/messages/stats_granularity.proto";
 import "proto/gcommon/v1/queue/messages/time_range.proto";
 import "proto/gcommon/v1/queue/messages/topic_info.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package gcommon.v1.queue.types;
+option go_package = "gcommon.v1.queue.types";
 
 message QueueHealth {
   // Name of the queue

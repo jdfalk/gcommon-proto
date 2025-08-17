@@ -13,7 +13,7 @@ import "proto/gcommon/v1/queue/config/multi_value_config.proto";
 import "proto/gcommon/v1/queue/messages/resolution_strategy.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package gcommon.v1.queue.api;
+option go_package = "gcommon.v1.queue.api";
 
 message QueueConflictResolution {
   // Conflict resolution strategy

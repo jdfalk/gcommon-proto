@@ -9,7 +9,7 @@ package gcommon.v1.queue.types;
 import "google/protobuf/go_features.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package gcommon.v1.queue.types;
+option go_package = "gcommon.v1.queue.types";
 
 // MessageState represents the lifecycle state of a queue message.
 enum MessageState {

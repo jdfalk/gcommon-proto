@@ -14,7 +14,7 @@ import "proto/gcommon/v1/metrics/messages/time_range.proto";
 import "proto/gcommon/v1/queue/messages/export_format.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package gcommon.v1.queue.api;
+option go_package = "gcommon.v1.queue.api";
 
 /**
  * Request to export queue data for backup or migration purposes.

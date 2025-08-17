@@ -12,7 +12,7 @@ import "proto/gcommon/v1/queue/messages/failed_field_update.proto";
 import "proto/gcommon/v1/queue/messages/updated_properties.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package gcommon.v1.queue.api;
+option go_package = "gcommon.v1.queue.api";
 
 message UpdateMessageResponse {
   // Success status of the update operation

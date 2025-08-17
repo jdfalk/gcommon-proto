@@ -11,7 +11,7 @@ import "proto/gcommon/v1/queue/messages/message_nack.proto";
 import "proto/gcommon/v1/queue/messages/nack_error_category.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package gcommon.v1.queue.api;
+option go_package = "gcommon.v1.queue.api";
 
 message BatchNackRequest {
   // Consumer group ID performing the nack

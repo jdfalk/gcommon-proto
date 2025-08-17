@@ -11,11 +11,11 @@ import "google/protobuf/timestamp.proto";
 import "proto/gcommon/v1/queue/messages/ack_level.proto";
 import "proto/gcommon/v1/queue/messages/message_filter.proto";
 import "proto/gcommon/v1/queue/config/offset_config.proto";
-import "proto/gcommon/v1/queue/types/offset_type.proto";
+import "proto/gcommon/v1/queue/enums/offset_type.proto";
 import "proto/gcommon/v1/queue/config/stream_config.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package gcommon.v1.queue.api;
+option go_package = "gcommon.v1.queue.api";
 
 message StreamMessagesRequest {
   // Topic or queue identifier to stream from

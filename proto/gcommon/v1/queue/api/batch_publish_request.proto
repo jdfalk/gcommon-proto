@@ -7,11 +7,11 @@ edition = "2023";
 package gcommon.v1.queue.api;
 
 import "google/protobuf/go_features.proto";
-import "proto/gcommon/v1/common/api/request_metadata.proto";
+import "proto/gcommon/v1/common/types/request_metadata.proto";
 import "proto/gcommon/v1/queue/messages/queue_message.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package gcommon.v1.queue.api;
+option go_package = "gcommon.v1.queue.api";
 
 /**
  * Request to publish multiple messages to a queue in a single operation.

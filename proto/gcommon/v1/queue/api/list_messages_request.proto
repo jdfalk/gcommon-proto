@@ -9,7 +9,7 @@ package gcommon.v1.queue.api;
 import "google/protobuf/go_features.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package gcommon.v1.queue.api;
+option go_package = "gcommon.v1.queue.api";
 
 // Request to list messages in a queue
 message ListMessagesRequest {

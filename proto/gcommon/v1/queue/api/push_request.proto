@@ -18,7 +18,7 @@ import "proto/gcommon/v1/queue/messages/queue_message.proto";
 import "proto/gcommon/v1/queue/config/retry_config.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package gcommon.v1.queue.api;
+option go_package = "gcommon.v1.queue.api";
 
 message PushRequest {
   // Target topic or queue identifier

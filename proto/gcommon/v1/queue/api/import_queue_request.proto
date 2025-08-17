@@ -13,7 +13,7 @@ import "google/protobuf/go_features.proto";
 import "proto/gcommon/v1/queue/messages/export_format.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package gcommon.v1.queue.api;
+option go_package = "gcommon.v1.queue.api";
 
 /**
  * Request to import queue data from external source.

@@ -11,7 +11,7 @@ import "proto/gcommon/v1/queue/messages/compression_algorithm.proto";
 import "proto/gcommon/v1/queue/messages/serialization_format.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package gcommon.v1.queue.api;
+option go_package = "gcommon.v1.queue.api";
 
 /**
  * Serialization options for a specific format.

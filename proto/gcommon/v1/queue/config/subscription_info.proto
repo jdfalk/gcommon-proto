@@ -13,7 +13,7 @@ import "google/protobuf/go_features.proto";
 import "google/protobuf/timestamp.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package gcommon.v1.queue.config;
+option go_package = "gcommon.v1.queue.config";
 
 /**
  * SubscriptionInfo describes a subscriber's configuration and status.
