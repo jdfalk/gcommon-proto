@@ -1,0 +1,23 @@
+// file: proto/gcommon/v1/media/types/subtitle_track.proto
+// version: 1.0.0
+// guid: 2c899982-81d3-43b7-a542-24361cdef856
+
+edition = "2023";
+
+package gcommon.v1.media.types;
+
+import "google/protobuf/go_features.proto";
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package gcommon.v1.media.types;
+
+// Subtitle track information.
+message SubtitleTrack {
+  int32 index = 1;
+  string language = 2;
+  string codec = 3;
+  string title = 4;
+  bool forced = 5;
+  bool hearing_impaired = 6;
+  bool default_track = 7;
+}

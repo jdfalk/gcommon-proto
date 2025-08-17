@@ -1,0 +1,21 @@
+// file: proto/gcommon/v1/media/metadata/movie_info.proto
+// version: 1.0.0
+// guid: fc3b809f-03e7-4446-b355-e7482000e343
+
+edition = "2023";
+
+package gcommon.v1.media.metadata;
+
+import "google/protobuf/go_features.proto";
+import "google/protobuf/timestamp.proto";
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package gcommon.v1.media.metadata;
+
+// Movie specific information.
+message MovieInfo {
+  google.protobuf.Timestamp release_date = 1;
+  int64 budget = 2;
+  int64 revenue = 3;
+  int32 runtime_minutes = 4;
+}
