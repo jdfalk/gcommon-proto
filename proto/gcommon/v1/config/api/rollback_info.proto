@@ -9,13 +9,13 @@ package gcommon.v1.config.api;
 import "google/protobuf/go_features.proto";
 import "google/protobuf/timestamp.proto";
 import "proto/gcommon/v1/config/types/approval_status.proto";
-import "proto/gcommon/v1/config/types/audit_operation_type.proto";
+import "proto/gcommon/v1/config/enums/audit_operation_type.proto";
 import "proto/gcommon/v1/config/messages/rollback_method.proto";
-import "proto/gcommon/v1/config/types/validation_result_type.proto";
+import "proto/gcommon/v1/config/enums/validation_result_type.proto";
 import "proto/gcommon/v1/config/messages/validation_severity.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package gcommon.v1.config.api;
+option go_package = "gcommon.v1.config.api";
 
 message RollbackInfo {
   // Original audit entry being rolled back

@@ -10,14 +10,14 @@ import "google/protobuf/go_features.proto";
 import "google/protobuf/timestamp.proto";
 import "proto/gcommon/v1/config/messages/audit_level.proto";
 import "proto/gcommon/v1/config/messages/backup_frequency.proto";
-import "proto/gcommon/v1/config/types/channel_type.proto";
-import "proto/gcommon/v1/config/types/config_data_type.proto";
+import "proto/gcommon/v1/config/enums/channel_type.proto";
+import "proto/gcommon/v1/config/enums/config_data_type.proto";
 import "proto/gcommon/v1/config/messages/deprecation_level.proto";
 import "proto/gcommon/v1/config/types/metadata_status.proto";
 import "proto/gcommon/v1/config/messages/notification_trigger.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package gcommon.v1.config.v1;
+option go_package = "gcommon.v1.config.v1";
 
 message VersioningSettings {
   // Whether versioning is enabled

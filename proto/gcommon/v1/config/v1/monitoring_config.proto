@@ -13,13 +13,13 @@ import "proto/gcommon/v1/config/config/audit_settings.proto";
 import "proto/gcommon/v1/config/config/compliance_settings.proto";
 import "proto/gcommon/v1/config/types/deployment_status.proto";
 import "proto/gcommon/v1/config/types/environment_status.proto";
-import "proto/gcommon/v1/config/types/environment_type.proto";
-import "proto/gcommon/v1/config/types/health_check_type.proto";
+import "proto/gcommon/v1/config/enums/environment_type.proto";
+import "proto/gcommon/v1/config/enums/health_check_type.proto";
 import "proto/gcommon/v1/config/messages/health_state.proto";
 import "proto/gcommon/v1/config/config/notification_settings.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package gcommon.v1.config.v1;
+option go_package = "gcommon.v1.config.v1";
 
 message ConfigMonitoringConfig {
   // Monitoring enabled

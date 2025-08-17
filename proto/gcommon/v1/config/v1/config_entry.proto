@@ -9,7 +9,7 @@ import "proto/gcommon/v1/common/config/config_value.proto";
 import "proto/gcommon/v1/common/types/resource_status.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package gcommon.v1.config.v1;
+option go_package = "gcommon.v1.config.v1";
 
 /**
  * ConfigEntry represents a single configuration value with metadata.

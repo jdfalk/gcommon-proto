@@ -11,7 +11,7 @@ import "google/protobuf/timestamp.proto";
 import "proto/gcommon/v1/common/messages/audit_log.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package gcommon.v1.config.api;
+option go_package = "gcommon.v1.config.api";
 
 enum VersionDeploymentStatus {
   VERSION_DEPLOYMENT_STATUS_UNSPECIFIED = 0;

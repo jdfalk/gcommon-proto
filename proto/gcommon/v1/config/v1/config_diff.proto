@@ -12,7 +12,7 @@ import "google/protobuf/timestamp.proto";
 import "proto/gcommon/v1/config/config/config_diff_entry.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
-option go_package gcommon.v1.config.v1;
+option go_package = "gcommon.v1.config.v1";
 
 message ConfigDiff {
   // Unique identifier for this diff
