@@ -3,6 +3,7 @@
 ## 3.1 Environment Setup
 
 ### 3.1.1 Required Tools Verification
+
 ```bash
 # Verify buf installation
 buf --version  # Should be v1.28.0 or later
@@ -21,6 +22,7 @@ git --version  # Should be 2.30 or later
 ```
 
 ### 3.1.2 Backup Creation
+
 ```bash
 # Create comprehensive backup
 git checkout -b pre-reorg-backup
@@ -39,6 +41,7 @@ mv gcommon-backup-*.tar.gz ~/backups/
 ```
 
 ### 3.1.3 Working Branch Setup
+
 ```bash
 # Create and switch to migration branch
 git checkout -b proto-reorg-migration
@@ -55,7 +58,9 @@ touch migration-logs/migration-progress.log
 ## 3.2 Analysis and Planning Scripts
 
 ### 3.2.1 Proto File Discovery Script
+
 Create `scripts/analyze-proto-files.py`:
+
 ```python
 #!/usr/bin/env python3
 """
@@ -349,7 +354,9 @@ if __name__ == "__main__":
 ```
 
 ### 3.2.2 Dependency Analysis Script
+
 Create `scripts/analyze-dependencies.py`:
+
 ```python
 #!/usr/bin/env python3
 """
@@ -533,7 +540,9 @@ if __name__ == "__main__":
 ## 3.3 Pre-Migration Validation
 
 ### 3.3.1 Current State Validation Script
+
 Create `scripts/validate-current-state.sh`:
+
 ```bash
 #!/bin/bash
 # file: scripts/validate-current-state.sh
@@ -620,6 +629,7 @@ echo "✅ Current state validation complete"
 ```
 
 ### 3.3.2 Run Analysis Scripts
+
 ```bash
 # Make scripts executable
 chmod +x scripts/validate-current-state.sh
@@ -639,7 +649,9 @@ python3 scripts/analyze-dependencies.py migration-logs/proto-analysis.json
 ## 3.4 Migration Infrastructure Setup
 
 ### 3.4.1 Migration Tracking System
+
 Create `scripts/migration-tracker.py`:
+
 ```python
 #!/usr/bin/env python3
 """
@@ -844,7 +856,9 @@ if __name__ == "__main__":
 ```
 
 ### 3.4.2 Rollback System Setup
+
 Create `scripts/rollback-system.sh`:
+
 ```bash
 #!/bin/bash
 # file: scripts/rollback-system.sh
@@ -968,7 +982,9 @@ esac
 ## 3.5 Testing Infrastructure
 
 ### 3.5.1 Migration Test Suite
+
 Create `scripts/test-migration.py`:
+
 ```python
 #!/usr/bin/env python3
 """
@@ -1158,6 +1174,7 @@ if __name__ == "__main__":
 ## 3.6 Documentation Preparation
 
 ### 3.6.1 Migration Documentation Setup
+
 ```bash
 # Create documentation structure
 mkdir -p docs/migration
@@ -1193,7 +1210,9 @@ EOF
 ```
 
 ### 3.6.2 Pre-Migration Checklist
+
 Create `docs/migration/pre-migration-checklist.md`:
+
 ```markdown
 # Pre-Migration Checklist
 
@@ -1244,6 +1263,7 @@ When all items are checked, the migration can begin.
 ## 3.7 Final Preparation Steps
 
 ### 3.7.1 Environment Validation
+
 ```bash
 # Run comprehensive validation
 echo "🔍 Running final pre-migration validation..."
@@ -1265,6 +1285,7 @@ echo "✅ Pre-migration preparation complete"
 ```
 
 ### 3.7.2 Team Communication
+
 ```bash
 # Generate migration summary for team
 cat > migration-logs/migration-summary.md << 'EOF'

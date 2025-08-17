@@ -7,6 +7,7 @@
 ## 05.1 Buf Workspace Configuration
 
 ### 05.1.1 Root buf.yaml Configuration
+
 ```yaml
 # file: buf.yaml
 # version: 1.0.0
@@ -48,6 +49,7 @@ build:
 ```
 
 ### 05.1.2 Module-specific buf.yaml
+
 ```yaml
 # file: proto/buf.yaml
 # version: 1.0.0
@@ -83,6 +85,7 @@ build:
 ```
 
 ### 05.1.3 buf.gen.yaml for Code Generation
+
 ```yaml
 # file: buf.gen.yaml
 # version: 1.0.0
@@ -151,6 +154,7 @@ inputs:
 ## 05.2 Managed Mode Implementation
 
 ### 05.2.1 Managed Mode Configuration Script
+
 ```python
 #!/usr/bin/env python3
 # file: scripts/configure-managed-mode.py
@@ -408,6 +412,7 @@ if __name__ == "__main__":
 ```
 
 ### 05.2.2 Go Package Prefix Management
+
 ```go
 // file: scripts/manage-go-packages.go
 // version: 1.0.0
@@ -735,6 +740,7 @@ func main() {
 ## 05.3 Dependency Management
 
 ### 05.3.1 External Dependency Configuration
+
 ```yaml
 # file: dependencies.yaml
 # version: 1.0.0
@@ -750,14 +756,14 @@ dependencies:
         - google/rpc
         - google/type
         - google/longrunning
-      purpose: "Google API definitions and common types"
+      purpose: 'Google API definitions and common types'
 
     wellknowntypes:
       source: buf.build/protocolbuffers/wellknowntypes
       version: latest
       paths:
         - google/protobuf
-      purpose: "Standard protobuf well-known types"
+      purpose: 'Standard protobuf well-known types'
 
     grpc_gateway:
       source: buf.build/grpc-ecosystem/grpc-gateway
@@ -765,7 +771,7 @@ dependencies:
       paths:
         - protoc-gen-openapiv2/options
         - protoc-gen-grpc-gateway/options
-      purpose: "gRPC-Gateway annotations and options"
+      purpose: 'gRPC-Gateway annotations and options'
 
   internal:
     gcommon:
@@ -796,6 +802,7 @@ managed_overrides:
 ```
 
 ### 05.3.2 Dependency Version Management Script
+
 ```python
 #!/usr/bin/env python3
 # file: scripts/manage-dependencies.py
@@ -1046,6 +1053,7 @@ if __name__ == "__main__":
 ## 05.4 Code Generation Optimization
 
 ### 05.4.1 Build Performance Configuration
+
 ```yaml
 # file: buf.performance.yaml
 # version: 1.0.0
@@ -1079,6 +1087,7 @@ lint:
 ```
 
 ### 05.4.2 Parallel Generation Script
+
 ```bash
 #!/bin/bash
 # file: scripts/parallel-generation.sh

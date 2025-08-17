@@ -289,8 +289,7 @@ message SubtitleStats {
 
 ### Task 6.1: Core Message Implementation
 
-**Priority:** HIGH
-**Dependencies:** gcommon common types
+**Priority:** HIGH **Dependencies:** gcommon common types
 
 **Steps:**
 
@@ -327,8 +326,7 @@ copilot-agent-util buf generate
 
 ### Task 6.2: Service Implementation
 
-**Priority:** HIGH
-**Dependencies:** Task 6.1, gcommon auth
+**Priority:** HIGH **Dependencies:** Task 6.1, gcommon auth
 
 **Steps:**
 
@@ -385,8 +383,7 @@ copilot-agent-util exec "mkdir -p pkg/subtitle/service/test"
 
 ### Task 6.3: gcommon Integration
 
-**Priority:** MEDIUM
-**Dependencies:** gcommon modules, Task 6.2
+**Priority:** MEDIUM **Dependencies:** gcommon modules, Task 6.2
 
 **Steps:**
 
@@ -434,8 +431,7 @@ import metricspb "github.com/jdfalk/gcommon/pkg/metrics/proto"
 
 ### Task 6.4: API Server Implementation
 
-**Priority:** MEDIUM
-**Dependencies:** Task 6.2, Task 6.3
+**Priority:** MEDIUM **Dependencies:** Task 6.2, Task 6.3
 
 **Steps:**
 
@@ -484,8 +480,7 @@ import "google.golang.org/grpc/health/grpc_health_v1"
 
 ### Task 6.5: Client SDK Generation
 
-**Priority:** LOW
-**Dependencies:** Task 6.1, Task 6.4
+**Priority:** LOW **Dependencies:** Task 6.1, Task 6.4
 
 **Steps:**
 

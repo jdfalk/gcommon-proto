@@ -6,15 +6,11 @@
 
 ## 🎯 Objective
 
-Create comprehensive examples and tutorials for all gcommon modules. This
-includes getting started guides, real-world usage examples, and best practices
-documentation.
+Create comprehensive examples and tutorials for all gcommon modules. This includes getting started guides, real-world usage examples, and best practices documentation.
 
 ## 📋 Context
 
-With 8 complex modules, developers need clear examples and tutorials to
-understand how to use gcommon effectively. This documentation is critical for
-adoption and proper usage.
+With 8 complex modules, developers need clear examples and tutorials to understand how to use gcommon effectively. This documentation is critical for adoption and proper usage.
 
 ### Current State
 

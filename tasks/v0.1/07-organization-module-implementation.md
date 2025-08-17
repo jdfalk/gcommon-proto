@@ -6,14 +6,11 @@
 
 ## 🎯 Objective
 
-Implement the complete Go service layer for the Organization module (80 protobuf
-files). This includes tenant management, team hierarchies, organization
-structures, and multi-tenancy support.
+Implement the complete Go service layer for the Organization module (80 protobuf files). This includes tenant management, team hierarchies, organization structures, and multi-tenancy support.
 
 ## 📋 Context
 
-The Organization module provides comprehensive multi-tenant organization
-management with support for complex hierarchical structures and team management.
+The Organization module provides comprehensive multi-tenant organization management with support for complex hierarchical structures and team management.
 
 ### Current State
 
@@ -137,5 +134,4 @@ Implement team functionality:
 4. Scalable tenant operations
 5. Comprehensive permission system
 
-Implementation complete: see pkg/organization/manager.go,
-pkg/organization/grpc/org_service.go
+Implementation complete: see pkg/organization/manager.go, pkg/organization/grpc/org_service.go

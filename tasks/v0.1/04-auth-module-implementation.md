@@ -6,14 +6,11 @@
 
 ## 🎯 Objective
 
-Implement the complete Go service layer for the Auth module (172 protobuf
-files). This includes authentication providers, authorization services, JWT
-handling, and security policy management.
+Implement the complete Go service layer for the Auth module (172 protobuf files). This includes authentication providers, authorization services, JWT handling, and security policy management.
 
 ## 📋 Context
 
-The Auth module provides comprehensive authentication and authorization
-infrastructure with support for multiple auth providers and security policies.
+The Auth module provides comprehensive authentication and authorization infrastructure with support for multiple auth providers and security policies.
 
 ### Current State
 

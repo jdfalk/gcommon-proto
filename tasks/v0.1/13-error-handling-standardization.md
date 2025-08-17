@@ -6,14 +6,11 @@
 
 ## 🎯 Objective
 
-Implement comprehensive and standardized error handling across all gcommon
-modules. Create error types, error wrapping, error codes, and error reporting
-infrastructure.
+Implement comprehensive and standardized error handling across all gcommon modules. Create error types, error wrapping, error codes, and error reporting infrastructure.
 
 ## 📋 Context
 
-Consistent error handling is critical for a library used across multiple
-services. We need standardized error types, codes, and handling patterns.
+Consistent error handling is critical for a library used across multiple services. We need standardized error types, codes, and handling patterns.
 
 ## 🔧 Implementation Requirements
 

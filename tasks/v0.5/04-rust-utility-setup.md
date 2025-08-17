@@ -11,11 +11,13 @@ Ensure the `copilot-agent-util` Rust utility is properly available, documented, 
 ## Critical Instructions
 
 **NEVER edit README.md, CHANGELOG.md, TODO.md or other documentation files directly. ALWAYS use:**
+
 - `scripts/create-doc-update.sh` for documentation updates
 - `scripts/create-issue-update.sh` for issue updates
 - This prevents merge conflicts between multiple AI agents
 
 **ALWAYS follow the VS Code task priority:**
+
 1. Use VS Code tasks first (via `run_task` tool)
 2. Use `copilot-agent-util` / `copilot-agent-utilr`
 3. Manual terminal commands only as last resort
@@ -27,9 +29,9 @@ Ensure the `copilot-agent-util` Rust utility is properly available, documented, 
 <!-- guid: 8e9f0a1b-2c3d-4e5f-6a7b-8c9d0e1f2a3b -->
 
 ---
-applyTo: "**/*.rs"
-description: |
-  Rust language-specific coding, documentation, and testing rules for the copilot-agent-util project. These rules extend the general instructions and implement Rust best practices.
+
+applyTo: "\*_/_.rs" description: | Rust language-specific coding, documentation, and testing rules for the copilot-agent-util project. These rules extend the general instructions and implement Rust best practices.
+
 ---
 
 # Rust Utility Coding Instructions
@@ -48,6 +50,7 @@ The `copilot-agent-util` is a Rust-based command-line tool that provides enhance
 ### Installation Options
 
 1. **From Source (Recommended for development)**:
+
    ```bash
    git clone https://github.com/jdfalk/copilot-agent-util-rust
    cd copilot-agent-util-rust
@@ -159,30 +162,35 @@ rust-version = "1.70.0"
 ## Tasks to Complete
 
 ### 1. Utility Installation Verification
+
 - [ ] Verify `copilot-agent-util` is available in all repositories
 - [ ] Test basic functionality (git, buf commands)
 - [ ] Verify logging output is working
 - [ ] Check args file configuration
 
 ### 2. Documentation Updates
+
 - [ ] Update instructions to reference utility location
 - [ ] Add installation guide to main README (use doc update script)
 - [ ] Create usage examples and troubleshooting guide
 - [ ] Document args file format and usage
 
 ### 3. Repository Distribution
+
 - [ ] Ensure utility source is in `tools/` directory
 - [ ] Verify build process works from source
 - [ ] Test cross-platform compatibility
 - [ ] Create installation scripts if needed
 
 ### 4. Integration Testing
+
 - [ ] Test with all existing VS Code tasks
 - [ ] Verify logging consistency across repositories
 - [ ] Test error handling and recovery
 - [ ] Validate args file processing
 
 ### 5. Performance Optimization
+
 - [ ] Profile execution time for common operations
 - [ ] Optimize startup time
 - [ ] Reduce memory usage where possible
@@ -191,12 +199,14 @@ rust-version = "1.70.0"
 ## Error Resolution Steps
 
 ### Common Issues
+
 1. **Binary not found**: Add to PATH or use full path
 2. **Permission denied**: Check executable permissions
 3. **Build failures**: Verify Rust version and dependencies
 4. **Log file issues**: Check directory permissions
 
 ### Debugging
+
 - Check log files in `logs/` directory
 - Use `--verbose` flag for detailed output
 - Verify current working directory

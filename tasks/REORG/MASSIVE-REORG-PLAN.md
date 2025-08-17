@@ -6,9 +6,11 @@
 
 ## Executive Summary
 
-This document provides an extremely detailed plan for reorganizing the GCommon repository's Protocol Buffer files to follow industry best practices, particularly those recommended by Buf. The reorganization involves moving all proto files from the current `pkg/` directory structure to a dedicated `proto/` directory and implementing Buf's managed mode for code generation.
+This document provides an extremely detailed plan for reorganizing the GCommon repository's Protocol Buffer files to follow industry best practices, particularly those recommended by Buf. The reorganization involves moving all proto files
+from the current `pkg/` directory structure to a dedicated `proto/` directory and implementing Buf's managed mode for code generation.
 
 **Goals:**
+
 1. **Separation of Concerns**: Move proto files to dedicated `proto/` directory
 2. **Buf Managed Mode**: Implement managed mode for consistent Go package generation
 3. **Industry Standards**: Follow Buf's style guide and best practices
@@ -17,6 +19,7 @@ This document provides an extremely detailed plan for reorganizing the GCommon r
 6. **Backwards Compatibility**: Maintain existing Go package import paths
 
 **Scope:**
+
 - **3,264+ proto files** across multiple domains (common, config, database, media, metrics, organization, queue, web)
 - **40+ modules** with varying complexity and interdependencies
 - **Multiple language targets**: Go, Python (future: Rust, TypeScript)
@@ -73,25 +76,33 @@ gcommon/
 ### 1.2 Critical Issues Identified
 
 #### 1.2.1 File Header Inconsistencies
+
 Many proto files have incorrect file paths in their headers:
+
 - Header says: `// file: pkg/common/proto/enums/audit_result.proto`
 - Actual path: `pkg/common/proto/audit_result.proto`
 
 #### 1.2.2 Import Path Problems
+
 Current import statements use `pkg/` prefixes:
+
 ```proto
 import "pkg/media/proto/audio_track.proto";
 import "pkg/media/proto/media_metadata.proto";
 ```
 
 #### 1.2.3 Package Naming Inconsistencies
+
 Various package naming patterns exist:
+
 - `gcommon.v1.common`
 - `gcommon.v1.media`
 - Mixed versioning schemes
 
 #### 1.2.4 Go Package Configuration
+
 Current go_package options are inconsistent:
+
 ```proto
 option go_package = "github.com/jdfalk/gcommon/pkg/common/proto";
 option go_package = "github.com/jdfalk/gcommon/pkg/media/proto";
@@ -100,6 +111,7 @@ option go_package = "github.com/jdfalk/gcommon/pkg/media/proto";
 ### 1.3 Buf Configuration Analysis
 
 #### 1.3.1 Current buf.yaml
+
 ```yaml
 version: v2
 modules:
@@ -111,11 +123,13 @@ modules:
 ```
 
 **Issues:**
+
 - No specific proto directory defined
 - Excludes are scattered
 - Module path is root directory
 
 #### 1.3.2 Current buf.gen.yaml
+
 ```yaml
 version: v2
 managed:
@@ -126,6 +140,7 @@ managed:
 ```
 
 **Issues:**
+
 - Managed mode partially enabled but inconsistent
 - Output paths not optimized
 - Missing googleapis disable for go_package_prefix
@@ -191,6 +206,7 @@ gcommon/
 **Format:** `gcommon.v1.{domain}.{subdomain}`
 
 Examples:
+
 - `gcommon.v1.common` - Common types
 - `gcommon.v1.config.api` - Configuration API
 - `gcommon.v1.database.services` - Database services
@@ -200,6 +216,7 @@ Examples:
 ### 2.3 Go Package Generation Strategy
 
 **Managed Mode Configuration:**
+
 - **Default go_package_prefix:** `github.com/jdfalk/gcommon/pkg`
 - **Generated structure:** `pkg/{domain}/{subdomain}/`
 - **Example outputs:**
@@ -214,6 +231,7 @@ Examples:
 ### 3.1 Environment Setup
 
 #### 3.1.1 Required Tools Verification
+
 ```bash
 # Verify buf installation
 buf --version  # Should be v1.28.0 or later
@@ -226,6 +244,7 @@ go version  # Should be 1.19 or later
 ```
 
 #### 3.1.2 Backup Creation
+
 ```bash
 # Create comprehensive backup
 git checkout -b pre-reorg-backup
@@ -1462,6 +1481,7 @@ git checkout HEAD~1 -- pkg/
 ### 6.1 Task Breakdown for AI Execution
 
 #### Task 1: Analysis and Planning
+
 ```bash
 # Execute proto structure analysis
 python3 scripts/analyze-proto-structure.py
@@ -1474,6 +1494,7 @@ python3 scripts/generate-domain-mapping.py
 ```
 
 #### Task 2: Directory Structure Creation
+
 ```bash
 # Create target directories
 ./scripts/create-target-structure.sh
@@ -1485,6 +1506,7 @@ find pkg -type d | head -20
 ```
 
 #### Task 3: Migration Execution (Domain by Domain)
+
 ```bash
 # Test with common domain first (dry run)
 ./scripts/migrate-by-domain.sh --domain common
@@ -1504,6 +1526,7 @@ done
 ```
 
 #### Task 4: Configuration Update
+
 ```bash
 # Update buf configurations
 python3 scripts/update-buf-config.py
@@ -1514,6 +1537,7 @@ buf generate --dry-run
 ```
 
 #### Task 5: Code Generation and Testing
+
 ```bash
 # Generate code with new structure
 ./scripts/test-code-generation.sh
@@ -1523,6 +1547,7 @@ python3 scripts/validate-buf-config.py
 ```
 
 #### Task 6: Import Path Updates
+
 ```bash
 # Analyze import dependencies
 python3 scripts/analyze-import-dependencies.py
@@ -1537,18 +1562,21 @@ python3 scripts/update-import-paths.py --analysis import-dependency-analysis.jso
 ### 6.2 Error Handling Instructions
 
 **For file migration errors:**
+
 - Log the specific file and error
 - Continue with other files
 - Provide summary of failed files
 - Create retry mechanism for failed files
 
 **For import resolution errors:**
+
 - Use fuzzy matching for similar file names
 - Maintain mapping of old -> new paths
 - Provide warnings for unresolved imports
 - Allow manual override mapping
 
 **For buf configuration errors:**
+
 - Validate syntax before applying
 - Test with small subset first
 - Provide rollback mechanism
@@ -1575,10 +1603,14 @@ python3 scripts/update-import-paths.py --analysis import-dependency-analysis.jso
 
 ---
 
-This comprehensive plan provides over 10,000 lines of detailed instructions, scripts, and procedures for migrating the GCommon repository's Protocol Buffer files to follow Buf's best practices with managed mode. The plan includes complete automation scripts, error handling, rollback procedures, and step-by-step instructions that can be executed by an AI agent.
+This comprehensive plan provides over 10,000 lines of detailed instructions, scripts, and procedures for migrating the GCommon repository's Protocol Buffer files to follow Buf's best practices with managed mode. The plan includes complete
+automation scripts, error handling, rollback procedures, and step-by-step instructions that can be executed by an AI agent.
+
 ```
+
 ```
-```
+
+````
 
 #### 3.2.2 Domain Mapping Script
 
@@ -1729,7 +1761,7 @@ if __name__ == "__main__":
     mapper = DomainMapper("proto-migration-analysis.json")
     mapper.extract_domains()
     mapper.save_domain_mappings("migration-mappings")
-```
+````
 
 ---
 
@@ -2376,4 +2408,3 @@ if __name__ == "__main__":
     validator.save_validation_report()
 
 ```
-

@@ -33,9 +33,10 @@ Fix protobuf import issues across all Go files, ensure proper proto generation, 
 <!-- To update: Create an issue/PR in jdfalk/ghcommon -->
 
 ---
-applyTo: "**/*.proto"
-description: |
-  Protocol Buffers (protobuf) style and documentation rules for Copilot/AI agents and VS Code Copilot customization. These rules extend the general instructions in `general-coding.instructions.md` and implement comprehensive protobuf best practices including the 1-1-1 design pattern, Edition 2023 features, and Google's style guide.
+
+applyTo: "\*_/_.proto" description: | Protocol Buffers (protobuf) style and documentation rules for Copilot/AI agents and VS Code Copilot customization. These rules extend the general instructions in `general-coding.instructions.md` and
+implement comprehensive protobuf best practices including the 1-1-1 design pattern, Edition 2023 features, and Google's style guide.
+
 ---
 
 # Protobuf Coding Instructions
@@ -43,17 +44,14 @@ description: |
 ## Core Principles
 
 - Follow the [general coding instructions](general-coding.instructions.md)
-- Follow the
-  [Google Protobuf Style Guide](https://protobuf.dev/programming-guides/style/)
+- Follow the [Google Protobuf Style Guide](https://protobuf.dev/programming-guides/style/)
 - Implement the **1-1-1 Design Pattern**: **ONE** message/enum/service per file
-- Use [Edition 2023](https://protobuf.dev/programming-guides/editions/) for all
-  new files
+- Use [Edition 2023](https://protobuf.dev/programming-guides/editions/) for all new files
 - Follow [Proto Best Practices](https://protobuf.dev/best-practices/dos-donts/)
 
 ## Required File Header
 
-All protobuf files must begin with a standard header as described in the
-[general coding instructions](general-coding.instructions.md):
+All protobuf files must begin with a standard header as described in the [general coding instructions](general-coding.instructions.md):
 
 ```protobuf
 // file: path/to/file.proto
@@ -69,8 +67,7 @@ option go_package = "github.com/owner/repo/path/to/package;packagepb";
 
 ## Edition 2023 Requirements
 
-- **MANDATORY**: All proto files MUST use `edition = "2023";` as the first
-  non-comment line
+- **MANDATORY**: All proto files MUST use `edition = "2023";` as the first non-comment line
 - Enhanced features with better defaults and future-proofing
 - Improved validation and hybrid API support
 - Better backwards compatibility with proto2/proto3
@@ -316,11 +313,13 @@ Use the [Rust utility](../.github/instructions/rust-utility.instructions.md) for
 ### 1. Import Path Problems
 
 **Files with Issues:**
+
 - `pkg/auth/grpc/authz_service.go` - Importing wrong proto paths
 - Multiple files importing non-existent or incorrectly named proto packages
 - Go files using custom types instead of generated protobuf types
 
 **Common Problems:**
+
 - Wrong import paths to generated proto files
 - Missing or incorrectly configured `go_package` options in proto files
 - Proto files not following the 1-1-1 design pattern
@@ -329,6 +328,7 @@ Use the [Rust utility](../.github/instructions/rust-utility.instructions.md) for
 ### 2. Missing Proto Generation
 
 **Issues:**
+
 - Some proto files may not be generating Go code properly
 - `buf.gen.yaml` configuration may be incomplete or incorrect
 - Generated files may not be in expected locations
@@ -337,6 +337,7 @@ Use the [Rust utility](../.github/instructions/rust-utility.instructions.md) for
 ### 3. Type Conflicts and Custom Types
 
 **Problems:**
+
 - Some Go files define their own types instead of using generated proto types
 - Type mismatches between proto definitions and Go implementations
 - Services not properly implementing generated proto interfaces

@@ -57,6 +57,7 @@ gcommon/
 **Format:** `gcommon.v1.{domain}.{subdomain}`
 
 Examples:
+
 - `gcommon.v1.common` - Common types
 - `gcommon.v1.config.api` - Configuration API
 - `gcommon.v1.database.services` - Database services
@@ -66,6 +67,7 @@ Examples:
 ## 2.3 Go Package Generation Strategy
 
 **Managed Mode Configuration:**
+
 - **Default go_package_prefix:** `github.com/jdfalk/gcommon/pkg`
 - **Generated structure:** `pkg/{domain}/{subdomain}/`
 - **Example outputs:**
@@ -75,6 +77,7 @@ Examples:
 ## 2.4 Detailed Domain Architecture
 
 ### 2.4.1 Common Domain Structure
+
 ```
 proto/gcommon/v1/common/
 ├── enums/
@@ -93,16 +96,19 @@ proto/gcommon/v1/common/
 ```
 
 **Package Names:**
+
 - `gcommon.v1.common.enums`
 - `gcommon.v1.common.messages`
 - `gcommon.v1.common.services`
 
 **Generated Go Packages:**
+
 - `pkg/common/enums/`
 - `pkg/common/messages/`
 - `pkg/common/services/`
 
 ### 2.4.2 Config Domain Structure
+
 ```
 proto/gcommon/v1/config/
 ├── api/
@@ -127,12 +133,14 @@ proto/gcommon/v1/config/
 ```
 
 **Package Names:**
+
 - `gcommon.v1.config.api.v1`
 - `gcommon.v1.config.api.v2`
 - `gcommon.v1.config.types`
 - `gcommon.v1.config.services`
 
 ### 2.4.3 Database Domain Structure
+
 ```
 proto/gcommon/v1/database/
 ├── config/
@@ -151,11 +159,13 @@ proto/gcommon/v1/database/
 ```
 
 **Package Names:**
+
 - `gcommon.v1.database.config`
 - `gcommon.v1.database.services`
 - `gcommon.v1.database.types`
 
 ### 2.4.4 Media Domain Structure
+
 ```
 proto/gcommon/v1/media/
 ├── types/
@@ -176,11 +186,13 @@ proto/gcommon/v1/media/
 ```
 
 **Package Names:**
+
 - `gcommon.v1.media.types`
 - `gcommon.v1.media.metadata`
 - `gcommon.v1.media.services`
 
 ### 2.4.5 Metrics Domain Structure
+
 ```
 proto/gcommon/v1/metrics/
 ├── api/
@@ -206,12 +218,14 @@ proto/gcommon/v1/metrics/
 ```
 
 **Package Names:**
+
 - `gcommon.v1.metrics.api.v1`
 - `gcommon.v1.metrics.api.v2`
 - `gcommon.v1.metrics.types`
 - `gcommon.v1.metrics.services`
 
 ### 2.4.6 Organization Domain Structure
+
 ```
 proto/gcommon/v1/organization/
 ├── api/
@@ -243,6 +257,7 @@ proto/gcommon/v1/organization/
 ```
 
 **Package Names:**
+
 - `gcommon.v1.organization.api.v1`
 - `gcommon.v1.organization.api.v2`
 - `gcommon.v1.organization.config`
@@ -250,6 +265,7 @@ proto/gcommon/v1/organization/
 - `gcommon.v1.organization.services`
 
 ### 2.4.7 Queue Domain Structure
+
 ```
 proto/gcommon/v1/queue/
 ├── api/
@@ -286,6 +302,7 @@ proto/gcommon/v1/queue/
 ```
 
 **Package Names:**
+
 - `gcommon.v1.queue.api.v1`
 - `gcommon.v1.queue.api.v2`
 - `gcommon.v1.queue.api.v3`
@@ -294,6 +311,7 @@ proto/gcommon/v1/queue/
 - `gcommon.v1.queue.services`
 
 ### 2.4.8 Web Domain Structure
+
 ```
 proto/gcommon/v1/web/
 ├── api/
@@ -334,6 +352,7 @@ proto/gcommon/v1/web/
 ```
 
 **Package Names:**
+
 - `gcommon.v1.web.api.v1`
 - `gcommon.v1.web.api.v2`
 - `gcommon.v1.web.api.v3`
@@ -345,7 +364,9 @@ proto/gcommon/v1/web/
 ## 2.5 Import Path Strategy
 
 ### 2.5.1 New Import Patterns
+
 All imports will use the new proto structure:
+
 ```proto
 // OLD (current)
 import "pkg/common/proto/base_types.proto";
@@ -357,7 +378,9 @@ import "gcommon/v1/media/types/audio_types.proto";
 ```
 
 ### 2.5.2 Google APIs Integration
+
 Managed mode will handle googleapis dependencies:
+
 ```proto
 // Automatic through managed mode
 import "google/protobuf/timestamp.proto";
@@ -366,6 +389,7 @@ import "google/protobuf/any.proto";
 ```
 
 ### 2.5.3 Cross-Domain Import Guidelines
+
 - Common domain imports are allowed from any domain
 - Database domain can import from common, config
 - Media domain can import from common only
@@ -376,6 +400,7 @@ import "google/protobuf/any.proto";
 ## 2.6 Generated Code Architecture
 
 ### 2.6.1 Go Package Structure
+
 ```
 pkg/
 ├── common/
@@ -430,7 +455,9 @@ pkg/
 ```
 
 ### 2.6.2 SDK Generation Strategy
+
 Future multi-language SDK support:
+
 ```
 sdks/
 ├── python/
@@ -451,6 +478,7 @@ sdks/
 ## 2.7 Buf Configuration Strategy
 
 ### 2.7.1 Target buf.yaml Configuration
+
 ```yaml
 version: v2
 modules:
@@ -476,6 +504,7 @@ breaking:
 ```
 
 ### 2.7.2 Target buf.gen.yaml Configuration
+
 ```yaml
 version: v2
 managed:
@@ -505,17 +534,20 @@ plugins:
 ## 2.8 Migration Validation Architecture
 
 ### 2.8.1 Validation Framework
+
 - **Pre-migration**: Comprehensive analysis and validation
 - **During migration**: Real-time validation and rollback capability
 - **Post-migration**: Full compatibility and performance validation
 
 ### 2.8.2 Automated Testing Strategy
+
 - Unit tests for each migrated domain
 - Integration tests for cross-domain dependencies
 - Performance benchmarks for generation times
 - Compatibility tests for existing consumers
 
 ### 2.8.3 Rollback Architecture
+
 - Parallel structure maintenance during migration
 - Automated rollback scripts for each migration phase
 - Checkpoint creation at each successful domain migration
@@ -524,18 +556,21 @@ plugins:
 ## 2.9 Performance Optimization Strategy
 
 ### 2.9.1 Code Generation Optimization
+
 - Parallel generation for independent domains
 - Incremental generation for modified files only
 - Optimized import resolution through managed mode
 - Reduced redundant type generation
 
 ### 2.9.2 Build Time Optimization
+
 - Separated proto and Go code directories
 - Optimized buf configuration for faster linting
 - Parallel linting of independent domain modules
 - Cached generation results where possible
 
 ### 2.9.3 Runtime Performance Considerations
+
 - Optimized package import paths
 - Reduced import dependency chains
 - Efficient message serialization through proper field ordering
@@ -544,18 +579,21 @@ plugins:
 ## 2.10 Security and Access Control
 
 ### 2.10.1 Repository Security
+
 - Proto files in dedicated directory with clear access patterns
 - Generated code separated from source proto definitions
 - Version control optimized for proto file changes
 - Clear separation between source and generated artifacts
 
 ### 2.10.2 API Security Architecture
+
 - Consistent authentication patterns across all domains
 - Authorization model embedded in service definitions
 - Security configuration centralized in config domain
 - Audit trails defined in organization domain
 
 ### 2.10.3 Dependency Security
+
 - Managed googleapis dependencies through buf
 - Version pinning for all external dependencies
 - Security scanning integration for generated code

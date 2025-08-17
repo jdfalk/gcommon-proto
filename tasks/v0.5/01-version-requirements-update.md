@@ -11,11 +11,13 @@ Update all Go and Python version requirements across all repositories to use min
 ## Critical Instructions
 
 **NEVER edit README.md, CHANGELOG.md, TODO.md or other documentation files directly. ALWAYS use:**
+
 - `scripts/create-doc-update.sh` for documentation updates
 - `scripts/create-issue-update.sh` for issue updates
 - This prevents merge conflicts between multiple AI agents
 
 **ALWAYS follow the VS Code task priority:**
+
 1. Use VS Code tasks first (via `run_task` tool)
 2. Use `copilot-agent-util` / `copilot-agent-utilr`
 3. Manual terminal commands only as last resort
@@ -23,13 +25,16 @@ Update all Go and Python version requirements across all repositories to use min
 ## Repository Standards
 
 ### General Coding Instructions
+
 Follow the complete [general coding instructions](../.github/instructions/general-coding.instructions.md) which include:
+
 - Required file headers with path, version, and GUID
 - Version update requirements when modifying files
 - Documentation update system usage
 - VS Code tasks priority system
 
 ### Go Language Standards
+
 <!-- file: .github/instructions/go.instructions.md -->
 <!-- version: 1.3.0 -->
 <!-- guid: 4f5a6b7c-8d9e-0f1a-2b3c-4d5e6f7a8b9c -->
@@ -37,19 +42,17 @@ Follow the complete [general coding instructions](../.github/instructions/genera
 <!-- To update: Create an issue/PR in jdfalk/ghcommon -->
 
 ---
-applyTo: "**/*.go"
-description: |
-  Go language-specific coding, documentation, and testing rules for Copilot/AI agents and VS Code Copilot customization. These rules extend the general instructions in `general-coding.instructions.md` and merge all unique content from the Google Go Style Guide.
+
+applyTo: "\*_/_.go" description: | Go language-specific coding, documentation, and testing rules for Copilot/AI agents and VS Code Copilot customization. These rules extend the general instructions in `general-coding.instructions.md` and
+merge all unique content from the Google Go Style Guide.
+
 ---
 
 # Go Coding Instructions
 
 - Follow the [general coding instructions](general-coding.instructions.md).
-- Follow the
-  [Google Go Style Guide](https://google.github.io/styleguide/go/index.html) for
-  additional best practices.
-- All Go files must begin with the required file header (see general
-  instructions for details and Go example).
+- Follow the [Google Go Style Guide](https://google.github.io/styleguide/go/index.html) for additional best practices.
+- All Go files must begin with the required file header (see general instructions for details and Go example).
 
 ## Version Requirements
 
@@ -69,8 +72,7 @@ description: |
 
 - Use short, concise, evocative package names (lowercase, no underscores)
 - Use camelCase for unexported names, PascalCase for exported names
-- Use short names for short-lived variables, descriptive names for longer-lived
-  variables
+- Use short names for short-lived variables, descriptive names for longer-lived variables
 - Use PascalCase for exported constants, camelCase for unexported constants
 - Single-method interfaces should end in "-er" (e.g., Reader, Writer)
 
@@ -116,8 +118,7 @@ description: |
 
 ## Required File Header
 
-All Go files must begin with a standard header as described in the
-[general coding instructions](general-coding.instructions.md). Example for Go:
+All Go files must begin with a standard header as described in the [general coding instructions](general-coding.instructions.md). Example for Go:
 
 ```go
 // file: path/to/file.go
@@ -137,24 +138,26 @@ Follow the [Python instructions](../.github/instructions/python.instructions.md)
 
 ---
 
-applyTo: "**"
-description: |
-  Instructions for using the copilot-agent-util Rust utility as the primary tool for development operations. This utility provides superior performance, memory safety, and comprehensive command coverage compared to manual terminal commands.
+applyTo: "\*\*" description: | Instructions for using the copilot-agent-util Rust utility as the primary tool for development operations. This utility provides superior performance, memory safety, and comprehensive command coverage compared
+to manual terminal commands.
 
 ---
 
 # Copilot Agent Utility (Rust) - Command Reference
 
-The `copilot-agent-util` (or `copilot-agent-utilr`) is a comprehensive Rust-based development utility that provides superior performance, memory safety, and extensive command coverage. **Always prefer this utility over manual commands when available.**
+The `copilot-agent-util` (or `copilot-agent-utilr`) is a comprehensive Rust-based development utility that provides superior performance, memory safety, and extensive command coverage. **Always prefer this utility over manual commands when
+available.**
 
 ## 📥 Installation & Download
 
 **Download the copilot-agent-util tool from:**
+
 - **Source Repository**: https://github.com/jdfalk/copilot-agent-util-rust
 - **Installation**: Follow the installation instructions in the repository's README
 - **Requirements**: The tool is required for proper VS Code task execution and logging
 
 **If the tool is not available in your environment:**
+
 1. Clone the repository: `git clone https://github.com/jdfalk/copilot-agent-util-rust`
 2. Build with Cargo: `cargo build --release`
 3. Add to PATH or use the binary directly from `target/release/copilot-agent-util`
@@ -247,23 +250,28 @@ For complete command reference and advanced features, see the full documentation
 ## Tasks to Complete
 
 ### 1. Update Go Module Files
+
 **Repositories to check:** gcommon, ghcommon, subtitle-manager, audiobook-organizer, copilot-agent-util-rust
 
 For each repository:
+
 - Update `go.mod` to specify `go 1.23` minimum version
 - Update any `go.work` files to specify `go 1.23` minimum version
 - Update Go file headers that reference older versions
 
 ### 2. Update Python Requirements Files
+
 **Repositories to check:** All repositories with Python files
 
 For each repository:
+
 - Update `requirements.txt` files to specify `python_requires=">=3.13"`
 - Update `pyproject.toml` files to specify `requires-python = ">=3.13"`
 - Update `setup.py` files to specify `python_requires=">=3.13"`
 - Update Python file headers that reference older versions
 
 ### 3. Validation Steps
+
 - Run `go mod tidy` in each Go repository after updates
 - Test Python environments with new requirements
 - Verify all modules build successfully
@@ -294,6 +302,7 @@ For each repository:
 5. `/Users/jdfalk/repos/github.com/jdfalk/copilot-agent-util-rust`
 
 ## Notes
+
 - The ghcommon repository already has Go 1.23.0 in go.mod - verify others match
 - Focus on consistency across all repositories
 - Test thoroughly after version updates

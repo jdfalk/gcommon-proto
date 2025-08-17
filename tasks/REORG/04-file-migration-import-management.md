@@ -7,120 +7,144 @@
 ## 04.1 Domain-by-Domain Migration Strategy
 
 ### 04.1.1 Common Domain Migration
+
 **Files to migrate: 418 files**
 
 Migration sequence:
+
 1. Base types (entity, error, pagination)
 2. Configuration types (settings, environment)
 3. Validation types (rules, constraints)
 4. Utility types (formatting, conversion)
 
 Specific file migrations:
+
 - `pkg/common/entity.proto` → `proto/gcommon/v1/common/entity/entity.proto`
 - `pkg/common/error.proto` → `proto/gcommon/v1/common/error/error.proto`
 - `pkg/common/pagination.proto` → `proto/gcommon/v1/common/pagination/pagination.proto`
 - `pkg/common/validation.proto` → `proto/gcommon/v1/common/validation/validation.proto`
 
 ### 04.1.2 Config Domain Migration
+
 **Files to migrate: 512 files**
 
 Migration sequence:
+
 1. Base configuration structures
 2. Environment-specific configs
 3. Feature flags and toggles
 4. Service configurations
 
 Specific file migrations:
+
 - `pkg/config/app.proto` → `proto/gcommon/v1/config/application/app.proto`
 - `pkg/config/database.proto` → `proto/gcommon/v1/config/database/database.proto`
 - `pkg/config/security.proto` → `proto/gcommon/v1/config/security/security.proto`
 - `pkg/config/logging.proto` → `proto/gcommon/v1/config/logging/logging.proto`
 
 ### 04.1.3 Database Domain Migration
+
 **Files to migrate: 687 files**
 
 Migration sequence:
+
 1. Schema definitions
 2. Migration scripts
 3. Connection configurations
 4. Query builders and utilities
 
 Specific file migrations:
+
 - `pkg/database/schema.proto` → `proto/gcommon/v1/database/schema/schema.proto`
 - `pkg/database/migration.proto` → `proto/gcommon/v1/database/migration/migration.proto`
 - `pkg/database/connection.proto` → `proto/gcommon/v1/database/connection/connection.proto`
 - `pkg/database/query.proto` → `proto/gcommon/v1/database/query/query.proto`
 
 ### 04.1.4 Media Domain Migration
+
 **Files to migrate: 893 files**
 
 Migration sequence:
+
 1. Base media types (audio, video, image)
 2. Metadata structures
 3. Processing definitions
 4. Format specifications
 
 Specific file migrations:
+
 - `pkg/media/audio.proto` → `proto/gcommon/v1/media/audio/audio.proto`
 - `pkg/media/video.proto` → `proto/gcommon/v1/media/video/video.proto`
 - `pkg/media/image.proto` → `proto/gcommon/v1/media/image/image.proto`
 - `pkg/media/metadata.proto` → `proto/gcommon/v1/media/metadata/metadata.proto`
 
 ### 04.1.5 Metrics Domain Migration
+
 **Files to migrate: 234 files**
 
 Migration sequence:
+
 1. Core metric types
 2. Aggregation functions
 3. Export configurations
 4. Dashboard definitions
 
 Specific file migrations:
+
 - `pkg/metrics/core.proto` → `proto/gcommon/v1/metrics/core/core.proto`
 - `pkg/metrics/aggregation.proto` → `proto/gcommon/v1/metrics/aggregation/aggregation.proto`
 - `pkg/metrics/export.proto` → `proto/gcommon/v1/metrics/export/export.proto`
 - `pkg/metrics/dashboard.proto` → `proto/gcommon/v1/metrics/dashboard/dashboard.proto`
 
 ### 04.1.6 Organization Domain Migration
+
 **Files to migrate: 156 files**
 
 Migration sequence:
+
 1. Organization structures
 2. User management
 3. Role-based access control
 4. Team and project management
 
 Specific file migrations:
+
 - `pkg/organization/org.proto` → `proto/gcommon/v1/organization/org/org.proto`
 - `pkg/organization/user.proto` → `proto/gcommon/v1/organization/user/user.proto`
 - `pkg/organization/role.proto` → `proto/gcommon/v1/organization/role/role.proto`
 - `pkg/organization/team.proto` → `proto/gcommon/v1/organization/team/team.proto`
 
 ### 04.1.7 Queue Domain Migration
+
 **Files to migrate: 178 files**
 
 Migration sequence:
+
 1. Queue definitions
 2. Message types
 3. Worker configurations
 4. Processing workflows
 
 Specific file migrations:
+
 - `pkg/queue/queue.proto` → `proto/gcommon/v1/queue/queue/queue.proto`
 - `pkg/queue/message.proto` → `proto/gcommon/v1/queue/message/message.proto`
 - `pkg/queue/worker.proto` → `proto/gcommon/v1/queue/worker/worker.proto`
 - `pkg/queue/workflow.proto` → `proto/gcommon/v1/queue/workflow/workflow.proto`
 
 ### 04.1.8 Web Domain Migration
+
 **Files to migrate: 186 files**
 
 Migration sequence:
+
 1. HTTP definitions
 2. WebSocket protocols
 3. API specifications
 4. Frontend interfaces
 
 Specific file migrations:
+
 - `pkg/web/http.proto` → `proto/gcommon/v1/web/http/http.proto`
 - `pkg/web/websocket.proto` → `proto/gcommon/v1/web/websocket/websocket.proto`
 - `pkg/web/api.proto` → `proto/gcommon/v1/web/api/api.proto`
@@ -129,6 +153,7 @@ Specific file migrations:
 ## 04.2 Import Path Transformation
 
 ### 04.2.1 Import Analysis Script
+
 ```python
 #!/usr/bin/env python3
 # file: scripts/analyze-imports.py
@@ -255,6 +280,7 @@ if __name__ == "__main__":
 ```
 
 ### 04.2.2 Import Transformation Script
+
 ```python
 #!/usr/bin/env python3
 # file: scripts/transform-imports.py
@@ -340,6 +366,7 @@ if __name__ == "__main__":
 ## 04.3 Cross-Reference Management
 
 ### 04.3.1 Dependency Validation Script
+
 ```bash
 #!/bin/bash
 # file: scripts/validate-dependencies.sh
@@ -506,6 +533,7 @@ main "$@"
 ```
 
 ### 04.3.2 Import Conflict Resolution
+
 ```python
 #!/usr/bin/env python3
 # file: scripts/resolve-import-conflicts.py
@@ -681,6 +709,7 @@ if __name__ == "__main__":
 ## 04.4 Go Code Generation Updates
 
 ### 04.4.1 Module Path Updates
+
 ```go
 // file: scripts/update-go-modules.go
 // version: 1.0.0
@@ -856,7 +885,8 @@ func main() {
 ```
 
 ### 04.4.2 Generated Code Cleanup
-```bash
+
+````bash
 #!/bin/bash
 # file: scripts/cleanup-generated-code.sh
 # version: 1.0.0
@@ -1011,11 +1041,12 @@ trap 'echo "Error occurred during code generation cleanup"; exit 1' ERR
 
 # Run main function
 main "$@"
-```
+````
 
 ## 04.5 Migration Validation and Testing
 
 ### 04.5.1 Migration Test Suite
+
 ```go
 // file: tests/migration_test.go
 // version: 1.0.0
@@ -1277,6 +1308,7 @@ func BenchmarkImportResolution(b *testing.B) {
 ```
 
 ### 04.5.2 Automated Migration Validation
+
 ```bash
 #!/bin/bash
 # file: scripts/validate-migration.sh
@@ -1482,4 +1514,5 @@ trap cleanup EXIT
 main "$@"
 ```
 
-This section provides comprehensive file migration and import management strategies for the protobuf reorganization. The scripts and tools ensure proper dependency resolution, conflict resolution, and validation throughout the migration process.
+This section provides comprehensive file migration and import management strategies for the protobuf reorganization. The scripts and tools ensure proper dependency resolution, conflict resolution, and validation throughout the migration
+process.

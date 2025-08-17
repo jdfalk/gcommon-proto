@@ -6,14 +6,11 @@
 
 ## 🎯 Objective
 
-Implement comprehensive monitoring and observability across all gcommon modules.
-Create dashboards, alerts, and monitoring infrastructure for production
-environments.
+Implement comprehensive monitoring and observability across all gcommon modules. Create dashboards, alerts, and monitoring infrastructure for production environments.
 
 ## 📋 Context
 
-Production-ready monitoring is essential for maintaining service health and
-performance. This includes metrics, logging, tracing, and alerting.
+Production-ready monitoring is essential for maintaining service health and performance. This includes metrics, logging, tracing, and alerting.
 
 ## 🔧 Implementation Requirements
 

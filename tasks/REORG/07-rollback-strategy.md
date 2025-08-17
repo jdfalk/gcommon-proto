@@ -170,13 +170,13 @@ from pathlib import Path
 def rollback_domain(domain):
     """Rollback a specific domain."""
     print(f"🔄 Rolling back {domain} domain...")
-    
+
     # Remove proto files for this domain
     proto_domain_dir = Path(f"proto/gcommon/v1/{domain}")
     if proto_domain_dir.exists():
         shutil.rmtree(proto_domain_dir)
         print(f"✅ Removed {proto_domain_dir}")
-    
+
     # Remove generated files for this domain
     pkg_domain_dir = Path(f"pkg/{domain}")
     if pkg_domain_dir.exists():
@@ -185,19 +185,19 @@ def rollback_domain(domain):
         for grpc_file in pkg_domain_dir.rglob("*_grpc.pb.go"):
             grpc_file.unlink()
         print(f"✅ Cleaned generated files in {pkg_domain_dir}")
-    
+
     print(f"🎉 {domain} domain rollback completed")
 
 def rollback_file(file_path):
     """Rollback a specific file."""
     print(f"🔄 Rolling back file: {file_path}")
-    
+
     # Check if file exists in proto structure
     proto_file = Path(file_path)
     if proto_file.exists() and proto_file.is_relative_to(Path("proto")):
         proto_file.unlink()
         print(f"✅ Removed {proto_file}")
-    
+
     # Remove corresponding generated files
     if file_path.endswith(".proto"):
         base_name = Path(file_path).stem
@@ -205,16 +205,16 @@ def rollback_file(file_path):
             pb_file.unlink()
         for grpc_file in Path("pkg").rglob(f"{base_name}_grpc.pb.go"):
             grpc_file.unlink()
-    
+
     print(f"🎉 File rollback completed: {file_path}")
 
 def main():
     parser = argparse.ArgumentParser(description='Selective rollback tool')
     parser.add_argument('--domain', help='Domain to rollback')
     parser.add_argument('--file', help='Specific file to rollback')
-    
+
     args = parser.parse_args()
-    
+
     if args.domain:
         rollback_domain(args.domain)
     elif args.file:
@@ -250,16 +250,16 @@ from pathlib import Path
 def verify_rollback():
     """Verify rollback completed successfully."""
     print("🔍 Verifying rollback...")
-    
+
     issues = []
-    
+
     # Check that proto directory is removed (or empty)
     proto_dir = Path("proto")
     if proto_dir.exists():
         proto_files = list(proto_dir.rglob("*.proto"))
         if proto_files:
             issues.append(f"proto directory still contains {len(proto_files)} files")
-    
+
     # Check that buf configuration is restored
     buf_yaml = Path("buf.yaml")
     if buf_yaml.exists():
@@ -267,22 +267,22 @@ def verify_rollback():
             content = f.read()
             if 'path: proto' in content:
                 issues.append("buf.yaml still references proto directory")
-    
+
     # Check that old proto files are still present
     old_proto_files = list(Path("pkg").rglob("*.proto"))
     if not old_proto_files:
         issues.append("Original proto files are missing from pkg/ directory")
-    
+
     # Check for orphaned generated files
     orphaned_files = []
     for pb_file in Path("pkg").rglob("*.pb.go"):
         proto_file = pb_file.with_suffix(".proto")
         if not proto_file.exists():
             orphaned_files.append(str(pb_file))
-    
+
     if orphaned_files:
         issues.append(f"Found {len(orphaned_files)} orphaned generated files")
-    
+
     # Report results
     if issues:
         print("❌ Rollback verification failed:")
@@ -351,88 +351,88 @@ from pathlib import Path
 class RecoveryAssistant:
     def __init__(self):
         self.issues = []
-        
+
     def diagnose_issues(self):
         """Diagnose current state and identify issues."""
         print("🔍 Diagnosing current state...")
-        
+
         # Check for partial migration
         proto_exists = Path("proto").exists()
         pkg_protos_exist = len(list(Path("pkg").rglob("*.proto"))) > 0
-        
+
         if proto_exists and pkg_protos_exist:
             self.issues.append("Partial migration detected")
-        
+
         # Check for backup files
         if not Path("buf.yaml.backup").exists():
             self.issues.append("Missing buf.yaml backup")
-        
+
         if not Path("buf.gen.yaml.backup").exists():
             self.issues.append("Missing buf.gen.yaml backup")
-        
+
         # Check git status
-        result = subprocess.run(['git', 'status', '--porcelain'], 
+        result = subprocess.run(['git', 'status', '--porcelain'],
                               capture_output=True, text=True)
         if result.stdout.strip():
             self.issues.append("Uncommitted changes detected")
-        
+
         # Check for backup branches
-        result = subprocess.run(['git', 'branch', '-r'], 
+        result = subprocess.run(['git', 'branch', '-r'],
                               capture_output=True, text=True)
-        backup_branches = [line for line in result.stdout.split('\n') 
+        backup_branches = [line for line in result.stdout.split('\n')
                           if 'proto-reorg-backup-' in line]
         if not backup_branches:
             self.issues.append("No backup branches found")
-    
+
     def suggest_recovery_options(self):
         """Suggest recovery options based on diagnosed issues."""
         print("\n💡 Recovery Options:")
-        
+
         if "Partial migration detected" in self.issues:
             print("   1. Complete the migration with: ./scripts/orchestrate-migration.sh full")
             print("   2. Rollback with: ./scripts/orchestrate-migration.sh rollback")
-        
+
         if "Missing buf.yaml backup" in self.issues:
             print("   3. Restore from git: git checkout HEAD~1 buf.yaml")
-        
+
         if "Uncommitted changes detected" in self.issues:
             print("   4. Stash changes: git stash push -m 'Recovery stash'")
-        
+
         if "No backup branches found" in self.issues:
             print("   5. Create backup now: git checkout -b emergency-backup-$(date +%s)")
-    
+
     def interactive_recovery(self):
         """Run interactive recovery process."""
         self.diagnose_issues()
-        
+
         if not self.issues:
             print("✅ No issues detected")
             return
-        
+
         print(f"\n⚠️  Found {len(self.issues)} issues:")
         for issue in self.issues:
             print(f"   • {issue}")
-        
+
         self.suggest_recovery_options()
-        
+
         print("\n🤔 What would you like to do?")
         print("   1. Attempt automatic recovery")
         print("   2. Get manual recovery steps")
         print("   3. Exit and handle manually")
-        
+
         choice = input("Enter choice (1-3): ").strip()
-        
+
         if choice == "1":
             self.automatic_recovery()
         elif choice == "2":
             self.manual_recovery_steps()
         else:
             print("👋 Exiting - handle recovery manually")
-    
+
     def automatic_recovery(self):
         """Attempt automatic recovery."""
         print("🤖 Attempting automatic recovery...")
-        
+
         # Try rollback first
         result = os.system("./scripts/orchestrate-migration.sh rollback")
         if result == 0:
@@ -440,22 +440,22 @@ class RecoveryAssistant:
         else:
             print("❌ Automatic rollback failed")
             self.manual_recovery_steps()
-    
+
     def manual_recovery_steps(self):
         """Provide manual recovery steps."""
         print("\n📋 Manual Recovery Steps:")
         print("1. Create emergency backup:")
         print("   git stash push -m 'Emergency backup'")
         print("   git checkout -b emergency-backup-$(date +%s)")
-        
+
         print("\n2. Restore original files:")
         print("   git checkout HEAD~1 buf.yaml buf.gen.yaml")
         print("   rm -rf proto/")
-        
+
         print("\n3. Clean generated files:")
         print("   find pkg -name '*.pb.go' -delete")
         print("   find pkg -name '*_grpc.pb.go' -delete")
-        
+
         print("\n4. Verify state:")
         print("   ./scripts/verify-rollback.py")
 
@@ -524,24 +524,24 @@ from pathlib import Path
 def verify_git_backups():
     """Verify git backup branches."""
     print("🔍 Verifying git backups...")
-    
-    result = subprocess.run(['git', 'branch', '-r'], 
+
+    result = subprocess.run(['git', 'branch', '-r'],
                           capture_output=True, text=True)
-    
-    backup_branches = [line.strip() for line in result.stdout.split('\n') 
+
+    backup_branches = [line.strip() for line in result.stdout.split('\n')
                       if 'proto-reorg-backup-' in line]
-    
+
     if not backup_branches:
         print("❌ No git backup branches found")
         return False
-    
+
     print(f"✅ Found {len(backup_branches)} git backup branches")
-    
+
     # Test that we can checkout the latest backup
     latest_backup = sorted(backup_branches)[-1].split('/')[-1]
-    
+
     try:
-        subprocess.run(['git', 'fetch', 'origin', latest_backup], 
+        subprocess.run(['git', 'fetch', 'origin', latest_backup],
                       check=True, capture_output=True)
         print(f"✅ Latest backup {latest_backup} is accessible")
         return True
@@ -552,26 +552,26 @@ def verify_git_backups():
 def verify_filesystem_backups():
     """Verify filesystem backups."""
     print("🔍 Verifying filesystem backups...")
-    
+
     backup_dir = Path.home() / "backups"
     if not backup_dir.exists():
         print("❌ Backup directory not found")
         return False
-    
+
     backup_files = list(backup_dir.glob("gcommon-backup-*.tar.gz"))
-    
+
     if not backup_files:
         print("❌ No filesystem backups found")
         return False
-    
+
     print(f"✅ Found {len(backup_files)} filesystem backups")
-    
+
     # Test that latest backup can be extracted
     latest_backup = sorted(backup_files)[-1]
-    
+
     with tempfile.TemporaryDirectory() as temp_dir:
         try:
-            subprocess.run(['tar', '-tzf', str(latest_backup)], 
+            subprocess.run(['tar', '-tzf', str(latest_backup)],
                           check=True, capture_output=True, cwd=temp_dir)
             print(f"✅ Latest backup {latest_backup.name} is valid")
             return True
@@ -582,7 +582,7 @@ def verify_filesystem_backups():
 if __name__ == '__main__':
     git_ok = verify_git_backups()
     fs_ok = verify_filesystem_backups()
-    
+
     if git_ok and fs_ok:
         print("🎉 All backups verified successfully")
         sys.exit(0)

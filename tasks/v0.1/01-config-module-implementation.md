@@ -6,15 +6,11 @@
 
 ## 🎯 Objective
 
-Implement the complete Go service layer for the Config module, which has 155
-protobuf files already defined. This includes gRPC service implementations,
-business logic, provider interfaces, and factory patterns.
+Implement the complete Go service layer for the Config module, which has 155 protobuf files already defined. This includes gRPC service implementations, business logic, provider interfaces, and factory patterns.
 
 ## 📋 Context
 
-The Config module protobuf definitions are 100% complete with comprehensive
-message and service definitions. This task focuses on implementing the Go
-business logic to make the module production-ready.
+The Config module protobuf definitions are 100% complete with comprehensive message and service definitions. This task focuses on implementing the Go business logic to make the module production-ready.
 
 ### Current State
 
@@ -28,10 +24,8 @@ business logic to make the module production-ready.
 
 Before starting, review these instruction files:
 
-- `.github/instructions/general-coding.instructions.md` - General coding
-  standards
-- `.github/instructions/go-coding.instructions.md` - Go-specific standards (if
-  exists)
+- `.github/instructions/general-coding.instructions.md` - General coding standards
+- `.github/instructions/go-coding.instructions.md` - Go-specific standards (if exists)
 - `docs/PROTOBUF_STRATEGY.md` - Protobuf implementation strategy
 - `TODO.md` - Current project status and priorities
 - `README.md` - Project overview and quick start
@@ -211,10 +205,8 @@ All new files must include the standard header:
 
 ## 📝 Notes
 
-- Reference the Health module (`pkg/health/`) as the gold standard for
-  implementation patterns
-- Use the Database module (`pkg/db/`) for complex service implementation
-  examples
+- Reference the Health module (`pkg/health/`) as the gold standard for implementation patterns
+- Use the Database module (`pkg/db/`) for complex service implementation examples
 - Ensure thread-safety for all concurrent operations
 - Consider performance implications for configuration watching
 
