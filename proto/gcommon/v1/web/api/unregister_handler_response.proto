@@ -1,0 +1,17 @@
+// file: proto/gcommon/v1/web/api/unregister_handler_response.proto
+// version: 1.0.0
+// guid: 60c00ce0-2fa0-4af1-a7ab-48b4351a72cf
+
+edition = "2023";
+
+package gcommon.v1.web.api;
+
+import "google/protobuf/go_features.proto";
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package gcommon.v1.web.api;
+
+// UnregisterHandlerResponse response definition.
+message UnregisterHandlerResponse {
+  string placeholder = 1;
+}

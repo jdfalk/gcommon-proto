@@ -1,0 +1,17 @@
+// file: proto/gcommon/v1/web/api/register_handler_response.proto
+// version: 1.0.0
+// guid: a59897f6-9cf0-48f8-8117-621aea3b60e0
+
+edition = "2023";
+
+package gcommon.v1.web.api;
+
+import "google/protobuf/go_features.proto";
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package gcommon.v1.web.api;
+
+// RegisterHandlerResponse response definition.
+message RegisterHandlerResponse {
+  string placeholder = 1;
+}

@@ -1,0 +1,27 @@
+// file: proto/gcommon/v1/web/api/health_check_response.proto
+// version: 1.0.0
+// guid: abec6322-3426-4dde-8a30-3afe453d1650
+
+edition = "2023";
+
+package gcommon.v1.web.api;
+
+import "google/protobuf/duration.proto";
+import "google/protobuf/go_features.proto";
+import "proto/gcommon/v1/common/messages/error.proto";
+import "proto/gcommon/v1/metrics/types/health_status.proto";
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package gcommon.v1.web.api;
+
+// HealthCheckResponse response definition.
+message WebHealthCheckResponse {
+  // Web server health status.
+  gcommon.v1.metrics.MetricsHealthStatus status = 1;
+
+  // Time taken to respond to the health check.
+  google.protobuf.Duration response_time = 2 [lazy = true];
+
+  // Error details if the server is unhealthy.
+  gcommon.v1.common.Error error = 3 [lazy = true];
+}

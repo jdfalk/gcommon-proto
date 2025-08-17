@@ -1,0 +1,17 @@
+// file: proto/gcommon/v1/web/api/get_cookie_request.proto
+// version: 1.0.0
+// guid: c813599e-921b-4476-a0ce-e43beac01bdb
+
+edition = "2023";
+
+package gcommon.v1.web.api;
+
+import "google/protobuf/go_features.proto";
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package gcommon.v1.web.api;
+
+// GetCookieRequest request definition.
+message GetCookieRequest {
+  string placeholder = 1;
+}

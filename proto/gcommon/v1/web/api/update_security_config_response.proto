@@ -1,0 +1,17 @@
+// file: proto/gcommon/v1/web/api/update_security_config_response.proto
+// version: 1.0.0
+// guid: 63689787-044d-4302-8175-9745ac688e61
+
+edition = "2023";
+
+package gcommon.v1.web.api;
+
+import "google/protobuf/go_features.proto";
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package gcommon.v1.web.api;
+
+// UpdateSecurityConfigResponse response definition.
+message UpdateSecurityConfigResponse {
+  string placeholder = 1;
+}

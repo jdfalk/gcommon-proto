@@ -1,0 +1,30 @@
+// file: proto/gcommon/v1/web/config/websocket_config.proto
+// version: 1.1.0
+// guid: b746de14-1e1e-4faf-812f-0bf9fa38c201
+
+edition = "2023";
+
+package gcommon.v1.web.config;
+
+import "google/protobuf/go_features.proto";
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package gcommon.v1.web.config;
+
+// WebsocketConfig message definition.
+message WebsocketConfig {
+  // Endpoint path for websocket connections
+  string endpoint = 1;
+
+  // Allowed origin hosts
+  repeated string allowed_origins = 2;
+
+  // Enable per-message compression
+  bool enable_compression = 3;
+
+  // Read buffer size in bytes
+  int32 read_buffer_size = 4;
+
+  // Write buffer size in bytes
+  int32 write_buffer_size = 5;
+}

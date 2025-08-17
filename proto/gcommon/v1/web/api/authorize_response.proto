@@ -1,0 +1,17 @@
+// file: proto/gcommon/v1/web/api/authorize_response.proto
+// version: 1.0.0
+// guid: df7cdfcb-6b3a-4991-a9e2-1b08a908570b
+
+edition = "2023";
+
+package gcommon.v1.web.api;
+
+import "google/protobuf/go_features.proto";
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package gcommon.v1.web.api;
+
+// AuthorizeResponse response definition.
+message WebAuthorizeResponse {
+  string placeholder = 1;
+}

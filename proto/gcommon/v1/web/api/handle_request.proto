@@ -1,0 +1,17 @@
+// file: proto/gcommon/v1/web/api/handle_request.proto
+// version: 1.0.0
+// guid: 50315b83-99de-4058-b883-61ebfa2b47a8
+
+edition = "2023";
+
+package gcommon.v1.web.api;
+
+import "google/protobuf/go_features.proto";
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package gcommon.v1.web.api;
+
+// HandleRequest request definition.
+message HandleRequest {
+  string placeholder = 1;
+}

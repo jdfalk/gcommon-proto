@@ -1,0 +1,25 @@
+// file: proto/gcommon/v1/web/api/unregister_middleware_request.proto
+// version: 1.1.0
+// guid: 9123fb9b-ced5-4251-adb0-dcb9b453b8b5
+// UnregisterMiddlewareRequest request definition.
+
+edition = "2023";
+
+package gcommon.v1.web.api;
+
+import "google/protobuf/go_features.proto";
+import "proto/gcommon/v1/common/api/request_metadata.proto";
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package gcommon.v1.web.api;
+
+message UnregisterMiddlewareRequest {
+  // Server identifier
+  string server_id = 1;
+
+  // Middleware identifier
+  string middleware_id = 2;
+
+  // Standard request metadata
+  gcommon.v1.common.RequestMetadata metadata = 3;
+}

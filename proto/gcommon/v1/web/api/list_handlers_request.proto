@@ -1,0 +1,37 @@
+// file: proto/gcommon/v1/web/api/list_handlers_request.proto
+// version: 1.1.0
+// guid: 5141d082-9a7d-4518-bc9a-3bdf2aca716c
+
+edition = "2023";
+
+package gcommon.v1.web.api;
+
+import "google/protobuf/go_features.proto";
+import "proto/gcommon/v1/common/api/request_metadata.proto";
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package gcommon.v1.web.api;
+
+/**
+ * Request to list registered HTTP handlers.
+ * Used for route discovery and management.
+ */
+message ListHandlersRequest {
+  // Filter by HTTP method (GET, POST, etc.)
+  string method_filter = 1;
+
+  // Filter by path pattern
+  string path_filter = 2;
+
+  // Whether to include middleware information
+  bool include_middleware = 3;
+
+  // Maximum number of handlers to return
+  int32 limit = 4;
+
+  // Pagination offset
+  int32 offset = 5;
+
+  // Request metadata for tracing and correlation
+  gcommon.v1.common.RequestMetadata metadata = 6;
+}

@@ -1,0 +1,17 @@
+// file: proto/gcommon/v1/web/api/get_template_info_response.proto
+// version: 1.0.0
+// guid: e1cc4547-9204-48a5-84a3-3c7526d71494
+
+edition = "2023";
+
+package gcommon.v1.web.api;
+
+import "google/protobuf/go_features.proto";
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package gcommon.v1.web.api;
+
+// GetTemplateInfoResponse response definition.
+message GetTemplateInfoResponse {
+  string placeholder = 1;
+}

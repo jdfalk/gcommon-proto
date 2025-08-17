@@ -1,0 +1,17 @@
+// file: proto/gcommon/v1/web/api/delete_template_request.proto
+// version: 1.0.0
+// guid: 77e6e070-8d45-407c-bf0d-4fa8e59286c9
+
+edition = "2023";
+
+package gcommon.v1.web.api;
+
+import "google/protobuf/go_features.proto";
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package gcommon.v1.web.api;
+
+// DeleteTemplateRequest request definition.
+message DeleteTemplateRequest {
+  string placeholder = 1;
+}

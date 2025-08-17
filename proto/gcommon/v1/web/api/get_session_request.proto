@@ -1,0 +1,18 @@
+// file: proto/gcommon/v1/web/api/get_session_request.proto
+// version: 1.1.0
+// guid: 5ab16058-a2a8-463c-b101-b1f24df275ef
+
+edition = "2023";
+
+package gcommon.v1.web.api;
+
+import "google/protobuf/go_features.proto";
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package gcommon.v1.web.api;
+
+// GetSessionRequest request definition.
+message WebGetSessionRequest {
+  // Identifier of the session to retrieve
+  string session_id = 1;
+}

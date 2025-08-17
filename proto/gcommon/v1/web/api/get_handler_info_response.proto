@@ -1,0 +1,17 @@
+// file: proto/gcommon/v1/web/api/get_handler_info_response.proto
+// version: 1.0.0
+// guid: d6203aa9-40d1-47d9-8c6d-ea2d7cf3c76e
+
+edition = "2023";
+
+package gcommon.v1.web.api;
+
+import "google/protobuf/go_features.proto";
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package gcommon.v1.web.api;
+
+// GetHandlerInfoResponse response definition.
+message GetHandlerInfoResponse {
+  string placeholder = 1;
+}

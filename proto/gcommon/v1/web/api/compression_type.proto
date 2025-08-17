@@ -1,0 +1,24 @@
+// file: proto/gcommon/v1/web/api/compression_type.proto
+// version: 1.0.0
+// guid: 0f9ae4d2-05d3-4a49-92e4-3c902a4b8c3e
+//
+// CompressionType enumerates supported HTTP compression algorithms.
+edition = "2023";
+
+package gcommon.v1.web.api;
+
+import "google/protobuf/go_features.proto";
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package gcommon.v1.web.api;
+
+// Supported compression algorithms for responses.
+enum WebCompressionType {
+  COMPRESSION_TYPE_UNSPECIFIED = 0;
+  // No compression.
+  COMPRESSION_TYPE_NONE = 1;
+  // gzip compression.
+  COMPRESSION_TYPE_GZIP = 2;
+  // brotli compression.
+  COMPRESSION_TYPE_BROTLI = 3;
+}

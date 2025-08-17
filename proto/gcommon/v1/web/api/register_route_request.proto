@@ -1,0 +1,17 @@
+// file: proto/gcommon/v1/web/api/register_route_request.proto
+// version: 1.0.0
+// guid: 0c8be2b5-29b4-4207-a6a3-91d9c03312fe
+
+edition = "2023";
+
+package gcommon.v1.web.api;
+
+import "google/protobuf/go_features.proto";
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package gcommon.v1.web.api;
+
+// RegisterRouteRequest request definition.
+message RegisterRouteRequest {
+  string placeholder = 1;
+}

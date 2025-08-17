@@ -1,0 +1,17 @@
+// file: proto/gcommon/v1/web/api/get_performance_stats_response.proto
+// version: 1.0.0
+// guid: ecadd1ec-a5eb-4813-a0c7-055cfc58c7be
+
+edition = "2023";
+
+package gcommon.v1.web.api;
+
+import "google/protobuf/go_features.proto";
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package gcommon.v1.web.api;
+
+// GetPerformanceStatsResponse response definition.
+message GetPerformanceStatsResponse {
+  string placeholder = 1;
+}

@@ -1,0 +1,17 @@
+// file: proto/gcommon/v1/web/api/authenticate_response.proto
+// version: 1.0.0
+// guid: f058366e-3b22-4c95-8be7-0ddf15eec85f
+
+edition = "2023";
+
+package gcommon.v1.web.api;
+
+import "google/protobuf/go_features.proto";
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package gcommon.v1.web.api;
+
+// AuthenticateResponse response definition.
+message WebAuthenticateResponse {
+  string placeholder = 1;
+}

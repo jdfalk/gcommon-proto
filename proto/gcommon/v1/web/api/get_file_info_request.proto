@@ -1,0 +1,17 @@
+// file: proto/gcommon/v1/web/api/get_file_info_request.proto
+// version: 1.0.0
+// guid: cf3df7e0-3738-456e-9082-d5ccd898b372
+
+edition = "2023";
+
+package gcommon.v1.web.api;
+
+import "google/protobuf/go_features.proto";
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package gcommon.v1.web.api;
+
+// GetFileInfoRequest request definition.
+message GetFileInfoRequest {
+  string placeholder = 1;
+}

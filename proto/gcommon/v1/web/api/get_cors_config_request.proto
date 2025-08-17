@@ -1,0 +1,17 @@
+// file: proto/gcommon/v1/web/api/get_cors_config_request.proto
+// version: 1.0.0
+// guid: c22a2431-29be-4eb5-8ed8-40b2840f03ae
+
+edition = "2023";
+
+package gcommon.v1.web.api;
+
+import "google/protobuf/go_features.proto";
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package gcommon.v1.web.api;
+
+// GetCorsConfigRequest request definition.
+message GetCorsConfigRequest {
+  string placeholder = 1;
+}

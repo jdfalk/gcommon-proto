@@ -1,0 +1,21 @@
+// file: proto/gcommon/v1/web/api/create_session_request.proto
+// version: 1.1.0
+// guid: 1022341d-b551-43d4-b090-2354a82b624c
+
+edition = "2023";
+
+package gcommon.v1.web.api;
+
+import "google/protobuf/go_features.proto";
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package gcommon.v1.web.api;
+
+// CreateSessionRequest request definition.
+message WebCreateSessionRequest {
+  // User ID for the new session
+  string user_id = 1;
+
+  // Optional initial metadata
+  map<string, string> metadata = 2;
+}
