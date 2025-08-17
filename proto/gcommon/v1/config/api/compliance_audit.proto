@@ -1,0 +1,26 @@
+// file: proto/gcommon/v1/config/api/compliance_audit.proto
+// version: 1.0.0
+// guid: d3e4f5a6-7b8c-9012-def0-345678901234
+
+edition = "2023";
+
+package gcommon.v1.config.api;
+
+import "google/protobuf/go_features.proto";
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package gcommon.v1.config.api;
+
+message ComplianceAudit {
+  // Audit ID
+  string id = 1;
+
+  // Audit name
+  string name = 2;
+
+  // Audit type
+  string type = 3;
+
+  // Audit enabled status
+  bool enabled = 4;
+}

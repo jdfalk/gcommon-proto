@@ -1,0 +1,26 @@
+// file: proto/gcommon/v1/config/api/validation_rule_type.proto
+// version: 1.0.0
+// guid: 604ea5f1-2b57-45ce-9711-be0f342bde10
+
+edition = "2023";
+
+package gcommon.v1.config.api;
+
+import "google/protobuf/any.proto";
+import "google/protobuf/go_features.proto";
+import "google/protobuf/timestamp.proto";
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package gcommon.v1.config.api;
+
+enum ValidationRuleType {
+  VALIDATION_RULE_TYPE_UNSPECIFIED = 0;
+  VALIDATION_RULE_TYPE_REGEX = 1;
+  VALIDATION_RULE_TYPE_RANGE = 2;
+  VALIDATION_RULE_TYPE_LENGTH = 3;
+  VALIDATION_RULE_TYPE_FORMAT = 4;
+  VALIDATION_RULE_TYPE_ENUM = 5;
+  VALIDATION_RULE_TYPE_CUSTOM = 6;
+  VALIDATION_RULE_TYPE_FUNCTION = 7;
+  VALIDATION_RULE_TYPE_SCHEMA = 8;
+}

@@ -1,0 +1,29 @@
+// file: proto/gcommon/v1/config/api/watch_config_response.proto
+edition = "2023";
+
+package gcommon.v1.config.api;
+
+import "google/protobuf/go_features.proto";
+import "google/protobuf/timestamp.proto";
+import "proto/gcommon/v1/config/types/config_change_type.proto";
+import "proto/gcommon/v1/config/config/config_entry.proto";
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package gcommon.v1.config.api;
+
+/**
+ * WatchConfigResponse describes a configuration change event.
+ */
+message WatchConfigResponse {
+  // Type of change
+  ConfigChangeType change_type = 1;
+
+  // Configuration entry
+  ConfigEntry entry = 2;
+
+  // Previous value for updates/deletes
+  ConfigEntry previous_entry = 3;
+
+  // Change timestamp
+  google.protobuf.Timestamp timestamp = 4;
+}

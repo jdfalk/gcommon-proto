@@ -1,0 +1,33 @@
+// file: proto/gcommon/v1/config/v1/caching_settings.proto
+// version: 1.0.0
+// guid: 2c6f8039-2855-4a31-884a-4d66d71cf897
+
+edition = "2023";
+
+package gcommon.v1.config.v1;
+
+import "google/protobuf/any.proto";
+import "google/protobuf/go_features.proto";
+import "google/protobuf/timestamp.proto";
+import "proto/gcommon/v1/config/messages/cache_invalidation_trigger.proto";
+import "proto/gcommon/v1/config/messages/cache_refresh_strategy.proto";
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package gcommon.v1.config.v1;
+
+message CachingSettings {
+  // Whether caching is enabled
+  bool enabled = 1;
+
+  // Cache TTL in seconds
+  int32 ttl_seconds = 2;
+
+  // Cache refresh strategy
+  CacheRefreshStrategy refresh_strategy = 3;
+
+  // Cache invalidation triggers
+  repeated CacheInvalidationTrigger triggers = 4;
+
+  // Cache metadata
+  map<string, string> metadata = 5;
+}

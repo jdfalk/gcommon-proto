@@ -1,0 +1,50 @@
+// file: proto/gcommon/v1/config/api/deployment_info.proto
+// version: 1.0.0
+// guid: 07fcdb63-0b96-42e8-ab5e-6656870d6f03
+
+edition = "2023";
+
+package gcommon.v1.config.api;
+
+import "google/protobuf/go_features.proto";
+import "google/protobuf/timestamp.proto";
+import "proto/gcommon/v1/config/messages/access_control.proto";
+import "proto/gcommon/v1/config/config/audit_settings.proto";
+import "proto/gcommon/v1/config/config/compliance_settings.proto";
+import "proto/gcommon/v1/config/messages/deployment_rollback_info.proto";
+import "proto/gcommon/v1/config/types/deployment_status.proto";
+import "proto/gcommon/v1/config/types/environment_status.proto";
+import "proto/gcommon/v1/config/types/environment_type.proto";
+import "proto/gcommon/v1/config/messages/health_check.proto";
+import "proto/gcommon/v1/config/types/health_check_type.proto";
+import "proto/gcommon/v1/config/messages/health_state.proto";
+import "proto/gcommon/v1/config/config/notification_settings.proto";
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package gcommon.v1.config.api;
+
+message DeploymentInfo {
+  // Deployment status
+  DeploymentStatus status = 1;
+
+  // Last deployment timestamp
+  google.protobuf.Timestamp last_deployed_at = 2;
+
+  // Deployment version
+  string version = 3;
+
+  // Deployment method
+  string method = 4;
+
+  // Deployment target
+  string target = 5;
+
+  // Deployment configuration
+  map<string, string> config = 6;
+
+  // Deployment health checks
+  repeated HealthCheck health_checks = 7;
+
+  // Deployment rollback info
+  DeploymentRollbackInfo rollback_info = 8;
+}

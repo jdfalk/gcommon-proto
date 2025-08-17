@@ -1,0 +1,29 @@
+// file: proto/gcommon/v1/config/api/parameter_constraints.proto
+// version: 1.0.0
+// guid: c8d9e0f1-2345-6789-2345-890123456789
+
+edition = "2023";
+
+package gcommon.v1.config.api;
+
+import "google/protobuf/go_features.proto";
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package gcommon.v1.config.api;
+
+message ParameterConstraints {
+  // Minimum value
+  string min_value = 1;
+
+  // Maximum value
+  string max_value = 2;
+
+  // Pattern validation
+  string pattern = 3;
+
+  // Required flag
+  bool required = 4;
+
+  // Default value
+  string default_value = 5;
+}

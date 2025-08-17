@@ -1,0 +1,37 @@
+// file: proto/gcommon/v1/config/api/version_dependency.proto
+// version: 1.0.0
+// guid: c6e48e5f-19bf-49eb-ae5b-2360c1e11fe1
+
+edition = "2023";
+
+package gcommon.v1.config.api;
+
+import "google/protobuf/go_features.proto";
+import "google/protobuf/timestamp.proto";
+import "proto/gcommon/v1/common/messages/audit_log.proto";
+import "proto/gcommon/v1/config/types/version_dependency_type.proto";
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package gcommon.v1.config.api;
+
+message VersionDependency {
+  // Dependency name
+  string name = 1;
+
+  // Dependency version
+  string version = 2;
+
+  // Dependency type
+  VersionDependencyType type = 3;
+
+  // Dependency scope
+  string scope = 4;
+
+  // Dependency bool optional = 5;
+
+  // Dependency constraints
+  repeated string constraints = 6;
+
+  // Dependency metadata
+  map<string, string> metadata = 7;
+}

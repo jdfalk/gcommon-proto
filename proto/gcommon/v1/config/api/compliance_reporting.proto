@@ -1,0 +1,23 @@
+// file: proto/gcommon/v1/config/api/compliance_reporting.proto
+// version: 1.0.0
+// guid: e4f5a6b7-8c9d-0123-ef01-456789012345
+
+edition = "2023";
+
+package gcommon.v1.config.api;
+
+import "google/protobuf/go_features.proto";
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package gcommon.v1.config.api;
+
+message ComplianceReporting {
+  // Reporting enabled status
+  bool enabled = 1;
+
+  // Report frequency in hours
+  int32 frequency_hours = 2;
+
+  // Report recipients
+  repeated string recipients = 3;
+}

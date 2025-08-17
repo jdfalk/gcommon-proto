@@ -1,0 +1,36 @@
+// file: proto/gcommon/v1/config/api/approval_status.proto
+// version: 1.0.0
+// guid: a9b0c1d2-e3f4-5a6b-7c8d-9e0f1a2b3c4d
+
+edition = "2023";
+
+package gcommon.v1.config.api;
+
+import "google/protobuf/go_features.proto";
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package gcommon.v1.config.api;
+
+/**
+ * ApprovalStatus represents the approval status.
+ * Specifies the current state of configuration change approval.
+ */
+enum ApprovalStatus {
+  // Unspecified approval status
+  APPROVAL_STATUS_UNSPECIFIED = 0;
+
+  // Approval is pending
+  APPROVAL_STATUS_PENDING = 1;
+
+  // Change has been approved
+  APPROVAL_STATUS_APPROVED = 2;
+
+  // Change has been rejected
+  APPROVAL_STATUS_REJECTED = 3;
+
+  // Approval was cancelled
+  APPROVAL_STATUS_CANCELLED = 4;
+
+  // Approval request expired
+  APPROVAL_STATUS_EXPIRED = 5;
+}

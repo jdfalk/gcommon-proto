@@ -1,0 +1,37 @@
+// file: proto/gcommon/v1/config/api/list_config_request.proto
+//
+edition = "2023";
+
+package gcommon.v1.config.api;
+
+import "google/protobuf/go_features.proto";
+import "proto/gcommon/v1/common/messages/filter_options.proto";
+import "proto/gcommon/v1/common/messages/pagination.proto";
+import "proto/gcommon/v1/common/api/request_metadata.proto";
+import "proto/gcommon/v1/common/messages/sort_options.proto";
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package gcommon.v1.config.api;
+
+/**
+ * ListConfigRequest lists configuration entries with optional filtering.
+ */
+message ListConfigRequest {
+  // Key prefix filter
+  string prefix = 1;
+
+  // Optional namespace/environment
+  string namespace = 2;
+
+  // Pagination options
+  gcommon.v1.common.Pagination pagination = 3;
+
+  // Filter options
+  gcommon.v1.common.FilterOptions filter = 4;
+
+  // Sort options
+  gcommon.v1.common.SortOptions sort = 5;
+
+  // Request metadata
+  gcommon.v1.common.RequestMetadata metadata = 6;
+}

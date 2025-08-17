@@ -1,0 +1,46 @@
+// file: proto/gcommon/v1/config/api/approval_requirement.proto
+// version: 1.0.0
+// guid: 54ae6b55-a574-4ad5-89ea-9cadf541517a
+
+edition = "2023";
+
+package gcommon.v1.config.api;
+
+import "google/protobuf/go_features.proto";
+import "google/protobuf/timestamp.proto";
+import "proto/gcommon/v1/config/messages/audit_level.proto";
+import "proto/gcommon/v1/config/messages/backup_frequency.proto";
+import "proto/gcommon/v1/config/types/channel_type.proto";
+import "proto/gcommon/v1/config/types/config_data_type.proto";
+import "proto/gcommon/v1/config/messages/deprecation_level.proto";
+import "proto/gcommon/v1/config/types/metadata_status.proto";
+import "proto/gcommon/v1/config/messages/notification_trigger.proto";
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package gcommon.v1.config.api;
+
+message ApprovalRequirement {
+  // Whether approval is required
+  bool required = 1;
+
+  // Number of approvals required
+  int32 approval_count = 2;
+
+  // Required approver roles
+  repeated string approver_roles = 3;
+
+  // Required approver users
+  repeated string approver_users = 4;
+
+  // Approval policy
+  string policy = 5;
+
+  // Approval workflow
+  string workflow = 6;
+
+  // Auto-approval conditions
+  repeated string auto_approval_conditions = 7;
+
+  // Approval timeout
+  int32 approval_timeout_hours = 8;
+}

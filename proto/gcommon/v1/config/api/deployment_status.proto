@@ -1,0 +1,39 @@
+// file: proto/gcommon/v1/config/api/deployment_status.proto
+// version: 1.0.0
+// guid: e3f4a5b6-c7d8-9e0f-1a2b-3c4d5e6f7a8b
+
+edition = "2023";
+
+package gcommon.v1.config.api;
+
+import "google/protobuf/go_features.proto";
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package gcommon.v1.config.api;
+
+/**
+ * DeploymentStatus represents the status of a deployment.
+ * Specifies the current state of configuration deployment operations.
+ */
+enum DeploymentStatus {
+  // Unspecified deployment status
+  DEPLOYMENT_STATUS_UNSPECIFIED = 0;
+
+  // Deployment is pending
+  DEPLOYMENT_STATUS_PENDING = 1;
+
+  // Deployment is in progress
+  DEPLOYMENT_STATUS_IN_PROGRESS = 2;
+
+  // Deployment completed successfully
+  DEPLOYMENT_STATUS_SUCCESS = 3;
+
+  // Deployment failed
+  DEPLOYMENT_STATUS_FAILED = 4;
+
+  // Deployment was rolled back
+  DEPLOYMENT_STATUS_ROLLED_BACK = 5;
+
+  // Deployment was cancelled
+  DEPLOYMENT_STATUS_CANCELLED = 6;
+}

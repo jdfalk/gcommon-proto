@@ -1,0 +1,26 @@
+// file: proto/gcommon/v1/config/v1/config_stats.proto
+// version: 1.0.0
+// guid: f5a6b7c8-9d0e-1234-f012-567890123456
+
+edition = "2023";
+
+package gcommon.v1.config.v1;
+
+import "google/protobuf/go_features.proto";
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package gcommon.v1.config.v1;
+
+message ConfigStats {
+  // Total number of configurations
+  int64 total_configs = 1;
+
+  // Number of active configurations
+  int64 active_configs = 2;
+
+  // Number of deprecated configurations
+  int64 deprecated_configs = 3;
+
+  // Average access frequency
+  double avg_access_frequency = 4;
+}

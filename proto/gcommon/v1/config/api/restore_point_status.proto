@@ -1,0 +1,22 @@
+// file: proto/gcommon/v1/config/api/restore_point_status.proto
+// version: 1.0.0
+// guid: 83838713-4e8f-494e-93ec-7bdf0b406982
+
+edition = "2023";
+
+package gcommon.v1.config.api;
+
+import "google/protobuf/go_features.proto";
+import "google/protobuf/timestamp.proto";
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package gcommon.v1.config.api;
+
+enum RestorePointStatus {
+  RESTORE_POINT_STATUS_UNSPECIFIED = 0;
+  RESTORE_POINT_STATUS_CREATING = 1;
+  RESTORE_POINT_STATUS_ACTIVE = 2;
+  RESTORE_POINT_STATUS_EXPIRED = 3;
+  RESTORE_POINT_STATUS_DELETED = 4;
+  RESTORE_POINT_STATUS_ERROR = 5;
+}

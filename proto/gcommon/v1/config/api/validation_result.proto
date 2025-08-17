@@ -1,0 +1,38 @@
+// file: proto/gcommon/v1/config/api/validation_result.proto
+// version: 1.0.0
+// guid: 24d2ce27-6b21-4f7b-82f6-2a7b060fe004
+
+edition = "2023";
+
+package gcommon.v1.config.api;
+
+import "google/protobuf/go_features.proto";
+import "google/protobuf/timestamp.proto";
+import "proto/gcommon/v1/config/types/approval_status.proto";
+import "proto/gcommon/v1/config/types/audit_operation_type.proto";
+import "proto/gcommon/v1/config/messages/rollback_method.proto";
+import "proto/gcommon/v1/config/types/validation_result_type.proto";
+import "proto/gcommon/v1/config/messages/validation_severity.proto";
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package gcommon.v1.config.api;
+
+message ConfigValidationResult {
+  // Validation rule name
+  string rule_name = 1;
+
+  // Validation result
+  ValidationResultType result = 2;
+
+  // Validation message
+  string message = 3;
+
+  // Severity level
+  ValidationSeverity severity = 4;
+
+  // Field that was validated
+  string field = 5;
+
+  // Additional context
+  map<string, string> context = 6;
+}

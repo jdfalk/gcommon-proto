@@ -1,0 +1,24 @@
+// file: proto/gcommon/v1/config/api/usage_trend.proto
+// version: 1.0.0
+// guid: d9e0f1a2-3456-789a-3456-901234567890
+
+edition = "2023";
+
+package gcommon.v1.config.api;
+
+import "google/protobuf/go_features.proto";
+import "google/protobuf/timestamp.proto";
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package gcommon.v1.config.api;
+
+message UsageTrend {
+  // Timestamp
+  google.protobuf.Timestamp timestamp = 1;
+
+  // Usage count
+  int64 usage_count = 2;
+
+  // Trend direction
+  string direction = 3;
+}

@@ -1,0 +1,30 @@
+// file: proto/gcommon/v1/config/api/inheritance_filter.proto
+// version: 1.0.0
+// guid: 0cda004b-8fb1-47de-a58b-fb17ec38d92f
+
+edition = "2023";
+
+package gcommon.v1.config.api;
+
+import "google/protobuf/any.proto";
+import "google/protobuf/go_features.proto";
+import "google/protobuf/timestamp.proto";
+import "proto/gcommon/v1/config/messages/filter_action.proto";
+import "proto/gcommon/v1/config/types/filter_type.proto";
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package gcommon.v1.config.api;
+
+message InheritanceFilter {
+  // Filter type
+  ConfigFilterType type = 1;
+
+  // Filter expression
+  string expression = 2;
+
+  // Filter action
+  FilterAction action = 3;
+
+  // Filter metadata
+  map<string, string> metadata = 4;
+}

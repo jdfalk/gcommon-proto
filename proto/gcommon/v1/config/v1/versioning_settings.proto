@@ -1,0 +1,43 @@
+// file: proto/gcommon/v1/config/v1/versioning_settings.proto
+// version: 1.0.0
+// guid: 8ed86af7-67dd-4efb-abe6-bd383a4a4720
+
+edition = "2023";
+
+package gcommon.v1.config.v1;
+
+import "google/protobuf/go_features.proto";
+import "google/protobuf/timestamp.proto";
+import "proto/gcommon/v1/config/messages/audit_level.proto";
+import "proto/gcommon/v1/config/messages/backup_frequency.proto";
+import "proto/gcommon/v1/config/types/channel_type.proto";
+import "proto/gcommon/v1/config/types/config_data_type.proto";
+import "proto/gcommon/v1/config/messages/deprecation_level.proto";
+import "proto/gcommon/v1/config/types/metadata_status.proto";
+import "proto/gcommon/v1/config/messages/notification_trigger.proto";
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package gcommon.v1.config.v1;
+
+message VersioningSettings {
+  // Whether versioning is enabled
+  bool enabled = 1;
+
+  // Maximum number of versions to keep
+  int32 max_versions = 2;
+
+  // Version retention period in days
+  int32 retention_days = 3;
+
+  // Whether to create versions on change
+  bool version_on_change = 4;
+
+  // Whether to create versions on schedule
+  bool version_on_schedule = 5;
+
+  // Versioning schedule
+  string schedule = 6;
+
+  // Version metadata
+  map<string, string> metadata = 7;
+}

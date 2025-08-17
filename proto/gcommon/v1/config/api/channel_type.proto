@@ -1,0 +1,24 @@
+// file: proto/gcommon/v1/config/api/channel_type.proto
+// version: 1.0.0
+// guid: 6f6a3985-1560-40b0-b6d5-b2985349b649
+
+edition = "2023";
+
+package gcommon.v1.config.api;
+
+import "google/protobuf/go_features.proto";
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package gcommon.v1.config.api;
+
+enum ChannelType {
+  CHANNEL_TYPE_UNSPECIFIED = 0;
+  CHANNEL_TYPE_EMAIL = 1;
+  CHANNEL_TYPE_SLACK = 2;
+  CHANNEL_TYPE_WEBHOOK = 3;
+  CHANNEL_TYPE_SMS = 4;
+  CHANNEL_TYPE_PAGERDUTY = 5;
+  CHANNEL_TYPE_TEAMS = 6;
+  CHANNEL_TYPE_DISCORD = 7;
+  CHANNEL_TYPE_JIRA = 8;
+}

@@ -1,0 +1,22 @@
+// file: proto/gcommon/v1/config/api/backup_frequency.proto
+// version: 1.0.0
+// guid: 4efc5d0f-be87-47e1-8f01-f42fa2926368
+
+edition = "2023";
+
+package gcommon.v1.config.api;
+
+import "google/protobuf/go_features.proto";
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package gcommon.v1.config.api;
+
+enum BackupFrequency {
+  BACKUP_FREQUENCY_UNSPECIFIED = 0;
+  BACKUP_FREQUENCY_MANUAL = 1;
+  BACKUP_FREQUENCY_HOURLY = 2;
+  BACKUP_FREQUENCY_DAILY = 3;
+  BACKUP_FREQUENCY_WEEKLY = 4;
+  BACKUP_FREQUENCY_MONTHLY = 5;
+  BACKUP_FREQUENCY_ON_CHANGE = 6;
+}

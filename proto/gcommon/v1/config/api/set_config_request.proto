@@ -1,0 +1,38 @@
+// file: proto/gcommon/v1/config/api/set_config_request.proto
+//
+// Request definitions for config module
+// Generated as part of 1-1-1 migration
+edition = "2023";
+
+package gcommon.v1.config.api;
+
+import "google/protobuf/go_features.proto";
+import "proto/gcommon/v1/common/config/config_value.proto";
+import "proto/gcommon/v1/common/api/request_metadata.proto";
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package gcommon.v1.config.api;
+
+// Set configuration request
+message SetConfigRequest {
+  // Configuration key
+  string key = 1;
+
+  // Configuration value
+  gcommon.v1.common.ConfigValue value = 2;
+
+  // Optional namespace/environment
+  string namespace = 3;
+
+  // Configuration metadata
+  map<string, string> metadata = 4;
+
+  // Whether to encrypt the value
+  bool encrypt = 5;
+
+  // Tags for categorization
+  repeated string tags = 6;
+
+  // Request metadata
+  gcommon.v1.common.RequestMetadata request_metadata = 7;
+}

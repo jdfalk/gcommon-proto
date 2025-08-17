@@ -1,0 +1,21 @@
+// file: proto/gcommon/v1/config/api/get_config_stats_response.proto
+// version: 1.0.0
+// guid: c97a7226-491a-45fd-bf2d-4c045dbd0054
+
+edition = "2023";
+
+package gcommon.v1.config.api;
+
+import "google/protobuf/go_features.proto";
+import "proto/gcommon/v1/config/config/config_stats.proto";
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package gcommon.v1.config.api;
+
+/**
+ * GetConfigStatsResponse contains statistics about configuration.
+ */
+message GetConfigStatsResponse {
+  // Statistics data
+  ConfigStats stats = 1;
+}

@@ -1,0 +1,26 @@
+// file: proto/gcommon/v1/config/api/version_type.proto
+// version: 1.0.0
+// guid: 38337d79-8f7d-4d84-bc08-cf277adfd568
+
+edition = "2023";
+
+package gcommon.v1.config.api;
+
+import "google/protobuf/go_features.proto";
+import "google/protobuf/timestamp.proto";
+import "proto/gcommon/v1/common/messages/audit_log.proto";
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package gcommon.v1.config.api;
+
+enum VersionType {
+  VERSION_TYPE_UNSPECIFIED = 0;
+  VERSION_TYPE_MAJOR = 1;
+  VERSION_TYPE_MINOR = 2;
+  VERSION_TYPE_PATCH = 3;
+  VERSION_TYPE_HOTFIX = 4;
+  VERSION_TYPE_PRERELEASE = 5;
+  VERSION_TYPE_SNAPSHOT = 6;
+  VERSION_TYPE_BRANCH = 7;
+  VERSION_TYPE_TAG = 8;
+}

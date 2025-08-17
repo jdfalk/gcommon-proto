@@ -1,0 +1,34 @@
+// file: proto/gcommon/v1/config/api/version_quality_issue.proto
+// version: 1.0.0
+// guid: 98aad520-640b-4663-a48a-ec3928c41c6a
+
+edition = "2023";
+
+package gcommon.v1.config.api;
+
+import "google/protobuf/go_features.proto";
+import "google/protobuf/timestamp.proto";
+import "proto/gcommon/v1/common/messages/audit_log.proto";
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package gcommon.v1.config.api;
+
+message VersionQualityIssue {
+  // Issue type
+  string type = 1;
+
+  // Issue severity
+  string severity = 2;
+
+  // Issue description
+  string description = 3;
+
+  // Issue location
+  string location = 4;
+
+  // Issue rule
+  string rule = 5;
+
+  // Issue fix suggestion
+  string fix_suggestion = 6;
+}

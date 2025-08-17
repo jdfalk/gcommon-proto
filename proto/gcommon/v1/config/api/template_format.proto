@@ -1,0 +1,24 @@
+// file: proto/gcommon/v1/config/api/template_format.proto
+// version: 1.0.0
+// guid: 5633815c-6ddb-47f1-b36e-a761ce96bd90
+
+edition = "2023";
+
+package gcommon.v1.config.api;
+
+import "google/protobuf/go_features.proto";
+import "google/protobuf/timestamp.proto";
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package gcommon.v1.config.api;
+
+enum TemplateFormat {
+  TEMPLATE_FORMAT_UNSPECIFIED = 0;
+  TEMPLATE_FORMAT_JSON = 1;
+  TEMPLATE_FORMAT_YAML = 2;
+  TEMPLATE_FORMAT_TOML = 3;
+  TEMPLATE_FORMAT_XML = 4;
+  TEMPLATE_FORMAT_PROPERTIES = 5;
+  TEMPLATE_FORMAT_INI = 6;
+  TEMPLATE_FORMAT_CUSTOM = 7;
+}

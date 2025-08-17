@@ -1,0 +1,42 @@
+// file: proto/gcommon/v1/config/api/health_check_result.proto
+// version: 1.0.0
+// guid: 5a4b2cbd-08cd-42f3-9fbb-b55de4ffd527
+
+edition = "2023";
+
+package gcommon.v1.config.api;
+
+import "google/protobuf/go_features.proto";
+import "google/protobuf/timestamp.proto";
+import "proto/gcommon/v1/config/messages/access_control.proto";
+import "proto/gcommon/v1/config/config/audit_settings.proto";
+import "proto/gcommon/v1/config/config/compliance_settings.proto";
+import "proto/gcommon/v1/config/types/deployment_status.proto";
+import "proto/gcommon/v1/config/types/environment_status.proto";
+import "proto/gcommon/v1/config/types/environment_type.proto";
+import "proto/gcommon/v1/config/types/health_check_type.proto";
+import "proto/gcommon/v1/config/messages/health_state.proto";
+import "proto/gcommon/v1/config/config/notification_settings.proto";
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package gcommon.v1.config.api;
+
+message ConfigHealthCheckResult {
+  // Health check name
+  string name = 1;
+
+  // Health check status
+  HealthState status = 2;
+
+  // Health check message
+  string message = 3;
+
+  // Health check timestamp
+  google.protobuf.Timestamp timestamp = 4;
+
+  // Health check duration
+  int32 duration_ms = 5;
+
+  // Health check details
+  map<string, string> details = 6;
+}

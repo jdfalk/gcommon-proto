@@ -1,0 +1,45 @@
+// file: proto/gcommon/v1/config/v1/monitoring_config.proto
+// version: 1.0.0
+// guid: 07482bbc-1eea-451a-aa74-bbacfd829710
+
+edition = "2023";
+
+package gcommon.v1.config.v1;
+
+import "google/protobuf/go_features.proto";
+import "google/protobuf/timestamp.proto";
+import "proto/gcommon/v1/config/messages/access_control.proto";
+import "proto/gcommon/v1/config/config/audit_settings.proto";
+import "proto/gcommon/v1/config/config/compliance_settings.proto";
+import "proto/gcommon/v1/config/types/deployment_status.proto";
+import "proto/gcommon/v1/config/types/environment_status.proto";
+import "proto/gcommon/v1/config/types/environment_type.proto";
+import "proto/gcommon/v1/config/types/health_check_type.proto";
+import "proto/gcommon/v1/config/messages/health_state.proto";
+import "proto/gcommon/v1/config/config/notification_settings.proto";
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package gcommon.v1.config.v1;
+
+message ConfigMonitoringConfig {
+  // Monitoring enabled
+  bool enabled = 1;
+
+  // Monitoring provider
+  string provider = 2;
+
+  // Monitoring endpoints
+  repeated string endpoints = 3;
+
+  // Monitoring metrics
+  repeated string metrics = 4;
+
+  // Monitoring alerts
+  repeated string alerts = 5;
+
+  // Monitoring dashboards
+  repeated string dashboards = 6;
+
+  // Monitoring configuration
+  map<string, string> config = 7;
+}
