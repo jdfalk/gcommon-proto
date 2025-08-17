@@ -49,7 +49,7 @@ show_usage() {
     cat << EOF
 🚀 GCommon Protocol Buffer Master Migration Script
 
-This script executes the complete MASSIVE-REORG-PLAN to reorganize 1,632+ 
+This script executes the complete MASSIVE-REORG-PLAN to reorganize 1,632+
 Protocol Buffer files from pkg/*/proto/ to proto/gcommon/v1/ structure.
 
 Usage: $0 [OPTIONS]
@@ -57,7 +57,7 @@ Usage: $0 [OPTIONS]
 Options:
     --dry-run              Show what would be done without executing
     --skip-backup          Skip backup creation (not recommended)
-    --domain DOMAIN        Process only specific domain  
+    --domain DOMAIN        Process only specific domain
     --verbose              Enable verbose logging
     --help                 Show this help message
 
@@ -69,7 +69,7 @@ Examples:
     $0 --domain common           # Migrate only common domain
     $0 --skip-backup --verbose   # Migration without backup (verbose)
 
-⚠️  WARNING: This script will reorganize 1,632+ files. Always run with 
+⚠️  WARNING: This script will reorganize 1,632+ files. Always run with
    --dry-run first to review the migration plan.
 
 📚 For detailed information, see:
@@ -115,18 +115,18 @@ parse_args() {
 # Prerequisites check
 check_prerequisites() {
     step "Checking Prerequisites"
-    
+
     local missing_tools=()
-    
+
     # Check required tools
     if ! command -v python3 &> /dev/null; then
         missing_tools+=("python3")
     fi
-    
+
     if ! command -v git &> /dev/null; then
         missing_tools+=("git")
     fi
-    
+
     # Check Python dependencies
     if ! python3 -c "import yaml" 2>/dev/null; then
         warning "PyYAML not found - attempting to install..."
@@ -135,22 +135,22 @@ check_prerequisites() {
             exit 1
         }
     fi
-    
+
     # Optional tools
     if ! command -v buf &> /dev/null; then
         warning "buf command not found - some validations will be skipped"
         info "Install buf: https://docs.buf.build/installation"
     fi
-    
+
     if ! command -v go &> /dev/null; then
         warning "go command not found - Go compilation tests will be skipped"
     fi
-    
+
     if [[ ${#missing_tools[@]} -gt 0 ]]; then
         error "Missing required tools: ${missing_tools[*]}"
         exit 1
     fi
-    
+
     # Check repository state
     if [[ -n "$(git status --porcelain)" ]]; then
         warning "Repository has uncommitted changes"
@@ -163,22 +163,22 @@ check_prerequisites() {
             fi
         fi
     fi
-    
+
     success "Prerequisites check completed"
 }
 
 # Step 1: Analysis and Preparation
 step_analysis() {
     progress "Current State Analysis"
-    
+
     log "Analyzing current proto structure..."
     ./scripts/orchestrate-migration.sh analyze
-    
+
     if [[ "$VERBOSE" == "true" ]]; then
         log "Generating dependency analysis..."
         python3 scripts/analyze-dependencies.py 2>/dev/null || true
     fi
-    
+
     success "Analysis completed"
 }
 
@@ -188,16 +188,16 @@ step_backup() {
         warning "Skipping backup creation"
         return
     fi
-    
+
     progress "Creating Backups"
-    
+
     if [[ "$DRY_RUN" == "false" ]]; then
         log "Creating git backup branch..."
         local backup_branch="proto-reorg-backup-$(date +%Y%m%d_%H%M%S)"
         git checkout -b "$backup_branch"
         git push origin "$backup_branch" || warning "Could not push backup branch"
         git checkout -
-        
+
         log "Creating filesystem backup..."
         local backup_file="gcommon-backup-$(date +%Y%m%d_%H%M%S).tar.gz"
         tar -czf "$backup_file" \
@@ -207,10 +207,10 @@ step_backup() {
             --exclude='*.log' \
             --exclude='logs' \
             .
-        
+
         mkdir -p ~/backups
         mv "$backup_file" ~/backups/ 2>/dev/null || true
-        
+
         success "Backups created"
     else
         info "Would create backups (dry-run mode)"
@@ -220,180 +220,180 @@ step_backup() {
 # Step 3: Directory Structure Creation
 step_create_structure() {
     progress "Creating Directory Structure"
-    
+
     if [[ "$DRY_RUN" == "false" ]]; then
         log "Creating proto directory structure..."
         ./scripts/orchestrate-migration.sh prepare
     else
         info "Would create proto directory structure (dry-run mode)"
     fi
-    
+
     success "Directory structure ready"
 }
 
 # Step 4: Domain Migration
 step_migrate_domains() {
     progress "Migrating Protocol Buffer Files"
-    
+
     local domains=("common" "config" "database" "media" "metrics" "organization" "queue" "web")
-    
+
     if [[ -n "$DOMAIN_FILTER" ]]; then
         domains=("$DOMAIN_FILTER")
         log "Processing only domain: $DOMAIN_FILTER"
     fi
-    
+
     for domain in "${domains[@]}"; do
         log "Migrating domain: $domain"
-        
+
         local migrate_args=()
         if [[ "$DRY_RUN" == "true" ]]; then
             migrate_args+=("--dry-run")
         fi
-        
+
         python3 scripts/migrate-domain.py "$domain" "${migrate_args[@]}"
-        
+
         if [[ "$VERBOSE" == "true" && "$DRY_RUN" == "false" ]]; then
             log "Validating $domain migration..."
             python3 scripts/test-import-resolution.py || warning "$domain import validation failed"
         fi
     done
-    
+
     success "Domain migration completed"
 }
 
 # Step 5: Buf Configuration Update
 step_update_buf_config() {
     progress "Updating Buf Configuration"
-    
+
     if [[ "$DRY_RUN" == "false" ]]; then
         log "Updating buf.yaml and buf.gen.yaml..."
         python3 scripts/update-buf-config.py
     else
         info "Would update buf configuration (dry-run mode)"
     fi
-    
+
     success "Buf configuration updated"
 }
 
 # Step 6: Import Path Updates
 step_update_imports() {
     progress "Updating Import Paths"
-    
+
     log "Updating import paths across all proto files..."
-    
+
     if [[ "$DRY_RUN" == "false" ]]; then
         # Import path updates are handled by the migration scripts
         log "Import paths updated during migration"
     else
         info "Would update import paths (dry-run mode)"
     fi
-    
+
     success "Import paths updated"
 }
 
 # Step 7: Code Generation
 step_generate_code() {
     progress "Generating Code"
-    
+
     if command -v buf &> /dev/null && [[ "$DRY_RUN" == "false" ]]; then
         log "Generating protocol buffer code..."
         buf generate || warning "Code generation had issues"
     else
         info "Would generate code (buf not available or dry-run mode)"
     fi
-    
+
     success "Code generation completed"
 }
 
 # Step 8: Validation
 step_validation() {
     progress "Validating Migration"
-    
+
     log "Running migration validation..."
     local validate_args=()
     if [[ "$DRY_RUN" == "true" ]]; then
         validate_args+=("--dry-run")
     fi
-    
+
     python3 scripts/validate-migration.py "${validate_args[@]}" || warning "Some validation checks failed"
-    
+
     if [[ "$VERBOSE" == "true" ]]; then
         log "Running comprehensive validation..."
         python3 scripts/comprehensive-validation.py "${validate_args[@]}" || warning "Comprehensive validation had issues"
     fi
-    
+
     success "Validation completed"
 }
 
 # Step 9: Performance Testing
 step_performance() {
     progress "Performance Testing"
-    
+
     if command -v buf &> /dev/null && [[ "$DRY_RUN" == "false" ]]; then
         log "Running performance comparison..."
         python3 scripts/performance-comparison.py || warning "Performance testing had issues"
     else
         info "Would run performance tests (dry-run mode or buf not available)"
     fi
-    
+
     success "Performance testing completed"
 }
 
 # Step 10: Cleanup
 step_cleanup() {
     progress "Post-Migration Cleanup"
-    
+
     if [[ "$DRY_RUN" == "false" ]]; then
         log "Cleaning up old generated files..."
         python3 scripts/cleanup-generated-code.py || warning "Generated code cleanup had issues"
-        
+
         log "Cleaning up old proto files..."
         python3 scripts/cleanup-old-protos.py || warning "Old proto cleanup had issues"
     else
         info "Would perform cleanup (dry-run mode)"
     fi
-    
+
     success "Cleanup completed"
 }
 
 # Step 11: Documentation Updates
 step_documentation() {
     progress "Updating Documentation"
-    
+
     if [[ "$DRY_RUN" == "false" ]]; then
         log "Updating proto documentation..."
         python3 scripts/update-proto-docs.py || warning "Documentation update had issues"
-        
+
         log "Generating migration report..."
         python3 scripts/generate-migration-report.py || warning "Report generation had issues"
     else
         info "Would update documentation (dry-run mode)"
     fi
-    
+
     success "Documentation updated"
 }
 
 # Step 12: Final Verification
 step_final_verification() {
     progress "Final Verification"
-    
+
     log "Running final system verification..."
     local verify_args=()
     if [[ "$DRY_RUN" == "true" ]]; then
         verify_args+=("--dry-run")
     fi
-    
+
     python3 scripts/final-verification.py "${verify_args[@]}" || {
         error "Final verification failed"
-        
+
         if [[ "$DRY_RUN" == "false" ]]; then
             warning "Migration may need attention - check logs"
             info "To rollback: ./scripts/orchestrate-migration.sh rollback"
         fi
-        
+
         return 1
     }
-    
+
     success "Final verification passed"
 }
 
@@ -411,7 +411,7 @@ main() {
     echo "   • Domain filter: ${DOMAIN_FILTER:-all}"
     echo "   • Verbose: $VERBOSE"
     echo ""
-    
+
     if [[ "$DRY_RUN" == "false" ]]; then
         warning "This will reorganize 1,632+ protocol buffer files"
         read -p "Continue with actual migration? (y/N): " -n 1 -r
@@ -421,10 +421,10 @@ main() {
             exit 0
         fi
     fi
-    
+
     # Execute migration steps
     local start_time=$(date +%s)
-    
+
     check_prerequisites
     step_analysis
     step_backup
@@ -438,10 +438,10 @@ main() {
     step_cleanup
     step_documentation
     step_final_verification
-    
+
     local end_time=$(date +%s)
     local duration=$((end_time - start_time))
-    
+
     echo ""
     echo "🎉 MIGRATION COMPLETED SUCCESSFULLY!"
     echo "====================================="
@@ -451,7 +451,7 @@ main() {
     echo "   • Mode: $([ "$DRY_RUN" == "true" ] && echo "DRY RUN" || echo "ACTUAL")"
     echo "   • Domains processed: $([ -n "$DOMAIN_FILTER" ] && echo "$DOMAIN_FILTER" || echo "all")"
     echo ""
-    
+
     if [[ "$DRY_RUN" == "false" ]]; then
         echo "📋 Next Steps:"
         echo "   1. Review migration-report.html"
@@ -471,7 +471,7 @@ main() {
         echo "ℹ️  This was a dry run. To execute actual migration:"
         echo "   $0 $(echo "$@" | sed 's/--dry-run//')"
     fi
-    
+
     echo ""
     echo "🎯 Migration completed successfully!"
 }
