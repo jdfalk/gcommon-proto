@@ -1,0 +1,34 @@
+// file: proto/gcommon/v1/queue/api/update_condition.proto
+// version: 1.0.0
+// guid: a5897f37-2d03-405d-b7c0-dc980257f2b4
+
+edition = "2023";
+
+package gcommon.v1.queue.api;
+
+import "google/protobuf/any.proto";
+import "google/protobuf/go_features.proto";
+import "google/protobuf/timestamp.proto";
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package gcommon.v1.queue.api;
+
+message UpdateCondition {
+  // Expected current version/etag
+  string expected_version = 1;
+
+  // Expected current state
+  string expected_state = 2;
+
+  // Maximum age for update (seconds)
+  int64 max_age_seconds = 3;
+
+  // Update only if message hasn't been delivered
+  bool only_if_not_delivered = 4;
+
+  // Update only if message is visible
+  bool only_if_visible = 5;
+
+  // Custom condition expression
+  string condition_expression = 6;
+}

@@ -1,0 +1,35 @@
+// file: proto/gcommon/v1/queue/api/update_queue_config_response.proto
+// file: proto/gcommon/v1/queue/api/update_queue_config_response.proto
+// version: 1.0.0
+// guid: 6e7f8a9b-0c1d-2e3f-4a5b-6c7d8e9f0a1b
+//
+// Response definitions for queue module
+//
+edition = "2023";
+
+package gcommon.v1.queue.api;
+
+import "google/protobuf/go_features.proto";
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package gcommon.v1.queue.api;
+
+/**
+ * Response for updating queue configuration.
+ */
+message UpdateQueueConfigResponse {
+  // Whether the update was successful
+  bool success = 1;
+
+  // Error message if update failed
+  string error_message = 2;
+
+  // Updated configuration version
+  uint64 config_version = 3;
+
+  // Timestamp of the update
+  uint64 updated_at = 4;
+
+  // List of configuration fields that were updated
+  repeated string updated_fields = 5;
+}

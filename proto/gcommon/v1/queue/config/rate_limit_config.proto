@@ -1,0 +1,24 @@
+// file: proto/gcommon/v1/queue/config/rate_limit_config.proto
+// version: 1.0.0
+// guid: 436ea189-70d7-4f1d-bf93-3c88f1f0de3b
+
+edition = "2023";
+
+package gcommon.v1.queue.config;
+
+import "google/protobuf/go_features.proto";
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package gcommon.v1.queue.config;
+
+// RateLimitConfig defines throughput limits for a queue.
+message QueueRateLimitConfig {
+  // Maximum messages allowed per second.
+  int32 max_per_second = 1;
+
+  // Allowed burst capacity above the per-second rate.
+  int32 burst = 2;
+
+  // Whether rate limiting is enabled.
+  bool enabled = 3;
+}

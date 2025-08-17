@@ -1,0 +1,48 @@
+// file: proto/gcommon/v1/queue/api/get_partition_info_request.proto
+// version: 1.1.0
+// Request to get partition information
+
+edition = "2023";
+
+package gcommon.v1.queue.api;
+
+import "google/protobuf/go_features.proto";
+import "proto/gcommon/v1/queue/api/get_queue_info_request.proto";
+import "proto/gcommon/v1/queue/messages/time_range_filter.proto";
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package gcommon.v1.queue.api;
+
+// GetPartitionInfoRequest retrieves information about topic partitions
+message GetPartitionInfoRequest {
+  // Topic identifier
+  string topic_id = 1;
+
+  // Specific partition IDs (empty = all partitions)
+  repeated int32 partition_ids = 2;
+
+  // Include partition statistics
+  bool include_stats = 3;
+
+  // Include consumer information
+  bool include_consumers = 4;
+
+  // Include offset information
+  bool include_offsets = 5;
+
+  // Include partition health status
+  bool include_health_status = 6;
+
+  // Include leader/replica information
+  bool include_leader_info = 7;
+
+  // Include partition configuration
+  bool include_config = 8;
+
+  // Time range for historical statistics - references existing TimeRangeFilter from get_queue_info_request.proto
+  TimeRangeFilter time_range = 9;
+
+  // Access control context
+  string access_token = 10;
+}
+// This file needs proper implementation

@@ -1,0 +1,33 @@
+// file: proto/gcommon/v1/queue/api/batch_nack_response.proto
+// version: 1.0.0
+// Response for batch negative acknowledgment operations
+
+edition = "2023";
+
+package gcommon.v1.queue.api;
+
+import "google/protobuf/go_features.proto";
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package gcommon.v1.queue.api;
+
+// Response for batch negative acknowledgment operations
+message BatchNackResponse {
+  // Number of messages successfully nacked
+  int32 successful_count = 1;
+
+  // Number of messages that failed to nack
+  int32 failed_count = 2;
+
+  // List of message IDs that were successfully nacked
+  repeated string successful_message_ids = 3;
+
+  // List of message IDs that failed to nack
+  repeated string failed_message_ids = 4;
+
+  // Error messages for failed nacks (indexed by failed_message_ids)
+  repeated string error_messages = 5;
+
+  // Overall operation error if any
+  string error = 6;
+}

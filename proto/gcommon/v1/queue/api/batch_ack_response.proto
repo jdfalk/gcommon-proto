@@ -1,0 +1,34 @@
+// file: proto/gcommon/v1/queue/api/batch_ack_response.proto
+// version: 1.0.0
+// guid: f9db0dcc-9ce1-4f92-87fd-2ed15dd3fefb
+
+edition = "2023";
+
+package gcommon.v1.queue.api;
+
+import "google/protobuf/go_features.proto";
+import "proto/gcommon/v1/common/api/response_metadata.proto";
+import "proto/gcommon/v1/queue/messages/failed_ack.proto";
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package gcommon.v1.queue.api;
+
+message BatchAckResponse {
+  // Overall success status
+  bool success = 1;
+
+  // Number of messages successfully acknowledged
+  int32 acknowledged_count = 2;
+
+  // Number of messages that failed to acknowledge
+  int32 failed_count = 3;
+
+  // Failed message IDs and their error reasons
+  repeated FailedAck failed_acks = 4;
+
+  // Response metadata
+  gcommon.v1.common.ResponseMetadata metadata = 5;
+
+  // Batch ID for tracking
+  string batch_id = 6;
+}

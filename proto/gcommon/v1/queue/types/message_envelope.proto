@@ -1,0 +1,65 @@
+// file: proto/gcommon/v1/queue/types/message_envelope.proto
+// file: proto/gcommon/v1/queue/types/message_envelope.proto
+// version: 1.0.0
+// guid: 2a3b4c5d-6e7f-8a9b-0c1d-2e3f4a5b6c7d
+//
+// Message definitions for queue module
+//
+edition = "2023";
+
+package gcommon.v1.queue.types;
+
+import "google/protobuf/any.proto";
+import "google/protobuf/go_features.proto";
+import "google/protobuf/timestamp.proto";
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package gcommon.v1.queue.types;
+
+/**
+ * Message envelope that wraps the actual message payload with metadata.
+ * This is the container that gets stored and transmitted through the queue system.
+ */
+message MessageEnvelope {
+  // Unique identifier for this message
+  string message_id = 1;
+
+  // The actual message payload
+  google.protobuf.Any payload = 2;
+
+  // Message headers for routing and metadata
+  map<string, string> headers = 3;
+
+  // Priority of the message (higher numbers = higher priority)
+  int32 priority = 4;
+
+  // Timestamp when the message was created
+  google.protobuf.Timestamp created_at = 5;
+
+  // Timestamp when the message should be processed (for delayed messages)
+  google.protobuf.Timestamp process_at = 6;
+
+  // Timestamp when the message expires
+  google.protobuf.Timestamp expires_at = 7;
+
+  // Number of delivery attempts for this message
+  int32 delivery_count = 8;
+
+  // Correlation ID for linking related messages
+  string correlation_id = 9;
+
+  // Reply-to queue for response messages
+  string reply_to = 10;
+
+  // Content type of the payload
+  string content_type = 11;
+
+  // Encoding of the payload (e.g., "gzip", "none")
+  string content_encoding = 12;
+
+  // Whether this message requires acknowledgment
+  bool requires_ack = 13;
+
+  // Trace context for distributed tracing
+  map<string, string> trace_context = 14;
+}

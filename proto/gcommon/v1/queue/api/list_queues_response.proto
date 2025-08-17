@@ -1,0 +1,28 @@
+// file: proto/gcommon/v1/queue/api/list_queues_response.proto
+// version: 1.0.0
+// guid: c2ffc959-d7b5-451f-94f4-a9334e02725f
+
+// ListQueuesResponse returns a list of queues visible to the
+// requester along with pagination information. This replaces the
+// placeholder file generated during the migration.
+edition = "2023";
+
+package gcommon.v1.queue.api;
+
+import "google/protobuf/go_features.proto";
+import "proto/gcommon/v1/common/api/response_metadata.proto";
+import "proto/gcommon/v1/queue/messages/queue_info.proto";
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package gcommon.v1.queue.api;
+
+message ListQueuesResponse {
+  // Collection of queues
+  repeated QueueInfo queues = 1;
+
+  // Token to retrieve the next page
+  string next_page_token = 2;
+
+  // Standard response metadata
+  gcommon.v1.common.ResponseMetadata metadata = 3;
+}

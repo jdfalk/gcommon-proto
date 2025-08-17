@@ -1,0 +1,46 @@
+// file: proto/gcommon/v1/queue/config/subscription_configuration.proto
+// version: 1.0.0
+// guid: c1883113-aa7a-4cba-b38a-4d695cefecf3
+
+edition = "2023";
+
+package gcommon.v1.queue.config;
+
+import "google/protobuf/go_features.proto";
+import "proto/gcommon/v1/queue/messages/ack_level.proto";
+import "proto/gcommon/v1/queue/messages/delivery_mode.proto";
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package gcommon.v1.queue.config;
+
+message SubscriptionConfiguration {
+  // Acknowledgment level required
+  AckLevel ack_level = 1;
+
+  // Delivery mode for messages
+  DeliveryMode delivery_mode = 2;
+
+  // Maximum number of unacknowledged messages
+  int32 max_unacked_messages = 3;
+
+  // Acknowledgment timeout (milliseconds)
+  int32 ack_timeout_ms = 4;
+
+  // Message priority filter (minimum priority)
+  int32 min_priority = 5;
+
+  // Enable message ordering
+  bool ordered_delivery = 6;
+
+  // Auto-acknowledge messages after delivery
+  bool auto_acknowledge = 7;
+
+  // Subscription expiration time (seconds, 0 = no expiration)
+  int64 expiration_seconds = 8;
+
+  // Enable duplicate message detection
+  bool duplicate_detection = 9;
+
+  // Maximum message age to accept (seconds)
+  int64 max_message_age_seconds = 10;
+}

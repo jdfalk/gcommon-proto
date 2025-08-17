@@ -1,0 +1,23 @@
+// file: proto/gcommon/v1/queue/api/delete_topic_request.proto
+// version: 1.1.0
+// Request to delete a topic
+
+edition = "2023";
+
+package gcommon.v1.queue.api;
+
+import "google/protobuf/go_features.proto";
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package gcommon.v1.queue.api;
+
+message DeleteTopicRequest {
+  // Topic ID or name to delete
+  string topic = 1;
+
+  // Force deletion even if not empty
+  bool force = 2;
+}
+
+// DeleteTopicRequest removes a topic and its associated resources
+// This file needs proper implementation

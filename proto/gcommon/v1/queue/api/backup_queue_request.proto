@@ -1,0 +1,42 @@
+// file: proto/gcommon/v1/queue/api/backup_queue_request.proto
+// version: 1.0.0
+// Request to backup a queue
+
+edition = "2023";
+
+package gcommon.v1.queue.api;
+
+import "google/protobuf/go_features.proto";
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package gcommon.v1.queue.api;
+
+// Request to backup a queue
+message BackupQueueRequest {
+  // Queue name to backup
+  string queue_name = 1;
+
+  // Backup destination path
+  string backup_path = 2;
+
+  // Include message data
+  bool include_messages = 3;
+
+  // Include metadata only
+  bool metadata_only = 4;
+
+  // Backup format (JSON, binary, etc.)
+  string format = 5;
+
+  // Compression type (none, gzip, etc.)
+  string compression = 6;
+
+  // Start timestamp for backup range
+  int64 start_timestamp = 7;
+
+  // End timestamp for backup range
+  int64 end_timestamp = 8;
+
+  // Timeout for the operation (milliseconds)
+  int32 timeout_ms = 9;
+}

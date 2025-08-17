@@ -1,0 +1,31 @@
+// file: proto/gcommon/v1/queue/api/batch_publish_response.proto
+// version: 1.0.0
+// Response for batch publish operations
+
+edition = "2023";
+
+package gcommon.v1.queue.api;
+
+import "google/protobuf/go_features.proto";
+import "proto/gcommon/v1/queue/messages/publish_result.proto";
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package gcommon.v1.queue.api;
+
+// Response for batch publish operations
+message BatchPublishResponse {
+  // Results for each published message
+  repeated PublishResult results = 1;
+
+  // Total number of messages attempted
+  int32 total_attempted = 2;
+
+  // Number of successful publishes
+  int32 successful_count = 3;
+
+  // Number of failed publishes
+  int32 failed_count = 4;
+
+  // Overall error message if any
+  string error = 5;
+}

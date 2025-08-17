@@ -1,0 +1,39 @@
+// file: proto/gcommon/v1/queue/types/queue_info.proto
+// version: 1.0.0
+// guid: d2ab2b72-14e2-4afe-80f7-2ecf00daacac
+
+// QueueInfo provides metadata about a queue instance. This replaces the
+// empty placeholder created during the 1-1-1 migration.
+edition = "2023";
+
+package gcommon.v1.queue.types;
+
+import "google/protobuf/go_features.proto";
+import "google/protobuf/timestamp.proto";
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package gcommon.v1.queue.types;
+
+/**
+ * QueueInfo describes the configuration and current status of a queue.
+ * It is returned by administrative APIs such as ListQueues.
+ */
+message QueueInfo {
+  // Name of the queue
+  string name = 1;
+
+  // Type of queue implementation (e.g., "rabbitmq", "nats")
+  string type = 2;
+
+  // Current approximate number of messages in the queue
+  int64 message_count = 3;
+
+  // Number of active consumers
+  int32 consumer_count = 4;
+
+  // Time when the queue was created
+  google.protobuf.Timestamp created_at = 5;
+
+  // Additional metadata or labels for the queue
+  map<string, string> labels = 6;
+}

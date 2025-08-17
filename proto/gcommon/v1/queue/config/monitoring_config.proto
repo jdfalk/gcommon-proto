@@ -1,0 +1,21 @@
+// file: proto/gcommon/v1/queue/config/monitoring_config.proto
+// version: 1.0.0
+// guid: 81f93ee4-708c-478c-9c19-1baf15830c08
+
+edition = "2023";
+
+package gcommon.v1.queue.config;
+
+import "google/protobuf/go_features.proto";
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package gcommon.v1.queue.config;
+
+// MonitoringConfig controls runtime monitoring for a queue.
+message QueueMonitoringConfig {
+  // Enable or disable monitoring for this queue.
+  bool enabled = 1;
+
+  // Optional endpoint for publishing metrics.
+  string metrics_endpoint = 2;
+}

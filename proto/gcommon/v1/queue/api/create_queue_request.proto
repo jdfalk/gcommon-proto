@@ -1,0 +1,38 @@
+// file: proto/gcommon/v1/queue/api/create_queue_request.proto
+// version: 1.0.0
+// guid: c6d7e8f9-a0b1-2c3d-4e5f-6a7b8c9d0e1f
+
+edition = "2023";
+
+package gcommon.v1.queue.api;
+
+import "google/protobuf/go_features.proto";
+import "proto/gcommon/v1/common/api/request_metadata.proto";
+import "proto/gcommon/v1/queue/config/queue_config.proto";
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package gcommon.v1.queue.api;
+
+/**
+ * Request to create a new queue.
+ * Defines the queue name and configuration parameters.
+ */
+message CreateQueueRequest {
+  // Name of the queue to create (required)
+  string queue_name = 1;
+
+  // Configuration for the new queue
+  gcommon.v1.queue.QueueConfig config = 2;
+
+  // Whether to create the queue even if it already exists
+  bool if_not_exists = 3;
+
+  // Request metadata for tracing and correlation
+  gcommon.v1.common.RequestMetadata metadata = 4;
+
+  // Tags to associate with the queue
+  map<string, string> tags = 5;
+
+  // Description of the queue
+  string description = 6;
+}

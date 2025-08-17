@@ -1,0 +1,47 @@
+// file: proto/gcommon/v1/queue/api/subscribe_request.proto
+// version: 1.0.0
+// guid: 6a573217-0297-4408-bcce-72b9172dd071
+
+edition = "2023";
+
+package gcommon.v1.queue.api;
+
+import "google/protobuf/go_features.proto";
+import "proto/gcommon/v1/queue/messages/ack_level.proto";
+import "proto/gcommon/v1/queue/config/delivery_configuration.proto";
+import "proto/gcommon/v1/queue/messages/delivery_mode.proto";
+import "proto/gcommon/v1/queue/config/error_handling_config.proto";
+import "proto/gcommon/v1/queue/config/message_filter_config.proto";
+import "proto/gcommon/v1/queue/config/subscription_configuration.proto";
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package gcommon.v1.queue.api;
+
+message QueueSubscribeRequest {
+  // Topic or queue to subscribe to
+  string topic = 1;
+
+  // Subscription name/identifier
+  string subscription_name = 2;
+
+  // Consumer group ID for coordinated consumption
+  string consumer_group_id = 3;
+
+  // Individual consumer ID
+  string consumer_id = 4;
+
+  // Subscription configuration
+  SubscriptionConfiguration config = 5;
+
+  // Message filtering criteria
+  MessageFilterConfig filter_config = 6;
+
+  // Delivery configuration
+  DeliveryConfiguration delivery_config = 7;
+
+  // Error handling configuration
+  ErrorHandlingConfig error_handling = 8;
+
+  // Subscription metadata
+  map<string, string> metadata = 9;
+}

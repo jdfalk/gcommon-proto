@@ -1,0 +1,50 @@
+// file: proto/gcommon/v1/queue/api/acknowledgment.proto
+// version: 1.1.0
+// guid: c2d3e4f5-a6b7-8c9d-0e1f-2a3b4c5d6e7f
+
+edition = "2023";
+
+package gcommon.v1.queue.api;
+
+import "google/protobuf/go_features.proto";
+import "google/protobuf/timestamp.proto";
+import "proto/gcommon/v1/queue/types/ack_type.proto";
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package gcommon.v1.queue.api;
+
+/**
+ * Message acknowledgment information.
+ * Tracks the processing status of consumed messages.
+ */
+message Acknowledgment {
+  // Message ID being acknowledged
+  string message_id = 1;
+
+  // Consumer ID that processed the message
+  string consumer_id = 2;
+
+  // Queue or topic name
+  string queue_name = 3;
+
+  // Partition ID (for partitioned queues)
+  int32 partition_id = 4;
+
+  // Message offset within the partition
+  int64 offset = 5;
+
+  // Acknowledgment type
+  AckType ack_type = 6;
+
+  // Timestamp when message was acknowledged
+  google.protobuf.Timestamp ack_timestamp = 7;
+
+  // Processing duration in milliseconds
+  int64 processing_duration_ms = 8;
+
+  // Error message if processing failed
+  string error_message = 9;
+
+  // Number of retry attempts made
+  int32 retry_count = 10;
+}

@@ -1,0 +1,29 @@
+// file: proto/gcommon/v1/queue/config/read_retry_config.proto
+// version: 1.0.0
+// guid: 123c273c-25e2-4af1-85ab-48ac7f8a28d5
+
+edition = "2023";
+
+package gcommon.v1.queue.config;
+
+import "google/protobuf/go_features.proto";
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package gcommon.v1.queue.config;
+
+message ReadRetryConfig {
+  // Maximum retry attempts
+  int32 max_retries = 1;
+
+  // Initial retry delay (milliseconds)
+  int32 initial_delay_ms = 2;
+
+  // Maximum retry delay (milliseconds)
+  int32 max_delay_ms = 3;
+
+  // Backoff multiplier
+  double backoff_multiplier = 4;
+
+  // Retry on different replica
+  bool retry_different_replica = 5;
+}

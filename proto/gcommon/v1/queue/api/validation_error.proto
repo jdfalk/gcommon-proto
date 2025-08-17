@@ -1,0 +1,29 @@
+// file: proto/gcommon/v1/queue/api/validation_error.proto
+// version: 1.0.0
+// guid: c3c484a5-cc5a-41e5-926d-91ba8263600e
+
+edition = "2023";
+
+package gcommon.v1.queue.api;
+
+import "google/protobuf/duration.proto";
+import "google/protobuf/go_features.proto";
+import "google/protobuf/timestamp.proto";
+import "proto/gcommon/v1/queue/messages/offset_range.proto";
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package gcommon.v1.queue.api;
+
+message ValidationError {
+  // Error type
+  string error_type = 1;
+
+  // Error description
+  string description = 2;
+
+  // Affected partition
+  int32 partition_id = 3;
+
+  // Affected offset range
+  OffsetRange affected_range = 4;
+}

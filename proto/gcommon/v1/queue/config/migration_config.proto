@@ -1,0 +1,45 @@
+// file: proto/gcommon/v1/queue/config/migration_config.proto
+// file: proto/gcommon/v1/queue/config/migration_config.proto
+// version: 1.0.0
+// guid: 3d4e5f6a-7b8c-9d0e-1f2a-3b4c5d6e7f8a
+//
+// Message definitions for queue module
+//
+edition = "2023";
+
+package gcommon.v1.queue.config;
+
+import "google/protobuf/duration.proto";
+import "google/protobuf/go_features.proto";
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package gcommon.v1.queue.config;
+
+/**
+ * Configuration for queue migration operations.
+ */
+message MigrationConfig {
+  // Source queue configuration
+  string source_queue = 1;
+
+  // Destination queue configuration
+  string destination_queue = 2;
+
+  // Migration strategy (live, batch, hybrid)
+  string migration_strategy = 3;
+
+  // Batch size for batch migration
+  uint32 batch_size = 4;
+
+  // Migration timeout
+  google.protobuf.Duration timeout = 5;
+
+  // Whether to verify data integrity
+  bool verify_integrity = 6;
+
+  // Whether to keep source after migration
+  bool keep_source = 7;
+
+  // Maximum concurrent operations
+  uint32 max_concurrency = 8;
+}

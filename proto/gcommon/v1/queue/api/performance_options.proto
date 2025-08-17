@@ -1,0 +1,30 @@
+// file: proto/gcommon/v1/queue/api/performance_options.proto
+// version: 1.0.0
+// guid: da533c28-4c1d-47aa-af5b-b6f7ec77d916
+
+edition = "2023";
+
+package gcommon.v1.queue.api;
+
+import "google/protobuf/go_features.proto";
+import "google/protobuf/timestamp.proto";
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package gcommon.v1.queue.api;
+
+message PerformanceOptions {
+  // Parallel restore workers
+  int32 worker_count = 1;
+
+  // Batch size for restore operations
+  int32 batch_size = 2;
+
+  // Buffer size for reading backup data
+  int32 buffer_size_mb = 3;
+
+  // Compression during restore
+  bool enable_compression = 4;
+
+  // Throttle restore rate (messages/second)
+  int32 throttle_rate = 5;
+}

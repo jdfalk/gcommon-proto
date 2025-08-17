@@ -1,0 +1,39 @@
+// file: proto/gcommon/v1/queue/types/queue_stats_summary.proto
+// version: 1.0.0
+// guid: beb6cfcc-70db-4a5a-9ec1-2e241e98f71f
+
+edition = "2023";
+
+package gcommon.v1.queue.types;
+
+import "google/protobuf/duration.proto";
+import "google/protobuf/go_features.proto";
+import "google/protobuf/timestamp.proto";
+import "proto/gcommon/v1/common/api/response_metadata.proto";
+import "proto/gcommon/v1/queue/messages/consumer_stats.proto";
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package gcommon.v1.queue.types;
+
+message QueueStatsSummary {
+  // Total number of queues
+  int64 total_queues = 1;
+
+  // Total messages across all queues
+  int64 total_messages = 2;
+
+  // Total messages processed in the last hour
+  int64 messages_processed_last_hour = 3;
+
+  // Average processing time across all queues
+  google.protobuf.Duration average_processing_time = 4;
+
+  // Overall system health score (0-100)
+  int32 health_score = 5;
+
+  // Total active consumers
+  int64 active_consumers = 6;
+
+  // Total storage used by messages
+  int64 total_storage_bytes = 7;
+}

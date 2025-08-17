@@ -1,0 +1,35 @@
+// file: proto/gcommon/v1/queue/api/ack_level.proto
+// file: proto/gcommon/v1/queue/api/ack_level.proto
+// version: 1.0.0
+// guid: 9a8b7c6d-5e4f-3a2b-1c0d-9e8f7a6b5c4d
+//
+// Enum definitions for queue module
+//
+edition = "2023";
+
+package gcommon.v1.queue.api;
+
+import "google/protobuf/go_features.proto";
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package gcommon.v1.queue.api;
+
+/**
+ * Acknowledgment level for durability guarantees.
+ */
+enum AckLevel {
+  // Default unspecified level
+  ACK_LEVEL_UNSPECIFIED = 0;
+
+  // No acknowledgment required (fire and forget)
+  ACK_LEVEL_NONE = 1;
+
+  // Wait for leader acknowledgment only
+  ACK_LEVEL_LEADER = 2;
+
+  // Wait for all replicas to acknowledge
+  ACK_LEVEL_ALL = 3;
+
+  // Wait for majority of replicas
+  ACK_LEVEL_MAJORITY = 4;
+}

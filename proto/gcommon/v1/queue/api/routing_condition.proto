@@ -1,0 +1,37 @@
+// file: proto/gcommon/v1/queue/api/routing_condition.proto
+// version: 1.0.0
+// guid: c5586126-e8b2-47e8-b657-e837b38179bd
+
+edition = "2023";
+
+package gcommon.v1.queue.api;
+
+import "google/protobuf/go_features.proto";
+import "proto/gcommon/v1/queue/messages/priority_range.proto";
+import "proto/gcommon/v1/queue/messages/size_range.proto";
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package gcommon.v1.queue.api;
+
+/**
+ * Condition for routing rules.
+ */
+message RoutingCondition {
+  // Header-based conditions
+  map<string, string> header_matches = 1;
+
+  // Content pattern matching
+  string content_pattern = 2;
+
+  // Routing key pattern
+  string routing_key_pattern = 3;
+
+  // Message type filter
+  string message_type = 4;
+
+  // Priority range filter
+  PriorityRange priority_range = 5;
+
+  // Size range filter
+  SizeRange size_range = 6;
+}

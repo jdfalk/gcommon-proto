@@ -1,0 +1,40 @@
+// file: proto/gcommon/v1/queue/config/authorization_config.proto
+// version: 1.0.0
+// guid: 813cabd6-f8af-423b-be9a-0c4d74b35cf2
+
+edition = "2023";
+
+package gcommon.v1.queue.config;
+
+import "google/protobuf/go_features.proto";
+import "proto/gcommon/v1/queue/api/api_key_auth.proto";
+import "proto/gcommon/v1/queue/services/external_auth_service.proto";
+import "proto/gcommon/v1/queue/messages/jwt_auth.proto";
+import "proto/gcommon/v1/queue/messages/permission_rule.proto";
+import "proto/gcommon/v1/queue/messages/role_based_access_control.proto";
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package gcommon.v1.queue.config;
+
+message AuthorizationConfig {
+  // Enable authorization checking
+  bool enabled = 1;
+
+  // Default permission policy (allow/deny)
+  string default_policy = 2;
+
+  // Permission rules for different operations
+  repeated PermissionRule rules = 3;
+
+  // Role-based access control settings
+  RoleBasedAccessControl rbac = 4;
+
+  // API key authentication settings
+  APIKeyAuth api_key_auth = 5;
+
+  // JWT token authentication settings
+  JwtAuth jwt_auth = 6;
+
+  // External authorization service settings
+  ExternalAuthService external_auth = 7;
+}

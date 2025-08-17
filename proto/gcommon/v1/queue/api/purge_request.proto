@@ -1,0 +1,26 @@
+// file: proto/gcommon/v1/queue/api/purge_request.proto
+// version: 1.0.0
+// guid: 8d7b880f-5830-44c2-ab26-58afb465d587
+
+edition = "2023";
+
+package gcommon.v1.queue.api;
+
+import "google/protobuf/go_features.proto";
+import "google/protobuf/timestamp.proto";
+import "proto/gcommon/v1/common/api/request_metadata.proto";
+import "proto/gcommon/v1/queue/messages/purge_options.proto";
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package gcommon.v1.queue.api;
+
+message PurgeRequest {
+  // Name of the queue to purge
+  string queue_name = 1;
+
+  // Purge options
+  PurgeOptions options = 2;
+
+  // Request metadata for tracing and correlation
+  gcommon.v1.common.RequestMetadata metadata = 100;
+}

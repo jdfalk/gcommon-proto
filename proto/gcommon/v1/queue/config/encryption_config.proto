@@ -1,0 +1,41 @@
+// file: proto/gcommon/v1/queue/config/encryption_config.proto
+// file: proto/gcommon/v1/queue/config/encryption_config.proto
+// version: 1.0.0
+// guid: 8e9f0a1b-2c3d-4e5f-6a7b-8c9d0e1f2a3b
+//
+// Message definitions for queue module
+//
+edition = "2023";
+
+package gcommon.v1.queue.config;
+
+import "google/protobuf/go_features.proto";
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package gcommon.v1.queue.config;
+
+/**
+ * Configuration for message encryption in queues.
+ */
+message QueueEncryptionConfig {
+  // Whether encryption is enabled
+  bool enabled = 1;
+
+  // Encryption algorithm (AES256, ChaCha20, etc.)
+  string algorithm = 2;
+
+  // Key derivation function (PBKDF2, scrypt, argon2)
+  string key_derivation = 3;
+
+  // Encryption key identifier
+  string key_id = 4;
+
+  // Whether to encrypt message headers
+  bool encrypt_headers = 5;
+
+  // Whether to encrypt routing keys
+  bool encrypt_routing_keys = 6;
+
+  // Key rotation interval in hours
+  uint32 rotation_interval_hours = 7;
+}

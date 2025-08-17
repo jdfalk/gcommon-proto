@@ -1,0 +1,25 @@
+// file: proto/gcommon/v1/queue/api/get_queue_info_response.proto
+// version: 1.0.0
+// Response with queue information
+
+edition = "2023";
+
+package gcommon.v1.queue.api;
+
+import "google/protobuf/go_features.proto";
+import "proto/gcommon/v1/queue/messages/queue_info.proto";
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package gcommon.v1.queue.api;
+
+// Response with queue information
+message GetQueueInfoResponse {
+  // Queue information
+  QueueInfo queue_info = 1;
+
+  // Whether request was successful
+  bool success = 2;
+
+  // Error message if request failed
+  string error = 3;
+}

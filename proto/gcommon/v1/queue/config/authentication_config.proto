@@ -1,0 +1,40 @@
+// file: proto/gcommon/v1/queue/config/authentication_config.proto
+// version: 1.0.0
+// guid: b6fb3968-5534-4c9b-a4bb-55245fb334e3
+
+edition = "2023";
+
+package gcommon.v1.queue.config;
+
+import "google/protobuf/go_features.proto";
+import "proto/gcommon/v1/queue/api/api_key_auth.proto";
+import "proto/gcommon/v1/queue/messages/o_auth2_auth.proto";
+import "proto/gcommon/v1/queue/messages/sasl_auth.proto";
+import "proto/gcommon/v1/queue/messages/tls_auth.proto";
+import "proto/gcommon/v1/queue/messages/username_password_auth.proto";
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package gcommon.v1.queue.config;
+
+message AuthenticationConfig {
+  // Authentication type
+  oneof auth_type {
+    // No authentication required
+    bool none = 1;
+
+    // Username/password authentication
+    UsernamePasswordAuth username_password = 2;
+
+    // API key authentication
+    APIKeyAuth api_key = 3;
+
+    // TLS certificate authentication
+    TLSAuth tls = 4;
+
+    // SASL authentication
+    SASLAuth sasl = 5;
+
+    // OAuth2 authentication
+    OAuth2Auth oauth2 = 6;
+  }
+}

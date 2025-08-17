@@ -1,0 +1,33 @@
+// file: proto/gcommon/v1/queue/api/create_queue_response.proto
+// version: 1.0.0
+// Response for queue creation operations
+
+edition = "2023";
+
+package gcommon.v1.queue.api;
+
+import "google/protobuf/go_features.proto";
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package gcommon.v1.queue.api;
+
+// Response for queue creation operations
+message CreateQueueResponse {
+  // Whether the queue was successfully created
+  bool success = 1;
+
+  // Name of the created queue
+  string queue_name = 2;
+
+  // Queue endpoint URL
+  string queue_endpoint = 3;
+
+  // Number of partitions created
+  int32 partition_count = 4;
+
+  // Queue configuration that was applied
+  map<string, string> applied_config = 5;
+
+  // Error message if creation failed
+  string error = 6;
+}

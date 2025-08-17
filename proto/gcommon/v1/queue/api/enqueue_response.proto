@@ -1,0 +1,124 @@
+// file: proto/gcommon/v1/queue/api/enqueue_response.proto
+// version: 1.0.0
+// guid: df7a8b9c-0d1e-2f3a-4b5c-6d7e8f9a0b1c
+
+edition = "2023";
+
+package gcommon.v1.queue.api;
+
+import "google/protobuf/go_features.proto";
+// Standard imports
+import "google/protobuf/timestamp.proto";
+// Common types
+import "proto/gcommon/v1/common/messages/error.proto";
+import "proto/gcommon/v1/common/api/request_metadata.proto";
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package gcommon.v1.queue.api;
+
+/**
+ * EnqueueResponse confirms successful message enqueuing.
+ * Returns message identifiers and metadata for tracking
+ * and potential message management operations.
+ *
+ * Follows 1-1-1 pattern: one message per file.
+ */
+message EnqueueResponse {
+  // Required fields (1-10)
+
+  /**
+   * Unique identifier assigned to the enqueued message.
+   * Can be used for message tracking, cancellation, or status queries.
+   */
+  string message_id = 1;
+
+  /**
+   * Indicates whether the message was successfully enqueued.
+   * True if the message is now in the queue and will be processed.
+   */
+  bool success = 2;
+
+  // Optional fields (11-50)
+
+  /**
+   * Request processing metadata including timing, request ID,
+   * and other observability information.
+   */
+  gcommon.v1.common.RequestMetadata request_metadata = 11;
+
+  /**
+   * Name of the queue where the message was enqueued.
+   * Echoed from the request for verification.
+   */
+  string queue_name = 12;
+
+  /**
+   * MD5 hash of the message payload for integrity verification.
+   * Can be used to detect corruption during transmission.
+   */
+  string payload_md5 = 13;
+
+  /**
+   * Size of the enqueued message in bytes.
+   * Useful for monitoring and capacity planning.
+   */
+  int64 message_size = 14;
+
+  /**
+   * Position/sequence number of the message in the queue.
+   * Useful for ordered queues and processing metrics.
+   */
+  int64 sequence_number = 15;
+
+  /**
+   * Assigned priority of the message (may differ from requested
+   * priority due to queue configuration or policy).
+   */
+  int32 assigned_priority = 16;
+
+  /**
+   * Deduplication ID that was used (if any).
+   * Helps track duplicate detection results.
+   */
+  string deduplication_id = 17;
+
+  /**
+   * Message group ID that was assigned (if any).
+   * Important for ordered processing verification.
+   */
+  string group_id = 18;
+
+  /**
+   * Estimated time when the message will become available
+   * for consumption (considering delays).
+   */
+  google.protobuf.Timestamp available_at = 19;
+
+  /**
+   * Message expiration time as stored in the queue.
+   * May differ from requested expiration due to queue policies.
+   */
+  google.protobuf.Timestamp expires_at = 20;
+
+  // Status and error fields (61-70)
+
+  /**
+   * Error information if the enqueue operation failed
+   * or completed with warnings.
+   */
+  gcommon.v1.common.Error error = 61;
+
+  // Timestamps (51-60)
+
+  /**
+   * Timestamp when the message was enqueued.
+   * Precise timing for SLA and performance monitoring.
+   */
+  google.protobuf.Timestamp enqueued_at = 51;
+
+  /**
+   * Timestamp when this response was generated.
+   * Useful for measuring request processing time.
+   */
+  google.protobuf.Timestamp response_generated_at = 52;
+}

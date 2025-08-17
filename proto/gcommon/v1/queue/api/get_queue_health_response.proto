@@ -1,0 +1,32 @@
+// file: proto/gcommon/v1/queue/api/get_queue_health_response.proto
+// version: 1.0.0
+// guid: ca800078-3add-48f9-9559-c95d23232cea
+
+edition = "2023";
+
+package gcommon.v1.queue.api;
+
+import "google/protobuf/go_features.proto";
+import "google/protobuf/timestamp.proto";
+import "proto/gcommon/v1/queue/messages/cluster_health.proto";
+import "proto/gcommon/v1/queue/messages/cluster_info.proto";
+import "proto/gcommon/v1/queue/api/get_cluster_info_request.proto";
+import "proto/gcommon/v1/queue/api/get_cluster_info_response.proto";
+import "proto/gcommon/v1/queue/api/get_queue_stats_response.proto";
+import "proto/gcommon/v1/queue/types/health_status.proto";
+import "proto/gcommon/v1/queue/types/metric_type.proto";
+import "proto/gcommon/v1/queue/messages/queue_health.proto";
+import "proto/gcommon/v1/queue/messages/stats_granularity.proto";
+import "proto/gcommon/v1/queue/messages/time_range.proto";
+import "proto/gcommon/v1/queue/messages/topic_info.proto";
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package gcommon.v1.queue.api;
+
+message GetQueueHealthResponse {
+  // Health status for each queue
+  repeated QueueHealth queue_health = 1;
+
+  // Overall cluster health
+  ClusterHealth cluster_health = 2;
+}

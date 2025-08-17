@@ -1,0 +1,37 @@
+// file: proto/gcommon/v1/queue/api/unsubscribe_response.proto
+// file: proto/gcommon/v1/queue/api/unsubscribe_response.proto
+// version: 1.0.0
+// guid: 5a4b3c2d-1e0f-9a8b-7c6d-5e4f3a2b1c0d
+//
+// Response definitions for queue module
+//
+edition = "2023";
+
+package gcommon.v1.queue.api;
+
+import "google/protobuf/go_features.proto";
+import "google/protobuf/timestamp.proto";
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package gcommon.v1.queue.api;
+
+/**
+ * Response for unsubscription operations.
+ */
+message UnsubscribeResponse {
+  // Whether the unsubscription was successful
+  bool success = 1;
+
+  // Name of the subscription that was removed
+  string subscription_name = 2;
+
+  // Timestamp when the unsubscription occurred
+  google.protobuf.Timestamp unsubscribed_at = 3;
+
+  // Number of pending messages that were lost due to unsubscription
+  int64 lost_messages = 4;
+
+  // Any warnings related to the unsubscription
+  repeated string warnings = 5;
+}
+// This file needs proper implementation

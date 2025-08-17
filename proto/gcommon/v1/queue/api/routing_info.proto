@@ -1,0 +1,31 @@
+// file: proto/gcommon/v1/queue/api/routing_info.proto
+// version: 1.0.0
+// guid: 08017b3e-df77-4338-ba13-aadde0c41612
+
+edition = "2023";
+
+package gcommon.v1.queue.api;
+
+import "google/protobuf/any.proto";
+import "google/protobuf/go_features.proto";
+import "google/protobuf/timestamp.proto";
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package gcommon.v1.queue.api;
+
+message RoutingInfo {
+  // Routing key for topic-based routing
+  string routing_key = 1;
+
+  // Specific partition ID (if applicable)
+  int32 partition_id = 2;
+
+  // Partition key for automatic partitioning
+  string partition_key = 3;
+
+  // Exchange name (for exchange-based routing)
+  string exchange_name = 4;
+
+  // Routing tags for advanced routing
+  repeated string routing_tags = 5;
+}

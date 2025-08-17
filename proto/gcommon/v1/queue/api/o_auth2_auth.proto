@@ -1,0 +1,29 @@
+// file: proto/gcommon/v1/queue/api/o_auth2_auth.proto
+// version: 1.0.0
+// guid: ed719ecf-6477-4d68-b022-dc57bed659ce
+
+edition = "2023";
+
+package gcommon.v1.queue.api;
+
+import "google/protobuf/go_features.proto";
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package gcommon.v1.queue.api;
+
+message OAuth2Auth {
+  // OAuth2 token endpoint
+  string token_endpoint = 1;
+
+  // Client ID
+  string client_id = 2;
+
+  // Client secret
+  string client_secret = 3;
+
+  // Scopes to request
+  repeated string scopes = 4;
+
+  // Additional OAuth2 parameters
+  map<string, string> parameters = 5;
+}

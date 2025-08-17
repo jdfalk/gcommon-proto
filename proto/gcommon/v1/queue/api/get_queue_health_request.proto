@@ -1,0 +1,30 @@
+// file: proto/gcommon/v1/queue/api/get_queue_health_request.proto
+// version: 1.0.0
+// guid: 9862f197-381f-41d3-a980-953ef636c78d
+
+edition = "2023";
+
+package gcommon.v1.queue.api;
+
+import "google/protobuf/go_features.proto";
+import "google/protobuf/timestamp.proto";
+import "proto/gcommon/v1/queue/messages/cluster_info.proto";
+import "proto/gcommon/v1/queue/api/get_cluster_info_request.proto";
+import "proto/gcommon/v1/queue/api/get_cluster_info_response.proto";
+import "proto/gcommon/v1/queue/api/get_queue_stats_response.proto";
+import "proto/gcommon/v1/queue/types/health_status.proto";
+import "proto/gcommon/v1/queue/types/metric_type.proto";
+import "proto/gcommon/v1/queue/messages/stats_granularity.proto";
+import "proto/gcommon/v1/queue/messages/time_range.proto";
+import "proto/gcommon/v1/queue/messages/topic_info.proto";
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package gcommon.v1.queue.api;
+
+message GetQueueHealthRequest {
+  // Specific queue names to check (empty = all queues)
+  repeated string queue_names = 1;
+
+  // Whether to include detailed health metrics
+  bool include_details = 2;
+}

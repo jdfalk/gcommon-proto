@@ -1,0 +1,27 @@
+// file: proto/gcommon/v1/queue/api/delete_subscription_response.proto
+// version: 1.0.0
+// Response for delete subscription operations
+
+edition = "2023";
+
+package gcommon.v1.queue.api;
+
+import "google/protobuf/go_features.proto";
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package gcommon.v1.queue.api;
+
+// Response for deleting a subscription
+message DeleteSubscriptionResponse {
+  // Whether the subscription was successfully deleted
+  bool success = 1;
+
+  // Number of undelivered messages that were purged
+  int64 purged_messages = 2;
+
+  // Human-readable message describing the deletion result
+  string message = 3;
+
+  // Error message if deletion failed
+  string error = 4;
+}

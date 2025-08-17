@@ -1,0 +1,33 @@
+// file: proto/gcommon/v1/queue/api/delete_queue_request.proto
+// file: proto/gcommon/v1/queue/api/delete_queue_request.proto
+// version: 1.0.0
+// guid: 9a0b1c2d-3e4f-5a6b-7c8d-9e0f1a2b3c4d
+//
+// Request definitions for queue module
+//
+edition = "2023";
+
+package gcommon.v1.queue.api;
+
+import "google/protobuf/go_features.proto";
+import "proto/gcommon/v1/common/api/request_metadata.proto";
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package gcommon.v1.queue.api;
+
+message DeleteQueueRequest {
+  // Queue ID or name to delete
+  string queue = 1;
+
+  // Force deletion even if not empty
+  bool force = 2;
+
+  // Purge messages before deletion
+  bool purge_first = 3;
+}
+
+/**
+ * Request to delete a queue and all its messages.
+ * This is a destructive operation that cannot be undone.
+ */
+// This file needs proper implementation

@@ -1,0 +1,36 @@
+// file: proto/gcommon/v1/queue/api/create_topic_request.proto
+// file: proto/gcommon/v1/queue/api/create_topic_request.proto
+// version: 1.0.0
+// guid: 3f4a5b6c-7d8e-9f0a-1b2c-3d4e5f6a7b8c
+//
+// Request definitions for queue module
+//
+edition = "2023";
+
+package gcommon.v1.queue.api;
+
+import "google/protobuf/go_features.proto";
+import "proto/gcommon/v1/queue/config/topic_config.proto";
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package gcommon.v1.queue.api;
+
+/**
+ * Request to create a new topic.
+ */
+message CreateTopicRequest {
+  // Name of the topic to create
+  string topic_name = 1;
+
+  // Configuration for the topic
+  gcommon.v1.queue.TopicConfig config = 2;
+
+  // Whether the topic should be durable
+  bool durable = 3;
+
+  // Whether to auto-delete when unused
+  bool auto_delete = 4;
+
+  // Optional arguments for topic creation
+  map<string, string> arguments = 5;
+}

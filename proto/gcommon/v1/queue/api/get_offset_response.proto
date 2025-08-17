@@ -1,0 +1,27 @@
+// file: proto/gcommon/v1/queue/api/get_offset_response.proto
+// version: 1.0.0
+// guid: 28ce7fa9-da40-4119-8167-285e4ff6179a
+// GetOffsetResponse returns the current committed offset for a
+// consumer group within a queue or topic.
+// GetOffsetResponse provides offset information for a consumer group.
+
+edition = "2023";
+
+package gcommon.v1.queue.api;
+
+import "google/protobuf/go_features.proto";
+import "proto/gcommon/v1/common/api/request_metadata.proto";
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package gcommon.v1.queue.api;
+
+message GetOffsetResponse {
+  // The currently committed offset.
+  int64 offset = 1;
+
+  // Name of the queue or topic.
+  string queue_name = 2;
+
+  // Optional request metadata.
+  gcommon.v1.common.RequestMetadata metadata = 3;
+}

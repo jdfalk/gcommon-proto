@@ -1,0 +1,23 @@
+// file: proto/gcommon/v1/queue/api/size_range.proto
+// version: 1.0.0
+// guid: 644269a7-7ae9-4ab3-98d3-d7111c89451b
+
+edition = "2023";
+
+package gcommon.v1.queue.api;
+
+import "google/protobuf/go_features.proto";
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package gcommon.v1.queue.api;
+
+/**
+ * Size range for filtering.
+ */
+message SizeRange {
+  // Minimum size in bytes (inclusive)
+  int64 min_size = 1;
+
+  // Maximum size in bytes (inclusive)
+  int64 max_size = 2;
+}

@@ -1,0 +1,39 @@
+// file: proto/gcommon/v1/queue/config/load_balancing_config.proto
+// version: 1.1.0
+// guid: 8e9f0a1b-2c3d-4e5f-6a7b-8c9d0e1f2a3b
+
+edition = "2023";
+
+package gcommon.v1.queue.config;
+
+import "google/protobuf/go_features.proto";
+import "proto/gcommon/v1/queue/messages/load_balancing_strategy.proto";
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package gcommon.v1.queue.config;
+
+/**
+ * Configuration for load balancing across queue consumers.
+ */
+message LoadBalancingConfig {
+  // Load balancing strategy
+  LoadBalancingStrategy strategy = 1;
+
+  // Weight for this consumer (for weighted strategies)
+  int32 weight = 2;
+
+  // Maximum concurrent messages per consumer
+  int32 max_concurrent_messages = 3;
+
+  // Prefetch count for batch consumption
+  int32 prefetch_count = 4;
+
+  // Consumer priority (higher numbers = higher priority)
+  int32 priority = 5;
+
+  // Whether to enable sticky sessions
+  bool sticky_sessions = 6;
+
+  // Session affinity key
+  string affinity_key = 7;
+}

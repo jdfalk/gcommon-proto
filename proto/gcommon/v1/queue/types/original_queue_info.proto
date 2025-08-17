@@ -1,0 +1,33 @@
+// file: proto/gcommon/v1/queue/types/original_queue_info.proto
+// version: 1.0.0
+// guid: a939a9d0-aaf5-4d3a-b47d-16dad566fe50
+
+edition = "2023";
+
+package gcommon.v1.queue.types;
+
+import "google/protobuf/go_features.proto";
+import "google/protobuf/timestamp.proto";
+import "proto/gcommon/v1/queue/config/restore_config.proto";
+import "proto/gcommon/v1/queue/api/restore_queue_response.proto";
+import "proto/gcommon/v1/queue/messages/time_range.proto";
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package gcommon.v1.queue.types;
+
+message OriginalQueueInfo {
+  // Original queue ID
+  string queue_id = 1;
+
+  // Original queue name
+  string queue_name = 2;
+
+  // Original partition count
+  int32 partition_count = 3;
+
+  // Original configuration snapshot
+  map<string, string> config_snapshot = 4;
+
+  // Backup creation point
+  google.protobuf.Timestamp backup_point = 5;
+}

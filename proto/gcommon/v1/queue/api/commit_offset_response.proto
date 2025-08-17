@@ -1,0 +1,43 @@
+// file: proto/gcommon/v1/queue/api/commit_offset_response.proto
+// version: 1.0.0
+// guid: 748d3d88-f8aa-4f39-9a7a-5feb16d005d9
+
+edition = "2023";
+
+package gcommon.v1.queue.api;
+
+import "google/protobuf/go_features.proto";
+import "google/protobuf/timestamp.proto";
+import "proto/gcommon/v1/queue/messages/partition_commit_result.proto";
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package gcommon.v1.queue.api;
+
+message CommitOffsetResponse {
+  // Overall success status
+  bool success = 1;
+
+  // Error message if commit failed
+  string error_message = 2;
+
+  // Error code for programmatic handling
+  string error_code = 3;
+
+  // Results for each partition commit
+  repeated PartitionCommitResult partition_results = 4;
+
+  // Total number of offsets committed
+  int32 committed_count = 5;
+
+  // Total number of failed commits
+  int32 failed_count = 6;
+
+  // Commit timestamp
+  google.protobuf.Timestamp commit_timestamp = 7;
+
+  // Consumer group generation at time of commit
+  int64 consumer_generation = 8;
+
+  // Additional metadata about the commit operation
+  map<string, string> metadata = 9;
+}

@@ -1,0 +1,50 @@
+// file: proto/gcommon/v1/queue/types/message_properties.proto
+// version: 1.0.0
+// guid: 57ef0850-feeb-42b0-b724-f14b542cfd08
+
+edition = "2023";
+
+package gcommon.v1.queue.types;
+
+import "google/protobuf/any.proto";
+import "google/protobuf/go_features.proto";
+import "google/protobuf/timestamp.proto";
+import "proto/gcommon/v1/queue/messages/delivery_mode.proto";
+import "proto/gcommon/v1/queue/messages/message_metadata.proto";
+import "proto/gcommon/v1/queue/messages/priority_level.proto";
+import "proto/gcommon/v1/queue/config/retry_config.proto";
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package gcommon.v1.queue.types;
+
+message MessageProperties {
+  // Message priority level
+  PriorityLevel priority = 1;
+
+  // Delivery mode for the message
+  DeliveryMode delivery_mode = 2;
+
+  // Message expiration time
+  google.protobuf.Timestamp expiration_time = 3;
+
+  // Correlation ID for request-response patterns
+  string correlation_id = 4;
+
+  // Reply-to address/topic
+  string reply_to = 5;
+
+  // Content type of the payload
+  string content_type = 6;
+
+  // Content encoding
+  string content_encoding = 7;
+
+  // Compression applied to payload
+  string compression = 8;
+
+  // Message deduplication ID
+  string deduplication_id = 9;
+
+  // Delay before message becomes available (milliseconds)
+  int64 delivery_delay_ms = 10;
+}

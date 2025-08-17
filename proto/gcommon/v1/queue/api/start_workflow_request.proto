@@ -1,0 +1,26 @@
+// file: proto/gcommon/v1/queue/api/start_workflow_request.proto
+// version: 1.0.0
+// guid: 2f3e4d5c-6b7a-8190-2e3f-4a5b6c7d8e9f
+
+edition = "2023";
+
+package gcommon.v1.queue.api;
+
+import "google/protobuf/go_features.proto";
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package gcommon.v1.queue.api;
+
+/**
+ * StartWorkflowRequest defines the request for starting a workflow.
+ */
+message StartWorkflowRequest {
+  // Workflow identifier
+  string workflow_id = 1;
+
+  // Workflow definition or template
+  string workflow_definition = 2;
+
+  // Input parameters for the workflow
+  map<string, string> parameters = 3;
+}

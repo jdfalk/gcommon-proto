@@ -1,0 +1,40 @@
+// file: proto/gcommon/v1/queue/api/push_response.proto
+// file: proto/gcommon/v1/queue/api/push_response.proto
+// version: 1.0.0
+// guid: 7a8b9c0d-1e2f-3a4b-5c6d-7e8f9a0b1c2d
+//
+// Response definitions for queue module
+//
+edition = "2023";
+
+package gcommon.v1.queue.api;
+
+import "google/protobuf/go_features.proto";
+import "google/protobuf/timestamp.proto";
+
+option features.(pb.go).api_level = API_OPAQUE;
+option go_package gcommon.v1.queue.api;
+
+/**
+ * Response for message publishing operations.
+ */
+message PushResponse {
+  // Unique identifier assigned to the published message
+  string message_id = 1;
+
+  // Timestamp when the message was accepted by the queue
+  google.protobuf.Timestamp accepted_at = 2;
+
+  // Position/offset of the message in the queue
+  int64 message_offset = 3;
+
+  // Current queue depth after the message was added
+  int64 queue_depth = 4;
+
+  // Whether the message was persisted to storage
+  bool persisted = 5;
+
+  // Estimated delivery time (for delayed messages)
+  google.protobuf.Timestamp estimated_delivery_time = 6;
+}
+// This file needs proper implementation
