@@ -4,6 +4,12 @@ edition = "2023";
 package gcommon.v1.common.services;
 
 import "google/protobuf/go_features.proto";
+import "proto/gcommon/v1/common/messages/list_user_sessions_request.proto";
+import "proto/gcommon/v1/common/messages/list_user_sessions_response.proto";
+import "proto/gcommon/v1/common/messages/terminate_session_request.proto";
+import "proto/gcommon/v1/common/messages/terminate_session_response.proto";
+import "proto/gcommon/v1/common/messages/validate_session_request.proto";
+import "proto/gcommon/v1/common/messages/validate_session_response.proto";
 import "proto/gcommon/v1/web/messages/create_session_request.proto";
 import "proto/gcommon/v1/web/messages/create_session_response.proto";
 import "proto/gcommon/v1/web/messages/delete_session_request.proto";
@@ -12,14 +18,8 @@ import "proto/gcommon/v1/web/messages/get_session_request.proto";
 import "proto/gcommon/v1/web/messages/get_session_response.proto";
 import "proto/gcommon/v1/web/messages/list_sessions_request.proto";
 import "proto/gcommon/v1/web/messages/list_sessions_response.proto";
-import "proto/gcommon/v1/common/messages/list_user_sessions_request.proto";
-import "proto/gcommon/v1/common/messages/list_user_sessions_response.proto";
-import "proto/gcommon/v1/common/messages/terminate_session_request.proto";
-import "proto/gcommon/v1/common/messages/terminate_session_response.proto";
 import "proto/gcommon/v1/web/messages/update_session_request.proto";
 import "proto/gcommon/v1/web/messages/update_session_response.proto";
-import "proto/gcommon/v1/common/messages/validate_session_request.proto";
-import "proto/gcommon/v1/common/messages/validate_session_response.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
 option go_package = "github.com/jdfalk/gcommon/proto/gcommon/v1/common/services";

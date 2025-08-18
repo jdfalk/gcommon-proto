@@ -9,13 +9,13 @@ package gcommon.v1.queue.config;
 import "google/protobuf/go_features.proto";
 import "google/protobuf/timestamp.proto";
 import "proto/gcommon/v1/database/messages/subscribe_request.proto";
-import "proto/gcommon/v1/queue/messages/auto_commit_config.proto";
-import "proto/gcommon/v1/queue/messages/dead_letter_queue_config.proto";
 import "proto/gcommon/v1/queue/enums/consumer_state.proto";
-import "proto/gcommon/v1/queue/messages/consumer_stats.proto";
 import "proto/gcommon/v1/queue/enums/load_balancing_strategy.proto";
 import "proto/gcommon/v1/queue/enums/offset_reset_strategy.proto";
 import "proto/gcommon/v1/queue/enums/rebalance_strategy.proto";
+import "proto/gcommon/v1/queue/messages/auto_commit_config.proto";
+import "proto/gcommon/v1/queue/messages/consumer_stats.proto";
+import "proto/gcommon/v1/queue/messages/dead_letter_queue_config.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
 option go_package = "github.com/jdfalk/gcommon/proto/gcommon/v1/queue/messages";

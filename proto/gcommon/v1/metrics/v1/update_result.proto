@@ -9,7 +9,6 @@ package gcommon.v1.metrics.v1;
 import "google/protobuf/go_features.proto";
 import "google/protobuf/timestamp.proto";
 import "proto/gcommon/v1/metrics/v1/config_change.proto";
-import "proto/gcommon/v1/metrics/v1/config_change.proto";
 import "proto/gcommon/v1/metrics/v1/update_action.proto";
 import "proto/gcommon/v1/metrics/v1/validation_result.proto";
 

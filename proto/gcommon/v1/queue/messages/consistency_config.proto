@@ -8,10 +8,10 @@ package gcommon.v1.queue.config;
 
 import "google/protobuf/go_features.proto";
 import "proto/gcommon/v1/config/enums/conflict_resolution.proto";
-import "proto/gcommon/v1/queue/messages/ordering_config.proto";
 import "proto/gcommon/v1/queue/enums/ack_level.proto";
-import "proto/gcommon/v1/queue/messages/consistency_validation.proto";
 import "proto/gcommon/v1/queue/enums/durability_level.proto";
+import "proto/gcommon/v1/queue/messages/consistency_validation.proto";
+import "proto/gcommon/v1/queue/messages/ordering_config.proto";
 import "proto/gcommon/v1/queue/messages/read_consistency.proto";
 import "proto/gcommon/v1/queue/messages/replication_consistency.proto";
 import "proto/gcommon/v1/queue/messages/write_consistency.proto";

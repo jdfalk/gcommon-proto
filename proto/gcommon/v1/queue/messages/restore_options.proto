@@ -9,7 +9,6 @@ package gcommon.v1.queue.api;
 import "google/protobuf/go_features.proto";
 import "google/protobuf/timestamp.proto";
 import "proto/gcommon/v1/metrics/v1/time_range.proto";
-import "proto/gcommon/v1/metrics/v1/time_range.proto";
 import "proto/gcommon/v1/queue/messages/filter_criteria.proto";
 import "proto/gcommon/v1/queue/messages/offset_range.proto";
 import "proto/gcommon/v1/queue/messages/performance_options.proto";

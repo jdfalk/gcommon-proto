@@ -8,11 +8,11 @@ package gcommon.v1.metrics.v1;
 
 import "google/protobuf/go_features.proto";
 import "proto/gcommon/v1/metrics/v1/export_config.proto";
-import "proto/gcommon/v1/metrics/v1/retention_policy_config.proto";
-import "proto/gcommon/v1/metrics/v1/metric_type.proto";
 import "proto/gcommon/v1/metrics/v1/label_definition.proto";
-import "proto/gcommon/v1/metrics/v1/validation_rules.proto";
+import "proto/gcommon/v1/metrics/v1/metric_type.proto";
 import "proto/gcommon/v1/metrics/v1/metric_type_config.proto";
+import "proto/gcommon/v1/metrics/v1/retention_policy_config.proto";
+import "proto/gcommon/v1/metrics/v1/validation_rules.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
 option go_package = "github.com/jdfalk/gcommon/proto/gcommon/v1/metrics/v1";

@@ -8,24 +8,24 @@ package gcommon.v1.config.v1;
 
 import "google/protobuf/go_features.proto";
 import "google/protobuf/timestamp.proto";
-import "proto/gcommon/v1/config/v1/audit_settings.proto";
-import "proto/gcommon/v1/config/v1/encryption_settings.proto";
-import "proto/gcommon/v1/config/v1/monitoring_config.proto";
-import "proto/gcommon/v1/config/v1/sync_settings.proto";
-import "proto/gcommon/v1/config/v1/environment_type.proto";
 // Config-local types
 import "proto/gcommon/v1/config/messages/approval_workflow.proto";
 import "proto/gcommon/v1/config/messages/backup_policy.proto";
 import "proto/gcommon/v1/config/messages/deployment_info.proto";
 import "proto/gcommon/v1/config/messages/promotion_rule.proto";
+import "proto/gcommon/v1/config/v1/audit_settings.proto";
+import "proto/gcommon/v1/config/v1/encryption_settings.proto";
 import "proto/gcommon/v1/config/v1/environment_status.proto";
-import "proto/gcommon/v1/metrics/v1/retention_policy.proto";
+import "proto/gcommon/v1/config/v1/environment_type.proto";
+import "proto/gcommon/v1/config/v1/monitoring_config.proto";
+import "proto/gcommon/v1/config/v1/sync_settings.proto";
 // Metrics enums referenced by this message
 import "proto/gcommon/v1/metrics/v1/health_status.proto";
-import "proto/gcommon/v1/organization/messages/compliance_settings.proto";
-import "proto/gcommon/v1/organization/messages/notification_settings.proto";
+import "proto/gcommon/v1/metrics/v1/retention_policy.proto";
 // Organization-scoped settings used by environments
 import "proto/gcommon/v1/organization/messages/access_control.proto";
+import "proto/gcommon/v1/organization/messages/compliance_settings.proto";
+import "proto/gcommon/v1/organization/messages/notification_settings.proto";
 import "proto/gcommon/v1/organization/messages/resource_limits.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;

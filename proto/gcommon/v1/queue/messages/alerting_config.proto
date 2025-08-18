@@ -8,11 +8,9 @@ package gcommon.v1.queue.config;
 
 import "google/protobuf/duration.proto";
 import "google/protobuf/go_features.proto";
-import "proto/gcommon/v1/metrics/v1/alert_severity.proto";
 import "proto/gcommon/v1/config/messages/notification_channel.proto";
+import "proto/gcommon/v1/metrics/v1/alert_severity.proto";
 import "proto/gcommon/v1/queue/messages/alert_rule.proto";
-import "proto/gcommon/v1/metrics/v1/alert_severity.proto";
-import "proto/gcommon/v1/config/messages/notification_channel.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
 option go_package = "github.com/jdfalk/gcommon/proto/gcommon/v1/queue/messages";

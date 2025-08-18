@@ -8,17 +8,17 @@ package gcommon.v1.config.api;
 
 import "google/protobuf/go_features.proto";
 import "google/protobuf/timestamp.proto";
-import "proto/gcommon/v1/config/v1/audit_settings.proto";
-import "proto/gcommon/v1/organization/messages/compliance_settings.proto";
-import "proto/gcommon/v1/organization/messages/notification_settings.proto";
-import "proto/gcommon/v1/config/v1/environment_type.proto";
+import "proto/gcommon/v1/config/enums/deployment_status.proto";
 import "proto/gcommon/v1/config/enums/health_check_type.proto";
-import "proto/gcommon/v1/organization/messages/access_control.proto";
+import "proto/gcommon/v1/config/enums/health_state.proto";
 import "proto/gcommon/v1/config/messages/deployment_rollback_info.proto";
 import "proto/gcommon/v1/config/messages/health_check.proto";
-import "proto/gcommon/v1/config/enums/health_state.proto";
-import "proto/gcommon/v1/config/enums/deployment_status.proto";
+import "proto/gcommon/v1/config/v1/audit_settings.proto";
 import "proto/gcommon/v1/config/v1/environment_status.proto";
+import "proto/gcommon/v1/config/v1/environment_type.proto";
+import "proto/gcommon/v1/organization/messages/access_control.proto";
+import "proto/gcommon/v1/organization/messages/compliance_settings.proto";
+import "proto/gcommon/v1/organization/messages/notification_settings.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
 option go_package = "github.com/jdfalk/gcommon/proto/gcommon/v1/config/messages";

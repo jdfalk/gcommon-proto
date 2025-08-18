@@ -8,8 +8,8 @@ package gcommon.v1.queue.config;
 
 import "google/protobuf/go_features.proto";
 import "proto/gcommon/v1/queue/enums/compression_algorithm.proto";
-import "proto/gcommon/v1/queue/messages/format_options.proto";
 import "proto/gcommon/v1/queue/enums/serialization_format.proto";
+import "proto/gcommon/v1/queue/messages/format_options.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
 option go_package = "github.com/jdfalk/gcommon/proto/gcommon/v1/queue/messages";

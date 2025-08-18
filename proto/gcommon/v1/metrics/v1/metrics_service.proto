@@ -13,6 +13,7 @@ import "proto/gcommon/v1/metrics/v1/get_metrics_request.proto";
 import "proto/gcommon/v1/metrics/v1/get_metrics_response.proto";
 import "proto/gcommon/v1/metrics/v1/get_metrics_summary_request.proto";
 import "proto/gcommon/v1/metrics/v1/get_metrics_summary_response.proto";
+import "proto/gcommon/v1/metrics/v1/metric_data.proto";
 import "proto/gcommon/v1/metrics/v1/query_metrics_request.proto";
 import "proto/gcommon/v1/metrics/v1/query_metrics_response.proto";
 import "proto/gcommon/v1/metrics/v1/record_metric_request.proto";
@@ -25,7 +26,6 @@ import "proto/gcommon/v1/metrics/v1/register_metric_response.proto";
 import "proto/gcommon/v1/metrics/v1/stream_metrics_request.proto";
 import "proto/gcommon/v1/metrics/v1/unregister_metric_request.proto";
 import "proto/gcommon/v1/metrics/v1/unregister_metric_response.proto";
-import "proto/gcommon/v1/metrics/v1/metric_data.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
 option go_package = "github.com/jdfalk/gcommon/proto/gcommon/v1/metrics/v1";

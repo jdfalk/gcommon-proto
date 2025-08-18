@@ -11,7 +11,6 @@ package gcommon.v1.metrics.v1;
 import "google/protobuf/go_features.proto";
 import "google/protobuf/timestamp.proto";
 import "proto/gcommon/v1/common/messages/error.proto";
-import "proto/gcommon/v1/metrics/v1/pagination_info.proto";
 import "proto/gcommon/v1/metrics/v1/metric_metadata.proto";
 import "proto/gcommon/v1/metrics/v1/pagination_info.proto";
 
