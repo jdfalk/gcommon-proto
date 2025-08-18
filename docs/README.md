@@ -282,6 +282,7 @@ This directory contains auto-generated documentation for this project.
 - [Python Client SDK](sdks/python/docs/README.md)
 - [Rust Client SDK](sdks/rust/docs/README.md)
 - [TypeScript Client SDK](sdks/typescript/docs/README.md)
+- [Sync-Receiver Manual Dispatch Implementation & Bug Fixes Summary](sync-receiver-manual-dispatch-summary.md)
 - [GCommon Implementation Tasks](tasks/README.md)
 - [1. Current State Analysis](tasks/REORG/01-current-state-analysis.md)
 - [2. Target Architecture](tasks/REORG/02-target-architecture.md)
@@ -333,4 +334,4 @@ This directory contains auto-generated documentation for this project.
 - [Gateway Service Template\n\nAPI gateway with routing setup.](templates/gateway-service/README.md)
 - [Worker Service Template\n\nBackground job processing scaffold.](templates/worker-service/README.md)
 
-_Generated on Mon Aug 18 14:41:46 UTC 2025_
+_Generated on Mon Aug 18 15:14:50 UTC 2025_
