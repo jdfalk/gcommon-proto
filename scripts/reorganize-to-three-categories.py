@@ -51,10 +51,23 @@ class ProtoReorganizer:
             with open(file_path, "r", encoding="utf-8") as f:
                 content = f.read()
 
-            # Count different types of definitions
-            enum_count = len(re.findall(r"\benum\s+\w+", content))
-            message_count = len(re.findall(r"\bmessage\s+\w+", content))
-            service_count = len(re.findall(r"\bservice\s+\w+", content))
+            # Remove comments and strings to avoid false matches
+            # Remove line comments
+            content = re.sub(r"//.*", "", content)
+            # Remove block comments
+            content = re.sub(r"/\*.*?\*/", "", content, flags=re.DOTALL)
+            # Remove string literals
+            content = re.sub(r'"[^"]*"', "", content)
+
+            # Count different types of definitions with more precise patterns
+            # Look for actual definitions at the start of lines (allowing whitespace)
+            enum_count = len(re.findall(r"^\s*enum\s+\w+\s*{", content, re.MULTILINE))
+            message_count = len(
+                re.findall(r"^\s*message\s+\w+\s*{", content, re.MULTILINE)
+            )
+            service_count = len(
+                re.findall(r"^\s*service\s+\w+\s*{", content, re.MULTILINE)
+            )
 
             # Determine primary category
             if service_count > 0:
@@ -106,6 +119,41 @@ class ProtoReorganizer:
                         "new_category": target_category,
                     }
                 )
+
+        # Also check files in existing target categories to fix misplaced files
+        for category in self.target_categories:
+            category_path = domain_path / category
+            if not category_path.exists():
+                continue
+
+            # Get ALL proto files in this category
+            for proto_file in category_path.rglob("*.proto"):
+                correct_category = self.analyze_proto_file(proto_file)
+
+                # Only move if the file is in the wrong category
+                if correct_category != category:
+                    target_path = domain_path / correct_category / proto_file.name
+
+                    # Ensure unique filename in target directory
+                    counter = 1
+                    original_target = target_path
+                    while target_path.exists():
+                        stem = original_target.stem
+                        suffix = original_target.suffix
+                        target_path = (
+                            original_target.parent / f"{stem}_{counter}{suffix}"
+                        )
+                        counter += 1
+
+                    moves.append(
+                        {
+                            "source": proto_file,
+                            "target": target_path,
+                            "domain": domain,
+                            "old_category": category,
+                            "new_category": correct_category,
+                        }
+                    )
 
         return moves
 
