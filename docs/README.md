@@ -333,4 +333,4 @@ This directory contains auto-generated documentation for this project.
 - [Gateway Service Template\n\nAPI gateway with routing setup.](templates/gateway-service/README.md)
 - [Worker Service Template\n\nBackground job processing scaffold.](templates/worker-service/README.md)
 
-_Generated on Mon Aug 18 01:55:58 UTC 2025_
+_Generated on Mon Aug 18 14:41:46 UTC 2025_
