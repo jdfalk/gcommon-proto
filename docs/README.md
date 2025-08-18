@@ -268,7 +268,7 @@ This directory contains auto-generated documentation for this project.
 - [web_events Module](proto-docs/web_events.md)
 - [web_services Module](proto-docs/web_services.md)
 - [Protocol Buffer Analysis Report](proto_analysis_report.md)
-- [](protos-to-fix.md)
+- [🔍 COMPREHENSIVE PROTOBUF ANALYZER](protos-to-fix.md)
 - [Repository Labels](repository_labels.md)
 - [Repository Labels](repository_labels_backup.md)
 - [Repository Labels](repository_labels_json.md)
@@ -334,4 +334,4 @@ This directory contains auto-generated documentation for this project.
 - [Gateway Service Template\n\nAPI gateway with routing setup.](templates/gateway-service/README.md)
 - [Worker Service Template\n\nBackground job processing scaffold.](templates/worker-service/README.md)
 
-_Generated on Sun Aug 17 23:23:42 UTC 2025_
+_Generated on Mon Aug 18 00:31:40 UTC 2025_
