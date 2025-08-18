@@ -1097,7 +1097,7 @@ lint:
 set -euo pipefail
 
 # Configuration
-PROTO_DIR="proto/gcommon/v1"
+PROTO_DIR="gcommon/v1"
 OUTPUT_DIR="internal/generated"
 CACHE_DIR=".buf_cache"
 MAX_JOBS="${BUF_MAX_JOBS:-8}"

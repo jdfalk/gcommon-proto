@@ -8,11 +8,11 @@ package gcommon.v1.metrics.v1.resource_usage_stats;
 
 import "google/protobuf/go_features.proto";
 import "google/protobuf/timestamp.proto";
-import "proto/gcommon/v1/metrics/v1/cpu_usage.proto";
-import "proto/gcommon/v1/metrics/v1/disk_usage.proto";
-import "proto/gcommon/v1/metrics/v1/memory_usage.proto";
-import "proto/gcommon/v1/metrics/v1/network_usage.proto";
-import "proto/gcommon/v1/metrics/v1/resource_data_point.proto";
+import "gcommon/v1/metrics/v1/cpu_usage.proto";
+import "gcommon/v1/metrics/v1/disk_usage.proto";
+import "gcommon/v1/metrics/v1/memory_usage.proto";
+import "gcommon/v1/metrics/v1/network_usage.proto";
+import "gcommon/v1/metrics/v1/resource_data_point.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
 option go_package = "github.com/jdfalk/gcommon/proto/proto/gcommon/v1/metrics/v1/resource_usage_stats";

@@ -8,15 +8,15 @@ package gcommon.v1.organization.messages.tenant_isolation;
 
 import "google/protobuf/go_features.proto";
 import "google/protobuf/timestamp.proto";
-import "proto/gcommon/v1/common/messages/key_value.proto";
-import "proto/gcommon/v1/organization/enums/isolation_level.proto";
-import "proto/gcommon/v1/organization/messages/access_control.proto";
-import "proto/gcommon/v1/organization/messages/audit_config.proto";
-import "proto/gcommon/v1/organization/messages/compute_isolation.proto";
-import "proto/gcommon/v1/organization/messages/database_isolation.proto";
-import "proto/gcommon/v1/organization/messages/encryption_config.proto";
-import "proto/gcommon/v1/organization/messages/network_isolation.proto";
-import "proto/gcommon/v1/organization/messages/storage_isolation.proto";
+import "gcommon/v1/common/messages/key_value.proto";
+import "gcommon/v1/organization/enums/isolation_level.proto";
+import "gcommon/v1/organization/messages/access_control.proto";
+import "gcommon/v1/organization/messages/audit_config.proto";
+import "gcommon/v1/organization/messages/compute_isolation.proto";
+import "gcommon/v1/organization/messages/database_isolation.proto";
+import "gcommon/v1/organization/messages/encryption_config.proto";
+import "gcommon/v1/organization/messages/network_isolation.proto";
+import "gcommon/v1/organization/messages/storage_isolation.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
 option go_package = "github.com/jdfalk/gcommon/proto/proto/gcommon/v1/organization/messages/tenant_isolation";

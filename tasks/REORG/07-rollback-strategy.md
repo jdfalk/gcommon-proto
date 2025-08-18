@@ -172,7 +172,7 @@ def rollback_domain(domain):
     print(f"🔄 Rolling back {domain} domain...")
 
     # Remove proto files for this domain
-    proto_domain_dir = Path(f"proto/gcommon/v1/{domain}")
+    proto_domain_dir = Path(f"gcommon/v1/{domain}")
     if proto_domain_dir.exists():
         shutil.rmtree(proto_domain_dir)
         print(f"✅ Removed {proto_domain_dir}")

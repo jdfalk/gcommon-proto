@@ -8,9 +8,9 @@ edition = "2023";
 package gcommon.v1.queue.messages.subscribe_response;
 
 import "google/protobuf/go_features.proto";
-import "proto/gcommon/v1/queue/messages/connection_details.proto";
-import "proto/gcommon/v1/queue/messages/partition_offset.proto";
-import "proto/gcommon/v1/queue/messages/queue_message.proto";
+import "gcommon/v1/queue/messages/connection_details.proto";
+import "gcommon/v1/queue/messages/partition_offset.proto";
+import "gcommon/v1/queue/messages/queue_message.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
 option go_package = "github.com/jdfalk/gcommon/proto/proto/gcommon/v1/queue/messages/subscribe_response";

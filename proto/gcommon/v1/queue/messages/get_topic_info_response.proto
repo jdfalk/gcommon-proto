@@ -8,12 +8,12 @@ package gcommon.v1.queue.messages.get_topic_info_response;
 
 import "google/protobuf/go_features.proto";
 import "google/protobuf/timestamp.proto";
-import "proto/gcommon/v1/metrics/v1/retention_info.proto";
-import "proto/gcommon/v1/queue/messages/owner_info.proto";
-import "proto/gcommon/v1/queue/messages/partition_info.proto";
-import "proto/gcommon/v1/queue/messages/topic_configuration.proto";
-import "proto/gcommon/v1/queue/messages/topic_permissions.proto";
-import "proto/gcommon/v1/queue/messages/topic_stats.proto";
+import "gcommon/v1/metrics/v1/retention_info.proto";
+import "gcommon/v1/queue/messages/owner_info.proto";
+import "gcommon/v1/queue/messages/partition_info.proto";
+import "gcommon/v1/queue/messages/topic_configuration.proto";
+import "gcommon/v1/queue/messages/topic_permissions.proto";
+import "gcommon/v1/queue/messages/topic_stats.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
 option go_package = "github.com/jdfalk/gcommon/proto/proto/gcommon/v1/queue/messages/get_topic_info_response";

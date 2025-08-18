@@ -7,7 +7,7 @@ package gcommon.v1.common.messages.retry_policy;
 
 import "google/protobuf/duration.proto";
 import "google/protobuf/go_features.proto";
-import "proto/gcommon/v1/common/enums/error_code.proto";
+import "gcommon/v1/common/enums/error_code.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
 option go_package = "github.com/jdfalk/gcommon/proto/proto/gcommon/v1/common/messages/retry_policy";

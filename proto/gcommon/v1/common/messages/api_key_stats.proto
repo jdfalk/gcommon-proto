@@ -8,7 +8,7 @@ package gcommon.v1.common.messages.api_key_stats;
 
 import "google/protobuf/go_features.proto";
 // TODO FIX THIS
-// import "proto/gcommon/v1/common/messages/daily_usage.proto";
+// import "gcommon/v1/common/messages/daily_usage.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
 option go_package = "github.com/jdfalk/gcommon/proto/proto/gcommon/v1/common/messages/api_key_stats";

@@ -9,7 +9,7 @@ package gcommon.v1.queue.messages.validation_error;
 import "google/protobuf/duration.proto";
 import "google/protobuf/go_features.proto";
 import "google/protobuf/timestamp.proto";
-import "proto/gcommon/v1/queue/messages/offset_range.proto";
+import "gcommon/v1/queue/messages/offset_range.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
 option go_package = "github.com/jdfalk/gcommon/proto/proto/gcommon/v1/queue/messages/validation_error";

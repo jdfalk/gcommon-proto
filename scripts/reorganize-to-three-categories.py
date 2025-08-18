@@ -379,7 +379,7 @@ def main():
     )
     parser.add_argument(
         "--proto-root",
-        default="proto/gcommon/v1",
+        default="gcommon/v1",
         help="Root directory of proto files (default: proto/gcommon/v1)",
     )
     parser.add_argument(

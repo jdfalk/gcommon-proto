@@ -7,13 +7,13 @@ edition = "2023";
 package gcommon.v1.metrics.v1.metric_type_config;
 
 import "google/protobuf/go_features.proto";
-import "proto/gcommon/v1/metrics/v1/counter_config.proto";
-import "proto/gcommon/v1/metrics/v1/export_config.proto";
-import "proto/gcommon/v1/metrics/v1/gauge_config.proto";
-import "proto/gcommon/v1/metrics/v1/histogram_config.proto";
-import "proto/gcommon/v1/metrics/v1/metric_type.proto";
-import "proto/gcommon/v1/metrics/v1/retention_policy_config.proto";
-import "proto/gcommon/v1/metrics/v1/summary_config.proto";
+import "gcommon/v1/metrics/v1/counter_config.proto";
+import "gcommon/v1/metrics/v1/export_config.proto";
+import "gcommon/v1/metrics/v1/gauge_config.proto";
+import "gcommon/v1/metrics/v1/histogram_config.proto";
+import "gcommon/v1/metrics/v1/metric_type.proto";
+import "gcommon/v1/metrics/v1/retention_policy_config.proto";
+import "gcommon/v1/metrics/v1/summary_config.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
 option go_package = "github.com/jdfalk/gcommon/proto/proto/gcommon/v1/metrics/v1/metric_type_config";

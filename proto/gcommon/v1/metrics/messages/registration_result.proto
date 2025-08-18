@@ -8,8 +8,8 @@ package gcommon.v1.metrics.v1.registration_result;
 
 import "google/protobuf/go_features.proto";
 import "google/protobuf/timestamp.proto";
-import "proto/gcommon/v1/metrics/v1/registration_action.proto";
-import "proto/gcommon/v1/metrics/v1/schema_change.proto";
+import "gcommon/v1/metrics/v1/registration_action.proto";
+import "gcommon/v1/metrics/v1/schema_change.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
 option go_package = "github.com/jdfalk/gcommon/proto/proto/gcommon/v1/metrics/v1/registration_result";

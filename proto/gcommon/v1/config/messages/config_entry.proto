@@ -7,8 +7,8 @@ package gcommon.v1.config.v1.config_entry;
 
 import "google/protobuf/go_features.proto";
 import "google/protobuf/timestamp.proto";
-import "proto/gcommon/v1/common/enums/resource_status.proto";
-import "proto/gcommon/v1/common/messages/config_value.proto";
+import "gcommon/v1/common/enums/resource_status.proto";
+import "gcommon/v1/common/messages/config_value.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
 option go_package = "github.com/jdfalk/gcommon/proto/proto/gcommon/v1/config/v1/config_entry";

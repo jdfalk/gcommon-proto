@@ -8,14 +8,14 @@ package gcommon.v1.metrics.v1.stream_metrics_request;
 
 import "google/protobuf/go_features.proto";
 import "google/protobuf/timestamp.proto";
-import "proto/gcommon/v1/common/messages/request_metadata.proto";
-import "proto/gcommon/v1/metrics/v1/buffer_config.proto";
-import "proto/gcommon/v1/metrics/v1/buffer_overflow_strategy.proto";
-import "proto/gcommon/v1/metrics/v1/metric_filter.proto";
-import "proto/gcommon/v1/metrics/v1/stream_compression.proto";
-import "proto/gcommon/v1/metrics/v1/stream_options.proto";
-import "proto/gcommon/v1/metrics/v1/stream_qos.proto";
-import "proto/gcommon/v1/metrics/v1/stream_start.proto";
+import "gcommon/v1/common/messages/request_metadata.proto";
+import "gcommon/v1/metrics/v1/buffer_config.proto";
+import "gcommon/v1/metrics/v1/buffer_overflow_strategy.proto";
+import "gcommon/v1/metrics/v1/metric_filter.proto";
+import "gcommon/v1/metrics/v1/stream_compression.proto";
+import "gcommon/v1/metrics/v1/stream_options.proto";
+import "gcommon/v1/metrics/v1/stream_qos.proto";
+import "gcommon/v1/metrics/v1/stream_start.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
 option go_package = "github.com/jdfalk/gcommon/proto/proto/gcommon/v1/metrics/v1/stream_metrics_request";

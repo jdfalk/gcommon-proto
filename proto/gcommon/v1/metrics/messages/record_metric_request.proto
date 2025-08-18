@@ -8,9 +8,9 @@ package gcommon.v1.metrics.v1.record_metric_request;
 
 import "google/protobuf/go_features.proto";
 import "google/protobuf/timestamp.proto";
-import "proto/gcommon/v1/common/messages/request_metadata.proto";
-import "proto/gcommon/v1/metrics/v1/batch_context.proto";
-import "proto/gcommon/v1/metrics/v1/metric_data.proto";
+import "gcommon/v1/common/messages/request_metadata.proto";
+import "gcommon/v1/metrics/v1/batch_context.proto";
+import "gcommon/v1/metrics/v1/metric_data.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
 option go_package = "github.com/jdfalk/gcommon/proto/proto/gcommon/v1/metrics/v1/record_metric_request";

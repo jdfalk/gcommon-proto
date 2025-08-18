@@ -11,8 +11,8 @@ package gcommon.v1.queue.messages.durability_config;
 
 import "google/protobuf/duration.proto";
 import "google/protobuf/go_features.proto";
-import "proto/gcommon/v1/queue/enums/ack_level.proto";
-import "proto/gcommon/v1/queue/enums/flush_policy.proto";
+import "gcommon/v1/queue/enums/ack_level.proto";
+import "gcommon/v1/queue/enums/flush_policy.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
 option go_package = "github.com/jdfalk/gcommon/proto/proto/gcommon/v1/queue/messages/durability_config";

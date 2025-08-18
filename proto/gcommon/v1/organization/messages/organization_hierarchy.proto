@@ -8,9 +8,9 @@ package gcommon.v1.organization.messages.organization_hierarchy;
 
 import "google/protobuf/go_features.proto";
 import "google/protobuf/timestamp.proto";
-import "proto/gcommon/v1/common/messages/key_value.proto";
-import "proto/gcommon/v1/organization/enums/hierarchy_type.proto";
-import "proto/gcommon/v1/organization/messages/hierarchy_node.proto";
+import "gcommon/v1/common/messages/key_value.proto";
+import "gcommon/v1/organization/enums/hierarchy_type.proto";
+import "gcommon/v1/organization/messages/hierarchy_node.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
 option go_package = "github.com/jdfalk/gcommon/proto/proto/gcommon/v1/organization/messages/organization_hierarchy";

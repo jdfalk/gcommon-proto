@@ -57,14 +57,14 @@ class MigrationValidator:
             return True
 
         required_dirs = [
-            "proto/gcommon/v1/common",
-            "proto/gcommon/v1/config",
-            "proto/gcommon/v1/database",
-            "proto/gcommon/v1/media",
-            "proto/gcommon/v1/metrics",
-            "proto/gcommon/v1/organization",
-            "proto/gcommon/v1/queue",
-            "proto/gcommon/v1/web",
+            "gcommon/v1/common",
+            "gcommon/v1/config",
+            "gcommon/v1/database",
+            "gcommon/v1/media",
+            "gcommon/v1/metrics",
+            "gcommon/v1/organization",
+            "gcommon/v1/queue",
+            "gcommon/v1/web",
         ]
 
         missing_dirs = []

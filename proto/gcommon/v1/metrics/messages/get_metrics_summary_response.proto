@@ -8,16 +8,16 @@ package gcommon.v1.metrics.v1.get_metrics_summary_response;
 
 import "google/protobuf/go_features.proto";
 import "google/protobuf/timestamp.proto";
-import "proto/gcommon/v1/common/messages/error.proto";
-import "proto/gcommon/v1/metrics/v1/error_stats.proto";
-import "proto/gcommon/v1/metrics/v1/health_status.proto";
-import "proto/gcommon/v1/metrics/v1/metrics_health_info.proto";
-import "proto/gcommon/v1/metrics/v1/metrics_summary.proto";
-import "proto/gcommon/v1/metrics/v1/performance_stats.proto";
-import "proto/gcommon/v1/metrics/v1/provider_summary.proto";
-import "proto/gcommon/v1/metrics/v1/retention_policy_config.proto";
-import "proto/gcommon/v1/metrics/v1/time_range.proto";
-import "proto/gcommon/v1/metrics/v1/top_metrics.proto";
+import "gcommon/v1/common/messages/error.proto";
+import "gcommon/v1/metrics/v1/error_stats.proto";
+import "gcommon/v1/metrics/v1/health_status.proto";
+import "gcommon/v1/metrics/v1/metrics_health_info.proto";
+import "gcommon/v1/metrics/v1/metrics_summary.proto";
+import "gcommon/v1/metrics/v1/performance_stats.proto";
+import "gcommon/v1/metrics/v1/provider_summary.proto";
+import "gcommon/v1/metrics/v1/retention_policy_config.proto";
+import "gcommon/v1/metrics/v1/time_range.proto";
+import "gcommon/v1/metrics/v1/top_metrics.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
 option go_package = "github.com/jdfalk/gcommon/proto/proto/gcommon/v1/metrics/v1/get_metrics_summary_response";

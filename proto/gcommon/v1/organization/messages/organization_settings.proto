@@ -8,14 +8,14 @@ package gcommon.v1.organization.messages.organization_settings;
 
 import "google/protobuf/go_features.proto";
 import "google/protobuf/timestamp.proto";
-import "proto/gcommon/v1/common/messages/key_value.proto";
-import "proto/gcommon/v1/organization/messages/billing_settings.proto";
-import "proto/gcommon/v1/organization/messages/compliance_settings.proto";
-import "proto/gcommon/v1/organization/messages/feature_flag.proto";
-import "proto/gcommon/v1/organization/messages/integration_settings.proto";
-import "proto/gcommon/v1/organization/messages/notification_settings.proto";
-import "proto/gcommon/v1/organization/messages/security_settings.proto";
-import "proto/gcommon/v1/organization/messages/ui_settings.proto";
+import "gcommon/v1/common/messages/key_value.proto";
+import "gcommon/v1/organization/messages/billing_settings.proto";
+import "gcommon/v1/organization/messages/compliance_settings.proto";
+import "gcommon/v1/organization/messages/feature_flag.proto";
+import "gcommon/v1/organization/messages/integration_settings.proto";
+import "gcommon/v1/organization/messages/notification_settings.proto";
+import "gcommon/v1/organization/messages/security_settings.proto";
+import "gcommon/v1/organization/messages/ui_settings.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
 option go_package = "github.com/jdfalk/gcommon/proto/proto/gcommon/v1/organization/messages/organization_settings";

@@ -8,7 +8,7 @@ package gcommon.v1.metrics.v1.metric_health;
 
 import "google/protobuf/go_features.proto";
 import "google/protobuf/timestamp.proto";
-import "proto/gcommon/v1/metrics/v1/health_status.proto";
+import "gcommon/v1/metrics/v1/health_status.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
 option go_package = "github.com/jdfalk/gcommon/proto/proto/gcommon/v1/metrics/v1/metric_health";

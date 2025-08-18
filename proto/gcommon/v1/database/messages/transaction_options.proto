@@ -7,7 +7,7 @@ package gcommon.v1.database.messages.transaction_options;
 
 import "google/protobuf/duration.proto";
 import "google/protobuf/go_features.proto";
-import "proto/gcommon/v1/organization/enums/isolation_level.proto";
+import "gcommon/v1/organization/enums/isolation_level.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
 option go_package = "github.com/jdfalk/gcommon/proto/proto/gcommon/v1/database/messages/transaction_options";

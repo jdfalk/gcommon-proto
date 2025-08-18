@@ -8,10 +8,10 @@ package gcommon.v1.metrics.v1.trend_analysis;
 
 import "google/protobuf/go_features.proto";
 import "google/protobuf/timestamp.proto";
-import "proto/gcommon/v1/metrics/v1/data_volume_trend.proto";
-import "proto/gcommon/v1/metrics/v1/error_trend.proto";
-import "proto/gcommon/v1/metrics/v1/performance_trend.proto";
-import "proto/gcommon/v1/metrics/v1/resource_usage_trend.proto";
+import "gcommon/v1/metrics/v1/data_volume_trend.proto";
+import "gcommon/v1/metrics/v1/error_trend.proto";
+import "gcommon/v1/metrics/v1/performance_trend.proto";
+import "gcommon/v1/metrics/v1/resource_usage_trend.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
 option go_package = "github.com/jdfalk/gcommon/proto/proto/gcommon/v1/metrics/v1/trend_analysis";

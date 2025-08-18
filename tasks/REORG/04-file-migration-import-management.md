@@ -375,7 +375,7 @@ if __name__ == "__main__":
 
 set -euo pipefail
 
-PROTO_DIR="proto/gcommon/v1"
+PROTO_DIR="gcommon/v1"
 TEMP_DIR="/tmp/proto-validation"
 
 # Create temporary directory
@@ -1079,7 +1079,7 @@ type MigrationTestSuite struct {
 func NewMigrationTestSuite(t *testing.T) *MigrationTestSuite {
 	return &MigrationTestSuite{
 		t:            t,
-		protoDir:     "proto/gcommon/v1",
+		protoDir:     "gcommon/v1",
 		generatedDir: "internal/generated",
 	}
 }
@@ -1318,7 +1318,7 @@ func BenchmarkImportResolution(b *testing.B) {
 set -euo pipefail
 
 # Configuration
-PROTO_DIR="proto/gcommon/v1"
+PROTO_DIR="gcommon/v1"
 GENERATED_DIR="internal/generated"
 VALIDATION_LOG="migration-validation.log"
 TEMP_DIR="/tmp/migration-validation"

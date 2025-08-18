@@ -392,7 +392,7 @@ class ProtoAnalyzer:
 
         # Construct target path
         filename = current_path.name
-        return f"proto/gcommon/v1/{domain}/{subdomain}/{filename}"
+        return f"gcommon/v1/{domain}/{subdomain}/{filename}"
 
     def identify_issues(self, file_path: Path, content: str, package_name: str, go_package: str) -> List[str]:
         """Identify potential issues with the proto file."""
@@ -954,7 +954,7 @@ class ProtoMigrator:
             # Determine subdomain based on filename patterns
             subdomain = self.determine_subdomain(filename, domain)
 
-            return f"proto/gcommon/v1/{domain}/{subdomain}/{filename}"
+            return f"gcommon/v1/{domain}/{subdomain}/{filename}"
 
         return old_import  # Return unchanged if pattern doesn't match
 

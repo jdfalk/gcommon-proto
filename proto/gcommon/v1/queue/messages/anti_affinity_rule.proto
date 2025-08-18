@@ -8,9 +8,9 @@ package gcommon.v1.queue.messages.anti_affinity_rule;
 
 import "google/protobuf/duration.proto";
 import "google/protobuf/go_features.proto";
-import "proto/gcommon/v1/database/enums/consistency_level.proto";
-import "proto/gcommon/v1/queue/enums/anti_affinity_scope.proto";
-import "proto/gcommon/v1/queue/enums/replication_mode.proto";
+import "gcommon/v1/database/enums/consistency_level.proto";
+import "gcommon/v1/queue/enums/anti_affinity_scope.proto";
+import "gcommon/v1/queue/enums/replication_mode.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
 option go_package = "github.com/jdfalk/gcommon/proto/proto/gcommon/v1/queue/messages/anti_affinity_rule";

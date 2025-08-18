@@ -8,11 +8,11 @@ package gcommon.v1.metrics.v1.record_histogram_response;
 
 import "google/protobuf/go_features.proto";
 import "google/protobuf/timestamp.proto";
-import "proto/gcommon/v1/common/messages/error.proto";
-import "proto/gcommon/v1/metrics/v1/bucket_info.proto";
-import "proto/gcommon/v1/metrics/v1/histogram_metric.proto";
-import "proto/gcommon/v1/metrics/v1/histogram_stats.proto";
-import "proto/gcommon/v1/metrics/v1/recording_stats.proto";
+import "gcommon/v1/common/messages/error.proto";
+import "gcommon/v1/metrics/v1/bucket_info.proto";
+import "gcommon/v1/metrics/v1/histogram_metric.proto";
+import "gcommon/v1/metrics/v1/histogram_stats.proto";
+import "gcommon/v1/metrics/v1/recording_stats.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
 option go_package = "github.com/jdfalk/gcommon/proto/proto/gcommon/v1/metrics/v1/record_histogram_response";

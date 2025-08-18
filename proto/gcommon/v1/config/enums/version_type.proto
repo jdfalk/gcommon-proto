@@ -8,7 +8,7 @@ package gcommon.v1.config.enums.version_type;
 
 import "google/protobuf/go_features.proto";
 import "google/protobuf/timestamp.proto";
-import "proto/gcommon/v1/common/messages/audit_log.proto";
+import "gcommon/v1/common/messages/audit_log.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
 option go_package = "github.com/jdfalk/gcommon/proto/proto/gcommon/v1/config/enums/version_type";

@@ -239,7 +239,7 @@ def update_readme_content(readme_file: Path):
         # Update import examples
         content = re.sub(
             r'import "pkg/([^/]+)/proto/([^"]+)"',
-            r'import "proto/gcommon/v1/\1/\2"',
+            r'import "gcommon/v1/\1/\2"',
             content
         )
 
@@ -291,9 +291,9 @@ Examples:
 Import paths follow the new structure:
 
 ```protobuf
-import "proto/gcommon/v1/common/types/entity.proto";
-import "proto/gcommon/v1/config/api/app_config.proto";
-import "proto/gcommon/v1/media/types/audio_track.proto";
+import "gcommon/v1/common/types/entity.proto";
+import "gcommon/v1/config/api/app_config.proto";
+import "gcommon/v1/media/types/audio_track.proto";
 ````
 
 ## Generated Code

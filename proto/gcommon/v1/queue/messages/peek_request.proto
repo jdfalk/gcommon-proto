@@ -10,7 +10,7 @@ import "google/protobuf/go_features.proto";
 // Standard imports
 
 // Common types
-import "proto/gcommon/v1/common/messages/request_metadata.proto";
+import "gcommon/v1/common/messages/request_metadata.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
 option go_package = "github.com/jdfalk/gcommon/proto/proto/gcommon/v1/queue/messages/peek_request";

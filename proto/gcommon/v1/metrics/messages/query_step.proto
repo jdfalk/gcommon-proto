@@ -8,12 +8,12 @@ package gcommon.v1.metrics.v1.query_step;
 
 import "google/protobuf/duration.proto";
 import "google/protobuf/go_features.proto";
-import "proto/gcommon/v1/common/messages/sort_options.proto";
-import "proto/gcommon/v1/metrics/enums/aggregation_type.proto";
-import "proto/gcommon/v1/metrics/v1/metric_filter.proto";
-import "proto/gcommon/v1/metrics/v1/query_operation.proto";
-import "proto/gcommon/v1/metrics/v1/time_range.proto";
-import "proto/gcommon/v1/metrics/v1/timestamp_range.proto";
+import "gcommon/v1/common/messages/sort_options.proto";
+import "gcommon/v1/metrics/enums/aggregation_type.proto";
+import "gcommon/v1/metrics/v1/metric_filter.proto";
+import "gcommon/v1/metrics/v1/query_operation.proto";
+import "gcommon/v1/metrics/v1/time_range.proto";
+import "gcommon/v1/metrics/v1/timestamp_range.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
 option go_package = "github.com/jdfalk/gcommon/proto/proto/gcommon/v1/metrics/v1/query_step";

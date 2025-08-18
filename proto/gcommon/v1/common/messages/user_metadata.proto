@@ -8,8 +8,8 @@ package gcommon.v1.common.messages.user_metadata;
 
 import "google/protobuf/go_features.proto";
 import "google/protobuf/timestamp.proto";
-import "proto/gcommon/v1/common/messages/user_preferences.proto";
-import "proto/gcommon/v1/common/messages/verification_status.proto";
+import "gcommon/v1/common/messages/user_preferences.proto";
+import "gcommon/v1/common/messages/verification_status.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
 option go_package = "github.com/jdfalk/gcommon/proto/proto/gcommon/v1/common/messages/user_metadata";

@@ -8,8 +8,8 @@ package gcommon.v1.organization.messages.database_isolation;
 
 import "google/protobuf/go_features.proto";
 import "google/protobuf/timestamp.proto";
-import "proto/gcommon/v1/common/messages/key_value.proto";
-import "proto/gcommon/v1/organization/messages/backup_config.proto";
+import "gcommon/v1/common/messages/key_value.proto";
+import "gcommon/v1/organization/messages/backup_config.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
 option go_package = "github.com/jdfalk/gcommon/proto/proto/gcommon/v1/organization/messages/database_isolation";

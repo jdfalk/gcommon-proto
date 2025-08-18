@@ -8,9 +8,9 @@ package gcommon.v1.database.messages.execute_batch_request;
 
 import "google/protobuf/go_features.proto";
 // Use DB-specific batch operation definitions
-import "proto/gcommon/v1/common/messages/request_metadata.proto";
-import "proto/gcommon/v1/database/messages/batch_execute_options.proto";
-import "proto/gcommon/v1/database/messages/batch_operation.proto";
+import "gcommon/v1/common/messages/request_metadata.proto";
+import "gcommon/v1/database/messages/batch_execute_options.proto";
+import "gcommon/v1/database/messages/batch_operation.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
 option go_package = "github.com/jdfalk/gcommon/proto/proto/gcommon/v1/database/messages/execute_batch_request";

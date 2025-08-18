@@ -8,8 +8,8 @@ package gcommon.v1.metrics.v1.provider_endpoints;
 
 import "google/protobuf/go_features.proto";
 import "google/protobuf/timestamp.proto";
-import "proto/gcommon/v1/metrics/messages/provider_status.proto";
-import "proto/gcommon/v1/metrics/v1/validation_result.proto";
+import "gcommon/v1/metrics/messages/provider_status.proto";
+import "gcommon/v1/metrics/v1/validation_result.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
 option go_package = "github.com/jdfalk/gcommon/proto/proto/gcommon/v1/metrics/v1/provider_endpoints";
