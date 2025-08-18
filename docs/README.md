@@ -208,6 +208,7 @@ This directory contains auto-generated documentation for this project.
 - [Kubernetes Example](examples/production/kubernetes/README.md)
 - [Microservice Example](examples/production/microservice/README.md)
 - [Monitoring Example](examples/production/monitoring/README.md)
+- [](file-structure.md)
 - [gcommon Repository Labels](labels.md)
 - [Config Module](pkg/config/README.md)
 - [Metrics Module gRPC Service Implementation](pkg/metrics/README_GRPC.md)
@@ -334,4 +335,4 @@ This directory contains auto-generated documentation for this project.
 - [Gateway Service Template\n\nAPI gateway with routing setup.](templates/gateway-service/README.md)
 - [Worker Service Template\n\nBackground job processing scaffold.](templates/worker-service/README.md)
 
-_Generated on Mon Aug 18 00:31:40 UTC 2025_
+_Generated on Mon Aug 18 00:34:44 UTC 2025_
