@@ -27,7 +27,7 @@ message SubscriptionOptions {
   int32 max_batch_size = 2;
 
   // Acknowledgment mode for message delivery
-  AckMode ack_mode = 3;
+  gcommon.v1.common.AckMode ack_mode = 3;
 
   // Keep-alive interval to maintain connection
   google.protobuf.Duration keep_alive = 4;

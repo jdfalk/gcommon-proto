@@ -22,14 +22,14 @@ option go_package = "github.com/jdfalk/gcommon/pkg/queue";
 
 message QueueConflictResolution {
   // Conflict resolution strategy
-  ResolutionStrategy strategy = 1;
+  gcommon.v1.queue.ResolutionStrategy strategy = 1;
 
   // Custom resolution function settings
-  CustomResolution custom_resolution = 2;
+  gcommon.v1.queue.CustomResolution custom_resolution = 2;
 
   // Last-writer-wins settings
-  LastWriterWins lww_config = 3;
+  gcommon.v1.queue.LastWriterWins lww_config = 3;
 
   // Multi-value conflict handling
-  MultiValueConfig multi_value = 4;
+  gcommon.v1.queue.MultiValueConfig multi_value = 4;
 }

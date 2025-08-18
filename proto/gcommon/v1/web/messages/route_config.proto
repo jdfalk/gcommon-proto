@@ -22,13 +22,13 @@ message RouteConfig {
   string path = 1;
 
   // Allowed HTTP methods
-  repeated HTTPMethod methods = 2;
+  repeated gcommon.v1.web.HTTPMethod methods = 2;
 
   // Handler name or identifier
   string handler = 3;
 
   // Handler type implementation
-  HandlerType handler_type = 4;
+  gcommon.v1.web.HandlerType handler_type = 4;
 
   // Middleware IDs applied to this route
   repeated string middleware_ids = 5;

@@ -24,7 +24,7 @@ message TokenInfo {
   string token_id = 1;
 
   // Token type
-  TokenType type = 2;
+  gcommon.v1.common.TokenType type = 2;
 
   // User ID associated with token
   string user_id = 3;

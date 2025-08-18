@@ -47,7 +47,7 @@ message OAuth2Config {
   repeated string scopes = 8;
 
   // OAuth2 flow type
-  OAuth2FlowType flow_type = 9;
+  gcommon.v1.common.OAuth2FlowType flow_type = 9;
 
   // Additional provider-specific parameters
   map<string, string> additional_params = 10;

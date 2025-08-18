@@ -30,7 +30,7 @@ message PermissionMetadata {
   repeated string actions = 4;
 
   // Conditions or constraints
-  repeated PermissionCondition conditions = 5;
+  repeated gcommon.v1.common.PermissionCondition conditions = 5;
 
   // Permission level (system, organization, project, etc.)
   enum AuthPermissionLevel {

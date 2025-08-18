@@ -28,5 +28,5 @@ message RoleBasedAccessControl {
   map<string, RoleInheritance> role_inheritance = 3;
 
   // External role provider settings
-  ExternalRoleProvider external_provider = 4;
+  gcommon.v1.queue.ExternalRoleProvider external_provider = 4;
 }

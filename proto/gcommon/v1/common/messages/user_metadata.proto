@@ -58,8 +58,8 @@ message UserMetadata {
   map<string, string> custom_fields = 13;
 
   // User preferences
-  UserPreferences preferences = 14;
+  gcommon.v1.common.UserPreferences preferences = 14;
 
   // Account verification status
-  VerificationStatus verification = 15;
+  gcommon.v1.common.VerificationStatus verification = 15;
 }

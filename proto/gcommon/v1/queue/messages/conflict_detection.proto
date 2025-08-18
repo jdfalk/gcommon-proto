@@ -23,11 +23,11 @@ message ConflictDetection {
   bool enabled = 1;
 
   // Conflict detection strategy
-  ConflictStrategy strategy = 2;
+  gcommon.v1.queue.ConflictStrategy strategy = 2;
 
   // Vector clock configuration
-  VectorClockConfig vector_clock = 3;
+  gcommon.v1.queue.VectorClockConfig vector_clock = 3;
 
   // Timestamp-based detection settings
-  TimestampConfig timestamp_config = 4;
+  gcommon.v1.queue.TimestampConfig timestamp_config = 4;
 }

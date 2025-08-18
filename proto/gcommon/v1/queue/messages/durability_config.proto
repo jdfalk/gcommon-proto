@@ -29,7 +29,7 @@ message DurabilityConfig {
   bool persistent = 1;
 
   // Flush policy for writing messages to storage
-  gcommon.v1.queue.FlushPolicy flush_policy = 2;
+  gcommon.v1.queue.gcommon.v1.queue.FlushPolicy flush_policy = 2;
 
   // Number of replicas for each message
   int32 replication_factor = 3;

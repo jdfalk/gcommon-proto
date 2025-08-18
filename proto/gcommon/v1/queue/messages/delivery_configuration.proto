@@ -26,13 +26,13 @@ message DeliveryConfiguration {
   int32 delivery_timeout_ms = 2;
 
   // Retry configuration for failed deliveries
-  DeliveryRetryConfig retry_config = 3;
+  gcommon.v1.queue.DeliveryRetryConfig retry_config = 3;
 
   // Batch delivery settings
-  BatchDeliveryConfig batch_config = 4;
+  gcommon.v1.queue.BatchDeliveryConfig batch_config = 4;
 
   // Flow control settings
-  FlowControlSettings flow_control = 5;
+  gcommon.v1.queue.FlowControlSettings flow_control = 5;
 
   // Enable compression for delivery
   bool enable_compression = 6;

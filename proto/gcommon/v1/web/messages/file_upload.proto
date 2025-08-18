@@ -20,7 +20,7 @@ message FileUpload {
   string file_name = 1;
 
   // MIME type of the file
-  MimeType content_type = 2;
+  gcommon.v1.web.MimeType content_type = 2;
 
   // Raw file bytes
   bytes data = 3;

@@ -22,7 +22,7 @@ message FlushQueueRequest {
   string queue_id = 1;
 
   // Flush policy to apply
-  FlushPolicy flush_policy = 2;
+  gcommon.v1.queue.FlushPolicy flush_policy = 2;
 
   // Wait for flush completion before returning
   bool wait_for_completion = 3;

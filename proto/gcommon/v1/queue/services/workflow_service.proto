@@ -26,8 +26,8 @@ option go_package = "github.com/jdfalk/gcommon/pkg/queue";
  */
 service WorkflowService {
   // Start a new workflow execution
-  rpc StartWorkflow(StartWorkflowRequest) returns (StartWorkflowResponse);
+  rpc StartWorkflow(gcommon.v1.queue.StartWorkflowRequest) returns (gcommon.v1.queue.StartWorkflowResponse);
 
   // Stop a running workflow execution
-  rpc StopWorkflow(StopWorkflowRequest) returns (StopWorkflowResponse);
+  rpc StopWorkflow(gcommon.v1.queue.StopWorkflowRequest) returns (gcommon.v1.queue.StopWorkflowResponse);
 }

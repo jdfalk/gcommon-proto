@@ -16,13 +16,13 @@ option go_package = "github.com/jdfalk/gcommon/pkg/queue";
 
 message OrderingConfig {
   // Global ordering guarantee level
-  OrderingLevel global_ordering = 1;
+  gcommon.v1.queue.OrderingLevel global_ordering = 1;
 
   // Per-partition ordering guarantee
-  OrderingLevel partition_ordering = 2;
+  gcommon.v1.queue.OrderingLevel partition_ordering = 2;
 
   // Per-producer ordering guarantee
-  OrderingLevel producer_ordering = 3;
+  gcommon.v1.queue.OrderingLevel producer_ordering = 3;
 
   // Enable causal ordering
   bool causal_ordering = 4;

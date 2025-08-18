@@ -18,7 +18,7 @@ option go_package = "github.com/jdfalk/gcommon/pkg/queue";
 // Response for listing messages
 message ListMessagesResponse {
   // List of messages
-  repeated QueueMessage messages = 1;
+  repeated gcommon.v1.queue.QueueMessage messages = 1;
 
   // Total number of messages available
   int64 total_count = 2;

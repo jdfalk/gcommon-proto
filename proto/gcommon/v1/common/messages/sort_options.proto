@@ -23,5 +23,5 @@ message SortOptions {
   string sort_field = 1;
 
   // Sort direction
-  SortDirection direction = 2;
+  gcommon.v1.common.SortDirection direction = 2;
 }

@@ -25,5 +25,5 @@ message SendNotificationResponse {
   bool accepted = 2;
 
   // Current delivery status of the notification
-  DeliveryStatus status = 3;
+  gcommon.v1.common.DeliveryStatus status = 3;
 }

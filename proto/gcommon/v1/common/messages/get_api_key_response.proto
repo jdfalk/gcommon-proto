@@ -18,10 +18,10 @@ option go_package = "github.com/jdfalk/gcommon/pkg/common";
 
 message GetApiKeyResponse {
   // API key details
-  APIKey api_key = 1;
+  gcommon.v1.common.APIKey api_key = 1;
 
   // Usage statistics if requested
-  ApiKeyStats stats = 2;
+  gcommon.v1.common.ApiKeyStats stats = 2;
 
   // Error message if not found
   string error_message = 3;

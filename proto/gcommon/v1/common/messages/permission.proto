@@ -30,7 +30,7 @@ message Permission {
   string description = 3;
 
   // Scope at which this permission applies
-  ScopeType scope = 4;
+  gcommon.v1.common.ScopeType scope = 4;
 
   // Timestamp when the permission was created
   google.protobuf.Timestamp created_at = 5 [lazy = true];

@@ -20,7 +20,7 @@ message MiddlewareInfo {
   string id = 1;
 
   // Middleware type
-  MiddlewareType type = 2;
+  gcommon.v1.web.MiddlewareType type = 2;
 
   // Execution order priority
   int32 order = 3;

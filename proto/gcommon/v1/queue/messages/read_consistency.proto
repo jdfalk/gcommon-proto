@@ -18,7 +18,7 @@ option go_package = "github.com/jdfalk/gcommon/pkg/queue";
 
 message ReadConsistency {
   // Read consistency level
-  ReadLevel level = 1;
+  gcommon.v1.queue.ReadLevel level = 1;
 
   // Maximum staleness allowed for reads (milliseconds)
   int64 max_staleness_ms = 2;
@@ -33,5 +33,5 @@ message ReadConsistency {
   int32 timeout_ms = 5;
 
   // Retry configuration for read failures
-  ReadRetryConfig retry_config = 6;
+  gcommon.v1.queue.ReadRetryConfig retry_config = 6;
 }

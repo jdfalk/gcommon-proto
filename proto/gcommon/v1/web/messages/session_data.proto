@@ -24,7 +24,7 @@ message SessionData {
   string user_id = 2;
 
   // Current session state
-  WebSessionState state = 3;
+  gcommon.v1.web.WebSessionState state = 3;
 
   // Session creation timestamp
   google.protobuf.Timestamp created_at = 4 [lazy = true];

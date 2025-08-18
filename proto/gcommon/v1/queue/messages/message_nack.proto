@@ -31,7 +31,7 @@ message MessageNack {
   string nack_reason = 5;
 
   // Error category for the nack
-  NackErrorCategory error_category = 6;
+  gcommon.v1.queue.NackErrorCategory error_category = 6;
 
   // Specific error code
   string error_code = 7;

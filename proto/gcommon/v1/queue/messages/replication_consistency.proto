@@ -25,7 +25,7 @@ message ReplicationConsistency {
   int32 replication_factor = 3;
 
   // Consistency level for replication
-  ReplicationLevel replication_level = 4;
+  gcommon.v1.queue.ReplicationLevel replication_level = 4;
 
   // Enable anti-entropy repair
   bool anti_entropy_enabled = 5;

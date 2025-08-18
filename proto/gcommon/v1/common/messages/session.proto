@@ -39,10 +39,10 @@ message Session {
   google.protobuf.Timestamp expires_at = 5 [lazy = true];
 
   // Client information from session creation
-  gcommon.v1.common.ClientInfo client_info = 6 [lazy = true];
+  gcommon.v1.common.gcommon.v1.common.ClientInfo client_info = 6 [lazy = true];
 
   // Current session status
-  SessionStatus status = 7;
+  gcommon.v1.common.SessionStatus status = 7;
 
   // Session metadata for extensibility and tracking
   map<string, string> metadata = 8 [lazy = true];

@@ -29,10 +29,10 @@ message Token {
   string value = 2;
 
   // Token type (access, refresh, etc.)
-  TokenType type = 3;
+  gcommon.v1.common.TokenType type = 3;
 
   // Token status
-  TokenStatus status = 4;
+  gcommon.v1.common.TokenStatus status = 4;
 
   // User ID associated with this token
   string user_id = 5;

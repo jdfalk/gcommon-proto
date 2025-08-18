@@ -16,7 +16,7 @@ option go_package = "github.com/jdfalk/gcommon/pkg/common";
 
 message ListApiKeysResponse {
   // List of API keys
-  repeated APIKey api_keys = 1;
+  repeated gcommon.v1.common.APIKey api_keys = 1;
 
   // Next page token
   string next_page_token = 2;

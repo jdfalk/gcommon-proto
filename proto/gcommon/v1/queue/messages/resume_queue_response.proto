@@ -25,10 +25,10 @@ message ResumeQueueResponse {
   string queue_id = 2;
 
   // Previous queue state before resume
-  QueueState previous_state = 3;
+  gcommon.v1.queue.QueueState previous_state = 3;
 
   // Current queue state after resume
-  QueueState current_state = 4;
+  gcommon.v1.queue.QueueState current_state = 4;
 
   // Timestamp when resume operation completed
   google.protobuf.Timestamp resumed_at = 5;
@@ -52,7 +52,7 @@ message ResumeQueueResponse {
   repeated string warnings = 11;
 
   // Resume operation statistics
-  ResumeStats resume_stats = 12;
+  gcommon.v1.queue.ResumeStats resume_stats = 12;
 
   // Operation metadata
   map<string, string> metadata = 13;

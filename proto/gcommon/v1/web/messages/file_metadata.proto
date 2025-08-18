@@ -24,7 +24,7 @@ message FileMetadata {
   int64 size_bytes = 2;
 
   // MIME type of the file
-  MimeType mime_type = 3;
+  gcommon.v1.web.MimeType mime_type = 3;
 
   // Optional checksum string
   string checksum = 4;
