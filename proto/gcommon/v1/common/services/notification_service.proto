@@ -6,8 +6,6 @@ edition = "2023";
 
 package gcommon.v1.common;
 
-
-import "google/protobuf/go_features.proto";
 import "gcommon/v1/common/messages/delete_notification_request.proto";
 import "gcommon/v1/common/messages/delete_notification_response.proto";
 import "gcommon/v1/common/messages/get_template_request.proto";
@@ -20,18 +18,7 @@ import "gcommon/v1/common/messages/send_notification_request.proto";
 import "gcommon/v1/common/messages/send_notification_response.proto";
 import "gcommon/v1/common/messages/update_preferences_request.proto";
 import "gcommon/v1/common/messages/update_preferences_response.proto";
-
-
-
-
-
-
-
-
-
-
-
-
+import "google/protobuf/go_features.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
 option go_package = "github.com/jdfalk/gcommon/pkg/common";

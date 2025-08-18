@@ -5,11 +5,9 @@ edition = "2023";
 
 package gcommon.v1.common;
 
-
-import "google/protobuf/go_features.proto";
-import "google/protobuf/duration.proto";
 import "gcommon/v1/common/enums/circuit_breaker_state.proto";
-
+import "google/protobuf/duration.proto";
+import "google/protobuf/go_features.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
 option go_package = "github.com/jdfalk/gcommon/pkg/common";
@@ -36,8 +34,5 @@ message CommonCircuitBreakerConfig {
   google.protobuf.Duration window_size = 5;
 
   // Current state of the circuit breaker
-  gcommon.v1.common.CircuitBreakerState state = 6;
-}
-ircuit breaker
   CircuitBreakerState state = 6;
 }

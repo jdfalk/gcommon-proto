@@ -5,46 +5,29 @@ edition = "2023";
 
 package gcommon.v1.common;
 
-
-import "google/protobuf/go_features.proto";
-import "google/protobuf/empty.proto";
+import "gcommon/v1/common/messages/assign_role_request.proto";
 import "gcommon/v1/common/messages/create_role_request.proto";
 import "gcommon/v1/common/messages/create_role_response.proto";
 import "gcommon/v1/common/messages/create_user_request.proto";
 import "gcommon/v1/common/messages/create_user_response.proto";
+import "gcommon/v1/common/messages/delete_role_request.proto";
+import "gcommon/v1/common/messages/delete_user_request.proto";
 import "gcommon/v1/common/messages/get_system_stats_request.proto";
 import "gcommon/v1/common/messages/get_system_stats_response.proto";
 import "gcommon/v1/common/messages/get_user_request.proto";
 import "gcommon/v1/common/messages/get_user_response.proto";
+import "gcommon/v1/common/messages/invalidate_user_sessions_request.proto";
 import "gcommon/v1/common/messages/list_roles_request.proto";
 import "gcommon/v1/common/messages/list_roles_response.proto";
 import "gcommon/v1/common/messages/list_users_request.proto";
 import "gcommon/v1/common/messages/list_users_response.proto";
+import "gcommon/v1/common/messages/remove_role_request.proto";
 import "gcommon/v1/common/messages/update_role_request.proto";
 import "gcommon/v1/common/messages/update_role_response.proto";
 import "gcommon/v1/common/messages/update_user_request.proto";
 import "gcommon/v1/common/messages/update_user_response.proto";
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+import "google/protobuf/empty.proto";
+import "google/protobuf/go_features.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
 option go_package = "github.com/jdfalk/gcommon/pkg/common";

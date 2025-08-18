@@ -6,12 +6,10 @@ edition = "2023";
 
 package gcommon.v1.web;
 
-
+import "gcommon/v1/web/enums/cookie_same_site.proto";
 import "google/protobuf/go_features.proto";
 import "google/protobuf/timestamp.proto";
-import "gcommon/v1/web/enums/cookie_same_site.proto";
 // CookieData message definition.
-
 
 option features.(pb.go).api_level = API_OPAQUE;
 option go_package = "github.com/jdfalk/gcommon/pkg/web";

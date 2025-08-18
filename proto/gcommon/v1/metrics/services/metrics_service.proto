@@ -6,14 +6,13 @@ edition = "2023";
 
 package gcommon.v1.metrics;
 
-
-import "google/protobuf/go_features.proto";
 import "gcommon/v1/metrics/messages/get_metric_metadata_request.proto";
 import "gcommon/v1/metrics/messages/get_metric_metadata_response.proto";
 import "gcommon/v1/metrics/messages/get_metrics_request.proto";
 import "gcommon/v1/metrics/messages/get_metrics_response.proto";
 import "gcommon/v1/metrics/messages/get_metrics_summary_request.proto";
 import "gcommon/v1/metrics/messages/get_metrics_summary_response.proto";
+import "gcommon/v1/metrics/messages/metric_data.proto";
 import "gcommon/v1/metrics/messages/query_metrics_request.proto";
 import "gcommon/v1/metrics/messages/query_metrics_response.proto";
 import "gcommon/v1/metrics/messages/record_metric_request.proto";
@@ -22,27 +21,12 @@ import "gcommon/v1/metrics/messages/record_metrics_request.proto";
 import "gcommon/v1/metrics/messages/record_metrics_response.proto";
 import "gcommon/v1/metrics/messages/register_metric_request.proto";
 import "gcommon/v1/metrics/messages/register_metric_response.proto";
+import "gcommon/v1/metrics/messages/stream_metrics_request.proto";
 import "gcommon/v1/metrics/messages/unregister_metric_request.proto";
 import "gcommon/v1/metrics/messages/unregister_metric_response.proto";
-
-
-
-
-
-
-
-
-
+import "google/protobuf/go_features.proto";
 
 // Import response messages
-
-
-
-
-
-
-
-
 
 option features.(pb.go).api_level = API_OPAQUE;
 option go_package = "github.com/jdfalk/gcommon/pkg/metrics";

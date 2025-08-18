@@ -6,8 +6,6 @@ edition = "2023";
 
 package gcommon.v1.metrics;
 
-
-import "google/protobuf/go_features.proto";
 import "gcommon/v1/metrics/messages/create_provider_request.proto";
 import "gcommon/v1/metrics/messages/create_provider_response.proto";
 import "gcommon/v1/metrics/messages/delete_provider_request.proto";
@@ -18,17 +16,8 @@ import "gcommon/v1/metrics/messages/list_providers_request.proto";
 import "gcommon/v1/metrics/messages/list_providers_response.proto";
 import "gcommon/v1/metrics/messages/update_provider_request.proto";
 import "gcommon/v1/metrics/messages/update_provider_response.proto";
+import "google/protobuf/go_features.proto";
 // Import all required request and response messages
-
-
-
-
-
-
-
-
-
-
 
 option features.(pb.go).api_level = API_OPAQUE;
 option go_package = "github.com/jdfalk/gcommon/pkg/metrics";

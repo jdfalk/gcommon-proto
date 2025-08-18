@@ -6,10 +6,6 @@ edition = "2023";
 
 package gcommon.v1.config;
 
-
-
-import "google/protobuf/go_features.proto";
-import "google/protobuf/timestamp.proto";
 import "gcommon/v1/config/enums/environment_status.proto";
 import "gcommon/v1/config/enums/environment_type.proto";
 import "gcommon/v1/config/messages/approval_workflow.proto";
@@ -26,25 +22,13 @@ import "gcommon/v1/organization/messages/access_control.proto";
 import "gcommon/v1/organization/messages/compliance_settings.proto";
 import "gcommon/v1/organization/messages/notification_settings.proto";
 import "gcommon/v1/organization/messages/resource_limits.proto";
+import "google/protobuf/go_features.proto";
+import "google/protobuf/timestamp.proto";
 // Config-local types
-
-
-
-
-
-
-
-
-
 
 // Metrics enums referenced by this message
 
-
 // Organization-scoped settings used by environments
-
-
-
-
 
 option features.(pb.go).api_level = API_OPAQUE;
 option go_package = "github.com/jdfalk/gcommon/pkg/config";

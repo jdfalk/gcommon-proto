@@ -5,14 +5,10 @@ edition = "2023";
 
 package gcommon.v1.common;
 
-
-
-import "google/protobuf/go_features.proto";
-import "google/protobuf/timestamp.proto";
 import "gcommon/v1/common/enums/session_status.proto";
 import "gcommon/v1/common/messages/client_info.proto";
-
-
+import "google/protobuf/go_features.proto";
+import "google/protobuf/timestamp.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
 option go_package = "github.com/jdfalk/gcommon/pkg/common";
@@ -39,7 +35,7 @@ message Session {
   google.protobuf.Timestamp expires_at = 5 [lazy = true];
 
   // Client information from session creation
-  gcommon.v1.common.gcommon.v1.common.ClientInfo client_info = 6 [lazy = true];
+  ClientInfo client_info = 6 [lazy = true];
 
   // Current session status
   gcommon.v1.common.SessionStatus status = 7;

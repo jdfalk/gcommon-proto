@@ -6,19 +6,15 @@ edition = "2023";
 
 package gcommon.v1.queue;
 
-
-
-import "google/protobuf/go_features.proto";
-import "google/protobuf/timestamp.proto";
 import "gcommon/v1/common/messages/error.proto";
 import "gcommon/v1/common/messages/request_metadata.proto";
 import "gcommon/v1/queue/messages/queue_message.proto";
+import "google/protobuf/go_features.proto";
+import "google/protobuf/timestamp.proto";
 // Standard imports
 // Common types
 
-
 // Queue message types
-
 
 option features.(pb.go).api_level = API_OPAQUE;
 option go_package = "github.com/jdfalk/gcommon/pkg/queue";

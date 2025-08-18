@@ -5,8 +5,6 @@ edition = "2023";
 
 package gcommon.v1.common;
 
-
-import "google/protobuf/go_features.proto";
 import "gcommon/v1/common/messages/authenticate_request.proto";
 import "gcommon/v1/common/messages/authenticate_response.proto";
 import "gcommon/v1/common/messages/change_password_request.proto";
@@ -25,24 +23,7 @@ import "gcommon/v1/common/messages/validate_token_request.proto";
 import "gcommon/v1/common/messages/validate_token_response.proto";
 import "gcommon/v1/common/messages/verify_credentials_request.proto";
 import "gcommon/v1/common/messages/verify_credentials_response.proto";
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+import "google/protobuf/go_features.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
 option go_package = "github.com/jdfalk/gcommon/pkg/common";

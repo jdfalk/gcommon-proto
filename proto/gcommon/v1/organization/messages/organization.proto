@@ -6,14 +6,10 @@ edition = "2023";
 
 package gcommon.v1.organization;
 
-
-
+import "gcommon/v1/common/messages/key_value.proto";
+import "gcommon/v1/organization/enums/organization_status.proto";
 import "google/protobuf/go_features.proto";
 import "google/protobuf/timestamp.proto";
-import "gcommon/v1/organization/enums/organization_status.proto";
-import "gcommon/v1/common/messages/key_value.proto";
-
-
 
 option features.(pb.go).api_level = API_OPAQUE;
 option go_package = "github.com/jdfalk/gcommon/pkg/organization";

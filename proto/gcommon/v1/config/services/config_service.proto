@@ -5,9 +5,7 @@ edition = "2023";
 
 package gcommon.v1.config;
 
-
-import "google/protobuf/go_features.proto";
-import "google/protobuf/empty.proto";
+import "gcommon/v1/config/messages/delete_config_request.proto";
 import "gcommon/v1/config/messages/get_config_request.proto";
 import "gcommon/v1/config/messages/get_config_response.proto";
 import "gcommon/v1/config/messages/get_multiple_config_request.proto";
@@ -22,23 +20,10 @@ import "gcommon/v1/config/messages/set_multiple_config_request.proto";
 import "gcommon/v1/config/messages/set_multiple_config_response.proto";
 import "gcommon/v1/config/messages/validate_config_request.proto";
 import "gcommon/v1/config/messages/validate_config_response.proto";
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+import "gcommon/v1/config/messages/watch_config_request.proto";
+import "gcommon/v1/config/messages/watch_config_response.proto";
+import "google/protobuf/empty.proto";
+import "google/protobuf/go_features.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
 option go_package = "github.com/jdfalk/gcommon/pkg/config";

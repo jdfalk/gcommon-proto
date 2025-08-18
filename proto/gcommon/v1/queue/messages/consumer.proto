@@ -6,19 +6,12 @@ edition = "2023";
 
 package gcommon.v1.queue;
 
-
-import "google/protobuf/go_features.proto";
-import "google/protobuf/timestamp.proto";
 import "gcommon/v1/queue/enums/consumer_state.proto";
 import "gcommon/v1/queue/messages/consumer_client.proto";
 import "gcommon/v1/queue/messages/consumer_config.proto";
 import "gcommon/v1/queue/messages/consumer_stats.proto";
-
-
-
-
-
-
+import "google/protobuf/go_features.proto";
+import "google/protobuf/timestamp.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
 option go_package = "github.com/jdfalk/gcommon/pkg/queue";

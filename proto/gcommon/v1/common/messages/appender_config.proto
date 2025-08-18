@@ -6,14 +6,9 @@ edition = "2023";
 
 package gcommon.v1.common;
 
-
-import "google/protobuf/go_features.proto";
 import "gcommon/v1/common/enums/appender_type.proto";
 import "gcommon/v1/common/enums/formatter_type.proto";
-import "gcommon/v1/common/messages/formatter_config.proto";
-import "gcommon/v1/common/messages/output_config.proto";
-
-
+import "google/protobuf/go_features.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
 option go_package = "github.com/jdfalk/gcommon/pkg/common";
@@ -23,7 +18,7 @@ message AppenderConfig {
   string name = 1;
 
   // Appender backend type
-  gcommon.v1.common.enums.appender_type.AppenderType type = 2;
+  AppenderType type = 2;
 
   // Output destination details
   OutputConfig output = 3;
@@ -46,7 +41,7 @@ message AppenderConfig {
   // FormatterConfig defines how log entries are formatted
   message LogFormatterConfig {
     // Formatting strategy
-    gcommon.v1.common.enums.formatter_type.FormatterType type = 1;
+    FormatterType type = 1;
 
     // Optional format pattern
     string pattern = 2;

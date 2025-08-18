@@ -6,15 +6,11 @@ edition = "2023";
 
 package gcommon.v1.metrics;
 
-
-
+import "gcommon/v1/common/messages/request_metadata.proto";
+import "gcommon/v1/metrics/messages/summary_quantile.proto";
 import "google/protobuf/duration.proto";
 import "google/protobuf/go_features.proto";
 import "google/protobuf/timestamp.proto";
-import "gcommon/v1/metrics/messages/summary_quantile.proto";
-import "gcommon/v1/common/messages/request_metadata.proto";
-
-
 
 option features.(pb.go).api_level = API_OPAQUE;
 option go_package = "github.com/jdfalk/gcommon/pkg/metrics";

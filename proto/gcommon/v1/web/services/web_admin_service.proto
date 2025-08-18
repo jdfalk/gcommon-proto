@@ -9,20 +9,13 @@ edition = "2023";
 
 package gcommon.v1.web;
 
-
-import "google/protobuf/go_features.proto";
 import "gcommon/v1/web/messages/flush_cache_request.proto";
 import "gcommon/v1/web/messages/flush_cache_response.proto";
 import "gcommon/v1/web/messages/get_cache_config_request.proto";
 import "gcommon/v1/web/messages/get_cache_config_response.proto";
 import "gcommon/v1/web/messages/update_cache_config_request.proto";
 import "gcommon/v1/web/messages/update_cache_config_response.proto";
-
-
-
-
-
-
+import "google/protobuf/go_features.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
 option go_package = "github.com/jdfalk/gcommon/pkg/web";

@@ -6,8 +6,6 @@ edition = "2023";
 
 package gcommon.v1.database;
 
-
-import "google/protobuf/go_features.proto";
 import "gcommon/v1/database/messages/get_migration_status_request.proto";
 import "gcommon/v1/database/messages/get_migration_status_response.proto";
 import "gcommon/v1/database/messages/list_migrations_request.proto";
@@ -16,14 +14,7 @@ import "gcommon/v1/database/messages/revert_migration_request.proto";
 import "gcommon/v1/database/messages/revert_migration_response.proto";
 import "gcommon/v1/database/messages/run_migration_request.proto";
 import "gcommon/v1/database/messages/run_migration_response.proto";
-
-
-
-
-
-
-
-
+import "google/protobuf/go_features.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
 option go_package = "github.com/jdfalk/gcommon/pkg/database";

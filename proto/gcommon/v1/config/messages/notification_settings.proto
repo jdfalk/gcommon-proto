@@ -6,20 +6,10 @@ edition = "2023";
 
 package gcommon.v1.config;
 
-
-import "google/protobuf/go_features.proto";
 import "gcommon/v1/config/enums/notification_trigger.proto";
 import "gcommon/v1/config/messages/batching_settings.proto";
 import "gcommon/v1/config/messages/notification_channel.proto";
-
-
-
-
-
-
-
-
-
+import "google/protobuf/go_features.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
 option go_package = "github.com/jdfalk/gcommon/pkg/config";

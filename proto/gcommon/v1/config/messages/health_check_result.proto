@@ -6,19 +6,9 @@ edition = "2023";
 
 package gcommon.v1.config;
 
-
+import "gcommon/v1/config/enums/health_state.proto";
 import "google/protobuf/go_features.proto";
 import "google/protobuf/timestamp.proto";
-import "gcommon/v1/config/enums/health_state.proto";
-
-
-
-
-
-
-
-
-
 
 option features.(pb.go).api_level = API_OPAQUE;
 option go_package = "github.com/jdfalk/gcommon/pkg/config";

@@ -5,8 +5,6 @@ edition = "2023";
 
 package gcommon.v1.common;
 
-
-import "google/protobuf/go_features.proto";
 import "gcommon/v1/common/messages/create_session_request.proto";
 import "gcommon/v1/common/messages/create_session_response.proto";
 import "gcommon/v1/common/messages/delete_session_request.proto";
@@ -23,22 +21,7 @@ import "gcommon/v1/common/messages/update_session_request.proto";
 import "gcommon/v1/common/messages/update_session_response.proto";
 import "gcommon/v1/common/messages/validate_session_request.proto";
 import "gcommon/v1/common/messages/validate_session_response.proto";
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+import "google/protobuf/go_features.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
 option go_package = "github.com/jdfalk/gcommon/pkg/common";

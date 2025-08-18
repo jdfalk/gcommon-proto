@@ -5,8 +5,6 @@ edition = "2023";
 
 package gcommon.v1.organization;
 
-
-import "google/protobuf/go_features.proto";
 import "gcommon/v1/organization/messages/add_member_request.proto";
 import "gcommon/v1/organization/messages/add_member_response.proto";
 import "gcommon/v1/organization/messages/create_organization_request.proto";
@@ -29,28 +27,7 @@ import "gcommon/v1/organization/messages/update_organization_request.proto";
 import "gcommon/v1/organization/messages/update_organization_response.proto";
 import "gcommon/v1/organization/messages/update_organization_settings_request.proto";
 import "gcommon/v1/organization/messages/update_organization_settings_response.proto";
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+import "google/protobuf/go_features.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
 option go_package = "github.com/jdfalk/gcommon/pkg/organization";
