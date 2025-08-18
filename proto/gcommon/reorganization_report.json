@@ -1,16 +1,8 @@
 {
   "total_files_moved": 76,
   "domains_processed": 8,
-  "categories_eliminated": [
-    "api",
-    "config",
-    "types"
-  ],
-  "target_categories": [
-    "enums",
-    "messages",
-    "services"
-  ],
+  "categories_eliminated": ["api", "config", "types"],
+  "target_categories": ["enums", "messages", "services"],
   "moves_by_domain": {
     "common": 21,
     "config": 0,

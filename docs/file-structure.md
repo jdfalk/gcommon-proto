@@ -1,1687 +1,261 @@
-proto
-└── gcommon
-    └── v1
-        ├── common
-        │   ├── api - useless
-        │   ├── config - useless
-        │   ├── enums
-        │   │   ├── appender_type.proto
-        │   │   ├── check_type.proto
-        │   │   ├── compression_type.proto
-        │   │   ├── delivery_channel_type.proto
-        │   │   ├── delivery_status.proto
-        │   │   ├── filter_type.proto
-        │   │   ├── formatter_type.proto
-        │   │   ├── get_check_status_request.proto
-        │   │   ├── grant_type.proto
-        │   │   ├── health_status.proto
-        │   │   ├── log_level.proto
-        │   │   ├── logger_status.proto
-        │   │   ├── mfa_type.proto
-        │   │   ├── o_auth2_flow_type.proto
-        │   │   ├── permission_level.proto
-        │   │   ├── permission_type.proto
-        │   │   ├── provider_type.proto
-        │   │   ├── resource_status.proto
-        │   │   ├── scope_type.proto
-        │   │   ├── serving_status.proto
-        │   │   ├── session_status.proto
-        │   │   ├── subject_type.proto
-        │   │   ├── subscription_status.proto
-        │   │   ├── token_status.proto
-        │   │   ├── token_type.proto
-        │   │   ├── two_fa_type.proto
-        │   │   ├── user_status.proto
-        │   │   ├── value_type.proto
-        │   │   ├── verification_status.proto
-        │   │   └── verification_type.proto
-        │   ├── messages
-        │   │   ├── audit_action.proto
-        │   │   ├── audit_event.proto
-        │   │   ├── audit_log.proto
-        │   │   ├── audit_result.proto
-        │   │   ├── delete_notification_request.proto
-        │   │   ├── delete_notification_response.proto
-        │   │   ├── event_notification.proto
-        │   │   ├── list_notifications_request.proto
-        │   │   ├── list_notifications_response.proto
-        │   │   ├── notification_message.proto
-        │   │   ├── notification_service.proto
-        │   │   ├── send_notification_request.proto
-        │   │   └── send_notification_response.proto
-        │   ├── services
-        │   │   ├── auth_admin_service.proto
-        │   │   ├── auth_service.proto
-        │   │   ├── authorization_service.proto
-        │   │   ├── get_service_health_request.proto
-        │   │   ├── get_service_health_response.proto
-        │   │   ├── health_admin_service.proto
-        │   │   ├── health_service.proto
-        │   │   ├── list_services_request.proto
-        │   │   ├── list_services_response.proto
-        │   │   ├── log_admin_service.proto
-        │   │   ├── log_service.proto
-        │   │   ├── service_version.proto
-        │   │   └── session_service.proto
-        │   └── types - Shouldn't be here, enums should go to the enums directory and the rest to messages and services
-        │       ├── ack_mode.proto
-        │       ├── api_key.proto
-        │       ├── api_key_credentials.proto
-        │       ├── api_key_stats.proto
-        │       ├── appender_config.proto
-        │       ├── archive_criteria.proto
-        │       ├── assign_role_request.proto
-        │       ├── assign_role_response.proto
-        │       ├── auth_config.proto
-        │       ├── auth_context.proto
-        │       ├── auth_method.proto
-        │       ├── auth_provider.proto
-        │       ├── auth_token.proto
-        │       ├── authenticate_request.proto
-        │       ├── authenticate_response.proto
-        │       ├── authorize_request.proto
-        │       ├── authorize_response.proto
-        │       ├── batch_operation.proto
-        │       ├── batch_options.proto
-        │       ├── cache_policy.proto
-        │       ├── change_password_request.proto
-        │       ├── change_password_response.proto
-        │       ├── check_permission_request.proto
-        │       ├── check_permission_response.proto
-        │       ├── check_result.proto
-        │       ├── circuit_breaker_config.proto
-        │       ├── circuit_breaker_state.proto
-        │       ├── claims.proto
-        │       ├── client_info.proto
-        │       ├── complete_password_reset_request.proto
-        │       ├── complete_password_reset_response.proto
-        │       ├── component_health.proto
-        │       ├── config_value.proto
-        │       ├── configure_alerting_request.proto
-        │       ├── configure_alerting_response.proto
-        │       ├── configure_logger_request.proto
-        │       ├── configure_logger_response.proto
-        │       ├── create_permission_request.proto
-        │       ├── create_role_request.proto
-        │       ├── create_role_response.proto
-        │       ├── create_session_request.proto
-        │       ├── create_session_response.proto
-        │       ├── create_user_request.proto
-        │       ├── create_user_response.proto
-        │       ├── daily_usage.proto
-        │       ├── debug_info.proto
-        │       ├── delete_permission_request.proto
-        │       ├── delete_role_request.proto
-        │       ├── delete_role_response.proto
-        │       ├── delete_session_request.proto
-        │       ├── delete_session_response.proto
-        │       ├── delete_user_request.proto
-        │       ├── delete_user_response.proto
-        │       ├── delivery_channel.proto
-        │       ├── device_info.proto
-        │       ├── disable2_fa_request.proto
-        │       ├── disable_check_request.proto
-        │       ├── disable_check_response.proto
-        │       ├── disable_mfa_request.proto
-        │       ├── disable_mfa_response.proto
-        │       ├── enable2_fa_request.proto
-        │       ├── enable_check_request.proto
-        │       ├── enable_check_response.proto
-        │       ├── enable_mfa_request.proto
-        │       ├── enable_mfa_response.proto
-        │       ├── error.proto
-        │       ├── error_code.proto
-        │       ├── error_info.proto
-        │       ├── eviction_policy.proto
-        │       ├── expiration_policy.proto
-        │       ├── filter_operation.proto
-        │       ├── filter_options.proto
-        │       ├── filter_value.proto
-        │       ├── formatter_config.proto
-        │       ├── generate_api_key_request.proto
-        │       ├── generate_api_key_response.proto
-        │       ├── get_api_key_request.proto
-        │       ├── get_api_key_response.proto
-        │       ├── get_auth_config_request.proto
-        │       ├── get_health_history_request.proto
-        │       ├── get_health_metrics_request.proto
-        │       ├── get_health_metrics_response.proto
-        │       ├── get_health_request.proto
-        │       ├── get_permission_request.proto
-        │       ├── get_permission_response.proto
-        │       ├── get_preferences_request.proto
-        │       ├── get_preferences_response.proto
-        │       ├── get_role_request.proto
-        │       ├── get_role_response.proto
-        │       ├── get_session_request.proto
-        │       ├── get_session_response.proto
-        │       ├── get_system_stats_request.proto
-        │       ├── get_system_stats_response.proto
-        │       ├── get_template_request.proto
-        │       ├── get_template_response.proto
-        │       ├── get_user_info_request.proto
-        │       ├── get_user_info_response.proto
-        │       ├── get_user_permissions_request.proto
-        │       ├── get_user_permissions_response.proto
-        │       ├── get_user_request.proto
-        │       ├── get_user_response.proto
-        │       ├── get_user_roles_request.proto
-        │       ├── get_user_roles_response.proto
-        │       ├── grant_permission_request.proto
-        │       ├── grant_permission_response.proto
-        │       ├── group.proto
-        │       ├── health_check_all_request.proto
-        │       ├── health_check_all_response.proto
-        │       ├── health_check_request.proto
-        │       ├── health_check_response.proto
-        │       ├── health_check_result.proto
-        │       ├── health_config.proto
-        │       ├── health_metric_data.proto
-        │       ├── health_metrics.proto
-        │       ├── initiate_password_reset_request.proto
-        │       ├── initiate_password_reset_response.proto
-        │       ├── int64_array.proto
-        │       ├── invalidate_user_sessions_request.proto
-        │       ├── jwt_config.proto
-        │       ├── jwt_credentials.proto
-        │       ├── key_value.proto
-        │       ├── ldap_config.proto
-        │       ├── list_api_keys_request.proto
-        │       ├── list_api_keys_response.proto
-        │       ├── list_checks_request.proto
-        │       ├── list_permissions_request.proto
-        │       ├── list_permissions_response.proto
-        │       ├── list_roles_request.proto
-        │       ├── list_roles_response.proto
-        │       ├── list_sessions_request.proto
-        │       ├── list_sessions_response.proto
-        │       ├── list_user_sessions_request.proto
-        │       ├── list_user_sessions_response.proto
-        │       ├── list_users_request.proto
-        │       ├── list_users_response.proto
-        │       ├── location_info.proto
-        │       ├── log_entry.proto
-        │       ├── log_sort_field.proto
-        │       ├── log_statistics.proto
-        │       ├── logger_config.proto
-        │       ├── logout_request.proto
-        │       ├── logout_response.proto
-        │       ├── mark_as_read_request.proto
-        │       ├── mark_as_read_response.proto
-        │       ├── metric_point.proto
-        │       ├── mfa_config.proto
-        │       ├── mfa_method.proto
-        │       ├── mfa_setup_instruction.proto
-        │       ├── o_auth2_config.proto
-        │       ├── o_auth2_credentials.proto
-        │       ├── o_auth_client.proto
-        │       ├── output_config.proto
-        │       ├── paginated_response.proto
-        │       ├── pagination.proto
-        │       ├── pagination_info.proto
-        │       ├── pagination_options.proto
-        │       ├── password_credentials.proto
-        │       ├── password_policy.proto
-        │       ├── permission.proto
-        │       ├── permission_condition.proto
-        │       ├── permission_grant.proto
-        │       ├── permission_metadata.proto
-        │       ├── permission_scope.proto
-        │       ├── rate_limit.proto
-        │       ├── rate_limit_config.proto
-        │       ├── rate_limit_info.proto
-        │       ├── read_logs_request.proto
-        │       ├── read_logs_response.proto
-        │       ├── refresh_token.proto
-        │       ├── refresh_token_request.proto
-        │       ├── refresh_token_response.proto
-        │       ├── register_check_request.proto
-        │       ├── register_check_response.proto
-        │       ├── register_user_request.proto
-        │       ├── register_user_response.proto
-        │       ├── remediation_details.proto
-        │       ├── remove_role_request.proto
-        │       ├── remove_role_response.proto
-        │       ├── request_metadata.proto
-        │       ├── resend_verification_request.proto
-        │       ├── reset_health_stats_request.proto
-        │       ├── reset_health_stats_response.proto
-        │       ├── reset_password_request.proto
-        │       ├── reset_password_response.proto
-        │       ├── resource_reference.proto
-        │       ├── response_metadata.proto
-        │       ├── retry_policy.proto
-        │       ├── revoke_api_key_request.proto
-        │       ├── revoke_api_key_response.proto
-        │       ├── revoke_permission_request.proto
-        │       ├── revoke_permission_response.proto
-        │       ├── revoke_role_request.proto
-        │       ├── revoke_role_response.proto
-        │       ├── revoke_token_request.proto
-        │       ├── revoke_token_response.proto
-        │       ├── role.proto
-        │       ├── role_assignment.proto
-        │       ├── role_metadata.proto
-        │       ├── role_scope.proto
-        │       ├── run_check_request.proto
-        │       ├── run_check_response.proto
-        │       ├── saml_config.proto
-        │       ├── security_context.proto
-        │       ├── security_policy.proto
-        │       ├── send_verification_email_request.proto
-        │       ├── send_verification_email_response.proto
-        │       ├── session.proto
-        │       ├── session_config.proto
-        │       ├── session_info.proto
-        │       ├── session_metadata.proto
-        │       ├── session_state.proto
-        │       ├── set_health_request.proto
-        │       ├── set_health_response.proto
-        │       ├── sort_direction.proto
-        │       ├── sort_options.proto
-        │       ├── source_location.proto
-        │       ├── string_array.proto
-        │       ├── subscription_info.proto
-        │       ├── subscription_options.proto
-        │       ├── subscription_preferences.proto
-        │       ├── template.proto
-        │       ├── terminate_session_request.proto
-        │       ├── terminate_session_response.proto
-        │       ├── time_range.proto
-        │       ├── token.proto
-        │       ├── token_info.proto
-        │       ├── token_metadata.proto
-        │       ├── unregister_check_request.proto
-        │       ├── unregister_check_response.proto
-        │       ├── update_permission_request.proto
-        │       ├── update_preferences_request.proto
-        │       ├── update_preferences_response.proto
-        │       ├── update_role_request.proto
-        │       ├── update_role_response.proto
-        │       ├── update_session_request.proto
-        │       ├── update_session_response.proto
-        │       ├── update_user_request.proto
-        │       ├── update_user_response.proto
-        │       ├── user.proto
-        │       ├── user_details.proto
-        │       ├── user_info.proto
-        │       ├── user_metadata.proto
-        │       ├── user_preferences.proto
-        │       ├── user_profile.proto
-        │       ├── validate_session_request.proto
-        │       ├── validate_session_response.proto
-        │       ├── validate_token_request.proto
-        │       ├── validate_token_response.proto
-        │       ├── verify2_fa_request.proto
-        │       ├── verify_credentials_request.proto
-        │       ├── verify_credentials_response.proto
-        │       ├── verify_email_request.proto
-        │       ├── verify_email_response.proto
-        │       ├── verify_mfa_request.proto
-        │       ├── verify_mfa_response.proto
-        │       ├── watch_request.proto
-        │       ├── watch_response.proto
-        │       ├── write_log_request.proto
-        │       └── write_log_response.proto
-        ├── config
-        │   ├── api - useless this should be under messages, enums and services
-        │   │   ├── access_control.proto
-        │   │   ├── access_restriction.proto
-        │   │   ├── alert_severity.proto
-        │   │   ├── alert_type.proto
-        │   │   ├── approval_info.proto
-        │   │   ├── approval_requirement.proto
-        │   │   ├── approval_stage.proto
-        │   │   ├── approval_status.proto
-        │   │   ├── approval_workflow.proto
-        │   │   ├── audit_level.proto
-        │   │   ├── audit_operation_type.proto
-        │   │   ├── backoff_strategy.proto
-        │   │   ├── backup_config_request.proto
-        │   │   ├── backup_frequency.proto
-        │   │   ├── backup_policy.proto
-        │   │   ├── cache_invalidation_trigger.proto
-        │   │   ├── cache_refresh_strategy.proto
-        │   │   ├── change_type.proto
-        │   │   ├── channel_type.proto
-        │   │   ├── compliance_audit.proto
-        │   │   ├── compliance_reporting.proto
-        │   │   ├── compression_type.proto
-        │   │   ├── conflict_resolution.proto
-        │   │   ├── decrypt_config_request.proto
-        │   │   ├── delete_config_request.proto
-        │   │   ├── dependency_type.proto
-        │   │   ├── deployment_info.proto
-        │   │   ├── deployment_rollback_info.proto
-        │   │   ├── deployment_status.proto
-        │   │   ├── deprecation_info.proto
-        │   │   ├── deprecation_level.proto
-        │   │   ├── encrypt_config_request.proto
-        │   │   ├── export_config_request.proto
-        │   │   ├── filter_action.proto
-        │   │   ├── filter_type.proto
-        │   │   ├── get_config_history_request.proto
-        │   │   ├── get_config_history_response.proto
-        │   │   ├── get_config_request.proto
-        │   │   ├── get_config_response.proto
-        │   │   ├── get_config_stats_request.proto
-        │   │   ├── get_config_stats_response.proto
-        │   │   ├── get_multiple_config_request.proto
-        │   │   ├── get_multiple_config_response.proto
-        │   │   ├── get_schema_request.proto
-        │   │   ├── get_schema_response.proto
-        │   │   ├── health_check.proto
-        │   │   ├── health_check_request.proto
-        │   │   ├── health_check_response.proto
-        │   │   ├── health_check_result.proto
-        │   │   ├── health_check_type.proto
-        │   │   ├── health_state.proto
-        │   │   ├── health_status.proto
-        │   │   ├── hook_error_handling.proto
-        │   │   ├── hook_type.proto
-        │   │   ├── import_config_request.proto
-        │   │   ├── inheritance_filter.proto
-        │   │   ├── inheritance_strategy.proto
-        │   │   ├── inheritance_transformation.proto
-        │   │   ├── list_config_request.proto
-        │   │   ├── list_config_response.proto
-        │   │   ├── merge_strategy.proto
-        │   │   ├── metadata_status.proto
-        │   │   ├── monitoring_alert.proto
-        │   │   ├── notification_channel.proto
-        │   │   ├── notification_trigger.proto
-        │   │   ├── parameter_constraints.proto
-        │   │   ├── parameter_type.proto
-        │   │   ├── promotion_rule.proto
-        │   │   ├── rate_limits.proto
-        │   │   ├── reference_type.proto
-        │   │   ├── reload_config_request.proto
-        │   │   ├── resource_limits.proto
-        │   │   ├── restore_config_request.proto
-        │   │   ├── restore_point_status.proto
-        │   │   ├── restore_point_type.proto
-        │   │   ├── restriction_type.proto
-        │   │   ├── retention_policy.proto
-        │   │   ├── rollback_config_request.proto
-        │   │   ├── rollback_info.proto
-        │   │   ├── rollback_method.proto
-        │   │   ├── rotation_event.proto
-        │   │   ├── rotation_frequency.proto
-        │   │   ├── secret_audit_level.proto
-        │   │   ├── secret_backup_frequency.proto
-        │   │   ├── secret_status.proto
-        │   │   ├── secret_type.proto
-        │   │   ├── secret_validation_result.proto
-        │   │   ├── secret_validation_result_type.proto
-        │   │   ├── secret_validation_severity.proto
-        │   │   ├── set_config_request.proto
-        │   │   ├── set_config_response.proto
-        │   │   ├── set_config_schema_request.proto
-        │   │   ├── set_multiple_config_request.proto
-        │   │   ├── set_multiple_config_response.proto
-        │   │   ├── synchronization_frequency.proto
-        │   │   ├── synchronization_target.proto
-        │   │   ├── template_change.proto
-        │   │   ├── template_format.proto
-        │   │   ├── template_hook.proto
-        │   │   ├── template_output.proto
-        │   │   ├── template_parameter.proto
-        │   │   ├── template_status.proto
-        │   │   ├── transformation_step.proto
-        │   │   ├── transformation_type.proto
-        │   │   ├── unwatch_config_request.proto
-        │   │   ├── usage_statistics.proto
-        │   │   ├── usage_trend.proto
-        │   │   ├── validate_config_request.proto
-        │   │   ├── validate_config_response.proto
-        │   │   ├── validation_result.proto
-        │   │   ├── validation_result_type.proto
-        │   │   ├── validation_rule.proto
-        │   │   ├── validation_rule_severity.proto
-        │   │   ├── validation_rule_type.proto
-        │   │   ├── validation_severity.proto
-        │   │   ├── value_dependency.proto
-        │   │   ├── value_history_entry.proto
-        │   │   ├── value_reference.proto
-        │   │   ├── value_source.proto
-        │   │   ├── value_status.proto
-        │   │   ├── value_usage_statistics.proto
-        │   │   ├── value_usage_trend.proto
-        │   │   ├── value_validation_result.proto
-        │   │   ├── value_validation_result_type.proto
-        │   │   ├── value_validation_severity.proto
-        │   │   ├── version_artifact.proto
-        │   │   ├── version_compatibility_info.proto
-        │   │   ├── version_dependency.proto
-        │   │   ├── version_dependency_type.proto
-        │   │   ├── version_deployment_info.proto
-        │   │   ├── version_deployment_status.proto
-        │   │   ├── version_health_status.proto
-        │   │   ├── version_promotion_event.proto
-        │   │   ├── version_quality_issue.proto
-        │   │   ├── version_quality_metrics.proto
-        │   │   ├── version_status.proto
-        │   │   ├── version_type.proto
-        │   │   ├── watch_config_request.proto
-        │   │   └── watch_config_response.proto
-        │   ├── config - useless
-        │   ├── messages - empty
-        │   ├── services - empty
-        │   ├── types - Shouldn't be here, enums should go to the enums directory and the rest to messages and services
-        │   └── v1 -- WTF why do we have another v1 under a v1? and whats even in here, they should be in the right folder.
-        │       ├── audit_settings.proto
-        │       ├── backup_settings.proto
-        │       ├── batching_settings.proto
-        │       ├── caching_settings.proto
-        │       ├── compliance_settings.proto
-        │       ├── config_admin_service.proto
-        │       ├── config_backup.proto
-        │       ├── config_change.proto
-        │       ├── config_change_type.proto
-        │       ├── config_data_type.proto
-        │       ├── config_diff.proto
-        │       ├── config_diff_entry.proto
-        │       ├── config_entry.proto
-        │       ├── config_environment.proto
-        │       ├── config_schema.proto
-        │       ├── config_service.proto
-        │       ├── config_snapshot.proto
-        │       ├── config_stats.proto
-        │       ├── config_validation_error.proto
-        │       ├── config_validation_warning.proto
-        │       ├── config_watch.proto
-        │       ├── config_watch_event.proto
-        │       ├── encryption_settings.proto
-        │       ├── environment_status.proto
-        │       ├── environment_type.proto
-        │       ├── inheritance_settings.proto
-        │       ├── monitoring_config.proto
-        │       ├── monitoring_settings.proto
-        │       ├── notification_settings.proto
-        │       ├── retry_settings.proto
-        │       ├── rotation_settings.proto
-        │       ├── secret_audit_settings.proto
-        │       ├── secret_backup_settings.proto
-        │       ├── sync_settings.proto
-        │       ├── synchronization_settings.proto
-        │       ├── transformation_settings.proto
-        │       ├── validation_settings.proto
-        │       └── versioning_settings.proto
-        ├── database
-        │   ├── api - useless
-        │   ├── config - useless this should be under messages, enums and services
-        │   │   ├── append_request.proto
-        │   │   ├── backup_request.proto
-        │   │   ├── batch_execute_options.proto
-        │   │   ├── batch_operation.proto
-        │   │   ├── batch_operation_result.proto
-        │   │   ├── batch_stats.proto
-        │   │   ├── begin_transaction_request.proto
-        │   │   ├── begin_transaction_response.proto
-        │   │   ├── cache_config.proto
-        │   │   ├── cache_entry.proto
-        │   │   ├── cache_info.proto
-        │   │   ├── cache_metrics.proto
-        │   │   ├── cache_operation_result.proto
-        │   │   ├── cache_stats.proto
-        │   │   ├── clear_request.proto
-        │   │   ├── clear_response.proto
-        │   │   ├── cockroach_config.proto
-        │   │   ├── column_metadata.proto
-        │   │   ├── commit_transaction_request.proto
-        │   │   ├── configure_policy_request.proto
-        │   │   ├── configure_policy_response.proto
-        │   │   ├── connection_pool_info.proto
-        │   │   ├── consistency_level.proto
-        │   │   ├── create_database_request.proto
-        │   │   ├── create_database_response.proto
-        │   │   ├── create_namespace_request.proto
-        │   │   ├── create_namespace_response.proto
-        │   │   ├── database_info.proto
-        │   │   ├── database_status.proto
-        │   │   ├── database_status_code.proto
-        │   │   ├── decrement_request.proto
-        │   │   ├── decrement_response.proto
-        │   │   ├── defrag_request.proto
-        │   │   ├── delete_multiple_request.proto
-        │   │   ├── delete_multiple_response.proto
-        │   │   ├── delete_namespace_request.proto
-        │   │   ├── delete_request.proto
-        │   │   ├── delete_response.proto
-        │   │   ├── drop_database_request.proto
-        │   │   ├── eviction_result.proto
-        │   │   ├── execute_batch_request.proto
-        │   │   ├── execute_batch_response.proto
-        │   │   ├── execute_options.proto
-        │   │   ├── execute_request.proto
-        │   │   ├── execute_response.proto
-        │   │   ├── execute_stats.proto
-        │   │   ├── exists_request.proto
-        │   │   ├── exists_response.proto
-        │   │   ├── expire_request.proto
-        │   │   ├── export_request.proto
-        │   │   ├── flush_request.proto
-        │   │   ├── flush_response.proto
-        │   │   ├── gc_request.proto
-        │   │   ├── get_connection_info_request.proto
-        │   │   ├── get_connection_info_response.proto
-        │   │   ├── get_database_info_request.proto
-        │   │   ├── get_database_info_response.proto
-        │   │   ├── get_memory_usage_request.proto
-        │   │   ├── get_memory_usage_response.proto
-        │   │   ├── get_multiple_request.proto
-        │   │   ├── get_multiple_response.proto
-        │   │   ├── get_namespace_stats_request.proto
-        │   │   ├── get_namespace_stats_response.proto
-        │   │   ├── get_request.proto
-        │   │   ├── get_response.proto
-        │   │   ├── get_stats_request.proto
-        │   │   ├── get_stats_response.proto
-        │   │   ├── health_check_request.proto
-        │   │   ├── health_check_response.proto
-        │   │   ├── import_request.proto
-        │   │   ├── increment_request.proto
-        │   │   ├── increment_response.proto
-        │   │   ├── info_request.proto
-        │   │   ├── isolation_level.proto
-        │   │   ├── keys_request.proto
-        │   │   ├── keys_response.proto
-        │   │   ├── list_databases_request.proto
-        │   │   ├── list_databases_response.proto
-        │   │   ├── list_namespaces_request.proto
-        │   │   ├── list_namespaces_response.proto
-        │   │   ├── list_subscriptions_request.proto
-        │   │   ├── lock_request.proto
-        │   │   ├── m_get_request.proto
-        │   │   ├── my_sql_config.proto
-        │   │   ├── my_sql_status.proto
-        │   │   ├── namespace_info.proto
-        │   │   ├── namespace_stats.proto
-        │   │   ├── optimize_request.proto
-        │   │   ├── pebble_config.proto
-        │   │   ├── pipeline_request.proto
-        │   │   ├── pool_stats.proto
-        │   │   ├── prepend_request.proto
-        │   │   ├── publish_request.proto
-        │   │   ├── query_options.proto
-        │   │   ├── query_parameter.proto
-        │   │   ├── query_request.proto
-        │   │   ├── query_response.proto
-        │   │   ├── query_row_request.proto
-        │   │   ├── query_row_response.proto
-        │   │   ├── query_stats.proto
-        │   │   ├── restore_request.proto
-        │   │   ├── result_set.proto
-        │   │   ├── rollback_transaction_request.proto
-        │   │   ├── row.proto
-        │   │   ├── scan_request.proto
-        │   │   ├── set_multiple_request.proto
-        │   │   ├── set_multiple_response.proto
-        │   │   ├── set_options.proto
-        │   │   ├── set_request.proto
-        │   │   ├── set_response.proto
-        │   │   ├── subscribe_request.proto
-        │   │   ├── touch_expiration_request.proto
-        │   │   ├── touch_expiration_response.proto
-        │   │   ├── transaction_options.proto
-        │   │   ├── transaction_request.proto
-        │   │   ├── transaction_status_request.proto
-        │   │   ├── transaction_status_response.proto
-        │   │   ├── unlock_request.proto
-        │   │   ├── unsubscribe_request.proto
-        │   │   ├── unwatch_request.proto
-        │   │   └── watch_request.proto
-        │   ├── messages - empty
-        │   ├── schema - useless this should be under messages, enums and services
-        │   │   ├── create_schema_request.proto
-        │   │   ├── create_schema_response.proto
-        │   │   ├── drop_schema_request.proto
-        │   │   ├── get_migration_status_request.proto
-        │   │   ├── get_migration_status_response.proto
-        │   │   ├── list_migrations_request.proto
-        │   │   ├── list_migrations_response.proto
-        │   │   ├── list_schemas_request.proto
-        │   │   ├── list_schemas_response.proto
-        │   │   ├── migration_info.proto
-        │   │   ├── migration_script.proto
-        │   │   ├── revert_migration_request.proto
-        │   │   ├── revert_migration_response.proto
-        │   │   ├── run_migration_request.proto
-        │   │   └── run_migration_response.proto
-        │   ├── services
-        │   │   ├── cache_admin_service.proto
-        │   │   ├── cache_service.proto
-        │   │   ├── database_admin_service.proto
-        │   │   ├── database_service.proto
-        │   │   ├── migration_service.proto
-        │   │   └── transaction_service.proto
-        │   └── types - Shouldn't be here, enums should go to the enums directory and the rest to messages and services
-        ├── media
-        │   ├── api - useless
-        │   ├── config - useless
-        │   ├── messages
-        │   ├── metadata - useless this should be under messages, enums and services
-        │   │   ├── media_metadata.proto
-        │   │   ├── movie_info.proto
-        │   │   └── series_info.proto
-        │   ├── services
-        │   └── types - Shouldn't be here, enums should go to the enums directory and the rest to messages and services
-        │       ├── audio_track.proto
-        │       ├── media_file.proto
-        │       ├── media_quality.proto
-        │       ├── media_type.proto
-        │       ├── quality_score.proto
-        │       ├── resolution.proto
-        │       └── subtitle_track.proto
-        ├── metrics
-        │   ├── api - useless
-        │   ├── config - useless
-        │   ├── messages - empty
-        │   ├── services - empty
-        │   ├── types - Shouldn't be here, enums should go to the enums directory and the rest to messages and services
-        │   │   ├── aggregation_type.proto
-        │   │   ├── alert_channel_type.proto
-        │   │   ├── change_type.proto
-        │   │   ├── compression_type.proto
-        │   │   ├── dashboard_type.proto
-        │   │   ├── error_type_count.proto
-        │   │   ├── error_type_stats.proto
-        │   │   ├── export_status.proto
-        │   │   ├── exporter_status.proto
-        │   │   ├── notification_type.proto
-        │   │   ├── provider_status.proto
-        │   │   ├── provider_type.proto
-        │   │   ├── scrape_status.proto
-        │   │   └── visualization_type.proto
-        │   └── v1 - useless this should be under messages, enums and services
-        │       ├── aggregation_spec.proto
-        │       ├── alert_notification.proto
-        │       ├── alert_severity.proto
-        │       ├── alert_state.proto
-        │       ├── alerting_condition.proto
-        │       ├── alerting_rule.proto
-        │       ├── api_key_config.proto
-        │       ├── api_key_config_update.proto
-        │       ├── applied_config.proto
-        │       ├── backup_info.proto
-        │       ├── batch_context.proto
-        │       ├── batch_options.proto
-        │       ├── batch_priority.proto
-        │       ├── batch_stats.proto
-        │       ├── bucket_info.proto
-        │       ├── buffer_config.proto
-        │       ├── buffer_overflow_strategy.proto
-        │       ├── cleanup_strategy.proto
-        │       ├── comparison_operator.proto
-        │       ├── config_change.proto
-        │       ├── configuration_summary.proto
-        │       ├── counter_config.proto
-        │       ├── counter_metric.proto
-        │       ├── cpu_usage.proto
-        │       ├── create_metric_request.proto
-        │       ├── create_metric_response.proto
-        │       ├── create_provider_request.proto
-        │       ├── create_provider_response.proto
-        │       ├── data_volume_data_point.proto
-        │       ├── data_volume_stats.proto
-        │       ├── data_volume_trend.proto
-        │       ├── delete_metric_request.proto
-        │       ├── delete_metric_response.proto
-        │       ├── delete_provider_request.proto
-        │       ├── delete_provider_response.proto
-        │       ├── deletion_options.proto
-        │       ├── deletion_result.proto
-        │       ├── disk_usage.proto
-        │       ├── dry_run_result.proto
-        │       ├── error_data_point.proto
-        │       ├── error_entry.proto
-        │       ├── error_stats.proto
-        │       ├── error_trend.proto
-        │       ├── export_config.proto
-        │       ├── export_config_update.proto
-        │       ├── export_destination.proto
-        │       ├── export_destination_stats.proto
-        │       ├── export_destination_update.proto
-        │       ├── export_format.proto
-        │       ├── export_metrics_request.proto
-        │       ├── export_metrics_response.proto
-        │       ├── export_stats.proto
-        │       ├── gauge_config.proto
-        │       ├── gauge_metric.proto
-        │       ├── gauge_operation.proto
-        │       ├── get_alerting_rules_request.proto
-        │       ├── get_alerting_rules_response.proto
-        │       ├── get_metric_config_request.proto
-        │       ├── get_metric_config_response.proto
-        │       ├── get_metric_metadata_request.proto
-        │       ├── get_metric_metadata_response.proto
-        │       ├── get_metric_request.proto
-        │       ├── get_metric_response.proto
-        │       ├── get_metrics_request.proto
-        │       ├── get_metrics_response.proto
-        │       ├── get_metrics_summary_request.proto
-        │       ├── get_metrics_summary_response.proto
-        │       ├── get_provider_stats_request.proto
-        │       ├── get_provider_stats_response.proto
-        │       ├── get_scrape_config_request.proto
-        │       ├── get_scrape_config_response.proto
-        │       ├── get_stats_request.proto
-        │       ├── get_stats_response.proto
-        │       ├── group_by_spec.proto
-        │       ├── health_check_request.proto
-        │       ├── health_check_response.proto
-        │       ├── health_status.proto
-        │       ├── health_status_entry.proto
-        │       ├── histogram_bucket.proto
-        │       ├── histogram_config.proto
-        │       ├── histogram_metric.proto
-        │       ├── histogram_stats.proto
-        │       ├── histogram_value.proto
-        │       ├── import_config.proto
-        │       ├── import_metrics_request.proto
-        │       ├── import_metrics_response.proto
-        │       ├── label_definition.proto
-        │       ├── list_metrics_request.proto
-        │       ├── list_metrics_response.proto
-        │       ├── list_providers_request.proto
-        │       ├── list_providers_response.proto
-        │       ├── memory_usage.proto
-        │       ├── metric_aggregation.proto
-        │       ├── metric_bucket.proto
-        │       ├── metric_config.proto
-        │       ├── metric_data.proto
-        │       ├── metric_definition.proto
-        │       ├── metric_filter.proto
-        │       ├── metric_health.proto
-        │       ├── metric_info.proto
-        │       ├── metric_label.proto
-        │       ├── metric_metadata.proto
-        │       ├── metric_quantile.proto
-        │       ├── metric_query.proto
-        │       ├── metric_result.proto
-        │       ├── metric_sample.proto
-        │       ├── metric_series.proto
-        │       ├── metric_source.proto
-        │       ├── metric_stats.proto
-        │       ├── metric_status.proto
-        │       ├── metric_summary.proto
-        │       ├── metric_type.proto
-        │       ├── metric_type_config.proto
-        │       ├── metric_type_counts.proto
-        │       ├── metric_value.proto
-        │       ├── metrics_health_info.proto
-        │       ├── metrics_management_service.proto
-        │       ├── metrics_service.proto
-        │       ├── metrics_summary.proto
-        │       ├── network_usage.proto
-        │       ├── numeric_format.proto
-        │       ├── open_telemetry_settings.proto
-        │       ├── open_telemetry_settings_update.proto
-        │       ├── output_options.proto
-        │       ├── pagination_info.proto
-        │       ├── percentile_measurement.proto
-        │       ├── performance_data_point.proto
-        │       ├── performance_stats.proto
-        │       ├── performance_trend.proto
-        │       ├── prometheus_settings.proto
-        │       ├── prometheus_settings_update.proto
-        │       ├── provider_config.proto
-        │       ├── provider_config_summary.proto
-        │       ├── provider_config_update.proto
-        │       ├── provider_endpoints.proto
-        │       ├── provider_filter.proto
-        │       ├── provider_info.proto
-        │       ├── provider_settings.proto
-        │       ├── provider_settings_update.proto
-        │       ├── provider_state.proto
-        │       ├── provider_statistics.proto
-        │       ├── provider_stats.proto
-        │       ├── provider_summary.proto
-        │       ├── quantile.proto
-        │       ├── query_metrics_request.proto
-        │       ├── query_metrics_response.proto
-        │       ├── query_operation.proto
-        │       ├── query_output_options.proto
-        │       ├── query_plan.proto
-        │       ├── query_statistics.proto
-        │       ├── query_stats.proto
-        │       ├── query_step.proto
-        │       ├── record_counter_request.proto
-        │       ├── record_counter_response.proto
-        │       ├── record_gauge_request.proto
-        │       ├── record_gauge_response.proto
-        │       ├── record_histogram_request.proto
-        │       ├── record_histogram_response.proto
-        │       ├── record_metric_request.proto
-        │       ├── record_metric_response.proto
-        │       ├── record_metrics_request.proto
-        │       ├── record_metrics_response.proto
-        │       ├── record_summary_request.proto
-        │       ├── record_summary_response.proto
-        │       ├── recording_stats.proto
-        │       ├── register_metric_request.proto
-        │       ├── register_metric_response.proto
-        │       ├── registration_action.proto
-        │       ├── registration_options.proto
-        │       ├── registration_result.proto
-        │       ├── registration_validation.proto
-        │       ├── reset_metrics_request.proto
-        │       ├── reset_metrics_response.proto
-        │       ├── resource_allocations.proto
-        │       ├── resource_data_point.proto
-        │       ├── resource_limits.proto
-        │       ├── resource_limits_summary.proto
-        │       ├── resource_limits_update.proto
-        │       ├── resource_usage.proto
-        │       ├── resource_usage_stats.proto
-        │       ├── resource_usage_trend.proto
-        │       ├── response_compression.proto
-        │       ├── retention_info.proto
-        │       ├── retention_policy.proto
-        │       ├── retention_policy_config.proto
-        │       ├── retention_policy_info.proto
-        │       ├── retention_unit.proto
-        │       ├── sample_rate.proto
-        │       ├── schema_change.proto
-        │       ├── scrape_config.proto
-        │       ├── scrape_job.proto
-        │       ├── scrape_target.proto
-        │       ├── secondary_sort_field.proto
-        │       ├── security_config.proto
-        │       ├── security_config_update.proto
-        │       ├── security_summary.proto
-        │       ├── set_alerting_rules_request.proto
-        │       ├── set_alerting_rules_response.proto
-        │       ├── set_metric_config_request.proto
-        │       ├── set_metric_config_response.proto
-        │       ├── set_metric_metadata_request.proto
-        │       ├── set_metric_metadata_response.proto
-        │       ├── set_scrape_config_request.proto
-        │       ├── set_scrape_config_response.proto
-        │       ├── sort_field.proto
-        │       ├── start_scraping_request.proto
-        │       ├── start_scraping_response.proto
-        │       ├── stats_d_settings.proto
-        │       ├── stats_d_settings_update.proto
-        │       ├── stats_options.proto
-        │       ├── stop_scraping_request.proto
-        │       ├── stop_scraping_response.proto
-        │       ├── storage_backend.proto
-        │       ├── stream_compression.proto
-        │       ├── stream_metrics_request.proto
-        │       ├── stream_options.proto
-        │       ├── stream_qos.proto
-        │       ├── stream_start.proto
-        │       ├── summary_config.proto
-        │       ├── summary_metric.proto
-        │       ├── summary_options.proto
-        │       ├── summary_quantile.proto
-        │       ├── summary_value.proto
-        │       ├── tag_updates.proto
-        │       ├── time_range.proto
-        │       ├── time_series.proto
-        │       ├── time_unit.proto
-        │       ├── time_window.proto
-        │       ├── timer_metric.proto
-        │       ├── timer_statistics.proto
-        │       ├── timestamp_range.proto
-        │       ├── tls_config.proto
-        │       ├── tls_config_update.proto
-        │       ├── top_metrics.proto
-        │       ├── trend_analysis.proto
-        │       ├── unregister_metric_request.proto
-        │       ├── unregister_metric_response.proto
-        │       ├── unregistration_options.proto
-        │       ├── unregistration_result.proto
-        │       ├── update_action.proto
-        │       ├── update_metric_request.proto
-        │       ├── update_metric_response.proto
-        │       ├── update_options.proto
-        │       ├── update_provider_request.proto
-        │       ├── update_provider_response.proto
-        │       ├── update_result.proto
-        │       ├── update_strategy.proto
-        │       ├── validation_result.proto
-        │       ├── validation_rules.proto
-        │       └── validation_summary.proto
-        ├── organization
-        │   ├── api - useless this should be under messages, enums and services
-        │   │   ├── access_control.proto
-        │   │   ├── add_member_request.proto
-        │   │   ├── add_member_response.proto
-        │   │   ├── api_key_config.proto
-        │   │   ├── audit_alert.proto
-        │   │   ├── billing_settings.proto
-        │   │   ├── cache_behavior.proto
-        │   │   ├── cache_key_policy.proto
-        │   │   ├── compliance_settings.proto
-        │   │   ├── compute_isolation.proto
-        │   │   ├── configure_tenant_isolation_request.proto
-        │   │   ├── configure_tenant_isolation_response.proto
-        │   │   ├── cpu_allocation.proto
-        │   │   ├── create_department_request.proto
-        │   │   ├── create_department_response.proto
-        │   │   ├── create_organization_request.proto
-        │   │   ├── create_organization_response.proto
-        │   │   ├── create_team_request.proto
-        │   │   ├── create_team_response.proto
-        │   │   ├── create_tenant_request.proto
-        │   │   ├── create_tenant_response.proto
-        │   │   ├── database_isolation.proto
-        │   │   ├── delete_department_request.proto
-        │   │   ├── delete_department_response.proto
-        │   │   ├── delete_organization_request.proto
-        │   │   ├── delete_organization_response.proto
-        │   │   ├── delete_team_request.proto
-        │   │   ├── delete_team_response.proto
-        │   │   ├── delete_tenant_request.proto
-        │   │   ├── delete_tenant_response.proto
-        │   │   ├── department.proto
-        │   │   ├── dns_record.proto
-        │   │   ├── email_template.proto
-        │   │   ├── feature_flag.proto
-        │   │   ├── get_department_request.proto
-        │   │   ├── get_department_response.proto
-        │   │   ├── get_hierarchy_request.proto
-        │   │   ├── get_hierarchy_response.proto
-        │   │   ├── get_organization_request.proto
-        │   │   ├── get_organization_response.proto
-        │   │   ├── get_organization_settings_request.proto
-        │   │   ├── get_organization_settings_response.proto
-        │   │   ├── get_team_request.proto
-        │   │   ├── get_team_response.proto
-        │   │   ├── get_tenant_isolation_request.proto
-        │   │   ├── get_tenant_isolation_response.proto
-        │   │   ├── get_tenant_request.proto
-        │   │   ├── get_tenant_response.proto
-        │   │   ├── get_tenant_usage_request.proto
-        │   │   ├── get_tenant_usage_response.proto
-        │   │   ├── hierarchy_node.proto
-        │   │   ├── hierarchy_path.proto
-        │   │   ├── hierarchy_type.proto
-        │   │   ├── integration.proto
-        │   │   ├── integration_settings.proto
-        │   │   ├── isolation_level.proto
-        │   │   ├── list_departments_request.proto
-        │   │   ├── list_departments_response.proto
-        │   │   ├── list_members_request.proto
-        │   │   ├── list_members_response.proto
-        │   │   ├── list_organizations_request.proto
-        │   │   ├── list_organizations_response.proto
-        │   │   ├── list_teams_request.proto
-        │   │   ├── list_teams_response.proto
-        │   │   ├── list_tenants_request.proto
-        │   │   ├── list_tenants_response.proto
-        │   │   ├── memory_allocation.proto
-        │   │   ├── network_acl_rule.proto
-        │   │   ├── network_isolation.proto
-        │   │   ├── notification_frequency.proto
-        │   │   ├── notification_settings.proto
-        │   │   ├── remove_member_request.proto
-        │   │   ├── remove_member_response.proto
-        │   │   ├── resource_limits.proto
-        │   │   ├── security_settings.proto
-        │   │   ├── storage_encryption.proto
-        │   │   ├── storage_isolation.proto
-        │   │   ├── storage_policy.proto
-        │   │   ├── storage_quota.proto
-        │   │   ├── tenant.proto
-        │   │   ├── tenant_isolation.proto
-        │   │   ├── tenant_quota.proto
-        │   │   ├── tenant_status.proto
-        │   │   ├── time_restriction.proto
-        │   │   ├── ui_settings.proto
-        │   │   ├── update_department_request.proto
-        │   │   ├── update_department_response.proto
-        │   │   ├── update_hierarchy_request.proto
-        │   │   ├── update_hierarchy_response.proto
-        │   │   ├── update_member_request.proto
-        │   │   ├── update_member_response.proto
-        │   │   ├── update_organization_request.proto
-        │   │   ├── update_organization_response.proto
-        │   │   ├── update_organization_settings_request.proto
-        │   │   ├── update_organization_settings_response.proto
-        │   │   ├── update_team_request.proto
-        │   │   ├── update_team_response.proto
-        │   │   ├── update_tenant_quota_request.proto
-        │   │   ├── update_tenant_quota_response.proto
-        │   │   ├── update_tenant_request.proto
-        │   │   └── update_tenant_response.proto
-        │   ├── config - useless this should be under messages, enums and services -- why are we breaking this up.
-        │   │   ├── audit_config.proto
-        │   │   ├── auto_scaling_config.proto
-        │   │   ├── backup_config.proto
-        │   │   ├── cdn_config.proto
-        │   │   ├── dns_config.proto
-        │   │   ├── domain_config.proto
-        │   │   ├── encryption_config.proto
-        │   │   ├── health_check_config.proto
-        │   │   ├── load_balancer_config.proto
-        │   │   ├── o_auth_app_config.proto
-        │   │   ├── origin_config.proto
-        │   │   ├── rate_limit_config.proto
-        │   │   ├── ssl_config.proto
-        │   │   ├── storage_backup_config.proto
-        │   │   └── webhook_config.proto
-        │   ├── messages - empty
-        │   ├── services
-        │   │   ├── hierarchy_service.proto
-        │   │   ├── organization_service.proto
-        │   │   └── tenant_service.proto
-        │   └── types - useless this should be under messages, enums and services
-        │       ├── member_role.proto
-        │       ├── organization.proto
-        │       ├── organization_hierarchy.proto
-        │       ├── organization_member.proto
-        │       ├── organization_settings.proto
-        │       ├── organization_status.proto
-        │       └── team.proto
-        ├── queue
-        │   ├── api - useless this should be under messages, enums and services
-        │   │   ├── ack_level.proto
-        │   │   ├── ack_request.proto
-        │   │   ├── ack_response.proto
-        │   │   ├── ack_type.proto
-        │   │   ├── acknowledge_request.proto
-        │   │   ├── acknowledge_response.proto
-        │   │   ├── acknowledgment.proto
-        │   │   ├── acknowledgment_mode.proto
-        │   │   ├── age_bucket.proto
-        │   │   ├── age_distribution.proto
-        │   │   ├── alert_condition.proto
-        │   │   ├── alert_rule.proto
-        │   │   ├── alert_severity.proto
-        │   │   ├── anti_affinity_rule.proto
-        │   │   ├── anti_affinity_scope.proto
-        │   │   ├── api_key_auth.proto
-        │   │   ├── backup_info.proto
-        │   │   ├── backup_queue_request.proto
-        │   │   ├── backup_queue_response.proto
-        │   │   ├── backup_source.proto
-        │   │   ├── batch_ack_request.proto
-        │   │   ├── batch_ack_response.proto
-        │   │   ├── batch_nack_request.proto
-        │   │   ├── batch_nack_response.proto
-        │   │   ├── batch_publish_request.proto
-        │   │   ├── batch_publish_response.proto
-        │   │   ├── batch_pull_request.proto
-        │   │   ├── batch_pull_response.proto
-        │   │   ├── batch_settings.proto
-        │   │   ├── binding_info.proto
-        │   │   ├── checksum_validation.proto
-        │   │   ├── cluster_health.proto
-        │   │   ├── cluster_info.proto
-        │   │   ├── cluster_state.proto
-        │   │   ├── cluster_stats.proto
-        │   │   ├── commit_offset_request.proto
-        │   │   ├── commit_offset_response.proto
-        │   │   ├── compression_algorithm.proto
-        │   │   ├── conflict_detection.proto
-        │   │   ├── conflict_resolution.proto
-        │   │   ├── conflict_strategy.proto
-        │   │   ├── connection_details.proto
-        │   │   ├── consistency_level.proto
-        │   │   ├── consistency_validation.proto
-        │   │   ├── consumer.proto
-        │   │   ├── consumer_client.proto
-        │   │   ├── consumer_error_stats.proto
-        │   │   ├── consumer_group.proto
-        │   │   ├── consumer_group_state.proto
-        │   │   ├── consumer_group_stats.proto
-        │   │   ├── consumer_state.proto
-        │   │   ├── consumer_stats.proto
-        │   │   ├── content_filter.proto
-        │   │   ├── content_update.proto
-        │   │   ├── coordinator_state.proto
-        │   │   ├── create_queue_request.proto
-        │   │   ├── create_queue_response.proto
-        │   │   ├── create_subscription_request.proto
-        │   │   ├── create_subscription_response.proto
-        │   │   ├── create_topic_request.proto
-        │   │   ├── create_topic_response.proto
-        │   │   ├── custom_resolution.proto
-        │   │   ├── dead_letter_policy.proto
-        │   │   ├── delete_criteria.proto
-        │   │   ├── delete_queue_request.proto
-        │   │   ├── delete_queue_response.proto
-        │   │   ├── delete_request.proto
-        │   │   ├── delete_response.proto
-        │   │   ├── delete_subscription_request.proto
-        │   │   ├── delete_subscription_response.proto
-        │   │   ├── delete_topic_request.proto
-        │   │   ├── delete_topic_response.proto
-        │   │   ├── deletion_stats.proto
-        │   │   ├── delivery_mode.proto
-        │   │   ├── delivery_options.proto
-        │   │   ├── delivery_settings.proto
-        │   │   ├── dequeue_request.proto
-        │   │   ├── dequeue_response.proto
-        │   │   ├── durability_level.proto
-        │   │   ├── encryption_info.proto
-        │   │   ├── enqueue_request.proto
-        │   │   ├── enqueue_response.proto
-        │   │   ├── error_stats.proto
-        │   │   ├── error_type_stat.proto
-        │   │   ├── export_format.proto
-        │   │   ├── export_queue_request.proto
-        │   │   ├── export_queue_response.proto
-        │   │   ├── external_role_provider.proto
-        │   │   ├── failed_ack.proto
-        │   │   ├── failed_field_update.proto
-        │   │   ├── filter_criteria.proto
-        │   │   ├── filter_settings.proto
-        │   │   ├── flow_control.proto
-        │   │   ├── flow_control_settings.proto
-        │   │   ├── flush_policy.proto
-        │   │   ├── flush_queue_request.proto
-        │   │   ├── flush_queue_response.proto
-        │   │   ├── format_options.proto
-        │   │   ├── get_cluster_info_request.proto
-        │   │   ├── get_cluster_info_response.proto
-        │   │   ├── get_message_request.proto
-        │   │   ├── get_message_response.proto
-        │   │   ├── get_node_info_request.proto
-        │   │   ├── get_node_info_response.proto
-        │   │   ├── get_offset_request.proto
-        │   │   ├── get_offset_response.proto
-        │   │   ├── get_partition_info_request.proto
-        │   │   ├── get_partition_info_response.proto
-        │   │   ├── get_queue_health_request.proto
-        │   │   ├── get_queue_health_response.proto
-        │   │   ├── get_queue_info_request.proto
-        │   │   ├── get_queue_info_response.proto
-        │   │   ├── get_queue_stats_request.proto
-        │   │   ├── get_queue_stats_response.proto
-        │   │   ├── get_subscription_info_request.proto
-        │   │   ├── get_subscription_info_response.proto
-        │   │   ├── get_topic_info_request.proto
-        │   │   ├── get_topic_info_response.proto
-        │   │   ├── group_coordinator.proto
-        │   │   ├── health_check_request.proto
-        │   │   ├── health_check_response.proto
-        │   │   ├── health_status.proto
-        │   │   ├── historical_data_point.proto
-        │   │   ├── historical_stats.proto
-        │   │   ├── import_queue_request.proto
-        │   │   ├── import_queue_response.proto
-        │   │   ├── integrity_validation.proto
-        │   │   ├── jwt_auth.proto
-        │   │   ├── last_writer_wins.proto
-        │   │   ├── latency_metrics.proto
-        │   │   ├── list_messages_request.proto
-        │   │   ├── list_messages_response.proto
-        │   │   ├── list_queues_request.proto
-        │   │   ├── list_queues_response.proto
-        │   │   ├── list_subscriptions_request.proto
-        │   │   ├── list_subscriptions_response.proto
-        │   │   ├── list_topics_request.proto
-        │   │   ├── list_topics_response.proto
-        │   │   ├── load_balancing_strategy.proto
-        │   │   ├── metadata_update.proto
-        │   │   ├── metric_type.proto
-        │   │   ├── metrics_event.proto
-        │   │   ├── migrate_queue_request.proto
-        │   │   ├── migrate_queue_response.proto
-        │   │   ├── nack_error.proto
-        │   │   ├── nack_error_category.proto
-        │   │   ├── nack_request.proto
-        │   │   ├── nack_response.proto
-        │   │   ├── node_info.proto
-        │   │   ├── node_state.proto
-        │   │   ├── node_stats.proto
-        │   │   ├── notification_channel.proto
-        │   │   ├── notification_channel_type.proto
-        │   │   ├── o_auth2_auth.proto
-        │   │   ├── offset_info.proto
-        │   │   ├── offset_range.proto
-        │   │   ├── offset_reset_strategy.proto
-        │   │   ├── offset_type.proto
-        │   │   ├── ordering_level.proto
-        │   │   ├── owner_info.proto
-        │   │   ├── partition_assignment.proto
-        │   │   ├── partition_commit_result.proto
-        │   │   ├── partition_info.proto
-        │   │   ├── partition_offset.proto
-        │   │   ├── partition_restore_result.proto
-        │   │   ├── partition_strategy.proto
-        │   │   ├── pause_queue_request.proto
-        │   │   ├── pause_queue_response.proto
-        │   │   ├── peek_request.proto
-        │   │   ├── peek_response.proto
-        │   │   ├── performance_metrics.proto
-        │   │   ├── performance_options.proto
-        │   │   ├── permission_rule.proto
-        │   │   ├── preserved_stats.proto
-        │   │   ├── priority_level.proto
-        │   │   ├── priority_range.proto
-        │   │   ├── priority_update.proto
-        │   │   ├── publish_request.proto
-        │   │   ├── publish_response.proto
-        │   │   ├── publish_result.proto
-        │   │   ├── pull_request.proto
-        │   │   ├── pull_response.proto
-        │   │   ├── purge_options.proto
-        │   │   ├── purge_request.proto
-        │   │   ├── purge_response.proto
-        │   │   ├── push_request.proto
-        │   │   ├── push_response.proto
-        │   │   ├── queue_stats_response.proto
-        │   │   ├── read_consistency.proto
-        │   │   ├── read_level.proto
-        │   │   ├── rebalance_stats.proto
-        │   │   ├── rebalance_strategy.proto
-        │   │   ├── replication_consistency.proto
-        │   │   ├── replication_level.proto
-        │   │   ├── replication_mode.proto
-        │   │   ├── reset_details.proto
-        │   │   ├── reset_queue_stats_request.proto
-        │   │   ├── reset_queue_stats_response.proto
-        │   │   ├── resolution_strategy.proto
-        │   │   ├── restore_error.proto
-        │   │   ├── restore_options.proto
-        │   │   ├── restore_queue_request.proto
-        │   │   ├── restore_queue_response.proto
-        │   │   ├── restore_statistics.proto
-        │   │   ├── restore_status.proto
-        │   │   ├── restore_warning.proto
-        │   │   ├── resume_queue_request.proto
-        │   │   ├── resume_queue_response.proto
-        │   │   ├── resume_stats.proto
-        │   │   ├── retention_info.proto
-        │   │   ├── retention_policy.proto
-        │   │   ├── retry_delay_strategy.proto
-        │   │   ├── retry_policy.proto
-        │   │   ├── retry_settings.proto
-        │   │   ├── role_based_access_control.proto
-        │   │   ├── role_inheritance.proto
-        │   │   ├── routing_condition.proto
-        │   │   ├── routing_info.proto
-        │   │   ├── routing_key.proto
-        │   │   ├── routing_pattern.proto
-        │   │   ├── routing_rule.proto
-        │   │   ├── routing_settings.proto
-        │   │   ├── routing_strategy.proto
-        │   │   ├── sasl_auth.proto
-        │   │   ├── schema_compatibility_mode.proto
-        │   │   ├── schema_evolution_strategy.proto
-        │   │   ├── schema_format.proto
-        │   │   ├── schema_validation.proto
-        │   │   ├── seek_request.proto
-        │   │   ├── seek_response.proto
-        │   │   ├── send_message_request.proto
-        │   │   ├── send_message_response.proto
-        │   │   ├── serialization_format.proto
-        │   │   ├── size_bucket.proto
-        │   │   ├── size_distribution.proto
-        │   │   ├── size_range.proto
-        │   │   ├── start_workflow_request.proto
-        │   │   ├── start_workflow_response.proto
-        │   │   ├── statistic_grouping.proto
-        │   │   ├── statistic_type.proto
-        │   │   ├── stats_granularity.proto
-        │   │   ├── stop_workflow_request.proto
-        │   │   ├── stop_workflow_response.proto
-        │   │   ├── stream_messages_request.proto
-        │   │   ├── stream_messages_response.proto
-        │   │   ├── stream_metrics_request.proto
-        │   │   ├── stream_restart_policy.proto
-        │   │   ├── subscribe_request.proto
-        │   │   ├── subscribe_response.proto
-        │   │   ├── sync_replication.proto
-        │   │   ├── throughput_metrics.proto
-        │   │   ├── time_range.proto
-        │   │   ├── time_range_filter.proto
-        │   │   ├── timestamp_range.proto
-        │   │   ├── tls_auth.proto
-        │   │   ├── unsubscribe_request.proto
-        │   │   ├── unsubscribe_response.proto
-        │   │   ├── update_condition.proto
-        │   │   ├── update_message_request.proto
-        │   │   ├── update_message_response.proto
-        │   │   ├── update_queue_config_request.proto
-        │   │   ├── update_queue_config_response.proto
-        │   │   ├── update_subscription_config_request.proto
-        │   │   ├── update_subscription_config_response.proto
-        │   │   ├── update_topic_config_request.proto
-        │   │   ├── update_topic_config_response.proto
-        │   │   ├── updated_properties.proto
-        │   │   ├── username_password_auth.proto
-        │   │   ├── validation_error.proto
-        │   │   ├── validation_result.proto
-        │   │   ├── visibility_update.proto
-        │   │   ├── workflow.proto
-        │   │   ├── write_consistency.proto
-        │   │   └── write_level.proto
-        │   ├── config - useless this should be under messages, enums and services
-        │   │   ├── alerting_config.proto
-        │   │   ├── auth_cache_config.proto
-        │   │   ├── authentication_config.proto
-        │   │   ├── authorization_config.proto
-        │   │   ├── auto_commit_config.proto
-        │   │   ├── backup_config.proto
-        │   │   ├── batch_config.proto
-        │   │   ├── batch_delivery_config.proto
-        │   │   ├── circuit_breaker_config.proto
-        │   │   ├── cluster_config.proto
-        │   │   ├── compression_config.proto
-        │   │   ├── consistency_config.proto
-        │   │   ├── consumer_config.proto
-        │   │   ├── consumer_group_config.proto
-        │   │   ├── dead_letter_config.proto
-        │   │   ├── dead_letter_queue_config.proto
-        │   │   ├── delivery_configuration.proto
-        │   │   ├── delivery_retry_config.proto
-        │   │   ├── deserialization_config.proto
-        │   │   ├── durability_config.proto
-        │   │   ├── encryption_config.proto
-        │   │   ├── error_action_config.proto
-        │   │   ├── error_handling_config.proto
-        │   │   ├── error_notification_config.proto
-        │   │   ├── exchange_config.proto
-        │   │   ├── flow_control_config.proto
-        │   │   ├── header_routing_config.proto
-        │   │   ├── load_balancing_config.proto
-        │   │   ├── message_filter_config.proto
-        │   │   ├── migration_config.proto
-        │   │   ├── monitoring_config.proto
-        │   │   ├── multi_value_config.proto
-        │   │   ├── offset_config.proto
-        │   │   ├── ordering_config.proto
-        │   │   ├── partition_config.proto
-        │   │   ├── performance_config.proto
-        │   │   ├── publish_config.proto
-        │   │   ├── queue_config.proto
-        │   │   ├── queue_configuration.proto
-        │   │   ├── rate_limit_config.proto
-        │   │   ├── read_retry_config.proto
-        │   │   ├── replication_config.proto
-        │   │   ├── restore_config.proto
-        │   │   ├── retry_config.proto
-        │   │   ├── retry_delay_config.proto
-        │   │   ├── routing_config.proto
-        │   │   ├── schema_config.proto
-        │   │   ├── serialization_config.proto
-        │   │   ├── stream_config.proto
-        │   │   ├── subscription_config.proto
-        │   │   ├── subscription_config_update.proto
-        │   │   ├── subscription_configuration.proto
-        │   │   ├── subscription_info.proto
-        │   │   ├── subscription_state.proto
-        │   │   ├── subscription_stats.proto
-        │   │   ├── timeout_config.proto
-        │   │   ├── timestamp_config.proto
-        │   │   ├── topic_config.proto
-        │   │   ├── topic_configuration.proto
-        │   │   ├── topic_routing_config.proto
-        │   │   ├── transformation_config.proto
-        │   │   ├── validation_config.proto
-        │   │   ├── vector_clock_config.proto
-        │   │   └── write_retry_config.proto
-        │   ├── messages - empty
-        │   ├── services
-        │   │   ├── external_auth_service.proto
-        │   │   ├── key_validation_service.proto
-        │   │   ├── queue_admin_service.proto
-        │   │   ├── queue_monitoring_service.proto
-        │   │   ├── queue_service.proto
-        │   │   └── workflow_service.proto
-        │   └── types - useless this should be under messages, enums and services
-        │       ├── basic_queue_stats.proto
-        │       ├── message_ack_result.proto
-        │       ├── message_envelope.proto
-        │       ├── message_filter.proto
-        │       ├── message_id.proto
-        │       ├── message_metadata.proto
-        │       ├── message_nack.proto
-        │       ├── message_properties.proto
-        │       ├── message_state.proto
-        │       ├── message_state_counts.proto
-        │       ├── message_update_properties.proto
-        │       ├── original_queue_info.proto
-        │       ├── queue.proto
-        │       ├── queue_consumer_stats.proto
-        │       ├── queue_depth_sample.proto
-        │       ├── queue_health.proto
-        │       ├── queue_info.proto
-        │       ├── queue_message.proto
-        │       ├── queue_state.proto
-        │       ├── queue_stats.proto
-        │       ├── queue_stats_point.proto
-        │       ├── queue_stats_summary.proto
-        │       ├── queue_type.proto
-        │       ├── received_message.proto
-        │       ├── topic_info.proto
-        │       ├── topic_permissions.proto
-        │       └── topic_stats.proto
-        └── web
-            ├── api - useless this should be under messages, enums and services
-            │   ├── add_middleware_request.proto
-            │   ├── add_middleware_response.proto
-            │   ├── auth_method.proto
-            │   ├── authenticate_request.proto
-            │   ├── authenticate_response.proto
-            │   ├── authorize_request.proto
-            │   ├── authorize_response.proto
-            │   ├── cache_strategy.proto
-            │   ├── close_websocket_request.proto
-            │   ├── close_websocket_response.proto
-            │   ├── compression_type.proto
-            │   ├── configure_global_request.proto
-            │   ├── configure_global_response.proto
-            │   ├── content_type.proto
-            │   ├── cookie_data.proto
-            │   ├── cookie_same_site.proto
-            │   ├── create_cookie_request.proto
-            │   ├── create_cookie_response.proto
-            │   ├── create_server_request.proto
-            │   ├── create_server_response.proto
-            │   ├── create_session_request.proto
-            │   ├── create_session_response.proto
-            │   ├── create_template_request.proto
-            │   ├── create_template_response.proto
-            │   ├── create_websocket_request.proto
-            │   ├── create_websocket_response.proto
-            │   ├── delete_cookie_request.proto
-            │   ├── delete_cookie_response.proto
-            │   ├── delete_file_request.proto
-            │   ├── delete_file_response.proto
-            │   ├── delete_session_request.proto
-            │   ├── delete_session_response.proto
-            │   ├── delete_template_request.proto
-            │   ├── delete_template_response.proto
-            │   ├── download_file_request.proto
-            │   ├── download_file_response.proto
-            │   ├── export_server_config_request.proto
-            │   ├── export_server_config_response.proto
-            │   ├── file_info.proto
-            │   ├── file_metadata.proto
-            │   ├── file_sort_order.proto
-            │   ├── file_upload.proto
-            │   ├── flush_cache_request.proto
-            │   ├── flush_cache_response.proto
-            │   ├── generate_csrf_token_request.proto
-            │   ├── generate_csrf_token_response.proto
-            │   ├── get_access_logs_request.proto
-            │   ├── get_access_logs_response.proto
-            │   ├── get_cache_config_request.proto
-            │   ├── get_cache_config_response.proto
-            │   ├── get_cookie_request.proto
-            │   ├── get_cookie_response.proto
-            │   ├── get_cors_config_request.proto
-            │   ├── get_cors_config_response.proto
-            │   ├── get_file_info_request.proto
-            │   ├── get_file_info_response.proto
-            │   ├── get_handler_info_request.proto
-            │   ├── get_handler_info_response.proto
-            │   ├── get_metrics_request.proto
-            │   ├── get_metrics_response.proto
-            │   ├── get_middleware_info_request.proto
-            │   ├── get_middleware_info_response.proto
-            │   ├── get_performance_stats_request.proto
-            │   ├── get_performance_stats_response.proto
-            │   ├── get_route_info_request.proto
-            │   ├── get_route_info_response.proto
-            │   ├── get_route_metrics_request.proto
-            │   ├── get_route_metrics_response.proto
-            │   ├── get_security_config_request.proto
-            │   ├── get_security_config_response.proto
-            │   ├── get_server_config_request.proto
-            │   ├── get_server_config_response.proto
-            │   ├── get_server_health_request.proto
-            │   ├── get_server_health_response.proto
-            │   ├── get_server_logs_request.proto
-            │   ├── get_server_logs_response.proto
-            │   ├── get_server_metrics_request.proto
-            │   ├── get_server_metrics_response.proto
-            │   ├── get_server_status_request.proto
-            │   ├── get_server_status_response.proto
-            │   ├── get_session_request.proto
-            │   ├── get_session_response.proto
-            │   ├── get_ssl_certificate_info_request.proto
-            │   ├── get_ssl_certificate_info_response.proto
-            │   ├── get_template_info_request.proto
-            │   ├── get_template_info_response.proto
-            │   ├── get_websocket_info_request.proto
-            │   ├── get_websocket_info_response.proto
-            │   ├── handle_request.proto
-            │   ├── handle_request_request.proto
-            │   ├── handle_request_response.proto
-            │   ├── handle_response.proto
-            │   ├── handler_info.proto
-            │   ├── handler_type.proto
-            │   ├── health_check_request.proto
-            │   ├── health_check_response.proto
-            │   ├── health_status.proto
-            │   ├── http_header.proto
-            │   ├── http_method.proto
-            │   ├── http_request.proto
-            │   ├── http_response.proto
-            │   ├── http_status.proto
-            │   ├── import_server_config_request.proto
-            │   ├── import_server_config_response.proto
-            │   ├── list_cookies_request.proto
-            │   ├── list_cookies_response.proto
-            │   ├── list_files_request.proto
-            │   ├── list_files_response.proto
-            │   ├── list_handlers_request.proto
-            │   ├── list_handlers_response.proto
-            │   ├── list_middleware_request.proto
-            │   ├── list_middleware_response.proto
-            │   ├── list_routes_request.proto
-            │   ├── list_routes_response.proto
-            │   ├── list_servers_request.proto
-            │   ├── list_servers_response.proto
-            │   ├── list_sessions_request.proto
-            │   ├── list_sessions_response.proto
-            │   ├── list_templates_request.proto
-            │   ├── list_templates_response.proto
-            │   ├── list_websockets_request.proto
-            │   ├── list_websockets_response.proto
-            │   ├── load_balance_strategy.proto
-            │   ├── middleware_info.proto
-            │   ├── middleware_type.proto
-            │   ├── mime_type.proto
-            │   ├── performance_stats.proto
-            │   ├── proxy_type.proto
-            │   ├── rate_limit_strategy.proto
-            │   ├── register_handler_request.proto
-            │   ├── register_handler_response.proto
-            │   ├── register_middleware_request.proto
-            │   ├── register_middleware_response.proto
-            │   ├── register_route_request.proto
-            │   ├── register_route_response.proto
-            │   ├── reload_server_config_request.proto
-            │   ├── reload_server_config_response.proto
-            │   ├── remove_middleware_request.proto
-            │   ├── remove_middleware_response.proto
-            │   ├── render_template_request.proto
-            │   ├── render_template_response.proto
-            │   ├── reset_stats_request.proto
-            │   ├── reset_stats_response.proto
-            │   ├── restart_server_request.proto
-            │   ├── restart_server_response.proto
-            │   ├── same_site_policy.proto
-            │   ├── send_websocket_message_request.proto
-            │   ├── send_websocket_message_response.proto
-            │   ├── serve_static_request.proto
-            │   ├── serve_static_response.proto
-            │   ├── server_state.proto
-            │   ├── server_status.proto
-            │   ├── session_data.proto
-            │   ├── session_state.proto
-            │   ├── ssl_protocol.proto
-            │   ├── start_server_request.proto
-            │   ├── start_server_response.proto
-            │   ├── stop_server_request.proto
-            │   ├── stop_server_response.proto
-            │   ├── stream_server_events_request.proto
-            │   ├── template_data.proto
-            │   ├── unregister_handler_request.proto
-            │   ├── unregister_handler_response.proto
-            │   ├── unregister_middleware_request.proto
-            │   ├── unregister_middleware_response.proto
-            │   ├── unregister_route_request.proto
-            │   ├── unregister_route_response.proto
-            │   ├── update_cache_config_request.proto
-            │   ├── update_cache_config_response.proto
-            │   ├── update_cookie_request.proto
-            │   ├── update_cookie_response.proto
-            │   ├── update_cors_config_request.proto
-            │   ├── update_cors_config_response.proto
-            │   ├── update_handler_config_request.proto
-            │   ├── update_handler_config_response.proto
-            │   ├── update_middleware_config_request.proto
-            │   ├── update_middleware_config_response.proto
-            │   ├── update_route_config_request.proto
-            │   ├── update_route_config_response.proto
-            │   ├── update_security_config_request.proto
-            │   ├── update_security_config_response.proto
-            │   ├── update_server_config_request.proto
-            │   ├── update_server_config_response.proto
-            │   ├── update_session_request.proto
-            │   ├── update_session_response.proto
-            │   ├── update_ssl_certificate_request.proto
-            │   ├── update_ssl_certificate_response.proto
-            │   ├── upload_file_request.proto
-            │   ├── upload_file_response.proto
-            │   ├── url_path.proto
-            │   ├── validate_csrf_token_request.proto
-            │   ├── validate_csrf_token_response.proto
-            │   ├── web.proto
-            │   ├── web_socket_state.proto
-            │   ├── websocket_info.proto
-            │   └── websocket_message.proto
-            ├── config - useless this should be under messages, enums and services
-            │   ├── auth_config.proto
-            │   ├── cache_config.proto
-            │   ├── compression_config.proto
-            │   ├── cookie_config.proto
-            │   ├── cors_config.proto
-            │   ├── csrf_config.proto
-            │   ├── handler_config.proto
-            │   ├── health_check_config.proto
-            │   ├── load_balancer_config.proto
-            │   ├── middleware_config.proto
-            │   ├── proxy_config.proto
-            │   ├── rate_limit_config.proto
-            │   ├── route_config.proto
-            │   ├── route_info.proto
-            │   ├── route_type.proto
-            │   ├── security_config.proto
-            │   ├── server_config.proto
-            │   ├── session_config.proto
-            │   ├── ssl_config.proto
-            │   ├── static_config.proto
-            │   ├── template_config.proto
-            │   ├── timeout_config.proto
-            │   ├── tls_config.proto
-            │   └── websocket_config.proto
-            ├── events - useless this should be under messages, enums and services
-            │   └── server_event.proto
-            ├── messages - empty
-            ├── services
-            │   ├── web_admin_service.proto
-            │   └── web_service.proto
-            └── types - useless this should be under messages, enums and services
+proto └── gcommon └── v1 ├── common │   ├── api - useless │   ├── config - useless │   ├── enums │   │   ├── appender_type.proto │   │   ├── check_type.proto │   │   ├── compression_type.proto │   │   ├── delivery_channel_type.proto │   │  
+├── delivery_status.proto │   │   ├── filter_type.proto │   │   ├── formatter_type.proto │   │   ├── get_check_status_request.proto │   │   ├── grant_type.proto │   │   ├── health_status.proto │   │   ├── log_level.proto │   │   ├──
+logger_status.proto │   │   ├── mfa_type.proto │   │   ├── o_auth2_flow_type.proto │   │   ├── permission_level.proto │   │   ├── permission_type.proto │   │   ├── provider_type.proto │   │   ├── resource_status.proto │   │   ├──
+scope_type.proto │   │   ├── serving_status.proto │   │   ├── session_status.proto │   │   ├── subject_type.proto │   │   ├── subscription_status.proto │   │   ├── token_status.proto │   │   ├── token_type.proto │   │   ├──
+two_fa_type.proto │   │   ├── user_status.proto │   │   ├── value_type.proto │   │   ├── verification_status.proto │   │   └── verification_type.proto │   ├── messages │   │   ├── audit_action.proto │   │   ├── audit_event.proto │   │   ├──
+audit_log.proto │   │   ├── audit_result.proto │   │   ├── delete_notification_request.proto │   │   ├── delete_notification_response.proto │   │   ├── event_notification.proto │   │   ├── list_notifications_request.proto │   │   ├──
+list_notifications_response.proto │   │   ├── notification_message.proto │   │   ├── notification_service.proto │   │   ├── send_notification_request.proto │   │   └── send_notification_response.proto │   ├── services │   │   ├──
+auth_admin_service.proto │   │   ├── auth_service.proto │   │   ├── authorization_service.proto │   │   ├── get_service_health_request.proto │   │   ├── get_service_health_response.proto │   │   ├── health_admin_service.proto │   │   ├──
+health_service.proto │   │   ├── list_services_request.proto │   │   ├── list_services_response.proto │   │   ├── log_admin_service.proto │   │   ├── log_service.proto │   │   ├── service_version.proto │   │   └── session_service.proto │  
+└── types - Shouldn't be here, enums should go to the enums directory and the rest to messages and services │   ├── ack_mode.proto │   ├── api_key.proto │   ├── api_key_credentials.proto │   ├── api_key_stats.proto │   ├──
+appender_config.proto │   ├── archive_criteria.proto │   ├── assign_role_request.proto │   ├── assign_role_response.proto │   ├── auth_config.proto │   ├── auth_context.proto │   ├── auth_method.proto │   ├── auth_provider.proto │   ├──
+auth_token.proto │   ├── authenticate_request.proto │   ├── authenticate_response.proto │   ├── authorize_request.proto │   ├── authorize_response.proto │   ├── batch_operation.proto │   ├── batch_options.proto │   ├── cache_policy.proto
+│   ├── change_password_request.proto │   ├── change_password_response.proto │   ├── check_permission_request.proto │   ├── check_permission_response.proto │   ├── check_result.proto │   ├── circuit_breaker_config.proto │   ├──
+circuit_breaker_state.proto │   ├── claims.proto │   ├── client_info.proto │   ├── complete_password_reset_request.proto │   ├── complete_password_reset_response.proto │   ├── component_health.proto │   ├── config_value.proto │   ├──
+configure_alerting_request.proto │   ├── configure_alerting_response.proto │   ├── configure_logger_request.proto │   ├── configure_logger_response.proto │   ├── create_permission_request.proto │   ├── create_role_request.proto │   ├──
+create_role_response.proto │   ├── create_session_request.proto │   ├── create_session_response.proto │   ├── create_user_request.proto │   ├── create_user_response.proto │   ├── daily_usage.proto │   ├── debug_info.proto │   ├──
+delete_permission_request.proto │   ├── delete_role_request.proto │   ├── delete_role_response.proto │   ├── delete_session_request.proto │   ├── delete_session_response.proto │   ├── delete_user_request.proto │   ├──
+delete_user_response.proto │   ├── delivery_channel.proto │   ├── device_info.proto │   ├── disable2_fa_request.proto │   ├── disable_check_request.proto │   ├── disable_check_response.proto │   ├── disable_mfa_request.proto │   ├──
+disable_mfa_response.proto │   ├── enable2_fa_request.proto │   ├── enable_check_request.proto │   ├── enable_check_response.proto │   ├── enable_mfa_request.proto │   ├── enable_mfa_response.proto │   ├── error.proto │   ├──
+error_code.proto │   ├── error_info.proto │   ├── eviction_policy.proto │   ├── expiration_policy.proto │   ├── filter_operation.proto │   ├── filter_options.proto │   ├── filter_value.proto │   ├── formatter_config.proto │   ├──
+generate_api_key_request.proto │   ├── generate_api_key_response.proto │   ├── get_api_key_request.proto │   ├── get_api_key_response.proto │   ├── get_auth_config_request.proto │   ├── get_health_history_request.proto │   ├──
+get_health_metrics_request.proto │   ├── get_health_metrics_response.proto │   ├── get_health_request.proto │   ├── get_permission_request.proto │   ├── get_permission_response.proto │   ├── get_preferences_request.proto │   ├──
+get_preferences_response.proto │   ├── get_role_request.proto │   ├── get_role_response.proto │   ├── get_session_request.proto │   ├── get_session_response.proto │   ├── get_system_stats_request.proto │   ├──
+get_system_stats_response.proto │   ├── get_template_request.proto │   ├── get_template_response.proto │   ├── get_user_info_request.proto │   ├── get_user_info_response.proto │   ├── get_user_permissions_request.proto │   ├──
+get_user_permissions_response.proto │   ├── get_user_request.proto │   ├── get_user_response.proto │   ├── get_user_roles_request.proto │   ├── get_user_roles_response.proto │   ├── grant_permission_request.proto │   ├──
+grant_permission_response.proto │   ├── group.proto │   ├── health_check_all_request.proto │   ├── health_check_all_response.proto │   ├── health_check_request.proto │   ├── health_check_response.proto │   ├── health_check_result.proto │  
+├── health_config.proto │   ├── health_metric_data.proto │   ├── health_metrics.proto │   ├── initiate_password_reset_request.proto │   ├── initiate_password_reset_response.proto │   ├── int64_array.proto │   ├──
+invalidate_user_sessions_request.proto │   ├── jwt_config.proto │   ├── jwt_credentials.proto │   ├── key_value.proto │   ├── ldap_config.proto │   ├── list_api_keys_request.proto │   ├── list_api_keys_response.proto │   ├──
+list_checks_request.proto │   ├── list_permissions_request.proto │   ├── list_permissions_response.proto │   ├── list_roles_request.proto │   ├── list_roles_response.proto │   ├── list_sessions_request.proto │   ├──
+list_sessions_response.proto │   ├── list_user_sessions_request.proto │   ├── list_user_sessions_response.proto │   ├── list_users_request.proto │   ├── list_users_response.proto │   ├── location_info.proto │   ├── log_entry.proto │   ├──
+log_sort_field.proto │   ├── log_statistics.proto │   ├── logger_config.proto │   ├── logout_request.proto │   ├── logout_response.proto │   ├── mark_as_read_request.proto │   ├── mark_as_read_response.proto │   ├── metric_point.proto │  
+├── mfa_config.proto │   ├── mfa_method.proto │   ├── mfa_setup_instruction.proto │   ├── o_auth2_config.proto │   ├── o_auth2_credentials.proto │   ├── o_auth_client.proto │   ├── output_config.proto │   ├── paginated_response.proto │  
+├── pagination.proto │   ├── pagination_info.proto │   ├── pagination_options.proto │   ├── password_credentials.proto │   ├── password_policy.proto │   ├── permission.proto │   ├── permission_condition.proto │   ├── permission_grant.proto
+│   ├── permission_metadata.proto │   ├── permission_scope.proto │   ├── rate_limit.proto │   ├── rate_limit_config.proto │   ├── rate_limit_info.proto │   ├── read_logs_request.proto │   ├── read_logs_response.proto │   ├──
+refresh_token.proto │   ├── refresh_token_request.proto │   ├── refresh_token_response.proto │   ├── register_check_request.proto │   ├── register_check_response.proto │   ├── register_user_request.proto │   ├── register_user_response.proto
+│   ├── remediation_details.proto │   ├── remove_role_request.proto │   ├── remove_role_response.proto │   ├── request_metadata.proto │   ├── resend_verification_request.proto │   ├── reset_health_stats_request.proto │   ├──
+reset_health_stats_response.proto │   ├── reset_password_request.proto │   ├── reset_password_response.proto │   ├── resource_reference.proto │   ├── response_metadata.proto │   ├── retry_policy.proto │   ├── revoke_api_key_request.proto
+│   ├── revoke_api_key_response.proto │   ├── revoke_permission_request.proto │   ├── revoke_permission_response.proto │   ├── revoke_role_request.proto │   ├── revoke_role_response.proto │   ├── revoke_token_request.proto │   ├──
+revoke_token_response.proto │   ├── role.proto │   ├── role_assignment.proto │   ├── role_metadata.proto │   ├── role_scope.proto │   ├── run_check_request.proto │   ├── run_check_response.proto │   ├── saml_config.proto │   ├──
+security_context.proto │   ├── security_policy.proto │   ├── send_verification_email_request.proto │   ├── send_verification_email_response.proto │   ├── session.proto │   ├── session_config.proto │   ├── session_info.proto │   ├──
+session_metadata.proto │   ├── session_state.proto │   ├── set_health_request.proto │   ├── set_health_response.proto │   ├── sort_direction.proto │   ├── sort_options.proto │   ├── source_location.proto │   ├── string_array.proto │   ├──
+subscription_info.proto │   ├── subscription_options.proto │   ├── subscription_preferences.proto │   ├── template.proto │   ├── terminate_session_request.proto │   ├── terminate_session_response.proto │   ├── time_range.proto │   ├──
+token.proto │   ├── token_info.proto │   ├── token_metadata.proto │   ├── unregister_check_request.proto │   ├── unregister_check_response.proto │   ├── update_permission_request.proto │   ├── update_preferences_request.proto │   ├──
+update_preferences_response.proto │   ├── update_role_request.proto │   ├── update_role_response.proto │   ├── update_session_request.proto │   ├── update_session_response.proto │   ├── update_user_request.proto │   ├──
+update_user_response.proto │   ├── user.proto │   ├── user_details.proto │   ├── user_info.proto │   ├── user_metadata.proto │   ├── user_preferences.proto │   ├── user_profile.proto │   ├── validate_session_request.proto │   ├──
+validate_session_response.proto │   ├── validate_token_request.proto │   ├── validate_token_response.proto │   ├── verify2_fa_request.proto │   ├── verify_credentials_request.proto │   ├── verify_credentials_response.proto │   ├──
+verify_email_request.proto │   ├── verify_email_response.proto │   ├── verify_mfa_request.proto │   ├── verify_mfa_response.proto │   ├── watch_request.proto │   ├── watch_response.proto │   ├── write_log_request.proto │   └──
+write_log_response.proto ├── config │   ├── api - useless this should be under messages, enums and services │   │   ├── access_control.proto │   │   ├── access_restriction.proto │   │   ├── alert_severity.proto │   │   ├── alert_type.proto
+│   │   ├── approval_info.proto │   │   ├── approval_requirement.proto │   │   ├── approval_stage.proto │   │   ├── approval_status.proto │   │   ├── approval_workflow.proto │   │   ├── audit_level.proto │   │   ├──
+audit_operation_type.proto │   │   ├── backoff_strategy.proto │   │   ├── backup_config_request.proto │   │   ├── backup_frequency.proto │   │   ├── backup_policy.proto │   │   ├── cache_invalidation_trigger.proto │   │   ├──
+cache_refresh_strategy.proto │   │   ├── change_type.proto │   │   ├── channel_type.proto │   │   ├── compliance_audit.proto │   │   ├── compliance_reporting.proto │   │   ├── compression_type.proto │   │   ├── conflict_resolution.proto │  
+│   ├── decrypt_config_request.proto │   │   ├── delete_config_request.proto │   │   ├── dependency_type.proto │   │   ├── deployment_info.proto │   │   ├── deployment_rollback_info.proto │   │   ├── deployment_status.proto │   │   ├──
+deprecation_info.proto │   │   ├── deprecation_level.proto │   │   ├── encrypt_config_request.proto │   │   ├── export_config_request.proto │   │   ├── filter_action.proto │   │   ├── filter_type.proto │   │   ├──
+get_config_history_request.proto │   │   ├── get_config_history_response.proto │   │   ├── get_config_request.proto │   │   ├── get_config_response.proto │   │   ├── get_config_stats_request.proto │   │   ├── get_config_stats_response.proto
+│   │   ├── get_multiple_config_request.proto │   │   ├── get_multiple_config_response.proto │   │   ├── get_schema_request.proto │   │   ├── get_schema_response.proto │   │   ├── health_check.proto │   │   ├── health_check_request.proto
+│   │   ├── health_check_response.proto │   │   ├── health_check_result.proto │   │   ├── health_check_type.proto │   │   ├── health_state.proto │   │   ├── health_status.proto │   │   ├── hook_error_handling.proto │   │   ├──
+hook_type.proto │   │   ├── import_config_request.proto │   │   ├── inheritance_filter.proto │   │   ├── inheritance_strategy.proto │   │   ├── inheritance_transformation.proto │   │   ├── list_config_request.proto │   │   ├──
+list_config_response.proto │   │   ├── merge_strategy.proto │   │   ├── metadata_status.proto │   │   ├── monitoring_alert.proto │   │   ├── notification_channel.proto │   │   ├── notification_trigger.proto │   │   ├──
+parameter_constraints.proto │   │   ├── parameter_type.proto │   │   ├── promotion_rule.proto │   │   ├── rate_limits.proto │   │   ├── reference_type.proto │   │   ├── reload_config_request.proto │   │   ├── resource_limits.proto │   │  
+├── restore_config_request.proto │   │   ├── restore_point_status.proto │   │   ├── restore_point_type.proto │   │   ├── restriction_type.proto │   │   ├── retention_policy.proto │   │   ├── rollback_config_request.proto │   │   ├──
+rollback_info.proto │   │   ├── rollback_method.proto │   │   ├── rotation_event.proto │   │   ├── rotation_frequency.proto │   │   ├── secret_audit_level.proto │   │   ├── secret_backup_frequency.proto │   │   ├── secret_status.proto │  
+│   ├── secret_type.proto │   │   ├── secret_validation_result.proto │   │   ├── secret_validation_result_type.proto │   │   ├── secret_validation_severity.proto │   │   ├── set_config_request.proto │   │   ├── set_config_response.proto │  
+│   ├── set_config_schema_request.proto │   │   ├── set_multiple_config_request.proto │   │   ├── set_multiple_config_response.proto │   │   ├── synchronization_frequency.proto │   │   ├── synchronization_target.proto │   │   ├──
+template_change.proto │   │   ├── template_format.proto │   │   ├── template_hook.proto │   │   ├── template_output.proto │   │   ├── template_parameter.proto │   │   ├── template_status.proto │   │   ├── transformation_step.proto │   │  
+├── transformation_type.proto │   │   ├── unwatch_config_request.proto │   │   ├── usage_statistics.proto │   │   ├── usage_trend.proto │   │   ├── validate_config_request.proto │   │   ├── validate_config_response.proto │   │   ├──
+validation_result.proto │   │   ├── validation_result_type.proto │   │   ├── validation_rule.proto │   │   ├── validation_rule_severity.proto │   │   ├── validation_rule_type.proto │   │   ├── validation_severity.proto │   │   ├──
+value_dependency.proto │   │   ├── value_history_entry.proto │   │   ├── value_reference.proto │   │   ├── value_source.proto │   │   ├── value_status.proto │   │   ├── value_usage_statistics.proto │   │   ├── value_usage_trend.proto │  
+│   ├── value_validation_result.proto │   │   ├── value_validation_result_type.proto │   │   ├── value_validation_severity.proto │   │   ├── version_artifact.proto │   │   ├── version_compatibility_info.proto │   │   ├──
+version_dependency.proto │   │   ├── version_dependency_type.proto │   │   ├── version_deployment_info.proto │   │   ├── version_deployment_status.proto │   │   ├── version_health_status.proto │   │   ├── version_promotion_event.proto │  
+│   ├── version_quality_issue.proto │   │   ├── version_quality_metrics.proto │   │   ├── version_status.proto │   │   ├── version_type.proto │   │   ├── watch_config_request.proto │   │   └── watch_config_response.proto │   ├── config -
+useless │   ├── messages - empty │   ├── services - empty │   ├── types - Shouldn't be here, enums should go to the enums directory and the rest to messages and services │   └── v1 -- WTF why do we have another v1 under a v1? and whats even
+in here, they should be in the right folder. │   ├── audit_settings.proto │   ├── backup_settings.proto │   ├── batching_settings.proto │   ├── caching_settings.proto │   ├── compliance_settings.proto │   ├── config_admin_service.proto │  
+├── config_backup.proto │   ├── config_change.proto │   ├── config_change_type.proto │   ├── config_data_type.proto │   ├── config_diff.proto │   ├── config_diff_entry.proto │   ├── config_entry.proto │   ├── config_environment.proto │  
+├── config_schema.proto │   ├── config_service.proto │   ├── config_snapshot.proto │   ├── config_stats.proto │   ├── config_validation_error.proto │   ├── config_validation_warning.proto │   ├── config_watch.proto │   ├──
+config_watch_event.proto │   ├── encryption_settings.proto │   ├── environment_status.proto │   ├── environment_type.proto │   ├── inheritance_settings.proto │   ├── monitoring_config.proto │   ├── monitoring_settings.proto │   ├──
+notification_settings.proto │   ├── retry_settings.proto │   ├── rotation_settings.proto │   ├── secret_audit_settings.proto │   ├── secret_backup_settings.proto │   ├── sync_settings.proto │   ├── synchronization_settings.proto │   ├──
+transformation_settings.proto │   ├── validation_settings.proto │   └── versioning_settings.proto ├── database │   ├── api - useless │   ├── config - useless this should be under messages, enums and services │   │   ├── append_request.proto
+│   │   ├── backup_request.proto │   │   ├── batch_execute_options.proto │   │   ├── batch_operation.proto │   │   ├── batch_operation_result.proto │   │   ├── batch_stats.proto │   │   ├── begin_transaction_request.proto │   │   ├──
+begin_transaction_response.proto │   │   ├── cache_config.proto │   │   ├── cache_entry.proto │   │   ├── cache_info.proto │   │   ├── cache_metrics.proto │   │   ├── cache_operation_result.proto │   │   ├── cache_stats.proto │   │   ├──
+clear_request.proto │   │   ├── clear_response.proto │   │   ├── cockroach_config.proto │   │   ├── column_metadata.proto │   │   ├── commit_transaction_request.proto │   │   ├── configure_policy_request.proto │   │   ├──
+configure_policy_response.proto │   │   ├── connection_pool_info.proto │   │   ├── consistency_level.proto │   │   ├── create_database_request.proto │   │   ├── create_database_response.proto │   │   ├── create_namespace_request.proto │  
+│   ├── create_namespace_response.proto │   │   ├── database_info.proto │   │   ├── database_status.proto │   │   ├── database_status_code.proto │   │   ├── decrement_request.proto │   │   ├── decrement_response.proto │   │   ├──
+defrag_request.proto │   │   ├── delete_multiple_request.proto │   │   ├── delete_multiple_response.proto │   │   ├── delete_namespace_request.proto │   │   ├── delete_request.proto │   │   ├── delete_response.proto │   │   ├──
+drop_database_request.proto │   │   ├── eviction_result.proto │   │   ├── execute_batch_request.proto │   │   ├── execute_batch_response.proto │   │   ├── execute_options.proto │   │   ├── execute_request.proto │   │   ├──
+execute_response.proto │   │   ├── execute_stats.proto │   │   ├── exists_request.proto │   │   ├── exists_response.proto │   │   ├── expire_request.proto │   │   ├── export_request.proto │   │   ├── flush_request.proto │   │   ├──
+flush_response.proto │   │   ├── gc_request.proto │   │   ├── get_connection_info_request.proto │   │   ├── get_connection_info_response.proto │   │   ├── get_database_info_request.proto │   │   ├── get_database_info_response.proto │   │  
+├── get_memory_usage_request.proto │   │   ├── get_memory_usage_response.proto │   │   ├── get_multiple_request.proto │   │   ├── get_multiple_response.proto │   │   ├── get_namespace_stats_request.proto │   │   ├──
+get_namespace_stats_response.proto │   │   ├── get_request.proto │   │   ├── get_response.proto │   │   ├── get_stats_request.proto │   │   ├── get_stats_response.proto │   │   ├── health_check_request.proto │   │   ├──
+health_check_response.proto │   │   ├── import_request.proto │   │   ├── increment_request.proto │   │   ├── increment_response.proto │   │   ├── info_request.proto │   │   ├── isolation_level.proto │   │   ├── keys_request.proto │   │  
+├── keys_response.proto │   │   ├── list_databases_request.proto │   │   ├── list_databases_response.proto │   │   ├── list_namespaces_request.proto │   │   ├── list_namespaces_response.proto │   │   ├── list_subscriptions_request.proto │  
+│   ├── lock_request.proto │   │   ├── m_get_request.proto │   │   ├── my_sql_config.proto │   │   ├── my_sql_status.proto │   │   ├── namespace_info.proto │   │   ├── namespace_stats.proto │   │   ├── optimize_request.proto │   │   ├──
+pebble_config.proto │   │   ├── pipeline_request.proto │   │   ├── pool_stats.proto │   │   ├── prepend_request.proto │   │   ├── publish_request.proto │   │   ├── query_options.proto │   │   ├── query_parameter.proto │   │   ├──
+query_request.proto │   │   ├── query_response.proto │   │   ├── query_row_request.proto │   │   ├── query_row_response.proto │   │   ├── query_stats.proto │   │   ├── restore_request.proto │   │   ├── result_set.proto │   │   ├──
+rollback_transaction_request.proto │   │   ├── row.proto │   │   ├── scan_request.proto │   │   ├── set_multiple_request.proto │   │   ├── set_multiple_response.proto │   │   ├── set_options.proto │   │   ├── set_request.proto │   │   ├──
+set_response.proto │   │   ├── subscribe_request.proto │   │   ├── touch_expiration_request.proto │   │   ├── touch_expiration_response.proto │   │   ├── transaction_options.proto │   │   ├── transaction_request.proto │   │   ├──
+transaction_status_request.proto │   │   ├── transaction_status_response.proto │   │   ├── unlock_request.proto │   │   ├── unsubscribe_request.proto │   │   ├── unwatch_request.proto │   │   └── watch_request.proto │   ├── messages - empty
+│   ├── schema - useless this should be under messages, enums and services │   │   ├── create_schema_request.proto │   │   ├── create_schema_response.proto │   │   ├── drop_schema_request.proto │   │   ├── get_migration_status_request.proto
+│   │   ├── get_migration_status_response.proto │   │   ├── list_migrations_request.proto │   │   ├── list_migrations_response.proto │   │   ├── list_schemas_request.proto │   │   ├── list_schemas_response.proto │   │   ├──
+migration_info.proto │   │   ├── migration_script.proto │   │   ├── revert_migration_request.proto │   │   ├── revert_migration_response.proto │   │   ├── run_migration_request.proto │   │   └── run_migration_response.proto │   ├── services
+│   │   ├── cache_admin_service.proto │   │   ├── cache_service.proto │   │   ├── database_admin_service.proto │   │   ├── database_service.proto │   │   ├── migration_service.proto │   │   └── transaction_service.proto │   └── types -
+Shouldn't be here, enums should go to the enums directory and the rest to messages and services ├── media │   ├── api - useless │   ├── config - useless │   ├── messages │   ├── metadata - useless this should be under messages, enums and
+services │   │   ├── media_metadata.proto │   │   ├── movie_info.proto │   │   └── series_info.proto │   ├── services │   └── types - Shouldn't be here, enums should go to the enums directory and the rest to messages and services │   ├──
+audio_track.proto │   ├── media_file.proto │   ├── media_quality.proto │   ├── media_type.proto │   ├── quality_score.proto │   ├── resolution.proto │   └── subtitle_track.proto ├── metrics │   ├── api - useless │   ├── config - useless │  
+├── messages - empty │   ├── services - empty │   ├── types - Shouldn't be here, enums should go to the enums directory and the rest to messages and services │   │   ├── aggregation_type.proto │   │   ├── alert_channel_type.proto │   │  
+├── change_type.proto │   │   ├── compression_type.proto │   │   ├── dashboard_type.proto │   │   ├── error_type_count.proto │   │   ├── error_type_stats.proto │   │   ├── export_status.proto │   │   ├── exporter_status.proto │   │   ├──
+notification_type.proto │   │   ├── provider_status.proto │   │   ├── provider_type.proto │   │   ├── scrape_status.proto │   │   └── visualization_type.proto │   └── v1 - useless this should be under messages, enums and services │   ├──
+aggregation_spec.proto │   ├── alert_notification.proto │   ├── alert_severity.proto │   ├── alert_state.proto │   ├── alerting_condition.proto │   ├── alerting_rule.proto │   ├── api_key_config.proto │   ├── api_key_config_update.proto │  
+├── applied_config.proto │   ├── backup_info.proto │   ├── batch_context.proto │   ├── batch_options.proto │   ├── batch_priority.proto │   ├── batch_stats.proto │   ├── bucket_info.proto │   ├── buffer_config.proto │   ├──
+buffer_overflow_strategy.proto │   ├── cleanup_strategy.proto │   ├── comparison_operator.proto │   ├── config_change.proto │   ├── configuration_summary.proto │   ├── counter_config.proto │   ├── counter_metric.proto │   ├──
+cpu_usage.proto │   ├── create_metric_request.proto │   ├── create_metric_response.proto │   ├── create_provider_request.proto │   ├── create_provider_response.proto │   ├── data_volume_data_point.proto │   ├── data_volume_stats.proto │  
+├── data_volume_trend.proto │   ├── delete_metric_request.proto │   ├── delete_metric_response.proto │   ├── delete_provider_request.proto │   ├── delete_provider_response.proto │   ├── deletion_options.proto │   ├── deletion_result.proto
+│   ├── disk_usage.proto │   ├── dry_run_result.proto │   ├── error_data_point.proto │   ├── error_entry.proto │   ├── error_stats.proto │   ├── error_trend.proto │   ├── export_config.proto │   ├── export_config_update.proto │   ├──
+export_destination.proto │   ├── export_destination_stats.proto │   ├── export_destination_update.proto │   ├── export_format.proto │   ├── export_metrics_request.proto │   ├── export_metrics_response.proto │   ├── export_stats.proto │  
+├── gauge_config.proto │   ├── gauge_metric.proto │   ├── gauge_operation.proto │   ├── get_alerting_rules_request.proto │   ├── get_alerting_rules_response.proto │   ├── get_metric_config_request.proto │   ├──
+get_metric_config_response.proto │   ├── get_metric_metadata_request.proto │   ├── get_metric_metadata_response.proto │   ├── get_metric_request.proto │   ├── get_metric_response.proto │   ├── get_metrics_request.proto │   ├──
+get_metrics_response.proto │   ├── get_metrics_summary_request.proto │   ├── get_metrics_summary_response.proto │   ├── get_provider_stats_request.proto │   ├── get_provider_stats_response.proto │   ├── get_scrape_config_request.proto │  
+├── get_scrape_config_response.proto │   ├── get_stats_request.proto │   ├── get_stats_response.proto │   ├── group_by_spec.proto │   ├── health_check_request.proto │   ├── health_check_response.proto │   ├── health_status.proto │   ├──
+health_status_entry.proto │   ├── histogram_bucket.proto │   ├── histogram_config.proto │   ├── histogram_metric.proto │   ├── histogram_stats.proto │   ├── histogram_value.proto │   ├── import_config.proto │   ├──
+import_metrics_request.proto │   ├── import_metrics_response.proto │   ├── label_definition.proto │   ├── list_metrics_request.proto │   ├── list_metrics_response.proto │   ├── list_providers_request.proto │   ├──
+list_providers_response.proto │   ├── memory_usage.proto │   ├── metric_aggregation.proto │   ├── metric_bucket.proto │   ├── metric_config.proto │   ├── metric_data.proto │   ├── metric_definition.proto │   ├── metric_filter.proto │   ├──
+metric_health.proto │   ├── metric_info.proto │   ├── metric_label.proto │   ├── metric_metadata.proto │   ├── metric_quantile.proto │   ├── metric_query.proto │   ├── metric_result.proto │   ├── metric_sample.proto │   ├──
+metric_series.proto │   ├── metric_source.proto │   ├── metric_stats.proto │   ├── metric_status.proto │   ├── metric_summary.proto │   ├── metric_type.proto │   ├── metric_type_config.proto │   ├── metric_type_counts.proto │   ├──
+metric_value.proto │   ├── metrics_health_info.proto │   ├── metrics_management_service.proto │   ├── metrics_service.proto │   ├── metrics_summary.proto │   ├── network_usage.proto │   ├── numeric_format.proto │   ├──
+open_telemetry_settings.proto │   ├── open_telemetry_settings_update.proto │   ├── output_options.proto │   ├── pagination_info.proto │   ├── percentile_measurement.proto │   ├── performance_data_point.proto │   ├── performance_stats.proto
+│   ├── performance_trend.proto │   ├── prometheus_settings.proto │   ├── prometheus_settings_update.proto │   ├── provider_config.proto │   ├── provider_config_summary.proto │   ├── provider_config_update.proto │   ├──
+provider_endpoints.proto │   ├── provider_filter.proto │   ├── provider_info.proto │   ├── provider_settings.proto │   ├── provider_settings_update.proto │   ├── provider_state.proto │   ├── provider_statistics.proto │   ├──
+provider_stats.proto │   ├── provider_summary.proto │   ├── quantile.proto │   ├── query_metrics_request.proto │   ├── query_metrics_response.proto │   ├── query_operation.proto │   ├── query_output_options.proto │   ├── query_plan.proto
+│   ├── query_statistics.proto │   ├── query_stats.proto │   ├── query_step.proto │   ├── record_counter_request.proto │   ├── record_counter_response.proto │   ├── record_gauge_request.proto │   ├── record_gauge_response.proto │   ├──
+record_histogram_request.proto │   ├── record_histogram_response.proto │   ├── record_metric_request.proto │   ├── record_metric_response.proto │   ├── record_metrics_request.proto │   ├── record_metrics_response.proto │   ├──
+record_summary_request.proto │   ├── record_summary_response.proto │   ├── recording_stats.proto │   ├── register_metric_request.proto │   ├── register_metric_response.proto │   ├── registration_action.proto │   ├──
+registration_options.proto │   ├── registration_result.proto │   ├── registration_validation.proto │   ├── reset_metrics_request.proto │   ├── reset_metrics_response.proto │   ├── resource_allocations.proto │   ├── resource_data_point.proto
+│   ├── resource_limits.proto │   ├── resource_limits_summary.proto │   ├── resource_limits_update.proto │   ├── resource_usage.proto │   ├── resource_usage_stats.proto │   ├── resource_usage_trend.proto │   ├── response_compression.proto
+│   ├── retention_info.proto │   ├── retention_policy.proto │   ├── retention_policy_config.proto │   ├── retention_policy_info.proto │   ├── retention_unit.proto │   ├── sample_rate.proto │   ├── schema_change.proto │   ├──
+scrape_config.proto │   ├── scrape_job.proto │   ├── scrape_target.proto │   ├── secondary_sort_field.proto │   ├── security_config.proto │   ├── security_config_update.proto │   ├── security_summary.proto │   ├──
+set_alerting_rules_request.proto │   ├── set_alerting_rules_response.proto │   ├── set_metric_config_request.proto │   ├── set_metric_config_response.proto │   ├── set_metric_metadata_request.proto │   ├── set_metric_metadata_response.proto
+│   ├── set_scrape_config_request.proto │   ├── set_scrape_config_response.proto │   ├── sort_field.proto │   ├── start_scraping_request.proto │   ├── start_scraping_response.proto │   ├── stats_d_settings.proto │   ├──
+stats_d_settings_update.proto │   ├── stats_options.proto │   ├── stop_scraping_request.proto │   ├── stop_scraping_response.proto │   ├── storage_backend.proto │   ├── stream_compression.proto │   ├── stream_metrics_request.proto │   ├──
+stream_options.proto │   ├── stream_qos.proto │   ├── stream_start.proto │   ├── summary_config.proto │   ├── summary_metric.proto │   ├── summary_options.proto │   ├── summary_quantile.proto │   ├── summary_value.proto │   ├──
+tag_updates.proto │   ├── time_range.proto │   ├── time_series.proto │   ├── time_unit.proto │   ├── time_window.proto │   ├── timer_metric.proto │   ├── timer_statistics.proto │   ├── timestamp_range.proto │   ├── tls_config.proto │   ├──
+tls_config_update.proto │   ├── top_metrics.proto │   ├── trend_analysis.proto │   ├── unregister_metric_request.proto │   ├── unregister_metric_response.proto │   ├── unregistration_options.proto │   ├── unregistration_result.proto │   ├──
+update_action.proto │   ├── update_metric_request.proto │   ├── update_metric_response.proto │   ├── update_options.proto │   ├── update_provider_request.proto │   ├── update_provider_response.proto │   ├── update_result.proto │   ├──
+update_strategy.proto │   ├── validation_result.proto │   ├── validation_rules.proto │   └── validation_summary.proto ├── organization │   ├── api - useless this should be under messages, enums and services │   │   ├── access_control.proto
+│   │   ├── add_member_request.proto │   │   ├── add_member_response.proto │   │   ├── api_key_config.proto │   │   ├── audit_alert.proto │   │   ├── billing_settings.proto │   │   ├── cache_behavior.proto │   │   ├── cache_key_policy.proto
+│   │   ├── compliance_settings.proto │   │   ├── compute_isolation.proto │   │   ├── configure_tenant_isolation_request.proto │   │   ├── configure_tenant_isolation_response.proto │   │   ├── cpu_allocation.proto │   │   ├──
+create_department_request.proto │   │   ├── create_department_response.proto │   │   ├── create_organization_request.proto │   │   ├── create_organization_response.proto │   │   ├── create_team_request.proto │   │   ├──
+create_team_response.proto │   │   ├── create_tenant_request.proto │   │   ├── create_tenant_response.proto │   │   ├── database_isolation.proto │   │   ├── delete_department_request.proto │   │   ├── delete_department_response.proto │  
+│   ├── delete_organization_request.proto │   │   ├── delete_organization_response.proto │   │   ├── delete_team_request.proto │   │   ├── delete_team_response.proto │   │   ├── delete_tenant_request.proto │   │   ├──
+delete_tenant_response.proto │   │   ├── department.proto │   │   ├── dns_record.proto │   │   ├── email_template.proto │   │   ├── feature_flag.proto │   │   ├── get_department_request.proto │   │   ├── get_department_response.proto │  
+│   ├── get_hierarchy_request.proto │   │   ├── get_hierarchy_response.proto │   │   ├── get_organization_request.proto │   │   ├── get_organization_response.proto │   │   ├── get_organization_settings_request.proto │   │   ├──
+get_organization_settings_response.proto │   │   ├── get_team_request.proto │   │   ├── get_team_response.proto │   │   ├── get_tenant_isolation_request.proto │   │   ├── get_tenant_isolation_response.proto │   │   ├──
+get_tenant_request.proto │   │   ├── get_tenant_response.proto │   │   ├── get_tenant_usage_request.proto │   │   ├── get_tenant_usage_response.proto │   │   ├── hierarchy_node.proto │   │   ├── hierarchy_path.proto │   │   ├──
+hierarchy_type.proto │   │   ├── integration.proto │   │   ├── integration_settings.proto │   │   ├── isolation_level.proto │   │   ├── list_departments_request.proto │   │   ├── list_departments_response.proto │   │   ├──
+list_members_request.proto │   │   ├── list_members_response.proto │   │   ├── list_organizations_request.proto │   │   ├── list_organizations_response.proto │   │   ├── list_teams_request.proto │   │   ├── list_teams_response.proto │   │  
+├── list_tenants_request.proto │   │   ├── list_tenants_response.proto │   │   ├── memory_allocation.proto │   │   ├── network_acl_rule.proto │   │   ├── network_isolation.proto │   │   ├── notification_frequency.proto │   │   ├──
+notification_settings.proto │   │   ├── remove_member_request.proto │   │   ├── remove_member_response.proto │   │   ├── resource_limits.proto │   │   ├── security_settings.proto │   │   ├── storage_encryption.proto │   │   ├──
+storage_isolation.proto │   │   ├── storage_policy.proto │   │   ├── storage_quota.proto │   │   ├── tenant.proto │   │   ├── tenant_isolation.proto │   │   ├── tenant_quota.proto │   │   ├── tenant_status.proto │   │   ├──
+time_restriction.proto │   │   ├── ui_settings.proto │   │   ├── update_department_request.proto │   │   ├── update_department_response.proto │   │   ├── update_hierarchy_request.proto │   │   ├── update_hierarchy_response.proto │   │   ├──
+update_member_request.proto │   │   ├── update_member_response.proto │   │   ├── update_organization_request.proto │   │   ├── update_organization_response.proto │   │   ├── update_organization_settings_request.proto │   │   ├──
+update_organization_settings_response.proto │   │   ├── update_team_request.proto │   │   ├── update_team_response.proto │   │   ├── update_tenant_quota_request.proto │   │   ├── update_tenant_quota_response.proto │   │   ├──
+update_tenant_request.proto │   │   └── update_tenant_response.proto │   ├── config - useless this should be under messages, enums and services -- why are we breaking this up. │   │   ├── audit_config.proto │   │   ├──
+auto_scaling_config.proto │   │   ├── backup_config.proto │   │   ├── cdn_config.proto │   │   ├── dns_config.proto │   │   ├── domain_config.proto │   │   ├── encryption_config.proto │   │   ├── health_check_config.proto │   │   ├──
+load_balancer_config.proto │   │   ├── o_auth_app_config.proto │   │   ├── origin_config.proto │   │   ├── rate_limit_config.proto │   │   ├── ssl_config.proto │   │   ├── storage_backup_config.proto │   │   └── webhook_config.proto │   ├──
+messages - empty │   ├── services │   │   ├── hierarchy_service.proto │   │   ├── organization_service.proto │   │   └── tenant_service.proto │   └── types - useless this should be under messages, enums and services │   ├──
+member_role.proto │   ├── organization.proto │   ├── organization_hierarchy.proto │   ├── organization_member.proto │   ├── organization_settings.proto │   ├── organization_status.proto │   └── team.proto ├── queue │   ├── api - useless
+this should be under messages, enums and services │   │   ├── ack_level.proto │   │   ├── ack_request.proto │   │   ├── ack_response.proto │   │   ├── ack_type.proto │   │   ├── acknowledge_request.proto │   │   ├──
+acknowledge_response.proto │   │   ├── acknowledgment.proto │   │   ├── acknowledgment_mode.proto │   │   ├── age_bucket.proto │   │   ├── age_distribution.proto │   │   ├── alert_condition.proto │   │   ├── alert_rule.proto │   │   ├──
+alert_severity.proto │   │   ├── anti_affinity_rule.proto │   │   ├── anti_affinity_scope.proto │   │   ├── api_key_auth.proto │   │   ├── backup_info.proto │   │   ├── backup_queue_request.proto │   │   ├── backup_queue_response.proto │  
+│   ├── backup_source.proto │   │   ├── batch_ack_request.proto │   │   ├── batch_ack_response.proto │   │   ├── batch_nack_request.proto │   │   ├── batch_nack_response.proto │   │   ├── batch_publish_request.proto │   │   ├──
+batch_publish_response.proto │   │   ├── batch_pull_request.proto │   │   ├── batch_pull_response.proto │   │   ├── batch_settings.proto │   │   ├── binding_info.proto │   │   ├── checksum_validation.proto │   │   ├── cluster_health.proto
+│   │   ├── cluster_info.proto │   │   ├── cluster_state.proto │   │   ├── cluster_stats.proto │   │   ├── commit_offset_request.proto │   │   ├── commit_offset_response.proto │   │   ├── compression_algorithm.proto │   │   ├──
+conflict_detection.proto │   │   ├── conflict_resolution.proto │   │   ├── conflict_strategy.proto │   │   ├── connection_details.proto │   │   ├── consistency_level.proto │   │   ├── consistency_validation.proto │   │   ├── consumer.proto
+│   │   ├── consumer_client.proto │   │   ├── consumer_error_stats.proto │   │   ├── consumer_group.proto │   │   ├── consumer_group_state.proto │   │   ├── consumer_group_stats.proto │   │   ├── consumer_state.proto │   │   ├──
+consumer_stats.proto │   │   ├── content_filter.proto │   │   ├── content_update.proto │   │   ├── coordinator_state.proto │   │   ├── create_queue_request.proto │   │   ├── create_queue_response.proto │   │   ├──
+create_subscription_request.proto │   │   ├── create_subscription_response.proto │   │   ├── create_topic_request.proto │   │   ├── create_topic_response.proto │   │   ├── custom_resolution.proto │   │   ├── dead_letter_policy.proto │   │  
+├── delete_criteria.proto │   │   ├── delete_queue_request.proto │   │   ├── delete_queue_response.proto │   │   ├── delete_request.proto │   │   ├── delete_response.proto │   │   ├── delete_subscription_request.proto │   │   ├──
+delete_subscription_response.proto │   │   ├── delete_topic_request.proto │   │   ├── delete_topic_response.proto │   │   ├── deletion_stats.proto │   │   ├── delivery_mode.proto │   │   ├── delivery_options.proto │   │   ├──
+delivery_settings.proto │   │   ├── dequeue_request.proto │   │   ├── dequeue_response.proto │   │   ├── durability_level.proto │   │   ├── encryption_info.proto │   │   ├── enqueue_request.proto │   │   ├── enqueue_response.proto │   │  
+├── error_stats.proto │   │   ├── error_type_stat.proto │   │   ├── export_format.proto │   │   ├── export_queue_request.proto │   │   ├── export_queue_response.proto │   │   ├── external_role_provider.proto │   │   ├── failed_ack.proto │  
+│   ├── failed_field_update.proto │   │   ├── filter_criteria.proto │   │   ├── filter_settings.proto │   │   ├── flow_control.proto │   │   ├── flow_control_settings.proto │   │   ├── flush_policy.proto │   │   ├──
+flush_queue_request.proto │   │   ├── flush_queue_response.proto │   │   ├── format_options.proto │   │   ├── get_cluster_info_request.proto │   │   ├── get_cluster_info_response.proto │   │   ├── get_message_request.proto │   │   ├──
+get_message_response.proto │   │   ├── get_node_info_request.proto │   │   ├── get_node_info_response.proto │   │   ├── get_offset_request.proto │   │   ├── get_offset_response.proto │   │   ├── get_partition_info_request.proto │   │   ├──
+get_partition_info_response.proto │   │   ├── get_queue_health_request.proto │   │   ├── get_queue_health_response.proto │   │   ├── get_queue_info_request.proto │   │   ├── get_queue_info_response.proto │   │   ├──
+get_queue_stats_request.proto │   │   ├── get_queue_stats_response.proto │   │   ├── get_subscription_info_request.proto │   │   ├── get_subscription_info_response.proto │   │   ├── get_topic_info_request.proto │   │   ├──
+get_topic_info_response.proto │   │   ├── group_coordinator.proto │   │   ├── health_check_request.proto │   │   ├── health_check_response.proto │   │   ├── health_status.proto │   │   ├── historical_data_point.proto │   │   ├──
+historical_stats.proto │   │   ├── import_queue_request.proto │   │   ├── import_queue_response.proto │   │   ├── integrity_validation.proto │   │   ├── jwt_auth.proto │   │   ├── last_writer_wins.proto │   │   ├── latency_metrics.proto │  
+│   ├── list_messages_request.proto │   │   ├── list_messages_response.proto │   │   ├── list_queues_request.proto │   │   ├── list_queues_response.proto │   │   ├── list_subscriptions_request.proto │   │   ├──
+list_subscriptions_response.proto │   │   ├── list_topics_request.proto │   │   ├── list_topics_response.proto │   │   ├── load_balancing_strategy.proto │   │   ├── metadata_update.proto │   │   ├── metric_type.proto │   │   ├──
+metrics_event.proto │   │   ├── migrate_queue_request.proto │   │   ├── migrate_queue_response.proto │   │   ├── nack_error.proto │   │   ├── nack_error_category.proto │   │   ├── nack_request.proto │   │   ├── nack_response.proto │   │  
+├── node_info.proto │   │   ├── node_state.proto │   │   ├── node_stats.proto │   │   ├── notification_channel.proto │   │   ├── notification_channel_type.proto │   │   ├── o_auth2_auth.proto │   │   ├── offset_info.proto │   │   ├──
+offset_range.proto │   │   ├── offset_reset_strategy.proto │   │   ├── offset_type.proto │   │   ├── ordering_level.proto │   │   ├── owner_info.proto │   │   ├── partition_assignment.proto │   │   ├── partition_commit_result.proto │   │  
+├── partition_info.proto │   │   ├── partition_offset.proto │   │   ├── partition_restore_result.proto │   │   ├── partition_strategy.proto │   │   ├── pause_queue_request.proto │   │   ├── pause_queue_response.proto │   │   ├──
+peek_request.proto │   │   ├── peek_response.proto │   │   ├── performance_metrics.proto │   │   ├── performance_options.proto │   │   ├── permission_rule.proto │   │   ├── preserved_stats.proto │   │   ├── priority_level.proto │   │   ├──
+priority_range.proto │   │   ├── priority_update.proto │   │   ├── publish_request.proto │   │   ├── publish_response.proto │   │   ├── publish_result.proto │   │   ├── pull_request.proto │   │   ├── pull_response.proto │   │   ├──
+purge_options.proto │   │   ├── purge_request.proto │   │   ├── purge_response.proto │   │   ├── push_request.proto │   │   ├── push_response.proto │   │   ├── queue_stats_response.proto │   │   ├── read_consistency.proto │   │   ├──
+read_level.proto │   │   ├── rebalance_stats.proto │   │   ├── rebalance_strategy.proto │   │   ├── replication_consistency.proto │   │   ├── replication_level.proto │   │   ├── replication_mode.proto │   │   ├── reset_details.proto │   │  
+├── reset_queue_stats_request.proto │   │   ├── reset_queue_stats_response.proto │   │   ├── resolution_strategy.proto │   │   ├── restore_error.proto │   │   ├── restore_options.proto │   │   ├── restore_queue_request.proto │   │   ├──
+restore_queue_response.proto │   │   ├── restore_statistics.proto │   │   ├── restore_status.proto │   │   ├── restore_warning.proto │   │   ├── resume_queue_request.proto │   │   ├── resume_queue_response.proto │   │   ├──
+resume_stats.proto │   │   ├── retention_info.proto │   │   ├── retention_policy.proto │   │   ├── retry_delay_strategy.proto │   │   ├── retry_policy.proto │   │   ├── retry_settings.proto │   │   ├── role_based_access_control.proto │  
+│   ├── role_inheritance.proto │   │   ├── routing_condition.proto │   │   ├── routing_info.proto │   │   ├── routing_key.proto │   │   ├── routing_pattern.proto │   │   ├── routing_rule.proto │   │   ├── routing_settings.proto │   │   ├──
+routing_strategy.proto │   │   ├── sasl_auth.proto │   │   ├── schema_compatibility_mode.proto │   │   ├── schema_evolution_strategy.proto │   │   ├── schema_format.proto │   │   ├── schema_validation.proto │   │   ├── seek_request.proto
+│   │   ├── seek_response.proto │   │   ├── send_message_request.proto │   │   ├── send_message_response.proto │   │   ├── serialization_format.proto │   │   ├── size_bucket.proto │   │   ├── size_distribution.proto │   │   ├──
+size_range.proto │   │   ├── start_workflow_request.proto │   │   ├── start_workflow_response.proto │   │   ├── statistic_grouping.proto │   │   ├── statistic_type.proto │   │   ├── stats_granularity.proto │   │   ├──
+stop_workflow_request.proto │   │   ├── stop_workflow_response.proto │   │   ├── stream_messages_request.proto │   │   ├── stream_messages_response.proto │   │   ├── stream_metrics_request.proto │   │   ├── stream_restart_policy.proto │  
+│   ├── subscribe_request.proto │   │   ├── subscribe_response.proto │   │   ├── sync_replication.proto │   │   ├── throughput_metrics.proto │   │   ├── time_range.proto │   │   ├── time_range_filter.proto │   │   ├── timestamp_range.proto
+│   │   ├── tls_auth.proto │   │   ├── unsubscribe_request.proto │   │   ├── unsubscribe_response.proto │   │   ├── update_condition.proto │   │   ├── update_message_request.proto │   │   ├── update_message_response.proto │   │   ├──
+update_queue_config_request.proto │   │   ├── update_queue_config_response.proto │   │   ├── update_subscription_config_request.proto │   │   ├── update_subscription_config_response.proto │   │   ├── update_topic_config_request.proto │  
+│   ├── update_topic_config_response.proto │   │   ├── updated_properties.proto │   │   ├── username_password_auth.proto │   │   ├── validation_error.proto │   │   ├── validation_result.proto │   │   ├── visibility_update.proto │   │   ├──
+workflow.proto │   │   ├── write_consistency.proto │   │   └── write_level.proto │   ├── config - useless this should be under messages, enums and services │   │   ├── alerting_config.proto │   │   ├── auth_cache_config.proto │   │   ├──
+authentication_config.proto │   │   ├── authorization_config.proto │   │   ├── auto_commit_config.proto │   │   ├── backup_config.proto │   │   ├── batch_config.proto │   │   ├── batch_delivery_config.proto │   │   ├──
+circuit_breaker_config.proto │   │   ├── cluster_config.proto │   │   ├── compression_config.proto │   │   ├── consistency_config.proto │   │   ├── consumer_config.proto │   │   ├── consumer_group_config.proto │   │   ├──
+dead_letter_config.proto │   │   ├── dead_letter_queue_config.proto │   │   ├── delivery_configuration.proto │   │   ├── delivery_retry_config.proto │   │   ├── deserialization_config.proto │   │   ├── durability_config.proto │   │   ├──
+encryption_config.proto │   │   ├── error_action_config.proto │   │   ├── error_handling_config.proto │   │   ├── error_notification_config.proto │   │   ├── exchange_config.proto │   │   ├── flow_control_config.proto │   │   ├──
+header_routing_config.proto │   │   ├── load_balancing_config.proto │   │   ├── message_filter_config.proto │   │   ├── migration_config.proto │   │   ├── monitoring_config.proto │   │   ├── multi_value_config.proto │   │   ├──
+offset_config.proto │   │   ├── ordering_config.proto │   │   ├── partition_config.proto │   │   ├── performance_config.proto │   │   ├── publish_config.proto │   │   ├── queue_config.proto │   │   ├── queue_configuration.proto │   │   ├──
+rate_limit_config.proto │   │   ├── read_retry_config.proto │   │   ├── replication_config.proto │   │   ├── restore_config.proto │   │   ├── retry_config.proto │   │   ├── retry_delay_config.proto │   │   ├── routing_config.proto │   │  
+├── schema_config.proto │   │   ├── serialization_config.proto │   │   ├── stream_config.proto │   │   ├── subscription_config.proto │   │   ├── subscription_config_update.proto │   │   ├── subscription_configuration.proto │   │   ├──
+subscription_info.proto │   │   ├── subscription_state.proto │   │   ├── subscription_stats.proto │   │   ├── timeout_config.proto │   │   ├── timestamp_config.proto │   │   ├── topic_config.proto │   │   ├── topic_configuration.proto │  
+│   ├── topic_routing_config.proto │   │   ├── transformation_config.proto │   │   ├── validation_config.proto │   │   ├── vector_clock_config.proto │   │   └── write_retry_config.proto │   ├── messages - empty │   ├── services │   │   ├──
+external_auth_service.proto │   │   ├── key_validation_service.proto │   │   ├── queue_admin_service.proto │   │   ├── queue_monitoring_service.proto │   │   ├── queue_service.proto │   │   └── workflow_service.proto │   └── types - useless
+this should be under messages, enums and services │   ├── basic_queue_stats.proto │   ├── message_ack_result.proto │   ├── message_envelope.proto │   ├── message_filter.proto │   ├── message_id.proto │   ├── message_metadata.proto │   ├──
+message_nack.proto │   ├── message_properties.proto │   ├── message_state.proto │   ├── message_state_counts.proto │   ├── message_update_properties.proto │   ├── original_queue_info.proto │   ├── queue.proto │   ├──
+queue_consumer_stats.proto │   ├── queue_depth_sample.proto │   ├── queue_health.proto │   ├── queue_info.proto │   ├── queue_message.proto │   ├── queue_state.proto │   ├── queue_stats.proto │   ├── queue_stats_point.proto │   ├──
+queue_stats_summary.proto │   ├── queue_type.proto │   ├── received_message.proto │   ├── topic_info.proto │   ├── topic_permissions.proto │   └── topic_stats.proto └── web ├── api - useless this should be under messages, enums and services
+│   ├── add_middleware_request.proto │   ├── add_middleware_response.proto │   ├── auth_method.proto │   ├── authenticate_request.proto │   ├── authenticate_response.proto │   ├── authorize_request.proto │   ├── authorize_response.proto │  
+├── cache_strategy.proto │   ├── close_websocket_request.proto │   ├── close_websocket_response.proto │   ├── compression_type.proto │   ├── configure_global_request.proto │   ├── configure_global_response.proto │   ├── content_type.proto
+│   ├── cookie_data.proto │   ├── cookie_same_site.proto │   ├── create_cookie_request.proto │   ├── create_cookie_response.proto │   ├── create_server_request.proto │   ├── create_server_response.proto │   ├── create_session_request.proto
+│   ├── create_session_response.proto │   ├── create_template_request.proto │   ├── create_template_response.proto │   ├── create_websocket_request.proto │   ├── create_websocket_response.proto │   ├── delete_cookie_request.proto │   ├──
+delete_cookie_response.proto │   ├── delete_file_request.proto │   ├── delete_file_response.proto │   ├── delete_session_request.proto │   ├── delete_session_response.proto │   ├── delete_template_request.proto │   ├──
+delete_template_response.proto │   ├── download_file_request.proto │   ├── download_file_response.proto │   ├── export_server_config_request.proto │   ├── export_server_config_response.proto │   ├── file_info.proto │   ├──
+file_metadata.proto │   ├── file_sort_order.proto │   ├── file_upload.proto │   ├── flush_cache_request.proto │   ├── flush_cache_response.proto │   ├── generate_csrf_token_request.proto │   ├── generate_csrf_token_response.proto │   ├──
+get_access_logs_request.proto │   ├── get_access_logs_response.proto │   ├── get_cache_config_request.proto │   ├── get_cache_config_response.proto │   ├── get_cookie_request.proto │   ├── get_cookie_response.proto │   ├──
+get_cors_config_request.proto │   ├── get_cors_config_response.proto │   ├── get_file_info_request.proto │   ├── get_file_info_response.proto │   ├── get_handler_info_request.proto │   ├── get_handler_info_response.proto │   ├──
+get_metrics_request.proto │   ├── get_metrics_response.proto │   ├── get_middleware_info_request.proto │   ├── get_middleware_info_response.proto │   ├── get_performance_stats_request.proto │   ├── get_performance_stats_response.proto │  
+├── get_route_info_request.proto │   ├── get_route_info_response.proto │   ├── get_route_metrics_request.proto │   ├── get_route_metrics_response.proto │   ├── get_security_config_request.proto │   ├── get_security_config_response.proto │  
+├── get_server_config_request.proto │   ├── get_server_config_response.proto │   ├── get_server_health_request.proto │   ├── get_server_health_response.proto │   ├── get_server_logs_request.proto │   ├── get_server_logs_response.proto │  
+├── get_server_metrics_request.proto │   ├── get_server_metrics_response.proto │   ├── get_server_status_request.proto │   ├── get_server_status_response.proto │   ├── get_session_request.proto │   ├── get_session_response.proto │   ├──
+get_ssl_certificate_info_request.proto │   ├── get_ssl_certificate_info_response.proto │   ├── get_template_info_request.proto │   ├── get_template_info_response.proto │   ├── get_websocket_info_request.proto │   ├──
+get_websocket_info_response.proto │   ├── handle_request.proto │   ├── handle_request_request.proto │   ├── handle_request_response.proto │   ├── handle_response.proto │   ├── handler_info.proto │   ├── handler_type.proto │   ├──
+health_check_request.proto │   ├── health_check_response.proto │   ├── health_status.proto │   ├── http_header.proto │   ├── http_method.proto │   ├── http_request.proto │   ├── http_response.proto │   ├── http_status.proto │   ├──
+import_server_config_request.proto │   ├── import_server_config_response.proto │   ├── list_cookies_request.proto │   ├── list_cookies_response.proto │   ├── list_files_request.proto │   ├── list_files_response.proto │   ├──
+list_handlers_request.proto │   ├── list_handlers_response.proto │   ├── list_middleware_request.proto │   ├── list_middleware_response.proto │   ├── list_routes_request.proto │   ├── list_routes_response.proto │   ├──
+list_servers_request.proto │   ├── list_servers_response.proto │   ├── list_sessions_request.proto │   ├── list_sessions_response.proto │   ├── list_templates_request.proto │   ├── list_templates_response.proto │   ├──
+list_websockets_request.proto │   ├── list_websockets_response.proto │   ├── load_balance_strategy.proto │   ├── middleware_info.proto │   ├── middleware_type.proto │   ├── mime_type.proto │   ├── performance_stats.proto │   ├──
+proxy_type.proto │   ├── rate_limit_strategy.proto │   ├── register_handler_request.proto │   ├── register_handler_response.proto │   ├── register_middleware_request.proto │   ├── register_middleware_response.proto │   ├──
+register_route_request.proto │   ├── register_route_response.proto │   ├── reload_server_config_request.proto │   ├── reload_server_config_response.proto │   ├── remove_middleware_request.proto │   ├── remove_middleware_response.proto │  
+├── render_template_request.proto │   ├── render_template_response.proto │   ├── reset_stats_request.proto │   ├── reset_stats_response.proto │   ├── restart_server_request.proto │   ├── restart_server_response.proto │   ├──
+same_site_policy.proto │   ├── send_websocket_message_request.proto │   ├── send_websocket_message_response.proto │   ├── serve_static_request.proto │   ├── serve_static_response.proto │   ├── server_state.proto │   ├── server_status.proto
+│   ├── session_data.proto │   ├── session_state.proto │   ├── ssl_protocol.proto │   ├── start_server_request.proto │   ├── start_server_response.proto │   ├── stop_server_request.proto │   ├── stop_server_response.proto │   ├──
+stream_server_events_request.proto │   ├── template_data.proto │   ├── unregister_handler_request.proto │   ├── unregister_handler_response.proto │   ├── unregister_middleware_request.proto │   ├── unregister_middleware_response.proto │  
+├── unregister_route_request.proto │   ├── unregister_route_response.proto │   ├── update_cache_config_request.proto │   ├── update_cache_config_response.proto │   ├── update_cookie_request.proto │   ├── update_cookie_response.proto │   ├──
+update_cors_config_request.proto │   ├── update_cors_config_response.proto │   ├── update_handler_config_request.proto │   ├── update_handler_config_response.proto │   ├── update_middleware_config_request.proto │   ├──
+update_middleware_config_response.proto │   ├── update_route_config_request.proto │   ├── update_route_config_response.proto │   ├── update_security_config_request.proto │   ├── update_security_config_response.proto │   ├──
+update_server_config_request.proto │   ├── update_server_config_response.proto │   ├── update_session_request.proto │   ├── update_session_response.proto │   ├── update_ssl_certificate_request.proto │   ├──
+update_ssl_certificate_response.proto │   ├── upload_file_request.proto │   ├── upload_file_response.proto │   ├── url_path.proto │   ├── validate_csrf_token_request.proto │   ├── validate_csrf_token_response.proto │   ├── web.proto │   ├──
+web_socket_state.proto │   ├── websocket_info.proto │   └── websocket_message.proto ├── config - useless this should be under messages, enums and services │   ├── auth_config.proto │   ├── cache_config.proto │   ├── compression_config.proto
+│   ├── cookie_config.proto │   ├── cors_config.proto │   ├── csrf_config.proto │   ├── handler_config.proto │   ├── health_check_config.proto │   ├── load_balancer_config.proto │   ├── middleware_config.proto │   ├── proxy_config.proto │  
+├── rate_limit_config.proto │   ├── route_config.proto │   ├── route_info.proto │   ├── route_type.proto │   ├── security_config.proto │   ├── server_config.proto │   ├── session_config.proto │   ├── ssl_config.proto │   ├──
+static_config.proto │   ├── template_config.proto │   ├── timeout_config.proto │   ├── tls_config.proto │   └── websocket_config.proto ├── events - useless this should be under messages, enums and services │   └── server_event.proto ├──
+messages - empty ├── services │   ├── web_admin_service.proto │   └── web_service.proto └── types - useless this should be under messages, enums and services
 
 57 directories, 1628 files

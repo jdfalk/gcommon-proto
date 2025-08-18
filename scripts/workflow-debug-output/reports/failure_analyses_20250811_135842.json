@@ -148,10 +148,7 @@
         ]
       }
     ],
-    "error_patterns": [
-      "permission_denied",
-      "permission_denied"
-    ],
+    "error_patterns": ["permission_denied", "permission_denied"],
     "failure_category": "permissions",
     "root_cause": "Detected permissions issue",
     "suggested_fixes": [
@@ -324,10 +321,7 @@
         ]
       }
     ],
-    "error_patterns": [
-      "permission_denied",
-      "permission_denied"
-    ],
+    "error_patterns": ["permission_denied", "permission_denied"],
     "failure_category": "permissions",
     "root_cause": "Detected permissions issue",
     "suggested_fixes": [
@@ -500,10 +494,7 @@
         ]
       }
     ],
-    "error_patterns": [
-      "permission_denied",
-      "permission_denied"
-    ],
+    "error_patterns": ["permission_denied", "permission_denied"],
     "failure_category": "permissions",
     "root_cause": "Detected permissions issue",
     "suggested_fixes": [
@@ -676,10 +667,7 @@
         ]
       }
     ],
-    "error_patterns": [
-      "permission_denied",
-      "permission_denied"
-    ],
+    "error_patterns": ["permission_denied", "permission_denied"],
     "failure_category": "permissions",
     "root_cause": "Detected permissions issue",
     "suggested_fixes": [
@@ -852,10 +840,7 @@
         ]
       }
     ],
-    "error_patterns": [
-      "permission_denied",
-      "permission_denied"
-    ],
+    "error_patterns": ["permission_denied", "permission_denied"],
     "failure_category": "permissions",
     "root_cause": "Detected permissions issue",
     "suggested_fixes": [
@@ -1028,10 +1013,7 @@
         ]
       }
     ],
-    "error_patterns": [
-      "permission_denied",
-      "permission_denied"
-    ],
+    "error_patterns": ["permission_denied", "permission_denied"],
     "failure_category": "permissions",
     "root_cause": "Detected permissions issue",
     "suggested_fixes": [
@@ -1204,10 +1186,7 @@
         ]
       }
     ],
-    "error_patterns": [
-      "permission_denied",
-      "permission_denied"
-    ],
+    "error_patterns": ["permission_denied", "permission_denied"],
     "failure_category": "permissions",
     "root_cause": "Detected permissions issue",
     "suggested_fixes": [
@@ -2329,9 +2308,7 @@
         ]
       }
     ],
-    "error_patterns": [
-      "permission_denied"
-    ],
+    "error_patterns": ["permission_denied"],
     "failure_category": "permissions",
     "root_cause": "Detected permissions issue",
     "suggested_fixes": [
@@ -2496,10 +2473,7 @@
         ]
       }
     ],
-    "error_patterns": [
-      "permission_denied",
-      "permission_denied"
-    ],
+    "error_patterns": ["permission_denied", "permission_denied"],
     "failure_category": "permissions",
     "root_cause": "Detected permissions issue",
     "suggested_fixes": [
@@ -2876,10 +2850,7 @@
         ]
       }
     ],
-    "error_patterns": [
-      "permission_denied",
-      "permission_denied"
-    ],
+    "error_patterns": ["permission_denied", "permission_denied"],
     "failure_category": "permissions",
     "root_cause": "Detected permissions issue",
     "suggested_fixes": [
@@ -3052,10 +3023,7 @@
         ]
       }
     ],
-    "error_patterns": [
-      "permission_denied",
-      "permission_denied"
-    ],
+    "error_patterns": ["permission_denied", "permission_denied"],
     "failure_category": "permissions",
     "root_cause": "Detected permissions issue",
     "suggested_fixes": [
@@ -3228,10 +3196,7 @@
         ]
       }
     ],
-    "error_patterns": [
-      "permission_denied",
-      "permission_denied"
-    ],
+    "error_patterns": ["permission_denied", "permission_denied"],
     "failure_category": "permissions",
     "root_cause": "Detected permissions issue",
     "suggested_fixes": [
@@ -3404,10 +3369,7 @@
         ]
       }
     ],
-    "error_patterns": [
-      "permission_denied",
-      "permission_denied"
-    ],
+    "error_patterns": ["permission_denied", "permission_denied"],
     "failure_category": "permissions",
     "root_cause": "Detected permissions issue",
     "suggested_fixes": [
@@ -3580,10 +3542,7 @@
         ]
       }
     ],
-    "error_patterns": [
-      "permission_denied",
-      "permission_denied"
-    ],
+    "error_patterns": ["permission_denied", "permission_denied"],
     "failure_category": "permissions",
     "root_cause": "Detected permissions issue",
     "suggested_fixes": [
@@ -3644,10 +3603,7 @@
         ]
       }
     ],
-    "error_patterns": [
-      "permission_denied",
-      "timeout"
-    ],
+    "error_patterns": ["permission_denied", "timeout"],
     "failure_category": "timeout",
     "root_cause": "Detected permissions issue",
     "suggested_fixes": [
@@ -4339,11 +4295,7 @@
         ]
       }
     ],
-    "error_patterns": [
-      "permission_denied",
-      "test_failure",
-      "timeout"
-    ],
+    "error_patterns": ["permission_denied", "test_failure", "timeout"],
     "failure_category": "timeout",
     "root_cause": "Detected permissions issue",
     "suggested_fixes": [
@@ -4460,10 +4412,7 @@
         ]
       }
     ],
-    "error_patterns": [
-      "permission_denied",
-      "timeout"
-    ],
+    "error_patterns": ["permission_denied", "timeout"],
     "failure_category": "timeout",
     "root_cause": "Detected permissions issue",
     "suggested_fixes": [
@@ -4875,10 +4824,7 @@
         ]
       }
     ],
-    "error_patterns": [
-      "permission_denied",
-      "timeout"
-    ],
+    "error_patterns": ["permission_denied", "timeout"],
     "failure_category": "timeout",
     "root_cause": "Detected permissions issue",
     "suggested_fixes": [
@@ -5219,11 +5165,7 @@
         ]
       }
     ],
-    "error_patterns": [
-      "permission_denied",
-      "test_failure",
-      "timeout"
-    ],
+    "error_patterns": ["permission_denied", "test_failure", "timeout"],
     "failure_category": "timeout",
     "root_cause": "Detected permissions issue",
     "suggested_fixes": [
@@ -5458,10 +5400,7 @@
         ]
       }
     ],
-    "error_patterns": [
-      "permission_denied",
-      "timeout"
-    ],
+    "error_patterns": ["permission_denied", "timeout"],
     "failure_category": "timeout",
     "root_cause": "Detected permissions issue",
     "suggested_fixes": [
@@ -5756,11 +5695,7 @@
         ]
       }
     ],
-    "error_patterns": [
-      "permission_denied",
-      "test_failure",
-      "timeout"
-    ],
+    "error_patterns": ["permission_denied", "test_failure", "timeout"],
     "failure_category": "timeout",
     "root_cause": "Detected permissions issue",
     "suggested_fixes": [
@@ -6108,11 +6043,7 @@
         ]
       }
     ],
-    "error_patterns": [
-      "permission_denied",
-      "test_failure",
-      "timeout"
-    ],
+    "error_patterns": ["permission_denied", "test_failure", "timeout"],
     "failure_category": "timeout",
     "root_cause": "Detected permissions issue",
     "suggested_fixes": [
@@ -6580,10 +6511,7 @@
         ]
       }
     ],
-    "error_patterns": [
-      "permission_denied",
-      "timeout"
-    ],
+    "error_patterns": ["permission_denied", "timeout"],
     "failure_category": "timeout",
     "root_cause": "Detected permissions issue",
     "suggested_fixes": [
@@ -6756,10 +6684,7 @@
         ]
       }
     ],
-    "error_patterns": [
-      "permission_denied",
-      "permission_denied"
-    ],
+    "error_patterns": ["permission_denied", "permission_denied"],
     "failure_category": "permissions",
     "root_cause": "Detected permissions issue",
     "suggested_fixes": [
@@ -6932,10 +6857,7 @@
         ]
       }
     ],
-    "error_patterns": [
-      "permission_denied",
-      "permission_denied"
-    ],
+    "error_patterns": ["permission_denied", "permission_denied"],
     "failure_category": "permissions",
     "root_cause": "Detected permissions issue",
     "suggested_fixes": [
@@ -7108,10 +7030,7 @@
         ]
       }
     ],
-    "error_patterns": [
-      "permission_denied",
-      "permission_denied"
-    ],
+    "error_patterns": ["permission_denied", "permission_denied"],
     "failure_category": "permissions",
     "root_cause": "Detected permissions issue",
     "suggested_fixes": [
@@ -7284,10 +7203,7 @@
         ]
       }
     ],
-    "error_patterns": [
-      "permission_denied",
-      "permission_denied"
-    ],
+    "error_patterns": ["permission_denied", "permission_denied"],
     "failure_category": "permissions",
     "root_cause": "Detected permissions issue",
     "suggested_fixes": [
@@ -7460,10 +7376,7 @@
         ]
       }
     ],
-    "error_patterns": [
-      "permission_denied",
-      "permission_denied"
-    ],
+    "error_patterns": ["permission_denied", "permission_denied"],
     "failure_category": "permissions",
     "root_cause": "Detected permissions issue",
     "suggested_fixes": [
@@ -7636,10 +7549,7 @@
         ]
       }
     ],
-    "error_patterns": [
-      "permission_denied",
-      "permission_denied"
-    ],
+    "error_patterns": ["permission_denied", "permission_denied"],
     "failure_category": "permissions",
     "root_cause": "Detected permissions issue",
     "suggested_fixes": [
@@ -7716,9 +7626,7 @@
         ]
       }
     ],
-    "error_patterns": [
-      "permission_denied"
-    ],
+    "error_patterns": ["permission_denied"],
     "failure_category": "permissions",
     "root_cause": "Detected permissions issue",
     "suggested_fixes": [
@@ -7883,10 +7791,7 @@
         ]
       }
     ],
-    "error_patterns": [
-      "permission_denied",
-      "permission_denied"
-    ],
+    "error_patterns": ["permission_denied", "permission_denied"],
     "failure_category": "permissions",
     "root_cause": "Detected permissions issue",
     "suggested_fixes": [
@@ -8111,11 +8016,7 @@
         ]
       }
     ],
-    "error_patterns": [
-      "permission_denied",
-      "test_failure",
-      "timeout"
-    ],
+    "error_patterns": ["permission_denied", "test_failure", "timeout"],
     "failure_category": "timeout",
     "root_cause": "Infrastructure/runner issue (not actionable)",
     "suggested_fixes": [
@@ -8365,11 +8266,7 @@
         ]
       }
     ],
-    "error_patterns": [
-      "permission_denied",
-      "test_failure",
-      "timeout"
-    ],
+    "error_patterns": ["permission_denied", "test_failure", "timeout"],
     "failure_category": "timeout",
     "root_cause": "Infrastructure/runner issue (not actionable)",
     "suggested_fixes": [
@@ -8727,11 +8624,7 @@
         ]
       }
     ],
-    "error_patterns": [
-      "permission_denied",
-      "test_failure",
-      "timeout"
-    ],
+    "error_patterns": ["permission_denied", "test_failure", "timeout"],
     "failure_category": "timeout",
     "root_cause": "Infrastructure/runner issue (not actionable)",
     "suggested_fixes": [
@@ -8929,10 +8822,7 @@
         ]
       }
     ],
-    "error_patterns": [
-      "permission_denied",
-      "permission_denied"
-    ],
+    "error_patterns": ["permission_denied", "permission_denied"],
     "failure_category": "permissions",
     "root_cause": "Detected permissions issue",
     "suggested_fixes": [
@@ -9157,11 +9047,7 @@
         ]
       }
     ],
-    "error_patterns": [
-      "permission_denied",
-      "test_failure",
-      "timeout"
-    ],
+    "error_patterns": ["permission_denied", "test_failure", "timeout"],
     "failure_category": "timeout",
     "root_cause": "Infrastructure/runner issue (not actionable)",
     "suggested_fixes": [
@@ -9539,10 +9425,7 @@
         ]
       }
     ],
-    "error_patterns": [
-      "permission_denied",
-      "permission_denied"
-    ],
+    "error_patterns": ["permission_denied", "permission_denied"],
     "failure_category": "permissions",
     "root_cause": "Detected permissions issue",
     "suggested_fixes": [
@@ -9972,11 +9855,7 @@
         ]
       }
     ],
-    "error_patterns": [
-      "permission_denied",
-      "test_failure",
-      "timeout"
-    ],
+    "error_patterns": ["permission_denied", "test_failure", "timeout"],
     "failure_category": "timeout",
     "root_cause": "Infrastructure/runner issue (not actionable)",
     "suggested_fixes": [
@@ -10329,10 +10208,7 @@
         ]
       }
     ],
-    "error_patterns": [
-      "permission_denied",
-      "permission_denied"
-    ],
+    "error_patterns": ["permission_denied", "permission_denied"],
     "failure_category": "permissions",
     "root_cause": "Detected permissions issue",
     "suggested_fixes": [
@@ -10505,10 +10381,7 @@
         ]
       }
     ],
-    "error_patterns": [
-      "permission_denied",
-      "permission_denied"
-    ],
+    "error_patterns": ["permission_denied", "permission_denied"],
     "failure_category": "permissions",
     "root_cause": "Detected permissions issue",
     "suggested_fixes": [
@@ -10681,10 +10554,7 @@
         ]
       }
     ],
-    "error_patterns": [
-      "permission_denied",
-      "permission_denied"
-    ],
+    "error_patterns": ["permission_denied", "permission_denied"],
     "failure_category": "permissions",
     "root_cause": "Detected permissions issue",
     "suggested_fixes": [
@@ -10857,10 +10727,7 @@
         ]
       }
     ],
-    "error_patterns": [
-      "permission_denied",
-      "permission_denied"
-    ],
+    "error_patterns": ["permission_denied", "permission_denied"],
     "failure_category": "permissions",
     "root_cause": "Detected permissions issue",
     "suggested_fixes": [
@@ -11033,10 +10900,7 @@
         ]
       }
     ],
-    "error_patterns": [
-      "permission_denied",
-      "permission_denied"
-    ],
+    "error_patterns": ["permission_denied", "permission_denied"],
     "failure_category": "permissions",
     "root_cause": "Detected permissions issue",
     "suggested_fixes": [
@@ -11209,10 +11073,7 @@
         ]
       }
     ],
-    "error_patterns": [
-      "permission_denied",
-      "permission_denied"
-    ],
+    "error_patterns": ["permission_denied", "permission_denied"],
     "failure_category": "permissions",
     "root_cause": "Detected permissions issue",
     "suggested_fixes": [
@@ -11533,10 +11394,7 @@
         ]
       }
     ],
-    "error_patterns": [
-      "permission_denied",
-      "docker_issue"
-    ],
+    "error_patterns": ["permission_denied", "docker_issue"],
     "failure_category": "permissions",
     "root_cause": "Infrastructure/runner issue (not actionable)",
     "suggested_fixes": [
@@ -11714,10 +11572,7 @@
         ]
       }
     ],
-    "error_patterns": [
-      "permission_denied",
-      "docker_issue"
-    ],
+    "error_patterns": ["permission_denied", "docker_issue"],
     "failure_category": "permissions",
     "root_cause": "Infrastructure/runner issue (not actionable)",
     "suggested_fixes": [
@@ -11879,9 +11734,7 @@
         ]
       }
     ],
-    "error_patterns": [
-      "permission_denied"
-    ],
+    "error_patterns": ["permission_denied"],
     "failure_category": "permissions",
     "root_cause": "Infrastructure/runner issue (not actionable)",
     "suggested_fixes": [
@@ -12054,10 +11907,7 @@
         ]
       }
     ],
-    "error_patterns": [
-      "permission_denied",
-      "docker_issue"
-    ],
+    "error_patterns": ["permission_denied", "docker_issue"],
     "failure_category": "permissions",
     "root_cause": "Infrastructure/runner issue (not actionable)",
     "suggested_fixes": [
@@ -12147,10 +11997,7 @@
         ]
       }
     ],
-    "error_patterns": [
-      "permission_denied",
-      "docker_issue"
-    ],
+    "error_patterns": ["permission_denied", "docker_issue"],
     "failure_category": "permissions",
     "root_cause": "Detected permissions issue",
     "suggested_fixes": [
@@ -12322,10 +12169,7 @@
         ]
       }
     ],
-    "error_patterns": [
-      "permission_denied",
-      "docker_issue"
-    ],
+    "error_patterns": ["permission_denied", "docker_issue"],
     "failure_category": "permissions",
     "root_cause": "Infrastructure/runner issue (not actionable)",
     "suggested_fixes": [
@@ -12643,10 +12487,7 @@
         ]
       }
     ],
-    "error_patterns": [
-      "permission_denied",
-      "docker_issue"
-    ],
+    "error_patterns": ["permission_denied", "docker_issue"],
     "failure_category": "permissions",
     "root_cause": "Infrastructure/runner issue (not actionable)",
     "suggested_fixes": [
@@ -12824,10 +12665,7 @@
         ]
       }
     ],
-    "error_patterns": [
-      "permission_denied",
-      "docker_issue"
-    ],
+    "error_patterns": ["permission_denied", "docker_issue"],
     "failure_category": "permissions",
     "root_cause": "Infrastructure/runner issue (not actionable)",
     "suggested_fixes": [
@@ -13005,10 +12843,7 @@
         ]
       }
     ],
-    "error_patterns": [
-      "permission_denied",
-      "docker_issue"
-    ],
+    "error_patterns": ["permission_denied", "docker_issue"],
     "failure_category": "permissions",
     "root_cause": "Infrastructure/runner issue (not actionable)",
     "suggested_fixes": [
@@ -13326,10 +13161,7 @@
         ]
       }
     ],
-    "error_patterns": [
-      "permission_denied",
-      "docker_issue"
-    ],
+    "error_patterns": ["permission_denied", "docker_issue"],
     "failure_category": "permissions",
     "root_cause": "Infrastructure/runner issue (not actionable)",
     "suggested_fixes": [
@@ -13499,10 +13331,7 @@
         ]
       }
     ],
-    "error_patterns": [
-      "permission_denied",
-      "permission_denied"
-    ],
+    "error_patterns": ["permission_denied", "permission_denied"],
     "failure_category": "permissions",
     "root_cause": "Detected permissions issue",
     "suggested_fixes": [
@@ -13675,10 +13504,7 @@
         ]
       }
     ],
-    "error_patterns": [
-      "permission_denied",
-      "permission_denied"
-    ],
+    "error_patterns": ["permission_denied", "permission_denied"],
     "failure_category": "permissions",
     "root_cause": "Detected permissions issue",
     "suggested_fixes": [
@@ -13851,10 +13677,7 @@
         ]
       }
     ],
-    "error_patterns": [
-      "permission_denied",
-      "permission_denied"
-    ],
+    "error_patterns": ["permission_denied", "permission_denied"],
     "failure_category": "permissions",
     "root_cause": "Detected permissions issue",
     "suggested_fixes": [
@@ -14027,10 +13850,7 @@
         ]
       }
     ],
-    "error_patterns": [
-      "permission_denied",
-      "permission_denied"
-    ],
+    "error_patterns": ["permission_denied", "permission_denied"],
     "failure_category": "permissions",
     "root_cause": "Detected permissions issue",
     "suggested_fixes": [
@@ -14203,10 +14023,7 @@
         ]
       }
     ],
-    "error_patterns": [
-      "permission_denied",
-      "permission_denied"
-    ],
+    "error_patterns": ["permission_denied", "permission_denied"],
     "failure_category": "permissions",
     "root_cause": "Detected permissions issue",
     "suggested_fixes": [
@@ -14379,10 +14196,7 @@
         ]
       }
     ],
-    "error_patterns": [
-      "permission_denied",
-      "permission_denied"
-    ],
+    "error_patterns": ["permission_denied", "permission_denied"],
     "failure_category": "permissions",
     "root_cause": "Detected permissions issue",
     "suggested_fixes": [
@@ -14555,10 +14369,7 @@
         ]
       }
     ],
-    "error_patterns": [
-      "permission_denied",
-      "permission_denied"
-    ],
+    "error_patterns": ["permission_denied", "permission_denied"],
     "failure_category": "permissions",
     "root_cause": "Detected permissions issue",
     "suggested_fixes": [
@@ -14731,10 +14542,7 @@
         ]
       }
     ],
-    "error_patterns": [
-      "permission_denied",
-      "permission_denied"
-    ],
+    "error_patterns": ["permission_denied", "permission_denied"],
     "failure_category": "permissions",
     "root_cause": "Detected permissions issue",
     "suggested_fixes": [
@@ -14907,10 +14715,7 @@
         ]
       }
     ],
-    "error_patterns": [
-      "permission_denied",
-      "permission_denied"
-    ],
+    "error_patterns": ["permission_denied", "permission_denied"],
     "failure_category": "permissions",
     "root_cause": "Detected permissions issue",
     "suggested_fixes": [
@@ -15083,10 +14888,7 @@
         ]
       }
     ],
-    "error_patterns": [
-      "permission_denied",
-      "permission_denied"
-    ],
+    "error_patterns": ["permission_denied", "permission_denied"],
     "failure_category": "permissions",
     "root_cause": "Detected permissions issue",
     "suggested_fixes": [
@@ -15259,10 +15061,7 @@
         ]
       }
     ],
-    "error_patterns": [
-      "permission_denied",
-      "permission_denied"
-    ],
+    "error_patterns": ["permission_denied", "permission_denied"],
     "failure_category": "permissions",
     "root_cause": "Detected permissions issue",
     "suggested_fixes": [
@@ -15435,10 +15234,7 @@
         ]
       }
     ],
-    "error_patterns": [
-      "permission_denied",
-      "permission_denied"
-    ],
+    "error_patterns": ["permission_denied", "permission_denied"],
     "failure_category": "permissions",
     "root_cause": "Detected permissions issue",
     "suggested_fixes": [
@@ -15515,9 +15311,7 @@
         ]
       }
     ],
-    "error_patterns": [
-      "permission_denied"
-    ],
+    "error_patterns": ["permission_denied"],
     "failure_category": "permissions",
     "root_cause": "Detected permissions issue",
     "suggested_fixes": [
@@ -15947,10 +15741,7 @@
         ]
       }
     ],
-    "error_patterns": [
-      "permission_denied",
-      "permission_denied"
-    ],
+    "error_patterns": ["permission_denied", "permission_denied"],
     "failure_category": "permissions",
     "root_cause": "Infrastructure/runner issue (not actionable)",
     "suggested_fixes": [
@@ -16331,10 +16122,7 @@
         ]
       }
     ],
-    "error_patterns": [
-      "permission_denied",
-      "permission_denied"
-    ],
+    "error_patterns": ["permission_denied", "permission_denied"],
     "failure_category": "permissions",
     "root_cause": "Infrastructure/runner issue (not actionable)",
     "suggested_fixes": [
@@ -16427,11 +16215,7 @@
         ]
       }
     ],
-    "error_patterns": [
-      "permission_denied",
-      "timeout",
-      "docker_issue"
-    ],
+    "error_patterns": ["permission_denied", "timeout", "docker_issue"],
     "failure_category": "timeout",
     "root_cause": "Infrastructure/runner issue (not actionable)",
     "suggested_fixes": [
@@ -16812,10 +16596,7 @@
         ]
       }
     ],
-    "error_patterns": [
-      "permission_denied",
-      "permission_denied"
-    ],
+    "error_patterns": ["permission_denied", "permission_denied"],
     "failure_category": "permissions",
     "root_cause": "Detected permissions issue",
     "suggested_fixes": [
