@@ -8,6 +8,8 @@ package gcommon.v1.config.v1;
 
 import "google/protobuf/empty.proto";
 import "google/protobuf/go_features.proto";
+import "proto/gcommon/v1/config/api/health_check_request.proto";
+import "proto/gcommon/v1/config/api/health_check_response.proto";
 import "proto/gcommon/v1/config/config/backup_config_request.proto";
 import "proto/gcommon/v1/config/config/config_backup.proto";
 import "proto/gcommon/v1/config/config/config_snapshot.proto";
@@ -16,8 +18,6 @@ import "proto/gcommon/v1/config/config/get_config_history_request.proto";
 import "proto/gcommon/v1/config/config/get_config_history_response.proto";
 import "proto/gcommon/v1/config/config/get_config_stats_request.proto";
 import "proto/gcommon/v1/config/config/get_config_stats_response.proto";
-import "proto/gcommon/v1/config/api/health_check_request.proto";
-import "proto/gcommon/v1/config/api/health_check_response.proto";
 import "proto/gcommon/v1/config/config/import_config_request.proto";
 import "proto/gcommon/v1/config/config/reload_config_request.proto";
 import "proto/gcommon/v1/config/config/restore_config_request.proto";
