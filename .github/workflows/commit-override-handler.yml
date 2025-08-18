@@ -1,14 +1,27 @@
 # file: .github/workflows/commit-override-handler.yml
-# version: 1.0.0
+# version: 1.1.0
 # guid: 7a8b9c0d-1e2f-3456-789a-bcdef0123456
 
 name: Commit Override Handler
 
 on:
-  push:
-    branches: [main, master, develop]
-  pull_request:
-    branches: [main, master, develop]
+  workflow_call:
+    outputs:
+      skip-tests:
+        description: "Skip running tests"
+        value: ${{ jobs.check-overrides.outputs.skip-tests }}
+      skip-validation:
+        description: "Skip validation steps"
+        value: ${{ jobs.check-overrides.outputs.skip-validation }}
+      skip-ci:
+        description: "Skip entire CI"
+        value: ${{ jobs.check-overrides.outputs.skip-ci }}
+      skip-build:
+        description: "Skip build steps"
+        value: ${{ jobs.check-overrides.outputs.skip-build }}
+      commit-message:
+        description: "The commit message being processed"
+        value: ${{ jobs.check-overrides.outputs.commit-message }}
 
 permissions:
   contents: read
