@@ -8,7 +8,6 @@
 Fix missing google protobuf imports.
 """
 
-import os
 import re
 from pathlib import Path
 from typing import Set
