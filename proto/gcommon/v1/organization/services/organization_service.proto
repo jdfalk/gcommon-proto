@@ -12,8 +12,6 @@ import "proto/gcommon/v1/organization/api/delete_organization_request.proto";
 import "proto/gcommon/v1/organization/api/delete_organization_response.proto";
 import "proto/gcommon/v1/organization/api/get_organization_request.proto";
 import "proto/gcommon/v1/organization/api/get_organization_response.proto";
-import "proto/gcommon/v1/organization/config/get_organization_settings_request.proto";
-import "proto/gcommon/v1/organization/config/get_organization_settings_response.proto";
 import "proto/gcommon/v1/organization/api/list_members_request.proto";
 import "proto/gcommon/v1/organization/api/list_members_response.proto";
 import "proto/gcommon/v1/organization/api/list_organizations_request.proto";
@@ -24,6 +22,8 @@ import "proto/gcommon/v1/organization/api/update_member_request.proto";
 import "proto/gcommon/v1/organization/api/update_member_response.proto";
 import "proto/gcommon/v1/organization/api/update_organization_request.proto";
 import "proto/gcommon/v1/organization/api/update_organization_response.proto";
+import "proto/gcommon/v1/organization/config/get_organization_settings_request.proto";
+import "proto/gcommon/v1/organization/config/get_organization_settings_response.proto";
 import "proto/gcommon/v1/organization/config/update_organization_settings_request.proto";
 import "proto/gcommon/v1/organization/config/update_organization_settings_response.proto";
 

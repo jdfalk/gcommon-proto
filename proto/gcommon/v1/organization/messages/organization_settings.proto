@@ -11,11 +11,11 @@ import "google/protobuf/timestamp.proto";
 import "proto/gcommon/v1/common/messages/key_value.proto";
 import "proto/gcommon/v1/organization/config/billing_settings.proto";
 import "proto/gcommon/v1/organization/config/compliance_settings.proto";
-import "proto/gcommon/v1/organization/messages/feature_flag.proto";
 import "proto/gcommon/v1/organization/config/integration_settings.proto";
 import "proto/gcommon/v1/organization/config/notification_settings.proto";
 import "proto/gcommon/v1/organization/config/security_settings.proto";
 import "proto/gcommon/v1/organization/config/ui_settings.proto";
+import "proto/gcommon/v1/organization/messages/feature_flag.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
 option go_package = "gcommon.v1.organization.types";

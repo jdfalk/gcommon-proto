@@ -1,25 +1,25 @@
-// file: proto/gcommon/v1/organization/api/list_members_response.proto
+// file: proto/gcommon/v1/organization/api/list_organizations_response.proto
 edition = "2023";
 
 package gcommon.v1.organization.api;
 
 import "google/protobuf/go_features.proto";
-import "proto/gcommon/v1/common/messages/error.proto";
 import "proto/gcommon/v1/common/api/paginated_response.proto";
-import "proto/gcommon/v1/organization/messages/organization_member.proto";
+import "proto/gcommon/v1/common/messages/error.proto";
+import "proto/gcommon/v1/organization/messages/organization.proto";
 
 option features.(pb.go).api_level = API_OPAQUE;
 option go_package = "gcommon.v1.organization.api";
 
-message ListMembersResponse {
+message ListOrganizationsResponse {
   // Any errors encountered
   repeated gcommon.v1.common.Error errors = 1;
 
   // Success status
   bool success = 2;
 
-  // List of members returned
-  repeated gcommon.v1.organization.OrganizationMember members = 3 [lazy = true];
+  // List of organizations returned
+  repeated gcommon.v1.organization.Organization organizations = 3 [lazy = true];
 
   // Pagination metadata
   gcommon.v1.common.PaginatedResponse pagination = 4;
